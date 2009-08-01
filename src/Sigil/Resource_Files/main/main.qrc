@@ -1,0 +1,32 @@
+<RCC>
+  <qresource prefix="newPrefix" >
+    <file>format-text-strikethrough.png</file>
+    <file>insert-bullet-list.png</file>
+    <file>insert-numbered-list.png</file>
+    <file>insert-font.png</file>
+    <file>insert-image.png</file>
+    <file>insert-chapter-break.png</file>
+    <file>view-book.png</file>
+    <file>view-code.png</file>
+    <file>view-split.png</file>
+    <file>help-browser.png</file>
+    <file>process-stop.png</file>
+    <file>format-text-underline.png</file>
+    <file>process-stop.png</file>
+    <file>document-new.png</file>
+    <file>document-open.png</file>
+    <file>document-save.png</file>
+    <file>document-save-as.png</file>
+    <file>edit-copy.png</file>
+    <file>edit-cut.png</file>
+    <file>edit-paste.png</file>
+    <file>edit-redo.png</file>
+    <file>edit-undo.png</file>
+    <file>format-justify-center.png</file>
+    <file>format-justify-fill.png</file>
+    <file>format-justify-left.png</file>
+    <file>format-justify-right.png</file>
+    <file>format-text-bold.png</file>
+    <file>format-text-italic.png</file>
+  </qresource>
+</RCC>

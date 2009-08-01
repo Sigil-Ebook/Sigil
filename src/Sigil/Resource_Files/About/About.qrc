@@ -1,0 +1,5 @@
+<RCC>
+  <qresource prefix="newPrefix" >
+    <file>Sigil_logo.png</file>
+  </qresource>
+</RCC>

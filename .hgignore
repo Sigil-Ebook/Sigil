@@ -1,0 +1,63 @@
+syntax: glob
+# Backup files left behind by the Emacs editor.
+*~
+
+# Lock files used by the Emacs editor.
+.\#*
+
+# Temporary files used by the vim editor.
+.*.swp
+
+# A hidden file created by the Mac OS X Finder.
+.DS_Store
+
+# Image thumbnail database created by windows
+Thumbs.db
+
+# Various files created by Visual Studio
+*.sln
+*.suo
+*.vcproj
+*.user
+#*.rc
+*.ncb
+*.pch
+*.dep
+*.idb
+*.exp
+*.res
+*.manifest
+*.ilk
+*.pdb
+*.def
+BuildLog.htm
+
+# Various files and folders created by CMake
+CMakeFiles
+CMakeScripts
+CMakeCache.txt
+*.cmake
+*.dir
+ALL_BUILD*
+
+# Various Qt files
+ui_*
+moc_*
+qrc_*
+
+# Misc files
+*.svn
+*.a
+*.o
+*.obj
+*.lib
+*.exe
+*.dll
+*.a
+*.app
+*.plist
+*.xcodeproj
+*.pbxbtree
+*.pbxindex
+*.build
+*.smp

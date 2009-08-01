@@ -1,0 +1,408 @@
+/************************************************************************
+**
+**  Copyright (C) 2009  Strahinja Markovic
+**
+**  This file is part of Sigil.
+**
+**  Sigil is free software: you can redistribute it and/or modify
+**  it under the terms of the GNU General Public License as published by
+**  the Free Software Foundation, either version 3 of the License, or
+**  (at your option) any later version.
+**
+**  Sigil is distributed in the hope that it will be useful,
+**  but WITHOUT ANY WARRANTY; without even the implied warranty of
+**  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+**  GNU General Public License for more details.
+**
+**  You should have received a copy of the GNU General Public License
+**  along with Sigil.  If not, see <http://www.gnu.org/licenses/>.
+**
+*************************************************************************/
+
+#include "stdafx.h"
+#include "ExportSGF.h"
+#include "FolderKeeper.h"
+#include "OPFWriter.h"
+#include "NCXWriter.h"
+#include <ZipArchive.h>
+#include "CleanSource.h"
+#include "Utility.h"
+
+const QString BODY_START = "<\\s*body[^>]*>";
+const QString BODY_END   = "</\\s*body\\s*>";
+const QString BREAK_TAG  = "<hr\\s*class\\s*=\\s*\"sigilChapterBreak\"\\s*/>";
+
+// Use with <QRegExp>.setMinimal( true )
+const QString STYLE_TAG  = "<\\s*style\\s*type\\s*=\\s*\"([^\"]+)\"[^>]*>(.*)</\\s*style[^>]*>";
+
+
+// Constructor;
+// the first parameter is the location where the book 
+// should be save to, and the second is the book to be saved
+ExportEPUB::ExportEPUB( const QString &fullfilepath, const Book &book ) 
+    : m_FullFilePath( fullfilepath ), m_Book( book ), fkFolder( book.mainfolder )
+{
+	
+}
+
+
+// Destructor
+ExportEPUB::~ExportEPUB()
+{
+
+}
+
+
+// Writes the book to the path 
+// specified in the constructor
+void ExportEPUB::WriteBook()
+{
+    CreatePublication();
+
+    SaveTo( m_FullFilePath );
+}
+
+
+// Creates the publication from the Book
+// (creates XHTML, CSS, OPF, NCX files etc.)
+void ExportEPUB::CreatePublication()
+{
+    QStringList css_files   = CreateStyleFiles();
+    QString header          = CreateHeader( css_files );
+
+    CreateXHTMLFiles( header );
+
+    CreateContainerXML();
+    CreateContentOPF();
+    CreateTocNCX();
+}
+
+
+// Saves the publication to the specified path
+void ExportEPUB::SaveTo( const QString &fullfilepath )
+{
+    QTemporaryFile mimetype;
+
+    if ( mimetype.open() )
+    {
+        QTextStream out( &mimetype );
+
+        // We ALWAYS output in UTF-8
+        out.setCodec( "UTF-8" );
+
+        out << "application/epub+zip";
+
+        // Write to disk immediately
+        out.flush();
+        mimetype.flush();		
+    }
+
+    CZipArchive zip;
+
+    // FIXME: check for return true on zip.open
+
+#ifdef Q_WS_WIN
+    // The location where the epub file will be written to
+    zip.Open( fullfilepath.utf16(), CZipArchive::zipCreate );  
+
+    // Add the uncompressed mimetype file as per OPF spec
+    zip.AddNewFile( mimetype.fileName().utf16(), QString( "mimetype" ).utf16(), 0 );
+
+    // Add all the files and folders in the publication structure
+    zip.AddNewFiles( QDir::toNativeSeparators( fkFolder.GetFullPathToMainFolder() ).utf16() );
+
+#else
+    // The location where the epub file will be written to
+    zip.Open( fullfilepath.toUtf8().data(), CZipArchive::zipCreate );  
+
+    // Add the uncompressed mimetype file as per OPF spec
+    zip.AddNewFile( mimetype.fileName().toUtf8().data(), QString( "mimetype" ).toUtf8().data(), 0 );
+
+    // Add all the files and folders in the publication structure
+    zip.AddNewFiles( QDir::toNativeSeparators( fkFolder.GetFullPathToMainFolder() ).toUtf8().data() );
+#endif
+
+    zip.Close();
+}
+
+
+// Creates style files from the style tags in the source
+// and returns a list of their file paths relative 
+// to the OEBPS folder in the FolderKeeper
+QStringList ExportEPUB::CreateStyleFiles()
+{
+    QRegExp body_start_tag( BODY_START );
+
+    int body_begin = m_Book.source.indexOf( body_start_tag, 0 );
+
+    QString header = Utility::Substring( 0, body_begin, m_Book.source );
+
+    QRegExp style_tag( STYLE_TAG );
+
+    // Non-greedy quantifiers, so we get
+    // only one style tag per pass
+    style_tag.setMinimal( true );
+    
+    QStringList style_files;
+
+    int main_index = 0;
+
+    while ( true )
+    {
+        int css_index = header.indexOf( style_tag, main_index );
+
+        if ( css_index == -1 )
+
+            break;
+
+        QString extension = "";
+
+        // What type of stylesheet should we create?
+        if ( style_tag.cap( 1 ) == "text/css" )
+    
+            extension = "css";
+
+        else // This is an XPGT stylesheet
+
+            extension = "xpgt";
+
+        QString style_text = style_tag.cap( 2 );
+        style_text = RemoveSigilStyles( style_text );
+        style_text = StripCDATA( style_text );
+        style_text = style_text.trimmed();        
+
+        if ( !style_text.isEmpty() )
+
+            style_files << "../" + CreateOneTextFile( style_text, extension );
+
+        main_index = css_index + style_tag.matchedLength();
+    }
+    
+    return style_files;   
+}
+
+
+// Takes a list of style sheet file names 
+// and returns the header for XHTML files
+QString ExportEPUB::CreateHeader( const QStringList &cssfiles )
+{
+    QString header =    "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
+                        "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\"\n"
+                        "    \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n\n"							
+                        "<html xmlns=\"http://www.w3.org/1999/xhtml\">\n"
+                        "<head>\n";
+
+    foreach( QString file, cssfiles )
+    {
+        header += "    <link href=\"" + file + "\" rel=\"stylesheet\" type=\"text/css\" />\n";
+    }
+
+    header += "</head>\n";
+
+    return header;
+}
+
+
+// Creates XHTML files from the book source;
+// the provided header is used as the header of the created files
+void ExportEPUB::CreateXHTMLFiles( const QString &header )
+{
+    QRegExp body_start_tag( BODY_START );
+    QRegExp body_end_tag( BODY_END );
+
+    int body_begin	= m_Book.source.indexOf( body_start_tag, 0 ) + body_start_tag.matchedLength();
+    int body_end	= m_Book.source.indexOf( body_end_tag, 0 );
+
+    int main_index = body_begin;
+
+    while ( main_index != body_end )
+    {
+        QRegExp break_tag( BREAK_TAG );
+
+        // We search for our HR break tag
+        int break_index = m_Book.source.indexOf( break_tag, main_index );
+
+        QString body;
+
+        // We break up the remainder of the file on the HR tag index if it's found
+        if ( break_index > -1 )
+        {
+            body = Utility::Substring( main_index, break_index, m_Book.source );
+
+            main_index = break_index + break_tag.matchedLength();
+        }
+
+        // Otherwise, we take the rest of the file
+        else
+        {
+            body = Utility::Substring( main_index, body_end, m_Book.source );
+
+            main_index = body_end;
+        }
+
+        // FIXME: the <title> tag should be created with chapter name
+        // and added to the header
+
+        QString wholefile = header + "<body>\n" + body + "</body> </html>";
+
+        wholefile = CleanSource::Clean( wholefile );
+
+        CreateOneTextFile( wholefile, "xhtml" );		
+    }	
+}
+
+
+// Creates one text file from the provided source
+// and adds it to the FolderKeeper object with
+// the provided extension; returns the file path
+// relative to the OEBPS folder
+QString ExportEPUB::CreateOneTextFile( const QString &source, const QString &extension )
+{
+    QTemporaryFile file;
+
+    if ( file.open() )
+    {
+        QTextStream out( &file );
+
+        // We ALWAYS output in UTF-8
+        out.setCodec( "UTF-8" );
+
+        out << source;
+
+        // Write to disk immediately
+        out.flush();
+        file.flush();
+
+        return fkFolder.AddContentFileToFolder( file.fileName(), extension );
+    }
+
+    else
+    {
+        // FIXME: throw exception
+
+        return "";
+    }
+}
+
+
+// Strips CDATA declarations from the provided source
+QString ExportEPUB::StripCDATA( const QString &style_source )
+{
+    QString newsource = style_source;
+
+    newsource.replace( "/*<![CDATA[*/", "" );
+    newsource.replace( "/*]]>*/", "" );
+
+    newsource.replace( "<![CDATA[", "" );
+    newsource.replace( "]]>", "" );
+
+    return newsource;
+}
+
+
+// Removes Sigil styles from the provided source
+QString ExportEPUB::RemoveSigilStyles( const QString &style_source )
+{
+    // TODO: move this functionality to BookNormalization
+
+    QString newsource = style_source;
+
+    QRegExp chapter_break_style( "hr\\.sigilChapterBreak[^\\}]+\\}" );
+    QRegExp sigil_comment( "/\\*SG.*SG\\*/" );
+
+    sigil_comment.setMinimal( true );
+
+    newsource.remove( chapter_break_style );
+    newsource.remove( sigil_comment );
+
+    return newsource;
+}
+
+
+// Creates the publication's container.xml file
+void ExportEPUB::CreateContainerXML()
+{
+    QString xml =	"<?xml version=\"1.0\"?>\n"
+                    "<container version=\"1.0\" xmlns=\"urn:oasis:names:tc:opendocument:xmlns:container\">\n"
+                    "    <rootfiles>\n"
+                    "        <rootfile full-path=\"OEBPS/content.opf\" media-type=\"application/oebps-package+xml\"/>\n"
+                    "   </rootfiles>\n"
+                    "</container>\n";
+
+    QTemporaryFile file;
+
+    if ( file.open() )
+    {
+        QTextStream out( &file );
+
+        // We ALWAYS output in UTF-8
+        out.setCodec( "UTF-8" );
+
+        out << xml;
+
+        // Write to disk immediately
+        out.flush();
+        file.flush();
+
+        fkFolder.AddInfraFileToFolder( file.fileName(), "container.xml" );
+    }
+
+    // FIXME: throw exception if not open
+}
+
+
+// Creates the publication's content.opf file
+void ExportEPUB::CreateContentOPF()
+{
+    QTemporaryFile file;
+
+    if ( file.open() )
+    {
+        QTextStream out( &file );
+
+        // We ALWAYS output in UTF-8
+        out.setCodec( "UTF-8" );
+
+        OPFWriter opf( m_Book, fkFolder.GetContentFilesList() );
+
+        out << opf.GetXML();
+
+        // Write to disk immediately
+        out.flush();
+        file.flush();
+
+        fkFolder.AddInfraFileToFolder( file.fileName(), "content.opf" );
+    }
+
+    // FIXME: throw exception if not open
+}
+
+
+// Creates the publication's toc.ncx file
+void ExportEPUB::CreateTocNCX()
+{
+    QTemporaryFile file;
+
+    if ( file.open() )
+    {
+        QTextStream out( &file );
+
+        // We ALWAYS output in UTF-8
+        out.setCodec( "UTF-8" );
+
+        NCXWriter ncx( m_Book, fkFolder );
+
+        out << ncx.GetXML();
+
+        // Write to disk immediately
+        out.flush();
+        file.flush();
+
+        fkFolder.AddInfraFileToFolder( file.fileName(), "toc.ncx" );
+    }
+
+    // FIXME: throw exception if not open
+}
+
+
+
