@@ -1,5 +1,7 @@
 <RCC>
   <qresource prefix="newPrefix" >
+    <file>document-print.png</file>
+    <file>document-print-preview.png</file>
     <file>format-text-strikethrough.png</file>
     <file>insert-bullet-list.png</file>
     <file>insert-numbered-list.png</file>

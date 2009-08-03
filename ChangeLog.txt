@@ -1,4 +1,5 @@
 Sigil v0.1.1 <ADD DATE>
+	- printing support! new file menu actions: "print" and "print preview"
 	- fixed an issue when sometimes switching between views didn't enable/disable appropriate actions
 	- fixed an issue with mixed-up CSS classes on Mac and Linux (issue #16)
 	- added line numbering for Code View (issue #9)

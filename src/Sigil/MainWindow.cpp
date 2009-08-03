@@ -549,6 +549,57 @@ void MainWindow::HeadingStyle( const QString& heading_type )
     // else is "<Select style>" which does nothing
 }
 
+// Implements Print Preview action functionality
+void MainWindow::PrintPreview()
+{
+    if ( !m_wBookView->hasFocus() && !m_wCodeView->hasFocus() )
+
+        return;
+
+    QPrintPreviewDialog *print_preview = new QPrintPreviewDialog( this );
+
+    if ( m_wBookView->hasFocus() )
+    {
+        connect(    print_preview,     SIGNAL( paintRequested( QPrinter * ) ),
+                    m_wBookView,       SLOT(   print( QPrinter *) ) 
+                );
+    }
+
+    else
+    {
+        connect(    print_preview,     SIGNAL( paintRequested( QPrinter * ) ),
+                    m_wCodeView,       SLOT(   print( QPrinter *) ) 
+               );
+    }        
+    
+    print_preview->exec();
+}
+
+
+// Implements Print action functionality
+void MainWindow::Print()
+{
+    if ( !m_wBookView->hasFocus() && !m_wCodeView->hasFocus() )
+
+        return;
+
+    QPrinter printer;
+
+    QPrintDialog *print_dialog = new QPrintDialog( &printer, this );
+    print_dialog->setWindowTitle( tr( "Print Document" ) );
+
+    if ( print_dialog->exec() == QDialog::Accepted )
+    {
+        if ( m_wBookView->hasFocus() )
+
+            m_wBookView->print( &printer );
+
+        else
+
+            m_wCodeView->print( &printer );
+    }
+}
+
 
 // Implements Meta Editor action functionality
 void MainWindow::MetaEditorDialog()
@@ -1245,6 +1296,8 @@ void MainWindow::ConnectSignalsToSlots()
     connect( ui.actionInsertImage,          SIGNAL( triggered() ),      this,   SLOT( InsertImage()         ) );
     connect( ui.actionInsertBulletedList,   SIGNAL( triggered() ),      this,   SLOT( InsertBulletedList()  ) );
     connect( ui.actionInsertNumberedList,   SIGNAL( triggered() ),      this,   SLOT( InsertNumberedList()  ) );
+    connect( ui.actionPrintPreview,         SIGNAL( triggered() ),      this,   SLOT( PrintPreview()        ) );
+    connect( ui.actionPrint,                SIGNAL( triggered() ),      this,   SLOT( Print()               ) );
     
     connect( ui.actionMetaEditor,           SIGNAL( triggered() ),      this,   SLOT( MetaEditorDialog()    ) );
     connect( ui.actionTOCEditor,            SIGNAL( triggered() ),      this,   SLOT( TOCEditorDialog()     ) );

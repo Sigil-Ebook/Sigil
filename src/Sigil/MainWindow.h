@@ -139,6 +139,12 @@ private slots:
     // Implements About action functionality
     void AboutDialog();
 
+    // Implements Print Preview action functionality
+    void PrintPreview();
+
+    // Implements Print action functionality
+    void Print();
+
     // Used to catch the focus changeover from one widget
     // (code or book view) to the other; needed for source synchronization
     void FocusFilter( QWidget *old_widget, QWidget *new_widget );

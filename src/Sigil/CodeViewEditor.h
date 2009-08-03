@@ -30,6 +30,7 @@ class QPaintEvent;
 class QResizeEvent;
 class QSize;
 class QWidget;
+class QPrinter;
 class LineNumberArea;
 
 
@@ -51,6 +52,14 @@ public:
     // Returns the width the LinuNumberArea
     // should take (in pixels)
     int CalculateLineNumberAreaWidth();
+
+public slots:
+
+    // The base class implementation of the print()
+    // method is not a slot, and we need it as a slot
+    // for print preview support; so this is just
+    // a slot wrapper around that function 
+    void print( QPrinter* printer );
 
 protected:
 

@@ -58,6 +58,9 @@
     <addaction name="actionSave"/>
     <addaction name="actionSaveAs"/>
     <addaction name="separator"/>
+    <addaction name="actionPrintPreview"/>
+    <addaction name="actionPrint"/>
+    <addaction name="separator"/>
     <addaction name="separator"/>
     <addaction name="actionExit"/>
    </widget>
@@ -626,6 +629,36 @@ Use them often and where appropriate.</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+T</string>
+   </property>
+  </action>
+  <action name="actionPrint">
+   <property name="icon">
+    <iconset resource="../Resource_Files/main/main.qrc">
+     <normaloff>:/newPrefix/document-print.png</normaloff>:/newPrefix/document-print.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Print...</string>
+   </property>
+   <property name="toolTip">
+    <string>Print</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+P</string>
+   </property>
+  </action>
+  <action name="actionPrintPreview">
+   <property name="icon">
+    <iconset resource="../Resource_Files/main/main.qrc">
+     <normaloff>:/newPrefix/document-print-preview.png</normaloff>:/newPrefix/document-print-preview.png</iconset>
+   </property>
+   <property name="text">
+    <string>Print Pre&amp;view...</string>
+   </property>
+   <property name="toolTip">
+    <string>Print Preview</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+F2</string>
    </property>
   </action>
  </widget>

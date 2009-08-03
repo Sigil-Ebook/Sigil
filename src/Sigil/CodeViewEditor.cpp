@@ -112,6 +112,16 @@ int CodeViewEditor::CalculateLineNumberAreaWidth()
 }
 
 
+// The base class implementation of the print()
+// method is not a slot, and we need it as a slot
+// for print preview support; so this is just
+// a slot wrapper around that function 
+void CodeViewEditor::print( QPrinter* printer )
+{
+    QPlainTextEdit::print( printer );
+}
+
+
 // Overridden because after updating itself on a resize event,
 // the editor needs to update its line number area too
 void CodeViewEditor::resizeEvent( QResizeEvent *event )
@@ -180,6 +190,7 @@ void CodeViewEditor::HighlightCurrentLine()
     extraSelections.append( selection );    
     setExtraSelections( extraSelections );
 }
+
 
 
 
