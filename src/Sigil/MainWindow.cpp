@@ -420,8 +420,11 @@ void MainWindow::BookView()
     ui.actionSplitView->setChecked( false   );
     ui.actionCodeView->setChecked(  false   );
 
-    m_isLastViewBook = true;
+    // Set initial state for actions in this view
+    SetStateActionsBookView();
 
+    m_isLastViewBook = true;
+    
     QApplication::restoreOverrideCursor();
 }
 
@@ -456,7 +459,7 @@ void MainWindow::SplitView()
 void MainWindow::CodeView()
 {
     QApplication::setOverrideCursor( Qt::WaitCursor );
-
+    
     // Update the code view if we just edited
     // in the book view
     if ( m_isLastViewBook )
@@ -470,6 +473,9 @@ void MainWindow::CodeView()
     ui.actionBookView->setChecked(  false   );
     ui.actionSplitView->setChecked( false   );
     ui.actionCodeView->setChecked(  true    );  
+
+    // Set initial state for actions in this view
+    SetStateActionsCodeView();  
 
     m_isLastViewBook = false;
 
