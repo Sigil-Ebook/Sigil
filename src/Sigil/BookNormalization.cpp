@@ -24,6 +24,10 @@
 #include "Book.h"
 #include "BookNormalization.h"
 #include "CleanSource.h"
+#include "Headings.h"
+
+static const QString SIGIL_HEADING_ID_PREFIX = "heading_id_";
+static const QString SIGIL_HEADING_ID_REG    = SIGIL_HEADING_ID_PREFIX + "(\\d+)";
 
 
 // Performs all the operations necessary
@@ -47,7 +51,7 @@ QString BookNormalization::GiveIDsToHeadings( const QString &source )
 
     document.setContent( source );
 
-    int heading_id = 1;
+    int heading_id_index = MaxSigilHeadingIDIndex( source ) + 1;
 
     for ( int level = 1; level < 7; level++ )
     {
@@ -61,9 +65,9 @@ QString BookNormalization::GiveIDsToHeadings( const QString &source )
             
             if ( !element.hasAttribute( "id" ) )
             {
-                element.setAttribute( "id", "heading_id_" + QString::number( heading_id ) );
+                element.setAttribute( "id", SIGIL_HEADING_ID_PREFIX + QString::number( heading_id_index ) );
                 
-                heading_id++;
+                heading_id_index++;
             }
         }
     }
@@ -72,11 +76,37 @@ QString BookNormalization::GiveIDsToHeadings( const QString &source )
 }
 
 
-// Removes the XML carriage returns ("&#xD" sequences )
+// Removes the XML carriage returns ("&#xD" sequences)
 // that <QDomDocument>.toString() kindly left for us
 QString BookNormalization::RemoveXMLCarriageReturns( const QString &source )
 {
     QString newsource = source;
 
     return newsource.replace( "&#xd;", "" );
+}
+
+
+// Returns the maximum index for Sigil heading IDs
+// present in the provided XHTML source
+int BookNormalization::MaxSigilHeadingIDIndex( const QString &source )
+{
+    int maxindex = 1;
+
+    QList< Headings::Heading > headings = Headings::GetHeadingList( source );
+    
+    foreach( Headings::Heading heading, headings )
+    {
+        QRegExp suffix( SIGIL_HEADING_ID_REG );
+
+        if ( heading.id.contains( suffix ) )
+        {
+            int index = suffix.cap( 1 ).toInt();
+
+            if ( index > maxindex )
+
+                maxindex = index;
+        }
+    }
+
+    return maxindex;
 }

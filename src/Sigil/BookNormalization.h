@@ -40,9 +40,11 @@ private:
     // Gives ID's to all headings that don't have them
     static QString GiveIDsToHeadings( const QString &source );
 
-    // Removes the XML carriage returns ("&#xD" sequences )
+    // Removes the XML carriage returns ("&#xD" sequences)
     // that <QDomDocument>.toString() kindly left for us
     static QString RemoveXMLCarriageReturns( const QString &source );
+
+    static int MaxSigilHeadingIDIndex( const QString &source );
 };
 
 #endif // BOOKNORMALIZATION_H
