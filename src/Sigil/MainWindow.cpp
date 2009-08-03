@@ -33,6 +33,7 @@
 #include "ExporterFactory.h"
 #include "BookNormalization.h"
 #include "SigilMarkup.h"
+#include "CodeViewEditor.h"
 
 static const int STATUSBAR_MSG_DISPLAY_TIME = 2000;
 static const int TAB_SPACES_WIDTH           = 4;
@@ -109,11 +110,11 @@ void MainWindow::New()
         // Add Sigil-specific markup
         m_Book.source = SigilMarkup::AddSigilMarkup( m_Book.source );
 
-        ui.wBookView->setHtml( m_Book.source, m_Book.GetBaseUrl() );
-        ui.wBookView->page()->setContentEditable( true );
-        ui.wBookView->page()->setLinkDelegationPolicy( QWebPage::DelegateAllLinks );   
+        m_wBookView->setHtml( m_Book.source, m_Book.GetBaseUrl() );
+        m_wBookView->page()->setContentEditable( true );
+        m_wBookView->page()->setLinkDelegationPolicy( QWebPage::DelegateAllLinks );   
 
-        ui.wCodeView->setPlainText( m_Book.source );
+        m_wCodeView->setPlainText( m_Book.source );
 
         SetCurrentFile( "" );
     }
@@ -206,16 +207,16 @@ bool MainWindow::SaveAs()
 // Implements Undo action functionality
 void MainWindow::Undo()
 {
-    if ( ui.wBookView->hasFocus() )
+    if ( m_wBookView->hasFocus() )
     {
-        ui.wBookView->page()->triggerAction( QWebPage::Undo );
+        m_wBookView->page()->triggerAction( QWebPage::Undo );
 
         RemoveAppleClasses();
     }
 
-    else if ( ui.wCodeView->hasFocus() )
+    else if ( m_wCodeView->hasFocus() )
     {
-        ui.wCodeView->undo();
+        m_wCodeView->undo();
     }
 }
 
@@ -223,16 +224,16 @@ void MainWindow::Undo()
 // Implements Redo action functionality
 void MainWindow::Redo()
 {
-    if ( ui.wBookView->hasFocus() )
+    if ( m_wBookView->hasFocus() )
     {
-	    ui.wBookView->page()->triggerAction( QWebPage::Redo );
-    	
-	    RemoveAppleClasses();
+        m_wBookView->page()->triggerAction( QWebPage::Redo );
+
+        RemoveAppleClasses();
     }
 
-    else if ( ui.wCodeView->hasFocus() )
+    else if ( m_wCodeView->hasFocus() )
     {
-        ui.wCodeView->redo();
+        m_wCodeView->redo();
     }
 }
 
@@ -240,16 +241,16 @@ void MainWindow::Redo()
 // Implements Cut action functionality
 void MainWindow::Cut()
 {
-    if ( ui.wBookView->hasFocus() )
+    if ( m_wBookView->hasFocus() )
     {
-        ui.wBookView->page()->triggerAction( QWebPage::Cut );
+        m_wBookView->page()->triggerAction( QWebPage::Cut );
 
         RemoveAppleClasses();
     }
 
-    else if ( ui.wCodeView->hasFocus() )
+    else if ( m_wCodeView->hasFocus() )
     {
-        ui.wCodeView->cut();
+        m_wCodeView->cut();
     }
 }
 
@@ -257,16 +258,16 @@ void MainWindow::Cut()
 // Implements Copy action functionality
 void MainWindow::Copy()
 {
-    if ( ui.wBookView->hasFocus() )
+    if ( m_wBookView->hasFocus() )
     {
-        ui.wBookView->page()->triggerAction( QWebPage::Copy );
+        m_wBookView->page()->triggerAction( QWebPage::Copy );
 
         RemoveAppleClasses();
     }
 
-    else if ( ui.wCodeView->hasFocus() )
+    else if ( m_wCodeView->hasFocus() )
     {
-        ui.wCodeView->copy();
+        m_wCodeView->copy();
     }
 }
 
@@ -274,16 +275,16 @@ void MainWindow::Copy()
 // Implements Paste action functionality
 void MainWindow::Paste()
 {
-    if ( ui.wBookView->hasFocus() )
+    if ( m_wBookView->hasFocus() )
     {
-        ui.wBookView->page()->triggerAction( QWebPage::Paste );
+        m_wBookView->page()->triggerAction( QWebPage::Paste );
 
         RemoveAppleClasses();
     }
 
-    else if ( ui.wCodeView->hasFocus() )
+    else if ( m_wCodeView->hasFocus() )
     {
-        ui.wCodeView->paste();
+        m_wCodeView->paste();
     }
 }
 
@@ -291,9 +292,9 @@ void MainWindow::Paste()
 // Implements Bold action functionality
 void MainWindow::Bold()
 {
-    if ( ui.wBookView->hasFocus() )
+    if ( m_wBookView->hasFocus() )
     {
-        ui.wBookView->page()->triggerAction( QWebPage::ToggleBold );
+        m_wBookView->page()->triggerAction( QWebPage::ToggleBold );
 
         RemoveAppleClasses();
     }
@@ -305,9 +306,9 @@ void MainWindow::Bold()
 // Implements Italic action functionality
 void MainWindow::Italic()
 {
-    if ( ui.wBookView->hasFocus() )
+    if ( m_wBookView->hasFocus() )
     {
-        ui.wBookView->page()->triggerAction( QWebPage::ToggleItalic );
+        m_wBookView->page()->triggerAction( QWebPage::ToggleItalic );
 
         RemoveAppleClasses();
     }
@@ -319,9 +320,9 @@ void MainWindow::Italic()
 // Implements Underline action functionality
 void MainWindow::Underline()
 {
-    if ( ui.wBookView->hasFocus() )
+    if ( m_wBookView->hasFocus() )
     {
-        ui.wBookView->page()->triggerAction( QWebPage::ToggleUnderline );
+        m_wBookView->page()->triggerAction( QWebPage::ToggleUnderline );
 
         RemoveAppleClasses();
     }
@@ -333,7 +334,7 @@ void MainWindow::Underline()
 // Implements Strikethrough action functionality
 void MainWindow::Strikethrough()
 {
-    if ( ui.wBookView->hasFocus() )
+    if ( m_wBookView->hasFocus() )
     {
         ExecCommand( "strikeThrough" );
 
@@ -347,7 +348,7 @@ void MainWindow::Strikethrough()
 // Implements Align Left action functionality
 void MainWindow::AlignLeft()
 {
-    if ( ui.wBookView->hasFocus() )
+    if ( m_wBookView->hasFocus() )
     {
         ExecCommand( "justifyLeft" );
 
@@ -361,7 +362,7 @@ void MainWindow::AlignLeft()
 // Implements Center action functionality
 void MainWindow::Center()
 {
-    if ( ui.wBookView->hasFocus() )
+    if ( m_wBookView->hasFocus() )
     {
         ExecCommand( "justifyCenter" );
 
@@ -375,7 +376,7 @@ void MainWindow::Center()
 // Implements Align Right action functionality
 void MainWindow::AlignRight()
 {
-    if ( ui.wBookView->hasFocus() )
+    if ( m_wBookView->hasFocus() )
     {
         ExecCommand( "justifyRight" );
 
@@ -389,7 +390,7 @@ void MainWindow::AlignRight()
 // Implements Justify action functionality
 void MainWindow::Justify()
 {
-    if ( ui.wBookView->hasFocus() )
+    if ( m_wBookView->hasFocus() )
     {
         ExecCommand( "justifyFull" );
 
@@ -411,8 +412,8 @@ void MainWindow::BookView()
 
         UpdateBookViewFromSource();
     
-    ui.wBookView->show();
-    ui.wCodeView->hide();	
+    m_wBookView->show();
+    m_wCodeView->hide();	
 
     // Update the "toggle" button states
     ui.actionBookView->setChecked(  true    );
@@ -439,8 +440,8 @@ void MainWindow::SplitView()
 
         UpdateCodeViewFromSource();
 
-    ui.wBookView->show();
-    ui.wCodeView->show();
+    m_wBookView->show();
+    m_wCodeView->show();
 
     // Update the "toggle" button states
     ui.actionBookView->setChecked(  false   );
@@ -462,8 +463,8 @@ void MainWindow::CodeView()
 
         UpdateCodeViewFromSource();
 
-    ui.wBookView->hide();
-    ui.wCodeView->show();	
+    m_wBookView->hide();
+    m_wCodeView->show();	
 
     // Update the "toggle" button states
     ui.actionBookView->setChecked(  false   );
@@ -547,7 +548,7 @@ void MainWindow::HeadingStyle( const QString& heading_type )
 void MainWindow::MetaEditorDialog()
 {
     // ALWAYS clean up source first before
-    // using bkBook outside of MainWindow!
+    // using m_Book outside of MainWindow!
     TidyUp();
 
     MetaEditor meta( m_Book, this );
@@ -560,7 +561,7 @@ void MainWindow::MetaEditorDialog()
 void MainWindow::TOCEditorDialog()
 {
     // ALWAYS clean up source first before
-    // using bkBook outside of MainWindow!
+    // using m_Book outside of MainWindow!
     TidyUp();
 
     TOCEditor toc( m_Book, this );
@@ -588,7 +589,7 @@ void MainWindow::AboutDialog()
 void MainWindow::FocusFilter( QWidget *old_widget, QWidget *new_widget )
 {
     // If we switched focus from the book view to the code view...
-    if ( ( old_widget == ui.wBookView ) && ( new_widget == ui.wCodeView ) )
+    if ( ( old_widget == m_wBookView ) && ( new_widget == m_wCodeView ) )
     {        
         // ...and if we haven't updated yet...
         if ( m_OldSource != m_Book.source )
@@ -608,7 +609,7 @@ void MainWindow::FocusFilter( QWidget *old_widget, QWidget *new_widget )
     }
 
     // If we switched focus from the code view to the book view...
-    else if ( ( old_widget == ui.wCodeView ) && ( new_widget == ui.wBookView ) )
+    else if ( ( old_widget == m_wCodeView ) && ( new_widget == m_wBookView ) )
     {
         // ...and if we haven't updated yet...
         if ( m_OldSource != m_Book.source )
@@ -637,7 +638,7 @@ void MainWindow::FocusFilter( QWidget *old_widget, QWidget *new_widget )
 void MainWindow::DocumentWasModified()
 {
     // TODO: This won't work right until we unify the undo stacks
-    if ( ui.wBookView->isModified() || ui.wCodeView->document()->isModified() )
+    if ( m_wBookView->isModified() || m_wCodeView->document()->isModified() )
 
         setWindowModified( true );
 
@@ -653,15 +654,15 @@ void MainWindow::UpdateUIBookView()
 {
     // TODO: the undo/redo actions are returning false
     // when they are actually enabled... strange, to say the least...
-    //ui.actionUndo  ->setEnabled( ui.wBookView->pageAction( QWebPage::Undo  )->isEnabled() );
-    //ui.actionRedo  ->setEnabled( ui.wBookView->pageAction( QWebPage::Redo  )->isEnabled() );
-    ui.actionCut   ->setEnabled( ui.wBookView->pageAction( QWebPage::Cut   )->isEnabled() );
-    ui.actionCopy  ->setEnabled( ui.wBookView->pageAction( QWebPage::Copy  )->isEnabled() );
-    ui.actionPaste ->setEnabled( ui.wBookView->pageAction( QWebPage::Paste )->isEnabled() );
+    //ui.actionUndo  ->setEnabled( wBookView->pageAction( QWebPage::Undo  )->isEnabled() );
+    //ui.actionRedo  ->setEnabled( wBookView->pageAction( QWebPage::Redo  )->isEnabled() );
+    ui.actionCut   ->setEnabled( m_wBookView->pageAction( QWebPage::Cut   )->isEnabled() );
+    ui.actionCopy  ->setEnabled( m_wBookView->pageAction( QWebPage::Copy  )->isEnabled() );
+    ui.actionPaste ->setEnabled( m_wBookView->pageAction( QWebPage::Paste )->isEnabled() );
 
-    ui.actionBold      ->setChecked( ui.wBookView->pageAction( QWebPage::ToggleBold      )->isChecked() );
-    ui.actionItalic    ->setChecked( ui.wBookView->pageAction( QWebPage::ToggleItalic    )->isChecked() );
-    ui.actionUnderline ->setChecked( ui.wBookView->pageAction( QWebPage::ToggleUnderline )->isChecked() );
+    ui.actionBold      ->setChecked( m_wBookView->pageAction( QWebPage::ToggleBold      )->isChecked() );
+    ui.actionItalic    ->setChecked( m_wBookView->pageAction( QWebPage::ToggleItalic    )->isChecked() );
+    ui.actionUnderline ->setChecked( m_wBookView->pageAction( QWebPage::ToggleUnderline )->isChecked() );
     
     ui.actionStrikethrough      ->setChecked( QueryCommandState( "strikeThrough"       ) );
     ui.actionInsertBulletedList ->setChecked( QueryCommandState( "insertUnorderedList" ) );
@@ -676,11 +677,11 @@ void MainWindow::UpdateUIBookView()
 void MainWindow::UpdateUICodeView()
 {
     // TODO: these are turned off to be consistent with the book view
-    //ui.actionUndo  ->setEnabled( ui.wCodeView->document()->isUndoAvailable() );
-    //ui.actionRedo  ->setEnabled( ui.wCodeView->document()->isRedoAvailable() );
-    ui.actionCut   ->setEnabled( ui.wCodeView->textCursor().hasSelection() );
-    ui.actionCopy  ->setEnabled( ui.wCodeView->textCursor().hasSelection() );
-    ui.actionPaste ->setEnabled( ui.wCodeView->canPaste() );
+    //ui.actionUndo  ->setEnabled( wCodeView->document()->isUndoAvailable() );
+    //ui.actionRedo  ->setEnabled( wCodeView->document()->isRedoAvailable() );
+    ui.actionCut   ->setEnabled( m_wCodeView->textCursor().hasSelection() );
+    ui.actionCopy  ->setEnabled( m_wCodeView->textCursor().hasSelection() );
+    ui.actionPaste ->setEnabled( m_wCodeView->canPaste() );
 }
 
 
@@ -754,19 +755,19 @@ void MainWindow::SetStateActionsCodeView()
 }
 
 
-// Updates the bkBook.source variable whenever
+// Updates the m_Book.source variable whenever
 // the user edits in book view
 void MainWindow::UpdateSourceFromBookView()
 {
-    m_Book.source = ui.wBookView->page()->mainFrame()->toHtml();
+    m_Book.source = m_wBookView->page()->mainFrame()->toHtml();
 }
 
 
-// Updates the bkBook.source variable whenever
+// Updates the m_Book.source variable whenever
 // the user edits in code view
 void MainWindow::UpdateSourceFromCodeView()
 {
-    m_Book.source = ui.wCodeView->toPlainText();	
+    m_Book.source = m_wCodeView->toPlainText();	
 }
 
 
@@ -775,7 +776,7 @@ void MainWindow::UpdateCodeViewFromSource()
 {
     TidyUp();
 
-    ui.wCodeView->setPlainText( m_Book.source );
+    m_wCodeView->setPlainText( m_Book.source );
 
     // Store current source so we can compare and check
     // if we updated yet or we haven't
@@ -788,10 +789,10 @@ void MainWindow::UpdateBookViewFromSource()
 {
     TidyUp();
 
-    ui.wBookView->setHtml( m_Book.source, m_Book.GetBaseUrl() );
+    m_wBookView->setHtml( m_Book.source, m_Book.GetBaseUrl() );
 
-    ui.wBookView->page()->setContentEditable( true );
-    ui.wBookView->page()->setLinkDelegationPolicy( QWebPage::DelegateAllLinks );
+    m_wBookView->page()->setContentEditable( true );
+    m_wBookView->page()->setLinkDelegationPolicy( QWebPage::DelegateAllLinks );
 
     // Store current source so we can compare and check
     // if we updated yet or we haven't
@@ -831,7 +832,7 @@ void MainWindow::ReadSettings()
     m_LastFolderOpen = settings.value( "mainwindow/lastfolderopen" ).toString();
 
     // The list of recent files
-    m_RecentFiles	= settings.value( "mainwindow/recentfiles" ).toStringList();
+    m_RecentFiles    = settings.value( "mainwindow/recentfiles" ).toStringList();
 }
 
 
@@ -870,7 +871,7 @@ void MainWindow::WriteSettings()
 // if the user chooses CANCEL, we don't save and stop what we were doing
 bool MainWindow::MaybeSave()
 {
-    if ( ui.wBookView->isModified() ) 
+    if ( m_wBookView->isModified() ) 
     {
         QMessageBox::StandardButton button_pressed;
 
@@ -908,16 +909,16 @@ void MainWindow::LoadFile( const QString &filename )
     
         m_Book.source = SigilMarkup::AddSigilMarkup( m_Book.source );
 
-    ui.wBookView->setHtml( m_Book.source, m_Book.GetBaseUrl() );
+    m_wBookView->setHtml( m_Book.source, m_Book.GetBaseUrl() );
 
-    ui.wBookView->page()->setContentEditable( true );
+    m_wBookView->page()->setContentEditable( true );
 
     // TODO: Currently we kill all the links; a mechanism for updating
     // links across chapters needs to be devised before they can be enabled again
-    ui.wBookView->page()->setLinkDelegationPolicy( QWebPage::DelegateAllLinks );
+    m_wBookView->page()->setLinkDelegationPolicy( QWebPage::DelegateAllLinks );
 
     // TODO: This is slow for some reason... look into it
-    ui.wCodeView->setPlainText( m_Book.source );
+    m_wCodeView->setPlainText( m_Book.source );
    
     QApplication::restoreOverrideCursor();
 
@@ -979,7 +980,7 @@ bool MainWindow::IsSupportedSaveType( const QString &extension )
 }
 
 
-// Runs HTML Tidy on bkBook.source variable
+// Runs HTML Tidy on m_Book.source variable
 void MainWindow::TidyUp()
 {
     RemoveAppleClasses();
@@ -1039,7 +1040,7 @@ void MainWindow::ExecCommand( const QString &command )
 {       
     QString javascript = QString( "document.execCommand( '%1', false, null)" ).arg( command );
     
-    ui.wBookView->page()->mainFrame()->evaluateJavaScript( javascript );
+    m_wBookView->page()->mainFrame()->evaluateJavaScript( javascript );
 }
 
 
@@ -1049,7 +1050,7 @@ void MainWindow::ExecCommand( const QString &command, const QString &parameter )
 {       
     QString javascript = QString( "document.execCommand( '%1', false, '%2' )" ).arg( command ).arg( parameter );
 
-    ui.wBookView->page()->mainFrame()->evaluateJavaScript( javascript );
+    m_wBookView->page()->mainFrame()->evaluateJavaScript( javascript );
 }
 
 
@@ -1058,7 +1059,7 @@ bool MainWindow::QueryCommandState( const QString &command )
 {
     QString javascript = QString( "document.queryCommandState( '%1', false, null)" ).arg( command );
 
-    return ui.wBookView->page()->mainFrame()->evaluateJavaScript( javascript ).toBool();
+    return m_wBookView->page()->mainFrame()->evaluateJavaScript( javascript ).toBool();
 }
 
 
@@ -1071,7 +1072,7 @@ QString MainWindow::GetCursorElementName()
                           "var startNode = (node.nodeName == \"#text\" ? node.parentNode : node);"
                           "startNode.nodeName;";
 
-    return ui.wBookView->page()->mainFrame()->evaluateJavaScript( javascript ).toString();
+    return m_wBookView->page()->mainFrame()->evaluateJavaScript( javascript ).toString();
 }
 
 
@@ -1111,10 +1112,10 @@ void MainWindow::SetUpCodeView()
     // if Consolas is not on the system
     font.setStyleHint( QFont::TypeWriter );
 
-    ui.wCodeView->setFont( font );
-    ui.wCodeView->setTabStopWidth( TAB_SPACES_WIDTH * QFontMetrics( font ).width( ' ' ) );
+    m_wCodeView->setFont( font );
+    m_wCodeView->setTabStopWidth( TAB_SPACES_WIDTH * QFontMetrics( font ).width( ' ' ) );
 
-    m_Highlighter = new XHTMLHighlighter( ui.wCodeView->document() );
+    m_Highlighter = new XHTMLHighlighter( m_wCodeView->document() );
 }
 
 
@@ -1201,6 +1202,12 @@ void MainWindow::ExtendUI()
                             );
 
     ui.toolBarHeadings->addWidget( m_cbHeadings );
+
+    m_wBookView = new QWebView( ui.splitter );
+    ui.splitter->addWidget( m_wBookView );
+
+    m_wCodeView = new CodeViewEditor( ui.splitter );
+    ui.splitter->addWidget( m_wCodeView );
 }
 
 
@@ -1237,12 +1244,12 @@ void MainWindow::ConnectSignalsToSlots()
     connect( ui.actionTOCEditor,            SIGNAL( triggered() ),      this,   SLOT( TOCEditorDialog()     ) );
     connect( ui.actionAbout,                SIGNAL( triggered() ),      this,   SLOT( AboutDialog()         ) );
     
-    connect( ui.wBookView->page(),          SIGNAL( selectionChanged() ),   this,   SLOT( UpdateUIBookView() ) );
-    connect( ui.wCodeView,                  SIGNAL( selectionChanged() ),   this,   SLOT( UpdateUICodeView() ) );
-    connect( ui.wBookView->page(),          SIGNAL( contentsChanged() ),    this,   SLOT( DocumentWasModified() ) );
-    connect( ui.wCodeView,                  SIGNAL( textChanged() ),        this,   SLOT( DocumentWasModified() ) );
-    connect( ui.wBookView->page(),          SIGNAL( contentsChanged() ),    this,   SLOT( UpdateSourceFromBookView() ) );
-    connect( ui.wCodeView,                  SIGNAL( textChanged() ),        this,   SLOT( UpdateSourceFromCodeView() ) );
+    connect( m_wBookView->page(),           SIGNAL( selectionChanged() ),   this,   SLOT( UpdateUIBookView() ) );
+    connect( m_wCodeView,                   SIGNAL( selectionChanged() ),   this,   SLOT( UpdateUICodeView() ) );
+    connect( m_wBookView->page(),           SIGNAL( contentsChanged() ),    this,   SLOT( DocumentWasModified() ) );
+    connect( m_wCodeView,                   SIGNAL( textChanged() ),        this,   SLOT( DocumentWasModified() ) );
+    connect( m_wBookView->page(),           SIGNAL( contentsChanged() ),    this,   SLOT( UpdateSourceFromBookView() ) );
+    connect( m_wCodeView,                   SIGNAL( textChanged() ),        this,   SLOT( UpdateSourceFromCodeView() ) );
 
     connect( m_cbHeadings,  SIGNAL( activated( const QString& ) ),          this,   SLOT( HeadingStyle( const QString& ) ) );
 

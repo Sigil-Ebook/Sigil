@@ -58,7 +58,7 @@ Book ImportEPUB::GetBook()
     LocateOPF();
     ReadOPF();
 
-    // These mutate the bkBook object
+    // These mutate the m_Book object
     LoadMetadata();
     LoadSource();
     AddHeaderToSource();

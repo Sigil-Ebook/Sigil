@@ -24,13 +24,15 @@
 #define SIGIL_H
 
 #include <QtGui/QMainWindow>
-#include <QComboBox>
 #include "ui_main.h"
 #include "Book.h"
 
 const int MAX_RECENT_FILES = 5;
 
 class XHTMLHighlighter;
+class QComboBox;
+class QWebView;
+class CodeViewEditor;
 
 
 class MainWindow : public QMainWindow
@@ -163,11 +165,11 @@ private slots:
     // are not appropriate here)
     void SetStateActionsCodeView();
 
-    // Updates the bkBook variable whenever
+    // Updates the m_Book variable whenever
     // the user edits in book view
     void UpdateSourceFromBookView();
 
-    // Updates the bkBook variable whenever
+    // Updates the m_Book variable whenever
     // the user edits in code view
     void UpdateSourceFromCodeView();
 
@@ -266,7 +268,7 @@ private:
     // The book currently being worked on
     Book m_Book;
 
-    // The value of the bkBook.sSource variable
+    // The value of the m_Book.sSource variable
     // after the last view change
     QString m_OldSource;
 
@@ -283,9 +285,17 @@ private:
     // Array of recent files actions that are in the File menu
     QAction *m_RecentFileActions[ MAX_RECENT_FILES ];
 
+    // The highlighter for the Code View
     XHTMLHighlighter *m_Highlighter;
 
+    // The headings drop-down combo box
     QComboBox *m_cbHeadings;
+
+    // The webview component that renders out HTML
+    QWebView *m_wBookView;
+
+    // The plain text code editor 
+    CodeViewEditor *m_wCodeView;
 
     // Holds all the widgets Qt Designer created for us
     Ui::MainWindow ui;

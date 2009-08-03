@@ -32,6 +32,7 @@ HEADERS += 	AddMetadata.h \
 			Book.h \
 			BookNormalization.h \
 			CleanSource.h \
+			CodeViewEditor.h \
 			constants.h \
 			ExportEPUB.h \
 			Exporter.h \
@@ -45,6 +46,7 @@ HEADERS += 	AddMetadata.h \
 			ImportHTML.h \
 			ImportTXT.h \
 			ImportSGF.h \
+			LineNumberArea.h \
 			MainWindow.h \
 			Metadata.h \
 			MetaEditor.h \
@@ -62,6 +64,7 @@ SOURCES += 	AddMetadata.cpp \
 			Book.cpp \
 			BookNormalization.cpp \
 			CleanSource.cpp \
+			CodeViewEditor.cpp \
 			ExportEPUB.cpp \
 			ExporterFactory.cpp \
 			ExportSGF.cpp \
@@ -73,6 +76,7 @@ SOURCES += 	AddMetadata.cpp \
 			ImportTXT.cpp \
 			ImportSGF.cpp \
 			main.cpp \
+			LineNumberArea.cpp \
 			MainWindow.cpp \
 			Metadata.cpp \
 			MetaEditor.cpp \

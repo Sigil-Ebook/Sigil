@@ -35,14 +35,6 @@
       <property name="handleWidth">
        <number>4</number>
       </property>
-      <widget class="QWebView" name="wBookView">
-       <property name="url">
-        <url>
-         <string>about:blank</string>
-        </url>
-       </property>
-      </widget>
-      <widget class="QPlainTextEdit" name="wCodeView"/>
      </widget>
     </item>
    </layout>
@@ -637,13 +629,6 @@ Use them often and where appropriate.</string>
    </property>
   </action>
  </widget>
- <customwidgets>
-  <customwidget>
-   <class>QWebView</class>
-   <extends>QWidget</extends>
-   <header>QtWebKit/QWebView</header>
-  </customwidget>
- </customwidgets>
  <resources>
   <include location="../Resource_Files/main/main.qrc"/>
  </resources>

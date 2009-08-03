@@ -1,0 +1,7 @@
+Sigil v0.1.1 <ADD DATE>
+	- added line numbering for Code View
+	- added current line highlighting for Code View
+	- fixed crashed bug with some calibre generated epubs
+
+Sigil v0.1.0  2009.8.1.
+	- initial release
