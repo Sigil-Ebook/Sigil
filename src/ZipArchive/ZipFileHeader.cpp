@@ -871,7 +871,7 @@ DWORD CZipFileHeader::GetSystemAttr()
 	if (ZipCompatibility::IsPlatformSupported(GetSystemCompatibility()))
 	{		
 		DWORD uAttr = GetSystemCompatibility() == ZipCompatibility::zcUnix ? (m_uExternalAttr >> 16) : (m_uExternalAttr & 0xFFFF);
-		if (!uAttr && CZipPathComponent::HasEndingSeparator(GetFileName()))			
+		if (CZipPathComponent::HasEndingSeparator(GetFileName()))			
 			return ZipPlatform::GetDefaultDirAttributes(); // can happen
 		else
 		{			
