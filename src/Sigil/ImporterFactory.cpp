@@ -27,6 +27,7 @@
 #include "ImportSGF.h"
 
 
+// Constructor
 ImporterFactory::ImporterFactory()
     : imImporter( NULL )
 {
@@ -34,12 +35,15 @@ ImporterFactory::ImporterFactory()
 }
 
 
+// Destructor
 ImporterFactory::~ImporterFactory()
 {
     delete imImporter;
 }
 
 
+// Returns a reference to the importer
+// appropriate for the given filename
 Importer& ImporterFactory::GetImporter( const QString &filename )
 {
     QString extension = QFileInfo( filename ).suffix();

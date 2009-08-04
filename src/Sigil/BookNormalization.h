@@ -44,6 +44,8 @@ private:
     // that <QDomDocument>.toString() kindly left for us
     static QString RemoveXMLCarriageReturns( const QString &source );
 
+    // Returns the maximum index for Sigil heading IDs
+    // present in the provided XHTML source
     static int MaxSigilHeadingIDIndex( const QString &source );
 };
 

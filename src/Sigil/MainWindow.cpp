@@ -500,7 +500,7 @@ void MainWindow::InsertImage()
                                                         tr( "Insert Image" ), 
                                                         "", 
                                                         tr( "Images (*.png *.jpg *.jpeg *.gif *.svg)")
-                                                        );
+                                                   );
 
     if ( filename.isEmpty() )
 
@@ -623,10 +623,11 @@ void MainWindow::TOCEditorDialog()
 
     TOCEditor toc( m_Book, this );
 
-    toc.exec();
-
-    UpdateBookViewFromSource();
-    UpdateCodeViewFromSource();
+    if ( toc.exec() == QDialog::Accepted )
+    {
+        UpdateBookViewFromSource();
+        UpdateCodeViewFromSource();
+    }
 }
 
 
@@ -641,8 +642,6 @@ void MainWindow::AboutDialog()
 
 // Used to catch the focus changeover from one widget
 // (code or book view) to the other; needed for source synchronization.
-// This will ONLY get called on focus switches between widgets in Split View
-// and NOT when simply going directly from Code to Book (and vice versa)
 void MainWindow::FocusFilter( QWidget *old_widget, QWidget *new_widget )
 {
     // If we switched focus from the book view to the code view...

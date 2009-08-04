@@ -30,10 +30,14 @@ class ImporterFactory
 
 public:
 
+    // Constructor
     ImporterFactory();
 
+    // Destructor
     ~ImporterFactory();
 
+    // Returns a reference to the importer
+    // appropriate for the given filename
     Importer& GetImporter( const QString &filename );
 
 private:
