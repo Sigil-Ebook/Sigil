@@ -1,59 +1,23 @@
+########################################################
+#  
+#  This is a CMake configuration file.
+#  To use it you need CMake which can be 
+#  downloaded from here: 
+#    http://www.cmake.org/cmake/resources/software.html
+#
+#########################################################
 
 cmake_minimum_required( VERSION 2.6 ) 
 
 project( tidyLib )
 
-set( SOURCES access.c
-			access.h
-			alloc.c
-			attrask.c
-			attrdict.c
-			attrdict.h
-			attrget.c
-			attrs.c
-			attrs.h
-			buffio.c
-			buffio.h
-			charsets.c
-			charsets.h
-			clean.c
-			clean.h
-			config.c
-			config.h
-			entities.c
-			entities.h
-			fileio.c
-			fileio.h
-			forward.h
-			iconvtc.c
-			iconvtc.h
-			istack.c
-			lexer.c
-			lexer.h
-			localize.c
-			mappedio.c
-			mappedio.h
-			message.h
-			parser.c
-			parser.h
-			platform.h
-			pprint.c
-			pprint.h
-			streamio.c
-			streamio.h
-			tagask.c
-			tags.c
-			tags.h
-			tidy-int.h
-			tidy.h
-			tidyenum.h
-			tidylib.c
-			tmbstr.c
-			tmbstr.h
-			utf8.c
-			utf8.h
-			version.h
-			win32tc.c
-			win32tc.h  )
+file( GLOB SOURCES *.c *.h )
 			
 add_library( tidyLib ${SOURCES} ) 
+
+# Special compiler and linker flags for MSVC
+if( MSVC )
+	add_definitions( /DUNICODE /D_UNICODE /Zc:wchar_t-  )
+	set( CMAKE_C_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} /Oi /GL" ) 
+	set_target_properties( tidyLib PROPERTIES STATIC_LIBRARY_FLAGS "/LTCG" )
+endif()

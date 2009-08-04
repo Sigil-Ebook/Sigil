@@ -19,12 +19,13 @@
 **
 *************************************************************************/
 
+#include "stdafx.h"
 #include "ImportEPUB.h"
 #include "CleanSource.h"
 #include "Utility.h"
 #include "Metadata.h"
 #include <ZipArchive.h>
-#include "stdafx.h"
+
 
 
 // Constructor;

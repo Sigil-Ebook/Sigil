@@ -30,6 +30,8 @@ Thumbs.db
 *.ilk
 *.pdb
 *.def
+Release
+Debug
 BuildLog.htm
 
 # Various files and folders created by CMake

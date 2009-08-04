@@ -1,0 +1,173 @@
+########################################################
+#  
+#  This is a CMake configuration file.
+#  To use it you need CMake which can be 
+#  downloaded from here: 
+#    http://www.cmake.org/cmake/resources/software.html
+#
+#########################################################
+
+cmake_minimum_required( VERSION 2.6 ) 
+
+project( Sigil )
+
+find_package( Qt4 REQUIRED )
+
+set( QT_USE_QTWEBKIT TRUE )
+set( QT_USE_QTSVG TRUE )
+set( QT_USE_QTXML TRUE ) 
+set( QT_USE_QTMAIN TRUE )
+
+include( ${QT_USE_FILE} )
+
+# These headers need to go through Qt's MOC compiler
+set( QOBJECT_HEADERS  	AddMetadata.h 
+						About.h						
+						CodeViewEditor.h 
+						TOCEditor.h 
+						MainWindow.h
+						MetaEditor.h )
+
+set( HEADERS Book.h 
+			BookNormalization.h 
+			CleanSource.h
+			constants.h 
+			ExportEPUB.h 
+			Exporter.h 
+			ExporterFactory.h 
+			ExportSGF.h 
+			FolderKeeper.h 
+            Headings.h 			
+			ImportEPUB.h 
+			Importer.h 
+			ImporterFactory.h 
+			ImportHTML.h 
+			ImportTXT.h 
+			ImportSGF.h
+			LineNumberArea.h			
+			Metadata.h 			
+			NCXWriter.h 
+			OPFWriter.h 
+			SigilMarkup.h 
+			stdafx.h			 
+			Utility.h 			
+			XHTMLHighlighter.h 
+			XMLWriter.h  )
+			
+set( CPP_FILES	AddMetadata.cpp 
+			About.cpp 
+			Book.cpp 
+			BookNormalization.cpp 
+			CleanSource.cpp 
+			CodeViewEditor.cpp 
+			ExportEPUB.cpp 
+			ExporterFactory.cpp 
+			ExportSGF.cpp
+			FolderKeeper.cpp 
+            Headings.cpp 	
+			ImportEPUB.cpp 
+			ImporterFactory.cpp 
+			ImportHTML.cpp 
+			ImportTXT.cpp 
+			ImportSGF.cpp 
+			main.cpp 
+			LineNumberArea.cpp 
+			MainWindow.cpp 
+			Metadata.cpp 
+			MetaEditor.cpp 
+			NCXWriter.cpp 
+			OPFWriter.cpp 
+			SigilMarkup.cpp 
+			TOCEditor.cpp 
+			Utility.cpp 		
+			XHTMLHighlighter.cpp 
+			XMLWriter.cpp  )
+			
+set( UI_FILES 	Form_Files/main.ui 
+				Form_Files/MetaEditor.ui 
+				Form_Files/AddMetadata.ui 
+				Form_Files/About.ui 
+				Form_Files/TOCEditor.ui )
+			
+set( QRC_FILES Resource_Files/main/main.qrc )
+
+# Runs MOC on specifed files
+QT4_WRAP_CPP( MOC_FILES_CPP ${QOBJECT_HEADERS} )
+
+# Runs UIC on specified files
+QT4_WRAP_UI( UI_FILES_H ${UI_FILES} )
+
+# Runs RCC on specified files
+QT4_ADD_RESOURCES( QRC_FILES_CPP ${QRC_FILES} )
+
+
+# Precompiled headers cmake code
+if (MSVC)
+    set_source_files_properties( stdafx.cpp PROPERTIES COMPILE_FLAGS "/Ycstdafx.h" )
+		
+    foreach( src_file ${CPP_FILES} )
+        set_source_files_properties( ${src_file} PROPERTIES COMPILE_FLAGS "/Yustdafx.h" )
+    endforeach()
+	
+    list(APPEND CPP_FILES stdafx.cpp)
+endif()
+
+set( SOURCES ${CPP_FILES} ${HEADERS} ${QOBJECT_HEADERS} ${MOC_FILES_CPP} ${UI_FILES_H} ${QRC_FILES_CPP} )
+
+# Adding resource (RC) files for windows
+if (MSVC)
+	list(APPEND SOURCES Resource_Files/icon/icon.rc)
+endif()
+
+# Apple bundle configuration
+if( APPLE )
+   set( MACOSX_BUNDLE_INFO_STRING "Sigil" )
+   set( MACOSX_BUNDLE_BUNDLE_NAME "Sigil" )
+   set( MACOSX_BUNDLE_ICON_FILE "Sigil.icns" )
+
+   # Need to copy the icon file
+   exec_program( "mkdir -p ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Sigil.app/Contents/Resources")
+   exec_program( "cp ${PROJECT_SOURCE_DIR}/Resource_Files/icon/Sigil.icns ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Sigil.app/Contents/Resources")
+
+   # Copy the data folder
+   exec_program( "cp -R ${PROJECT_SOURCE_DIR}/data ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Sigil.app/Contents/MacOS" )
+endif()
+
+# We need to pick up the ui*.h and moc*.cpp files
+include_directories( ${CMAKE_CURRENT_BINARY_DIR} ../ZipArchive ../tidyLib )
+
+link_directories ( ${PROJECT_BINARY_DIR}/lib ) 
+
+# We make bundles for Mac OS X
+if ( APPLE )
+	add_executable( Sigil MACOSX_BUNDLE ${SOURCES} )
+else()
+	add_executable( Sigil ${SOURCES} )
+endif()	
+
+target_link_libraries( Sigil tidyLib ZipArchive ${QT_LIBRARIES} )
+
+# Special compiler and linker flags for MSVC
+if( MSVC )
+	add_definitions( /DUNICODE /D_UNICODE /Zc:wchar_t- )
+	set( CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} /Oi /GL" ) 
+	set( CMAKE_EXE_LINKER_FLAGS_RELEASE "${CMAKE_EXE_LINKER_FLAGS_RELEASE} /LTCG" )
+endif()
+
+# No console window shown on launch
+if ( WIN32 )
+    set_target_properties( Sigil PROPERTIES LINK_FLAGS "/SUBSYSTEM:WINDOWS" )
+endif()
+
+# For Mac, add frameworks and make a DMG
+if( APPLE )
+	ADD_CUSTOM_TARGET( makedmg ALL COMMAND macdeployqt Sigil.app -dmg 
+				WORKING_DIRECTORY ${CMAKE_RUNTIME_OUTPUT_DIRECTORY} )
+
+# Copy our data folder to binary location
+# (for mac, it's already in the bundle)
+else()
+	ADD_CUSTOM_TARGET( datacopy ALL COMMAND ${CMAKE_COMMAND} -E copy_directory 
+						"${PROJECT_SOURCE_DIR}/data"
+						"${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/${CMAKE_CFG_INTDIR}/data" )
+endif()

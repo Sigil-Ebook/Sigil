@@ -19,8 +19,8 @@
 **
 *************************************************************************/
 
-#include "Utility.h"
 #include "stdafx.h"
+#include "Utility.h"
 
 #include <stdlib.h>
 #include <time.h>

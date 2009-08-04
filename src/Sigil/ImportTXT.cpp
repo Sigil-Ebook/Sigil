@@ -19,10 +19,11 @@
 **
 *************************************************************************/
 
+#include "stdafx.h"
 #include "ImportTXT.h"
 #include "CleanSource.h"
 #include "Utility.h"
-#include "stdafx.h"
+
 
 
 // Constructor;
