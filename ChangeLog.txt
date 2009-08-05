@@ -1,4 +1,5 @@
 Sigil v0.1.1 <ADD DATE>
+	- Sigil now remembers the last folder from which you loaded an image (issue #34)
 	- choosing 'cancel' in TOC editor now no longer forces the views to update
 	- fixed bug with new headings getting existing IDs. (issue #36)
 	- printing support! new file menu actions: "print" and "print preview"

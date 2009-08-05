@@ -495,10 +495,9 @@ void MainWindow::InsertChapterBreak()
 // Implements Insert image action functionality
 void MainWindow::InsertImage()
 {
-    // TODO: remember last folder from which we loaded an image
     QString filename = QFileDialog::getOpenFileName(    this, 
                                                         tr( "Insert Image" ), 
-                                                        "", 
+                                                        m_LastFolderImage, 
                                                         tr( "Images (*.png *.jpg *.jpeg *.gif *.svg)")
                                                    );
 
@@ -884,8 +883,9 @@ void MainWindow::ReadSettings()
         ui.splitter->restoreState( splitter_position );
 
     // The last folders used for saving and opening files
-    m_LastFolderSave = settings.value( "mainwindow/lastfoldersave" ).toString();
-    m_LastFolderOpen = settings.value( "mainwindow/lastfolderopen" ).toString();
+    m_LastFolderSave    = settings.value( "mainwindow/lastfoldersave"  ).toString();
+    m_LastFolderOpen    = settings.value( "mainwindow/lastfolderopen"  ).toString();
+    m_LastFolderImage   = settings.value( "mainwindow/lastfolderimage" ).toString();
 
     // The list of recent files
     m_RecentFiles    = settings.value( "mainwindow/recentfiles" ).toStringList();
@@ -912,8 +912,9 @@ void MainWindow::WriteSettings()
     settings.setValue( "mainwindow/splitview_splitter", ui.splitter->saveState() );
 
     // The last folders used for saving and opening files
-    settings.setValue( "mainwindow/lastfoldersave", m_LastFolderSave );
-    settings.setValue( "mainwindow/lastfolderopen", m_LastFolderOpen );
+    settings.setValue( "mainwindow/lastfoldersave",  m_LastFolderSave  );
+    settings.setValue( "mainwindow/lastfolderopen",  m_LastFolderOpen  );
+    settings.setValue( "mainwindow/lastfolderimage", m_LastFolderImage );
 
     // The list of recent files
     settings.setValue( "mainwindow/recentfiles", m_RecentFiles );

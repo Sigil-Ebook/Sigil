@@ -284,6 +284,9 @@ private:
     // The last folder to which the user saved a file
     QString m_LastFolderSave;
 
+    // The last folder to which the user imported an image
+    QString m_LastFolderImage;
+
     // The list of full file names/paths
     // for the last MAX_RECENT_FILES files
     QStringList m_RecentFiles;
