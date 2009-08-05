@@ -138,7 +138,7 @@ void NCXWriter::WriteNavMap()
 
 // Called recursively to write the TOC tree;
 // the first parameter is the heading being written,
-// the second is a reference to the playorder NavPoints
+// the second is a reference to the NavPoints playorder
 void NCXWriter::WriteNavPoint( const Headings::Heading &heading, int &play_order )
 {
     // Headings that shouldn't be included in the TOC

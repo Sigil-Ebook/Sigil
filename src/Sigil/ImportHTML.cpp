@@ -101,11 +101,11 @@ void ImportHTML::UpdateReferences( const QString &oldpath, const QString &newpat
     // Fonts get searched for differently than the other resources
     if ( ( filename.contains( ".ttf" ) ) || ( filename.contains( ".otf" ) ) )
 
-        reference = QRegExp( "src:\\s*\\w+\\(([^\\)]*" + filename + ")\\)" );
+        reference = QRegExp( "src:\\s*\\w+\\(([^\\)]*" + QRegExp::escape( filename ) + ")\\)" );
 
     else
 
-        reference = QRegExp( "<[^>]*\"([^\">]*" + filename + ")\"[^>]*>" );
+        reference = QRegExp( "<[^>]*\"([^\">]*" + QRegExp::escape( filename ) + ")\"[^>]*>" );
 
     int index = -1;
 
@@ -196,8 +196,8 @@ void ImportHTML::LoadFolderStructure()
 {
     int index = 0;
 
-    QString image   = "<\\s*img[^>]*src\\s*=\\s*";
-    QString linkel  = "<\\s*link[^>]*href\\s*=\\s*";
+    QString image   = "<\\s*(?:img|IMG)[^>]*src\\s*=\\s*";
+    QString linkel  = "<\\s*(?:link|LINK)[^>]*href\\s*=\\s*";
     QString theurl  = "\"([^\">]+)\"";
     QString tail    = "[^>]*>";
 
@@ -213,7 +213,7 @@ void ImportHTML::LoadFolderStructure()
 
         QDir folder( QFileInfo( m_FullFilePath ).absoluteDir() );
 
-        QString fullfilepath = QFileInfo( folder, fileurl.cap( 1 ) ).absoluteFilePath();
+        QString fullfilepath = QFileInfo( folder, QUrl( fileurl.cap( 1 ) ).toString() ).absoluteFilePath();
 
         if ( !fullfilepath.contains( ".css" ) )
         {

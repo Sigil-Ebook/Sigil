@@ -368,7 +368,7 @@ QStringList CleanSource::RemoveRedundantClassesTags( const QStringList &css_styl
     // Tidy always creates class definitions as one line
     foreach( QString key, redundant_classes.keys() )
     {
-        QRegExp remove_old( "^.*" + key + ".*$" );
+        QRegExp remove_old( "^.*" + QRegExp::escape( key ) + ".*$" );
         remove_old.setMinimal( true );
 
         last_tag_styles.replaceInStrings( remove_old, "" );
@@ -404,7 +404,7 @@ QString CleanSource::RemoveRedundantClassesSource( const QString &source, const 
 
 
 // Returns a QHash with keys being the new redundant CSS classes,
-// and the values the old classes that already do the job of the new ones.
+// and the values being the old classes that already do the job of the new ones.
 QHash< QString, QString > CleanSource::GetRedundantClasses( const QStringList &css_style_tags )
 {
     QHash< QString, QString > redundant_classes;

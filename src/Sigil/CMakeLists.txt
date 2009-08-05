@@ -102,21 +102,27 @@ QT4_ADD_RESOURCES( QRC_FILES_CPP ${QRC_FILES} )
 
 
 # Precompiled headers cmake code
-if (MSVC)
+if ( MSVC )
     set_source_files_properties( stdafx.cpp PROPERTIES COMPILE_FLAGS "/Ycstdafx.h" )
 		
     foreach( src_file ${CPP_FILES} )
         set_source_files_properties( ${src_file} PROPERTIES COMPILE_FLAGS "/Yustdafx.h" )
     endforeach()
 	
-    list(APPEND CPP_FILES stdafx.cpp)
+    list( APPEND CPP_FILES stdafx.cpp )
 endif()
+
+# Adds folders for Visual Studio solution explorer
+SOURCE_GROUP( "Generated Files" FILES ${MOC_FILES_CPP} ${UI_FILES_H} ${QRC_FILES_CPP} )
+SOURCE_GROUP( "Form Files" FILES ${UI_FILES} )
+SOURCE_GROUP( "Resource Files" FILES ${QRC_FILES} )
 
 set( SOURCES ${CPP_FILES} ${HEADERS} ${QOBJECT_HEADERS} ${MOC_FILES_CPP} ${UI_FILES_H} ${QRC_FILES_CPP} )
 
 # Adding resource (RC) files for windows
-if (MSVC)
-	list(APPEND SOURCES Resource_Files/icon/icon.rc)
+if ( MSVC )
+	list( APPEND SOURCES Resource_Files/icon/icon.rc )
+	SOURCE_GROUP( "Resource Files" FILES Resource_Files/icon/icon.rc )
 endif()
 
 # Apple bundle configuration
@@ -130,7 +136,7 @@ if( APPLE )
    exec_program( "cp ${PROJECT_SOURCE_DIR}/Resource_Files/icon/Sigil.icns ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Sigil.app/Contents/Resources")
 
    # Copy the data folder
-   exec_program( "cp -R ${PROJECT_SOURCE_DIR}/data ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Sigil.app/Contents/MacOS" )
+   exec_program( "cp -R ${PROJECT_SOURCE_DIR}/data ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Sigil.app/Contents/MacOS/" )
 endif()
 
 # We need to pick up the ui*.h and moc*.cpp files

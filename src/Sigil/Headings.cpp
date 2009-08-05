@@ -35,8 +35,10 @@ static const QString NOT_IN_TOC_CLASS    = "sigilNotInTOC";
 static const QString TOC_CLASS_PRESENT   = "(<[^>]*)" + NOT_IN_TOC_CLASS + "([^>]*>)";
 static const QString CLASS_ATTRIBUTE     = "<[^>]*class\\s*=\\s*\"([^\"]+)\"[^>]*>";
 static const QString ID_ATTRIBUTE        = "<[^>]*id\\s*=\\s*\"([^\"]+)\"[^>]*>";
+static const QString TITLE_ATTRIBUTE     = "<[^>]*title\\s*=\\s*\"([^\"]+)\"[^>]*>";
 static const QString ELEMENT_BODY        = "<([^/>]+)>";
 static const QString HEADING_LEVEL       = "(?:h|H)(\\d)";
+static const QString XML_TAG             = "<[^>]*>";
 
 
 // Constructs the new heading element source
@@ -108,7 +110,19 @@ QList< Headings::Heading > Headings::GetHeadingList( const QString &source )
         Heading heading;
 
         heading.element_source      = heading_regex.cap( 0 );
-        heading.text                = heading_regex.cap( 1 );
+
+        // We use the title attribute for the
+        // heading text if the attribute is present
+        QRegExp title( TITLE_ATTRIBUTE );
+
+        if ( heading_regex.cap( 0 ).contains( title )  )
+        
+            heading.text = title.cap( 1 ).remove( QRegExp( XML_TAG ) );
+
+        else
+
+            heading.text = heading_regex.cap( 1 ).remove( QRegExp( XML_TAG ) );
+
         heading.after_chapter_break = IsAfterChapterBreak( source, main_index );         
 
         QRegExp level( HEADING_LEVEL );
