@@ -73,7 +73,7 @@ bool CDirEnumerator::Start(CFileFilter& filter)
 				if (!entry)
 					break;								
 				CZipString path(m_szCurrentDirectory + entry->d_name);
-	#if !defined __APPLE__ && !defined __CYGWIN__
+	#if !defined __APPLE__ && !defined __CYGWIN__ && !defined __NetBSD__ 
 				struct stat64 sStats;
 				if (stat64(path, &sStats) == -1)
 	#else
