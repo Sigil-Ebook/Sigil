@@ -37,6 +37,7 @@ static const QString CLASS_ATTRIBUTE     = "<[^>]*class\\s*=\\s*\"([^\"]+)\"[^>]
 static const QString ID_ATTRIBUTE        = "<[^>]*id\\s*=\\s*\"([^\"]+)\"[^>]*>";
 static const QString ELEMENT_BODY        = "<([^/>]+)>";
 static const QString HEADING_LEVEL       = "(?:h|H)(\\d)";
+static const QString XML_TAG             = "<[^>]*>";
 
 
 // Constructs the new heading element source
@@ -108,7 +109,7 @@ QList< Headings::Heading > Headings::GetHeadingList( const QString &source )
         Heading heading;
 
         heading.element_source      = heading_regex.cap( 0 );
-        heading.text                = heading_regex.cap( 1 );
+        heading.text                = heading_regex.cap( 1 ).remove( QRegExp( XML_TAG ) );
         heading.after_chapter_break = IsAfterChapterBreak( source, main_index );         
 
         QRegExp level( HEADING_LEVEL );
