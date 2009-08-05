@@ -1,4 +1,6 @@
 Sigil v0.1.1 <ADD DATE>
+	- fixed issue with loading images in HTML and EPUB docs that have regexp special characters
+	in filenames. (issue #39)
 	- if headings have the 'title' attribute set, it is now used as the TOC text entry. (issue #26)
 	- tags are now removed from headings before they are converted to TOC entries (issue #47)
 	- Sigil now remembers the last folder from which you loaded an image (issue #34)
