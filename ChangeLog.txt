@@ -1,4 +1,5 @@
 Sigil v0.1.1 <ADD DATE>
+	- if headings have the 'title' attribute set, it is now used as the TOC text entry. (issue #26)
 	- tags are now removed from headings before they are converted to TOC entries (issue #47)
 	- Sigil now remembers the last folder from which you loaded an image (issue #34)
 	- choosing 'cancel' in TOC editor now no longer forces the views to update
