@@ -21,7 +21,7 @@
 
 // The version of the application,
 // in MAJOR.MINOR.REVISION format
-#define SIGIL_VERSION ("000.001.000")
+#define SIGIL_VERSION ("000.001.001")
 
 // These enable us to use constants defined
 // in one CPP file to be used in another
