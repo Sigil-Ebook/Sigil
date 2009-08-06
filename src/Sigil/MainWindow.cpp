@@ -557,7 +557,7 @@ void MainWindow::PrintPreview()
 
     QPrintPreviewDialog *print_preview = new QPrintPreviewDialog( this );
 
-    if ( m_wBookView->hasFocus() )
+    if ( m_isLastViewBook )
     {
         connect(    print_preview,     SIGNAL( paintRequested( QPrinter * ) ),
                     m_wBookView,       SLOT(   print( QPrinter *) ) 
@@ -589,7 +589,7 @@ void MainWindow::Print()
 
     if ( print_dialog->exec() == QDialog::Accepted )
     {
-        if ( m_wBookView->hasFocus() )
+        if ( m_isLastViewBook )
 
             m_wBookView->print( &printer );
 
