@@ -27,7 +27,6 @@
 #include <ZipArchive.h>
 
 
-
 // Constructor;
 // The parameter is the file to be imported
 ImportEPUB::ImportEPUB( const QString &fullfilepath )
@@ -132,6 +131,10 @@ void ImportEPUB::LocateOPF()
 
     // Input should be UTF-8
     in.setCodec( "UTF-8" );
+
+    // This will automatically switch reading from
+    // UTF-8 to UTF-16 if a BOM is detected
+    in.setAutoDetectUnicode( true );
 
     QString container_xml = in.readAll();  
 
@@ -334,6 +337,10 @@ void ImportEPUB::LoadSource()
 
         // Input should be UTF-8
         in.setCodec( "UTF-8" );
+
+        // This will automatically switch reading from
+        // UTF-8 to UTF-16 if a BOM is detected
+        in.setAutoDetectUnicode( true );
 
         QString text = ResolveCustomEntities( in.readAll() );
 

@@ -1,4 +1,5 @@
 Sigil v0.1.2 <ADD DATE>
+	- support for importing UTF-16 encoded documents (not just UTF-8)  
     - provided install target for linux; the binary is now also named "sigil"
     (lower case 's') on Unix systems (except Mac) for the sake of convention (issue #46)
 	- removed dependency on "data" directory (issue #51)

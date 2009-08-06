@@ -103,6 +103,10 @@ void Metadata::LoadLanguages()
 
     in.setCodec( "UTF-8" );
 
+    // This will automatically switch reading from
+    // UTF-8 to UTF-16 if a BOM is detected
+    in.setAutoDetectUnicode( true );
+
     while ( in.atEnd() == false )
     {
         QString line = in.readLine();
@@ -142,6 +146,10 @@ void Metadata::LoadBasicMetadata()
     QTextStream in( &file );
 
     in.setCodec( "UTF-8" );
+
+    // This will automatically switch reading from
+    // UTF-8 to UTF-16 if a BOM is detected
+    in.setAutoDetectUnicode( true );
 
     while ( in.atEnd() == false )
     {
@@ -187,6 +195,10 @@ void Metadata::LoadRelatorCodes()
     QTextStream in( &file );
 
     in.setCodec( "UTF-8" );
+
+    // This will automatically switch reading from
+    // UTF-8 to UTF-16 if a BOM is detected
+    in.setAutoDetectUnicode( true );
 
     while ( in.atEnd() == false )
     {

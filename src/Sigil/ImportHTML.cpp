@@ -74,6 +74,10 @@ QString ImportHTML::CreateStyleTag( const QString &fullfilepath )
     // Input should be UTF-8
     in.setCodec( "UTF-8" );
 
+    // This will automatically switch reading from
+    // UTF-8 to UTF-16 if a BOM is detected
+    in.setAutoDetectUnicode( true );
+
     QString style_tag = "";
 
     if ( QFileInfo( fullfilepath ).suffix() == "css" )
