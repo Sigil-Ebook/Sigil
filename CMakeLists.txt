@@ -18,3 +18,5 @@ set( CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/lib )
 add_subdirectory( src/tidyLib )
 add_subdirectory( src/ZipArchive )
 add_subdirectory( src/Sigil )
+
+

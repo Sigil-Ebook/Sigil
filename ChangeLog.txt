@@ -1,4 +1,6 @@
 Sigil v0.1.2 <ADD DATE>
+    - provided install target for linux; the binary is now also named "sigil"
+    (lower case 's') on Unix systems (except Mac) for the sake of convention (issue #46)
 	- removed dependency on "data" directory (issue #51)
 
 Sigil v0.1.1 2009.08.06.

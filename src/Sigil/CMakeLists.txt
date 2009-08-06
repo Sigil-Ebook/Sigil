@@ -9,7 +9,13 @@
 
 cmake_minimum_required( VERSION 2.6 ) 
 
-project( Sigil )
+# We use the lower case name
+# on UNIX systems other than Mac OS X
+if ( WIN32 OR APPLE )
+    project( Sigil )
+else()
+    project( sigil )
+endif()
 
 find_package( Qt4 REQUIRED )
 
@@ -144,12 +150,12 @@ link_directories ( ${PROJECT_BINARY_DIR}/lib )
 
 # We make bundles for Mac OS X
 if ( APPLE )
-	add_executable( Sigil MACOSX_BUNDLE ${SOURCES} )
+	add_executable( ${PROJECT_NAME} MACOSX_BUNDLE ${SOURCES} )
 else()
-	add_executable( Sigil ${SOURCES} )
+	add_executable( ${PROJECT_NAME} ${SOURCES} )
 endif()	
 
-target_link_libraries( Sigil tidyLib ZipArchive ${QT_LIBRARIES} )
+target_link_libraries( ${PROJECT_NAME} tidyLib ZipArchive ${QT_LIBRARIES} )
 
 # Special compiler and linker flags for MSVC
 if( MSVC )
@@ -160,7 +166,7 @@ endif()
 
 # No console window shown on launch
 if ( WIN32 )
-    set_target_properties( Sigil PROPERTIES LINK_FLAGS "/SUBSYSTEM:WINDOWS" )
+    set_target_properties( ${PROJECT_NAME} PROPERTIES LINK_FLAGS "/SUBSYSTEM:WINDOWS" )
 endif()
 
 # For Mac, add frameworks and make a DMG
@@ -168,3 +174,12 @@ if( APPLE )
 	ADD_CUSTOM_TARGET( makedmg ALL COMMAND macdeployqt Sigil.app -dmg 
 				WORKING_DIRECTORY ${CMAKE_RUNTIME_OUTPUT_DIRECTORY} )
 endif()
+
+# You can change the install location by 
+# running cmake like this:
+#
+#   cmake -DCMAKE_INSTALL_PREFIX=/new/install/prefix
+#
+# By default, the prefix is "/usr/local"
+# 
+install( TARGETS ${PROJECT_NAME} RUNTIME DESTINATION ${CMAKE_INSTALL_PREFIX}/bin )
