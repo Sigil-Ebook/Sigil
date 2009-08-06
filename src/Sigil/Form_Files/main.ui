@@ -245,7 +245,7 @@
   <action name="actionNew">
    <property name="icon">
     <iconset resource="../Resource_Files/main/main.qrc">
-     <normaloff>:/newPrefix/document-new.png</normaloff>:/newPrefix/document-new.png</iconset>
+     <normaloff>:/main/document-new.png</normaloff>:/main/document-new.png</iconset>
    </property>
    <property name="text">
     <string>&amp;New</string>
@@ -257,7 +257,7 @@
   <action name="actionSave">
    <property name="icon">
     <iconset resource="../Resource_Files/main/main.qrc">
-     <normaloff>:/newPrefix/document-save.png</normaloff>:/newPrefix/document-save.png</iconset>
+     <normaloff>:/main/document-save.png</normaloff>:/main/document-save.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Save</string>
@@ -269,7 +269,7 @@
   <action name="actionSaveAs">
    <property name="icon">
     <iconset resource="../Resource_Files/main/main.qrc">
-     <normaloff>:/newPrefix/document-save-as.png</normaloff>:/newPrefix/document-save-as.png</iconset>
+     <normaloff>:/main/document-save-as.png</normaloff>:/main/document-save-as.png</iconset>
    </property>
    <property name="text">
     <string>Save &amp;As...</string>
@@ -281,7 +281,7 @@
   <action name="actionCut">
    <property name="icon">
     <iconset resource="../Resource_Files/main/main.qrc">
-     <normaloff>:/newPrefix/edit-cut.png</normaloff>:/newPrefix/edit-cut.png</iconset>
+     <normaloff>:/main/edit-cut.png</normaloff>:/main/edit-cut.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Cut</string>
@@ -293,7 +293,7 @@
   <action name="actionPaste">
    <property name="icon">
     <iconset resource="../Resource_Files/main/main.qrc">
-     <normaloff>:/newPrefix/edit-paste.png</normaloff>:/newPrefix/edit-paste.png</iconset>
+     <normaloff>:/main/edit-paste.png</normaloff>:/main/edit-paste.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Paste</string>
@@ -305,7 +305,7 @@
   <action name="actionUndo">
    <property name="icon">
     <iconset resource="../Resource_Files/main/main.qrc">
-     <normaloff>:/newPrefix/edit-undo.png</normaloff>:/newPrefix/edit-undo.png</iconset>
+     <normaloff>:/main/edit-undo.png</normaloff>:/main/edit-undo.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Undo</string>
@@ -317,7 +317,7 @@
   <action name="actionRedo">
    <property name="icon">
     <iconset resource="../Resource_Files/main/main.qrc">
-     <normaloff>:/newPrefix/edit-redo.png</normaloff>:/newPrefix/edit-redo.png</iconset>
+     <normaloff>:/main/edit-redo.png</normaloff>:/main/edit-redo.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Redo</string>
@@ -329,7 +329,7 @@
   <action name="actionCopy">
    <property name="icon">
     <iconset resource="../Resource_Files/main/main.qrc">
-     <normaloff>:/newPrefix/edit-copy.png</normaloff>:/newPrefix/edit-copy.png</iconset>
+     <normaloff>:/main/edit-copy.png</normaloff>:/main/edit-copy.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Copy</string>
@@ -341,7 +341,7 @@
   <action name="actionAlignLeft">
    <property name="icon">
     <iconset resource="../Resource_Files/main/main.qrc">
-     <normaloff>:/newPrefix/format-justify-left.png</normaloff>:/newPrefix/format-justify-left.png</iconset>
+     <normaloff>:/main/format-justify-left.png</normaloff>:/main/format-justify-left.png</iconset>
    </property>
    <property name="text">
     <string>Align &amp;Left</string>
@@ -353,7 +353,7 @@
   <action name="actionAlignRight">
    <property name="icon">
     <iconset resource="../Resource_Files/main/main.qrc">
-     <normaloff>:/newPrefix/format-justify-right.png</normaloff>:/newPrefix/format-justify-right.png</iconset>
+     <normaloff>:/main/format-justify-right.png</normaloff>:/main/format-justify-right.png</iconset>
    </property>
    <property name="text">
     <string>Align &amp;Right</string>
@@ -365,7 +365,7 @@
   <action name="actionCenter">
    <property name="icon">
     <iconset resource="../Resource_Files/main/main.qrc">
-     <normaloff>:/newPrefix/format-justify-center.png</normaloff>:/newPrefix/format-justify-center.png</iconset>
+     <normaloff>:/main/format-justify-center.png</normaloff>:/main/format-justify-center.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Center</string>
@@ -377,7 +377,7 @@
   <action name="actionJustify">
    <property name="icon">
     <iconset resource="../Resource_Files/main/main.qrc">
-     <normaloff>:/newPrefix/format-justify-fill.png</normaloff>:/newPrefix/format-justify-fill.png</iconset>
+     <normaloff>:/main/format-justify-fill.png</normaloff>:/main/format-justify-fill.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Justify</string>
@@ -392,7 +392,7 @@
    </property>
    <property name="icon">
     <iconset resource="../Resource_Files/main/main.qrc">
-     <normaloff>:/newPrefix/format-text-bold.png</normaloff>:/newPrefix/format-text-bold.png</iconset>
+     <normaloff>:/main/format-text-bold.png</normaloff>:/main/format-text-bold.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Bold</string>
@@ -407,7 +407,7 @@
    </property>
    <property name="icon">
     <iconset resource="../Resource_Files/main/main.qrc">
-     <normaloff>:/newPrefix/format-text-italic.png</normaloff>:/newPrefix/format-text-italic.png</iconset>
+     <normaloff>:/main/format-text-italic.png</normaloff>:/main/format-text-italic.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Italic</string>
@@ -419,7 +419,7 @@
   <action name="actionOpen">
    <property name="icon">
     <iconset resource="../Resource_Files/main/main.qrc">
-     <normaloff>:/newPrefix/document-open.png</normaloff>:/newPrefix/document-open.png</iconset>
+     <normaloff>:/main/document-open.png</normaloff>:/main/document-open.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Open...</string>
@@ -434,7 +434,7 @@
    </property>
    <property name="icon">
     <iconset resource="../Resource_Files/main/main.qrc">
-     <normaloff>:/newPrefix/format-text-underline.png</normaloff>:/newPrefix/format-text-underline.png</iconset>
+     <normaloff>:/main/format-text-underline.png</normaloff>:/main/format-text-underline.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Underline</string>
@@ -446,7 +446,7 @@
   <action name="actionExit">
    <property name="icon">
     <iconset resource="../Resource_Files/main/main.qrc">
-     <normaloff>:/newPrefix/process-stop.png</normaloff>:/newPrefix/process-stop.png</iconset>
+     <normaloff>:/main/process-stop.png</normaloff>:/main/process-stop.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Exit</string>
@@ -461,7 +461,7 @@
   <action name="actionAbout">
    <property name="icon">
     <iconset resource="../Resource_Files/main/main.qrc">
-     <normaloff>:/newPrefix/help-browser.png</normaloff>:/newPrefix/help-browser.png</iconset>
+     <normaloff>:/main/help-browser.png</normaloff>:/main/help-browser.png</iconset>
    </property>
    <property name="text">
     <string>&amp;About...</string>
@@ -487,7 +487,7 @@
    </property>
    <property name="icon">
     <iconset resource="../Resource_Files/main/main.qrc">
-     <normaloff>:/newPrefix/view-book.png</normaloff>:/newPrefix/view-book.png</iconset>
+     <normaloff>:/main/view-book.png</normaloff>:/main/view-book.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Book View</string>
@@ -505,7 +505,7 @@
    </property>
    <property name="icon">
     <iconset resource="../Resource_Files/main/main.qrc">
-     <normaloff>:/newPrefix/view-split.png</normaloff>:/newPrefix/view-split.png</iconset>
+     <normaloff>:/main/view-split.png</normaloff>:/main/view-split.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Split View</string>
@@ -523,7 +523,7 @@
    </property>
    <property name="icon">
     <iconset resource="../Resource_Files/main/main.qrc">
-     <normaloff>:/newPrefix/view-code.png</normaloff>:/newPrefix/view-code.png</iconset>
+     <normaloff>:/main/view-code.png</normaloff>:/main/view-code.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Code View</string>
@@ -538,7 +538,7 @@
   <action name="actionInsertChapterBreak">
    <property name="icon">
     <iconset resource="../Resource_Files/main/main.qrc">
-     <normaloff>:/newPrefix/insert-chapter-break.png</normaloff>:/newPrefix/insert-chapter-break.png</iconset>
+     <normaloff>:/main/insert-chapter-break.png</normaloff>:/main/insert-chapter-break.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Chapter Break</string>
@@ -557,7 +557,7 @@ Use them often and where appropriate.</string>
   <action name="actionInsertImage">
    <property name="icon">
     <iconset resource="../Resource_Files/main/main.qrc">
-     <normaloff>:/newPrefix/insert-image.png</normaloff>:/newPrefix/insert-image.png</iconset>
+     <normaloff>:/main/insert-image.png</normaloff>:/main/insert-image.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Image...</string>
@@ -575,7 +575,7 @@ Use them often and where appropriate.</string>
    </property>
    <property name="icon">
     <iconset resource="../Resource_Files/main/main.qrc">
-     <normaloff>:/newPrefix/insert-numbered-list.png</normaloff>:/newPrefix/insert-numbered-list.png</iconset>
+     <normaloff>:/main/insert-numbered-list.png</normaloff>:/main/insert-numbered-list.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Numbered List</string>
@@ -593,7 +593,7 @@ Use them often and where appropriate.</string>
    </property>
    <property name="icon">
     <iconset resource="../Resource_Files/main/main.qrc">
-     <normaloff>:/newPrefix/insert-bullet-list.png</normaloff>:/newPrefix/insert-bullet-list.png</iconset>
+     <normaloff>:/main/insert-bullet-list.png</normaloff>:/main/insert-bullet-list.png</iconset>
    </property>
    <property name="text">
     <string>Bulle&amp;ted List</string>
@@ -619,7 +619,7 @@ Use them often and where appropriate.</string>
    </property>
    <property name="icon">
     <iconset resource="../Resource_Files/main/main.qrc">
-     <normaloff>:/newPrefix/format-text-strikethrough.png</normaloff>:/newPrefix/format-text-strikethrough.png</iconset>
+     <normaloff>:/main/format-text-strikethrough.png</normaloff>:/main/format-text-strikethrough.png</iconset>
    </property>
    <property name="text">
     <string>Strike&amp;through</string>
@@ -634,7 +634,7 @@ Use them often and where appropriate.</string>
   <action name="actionPrint">
    <property name="icon">
     <iconset resource="../Resource_Files/main/main.qrc">
-     <normaloff>:/newPrefix/document-print.png</normaloff>:/newPrefix/document-print.png</iconset>
+     <normaloff>:/main/document-print.png</normaloff>:/main/document-print.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Print...</string>
@@ -649,7 +649,7 @@ Use them often and where appropriate.</string>
   <action name="actionPrintPreview">
    <property name="icon">
     <iconset resource="../Resource_Files/main/main.qrc">
-     <normaloff>:/newPrefix/document-print-preview.png</normaloff>:/newPrefix/document-print-preview.png</iconset>
+     <normaloff>:/main/document-print-preview.png</normaloff>:/main/document-print-preview.png</iconset>
    </property>
    <property name="text">
     <string>Print Pre&amp;view...</string>

@@ -1,5 +1,5 @@
 <RCC>
-  <qresource prefix="newPrefix" >
+  <qresource prefix="main" >
     <file>document-print.png</file>
     <file>document-print-preview.png</file>
     <file>format-text-strikethrough.png</file>
