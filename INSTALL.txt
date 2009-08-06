@@ -1,0 +1,85 @@
+
+You will need CMake 2.6.0 or later on all platforms. You
+can download it from here:
+	http://www.cmake.org/cmake/resources/software.html
+	
+CMake is a cross-platform system for build automation. It can
+generate Visual Studio project files on Windows, XCode project files
+on Mac OS X and Makefiles on Unix systems. After installing CMake,
+you can see a list of generators provided on your system by typing
+"cmake" in your terminal and pressing enter. The supported generators
+should be listed near the bottom of the printout.
+
+Qt 4.5.0 is also required on all platforms. It can be donwloaded from
+here (choose the LGPL version): http://www.qtsoftware.com/downloads 
+
+Mac users should grab the Qt SDK. Windows users can also download the
+SDK which comes with MinGW and the Qt Creator IDE. If you want to use
+the Visual Studio compiler, you should download the Windows Qt source
+distribution and compile it with VS. Linux users should get it from
+their distribution's package manager (more information in the linux
+section).
+
+= Windows =
+
+It is assumed you want to generate Visual Studio project files. You can
+do this by creating a new folder OUTSIDE of the source distribution.
+
+Now navigate to that folder with a terminal like cmd.exe or PowerShell.
+Then type in and run the following:
+
+cmake -G "Visual Studio 9 2008" /path/to/source/folder
+
+This should create SLN and vcproj files for Visual Studio in that directory.
+You can also generate project files for some other VS version. You can get
+a list of all supported generators by typing in and running "cmake".
+
+There is also an add-in for VS on Qt's website: 
+http://www.qtsoftware.com/downloads/visual-studio-add-in
+
+This will make it easier to develop Qt applications like Sigil, but is not
+strictly necessary. 
+
+= Mac =
+
+It is assumed you want to generate Xcode project files. You can
+do this by creating a new folder OUTSIDE of the source distribution.
+
+Now navigate to that folder with the Terminal. Then type in and run
+the following:
+
+cmake -G Xcode /path/to/source/folder
+
+This should create Xcode project files in that directory.
+
+= Linux =
+
+Aside fromt the core Qt libraries, you will also need to install libqt4-xml,
+libqt4-svg and libqt4-webkit (and their various dependencies) which are not
+included by default in Qt.
+
+This should be as simple as typing in the following command into your
+terminal (on Debian-like systems):
+
+sudo apt-get install libqt4-gui libqt4-svg libqt4-webkit libqt4-xml
+
+It is assumed you want to generate Makefiles. You can do this by creating
+a new folder OUTSIDE of the source distribution.
+
+Now navigate to that folder with a terminal. Then type in and run 
+the following:
+
+cmake -G "Unix Makefiles" /path/to/source/folder
+make
+sudo make install
+
+That builds and installs Sigil on Linux. By default, Sigil is installed
+in ${CMAKE_INSTALL_PREFIX}/bin, with CMAKE_INSTALL_PREFIX defaulting to
+"usr/local".
+
+You can change the install location by running cmake like this:
+
+cmake -DCMAKE_INSTALL_PREFIX=/new/install/prefix -G "Unix Makefiles" /path/to/source/folder
+
+Building from source in the repository is recommended, since code in the
+repository should always be stable. If it's not, that's a bug report. 
