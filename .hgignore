@@ -63,3 +63,4 @@ qrc_*
 *.pbxindex
 *.build
 *.smp
+*.pl
