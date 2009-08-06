@@ -22,6 +22,10 @@
 #include "stdafx.h"
 #include "Metadata.h"
 
+static const QString PATH_TO_LANGUAGES  = ":/data/languages.csv";
+static const QString PATH_TO_BASICMETA  = ":/data/basicmeta.csv";
+static const QString PATH_TO_RELATORS   = ":/data/relator.csv";
+
 Metadata & Metadata::Instance()
 {
     // We use a static local variable
@@ -80,9 +84,7 @@ void Metadata::LoadLanguages()
 
         return;
 
-    QString path = QCoreApplication::applicationDirPath() + "/data/languages.csv";
-
-    QFile file( path );
+    QFile file( PATH_TO_LANGUAGES );
 
     // Check if we can open the file
     if ( !file.open( QFile::ReadOnly | QFile::Text ) )
@@ -90,7 +92,7 @@ void Metadata::LoadLanguages()
         QMessageBox::warning(	0,
             QObject::tr( "Sigil" ),
             QObject::tr( "Cannot read file %1:\n%2." )
-            .arg( path )
+            .arg( PATH_TO_LANGUAGES )
             .arg( file.errorString() ) 
             );
 
@@ -122,9 +124,7 @@ void Metadata::LoadBasicMetadata()
 
         return;
 
-    QString path = QCoreApplication::applicationDirPath() + "/data/basicmeta.csv";
-
-    QFile file( path );
+    QFile file( PATH_TO_BASICMETA );
 
     // Check if we can open the file
     if ( !file.open( QFile::ReadOnly | QFile::Text ) )
@@ -132,7 +132,7 @@ void Metadata::LoadBasicMetadata()
         QMessageBox::warning(	0,
             QObject::tr( "Sigil" ),
             QObject::tr( "Cannot read file %1:\n%2." )
-            .arg( path )
+            .arg( PATH_TO_BASICMETA )
             .arg( file.errorString() ) 
             );
 
@@ -169,9 +169,7 @@ void Metadata::LoadRelatorCodes()
 
         return;
 
-    QString path = QCoreApplication::applicationDirPath() + "/data/relator.csv";
-
-    QFile file( path );
+    QFile file( PATH_TO_RELATORS );
 
     // Check if we can open the file
     if ( !file.open( QFile::ReadOnly | QFile::Text ) )
@@ -179,7 +177,7 @@ void Metadata::LoadRelatorCodes()
         QMessageBox::warning(	0,
             QObject::tr( "Sigil" ),
             QObject::tr( "Cannot read file %1:\n%2." )
-            .arg( path )
+            .arg( PATH_TO_RELATORS )
             .arg( file.errorString() ) 
             );
 

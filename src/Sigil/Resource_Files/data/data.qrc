@@ -1,0 +1,7 @@
+<RCC>
+  <qresource prefix="data" >
+    <file>basicmeta.csv</file>
+    <file>languages.csv</file>
+    <file>relator.csv</file>
+  </qresource>
+</RCC>

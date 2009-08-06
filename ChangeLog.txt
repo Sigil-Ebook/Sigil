@@ -1,3 +1,6 @@
+Sigil v0.1.2 <ADD DATE>
+	- removed dependency on "data" directory (issue #51)
+
 Sigil v0.1.1 2009.08.06.
 	- applied provided patch for NetBSD support
 	- fixed issue with loading images in HTML and EPUB docs that have regexp special characters

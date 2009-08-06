@@ -89,7 +89,8 @@ set( UI_FILES 	Form_Files/main.ui
 				Form_Files/About.ui 
 				Form_Files/TOCEditor.ui )
 			
-set( QRC_FILES Resource_Files/main/main.qrc )
+set( QRC_FILES 	Resource_Files/main/main.qrc
+				Resource_Files/data/data.qrc )
 
 # Runs MOC on specifed files
 QT4_WRAP_CPP( MOC_FILES_CPP ${QOBJECT_HEADERS} )
@@ -131,12 +132,9 @@ if( APPLE )
    set( MACOSX_BUNDLE_BUNDLE_NAME "Sigil" )
    set( MACOSX_BUNDLE_ICON_FILE "Sigil.icns" )
 
-   # Need to copy the icon file
+   # Copy the icon file
    exec_program( "mkdir -p ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Sigil.app/Contents/Resources")
    exec_program( "cp ${PROJECT_SOURCE_DIR}/Resource_Files/icon/Sigil.icns ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Sigil.app/Contents/Resources")
-
-   # Copy the data folder
-   exec_program( "cp -R ${PROJECT_SOURCE_DIR}/data ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Sigil.app/Contents/MacOS/" )
 endif()
 
 # We need to pick up the ui*.h and moc*.cpp files
@@ -169,11 +167,4 @@ endif()
 if( APPLE )
 	ADD_CUSTOM_TARGET( makedmg ALL COMMAND macdeployqt Sigil.app -dmg 
 				WORKING_DIRECTORY ${CMAKE_RUNTIME_OUTPUT_DIRECTORY} )
-
-# Copy our data folder to binary location
-# (for mac, it's already in the bundle)
-else()
-	ADD_CUSTOM_TARGET( datacopy ALL COMMAND ${CMAKE_COMMAND} -E copy_directory 
-						"${PROJECT_SOURCE_DIR}/data"
-						"${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/${CMAKE_CFG_INTDIR}/data" )
 endif()
