@@ -96,6 +96,7 @@ set( UI_FILES 	Form_Files/main.ui
 				Form_Files/TOCEditor.ui )
 			
 set( QRC_FILES 	Resource_Files/main/main.qrc
+                Resource_Files/About/About.qrc
 				Resource_Files/data/data.qrc )
 
 # Runs MOC on specifed files
