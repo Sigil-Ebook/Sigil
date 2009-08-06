@@ -164,7 +164,23 @@ void ImportEPUB::ReadOPF()
         return;
     }
 
-    QXmlStreamReader opf( &file );
+    QTextStream in( &file );
+
+    // Input should be UTF-8
+    in.setCodec( "UTF-8" );
+
+    // This will automatically switch reading from
+    // UTF-8 to UTF-16 if a BOM is detected
+    in.setAutoDetectUnicode( true );
+
+    // MASSIVE hack for XML 1.1 "support";
+    // this is only for people who specify
+    // XML 1.1 when they actually only use XML 1.0 
+    QString source = in.readAll().replace(  QRegExp( "<\\?xml\\s+version=\"1.1\"\\s*\\?>" ),
+                                            "<?xml version=\"1.0\"?>"
+                                         );
+
+    QXmlStreamReader opf( source );
 
     while ( !opf.atEnd() ) 
     {
