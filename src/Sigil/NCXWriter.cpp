@@ -30,8 +30,7 @@
 // the folder where the book will be exported
 NCXWriter::NCXWriter( const Book &book, const FolderKeeper &fkeeper )
     : 
-    XMLWriter( book, fkeeper.GetContentFilesList() ), 
-    m_Folder( fkeeper ),    
+    XMLWriter( book, fkeeper ), 
     m_HeadingIDsPerFile( GetHeadingIDsPerFile() ),
     m_Headings( Headings::MakeHeadingHeirarchy( Headings::GetHeadingList( m_Book.source ) ) )
 {
@@ -227,6 +226,10 @@ QHash< QString, QStringList > NCXWriter::GetHeadingIDsPerFile() const
 
         // Input should be UTF-8
         in.setCodec( "UTF-8" );
+
+        // This will automatically switch reading from
+        // UTF-8 to UTF-16 if a BOM is detected
+        in.setAutoDetectUnicode( true );
 
         QList< Headings::Heading > headings = Headings::GetHeadingList( in.readAll() );
 

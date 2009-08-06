@@ -24,13 +24,15 @@
 #include "Metadata.h"
 #include "Book.h"
 
+static const int FLOW_SIZE_THRESHOLD = 1000;
+
 
 // Constructor;
 // The first parameter is the book being exported,
 // and the second is the list of files
 // in the folder that will become the exported book
-OPFWriter::OPFWriter( const Book &book, const QStringList &filelist )
-    : XMLWriter( book, filelist )
+OPFWriter::OPFWriter( const Book &book, const FolderKeeper &fkeeper )
+    : XMLWriter( book, fkeeper )
 {
     CreateMimetypes();
 }
@@ -52,6 +54,7 @@ QString OPFWriter::GetXML()
     WriteMetadata();
     WriteManifest();
     WriteSpine();
+    WriteGuide();
 
     m_Writer->writeEndElement();
     m_Writer->writeEndDocument();
@@ -274,6 +277,66 @@ void OPFWriter::WriteSpine()
 }
 
 
+// Writes the <guide> element
+void OPFWriter::WriteGuide()
+{
+    QString relative_path = m_Files.filter( "text/" )[ 0 ];
+    
+    // We write the cover page (and the guide in general)
+    // only if the first OPS document (flow) is smaller
+    // than our threshold
+    if ( IsFlowUnderThreshold( relative_path, FLOW_SIZE_THRESHOLD ) )
+    {
+        m_Writer->writeStartElement( "guide" );
+
+        m_Writer->writeEmptyElement( "reference" );
+        m_Writer->writeAttribute( "type", "cover" );
+        m_Writer->writeAttribute( "title", "Cover Page" );
+        m_Writer->writeAttribute( "href", relative_path );
+
+        m_Writer->writeEndElement();	
+    }
+}
+
+
+// Returns true if the content of the file specified
+// has fewer characters than 'threshold' number;
+// by the path specified is relative to the OEBPS folder 
+bool OPFWriter::IsFlowUnderThreshold( const QString &relative_path, int threshold )
+{
+    QString fullfilepath = m_Folder.GetFullPathToOEBPSFolder() + "/" + relative_path;
+
+    QFile file( fullfilepath );
+
+    // Check if we can open the file
+    if ( !file.open( QFile::ReadOnly | QFile::Text ) )
+    {
+        QMessageBox::warning(	0,
+            QObject::tr( "Sigil" ),
+            QObject::tr( "Cannot read file %1:\n%2." )
+            .arg( fullfilepath )
+            .arg( file.errorString() ) 
+            );
+        return false;
+    }
+
+    QTextStream in( &file );
+
+    // Input should be UTF-8
+    in.setCodec( "UTF-8" );
+
+    // This will automatically switch reading from
+    // UTF-8 to UTF-16 if a BOM is detected
+    in.setAutoDetectUnicode( true );
+
+    QRegExp content( BODY_START + "(.*)" + BODY_END );
+
+    in.readAll().contains( content );
+
+    return content.cap( 1 ).count() < threshold;
+}
+
+
 // Initializes m_Mimetypes
 void OPFWriter::CreateMimetypes()
 {
@@ -301,6 +364,8 @@ void OPFWriter::CreateMimetypes()
     m_Mimetypes[ "otf"   ] = "application/x-font-opentype"; 
     m_Mimetypes[ "ttf"   ] = "application/x-font-truetype";
 }
+
+
 
 
 

@@ -23,6 +23,8 @@
 #ifndef XMLWRITER_H
 #define XMLWRITER_H
 
+#include "FolderKeeper.h"
+
 class Book;
 
 class XMLWriter
@@ -32,9 +34,9 @@ public:
 
     // Constructor;
     // The first parameter is the book being exported,
-    // and the second is the list of files
-    // in the folder that will become the exported book
-    XMLWriter( const Book &book, const QStringList &filelist );
+    // and the second is the FolderKeeper object representing
+    // the folder where the book will be exported
+    XMLWriter( const Book &book, const FolderKeeper &fkeeper );
 
     // Destructor
     virtual ~XMLWriter();
@@ -46,6 +48,9 @@ protected:
 
     // The book being exported
     const Book &m_Book;
+
+    // Represents the folder where the book will be exported
+    const FolderKeeper &m_Folder;
 
     // list of files in the folder
     // that will become the exported book

@@ -24,7 +24,6 @@
 #define NCXWRITER_H
 
 #include "XMLWriter.h"
-#include "FolderKeeper.h"
 #include "Headings.h"
 
 class NCXWriter : private XMLWriter
@@ -72,9 +71,6 @@ private:
     ///////////////////////////////
     // PRIVATE MEMBER VARIABLES
     ///////////////////////////////
-
-    // Represents the folder where the book will be exported
-    const FolderKeeper &m_Folder;
 
     // Lists all the headings in a particular file;
     // the keys are the relative path names, and the values

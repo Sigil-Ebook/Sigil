@@ -32,9 +32,9 @@ public:
 
     // Constructor;
     // The first parameter is the book being exported,
-    // and the second is the list of files
-    // in the folder that will become the exported book
-    OPFWriter( const Book &book, const QStringList &filelist );
+    // and the second is the FolderKeeper object representing
+    // the folder where the book will be exported
+    OPFWriter( const Book &book, const FolderKeeper &fkeeper );
 
     // Returns the created XML file
     QString GetXML();
@@ -75,6 +75,14 @@ private:
 
     // Writes the <spine> element
     void WriteSpine();	
+
+    // Writes the <guide> element
+    void WriteGuide();
+
+    // Returns true if the content of the file specified
+    // has fewer characters than 'threshold' number;
+    // by the path specified is relative to the OEBPS folder 
+    bool IsFlowUnderThreshold( const QString &relative_path, int threshold );
 
     // Initializes m_Mimetypes
     void CreateMimetypes();

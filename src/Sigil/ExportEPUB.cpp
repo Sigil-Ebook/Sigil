@@ -363,7 +363,7 @@ void ExportEPUB::CreateContentOPF()
         // We ALWAYS output in UTF-8
         out.setCodec( "UTF-8" );
 
-        OPFWriter opf( m_Book, fkFolder.GetContentFilesList() );
+        OPFWriter opf( m_Book, fkFolder );
 
         out << opf.GetXML();
 

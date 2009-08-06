@@ -1,24 +1,26 @@
 Sigil v0.1.2 <ADD DATE>
-	- support for importing UTF-16 encoded documents (not just UTF-8)  
+    - Sigil now creates a guide element with a cover page in the OPF if the content of the first
+    OPS document is less than 1000 characters long (issue #48)
+    - support for importing UTF-16 encoded documents (not just UTF-8)
     - provided install target for linux; the binary is now also named "sigil"
     (lower case 's') on Unix systems (except Mac) for the sake of convention (issue #46)
-	- removed dependency on "data" directory (issue #51)
+    - removed dependency on "data" directory (issue #51)
 
 Sigil v0.1.1 2009.08.06.
-	- applied provided patch for NetBSD support
-	- fixed issue with loading images in HTML and EPUB docs that have regexp special characters
-	in filenames. (issue #39)
-	- if headings have the 'title' attribute set, it is now used as the TOC text entry. (issue #26)
-	- tags are now removed from headings before they are converted to TOC entries (issue #47)
-	- Sigil now remembers the last folder from which you loaded an image (issue #34)
-	- choosing 'cancel' in TOC editor now no longer forces the views to update
-	- fixed bug with new headings getting existing IDs. (issue #36)
-	- printing support! new file menu actions: "print" and "print preview"
-	- fixed an issue when sometimes switching between views didn't enable/disable appropriate actions
-	- fixed an issue with mixed-up CSS classes on Mac and Linux (issue #16)
-	- added line numbering for Code View (issue #9)
-	- added current line highlighting for Code View 
-	- fixed crashed bug with some calibre generated epubs (issue #16)
+    - applied provided patch for NetBSD support
+    - fixed issue with loading images in HTML and EPUB docs that have regexp special characters
+    in filenames. (issue #39)
+    - if headings have the 'title' attribute set, it is now used as the TOC text entry. (issue #26)
+    - tags are now removed from headings before they are converted to TOC entries (issue #47)
+    - Sigil now remembers the last folder from which you loaded an image (issue #34)
+    - choosing 'cancel' in TOC editor now no longer forces the views to update
+    - fixed bug with new headings getting existing IDs. (issue #36)
+    - printing support! new file menu actions: "print" and "print preview"
+    - fixed an issue when sometimes switching between views didn't enable/disable appropriate actions
+    - fixed an issue with mixed-up CSS classes on Mac and Linux (issue #16)
+    - added line numbering for Code View (issue #9)
+    - added current line highlighting for Code View 
+    - fixed crashed bug with some calibre generated epubs (issue #16)
 
 Sigil v0.1.0  2009.08.01.
-	- initial release
+    - initial release

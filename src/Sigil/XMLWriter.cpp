@@ -28,10 +28,11 @@
 // The first parameter is the book for which this XML file
 // is being written, and the second is the list of files
 // in the folder that will become the exported book
-XMLWriter::XMLWriter( const Book &book, const QStringList &filelist )
+XMLWriter::XMLWriter( const Book &book, const FolderKeeper &fkeeper )
     : 
     m_Book( book ), 
-    m_Files( filelist ),
+    m_Folder( fkeeper ),
+    m_Files( fkeeper.GetContentFilesList() ),
     m_Source( "" ),
     m_Writer( new QXmlStreamWriter( &m_Source ) )
 {
