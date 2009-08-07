@@ -185,4 +185,6 @@ endif()
 #
 # By default, the prefix is "/usr/local"
 # 
-install( TARGETS ${PROJECT_NAME} RUNTIME DESTINATION ${CMAKE_INSTALL_PREFIX}/bin )
+if( UNIX AND NOT APPLE )
+    install( TARGETS ${PROJECT_NAME} RUNTIME DESTINATION ${CMAKE_INSTALL_PREFIX}/bin )
+endif()
