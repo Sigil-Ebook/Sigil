@@ -20,6 +20,7 @@
 *************************************************************************/
 
 #include "stdafx.h"
+#include "Utility.h"
 #include "MainWindow.h"
 #include "CleanSource.h"
 #include "FolderKeeper.h"
@@ -956,6 +957,10 @@ bool MainWindow::MaybeSave()
 // Loads from the file specified
 void MainWindow::LoadFile( const QString &filename )
 {
+    if ( !Utility::IsFileReadable( filename ) )
+
+        return;
+
     QApplication::setOverrideCursor( Qt::WaitCursor );
 
     // Create the new book, clean up the old one

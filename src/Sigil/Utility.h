@@ -56,8 +56,7 @@ public:
     // the caller is responsible for creating and deleting the folder
     static QString GetNewTempFolderPath(); 
 
-    // Returns true if the file
-    // to be imported can be read;
+    // Returns true if the file can be read;
     // shows an error dialog if it can't
     // with a message elaborating what's wrong
     static bool IsFileReadable( const QString &fullfilepath );
