@@ -28,7 +28,8 @@ include( ${QT_USE_FILE} )
 
 # These headers need to go through Qt's MOC compiler
 set( QOBJECT_HEADERS  	AddMetadata.h 
-						About.h						
+						About.h			
+                        BookViewEditor.h
 						CodeViewEditor.h 
 						TOCEditor.h 
 						MainWindow.h
@@ -36,7 +37,7 @@ set( QOBJECT_HEADERS  	AddMetadata.h
 
 set( HEADERS Book.h 
 			BookNormalization.h 
-			CleanSource.h
+            CleanSource.h
 			constants.h 
 			ExportEPUB.h 
 			Exporter.h 
@@ -64,6 +65,7 @@ set( CPP_FILES	AddMetadata.cpp
 			About.cpp 
 			Book.cpp 
 			BookNormalization.cpp 
+            BookViewEditor.cpp
 			CleanSource.cpp 
 			CodeViewEditor.cpp 
 			ExportEPUB.cpp 

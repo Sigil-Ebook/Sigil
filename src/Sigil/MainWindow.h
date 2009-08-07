@@ -33,6 +33,7 @@ class XHTMLHighlighter;
 class QComboBox;
 class QWebView;
 class CodeViewEditor;
+class BookViewEditor;
 
 
 class MainWindow : public QMainWindow
@@ -214,28 +215,13 @@ private:
     // Runs HTML Tidy on sSource variable
     void TidyUp();
 
-    // Sets the current file in window title;
-    // updates the recent files list
-    void SetCurrentFile( const QString &filename );
-
     // Removes every occurrence of class="Apple-style-span"
     // with which webkit litters our source code 
     void RemoveAppleClasses();
 
-    // Executes the specified command on the document with javascript
-    void ExecCommand( const QString &command );
-
-    // Executes the specified command with the specified parameter
-    // on the document with javascript
-    void ExecCommand( const QString &command, const QString &parameter );
-
-    // Returns the state of the JavaScript command provided
-    bool QueryCommandState( const QString &command );
-
-    // Returns the name of the element the caret is located in;
-    // if text is selected, returns the name of the element
-    // where the selection *starts*
-    QString GetCursorElementName();
+    // Sets the current file in window title;
+    // updates the recent files list
+    void SetCurrentFile( const QString &filename );
 
     // Selects the appropriate entry in the heading combo box
     // based on the provided name of the element
@@ -301,7 +287,7 @@ private:
     QComboBox *m_cbHeadings;
 
     // The webview component that renders out HTML
-    QWebView *m_wBookView;
+    BookViewEditor *m_wBookView;
 
     // The plain text code editor 
     CodeViewEditor *m_wCodeView;

@@ -34,6 +34,7 @@
 #include "BookNormalization.h"
 #include "SigilMarkup.h"
 #include "CodeViewEditor.h"
+#include "BookViewEditor.h"
 
 static const int STATUSBAR_MSG_DISPLAY_TIME = 2000;
 static const int TAB_SPACES_WIDTH           = 4;
@@ -336,7 +337,7 @@ void MainWindow::Strikethrough()
 {
     if ( m_wBookView->hasFocus() )
     {
-        ExecCommand( "strikeThrough" );
+        m_wBookView->ExecCommand( "strikeThrough" );
 
         RemoveAppleClasses();
     }
@@ -350,7 +351,7 @@ void MainWindow::AlignLeft()
 {
     if ( m_wBookView->hasFocus() )
     {
-        ExecCommand( "justifyLeft" );
+        m_wBookView->ExecCommand( "justifyLeft" );
 
         RemoveAppleClasses();
     }
@@ -364,7 +365,7 @@ void MainWindow::Center()
 {
     if ( m_wBookView->hasFocus() )
     {
-        ExecCommand( "justifyCenter" );
+        m_wBookView->ExecCommand( "justifyCenter" );
 
         RemoveAppleClasses();
     }
@@ -378,7 +379,7 @@ void MainWindow::AlignRight()
 {
     if ( m_wBookView->hasFocus() )
     {
-        ExecCommand( "justifyRight" );
+        m_wBookView->ExecCommand( "justifyRight" );
 
         RemoveAppleClasses();
     }
@@ -392,7 +393,7 @@ void MainWindow::Justify()
 {
     if ( m_wBookView->hasFocus() )
     {
-        ExecCommand( "justifyFull" );
+        m_wBookView->ExecCommand( "justifyFull" );
 
         RemoveAppleClasses();
     }
@@ -486,7 +487,7 @@ void MainWindow::CodeView()
 // Implements Insert chapter break action functionality
 void MainWindow::InsertChapterBreak()
 {
-    ExecCommand( "insertHTML", CHAPTER_BREAK_TAG );
+    m_wBookView->ExecCommand( "insertHTML", CHAPTER_BREAK_TAG );
 
     RemoveAppleClasses();
 }
@@ -507,7 +508,7 @@ void MainWindow::InsertImage()
 
     QString relative_path = "../" + m_Book.mainfolder.AddContentFileToFolder( filename );
 
-    ExecCommand( "insertImage", relative_path );
+    m_wBookView->ExecCommand( "insertImage", relative_path );
 
     RemoveAppleClasses();
 }
@@ -516,7 +517,7 @@ void MainWindow::InsertImage()
 // Implements Insert bulleted list action functionality
 void MainWindow::InsertBulletedList()
 {
-    ExecCommand( "insertUnorderedList" );
+    m_wBookView->ExecCommand( "insertUnorderedList" );
 
     RemoveAppleClasses();
 }
@@ -525,7 +526,7 @@ void MainWindow::InsertBulletedList()
 // Implements Insert numbered list action functionality
 void MainWindow::InsertNumberedList()
 {
-    ExecCommand( "insertOrderedList" );
+    m_wBookView->ExecCommand( "insertOrderedList" );
 
     RemoveAppleClasses();
 }
@@ -539,11 +540,11 @@ void MainWindow::HeadingStyle( const QString& heading_type )
     // For heading_type == "Heading #"
     if ( last_char.isDigit() )
 
-        ExecCommand( "formatBlock", "H" + QString( last_char ) );
+        m_wBookView->ExecCommand( "formatBlock", "H" + QString( last_char ) );
 
     else if ( heading_type == "Normal" )
 
-        ExecCommand( "formatBlock", "P" );
+        m_wBookView->ExecCommand( "formatBlock", "P" );
 
     // else is "<Select style>" which does nothing
 }
@@ -719,11 +720,11 @@ void MainWindow::UpdateUIBookView()
     ui.actionItalic    ->setChecked( m_wBookView->pageAction( QWebPage::ToggleItalic    )->isChecked() );
     ui.actionUnderline ->setChecked( m_wBookView->pageAction( QWebPage::ToggleUnderline )->isChecked() );
     
-    ui.actionStrikethrough      ->setChecked( QueryCommandState( "strikeThrough"       ) );
-    ui.actionInsertBulletedList ->setChecked( QueryCommandState( "insertUnorderedList" ) );
-    ui.actionInsertNumberedList ->setChecked( QueryCommandState( "insertOrderedList"   ) );
+    ui.actionStrikethrough      ->setChecked( m_wBookView->QueryCommandState( "strikeThrough"       ) );
+    ui.actionInsertBulletedList ->setChecked( m_wBookView->QueryCommandState( "insertUnorderedList" ) );
+    ui.actionInsertNumberedList ->setChecked( m_wBookView->QueryCommandState( "insertOrderedList"   ) );
 
-    SelectEntryInHeadingCombo( GetCursorElementName() );
+    SelectEntryInHeadingCombo( m_wBookView->GetCursorElementName() );
 }
 
 
@@ -1083,55 +1084,12 @@ void MainWindow::SetCurrentFile( const QString &filename )
     UpdateRecentFileActions();
 }
 
-
 // Removes every occurrence of class="Apple-style-span"
 // with which webkit litters our source code 
 void MainWindow::RemoveAppleClasses()
 {
     m_Book.source.replace( QRegExp( "(class=\"[^\"]*)Apple-style-span" ), "\\1" );
 }
-
-
-// Executes the specified command on the document with javascript
-void MainWindow::ExecCommand( const QString &command )
-{       
-    QString javascript = QString( "document.execCommand( '%1', false, null)" ).arg( command );
-    
-    m_wBookView->page()->mainFrame()->evaluateJavaScript( javascript );
-}
-
-
-// Executes the specified command with the specified parameter
-// on the document with javascript
-void MainWindow::ExecCommand( const QString &command, const QString &parameter )
-{       
-    QString javascript = QString( "document.execCommand( '%1', false, '%2' )" ).arg( command ).arg( parameter );
-
-    m_wBookView->page()->mainFrame()->evaluateJavaScript( javascript );
-}
-
-
-// Returns the state of the JavaScript command provided
-bool MainWindow::QueryCommandState( const QString &command )
-{
-    QString javascript = QString( "document.queryCommandState( '%1', false, null)" ).arg( command );
-
-    return m_wBookView->page()->mainFrame()->evaluateJavaScript( javascript ).toBool();
-}
-
-
-// Returns the name of the element the caret is located in;
-// if text is selected, returns the name of the element
-// where the selection *starts*
-QString MainWindow::GetCursorElementName()
-{
-    QString javascript =  "var node = document.getSelection().anchorNode;"
-                          "var startNode = (node.nodeName == \"#text\" ? node.parentNode : node);"
-                          "startNode.nodeName;";
-
-    return m_wBookView->page()->mainFrame()->evaluateJavaScript( javascript ).toString();
-}
-
 
 // Selects the appropriate entry in the heading combo box
 // based on the provided name of the element
@@ -1260,7 +1218,7 @@ void MainWindow::ExtendUI()
 
     ui.toolBarHeadings->addWidget( m_cbHeadings );
 
-    m_wBookView = new QWebView( ui.splitter );
+    m_wBookView = new BookViewEditor( ui.splitter );
     ui.splitter->addWidget( m_wBookView );
 
     m_wCodeView = new CodeViewEditor( ui.splitter );
