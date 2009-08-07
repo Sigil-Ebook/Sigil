@@ -38,7 +38,7 @@ ImportTXT::ImportTXT( const QString &fullfilepath )
 // and returns the created Book
 Book ImportTXT::GetBook()
 {
-    if ( !IsFileReadable() )
+    if ( !Utility::IsFileReadable( m_FullFilePath ) )
         
         return Book();
     
@@ -48,30 +48,6 @@ Book ImportTXT::GetBook()
     m_Book.source = CleanSource::Clean( m_Book.source );
 
     return m_Book;
-}
-
-
-// Returns true if the file
-// to be imported can be read
-bool ImportTXT::IsFileReadable()
-{
-    QFile file( m_FullFilePath );
-
-    // Check if we can open the file
-    if ( !file.open( QFile::ReadOnly ) )
-    {
-        QMessageBox::warning(	0,
-            QObject::tr( "Sigil" ),
-            QObject::tr( "Cannot read file %1:\n%2." )
-            .arg( m_FullFilePath )
-            .arg( file.errorString() ) 
-            );
-        return false;
-    }
-    
-    file.close();
-
-    return true;
 }
 
 

@@ -41,10 +41,6 @@ public:
 
 protected:
 
-    // Returns true if the file
-    // to be imported can be read
-    bool IsFileReadable();
-
     // Loads the source code into the Book
     virtual void LoadSource();
 

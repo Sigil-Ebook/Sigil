@@ -49,7 +49,7 @@ ImportEPUB::~ImportEPUB()
 // and returns the created Book
 Book ImportEPUB::GetBook()
 {
-    if ( !IsFileReadable() )
+    if ( !Utility::IsFileReadable( m_FullFilePath ) )
 
         return Book();
 
