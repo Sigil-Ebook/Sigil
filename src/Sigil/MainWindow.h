@@ -243,6 +243,11 @@ private:
     // to extend the UI created by the Designer
     void ExtendUI();
 
+    // If the user provided a file to be loaded as
+    // Sigil's first argument, that file is loaded;
+    // if not, or it can't be opened, an empty file is loaded
+    void LoadInitialFile();
+
     // Connects all the required signals to their slots
     void ConnectSignalsToSlots();
 

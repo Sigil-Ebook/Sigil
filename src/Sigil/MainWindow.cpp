@@ -64,7 +64,7 @@ MainWindow::MainWindow( QWidget *parent, Qt::WFlags flags )
 
     m_isLastViewBook = true;
 
-    New();
+    LoadInitialFile();
 }
 
 
@@ -547,7 +547,7 @@ void MainWindow::HeadingStyle( const QString& heading_type )
 
         m_wBookView->ExecCommand( "formatBlock", "P" );
 
-    // else is "<Select style>" which does nothing
+    // else is "<Select heading>" which does nothing
 }
 
 // Implements Print Preview action functionality
@@ -1115,7 +1115,7 @@ void MainWindow::SelectEntryInHeadingCombo( const QString &element_name )
 
     else
     {
-        select = "<Select style>";
+        select = "<Select heading>";
     }
 
     m_cbHeadings->setCurrentIndex( m_cbHeadings->findText( select ) );
@@ -1206,7 +1206,7 @@ void MainWindow::ExtendUI()
 
     QStringList headings;
     
-    headings << "<Select style>"
+    headings << "<Select heading>"
              << "Normal"
              << "Heading 1"
              << "Heading 2"
@@ -1228,6 +1228,27 @@ void MainWindow::ExtendUI()
 
     m_wCodeView = new CodeViewEditor( ui.splitter );
     ui.splitter->addWidget( m_wCodeView );
+}
+
+
+// If the user provided a file to be loaded as
+// Sigil's first argument, that file is loaded;
+// if not, or it can't be opened, an empty file is loaded
+void MainWindow::LoadInitialFile()
+{
+    QStringList arguments = QCoreApplication::arguments();
+
+    if (    arguments.size() > 1 &&
+            Utility::IsFileReadable( arguments.at( 1 ) ) 
+        )
+    {
+        LoadFile( arguments.at( 1 ) );
+    }
+
+    else
+    {
+        New();
+    }
 }
 
 
@@ -1277,6 +1298,7 @@ void MainWindow::ConnectSignalsToSlots()
 
     connect( qApp,          SIGNAL( focusChanged( QWidget*, QWidget* ) ),   this,   SLOT( FocusFilter( QWidget*, QWidget* ) ) );
 }
+
 
 
 
