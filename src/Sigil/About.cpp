@@ -22,8 +22,6 @@
 #include "stdafx.h"
 #include "About.h"
 
-static const QDateTime BUILD_TIME = QDateTime::currentDateTime();
-
 
 // Constructor
 About::About( QWidget *parent )
@@ -31,7 +29,9 @@ About::About( QWidget *parent )
 {
     ui.setupUi( this );
 
-    ui.lbBuildTimeDisplay->setText( BUILD_TIME.toString( "yyyy.MM.dd HH:mm:ss" ) );
+    QDateTime build_time = QFileInfo( QCoreApplication::applicationFilePath() ).lastModified();
+
+    ui.lbBuildTimeDisplay->setText( build_time.toString( "yyyy.MM.dd HH:mm:ss" ) );
     ui.lbLoadedQtDisplay->setText( QString( qVersion() ) );
 
     // The individual numbers that make up the build version string

@@ -1,4 +1,5 @@
 Sigil v0.1.2 <ADD DATE>
+    - fixed an issue where the reported build time in the About dialog was actually the execution time (issue #65)
     - loading of missing files in the recent files list is now improved (issue #57)
     - fixed a rare issue where the wrong view could be sent to the printer on print actions
     - Sigil now creates a guide element with a cover page in the OPF if the content of the first
