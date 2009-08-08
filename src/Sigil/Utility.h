@@ -60,6 +60,11 @@ public:
     // shows an error dialog if it can't
     // with a message elaborating what's wrong
     static bool IsFileReadable( const QString &fullfilepath );
+
+    // Reads the text file specified with the full file path;
+    // text needs to be in UTF-8 or UTF-16; if the file cannot
+    // be read, an error dialog is shown and an empty string returned
+    static QString ReadUnicodeTextFile( const QString &fullfilepath );
 };
 
 #endif // UTILITY_H

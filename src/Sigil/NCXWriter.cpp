@@ -22,6 +22,7 @@
 #include "stdafx.h"
 #include "NCXWriter.h"
 #include "Book.h"
+#include "Utility.h"
 
 
 // Constructor;
@@ -207,31 +208,9 @@ QHash< QString, QStringList > NCXWriter::GetHeadingIDsPerFile() const
             continue;
 
         QString fullfilepath = m_Folder.GetFullPathToOEBPSFolder() + "/" + relfilepath;
+        QString source       = Utility::ReadUnicodeTextFile( fullfilepath );
 
-        QFile file( fullfilepath );
-
-        // Check if we can open the file
-        if ( !file.open( QFile::ReadOnly | QFile::Text ) )
-        {
-            QMessageBox::warning(	0,
-                QObject::tr( "Sigil" ),
-                QObject::tr( "Cannot read file %1:\n%2." )
-                .arg( fullfilepath )
-                .arg( file.errorString() ) 
-                );
-            return QHash< QString, QStringList >();
-        }
-
-        QTextStream in( &file );
-
-        // Input should be UTF-8
-        in.setCodec( "UTF-8" );
-
-        // This will automatically switch reading from
-        // UTF-8 to UTF-16 if a BOM is detected
-        in.setAutoDetectUnicode( true );
-
-        QList< Headings::Heading > headings = Headings::GetHeadingList( in.readAll() );
+        QList< Headings::Heading > headings = Headings::GetHeadingList( source );
 
         foreach( Headings::Heading heading, headings )
         {

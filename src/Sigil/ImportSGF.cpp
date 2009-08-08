@@ -21,6 +21,7 @@
 
 #include "stdafx.h"
 #include "ImportSGF.h"
+#include "Utility.h"
 
 
 // Constructor;
@@ -35,25 +36,5 @@ ImportSGF::ImportSGF( const QString &fullfilepath )
 void ImportSGF::LoadSource()
 {
     QString fullpath = QFileInfo( m_OPFFilePath ).absolutePath() + "/" + m_Files.values().first();
-
-    QFile file( fullpath );
-
-    // Check if we can open the file
-    if ( !file.open( QFile::ReadOnly | QFile::Text ) )
-    {
-        QMessageBox::warning(	0,
-            QObject::tr( "Sigil" ),
-            QObject::tr("Cannot read file %1:\n%2.")
-            .arg( fullpath )
-            .arg( file.errorString() ) 
-            );
-        return;
-    }
-
-    QTextStream in( &file );
-
-    // Input should be UTF-8
-    in.setCodec( "UTF-8" );
-
-    m_Book.source = in.readAll();
+    m_Book.source    = Utility::ReadUnicodeTextFile( fullpath ); 
 }

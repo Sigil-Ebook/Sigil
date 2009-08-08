@@ -24,6 +24,7 @@
 #include "Utility.h"
 #include "CleanSource.h"
 
+static const QString ENTITY_SEARCH = "<!ENTITY\\s+(\\w+)\\s+\"([^\"]+)\">";
 
 
 // Constructor;
@@ -55,39 +56,17 @@ Book ImportHTML::GetBook()
 // from the provided path to a CSS file
 QString ImportHTML::CreateStyleTag( const QString &fullfilepath )
 {
-    QFile file( fullfilepath );
-
-    // Check if we can open the file
-    if ( !file.open( QFile::ReadOnly | QFile::Text ) )
-    {
-        QMessageBox::warning(	0,
-            QObject::tr( "Sigil" ),
-            QObject::tr( "Cannot read file %1:\n%2." )
-            .arg( fullfilepath )
-            .arg( file.errorString() ) 
-            );
-        return "";
-    }
-
-    QTextStream in( &file );
-
-    // Input should be UTF-8
-    in.setCodec( "UTF-8" );
-
-    // This will automatically switch reading from
-    // UTF-8 to UTF-16 if a BOM is detected
-    in.setAutoDetectUnicode( true );
-
+    QString source    = Utility::ReadUnicodeTextFile( fullfilepath ); 
     QString style_tag = "";
 
     if ( QFileInfo( fullfilepath ).suffix() == "css" )
     {
-        style_tag = "<style type=\"text/css\">\n" + in.readAll() + "\n</style>\n";
+        style_tag = "<style type=\"text/css\">\n" + source + "\n</style>\n";
     }
 
     else // XPGT stylesheet
     {
-        style_tag = "<style type=\"application/vnd.adobe-page-template+xml\">\n" + in.readAll() + "\n</style>\n";
+        style_tag = "<style type=\"application/vnd.adobe-page-template+xml\">\n" + source + "\n</style>\n";
     }
 
     return style_tag;
@@ -135,7 +114,7 @@ QString ImportHTML::ResolveCustomEntities( const QString &html_source )
 {
     QString source = html_source;
 
-    QRegExp entity_search( "<!ENTITY\\s+(\\w+)\\s+\"([^\"]+)\">" );
+    QRegExp entity_search( ENTITY_SEARCH );
 
     QHash< QString, QString > entities;
 
@@ -200,14 +179,14 @@ void ImportHTML::LoadFolderStructure()
 {
     int index = 0;
 
-    QString image   = "<\\s*(?:img|IMG)[^>]*src\\s*=\\s*";
-    QString linkel  = "<\\s*(?:link|LINK)[^>]*href\\s*=\\s*";
-    QString theurl  = "\"([^\">]+)\"";
-    QString tail    = "[^>]*>";
+    QString image           = "<\\s*(?:img|IMG)[^>]*src\\s*=\\s*";
+    QString link_element    = "<\\s*(?:link|LINK)[^>]*href\\s*=\\s*";
+    QString resource_url    = "\"([^\">]+)\"";
+    QString tail            = "[^>]*>";
 
     while ( true )
     {         
-        QRegExp fileurl( "(?:" + image + "|" + linkel + ")" + theurl + tail );
+        QRegExp fileurl( "(?:" + image + "|" + link_element + ")" + resource_url + tail );
 
         index = m_Book.source.indexOf( fileurl, index ) + fileurl.matchedLength();
 

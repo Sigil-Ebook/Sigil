@@ -192,5 +192,39 @@ bool Utility::IsFileReadable( const QString &fullfilepath )
 }
 
 
+// Reads the text file specified with the full file path;
+// text needs to be in UTF-8 or UTF-16; if the file cannot
+// be read, an error dialog is shown and an empty string returned
+QString Utility::ReadUnicodeTextFile( const QString &fullfilepath )
+{
+    // TODO: throw an exception instead of
+    // returning an empty string 
+
+    QFile file( fullfilepath );
+
+    // Check if we can open the file
+    if ( !file.open( QFile::ReadOnly | QFile::Text ) )
+    {
+        QMessageBox::warning(	0,
+            QObject::tr( "Sigil" ),
+            QObject::tr( "Cannot read file %1:\n%2." )
+            .arg( fullfilepath )
+            .arg( file.errorString() ) 
+            );
+        return "";
+    }
+
+    QTextStream in( &file );
+
+    // Input should be UTF-8
+    in.setCodec( "UTF-8" );
+
+    // This will automatically switch reading from
+    // UTF-8 to UTF-16 if a BOM is detected
+    in.setAutoDetectUnicode( true );
+
+    return in.readAll();
+}
+
 
 

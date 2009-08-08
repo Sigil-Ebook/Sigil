@@ -54,30 +54,7 @@ Book ImportTXT::GetBook()
 // Loads the source code into the Book
 void ImportTXT::LoadSource()
 {
-    QFile file( m_FullFilePath );
-
-    // Check if we can open the file
-    if ( !file.open( QFile::ReadOnly | QFile::Text ) )
-    {
-        QMessageBox::warning(	0,
-            QObject::tr( "Sigil" ),
-            QObject::tr("Cannot read file %1:\n%2.")
-            .arg( m_FullFilePath )
-            .arg( file.errorString() ) 
-            );
-        return;
-    }
-
-    QTextStream in( &file );
-    
-    // Input should be UTF-8
-    in.setCodec( "UTF-8" );
-
-    // This will automatically switch reading from
-    // UTF-8 to UTF-16 if a BOM is detected
-    in.setAutoDetectUnicode( true );
-
-    m_Book.source = in.readAll();    
+    m_Book.source = Utility::ReadUnicodeTextFile( m_FullFilePath );    
 }
 
 

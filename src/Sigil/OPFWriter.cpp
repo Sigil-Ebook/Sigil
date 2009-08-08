@@ -23,6 +23,7 @@
 #include "OPFWriter.h"
 #include "Metadata.h"
 #include "Book.h"
+#include "Utility.h"
 
 static const int FLOW_SIZE_THRESHOLD = 1000;
 
@@ -306,32 +307,9 @@ bool OPFWriter::IsFlowUnderThreshold( const QString &relative_path, int threshol
 {
     QString fullfilepath = m_Folder.GetFullPathToOEBPSFolder() + "/" + relative_path;
 
-    QFile file( fullfilepath );
-
-    // Check if we can open the file
-    if ( !file.open( QFile::ReadOnly | QFile::Text ) )
-    {
-        QMessageBox::warning(	0,
-            QObject::tr( "Sigil" ),
-            QObject::tr( "Cannot read file %1:\n%2." )
-            .arg( fullfilepath )
-            .arg( file.errorString() ) 
-            );
-        return false;
-    }
-
-    QTextStream in( &file );
-
-    // Input should be UTF-8
-    in.setCodec( "UTF-8" );
-
-    // This will automatically switch reading from
-    // UTF-8 to UTF-16 if a BOM is detected
-    in.setAutoDetectUnicode( true );
-
     QRegExp content( BODY_START + "(.*)" + BODY_END );
 
-    in.readAll().contains( content );
+    Utility::ReadUnicodeTextFile( fullfilepath ).contains( content );
 
     return content.cap( 1 ).count() < threshold;
 }

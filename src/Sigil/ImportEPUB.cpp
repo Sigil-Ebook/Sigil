@@ -112,31 +112,7 @@ void ImportEPUB::LocateOPF()
     folder.cd( "META-INF" );
 
     QString fullpath = folder.absoluteFilePath( "container.xml" );
-
-    QFile file( fullpath );
-
-    // Check if we can open the file
-    if ( !file.open( QFile::ReadOnly | QFile::Text ) )
-    {
-        QMessageBox::warning(	0,
-            QObject::tr( "Sigil" ),
-            QObject::tr("Cannot read file %1:\n%2.")
-            .arg( fullpath )
-            .arg( file.errorString() ) 
-            );
-        return;
-    }
-
-    QTextStream in( &file );
-
-    // Input should be UTF-8
-    in.setCodec( "UTF-8" );
-
-    // This will automatically switch reading from
-    // UTF-8 to UTF-16 if a BOM is detected
-    in.setAutoDetectUnicode( true );
-
-    QString container_xml = in.readAll();  
+    QString container_xml = Utility::ReadUnicodeTextFile( fullpath ); 
 
     QRegExp opf_search( "\"([^\">]+\\.opf)\"" );
 
@@ -150,35 +126,14 @@ void ImportEPUB::LocateOPF()
 // inside m_MetaElements, m_Files and m_ReadingOrderIds
 void ImportEPUB::ReadOPF()
 {
-    QFile file( m_OPFFilePath );
-
-    // Check if we can open the file
-    if ( !file.open( QFile::ReadOnly | QFile::Text ) )
-    {
-        QMessageBox::warning(	0,
-            QObject::tr( "Sigil" ),
-            QObject::tr("Cannot read file %1:\n%2.")
-            .arg( m_OPFFilePath )
-            .arg( file.errorString() ) 
-            );
-        return;
-    }
-
-    QTextStream in( &file );
-
-    // Input should be UTF-8
-    in.setCodec( "UTF-8" );
-
-    // This will automatically switch reading from
-    // UTF-8 to UTF-16 if a BOM is detected
-    in.setAutoDetectUnicode( true );
+    QString opf_text = Utility::ReadUnicodeTextFile( m_OPFFilePath );
 
     // MASSIVE hack for XML 1.1 "support";
     // this is only for people who specify
     // XML 1.1 when they actually only use XML 1.0 
-    QString source = in.readAll().replace(  QRegExp( "<\\?xml\\s+version=\"1.1\"\\s*\\?>" ),
+    QString source = opf_text.replace(  QRegExp( "<\\?xml\\s+version=\"1.1\"\\s*\\?>" ),
                                             "<?xml version=\"1.0\"?>"
-                                         );
+                                     );
 
     QXmlStreamReader opf( source );
 
@@ -334,31 +289,7 @@ void ImportEPUB::LoadSource()
     foreach( QString id, m_ReadingOrderIds )
     {
         QString fullpath = QFileInfo( m_OPFFilePath ).absolutePath() + "/" + m_Files[ id ];
-
-        QFile file( fullpath );
-
-        // Check if we can open the file
-        if ( !file.open( QFile::ReadOnly | QFile::Text ) )
-        {
-            QMessageBox::warning(	0,
-                QObject::tr( "Sigil" ),
-                QObject::tr( "Cannot read file %1:\n%2." )
-                .arg( fullpath )
-                .arg( file.errorString() ) 
-                );
-            return;
-        }
-
-        QTextStream in( &file );
-
-        // Input should be UTF-8
-        in.setCodec( "UTF-8" );
-
-        // This will automatically switch reading from
-        // UTF-8 to UTF-16 if a BOM is detected
-        in.setAutoDetectUnicode( true );
-
-        QString text = ResolveCustomEntities( in.readAll() );
+        QString text = ResolveCustomEntities( Utility::ReadUnicodeTextFile( fullpath ) );
 
         // We extract the content of the files
         // that is within the <body> tag
@@ -370,7 +301,7 @@ void ImportEPUB::LoadSource()
 
         QString content = Utility::Substring( body_begin, body_end, text );
 
-        // We don't add the our chapter break tag
+        // We don't add our chapter break tag
         // for the first text file
         if ( is_first_text_file == false )
         {            

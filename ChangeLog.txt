@@ -25,7 +25,7 @@ Sigil v0.1.1 2009.08.06.
     - fixed an issue with mixed-up CSS classes on Mac and Linux (issue #16)
     - added line numbering for Code View (issue #9)
     - added current line highlighting for Code View 
-    - fixed crashed bug with some calibre generated epubs (issue #16)
+    - fixed crashing bug with some calibre generated epubs (issue #16)
 
 Sigil v0.1.0  2009.08.01.
     - initial release
