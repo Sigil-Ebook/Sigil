@@ -27,13 +27,14 @@
 #include <ZipArchive.h>
 #include "CleanSource.h"
 #include "Utility.h"
+#include "XHTMLDoc.h"
 
 const QString BODY_START = "<\\s*body[^>]*>";
 const QString BODY_END   = "</\\s*body\\s*>";
 const QString BREAK_TAG  = "<hr\\s*class\\s*=\\s*\"sigilChapterBreak\"\\s*/>";
 
 // Use with <QRegExp>.setMinimal( true )
-const QString STYLE_TAG  = "<\\s*style\\s*type\\s*=\\s*\"([^\"]+)\"[^>]*>(.*)</\\s*style[^>]*>";
+//const QString STYLE_TAG  = "<\\s*style\\s*type\\s*=\\s*\"([^\"]+)\"[^>]*>(.*)</\\s*style[^>]*>";
 
 
 // Constructor;
@@ -131,34 +132,17 @@ void ExportEPUB::SaveTo( const QString &fullfilepath )
 // to the OEBPS folder in the FolderKeeper
 QStringList ExportEPUB::CreateStyleFiles()
 {
-    QRegExp body_start_tag( BODY_START );
-
-    int body_begin = m_Book.source.indexOf( body_start_tag, 0 );
-
-    QString header = Utility::Substring( 0, body_begin, m_Book.source );
-
-    QRegExp style_tag( STYLE_TAG );
-
-    // Non-greedy quantifiers, so we get
-    // only one style tag per pass
-    style_tag.setMinimal( true );
-    
     QStringList style_files;
 
-    int main_index = 0;
+    QList< QDomNode > style_tag_nodes = XHTMLDoc::GetStyleTags( m_Book.source );
 
-    while ( true )
+    foreach( QDomNode node, style_tag_nodes )
     {
-        int css_index = header.indexOf( style_tag, main_index );
-
-        if ( css_index == -1 )
-
-            break;
+        QDomElement element = node.toElement();
 
         QString extension = "";
 
-        // What type of stylesheet should we create?
-        if ( style_tag.cap( 1 ) == "text/css" )
+        if ( element.attribute( "type" ) == "text/css" )  
     
             extension = "css";
 
@@ -166,7 +150,7 @@ QStringList ExportEPUB::CreateStyleFiles()
 
             extension = "xpgt";
 
-        QString style_text = style_tag.cap( 2 );
+        QString style_text = element.text();
         style_text = RemoveSigilStyles( style_text );
         style_text = StripCDATA( style_text );
         style_text = style_text.trimmed();        
@@ -174,8 +158,6 @@ QStringList ExportEPUB::CreateStyleFiles()
         if ( !style_text.isEmpty() )
 
             style_files << "../" + CreateOneTextFile( style_text, extension );
-
-        main_index = css_index + style_tag.matchedLength();
     }
     
     return style_files;   
@@ -292,6 +274,7 @@ QString ExportEPUB::StripCDATA( const QString &style_source )
 
     newsource.replace( "/*<![CDATA[*/", "" );
     newsource.replace( "/*]]>*/", "" );
+    newsource.replace( "/**/", "" );
 
     newsource.replace( "<![CDATA[", "" );
     newsource.replace( "]]>", "" );

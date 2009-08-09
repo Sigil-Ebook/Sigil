@@ -24,6 +24,7 @@
 #include "CleanSource.h"
 #include <tidy.h>
 #include <buffio.h>
+#include "XHTMLDoc.h"
 
 static const QString SIGIL_CLASS_NAME       = "sgc";
 static const QString SIGIL_CLASS_NAME_REG   = SIGIL_CLASS_NAME + "-(\\d+)";
@@ -81,9 +82,8 @@ QString CleanSource::CleanCSS( const QString &source, int old_num_styles )
         css_style_tags  = cleaned.css_style_tags;
     }
 
-    css_style_tags = RemoveCDATAComments( css_style_tags );
+    css_style_tags = RemoveEmptyComments( css_style_tags );
     css_style_tags = MergeSmallerStyles(  css_style_tags );
-    css_style_tags = AddCDATAComments(    css_style_tags );
 
     newsource = WriteNewCSSStyleTags( newsource, css_style_tags );
 
@@ -96,68 +96,35 @@ QString CleanSource::CleanCSS( const QString &source, int old_num_styles )
 // of a single CSS style tag
 QStringList CleanSource::CSSStyleTags( const QString &source )
 {
-    QRegExp body_start_tag( BODY_START );
-
-    int body_begin = source.indexOf( body_start_tag, 0 );
-
-    QString header = Utility::Substring( 0, body_begin, source );
-
-    QRegExp style_tag( STYLE_TAG );
-
-    // Non-greedy quantifiers, so we get
-    // only one style tag per pass
-    style_tag.setMinimal( true );
-
     QStringList css_style_tags;
-    int main_index = 0;
 
-    while ( true )
+    QList< QDomNode > style_tag_nodes = XHTMLDoc::GetStyleTags( source );
+
+    foreach( QDomNode node, style_tag_nodes )
     {
-        int css_index = header.indexOf( style_tag, main_index );
+        QDomElement element = node.toElement();
 
-        if ( css_index == -1 )
-
-            break;
-
-        main_index = css_index + style_tag.matchedLength();
-
-        // We only read from CSS style tags and ignore other types
-        if ( style_tag.cap( 1 ) != "text/css" )
-
-            continue;  
-
-        css_style_tags.append( style_tag.cap( 2 ) );
+        if (    element.hasAttribute( "type" ) && 
+              ( element.attribute( "type" ) == "text/css" ) 
+           )  
+        {
+            css_style_tags.append( element.text() );
+        }
     }
 
     return css_style_tags;
 }
 
-// Removes the CDATA comments from the style tag contents
-QStringList CleanSource::RemoveCDATAComments( const QStringList &css_style_tags )
+// Removes empty comments that are
+// sometimes left after CDATA comments
+QStringList CleanSource::RemoveEmptyComments( const QStringList &css_style_tags )
 {
     QStringList new_tags = css_style_tags;
 
     for ( int i = 0; i < new_tags.count(); i++ )
     {
-        new_tags[ i ].replace( "/*<![CDATA[*/", "" );
-        new_tags[ i ].replace( "/*]]>*/", "" );
-
+        new_tags[ i ].replace( "/**/", "" );
         new_tags[ i ] = new_tags[ i ].trimmed();
-    }
-
-    return new_tags;
-}
-
-
-// Adds back the CDATA comments to the style tag contents
-QStringList CleanSource::AddCDATAComments( const QStringList &css_style_tags )
-{
-    QStringList new_tags = css_style_tags;
-
-    for ( int i = 0; i < new_tags.count(); i++ )
-    {
-        new_tags[ i ].prepend( "/*<![CDATA[*/\n\n" );
-        new_tags[ i ].append( "\n\n/*]]>*/" );
     }
 
     return new_tags;

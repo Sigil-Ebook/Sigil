@@ -59,7 +59,8 @@ set( HEADERS Book.h
 			stdafx.h			 
 			Utility.h 			
 			XHTMLHighlighter.h 
-			XMLWriter.h  )
+			XHTMLDoc.h
+            XMLWriter.h  )
 			
 set( CPP_FILES	AddMetadata.cpp 
 			About.cpp 
@@ -89,6 +90,7 @@ set( CPP_FILES	AddMetadata.cpp
 			TOCEditor.cpp 
 			Utility.cpp 		
 			XHTMLHighlighter.cpp 
+            XHTMLDoc.cpp
 			XMLWriter.cpp  )
 			
 set( UI_FILES 	Form_Files/main.ui 

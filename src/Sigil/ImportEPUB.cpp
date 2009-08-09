@@ -25,6 +25,7 @@
 #include "Utility.h"
 #include "Metadata.h"
 #include <ZipArchive.h>
+#include "XHTMLDoc.h"
 
 
 // Constructor;
@@ -342,10 +343,44 @@ void ImportEPUB::AddHeaderToSource()
         }
     }
 
+    // Add existing inline style tags present in XHTML files
+    foreach( QString style_tag, GetExistingStyleTags() )
+    {
+        header += style_tag;
+    }
+
     header += "</head>\n<body>\n";
 
     m_Book.source = header + m_Book.source;
 }
+
+
+// Goes through all the XHTML documents in the publication
+// and gathers (and returns) all the inline style tags
+QStringList ImportEPUB::GetExistingStyleTags()
+{
+    QStringList style_tags;
+
+    foreach( QString id, m_ReadingOrderIds )
+    {
+        QString fullpath = QFileInfo( m_OPFFilePath ).absolutePath() + "/" + m_Files[ id ];
+        QString text     = ResolveCustomEntities( Utility::ReadUnicodeTextFile( fullpath ) );
+
+        QList< QDomNode > style_tag_nodes = XHTMLDoc::GetStyleTags( text );
+
+        foreach( QDomNode node, style_tag_nodes )
+        {
+            QString style_tag;
+
+            node.save( QTextStream( &style_tag ), 0 );
+
+            style_tags.append( style_tag );
+        }
+    }
+
+    return style_tags;
+}
+
 
 // Loads the referenced files into the main folder of the book;
 // as the files get a new name, the references are updated
@@ -370,3 +405,4 @@ void ImportEPUB::LoadFolderStructure()
         }        
     }
 }
+

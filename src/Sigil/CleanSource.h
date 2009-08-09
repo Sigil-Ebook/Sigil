@@ -47,11 +47,9 @@ private:
     // of a single CSS style tag
     static QStringList CSSStyleTags( const QString &source );
 
-    // Removes the CDATA comments from the style tag contents
-    static QStringList RemoveCDATAComments( const QStringList &css_style_tags );
-
-    // Adds back the CDATA comments to the style tag contents
-    static QStringList AddCDATAComments(    const QStringList &css_style_tags );
+    // Removes empty comments that are
+    // sometimes left after CDATA comments
+    static QStringList RemoveEmptyComments( const QStringList &css_style_tags );
 
     // Merges smaller styles into bigger ones
     static QStringList MergeSmallerStyles(  const QStringList &css_style_tags );
