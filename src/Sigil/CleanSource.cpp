@@ -30,7 +30,7 @@ static const QString SIGIL_CLASS_NAME       = "sgc";
 static const QString SIGIL_CLASS_NAME_REG   = SIGIL_CLASS_NAME + "-(\\d+)";
 
 // Use with <QRegExp>.setMinimal( true )
-static const QString STYLE_TAG_CSS_ONLY     = "<\\s*style\\s*type\\s*=\\s*\"text/css\"[^>]*>.*</\\s*style[^>]*>";
+static const QString STYLE_TAG_CSS_ONLY     = "<\\s*style[^>]*type\\s*=\\s*\"text/css\"[^>]*>.*</\\s*style[^>]*>";
 
 static const QString CLASS_REMOVE_START     = "<[^>]*class\\s*=\\s*\"[^\"]*";
 static const QString CLASS_REMOVE_END       = "[^\"]*\"[^>]*>";
