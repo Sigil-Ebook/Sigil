@@ -54,14 +54,14 @@ This should create Xcode project files in that directory.
 
 = Linux =
 
-Aside fromt the core Qt libraries, you will also need to install libqt4-xml,
+Aside from the core Qt libraries, you will also need to install libqt4-xml,
 libqt4-svg and libqt4-webkit (and their various dependencies) which are not
 included by default in Qt.
 
 This should be as simple as typing in the following command into your
 terminal (on Debian-like systems):
 
-sudo apt-get install libqt4-gui libqt4-svg libqt4-webkit libqt4-xml
+sudo apt-get install libqt4-gui libqt4-svg libqt4-webkit libqt4-xml libqt4-dev
 
 It is assumed you want to generate Makefiles. You can do this by creating
 a new folder OUTSIDE of the source distribution.

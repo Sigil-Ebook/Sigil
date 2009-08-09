@@ -111,8 +111,8 @@ void ImportEPUB::LocateOPF()
 
     folder.cd( "META-INF" );
 
-    QString fullpath = folder.absoluteFilePath( "container.xml" );
-    QString container_xml = Utility::ReadUnicodeTextFile( fullpath ); 
+    QString fullpath        = folder.absoluteFilePath( "container.xml" );
+    QString container_xml   = Utility::ReadUnicodeTextFile( fullpath ); 
 
     QRegExp opf_search( "\"([^\">]+\\.opf)\"" );
 
@@ -289,7 +289,7 @@ void ImportEPUB::LoadSource()
     foreach( QString id, m_ReadingOrderIds )
     {
         QString fullpath = QFileInfo( m_OPFFilePath ).absolutePath() + "/" + m_Files[ id ];
-        QString text = ResolveCustomEntities( Utility::ReadUnicodeTextFile( fullpath ) );
+        QString text     = ResolveCustomEntities( Utility::ReadUnicodeTextFile( fullpath ) );
 
         // We extract the content of the files
         // that is within the <body> tag
