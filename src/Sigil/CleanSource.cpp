@@ -41,6 +41,18 @@ static const QString CLASS_DEFINITION       = "\\{.*\\}";
 // The value was picked arbitrarily
 static const int TAG_SIZE_THRESHOLD         = 1000;
 
+static const QString SVG_ELEMENTS           =   "a,altGlyph,altGlyphDef,altGlyphItem,animate,animateColor,animateMotion"
+                                                ",animateTransform,circle,clipPath,color-profile,cursor,definition-src,defs,desc"
+                                                ",ellipse,feBlend,feColorMatrix,feComponentTransfer,feComposite,feConvolveMatrix"
+                                                ",feDiffuseLighting,feDisplacementMap,feDistantLight,feFlood,feFuncA,feFuncB"
+                                                ",feFuncG,feFuncR,feGaussianBlur,feImage,feMerg,feMergeNode,feMorphology,feOffset"
+                                                ",fePointLight,feSpecularLighting,feSpotLight,feTile,feTurbulence,filter"
+                                                ",font,font-face,font-face-format,font-face-name,font-face-src,font-face-uri"
+                                                ",foreignObject,g,glyph,glyphRef,hkern,image,line,linearGradient,marker,mask"
+                                                ",metadata,missing-glyph,mpath,path,pattern,polygon,polyline,radialGradient"
+                                                ",rect,script,set,stop,style,svg,switch,symbol,text,textPath,title,tref,tspan"
+                                                ",use,view,vkern";
+
 
 // Performs general cleaning (and improving)
 // of provided book XHTML source code
@@ -237,6 +249,10 @@ QString CleanSource::HTMLTidy( const QString &source )
 
     // "css-prefix"
     tidyOptSetValue( tidy_document, TidyCSSPrefix, SIGIL_CLASS_NAME.toUtf8().data() );	
+
+    // Needed so that Tidy doesn't kill off SVG elements
+    // "new-blocklevel-tags"
+    tidyOptSetValue( tidy_document, TidyBlockTags, SVG_ELEMENTS.toUtf8().data() );
 
     // This option doesn't exist in "normal" Tidy. It has been hacked on
     // and enables us to direct Tidy to start numbering new CSS classes
