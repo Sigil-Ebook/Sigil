@@ -63,6 +63,7 @@ Book ImportEPUB::GetBook()
     LoadMetadata();
     LoadSource();
     AddHeaderToSource();
+    StripFilesFromAnchors();
     LoadFolderStructure();
 
     m_Book.source = CleanSource::Clean( m_Book.source );

@@ -33,6 +33,8 @@ const QString BODY_START = "<\\s*body[^>]*>";
 const QString BODY_END   = "</\\s*body\\s*>";
 const QString BREAK_TAG  = "<hr\\s*class\\s*=\\s*\"sigilChapterBreak\"\\s*/>";
 
+static const QString ID_AND_NAME_ATTRIBUTE = "<[^>]*(?:id|name)\\s*=\\s*\"([^\"]+)\"[^>]*>";
+
 // Use with <QRegExp>.setMinimal( true )
 //const QString STYLE_TAG  = "<\\s*style\\s*type\\s*=\\s*\"([^\"]+)\"[^>]*>(.*)</\\s*style[^>]*>";
 
@@ -41,7 +43,7 @@ const QString BREAK_TAG  = "<hr\\s*class\\s*=\\s*\"sigilChapterBreak\"\\s*/>";
 // the first parameter is the location where the book 
 // should be save to, and the second is the book to be saved
 ExportEPUB::ExportEPUB( const QString &fullfilepath, const Book &book ) 
-    : m_FullFilePath( fullfilepath ), m_Book( book ), fkFolder( book.mainfolder )
+    : m_FullFilePath( fullfilepath ), m_Book( book ), m_Folder( book.mainfolder )
 {
 	
 }
@@ -72,6 +74,8 @@ void ExportEPUB::CreatePublication()
     QString header          = CreateHeader( css_files );
 
     CreateXHTMLFiles( header );
+
+    UpdateAnchors();
 
     CreateContainerXML();
     CreateContentOPF();
@@ -110,7 +114,7 @@ void ExportEPUB::SaveTo( const QString &fullfilepath )
     zip.AddNewFile( mimetype.fileName().utf16(), QString( "mimetype" ).utf16(), 0 );
 
     // Add all the files and folders in the publication structure
-    zip.AddNewFiles( QDir::toNativeSeparators( fkFolder.GetFullPathToMainFolder() ).utf16() );
+    zip.AddNewFiles( QDir::toNativeSeparators( m_Folder.GetFullPathToMainFolder() ).utf16() );
 
 #else
     // The location where the epub file will be written to
@@ -120,7 +124,7 @@ void ExportEPUB::SaveTo( const QString &fullfilepath )
     zip.AddNewFile( mimetype.fileName().toUtf8().data(), QString( "mimetype" ).toUtf8().data(), 0 );
 
     // Add all the files and folders in the publication structure
-    zip.AddNewFiles( QDir::toNativeSeparators( fkFolder.GetFullPathToMainFolder() ).toUtf8().data() );
+    zip.AddNewFiles( QDir::toNativeSeparators( m_Folder.GetFullPathToMainFolder() ).toUtf8().data() );
 #endif
 
     zip.Close();
@@ -255,7 +259,7 @@ QString ExportEPUB::CreateOneTextFile( const QString &source, const QString &ext
         out.flush();
         file.flush();
 
-        return fkFolder.AddContentFileToFolder( file.fileName(), extension );
+        return m_Folder.AddContentFileToFolder( file.fileName(), extension );
     }
 
     else
@@ -302,6 +306,91 @@ QString ExportEPUB::RemoveSigilStyles( const QString &style_source )
 }
 
 
+// Updates the href attributes of all <a> tags
+// to point to the files the ID's referenced are located in
+void ExportEPUB::UpdateAnchors()
+{
+    QHash< QString, QString > id_locations = GetIDFileLocations();
+
+    foreach( QString file, m_Folder.GetContentFilesList() )
+    {
+        if ( !file.contains( "text/" ) )
+
+            continue;
+
+        QString fullfilepath = m_Folder.GetFullPathToOEBPSFolder() + "/" + file;
+        QString source = Utility::ReadUnicodeTextFile( fullfilepath );
+
+        QDomDocument document;
+        document.setContent( source );
+
+        QDomNodeList anchors = document.elementsByTagName( "a" );
+
+        for ( int i = 0; i < anchors.count(); i++ )
+        {
+            QDomElement element = anchors.at( i ).toElement();
+
+            if (    element.hasAttribute( "href" ) &&
+                    QUrl( element.attribute( "href" ) ).isRelative() &&
+                    element.attribute( "href" ).contains( "#" )
+                )
+            {
+                // Remove the '#' character
+                QString id = element.attribute( "href" ).remove( 0, 1 );
+
+                // If the ID is in a different file, update the link
+                if ( id_locations[ id ] != file.remove( "text/" ) )
+
+                    element.setAttribute( "href", id_locations[ id ] + "#" + id );            
+            } 
+        }
+
+        source = CleanSource::Clean( document.toString().replace( "&#xd;", "" ) );
+
+        Utility::WriteUnicodeTextFile( source, fullfilepath );
+    }
+}
+
+
+// Returns a hash with keys being ID or NAME attributes
+// of XHTML elements and the values being the files in
+// which these attribute values are located
+QHash< QString, QString > ExportEPUB::GetIDFileLocations()
+{
+    QHash< QString, QString > id_locations;
+
+    foreach( QString file, m_Folder.GetContentFilesList() )
+    {
+        if ( !file.contains( "text/" ) )
+
+            continue;
+
+        QString fullfilepath = m_Folder.GetFullPathToOEBPSFolder() + "/" + file;
+        QString source = Utility::ReadUnicodeTextFile( fullfilepath );
+
+        QRegExp ids_names( ID_AND_NAME_ATTRIBUTE );
+        ids_names.setCaseSensitivity( Qt::CaseInsensitive );
+
+        int main_index = 0;
+
+        while ( true )
+        {
+            main_index = source.indexOf( ids_names, main_index );
+
+            if ( main_index == -1 )
+
+                break;
+
+            id_locations[ ids_names.cap( 1 ) ] = file.remove( "text/" );
+
+            main_index += ids_names.matchedLength();
+        }
+    }
+
+    return id_locations;
+}
+
+
 // Creates the publication's container.xml file
 void ExportEPUB::CreateContainerXML()
 {
@@ -327,7 +416,7 @@ void ExportEPUB::CreateContainerXML()
         out.flush();
         file.flush();
 
-        fkFolder.AddInfraFileToFolder( file.fileName(), "container.xml" );
+        m_Folder.AddInfraFileToFolder( file.fileName(), "container.xml" );
     }
 
     // FIXME: throw exception if not open
@@ -346,7 +435,7 @@ void ExportEPUB::CreateContentOPF()
         // We ALWAYS output in UTF-8
         out.setCodec( "UTF-8" );
 
-        OPFWriter opf( m_Book, fkFolder );
+        OPFWriter opf( m_Book, m_Folder );
 
         out << opf.GetXML();
 
@@ -354,7 +443,7 @@ void ExportEPUB::CreateContentOPF()
         out.flush();
         file.flush();
 
-        fkFolder.AddInfraFileToFolder( file.fileName(), "content.opf" );
+        m_Folder.AddInfraFileToFolder( file.fileName(), "content.opf" );
     }
 
     // FIXME: throw exception if not open
@@ -373,7 +462,7 @@ void ExportEPUB::CreateTocNCX()
         // We ALWAYS output in UTF-8
         out.setCodec( "UTF-8" );
 
-        NCXWriter ncx( m_Book, fkFolder );
+        NCXWriter ncx( m_Book, m_Folder );
 
         out << ncx.GetXML();
 
@@ -381,11 +470,13 @@ void ExportEPUB::CreateTocNCX()
         out.flush();
         file.flush();
 
-        fkFolder.AddInfraFileToFolder( file.fileName(), "toc.ncx" );
+        m_Folder.AddInfraFileToFolder( file.fileName(), "toc.ncx" );
     }
 
     // FIXME: throw exception if not open
 }
+
+
 
 
 

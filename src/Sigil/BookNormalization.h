@@ -40,10 +40,6 @@ private:
     // Gives ID's to all headings that don't have them
     static QString GiveIDsToHeadings( const QString &source );
 
-    // Removes the XML carriage returns ("&#xD" sequences)
-    // that <QDomDocument>.toString() kindly left for us
-    static QString RemoveXMLCarriageReturns( const QString &source );
-
     // Returns the maximum index for Sigil heading IDs
     // present in the provided XHTML source
     static int MaxSigilHeadingIDIndex( const QString &source );

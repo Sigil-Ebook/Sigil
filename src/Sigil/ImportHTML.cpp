@@ -23,6 +23,7 @@
 #include "ImportHTML.h"
 #include "Utility.h"
 #include "CleanSource.h"
+#include <QDomDocument>
 
 static const QString ENTITY_SEARCH = "<!ENTITY\\s+(\\w+)\\s+\"([^\"]+)\">";
 
@@ -43,7 +44,9 @@ Book ImportHTML::GetBook()
 
         return Book();
 
-    LoadSource();
+    LoadSource(); 
+
+    StripFilesFromAnchors();
     LoadFolderStructure();
 
     m_Book.source = CleanSource::Clean( m_Book.source );
@@ -147,6 +150,42 @@ QString ImportHTML::ResolveCustomEntities( const QString &html_source )
     return source;
 }
 
+
+// Strips the file specifier on all the href attributes 
+// of anchor tags with filesystem links with fragment identifiers;
+// thus something like <a href="chapter01.html#firstheading" />
+// becomes just <a href="#firstheading" />
+void ImportHTML::StripFilesFromAnchors()
+{
+    QDomDocument document;
+ 
+    // We need to clean the source first because
+    // QDomDocument only accepts valid XML
+    document.setContent( CleanSource::Clean( m_Book.source ) );
+
+    QDomNodeList anchors = document.elementsByTagName( "a" );
+
+    for ( int i = 0; i < anchors.count(); i++ )
+    {
+        QDomElement element = anchors.at( i ).toElement();
+
+        // We strip the file specifier on all
+        // the filesystem links with fragment identifiers
+        if (    element.hasAttribute( "href" ) &&
+                QUrl( element.attribute( "href" ) ).isRelative() &&
+                element.attribute( "href" ).contains( "#" )
+           )
+        {
+            element.setAttribute( "href", "#" + element.attribute( "href" ).split( "#" )[ 1 ] );            
+        } 
+    }
+
+    // We also remove the XML carriage returns ("&#xD" sequences)
+    // that the toString() method creates
+    m_Book.source = document.toString().replace( "&#xd;", "" );        
+}
+
+
 // Loads the source code into the Book
 void ImportHTML::LoadSource()
 {
@@ -157,7 +196,7 @@ void ImportHTML::LoadSource()
     {
         QMessageBox::warning(	0,
             QObject::tr( "Sigil" ),
-            QObject::tr("Cannot read file %1:\n%2.")
+            QObject::tr( "Cannot read file %1:\n%2." )
             .arg( m_FullFilePath )
             .arg( file.errorString() ) 
             );
@@ -213,5 +252,4 @@ void ImportHTML::LoadFolderStructure()
         }      
     }      
 }
-
 

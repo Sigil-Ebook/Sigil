@@ -1,4 +1,5 @@
 Sigil v0.1.2 <ADD DATE>
+    - inter-document HTML links are now fully supported (issue #53)
     - fixed rare issue where CSS style rules could get duplicated when changing views
     - fixed issue with inline style tags in OPS documents not being loaded (issue #58)
     - Sigil can now accept a file to load as the first command line argument; this also

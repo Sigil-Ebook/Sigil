@@ -78,6 +78,15 @@ protected:
     // Removes Sigil styles from the provided source
     QString RemoveSigilStyles( const QString &style_source );
 
+    // Updates the href attributes of all <a> tags
+    // to point to the files the ID's referenced are located in
+    void UpdateAnchors();
+
+    // Returns a hash with keys being ID or NAME attributes
+    // of XHTML elements and the values being the files in
+    // which these attribute values are located
+    QHash< QString, QString > GetIDFileLocations();
+
     // Creates the publication's container.xml file
     void CreateContainerXML();
 
@@ -101,7 +110,7 @@ protected:
 
     // The folder which contains all the files
     // that will end up in the final exported file
-    FolderKeeper fkFolder;
+    FolderKeeper m_Folder;
 
 };
 

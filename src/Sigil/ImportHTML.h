@@ -50,7 +50,13 @@ protected:
     void UpdateReferences( const QString &oldpath, const QString &newpath );
 
     // Resolves custom ENTITY declarations
-    QString ResolveCustomEntities( const QString &html_source );    
+    QString ResolveCustomEntities( const QString &html_source ); 
+
+    // Strips the file specifier on all the href attributes 
+    // of anchor tags with filesystem links with fragment identifiers;
+    // thus something like <a href="chapter01.html#firstheading" />
+    // becomes just <a href="#firstheading" />
+    void StripFilesFromAnchors();
 
 private:
 

@@ -38,7 +38,6 @@ Book BookNormalization::Normalize( const Book &book )
     Book newbook = book;
 
     newbook.source = GiveIDsToHeadings( newbook.source );
-    newbook.source = RemoveXMLCarriageReturns( newbook.source );
     newbook.source = CleanSource::Clean( newbook.source );
 
     return newbook;
@@ -72,17 +71,9 @@ QString BookNormalization::GiveIDsToHeadings( const QString &source )
         }
     }
 
-    return document.toString();
-}
-
-
-// Removes the XML carriage returns ("&#xD" sequences)
-// that <QDomDocument>.toString() kindly left for us
-QString BookNormalization::RemoveXMLCarriageReturns( const QString &source )
-{
-    QString newsource = source;
-
-    return newsource.replace( "&#xd;", "" );
+    // We also remove the XML carriage returns ("&#xD" sequences)
+    // that the toString() method creates
+    return document.toString().replace( "&#xd;", "" );
 }
 
 

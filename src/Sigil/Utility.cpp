@@ -227,4 +227,31 @@ QString Utility::ReadUnicodeTextFile( const QString &fullfilepath )
 }
 
 
+// Writes the provided text variable to the specified
+// file; if the file exists, it is truncated
+void Utility::WriteUnicodeTextFile( const QString &text, const QString &fullfilepath )
+{
+    QFile file( fullfilepath );
+
+    if ( file.open(     QIODevice::WriteOnly | 
+                        QIODevice::Truncate | 
+                        QIODevice::Text 
+                  ) 
+       )
+    {
+        QTextStream out( &file );
+
+        // We ALWAYS output in UTF-8
+        out.setCodec( "UTF-8" );
+
+        out << text;
+
+        // Write to disk immediately
+        out.flush();
+        file.flush();
+    }
+
+    // TODO: throw error if not open    
+}
+
 

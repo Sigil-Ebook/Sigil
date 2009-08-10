@@ -65,6 +65,10 @@ public:
     // text needs to be in UTF-8 or UTF-16; if the file cannot
     // be read, an error dialog is shown and an empty string returned
     static QString ReadUnicodeTextFile( const QString &fullfilepath );
+
+    // Writes the provided text variable to the specified
+    // file; if the file exists, it is truncated
+    static void WriteUnicodeTextFile( const QString &text, const QString &fullfilepath );
 };
 
 #endif // UTILITY_H
