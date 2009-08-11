@@ -372,8 +372,9 @@ QStringList ImportEPUB::GetExistingStyleTags()
         foreach( QDomNode node, style_tag_nodes )
         {
             QString style_tag;
+            QTextStream stream( &style_tag );
 
-            node.save( QTextStream( &style_tag ), 0 );
+            node.save( stream, 0 );
 
             style_tags.append( style_tag );
         }
