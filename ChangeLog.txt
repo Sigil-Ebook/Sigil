@@ -1,4 +1,6 @@
 Sigil v0.1.2 <ADD DATE>
+    - added the ability to specify the main publication identifier directly,
+    through the "CustomID" basic metadata property (issue #3)
     - fixed a bug with warning dialog not informing the user of unsaved changes
     when editing in code view (issue #30)
     - Sigil is now a universal Mac application (ppc and i386, in 32bit) (issue #5)

@@ -253,9 +253,11 @@ void ImportEPUB::LoadMetadata()
         {
             QString scheme = meta.attributes.value( "scheme" );
             
-            if ( ( scheme == "ISBN" ) ||
-                 ( scheme == "ISSN" ) ||
-                 ( scheme == "DOI" )  )
+            if (    ( scheme == "ISBN" ) ||
+                    ( scheme == "ISSN" ) ||
+                    ( scheme == "DOI" )  ||
+                    ( scheme == "CustomID" ) 
+               )
             {
                 name = scheme;
             }

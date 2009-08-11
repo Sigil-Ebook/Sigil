@@ -83,8 +83,18 @@ void OPFWriter::WriteMetadata()
         m_Writer->writeStartElement( "dc:identifier" );
 
         m_Writer->writeAttribute( "id", "BookID" );
-        m_Writer->writeAttribute( "opf:scheme", "SigilGEN" );
-        m_Writer->writeCharacters( m_Book.PublicationIdentifier );
+
+        if ( m_Book.metadata.contains( "CustomID" ) )
+        {
+            m_Writer->writeAttribute( "opf:scheme", "CustomID" );
+            m_Writer->writeCharacters( m_Book.metadata[ "CustomID" ][ 0 ].toString() );
+        }
+
+        else
+        {
+            m_Writer->writeAttribute( "opf:scheme", "SigilGEN" );
+            m_Writer->writeCharacters( m_Book.PublicationIdentifier );
+        }       
 
         m_Writer->writeEndElement();
 
@@ -122,6 +132,12 @@ void OPFWriter::MetadataDispatcher( const QString &metaname, const QVariant &met
             )
     {
         WriteIdentifier( metaname, metavalue.toString() );
+    }
+
+    else if ( metaname == QObject::tr( "CustomID" ) )
+    {
+        // Don't write the CustomID, it is used as the
+        // main identifier if present
     }
 
     else if ( metaname.contains( QObject::tr( "Date" ) ) )
