@@ -88,7 +88,7 @@ repository should always be stable. If it's not, that's a bug report.
 
 Compiling Qt directly should not be necessary. Nevertheless, if you wish to
 compile Qt so you could for instance use the Visual Studio compiler, you 
-should configure them before compiling like this:
+should configure it before compiling like this:
 
 configure -qt-zlib -qt-gif -qt-libpng -qt-libmng -qt-libtiff -qt-libjpeg
 

@@ -1,4 +1,5 @@
 Sigil v0.1.2 <ADD DATE>
+    - Sigil is now a universal Mac application (ppc & i386, in 32bit) (issue #5)
     - implemented a workaround for a bug in QTextCodec causing bad HTML codec detection (issue #74)
     - SVG elements are not removed anymore (issue #24)
     - inter-document HTML links are now fully supported (issue #53)
