@@ -205,9 +205,16 @@ void ImportHTML::LoadSource()
 
     QByteArray data = file.readAll();
 
+    // This is a workaround for a bug in QTextCodec which
+    // expects the 'charset' attribute to always come after
+    // the 'http-equiv' attribute
+    QString ascii_data = data;
+    ascii_data.replace( QRegExp( "<\\s*meta([^>]*)http-equiv=\"Content-Type\"([^>]*)>" ),
+                        "<meta http-equiv=\"Content-Type\" \\1 \\2>" );
+
     // Qt docs say Qt will take care of deleting
     // any QTextCodec objects on application exit
-    m_Book.source = QTextCodec::codecForHtml( data, QTextCodec::codecForName( "UTF-8" ) )->toUnicode( data );
+    m_Book.source = QTextCodec::codecForHtml( ascii_data.toAscii(), QTextCodec::codecForName( "UTF-8" ) )->toUnicode( data );
     m_Book.source = ResolveCustomEntities( m_Book.source );
 }
 
