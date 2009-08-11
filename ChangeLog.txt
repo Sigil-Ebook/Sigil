@@ -1,4 +1,4 @@
-Sigil v0.1.2 <ADD DATE>
+Sigil v0.1.2 2009.08.12.
     - added the ability to specify the main publication identifier directly,
     through the "CustomID" basic metadata property (issue #3)
     - fixed a bug with warning dialog not informing the user of unsaved changes
