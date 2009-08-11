@@ -50,7 +50,7 @@ void AddMetadata::UpdateDescription( QListWidgetItem *current )
     QString text = m_Metadata.value( current->text() ).description;
 
     if ( text.isNull() != true )
-
+    
         ui.lbDescription->setText( text );
 }
 

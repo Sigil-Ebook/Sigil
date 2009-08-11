@@ -930,7 +930,7 @@ void MainWindow::WriteSettings()
 // if the user chooses CANCEL, we don't save and stop what we were doing
 bool MainWindow::MaybeSave()
 {
-    if ( m_wBookView->isModified() ) 
+    if ( isWindowModified() ) 
     {
         QMessageBox::StandardButton button_pressed;
 

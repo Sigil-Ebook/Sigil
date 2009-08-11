@@ -19,16 +19,26 @@
      <property name="orientation">
       <enum>Qt::Vertical</enum>
      </property>
+     <property name="handleWidth">
+      <number>7</number>
+     </property>
      <property name="childrenCollapsible">
       <bool>false</bool>
      </property>
-     <widget class="QListWidget" name="lwProperties"/>
+     <widget class="QListWidget" name="lwProperties">
+      <property name="uniformItemSizes">
+       <bool>true</bool>
+      </property>
+     </widget>
      <widget class="QLabel" name="lbDescription">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
       <property name="text">
        <string>Metadata description</string>
-      </property>
-      <property name="scaledContents">
-       <bool>false</bool>
       </property>
       <property name="alignment">
        <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>

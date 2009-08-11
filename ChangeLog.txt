@@ -1,5 +1,5 @@
 Sigil v0.1.2 <ADD DATE>
-    - Sigil is now a universal Mac application (ppc & i386, in 32bit) (issue #5)
+    - Sigil is now a universal Mac application (ppc and i386, in 32bit) (issue #5)
     - implemented a workaround for a bug in QTextCodec causing bad HTML codec detection (issue #74)
     - SVG elements are not removed anymore (issue #24)
     - inter-document HTML links are now fully supported (issue #53)
@@ -7,7 +7,8 @@ Sigil v0.1.2 <ADD DATE>
     - fixed issue with inline style tags in OPS documents not being loaded (issue #58)
     - Sigil can now accept a file to load as the first command line argument; this also
     provides support for "Open With..." operating system features (issue #63)
-    - fixed an issue where the reported build time in the About dialog was actually the execution time (issue #65)
+    - fixed an issue where the reported build time in the About dialog was actually the execution
+    time (issue #65)
     - loading of missing files in the recent files list is now improved (issue #57)
     - fixed a rare issue where the wrong view could be sent to the printer on print actions
     - Sigil now creates a guide element with a cover page in the OPF if the content of the first
