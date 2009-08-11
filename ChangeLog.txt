@@ -1,4 +1,6 @@
 Sigil v0.1.2 <ADD DATE>
+    - fixed a bug with warning dialog not informing the user of unsaved changes
+    when editing in code view (issue #30)
     - Sigil is now a universal Mac application (ppc and i386, in 32bit) (issue #5)
     - implemented a workaround for a bug in QTextCodec causing bad HTML codec detection (issue #74)
     - SVG elements are not removed anymore (issue #24)
