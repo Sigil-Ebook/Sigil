@@ -96,3 +96,4 @@ private:
 };
 
 #endif // OPFWRITER_H
+

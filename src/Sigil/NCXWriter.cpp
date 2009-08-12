@@ -262,3 +262,4 @@ void NCXWriter::DepthWalker( const Headings::Heading &heading, int &current_dept
         DepthWalker( child_heading, new_current_depth, max_depth );                            
     }
  }
+

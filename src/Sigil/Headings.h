@@ -117,3 +117,5 @@ Q_DECLARE_METATYPE( Headings::HeadingPointer );
 
 
 #endif // HEADINGS_H
+
+

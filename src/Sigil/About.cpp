@@ -49,3 +49,5 @@ About::About( QWidget *parent )
 
     ui.lbVersionDisplay->setText( version_text );
 }
+
+

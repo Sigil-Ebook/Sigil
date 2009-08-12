@@ -54,3 +54,4 @@ QList< QDomNode > XHTMLDoc::DeepCopyNodeList( QDomNodeList node_list )
 
     return new_node_list;
 }
+

@@ -367,3 +367,5 @@ void FolderKeeper::CreateFolderStructure()
     FullPathToStylesFolder		= FullPathToOEBPSFolder + "/styles";
     FullPathToMiscFolder        = FullPathToOEBPSFolder + "/misc";
 }
+
+

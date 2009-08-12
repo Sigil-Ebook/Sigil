@@ -436,3 +436,5 @@ QHash< QString, QString > CleanSource::GetRedundantClasses( const QStringList &c
 
     return redundant_classes;
 }
+
+

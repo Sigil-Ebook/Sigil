@@ -194,3 +194,5 @@ void CodeViewEditor::HighlightCurrentLine()
 
 
 
+
+

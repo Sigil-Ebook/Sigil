@@ -62,3 +62,4 @@ void AddMetadata::EmitSelection()
 {
     emit MetadataToAdd( ui.lwProperties->currentItem()->text() );
 }
+

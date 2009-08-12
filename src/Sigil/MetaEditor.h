@@ -142,3 +142,5 @@ private:
 };
 
 #endif // METAEDITOR_H
+
+

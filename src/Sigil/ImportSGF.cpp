@@ -38,3 +38,5 @@ void ImportSGF::LoadSource()
     QString fullpath = QFileInfo( m_OPFFilePath ).absolutePath() + "/" + m_Files.values().first();
     m_Book.source    = Utility::ReadUnicodeTextFile( fullpath ); 
 }
+
+

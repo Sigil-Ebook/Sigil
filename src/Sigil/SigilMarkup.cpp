@@ -56,3 +56,5 @@ QString SigilMarkup::AddSigilStyleTags( const QString &source )
     return newsource;
 }
 
+
+

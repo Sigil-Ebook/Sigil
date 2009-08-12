@@ -328,3 +328,5 @@ QList< Headings::Heading > Headings::ExcludeHeadingsAboveRoot( const QList< Head
 
     return included_headings;
 }
+
+

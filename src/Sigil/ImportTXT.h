@@ -64,3 +64,4 @@ private:
 };
 
 #endif // IMPORTTXT_H
+

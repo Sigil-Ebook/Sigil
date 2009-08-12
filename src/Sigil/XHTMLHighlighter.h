@@ -98,3 +98,4 @@ private:
 };
 
 #endif // XHTMLHIGHLIGHTER_H
+

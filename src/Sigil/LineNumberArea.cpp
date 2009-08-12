@@ -46,3 +46,4 @@ void LineNumberArea::paintEvent( QPaintEvent *event )
 {
     m_CodeEditor->LineNumberAreaPaintEvent( event );
 }
+

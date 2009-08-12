@@ -98,3 +98,4 @@ private:
 
 
 #endif // TOCEDITOR_H
+

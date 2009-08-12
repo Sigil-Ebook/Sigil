@@ -30,3 +30,4 @@ extern const QString BODY_END;
 extern const QString BREAK_TAG;
 extern const QString HEADING;
 extern const QString STYLE_TAG;
+

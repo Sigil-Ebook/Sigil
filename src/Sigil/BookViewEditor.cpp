@@ -70,3 +70,4 @@ QString BookViewEditor::GetCursorElementName()
 
     return page()->mainFrame()->evaluateJavaScript( javascript ).toString();
 }
+

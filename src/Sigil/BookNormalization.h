@@ -46,3 +46,4 @@ private:
 };
 
 #endif // BOOKNORMALIZATION_H
+

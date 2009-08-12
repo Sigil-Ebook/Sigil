@@ -64,3 +64,4 @@ protected:
 };
 
 #endif // XMLWRITER_H
+

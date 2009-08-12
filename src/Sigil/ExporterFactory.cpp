@@ -72,3 +72,5 @@ Exporter& ExporterFactory::GetExporter( const QString &filename, const Book &boo
     return *m_Exporter;
 }
 
+
+

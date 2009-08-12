@@ -80,3 +80,5 @@ QString ImportTXT::CreateParagraphs( const QStringList &lines )
 
     return text;
 }
+
+

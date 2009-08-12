@@ -255,3 +255,5 @@ void Utility::WriteUnicodeTextFile( const QString &text, const QString &fullfile
 }
 
 
+
+

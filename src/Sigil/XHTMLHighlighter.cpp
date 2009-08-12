@@ -428,3 +428,5 @@ void XHTMLHighlighter::HighlightLine( const QString& text, int state )
     }
 }
 
+
+

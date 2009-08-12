@@ -40,3 +40,4 @@ QUrl Book::GetBaseUrl()
 {
     return QUrl::fromLocalFile( mainfolder.GetFullPathToTextFolder() + "/" );
 }
+

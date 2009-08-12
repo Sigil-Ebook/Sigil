@@ -101,3 +101,5 @@ int BookNormalization::MaxSigilHeadingIDIndex( const QString &source )
 
     return maxindex;
 }
+
+
