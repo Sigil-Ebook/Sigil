@@ -20,6 +20,7 @@
 *************************************************************************/
 
 #include "stdafx.h"
+#include "Utility.h"
 #include "MainWindow.h"
 #include <QtGui/QApplication>
 
@@ -34,10 +35,24 @@ int main( int argc, char *argv[] )
     app.addLibraryPath( "codecs" );
     app.addLibraryPath( "iconengines" );
     app.addLibraryPath( "imageformats" );
+	
+    MainWindow *widget = NULL;
     
-    MainWindow widget;
+	QStringList arguments = QCoreApplication::arguments();
+	
+    if (    arguments.size() > 1 &&
+            Utility::IsFileReadable( arguments.at( 1 ) ) 
+        )
+    {
+        widget = new MainWindow( arguments.at( 1 ) );
+    }
+	
+    else
+    {
+        widget = new MainWindow();
+    }
     
-    widget.show();
+    widget->show();
     
     return app.exec();
 }

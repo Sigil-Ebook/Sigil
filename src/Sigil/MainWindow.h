@@ -43,7 +43,10 @@ class MainWindow : public QMainWindow
 public:
 
     // Constructor
-    MainWindow( QWidget *parent = 0, Qt::WFlags flags = 0 );
+    // The first argument is the path to the file that the window
+    // should load (new file loaded if empty); the second is the
+    // windows parent; the third specifies the flags used to modify window behaviour
+    MainWindow( const QString &openfilepath = QString(), QWidget *parent = 0, Qt::WFlags flags = 0 );
 
 protected:
 
@@ -202,6 +205,8 @@ private:
     // if the user chooses DISCARD, we don't save and continue
     // if the user chooses CANCEL, we don't save and stop what we were doing
     bool MaybeSave();
+    
+    void CreateNew();
 
     // Loads from the file specified
     void LoadFile( const QString &filename );
@@ -246,7 +251,7 @@ private:
     // If the user provided a file to be loaded as
     // Sigil's first argument, that file is loaded;
     // if not, or it can't be opened, an empty file is loaded
-    void LoadInitialFile();
+    void LoadInitialFile( const QString &openfilepath );
 
     // Connects all the required signals to their slots
     void ConnectSignalsToSlots();
@@ -279,10 +284,11 @@ private:
     QString m_LastFolderImage;
 
     // The list of full file names/paths
-    // for the last MAX_RECENT_FILES files
-    QStringList m_RecentFiles;
+    // for the last MAX_RECENT_FILES files;
+    // static because on Mac we have many MainWindows
+    static QStringList m_RecentFiles;
 
-    // Array of recent files actions that are in the File menu
+    // Array of recent files actions that are in the File menu;
     QAction *m_RecentFileActions[ MAX_RECENT_FILES ];
 
     // The highlighter for the Code View

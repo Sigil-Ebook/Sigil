@@ -50,7 +50,9 @@ the following:
 
 cmake -G Xcode /path/to/source/folder
 
-This should create Xcode project files in that directory.
+This should create Xcode project files in that directory. The default
+build procedure will build "Sigil.app"; if you want to package that into a DMG
+file, invoke the "makedmg" build target.
 
 = Compiling on Linux =
 

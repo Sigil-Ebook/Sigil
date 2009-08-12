@@ -43,11 +43,20 @@ static const int TEXT_ELIDE_WIDTH           = 300;
 
 static const QString CHAPTER_BREAK_TAG      = "<hr class=\"sigilChapterBreak\" />";
 
+QStringList MainWindow::m_RecentFiles = QStringList();
+
 // Constructor
-MainWindow::MainWindow( QWidget *parent, Qt::WFlags flags )
+// The first argument is the path to the file that the window
+// should load (new file loaded if empty); the second is the
+// windows parent; the third specifies the flags used to modify window behaviour
+MainWindow::MainWindow( const QString &openfilepath, QWidget *parent, Qt::WFlags flags )
     : QMainWindow( parent, flags )
 {
     ui.setupUi( this );	
+	
+    // Telling Qt to delete this window
+    // from memory when it is closed
+	setAttribute( Qt::WA_DeleteOnClose );
 
     ExtendUI();
 
@@ -64,7 +73,7 @@ MainWindow::MainWindow( QWidget *parent, Qt::WFlags flags )
 
     m_isLastViewBook = true;
 
-    LoadInitialFile();
+    LoadInitialFile( openfilepath );
 }
 
 
@@ -89,36 +98,19 @@ void MainWindow::closeEvent( QCloseEvent *event )
 // Implements New action functionality
 void MainWindow::New()
 {
+    // The nasty IFDEFs are here to enable the multi-document
+    // interface on the Mac; Lin and Win just use multiple
+    // instances of the Sigil application
+#ifndef Q_WS_MAC
     if ( MaybeSave() )
+#endif
     {
-        m_Book = Book();
-
-        m_Book.source =	"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
-                        "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\"\n"
-                        "    \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n\n"							
-                        "<html xmlns=\"http://www.w3.org/1999/xhtml\">\n"
-                        "<head>\n"
-                        "<title></title>\n"
-                        "</head>\n"
-                        "<body>\n"
-
-                        // The "nbsp" is here so that the user starts writing
-                        // inside the <p> element; if it's not here, webkit
-                        // inserts text _outside_ the <p> element
-                        "<p>&nbsp;</p>\n"
-                        "</body>\n"
-                        "</html>";
-
-        // Add Sigil-specific markup
-        m_Book.source = SigilMarkup::AddSigilMarkup( m_Book.source );
-
-        m_wBookView->setHtml( m_Book.source, m_Book.GetBaseUrl() );
-        m_wBookView->page()->setContentEditable( true );
-        m_wBookView->page()->setLinkDelegationPolicy( QWebPage::DelegateAllLinks );   
-
-        m_wCodeView->setPlainText( m_Book.source );
-
-        SetCurrentFile( "" );
+#ifdef Q_WS_MAC
+        MainWindow *new_window = new MainWindow();
+        new_window->show();
+#else
+        CreateNew();
+#endif
     }
 }
 
@@ -126,7 +118,12 @@ void MainWindow::New()
 // Implements Open action functionality
 void MainWindow::Open()
 {
+    // The nasty IFDEFs are here to enable the multi-document
+    // interface on the Mac; Lin and Win just use multiple
+    // instances of the Sigil application
+#ifndef Q_WS_MAC
     if ( MaybeSave() )
+#endif
     {
         QString filters = tr(   "Sigil Format files (*.sgf);;"
                                 "EPUB files (*.epub);;"
@@ -148,8 +145,13 @@ void MainWindow::Open()
         {
             // Store the folder the user opened from
             m_LastFolderOpen = QFileInfo( filename ).absolutePath();
-
+            
+#ifdef Q_WS_MAC
+            MainWindow *new_window = new MainWindow( filename );
+            new_window->show();
+#else
             LoadFile( filename );
+#endif
         }
     }
 }
@@ -158,11 +160,27 @@ void MainWindow::Open()
 // Implements Open recent file action functionality
 void MainWindow::OpenRecentFile()
 {
+    // The nasty IFDEFs are here to enable the multi-document
+    // interface on the Mac; Lin and Win just use multiple
+    // instances of the Sigil application
+    
     QAction *action = qobject_cast< QAction *>( sender() );
     
-    if( action != NULL )
-
-        LoadFile( action->data().toString() );
+    if ( action != NULL )
+    {
+#ifndef Q_WS_MAC
+        if ( MaybeSave() )
+#endif
+        {
+        
+#ifdef Q_WS_MAC
+            MainWindow *new_window = new MainWindow( action->data().toString() );
+            new_window->show();
+#else
+            LoadFile( action->data().toString() );
+#endif
+        }
+    }
 }
 
 
@@ -953,6 +971,38 @@ bool MainWindow::MaybeSave()
     return true;
 }
 
+void MainWindow::CreateNew()
+{
+    m_Book = Book();
+    
+    m_Book.source =	"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                    "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\"\n"
+                    "    \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n\n"							
+                    "<html xmlns=\"http://www.w3.org/1999/xhtml\">\n"
+                    "<head>\n"
+                    "<title></title>\n"
+                    "</head>\n"
+                    "<body>\n"
+                    
+                    // The "nbsp" is here so that the user starts writing
+                    // inside the <p> element; if it's not here, webkit
+                    // inserts text _outside_ the <p> element
+                    "<p>&nbsp;</p>\n"
+                    "</body>\n"
+                    "</html>";
+    
+    // Add Sigil-specific markup
+    m_Book.source = SigilMarkup::AddSigilMarkup( m_Book.source );
+    
+    m_wBookView->setHtml( m_Book.source, m_Book.GetBaseUrl() );
+    m_wBookView->page()->setContentEditable( true );
+    m_wBookView->page()->setLinkDelegationPolicy( QWebPage::DelegateAllLinks );   
+    
+    m_wCodeView->setPlainText( m_Book.source );
+    
+    SetCurrentFile( "" );
+}
+
 
 // Loads from the file specified
 void MainWindow::LoadFile( const QString &filename )
@@ -976,11 +1026,10 @@ void MainWindow::LoadFile( const QString &filename )
 
     m_wBookView->page()->setContentEditable( true );
 
-    // TODO: Currently we kill all the links; a mechanism for updating
-    // links across chapters needs to be devised before they can be enabled again
+    // TODO: we kill external links; a dialog should be used
+    // that asks the user if he wants to open this external link in a browser
     m_wBookView->page()->setLinkDelegationPolicy( QWebPage::DelegateAllLinks );
 
-    // TODO: This is slow for some reason... look into it
     m_wCodeView->setPlainText( m_Book.source );
    
     QApplication::restoreOverrideCursor();
@@ -1085,8 +1134,15 @@ void MainWindow::SetCurrentFile( const QString &filename )
     {
         m_RecentFiles.removeLast();
     }
-
-    UpdateRecentFileActions();
+    
+    // Update the recent files actions on
+    // ALL the main windows
+    foreach ( QWidget *window, QApplication::topLevelWidgets() ) 
+    {
+        if ( MainWindow *mainWin = qobject_cast<MainWindow *>(window) )
+            
+            mainWin->UpdateRecentFileActions();
+    }
 }
 
 // Removes every occurrence of class="Apple-style-span"
@@ -1228,26 +1284,29 @@ void MainWindow::ExtendUI()
 
     m_wCodeView = new CodeViewEditor( ui.splitter );
     ui.splitter->addWidget( m_wCodeView );
+    
+    // We use the "close" action only on Macs,
+    // because they need it for the multi-document interface
+#ifndef Q_WS_MAC
+    ui.actionClose->setEnabled( false );
+    ui.actionClose->setVisible( false );
+#endif
 }
 
 
 // If the user provided a file to be loaded as
 // Sigil's first argument, that file is loaded;
 // if not, or it can't be opened, an empty file is loaded
-void MainWindow::LoadInitialFile()
+void MainWindow::LoadInitialFile( const QString &openfilepath )
 {
-    QStringList arguments = QCoreApplication::arguments();
-
-    if (    arguments.size() > 1 &&
-            Utility::IsFileReadable( arguments.at( 1 ) ) 
-        )
+    if ( !openfilepath.isEmpty() )
     {
-        LoadFile( arguments.at( 1 ) );
+        LoadFile( openfilepath );
     }
 
     else
     {
-        New();
+        CreateNew();
     }
 }
 
@@ -1255,7 +1314,8 @@ void MainWindow::LoadInitialFile()
 // Connects all the required signals to their slots
 void MainWindow::ConnectSignalsToSlots()
 {
-    connect( ui.actionExit,                 SIGNAL( triggered() ),      this,   SLOT( close()               ) );
+    connect( ui.actionExit,                 SIGNAL( triggered() ),      qApp,   SLOT( closeAllWindows()     ) );
+    connect( ui.actionClose,                SIGNAL( triggered() ),      this,   SLOT( close()               ) );
     connect( ui.actionNew,                  SIGNAL( triggered() ),      this,   SLOT( New()                 ) );
     connect( ui.actionOpen,                 SIGNAL( triggered() ),      this,   SLOT( Open()                ) );
     connect( ui.actionSave,                 SIGNAL( triggered() ),      this,   SLOT( Save()                ) );
