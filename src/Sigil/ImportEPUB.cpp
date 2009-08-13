@@ -309,7 +309,7 @@ void ImportEPUB::LoadSource()
         // for the first text file
         if ( is_first_text_file == false )
         {            
-            m_Book.source += "<hr class=\"sigilChapterBreak\" />\n" + content;
+            m_Book.source += BREAK_TAG_INSERT + "\n" + content;
         }
 
         else

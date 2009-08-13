@@ -41,7 +41,9 @@ static const int STATUSBAR_MSG_DISPLAY_TIME = 2000;
 static const int TAB_SPACES_WIDTH           = 4;
 static const int TEXT_ELIDE_WIDTH           = 300;
 
-static const QString CHAPTER_BREAK_TAG      = "<hr class=\"sigilChapterBreak\" />";
+// The <hr> tag is wrapped in <div>'s because of issue #78;
+// basically it's a workaround for a webkit bug
+const QString BREAK_TAG_INSERT              = "<div><hr class=\"sigilChapterBreak\" /></div>";
 
 QStringList MainWindow::m_RecentFiles = QStringList();
 
@@ -171,8 +173,8 @@ void MainWindow::OpenRecentFile()
 #ifndef Q_WS_MAC
         if ( MaybeSave() )
 #endif
-        {
-        
+        {   
+
 #ifdef Q_WS_MAC
             MainWindow *new_window = new MainWindow( action->data().toString() );
             new_window->show();
@@ -506,7 +508,7 @@ void MainWindow::CodeView()
 // Implements Insert chapter break action functionality
 void MainWindow::InsertChapterBreak()
 {
-    m_wBookView->ExecCommand( "insertHTML", CHAPTER_BREAK_TAG );
+    m_wBookView->ExecCommand( "insertHTML", BREAK_TAG_INSERT );
 
     RemoveAppleClasses();
 }
@@ -971,6 +973,8 @@ bool MainWindow::MaybeSave()
     return true;
 }
 
+// Creates a new, empty book and replaces
+// the current one with it
 void MainWindow::CreateNew()
 {
     m_Book = Book();
@@ -1139,7 +1143,7 @@ void MainWindow::SetCurrentFile( const QString &filename )
     // ALL the main windows
     foreach ( QWidget *window, QApplication::topLevelWidgets() ) 
     {
-        if ( MainWindow *mainWin = qobject_cast<MainWindow *>(window) )
+        if ( MainWindow *mainWin = qobject_cast< MainWindow * >( window ) )
             
             mainWin->UpdateRecentFileActions();
     }
@@ -1294,8 +1298,8 @@ void MainWindow::ExtendUI()
 }
 
 
-// If the user provided a file to be loaded as
-// Sigil's first argument, that file is loaded;
+// If a file was provided to be loaded
+// with this main window instance, that file is loaded;
 // if not, or it can't be opened, an empty file is loaded
 void MainWindow::LoadInitialFile( const QString &openfilepath )
 {

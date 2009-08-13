@@ -206,6 +206,8 @@ private:
     // if the user chooses CANCEL, we don't save and stop what we were doing
     bool MaybeSave();
     
+    // Creates a new, empty book and replaces
+    // the current one with it
     void CreateNew();
 
     // Loads from the file specified
@@ -248,8 +250,8 @@ private:
     // to extend the UI created by the Designer
     void ExtendUI();
 
-    // If the user provided a file to be loaded as
-    // Sigil's first argument, that file is loaded;
+    // If a file was provided to be loaded
+    // with this main window instance, that file is loaded;
     // if not, or it can't be opened, an empty file is loaded
     void LoadInitialFile( const QString &openfilepath );
 

@@ -31,7 +31,7 @@
 
 const QString BODY_START = "<\\s*body[^>]*>";
 const QString BODY_END   = "</\\s*body\\s*>";
-const QString BREAK_TAG  = "<hr\\s*class\\s*=\\s*\"sigilChapterBreak\"\\s*/>";
+const QString BREAK_TAG_SEARCH  = "(<div>\\s*)?<hr\\s*class\\s*=\\s*\"sigilChapterBreak\"\\s*/>(\\s*</div>)?";
 
 static const QString ID_AND_NAME_ATTRIBUTE = "<[^>]*(?:id|name)\\s*=\\s*\"([^\"]+)\"[^>]*>";
 
@@ -203,7 +203,7 @@ void ExportEPUB::CreateXHTMLFiles( const QString &header )
 
     while ( main_index != body_end )
     {
-        QRegExp break_tag( BREAK_TAG );
+        QRegExp break_tag( BREAK_TAG_SEARCH );
 
         // We search for our HR break tag
         int break_index = m_Book.source.indexOf( break_tag, main_index );

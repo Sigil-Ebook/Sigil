@@ -1,4 +1,6 @@
 Sigil v0.1.3 <ADD DATE>
+    - implemented a workaround for a webkit bug causing the first character of a heading
+    created after a chapter break to be displayed incorrectly (issue #78)
     - the "makedmg" target for Macs is not build by default anymore and needs to be
     invoked directly; this was done to speed rebuilds
     - Macs now have a standard multiple document interface: opening a new file opens it

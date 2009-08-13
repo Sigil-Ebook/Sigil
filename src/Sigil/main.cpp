@@ -38,6 +38,8 @@ int main( int argc, char *argv[] )
 	
     MainWindow *widget = NULL;
     
+    // We use the first argument
+    // as the file to load after starting
 	QStringList arguments = QCoreApplication::arguments();
 	
     if (    arguments.size() > 1 &&

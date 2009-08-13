@@ -27,7 +27,8 @@
 // in one CPP file to be used in another
 extern const QString BODY_START;
 extern const QString BODY_END;
-extern const QString BREAK_TAG;
+extern const QString BREAK_TAG_SEARCH;
+extern const QString BREAK_TAG_INSERT;
 extern const QString HEADING;
 extern const QString STYLE_TAG;
 

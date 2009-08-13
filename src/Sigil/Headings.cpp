@@ -229,7 +229,7 @@ bool Headings::IsAfterChapterBreak( const QString &source, int heading_location 
 
         search_start = 0;
 
-    QRegExp chapter_break_tag( BREAK_TAG );
+    QRegExp chapter_break_tag( BREAK_TAG_SEARCH );
     int chapter_location        = source.lastIndexOf( chapter_break_tag, heading_location - 1 );
 
     // We look for a heading that appears before "this one"
