@@ -22,6 +22,7 @@
 #include "stdafx.h"
 #include "CodeViewEditor.h"
 #include "LineNumberArea.h"
+#include "Book.h"
 
 static const int COLOR_FADE_AMOUNT = 175;
 
@@ -39,6 +40,12 @@ CodeViewEditor::CodeViewEditor( QWidget *parent )
 
     UpdateLineNumberAreaMargin();
     HighlightCurrentLine();
+}
+
+// Sets the content of the View to the specified book
+void CodeViewEditor::SetBook( const Book &book )
+{
+    setPlainText( book.source );
 }
 
 

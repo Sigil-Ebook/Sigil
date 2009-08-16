@@ -32,6 +32,7 @@ class QSize;
 class QWidget;
 class QPrinter;
 class LineNumberArea;
+class Book;
 
 
 class CodeViewEditor : public QPlainTextEdit
@@ -43,6 +44,9 @@ public:
     // Constructor;
     // the parameters is the object's parent
     CodeViewEditor( QWidget *parent = 0 );
+
+    // Sets the content of the View to the specified book
+    void SetBook( const Book &book );
 
     // Paints the line number area;
     // receives the event directly 

@@ -19,15 +19,36 @@
 **
 *************************************************************************/
 
-
 #include "stdafx.h"
 #include "BookViewEditor.h"
+#include "Book.h"
+#include "Utility.h"
 
-
+// Constructor;
+// the parameters is the object's parent
 BookViewEditor::BookViewEditor( QWidget *parent )
-    : QWebView( parent )
+    : 
+    QWebView( parent ),
+    jQuery( Utility::ReadUnicodeTextFile( ":/javascript/jquery-1.3.2.min.js" ) )
 {
+    connect(    page(),
+                SIGNAL( loadFinished( bool ) ), 
+                this,
+                SLOT( LoadCustomJavascript() )
+        );    
+}
 
+
+// Sets the content of the View to the specified book
+void BookViewEditor::SetBook( const Book &book )
+{
+    setHtml( book.source, book.GetBaseUrl() );
+
+    page()->setContentEditable( true );
+
+    // TODO: we kill external links; a dialog should be used
+    // that asks the user if he wants to open this external link in a browser
+    page()->setLinkDelegationPolicy( QWebPage::DelegateAllLinks );
 }
 
 
@@ -65,9 +86,19 @@ bool BookViewEditor::QueryCommandState( const QString &command )
 QString BookViewEditor::GetCursorElementName()
 {
     QString javascript =  "var node = document.getSelection().anchorNode;"
-        "var startNode = (node.nodeName == \"#text\" ? node.parentNode : node);"
-        "startNode.nodeName;";
+                          "var startNode = (node.nodeName == \"#text\" ? node.parentNode : node);"
+                          "startNode.nodeName;";
 
     return page()->mainFrame()->evaluateJavaScript( javascript ).toString();
 }
+
+
+// Loads custom javascript used by Sigil;
+// should be called every time the Book View
+// is loaded with new content
+void BookViewEditor::LoadCustomJavascript()
+{
+    page()->mainFrame()->evaluateJavaScript( jQuery );
+}
+
 

@@ -41,7 +41,7 @@ public:
     // Returns the base url of the book,
     // that is the location to the text folder
     // within the main folder
-    QUrl GetBaseUrl();
+    QUrl GetBaseUrl() const;
 
     // Stores the full XHTML source code of the book
     QString source;

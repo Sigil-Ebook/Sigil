@@ -25,6 +25,8 @@
 
 #include <QWebView>
 
+class Book;
+
 class BookViewEditor : public QWebView
 {
     Q_OBJECT
@@ -34,6 +36,9 @@ public:
     // Constructor;
     // the parameters is the object's parent
     BookViewEditor( QWidget *parent = 0 );
+
+    // Sets the content of the View to the specified book
+    void SetBook( const Book &book );
 
     // Executes the specified command on the document with javascript
     void ExecCommand( const QString &command );
@@ -50,9 +55,16 @@ public:
     // where the selection *starts*
     QString GetCursorElementName();
 
+private slots:
+
+    // Loads custom javascript used by Sigil;
+    // should be called every time the Book View
+    // is loaded with new content
+    void LoadCustomJavascript();
 
 private:
 
+    const QString jQuery;
 };
 
 

@@ -853,7 +853,7 @@ void MainWindow::UpdateCodeViewFromSource()
 {
     TidyUp();
 
-    m_wCodeView->setPlainText( m_Book.source );
+    m_wCodeView->SetBook( m_Book );
 
     // Store current source so we can compare and check
     // if we updated yet or we haven't
@@ -866,10 +866,7 @@ void MainWindow::UpdateBookViewFromSource()
 {
     TidyUp();
 
-    m_wBookView->setHtml( m_Book.source, m_Book.GetBaseUrl() );
-
-    m_wBookView->page()->setContentEditable( true );
-    m_wBookView->page()->setLinkDelegationPolicy( QWebPage::DelegateAllLinks );
+    m_wBookView->SetBook( m_Book );
 
     // Store current source so we can compare and check
     // if we updated yet or we haven't
@@ -998,11 +995,8 @@ void MainWindow::CreateNew()
     // Add Sigil-specific markup
     m_Book.source = SigilMarkup::AddSigilMarkup( m_Book.source );
     
-    m_wBookView->setHtml( m_Book.source, m_Book.GetBaseUrl() );
-    m_wBookView->page()->setContentEditable( true );
-    m_wBookView->page()->setLinkDelegationPolicy( QWebPage::DelegateAllLinks );   
-    
-    m_wCodeView->setPlainText( m_Book.source );
+    m_wBookView->SetBook( m_Book );    
+    m_wCodeView->SetBook( m_Book );
     
     SetCurrentFile( "" );
 }
@@ -1026,15 +1020,8 @@ void MainWindow::LoadFile( const QString &filename )
     
         m_Book.source = SigilMarkup::AddSigilMarkup( m_Book.source );
 
-    m_wBookView->setHtml( m_Book.source, m_Book.GetBaseUrl() );
-
-    m_wBookView->page()->setContentEditable( true );
-
-    // TODO: we kill external links; a dialog should be used
-    // that asks the user if he wants to open this external link in a browser
-    m_wBookView->page()->setLinkDelegationPolicy( QWebPage::DelegateAllLinks );
-
-    m_wCodeView->setPlainText( m_Book.source );
+    m_wBookView->SetBook( m_Book );
+    m_wCodeView->SetBook( m_Book );
    
     QApplication::restoreOverrideCursor();
 

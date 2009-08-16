@@ -36,7 +36,7 @@ Book::Book()
 // Returns the base url of the book,
 // that is the location to the text folder
 // within the main folder
-QUrl Book::GetBaseUrl()
+QUrl Book::GetBaseUrl() const
 {
     return QUrl::fromLocalFile( mainfolder.GetFullPathToTextFolder() + "/" );
 }
