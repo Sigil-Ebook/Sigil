@@ -21,6 +21,7 @@
 
 #include "stdafx.h"
 #include "Headings.h"
+#include <QDomDocument>
 
 // The maximum allowed distance (in characters) that a heading
 // can be located from a chapter break (or body tag) and still
@@ -47,44 +48,33 @@ QString Headings::GetNewHeadingSource( const Heading &heading )
 {
     QString source = heading.element_source;
 
-    // We first remove our TOC class if it's present
-    QRegExp sigil_class( TOC_CLASS_PRESENT );
-    source.replace( sigil_class, "\\1\\2" );
+    QDomDocument document;
+    document.setContent( source );
 
-    // If the heading should be included, 
-    // that's it, return what we have
-    if ( heading.include_in_toc == true )
+    QDomElement heading_element = document.documentElement();
 
-        return source;
+    QString class_attribute = heading_element.attribute( "class", "" );
 
-    // Otherwise add our not-in-TOC CSS class
-
-    QRegExp class_reg( CLASS_ATTRIBUTE );
-
-    // If the element already has a class attribute,
-    // we add our TOC class to the list of classes
-    if ( source.indexOf( class_reg ) != -1 )
+    // Make sure that the heading does not have the special
+    // class attribute if it should be included in the TOC
+    if ( heading.include_in_toc )
     {
-        QString new_class_value  = class_reg.cap( 1 ) + " " + NOT_IN_TOC_CLASS;
-        QString new_class        = class_reg.cap( 0 ).replace( class_reg.cap( 1 ), new_class_value );
-
-        source.replace( class_reg, new_class );
+        class_attribute.remove( NOT_IN_TOC_CLASS );
     }
 
-    // Otherwise we create the class attribute too
-    else
+    // If it needs to be left out of the TOC,
+    // then add the special class if it's not already present
+    else if ( !class_attribute.contains( NOT_IN_TOC_CLASS ) )
     {
-        QRegExp element( ELEMENT_BODY );
-
-        source.indexOf( element );
-
-        QString new_element_body = element.cap( 1 ) + " class=\"" + NOT_IN_TOC_CLASS + "\"";
-        QString new_element      = element.cap( 0 ).replace( element.cap( 1 ), new_element_body );
-
-        source.replace( element, new_element );
+        class_attribute += " " + NOT_IN_TOC_CLASS;
     }
 
-    return source;
+    // Avoid writing an empty class attribute
+    if ( !class_attribute.isEmpty() )
+
+        heading_element.setAttribute( "class", class_attribute );
+
+    return document.toString();
 }
 
 
