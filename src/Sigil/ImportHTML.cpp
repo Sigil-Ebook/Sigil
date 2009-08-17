@@ -87,11 +87,11 @@ void ImportHTML::UpdateReferences( const QString &oldpath, const QString &newpat
     // Fonts get searched for differently than the other resources
     if ( ( filename.contains( ".ttf" ) ) || ( filename.contains( ".otf" ) ) )
 
-        reference = QRegExp( "src:\\s*\\w+\\(([^\\)]*" + QRegExp::escape( filename ) + ")\\)" );
+        reference = QRegExp( "src:\\s*\\w+\\(([^\\)]*/" + QRegExp::escape( filename ) + "|" + QRegExp::escape( filename ) + ")\\)" );
 
     else
 
-        reference = QRegExp( "<[^>]*\"([^\">]*" + QRegExp::escape( filename ) + ")\"[^>]*>" );
+        reference = QRegExp( "<[^>]*\"([^\">]*/" + QRegExp::escape( filename ) + "|" + QRegExp::escape( filename ) + ")\"[^>]*>" );
 
     int index = -1;
 

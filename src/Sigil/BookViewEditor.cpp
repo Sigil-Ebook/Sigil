@@ -35,7 +35,7 @@ BookViewEditor::BookViewEditor( QWidget *parent )
                 SIGNAL( loadFinished( bool ) ), 
                 this,
                 SLOT( LoadCustomJavascript() )
-        );    
+           );    
 }
 
 
