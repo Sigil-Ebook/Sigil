@@ -99,15 +99,6 @@ private:
     // Adds the new_child heading to the parent heading;
     // the new_child is propagated down the tree if necessary
     static void AddChildHeading( Heading &parent, Heading new_child );
-
-    // Returns the root heading level; the root level is
-    // considered to be the level with the max number of 
-    // headings that appear after a chapter break
-    static int GetRootHeadingLevel( const QList< Heading > &headings );
-
-    // Sets include_in_toc to false to those 
-    // headings that appear above the root
-    static QList< Heading > ExcludeHeadingsAboveRoot( const QList< Heading > &headings, int root_level );
 };
 
 

@@ -158,7 +158,7 @@ QList< Headings::Heading > Headings::GetHeadingList( const QString &source )
 // headings sorted into a hierarchy
 QList< Headings::Heading > Headings::MakeHeadingHeirarchy( const QList< Heading > &headings )
 {
-    QList< Heading > ordered_headings = ExcludeHeadingsAboveRoot( headings, GetRootHeadingLevel( headings ) );
+    QList< Heading > ordered_headings = headings;
 
     for ( int i = 0; i < ordered_headings.size(); i++ )
     {
@@ -277,56 +277,3 @@ void Headings::AddChildHeading( Heading &parent, Heading new_child )
         parent.children.append( new_child );
     }
 }
-
-
-// Returns the root heading level; the root level is
-// considered to be the level with the max number of 
-// headings that appear after a chapter break
-int Headings::GetRootHeadingLevel( const QList< Heading > &headings )
-{
-    // Used to count the number of 
-    // chapter breaks per level;
-    // the keys are levels, the values 
-    // are the number of chapter breaks per that level
-    QHash< int, int > chapters_per_level;
-
-    foreach( Heading heading, headings )
-    {
-        if ( heading.after_chapter_break == true )
-
-            chapters_per_level[ heading.level ] = chapters_per_level.value( heading.level, 0 ) + 1 ;
-    }
-
-    int maxvalue = 0;
-    int maxvalue_key = 0;
-
-    foreach( int key, chapters_per_level.keys() )
-    {
-        if ( chapters_per_level[ key ] > maxvalue )
-        {
-            maxvalue     = chapters_per_level[ key ];
-            maxvalue_key = key;
-        }
-    }
-
-    return maxvalue_key;
-}
-
-
-// Sets include_in_toc to false to those 
-// headings that appear above the root
-QList< Headings::Heading > Headings::ExcludeHeadingsAboveRoot( const QList< Heading > &headings, int root_level )
-{
-    QList< Heading > included_headings = headings;
-
-    for ( int i = 0; i < included_headings.count(); i++  )
-    {
-        if ( included_headings[ i ].level < root_level )
-
-            included_headings[ i ].include_in_toc = false;
-    }
-
-    return included_headings;
-}
-
-
