@@ -74,7 +74,7 @@ QString Headings::GetNewHeadingSource( const Heading &heading )
 
         heading_element.setAttribute( "class", class_attribute );
 
-    return document.toString();
+    return document.toString().trimmed();
 }
 
 

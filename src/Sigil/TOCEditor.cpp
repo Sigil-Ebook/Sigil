@@ -147,17 +147,7 @@ void TOCEditor::UpdateBookSource()
 
         QString new_heading = Headings::GetNewHeadingSource( headings[ numheading ] );
 
-        QString up_to_heading = Utility::Substring(     0, 
-                                                        main_index, 
-                                                        m_Book.source 
-                                                  );
-
-        QString after_heading = Utility::Substring(     main_index + heading_regex.matchedLength(), 
-                                                        m_Book.source.length(), 
-                                                        m_Book.source 
-                                                  );
-
-        m_Book.source = up_to_heading + new_heading + after_heading;
+        m_Book.source.replace( main_index, heading_regex.matchedLength(), new_heading );
 
         main_index += new_heading.size();
 
