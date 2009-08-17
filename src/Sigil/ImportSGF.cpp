@@ -32,6 +32,26 @@ ImportSGF::ImportSGF( const QString &fullfilepath )
 
 }
 
+
+// Reads and parses the file 
+// and returns the created Book;
+// Overrides;
+Book ImportSGF::GetBook()
+{
+    // These read the EPUB file
+    ExtractContainer();
+    LocateOPF();
+    ReadOPF();
+
+    // These mutate the m_Book object
+    LoadMetadata();
+    LoadSource();
+    LoadFolderStructure();
+
+    return m_Book;
+}
+
+
 // Loads the source code into the Book
 void ImportSGF::LoadSource()
 {

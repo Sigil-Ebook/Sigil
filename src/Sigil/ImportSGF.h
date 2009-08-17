@@ -34,6 +34,11 @@ public:
     // The parameter is the file to be imported
     ImportSGF( const QString &fullfilepath );
 
+    // Reads and parses the file 
+    // and returns the created Book;
+    // Overrides;
+    Book GetBook();
+
 private:
 
     // Loads the source code into the Book
