@@ -23,11 +23,9 @@
 #include "Book.h"
 #include "Utility.h"
 
-static const int BOOK_IDENTIFIER_LENGTH = 30;
-
 // Constructor
 Book::Book()
-    : PublicationIdentifier( Utility::GetRandomString( BOOK_IDENTIFIER_LENGTH ) ) 		
+    : PublicationIdentifier( QUuid::createUuid().toString().remove( "{" ).remove( "}" ) ) 		
 {
     
 }

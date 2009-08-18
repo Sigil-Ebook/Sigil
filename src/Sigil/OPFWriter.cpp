@@ -92,7 +92,7 @@ void OPFWriter::WriteMetadata()
 
         else
         {
-            m_Writer->writeAttribute( "opf:scheme", "SigilGEN" );
+            m_Writer->writeAttribute( "opf:scheme", "UUID" );
             m_Writer->writeCharacters( m_Book.PublicationIdentifier );
         }       
 

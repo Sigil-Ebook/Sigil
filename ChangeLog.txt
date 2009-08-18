@@ -1,4 +1,7 @@
 Sigil v0.1.3 <ADD DATE>
+    - Sigil now creates a unique book identifier using the UUID standard (if one is not
+    provided by the user) instead of a radnom sequence of characters and numbers; the old
+    "SigilGEN" scheme is replaced with "UUID"
     - initial support for calibre interoperability (issue #94)
     - book updates from TOC editor are now faster and have a much smaller memory overhead
     - fixed issue with removing headings from TOC in TOC editor (issue #88, part 2 and issue #21);
