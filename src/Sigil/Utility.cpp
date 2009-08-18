@@ -25,10 +25,11 @@
 #include <stdlib.h>
 #include <time.h>
 
-static const QString WIN_PATH_SUFFIX = "/My Documents/Sigil/scratchpad"; 
-static const QString NIX_PATH_SUFFIX = "/.Sigil/scratchpad";
+const QString WIN_PATH_SUFFIX = "/My Documents/Sigil"; 
+const QString NIX_PATH_SUFFIX = "/.Sigil";
 
 static const int TEMPFOLDER_NUM_RANDOM_CHARS = 10;
+static const int TEMPFILE_NUM_RANDOM_CHARS   = 10;
 
 
 // Returns a random string of "length" characters
@@ -150,16 +151,37 @@ QString Utility::GetNewTempFolderPath()
 
 #ifdef Q_WS_WIN
 
-    QString folderpath = QDir::homePath() + WIN_PATH_SUFFIX + "/" + token;
+    QString folderpath = QDir::homePath() + WIN_PATH_SUFFIX + "/scratchpad/" + token;
 
 #else
 
-    QString folderpath = QDir::homePath() + NIX_PATH_SUFFIX + "/." + token;
+    QString folderpath = QDir::homePath() + NIX_PATH_SUFFIX + "/scratchpad/." + token;
 
 #endif
 
     return folderpath;
 }
+
+
+// Creates a copy of the provided file with a random name in
+// the systems TEMP directory and returns the full path to the new file.
+// The extension of the original file is preserved. If the original file
+// doesn't exist, an empty string is returned.
+QString Utility::CreateTemporaryCopy( const QString &fullfilepath )
+{
+    if ( !QFileInfo( fullfilepath ).exists() )
+
+        return QString();
+
+    QString temp_file_path = QDir::temp().absolutePath() + "/" + 
+                             Utility::GetRandomString( TEMPFILE_NUM_RANDOM_CHARS ) + "." +
+                             QFileInfo( fullfilepath ).suffix();
+
+    QFile::copy( fullfilepath, temp_file_path );
+
+    return temp_file_path;
+}
+
 
 // Returns true if the file can be read;
 // shows an error dialog if it can't
@@ -254,6 +276,27 @@ void Utility::WriteUnicodeTextFile( const QString &text, const QString &fullfile
     // TODO: throw error if not open    
 }
 
+
+// Returns a value for the environment variable name passed;
+// if the env var isn't set, it returns an empty string
+QString Utility::GetEnvironmentVar( const QString &variable_name )
+{
+    // Renaming this function (and all references to it)
+    // to GetEnvironmentVariable gets you a linker error 
+    // on MSVC 9. Funny, innit?
+
+    QRegExp search_for_name( "^" + QRegExp::escape( variable_name ) + "=" );
+
+    QString variable = QProcess::systemEnvironment().filter( search_for_name ).value( 0 );
+
+    if ( !variable.isEmpty() )
+
+        return variable.split( "=" )[ 1 ];
+
+    else
+
+        return QString();
+}
 
 
 

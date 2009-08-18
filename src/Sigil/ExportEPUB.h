@@ -96,6 +96,11 @@ protected:
     // Creates the publication's toc.ncx file
     void CreateTocNCX();
 
+    // Performs actions need for interoperability
+    // with calibre; if Sigil was called from it,
+    // special actions need to be taken
+    void CalibreInterop();
+
 
     ///////////////////////////////
     // PROTECTED MEMBER VARIABLES

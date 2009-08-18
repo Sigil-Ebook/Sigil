@@ -31,4 +31,6 @@ extern const QString BREAK_TAG_SEARCH;
 extern const QString BREAK_TAG_INSERT;
 extern const QString HEADING;
 extern const QString STYLE_TAG;
+extern const QString WIN_PATH_SUFFIX;
+extern const QString NIX_PATH_SUFFIX;
 

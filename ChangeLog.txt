@@ -1,6 +1,7 @@
 Sigil v0.1.3 <ADD DATE>
+    - initial support for calibre interoperability (issue #94)
     - book updates from TOC editor are now faster and have a much smaller memory overhead
-    - fixed issue with removing headings from TOC in TOC editor (issue #88, part 2);
+    - fixed issue with removing headings from TOC in TOC editor (issue #88, part 2 and issue #21);
     also made TOC editor updates to headings MUCH more robust
     - all headings are now by default included in TOC... heuristics for "guessing" which
     headings the users wants have been removed (issue #88, part 1)

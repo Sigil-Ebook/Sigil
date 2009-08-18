@@ -29,11 +29,16 @@
 #include "Utility.h"
 #include "XHTMLDoc.h"
 
+
 const QString BODY_START = "<\\s*body[^>]*>";
 const QString BODY_END   = "</\\s*body\\s*>";
 const QString BREAK_TAG_SEARCH  = "(<div>\\s*)?<hr\\s*class\\s*=\\s*\"sigilChapterBreak\"\\s*/>(\\s*</div>)?";
 
 static const QString ID_AND_NAME_ATTRIBUTE = "<[^>]*(?:id|name)\\s*=\\s*\"([^\"]+)\"[^>]*>";
+
+static const QString OPF_FILE_NAME = "content.opf"; 
+static const QString NCX_FILE_NAME = "toc.ncx";
+static const QString CONTAINER_XML_FILE_NAME = "container.xml"; 
 
 // Use with <QRegExp>.setMinimal( true )
 //const QString STYLE_TAG  = "<\\s*style\\s*type\\s*=\\s*\"([^\"]+)\"[^>]*>(.*)</\\s*style[^>]*>";
@@ -63,6 +68,8 @@ void ExportEPUB::WriteBook()
     CreatePublication();
 
     SaveTo( m_FullFilePath );
+
+    CalibreInterop();
 }
 
 
@@ -416,7 +423,7 @@ void ExportEPUB::CreateContainerXML()
         out.flush();
         file.flush();
 
-        m_Folder.AddInfraFileToFolder( file.fileName(), "container.xml" );
+        m_Folder.AddInfraFileToFolder( file.fileName(), CONTAINER_XML_FILE_NAME );
     }
 
     // FIXME: throw exception if not open
@@ -443,7 +450,7 @@ void ExportEPUB::CreateContentOPF()
         out.flush();
         file.flush();
 
-        m_Folder.AddInfraFileToFolder( file.fileName(), "content.opf" );
+        m_Folder.AddInfraFileToFolder( file.fileName(), OPF_FILE_NAME );
     }
 
     // FIXME: throw exception if not open
@@ -470,12 +477,30 @@ void ExportEPUB::CreateTocNCX()
         out.flush();
         file.flush();
 
-        m_Folder.AddInfraFileToFolder( file.fileName(), "toc.ncx" );
+        m_Folder.AddInfraFileToFolder( file.fileName(), NCX_FILE_NAME );
     }
 
     // FIXME: throw exception if not open
 }
 
+
+// Performs actions need for interoperability
+// with calibre; if Sigil was called from it,
+// special actions need to be taken
+void ExportEPUB::CalibreInterop()
+{
+    QString calibre_id = Utility::GetEnvironmentVar( "CALLED_FROM_CALIBRE" );
+
+    if ( !calibre_id.isEmpty() )
+    {
+        QString opf_path  = Utility::CreateTemporaryCopy( m_Folder.GetFullPathToOEBPSFolder() + "/" + OPF_FILE_NAME );
+        QString epub_path = Utility::CreateTemporaryCopy( m_FullFilePath );
+
+        QString argument  = "sigil:" + calibre_id + ":" + epub_path + ":" + opf_path;
+
+        QProcess::startDetached( "calibre", QStringList( argument ) );
+    }
+}
 
 
 

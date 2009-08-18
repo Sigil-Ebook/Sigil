@@ -56,6 +56,12 @@ public:
     // the caller is responsible for creating and deleting the folder
     static QString GetNewTempFolderPath(); 
 
+    // Creates a copy of the provided file with a random name in
+    // the systems TEMP directory and returns the full path to the new file.
+    // The extension of the original file is preserved. If the original file
+    // doesn't exist, an empty string is returned.
+    static QString CreateTemporaryCopy( const QString &fullfilepath ); 
+
     // Returns true if the file can be read;
     // shows an error dialog if it can't
     // with a message elaborating what's wrong
@@ -69,6 +75,10 @@ public:
     // Writes the provided text variable to the specified
     // file; if the file exists, it is truncated
     static void WriteUnicodeTextFile( const QString &text, const QString &fullfilepath );
+
+    // Returns a value for the environment variable name passed;
+    // if the env var isn't set, it returns an empty string
+    static QString GetEnvironmentVar( const QString &variable_name );
 };
 
 #endif // UTILITY_H
