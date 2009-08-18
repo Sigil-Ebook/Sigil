@@ -169,7 +169,7 @@ QString Utility::GetNewTempFolderPath()
 // doesn't exist, an empty string is returned.
 QString Utility::CreateTemporaryCopy( const QString &fullfilepath )
 {
-    if ( !QFileInfo( fullfilepath ).exists() )
+    if ( !QFileInfo( fullfilepath ).exists() || !QFileInfo( fullfilepath ).isFile() )
 
         return QString();
 
