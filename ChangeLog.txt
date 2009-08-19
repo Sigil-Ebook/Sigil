@@ -1,4 +1,5 @@
 Sigil v0.1.3 <ADD DATE>
+    - newlines are now removed from TOC headings to avoid rendering problems in ADE (issue #96)
     - Sigil now creates a unique book identifier using the UUID standard (if one is not
     provided by the user) instead of a radnom sequence of characters and numbers; the old
     "SigilGEN" scheme is replaced with "UUID"
