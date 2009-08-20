@@ -110,11 +110,11 @@ QList< Headings::Heading > Headings::GetHeadingList( const QString &source )
 
         if ( heading_regex.cap( 0 ).contains( title )  )
         
-            heading.text = title.cap( 1 ).remove( QRegExp( XML_TAG ) );
+            heading.text = title.cap( 1 ).remove( QRegExp( XML_TAG ) ).simplified();
 
         else
 
-            heading.text = heading_regex.cap( 1 ).remove( QRegExp( XML_TAG ) );
+            heading.text = heading_regex.cap( 1 ).remove( QRegExp( XML_TAG ) ).simplified();
 
         heading.after_chapter_break = IsAfterChapterBreak( source, main_index );         
 
