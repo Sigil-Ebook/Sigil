@@ -431,8 +431,11 @@ void MainWindow::BookView()
     // Update the book view if we just edited
     // in the code view
     if ( !m_isLastViewBook )
-
+    {
         UpdateBookViewFromSource();
+
+        m_wBookView->StoreCaretLocationUpdate( m_wCodeView->GetCaretLocation() );
+    }
     
     m_wBookView->show();
     m_wCodeView->hide();	
@@ -458,12 +461,18 @@ void MainWindow::SplitView()
 
     // Update the required view
     if ( !m_isLastViewBook )
-
+    {
         UpdateBookViewFromSource();
 
-    else
+        m_wBookView->StoreCaretLocationUpdate( m_wCodeView->GetCaretLocation() );
+    }
 
+    else
+    {
         UpdateCodeViewFromSource();
+
+        m_wCodeView->StoreCaretLocationUpdate( m_wBookView->GetCaretLocation() );
+    }
 
     m_wBookView->show();
     m_wCodeView->show();
@@ -481,15 +490,18 @@ void MainWindow::SplitView()
 void MainWindow::CodeView()
 {
     QApplication::setOverrideCursor( Qt::WaitCursor );
-    
+
     // Update the code view if we just edited
     // in the book view
     if ( m_isLastViewBook )
-
+    {
         UpdateCodeViewFromSource();
 
+        m_wCodeView->StoreCaretLocationUpdate( m_wBookView->GetCaretLocation() );
+    }
+
     m_wBookView->hide();
-    m_wCodeView->show();	
+    m_wCodeView->show();     
 
     // Update the "toggle" button states
     ui.actionBookView->setChecked(  false   );
@@ -665,6 +677,12 @@ void MainWindow::AboutDialog()
 // (code or book view) to the other; needed for source synchronization.
 void MainWindow::FocusFilter( QWidget *old_widget, QWidget *new_widget )
 {
+    // We make sure we are looking at focus changes
+    // in Split View; otherwise, we don't care
+    if ( !ui.actionSplitView->isChecked() )
+    
+        return;
+
     // If we switched focus from the book view to the code view...
     if ( ( old_widget == m_wBookView ) && ( new_widget == m_wCodeView ) )
     {        
@@ -673,11 +691,13 @@ void MainWindow::FocusFilter( QWidget *old_widget, QWidget *new_widget )
         {
             QApplication::setOverrideCursor( Qt::WaitCursor );
 
-            // ...update the book view
-            UpdateCodeViewFromSource();
+            // ...update the code view
+            UpdateCodeViewFromSource();            
 
             QApplication::restoreOverrideCursor();
         }
+
+        m_wCodeView->StoreCaretLocationUpdate( m_wBookView->GetCaretLocation() );
 
         m_isLastViewBook = false;
 
@@ -693,11 +713,13 @@ void MainWindow::FocusFilter( QWidget *old_widget, QWidget *new_widget )
         {
             QApplication::setOverrideCursor( Qt::WaitCursor );
 
-            // ...update the code view
+            // ...update the book view
             UpdateBookViewFromSource();
 
             QApplication::restoreOverrideCursor();
         }
+
+        m_wBookView->StoreCaretLocationUpdate( m_wCodeView->GetCaretLocation() );
 
         m_isLastViewBook = true;
 
@@ -745,7 +767,7 @@ void MainWindow::UpdateUIBookView()
     ui.actionInsertBulletedList ->setChecked( m_wBookView->QueryCommandState( "insertUnorderedList" ) );
     ui.actionInsertNumberedList ->setChecked( m_wBookView->QueryCommandState( "insertOrderedList"   ) );
 
-    SelectEntryInHeadingCombo( m_wBookView->GetCursorElementName() );
+    SelectEntryInHeadingCombo( m_wBookView->GetCaretElementName() );
 }
 
 

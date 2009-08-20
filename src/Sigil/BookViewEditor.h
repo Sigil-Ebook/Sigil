@@ -24,10 +24,9 @@
 #define BOOKVIEWEDITOR_H
 
 #include <QWebView>
+#include "ViewEditor.h"
 
-class Book;
-
-class BookViewEditor : public QWebView
+class BookViewEditor : public QWebView, public ViewEditor
 {
     Q_OBJECT
 
@@ -53,18 +52,58 @@ public:
     // Returns the name of the element the caret is located in;
     // if text is selected, returns the name of the element
     // where the selection *starts*
-    QString GetCursorElementName();
+    QString GetCaretElementName();
+
+    // Returns a list of elements representing a "chain"
+    // or "walk" through the XHTML document with which one
+    // can identify a single element in the document.
+    // This list identifies the element in which the 
+    // keyboard caret is currently located.
+    QList< ViewEditor::ElementIndex > GetCaretLocation(); 
+
+    // Accepts a list returned by a view's GetCaretLocation
+    // and creates and stores an update that sends the caret
+    // in this view to the specified element.
+    // The BookView implementation initiates the update in
+    // the JavascriptOnDocumentLoad() function.
+    void StoreCaretLocationUpdate( const QList< ViewEditor::ElementIndex > &hierarchy );
 
 private slots:
 
-    // Loads custom javascript used by Sigil;
-    // should be called every time the Book View
-    // is loaded with new content
-    void LoadCustomJavascript();
+    // Executes javascript that needs to be run when
+    // the document has finished loading
+    void JavascriptOnDocumentLoad();
+
+    // Updates the state of the m_isLoadFinished variable
+    // depending on the received loading progress; if the 
+    // progress equals 100, the state is true, otherwise false.
+    void UpdateFinishedState( int progress );
 
 private:
 
-    const QString jQuery;
+    // Executes the caret updating code
+    // if an update is pending;
+    // returns true if update was performed
+    bool ExecuteCaretUpdate();
+
+    // The javascript source code of the jQuery library
+    const QString c_JQuery;
+
+    // The javascript source code of the jQuery
+    // ScrollTo extension library
+    const QString c_JQueryScrollTo;
+
+    // The javascript source code used
+    // to get a hierarchy of elements from
+    // the caret element to the top of the document
+    const QString c_GetCaretLocation;
+
+    // The javascript source code for the 
+    // caret update when switching from 
+    // CodeView to BookView
+    QString m_CaretLocationUpdate;
+
+    bool m_isLoadFinished;
 };
 
 

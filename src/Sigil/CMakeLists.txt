@@ -58,6 +58,7 @@ set( HEADERS Book.h
             SigilMarkup.h 
             stdafx.h
             Utility.h
+            ViewEditor.h
             XHTMLHighlighter.h 
             XHTMLDoc.h
             XMLWriter.h  )

@@ -82,6 +82,9 @@ QString Headings::GetNewHeadingSource( const Heading &heading )
 // the list is flat, the headings are *not* in a hierarchy tree
 QList< Headings::Heading > Headings::GetHeadingList( const QString &source )
 {
+    // TODO: Refactor this so it uses QDomDocument. It
+    // should then be a lot more robust, if possibly a bit slower.
+
     QList< Heading > heading_list;
 
     QRegExp heading_regex( HEADING );

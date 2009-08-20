@@ -23,20 +23,25 @@
 #include "CodeViewEditor.h"
 #include "LineNumberArea.h"
 #include "Book.h"
+#include <QDomDocument>
 
 static const int COLOR_FADE_AMOUNT = 175;
+                  
+static const QString XML_OPENING_TAG = "(<[^>/][^>]*[^>/]>|<[^>/]>)";
 
 
 // Constructor;
 // the parameters is the object's parent
 CodeViewEditor::CodeViewEditor( QWidget *parent )
-    : QPlainTextEdit( parent )
+    : 
+    QPlainTextEdit( parent ),
+    m_CaretLocationUpdate( 0, 0 )
 {
     m_LineNumberArea = new LineNumberArea( this );
 
-    connect(  this, SIGNAL( blockCountChanged( int ) ),             this, SLOT( UpdateLineNumberAreaMargin() ) );
-    connect(  this, SIGNAL( updateRequest( const QRect &, int) ),   this, SLOT( UpdateLineNumberArea( const QRect &, int) ) );
-    connect(  this, SIGNAL( cursorPositionChanged() ),              this, SLOT( HighlightCurrentLine() ) );
+    connect( this, SIGNAL( blockCountChanged( int ) ),             this, SLOT( UpdateLineNumberAreaMargin() ) );
+    connect( this, SIGNAL( updateRequest( const QRect &, int) ),   this, SLOT( UpdateLineNumberArea( const QRect &, int) ) );
+    connect( this, SIGNAL( cursorPositionChanged() ),              this, SLOT( HighlightCurrentLine()       ) );
 
     UpdateLineNumberAreaMargin();
     HighlightCurrentLine();
@@ -119,6 +124,69 @@ int CodeViewEditor::CalculateLineNumberAreaWidth()
 }
 
 
+// Returns a list of elements representing a "chain"
+// or "walk" through the XHTML document with which one
+// can identify a single element in the document.
+// This list identifies the element in which the 
+// keyboard caret is currently located.
+QList< ViewEditor::ElementIndex > CodeViewEditor::GetCaretLocation()
+{
+    QRegExp tag( XML_OPENING_TAG );
+
+    // We search for the first opening tag behind the caret.
+    // This specifies the element the caret is located in.
+    int offset = toPlainText().lastIndexOf( tag, textCursor().position() );
+
+    return ConvertStackToHierarchy( GetCaretLocationStack( offset + tag.matchedLength() ) );
+}
+
+
+// Accepts a list returned by a view's GetCaretLocation
+// and creates and stores an update that sends the caret
+// in this view to the specified element.
+// The CodeView implementation initiates the update in
+// the paint event handler.
+void CodeViewEditor::StoreCaretLocationUpdate( const QList< ViewEditor::ElementIndex > &hierarchy )
+{
+    QDomDocument dom;
+
+    dom.setContent( toPlainText() );
+
+    QDomNode node = dom.elementsByTagName( "html" ).at( 0 );
+    QDomNode end_node;
+
+    for ( int i = 0; i < hierarchy.count() - 1; i++ )
+    {
+        node = node.childNodes().at( hierarchy[ i ].index );
+
+        if ( !node.isNull() )
+
+            end_node = node;
+
+        else
+
+            break;
+    }
+
+    QTextCursor cursor( document() );
+
+    if ( !end_node.isNull() ) 
+    {
+        // We can't set the actual caret location here;
+        // that is done in the paint event handler.
+        // Here we just calculate the caret update.
+        m_CaretLocationUpdate.vertical_lines   = end_node.lineNumber() - cursor.blockNumber();
+        m_CaretLocationUpdate.horizontal_chars = end_node.columnNumber();   
+    }
+
+    else
+    {   
+        m_CaretLocationUpdate.vertical_lines   = 0;
+        m_CaretLocationUpdate.horizontal_chars = 0;
+    } 
+}
+
+
 // The base class implementation of the print()
 // method is not a slot, and we need it as a slot
 // for print preview support; so this is just
@@ -146,6 +214,34 @@ void CodeViewEditor::resizeEvent( QResizeEvent *event )
                                         ) 
                                  );
 }
+
+// Overridden because we need to update the cursor
+// location if a cursor update (from BookView) 
+// is waiting to be processed
+void CodeViewEditor::paintEvent( QPaintEvent *event )
+{
+    // Update self normally
+    QPlainTextEdit::paintEvent( event );
+
+    // Run the caret update if it's pending
+    ExecuteCaretUpdate();
+}
+
+
+// Overridden because we want the ExecuteCaretUpdate()
+// to be called from here when the user clicks inside
+// this widget in SplitView. Leaving it up to the paint
+// event handler causes graphical artifacts for SplitView.
+// So in those conditions, this handler beats the paint one to the update.
+void CodeViewEditor::mousePressEvent( QMouseEvent *event )
+{
+    // Propagate to base class
+    QPlainTextEdit::mousePressEvent( event );   
+
+    // Run the caret update if it's pending
+    ExecuteCaretUpdate();
+}
+
 
 // Called whenever the number of lines changes;
 // sets a margin where the line number area can be displayed
@@ -199,6 +295,114 @@ void CodeViewEditor::HighlightCurrentLine()
 }
 
 
+// Returns a stack of elements representing the
+// current location of the caret in the document.
+// Accepts the number of characters to the end of
+// the start tag of the element the caret is residing in. 
+QList< CodeViewEditor::StackElement > CodeViewEditor::GetCaretLocationStack( int offset )
+{
+    QString source = toPlainText();
+    QXmlStreamReader reader( source );
+
+    QList< StackElement > stack; 
+
+    while ( !reader.atEnd() ) 
+    {
+        // Get the next token from the stream
+        QXmlStreamReader::TokenType type = reader.readNext();
+
+        if ( type == QXmlStreamReader::StartElement ) 
+        {
+            // If we detected the start of a new element, then
+            // the element currently on the top of the stack
+            // has one more child element
+            if ( !stack.isEmpty() )
+
+                stack.last().num_children++;
+            
+            StackElement new_element;
+            new_element.name         = reader.name().toString();
+            new_element.num_children = 0;
+
+            stack.append( new_element );
+
+            // Check if this is the element start tag
+            // we are looking for
+            if ( reader.characterOffset() == offset  )
+
+                break;
+        }
+
+        // If we detect the end tag of an element,
+        // we remove it from the top of the stack
+        else if ( type == QXmlStreamReader::EndElement )
+        {
+            stack.removeLast();
+        }
+    }
+
+    if ( reader.hasError() )
+    {
+        // Just return an empty location.
+        // Maybe we could return the stack we currently have?
+        return QList< StackElement >();
+    }
+
+    return stack;
+}
+
+
+// Converts the stack provided by GetCaretLocationStack()
+// and converts it into the element location hierarchy
+QList< ViewEditor::ElementIndex > CodeViewEditor::ConvertStackToHierarchy( const QList< StackElement > stack )
+{
+    QList< ViewEditor::ElementIndex > hierarchy;
+
+    foreach( StackElement stack_element, stack )
+    {
+        ViewEditor::ElementIndex new_element;
+
+        new_element.name  = stack_element.name;
+        new_element.index = stack_element.num_children - 1;
+
+        hierarchy.append( new_element );
+    }
+
+    return hierarchy;
+}
+
+// Executes the caret updating code
+// if an update is pending;
+// returns true if update was performed
+bool CodeViewEditor::ExecuteCaretUpdate()
+{
+    // If there's a cursor/caret update waiting (from BookView),
+    // we update the caret location and reset the update variable
+    if (    m_CaretLocationUpdate.vertical_lines   == 0 &&
+            m_CaretLocationUpdate.horizontal_chars == 0 
+        )
+    {
+        return false;
+    }
+
+    QTextCursor cursor( document() );
+
+    cursor.movePosition( QTextCursor::NextBlock, QTextCursor::MoveAnchor, m_CaretLocationUpdate.vertical_lines );
+    cursor.movePosition( QTextCursor::Left     , QTextCursor::MoveAnchor, m_CaretLocationUpdate.horizontal_chars );
+
+    m_CaretLocationUpdate.vertical_lines   = 0;
+    m_CaretLocationUpdate.horizontal_chars = 0; 
+
+    setTextCursor( cursor );
+
+    // Center the screen on the cursor/caret location.
+    // Centering requires fresh information about the
+    // visible viewport, so we usually call this from
+    // the paint event handler.
+    centerCursor();
+
+    return true;
+}
 
 
 

@@ -24,7 +24,7 @@
 #define CODEVIEWEDITOR_H
 
 #include <QPlainTextEdit>
-#include <QObject>
+#include "ViewEditor.h"
 
 class QPaintEvent;
 class QResizeEvent;
@@ -32,10 +32,9 @@ class QSize;
 class QWidget;
 class QPrinter;
 class LineNumberArea;
-class Book;
 
 
-class CodeViewEditor : public QPlainTextEdit
+class CodeViewEditor : public QPlainTextEdit, public ViewEditor
 {
     Q_OBJECT
 
@@ -57,6 +56,20 @@ public:
     // should take (in pixels)
     int CalculateLineNumberAreaWidth();
 
+    // Returns a list of elements representing a "chain"
+    // or "walk" through the XHTML document with which one
+    // can identify a single element in the document.
+    // This list identifies the element in which the 
+    // keyboard caret is currently located.
+    QList< ViewEditor::ElementIndex > GetCaretLocation(); 
+
+    // Accepts a list returned by a view's GetCaretLocation
+    // and creates and stores an update that sends the caret
+    // in this view to the specified element.
+    // The CodeView implementation initiates the update in
+    // the paint event handler.
+    void StoreCaretLocationUpdate( const QList< ViewEditor::ElementIndex > &hierarchy );
+
 public slots:
 
     // The base class implementation of the print()
@@ -71,6 +84,18 @@ protected:
     // the editor needs to update its line number area too
     void resizeEvent( QResizeEvent *event );
 
+    // Overridden because we need to update the cursor
+    // location if a cursor update (from BookView) 
+    // is waiting to be processed
+    void paintEvent( QPaintEvent *event );
+
+    // Overridden because we want the ExecuteCaretUpdate()
+    // to be called from here when the user clicks inside
+    // this widget in SplitView. Leaving it up to the paint
+    // event handler causes graphical artifacts for SplitView.
+    // So in those conditions, this handler beats the paint one to the update.
+    void mousePressEvent( QMouseEvent *event );
+
 private slots:
 
     // Called whenever the number of lines changes;
@@ -83,9 +108,57 @@ private slots:
     void UpdateLineNumberArea( const QRect &rectangle, int vertical_delta );
 
     // Highlights the line the user is editing
-    void HighlightCurrentLine();
+    void HighlightCurrentLine();    
 
 private:
+
+    // Specifies the lines and characters the caret will
+    // need to move to get to the required position
+    struct CaretMove
+    {
+        // The vertical lines from
+        // the start of the document
+        int vertical_lines;
+
+        // The number of horizontal characters
+        // on the destination line
+        int horizontal_chars;
+
+        CaretMove( int vertical, int horizontal ) 
+            : vertical_lines( vertical ), 
+              horizontal_chars( horizontal ) {}
+    };
+
+    // An element on the stack when searching for
+    // the current caret location. 
+    struct StackElement
+    {
+        // The tag name
+        QString name;
+
+        // The number of child elements
+        // detected for the element, so far.
+        int num_children;
+    };
+
+    // Returns a stack of elements representing the
+    // current location of the caret in the document.
+    // Accepts the number of characters to the end of
+    // the start tag of the element the caret is residing in. 
+    QList< StackElement > GetCaretLocationStack( int offset );
+
+    // Converts the stack provided by GetCaretLocationStack()
+    // and converts it into the element location hierarchy
+    QList< ElementIndex > ConvertStackToHierarchy( const QList< StackElement > stack );
+
+    // Executes the caret updating code
+    // if such an update is pending;
+    // returns true if update was performed
+    bool ExecuteCaretUpdate();
+
+    // Stores the update for the caret location
+    // when switching from BookView to CodeVIew
+    CaretMove m_CaretLocationUpdate;
 
     // The line number area widget of the code view
     LineNumberArea *m_LineNumberArea;

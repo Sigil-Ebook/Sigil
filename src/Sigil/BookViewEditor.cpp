@@ -29,13 +29,21 @@
 BookViewEditor::BookViewEditor( QWidget *parent )
     : 
     QWebView( parent ),
-    jQuery( Utility::ReadUnicodeTextFile( ":/javascript/jquery-1.3.2.min.js" ) )
+    c_JQuery( Utility::ReadUnicodeTextFile( ":/javascript/jquery-1.3.2.min.js" ) ),
+    c_JQueryScrollTo( Utility::ReadUnicodeTextFile( ":/javascript/jquery.scrollTo-1.4.2-min.js" ) ),
+    c_GetCaretLocation( Utility::ReadUnicodeTextFile( ":/javascript/book_view_current_location.js" ) )
 {
     connect(    page(),
                 SIGNAL( loadFinished( bool ) ), 
                 this,
-                SLOT( LoadCustomJavascript() )
-           );    
+                SLOT( JavascriptOnDocumentLoad() )
+           );
+
+    connect(    page(),
+                SIGNAL( loadProgress ( int ) ), 
+                this,
+                SLOT( UpdateFinishedState( int ) )
+                );
 }
 
 
@@ -83,7 +91,7 @@ bool BookViewEditor::QueryCommandState( const QString &command )
 // Returns the name of the element the caret is located in;
 // if text is selected, returns the name of the element
 // where the selection *starts*
-QString BookViewEditor::GetCursorElementName()
+QString BookViewEditor::GetCaretElementName()
 {
     QString javascript =  "var node = document.getSelection().anchorNode;"
                           "var startNode = (node.nodeName == \"#text\" ? node.parentNode : node);"
@@ -93,12 +101,108 @@ QString BookViewEditor::GetCursorElementName()
 }
 
 
-// Loads custom javascript used by Sigil;
-// should be called every time the Book View
-// is loaded with new content
-void BookViewEditor::LoadCustomJavascript()
+// Returns a list of elements representing a "chain"
+// or "walk" through the XHTML document with which one
+// can identify a single element in the document.
+// This list identifies the element in which the 
+// keyboard caret is currently located.
+QList< ViewEditor::ElementIndex > BookViewEditor::GetCaretLocation()
 {
-    page()->mainFrame()->evaluateJavaScript( jQuery );
+    // The location element hierarchy encoded in a string
+    QString location_string = page()->mainFrame()->evaluateJavaScript( c_GetCaretLocation ).toString();
+    QStringList elements    = location_string.split( ",", QString::SkipEmptyParts );
+
+    QList< ElementIndex > caret_location;
+
+    foreach( QString element, elements )
+    {
+        ElementIndex new_element;
+
+        new_element.name  = element.split( " " )[ 0 ];
+        new_element.index = element.split( " " )[ 1 ].toInt();
+
+        caret_location.append( new_element );
+    }
+
+    return caret_location;
 }
+
+
+// Accepts a list returned by a view's GetCaretLocation
+// and creates and stores an update that sends the caret
+// in this view to the specified element.
+// The BookView implementation initiates the update in
+// the JavascriptOnDocumentLoad() function.
+void BookViewEditor::StoreCaretLocationUpdate( const QList< ViewEditor::ElementIndex > &hierarchy )
+{
+    QString caret_location = "var element = $('html')";
+
+    for ( int i = 0; i < hierarchy.count() - 1; i++ )
+    {
+        caret_location.append( QString( ".children().eq(%1)" ).arg( hierarchy[ i ].index ) );
+    }
+
+    caret_location += ".get(0);";
+    
+    // We scroll to the element and center the screen on it
+    QString scroll = "var from_top = $(window).height() / 2;"
+                     "$.scrollTo( element, 0, {offset: {top:-from_top, left:0 } } );";
+
+    m_CaretLocationUpdate = caret_location + scroll;
+
+    // If we have focus, then we run the update right now;
+    // otherwise, we defer the update until later
+    if ( hasFocus() && m_isLoadFinished )
+        
+        ExecuteCaretUpdate();        
+}
+
+// Executes javascript that needs to be run when
+// the document has finished loading
+void BookViewEditor::JavascriptOnDocumentLoad()
+{
+    // Javascript libraries needed
+    page()->mainFrame()->evaluateJavaScript( c_JQuery );
+    page()->mainFrame()->evaluateJavaScript( c_JQueryScrollTo );  
+
+    // Run the caret update if it's pending
+    ExecuteCaretUpdate();
+}
+
+// Updates the state of the m_isLoadFinished variable
+// depending on the received loading progress; if the 
+// progress equals 100, the state is true, otherwise false.
+void BookViewEditor::UpdateFinishedState( int progress )
+{ 
+    if ( progress == 100 )
+
+        m_isLoadFinished = true;
+
+    else
+
+        m_isLoadFinished = false;
+}
+
+
+// Executes the caret updating code
+// if an update is pending;
+// returns true if update was performed
+bool BookViewEditor::ExecuteCaretUpdate()
+{
+    // If there is no caret location update
+    // pending, 
+    if ( m_CaretLocationUpdate.isEmpty() )
+        
+        return false;
+
+    // ... run it...
+    page()->mainFrame()->evaluateJavaScript( m_CaretLocationUpdate );
+
+    // ... and clear the update.
+    m_CaretLocationUpdate = ""; 
+
+    return true;
+}
+
 
 
