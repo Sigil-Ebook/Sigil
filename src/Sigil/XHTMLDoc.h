@@ -33,8 +33,14 @@ class XHTMLDoc
 public:
 
     // Returns a list of QDomNodes representing all
-    // the style elements in the provided XHTML source code
-    static QList< QDomNode > GetStyleTags( const QString &source );
+    // the elements of the specified tag name
+    // in the head section of the provided XHTML source code
+    static QList< QDomNode > GetTagsInHead( const QString &source, const QString &tag_name  );
+
+    // Returns a list of QDomNodes representing all
+    // the elements of the specified tag name
+    // in the entire document of the provided XHTML source code
+    static QList< QDomNode > GetTagsInDocument( const QString &source, const QString &tag_name );
 
 private:
 

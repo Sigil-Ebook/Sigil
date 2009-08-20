@@ -1,5 +1,7 @@
 Sigil v0.1.3 <ADD DATE>
-    - Implemented non-live View position synchronization; the Views are now synced
+    - refactored HTML file import resource loading: should be a lot more robust now
+    - fixed an issue with loading HTML file that reference the same images multiple times (issue #90)
+    - implemented non-live View position synchronization; the Views are now synced
     by HTML element: moving the caret in one View will center the other View (upon switching)
     to the same HTML element that held the caret in the first View (issue #8)
     - newlines are now removed from TOC headings to avoid rendering problems in ADE (issue #96)

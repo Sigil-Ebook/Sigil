@@ -369,7 +369,7 @@ QStringList ImportEPUB::GetExistingStyleTags()
         QString fullpath = QFileInfo( m_OPFFilePath ).absolutePath() + "/" + m_Files[ id ];
         QString text     = ResolveCustomEntities( Utility::ReadUnicodeTextFile( fullpath ) );
 
-        QList< QDomNode > style_tag_nodes = XHTMLDoc::GetStyleTags( text );
+        QList< QDomNode > style_tag_nodes = XHTMLDoc::GetTagsInHead( text, "style" );
 
         foreach( QDomNode node, style_tag_nodes )
         {

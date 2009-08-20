@@ -27,8 +27,9 @@ static const QString HEAD_ELEMENT = "<\\s*(?:head|HEAD)[^>]*>(.*)</\\s*(?:head|H
 
 
 // Returns a list of QDomNodes representing all
-// the style elements in the provided XHTML source code
-QList< QDomNode > XHTMLDoc::GetStyleTags( const QString &source )
+// the elements of the specified tag name
+// in the head section of the provided XHTML source code
+QList< QDomNode > XHTMLDoc::GetTagsInHead( const QString &source, const QString &tag_name )
 {
     QRegExp head_element( HEAD_ELEMENT );
 
@@ -37,7 +38,19 @@ QList< QDomNode > XHTMLDoc::GetStyleTags( const QString &source )
     QDomDocument document;
     document.setContent( head_element.cap( 0 ) );
    
-    return DeepCopyNodeList( document.elementsByTagName( "style" ) );
+    return DeepCopyNodeList( document.elementsByTagName( tag_name ) );
+}
+
+
+// Returns a list of QDomNodes representing all
+// the elements of the specified tag name
+// in the entire document of the provided XHTML source code
+QList< QDomNode > XHTMLDoc::GetTagsInDocument( const QString &source, const QString &tag_name )
+{
+    QDomDocument document;
+    document.setContent( source );
+
+    return DeepCopyNodeList( document.elementsByTagName( tag_name ) );
 }
 
 

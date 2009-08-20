@@ -24,6 +24,7 @@
 #include "Utility.h"
 #include "CleanSource.h"
 #include <QDomDocument>
+#include "XHTMLDoc.h"
 
 static const QString ENTITY_SEARCH = "<!ENTITY\\s+(\\w+)\\s+\"([^\"]+)\">";
 
@@ -223,42 +224,93 @@ void ImportHTML::LoadSource()
 // as the files get a new name, the references are updated
 void ImportHTML::LoadFolderStructure()
 {
-    int index = 0;
-
-    QString image           = "<\\s*(?:img|IMG)[^>]*src\\s*=\\s*";
-    QString link_element    = "<\\s*(?:link|LINK)[^>]*href\\s*=\\s*";
-    QString resource_url    = "\"([^\">]+)\"";
-    QString tail            = "[^>]*>";
-
-    while ( true )
-    {         
-        QRegExp fileurl( "(?:" + image + "|" + link_element + ")" + resource_url + tail );
-
-        index = m_Book.source.indexOf( fileurl, index ) + fileurl.matchedLength();
-
-        if ( index < 0 )
-
-            break;
-
-        QDir folder( QFileInfo( m_FullFilePath ).absoluteDir() );
-
-        QString fullfilepath = QFileInfo( folder, QUrl( fileurl.cap( 1 ) ).toString() ).absoluteFilePath();
-
-        if ( !fullfilepath.contains( ".css" ) )
-        {
-            QString newpath = "../" + m_Book.mainfolder.AddContentFileToFolder( fullfilepath );
-        
-            UpdateReferences( fileurl.cap( 1 ), newpath );
-        }
-
-        else
-        {
-            QString style_tag = CreateStyleTag( fullfilepath );
-
-            m_Book.source.replace( fileurl.cap( 0 ), style_tag );          
-        }      
-    }      
+    LoadImages();
+    LoadStyleFiles();  
 }
 
 
+// Loads the images into the book;
+// all references are updated.
+void ImportHTML::LoadImages()
+{
+    QList< QDomNode > image_nodes = XHTMLDoc::GetTagsInDocument( m_Book.source, "img" );
+
+    QStringList image_links;
+
+    // Get a list of all images referenced
+    foreach( QDomNode node, image_nodes )
+    {
+        QDomElement element = node.toElement();
+        QString src         = element.attribute( "src" );
+
+        if ( !src.isEmpty() )
+
+            image_links << src;
+    }
+
+    // Remove duplicate references
+    image_links.removeDuplicates();
+
+    // Load the images into the book and
+    // update all references with new urls
+    foreach( QString image_link, image_links )
+    {
+        QDir folder( QFileInfo( m_FullFilePath ).absoluteDir() );
+
+        QString fullfilepath = QFileInfo( folder, QUrl( image_link ).toString() ).absoluteFilePath();
+        QString newpath      = "../" + m_Book.mainfolder.AddContentFileToFolder( fullfilepath );
+
+        UpdateReferences( image_link, newpath );        
+    }
+
+}
+
+
+// Loads CSS files from 
+// link tags to style tags
+void ImportHTML::LoadStyleFiles()
+{
+    QDomDocument document;
+    document.setContent( m_Book.source );
+
+    QDomNodeList link_nodes = document.elementsByTagName( "link" );
+
+    QStringList style_tags;
+
+    // Get all the style files references in link tags
+    // and convert them into style tags
+    for ( int i = 0; i < link_nodes.count(); i++ )
+    {
+        QDir folder( QFileInfo( m_FullFilePath ).absoluteDir() );
+
+        QDomElement element = link_nodes.at( i ).toElement();
+
+        QFileInfo file_info( folder, QUrl( element.attribute( "href" ) ).toString() );
+
+        if (    file_info.suffix().toLower() == "css" ||
+                file_info.suffix().toLower() == "xpgt"
+           )
+        {
+            style_tags << CreateStyleTag( file_info.absoluteFilePath() );
+        }
+    }
+
+    QDomNode head = document.elementsByTagName( "head" ).at( 0 );
+
+    // Remove the link tags
+    while ( !link_nodes.isEmpty() )
+    {
+        head.removeChild( link_nodes.at( 0 ) );        
+    }
+
+    QString new_source = document.toString().replace( "&#xd;", "" );
+
+    // Paste the new style tags into the head section
+    foreach( QString style, style_tags )
+    {
+        new_source.replace( QRegExp( "(</\\s*(?:head|HEAD)[^>]*>)" ), style + "\n\\1" );
+    }  
+
+    m_Book.source = new_source;
+}
 

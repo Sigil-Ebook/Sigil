@@ -66,6 +66,14 @@ private:
     // Loads the referenced files into the main folder of the book;
     // as the files get a new name, the references are updated 
     void LoadFolderStructure();
+
+    // Loads the images into the book;
+    // all references are updated.
+    void LoadImages();
+
+    // Loads style files from 
+    // link tags to style tags
+    void LoadStyleFiles();
 };
 
 #endif // IMPORTHTML_H

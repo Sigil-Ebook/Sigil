@@ -110,7 +110,7 @@ QStringList CleanSource::CSSStyleTags( const QString &source )
 {
     QStringList css_style_tags;
 
-    QList< QDomNode > style_tag_nodes = XHTMLDoc::GetStyleTags( source );
+    QList< QDomNode > style_tag_nodes = XHTMLDoc::GetTagsInHead( source, "style" );
 
     foreach( QDomNode node, style_tag_nodes )
     {

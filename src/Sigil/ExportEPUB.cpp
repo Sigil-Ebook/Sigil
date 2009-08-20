@@ -145,7 +145,7 @@ QStringList ExportEPUB::CreateStyleFiles()
 {
     QStringList style_files;
 
-    QList< QDomNode > style_tag_nodes = XHTMLDoc::GetStyleTags( m_Book.source );
+    QList< QDomNode > style_tag_nodes = XHTMLDoc::GetTagsInHead( m_Book.source, "style" );
 
     foreach( QDomNode node, style_tag_nodes )
     {
