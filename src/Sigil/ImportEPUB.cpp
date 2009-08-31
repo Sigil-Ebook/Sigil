@@ -27,6 +27,7 @@
 #include <ZipArchive.h>
 #include "XHTMLDoc.h"
 
+static const QString OEBPS_MIMETYPE = "application/oebps-package+xml";
 
 // Constructor;
 // The parameter is the file to be imported
@@ -113,14 +114,33 @@ void ImportEPUB::LocateOPF()
 
     folder.cd( "META-INF" );
 
-    QString fullpath        = folder.absoluteFilePath( "container.xml" );
-    QString container_xml   = Utility::ReadUnicodeTextFile( fullpath ); 
+    QString fullpath = folder.absoluteFilePath( "container.xml" );
 
-    QRegExp opf_search( "\"([^\">]+\\.opf)\"" );
+    QDomDocument document;
+    document.setContent( Utility::ReadUnicodeTextFile( fullpath ) );
 
-    container_xml.indexOf( opf_search );
+    // Each <rootfile> element specifies the rootfile of 
+    // a single rendition of the contained publication.
+    // There is *usually* just one, and it is *usually* the OPF doc.
+    QDomNodeList root_files = document.elementsByTagName( "rootfile" );
 
-    m_OPFFilePath = m_ExtractedFolderPath + "/" + opf_search.cap( 1 );
+    for ( int i = 0; i < root_files.count(); i++ )
+    {
+        QDomElement element = root_files.at( i ).toElement();
+
+        if (  element.hasAttribute( "media-type" ) &&
+              element.attribute( "media-type" ) == OEBPS_MIMETYPE 
+           )
+        {
+            m_OPFFilePath = m_ExtractedFolderPath + "/" + element.attribute( "full-path", "" );
+
+            // As per OCF spec, the first rootfile element
+            // with the OEBPS mimetype is considered the "main" one.
+            break;
+        }
+    }
+
+    // TODO: throw exception if no appropriate OEBPS root file was found
 }
 
 
