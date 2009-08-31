@@ -539,6 +539,9 @@ void MainWindow::InsertImage()
 
         return;
 
+    // Store the folder the user inserted the image from
+    m_LastFolderImage = QFileInfo( filename ).absolutePath();
+
     QString relative_path = "../" + m_Book.mainfolder.AddContentFileToFolder( filename );
 
     m_wBookView->ExecCommand( "insertImage", relative_path );

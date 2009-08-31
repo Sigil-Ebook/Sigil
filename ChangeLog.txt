@@ -1,4 +1,5 @@
 Sigil v0.1.3 <ADD DATE>
+    - fixed regression for storing the folder from which the user last imported an image (issue #105)  
     - refactored HTML file import resource loading: should be a lot more robust now
     - fixed an issue with loading HTML file that reference the same images multiple times (issue #90)
     - implemented non-live View position synchronization; the Views are now synced
