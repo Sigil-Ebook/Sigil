@@ -48,7 +48,7 @@ Book ImportHTML::GetBook()
     LoadSource(); 
 
     StripFilesFromAnchors();
-    LoadFolderStructure();
+    UpdateReferences( LoadFolderStructure() );
 
     m_Book.source = CleanSource::Clean( m_Book.source );
 
@@ -74,42 +74,6 @@ QString ImportHTML::CreateStyleTag( const QString &fullfilepath )
     }
 
     return style_tag;
-}
-
-
-// Updates all references to the resource specified with oldpath
-// to the path of the new resource specified with newpath
-void ImportHTML::UpdateReferences( const QString &oldpath, const QString &newpath )
-{
-    QString filename = QFileInfo( oldpath ).fileName();
-
-    QRegExp reference;
-
-    // Fonts get searched for differently than the other resources
-    if ( ( filename.contains( ".ttf" ) ) || ( filename.contains( ".otf" ) ) )
-
-        reference = QRegExp( "src:\\s*\\w+\\(([^\\)]*/" + QRegExp::escape( filename ) + "|" + QRegExp::escape( filename ) + ")\\)" );
-
-    else
-
-        reference = QRegExp( "<[^>]*\"([^\">]*/" + QRegExp::escape( filename ) + "|" + QRegExp::escape( filename ) + ")\"[^>]*>" );
-
-    int index = -1;
-
-    while ( true )
-    {
-        int newindex = m_Book.source.indexOf( reference );
-
-        // We need to make sure we don't end up
-        // replacing the same thing over and over again
-        if ( ( index == newindex ) || ( newindex == -1 ) )
-
-            break;
-
-        m_Book.source.replace( reference.cap( 1 ), newpath );
-
-        index = newindex;
-    }
 }
 
 
@@ -187,6 +151,117 @@ void ImportHTML::StripFilesFromAnchors()
 }
 
 
+// Accepts a hash with keys being old references (URLs) to resources,
+// and values being the new references to those resources.
+// The book XHTML source is updated accordingly.
+void ImportHTML::UpdateReferences( const QHash< QString, QString > updates )
+{
+    QHash< QString, QString > html_updates = updates;
+    QHash< QString, QString > css_updates;
+
+    foreach( QString old_path, html_updates.keys() )
+    {
+        QString extension = QFileInfo( old_path ).suffix().toLower();
+
+        if ( extension == "ttf" || extension == "otf" )
+        {
+            css_updates[ old_path ] = html_updates[ old_path ];
+            html_updates.remove( old_path );
+        }
+    }
+
+    UpdateHTMLReferences( html_updates );
+    UpdateCSSReferences( css_updates );
+}
+
+
+// Updates the resource references in the HTML.
+// Accepts a hash with keys being old references (URLs) to resources,
+// and values being the new references to those resources.
+void ImportHTML::UpdateHTMLReferences( const QHash< QString, QString > updates )
+{
+    QDomDocument document;
+    document.setContent( m_Book.source );
+
+    UpdateReferenceInNode( document.documentElement(), updates );
+
+    // We also remove the XML carriage returns ("&#xD" sequences)
+    // that the toString() method creates
+
+    // TODO: send document.tostring to special utility func
+    m_Book.source = document.toString().replace( "&#xd;", "" );  
+
+}
+
+
+// Updates the resource references in the attributes 
+// of the one specified node in the HTML.
+// Accepts a hash with keys being old references (URLs) to resources,
+// and values being the new references to those resources.
+void ImportHTML::UpdateReferenceInNode( QDomNode node, const QHash< QString, QString > updates )
+{
+    QDomNamedNodeMap attributes = node.attributes();
+
+    for ( int i = 0; i < attributes.count(); i++ )
+    {
+        QDomAttr attribute = attributes.item( i ).toAttr();
+
+        if ( !attribute.isNull() )
+        {
+            foreach ( QString old_path, updates.keys() )
+            {
+                QString filename = QFileInfo( old_path ).fileName();
+
+                QRegExp file_match( ".*/" + QRegExp::escape( filename ) + "|" + QRegExp::escape( filename ) );
+
+                if ( file_match.exactMatch( attribute.value() ) )
+
+                    attribute.setValue( updates[ old_path ] );
+            }            
+        }
+    }
+
+    QDomNodeList children = node.childNodes();
+
+    for ( int i = 0; i < children.count(); i++ )
+    {
+        UpdateReferenceInNode( children.at( i ), updates );
+    }
+}
+
+
+// Updates the resource references in the CSS.
+// Accepts a hash with keys being old references (URLs) to resources,
+// and values being the new references to those resources.
+void ImportHTML::UpdateCSSReferences( const QHash< QString, QString > updates )
+{
+    foreach( QString old_path, updates.keys() )
+    {
+        QString filename  = QFileInfo( old_path ).fileName();
+
+        QRegExp reference = QRegExp( "src:\\s*\\w+\\(([^\\)]*/" + QRegExp::escape( filename ) + "|"
+                                        + QRegExp::escape( filename ) + ")\\)" );
+
+        int index = -1;
+
+        while ( true )
+        {
+            int newindex = m_Book.source.indexOf( reference );
+
+            // We need to make sure we don't end up
+            // replacing the same thing over and over again
+            if ( ( index == newindex ) || ( newindex == -1 ) )
+
+                break;
+
+            m_Book.source.replace( reference.cap( 1 ), updates[ old_path ] );
+
+            index = newindex;
+        }
+    }  
+}
+
+
 // Loads the source code into the Book
 void ImportHTML::LoadSource()
 {
@@ -222,16 +297,19 @@ void ImportHTML::LoadSource()
 
 // Loads the referenced files into the main folder of the book;
 // as the files get a new name, the references are updated
-void ImportHTML::LoadFolderStructure()
+QHash< QString, QString > ImportHTML::LoadFolderStructure()
 {
-    LoadImages();
-    LoadStyleFiles();  
+    QHash< QString, QString > updates;
+    
+    updates = LoadImages();
+    LoadStyleFiles();
+
+    return updates;    
 }
 
 
-// Loads the images into the book;
-// all references are updated.
-void ImportHTML::LoadImages()
+// Loads the images into the book
+QHash< QString, QString > ImportHTML::LoadImages()
 {
     QList< QDomNode > image_nodes = XHTMLDoc::GetTagsInDocument( m_Book.source, "img" );
 
@@ -251,6 +329,8 @@ void ImportHTML::LoadImages()
     // Remove duplicate references
     image_links.removeDuplicates();
 
+    QHash< QString, QString > updates;
+
     // Load the images into the book and
     // update all references with new urls
     foreach( QString image_link, image_links )
@@ -260,14 +340,14 @@ void ImportHTML::LoadImages()
         QString fullfilepath = QFileInfo( folder, QUrl( image_link ).toString() ).absoluteFilePath();
         QString newpath      = "../" + m_Book.mainfolder.AddContentFileToFolder( fullfilepath );
 
-        UpdateReferences( image_link, newpath );        
+        updates[ image_link ] = newpath;
     }
 
+    return updates;
 }
 
 
-// Loads CSS files from 
-// link tags to style tags
+// Loads CSS files from link tags to style tags
 void ImportHTML::LoadStyleFiles()
 {
     QDomDocument document;
@@ -313,4 +393,5 @@ void ImportHTML::LoadStyleFiles()
 
     m_Book.source = new_source;
 }
+
 

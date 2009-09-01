@@ -26,6 +26,8 @@
 #include "ImportTXT.h"
 #include "FolderKeeper.h"
 
+class QDomNode;
+
 class ImportHTML : public ImportTXT
 {
 
@@ -43,11 +45,7 @@ protected:
 
     // Returns a style tag created 
     // from the provided path to a CSS file
-    QString CreateStyleTag( const QString &fullfilepath );
-
-    // Updates all references to the resource specified with oldpath
-    // to the path of the new resource specified with newpath
-    void UpdateReferences( const QString &oldpath, const QString &newpath );
+    QString CreateStyleTag( const QString &fullfilepath );    
 
     // Resolves custom ENTITY declarations
     QString ResolveCustomEntities( const QString &html_source ); 
@@ -58,21 +56,42 @@ protected:
     // becomes just <a href="#firstheading" />
     void StripFilesFromAnchors();
 
+    // Accepts a hash with keys being old references (URLs) to resources,
+    // and values being the new references to those resources.
+    // The book XHTML source is updated accordingly.
+    void UpdateReferences( const QHash< QString, QString > updates );
+
 private:
+
+    // Updates the resource references in the HTML.
+    // Accepts a hash with keys being old references (URLs) to resources,
+    // and values being the new references to those resources.
+    void UpdateHTMLReferences( const QHash< QString, QString > updates );
+
+    // Updates the resource references in the attributes 
+    // of the one specified node in the HTML.
+    // Accepts a hash with keys being old references (URLs) to resources,
+    // and values being the new references to those resources.
+    void UpdateReferenceInNode( QDomNode node, const QHash< QString, QString > updates );
+
+    // Updates the resource references in the CSS.
+    // Accepts a hash with keys being old references (URLs) to resources,
+    // and values being the new references to those resources.
+    void UpdateCSSReferences( const QHash< QString, QString > updates );
 
     // Loads the source code into the Book
     void LoadSource();    
 
     // Loads the referenced files into the main folder of the book;
     // as the files get a new name, the references are updated 
-    void LoadFolderStructure();
+    QHash< QString, QString > LoadFolderStructure();
 
-    // Loads the images into the book;
-    // all references are updated.
-    void LoadImages();
+    // Loads CSS files from link tags to style tags.
+    // Returns a hash with keys being old references (URLs) to resources,
+    // and values being the new references to those resources.
+    QHash< QString, QString > LoadImages();
 
-    // Loads style files from 
-    // link tags to style tags
+    // Loads style files from link tags to style tags
     void LoadStyleFiles();
 };
 

@@ -73,9 +73,8 @@ protected:
     // and gathers (and returns) all the inline style tags
     QStringList GetExistingStyleTags();
 
-    // Loads the referenced files into the main folder of the book;
-    // as the files get a new name, the references are updated
-    void LoadFolderStructure();
+    // Loads the referenced files into the main folder of the book
+    QHash< QString, QString > LoadFolderStructure();
 
 
     ///////////////////////////////

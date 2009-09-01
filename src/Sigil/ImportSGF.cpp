@@ -46,7 +46,7 @@ Book ImportSGF::GetBook()
     // These mutate the m_Book object
     LoadMetadata();
     LoadSource();
-    LoadFolderStructure();
+    UpdateReferences( LoadFolderStructure() );
 
     return m_Book;
 }

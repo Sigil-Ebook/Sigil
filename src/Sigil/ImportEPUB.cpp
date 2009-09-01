@@ -65,7 +65,7 @@ Book ImportEPUB::GetBook()
     LoadSource();
     AddHeaderToSource();
     StripFilesFromAnchors();
-    LoadFolderStructure();
+    UpdateReferences( LoadFolderStructure() );
 
     m_Book.source = CleanSource::Clean( m_Book.source );
 
@@ -154,7 +154,7 @@ void ImportEPUB::ReadOPF()
     // this is only for people who specify
     // XML 1.1 when they actually only use XML 1.0 
     QString source = opf_text.replace(  QRegExp( "<\\?xml\\s+version=\"1.1\"\\s*\\?>" ),
-                                            "<?xml version=\"1.0\"?>"
+                                                 "<?xml version=\"1.0\"?>"
                                      );
 
     QXmlStreamReader opf( source );
@@ -406,10 +406,11 @@ QStringList ImportEPUB::GetExistingStyleTags()
 }
 
 
-// Loads the referenced files into the main folder of the book;
-// as the files get a new name, the references are updated
-void ImportEPUB::LoadFolderStructure()
+// Loads the referenced files into the main folder of the book
+QHash< QString, QString > ImportEPUB::LoadFolderStructure()
 {
+    QHash< QString, QString > updates;
+
     foreach( QString key, m_Files.keys() )
     {
         QString path = m_Files[ key ];
@@ -425,9 +426,11 @@ void ImportEPUB::LoadFolderStructure()
             QString newpath = m_Book.mainfolder.AddContentFileToFolder( fullfilepath );
             newpath = "../" + newpath;  
 
-            UpdateReferences( path, newpath );
+            updates[ path ] = newpath;
         }        
     }
+
+    return updates;
 }
 
 
