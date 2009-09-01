@@ -145,9 +145,7 @@ void ImportHTML::StripFilesFromAnchors()
         } 
     }
 
-    // We also remove the XML carriage returns ("&#xD" sequences)
-    // that the toString() method creates
-    m_Book.source = document.toString().replace( "&#xd;", "" );        
+    m_Book.source = Utility::GetQDomDocumentAsString( document );      
 }
 
 
@@ -185,12 +183,7 @@ void ImportHTML::UpdateHTMLReferences( const QHash< QString, QString > updates )
 
     UpdateReferenceInNode( document.documentElement(), updates );
 
-    // We also remove the XML carriage returns ("&#xD" sequences)
-    // that the toString() method creates
-
-    // TODO: send document.tostring to special utility func
-    m_Book.source = document.toString().replace( "&#xd;", "" );  
-
+    m_Book.source = Utility::GetQDomDocumentAsString( document );
 }
 
 
@@ -198,7 +191,7 @@ void ImportHTML::UpdateHTMLReferences( const QHash< QString, QString > updates )
 // of the one specified node in the HTML.
 // Accepts a hash with keys being old references (URLs) to resources,
 // and values being the new references to those resources.
-void ImportHTML::UpdateReferenceInNode( QDomNode node, const QHash< QString, QString > updates )
+void ImportHTML::UpdateReferenceInNode( QDomNode node, const QHash< QString, QString > updates ) const
 {
     QDomNamedNodeMap attributes = node.attributes();
 
@@ -383,7 +376,7 @@ void ImportHTML::LoadStyleFiles()
         head.removeChild( link_nodes.at( 0 ) );        
     }
 
-    QString new_source = document.toString().replace( "&#xd;", "" );
+    QString new_source = Utility::GetQDomDocumentAsString( document );
 
     // Paste the new style tags into the head section
     foreach( QString style, style_tags )

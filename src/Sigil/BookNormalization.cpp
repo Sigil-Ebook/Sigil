@@ -21,6 +21,7 @@
 
 #include "stdafx.h"
 #include <QDomDocument>
+#include "Utility.h"
 #include "Book.h"
 #include "BookNormalization.h"
 #include "CleanSource.h"
@@ -71,9 +72,7 @@ QString BookNormalization::GiveIDsToHeadings( const QString &source )
         }
     }
 
-    // We also remove the XML carriage returns ("&#xD" sequences)
-    // that the toString() method creates
-    return document.toString().replace( "&#xd;", "" );
+    return Utility::GetQDomDocumentAsString( document );
 }
 
 

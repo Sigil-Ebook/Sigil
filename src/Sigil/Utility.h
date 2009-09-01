@@ -26,6 +26,8 @@
 #include <QString>
 #include <QDir>
 
+class QDomDocument;
+
 class Utility
 {	
 
@@ -79,6 +81,10 @@ public:
     // Returns a value for the environment variable name passed;
     // if the env var isn't set, it returns an empty string
     static QString GetEnvironmentVar( const QString &variable_name );
+
+    // We need to remove the XML carriage returns ("&#xD" sequences)
+    // that the default toString() method creates so we wrap it in this function
+    static QString GetQDomDocumentAsString( const QDomDocument &document );
 };
 
 #endif // UTILITY_H

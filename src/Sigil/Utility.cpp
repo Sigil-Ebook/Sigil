@@ -21,6 +21,7 @@
 
 #include "stdafx.h"
 #include "Utility.h"
+#include <QDomDocument>
 
 #include <stdlib.h>
 #include <time.h>
@@ -298,5 +299,12 @@ QString Utility::GetEnvironmentVar( const QString &variable_name )
         return QString();
 }
 
+
+// We need to remove the XML carriage returns ("&#xD" sequences)
+// that the default toString() method creates so we wrap it in this function
+QString Utility::GetQDomDocumentAsString( const QDomDocument &document )
+{
+    return document.toString().replace( "&#xd;", "" );
+}
 
 

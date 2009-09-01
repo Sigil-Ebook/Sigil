@@ -72,7 +72,7 @@ private:
     // of the one specified node in the HTML.
     // Accepts a hash with keys being old references (URLs) to resources,
     // and values being the new references to those resources.
-    void UpdateReferenceInNode( QDomNode node, const QHash< QString, QString > updates );
+    void UpdateReferenceInNode( QDomNode node, const QHash< QString, QString > updates ) const;
 
     // Updates the resource references in the CSS.
     // Accepts a hash with keys being old references (URLs) to resources,
