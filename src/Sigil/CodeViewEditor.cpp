@@ -196,6 +196,25 @@ void CodeViewEditor::print( QPrinter* printer )
     QPlainTextEdit::print( printer );
 }
 
+// Overridden because we need to update the cursor
+// location if a cursor update (from BookView) 
+// is waiting to be processed
+bool CodeViewEditor::event( QEvent *event )
+{
+    // We just return whatever the "real" event handler returns
+    bool real_return = QPlainTextEdit::event( event );
+    
+    // Executing the caret update inside the paint event
+    // handler causes artifacts on mac. So we do it after
+    // the event is processed and accepted.
+    if ( event->type() == QEvent::Paint )
+    {
+        ExecuteCaretUpdate();
+    }
+    
+    return real_return;
+}
+
 
 // Overridden because after updating itself on a resize event,
 // the editor needs to update its line number area too
@@ -215,24 +234,12 @@ void CodeViewEditor::resizeEvent( QResizeEvent *event )
                                  );
 }
 
-// Overridden because we need to update the cursor
-// location if a cursor update (from BookView) 
-// is waiting to be processed
-void CodeViewEditor::paintEvent( QPaintEvent *event )
-{
-    // Update self normally
-    QPlainTextEdit::paintEvent( event );
-
-    // Run the caret update if it's pending
-    ExecuteCaretUpdate();
-}
-
 
 // Overridden because we want the ExecuteCaretUpdate()
 // to be called from here when the user clicks inside
-// this widget in SplitView. Leaving it up to the paint
-// event handler causes graphical artifacts for SplitView.
-// So in those conditions, this handler beats the paint one to the update.
+// this widget in SplitView. Leaving it up to our event()
+// override causes graphical artifacts for SplitView.
+// So in those conditions, this handler takes over.
 void CodeViewEditor::mousePressEvent( QMouseEvent *event )
 {
     // Propagate to base class
@@ -380,7 +387,7 @@ bool CodeViewEditor::ExecuteCaretUpdate()
     // we update the caret location and reset the update variable
     if (    m_CaretLocationUpdate.vertical_lines   == 0 &&
             m_CaretLocationUpdate.horizontal_chars == 0 
-        )
+       )
     {
         return false;
     }
@@ -397,8 +404,8 @@ bool CodeViewEditor::ExecuteCaretUpdate()
 
     // Center the screen on the cursor/caret location.
     // Centering requires fresh information about the
-    // visible viewport, so we usually call this from
-    // the paint event handler.
+    // visible viewport, so we usually call this after
+    // the paint event has been processed.
     centerCursor();
 
     return true;

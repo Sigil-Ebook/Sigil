@@ -43,7 +43,7 @@ BookViewEditor::BookViewEditor( QWidget *parent )
                 SIGNAL( loadProgress ( int ) ), 
                 this,
                 SLOT( UpdateFinishedState( int ) )
-                );
+            );
 }
 
 

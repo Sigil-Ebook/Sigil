@@ -26,7 +26,6 @@
 #include <QPlainTextEdit>
 #include "ViewEditor.h"
 
-class QPaintEvent;
 class QResizeEvent;
 class QSize;
 class QWidget;
@@ -79,15 +78,15 @@ public slots:
     void print( QPrinter* printer );
 
 protected:
+    
+    // Overridden because we need to update the cursor
+    // location if a cursor update (from BookView) 
+    // is waiting to be processed
+    bool event( QEvent *event );
 
     // Overridden because after updating itself on a resize event,
     // the editor needs to update its line number area too
     void resizeEvent( QResizeEvent *event );
-
-    // Overridden because we need to update the cursor
-    // location if a cursor update (from BookView) 
-    // is waiting to be processed
-    void paintEvent( QPaintEvent *event );
 
     // Overridden because we want the ExecuteCaretUpdate()
     // to be called from here when the user clicks inside
