@@ -179,10 +179,10 @@ endif()
 
 # For Mac, add frameworks and make a DMG
 if( APPLE )
-    ADD_CUSTOM_TARGET( addframeworks ALL COMMAND macdeployqt Sigil.app
+    ADD_CUSTOM_TARGET( addframeworks ALL COMMAND ${QT_BINARY_DIR}/macdeployqt Sigil.app
                 WORKING_DIRECTORY ${CMAKE_RUNTIME_OUTPUT_DIRECTORY} )
 
-    ADD_CUSTOM_TARGET( makedmg COMMAND macdeployqt Sigil.app -dmg -no-plugins
+    ADD_CUSTOM_TARGET( makedmg COMMAND ${QT_BINARY_DIR}/macdeployqt Sigil.app -dmg -no-plugins
                 WORKING_DIRECTORY ${CMAKE_RUNTIME_OUTPUT_DIRECTORY} )
 endif()
 
