@@ -304,7 +304,20 @@ QString Utility::GetEnvironmentVar( const QString &variable_name )
 // that the default toString() method creates so we wrap it in this function
 QString Utility::GetQDomDocumentAsString( const QDomDocument &document )
 {
-    return document.toString().replace( "&#xd;", "" );
+    // This function used to be just this one line:
+    //
+    //    return document.toString().replace( "&#xd;", "" );
+    //
+    // But Qt has a bug with the toString() method if the XML
+    // encoding is specified as "us-ascii"... so we work around it.
+
+    QString document_text;
+    QTextStream stream( &document_text );
+    stream.setCodec( "UTF-8" );
+
+    document.save( stream, 1, QDomNode::EncodingFromTextStream );
+
+    return document_text.replace( "&#xd;", "" );   
 }
 
 

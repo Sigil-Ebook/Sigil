@@ -37,6 +37,7 @@ ImportHTML::ImportHTML( const QString &fullfilepath )
 
 }
 
+
 // Reads and parses the file 
 // and returns the created Book
 Book ImportHTML::GetBook()
@@ -279,7 +280,7 @@ void ImportHTML::LoadSource()
     // the 'http-equiv' attribute
     QString ascii_data = data;
     ascii_data.replace( QRegExp( "<\\s*meta([^>]*)http-equiv=\"Content-Type\"([^>]*)>" ),
-                        "<meta http-equiv=\"Content-Type\" \\1 \\2>" );
+                                 "<meta http-equiv=\"Content-Type\" \\1 \\2>" );
 
     // Qt docs say Qt will take care of deleting
     // any QTextCodec objects on application exit

@@ -1,4 +1,6 @@
 Sigil v0.1.3 <ADD DATE>
+    - implemented a work-around for a bug in Qt causing documents with "us-ascii" encoding
+    specified in the XML declaration to crash Sigil (issue #109)
     - resource path updating rewritten; should be more robust
     - fixed an issue where EPUB files from Google Books could not be opened (issue #106)
     - fixed regression for storing the folder from which the user last imported an image (issue #105)  
