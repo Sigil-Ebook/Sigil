@@ -284,7 +284,7 @@ void ImportHTML::LoadSource()
 
     // Qt docs say Qt will take care of deleting
     // any QTextCodec objects on application exit
-    m_Book.source = QTextCodec::codecForHtml( ascii_data.toAscii(), QTextCodec::codecForName( "UTF-8" ) )->toUnicode( data );
+    m_Book.source = QTextCodec::codecForHtml( ascii_data.toAscii(), QTextCodec::codecForLocale() )->toUnicode( data );
     m_Book.source = ResolveCustomEntities( m_Book.source );
 }
 
