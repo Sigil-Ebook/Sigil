@@ -233,8 +233,8 @@ void ImportHTML::UpdateCSSReferences( const QHash< QString, QString > updates )
     {
         QString filename  = QFileInfo( old_path ).fileName();
 
-        QRegExp reference = QRegExp( "src:\\s*\\w+\\(([^\\)]*/" + QRegExp::escape( filename ) + "|"
-                                        + QRegExp::escape( filename ) + ")\\)" );
+        QRegExp reference = QRegExp( "src:\\s*\\w+\\([\"']*([^\\)]*/" + QRegExp::escape( filename ) + "|"
+                                        + QRegExp::escape( filename ) + ")[\"']*\\)" );
 
         int index = -1;
 
