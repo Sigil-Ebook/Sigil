@@ -1,4 +1,5 @@
 Sigil v0.1.4 <ADD DATE>
+    - added support for importing images referenced in SVG elements in HTML import
     - HTML importing now defaults to a locale-aware codec if one is not detected in the HTML stream;
     previously the fallback codec was UTF-8; this change should improve importing of old HTML
     documents (issue #113)

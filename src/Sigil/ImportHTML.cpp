@@ -305,7 +305,11 @@ QHash< QString, QString > ImportHTML::LoadFolderStructure()
 // Loads the images into the book
 QHash< QString, QString > ImportHTML::LoadImages()
 {
+    // "Normal" HTML image elements
     QList< QDomNode > image_nodes = XHTMLDoc::GetTagsInDocument( m_Book.source, "img" );
+
+    // SVG image elements
+    image_nodes.append( XHTMLDoc::GetTagsInDocument( m_Book.source, "image" ) );
 
     QStringList image_links;
 
@@ -313,11 +317,19 @@ QHash< QString, QString > ImportHTML::LoadImages()
     foreach( QDomNode node, image_nodes )
     {
         QDomElement element = node.toElement();
-        QString src         = element.attribute( "src" );
+        QString url_reference;
 
-        if ( !src.isEmpty() )
+        if ( element.hasAttribute( "src" ) )
 
-            image_links << src;
+            url_reference = element.attribute( "src" );
+
+        else // This covers the SVG "image" tags
+
+            url_reference = element.attribute( "xlink:href" );
+        
+        if ( !url_reference.isEmpty() )
+
+            image_links << url_reference;
     }
 
     // Remove duplicate references
