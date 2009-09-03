@@ -48,6 +48,7 @@ QString SigilMarkup::AddSigilStyleTags( const QString &source )
                         "    border: none 0;\n" 
                         "    border-top: 3px double #c00;\n"
                         "    height: 3px;\n"
+                        "    clear: both;\n"
                         "}\n"
                         "</style>\n";
 
