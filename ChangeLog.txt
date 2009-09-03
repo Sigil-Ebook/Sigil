@@ -1,4 +1,6 @@
 Sigil v0.1.4 <ADD DATE>
+    - fixed display of the Sigil chapter break in Book View: the red double-line now
+    properly appears after all images (issue #117)
     - added support for importing images referenced in SVG elements in HTML import
     - HTML importing now defaults to a locale-aware codec if one is not detected in the HTML stream;
     previously the fallback codec was UTF-8; this change should improve importing of old HTML
