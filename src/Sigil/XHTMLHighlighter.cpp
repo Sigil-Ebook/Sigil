@@ -23,8 +23,10 @@
 #include "XHTMLHighlighter.h"
 
 // All of our regular expressions
-static const QString HTML_ELEMENT_BEGIN     = "<(/\?|/)?(?!!)";
-static const QString HTML_ELEMENT_NAME      = "\\s*\\w+\\b\\s*(?!=)";
+static const QString HTML_ELEMENT_BEGIN     = "<(/\\?|/|\\?)?(?!!)";
+
+// "(?=[^\\w:-])" emulates a boundary ("\\b") that counts ":" and "-" as word characters
+static const QString HTML_ELEMENT_NAME      = "\\s*[\\w:-]+(?=[^\\w:-])\\s*(?!=)";
 static const QString HTML_ELEMENT_END       = "(\\?|/)?>";
 
 static const QString HTML_COMMENT_BEGIN     = "<!--";
@@ -37,7 +39,7 @@ static const QString CSS_COMMENT_BEGIN      = "/\\*";
 static const QString CSS_COMMENT_END        = "\\*/";
 
 static const QString ATTRIBUTE_VALUE        = "\"[^<\"]*\"|'[^<']*'";
-static const QString ATTRIBUTE_NAME         = "\\w+";
+static const QString ATTRIBUTE_NAME         = "[\\w:-]+";
 
 // TODO: These should probably be user-selectable in some options menu
 static const QColor HTML_COLOR              = Qt::blue;

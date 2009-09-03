@@ -79,11 +79,11 @@ private:
     // Al the possible nodes/states
     enum BlockState
     {
-        State_Text = 1,
-        State_HTML = 2,		
-        State_CSS = 4,
-        State_CSSComment = 8,	
-        State_HTMLComment = 16
+        State_Text          = 1 << 0,
+        State_HTML          = 1 << 1,		
+        State_CSS           = 1 << 2,
+        State_CSSComment    = 1 << 3,	
+        State_HTMLComment   = 1 << 4,
     };
 
     struct HighlightingRule
