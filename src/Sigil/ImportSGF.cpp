@@ -22,6 +22,7 @@
 #include "stdafx.h"
 #include "ImportSGF.h"
 #include "Utility.h"
+#include "CleanSource.h"
 
 
 // Constructor;
@@ -47,6 +48,8 @@ Book ImportSGF::GetBook()
     LoadMetadata();
     LoadSource();
     UpdateReferences( LoadFolderStructure() );
+
+    m_Book.source = CleanSource::Clean( m_Book.source );
 
     return m_Book;
 }
