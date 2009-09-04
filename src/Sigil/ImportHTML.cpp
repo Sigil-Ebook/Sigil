@@ -28,6 +28,8 @@
 
 static const QString ENTITY_SEARCH = "<!ENTITY\\s+(\\w+)\\s+\"([^\"]+)\">";
 
+const QString HEAD_END = "</\\s*head\\s*>";
+
 
 // Constructor;
 // The parameter is the file to be imported
@@ -162,6 +164,7 @@ void ImportHTML::UpdateReferences( const QHash< QString, QString > updates )
     {
         QString extension = QFileInfo( old_path ).suffix().toLower();
 
+        // Font file updates are CSS updates, not HTML updates
         if ( extension == "ttf" || extension == "otf" )
         {
             css_updates[ old_path ] = html_updates[ old_path ];
@@ -275,18 +278,58 @@ void ImportHTML::LoadSource()
 
     QByteArray data = file.readAll();
 
+    m_Book.source = GetCodecForHTML( data )->toUnicode( data );
+    m_Book.source = ResolveCustomEntities( m_Book.source );
+}
+
+
+// Accepts an HTML stream and tries to determine its encoding;
+// if no encoding is detected, the default codec for this locale is returned.
+// We use this function because Qt's QTextCodec::codecForHtml() function
+// leaves a *lot* to be desired.
+QTextCodec* ImportHTML::GetCodecForHTML( const QByteArray &raw_text )
+{
+    // Qt docs say Qt will take care of deleting
+    // any QTextCodec objects on application exit
+
     // This is a workaround for a bug in QTextCodec which
     // expects the 'charset' attribute to always come after
     // the 'http-equiv' attribute
-    QString ascii_data = data;
+    QString ascii_data = raw_text;
     ascii_data.replace( QRegExp( "<\\s*meta([^>]*)http-equiv=\"Content-Type\"([^>]*)>" ),
-                                 "<meta http-equiv=\"Content-Type\" \\1 \\2>" );
+                           "<meta http-equiv=\"Content-Type\" \\1 \\2>" );
 
-    // Qt docs say Qt will take care of deleting
-    // any QTextCodec objects on application exit
-    m_Book.source = QTextCodec::codecForHtml( ascii_data.toAscii(), QTextCodec::codecForLocale() )->toUnicode( data );
-    m_Book.source = ResolveCustomEntities( m_Book.source );
+    QTextCodec *locale_codec   = QTextCodec::codecForLocale();
+    QTextCodec *detected_codec = QTextCodec::codecForHtml( ascii_data.toAscii(), QTextCodec::codecForLocale() ); 
+
+    // If Qt's function was unable to detect an encoding, 
+    // we look for one ourselves.
+    if ( detected_codec->name() == locale_codec->name() )
+    {
+        int head_end = ascii_data.indexOf( QRegExp( HEAD_END ) );
+
+        if ( head_end != -1 )
+        {
+            QString head = Utility::Substring( 0, head_end, ascii_data );
+
+            QRegExp charset( "charset=([^\"]+)\"" );
+            head.indexOf( charset );
+
+            QTextCodec *real_codec = QTextCodec::codecForName( charset.cap( 1 ).toAscii() );
+
+            if ( real_codec != 0 )
+
+                return real_codec; 
+
+            else
+
+                return locale_codec;
+        }
+    }
+
+    return detected_codec;
 }
+
 
 
 // Loads the referenced files into the main folder of the book;
