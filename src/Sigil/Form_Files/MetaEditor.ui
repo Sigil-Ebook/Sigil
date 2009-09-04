@@ -30,9 +30,6 @@
        <property name="fieldGrowthPolicy">
         <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
        </property>
-       <property name="verticalSpacing">
-        <number>13</number>
-       </property>
        <item row="0" column="0">
         <widget class="QLabel" name="label">
          <property name="text">

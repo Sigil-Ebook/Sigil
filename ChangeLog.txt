@@ -1,4 +1,5 @@
 Sigil v0.1.4 <ADD DATE>
+    - fixed graphical misalignment of controls in MetaEditor on Linux and Mac platforms
     - fixed syntax highlighting for XPGT stylesheets
     - fixed rare issue with SGF importing that displayed all body text underlined (issue #118)
     - fixed display of the Sigil chapter break in Book View: the red double-line now

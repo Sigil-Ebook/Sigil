@@ -119,6 +119,8 @@ private:
     // window position, geometry etc.
     void WriteSettings();
 
+    void PlatformSpecificTweaks();
+
 
     ///////////////////////////////
     // PRIVATE MEMBER VARIABLES

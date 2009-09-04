@@ -32,6 +32,8 @@ MetaEditor::MetaEditor( Book &book, QWidget *parent )
 {
     ui.setupUi( this );	
 
+    PlatformSpecificTweaks();
+
     connect( ui.btMore,			SIGNAL( clicked()  ),	this, SLOT( ToggleMoreLess()			) );
     connect( ui.btAddBasic,		SIGNAL( clicked()  ),	this, SLOT( AddBasic()					) );
     connect( ui.btAddAdvanced,	SIGNAL( clicked()  ),	this, SLOT( AddAdvanced()				) );
@@ -382,6 +384,19 @@ void MetaEditor::WriteSettings()
         
 }
 
+
+// Performs specific changes based on the OS platform
+void MetaEditor::PlatformSpecificTweaks()
+{
+
+#ifdef Q_WS_WIN
+
+    // Increasing the spacing between the controls so they
+    // line up nicely with the buttons on Windows. Setting 
+    // this for other platforms has the opposite effect.
+    ui.formLayout->setVerticalSpacing( 13 );
+#endif
+}
 
 
 
