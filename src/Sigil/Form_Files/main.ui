@@ -13,6 +13,12 @@
   <property name="windowTitle">
    <string>untitled.sgf[*] - Sigil</string>
   </property>
+  <property name="iconSize">
+   <size>
+    <width>24</width>
+    <height>24</height>
+   </size>
+  </property>
   <property name="toolButtonStyle">
    <enum>Qt::ToolButtonIconOnly</enum>
   </property>
