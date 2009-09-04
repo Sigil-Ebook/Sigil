@@ -24,6 +24,7 @@
 #include "FolderKeeper.h"
 #include "Book.h"
 
+static const QString SGF_MIME_TYPE = "application/x-sgf";
 
 // Constructor;
 // the first parameter is the location where the book 
@@ -41,7 +42,7 @@ void ExportSGF::WriteBook()
 {
     CreatePublication();
 
-    SaveTo( m_FullFilePath );
+    SaveTo( m_FullFilePath, SGF_MIME_TYPE );
 }
 
 

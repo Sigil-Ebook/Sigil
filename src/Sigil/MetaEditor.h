@@ -119,6 +119,7 @@ private:
     // window position, geometry etc.
     void WriteSettings();
 
+    // Performs specific changes based on the OS platform
     void PlatformSpecificTweaks();
 
 

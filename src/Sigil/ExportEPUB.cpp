@@ -40,9 +40,6 @@ static const QString OPF_FILE_NAME = "content.opf";
 static const QString NCX_FILE_NAME = "toc.ncx";
 static const QString CONTAINER_XML_FILE_NAME = "container.xml"; 
 
-// Use with <QRegExp>.setMinimal( true )
-//const QString STYLE_TAG  = "<\\s*style\\s*type\\s*=\\s*\"([^\"]+)\"[^>]*>(.*)</\\s*style[^>]*>";
-
 
 // Constructor;
 // the first parameter is the location where the book 
@@ -90,23 +87,25 @@ void ExportEPUB::CreatePublication()
 }
 
 
-// Saves the publication to the specified path
-void ExportEPUB::SaveTo( const QString &fullfilepath )
+// Saves the publication to the specified path;
+// the second optional parameter specifies the
+// mimetype to write to the special "mimetype" file
+void ExportEPUB::SaveTo( const QString &fullfilepath, const QString &mimetype )
 {
-    QTemporaryFile mimetype;
+    QTemporaryFile mimetype_file;
 
-    if ( mimetype.open() )
+    if ( mimetype_file.open() )
     {
-        QTextStream out( &mimetype );
+        QTextStream out( &mimetype_file );
 
         // We ALWAYS output in UTF-8
         out.setCodec( "UTF-8" );
 
-        out << "application/epub+zip";
+        out << mimetype;
 
         // Write to disk immediately
         out.flush();
-        mimetype.flush();		
+        mimetype_file.flush();		
     }
 
     CZipArchive zip;
@@ -118,7 +117,7 @@ void ExportEPUB::SaveTo( const QString &fullfilepath )
     zip.Open( fullfilepath.utf16(), CZipArchive::zipCreate );  
 
     // Add the uncompressed mimetype file as per OPF spec
-    zip.AddNewFile( mimetype.fileName().utf16(), QString( "mimetype" ).utf16(), 0 );
+    zip.AddNewFile( mimetype_file.fileName().utf16(), QString( "mimetype" ).utf16(), 0 );
 
     // Add all the files and folders in the publication structure
     zip.AddNewFiles( QDir::toNativeSeparators( m_Folder.GetFullPathToMainFolder() ).utf16() );
@@ -128,7 +127,7 @@ void ExportEPUB::SaveTo( const QString &fullfilepath )
     zip.Open( fullfilepath.toUtf8().data(), CZipArchive::zipCreate );  
 
     // Add the uncompressed mimetype file as per OPF spec
-    zip.AddNewFile( mimetype.fileName().toUtf8().data(), QString( "mimetype" ).toUtf8().data(), 0 );
+    zip.AddNewFile( mimetype_file.fileName().toUtf8().data(), QString( "mimetype" ).toUtf8().data(), 0 );
 
     // Add all the files and folders in the publication structure
     zip.AddNewFiles( QDir::toNativeSeparators( m_Folder.GetFullPathToMainFolder() ).toUtf8().data() );

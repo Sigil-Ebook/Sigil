@@ -27,6 +27,8 @@
 #include "FolderKeeper.h"
 #include "Book.h"
 
+static const QString EPUB_MIME_TYPE = "application/epub+zip";
+
 class ExportEPUB : public Exporter
 {
 
@@ -50,8 +52,10 @@ protected:
     // (creates XHTML, CSS, OPF, NCX files etc.)
     void virtual CreatePublication();
 
-    // Saves the publication to the specified path
-    void SaveTo( const QString &fullfilepath );
+    // Saves the publication to the specified path;
+    // the second optional parameter specifies the
+    // mimetype to write to the special "mimetype" file
+    void SaveTo( const QString &fullfilepath, const QString &mimetype = QString( EPUB_MIME_TYPE ) );
 
     // Creates style files from the style tags in the source
     // and returns a list of their file paths relative 
