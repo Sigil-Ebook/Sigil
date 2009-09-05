@@ -306,12 +306,12 @@ void CodeViewEditor::HighlightCurrentLine()
 // current location of the caret in the document.
 // Accepts the number of characters to the end of
 // the start tag of the element the caret is residing in. 
-QList< CodeViewEditor::StackElement > CodeViewEditor::GetCaretLocationStack( int offset )
+QStack< CodeViewEditor::StackElement > CodeViewEditor::GetCaretLocationStack( int offset )
 {
     QString source = toPlainText();
     QXmlStreamReader reader( source );
 
-    QList< StackElement > stack; 
+    QStack< StackElement > stack; 
 
     while ( !reader.atEnd() ) 
     {
@@ -325,13 +325,13 @@ QList< CodeViewEditor::StackElement > CodeViewEditor::GetCaretLocationStack( int
             // has one more child element
             if ( !stack.isEmpty() )
 
-                stack.last().num_children++;
+                stack.top().num_children++;
             
             StackElement new_element;
             new_element.name         = reader.name().toString();
             new_element.num_children = 0;
 
-            stack.append( new_element );
+            stack.push( new_element );
 
             // Check if this is the element start tag
             // we are looking for
@@ -344,7 +344,7 @@ QList< CodeViewEditor::StackElement > CodeViewEditor::GetCaretLocationStack( int
         // we remove it from the top of the stack
         else if ( type == QXmlStreamReader::EndElement )
         {
-            stack.removeLast();
+            stack.pop();
         }
     }
 
@@ -352,7 +352,7 @@ QList< CodeViewEditor::StackElement > CodeViewEditor::GetCaretLocationStack( int
     {
         // Just return an empty location.
         // Maybe we could return the stack we currently have?
-        return QList< StackElement >();
+        return QStack< StackElement >();
     }
 
     return stack;
@@ -361,7 +361,7 @@ QList< CodeViewEditor::StackElement > CodeViewEditor::GetCaretLocationStack( int
 
 // Converts the stack provided by GetCaretLocationStack()
 // and converts it into the element location hierarchy
-QList< ViewEditor::ElementIndex > CodeViewEditor::ConvertStackToHierarchy( const QList< StackElement > stack )
+QList< ViewEditor::ElementIndex > CodeViewEditor::ConvertStackToHierarchy( const QStack< StackElement > stack )
 {
     QList< ViewEditor::ElementIndex > hierarchy;
 

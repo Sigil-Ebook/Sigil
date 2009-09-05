@@ -228,7 +228,7 @@
       </widget>
      </item>
      <item row="2" column="1">
-      <widget class="QLabel" name="label">
+      <widget class="QLabel" name="lbLicenseDisplay">
        <property name="font">
         <font>
          <pointsize>10</pointsize>
