@@ -284,9 +284,9 @@ else()
                         COMMAND cmake -E echo "For this to work, InstallJammer needs to be installed and on the system path."
                         COMMAND installjammer   -DBaseDir ${MAIN_PACKAGE_DIR}  
                                                 -Dvcredist ${VCREDIST_LOCATION} 
-                                                -DMajorVersion ${SIGIL_MAJOR_VERSION}
-                                                -DMinorVersion ${SIGIL_MINOR_VERSION}
-                                                -DRevisionVersion ${SIGIL_REVISION_VERSION}
+                                                -DSGMajorVersion ${SIGIL_MAJOR_VERSION}
+                                                -DSGMinorVersion ${SIGIL_MINOR_VERSION}
+                                                -DSGRevisionVersion ${SIGIL_REVISION_VERSION}
                                                 --platform ${PLATFORM}
                                                 --output-dir ${OUTPUT_PACKAGE_DIR}
                                                 --build-for-release
