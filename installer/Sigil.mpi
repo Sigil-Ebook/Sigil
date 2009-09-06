@@ -36,7 +36,7 @@ CompressionLevel
 6
 
 CompressionMethod
-{lzma (solid)}
+{zlib (solid)}
 
 Copyright
 {Copyright © 2009 Strahinja Markovic}

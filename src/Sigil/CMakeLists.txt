@@ -206,12 +206,79 @@ else()
         set( PLATFORM "Windows" )
     else()
         if ( 64_BIT_PLATFORM )
-            set( PLATFORM "Linux x86 64" )
+            set( PLATFORM "Linux-x86_64" )
         else()
-            set( PLATFORM "Linux x86" )
+            set( PLATFORM "Linux-x86" )
         endif()
     endif()
+
+    add_custom_target(  copyfiles
+                        COMMAND cmake -E echo "Copying installer files to temporary location..."
+                        DEPENDS ${PROJECT_NAME} )
     
+    # Copy MPI file to temp folder location
+    add_custom_command( TARGET copyfiles PRE_BUILD 
+                        COMMAND cmake -E copy ${CMAKE_SOURCE_DIR}/installer/Sigil.mpi ${MPI_LOCATION} )      
+    
+    # Copy Qt runtime libs
+    set( QT_LIBS QtCore QtGui QtNetwork QtWebKit QtXml phonon )   
+    add_custom_command( TARGET copyfiles PRE_BUILD COMMAND cmake -E make_directory ${MAIN_PACKAGE_DIR}/lib/ )    
+    foreach( lib ${QT_LIBS} )
+        set( location location-NOTFOUND )
+        find_file( location ${lib} NAMES ${lib}4.dll lib${lib}.so.4 PATHS ${QT_LIBRARY_DIR} )
+        add_custom_command( TARGET copyfiles PRE_BUILD COMMAND cmake -E copy ${location} ${MAIN_PACKAGE_DIR}/lib/ )
+    endforeach( lib )
+
+    # Copy codecs plugins
+    set( QT_CODECS qcncodecs qjpcodecs qkrcodecs qtwcodecs )
+    add_custom_command( TARGET copyfiles PRE_BUILD COMMAND cmake -E make_directory ${MAIN_PACKAGE_DIR}/lib/codecs/ )    
+    foreach( lib ${QT_CODECS} )
+        set( location location-NOTFOUND )
+        find_file( location ${lib} NAMES ${lib}4.dll lib${lib}.so PATHS ${QT_PLUGINS_DIR}/codecs/ )
+        add_custom_command( TARGET copyfiles PRE_BUILD COMMAND cmake -E copy ${location} ${MAIN_PACKAGE_DIR}/lib/codecs/ )
+    endforeach( lib )
+    
+    # Copy iconengines plugins
+    set( QT_ICONENGINES qsvgicon )
+    add_custom_command( TARGET copyfiles PRE_BUILD COMMAND cmake -E make_directory ${MAIN_PACKAGE_DIR}/lib/iconengines/ )
+    foreach( lib ${QT_ICONENGINES} )
+        set( location location-NOTFOUND )
+        find_file( location ${lib} NAMES ${lib}4.dll lib${lib}.so PATHS ${QT_PLUGINS_DIR}/iconengines/ )
+        add_custom_command( TARGET copyfiles PRE_BUILD COMMAND cmake -E copy ${location} ${MAIN_PACKAGE_DIR}/lib/iconengines/ )
+    endforeach( lib )    
+
+    # Copy imageformats plugins
+    set( QT_IMAGEFORMATS qgif qico qjpeg qmng qsvg qtiff )
+    add_custom_command( TARGET copyfiles PRE_BUILD COMMAND cmake -E make_directory ${MAIN_PACKAGE_DIR}/lib/imageformats/ )
+    foreach( lib ${QT_IMAGEFORMATS} )   
+        set( location location-NOTFOUND )
+        find_file( location ${lib} NAMES ${lib}4.dll lib${lib}.so PATHS ${QT_PLUGINS_DIR}/imageformats/ )
+        add_custom_command( TARGET copyfiles PRE_BUILD COMMAND cmake -E copy ${location} ${MAIN_PACKAGE_DIR}/lib/imageformats/ )
+    endforeach( lib )
+    
+    # Set the path of the application executable
+    if( MSVC )
+        set( EXE_PATH ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Release/${PROJECT_NAME}${CMAKE_EXECUTABLE_SUFFIX} )
+    else()
+        set( EXE_PATH ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/${PROJECT_NAME}${CMAKE_EXECUTABLE_SUFFIX} )
+    endif()
+
+    # Copy the application executable
+    add_custom_command( TARGET copyfiles PRE_BUILD 
+                        COMMAND cmake -E copy ${EXE_PATH} ${MAIN_PACKAGE_DIR} )
+                        
+    # The qt.conf file pointing to our Qt libs instead of system ones
+    add_custom_command( TARGET copyfiles PRE_BUILD 
+                        COMMAND cmake -E copy ${PROJECT_SOURCE_DIR}/qt.conf ${MAIN_PACKAGE_DIR} )
+                        
+    # Copy the Changelog
+    add_custom_command( TARGET copyfiles PRE_BUILD 
+                        COMMAND cmake -E copy ${CMAKE_SOURCE_DIR}/ChangeLog.txt ${MAIN_PACKAGE_DIR} )
+    
+    # Copy the license file
+    add_custom_command( TARGET copyfiles PRE_BUILD 
+                        COMMAND cmake -E copy ${CMAKE_SOURCE_DIR}/COPYING.txt ${MAIN_PACKAGE_DIR} )
+
     # Run InstallJammer (after all the PRE_BUILD custom commands execute)
     add_custom_target(  makeinstaller 
                         COMMAND cmake -E echo "For this to work, InstallJammer needs to be installed and on the system path."
@@ -224,71 +291,10 @@ else()
                                                 --output-dir ${OUTPUT_PACKAGE_DIR}
                                                 --build-for-release
                                                 --verbose   
-                                                --build ${MPI_LOCATION}
-                        DEPENDS ${PROJECT_NAME} )                        
-    
-    # Copy MPI file to temp folder location
-    add_custom_command( TARGET makeinstaller PRE_BUILD 
-                        COMMAND cmake -E copy ${CMAKE_SOURCE_DIR}/installer/Sigil.mpi ${MPI_LOCATION} )                
-    
-    # Copy Qt runtime libs
-    set( QT_LIBS QtCore QtGui QtNetwork QtWebKit QtXml phonon )   
-    add_custom_command( TARGET makeinstaller PRE_BUILD COMMAND cmake -E make_directory ${MAIN_PACKAGE_DIR}/lib/ )    
-    foreach( lib ${QT_LIBS} )
-        set( location location-NOTFOUND )
-        find_file( location ${lib} NAMES ${lib}4.dll lib${lib}.so.4 PATHS ${QT_BINARY_DIR} )
-        add_custom_command( TARGET makeinstaller PRE_BUILD COMMAND cmake -E copy ${location} ${MAIN_PACKAGE_DIR}/lib/ )
-    endforeach( lib )
+                                                --build ${MPI_LOCATION} )
 
-    # Copy codecs plugins
-    set( QT_CODECS qcncodecs qjpcodecs qkrcodecs qtwcodecs )
-    add_custom_command( TARGET makeinstaller PRE_BUILD COMMAND cmake -E make_directory ${MAIN_PACKAGE_DIR}/lib/codecs/ )    
-    foreach( lib ${QT_CODECS} )
-        set( location location-NOTFOUND )
-        find_file( location ${lib} NAMES ${lib}4.dll lib${lib}.so PATHS ${QT_PLUGINS_DIR}/codecs/ )
-        add_custom_command( TARGET makeinstaller PRE_BUILD COMMAND cmake -E copy ${location} ${MAIN_PACKAGE_DIR}/lib/codecs/ )
-    endforeach( lib )
-    
-    # Copy iconengines plugins
-    set( QT_ICONENGINES qsvgicon )
-    add_custom_command( TARGET makeinstaller PRE_BUILD COMMAND cmake -E make_directory ${MAIN_PACKAGE_DIR}/lib/iconengines/ )
-    foreach( lib ${QT_ICONENGINES} )
-        set( location location-NOTFOUND )
-        find_file( location ${lib} NAMES ${lib}4.dll lib${lib}.so PATHS ${QT_PLUGINS_DIR}/iconengines/ )
-        add_custom_command( TARGET makeinstaller PRE_BUILD COMMAND cmake -E copy ${location} ${MAIN_PACKAGE_DIR}/lib/iconengines/ )
-    endforeach( lib )    
-
-    # Copy imageformats plugins
-    set( QT_IMAGEFORMATS qgif qico qjpeg qmng qsvg qtiff )
-    add_custom_command( TARGET makeinstaller PRE_BUILD COMMAND cmake -E make_directory ${MAIN_PACKAGE_DIR}/lib/imageformats/ )
-    foreach( lib ${QT_IMAGEFORMATS} )   
-        set( location location-NOTFOUND )
-        find_file( location ${lib} NAMES ${lib}4.dll lib${lib}.so PATHS ${QT_PLUGINS_DIR}/imageformats/ )
-        add_custom_command( TARGET makeinstaller PRE_BUILD COMMAND cmake -E copy ${location} ${MAIN_PACKAGE_DIR}/lib/imageformats/ )
-    endforeach( lib )
-    
-    # Set the path of the application executable
-    if( MSVC )
-        set( EXE_PATH ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Release/${PROJECT_NAME}${CMAKE_EXECUTABLE_SUFFIX} )
-    else()
-        set( EXE_PATH ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/${PROJECT_NAME}${CMAKE_EXECUTABLE_SUFFIX} )
-    endif()
-
-    # Copy the application executable
-    add_custom_command( TARGET makeinstaller PRE_BUILD 
-                        COMMAND cmake -E copy ${EXE_PATH} ${MAIN_PACKAGE_DIR} )
-                        
-    # The qt.conf file pointing to our Qt libs instead of system ones
-    add_custom_command( TARGET makeinstaller PRE_BUILD 
-                        COMMAND cmake -E copy ${PROJECT_SOURCE_DIR}/qt.conf ${MAIN_PACKAGE_DIR} )
-                        
-    # Copy the Changelog
-    add_custom_command( TARGET makeinstaller PRE_BUILD 
-                        COMMAND cmake -E copy ${CMAKE_SOURCE_DIR}/ChangeLog.txt ${MAIN_PACKAGE_DIR} )
-    
-    # Copy the license file
-    add_custom_command( TARGET makeinstaller PRE_BUILD 
-                        COMMAND cmake -E copy ${CMAKE_SOURCE_DIR}/COPYING.txt ${MAIN_PACKAGE_DIR} )
+    # Make sure the files are copied before making an installer out of them
+    add_dependencies( makeinstaller copyfiles )
                         
     # Remove the temp directory used for building the installer 
     add_custom_command( TARGET makeinstaller POST_BUILD 
