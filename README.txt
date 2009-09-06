@@ -11,6 +11,9 @@ a few subdirectories:
 	src/libTidy - source code for HTML Tidy, an HTML cleaner
 	src/ZipArchive - source code for ZipArchive, a zipping library
 
+The installer directory contains the files needed to produce
+a binary installer for Windows and Linux.
+
 The INSTALL.txt file contains information on building Sigil from
 source code (and installing it on Linux machines).
 
