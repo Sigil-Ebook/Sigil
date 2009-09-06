@@ -106,13 +106,13 @@ set( QRC_FILES  Resource_Files/main/main.qrc
                 Resource_Files/javascript/javascript.qrc )
 
 # Runs MOC on specifed files
-QT4_WRAP_CPP( MOC_FILES_CPP ${QOBJECT_HEADERS} )
+qt4_wrap_cpp( MOC_FILES_CPP ${QOBJECT_HEADERS} )
 
 # Runs UIC on specified files
-QT4_WRAP_UI( UI_FILES_H ${UI_FILES} )
+qt4_wrap_ui( UI_FILES_H ${UI_FILES} )
 
 # Runs RCC on specified files
-QT4_ADD_RESOURCES( QRC_FILES_CPP ${QRC_FILES} )
+qt4_add_resources( QRC_FILES_CPP ${QRC_FILES} )
 
 
 # VS precompiled headers cmake code
@@ -127,16 +127,16 @@ if ( MSVC )
 endif()
 
 # Adds folders for Visual Studio solution explorer
-SOURCE_GROUP( "Generated Files" FILES ${MOC_FILES_CPP} ${UI_FILES_H} ${QRC_FILES_CPP} )
-SOURCE_GROUP( "Form Files" FILES ${UI_FILES} )
-SOURCE_GROUP( "Resource Files" FILES ${QRC_FILES} )
+source_group( "Generated Files" FILES ${MOC_FILES_CPP} ${UI_FILES_H} ${QRC_FILES_CPP} )
+source_group( "Form Files" FILES ${UI_FILES} )
+source_group( "Resource Files" FILES ${QRC_FILES} )
 
 set( SOURCES ${CPP_FILES} ${HEADERS} ${QOBJECT_HEADERS} ${MOC_FILES_CPP} ${UI_FILES_H} ${QRC_FILES_CPP} )
 
 # Adding resource (RC) files for Windows
 if ( MSVC )
     list( APPEND SOURCES Resource_Files/icon/icon.rc )
-    SOURCE_GROUP( "Resource Files" FILES Resource_Files/icon/icon.rc )
+    source_group( "Resource Files" FILES Resource_Files/icon/icon.rc )
 endif()
 
 # Apple bundle configuration
@@ -146,6 +146,8 @@ if( APPLE )
    set( MACOSX_BUNDLE_ICON_FILE "Sigil.icns" )
 
    # Copy the icon file
+   # TODO: put these in some sort of add_custom_command( TARGET ${PROJECT_NAME} PRE_BUILD COMMAND ...)
+   # also delete the Sigil.app folder as PRE_BUILD of Sigil executable
    exec_program( "mkdir -p ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Sigil.app/Contents/Resources")
    exec_program( "cp ${PROJECT_SOURCE_DIR}/Resource_Files/icon/Sigil.icns ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Sigil.app/Contents/Resources")
 endif()
@@ -179,11 +181,118 @@ endif()
 
 # For Mac, add frameworks and make a DMG
 if( APPLE )
-    ADD_CUSTOM_TARGET( addframeworks ALL COMMAND ${QT_BINARY_DIR}/macdeployqt Sigil.app
-                WORKING_DIRECTORY ${CMAKE_RUNTIME_OUTPUT_DIRECTORY} )
+    add_custom_target(  addframeworks ALL 
+                        COMMAND ${QT_BINARY_DIR}/macdeployqt Sigil.app
+                        WORKING_DIRECTORY ${CMAKE_RUNTIME_OUTPUT_DIRECTORY} )
 
-    ADD_CUSTOM_TARGET( makedmg COMMAND ${QT_BINARY_DIR}/macdeployqt Sigil.app -dmg -no-plugins
-                WORKING_DIRECTORY ${CMAKE_RUNTIME_OUTPUT_DIRECTORY} )
+    add_custom_target(  makedmg 
+                        COMMAND ${QT_BINARY_DIR}/macdeployqt Sigil.app -dmg -no-plugins
+                        WORKING_DIRECTORY ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}
+                        DEPENDS ${PROJECT_NAME} )
+                
+# For Linux and Windows, provide binary installers.
+# For this to work, InstallJammer needs to be installed and on the system path.
+else()
+    set( TEMP_PACKAGE_DIR ${CMAKE_BINARY_DIR}/temp_folder )
+    set( MAIN_PACKAGE_DIR ${TEMP_PACKAGE_DIR}/Sigil )
+    set( OUTPUT_PACKAGE_DIR ${CMAKE_BINARY_DIR}/installer )
+    set( VCREDIST_LOCATION ${CMAKE_SOURCE_DIR}/installer/vcredist_x86.exe )
+    
+    # MPI file will need to be copied to this location
+    set( MPI_LOCATION ${CMAKE_BINARY_DIR}/temp_folder/Sigil.mpi )
+    
+    # Specify platform var for installjammer
+    if ( WIN32 )
+        set( PLATFORM "Windows" )
+    else()
+        if ( 64_BIT_PLATFORM )
+            set( PLATFORM "Linux x86 64" )
+        else()
+            set( PLATFORM "Linux x86" )
+        endif()
+    endif()
+    
+    # Run InstallJammer (after all the PRE_BUILD custom commands execute)
+    add_custom_target(  makeinstaller 
+                        COMMAND cmake -E echo "For this to work, InstallJammer needs to be installed and on the system path."
+                        COMMAND installjammer   -DBaseDir ${MAIN_PACKAGE_DIR}  
+                                                -Dvcredist ${VCREDIST_LOCATION} 
+                                                -DMajorVersion ${SIGIL_MAJOR_VERSION}
+                                                -DMinorVersion ${SIGIL_MINOR_VERSION}
+                                                -DRevisionVersion ${SIGIL_REVISION_VERSION}
+                                                --platform ${PLATFORM}
+                                                --output-dir ${OUTPUT_PACKAGE_DIR}
+                                                --build-for-release
+                                                --verbose   
+                                                --build ${MPI_LOCATION}
+                        DEPENDS ${PROJECT_NAME} )                        
+    
+    # Copy MPI file to temp folder location
+    add_custom_command( TARGET makeinstaller PRE_BUILD 
+                        COMMAND cmake -E copy ${CMAKE_SOURCE_DIR}/installer/Sigil.mpi ${MPI_LOCATION} )                
+    
+    # Copy Qt runtime libs
+    set( QT_LIBS QtCore QtGui QtNetwork QtWebKit QtXml phonon )   
+    add_custom_command( TARGET makeinstaller PRE_BUILD COMMAND cmake -E make_directory ${MAIN_PACKAGE_DIR}/lib/ )    
+    foreach( lib ${QT_LIBS} )
+        set( location location-NOTFOUND )
+        find_file( location ${lib} NAMES ${lib}4.dll lib${lib}.so.4 PATHS ${QT_BINARY_DIR} )
+        add_custom_command( TARGET makeinstaller PRE_BUILD COMMAND cmake -E copy ${location} ${MAIN_PACKAGE_DIR}/lib/ )
+    endforeach( lib )
+
+    # Copy codecs plugins
+    set( QT_CODECS qcncodecs qjpcodecs qkrcodecs qtwcodecs )
+    add_custom_command( TARGET makeinstaller PRE_BUILD COMMAND cmake -E make_directory ${MAIN_PACKAGE_DIR}/lib/codecs/ )    
+    foreach( lib ${QT_CODECS} )
+        set( location location-NOTFOUND )
+        find_file( location ${lib} NAMES ${lib}4.dll lib${lib}.so PATHS ${QT_PLUGINS_DIR}/codecs/ )
+        add_custom_command( TARGET makeinstaller PRE_BUILD COMMAND cmake -E copy ${location} ${MAIN_PACKAGE_DIR}/lib/codecs/ )
+    endforeach( lib )
+    
+    # Copy iconengines plugins
+    set( QT_ICONENGINES qsvgicon )
+    add_custom_command( TARGET makeinstaller PRE_BUILD COMMAND cmake -E make_directory ${MAIN_PACKAGE_DIR}/lib/iconengines/ )
+    foreach( lib ${QT_ICONENGINES} )
+        set( location location-NOTFOUND )
+        find_file( location ${lib} NAMES ${lib}4.dll lib${lib}.so PATHS ${QT_PLUGINS_DIR}/iconengines/ )
+        add_custom_command( TARGET makeinstaller PRE_BUILD COMMAND cmake -E copy ${location} ${MAIN_PACKAGE_DIR}/lib/iconengines/ )
+    endforeach( lib )    
+
+    # Copy imageformats plugins
+    set( QT_IMAGEFORMATS qgif qico qjpeg qmng qsvg qtiff )
+    add_custom_command( TARGET makeinstaller PRE_BUILD COMMAND cmake -E make_directory ${MAIN_PACKAGE_DIR}/lib/imageformats/ )
+    foreach( lib ${QT_IMAGEFORMATS} )   
+        set( location location-NOTFOUND )
+        find_file( location ${lib} NAMES ${lib}4.dll lib${lib}.so PATHS ${QT_PLUGINS_DIR}/imageformats/ )
+        add_custom_command( TARGET makeinstaller PRE_BUILD COMMAND cmake -E copy ${location} ${MAIN_PACKAGE_DIR}/lib/imageformats/ )
+    endforeach( lib )
+    
+    # Set the path of the application executable
+    if( MSVC )
+        set( EXE_PATH ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Release/${PROJECT_NAME}${CMAKE_EXECUTABLE_SUFFIX} )
+    else()
+        set( EXE_PATH ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/${PROJECT_NAME}${CMAKE_EXECUTABLE_SUFFIX} )
+    endif()
+
+    # Copy the application executable
+    add_custom_command( TARGET makeinstaller PRE_BUILD 
+                        COMMAND cmake -E copy ${EXE_PATH} ${MAIN_PACKAGE_DIR} )
+                        
+    # The qt.conf file pointing to our Qt libs instead of system ones
+    add_custom_command( TARGET makeinstaller PRE_BUILD 
+                        COMMAND cmake -E copy ${PROJECT_SOURCE_DIR}/qt.conf ${MAIN_PACKAGE_DIR} )
+                        
+    # Copy the Changelog
+    add_custom_command( TARGET makeinstaller PRE_BUILD 
+                        COMMAND cmake -E copy ${CMAKE_SOURCE_DIR}/ChangeLog.txt ${MAIN_PACKAGE_DIR} )
+    
+    # Copy the license file
+    add_custom_command( TARGET makeinstaller PRE_BUILD 
+                        COMMAND cmake -E copy ${CMAKE_SOURCE_DIR}/COPYING.txt ${MAIN_PACKAGE_DIR} )
+                        
+    # Remove the temp directory used for building the installer 
+    add_custom_command( TARGET makeinstaller POST_BUILD 
+                        COMMAND cmake -E remove_directory ${TEMP_PACKAGE_DIR} )
 endif()
 
 # You can change the install location by 
@@ -196,3 +305,4 @@ endif()
 if( UNIX AND NOT APPLE )
     install( TARGETS ${PROJECT_NAME} RUNTIME DESTINATION ${CMAKE_INSTALL_PREFIX}/bin )
 endif()
+

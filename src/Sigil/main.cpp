@@ -32,9 +32,9 @@ int main( int argc, char *argv[] )
 
     // Specify the plugin folders 
     // (language codecs and image loaders)
-    app.addLibraryPath( "codecs" );
-    app.addLibraryPath( "iconengines" );
-    app.addLibraryPath( "imageformats" );
+    app.addLibraryPath( "lib/codecs" );
+    app.addLibraryPath( "lib/iconengines" );
+    app.addLibraryPath( "lib/imageformats" );
 
     // We write the full path to Sigil's executable
     // in a file in the home folder for calibre interoperability
