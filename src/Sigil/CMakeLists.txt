@@ -115,7 +115,7 @@ qt4_wrap_ui( UI_FILES_H ${UI_FILES} )
 qt4_add_resources( QRC_FILES_CPP ${QRC_FILES} )
 
 
-# VS precompiled headers cmake code
+# MSVC precompiled headers cmake code
 if ( MSVC )
     set_source_files_properties( stdafx.cpp PROPERTIES COMPILE_FLAGS "/Ycstdafx.h" )
         
@@ -161,6 +161,8 @@ link_directories ( ${PROJECT_BINARY_DIR}/lib )
 # We make bundles for Mac OS X
 if ( APPLE )
     add_executable( ${PROJECT_NAME} MACOSX_BUNDLE ${SOURCES} )
+
+# ...and a normal executable for everything else.
 else()
     add_executable( ${PROJECT_NAME} ${SOURCES} )
 endif()
@@ -232,10 +234,10 @@ else()
     # since the PRE_BUILD condition is not supported. Using the intermediate for
     # MSVC makes it unnecessarily recompile that target every time the project is built.
     if( MSVC )
-        set( COPY_TARGET makeinstaller )
+        set( TARGET_FOR_COPY makeinstaller )
         add_dependencies( makeinstaller ${PROJECT_NAME} )
     else()
-        set( COPY_TARGET copyfiles )
+        set( TARGET_FOR_COPY copyfiles )
         
         # The intermediate target for copying
         add_custom_target(  copyfiles
@@ -246,43 +248,43 @@ else()
     endif()
     
     # Copy MPI file to temp folder location
-    add_custom_command( TARGET ${COPY_TARGET} PRE_BUILD 
+    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD 
                         COMMAND cmake -E copy ${CMAKE_SOURCE_DIR}/installer/Sigil.mpi ${MPI_LOCATION} )      
     
     # Copy Qt runtime libs
     set( QT_LIBS QtCore QtGui QtNetwork QtSvg QtWebKit QtXml phonon )
-    add_custom_command( TARGET ${COPY_TARGET} PRE_BUILD COMMAND cmake -E make_directory ${MAIN_PACKAGE_DIR}/ )    
+    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E make_directory ${MAIN_PACKAGE_DIR}/ )    
     foreach( lib ${QT_LIBS} )
         set( location location-NOTFOUND )
         find_file( location ${lib} NAMES ${lib}4.dll lib${lib}.so.4 PATHS ${QT_LIBRARY_DIR} )
-        add_custom_command( TARGET ${COPY_TARGET} PRE_BUILD COMMAND cmake -E copy ${location} ${MAIN_PACKAGE_DIR}/ )
+        add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E copy ${location} ${MAIN_PACKAGE_DIR}/ )
     endforeach( lib )
 
     # Copy codecs plugins
     set( QT_CODECS qcncodecs qjpcodecs qkrcodecs qtwcodecs )
-    add_custom_command( TARGET ${COPY_TARGET} PRE_BUILD COMMAND cmake -E make_directory ${MAIN_PACKAGE_DIR}/codecs/ )    
+    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E make_directory ${MAIN_PACKAGE_DIR}/codecs/ )    
     foreach( lib ${QT_CODECS} )
         set( location location-NOTFOUND )
         find_file( location ${lib} NAMES ${lib}4.dll lib${lib}.so PATHS ${QT_PLUGINS_DIR}/codecs/ )
-        add_custom_command( TARGET ${COPY_TARGET} PRE_BUILD COMMAND cmake -E copy ${location} ${MAIN_PACKAGE_DIR}/codecs/ )
+        add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E copy ${location} ${MAIN_PACKAGE_DIR}/codecs/ )
     endforeach( lib )
     
     # Copy iconengines plugins
     set( QT_ICONENGINES qsvgicon )
-    add_custom_command( TARGET ${COPY_TARGET} PRE_BUILD COMMAND cmake -E make_directory ${MAIN_PACKAGE_DIR}/iconengines/ )
+    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E make_directory ${MAIN_PACKAGE_DIR}/iconengines/ )
     foreach( lib ${QT_ICONENGINES} )
         set( location location-NOTFOUND )
         find_file( location ${lib} NAMES ${lib}4.dll lib${lib}.so PATHS ${QT_PLUGINS_DIR}/iconengines/ )
-        add_custom_command( TARGET ${COPY_TARGET} PRE_BUILD COMMAND cmake -E copy ${location} ${MAIN_PACKAGE_DIR}/iconengines/ )
+        add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E copy ${location} ${MAIN_PACKAGE_DIR}/iconengines/ )
     endforeach( lib )    
 
     # Copy imageformats plugins
     set( QT_IMAGEFORMATS qgif qico qjpeg qmng qsvg qtiff )
-    add_custom_command( TARGET ${COPY_TARGET} PRE_BUILD COMMAND cmake -E make_directory ${MAIN_PACKAGE_DIR}/imageformats/ )
+    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E make_directory ${MAIN_PACKAGE_DIR}/imageformats/ )
     foreach( lib ${QT_IMAGEFORMATS} )   
         set( location location-NOTFOUND )
         find_file( location ${lib} NAMES ${lib}4.dll lib${lib}.so PATHS ${QT_PLUGINS_DIR}/imageformats/ )
-        add_custom_command( TARGET ${COPY_TARGET} PRE_BUILD COMMAND cmake -E copy ${location} ${MAIN_PACKAGE_DIR}/imageformats/ )
+        add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E copy ${location} ${MAIN_PACKAGE_DIR}/imageformats/ )
     endforeach( lib )
     
     # Set the path of the application executable
@@ -293,15 +295,15 @@ else()
     endif()
 
     # Copy the application executable
-    add_custom_command( TARGET ${COPY_TARGET} PRE_BUILD 
+    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD 
                         COMMAND cmake -E copy ${EXE_PATH} ${MAIN_PACKAGE_DIR} )
                         
     # Copy the Changelog
-    add_custom_command( TARGET ${COPY_TARGET} PRE_BUILD 
+    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD 
                         COMMAND cmake -E copy ${CMAKE_SOURCE_DIR}/ChangeLog.txt ${MAIN_PACKAGE_DIR} )
     
     # Copy the license file
-    add_custom_command( TARGET ${COPY_TARGET} PRE_BUILD 
+    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD 
                         COMMAND cmake -E copy ${CMAKE_SOURCE_DIR}/COPYING.txt ${MAIN_PACKAGE_DIR} )
                         
     # Remove the temp directory used for building the installer 
