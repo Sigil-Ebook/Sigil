@@ -25,6 +25,7 @@
 
 #include <QPlainTextEdit>
 #include "ViewEditor.h"
+#include <QStack>
 
 class QResizeEvent;
 class QSize;
@@ -144,11 +145,11 @@ private:
     // current location of the caret in the document.
     // Accepts the number of characters to the end of
     // the start tag of the element the caret is residing in. 
-    QList< StackElement > GetCaretLocationStack( int offset );
+    QStack< StackElement > GetCaretLocationStack( int offset );
 
     // Converts the stack provided by GetCaretLocationStack()
     // and converts it into the element location hierarchy
-    QList< ElementIndex > ConvertStackToHierarchy( const QList< StackElement > stack );
+    QList< ElementIndex > ConvertStackToHierarchy( const QStack< StackElement > stack );
 
     // Executes the caret updating code
     // if such an update is pending;

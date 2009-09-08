@@ -34,6 +34,10 @@ This should create SLN and vcproj files for Visual Studio in that directory.
 You can also generate project files for some other VS version. You can get
 a list of all supported generators by typing in and running "cmake".
 
+The default build procedure will build "Sigil.exe"; if you want to package
+that with the required DLL's into an installer, build the "makeinstaller"
+project.
+
 There is also an add-in for VS on Qt's website: 
 http://www.qtsoftware.com/downloads/visual-studio-add-in
 
@@ -82,6 +86,9 @@ in ${CMAKE_INSTALL_PREFIX}/bin, with CMAKE_INSTALL_PREFIX defaulting to
 You can change the install location by running cmake like this:
 
 cmake -DCMAKE_INSTALL_PREFIX=/new/install/prefix -G "Unix Makefiles" /path/to/source/folder
+
+Aside from using the install target, you can also build a binary
+installer by invoking the "makeinstaller" build target.
 
 Building from source in the repository is recommended, since code in the
 repository should always be stable. If it's not, that's a bug report. 
