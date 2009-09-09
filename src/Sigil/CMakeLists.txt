@@ -175,6 +175,10 @@ if( MSVC )
     add_definitions( /DUNICODE /D_UNICODE /Zc:wchar_t- )
     set( CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} /Oi /GL" ) 
     set( CMAKE_EXE_LINKER_FLAGS_RELEASE "${CMAKE_EXE_LINKER_FLAGS_RELEASE} /LTCG" )
+
+# "Print all warnings" flag for GCC
+elseif( CMAKE_COMPILER_IS_GNUCXX  )
+    add_definitions( -Wall )
 endif()
 
 # No console window shown on launch

@@ -15,7 +15,7 @@
 /**
 * \file BitFlag.h
 *	Includes the ZipArchiveLib::CBitFlag class.
-//*
+*
 */
 
 #if !defined(ZIPARCHIVE_BITFLAG_DOT_H)
