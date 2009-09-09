@@ -161,7 +161,7 @@ public:
 			return !m_state.IsSetAny(stateOpened);
 		else
 			// assume not auto-close files always opened
-			return !m_pFile || m_state.IsSetAny(stateAutoClose) && m_pFile->IsClosed();
+			return !m_pFile || ( m_state.IsSetAny(stateAutoClose) && m_pFile->IsClosed() );
 	}
 
 	/**
