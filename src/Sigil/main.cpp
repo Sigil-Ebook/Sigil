@@ -24,7 +24,7 @@
 #include "MainWindow.h"
 #include <QtGui/QApplication>
 
-MainWindow* GetMainWindow()
+static MainWindow* GetMainWindow()
 {
     // We use the first argument
     // as the file to load after starting
@@ -43,20 +43,22 @@ MainWindow* GetMainWindow()
     }
 }
 
-QIcon GetApplicationIcon()
+
+static QIcon GetApplicationIcon()
 {
     QIcon app_icon;
 
     // This 16x16 one looks wrong for some reason
     //app_icon.addFile( ":/icon/app_icon_16.png", QSize( 16, 16 ) );
-    app_icon.addFile( ":/icon/app_icon_32.png", QSize( 32, 32 ) );
-    app_icon.addFile( ":/icon/app_icon_48.png", QSize( 48, 48 ) );
-    app_icon.addFile( ":/icon/app_icon_128.png", QSize( 128, 128 ) );
-    app_icon.addFile( ":/icon/app_icon_256.png", QSize( 256, 256 ) );
-    app_icon.addFile( ":/icon/app_icon_512.png", QSize( 512, 512 ) );
+    app_icon.addFile( ":/icon/app_icon_32.png",     QSize( 32, 32 )     );
+    app_icon.addFile( ":/icon/app_icon_48.png",     QSize( 48, 48 )     );
+    app_icon.addFile( ":/icon/app_icon_128.png",    QSize( 128, 128 )   );
+    app_icon.addFile( ":/icon/app_icon_256.png",    QSize( 256, 256 )   );
+    app_icon.addFile( ":/icon/app_icon_512.png",    QSize( 512, 512 )   );
 
     return app_icon;
 }
+
 
 int main( int argc, char *argv[] )
 {
@@ -72,7 +74,7 @@ int main( int argc, char *argv[] )
 
     // We set the window icon explicitly on Linux.
     // On Windows this is handled by the RC file,
-    // and on Mac bz the ICNS file.
+    // and on Mac by the ICNS file.
  #ifdef Q_WS_X11
     app.setWindowIcon( GetApplicationIcon() );
  #endif

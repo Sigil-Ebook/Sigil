@@ -170,7 +170,7 @@ endif()
 
 target_link_libraries( ${PROJECT_NAME} tidyLib ZipArchive ${QT_LIBRARIES} )
 
-# Special compiler and linker flags for MSVC
+# "Link time code generation" flags for MSVC
 if( MSVC )
     add_definitions( /DUNICODE /D_UNICODE /Zc:wchar_t- )
     set( CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} /Oi /GL" ) 
