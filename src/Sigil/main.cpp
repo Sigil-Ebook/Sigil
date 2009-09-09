@@ -24,6 +24,40 @@
 #include "MainWindow.h"
 #include <QtGui/QApplication>
 
+MainWindow* GetMainWindow()
+{
+    // We use the first argument
+    // as the file to load after starting
+    QStringList arguments = QCoreApplication::arguments();
+
+    if (    arguments.size() > 1 &&
+            Utility::IsFileReadable( arguments.at( 1 ) )
+       )
+    {
+        return new MainWindow( arguments.at( 1 ) );
+    }
+
+    else
+    {
+        return new MainWindow();
+    }
+}
+
+QIcon GetApplicationIcon()
+{
+    QIcon app_icon;
+
+    // This 16x16 one looks wrong for some reason
+    //app_icon.addFile( ":/icon/app_icon_16.png", QSize( 16, 16 ) );
+    app_icon.addFile( ":/icon/app_icon_32.png", QSize( 32, 32 ) );
+    app_icon.addFile( ":/icon/app_icon_48.png", QSize( 48, 48 ) );
+    app_icon.addFile( ":/icon/app_icon_128.png", QSize( 128, 128 ) );
+    app_icon.addFile( ":/icon/app_icon_256.png", QSize( 256, 256 ) );
+    app_icon.addFile( ":/icon/app_icon_512.png", QSize( 512, 512 ) );
+
+    return app_icon;
+}
+
 int main( int argc, char *argv[] )
 {
     QT_REQUIRE_VERSION( argc, argv, "4.5.0" );
@@ -36,6 +70,13 @@ int main( int argc, char *argv[] )
     app.addLibraryPath( "iconengines" );
     app.addLibraryPath( "imageformats" );
 
+    // We set the window icon explicitly on Linux.
+    // On Windows this is handled by the RC file,
+    // and on Mac bz the ICNS file.
+ #ifdef Q_WS_X11
+    app.setWindowIcon( GetApplicationIcon() );
+ #endif
+
     // We write the full path to Sigil's executable
     // in a file in the home folder for calibre interoperability
 #ifdef Q_WS_WIN
@@ -46,27 +87,14 @@ int main( int argc, char *argv[] )
 
     Utility::WriteUnicodeTextFile( QCoreApplication::applicationFilePath(), location_file );
 	
-    MainWindow *widget = NULL;
-    
-    // We use the first argument
-    // as the file to load after starting
-	QStringList arguments = QCoreApplication::arguments();
-	
-    if (    arguments.size() > 1 &&
-            Utility::IsFileReadable( arguments.at( 1 ) ) 
-        )
-    {
-        widget = new MainWindow( arguments.at( 1 ) );
-    }
-	
-    else
-    {
-        widget = new MainWindow();
-    }
+    MainWindow *widget = GetMainWindow();
     
     widget->show();
     
     return app.exec();
 }
+
+
+
 
 
