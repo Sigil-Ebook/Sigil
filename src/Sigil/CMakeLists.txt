@@ -103,7 +103,8 @@ set( UI_FILES   Form_Files/main.ui
 set( QRC_FILES  Resource_Files/main/main.qrc
                 Resource_Files/About/About.qrc
                 Resource_Files/data/data.qrc
-                Resource_Files/javascript/javascript.qrc )
+                Resource_Files/javascript/javascript.qrc
+                Resource_Files/icon/icon.qrc  )
 
 # Runs MOC on specifed files
 qt4_wrap_cpp( MOC_FILES_CPP ${QOBJECT_HEADERS} )

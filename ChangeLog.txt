@@ -1,4 +1,5 @@
 Sigil v0.1.4 <ADD DATE>
+    - provided a window icon on Linux
     - providing binary installers for Windows AND LINUX (issue #6)
     - further improved encoding detection for HTML import
     - fixed graphical misalignment of controls in MetaEditor on Linux and Mac platforms
