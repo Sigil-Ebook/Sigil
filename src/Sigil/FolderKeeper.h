@@ -49,8 +49,14 @@ public:
     void AddInfraFileToFolder( const QString &fullfilepath, const QString &newfilename );
 
     // A dispatcher function that routes the given *content* file
-    // to the appropriate specific folder function
-    QString AddContentFileToFolder( const QString &fullfilepath, const QString &force_extension = NULL );
+    // to the appropriate specific folder function.
+    // The file is recognized according to its extension: use force_extension
+    // to override the recognition and force an extension.
+    // Set preserve_filename to true to preserve the original filename.
+    // The function returns the new file's path relative to the OEBPS folder.
+    QString AddContentFileToFolder( const QString &fullfilepath, 
+                                    const QString &force_extension = NULL,
+                                    const bool preserve_filename = false );
     
     // Returns a list of all the content files in the directory
     // with a path relative to the OEBPS directory
@@ -77,28 +83,33 @@ private:
 
     // Copies the file specified with fullfilepath
     // to the OEBPS/images folder with a generated name;
-    // the generated name is returned
-    QString AddFileToImagesFolder(  const QString &fullfilepath, const QString &extension );
+    // the generated name is returned.
+    // Set preserve_filename to true to preserve the original filename.
+    QString AddFileToImagesFolder(  const QString &fullfilepath, const QString &extension, const bool preserve_filename );
 
     // Copies the file specified with fullfilepath
     // to the OEBPS/fonts folder with a generated name;
-    // the generated name is returned
-    QString AddFileToFontsFolder(   const QString &fullfilepath, const QString &extension );	
+    // the generated name is returned.
+    // Set preserve_filename to true to preserve the original filename.
+    QString AddFileToFontsFolder(   const QString &fullfilepath, const QString &extension, const bool preserve_filename );	
 
     // Copies the file specified with fullfilepath
     // to the OEBPS/text folder with a generated name;
-    // the generated name is returned
-    QString AddFileToTextFolder(    const QString &fullfilepath, const QString &extension );
+    // the generated name is returned.
+    // Set preserve_filename to true to preserve the original filename.
+    QString AddFileToTextFolder(    const QString &fullfilepath, const QString &extension, const bool preserve_filename );
 
     // Copies the file specified with fullfilepath
     // to the OEBPS/styles folder with a generated name;
-    // the generated name is returned
-    QString AddFileToStylesFolder(  const QString &fullfilepath, const QString &extension );
+    // the generated name is returned.
+    // Set preserve_filename to true to preserve the original filename.
+    QString AddFileToStylesFolder(  const QString &fullfilepath, const QString &extension, const bool preserve_filename );
 
     // Copies the file specified with fullfilepath
     // to the OEBPS/misc folder with a generated name;
-    // the generated name is returned
-    QString AddFileToMiscFolder(    const QString &fullfilepath, const QString &extension );
+    // the generated name is returned.
+    // Set preserve_filename to true to preserve the original filename.
+    QString AddFileToMiscFolder(    const QString &fullfilepath, const QString &extension, const bool preserve_filename );
 
     // Performs common constructor duties
     // for all constructors

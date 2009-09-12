@@ -1,4 +1,5 @@
 Sigil v0.1.4 <ADD DATE>
+    - made SGF importing MUCH faster (issue #119)
     - provided a window icon on Linux
     - providing binary installers for Windows AND LINUX (issue #6)
     - further improved encoding detection for HTML import

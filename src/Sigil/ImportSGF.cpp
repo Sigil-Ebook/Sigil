@@ -47,7 +47,7 @@ Book ImportSGF::GetBook()
     // These mutate the m_Book object
     LoadMetadata();
     LoadSource();
-    UpdateReferences( LoadFolderStructure() );
+    LoadFolderStructure();
 
     m_Book.source = CleanSource::Clean( m_Book.source );
 
@@ -62,4 +62,21 @@ void ImportSGF::LoadSource()
     m_Book.source    = Utility::ReadUnicodeTextFile( fullpath ); 
 }
 
+
+// Loads the referenced files into the main folder of the book
+void ImportSGF::LoadFolderStructure()
+{
+    foreach( QString key, m_Files.keys() )
+    {
+        QString path = m_Files[ key ];
+
+        // We skip over the book text
+        if ( !m_ReadingOrderIds.contains( key ) )
+        {
+            QString fullfilepath = QFileInfo( m_OPFFilePath ).absolutePath() + "/" + path;
+
+            m_Book.mainfolder.AddContentFileToFolder( fullfilepath, NULL, true );
+        }        
+    }
+}
 

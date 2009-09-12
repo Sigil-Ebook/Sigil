@@ -86,11 +86,14 @@ void FolderKeeper::AddInfraFileToFolder( const QString &fullfilepath, const QStr
 }
 
 // A dispatcher function that routes the given *content* file
-// to the appropriate specific folder function;
-// the file is recognized according to its extension: use force_extension
-// to override the recognition and force an extension;
-// the function returns the new file's path relative to the OEBPS folder
-QString FolderKeeper::AddContentFileToFolder( const QString &fullfilepath, const QString &force_extension )
+// to the appropriate specific folder function.
+// The file is recognized according to its extension: use force_extension
+// to override the recognition and force an extension.
+// Set preserve_filename to true to preserve the original filename.
+// The function returns the new file's path relative to the OEBPS folder.
+QString FolderKeeper::AddContentFileToFolder( const QString &fullfilepath, 
+                                              const QString &force_extension,
+                                              const bool preserve_filename    )
 {
     QList< QString > images;
     images  << "jpg"    << "jpeg"   << "png"
@@ -115,7 +118,7 @@ QString FolderKeeper::AddContentFileToFolder( const QString &fullfilepath, const
 
     else
     {
-        // If the user specified for instance ".txt",
+        // If the caller specified for instance ".txt",
         // it is converted to "txt" (we remove the dot)
         if ( force_extension[ 0 ] == QChar( '.' ) )
 
@@ -128,22 +131,22 @@ QString FolderKeeper::AddContentFileToFolder( const QString &fullfilepath, const
 
     if ( images.contains( extension ) )
 
-        return "images/" + AddFileToImagesFolder( fullfilepath, extension );
+        return "images/" + AddFileToImagesFolder( fullfilepath, extension, preserve_filename );
 
     if ( fonts.contains( extension ) )
     
-        return "fonts/" + AddFileToFontsFolder( fullfilepath, extension );
+        return "fonts/" + AddFileToFontsFolder( fullfilepath, extension, preserve_filename );
 
     if ( texts.contains( extension ) )
 
-        return "text/" + AddFileToTextFolder( fullfilepath, extension );
+        return "text/" + AddFileToTextFolder( fullfilepath, extension, preserve_filename );
 
     if ( styles.contains( extension ) )
 
-        return "styles/" + AddFileToStylesFolder( fullfilepath, extension );
+        return "styles/" + AddFileToStylesFolder( fullfilepath, extension, preserve_filename );
 
     // Fallback mechanism
-    return "misc/" + AddFileToMiscFolder( fullfilepath, extension );
+    return "misc/" + AddFileToMiscFolder( fullfilepath, extension, preserve_filename );
 }
 
 
@@ -238,88 +241,148 @@ void FolderKeeper::AddFileToOEBPSFolder( const QString &fullfilepath, const QStr
 // Copies the file specified with fullfilepath
 // to the OEBPS/images folder with a generated name;
 // the generated name is returned
-QString FolderKeeper::AddFileToImagesFolder( const QString &fullfilepath, const QString &extension )
+QString FolderKeeper::AddFileToImagesFolder(    const QString &fullfilepath, 
+                                                const QString &extension, 
+                                                const bool preserve_filename )
 {
-    // Count - 2 because we don't care for the "." and ".." folders
-    // + 1 because we are adding a file
-    int index = QDir( FullPathToImagesFolder ).count() - 2 + 1;
+    QString filename;    
 
-    // We add a number to the file, so e.g. we get "img0001.png", "img0035.jpg" etc.
-    QString newfile = QString( "img" ) + QString( "%1" ).arg( index, 4, 10, QChar( '0' ) ) + "." + extension;
+    if ( preserve_filename )
+    {
+        filename = QFileInfo( fullfilepath ).fileName();
+    }
 
-    QFile::copy( fullfilepath, FullPathToImagesFolder + "/" + newfile );
+    else
+    {
+        // Count - 2 because we don't care for the "." and ".." folders
+        // + 1 because we are adding a file
+        int index = QDir( FullPathToImagesFolder ).count() - 2 + 1;
 
-    return newfile;
+        // We add a number to the file, so e.g. we get "img0001.png", "img0035.jpg" etc.
+        filename = QString( "img" ) + QString( "%1" ).arg( index, 4, 10, QChar( '0' ) ) + "." + extension;
+    }
+
+    QFile::copy( fullfilepath, FullPathToImagesFolder + "/" + filename );
+
+    return filename;
 }
 
 
 // Copies the file specified with fullfilepath
 // to the OEBPS/images folder with a generated name;
 // the generated name is returned
-QString FolderKeeper::AddFileToFontsFolder( const QString &fullfilepath, const QString &extension )
+QString FolderKeeper::AddFileToFontsFolder(    const QString &fullfilepath, 
+                                               const QString &extension, 
+                                               const bool preserve_filename )
 {
-    // Count - 2 because we don't care for the "." and ".." folders
-    // + 1 because we are adding a file
-    int index = QDir( FullPathToFontsFolder ).count() - 2 + 1;
+    QString filename;    
 
-    // We add a number to the file, so e.g. we get "font001.otf", "font035.ttf" etc.
-    QString newfile = QString( "font" ) + QString( "%1" ).arg( index, 3, 10, QChar( '0' ) ) + "." + extension;
+    if ( preserve_filename )
+    {
+        filename = QFileInfo( fullfilepath ).fileName();
+    }
 
-    QFile::copy( fullfilepath, FullPathToFontsFolder + "/" + newfile );
+    else
+    {
+        // Count - 2 because we don't care for the "." and ".." folders
+        // + 1 because we are adding a file
+        int index = QDir( FullPathToFontsFolder ).count() - 2 + 1;
 
-    return newfile;
+        // We add a number to the file, so e.g. we get "font001.otf", "font035.ttf" etc.
+        filename = QString( "font" ) + QString( "%1" ).arg( index, 3, 10, QChar( '0' ) ) + "." + extension;
+    }
+
+    QFile::copy( fullfilepath, FullPathToFontsFolder + "/" + filename );
+
+    return filename;
 }
 
 
 // Copies the file specified with fullfilepath
 // to the OEBPS/text folder with a generated name;
 // the generated name is returned
-QString FolderKeeper::AddFileToTextFolder( const QString &fullfilepath, const QString &extension )
+QString FolderKeeper::AddFileToTextFolder(    const QString &fullfilepath, 
+                                              const QString &extension, 
+                                              const bool preserve_filename )
 {
-    // Count - 2 because we don't care for the "." and ".." folders
-    // + 1 because we are adding a file
-    int index = QDir( FullPathToTextFolder ).count() - 2 + 1;
+    QString filename;    
 
-    // We add a number to the file, so e.g. we get "content001.xhtml", "content035.xhtml" etc.
-    QString newfile = QString( "content" ) + QString( "%1" ).arg( index, 3, 10, QChar( '0' ) ) + "." + extension;
+    if ( preserve_filename )
+    {
+        filename = QFileInfo( fullfilepath ).fileName();
+    }
 
-    QFile::copy( fullfilepath, FullPathToTextFolder + "/" + newfile );
+    else
+    {
+        // Count - 2 because we don't care for the "." and ".." folders
+        // + 1 because we are adding a file
+        int index = QDir( FullPathToTextFolder ).count() - 2 + 1;
 
-    return newfile;
+        // We add a number to the file, so e.g. we get "content001.xhtml", "content035.xhtml" etc.
+        filename = QString( "content" ) + QString( "%1" ).arg( index, 3, 10, QChar( '0' ) ) + "." + extension;
+    }
+
+    QFile::copy( fullfilepath, FullPathToTextFolder + "/" + filename );
+
+    return filename;
 }
 
 // Copies the file specified with fullfilepath
 // to the OEBPS/styles folder with a generated name;
 // the generated name is returned
-QString FolderKeeper::AddFileToStylesFolder( const QString &fullfilepath, const QString &extension )
+QString FolderKeeper::AddFileToStylesFolder(    const QString &fullfilepath, 
+                                                const QString &extension, 
+                                                const bool preserve_filename )
 {
-    // Count - 2 because we don't care for the "." and ".." folders
-    // + 1 because we are adding a file
-    int index = QDir( FullPathToStylesFolder ).count() - 2 + 1;
+    QString filename;    
 
-    // We add a number to the file, so e.g. we get "style001.css", "style035.css" etc.
-    QString newfile = QString( "style" ) + QString( "%1" ).arg( index, 3, 10, QChar( '0' ) ) + "." + extension;
+    if ( preserve_filename )
+    {
+        filename = QFileInfo( fullfilepath ).fileName();
+    }
 
-    QFile::copy( fullfilepath, FullPathToStylesFolder + "/" + newfile );
+    else
+    {
+        // Count - 2 because we don't care for the "." and ".." folders
+        // + 1 because we are adding a file
+        int index = QDir( FullPathToStylesFolder ).count() - 2 + 1;
 
-    return newfile;
+        // We add a number to the file, so e.g. we get "style001.css", "style035.css" etc.
+        filename = QString( "style" ) + QString( "%1" ).arg( index, 3, 10, QChar( '0' ) ) + "." + extension;
+    }
+
+    QFile::copy( fullfilepath, FullPathToStylesFolder + "/" + filename );
+
+    return filename;
 }
 
 // Copies the file specified with fullfilepath
 // to the OEBPS/misc folder with a generated name;
 // the generated name is returned
-QString FolderKeeper::AddFileToMiscFolder( const QString &fullfilepath, const QString &extension )
+QString FolderKeeper::AddFileToMiscFolder(    const QString &fullfilepath, 
+                                              const QString &extension, 
+                                              const bool preserve_filename )
 {
-    // Count - 2 because we don't care for the "." and ".." folders
-    // + 1 because we are adding a file
-    int index = QDir( FullPathToMiscFolder ).count() - 2 + 1;
+    QString filename;    
 
-    // We add a number to the file, so e.g. we get "misc001.xxx", "misc035.xxx" etc.
-    QString newfile = QString( "misc" ) + QString( "%1" ).arg( index, 3, 10, QChar( '0' ) ) + "." + extension;
+    if ( preserve_filename )
+    {
+        filename = QFileInfo( fullfilepath ).fileName();
+    }
 
-    QFile::copy( fullfilepath, FullPathToMiscFolder + "/" + newfile );
+    else
+    {
+        // Count - 2 because we don't care for the "." and ".." folders
+        // + 1 because we are adding a file
+        int index = QDir( FullPathToMiscFolder ).count() - 2 + 1;
 
-    return newfile;
+        // We add a number to the file, so e.g. we get "misc001.xxx", "misc035.xxx" etc.
+        filename = QString( "misc" ) + QString( "%1" ).arg( index, 3, 10, QChar( '0' ) ) + "." + extension;
+    }
+
+    QFile::copy( fullfilepath, FullPathToMiscFolder + "/" + filename );
+
+    return filename;
 }
 
 

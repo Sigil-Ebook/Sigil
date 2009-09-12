@@ -44,6 +44,9 @@ private:
     // Loads the source code into the Book
     void LoadSource();
 
+    // Loads the referenced files into the main folder of the book
+    void LoadFolderStructure();
+
 };
 
 #endif // IMPORTSGF_H
