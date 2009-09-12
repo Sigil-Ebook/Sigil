@@ -40,7 +40,7 @@ About::About( QWidget *parent )
     // (regex used in case we change the number of digits)
     QRegExp version_number( "(\\d+)\\.(\\d+)\\.(\\d+)" );
 
-    QString( SIGIL_VERSION ).indexOf( version_number );
+    QString( SIGIL_FULL_VERSION ).indexOf( version_number );
 
     QString version_text =  QString( "%1.%2.%3" )
                             .arg( version_number.cap( 1 ).toInt() )

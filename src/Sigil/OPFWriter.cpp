@@ -100,7 +100,7 @@ void OPFWriter::WriteMetadata()
 
         m_Writer->writeEmptyElement( "meta" );
         m_Writer->writeAttribute( "name", "Sigil version" );
-        m_Writer->writeAttribute( "content", SIGIL_VERSION );
+        m_Writer->writeAttribute( "content", SIGIL_FULL_VERSION );
 
     m_Writer->writeEndElement();
 }
