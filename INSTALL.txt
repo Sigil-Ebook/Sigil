@@ -28,7 +28,7 @@ do this by creating a new folder OUTSIDE of the source distribution.
 Now navigate to that folder with a terminal like cmd.exe or PowerShell.
 Then type in and run the following:
 
-cmake -G "Visual Studio 9 2008" /path/to/source/folder
+cmake -G "Visual Studio 9 2008" /path/to/extracted/folder
 
 This should create SLN and vcproj files for Visual Studio in that directory.
 You can also generate project files for some other VS version. You can get
@@ -52,7 +52,7 @@ do this by creating a new folder OUTSIDE of the source distribution.
 Now navigate to that folder with the Terminal. Then type in and run
 the following:
 
-cmake -G Xcode /path/to/source/folder
+cmake -G Xcode /path/to/extracted/folder
 
 This should create Xcode project files in that directory. The default
 build procedure will build "Sigil.app"; if you want to package that into a DMG
@@ -75,7 +75,7 @@ a new folder OUTSIDE of the source distribution.
 Now navigate to that folder with a terminal. Then type in and run 
 the following:
 
-cmake -G "Unix Makefiles" /path/to/source/folder
+cmake -G "Unix Makefiles" /path/to/extracted/folder
 make
 sudo make install
 
@@ -85,7 +85,7 @@ in ${CMAKE_INSTALL_PREFIX}/bin, with CMAKE_INSTALL_PREFIX defaulting to
 
 You can change the install location by running cmake like this:
 
-cmake -DCMAKE_INSTALL_PREFIX=/new/install/prefix -G "Unix Makefiles" /path/to/source/folder
+cmake -DCMAKE_INSTALL_PREFIX=/new/install/prefix -G "Unix Makefiles" /path/to/extracted/folder
 
 Aside from using the install target, you can also build a binary
 installer by invoking the "makeinstaller" build target.
