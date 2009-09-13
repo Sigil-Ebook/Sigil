@@ -19,9 +19,6 @@
 **
 *************************************************************************/
 
-// The version of the application,
-// in MAJOR.MINOR.REVISION format
-#define SIGIL_VERSION ("000.001.004")
 
 // These enable us to use constants defined
 // in one CPP file to be used in another
@@ -34,4 +31,5 @@ extern const QString HEADING;
 extern const QString STYLE_TAG;
 extern const QString WIN_PATH_SUFFIX;
 extern const QString NIX_PATH_SUFFIX;
+extern const QString VERSION_NUMBERS;
 

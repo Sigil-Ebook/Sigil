@@ -1,4 +1,6 @@
 Sigil v0.1.4 <ADD DATE>
+    - Sigil will from now on check for a newer version on startup and present an informative
+    message if such a version is found (issue #67)
     - made SGF importing MUCH faster (issue #119)
     - provided a window icon on Linux
     - providing binary installers for Windows AND LINUX (issue #6)

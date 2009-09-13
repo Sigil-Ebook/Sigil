@@ -201,11 +201,11 @@ bool Utility::IsFileReadable( const QString &fullfilepath )
     if ( !file.open( QFile::ReadOnly ) )
     {
         QMessageBox::warning(	0,
-            QObject::tr( "Sigil" ),
-            QObject::tr( "Cannot read file %1:\n%2." )
-            .arg( fullfilepath )
-            .arg( file.errorString() ) 
-            );
+                                QObject::tr( "Sigil" ),
+                                QObject::tr( "Cannot read file %1:\n%2." )
+                                .arg( fullfilepath )
+                                .arg( file.errorString() ) 
+                            );
         return false;
     }
     
@@ -229,11 +229,11 @@ QString Utility::ReadUnicodeTextFile( const QString &fullfilepath )
     if ( !file.open( QFile::ReadOnly | QFile::Text ) )
     {
         QMessageBox::warning(	0,
-            QObject::tr( "Sigil" ),
-            QObject::tr( "Cannot read file %1:\n%2." )
-            .arg( fullfilepath )
-            .arg( file.errorString() ) 
-            );
+                                QObject::tr( "Sigil" ),
+                                QObject::tr( "Cannot read file %1:\n%2." )
+                                .arg( fullfilepath )
+                                .arg( file.errorString() ) 
+                             );
         return "";
     }
 

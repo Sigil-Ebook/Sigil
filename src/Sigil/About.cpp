@@ -22,6 +22,7 @@
 #include "stdafx.h"
 #include "About.h"
 
+const QString VERSION_NUMBERS = "(\\d+)\\.(\\d+)\\.(\\d+)";
 
 // Constructor
 About::About( QWidget *parent )
@@ -34,13 +35,8 @@ About::About( QWidget *parent )
     ui.lbBuildTimeDisplay->setText( build_time.toString( "yyyy.MM.dd HH:mm:ss" ) );
     ui.lbLoadedQtDisplay->setText( QString( qVersion() ) );
 
-    // The individual numbers that make up the build version string
-    // always take up 3 spaces; we want to display them 
-    // in exactly the number of spaces needed
-    // (regex used in case we change the number of digits)
-    QRegExp version_number( "(\\d+)\\.(\\d+)\\.(\\d+)" );
-
-    QString( SIGIL_VERSION ).indexOf( version_number );
+    QRegExp version_number( VERSION_NUMBERS );
+    QString( SIGIL_FULL_VERSION ).indexOf( version_number );
 
     QString version_text =  QString( "%1.%2.%3" )
                             .arg( version_number.cap( 1 ).toInt() )
