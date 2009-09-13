@@ -903,36 +903,37 @@ void MainWindow::UpdateBookViewFromSource()
 // window position, geometry etc.
 void MainWindow::ReadSettings()
 {
-    QSettings settings( "Strahinja Markovic", "Sigil" );
+    QSettings settings;
+    settings.beginGroup( "mainwindow" );
 
     // The size of the window and it's full screen status
-    QByteArray geometry = settings.value( "mainwindow/geometry" ).toByteArray();
+    QByteArray geometry = settings.value( "geometry" ).toByteArray();
 
     if ( !geometry.isNull() )
 
         restoreGeometry( geometry );
 
     // The positions of all the toolbars and dock widgets
-    QByteArray toolbars = settings.value( "mainwindow/toolbars" ).toByteArray();
+    QByteArray toolbars = settings.value( "toolbars" ).toByteArray();
 
     if ( !toolbars.isNull() )
 
         restoreState( toolbars );
 
     // The position of the splitter handle in split view
-    QByteArray splitter_position = settings.value( "mainwindow/splitview_splitter" ).toByteArray();
+    QByteArray splitter_position = settings.value( "splitview_splitter" ).toByteArray();
 
     if ( !splitter_position.isNull() )
 
         ui.splitter->restoreState( splitter_position );
 
     // The last folders used for saving and opening files
-    m_LastFolderSave    = settings.value( "mainwindow/lastfoldersave"  ).toString();
-    m_LastFolderOpen    = settings.value( "mainwindow/lastfolderopen"  ).toString();
-    m_LastFolderImage   = settings.value( "mainwindow/lastfolderimage" ).toString();
+    m_LastFolderSave    = settings.value( "lastfoldersave"  ).toString();
+    m_LastFolderOpen    = settings.value( "lastfolderopen"  ).toString();
+    m_LastFolderImage   = settings.value( "lastfolderimage" ).toString();
 
     // The list of recent files
-    m_RecentFiles    = settings.value( "mainwindow/recentfiles" ).toStringList();
+    m_RecentFiles    = settings.value( "recentfiles" ).toStringList();
 }
 
 
@@ -944,24 +945,25 @@ void MainWindow::WriteSettings()
     // to be refactored into a singleton that will provide an
     // interface and take care of the details.
 
-    QSettings settings( "Strahinja Markovic", "Sigil");
+    QSettings settings;
+    settings.beginGroup( "mainwindow" );
 
     // The size of the window and it's full screen status
-    settings.setValue( "mainwindow/geometry", saveGeometry() );
+    settings.setValue( "geometry", saveGeometry() );
 
     // The positions of all the toolbars and dock widgets
-    settings.setValue( "mainwindow/toolbars", saveState() );
+    settings.setValue( "toolbars", saveState() );
 
     // The position of the splitter handle in split view
-    settings.setValue( "mainwindow/splitview_splitter", ui.splitter->saveState() );
+    settings.setValue( "splitview_splitter", ui.splitter->saveState() );
 
     // The last folders used for saving and opening files
-    settings.setValue( "mainwindow/lastfoldersave",  m_LastFolderSave  );
-    settings.setValue( "mainwindow/lastfolderopen",  m_LastFolderOpen  );
-    settings.setValue( "mainwindow/lastfolderimage", m_LastFolderImage );
+    settings.setValue( "lastfoldersave",  m_LastFolderSave  );
+    settings.setValue( "lastfolderopen",  m_LastFolderOpen  );
+    settings.setValue( "lastfolderimage", m_LastFolderImage );
 
     // The list of recent files
-    settings.setValue( "mainwindow/recentfiles", m_RecentFiles );
+    settings.setValue( "recentfiles", m_RecentFiles );
 }
 
 

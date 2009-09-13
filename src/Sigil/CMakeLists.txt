@@ -21,7 +21,8 @@ find_package( Qt4 REQUIRED )
 
 set( QT_USE_QTWEBKIT TRUE )
 set( QT_USE_QTSVG TRUE )
-set( QT_USE_QTXML TRUE ) 
+set( QT_USE_QTXML TRUE )
+set( QT_USE_QTNETWORK TRUE ) 
 set( QT_USE_QTMAIN TRUE )
 
 include( ${QT_USE_FILE} )
@@ -33,7 +34,8 @@ set( QOBJECT_HEADERS    AddMetadata.h
                         CodeViewEditor.h 
                         TOCEditor.h 
                         MainWindow.h
-                        MetaEditor.h )
+                        MetaEditor.h
+                        UpdateChecker.h )
 
 set( HEADERS Book.h 
             BookNormalization.h 
@@ -89,6 +91,7 @@ set( CPP_FILES  AddMetadata.cpp
             OPFWriter.cpp 
             SigilMarkup.cpp 
             TOCEditor.cpp 
+            UpdateChecker.cpp
             Utility.cpp
             XHTMLHighlighter.cpp
             XHTMLDoc.cpp

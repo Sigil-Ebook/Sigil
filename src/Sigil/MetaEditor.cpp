@@ -343,23 +343,24 @@ void MetaEditor::SetUpMetaTable()
 // window position, geometry etc.
 void MetaEditor::ReadSettings()
 {
-    QSettings settings( "Strahinja Markovic", "Sigil" );
+    QSettings settings;
+    settings.beginGroup( "meta_editor" );
 
     // We flip the stored isMore state because we have to pass through
     // the ToggleMoreLess function to actually set the widgets
     // (and the isMore variable) to the stored state
-    m_isMore	= ! settings.value( "meta_editor/is_more" ).toBool();		
+    m_isMore	= ! settings.value( "is_more" ).toBool();		
 
     // Window width and the height after expansion
-    int width		= settings.value( "meta_editor/width" ).toInt();
-    m_ExpandedHeight	= settings.value( "meta_editor/expanded_height" ).toInt();		
+    int width		    = settings.value( "width" ).toInt();
+    m_ExpandedHeight	= settings.value( "expanded_height" ).toInt();		
 
     if ( ( width != 0 ) && ( m_ExpandedHeight != 0 ) )
 
         resize( width, m_ExpandedHeight );
 
     // The window's position on the screen
-    QPoint position = settings.value( "meta_editor/position" ).toPoint();
+    QPoint position = settings.value( "position" ).toPoint();
 
     if ( !position.isNull() )
 
@@ -370,18 +371,18 @@ void MetaEditor::ReadSettings()
 // window position, geometry etc.
 void MetaEditor::WriteSettings()
 {
-    QSettings settings( "Strahinja Markovic", "Sigil");
+    QSettings settings;
+    settings.beginGroup( "meta_editor" );
 
     // The window expansion state ("more" or "less")
-    settings.setValue( "meta_editor/is_more", m_isMore );
+    settings.setValue( "is_more", m_isMore );
 
     // Window width and the height after expansion
-    settings.setValue( "meta_editor/width", size().width() );
-    settings.setValue( "meta_editor/expanded_height", m_ExpandedHeight );	
+    settings.setValue( "width", size().width() );
+    settings.setValue( "expanded_height", m_ExpandedHeight );	
 
     // The window's position on the screen
-    settings.setValue( "meta_editor/position", pos() );	
-        
+    settings.setValue( "position", pos() );	
 }
 
 

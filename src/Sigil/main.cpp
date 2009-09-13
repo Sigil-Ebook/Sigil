@@ -23,7 +23,10 @@
 #include "Utility.h"
 #include "MainWindow.h"
 #include <QtGui/QApplication>
+#include "UpdateChecker.h"
 
+// Creates a MainWindow instance depending
+// on command line arguments
 static MainWindow* GetMainWindow()
 {
     // We use the first argument
@@ -44,6 +47,7 @@ static MainWindow* GetMainWindow()
 }
 
 
+// Returns a QIcon with the Sigil "S" logo in various sizes
 static QIcon GetApplicationIcon()
 {
     QIcon app_icon;
@@ -60,6 +64,7 @@ static QIcon GetApplicationIcon()
 }
 
 
+// Application entry point
 int main( int argc, char *argv[] )
 {
     QT_REQUIRE_VERSION( argc, argv, "4.5.0" );
@@ -71,6 +76,11 @@ int main( int argc, char *argv[] )
     app.addLibraryPath( "codecs" );
     app.addLibraryPath( "iconengines" );
     app.addLibraryPath( "imageformats" );
+
+    // Set application information for easier use
+    // of QSettings classes
+    QCoreApplication::setOrganizationName( "Strahinja Markovic" );
+    QCoreApplication::setApplicationName( "Sigil" );
 
     // We set the window icon explicitly on Linux.
     // On Windows this is handled by the RC file,
@@ -88,9 +98,13 @@ int main( int argc, char *argv[] )
 #endif
 
     Utility::WriteUnicodeTextFile( QCoreApplication::applicationFilePath(), location_file );
-	
-    MainWindow *widget = GetMainWindow();
-    
+
+    // Needs to be created on the heap so that
+    // the reply has time to return.
+    UpdateChecker *checker = new UpdateChecker( &app );
+    checker->CheckForUpdate();
+
+    MainWindow *widget = GetMainWindow();    
     widget->show();
     
     return app.exec();
