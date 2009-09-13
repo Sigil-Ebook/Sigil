@@ -20,6 +20,11 @@ distribution and compile it with VS. Linux users should get it from
 their distribution's package manager (more information in the linux
 section).
 
+On some platforms a "makeinstaller" target is provided which will build
+a binary installer. For that to work, you need to have InstallJammer 
+installed and on the system PATH. You can get InstallJammer here:
+    http://www.installjammer.com/
+
 = Compiling on Windows =
 
 It is assumed you want to generate Visual Studio project files. You can
