@@ -30,9 +30,6 @@ About::About( QWidget *parent )
 {
     ui.setupUi( this );
 
-    QDateTime build_time = QFileInfo( QCoreApplication::applicationFilePath() ).lastModified();
-
-    ui.lbBuildTimeDisplay->setText( build_time.toString( "yyyy.MM.dd HH:mm:ss" ) );
     ui.lbLoadedQtDisplay->setText( QString( qVersion() ) );
 
     QRegExp version_number( VERSION_NUMBERS );

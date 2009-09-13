@@ -77,8 +77,8 @@ int main( int argc, char *argv[] )
     app.addLibraryPath( "iconengines" );
     app.addLibraryPath( "imageformats" );
 
-    // Set application information for easier use
-    // of QSettings classes
+    // Set application information for
+    // easier use of QSettings classes
     QCoreApplication::setOrganizationName( "Strahinja Markovic" );
     QCoreApplication::setApplicationName( "Sigil" );
 
