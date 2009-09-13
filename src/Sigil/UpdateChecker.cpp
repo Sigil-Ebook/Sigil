@@ -27,6 +27,7 @@ static const QString UPDATE_XML_LOCATION     = "http://sigil.googlecode.com/hg/v
 static const QString XML_VERSION_ELEMENT     = "current-version";
 static const QString LAST_ONLINE_VERSION_KEY = "last_online_version";
 static const QString LAST_CHECK_TIME_KEY     = "last_check_time";
+static const QString SETTINGS_GROUP          = "updatechecker";
 
 // Delta is six hours
 static const int SECONDS_BETWEEN_CHECKS      = 60 * 60 * 6 ;
@@ -51,7 +52,7 @@ UpdateChecker::UpdateChecker( QObject *parent )
 void UpdateChecker::CheckForUpdate()
 {
     QSettings settings;
-    settings.beginGroup( "updatechecker" );
+    settings.beginGroup( SETTINGS_GROUP );
 
     // The default time is one always longer than the check interval
     QDateTime default_time    = QDateTime::currentDateTime().addSecs( - SECONDS_BETWEEN_CHECKS - 1 );
@@ -73,7 +74,7 @@ void UpdateChecker::CheckForUpdate()
 void UpdateChecker::ReplyRecieved( QNetworkReply* reply )
 {
     QSettings settings;
-    settings.beginGroup( "updatechecker" );
+    settings.beginGroup( SETTINGS_GROUP );
 
     QString last_online_version    = settings.value( LAST_ONLINE_VERSION_KEY, QString() ).toString();
     QString current_online_version = ReadOnlineVersion( TextInReply( reply ) );
