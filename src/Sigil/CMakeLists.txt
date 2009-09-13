@@ -9,6 +9,17 @@
 
 cmake_minimum_required( VERSION 2.6 ) 
 
+# Print a message and fail for people who don't
+# read the building instructions and then complain
+# when the build process fails for them.
+if ( ${CMAKE_CURRENT_SOURCE_DIR} STREQUAL ${CMAKE_SOURCE_DIR} )
+    message( FATAL_ERROR "You are trying to run CMake from the <top_folder>/src/Sigil directory, "
+                         "instead of just from the <top_folder> directory.\nDO NOT DO THIS.\n"
+                         "The correct way looks like this:\n"
+                         "  cmake -G '<generator_name>' /path/to/topmost/folder/in/source/package\n"
+                         "You will probably now need to clean your build directory first." )
+endif()
+
 # We use the lower case name
 # on UNIX systems other than Mac OS X
 if ( WIN32 OR APPLE )
