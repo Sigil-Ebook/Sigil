@@ -40,6 +40,7 @@
 static const int STATUSBAR_MSG_DISPLAY_TIME = 2000;
 static const int TAB_SPACES_WIDTH           = 4;
 static const int TEXT_ELIDE_WIDTH           = 300;
+static const QString SETTINGS_GROUP         = "mainwindow";
 
 // The <hr> tag is wrapped in <div>'s because of issue #78;
 // basically it's a workaround for a webkit bug
@@ -904,7 +905,7 @@ void MainWindow::UpdateBookViewFromSource()
 void MainWindow::ReadSettings()
 {
     QSettings settings;
-    settings.beginGroup( "mainwindow" );
+    settings.beginGroup( SETTINGS_GROUP );
 
     // The size of the window and it's full screen status
     QByteArray geometry = settings.value( "geometry" ).toByteArray();
@@ -941,12 +942,8 @@ void MainWindow::ReadSettings()
 // window position, geometry etc.
 void MainWindow::WriteSettings()
 {
-    // TODO: the whole writesettings/readsettings concept needs
-    // to be refactored into a singleton that will provide an
-    // interface and take care of the details.
-
     QSettings settings;
-    settings.beginGroup( "mainwindow" );
+    settings.beginGroup( SETTINGS_GROUP );
 
     // The size of the window and it's full screen status
     settings.setValue( "geometry", saveGeometry() );

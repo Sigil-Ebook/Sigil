@@ -25,6 +25,7 @@
 #include "Book.h"
 
 static const int DEFAULT_EXPANDED_HEIGHT = 304;
+static const QString SETTINGS_GROUP      = "meta_editor";
 
 // Constructor
 MetaEditor::MetaEditor( Book &book, QWidget *parent )
@@ -344,7 +345,7 @@ void MetaEditor::SetUpMetaTable()
 void MetaEditor::ReadSettings()
 {
     QSettings settings;
-    settings.beginGroup( "meta_editor" );
+    settings.beginGroup( SETTINGS_GROUP );
 
     // We flip the stored isMore state because we have to pass through
     // the ToggleMoreLess function to actually set the widgets
@@ -372,7 +373,7 @@ void MetaEditor::ReadSettings()
 void MetaEditor::WriteSettings()
 {
     QSettings settings;
-    settings.beginGroup( "meta_editor" );
+    settings.beginGroup( SETTINGS_GROUP );
 
     // The window expansion state ("more" or "less")
     settings.setValue( "is_more", m_isMore );
