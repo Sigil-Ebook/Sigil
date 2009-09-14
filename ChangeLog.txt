@@ -1,4 +1,5 @@
 Sigil v0.1.4 <ADD DATE>
+    - fixed issue with TOC editor not resolving HTML entities (issue #125)
     - fixed issue with attribute names changing case (issue #120)
     - Sigil will from now on check for a newer version on startup and present an informative
     message if such a version is found (issue #67)

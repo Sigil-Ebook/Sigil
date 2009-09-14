@@ -21,6 +21,7 @@
 
 #include "stdafx.h"
 #include "Headings.h"
+#include "Utility.h"
 #include <QDomDocument>
 
 // The maximum allowed distance (in characters) that a heading
@@ -109,24 +110,24 @@ QList< Headings::Heading > Headings::GetHeadingList( const QString &source )
         QRegExp title( TITLE_ATTRIBUTE );
 
         if ( heading_regex.cap( 0 ).contains( title )  )
-        
-            heading.text = title.cap( 1 ).remove( QRegExp( XML_TAG ) ).simplified();
+
+            heading.text = Utility::ResolveHTMLEntities( title.cap( 1 ) ).simplified();
 
         else
-
-            heading.text = heading_regex.cap( 1 ).remove( QRegExp( XML_TAG ) ).simplified();
-
+        
+            heading.text = Utility::GetTextInHtml( heading_regex.cap( 0 ) ).simplified();
+        
         heading.after_chapter_break = IsAfterChapterBreak( source, main_index );         
 
         QRegExp level( HEADING_LEVEL );
         heading_regex.cap( 0 ).indexOf( level );
 
-        heading.level               = level.cap( 1 ).toInt();  
+        heading.level = level.cap( 1 ).toInt();  
 
         QRegExp id( ID_ATTRIBUTE );
         heading_regex.cap( 0 ).indexOf( id );
 
-        heading.id                  = id.cap( 1 );
+        heading.id    = id.cap( 1 );
 
         QRegExp sigil_class( TOC_CLASS_PRESENT );
 

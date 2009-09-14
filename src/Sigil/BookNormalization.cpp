@@ -72,7 +72,7 @@ QString BookNormalization::GiveIDsToHeadings( const QString &source )
         }
     }
 
-    return Utility::GetQDomDocumentAsString( document );
+    return Utility::GetQDomNodeAsString( document );
 }
 
 

@@ -148,7 +148,7 @@ void ImportHTML::StripFilesFromAnchors()
         } 
     }
 
-    m_Book.source = Utility::GetQDomDocumentAsString( document );      
+    m_Book.source = Utility::GetQDomNodeAsString( document );      
 }
 
 
@@ -187,7 +187,7 @@ void ImportHTML::UpdateHTMLReferences( const QHash< QString, QString > updates )
 
     UpdateReferenceInNode( document.documentElement(), updates );
 
-    m_Book.source = Utility::GetQDomDocumentAsString( document );
+    m_Book.source = Utility::GetQDomNodeAsString( document );
 }
 
 
@@ -432,7 +432,7 @@ void ImportHTML::LoadStyleFiles()
         head.removeChild( link_nodes.at( 0 ) );        
     }
 
-    QString new_source = Utility::GetQDomDocumentAsString( document );
+    QString new_source = Utility::GetQDomNodeAsString( document );
 
     // Paste the new style tags into the head section
     foreach( QString style, style_tags )

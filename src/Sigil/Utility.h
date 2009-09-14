@@ -26,7 +26,7 @@
 #include <QString>
 #include <QDir>
 
-class QDomDocument;
+class QDomNode;
 
 class Utility
 {	
@@ -84,7 +84,21 @@ public:
 
     // We need to remove the XML carriage returns ("&#xD" sequences)
     // that the default toString() method creates so we wrap it in this function
-    static QString GetQDomDocumentAsString( const QDomDocument &document );
+    static QString GetQDomNodeAsString( const QDomNode &node );
+
+    // Accepts a string with HTML and returns the text
+    // in that HTML fragment. For instance 
+    //   <h1>Hello <b>Qt</b> <![CDATA[<xml is cool>]]></h1>
+    // returns
+    //   Hello Qt <xml is cool>
+    static QString GetTextInHtml( const QString &source );
+
+    // Resolves HTML entities in the provided string.
+    // For instance: 
+    //    Bonnie &amp; Clyde
+    // returns
+    //    Bonnie & Clyde
+    static QString ResolveHTMLEntities( const QString &text );
 };
 
 #endif // UTILITY_H

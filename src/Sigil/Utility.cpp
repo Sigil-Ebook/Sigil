@@ -302,7 +302,7 @@ QString Utility::GetEnvironmentVar( const QString &variable_name )
 
 // We need to remove the XML carriage returns ("&#xD" sequences)
 // that the default toString() method creates so we wrap it in this function
-QString Utility::GetQDomDocumentAsString( const QDomDocument &document )
+QString Utility::GetQDomNodeAsString( const QDomNode &node )
 {
     // This function used to be just this one line:
     //
@@ -315,9 +315,36 @@ QString Utility::GetQDomDocumentAsString( const QDomDocument &document )
     QTextStream stream( &document_text );
     stream.setCodec( "UTF-8" );
 
-    document.save( stream, 1, QDomNode::EncodingFromTextStream );
+    node.save( stream, 1, QDomNode::EncodingFromTextStream );
 
     return document_text.replace( "&#xd;", "" );   
 }
 
 
+// Accepts a string with HTML and returns the text
+// in that HTML fragment. For instance: 
+//   <h1>Hello <b>Qt</b> <![CDATA[<xml is cool>]]></h1>
+// returns
+//   Hello Qt <xml is cool>
+QString Utility::GetTextInHtml( const QString &source )
+{
+    QDomDocument document;
+    document.setContent( source );
+    QDomElement document_element = document.documentElement();
+
+    return document_element.text();
+}
+
+
+// Resolves HTML entities in the provided string.
+// For instance: 
+//    Bonnie &amp; Clyde
+// returns
+//    Bonnie & Clyde
+QString Utility::ResolveHTMLEntities( const QString &text )
+{
+    // Faking some HTML... this is the easiest way to do it
+    QString newsource = "<div>" + text + "</div>";
+
+    return GetTextInHtml( newsource );
+}
