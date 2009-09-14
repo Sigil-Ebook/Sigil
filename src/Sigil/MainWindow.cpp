@@ -577,11 +577,11 @@ void MainWindow::HeadingStyle( const QString& heading_type )
     // For heading_type == "Heading #"
     if ( last_char.isDigit() )
 
-        m_wBookView->ExecCommand( "formatBlock", "H" + QString( last_char ) );
+        m_wBookView->FormatBlock( "h" + QString( last_char ) );
 
     else if ( heading_type == "Normal" )
 
-        m_wBookView->ExecCommand( "formatBlock", "P" );
+        m_wBookView->FormatBlock( "p" );
 
     // else is "<Select heading>" which does nothing
 }
@@ -1364,9 +1364,9 @@ void MainWindow::ConnectSignalsToSlots()
     
     connect( m_wBookView->page(),           SIGNAL( selectionChanged() ),   this,   SLOT( UpdateUIBookView() ) );
     connect( m_wCodeView,                   SIGNAL( selectionChanged() ),   this,   SLOT( UpdateUICodeView() ) );
-    connect( m_wBookView->page(),           SIGNAL( contentsChanged() ),    this,   SLOT( DocumentWasModified() ) );
+    connect( m_wBookView,                   SIGNAL( textChanged() ),        this,   SLOT( DocumentWasModified() ) );
     connect( m_wCodeView,                   SIGNAL( textChanged() ),        this,   SLOT( DocumentWasModified() ) );
-    connect( m_wBookView->page(),           SIGNAL( contentsChanged() ),    this,   SLOT( UpdateSourceFromBookView() ) );
+    connect( m_wBookView,                   SIGNAL( textChanged() ),        this,   SLOT( UpdateSourceFromBookView() ) );
     connect( m_wCodeView,                   SIGNAL( textChanged() ),        this,   SLOT( UpdateSourceFromCodeView() ) );
 
     connect( m_cbHeadings,  SIGNAL( activated( const QString& ) ),          this,   SLOT( HeadingStyle( const QString& ) ) );

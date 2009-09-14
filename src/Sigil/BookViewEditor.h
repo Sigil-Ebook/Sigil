@@ -49,6 +49,12 @@ public:
     // Returns the state of the JavaScript command provided
     bool QueryCommandState( const QString &command );
 
+    // Implements the "formatBlock" execCommand because
+    // WebKit's default one has bugs.
+    // It takes an element name as an argument (e.g. "p"),
+    // and replaces the element the cursor is located in with it.
+    void FormatBlock( const QString &element_name );
+
     // Returns the name of the element the caret is located in;
     // if text is selected, returns the name of the element
     // where the selection *starts*
@@ -68,6 +74,12 @@ public:
     // the JavascriptOnDocumentLoad() function.
     void StoreCaretLocationUpdate( const QList< ViewEditor::ElementIndex > &hierarchy );
 
+signals:
+
+    // The identically named QWebPage signal is wired to this one,
+    // and we also emit it ourselves when necessary.
+    void textChanged();
+
 private slots:
 
     // Executes javascript that needs to be run when
@@ -80,6 +92,10 @@ private slots:
     void UpdateFinishedState( int progress );
 
 private:
+
+    // Evaluates the provided javascript source code 
+    // and returns the result of the last executed javascript statement
+    QVariant EvaluateJavascript( const QString &javascript );
 
     // Executes the caret updating code
     // if an update is pending;

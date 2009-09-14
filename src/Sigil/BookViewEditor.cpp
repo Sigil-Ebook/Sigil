@@ -40,9 +40,15 @@ BookViewEditor::BookViewEditor( QWidget *parent )
            );
 
     connect(    page(),
-                SIGNAL( loadProgress ( int ) ), 
+                SIGNAL( loadProgress( int ) ), 
                 this,
                 SLOT( UpdateFinishedState( int ) )
+           );
+
+    connect(    page(),
+                SIGNAL( contentsChanged() ), 
+                this,
+                SIGNAL( textChanged() )
            );
 }
 
@@ -65,7 +71,7 @@ void BookViewEditor::ExecCommand( const QString &command )
 {       
     QString javascript = QString( "document.execCommand( '%1', false, null)" ).arg( command );
 
-    page()->mainFrame()->evaluateJavaScript( javascript );
+    EvaluateJavascript( javascript );
 }
 
 
@@ -75,7 +81,7 @@ void BookViewEditor::ExecCommand( const QString &command, const QString &paramet
 {       
     QString javascript = QString( "document.execCommand( '%1', false, '%2' )" ).arg( command ).arg( parameter );
 
-    page()->mainFrame()->evaluateJavaScript( javascript );
+    EvaluateJavascript( javascript );
 }
 
 
@@ -84,7 +90,23 @@ bool BookViewEditor::QueryCommandState( const QString &command )
 {
     QString javascript = QString( "document.queryCommandState( '%1', false, null)" ).arg( command );
 
-    return page()->mainFrame()->evaluateJavaScript( javascript ).toBool();
+    return EvaluateJavascript( javascript ).toBool();
+}
+
+
+// Implements the "formatBlock" execCommand because
+// WebKit's default one has bugs.
+// It takes an element name as an argument (e.g. "p"),
+// and replaces the element the cursor is located in with it.
+void BookViewEditor::FormatBlock( const QString &element_name )
+{
+    QString javascript =  "var node = document.getSelection().anchorNode;"
+                          "var startNode = (node.nodeName == \"#text\" ? node.parentNode : node);"                          
+                          "$(startNode).replaceWith( '<"+ element_name + ">' + $(startNode).html() + '</"+ element_name + ">' );";
+
+    EvaluateJavascript( javascript );
+
+    emit textChanged();
 }
 
 
@@ -97,7 +119,7 @@ QString BookViewEditor::GetCaretElementName()
                           "var startNode = (node.nodeName == \"#text\" ? node.parentNode : node);"
                           "startNode.nodeName;";
 
-    return page()->mainFrame()->evaluateJavaScript( javascript ).toString();
+    return EvaluateJavascript( javascript ).toString();
 }
 
 
@@ -109,7 +131,7 @@ QString BookViewEditor::GetCaretElementName()
 QList< ViewEditor::ElementIndex > BookViewEditor::GetCaretLocation()
 {
     // The location element hierarchy encoded in a string
-    QString location_string = page()->mainFrame()->evaluateJavaScript( c_GetCaretLocation ).toString();
+    QString location_string = EvaluateJavascript( c_GetCaretLocation ).toString();
     QStringList elements    = location_string.split( ",", QString::SkipEmptyParts );
 
     QList< ElementIndex > caret_location;
@@ -162,8 +184,8 @@ void BookViewEditor::StoreCaretLocationUpdate( const QList< ViewEditor::ElementI
 void BookViewEditor::JavascriptOnDocumentLoad()
 {
     // Javascript libraries needed
-    page()->mainFrame()->evaluateJavaScript( c_JQuery );
-    page()->mainFrame()->evaluateJavaScript( c_JQueryScrollTo );  
+    EvaluateJavascript( c_JQuery );
+    EvaluateJavascript( c_JQueryScrollTo );  
 
     // Run the caret update if it's pending
     ExecuteCaretUpdate();
@@ -184,6 +206,14 @@ void BookViewEditor::UpdateFinishedState( int progress )
 }
 
 
+// Evaluates the provided javascript source code 
+// and returns the result of the last executed javascript statement
+QVariant BookViewEditor::EvaluateJavascript( const QString &javascript )
+{
+    return page()->mainFrame()->evaluateJavaScript( javascript );
+}
+
+
 // Executes the caret updating code
 // if an update is pending;
 // returns true if update was performed
@@ -196,13 +226,15 @@ bool BookViewEditor::ExecuteCaretUpdate()
         return false;
 
     // ... run it...
-    page()->mainFrame()->evaluateJavaScript( m_CaretLocationUpdate );
+    EvaluateJavascript( m_CaretLocationUpdate );
 
     // ... and clear the update.
     m_CaretLocationUpdate = ""; 
 
     return true;
 }
+
+
 
 
 

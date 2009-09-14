@@ -1,4 +1,6 @@
 Sigil v0.1.4 <ADD DATE>
+    - implemented a NEW workaround for a webkit bug causing the first character of a heading
+    created after a chapter break to be displayed incorrectly (issue #78) 
     - fixed issue with TOC editor not resolving HTML entities (issue #125)
     - fixed issue with attribute names changing case (issue #120)
     - Sigil will from now on check for a newer version on startup and present an informative
