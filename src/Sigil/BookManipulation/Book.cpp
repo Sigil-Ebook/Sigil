@@ -19,18 +19,23 @@
 **
 *************************************************************************/
 
-class QString;
+#include <stdafx.h>
+#include "../BookManipulation/Book.h"
+#include "../Misc/Utility.h"
 
-// These enable us to use constants defined
-// in one CPP file to be used in another
-extern const QString BODY_START;
-extern const QString BODY_END;
-extern const QString HEAD_END;
-extern const QString BREAK_TAG_SEARCH;
-extern const QString BREAK_TAG_INSERT;
-extern const QString HEADING;
-extern const QString STYLE_TAG;
-extern const QString WIN_PATH_SUFFIX;
-extern const QString NIX_PATH_SUFFIX;
-extern const QString VERSION_NUMBERS;
+// Constructor
+Book::Book()
+    : PublicationIdentifier( QUuid::createUuid().toString().remove( "{" ).remove( "}" ) ) 		
+{
+    
+}
+
+
+// Returns the base url of the book,
+// that is the location to the text folder
+// within the main folder
+QUrl Book::GetBaseUrl() const
+{
+    return QUrl::fromLocalFile( mainfolder.GetFullPathToTextFolder() + "/" );
+}
 

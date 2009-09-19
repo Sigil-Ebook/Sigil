@@ -19,18 +19,28 @@
 **
 *************************************************************************/
 
-class QString;
+#include <stdafx.h>
+#include "About.h"
 
-// These enable us to use constants defined
-// in one CPP file to be used in another
-extern const QString BODY_START;
-extern const QString BODY_END;
-extern const QString HEAD_END;
-extern const QString BREAK_TAG_SEARCH;
-extern const QString BREAK_TAG_INSERT;
-extern const QString HEADING;
-extern const QString STYLE_TAG;
-extern const QString WIN_PATH_SUFFIX;
-extern const QString NIX_PATH_SUFFIX;
-extern const QString VERSION_NUMBERS;
+const QString VERSION_NUMBERS = "(\\d+)\\.(\\d+)\\.(\\d+)";
+
+// Constructor
+About::About( QWidget *parent )
+    : QDialog( parent )
+{
+    ui.setupUi( this );
+
+    ui.lbLoadedQtDisplay->setText( QString( qVersion() ) );
+
+    QRegExp version_number( VERSION_NUMBERS );
+    QString( SIGIL_FULL_VERSION ).indexOf( version_number );
+
+    QString version_text =  QString( "%1.%2.%3" )
+                            .arg( version_number.cap( 1 ).toInt() )
+                            .arg( version_number.cap( 2 ).toInt() )
+                            .arg( version_number.cap( 3 ).toInt() );
+
+    ui.lbVersionDisplay->setText( version_text );
+}
+
 

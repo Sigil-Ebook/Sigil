@@ -19,18 +19,42 @@
 **
 *************************************************************************/
 
-class QString;
+#include <stdafx.h>
+#include "ExportSGF.h"
+#include "../BookManipulation/FolderKeeper.h"
+#include "../BookManipulation/Book.h"
 
-// These enable us to use constants defined
-// in one CPP file to be used in another
-extern const QString BODY_START;
-extern const QString BODY_END;
-extern const QString HEAD_END;
-extern const QString BREAK_TAG_SEARCH;
-extern const QString BREAK_TAG_INSERT;
-extern const QString HEADING;
-extern const QString STYLE_TAG;
-extern const QString WIN_PATH_SUFFIX;
-extern const QString NIX_PATH_SUFFIX;
-extern const QString VERSION_NUMBERS;
+static const QString SGF_MIME_TYPE = "application/x-sgf";
+
+// Constructor;
+// the first parameter is the location where the book 
+// should be save to, and the second is the book to be saved
+ExportSGF::ExportSGF( const QString &fullfilepath, const Book &book  )
+    : ExportEPUB( fullfilepath, book )
+{
+
+}
+
+
+// Writes the book to the path 
+// specified in the constructor
+void ExportSGF::WriteBook()
+{
+    CreatePublication();
+
+    SaveTo( m_FullFilePath, SGF_MIME_TYPE );
+}
+
+
+// Creates the publication from the Book
+// (creates XHTML, OPF, NCX files etc.)
+void ExportSGF::CreatePublication()
+{
+    CreateOneTextFile( m_Book.source, "xhtml" );
+
+    CreateContainerXML();
+    CreateContentOPF();
+    CreateTocNCX();
+}
+
 

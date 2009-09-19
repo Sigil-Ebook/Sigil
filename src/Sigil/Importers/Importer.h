@@ -19,18 +19,23 @@
 **
 *************************************************************************/
 
-class QString;
+#pragma once
+#ifndef IMPORTER_H
+#define IMPORTER_H
 
-// These enable us to use constants defined
-// in one CPP file to be used in another
-extern const QString BODY_START;
-extern const QString BODY_END;
-extern const QString HEAD_END;
-extern const QString BREAK_TAG_SEARCH;
-extern const QString BREAK_TAG_INSERT;
-extern const QString HEADING;
-extern const QString STYLE_TAG;
-extern const QString WIN_PATH_SUFFIX;
-extern const QString NIX_PATH_SUFFIX;
-extern const QString VERSION_NUMBERS;
+#include "../BookManipulation/Book.h"
+
+// Interface for Importers
+class Importer
+{
+
+public:
+
+    virtual ~Importer() {}
+
+    virtual Book GetBook() = 0;
+};
+
+#endif // IMPORTER_H
+
 

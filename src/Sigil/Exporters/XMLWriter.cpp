@@ -19,18 +19,34 @@
 **
 *************************************************************************/
 
-class QString;
+#include <stdafx.h>
+#include "XMLWriter.h"
+#include "../BookManipulation/Book.h"
 
-// These enable us to use constants defined
-// in one CPP file to be used in another
-extern const QString BODY_START;
-extern const QString BODY_END;
-extern const QString HEAD_END;
-extern const QString BREAK_TAG_SEARCH;
-extern const QString BREAK_TAG_INSERT;
-extern const QString HEADING;
-extern const QString STYLE_TAG;
-extern const QString WIN_PATH_SUFFIX;
-extern const QString NIX_PATH_SUFFIX;
-extern const QString VERSION_NUMBERS;
+
+// Constructor;
+// The first parameter is the book for which this XML file
+// is being written, and the second is the list of files
+// in the folder that will become the exported book
+XMLWriter::XMLWriter( const Book &book, const FolderKeeper &fkeeper )
+    : 
+    m_Book( book ), 
+    m_Folder( fkeeper ),
+    m_Files( fkeeper.GetContentFilesList() ),
+    m_Source( "" ),
+    m_Writer( new QXmlStreamWriter( &m_Source ) )
+{
+
+}
+
+    
+// Destructor
+XMLWriter::~XMLWriter( )
+{
+    delete m_Writer;
+}
+
+
+
+
 

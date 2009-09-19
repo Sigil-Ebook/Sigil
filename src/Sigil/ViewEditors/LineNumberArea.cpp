@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2009  Strahinja Markovic
+**  Copyright (C) 2009  Strahinja Markovic, Nokia Corporation
 **
 **  This file is part of Sigil.
 **
@@ -19,18 +19,31 @@
 **
 *************************************************************************/
 
-class QString;
+#include <stdafx.h>
+#include "LineNumberArea.h"
+#include "CodeViewEditor.h"
 
-// These enable us to use constants defined
-// in one CPP file to be used in another
-extern const QString BODY_START;
-extern const QString BODY_END;
-extern const QString HEAD_END;
-extern const QString BREAK_TAG_SEARCH;
-extern const QString BREAK_TAG_INSERT;
-extern const QString HEADING;
-extern const QString STYLE_TAG;
-extern const QString WIN_PATH_SUFFIX;
-extern const QString NIX_PATH_SUFFIX;
-extern const QString VERSION_NUMBERS;
+// Constructor;
+// The parameter is the CodeViewEditor to
+// which this line number area belongs to
+LineNumberArea::LineNumberArea( CodeViewEditor *editor ) : QWidget( editor )
+{
+    m_CodeEditor = editor;
+}
+
+
+// Implements QWidget::sizeHint();
+// Asks the CodeEditor which width should it take
+QSize LineNumberArea::sizeHint() const 
+{
+    return QSize( m_CodeEditor->CalculateLineNumberAreaWidth(), 0 );
+}
+
+
+// The line number area delegates its rendering
+// to the CodeViewEditor that owns it
+void LineNumberArea::paintEvent( QPaintEvent *event ) 
+{
+    m_CodeEditor->LineNumberAreaPaintEvent( event );
+}
 

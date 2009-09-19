@@ -20,10 +20,10 @@
 *************************************************************************/
 
 #include "stdafx.h"
-#include "Utility.h"
+#include "Misc/Utility.h"
 #include "MainWindow.h"
 #include <QtGui/QApplication>
-#include "UpdateChecker.h"
+#include "Misc/UpdateChecker.h"
 
 // Creates a MainWindow instance depending
 // on command line arguments

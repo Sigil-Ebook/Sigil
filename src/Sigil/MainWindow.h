@@ -25,7 +25,7 @@
 
 #include <QtGui/QMainWindow>
 #include "ui_main.h"
-#include "Book.h"
+#include "BookManipulation/Book.h"
 
 const int MAX_RECENT_FILES = 5;
 

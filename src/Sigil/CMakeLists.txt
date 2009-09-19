@@ -39,86 +39,122 @@ set( QT_USE_QTMAIN TRUE )
 include( ${QT_USE_FILE} )
 
 # These headers need to go through Qt's MOC compiler
-set( QOBJECT_HEADERS    AddMetadata.h 
-                        About.h
-                        BookViewEditor.h
-                        CodeViewEditor.h 
-                        TOCEditor.h 
-                        MainWindow.h
-                        MetaEditor.h
-                        UpdateChecker.h )
+set( QOBJECT_HEADERS    
+    Dialogs/AddMetadata.h 
+    Dialogs/About.h
+    ViewEditors/BookViewEditor.h
+    ViewEditors/CodeViewEditor.h 
+    Dialogs/TOCEditor.h 
+    MainWindow.h
+    Dialogs/MetaEditor.h
+    Misc/UpdateChecker.h 
+    )
 
-set( HEADERS Book.h 
-            BookNormalization.h 
-            CleanSource.h
-            constants.h 
-            ExportEPUB.h 
-            Exporter.h 
-            ExporterFactory.h 
-            ExportSGF.h 
-            FolderKeeper.h 
-            Headings.h
-            ImportEPUB.h 
-            Importer.h 
-            ImporterFactory.h 
-            ImportHTML.h 
-            ImportTXT.h 
-            ImportSGF.h
-            LineNumberArea.h
-            Metadata.h
-            NCXWriter.h 
-            OPFWriter.h 
-            SigilMarkup.h 
-            stdafx.h
-            Utility.h
-            ViewEditor.h
-            XHTMLHighlighter.h 
-            XHTMLDoc.h
-            XMLWriter.h  )
+set( MAIN_FILES
+    main.cpp
+    MainWindow.cpp
+    MainWindow.h
+    constants.h
+    stdafx.h
+    )
+    
+set( BOOK_MANIPULATION_FILES 
+    BookManipulation/Book.cpp
+    BookManipulation/Book.h
+    BookManipulation/BookNormalization.cpp
+    BookManipulation/BookNormalization.h
+    BookManipulation/CleanSource.cpp
+    BookManipulation/CleanSource.h
+    BookManipulation/FolderKeeper.cpp
+    BookManipulation/FolderKeeper.h
+    BookManipulation/Headings.cpp
+    BookManipulation/Headings.h
+    BookManipulation/Metadata.cpp
+    BookManipulation/Metadata.h
+    BookManipulation/SigilMarkup.cpp
+    BookManipulation/SigilMarkup.h
+    BookManipulation/XHTMLDoc.cpp
+    BookManipulation/XHTMLDoc.h  
+    )
+        
+set( DIALOG_FILES
+    Dialogs/About.cpp
+    Dialogs/About.h
+    Dialogs/AddMetadata.cpp
+    Dialogs/AddMetadata.h
+    Dialogs/MetaEditor.cpp
+    Dialogs/MetaEditor.h
+    Dialogs/TOCEditor.cpp
+    Dialogs/TOCEditor.h
+    )
+
+set( EXPORTER_FILES
+    Exporters/ExportEPUB.cpp
+    Exporters/ExportEPUB.h
+    Exporters/Exporter.h
+    Exporters/ExporterFactory.cpp
+    Exporters/ExporterFactory.h
+    Exporters/ExportSGF.cpp
+    Exporters/ExportSGF.h
+    Exporters/NCXWriter.cpp
+    Exporters/NCXWriter.h
+    Exporters/OPFWriter.cpp
+    Exporters/OPFWriter.h
+    Exporters/XMLWriter.cpp
+    Exporters/XMLWriter.h
+    )
+    
+set( IMPORTER_FILES
+    Importers/ImportEPUB.cpp
+    Importers/ImportEPUB.h
+    Importers/Importer.h
+    Importers/ImporterFactory.cpp
+    Importers/ImporterFactory.h
+    Importers/ImportHTML.cpp
+    Importers/ImportHTML.h
+    Importers/ImportSGF.cpp
+    Importers/ImportSGF.h
+    Importers/ImportTXT.cpp
+    Importers/ImportTXT.h
+    )
+    
+set( MISC_FILES
+    Misc/UpdateChecker.cpp
+    Misc/UpdateChecker.h
+    Misc/Utility.cpp
+    Misc/Utility.h
+    Misc/XHTMLHighlighter.cpp
+    Misc/XHTMLHighlighter.h
+    )
+
+set( VIEW_EDITOR_FILES
+    ViewEditors/BookViewEditor.cpp
+    ViewEditors/BookViewEditor.h
+    ViewEditors/CodeViewEditor.cpp
+    ViewEditors/CodeViewEditor.h
+    ViewEditors/LineNumberArea.cpp
+    ViewEditors/LineNumberArea.h
+    ViewEditors/ViewEditor.h
+    )
             
-set( CPP_FILES  AddMetadata.cpp 
-            About.cpp 
-            Book.cpp 
-            BookNormalization.cpp 
-            BookViewEditor.cpp
-            CleanSource.cpp 
-            CodeViewEditor.cpp 
-            ExportEPUB.cpp 
-            ExporterFactory.cpp 
-            ExportSGF.cpp
-            FolderKeeper.cpp 
-            Headings.cpp
-            ImportEPUB.cpp 
-            ImporterFactory.cpp 
-            ImportHTML.cpp 
-            ImportTXT.cpp 
-            ImportSGF.cpp 
-            main.cpp 
-            LineNumberArea.cpp 
-            MainWindow.cpp 
-            Metadata.cpp 
-            MetaEditor.cpp 
-            NCXWriter.cpp 
-            OPFWriter.cpp 
-            SigilMarkup.cpp 
-            TOCEditor.cpp 
-            UpdateChecker.cpp
-            Utility.cpp
-            XHTMLHighlighter.cpp
-            XHTMLDoc.cpp
-            XMLWriter.cpp  )
+set( UI_FILES   
+    Form_Files/main.ui 
+    Form_Files/MetaEditor.ui 
+    Form_Files/AddMetadata.ui 
+    Form_Files/About.ui 
+    Form_Files/TOCEditor.ui 
+    )
             
-set( UI_FILES   Form_Files/main.ui 
-                Form_Files/MetaEditor.ui 
-                Form_Files/AddMetadata.ui 
-                Form_Files/About.ui 
-                Form_Files/TOCEditor.ui )
-            
-set( QRC_FILES  Resource_Files/main/main.qrc
-                Resource_Files/About/About.qrc
-                Resource_Files/data/data.qrc
-                Resource_Files/javascript/javascript.qrc
-                Resource_Files/icon/icon.qrc  )
+set( QRC_FILES  
+    Resource_Files/main/main.qrc
+    Resource_Files/About/About.qrc
+    Resource_Files/data/data.qrc
+    Resource_Files/javascript/javascript.qrc
+    Resource_Files/icon/icon.qrc  
+    )
+    
+set( RAW_SOURCES ${MAIN_FILES} ${BOOK_MANIPULATION_FILES} ${DIALOG_FILES} ${EXPORTER_FILES}
+                 ${IMPORTER_FILES} ${MISC_FILES} ${VIEW_EDITOR_FILES} )
 
 # Runs MOC on specifed files
 qt4_wrap_cpp( MOC_FILES_CPP ${QOBJECT_HEADERS} )
@@ -130,29 +166,39 @@ qt4_wrap_ui( UI_FILES_H ${UI_FILES} )
 qt4_add_resources( QRC_FILES_CPP ${QRC_FILES} )
 
 # Define the Sigil version string for use in source files
-set_source_files_properties( ${CPP_FILES} PROPERTIES COMPILE_DEFINITIONS SIGIL_FULL_VERSION="${SIGIL_FULL_VERSION}" )
+set_source_files_properties( ${RAW_SOURCES} PROPERTIES COMPILE_DEFINITIONS SIGIL_FULL_VERSION="${SIGIL_FULL_VERSION}" )
 
 # MSVC precompiled headers cmake code
 if ( MSVC )
     set_source_files_properties( stdafx.cpp PROPERTIES COMPILE_FLAGS "/Ycstdafx.h" )
         
-    foreach( src_file ${CPP_FILES} )
-        set_source_files_properties( ${src_file} PROPERTIES COMPILE_FLAGS "/Yustdafx.h" )
+    foreach( src_file ${RAW_SOURCES} )
+        if( ${src_file} MATCHES ".*cpp$" )
+            set_source_files_properties( ${src_file} PROPERTIES COMPILE_FLAGS "/Yustdafx.h" )
+        endif()
     endforeach()
     
-    list( APPEND CPP_FILES stdafx.cpp )
+    list( APPEND RAW_SOURCES stdafx.cpp )
+    list( APPEND MAIN_FILES stdafx.cpp )
 endif()
 
 # Adds folders for Visual Studio solution explorer
-source_group( "Generated Files" FILES ${MOC_FILES_CPP} ${UI_FILES_H} ${QRC_FILES_CPP} )
-source_group( "Form Files" FILES ${UI_FILES} )
-source_group( "Resource Files" FILES ${QRC_FILES} )
+source_group( "Generated"         FILES ${MOC_FILES_CPP} ${UI_FILES_H} ${QRC_FILES_CPP} )
+source_group( "Forms"             FILES ${UI_FILES} )
+source_group( "Resources"         FILES ${QRC_FILES} )
+source_group( "Book Manipulation" FILES ${BOOK_MANIPULATION_FILES} )
+source_group( "Dialogs"           FILES ${DIALOG_FILES} )
+source_group( "Exporters"         FILES ${EXPORTER_FILES} )
+source_group( "Importers"         FILES ${IMPORTER_FILES} )
+source_group( "Misc"              FILES ${MISC_FILES} )
+source_group( "View Editors"      FILES ${VIEW_EDITOR_FILES} )
+source_group( "Main Files"        FILES ${MAIN_FILES} )
 
-set( SOURCES ${CPP_FILES} ${HEADERS} ${QOBJECT_HEADERS} ${MOC_FILES_CPP} ${UI_FILES_H} ${QRC_FILES_CPP} )
+set( ALL_SOURCES ${RAW_SOURCES} ${MOC_FILES_CPP} ${UI_FILES_H} ${QRC_FILES_CPP} )
 
 # Adding resource (RC) files for Windows
 if ( MSVC )
-    list( APPEND SOURCES Resource_Files/icon/icon.rc )
+    list( APPEND ALL_SOURCES Resource_Files/icon/icon.rc )
     source_group( "Resource Files" FILES Resource_Files/icon/icon.rc )
 endif()
 
@@ -177,11 +223,11 @@ link_directories ( ${PROJECT_BINARY_DIR}/lib )
 
 # We make bundles for Mac OS X
 if ( APPLE )
-    add_executable( ${PROJECT_NAME} MACOSX_BUNDLE ${SOURCES} )
+    add_executable( ${PROJECT_NAME} MACOSX_BUNDLE ${ALL_SOURCES} )
 
 # ...and a normal executable for everything else.
 else()
-    add_executable( ${PROJECT_NAME} ${SOURCES} )
+    add_executable( ${PROJECT_NAME} ${ALL_SOURCES} )
 endif()
 
 target_link_libraries( ${PROJECT_NAME} tidyLib ZipArchive ${QT_LIBRARIES} )
