@@ -215,9 +215,9 @@ if( APPLE )
    exec_program( "cp ${PROJECT_SOURCE_DIR}/Resource_Files/icon/Sigil.icns ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Sigil.app/Contents/Resources")
 endif()
 
-# We need to pick up the ui*.h and moc*.cpp files,
+# We need to pick up the stdafx.h file, the ui*.h files,
 # and the headers for the linked-to libraries
-include_directories( ${CMAKE_CURRENT_BINARY_DIR} ../ZipArchive ../tidyLib )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR} ../ZipArchive ../tidyLib )
 
 link_directories ( ${PROJECT_BINARY_DIR}/lib ) 
 
