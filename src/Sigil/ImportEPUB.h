@@ -69,10 +69,6 @@ protected:
     // Adds the header to the Book source code
     void AddHeaderToSource();
 
-    // Goes through all the XHTML documents in the publication
-    // and gathers (and returns) all the inline style tags
-    QStringList GetExistingStyleTags();
-
     // Loads the referenced files into the main folder of the book.
     // Returns a hash with keys being old references (URLs) to resources,
     // and values being the new references to those resources.

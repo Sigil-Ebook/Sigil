@@ -366,43 +366,9 @@ void ImportEPUB::AddHeaderToSource()
         }
     }
 
-    // Add existing inline style tags present in XHTML files
-    foreach( QString style_tag, GetExistingStyleTags() )
-    {
-        header += style_tag;
-    }
-
     header += "</head>\n<body>\n";
 
     m_Book.source = header + m_Book.source;
-}
-
-
-// Goes through all the XHTML documents in the publication
-// and gathers (and returns) all the inline style tags
-QStringList ImportEPUB::GetExistingStyleTags()
-{
-    QStringList style_tags;
-
-    foreach( QString id, m_ReadingOrderIds )
-    {
-        QString fullpath = QFileInfo( m_OPFFilePath ).absolutePath() + "/" + m_Files[ id ];
-        QString text     = ResolveCustomEntities( Utility::ReadUnicodeTextFile( fullpath ) );
-
-        QList< QDomNode > style_tag_nodes = XHTMLDoc::GetTagsInHead( text, "style" );
-
-        foreach( QDomNode node, style_tag_nodes )
-        {
-            QString style_tag;
-            QTextStream stream( &style_tag );
-
-            node.save( stream, 0 );
-
-            style_tags.append( style_tag );
-        }
-    }
-
-    return style_tags;
 }
 
 
