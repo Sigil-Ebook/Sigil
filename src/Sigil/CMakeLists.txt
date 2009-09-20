@@ -51,11 +51,11 @@ set( QOBJECT_HEADERS
     )
 
 set( MAIN_FILES
+    stdafx.h
+    constants.h
     main.cpp
     MainWindow.cpp
     MainWindow.h
-    constants.h
-    stdafx.h
     )
     
 set( BOOK_MANIPULATION_FILES 
@@ -133,7 +133,7 @@ set( VIEW_EDITOR_FILES
     ViewEditors/CodeViewEditor.cpp
     ViewEditors/CodeViewEditor.h
     ViewEditors/LineNumberArea.cpp
-    ViewEditors/LineNumberArea.h
+    ViewEditors/LineNumberArea.h    
     ViewEditors/ViewEditor.h
     )
             
@@ -177,8 +177,10 @@ if ( MSVC )
             set_source_files_properties( ${src_file} PROPERTIES COMPILE_FLAGS "/Yustdafx.h" )
         endif()
     endforeach()
-    
-    list( APPEND RAW_SOURCES stdafx.cpp )
+
+    # stdafx.cpp has to come before stdafx.h, 
+    # otherwise we get a linker error...
+    list( INSERT RAW_SOURCES 0 stdafx.cpp )
     list( APPEND MAIN_FILES stdafx.cpp )
 endif()
 
@@ -199,7 +201,7 @@ set( ALL_SOURCES ${RAW_SOURCES} ${MOC_FILES_CPP} ${UI_FILES_H} ${QRC_FILES_CPP} 
 # Adding resource (RC) files for Windows
 if ( MSVC )
     list( APPEND ALL_SOURCES Resource_Files/icon/icon.rc )
-    source_group( "Resource Files" FILES Resource_Files/icon/icon.rc )
+    source_group( "Resources" FILES Resource_Files/icon/icon.rc )
 endif()
 
 # Apple bundle configuration
