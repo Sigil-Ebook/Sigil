@@ -42,18 +42,19 @@ QString Utility::GetRandomString( int length )
 
     QString token;
 
-    // This is probably not thread-safe
-    // TODO: switch to using qrand() and qsrand()
+    // qsrand() is a thread-safe version of srand(),
+    // so the static seed_flag variable should not pose
+    // concurrency problems
     if ( seed_flag == false )
     {
-        srand( time( NULL ) );
+        qsrand( time( NULL ) );
 
         seed_flag = true;
     }
 
     for ( int i = 0; i < length; i++ )
     {
-        token += chars[ rand() % 36 ];
+        token += chars[ qrand() % 36 ];
     }
 
     return token;
