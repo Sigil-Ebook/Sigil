@@ -61,6 +61,18 @@ QStringList MainWindow::m_RecentFiles = QStringList();
 MainWindow::MainWindow( const QString &openfilepath, QWidget *parent, Qt::WFlags flags )
     : 
     QMainWindow( parent, flags ),
+    m_isLastViewBook( false ),
+    m_CurrentFile( QString() ),
+    m_Book( Book() ),
+    m_OldSource( QString() ),
+    m_LastFolderOpen( QString() ),
+    m_LastFolderSave( QString() ),
+    m_LastFolderImage( QString() ),
+    m_cbHeadings( NULL ),
+    m_wBookView( NULL ),
+    m_wCodeView( NULL ),
+    m_slZoomSlider( NULL ),
+    m_lbZoomLabel( NULL ),
     c_SaveFilters( GetSaveFiltersMap() ),
     c_LoadFilters( GetLoadFiltersMap() )
 {
@@ -82,8 +94,6 @@ MainWindow::MainWindow( const QString &openfilepath, QWidget *parent, Qt::WFlags
     UpdateRecentFileActions();
 
     ui.actionBookView->trigger();
-
-    m_isLastViewBook = true;
 
     LoadInitialFile( openfilepath );
 }
@@ -1290,8 +1300,8 @@ int MainWindow::ZoomFactorToSliderRange( float zoom_factor ) const
         return ZOOM_SLIDER_MIDDLE;
 
     // We actually use two ranges: one for the below 100% zoom,
-    // and one for the above 100%. This is so the 100% mark
-    // rests in the middle of the slide.
+    // and one for the above 100%. This is so that the 100% mark
+    // rests in the middle of the slider.
     if ( zoom_factor < ZOOM_NORMAL )
     {
          double range            = ZOOM_NORMAL - ZOOM_MIN;
@@ -1321,8 +1331,8 @@ float MainWindow::SliderRangeToZoomFactor( int slider_range_value ) const
         return ZOOM_NORMAL;
 
     // We actually use two ranges: one for the below 100% zoom,
-    // and one for the above 100%. This is so the 100% mark
-    // rests in the middle of the slide. 
+    // and one for the above 100%. This is so that the 100% mark
+    // rests in the middle of the slider. 
     if ( slider_range_value < ZOOM_SLIDER_MIDDLE )
     {
         double range            = ZOOM_SLIDER_MIDDLE - ZOOM_SLIDER_MIN;
