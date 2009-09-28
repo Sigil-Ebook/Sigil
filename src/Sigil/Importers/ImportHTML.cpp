@@ -61,7 +61,7 @@ Book ImportHTML::GetBook()
 
 // Returns a style tag created 
 // from the provided path to a CSS file
-QString ImportHTML::CreateStyleTag( const QString &fullfilepath )
+QString ImportHTML::CreateStyleTag( const QString &fullfilepath ) const
 {
     QString source    = Utility::ReadUnicodeTextFile( fullfilepath ); 
     QString style_tag = "";
@@ -81,7 +81,7 @@ QString ImportHTML::CreateStyleTag( const QString &fullfilepath )
 
 
 // Resolves custom ENTITY declarations
-QString ImportHTML::ResolveCustomEntities( const QString &html_source )
+QString ImportHTML::ResolveCustomEntities( const QString &html_source ) const
 {
     QString source = html_source;
 
@@ -287,7 +287,7 @@ void ImportHTML::LoadSource()
 // if no encoding is detected, the default codec for this locale is returned.
 // We use this function because Qt's QTextCodec::codecForHtml() function
 // leaves a *lot* to be desired.
-QTextCodec* ImportHTML::GetCodecForHTML( const QByteArray &raw_text )
+const QTextCodec* ImportHTML::GetCodecForHTML( const QByteArray &raw_text ) const
 {
     // Qt docs say Qt will take care of deleting
     // any QTextCodec objects on application exit

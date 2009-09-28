@@ -45,10 +45,10 @@ protected:
 
     // Returns a style tag created 
     // from the provided path to a CSS file
-    QString CreateStyleTag( const QString &fullfilepath );    
+    QString CreateStyleTag( const QString &fullfilepath ) const;    
 
     // Resolves custom ENTITY declarations
-    QString ResolveCustomEntities( const QString &html_source ); 
+    QString ResolveCustomEntities( const QString &html_source ) const; 
 
     // Strips the file specifier on all the href attributes 
     // of anchor tags with filesystem links with fragment identifiers;
@@ -86,7 +86,7 @@ private:
     // if no encoding is detected, the default codec for this locale is returned.
     // We use this function because Qt's QTextCodec::codecForHtml() function
     // leaves a *lot* to be desired.
-    QTextCodec* GetCodecForHTML( const QByteArray &raw_text );
+    const QTextCodec* GetCodecForHTML( const QByteArray &raw_text ) const;
 
     // Loads the referenced files into the main folder of the book;
     // as the files get a new name, the references are updated 

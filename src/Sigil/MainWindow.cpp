@@ -1186,7 +1186,7 @@ bool MainWindow::SaveFile( const QString &filename )
 
 
 // Returns true if the provided extension is supported as a save type
-bool MainWindow::IsSupportedSaveType( const QString &extension )
+bool MainWindow::IsSupportedSaveType( const QString &extension ) const
 {
     QStringList supported;
 
@@ -1314,7 +1314,7 @@ float MainWindow::SliderRangeToZoomFactor( int slider_range_value ) const
 
 
 // Returns the currently active View Editor
-ViewEditor* MainWindow::GetActiveViewEditor() const
+const ViewEditor* MainWindow::GetActiveViewEditor() const
 {
     if ( m_isLastViewBook )
 

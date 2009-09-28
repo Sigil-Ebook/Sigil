@@ -319,7 +319,7 @@ void OPFWriter::WriteGuide()
 // Returns true if the content of the file specified
 // has fewer characters than 'threshold' number;
 // by the path specified is relative to the OEBPS folder 
-bool OPFWriter::IsFlowUnderThreshold( const QString &relative_path, int threshold )
+bool OPFWriter::IsFlowUnderThreshold( const QString &relative_path, int threshold ) const
 {
     QString fullfilepath = m_Folder.GetFullPathToOEBPSFolder() + "/" + relative_path;
 

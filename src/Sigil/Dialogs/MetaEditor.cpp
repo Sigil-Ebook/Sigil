@@ -265,7 +265,7 @@ void MetaEditor::ClearBookMetadata()
 }
 
 // Returns true if it's ok to split this metadata field
-bool MetaEditor::OkToSplitInput( const QString &metaname )
+bool MetaEditor::OkToSplitInput( const QString &metaname ) const
 {
     // The "description" and "rights" fields could have a semicolon
     // in the text and there's also little point in providing multiple
@@ -284,7 +284,7 @@ bool MetaEditor::OkToSplitInput( const QString &metaname )
 // Returns a list of all entries in the specified field;
 // Entries are separated by semicolons, so for instance
 // "Doe, John;Doe, Jane" would return "Doe, John" and "Doe, Jane" in a list
-QList< QVariant > MetaEditor::InputsInField( const QString &field_value )
+QList< QVariant > MetaEditor::InputsInField( const QString &field_value ) const
 {
     QList< QVariant > inputs;
 
@@ -298,7 +298,7 @@ QList< QVariant > MetaEditor::InputsInField( const QString &field_value )
 
 // Adds a value to a field; if a value already exists, 
 // the new value is appended after a semicolon
-QString MetaEditor::AddValueToField( const QString &field, const QString &value )
+QString MetaEditor::AddValueToField( const QString &field, const QString &value ) const
 {
     if ( field.isEmpty() )
 

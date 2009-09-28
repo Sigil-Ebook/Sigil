@@ -243,7 +243,7 @@ private:
     bool SaveFile( const QString &filename );
 
     // Returns true if the provided extension is supported as a save type
-    bool IsSupportedSaveType( const QString &filename );
+    bool IsSupportedSaveType( const QString &filename ) const;
 
     // Performs zoom operations in the views using the default
     // zoom step. Setting zoom_in to true zooms the views *in*,
@@ -262,7 +262,7 @@ private:
     float SliderRangeToZoomFactor( int slider_range_value ) const;
 
     // Returns the currently active View Editor
-    ViewEditor* GetActiveViewEditor() const;
+    const ViewEditor* GetActiveViewEditor() const;
 
     // Runs HTML Tidy on sSource variable
     void TidyUp();

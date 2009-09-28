@@ -64,7 +64,7 @@ protected:
 
     // Takes a list of style sheet file names 
     // and returns the header for XHTML files
-    QString CreateHeader( const QStringList &cssfiles );
+    QString CreateHeader( const QStringList &cssfiles ) const;
 
     // Creates XHTML files from the book source;
     // the provided header is used as the header of the created files
@@ -77,10 +77,10 @@ protected:
     QString CreateOneTextFile( const QString &source, const QString &extension );
 
     // Strips CDATA declarations from the provided source
-    QString StripCDATA( const QString &style_source );
+    QString StripCDATA( const QString &style_source ) const;
 
     // Removes Sigil styles from the provided source
-    QString RemoveSigilStyles( const QString &style_source );
+    QString RemoveSigilStyles( const QString &style_source ) const;
 
     // Updates the href attributes of all <a> tags
     // to point to the files the ID's referenced are located in
@@ -89,7 +89,7 @@ protected:
     // Returns a hash with keys being ID or NAME attributes
     // of XHTML elements and the values being the files in
     // which these attribute values are located
-    QHash< QString, QString > GetIDFileLocations();
+    QHash< QString, QString > GetIDFileLocations() const;
 
     // Creates the publication's container.xml file
     void CreateContainerXML();

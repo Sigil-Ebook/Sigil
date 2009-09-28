@@ -82,7 +82,7 @@ private:
     // Returns true if the content of the file specified
     // has fewer characters than 'threshold' number;
     // by the path specified is relative to the OEBPS folder 
-    bool IsFlowUnderThreshold( const QString &relative_path, int threshold );
+    bool IsFlowUnderThreshold( const QString &relative_path, int threshold ) const;
 
     // Initializes m_Mimetypes
     void CreateMimetypes();

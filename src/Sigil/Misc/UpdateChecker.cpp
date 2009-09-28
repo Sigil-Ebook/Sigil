@@ -113,7 +113,7 @@ void UpdateChecker::ReplyRecieved( QNetworkReply* reply )
 
 
 // Returns the full text present in the network reply
-QString UpdateChecker::TextInReply( QNetworkReply* reply )
+QString UpdateChecker::TextInReply( QNetworkReply* reply ) const
 {
     // Check if we can open the reply
     if ( !reply->open( QIODevice::ReadOnly | QIODevice::Text ) )
@@ -137,7 +137,7 @@ QString UpdateChecker::TextInReply( QNetworkReply* reply )
 // Returns the version string present
 // in the specified XML file, or an empty QString
 // if the required element is not present.
-QString UpdateChecker::ReadOnlineVersion( QString online_version_xml )
+QString UpdateChecker::ReadOnlineVersion( QString online_version_xml ) const
 {
     if ( online_version_xml.isEmpty() )
 
@@ -152,7 +152,7 @@ QString UpdateChecker::ReadOnlineVersion( QString online_version_xml )
 
         if (    ( type == QXmlStreamReader::StartElement ) &&
                 ( version_reader.name() == XML_VERSION_ELEMENT )
-            ) 
+           ) 
         {
            return version_reader.readElementText();
         }
@@ -165,7 +165,7 @@ QString UpdateChecker::ReadOnlineVersion( QString online_version_xml )
 // Compares the two provided version strings
 // and returns true if the online string specifies
 // that the online version is newer.
-bool UpdateChecker::IsOnlineVersionNewer( QString current_version_string, QString online_version_string )
+bool UpdateChecker::IsOnlineVersionNewer( QString current_version_string, QString online_version_string ) const
 {
     if ( current_version_string.isEmpty() || online_version_string.isEmpty() )
 

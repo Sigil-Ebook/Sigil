@@ -60,7 +60,7 @@ private:
 
     // Accepts a list of text lines and returns
     // a string with paragraphs wrapped into <p> tags
-    QString CreateParagraphs( const QStringList &lines );
+    QString CreateParagraphs( const QStringList &lines ) const;
 };
 
 #endif // IMPORTTXT_H

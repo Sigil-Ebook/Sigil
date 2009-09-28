@@ -235,7 +235,7 @@ void XHTMLHighlighter::ClearState( int state )
 
 // Checks if the requested state is set
 // for the current text block
-bool XHTMLHighlighter::CheckState( int state )
+bool XHTMLHighlighter::CheckState( int state ) const
 {
     int current_state = currentBlockState();
 

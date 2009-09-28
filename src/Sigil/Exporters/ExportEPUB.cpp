@@ -176,7 +176,7 @@ QStringList ExportEPUB::CreateStyleFiles()
 
 // Takes a list of style sheet file names 
 // and returns the header for XHTML files
-QString ExportEPUB::CreateHeader( const QStringList &cssfiles )
+QString ExportEPUB::CreateHeader( const QStringList &cssfiles ) const
 {
     QString header =    "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
                         "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\"\n"
@@ -278,7 +278,7 @@ QString ExportEPUB::CreateOneTextFile( const QString &source, const QString &ext
 
 
 // Strips CDATA declarations from the provided source
-QString ExportEPUB::StripCDATA( const QString &style_source )
+QString ExportEPUB::StripCDATA( const QString &style_source ) const
 {
     QString newsource = style_source;
 
@@ -294,7 +294,7 @@ QString ExportEPUB::StripCDATA( const QString &style_source )
 
 
 // Removes Sigil styles from the provided source
-QString ExportEPUB::RemoveSigilStyles( const QString &style_source )
+QString ExportEPUB::RemoveSigilStyles( const QString &style_source ) const
 {
     // TODO: move this functionality to BookNormalization
 
@@ -361,7 +361,7 @@ void ExportEPUB::UpdateAnchors()
 // Returns a hash with keys being ID or NAME attributes
 // of XHTML elements and the values being the files in
 // which these attribute values are located
-QHash< QString, QString > ExportEPUB::GetIDFileLocations()
+QHash< QString, QString > ExportEPUB::GetIDFileLocations() const
 {
     QHash< QString, QString > id_locations;
 

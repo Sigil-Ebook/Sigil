@@ -94,16 +94,16 @@ private:
     void ClearBookMetadata();
 
     // Returns true if it's ok to split this metadata field
-    bool OkToSplitInput( const QString &metaname );
+    bool OkToSplitInput( const QString &metaname ) const;
 
     // Returns a list of all entries in the specified field;
     // Entries are separated by semicolons, so for instance
     // "Doe, John;Doe, Jane" would return "Doe, John" and "Doe, Jane" in a list
-    QList< QVariant > InputsInField( const QString &field_value );
+    QList< QVariant > InputsInField( const QString &field_value ) const;
 
     // Adds a value to a field; if a value already exists, 
     // the new value is appended after a semicolon
-    QString AddValueToField( const QString &field, const QString &value );
+    QString AddValueToField( const QString &field, const QString &value ) const;
 
     // Fills the language combobox with all the supported languages
     void FillLanguageComboBox();	

@@ -60,7 +60,7 @@ void ImportTXT::LoadSource()
 
 // Accepts a list of text lines and returns
 // a string with paragraphs wrapped into <p> tags
-QString ImportTXT::CreateParagraphs( const QStringList &lines )
+QString ImportTXT::CreateParagraphs( const QStringList &lines ) const
 {
     QString text = "";
 

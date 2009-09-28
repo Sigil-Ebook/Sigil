@@ -57,17 +57,17 @@ private slots:
 private:
 
     // Returns the full text present in the network reply
-    QString TextInReply( QNetworkReply* reply );
+    QString TextInReply( QNetworkReply* reply ) const;
 
     // Returns the version string present
     // in the specified XML file, or an empty QString
     // if the required element is not present.
-    QString ReadOnlineVersion( QString online_version_xml );
+    QString ReadOnlineVersion( QString online_version_xml ) const;
 
     // Compares the two provided version strings
     // and returns true if the online string specifies
     // that the online version is newer.
-    bool IsOnlineVersionNewer( QString current_version_string, QString online_version_string );
+    bool IsOnlineVersionNewer( QString current_version_string, QString online_version_string ) const;
 
 
     ///////////////////////////////
