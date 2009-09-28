@@ -43,6 +43,7 @@ QString Utility::GetRandomString( int length )
     QString token;
 
     // This is probably not thread-safe
+    // TODO: switch to using qrand() and qsrand()
     if ( seed_flag == false )
     {
         srand( time( NULL ) );
@@ -347,4 +348,11 @@ QString Utility::ResolveHTMLEntities( const QString &text )
     QString newsource = "<div>" + text + "</div>";
 
     return GetTextInHtml( newsource );
+}
+
+
+// Returns the same number, but rounded to one decimal place
+float Utility::RoundToOneDecimal( float number )
+{
+    return QString::number( number, 'f', 1 ).toFloat();
 }

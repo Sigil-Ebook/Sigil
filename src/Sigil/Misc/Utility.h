@@ -99,6 +99,9 @@ public:
     // returns
     //    Bonnie & Clyde
     static QString ResolveHTMLEntities( const QString &text );
+
+    // Returns the same number, but rounded to one decimal place
+    static float RoundToOneDecimal( float number );
 };
 
 #endif // UTILITY_H

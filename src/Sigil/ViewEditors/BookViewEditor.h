@@ -74,11 +74,21 @@ public:
     // the JavascriptOnDocumentLoad() function.
     void StoreCaretLocationUpdate( const QList< ViewEditor::ElementIndex > &hierarchy );
 
+    // Sets a zoom factor for the view,
+    // thus zooming in (factor > 1.0) or out (factor < 1.0). 
+    void SetZoomFactor( float factor );
+
+    // Returns the View's current zoom factor
+    float GetZoomFactor() const;
+
 signals:
 
     // The identically named QWebPage signal is wired to this one,
     // and we also emit it ourselves when necessary.
     void textChanged();
+
+    // Emitted whenever the zoom factor changes
+    void ZoomFactorChanged( float new_zoom_factor );
 
 private slots:
 
@@ -101,6 +111,11 @@ private:
     // if an update is pending;
     // returns true if update was performed
     bool ExecuteCaretUpdate();
+
+
+    ///////////////////////////////
+    // PRIVATE MEMBER VARIABLES
+    ///////////////////////////////
 
     // The javascript source code of the jQuery library
     const QString c_JQuery;

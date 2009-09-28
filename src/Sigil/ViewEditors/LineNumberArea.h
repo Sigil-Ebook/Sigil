@@ -39,6 +39,10 @@ public:
     // Asks the CodeViewEditor which width should it take
     QSize sizeHint() const; 
 
+    // Updates the size of the line number area.
+    // Needed for zoom changes.
+    void MyUpdateGeometry();
+
 protected:
 
     // The line number area delegates its rendering

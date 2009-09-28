@@ -19,14 +19,13 @@
 **
 *************************************************************************/
 
-#include "stdafx.h"
+#include <stdafx.h>
 #include "Misc/Utility.h"
 #include "MainWindow.h"
 #include "BookManipulation/CleanSource.h"
 #include "BookManipulation/FolderKeeper.h"
 #include "Exporters/ExportEPUB.h"
 #include "Exporters/ExportSGF.h"
-#include "Misc/XHTMLHighlighter.h"
 #include "Dialogs/MetaEditor.h"
 #include "Dialogs/About.h"
 #include "Dialogs/TOCEditor.h"
@@ -38,9 +37,16 @@
 #include "ViewEditors/BookViewEditor.h"
 
 static const int STATUSBAR_MSG_DISPLAY_TIME = 2000;
-static const int TAB_SPACES_WIDTH           = 4;
 static const int TEXT_ELIDE_WIDTH           = 300;
 static const QString SETTINGS_GROUP         = "mainwindow";
+static const float ZOOM_STEP                = 0.1f;
+static const float ZOOM_MIN                 = 0.09f;
+static const float ZOOM_MAX                 = 5.0f;
+static const float ZOOM_NORMAL              = 1.0f;
+static const int ZOOM_SLIDER_MIN            = 0;
+static const int ZOOM_SLIDER_MAX            = 1000;
+static const int ZOOM_SLIDER_MIDDLE         = qRound( ( ZOOM_SLIDER_MAX - ZOOM_SLIDER_MIN ) / 2.0f );
+static const int ZOOM_SLIDER_WIDTH          = 140;
 
 // The <hr> tag is wrapped in <div>'s because of issue #78;
 // basically it's a workaround for a webkit bug
@@ -48,7 +54,7 @@ const QString BREAK_TAG_INSERT              = "<div><hr class=\"sigilChapterBrea
 
 QStringList MainWindow::m_RecentFiles = QStringList();
 
-// Constructor
+// Constructor.
 // The first argument is the path to the file that the window
 // should load (new file loaded if empty); the second is the
 // windows parent; the third specifies the flags used to modify window behaviour
@@ -63,14 +69,14 @@ MainWindow::MainWindow( const QString &openfilepath, QWidget *parent, Qt::WFlags
 
     ExtendUI();
 
-    ConnectSignalsToSlots();
-
+    // Needs to come before signals connect
+    // (avoiding side-effects)
     ReadSettings();
+
+    ConnectSignalsToSlots();
 
     CreateRecentFilesActions();
     UpdateRecentFileActions();
-
-    SetUpCodeView();
 
     ui.actionBookView->trigger();
 
@@ -437,7 +443,9 @@ void MainWindow::BookView()
 
         m_wBookView->StoreCaretLocationUpdate( m_wCodeView->GetCaretLocation() );
     }
-    
+
+    m_isLastViewBook = true;
+
     m_wBookView->show();
     m_wCodeView->hide();	
 
@@ -447,9 +455,9 @@ void MainWindow::BookView()
     ui.actionCodeView->setChecked(  false   );
 
     // Set initial state for actions in this view
-    SetStateActionsBookView();
+    SetStateActionsBookView();        
 
-    m_isLastViewBook = true;
+    UpdateZoomControls();
     
     QApplication::restoreOverrideCursor();
 }
@@ -483,6 +491,8 @@ void MainWindow::SplitView()
     ui.actionSplitView->setChecked( true    );
     ui.actionCodeView->setChecked(  false   );  
 
+    UpdateZoomControls();
+
     QApplication::restoreOverrideCursor();
 }
 
@@ -501,6 +511,8 @@ void MainWindow::CodeView()
         m_wCodeView->StoreCaretLocationUpdate( m_wBookView->GetCaretLocation() );
     }
 
+    m_isLastViewBook = false;
+
     m_wBookView->hide();
     m_wCodeView->show();     
 
@@ -510,9 +522,9 @@ void MainWindow::CodeView()
     ui.actionCodeView->setChecked(  true    );  
 
     // Set initial state for actions in this view
-    SetStateActionsCodeView();  
-
-    m_isLastViewBook = false;
+    SetStateActionsCodeView(); 
+    
+    UpdateZoomControls();
 
     QApplication::restoreOverrideCursor();
 }
@@ -586,6 +598,7 @@ void MainWindow::HeadingStyle( const QString& heading_type )
     // else is "<Select heading>" which does nothing
 }
 
+
 // Implements Print Preview action functionality
 void MainWindow::PrintPreview()
 {
@@ -599,7 +612,7 @@ void MainWindow::PrintPreview()
     {
         connect(    print_preview,     SIGNAL( paintRequested( QPrinter * ) ),
                     m_wBookView,       SLOT(   print( QPrinter *) ) 
-                );
+               );
     }
 
     else
@@ -608,6 +621,7 @@ void MainWindow::PrintPreview()
                     m_wCodeView,       SLOT(   print( QPrinter *) ) 
                );
     }        
+
     
     print_preview->exec();
 }
@@ -625,18 +639,29 @@ void MainWindow::Print()
     QPrintDialog *print_dialog = new QPrintDialog( &printer, this );
     print_dialog->setWindowTitle( tr( "Print Document" ) );
 
-    if ( print_dialog->exec() == QDialog::Accepted )
-    {
-        if ( m_isLastViewBook )
+    if ( m_isLastViewBook )
 
-            m_wBookView->print( &printer );
+        m_wBookView->print( &printer );
 
-        else
+    else
 
-            m_wCodeView->print( &printer );
-    }
+        m_wCodeView->print( &printer );
+   
 }
 
+
+// Implements Zoom In action functionality
+void MainWindow::ZoomIn()
+{
+    ZoomByStep( true );  
+}
+
+
+// Implements Zoom Out action functionality
+void MainWindow::ZoomOut()
+{
+    ZoomByStep( false );  
+}
 
 // Implements Meta Editor action functionality
 void MainWindow::MetaEditorDialog()
@@ -701,9 +726,11 @@ void MainWindow::FocusFilter( QWidget *old_widget, QWidget *new_widget )
             QApplication::restoreOverrideCursor();
         }
 
+        m_isLastViewBook = false;
+
         m_wCodeView->StoreCaretLocationUpdate( m_wBookView->GetCaretLocation() );
 
-        m_isLastViewBook = false;
+        UpdateZoomControls();
 
         // Set initial state for actions in this view
         SetStateActionsCodeView();      
@@ -722,10 +749,12 @@ void MainWindow::FocusFilter( QWidget *old_widget, QWidget *new_widget )
 
             QApplication::restoreOverrideCursor();
         }
+        
+        m_isLastViewBook = true;
 
         m_wBookView->StoreCaretLocationUpdate( m_wCodeView->GetCaretLocation() );
 
-        m_isLastViewBook = true;
+        UpdateZoomControls();
 
         // Set initial state for actions in this view
         SetStateActionsBookView();
@@ -900,6 +929,54 @@ void MainWindow::UpdateBookViewFromSource()
 }
 
 
+// Zooms the current view with the new zoom slider value
+void MainWindow::SliderZoom( int slider_value )
+{
+    float new_zoom_factor     = SliderRangeToZoomFactor( slider_value );
+    float current_zoom_factor = GetActiveViewEditor()->GetZoomFactor();
+
+    // We try to prevent infinite loops...
+    if ( !qFuzzyCompare( new_zoom_factor, current_zoom_factor ) )
+
+        ZoomByFactor( new_zoom_factor );
+}
+
+// Updates the zoom controls by reading the current
+// zoom factor from the view. Needed on View changeover.
+void MainWindow::UpdateZoomControls()
+{
+    float zoom_factor = GetActiveViewEditor()->GetZoomFactor();
+
+    UpdateZoomSlider( zoom_factor );
+    UpdateZoomLabel( zoom_factor );
+}
+
+
+// Updates the zooming slider to reflect the new zoom factor
+void MainWindow::UpdateZoomSlider( float new_zoom_factor )
+{
+    m_slZoomSlider->setValue( ZoomFactorToSliderRange( new_zoom_factor ) );
+}
+
+
+// Updates the zoom label to reflect the state of the zoom slider.
+// This is needed so the user can see to what zoom value the slider
+// is being dragged to.
+void MainWindow::UpdateZoomLabel( int slider_value )
+{
+    float zoom_factor = SliderRangeToZoomFactor( slider_value );
+
+    UpdateZoomLabel( zoom_factor );
+}
+
+
+// Updates the zoom label to reflect the new zoom factor
+void MainWindow::UpdateZoomLabel( float new_zoom_factor )
+{
+    m_lbZoomLabel->setText( QString( "%1% " ).arg( qRound( new_zoom_factor * 100 ) ) );
+}
+
+
 // Reads all the stored application settings like
 // window position, geometry etc.
 void MainWindow::ReadSettings()
@@ -934,7 +1011,14 @@ void MainWindow::ReadSettings()
     m_LastFolderImage   = settings.value( "lastfolderimage" ).toString();
 
     // The list of recent files
-    m_RecentFiles    = settings.value( "recentfiles" ).toStringList();
+    m_RecentFiles       = settings.value( "recentfiles" ).toStringList();
+
+    // View Editor zoom factors
+    float zoom_factor = (float) settings.value( "codeviewzoom" ).toDouble();
+    m_wCodeView->SetZoomFactor( zoom_factor >= ZOOM_MIN ? zoom_factor : ZOOM_NORMAL );
+
+    zoom_factor = (float) settings.value( "bookviewzoom" ).toDouble();
+    m_wBookView->SetZoomFactor( zoom_factor >= ZOOM_MIN ? zoom_factor : ZOOM_NORMAL );
 }
 
 
@@ -961,6 +1045,10 @@ void MainWindow::WriteSettings()
 
     // The list of recent files
     settings.setValue( "recentfiles", m_RecentFiles );
+
+    // View Editor zoom factors
+    settings.setValue( "bookviewzoom", m_wBookView->GetZoomFactor() );
+    settings.setValue( "codeviewzoom", m_wCodeView->GetZoomFactor() );
 }
 
 
@@ -1096,6 +1184,7 @@ bool MainWindow::SaveFile( const QString &filename )
     return true;
 }
 
+
 // Returns true if the provided extension is supported as a save type
 bool MainWindow::IsSupportedSaveType( const QString &extension )
 {
@@ -1104,6 +1193,136 @@ bool MainWindow::IsSupportedSaveType( const QString &extension )
     supported << "epub" << "sgf";
 
     return supported.contains( extension );
+}
+
+
+// Performs zoom operations in the views using the default
+// zoom step. Setting zoom_in to true zooms the views *in*,
+// and a setting of false zooms them *out*. The zoom value
+// is first wrapped to the nearest zoom step (relative to the zoom direction).
+void MainWindow::ZoomByStep( bool zoom_in )
+{
+    // We use a negative zoom stepping if we are zooming *out*
+    float zoom_stepping       = zoom_in ? ZOOM_STEP : - ZOOM_STEP;
+
+    // If we are zooming in, we round UP;
+    // on zoom out, we round DOWN.
+    float rounding_helper     = zoom_in ? 0.05f : - 0.05f;
+
+    float current_zoom_factor = GetActiveViewEditor()->GetZoomFactor();
+    float rounded_zoom_factor = Utility::RoundToOneDecimal( current_zoom_factor + rounding_helper );
+
+    // If the rounded value is nearly the same as the original value,
+    // then the original was rounded to begin with and so we
+    // add the zoom increment
+    if ( qAbs( current_zoom_factor - rounded_zoom_factor ) < 0.01f )
+
+        ZoomByFactor( Utility::RoundToOneDecimal( current_zoom_factor + zoom_stepping ) );
+
+    // ...otherwise we first zoom to the rounded value
+    else
+
+        ZoomByFactor( rounded_zoom_factor );
+}
+
+
+// Sets the provided zoom factor on the active view editor.
+// Valid values are between ZOOM_MAX and ZOOM_MIN, others are ignored.
+void MainWindow::ZoomByFactor( float new_zoom_factor )
+{
+    if ( new_zoom_factor > ZOOM_MAX || new_zoom_factor < ZOOM_MIN )
+
+        return;
+
+    // We need to set a wait cursor for the Book View
+    // since zoom operations take some time in it.
+    if ( m_isLastViewBook )
+    {
+        QApplication::setOverrideCursor( Qt::WaitCursor );
+        m_wBookView->SetZoomFactor( new_zoom_factor );
+        QApplication::restoreOverrideCursor();
+    }
+
+    else
+    {
+        m_wCodeView->SetZoomFactor( new_zoom_factor );
+    } 
+}
+
+
+// Converts a zoom factor to a value in the slider range
+int MainWindow::ZoomFactorToSliderRange( float zoom_factor ) const
+{
+    // We want a precise value for the 100% zoom,
+    // so we pick up all float values near it.
+    if ( qFuzzyCompare( zoom_factor, ZOOM_NORMAL ) ) 
+    
+        return ZOOM_SLIDER_MIDDLE;
+
+    // We actually use two ranges: one for the below 100% zoom,
+    // and one for the above 100%. This is so the 100% mark
+    // rests in the middle of the slide.
+    if ( zoom_factor < ZOOM_NORMAL )
+    {
+         double range            = ZOOM_NORMAL - ZOOM_MIN;
+         double normalized_value = zoom_factor - ZOOM_MIN;
+         double range_proportion = normalized_value / range;
+ 
+         return ZOOM_SLIDER_MIN + qRound( range_proportion * ( ZOOM_SLIDER_MIDDLE - ZOOM_SLIDER_MIN ) );
+    }
+
+    else
+    {
+        double range            = ZOOM_MAX - ZOOM_NORMAL;
+        double normalized_value = zoom_factor - ZOOM_NORMAL;
+        double range_proportion = normalized_value / range;
+
+        return ZOOM_SLIDER_MIDDLE + qRound( range_proportion * ZOOM_SLIDER_MIDDLE );
+    }
+}
+
+
+// Converts a value in the zoom slider range to a zoom factor
+float MainWindow::SliderRangeToZoomFactor( int slider_range_value ) const
+{
+    // We want a precise value for the 100% zoom
+    if ( slider_range_value == ZOOM_SLIDER_MIDDLE )
+
+        return ZOOM_NORMAL;
+
+    // We actually use two ranges: one for the below 100% zoom,
+    // and one for the above 100%. This is so the 100% mark
+    // rests in the middle of the slide. 
+    if ( slider_range_value < ZOOM_SLIDER_MIDDLE )
+    {
+        double range            = ZOOM_SLIDER_MIDDLE - ZOOM_SLIDER_MIN;
+        double normalized_value = slider_range_value - ZOOM_SLIDER_MIN;
+        double range_proportion = normalized_value / range;
+
+        return ZOOM_MIN + range_proportion * ( ZOOM_NORMAL - ZOOM_MIN );
+    }
+
+    else
+    {
+        double range            = ZOOM_SLIDER_MAX - ZOOM_SLIDER_MIDDLE;
+        double normalized_value = slider_range_value - ZOOM_SLIDER_MIDDLE;
+        double range_proportion = normalized_value / range;
+
+        return ZOOM_NORMAL + range_proportion * ( ZOOM_MAX - ZOOM_NORMAL );
+    }
+}
+
+
+// Returns the currently active View Editor
+ViewEditor* MainWindow::GetActiveViewEditor() const
+{
+    if ( m_isLastViewBook )
+
+        return m_wBookView;
+
+    else
+
+        return m_wCodeView;
 }
 
 
@@ -1193,23 +1412,6 @@ void MainWindow::SelectEntryInHeadingCombo( const QString &element_name )
 }
 
 
-// Initializes the code view
-void MainWindow::SetUpCodeView()
-{
-    // Let's try to use Consolas as our font
-    QFont font( "Consolas", 10 );
-
-    // But just in case, say we want a fixed width font
-    // if Consolas is not on the system
-    font.setStyleHint( QFont::TypeWriter );
-
-    m_wCodeView->setFont( font );
-    m_wCodeView->setTabStopWidth( TAB_SPACES_WIDTH * QFontMetrics( font ).width( ' ' ) );
-
-    m_Highlighter = new XHTMLHighlighter( m_wCodeView->document() );
-}
-
-
 // Creates and adds the recent files actions
 // to the File menu
 void MainWindow::CreateRecentFilesActions()
@@ -1273,6 +1475,8 @@ void MainWindow::UpdateRecentFileActions()
 // to extend the UI created by the Designer
 void MainWindow::ExtendUI()
 {
+    // Creating the Heading combo box
+
     m_cbHeadings = new QComboBox();
 
     QStringList headings;
@@ -1294,11 +1498,37 @@ void MainWindow::ExtendUI()
 
     ui.toolBarHeadings->addWidget( m_cbHeadings );
 
+    // Creating the View Editors
+
     m_wBookView = new BookViewEditor( ui.splitter );
     ui.splitter->addWidget( m_wBookView );
 
     m_wCodeView = new CodeViewEditor( ui.splitter );
     ui.splitter->addWidget( m_wCodeView );
+
+    // Creating the zoom controls in the status bar
+
+    m_slZoomSlider = new QSlider( Qt::Horizontal, statusBar() );
+    m_slZoomSlider->setTracking( false ); 
+    m_slZoomSlider->setTickInterval( ZOOM_SLIDER_MIDDLE );
+    m_slZoomSlider->setTickPosition( QSlider::TicksBelow );
+    m_slZoomSlider->setFixedWidth( ZOOM_SLIDER_WIDTH );
+    m_slZoomSlider->setMinimum( ZOOM_SLIDER_MIN );
+    m_slZoomSlider->setMaximum( ZOOM_SLIDER_MAX );
+    m_slZoomSlider->setValue( ZOOM_SLIDER_MIDDLE );
+
+    QToolButton *zoom_out = new QToolButton( statusBar() );
+    zoom_out->setDefaultAction( ui.actionZoomOut );
+
+    QToolButton *zoom_in = new QToolButton( statusBar() );
+    zoom_in->setDefaultAction( ui.actionZoomIn );
+
+    m_lbZoomLabel = new QLabel( QString( "100% " ), statusBar() );
+    
+    statusBar()->addPermanentWidget( m_lbZoomLabel  );
+    statusBar()->addPermanentWidget( zoom_out       );
+    statusBar()->addPermanentWidget( m_slZoomSlider );
+    statusBar()->addPermanentWidget( zoom_in        );
     
     // We use the "close" action only on Macs,
     // because they need it for the multi-document interface
@@ -1357,6 +1587,8 @@ void MainWindow::ConnectSignalsToSlots()
     connect( ui.actionInsertNumberedList,   SIGNAL( triggered() ),      this,   SLOT( InsertNumberedList()  ) );
     connect( ui.actionPrintPreview,         SIGNAL( triggered() ),      this,   SLOT( PrintPreview()        ) );
     connect( ui.actionPrint,                SIGNAL( triggered() ),      this,   SLOT( Print()               ) );
+    connect( ui.actionZoomIn,               SIGNAL( triggered() ),      this,   SLOT( ZoomIn()              ) );
+    connect( ui.actionZoomOut,              SIGNAL( triggered() ),      this,   SLOT( ZoomOut()             ) );
     
     connect( ui.actionMetaEditor,           SIGNAL( triggered() ),      this,   SLOT( MetaEditorDialog()    ) );
     connect( ui.actionTOCEditor,            SIGNAL( triggered() ),      this,   SLOT( TOCEditorDialog()     ) );
@@ -1369,12 +1601,21 @@ void MainWindow::ConnectSignalsToSlots()
     connect( m_wBookView,                   SIGNAL( textChanged() ),        this,   SLOT( UpdateSourceFromBookView() ) );
     connect( m_wCodeView,                   SIGNAL( textChanged() ),        this,   SLOT( UpdateSourceFromCodeView() ) );
 
+    connect( m_wBookView,                   SIGNAL( ZoomFactorChanged( float ) ),   this,   SLOT( UpdateZoomLabel( float ) ) );
+    connect( m_wBookView,                   SIGNAL( ZoomFactorChanged( float ) ),   this,   SLOT( UpdateZoomSlider( float ) ) );
+    connect( m_wCodeView,                   SIGNAL( ZoomFactorChanged( float ) ),   this,   SLOT( UpdateZoomLabel( float ) ) );
+    connect( m_wCodeView,                   SIGNAL( ZoomFactorChanged( float ) ),   this,   SLOT( UpdateZoomSlider( float ) ) );
+
+    connect( m_slZoomSlider,                SIGNAL( valueChanged( int ) ),          this,   SLOT( SliderZoom( int ) ) );
+
+    // We also update the label when the slider moves... this is to show
+    // the zoom value the slider will land on while it is being moved.
+    connect( m_slZoomSlider,                SIGNAL( sliderMoved( int ) ),           this,   SLOT( UpdateZoomLabel( int ) ) );
+
     connect( m_cbHeadings,  SIGNAL( activated( const QString& ) ),          this,   SLOT( HeadingStyle( const QString& ) ) );
 
     connect( qApp,          SIGNAL( focusChanged( QWidget*, QWidget* ) ),   this,   SLOT( FocusFilter( QWidget*, QWidget* ) ) );
 }
-
-
 
 
 

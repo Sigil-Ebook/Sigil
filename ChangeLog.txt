@@ -1,4 +1,5 @@
 Sigil v0.1.4 <ADD DATE>
+    - views can now be zoomed (issue #44)
     - Sigil no longer loads flow-specific CSS... this was causing more harm than good; loading 
     flow-specific CSS will be back in 0.2.0.
     - implemented a NEW workaround for a webkit bug causing the first character of a heading

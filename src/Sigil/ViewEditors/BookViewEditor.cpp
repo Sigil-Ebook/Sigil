@@ -31,7 +31,9 @@ BookViewEditor::BookViewEditor( QWidget *parent )
     QWebView( parent ),
     c_JQuery( Utility::ReadUnicodeTextFile( ":/javascript/jquery-1.3.2.min.js" ) ),
     c_JQueryScrollTo( Utility::ReadUnicodeTextFile( ":/javascript/jquery.scrollTo-1.4.2-min.js" ) ),
-    c_GetCaretLocation( Utility::ReadUnicodeTextFile( ":/javascript/book_view_current_location.js" ) )
+    c_GetCaretLocation( Utility::ReadUnicodeTextFile( ":/javascript/book_view_current_location.js" ) ),
+    m_CaretLocationUpdate( QString() ),
+    m_isLoadFinished( false )
 {
     connect(    page(),
                 SIGNAL( loadFinished( bool ) ), 
@@ -178,6 +180,23 @@ void BookViewEditor::StoreCaretLocationUpdate( const QList< ViewEditor::ElementI
         
         ExecuteCaretUpdate();        
 }
+
+// Sets a zoom factor for the view,
+// thus zooming in (factor > 1.0) or out (factor < 1.0). 
+void BookViewEditor::SetZoomFactor( float factor )
+{
+    setZoomFactor( factor );
+
+    emit ZoomFactorChanged( factor );
+}
+
+
+// Returns the View's current zoom factor
+float BookViewEditor::GetZoomFactor() const
+{
+    return (float) zoomFactor();
+}
+
 
 // Executes javascript that needs to be run when
 // the document has finished loading

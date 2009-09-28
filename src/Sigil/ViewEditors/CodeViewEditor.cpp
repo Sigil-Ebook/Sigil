@@ -20,12 +20,15 @@
 *************************************************************************/
 
 #include <stdafx.h>
+#include <QDomDocument>
 #include "CodeViewEditor.h"
 #include "LineNumberArea.h"
 #include "../BookManipulation/Book.h"
-#include <QDomDocument>
+#include "Misc/XHTMLHighlighter.h"
 
 static const int COLOR_FADE_AMOUNT = 175;
+static const int TAB_SPACES_WIDTH  = 4;
+static const int BASE_FONT_SIZE    = 10;
                   
 static const QString XML_OPENING_TAG = "(<[^>/][^>]*[^>/]>|<[^>/]>)";
 
@@ -35,16 +38,26 @@ static const QString XML_OPENING_TAG = "(<[^>/][^>]*[^>/]>|<[^>/]>)";
 CodeViewEditor::CodeViewEditor( QWidget *parent )
     : 
     QPlainTextEdit( parent ),
-    m_CaretLocationUpdate( 0, 0 )
+    m_CaretLocationUpdate( 0, 0 ),
+    m_LineNumberArea( new LineNumberArea( this ) ),
+    m_Highlighter( new XHTMLHighlighter( document() ) ),
+    m_CurrentZoomFactor( 1.0 )
 {
-    m_LineNumberArea = new LineNumberArea( this );
-
     connect( this, SIGNAL( blockCountChanged( int ) ),             this, SLOT( UpdateLineNumberAreaMargin() ) );
     connect( this, SIGNAL( updateRequest( const QRect &, int) ),   this, SLOT( UpdateLineNumberArea( const QRect &, int) ) );
     connect( this, SIGNAL( cursorPositionChanged() ),              this, SLOT( HighlightCurrentLine()       ) );
 
     UpdateLineNumberAreaMargin();
     HighlightCurrentLine();
+
+    // Let's try to use Consolas as our font
+    QFont font( "Consolas", BASE_FONT_SIZE );
+
+    // But just in case, say we want a fixed width font
+    // if Consolas is not on the system
+    font.setStyleHint( QFont::TypeWriter );
+    setFont( font );
+    setTabStopWidth( TAB_SPACES_WIDTH * QFontMetrics( font ).width( ' ' ) );
 }
 
 // Sets the content of the View to the specified book
@@ -82,7 +95,7 @@ void CodeViewEditor::LineNumberAreaPaintEvent( QPaintEvent *event )
     {
         if ( block.isVisible() && ( bottomY >= event->rect().top() ) )
         {
-            QString number = QString::number( blockNumber );
+            QString number_to_paint = QString::number( blockNumber );
 
             // Draw the line number
             painter.setPen( Qt::black );
@@ -91,7 +104,7 @@ void CodeViewEditor::LineNumberAreaPaintEvent( QPaintEvent *event )
                                 m_LineNumberArea->width(),
                                 fontMetrics().height(),
                                 Qt::AlignRight,
-                                number
+                                number_to_paint
                             );
         }
 
@@ -105,7 +118,7 @@ void CodeViewEditor::LineNumberAreaPaintEvent( QPaintEvent *event )
 
 // Returns the width the LinuNumberArea
 // should take (in pixels)
-int CodeViewEditor::CalculateLineNumberAreaWidth()
+int CodeViewEditor::CalculateLineNumberAreaWidth() const
 {
     int num_digits       = 1;
     int last_line_number = blockCount();
@@ -184,6 +197,31 @@ void CodeViewEditor::StoreCaretLocationUpdate( const QList< ViewEditor::ElementI
         m_CaretLocationUpdate.vertical_lines   = 0;
         m_CaretLocationUpdate.horizontal_chars = 0;
     } 
+}
+
+
+// Sets a zoom factor for the view,
+// thus zooming in (factor > 1.0) or out (factor < 1.0). 
+void CodeViewEditor::SetZoomFactor( float factor )
+{
+    m_CurrentZoomFactor = factor;
+
+    QFont current_font = font();
+    current_font.setPointSizeF( BASE_FONT_SIZE * m_CurrentZoomFactor );
+    setFont( current_font );
+    
+    // We update size of the line number area
+    m_LineNumberArea->MyUpdateGeometry();
+    UpdateLineNumberAreaMargin();
+
+    emit ZoomFactorChanged( factor );
+}
+
+
+// Returns the View's current zoom factor
+float CodeViewEditor::GetZoomFactor() const
+{
+    return m_CurrentZoomFactor;
 }
 
 

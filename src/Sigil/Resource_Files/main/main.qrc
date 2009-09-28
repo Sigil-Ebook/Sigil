@@ -30,5 +30,7 @@
     <file>format-justify-right.png</file>
     <file>format-text-bold.png</file>
     <file>format-text-italic.png</file>
+    <file>list-add.png</file>
+    <file>list-remove.png</file>
   </qresource>
 </RCC>

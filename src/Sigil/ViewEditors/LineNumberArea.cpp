@@ -31,6 +31,13 @@ LineNumberArea::LineNumberArea( CodeViewEditor *editor ) : QWidget( editor )
     m_CodeEditor = editor;
 }
 
+// Updates the size of the line number area.
+// Needed for zoom changes.
+void LineNumberArea::MyUpdateGeometry()
+{
+    resize( m_CodeEditor->CalculateLineNumberAreaWidth(), size().height() );
+}
+
 
 // Implements QWidget::sizeHint();
 // Asks the CodeEditor which width should it take
@@ -46,4 +53,5 @@ void LineNumberArea::paintEvent( QPaintEvent *event )
 {
     m_CodeEditor->LineNumberAreaPaintEvent( event );
 }
+
 

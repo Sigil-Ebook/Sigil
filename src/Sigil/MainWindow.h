@@ -29,11 +29,13 @@
 
 const int MAX_RECENT_FILES = 5;
 
-class XHTMLHighlighter;
 class QComboBox;
 class QWebView;
 class CodeViewEditor;
 class BookViewEditor;
+class ViewEditor;
+class QLabel;
+class QSlider;
 
 
 class MainWindow : public QMainWindow
@@ -42,7 +44,7 @@ class MainWindow : public QMainWindow
 
 public:
 
-    // Constructor
+    // Constructor.
     // The first argument is the path to the file that the window
     // should load (new file loaded if empty); the second is the
     // windows parent; the third specifies the flags used to modify window behaviour
@@ -134,6 +136,18 @@ private slots:
     // Implements the heading combo box functionality
     void HeadingStyle( const QString& heading_type );
     
+    // Implements Print Preview action functionality
+    void PrintPreview();
+
+    // Implements Print action functionality
+    void Print();
+
+    // Implements Zoom In action functionality
+    void ZoomIn();
+
+    // Implements Zoom Out action functionality
+    void ZoomOut();
+
     // Implements Meta Editor action functionality
     void MetaEditorDialog();
 
@@ -142,12 +156,6 @@ private slots:
 
     // Implements About action functionality
     void AboutDialog();
-
-    // Implements Print Preview action functionality
-    void PrintPreview();
-
-    // Implements Print action functionality
-    void Print();
 
     // Used to catch the focus changeover from one widget
     // (code or book view) to the other; needed for source synchronization
@@ -189,6 +197,24 @@ private slots:
     // On changeover, updates the code in book view
     void UpdateBookViewFromSource();
 
+    // Zooms the current view with the new zoom slider value
+    void SliderZoom( int slider_value );
+
+    // Updates the zoom controls by reading the current
+    // zoom factor from the view. Needed on View changeover.
+    void UpdateZoomControls();
+
+    // Updates the zooming slider to reflect the new zoom factor
+    void UpdateZoomSlider( float new_zoom_factor );
+
+    // Updates the zoom label to reflect the state of the zoom slider.
+    // This is needed so the user can see to what zoom value the slider
+    // is being dragged to.
+    void UpdateZoomLabel( int slider_value );
+
+    // Updates the zoom label to reflect the new zoom factor
+    void UpdateZoomLabel( float new_zoom_factor );
+
 private:
 
     // Reads all the stored application settings like
@@ -219,6 +245,25 @@ private:
     // Returns true if the provided extension is supported as a save type
     bool IsSupportedSaveType( const QString &filename );
 
+    // Performs zoom operations in the views using the default
+    // zoom step. Setting zoom_in to true zooms the views *in*,
+    // and a setting of false zooms them *out*. The zoom value
+    // is first wrapped to the nearest zoom step (relative to the zoom direction).
+    void ZoomByStep( bool zoom_in );
+
+    // Sets the provided zoom factor on the active view editor.
+    // Valid values are between ZOOM_MAX and ZOOM_MIN, others are ignored.
+    void ZoomByFactor( float new_zoom_factor );
+
+    // Converts a zoom factor to a value in the zoom slider range
+    int ZoomFactorToSliderRange( float zoom_factor ) const;
+
+    // Converts a value in the zoom slider range to a zoom factor
+    float SliderRangeToZoomFactor( int slider_range_value ) const;
+
+    // Returns the currently active View Editor
+    ViewEditor* GetActiveViewEditor() const;
+
     // Runs HTML Tidy on sSource variable
     void TidyUp();
 
@@ -233,9 +278,6 @@ private:
     // Selects the appropriate entry in the heading combo box
     // based on the provided name of the element
     void SelectEntryInHeadingCombo( const QString &element_name );
-
-    // Initializes the code view
-    void SetUpCodeView();	
 
     // Creates and adds the recent files actions
     // to the File menu
@@ -293,9 +335,6 @@ private:
     // Array of recent files actions that are in the File menu;
     QAction *m_RecentFileActions[ MAX_RECENT_FILES ];
 
-    // The highlighter for the Code View
-    XHTMLHighlighter *m_Highlighter;
-
     // The headings drop-down combo box
     QComboBox *m_cbHeadings;
 
@@ -304,6 +343,12 @@ private:
 
     // The plain text code editor 
     CodeViewEditor *m_wCodeView;
+
+    // The slider which the user can use to zoom
+    QSlider *m_slZoomSlider;
+
+    // The label that displays the zoom factor
+    QLabel *m_lbZoomLabel;
 
     // Holds all the widgets Qt Designer created for us
     Ui::MainWindow ui;

@@ -32,6 +32,7 @@ class QSize;
 class QWidget;
 class QPrinter;
 class LineNumberArea;
+class XHTMLHighlighter;
 
 
 class CodeViewEditor : public QPlainTextEdit, public ViewEditor
@@ -54,7 +55,7 @@ public:
 
     // Returns the width the LinuNumberArea
     // should take (in pixels)
-    int CalculateLineNumberAreaWidth();
+    int CalculateLineNumberAreaWidth() const;
 
     // Returns a list of elements representing a "chain"
     // or "walk" through the XHTML document with which one
@@ -69,6 +70,18 @@ public:
     // The CodeView implementation initiates the update in
     // the paint event handler.
     void StoreCaretLocationUpdate( const QList< ViewEditor::ElementIndex > &hierarchy );
+
+    // Sets a zoom factor for the view,
+    // thus zooming in (factor > 1.0) or out (factor < 1.0). 
+    void SetZoomFactor( float factor );
+
+    // Returns the View's current zoom factor
+    float GetZoomFactor() const;
+
+signals:
+    
+    // Emitted whenever the zoom factor changes
+    void ZoomFactorChanged( float new_zoom_factor );
 
 public slots:
 
@@ -156,12 +169,22 @@ private:
     // returns true if update was performed
     bool ExecuteCaretUpdate();
 
+
+    ///////////////////////////////
+    // PRIVATE MEMBER VARIABLES
+    ///////////////////////////////
+
     // Stores the update for the caret location
     // when switching from BookView to CodeVIew
     CaretMove m_CaretLocationUpdate;
 
     // The line number area widget of the code view
     LineNumberArea *m_LineNumberArea;
+
+    // The syntax highlighter
+    XHTMLHighlighter *m_Highlighter;
+
+    float m_CurrentZoomFactor;
 };
 
 #endif // CODEVIEWEDITOR_H
