@@ -26,6 +26,7 @@
 #include "BookNormalization.h"
 #include "../BookManipulation/CleanSource.h"
 #include "../BookManipulation/Headings.h"
+#include "../BookManipulation/XHTMLDoc.h"
 
 static const QString SIGIL_HEADING_ID_PREFIX = "heading_id_";
 static const QString SIGIL_HEADING_ID_REG    = SIGIL_HEADING_ID_PREFIX + "(\\d+)";
@@ -72,7 +73,7 @@ QString BookNormalization::GiveIDsToHeadings( const QString &source )
         }
     }
 
-    return Utility::GetQDomNodeAsString( document );
+    return XHTMLDoc::GetQDomNodeAsString( document );
 }
 
 

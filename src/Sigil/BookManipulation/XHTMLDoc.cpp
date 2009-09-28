@@ -54,6 +54,43 @@ QList< QDomNode > XHTMLDoc::GetTagsInDocument( const QString &source, const QStr
 }
 
 
+// We need to remove the XML carriage returns ("&#xD" sequences)
+// that the default toString() method creates so we wrap it in this function
+QString XHTMLDoc::GetQDomNodeAsString( const QDomNode &node )
+{
+    // This function used to be just this one line:
+    //
+    //    return document.toString().replace( "&#xd;", "" );
+    //
+    // But Qt has a bug with the toString() method if the XML
+    // encoding is specified as "us-ascii"... so we work around it.
+
+    QString document_text;
+    QTextStream stream( &document_text );
+    stream.setCodec( "UTF-8" );
+
+    node.save( stream, 1, QDomNode::EncodingFromTextStream );
+
+    return document_text.replace( "&#xd;", "" );   
+}
+
+
+// Removes all the children of a node and
+// returns that same node back.
+// (QDomNodes objects are internally references)
+QDomNode XHTMLDoc::RemoveChildren( QDomNode node )
+{
+    QDomNodeList children = node.childNodes();
+
+    while ( !children.isEmpty() )
+    {
+        node.removeChild( children.at( 0 ) );       
+    }
+
+    return node;
+}
+
+
 // Returns a list of deeply copied QDomNodes
 // from the specified QDomNodeList
 QList< QDomNode > XHTMLDoc::DeepCopyNodeList( QDomNodeList node_list )
@@ -67,4 +104,5 @@ QList< QDomNode > XHTMLDoc::DeepCopyNodeList( QDomNodeList node_list )
 
     return new_node_list;
 }
+
 

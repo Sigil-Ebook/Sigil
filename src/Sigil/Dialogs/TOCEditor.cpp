@@ -38,6 +38,10 @@ TOCEditor::TOCEditor( Book &book, QWidget *parent )
                 this,                SLOT(      UpdateHeadingInclusion( QStandardItem* ) ) 
            );
 
+    connect(    &m_TableOfContents,  SIGNAL(    itemChanged( QStandardItem* ) ),
+                this,                SLOT(      UpdateHeadingText( QStandardItem* ) ) 
+           );
+
     connect(    ui.cbTOCItemsOnly,   SIGNAL(    stateChanged( int ) ),
                 this,                SLOT(      ChangeDisplayType( int ) ) 
            );
@@ -99,6 +103,23 @@ void TOCEditor::UpdateHeadingInclusion( QStandardItem *checkbox_item )
         if ( ui.cbTOCItemsOnly->checkState() == Qt::Checked ) 
 
             RemoveExcludedItems( m_TableOfContents.invisibleRootItem() );
+    }
+}
+
+
+// Updates the text in the heading if
+// it has been changed in the editor
+void TOCEditor::UpdateHeadingText( QStandardItem *text_item )
+{
+    // Make sure we are looking at the right item;
+    // only text items should be NOT checkable
+    if ( text_item->isCheckable() == false )
+    {
+        Headings::Heading *heading = text_item->data().value< Headings::HeadingPointer >().heading;
+
+        // TODO: throw exception on heading == NULL
+
+        heading->text = text_item->text();
     }
 }
 
@@ -305,6 +326,7 @@ void TOCEditor::RemoveExcludedItems( QStandardItem *item )
         item_parent->removeRow( item->row() );
     }
 }
+
 
 
 

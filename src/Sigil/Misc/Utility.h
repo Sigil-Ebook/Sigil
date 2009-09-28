@@ -81,11 +81,7 @@ public:
     // Returns a value for the environment variable name passed;
     // if the env var isn't set, it returns an empty string
     static QString GetEnvironmentVar( const QString &variable_name );
-
-    // We need to remove the XML carriage returns ("&#xD" sequences)
-    // that the default toString() method creates so we wrap it in this function
-    static QString GetQDomNodeAsString( const QDomNode &node );
-
+    
     // Accepts a string with HTML and returns the text
     // in that HTML fragment. For instance 
     //   <h1>Hello <b>Qt</b> <![CDATA[<xml is cool>]]></h1>

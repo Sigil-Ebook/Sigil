@@ -1,4 +1,5 @@
 Sigil v0.1.4 <ADD DATE>
+    - the heading text can now be edited in the TOC Editor (issue #131)
     - the Save As dialog now uses the current filename in the filename field (issue #18)
     - views can now be zoomed (issue #44)
     - Sigil no longer loads flow-specific CSS... this was causing more harm than good; loading 

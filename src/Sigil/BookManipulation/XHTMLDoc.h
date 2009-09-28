@@ -42,6 +42,15 @@ public:
     // in the entire document of the provided XHTML source code
     static QList< QDomNode > GetTagsInDocument( const QString &source, const QString &tag_name );
 
+    // We need to remove the XML carriage returns ("&#xD" sequences)
+    // that the default toString() method creates so we wrap it in this function
+    static QString GetQDomNodeAsString( const QDomNode &node );
+
+    // Removes all the children of a node and
+    // returns that same modified node back.
+    // (QDomNodes objects are internally references)
+    static QDomNode RemoveChildren( QDomNode node );
+
 private:
 
     // Returns a list of deeply copied QDomNodes

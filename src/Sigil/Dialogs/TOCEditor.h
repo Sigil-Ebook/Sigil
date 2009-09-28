@@ -49,6 +49,10 @@ private slots:
     // is checked/unchecked. 
     void UpdateHeadingInclusion( QStandardItem *checkbox_item );
 
+    // Updates the text in the heading if
+    // it has been changed in the editor
+    void UpdateHeadingText( QStandardItem *text_item  );
+
     // Switches the display between showing all headings
     // and showing only headings that are to be included in the TOC
     void ChangeDisplayType( int new_check_state );

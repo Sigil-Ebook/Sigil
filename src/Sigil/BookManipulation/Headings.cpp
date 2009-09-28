@@ -21,6 +21,7 @@
 
 #include <stdafx.h>
 #include "../BookManipulation/Headings.h"
+#include "../BookManipulation/XHTMLDoc.h"
 #include "../Misc/Utility.h"
 #include <QDomDocument>
 
@@ -75,7 +76,21 @@ QString Headings::GetNewHeadingSource( const Heading &heading )
 
         heading_element.setAttribute( "class", class_attribute );
 
-    return document.toString().trimmed();
+    // Write the new heading text if it's been changed 
+    if ( heading_element.text() != heading.text )
+    {
+        // If the heading element has a "title" attribute,
+        // then that is set since it has a higher priority.
+        if ( heading_element.hasAttribute( "title" ) )
+
+            heading_element.setAttribute( "title", heading.text );
+
+        else
+
+            XHTMLDoc::RemoveChildren( heading_element ).appendChild( document.createTextNode( heading.text ) );
+    }
+
+    return XHTMLDoc::GetQDomNodeAsString( document ).trimmed();
 }
 
 

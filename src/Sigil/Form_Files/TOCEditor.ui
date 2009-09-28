@@ -16,9 +16,6 @@
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
     <widget class="QTreeView" name="tvTOCDisplay">
-     <property name="editTriggers">
-      <set>QAbstractItemView::NoEditTriggers</set>
-     </property>
      <property name="tabKeyNavigation">
       <bool>false</bool>
      </property>
