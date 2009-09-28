@@ -59,7 +59,10 @@ QStringList MainWindow::m_RecentFiles = QStringList();
 // should load (new file loaded if empty); the second is the
 // windows parent; the third specifies the flags used to modify window behaviour
 MainWindow::MainWindow( const QString &openfilepath, QWidget *parent, Qt::WFlags flags )
-    : QMainWindow( parent, flags )
+    : 
+    QMainWindow( parent, flags ),
+    c_SaveFilters( GetSaveFiltersMap() ),
+    c_LoadFilters( GetLoadFiltersMap() )
 {
     ui.setupUi( this );	
 	
@@ -134,19 +137,23 @@ void MainWindow::Open()
     if ( MaybeSave() )
 #endif
     {
-        QString filters = tr(   "Sigil Format files (*.sgf);;"
-                                "EPUB files (*.epub);;"
-                                "HTML files (*.htm, *.html, *.xhtml);;"
-                                "Text files (*.txt);;"
-                                "All files (*.*)" 
-                            );
+        QStringList filters( c_LoadFilters.values() );
+        filters.removeDuplicates();
 
-        QString default_filter = tr( "All files (*.*)" );
+        QString filter_string = "";
+
+        foreach( QString filter, filters )
+        {
+            filter_string += filter + ";;";
+        }
+
+        // "All Files (*.*)" is the default
+        QString default_filter = c_LoadFilters.value( "*" );
 
         QString filename = QFileDialog::getOpenFileName(    this,
                                                             tr( "Open File" ),
                                                             m_LastFolderOpen,
-                                                            filters,
+                                                            filter_string,
                                                             &default_filter
                                                        );
 
@@ -211,14 +218,37 @@ bool MainWindow::Save()
 // Implements Save As action functionality
 bool MainWindow::SaveAs()
 {
-    QString filters = tr( "Sigil Format file (*.sgf);;EPUB file (*.epub)" );
+    QStringList filters( c_SaveFilters.values() );
+    filters.removeDuplicates();
 
-    QString default_filter = tr( "Sigil Format file (*.sgf)" );
+    QString filter_string = "";
+
+    foreach( QString filter, filters )
+    {
+        filter_string += filter + ";;";
+    }
+
+    QString save_path       = "";
+    QString default_filter  = "";
+
+    // If we can save this file type, then we use the current filename
+    if ( c_SaveFilters.contains( QFileInfo( m_CurrentFile ).suffix().toLower() ) )
+    {
+        save_path       = m_LastFolderSave + "/" + QFileInfo( m_CurrentFile ).fileName();
+        default_filter  = c_SaveFilters.value( QFileInfo( m_CurrentFile ).suffix().toLower() );
+    }
+
+    // If not, we change the extension to SGF
+    else
+    {
+        save_path       = m_LastFolderSave + "/" + QFileInfo( m_CurrentFile ).baseName() + ".sgf";
+        default_filter  = c_SaveFilters.value( "sgf" );
+    }
 
     QString filename = QFileDialog::getSaveFileName(    this, 
                                                         tr( "Save File" ), 
-                                                        m_LastFolderSave,
-                                                        filters,
+                                                        save_path,
+                                                        filter_string,
                                                         &default_filter
                                                    );
 
@@ -1326,6 +1356,37 @@ const ViewEditor* MainWindow::GetActiveViewEditor() const
 }
 
 
+// Returns a map with keys being extensions of file types
+// we can load, and the values being filters for use in file dialogs
+const QMap< QString, QString > MainWindow::GetLoadFiltersMap() const
+{
+    QMap< QString, QString > file_filters;
+
+    file_filters[ "sgf"   ] = tr( "Sigil Format files (*.sgf)" );
+    file_filters[ "epub"  ] = tr( "EPUB files (*.epub)" );
+    file_filters[ "htm"   ] = tr( "HTML files (*.htm, *.html, *.xhtml)" );
+    file_filters[ "html"  ] = tr( "HTML files (*.htm, *.html, *.xhtml)" );
+    file_filters[ "xhtml" ] = tr( "HTML files (*.htm, *.html, *.xhtml)" );
+    file_filters[ "txt"   ] = tr( "Text files (*.txt)" );
+    file_filters[ "*"     ] = tr( "All files (*.*)" );
+
+    return file_filters;
+}
+
+
+// Returns a map with keys being extensions of file types
+// we can save, and the values being filters for use in file dialogs
+const QMap< QString, QString > MainWindow::GetSaveFiltersMap() const
+{
+    QMap< QString, QString > file_filters;
+
+    file_filters[ "sgf"  ] = tr( "Sigil Format file (*.sgf)" );
+    file_filters[ "epub" ] = tr( "EPUB file (*.epub)" );
+
+    return file_filters;
+}
+
+
 // Runs HTML Tidy on m_Book.source variable
 void MainWindow::TidyUp()
 {
@@ -1616,6 +1677,7 @@ void MainWindow::ConnectSignalsToSlots()
 
     connect( qApp,          SIGNAL( focusChanged( QWidget*, QWidget* ) ),   this,   SLOT( FocusFilter( QWidget*, QWidget* ) ) );
 }
+
 
 
 

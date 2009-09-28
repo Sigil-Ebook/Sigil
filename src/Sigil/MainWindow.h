@@ -264,6 +264,14 @@ private:
     // Returns the currently active View Editor
     const ViewEditor* GetActiveViewEditor() const;
 
+    // Returns a map with keys being extensions of file types
+    // we can load, and the values being filters for use in file dialogs
+    const QMap< QString, QString > GetLoadFiltersMap() const;
+
+    // Returns a map with keys being extensions of file types
+    // we can save, and the values being filters for use in file dialogs
+    const QMap< QString, QString > GetSaveFiltersMap() const;
+
     // Runs HTML Tidy on sSource variable
     void TidyUp();
 
@@ -349,6 +357,14 @@ private:
 
     // The label that displays the zoom factor
     QLabel *m_lbZoomLabel;
+
+    // A map with keys being extensions of file types
+    // we can load, and the values being filters for use in file dialogs
+    const QMap< QString, QString > c_SaveFilters;
+
+    // A map with keys being extensions of file types
+    // we can save, and the values being filters for use in file dialogs
+    const QMap< QString, QString > c_LoadFilters;
 
     // Holds all the widgets Qt Designer created for us
     Ui::MainWindow ui;
