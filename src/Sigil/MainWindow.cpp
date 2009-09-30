@@ -1562,9 +1562,10 @@ void MainWindow::ExtendUI()
              << "Heading 6";
 
     m_cbHeadings->addItems( headings );
-    m_cbHeadings->setToolTip(   "Style the selected text with a heading.\n\n"
-                                "It is recommended to use H1 for Titles, H2 for Authors,\n"
-                                "H3 for Chapters and H4-H6 for Subsections." 
+    m_cbHeadings->setToolTip(   "<p style='padding-top: 0.5em;'><b>Style with heading</b></p>"
+                                "<p style='margin-left: 0.5em;'>Style the selected text with a heading.</p>"
+                                "<p style='margin-left: 0.5em;'>It is recommended to use H1 for Titles, "
+                                "H2 for Authors, H3 for Chapters and H4-H6 for Subsections.</p>" 
                             );
 
     ui.toolBarHeadings->addWidget( m_cbHeadings );

@@ -260,6 +260,11 @@
    <property name="text">
     <string>&amp;New</string>
    </property>
+   <property name="toolTip">
+    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;New&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Create a new book.&lt;/p&gt;</string>
+   </property>
    <property name="shortcut">
     <string>Ctrl+N</string>
    </property>
@@ -271,6 +276,11 @@
    </property>
    <property name="text">
     <string>&amp;Save</string>
+   </property>
+   <property name="toolTip">
+    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Save&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Save the current book.&lt;/p&gt;</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+S</string>
@@ -284,6 +294,11 @@
    <property name="text">
     <string>Save &amp;As...</string>
    </property>
+   <property name="toolTip">
+    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Save As&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Save the current book with a different filename.&lt;/p&gt;</string>
+   </property>
    <property name="shortcut">
     <string>F12</string>
    </property>
@@ -295,6 +310,11 @@
    </property>
    <property name="text">
     <string>&amp;Cut</string>
+   </property>
+   <property name="toolTip">
+    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Cut&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Cuts the selection from the text and puts it on the clipboard.&lt;/p&gt;</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+X</string>
@@ -308,6 +328,11 @@
    <property name="text">
     <string>&amp;Paste</string>
    </property>
+   <property name="toolTip">
+    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Paste&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Pastes the content from the clipboard into the book.&lt;/p&gt;</string>
+   </property>
    <property name="shortcut">
     <string>Ctrl+V</string>
    </property>
@@ -319,6 +344,11 @@
    </property>
    <property name="text">
     <string>&amp;Undo</string>
+   </property>
+   <property name="toolTip">
+    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Undo&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Reverts the changes of the previous operation.&lt;/p&gt;</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+Z</string>
@@ -332,6 +362,11 @@
    <property name="text">
     <string>&amp;Redo</string>
    </property>
+   <property name="toolTip">
+    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Redo&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Restores the changes reverted by the previous Undo action.&lt;/p&gt;</string>
+   </property>
    <property name="shortcut">
     <string>Ctrl+Y</string>
    </property>
@@ -343,6 +378,11 @@
    </property>
    <property name="text">
     <string>&amp;Copy</string>
+   </property>
+   <property name="toolTip">
+    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Copy&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Copies the selection and puts it on the clipboard.&lt;/p&gt;</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+C</string>
@@ -356,6 +396,11 @@
    <property name="text">
     <string>Align &amp;Left</string>
    </property>
+   <property name="toolTip">
+    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Align Text Left&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Align text to the left.&lt;/p&gt;</string>
+   </property>
    <property name="shortcut">
     <string>Ctrl+L</string>
    </property>
@@ -367,6 +412,11 @@
    </property>
    <property name="text">
     <string>Align &amp;Right</string>
+   </property>
+   <property name="toolTip">
+    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Align Text Right&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Align text to the right.&lt;/p&gt;</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+R</string>
@@ -380,6 +430,11 @@
    <property name="text">
     <string>&amp;Center</string>
    </property>
+   <property name="toolTip">
+    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Center&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Center text.&lt;/p&gt;</string>
+   </property>
    <property name="shortcut">
     <string>Ctrl+E</string>
    </property>
@@ -391,6 +446,11 @@
    </property>
    <property name="text">
     <string>&amp;Justify</string>
+   </property>
+   <property name="toolTip">
+    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Justify&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Align the text to both the left and right margins.&lt;/p&gt;</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+J</string>
@@ -407,6 +467,11 @@
    <property name="text">
     <string>&amp;Bold</string>
    </property>
+   <property name="toolTip">
+    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Bold&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Makes the selected text bold.&lt;/p&gt;</string>
+   </property>
    <property name="shortcut">
     <string>Ctrl+B</string>
    </property>
@@ -422,6 +487,11 @@
    <property name="text">
     <string>&amp;Italic</string>
    </property>
+   <property name="toolTip">
+    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Italic&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Makes the selected text italic.&lt;/p&gt;</string>
+   </property>
    <property name="shortcut">
     <string>Ctrl+I</string>
    </property>
@@ -433,6 +503,11 @@
    </property>
    <property name="text">
     <string>&amp;Open...</string>
+   </property>
+   <property name="toolTip">
+    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Open&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Open a book from disk.&lt;/p&gt;</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+O</string>
@@ -448,6 +523,11 @@
    </property>
    <property name="text">
     <string>&amp;Underline</string>
+   </property>
+   <property name="toolTip">
+    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Underline&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Underlines the selected text.&lt;/p&gt;</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+U</string>
@@ -503,7 +583,9 @@
     <string>&amp;Book View</string>
    </property>
    <property name="toolTip">
-    <string>Book View</string>
+    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Book View&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Book View displays your book the way it would appear on different Reading Systems.&lt;/p&gt;</string>
    </property>
    <property name="shortcut">
     <string>F9</string>
@@ -521,7 +603,11 @@
     <string>&amp;Split View</string>
    </property>
    <property name="toolTip">
-    <string>Split View</string>
+    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Split View&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Split View displays your book in two different ways: the Book View way in the top pane, and the Code View way in the bottom one. &lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;The bar dividing the two panes can be moved.&lt;/p&gt;</string>
    </property>
    <property name="shortcut">
     <string>F10</string>
@@ -539,7 +625,11 @@
     <string>&amp;Code View</string>
    </property>
    <property name="toolTip">
-    <string>Code View</string>
+    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Code View&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Code View displays the XHTML and CSS source code that define the way your book looks like.&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Reading Systems will use this code to display it the way Book View does.&lt;/p&gt;</string>
    </property>
    <property name="shortcut">
     <string>F11</string>
@@ -554,11 +644,11 @@
     <string>&amp;Chapter Break</string>
    </property>
    <property name="toolTip">
-    <string>Insert Chapter Break
+    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert Chapter Break&lt;/b&gt;&lt;/p&gt;
 
-Chapter breaks split your document into
-multiple XHTML documents (where supported).
-Use them often and where appropriate.</string>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Chapter breaks split your document into multiple XHTML documents (where supported).&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Use them often and where appropriate.&lt;/p&gt;</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+Return</string>
@@ -573,7 +663,9 @@ Use them often and where appropriate.</string>
     <string>&amp;Image...</string>
    </property>
    <property name="toolTip">
-    <string>Insert Image</string>
+    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert Image&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Choose an image from the disk and insert it into the text.&lt;/p&gt;</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+Shift+I</string>
@@ -591,7 +683,9 @@ Use them often and where appropriate.</string>
     <string>&amp;Numbered List</string>
    </property>
    <property name="toolTip">
-    <string>Insert Numbered List</string>
+    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Numbering&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Create a numbered list.&lt;/p&gt;</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+Alt+L</string>
@@ -609,7 +703,9 @@ Use them often and where appropriate.</string>
     <string>Bulle&amp;ted List</string>
    </property>
    <property name="toolTip">
-    <string>Insert Bulleted List</string>
+    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Bullets&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Create a bulleted list.&lt;/p&gt;</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+Shift+L</string>
@@ -635,7 +731,9 @@ Use them often and where appropriate.</string>
     <string>Strike&amp;through</string>
    </property>
    <property name="toolTip">
-    <string>Strikethrough</string>
+    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Strikethrough&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Draws a line through the selected text.&lt;/p&gt;</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+T</string>
