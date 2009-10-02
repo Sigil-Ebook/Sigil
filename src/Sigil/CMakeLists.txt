@@ -380,6 +380,10 @@ else()
     # Copy the license file
     add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD 
                         COMMAND cmake -E copy ${CMAKE_SOURCE_DIR}/COPYING.txt ${MAIN_PACKAGE_DIR} )
+
+    # Copy the icon file
+    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD 
+                        COMMAND cmake -E copy ${PROJECT_SOURCE_DIR}/Resource_Files/icon/app_icon_48.png ${MAIN_PACKAGE_DIR} )
                         
     # Remove the temp directory used for building the installer 
     add_custom_command( TARGET makeinstaller POST_BUILD 
