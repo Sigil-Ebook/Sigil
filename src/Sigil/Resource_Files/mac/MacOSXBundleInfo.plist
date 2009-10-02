@@ -23,7 +23,7 @@
 			<string>sgf.icns</string>
 			<key>CFBundleTypeMIMETypes</key>
 			<array>
-				<string>document/x-sigil</string>
+				<string>application/x-sgf</string>
 			</array>
 			<key>CFBundleTypeName</key>
 			<string>Sigil Document</string>
@@ -43,7 +43,7 @@
 			<string>epub.icns</string>
 			<key>CFBundleTypeMIMETypes</key>
 			<array>
-				<string>application/epub</string>
+				<string>application/epub+zip</string>
 			</array>
 			<key>CFBundleTypeName</key>
 			<string>ePub ebook</string>
