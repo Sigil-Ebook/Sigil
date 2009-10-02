@@ -47,6 +47,7 @@ set( QOBJECT_HEADERS
     Dialogs/TOCEditor.h 
     MainWindow.h
     Dialogs/MetaEditor.h
+    Misc/AppEventFilter.h
     Misc/UpdateChecker.h 
     )
 
@@ -119,6 +120,8 @@ set( IMPORTER_FILES
     )
     
 set( MISC_FILES
+    Misc/AppEventFilter.cpp
+    Misc/AppEventFilter.h
     Misc/UpdateChecker.cpp
     Misc/UpdateChecker.h
     Misc/Utility.cpp
@@ -206,15 +209,18 @@ endif()
 
 # Apple bundle configuration
 if( APPLE )
-   set( MACOSX_BUNDLE_INFO_STRING "Sigil" )
-   set( MACOSX_BUNDLE_BUNDLE_NAME "Sigil" )
-   set( MACOSX_BUNDLE_ICON_FILE "Sigil.icns" )
+    # Copy the icon files
+    # TODO: put these in some sort of add_custom_command( TARGET ${PROJECT_NAME} PRE_BUILD COMMAND ...)
+    # also delete the Sigil.app folder as PRE_BUILD of Sigil executable
 
-   # Copy the icon file
-   # TODO: put these in some sort of add_custom_command( TARGET ${PROJECT_NAME} PRE_BUILD COMMAND ...)
-   # also delete the Sigil.app folder as PRE_BUILD of Sigil executable
-   exec_program( "mkdir -p ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Sigil.app/Contents/Resources")
-   exec_program( "cp ${PROJECT_SOURCE_DIR}/Resource_Files/icon/Sigil.icns ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Sigil.app/Contents/Resources")
+    exec_program( "mkdir -p ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Sigil.app/Contents/Resources")
+    exec_program( "cp ${PROJECT_SOURCE_DIR}/Resource_Files/icon/Sigil.icns ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Sigil.app/Contents/Resources")
+    exec_program( "cp ${PROJECT_SOURCE_DIR}/Resource_Files/icon/sgf.icns ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Sigil.app/Contents/Resources")
+    exec_program( "cp ${PROJECT_SOURCE_DIR}/Resource_Files/icon/epub.icns ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Sigil.app/Contents/Resources")
+
+    # Copy the PLIST file and set the Sigil version string
+    exec_program( "cp ${PROJECT_SOURCE_DIR}/Resource_Files/mac/MacOSXBundleInfo.plist ${PROJECT_BINARY_DIR}")
+    exec_program( "sed -i -e 's/SGVERSION/${SIGIL_FULL_VERSION}/g' ${PROJECT_BINARY_DIR}/MacOSXBundleInfo.plist")
 endif()
 
 # We need to pick up the stdafx.h file, the ui*.h files,
@@ -226,7 +232,7 @@ link_directories ( ${PROJECT_BINARY_DIR}/lib )
 # We make bundles for Mac OS X
 if ( APPLE )
     add_executable( ${PROJECT_NAME} MACOSX_BUNDLE ${ALL_SOURCES} )
-
+    set_target_properties( ${PROJECT_NAME} PROPERTIES MACOSX_BUNDLE_INFO_PLIST ${PROJECT_BINARY_DIR}/MacOSXBundleInfo.plist )
 # ...and a normal executable for everything else.
 else()
     add_executable( ${PROJECT_NAME} ${ALL_SOURCES} )

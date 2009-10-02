@@ -24,6 +24,7 @@
 #include "MainWindow.h"
 #include <QtGui/QApplication>
 #include "Misc/UpdateChecker.h"
+#include "Misc/AppEventFilter.h"
 
 // Creates a MainWindow instance depending
 // on command line arguments
@@ -103,6 +104,11 @@ int main( int argc, char *argv[] )
     // the reply has time to return.
     UpdateChecker *checker = new UpdateChecker( &app );
     checker->CheckForUpdate();
+    
+    // Install an event filter for the application
+    // so we can catch OS X's file open events
+    AppEventFilter *filter = new AppEventFilter( &app );
+    app.installEventFilter( filter );
 
     MainWindow *widget = GetMainWindow();    
     widget->show();
