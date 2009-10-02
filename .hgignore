@@ -57,7 +57,6 @@ qrc_*
 *.dll
 *.a
 *.app
-*.plist
 *.xcodeproj
 *.pbxbtree
 *.pbxindex
