@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleVersion</key>
+	<string>SGVERSION</string>
+	<key>NSHumanReadableCopyright</key>
+	<string>Copyright © Strahinja.Markovic 2009, GNU GPL v3, CC 3.0 BY-SA</string>
+	<key>CFBundleShortVersionString</key>
+	<string>SGVERSION</string>
+	<key>CFBundleGetInfoString</key>
+	<string>SGVERSION Sigil Open Source ePub Editor. See http://code.google.com/p/sigil/</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.valloric.Sigil.app</string>
+	<key>CFBundleDocumentTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>sgf</string>
+			</array>
+			<key>CFBundleTypeIconFile</key>
+			<string>sgf.icns</string>
+			<key>CFBundleTypeMIMETypes</key>
+			<array>
+				<string>application/x-sgf</string>
+			</array>
+			<key>CFBundleTypeName</key>
+			<string>Sigil Document</string>
+			<key>CFBundleTypeOSTypes</key>
+			<array>
+				<string>SglF</string>
+			</array>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+		</dict>
+		<dict>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>epub</string>
+			</array>
+			<key>CFBundleTypeIconFile</key>
+			<string>epub.icns</string>
+			<key>CFBundleTypeMIMETypes</key>
+			<array>
+				<string>application/epub+zip</string>
+			</array>
+			<key>CFBundleTypeName</key>
+			<string>ePub ebook</string>
+			<key>CFBundleTypeOSTypes</key>
+			<array>
+				<string>EPUB</string>
+			</array>
+			<key>CFBundleTypeRole</key>
+			<string>Viewer</string>
+		</dict>
+	</array>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>English</string>
+	<key>CFBundleExecutable</key>
+	<string>Sigil</string>
+	<key>CFBundleIconFile</key>
+	<string>Sigil.icns</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>Sigil</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleSignature</key>
+	<string>Sigl</string>
+	<key>CSResourcesFileMapped</key>
+	<true/>
+	<key>LSRequiresCarbon</key>
+	<true/>
+</dict>
+</plist>
