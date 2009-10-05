@@ -217,6 +217,7 @@ void TOCEditor::InsertHeadingIntoModel( Headings::Heading &heading, QStandardIte
     QStandardItem *item_heading             = new QStandardItem( heading.text );
     QStandardItem *heading_included_check   = new QStandardItem();
 
+    //heading_included_check->setEditable( false );
     heading_included_check->setCheckable( true );
 
     // TODO: red/pink background for include == false headings

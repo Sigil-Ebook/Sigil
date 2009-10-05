@@ -381,9 +381,16 @@ else()
     add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD 
                         COMMAND cmake -E copy ${CMAKE_SOURCE_DIR}/COPYING.txt ${MAIN_PACKAGE_DIR} )
 
-    # Copy the icon file
+    # The folder for miscellaneous files (icon files etc.)
+    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E make_directory ${MAIN_PACKAGE_DIR}/misc/ )
+                        
+    # Copy the icon file (used on Linux for the application icon)
     add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD 
-                        COMMAND cmake -E copy ${PROJECT_SOURCE_DIR}/Resource_Files/icon/app_icon_48.png ${MAIN_PACKAGE_DIR} )
+                        COMMAND cmake -E copy ${PROJECT_SOURCE_DIR}/Resource_Files/icon/app_icon_48.png ${MAIN_PACKAGE_DIR}/misc/ )
+                        
+    # Copy the SGF ICO file (used)
+    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD 
+                        COMMAND cmake -E copy ${PROJECT_SOURCE_DIR}/Resource_Files/icon/sgf.ico ${MAIN_PACKAGE_DIR}/misc/ )
                         
     # Remove the temp directory used for building the installer 
     add_custom_command( TARGET makeinstaller POST_BUILD 

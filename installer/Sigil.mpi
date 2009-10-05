@@ -216,7 +216,10 @@ WizardWidth
 {500}
 
 iconpath
-{<%InstallDir%>/app_icon_48.png}
+{<%InstallDir%>/misc/app_icon_48.png}
+
+sgficopath
+{<%InstallDir%>/misc/sgf.ico}
 
 vcredist
 {}
@@ -327,9 +330,9 @@ InstallComponent 4D1FFE84-A014-4A85-B4E7-CC8D657E1AF4 -setup Install -type actio
 Condition A2D499E0-F85F-4141-999A-74312B2B85A5 -active Yes -parent 4D1FFE84-A014-4A85-B4E7-CC8D657E1AF4 -title {String Is Condition} -component StringIsCondition -TreeObject::id A2D499E0-F85F-4141-999A-74312B2B85A5
 InstallComponent 20FC0B2C-79ED-4F7B-AA86-E70617E853E8 -setup Install -type action -conditions 9895AE5D-0B82-4DA5-BD41-125BA2087DA5 -title {Windows Uninstall Registry} -component AddWindowsUninstallEntry -command insert -active Yes -parent F8A7D804-10A7-4E96-80D6-E198FE6E660A
 Condition 9895AE5D-0B82-4DA5-BD41-125BA2087DA5 -active Yes -parent 20FC0B2C-79ED-4F7B-AA86-E70617E853E8 -title {String Is Condition} -component StringIsCondition -TreeObject::id 9895AE5D-0B82-4DA5-BD41-125BA2087DA5
-InstallComponent 1242ADA6-2112-4BF7-BA1C-CB7C03FAAC13 -setup Install -type action -conditions FD1B489A-7F39-493F-A85F-66EC07AD0788 -title {Program Shortcut} -component InstallProgramFolderShortcut -command reorder -active Yes -parent F8A7D804-10A7-4E96-80D6-E198FE6E660A
+InstallComponent 1242ADA6-2112-4BF7-BA1C-CB7C03FAAC13 -setup Install -type action -conditions FD1B489A-7F39-493F-A85F-66EC07AD0788 -title {Program Shortcut} -component InstallProgramFolderShortcut -command insert -active Yes -parent F8A7D804-10A7-4E96-80D6-E198FE6E660A
 Condition FD1B489A-7F39-493F-A85F-66EC07AD0788 -active Yes -parent 1242ADA6-2112-4BF7-BA1C-CB7C03FAAC13 -title {String Is Condition} -component StringIsCondition -TreeObject::id FD1B489A-7F39-493F-A85F-66EC07AD0788
-InstallComponent F237D44E-ACCF-E52F-76EE-4DB64F0DD8B1 -setup Install -type action -conditions C055CCD7-0FE0-8966-5E47-DBDED23D0FBC -title {Install UNIX Program Folder} -component InstallUNIXProgramFolder -command reorder -active Yes -parent F8A7D804-10A7-4E96-80D6-E198FE6E660A
+InstallComponent F237D44E-ACCF-E52F-76EE-4DB64F0DD8B1 -setup Install -type action -conditions C055CCD7-0FE0-8966-5E47-DBDED23D0FBC -title {Install UNIX Program Folder} -component InstallUNIXProgramFolder -command insert -active Yes -parent F8A7D804-10A7-4E96-80D6-E198FE6E660A
 Condition C055CCD7-0FE0-8966-5E47-DBDED23D0FBC -active Yes -parent F237D44E-ACCF-E52F-76EE-4DB64F0DD8B1 -title {String Is Condition} -component StringIsCondition -TreeObject::id C055CCD7-0FE0-8966-5E47-DBDED23D0FBC
 InstallComponent CECA89B6-9042-40EC-B88C-099CADA35BDA -setup Install -type action -conditions {0CE8CEDE-016F-48B9-AFAA-CE499AF12DD8 D3A5EEA0-9E74-723F-88EC-EE887CA3B612} -title {Uninstall Shortcut} -component InstallProgramFolderShortcut -command insert -active Yes -parent F8A7D804-10A7-4E96-80D6-E198FE6E660A
 Condition 0CE8CEDE-016F-48B9-AFAA-CE499AF12DD8 -active Yes -parent CECA89B6-9042-40EC-B88C-099CADA35BDA -title {String Is Condition} -component StringIsCondition -TreeObject::id 0CE8CEDE-016F-48B9-AFAA-CE499AF12DD8
@@ -338,11 +341,14 @@ InstallComponent A11492F8-D66A-4690-4C26-B34DA0588113 -setup Install -type actio
 Condition 1D9B6BF2-F61A-F0EC-1379-28EEC92E3E67 -active Yes -parent A11492F8-D66A-4690-4C26-B34DA0588113 -title {File Exists Condition} -component FileExistsCondition -TreeObject::id 1D9B6BF2-F61A-F0EC-1379-28EEC92E3E67
 Condition D1509E3E-58F4-BB3A-3D3A-BB31C36069F0 -active Yes -parent A11492F8-D66A-4690-4C26-B34DA0588113 -title {Platform Condition} -component PlatformCondition -TreeObject::id D1509E3E-58F4-BB3A-3D3A-BB31C36069F0
 Condition 23FAF418-A8C9-5004-BA56-4A79EA92B187 -active Yes -parent A11492F8-D66A-4690-4C26-B34DA0588113 -title {File Exists Condition} -component FileExistsCondition -TreeObject::id 23FAF418-A8C9-5004-BA56-4A79EA92B187
+InstallComponent 08577AF4-9072-41AA-A607-CC84E0E9AFFD -setup Install -type action -title {Add Windows File Type} -component AddWindowsFileType -active Yes -parent F8A7D804-10A7-4E96-80D6-E198FE6E660A
+InstallComponent 88448BE4-10DD-47EF-BB4B-D1EED0E681FA -setup Install -type action -title {Add Windows File Extension} -component AddWindowsFileExtension -active Yes -parent F8A7D804-10A7-4E96-80D6-E198FE6E660A
+InstallComponent 955EF638-F86B-4CE1-82C0-5C59816AF9C9 -setup Install -type action -title {Add Windows File Command} -component AddWindowsFileCommand -active Yes -parent F8A7D804-10A7-4E96-80D6-E198FE6E660A
 InstallComponent 04B53FB6-5935-4A5D-A7E3-F6285CB14F06 -setup Install -type actiongroup -title {Finish Actions} -alias {Finish Actions} -active Yes -parent ActionGroupsInstall
-InstallComponent 8CCE753F-BBE4-53CB-A252-B4D42D7A07D8 -setup Install -type action -conditions {10E20019-FE43-81F4-A240-9CEB52EAE127 0E79A065-C5B0-8ED9-6385-C321CBDD424D} -title {Install UNIX Shortcut} -component InstallUNIXShortcut -command reorder -active Yes -parent 04B53FB6-5935-4A5D-A7E3-F6285CB14F06
+InstallComponent 8CCE753F-BBE4-53CB-A252-B4D42D7A07D8 -setup Install -type action -conditions {10E20019-FE43-81F4-A240-9CEB52EAE127 0E79A065-C5B0-8ED9-6385-C321CBDD424D} -title {Install UNIX Shortcut} -component InstallUNIXShortcut -command insert -active Yes -parent 04B53FB6-5935-4A5D-A7E3-F6285CB14F06
 Condition 10E20019-FE43-81F4-A240-9CEB52EAE127 -active Yes -parent 8CCE753F-BBE4-53CB-A252-B4D42D7A07D8 -title {File Exists Condition} -component FileExistsCondition -TreeObject::id 10E20019-FE43-81F4-A240-9CEB52EAE127
 Condition 0E79A065-C5B0-8ED9-6385-C321CBDD424D -active Yes -parent 8CCE753F-BBE4-53CB-A252-B4D42D7A07D8 -title {String Is Condition} -component StringIsCondition -TreeObject::id 0E79A065-C5B0-8ED9-6385-C321CBDD424D
-InstallComponent 67B814EF-C876-4FFF-9055-8D8DFAE6FBC0 -setup Install -type action -conditions {CA947072-8359-4484-93C0-182E546057A1 7454691C-763C-473F-9E1F-7F9297EB2C59 2BA6E102-EFF8-EE05-D211-942FF040E0D5} -title {Install Desktop Shortcut} -component InstallDesktopShortcut -command reorder -active Yes -parent 04B53FB6-5935-4A5D-A7E3-F6285CB14F06
+InstallComponent 67B814EF-C876-4FFF-9055-8D8DFAE6FBC0 -setup Install -type action -conditions {CA947072-8359-4484-93C0-182E546057A1 7454691C-763C-473F-9E1F-7F9297EB2C59 2BA6E102-EFF8-EE05-D211-942FF040E0D5} -title {Install Desktop Shortcut} -component InstallDesktopShortcut -command insert -active Yes -parent 04B53FB6-5935-4A5D-A7E3-F6285CB14F06
 Condition CA947072-8359-4484-93C0-182E546057A1 -active Yes -parent 67B814EF-C876-4FFF-9055-8D8DFAE6FBC0 -title {String Is Condition} -component StringIsCondition -TreeObject::id CA947072-8359-4484-93C0-182E546057A1
 Condition 7454691C-763C-473F-9E1F-7F9297EB2C59 -active Yes -parent 67B814EF-C876-4FFF-9055-8D8DFAE6FBC0 -title {File Exists Condition} -component FileExistsCondition -TreeObject::id 7454691C-763C-473F-9E1F-7F9297EB2C59
 Condition 2BA6E102-EFF8-EE05-D211-942FF040E0D5 -active Yes -parent 67B814EF-C876-4FFF-9055-8D8DFAE6FBC0 -title {Platform Condition} -component PlatformCondition -TreeObject::id 2BA6E102-EFF8-EE05-D211-942FF040E0D5
@@ -378,7 +384,7 @@ Condition AF397A13-B7C8-4ADB-AB44-5A38B69730AB -active Yes -parent 50C7F450-BE4A
 InstallComponent 94F9ED77-8E9E-4DB9-9141-80952EE56AAC -setup Uninstall -type actiongroup -title {Uninstall Actions} -alias {Uninstall Actions} -active Yes -parent ActionGroupsUninstall
 InstallComponent 40BB42CF-1759-4B2A-950E-6893DCDD869A -setup Uninstall -type action -title {Uninstall Selected Files} -component UninstallSelectedFiles -active Yes -parent 94F9ED77-8E9E-4DB9-9141-80952EE56AAC
 InstallComponent 2B9BF0B4-624E-F61C-CAAB-651DE8250532 -setup Uninstall -type action -title {Uninstall Leftover Files} -component UninstallLeftoverFiles -active Yes -parent 94F9ED77-8E9E-4DB9-9141-80952EE56AAC
-InstallComponent 9FEE424C-2ABA-DF21-C079-01EC1234B222 -setup Uninstall -type action -conditions EB01D5A6-27F6-BA79-FFD4-92F959002A54 -title {Delete Path Shortcut} -component DeleteFile -command reorder -active Yes -parent 94F9ED77-8E9E-4DB9-9141-80952EE56AAC
+InstallComponent 9FEE424C-2ABA-DF21-C079-01EC1234B222 -setup Uninstall -type action -conditions EB01D5A6-27F6-BA79-FFD4-92F959002A54 -title {Delete Path Shortcut} -component DeleteFile -command insert -active Yes -parent 94F9ED77-8E9E-4DB9-9141-80952EE56AAC
 Condition EB01D5A6-27F6-BA79-FFD4-92F959002A54 -active Yes -parent 9FEE424C-2ABA-DF21-C079-01EC1234B222 -title {Platform Condition} -component PlatformCondition -TreeObject::id EB01D5A6-27F6-BA79-FFD4-92F959002A54
 InstallComponent 6418E39B-B8CC-471A-9AF6-1E292A1E62C7 -setup Uninstall -type actiongroup -title {Finish Actions} -alias {Finish Actions} -active Yes -parent ActionGroupsUninstall
 InstallComponent F95064CD-E1C5-46F3-8C97-BC68207E222D -setup Uninstall -type actiongroup -title {Cancel Actions} -alias {Cancel Actions} -active Yes -parent ActionGroupsUninstall
@@ -404,6 +410,18 @@ array set Properties {
 
 052C0AEB-E322-5505-DD8A-C5869A97C7E5,Platform
 {Windows}
+
+08577AF4-9072-41AA-A607-CC84E0E9AFFD,Conditions
+{0 conditions}
+
+08577AF4-9072-41AA-A607-CC84E0E9AFFD,FileType
+{SGF}
+
+08577AF4-9072-41AA-A607-CC84E0E9AFFD,IconPath
+{<%sgficopath%>}
+
+08577AF4-9072-41AA-A607-CC84E0E9AFFD,Title
+{Sigil Native Format File}
 
 0B649BA2-3A30-45ED-9305-A067C22E256C,Background
 {white}
@@ -1032,6 +1050,15 @@ array set Properties {
 873021B6-D2DB-4746-B18D-8CC4CB78CDAD,Widget
 {Back Button;Next Button}
 
+88448BE4-10DD-47EF-BB4B-D1EED0E681FA,Conditions
+{0 conditions}
+
+88448BE4-10DD-47EF-BB4B-D1EED0E681FA,FileExtension
+{.sgf}
+
+88448BE4-10DD-47EF-BB4B-D1EED0E681FA,FileType
+{SGF}
+
 8923E726-D2F3-42B8-83AB-7FED8DCF4379,Destination
 {<%InstallDir%>}
 
@@ -1070,6 +1097,18 @@ array set Properties {
 
 94F9ED77-8E9E-4DB9-9141-80952EE56AAC,Conditions
 {0 conditions}
+
+955EF638-F86B-4CE1-82C0-5C59816AF9C9,Command
+{<%ProgramExecutable%> "%1"}
+
+955EF638-F86B-4CE1-82C0-5C59816AF9C9,CommandName
+{Open}
+
+955EF638-F86B-4CE1-82C0-5C59816AF9C9,Conditions
+{0 conditions}
+
+955EF638-F86B-4CE1-82C0-5C59816AF9C9,FileType
+{SGF}
 
 956254AE-3D22-4F93-8DAA-CFFFE9C59886,Alias
 {Startup Actions}
