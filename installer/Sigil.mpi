@@ -261,7 +261,7 @@ test
 
 }
 FileGroup ::8923E726-D2F3-42B8-83AB-7FED8DCF4379 -setup Install -active Yes -platforms {AIX-ppc FreeBSD-4-x86 FreeBSD-5-x86 FreeBSD-6-x86 FreeBSD-7-x86 FreeBSD-x86 HPUX-hppa Linux-x86 Linux-x86_64 Solaris-sparc Solaris-x86 Windows TarArchive ZipArchive} -name {Program Files} -parent FileGroups
-File ::0F84F11F-9503-4E02-AF55-342CD2268BE8 -name vcredist_x86.exe -location <%vcredist%> -active 0 -parent 8923E726-D2F3-42B8-83AB-7FED8DCF4379
+File ::0F84F11F-9503-4E02-AF55-342CD2268BE8 -name vcredist_x86.exe -active 0 -parent 8923E726-D2F3-42B8-83AB-7FED8DCF4379
 File ::EB33D1F0-C897-4CB5-AA4D-C2E334381082 -type dir -directory <%InstallDir%> -name Sigil -location ./Sigil -parent 8923E726-D2F3-42B8-83AB-7FED8DCF4379
 Component ::FBABA0A0-5769-4A6A-B096-04997C47AA95 -setup Install -active Yes -platforms {AIX-ppc FreeBSD-4-x86 FreeBSD-5-x86 FreeBSD-6-x86 FreeBSD-7-x86 FreeBSD-x86 HPUX-hppa Linux-x86 Linux-x86_64 Solaris-sparc Solaris-x86 Windows} -name {Default Component} -parent Components
 SetupType ::57C3379E-8313-4EC5-8A5E-3436D8F80BC2 -setup Install -active Yes -platforms {AIX-ppc FreeBSD-4-x86 FreeBSD-5-x86 FreeBSD-6-x86 FreeBSD-7-x86 FreeBSD-x86 HPUX-hppa Linux-x86 Linux-x86_64 Solaris-sparc Solaris-x86 Windows} -name Typical -parent SetupTypes

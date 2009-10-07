@@ -273,7 +273,6 @@ else()
     set( TEMP_PACKAGE_DIR ${CMAKE_BINARY_DIR}/temp_folder )
     set( MAIN_PACKAGE_DIR ${TEMP_PACKAGE_DIR}/Sigil )
     set( OUTPUT_PACKAGE_DIR ${CMAKE_BINARY_DIR}/installer )
-    set( VCREDIST_LOCATION ${CMAKE_SOURCE_DIR}/installer/vcredist_x86.exe )
     
     # MPI file will need to be copied to this location
     set( MPI_LOCATION ${CMAKE_BINARY_DIR}/temp_folder/Sigil.mpi )
@@ -293,7 +292,6 @@ else()
     add_custom_target(  makeinstaller 
                         COMMAND cmake -E echo "For this to work, InstallJammer needs to be installed and on the system path."
                         COMMAND installjammer   -DBaseDir ${MAIN_PACKAGE_DIR}  
-                                                -Dvcredist ${VCREDIST_LOCATION} 
                                                 -DSGMajorVersion ${SIGIL_MAJOR_VERSION}
                                                 -DSGMinorVersion ${SIGIL_MINOR_VERSION}
                                                 -DSGRevisionVersion ${SIGIL_REVISION_VERSION}
