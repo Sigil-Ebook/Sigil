@@ -44,15 +44,13 @@ public:
 
 private slots:
 
-    // Updates the inclusion of the heading in the TOC
-    // whenever that heading's "include in TOC" checkbox
-    // is checked/unchecked. 
-    void UpdateHeadingInclusion( QStandardItem *checkbox_item );
-
-    // Updates the text in the heading if
-    // it has been changed in the editor
-    void UpdateHeadingText( QStandardItem *text_item  );
-
+    // We need to filter the calls to functions that would normally
+    // connect directly to the itemChanged( QStandardItem* ) signal
+    // because some would-be slots delete the item in question.
+    // So, the signal connects here and this function calls the 
+    // appropriate item-handling functions. 
+    void ModelItemFilter( QStandardItem *item  );
+    
     // Switches the display between showing all headings
     // and showing only headings that are to be included in the TOC
     void ChangeDisplayType( int new_check_state );
@@ -62,6 +60,15 @@ private slots:
     void UpdateBookSource();
 
 private:    
+
+    // Updates the inclusion of the heading in the TOC
+    // whenever that heading's "include in TOC" checkbox
+    // is checked/unchecked. 
+    void UpdateHeadingInclusion( QStandardItem *checkbox_item );
+
+    // Updates the text in the heading if
+    // it has been changed in the editor
+    void UpdateHeadingText( QStandardItem *text_item  );
     
     // Updates the display of the tree view
     // (resizes columns etc.)

@@ -35,11 +35,7 @@ TOCEditor::TOCEditor( Book &book, QWidget *parent )
     ui.setupUi( this );
 
     connect(    &m_TableOfContents,  SIGNAL(    itemChanged( QStandardItem* ) ),
-                this,                SLOT(      UpdateHeadingInclusion( QStandardItem* ) ) 
-           );
-
-    connect(    &m_TableOfContents,  SIGNAL(    itemChanged( QStandardItem* ) ),
-                this,                SLOT(      UpdateHeadingText( QStandardItem* ) ) 
+                this,                SLOT(      ModelItemFilter( QStandardItem* ) ) 
            );
 
     connect(    ui.cbTOCItemsOnly,   SIGNAL(    stateChanged( int ) ),
@@ -66,62 +62,22 @@ TOCEditor::TOCEditor( Book &book, QWidget *parent )
 }
 
 
-// Updates the inclusion of the heading in the TOC
-// whenever that heading's "include in TOC" checkbox
-// is checked/unchecked. 
-void TOCEditor::UpdateHeadingInclusion( QStandardItem *checkbox_item )
+// We need to filter the calls to functions that would normally
+// connect directly to the itemChanged( QStandardItem* ) signal
+// because some would-be slots delete the item in question.
+// So, the signal connects here and this function calls the 
+// appropriate item-handling functions. 
+void TOCEditor::ModelItemFilter( QStandardItem *item )
 {
-    // Make sure we are looking at the right item;
-    // only checkbox items should be checkable
-    if ( checkbox_item->isCheckable() == true )
-    {
-        // Working around Qt design issues
-        // to get the actual item parent
-        QStandardItem *item_parent = NULL;
-
-        if ( checkbox_item->parent() == 0 )
-
-            item_parent = m_TableOfContents.invisibleRootItem();
-
-        else
+    if ( item->isCheckable() == true )
     
-            item_parent = checkbox_item->parent();
+        UpdateHeadingInclusion( item );
 
-        Headings::Heading *heading = item_parent->child( checkbox_item->row(), 0 )->
-                                        data().value< Headings::HeadingPointer >().heading;
-
-        // TODO: throw exception on heading == NULL
-
-        if ( checkbox_item->checkState() == Qt::Unchecked )
+    else
         
-            heading->include_in_toc = false;
-
-        else
-
-            heading->include_in_toc = true;
-
-        if ( ui.cbTOCItemsOnly->checkState() == Qt::Checked ) 
-
-            RemoveExcludedItems( m_TableOfContents.invisibleRootItem() );
-    }
+        UpdateHeadingText( item );
 }
 
-
-// Updates the text in the heading if
-// it has been changed in the editor
-void TOCEditor::UpdateHeadingText( QStandardItem *text_item )
-{
-    // Make sure we are looking at the right item;
-    // only text items should be NOT checkable
-    if ( text_item->isCheckable() == false )
-    {
-        Headings::Heading *heading = text_item->data().value< Headings::HeadingPointer >().heading;
-
-        // TODO: throw exception on heading == NULL
-
-        heading->text = text_item->text();
-    }
-}
 
 
 // Switches the display between showing all headings
@@ -177,6 +133,54 @@ void TOCEditor::UpdateBookSource()
 }
 
 
+// Updates the inclusion of the heading in the TOC
+// whenever that heading's "include in TOC" checkbox
+// is checked/unchecked. 
+void TOCEditor::UpdateHeadingInclusion( QStandardItem *checkbox_item )
+{
+    // Working around Qt design issues
+    // to get the actual item parent
+    QStandardItem *item_parent = NULL;
+
+    if ( checkbox_item->parent() == 0 )
+
+        item_parent = m_TableOfContents.invisibleRootItem();
+
+    else
+
+        item_parent = checkbox_item->parent();
+
+    Headings::Heading *heading = item_parent->child( checkbox_item->row(), 0 )->
+        data().value< Headings::HeadingPointer >().heading;
+
+    // TODO: throw exception on heading == NULL
+
+    if ( checkbox_item->checkState() == Qt::Unchecked )
+
+        heading->include_in_toc = false;
+
+    else
+
+        heading->include_in_toc = true;
+
+    if ( ui.cbTOCItemsOnly->checkState() == Qt::Checked ) 
+
+        RemoveExcludedItems( m_TableOfContents.invisibleRootItem() );    
+}
+
+
+// Updates the text in the heading if
+// it has been changed in the editor
+void TOCEditor::UpdateHeadingText( QStandardItem *text_item )
+{
+    Headings::Heading *heading = text_item->data().value< Headings::HeadingPointer >().heading;
+
+    // TODO: throw exception on heading == NULL
+
+    heading->text = text_item->text();
+}
+
+
 // Updates the display of the tree view
 // (resizes columns etc.)
 void TOCEditor::UpdateTreeViewDisplay()
@@ -217,7 +221,7 @@ void TOCEditor::InsertHeadingIntoModel( Headings::Heading &heading, QStandardIte
     QStandardItem *item_heading             = new QStandardItem( heading.text );
     QStandardItem *heading_included_check   = new QStandardItem();
 
-    //heading_included_check->setEditable( false );
+    heading_included_check->setEditable( false );
     heading_included_check->setCheckable( true );
 
     // TODO: red/pink background for include == false headings
@@ -283,7 +287,7 @@ void TOCEditor::RemoveExcludedItems( QStandardItem *item )
 
         return;
 
-    //    Unfortunately, while the invisible root of a model
+    //    Unfortunately, while the invisible root of a QStandardItemModel
     // can have children, those children do not have a parent set.
     // Of course, their parent is the invisible root, but their
     // parent() function returns 0. So now you have *two* tree levels
@@ -327,7 +331,6 @@ void TOCEditor::RemoveExcludedItems( QStandardItem *item )
         item_parent->removeRow( item->row() );
     }
 }
-
 
 
 
