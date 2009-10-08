@@ -2176,10 +2176,10 @@ Windows,BuildSeparateArchives
 {No}
 
 Windows,Executable
-{<%AppName%>-<%Version%>-Setup<%Ext%>}
+{<%AppName%>-<%Version%>-<%Platform%>-Setup<%Ext%>}
 
 Windows,FileDescription
-{<%AppName%> <%Version%> Setup}
+{<%AppName%> <%Version%> <%Platform%> Setup}
 
 Windows,IncludeTWAPI
 {No}
