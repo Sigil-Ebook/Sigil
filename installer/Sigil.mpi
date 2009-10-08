@@ -1957,7 +1957,7 @@ Linux-x86_64,DefaultFilePermission
 {0755}
 
 Linux-x86_64,Executable
-{<%AppName%>-<%Version%>-<%Platform%>-Install<%Ext%>}
+{<%AppName%>-<%Version%>-<%Platform%>-Install<%Ext%>.bin}
 
 Linux-x86_64,FallBackToConsole
 {Yes}
