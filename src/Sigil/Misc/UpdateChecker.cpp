@@ -90,7 +90,7 @@ void UpdateChecker::ReplyRecieved( QNetworkReply* reply )
         button_clicked = QMessageBox::question(  0,
                      QObject::tr( "Sigil" ),
                      QObject::tr( "<p>A newer version of Sigil is available, version <b>%1</b>.<br/>"
-                         "The changelog can be seen <a href='http://sigil.googlecode.com/hg/ChangeLog.txt'>here</a>.</p>"
+                         "The ChangeLog can be seen <a href='http://sigil.googlecode.com/hg/ChangeLog.txt'>here</a>.</p>"
                          "<p>Would you like to go to the download page?</p>" )
                      .arg( current_online_version ),
                      QMessageBox::Yes | QMessageBox::No,
