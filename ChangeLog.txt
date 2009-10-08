@@ -1,4 +1,4 @@
-Sigil v0.1.4 <ADD DATE>
+Sigil v0.1.4 2009.10.08.
     - SGF files are now associated with Sigil on Windows (issue #135)
     - SGF files are now associated with Sigil on Mac OS X (issue #10)
     - fixed issue with "Open With" OS actions not working on Macs (issue #111)
