@@ -189,3 +189,4 @@ bool UpdateChecker::IsOnlineVersionNewer( QString current_version_string, QStrin
 
     return online_version > current_version;
 }
+
