@@ -217,6 +217,9 @@ void ImportEPUB::ReadOPF()
 // (filled by reading the OPF) into the book
 void ImportEPUB::LoadMetadata()
 {
+    // TODO: For God's sake split this
+    // monstrosity into multiple functions.
+
     foreach( MetaElement meta, m_MetaElements )
     {
         QString name    = meta.name;
@@ -245,12 +248,12 @@ void ImportEPUB::LoadMetadata()
                  ( date_event == "publication" ) ||
                  ( date_event == "modification" )  )
             {
-                name = date_event;
+                name = "Date of " + date_event;
             }
 
             else
             {
-                name = "publication";
+                name = "Date of publication";
             }
 
             // Dates are in YYYY[-MM[-DD]] format
