@@ -30,7 +30,7 @@ static const QString HTML_ELEMENT_NAME      = "\\s*[\\w:-]+(?=[^\\w:-])\\s*(?!=)
 static const QString HTML_ELEMENT_END       = "(\\?|/)?>";
 
 static const QString HTML_COMMENT_BEGIN     = "<!--";
-static const QString HTML_COMMENT_END       = "[^-]*-([^-][^-]*-)*->";
+static const QString HTML_COMMENT_END       = "-->";
 
 static const QString CSS_BEGIN              = "<\\s*style[^>]*>";
 static const QString CSS_END                = "</\\s*style[^>]*>";
@@ -158,19 +158,19 @@ QRegExp XHTMLHighlighter::GetLeftBracketRegEx( int state ) const
     {
         case State_HTML:
 
-            return hshRules[ "HTML_ELEMENT_BEGIN" ].pattern;
+            return hshRules.value( "HTML_ELEMENT_BEGIN" ).pattern;
 
         case State_HTMLComment:
 
-            return hshRules[ "HTML_COMMENT_BEGIN" ].pattern;
+            return hshRules.value( "HTML_COMMENT_BEGIN" ).pattern;
 
         case State_CSS:
 
-            return hshRules[ "CSS_BEGIN" ].pattern;
+            return hshRules.value( "CSS_BEGIN" ).pattern;
 
         case State_CSSComment:
 
-            return hshRules[ "CSS_COMMENT_BEGIN" ].pattern;
+            return hshRules.value( "CSS_COMMENT_BEGIN" ).pattern;
 
         default:
 
@@ -188,19 +188,19 @@ QRegExp XHTMLHighlighter::GetRightBracketRegEx( int state ) const
     {
         case State_HTML:
 
-            return hshRules[ "HTML_ELEMENT_END" ].pattern;
+            return hshRules.value( "HTML_ELEMENT_END" ).pattern;
 
         case State_HTMLComment:
 
-            return hshRules[ "HTML_COMMENT_END" ].pattern;
+            return hshRules.value( "HTML_COMMENT_END" ).pattern;
 
         case State_CSS:
 
-            return hshRules[ "CSS_END" ].pattern;
+            return hshRules.value( "CSS_END" ).pattern;
 
         case State_CSSComment:
 
-            return hshRules[ "CSS_COMMENT_END" ].pattern;
+            return hshRules.value( "CSS_COMMENT_END" ).pattern;
 
         default:
 
@@ -260,10 +260,10 @@ void XHTMLHighlighter::FormatBody( const QString& text, int state, int index, in
     if ( state == State_HTML )
     {
         // First paint everything the color of the brackets
-        setFormat( index, length, hshRules[ "HTML_ELEMENT_BEGIN" ].format );
+        setFormat( index, length, hshRules.value( "HTML_ELEMENT_BEGIN" ).format );
 
-        QRegExp name    = hshRules[ "ATTRIBUTE_NAME" ].pattern;
-        QRegExp value   = hshRules[ "ATTRIBUTE_VALUE" ].pattern;
+        QRegExp name    = hshRules.value( "ATTRIBUTE_NAME" ).pattern;
+        QRegExp value   = hshRules.value( "ATTRIBUTE_VALUE" ).pattern;
 
         // Used to move over the line
         int main_index  = index;
@@ -298,8 +298,8 @@ void XHTMLHighlighter::FormatBody( const QString& text, int state, int index, in
                 
             {
                 // ... otherwise format the found sections
-                setFormat( name_index,  name.matchedLength(),   hshRules[ "ATTRIBUTE_NAME" ].format );
-                setFormat( value_index, value.matchedLength(),  hshRules[ "ATTRIBUTE_VALUE" ].format );
+                setFormat( name_index,  name.matchedLength(),   hshRules.value( "ATTRIBUTE_NAME" ).format );
+                setFormat( value_index, value.matchedLength(),  hshRules.value( "ATTRIBUTE_VALUE" ).format );
             }
             
             else
@@ -319,17 +319,17 @@ void XHTMLHighlighter::FormatBody( const QString& text, int state, int index, in
 
     else if ( state == State_HTMLComment )
     {
-        setFormat( index, length, hshRules[ "HTML_COMMENT_BEGIN" ].format );
+        setFormat( index, length, hshRules.value( "HTML_COMMENT_BEGIN" ).format );
     }
 
     else if ( state == State_CSS )
     {
-        setFormat( index, length, hshRules[ "CSS_BEGIN" ].format );
+        setFormat( index, length, hshRules.value( "CSS_BEGIN" ).format );
     }
 
     else if ( state == State_CSSComment )
     {
-        setFormat( index, length, hshRules[ "CSS_COMMENT_BEGIN" ].format );
+        setFormat( index, length, hshRules.value( "CSS_COMMENT_BEGIN" ).format );
     }
 }
 
