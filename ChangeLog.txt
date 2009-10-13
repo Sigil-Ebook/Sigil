@@ -1,4 +1,5 @@
 Sigil v0.1.5 <ADD DATE>
+    - Linux and Mac builds should now be slightly faster becasue of new compiler optimizations
     - fixed issue with Sigil incorrectly loading (and therefore subsequently saving) "date"
     OPF elements with "event" attributes (issue 144)
 
