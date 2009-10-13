@@ -31,6 +31,16 @@ if( NOT APPLE )
    endif()
 endif()
 
+# Profiler configuration for GCC
+if( CMAKE_COMPILER_IS_GNUCXX  )
+    set( CMAKE_BUILD_TYPE profiling )
+    set( CMAKE_CXX_FLAGS_PROFILING "-O2 -DNDEBUG -pg -g -fno-omit-frame-pointer -fno-inline-functions -fno-inline-functions-called-once -fno-optimize-sibling-calls" )
+
+    # After creating the new build type,
+    # we clear the default back to empty
+    set( CMAKE_BUILD_TYPE  )
+endif()
+
 add_subdirectory( src/tidyLib )
 add_subdirectory( src/ZipArchive )
 add_subdirectory( src/Sigil )
