@@ -31,10 +31,6 @@ if( NOT APPLE )
    endif()
 endif()
 
-if( CMAKE_COMPILER_IS_GNUCXX  )
-    add_definitions( -O3 )
-endif()
-
 add_subdirectory( src/tidyLib )
 add_subdirectory( src/ZipArchive )
 add_subdirectory( src/Sigil )

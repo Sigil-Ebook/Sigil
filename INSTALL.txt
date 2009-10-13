@@ -80,7 +80,7 @@ a new folder OUTSIDE of the source distribution.
 Now navigate to that folder with a terminal. Then type in and run 
 the following:
 
-cmake -G "Unix Makefiles" /path/to/extracted/folder
+cmake -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release /path/to/extracted/folder
 make
 sudo make install
 
@@ -90,7 +90,7 @@ in ${CMAKE_INSTALL_PREFIX}/bin, with CMAKE_INSTALL_PREFIX defaulting to
 
 You can change the install location by running cmake like this:
 
-cmake -DCMAKE_INSTALL_PREFIX=/new/install/prefix -G "Unix Makefiles" /path/to/extracted/folder
+cmake -G "Unix Makefiles" -DCMAKE_INSTALL_PREFIX=/new/install/prefix -DCMAKE_BUILD_TYPE=Release /path/to/extracted/folder
 
 Aside from using the install target, you can also build a binary
 installer by invoking the "makeinstaller" build target.
