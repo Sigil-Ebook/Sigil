@@ -47,6 +47,14 @@ QList< QDomNode > XHTMLDoc::GetTagsInHead( const QString &source, const QString 
 // in the entire document of the provided XHTML source code
 QList< QDomNode > XHTMLDoc::GetTagsInDocument( const QString &source, const QString &tag_name )
 {
+    // TODO: This is painfully slow. Using the DOM approach
+    // for this on the whole document is a bad idea since we don't
+    // need the whole doc represented as a tree, and we are not going to
+    // change the doc. We just need the required elements and their
+    // attributes/values, so better to use a QXmlStreamReader that just streams
+    // through the doc and stores values in a new proprietary XML element struct.
+    // Same thing goes for GetTagsInHead.
+
     QDomDocument document;
     document.setContent( source );
 

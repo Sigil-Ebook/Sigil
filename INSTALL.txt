@@ -1,3 +1,7 @@
+***************************************************************
+The latest version of this document is always available here:
+    http://code.google.com/p/sigil/wiki/BuildingFromSource
+****************************************************************
 
 You will need CMake 2.6.0 or later on all platforms. You
 can download it from here:
