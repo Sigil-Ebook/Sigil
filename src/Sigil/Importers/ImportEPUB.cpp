@@ -350,8 +350,6 @@ void ImportEPUB::LoadSource()
 // Adds the header to the Book source code
 void ImportEPUB::AddHeaderToSource()
 {
-    // TODO: add title tag from metadata info
-
     QString header =    "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
                         "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\"\n"
                         "    \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n\n"							
