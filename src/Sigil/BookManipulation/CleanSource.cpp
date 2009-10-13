@@ -275,7 +275,7 @@ QString CleanSource::HTMLTidy( const QString &source )
     tidySetErrorBuffer( tidy_document, &errbuf );
 
     // Set the input
-    tidyParseString( tidy_document, source.toUtf8().data() );
+    tidyParseString( tidy_document, source.toUtf8().constData() );
 
     // GO BABY GO!
     tidyCleanAndRepair( tidy_document );
