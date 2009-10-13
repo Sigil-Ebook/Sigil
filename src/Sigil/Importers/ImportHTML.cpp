@@ -220,9 +220,12 @@ void ImportHTML::UpdateReferenceInNode( QDomNode node, const QHash< QString, QSt
 
     QDomNodeList children = node.childNodes();
 
+    QFutureSynchronizer< void > synchronizer;
+
     for ( int i = 0; i < children.count(); i++ )
     {
-        UpdateReferenceInNode( children.at( i ), updates );
+        synchronizer.addFuture( QtConcurrent::run(  this, &ImportHTML::UpdateReferenceInNode, 
+                                                    children.at( i ), updates ) );
     }
 }
 
