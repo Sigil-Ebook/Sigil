@@ -1,4 +1,5 @@
 Sigil v0.1.5 <ADD DATE>
+    - fixed an issue with words being merged on TXT import (issue #148)
     - various performance improvements through code profiling and parallelization
     - Linux and Mac builds should now be slightly faster because of new compiler optimizations
     - fixed issue with Sigil incorrectly loading (and therefore subsequently saving) "date"
@@ -47,7 +48,7 @@ Sigil v0.1.3 2009.09.02.
     to the same HTML element that held the caret in the first View (issue #8)
     - newlines are now removed from TOC headings to avoid rendering problems in ADE (issue #96)
     - Sigil now creates a unique book identifier (if one is not provided by the user)
-    using the UUID standard instead of a radnom sequence of characters and numbers;
+    using the UUID standard instead of a random sequence of characters and numbers;
     the old "SigilGEN" scheme is replaced with "UUID"
     - initial support for calibre interoperability (issue #94)
     - book updates from TOC editor are now faster and have a much smaller memory overhead

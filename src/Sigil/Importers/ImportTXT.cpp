@@ -70,12 +70,12 @@ QString ImportTXT::CreateParagraphs( const QStringList &lines ) const
     {
         if ( ( line.isEmpty() ) || ( line[ 0 ].isSpace() ) )
         {
-            text += paragraph + "</p>\n";
+            text.append( paragraph.append( "</p>\n" ) );
 
             paragraph = "<p>";
         }
 
-        paragraph += line;
+        paragraph.append( line.prepend( " " ) );
     }
 
     return text;
