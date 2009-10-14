@@ -224,8 +224,6 @@ QString CleanSource::HTMLTidy( const QString &source )
     // "clean"
     tidyOptSetBool( tidy_document, TidyMakeClean, yes );
 
-    tidyOptSetBool( tidy_document, TidyQuoteNbsp, no );
-
     // Turning these two options on produces ugly markup
     // from WYSIWYG actions... for now, it's better we turn it off.
 

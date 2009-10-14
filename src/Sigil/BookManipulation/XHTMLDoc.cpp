@@ -23,6 +23,12 @@
 #include "../BookManipulation/XHTMLDoc.h"
 #include <QDomDocument>
 
+static const QString XHTML_DOCTYPE = "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\"\n"
+                                     "    \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n\n"; 
+
+// Use with <QRegExp>.setMinimal(true)
+static const QString XML_DECLARATION = "(<\\?xml.+\\?>)";
+
 
 // Returns a list of XMLElements representing all
 // the elements of the specified tag name
@@ -110,8 +116,14 @@ QString XHTMLDoc::GetQDomNodeAsString( const QDomNode &node )
     stream.setCodec( "UTF-8" );
 
     node.save( stream, 1, QDomNode::EncodingFromTextStream );
+    document_text.remove( "&#xd;" );
 
-    return document_text.replace( "&#xd;", "" );   
+    QRegExp xml_declaration( XML_DECLARATION );
+    xml_declaration.setMinimal( true );
+
+    // We need to add the XHTML doctype so XML parsers
+    // don't flake-out on HTML character entities
+    return document_text.replace( xml_declaration, "\\1\n" + XHTML_DOCTYPE );     
 }
 
 
