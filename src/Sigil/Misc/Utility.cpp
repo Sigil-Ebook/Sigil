@@ -112,13 +112,13 @@ void Utility::CopyFiles( const QString &fullfolderpath_source, const QString &fu
 
 // Deletes the folder specified with fullfolderpath
 // and all the files (and folders, recursively) in it
-void Utility::DeleteFolderAndFiles( const QString &fullfolderpath )
+bool Utility::DeleteFolderAndFiles( const QString &fullfolderpath )
 {
     // Make sure the path exists, otherwise very
     // bad things could happen
     if ( !QFileInfo( fullfolderpath ).exists() )
 
-        return;
+        return false;
 
     QDir folder( fullfolderpath );
 
@@ -141,6 +141,21 @@ void Utility::DeleteFolderAndFiles( const QString &fullfolderpath )
 
     // Delete the folder after it's empty
     folder.rmdir( folder.absolutePath() );
+
+    return true;
+}
+
+// Deletes the specified file if it exists
+bool Utility::DeleteFile( const QString &fullfilepath )
+{
+    // Make sure the path exists, otherwise very
+    // bad things could happen
+    if ( !QFileInfo( fullfilepath ).exists() )
+
+        return false;
+
+    QFile file( fullfilepath );
+    return file.remove();
 }
 
 

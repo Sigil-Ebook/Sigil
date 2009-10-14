@@ -52,7 +52,9 @@ public:
 
     // Deletes the folder specified with fullfolderpath
     // and all the files (and folders, recursively) in it
-    static void DeleteFolderAndFiles( const QString &fullfolderpath );  
+    static bool DeleteFolderAndFiles( const QString &fullfolderpath ); 
+
+    static bool DeleteFile( const QString &fullfilepath );
 
     // Returns the full path to a new temporary folder;
     // the caller is responsible for creating and deleting the folder

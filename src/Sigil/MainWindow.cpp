@@ -1205,6 +1205,9 @@ bool MainWindow::SaveFile( const QString &filename )
 
     TidyUp();
 
+    // We delete the file if it exists
+    Utility::DeleteFile( filename );
+
     // If the file is not an SGF, 
     // we normalize the book before exporting
     if ( extension != "sgf" )
