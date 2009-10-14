@@ -300,7 +300,7 @@ const QTextCodec* ImportHTML::GetCodecForHTML( const QByteArray &raw_text ) cons
     // the 'http-equiv' attribute
     QString ascii_data = raw_text;
     ascii_data.replace( QRegExp( "<\\s*meta([^>]*)http-equiv=\"Content-Type\"([^>]*)>" ),
-                           "<meta http-equiv=\"Content-Type\" \\1 \\2>" );
+                                 "<meta http-equiv=\"Content-Type\" \\1 \\2>" );
 
     QTextCodec *locale_codec   = QTextCodec::codecForLocale();
     QTextCodec *detected_codec = QTextCodec::codecForHtml( ascii_data.toAscii(), QTextCodec::codecForLocale() ); 
@@ -352,7 +352,7 @@ QHash< QString, QString > ImportHTML::LoadFolderStructure()
 QHash< QString, QString > ImportHTML::LoadImages()
 {
     // "Normal" HTML image elements
-    QList< QDomNode > image_nodes = XHTMLDoc::GetTagsInDocument( m_Book.source, "img" );
+    QList< XHTMLDoc::XMLElement > image_nodes = XHTMLDoc::GetTagsInDocument( m_Book.source, "img" );
 
     // SVG image elements
     image_nodes.append( XHTMLDoc::GetTagsInDocument( m_Book.source, "image" ) );
@@ -360,18 +360,17 @@ QHash< QString, QString > ImportHTML::LoadImages()
     QStringList image_links;
 
     // Get a list of all images referenced
-    foreach( QDomNode node, image_nodes )
+    foreach( XHTMLDoc::XMLElement element, image_nodes )
     {
-        QDomElement element = node.toElement();
         QString url_reference;
 
-        if ( element.hasAttribute( "src" ) )
+        if ( element.attributes.contains( "src" ) )
 
-            url_reference = element.attribute( "src" );
+            url_reference = element.attributes.value( "src" );
 
         else // This covers the SVG "image" tags
 
-            url_reference = element.attribute( "xlink:href" );
+            url_reference = element.attributes.value( "xlink:href" );
         
         if ( !url_reference.isEmpty() )
 

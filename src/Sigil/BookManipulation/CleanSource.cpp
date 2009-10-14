@@ -110,17 +110,15 @@ QStringList CleanSource::CSSStyleTags( const QString &source )
 {
     QStringList css_style_tags;
 
-    QList< QDomNode > style_tag_nodes = XHTMLDoc::GetTagsInHead( source, "style" );
+    QList< XHTMLDoc::XMLElement > style_tag_nodes = XHTMLDoc::GetTagsInHead( source, "style" );
 
-    foreach( QDomNode node, style_tag_nodes )
+    foreach( XHTMLDoc::XMLElement element, style_tag_nodes )
     {
-        QDomElement element = node.toElement();
-
-        if (    element.hasAttribute( "type" ) && 
-              ( element.attribute( "type" ) == "text/css" ) 
+        if (    element.attributes.contains( "type" ) && 
+              ( element.attributes.value( "type" ) == "text/css" ) 
            )  
         {
-            css_style_tags.append( element.text() );
+            css_style_tags.append( element.text );
         }
     }
 
@@ -225,6 +223,8 @@ QString CleanSource::HTMLTidy( const QString &source )
 
     // "clean"
     tidyOptSetBool( tidy_document, TidyMakeClean, yes );
+
+    tidyOptSetBool( tidy_document, TidyQuoteNbsp, no );
 
     // Turning these two options on produces ugly markup
     // from WYSIWYG actions... for now, it's better we turn it off.
@@ -376,7 +376,7 @@ QString CleanSource::RemoveRedundantClassesSource( const QString &source, const 
         {
             QString matched = remove_old.cap( 0 );
 
-            matched.replace( key, redundant_classes[ key ] );
+            matched.replace( key, redundant_classes.value( key ) );
 
             newsource.replace( remove_old.cap( 0 ), matched );
         }

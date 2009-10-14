@@ -144,15 +144,13 @@ QStringList ExportEPUB::CreateStyleFiles()
 {
     QStringList style_files;
 
-    QList< QDomNode > style_tag_nodes = XHTMLDoc::GetTagsInHead( m_Book.source, "style" );
+    QList< XHTMLDoc::XMLElement > style_tag_nodes = XHTMLDoc::GetTagsInHead( m_Book.source, "style" );
 
-    foreach( QDomNode node, style_tag_nodes )
+    foreach( XHTMLDoc::XMLElement element, style_tag_nodes )
     {
-        QDomElement element = node.toElement();
-
         QString extension = "";
 
-        if ( element.attribute( "type" ) == "text/css" )  
+        if ( element.attributes.value( "type" )  == "text/css" )  
     
             extension = "css";
 
@@ -160,7 +158,7 @@ QStringList ExportEPUB::CreateStyleFiles()
 
             extension = "xpgt";
 
-        QString style_text = element.text();
+        QString style_text = element.text;
         style_text = RemoveSigilStyles( style_text );
         style_text = StripCDATA( style_text );
         style_text = style_text.trimmed();        

@@ -32,15 +32,29 @@ class XHTMLDoc
 
 public:
 
-    // Returns a list of QDomNodes representing all
+    struct XMLElement
+    {
+        // The name of the element
+        QString name;
+
+        // The text of the element
+        QString text;
+
+        // The attributes of the element;
+        // the keys are the attribute names,
+        // the values are the attribute values
+        QHash< QString, QString > attributes;
+    };
+
+    // Returns a list of XMLElements representing all
     // the elements of the specified tag name
     // in the head section of the provided XHTML source code
-    static QList< QDomNode > GetTagsInHead( const QString &source, const QString &tag_name  );
+    static QList< XMLElement > GetTagsInHead( const QString &source, const QString &tag_name  );
 
-    // Returns a list of QDomNodes representing all
+    // Returns a list of XMLElements representing all
     // the elements of the specified tag name
     // in the entire document of the provided XHTML source code
-    static QList< QDomNode > GetTagsInDocument( const QString &source, const QString &tag_name );
+    static QList< XMLElement > GetTagsInDocument( const QString &source, const QString &tag_name );
 
     // We need to remove the XML carriage returns ("&#xD" sequences)
     // that the default toString() method creates so we wrap it in this function
@@ -53,10 +67,9 @@ public:
 
 private:
 
-    // Returns a list of deeply copied QDomNodes
-    // from the specified QDomNodeList
-    static QList< QDomNode > DeepCopyNodeList( QDomNodeList node_list );
-
+    // Accepts a reference to an XML stream reader positioned on an XML element.
+    // Returns an XMLElement struct with the data in the stream.
+    static XMLElement CreateXMLElement( QXmlStreamReader &reader );
 };
 
 #endif // XHTMLDOC_H

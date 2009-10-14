@@ -23,42 +23,74 @@
 #include "../BookManipulation/XHTMLDoc.h"
 #include <QDomDocument>
 
-static const QString HEAD_ELEMENT = "<\\s*(?:head|HEAD)[^>]*>(.*)</\\s*(?:head|HEAD)[^>]*>";
 
-
-// Returns a list of QDomNodes representing all
+// Returns a list of XMLElements representing all
 // the elements of the specified tag name
 // in the head section of the provided XHTML source code
-QList< QDomNode > XHTMLDoc::GetTagsInHead( const QString &source, const QString &tag_name )
+QList< XHTMLDoc::XMLElement > XHTMLDoc::GetTagsInHead( const QString &source, const QString &tag_name )
 {
-    QRegExp head_element( HEAD_ELEMENT );
+    QXmlStreamReader reader( source );
 
-    source.contains( head_element );
+    bool in_head = false;
 
-    QDomDocument document;
-    document.setContent( head_element.cap( 0 ) );
-   
-    return DeepCopyNodeList( document.elementsByTagName( tag_name ) );
+    QList< XMLElement > matching_elements;
+
+    while ( !reader.atEnd() ) 
+    {
+        QXmlStreamReader::TokenType type = reader.readNext();
+
+        if ( type == QXmlStreamReader::StartElement ) 
+        {
+            if ( reader.name() == "head" || reader.name() == "HEAD" )
+            
+                in_head = true;            
+
+            else if ( in_head && reader.name() == tag_name )
+            
+                matching_elements.append( CreateXMLElement( reader ) );
+        }
+
+        else if (    type == QXmlStreamReader::EndElement &&
+                    ( reader.name() == "head" || reader.name() == "HEAD" )
+                )
+        {
+            break;        
+        }
+    }
+
+    if ( reader.hasError() )
+    {
+        // TODO: error handling
+    }
+    
+    return matching_elements;
 }
 
 
-// Returns a list of QDomNodes representing all
+// Returns a list of XMLElements representing all
 // the elements of the specified tag name
 // in the entire document of the provided XHTML source code
-QList< QDomNode > XHTMLDoc::GetTagsInDocument( const QString &source, const QString &tag_name )
+QList< XHTMLDoc::XMLElement > XHTMLDoc::GetTagsInDocument( const QString &source, const QString &tag_name )
 {
-    // TODO: This is painfully slow. Using the DOM approach
-    // for this on the whole document is a bad idea since we don't
-    // need the whole doc represented as a tree, and we are not going to
-    // change the doc. We just need the required elements and their
-    // attributes/values, so better to use a QXmlStreamReader that just streams
-    // through the doc and stores values in a new proprietary XML element struct.
-    // Same thing goes for GetTagsInHead.
+    QXmlStreamReader reader( source );
 
-    QDomDocument document;
-    document.setContent( source );
+    QList< XMLElement > matching_elements;
 
-    return DeepCopyNodeList( document.elementsByTagName( tag_name ) );
+    while ( !reader.atEnd() ) 
+    {
+        QXmlStreamReader::TokenType type = reader.readNext();
+
+        if ( ( type == QXmlStreamReader::StartElement ) && ( reader.name() == tag_name ) ) 
+ 
+            matching_elements.append( CreateXMLElement( reader ) );        
+    }
+
+    if ( reader.hasError() )
+    {
+        // TODO: error handling
+    }
+
+    return matching_elements;
 }
 
 
@@ -99,18 +131,21 @@ QDomNode XHTMLDoc::RemoveChildren( QDomNode node )
 }
 
 
-// Returns a list of deeply copied QDomNodes
-// from the specified QDomNodeList
-QList< QDomNode > XHTMLDoc::DeepCopyNodeList( QDomNodeList node_list )
+// Accepts a reference to an XML stream reader positioned on an XML element.
+// Returns an XMLElement struct with the data in the stream.
+XHTMLDoc::XMLElement XHTMLDoc::CreateXMLElement( QXmlStreamReader &reader )
 {
-    QList< QDomNode > new_node_list;
+    XMLElement element;
 
-    for ( int i = 0; i < node_list.count(); i++ )
+    foreach( QXmlStreamAttribute attribute, reader.attributes() )
     {
-        new_node_list.append( node_list.at( i ).cloneNode() );
+        element.attributes[ attribute.name().toString() ] = attribute.value().toString();
     }
 
-    return new_node_list;
+    element.name = reader.name().toString();
+    element.text = reader.readElementText();
+
+    return element; 
 }
 
 

@@ -104,6 +104,8 @@ void TOCEditor::ChangeDisplayType(  int new_check_state  )
 // with the new information on headings
 void TOCEditor::UpdateBookSource()
 {
+    // TODO: Replace with a QDom traversing parallel version
+
     QRegExp heading_regex( HEADING );
     heading_regex.setMinimal( true );
 
