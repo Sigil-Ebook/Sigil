@@ -179,10 +179,15 @@ void ImportEPUB::ReadOPF()
                     meta.attributes[ attribute.name().toString() ] = attribute.value().toString();
                 }
 
-                meta.name   = opf.name().toString();
-                meta.value  = opf.readElementText();
+                meta.name = opf.name().toString();
 
-                m_MetaElements.append( meta );
+                QString element_text = opf.readElementText();
+                meta.value = element_text;
+
+                // Empty metadata entries
+                if ( !element_text.isEmpty() )
+
+                    m_MetaElements.append( meta );
             }
 
             // Get the list of content files that
@@ -263,6 +268,11 @@ void ImportEPUB::LoadMetadata()
             {
                 if ( date_parts.count() < 2 )
                 {
+                    if ( date_parts.count() < 1 )
+                    {
+                        date_parts.append( QString::number( QDate::currentDate().year() ) );
+                    }
+
                     date_parts.append( "01" );
                 }
                 
