@@ -187,7 +187,7 @@ if ( MSVC )
     list( APPEND MAIN_FILES stdafx.cpp )
 endif()
 
-# Adds folders for Visual Studio solution explorer
+# Adds folders for Visual Studio solution explorer (and for Xcode explorer)
 source_group( "Generated"         FILES ${MOC_FILES_CPP} ${UI_FILES_H} ${QRC_FILES_CPP} )
 source_group( "Forms"             FILES ${UI_FILES} )
 source_group( "Resources"         FILES ${QRC_FILES} )
@@ -218,8 +218,10 @@ if( APPLE )
     exec_program( "cp ${PROJECT_SOURCE_DIR}/Resource_Files/icon/sgf.icns ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Sigil.app/Contents/Resources")
     exec_program( "cp ${PROJECT_SOURCE_DIR}/Resource_Files/icon/epub.icns ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Sigil.app/Contents/Resources")
 
-    # Copy the PLIST file and set the Sigil version string
+    # Copy the PLIST file...
     exec_program( "cp ${PROJECT_SOURCE_DIR}/Resource_Files/mac/MacOSXBundleInfo.plist ${PROJECT_BINARY_DIR}")
+    
+    # ...and set the Sigil version string
     exec_program( "sed -i -e 's/SGVERSION/${SIGIL_FULL_VERSION}/g' ${PROJECT_BINARY_DIR}/MacOSXBundleInfo.plist")
 endif()
 
@@ -288,7 +290,7 @@ else()
         endif()
     endif()
     
-    # Run InstallJammer (after all the PRE_BUILD custom commands execute)
+    # Run InstallJammer (*AFTER* all the PRE_BUILD custom commands execute)
     add_custom_target(  makeinstaller 
                         COMMAND cmake -E echo "For this to work, InstallJammer needs to be installed and on the system path."
                         COMMAND installjammer   -DBaseDir ${MAIN_PACKAGE_DIR}  
@@ -306,6 +308,7 @@ else()
     # can be added directly, but on other generators we need an intermediate target
     # since the PRE_BUILD condition is not supported. Using the intermediate for
     # MSVC makes it unnecessarily recompile that target every time the project is built.
+    # So we use the direct way on MSVC, and the intemediate way for other generators.
     if( MSVC )
         set( TARGET_FOR_COPY makeinstaller )
         add_dependencies( makeinstaller ${PROJECT_NAME} )
@@ -386,7 +389,7 @@ else()
     add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD 
                         COMMAND cmake -E copy ${PROJECT_SOURCE_DIR}/Resource_Files/icon/app_icon_48.png ${MAIN_PACKAGE_DIR}/misc/ )
                         
-    # Copy the SGF ICO file (used)
+    # Copy the SGF ICO file (used on Windows as the SGF file type icon)
     add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD 
                         COMMAND cmake -E copy ${PROJECT_SOURCE_DIR}/Resource_Files/icon/sgf.ico ${MAIN_PACKAGE_DIR}/misc/ )
                         

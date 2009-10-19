@@ -195,7 +195,7 @@ void ImportHTML::UpdateHTMLReferences( const QHash< QString, QString > updates )
 // of the one specified node in the HTML.
 // Accepts a hash with keys being old references (URLs) to resources,
 // and values being the new references to those resources.
-void ImportHTML::UpdateReferenceInNode( QDomNode node, const QHash< QString, QString > updates ) const
+void ImportHTML::UpdateReferenceInNode( QDomNode node, const QHash< QString, QString > updates )
 {
     QDomNamedNodeMap attributes = node.attributes();
 
@@ -224,7 +224,7 @@ void ImportHTML::UpdateReferenceInNode( QDomNode node, const QHash< QString, QSt
 
     for ( int i = 0; i < children.count(); i++ )
     {
-        synchronizer.addFuture( QtConcurrent::run(  this, &ImportHTML::UpdateReferenceInNode, 
+        synchronizer.addFuture( QtConcurrent::run(  ImportHTML::UpdateReferenceInNode, 
                                                     children.at( i ), updates ) );
     }
 }

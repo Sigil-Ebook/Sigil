@@ -54,6 +54,7 @@ public:
     // and all the files (and folders, recursively) in it
     static bool DeleteFolderAndFiles( const QString &fullfolderpath ); 
 
+    // Deletes the specified file if it exists
     static bool DeleteFile( const QString &fullfilepath );
 
     // Returns the full path to a new temporary folder;
