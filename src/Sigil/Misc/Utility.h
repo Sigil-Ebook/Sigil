@@ -36,6 +36,10 @@ public:
     // Returns a random string of length characters
     static QString GetRandomString( int length );
 
+    // Returns true if the string is mixed case, false otherwise.
+    // For instance, "test" and "TEST" return false, "teSt" returns true.
+    static bool IsMixedCase( const QString &string );
+
     // Returns a substring of a specified string;
     // the characters included are in the interval: 
     // [ start_index, end_index >

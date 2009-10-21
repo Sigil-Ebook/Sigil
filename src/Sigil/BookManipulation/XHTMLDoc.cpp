@@ -21,6 +21,7 @@
 
 #include <stdafx.h>
 #include "../BookManipulation/XHTMLDoc.h"
+#include "../Misc/Utility.h"
 #include <QDomDocument>
 
 static const QString XHTML_DOCTYPE = "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\"\n"
@@ -151,7 +152,16 @@ XHTMLDoc::XMLElement XHTMLDoc::CreateXMLElement( QXmlStreamReader &reader )
 
     foreach( QXmlStreamAttribute attribute, reader.attributes() )
     {
-        element.attributes[ attribute.name().toString() ] = attribute.value().toString();
+        QString attribute_name = attribute.name().toString();
+
+        // We convert non-mixed case attribute names to lower case;
+        // simplifies things later on so we for instance don't
+        // have to check for both "src" and "SRC". 
+        if ( !Utility::IsMixedCase( attribute_name ) )
+        
+            attribute_name = attribute_name.toLower();        
+
+        element.attributes[ attribute_name ] = attribute.value().toString();
     }
 
     element.name = reader.name().toString();

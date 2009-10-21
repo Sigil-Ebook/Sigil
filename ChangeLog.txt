@@ -1,5 +1,6 @@
 Sigil v0.1.5 <ADD DATE>
-    - tentatively fixed an issue with Sigil crashing on overwriting existing epubs (issue 146)
+    - fixed an issue with loading images from documents with uppercase tags and attributes (issue #156)
+    - tentatively fixed an issue with Sigil crashing on overwriting existing epubs (issue #146)
     - fixed an issue with Sigil crashing on epubs with "date" OPF elements but no value set
     for those elements (InDesign CS4 creates such invalid epubs) (issue #149)
     - fixed an issue with words being merged on TXT import (issue #148)
