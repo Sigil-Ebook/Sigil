@@ -187,6 +187,9 @@ void ImportHTML::UpdateHTMLReferences( const QHash< QString, QString > updates )
 
     UpdateReferenceInNode( document.documentElement(), updates );
 
+    // We wait until all the nodes are updated
+    m_NodeUpdateSynchronizer.waitForFinished();
+
     m_Book.source = XHTMLDoc::GetQDomNodeAsString( document );
 }
 
@@ -220,12 +223,16 @@ void ImportHTML::UpdateReferenceInNode( QDomNode node, const QHash< QString, QSt
 
     QDomNodeList children = node.childNodes();
 
-    QFutureSynchronizer< void > synchronizer;
+    // We used to have a new synchronizer here that would monitor
+    // the calls on its children, but that proved inefficient.
+    // So we use a class global sync that waits for all nodes.
+    
+    QMutexLocker locker( &m_SynchronizerMutex );
 
     for ( int i = 0; i < children.count(); i++ )
-    {
-        synchronizer.addFuture( QtConcurrent::run(  ImportHTML::UpdateReferenceInNode, 
-                                                    children.at( i ), updates ) );
+    {        
+        m_NodeUpdateSynchronizer.addFuture( QtConcurrent::run(  this, &ImportHTML::UpdateReferenceInNode, 
+                                                                children.at( i ), updates ) );
     }
 }
 

@@ -25,6 +25,8 @@
 
 #include "ImportTXT.h"
 #include "../BookManipulation/FolderKeeper.h"
+#include <QMutex>
+#include <QFutureSynchronizer>
 
 class QDomNode;
 
@@ -72,7 +74,7 @@ private:
     // of the one specified node in the HTML.
     // Accepts a hash with keys being old references (URLs) to resources,
     // and values being the new references to those resources.
-    static void UpdateReferenceInNode( QDomNode node, const QHash< QString, QString > updates );
+    void UpdateReferenceInNode( QDomNode node, const QHash< QString, QString > updates );
 
     // Updates the resource references in the CSS.
     // Accepts a hash with keys being old references (URLs) to resources,
@@ -99,6 +101,14 @@ private:
 
     // Loads style files from link tags to style tags
     void LoadStyleFiles();
+
+    // This synchronizer is used to wait for all
+    // the HTML node updates to finish beforre moving on
+    QFutureSynchronizer< void > m_NodeUpdateSynchronizer;
+    
+    // The mutex used for locking access
+    // to the QFuture synchronizer
+    QMutex m_SynchronizerMutex;
 };
 
 #endif // IMPORTHTML_H
