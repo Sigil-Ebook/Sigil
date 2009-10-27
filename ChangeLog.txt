@@ -1,4 +1,5 @@
 Sigil v0.1.5 <ADD DATE>
+    - multiple images can now be inserted with the "Insert Image" dialog by selecting multiple images 
     - fixed an issue with loading images from documents with uppercase tags and attributes (issue #156)
     - tentatively fixed an issue with Sigil crashing on overwriting existing epubs (issue #146)
     - fixed an issue with Sigil crashing on epubs with "date" OPF elements but no value set

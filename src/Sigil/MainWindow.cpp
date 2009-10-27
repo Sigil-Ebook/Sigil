@@ -582,22 +582,25 @@ void MainWindow::InsertChapterBreak()
 // Implements Insert image action functionality
 void MainWindow::InsertImage()
 {
-    QString filename = QFileDialog::getOpenFileName(    this, 
-                                                        tr( "Insert Image" ), 
-                                                        m_LastFolderImage, 
-                                                        tr( "Images (*.png *.jpg *.jpeg *.gif *.svg)")
-                                                   );
+    QStringList filenames = QFileDialog::getOpenFileNames(  this, 
+                                                            tr( "Insert Image(s)" ), 
+                                                            m_LastFolderImage, 
+                                                            tr( "Images (*.png *.jpg *.jpeg *.gif *.svg)")
+                                                         );
 
-    if ( filename.isEmpty() )
+    if ( filenames.isEmpty() )
 
         return;
 
     // Store the folder the user inserted the image from
-    m_LastFolderImage = QFileInfo( filename ).absolutePath();
+    m_LastFolderImage = QFileInfo( filenames.first() ).absolutePath();
 
-    QString relative_path = "../" + m_Book.mainfolder.AddContentFileToFolder( filename );
+    foreach( QString filename, filenames )
+    {
+        QString relative_path = "../" + m_Book.mainfolder.AddContentFileToFolder( filename );
 
-    m_wBookView->ExecCommand( "insertImage", relative_path );
+        m_wBookView->ExecCommand( "insertImage", relative_path );
+    }    
 
     RemoveAppleClasses();
 }
