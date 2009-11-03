@@ -238,16 +238,15 @@ QVariant BookViewEditor::EvaluateJavascript( const QString &javascript )
 // returns true if update was performed
 bool BookViewEditor::ExecuteCaretUpdate()
 {
-    // If there is no caret location update
-    // pending, 
+    // If there is no caret location update pending... 
     if ( m_CaretLocationUpdate.isEmpty() )
         
         return false;
 
-    // ... run it...
+    // run it...
     EvaluateJavascript( m_CaretLocationUpdate );
 
-    // ... and clear the update.
+    // ...and clear the update.
     m_CaretLocationUpdate = ""; 
 
     return true;

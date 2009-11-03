@@ -57,7 +57,7 @@ QStringList MainWindow::m_RecentFiles = QStringList();
 // Constructor.
 // The first argument is the path to the file that the window
 // should load (new file loaded if empty); the second is the
-// windows parent; the third specifies the flags used to modify window behaviour
+// window's parent; the third specifies the flags used to modify window behaviour
 MainWindow::MainWindow( const QString &openfilepath, QWidget *parent, Qt::WFlags flags )
     : 
     QMainWindow( parent, flags ),
