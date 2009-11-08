@@ -203,11 +203,17 @@ ThemeDir
 ThemeVersion
 {1}
 
+UnixSigilWorkDir
+{<%Home%>/.Sigil}
+
 UpgradeApplicationID
 {}
 
 Version
 {<%SGMajorVersion%>.<%SGMinorVersion%>.<%SGRevisionVersion%>}
+
+WinSigilWorkDir
+{<%Home%>/My Documents/Sigil}
 
 WizardHeight
 {365}
@@ -377,6 +383,12 @@ Condition AF397A13-B7C8-4ADB-AB44-5A38B69730AB -active Yes -parent 50C7F450-BE4A
 InstallComponent 94F9ED77-8E9E-4DB9-9141-80952EE56AAC -setup Uninstall -type actiongroup -title {Uninstall Actions} -alias {Uninstall Actions} -active Yes -parent ActionGroupsUninstall
 InstallComponent 40BB42CF-1759-4B2A-950E-6893DCDD869A -setup Uninstall -type action -title {Uninstall Selected Files} -component UninstallSelectedFiles -active Yes -parent 94F9ED77-8E9E-4DB9-9141-80952EE56AAC
 InstallComponent 2B9BF0B4-624E-F61C-CAAB-651DE8250532 -setup Uninstall -type action -title {Uninstall Leftover Files} -component UninstallLeftoverFiles -active Yes -parent 94F9ED77-8E9E-4DB9-9141-80952EE56AAC
+InstallComponent 799B3D1E-15C7-CB14-9DC2-0EB229FAEFA7 -setup Uninstall -type action -conditions {A5C58950-D323-A383-F323-D70ABF9BD8F6 946E5FB5-1EC9-AB74-EAD4-044FB971B13A} -title {Unix Delete Sigil Workdir} -component DeleteFile -command reorder -alias {Unix Delete Sigil Workdir} -active Yes -parent 94F9ED77-8E9E-4DB9-9141-80952EE56AAC
+Condition A5C58950-D323-A383-F323-D70ABF9BD8F6 -active Yes -parent 799B3D1E-15C7-CB14-9DC2-0EB229FAEFA7 -title {Platform Condition} -component PlatformCondition -TreeObject::id A5C58950-D323-A383-F323-D70ABF9BD8F6
+Condition 946E5FB5-1EC9-AB74-EAD4-044FB971B13A -active Yes -parent 799B3D1E-15C7-CB14-9DC2-0EB229FAEFA7 -title {File Exists Condition} -component FileExistsCondition -TreeObject::id 946E5FB5-1EC9-AB74-EAD4-044FB971B13A
+InstallComponent CC2DA0CF-CBB4-78CF-A4F0-8A42A0E6C32C -setup Uninstall -type action -conditions {FDF957EC-F0D0-FDF2-2CE2-01BDF4F7139C D3E8C8FB-09E3-5761-9A5C-A2861F6B1C2E} -title {Windows Delete Sigil Workdir} -component DeleteFile -command reorder -alias {Windows Delete Sigil Workdir} -active Yes -parent 94F9ED77-8E9E-4DB9-9141-80952EE56AAC
+Condition FDF957EC-F0D0-FDF2-2CE2-01BDF4F7139C -active Yes -parent CC2DA0CF-CBB4-78CF-A4F0-8A42A0E6C32C -title {File Exists Condition} -component FileExistsCondition -TreeObject::id FDF957EC-F0D0-FDF2-2CE2-01BDF4F7139C
+Condition D3E8C8FB-09E3-5761-9A5C-A2861F6B1C2E -active Yes -parent CC2DA0CF-CBB4-78CF-A4F0-8A42A0E6C32C -title {Platform Condition} -component PlatformCondition -TreeObject::id D3E8C8FB-09E3-5761-9A5C-A2861F6B1C2E
 InstallComponent 9FEE424C-2ABA-DF21-C079-01EC1234B222 -setup Uninstall -type action -conditions EB01D5A6-27F6-BA79-FFD4-92F959002A54 -title {Delete Path Shortcut} -component DeleteFile -command insert -active Yes -parent 94F9ED77-8E9E-4DB9-9141-80952EE56AAC
 Condition EB01D5A6-27F6-BA79-FFD4-92F959002A54 -active Yes -parent 9FEE424C-2ABA-DF21-C079-01EC1234B222 -title {Platform Condition} -component PlatformCondition -TreeObject::id EB01D5A6-27F6-BA79-FFD4-92F959002A54
 InstallComponent 6418E39B-B8CC-471A-9AF6-1E292A1E62C7 -setup Uninstall -type actiongroup -title {Finish Actions} -alias {Finish Actions} -active Yes -parent ActionGroupsUninstall
@@ -923,6 +935,15 @@ array set Properties {
 77054598-ADC9-4083-922A-5F30158C3CC8,Conditions
 {0 conditions}
 
+799B3D1E-15C7-CB14-9DC2-0EB229FAEFA7,Alias
+{Unix Delete Sigil Workdir}
+
+799B3D1E-15C7-CB14-9DC2-0EB229FAEFA7,Conditions
+{2 conditions}
+
+799B3D1E-15C7-CB14-9DC2-0EB229FAEFA7,Files
+{<%UnixSigilWorkDir%>}
+
 7AB0B2C5-6A29-48FC-ABB9-80A32A99542C,Conditions
 {0 conditions}
 
@@ -1037,6 +1058,12 @@ array set Properties {
 8FF009C0-6AAD-49AF-95F5-C6595B7D0637,Prompt
 {<%UninstallStartupText%>}
 
+946E5FB5-1EC9-AB74-EAD4-044FB971B13A,CheckCondition
+{Before Action is Executed}
+
+946E5FB5-1EC9-AB74-EAD4-044FB971B13A,Filename
+{<%UnixSigilWorkDir%>}
+
 94F9ED77-8E9E-4DB9-9141-80952EE56AAC,Alias
 {Uninstall Actions}
 
@@ -1138,6 +1165,15 @@ A2D499E0-F85F-4141-999A-74312B2B85A5,Operator
 
 A2D499E0-F85F-4141-999A-74312B2B85A5,String
 {<%UpgradeInstall%>}
+
+A5C58950-D323-A383-F323-D70ABF9BD8F6,CheckCondition
+{Before Action is Executed}
+
+A5C58950-D323-A383-F323-D70ABF9BD8F6,Operator
+{is not}
+
+A5C58950-D323-A383-F323-D70ABF9BD8F6,Platform
+{Windows}
 
 A69C23B6-851D-42C0-A397-D0E5C12AF934,CheckCondition
 {Before Action is Executed}
@@ -1316,6 +1352,15 @@ CA947072-8359-4484-93C0-182E546057A1,CheckCondition
 CA947072-8359-4484-93C0-182E546057A1,String
 {<%CreateDesktopShortcut%>}
 
+CC2DA0CF-CBB4-78CF-A4F0-8A42A0E6C32C,Alias
+{Windows Delete Sigil Workdir}
+
+CC2DA0CF-CBB4-78CF-A4F0-8A42A0E6C32C,Conditions
+{2 conditions}
+
+CC2DA0CF-CBB4-78CF-A4F0-8A42A0E6C32C,Files
+{<%WinSigilWorkDir%>}
+
 CECA89B6-9042-40EC-B88C-099CADA35BDA,Conditions
 {2 conditions}
 
@@ -1359,6 +1404,12 @@ D3A5EEA0-9E74-723F-88EC-EE887CA3B612,CheckCondition
 {Before Action is Executed}
 
 D3A5EEA0-9E74-723F-88EC-EE887CA3B612,Platform
+{Windows}
+
+D3E8C8FB-09E3-5761-9A5C-A2861F6B1C2E,CheckCondition
+{Before Action is Executed}
+
+D3E8C8FB-09E3-5761-9A5C-A2861F6B1C2E,Platform
 {Windows}
 
 D463513F-79C7-4E8F-9C7A-D8C1B3D0C86A,Comment
@@ -1492,6 +1543,12 @@ FD1B489A-7F39-493F-A85F-66EC07AD0788,Operator
 
 FD1B489A-7F39-493F-A85F-66EC07AD0788,String
 {<%UpgradeInstall%>}
+
+FDF957EC-F0D0-FDF2-2CE2-01BDF4F7139C,CheckCondition
+{Before Action is Executed}
+
+FDF957EC-F0D0-FDF2-2CE2-01BDF4F7139C,Filename
+{<%WinSigilWorkDir%>}
 
 FreeBSD-4-x86,Active
 {No}
