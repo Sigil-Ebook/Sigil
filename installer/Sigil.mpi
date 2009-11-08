@@ -213,7 +213,7 @@ Version
 {<%SGMajorVersion%>.<%SGMinorVersion%>.<%SGRevisionVersion%>}
 
 WinSigilWorkDir
-{<%Home%>/My Documents/Sigil}
+{<%MYDOCUMENTS%>/Sigil}
 
 WizardHeight
 {365}
@@ -383,10 +383,10 @@ Condition AF397A13-B7C8-4ADB-AB44-5A38B69730AB -active Yes -parent 50C7F450-BE4A
 InstallComponent 94F9ED77-8E9E-4DB9-9141-80952EE56AAC -setup Uninstall -type actiongroup -title {Uninstall Actions} -alias {Uninstall Actions} -active Yes -parent ActionGroupsUninstall
 InstallComponent 40BB42CF-1759-4B2A-950E-6893DCDD869A -setup Uninstall -type action -title {Uninstall Selected Files} -component UninstallSelectedFiles -active Yes -parent 94F9ED77-8E9E-4DB9-9141-80952EE56AAC
 InstallComponent 2B9BF0B4-624E-F61C-CAAB-651DE8250532 -setup Uninstall -type action -title {Uninstall Leftover Files} -component UninstallLeftoverFiles -active Yes -parent 94F9ED77-8E9E-4DB9-9141-80952EE56AAC
-InstallComponent 799B3D1E-15C7-CB14-9DC2-0EB229FAEFA7 -setup Uninstall -type action -conditions {A5C58950-D323-A383-F323-D70ABF9BD8F6 946E5FB5-1EC9-AB74-EAD4-044FB971B13A} -title {Unix Delete Sigil Workdir} -component DeleteFile -command reorder -alias {Unix Delete Sigil Workdir} -active Yes -parent 94F9ED77-8E9E-4DB9-9141-80952EE56AAC
+InstallComponent 799B3D1E-15C7-CB14-9DC2-0EB229FAEFA7 -setup Uninstall -type action -conditions {A5C58950-D323-A383-F323-D70ABF9BD8F6 946E5FB5-1EC9-AB74-EAD4-044FB971B13A} -title {Unix Delete Sigil Workdir} -component DeleteFile -command insert -alias {Unix Delete Sigil Workdir} -active Yes -parent 94F9ED77-8E9E-4DB9-9141-80952EE56AAC
 Condition A5C58950-D323-A383-F323-D70ABF9BD8F6 -active Yes -parent 799B3D1E-15C7-CB14-9DC2-0EB229FAEFA7 -title {Platform Condition} -component PlatformCondition -TreeObject::id A5C58950-D323-A383-F323-D70ABF9BD8F6
 Condition 946E5FB5-1EC9-AB74-EAD4-044FB971B13A -active Yes -parent 799B3D1E-15C7-CB14-9DC2-0EB229FAEFA7 -title {File Exists Condition} -component FileExistsCondition -TreeObject::id 946E5FB5-1EC9-AB74-EAD4-044FB971B13A
-InstallComponent CC2DA0CF-CBB4-78CF-A4F0-8A42A0E6C32C -setup Uninstall -type action -conditions {FDF957EC-F0D0-FDF2-2CE2-01BDF4F7139C D3E8C8FB-09E3-5761-9A5C-A2861F6B1C2E} -title {Windows Delete Sigil Workdir} -component DeleteFile -command reorder -alias {Windows Delete Sigil Workdir} -active Yes -parent 94F9ED77-8E9E-4DB9-9141-80952EE56AAC
+InstallComponent CC2DA0CF-CBB4-78CF-A4F0-8A42A0E6C32C -setup Uninstall -type action -conditions {FDF957EC-F0D0-FDF2-2CE2-01BDF4F7139C D3E8C8FB-09E3-5761-9A5C-A2861F6B1C2E} -title {Windows Delete Sigil Workdir} -component DeleteFile -command insert -alias {Windows Delete Sigil Workdir} -active Yes -parent 94F9ED77-8E9E-4DB9-9141-80952EE56AAC
 Condition FDF957EC-F0D0-FDF2-2CE2-01BDF4F7139C -active Yes -parent CC2DA0CF-CBB4-78CF-A4F0-8A42A0E6C32C -title {File Exists Condition} -component FileExistsCondition -TreeObject::id FDF957EC-F0D0-FDF2-2CE2-01BDF4F7139C
 Condition D3E8C8FB-09E3-5761-9A5C-A2861F6B1C2E -active Yes -parent CC2DA0CF-CBB4-78CF-A4F0-8A42A0E6C32C -title {Platform Condition} -component PlatformCondition -TreeObject::id D3E8C8FB-09E3-5761-9A5C-A2861F6B1C2E
 InstallComponent 9FEE424C-2ABA-DF21-C079-01EC1234B222 -setup Uninstall -type action -conditions EB01D5A6-27F6-BA79-FFD4-92F959002A54 -title {Delete Path Shortcut} -component DeleteFile -command insert -active Yes -parent 94F9ED77-8E9E-4DB9-9141-80952EE56AAC
