@@ -1,4 +1,6 @@
 Sigil v0.1.5 <ADD DATE>
+    - removed the "Start Sigil" checkbox in the last page of the installer; starting Sigil like this
+    was causing problems because Sigil had admin privileges (issue #163)
     - fixed an issue with chapter breaks not working after they are Left/Center/Right Aligned (issue #158)
     - multiple images can now be inserted with the "Insert Image" dialog by selecting multiple images 
     - fixed an issue with loading images from documents with uppercase tags and attributes (issue #156)
