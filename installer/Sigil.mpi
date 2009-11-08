@@ -1887,7 +1887,7 @@ Linux-x86,DefaultFilePermission
 {0755}
 
 Linux-x86,Executable
-{<%AppName%>-<%Version%>-<%Platform%>-Install<%Ext%>.bin}
+{<%AppName%>-<%Version%>-<%Platform%>-Setup.bin}
 
 Linux-x86,FallBackToConsole
 {Yes}
@@ -1941,7 +1941,7 @@ Linux-x86_64,DefaultFilePermission
 {0755}
 
 Linux-x86_64,Executable
-{<%AppName%>-<%Version%>-<%Platform%>-Install<%Ext%>.bin}
+{<%AppName%>-<%Version%>-<%Platform%>-Setup.bin}
 
 Linux-x86_64,FallBackToConsole
 {Yes}
