@@ -42,6 +42,9 @@ public:
     // is being edited, the second is the dialog's parent
     TOCEditor( Book &book, QWidget *parent = 0 );
 
+    // Destructor
+    ~TOCEditor();
+
 private slots:
 
     // We need to filter the calls to functions that would normally
@@ -88,6 +91,14 @@ private:
     // that are not to be included in the TOC; the children
     // of those items rise to their parent's hierarchy level
     void RemoveExcludedItems( QStandardItem *item );
+
+    // Reads all the stored dialog settings like
+    // window position, geometry etc.
+    void ReadSettings();
+
+    // Writes all the stored dialog settings like
+    // window position, geometry etc.
+    void WriteSettings();
 
 
     ///////////////////////////////
