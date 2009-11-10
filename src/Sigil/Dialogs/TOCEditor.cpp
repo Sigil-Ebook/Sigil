@@ -24,7 +24,8 @@
 #include "../BookManipulation/Book.h"
 #include "../Misc/Utility.h"
 
-static const int FIRST_COLUMN_PADDING    = 30;
+static const QString SETTINGS_GROUP   = "toc_editor";
+static const int FIRST_COLUMN_PADDING = 30;
 
 // Constructor;
 // the first parameter is the book whose TOC
@@ -59,6 +60,14 @@ TOCEditor::TOCEditor( Book &book, QWidget *parent )
         RemoveExcludedItems( m_TableOfContents.invisibleRootItem() );
 
     UpdateTreeViewDisplay();
+    ReadSettings();
+}
+
+
+// Destructor
+TOCEditor::~TOCEditor()
+{
+    WriteSettings();
 }
 
 
@@ -332,6 +341,32 @@ void TOCEditor::RemoveExcludedItems( QStandardItem *item )
         // Item removes itself
         item_parent->removeRow( item->row() );
     }
+}
+
+// Reads all the stored dialog settings like
+// window position, geometry etc.
+void TOCEditor::ReadSettings()
+{
+    QSettings settings;
+    settings.beginGroup( SETTINGS_GROUP );
+
+    // The size of the window and it's full screen status
+    QByteArray geometry = settings.value( "geometry" ).toByteArray();
+
+    if ( !geometry.isNull() )
+    
+        restoreGeometry( geometry );
+}
+
+// Writes all the stored dialog settings like
+// window position, geometry etc.
+void TOCEditor::WriteSettings()
+{
+    QSettings settings;
+    settings.beginGroup( SETTINGS_GROUP );
+
+    // The size of the window and it's full screen status
+    settings.setValue( "geometry", saveGeometry() );
 }
 
 
