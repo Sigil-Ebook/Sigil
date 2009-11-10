@@ -29,6 +29,7 @@
 #include "Dialogs/MetaEditor.h"
 #include "Dialogs/About.h"
 #include "Dialogs/TOCEditor.h"
+#include "Dialogs/FindReplace.h"
 #include "Importers/ImporterFactory.h"
 #include "Exporters/ExporterFactory.h"
 #include "BookManipulation/BookNormalization.h"
@@ -354,6 +355,40 @@ void MainWindow::Paste()
     else if ( m_wCodeView->hasFocus() )
     {
         m_wCodeView->paste();
+    }
+}
+
+
+// Implements Find action functionality
+void MainWindow::Find()
+{
+    // ALWAYS clean up source first before
+    // using m_Book outside of MainWindow!
+    TidyUp();
+
+    if ( m_FindReplace.isNull() )
+    {   
+        // Qt will delete this dialog from memory when it closes
+        m_FindReplace = new FindReplace( this );
+
+        m_FindReplace->show();
+    }
+}
+
+
+// Implements Replace action functionality
+void MainWindow::Replace()
+{
+    // ALWAYS clean up source first before
+    // using m_Book outside of MainWindow!
+    TidyUp();
+
+    if ( m_FindReplace.isNull() )
+    {   
+        // Qt will delete this dialog from memory when it closes
+        m_FindReplace = new FindReplace( this );
+
+        m_FindReplace->show();
     }
 }
 
@@ -1648,6 +1683,8 @@ void MainWindow::ConnectSignalsToSlots()
     connect( ui.actionCut,                  SIGNAL( triggered() ),      this,   SLOT( Cut()                 ) );
     connect( ui.actionCopy,                 SIGNAL( triggered() ),      this,   SLOT( Copy()                ) );
     connect( ui.actionPaste,                SIGNAL( triggered() ),      this,   SLOT( Paste()               ) );
+    connect( ui.actionFind,                 SIGNAL( triggered() ),      this,   SLOT( Find()                ) );
+    connect( ui.actionReplace,              SIGNAL( triggered() ),      this,   SLOT( Replace()             ) );
     connect( ui.actionBold,                 SIGNAL( triggered() ),      this,   SLOT( Bold()                ) );
     connect( ui.actionItalic,               SIGNAL( triggered() ),      this,   SLOT( Italic()              ) );
     connect( ui.actionUnderline,            SIGNAL( triggered() ),      this,   SLOT( Underline()           ) );

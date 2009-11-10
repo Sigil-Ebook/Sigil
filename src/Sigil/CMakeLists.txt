@@ -47,6 +47,7 @@ set( QOBJECT_HEADERS
     Dialogs/TOCEditor.h 
     MainWindow.h
     Dialogs/MetaEditor.h
+    Dialogs/FindReplace.h
     Misc/AppEventFilter.h
     Misc/UpdateChecker.h 
     )
@@ -87,6 +88,8 @@ set( DIALOG_FILES
     Dialogs/MetaEditor.h
     Dialogs/TOCEditor.cpp
     Dialogs/TOCEditor.h
+    Dialogs/FindReplace.cpp
+    Dialogs/FindReplace.h
     )
 
 set( EXPORTER_FILES
@@ -146,6 +149,7 @@ set( UI_FILES
     Form_Files/AddMetadata.ui 
     Form_Files/About.ui 
     Form_Files/TOCEditor.ui 
+    Form_Files/FindReplace.ui 
     )
             
 set( QRC_FILES  

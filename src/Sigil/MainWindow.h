@@ -26,6 +26,7 @@
 #include <QtGui/QMainWindow>
 #include "ui_main.h"
 #include "BookManipulation/Book.h"
+#include <QPointer>
 
 const int MAX_RECENT_FILES = 5;
 
@@ -36,6 +37,7 @@ class BookViewEditor;
 class ViewEditor;
 class QLabel;
 class QSlider;
+class FindReplace;
 
 
 class MainWindow : public QMainWindow
@@ -87,6 +89,12 @@ private slots:
 
     // Implements Paste action functionality
     void Paste();
+
+    // Implements Find action functionality
+    void Find();
+
+    // Implements Replace action functionality
+    void Replace();
 
     // Implements Bold action functionality
     void Bold();
@@ -365,6 +373,11 @@ private:
     // A map with keys being extensions of file types
     // we can save, and the values being filters for use in file dialogs
     const QMap< QString, QString > c_LoadFilters;
+
+    // A guarded pointer to the FindReplace dialog;
+    // TODO: replace this with QWeakPointer when Qt 4.6
+    // is released and QWP supports QObjects.
+    QPointer<FindReplace> m_FindReplace;
 
     // Holds all the widgets Qt Designer created for us
     Ui::MainWindow ui;

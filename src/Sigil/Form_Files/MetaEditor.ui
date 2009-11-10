@@ -31,7 +31,7 @@
         <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
        </property>
        <item row="0" column="0">
-        <widget class="QLabel" name="label">
+        <widget class="QLabel" name="lbTitle">
          <property name="text">
           <string>Title:</string>
          </property>
@@ -48,7 +48,7 @@
         </widget>
        </item>
        <item row="1" column="0">
-        <widget class="QLabel" name="label_2">
+        <widget class="QLabel" name="lbAuthor">
          <property name="text">
           <string>Author:</string>
          </property>
@@ -65,7 +65,7 @@
         </widget>
        </item>
        <item row="2" column="0">
-        <widget class="QLabel" name="label_3">
+        <widget class="QLabel" name="lbLanguage">
          <property name="text">
           <string>Language:</string>
          </property>
