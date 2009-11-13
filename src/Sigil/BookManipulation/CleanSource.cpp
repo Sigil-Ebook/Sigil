@@ -243,7 +243,7 @@ QString CleanSource::HTMLTidy( const QString &source )
     tidyOptSetBool( tidy_document, TidyEncloseBodyText, yes );	
 
     // "wrap"
-    tidyOptSetInt( tidy_document, TidyWrapLen, 100 );	
+    tidyOptSetInt( tidy_document, TidyWrapLen, 0 );	
 
     // "css-prefix"
     tidyOptSetValue( tidy_document, TidyCSSPrefix, SIGIL_CLASS_NAME.toUtf8().data() );	
