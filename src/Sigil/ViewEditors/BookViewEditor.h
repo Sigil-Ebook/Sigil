@@ -25,6 +25,8 @@
 
 #include <QWebView>
 #include "ViewEditor.h"
+#include <QDomNode>
+#include <QMap>
 
 class BookViewEditor : public QWebView, public ViewEditor
 {
@@ -81,6 +83,23 @@ public:
     // Returns the View's current zoom factor
     float GetZoomFactor() const;
 
+    // Finds the next occurrence of the search term in the document,
+    // and selects the matched string. The first argument is the matching
+    // regex, the second is the direction of the search.
+    bool FindNext( const QRegExp &search_regex, Searchable::Direction search_direction );
+
+    // Returns the number of times that the specified
+    // regex matches in the document.
+    int Count( const QRegExp &search_regex );
+
+    // If the currently selected text matches the specified regex, 
+    // it is replaced by the specified replacement string.
+    bool ReplaceSelected( const QRegExp &search_regex, const QString &replacement );
+
+    // Replaces all occurrences of the specified regex in 
+    // the document with the specified replacement string.
+    int ReplaceAll( const QRegExp &search_regex, const QString &replacement );
+    
 signals:
 
     // The identically named QWebPage signal is wired to this one,
@@ -107,10 +126,88 @@ private:
     // and returns the result of the last executed javascript statement
     QVariant EvaluateJavascript( const QString &javascript );
 
+    // Returns the local character offset of the selection
+    // (in the local text node). Depending on the argument,
+    // it returns the offset of the start of the selection or the end.
+    int GetLocalSelectionOffset( bool start_of_selection );
+
+    // Returns the selection offset from the start of the document.
+    // The first argument is the loaded DOM doc, the second is the
+    // text node offset map and the third is the search direction.
+    int GetSelectionOffset( const QDomDocument &document,
+                            const QMap< int, QDomNode > &node_offsets, 
+                            Searchable::Direction search_direction );
+
+    // Returns the currently selected text string
+    QString GetSelectedText();
+
+    // The necessary tools for searching
+    struct SearchTools
+    {
+        // The full text of the document
+        QString fulltext;
+
+        // A map with text node starting offsets as keys,
+        // and those text nodes as values.
+        QMap< int, QDomNode > node_offsets;
+
+        // A DOM doc with the loaded text
+        QDomDocument document;
+    };
+
+    // Returns the all the necessary tools for searching.
+    // Reads from the QWebPage source.
+    SearchTools GetSearchTools() const;    
+
+    // Returns the element selecting javascript code that completely
+    // ignores text nodes and always just chains children() jQuery calls
+    QString GetElementSelectingJS_NoTextNodes( const QList< ViewEditor::ElementIndex > &hierarchy ) const;
+
+    // Returns the element selecting javascript code that chains
+    // text node ignoring children() jQuery calls, but that uses
+    // contents() for the last element (the text node, naturally)
+    QString GetElementSelectingJS_WithTextNodes( const QList< ViewEditor::ElementIndex > &hierarchy ) const;
+
+    // Escapes a string so that it can be embedded
+    // inside a javascript source code string
+    QString EscapeJSString( const QString &string );
+
     // Executes the caret updating code
     // if an update is pending;
     // returns true if update was performed
     bool ExecuteCaretUpdate();
+
+    // The inputs for a new javascript range object
+    struct SelectRangeInputs
+    {
+        // The range start node
+        QDomNode start_node;
+
+        // The range end node
+        QDomNode end_node;
+
+        // The char index inside the start node
+        int start_node_index;
+
+        // The char index inside the end node
+        int end_node_index;
+    };
+
+    // Accepts a node offset map, the index of the string in the full doc text
+    // and the string's length. Converts this information into a struct
+    // with which a JS range object can be created to select this particular string.
+    SelectRangeInputs GetRangeInputs( const QMap< int, QDomNode > &node_offsets, int string_start, int string_length ) const;
+
+    // Accepts the range input struct and returns  
+    // the range creating javascript code
+    QString GetRangeJS( const SelectRangeInputs &input ) const;
+
+    // Selects the string identified by the range inputs
+    void SelectTextRange( const SelectRangeInputs &input );
+
+    // Scrolls the view to the specified node.
+    // Does NOT center the node in view.
+    void ScrollToNode( const QDomNode &node );
 
 
     ///////////////////////////////
@@ -129,11 +226,27 @@ private:
     // the caret element to the top of the document
     const QString c_GetCaretLocation;
 
+    // The javascript source code that
+    // removes all of the current selections
+    // and adds the range in the "range"
+    // variable to the current selection.
+    const QString c_NewSelection;
+
+    // The javascript source code
+    // for creating DOM ranges
+    const QString c_GetRange;
+
+    // The javascript source code that deletes the
+    // contents of the range in "range" and replaces
+    // them with a new text node whose text should be inputted.
+    const QString c_ReplaceText;
+
     // The javascript source code for the 
     // caret update when switching from 
     // CodeView to BookView
     QString m_CaretLocationUpdate;
 
+    // Is set to false whenever the page is loading content
     bool m_isLoadFinished;
 };
 

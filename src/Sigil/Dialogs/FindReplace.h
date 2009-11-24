@@ -25,7 +25,10 @@
 
 #include <QtGui/QDialog>
 #include "ui_FindReplace.h"
+#include "../ViewEditors/Searchable.h"
 
+class MainWindow;
+class QRegExp;
 
 class FindReplace : public QDialog
 {
@@ -34,22 +37,63 @@ class FindReplace : public QDialog
 public:
 
     // Constructor;
-    // the first argument is the widget's parent.
-    FindReplace( QWidget *parent = 0 );
+    // the first argument specifies which tab to load first;
+    // the second argument is the MainWindow that created the dialog;
+    // the third argument is the widget's parent.
+    FindReplace( bool find_tab, const MainWindow &mainwindow, QWidget *parent = 0 );
 
     // Destructor
     ~FindReplace();
 
 private slots:
 
+    // Switches the display between the "more" version with 
+    // the option controls and the "less" version without them
     void ToggleMoreLess();
 
+    // Gets called whenever the user switches tabs,
+    // so it moves all the controls to the other tab.
     void TabChanged();
+
+    // Starts the search for the user's term.
+    // Shows a dialog if the term cannot be found.
+    void FindNext();
+
+    // Counts the number of occurrences of the user's
+    // term in the document. Shows a dialog with the number.
+    void Count();
+
+    // Replaces the user's search term with the user's
+    // replacement text if a match is selected. If it's not,
+    // calls FindNext() so it becomes selected.
+    void Replace();
+
+    // Replaces the user's search term with the user's
+    // replacement text in the entire document. Shows a
+    // dialog telling how many occurrences were replaced.
+    void ReplaceAll();
+
+    // Toggles the availability of options depending on
+    // whether the normal search type is selected.
+    void ToggleAvailableOptions( bool normal_search_checked );
 
 private:
 
+    // Displays a message to the user informing him
+    // that his last search term could not be found.
+    void CannotFindSearchTerm();
+
+    // Constructs a searching regex from the selected 
+    // options and fields and then returns it.
+    QRegExp GetSearchRegex();
+
+    // Returns the selected search direction.
+    Searchable::Direction GetSearchDirection();
+
+    // Changes the layout of the controls to the Find tab style
     void ToFindTab();
 
+    // Changes the layout of the controls to the Replace tab style
     void ToReplaceTab();
 
     // Reads all the stored dialog settings like
@@ -70,7 +114,13 @@ private:
     // PRIVATE MEMBER VARIABLES
     ///////////////////////////////
 
+    // Stores the current display 
+    // state of the dialog
     bool m_isMore;
+
+    // A const reference to the mainwindow that
+    // spawned this dialog. Needed for searching.
+    const MainWindow &m_MainWindow;
 
     // Holds all the widgets Qt Designer created for us
     Ui::FindReplace ui;

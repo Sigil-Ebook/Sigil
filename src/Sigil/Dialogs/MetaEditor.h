@@ -130,8 +130,8 @@ private:
     // The item model that stores the meta information
     QStandardItemModel m_MetaModel;
 
-    // Stores the current display state
-    // of the dialog
+    // Stores the current display 
+    // state of the dialog
     bool m_isMore;
 
     // The Book whose metadata is being edited

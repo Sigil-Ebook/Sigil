@@ -21,13 +21,19 @@
 
 #include <stdafx.h>
 #include "FindReplace.h"
+#include "../MainWindow.h"
+#include "../ViewEditors/ViewEditor.h"
 
 static const QString SETTINGS_GROUP = "find_replace";
 
-// Constructor
-// the first argument is the widget's parent.
-FindReplace::FindReplace( QWidget *parent )
-    : QDialog( parent )
+// Constructor;
+// the first argument specifies which tab to load first;
+// the second argument is the MainWindow that created the dialog;
+// the third argument is the widget's parent.
+FindReplace::FindReplace( bool find_tab, const MainWindow &mainwindow, QWidget *parent )
+    :
+    m_MainWindow( mainwindow ),
+    QDialog( parent )
 {
     ui.setupUi( this );
 
@@ -37,12 +43,33 @@ FindReplace::FindReplace( QWidget *parent )
 
     ExtendUI();
 
-    connect( ui.twTabs, SIGNAL( currentChanged( int ) ), this, SLOT( TabChanged() )     );
-    connect( ui.btMore,	SIGNAL( clicked()  ),	         this, SLOT( ToggleMoreLess() ) );
+    connect( ui.twTabs,          SIGNAL( currentChanged( int ) ), this, SLOT( TabChanged()                   ) );
+    connect( ui.btMore,	         SIGNAL( clicked()             ), this, SLOT( ToggleMoreLess()               ) );
+    connect( ui.btFindNext,	     SIGNAL( clicked()             ), this, SLOT( FindNext()                     ) );
+    connect( ui.btCount,	     SIGNAL( clicked()             ), this, SLOT( Count()                        ) );
+    connect( ui.btReplace,	     SIGNAL( clicked()             ), this, SLOT( Replace()                      ) );
+    connect( ui.btReplaceAll,    SIGNAL( clicked()             ), this, SLOT( ReplaceAll()                   ) );
+    connect( ui.rbNormalSearch,	 SIGNAL( toggled( bool )       ), this, SLOT( ToggleAvailableOptions( bool ) ) );
+
+    // Defaults
+    ui.rbNormalSearch->setChecked( true );
+    ui.rbAllDirection->setChecked( true );
+
+    if ( find_tab )
+
+        ui.twTabs->setCurrentIndex( 0 );
+
+    else
+
+        ui.twTabs->setCurrentIndex( 1 );
 
     TabChanged();    
     ReadSettings();
     ToggleMoreLess();
+
+    // If there is any leftover text from a previous
+    // search, then that text should be selected by default
+    ui.leFind->selectAll();
 }
 
 
@@ -53,6 +80,8 @@ FindReplace::~FindReplace()
 }
 
 
+// Switches the display between the "more" version with 
+// the option controls and the "less" version without them
 void FindReplace::ToggleMoreLess()
 {
     if ( m_isMore == true )
@@ -72,8 +101,6 @@ void FindReplace::ToggleMoreLess()
 
     else // isMore == false
     {
-        qDebug() << ui.wSearch->height();
-
         // We hide then show the tab widget between
         // update calls to wOptions because this prevents
         // twTabs from doing layout twice and causing flicker.
@@ -82,8 +109,6 @@ void FindReplace::ToggleMoreLess()
         ui.wOptions->show();
         ui.twTabs->show(); 
 
-        qDebug() << ui.wSearch->height();
-
         ui.btMore->setText( tr( "Less" ) );
 
         m_isMore = true;
@@ -91,8 +116,11 @@ void FindReplace::ToggleMoreLess()
 }
 
 
+// Gets called whenever the user switches tabs,
+// so it moves all the controls to the other tab.
 void FindReplace::TabChanged()
 {
+    // Put the controls on the current tab
     ui.twTabs->currentWidget()->layout()->addWidget( ui.wSearch );
     ui.twTabs->currentWidget()->layout()->addWidget( ui.wOptions );
   
@@ -106,6 +134,187 @@ void FindReplace::TabChanged()
 }
 
 
+// Starts the search for the user's term.
+// Shows a dialog if the term cannot be found.
+void FindReplace::FindNext()
+{
+    if ( ui.leFind->text().isEmpty() )
+
+        return;
+
+    bool found = m_MainWindow.GetActiveViewEditor().FindNext( GetSearchRegex(), GetSearchDirection() );
+
+    if ( !found )
+
+        CannotFindSearchTerm();
+}
+
+
+// Counts the number of occurrences of the user's
+// term in the document. Shows a dialog with the number.
+void FindReplace::Count()
+{
+    if ( ui.leFind->text().isEmpty() )
+
+        return;
+
+    int count = m_MainWindow.GetActiveViewEditor().Count( GetSearchRegex() );
+
+    QString message;
+
+    if ( count < 1 || count > 1 )
+
+        message = tr( "%1 matches were found." );
+
+    else
+
+        message = tr( "%1 match was found." );
+
+    QMessageBox::information( 0, tr( "Sigil" ), message.arg( count ) );        
+}
+
+
+// Replaces the user's search term with the user's
+// replacement text if a match is selected. If it's not,
+// cals FindNext() so it becomes selected.
+void FindReplace::Replace()
+{
+    if ( ui.leFind->text().isEmpty() )
+
+        return;
+
+    // If we have the matching text selected, replace it
+    m_MainWindow.GetActiveViewEditor().ReplaceSelected( GetSearchRegex(), ui.leReplace->text() );
+
+    // Go find the next match
+    FindNext(); 
+}
+
+
+// Replaces the user's search term with the user's
+// replacement text in the entire document. Shows a
+// dialog telling how many occurrences were replaced.
+void FindReplace::ReplaceAll()
+{
+    if ( ui.leFind->text().isEmpty() )
+
+        return;
+
+    int count = m_MainWindow.GetActiveViewEditor().ReplaceAll( GetSearchRegex(), ui.leReplace->text() );
+
+    QString message;
+
+    if ( count < 1 || count > 1 )
+
+        message = tr( "The search term was replaced %1 times." );
+
+    else
+
+        message = tr( "The search term was replaced %1 time." );
+
+    QMessageBox::information( 0, tr( "Sigil" ), message.arg( count ) ); 
+}
+
+
+// Toggles the availability of options depending on
+// whether the normal search type is selected.
+void FindReplace::ToggleAvailableOptions( bool normal_search_checked )
+{
+    if ( normal_search_checked )
+    {
+        ui.cbMinimalMatching->setEnabled( false );
+        ui.cbWholeWord->setEnabled( true );
+    }
+
+    else
+    {
+        ui.cbMinimalMatching->setEnabled( true );
+        ui.cbWholeWord->setEnabled( false );
+    }
+}
+
+
+// Displays a message to the user informing him
+// that his last search term could not be found.
+void FindReplace::CannotFindSearchTerm()
+{
+    QMessageBox::information( 0, tr( "Sigil" ), tr( "The search term cannot be found." ) );
+}
+
+
+// Constructs a searching regex from the selected 
+// options and fields and then returns it.
+QRegExp FindReplace::GetSearchRegex()
+{
+    QRegExp search( ui.leFind->text() ); 
+
+    // Search type
+    if ( ui.rbWildcardSearch->isChecked() )
+    {
+        search.setPatternSyntax( QRegExp::Wildcard );
+    }
+
+    else
+    {
+        // We need the regex syntax for normal searching
+        // too because of the "whole words only" option
+        search.setPatternSyntax( QRegExp::RegExp2 );
+
+        if ( ui.rbNormalSearch->isChecked() )
+
+            search.setPattern( QRegExp::escape( ui.leFind->text() ) );
+    }
+
+    // Whole word searching. The user can select 
+    // this option only if the "normal" search type
+    // is also selected
+    if ( ui.cbWholeWord->isEnabled() && ui.cbWholeWord->isChecked() )
+        
+        search.setPattern( "\\b" + QRegExp::escape( ui.leFind->text() ) + "\\b" );
+
+    // Case sensitivity
+    if ( ui.cbMatchCase->isEnabled() && ui.cbMatchCase->isChecked() )
+
+        search.setCaseSensitivity( Qt::CaseSensitive );
+
+    else
+
+        search.setCaseSensitivity( Qt::CaseInsensitive );
+
+    // Regex minimality. The user can select 
+    // this option only if the "normal" search type
+    // is NOT selected
+    if ( ui.cbMinimalMatching->isEnabled() && ui.cbMinimalMatching->isChecked() )
+
+        search.setMinimal( true );
+
+    else
+
+        search.setMinimal( false );
+
+    return search;
+}
+
+
+// Returns the selected search direction.
+Searchable::Direction FindReplace::GetSearchDirection()
+{
+    if ( ui.rbUpDirection->isChecked() )
+
+        return Searchable::Direction_Up;
+
+    else if ( ui.rbDownDirection->isChecked() )
+
+        return Searchable::Direction_Down;
+
+    else
+
+        return Searchable::Direction_All;
+}
+
+
+
+// Changes the layout of the controls to the Find tab style
 void FindReplace::ToFindTab()
 {
     ui.btCount->show();
@@ -122,6 +331,7 @@ void FindReplace::ToFindTab()
 }
 
 
+// Changes the layout of the controls to the Replace tab style
 void FindReplace::ToReplaceTab()
 {
     ui.btCount->hide();
@@ -147,7 +357,7 @@ void FindReplace::ReadSettings()
     // We flip the stored isMore state because we have to pass through
     // the ToggleMoreLess function to actually set the widgets
     // (and the isMore variable) to the stored state
-    m_isMore	= ! settings.value( "is_more" ).toBool();
+    m_isMore = ! settings.value( "is_more" ).toBool();
 
     // The size of the window and it's full screen status
     QByteArray geometry = settings.value( "geometry" ).toByteArray();
@@ -165,6 +375,23 @@ void FindReplace::ReadSettings()
         // yet only only a few are used on any tab.
         resize( 0, 0 );
     }
+
+    // Checkbox and radio button values
+    ui.cbMatchCase->        setChecked( settings.value( "match_case"        ).toBool() );
+    ui.cbMinimalMatching->  setChecked( settings.value( "minimal_matching"  ).toBool() );
+    ui.cbWholeWord->        setChecked( settings.value( "whole_word"        ).toBool() );
+
+    ui.rbNormalSearch->     setChecked( settings.value( "normal_search"     ).toBool() );
+    ui.rbWildcardSearch->   setChecked( settings.value( "wildcard_search"   ).toBool() );
+    ui.rbRegexSearch->      setChecked( settings.value( "regex_search"      ).toBool() );
+
+    ui.rbUpDirection->      setChecked( settings.value( "up_direction"      ).toBool() );
+    ui.rbDownDirection->    setChecked( settings.value( "down_direction"    ).toBool() );
+    ui.rbAllDirection->     setChecked( settings.value( "all_direction"     ).toBool() );
+
+    // Input fields
+    ui.leFind->     setText( settings.value( "find_text"    ).toString() );
+    ui.leReplace->  setText( settings.value( "replace_text" ).toString() );
 }
 
 // Writes all the stored dialog settings like
@@ -174,11 +401,28 @@ void FindReplace::WriteSettings()
     QSettings settings;
     settings.beginGroup( SETTINGS_GROUP );
 
-    // The size of the window and it's full screen status
+    // The size of the window and its full screen status
     settings.setValue( "geometry", saveGeometry() );
 
     // The window expansion state ("more" or "less")
     settings.setValue( "is_more", m_isMore );
+
+    // Checkbox and radio button values
+    settings.setValue( "match_case",        ui.cbMatchCase->        isChecked() );
+    settings.setValue( "minimal_matching",  ui.cbMinimalMatching->  isChecked() );
+    settings.setValue( "whole_word",        ui.cbWholeWord->        isChecked() );
+
+    settings.setValue( "normal_search",     ui.rbNormalSearch->     isChecked() );
+    settings.setValue( "wildcard_search",   ui.rbWildcardSearch->   isChecked() );
+    settings.setValue( "regex_search",      ui.rbRegexSearch->      isChecked() );
+
+    settings.setValue( "up_direction",      ui.rbUpDirection->      isChecked() );
+    settings.setValue( "down_direction",    ui.rbDownDirection->    isChecked() );
+    settings.setValue( "all_direction",     ui.rbAllDirection->     isChecked() );
+
+    // Input fields
+    settings.setValue( "find_text",    ui.leFind->   text() );
+    settings.setValue( "replace_text", ui.leReplace->text() );
 }
 
 
@@ -186,5 +430,8 @@ void FindReplace::ExtendUI()
 {
     QVBoxLayout *replace_tab_layout = new QVBoxLayout( ui.ReplaceTab );
 }
+
+
+
 
 

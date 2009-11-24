@@ -78,6 +78,23 @@ public:
     // Returns the View's current zoom factor
     float GetZoomFactor() const;
 
+    // Finds the next occurrence of the search term in the document,
+    // and selects the matched string. The first argument is the matching
+    // regex, the second is the direction of the search.
+    bool FindNext( const QRegExp &search_regex, Searchable::Direction search_direction );
+
+    // Returns the number of times that the specified
+    // regex matches in the document.
+    int Count( const QRegExp &search_regex );
+
+    // If the currently selected text matches the specified regex, 
+    // it is replaced by the specified replacement string.
+    bool ReplaceSelected( const QRegExp &search_regex, const QString &replacement );
+
+    // Replaces all occurrences of the specified regex in 
+    // the document with the specified replacement string.
+    int ReplaceAll( const QRegExp &search_regex, const QString &replacement );
+
 signals:
     
     // Emitted whenever the zoom factor changes
@@ -104,9 +121,9 @@ protected:
 
     // Overridden because we want the ExecuteCaretUpdate()
     // to be called from here when the user clicks inside
-    // this widget in SplitView. Leaving it up to the paint
-    // event handler causes graphical artifacts for SplitView.
-    // So in those conditions, this handler beats the paint one to the update.
+    // this widget in SplitView. Leaving it up to our event()
+    // override causes graphical artifacts for SplitView.
+    // So in those conditions, this handler takes over.
     void mousePressEvent( QMouseEvent *event );
 
 private slots:
@@ -169,6 +186,10 @@ private:
     // returns true if update was performed
     bool ExecuteCaretUpdate();
 
+    // Returns the selection offset from the start of the 
+    // document depending on the search direction specified
+    int GetSelectionOffset( Searchable::Direction search_direction );
+
 
     ///////////////////////////////
     // PRIVATE MEMBER VARIABLES
@@ -184,6 +205,7 @@ private:
     // The syntax highlighter
     XHTMLHighlighter *m_Highlighter;
 
+    // The view's current zoom factor
     float m_CurrentZoomFactor;
 };
 

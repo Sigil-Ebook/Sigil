@@ -76,6 +76,13 @@ QString CleanSource::Clean( const QString &source )
 }
 
 
+// No cleaning, just convert the source to valid XHTML
+QString CleanSource::ToValidXHTML( const QString &source )
+{
+    return FastXHTMLTidy( source );
+}
+
+
 // Cleans CSS; currently it removes the redundant CSS classes
 // that Tidy sometimes adds because it doesn't parse existing
 // CSS classes, it only adds new ones; this also merges smaller
@@ -131,7 +138,7 @@ QStringList CleanSource::RemoveEmptyComments( const QStringList &css_style_tags 
 {
     QStringList new_tags = css_style_tags;
 
-    for ( int i = 0; i < new_tags.count(); i++ )
+    for ( int i = 0; i < new_tags.count(); ++i )
     {
         new_tags[ i ].replace( "/**/", "" );
         new_tags[ i ] = new_tags[ i ].trimmed();
@@ -236,14 +243,11 @@ QString CleanSource::HTMLTidy( const QString &source )
     // "doctype"
     tidyOptSetValue( tidy_document, TidyDoctype, "strict" );
 
-    // "drop-empty-paras"
-    tidyOptSetBool( tidy_document, TidyDropEmptyParas, yes );
-
     // "enclose-text"
     tidyOptSetBool( tidy_document, TidyEncloseBodyText, yes );	
 
     // "wrap"
-    tidyOptSetInt( tidy_document, TidyWrapLen, 100 );	
+    tidyOptSetInt( tidy_document, TidyWrapLen, 0 );	
 
     // "css-prefix"
     tidyOptSetValue( tidy_document, TidyCSSPrefix, SIGIL_CLASS_NAME.toUtf8().data() );	
@@ -268,6 +272,81 @@ QString CleanSource::HTMLTidy( const QString &source )
 
     // Force output
     tidyOptSetBool( tidy_document, TidyForceOutput, yes);
+
+    // Write all errors to error buffer
+    tidySetErrorBuffer( tidy_document, &errbuf );
+
+    // Set the input
+    tidyParseString( tidy_document, source.toUtf8().constData() );
+
+    // GO BABY GO!
+    tidyCleanAndRepair( tidy_document );
+
+    // Run diagnostics
+    tidyRunDiagnostics( tidy_document );
+
+    // TODO: read and report any possible errors
+    // from the error buffer
+
+    // Store the cleaned up XHTML
+    tidySaveBuffer( tidy_document, &output );
+
+    QString clean = QString::fromUtf8( (const char*) output.bp );
+
+    // Free memory
+    tidyBufFree( &output );
+    tidyBufFree( &errbuf );
+    tidyRelease( tidy_document );
+
+    return clean;
+}
+
+
+// Tries to run Tidy's error correcting parser
+// as fast as possible, with no unnecessary cleaning
+QString CleanSource::FastXHTMLTidy( const QString &source )
+{
+    TidyDoc tidy_document = tidyCreate();
+
+    TidyBuffer output = { 0 };
+    TidyBuffer errbuf = { 0 };
+
+    // For more information on Tidy configuration
+    // options, see http://tidy.sourceforge.net/docs/quickref.html
+
+    // "output-xhtml"
+    tidyOptSetBool( tidy_document, TidyXhtmlOut, yes );
+
+    // "add-xml-decl"
+    tidyOptSetBool( tidy_document, TidyXmlDecl, yes );
+
+    // "join-styles"
+    tidyOptSetBool( tidy_document, TidyJoinStyles, no );
+
+    // "merge-divs"
+    tidyOptSetInt( tidy_document, TidyMergeDivs, TidyNoState );
+
+    // "merge-spans"
+    tidyOptSetInt( tidy_document, TidyMergeSpans, TidyNoState );
+
+    // "wrap"
+    tidyOptSetInt( tidy_document, TidyWrapLen, 0 );
+
+    // "doctype"
+    tidyOptSetValue( tidy_document, TidyDoctype, "strict" );
+
+    // Needed so that Tidy doesn't kill off SVG elements
+    // "new-blocklevel-tags"
+    tidyOptSetValue( tidy_document, TidyBlockTags, SVG_ELEMENTS.toUtf8().data() );
+
+    // "tidy-mark"
+    tidyOptSetBool( tidy_document, TidyMark, no );	
+
+    // UTF-8 for input and output
+    tidySetCharEncoding( tidy_document, "utf8" );  	
+
+    // Force output
+    tidyOptSetBool( tidy_document, TidyForceOutput, yes );
 
     // Write all errors to error buffer
     tidySetErrorBuffer( tidy_document, &errbuf );
@@ -397,7 +476,7 @@ QHash< QString, QString > CleanSource::GetRedundantClasses( const QStringList &c
     QStringList last_tag_styles = last_style_tag.split( QChar( '\n' ) );
 
     // We search through all the tags that come before this new one 
-    for ( int i = 0; i < css_style_tags.count() - 1; i++ )
+    for ( int i = 0; i < css_style_tags.count() - 1; ++i )
     {
         QStringList old_lines = css_style_tags[ i ].split( QChar( '\n' ) );
 

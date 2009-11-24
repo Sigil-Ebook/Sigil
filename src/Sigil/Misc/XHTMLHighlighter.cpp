@@ -240,7 +240,7 @@ bool XHTMLHighlighter::CheckState( int state ) const
     int current_state = currentBlockState();
 
     // Check if our state is in the list
-    if ( (current_state & state) != 0 )
+    if ( ( current_state & state ) != 0 )
 
         return true;
 

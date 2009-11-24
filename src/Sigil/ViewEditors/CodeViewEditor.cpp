@@ -20,11 +20,12 @@
 *************************************************************************/
 
 #include <stdafx.h>
-#include <QDomDocument>
 #include "CodeViewEditor.h"
 #include "LineNumberArea.h"
 #include "../BookManipulation/Book.h"
+#include "../BookManipulation/XHTMLDoc.h"
 #include "Misc/XHTMLHighlighter.h"
+#include <QDomDocument>
 
 static const int COLOR_FADE_AMOUNT = 175;
 static const int TAB_SPACES_WIDTH  = 4;
@@ -162,31 +163,16 @@ QList< ViewEditor::ElementIndex > CodeViewEditor::GetCaretLocation()
 void CodeViewEditor::StoreCaretLocationUpdate( const QList< ViewEditor::ElementIndex > &hierarchy )
 {
     QDomDocument dom;
-
     dom.setContent( toPlainText() );
 
-    QDomNode node = dom.elementsByTagName( "html" ).at( 0 );
-    QDomNode end_node;
-
-    for ( int i = 0; i < hierarchy.count() - 1; i++ )
-    {
-        node = node.childNodes().at( hierarchy[ i ].index );
-
-        if ( !node.isNull() )
-
-            end_node = node;
-
-        else
-
-            break;
-    }
+    QDomNode end_node = XHTMLDoc::GetNodeFromHierarchy( dom, hierarchy );
 
     QTextCursor cursor( document() );
 
     if ( !end_node.isNull() ) 
     {
         // We can't set the actual caret location here;
-        // that is done in the paint event handler.
+        // that is done in the overridden event handler.
         // Here we just calculate the caret update.
         m_CaretLocationUpdate.vertical_lines   = end_node.lineNumber() - cursor.blockNumber();
         m_CaretLocationUpdate.horizontal_chars = end_node.columnNumber();   
@@ -222,6 +208,93 @@ void CodeViewEditor::SetZoomFactor( float factor )
 float CodeViewEditor::GetZoomFactor() const
 {
     return m_CurrentZoomFactor;
+}
+
+
+// Finds the next occurrence of the search term in the document,
+// and selects the matched string. The first argument is the matching
+// regex, the second is the direction of the search.
+bool CodeViewEditor::FindNext( const QRegExp &search_regex, Searchable::Direction search_direction )
+{
+    int selection_offset = GetSelectionOffset( search_direction );
+
+    QRegExp result_regex = search_regex;
+    RunSearchRegex( result_regex, toPlainText(), selection_offset, search_direction ); 
+
+    if ( result_regex.pos() != -1 )
+    {
+        QTextCursor cursor = textCursor();
+
+        cursor.setPosition( result_regex.pos() );
+        cursor.setPosition( result_regex.pos() + result_regex.matchedLength(), QTextCursor::KeepAnchor );
+
+        setTextCursor( cursor );
+
+        return true;
+    } 
+
+    return false;
+}
+
+
+// Returns the number of times that the specified
+// regex matches in the document.
+int CodeViewEditor::Count( const QRegExp &search_regex )
+{
+    return toPlainText().count( search_regex );
+}
+
+
+// If the currently selected text matches the specified regex, 
+// it is replaced by the specified replacement string.
+bool CodeViewEditor::ReplaceSelected( const QRegExp &search_regex, const QString &replacement )
+{
+    QRegExp result_regex  = search_regex;
+    QTextCursor cursor    = textCursor();
+    QString selected_text = cursor.selectedText();
+
+    // If we are currently sitting at the start 
+    // of a matching substring, we replace it.
+    if ( result_regex.exactMatch( selected_text ) )
+    {
+        QString final_replacement = FillWithCapturedTexts( result_regex.capturedTexts(), replacement );
+        cursor.insertText( final_replacement );
+
+        return true;
+    }
+
+    return false;
+}
+
+// Replaces all occurrences of the specified regex in 
+// the document with the specified replacement string.
+int CodeViewEditor::ReplaceAll( const QRegExp &search_regex, const QString &replacement )
+{
+    QRegExp result_regex  = search_regex;
+    QTextCursor cursor    = textCursor();
+
+    int index = 0;
+    int count = 0;
+
+    QProgressDialog progress( tr( "Replacing search term..." ), QString(), 0, Count( search_regex ) );
+    progress.setMinimumDuration( PROGRESS_BAR_MINIMUM_DURATION );
+
+    while ( toPlainText().indexOf( result_regex, index ) != -1 )
+    {
+        // Update the progress bar
+        progress.setValue( count );
+
+        cursor.setPosition( result_regex.pos() );
+        cursor.setPosition( result_regex.pos() + result_regex.matchedLength(), QTextCursor::KeepAnchor );
+
+        QString final_replacement = FillWithCapturedTexts( result_regex.capturedTexts(), replacement );
+        cursor.insertText( final_replacement );
+
+        index = result_regex.pos() + final_replacement.length();
+        ++count;
+    }
+
+    return count;
 }
 
 
@@ -449,6 +522,23 @@ bool CodeViewEditor::ExecuteCaretUpdate()
     return true;
 }
 
+
+// Returns the selection offset from the start of the 
+// document depending on the search direction specified
+int CodeViewEditor::GetSelectionOffset( Searchable::Direction search_direction )
+{
+    if (    search_direction == Searchable::Direction_Down ||
+            search_direction == Searchable::Direction_All
+       )
+    {
+        return textCursor().selectionEnd();
+    }
+
+    else
+    {
+        return textCursor().selectionStart();
+    }
+}
 
 
 

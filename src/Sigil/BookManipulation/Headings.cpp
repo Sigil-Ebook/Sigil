@@ -169,7 +169,7 @@ QList< Headings::Heading > Headings::MakeHeadingHeirarchy( const QList< Heading 
 {
     QList< Heading > ordered_headings = headings;
 
-    for ( int i = 0; i < ordered_headings.size(); i++ )
+    for ( int i = 0; i < ordered_headings.size(); ++i )
     {
         // As long as the headings after this one are
         // higher in level (smaller in size), we continue

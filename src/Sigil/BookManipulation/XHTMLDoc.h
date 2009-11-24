@@ -23,9 +23,12 @@
 #ifndef XHTMLDOC_H
 #define XHTMLDOC_H
 
-#include <QDomNodeList>
-#include <QString>
+#include "../ViewEditors/ViewEditor.h"
 
+class QDomNode;
+class QDomDocument;
+class QString;
+class QDomNodeList;
 
 class XHTMLDoc
 {
@@ -64,6 +67,45 @@ public:
     // returns that same modified node back.
     // (QDomNodes objects are internally references)
     static QDomNode RemoveChildren( QDomNode node );
+
+    // Returns the node's "real" name. We don't care
+    // about namespace prefixes and whatnot.
+    static QString GetNodeName( const QDomNode &node );
+
+    // Returns a list without the text nodes
+    static QList< QDomNode > RemoveTextNodes( const QDomNodeList &list );
+
+    // Returns the node's real index in the list
+    static int GetRealIndexInList( const QDomNode &node, const QDomNodeList &list );
+
+    // Returns the node's "element" index 
+    // (pretending the list is only made up of element nodes).
+    static int GetElementIndexInList( const QDomNode &node, const QDomNodeList &list );
+
+    // Returns the index of node in the specified list 
+    // depending on the node type. Text nodes get the "real"
+    // index, element nodes get the "element" index 
+    // (pretending the list is only made up of element nodes).
+    static int GetCustomIndexInList( const QDomNode &node, const QDomNodeList &list );
+
+    // Returns a list of all the "visible" text nodes that are descendants
+    // of the specified node. "Visible" means we ignore style tags, script tags etc...
+    static QList< QDomNode > GetVisibleTextNodes( const QDomNode &node );
+
+    // Returns a list of ALL text nodes that are descendants
+    // of the specified node.
+    static QList< QDomNode > XHTMLDoc::GetAllTextNodes( const QDomNode &node );
+
+    // Returns the first block element ancestor of the specified node
+    static QDomNode GetAncestorBlockElement( const QDomNode &node );
+
+    // Returns the node identified by the specified ViewEditor element hierarchy
+    static QDomNode GetNodeFromHierarchy( const QDomDocument &document, 
+                                          const QList< ViewEditor::ElementIndex > &hierarchy );
+
+
+    // Creates a ViewEditor element hierarchy from the specified node
+    static QList< ViewEditor::ElementIndex > GetHierarchyFromNode( const QDomNode &node ); 
 
 private:
 

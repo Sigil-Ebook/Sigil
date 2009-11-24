@@ -26,6 +26,7 @@
 #include "../BookManipulation/Metadata.h"
 #include <ZipArchive.h>
 #include "../BookManipulation/XHTMLDoc.h"
+#include <QDomDocument>
 
 static const QString OEBPS_MIMETYPE = "application/oebps-package+xml";
 
@@ -93,7 +94,7 @@ void ImportEPUB::ExtractContainer()
 
     int file_count = (int) zip.GetCount();
 
-    for ( int i = 0; i < file_count; i++ )
+    for ( int i = 0; i < file_count; ++i )
     {
         #ifdef Q_WS_WIN
         zip.ExtractFile( i, folder.absolutePath().utf16() );
@@ -124,7 +125,7 @@ void ImportEPUB::LocateOPF()
     // There is *usually* just one, and it is *usually* the OPF doc.
     QDomNodeList root_files = document.elementsByTagName( "rootfile" );
 
-    for ( int i = 0; i < root_files.count(); i++ )
+    for ( int i = 0; i < root_files.count(); ++i )
     {
         QDomElement element = root_files.at( i ).toElement();
 

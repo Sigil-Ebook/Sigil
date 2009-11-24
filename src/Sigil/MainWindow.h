@@ -52,6 +52,9 @@ public:
     // windows parent; the third specifies the flags used to modify window behaviour
     MainWindow( const QString &openfilepath = QString(), QWidget *parent = 0, Qt::WFlags flags = 0 );
 
+    // Returns the currently active View Editor
+    ViewEditor& GetActiveViewEditor() const;
+
 protected:
 
     // Overrides the closeEvent handler so we can check
@@ -267,10 +270,7 @@ private:
     int ZoomFactorToSliderRange( float zoom_factor ) const;
 
     // Converts a value in the zoom slider range to a zoom factor
-    float SliderRangeToZoomFactor( int slider_range_value ) const;
-
-    // Returns the currently active View Editor
-    const ViewEditor* GetActiveViewEditor() const;
+    float SliderRangeToZoomFactor( int slider_range_value ) const;    
 
     // Returns a map with keys being extensions of file types
     // we can load, and the values being filters for use in file dialogs

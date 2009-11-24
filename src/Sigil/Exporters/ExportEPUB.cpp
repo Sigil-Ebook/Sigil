@@ -28,6 +28,7 @@
 #include "../BookManipulation/CleanSource.h"
 #include "../Misc/Utility.h"
 #include "../BookManipulation/XHTMLDoc.h"
+#include <QDomDocument>
 
 
 const QString BODY_START = "<\\s*body[^>]*>";
@@ -330,7 +331,7 @@ void ExportEPUB::UpdateAnchors()
 
         QDomNodeList anchors = document.elementsByTagName( "a" );
 
-        for ( int i = 0; i < anchors.count(); i++ )
+        for ( int i = 0; i < anchors.count(); ++i )
         {
             QDomElement element = anchors.at( i ).toElement();
 

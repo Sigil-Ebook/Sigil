@@ -20,7 +20,7 @@
 *************************************************************************/
 
 #include <stdafx.h>
-#include "../BookManipulation/XHTMLDoc.h"
+#include "XHTMLDoc.h"
 #include "../Misc/Utility.h"
 #include <QDomDocument>
 
@@ -30,12 +30,21 @@ static const QString XHTML_DOCTYPE = "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 
 // Use with <QRegExp>.setMinimal(true)
 static const QString XML_DECLARATION = "(<\\?xml.+\\?>)";
 
+static const QStringList BLOCK_LEVEL_TAGS = QStringList() << "address" << "blockquote" << "center" << "dir" << "div" << 
+                                                            "dl" << "fieldset" << "form" << "h1" << "h2" << "h3" << 
+                                                            "h4" << "h5" << "h6" << "hr" << "isindex" << "menu" << 
+                                                            "noframes" << "noscript" << "ol" << "p" << "pre" <<
+                                                            "table" << "ul" << "body";
+
 
 // Returns a list of XMLElements representing all
 // the elements of the specified tag name
 // in the head section of the provided XHTML source code
 QList< XHTMLDoc::XMLElement > XHTMLDoc::GetTagsInHead( const QString &source, const QString &tag_name )
 {
+    // TODO: how about replacing uses of this function
+    // with XPath expressions? Profile for speed.
+
     QXmlStreamReader reader( source );
 
     bool in_head = false;
@@ -79,6 +88,9 @@ QList< XHTMLDoc::XMLElement > XHTMLDoc::GetTagsInHead( const QString &source, co
 // in the entire document of the provided XHTML source code
 QList< XHTMLDoc::XMLElement > XHTMLDoc::GetTagsInDocument( const QString &source, const QString &tag_name )
 {
+    // TODO: how about replacing uses of this function
+    // with XPath expressions? Profile for speed.
+
     QXmlStreamReader reader( source );
 
     QList< XMLElement > matching_elements;
@@ -144,6 +156,263 @@ QDomNode XHTMLDoc::RemoveChildren( QDomNode node )
 }
 
 
+// Returns the node's "real" name. We don't care
+// about namespace prefixes and whatnot.
+QString XHTMLDoc::GetNodeName( const QDomNode &node )
+{
+    QString local_name = node.localName();
+
+    if ( local_name.isEmpty() )
+
+        return node.nodeName();
+
+    else
+
+        return local_name;
+}
+
+
+// Returns a list without the text nodes
+QList< QDomNode > XHTMLDoc::RemoveTextNodes( const QDomNodeList &list )
+{
+    // Since a QDomNodeList is "live", we store the count
+    // so we don't have to recalculate it every loop iteration
+    int count = list.count();
+
+    QList< QDomNode > non_textnode_list;
+
+    for ( int i = 0; i < count; ++i )
+    {
+        if ( list.at( i ).nodeType() != QDomNode::TextNode )
+
+            non_textnode_list.append( list.at( i ) );
+    }
+
+    return non_textnode_list;
+}
+
+
+// Returns the node's real index in the list
+int XHTMLDoc::GetRealIndexInList( const QDomNode &node, const QDomNodeList &list )
+{
+    // Since a QDomNodeList is "live", we store the count
+    // so we don't have to recalculate it every loop iteration
+    int count = list.count();
+
+    for ( int i = 0; i < count; ++i )
+    {
+        if ( list.at( i ) == node )
+
+            return i;
+    }
+    
+    return -1;
+}
+
+// Returns the node's "element" index 
+// (pretending the list is only made up of element nodes).
+int XHTMLDoc::GetElementIndexInList( const QDomNode &node, const QDomNodeList &list )
+{
+    // Since a QDomNodeList is "live", we store the count
+    // so we don't have to recalculate it every loop iteration
+    int count = list.count();
+
+    int element_index = 0;
+
+    for ( int i = 0; i < count; ++i )
+    {
+        if ( list.at( i ) == node )
+
+            return element_index;
+
+        if ( list.at( i ).nodeType() == QDomNode::ElementNode )
+
+            element_index++;
+    }
+
+    return -1;
+}
+
+// Returns the index of node in the specified list 
+// depending on the node type. Text nodes get the "real"
+// index, element nodes get the "element" index 
+// (pretending the list is only made up of element nodes).
+int XHTMLDoc::GetCustomIndexInList( const QDomNode &node, const QDomNodeList &list )
+{
+    if ( node.nodeType() == QDomNode::TextNode )
+
+        return GetRealIndexInList( node, list );
+
+    else
+
+        return GetElementIndexInList( node, list );
+}
+
+
+// Returns a list of all the "visible" text nodes that are descendants
+// of the specified node. "Visible" means we ignore style tags, script tags etc...
+QList< QDomNode > XHTMLDoc::GetVisibleTextNodes( const QDomNode &node  )
+{
+    // TODO: investigate possible parallelization 
+    // opportunities for this function (profile before and after!)
+
+    // FIXME: Actually we should throw an exception here
+    if ( node.isNull() )
+
+        return QList< QDomNode>();
+
+    if ( node.nodeType() == QDomNode::TextNode )
+    {
+        return QList< QDomNode >() << node;
+    }
+
+    else
+    {
+        QString node_name = GetNodeName( node );
+
+        if (    node.hasChildNodes() && 
+                node_name != "script" && 
+                node_name != "style" 
+            )
+        {
+            QDomNodeList children = node.childNodes();
+            QList< QDomNode > text_nodes;
+
+            for ( int i = 0; i < children.count(); ++i )
+            {
+                text_nodes.append( GetVisibleTextNodes( children.at( i ) ) );              
+            }
+
+            return text_nodes;
+        }
+    }
+
+    return QList< QDomNode >();
+}
+
+
+// Returns a list of ALL text nodes that are descendants
+// of the specified node.
+QList< QDomNode > XHTMLDoc::GetAllTextNodes( const QDomNode &node  )
+{
+    // TODO: investigate possible parallelization 
+    // opportunities for this function (profile before and after!)
+
+    // FIXME: Actually we should throw an exception here
+    if ( node.isNull() )
+
+        return QList< QDomNode>();
+
+    if ( node.nodeType() == QDomNode::TextNode )
+    {
+        return QList< QDomNode >() << node;
+    }
+
+    else
+    {
+        QString node_name = GetNodeName( node );
+
+        if ( node.hasChildNodes() )
+        {
+            QDomNodeList children = node.childNodes();
+            QList< QDomNode > text_nodes;
+
+            for ( int i = 0; i < children.count(); ++i )
+            {
+                text_nodes.append( GetAllTextNodes( children.at( i ) ) );              
+            }
+
+            return text_nodes;
+        }
+    }
+
+    return QList< QDomNode >();
+}
+
+
+// Returns the first block element ancestor of the specified node
+QDomNode XHTMLDoc::GetAncestorBlockElement( const QDomNode &node )
+{
+    QDomNode parent_node = node;
+
+    while ( true )
+    {
+        parent_node = parent_node.parentNode();
+
+        if ( BLOCK_LEVEL_TAGS.contains( GetNodeName( parent_node ) ) )
+
+            break;
+    }
+    
+    if ( !parent_node.isNull()  )
+
+        return parent_node;
+
+    else // FIXME: throw an exception when it's null
+
+        return node.ownerDocument().elementsByTagName( "body" ).at( 0 );
+}
+
+
+// Returns the node identified by the specified ViewEditor element hierarchy
+QDomNode XHTMLDoc::GetNodeFromHierarchy( const QDomDocument &document, 
+                                         const QList< ViewEditor::ElementIndex > &hierarchy )
+{
+    QDomNode node = document.elementsByTagName( "html" ).at( 0 );
+    QDomNode end_node;
+
+    for ( int i = 0; i < hierarchy.count() - 1; ++i )
+    {
+        if ( hierarchy[ i + 1 ].name != "#text" )
+
+            node = RemoveTextNodes( node.childNodes() ).at( hierarchy[ i ].index );
+
+        else
+
+            node = node.childNodes().at( hierarchy[ i ].index );
+
+        if ( !node.isNull() )
+
+            end_node = node;
+
+        else
+
+            break;
+    }
+
+    return end_node;       
+}
+
+
+// Creates a ViewEditor element hierarchy from the specified node
+QList< ViewEditor::ElementIndex > XHTMLDoc::GetHierarchyFromNode( const QDomNode &node )
+{
+    // FIXME: Actually we should throw an exception here
+    if ( node.isNull() )
+
+        return QList< ViewEditor::ElementIndex >();
+
+    QDomNode html_node    = node.ownerDocument().elementsByTagName( "html" ).at( 0 );
+    QDomNode current_node = node;
+    QList< ViewEditor::ElementIndex > element_list;
+
+    while ( current_node != html_node )
+    {
+        QDomNode parent = current_node.parentNode();
+
+        ViewEditor::ElementIndex element;
+        element.name  = GetNodeName( parent );
+        element.index = GetCustomIndexInList( current_node, parent.childNodes() );
+    
+        element_list.prepend( element );
+
+        current_node = parent;
+    }
+
+    return element_list;
+}
+
+
 // Accepts a reference to an XML stream reader positioned on an XML element.
 // Returns an XMLElement struct with the data in the stream.
 XHTMLDoc::XMLElement XHTMLDoc::CreateXMLElement( QXmlStreamReader &reader )
@@ -169,5 +438,7 @@ XHTMLDoc::XMLElement XHTMLDoc::CreateXMLElement( QXmlStreamReader &reader )
 
     return element; 
 }
+
+
 
 

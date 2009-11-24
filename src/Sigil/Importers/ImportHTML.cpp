@@ -133,7 +133,7 @@ void ImportHTML::StripFilesFromAnchors()
 
     QDomNodeList anchors = document.elementsByTagName( "a" );
 
-    for ( int i = 0; i < anchors.count(); i++ )
+    for ( int i = 0; i < anchors.count(); ++i )
     {
         QDomElement element = anchors.at( i ).toElement();
 
@@ -202,7 +202,7 @@ void ImportHTML::UpdateReferenceInNode( QDomNode node, const QHash< QString, QSt
 {
     QDomNamedNodeMap attributes = node.attributes();
 
-    for ( int i = 0; i < attributes.count(); i++ )
+    for ( int i = 0; i < attributes.count(); ++i )
     {
         QDomAttr attribute = attributes.item( i ).toAttr();
 
@@ -229,7 +229,7 @@ void ImportHTML::UpdateReferenceInNode( QDomNode node, const QHash< QString, QSt
     
     QMutexLocker locker( &m_SynchronizerMutex );
 
-    for ( int i = 0; i < children.count(); i++ )
+    for ( int i = 0; i < children.count(); ++i )
     {        
         m_NodeUpdateSynchronizer.addFuture( QtConcurrent::run(  this, &ImportHTML::UpdateReferenceInNode, 
                                                                 children.at( i ), updates ) );
@@ -417,7 +417,7 @@ void ImportHTML::LoadStyleFiles()
 
     // Get all the style files references in link tags
     // and convert them into style tags
-    for ( int i = 0; i < link_nodes.count(); i++ )
+    for ( int i = 0; i < link_nodes.count(); ++i )
     {
         QDir folder( QFileInfo( m_FullFilePath ).absoluteDir() );
 

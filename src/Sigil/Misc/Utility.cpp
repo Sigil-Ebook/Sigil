@@ -52,7 +52,7 @@ QString Utility::GetRandomString( int length )
         seed_flag = true;
     }
 
-    for ( int i = 0; i < length; i++ )
+    for ( int i = 0; i < length; ++i )
     {
         token += chars[ qrand() % 36 ];
     }
@@ -71,7 +71,7 @@ bool Utility::IsMixedCase( const QString &string )
     
     bool first_char_lower = string[ 0 ].isLower();
 
-    for ( int i = 1; i < string.length(); i++ )
+    for ( int i = 1; i < string.length(); ++i )
     {
         if ( string[ i ].isLower() != first_char_lower )
 

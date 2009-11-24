@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>451</width>
-    <height>227</height>
+    <height>251</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -197,35 +197,37 @@
            <number>0</number>
           </property>
           <item>
-           <layout class="QVBoxLayout" name="verticalLayout_5">
-            <item>
-             <widget class="QCheckBox" name="cbWholeWord">
-              <property name="text">
-               <string>Match whole word onl&amp;y</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QCheckBox" name="cbMatchCase">
-              <property name="text">
-               <string>Matc&amp;h case</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <spacer name="verticalSpacer">
-              <property name="orientation">
-               <enum>Qt::Vertical</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>20</width>
-                <height>10</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
-           </layout>
+           <widget class="QGroupBox" name="groupBox_3">
+            <property name="title">
+             <string>Options</string>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_8">
+             <item>
+              <widget class="QCheckBox" name="cbWholeWord">
+               <property name="text">
+                <string>Match whole word onl&amp;y</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QCheckBox" name="cbMatchCase">
+               <property name="text">
+                <string>Matc&amp;h case</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QCheckBox" name="cbMinimalMatching">
+               <property name="toolTip">
+                <string>&lt;p&gt;Make the expression match as little as possible.&lt;/p&gt;</string>
+               </property>
+               <property name="text">
+                <string>Minimal ma&amp;tching</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
           </item>
           <item>
            <widget class="QGroupBox" name="groupBox_2">
@@ -235,16 +237,32 @@
             <layout class="QVBoxLayout" name="verticalLayout_4">
              <item>
               <widget class="QRadioButton" name="rbNormalSearch">
+               <property name="toolTip">
+                <string>&lt;p&gt;Normal, character by character comparison.&lt;/p&gt;</string>
+               </property>
                <property name="text">
                 <string>Nor&amp;mal</string>
                </property>
-               <property name="checked">
-                <bool>true</bool>
+              </widget>
+             </item>
+             <item>
+              <widget class="QRadioButton" name="rbWildcardSearch">
+               <property name="toolTip">
+                <string>&lt;p&gt;Wildcard matching.&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;?&lt;/b&gt; - Matches any single character.&lt;p&gt;
+&lt;p&gt;&lt;b&gt;*&lt;/b&gt; - Matches zero or more of any characters.&lt;p&gt;
+&lt;p&gt;&lt;b&gt;[...]&lt;/b&gt; - Character set.&lt;p&gt;</string>
+               </property>
+               <property name="text">
+                <string>&amp;Wildcard</string>
                </property>
               </widget>
              </item>
              <item>
               <widget class="QRadioButton" name="rbRegexSearch">
+               <property name="toolTip">
+                <string>&lt;p&gt;Perl-like regular expressions, with minor differences.&lt;/p&gt;</string>
+               </property>
                <property name="text">
                 <string>Re&amp;gular expression</string>
                </property>
@@ -264,15 +282,19 @@
                <property name="text">
                 <string>&amp;Up</string>
                </property>
-               <property name="checked">
-                <bool>true</bool>
-               </property>
               </widget>
              </item>
              <item>
               <widget class="QRadioButton" name="rbDownDirection">
                <property name="text">
                 <string>D&amp;own</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QRadioButton" name="rbAllDirection">
+               <property name="text">
+                <string>A&amp;ll</string>
                </property>
               </widget>
              </item>
@@ -301,8 +323,6 @@
   <tabstop>btReplaceAll</tabstop>
   <tabstop>btCount</tabstop>
   <tabstop>btFindNext</tabstop>
-  <tabstop>cbWholeWord</tabstop>
-  <tabstop>cbMatchCase</tabstop>
   <tabstop>rbNormalSearch</tabstop>
   <tabstop>rbRegexSearch</tabstop>
   <tabstop>rbUpDirection</tabstop>

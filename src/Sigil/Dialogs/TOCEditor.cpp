@@ -216,7 +216,7 @@ void TOCEditor::CreateTOCModel()
     m_TableOfContents.setHorizontalHeaderLabels( header );
 
     // Recursively inserts all headings
-    for ( int i = 0; i < m_Headings.count(); i++ )
+    for ( int i = 0; i < m_Headings.count(); ++i )
     {
         InsertHeadingIntoModel( m_Headings[ i ], m_TableOfContents.invisibleRootItem() );
     }
@@ -259,7 +259,7 @@ void TOCEditor::InsertHeadingIntoModel( Headings::Heading &heading, QStandardIte
 
     if ( !heading.children.isEmpty() )
     {
-        for ( int i = 0; i < heading.children.count(); i++ )
+        for ( int i = 0; i < heading.children.count(); ++i )
         {
             InsertHeadingIntoModel( heading.children[ i ], item_heading );
         }

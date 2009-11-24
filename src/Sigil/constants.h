@@ -33,4 +33,5 @@ extern const QString STYLE_TAG;
 extern const QString WIN_PATH_SUFFIX;
 extern const QString NIX_PATH_SUFFIX;
 extern const QString VERSION_NUMBERS;
+extern const int PROGRESS_BAR_MINIMUM_DURATION;
 

@@ -25,6 +25,7 @@
 
 #include <QString>
 #include <QList>
+#include "Searchable.h"
 
 class Book;
 
@@ -32,19 +33,25 @@ class Book;
 // It would be lovely if we could make this a QObject
 // subclass, but multiple inheritance with multiple
 // QObject subclasses is apparently a bad idea.
-class ViewEditor
+class ViewEditor : public Searchable
 {
 
 public:
 
-    // Represents an element in the XHTML document tree
+    //   Represents an element in the XHTML document tree
     // and the index of its child that selects the
     // next element in the chain.
-    // By constructing a list of these items, one can
+    //   By constructing a list of these items, one can
     // navigate the tree by selecting the element,
     // its child with the specified index, its child
     // with its index and so on until reaching
     // the element ultimately identified by this chain.
+    //   Because of webkit limitations, this hierarchy
+    // does not really look at all child nodes, but only
+    // at element child nodes. The text nodes are considered
+    // children only for the last element... and even then,
+    // it depends on the specific ViewEditor... BookView 
+    // does this, CodeView doesn't.
     struct ElementIndex
     {
         QString name;
@@ -74,7 +81,7 @@ public:
     virtual void SetZoomFactor( float factor ) = 0;
 
     // Returns the View's current zoom factor
-    virtual float GetZoomFactor() const = 0;
+    virtual float GetZoomFactor() const = 0;    
 };
 
 #endif // VIEWEDITOR_H
