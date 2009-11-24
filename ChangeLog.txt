@@ -1,4 +1,5 @@
 Sigil v0.1.5 <ADD DATE>
+    - fixed an issue with loading text files that don't end with a newline (some text would end up missing)
     - A NEW FIND & REPLACE DIALOG (issue #13)
     - no more hard line breaks in Code View (courtesy of recent performance optimisations) (issue #61)
     - TOC Editor now remembers its size across invocations and program launches

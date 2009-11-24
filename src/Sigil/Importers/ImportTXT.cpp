@@ -68,7 +68,7 @@ QString ImportTXT::CreateParagraphs( const QStringList &lines ) const
 
     foreach( QString line, lines )
     {
-        if ( ( line.isEmpty() ) || ( line[ 0 ].isSpace() ) )
+        if ( line.isEmpty() || line[ 0 ].isSpace() )
         {
             text.append( paragraph.append( "</p>\n" ) );
 
@@ -77,6 +77,8 @@ QString ImportTXT::CreateParagraphs( const QStringList &lines ) const
 
         paragraph.append( line.prepend( " " ) );
     }
+
+    text.append( paragraph.append( "</p>\n" ) );
 
     return text;
 }
