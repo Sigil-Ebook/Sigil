@@ -527,9 +527,9 @@ void MainWindow::BookView()
     // in the code view
     if ( !m_isLastViewBook )
     {
-        UpdateBookViewFromSource();
-
         m_wBookView->StoreCaretLocationUpdate( m_wCodeView->GetCaretLocation() );
+
+        UpdateBookViewFromSource();        
     }
 
     m_isLastViewBook = true;
@@ -559,16 +559,16 @@ void MainWindow::SplitView()
     // Update the required view
     if ( !m_isLastViewBook )
     {
-        UpdateBookViewFromSource();
-
         m_wBookView->StoreCaretLocationUpdate( m_wCodeView->GetCaretLocation() );
+
+        UpdateBookViewFromSource();
     }
 
     else
-    {
-        UpdateCodeViewFromSource();
-
+    {        
         m_wCodeView->StoreCaretLocationUpdate( m_wBookView->GetCaretLocation() );
+
+        UpdateCodeViewFromSource();
     }
 
     m_wBookView->show();
@@ -594,9 +594,9 @@ void MainWindow::CodeView()
     // in the book view
     if ( m_isLastViewBook )
     {
-        UpdateCodeViewFromSource();
-
         m_wCodeView->StoreCaretLocationUpdate( m_wBookView->GetCaretLocation() );
+
+        UpdateCodeViewFromSource();        
     }
 
     m_isLastViewBook = false;
@@ -805,7 +805,9 @@ void MainWindow::FocusFilter( QWidget *old_widget, QWidget *new_widget )
 
     // If we switched focus from the book view to the code view...
     if ( ( old_widget == m_wBookView ) && ( new_widget == m_wCodeView ) )
-    {        
+    { 
+        m_wCodeView->StoreCaretLocationUpdate( m_wBookView->GetCaretLocation() );
+
         // ...and if we haven't updated yet...
         if ( m_OldSource != m_Book.source )
         {
@@ -817,9 +819,7 @@ void MainWindow::FocusFilter( QWidget *old_widget, QWidget *new_widget )
             QApplication::restoreOverrideCursor();
         }
 
-        m_isLastViewBook = false;
-
-        m_wCodeView->StoreCaretLocationUpdate( m_wBookView->GetCaretLocation() );
+        m_isLastViewBook = false;        
 
         UpdateZoomControls();
 
@@ -830,6 +830,8 @@ void MainWindow::FocusFilter( QWidget *old_widget, QWidget *new_widget )
     // If we switched focus from the code view to the book view...
     else if ( ( old_widget == m_wCodeView ) && ( new_widget == m_wBookView ) )
     {
+        m_wBookView->StoreCaretLocationUpdate( m_wCodeView->GetCaretLocation() );
+
         // ...and if we haven't updated yet...
         if ( m_OldSource != m_Book.source )
         {
@@ -841,9 +843,7 @@ void MainWindow::FocusFilter( QWidget *old_widget, QWidget *new_widget )
             QApplication::restoreOverrideCursor();
         }
         
-        m_isLastViewBook = true;
-
-        m_wBookView->StoreCaretLocationUpdate( m_wCodeView->GetCaretLocation() );
+        m_isLastViewBook = true;        
 
         UpdateZoomControls();
 

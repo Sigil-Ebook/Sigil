@@ -169,7 +169,7 @@ QList< ViewEditor::ElementIndex > BookViewEditor::GetCaretLocation()
 void BookViewEditor::StoreCaretLocationUpdate( const QList< ViewEditor::ElementIndex > &hierarchy )
 {
     QString caret_location = "var element = " + GetElementSelectingJS_NoTextNodes( hierarchy ) + ";";
-    
+
     // We scroll to the element and center the screen on it
     QString scroll = "var from_top = window.innerHeight / 2;"
                      "$.scrollTo( element, 0, {offset: {top:-from_top, left:0 } } );";
@@ -318,7 +318,7 @@ void BookViewEditor::JavascriptOnDocumentLoad()
 {
     // Javascript libraries needed
     EvaluateJavascript( c_JQuery );
-    EvaluateJavascript( c_JQueryScrollTo );  
+    EvaluateJavascript( c_JQueryScrollTo ); 
 
     // Run the caret update if it's pending
     ExecuteCaretUpdate();
@@ -617,10 +617,10 @@ void BookViewEditor::SelectTextRange( const SelectRangeInputs &input )
 // Does NOT center the node in view.
 void BookViewEditor::ScrollToNode( const QDomNode &node )
 {
-    QString selector = GetElementSelectingJS_NoTextNodes( XHTMLDoc::GetHierarchyFromNode( node ) );
+    QString element_selector = GetElementSelectingJS_NoTextNodes( XHTMLDoc::GetHierarchyFromNode( node ) );
 
-    QString offset_js = "$(" + selector + ").offset().top;";
-    QString height_js = "$(" + selector + ").height();";
+    QString offset_js = "$(" + element_selector + ").offset().top;";
+    QString height_js = "$(" + element_selector + ").height();";
 
     int elem_offset  = EvaluateJavascript( offset_js ).toInt();
     int elem_height  = EvaluateJavascript( height_js ).toInt();
@@ -658,6 +658,7 @@ void BookViewEditor::ScrollToNode( const QDomNode &node )
 
     page()->mainFrame()->setScrollBarValue( Qt::Vertical, new_scroll_Y );
 }
+
 
 
 

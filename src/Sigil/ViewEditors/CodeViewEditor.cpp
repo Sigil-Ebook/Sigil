@@ -159,7 +159,7 @@ QList< ViewEditor::ElementIndex > CodeViewEditor::GetCaretLocation()
 // and creates and stores an update that sends the caret
 // in this view to the specified element.
 // The CodeView implementation initiates the update in
-// the paint event handler.
+// the main event handler.
 void CodeViewEditor::StoreCaretLocationUpdate( const QList< ViewEditor::ElementIndex > &hierarchy )
 {
     QDomDocument dom;

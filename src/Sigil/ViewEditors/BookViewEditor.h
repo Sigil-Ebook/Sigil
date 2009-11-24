@@ -221,6 +221,7 @@ private:
     // ScrollTo extension library
     const QString c_JQueryScrollTo;
 
+
     // The javascript source code used
     // to get a hierarchy of elements from
     // the caret element to the top of the document
