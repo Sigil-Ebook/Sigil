@@ -44,12 +44,12 @@ FindReplace::FindReplace( bool find_tab, const MainWindow &mainwindow, QWidget *
     ExtendUI();
 
     connect( ui.twTabs,          SIGNAL( currentChanged( int ) ), this, SLOT( TabChanged()                   ) );
-    connect( ui.btMore,	         SIGNAL( clicked()             ), this, SLOT( ToggleMoreLess()               ) );
-    connect( ui.btFindNext,	     SIGNAL( clicked()             ), this, SLOT( FindNext()                     ) );
-    connect( ui.btCount,	     SIGNAL( clicked()             ), this, SLOT( Count()                        ) );
-    connect( ui.btReplace,	     SIGNAL( clicked()             ), this, SLOT( Replace()                      ) );
+    connect( ui.btMore,          SIGNAL( clicked()             ), this, SLOT( ToggleMoreLess()               ) );
+    connect( ui.btFindNext,      SIGNAL( clicked()             ), this, SLOT( FindNext()                     ) );
+    connect( ui.btCount,         SIGNAL( clicked()             ), this, SLOT( Count()                        ) );
+    connect( ui.btReplace,       SIGNAL( clicked()             ), this, SLOT( Replace()                      ) );
     connect( ui.btReplaceAll,    SIGNAL( clicked()             ), this, SLOT( ReplaceAll()                   ) );
-    connect( ui.rbNormalSearch,	 SIGNAL( toggled( bool )       ), this, SLOT( ToggleAvailableOptions( bool ) ) );
+    connect( ui.rbNormalSearch,  SIGNAL( toggled( bool )       ), this, SLOT( ToggleAvailableOptions( bool ) ) );
 
     // Defaults
     ui.rbNormalSearch->setChecked( true );
