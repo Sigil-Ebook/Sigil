@@ -104,6 +104,11 @@ private:
     // window position, geometry etc.
     void WriteSettings();
 
+    // Qt Designer is not able to create all the widgets
+    // we want in our dialog, so we use this function
+    // to extend the UI created by the Designer
+    void ExtendUI();
+
 
     ///////////////////////////////
     // PRIVATE MEMBER VARIABLES

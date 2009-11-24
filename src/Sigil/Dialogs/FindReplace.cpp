@@ -41,11 +41,13 @@ FindReplace::FindReplace( bool find_tab, const MainWindow &mainwindow, QWidget *
     // from memory when it is closed
     setAttribute( Qt::WA_DeleteOnClose );
 
+    ExtendUI();
+
     connect( ui.twTabs,          SIGNAL( currentChanged( int ) ), this, SLOT( TabChanged()                   ) );
     connect( ui.btMore,	         SIGNAL( clicked()             ), this, SLOT( ToggleMoreLess()               ) );
-    connect( ui.btFindNext,	 SIGNAL( clicked()             ), this, SLOT( FindNext()                     ) );
-    connect( ui.btCount,	 SIGNAL( clicked()             ), this, SLOT( Count()                        ) );
-    connect( ui.btReplace,	 SIGNAL( clicked()             ), this, SLOT( Replace()                      ) );
+    connect( ui.btFindNext,	     SIGNAL( clicked()             ), this, SLOT( FindNext()                     ) );
+    connect( ui.btCount,	     SIGNAL( clicked()             ), this, SLOT( Count()                        ) );
+    connect( ui.btReplace,	     SIGNAL( clicked()             ), this, SLOT( Replace()                      ) );
     connect( ui.btReplaceAll,    SIGNAL( clicked()             ), this, SLOT( ReplaceAll()                   ) );
     connect( ui.rbNormalSearch,	 SIGNAL( toggled( bool )       ), this, SLOT( ToggleAvailableOptions( bool ) ) );
 
@@ -423,6 +425,13 @@ void FindReplace::WriteSettings()
     settings.setValue( "replace_text", ui.leReplace->text() );
 }
 
+
+void FindReplace::ExtendUI()
+{
+    // This is necessary. We need to have a default
+    // layout on the Replace tab. 
+    new QVBoxLayout( ui.ReplaceTab );
+}
 
 
 
