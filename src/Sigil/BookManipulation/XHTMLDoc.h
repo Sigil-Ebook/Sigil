@@ -94,7 +94,7 @@ public:
 
     // Returns a list of ALL text nodes that are descendants
     // of the specified node.
-    static QList< QDomNode > XHTMLDoc::GetAllTextNodes( const QDomNode &node );
+    static QList< QDomNode > GetAllTextNodes( const QDomNode &node );
 
     // Returns the first block element ancestor of the specified node
     static QDomNode GetAncestorBlockElement( const QDomNode &node );
