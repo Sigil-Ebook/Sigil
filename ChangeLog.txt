@@ -1,4 +1,6 @@
 Sigil v0.1.5 <ADD DATE>
+    - A NEW FIND & REPLACE DIALOG (issue #13)
+    - no more hard line breaks in Code View (courtesy of recent performance optimisations) (issue #61)
     - TOC Editor now remembers its size across invocations and program launches
     - the uninstaller now removes Sigil's temporary working directories 
     - removed the "Start Sigil" checkbox in the last page of the installer; starting Sigil like this
