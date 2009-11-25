@@ -39,7 +39,6 @@ static const QString XML_OPENING_TAG = "(<[^>/][^>]*[^>/]>|<[^>/]>)";
 CodeViewEditor::CodeViewEditor( QWidget *parent )
     : 
     QPlainTextEdit( parent ),
-    m_CaretLocationUpdate( 0, 0 ),
     m_LineNumberArea( new LineNumberArea( this ) ),
     m_Highlighter( new XHTMLHighlighter( document() ) ),
     m_CurrentZoomFactor( 1.0 )
@@ -162,27 +161,7 @@ QList< ViewEditor::ElementIndex > CodeViewEditor::GetCaretLocation()
 // the main event handler.
 void CodeViewEditor::StoreCaretLocationUpdate( const QList< ViewEditor::ElementIndex > &hierarchy )
 {
-    QDomDocument dom;
-    dom.setContent( toPlainText() );
-
-    QDomNode end_node = XHTMLDoc::GetNodeFromHierarchy( dom, hierarchy );
-
-    QTextCursor cursor( document() );
-
-    if ( !end_node.isNull() ) 
-    {
-        // We can't set the actual caret location here;
-        // that is done in the overridden event handler.
-        // Here we just calculate the caret update.
-        m_CaretLocationUpdate.vertical_lines   = end_node.lineNumber() - cursor.blockNumber();
-        m_CaretLocationUpdate.horizontal_chars = end_node.columnNumber();   
-    }
-
-    else
-    {   
-        m_CaretLocationUpdate.vertical_lines   = 0;
-        m_CaretLocationUpdate.horizontal_chars = 0;
-    } 
+    m_CaretUpdate = hierarchy;
 }
 
 
@@ -417,7 +396,7 @@ void CodeViewEditor::HighlightCurrentLine()
 // current location of the caret in the document.
 // Accepts the number of characters to the end of
 // the start tag of the element the caret is residing in. 
-QStack< CodeViewEditor::StackElement > CodeViewEditor::GetCaretLocationStack( int offset )
+QStack< CodeViewEditor::StackElement > CodeViewEditor::GetCaretLocationStack( int offset ) const
 {
     QString source = toPlainText();
     QXmlStreamReader reader( source );
@@ -472,7 +451,7 @@ QStack< CodeViewEditor::StackElement > CodeViewEditor::GetCaretLocationStack( in
 
 // Converts the stack provided by GetCaretLocationStack()
 // and converts it into the element location hierarchy
-QList< ViewEditor::ElementIndex > CodeViewEditor::ConvertStackToHierarchy( const QStack< StackElement > stack )
+QList< ViewEditor::ElementIndex > CodeViewEditor::ConvertStackToHierarchy( const QStack< StackElement > stack ) const
 {
     QList< ViewEditor::ElementIndex > hierarchy;
 
@@ -489,6 +468,34 @@ QList< ViewEditor::ElementIndex > CodeViewEditor::ConvertStackToHierarchy( const
     return hierarchy;
 }
 
+
+// Converts a ViewEditor element hierarchy to a CaretMove
+CodeViewEditor::CaretMove CodeViewEditor::ConvertHierarchyToCaretMove( const QList< ViewEditor::ElementIndex > &hierarchy ) const
+{
+    QDomDocument dom;
+    dom.setContent( toPlainText() );
+
+    QDomNode end_node = XHTMLDoc::GetNodeFromHierarchy( dom, hierarchy );
+
+    QTextCursor cursor( document() );
+    CodeViewEditor::CaretMove caret_move;
+
+    if ( !end_node.isNull() ) 
+    {
+        caret_move.vertical_lines   = end_node.lineNumber() - cursor.blockNumber();
+        caret_move.horizontal_chars = end_node.columnNumber();   
+    }
+
+    else
+    {   
+        caret_move.vertical_lines   = 0;
+        caret_move.horizontal_chars = 0;
+    }
+
+    return caret_move;
+}
+
+
 // Executes the caret updating code
 // if an update is pending;
 // returns true if update was performed
@@ -496,20 +503,21 @@ bool CodeViewEditor::ExecuteCaretUpdate()
 {
     // If there's a cursor/caret update waiting (from BookView),
     // we update the caret location and reset the update variable
-    if (    m_CaretLocationUpdate.vertical_lines   == 0 &&
-            m_CaretLocationUpdate.horizontal_chars == 0 
-       )
+    if ( m_CaretUpdate.count() == 0 )
     {
         return false;
     }
 
     QTextCursor cursor( document() );
 
-    cursor.movePosition( QTextCursor::NextBlock, QTextCursor::MoveAnchor, m_CaretLocationUpdate.vertical_lines );
-    cursor.movePosition( QTextCursor::Left     , QTextCursor::MoveAnchor, m_CaretLocationUpdate.horizontal_chars );
+    // We *have* to do the conversion on-demand since the 
+    // conversion uses toPlainText(), and the text needs to up-to-date.
+    CodeViewEditor::CaretMove caret_move = ConvertHierarchyToCaretMove( m_CaretUpdate );
 
-    m_CaretLocationUpdate.vertical_lines   = 0;
-    m_CaretLocationUpdate.horizontal_chars = 0; 
+    cursor.movePosition( QTextCursor::NextBlock, QTextCursor::MoveAnchor, caret_move.vertical_lines );
+    cursor.movePosition( QTextCursor::Left     , QTextCursor::MoveAnchor, caret_move.horizontal_chars );
+
+    m_CaretUpdate.clear();
 
     setTextCursor( cursor );
 
@@ -525,7 +533,7 @@ bool CodeViewEditor::ExecuteCaretUpdate()
 
 // Returns the selection offset from the start of the 
 // document depending on the search direction specified
-int CodeViewEditor::GetSelectionOffset( Searchable::Direction search_direction )
+int CodeViewEditor::GetSelectionOffset( Searchable::Direction search_direction ) const
 {
     if (    search_direction == Searchable::Direction_Down ||
             search_direction == Searchable::Direction_All
@@ -539,6 +547,7 @@ int CodeViewEditor::GetSelectionOffset( Searchable::Direction search_direction )
         return textCursor().selectionStart();
     }
 }
+
 
 
 

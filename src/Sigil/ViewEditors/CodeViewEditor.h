@@ -26,6 +26,7 @@
 #include <QPlainTextEdit>
 #include "ViewEditor.h"
 #include <QStack>
+#include <QList>
 
 class QResizeEvent;
 class QSize;
@@ -153,10 +154,6 @@ private:
         // The number of horizontal characters
         // on the destination line
         int horizontal_chars;
-
-        CaretMove( int vertical, int horizontal ) 
-            : vertical_lines( vertical ), 
-              horizontal_chars( horizontal ) {}
     };
 
     // An element on the stack when searching for
@@ -175,11 +172,14 @@ private:
     // current location of the caret in the document.
     // Accepts the number of characters to the end of
     // the start tag of the element the caret is residing in. 
-    QStack< StackElement > GetCaretLocationStack( int offset );
+    QStack< StackElement > GetCaretLocationStack( int offset ) const;
 
     // Converts the stack provided by GetCaretLocationStack()
     // and converts it into the element location hierarchy
-    QList< ElementIndex > ConvertStackToHierarchy( const QStack< StackElement > stack );
+    QList< ElementIndex > ConvertStackToHierarchy( const QStack< StackElement > stack ) const;
+
+    // Converts a ViewEditor element hierarchy to a CaretMove
+    CaretMove ConvertHierarchyToCaretMove( const QList< ViewEditor::ElementIndex > &hierarchy ) const;
 
     // Executes the caret updating code
     // if such an update is pending;
@@ -188,16 +188,12 @@ private:
 
     // Returns the selection offset from the start of the 
     // document depending on the search direction specified
-    int GetSelectionOffset( Searchable::Direction search_direction );
+    int GetSelectionOffset( Searchable::Direction search_direction ) const;
 
 
     ///////////////////////////////
     // PRIVATE MEMBER VARIABLES
     ///////////////////////////////
-
-    // Stores the update for the caret location
-    // when switching from BookView to CodeVIew
-    CaretMove m_CaretLocationUpdate;
 
     // The line number area widget of the code view
     LineNumberArea *m_LineNumberArea;
@@ -207,6 +203,10 @@ private:
 
     // The view's current zoom factor
     float m_CurrentZoomFactor;
+
+    // Stores the update for the caret location
+    // when switching from BookView to CodeVIew
+    QList< ViewEditor::ElementIndex >  m_CaretUpdate;
 };
 
 #endif // CODEVIEWEDITOR_H
