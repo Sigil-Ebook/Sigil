@@ -256,9 +256,10 @@ private:
     // Returns true if the provided extension is supported as a save type
     bool IsSupportedSaveType( const QString &filename ) const;
 
-    // Performs actions need for interoperability
-    // with calibre; if Sigil was called from it,
-    // special actions need to be taken
+    // Accepts the path to saved epub and a reference
+    // to the main book. Calls calibre (in a special way)
+    // with a path to a temp copy of the saved epub.
+    // Needs to be called in a separate thread.
     static void CalibreInterop( QString filepath, Book &book );
 
     // Performs zoom operations in the views using the default

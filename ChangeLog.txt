@@ -1,4 +1,4 @@
-Sigil v0.1.5 <ADD DATE>
+Sigil v0.1.5 2009.11.25
     - fixed a race condition with view syncing in Book View
     - fixed an issue with loading text files that don't end with a newline (some text would end up missing)
     - A NEW FIND & REPLACE DIALOG (issue #13)
