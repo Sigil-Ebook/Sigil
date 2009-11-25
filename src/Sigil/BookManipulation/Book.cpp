@@ -23,11 +23,56 @@
 #include "../BookManipulation/Book.h"
 #include "../Misc/Utility.h"
 
+bool Book::s_IgnoreCalibreEnvFlag = false;
+
 // Constructor
 Book::Book()
-    : PublicationIdentifier( QUuid::createUuid().toString().remove( "{" ).remove( "}" ) ) 		
+    : 
+    PublicationIdentifier( QUuid::createUuid().toString().remove( "{" ).remove( "}" ) ),
+    m_ReportToCalibre( false )
+
 {
-    
+    QMutexLocker locker( &m_IgnoreCalibreEnvFlagSync );
+
+    if ( !Utility::GetEnvironmentVar( "CALLED_FROM_CALIBRE" ).isEmpty() &&
+         !s_IgnoreCalibreEnvFlag 
+        )
+    {
+        SetReportToCalibreStatus( true );
+
+        s_IgnoreCalibreEnvFlag = true;
+    }
+}
+
+
+// Copy constructor
+Book::Book( const Book& other )
+{
+    source = other.source;
+    metadata = other.metadata;
+    PublicationIdentifier = other.PublicationIdentifier;
+    mainfolder = other.mainfolder;
+
+    // We do NOT copy the m_ReportToCalibre value
+}
+
+
+// Assignment operator
+Book& Book::operator = ( const Book& other )
+{
+    // Protect against invalid self-assignment
+    if ( this != &other ) 
+    {
+        source = other.source;
+        metadata = other.metadata;
+        PublicationIdentifier = other.PublicationIdentifier;
+        mainfolder = other.mainfolder;
+
+        // We do NOT copy the m_ReportToCalibre value
+    }
+
+    // By convention, always return *this
+    return *this;
 }
 
 
@@ -39,3 +84,22 @@ QUrl Book::GetBaseUrl() const
     return QUrl::fromLocalFile( mainfolder.GetFullPathToTextFolder() + "/" );
 }
 
+
+// Returns the status of the m_ReportToCalibre
+// variable. Thread-safe.
+bool Book::GetReportToCalibreStatus()
+{
+    QMutexLocker locker( &m_ReportToCalibreSync );
+
+    return m_ReportToCalibre;
+}
+
+
+// Sets the status of the m_ReportToCalibre
+// variable. Thread-safe.
+void Book::SetReportToCalibreStatus( bool new_status )
+{
+    QMutexLocker locker( &m_ReportToCalibreSync );
+
+    m_ReportToCalibre = new_status;
+}

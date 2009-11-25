@@ -1269,6 +1269,11 @@ bool MainWindow::SaveFile( const QString &filename )
         
         ExporterFactory().GetExporter( filename, m_Book ).WriteBook();
 
+
+    if ( m_Book.GetReportToCalibreStatus() )
+
+        QtConcurrent::run( CalibreInterop, filename, m_Book );
+
     QApplication::restoreOverrideCursor();
 
     SetCurrentFile( filename );
@@ -1287,6 +1292,40 @@ bool MainWindow::IsSupportedSaveType( const QString &extension ) const
     supported << "epub" << "sgf";
 
     return supported.contains( extension );
+}
+
+
+// Accepts the path to saved epub and a reference
+// to the main book. Calls calibre (in a special way)
+// with a path to a temp copy of the saved epub.
+// Needs to be called in a separate thread.
+void MainWindow::CalibreInterop( QString filepath, Book &book )
+{
+    QString calibre_id = Utility::GetEnvironmentVar( "CALLED_FROM_CALIBRE" );
+
+    if ( calibre_id.isEmpty() )
+
+        return;
+
+    QString epub_path = Utility::CreateTemporaryCopy( filepath );
+    QString argument  = "sigil:" + calibre_id + ":" + epub_path;
+
+    QProcess calibre;
+    calibre.start( "calibre", QStringList( argument ) );
+
+    if ( !calibre.waitForStarted() )
+
+        return;
+
+    if ( !calibre.waitForFinished() )
+
+        return;
+
+    QString result( calibre.readAll() );
+
+    if ( !result.toLower().contains( "ok" ) )
+
+        book.SetReportToCalibreStatus( false );
 }
 
 

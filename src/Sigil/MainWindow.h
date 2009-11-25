@@ -256,6 +256,11 @@ private:
     // Returns true if the provided extension is supported as a save type
     bool IsSupportedSaveType( const QString &filename ) const;
 
+    // Performs actions need for interoperability
+    // with calibre; if Sigil was called from it,
+    // special actions need to be taken
+    static void CalibreInterop( QString filepath, Book &book );
+
     // Performs zoom operations in the views using the default
     // zoom step. Setting zoom_in to true zooms the views *in*,
     // and a setting of false zooms them *out*. The zoom value

@@ -28,20 +28,37 @@
 #include <QHash>
 #include <QUrl>
 #include <QVariant>
+#include <QMutex>
 
 class Book
 {	
-    // These are all public because
-    // this class is basically a glorified struct
 public:
 
     // Constructor
     Book();
 
+    // Copy constructor
+    Book( const Book& other );
+
+    // Assignment operator
+    Book& operator = ( const Book& other );
+
     // Returns the base url of the book,
     // that is the location to the text folder
     // within the main folder
     QUrl GetBaseUrl() const;
+
+    // Returns the status of the m_ReportToCalibre
+    // variable. Thread-safe.
+    bool GetReportToCalibreStatus();
+
+    // Sets the status of the m_ReportToCalibre
+    // variable. Thread-safe.
+    void SetReportToCalibreStatus( bool new_status );
+
+    // This used to be a struct so these are public.
+    // TODO: Find the time to update the codebase
+    // to use getters and setters.
 
     // Stores the full XHTML source code of the book
     QString source;
@@ -58,6 +75,16 @@ public:
     // The FolderKeeper object that represents
     // this books presence on the hard drive
     FolderKeeper mainfolder;
+
+private:    
+
+    bool m_ReportToCalibre;
+
+    QMutex m_ReportToCalibreSync;
+
+    static bool s_IgnoreCalibreEnvFlag;
+
+    QMutex m_IgnoreCalibreEnvFlagSync;    
 };
 
 #endif // BOOK_H
