@@ -1,4 +1,5 @@
 Sigil v0.1.6 <ADD_DATE>
+    - "Replace All" is now treated as a single undo/redo operation *in Code View*
     - tentatively fixed a problem with bad TOC generation if the input file had multiple headings
     with the same ID (across XHTML files) (issue #177)
     - fixed a regression that was causing crashes when switching views

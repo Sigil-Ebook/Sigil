@@ -258,6 +258,10 @@ int CodeViewEditor::ReplaceAll( const QRegExp &search_regex, const QString &repl
     QProgressDialog progress( tr( "Replacing search term..." ), QString(), 0, Count( search_regex ) );
     progress.setMinimumDuration( PROGRESS_BAR_MINIMUM_DURATION );
 
+    // This is one edit operation, so all of it
+    // can be undone with undo.
+    cursor.beginEditBlock();
+
     while ( toPlainText().indexOf( result_regex, index ) != -1 )
     {
         // Update the progress bar
@@ -272,6 +276,8 @@ int CodeViewEditor::ReplaceAll( const QRegExp &search_regex, const QString &repl
         index = result_regex.pos() + final_replacement.length();
         ++count;
     }
+
+    cursor.endEditBlock();
 
     return count;
 }
