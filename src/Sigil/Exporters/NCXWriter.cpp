@@ -33,6 +33,7 @@ NCXWriter::NCXWriter( const Book &book, const FolderKeeper &fkeeper )
     : 
     XMLWriter( book, fkeeper ), 
     m_HeadingIDsPerFile( GetHeadingIDsPerFile() ),
+    m_HeadingSourcesPerFile( GetHeadingSourcesPerFile() ),
     m_Headings( Headings::MakeHeadingHeirarchy( Headings::GetHeadingList( m_Book.source ) ) )
 {
 
@@ -156,17 +157,7 @@ void NCXWriter::WriteNavPoint( const Headings::Heading &heading, int &play_order
         m_Writer->writeTextElement( "text", heading.text );
         m_Writer->writeEndElement();
 
-        QString myfile = "";
-
-        // We search for the file this heading is located in
-        foreach( QString file, m_HeadingIDsPerFile.keys() )
-        {
-            if ( m_HeadingIDsPerFile[ file ].contains( heading.id ) )
-            {
-                myfile = file;
-                break;
-            }
-        }
+        QString myfile = GetHeadingFile( heading );        
 
         m_Writer->writeEmptyElement( "content" );
 
@@ -193,7 +184,7 @@ void NCXWriter::WriteNavPoint( const Headings::Heading &heading, int &play_order
 }
 
 
-// Returns a hash that lists all the headings
+// Returns a hash that lists all the heading ID's
 // in a particular file
 QHash< QString, QStringList > NCXWriter::GetHeadingIDsPerFile() const
 {
@@ -218,10 +209,87 @@ QHash< QString, QStringList > NCXWriter::GetHeadingIDsPerFile() const
             
                 file_headings[ relfilepath ].append( heading.id );
         }
-
     }
     
     return file_headings;
+}
+
+
+// Returns a hash that lists all the heading sources
+// in a particular file. "Source" means full element HTML.
+QHash< QString, QStringList > NCXWriter::GetHeadingSourcesPerFile() const
+{
+    QHash< QString, QStringList > file_headings;
+
+    foreach( QString relfilepath, m_Files )
+    {
+        // We skip all the files that are not in the
+        // text subdirectory
+        if ( !relfilepath.contains( "text/" ) )
+
+            continue;
+
+        QString fullfilepath = m_Folder.GetFullPathToOEBPSFolder() + "/" + relfilepath;
+        QString source       = Utility::ReadUnicodeTextFile( fullfilepath );
+
+        QList< Headings::Heading > headings = Headings::GetHeadingList( source );
+
+        foreach( Headings::Heading heading, headings )
+        {
+            file_headings[ relfilepath ].append( heading.element_source );
+        }
+    }
+
+    return file_headings;
+}
+
+
+// Returns the relative path to the XHTML file
+// the provided heading is located in.
+QString NCXWriter::GetHeadingFile( const Headings::Heading &heading ) const
+{
+    // MASSIVE HACK!
+    //   Sigil used to (stupidly) expect that a heading ID was unique epub-wide.
+    // And it is if the file is created with Sigil, but not necessarily
+    // true for imported epubs. This problem will go away in 0.2.0 when we
+    // switch to multi-flow editing, but is to deep to be fixed in this architecture.
+    // We need to support multi-level TOC across XHTML files, so we can't just scan
+    // the individual files and search for headings. We need to look at the heading
+    // hierarchy epub-wide.
+    //   This hack works in 99% of cases, and work on 0.2.0 has already started
+    // so hopefully we won't have to live with this for long.
+
+    QList< QString > files_with_heading_ID;
+
+    // We try to search for the file that has the heading's ID.
+    // We *really* want to find just one.
+    foreach( QString file, m_HeadingIDsPerFile.keys() )
+    {
+        if ( m_HeadingIDsPerFile[ file ].contains( heading.id ) )
+        {
+            files_with_heading_ID.append( file );
+        }
+    }
+
+    // If only one file has the heading ID, we return it.
+    if ( files_with_heading_ID.count() == 1 )
+
+        return files_with_heading_ID[ 0 ];
+
+    // This is very bad. We now try to look for the exact heading source code,
+    // including classes, text etc. Anything that would differentiate it from
+    // the other headings that unfortunately have the same ID.
+    // We return the first file that has this source, which may not be unique...
+    foreach( QString file, m_HeadingSourcesPerFile.keys() )
+    {
+        if ( m_HeadingSourcesPerFile[ file ].contains( heading.element_source ) )
+        {
+            return file;
+        }
+    }
+
+    // TODO: throw an exception.
+    return "";
 }
 
 
@@ -262,4 +330,5 @@ void NCXWriter::DepthWalker( const Headings::Heading &heading, int &current_dept
         DepthWalker( child_heading, new_current_depth, max_depth );                            
     }
  }
+
 
