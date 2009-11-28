@@ -173,7 +173,7 @@ QString XHTMLDoc::GetNodeName( const QDomNode &node )
 
 
 // Returns a list without the text nodes
-QList< QDomNode > XHTMLDoc::RemoveTextNodes( const QDomNodeList &list )
+QList< QDomNode > XHTMLDoc::GetOnlyElementNodes( const QDomNodeList &list )
 {
     // Since a QDomNodeList is "live", we store the count
     // so we don't have to recalculate it every loop iteration
@@ -183,7 +183,7 @@ QList< QDomNode > XHTMLDoc::RemoveTextNodes( const QDomNodeList &list )
 
     for ( int i = 0; i < count; ++i )
     {
-        if ( list.at( i ).nodeType() != QDomNode::TextNode )
+        if ( list.at( i ).nodeType() == QDomNode::ElementNode )
 
             non_textnode_list.append( list.at( i ) );
     }
@@ -355,8 +355,7 @@ QDomNode XHTMLDoc::GetAncestorBlockElement( const QDomNode &node )
 
 
 // Returns the node identified by the specified ViewEditor element hierarchy
-QDomNode XHTMLDoc::GetNodeFromHierarchy( const QDomDocument &document, 
-                                         const QList< ViewEditor::ElementIndex > &hierarchy )
+QDomNode XHTMLDoc::GetNodeFromHierarchy( const QDomDocument &document, const QList< ViewEditor::ElementIndex > &hierarchy )
 {
     QDomNode node = document.elementsByTagName( "html" ).at( 0 );
     QDomNode end_node;
@@ -365,7 +364,7 @@ QDomNode XHTMLDoc::GetNodeFromHierarchy( const QDomDocument &document,
     {
         if ( hierarchy[ i + 1 ].name != "#text" )
 
-            node = RemoveTextNodes( node.childNodes() ).at( hierarchy[ i ].index );
+            node = GetOnlyElementNodes( node.childNodes() ).at( hierarchy[ i ].index );
 
         else
 

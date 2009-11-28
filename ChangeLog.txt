@@ -1,4 +1,6 @@
 Sigil v0.1.6 <ADD_DATE>
+    - fixed a crash invoked on switching views and searching in Book View when the caret 
+    element's parent has HTML comment children (issue #179)
     - "Replace All" is now treated as a single undo/redo operation *in Code View*
     - tentatively fixed a problem with bad TOC generation if the input file had multiple headings
     with the same ID (across XHTML files) (issue #177)

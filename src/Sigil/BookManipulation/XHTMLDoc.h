@@ -73,7 +73,7 @@ public:
     static QString GetNodeName( const QDomNode &node );
 
     // Returns a list without the text nodes
-    static QList< QDomNode > RemoveTextNodes( const QDomNodeList &list );
+    static QList< QDomNode > GetOnlyElementNodes( const QDomNodeList &list );
 
     // Returns the node's real index in the list
     static int GetRealIndexInList( const QDomNode &node, const QDomNodeList &list );
