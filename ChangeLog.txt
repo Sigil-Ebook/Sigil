@@ -1,4 +1,5 @@
 Sigil v0.1.6 <ADD_DATE>
+    - PageUp and PageDown keys now work in Book View (issue #130)
     - fixed a crash invoked on switching views and searching in Book View when the caret 
     element's parent has HTML comment children (issue #179)
     - "Replace All" is now treated as a single undo/redo operation *in Code View*

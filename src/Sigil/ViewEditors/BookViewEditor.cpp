@@ -44,6 +44,22 @@ BookViewEditor::BookViewEditor( QWidget *parent )
     m_CaretLocationUpdate( QString() ),
     m_isLoadFinished( false )
 {
+
+    m_PageUp   = new QShortcut( QKeySequence( QKeySequence::MoveToPreviousPage ), this );
+    m_PageDown = new QShortcut( QKeySequence( QKeySequence::MoveToNextPage     ), this );
+
+    connect(    m_PageUp,
+                SIGNAL( activated() ), 
+                this,
+                SLOT( PageUp() )
+           );
+
+    connect(    m_PageDown,
+                SIGNAL( activated() ), 
+                this,
+                SLOT( PageDown() )
+           );
+
     connect(    page(),
                 SIGNAL( loadFinished( bool ) ), 
                 this,
@@ -336,6 +352,20 @@ void BookViewEditor::UpdateFinishedState( int progress )
     else
 
         m_isLoadFinished = false;
+}
+
+
+// Wrapper slot for the Page Up shortcut
+void BookViewEditor::PageUp()
+{
+    ScrollByPage( false );
+}
+
+
+// Wrapper slot for the Page Down shortcut
+void BookViewEditor::PageDown()
+{
+    ScrollByPage( true );
 }
 
 
@@ -660,6 +690,22 @@ void BookViewEditor::ScrollToNode( const QDomNode &node )
 }
 
 
+// Scrolls the whole screen by one "page".
+// Used for PageUp and PageDown shortcuts.
+void BookViewEditor::ScrollByPage( bool down )
+{
+    int frame_height = height();
+
+    int current_scroll_offset = page()->mainFrame()->scrollBarValue( Qt::Vertical );
+    int scroll_maximum        = page()->mainFrame()->scrollBarMaximum( Qt::Vertical );
+
+    int new_scroll_Y = down ? current_scroll_offset + frame_height : current_scroll_offset - frame_height;    
+
+    // qBound(min, ours, max) limits the value to the range
+    new_scroll_Y     = qBound( 0, new_scroll_Y, scroll_maximum );
+
+    page()->mainFrame()->setScrollBarValue( Qt::Vertical, new_scroll_Y );
+}
 
 
 

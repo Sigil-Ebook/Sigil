@@ -172,7 +172,7 @@ QString XHTMLDoc::GetNodeName( const QDomNode &node )
 }
 
 
-// Returns a list without the text nodes
+// Returns a list with only the element nodes
 QList< QDomNode > XHTMLDoc::GetOnlyElementNodes( const QDomNodeList &list )
 {
     // Since a QDomNodeList is "live", we store the count

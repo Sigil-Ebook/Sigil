@@ -28,6 +28,8 @@
 #include <QDomNode>
 #include <QMap>
 
+class QShortcut;
+
 class BookViewEditor : public QWebView, public ViewEditor
 {
     Q_OBJECT
@@ -120,6 +122,12 @@ private slots:
     // progress equals 100, the state is true, otherwise false.
     void UpdateFinishedState( int progress );
 
+    // Wrapper slot for the Page Up shortcut
+    void PageUp();
+
+    // Wrapper slot for the Page Down shortcut
+    void PageDown();
+
 private:
 
     // Evaluates the provided javascript source code 
@@ -209,6 +217,10 @@ private:
     // Does NOT center the node in view.
     void ScrollToNode( const QDomNode &node );
 
+    // Scrolls the whole screen by one "page".
+    // Used for PageUp and PageDown shortcuts.
+    void ScrollByPage( bool down );
+
 
     ///////////////////////////////
     // PRIVATE MEMBER VARIABLES
@@ -220,7 +232,6 @@ private:
     // The javascript source code of the jQuery
     // ScrollTo extension library
     const QString c_JQueryScrollTo;
-
 
     // The javascript source code used
     // to get a hierarchy of elements from
@@ -249,6 +260,10 @@ private:
 
     // Is set to false whenever the page is loading content
     bool m_isLoadFinished;
+
+    // Used for PageUp and PageDown keyboard shortcuts
+    QShortcut* m_PageUp;
+    QShortcut* m_PageDown;
 };
 
 

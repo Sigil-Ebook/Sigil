@@ -72,7 +72,7 @@ public:
     // about namespace prefixes and whatnot.
     static QString GetNodeName( const QDomNode &node );
 
-    // Returns a list without the text nodes
+    // Returns a list with only the element nodes
     static QList< QDomNode > GetOnlyElementNodes( const QDomNodeList &list );
 
     // Returns the node's real index in the list
