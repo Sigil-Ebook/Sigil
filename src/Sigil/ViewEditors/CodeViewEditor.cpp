@@ -230,7 +230,7 @@ bool CodeViewEditor::ReplaceSelected( const QRegExp &search_regex, const QString
 {
     QRegExp result_regex  = search_regex;
     QTextCursor cursor    = textCursor();
-    QString selected_text = cursor.selectedText();
+    QString selected_text = cursor.selectedText().replace( QChar::ParagraphSeparator, QChar( '\n' ) );
 
     // If we are currently sitting at the start 
     // of a matching substring, we replace it.
