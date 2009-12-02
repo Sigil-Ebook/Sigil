@@ -1,4 +1,8 @@
 Sigil v0.1.6 <ADD_DATE>
+    - implemented "blockquote" support through new WYSIWYG actions: "indent less" and
+    "indent more" (issue #41)
+    - updating Qt fixed an issue with images wrapped in SVG tags not being shown (issue #91)
+    - updated Qt from 4.5.2 to 4.6.0
     - fixed an issue with regex matching in Code View when such regexes referenced line
     endings with "\n" (issue #182)
     - PageUp and PageDown keys now work in Book View (issue #130)

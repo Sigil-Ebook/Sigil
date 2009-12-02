@@ -144,6 +144,12 @@ private slots:
     // Implements Insert numbered list action functionality
     void InsertNumberedList();
 
+    // Implements Decrease indent action functionality
+    void DecreaseIndent();
+
+    // Implements Increase indent action functionality
+    void IncreaseIndent();
+
     // Implements the heading combo box functionality
     void HeadingStyle( const QString& heading_type );
     
@@ -289,9 +295,9 @@ private:
     // Runs HTML Tidy on sSource variable
     void TidyUp();
 
-    // Removes every occurrence of class="Apple-style-span"
+    // Removes every occurrence of "signing" classes
     // with which webkit litters our source code 
-    void RemoveAppleClasses();
+    void RemoveWebkitClasses();
 
     // Sets the current file in window title;
     // updates the recent files list

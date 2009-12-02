@@ -51,7 +51,7 @@
      <x>0</x>
      <y>0</y>
      <width>945</width>
-     <height>22</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -107,6 +107,9 @@
     <addaction name="separator"/>
     <addaction name="actionInsertBulletedList"/>
     <addaction name="actionInsertNumberedList"/>
+    <addaction name="separator"/>
+    <addaction name="actionDecreaseIndent"/>
+    <addaction name="actionIncreaseIndent"/>
    </widget>
    <widget class="QMenu" name="menuView">
     <property name="title">
@@ -257,6 +260,19 @@
    </attribute>
    <addaction name="actionInsertBulletedList"/>
    <addaction name="actionInsertNumberedList"/>
+  </widget>
+  <widget class="QToolBar" name="toolBar">
+   <property name="windowTitle">
+    <string>toolBar</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionDecreaseIndent"/>
+   <addaction name="actionIncreaseIndent"/>
   </widget>
   <action name="actionNew">
    <property name="icon">
@@ -849,6 +865,40 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+H</string>
+   </property>
+  </action>
+  <action name="actionIncreaseIndent">
+   <property name="icon">
+    <iconset resource="../Resource_Files/main/main.qrc">
+     <normaloff>:/main/format-indent-more.png</normaloff>:/main/format-indent-more.png</iconset>
+   </property>
+   <property name="text">
+    <string>Increase Indent</string>
+   </property>
+   <property name="toolTip">
+    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Increase Indent&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Increase the indent level of the paragraph.&lt;/p&gt;</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+M</string>
+   </property>
+  </action>
+  <action name="actionDecreaseIndent">
+   <property name="icon">
+    <iconset resource="../Resource_Files/main/main.qrc">
+     <normaloff>:/main/format-indent-less.png</normaloff>:/main/format-indent-less.png</iconset>
+   </property>
+   <property name="text">
+    <string>Decrease Indent</string>
+   </property>
+   <property name="toolTip">
+    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Decrease Indent&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Decrease the indent level of the paragraph.&lt;/p&gt;</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+M</string>
    </property>
   </action>
  </widget>

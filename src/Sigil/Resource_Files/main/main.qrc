@@ -1,5 +1,7 @@
 <RCC>
-  <qresource prefix="main" >
+  <qresource prefix="main">
+    <file>format-indent-less.png</file>
+    <file>format-indent-more.png</file>
     <file>edit-find.png</file>
     <file>edit-find-replace.png</file>
     <file>document-print.png</file>

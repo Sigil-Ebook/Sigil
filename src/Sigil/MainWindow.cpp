@@ -294,7 +294,7 @@ void MainWindow::Undo()
     {
         m_wBookView->page()->triggerAction( QWebPage::Undo );
 
-        RemoveAppleClasses();
+        RemoveWebkitClasses();
     }
 
     else if ( m_wCodeView->hasFocus() )
@@ -311,7 +311,7 @@ void MainWindow::Redo()
     {
         m_wBookView->page()->triggerAction( QWebPage::Redo );
 
-        RemoveAppleClasses();
+        RemoveWebkitClasses();
     }
 
     else if ( m_wCodeView->hasFocus() )
@@ -328,7 +328,7 @@ void MainWindow::Cut()
     {
         m_wBookView->page()->triggerAction( QWebPage::Cut );
 
-        RemoveAppleClasses();
+        RemoveWebkitClasses();
     }
 
     else if ( m_wCodeView->hasFocus() )
@@ -345,7 +345,7 @@ void MainWindow::Copy()
     {
         m_wBookView->page()->triggerAction( QWebPage::Copy );
 
-        RemoveAppleClasses();
+        RemoveWebkitClasses();
     }
 
     else if ( m_wCodeView->hasFocus() )
@@ -362,7 +362,7 @@ void MainWindow::Paste()
     {
         m_wBookView->page()->triggerAction( QWebPage::Paste );
 
-        RemoveAppleClasses();
+        RemoveWebkitClasses();
     }
 
     else if ( m_wCodeView->hasFocus() )
@@ -413,7 +413,7 @@ void MainWindow::Bold()
     {
         m_wBookView->page()->triggerAction( QWebPage::ToggleBold );
 
-        RemoveAppleClasses();
+        RemoveWebkitClasses();
     }
 
     // TODO: insert required HTML for Code View
@@ -427,7 +427,7 @@ void MainWindow::Italic()
     {
         m_wBookView->page()->triggerAction( QWebPage::ToggleItalic );
 
-        RemoveAppleClasses();
+        RemoveWebkitClasses();
     }
 
     // TODO: insert required HTML for Code View
@@ -441,7 +441,7 @@ void MainWindow::Underline()
     {
         m_wBookView->page()->triggerAction( QWebPage::ToggleUnderline );
 
-        RemoveAppleClasses();
+        RemoveWebkitClasses();
     }
 
     // TODO: insert required HTML for Code View
@@ -455,7 +455,7 @@ void MainWindow::Strikethrough()
     {
         m_wBookView->ExecCommand( "strikeThrough" );
 
-        RemoveAppleClasses();
+        RemoveWebkitClasses();
     }
 
     // TODO: insert required HTML for Code View
@@ -469,7 +469,7 @@ void MainWindow::AlignLeft()
     {
         m_wBookView->ExecCommand( "justifyLeft" );
 
-        RemoveAppleClasses();
+        RemoveWebkitClasses();
     }
     
     // TODO: insert required HTML for Code View
@@ -483,7 +483,7 @@ void MainWindow::Center()
     {
         m_wBookView->ExecCommand( "justifyCenter" );
 
-        RemoveAppleClasses();
+        RemoveWebkitClasses();
     }
 
     // TODO: insert required HTML for Code View
@@ -497,7 +497,7 @@ void MainWindow::AlignRight()
     {
         m_wBookView->ExecCommand( "justifyRight" );
 
-        RemoveAppleClasses();
+        RemoveWebkitClasses();
     }
 
     // TODO: insert required HTML for Code View
@@ -511,7 +511,7 @@ void MainWindow::Justify()
     {
         m_wBookView->ExecCommand( "justifyFull" );
 
-        RemoveAppleClasses();
+        RemoveWebkitClasses();
     }
 
     // TODO: insert required HTML for Code View
@@ -623,7 +623,7 @@ void MainWindow::InsertChapterBreak()
 {
     m_wBookView->ExecCommand( "insertHTML", BREAK_TAG_INSERT );
 
-    RemoveAppleClasses();
+    RemoveWebkitClasses();
 }
 
 
@@ -650,7 +650,7 @@ void MainWindow::InsertImage()
         m_wBookView->ExecCommand( "insertImage", relative_path );
     }    
 
-    RemoveAppleClasses();
+    RemoveWebkitClasses();
 }
 
 
@@ -659,7 +659,7 @@ void MainWindow::InsertBulletedList()
 {
     m_wBookView->ExecCommand( "insertUnorderedList" );
 
-    RemoveAppleClasses();
+    RemoveWebkitClasses();
 }
 
 
@@ -668,7 +668,21 @@ void MainWindow::InsertNumberedList()
 {
     m_wBookView->ExecCommand( "insertOrderedList" );
 
-    RemoveAppleClasses();
+    RemoveWebkitClasses();
+}
+
+
+// Implements Decrease indent action functionality
+void MainWindow::DecreaseIndent()
+{
+    m_wBookView->page()->triggerAction( QWebPage::Outdent );
+}
+
+
+// Implements Increase indent action functionality
+void MainWindow::IncreaseIndent()
+{
+    m_wBookView->page()->triggerAction( QWebPage::Indent );
 }
 
 
@@ -912,21 +926,24 @@ void MainWindow::UpdateUICodeView()
 // (enable the actions the Code View disabled)
 void MainWindow::SetStateActionsBookView()
 {
-    ui.actionBold          ->setEnabled( true );
-    ui.actionItalic        ->setEnabled( true );
-    ui.actionUnderline     ->setEnabled( true );
-    ui.actionStrikethrough ->setEnabled( true );
+    ui.actionBold         ->setEnabled( true );
+    ui.actionItalic       ->setEnabled( true );
+    ui.actionUnderline    ->setEnabled( true );
+    ui.actionStrikethrough->setEnabled( true );
 
-    ui.actionAlignLeft  ->setEnabled( true );
-    ui.actionCenter     ->setEnabled( true );
-    ui.actionAlignRight ->setEnabled( true );
-    ui.actionJustify    ->setEnabled( true );
+    ui.actionAlignLeft ->setEnabled( true );
+    ui.actionCenter    ->setEnabled( true );
+    ui.actionAlignRight->setEnabled( true );
+    ui.actionJustify   ->setEnabled( true );
 
-    ui.actionInsertImage        ->setEnabled( true );
-    ui.actionInsertChapterBreak ->setEnabled( true );
+    ui.actionInsertImage       ->setEnabled( true );
+    ui.actionInsertChapterBreak->setEnabled( true );
 
-    ui.actionInsertBulletedList ->setEnabled( true );
-    ui.actionInsertNumberedList ->setEnabled( true );
+    ui.actionInsertBulletedList->setEnabled( true );
+    ui.actionInsertNumberedList->setEnabled( true );
+
+    ui.actionDecreaseIndent->setEnabled( true );
+    ui.actionIncreaseIndent->setEnabled( true );
 
     m_cbHeadings->setEnabled( true );
 }
@@ -950,31 +967,34 @@ void MainWindow::SetStateActionsCodeView()
     // The Code View should insert correct HTML
     // when these are triggered
 
-    ui.actionBold          ->setEnabled( false );
-    ui.actionItalic        ->setEnabled( false );
-    ui.actionUnderline     ->setEnabled( false );
-    ui.actionStrikethrough ->setEnabled( false );
+    ui.actionBold         ->setEnabled( false );
+    ui.actionItalic       ->setEnabled( false );
+    ui.actionUnderline    ->setEnabled( false );
+    ui.actionStrikethrough->setEnabled( false );
 
-    ui.actionAlignLeft  ->setEnabled( false );
-    ui.actionCenter     ->setEnabled( false );
-    ui.actionAlignRight ->setEnabled( false );
-    ui.actionJustify    ->setEnabled( false );
+    ui.actionAlignLeft ->setEnabled( false );
+    ui.actionCenter    ->setEnabled( false );
+    ui.actionAlignRight->setEnabled( false );
+    ui.actionJustify   ->setEnabled( false );
 
-    ui.actionInsertImage        ->setEnabled( false );
-    ui.actionInsertChapterBreak ->setEnabled( false );
+    ui.actionInsertImage       ->setEnabled( false );
+    ui.actionInsertChapterBreak->setEnabled( false );
     
-    ui.actionInsertBulletedList ->setEnabled( false );
-    ui.actionInsertNumberedList ->setEnabled( false );
+    ui.actionInsertBulletedList->setEnabled( false );
+    ui.actionInsertNumberedList->setEnabled( false );
+
+    ui.actionDecreaseIndent->setEnabled( false );
+    ui.actionIncreaseIndent->setEnabled( false );
 
     m_cbHeadings->setEnabled( false );
 
-    ui.actionBold      ->setChecked( false );
-    ui.actionItalic    ->setChecked( false );
-    ui.actionUnderline ->setChecked( false );
+    ui.actionBold     ->setChecked( false );
+    ui.actionItalic   ->setChecked( false );
+    ui.actionUnderline->setChecked( false );
 
-    ui.actionStrikethrough      ->setChecked( false );
-    ui.actionInsertBulletedList ->setChecked( false );
-    ui.actionInsertNumberedList ->setChecked( false );
+    ui.actionStrikethrough     ->setChecked( false );
+    ui.actionInsertBulletedList->setChecked( false );
+    ui.actionInsertNumberedList->setChecked( false );
 }
 
 
@@ -1480,7 +1500,7 @@ const QMap< QString, QString > MainWindow::GetSaveFiltersMap() const
 // Runs HTML Tidy on m_Book.source variable
 void MainWindow::TidyUp()
 {
-    RemoveAppleClasses();
+    RemoveWebkitClasses();
 
     m_Book.source = CleanSource::Clean( m_Book.source );
 }
@@ -1530,11 +1550,12 @@ void MainWindow::SetCurrentFile( const QString &filename )
     }
 }
 
-// Removes every occurrence of class="Apple-style-span"
+// Removes every occurrence of "signing" classes
 // with which webkit litters our source code 
-void MainWindow::RemoveAppleClasses()
+void MainWindow::RemoveWebkitClasses()
 {
     m_Book.source.replace( QRegExp( "(class=\"[^\"]*)Apple-style-span" ), "\\1" );
+    m_Book.source.replace( QRegExp( "(class=\"[^\"]*)webkit-indent-blockquote" ), "\\1" );
 }
 
 // Selects the appropriate entry in the heading combo box
@@ -1748,6 +1769,8 @@ void MainWindow::ConnectSignalsToSlots()
     connect( ui.actionInsertImage,          SIGNAL( triggered() ),      this,   SLOT( InsertImage()         ) );
     connect( ui.actionInsertBulletedList,   SIGNAL( triggered() ),      this,   SLOT( InsertBulletedList()  ) );
     connect( ui.actionInsertNumberedList,   SIGNAL( triggered() ),      this,   SLOT( InsertNumberedList()  ) );
+    connect( ui.actionDecreaseIndent,       SIGNAL( triggered() ),      this,   SLOT( DecreaseIndent()      ) );
+    connect( ui.actionIncreaseIndent,       SIGNAL( triggered() ),      this,   SLOT( IncreaseIndent()      ) );
     connect( ui.actionPrintPreview,         SIGNAL( triggered() ),      this,   SLOT( PrintPreview()        ) );
     connect( ui.actionPrint,                SIGNAL( triggered() ),      this,   SLOT( Print()               ) );
     connect( ui.actionZoomIn,               SIGNAL( triggered() ),      this,   SLOT( ZoomIn()              ) );
