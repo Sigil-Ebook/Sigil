@@ -89,7 +89,7 @@ void BookViewEditor::SetBook( const Book &book )
 
     // TODO: we kill external links; a dialog should be used
     // that asks the user if he wants to open this external link in a browser
-    page()->setLinkDelegationPolicy( QWebPage::DelegateAllLinks );
+    page()->setLinkDelegationPolicy( QWebPage::DelegateExternalLinks );
 }
 
 
