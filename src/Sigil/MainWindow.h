@@ -150,6 +150,9 @@ private slots:
     // Implements Increase indent action functionality
     void IncreaseIndent();
 
+    // Implements Remove Formatting action functionality
+    void RemoveFormatting();
+
     // Implements the heading combo box functionality
     void HeadingStyle( const QString& heading_type );
     

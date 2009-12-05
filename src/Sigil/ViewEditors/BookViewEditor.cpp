@@ -31,7 +31,7 @@ static const QString LOADED_CONTENT_MIMETYPE = "application/xhtml+xml";
 const int PROGRESS_BAR_MINIMUM_DURATION = 1500;
 
 // Constructor;
-// the parameters is the object's parent
+// the parameter is the object's parent
 BookViewEditor::BookViewEditor( QWidget *parent )
     : 
     QWebView( parent ),

@@ -110,6 +110,8 @@
     <addaction name="separator"/>
     <addaction name="actionDecreaseIndent"/>
     <addaction name="actionIncreaseIndent"/>
+    <addaction name="separator"/>
+    <addaction name="actionRemoveFormatting"/>
    </widget>
    <widget class="QMenu" name="menuView">
     <property name="title">
@@ -899,6 +901,18 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+Shift+M</string>
+   </property>
+  </action>
+  <action name="actionRemoveFormatting">
+   <property name="icon">
+    <iconset resource="../Resource_Files/main/main.qrc">
+     <normaloff>:/main/edit-clear.png</normaloff>:/main/edit-clear.png</iconset>
+   </property>
+   <property name="text">
+    <string>Remove Formatting</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Space</string>
    </property>
   </action>
  </widget>

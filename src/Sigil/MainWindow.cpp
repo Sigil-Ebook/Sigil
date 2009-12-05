@@ -686,6 +686,13 @@ void MainWindow::IncreaseIndent()
 }
 
 
+// Implements Remove Formatting action functionality
+void MainWindow::RemoveFormatting()
+{
+    m_wBookView->page()->triggerAction( QWebPage::RemoveFormat );
+}
+
+
 // Implements the heading combo box functionality
 void MainWindow::HeadingStyle( const QString& heading_type )
 {
@@ -1771,6 +1778,7 @@ void MainWindow::ConnectSignalsToSlots()
     connect( ui.actionInsertNumberedList,   SIGNAL( triggered() ),      this,   SLOT( InsertNumberedList()  ) );
     connect( ui.actionDecreaseIndent,       SIGNAL( triggered() ),      this,   SLOT( DecreaseIndent()      ) );
     connect( ui.actionIncreaseIndent,       SIGNAL( triggered() ),      this,   SLOT( IncreaseIndent()      ) );
+    connect( ui.actionRemoveFormatting,     SIGNAL( triggered() ),      this,   SLOT( RemoveFormatting()    ) );
     connect( ui.actionPrintPreview,         SIGNAL( triggered() ),      this,   SLOT( PrintPreview()        ) );
     connect( ui.actionPrint,                SIGNAL( triggered() ),      this,   SLOT( Print()               ) );
     connect( ui.actionZoomIn,               SIGNAL( triggered() ),      this,   SLOT( ZoomIn()              ) );
