@@ -338,7 +338,7 @@ void ExportEPUB::UpdateAnchors()
             if (    element.hasAttribute( "href" ) &&
                     QUrl( element.attribute( "href" ) ).isRelative() &&
                     element.attribute( "href" ).contains( "#" )
-                )
+               )
             {
                 // Remove the '#' character
                 QString id = element.attribute( "href" ).remove( 0, 1 );
@@ -350,7 +350,7 @@ void ExportEPUB::UpdateAnchors()
             } 
         }
 
-        source = CleanSource::Clean( document.toString().replace( "&#xd;", "" ) );
+        source = CleanSource::Clean( XHTMLDoc::GetQDomNodeAsString( document ) );
 
         Utility::WriteUnicodeTextFile( source, fullfilepath );
     }

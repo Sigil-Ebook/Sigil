@@ -129,7 +129,7 @@ void ImportHTML::StripFilesFromAnchors()
  
     // We need to clean the source first because
     // QDomDocument only accepts valid XML
-    document.setContent( CleanSource::Clean( m_Book.source ) );
+    document.setContent( CleanSource::ToValidXHTML( m_Book.source ) );
 
     QDomNodeList anchors = document.elementsByTagName( "a" );
 
