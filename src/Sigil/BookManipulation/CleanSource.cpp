@@ -231,6 +231,9 @@ QString CleanSource::HTMLTidy( const QString &source )
     // "clean"
     tidyOptSetBool( tidy_document, TidyMakeClean, yes );
 
+    // "preserve-entities"
+    tidyOptSetBool( tidy_document, TidyPreserveEntities, yes );	
+
     // Turning these two options on produces ugly markup
     // from WYSIWYG actions... for now, it's better we turn it off.
 
@@ -319,6 +322,9 @@ QString CleanSource::FastXHTMLTidy( const QString &source )
 
     // "add-xml-decl"
     tidyOptSetBool( tidy_document, TidyXmlDecl, yes );
+
+    // "preserve-entities"
+    tidyOptSetBool( tidy_document, TidyPreserveEntities, yes );	
 
     // "join-styles"
     tidyOptSetBool( tidy_document, TidyJoinStyles, no );

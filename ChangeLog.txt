@@ -1,4 +1,6 @@
 Sigil v0.1.6 <ADD_DATE>
+    - Sigil now preserves ALL HTML entity references (it used to convert most to Unicode
+    equivalents). This change was necessary since soft hyphens were becoming "invisible" (issue 186)
     - implemented "blockquote" support through new WYSIWYG actions: "indent less" and
     "indent more" (issue #41)
     - updating Qt fixed an issue with images wrapped in SVG tags not being shown (issue #91)

@@ -25,6 +25,10 @@
 
 #include "ExportEPUB.h"
 
+// FIXME: ExportSGF shouldn't derive from ExportEPUB,
+// this clearly breaks Liskov. A common base class from which
+// both of these can derive should be created.
+// The current arrangement was supposed to be temporary...
 class ExportSGF : public ExportEPUB
 {
 
