@@ -14,7 +14,7 @@ you can see a list of generators provided on your system by typing
 "cmake" in your terminal and pressing enter. The supported generators
 should be listed near the bottom of the printout.
 
-Qt 4.5.0 is also required on all platforms. It can be downloaded from
+Qt 4.6.0 is also required on all platforms. It can be downloaded from
 here (choose the LGPL version): http://www.qtsoftware.com/downloads 
 
 Mac users should grab the Qt SDK. Windows users can also download the
