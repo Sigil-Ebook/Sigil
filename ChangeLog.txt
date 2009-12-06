@@ -1,4 +1,4 @@
-Sigil v0.1.6 <ADD_DATE>
+Sigil v0.1.6 2009.12.06.
     - added a "Report An Issue" menu entry to the Help menu; opens a web browser and goes to the
     "ReportingIssues" wiki page on Sigil's website
     - fixed an issue with empty NavMap generation in the NCX if the file had no headings;
