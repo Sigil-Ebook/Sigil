@@ -126,12 +126,57 @@ void NCXWriter::WriteNavMap()
 
     m_Writer->writeStartElement( "navMap" );
 
-    // The NavMap is written recursively; 
-    // WriteNavPoint is called for each heading in the tree
-    foreach( Headings::Heading heading, m_Headings )
+    if ( !m_Headings.isEmpty() )
     {
-        WriteNavPoint( heading, play_order );
+        // The NavMap is written recursively; 
+        // WriteNavPoint is called for each heading in the tree
+        foreach( Headings::Heading heading, m_Headings )
+        {
+            WriteNavPoint( heading, play_order );
+        }
     }
+
+    else
+    {
+        // No headings? Well the spec *demands* an NCX file
+        // with a NavMap with at least one NavPoint, so we 
+        // write a dummy one.
+        WriteFallbackNavPoint();
+    }
+
+    m_Writer->writeEndElement();
+}
+
+
+// Writes a fallback NavPoint for when the book has no headings
+void NCXWriter::WriteFallbackNavPoint()
+{
+    m_Writer->writeStartElement( "navPoint" );
+
+    m_Writer->writeAttribute( "id", QString( "navPoint-%1" ).arg( 1 ) );
+    m_Writer->writeAttribute( "playOrder", QString( "%1" ).arg( 1 ) );
+
+    m_Writer->writeStartElement( "navLabel" );
+    m_Writer->writeTextElement( "text", "Start");
+    m_Writer->writeEndElement();
+
+    QString first_text_file = "";
+
+    foreach( QString relfilepath, m_Files )
+    {
+        // We skip all the files that are not in the
+        // text subdirectory
+        if ( !relfilepath.contains( "text/" ) )
+
+            continue;
+
+        first_text_file = relfilepath;
+    }
+
+    Q_ASSERT( !first_text_file.isEmpty() );
+
+    m_Writer->writeEmptyElement( "content" );
+    m_Writer->writeAttribute( "src", first_text_file );
 
     m_Writer->writeEndElement();
 }

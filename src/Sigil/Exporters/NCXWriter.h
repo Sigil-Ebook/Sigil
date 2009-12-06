@@ -51,6 +51,9 @@ private:
     // Writes the <navMap> element
     void WriteNavMap();
 
+    // Writes a fallback NavPoint for when the book has no headings
+    void WriteFallbackNavPoint();
+
     // Called recursively to write the TOC tree;
     // the first parameter is the heading being written,
     // the second is a reference to the playorder NavPoints

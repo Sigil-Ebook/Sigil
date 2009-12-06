@@ -1,5 +1,7 @@
 Sigil v0.1.6 <ADD_DATE>
-    - fixed an issue with Sigil not marking the document as modified in the GUI if the user only
+    - fixed an issue with empty NavMap generation in the NCX if the file had no headings;
+    the epub specification forbids empty NavMaps (issue #174)
+    - fixed an issue with the document not being marked as modified in the GUI if the user only
     changed the document's metadata (issue #189)
     - fixed a rare bug with searching for a string that is at the very end of a document (issue #181)
     - new "Remove Formatting" WYSIWYG action (issue #56)

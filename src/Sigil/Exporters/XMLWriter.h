@@ -52,7 +52,7 @@ protected:
     // Represents the folder where the book will be exported
     const FolderKeeper &m_Folder;
 
-    // list of files in the folder
+    // The list of files in the folder
     // that will become the exported book
     const QStringList m_Files;	
 
