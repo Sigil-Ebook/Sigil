@@ -784,7 +784,9 @@ void MainWindow::MetaEditorDialog()
 
     MetaEditor meta( m_Book, this );
 
-    meta.exec();
+    if ( meta.exec() == QDialog::Accepted )
+
+        setWindowModified( true );        
 }
 
 

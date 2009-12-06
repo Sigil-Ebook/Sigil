@@ -252,7 +252,7 @@ QString NCXWriter::GetHeadingFile( const Headings::Heading &heading ) const
     //   Sigil used to (stupidly) expect that a heading ID was unique epub-wide.
     // And it is if the file is created with Sigil, but not necessarily
     // true for imported epubs. This problem will go away in 0.2.0 when we
-    // switch to multi-flow editing, but is to deep to be fixed in this architecture.
+    // switch to multi-flow editing, but is too deep to be fixed in this architecture.
     // We need to support multi-level TOC across XHTML files, so we can't just scan
     // the individual files and search for headings. We need to look at the heading
     // hierarchy epub-wide.

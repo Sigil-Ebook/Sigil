@@ -1,5 +1,7 @@
 Sigil v0.1.6 <ADD_DATE>
-    - fixed a rare bug with searching for a string that is at the very end of a document
+    - fixed an issue with Sigil not marking the document as modified in the GUI if the user only
+    changed the document's metadata (issue #189)
+    - fixed a rare bug with searching for a string that is at the very end of a document (issue #181)
     - new "Remove Formatting" WYSIWYG action (issue #56)
     - Sigil now preserves ALL HTML entity references (it used to convert most to Unicode equivalents);
     this change was necessary since soft hyphens were becoming "invisible" (issue #186)
