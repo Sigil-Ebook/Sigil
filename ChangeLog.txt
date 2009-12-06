@@ -1,4 +1,6 @@
 Sigil v0.1.6 <ADD_DATE>
+    - added a "Report An Issue" menu entry to the Help menu; opens a web browser and goes to the
+    "ReportingIssues" wiki page on Sigil's website
     - fixed an issue with empty NavMap generation in the NCX if the file had no headings;
     the epub specification forbids empty NavMaps (issue #174)
     - fixed an issue with the document not being marked as modified in the GUI if the user only

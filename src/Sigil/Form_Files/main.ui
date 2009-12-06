@@ -89,6 +89,7 @@
     <property name="title">
      <string>&amp;Help</string>
     </property>
+    <addaction name="actionReportAnIssue"/>
     <addaction name="actionAbout"/>
    </widget>
    <widget class="QMenu" name="menuFormat">
@@ -913,6 +914,11 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+Space</string>
+   </property>
+  </action>
+  <action name="actionReportAnIssue">
+   <property name="text">
+    <string>&amp;Report An Issue...</string>
    </property>
   </action>
  </widget>
