@@ -176,7 +176,7 @@ void FindReplace::Count()
 
 // Replaces the user's search term with the user's
 // replacement text if a match is selected. If it's not,
-// cals FindNext() so it becomes selected.
+// calls FindNext() so it becomes selected.
 void FindReplace::Replace()
 {
     if ( ui.leFind->text().isEmpty() )

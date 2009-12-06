@@ -584,7 +584,8 @@ BookViewEditor::SelectRangeInputs BookViewEditor::GetRangeInputs( const QMap< in
         // Otherwise compute it
         else
 
-            next_offset = offsets[ i ] + node_offsets[ offsets[ i ] ].nodeValue().length();
+            // + 1 because we are pretending there is another text node after this one
+            next_offset = offsets[ i ] + node_offsets[ offsets[ i ] ].nodeValue().length() + 1;
 
         if (    next_offset > string_start && 
                 input.start_node.isNull() 
@@ -609,7 +610,8 @@ BookViewEditor::SelectRangeInputs BookViewEditor::GetRangeInputs( const QMap< in
         last_offset = next_offset;
     }
 
-    // FIXME: throw an exception if any node is null
+    // TODO: throw an exception
+    Q_ASSERT( !input.start_node.isNull() && !input.end_node.isNull() );
 
     return input;
 }
@@ -656,6 +658,8 @@ void BookViewEditor::ScrollToNode( const QDomNode &node )
     int elem_height  = EvaluateJavascript( height_js ).toInt();
     int frame_height = height();
 
+    Q_ASSERT( frame_height != 0 );
+
     int current_scroll_offset = page()->mainFrame()->scrollBarValue( Qt::Vertical );
     int new_scroll_Y = 0;
 
@@ -695,6 +699,8 @@ void BookViewEditor::ScrollToNode( const QDomNode &node )
 void BookViewEditor::ScrollByPage( bool down )
 {
     int frame_height = height();
+
+    Q_ASSERT( frame_height != 0 );
 
     int current_scroll_offset = page()->mainFrame()->scrollBarValue( Qt::Vertical );
     int scroll_maximum        = page()->mainFrame()->scrollBarMaximum( Qt::Vertical );

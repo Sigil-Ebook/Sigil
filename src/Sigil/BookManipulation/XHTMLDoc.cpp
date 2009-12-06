@@ -124,6 +124,8 @@ QString XHTMLDoc::GetQDomNodeAsString( const QDomNode &node )
     // But Qt has a bug with the toString() method if the XML
     // encoding is specified as "us-ascii"... so we work around it.
 
+    Q_ASSERT( !node.isNull() );
+
     QString document_text;
     QTextStream stream( &document_text );
     stream.setCodec( "UTF-8" );
@@ -145,6 +147,8 @@ QString XHTMLDoc::GetQDomNodeAsString( const QDomNode &node )
 // (QDomNodes objects are internally references)
 QDomNode XHTMLDoc::RemoveChildren( QDomNode node )
 {
+    Q_ASSERT( !node.isNull() );
+
     QDomNodeList children = node.childNodes();
 
     while ( !children.isEmpty() )
@@ -160,6 +164,8 @@ QDomNode XHTMLDoc::RemoveChildren( QDomNode node )
 // about namespace prefixes and whatnot.
 QString XHTMLDoc::GetNodeName( const QDomNode &node )
 {
+    Q_ASSERT( !node.isNull() );
+
     QString local_name = node.localName();
 
     if ( local_name.isEmpty() )
@@ -256,10 +262,7 @@ QList< QDomNode > XHTMLDoc::GetVisibleTextNodes( const QDomNode &node  )
     // TODO: investigate possible parallelization 
     // opportunities for this function (profile before and after!)
 
-    // FIXME: Actually we should throw an exception here
-    if ( node.isNull() )
-
-        return QList< QDomNode>();
+    Q_ASSERT( !node.isNull() );
 
     if ( node.nodeType() == QDomNode::TextNode )
     {
@@ -298,10 +301,7 @@ QList< QDomNode > XHTMLDoc::GetAllTextNodes( const QDomNode &node  )
     // TODO: investigate possible parallelization 
     // opportunities for this function (profile before and after!)
 
-    // FIXME: Actually we should throw an exception here
-    if ( node.isNull() )
-
-        return QList< QDomNode>();
+    Q_ASSERT( !node.isNull() );
 
     if ( node.nodeType() == QDomNode::TextNode )
     {
@@ -386,10 +386,8 @@ QDomNode XHTMLDoc::GetNodeFromHierarchy( const QDomDocument &document, const QLi
 // Creates a ViewEditor element hierarchy from the specified node
 QList< ViewEditor::ElementIndex > XHTMLDoc::GetHierarchyFromNode( const QDomNode &node )
 {
-    // FIXME: Actually we should throw an exception here
-    if ( node.isNull() )
-
-        return QList< ViewEditor::ElementIndex >();
+    // TODO: Actually we should throw an exception here
+    Q_ASSERT( !node.isNull() );
 
     QDomNode html_node    = node.ownerDocument().elementsByTagName( "html" ).at( 0 );
     QDomNode current_node = node;
