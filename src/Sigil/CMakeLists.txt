@@ -35,6 +35,7 @@ set( QT_USE_QTSVG TRUE )
 set( QT_USE_QTXML TRUE )
 set( QT_USE_QTNETWORK TRUE ) 
 set( QT_USE_QTMAIN TRUE )
+set( QT_USE_QTXMLPATTERNS TRUE )
 
 include( ${QT_USE_FILE} )
 
@@ -334,7 +335,7 @@ else()
                         COMMAND cmake -E copy ${CMAKE_SOURCE_DIR}/installer/Sigil.mpi ${MPI_LOCATION} )      
     
     # Copy Qt runtime libs
-    set( QT_LIBS QtCore QtGui QtNetwork QtSvg QtWebKit QtXml phonon )
+    set( QT_LIBS QtCore QtGui QtNetwork QtSvg QtWebKit QtXml QtXmlPatterns phonon )
     add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E make_directory ${MAIN_PACKAGE_DIR}/ )    
     foreach( lib ${QT_LIBS} )
         set( location location-NOTFOUND )
