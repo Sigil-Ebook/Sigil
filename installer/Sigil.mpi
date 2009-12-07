@@ -344,10 +344,6 @@ InstallComponent C08D565D-DEB1-F8B4-BF43-0729F578F287 -setup Install -type actio
 Condition FE2A493D-ED95-204B-6AA5-6AC65D24F49E -active Yes -parent C08D565D-DEB1-F8B4-BF43-0729F578F287 -title {Platform Condition} -component PlatformCondition -TreeObject::id FE2A493D-ED95-204B-6AA5-6AC65D24F49E
 Condition ADDE47F6-B8FE-EAF0-A001-5A3140C1B511 -active Yes -parent C08D565D-DEB1-F8B4-BF43-0729F578F287 -title {File Exists Condition} -component FileExistsCondition -TreeObject::id ADDE47F6-B8FE-EAF0-A001-5A3140C1B511
 Condition 1090A602-994C-E937-3774-28E9A1176E9B -active Yes -parent C08D565D-DEB1-F8B4-BF43-0729F578F287 -title {Execute Script Condition} -component ExecuteScriptCondition -alias ownertest -TreeObject::id 1090A602-994C-E937-3774-28E9A1176E9B
-InstallComponent A11492F8-D66A-4690-4C26-B34DA0588113 -setup Install -type action -conditions {D1509E3E-58F4-BB3A-3D3A-BB31C36069F0 1D9B6BF2-F61A-F0EC-1379-28EEC92E3E67 23FAF418-A8C9-5004-BA56-4A79EA92B187} -title LinkToUsrBin -component ExecuteScript -command insert -alias LinkToUsrBin -active Yes -parent F8A7D804-10A7-4E96-80D6-E198FE6E660A
-Condition D1509E3E-58F4-BB3A-3D3A-BB31C36069F0 -active Yes -parent A11492F8-D66A-4690-4C26-B34DA0588113 -title {Platform Condition} -component PlatformCondition -TreeObject::id D1509E3E-58F4-BB3A-3D3A-BB31C36069F0
-Condition 1D9B6BF2-F61A-F0EC-1379-28EEC92E3E67 -active Yes -parent A11492F8-D66A-4690-4C26-B34DA0588113 -title {File Exists Condition} -component FileExistsCondition -TreeObject::id 1D9B6BF2-F61A-F0EC-1379-28EEC92E3E67
-Condition 23FAF418-A8C9-5004-BA56-4A79EA92B187 -active Yes -parent A11492F8-D66A-4690-4C26-B34DA0588113 -title {File Exists Condition} -component FileExistsCondition -TreeObject::id 23FAF418-A8C9-5004-BA56-4A79EA92B187
 InstallComponent 08577AF4-9072-41AA-A607-CC84E0E9AFFD -setup Install -type action -title {Add Windows File Type} -component AddWindowsFileType -active Yes -parent F8A7D804-10A7-4E96-80D6-E198FE6E660A
 InstallComponent 88448BE4-10DD-47EF-BB4B-D1EED0E681FA -setup Install -type action -title {Add Windows File Extension} -component AddWindowsFileExtension -active Yes -parent F8A7D804-10A7-4E96-80D6-E198FE6E660A
 InstallComponent 955EF638-F86B-4CE1-82C0-5C59816AF9C9 -setup Install -type action -title {Add Windows File Command} -component AddWindowsFileCommand -active Yes -parent F8A7D804-10A7-4E96-80D6-E198FE6E660A
@@ -390,11 +386,12 @@ InstallComponent 2B9BF0B4-624E-F61C-CAAB-651DE8250532 -setup Uninstall -type act
 InstallComponent 799B3D1E-15C7-CB14-9DC2-0EB229FAEFA7 -setup Uninstall -type action -conditions {A5C58950-D323-A383-F323-D70ABF9BD8F6 946E5FB5-1EC9-AB74-EAD4-044FB971B13A} -title {Unix Delete Sigil Workdir} -component DeleteFile -command insert -alias {Unix Delete Sigil Workdir} -active Yes -parent 94F9ED77-8E9E-4DB9-9141-80952EE56AAC
 Condition A5C58950-D323-A383-F323-D70ABF9BD8F6 -active Yes -parent 799B3D1E-15C7-CB14-9DC2-0EB229FAEFA7 -title {Platform Condition} -component PlatformCondition -TreeObject::id A5C58950-D323-A383-F323-D70ABF9BD8F6
 Condition 946E5FB5-1EC9-AB74-EAD4-044FB971B13A -active Yes -parent 799B3D1E-15C7-CB14-9DC2-0EB229FAEFA7 -title {File Exists Condition} -component FileExistsCondition -TreeObject::id 946E5FB5-1EC9-AB74-EAD4-044FB971B13A
-InstallComponent CC2DA0CF-CBB4-78CF-A4F0-8A42A0E6C32C -setup Uninstall -type action -conditions {D3E8C8FB-09E3-5761-9A5C-A2861F6B1C2E FDF957EC-F0D0-FDF2-2CE2-01BDF4F7139C} -title {Windows Delete Sigil Workdir} -component DeleteFile -command insert -alias {Windows Delete Sigil Workdir} -active Yes -parent 94F9ED77-8E9E-4DB9-9141-80952EE56AAC
+InstallComponent CC2DA0CF-CBB4-78CF-A4F0-8A42A0E6C32C -setup Uninstall -type action -conditions {D3E8C8FB-09E3-5761-9A5C-A2861F6B1C2E FDF957EC-F0D0-FDF2-2CE2-01BDF4F7139C} -title {Windows Delete Sigil Workdir} -component DeleteFile -command reorder -alias {Windows Delete Sigil Workdir} -active Yes -parent 94F9ED77-8E9E-4DB9-9141-80952EE56AAC
 Condition D3E8C8FB-09E3-5761-9A5C-A2861F6B1C2E -active Yes -parent CC2DA0CF-CBB4-78CF-A4F0-8A42A0E6C32C -title {Platform Condition} -component PlatformCondition -TreeObject::id D3E8C8FB-09E3-5761-9A5C-A2861F6B1C2E
 Condition FDF957EC-F0D0-FDF2-2CE2-01BDF4F7139C -active Yes -parent CC2DA0CF-CBB4-78CF-A4F0-8A42A0E6C32C -title {File Exists Condition} -component FileExistsCondition -TreeObject::id FDF957EC-F0D0-FDF2-2CE2-01BDF4F7139C
-InstallComponent 9FEE424C-2ABA-DF21-C079-01EC1234B222 -setup Uninstall -type action -conditions EB01D5A6-27F6-BA79-FFD4-92F959002A54 -title {Delete Path Shortcut} -component DeleteFile -command insert -active Yes -parent 94F9ED77-8E9E-4DB9-9141-80952EE56AAC
+InstallComponent 9FEE424C-2ABA-DF21-C079-01EC1234B222 -setup Uninstall -type action -conditions {EB01D5A6-27F6-BA79-FFD4-92F959002A54 19B2FEB9-1466-FD81-CDE0-235199C93081} -title {Delete Path Shortcut} -component DeleteFile -command reorder -active Yes -parent 94F9ED77-8E9E-4DB9-9141-80952EE56AAC
 Condition EB01D5A6-27F6-BA79-FFD4-92F959002A54 -active Yes -parent 9FEE424C-2ABA-DF21-C079-01EC1234B222 -title {Platform Condition} -component PlatformCondition -TreeObject::id EB01D5A6-27F6-BA79-FFD4-92F959002A54
+Condition 19B2FEB9-1466-FD81-CDE0-235199C93081 -active Yes -parent 9FEE424C-2ABA-DF21-C079-01EC1234B222 -title {File Exists Condition} -component FileExistsCondition -TreeObject::id 19B2FEB9-1466-FD81-CDE0-235199C93081
 InstallComponent 6418E39B-B8CC-471A-9AF6-1E292A1E62C7 -setup Uninstall -type actiongroup -title {Finish Actions} -alias {Finish Actions} -active Yes -parent ActionGroupsUninstall
 InstallComponent F95064CD-E1C5-46F3-8C97-BC68207E222D -setup Uninstall -type actiongroup -title {Cancel Actions} -alias {Cancel Actions} -active Yes -parent ActionGroupsUninstall
 
@@ -582,26 +579,17 @@ array set Properties {
 18A499AE-0615-4A45-B50B-5D474FF44476,String
 {<%InstallStopped%>}
 
-1D9B6BF2-F61A-F0EC-1379-28EEC92E3E67,CheckCondition
+19B2FEB9-1466-FD81-CDE0-235199C93081,CheckCondition
 {Before Action is Executed}
 
-1D9B6BF2-F61A-F0EC-1379-28EEC92E3E67,Filename
-{<%ProgramExecutable%>}
+19B2FEB9-1466-FD81-CDE0-235199C93081,Filename
+{<%ShortcutOnPath%>}
 
 20FC0B2C-79ED-4F7B-AA86-E70617E853E8,Conditions
 {1 condition}
 
 23B5BF2F-C824-46B8-BF5B-413E56634FD8,Message,subst
 {1}
-
-23FAF418-A8C9-5004-BA56-4A79EA92B187,CheckCondition
-{Before Action is Executed}
-
-23FAF418-A8C9-5004-BA56-4A79EA92B187,Filename
-{<%ShortcutOnPath%>}
-
-23FAF418-A8C9-5004-BA56-4A79EA92B187,Operator
-{does not exist}
 
 2A5DB3E7-5BF4-420B-A340-691CEFE7F87F,CheckCondition
 {Before Action is Executed}
@@ -1156,19 +1144,10 @@ array set Properties {
 {0 conditions}
 
 9FEE424C-2ABA-DF21-C079-01EC1234B222,Conditions
-{1 condition}
+{2 conditions}
 
 9FEE424C-2ABA-DF21-C079-01EC1234B222,Files
 {<%ShortcutOnPath%>}
-
-A11492F8-D66A-4690-4C26-B34DA0588113,Alias
-{LinkToUsrBin}
-
-A11492F8-D66A-4690-4C26-B34DA0588113,Conditions
-{3 conditions}
-
-A11492F8-D66A-4690-4C26-B34DA0588113,TclScript
-{exec ln -s "<%ProgramExecutable%>" "<%ShortcutOnPath%>"}
 
 A2D499E0-F85F-4141-999A-74312B2B85A5,CheckCondition
 {Before Action is Executed}
@@ -1418,15 +1397,6 @@ D04E0B8B-6739-481A-B73E-CFCF5E6FF28C,Filename
 
 D0F17ABB-EC2A-4AA3-9351-9F59A897E943,ExitType
 {Finish}
-
-D1509E3E-58F4-BB3A-3D3A-BB31C36069F0,CheckCondition
-{Before Action is Executed}
-
-D1509E3E-58F4-BB3A-3D3A-BB31C36069F0,Operator
-{is not}
-
-D1509E3E-58F4-BB3A-3D3A-BB31C36069F0,Platform
-{Windows}
 
 D3A5EEA0-9E74-723F-88EC-EE887CA3B612,CheckCondition
 {Before Action is Executed}
