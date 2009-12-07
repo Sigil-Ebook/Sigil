@@ -72,6 +72,9 @@ public:
     // about namespace prefixes and whatnot.
     static QString GetNodeName( const QDomNode &node );
 
+    // Converts a QDomNodeList to a regular QList
+    static QList< QDomNode > ConvertToRegularList( const QDomNodeList &list );
+
     // Returns a list with only the element nodes
     static QList< QDomNode > GetOnlyElementNodes( const QDomNodeList &list );
 

@@ -1,3 +1,7 @@
+Sigil v0.1.7 <ADD DATE>
+    - the About dialog now links to the online version of the GPLv3
+    - made viewport switching more robust; the rare crashes should now become much rarer
+
 Sigil v0.1.6 2009.12.06.
     - added a "Report An Issue" menu entry to the Help menu; opens a web browser and goes to the
     "ReportingIssues" wiki page on Sigil's website

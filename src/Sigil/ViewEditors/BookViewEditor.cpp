@@ -44,6 +44,9 @@ BookViewEditor::BookViewEditor( QWidget *parent )
     m_CaretLocationUpdate( QString() ),
     m_isLoadFinished( false )
 {
+    QWebSettings* settings = QWebSettings::globalSettings();
+    settings->setAttribute( QWebSettings::LocalContentCanAccessRemoteUrls,  true );
+    settings->setAttribute( QWebSettings::JavascriptCanAccessClipboard,     true );
 
     m_PageUp   = new QShortcut( QKeySequence( QKeySequence::MoveToPreviousPage ), this );
     m_PageDown = new QShortcut( QKeySequence( QKeySequence::MoveToNextPage     ), this );
