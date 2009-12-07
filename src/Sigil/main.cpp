@@ -68,7 +68,7 @@ static QIcon GetApplicationIcon()
 // Application entry point
 int main( int argc, char *argv[] )
 {
-    QT_REQUIRE_VERSION( argc, argv, "4.5.0" );
+    QT_REQUIRE_VERSION( argc, argv, "4.6.0" );
 
     QApplication app( argc, argv );
 
