@@ -288,7 +288,7 @@ void ImportHTML::LoadSource()
 
     QByteArray data = file.readAll();
 
-    m_Book.source = GetCodecForHTML( data )->toUnicode( data );
+    m_Book.source = GetCodecForHTML( data ).toUnicode( data );
     m_Book.source = ResolveCustomEntities( m_Book.source );
 }
 
@@ -297,7 +297,7 @@ void ImportHTML::LoadSource()
 // if no encoding is detected, the default codec for this locale is returned.
 // We use this function because Qt's QTextCodec::codecForHtml() function
 // leaves a *lot* to be desired.
-const QTextCodec* ImportHTML::GetCodecForHTML( const QByteArray &raw_text ) const
+const QTextCodec& ImportHTML::GetCodecForHTML( const QByteArray &raw_text ) const
 {
     // Qt docs say Qt will take care of deleting
     // any QTextCodec objects on application exit
@@ -309,12 +309,12 @@ const QTextCodec* ImportHTML::GetCodecForHTML( const QByteArray &raw_text ) cons
     ascii_data.replace( QRegExp( "<\\s*meta([^>]*)http-equiv=\"Content-Type\"([^>]*)>" ),
                                  "<meta http-equiv=\"Content-Type\" \\1 \\2>" );
 
-    QTextCodec *locale_codec   = QTextCodec::codecForLocale();
-    QTextCodec *detected_codec = QTextCodec::codecForHtml( ascii_data.toAscii(), QTextCodec::codecForLocale() ); 
+    QTextCodec &locale_codec   = *QTextCodec::codecForLocale();
+    QTextCodec &detected_codec = *QTextCodec::codecForHtml( ascii_data.toAscii(), QTextCodec::codecForLocale() ); 
 
     // If Qt's function was unable to detect an encoding, 
     // we look for one ourselves.
-    if ( detected_codec->name() == locale_codec->name() )
+    if ( detected_codec.name() == locale_codec.name() )
     {
         int head_end = ascii_data.indexOf( QRegExp( HEAD_END ) );
 
@@ -329,7 +329,7 @@ const QTextCodec* ImportHTML::GetCodecForHTML( const QByteArray &raw_text ) cons
 
             if ( real_codec != 0 )
 
-                return real_codec; 
+                return *real_codec; 
 
             else
 

@@ -42,22 +42,21 @@ BookViewEditor::BookViewEditor( QWidget *parent )
     c_GetRange(         Utility::ReadUnicodeTextFile( ":/javascript/get_range.js"                   ) ),
     c_ReplaceText(      Utility::ReadUnicodeTextFile( ":/javascript/replace_text.js"                ) ),
     m_CaretLocationUpdate( QString() ),
-    m_isLoadFinished( false )
+    m_isLoadFinished( false ),
+    m_PageUp(   *( new QShortcut( QKeySequence( QKeySequence::MoveToPreviousPage ), this ) ) ),
+    m_PageDown( *( new QShortcut( QKeySequence( QKeySequence::MoveToNextPage     ), this ) ) )
 {
-    QWebSettings* settings = QWebSettings::globalSettings();
-    settings->setAttribute( QWebSettings::LocalContentCanAccessRemoteUrls,  true );
-    settings->setAttribute( QWebSettings::JavascriptCanAccessClipboard,     true );
+    QWebSettings &settings = *QWebSettings::globalSettings();
+    settings.setAttribute( QWebSettings::LocalContentCanAccessRemoteUrls,  true );
+    settings.setAttribute( QWebSettings::JavascriptCanAccessClipboard,     true );
 
-    m_PageUp   = new QShortcut( QKeySequence( QKeySequence::MoveToPreviousPage ), this );
-    m_PageDown = new QShortcut( QKeySequence( QKeySequence::MoveToNextPage     ), this );
-
-    connect(    m_PageUp,
+    connect(    &m_PageUp,
                 SIGNAL( activated() ), 
                 this,
                 SLOT( PageUp() )
            );
 
-    connect(    m_PageDown,
+    connect(    &m_PageDown,
                 SIGNAL( activated() ), 
                 this,
                 SLOT( PageDown() )

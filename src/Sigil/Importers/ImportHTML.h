@@ -88,7 +88,7 @@ private:
     // if no encoding is detected, the default codec for this locale is returned.
     // We use this function because Qt's QTextCodec::codecForHtml() function
     // leaves a *lot* to be desired.
-    const QTextCodec* GetCodecForHTML( const QByteArray &raw_text ) const;
+    const QTextCodec& GetCodecForHTML( const QByteArray &raw_text ) const;
 
     // Loads the referenced files into the main folder of the book;
     // as the files get a new name, the references are updated 

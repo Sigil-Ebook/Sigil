@@ -262,8 +262,8 @@ private:
     bool m_isLoadFinished;
 
     // Used for PageUp and PageDown keyboard shortcuts
-    QShortcut* m_PageUp;
-    QShortcut* m_PageDown;
+    QShortcut &m_PageUp;
+    QShortcut &m_PageDown;
 };
 
 
