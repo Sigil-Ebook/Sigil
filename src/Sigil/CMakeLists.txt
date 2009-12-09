@@ -140,10 +140,10 @@ set( VIEW_EDITOR_FILES
     ViewEditors/CodeViewEditor.cpp
     ViewEditors/CodeViewEditor.h
     ViewEditors/LineNumberArea.cpp
-    ViewEditors/LineNumberArea.h
+    ViewEditors/LineNumberArea.h  
     ViewEditors/Searchable.cpp    
-    ViewEditors/Searchable.h
-    ViewEditors/ViewEditor.h    
+    ViewEditors/Searchable.h  
+    ViewEditors/ViewEditor.h     
     )
             
 set( UI_FILES   

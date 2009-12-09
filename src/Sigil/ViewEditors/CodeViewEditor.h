@@ -139,7 +139,13 @@ private slots:
     void UpdateLineNumberArea( const QRect &rectangle, int vertical_delta );
 
     // Highlights the line the user is editing
-    void HighlightCurrentLine();    
+    void HighlightCurrentLine(); 
+
+    // Wrapper slot for the Scroll One Line Up shortcut
+    void ScrollOneLineUp();
+
+    // Wrapper slot for the Scroll One Line Down shortcut
+    void ScrollOneLineDown();
 
 private:
 
@@ -190,6 +196,13 @@ private:
     // document depending on the search direction specified
     int GetSelectionOffset( Searchable::Direction search_direction ) const;
 
+    // Scrolls the whole screen by one line.
+    // The parameter specifies are we scrolling up or down.
+    // Used for ScrollOneLineUp and ScrollOneLineDown shortcuts.
+    // It will also move the cursor position if the
+    // scroll would make it "fall of the screen".
+    void ScrollByLine( bool down );
+
 
     ///////////////////////////////
     // PRIVATE MEMBER VARIABLES
@@ -207,6 +220,11 @@ private:
     // Stores the update for the caret location
     // when switching from BookView to CodeVIew
     QList< ViewEditor::ElementIndex >  m_CaretUpdate;
+
+    // These shortcuts catch when the user
+    // wants to scroll the view by one line up/down.
+    QShortcut &m_ScrollOneLineUp;
+    QShortcut &m_ScrollOneLineDown;
 };
 
 #endif // CODEVIEWEDITOR_H

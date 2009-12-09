@@ -128,6 +128,12 @@ private slots:
     // Wrapper slot for the Page Down shortcut
     void PageDown();
 
+    // Wrapper slot for the Scroll One Line Up shortcut
+    void ScrollOneLineUp();
+
+    // Wrapper slot for the Scroll One Line Down shortcut
+    void ScrollOneLineDown();
+
 private:
 
     // Evaluates the provided javascript source code 
@@ -217,9 +223,14 @@ private:
     // Does NOT center the node in view.
     void ScrollToNode( const QDomNode &node );
 
-    // Scrolls the whole screen by one "page".
-    // Used for PageUp and PageDown shortcuts.
-    void ScrollByPage( bool down );
+    // Scrolls the whole screen by one line.
+    // The parameter specifies are we scrolling up or down.
+    // Used for ScrollOneLineUp and ScrollOneLineDown shortcuts.
+    void ScrollByLine( bool down );
+
+    // Scrolls the whole screen by pixel_number.
+    // "down" specifies are we scrolling up or down.
+    void ScrollByNumPixels( int pixel_number, bool down );
 
 
     ///////////////////////////////
@@ -263,7 +274,12 @@ private:
 
     // Used for PageUp and PageDown keyboard shortcuts
     QShortcut &m_PageUp;
-    QShortcut &m_PageDown;
+    QShortcut &m_PageDown; 
+
+    // These shortcuts catch when the user
+    // wants to scroll the view by one line up/down.
+    QShortcut &m_ScrollOneLineUp;
+    QShortcut &m_ScrollOneLineDown;
 };
 
 
