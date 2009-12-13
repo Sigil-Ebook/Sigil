@@ -264,7 +264,7 @@ QString Utility::ReadUnicodeTextFile( const QString &fullfilepath )
     QFile file( fullfilepath );
 
     // Check if we can open the file
-    if ( !file.open( QFile::ReadOnly | QFile::Text ) )
+    if ( !file.open( QFile::ReadOnly ) )
     {
         QMessageBox::warning(	0,
                                 QObject::tr( "Sigil" ),
@@ -284,7 +284,7 @@ QString Utility::ReadUnicodeTextFile( const QString &fullfilepath )
     // UTF-8 to UTF-16 if a BOM is detected
     in.setAutoDetectUnicode( true );
 
-    return in.readAll();
+    return ConvertLineEndings( in.readAll() );
 }
 
 
@@ -313,6 +313,15 @@ void Utility::WriteUnicodeTextFile( const QString &text, const QString &fullfile
     }
 
     // TODO: throw error if not open    
+}
+
+
+// Converts Mac and Windows style line endings to Unix style
+// line endings that are expected throughout the Qt framework
+QString Utility::ConvertLineEndings( const QString &text )
+{
+    QString newtext( text );
+    return newtext.replace( "\x0D\x0A", "\x0A" ).replace( "\x0D", "\x0A" );
 }
 
 
@@ -469,4 +478,3 @@ bool Utility::IsValidUtf8( const QByteArray &string )
 
     return true;
 }
-

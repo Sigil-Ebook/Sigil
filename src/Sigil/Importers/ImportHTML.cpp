@@ -275,7 +275,7 @@ void ImportHTML::LoadSource()
     QFile file( m_FullFilePath );
 
     // Check if we can open the file
-    if ( !file.open( QFile::ReadOnly | QFile::Text ) )
+    if ( !file.open( QFile::ReadOnly ) ) 
     {
         QMessageBox::warning(	0,
             QObject::tr( "Sigil" ),
@@ -288,7 +288,7 @@ void ImportHTML::LoadSource()
 
     QByteArray data = file.readAll();
 
-    m_Book.source = GetCodecForHTML( data ).toUnicode( data );
+    m_Book.source = Utility::ConvertLineEndings( GetCodecForHTML( data ).toUnicode( data ) );
     m_Book.source = ResolveCustomEntities( m_Book.source );
 }
 
