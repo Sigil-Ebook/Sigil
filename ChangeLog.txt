@@ -1,4 +1,5 @@
 Sigil v0.1.7 <ADD DATE>
+    - fixed a rare issue with false spaces being inserted into words during import (issue #139)
     - the Views can now be scrolled by one line up/down by pressing CTRL+Up/Down (issue #72)
     - the About dialog now links to the online version of the GPLv3
     - made viewport switching more robust; the rare crashes should now become much rarer

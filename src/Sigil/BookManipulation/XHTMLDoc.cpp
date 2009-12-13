@@ -130,8 +130,9 @@ QString XHTMLDoc::GetQDomNodeAsString( const QDomNode &node )
     QTextStream stream( &document_text );
     stream.setCodec( "UTF-8" );
 
-    node.save( stream, 1, QDomNode::EncodingFromTextStream );
+    node.save( stream, 0, QDomNode::EncodingFromTextStream );
     document_text.remove( "&#xd;" );
+    document_text.remove( QChar( '\n' ) );
 
     QRegExp xml_declaration( XML_DECLARATION );
     xml_declaration.setMinimal( true );
