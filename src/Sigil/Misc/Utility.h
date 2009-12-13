@@ -85,6 +85,10 @@ public:
     // file; if the file exists, it is truncated
     static void WriteUnicodeTextFile( const QString &text, const QString &fullfilepath );
 
+    // Converts Mac and Windows style line endings to Unix style
+    // line endings that are expected throughout the Qt framework
+    static QString ConvertLineEndings( const QString &text );
+
     // Returns a value for the environment variable name passed;
     // if the env var isn't set, it returns an empty string
     static QString GetEnvironmentVar( const QString &variable_name );
