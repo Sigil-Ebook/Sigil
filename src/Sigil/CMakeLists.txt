@@ -46,9 +46,13 @@ set( QOBJECT_HEADERS
     ViewEditors/BookViewEditor.h
     ViewEditors/CodeViewEditor.h 
     Dialogs/TOCEditor.h 
-    MainWindow.h
     Dialogs/MetaEditor.h
     Dialogs/FindReplace.h
+    MainUi/MainWindow.h
+    MainUI/TabManager.h
+    MainUI/ContentTab.h 
+    MainUI/FlowTab.h     
+    MainUI/BookBrowser.h
     Misc/AppEventFilter.h
     Misc/UpdateChecker.h 
     )
@@ -57,8 +61,6 @@ set( MAIN_FILES
     stdafx.h
     constants.h
     main.cpp
-    MainWindow.cpp
-    MainWindow.h
     )
     
 set( BOOK_MANIPULATION_FILES 
@@ -145,6 +147,20 @@ set( VIEW_EDITOR_FILES
     ViewEditors/Searchable.h  
     ViewEditors/ViewEditor.h     
     )
+    
+set( MAINUI_FILES 
+    MainUI/TabManager.cpp
+    MainUI/TabManager.h
+    MainUI/FlowTab.cpp
+    MainUI/FlowTab.h 
+    MainUI/ContentTab.cpp
+    MainUI/ContentTab.h 
+    MainUI/MainWindow.cpp
+    MainUI/MainWindow.h
+    MainUI/BookBrowser.cpp
+    MainUI/BookBrowser.h
+    )
+
             
 set( UI_FILES   
     Form_Files/main.ui 
@@ -164,7 +180,7 @@ set( QRC_FILES
     )
     
 set( RAW_SOURCES ${MAIN_FILES} ${BOOK_MANIPULATION_FILES} ${DIALOG_FILES} ${EXPORTER_FILES}
-                 ${IMPORTER_FILES} ${MISC_FILES} ${VIEW_EDITOR_FILES} )
+                 ${IMPORTER_FILES} ${MISC_FILES} ${VIEW_EDITOR_FILES} ${MAINUI_FILES} )
 
 # Runs MOC on specifed files
 qt4_wrap_cpp( MOC_FILES_CPP ${QOBJECT_HEADERS} )
@@ -204,6 +220,7 @@ source_group( "Exporters"         FILES ${EXPORTER_FILES} )
 source_group( "Importers"         FILES ${IMPORTER_FILES} )
 source_group( "Misc"              FILES ${MISC_FILES} )
 source_group( "View Editors"      FILES ${VIEW_EDITOR_FILES} )
+source_group( "MainUI"            FILES ${MAINUI_FILES} )
 source_group( "Main Files"        FILES ${MAIN_FILES} )
 
 set( ALL_SOURCES ${RAW_SOURCES} ${MOC_FILES_CPP} ${UI_FILES_H} ${QRC_FILES_CPP} )

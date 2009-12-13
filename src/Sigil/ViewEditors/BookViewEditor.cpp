@@ -63,9 +63,9 @@ BookViewEditor::BookViewEditor( QWidget *parent )
 
 
 // Sets the content of the View to the specified book
-void BookViewEditor::SetBook( const Book &book )
+void BookViewEditor::SetContent( const QString &source, const QUrl &base_url )
 {
-    page()->mainFrame()->setContent( book.source.toUtf8(), LOADED_CONTENT_MIMETYPE, book.GetBaseUrl() );
+    page()->mainFrame()->setContent( source.toUtf8(), LOADED_CONTENT_MIMETYPE, base_url );
 
     page()->setContentEditable( true );
 

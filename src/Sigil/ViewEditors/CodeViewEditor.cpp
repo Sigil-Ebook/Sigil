@@ -66,9 +66,9 @@ CodeViewEditor::CodeViewEditor( QWidget *parent )
 }
 
 // Sets the content of the View to the specified book
-void CodeViewEditor::SetBook( const Book &book )
+void CodeViewEditor::SetContent( const QString &source, const QUrl &base_url )
 {
-    setPlainText( book.source );
+    setPlainText( source );
 }
 
 

@@ -460,7 +460,6 @@ QString CleanSource::RemoveRedundantClassesSource( const QString &source, const 
             QString matched = remove_old.cap( 0 );
 
             matched.replace( key, redundant_classes.value( key ) );
-
             newsource.replace( remove_old.cap( 0 ), matched );
         }
     }
@@ -477,8 +476,7 @@ QHash< QString, QString > CleanSource::GetRedundantClasses( const QStringList &c
 
     // Tidy always create ONE style tag for its new classes,
     // and it is always the last one
-    QString last_style_tag = css_style_tags.last();
-
+    QString last_style_tag      = css_style_tags.last();
     QStringList last_tag_styles = last_style_tag.split( QChar( '\n' ) );
 
     // We search through all the tags that come before this new one 
