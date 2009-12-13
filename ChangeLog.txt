@@ -1,4 +1,6 @@
 Sigil v0.1.7 <ADD DATE>
+    - Sigil should now detect UTF-8 encoded HTML files even when they don't specify that they
+    are UTF-8 encoded, and HTML files that use the XML "encoding" attribute (for any encoding)
     - fixed a rare issue with false spaces being inserted into words during import (issue #139)
     - the Views can now be scrolled by one line up/down by pressing CTRL+Up/Down (issue #72)
     - the About dialog now links to the online version of the GPLv3

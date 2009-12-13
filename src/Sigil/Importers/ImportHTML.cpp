@@ -323,23 +323,31 @@ const QTextCodec& ImportHTML::GetCodecForHTML( const QByteArray &raw_text ) cons
             QString head = Utility::Substring( 0, head_end, ascii_data );
 
             QRegExp charset( "charset=([^\"]+)\"" );
+            QRegExp encoding( "encoding=\"([^\"]+)\"" );
             head.indexOf( charset );
+            head.indexOf( encoding );
 
-            QTextCodec *real_codec = QTextCodec::codecForName( charset.cap( 1 ).toAscii() );
+            QTextCodec *charset_codec  = QTextCodec::codecForName( charset .cap( 1 ).toAscii() );
+            QTextCodec *encoding_codec = QTextCodec::codecForName( encoding.cap( 1 ).toAscii() );
 
-            if ( real_codec != 0 )
+            if ( charset_codec != 0 )
 
-                return *real_codec; 
+                return *charset_codec;
 
-            else
+            if ( encoding_codec != 0 )
 
-                return locale_codec;
+                return *encoding_codec;
         }
+
+        if ( Utility::IsValidUtf8( raw_text ) )
+
+            return *QTextCodec::codecForName( "UTF-8" );
+
+        return locale_codec;
     }
 
     return detected_codec;
 }
-
 
 
 // Loads the referenced files into the main folder of the book;
