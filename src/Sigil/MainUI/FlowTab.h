@@ -41,11 +41,31 @@ public:
     // Overrides inherited from ContentTab
     bool IsModified();
 
+    bool CutEnabled();
+
+    bool CopyEnabled();
+
+    bool PasteEnabled();
+
+    bool BoldChecked();
+
+    bool ItalicChecked();
+
+    bool UnderlineChecked();
+
+    bool StrikethroughChecked();
+
+    bool BulletListChecked();
+
+    bool NumberListChecked();
+
     bool BookViewChecked();
 
     bool SplitViewChecked();
 
     bool CodeViewChecked();
+
+    QString GetCaretElementName();
 
     float GetZoomFactor();
 

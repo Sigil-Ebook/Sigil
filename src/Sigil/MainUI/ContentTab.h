@@ -59,6 +59,8 @@ public:
     virtual bool SplitViewChecked()     { return false; }
     virtual bool CodeViewChecked()      { return false; }
 
+    virtual QString GetCaretElementName() { return "";  }
+
     virtual float GetZoomFactor()       { return 1.0;   }
     virtual void SetZoomFactor( float new_zoom_factor ) { }
 

@@ -63,6 +63,78 @@ bool FlowTab::IsModified()
 }
 
 
+bool FlowTab::CutEnabled()
+{
+    if ( m_isLastViewBook )
+
+        return m_wBookView.pageAction( QWebPage::Cut )->isEnabled();
+
+    else
+
+        return m_wCodeView.textCursor().hasSelection();
+}
+
+
+bool FlowTab::CopyEnabled()
+{
+    if ( m_isLastViewBook )
+
+        return m_wBookView.pageAction( QWebPage::Copy )->isEnabled();
+
+    else
+
+        return m_wCodeView.textCursor().hasSelection();
+}
+
+
+bool FlowTab::PasteEnabled()
+{
+    if ( m_isLastViewBook )
+
+        return m_wBookView.pageAction( QWebPage::Paste )->isEnabled();
+
+    else
+
+        return m_wCodeView.canPaste();
+}
+
+
+bool FlowTab::BoldChecked()
+{
+    return m_wBookView.pageAction( QWebPage::ToggleBold )->isChecked();
+}
+
+
+bool FlowTab::ItalicChecked()
+{
+    return m_wBookView.pageAction( QWebPage::ToggleItalic )->isChecked();
+}
+
+
+bool FlowTab::UnderlineChecked()
+{
+    return m_wBookView.pageAction( QWebPage::ToggleUnderline )->isChecked();       
+}
+
+
+bool FlowTab::StrikethroughChecked()
+{
+    return m_wBookView.QueryCommandState( "strikeThrough" );
+}
+
+
+bool FlowTab::BulletListChecked()
+{
+    return m_wBookView.QueryCommandState( "insertUnorderedList" );
+}
+
+
+bool FlowTab::NumberListChecked()
+{
+    return m_wBookView.QueryCommandState( "insertOrderedList" );
+}
+
+
 bool FlowTab::BookViewChecked()
 {
     return !m_wBookView.isHidden() && m_wCodeView.isHidden();
@@ -78,6 +150,12 @@ bool FlowTab::SplitViewChecked()
 bool FlowTab::CodeViewChecked()
 {
     return m_wBookView.isHidden() && !m_wCodeView.isHidden();
+}
+
+
+QString FlowTab::GetCaretElementName()
+{
+    return m_wBookView.GetCaretElementName();
 }
 
 
@@ -715,4 +793,3 @@ void FlowTab::ConnectSignalsToSlots()
 
     connect( qApp, SIGNAL( focusChanged( QWidget*, QWidget* ) ), this, SLOT( FocusFilter( QWidget*, QWidget* ) ) );
 }
-

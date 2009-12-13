@@ -397,8 +397,7 @@ void MainWindow::UpdateUI()
     ui.actionSplitView->setChecked( tab.SplitViewChecked() );
     ui.actionCodeView ->setChecked( tab.CodeViewChecked()  );  
 
-    //FIXME: heading combo box
-    //SelectEntryInHeadingCombo( m_wBookView->GetCaretElementName() );
+    SelectEntryInHeadingCombo( tab.GetCaretElementName() );
 }
 
 
@@ -977,7 +976,7 @@ void MainWindow::SelectEntryInHeadingCombo( const QString &element_name )
 
     if ( !element_name.isEmpty() )
     {
-        if ( ( element_name[ 0 ] == QChar( 'H' ) ) && ( element_name[ 1 ].isDigit() ) )
+        if ( ( element_name[ 0 ].toLower() == QChar( 'h' ) ) && ( element_name[ 1 ].isDigit() ) )
 
             select = "Heading " + QString( element_name[ 1 ] );
 

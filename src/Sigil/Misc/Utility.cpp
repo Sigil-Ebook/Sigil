@@ -393,6 +393,7 @@ bool Utility::IsValidUtf8( const QByteArray &string )
         return false;
 
     int index = 0;
+    const unsigned char * bytes = NULL;
 
     while ( index < string.size() )
     {
@@ -402,7 +403,7 @@ bool Utility::IsValidUtf8( const QByteArray &string )
 
             dword = dword.leftJustified( 4, '\0' );
 
-        const unsigned char * bytes = (const unsigned char *) dword.constData();
+        bytes = (const unsigned char *) dword.constData();
 
         // ASCII
         if (   bytes[0] == 0x09 ||
