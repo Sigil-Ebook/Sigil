@@ -25,6 +25,7 @@
 
 class QRegExp;
 class QString;
+class QStringList;
 
 class Searchable
 {
@@ -72,7 +73,7 @@ protected:
     // Accepts a list of text capture groups and a replacement string,
     // and returns a new replacement string with capture group references
     // replaced with capture group contents.
-    static QString FillWithCapturedTexts( const QStringList captured_texts, const QString &replacement );
+    static QString FillWithCapturedTexts( const QStringList &captured_texts, const QString &replacement );
 };
 
 #endif // SEARCHABLE_H

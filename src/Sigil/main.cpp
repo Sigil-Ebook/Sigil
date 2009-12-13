@@ -21,7 +21,7 @@
 
 #include "stdafx.h"
 #include "Misc/Utility.h"
-#include "MainWindow.h"
+#include "MainUI/MainWindow.h"
 #include <QtGui/QApplication>
 #include "Misc/UpdateChecker.h"
 #include "Misc/AppEventFilter.h"
