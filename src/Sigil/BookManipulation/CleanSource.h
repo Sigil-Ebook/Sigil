@@ -71,7 +71,7 @@ private:
     static QString WriteNewCSSStyleTags( const QString &source, const QStringList &css_style_tags );
 
     // Used for the return value of RemoveRedundantClasses
-    // because C++ doens't have tuples (TR-1 and Boost don't count).
+    // because C++ doesn't have tuples (TR-1 and Boost don't count).
     // Using non-const references would be rather ugly here.
     struct SourceAndStyles
     {

@@ -36,7 +36,7 @@ static const QString CLASS_REMOVE_START     = "<[^>]*class\\s*=\\s*\"[^\"]*";
 static const QString CLASS_REMOVE_END       = "[^\"]*\"[^>]*>";
 
 // Use with <QRegExp>.setMinimal( true )
-static const QString CLASS_DEFINITION       = "\\{.*\\}";
+static const QString TIDY_NEW_STYLE         = "(\\w+)\\.[\\w-]+\\s*(\\{.*\\})";
 
 // The value was picked arbitrarily
 static const int TAG_SIZE_THRESHOLD         = 1000;
@@ -475,26 +475,36 @@ QHash< QString, QString > CleanSource::GetRedundantClasses( const QStringList &c
 {
     QHash< QString, QString > redundant_classes;
 
+    // HACK: This whole concept is a really ugly.
+    // a) We need to fix Tidy so it doesn't create useless new classes.
+    // b) We need a real CSS parser. One that know which HTML element
+    // has which style/class.
+
     // Tidy always create ONE style tag for its new classes,
     // and it is always the last one
-    QString last_style_tag = css_style_tags.last();
+    QString new_style_tag = css_style_tags.last();
 
-    QStringList last_tag_styles = last_style_tag.split( QChar( '\n' ) );
+    QStringList new_style_tag_lines = new_style_tag.split( QChar( '\n' ) );
 
     // We search through all the tags that come before this new one 
     for ( int i = 0; i < css_style_tags.count() - 1; ++i )
     {
         QStringList old_lines = css_style_tags[ i ].split( QChar( '\n' ) );
 
-        foreach( QString new_line, last_tag_styles )
+        // We go through all the lines in the last CSS style tag.
+        // It contains the new styles Tidy added.
+        foreach( QString line_in_new_styles, new_style_tag_lines )
         {
-            QRegExp class_definition( CLASS_DEFINITION );
+            QRegExp class_definition( TIDY_NEW_STYLE );
             class_definition.setMinimal( true );
 
-            if ( new_line.indexOf( class_definition ) != -1 )
-            {
+            if ( line_in_new_styles.indexOf( class_definition ) != -1 )
+            {                
+                QRegExp matching_style( QRegExp::escape( class_definition.cap( 1 ) ) + "\\.[\\w-]+\\s*" +
+                                        QRegExp::escape( class_definition.cap( 2 ) ) );
+
                 // There should always be just one that matches
-                QStringList matching_lines = old_lines.filter( class_definition.cap( 0 ) );
+                QStringList matching_lines = old_lines.filter( matching_style );
 
                 if ( matching_lines.count() != 0 )
                 {
@@ -503,7 +513,7 @@ QHash< QString, QString > CleanSource::GetRedundantClasses( const QStringList &c
                     matching_lines[ 0 ].indexOf( sgc_class );
                     QString oldclass = sgc_class.cap( 0 );
 
-                    new_line.indexOf( sgc_class );
+                    line_in_new_styles.indexOf( sgc_class );
                     QString newclass = sgc_class.cap( 0 );
 
                     redundant_classes[ newclass ] = oldclass;
