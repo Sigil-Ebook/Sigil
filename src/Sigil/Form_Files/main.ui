@@ -80,6 +80,7 @@
      <string>&amp;Help</string>
     </property>
     <addaction name="actionReportAnIssue"/>
+    <addaction name="actionSigilDevBlog"/>
     <addaction name="actionAbout"/>
    </widget>
    <widget class="QMenu" name="menuFormat">
@@ -909,6 +910,11 @@
   <action name="actionReportAnIssue">
    <property name="text">
     <string>&amp;Report An Issue...</string>
+   </property>
+  </action>
+  <action name="actionSigilDevBlog">
+   <property name="text">
+    <string>Sigil Dev &amp;Blog...</string>
    </property>
   </action>
  </widget>

@@ -294,9 +294,9 @@ void Utility::WriteUnicodeTextFile( const QString &text, const QString &fullfile
 {
     QFile file( fullfilepath );
 
-    if ( file.open(     QIODevice::WriteOnly | 
-                        QIODevice::Truncate | 
-                        QIODevice::Text 
+    if ( file.open(  QIODevice::WriteOnly | 
+                     QIODevice::Truncate | 
+                     QIODevice::Text  
                   ) 
        )
     {

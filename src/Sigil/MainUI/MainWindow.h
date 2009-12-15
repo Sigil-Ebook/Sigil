@@ -95,6 +95,9 @@ private slots:
     // Implements Report An Issue action functionality
     void ReportAnIssue();
 
+    // Implements Sigil Dev Blog action functionality
+    void SigilDevBlog();
+
     // Implements About action functionality
     void AboutDialog();
 

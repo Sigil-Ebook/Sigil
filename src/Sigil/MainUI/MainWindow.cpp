@@ -50,6 +50,7 @@ static const int ZOOM_SLIDER_MAX            = 1000;
 static const int ZOOM_SLIDER_MIDDLE         = qRound( ( ZOOM_SLIDER_MAX - ZOOM_SLIDER_MIN ) / 2.0f );
 static const int ZOOM_SLIDER_WIDTH          = 140;
 static const QString REPORTING_ISSUES_WIKI  = "http://code.google.com/p/sigil/wiki/ReportingIssues";
+static const QString SIGIL_DEV_BLOG         = "http://sigildev.blogspot.com/";
 
 // The <hr> tag is wrapped in <div>'s because of issue #78;
 // basically it's a workaround for a webkit bug
@@ -348,6 +349,13 @@ void MainWindow::TOCEditorDialog()
 void MainWindow::ReportAnIssue()
 {
     QDesktopServices::openUrl( QUrl( REPORTING_ISSUES_WIKI ) );
+}
+
+
+// Implements Sigil Dev Blog action functionality
+void MainWindow::SigilDevBlog()
+{
+    QDesktopServices::openUrl( QUrl( SIGIL_DEV_BLOG ) );
 }
 
 
@@ -1163,6 +1171,7 @@ void MainWindow::ConnectSignalsToSlots()
     connect( ui.actionMetaEditor,           SIGNAL( triggered() ),      this,   SLOT( MetaEditorDialog()    ) );
     connect( ui.actionTOCEditor,            SIGNAL( triggered() ),      this,   SLOT( TOCEditorDialog()     ) );
     connect( ui.actionReportAnIssue,        SIGNAL( triggered() ),      this,   SLOT( ReportAnIssue()       ) );
+    connect( ui.actionSigilDevBlog,         SIGNAL( triggered() ),      this,   SLOT( SigilDevBlog()        ) );
     connect( ui.actionAbout,                SIGNAL( triggered() ),      this,   SLOT( AboutDialog()         ) );
     
     connect( &m_TabManager,                 SIGNAL( TabChanged( ContentTab*, ContentTab* ) ), this, SLOT( TabChanged( ContentTab*, ContentTab* ) ) );
