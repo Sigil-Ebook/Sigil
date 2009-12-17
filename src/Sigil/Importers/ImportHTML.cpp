@@ -22,6 +22,7 @@
 #include <stdafx.h>
 #include "ImportHTML.h"
 #include "../Misc/Utility.h"
+#include "../BookManipulation/Metadata.h"
 #include "../BookManipulation/CleanSource.h"
 #include <QDomDocument>
 #include "../BookManipulation/XHTMLDoc.h"
@@ -50,6 +51,11 @@ Book ImportHTML::GetBook()
 
     LoadSource(); 
 
+    // We need to make the source valid XHTML to allow us to 
+    // parse it with xml parsers
+    m_Book.source = CleanSource::ToValidXHTML( m_Book.source );
+
+    LoadMeta();
     StripFilesFromAnchors();
     UpdateReferences( LoadFolderStructure() );
 
@@ -127,9 +133,7 @@ void ImportHTML::StripFilesFromAnchors()
 {
     QDomDocument document;
  
-    // We need to clean the source first because
-    // QDomDocument only accepts valid XML
-    document.setContent( CleanSource::ToValidXHTML( m_Book.source ) );
+    document.setContent( m_Book.source );
 
     QDomNodeList anchors = document.elementsByTagName( "a" );
 
@@ -149,6 +153,39 @@ void ImportHTML::StripFilesFromAnchors()
     }
 
     m_Book.source = XHTMLDoc::GetQDomNodeAsString( document );      
+}
+
+
+// searches for meta informtion in the html file
+// attempt to map freeform to dc: style
+void ImportHTML::LoadMeta()
+{
+    QDomDocument document;
+ 
+    document.setContent( m_Book.source );
+
+    QDomNodeList metatags = document.elementsByTagName( "meta" );
+
+    for ( int i = 0; i < metatags.count(); ++i )
+    {
+
+        QDomElement element = metatags.at( i ).toElement();
+        MetaElement meta;
+
+	meta.name = element.attribute( "name");
+	meta.value = element.attribute( "content");
+	meta.attributes[ "scheme" ]  = element.attribute( "scheme");
+
+	if ((meta.name != "") && (meta.value !="")) 
+	{ 
+	  MetaElement bookMeta = Metadata::Instance().MaptoBookMeta( meta , "HTML");
+	    if ( !bookMeta.name.isEmpty() && !bookMeta.value.isEmpty() )
+	    {
+                m_Book.metadata[ bookMeta.name ].append( bookMeta.value );
+	    }
+        }
+
+    }    
 }
 
 

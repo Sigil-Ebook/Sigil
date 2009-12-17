@@ -58,6 +58,9 @@ protected:
     // becomes just <a href="#firstheading" />
     void StripFilesFromAnchors();
 
+    // extracts any meta book information
+    void LoadMeta();
+
     // Accepts a hash with keys being old references (URLs) to resources,
     // and values being the new references to those resources.
     // The book XHTML source is updated accordingly.

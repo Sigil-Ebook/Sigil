@@ -23,7 +23,6 @@
 #include "ImportEPUB.h"
 #include "../BookManipulation/CleanSource.h"
 #include "../Misc/Utility.h"
-#include "../BookManipulation/Metadata.h"
 #include <ZipArchive.h>
 #include "../BookManipulation/XHTMLDoc.h"
 #include <QDomDocument>
@@ -223,98 +222,16 @@ void ImportEPUB::ReadOPF()
 // (filled by reading the OPF) into the book
 void ImportEPUB::LoadMetadata()
 {
-    // TODO: For God's sake split this
-    // monstrosity into multiple functions.
 
     foreach( MetaElement meta, m_MetaElements )
     {
-        QString name    = meta.name;
-        QVariant value  = meta.value;
 
-        if ( ( name == "creator" ) || ( name == "contributor" ) )
-        {
-            QString role = meta.attributes.value( "role", "aut" );
-            
-            // We convert the role into the new metadata name (e.g. aut -> Author)
-            name = Metadata::Instance().GetFullRelatorNameHash()[ role ];
+      MetaElement bookMeta = Metadata::Instance().MaptoBookMeta(meta, "DublinCore");
 
-            // If a "file-as" attribute is provided, we use that as the value
-            QString file_as = meta.attributes.value( "file-as" );
-
-            if ( !file_as.isEmpty() )
-
-                value = file_as;
-        }
-
-        else if ( name == "date" )
-        {
-            QString date_event = meta.attributes.value( "event" );
-
-            if ( ( date_event == "creation" ) ||
-                 ( date_event == "publication" ) ||
-                 ( date_event == "modification" )  )
-            {
-                name = "Date of " + date_event;
-            }
-
-            else
-            {
-                name = "Date of publication";
-            }
-
-            // Dates are in YYYY[-MM[-DD]] format
-            QStringList date_parts = meta.value.split( "-", QString::SkipEmptyParts );
-
-            if ( date_parts.count() < 3 )
-            {
-                if ( date_parts.count() < 2 )
-                {
-                    if ( date_parts.count() < 1 )
-                    {
-                        date_parts.append( QString::number( QDate::currentDate().year() ) );
-                    }
-
-                    date_parts.append( "01" );
-                }
-                
-                date_parts.append( "01" );
-            }
-
-            value = QDate( date_parts[ 0 ].toInt(), date_parts[ 1 ].toInt(), date_parts[ 2 ].toInt() );
-        }
-
-        else if ( name == "identifier" )
-        {
-            QString scheme = meta.attributes.value( "scheme" );
-            
-            if (    ( scheme == "ISBN" ) ||
-                    ( scheme == "ISSN" ) ||
-                    ( scheme == "DOI" )  ||
-                    ( scheme == "CustomID" ) 
-               )
-            {
-                name = scheme;
-            }
-
-            else
-            {
-                // We don't store identifier elements without
-                // a recognizable scheme; such an identifier
-                // is arbitrary, so we might as well make our own
-                continue;
-            }
-        }
-
-        else if ( name == "language" )
-        {
-            // We convert the ISO 639-1 language code into the full language name
-            // (e.g. en -> English)
-            value = Metadata::Instance().GetFullLanguageNameHash()[ meta.value ];
-        }
-
-        QString capitalized_name = name[ 0 ].toUpper() + Utility::Substring( 1, name.length(), name );
-
-        m_Book.metadata[ capitalized_name ].append( value );
+	if ( !bookMeta.name.isEmpty() && !bookMeta.value.isEmpty() )
+	{
+            m_Book.metadata[ bookMeta.name ].append( bookMeta.value );
+	}
     }    
 }
 

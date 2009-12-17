@@ -23,6 +23,22 @@
 #ifndef METADATA_H
 #define METADATA_H
 
+struct MetaElement
+{
+    // The name of the element
+    QString name;
+
+    // The value of the element
+    QString value;
+
+    // The attributes of the element;
+    // the keys are the attribute names,
+    // the values are the attribute values
+    QHash< QString, QString > attributes;
+};
+
+
+
 class Metadata
 {	
 
@@ -37,6 +53,7 @@ public:
         QString description;
     };
 
+
     static Metadata & Instance();
 
     const QMap< QString, QString >  & GetLanguageMap();
@@ -44,6 +61,10 @@ public:
     const QMap< QString, MetaInfo > & GetBasicMetaMap();
     const QHash< QString, QString > & GetFullRelatorNameHash();
     const QHash< QString, QString > & GetFullLanguageNameHash();
+
+    MetaElement MaptoBookMeta( const MetaElement, const QString );
+    MetaElement RecodeHTMLDC( const MetaElement );
+
 
 private:
 
@@ -90,6 +111,7 @@ private:
     // the values are the full names of those relators
     // (e.g. aut -> Author )
     QHash< QString, QString > m_FullRelators;
+
 };
 
 #endif // METADATA_H
