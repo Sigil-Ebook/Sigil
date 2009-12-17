@@ -46,7 +46,7 @@ ImporterFactory::~ImporterFactory()
 // appropriate for the given filename
 Importer& ImporterFactory::GetImporter( const QString &filename )
 {
-    QString extension = QFileInfo( filename ).suffix();
+    QString extension = QFileInfo( filename ).suffix().toLower();
 
     if (	( extension == "xhtml" ) ||
             ( extension == "html" ) ||

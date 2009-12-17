@@ -37,15 +37,20 @@ static const QString XML_OPENING_TAG = "(<[^>/][^>]*[^>/]>|<[^>/]>)";
 // Constructor;
 // the parameters is the object's parent
 CodeViewEditor::CodeViewEditor( QWidget *parent )
-    : 
+    :
     QPlainTextEdit( parent ),
     m_LineNumberArea( new LineNumberArea( this ) ),
     m_Highlighter( new XHTMLHighlighter( document() ) ),
-    m_CurrentZoomFactor( 1.0 )
+    m_CurrentZoomFactor( 1.0 ),
+    m_ScrollOneLineUp( *(   new QShortcut( QKeySequence( Qt::ControlModifier + Qt::Key_Up   ), this ) ) ),
+    m_ScrollOneLineDown( *( new QShortcut( QKeySequence( Qt::ControlModifier + Qt::Key_Down ), this ) ) )
 {
-    connect( this, SIGNAL( blockCountChanged( int ) ),             this, SLOT( UpdateLineNumberAreaMargin() ) );
-    connect( this, SIGNAL( updateRequest( const QRect &, int) ),   this, SLOT( UpdateLineNumberArea( const QRect &, int) ) );
-    connect( this, SIGNAL( cursorPositionChanged() ),              this, SLOT( HighlightCurrentLine()       ) );
+    connect( this, SIGNAL( blockCountChanged( int ) ),           this, SLOT( UpdateLineNumberAreaMargin() ) );
+    connect( this, SIGNAL( updateRequest( const QRect &, int) ), this, SLOT( UpdateLineNumberArea( const QRect &, int) ) );
+    connect( this, SIGNAL( cursorPositionChanged() ),            this, SLOT( HighlightCurrentLine() ) );
+
+    connect( &m_ScrollOneLineUp,   SIGNAL( activated() ), this, SLOT( ScrollOneLineUp()   ) );
+    connect( &m_ScrollOneLineDown, SIGNAL( activated() ), this, SLOT( ScrollOneLineDown() ) );
 
     UpdateLineNumberAreaMargin();
     HighlightCurrentLine();
@@ -398,6 +403,20 @@ void CodeViewEditor::HighlightCurrentLine()
 }
 
 
+// Wrapper slot for the Scroll One Line Up shortcut
+void CodeViewEditor::ScrollOneLineUp()
+{
+    ScrollByLine( false );
+}
+
+
+// Wrapper slot for the Scroll One Line Down shortcut
+void CodeViewEditor::ScrollOneLineDown()
+{
+    ScrollByLine( true );
+}
+
+
 // Returns a stack of elements representing the
 // current location of the caret in the document.
 // Accepts the number of characters to the end of
@@ -552,6 +571,33 @@ int CodeViewEditor::GetSelectionOffset( Searchable::Direction search_direction )
     {
         return textCursor().selectionStart();
     }
+}
+
+
+
+// Scrolls the whole screen by one line.
+// The parameter specifies are we scrolling up or down.
+// Used for ScrollOneLineUp and ScrollOneLineDown shortcuts.
+// It will also move the cursor position if the
+// scroll would make it "fall of the screen".
+void CodeViewEditor::ScrollByLine( bool down )
+{
+    int current_scroll_value = verticalScrollBar()->value();
+    int move_delta = down ? 1 : -1;
+
+    verticalScrollBar()->setValue( current_scroll_value + move_delta );
+
+    if ( !contentsRect().contains( cursorRect() ) )
+    {
+        if ( move_delta > 0 )
+
+             moveCursor( QTextCursor::Down );
+
+        else
+
+            moveCursor( QTextCursor::Up );
+    }
+       
 }
 
 

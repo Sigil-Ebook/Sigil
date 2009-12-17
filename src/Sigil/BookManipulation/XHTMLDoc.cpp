@@ -179,6 +179,24 @@ QString XHTMLDoc::GetNodeName( const QDomNode &node )
 }
 
 
+// Converts a QDomNodeList to a regular QList
+QList< QDomNode > XHTMLDoc::ConvertToRegularList( const QDomNodeList &list )
+{
+    // Since a QDomNodeList is "live", we store the count
+    // so we don't have to recalculate it every loop iteration
+    int count = list.count();
+
+    QList< QDomNode > nodes;
+
+    for ( int i = 0; i < count; ++i )
+    {
+        nodes.append( list.at( i ) );
+    }
+
+    return nodes;
+}
+
+
 // Returns a list with only the element nodes
 QList< QDomNode > XHTMLDoc::GetOnlyElementNodes( const QDomNodeList &list )
 {
@@ -186,16 +204,16 @@ QList< QDomNode > XHTMLDoc::GetOnlyElementNodes( const QDomNodeList &list )
     // so we don't have to recalculate it every loop iteration
     int count = list.count();
 
-    QList< QDomNode > non_textnode_list;
+    QList< QDomNode > element_nodes;
 
     for ( int i = 0; i < count; ++i )
     {
         if ( list.at( i ).nodeType() == QDomNode::ElementNode )
 
-            non_textnode_list.append( list.at( i ) );
+            element_nodes.append( list.at( i ) );
     }
 
-    return non_textnode_list;
+    return element_nodes;
 }
 
 
@@ -363,21 +381,37 @@ QDomNode XHTMLDoc::GetNodeFromHierarchy( const QDomDocument &document, const QLi
 
     for ( int i = 0; i < hierarchy.count() - 1; ++i )
     {
+        QList< QDomNode > children; 
+
         if ( hierarchy[ i + 1 ].name != "#text" )
-
-            node = GetOnlyElementNodes( node.childNodes() ).at( hierarchy[ i ].index );
-
-        else
-
-            node = node.childNodes().at( hierarchy[ i ].index );
-
-        if ( !node.isNull() )
-
-            end_node = node;
+        
+            children = GetOnlyElementNodes( node.childNodes() );
 
         else
+        
+            children = ConvertToRegularList( node.childNodes() );
 
+        // If the index is within the range, descend
+        if ( hierarchy[ i ].index < children.count() )
+        {
+            node = children.at( hierarchy[ i ].index );
+
+            if ( !node.isNull() )
+
+                end_node = node;
+
+            else
+
+                break;
+        }
+
+        // Error handling. The asked-for node cannot be found,
+        // so we stop where we are.
+        else
+        {
+            end_node = node;  
             break;
+        } 
     }
 
     return end_node;       
@@ -436,6 +470,7 @@ XHTMLDoc::XMLElement XHTMLDoc::CreateXMLElement( QXmlStreamReader &reader )
 
     return element; 
 }
+
 
 
 

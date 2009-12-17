@@ -264,7 +264,7 @@ QString Utility::ReadUnicodeTextFile( const QString &fullfilepath )
     QFile file( fullfilepath );
 
     // Check if we can open the file
-    if ( !file.open( QFile::ReadOnly | QFile::Text ) )
+    if ( !file.open( QFile::ReadOnly ) )
     {
         QMessageBox::warning(	0,
                                 QObject::tr( "Sigil" ),
@@ -284,7 +284,7 @@ QString Utility::ReadUnicodeTextFile( const QString &fullfilepath )
     // UTF-8 to UTF-16 if a BOM is detected
     in.setAutoDetectUnicode( true );
 
-    return in.readAll();
+    return ConvertLineEndings( in.readAll() );
 }
 
 
@@ -313,6 +313,15 @@ void Utility::WriteUnicodeTextFile( const QString &text, const QString &fullfile
     }
 
     // TODO: throw error if not open    
+}
+
+
+// Converts Mac and Windows style line endings to Unix style
+// line endings that are expected throughout the Qt framework
+QString Utility::ConvertLineEndings( const QString &text )
+{
+    QString newtext( text );
+    return newtext.replace( "\x0D\x0A", "\x0A" ).replace( "\x0D", "\x0A" );
 }
 
 
@@ -373,3 +382,99 @@ float Utility::RoundToOneDecimal( float number )
     return QString::number( number, 'f', 1 ).toFloat();
 }
 
+
+// This function goes through the entire byte array 
+// and tries to see whether this is a valid UTF-8 sequence.
+// If it's valid, this is probably a UTF-8 string.
+bool Utility::IsValidUtf8( const QByteArray &string )
+{
+    // This is an implementation of the Perl code written here:
+    //   http://www.w3.org/International/questions/qa-forms-utf-8
+    //
+    // Basically, UTF-8 has a very specific byte-pattern. This function
+    // checks if the sent byte-sequence conforms to this pattern.
+    // If it does, chances are *very* high that this is UTF-8.
+    //
+    // This function is written to be fast, not pretty.    
+
+    if ( string.isNull() )
+
+        return false;
+
+    int index = 0;
+
+    while ( index < string.size() )
+    {
+        QByteArray dword = string.mid( index, 4 );
+
+        if ( dword.size() < 4 )
+
+            dword = dword.leftJustified( 4, '\0' );
+
+        const unsigned char * bytes = (const unsigned char *) dword.constData();
+
+        // ASCII
+        if (   bytes[0] == 0x09 ||
+               bytes[0] == 0x0A ||
+               bytes[0] == 0x0D ||
+               ( 0x20 <= bytes[0] && bytes[0] <= 0x7E )                    
+           ) 
+        {
+            index += 1;
+        }
+
+        // non-overlong 2-byte
+        else if (  ( 0xC2 <= bytes[0] && bytes[0] <= 0xDF ) &&
+                   ( 0x80 <= bytes[1] && bytes[1] <= 0xBF )            
+                ) 
+        {
+            index += 2;
+        }
+           
+        else if (  (     bytes[0] == 0xE0                         &&         // excluding overlongs 
+                         ( 0xA0 <= bytes[1] && bytes[1] <= 0xBF ) &&
+                         ( 0x80 <= bytes[2] && bytes[2] <= 0xBF )        ) || 
+                  
+                   (     (   ( 0xE1 <= bytes[0] && bytes[0] <= 0xEC ) ||     // straight 3-byte
+                             bytes[0] == 0xEE                         ||
+                             bytes[0] == 0xEF                     ) &&
+                    
+                         ( 0x80 <= bytes[1] && bytes[1] <= 0xBF )   &&
+                         ( 0x80 <= bytes[2] && bytes[2] <= 0xBF )        ) ||
+
+                   (     bytes[0] == 0xED                         &&         // excluding surrogates
+                         ( 0x80 <= bytes[1] && bytes[1] <= 0x9F ) &&
+                         ( 0x80 <= bytes[2] && bytes[2] <= 0xBF )        )
+                 ) 
+        {
+            index += 3;
+        }
+ 
+          
+        else if (    (   bytes[0] == 0xF0                         &&         // planes 1-3
+                         ( 0x90 <= bytes[1] && bytes[1] <= 0xBF ) &&
+                         ( 0x80 <= bytes[2] && bytes[2] <= 0xBF ) &&
+                         ( 0x80 <= bytes[3] && bytes[3] <= 0xBF )      ) ||
+
+                     (   ( 0xF1 <= bytes[0] && bytes[0] <= 0xF3 ) &&         // planes 4-15
+                         ( 0x80 <= bytes[1] && bytes[1] <= 0xBF ) &&
+                         ( 0x80 <= bytes[2] && bytes[2] <= 0xBF ) &&
+                         ( 0x80 <= bytes[3] && bytes[3] <= 0xBF )      ) ||
+                
+                     (   bytes[0] == 0xF4                         &&         // plane 16
+                         ( 0x80 <= bytes[1] && bytes[1] <= 0x8F ) &&
+                         ( 0x80 <= bytes[2] && bytes[2] <= 0xBF ) &&
+                         ( 0x80 <= bytes[3] && bytes[3] <= 0xBF )      )
+                ) 
+        {
+            index += 4;
+        }
+
+        else
+        {
+            return false;
+        }
+    }
+
+    return true;
+}

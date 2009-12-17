@@ -19,10 +19,10 @@ here (choose the LGPL version): http://www.qtsoftware.com/downloads
 
 Mac users should grab the Qt SDK. Windows users can also download the
 SDK which comes with MinGW and the Qt Creator IDE. If you want to use
-the Visual Studio compiler, you should download the Windows Qt source
-distribution and compile it with VS. Linux users should get it from
-their distribution's package manager (more information in the linux
-section).
+the Visual Studio compiler, you should download the precompiled Qt
+libraries for Visual Studio 2008 from Nokia's website. Linux users 
+should get it from their distribution's package manager (more information
+in the Linux section).
 
 On some platforms a "makeinstaller" target is provided which will build
 a binary installer. For that to work, you need to have InstallJammer 
@@ -105,8 +105,7 @@ repository should always be stable. If it's not, that's a bug report.
 = Compiling Qt =
 
 Compiling Qt directly should not be necessary. Nevertheless, if you wish to
-compile Qt so you could for instance use the Visual Studio compiler, you 
-should configure it before compiling like this:
+compile Qt, you should configure it before compiling like this:
 
 configure -qt-zlib -qt-gif -qt-libpng -qt-libmng -qt-libtiff -qt-libjpeg
 

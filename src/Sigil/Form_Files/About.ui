@@ -208,10 +208,13 @@
         </font>
        </property>
        <property name="text">
-        <string>GNU General Public License v3</string>
+        <string>&lt;a href=&quot;http://www.gnu.org/licenses/gpl-3.0-standalone.html&quot;&gt;GNU General Public License v3&lt;/a&gt;</string>
        </property>
        <property name="indent">
         <number>5</number>
+       </property>
+       <property name="openExternalLinks">
+        <bool>true</bool>
        </property>
       </widget>
      </item>
@@ -233,6 +236,7 @@
   </layout>
  </widget>
  <resources>
+  <include location="../Resource_Files/About/About.qrc"/>
   <include location="../Resource_Files/About/About.qrc"/>
   <include location="../Resource_Files/About/About.qrc"/>
   <include location="../Resource_Files/About/About.qrc"/>

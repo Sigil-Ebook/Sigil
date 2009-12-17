@@ -42,41 +42,23 @@ BookViewEditor::BookViewEditor( QWidget *parent )
     c_GetRange(         Utility::ReadUnicodeTextFile( ":/javascript/get_range.js"                   ) ),
     c_ReplaceText(      Utility::ReadUnicodeTextFile( ":/javascript/replace_text.js"                ) ),
     m_CaretLocationUpdate( QString() ),
-    m_isLoadFinished( false )
+    m_isLoadFinished( false ),
+    m_PageUp(   *( new QShortcut( QKeySequence( QKeySequence::MoveToPreviousPage ), this ) ) ),
+    m_PageDown( *( new QShortcut( QKeySequence( QKeySequence::MoveToNextPage     ), this ) ) ),
+    m_ScrollOneLineUp( *(   new QShortcut( QKeySequence( Qt::ControlModifier + Qt::Key_Up   ), this ) ) ),
+    m_ScrollOneLineDown( *( new QShortcut( QKeySequence( Qt::ControlModifier + Qt::Key_Down ), this ) ) )
 {
+    QWebSettings &settings = *QWebSettings::globalSettings();
+    settings.setAttribute( QWebSettings::LocalContentCanAccessRemoteUrls,  true );
+    settings.setAttribute( QWebSettings::JavascriptCanAccessClipboard,     true );
 
-    m_PageUp   = new QShortcut( QKeySequence( QKeySequence::MoveToPreviousPage ), this );
-    m_PageDown = new QShortcut( QKeySequence( QKeySequence::MoveToNextPage     ), this );
-
-    connect(    m_PageUp,
-                SIGNAL( activated() ), 
-                this,
-                SLOT( PageUp() )
-           );
-
-    connect(    m_PageDown,
-                SIGNAL( activated() ), 
-                this,
-                SLOT( PageDown() )
-           );
-
-    connect(    page(),
-                SIGNAL( loadFinished( bool ) ), 
-                this,
-                SLOT( JavascriptOnDocumentLoad() )
-           );
-
-    connect(    page(),
-                SIGNAL( loadProgress( int ) ), 
-                this,
-                SLOT( UpdateFinishedState( int ) )
-           );
-
-    connect(    page(),
-                SIGNAL( contentsChanged() ), 
-                this,
-                SIGNAL( textChanged() )
-           );
+    connect( &m_PageUp,            SIGNAL( activated() ),          this, SLOT( PageUp()                   ) );
+    connect( &m_PageDown,          SIGNAL( activated() ),          this, SLOT( PageDown()                 ) );
+    connect( &m_ScrollOneLineUp,   SIGNAL( activated() ),          this, SLOT( ScrollOneLineUp()          ) );
+    connect( &m_ScrollOneLineDown, SIGNAL( activated() ),          this, SLOT( ScrollOneLineDown()        ) );
+    connect( page(),               SIGNAL( contentsChanged() ),    this, SIGNAL( textChanged()            ) );
+    connect( page(),               SIGNAL( loadFinished( bool ) ), this, SLOT( JavascriptOnDocumentLoad() ) );
+    connect( page(),               SIGNAL( loadProgress( int ) ),  this, SLOT( UpdateFinishedState( int ) ) );
 }
 
 
@@ -358,14 +340,28 @@ void BookViewEditor::UpdateFinishedState( int progress )
 // Wrapper slot for the Page Up shortcut
 void BookViewEditor::PageUp()
 {
-    ScrollByPage( false );
+    ScrollByNumPixels( height(), false );
 }
 
 
 // Wrapper slot for the Page Down shortcut
 void BookViewEditor::PageDown()
 {
-    ScrollByPage( true );
+    ScrollByNumPixels( height(), true );
+}
+
+
+// Wrapper slot for the Scroll One Line Up shortcut
+void BookViewEditor::ScrollOneLineUp()
+{
+    ScrollByLine( false );
+}
+
+
+// Wrapper slot for the Scroll One Line Down shortcut
+void BookViewEditor::ScrollOneLineDown()
+{
+    ScrollByLine( true );
 }
 
 
@@ -694,27 +690,35 @@ void BookViewEditor::ScrollToNode( const QDomNode &node )
 }
 
 
-// Scrolls the whole screen by one "page".
-// Used for PageUp and PageDown shortcuts.
-void BookViewEditor::ScrollByPage( bool down )
+// Scrolls the whole screen by one line.
+// The parameter specifies are we scrolling up or down.
+// Used for ScrollOneLineUp and ScrollOneLineDown shortcuts.
+void BookViewEditor::ScrollByLine( bool down )
 {
-    int frame_height = height();
+    // This is an educated guess at best since QWebView is not
+    // using the widget font but whatever font QWebView feels like using.
+    int line_height = qRound( fontMetrics().height() * textSizeMultiplier() );
 
-    Q_ASSERT( frame_height != 0 );
+    ScrollByNumPixels( line_height, down );
+}
 
-    int current_scroll_offset = page()->mainFrame()->scrollBarValue( Qt::Vertical );
+
+// Scrolls the whole screen by pixel_number.
+// "down" specifies are we scrolling up or down.
+void BookViewEditor::ScrollByNumPixels( int pixel_number, bool down )
+{
+    Q_ASSERT( pixel_number != 0 );
+
+    int current_scroll_offset = page()->mainFrame()->scrollBarValue(   Qt::Vertical );
     int scroll_maximum        = page()->mainFrame()->scrollBarMaximum( Qt::Vertical );
 
-    int new_scroll_Y = down ? current_scroll_offset + frame_height : current_scroll_offset - frame_height;    
+    int new_scroll_Y = down ? current_scroll_offset + pixel_number : current_scroll_offset - pixel_number;    
 
     // qBound(min, ours, max) limits the value to the range
     new_scroll_Y     = qBound( 0, new_scroll_Y, scroll_maximum );
 
     page()->mainFrame()->setScrollBarValue( Qt::Vertical, new_scroll_Y );
 }
-
-
-
 
 
 

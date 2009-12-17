@@ -140,10 +140,10 @@ set( VIEW_EDITOR_FILES
     ViewEditors/CodeViewEditor.cpp
     ViewEditors/CodeViewEditor.h
     ViewEditors/LineNumberArea.cpp
-    ViewEditors/LineNumberArea.h
+    ViewEditors/LineNumberArea.h  
     ViewEditors/Searchable.cpp    
-    ViewEditors/Searchable.h
-    ViewEditors/ViewEditor.h    
+    ViewEditors/Searchable.h  
+    ViewEditors/ViewEditor.h     
     )
             
 set( UI_FILES   
@@ -380,6 +380,12 @@ else()
     # Copy the application executable
     add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD 
                         COMMAND cmake -E copy ${EXE_PATH} ${MAIN_PACKAGE_DIR} )
+
+    if( UNIX )
+        # Copy the Unix launcher that adds the working directory to the LD_LIBRARY_PATH
+        add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD 
+                            COMMAND cmake -E copy ${PROJECT_SOURCE_DIR}/Resource_Files/bash/sigil.sh ${MAIN_PACKAGE_DIR} )
+    endif()
                         
     # Copy the Changelog
     add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD 

@@ -81,7 +81,7 @@ public:
     virtual void SetZoomFactor( float factor ) = 0;
 
     // Returns the View's current zoom factor
-    virtual float GetZoomFactor() const = 0;    
+    virtual float GetZoomFactor() const = 0;
 };
 
 #endif // VIEWEDITOR_H
