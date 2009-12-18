@@ -258,7 +258,8 @@ Metadata::MetaElement Metadata::HtmlToOpfDC( const Metadata::MetaElement & meta 
     {
         QStringList scheme_list;
         scheme_list << "ISBN" << "ISSN" << "DOI" << "CustomID";
-        scheme = scheme_list.filter(scheme, Qt::CaseInsensitive)[ 0 ];
+	if ( scheme_list.contains( scheme, Qt::CaseInsensitive ) )
+	    scheme = scheme_list.filter(scheme, Qt::CaseInsensitive)[ 0 ];
     }
 
     MetaElement opf_meta;
