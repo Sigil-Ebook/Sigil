@@ -75,7 +75,9 @@ QString ImportTXT::CreateParagraphs( const QStringList &lines ) const
             paragraph = "<p>";
         }
 
-        paragraph.append( line.prepend( " " ) );
+        // We prepend a space so words on 
+        // line breaks don't get merged
+        paragraph.append( Utility::GetEntityEscapedString( line.prepend( " " ) ) );
     }
 
     text.append( paragraph.append( "</p>\n" ) );
