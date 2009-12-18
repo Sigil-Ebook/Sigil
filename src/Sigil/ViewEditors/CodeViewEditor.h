@@ -32,6 +32,7 @@ class QResizeEvent;
 class QSize;
 class QWidget;
 class QPrinter;
+class QShortcut;
 class LineNumberArea;
 class XHTMLHighlighter;
 

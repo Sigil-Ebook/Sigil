@@ -217,166 +217,240 @@ void Metadata::LoadRelatorCodes()
 }
 
 
-// recodes dublin core metadata from html to match metaelement from opf
-MetaElement Metadata::RecodeHTMLDC( const MetaElement meta )
+// converts html sourced dublin core metadata to opf style metadata
+Metadata::MetaElement Metadata::HtmlToOpfDC( const Metadata::MetaElement & meta )
 {
+    // dublin core from html file with the original 15 element namespace or
+    // expanded dcterms namespace.  allows qualifiers as refinements
+    // prefix.name[.refinement]
 
-    MetaElement rmeta;
-    QString name = meta.name.toLower();
-    QString value = meta.value;
-
-    // handle dublin core from html file with the original 15 element namespace
-    // or using the expanded dcterms namespace
-    // allow qualifiers as refinements
-    QString refinement;
-
-    if ( name.startsWith( "dc." ) ) name = name.mid(3);
-    if ( name.startsWith( "dcterms." ) ) name = name.mid(8);
-
-    // handle refinements as qualifiers
-    if ( name.contains( "." ) )
-    {
-         QStringList fields = name.split( "." );
-	 name = fields[0];
-	 refinement = fields[1];
-    }
+    QString name = meta.name.toLower() + "..";
+    QStringList fields = name.split( "." );
+    name = fields[ 1 ];
+    QString refinement = fields[ 2 ];
     
     QString event;
-
-    if ( ( name == "modifed" ) || ( ( name == "date" ) && ( refinement == "modified") ) )
+    if ( ( name == "modifed" ) || ( refinement == "modified") )
     {
 	name = "date";
 	event = "modification";
     }
-    else if ( ( name == "created" ) || ( ( name == "date" ) && ( refinement == "created") ) )
+    else if ( ( name == "created" ) || ( refinement == "created") ) 
     {
 	name = "date";
 	event = "creation";
     }
-    else if ( ( name == "issued" ) || ( ( name == "date" ) && ( refinement == "issued") ) )
+    else if ( ( name == "issued" ) || ( refinement == "issued") )
     {
 	name = "date";
 	event = "publication";
     }
 
     QString role;
-    if ( ( name == "creator" ) || ( name == "contributor" ) ) role = refinement;
+    if ( ( name == "creator" ) || ( name == "contributor" ) ) 
+        role = refinement;
 
     QString scheme = meta.attributes.value("scheme");
-    if ( ( name == "identifier" ) && ( scheme.isEmpty() ) ) scheme = refinement;
-    if ( scheme == "isbn" ) scheme = "ISBN";
-    else if ( scheme == "issn" ) scheme = "ISSN";
-    else if ( scheme == "doi" ) scheme = "DOI"; 
-    else if ( scheme == "customid" ) scheme = "CustomID";
+    if ( ( name == "identifier" ) && ( scheme.isEmpty() ) ) 
+        scheme = refinement;
 
-    rmeta.name = name;
-    rmeta.value = value;
-    if ( !scheme.isEmpty() ) rmeta.attributes["scheme"] = scheme;
-    if ( !event.isEmpty() ) rmeta.attributes["event"] = event;
-    if ( !role.isEmpty() ) rmeta.attributes["role"] = role;
+    if ( !scheme.isEmpty() )
+    {
+        QStringList scheme_list;
+        scheme_list << "ISBN" << "ISSN" << "DOI" << "CustomID";
+        scheme = scheme_list.filter(scheme, Qt::CaseInsensitive)[ 0 ];
+    }
 
-    return rmeta;
+    MetaElement opf_meta;
+    opf_meta.name = name;
+    opf_meta.value = meta.value;
+
+    if ( !scheme.isEmpty() )
+        opf_meta.attributes[ "scheme" ] = scheme;
+
+    if ( !event.isEmpty() )
+        opf_meta.attributes[ "event" ] = event;
+
+    if ( !role.isEmpty() )
+        opf_meta.attributes[ "role" ] = role;
+
+    return opf_meta;
 }    
 
 
 
-
-
-// maps meta info to internal book meta format
-MetaElement Metadata::MaptoBookMeta( const MetaElement meta, const QString type )
+// converts free form metadata into internal book metadata
+Metadata::MetaElement Metadata::FreeFormMetadata( const Metadata::MetaElement & meta )
 {
 
-    MetaElement bookMeta;
+    // non - dublin core meta info from html file, if this maps to 
+    // one of the metadata basic fields used internally pass it through
+    // i.e. Author, Title, Publisher, Rights/CopyRight, EISBN/ISBN
 
     QString name = meta.name.toLower();
+
+    // remap commonly used meta values to match internal names
+    if ( name == "copyright" )
+	name = "Rights";
+    else if ( name == "eisbn" )
+	name = "ISBN";
+    else if ( name == "issn" )
+	name = "ISSN";
+    else if ( name == "doi" )
+	name = "DOI";
+    else if ( name == "customid" )
+	name = "CustomID";
+    else
+        name = name[ 0 ].toUpper() + name.mid( 1 );
+
+    MetaElement book_meta;
+    if ( m_Basic.contains( name ) || ( name == "Author" ) || ( name == "Title" ) )
+    {
+	book_meta.name = name;
+	book_meta.value = meta.value;
+    }
+    return book_meta;
+
+}
+
+
+// convert dc:creator and dc:contributor metadata to book internal metadata
+Metadata::MetaElement Metadata::CreateContribMetadata( const Metadata::MetaElement & meta )
+{
+
+    QString role = meta.attributes.value( "role", "aut" );
+
+    // We convert the role into the new metadata name (e.g. aut -> Author)
+    QString name = GetFullRelatorNameHash()[ role ];
+
+    // If a "file-as" attribute is provided, we use that as the value
+    QString file_as = meta.attributes.value("file-as");
+
+    QString value = meta.value;
+    if ( !file_as.isEmpty() )
+        value = file_as;
+
+    name = name[ 0 ].toUpper() + name.mid( 1 );
+
+    MetaElement book_meta;
+    book_meta.name = name;
+    book_meta.value = value;
+
+    return book_meta;
+
+}
+
+
+// convert dc:date metadata to book internal metadata
+Metadata::MetaElement Metadata::DateMetadata( const Metadata::MetaElement & meta )
+{
+
+    QStringList eventList;
+    eventList << "creation" << "publication" << "modification";
+
+    QString name = meta.name;
+    QString event = meta.attributes.value( "event" );
+
+    name = "Date of publication";  // default
+
+    if ( eventList.contains( event ) )
+	name = "Date of " + event;
+
     QString value = meta.value;
 
-    if ( ( type == "HTML" ) &&  ( !name.startsWith( "dc." ) ) && ( !name.startsWith( "dcterms." ) ) )  
-    {
-        // non - dublin core meta info from html file, if this maps to 
-        // one of the metadata basic fields pass it through
-	// Author, Title, Publisher, Rights/CopyRight, EISBN/ISBN
+    // Dates are in YYYY[-MM[-DD]] format
+    QStringList date_parts = value.split( "-", QString::SkipEmptyParts );
 
-        // remap commonly used meta values to match internal names
-        if ( name == "copyright" ) name = "Rights";
-        else if ( name == "eisbn" ) name = "ISBN";
-        else if ( name == "issn" ) name = "ISSN";
-        else if ( name == "doi" ) name = "DOI";
-	else if ( name == "customid" ) name = "CustomID";
-        name = name[ 0 ].toUpper() + name.mid(1);
-	if ( m_Basic.contains( name ) || ( name == "Author" ) || ( name == "Title" ) )
-	{
-	    bookMeta.name = name;
-	    bookMeta.value = value;
-	}
-        return bookMeta;
+    if ( date_parts.count() < 1 )
+	date_parts.append( QString::number( QDate::currentDate().year() ) );
+
+    if ( date_parts.count() < 2 )
+	date_parts.append("01");
+
+    if ( date_parts.count() < 3 )
+	date_parts.append("01");
+
+    value = QDate( date_parts[ 0 ].toInt(), date_parts[ 1 ].toInt(), date_parts[ 2 ].toInt() ).toString(Qt::ISODate);
+
+    MetaElement book_meta;
+    book_meta.name = name;
+    book_meta.value = value;
+
+    return book_meta;
+
+}
+
+
+// convert dc:identifier metadata to book internal metadata
+Metadata::MetaElement Metadata::IdentifierMetadata( const Metadata::MetaElement & meta )
+{
+
+    QStringList schemeList;
+    schemeList << "ISBN" << "ISSN" << "DOI" << "CustomID"; 
+
+    QString scheme = meta.attributes.value("scheme");
+
+    MetaElement book_meta;
+
+    if (schemeList.contains( scheme ) )
+    {
+	book_meta.name = scheme;
+        book_meta.value = meta.value;
     }
+
+    return book_meta;
+
+}
+
+
+// maps dc metadata to internal book meta format
+Metadata::MetaElement Metadata::MapToBookMetadata( const Metadata::MetaElement & meta, const QString & type )
+{
+
+    QString name = meta.name.toLower();
+
+    if ( ( type == "HTML" ) &&  ( !name.startsWith( "dc." ) ) && ( !name.startsWith( "dcterms." ) ) )  
+        return FreeFormMetadata( meta );
 
     // Dublin Core
-    // transform html based dublin core to opf style metaelement
-    MetaElement wmeta = meta;
-    if ( type == "HTML" ) wmeta = RecodeHTMLDC(meta);
-    
-    name = wmeta.name.toLower();
-    value = wmeta.value;
+
+    MetaElement working_copy_meta;
+    if ( type == "HTML" )
+    {
+        // transform html based dublin core to opf style metaelement
+        working_copy_meta = HtmlToOpfDC(meta);
+    }
+    else
+        working_copy_meta = meta;
+
+    name = working_copy_meta.name.toLower();
 
     if ( ( name == "creator" ) || ( name == "contributor" ) )
+        return CreateContribMetadata( working_copy_meta );
+
+    if ( name == "date" )
+        return DateMetadata( working_copy_meta );
+
+    if ( name == "identifier" )
+        return IdentifierMetadata( working_copy_meta );
+
+    QString value = meta.value;
+
+    if ( name == "language" )
     {
-        QString role = wmeta.attributes.value("role","aut");
-
-        // We convert the role into the new metadata name (e.g. aut -> Author)
-        name = GetFullRelatorNameHash()[ role ];
-
-        // If a "file-as" attribute is provided, we use that as the value
-        QString file_as = wmeta.attributes.value("file-as");
-        if ( !file_as.isEmpty() )  value = file_as;
-    }
-
-    else if ( name == "date" )
-    {
-
-	QString event = wmeta.attributes.value("event");
-	QStringList eventList;
-	eventList << "creation" << "publication" << "modification";
-        name = "Date of publication";  // default
-        if ( eventList.contains( event ) ) name = "Date of " + event;
-
-        // Dates are in YYYY[-MM[-DD]] format
-        QStringList date_parts = value.split( "-", QString::SkipEmptyParts );
-        if ( date_parts.count() < 1 ) date_parts.append( QString::number( QDate::currentDate().year() ) );
-        if ( date_parts.count() < 2 ) date_parts.append("01");
-        if ( date_parts.count() < 3 ) date_parts.append("01");
-
-        value = QDate( date_parts[ 0 ].toInt(), date_parts[ 1 ].toInt(), date_parts[ 2 ].toInt() ).toString(Qt::ISODate);
-    }
-
-    else if ( name == "identifier" )
-    {
-        QString scheme = wmeta.attributes.value("scheme");
-        QStringList schemeList;
-	schemeList << "ISBN" << "ISSN" << "DOI" << "CustomID"; 
-        if (schemeList.contains(scheme)) name = scheme;
-	else
-	{
-	  // set name and value to null to ignore identifiers not supported by internal book metadata
-	  name = "";
-	  value = "";
-	}
-    }
-
-    else if ( name == "language" )
-    {
-        // We convert the ISO 639-1 language code into the full language name
-        // (e.g. en -> English)
+        // We convert ISO 639-1 language code into full language name (e.g. en -> English)
         value = GetFullLanguageNameHash()[ value ];
+	// fall through
     }
 
+    MetaElement book_meta;
     if ( ( !name.isEmpty() )  && ( !value.isEmpty() ) )
     {
-        bookMeta.name = name[ 0 ].toUpper() + name.mid(1);
-        bookMeta.value = value;
+        book_meta.name = name[ 0 ].toUpper() + name.mid( 1 );
+        book_meta.value = value;
     }
 
-    return bookMeta;
+    return book_meta;
+
 }
 

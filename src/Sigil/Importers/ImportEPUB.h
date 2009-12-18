@@ -97,7 +97,7 @@ protected:
     QStringList m_ReadingOrderIds;
 
     // The list of metadata elements in the OPF
-    QList< MetaElement > m_MetaElements;
+    QList< Metadata::MetaElement > m_MetaElements;
     
 };
 

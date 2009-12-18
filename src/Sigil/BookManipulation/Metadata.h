@@ -23,21 +23,6 @@
 #ifndef METADATA_H
 #define METADATA_H
 
-struct MetaElement
-{
-    // The name of the element
-    QString name;
-
-    // The value of the element
-    QString value;
-
-    // The attributes of the element;
-    // the keys are the attribute names,
-    // the values are the attribute values
-    QHash< QString, QString > attributes;
-};
-
-
 
 class Metadata
 {	
@@ -53,6 +38,21 @@ public:
         QString description;
     };
 
+    struct MetaElement
+    {
+        // The name of the element
+        QString name;
+
+        // The value of the element
+        QString value;
+
+        // The attributes of the element;
+        // the keys are the attribute names,
+        // the values are the attribute values
+        QHash< QString, QString > attributes;
+    };
+
+
 
     static Metadata & Instance();
 
@@ -62,8 +62,7 @@ public:
     const QHash< QString, QString > & GetFullRelatorNameHash();
     const QHash< QString, QString > & GetFullLanguageNameHash();
 
-    MetaElement MaptoBookMeta( const MetaElement, const QString );
-    MetaElement RecodeHTMLDC( const MetaElement );
+    MetaElement MapToBookMetadata( const MetaElement &, const QString & );
 
 
 private:
@@ -81,6 +80,22 @@ private:
     // Loads the relator codes, their full names,
     // and their descriptions from disk
     void LoadRelatorCodes();
+
+    /// converts html sourced dublin core metadata to opf style metadata
+    MetaElement HtmlToOpfDC( const MetaElement & );
+
+    // converts free form metadata into internal book metadata
+    MetaElement FreeFormMetadata( const MetaElement & );
+
+    // convert dc:creator and dc:contributor metadata to book internal metadata
+    MetaElement CreateContribMetadata( const MetaElement & );
+
+    // convert dc:date metadata to book internal metadata
+    MetaElement DateMetadata( const MetaElement & );
+
+    // convert dc:identifier metadata to book internal metadata
+    MetaElement IdentifierMetadata( const MetaElement & );
+
 
 
     ///////////////////////////////

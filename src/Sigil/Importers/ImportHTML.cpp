@@ -170,7 +170,7 @@ void ImportHTML::LoadMeta()
     {
 
         QDomElement element = metatags.at( i ).toElement();
-        MetaElement meta;
+	Metadata::MetaElement meta;
 
 	meta.name = element.attribute( "name");
 	meta.value = element.attribute( "content");
@@ -178,10 +178,10 @@ void ImportHTML::LoadMeta()
 
 	if ((meta.name != "") && (meta.value !="")) 
 	{ 
-	  MetaElement bookMeta = Metadata::Instance().MaptoBookMeta( meta , "HTML");
-	    if ( !bookMeta.name.isEmpty() && !bookMeta.value.isEmpty() )
+	    Metadata::MetaElement book_meta = Metadata::Instance().MapToBookMetadata( meta , "HTML" );
+	    if ( !book_meta.name.isEmpty() && !book_meta.value.isEmpty() )
 	    {
-                m_Book.metadata[ bookMeta.name ].append( bookMeta.value );
+                m_Book.metadata[ book_meta.name ].append( book_meta.value );
 	    }
         }
 
