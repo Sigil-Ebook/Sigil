@@ -21,6 +21,7 @@
 
 #include <stdafx.h>
 #include "../BookManipulation/Metadata.h"
+#include "../Misc/Utility.h"
 
 static const QString PATH_TO_LANGUAGES  = ":/data/languages.csv";
 static const QString PATH_TO_BASICMETA  = ":/data/basicmeta.csv";
@@ -143,32 +144,13 @@ void Metadata::LoadLanguages()
 
         return;
 
-    QFile file( PATH_TO_LANGUAGES );
+    QStringList file_lines = Utility::ReadUnicodeTextFile( PATH_TO_LANGUAGES ).split( '\n' );
 
-    // Check if we can open the file
-    if ( !file.open( QFile::ReadOnly | QFile::Text ) )
+    foreach( QString line, file_lines )
     {
-        QMessageBox::warning(	0,
-            QObject::tr( "Sigil" ),
-            QObject::tr( "Cannot read file %1:\n%2." )
-            .arg( PATH_TO_LANGUAGES )
-            .arg( file.errorString() ) 
-            );
+        if ( line.isEmpty() )
 
-        return;
-    }
-
-    QTextStream in( &file );
-
-    in.setCodec( "UTF-8" );
-
-    // This will automatically switch reading from
-    // UTF-8 to UTF-16 if a BOM is detected
-    in.setAutoDetectUnicode( true );
-
-    while ( in.atEnd() == false )
-    {
-        QString line = in.readLine();
+            continue;
 
         QStringList fields = line.split( "|" );
 
@@ -187,32 +169,13 @@ void Metadata::LoadBasicMetadata()
 
         return;
 
-    QFile file( PATH_TO_BASICMETA );
+    QStringList file_lines = Utility::ReadUnicodeTextFile( PATH_TO_BASICMETA ).split( '\n' );
 
-    // Check if we can open the file
-    if ( !file.open( QFile::ReadOnly | QFile::Text ) )
-    {
-        QMessageBox::warning(	0,
-            QObject::tr( "Sigil" ),
-            QObject::tr( "Cannot read file %1:\n%2." )
-            .arg( PATH_TO_BASICMETA )
-            .arg( file.errorString() ) 
-            );
+    foreach( QString line, file_lines )
+    { 
+        if ( line.isEmpty() )
 
-        return;
-    }
-
-    QTextStream in( &file );
-
-    in.setCodec( "UTF-8" );
-
-    // This will automatically switch reading from
-    // UTF-8 to UTF-16 if a BOM is detected
-    in.setAutoDetectUnicode( true );
-
-    while ( in.atEnd() == false )
-    {
-        QString line = in.readLine();
+            continue;
 
         QStringList fields = line.split( "|" );
 
@@ -236,32 +199,13 @@ void Metadata::LoadRelatorCodes()
 
         return;
 
-    QFile file( PATH_TO_RELATORS );
+    QStringList file_lines = Utility::ReadUnicodeTextFile( PATH_TO_RELATORS ).split( '\n' );
 
-    // Check if we can open the file
-    if ( !file.open( QFile::ReadOnly | QFile::Text ) )
+    foreach( QString line, file_lines )
     {
-        QMessageBox::warning(	0,
-            QObject::tr( "Sigil" ),
-            QObject::tr( "Cannot read file %1:\n%2." )
-            .arg( PATH_TO_RELATORS )
-            .arg( file.errorString() ) 
-            );
+        if ( line.isEmpty() )
 
-        return;
-    }
-
-    QTextStream in( &file );
-
-    in.setCodec( "UTF-8" );
-
-    // This will automatically switch reading from
-    // UTF-8 to UTF-16 if a BOM is detected
-    in.setAutoDetectUnicode( true );
-
-    while ( in.atEnd() == false )
-    {
-        QString line = in.readLine();
+            continue;
 
         QStringList fields = line.split( "|" );
 
