@@ -169,7 +169,7 @@ void ImportEPUB::ReadOPF()
             // Parse and store Dublin Core metadata elements
             if ( opf.qualifiedName().toString().startsWith( "dc:" ) == true )
             {
-	        Metadata::MetaElement meta;                
+            Metadata::MetaElement meta;                
                 
                 // We create a copy of the attributes because
                 // the QXmlStreamAttributes die out after we 
@@ -222,16 +222,14 @@ void ImportEPUB::ReadOPF()
 // (filled by reading the OPF) into the book
 void ImportEPUB::LoadMetadata()
 {
-
-  foreach( Metadata::MetaElement meta, m_MetaElements )
+    foreach( Metadata::MetaElement meta, m_MetaElements )
     {
-
         Metadata::MetaElement book_meta = Metadata::Instance().MapToBookMetadata( meta, "DublinCore" );
 
-	if ( !book_meta.name.isEmpty() && !book_meta.value.isEmpty() )
-	{
+        if ( !book_meta.name.isEmpty() && !book_meta.value.toString().isEmpty() )
+        {
             m_Book.metadata[ book_meta.name ].append( book_meta.value );
-	}
+        }
     }    
 }
 

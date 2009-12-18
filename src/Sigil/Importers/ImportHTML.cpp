@@ -52,10 +52,10 @@ Book ImportHTML::GetBook()
     LoadSource(); 
 
     // We need to make the source valid XHTML to allow us to 
-    // parse it with xml parsers
+    // parse it with XML parsers
     m_Book.source = CleanSource::ToValidXHTML( m_Book.source );
 
-    LoadMeta();
+    LoadMetadata();
     StripFilesFromAnchors();
     UpdateReferences( LoadFolderStructure() );
 
@@ -156,35 +156,33 @@ void ImportHTML::StripFilesFromAnchors()
 }
 
 
-// searches for meta informtion in the html file
-// attempt to map freeform to dc: style
-void ImportHTML::LoadMeta()
+// Searches for meta information in the HTML file
+// and tries to convert it to Dublin Core
+void ImportHTML::LoadMetadata()
 {
-    QDomDocument document;
- 
+    QDomDocument document; 
     document.setContent( m_Book.source );
 
     QDomNodeList metatags = document.elementsByTagName( "meta" );
 
     for ( int i = 0; i < metatags.count(); ++i )
     {
-
         QDomElement element = metatags.at( i ).toElement();
-	Metadata::MetaElement meta;
 
-	meta.name = element.attribute( "name");
-	meta.value = element.attribute( "content");
-	meta.attributes[ "scheme" ]  = element.attribute( "scheme");
+        Metadata::MetaElement meta;
+        meta.name  = element.attribute( "name" );
+        meta.value = element.attribute( "content" );
+        meta.attributes[ "scheme" ] = element.attribute( "scheme" );
 
-	if ((meta.name != "") && (meta.value !="")) 
-	{ 
-	    Metadata::MetaElement book_meta = Metadata::Instance().MapToBookMetadata( meta , "HTML" );
-	    if ( !book_meta.name.isEmpty() && !book_meta.value.isEmpty() )
-	    {
+        if ( ( !meta.name.isEmpty() ) && ( !meta.value.toString().isEmpty() ) ) 
+        { 
+            Metadata::MetaElement book_meta = Metadata::Instance().MapToBookMetadata( meta , "HTML" );
+
+            if ( !book_meta.name.isEmpty() && !book_meta.value.toString().isEmpty() )
+            {
                 m_Book.metadata[ book_meta.name ].append( book_meta.value );
-	    }
+            }
         }
-
     }    
 }
 

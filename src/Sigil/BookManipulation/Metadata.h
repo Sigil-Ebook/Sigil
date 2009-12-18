@@ -31,7 +31,7 @@ public:
 
     struct MetaInfo
     {
-        // The code for the relator (e.g ""aut)
+        // The code for the relator (e.g "aut")
         QString relator_code;
 
         // The description of the relator
@@ -44,15 +44,13 @@ public:
         QString name;
 
         // The value of the element
-        QString value;
+        QVariant value;
 
         // The attributes of the element;
         // the keys are the attribute names,
         // the values are the attribute values
         QHash< QString, QString > attributes;
     };
-
-
 
     static Metadata & Instance();
 
@@ -62,8 +60,8 @@ public:
     const QHash< QString, QString > & GetFullRelatorNameHash();
     const QHash< QString, QString > & GetFullLanguageNameHash();
 
-    MetaElement MapToBookMetadata( const MetaElement &, const QString & );
-
+    // Maps Dublic Core metadata to internal book meta format
+    MetaElement MapToBookMetadata( const MetaElement &meta, const QString &type );
 
 private:
 
@@ -81,21 +79,20 @@ private:
     // and their descriptions from disk
     void LoadRelatorCodes();
 
-    /// converts html sourced dublin core metadata to opf style metadata
-    MetaElement HtmlToOpfDC( const MetaElement & );
+    // Converts HTML sourced Dublin Core metadata to OPF style metadata
+    MetaElement HtmlToOpfDC( const MetaElement &meta );
 
-    // converts free form metadata into internal book metadata
-    MetaElement FreeFormMetadata( const MetaElement & );
+    // Converts free form metadata into internal book metadata
+    MetaElement FreeFormMetadata( const MetaElement &meta );
 
-    // convert dc:creator and dc:contributor metadata to book internal metadata
-    MetaElement CreateContribMetadata( const MetaElement & );
+    // Converts dc:creator and dc:contributor metadata to book internal metadata
+    MetaElement CreateContribMetadata( const MetaElement &meta );
 
-    // convert dc:date metadata to book internal metadata
-    MetaElement DateMetadata( const MetaElement & );
+    // Converts dc:date metadata to book internal metadata
+    MetaElement DateMetadata( const MetaElement &meta );
 
-    // convert dc:identifier metadata to book internal metadata
-    MetaElement IdentifierMetadata( const MetaElement & );
-
+    // Converts dc:identifier metadata to book internal metadata
+    MetaElement IdentifierMetadata( const MetaElement &meta );
 
 
     ///////////////////////////////

@@ -58,8 +58,9 @@ protected:
     // becomes just <a href="#firstheading" />
     void StripFilesFromAnchors();
 
-    // extracts any meta book information
-    void LoadMeta();
+    // Searches for meta information in the HTML file
+    // and tries to convert it to Dublin Core
+    void LoadMetadata();
 
     // Accepts a hash with keys being old references (URLs) to resources,
     // and values being the new references to those resources.
