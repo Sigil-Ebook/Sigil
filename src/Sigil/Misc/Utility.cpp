@@ -376,6 +376,13 @@ QString Utility::ResolveHTMLEntities( const QString &text )
 }
 
 
+QString Utility::GetEntityEscapedString( const QString &text )
+{
+    QString new_text( text );
+    return new_text.replace( "&", "&amp;" ).replace( "<", "&lt;" ).replace( ">", "&gt;" );
+}
+
+
 // Returns the same number, but rounded to one decimal place
 float Utility::RoundToOneDecimal( float number )
 {
