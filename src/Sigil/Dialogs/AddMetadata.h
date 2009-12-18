@@ -36,6 +36,9 @@ public:
     // Constructor
     AddMetadata( const QMap< QString, Metadata::MetaInfo > &elements, QWidget *parent = 0 );
 
+    // Destructor
+    ~AddMetadata();
+
 signals:
 
     // The name of the metadata the user
@@ -54,6 +57,14 @@ private slots:
     void EmitSelection();
 
 private:
+
+    // Reads all the stored application settings like
+    // window position, geometry etc.
+    void ReadSettings();
+
+    // Writes all the stored application settings like
+    // window position, geometry etc.
+    void WriteSettings();
 
     // Represents the metadata list that this dialog displays
     // For description of the stored types, see Metadata.h

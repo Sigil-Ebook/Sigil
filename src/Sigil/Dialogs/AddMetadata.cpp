@@ -23,6 +23,7 @@
 #include "AddMetadata.h"
 #include "../BookManipulation/Metadata.h"
 
+static const QString SETTINGS_GROUP = "add_metadata";
 
 // Constructor
 AddMetadata::AddMetadata( const QMap< QString, Metadata::MetaInfo > &metadata, QWidget *parent )
@@ -40,6 +41,14 @@ AddMetadata::AddMetadata( const QMap< QString, Metadata::MetaInfo > &metadata, Q
     {
         ui.lwProperties->addItem( name );
     }
+
+    ReadSettings();
+}
+
+// Destructor
+AddMetadata::~AddMetadata()
+{
+    WriteSettings();
 }
 
 
@@ -63,3 +72,40 @@ void AddMetadata::EmitSelection()
     emit MetadataToAdd( ui.lwProperties->currentItem()->text() );
 }
 
+
+// Reads all the stored application settings like
+// window position, geometry etc.
+void AddMetadata::ReadSettings()
+{
+    QSettings settings;
+    settings.beginGroup( SETTINGS_GROUP );
+
+    // The size of the window and it's full screen status
+    QByteArray geometry = settings.value( "geometry" ).toByteArray();
+
+    if ( !geometry.isNull() )
+    {
+        restoreGeometry( geometry );
+    }
+
+    QByteArray splitter_position = settings.value( "splitter" ).toByteArray();
+
+    if ( !splitter_position.isNull() )
+
+        ui.splitter->restoreState( splitter_position );
+}
+
+
+// Writes all the stored application settings like
+// window position, geometry etc.
+void AddMetadata::WriteSettings()
+{
+    QSettings settings;
+    settings.beginGroup( SETTINGS_GROUP );
+
+    // The size of the window and it's full screen status
+    settings.setValue( "geometry", saveGeometry() );
+
+    // The position of the splitter handle
+    settings.setValue( "splitter", ui.splitter->saveState() );
+}

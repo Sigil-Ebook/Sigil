@@ -1,4 +1,6 @@
 Sigil v0.1.7 <ADD DATE>
+    - the "Add metadata property" dialogs in the Meta Editor now remember their size, position
+    and splitter bar position
     - Sigil now loads HTML metadata when importing if metadata conforms to Dublin Core;
     code contribution from Kevin Hendricks (issue #160)
     - fixed an issue with loading TXT files with unescaped character entity references (issue #202)

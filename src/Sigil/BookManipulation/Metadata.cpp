@@ -27,6 +27,7 @@ static const QString PATH_TO_LANGUAGES  = ":/data/languages.csv";
 static const QString PATH_TO_BASICMETA  = ":/data/basicmeta.csv";
 static const QString PATH_TO_RELATORS   = ":/data/relator.csv";
 
+
 Metadata & Metadata::Instance()
 {
     // We use a static local variable
@@ -154,8 +155,8 @@ void Metadata::LoadLanguages()
 
         QStringList fields = line.split( "|" );
 
-        m_Languages[ fields[ 0 ] ]      = fields[ 1 ];
-        m_FullLanguages[ fields[ 1 ] ]  = fields[ 0 ];
+        m_Languages[     fields[ 0 ] ] = fields[ 1 ];
+        m_FullLanguages[ fields[ 1 ] ] = fields[ 0 ];
     }	
 }
 
@@ -214,8 +215,8 @@ void Metadata::LoadRelatorCodes()
         meta.relator_code   = fields[ 1 ];
         meta.description    = fields[ 2 ];
 
-        m_Relators[ fields[ 0 ] ]       = meta;
-        m_FullRelators[ fields[ 1 ] ]   = fields[ 0 ];
+        m_Relators[     fields[ 0 ] ] = meta;
+        m_FullRelators[ fields[ 1 ] ] = fields[ 0 ];
     }
 }
 
