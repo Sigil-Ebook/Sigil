@@ -475,9 +475,9 @@ QHash< QString, QString > CleanSource::GetRedundantClasses( const QStringList &c
 {
     QHash< QString, QString > redundant_classes;
 
-    // HACK: This whole concept is a really ugly.
+    // HACK: This whole concept is really ugly.
     // a) We need to fix Tidy so it doesn't create useless new classes.
-    // b) We need a real CSS parser. One that know which HTML element
+    // b) We need a real CSS parser. One that knows which HTML element
     // has which style/class.
 
     // Tidy always create ONE style tag for its new classes,
