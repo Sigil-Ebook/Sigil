@@ -103,6 +103,23 @@ bool BookViewEditor::QueryCommandState( const QString &command )
 }
 
 
+// Workaround for a crappy setFocus implementation for Webkit
+void BookViewEditor::GrabFocus()
+{
+    //   We need to make sure that the Book View has focus,
+    // but just calling setFocus isn't enough because Nokia
+    // did a terrible job integrating Webkit. So we first
+    // have to steal focus away, and then give it back.
+    //   If we don't steal focus first, then the QWebView
+    // can have focus (and its QWebFrame) and still not
+    // really have it (no blinking cursor).
+
+    qobject_cast< QWidget *>( parent() )->setFocus( Qt::OtherFocusReason );
+    
+    setFocus( Qt::OtherFocusReason );
+}
+
+
 // Implements the "formatBlock" execCommand because
 // WebKit's default one has bugs.
 // It takes an element name as an argument (e.g. "p"),

@@ -37,6 +37,7 @@
 #include "ViewEditors/CodeViewEditor.h"
 #include "ViewEditors/BookViewEditor.h"
 
+
 static const int STATUSBAR_MSG_DISPLAY_TIME = 2000;
 static const int TEXT_ELIDE_WIDTH           = 300;
 static const QString SETTINGS_GROUP         = "mainwindow";
@@ -643,6 +644,10 @@ void MainWindow::InsertImage()
 
     // Store the folder the user inserted the image from
     m_LastFolderImage = QFileInfo( filenames.first() ).absolutePath();
+
+    // Make sure the Book View has focus before inserting images,
+    // otherwise they are not inserted
+    m_wBookView->GrabFocus();
 
     foreach( QString filename, filenames )
     {

@@ -53,6 +53,9 @@ public:
     // Returns the state of the JavaScript command provided
     bool QueryCommandState( const QString &command );
 
+    // Workaround for a crappy setFocus implementation for Webkit
+    void GrabFocus();
+
     // Implements the "formatBlock" execCommand because
     // WebKit's default one has bugs.
     // It takes an element name as an argument (e.g. "p"),

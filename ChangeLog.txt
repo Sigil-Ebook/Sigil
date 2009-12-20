@@ -1,4 +1,5 @@
 Sigil v0.1.7 <ADD DATE>
+    - fixed an issue with "Insert Image" not working if the Book View doesn't have focus (issue #204)
     - the "Add metadata property" dialogs in the Meta Editor now remember their size, position
     and splitter bar position
     - Sigil now loads HTML metadata when importing if metadata conforms to Dublin Core;
