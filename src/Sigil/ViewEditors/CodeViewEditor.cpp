@@ -27,9 +27,12 @@
 #include "Misc/XHTMLHighlighter.h"
 #include <QDomDocument>
 
-static const int COLOR_FADE_AMOUNT = 175;
-static const int TAB_SPACES_WIDTH  = 4;
-static const int BASE_FONT_SIZE    = 10;
+static const int COLOR_FADE_AMOUNT       = 175;
+static const int TAB_SPACES_WIDTH        = 4;
+static const int BASE_FONT_SIZE          = 10;
+static const int LINE_NUMBER_MARGIN      = 5;
+static const QColor NUMBER_AREA_BGCOLOR  = QColor( 230, 230, 230 );
+static const QColor NUMBER_AREA_NUMCOLOR = QColor( 100, 100, 100 );
                   
 static const QString XML_OPENING_TAG = "(<[^>/][^>]*[^>/]>|<[^>/]>)";
 
@@ -80,7 +83,7 @@ void CodeViewEditor::LineNumberAreaPaintEvent( QPaintEvent *event )
     QPainter painter( m_LineNumberArea );
 
     // Paint the background first
-    painter.fillRect( event->rect(), Qt::lightGray );
+    painter.fillRect( event->rect(), NUMBER_AREA_BGCOLOR );
 
     // A "block" represents a line of text
     QTextBlock block = firstVisibleBlock();
@@ -103,8 +106,9 @@ void CodeViewEditor::LineNumberAreaPaintEvent( QPaintEvent *event )
             QString number_to_paint = QString::number( blockNumber );
 
             // Draw the line number
-            painter.setPen( Qt::black );
-            painter.drawText(   0,
+            painter.setPen( NUMBER_AREA_NUMCOLOR );
+
+            painter.drawText(   - LINE_NUMBER_MARGIN,
                                 topY,
                                 m_LineNumberArea->width(),
                                 fontMetrics().height(),
@@ -136,7 +140,7 @@ int CodeViewEditor::CalculateLineNumberAreaWidth() const
         num_digits++;
     }
 
-    int needed_width = 3 + fontMetrics().width( QChar( '0' ) ) * num_digits;
+    int needed_width = LINE_NUMBER_MARGIN * 2 + fontMetrics().width( QChar( '0' ) ) * num_digits;
 
     return needed_width;
 }
