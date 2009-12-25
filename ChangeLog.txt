@@ -1,5 +1,5 @@
 Sigil v0.1.7 <ADD DATE>
-    - minor aestethic schanges to the line number area in Code View
+    - minor aesthetic changes to the line number area in Code View
     - fixed an issue with "Insert Image" not working if the Book View doesn't have focus (issue #204)
     - the "Add metadata property" dialogs in the Meta Editor now remember their size, position
     and splitter bar position
