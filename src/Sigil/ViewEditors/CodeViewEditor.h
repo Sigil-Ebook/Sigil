@@ -47,8 +47,8 @@ public:
     // the parameters is the object's parent
     CodeViewEditor( QWidget *parent = 0 );
 
-    // Sets the content of the View to the specified book
-    void SetBook( const Book &book );
+
+    void SetContent( const QString &source, const QUrl &base_url );
 
     // Paints the line number area;
     // receives the event directly 

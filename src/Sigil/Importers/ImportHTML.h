@@ -57,6 +57,8 @@ protected:
     // thus something like <a href="chapter01.html#firstheading" />
     // becomes just <a href="#firstheading" />
     void StripFilesFromAnchors();
+    
+    QString ReadHTMLFile( const QString &fullfilepath );
 
     // Searches for meta information in the HTML file
     // and tries to convert it to Dublin Core
@@ -66,6 +68,7 @@ protected:
     // and values being the new references to those resources.
     // The book XHTML source is updated accordingly.
     void UpdateReferences( const QHash< QString, QString > updates );
+
 
 private:
 

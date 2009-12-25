@@ -33,8 +33,9 @@ class Utility
 
 public:
 
-    // Returns a random string of length characters
-    static QString GetRandomString( int length );
+    // Uses QUuid to generate a random UUID but also removes
+    // the curly braces that QUuid::createUuid() adds
+    static QString CreateUUID();
 
     // Returns true if the string is mixed case, false otherwise.
     // For instance, "test" and "TEST" return false, "teSt" returns true.
@@ -49,6 +50,8 @@ public:
     // with string "after" in string "string"
     static QString ReplaceFirst( const QString &before, const QString &after, const QString &string );
    
+    static QStringList RecursiveGetFiles( const QString &fullfolderpath );
+
     // Copies every file and folder in the source folder 
     // to the destination folder; the paths to the folders are submitted;
     // the destination folder needs to be created in advance
@@ -61,6 +64,8 @@ public:
     // Deletes the specified file if it exists
     static bool DeleteFile( const QString &fullfilepath );
 
+    static bool RenameFile( const QString &oldfilepath, const QString &newfilepath );
+  
     // Returns the full path to a new temporary folder;
     // the caller is responsible for creating and deleting the folder
     static QString GetNewTempFolderPath(); 

@@ -26,18 +26,17 @@
 #include <QtGui/QMainWindow>
 #include "ui_main.h"
 #include "BookManipulation/Book.h"
-#include <QPointer>
+#include <QWeakPointer>
 
 const int MAX_RECENT_FILES = 5;
 
 class QComboBox;
-class QWebView;
-class CodeViewEditor;
-class BookViewEditor;
-class ViewEditor;
 class QLabel;
 class QSlider;
 class FindReplace;
+class TabManager;
+class BookBrowser;
+class ContentTab;
 
 
 class MainWindow : public QMainWindow
@@ -51,9 +50,6 @@ public:
     // should load (new file loaded if empty); the second is the
     // windows parent; the third specifies the flags used to modify window behaviour
     MainWindow( const QString &openfilepath = QString(), QWidget *parent = 0, Qt::WFlags flags = 0 );
-
-    // Returns the currently active View Editor
-    ViewEditor& GetActiveViewEditor() const;
 
 protected:
 
@@ -78,90 +74,12 @@ private slots:
     // Implements Save As action functionality
     bool SaveAs();
 
-    // Implements Undo action functionality
-    void Undo();
-
-    // Implements Redo action functionality
-    void Redo();
-
-    // Implements Cut action functionality
-    void Cut();
-
-    // Implements Copy action functionality
-    void Copy();
-
-    // Implements Paste action functionality
-    void Paste();
-
     // Implements Find action functionality
     void Find();
 
     // Implements Replace action functionality
     void Replace();
-
-    // Implements Bold action functionality
-    void Bold();
-
-    // Implements Italic action functionality
-    void Italic();
-
-    // Implements Underline action functionality
-    void Underline();
-    
-    // Implements Strikethrough action functionality
-    void Strikethrough();
-
-    // Implements Align Left action functionality
-    void AlignLeft();
-
-    // Implements Center action functionality
-    void Center();
-
-    // Implements Align Right action functionality
-    void AlignRight();
-
-    // Implements Justify action functionality
-    void Justify();
-
-    // Implements Book View action functionality
-    void BookView();
-
-    // Implements Split View action functionality
-    void SplitView();
-
-    // Implements Code View action functionality
-    void CodeView();
-
-    // Implements Insert chapter break action functionality
-    void InsertChapterBreak();
-
-    // Implements Insert image action functionality
-    void InsertImage();
-
-    // Implements Insert bulleted list action functionality
-    void InsertBulletedList();
-
-    // Implements Insert numbered list action functionality
-    void InsertNumberedList();
-
-    // Implements Decrease indent action functionality
-    void DecreaseIndent();
-
-    // Implements Increase indent action functionality
-    void IncreaseIndent();
-
-    // Implements Remove Formatting action functionality
-    void RemoveFormatting();
-
-    // Implements the heading combo box functionality
-    void HeadingStyle( const QString& heading_type );
-    
-    // Implements Print Preview action functionality
-    void PrintPreview();
-
-    // Implements Print action functionality
-    void Print();
-
+   
     // Implements Zoom In action functionality
     void ZoomIn();
 
@@ -177,25 +95,20 @@ private slots:
     // Implements Report An Issue action functionality
     void ReportAnIssue();
 
+    // Implements Sigil Dev Blog action functionality
+    void SigilDevBlog();
+
     // Implements About action functionality
     void AboutDialog();
-
-    // Used to catch the focus changeover from one widget
-    // (code or book view) to the other; needed for source synchronization
-    void FocusFilter( QWidget *old_widget, QWidget *new_widget );
 
     // Gets called every time the document is modified;
     // changes the UI to accordingly;
     // (star in titlebar on win and lin, different button colors on mac)
     void DocumentWasModified();
 
-    // Updates user interface (action states etc.) based on 
-    // the current selection in Book View
-    void UpdateUIBookView(); 
+    void TabChanged( ContentTab* old_tab, ContentTab* new_tab ); 
 
-    // Updates user interface (action states etc.) based on 
-    // the current selection in Code View
-    void UpdateUICodeView();
+    void UpdateUI();
 
     // Set initial state for actions in Book View
     // (enable the actions the Code View disabled)
@@ -205,20 +118,6 @@ private slots:
     // (disable the actions used in Book View that
     // are not appropriate here)
     void SetStateActionsCodeView();
-
-    // Updates the m_Book variable whenever
-    // the user edits in book view
-    void UpdateSourceFromBookView();
-
-    // Updates the m_Book variable whenever
-    // the user edits in code view
-    void UpdateSourceFromCodeView();
-
-    // On changeover, updates the code in code view
-    void UpdateCodeViewFromSource();
-
-    // On changeover, updates the code in book view
-    void UpdateBookViewFromSource();
 
     // Zooms the current view with the new zoom slider value
     void SliderZoom( int slider_value );
@@ -298,13 +197,6 @@ private:
     // we can save, and the values being filters for use in file dialogs
     const QMap< QString, QString > GetSaveFiltersMap() const;
 
-    // Runs HTML Tidy on sSource variable
-    void TidyUp();
-
-    // Removes every occurrence of "signing" classes
-    // with which webkit litters our source code 
-    void RemoveWebkitClasses();
-
     // Sets the current file in window title;
     // updates the recent files list
     void SetCurrentFile( const QString &filename );
@@ -334,13 +226,14 @@ private:
     // Connects all the required signals to their slots
     void ConnectSignalsToSlots();
 
+    void MakeTabConnections( ContentTab *tab );
+
+    void BreakTabConnections( ContentTab *tab );
+
 
     ///////////////////////////////
     // PRIVATE MEMBER VARIABLES
     ///////////////////////////////
-
-    // true if the last view the user edited in was book view
-    bool m_isLastViewBook;
 
     // The filename of the current file loaded
     QString m_CurrentFile;
@@ -348,23 +241,16 @@ private:
     // The book currently being worked on
     Book m_Book;
 
-    // The value of the m_Book.sSource variable
-    // after the last view change
-    QString m_OldSource;
-
     // The last folder from which the user opened a file
     QString m_LastFolderOpen;
 
     // The last folder to which the user saved a file
     QString m_LastFolderSave;
 
-    // The last folder to which the user imported an image
-    QString m_LastFolderImage;
-
     // The list of full file names/paths
     // for the last MAX_RECENT_FILES files;
     // static because on Mac we have many MainWindows
-    static QStringList m_RecentFiles;
+    static QStringList s_RecentFiles;
 
     // Array of recent files actions that are in the File menu;
     QAction *m_RecentFileActions[ MAX_RECENT_FILES ];
@@ -372,11 +258,9 @@ private:
     // The headings drop-down combo box
     QComboBox *m_cbHeadings;
 
-    // The webview component that renders out HTML
-    BookViewEditor *m_wBookView;
+    TabManager &m_TabManager;
 
-    // The plain text code editor 
-    CodeViewEditor *m_wCodeView;
+    BookBrowser *m_BookBrowser;
 
     // The slider which the user can use to zoom
     QSlider *m_slZoomSlider;
@@ -393,9 +277,7 @@ private:
     const QMap< QString, QString > c_LoadFilters;
 
     // A guarded pointer to the FindReplace dialog;
-    // TODO: replace this with QWeakPointer when Qt 4.6
-    // is released and QWP supports QObjects.
-    QPointer<FindReplace> m_FindReplace;
+    QWeakPointer<FindReplace> m_FindReplace;
 
     // Holds all the widgets Qt Designer created for us
     Ui::MainWindow ui;

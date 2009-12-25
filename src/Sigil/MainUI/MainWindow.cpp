@@ -22,7 +22,6 @@
 #include <stdafx.h>
 #include "Misc/Utility.h"
 #include "MainWindow.h"
-#include "BookManipulation/CleanSource.h"
 #include "BookManipulation/FolderKeeper.h"
 #include "Exporters/ExportEPUB.h"
 #include "Exporters/ExportSGF.h"
@@ -34,8 +33,10 @@
 #include "Exporters/ExporterFactory.h"
 #include "BookManipulation/BookNormalization.h"
 #include "BookManipulation/SigilMarkup.h"
-#include "ViewEditors/CodeViewEditor.h"
-#include "ViewEditors/BookViewEditor.h"
+#include "MainUI/BookBrowser.h"
+#include "MainUI/ContentTab.h"
+#include "MainUI/FlowTab.h"
+#include "MainUI/TabManager.h"
 
 
 static const int STATUSBAR_MSG_DISPLAY_TIME = 2000;
@@ -50,12 +51,13 @@ static const int ZOOM_SLIDER_MAX            = 1000;
 static const int ZOOM_SLIDER_MIDDLE         = qRound( ( ZOOM_SLIDER_MAX - ZOOM_SLIDER_MIN ) / 2.0f );
 static const int ZOOM_SLIDER_WIDTH          = 140;
 static const QString REPORTING_ISSUES_WIKI  = "http://code.google.com/p/sigil/wiki/ReportingIssues";
+static const QString SIGIL_DEV_BLOG         = "http://sigildev.blogspot.com/";
 
 // The <hr> tag is wrapped in <div>'s because of issue #78;
 // basically it's a workaround for a webkit bug
 const QString BREAK_TAG_INSERT              = "<div><hr class=\"sigilChapterBreak\" /></div>";
 
-QStringList MainWindow::m_RecentFiles = QStringList();
+QStringList MainWindow::s_RecentFiles = QStringList();
 
 // Constructor.
 // The first argument is the path to the file that the window
@@ -64,22 +66,18 @@ QStringList MainWindow::m_RecentFiles = QStringList();
 MainWindow::MainWindow( const QString &openfilepath, QWidget *parent, Qt::WFlags flags )
     : 
     QMainWindow( parent, flags ),
-    m_isLastViewBook( false ),
     m_CurrentFile( QString() ),
     m_Book( Book() ),
-    m_OldSource( QString() ),
     m_LastFolderOpen( QString() ),
     m_LastFolderSave( QString() ),
-    m_LastFolderImage( QString() ),
+    m_TabManager( *new TabManager( this ) ),
     m_cbHeadings( NULL ),
-    m_wBookView( NULL ),
-    m_wCodeView( NULL ),
     m_slZoomSlider( NULL ),
     m_lbZoomLabel( NULL ),
     c_SaveFilters( GetSaveFiltersMap() ),
     c_LoadFilters( GetLoadFiltersMap() )
 {
-    ui.setupUi( this );	
+    ui.setupUi( this );
 	
     // Telling Qt to delete this window
     // from memory when it is closed
@@ -96,22 +94,9 @@ MainWindow::MainWindow( const QString &openfilepath, QWidget *parent, Qt::WFlags
     CreateRecentFilesActions();
     UpdateRecentFileActions();
 
-    ui.actionBookView->trigger();
+    TabChanged( NULL, &m_TabManager.GetCurrentContentTab() );
 
     LoadInitialFile( openfilepath );
-} 
-
-
-// Returns the currently active View Editor
-ViewEditor& MainWindow::GetActiveViewEditor() const
-{
-    if ( m_isLastViewBook )
-
-        return *m_wBookView;
-
-    else
-
-        return *m_wCodeView;
 }
 
 
@@ -289,104 +274,15 @@ bool MainWindow::SaveAs()
 }
 
 
-// Implements Undo action functionality
-void MainWindow::Undo()
-{
-    if ( m_wBookView->hasFocus() )
-    {
-        m_wBookView->page()->triggerAction( QWebPage::Undo );
-
-        RemoveWebkitClasses();
-    }
-
-    else if ( m_wCodeView->hasFocus() )
-    {
-        m_wCodeView->undo();
-    }
-}
-
-
-// Implements Redo action functionality
-void MainWindow::Redo()
-{
-    if ( m_wBookView->hasFocus() )
-    {
-        m_wBookView->page()->triggerAction( QWebPage::Redo );
-
-        RemoveWebkitClasses();
-    }
-
-    else if ( m_wCodeView->hasFocus() )
-    {
-        m_wCodeView->redo();
-    }
-}
-
-
-// Implements Cut action functionality
-void MainWindow::Cut()
-{
-    if ( m_wBookView->hasFocus() )
-    {
-        m_wBookView->page()->triggerAction( QWebPage::Cut );
-
-        RemoveWebkitClasses();
-    }
-
-    else if ( m_wCodeView->hasFocus() )
-    {
-        m_wCodeView->cut();
-    }
-}
-
-
-// Implements Copy action functionality
-void MainWindow::Copy()
-{
-    if ( m_wBookView->hasFocus() )
-    {
-        m_wBookView->page()->triggerAction( QWebPage::Copy );
-
-        RemoveWebkitClasses();
-    }
-
-    else if ( m_wCodeView->hasFocus() )
-    {
-        m_wCodeView->copy();
-    }
-}
-
-
-// Implements Paste action functionality
-void MainWindow::Paste()
-{
-    if ( m_wBookView->hasFocus() )
-    {
-        m_wBookView->page()->triggerAction( QWebPage::Paste );
-
-        RemoveWebkitClasses();
-    }
-
-    else if ( m_wCodeView->hasFocus() )
-    {
-        m_wCodeView->paste();
-    }
-}
-
-
 // Implements Find action functionality
 void MainWindow::Find()
 {
-    // ALWAYS clean up source first before
-    // using m_Book outside of MainWindow!
-    TidyUp();
-
     if ( m_FindReplace.isNull() )
     {   
         // Qt will delete this dialog from memory when it closes
-        m_FindReplace = new FindReplace( true, *this,  this );
+        m_FindReplace = new FindReplace( true, m_TabManager, this );
 
-        m_FindReplace->show();
+        m_FindReplace.data()->show();
     }
 }
 
@@ -394,380 +290,20 @@ void MainWindow::Find()
 // Implements Replace action functionality
 void MainWindow::Replace()
 {
-    // ALWAYS clean up source first before
-    // using m_Book outside of MainWindow!
-    TidyUp();
-
     if ( m_FindReplace.isNull() )
     {   
         // Qt will delete this dialog from memory when it closes
-        m_FindReplace = new FindReplace( false, *this, this );
+        m_FindReplace = new FindReplace( false, m_TabManager, this );
 
-        m_FindReplace->show();
+        m_FindReplace.data()->show();
     }
 }
 
 
-// Implements Bold action functionality
-void MainWindow::Bold()
-{
-    if ( m_wBookView->hasFocus() )
-    {
-        m_wBookView->page()->triggerAction( QWebPage::ToggleBold );
-
-        RemoveWebkitClasses();
-    }
-
-    // TODO: insert required HTML for Code View
-}
-
-
-// Implements Italic action functionality
-void MainWindow::Italic()
-{
-    if ( m_wBookView->hasFocus() )
-    {
-        m_wBookView->page()->triggerAction( QWebPage::ToggleItalic );
-
-        RemoveWebkitClasses();
-    }
-
-    // TODO: insert required HTML for Code View
-}
-
-
-// Implements Underline action functionality
-void MainWindow::Underline()
-{
-    if ( m_wBookView->hasFocus() )
-    {
-        m_wBookView->page()->triggerAction( QWebPage::ToggleUnderline );
-
-        RemoveWebkitClasses();
-    }
-
-    // TODO: insert required HTML for Code View
-}
-
-
-// Implements Strikethrough action functionality
-void MainWindow::Strikethrough()
-{
-    if ( m_wBookView->hasFocus() )
-    {
-        m_wBookView->ExecCommand( "strikeThrough" );
-
-        RemoveWebkitClasses();
-    }
-
-    // TODO: insert required HTML for Code View
-}
-
-
-// Implements Align Left action functionality
-void MainWindow::AlignLeft()
-{
-    if ( m_wBookView->hasFocus() )
-    {
-        m_wBookView->ExecCommand( "justifyLeft" );
-
-        RemoveWebkitClasses();
-    }
-    
-    // TODO: insert required HTML for Code View
-}
-
-
-// Implements Center action functionality
-void MainWindow::Center()
-{
-    if ( m_wBookView->hasFocus() )
-    {
-        m_wBookView->ExecCommand( "justifyCenter" );
-
-        RemoveWebkitClasses();
-    }
-
-    // TODO: insert required HTML for Code View
-}
-
-
-// Implements Align Right action functionality
-void MainWindow::AlignRight()
-{
-    if ( m_wBookView->hasFocus() )
-    {
-        m_wBookView->ExecCommand( "justifyRight" );
-
-        RemoveWebkitClasses();
-    }
-
-    // TODO: insert required HTML for Code View
-}
-
-
-// Implements Justify action functionality
-void MainWindow::Justify()
-{
-    if ( m_wBookView->hasFocus() )
-    {
-        m_wBookView->ExecCommand( "justifyFull" );
-
-        RemoveWebkitClasses();
-    }
-
-    // TODO: insert required HTML for Code View
-}
-
-
-// Implements Book View action functionality
-void MainWindow::BookView()
-{
-    QApplication::setOverrideCursor( Qt::WaitCursor );
-    
-    // Update the book view if we just edited
-    // in the code view
-    if ( !m_isLastViewBook )
-    {
-        m_wBookView->StoreCaretLocationUpdate( m_wCodeView->GetCaretLocation() );
-
-        UpdateBookViewFromSource();        
-    }
-
-    m_isLastViewBook = true;
-
-    m_wBookView->show();
-    m_wCodeView->hide();	
-
-    // Update the "toggle" button states
-    ui.actionBookView->setChecked(  true    );
-    ui.actionSplitView->setChecked( false   );
-    ui.actionCodeView->setChecked(  false   );
-
-    // Set initial state for actions in this view
-    SetStateActionsBookView();        
-
-    UpdateZoomControls();
-    
-    QApplication::restoreOverrideCursor();
-}
-
-
-// Implements Split View action functionality
-void MainWindow::SplitView()
-{
-    QApplication::setOverrideCursor( Qt::WaitCursor );
-
-    // Update the required view
-    if ( !m_isLastViewBook )
-    {
-        m_wBookView->StoreCaretLocationUpdate( m_wCodeView->GetCaretLocation() );
-
-        UpdateBookViewFromSource();
-    }
-
-    else
-    {        
-        m_wCodeView->StoreCaretLocationUpdate( m_wBookView->GetCaretLocation() );
-
-        UpdateCodeViewFromSource();
-    }
-
-    m_wBookView->show();
-    m_wCodeView->show();
-
-    // Update the "toggle" button states
-    ui.actionBookView->setChecked(  false   );
-    ui.actionSplitView->setChecked( true    );
-    ui.actionCodeView->setChecked(  false   );  
-
-    UpdateZoomControls();
-
-    QApplication::restoreOverrideCursor();
-}
-
-
-// Implements Code View action functionality
-void MainWindow::CodeView()
-{
-    QApplication::setOverrideCursor( Qt::WaitCursor );
-
-    // Update the code view if we just edited
-    // in the book view
-    if ( m_isLastViewBook )
-    {
-        m_wCodeView->StoreCaretLocationUpdate( m_wBookView->GetCaretLocation() );
-
-        UpdateCodeViewFromSource();        
-    }
-
-    m_isLastViewBook = false;
-
-    m_wBookView->hide();
-    m_wCodeView->show();     
-
-    // Update the "toggle" button states
-    ui.actionBookView->setChecked(  false   );
-    ui.actionSplitView->setChecked( false   );
-    ui.actionCodeView->setChecked(  true    );  
-
-    // Set initial state for actions in this view
-    SetStateActionsCodeView(); 
-    
-    UpdateZoomControls();
-
-    QApplication::restoreOverrideCursor();
-}
-
-
-// Implements Insert chapter break action functionality
-void MainWindow::InsertChapterBreak()
-{
-    m_wBookView->ExecCommand( "insertHTML", BREAK_TAG_INSERT );
-
-    RemoveWebkitClasses();
-}
-
-
-// Implements Insert image action functionality
-void MainWindow::InsertImage()
-{
-    QStringList filenames = QFileDialog::getOpenFileNames(  this, 
-                                                            tr( "Insert Image(s)" ), 
-                                                            m_LastFolderImage, 
-                                                            tr( "Images (*.png *.jpg *.jpeg *.gif *.svg)")
-                                                         );
-
-    if ( filenames.isEmpty() )
-
-        return;
-
-    // Store the folder the user inserted the image from
-    m_LastFolderImage = QFileInfo( filenames.first() ).absolutePath();
 
     // Make sure the Book View has focus before inserting images,
     // otherwise they are not inserted
     m_wBookView->GrabFocus();
-
-    foreach( QString filename, filenames )
-    {
-        QString relative_path = "../" + m_Book.mainfolder.AddContentFileToFolder( filename );
-
-        m_wBookView->ExecCommand( "insertImage", relative_path );
-    }    
-
-    RemoveWebkitClasses();
-}
-
-
-// Implements Insert bulleted list action functionality
-void MainWindow::InsertBulletedList()
-{
-    m_wBookView->ExecCommand( "insertUnorderedList" );
-
-    RemoveWebkitClasses();
-}
-
-
-// Implements Insert numbered list action functionality
-void MainWindow::InsertNumberedList()
-{
-    m_wBookView->ExecCommand( "insertOrderedList" );
-
-    RemoveWebkitClasses();
-}
-
-
-// Implements Decrease indent action functionality
-void MainWindow::DecreaseIndent()
-{
-    m_wBookView->page()->triggerAction( QWebPage::Outdent );
-}
-
-
-// Implements Increase indent action functionality
-void MainWindow::IncreaseIndent()
-{
-    m_wBookView->page()->triggerAction( QWebPage::Indent );
-}
-
-
-// Implements Remove Formatting action functionality
-void MainWindow::RemoveFormatting()
-{
-    m_wBookView->page()->triggerAction( QWebPage::RemoveFormat );
-}
-
-
-// Implements the heading combo box functionality
-void MainWindow::HeadingStyle( const QString& heading_type )
-{
-    QChar last_char = heading_type[ heading_type.count() - 1 ];
-
-    // For heading_type == "Heading #"
-    if ( last_char.isDigit() )
-
-        m_wBookView->FormatBlock( "h" + QString( last_char ) );
-
-    else if ( heading_type == "Normal" )
-
-        m_wBookView->FormatBlock( "p" );
-
-    // else is "<Select heading>" which does nothing
-}
-
-
-// Implements Print Preview action functionality
-void MainWindow::PrintPreview()
-{
-    if ( !m_wBookView->hasFocus() && !m_wCodeView->hasFocus() )
-
-        return;
-
-    QPrintPreviewDialog *print_preview = new QPrintPreviewDialog( this );
-
-    if ( m_isLastViewBook )
-    {
-        connect(    print_preview,     SIGNAL( paintRequested( QPrinter * ) ),
-                    m_wBookView,       SLOT(   print( QPrinter *) ) 
-               );
-    }
-
-    else
-    {
-        connect(    print_preview,     SIGNAL( paintRequested( QPrinter * ) ),
-                    m_wCodeView,       SLOT(   print( QPrinter *) ) 
-               );
-    }        
-
-    
-    print_preview->exec();
-}
-
-
-// Implements Print action functionality
-void MainWindow::Print()
-{
-    if ( !m_wBookView->hasFocus() && !m_wCodeView->hasFocus() )
-
-        return;
-
-    QPrinter printer;
-
-    QPrintDialog *print_dialog = new QPrintDialog( &printer, this );
-    print_dialog->setWindowTitle( tr( "Print Document" ) );
-
-    if ( m_isLastViewBook )
-
-        m_wBookView->print( &printer );
-
-    else
-
-        m_wCodeView->print( &printer );
-   
-}
-
-
 // Implements Zoom In action functionality
 void MainWindow::ZoomIn()
 {
@@ -781,12 +317,13 @@ void MainWindow::ZoomOut()
     ZoomByStep( false );  
 }
 
+
 // Implements Meta Editor action functionality
 void MainWindow::MetaEditorDialog()
 {
     // ALWAYS clean up source first before
     // using m_Book outside of MainWindow!
-    TidyUp();
+    //TidyUp();
 
     MetaEditor meta( m_Book, this );
 
@@ -801,14 +338,14 @@ void MainWindow::TOCEditorDialog()
 {
     // ALWAYS clean up source first before
     // using m_Book outside of MainWindow!
-    TidyUp();
+    //TidyUp();
 
     TOCEditor toc( m_Book, this );
 
     if ( toc.exec() == QDialog::Accepted )
     {
-        UpdateBookViewFromSource();
-        UpdateCodeViewFromSource();
+        //UpdateBookViewFromSource();
+        //UpdateCodeViewFromSource();
     }
 }
 
@@ -817,6 +354,13 @@ void MainWindow::TOCEditorDialog()
 void MainWindow::ReportAnIssue()
 {
     QDesktopServices::openUrl( QUrl( REPORTING_ISSUES_WIKI ) );
+}
+
+
+// Implements Sigil Dev Blog action functionality
+void MainWindow::SigilDevBlog()
+{
+    QDesktopServices::openUrl( QUrl( SIGIL_DEV_BLOG ) );
 }
 
 
@@ -829,118 +373,48 @@ void MainWindow::AboutDialog()
 }
 
 
-// Used to catch the focus changeover from one widget
-// (code or book view) to the other; needed for source synchronization.
-void MainWindow::FocusFilter( QWidget *old_widget, QWidget *new_widget )
-{
-    // We make sure we are looking at focus changes
-    // in Split View; otherwise, we don't care
-    if ( !ui.actionSplitView->isChecked() )
-    
-        return;
-
-    // If we switched focus from the book view to the code view...
-    if ( ( old_widget == m_wBookView ) && ( new_widget == m_wCodeView ) )
-    { 
-        m_wCodeView->StoreCaretLocationUpdate( m_wBookView->GetCaretLocation() );
-
-        // ...and if we haven't updated yet...
-        if ( m_OldSource != m_Book.source )
-        {
-            QApplication::setOverrideCursor( Qt::WaitCursor );
-
-            // ...update the code view
-            UpdateCodeViewFromSource();            
-
-            QApplication::restoreOverrideCursor();
-        }
-
-        m_isLastViewBook = false;        
-
-        UpdateZoomControls();
-
-        // Set initial state for actions in this view
-        SetStateActionsCodeView();      
-    }
-
-    // If we switched focus from the code view to the book view...
-    else if ( ( old_widget == m_wCodeView ) && ( new_widget == m_wBookView ) )
-    {
-        m_wBookView->StoreCaretLocationUpdate( m_wCodeView->GetCaretLocation() );
-
-        // ...and if we haven't updated yet...
-        if ( m_OldSource != m_Book.source )
-        {
-            QApplication::setOverrideCursor( Qt::WaitCursor );
-
-            // ...update the book view
-            UpdateBookViewFromSource();
-
-            QApplication::restoreOverrideCursor();
-        }
-        
-        m_isLastViewBook = true;        
-
-        UpdateZoomControls();
-
-        // Set initial state for actions in this view
-        SetStateActionsBookView();
-    }
-
-    // else we don't care
-}
-
 
 // Gets called every time the document is modified;
 // changes the UI to accordingly;
 // (star in titlebar on win and lin, different button colors on mac)
 void MainWindow::DocumentWasModified()
 {
-    // TODO: This won't work right until we unify the undo stacks
-    if ( m_wBookView->isModified() || m_wCodeView->document()->isModified() )
-
-        setWindowModified( true );
-
-    else
-
-        setWindowModified( false );
+    setWindowModified( m_TabManager.GetCurrentContentTab().IsModified() );
 }
 
 
-// Updates action states based on 
-// the current selection in Book View
-void MainWindow::UpdateUIBookView()
+void MainWindow::TabChanged( ContentTab* old_tab, ContentTab* new_tab )
 {
-    // TODO: the undo/redo actions are returning false
-    // when they are actually enabled... strange, to say the least...
-    //ui.actionUndo  ->setEnabled( wBookView->pageAction( QWebPage::Undo  )->isEnabled() );
-    //ui.actionRedo  ->setEnabled( wBookView->pageAction( QWebPage::Redo  )->isEnabled() );
-    ui.actionCut   ->setEnabled( m_wBookView->pageAction( QWebPage::Cut   )->isEnabled() );
-    ui.actionCopy  ->setEnabled( m_wBookView->pageAction( QWebPage::Copy  )->isEnabled() );
-    ui.actionPaste ->setEnabled( m_wBookView->pageAction( QWebPage::Paste )->isEnabled() );
-
-    ui.actionBold      ->setChecked( m_wBookView->pageAction( QWebPage::ToggleBold      )->isChecked() );
-    ui.actionItalic    ->setChecked( m_wBookView->pageAction( QWebPage::ToggleItalic    )->isChecked() );
-    ui.actionUnderline ->setChecked( m_wBookView->pageAction( QWebPage::ToggleUnderline )->isChecked() );
-    
-    ui.actionStrikethrough      ->setChecked( m_wBookView->QueryCommandState( "strikeThrough"       ) );
-    ui.actionInsertBulletedList ->setChecked( m_wBookView->QueryCommandState( "insertUnorderedList" ) );
-    ui.actionInsertNumberedList ->setChecked( m_wBookView->QueryCommandState( "insertOrderedList"   ) );
-
-    SelectEntryInHeadingCombo( m_wBookView->GetCaretElementName() );
+    BreakTabConnections( old_tab );
+    MakeTabConnections( new_tab );
 }
 
 
-// Updates action states based on 
-// the current selection in Code View
-void MainWindow::UpdateUICodeView()
+void MainWindow::UpdateUI()
 {
-    // TODO: these are turned off to be consistent with the book view
-    //ui.actionUndo  ->setEnabled( wCodeView->document()->isUndoAvailable() );
-    //ui.actionRedo  ->setEnabled( wCodeView->document()->isRedoAvailable() );
-    ui.actionCut   ->setEnabled( m_wCodeView->textCursor().hasSelection() );
-    ui.actionCopy  ->setEnabled( m_wCodeView->textCursor().hasSelection() );
-    ui.actionPaste ->setEnabled( m_wCodeView->canPaste() );
+    ContentTab &tab = m_TabManager.GetCurrentContentTab();
+
+    if ( &tab == NULL )
+
+        return;
+
+    ui.actionCut   ->setEnabled( tab.CutEnabled() );
+    ui.actionCopy  ->setEnabled( tab.CopyEnabled() );
+    ui.actionPaste ->setEnabled( tab.PasteEnabled() );
+
+    ui.actionBold      ->setChecked( tab.BoldChecked() );
+    ui.actionItalic    ->setChecked( tab.ItalicChecked() );
+    ui.actionUnderline ->setChecked( tab.UnderlineChecked() );
+
+    ui.actionStrikethrough      ->setChecked( tab.StrikethroughChecked() );
+    ui.actionInsertBulletedList ->setChecked( tab.BulletListChecked() );
+    ui.actionInsertNumberedList ->setChecked( tab.NumberListChecked() );
+
+    ui.actionBookView ->setChecked( tab.BookViewChecked()  );
+    ui.actionSplitView->setChecked( tab.SplitViewChecked() );
+    ui.actionCodeView ->setChecked( tab.CodeViewChecked()  );  
+
+    SelectEntryInHeadingCombo( tab.GetCaretElementName() );
 }
 
 
@@ -1020,53 +494,12 @@ void MainWindow::SetStateActionsCodeView()
 }
 
 
-// Updates the m_Book.source variable whenever
-// the user edits in book view
-void MainWindow::UpdateSourceFromBookView()
-{
-    m_Book.source = m_wBookView->page()->mainFrame()->toHtml();
-}
-
-
-// Updates the m_Book.source variable whenever
-// the user edits in code view
-void MainWindow::UpdateSourceFromCodeView()
-{
-    m_Book.source = m_wCodeView->toPlainText();	
-}
-
-
-// On changeover, updates the code in code view
-void MainWindow::UpdateCodeViewFromSource()
-{
-    TidyUp();
-
-    m_wCodeView->SetBook( m_Book );
-
-    // Store current source so we can compare and check
-    // if we updated yet or we haven't
-    m_OldSource = m_Book.source;
-}
-
-
-// On changeover, updates the code in book view
-void MainWindow::UpdateBookViewFromSource()
-{
-    TidyUp();
-
-    m_wBookView->SetBook( m_Book );
-
-    // Store current source so we can compare and check
-    // if we updated yet or we haven't
-    m_OldSource = m_Book.source;
-}
-
 
 // Zooms the current view with the new zoom slider value
 void MainWindow::SliderZoom( int slider_value )
 {
     float new_zoom_factor     = SliderRangeToZoomFactor( slider_value );
-    float current_zoom_factor = GetActiveViewEditor().GetZoomFactor();
+    float current_zoom_factor = m_TabManager.GetCurrentContentTab().GetZoomFactor();
 
     // We try to prevent infinite loops...
     if ( !qFuzzyCompare( new_zoom_factor, current_zoom_factor ) )
@@ -1078,7 +511,7 @@ void MainWindow::SliderZoom( int slider_value )
 // zoom factor from the view. Needed on View changeover.
 void MainWindow::UpdateZoomControls()
 {
-    float zoom_factor = GetActiveViewEditor().GetZoomFactor();
+    float zoom_factor = m_TabManager.GetCurrentContentTab().GetZoomFactor(); 
 
     UpdateZoomSlider( zoom_factor );
     UpdateZoomLabel( zoom_factor );
@@ -1134,24 +567,24 @@ void MainWindow::ReadSettings()
     // The position of the splitter handle in split view
     QByteArray splitter_position = settings.value( "splitview_splitter" ).toByteArray();
 
-    if ( !splitter_position.isNull() )
+    // FIXME: store splitter position... multiples?
+    //if ( !splitter_position.isNull() )
 
-        ui.splitter->restoreState( splitter_position );
+    //    ui.splitter->restoreState( splitter_position );
 
     // The last folders used for saving and opening files
     m_LastFolderSave    = settings.value( "lastfoldersave"  ).toString();
     m_LastFolderOpen    = settings.value( "lastfolderopen"  ).toString();
-    m_LastFolderImage   = settings.value( "lastfolderimage" ).toString();
 
     // The list of recent files
-    m_RecentFiles       = settings.value( "recentfiles" ).toStringList();
+    s_RecentFiles       = settings.value( "recentfiles" ).toStringList();
 
     // View Editor zoom factors
-    float zoom_factor = (float) settings.value( "codeviewzoom" ).toDouble();
-    m_wCodeView->SetZoomFactor( zoom_factor >= ZOOM_MIN ? zoom_factor : ZOOM_NORMAL );
+    //float zoom_factor = (float) settings.value( "codeviewzoom" ).toDouble();
+    //m_wCodeView->SetZoomFactor( zoom_factor >= ZOOM_MIN ? zoom_factor : ZOOM_NORMAL );
 
-    zoom_factor = (float) settings.value( "bookviewzoom" ).toDouble();
-    m_wBookView->SetZoomFactor( zoom_factor >= ZOOM_MIN ? zoom_factor : ZOOM_NORMAL );
+    //zoom_factor = (float) settings.value( "bookviewzoom" ).toDouble();
+    //m_wBookView->SetZoomFactor( zoom_factor >= ZOOM_MIN ? zoom_factor : ZOOM_NORMAL );
 }
 
 
@@ -1169,19 +602,19 @@ void MainWindow::WriteSettings()
     settings.setValue( "toolbars", saveState() );
 
     // The position of the splitter handle in split view
-    settings.setValue( "splitview_splitter", ui.splitter->saveState() );
+    // FIXME: splitter positions
+    //settings.setValue( "splitview_splitter", ui.splitter->saveState() );
 
     // The last folders used for saving and opening files
     settings.setValue( "lastfoldersave",  m_LastFolderSave  );
-    settings.setValue( "lastfolderopen",  m_LastFolderOpen  );
-    settings.setValue( "lastfolderimage", m_LastFolderImage );
+    settings.setValue( "lastfolderopen",  m_LastFolderOpen  );   
 
     // The list of recent files
-    settings.setValue( "recentfiles", m_RecentFiles );
+    settings.setValue( "recentfiles", s_RecentFiles );
 
     // View Editor zoom factors
-    settings.setValue( "bookviewzoom", m_wBookView->GetZoomFactor() );
-    settings.setValue( "codeviewzoom", m_wCodeView->GetZoomFactor() );
+    //settings.setValue( "bookviewzoom", m_wBookView->GetZoomFactor() );
+    //settings.setValue( "codeviewzoom", m_wCodeView->GetZoomFactor() );
 }
 
 
@@ -1240,8 +673,8 @@ void MainWindow::CreateNew()
     // Add Sigil-specific markup
     m_Book.source = SigilMarkup::AddSigilMarkup( m_Book.source );
     
-    m_wBookView->SetBook( m_Book );    
-    m_wCodeView->SetBook( m_Book );
+    //m_wBookView->SetBook( m_Book );    
+    //m_wCodeView->SetBook( m_Book );
     
     SetCurrentFile( "" );
 }
@@ -1265,8 +698,7 @@ void MainWindow::LoadFile( const QString &filename )
     
         m_Book.source = SigilMarkup::AddSigilMarkup( m_Book.source );
 
-    m_wBookView->SetBook( m_Book );
-    m_wCodeView->SetBook( m_Book );
+    m_BookBrowser->SetBook( m_Book );
    
     QApplication::restoreOverrideCursor();
 
@@ -1296,7 +728,7 @@ bool MainWindow::SaveFile( const QString &filename )
 
     QApplication::setOverrideCursor( Qt::WaitCursor );
 
-    TidyUp();
+    //TidyUp();
 
     // We delete the file if it exists
     Utility::DeleteFile( filename );
@@ -1384,7 +816,7 @@ void MainWindow::ZoomByStep( bool zoom_in )
     // on zoom out, we round DOWN.
     float rounding_helper     = zoom_in ? 0.05f : - 0.05f;
 
-    float current_zoom_factor = GetActiveViewEditor().GetZoomFactor();
+    float current_zoom_factor = m_TabManager.GetCurrentContentTab().GetZoomFactor();
     float rounded_zoom_factor = Utility::RoundToOneDecimal( current_zoom_factor + rounding_helper );
 
     // If the rounded value is nearly the same as the original value,
@@ -1409,19 +841,7 @@ void MainWindow::ZoomByFactor( float new_zoom_factor )
 
         return;
 
-    // We need to set a wait cursor for the Book View
-    // since zoom operations take some time in it.
-    if ( m_isLastViewBook )
-    {
-        QApplication::setOverrideCursor( Qt::WaitCursor );
-        m_wBookView->SetZoomFactor( new_zoom_factor );
-        QApplication::restoreOverrideCursor();
-    }
-
-    else
-    {
-        m_wCodeView->SetZoomFactor( new_zoom_factor );
-    } 
+    m_TabManager.GetCurrentContentTab().SetZoomFactor( new_zoom_factor );
 }
 
 
@@ -1519,15 +939,6 @@ const QMap< QString, QString > MainWindow::GetSaveFiltersMap() const
 }
 
 
-// Runs HTML Tidy on m_Book.source variable
-void MainWindow::TidyUp()
-{
-    RemoveWebkitClasses();
-
-    m_Book.source = CleanSource::Clean( m_Book.source );
-}
-
-
 // Sets the current file in window title;
 // updates the recent files list
 void MainWindow::SetCurrentFile( const QString &filename )
@@ -1554,12 +965,12 @@ void MainWindow::SetCurrentFile( const QString &filename )
         return;
 
     // Update recent files actions
-    m_RecentFiles.removeAll( filename );
-    m_RecentFiles.prepend( filename );
+    s_RecentFiles.removeAll( filename );
+    s_RecentFiles.prepend( filename );
 
-    while ( m_RecentFiles.size() > MAX_RECENT_FILES )
+    while ( s_RecentFiles.size() > MAX_RECENT_FILES )
     {
-        m_RecentFiles.removeLast();
+        s_RecentFiles.removeLast();
     }
     
     // Update the recent files actions on
@@ -1572,13 +983,6 @@ void MainWindow::SetCurrentFile( const QString &filename )
     }
 }
 
-// Removes every occurrence of "signing" classes
-// with which webkit litters our source code 
-void MainWindow::RemoveWebkitClasses()
-{
-    m_Book.source.replace( QRegExp( "(class=\"[^\"]*)Apple-style-span" ), "\\1" );
-    m_Book.source.replace( QRegExp( "(class=\"[^\"]*)webkit-indent-blockquote" ), "\\1" );
-}
 
 // Selects the appropriate entry in the heading combo box
 // based on the provided name of the element
@@ -1588,7 +992,7 @@ void MainWindow::SelectEntryInHeadingCombo( const QString &element_name )
 
     if ( !element_name.isEmpty() )
     {
-        if ( ( element_name[ 0 ] == QChar( 'H' ) ) && ( element_name[ 1 ].isDigit() ) )
+        if ( ( element_name[ 0 ].toLower() == QChar( 'h' ) ) && ( element_name[ 1 ].isDigit() ) )
 
             select = "Heading " + QString( element_name[ 1 ] );
 
@@ -1632,15 +1036,15 @@ void MainWindow::CreateRecentFilesActions()
 // list of files to be listed has changed
 void MainWindow::UpdateRecentFileActions()
 {
-    int num_recent_files = qMin( m_RecentFiles.size(), MAX_RECENT_FILES );
+    int num_recent_files = qMin( s_RecentFiles.size(), MAX_RECENT_FILES );
 
     // Store the filenames to the actions and display those actions
     for ( int i = 0; i < num_recent_files; ++i ) 
     {
-        QString text = tr( "&%1 %2" ).arg( i + 1 ).arg( QFileInfo( m_RecentFiles[ i ] ).fileName() );
+        QString text = tr( "&%1 %2" ).arg( i + 1 ).arg( QFileInfo( s_RecentFiles[ i ] ).fileName() );
 
         m_RecentFileActions[ i ]->setText( fontMetrics().elidedText( text, Qt::ElideRight, TEXT_ELIDE_WIDTH ) );
-        m_RecentFileActions[ i ]->setData( m_RecentFiles[ i ] );
+        m_RecentFileActions[ i ]->setData( s_RecentFiles[ i ] );
         m_RecentFileActions[ i ]->setVisible( true );
     }
 
@@ -1669,6 +1073,13 @@ void MainWindow::UpdateRecentFileActions()
 // to extend the UI created by the Designer
 void MainWindow::ExtendUI()
 {
+    // Creating the tabs and the book browser 
+
+    setCentralWidget( &m_TabManager );
+
+    m_BookBrowser = new BookBrowser( this );
+    addDockWidget( Qt::LeftDockWidgetArea, m_BookBrowser );
+
     // Creating the Heading combo box
 
     m_cbHeadings = new QComboBox();
@@ -1692,14 +1103,6 @@ void MainWindow::ExtendUI()
                             );
 
     ui.toolBarHeadings->addWidget( m_cbHeadings );
-
-    // Creating the View Editors
-
-    m_wBookView = new BookViewEditor( ui.splitter );
-    ui.splitter->addWidget( m_wBookView );
-
-    m_wCodeView = new CodeViewEditor( ui.splitter );
-    ui.splitter->addWidget( m_wCodeView );
 
     // Creating the zoom controls in the status bar
 
@@ -1769,52 +1172,18 @@ void MainWindow::ConnectSignalsToSlots()
     connect( ui.actionOpen,                 SIGNAL( triggered() ),      this,   SLOT( Open()                ) );
     connect( ui.actionSave,                 SIGNAL( triggered() ),      this,   SLOT( Save()                ) );
     connect( ui.actionSaveAs,               SIGNAL( triggered() ),      this,   SLOT( SaveAs()              ) );
-    connect( ui.actionUndo,                 SIGNAL( triggered() ),      this,   SLOT( Undo()                ) );
-    connect( ui.actionRedo,                 SIGNAL( triggered() ),      this,   SLOT( Redo()                ) );
-    connect( ui.actionCut,                  SIGNAL( triggered() ),      this,   SLOT( Cut()                 ) );
-    connect( ui.actionCopy,                 SIGNAL( triggered() ),      this,   SLOT( Copy()                ) );
-    connect( ui.actionPaste,                SIGNAL( triggered() ),      this,   SLOT( Paste()               ) );
     connect( ui.actionFind,                 SIGNAL( triggered() ),      this,   SLOT( Find()                ) );
     connect( ui.actionReplace,              SIGNAL( triggered() ),      this,   SLOT( Replace()             ) );
-    connect( ui.actionBold,                 SIGNAL( triggered() ),      this,   SLOT( Bold()                ) );
-    connect( ui.actionItalic,               SIGNAL( triggered() ),      this,   SLOT( Italic()              ) );
-    connect( ui.actionUnderline,            SIGNAL( triggered() ),      this,   SLOT( Underline()           ) );
-    connect( ui.actionStrikethrough,        SIGNAL( triggered() ),      this,   SLOT( Strikethrough()       ) );
-    connect( ui.actionAlignLeft,            SIGNAL( triggered() ),      this,   SLOT( AlignLeft()           ) );
-    connect( ui.actionCenter,               SIGNAL( triggered() ),      this,   SLOT( Center()              ) );
-    connect( ui.actionAlignRight,           SIGNAL( triggered() ),      this,   SLOT( AlignRight()          ) );
-    connect( ui.actionJustify,              SIGNAL( triggered() ),      this,   SLOT( Justify()             ) );
-    connect( ui.actionBookView,             SIGNAL( triggered() ),      this,   SLOT( BookView()            ) );
-    connect( ui.actionSplitView,            SIGNAL( triggered() ),      this,   SLOT( SplitView()           ) );
-    connect( ui.actionCodeView,             SIGNAL( triggered() ),      this,   SLOT( CodeView()            ) );
-    connect( ui.actionInsertChapterBreak,   SIGNAL( triggered() ),      this,   SLOT( InsertChapterBreak()  ) );
-    connect( ui.actionInsertImage,          SIGNAL( triggered() ),      this,   SLOT( InsertImage()         ) );
-    connect( ui.actionInsertBulletedList,   SIGNAL( triggered() ),      this,   SLOT( InsertBulletedList()  ) );
-    connect( ui.actionInsertNumberedList,   SIGNAL( triggered() ),      this,   SLOT( InsertNumberedList()  ) );
-    connect( ui.actionDecreaseIndent,       SIGNAL( triggered() ),      this,   SLOT( DecreaseIndent()      ) );
-    connect( ui.actionIncreaseIndent,       SIGNAL( triggered() ),      this,   SLOT( IncreaseIndent()      ) );
-    connect( ui.actionRemoveFormatting,     SIGNAL( triggered() ),      this,   SLOT( RemoveFormatting()    ) );
-    connect( ui.actionPrintPreview,         SIGNAL( triggered() ),      this,   SLOT( PrintPreview()        ) );
-    connect( ui.actionPrint,                SIGNAL( triggered() ),      this,   SLOT( Print()               ) );
     connect( ui.actionZoomIn,               SIGNAL( triggered() ),      this,   SLOT( ZoomIn()              ) );
-    connect( ui.actionZoomOut,              SIGNAL( triggered() ),      this,   SLOT( ZoomOut()             ) );
-    
+    connect( ui.actionZoomOut,              SIGNAL( triggered() ),      this,   SLOT( ZoomOut()             ) );  
     connect( ui.actionMetaEditor,           SIGNAL( triggered() ),      this,   SLOT( MetaEditorDialog()    ) );
     connect( ui.actionTOCEditor,            SIGNAL( triggered() ),      this,   SLOT( TOCEditorDialog()     ) );
     connect( ui.actionReportAnIssue,        SIGNAL( triggered() ),      this,   SLOT( ReportAnIssue()       ) );
+    connect( ui.actionSigilDevBlog,         SIGNAL( triggered() ),      this,   SLOT( SigilDevBlog()        ) );
     connect( ui.actionAbout,                SIGNAL( triggered() ),      this,   SLOT( AboutDialog()         ) );
     
-    connect( m_wBookView->page(),           SIGNAL( selectionChanged() ),   this,   SLOT( UpdateUIBookView() ) );
-    connect( m_wCodeView,                   SIGNAL( selectionChanged() ),   this,   SLOT( UpdateUICodeView() ) );
-    connect( m_wBookView,                   SIGNAL( textChanged() ),        this,   SLOT( DocumentWasModified() ) );
-    connect( m_wCodeView,                   SIGNAL( textChanged() ),        this,   SLOT( DocumentWasModified() ) );
-    connect( m_wBookView,                   SIGNAL( textChanged() ),        this,   SLOT( UpdateSourceFromBookView() ) );
-    connect( m_wCodeView,                   SIGNAL( textChanged() ),        this,   SLOT( UpdateSourceFromCodeView() ) );
-
-    connect( m_wBookView,                   SIGNAL( ZoomFactorChanged( float ) ),   this,   SLOT( UpdateZoomLabel( float ) ) );
-    connect( m_wBookView,                   SIGNAL( ZoomFactorChanged( float ) ),   this,   SLOT( UpdateZoomSlider( float ) ) );
-    connect( m_wCodeView,                   SIGNAL( ZoomFactorChanged( float ) ),   this,   SLOT( UpdateZoomLabel( float ) ) );
-    connect( m_wCodeView,                   SIGNAL( ZoomFactorChanged( float ) ),   this,   SLOT( UpdateZoomSlider( float ) ) );
+    connect( &m_TabManager,                 SIGNAL( TabChanged( ContentTab*, ContentTab* ) ), this, SLOT( TabChanged( ContentTab*, ContentTab* ) ) );
+    connect( &m_TabManager,                 SIGNAL( TabChanged( ContentTab*, ContentTab* ) ), this, SLOT( UpdateUI() ) );
 
     connect( m_slZoomSlider,                SIGNAL( valueChanged( int ) ),          this,   SLOT( SliderZoom( int ) ) );
 
@@ -1822,11 +1191,95 @@ void MainWindow::ConnectSignalsToSlots()
     // the zoom value the slider will land on while it is being moved.
     connect( m_slZoomSlider,                SIGNAL( sliderMoved( int ) ),           this,   SLOT( UpdateZoomLabel( int ) ) );
 
-    connect( m_cbHeadings,  SIGNAL( activated( const QString& ) ),          this,   SLOT( HeadingStyle( const QString& ) ) );
-
-    connect( qApp,          SIGNAL( focusChanged( QWidget*, QWidget* ) ),   this,   SLOT( FocusFilter( QWidget*, QWidget* ) ) );
+    connect( m_BookBrowser, SIGNAL( ResourceDoubleClicked( Resource& ) ),
+             &m_TabManager, SLOT(   OpenResource(          Resource& ) ) );
 }
 
+void MainWindow::MakeTabConnections( ContentTab *tab )
+{
+    if ( tab == NULL )
+
+        return;
+
+    connect( ui.actionUndo,                 SIGNAL( triggered() ),  tab,   SLOT( Undo()                ) );
+    connect( ui.actionRedo,                 SIGNAL( triggered() ),  tab,   SLOT( Redo()                ) );
+    connect( ui.actionCut,                  SIGNAL( triggered() ),  tab,   SLOT( Cut()                 ) );
+    connect( ui.actionCopy,                 SIGNAL( triggered() ),  tab,   SLOT( Copy()                ) );
+    connect( ui.actionPaste,                SIGNAL( triggered() ),  tab,   SLOT( Paste()               ) );
+    connect( ui.actionBold,                 SIGNAL( triggered() ),  tab,   SLOT( Bold()                ) );
+    connect( ui.actionItalic,               SIGNAL( triggered() ),  tab,   SLOT( Italic()              ) );
+    connect( ui.actionUnderline,            SIGNAL( triggered() ),  tab,   SLOT( Underline()           ) );
+    connect( ui.actionStrikethrough,        SIGNAL( triggered() ),  tab,   SLOT( Strikethrough()       ) );
+    connect( ui.actionAlignLeft,            SIGNAL( triggered() ),  tab,   SLOT( AlignLeft()           ) );
+    connect( ui.actionCenter,               SIGNAL( triggered() ),  tab,   SLOT( Center()              ) );
+    connect( ui.actionAlignRight,           SIGNAL( triggered() ),  tab,   SLOT( AlignRight()          ) );
+    connect( ui.actionJustify,              SIGNAL( triggered() ),  tab,   SLOT( Justify()             ) );
+    connect( ui.actionInsertChapterBreak,   SIGNAL( triggered() ),  tab,   SLOT( InsertChapterBreak()  ) );
+    connect( ui.actionInsertImage,          SIGNAL( triggered() ),  tab,   SLOT( InsertImage()         ) );
+    connect( ui.actionInsertBulletedList,   SIGNAL( triggered() ),  tab,   SLOT( InsertBulletedList()  ) );
+    connect( ui.actionInsertNumberedList,   SIGNAL( triggered() ),  tab,   SLOT( InsertNumberedList()  ) );
+    connect( ui.actionDecreaseIndent,       SIGNAL( triggered() ),  tab,   SLOT( DecreaseIndent()      ) );
+    connect( ui.actionIncreaseIndent,       SIGNAL( triggered() ),  tab,   SLOT( IncreaseIndent()      ) );
+    connect( ui.actionRemoveFormatting,     SIGNAL( triggered() ),  tab,   SLOT( RemoveFormatting()    ) );
+
+    connect( ui.actionPrintPreview,         SIGNAL( triggered() ),  tab,   SLOT( PrintPreview()        ) );
+    connect( ui.actionPrint,                SIGNAL( triggered() ),  tab,   SLOT( Print()               ) );
+
+    connect( ui.actionBookView,             SIGNAL( triggered() ),  tab,   SLOT( BookView()            ) );
+    connect( ui.actionSplitView,            SIGNAL( triggered() ),  tab,   SLOT( SplitView()           ) );
+    connect( ui.actionCodeView,             SIGNAL( triggered() ),  tab,   SLOT( CodeView()            ) );   
+
+    connect( m_cbHeadings,                  SIGNAL( activated( const QString& ) ),  tab,   SLOT( HeadingStyle( const QString& ) ) );
+
+    connect( tab,   SIGNAL( ViewChanged() ),                this,   SLOT( UpdateUI()                ) );
+    connect( tab,   SIGNAL( SelectionChanged() ),           this,   SLOT( UpdateUI()                ) );
+    connect( tab,   SIGNAL( EnteringBookView() ),           this,   SLOT( SetStateActionsBookView() ) );
+    connect( tab,   SIGNAL( EnteringCodeView() ),           this,   SLOT( SetStateActionsCodeView() ) );
+    connect( tab,   SIGNAL( EnteringBookView() ),           this,   SLOT( UpdateZoomControls()      ) );
+    connect( tab,   SIGNAL( EnteringCodeView() ),           this,   SLOT( UpdateZoomControls()      ) );
+    connect( tab,   SIGNAL( ContentChanged() ),             this,   SLOT( DocumentWasModified()     ) );
+    connect( tab,   SIGNAL( ZoomFactorChanged( float ) ),   this,   SLOT( UpdateZoomLabel( float )  ) );
+    connect( tab,   SIGNAL( ZoomFactorChanged( float ) ),   this,   SLOT( UpdateZoomSlider( float ) ) );
+}
+
+void MainWindow::BreakTabConnections( ContentTab *tab )
+{
+    if ( tab == NULL )
+
+        return;
+
+    disconnect( ui.actionUndo,                0, tab, 0 );
+    disconnect( ui.actionRedo,                0, tab, 0 );
+    disconnect( ui.actionCut,                 0, tab, 0 );
+    disconnect( ui.actionCopy,                0, tab, 0 );
+    disconnect( ui.actionPaste,               0, tab, 0 );
+    disconnect( ui.actionBold,                0, tab, 0 );
+    disconnect( ui.actionItalic,              0, tab, 0 );
+    disconnect( ui.actionUnderline,           0, tab, 0 );
+    disconnect( ui.actionStrikethrough,       0, tab, 0 );
+    disconnect( ui.actionAlignLeft,           0, tab, 0 );
+    disconnect( ui.actionCenter,              0, tab, 0 );
+    disconnect( ui.actionAlignRight,          0, tab, 0 );
+    disconnect( ui.actionJustify,             0, tab, 0 );
+    disconnect( ui.actionInsertChapterBreak,  0, tab, 0 );
+    disconnect( ui.actionInsertImage,         0, tab, 0 );
+    disconnect( ui.actionInsertBulletedList,  0, tab, 0 );
+    disconnect( ui.actionInsertNumberedList,  0, tab, 0 );
+    disconnect( ui.actionDecreaseIndent,      0, tab, 0 );
+    disconnect( ui.actionIncreaseIndent,      0, tab, 0 );
+    disconnect( ui.actionRemoveFormatting,    0, tab, 0 );
+
+    disconnect( ui.actionPrintPreview,        0, tab, 0 );
+    disconnect( ui.actionPrint,               0, tab, 0 );
+
+    disconnect( ui.actionBookView,            0, tab, 0 );
+    disconnect( ui.actionSplitView,           0, tab, 0 );
+    disconnect( ui.actionCodeView,            0, tab, 0 );   
+
+    disconnect( m_cbHeadings,                 0, tab, 0 );
+
+    disconnect( tab,                          0, this, 0 );
+}
 
 
 

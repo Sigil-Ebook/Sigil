@@ -19,24 +19,48 @@
 **
 *************************************************************************/
 
-class QString;
+#include <stdafx.h>
+#include "FlowTab.h"
+#include "../ViewEditors/Searchable.h"
+#include "../ResourceObjects/Resource.h"
 
-// These enable us to use constants defined
-// in one CPP file to be used in another
-extern const QString BODY_START;
-extern const QString BODY_END;
-extern const QString HEAD_END;
-extern const QString BREAK_TAG_SEARCH;
-extern const QString BREAK_TAG_INSERT;
-extern const QString HEADING;
-extern const QString STYLE_TAG;
-extern const QString WIN_PATH_SUFFIX;
-extern const QString NIX_PATH_SUFFIX;
-extern const QString VERSION_NUMBERS;
-extern const int PROGRESS_BAR_MINIMUM_DURATION;
-extern const QString IMAGE_FOLDER_NAME;
-extern const QString FONT_FOLDER_NAME;
-extern const QString TEXT_FOLDER_NAME;
-extern const QString STYLE_FOLDER_NAME;
-extern const QString MISC_FOLDER_NAME;
 
+ContentTab::ContentTab( Resource& resource, QWidget *parent )
+    :
+    QWidget( parent ),
+    m_Resource( resource ),
+    m_Layout( *new QVBoxLayout( this ) )
+{
+    connect( &resource, SIGNAL( Deleted() ), this, SLOT( EmitDeleteMe() ) );
+
+    m_Layout.setContentsMargins( 0, 0, 0, 0 );
+
+    setLayout( &m_Layout );
+}
+
+QString ContentTab::GetFilename()
+{
+    return m_Resource.Filename();
+}
+
+QIcon ContentTab::GetIcon()
+{
+    return m_Resource.Icon();
+}
+
+Searchable* ContentTab::GetSearchableContent()
+{
+    return NULL;
+}
+
+void ContentTab::Close()
+{
+    // TODO: save tab data here
+    
+    EmitDeleteMe();
+}
+
+void ContentTab::EmitDeleteMe()
+{
+    emit DeleteMe( this );
+}

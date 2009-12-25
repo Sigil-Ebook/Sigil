@@ -19,24 +19,25 @@
 **
 *************************************************************************/
 
-class QString;
+#pragma once
+#ifndef TEXTRESOURCE_H
+#define TEXTRESOURCE_H
 
-// These enable us to use constants defined
-// in one CPP file to be used in another
-extern const QString BODY_START;
-extern const QString BODY_END;
-extern const QString HEAD_END;
-extern const QString BREAK_TAG_SEARCH;
-extern const QString BREAK_TAG_INSERT;
-extern const QString HEADING;
-extern const QString STYLE_TAG;
-extern const QString WIN_PATH_SUFFIX;
-extern const QString NIX_PATH_SUFFIX;
-extern const QString VERSION_NUMBERS;
-extern const int PROGRESS_BAR_MINIMUM_DURATION;
-extern const QString IMAGE_FOLDER_NAME;
-extern const QString FONT_FOLDER_NAME;
-extern const QString TEXT_FOLDER_NAME;
-extern const QString STYLE_FOLDER_NAME;
-extern const QString MISC_FOLDER_NAME;
+#include "Resource.h"
 
+class TextResource : public Resource 
+{
+    Q_OBJECT
+
+public:
+    
+    TextResource( const QString &fullfilepath, QHash< QString, Resource* > *hash_owner, QObject *parent = NULL );
+
+    virtual QString ReadFile();
+
+    virtual void WriteFile( const QString &content );
+
+    virtual ResourceType Type() const;
+};
+
+#endif // TEXTRESOURCE_H

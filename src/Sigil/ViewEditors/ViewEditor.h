@@ -23,11 +23,11 @@
 #ifndef VIEWEDITOR_H
 #define VIEWEDITOR_H
 
-#include <QString>
 #include <QList>
+#include <QString>
 #include "Searchable.h"
 
-class Book;
+class QUrl;
 
 // Interface for ViewEditors.
 // It would be lovely if we could make this a QObject
@@ -61,8 +61,7 @@ public:
     // Destructor
     virtual ~ViewEditor() {}
 
-    // Sets the content of the View to the specified book
-    virtual void SetBook( const Book &book ) = 0;
+    virtual void SetContent( const QString &source, const QUrl &base_url ) = 0;
 
     // Returns a list of elements representing a "chain"
     // or "walk" through the XHTML document with which one

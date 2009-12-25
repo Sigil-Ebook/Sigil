@@ -40,8 +40,7 @@ public:
     // the parameters is the object's parent
     BookViewEditor( QWidget *parent = 0 );
 
-    // Sets the content of the View to the specified book
-    void SetBook( const Book &book );
+    void SetContent( const QString &source, const QUrl &base_url );
 
     // Executes the specified command on the document with javascript
     void ExecCommand( const QString &command );

@@ -166,7 +166,7 @@ void NCXWriter::WriteFallbackNavPoint()
     {
         // We skip all the files that are not in the
         // text subdirectory
-        if ( !relfilepath.contains( "text/" ) )
+        if ( !relfilepath.contains( TEXT_FOLDER_NAME + "/" ) )
 
             continue;
 
@@ -239,7 +239,7 @@ QHash< QString, QStringList > NCXWriter::GetHeadingIDsPerFile() const
     {
         // We skip all the files that are not in the
         // text subdirectory
-        if ( !relfilepath.contains( "text/" ) )
+        if ( !relfilepath.contains( TEXT_FOLDER_NAME + "/" ) )
 
             continue;
 
@@ -270,7 +270,7 @@ QHash< QString, QStringList > NCXWriter::GetHeadingSourcesPerFile() const
     {
         // We skip all the files that are not in the
         // text subdirectory
-        if ( !relfilepath.contains( "text/" ) )
+        if ( !relfilepath.contains( TEXT_FOLDER_NAME + "/" ) )
 
             continue;
 

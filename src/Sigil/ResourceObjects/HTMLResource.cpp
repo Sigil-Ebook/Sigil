@@ -19,24 +19,33 @@
 **
 *************************************************************************/
 
-class QString;
+#include <stdafx.h>
+#include "HTMLResource.h"
+#include "../Misc/Utility.h"
 
-// These enable us to use constants defined
-// in one CPP file to be used in another
-extern const QString BODY_START;
-extern const QString BODY_END;
-extern const QString HEAD_END;
-extern const QString BREAK_TAG_SEARCH;
-extern const QString BREAK_TAG_INSERT;
-extern const QString HEADING;
-extern const QString STYLE_TAG;
-extern const QString WIN_PATH_SUFFIX;
-extern const QString NIX_PATH_SUFFIX;
-extern const QString VERSION_NUMBERS;
-extern const int PROGRESS_BAR_MINIMUM_DURATION;
-extern const QString IMAGE_FOLDER_NAME;
-extern const QString FONT_FOLDER_NAME;
-extern const QString TEXT_FOLDER_NAME;
-extern const QString STYLE_FOLDER_NAME;
-extern const QString MISC_FOLDER_NAME;
+HTMLResource::HTMLResource( const QString &fullfilepath, 
+                            QHash< QString, Resource* > *hash_owner,
+                            int reading_order,
+                            QObject *parent )
+    : 
+    TextResource( fullfilepath, hash_owner, parent ),
+    m_ReadingOrder( reading_order )
+{
 
+}
+
+
+Resource::ResourceType HTMLResource::Type() const
+{
+    return Resource::HTMLResource;
+}
+
+int HTMLResource::GetReadingOrder()
+{
+    return m_ReadingOrder;
+}
+
+void HTMLResource::SetReadingOrder( int reading_order )
+{
+    m_ReadingOrder = reading_order;
+}
