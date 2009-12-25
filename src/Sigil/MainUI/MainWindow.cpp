@@ -389,6 +389,10 @@ void MainWindow::UpdateUI()
 {
     ContentTab &tab = m_TabManager.GetCurrentContentTab();
 
+    if ( &tab == NULL )
+
+        return;
+
     ui.actionCut   ->setEnabled( tab.CutEnabled() );
     ui.actionCopy  ->setEnabled( tab.CopyEnabled() );
     ui.actionPaste ->setEnabled( tab.PasteEnabled() );
@@ -689,8 +693,7 @@ void MainWindow::LoadFile( const QString &filename )
     
         m_Book.source = SigilMarkup::AddSigilMarkup( m_Book.source );
 
-    //m_wBookView->SetBook( m_Book );
-    //m_wCodeView->SetBook( m_Book );
+    m_BookBrowser->SetBook( m_Book );
    
     QApplication::restoreOverrideCursor();
 
@@ -1182,6 +1185,9 @@ void MainWindow::ConnectSignalsToSlots()
     // We also update the label when the slider moves... this is to show
     // the zoom value the slider will land on while it is being moved.
     connect( m_slZoomSlider,                SIGNAL( sliderMoved( int ) ),           this,   SLOT( UpdateZoomLabel( int ) ) );
+
+    connect( m_BookBrowser, SIGNAL( ResourceDoubleClicked( Resource& ) ),
+             &m_TabManager, SLOT(   OpenResource(          Resource& ) ) );
 }
 
 void MainWindow::MakeTabConnections( ContentTab *tab )
@@ -1226,7 +1232,7 @@ void MainWindow::MakeTabConnections( ContentTab *tab )
     connect( tab,   SIGNAL( EnteringCodeView() ),           this,   SLOT( SetStateActionsCodeView() ) );
     connect( tab,   SIGNAL( EnteringBookView() ),           this,   SLOT( UpdateZoomControls()      ) );
     connect( tab,   SIGNAL( EnteringCodeView() ),           this,   SLOT( UpdateZoomControls()      ) );
-    connect( tab,   SIGNAL( ContentChanged( QString ) ),    this,   SLOT( DocumentWasModified()     ) );
+    connect( tab,   SIGNAL( ContentChanged() ),             this,   SLOT( DocumentWasModified()     ) );
     connect( tab,   SIGNAL( ZoomFactorChanged( float ) ),   this,   SLOT( UpdateZoomLabel( float )  ) );
     connect( tab,   SIGNAL( ZoomFactorChanged( float ) ),   this,   SLOT( UpdateZoomSlider( float ) ) );
 }

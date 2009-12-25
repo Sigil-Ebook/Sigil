@@ -27,6 +27,7 @@
 #include <QWeakPointer>
 
 class ContentTab;
+class Resource;
 
 class TabManager : public QTabWidget
 {
@@ -36,7 +37,11 @@ public:
 
     TabManager( QWidget *parent = 0 ); 
 
-    ContentTab & GetCurrentContentTab();     
+    ContentTab& GetCurrentContentTab();    
+
+public slots:
+
+    void OpenResource( Resource& resource );
 
 signals:
 
@@ -46,7 +51,13 @@ private slots:
 
     void EmitTabChanged();
 
+    void DeleteTab( ContentTab *tab_to_delete );
+
+    void CloseTab( int tab_index );
+
 private:
+
+    int ResourceTabIndex( const Resource& resource ) const;
 
     QWeakPointer< ContentTab > m_LastContentTab;
 };

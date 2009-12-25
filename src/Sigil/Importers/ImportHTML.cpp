@@ -151,6 +151,27 @@ void ImportHTML::StripFilesFromAnchors()
     m_Book.source = XHTMLDoc::GetQDomNodeAsString( document );      
 }
 
+QString ImportHTML::ReadHTMLFile( const QString &fullfilepath )
+{
+    QFile file( fullfilepath );
+
+    // Check if we can open the file
+    if ( !file.open( QFile::ReadOnly ) ) 
+    {
+        QMessageBox::warning(	0,
+            QObject::tr( "Sigil" ),
+            QObject::tr( "Cannot read file %1:\n%2." )
+            .arg( fullfilepath )
+            .arg( file.errorString() ) 
+            );
+        return "";
+    }
+
+    QByteArray data = file.readAll();
+
+    return Utility::ConvertLineEndings( GetCodecForHTML( data ).toUnicode( data ) );
+}
+
 
 // Accepts a hash with keys being old references (URLs) to resources,
 // and values being the new references to those resources.
@@ -272,23 +293,7 @@ void ImportHTML::UpdateCSSReferences( const QHash< QString, QString > updates )
 // Loads the source code into the Book
 void ImportHTML::LoadSource()
 {
-    QFile file( m_FullFilePath );
-
-    // Check if we can open the file
-    if ( !file.open( QFile::ReadOnly ) ) 
-    {
-        QMessageBox::warning(	0,
-            QObject::tr( "Sigil" ),
-            QObject::tr( "Cannot read file %1:\n%2." )
-            .arg( m_FullFilePath )
-            .arg( file.errorString() ) 
-            );
-        return;
-    }
-
-    QByteArray data = file.readAll();
-
-    m_Book.source = Utility::ConvertLineEndings( GetCodecForHTML( data ).toUnicode( data ) );
+    m_Book.source = ReadHTMLFile( m_FullFilePath );
     m_Book.source = ResolveCustomEntities( m_Book.source );
 }
 
@@ -459,5 +464,6 @@ void ImportHTML::LoadStyleFiles()
 
     m_Book.source = new_source;
 }
+
 
 

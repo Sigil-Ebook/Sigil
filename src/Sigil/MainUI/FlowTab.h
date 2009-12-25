@@ -29,6 +29,7 @@ class QSplitter;
 class BookViewEditor;
 class CodeViewEditor;
 class ViewEditor;
+class HTMLResource;
 
 class FlowTab : public ContentTab
 {
@@ -36,7 +37,7 @@ class FlowTab : public ContentTab
 
 public:
 
-    FlowTab( const QString &filepath, QWidget *parent = 0 );
+    FlowTab( Resource& resource, QWidget *parent = 0 );
 
     // Overrides inherited from ContentTab
     bool IsModified();
@@ -156,7 +157,7 @@ signals:
 
     void ViewChanged();
 
-    void ContentChanged( QString );
+    void ContentChanged();
 
     void ZoomFactorChanged( float );
 
@@ -205,6 +206,8 @@ private:
     ///////////////////////////////
     // PRIVATE MEMBER VARIABLES
     ///////////////////////////////
+
+    HTMLResource &m_HTMLResource;
 
     QSplitter &m_Splitter;
 

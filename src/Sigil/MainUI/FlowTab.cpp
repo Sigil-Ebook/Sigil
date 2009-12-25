@@ -25,15 +25,17 @@
 #include "../BookManipulation/CleanSource.h"
 #include "../ViewEditors/CodeViewEditor.h"
 #include "../ViewEditors/BookViewEditor.h"
+#include "../ResourceObjects/HTMLResource.h"
 
 static const QString SETTINGS_GROUP = "flowtab";
 
 QString FlowTab::s_LastFolderImage = QString();
 
 
-FlowTab::FlowTab( const QString &filepath, QWidget *parent )
+FlowTab::FlowTab( Resource& resource, QWidget *parent )
     : 
-    ContentTab( filepath, parent ),
+    ContentTab( resource, parent ),
+    m_HTMLResource( *( qobject_cast< HTMLResource* >( &resource ) ) ),
     m_Splitter( *new QSplitter( this ) ),
     m_wBookView( *new BookViewEditor( this ) ),
     m_wCodeView( *new CodeViewEditor( this ) )
@@ -47,11 +49,11 @@ FlowTab::FlowTab( const QString &filepath, QWidget *parent )
 
     ConnectSignalsToSlots();
 
-    m_Source = Utility::ReadUnicodeTextFile( filepath );
+    m_Source = m_HTMLResource.ReadFile();
     TidyUp();
 
-    m_wBookView.SetContent( m_Source, QUrl() );
-    m_wCodeView.SetContent( m_Source, QUrl() );
+    m_wBookView.SetContent( m_Source, m_HTMLResource.GetBaseUrl() );
+    m_wCodeView.SetContent( m_Source, m_HTMLResource.GetBaseUrl() );
 
     BookView();
 }
@@ -686,7 +688,7 @@ void FlowTab::FocusFilter( QWidget *old_widget, QWidget *new_widget )
 
 void FlowTab::EmitContentChanged()
 {
-    emit ContentChanged( m_Filepath );
+    emit ContentChanged();
 }
 
 

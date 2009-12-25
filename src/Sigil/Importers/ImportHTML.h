@@ -58,10 +58,13 @@ protected:
     // becomes just <a href="#firstheading" />
     void StripFilesFromAnchors();
 
+    QString ReadHTMLFile( const QString &fullfilepath );
+
     // Accepts a hash with keys being old references (URLs) to resources,
     // and values being the new references to those resources.
     // The book XHTML source is updated accordingly.
     void UpdateReferences( const QHash< QString, QString > updates );
+
 
 private:
 

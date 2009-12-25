@@ -19,48 +19,21 @@
 **
 *************************************************************************/
 
-#include <stdafx.h>
-#include "FlowTab.h"
-#include "../ViewEditors/Searchable.h"
-#include "../ResourceObjects/Resource.h"
+#pragma once
+#ifndef FONTRESOURCE_H
+#define FONTRESOURCE_H
 
+#include "Resource.h"
 
-ContentTab::ContentTab( Resource& resource, QWidget *parent )
-    :
-    QWidget( parent ),
-    m_Resource( resource ),
-    m_Layout( *new QVBoxLayout( this ) )
+class FontResource : public Resource 
 {
-    connect( &resource, SIGNAL( Deleted() ), this, SLOT( EmitDeleteMe() ) );
+    Q_OBJECT
 
-    m_Layout.setContentsMargins( 0, 0, 0, 0 );
-
-    setLayout( &m_Layout );
-}
-
-QString ContentTab::GetFilename()
-{
-    return m_Resource.Filename();
-}
-
-QIcon ContentTab::GetIcon()
-{
-    return m_Resource.Icon();
-}
-
-Searchable* ContentTab::GetSearchableContent()
-{
-    return NULL;
-}
-
-void ContentTab::Close()
-{
-    // TODO: save tab data here
+public:
     
-    EmitDeleteMe();
-}
+    FontResource( const QString &fullfilepath, QHash< QString, Resource* > *hash_owner, QObject *parent = NULL );
 
-void ContentTab::EmitDeleteMe()
-{
-    emit DeleteMe( this );
-}
+    virtual ResourceType Type() const;
+};
+
+#endif // FONTRESOURCE_H

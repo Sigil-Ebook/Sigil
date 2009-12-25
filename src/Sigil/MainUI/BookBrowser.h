@@ -26,6 +26,10 @@
 #include <QDockWidget>
 
 class QTreeView;
+class OPFModel;
+class Book;
+class Resource;
+class QModelIndex;
 
 class BookBrowser : public QDockWidget
 {
@@ -35,10 +39,23 @@ public:
 
     BookBrowser( QWidget *parent = 0 );
 
+public slots:
+
+    void SetBook( Book &book );
+
+signals:
+
+    void ResourceDoubleClicked( Resource &resource );
+
+private slots:
+
+    void EmitResourceDoubleClicked( const QModelIndex &index );
+
 private:
 
+    Book *m_Book;
     QTreeView &m_TreeView;
-
+    OPFModel &m_OPFModel;
 };
 
 #endif // BOOKBROWSER_H

@@ -21,16 +21,67 @@
 
 #include <stdafx.h>
 #include "BookBrowser.h"
+#include "OPFModel.h"
+#include "../BookManipulation/Book.h"
+#include <QTreeView>
 
+// We will add a few spaces to the front so the title isn't
+// glued to the widget side when it's docked. Ugly, but works.
 static const QString DOCK_WIDGET_TITLE = QObject::tr( "Book Browser" );
+static const int COLUMN_INDENTATION = 10;
+
 
 BookBrowser::BookBrowser( QWidget *parent )
     : 
-    QDockWidget( DOCK_WIDGET_TITLE, parent ),
-    m_TreeView( *new QTreeView( this ) )
-{
+    QDockWidget( "   " + DOCK_WIDGET_TITLE, parent ),
+    m_TreeView( *new QTreeView( this ) ),
+    m_OPFModel( *new OPFModel( this ) )
+{   
     setWidget( &m_TreeView );
 
     setFeatures( QDockWidget::DockWidgetFloatable | QDockWidget::DockWidgetMovable );
     setAllowedAreas( Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea );
+
+    m_TreeView.setEditTriggers( QAbstractItemView::EditKeyPressed );
+    m_TreeView.setSortingEnabled( false );
+    m_TreeView.sortByColumn( -1 );
+    m_TreeView.setUniformRowHeights( true );
+    m_TreeView.setDragEnabled( true );
+    m_TreeView.setAcceptDrops( false );
+    m_TreeView.setDropIndicatorShown( true );
+    m_TreeView.setDragDropMode( QAbstractItemView::InternalMove );
+    //m_TreeView.setSelectionMode( QAbstractItemView::SingleSelection );
+    
+    m_TreeView.setModel( &m_OPFModel ); 
+
+    for ( int i = 1; i < m_OPFModel.columnCount(); ++i )
+    {
+        m_TreeView.hideColumn( i );
+    }
+
+    m_TreeView.setIndentation( COLUMN_INDENTATION );
+    m_TreeView.setHeaderHidden( true );
+
+    connect( &m_TreeView, SIGNAL( doubleClicked(             const QModelIndex& ) ), 
+            this,         SLOT(   EmitResourceDoubleClicked( const QModelIndex& ) ) );
+}
+
+
+void BookBrowser::SetBook( Book &book )
+{
+    m_Book = &book;
+
+    m_OPFModel.SetBook( book );
+
+    // TODO: fake that the "first" HTML file has been double clicked
+    // so that we have a default first tab opened
+}
+
+void BookBrowser::EmitResourceDoubleClicked( const QModelIndex &index )
+{
+    QString identifier( m_OPFModel.itemFromIndex( index )->data().toString() );  
+
+    if ( !identifier.isEmpty() )
+
+        emit ResourceDoubleClicked( m_Book->mainfolder.GetResource( identifier ) );
 }

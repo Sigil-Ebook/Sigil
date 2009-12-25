@@ -20,47 +20,32 @@
 *************************************************************************/
 
 #include <stdafx.h>
-#include "FlowTab.h"
-#include "../ViewEditors/Searchable.h"
-#include "../ResourceObjects/Resource.h"
+#include "HTMLResource.h"
+#include "../Misc/Utility.h"
 
-
-ContentTab::ContentTab( Resource& resource, QWidget *parent )
-    :
-    QWidget( parent ),
-    m_Resource( resource ),
-    m_Layout( *new QVBoxLayout( this ) )
+HTMLResource::HTMLResource( const QString &fullfilepath, 
+                            QHash< QString, Resource* > *hash_owner,
+                            int reading_order,
+                            QObject *parent )
+    : 
+    TextResource( fullfilepath, hash_owner, parent ),
+    m_ReadingOrder( reading_order )
 {
-    connect( &resource, SIGNAL( Deleted() ), this, SLOT( EmitDeleteMe() ) );
 
-    m_Layout.setContentsMargins( 0, 0, 0, 0 );
-
-    setLayout( &m_Layout );
 }
 
-QString ContentTab::GetFilename()
+
+Resource::ResourceType HTMLResource::Type() const
 {
-    return m_Resource.Filename();
+    return Resource::HTMLResource;
 }
 
-QIcon ContentTab::GetIcon()
+int HTMLResource::GetReadingOrder()
 {
-    return m_Resource.Icon();
+    return m_ReadingOrder;
 }
 
-Searchable* ContentTab::GetSearchableContent()
+void HTMLResource::SetReadingOrder( int reading_order )
 {
-    return NULL;
-}
-
-void ContentTab::Close()
-{
-    // TODO: save tab data here
-    
-    EmitDeleteMe();
-}
-
-void ContentTab::EmitDeleteMe()
-{
-    emit DeleteMe( this );
+    m_ReadingOrder = reading_order;
 }

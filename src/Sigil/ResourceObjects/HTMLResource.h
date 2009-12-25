@@ -19,48 +19,32 @@
 **
 *************************************************************************/
 
-#include <stdafx.h>
-#include "FlowTab.h"
-#include "../ViewEditors/Searchable.h"
-#include "../ResourceObjects/Resource.h"
+#pragma once
+#ifndef HTMLRESOURCE_H
+#define HTMLRESOURCE_H
 
+#include "TextResource.h"
 
-ContentTab::ContentTab( Resource& resource, QWidget *parent )
-    :
-    QWidget( parent ),
-    m_Resource( resource ),
-    m_Layout( *new QVBoxLayout( this ) )
+class HTMLResource : public TextResource 
 {
-    connect( &resource, SIGNAL( Deleted() ), this, SLOT( EmitDeleteMe() ) );
+    Q_OBJECT
 
-    m_Layout.setContentsMargins( 0, 0, 0, 0 );
-
-    setLayout( &m_Layout );
-}
-
-QString ContentTab::GetFilename()
-{
-    return m_Resource.Filename();
-}
-
-QIcon ContentTab::GetIcon()
-{
-    return m_Resource.Icon();
-}
-
-Searchable* ContentTab::GetSearchableContent()
-{
-    return NULL;
-}
-
-void ContentTab::Close()
-{
-    // TODO: save tab data here
+public:
     
-    EmitDeleteMe();
-}
+    HTMLResource( const QString &fullfilepath, 
+                  QHash< QString, Resource* > *hash_owner,
+                  int reading_order,
+                  QObject *parent = NULL );
 
-void ContentTab::EmitDeleteMe()
-{
-    emit DeleteMe( this );
-}
+    virtual ResourceType Type() const;
+
+    int GetReadingOrder();
+
+    void SetReadingOrder( int reading_order );
+
+private:
+
+    int m_ReadingOrder;
+};
+
+#endif // HTMLRESOURCE_H

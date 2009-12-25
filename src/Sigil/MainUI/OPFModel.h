@@ -19,48 +19,46 @@
 **
 *************************************************************************/
 
-#include <stdafx.h>
-#include "FlowTab.h"
-#include "../ViewEditors/Searchable.h"
-#include "../ResourceObjects/Resource.h"
+#pragma once
+#ifndef OPFMODEL_H
+#define OPFMODEL_H
 
+#include <QStandardItemModel>
 
-ContentTab::ContentTab( Resource& resource, QWidget *parent )
-    :
-    QWidget( parent ),
-    m_Resource( resource ),
-    m_Layout( *new QVBoxLayout( this ) )
+class Book;
+
+class OPFModel : public QStandardItemModel
 {
-    connect( &resource, SIGNAL( Deleted() ), this, SLOT( EmitDeleteMe() ) );
+    Q_OBJECT
 
-    m_Layout.setContentsMargins( 0, 0, 0, 0 );
+public:
 
-    setLayout( &m_Layout );
-}
+    OPFModel( QWidget *parent = 0 );
 
-QString ContentTab::GetFilename()
-{
-    return m_Resource.Filename();
-}
+    void SetBook( Book &book );
 
-QIcon ContentTab::GetIcon()
-{
-    return m_Resource.Icon();
-}
+    virtual void sort( int column, Qt::SortOrder order = Qt::AscendingOrder );
 
-Searchable* ContentTab::GetSearchableContent()
-{
-    return NULL;
-}
+    virtual Qt::DropActions supportedDropActions() const;
 
-void ContentTab::Close()
-{
-    // TODO: save tab data here
-    
-    EmitDeleteMe();
-}
+private:
 
-void ContentTab::EmitDeleteMe()
-{
-    emit DeleteMe( this );
-}
+    void ResetModel();
+
+    void SortFilesByFilenames();
+
+    void SortHTMLFilesByReadingOrder();
+
+    void ClearModel();
+
+    Book *m_Book;
+
+    QStandardItem &m_TextFolderItem;
+    QStandardItem &m_StylesFolderItem;
+    QStandardItem &m_ImagesFolderItem;
+    QStandardItem &m_FontsFolderItem;
+    QStandardItem &m_MiscFolderItem;    
+};
+
+
+#endif // OPFMODEL_H

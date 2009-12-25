@@ -28,6 +28,7 @@
 
 class QLayout;
 class Searchable;
+class Resource;
 
 class ContentTab : public QWidget
 {
@@ -35,13 +36,13 @@ class ContentTab : public QWidget
 
 public:
 
-    ContentTab( const QString &filepath, QWidget *parent = 0 );
+    ContentTab( Resource& resource, QWidget *parent = 0 );
 
     virtual ~ContentTab() {}
 
-    const QString & GetFilepath();
+    QString GetFilename();
 
-    void UpdateFilepath( const QString &filepath );
+    QIcon GetIcon();
 
     virtual bool IsModified()           { return false; }
 
@@ -66,11 +67,25 @@ public:
 
     virtual Searchable* GetSearchableContent();
 
+public slots:
+
+    // saves the tab data, then schedules tab for deletion
+    void Close();
+
+signals:
+
+    void DeleteMe( ContentTab *tab_to_delete );
+
+protected slots:
+
+    void EmitDeleteMe();
+
 protected:
 
-    QString m_Filepath;
+    Resource &m_Resource;
 
     QLayout &m_Layout;
+
 };
 
 #endif // CONTENTTAB_H

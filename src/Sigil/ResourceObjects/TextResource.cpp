@@ -20,47 +20,32 @@
 *************************************************************************/
 
 #include <stdafx.h>
-#include "FlowTab.h"
-#include "../ViewEditors/Searchable.h"
-#include "../ResourceObjects/Resource.h"
+#include "TextResource.h"
+#include "../Misc/Utility.h"
 
-
-ContentTab::ContentTab( Resource& resource, QWidget *parent )
-    :
-    QWidget( parent ),
-    m_Resource( resource ),
-    m_Layout( *new QVBoxLayout( this ) )
+TextResource::TextResource( const QString &fullfilepath, QHash< QString, Resource* > *hash_owner, QObject *parent )
+    : Resource( fullfilepath, hash_owner, parent )
 {
-    connect( &resource, SIGNAL( Deleted() ), this, SLOT( EmitDeleteMe() ) );
 
-    m_Layout.setContentsMargins( 0, 0, 0, 0 );
-
-    setLayout( &m_Layout );
 }
 
-QString ContentTab::GetFilename()
+
+QString TextResource::ReadFile() 
 {
-    return m_Resource.Filename();
+    QMutexLocker locker( &m_AccessMutex );
+
+    return Utility::ReadUnicodeTextFile( m_FullFilePath );
 }
 
-QIcon ContentTab::GetIcon()
+void TextResource::WriteFile( const QString &content )
 {
-    return m_Resource.Icon();
+    QMutexLocker locker( &m_AccessMutex );
+
+    Utility::WriteUnicodeTextFile( content, m_FullFilePath );
 }
 
-Searchable* ContentTab::GetSearchableContent()
-{
-    return NULL;
-}
 
-void ContentTab::Close()
+Resource::ResourceType TextResource::Type() const
 {
-    // TODO: save tab data here
-    
-    EmitDeleteMe();
-}
-
-void ContentTab::EmitDeleteMe()
-{
-    emit DeleteMe( this );
+    return Resource::TextResource;
 }
