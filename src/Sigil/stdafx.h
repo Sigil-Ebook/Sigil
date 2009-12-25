@@ -21,6 +21,7 @@
 
 #include <QtGui>
 #include <QtWebKit>
+#include <boost/tuple/tuple.hpp>
 #include "constants.h"
 
 
