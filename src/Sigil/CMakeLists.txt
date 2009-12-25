@@ -279,7 +279,7 @@ endif()
 
 # We need to pick up the stdafx.h file, the ui*.h files,
 # and the headers for the linked-to libraries
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR} ../ZipArchive ../tidyLib )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR} ../ZipArchive ../tidyLib ../BoostParts )
 
 link_directories ( ${PROJECT_BINARY_DIR}/lib ) 
 
@@ -292,7 +292,7 @@ else()
     add_executable( ${PROJECT_NAME} ${ALL_SOURCES} )
 endif()
 
-target_link_libraries( ${PROJECT_NAME} tidyLib ZipArchive ${QT_LIBRARIES} )
+target_link_libraries( ${PROJECT_NAME} tidyLib ZipArchive BoostParts ${QT_LIBRARIES} )
 
 # "Link time code generation" flags for MSVC
 if( MSVC )

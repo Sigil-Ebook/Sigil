@@ -43,6 +43,7 @@ endif()
 
 add_subdirectory( src/tidyLib )
 add_subdirectory( src/ZipArchive )
+add_subdirectory( src/BoostParts )
 add_subdirectory( src/Sigil )
 
 
