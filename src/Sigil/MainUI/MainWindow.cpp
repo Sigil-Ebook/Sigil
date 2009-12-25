@@ -299,11 +299,6 @@ void MainWindow::Replace()
     }
 }
 
-
-
-    // Make sure the Book View has focus before inserting images,
-    // otherwise they are not inserted
-    m_wBookView->GrabFocus();
 // Implements Zoom In action functionality
 void MainWindow::ZoomIn()
 {

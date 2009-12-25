@@ -409,6 +409,10 @@ void FlowTab::InsertImage()
     // Store the folder the user inserted the image from
     s_LastFolderImage = QFileInfo( filenames.first() ).absolutePath();
 
+    // Make sure the Book View has focus before inserting images,
+    // otherwise they are not inserted
+    m_wBookView.GrabFocus();
+
     // FIXME: image loading
 
 //     foreach( QString filename, filenames )
