@@ -52,13 +52,13 @@ public:
         QHash< QString, QString > attributes;
     };
 
-    static Metadata & Instance();
+    static Metadata& Instance();
 
-    const QMap< QString, QString >  & GetLanguageMap();
-    const QMap< QString, MetaInfo > & GetRelatorMap();
-    const QMap< QString, MetaInfo > & GetBasicMetaMap();
-    const QHash< QString, QString > & GetFullRelatorNameHash();
-    const QHash< QString, QString > & GetFullLanguageNameHash();
+    const QMap< QString, QString >& GetLanguageMap();
+    const QMap< QString, MetaInfo >& GetRelatorMap();
+    const QMap< QString, MetaInfo >& GetBasicMetaMap();
+    const QHash< QString, QString >& GetFullRelatorNameHash();
+    const QHash< QString, QString >& GetFullLanguageNameHash();
 
     // Maps Dublic Core metadata to internal book meta format
     MetaElement MapToBookMetadata( const MetaElement &meta, const QString &type );

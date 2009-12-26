@@ -34,7 +34,7 @@ static const QStringList PUBLICATION_ALIASES  = QStringList() << "issued"   << "
 static const QStringList SCHEME_LIST          = QStringList() << "ISBN" << "ISSN" << "DOI" << "CustomID";
 
 
-Metadata & Metadata::Instance()
+Metadata& Metadata::Instance()
 {
     // We use a static local variable
     // to hold our singleton instance; using a pointer member
@@ -45,31 +45,31 @@ Metadata & Metadata::Instance()
     return meta;
 }
 
-const QMap< QString, QString > & Metadata::GetLanguageMap()
+const QMap< QString, QString >& Metadata::GetLanguageMap()
 {
     return m_Languages;
 }
 
 
-const QMap< QString, Metadata::MetaInfo > & Metadata::GetRelatorMap()
+const QMap< QString, Metadata::MetaInfo >& Metadata::GetRelatorMap()
 {
     return m_Relators;
 }
 
 
-const QMap< QString, Metadata::MetaInfo > & Metadata::GetBasicMetaMap()
+const QMap< QString, Metadata::MetaInfo >& Metadata::GetBasicMetaMap()
 {
     return m_Basic;
 }
 
 
-const QHash< QString, QString > & Metadata::GetFullRelatorNameHash()
+const QHash< QString, QString >& Metadata::GetFullRelatorNameHash()
 {
     return m_FullRelators;
 }
 
 
-const QHash< QString, QString > & Metadata::GetFullLanguageNameHash()
+const QHash< QString, QString >& Metadata::GetFullLanguageNameHash()
 {
     return m_FullLanguages;
 }
@@ -221,7 +221,7 @@ void Metadata::LoadRelatorCodes()
 Metadata::MetaElement Metadata::HtmlToOpfDC( const Metadata::MetaElement &meta )
 {
     // Dublin Core from html file with the original 15 element namespace or
-    // expanded DCTerms namespace.  allows qualifiers as refinements
+    // expanded DCTerms namespace. Allows qualifiers as refinements
     // prefix.name[.refinement]
 
     QStringList fields = QString( meta.name.toLower() + ".." ).split( "." );
@@ -396,6 +396,4 @@ Metadata::MetaElement Metadata::IdentifierMetadata( const Metadata::MetaElement 
 
     return book_meta;
 }
-
-
 
