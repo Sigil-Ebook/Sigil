@@ -279,7 +279,7 @@ void OPFWriter::WriteSpine()
     {
         // We skip all the files that are not in the
         // text subdirectory
-        if ( !file.contains( "text/" ) )
+        if ( !file.contains( TEXT_FOLDER_NAME + "/" ) )
 
             continue;
 
@@ -297,7 +297,7 @@ void OPFWriter::WriteSpine()
 // Writes the <guide> element
 void OPFWriter::WriteGuide()
 {
-    QString relative_path = m_Files.filter( "text/" )[ 0 ];
+    QString relative_path = m_Files.filter( TEXT_FOLDER_NAME + "/" )[ 0 ];
     
     // We write the cover page (and the guide in general)
     // only if the first OPS document (flow) is smaller

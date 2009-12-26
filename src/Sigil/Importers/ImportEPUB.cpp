@@ -62,12 +62,17 @@ Book ImportEPUB::GetBook()
 
     // These mutate the m_Book object
     LoadMetadata();
-    LoadSource();
-    AddHeaderToSource();
-    StripFilesFromAnchors();
-    UpdateReferences( LoadFolderStructure() );
+    //LoadSource();
+    //AddHeaderToSource();
+    //StripFilesFromAnchors();
 
-    m_Book.source = CleanSource::Clean( m_Book.source );
+    QHash< QString, QString > updates = LoadFolderStructure(); 
+    CleanTextFiles();
+
+    // TODO: reference updating... this will be hard
+    //UpdateReferences( updates );
+
+    //m_Book.source = CleanSource::Clean( m_Book.source );
 
     return m_Book;
 }
@@ -234,68 +239,19 @@ void ImportEPUB::LoadMetadata()
 }
 
 
-// Loads the source code into the Book
-void ImportEPUB::LoadSource()
+void ImportEPUB::CleanTextFiles()
 {
-    bool is_first_text_file = true;
-
-    foreach( QString id, m_ReadingOrderIds )
+    foreach( QString file, m_Book.mainfolder.GetContentFilesList() )
     {
-        QString fullpath = QFileInfo( m_OPFFilePath ).absolutePath() + "/" + m_Files[ id ];
-        QString text     = ResolveCustomEntities( Utility::ReadUnicodeTextFile( fullpath ) );
+        if ( !file.contains( TEXT_FOLDER_NAME + "/" ) )
 
-        // We extract the content of the files
-        // that is within the <body> tag
-        QRegExp body_start_tag( BODY_START );
-        QRegExp body_end_tag( BODY_END );
+            continue;
+        
+        QString fullfilepath = m_Book.mainfolder.GetFullPathToOEBPSFolder() + "/" + file;
+        QString source       = CleanSource::Clean( ReadHTMLFile( fullfilepath ) );
 
-        int body_begin	= text.indexOf( body_start_tag, 0 ) + body_start_tag.matchedLength();
-        int body_end	= text.indexOf( body_end_tag, 0 );
-
-        QString content = Utility::Substring( body_begin, body_end, text );
-
-        // We don't add our chapter break tag
-        // for the first text file
-        if ( is_first_text_file == false )
-        {            
-            m_Book.source += BREAK_TAG_INSERT + "\n" + content;
-        }
-
-        else
-        {
-            m_Book.source += content;
-
-            is_first_text_file = false;
-        }
-    }  
-
-    m_Book.source += "</body> </html>";
-}
-
-
-// Adds the header to the Book source code
-void ImportEPUB::AddHeaderToSource()
-{
-    QString header =    "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
-                        "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\"\n"
-                        "    \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n\n"							
-                        "<html xmlns=\"http://www.w3.org/1999/xhtml\">\n"
-                        "<head>\n";    
-
-    // Creates <style> tags from CSS files
-    foreach( QString path, m_Files.values() )
-    {
-        if ( path.contains( ".css" ) || path.contains( ".xpgt" )  )
-        {
-            QString style_tag = CreateStyleTag( QFileInfo( m_OPFFilePath ).absolutePath() + "/" + path );
-
-            header += style_tag;
-        }
+        Utility::WriteUnicodeTextFile( source, fullfilepath );
     }
-
-    header += "</head>\n<body>\n";
-
-    m_Book.source = header + m_Book.source;
 }
 
 
@@ -308,25 +264,18 @@ QHash< QString, QString > ImportEPUB::LoadFolderStructure()
 
     foreach( QString key, m_Files.keys() )
     {
-        QString path = m_Files[ key ];
+        QString path         = m_Files[ key ];
+        QString fullfilepath = QFileInfo( m_OPFFilePath ).absolutePath() + "/" + path;
 
-        // We skip over the book text and style files
-        if (    ( !m_ReadingOrderIds.contains( key ) ) &&
-                ( !path.contains( ".css" ) )           &&
-                ( !path.contains( ".xpgt" ) )                   
-            )
-        {
-            QString fullfilepath = QFileInfo( m_OPFFilePath ).absolutePath() + "/" + path;
+        QString newpath = m_Book.mainfolder.AddContentFileToFolder( fullfilepath, m_ReadingOrderIds.indexOf( key ) );
+        newpath = "../" + newpath;  
 
-            QString newpath = m_Book.mainfolder.AddContentFileToFolder( fullfilepath );
-            newpath = "../" + newpath;  
-
-            updates[ path ] = newpath;
-        }        
+        updates[ path ] = newpath;       
     }
 
     return updates;
 }
+
 
 
 
