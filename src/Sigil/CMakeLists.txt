@@ -54,7 +54,6 @@ set( QOBJECT_HEADERS
     )
 
 set( MAIN_FILES
-    stdafx.h
     constants.h
     main.cpp
     MainWindow.cpp
@@ -181,6 +180,7 @@ set_source_files_properties( ${RAW_SOURCES} PROPERTIES COMPILE_DEFINITIONS SIGIL
 # MSVC precompiled headers cmake code
 if ( MSVC )
     set_source_files_properties( stdafx.cpp PROPERTIES COMPILE_FLAGS "/Ycstdafx.h" )
+    set_source_files_properties( stdafx.h   PROPERTIES COMPILE_FLAGS "/Yustdafx.h" )
         
     foreach( src_file ${RAW_SOURCES} )
         if( ${src_file} MATCHES ".*cpp$" )
@@ -190,8 +190,47 @@ if ( MSVC )
 
     # stdafx.cpp has to come before stdafx.h, 
     # otherwise we get a linker error...
+    list( INSERT RAW_SOURCES 0 stdafx.h )
+    list( APPEND MAIN_FILES stdafx.h )
     list( INSERT RAW_SOURCES 0 stdafx.cpp )
     list( APPEND MAIN_FILES stdafx.cpp )
+
+# GCC precompiled headers cmake code
+elseif( CMAKE_COMPILER_IS_GNUCXX )
+
+    # Get the compiler flags for this build type
+    string( TOUPPER "CMAKE_CXX_FLAGS_${CMAKE_BUILD_TYPE}" flags_for_build_name )
+    set( compile_flags ${${flags_for_build_name}} )
+    
+    # Add all the Qt include directories
+    foreach( item ${QT_INCLUDES} )
+        list( APPEND compile_flags "-I${item}" )
+    endforeach()
+
+    # Get the list of all build-independent preprocessor definitions
+    get_directory_property( defines_global COMPILE_DEFINITIONS )
+    list( APPEND defines ${defines_global} )
+
+    # Get the list of all build-dependent preprocessor definitions
+    string( TOUPPER "COMPILE_DEFINITIONS_${CMAKE_BUILD_TYPE}" defines_for_build_name )
+    get_directory_property( defines_build ${defines_for_build_name} )
+    list( APPEND defines ${defines_build} )
+
+    # Add the "-D" prefix to all of them
+    foreach( item ${defines} )
+        list( APPEND all_define_flags "-D${item}" )
+    endforeach()
+    
+    list( APPEND compile_flags ${all_define_flags} ) 
+    
+    # Prepare the compile flags var for passing to GCC
+    separate_arguments( compile_flags )
+    
+    # Finally, build the precompiled header
+    add_custom_target(  gccPCH ALL 
+                        COMMAND ${CMAKE_CXX_COMPILER} ${compile_flags} ${CMAKE_CURRENT_SOURCE_DIR}/stdafx.h -o stdafx.h.gch
+                        WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
+                        VERBATIM )
 endif()
 
 # Adds folders for Visual Studio solution explorer (and for Xcode explorer)
@@ -234,7 +273,7 @@ endif()
 
 # We need to pick up the stdafx.h file, the ui*.h files,
 # and the headers for the linked-to libraries
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR} ../ZipArchive ../tidyLib )
+include_directories( ${CMAKE_CURRENT_BINARY_DIR} ${CMAKE_CURRENT_SOURCE_DIR} ../ZipArchive ../tidyLib )
 
 link_directories ( ${PROJECT_BINARY_DIR}/lib ) 
 
@@ -256,8 +295,11 @@ if( MSVC )
     set( CMAKE_EXE_LINKER_FLAGS_RELEASE "${CMAKE_EXE_LINKER_FLAGS_RELEASE} /LTCG" )
 
 # "Print all warnings" flag for GCC
-elseif( CMAKE_COMPILER_IS_GNUCXX  )
+elseif( CMAKE_COMPILER_IS_GNUCXX )
     add_definitions( -Wall )
+
+    # Make sure the PCH is built for GCC
+    add_dependencies( ${PROJECT_NAME} gccPCH )
 endif()
 
 # No console window shown on launch
