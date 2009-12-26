@@ -27,6 +27,12 @@ static const QString PATH_TO_LANGUAGES  = ":/data/languages.csv";
 static const QString PATH_TO_BASICMETA  = ":/data/basicmeta.csv";
 static const QString PATH_TO_RELATORS   = ":/data/relator.csv";
 
+static const QStringList EVENT_LIST           = QStringList() << "creation" << "publication" << "modification";
+static const QStringList MODIFICATION_ALIASES = QStringList() << "modified" << "modification";
+static const QStringList CREATION_ALIASES     = QStringList() << "created"  << "creation";
+static const QStringList PUBLICATION_ALIASES  = QStringList() << "issued"   << "published" << "publication";
+static const QStringList SCHEME_LIST          = QStringList() << "ISBN" << "ISSN" << "DOI" << "CustomID";
+
 
 Metadata & Metadata::Instance()
 {
@@ -74,24 +80,14 @@ Metadata::MetaElement Metadata::MapToBookMetadata( const Metadata::MetaElement &
 {
     QString name = meta.name.toLower();
 
-    if ( ( type == "HTML" ) && ( !name.startsWith( "dc." ) ) && ( !name.startsWith( "dcterms." ) ) )  
+    if ( ( type.toUpper() == "HTML" ) && ( !name.startsWith( "dc." ) ) && ( !name.startsWith( "dcterms." ) ) )  
 
         return FreeFormMetadata( meta );
 
     // Dublin Core
 
-    MetaElement working_copy_meta;
-
-    if ( type == "HTML" )
-    {
-        // transform html based dublin core to opf style metaelement
-        working_copy_meta = HtmlToOpfDC( meta );
-    }
-
-    else
-    {
-        working_copy_meta = meta;
-    }
+    // Transform HTML based Dublin Core to OPF style meta element
+    MetaElement working_copy_meta = type.toUpper() == "HTML" ? HtmlToOpfDC( meta ) : meta;
 
     name = working_copy_meta.name.toLower();
 
@@ -225,7 +221,7 @@ void Metadata::LoadRelatorCodes()
 Metadata::MetaElement Metadata::HtmlToOpfDC( const Metadata::MetaElement &meta )
 {
     // Dublin Core from html file with the original 15 element namespace or
-    // expanded dcterms namespace.  allows qualifiers as refinements
+    // expanded DCTerms namespace.  allows qualifiers as refinements
     // prefix.name[.refinement]
 
     QStringList fields = QString( meta.name.toLower() + ".." ).split( "." );
@@ -234,30 +230,25 @@ Metadata::MetaElement Metadata::HtmlToOpfDC( const Metadata::MetaElement &meta )
     
     QString dc_event;
 
-    if ( ( name == "modifed" ) || ( refinement == "modified" ) )
+    if ( MODIFICATION_ALIASES.contains( name ) || MODIFICATION_ALIASES.contains( refinement ) )
     {
         name     = "date";
         dc_event = "modification";
     }
 
-    else if ( ( name == "created" ) || ( refinement == "created" ) ) 
+    else if ( CREATION_ALIASES.contains( name ) || CREATION_ALIASES.contains( refinement ) ) 
     {
         name     = "date";
         dc_event = "creation";
     }
 
-    else if ( ( name == "issued" ) || ( refinement == "issued" ) )
+    else if ( PUBLICATION_ALIASES.contains( name ) || PUBLICATION_ALIASES.contains( refinement ) )
     {
         name     = "date";
         dc_event = "publication";
     }
 
-    QString role;
-
-    if ( ( name == "creator" ) || ( name == "contributor" ) ) 
-
-        role = refinement;
-
+    QString role   = ( name == "creator" ) || ( name == "contributor" ) ? refinement : QString();
     QString scheme = meta.attributes.value( "scheme" );
 
     if ( ( name == "identifier" ) && ( scheme.isEmpty() ) )
@@ -266,12 +257,9 @@ Metadata::MetaElement Metadata::HtmlToOpfDC( const Metadata::MetaElement &meta )
 
     if ( !scheme.isEmpty() )
     {
-        QStringList scheme_list;
-        scheme_list << "ISBN" << "ISSN" << "DOI" << "CustomID";
+        if ( SCHEME_LIST.contains( scheme, Qt::CaseInsensitive ) )
 
-        if ( scheme_list.contains( scheme, Qt::CaseInsensitive ) )
-
-            scheme = scheme_list.filter( scheme, Qt::CaseInsensitive )[ 0 ];
+            scheme = SCHEME_LIST.filter( scheme, Qt::CaseInsensitive )[ 0 ];
     }
 
     MetaElement opf_meta;
@@ -303,7 +291,7 @@ Metadata::MetaElement Metadata::FreeFormMetadata( const Metadata::MetaElement &m
 
     QString name = meta.name.toLower();
 
-    // remap commonly used meta values to match internal names
+    // Remap commonly used meta values to match internal names
     name =  name == "copyright" ? "Rights"   :
             name == "eisbn"     ? "ISBN"     :
             name == "issn"      ? "ISSN"     :
@@ -313,12 +301,12 @@ Metadata::MetaElement Metadata::FreeFormMetadata( const Metadata::MetaElement &m
     
     MetaElement book_meta;
 
-    if ( m_Basic.contains( name ) || 
+    if ( GetBasicMetaMap().contains( name ) || 
          name == "Author" ||
          name == "Title" 
        )
     {
-        book_meta.name = name;
+        book_meta.name  = name;
         book_meta.value = meta.value;
     }
 
@@ -329,15 +317,15 @@ Metadata::MetaElement Metadata::FreeFormMetadata( const Metadata::MetaElement &m
 // Converts dc:creator and dc:contributor metadata to book internal metadata
 Metadata::MetaElement Metadata::CreateContribMetadata( const Metadata::MetaElement &meta )
 {
-    QString role = meta.attributes.value( "role", "aut" );
+    QString role    = meta.attributes.value( "role", "aut" );
 
     // We convert the role into the new metadata name (e.g. aut -> Author)
-    QString name = GetFullRelatorNameHash()[ role ];
+    QString name    = GetFullRelatorNameHash()[ role ];
 
     // If a "file-as" attribute is provided, we use that as the value
     QString file_as = meta.attributes.value( "file-as" );
 
-    QString value = meta.value.toString();
+    QString value   = meta.value.toString();
 
     if ( !file_as.isEmpty() )
 
@@ -346,7 +334,7 @@ Metadata::MetaElement Metadata::CreateContribMetadata( const Metadata::MetaEleme
     name = name[ 0 ].toUpper() + name.mid( 1 );
 
     MetaElement book_meta;
-    book_meta.name = name;
+    book_meta.name  = name;
     book_meta.value = value;
 
     return book_meta;
@@ -356,15 +344,13 @@ Metadata::MetaElement Metadata::CreateContribMetadata( const Metadata::MetaEleme
 // Converts dc:date metadata to book internal metadata
 Metadata::MetaElement Metadata::DateMetadata( const Metadata::MetaElement &meta )
 {
-    QStringList eventList;
-    eventList << "creation" << "publication" << "modification";
-
     QString name     = meta.name;
     QString dc_event = meta.attributes.value( "event" );
 
-    name = "Date of publication";  // default
+    // This is the default
+    name = "Date of publication";  
 
-    if ( eventList.contains( dc_event ) )
+    if ( EVENT_LIST.contains( dc_event ) )
     
         name = "Date of " + dc_event;
 
@@ -388,7 +374,7 @@ Metadata::MetaElement Metadata::DateMetadata( const Metadata::MetaElement &meta 
                             date_parts[ 2 ].toInt() );
 
     MetaElement book_meta;
-    book_meta.name = name;
+    book_meta.name  = name;
     book_meta.value = value;
 
     return book_meta;
@@ -398,14 +384,11 @@ Metadata::MetaElement Metadata::DateMetadata( const Metadata::MetaElement &meta 
 // Converts dc:identifier metadata to book internal metadata
 Metadata::MetaElement Metadata::IdentifierMetadata( const Metadata::MetaElement &meta )
 {
-    QStringList schemeList;
-    schemeList << "ISBN" << "ISSN" << "DOI" << "CustomID"; 
-
-    QString scheme = meta.attributes.value("scheme");
+    QString scheme = meta.attributes.value( "scheme" );
 
     MetaElement book_meta;
 
-    if ( schemeList.contains( scheme ) )
+    if ( SCHEME_LIST.contains( scheme ) )
     {
         book_meta.name = scheme;
         book_meta.value = meta.value;
