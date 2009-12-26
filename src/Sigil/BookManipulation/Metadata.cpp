@@ -27,6 +27,12 @@ static const QString PATH_TO_LANGUAGES  = ":/data/languages.csv";
 static const QString PATH_TO_BASICMETA  = ":/data/basicmeta.csv";
 static const QString PATH_TO_RELATORS   = ":/data/relator.csv";
 
+static const QStringList EVENT_LIST           = QStringList() << "creation" << "publication" << "modification";
+static const QStringList MODIFICATION_ALIASES = QStringList() << "modified" << "modification";
+static const QStringList CREATION_ALIASES     = QStringList() << "created"  << "creation";
+static const QStringList PUBLICATION_ALIASES  = QStringList() << "issued"   << "published" << "publication";
+static const QStringList SCHEME_LIST          = QStringList() << "ISBN" << "ISSN" << "DOI" << "CustomID";
+
 
 Metadata & Metadata::Instance()
 {
@@ -224,32 +230,25 @@ Metadata::MetaElement Metadata::HtmlToOpfDC( const Metadata::MetaElement &meta )
     
     QString dc_event;
 
-    if ( ( name == "modifed" ) || ( refinement == "modified" ) )
+    if ( MODIFICATION_ALIASES.contains( name ) || MODIFICATION_ALIASES.contains( refinement ) )
     {
         name     = "date";
         dc_event = "modification";
     }
 
-    else if ( ( name == "created" ) || ( refinement == "created" ) ) 
+    else if ( CREATION_ALIASES.contains( name ) || CREATION_ALIASES.contains( refinement ) ) 
     {
         name     = "date";
         dc_event = "creation";
     }
 
-    else if ( ( name == "issued"    ) || ( refinement == "issued"    ) ||
-              ( name == "published" ) || ( refinement == "published" )  
-            )
+    else if ( PUBLICATION_ALIASES.contains( name ) || PUBLICATION_ALIASES.contains( refinement ) )
     {
         name     = "date";
         dc_event = "publication";
     }
 
-    QString role;
-
-    if ( ( name == "creator" ) || ( name == "contributor" ) ) 
-
-        role = refinement;
-
+    QString role   = ( name == "creator" ) || ( name == "contributor" ) ? refinement : QString();
     QString scheme = meta.attributes.value( "scheme" );
 
     if ( ( name == "identifier" ) && ( scheme.isEmpty() ) )
@@ -258,12 +257,9 @@ Metadata::MetaElement Metadata::HtmlToOpfDC( const Metadata::MetaElement &meta )
 
     if ( !scheme.isEmpty() )
     {
-        QStringList scheme_list;
-        scheme_list << "ISBN" << "ISSN" << "DOI" << "CustomID";
+        if ( SCHEME_LIST.contains( scheme, Qt::CaseInsensitive ) )
 
-        if ( scheme_list.contains( scheme, Qt::CaseInsensitive ) )
-
-            scheme = scheme_list.filter( scheme, Qt::CaseInsensitive )[ 0 ];
+            scheme = SCHEME_LIST.filter( scheme, Qt::CaseInsensitive )[ 0 ];
     }
 
     MetaElement opf_meta;
@@ -348,15 +344,13 @@ Metadata::MetaElement Metadata::CreateContribMetadata( const Metadata::MetaEleme
 // Converts dc:date metadata to book internal metadata
 Metadata::MetaElement Metadata::DateMetadata( const Metadata::MetaElement &meta )
 {
-    QStringList eventList = QStringList() << "creation" << "publication" << "modification";
-
     QString name     = meta.name;
     QString dc_event = meta.attributes.value( "event" );
 
     // This is the default
     name = "Date of publication";  
 
-    if ( eventList.contains( dc_event ) )
+    if ( EVENT_LIST.contains( dc_event ) )
     
         name = "Date of " + dc_event;
 
@@ -390,13 +384,11 @@ Metadata::MetaElement Metadata::DateMetadata( const Metadata::MetaElement &meta 
 // Converts dc:identifier metadata to book internal metadata
 Metadata::MetaElement Metadata::IdentifierMetadata( const Metadata::MetaElement &meta )
 {
-    QStringList schemeList = QStringList() << "ISBN" << "ISSN" << "DOI" << "CustomID"; 
-
-    QString scheme = meta.attributes.value("scheme");
+    QString scheme = meta.attributes.value( "scheme" );
 
     MetaElement book_meta;
 
-    if ( schemeList.contains( scheme ) )
+    if ( SCHEME_LIST.contains( scheme ) )
     {
         book_meta.name = scheme;
         book_meta.value = meta.value;
