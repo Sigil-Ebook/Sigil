@@ -63,7 +63,7 @@ void Searchable::RunSearchRegex(    QRegExp &search_regex,
 // Accepts a list of text capture groups and a replacement string,
 // and returns a new replacement string with capture group references
 // replaced with capture group contents.
-QString Searchable::FillWithCapturedTexts( const QStringList captured_texts, const QString &replacement )
+QString Searchable::FillWithCapturedTexts( const QStringList &captured_texts, const QString &replacement )
 {
     QString filled_string( replacement );
 

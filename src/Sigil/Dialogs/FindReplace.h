@@ -27,7 +27,7 @@
 #include "ui_FindReplace.h"
 #include "../ViewEditors/Searchable.h"
 
-class MainWindow;
+class TabManager;
 class QRegExp;
 
 class FindReplace : public QDialog
@@ -40,7 +40,7 @@ public:
     // the first argument specifies which tab to load first;
     // the second argument is the MainWindow that created the dialog;
     // the third argument is the widget's parent.
-    FindReplace( bool find_tab, const MainWindow &mainwindow, QWidget *parent = 0 );
+    FindReplace( bool find_tab, TabManager &tabmanager, QWidget *parent = 0 );
 
     // Destructor
     ~FindReplace();
@@ -120,7 +120,7 @@ private:
 
     // A const reference to the mainwindow that
     // spawned this dialog. Needed for searching.
-    const MainWindow &m_MainWindow;
+    TabManager &m_TabManager;
 
     // Holds all the widgets Qt Designer created for us
     Ui::FindReplace ui;

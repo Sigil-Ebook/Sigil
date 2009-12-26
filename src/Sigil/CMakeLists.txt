@@ -46,18 +46,28 @@ set( QOBJECT_HEADERS
     ViewEditors/BookViewEditor.h
     ViewEditors/CodeViewEditor.h 
     Dialogs/TOCEditor.h 
-    MainWindow.h
     Dialogs/MetaEditor.h
     Dialogs/FindReplace.h
+    MainUi/MainWindow.h
+    MainUI/TabManager.h
+    MainUI/ContentTab.h 
+    MainUI/FlowTab.h     
+    MainUI/BookBrowser.h
+    MainUI/OPFModel.h
     Misc/AppEventFilter.h
     Misc/UpdateChecker.h 
+    ResourceObjects/Resource.h
+    ResourceObjects/TextResource.h
+    ResourceObjects/HTMLResource.h
+    ResourceObjects/CSSResource.h
+    ResourceObjects/XPGTResource.h
+    ResourceObjects/ImageResource.h
+    ResourceObjects/FontResource.h
     )
 
 set( MAIN_FILES
     constants.h
     main.cpp
-    MainWindow.cpp
-    MainWindow.h
     )
     
 set( BOOK_MANIPULATION_FILES 
@@ -76,7 +86,24 @@ set( BOOK_MANIPULATION_FILES
     BookManipulation/SigilMarkup.cpp
     BookManipulation/SigilMarkup.h
     BookManipulation/XHTMLDoc.cpp
-    BookManipulation/XHTMLDoc.h  
+    BookManipulation/XHTMLDoc.h
+    )
+
+set( RESOURCE_OBJECT_FILES
+    ResourceObjects/Resource.cpp
+    ResourceObjects/Resource.h
+    ResourceObjects/TextResource.cpp
+    ResourceObjects/TextResource.h
+    ResourceObjects/HTMLResource.cpp
+    ResourceObjects/HTMLResource.h
+    ResourceObjects/CSSResource.cpp
+    ResourceObjects/CSSResource.h
+    ResourceObjects/XPGTResource.cpp
+    ResourceObjects/XPGTResource.h
+    ResourceObjects/ImageResource.cpp
+    ResourceObjects/ImageResource.h
+    ResourceObjects/FontResource.cpp
+    ResourceObjects/FontResource.h
     )
         
 set( DIALOG_FILES
@@ -144,6 +171,22 @@ set( VIEW_EDITOR_FILES
     ViewEditors/Searchable.h  
     ViewEditors/ViewEditor.h     
     )
+    
+set( MAINUI_FILES 
+    MainUI/TabManager.cpp
+    MainUI/TabManager.h
+    MainUI/FlowTab.cpp
+    MainUI/FlowTab.h 
+    MainUI/ContentTab.cpp
+    MainUI/ContentTab.h 
+    MainUI/MainWindow.cpp
+    MainUI/MainWindow.h
+    MainUI/BookBrowser.cpp
+    MainUI/BookBrowser.h
+    MainUI/OPFModel.cpp
+    MainUI/OPFModel.h
+    )
+
             
 set( UI_FILES   
     Form_Files/main.ui 
@@ -162,8 +205,8 @@ set( QRC_FILES
     Resource_Files/icon/icon.qrc  
     )
     
-set( RAW_SOURCES ${MAIN_FILES} ${BOOK_MANIPULATION_FILES} ${DIALOG_FILES} ${EXPORTER_FILES}
-                 ${IMPORTER_FILES} ${MISC_FILES} ${VIEW_EDITOR_FILES} )
+set( RAW_SOURCES ${MAIN_FILES} ${BOOK_MANIPULATION_FILES} ${RESOURCE_OBJECT_FILES} ${DIALOG_FILES} ${EXPORTER_FILES}
+                 ${IMPORTER_FILES} ${MISC_FILES} ${VIEW_EDITOR_FILES} ${MAINUI_FILES} )
 
 # Runs MOC on specifed files
 qt4_wrap_cpp( MOC_FILES_CPP ${QOBJECT_HEADERS} )
@@ -236,13 +279,15 @@ endif()
 # Adds folders for Visual Studio solution explorer (and for Xcode explorer)
 source_group( "Generated"         FILES ${MOC_FILES_CPP} ${UI_FILES_H} ${QRC_FILES_CPP} )
 source_group( "Forms"             FILES ${UI_FILES} )
-source_group( "Resources"         FILES ${QRC_FILES} )
+source_group( "Resource Files"    FILES ${QRC_FILES} )
 source_group( "Book Manipulation" FILES ${BOOK_MANIPULATION_FILES} )
+source_group( "Resource Objects"  FILES ${RESOURCE_OBJECT_FILES} )
 source_group( "Dialogs"           FILES ${DIALOG_FILES} )
 source_group( "Exporters"         FILES ${EXPORTER_FILES} )
 source_group( "Importers"         FILES ${IMPORTER_FILES} )
 source_group( "Misc"              FILES ${MISC_FILES} )
 source_group( "View Editors"      FILES ${VIEW_EDITOR_FILES} )
+source_group( "MainUI"            FILES ${MAINUI_FILES} )
 source_group( "Main Files"        FILES ${MAIN_FILES} )
 
 set( ALL_SOURCES ${RAW_SOURCES} ${MOC_FILES_CPP} ${UI_FILES_H} ${QRC_FILES_CPP} )
@@ -273,7 +318,7 @@ endif()
 
 # We need to pick up the stdafx.h file, the ui*.h files,
 # and the headers for the linked-to libraries
-include_directories( ${CMAKE_CURRENT_BINARY_DIR} ${CMAKE_CURRENT_SOURCE_DIR} ../ZipArchive ../tidyLib )
+include_directories( ${CMAKE_CURRENT_BINARY_DIR} ${CMAKE_CURRENT_SOURCE_DIR} ../ZipArchive ../tidyLib ../BoostParts )
 
 link_directories ( ${PROJECT_BINARY_DIR}/lib ) 
 
@@ -286,7 +331,7 @@ else()
     add_executable( ${PROJECT_NAME} ${ALL_SOURCES} )
 endif()
 
-target_link_libraries( ${PROJECT_NAME} tidyLib ZipArchive ${QT_LIBRARIES} )
+target_link_libraries( ${PROJECT_NAME} tidyLib ZipArchive BoostParts ${QT_LIBRARIES} )
 
 # "Link time code generation" flags for MSVC
 if( MSVC )

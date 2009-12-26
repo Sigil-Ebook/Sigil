@@ -69,9 +69,9 @@ CodeViewEditor::CodeViewEditor( QWidget *parent )
 }
 
 // Sets the content of the View to the specified book
-void CodeViewEditor::SetBook( const Book &book )
+void CodeViewEditor::SetContent( const QString &source, const QUrl &base_url )
 {
-    setPlainText( book.source );
+    setPlainText( source );
 }
 
 
@@ -544,7 +544,7 @@ bool CodeViewEditor::ExecuteCaretUpdate()
     CodeViewEditor::CaretMove caret_move = ConvertHierarchyToCaretMove( m_CaretUpdate );
 
     cursor.movePosition( QTextCursor::NextBlock, QTextCursor::MoveAnchor, caret_move.vertical_lines );
-    cursor.movePosition( QTextCursor::Left     , QTextCursor::MoveAnchor, caret_move.horizontal_chars );
+    cursor.movePosition( QTextCursor::Left,      QTextCursor::MoveAnchor, caret_move.horizontal_chars );
 
     m_CaretUpdate.clear();
 
