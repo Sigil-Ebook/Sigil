@@ -25,6 +25,7 @@
 
 #include <QTabWidget>
 #include <QWeakPointer>
+#include <QUrl>
 
 class ContentTab;
 class Resource;
@@ -41,11 +42,13 @@ public:
 
 public slots:
 
-    void OpenResource( Resource& resource );
+    void OpenResource( Resource& resource, const QUrl &fragment_reference = QUrl() );
 
 signals:
 
     void TabChanged( ContentTab* old_tab, ContentTab* new_tab );
+
+    void OpenUrlRequest( const QUrl &url );
 
 private slots:
 

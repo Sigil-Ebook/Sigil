@@ -344,6 +344,46 @@ QString Utility::ConvertLineEndings( const QString &text )
 }
 
 
+void Utility::DisplayStdErrorDialog( const QString &error_info )
+{
+    QMessageBox message_box;
+    //message_box.setTextFormat( Qt::PlainText );
+    message_box.setIcon( QMessageBox::Critical );
+    message_box.setWindowTitle( "Sigil" );
+
+    // Spaces are added to the end because otherwise the dialog is too small.
+    message_box.setText( QObject::tr( "Sigil has encountered a problem.               " ) );
+    message_box.setInformativeText( QObject::tr( "Please <a href=\"http://code.google.com/p/sigil/wiki/ReportingIssues\">report it</a> " 
+                                    "on the issue tracker, including the details from this dialog." ) );
+
+    message_box.setStandardButtons( QMessageBox::Close );
+
+    QStringList detailed_text;
+    detailed_text << "Error info: "    + error_info
+                  << "Sigil version: " + QString( SIGIL_FULL_VERSION )
+                  << "Runtime Qt: "    + QString( qVersion() )
+                  << "Compiled Qt: "   + QString( QT_VERSION_STR );
+
+#ifdef Q_WS_WIN
+    detailed_text << "Platform: Windows SysInfo ID " + QString::number( QSysInfo::WindowsVersion );
+#elif Q_WS_MAC
+    detailed_text << "Platform: Mac SysInfo ID " + QString::number( QSysInfo::MacintoshVersion);
+#else
+    detailed_text << "Platform: Linux";
+#endif
+
+    message_box.setDetailedText( detailed_text.join( "\n" ) );
+
+    message_box.exec();
+}
+
+
+QString Utility::GetExceptionInfo( const ExceptionBase &exception )
+{
+    return QString::fromStdString( diagnostic_information( exception ) );
+}
+
+
 // Returns a value for the environment variable name passed;
 // if the env var isn't set, it returns an empty string
 QString Utility::GetEnvironmentVar( const QString &variable_name )
@@ -505,5 +545,6 @@ bool Utility::IsValidUtf8( const QByteArray &string )
 
     return true;
 }
+
 
 

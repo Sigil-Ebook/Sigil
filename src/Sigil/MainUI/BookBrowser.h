@@ -30,6 +30,7 @@ class OPFModel;
 class Book;
 class Resource;
 class QModelIndex;
+class QUrl;
 
 class BookBrowser : public QDockWidget
 {
@@ -43,9 +44,13 @@ public slots:
 
     void SetBook( Book &book );
 
+    void OpenUrlResource( const QUrl &url );
+
 signals:
 
     void ResourceDoubleClicked( Resource &resource );
+
+    void OpenResourceRequest( Resource &resource );
 
 private slots:
 

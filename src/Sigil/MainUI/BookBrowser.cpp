@@ -77,11 +77,25 @@ void BookBrowser::SetBook( Book &book )
     // so that we have a default first tab opened
 }
 
+void BookBrowser::OpenUrlResource( const QUrl &url )
+{
+    try
+    {
+        emit OpenResourceRequest( m_Book->mainfolder.GetResourceByFilename( QFileInfo( url.path() ).fileName() ) );
+    }
+
+    catch ( const ExceptionBase &exception )
+    {
+        Utility::DisplayStdErrorDialog( Utility::GetExceptionInfo( exception ) );
+    }       
+}
+
+
 void BookBrowser::EmitResourceDoubleClicked( const QModelIndex &index )
 {
     QString identifier( m_OPFModel.itemFromIndex( index )->data().toString() );  
 
     if ( !identifier.isEmpty() )
 
-        emit ResourceDoubleClicked( m_Book->mainfolder.GetResource( identifier ) );
+        emit ResourceDoubleClicked( m_Book->mainfolder.GetResourceByIdentifier( identifier ) );
 }

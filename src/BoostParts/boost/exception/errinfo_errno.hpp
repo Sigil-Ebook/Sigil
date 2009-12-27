@@ -10,6 +10,9 @@
 #include <errno.h>
 #include <string.h>
 
+// Disable the MSVC "strerror" deprecation warning
+#pragma warning( disable : 4996 ) 
+
 namespace
 boost
     {

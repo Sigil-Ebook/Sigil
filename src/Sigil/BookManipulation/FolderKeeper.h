@@ -59,7 +59,13 @@ public:
 
     QList< Resource* > GetResourceList() const;
 
-    Resource& GetResource( const QString &identifier ) const;
+    Resource& GetResourceByIdentifier( const QString &identifier ) const;
+
+    // NOTE THAT RESOURCE FILENAMES CAN CHANGE,
+    // while identifiers don't. Also, retrieving 
+    // resources by identifier is O(1), this is O(n).
+    // (and a very slow O(n) since we query the filesystem)
+    Resource& GetResourceByFilename( const QString &filename ) const;
 
     // Returns the full path to the main folder of the publication
     QString GetFullPathToMainFolder() const;	

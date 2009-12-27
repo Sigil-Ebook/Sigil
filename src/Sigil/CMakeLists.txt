@@ -67,6 +67,7 @@ set( QOBJECT_HEADERS
 
 set( MAIN_FILES
     constants.h
+    exception.h
     main.cpp
     )
     

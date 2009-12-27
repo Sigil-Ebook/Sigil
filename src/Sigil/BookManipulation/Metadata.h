@@ -54,7 +54,7 @@ public:
 
     static Metadata& Instance();
 
-    const QMap< QString, QString >& GetLanguageMap();
+    const QMap< QString, QString >&  GetLanguageMap();
     const QMap< QString, MetaInfo >& GetRelatorMap();
     const QMap< QString, MetaInfo >& GetBasicMetaMap();
     const QHash< QString, QString >& GetFullRelatorNameHash();

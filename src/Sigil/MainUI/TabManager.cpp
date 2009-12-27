@@ -45,7 +45,7 @@ ContentTab& TabManager::GetCurrentContentTab()
     return *qobject_cast< ContentTab* >( currentWidget() );
 }
 
-void TabManager::OpenResource( Resource& resource )
+void TabManager::OpenResource( Resource& resource, const QUrl &fragment_reference )
 {
     int resource_index = ResourceTabIndex( resource );
 
@@ -57,8 +57,14 @@ void TabManager::OpenResource( Resource& resource )
         return;
     }
 
-    ContentTab *tab = resource.Type() == Resource::HTMLResource ? new FlowTab( resource, this ) :
-                      NULL;
+    ContentTab *tab = NULL;
+    
+    if ( resource.Type() == Resource::HTMLResource )
+    {
+        tab = new FlowTab( resource, this );
+    
+        connect( tab, SIGNAL( LinkClicked( const QUrl& ) ), this, SIGNAL( OpenUrlRequest( const QUrl& ) ) );
+    }
 
     // TODO: loading bar update
 

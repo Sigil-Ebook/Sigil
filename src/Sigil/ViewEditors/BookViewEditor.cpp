@@ -45,11 +45,11 @@ BookViewEditor::BookViewEditor( QWidget *parent )
     m_isLoadFinished( false ),
     m_PageUp(   *( new QShortcut( QKeySequence( QKeySequence::MoveToPreviousPage ), this ) ) ),
     m_PageDown( *( new QShortcut( QKeySequence( QKeySequence::MoveToNextPage     ), this ) ) ),
-    m_ScrollOneLineUp( *(   new QShortcut( QKeySequence( Qt::ControlModifier + Qt::Key_Up   ), this ) ) ),
+    m_ScrollOneLineUp(   *( new QShortcut( QKeySequence( Qt::ControlModifier + Qt::Key_Up   ), this ) ) ),
     m_ScrollOneLineDown( *( new QShortcut( QKeySequence( Qt::ControlModifier + Qt::Key_Down ), this ) ) )
 {
     QWebSettings &settings = *QWebSettings::globalSettings();
-    settings.setAttribute( QWebSettings::LocalContentCanAccessRemoteUrls,  true );
+    settings.setAttribute( QWebSettings::LocalContentCanAccessRemoteUrls,  false );
     settings.setAttribute( QWebSettings::JavascriptCanAccessClipboard,     true );
 
     connect( &m_PageUp,            SIGNAL( activated() ),          this, SLOT( PageUp()                   ) );
@@ -59,6 +59,9 @@ BookViewEditor::BookViewEditor( QWidget *parent )
     connect( page(),               SIGNAL( contentsChanged() ),    this, SIGNAL( textChanged()            ) );
     connect( page(),               SIGNAL( loadFinished( bool ) ), this, SLOT( JavascriptOnDocumentLoad() ) );
     connect( page(),               SIGNAL( loadProgress( int ) ),  this, SLOT( UpdateFinishedState( int ) ) );
+
+    connect( page(),         SIGNAL( linkClicked( const QUrl& ) ),
+             this->parent(), SIGNAL( LinkClicked( const QUrl& ) ) );
 }
 
 
@@ -71,7 +74,7 @@ void BookViewEditor::SetContent( const QString &source, const QUrl &base_url )
 
     // TODO: we kill external links; a dialog should be used
     // that asks the user if he wants to open this external link in a browser
-    page()->setLinkDelegationPolicy( QWebPage::DelegateExternalLinks );
+    page()->setLinkDelegationPolicy( QWebPage::DelegateAllLinks );
 }
 
 

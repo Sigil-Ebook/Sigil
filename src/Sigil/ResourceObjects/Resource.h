@@ -71,8 +71,6 @@ signals:
 
 protected:
 
-    Q_DISABLE_COPY( Resource )
-
     QString m_Identifier;
 
     QString m_FullFilePath;

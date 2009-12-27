@@ -30,6 +30,7 @@ class BookViewEditor;
 class CodeViewEditor;
 class ViewEditor;
 class HTMLResource;
+class QUrl;
 
 class FlowTab : public ContentTab
 {
@@ -159,9 +160,11 @@ signals:
 
     void ContentChanged();
 
-    void ZoomFactorChanged( float );
+    void ZoomFactorChanged( float factor );
 
     void SelectionChanged();
+
+    void LinkClicked( const QUrl &url );
 
 private slots:
 

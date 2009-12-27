@@ -43,11 +43,13 @@ const QString TEXT_FOLDER_NAME  = "Text";
 const QString STYLE_FOLDER_NAME = "Styles";
 const QString MISC_FOLDER_NAME  = "Misc";
 
+typedef boost::error_info< struct resource_name, std::string > errinfo_resource_name;
+
 
 // Constructor
 FolderKeeper::FolderKeeper()
 {
-    Initialize();	
+    Initialize();
 }
 
 
@@ -226,9 +228,21 @@ QStringList FolderKeeper::GetContentFilesList() const
     return filelist;
 }
 
-Resource& FolderKeeper::GetResource( const QString &identifier ) const
+Resource& FolderKeeper::GetResourceByIdentifier( const QString &identifier ) const
 {
     return *m_Resources[ identifier ];
+}
+
+Resource& FolderKeeper::GetResourceByFilename( const QString &filename ) const
+{
+    foreach( Resource *resource, m_Resources.values() )
+    {
+        if ( resource->Filename() == filename )
+
+            return *resource;
+    }
+
+    boost_throw( ResourceDoesNotExist() << errinfo_resource_name( filename.toStdString() ) );
 }
 
 

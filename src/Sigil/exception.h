@@ -19,10 +19,15 @@
 **
 *************************************************************************/
 
-#include <QtGui>
-#include <QtWebKit>
-#include <boost/tuple/tuple.hpp>
-#include "constants.h"
-#include "exception.h"
+#include <boost/exception/all.hpp>
 
+#define boost_throw(x) BOOST_THROW_EXCEPTION(x)
 
+// Sigil uses the "Exception types as semantic tags" idiom.
+// For more information, see this link:
+//   http://www.boost.org/doc/libs/1_41_0/libs/exception/doc/exception_types_as_simple_semantic_tags.html
+
+// The common base for all exception
+struct ExceptionBase: virtual std::exception, virtual boost::exception {};
+
+struct ResourceDoesNotExist : virtual ExceptionBase {};
