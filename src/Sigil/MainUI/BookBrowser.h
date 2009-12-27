@@ -50,7 +50,7 @@ signals:
 
     void ResourceDoubleClicked( Resource &resource );
 
-    void OpenResourceRequest( Resource &resource );
+    void OpenResourceRequest( Resource &resource, const QUrl &fragment );
 
 private slots:
 

@@ -100,8 +100,13 @@ int main( int argc, char *argv[] )
 {
     QT_REQUIRE_VERSION( argc, argv, "4.6.0" );
 
+#ifndef QT_DEBUG
     qInstallMsgHandler( MessageHandler );
+#endif
+    
     QApplication app( argc, argv );
+
+    qDebug();
 
     try
     {
@@ -119,9 +124,9 @@ int main( int argc, char *argv[] )
         // We set the window icon explicitly on Linux.
         // On Windows this is handled by the RC file,
         // and on Mac by the ICNS file.
-     #ifdef Q_WS_X11
+    #ifdef Q_WS_X11
         app.setWindowIcon( GetApplicationIcon() );
-     #endif
+    #endif
 
         // We write the full path to Sigil's executable
         // in a file in the home folder for calibre interoperability

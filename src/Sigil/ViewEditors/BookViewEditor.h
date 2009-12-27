@@ -55,6 +55,10 @@ public:
     // Workaround for a crappy setFocus implementation for Webkit
     void GrabFocus();
 
+    void ScrollToFragment( const QString &fragment );
+
+    void ScrollToFragmentAfterLoad( const QString &fragment );
+
     // Implements the "formatBlock" execCommand because
     // WebKit's default one has bugs.
     // It takes an element name as an argument (e.g. "p"),

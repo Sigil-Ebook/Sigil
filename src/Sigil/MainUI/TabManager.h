@@ -42,7 +42,7 @@ public:
 
 public slots:
 
-    void OpenResource( Resource& resource, const QUrl &fragment_reference = QUrl() );
+    void OpenResource( Resource& resource, const QUrl &fragment= QUrl() );
 
 signals:
 
@@ -61,6 +61,12 @@ private slots:
 private:
 
     int ResourceTabIndex( const Resource& resource ) const;
+
+    bool SwitchedToExistingTab( Resource& resource, const QUrl &fragment );
+
+    ContentTab* CreateTabForResource( Resource& resource, const QUrl &fragment );
+
+    bool AddNewContentTab( ContentTab *new_tab );
 
     QWeakPointer< ContentTab > m_LastContentTab;
 };

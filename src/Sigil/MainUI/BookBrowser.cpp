@@ -24,6 +24,7 @@
 #include "OPFModel.h"
 #include "../BookManipulation/Book.h"
 #include <QTreeView>
+#include "../Misc/Utility.h"
 
 // We will add a few spaces to the front so the title isn't
 // glued to the widget side when it's docked. Ugly, but works.
@@ -81,7 +82,9 @@ void BookBrowser::OpenUrlResource( const QUrl &url )
 {
     try
     {
-        emit OpenResourceRequest( m_Book->mainfolder.GetResourceByFilename( QFileInfo( url.path() ).fileName() ) );
+        Resource &resource = m_Book->mainfolder.GetResourceByFilename( QFileInfo( url.path() ).fileName() );
+
+        emit OpenResourceRequest( resource, url.fragment() );
     }
 
     catch ( const ExceptionBase &exception )

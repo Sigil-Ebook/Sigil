@@ -1189,8 +1189,8 @@ void MainWindow::ConnectSignalsToSlots()
     connect( m_BookBrowser, SIGNAL( ResourceDoubleClicked( Resource& ) ),
              &m_TabManager, SLOT(   OpenResource(          Resource& ) ) );
 
-    connect( m_BookBrowser, SIGNAL( OpenResourceRequest( Resource& ) ),
-            &m_TabManager,  SLOT(   OpenResource(        Resource& ) ) );
+    connect( m_BookBrowser, SIGNAL( OpenResourceRequest( Resource&, const QUrl& ) ),
+            &m_TabManager,  SLOT(   OpenResource(        Resource&, const QUrl& ) ) );
     
     connect( &m_TabManager, SIGNAL( OpenUrlRequest( const QUrl& ) ),
              m_BookBrowser, SLOT(  OpenUrlResource( const QUrl& ) ) );

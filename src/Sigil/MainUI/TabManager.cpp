@@ -45,35 +45,15 @@ ContentTab& TabManager::GetCurrentContentTab()
     return *qobject_cast< ContentTab* >( currentWidget() );
 }
 
-void TabManager::OpenResource( Resource& resource, const QUrl &fragment_reference )
+void TabManager::OpenResource( Resource& resource, const QUrl &fragment )
 {
-    int resource_index = ResourceTabIndex( resource );
+    if ( SwitchedToExistingTab( resource, fragment ) )
 
-    // If the resource is already opened in
-    // some tab, then we just switch to it
-    if ( resource_index != -1 )
-    {
-        setCurrentIndex( resource_index );
-        return;
-    }
+        return;    
 
-    ContentTab *tab = NULL;
-    
-    if ( resource.Type() == Resource::HTMLResource )
-    {
-        tab = new FlowTab( resource, this );
-    
-        connect( tab, SIGNAL( LinkClicked( const QUrl& ) ), this, SIGNAL( OpenUrlRequest( const QUrl& ) ) );
-    }
+    AddNewContentTab( CreateTabForResource( resource, fragment ) );
 
-    // TODO: loading bar update
-
-    if ( tab != NULL )
-    {
-        addTab( tab, tab->GetIcon(), tab->GetFilename() );
-        setCurrentWidget( tab );
-        connect( tab, SIGNAL( DeleteMe( ContentTab* ) ), this, SLOT( DeleteTab( ContentTab* ) ) );
-    }       
+    // TODO: loading bar update    
 }
 
 
@@ -125,3 +105,55 @@ int TabManager::ResourceTabIndex( const Resource& resource ) const
 
     return index;
 }
+
+
+bool TabManager::SwitchedToExistingTab( Resource& resource, const QUrl &fragment )
+{
+    int resource_index = ResourceTabIndex( resource );
+
+    // If the resource is already opened in
+    // some tab, then we just switch to it
+    if ( resource_index != -1 )
+    {
+        setCurrentIndex( resource_index );
+
+        FlowTab *flow_tab = qobject_cast< FlowTab* >( widget( resource_index ) );
+
+        if ( flow_tab != NULL )
+
+            flow_tab->ScrollToFragment( fragment.toString() );
+
+        return true;
+    }
+
+    return false;
+}
+
+
+ContentTab* TabManager::CreateTabForResource( Resource& resource, const QUrl &fragment )
+{
+    ContentTab *tab = NULL;
+
+    if ( resource.Type() == Resource::HTMLResource )
+    {
+        tab = new FlowTab( resource, fragment, this );
+
+        connect( tab, SIGNAL( LinkClicked( const QUrl& ) ), this, SIGNAL( OpenUrlRequest( const QUrl& ) ) );
+    }
+
+    return tab;    
+}
+
+bool TabManager::AddNewContentTab( ContentTab *new_tab )
+{
+    if ( new_tab == NULL )
+
+        return false;
+
+    addTab( new_tab, new_tab->GetIcon(), new_tab->GetFilename() );
+    setCurrentWidget( new_tab );
+    connect( new_tab, SIGNAL( DeleteMe( ContentTab* ) ), this, SLOT( DeleteTab( ContentTab* ) ) );
+
+    return true;
+}   
+

@@ -38,7 +38,7 @@ class FlowTab : public ContentTab
 
 public:
 
-    FlowTab( Resource& resource, QWidget *parent = 0 );
+    FlowTab( Resource& resource, const QUrl &fragment, QWidget *parent = 0 );
 
     // Overrides inherited from ContentTab
     bool IsModified();
@@ -72,6 +72,8 @@ public:
     float GetZoomFactor();
 
     void SetZoomFactor( float new_zoom_factor );
+
+    void ScrollToFragment( const QString &fragment );
 
 public slots:
 

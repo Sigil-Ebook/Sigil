@@ -26,13 +26,14 @@
 #include "../ViewEditors/CodeViewEditor.h"
 #include "../ViewEditors/BookViewEditor.h"
 #include "../ResourceObjects/HTMLResource.h"
+#include <QUrl>
 
 static const QString SETTINGS_GROUP = "flowtab";
 
 QString FlowTab::s_LastFolderImage = QString();
 
 
-FlowTab::FlowTab( Resource& resource, QWidget *parent )
+FlowTab::FlowTab( Resource& resource, const QUrl &fragment, QWidget *parent )
     : 
     ContentTab( resource, parent ),
     m_HTMLResource( *( qobject_cast< HTMLResource* >( &resource ) ) ),
@@ -56,6 +57,8 @@ FlowTab::FlowTab( Resource& resource, QWidget *parent )
     m_wCodeView.SetContent( m_Source, m_HTMLResource.GetBaseUrl() );
 
     BookView();
+
+    m_wBookView.ScrollToFragmentAfterLoad( fragment.toString() );
 }
 
 
@@ -182,6 +185,14 @@ void FlowTab::SetZoomFactor( float new_zoom_factor )
     {
         m_wCodeView.SetZoomFactor( new_zoom_factor );
     } 
+}
+
+
+void FlowTab::ScrollToFragment( const QString &fragment )
+{   
+    if ( m_wBookView.isVisible() )
+
+        m_wBookView.ScrollToFragment( fragment );
 }
 
 
@@ -799,3 +810,4 @@ void FlowTab::ConnectSignalsToSlots()
 
     connect( qApp, SIGNAL( focusChanged( QWidget*, QWidget* ) ), this, SLOT( FocusFilter( QWidget*, QWidget* ) ) );
 }
+

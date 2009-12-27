@@ -123,12 +123,41 @@ void BookViewEditor::GrabFocus()
 }
 
 
+void BookViewEditor::ScrollToFragment( const QString &fragment )
+{
+    if ( fragment.isEmpty() )
+
+        return;
+
+    QString javascript = "window.location.hash = \""  + fragment + "\";";
+
+    EvaluateJavascript( javascript );
+}
+
+
+void BookViewEditor::ScrollToFragmentAfterLoad( const QString &fragment )
+{
+    if ( fragment.isEmpty() )
+
+        return;
+
+    QString javascript = "window.addEventListener('load', GoToFragment, false);"
+                         "function GoToFragment() { window.location.hash = \""  + fragment + "\"; }";
+
+    EvaluateJavascript( javascript );
+}
+
+
 // Implements the "formatBlock" execCommand because
 // WebKit's default one has bugs.
 // It takes an element name as an argument (e.g. "p"),
 // and replaces the element the cursor is located in with it.
 void BookViewEditor::FormatBlock( const QString &element_name )
 {
+    if ( element_name.isEmpty() )
+
+        return;
+
     QString javascript =  "var node = document.getSelection().anchorNode;"
                           "var startNode = (node.nodeName == \"#text\" ? node.parentNode : node);"                          
                           "$(startNode).replaceWith( '<"+ element_name + ">' + $(startNode).html() + '</"+ element_name + ">' );";
@@ -739,6 +768,8 @@ void BookViewEditor::ScrollByNumPixels( int pixel_number, bool down )
 
     page()->mainFrame()->setScrollBarValue( Qt::Vertical, new_scroll_Y );
 }
+
+
 
 
 
