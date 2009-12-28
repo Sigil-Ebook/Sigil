@@ -347,42 +347,6 @@ QString Utility::GetEnvironmentVar( const QString &variable_name )
 }
 
 
-// Accepts a string with HTML and returns the text
-// in that HTML fragment. For instance: 
-//   <h1>Hello <b>Qt</b> <![CDATA[<xml is cool>]]></h1>
-// returns
-//   Hello Qt <xml is cool>
-QString Utility::GetTextInHtml( const QString &source )
-{
-    QDomDocument document;
-    document.setContent( source );
-    QDomElement document_element = document.documentElement();
-
-    return document_element.text();
-}
-
-
-// Resolves HTML entities in the provided string.
-// For instance: 
-//    Bonnie &amp; Clyde
-// returns
-//    Bonnie & Clyde
-QString Utility::ResolveHTMLEntities( const QString &text )
-{
-    // Faking some HTML... this is the easiest way to do it
-    QString newsource = "<div>" + text + "</div>";
-
-    return GetTextInHtml( newsource );
-}
-
-
-QString Utility::GetEntityEscapedString( const QString &text )
-{
-    QString new_text( text );
-    return new_text.replace( "&", "&amp;" ).replace( "<", "&lt;" ).replace( ">", "&gt;" );
-}
-
-
 // Returns the same number, but rounded to one decimal place
 float Utility::RoundToOneDecimal( float number )
 {

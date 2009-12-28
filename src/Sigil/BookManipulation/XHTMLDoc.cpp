@@ -22,6 +22,7 @@
 #include <stdafx.h>
 #include "XHTMLDoc.h"
 #include "../Misc/Utility.h"
+#include "../BookManipulation/CleanSource.h"
 #include <QDomDocument>
 
 static const QString XHTML_DOCTYPE = "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\"\n"
@@ -140,6 +141,34 @@ QString XHTMLDoc::GetQDomNodeAsString( const QDomNode &node )
     // We need to add the XHTML doctype so XML parsers
     // don't flake-out on HTML character entities
     return document_text.replace( xml_declaration, "\\1\n" + XHTML_DOCTYPE );     
+}
+
+
+// Accepts a string with HTML and returns the text
+// in that HTML fragment. For instance: 
+//   <h1>Hello <b>Qt</b>&nbsp;this is great</h1>
+// returns
+//   Hello Qt this is great
+QString XHTMLDoc::GetTextInHtml( const QString &source )
+{
+    QWebPage page;
+    page.mainFrame()->setHtml( source );
+
+    return page.mainFrame()->toPlainText();
+}
+
+
+// Resolves HTML entities in the provided string.
+// For instance: 
+//    Bonnie &amp; Clyde
+// returns
+//    Bonnie & Clyde
+QString XHTMLDoc::ResolveHTMLEntities( const QString &text )
+{
+    // Faking some HTML... this is the easiest way to do it
+    QString newsource = "<div>" + text + "</div>";
+
+    return GetTextInHtml( newsource );
 }
 
 

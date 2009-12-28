@@ -92,22 +92,6 @@ public:
     // Returns a value for the environment variable name passed;
     // if the env var isn't set, it returns an empty string
     static QString GetEnvironmentVar( const QString &variable_name );
-    
-    // Accepts a string with HTML and returns the text
-    // in that HTML fragment. For instance 
-    //   <h1>Hello <b>Qt</b> <![CDATA[<xml is cool>]]></h1>
-    // returns
-    //   Hello Qt <xml is cool>
-    static QString GetTextInHtml( const QString &source );
-
-    // Resolves HTML entities in the provided string.
-    // For instance: 
-    //    Bonnie &amp; Clyde
-    // returns
-    //    Bonnie & Clyde
-    static QString ResolveHTMLEntities( const QString &text );
-
-    static QString GetEntityEscapedString( const QString &text );
 
     // Returns the same number, but rounded to one decimal place
     static float RoundToOneDecimal( float number );

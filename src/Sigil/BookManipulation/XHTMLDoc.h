@@ -63,6 +63,20 @@ public:
     // that the default toString() method creates so we wrap it in this function
     static QString GetQDomNodeAsString( const QDomNode &node );
 
+    // Accepts a string with HTML and returns the text
+    // in that HTML fragment. For instance: 
+    //   <h1>Hello <b>Qt</b>&nbsp;this is great</h1>
+    // returns
+    //   Hello Qt this is great
+    static QString GetTextInHtml( const QString &source );
+
+    // Resolves HTML entities in the provided string.
+    // For instance: 
+    //    Bonnie &amp; Clyde
+    // returns
+    //    Bonnie & Clyde
+    static QString ResolveHTMLEntities( const QString &text );
+
     // Removes all the children of a node and
     // returns that same modified node back.
     // (QDomNodes objects are internally references)
