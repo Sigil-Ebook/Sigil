@@ -175,7 +175,7 @@ qt4_wrap_ui( UI_FILES_H ${UI_FILES} )
 qt4_add_resources( QRC_FILES_CPP ${QRC_FILES} )
 
 # Define the Sigil version string for use in source files
-set_source_files_properties( ${RAW_SOURCES} PROPERTIES COMPILE_DEFINITIONS SIGIL_FULL_VERSION="${SIGIL_FULL_VERSION}" )
+set_source_files_properties( Dialogs/About.cpp PROPERTIES COMPILE_DEFINITIONS SIGIL_FULL_VERSION="${SIGIL_FULL_VERSION}" )
 
 # MSVC precompiled headers cmake code
 if ( MSVC )

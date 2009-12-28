@@ -23,6 +23,7 @@
 #include "About.h"
 
 const QString VERSION_NUMBERS = "(\\d+)\\.(\\d+)\\.(\\d+)";
+const QString SIGIL_VERSION   = QString( SIGIL_FULL_VERSION );
 
 // Constructor
 About::About( QWidget *parent )
@@ -33,7 +34,7 @@ About::About( QWidget *parent )
     ui.lbLoadedQtDisplay->setText( QString( qVersion() ) );
 
     QRegExp version_number( VERSION_NUMBERS );
-    QString( SIGIL_FULL_VERSION ).indexOf( version_number );
+    QString( SIGIL_VERSION ).indexOf( version_number );
 
     QString version_text =  QString( "%1.%2.%3" )
                             .arg( version_number.cap( 1 ).toInt() )
