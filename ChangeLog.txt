@@ -1,4 +1,4 @@
-Sigil v0.1.7 <ADD DATE>
+Sigil v0.1.7 2009.12.28.
     - minor aesthetic toolbar fixes for Mac
     - fixed an issue with "&nbsp;" in headings not being converted to a space in the TOC (issue #215)
     - minor aesthetic changes to the line number area in Code View
