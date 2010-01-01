@@ -26,7 +26,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-const QString WIN_PATH_SUFFIX = "/My Documents/Sigil"; 
+const QString WIN_PATH_SUFFIX = "/Sigil"; 
 const QString NIX_PATH_SUFFIX = "/.Sigil";
 
 static const int TEMPFOLDER_NUM_RANDOM_CHARS = 10;
