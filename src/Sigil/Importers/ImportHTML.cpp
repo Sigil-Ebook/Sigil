@@ -249,9 +249,12 @@ void ImportHTML::UpdateReferenceInNode( QDomNode node, const QHash< QString, QSt
 
                 QRegExp file_match( ".*/" + QRegExp::escape( filename ) + "|" + QRegExp::escape( filename ) );
 
-                if ( file_match.exactMatch( attribute.value() ) )
+                if ( file_match.exactMatch( QUrl::fromPercentEncoding( attribute.value().toUtf8() ) ) )
+                {
+                    QByteArray encoded_url = QUrl::toPercentEncoding( updates[ old_path ], QByteArray( "/" ) );
 
-                    attribute.setValue( updates[ old_path ] );
+                    attribute.setValue( QString::fromUtf8( encoded_url.constData(), encoded_url.count() ) );
+                }
             }            
         }
     }

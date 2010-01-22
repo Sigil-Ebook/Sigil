@@ -194,8 +194,10 @@ void ImportEPUB::ReadOPF()
             // make up the publication
             else if ( opf.name() == "item" )           
             {
-                QString id      = opf.attributes().value( "", "id" ).toString(); 
-                QString href    = opf.attributes().value( "", "href" ).toString();
+                QString id   = opf.attributes().value( "", "id" ).toString(); 
+                QString href = opf.attributes().value( "", "href" ).toString();
+
+                href = QUrl::fromPercentEncoding( href.toUtf8() );
 
                 if ( !href.contains( ".ncx" ) )
                      

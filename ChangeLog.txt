@@ -1,4 +1,5 @@
-Sigil v0.1.8 <ADD DATE>
+Sigil v0.X.X <ADD DATE>
+    - fixed an issue with content file filenames using "%20" for spaces not being loaded (issue #232)
     - the temp directory used on Windows is now <Profile>/Sigil instead of <Profile>/My Documents/Sigil
     (issue #222)
 
