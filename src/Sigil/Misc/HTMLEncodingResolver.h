@@ -30,6 +30,9 @@ class HTMLEncodingResolver
 
 public:
 
+    // Accepts a full path to an HTML file.
+    // Reads the file, detects the encoding
+    // and returns the text converted to Unicode. 
     static QString ReadHTMLFile( const QString &fullfilepath );
 
 private:

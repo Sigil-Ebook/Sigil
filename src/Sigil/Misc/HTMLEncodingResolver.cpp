@@ -24,6 +24,9 @@
 #include "Utility.h"
 
 
+// Accepts a full path to an HTML file.
+// Reads the file, detects the encoding
+// and returns the text converted to Unicode. 
 QString HTMLEncodingResolver::ReadHTMLFile( const QString &fullfilepath )
 {
     QFile file( fullfilepath );
