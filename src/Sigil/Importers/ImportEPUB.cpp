@@ -117,28 +117,33 @@ void ImportEPUB::LocateOPF()
 
     QString fullpath = folder.absoluteFilePath( "container.xml" );
 
-    QDomDocument document;
-    document.setContent( Utility::ReadUnicodeTextFile( fullpath ) );
+    QXmlStreamReader container( Utility::ReadUnicodeTextFile( fullpath ) );
 
-    // Each <rootfile> element specifies the rootfile of 
-    // a single rendition of the contained publication.
-    // There is *usually* just one, and it is *usually* the OPF doc.
-    QDomNodeList root_files = document.elementsByTagName( "rootfile" );
-
-    for ( int i = 0; i < root_files.count(); ++i )
+    while ( !container.atEnd() ) 
     {
-        QDomElement element = root_files.at( i ).toElement();
+        // Get the next token from the stream
+        QXmlStreamReader::TokenType type = container.readNext();
 
-        if (  element.hasAttribute( "media-type" ) &&
-              element.attribute( "media-type" ) == OEBPS_MIMETYPE 
-           )
+        if (  type == QXmlStreamReader::StartElement && 
+              container.name() == "rootfile"
+           ) 
         {
-            m_OPFFilePath = m_ExtractedFolderPath + "/" + element.attribute( "full-path", "" );
+            if (  container.attributes().hasAttribute( "media-type" ) &&
+                  container.attributes().value( "", "media-type" ) == OEBPS_MIMETYPE 
+               )
+            {
+                m_OPFFilePath = m_ExtractedFolderPath + "/" + container.attributes().value( "", "full-path" ).toString();
 
-            // As per OCF spec, the first rootfile element
-            // with the OEBPS mimetype is considered the "main" one.
-            break;
+                // As per OCF spec, the first rootfile element
+                // with the OEBPS mimetype is considered the "main" one.
+                break;
+            }
         }
+    }
+
+    if ( container.hasError() )
+    {
+        // TODO: error handling
     }
 
     // TODO: throw exception if no appropriate OEBPS root file was found
