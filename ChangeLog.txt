@@ -1,4 +1,6 @@
 Sigil v0.X.X <ADD DATE>
+    - HTML encoding detection is now performed even on XHTML files in epub archives (per spec, 
+    they have to be UTF-8 or UTF-16, but Sigil will now handle those that aren't)
     - fixed an issue with content file filenames using "%20" for spaces not being loaded (issue #232)
     - the temp directory used on Windows is now <Profile>/Sigil instead of <Profile>/My Documents/Sigil
     (issue #222)

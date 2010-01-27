@@ -131,6 +131,8 @@ set( MISC_FILES
     Misc/Utility.h
     Misc/XHTMLHighlighter.cpp
     Misc/XHTMLHighlighter.h
+    Misc/HTMLEncodingResolver.cpp
+    Misc/HTMLEncodingResolver.h
     )
 
 set( VIEW_EDITOR_FILES

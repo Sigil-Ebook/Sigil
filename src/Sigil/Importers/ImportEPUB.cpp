@@ -23,6 +23,7 @@
 #include "ImportEPUB.h"
 #include "../BookManipulation/CleanSource.h"
 #include "../Misc/Utility.h"
+#include "../Misc/HTMLEncodingResolver.h"
 #include <ZipArchive.h>
 #include "../BookManipulation/XHTMLDoc.h"
 #include <QDomDocument>
@@ -169,7 +170,7 @@ void ImportEPUB::ReadOPF()
             // Parse and store Dublin Core metadata elements
             if ( opf.qualifiedName().toString().startsWith( "dc:" ) == true )
             {
-            Metadata::MetaElement meta;                
+                Metadata::MetaElement meta;                
                 
                 // We create a copy of the attributes because
                 // the QXmlStreamAttributes die out after we 
@@ -244,7 +245,7 @@ void ImportEPUB::LoadSource()
     foreach( QString id, m_ReadingOrderIds )
     {
         QString fullpath = QFileInfo( m_OPFFilePath ).absolutePath() + "/" + m_Files[ id ];
-        QString text     = ResolveCustomEntities( Utility::ReadUnicodeTextFile( fullpath ) );
+        QString text     = ResolveCustomEntities( HTMLEncodingResolver::ReadHTMLFile( fullpath ) );
 
         // We extract the content of the files
         // that is within the <body> tag

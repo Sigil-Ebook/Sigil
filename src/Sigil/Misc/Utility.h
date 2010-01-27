@@ -95,11 +95,6 @@ public:
 
     // Returns the same number, but rounded to one decimal place
     static float RoundToOneDecimal( float number );
-
-    // This function goes through the entire byte array 
-    // and tries to see whether this is a valid UTF-8 sequence.
-    // If it's valid, this is probably a UTF-8 string.
-    static bool IsValidUtf8( const QByteArray &string );
 };
 
 #endif // UTILITY_H
