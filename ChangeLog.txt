@@ -6,7 +6,7 @@ Sigil v0.X.X <ADD DATE>
     - the temp directory used on Windows is now <Profile>/Sigil instead of <Profile>/My Documents/Sigil
     (issue #222)
 
-Sigil v0.1.8 2009.13.30.
+Sigil v0.1.8 2009.12.30.
     - fix for a regression causing all imported CSS code to be merged into one line
     - fix for an issue with ignored linefeed characters (caused by same regression) (issue #217)
 
