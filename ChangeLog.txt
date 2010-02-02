@@ -1,5 +1,19 @@
-Sigil v0.1.7 <ADD DATE>
+Sigil v0.X.X <ADD DATE>
+    - the "container.xml" reading subsystem now handles XML files with namespaces (issue #235)
+    - HTML encoding detection is now performed even on XHTML files in epub archives (per spec, 
+    they have to be UTF-8 or UTF-16, but Sigil will now handle those that aren't)
+    - fixed an issue with content file filenames using "%20" for spaces not being loaded (issue #232)
+    - the temp directory used on Windows is now <Profile>/Sigil instead of <Profile>/My Documents/Sigil
+    (issue #222)
     - added a "Sigil Dev Blog" Help menu entry
+
+Sigil v0.1.8 2009.12.30.
+    - fix for a regression causing all imported CSS code to be merged into one line
+    - fix for an issue with ignored linefeed characters (caused by same regression) (issue #217)
+
+Sigil v0.1.7 2009.12.28.
+    - minor aesthetic toolbar fixes for Mac
+    - fixed an issue with "&nbsp;" in headings not being converted to a space in the TOC (issue #215)
     - minor aesthetic changes to the line number area in Code View
     - fixed an issue with "Insert Image" not working if the Book View doesn't have focus (issue #204)
     - the "Add metadata property" dialogs in the Meta Editor now remember their size, position
@@ -11,7 +25,7 @@ Sigil v0.1.7 <ADD DATE>
     - fixed an issue with files with uppercase extensions being loaded incorrectly
     - fixed an issue with loading TXT files with Mac-style (CR) line endings (issue #170)
     - fixed an issue with loading UTF-16 encoded files that used Windows style (CRLF) line endings
-    - Sigil should now detect UTF-8 encoded HTML files even when they don't specify that they
+    - Sigil should now detect UTF-8 encoded HTML files even when they don't specify that they   
     are UTF-8 encoded, and HTML files that use the XML "encoding" attribute (for any encoding)
     - fixed a rare issue with false spaces being inserted into words during import (issue #139)
     - the Views can now be scrolled by one line up/down by pressing CTRL+Up/Down (issue #72)

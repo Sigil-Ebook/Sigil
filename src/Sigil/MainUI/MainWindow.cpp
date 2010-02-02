@@ -1128,6 +1128,13 @@ void MainWindow::ExtendUI()
 #ifndef Q_WS_MAC
     ui.actionClose->setEnabled( false );
     ui.actionClose->setVisible( false );
+#else
+    QList<QToolBar *> all_toolbars = findChildren<QToolBar *>();
+    
+    foreach( QToolBar *toolbar, all_toolbars )
+    {
+        toolbar->setIconSize( QSize( 32, 32 ) );
+    }
 #endif
 
     // We override the default color for highlighted text

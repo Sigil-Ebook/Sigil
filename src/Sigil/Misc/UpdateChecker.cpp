@@ -79,7 +79,7 @@ void UpdateChecker::ReplyRecieved( QNetworkReply* reply )
     QString last_online_version    = settings.value( LAST_ONLINE_VERSION_KEY, QString() ).toString();
     QString current_online_version = ReadOnlineVersion( TextInReply( reply ) );
 
-    bool is_newer = IsOnlineVersionNewer( SIGIL_FULL_VERSION, current_online_version );
+    bool is_newer = IsOnlineVersionNewer( SIGIL_VERSION, current_online_version );
 
     // The message box is displayed only if the online version is newer
     // and only if the user hasn't been informed about this release before
@@ -100,10 +100,10 @@ void UpdateChecker::ReplyRecieved( QNetworkReply* reply )
         {
             QDesktopServices::openUrl( QUrl( DOWNLOAD_PAGE_LOCATION ) );
         }
-        
-        // Store the current online version as the last one checked
-        settings.setValue( LAST_ONLINE_VERSION_KEY, current_online_version );
     }
+
+    // Store the current online version as the last one checked
+    settings.setValue( LAST_ONLINE_VERSION_KEY, current_online_version );
 
     // Schedule this object for deletion.
     // There is no point for its existence

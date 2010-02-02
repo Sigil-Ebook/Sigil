@@ -77,7 +77,7 @@ QString ImportTXT::CreateParagraphs( const QStringList &lines ) const
 
         // We prepend a space so words on 
         // line breaks don't get merged
-        paragraph.append( Utility::GetEntityEscapedString( line.prepend( " " ) ) );
+        paragraph.append( Qt::escape( line.prepend( " " ) ) );
     }
 
     text.append( paragraph.append( "</p>\n" ) );

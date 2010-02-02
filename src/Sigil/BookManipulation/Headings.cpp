@@ -126,11 +126,11 @@ QList< Headings::Heading > Headings::GetHeadingList( const QString &source )
 
         if ( heading_regex.cap( 0 ).contains( title )  )
 
-            heading.text = Utility::ResolveHTMLEntities( title.cap( 1 ) ).simplified();
+            heading.text = XHTMLDoc::ResolveHTMLEntities( title.cap( 1 ) ).simplified();
 
         else
         
-            heading.text = Utility::GetTextInHtml( heading_regex.cap( 0 ) ).simplified();
+            heading.text = XHTMLDoc::GetTextInHtml( heading_regex.cap( 0 ) ).simplified();
         
         heading.after_chapter_break = IsAfterChapterBreak( source, main_index );         
 

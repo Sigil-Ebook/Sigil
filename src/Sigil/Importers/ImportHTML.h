@@ -57,8 +57,6 @@ protected:
     // thus something like <a href="chapter01.html#firstheading" />
     // becomes just <a href="#firstheading" />
     void StripFilesFromAnchors();
-    
-    QString ReadHTMLFile( const QString &fullfilepath );
 
     // Searches for meta information in the HTML file
     // and tries to convert it to Dublin Core
@@ -89,13 +87,7 @@ private:
     void UpdateCSSReferences( const QHash< QString, QString > updates );
 
     // Loads the source code into the Book
-    void LoadSource();   
-
-    // Accepts an HTML stream and tries to determine its encoding;
-    // if no encoding is detected, the default codec for this locale is returned.
-    // We use this function because Qt's QTextCodec::codecForHtml() function
-    // leaves a *lot* to be desired.
-    const QTextCodec& GetCodecForHTML( const QByteArray &raw_text ) const;
+    void LoadSource();       
 
     // Loads the referenced files into the main folder of the book;
     // as the files get a new name, the references are updated 

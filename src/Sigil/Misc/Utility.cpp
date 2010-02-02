@@ -26,7 +26,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-const QString WIN_PATH_SUFFIX = "/Sigil"; 
+const QString WIN_PATH_SUFFIX = "/Sigil";
 const QString NIX_PATH_SUFFIX = "/.Sigil";
 
 
@@ -406,145 +406,12 @@ QString Utility::GetEnvironmentVar( const QString &variable_name )
 }
 
 
-// Accepts a string with HTML and returns the text
-// in that HTML fragment. For instance: 
-//   <h1>Hello <b>Qt</b> <![CDATA[<xml is cool>]]></h1>
-// returns
-//   Hello Qt <xml is cool>
-QString Utility::GetTextInHtml( const QString &source )
-{
-    QDomDocument document;
-    document.setContent( source );
-    QDomElement document_element = document.documentElement();
-
-    return document_element.text();
-}
-
-
-// Resolves HTML entities in the provided string.
-// For instance: 
-//    Bonnie &amp; Clyde
-// returns
-//    Bonnie & Clyde
-QString Utility::ResolveHTMLEntities( const QString &text )
-{
-    // Faking some HTML... this is the easiest way to do it
-    QString newsource = "<div>" + text + "</div>";
-
-    return GetTextInHtml( newsource );
-}
-
-
-QString Utility::GetEntityEscapedString( const QString &text )
-{
-    QString new_text( text );
-    return new_text.replace( "&", "&amp;" ).replace( "<", "&lt;" ).replace( ">", "&gt;" );
-}
-
-
 // Returns the same number, but rounded to one decimal place
 float Utility::RoundToOneDecimal( float number )
 {
     return QString::number( number, 'f', 1 ).toFloat();
 }
 
-
-// This function goes through the entire byte array 
-// and tries to see whether this is a valid UTF-8 sequence.
-// If it's valid, this is probably a UTF-8 string.
-bool Utility::IsValidUtf8( const QByteArray &string )
-{
-    // This is an implementation of the Perl code written here:
-    //   http://www.w3.org/International/questions/qa-forms-utf-8
-    //
-    // Basically, UTF-8 has a very specific byte-pattern. This function
-    // checks if the sent byte-sequence conforms to this pattern.
-    // If it does, chances are *very* high that this is UTF-8.
-    //
-    // This function is written to be fast, not pretty.    
-
-    if ( string.isNull() )
-
-        return false;
-
-    int index = 0;
-    const unsigned char * bytes = NULL;
-
-    while ( index < string.size() )
-    {
-        QByteArray dword = string.mid( index, 4 );
-
-        if ( dword.size() < 4 )
-
-            dword = dword.leftJustified( 4, '\0' );
-
-        bytes = (const unsigned char *) dword.constData();
-
-        // ASCII
-        if (   bytes[0] == 0x09 ||
-               bytes[0] == 0x0A ||
-               bytes[0] == 0x0D ||
-               ( 0x20 <= bytes[0] && bytes[0] <= 0x7E )                    
-           ) 
-        {
-            index += 1;
-        }
-
-        // non-overlong 2-byte
-        else if (  ( 0xC2 <= bytes[0] && bytes[0] <= 0xDF ) &&
-                   ( 0x80 <= bytes[1] && bytes[1] <= 0xBF )            
-                ) 
-        {
-            index += 2;
-        }
-           
-        else if (  (     bytes[0] == 0xE0                         &&         // excluding overlongs 
-                         ( 0xA0 <= bytes[1] && bytes[1] <= 0xBF ) &&
-                         ( 0x80 <= bytes[2] && bytes[2] <= 0xBF )        ) || 
-                  
-                   (     (   ( 0xE1 <= bytes[0] && bytes[0] <= 0xEC ) ||     // straight 3-byte
-                             bytes[0] == 0xEE                         ||
-                             bytes[0] == 0xEF                     ) &&
-                    
-                         ( 0x80 <= bytes[1] && bytes[1] <= 0xBF )   &&
-                         ( 0x80 <= bytes[2] && bytes[2] <= 0xBF )        ) ||
-
-                   (     bytes[0] == 0xED                         &&         // excluding surrogates
-                         ( 0x80 <= bytes[1] && bytes[1] <= 0x9F ) &&
-                         ( 0x80 <= bytes[2] && bytes[2] <= 0xBF )        )
-                 ) 
-        {
-            index += 3;
-        }
- 
-          
-        else if (    (   bytes[0] == 0xF0                         &&         // planes 1-3
-                         ( 0x90 <= bytes[1] && bytes[1] <= 0xBF ) &&
-                         ( 0x80 <= bytes[2] && bytes[2] <= 0xBF ) &&
-                         ( 0x80 <= bytes[3] && bytes[3] <= 0xBF )      ) ||
-
-                     (   ( 0xF1 <= bytes[0] && bytes[0] <= 0xF3 ) &&         // planes 4-15
-                         ( 0x80 <= bytes[1] && bytes[1] <= 0xBF ) &&
-                         ( 0x80 <= bytes[2] && bytes[2] <= 0xBF ) &&
-                         ( 0x80 <= bytes[3] && bytes[3] <= 0xBF )      ) ||
-                
-                     (   bytes[0] == 0xF4                         &&         // plane 16
-                         ( 0x80 <= bytes[1] && bytes[1] <= 0x8F ) &&
-                         ( 0x80 <= bytes[2] && bytes[2] <= 0xBF ) &&
-                         ( 0x80 <= bytes[3] && bytes[3] <= 0xBF )      )
-                ) 
-        {
-            index += 4;
-        }
-
-        else
-        {
-            return false;
-        }
-    }
-
-    return true;
-}
 
 
 
