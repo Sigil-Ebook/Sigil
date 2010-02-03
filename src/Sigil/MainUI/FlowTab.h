@@ -75,6 +75,8 @@ public:
 
     void ScrollToFragment( const QString &fragment );
 
+    ViewState GetViewState();
+
 public slots:
 
     // Implements Undo action functionality
@@ -158,11 +160,7 @@ signals:
 
     void EnteringCodeView();
 
-    void ViewChanged();
-
-    void ContentChanged();
-
-    void ZoomFactorChanged( float factor );
+    void ViewChanged();    
 
     void SelectionChanged();
 

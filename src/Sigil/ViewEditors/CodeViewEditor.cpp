@@ -24,7 +24,8 @@
 #include "LineNumberArea.h"
 #include "../BookManipulation/Book.h"
 #include "../BookManipulation/XHTMLDoc.h"
-#include "Misc/XHTMLHighlighter.h"
+#include "../Misc/XHTMLHighlighter.h"
+#include "../Misc/CSSHighlighter.h"
 #include <QDomDocument>
 
 static const int COLOR_FADE_AMOUNT       = 175;
@@ -38,16 +39,24 @@ static const QString XML_OPENING_TAG = "(<[^>/][^>]*[^>/]>|<[^>/]>)";
 
 
 // Constructor;
-// the parameters is the object's parent
-CodeViewEditor::CodeViewEditor( QWidget *parent )
+// the first parameter says which syn. highlighter to use;
+// the second parameter is the object's parent
+CodeViewEditor::CodeViewEditor( HighlighterType high_type, QWidget *parent )
     :
     QPlainTextEdit( parent ),
     m_LineNumberArea( new LineNumberArea( this ) ),
-    m_Highlighter( new XHTMLHighlighter( document() ) ),
     m_CurrentZoomFactor( 1.0 ),
     m_ScrollOneLineUp( *(   new QShortcut( QKeySequence( Qt::ControlModifier + Qt::Key_Up   ), this ) ) ),
     m_ScrollOneLineDown( *( new QShortcut( QKeySequence( Qt::ControlModifier + Qt::Key_Down ), this ) ) )
 {
+    if ( high_type == CodeViewEditor::Highlight_XHTML )
+
+        m_Highlighter = new XHTMLHighlighter( document() );
+
+    else
+
+        m_Highlighter = new CSSHighlighter( document() );
+
     connect( this, SIGNAL( blockCountChanged( int ) ),           this, SLOT( UpdateLineNumberAreaMargin() ) );
     connect( this, SIGNAL( updateRequest( const QRect &, int) ), this, SLOT( UpdateLineNumberArea( const QRect &, int) ) );
     connect( this, SIGNAL( cursorPositionChanged() ),            this, SLOT( HighlightCurrentLine() ) );

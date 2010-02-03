@@ -67,6 +67,15 @@ public:
 
     virtual Searchable* GetSearchableContent();
 
+    enum ViewState
+    {
+        ViewState_BookView,
+        ViewState_CodeView,
+        ViewState_RawView
+    };
+
+    virtual ViewState GetViewState() { return ViewState_RawView; };
+
 public slots:
 
     // saves the tab data, then schedules tab for deletion
@@ -75,6 +84,10 @@ public slots:
 signals:
 
     void DeleteMe( ContentTab *tab_to_delete );
+
+    void ZoomFactorChanged( float factor );
+
+    void ContentChanged();
 
 protected slots:
 
@@ -86,6 +99,7 @@ protected:
 
     QLayout &m_Layout;
 
+    ViewState m_ViewState;
 };
 
 #endif // CONTENTTAB_H

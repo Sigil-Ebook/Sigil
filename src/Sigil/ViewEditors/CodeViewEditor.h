@@ -34,7 +34,7 @@ class QWidget;
 class QPrinter;
 class QShortcut;
 class LineNumberArea;
-class XHTMLHighlighter;
+class QSyntaxHighlighter;
 
 
 class CodeViewEditor : public QPlainTextEdit, public ViewEditor
@@ -43,10 +43,16 @@ class CodeViewEditor : public QPlainTextEdit, public ViewEditor
 
 public:
 
-    // Constructor;
-    // the parameters is the object's parent
-    CodeViewEditor( QWidget *parent = 0 );
+    enum HighlighterType
+    {
+        Highlight_XHTML, 
+        Highlight_CSS
+    };
 
+    // Constructor;
+    // the first parameter says which syn. highlighter to use;
+    // the second parameter is the object's parent
+    CodeViewEditor( HighlighterType high_type, QWidget *parent = 0 );
 
     void SetContent( const QString &source, const QUrl &base_url );
 
@@ -96,6 +102,7 @@ public:
     // Replaces all occurrences of the specified regex in 
     // the document with the specified replacement string.
     int ReplaceAll( const QRegExp &search_regex, const QString &replacement );
+
 
 signals:
     
@@ -213,7 +220,7 @@ private:
     LineNumberArea *m_LineNumberArea;
 
     // The syntax highlighter
-    XHTMLHighlighter *m_Highlighter;
+    QSyntaxHighlighter *m_Highlighter;
 
     // The view's current zoom factor
     float m_CurrentZoomFactor;

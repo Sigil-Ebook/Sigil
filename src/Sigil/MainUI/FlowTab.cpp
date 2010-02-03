@@ -39,7 +39,7 @@ FlowTab::FlowTab( Resource& resource, const QUrl &fragment, QWidget *parent )
     m_HTMLResource( *( qobject_cast< HTMLResource* >( &resource ) ) ),
     m_Splitter( *new QSplitter( this ) ),
     m_wBookView( *new BookViewEditor( this ) ),
-    m_wCodeView( *new CodeViewEditor( this ) )
+    m_wCodeView( *new CodeViewEditor( CodeViewEditor::Highlight_XHTML, this ) )
 {
     m_Layout.addWidget( &m_Splitter );
 
@@ -194,6 +194,19 @@ void FlowTab::ScrollToFragment( const QString &fragment )
 
         m_wBookView.ScrollToFragment( fragment );
 }
+
+
+ContentTab::ViewState FlowTab::GetViewState()
+{
+    if ( m_isLastViewBook )
+
+        return ContentTab::ViewState_BookView;
+
+    else
+
+        return ContentTab::ViewState_CodeView;
+}
+
 
 
 // Implements Undo action functionality
@@ -810,4 +823,3 @@ void FlowTab::ConnectSignalsToSlots()
 
     connect( qApp, SIGNAL( focusChanged( QWidget*, QWidget* ) ), this, SLOT( FocusFilter( QWidget*, QWidget* ) ) );
 }
-

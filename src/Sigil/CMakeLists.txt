@@ -10,7 +10,7 @@
 cmake_minimum_required( VERSION 2.6 ) 
 
 # Print a message and fail for people who don't
-# read the building instructions and then complain
+# read the build instructions and then complain
 # when the build process fails for them.
 if ( ${CMAKE_CURRENT_SOURCE_DIR} STREQUAL ${CMAKE_SOURCE_DIR} )
     message( FATAL_ERROR "You are trying to run CMake from the <top_folder>/src/Sigil directory, "
@@ -51,7 +51,8 @@ set( QOBJECT_HEADERS
     MainUi/MainWindow.h
     MainUI/TabManager.h
     MainUI/ContentTab.h 
-    MainUI/FlowTab.h     
+    MainUI/FlowTab.h 
+    MainUI/CSSTab.h 
     MainUI/BookBrowser.h
     MainUI/OPFModel.h
     Misc/AppEventFilter.h
@@ -159,6 +160,8 @@ set( MISC_FILES
     Misc/Utility.h
     Misc/XHTMLHighlighter.cpp
     Misc/XHTMLHighlighter.h
+    Misc/CSSHighlighter.cpp
+    Misc/CSSHighlighter.h
     Misc/HTMLEncodingResolver.cpp
     Misc/HTMLEncodingResolver.h
     )
@@ -182,6 +185,8 @@ set( MAINUI_FILES
     MainUI/FlowTab.h 
     MainUI/ContentTab.cpp
     MainUI/ContentTab.h 
+    MainUI/CSSTab.cpp
+    MainUI/CSSTab.h
     MainUI/MainWindow.cpp
     MainUI/MainWindow.h
     MainUI/BookBrowser.cpp
@@ -189,7 +194,6 @@ set( MAINUI_FILES
     MainUI/OPFModel.cpp
     MainUI/OPFModel.h
     )
-
             
 set( UI_FILES   
     Form_Files/main.ui 

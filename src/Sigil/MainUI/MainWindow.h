@@ -110,6 +110,8 @@ private slots:
 
     void UpdateUI();
 
+    void TabSwitchChanges();
+
     // Set initial state for actions in Book View
     // (enable the actions the Code View disabled)
     void SetStateActionsBookView();
@@ -118,6 +120,8 @@ private slots:
     // (disable the actions used in Book View that
     // are not appropriate here)
     void SetStateActionsCodeView();
+
+    void SetStateActionsRawView();
 
     // Zooms the current view with the new zoom slider value
     void SliderZoom( int slider_value );

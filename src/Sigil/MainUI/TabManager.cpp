@@ -23,6 +23,7 @@
 #include "TabManager.h"
 #include "ContentTab.h"
 #include "FlowTab.h"
+#include "CSSTab.h"
 #include "../ResourceObjects/Resource.h"
 
 TabManager::TabManager( QWidget *parent )
@@ -145,8 +146,14 @@ ContentTab* TabManager::CreateTabForResource( Resource& resource, const QUrl &fr
         connect( tab, SIGNAL( LinkClicked( const QUrl& ) ), this, SIGNAL( OpenUrlRequest( const QUrl& ) ) );
     }
 
+    else if ( resource.Type() == Resource::CSSResource )
+    {
+        tab = new CSSTab( resource, this );
+    }
+
     return tab;    
 }
+
 
 bool TabManager::AddNewContentTab( ContentTab *new_tab )
 {

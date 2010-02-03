@@ -393,23 +393,52 @@ void MainWindow::UpdateUI()
 
         return;
 
-    ui.actionCut   ->setEnabled( tab.CutEnabled() );
-    ui.actionCopy  ->setEnabled( tab.CopyEnabled() );
-    ui.actionPaste ->setEnabled( tab.PasteEnabled() );
+    ui.actionCut  ->setEnabled( tab.CutEnabled() );
+    ui.actionCopy ->setEnabled( tab.CopyEnabled() );
+    ui.actionPaste->setEnabled( tab.PasteEnabled() );
 
-    ui.actionBold      ->setChecked( tab.BoldChecked() );
-    ui.actionItalic    ->setChecked( tab.ItalicChecked() );
-    ui.actionUnderline ->setChecked( tab.UnderlineChecked() );
+    ui.actionBold     ->setChecked( tab.BoldChecked() );
+    ui.actionItalic   ->setChecked( tab.ItalicChecked() );
+    ui.actionUnderline->setChecked( tab.UnderlineChecked() );
 
-    ui.actionStrikethrough      ->setChecked( tab.StrikethroughChecked() );
-    ui.actionInsertBulletedList ->setChecked( tab.BulletListChecked() );
-    ui.actionInsertNumberedList ->setChecked( tab.NumberListChecked() );
+    ui.actionStrikethrough     ->setChecked( tab.StrikethroughChecked() );
+    ui.actionInsertBulletedList->setChecked( tab.BulletListChecked() );
+    ui.actionInsertNumberedList->setChecked( tab.NumberListChecked() );
 
     ui.actionBookView ->setChecked( tab.BookViewChecked()  );
     ui.actionSplitView->setChecked( tab.SplitViewChecked() );
     ui.actionCodeView ->setChecked( tab.CodeViewChecked()  );  
 
-    SelectEntryInHeadingCombo( tab.GetCaretElementName() );
+    SelectEntryInHeadingCombo( tab.GetCaretElementName() );    
+}
+
+
+// When the user switches tabs, we need to enable/disable
+// the WYSIWYG actions depending on the new tab's "view state" 
+void MainWindow::TabSwitchChanges()
+{
+    ContentTab &tab = m_TabManager.GetCurrentContentTab();
+
+    if ( &tab == NULL )
+
+        return;
+
+    if ( tab.GetViewState() == ContentTab::ViewState_BookView )
+
+        SetStateActionsBookView();
+
+    else if ( tab.GetViewState() == ContentTab::ViewState_CodeView )
+
+        SetStateActionsCodeView();
+
+    else
+    
+        SetStateActionsRawView();
+
+    // State of zoom controls depends on current tab/view
+    float zoom_factor = tab.GetZoomFactor();
+    UpdateZoomLabel( zoom_factor );
+    UpdateZoomSlider( zoom_factor );
 }
 
 
@@ -417,6 +446,10 @@ void MainWindow::UpdateUI()
 // (enable the actions the Code View disabled)
 void MainWindow::SetStateActionsBookView()
 {
+    ui.actionBookView ->setEnabled( true );
+    ui.actionSplitView->setEnabled( true );
+    ui.actionCodeView ->setEnabled( true );  
+
     ui.actionBold         ->setEnabled( true );
     ui.actionItalic       ->setEnabled( true );
     ui.actionUnderline    ->setEnabled( true );
@@ -445,6 +478,10 @@ void MainWindow::SetStateActionsBookView()
 // are not appropriate here)
 void MainWindow::SetStateActionsCodeView()
 {
+    ui.actionBookView ->setEnabled( true );
+    ui.actionSplitView->setEnabled( true );
+    ui.actionCodeView ->setEnabled( true ); 
+
     // Book View might have disabled some of these
     // depending on the user's selection
     ui.actionUndo  ->setEnabled( true );
@@ -488,7 +525,17 @@ void MainWindow::SetStateActionsCodeView()
     ui.actionInsertNumberedList->setChecked( false );
 }
 
+// Set initial state for actions in Raw View
+// (same as Code View, but, the actions for switching
+// views are off as well; Raw View is for CSS, XML ... editing )
+void MainWindow::SetStateActionsRawView()
+{
+    SetStateActionsCodeView();
 
+    ui.actionBookView ->setEnabled( false );
+    ui.actionSplitView->setEnabled( false );
+    ui.actionCodeView ->setEnabled( false );  
+}
 
 // Zooms the current view with the new zoom slider value
 void MainWindow::SliderZoom( int slider_value )
@@ -1186,6 +1233,7 @@ void MainWindow::ConnectSignalsToSlots()
     
     connect( &m_TabManager,                 SIGNAL( TabChanged( ContentTab*, ContentTab* ) ), this, SLOT( TabChanged( ContentTab*, ContentTab* ) ) );
     connect( &m_TabManager,                 SIGNAL( TabChanged( ContentTab*, ContentTab* ) ), this, SLOT( UpdateUI() ) );
+    connect( &m_TabManager,                 SIGNAL( TabChanged( ContentTab*, ContentTab* ) ), this, SLOT( TabSwitchChanges() ) );
 
     connect( m_slZoomSlider,                SIGNAL( valueChanged( int ) ),          this,   SLOT( SliderZoom( int ) ) );
 
@@ -1288,6 +1336,7 @@ void MainWindow::BreakTabConnections( ContentTab *tab )
 
     disconnect( tab,                          0, this, 0 );
 }
+
 
 
 
