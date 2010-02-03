@@ -106,10 +106,13 @@ int main( int argc, char *argv[] )
     
     QApplication app( argc, argv );
 
-    qDebug();
-
     try
     {
+        // We prevent Qt from constantly creating and deleting threads.
+        // Using a negative number forces the threads to stay around;
+        // that way, we always have a steady number of threads ready to do work.
+        QThreadPool::globalInstance()->setExpiryTimeout( -1 );
+
         // Specify the plugin folders 
         // (language codecs and image loaders)
         app.addLibraryPath( "codecs" );

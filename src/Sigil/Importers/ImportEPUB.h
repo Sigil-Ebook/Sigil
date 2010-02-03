@@ -63,7 +63,9 @@ protected:
     // (filled by reading the OPF) into the book
     void LoadMetadata();
 
-    void CleanTextFiles();
+    void CleanHTMLFiles();
+
+    static void CleanOneHTMLFile( QString &fullpath );
 
     // Loads the source code into the Book
     //void virtual LoadSource();

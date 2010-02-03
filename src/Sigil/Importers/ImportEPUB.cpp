@@ -68,7 +68,7 @@ Book ImportEPUB::GetBook()
     //StripFilesFromAnchors();
 
     QHash< QString, QString > updates = LoadFolderStructure(); 
-    CleanTextFiles();
+    CleanHTMLFiles();
 
     // TODO: reference updating... this will be hard
     //UpdateReferences( updates );
@@ -247,8 +247,10 @@ void ImportEPUB::LoadMetadata()
 }
 
 
-void ImportEPUB::CleanTextFiles()
+void ImportEPUB::CleanHTMLFiles()
 {
+    QFutureSynchronizer< void > synchronizer;
+
     foreach( QString file, m_Book.mainfolder.GetContentFilesList() )
     {
         if ( !file.contains( TEXT_FOLDER_NAME + "/" ) )
@@ -256,10 +258,16 @@ void ImportEPUB::CleanTextFiles()
             continue;
         
         QString fullfilepath = m_Book.mainfolder.GetFullPathToOEBPSFolder() + "/" + file;
-        QString source       = CleanSource::Clean( HTMLEncodingResolver::ReadHTMLFile( fullfilepath ) );
-
-        Utility::WriteUnicodeTextFile( source, fullfilepath );
+        synchronizer.addFuture( QtConcurrent::run( CleanOneHTMLFile, fullfilepath ) );       
     }
+
+    synchronizer.waitForFinished();
+}
+
+void ImportEPUB::CleanOneHTMLFile( QString &fullpath )
+{
+    QString source = CleanSource::Clean( HTMLEncodingResolver::ReadHTMLFile( fullpath ) );
+    Utility::WriteUnicodeTextFile( source, fullpath );
 }
 
 
