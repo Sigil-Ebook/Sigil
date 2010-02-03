@@ -66,13 +66,23 @@ void OPFModel::SetBook( Book &book )
 {
     m_Book = &book;
 
-    ResetModel();
+    InitializeModel();
 
     SortFilesByFilenames();
     SortHTMLFilesByReadingOrder();
 }
 
+QModelIndex OPFModel::GetFirstHTMLModelIndex()
+{
+    if ( !m_TextFolderItem.hasChildren() )
 
+        boost_throw( NoHTMLFiles() );
+
+    return m_TextFolderItem.child( 0 )->index();
+}
+
+
+// We need to kill the inherited sort function
 void OPFModel::sort( int column, Qt::SortOrder order )
 {
     return;
@@ -85,7 +95,7 @@ Qt::DropActions OPFModel::supportedDropActions() const
 }
 
 
-void OPFModel::ResetModel()
+void OPFModel::InitializeModel()
 {
     Q_ASSERT( m_Book );
 
@@ -181,3 +191,4 @@ void OPFModel::SortHTMLFilesByReadingOrder()
 
     setSortRole( old_sort_role );
 }
+

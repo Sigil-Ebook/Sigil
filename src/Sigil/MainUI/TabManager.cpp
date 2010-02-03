@@ -40,9 +40,13 @@ TabManager::TabManager( QWidget *parent )
     
 ContentTab& TabManager::GetCurrentContentTab()
 {
-    // FIXME: throw exception if currentWidget returns NULL
+    QWidget* widget = currentWidget();
 
-    return *qobject_cast< ContentTab* >( currentWidget() );
+    // TODO: turn on this assert after you make sure a tab
+    // is created before this is called in MainWindow constructor
+    //Q_ASSERT( widget != NULL );
+
+    return *qobject_cast< ContentTab* >( widget );
 }
 
 void TabManager::OpenResource( Resource& resource, const QUrl &fragment )

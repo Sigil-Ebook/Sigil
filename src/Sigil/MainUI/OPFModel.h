@@ -26,6 +26,7 @@
 #include <QStandardItemModel>
 
 class Book;
+class QModelIndex;
 
 class OPFModel : public QStandardItemModel
 {
@@ -37,13 +38,15 @@ public:
 
     void SetBook( Book &book );
 
+    QModelIndex GetFirstHTMLModelIndex();
+
     virtual void sort( int column, Qt::SortOrder order = Qt::AscendingOrder );
 
     virtual Qt::DropActions supportedDropActions() const;
 
 private:
 
-    void ResetModel();
+    void InitializeModel();
 
     void SortFilesByFilenames();
 

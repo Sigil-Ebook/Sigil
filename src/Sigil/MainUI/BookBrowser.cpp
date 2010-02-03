@@ -51,7 +51,6 @@ BookBrowser::BookBrowser( QWidget *parent )
     m_TreeView.setAcceptDrops( false );
     m_TreeView.setDropIndicatorShown( true );
     m_TreeView.setDragDropMode( QAbstractItemView::InternalMove );
-    //m_TreeView.setSelectionMode( QAbstractItemView::SingleSelection );
     
     m_TreeView.setModel( &m_OPFModel ); 
 
@@ -74,9 +73,21 @@ void BookBrowser::SetBook( Book &book )
 
     m_OPFModel.SetBook( book );
 
-    // TODO: fake that the "first" HTML file has been double clicked
-    // so that we have a default first tab opened
+    try
+    {
+        // Here we fake that the "first" HTML file has been double clicked
+        // so that we have a default first tab opened.
+        // An exception is thrown if there are no HTML files in the epub.
+        EmitResourceDoubleClicked( m_OPFModel.GetFirstHTMLModelIndex() );
+    }
+    
+    // No exception variable since we don't use it
+    catch ( NoHTMLFiles& )
+    {
+       // Do nothing. No HTML files, no first file opened.
+    }    
 }
+
 
 void BookBrowser::OpenUrlResource( const QUrl &url )
 {

@@ -27,7 +27,9 @@
 // For more information, see this link:
 //   http://www.boost.org/doc/libs/1_41_0/libs/exception/doc/exception_types_as_simple_semantic_tags.html
 
-// The common base for all exception
+// The common base for all exceptions
 struct ExceptionBase: virtual std::exception, virtual boost::exception {};
 
 struct ResourceDoesNotExist : virtual ExceptionBase {};
+
+struct NoHTMLFiles : virtual ExceptionBase {};

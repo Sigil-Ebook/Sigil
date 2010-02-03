@@ -40,10 +40,12 @@ QString Resource::GetIdentifier() const
     return m_Identifier;
 }
 
+
 QString Resource::Filename() const
 {
     return QFileInfo( m_FullFilePath ).fileName();
 }
+
 
 QString Resource::GetRelativePathToOEBPS() const
 {
@@ -55,7 +57,6 @@ QUrl Resource::GetBaseUrl() const
 {
     return QUrl::fromLocalFile( QFileInfo( m_FullFilePath ).absolutePath() + "/" );
 }
-
 
 
 QIcon Resource::Icon() const
