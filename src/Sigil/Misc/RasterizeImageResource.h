@@ -20,8 +20,8 @@
 *************************************************************************/
 
 #pragma once
-#ifndef IMAGERESOURCERASTERIZER_H
-#define IMAGERESOURCERASTERIZER_H
+#ifndef RASTERIZEIMAGERESOURCE_H
+#define RASTERIZEIMAGERESOURCE_H
 
 #include <QObject>
 
@@ -30,15 +30,15 @@ class QPixmap;
 class ImageResource;
 
 
-class ImageResourceRasterizer : public QObject
+class RasterizeImageResource : public QObject
 {
     Q_OBJECT
 
 public:
 
-    ImageResourceRasterizer( QWidget *parent = 0 );
+    RasterizeImageResource( QWidget *parent = 0 );
 
-    QPixmap RasterizeImageResource( const ImageResource &resource, float zoom_factor );
+    QPixmap operator()( const ImageResource &resource, float zoom_factor );
 
 private slots:
 
@@ -52,4 +52,4 @@ private:
 
 };
 
-#endif // IMAGERESOURCERASTERIZER_H
+#endif // RASTERIZEIMAGERESOURCE_H

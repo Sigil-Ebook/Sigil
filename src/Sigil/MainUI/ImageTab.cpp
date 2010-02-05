@@ -22,7 +22,7 @@
 #include <stdafx.h>
 #include "ImageTab.h"
 #include "../ResourceObjects/ImageResource.h"
-#include "../Misc/SVGRasterizer.h"
+#include "../Misc/RasterizeImageResource.h"
 
 
 ImageTab::ImageTab( Resource& resource, QWidget *parent )
@@ -32,8 +32,10 @@ ImageTab::ImageTab( Resource& resource, QWidget *parent )
     m_ImageLabel( *new QLabel( this ) ),
     m_ScrollArea( *new QScrollArea( this ) )  
 {
-    ImageResourceRasterizer rasterizer;
-    QPixmap pixmap = rasterizer.RasterizeImageResource( m_ImageResource, 1.0 );
+
+    // There are two pairs of parentheses: one calls the constructor,
+    // the other calls operator()
+    QPixmap pixmap = RasterizeImageResource()( m_ImageResource, 1.0 );
 
     m_ImageLabel.setPixmap( pixmap );
     m_ImageLabel.resize( pixmap.size() );

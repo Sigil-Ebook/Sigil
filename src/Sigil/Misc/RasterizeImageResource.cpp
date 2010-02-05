@@ -20,7 +20,7 @@
 *************************************************************************/
 
 #include <stdafx.h>
-#include "SVGRasterizer.h"
+#include "RasterizeImageResource.h"
 #include "../ResourceObjects/ImageResource.h"
 
 static const QString PAGE_SOURCE =  "<html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\">"
@@ -33,7 +33,7 @@ static const QString PAGE_SOURCE =  "<html xmlns=\"http://www.w3.org/1999/xhtml\
                                     "</html>";
 
 
-ImageResourceRasterizer::ImageResourceRasterizer( QWidget *parent )
+RasterizeImageResource::RasterizeImageResource( QWidget *parent )
     :
     QObject( parent ),
     m_WebPage( *new QWebPage( this ) ),
@@ -47,7 +47,7 @@ ImageResourceRasterizer::ImageResourceRasterizer( QWidget *parent )
 // But we have to use webkit to rasterize SVG's since QSvgRenderer supports
 // only SVG Tiny. And if we're going to use webkit, then let's use it for all
 // image types to reduce complexity. It also makes zooming/scaling much simpler.
-QPixmap ImageResourceRasterizer::RasterizeImageResource( const ImageResource &resource, float zoom_factor )
+QPixmap RasterizeImageResource::operator()( const ImageResource &resource, float zoom_factor )
 {
     QString source( PAGE_SOURCE );
     source.replace( "REPLACEME", QUrl::toPercentEncoding( resource.Filename() ) );
@@ -77,7 +77,7 @@ QPixmap ImageResourceRasterizer::RasterizeImageResource( const ImageResource &re
 }
 
 
-void ImageResourceRasterizer::SetLoadFinishedFlag()
+void RasterizeImageResource::SetLoadFinishedFlag()
 {
     m_LoadFinishedFlag = true;
 }

@@ -58,7 +58,7 @@ set( QOBJECT_HEADERS
     MainUI/OPFModel.h
     Misc/AppEventFilter.h
     Misc/UpdateChecker.h 
-    Misc/ImageResourceRasterizer.h
+    Misc/RasterizeImageResource.h
     ResourceObjects/Resource.h
     ResourceObjects/TextResource.h
     ResourceObjects/HTMLResource.h
@@ -167,8 +167,8 @@ set( MISC_FILES
     Misc/CSSHighlighter.h
     Misc/HTMLEncodingResolver.cpp
     Misc/HTMLEncodingResolver.h
-    Misc/ImageResourceRasterizer.cpp
-    Misc/ImageResourceRasterizer.h
+    Misc/RasterizeImageResource.cpp
+    Misc/RasterizeImageResource.h
     )
 
 set( VIEW_EDITOR_FILES
