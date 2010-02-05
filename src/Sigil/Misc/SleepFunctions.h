@@ -20,59 +20,36 @@
 *************************************************************************/
 
 #pragma once
-#ifndef CSSTAB_H
-#define CSSTAB_H
+#ifndef SLEEPFUNCTIONS_H
+#define SLEEPFUNCTIONS_H
 
-#include "ContentTab.h"
+#include <QThread>
 
-class CodeViewEditor;
-class CSSResource;
-class QTextDocument;
-
-
-class CSSTab : public ContentTab
+// For unexplained reasons, the very nice cross-platform
+// sleep functions present in QThread are protected.
+// This class is a helper to make them public.
+class SleepFunctions : public QThread
 {
-    Q_OBJECT
 
 public:
 
-    CSSTab( Resource& resource, QWidget *parent = 0 );
+    // Sleep for num "seconds"
+    static void sleep( unsigned long seconds )
+    {
+        QThread::sleep( seconds );
+    }
 
-    // Overrides inherited from ContentTab
-    bool IsModified();
+    // Sleep for num "miliseconds"
+    static void msleep( unsigned long miliseconds )
+    {
+        QThread::msleep( miliseconds );
+    }
 
-    bool CutEnabled();
-
-    bool CopyEnabled();
-
-    bool PasteEnabled();
-
-    float GetZoomFactor();
-
-    void SetZoomFactor( float new_zoom_factor );
-
-signals:
-
-    void SelectionChanged();
-
-private:
-
-    void ConnectSignalsToSlots();
-
-
-    ///////////////////////////////
-    // PRIVATE MEMBER VARIABLES
-    ///////////////////////////////
-
-    CSSResource &m_CSSResource;
-
-    //QTextDocument &m_TextDocument;
-
-    QString m_Source;
-
-    // The plain text code editor 
-    CodeViewEditor &m_wCodeView;
-
+    // Sleep for num "microseconds"
+    static void usleep( unsigned long microseconds )
+    {
+        QThread::usleep( microseconds );
+    }
 };
 
-#endif // CSSTAB_H
+#endif // SLEEPFUNCTIONS_H

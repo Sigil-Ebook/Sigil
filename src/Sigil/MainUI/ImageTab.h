@@ -20,59 +20,36 @@
 *************************************************************************/
 
 #pragma once
-#ifndef CSSTAB_H
-#define CSSTAB_H
+#ifndef IMAGETAB_H
+#define IMAGETAB_H
 
 #include "ContentTab.h"
 
-class CodeViewEditor;
-class CSSResource;
-class QTextDocument;
+class ImageResource;
+class QWebView;
+class QLabel;
+class QScrollArea;
+class QPixmap;
 
-
-class CSSTab : public ContentTab
+class ImageTab : public ContentTab
 {
     Q_OBJECT
 
 public:
 
-    CSSTab( Resource& resource, QWidget *parent = 0 );
-
-    // Overrides inherited from ContentTab
-    bool IsModified();
-
-    bool CutEnabled();
-
-    bool CopyEnabled();
-
-    bool PasteEnabled();
-
-    float GetZoomFactor();
-
-    void SetZoomFactor( float new_zoom_factor );
-
-signals:
-
-    void SelectionChanged();
+    ImageTab( Resource& resource, QWidget *parent = 0 );
 
 private:
-
-    void ConnectSignalsToSlots();
-
 
     ///////////////////////////////
     // PRIVATE MEMBER VARIABLES
     ///////////////////////////////
 
-    CSSResource &m_CSSResource;
+    ImageResource &m_ImageResource;
 
-    //QTextDocument &m_TextDocument;
+    QLabel &m_ImageLabel;
 
-    QString m_Source;
-
-    // The plain text code editor 
-    CodeViewEditor &m_wCodeView;
-
+    QScrollArea &m_ScrollArea;
 };
 
-#endif // CSSTAB_H
+#endif // IMAGETAB_H

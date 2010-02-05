@@ -20,59 +20,36 @@
 *************************************************************************/
 
 #pragma once
-#ifndef CSSTAB_H
-#define CSSTAB_H
+#ifndef IMAGERESOURCERASTERIZER_H
+#define IMAGERESOURCERASTERIZER_H
 
-#include "ContentTab.h"
+#include <QObject>
 
-class CodeViewEditor;
-class CSSResource;
-class QTextDocument;
+class QWebPage;
+class QPixmap;
+class ImageResource;
 
 
-class CSSTab : public ContentTab
+class ImageResourceRasterizer : public QObject
 {
     Q_OBJECT
 
 public:
 
-    CSSTab( Resource& resource, QWidget *parent = 0 );
+    ImageResourceRasterizer( QWidget *parent = 0 );
 
-    // Overrides inherited from ContentTab
-    bool IsModified();
+    QPixmap RasterizeImageResource( const ImageResource &resource, float zoom_factor );
 
-    bool CutEnabled();
+private slots:
 
-    bool CopyEnabled();
-
-    bool PasteEnabled();
-
-    float GetZoomFactor();
-
-    void SetZoomFactor( float new_zoom_factor );
-
-signals:
-
-    void SelectionChanged();
+    void SetLoadFinishedFlag();
 
 private:
 
-    void ConnectSignalsToSlots();
+    QWebPage &m_WebPage;
 
-
-    ///////////////////////////////
-    // PRIVATE MEMBER VARIABLES
-    ///////////////////////////////
-
-    CSSResource &m_CSSResource;
-
-    //QTextDocument &m_TextDocument;
-
-    QString m_Source;
-
-    // The plain text code editor 
-    CodeViewEditor &m_wCodeView;
+    bool m_LoadFinishedFlag;
 
 };
 
-#endif // CSSTAB_H
+#endif // IMAGERESOURCERASTERIZER_H

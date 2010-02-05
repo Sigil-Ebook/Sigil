@@ -53,10 +53,12 @@ set( QOBJECT_HEADERS
     MainUI/ContentTab.h 
     MainUI/FlowTab.h 
     MainUI/CSSTab.h 
+    MainUI/ImageTab.h
     MainUI/BookBrowser.h
     MainUI/OPFModel.h
     Misc/AppEventFilter.h
     Misc/UpdateChecker.h 
+    Misc/ImageResourceRasterizer.h
     ResourceObjects/Resource.h
     ResourceObjects/TextResource.h
     ResourceObjects/HTMLResource.h
@@ -158,12 +160,15 @@ set( MISC_FILES
     Misc/UpdateChecker.h
     Misc/Utility.cpp
     Misc/Utility.h
+    Misc/SleepFunctions.h
     Misc/XHTMLHighlighter.cpp
     Misc/XHTMLHighlighter.h
     Misc/CSSHighlighter.cpp
     Misc/CSSHighlighter.h
     Misc/HTMLEncodingResolver.cpp
     Misc/HTMLEncodingResolver.h
+    Misc/ImageResourceRasterizer.cpp
+    Misc/ImageResourceRasterizer.h
     )
 
 set( VIEW_EDITOR_FILES
@@ -187,6 +192,8 @@ set( MAINUI_FILES
     MainUI/ContentTab.h 
     MainUI/CSSTab.cpp
     MainUI/CSSTab.h
+    MainUI/ImageTab.cpp
+    MainUI/ImageTab.h
     MainUI/MainWindow.cpp
     MainUI/MainWindow.h
     MainUI/BookBrowser.cpp

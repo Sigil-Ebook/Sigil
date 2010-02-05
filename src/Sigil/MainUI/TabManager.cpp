@@ -24,6 +24,7 @@
 #include "ContentTab.h"
 #include "FlowTab.h"
 #include "CSSTab.h"
+#include "ImageTab.h"
 #include "../ResourceObjects/Resource.h"
 
 TabManager::TabManager( QWidget *parent )
@@ -149,6 +150,11 @@ ContentTab* TabManager::CreateTabForResource( Resource& resource, const QUrl &fr
     else if ( resource.Type() == Resource::CSSResource )
     {
         tab = new CSSTab( resource, this );
+    }
+
+    else if ( resource.Type() == Resource::ImageResource )
+    {
+        tab = new ImageTab( resource, this );
     }
 
     return tab;    
