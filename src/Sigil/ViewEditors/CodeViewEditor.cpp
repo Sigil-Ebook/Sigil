@@ -37,7 +37,6 @@ static const QColor NUMBER_AREA_NUMCOLOR = QColor( 100, 100, 100 );
                   
 static const QString XML_OPENING_TAG = "(<[^>/][^>]*[^>/]>|<[^>/]>)";
 
-
 // Constructor;
 // the first parameter says which syn. highlighter to use;
 // the second parameter is the object's parent
@@ -75,6 +74,8 @@ CodeViewEditor::CodeViewEditor( HighlighterType high_type, QWidget *parent )
     font.setStyleHint( QFont::TypeWriter );
     setFont( font );
     setTabStopWidth( TAB_SPACES_WIDTH * QFontMetrics( font ).width( ' ' ) );
+
+    setFrameStyle( QFrame::NoFrame );
 }
 
 // Sets the content of the View to the specified book

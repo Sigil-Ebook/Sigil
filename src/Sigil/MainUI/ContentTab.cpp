@@ -24,7 +24,6 @@
 #include "../ViewEditors/Searchable.h"
 #include "../ResourceObjects/Resource.h"
 
-
 ContentTab::ContentTab( Resource& resource, QWidget *parent )
     :
     QWidget( parent ),
@@ -35,7 +34,7 @@ ContentTab::ContentTab( Resource& resource, QWidget *parent )
 
     m_Layout.setContentsMargins( 0, 0, 0, 0 );
 
-    setLayout( &m_Layout );
+    setLayout( &m_Layout );    
 }
 
 QString ContentTab::GetFilename()

@@ -32,7 +32,6 @@ ImageTab::ImageTab( Resource& resource, QWidget *parent )
     m_ImageLabel( *new QLabel( this ) ),
     m_ScrollArea( *new QScrollArea( this ) )  
 {
-
     // There are two pairs of parentheses: one calls the constructor,
     // the other calls operator()
     QPixmap pixmap = RasterizeImageResource()( m_ImageResource, 1.0 );
@@ -42,11 +41,7 @@ ImageTab::ImageTab( Resource& resource, QWidget *parent )
     m_ImageLabel.setFrameStyle( QFrame::Plain | QFrame::StyledPanel );
     m_ImageLabel.setStyleSheet( "border: 1px solid rgb(210, 210, 210)" );
     
-    QPalette palette = m_ScrollArea.palette();
-    palette.setColor( QPalette::Window, Qt::white );
-    m_ScrollArea.setPalette( palette );
-
-    m_ScrollArea.setBackgroundRole( QPalette::Window );
+    m_ScrollArea.setStyleSheet( "QScrollArea { background: white }" );
     m_ScrollArea.setFrameStyle( QFrame::NoFrame );
     m_ScrollArea.setAlignment( Qt::AlignCenter );
     m_ScrollArea.setWidget( &m_ImageLabel );
