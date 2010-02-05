@@ -21,70 +21,10 @@
 
 #include <stdafx.h>
 #include "CSSTab.h"
-#include "../ViewEditors/CodeViewEditor.h"
-#include "../ResourceObjects/CSSResource.h"
 
 
 CSSTab::CSSTab( Resource& resource, QWidget *parent )
     :
-    ContentTab( resource, parent ),
-    m_CSSResource( *( qobject_cast< CSSResource* >( &resource ) ) ),
-    //m_TextDocument( *new QTextDocument( m_CSSResource.ReadFile(), this ) ),
-    m_wCodeView( *new CodeViewEditor( CodeViewEditor::Highlight_CSS, this ) )
+    TextTab( resource, CodeViewEditor::Highlight_CSS, parent )
 {
-    m_Layout.addWidget( &m_wCodeView );
-
-    ConnectSignalsToSlots();
-
-    m_Source = m_CSSResource.ReadFile();
-
-    m_wCodeView.SetContent( m_Source, QUrl() );
 }   
-
-
-bool CSSTab::IsModified()
-{
-    return m_wCodeView.document()->isModified();
-}
-
-
-bool CSSTab::CutEnabled()
-{
-    return m_wCodeView.textCursor().hasSelection();
-}
-
-
-bool CSSTab::CopyEnabled()
-{
-    return m_wCodeView.textCursor().hasSelection();
-}
-
-
-bool CSSTab::PasteEnabled()
-{
-    return m_wCodeView.canPaste();
-}
-
-
-float CSSTab::GetZoomFactor()
-{
-    return m_wCodeView.GetZoomFactor();
-}
-
-void CSSTab::SetZoomFactor( float new_zoom_factor )
-{
-    m_wCodeView.SetZoomFactor( new_zoom_factor );
-}
-
-ContentTab::ViewState CSSTab::GetViewState()
-{
-    return ContentTab::ViewState_RawView;
-}
-
-void CSSTab::ConnectSignalsToSlots()
-{
-    connect( &m_wCodeView, SIGNAL( textChanged() ),              this, SIGNAL( ContentChanged() )           );
-    connect( &m_wCodeView, SIGNAL( ZoomFactorChanged( float ) ), this, SIGNAL( ZoomFactorChanged( float ) ) );
-    connect( &m_wCodeView, SIGNAL( selectionChanged() ),         this, SIGNAL( SelectionChanged() )         );
-}
-

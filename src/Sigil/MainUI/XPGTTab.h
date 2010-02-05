@@ -20,19 +20,18 @@
 *************************************************************************/
 
 #pragma once
-#ifndef CSSTAB_H
-#define CSSTAB_H
+#ifndef XPGTTAB_H
+#define XPGTTAB_H
 
 #include "TextTab.h"
 
-class CSSTab : public TextTab
+class XPGTTab : public TextTab
 {
     Q_OBJECT
 
 public:
 
-    CSSTab( Resource& resource, QWidget *parent = 0 );
-
+    XPGTTab( Resource& resource, QWidget *parent = 0 );
 };
 
-#endif // CSSTAB_H
+#endif // XPGTTAB_H

@@ -51,9 +51,11 @@ set( QOBJECT_HEADERS
     MainUi/MainWindow.h
     MainUI/TabManager.h
     MainUI/ContentTab.h 
-    MainUI/FlowTab.h 
+    MainUI/FlowTab.h
+    MainUI/TextTab.h
     MainUI/CSSTab.h 
     MainUI/ImageTab.h
+    MainUI/XPGTTab.h
     MainUI/BookBrowser.h
     MainUI/OPFModel.h
     Misc/AppEventFilter.h
@@ -190,8 +192,12 @@ set( MAINUI_FILES
     MainUI/FlowTab.h 
     MainUI/ContentTab.cpp
     MainUI/ContentTab.h 
+    MainUI/TextTab.cpp
+    MainUI/TextTab.h
     MainUI/CSSTab.cpp
     MainUI/CSSTab.h
+    MainUI/XPGTTab.cpp
+    MainUI/XPGTTab.h
     MainUI/ImageTab.cpp
     MainUI/ImageTab.h
     MainUI/MainWindow.cpp

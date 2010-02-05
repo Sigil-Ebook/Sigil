@@ -19,20 +19,13 @@
 **
 *************************************************************************/
 
-#pragma once
-#ifndef CSSTAB_H
-#define CSSTAB_H
+#include <stdafx.h>
+#include "XPGTTab.h"
 
-#include "TextTab.h"
 
-class CSSTab : public TextTab
+XPGTTab::XPGTTab( Resource& resource, QWidget *parent )
+    :
+    TextTab( resource, CodeViewEditor::Highlight_XHTML, parent )
 {
-    Q_OBJECT
+}   
 
-public:
-
-    CSSTab( Resource& resource, QWidget *parent = 0 );
-
-};
-
-#endif // CSSTAB_H
