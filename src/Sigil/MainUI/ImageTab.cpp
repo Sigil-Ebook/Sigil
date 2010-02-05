@@ -30,11 +30,12 @@ ImageTab::ImageTab( Resource& resource, QWidget *parent )
     ContentTab( resource, parent ),
     m_ImageResource( *( qobject_cast< ImageResource* >( &resource ) ) ),
     m_ImageLabel( *new QLabel( this ) ),
-    m_ScrollArea( *new QScrollArea( this ) )  
+    m_ScrollArea( *new QScrollArea( this ) ),
+    m_CurrentZoomFactor( 1.0 )
 {
     // There are two pairs of parentheses: one calls the constructor,
     // the other calls operator()
-    QPixmap pixmap = RasterizeImageResource()( m_ImageResource, 1.0 );
+    QPixmap pixmap = RasterizeImageResource()( m_ImageResource, m_CurrentZoomFactor );
 
     m_ImageLabel.setPixmap( pixmap );
     m_ImageLabel.resize( pixmap.size() );
@@ -49,3 +50,18 @@ ImageTab::ImageTab( Resource& resource, QWidget *parent )
     m_Layout.addWidget( &m_ScrollArea );
 }
 
+float ImageTab::GetZoomFactor()
+{
+    return m_CurrentZoomFactor;
+}
+
+void ImageTab::SetZoomFactor( float new_zoom_factor )
+{
+    m_CurrentZoomFactor = new_zoom_factor;
+
+    QPixmap pixmap = RasterizeImageResource()( m_ImageResource, m_CurrentZoomFactor );
+    m_ImageLabel.setPixmap( pixmap );
+    m_ImageLabel.resize( pixmap.size() );
+
+    emit ZoomFactorChanged( m_CurrentZoomFactor );
+}

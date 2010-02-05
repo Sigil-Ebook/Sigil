@@ -39,6 +39,11 @@ public:
 
     ImageTab( Resource& resource, QWidget *parent = 0 );
 
+    // Overrides inherited from ContentTab
+    float GetZoomFactor();
+
+    void SetZoomFactor( float new_zoom_factor );
+
 private:
 
     ///////////////////////////////
@@ -50,6 +55,8 @@ private:
     QLabel &m_ImageLabel;
 
     QScrollArea &m_ScrollArea;
+
+    float m_CurrentZoomFactor;
 };
 
 #endif // IMAGETAB_H
