@@ -51,6 +51,8 @@ public:
 
     void SetZoomFactor( float new_zoom_factor );
 
+    ViewState GetViewState();
+
 signals:
 
     void SelectionChanged();

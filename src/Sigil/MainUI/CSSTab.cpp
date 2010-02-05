@@ -76,9 +76,15 @@ void CSSTab::SetZoomFactor( float new_zoom_factor )
     m_wCodeView.SetZoomFactor( new_zoom_factor );
 }
 
+ContentTab::ViewState CSSTab::GetViewState()
+{
+    return ContentTab::ViewState_RawView;
+}
+
 void CSSTab::ConnectSignalsToSlots()
 {
     connect( &m_wCodeView, SIGNAL( textChanged() ),              this, SIGNAL( ContentChanged() )           );
     connect( &m_wCodeView, SIGNAL( ZoomFactorChanged( float ) ), this, SIGNAL( ZoomFactorChanged( float ) ) );
     connect( &m_wCodeView, SIGNAL( selectionChanged() ),         this, SIGNAL( SelectionChanged() )         );
 }
+

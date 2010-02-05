@@ -71,10 +71,11 @@ public:
     {
         ViewState_BookView,
         ViewState_CodeView,
-        ViewState_RawView
+        ViewState_RawView,
+        ViewState_StaticView
     };
 
-    virtual ViewState GetViewState() { return ViewState_RawView; };
+    virtual ViewState GetViewState() { return ViewState_StaticView; };
 
 public slots:
 

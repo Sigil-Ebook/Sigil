@@ -431,9 +431,13 @@ void MainWindow::TabSwitchChanges()
 
         SetStateActionsCodeView();
 
-    else
+    else if ( tab.GetViewState() == ContentTab::ViewState_RawView )
     
         SetStateActionsRawView();
+
+    else 
+
+        SetStateActionsStaticView();
 
     // State of zoom controls depends on current tab/view
     float zoom_factor = tab.GetZoomFactor();
@@ -446,6 +450,16 @@ void MainWindow::TabSwitchChanges()
 // (enable the actions the Code View disabled)
 void MainWindow::SetStateActionsBookView()
 {
+    ui.actionUndo->setEnabled( true );
+    ui.actionRedo->setEnabled( true );
+
+    ui.actionCut  ->setEnabled( true );  
+    ui.actionCopy ->setEnabled( true ); 
+    ui.actionPaste->setEnabled( true ); 
+
+    ui.actionFind   ->setEnabled( true );
+    ui.actionReplace->setEnabled( true );
+
     ui.actionBookView ->setEnabled( true );
     ui.actionSplitView->setEnabled( true );
     ui.actionCodeView ->setEnabled( true );  
@@ -478,18 +492,7 @@ void MainWindow::SetStateActionsBookView()
 // are not appropriate here)
 void MainWindow::SetStateActionsCodeView()
 {
-    ui.actionBookView ->setEnabled( true );
-    ui.actionSplitView->setEnabled( true );
-    ui.actionCodeView ->setEnabled( true ); 
-
-    // Book View might have disabled some of these
-    // depending on the user's selection
-    ui.actionUndo  ->setEnabled( true );
-    ui.actionRedo  ->setEnabled( true );
-
-    ui.actionCut   ->setEnabled( true );
-    ui.actionCopy  ->setEnabled( true );
-    ui.actionPaste ->setEnabled( true );
+    SetStateActionsBookView();
 
     // TODO: We shouldn't really disable these.
     // The Code View should insert correct HTML
@@ -536,6 +539,22 @@ void MainWindow::SetStateActionsRawView()
     ui.actionSplitView->setEnabled( false );
     ui.actionCodeView ->setEnabled( false );  
 }
+
+void MainWindow::SetStateActionsStaticView()
+{
+    SetStateActionsRawView();
+
+    ui.actionUndo->setEnabled( false );
+    ui.actionRedo->setEnabled( false );
+
+    ui.actionCut  ->setEnabled( false );  
+    ui.actionCopy ->setEnabled( false ); 
+    ui.actionPaste->setEnabled( false ); 
+
+    ui.actionFind   ->setEnabled( false );
+    ui.actionReplace->setEnabled( false );
+}
+
 
 // Zooms the current view with the new zoom slider value
 void MainWindow::SliderZoom( int slider_value )

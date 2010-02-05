@@ -123,6 +123,8 @@ private slots:
 
     void SetStateActionsRawView();
 
+    void SetStateActionsStaticView();
+
     // Zooms the current view with the new zoom slider value
     void SliderZoom( int slider_value );
 
