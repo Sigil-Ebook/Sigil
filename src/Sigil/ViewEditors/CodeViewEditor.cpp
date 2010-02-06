@@ -195,6 +195,7 @@ void CodeViewEditor::SetZoomFactor( float factor )
     setFont( current_font );
     
     // We update size of the line number area
+    m_LineNumberArea->setFont( current_font );
     m_LineNumberArea->MyUpdateGeometry();
     UpdateLineNumberAreaMargin();
 
