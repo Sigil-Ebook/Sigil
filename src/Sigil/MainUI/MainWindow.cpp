@@ -34,9 +34,8 @@
 #include "BookManipulation/BookNormalization.h"
 #include "BookManipulation/SigilMarkup.h"
 #include "MainUI/BookBrowser.h"
-#include "MainUI/ContentTab.h"
-#include "MainUI/FlowTab.h"
-#include "MainUI/TabManager.h"
+#include "Tabs/ContentTab.h"
+#include "Tabs/TabManager.h"
 
 
 static const int STATUSBAR_MSG_DISPLAY_TIME = 2000;

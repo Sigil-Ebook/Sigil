@@ -49,13 +49,13 @@ set( QOBJECT_HEADERS
     Dialogs/MetaEditor.h
     Dialogs/FindReplace.h
     MainUi/MainWindow.h
-    MainUI/TabManager.h
-    MainUI/ContentTab.h 
-    MainUI/FlowTab.h
-    MainUI/TextTab.h
-    MainUI/CSSTab.h 
-    MainUI/ImageTab.h
-    MainUI/XPGTTab.h
+    Tabs/TabManager.h
+    Tabs/ContentTab.h 
+    Tabs/FlowTab.h
+    Tabs/TextTab.h
+    Tabs/CSSTab.h 
+    Tabs/ImageTab.h
+    Tabs/XPGTTab.h
     MainUI/BookBrowser.h
     MainUI/OPFModel.h
     Misc/AppEventFilter.h
@@ -186,26 +186,29 @@ set( VIEW_EDITOR_FILES
     )
     
 set( MAINUI_FILES 
-    MainUI/TabManager.cpp
-    MainUI/TabManager.h
-    MainUI/FlowTab.cpp
-    MainUI/FlowTab.h 
-    MainUI/ContentTab.cpp
-    MainUI/ContentTab.h 
-    MainUI/TextTab.cpp
-    MainUI/TextTab.h
-    MainUI/CSSTab.cpp
-    MainUI/CSSTab.h
-    MainUI/XPGTTab.cpp
-    MainUI/XPGTTab.h
-    MainUI/ImageTab.cpp
-    MainUI/ImageTab.h
     MainUI/MainWindow.cpp
     MainUI/MainWindow.h
     MainUI/BookBrowser.cpp
     MainUI/BookBrowser.h
     MainUI/OPFModel.cpp
     MainUI/OPFModel.h
+    )
+
+set( TAB_FILES
+    Tabs/TabManager.cpp
+    Tabs/TabManager.h
+    Tabs/FlowTab.cpp
+    Tabs/FlowTab.h 
+    Tabs/ContentTab.cpp
+    Tabs/ContentTab.h 
+    Tabs/TextTab.cpp
+    Tabs/TextTab.h
+    Tabs/CSSTab.cpp
+    Tabs/CSSTab.h
+    Tabs/XPGTTab.cpp
+    Tabs/XPGTTab.h
+    Tabs/ImageTab.cpp
+    Tabs/ImageTab.h
     )
             
 set( UI_FILES   
@@ -225,7 +228,7 @@ set( QRC_FILES
     Resource_Files/icon/icon.qrc  
     )
     
-set( RAW_SOURCES ${MAIN_FILES} ${BOOK_MANIPULATION_FILES} ${RESOURCE_OBJECT_FILES} ${DIALOG_FILES} ${EXPORTER_FILES}
+set( RAW_SOURCES ${MAIN_FILES} ${TAB_FILES} ${BOOK_MANIPULATION_FILES} ${RESOURCE_OBJECT_FILES} ${DIALOG_FILES} ${EXPORTER_FILES}
                  ${IMPORTER_FILES} ${MISC_FILES} ${VIEW_EDITOR_FILES} ${MAINUI_FILES} )
 
 # Runs MOC on specifed files
@@ -308,6 +311,7 @@ source_group( "Exporters"         FILES ${EXPORTER_FILES} )
 source_group( "Importers"         FILES ${IMPORTER_FILES} )
 source_group( "Misc"              FILES ${MISC_FILES} )
 source_group( "View Editors"      FILES ${VIEW_EDITOR_FILES} )
+source_group( "Tabs"              FILES ${TAB_FILES} )
 source_group( "MainUI"            FILES ${MAINUI_FILES} )
 source_group( "Main Files"        FILES ${MAIN_FILES} )
 
