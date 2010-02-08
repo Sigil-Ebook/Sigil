@@ -65,6 +65,11 @@ Book ImportEPUB::GetBook()
     LoadMetadata();
     LoadSource();
     AddHeaderToSource();
+
+    // We need to make the source valid XHTML to allow us to 
+    // parse it with XML parsers
+    m_Book.source = CleanSource::ToValidXHTML( m_Book.source );
+
     StripFilesFromAnchors();
     UpdateReferences( LoadFolderStructure() );
 

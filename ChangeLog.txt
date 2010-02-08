@@ -1,4 +1,6 @@
 Sigil v0.X.X <ADD DATE>
+    - fixed a regression that caused Sigil to demand that all XHTML streams in an epub file
+    be valid XML (issue #248)
     - the "container.xml" reading subsystem now handles XML files with namespaces (issue #235)
     - HTML encoding detection is now performed even on XHTML files in epub archives (per spec, 
     they have to be UTF-8 or UTF-16, but Sigil will now handle those that aren't)
