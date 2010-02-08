@@ -380,6 +380,12 @@ else()
     
     # Copy Qt runtime libs
     set( QT_LIBS QtCore QtGui QtNetwork QtSvg QtWebKit QtXml QtXmlPatterns phonon )
+    
+    # Apparently phonon is not needed on Linux...
+    if( UNIX )
+        list( REMOVE_ITEM QT_LIBS phonon)
+    endif()
+
     add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E make_directory ${MAIN_PACKAGE_DIR}/ )    
     foreach( lib ${QT_LIBS} )
         set( location location-NOTFOUND )
