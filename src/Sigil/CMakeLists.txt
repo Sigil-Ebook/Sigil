@@ -198,7 +198,9 @@ if ( MSVC )
     list( APPEND MAIN_FILES stdafx.cpp )
 
 # GCC precompiled headers cmake code
-elseif( CMAKE_COMPILER_IS_GNUCXX )
+# We don't do this on Macs since GCC there goes haywire
+# when you try to generate a PCH with two "-arch" flags
+elseif( CMAKE_COMPILER_IS_GNUCXX AND NOT APPLE )
 
     # Get the compiler flags for this build type
     string( TOUPPER "CMAKE_CXX_FLAGS_${CMAKE_BUILD_TYPE}" flags_for_build_name )

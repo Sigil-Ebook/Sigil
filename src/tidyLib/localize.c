@@ -882,25 +882,25 @@ static char* LevelPrefix( TidyReportLevel level, char* buf, size_t count )
   switch ( level )
   {
   case TidyInfo:
-    TY_(tmbstrncpy)( buf, "Info: ", count );
+    TY_(tmbstrncpy)( buf, "Info: ", (uint) count );
     break;
   case TidyWarning:
-    TY_(tmbstrncpy)( buf, "Warning: ", count );
+    TY_(tmbstrncpy)( buf, "Warning: ", (uint) count );
     break;
   case TidyConfig:
-    TY_(tmbstrncpy)( buf, "Config: ", count );
+    TY_(tmbstrncpy)( buf, "Config: ", (uint) count );
     break;
   case TidyAccess:
-    TY_(tmbstrncpy)( buf, "Access: ", count );
+    TY_(tmbstrncpy)( buf, "Access: ", (uint) count );
     break;
   case TidyError:
-    TY_(tmbstrncpy)( buf, "Error: ", count );
+    TY_(tmbstrncpy)( buf, "Error: ", (uint) count );
     break;
   case TidyBadDocument:
-    TY_(tmbstrncpy)( buf, "Document: ", count );
+    TY_(tmbstrncpy)( buf, "Document: ", (uint) count );
     break;
   case TidyFatal:
-    TY_(tmbstrncpy)( buf, "panic: ", count );
+    TY_(tmbstrncpy)( buf, "panic: ", (uint) count );
     break;
   }
   return buf + TY_(tmbstrlen)( buf );
