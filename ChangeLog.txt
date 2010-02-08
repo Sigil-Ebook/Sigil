@@ -1,4 +1,4 @@
-Sigil v0.X.X <ADD DATE>
+Sigil v0.1.9 2010.02.08.
     - fixed a regression that caused Sigil to demand that all XHTML streams in an epub file
     be valid XML (issue #248)
     - the "container.xml" reading subsystem now handles XML files with namespaces (issue #235)
