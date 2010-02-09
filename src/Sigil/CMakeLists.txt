@@ -181,10 +181,11 @@ set( VIEW_EDITOR_FILES
     ViewEditors/LineNumberArea.cpp
     ViewEditors/LineNumberArea.h  
     ViewEditors/Searchable.cpp    
-    ViewEditors/Searchable.h  
+    ViewEditors/Searchable.h 
+    ViewEditors/Zoomable.h 
     ViewEditors/ViewEditor.h     
     )
-    
+
 set( MAINUI_FILES 
     MainUI/MainWindow.cpp
     MainUI/MainWindow.h

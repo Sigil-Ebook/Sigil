@@ -23,8 +23,8 @@
 #include "FindReplace.h"
 #include "../MainUI/MainWindow.h"
 #include "../ViewEditors/ViewEditor.h"
-#include "../MainUI/TabManager.h"
-#include "../MainUI/ContentTab.h"
+#include "../Tabs/TabManager.h"
+#include "../Tabs/ContentTab.h"
 
 static const QString SETTINGS_GROUP = "find_replace";
 

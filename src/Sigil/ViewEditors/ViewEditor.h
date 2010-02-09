@@ -26,6 +26,7 @@
 #include <QList>
 #include <QString>
 #include "Searchable.h"
+#include "Zoomable.h"
 
 class QUrl;
 
@@ -33,7 +34,7 @@ class QUrl;
 // It would be lovely if we could make this a QObject
 // subclass, but multiple inheritance with multiple
 // QObject subclasses is apparently a bad idea.
-class ViewEditor : public Searchable
+class ViewEditor : public Searchable, public Zoomable
 {
 
 public:
@@ -74,13 +75,6 @@ public:
     // and creates and stores an update that sends the caret
     // in this view to the specified element.
     virtual void StoreCaretLocationUpdate( const QList< ElementIndex > &hierarchy ) = 0;
-
-    // Sets a zoom factor for the view,
-    // thus zooming in (factor > 1.0) or out (factor < 1.0). 
-    virtual void SetZoomFactor( float factor ) = 0;
-
-    // Returns the View's current zoom factor
-    virtual float GetZoomFactor() const = 0;
 };
 
 #endif // VIEWEDITOR_H
