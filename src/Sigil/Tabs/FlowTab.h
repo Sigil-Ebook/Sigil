@@ -69,7 +69,7 @@ public:
 
     QString GetCaretElementName();
 
-    float GetZoomFactor();
+    float GetZoomFactor() const;
 
     void SetZoomFactor( float new_zoom_factor );
 

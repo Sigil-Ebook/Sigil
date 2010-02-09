@@ -25,12 +25,13 @@
 
 #include <QWidget>
 #include <QString>
+#include "../ViewEditors/Zoomable.h"
 
 class QLayout;
 class Searchable;
 class Resource;
 
-class ContentTab : public QWidget
+class ContentTab : public QWidget, public Zoomable
 {
     Q_OBJECT
 
@@ -62,7 +63,7 @@ public:
 
     virtual QString GetCaretElementName() { return "";  }
 
-    virtual float GetZoomFactor()       { return 1.0;   }
+    virtual float GetZoomFactor() const { return 1.0;   }
     virtual void SetZoomFactor( float new_zoom_factor ) { }
 
     virtual Searchable* GetSearchableContent();

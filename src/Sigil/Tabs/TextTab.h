@@ -47,7 +47,7 @@ public:
 
     virtual bool PasteEnabled();
 
-    virtual float GetZoomFactor();
+    virtual float GetZoomFactor() const;
 
     virtual void SetZoomFactor( float new_zoom_factor );
 

@@ -50,7 +50,7 @@ ImageTab::ImageTab( Resource& resource, QWidget *parent )
     m_Layout.addWidget( &m_ScrollArea );
 }
 
-float ImageTab::GetZoomFactor()
+float ImageTab::GetZoomFactor() const
 {
     return m_CurrentZoomFactor;
 }

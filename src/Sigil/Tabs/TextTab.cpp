@@ -64,7 +64,7 @@ bool TextTab::PasteEnabled()
 }
 
 
-float TextTab::GetZoomFactor()
+float TextTab::GetZoomFactor() const
 {
     return m_wCodeView.GetZoomFactor();
 }

@@ -40,7 +40,7 @@ public:
     ImageTab( Resource& resource, QWidget *parent = 0 );
 
     // Overrides inherited from ContentTab
-    float GetZoomFactor();
+    float GetZoomFactor() const;
 
     void SetZoomFactor( float new_zoom_factor );
 

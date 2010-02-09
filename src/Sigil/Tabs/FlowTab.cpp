@@ -164,7 +164,7 @@ QString FlowTab::GetCaretElementName()
 }
 
 
-float FlowTab::GetZoomFactor()
+float FlowTab::GetZoomFactor() const
 {
     return GetActiveViewEditor().GetZoomFactor();
 }
