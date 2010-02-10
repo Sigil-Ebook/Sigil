@@ -7,7 +7,7 @@
 #
 #########################################################
 
-cmake_minimum_required( VERSION 2.6 ) 
+cmake_minimum_required( VERSION 2.8 ) 
 
 project( Sigil ) 
 
@@ -40,6 +40,10 @@ if( CMAKE_COMPILER_IS_GNUCXX  )
     # we clear the default back to empty
     set( CMAKE_BUILD_TYPE  )
 endif()
+
+# We need this to make sure g++ and the linker
+# create exes that can run on 10.4+
+set( CMAKE_OSX_DEPLOYMENT_TARGET "10.4" )
 
 add_subdirectory( src/tidyLib )
 add_subdirectory( src/ZipArchive )
