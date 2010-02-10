@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
 	<key>CFBundleVersion</key>
 	<string>SGVERSION</string>
 	<key>NSHumanReadableCopyright</key>
-	<string>Copyright © Strahinja.Markovic 2009, GNU GPL v3, CC 3.0 BY-SA</string>
+	<string>Copyright © Strahinja Markovic 2010, GNU GPL v3, CC 3.0 BY-SA</string>
 	<key>CFBundleShortVersionString</key>
 	<string>SGVERSION</string>
 	<key>CFBundleGetInfoString</key>
