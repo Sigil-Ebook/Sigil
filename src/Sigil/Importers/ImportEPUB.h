@@ -65,7 +65,7 @@ protected:
 
     void CleanHTMLFiles();
 
-    static void CleanOneHTMLFile( QString &fullpath );
+    static void CleanOneHTMLFile( const QString &fullpath );
 
     // Loads the referenced files into the main folder of the book.
     // Returns a hash with keys being old references (URLs) to resources,

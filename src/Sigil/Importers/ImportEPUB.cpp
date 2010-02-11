@@ -257,7 +257,7 @@ void ImportEPUB::LoadMetadata()
 
 void ImportEPUB::CleanHTMLFiles()
 {
-    QFutureSynchronizer< void > synchronizer;
+    QList< QString > files_to_clean;
 
     foreach( QString file, m_Book.mainfolder.GetContentFilesList() )
     {
@@ -265,14 +265,13 @@ void ImportEPUB::CleanHTMLFiles()
 
             continue;
         
-        QString fullfilepath = m_Book.mainfolder.GetFullPathToOEBPSFolder() + "/" + file;
-        synchronizer.addFuture( QtConcurrent::run( CleanOneHTMLFile, fullfilepath ) );       
+        files_to_clean.append( m_Book.mainfolder.GetFullPathToOEBPSFolder() + "/" + file );    
     }
 
-    synchronizer.waitForFinished();
+    QtConcurrent::blockingMap( files_to_clean, CleanOneHTMLFile );
 }
 
-void ImportEPUB::CleanOneHTMLFile( QString &fullpath )
+void ImportEPUB::CleanOneHTMLFile( const QString &fullpath )
 {
     // TODO: profile whether this load + clean + qdom.setsource
     // is faster than load + clean + qwebpage load
@@ -302,7 +301,3 @@ QHash< QString, QString > ImportEPUB::LoadFolderStructure()
 
     return updates;
 }
-
-
-
-

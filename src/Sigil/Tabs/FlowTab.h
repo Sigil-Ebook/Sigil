@@ -164,6 +164,7 @@ signals:
 
     void SelectionChanged();
 
+    // Emitted by Book View (wired)
     void LinkClicked( const QUrl &url );
 
 private slots:
