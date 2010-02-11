@@ -62,8 +62,6 @@ public:
     // Destructor
     virtual ~ViewEditor() {}
 
-    virtual void SetContent( const QString &source, const QUrl &base_url ) = 0;
-
     // Returns a list of elements representing a "chain"
     // or "walk" through the XHTML document with which one
     // can identify a single element in the document.

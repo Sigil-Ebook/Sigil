@@ -25,6 +25,8 @@
 
 #include "Resource.h"
 
+class QTextDocument;
+
 class TextResource : public Resource 
 {
     Q_OBJECT
@@ -38,6 +40,11 @@ public:
     virtual void WriteFile( const QString &content );
 
     virtual ResourceType Type() const;
+
+private:
+
+    //QTextDocument &m_TextDocument;
+
 };
 
 #endif // TEXTRESOURCE_H

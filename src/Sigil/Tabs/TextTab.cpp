@@ -36,7 +36,7 @@ TextTab::TextTab( Resource& resource, CodeViewEditor::HighlighterType type, QWid
 
     m_Source = m_TextResource.ReadFile();
 
-    m_wCodeView.SetContent( m_Source, QUrl() );
+    m_wCodeView.setPlainText( m_Source );
 }   
 
 

@@ -266,6 +266,9 @@ void ImportEPUB::CleanHTMLFiles()
 
 void ImportEPUB::CleanOneHTMLFile( QString &fullpath )
 {
+    // TODO: profile whether this load + clean + qdom.setsource
+    // is faster than load + clean + qwebpage load
+
     QString source = CleanSource::Clean( HTMLEncodingResolver::ReadHTMLFile( fullpath ) );
     Utility::WriteUnicodeTextFile( source, fullpath );
 }

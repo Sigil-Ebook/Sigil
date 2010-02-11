@@ -38,9 +38,7 @@ public:
 
     // Constructor;
     // the parameters is the object's parent
-    BookViewEditor( QWidget *parent = 0 );
-
-    void SetContent( const QString &source, const QUrl &base_url );
+    BookViewEditor( QWebPage &webpage, QWidget *parent = 0 );
 
     // Executes the specified command on the document with javascript
     void ExecCommand( const QString &command );
@@ -52,7 +50,7 @@ public:
     // Returns the state of the JavaScript command provided
     bool QueryCommandState( const QString &command );
 
-    // Workaround for a crappy setFocus implementation for Webkit
+    // Workaround for a crappy setFocus implementation in Webkit
     void GrabFocus();
 
     void ScrollToFragment( const QString &fragment );
@@ -82,6 +80,8 @@ public:
     // in this view to the specified element.
     // The BookView implementation initiates the update in
     // the JavascriptOnDocumentLoad() function.
+    // This should *always* be called *before* the page is updated
+    // to avoid loading race conditions.
     void StoreCaretLocationUpdate( const QList< ViewEditor::ElementIndex > &hierarchy );
 
     // Sets a zoom factor for the view,
@@ -116,6 +116,15 @@ signals:
 
     // Emitted whenever the zoom factor changes
     void ZoomFactorChanged( float new_zoom_factor );
+
+protected:
+
+    // Overridden because we need to update the cursor
+    // location if a cursor update (from CodeView) 
+    // is waiting to be processed.
+    // The update is pending only when we switch
+    // from Code View and there were no source changes
+    bool event( QEvent *event );
 
 private slots:
 

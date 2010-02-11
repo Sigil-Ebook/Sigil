@@ -67,7 +67,7 @@ QIcon Resource::Icon() const
 
 bool Resource::RenameTo( const QString &new_filename )
 {
-    QMutexLocker locker( &m_AccessMutex );
+    QWriteLocker locker( &m_ReadWriteLock );
 
     bool successful = Utility::RenameFile( m_FullFilePath, QFileInfo( m_FullFilePath ).absolutePath() + "/" + new_filename );
 
@@ -81,7 +81,7 @@ bool Resource::RenameTo( const QString &new_filename )
 
 bool Resource::Delete()
 {
-    QMutexLocker locker( &m_AccessMutex );
+    QWriteLocker locker( &m_ReadWriteLock );
 
     bool successful = Utility::DeleteFile( m_FullFilePath );
 

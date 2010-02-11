@@ -23,9 +23,12 @@
 #ifndef HTMLRESOURCE_H
 #define HTMLRESOURCE_H
 
-#include "TextResource.h"
+#include "Resource.h"
 
-class HTMLResource : public TextResource 
+class QWebPage;
+class QString;
+
+class HTMLResource : public Resource 
 {
     Q_OBJECT
 
@@ -38,13 +41,32 @@ public:
 
     virtual ResourceType Type() const;
 
+    QWebPage& GetWebPage();
+
+    void SetHtml( const QString &source );
+
+    QString GetHtml();
+
+    void SyncToDisk();
+
+    // The contents of the file on the disk should only
+    // be newer right after this resource object is created
+    // and before this function is called for the first time
+    void SyncFromDisk();
+
     int GetReadingOrder();
 
     void SetReadingOrder( int reading_order );
+    
+    void RemoveWebkitClasses();
 
 private:
 
+    QWebPage &m_WebPage;
+
     int m_ReadingOrder;
+
+    bool m_InitialLoadFromDiskDone;
 };
 
 #endif // HTMLRESOURCE_H

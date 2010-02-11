@@ -78,13 +78,6 @@ CodeViewEditor::CodeViewEditor( HighlighterType high_type, QWidget *parent )
     setFrameStyle( QFrame::NoFrame );
 }
 
-// Sets the content of the View to the specified book
-void CodeViewEditor::SetContent( const QString &source, const QUrl &base_url )
-{
-    setPlainText( source );
-}
-
-
 // Paints the line number area;
 // receives the event directly 
 // from the area's paintEvent() handler

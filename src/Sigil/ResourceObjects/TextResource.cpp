@@ -24,7 +24,9 @@
 #include "../Misc/Utility.h"
 
 TextResource::TextResource( const QString &fullfilepath, QHash< QString, Resource* > *hash_owner, QObject *parent )
-    : Resource( fullfilepath, hash_owner, parent )
+    : 
+    Resource( fullfilepath, hash_owner, parent )
+    //m_TextDocument( new QTextDocument( this ) )
 {
 
 }
@@ -32,14 +34,14 @@ TextResource::TextResource( const QString &fullfilepath, QHash< QString, Resourc
 
 QString TextResource::ReadFile() 
 {
-    QMutexLocker locker( &m_AccessMutex );
+    QReadLocker locker( &m_ReadWriteLock );
 
     return Utility::ReadUnicodeTextFile( m_FullFilePath );
 }
 
 void TextResource::WriteFile( const QString &content )
 {
-    QMutexLocker locker( &m_AccessMutex );
+    QWriteLocker locker( &m_ReadWriteLock );
 
     Utility::WriteUnicodeTextFile( content, m_FullFilePath );
 }

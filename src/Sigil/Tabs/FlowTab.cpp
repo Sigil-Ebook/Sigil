@@ -22,7 +22,6 @@
 #include <stdafx.h>
 #include "FlowTab.h"
 #include "../Misc/Utility.h"
-#include "../BookManipulation/CleanSource.h"
 #include "../ViewEditors/CodeViewEditor.h"
 #include "../ViewEditors/BookViewEditor.h"
 #include "../ResourceObjects/HTMLResource.h"
@@ -38,23 +37,20 @@ FlowTab::FlowTab( Resource& resource, const QUrl &fragment, QWidget *parent )
     ContentTab( resource, parent ),
     m_HTMLResource( *( qobject_cast< HTMLResource* >( &resource ) ) ),
     m_Splitter( *new QSplitter( this ) ),
-    m_wBookView( *new BookViewEditor( this ) ),
-    m_wCodeView( *new CodeViewEditor( CodeViewEditor::Highlight_XHTML, this ) )
+    m_wBookView( *new BookViewEditor( m_HTMLResource.GetWebPage(), this ) ),
+    m_wCodeView( *new CodeViewEditor( CodeViewEditor::Highlight_XHTML, this ) ),
+    m_IsLastViewBook( true ),
+    m_InSplitView( false )
 {
     m_Layout.addWidget( &m_Splitter );
 
     m_Splitter.setOrientation( Qt::Vertical );
-
     m_Splitter.addWidget( &m_wBookView );
     m_Splitter.addWidget( &m_wCodeView );
 
     ConnectSignalsToSlots();
 
-    m_Source = m_HTMLResource.ReadFile();
-    TidyUp();
-
-    m_wBookView.SetContent( m_Source, m_HTMLResource.GetBaseUrl() );
-    m_wCodeView.SetContent( m_Source, m_HTMLResource.GetBaseUrl() );
+    m_HTMLResource.SyncFromDisk();
 
     BookView();
 
@@ -70,7 +66,7 @@ bool FlowTab::IsModified()
 
 bool FlowTab::CutEnabled()
 {
-    if ( m_isLastViewBook )
+    if ( m_IsLastViewBook )
 
         return m_wBookView.pageAction( QWebPage::Cut )->isEnabled();
 
@@ -82,7 +78,7 @@ bool FlowTab::CutEnabled()
 
 bool FlowTab::CopyEnabled()
 {
-    if ( m_isLastViewBook )
+    if ( m_IsLastViewBook )
 
         return m_wBookView.pageAction( QWebPage::Copy )->isEnabled();
 
@@ -94,7 +90,7 @@ bool FlowTab::CopyEnabled()
 
 bool FlowTab::PasteEnabled()
 {
-    if ( m_isLastViewBook )
+    if ( m_IsLastViewBook )
 
         return m_wBookView.pageAction( QWebPage::Paste )->isEnabled();
 
@@ -174,7 +170,7 @@ void FlowTab::SetZoomFactor( float new_zoom_factor )
 {
     // We need to set a wait cursor for the Book View
     // since zoom operations take some time in it.
-    if ( m_isLastViewBook )
+    if ( m_IsLastViewBook )
     {
         QApplication::setOverrideCursor( Qt::WaitCursor );
         m_wBookView.SetZoomFactor( new_zoom_factor );
@@ -198,7 +194,7 @@ void FlowTab::ScrollToFragment( const QString &fragment )
 
 ContentTab::ViewState FlowTab::GetViewState()
 {
-    if ( m_isLastViewBook )
+    if ( m_IsLastViewBook )
 
         return ContentTab::ViewState_BookView;
 
@@ -216,7 +212,7 @@ void FlowTab::Undo()
     {
         m_wBookView.page()->triggerAction( QWebPage::Undo );
 
-        RemoveWebkitClasses();
+        m_HTMLResource.RemoveWebkitClasses();
     }
 
     else if ( m_wCodeView.hasFocus() )
@@ -233,7 +229,7 @@ void FlowTab::Redo()
     {
         m_wBookView.page()->triggerAction( QWebPage::Redo );
 
-        RemoveWebkitClasses();
+        m_HTMLResource.RemoveWebkitClasses();
     }
 
     else if ( m_wCodeView.hasFocus() )
@@ -250,7 +246,7 @@ void FlowTab::Cut()
     {
         m_wBookView.page()->triggerAction( QWebPage::Cut );
 
-        RemoveWebkitClasses();
+        m_HTMLResource.RemoveWebkitClasses();
     }
 
     else if ( m_wCodeView.hasFocus() )
@@ -267,7 +263,7 @@ void FlowTab::Copy()
     {
         m_wBookView.page()->triggerAction( QWebPage::Copy );
 
-        RemoveWebkitClasses();
+        m_HTMLResource.RemoveWebkitClasses();
     }
 
     else if ( m_wCodeView.hasFocus() )
@@ -284,7 +280,7 @@ void FlowTab::Paste()
     {
         m_wBookView.page()->triggerAction( QWebPage::Paste );
 
-        RemoveWebkitClasses();
+        m_HTMLResource.RemoveWebkitClasses();
     }
 
     else if ( m_wCodeView.hasFocus() )
@@ -301,10 +297,8 @@ void FlowTab::Bold()
     {
         m_wBookView.page()->triggerAction( QWebPage::ToggleBold );
 
-        RemoveWebkitClasses();
-    }
-
-    // TODO: insert required HTML for Code View
+        m_HTMLResource.RemoveWebkitClasses();
+    }    
 }
 
 
@@ -315,10 +309,8 @@ void FlowTab::Italic()
     {
         m_wBookView.page()->triggerAction( QWebPage::ToggleItalic );
 
-        RemoveWebkitClasses();
-    }
-
-    // TODO: insert required HTML for Code View
+        m_HTMLResource.RemoveWebkitClasses();
+    }    
 }
 
 
@@ -329,10 +321,8 @@ void FlowTab::Underline()
     {
         m_wBookView.page()->triggerAction( QWebPage::ToggleUnderline );
 
-        RemoveWebkitClasses();
-    }
-
-    // TODO: insert required HTML for Code View
+        m_HTMLResource.RemoveWebkitClasses();
+    }    
 }
 
 
@@ -343,10 +333,8 @@ void FlowTab::Strikethrough()
     {
         m_wBookView.ExecCommand( "strikeThrough" );
 
-        RemoveWebkitClasses();
-    }
-
-    // TODO: insert required HTML for Code View
+        m_HTMLResource.RemoveWebkitClasses();
+    }    
 }
 
 
@@ -357,10 +345,8 @@ void FlowTab::AlignLeft()
     {
         m_wBookView.ExecCommand( "justifyLeft" );
 
-        RemoveWebkitClasses();
-    }
-
-    // TODO: insert required HTML for Code View
+        m_HTMLResource.RemoveWebkitClasses();
+    }    
 }
 
 
@@ -371,10 +357,8 @@ void FlowTab::Center()
     {
         m_wBookView.ExecCommand( "justifyCenter" );
 
-        RemoveWebkitClasses();
-    }
-
-    // TODO: insert required HTML for Code View
+        m_HTMLResource.RemoveWebkitClasses();
+    }    
 }
 
 
@@ -385,10 +369,8 @@ void FlowTab::AlignRight()
     {
         m_wBookView.ExecCommand( "justifyRight" );
 
-        RemoveWebkitClasses();
-    }
-
-    // TODO: insert required HTML for Code View
+        m_HTMLResource.RemoveWebkitClasses();
+    }    
 }
 
 
@@ -399,13 +381,9 @@ void FlowTab::Justify()
     {
         m_wBookView.ExecCommand( "justifyFull" );
 
-        RemoveWebkitClasses();
-    }
-
-    // TODO: insert required HTML for Code View
+        m_HTMLResource.RemoveWebkitClasses();
+    }    
 }
-
-
 
 
 // Implements Insert chapter break action functionality
@@ -413,7 +391,7 @@ void FlowTab::InsertChapterBreak()
 {
     m_wBookView.ExecCommand( "insertHTML", BREAK_TAG_INSERT );
 
-    RemoveWebkitClasses();
+    m_HTMLResource.RemoveWebkitClasses();
 }
 
 
@@ -446,7 +424,7 @@ void FlowTab::InsertImage()
 //         m_wBookView.ExecCommand( "insertImage", relative_path );
 //     }    
 
-    RemoveWebkitClasses();
+    m_HTMLResource.RemoveWebkitClasses();
 }
 
 
@@ -455,7 +433,7 @@ void FlowTab::InsertBulletedList()
 {
     m_wBookView.ExecCommand( "insertUnorderedList" );
 
-    RemoveWebkitClasses();
+    m_HTMLResource.RemoveWebkitClasses();
 }
 
 
@@ -464,7 +442,7 @@ void FlowTab::InsertNumberedList()
 {
     m_wBookView.ExecCommand( "insertOrderedList" );
 
-    RemoveWebkitClasses();
+    m_HTMLResource.RemoveWebkitClasses();
 }
 
 
@@ -516,7 +494,7 @@ void FlowTab::PrintPreview()
 
     QPrintPreviewDialog *print_preview = new QPrintPreviewDialog( this );
 
-    if ( m_isLastViewBook )
+    if ( m_IsLastViewBook )
     {
         connect(    print_preview,     SIGNAL( paintRequested( QPrinter * ) ),
                     &m_wBookView,       SLOT(   print( QPrinter *) ) 
@@ -529,7 +507,6 @@ void FlowTab::PrintPreview()
                     &m_wCodeView,       SLOT(   print( QPrinter *) ) 
                );
     }        
-
 
     print_preview->exec();
 
@@ -550,14 +527,13 @@ void FlowTab::Print()
     QPrintDialog *print_dialog = new QPrintDialog( &printer, this );
     print_dialog->setWindowTitle( tr( "Print Document" ) );
 
-    if ( m_isLastViewBook )
+    if ( m_IsLastViewBook )
 
         m_wBookView.print( &printer );
 
     else
 
         m_wCodeView.print( &printer );
-
 }
 
 
@@ -568,16 +544,11 @@ void FlowTab::BookView()
 
     // Update the book view if we just edited
     // in the code view
-    if ( !m_isLastViewBook )
-    {
-        m_wBookView.StoreCaretLocationUpdate( m_wCodeView.GetCaretLocation() );
+    if ( !m_IsLastViewBook )
 
-        UpdateBookViewFromSource();     
+        EnterBookView();
 
-        emit EnteringBookView();
-    }
-
-    m_isLastViewBook = true;
+    m_InSplitView = false;
 
     m_wBookView.show();
     m_wCodeView.hide();
@@ -594,23 +565,15 @@ void FlowTab::SplitView()
     QApplication::setOverrideCursor( Qt::WaitCursor );
 
     // Update the required view
-    if ( !m_isLastViewBook )
-    {
-        m_wBookView.StoreCaretLocationUpdate( m_wCodeView.GetCaretLocation() );
+    if ( !m_IsLastViewBook )
 
-        UpdateBookViewFromSource();
-
-        emit EnteringBookView();
-    }
+        EnterBookView();
 
     else
-    {        
-        m_wCodeView.StoreCaretLocationUpdate( m_wBookView.GetCaretLocation() );
+           
+        EnterCodeView();
 
-        UpdateCodeViewFromSource();
-
-        emit EnteringCodeView();
-    }
+    m_InSplitView = true;
 
     m_wBookView.show();
     m_wCodeView.show();
@@ -628,16 +591,11 @@ void FlowTab::CodeView()
 
     // Update the code view if we just edited
     // in the book view
-    if ( m_isLastViewBook )
-    {
-        m_wCodeView.StoreCaretLocationUpdate( m_wBookView.GetCaretLocation() );
+    if ( m_IsLastViewBook )
+    
+        EnterCodeView();    
 
-        UpdateCodeViewFromSource();       
-
-        emit EnteringCodeView();
-    }
-
-    m_isLastViewBook = false;
+    m_InSplitView = false;
 
     m_wBookView.hide();
     m_wCodeView.show();       
@@ -653,61 +611,25 @@ void FlowTab::CodeView()
 void FlowTab::FocusFilter( QWidget *old_widget, QWidget *new_widget )
 {
     // We make sure we are looking at focus changes
-    // in Split View; otherwise, we don't care
-    //if ( !ui.actionSplitView->isChecked() )
+    // in Split View; otherwise, we don't care.
+    if ( !m_InSplitView )
 
-    //    return;
+        return;
 
     // If we switched focus from the book view to the code view...
     if ( ( old_widget == &m_wBookView ) && ( new_widget == &m_wCodeView ) )
     { 
-        m_wCodeView.StoreCaretLocationUpdate( m_wBookView.GetCaretLocation() );
-
-        // ...and if we haven't updated yet...
-        if ( m_OldSource != m_Source )
-        {
-            QApplication::setOverrideCursor( Qt::WaitCursor );
-
-            // ...update the code view
-            UpdateCodeViewFromSource();            
-
-            QApplication::restoreOverrideCursor();
-        }
-
-        m_isLastViewBook = false;   
-
-        emit EnteringCodeView();
-
-        //UpdateZoomControls();
-
-        // Set initial state for actions in this view
-        //SetStateActionsCodeView();      
+        QApplication::setOverrideCursor( Qt::WaitCursor );
+        EnterCodeView();
+        QApplication::restoreOverrideCursor();
     }
 
     // If we switched focus from the code view to the book view...
     else if ( ( old_widget == &m_wCodeView ) && ( new_widget == &m_wBookView ) )
     {
-        m_wBookView.StoreCaretLocationUpdate( m_wCodeView.GetCaretLocation() );
-
-        // ...and if we haven't updated yet...
-        if ( m_OldSource != m_Source )
-        {
-            QApplication::setOverrideCursor( Qt::WaitCursor );
-
-            // ...update the book view
-            UpdateBookViewFromSource();
-
-            QApplication::restoreOverrideCursor();
-        }
-
-        m_isLastViewBook = true;  
-
-        emit EnteringBookView();
-
-        //UpdateZoomControls();
-
-        // Set initial state for actions in this view
-        //SetStateActionsBookView();
+        QApplication::setOverrideCursor( Qt::WaitCursor );
+        EnterBookView();
+        QApplication::restoreOverrideCursor();
     }
 
     // else we don't care
@@ -719,43 +641,60 @@ void FlowTab::EmitContentChanged()
     emit ContentChanged();
 }
 
-
-void FlowTab::UpdateSourceFromBookView()
+void FlowTab::EnterBookView()
 {
-    m_Source = m_wBookView.page()->mainFrame()->toHtml();
+    m_wBookView.StoreCaretLocationUpdate( m_wCodeView.GetCaretLocation() );
+
+    // If we haven't updated yet, then update
+    if ( m_OldSource != m_wCodeView.toPlainText() )
+    {
+        UpdateStoredPageFromCodeView();
+    }
+
+    m_IsLastViewBook = true;  
+
+    emit EnteringBookView();
 }
 
-
-void FlowTab::UpdateSourceFromCodeView()
+void FlowTab::EnterCodeView()
 {
-    m_Source = m_wCodeView.toPlainText();	
+    m_wCodeView.StoreCaretLocationUpdate( m_wBookView.GetCaretLocation() );
+
+    // If we haven't updated yet, then update
+    if ( m_OldSource != m_HTMLResource.GetHtml() )
+    {
+        UpdateCodeViewFromStoredPage();            
+    }
+
+    m_IsLastViewBook = false;   
+
+    emit EnteringCodeView();
 }
+
 
 // On changeover, updates the code in code view
-void FlowTab::UpdateCodeViewFromSource()
+void FlowTab::UpdateCodeViewFromStoredPage()
 {
-    TidyUp();
+    m_HTMLResource.RemoveWebkitClasses();
 
-    // FIXME: add real base url
-    m_wCodeView.SetContent( m_Source, QUrl() );
+    QString source = m_HTMLResource.GetHtml();
+    m_wCodeView.setPlainText( source );
 
     // Store current source so we can compare and check
     // if we updated yet or we haven't
-    m_OldSource = m_Source;
+    m_OldSource = source;
 }
 
 
 // On changeover, updates the code in book view
-void FlowTab::UpdateBookViewFromSource()
+void FlowTab::UpdateStoredPageFromCodeView()
 {
-    TidyUp();
-
-    // FIXME: add real base url
-    m_wBookView.SetContent( m_Source, QUrl() );
+    QString source = m_wCodeView.toPlainText();
+    m_HTMLResource.SetHtml( source );
 
     // Store current source so we can compare and check
     // if we updated yet or we haven't
-    m_OldSource = m_Source;
+    m_OldSource = source;
 }
 
 void FlowTab::ReadSettings()
@@ -770,7 +709,7 @@ void FlowTab::ReadSettings()
 // Returns the currently active View Editor
 ViewEditor& FlowTab::GetActiveViewEditor() const
 {
-    if ( m_isLastViewBook )
+    if ( m_IsLastViewBook )
 
         return m_wBookView;
 
@@ -789,29 +728,8 @@ void FlowTab::WriteSettings()
 }
 
 
-// Runs HTML Tidy on m_Book.source variable
-void FlowTab::TidyUp()
-{
-    RemoveWebkitClasses();
-
-    m_Source = CleanSource::Clean( m_Source );
-}
-
-
-// Removes every occurrence of "signing" classes
-// with which webkit litters our source code 
-void FlowTab::RemoveWebkitClasses()
-{
-    m_Source.replace( QRegExp( "(class=\"[^\"]*)Apple-style-span" ), "\\1" );
-    m_Source.replace( QRegExp( "(class=\"[^\"]*)webkit-indent-blockquote" ), "\\1" );
-}
-
-
 void FlowTab::ConnectSignalsToSlots()
 {
-    connect( &m_wBookView, SIGNAL( textChanged() ), this, SLOT( UpdateSourceFromBookView() ) );
-    connect( &m_wCodeView, SIGNAL( textChanged() ), this, SLOT( UpdateSourceFromCodeView() ) );
-
     connect( &m_wBookView, SIGNAL( textChanged() ), this, SLOT( EmitContentChanged() ) );
     connect( &m_wCodeView, SIGNAL( textChanged() ), this, SLOT( EmitContentChanged() ) );
 
@@ -823,3 +741,4 @@ void FlowTab::ConnectSignalsToSlots()
 
     connect( qApp, SIGNAL( focusChanged( QWidget*, QWidget* ) ), this, SLOT( FocusFilter( QWidget*, QWidget* ) ) );
 }
+

@@ -54,8 +54,6 @@ public:
     // the second parameter is the object's parent
     CodeViewEditor( HighlighterType high_type, QWidget *parent = 0 );
 
-    void SetContent( const QString &source, const QUrl &base_url );
-
     // Paints the line number area;
     // receives the event directly 
     // from the area's paintEvent() handler

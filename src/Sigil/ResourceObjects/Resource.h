@@ -24,7 +24,7 @@
 #define RESOURCE_H
 
 #include <QObject>
-#include <QMutex>
+#include <QReadWriteLock>
 #include <QIcon>
 #include <QUrl>
 
@@ -75,7 +75,12 @@ protected:
 
     QString m_FullFilePath;
 
-    QMutex m_AccessMutex;
+    // TODO: Tabs should lock this mutex when the user
+    // switches to them to perform editing, and unlock it
+    // when he switches to a different tab (or the tab loses focus),
+    // closes this one or starts a multi-threaded, blocking resource updating process
+    // (and reacquire it when the user is able to edit again)
+    QReadWriteLock m_ReadWriteLock;
 
 private:
 

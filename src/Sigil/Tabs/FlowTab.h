@@ -172,36 +172,25 @@ private slots:
     // (code or book view) to the other; needed for source synchronization
     void FocusFilter( QWidget *old_widget, QWidget *new_widget );
 
-    void EmitContentChanged();
-
-    // Updates the m_Source variable whenever
-    // the user edits in book view
-    void UpdateSourceFromBookView();
-
-    // Updates the m_Source variable whenever
-    // the user edits in code view
-    void UpdateSourceFromCodeView();
-
-    // On changeover, updates the code in code view
-    void UpdateCodeViewFromSource();
-
-    // On changeover, updates the code in book view
-    void UpdateBookViewFromSource();    
+    void EmitContentChanged();  
 
 private:
+
+    void EnterBookView();
+
+    void EnterCodeView();
+
+    // On changeover, updates the code in code view
+    void UpdateCodeViewFromStoredPage();
+
+    // On changeover, updates the code in book view
+    void UpdateStoredPageFromCodeView();
 
     void ReadSettings();
     
     void WriteSettings();
 
     ViewEditor& GetActiveViewEditor() const;
-
-    // Runs HTML Tidy on sSource variable
-    void TidyUp();
-
-    // Removes every occurrence of "signing" classes
-    // with which webkit litters our source code 
-    void RemoveWebkitClasses();
 
     void ConnectSignalsToSlots();
 
@@ -221,14 +210,13 @@ private:
     CodeViewEditor &m_wCodeView;
 
     // true if the last view the user edited in was book view
-    bool m_isLastViewBook; 
+    bool m_IsLastViewBook; 
 
-    // We should be able to return a ref to this string to callers,
-    // and keep track whether the source has been tidied... if it
-    // hasn't, then tidy it first and then return it
-    QString m_Source;
+    // We need this variable because for some reason,
+    // checking for isVisible on both views doesn't work.
+    bool m_InSplitView;
 
-    // The value of the m_Book.sSource variable
+    // The value of the m_Source variable
     // after the last view change
     QString m_OldSource;
 
