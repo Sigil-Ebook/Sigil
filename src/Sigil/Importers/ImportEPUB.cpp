@@ -230,7 +230,11 @@ void ImportEPUB::ReadOPF()
 
     if ( opf.hasError() )
     {
-        // TODO: error handling
+        boost_throw( ErrorParsingOPF() 
+                     << errinfo_XML_parsing_error_string( opf.errorString().toStdString() )
+                     << errinfo_XML_parsing_line_number( opf.lineNumber() )
+                     << errinfo_XML_parsing_column_number( opf.columnNumber() )
+                   );
     }
     
 }

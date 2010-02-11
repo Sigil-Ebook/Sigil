@@ -42,4 +42,6 @@ typedef boost::error_info< struct error_string, std::string > errinfo_XML_parsin
 typedef boost::error_info< struct line_number, qint64 > errinfo_XML_parsing_line_number;
 typedef boost::error_info< struct column_number, qint64 > errinfo_XML_parsing_column_number;
 
+struct ErrorParsingOPF : virtual ErrorParsingXML {};
+
 struct NoAppropriateOPFFileFound : virtual ExceptionBase {};
