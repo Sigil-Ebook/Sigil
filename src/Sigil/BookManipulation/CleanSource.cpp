@@ -68,11 +68,6 @@ QString CleanSource::Clean( const QString &source )
     newsource = HTMLTidy( newsource );
     newsource = CleanCSS( newsource, old_num_styles );
 
-    // Once more, so we get the nice pretty-printed
-    // output of our CSS code too.
-    // TODO: create a special tidy func that only pretty-prints
-    newsource = HTMLTidy( newsource );
-
     return newsource;
 }
 
