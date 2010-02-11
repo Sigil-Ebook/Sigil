@@ -67,6 +67,7 @@ protected:
     // The book XHTML source is updated accordingly.
     void UpdateReferences( const QHash< QString, QString > updates );
 
+
 private:
 
     // Updates the resource references in the HTML.

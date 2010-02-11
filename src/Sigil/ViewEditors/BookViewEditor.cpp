@@ -27,30 +27,33 @@
 #include "../Misc/Utility.h"
 #include <QDomDocument>
 
-static const QString LOADED_CONTENT_MIMETYPE = "application/xhtml+xml";
+//static const QString LOADED_CONTENT_MIMETYPE = "application/xhtml+xml";
 const int PROGRESS_BAR_MINIMUM_DURATION = 1500;
 
 // Constructor;
 // the parameter is the object's parent
-BookViewEditor::BookViewEditor( QWidget *parent )
+BookViewEditor::BookViewEditor( QWebPage &webpage, QWidget *parent )
     : 
     QWebView( parent ),
-    c_JQuery(           Utility::ReadUnicodeTextFile( ":/javascript/jquery-1.3.2.min.js"            ) ),
-    c_JQueryScrollTo(   Utility::ReadUnicodeTextFile( ":/javascript/jquery.scrollTo-1.4.2-min.js"   ) ),
-    c_GetCaretLocation( Utility::ReadUnicodeTextFile( ":/javascript/book_view_current_location.js"  ) ),
-    c_NewSelection(     Utility::ReadUnicodeTextFile( ":/javascript/new_selection.js"               ) ),
-    c_GetRange(         Utility::ReadUnicodeTextFile( ":/javascript/get_range.js"                   ) ),
-    c_ReplaceText(      Utility::ReadUnicodeTextFile( ":/javascript/replace_text.js"                ) ),
+    c_JQuery(           Utility::ReadUnicodeTextFile( ":/javascript/jquery-1.3.2.min.js"           ) ),
+    c_JQueryScrollTo(   Utility::ReadUnicodeTextFile( ":/javascript/jquery.scrollTo-1.4.2-min.js"  ) ),
+    c_GetCaretLocation( Utility::ReadUnicodeTextFile( ":/javascript/book_view_current_location.js" ) ),
+    c_NewSelection(     Utility::ReadUnicodeTextFile( ":/javascript/new_selection.js"              ) ),
+    c_GetRange(         Utility::ReadUnicodeTextFile( ":/javascript/get_range.js"                  ) ),
+    c_ReplaceText(      Utility::ReadUnicodeTextFile( ":/javascript/replace_text.js"               ) ),
     m_CaretLocationUpdate( QString() ),
     m_isLoadFinished( false ),
     m_PageUp(   *( new QShortcut( QKeySequence( QKeySequence::MoveToPreviousPage ), this ) ) ),
     m_PageDown( *( new QShortcut( QKeySequence( QKeySequence::MoveToNextPage     ), this ) ) ),
-    m_ScrollOneLineUp( *(   new QShortcut( QKeySequence( Qt::ControlModifier + Qt::Key_Up   ), this ) ) ),
+    m_ScrollOneLineUp(   *( new QShortcut( QKeySequence( Qt::ControlModifier + Qt::Key_Up   ), this ) ) ),
     m_ScrollOneLineDown( *( new QShortcut( QKeySequence( Qt::ControlModifier + Qt::Key_Down ), this ) ) )
 {
-    QWebSettings &settings = *QWebSettings::globalSettings();
-    settings.setAttribute( QWebSettings::LocalContentCanAccessRemoteUrls,  true );
-    settings.setAttribute( QWebSettings::JavascriptCanAccessClipboard,     true );
+    setPage( &webpage );
+
+    QWebSettings &settings = *webpage.settings();
+    settings.setAttribute( QWebSettings::LocalContentCanAccessRemoteUrls, false );
+    settings.setAttribute( QWebSettings::JavascriptCanAccessClipboard, true );
+    settings.setAttribute( QWebSettings::ZoomTextOnly, true );
 
     connect( &m_PageUp,            SIGNAL( activated() ),          this, SLOT( PageUp()                   ) );
     connect( &m_PageDown,          SIGNAL( activated() ),          this, SLOT( PageDown()                 ) );
@@ -59,21 +62,10 @@ BookViewEditor::BookViewEditor( QWidget *parent )
     connect( page(),               SIGNAL( contentsChanged() ),    this, SIGNAL( textChanged()            ) );
     connect( page(),               SIGNAL( loadFinished( bool ) ), this, SLOT( JavascriptOnDocumentLoad() ) );
     connect( page(),               SIGNAL( loadProgress( int ) ),  this, SLOT( UpdateFinishedState( int ) ) );
+
+    connect( page(),         SIGNAL( linkClicked( const QUrl& ) ),
+             this->parent(), SIGNAL( LinkClicked( const QUrl& ) ) );
 }
-
-
-// Sets the content of the View to the specified book
-void BookViewEditor::SetBook( const Book &book )
-{
-    page()->mainFrame()->setContent( book.source.toUtf8(), LOADED_CONTENT_MIMETYPE, book.GetBaseUrl() );
-
-    page()->setContentEditable( true );
-
-    // TODO: we kill external links; a dialog should be used
-    // that asks the user if he wants to open this external link in a browser
-    page()->setLinkDelegationPolicy( QWebPage::DelegateExternalLinks );
-}
-
 
 // Executes the specified command on the document with javascript
 void BookViewEditor::ExecCommand( const QString &command )
@@ -120,12 +112,43 @@ void BookViewEditor::GrabFocus()
 }
 
 
+void BookViewEditor::ScrollToFragment( const QString &fragment )
+{
+    if ( fragment.isEmpty() )
+
+        return;
+
+    QString javascript = "window.location.hash = \""  + fragment + "\";";
+
+    EvaluateJavascript( javascript );
+}
+
+
+void BookViewEditor::ScrollToFragmentAfterLoad( const QString &fragment )
+{
+    if ( fragment.isEmpty() )
+
+        return;
+
+    QString javascript = "window.addEventListener('load', GoToFragment, false);"
+                         "function GoToFragment() { window.location.hash = \""  + fragment + "\"; }";
+
+    EvaluateJavascript( javascript );
+}
+
+
 // Implements the "formatBlock" execCommand because
 // WebKit's default one has bugs.
 // It takes an element name as an argument (e.g. "p"),
 // and replaces the element the cursor is located in with it.
 void BookViewEditor::FormatBlock( const QString &element_name )
 {
+    // TODO: replace javascript with QWebElement
+
+    if ( element_name.isEmpty() )
+
+        return;
+
     QString javascript =  "var node = document.getSelection().anchorNode;"
                           "var startNode = (node.nodeName == \"#text\" ? node.parentNode : node);"                          
                           "$(startNode).replaceWith( '<"+ element_name + ">' + $(startNode).html() + '</"+ element_name + ">' );";
@@ -141,6 +164,8 @@ void BookViewEditor::FormatBlock( const QString &element_name )
 // where the selection *starts*
 QString BookViewEditor::GetCaretElementName()
 {
+    // TODO: replace javascript with QWebElement
+
     QString javascript =  "var node = document.getSelection().anchorNode;"
                           "var startNode = (node.nodeName == \"#text\" ? node.parentNode : node);"
                           "startNode.nodeName;";
@@ -189,13 +214,7 @@ void BookViewEditor::StoreCaretLocationUpdate( const QList< ViewEditor::ElementI
     QString scroll = "var from_top = window.innerHeight / 2;"
                      "$.scrollTo( element, 0, {offset: {top:-from_top, left:0 } } );";
 
-    m_CaretLocationUpdate = caret_location + scroll;
-
-    // If we have focus, then we run the update right now;
-    // otherwise, we defer the update until later
-    if ( hasFocus() && m_isLoadFinished )
-        
-        ExecuteCaretUpdate();        
+    m_CaretLocationUpdate = caret_location + scroll;     
 }
 
 // Sets a zoom factor for the view,
@@ -325,6 +344,22 @@ int BookViewEditor::ReplaceAll( const QRegExp &search_regex, const QString &repl
     return count;
 }
 
+
+bool BookViewEditor::event( QEvent *event )
+{
+    // We just return whatever the "real" event handler returns
+    bool real_return = QWebView::event( event );
+
+    // Executing the caret update inside the paint event
+    // handler causes artifacts on mac. So we do it after
+    // the event is processed and accepted.
+    if ( m_isLoadFinished && event->type() == QEvent::Paint )
+    {
+        ExecuteCaretUpdate();
+    }
+
+    return real_return;
+}
 
 
 // Executes javascript that needs to be run when
@@ -600,16 +635,16 @@ BookViewEditor::SelectRangeInputs BookViewEditor::GetRangeInputs( const QMap< in
             // + 1 because we are pretending there is another text node after this one
             next_offset = offsets[ i ] + node_offsets[ offsets[ i ] ].nodeValue().length() + 1;
 
-        if (    next_offset > string_start && 
-                input.start_node.isNull() 
+        if ( next_offset > string_start && 
+             input.start_node.isNull() 
            )
         {
             input.start_node_index = string_start - last_offset;
             input.start_node       = node_offsets.value( last_offset );
         }
 
-        if (    next_offset > string_start + string_length &&
-                input.end_node.isNull() 
+        if ( next_offset > string_start + string_length &&
+             input.end_node.isNull() 
            )
         {
             input.end_node_index = string_start + string_length - last_offset;
@@ -736,6 +771,7 @@ void BookViewEditor::ScrollByNumPixels( int pixel_number, bool down )
 
     page()->mainFrame()->setScrollBarValue( Qt::Vertical, new_scroll_Y );
 }
+
 
 
 

@@ -63,11 +63,9 @@ protected:
     // (filled by reading the OPF) into the book
     void LoadMetadata();
 
-    // Loads the source code into the Book
-    void virtual LoadSource();
+    void CleanHTMLFiles();
 
-    // Adds the header to the Book source code
-    void AddHeaderToSource();
+    static void CleanOneHTMLFile( const QString &fullpath );
 
     // Loads the referenced files into the main folder of the book.
     // Returns a hash with keys being old references (URLs) to resources,

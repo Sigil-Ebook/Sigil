@@ -80,10 +80,11 @@ private:
     enum BlockState
     {
         State_Text          = 1 << 0,
-        State_HTML          = 1 << 1,		
-        State_CSS           = 1 << 2,
-        State_CSSComment    = 1 << 3,	
-        State_HTMLComment   = 1 << 4,
+        State_Entity        = 1 << 1,	
+        State_HTML          = 1 << 2,		
+        State_CSS           = 1 << 3,
+        State_CSSComment    = 1 << 4,	
+        State_HTMLComment   = 1 << 5,
     };
 
     struct HighlightingRule
@@ -94,7 +95,7 @@ private:
 
     // Stores all of our highlighting rules
     // and the text formats used
-    QHash<QString, HighlightingRule> hshRules;	
+    QHash<QString, HighlightingRule> m_Rules;	
 };
 
 #endif // XHTMLHIGHLIGHTER_H

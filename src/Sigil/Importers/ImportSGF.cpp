@@ -75,7 +75,7 @@ void ImportSGF::LoadFolderStructure()
         {
             QString fullfilepath = QFileInfo( m_OPFFilePath ).absolutePath() + "/" + path;
 
-            m_Book.mainfolder.AddContentFileToFolder( fullfilepath, NULL, true );
+            //m_Book.mainfolder.AddContentFileToFolder( fullfilepath, NULL, true );
         }        
     }
 }

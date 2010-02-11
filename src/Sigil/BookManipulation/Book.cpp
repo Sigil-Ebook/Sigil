@@ -28,7 +28,7 @@ bool Book::s_IgnoreCalibreEnvFlag = false;
 // Constructor
 Book::Book()
     : 
-    PublicationIdentifier( QUuid::createUuid().toString().remove( "{" ).remove( "}" ) ),
+    PublicationIdentifier( Utility::CreateUUID() ),
     m_ReportToCalibre( false )
 
 {

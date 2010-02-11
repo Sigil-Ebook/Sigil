@@ -24,7 +24,8 @@
 #include "LineNumberArea.h"
 #include "../BookManipulation/Book.h"
 #include "../BookManipulation/XHTMLDoc.h"
-#include "Misc/XHTMLHighlighter.h"
+#include "../Misc/XHTMLHighlighter.h"
+#include "../Misc/CSSHighlighter.h"
 #include <QDomDocument>
 
 static const int COLOR_FADE_AMOUNT       = 175;
@@ -36,18 +37,25 @@ static const QColor NUMBER_AREA_NUMCOLOR = QColor( 100, 100, 100 );
                   
 static const QString XML_OPENING_TAG = "(<[^>/][^>]*[^>/]>|<[^>/]>)";
 
-
 // Constructor;
-// the parameters is the object's parent
-CodeViewEditor::CodeViewEditor( QWidget *parent )
+// the first parameter says which syn. highlighter to use;
+// the second parameter is the object's parent
+CodeViewEditor::CodeViewEditor( HighlighterType high_type, QWidget *parent )
     :
     QPlainTextEdit( parent ),
     m_LineNumberArea( new LineNumberArea( this ) ),
-    m_Highlighter( new XHTMLHighlighter( document() ) ),
     m_CurrentZoomFactor( 1.0 ),
     m_ScrollOneLineUp( *(   new QShortcut( QKeySequence( Qt::ControlModifier + Qt::Key_Up   ), this ) ) ),
     m_ScrollOneLineDown( *( new QShortcut( QKeySequence( Qt::ControlModifier + Qt::Key_Down ), this ) ) )
 {
+    if ( high_type == CodeViewEditor::Highlight_XHTML )
+
+        m_Highlighter = new XHTMLHighlighter( document() );
+
+    else
+
+        m_Highlighter = new CSSHighlighter( document() );
+
     connect( this, SIGNAL( blockCountChanged( int ) ),           this, SLOT( UpdateLineNumberAreaMargin() ) );
     connect( this, SIGNAL( updateRequest( const QRect &, int) ), this, SLOT( UpdateLineNumberArea( const QRect &, int) ) );
     connect( this, SIGNAL( cursorPositionChanged() ),            this, SLOT( HighlightCurrentLine() ) );
@@ -66,14 +74,9 @@ CodeViewEditor::CodeViewEditor( QWidget *parent )
     font.setStyleHint( QFont::TypeWriter );
     setFont( font );
     setTabStopWidth( TAB_SPACES_WIDTH * QFontMetrics( font ).width( ' ' ) );
-}
 
-// Sets the content of the View to the specified book
-void CodeViewEditor::SetBook( const Book &book )
-{
-    setPlainText( book.source );
+    setFrameStyle( QFrame::NoFrame );
 }
-
 
 // Paints the line number area;
 // receives the event directly 
@@ -185,6 +188,7 @@ void CodeViewEditor::SetZoomFactor( float factor )
     setFont( current_font );
     
     // We update size of the line number area
+    m_LineNumberArea->setFont( current_font );
     m_LineNumberArea->MyUpdateGeometry();
     UpdateLineNumberAreaMargin();
 
@@ -544,7 +548,7 @@ bool CodeViewEditor::ExecuteCaretUpdate()
     CodeViewEditor::CaretMove caret_move = ConvertHierarchyToCaretMove( m_CaretUpdate );
 
     cursor.movePosition( QTextCursor::NextBlock, QTextCursor::MoveAnchor, caret_move.vertical_lines );
-    cursor.movePosition( QTextCursor::Left     , QTextCursor::MoveAnchor, caret_move.horizontal_chars );
+    cursor.movePosition( QTextCursor::Left,      QTextCursor::MoveAnchor, caret_move.horizontal_chars );
 
     m_CaretUpdate.clear();
 

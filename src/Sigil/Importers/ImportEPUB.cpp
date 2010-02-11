@@ -30,6 +30,7 @@
 
 static const QString OEBPS_MIMETYPE = "application/oebps-package+xml";
 
+
 // Constructor;
 // The parameter is the file to be imported
 ImportEPUB::ImportEPUB( const QString &fullfilepath )
@@ -63,17 +64,18 @@ Book ImportEPUB::GetBook()
 
     // These mutate the m_Book object
     LoadMetadata();
-    LoadSource();
-    AddHeaderToSource();
+    //StripFilesFromAnchors();
 
     // We need to make the source valid XHTML to allow us to 
     // parse it with XML parsers
     m_Book.source = CleanSource::ToValidXHTML( m_Book.source );
 
-    StripFilesFromAnchors();
-    UpdateReferences( LoadFolderStructure() );
 
-    m_Book.source = CleanSource::Clean( m_Book.source );
+    QHash< QString, QString > updates = LoadFolderStructure(); 
+    CleanHTMLFiles();
+
+    // TODO: reference updating... this will be hard
+    //UpdateReferences( updates );
 
     return m_Book;
 }
@@ -148,10 +150,17 @@ void ImportEPUB::LocateOPF()
 
     if ( container.hasError() )
     {
-        // TODO: error handling
+        boost_throw( ErrorParsingContentXML() 
+                     << errinfo_XML_parsing_error_string( container.errorString().toStdString() )
+                     << errinfo_XML_parsing_line_number( container.lineNumber() )
+                     << errinfo_XML_parsing_column_number( container.columnNumber() )
+                   );
     }
 
-    // TODO: throw exception if no appropriate OEBPS root file was found
+    if ( m_OPFFilePath.isEmpty() )
+    {
+        boost_throw( NoAppropriateOPFFileFound() );    
+    }
 }
 
 
@@ -226,7 +235,11 @@ void ImportEPUB::ReadOPF()
 
     if ( opf.hasError() )
     {
-        // TODO: error handling
+        boost_throw( ErrorParsingOPF() 
+                     << errinfo_XML_parsing_error_string( opf.errorString().toStdString() )
+                     << errinfo_XML_parsing_line_number( opf.lineNumber() )
+                     << errinfo_XML_parsing_column_number( opf.columnNumber() )
+                   );
     }
     
 }
@@ -247,68 +260,26 @@ void ImportEPUB::LoadMetadata()
 }
 
 
-// Loads the source code into the Book
-void ImportEPUB::LoadSource()
+void ImportEPUB::CleanHTMLFiles()
 {
-    bool is_first_text_file = true;
+    QList< QString > files_to_clean;
 
-    foreach( QString id, m_ReadingOrderIds )
+    foreach( QString file, m_Book.mainfolder.GetContentFilesList() )
     {
-        QString fullpath = QFileInfo( m_OPFFilePath ).absolutePath() + "/" + m_Files[ id ];
-        QString text     = ResolveCustomEntities( HTMLEncodingResolver::ReadHTMLFile( fullpath ) );
+        if ( !file.contains( TEXT_FOLDER_NAME + "/" ) )
 
-        // We extract the content of the files
-        // that is within the <body> tag
-        QRegExp body_start_tag( BODY_START );
-        QRegExp body_end_tag( BODY_END );
-
-        int body_begin	= text.indexOf( body_start_tag, 0 ) + body_start_tag.matchedLength();
-        int body_end	= text.indexOf( body_end_tag, 0 );
-
-        QString content = Utility::Substring( body_begin, body_end, text );
-
-        // We don't add our chapter break tag
-        // for the first text file
-        if ( is_first_text_file == false )
-        {            
-            m_Book.source += BREAK_TAG_INSERT + "\n" + content;
-        }
-
-        else
-        {
-            m_Book.source += content;
-
-            is_first_text_file = false;
-        }
-    }  
-
-    m_Book.source += "</body> </html>";
-}
-
-
-// Adds the header to the Book source code
-void ImportEPUB::AddHeaderToSource()
-{
-    QString header =    "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
-                        "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\"\n"
-                        "    \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n\n"							
-                        "<html xmlns=\"http://www.w3.org/1999/xhtml\">\n"
-                        "<head>\n";    
-
-    // Creates <style> tags from CSS files
-    foreach( QString path, m_Files.values() )
-    {
-        if ( path.contains( ".css" ) || path.contains( ".xpgt" )  )
-        {
-            QString style_tag = CreateStyleTag( QFileInfo( m_OPFFilePath ).absolutePath() + "/" + path );
-
-            header += style_tag;
-        }
+            continue;
+        
+        files_to_clean.append( m_Book.mainfolder.GetFullPathToOEBPSFolder() + "/" + file );    
     }
 
-    header += "</head>\n<body>\n";
+    QtConcurrent::blockingMap( files_to_clean, CleanOneHTMLFile );
+}
 
-    m_Book.source = header + m_Book.source;
+void ImportEPUB::CleanOneHTMLFile( const QString &fullpath )
+{
+    QString source = CleanSource::Clean( HTMLEncodingResolver::ReadHTMLFile( fullpath ) );
+    Utility::WriteUnicodeTextFile( source, fullpath );
 }
 
 
@@ -321,25 +292,14 @@ QHash< QString, QString > ImportEPUB::LoadFolderStructure()
 
     foreach( QString key, m_Files.keys() )
     {
-        QString path = m_Files[ key ];
+        QString path         = m_Files[ key ];
+        QString fullfilepath = QFileInfo( m_OPFFilePath ).absolutePath() + "/" + path;
 
-        // We skip over the book text and style files
-        if (    ( !m_ReadingOrderIds.contains( key ) ) &&
-                ( !path.contains( ".css" ) )           &&
-                ( !path.contains( ".xpgt" ) )                   
-            )
-        {
-            QString fullfilepath = QFileInfo( m_OPFFilePath ).absolutePath() + "/" + path;
+        QString newpath = m_Book.mainfolder.AddContentFileToFolder( fullfilepath, m_ReadingOrderIds.indexOf( key ) );
+        newpath = "../" + newpath;  
 
-            QString newpath = m_Book.mainfolder.AddContentFileToFolder( fullfilepath );
-            newpath = "../" + newpath;  
-
-            updates[ path ] = newpath;
-        }        
+        updates[ path ] = newpath;       
     }
 
     return updates;
 }
-
-
-

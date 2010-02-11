@@ -69,7 +69,8 @@ QString CleanSource::Clean( const QString &source )
     newsource = CleanCSS( newsource, old_num_styles );
 
     // Once more, so we get the nice pretty-printed
-    // output of our CSS code too
+    // output of our CSS code too.
+    // TODO: create a special tidy func that only pretty-prints
     newsource = HTMLTidy( newsource );
 
     return newsource;
@@ -460,7 +461,6 @@ QString CleanSource::RemoveRedundantClassesSource( const QString &source, const 
             QString matched = remove_old.cap( 0 );
 
             matched.replace( key, redundant_classes.value( key ) );
-
             newsource.replace( remove_old.cap( 0 ), matched );
         }
     }
@@ -483,7 +483,6 @@ QHash< QString, QString > CleanSource::GetRedundantClasses( const QStringList &c
     // Tidy always create ONE style tag for its new classes,
     // and it is always the last one
     QString new_style_tag = css_style_tags.last();
-
     QStringList new_style_tag_lines = new_style_tag.split( QChar( '\n' ) );
 
     // We search through all the tags that come before this new one 

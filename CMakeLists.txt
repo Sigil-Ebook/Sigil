@@ -47,6 +47,7 @@ set( CMAKE_OSX_DEPLOYMENT_TARGET "10.4" )
 
 add_subdirectory( src/tidyLib )
 add_subdirectory( src/ZipArchive )
+add_subdirectory( src/BoostParts )
 add_subdirectory( src/Sigil )
 
 

@@ -264,7 +264,9 @@ QString ExportEPUB::CreateOneTextFile( const QString &source, const QString &ext
         out.flush();
         file.flush();
 
-        return m_Folder.AddContentFileToFolder( file.fileName(), extension );
+        return "";
+
+        //return m_Folder.AddContentFileToFolder( file.fileName(), extension );
     }
 
     else
@@ -319,7 +321,7 @@ void ExportEPUB::UpdateAnchors()
 
     foreach( QString file, m_Folder.GetContentFilesList() )
     {
-        if ( !file.contains( "text/" ) )
+        if ( !file.contains( TEXT_FOLDER_NAME + "/" ) )
 
             continue;
 
@@ -344,7 +346,7 @@ void ExportEPUB::UpdateAnchors()
                 QString id = element.attribute( "href" ).remove( 0, 1 );
 
                 // If the ID is in a different file, update the link
-                if ( id_locations[ id ] != file.remove( "text/" ) )
+                if ( id_locations[ id ] != file.remove( TEXT_FOLDER_NAME + "/" ) )
 
                     element.setAttribute( "href", id_locations[ id ] + "#" + id );            
             } 
@@ -366,7 +368,7 @@ QHash< QString, QString > ExportEPUB::GetIDFileLocations() const
 
     foreach( QString file, m_Folder.GetContentFilesList() )
     {
-        if ( !file.contains( "text/" ) )
+        if ( !file.contains( TEXT_FOLDER_NAME + "/" ) )
 
             continue;
 
@@ -386,7 +388,7 @@ QHash< QString, QString > ExportEPUB::GetIDFileLocations() const
 
                 break;
 
-            id_locations[ ids_names.cap( 1 ) ] = file.remove( "text/" );
+            id_locations[ ids_names.cap( 1 ) ] = file.remove( TEXT_FOLDER_NAME + "/" );
 
             main_index += ids_names.matchedLength();
         }

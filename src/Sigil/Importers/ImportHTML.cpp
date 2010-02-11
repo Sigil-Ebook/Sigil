@@ -157,7 +157,6 @@ void ImportHTML::StripFilesFromAnchors()
     m_Book.source = XHTMLDoc::GetQDomNodeAsString( document );      
 }
 
-
 // Searches for meta information in the HTML file
 // and tries to convert it to Dublin Core
 void ImportHTML::LoadMetadata()
@@ -426,5 +425,6 @@ void ImportHTML::LoadStyleFiles()
 
     m_Book.source = new_source;
 }
+
 
 

@@ -35,4 +35,9 @@ extern const QString NIX_PATH_SUFFIX;
 extern const QString VERSION_NUMBERS;
 extern const QString SIGIL_VERSION;
 extern const int PROGRESS_BAR_MINIMUM_DURATION;
+extern const QString IMAGE_FOLDER_NAME;
+extern const QString FONT_FOLDER_NAME;
+extern const QString TEXT_FOLDER_NAME;
+extern const QString STYLE_FOLDER_NAME;
+extern const QString MISC_FOLDER_NAME;
 

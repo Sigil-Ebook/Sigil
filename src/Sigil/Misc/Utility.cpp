@@ -29,36 +29,14 @@
 const QString WIN_PATH_SUFFIX = "/Sigil";
 const QString NIX_PATH_SUFFIX = "/.Sigil";
 
-static const int TEMPFOLDER_NUM_RANDOM_CHARS = 10;
-static const int TEMPFILE_NUM_RANDOM_CHARS   = 10;
 
-
-// Returns a random string of "length" characters
-QString Utility::GetRandomString( int length )
+// Uses QUuid to generate a random UUID but also removes
+// the curly braces that QUuid::createUuid() adds
+QString Utility::CreateUUID()
 {
-    static bool seed_flag = false;
-
-    QString chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-
-    QString token;
-
-    // qsrand() is a thread-safe version of srand(),
-    // so the static seed_flag variable should not pose
-    // concurrency problems
-    if ( seed_flag == false )
-    {
-        qsrand( time( NULL ) );
-
-        seed_flag = true;
-    }
-
-    for ( int i = 0; i < length; ++i )
-    {
-        token += chars[ qrand() % 36 ];
-    }
-
-    return token;
+    return QUuid::createUuid().toString().remove( "{" ).remove( "}" );
 }
+
 
 // Returns true if the string is mixed case, false otherwise.
 // For instance, "test" and "TEST" return false, "teSt" returns true.
@@ -97,6 +75,34 @@ QString Utility::ReplaceFirst( const QString &before, const QString &after, cons
     int end_index   = start_index + before.length();
 
     return Substring( 0, start_index, string ) + after + Substring( end_index, string.length(), string );
+}
+
+
+QStringList Utility::RecursiveGetFiles( const QString &fullfolderpath )
+{
+    QDir folder( fullfolderpath );
+    QStringList files;
+
+    foreach( QFileInfo file, folder.entryInfoList() )
+    {
+        if ( ( file.fileName() != "." ) && ( file.fileName() != ".." ) )
+        {
+            // If it's a file, add it to the list
+            if ( file.isFile() == true )
+            {
+                files.append( file.absoluteFilePath() );
+            }
+
+            // Else it's a directory, so
+            // we add all files from that dir
+            else 
+            {
+                files.append( RecursiveGetFiles( file.absoluteFilePath() ) );                				
+            }
+        }
+    }
+
+    return files;
 }
 
 
@@ -180,11 +186,24 @@ bool Utility::DeleteFile( const QString &fullfilepath )
 }
 
 
+bool Utility::RenameFile( const QString &oldfilepath, const QString &newfilepath )
+{
+    // Make sure the path exists, otherwise very
+    // bad things could happen
+    if ( !QFileInfo( oldfilepath ).exists() )
+
+        return false;
+
+    QFile file( oldfilepath );
+    return file.rename( newfilepath );
+}
+
+
 // Returns the full path to a new temporary folder;
 // the caller is responsible for creating and deleting the folder
 QString Utility::GetNewTempFolderPath()
 {
-    QString token = Utility::GetRandomString( TEMPFOLDER_NUM_RANDOM_CHARS );
+    QString token = Utility::CreateUUID();
 
     // The path used to store the folders depends on the OS used
 
@@ -213,7 +232,7 @@ QString Utility::CreateTemporaryCopy( const QString &fullfilepath )
         return QString();
 
     QString temp_file_path = QDir::temp().absolutePath() + "/" + 
-                             Utility::GetRandomString( TEMPFILE_NUM_RANDOM_CHARS ) + "." +
+                             Utility::CreateUUID() + "." +
                              QFileInfo( fullfilepath ).suffix();
 
     QFile::copy( fullfilepath, temp_file_path );
@@ -294,9 +313,9 @@ void Utility::WriteUnicodeTextFile( const QString &text, const QString &fullfile
 {
     QFile file( fullfilepath );
 
-    if ( file.open(     QIODevice::WriteOnly | 
-                        QIODevice::Truncate | 
-                        QIODevice::Text 
+    if ( file.open(  QIODevice::WriteOnly | 
+                     QIODevice::Truncate | 
+                     QIODevice::Text  
                   ) 
        )
     {
@@ -322,6 +341,46 @@ QString Utility::ConvertLineEndings( const QString &text )
 {
     QString newtext( text );
     return newtext.replace( "\x0D\x0A", "\x0A" ).replace( "\x0D", "\x0A" );
+}
+
+
+void Utility::DisplayStdErrorDialog( const QString &error_info )
+{
+    QMessageBox message_box;
+    //message_box.setTextFormat( Qt::PlainText );
+    message_box.setIcon( QMessageBox::Critical );
+    message_box.setWindowTitle( "Sigil" );
+
+    // Spaces are added to the end because otherwise the dialog is too small.
+    message_box.setText( QObject::tr( "Sigil has encountered a problem.               " ) );
+    message_box.setInformativeText( QObject::tr( "Please <a href=\"http://code.google.com/p/sigil/wiki/ReportingIssues\">report it</a> " 
+                                    "on the issue tracker, including the details from this dialog." ) );
+
+    message_box.setStandardButtons( QMessageBox::Close );
+
+    QStringList detailed_text;
+    detailed_text << "Error info: "    + error_info
+                  << "Sigil version: " + QString( SIGIL_FULL_VERSION )
+                  << "Runtime Qt: "    + QString( qVersion() )
+                  << "Compiled Qt: "   + QString( QT_VERSION_STR );
+
+#ifdef Q_WS_WIN
+    detailed_text << "Platform: Windows SysInfo ID " + QString::number( QSysInfo::WindowsVersion );
+#elif Q_WS_MAC
+    detailed_text << "Platform: Mac SysInfo ID " + QString::number( QSysInfo::MacintoshVersion);
+#else
+    detailed_text << "Platform: Linux";
+#endif
+
+    message_box.setDetailedText( detailed_text.join( "\n" ) );
+
+    message_box.exec();
+}
+
+
+QString Utility::GetExceptionInfo( const ExceptionBase &exception )
+{
+    return QString::fromStdString( diagnostic_information( exception ) );
 }
 
 
@@ -352,3 +411,7 @@ float Utility::RoundToOneDecimal( float number )
 {
     return QString::number( number, 'f', 1 ).toFloat();
 }
+
+
+
+
