@@ -634,16 +634,16 @@ BookViewEditor::SelectRangeInputs BookViewEditor::GetRangeInputs( const QMap< in
             // + 1 because we are pretending there is another text node after this one
             next_offset = offsets[ i ] + node_offsets[ offsets[ i ] ].nodeValue().length() + 1;
 
-        if (    next_offset > string_start && 
-                input.start_node.isNull() 
+        if ( next_offset > string_start && 
+             input.start_node.isNull() 
            )
         {
             input.start_node_index = string_start - last_offset;
             input.start_node       = node_offsets.value( last_offset );
         }
 
-        if (    next_offset > string_start + string_length &&
-                input.end_node.isNull() 
+        if ( next_offset > string_start + string_length &&
+             input.end_node.isNull() 
            )
         {
             input.end_node_index = string_start + string_length - last_offset;

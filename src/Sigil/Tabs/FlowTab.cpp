@@ -509,9 +509,7 @@ void FlowTab::PrintPreview()
     }        
 
     print_preview->exec();
-
-    // FIXME: maybe call deleteLater() here for dialog?
-    // also for Print dialog
+    print_preview->deleteLater();
 }
 
 
@@ -534,6 +532,8 @@ void FlowTab::Print()
     else
 
         m_wCodeView.print( &printer );
+
+    print_dialog->deleteLater();
 }
 
 
