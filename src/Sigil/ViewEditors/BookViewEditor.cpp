@@ -50,9 +50,10 @@ BookViewEditor::BookViewEditor( QWebPage &webpage, QWidget *parent )
 {
     setPage( &webpage );
 
-    QWebSettings &settings = *QWebSettings::globalSettings();
+    QWebSettings &settings = *webpage.settings();
     settings.setAttribute( QWebSettings::LocalContentCanAccessRemoteUrls, false );
-    settings.setAttribute( QWebSettings::JavascriptCanAccessClipboard,    true );
+    settings.setAttribute( QWebSettings::JavascriptCanAccessClipboard, true );
+    settings.setAttribute( QWebSettings::ZoomTextOnly, true );
 
     connect( &m_PageUp,            SIGNAL( activated() ),          this, SLOT( PageUp()                   ) );
     connect( &m_PageDown,          SIGNAL( activated() ),          this, SLOT( PageDown()                 ) );
