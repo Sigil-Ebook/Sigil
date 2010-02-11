@@ -496,15 +496,15 @@ void FlowTab::PrintPreview()
 
     if ( m_IsLastViewBook )
     {
-        connect(    print_preview,     SIGNAL( paintRequested( QPrinter * ) ),
-                    &m_wBookView,       SLOT(   print( QPrinter *) ) 
+        connect( print_preview, SIGNAL( paintRequested( QPrinter * ) ),
+                 &m_wBookView,  SLOT(   print( QPrinter *) ) 
                );
     }
 
     else
     {
-        connect(    print_preview,     SIGNAL( paintRequested( QPrinter * ) ),
-                    &m_wCodeView,       SLOT(   print( QPrinter *) ) 
+        connect( print_preview, SIGNAL( paintRequested( QPrinter * ) ),
+                 &m_wCodeView,  SLOT(   print( QPrinter *) ) 
                );
     }        
 

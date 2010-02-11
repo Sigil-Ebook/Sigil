@@ -752,24 +752,34 @@ void MainWindow::LoadFile( const QString &filename )
 
         return;
 
-    QApplication::setOverrideCursor( Qt::WaitCursor );
+    try
+    {
+        QApplication::setOverrideCursor( Qt::WaitCursor );
 
-    // Create the new book, clean up the old one
-    // (destructors take care of that)
-    m_Book = ImporterFactory().GetImporter( filename ).GetBook();
+        // Create the new book, clean up the old one
+        // (destructors take care of that)
+        m_Book = ImporterFactory().GetImporter( filename ).GetBook();
 
-    // Add Sigil-specific markup to non-SGF files
-    if ( QFileInfo( filename ).suffix().toLower() != "sgf" )
+        // Add Sigil-specific markup to non-SGF files
+        if ( QFileInfo( filename ).suffix().toLower() != "sgf" )
+
+            m_Book.source = SigilMarkup::AddSigilMarkup( m_Book.source );
+
+        m_BookBrowser->SetBook( m_Book );
+
+        QApplication::restoreOverrideCursor();
+
+        SetCurrentFile( filename );
+
+        statusBar()->showMessage( tr( "File loaded" ), STATUSBAR_MSG_DISPLAY_TIME );
+    }
     
-        m_Book.source = SigilMarkup::AddSigilMarkup( m_Book.source );
+    catch ( const ExceptionBase &exception )
+    {
+        Utility::DisplayStdErrorDialog( "Cannot load file " + filename + ": " + Utility::GetExceptionInfo( exception ) );
 
-    m_BookBrowser->SetBook( m_Book );
-   
-    QApplication::restoreOverrideCursor();
-
-    SetCurrentFile( filename );
-
-    statusBar()->showMessage( tr( "File loaded" ), STATUSBAR_MSG_DISPLAY_TIME );
+        QApplication::restoreOverrideCursor();
+    }
 }
 
 

@@ -67,12 +67,6 @@ protected:
 
     static void CleanOneHTMLFile( QString &fullpath );
 
-    // Loads the source code into the Book
-    //void virtual LoadSource();
-
-    // Adds the header to the Book source code
-    //void AddHeaderToSource();
-
     // Loads the referenced files into the main folder of the book.
     // Returns a hash with keys being old references (URLs) to resources,
     // and values being the new references to those resources.

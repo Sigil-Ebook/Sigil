@@ -33,3 +33,13 @@ struct ExceptionBase: virtual std::exception, virtual boost::exception {};
 struct ResourceDoesNotExist : virtual ExceptionBase {};
 
 struct NoHTMLFiles : virtual ExceptionBase {};
+
+struct ErrorParsingXML : virtual ExceptionBase {};
+
+struct ErrorParsingContentXML : virtual ErrorParsingXML {};
+
+typedef boost::error_info< struct error_string, std::string > errinfo_XML_parsing_error_string;
+typedef boost::error_info< struct line_number, qint64 > errinfo_XML_parsing_line_number;
+typedef boost::error_info< struct column_number, qint64 > errinfo_XML_parsing_column_number;
+
+struct NoAppropriateOPFFileFound : virtual ExceptionBase {};

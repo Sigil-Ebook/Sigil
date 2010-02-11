@@ -30,6 +30,7 @@
 
 static const QString OEBPS_MIMETYPE = "application/oebps-package+xml";
 
+
 // Constructor;
 // The parameter is the file to be imported
 ImportEPUB::ImportEPUB( const QString &fullfilepath )
@@ -63,8 +64,6 @@ Book ImportEPUB::GetBook()
 
     // These mutate the m_Book object
     LoadMetadata();
-    //LoadSource();
-    //AddHeaderToSource();
     //StripFilesFromAnchors();
 
     QHash< QString, QString > updates = LoadFolderStructure(); 
@@ -72,8 +71,6 @@ Book ImportEPUB::GetBook()
 
     // TODO: reference updating... this will be hard
     //UpdateReferences( updates );
-
-    //m_Book.source = CleanSource::Clean( m_Book.source );
 
     return m_Book;
 }
@@ -148,10 +145,17 @@ void ImportEPUB::LocateOPF()
 
     if ( container.hasError() )
     {
-        // TODO: error handling
+        boost_throw( ErrorParsingContentXML() 
+                     << errinfo_XML_parsing_error_string( container.errorString().toStdString() )
+                     << errinfo_XML_parsing_line_number( container.lineNumber() )
+                     << errinfo_XML_parsing_column_number( container.columnNumber() )
+                   );
     }
 
-    // TODO: throw exception if no appropriate OEBPS root file was found
+    if ( m_OPFFilePath.isEmpty() )
+    {
+        boost_throw( NoAppropriateOPFFileFound() );    
+    }
 }
 
 
