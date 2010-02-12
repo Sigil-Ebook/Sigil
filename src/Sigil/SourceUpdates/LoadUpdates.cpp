@@ -88,9 +88,9 @@ void LoadUpdates::UpdateReferenceInNode( QDomNode node )
                 QList< QString > keys = m_HTMLUpdates.keys();
                 int num_keys = keys.count();
 
-                for ( int i = 0; i < num_keys; ++i )
+                for ( int j = 0; j < num_keys; ++j )
                 {
-                    QString key_path = keys.at( i );
+                    QString key_path = keys.at( j );
                     QString filename = QFileInfo( key_path ).fileName();
 
                     QRegExp file_match( ".*/" + QRegExp::escape( filename ) + "|" + QRegExp::escape( filename ) );
