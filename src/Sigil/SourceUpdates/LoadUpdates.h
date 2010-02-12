@@ -50,7 +50,6 @@ private:
     // Updates the resource references in the CSS.
     void UpdateCSSReferences();
 
-
     ///////////////////////////////
     // PRIVATE MEMBER VARIABLES
     ///////////////////////////////

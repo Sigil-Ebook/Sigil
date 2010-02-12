@@ -63,7 +63,7 @@ QString LoadUpdates::operator()()
 void LoadUpdates::UpdateHTMLReferences()
 {
     QDomDocument document;
-    document.setContent( m_Source );
+    document.setContent( m_Source );  
 
     UpdateReferenceInNode( document.documentElement() );
 
@@ -79,8 +79,9 @@ void LoadUpdates::UpdateReferenceInNode( QDomNode node )
     if ( PATH_TAGS.contains( XHTMLDoc::GetNodeName( node ), Qt::CaseInsensitive ) )
     {
         QDomNamedNodeMap attributes = node.attributes();
+        int num_attributes = attributes.count();
 
-        for ( int i = 0; i < attributes.count(); ++i )
+        for ( int i = 0; i < num_attributes; ++i )
         {
             QDomAttr attribute = attributes.item( i ).toAttr();
 
@@ -91,12 +92,11 @@ void LoadUpdates::UpdateReferenceInNode( QDomNode node )
 
                 for ( int j = 0; j < num_keys; ++j )
                 {
-                    QString key_path = keys.at( j );
-                    QString filename = QFileInfo( key_path ).fileName();
+                    QString key_path  = keys.at( j );
+                    QString filename  = QFileInfo( key_path ).fileName();
+                    QString atr_value = QUrl::fromPercentEncoding( attribute.value().toUtf8() );
 
-                    QRegExp file_match( ".*/" + QRegExp::escape( filename ) + "|" + QRegExp::escape( filename ) );
-
-                    if ( file_match.exactMatch( QUrl::fromPercentEncoding( attribute.value().toUtf8() ) ) )
+                    if ( atr_value == filename || atr_value.endsWith( "/" + filename ) )
                     {
                         QByteArray encoded_url = QUrl::toPercentEncoding( m_HTMLUpdates[ key_path ], QByteArray( "/" ) );
 
