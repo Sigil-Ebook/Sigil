@@ -24,6 +24,8 @@
 #include <QDomDocument>
 #include "../BookManipulation/XHTMLDoc.h"
 
+static const QStringList PATH_TAGS = QStringList() << "link" << "a" << "img" << "image";
+
 
 LoadUpdates::LoadUpdates( const QString &source, const QHash< QString, QString > &updates )
     :
@@ -73,27 +75,34 @@ void LoadUpdates::UpdateHTMLReferences()
 
 void LoadUpdates::UpdateReferenceInNode( QDomNode node )
 {
-    QDomNamedNodeMap attributes = node.attributes();
-
-    for ( int i = 0; i < attributes.count(); ++i )
+    if ( PATH_TAGS.contains( XHTMLDoc::GetNodeName( node ), Qt::CaseInsensitive ) )
     {
-        QDomAttr attribute = attributes.item( i ).toAttr();
+        QDomNamedNodeMap attributes = node.attributes();
 
-        if ( !attribute.isNull() )
+        for ( int i = 0; i < attributes.count(); ++i )
         {
-            foreach ( QString old_path, m_HTMLUpdates.keys() )
+            QDomAttr attribute = attributes.item( i ).toAttr();
+
+            if ( !attribute.isNull() )
             {
-                QString filename = QFileInfo( old_path ).fileName();
+                QList< QString > keys = m_HTMLUpdates.keys();
+                int num_keys = keys.count();
 
-                QRegExp file_match( ".*/" + QRegExp::escape( filename ) + "|" + QRegExp::escape( filename ) );
-
-                if ( file_match.exactMatch( QUrl::fromPercentEncoding( attribute.value().toUtf8() ) ) )
+                for ( int i = 0; i < num_keys; ++i )
                 {
-                    QByteArray encoded_url = QUrl::toPercentEncoding( m_HTMLUpdates[ old_path ], QByteArray( "/" ) );
+                    QString key_path = keys.at( i );
+                    QString filename = QFileInfo( key_path ).fileName();
 
-                    attribute.setValue( QString::fromUtf8( encoded_url.constData(), encoded_url.count() ) );
-                }
-            }            
+                    QRegExp file_match( ".*/" + QRegExp::escape( filename ) + "|" + QRegExp::escape( filename ) );
+
+                    if ( file_match.exactMatch( QUrl::fromPercentEncoding( attribute.value().toUtf8() ) ) )
+                    {
+                        QByteArray encoded_url = QUrl::toPercentEncoding( m_HTMLUpdates[ key_path ], QByteArray( "/" ) );
+
+                        attribute.setValue( QString::fromUtf8( encoded_url.constData(), encoded_url.count() ) );
+                    }
+                }            
+            }
         }
     }
 
