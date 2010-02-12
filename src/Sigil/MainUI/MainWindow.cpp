@@ -37,6 +37,7 @@
 #include "Tabs/ContentTab.h"
 #include "Tabs/TabManager.h"
 
+
 static const int STATUSBAR_MSG_DISPLAY_TIME = 2000;
 static const int TEXT_ELIDE_WIDTH           = 300;
 static const QString SETTINGS_GROUP         = "mainwindow";

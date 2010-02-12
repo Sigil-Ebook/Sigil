@@ -93,24 +93,38 @@ void ImportEPUB::ExtractContainer()
 
     CZipArchive zip;
 
+    try
+    {
 #ifdef Q_WS_WIN
-    zip.Open( m_FullFilePath.utf16(), CZipArchive::zipOpenReadOnly );
+        zip.Open( m_FullFilePath.utf16(), CZipArchive::zipOpenReadOnly );
 #else
-    zip.Open( m_FullFilePath.toUtf8().data(), CZipArchive::zipOpenReadOnly );
+        zip.Open( m_FullFilePath.toUtf8().data(), CZipArchive::zipOpenReadOnly );
 #endif
 
-    int file_count = (int) zip.GetCount();
+        int file_count = (int) zip.GetCount();
 
-    for ( int i = 0; i < file_count; ++i )
-    {
-        #ifdef Q_WS_WIN
-        zip.ExtractFile( i, folder.absolutePath().utf16() );
-        #else
-        zip.ExtractFile( i, folder.absolutePath().toUtf8().data() );
-        #endif
+        for ( int i = 0; i < file_count; ++i )
+        {
+#ifdef Q_WS_WIN
+            zip.ExtractFile( i, folder.absolutePath().utf16() );
+#else
+            zip.ExtractFile( i, folder.absolutePath().toUtf8().data() );
+#endif
+        }
+
+        zip.Close(); 
     }
-
-    zip.Close(); 
+    
+    // We have to to do this here: if we don't wrap
+    // this exception and try to catch "raw" in MainWindow,
+    // we get some dumb header name clash from ZipArchive
+    catch ( CZipException &exception )
+    {
+        // The error description is always ASCII
+        boost_throw( CZipExceptionWrapper() 
+                     << errinfo_zip_info( QString::fromStdWString( exception.GetErrorDescription() ).toStdString() ) );
+        
+    }
 }
 
 
