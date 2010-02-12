@@ -24,7 +24,8 @@
 #include <QDomDocument>
 #include "../BookManipulation/XHTMLDoc.h"
 
-static const QStringList PATH_TAGS = QStringList() << "link" << "a" << "img" << "image";
+static const QStringList PATH_TAGS       = QStringList() << "link" << "a" << "img" << "image";
+static const QStringList PATH_ATTRIBUTES = QStringList() << "href" << "src";
 
 
 LoadUpdates::LoadUpdates( const QString &source, const QHash< QString, QString > &updates )
@@ -83,7 +84,7 @@ void LoadUpdates::UpdateReferenceInNode( QDomNode node )
         {
             QDomAttr attribute = attributes.item( i ).toAttr();
 
-            if ( !attribute.isNull() )
+            if ( !attribute.isNull() && PATH_ATTRIBUTES.contains( XHTMLDoc::GetAttributeName( attribute ), Qt::CaseInsensitive ) )
             {
                 QList< QString > keys = m_HTMLUpdates.keys();
                 int num_keys = keys.count();

@@ -208,6 +208,23 @@ QString XHTMLDoc::GetNodeName( const QDomNode &node )
 }
 
 
+QString XHTMLDoc::GetAttributeName( const QDomAttr &attribute )
+{
+    Q_ASSERT( !attribute.isNull() );
+
+    QString name = attribute.name();
+    int colon_index = name.lastIndexOf( QChar( ':' ) );
+
+    if ( colon_index < 0 )
+
+        return name;
+
+    else
+
+        return name.mid( colon_index + 1 );
+}
+
+
 // Converts a QDomNodeList to a regular QList
 QList< QDomNode > XHTMLDoc::ConvertToRegularList( const QDomNodeList &list )
 {
@@ -499,6 +516,7 @@ XHTMLDoc::XMLElement XHTMLDoc::CreateXMLElement( QXmlStreamReader &reader )
 
     return element; 
 }
+
 
 
 
