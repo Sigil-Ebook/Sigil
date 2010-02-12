@@ -58,7 +58,7 @@ Book ImportHTML::GetBook()
 
     LoadMetadata();
     StripFilesFromAnchors();
-    UpdateReferences( LoadFolderStructure() );
+    //UpdateReferences( LoadFolderStructure() );
 
     m_Book.source = CleanSource::Clean( m_Book.source );
 
@@ -185,126 +185,6 @@ void ImportHTML::LoadMetadata()
             }
         }
     }    
-}
-
-
-// Accepts a hash with keys being old references (URLs) to resources,
-// and values being the new references to those resources.
-// The book XHTML source is updated accordingly.
-void ImportHTML::UpdateReferences( const QHash< QString, QString > updates )
-{
-    QHash< QString, QString > html_updates = updates;
-    QHash< QString, QString > css_updates;
-
-    foreach( QString old_path, html_updates.keys() )
-    {
-        QString extension = QFileInfo( old_path ).suffix().toLower();
-
-        // Font file updates are CSS updates, not HTML updates
-        if ( extension == "ttf" || extension == "otf" )
-        {
-            css_updates[ old_path ] = html_updates[ old_path ];
-            html_updates.remove( old_path );
-        }
-    }
-
-    UpdateHTMLReferences( html_updates );
-    UpdateCSSReferences( css_updates );
-}
-
-
-// Updates the resource references in the HTML.
-// Accepts a hash with keys being old references (URLs) to resources,
-// and values being the new references to those resources.
-void ImportHTML::UpdateHTMLReferences( const QHash< QString, QString > updates )
-{
-    QDomDocument document;
-    document.setContent( m_Book.source );
-
-    UpdateReferenceInNode( document.documentElement(), updates );
-
-    // We wait until all the nodes are updated
-    m_NodeUpdateSynchronizer.waitForFinished();
-
-    m_Book.source = XHTMLDoc::GetQDomNodeAsString( document );
-}
-
-
-// Updates the resource references in the attributes 
-// of the one specified node in the HTML.
-// Accepts a hash with keys being old references (URLs) to resources,
-// and values being the new references to those resources.
-void ImportHTML::UpdateReferenceInNode( QDomNode node, const QHash< QString, QString > updates )
-{
-    QDomNamedNodeMap attributes = node.attributes();
-
-    for ( int i = 0; i < attributes.count(); ++i )
-    {
-        QDomAttr attribute = attributes.item( i ).toAttr();
-
-        if ( !attribute.isNull() )
-        {
-            foreach ( QString old_path, updates.keys() )
-            {
-                QString filename = QFileInfo( old_path ).fileName();
-
-                QRegExp file_match( ".*/" + QRegExp::escape( filename ) + "|" + QRegExp::escape( filename ) );
-
-                if ( file_match.exactMatch( QUrl::fromPercentEncoding( attribute.value().toUtf8() ) ) )
-                {
-                    QByteArray encoded_url = QUrl::toPercentEncoding( updates[ old_path ], QByteArray( "/" ) );
-
-                    attribute.setValue( QString::fromUtf8( encoded_url.constData(), encoded_url.count() ) );
-                }
-            }            
-        }
-    }
-
-    QDomNodeList children = node.childNodes();
-
-    // We used to have a new synchronizer here that would monitor
-    // the calls on its children, but that proved inefficient.
-    // So we use a class global sync that waits for all nodes.
-    
-    QMutexLocker locker( &m_SynchronizerMutex );
-
-    for ( int i = 0; i < children.count(); ++i )
-    {        
-        m_NodeUpdateSynchronizer.addFuture( QtConcurrent::run(  this, &ImportHTML::UpdateReferenceInNode, 
-                                                                children.at( i ), updates ) );
-    }
-}
-
-
-// Updates the resource references in the CSS.
-// Accepts a hash with keys being old references (URLs) to resources,
-// and values being the new references to those resources.
-void ImportHTML::UpdateCSSReferences( const QHash< QString, QString > updates )
-{
-    foreach( QString old_path, updates.keys() )
-    {
-        QString filename  = QFileInfo( old_path ).fileName();
-
-        QRegExp reference = QRegExp( "src:\\s*\\w+\\([\"']*([^\\)]*/" + QRegExp::escape( filename ) + "|"
-                                        + QRegExp::escape( filename ) + ")[\"']*\\)" );
-
-        int index = -1;
-
-        while ( true )
-        {
-            int newindex = m_Book.source.indexOf( reference );
-
-            // We need to make sure we don't end up
-            // replacing the same thing over and over again
-            if ( ( index == newindex ) || ( newindex == -1 ) )
-
-                break;
-
-            m_Book.source.replace( reference.cap( 1 ), updates[ old_path ] );
-
-            index = newindex;
-        }
-    }  
 }
 
 

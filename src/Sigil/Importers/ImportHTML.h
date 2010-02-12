@@ -25,10 +25,7 @@
 
 #include "ImportTXT.h"
 #include "../BookManipulation/FolderKeeper.h"
-#include <QMutex>
-#include <QFutureSynchronizer>
 
-class QDomNode;
 
 class ImportHTML : public ImportTXT
 {
@@ -60,32 +57,10 @@ protected:
 
     // Searches for meta information in the HTML file
     // and tries to convert it to Dublin Core
-    void LoadMetadata();
-
-    // Accepts a hash with keys being old references (URLs) to resources,
-    // and values being the new references to those resources.
-    // The book XHTML source is updated accordingly.
-    void UpdateReferences( const QHash< QString, QString > updates );
-
+    void LoadMetadata();   
 
 private:
-
-    // Updates the resource references in the HTML.
-    // Accepts a hash with keys being old references (URLs) to resources,
-    // and values being the new references to those resources.
-    void UpdateHTMLReferences( const QHash< QString, QString > updates );
-
-    // Updates the resource references in the attributes 
-    // of the one specified node in the HTML.
-    // Accepts a hash with keys being old references (URLs) to resources,
-    // and values being the new references to those resources.
-    void UpdateReferenceInNode( QDomNode node, const QHash< QString, QString > updates );
-
-    // Updates the resource references in the CSS.
-    // Accepts a hash with keys being old references (URLs) to resources,
-    // and values being the new references to those resources.
-    void UpdateCSSReferences( const QHash< QString, QString > updates );
-
+    
     // Loads the source code into the Book
     void LoadSource();       
 
@@ -100,14 +75,6 @@ private:
 
     // Loads style files from link tags to style tags
     void LoadStyleFiles();
-
-    // This synchronizer is used to wait for all
-    // the HTML node updates to finish beforre moving on
-    QFutureSynchronizer< void > m_NodeUpdateSynchronizer;
-    
-    // The mutex used for locking access
-    // to the QFuture synchronizer
-    QMutex m_SynchronizerMutex;
 };
 
 #endif // IMPORTHTML_H

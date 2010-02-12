@@ -64,12 +64,6 @@ Book ImportEPUB::GetBook()
 
     // These mutate the m_Book object
     LoadMetadata();
-    //StripFilesFromAnchors();
-
-    // We need to make the source valid XHTML to allow us to 
-    // parse it with XML parsers
-    m_Book.source = CleanSource::ToValidXHTML( m_Book.source );
-
 
     QHash< QString, QString > updates = LoadFolderStructure(); 
     CleanHTMLFiles();
@@ -309,6 +303,9 @@ QHash< QString, QString > ImportEPUB::LoadFolderStructure()
         QString path         = m_Files[ key ];
         QString fullfilepath = QFileInfo( m_OPFFilePath ).absolutePath() + "/" + path;
 
+        // We can't parallelize this since we need to create HTMLResource
+        // objects, and they create QWebPages, and those can only be
+        // created in the main GUI thread.
         QString newpath = m_Book.mainfolder.AddContentFileToFolder( fullfilepath, m_ReadingOrderIds.indexOf( key ) );
         newpath = "../" + newpath;  
 

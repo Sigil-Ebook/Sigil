@@ -220,6 +220,11 @@ set( UI_FILES
     Form_Files/TOCEditor.ui 
     Form_Files/FindReplace.ui 
     )
+    
+set( SOURCEUPDATE_FILES   
+    SourceUpdates/LoadUpdates.cpp 
+    SourceUpdates/LoadUpdates.h
+    )
             
 set( QRC_FILES  
     Resource_Files/main/main.qrc
@@ -229,7 +234,7 @@ set( QRC_FILES
     Resource_Files/icon/icon.qrc  
     )
     
-set( RAW_SOURCES ${MAIN_FILES} ${TAB_FILES} ${BOOK_MANIPULATION_FILES} ${RESOURCE_OBJECT_FILES} ${DIALOG_FILES} ${EXPORTER_FILES}
+set( RAW_SOURCES ${MAIN_FILES} ${TAB_FILES} ${SOURCEUPDATE_FILES} ${BOOK_MANIPULATION_FILES} ${RESOURCE_OBJECT_FILES} ${DIALOG_FILES} ${EXPORTER_FILES}
                  ${IMPORTER_FILES} ${MISC_FILES} ${VIEW_EDITOR_FILES} ${MAINUI_FILES} )
 
 # Runs MOC on specifed files
@@ -301,7 +306,7 @@ elseif( CMAKE_COMPILER_IS_GNUCXX AND NOT APPLE )
                         COMMAND ${CMAKE_CXX_COMPILER} ${compile_flags} ${CMAKE_CURRENT_SOURCE_DIR}/stdafx.h -o stdafx.h.gch
                         WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
                         VERBATIM )
-endif()
+endif() 
 
 # Adds folders for Visual Studio solution explorer (and for Xcode explorer)
 source_group( "Generated"         FILES ${MOC_FILES_CPP} ${UI_FILES_H} ${QRC_FILES_CPP} )
@@ -317,6 +322,8 @@ source_group( "View Editors"      FILES ${VIEW_EDITOR_FILES} )
 source_group( "Tabs"              FILES ${TAB_FILES} )
 source_group( "MainUI"            FILES ${MAINUI_FILES} )
 source_group( "Main Files"        FILES ${MAIN_FILES} )
+source_group( "Source Updates"    FILES ${SOURCEUPDATE_FILES} )
+
 
 set( ALL_SOURCES ${RAW_SOURCES} ${MOC_FILES_CPP} ${UI_FILES_H} ${QRC_FILES_CPP} )
 
