@@ -125,7 +125,7 @@
 #if (_MSC_VER >= 1200)
 #   define BOOST_HAS_MS_INT64
 #endif
-#if (_MSC_VER >= 1310) && defined(_MSC_EXTENSIONS)
+#if (_MSC_VER >= 1310) && (defined(_MSC_EXTENSIONS) || (_MSC_VER >= 1500))
 #   define BOOST_HAS_LONG_LONG
 #else
 #   define BOOST_NO_LONG_LONG

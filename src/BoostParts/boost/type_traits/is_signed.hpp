@@ -27,10 +27,18 @@ namespace detail{
 #if !(defined(__EDG_VERSION__) && __EDG_VERSION__ <= 238)
 
 template <class T>
+struct is_signed_values
+{
+   typedef typename remove_cv<T>::type no_cv_t;
+   BOOST_STATIC_CONSTANT(no_cv_t, minus_one = (static_cast<no_cv_t>(-1)));
+   BOOST_STATIC_CONSTANT(no_cv_t, zero = (static_cast<no_cv_t>(0)));
+};
+
+template <class T>
 struct is_signed_helper
 {
    typedef typename remove_cv<T>::type no_cv_t;
-   BOOST_STATIC_CONSTANT(bool, value = (!(static_cast<no_cv_t>(-1) > 0)));
+   BOOST_STATIC_CONSTANT(bool, value = (!(::boost::detail::is_signed_values<T>::minus_one  > boost::detail::is_signed_values<T>::zero)));
 };
 
 template <bool integral_type>

@@ -66,7 +66,6 @@
 
 // Borland C++ Builder 6 and below:
 #if (__BORLANDC__ <= 0x564)
-#  define BOOST_NO_INTEGRAL_INT64_T
 
 #  ifdef NDEBUG
       // fix broken <cstring> so that Boost.test works:
@@ -121,6 +120,7 @@
 #endif
 
 // Borland C++ Builder 2008 and below:
+#  define BOOST_NO_INTEGRAL_INT64_T
 #  define BOOST_FUNCTION_SCOPE_USING_DECLARATION_BREAKS_ADL
 #  define BOOST_NO_DEPENDENT_NESTED_DERIVATIONS
 #  define BOOST_NO_MEMBER_TEMPLATE_FRIENDS

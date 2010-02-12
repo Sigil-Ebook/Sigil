@@ -149,7 +149,7 @@
 #   define BOOST_IS_CLASS(T) __is_class(T)
 #   define BOOST_IS_ENUM(T) __is_enum(T)
 #   define BOOST_IS_POLYMORPHIC(T) __is_polymorphic(T)
-#   if !defined(unix) || defined(__LP64__)
+#   if (!defined(unix) && !defined(__unix__)) || defined(__LP64__)
       // GCC sometimes lies about alignment requirements
       // of type double on 32-bit unix platforms, use the
       // old implementation instead in that case:

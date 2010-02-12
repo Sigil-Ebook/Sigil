@@ -19,8 +19,8 @@
 #endif
 //
 // versions check:
-// last known and checked version is 0x610
-#if (__CODEGEARC__ > 0x613)
+// last known and checked version is 0x620
+#if (__CODEGEARC__ > 0x620)
 #  if defined(BOOST_ASSERT_CONFIG)
 #     error "Unknown compiler version - please run the configure tests and report the results"
 #  else
@@ -30,20 +30,24 @@
 
 // CodeGear C++ Builder 2009
 #if (__CODEGEARC__ <= 0x613)
-#  define BOOST_FUNCTION_SCOPE_USING_DECLARATION_BREAKS_ADL
+#  define BOOST_NO_INTEGRAL_INT64_T
 #  define BOOST_NO_DEPENDENT_NESTED_DERIVATIONS
-#  define BOOST_NO_MEMBER_TEMPLATE_FRIENDS
 #  define BOOST_NO_PRIVATE_IN_AGGREGATE
-#  define BOOST_NO_TWO_PHASE_NAME_LOOKUP
 #  define BOOST_NO_USING_DECLARATION_OVERLOADS_FROM_TYPENAME_BASE
-#  define BOOST_NO_USING_TEMPLATE
    // we shouldn't really need this - but too many things choke
    // without it, this needs more investigation:
 #  define BOOST_NO_LIMITS_COMPILE_TIME_CONSTANTS
-#  define BOOST_NO_TYPENAME_WITH_CTOR    // Cannot use typename keyword when making temporaries of a dependant type
-#  define BOOST_NO_NESTED_FRIENDSHIP     // TC1 gives nested classes access rights as any other member
 #  define BOOST_SP_NO_SP_CONVERTIBLE
+#endif
 
+// CodeGear C++ Builder 2010
+#if (__CODEGEARC__ <= 0x620)
+#  define BOOST_NO_TYPENAME_WITH_CTOR    // Cannot use typename keyword when making temporaries of a dependant type
+#  define BOOST_FUNCTION_SCOPE_USING_DECLARATION_BREAKS_ADL
+#  define BOOST_NO_MEMBER_TEMPLATE_FRIENDS
+#  define BOOST_NO_NESTED_FRIENDSHIP     // TC1 gives nested classes access rights as any other member
+#  define BOOST_NO_USING_TEMPLATE
+#  define BOOST_NO_TWO_PHASE_NAME_LOOKUP
 // Temporary hack, until specific MPL preprocessed headers are generated
 #  define BOOST_MPL_CFG_NO_PREPROCESSED_HEADERS
 
@@ -59,7 +63,6 @@
 #  endif
 
 #endif
-
 //
 // C++0x macros:
 //

@@ -40,7 +40,7 @@
 #undef BOOST_SP_HAS_SYNC
 #endif
 
-#if defined( __INTEL_COMPILER ) && !defined( __ia64__ )
+#if defined( __INTEL_COMPILER ) && !defined( __ia64__ ) && ( __INTEL_COMPILER < 1100 )
 #undef BOOST_SP_HAS_SYNC
 #endif
 

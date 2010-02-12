@@ -5,6 +5,12 @@
 
 #ifndef UUID_1A590226753311DD9E4CCF6156D89593
 #define UUID_1A590226753311DD9E4CCF6156D89593
+#if defined(__GNUC__) && !defined(BOOST_EXCEPTION_ENABLE_WARNINGS)
+#pragma GCC system_header
+#endif
+#if defined(_MSC_VER) && !defined(BOOST_EXCEPTION_ENABLE_WARNINGS)
+#pragma warning(push,1)
+#endif
 
 #include <boost/exception/exception.hpp>
 #include <boost/exception/detail/error_info_impl.hpp>
@@ -118,4 +124,7 @@ boost
 #endif
     }
 
+#if defined(_MSC_VER) && !defined(BOOST_EXCEPTION_ENABLE_WARNINGS)
+#pragma warning(pop)
+#endif
 #endif

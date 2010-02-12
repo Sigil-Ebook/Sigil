@@ -22,6 +22,7 @@
 #include <QtGui>
 #include <QtWebKit>
 #include <boost/tuple/tuple.hpp>
+#include <boost/bind/bind.hpp>
 #include "constants.h"
 #include "exception.h"
 

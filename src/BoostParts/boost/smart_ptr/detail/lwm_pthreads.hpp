@@ -17,6 +17,7 @@
 // http://www.boost.org/LICENSE_1_0.txt)
 //
 
+#include <boost/assert.hpp>
 #include <pthread.h>
 
 namespace boost
@@ -42,15 +43,15 @@ public:
 // HPUX 10.20 / DCE has a nonstandard pthread_mutex_init
 
 #if defined(__hpux) && defined(_DECTHREADS_)
-        pthread_mutex_init(&m_, pthread_mutexattr_default);
+        BOOST_VERIFY( pthread_mutex_init( &m_, pthread_mutexattr_default ) == 0 );
 #else
-        pthread_mutex_init(&m_, 0);
+        BOOST_VERIFY( pthread_mutex_init( &m_, 0 ) == 0 );
 #endif
     }
 
     ~lightweight_mutex()
     {
-        pthread_mutex_destroy(&m_);
+        BOOST_VERIFY( pthread_mutex_destroy( &m_ ) == 0 );
     }
 
     class scoped_lock;
@@ -69,12 +70,12 @@ public:
 
         scoped_lock(lightweight_mutex & m): m_(m.m_)
         {
-            pthread_mutex_lock(&m_);
+            BOOST_VERIFY( pthread_mutex_lock( &m_ ) == 0 );
         }
 
         ~scoped_lock()
         {
-            pthread_mutex_unlock(&m_);
+            BOOST_VERIFY( pthread_mutex_unlock( &m_ ) == 0 );
         }
     };
 };

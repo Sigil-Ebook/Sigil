@@ -228,7 +228,7 @@ public:
     template<class Y>
 #if !defined( BOOST_SP_NO_SP_CONVERTIBLE )
 
-    shared_ptr( shared_ptr<Y> const & r, typename detail::sp_enable_if_convertible<Y,T>::type = detail::sp_empty() )
+    shared_ptr( shared_ptr<Y> const & r, typename boost::detail::sp_enable_if_convertible<Y,T>::type = boost::detail::sp_empty() )
 
 #else
 
@@ -353,7 +353,7 @@ public:
     template<class Y>
 #if !defined( BOOST_SP_NO_SP_CONVERTIBLE )
 
-    shared_ptr( shared_ptr<Y> && r, typename detail::sp_enable_if_convertible<Y,T>::type = detail::sp_empty() )
+    shared_ptr( shared_ptr<Y> && r, typename boost::detail::sp_enable_if_convertible<Y,T>::type = boost::detail::sp_empty() )
 
 #else
 
@@ -368,14 +368,14 @@ public:
 
     shared_ptr & operator=( shared_ptr && r ) // never throws
     {
-        this_type( std::move( r ) ).swap( *this );
+        this_type( static_cast< shared_ptr && >( r ) ).swap( *this );
         return *this;
     }
 
     template<class Y>
     shared_ptr & operator=( shared_ptr<Y> && r ) // never throws
     {
-        this_type( std::move( r ) ).swap( *this );
+        this_type( static_cast< shared_ptr<Y> && >( r ) ).swap( *this );
         return *this;
     }
 
@@ -448,7 +448,7 @@ public:
         return pn < rhs.pn;
     }
 
-    void * _internal_get_deleter( detail::sp_typeinfo const & ti ) const
+    void * _internal_get_deleter( boost::detail::sp_typeinfo const & ti ) const
     {
         return pn.get_deleter( ti );
     }
