@@ -30,16 +30,19 @@ LoadUpdates::LoadUpdates( const QString &source, const QHash< QString, QString >
     m_Source( source ) 
 {
     m_HTMLUpdates = updates;
+    QList< QString > keys = m_HTMLUpdates.keys();
+    int num_keys = keys.count();
 
-    foreach( QString old_path, m_HTMLUpdates.keys() )
+    for ( int i = 0; i < num_keys; ++i )
     {
-        QString extension = QFileInfo( old_path ).suffix().toLower();
+        QString key_path = keys.at( i );
+        QString extension = QFileInfo( key_path ).suffix().toLower();
 
         // Font file updates are CSS updates, not HTML updates
         if ( extension == "ttf" || extension == "otf" )
         {
-            m_CSSUpdates[ old_path ] = m_HTMLUpdates[ old_path ];
-            m_HTMLUpdates.remove( old_path );
+            m_CSSUpdates[ key_path ] = m_HTMLUpdates.value( key_path );
+            m_HTMLUpdates.remove( key_path );
         }
     }
 }
@@ -112,9 +115,13 @@ void LoadUpdates::UpdateReferenceInNode( QDomNode node )
 
 void LoadUpdates::UpdateCSSReferences()
 {
-    foreach( QString old_path, m_CSSUpdates.keys() )
+    QList< QString > keys = m_CSSUpdates.keys();
+    int num_keys = keys.count();
+
+    for ( int i = 0; i < num_keys; ++i )
     {
-        QString filename  = QFileInfo( old_path ).fileName();
+        QString key_path = keys.at( i );
+        QString filename = QFileInfo( key_path ).fileName();
 
         QRegExp reference = QRegExp( "src:\\s*\\w+\\([\"']*([^\\)]*/" + QRegExp::escape( filename ) + "|"
             + QRegExp::escape( filename ) + ")[\"']*\\)" );
@@ -131,7 +138,7 @@ void LoadUpdates::UpdateCSSReferences()
 
                 break;
 
-            m_Source.replace( reference.cap( 1 ), m_CSSUpdates[ old_path ] );
+            m_Source.replace( reference.cap( 1 ), m_CSSUpdates.value( key_path ) );
 
             index = newindex;
         }

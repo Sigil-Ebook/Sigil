@@ -123,7 +123,8 @@ QString XHTMLDoc::GetQDomNodeAsString( const QDomNode &node )
     //    return document.toString().replace( "&#xd;", "" );
     //
     // But Qt has a bug with the toString() method if the XML
-    // encoding is specified as "us-ascii"... so we work around it.
+    // encoding is specified as "us-ascii"... so we work around it...
+    // and other Qt bugs and weirdness...
 
     Q_ASSERT( !node.isNull() );
 

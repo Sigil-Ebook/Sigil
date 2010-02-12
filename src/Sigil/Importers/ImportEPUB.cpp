@@ -24,6 +24,7 @@
 #include "../BookManipulation/CleanSource.h"
 #include "../Misc/Utility.h"
 #include "../Misc/HTMLEncodingResolver.h"
+#include "../SourceUpdates/LoadUpdates.h"
 #include <ZipArchive.h>
 #include "../BookManipulation/XHTMLDoc.h"
 #include <QDomDocument>
@@ -66,7 +67,7 @@ Book ImportEPUB::GetBook()
     LoadMetadata();
 
     QHash< QString, QString > updates = LoadFolderStructure(); 
-    CleanHTMLFiles();
+    CleanAndUpdateHTMLFiles( updates );
 
     // TODO: reference updating... this will be hard
     //UpdateReferences( updates );
@@ -268,7 +269,7 @@ void ImportEPUB::LoadMetadata()
 }
 
 
-void ImportEPUB::CleanHTMLFiles()
+void ImportEPUB::CleanAndUpdateHTMLFiles( const QHash< QString, QString > &updates )
 {
     QList< QString > files_to_clean;
 
@@ -281,12 +282,18 @@ void ImportEPUB::CleanHTMLFiles()
         files_to_clean.append( m_Book.mainfolder.GetFullPathToOEBPSFolder() + "/" + file );    
     }
 
-    QtConcurrent::blockingMap( files_to_clean, CleanOneHTMLFile );
+    QtConcurrent::blockingMap( files_to_clean, boost::bind( CleanAndUpdateOneHTMLFile, _1, updates ) );
 }
 
-void ImportEPUB::CleanOneHTMLFile( const QString &fullpath )
+
+// Normally, this would be two functions. But making it
+// just one saves us expensive (and unnecessary) loading
+// from disk. Here we just load it once, do everything
+// and then save back to disk.
+void ImportEPUB::CleanAndUpdateOneHTMLFile( const QString &fullpath, const QHash< QString, QString > &updates )
 {
     QString source = CleanSource::Clean( HTMLEncodingResolver::ReadHTMLFile( fullpath ) );
+    source = LoadUpdates( source, updates )();
     Utility::WriteUnicodeTextFile( source, fullpath );
 }
 
