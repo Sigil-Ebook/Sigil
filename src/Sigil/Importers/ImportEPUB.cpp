@@ -81,9 +81,7 @@ Book ImportEPUB::GetBook()
 void ImportEPUB::ExtractContainer()
 {
     QDir folder( Utility::GetNewTempFolderPath() );
-
     m_ExtractedFolderPath = folder.absolutePath();
-
     folder.mkpath( m_ExtractedFolderPath );
 
     CZipArchive zip;
@@ -98,12 +96,18 @@ void ImportEPUB::ExtractContainer()
 
         int file_count = (int) zip.GetCount();
 
+#ifdef Q_WS_WIN
+        const ushort *win_path = folder.absolutePath().utf16();
+#else
+        QByteArray utf8_path( folder.absolutePath().toUtf8() );
+        char *nix_path = utf8_path.data();
+#endif
         for ( int i = 0; i < file_count; ++i )
         {
 #ifdef Q_WS_WIN
-            zip.ExtractFile( i, folder.absolutePath().utf16() );
+            zip.ExtractFile( i, win_path );
 #else
-            zip.ExtractFile( i, folder.absolutePath().toUtf8().data() );
+            zip.ExtractFile( i, nix_path );
 #endif
         }
 
