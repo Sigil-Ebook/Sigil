@@ -62,6 +62,8 @@ public:
 
 private:
 
+    void SetRawHTML( const QString &source );
+
     QWebPage &m_WebPage;
 
     int m_ReadingOrder;

@@ -56,14 +56,7 @@ QWebPage& HTMLResource::GetWebPage()
 
 void HTMLResource::SetHtml( const QString &source )
 {
-    QString clean_source = CleanSource::Clean( source );
-
-    m_WebPage.mainFrame()->setContent( clean_source.toUtf8(), LOADED_CONTENT_MIMETYPE, GetBaseUrl() ); 
-    m_WebPage.setContentEditable( true );
-
-    // TODO: we kill external links; a dialog should be used
-    // that asks the user if he wants to open this external link in a browser
-    m_WebPage.setLinkDelegationPolicy( QWebPage::DelegateAllLinks );
+    SetRawHTML( CleanSource::Clean( source ) );
 }
 
 
@@ -93,7 +86,9 @@ void HTMLResource::SyncFromDisk()
 
         return;    
 
-    SetHtml( Utility::ReadUnicodeTextFile( m_FullFilePath ) );
+    // We use SetRawHTML since the loading procedure should have
+    // cleaned the file already. No need to do it twice.
+    SetRawHTML( Utility::ReadUnicodeTextFile( m_FullFilePath ) );
 
     m_InitialLoadFromDiskDone = true;
 }
@@ -121,5 +116,14 @@ void HTMLResource::RemoveWebkitClasses()
     //m_Source.replace( QRegExp( "(class=\"[^\"]*)webkit-indent-blockquote" ), "\\1" );
 }
 
+void HTMLResource::SetRawHTML( const QString &source )
+{
+    m_WebPage.mainFrame()->setContent( source.toUtf8(), LOADED_CONTENT_MIMETYPE, GetBaseUrl() ); 
+    m_WebPage.setContentEditable( true );
+
+    // TODO: we kill external links; a dialog should be used
+    // that asks the user if he wants to open this external link in a browser
+    m_WebPage.setLinkDelegationPolicy( QWebPage::DelegateAllLinks );
+}
 
 
