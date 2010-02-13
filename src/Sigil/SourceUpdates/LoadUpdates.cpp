@@ -29,8 +29,7 @@ static const QStringList PATH_ATTRIBUTES = QStringList() << "href" << "src";
 
 
 LoadUpdates::LoadUpdates( const QString &source, const QHash< QString, QString > &updates )
-    :
-    m_Source( source ) 
+    : m_Source( source ) 
 {
     m_HTMLUpdates = updates;
     QList< QString > keys = m_HTMLUpdates.keys();
@@ -63,9 +62,17 @@ QString LoadUpdates::operator()()
 void LoadUpdates::UpdateHTMLReferences()
 {
     QDomDocument document;
-    document.setContent( m_Source );  
+    document.setContent( m_Source );
 
-    UpdateReferenceInNode( document.documentElement() );
+    QList< QDomNode > nodes = XHTMLDoc::GetTagMatchingChildren( document.documentElement(), PATH_TAGS );
+
+    int node_count = nodes.count();
+
+    for ( int j = 0; j < node_count; ++j )
+    {
+        m_NodeUpdateSynchronizer.addFuture(
+            QtConcurrent::run( this, &LoadUpdates::UpdateReferenceInNode, nodes.at( j ) ) );
+    }
 
     // We wait until all the nodes are updated
     m_NodeUpdateSynchronizer.waitForFinished();
@@ -76,49 +83,33 @@ void LoadUpdates::UpdateHTMLReferences()
 
 void LoadUpdates::UpdateReferenceInNode( QDomNode node )
 {
-    if ( PATH_TAGS.contains( XHTMLDoc::GetNodeName( node ), Qt::CaseInsensitive ) )
+    QDomNamedNodeMap attributes = node.attributes();
+    int num_attributes = attributes.count();
+
+    for ( int i = 0; i < num_attributes; ++i )
     {
-        QDomNamedNodeMap attributes = node.attributes();
-        int num_attributes = attributes.count();
+        QDomAttr attribute = attributes.item( i ).toAttr();
 
-        for ( int i = 0; i < num_attributes; ++i )
+        if ( !attribute.isNull() && 
+             PATH_ATTRIBUTES.contains( XHTMLDoc::GetAttributeName( attribute ), Qt::CaseInsensitive ) )
         {
-            QDomAttr attribute = attributes.item( i ).toAttr();
+            QList< QString > keys = m_HTMLUpdates.keys();
+            int num_keys = keys.count();
 
-            if ( !attribute.isNull() && PATH_ATTRIBUTES.contains( XHTMLDoc::GetAttributeName( attribute ), Qt::CaseInsensitive ) )
+            for ( int j = 0; j < num_keys; ++j )
             {
-                QList< QString > keys = m_HTMLUpdates.keys();
-                int num_keys = keys.count();
+                QString key_path  = keys.at( j );
+                QString filename  = QFileInfo( key_path ).fileName();
+                QString atr_value = QUrl::fromPercentEncoding( attribute.value().toUtf8() );
 
-                for ( int j = 0; j < num_keys; ++j )
+                if ( atr_value == filename || atr_value.endsWith( "/" + filename ) )
                 {
-                    QString key_path  = keys.at( j );
-                    QString filename  = QFileInfo( key_path ).fileName();
-                    QString atr_value = QUrl::fromPercentEncoding( attribute.value().toUtf8() );
+                    QByteArray encoded_url = QUrl::toPercentEncoding( m_HTMLUpdates[ key_path ], QByteArray( "/" ) );
 
-                    if ( atr_value == filename || atr_value.endsWith( "/" + filename ) )
-                    {
-                        QByteArray encoded_url = QUrl::toPercentEncoding( m_HTMLUpdates[ key_path ], QByteArray( "/" ) );
-
-                        attribute.setValue( QString::fromUtf8( encoded_url.constData(), encoded_url.count() ) );
-                    }
-                }            
-            }
+                    attribute.setValue( QString::fromUtf8( encoded_url.constData(), encoded_url.count() ) );
+                }
+            }            
         }
-    }
-
-    QDomNodeList children = node.childNodes();
-
-    // We used to have a new synchronizer here that would monitor
-    // the calls on its children, but that proved inefficient.
-    // So we use a class global sync that waits for all nodes.
-
-    QMutexLocker locker( &m_SynchronizerMutex );
-
-    for ( int i = 0; i < children.count(); ++i )
-    {        
-        m_NodeUpdateSynchronizer.addFuture(
-            QtConcurrent::run( this, &LoadUpdates::UpdateReferenceInNode, children.at( i ) ) );
     }
 }
 

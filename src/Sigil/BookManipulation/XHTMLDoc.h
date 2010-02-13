@@ -30,6 +30,7 @@ class QDomDocument;
 class QString;
 class QDomNodeList;
 class QDomAttr;
+class QStringList;
 
 class XHTMLDoc
 {
@@ -59,6 +60,8 @@ public:
     // the elements of the specified tag name
     // in the entire document of the provided XHTML source code
     static QList< XMLElement > GetTagsInDocument( const QString &source, const QString &tag_name );
+
+    static QList< QDomNode > GetTagMatchingChildren( const QDomNode &node, const QStringList &tag_names );
 
     // We need to remove the XML carriage returns ("&#xD" sequences)
     // that the default toString() method creates so we wrap it in this function

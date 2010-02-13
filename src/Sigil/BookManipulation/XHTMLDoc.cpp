@@ -114,6 +114,33 @@ QList< XHTMLDoc::XMLElement > XHTMLDoc::GetTagsInDocument( const QString &source
 }
 
 
+QList< QDomNode > XHTMLDoc::GetTagMatchingChildren( const QDomNode &node, const QStringList &tag_names )
+{
+    Q_ASSERT( !node.isNull() );
+
+    QList< QDomNode > matching_nodes;
+
+    if ( tag_names.contains( GetNodeName( node ), Qt::CaseInsensitive ) )
+    
+        matching_nodes.append( node );    
+
+    if ( node.hasChildNodes() )
+    {
+        QDomNodeList children = node.childNodes();
+        int num_children = children.count();
+
+        for ( int i = 0; i < num_children; ++i )
+        {
+            matching_nodes.append( GetTagMatchingChildren( children.at( i ), tag_names ) );              
+        }
+
+        return matching_nodes;
+    }    
+
+    return matching_nodes;
+}
+
+
 // We need to remove the XML carriage returns ("&#xD" sequences)
 // that the default toString() method creates so we wrap it in this function
 QString XHTMLDoc::GetQDomNodeAsString( const QDomNode &node )
@@ -375,8 +402,6 @@ QList< QDomNode > XHTMLDoc::GetAllTextNodes( const QDomNode &node  )
 
     else
     {
-        QString node_name = GetNodeName( node );
-
         if ( node.hasChildNodes() )
         {
             QDomNodeList children = node.childNodes();
