@@ -25,6 +25,7 @@
 #include "../Misc/Utility.h"
 #include "../Misc/HTMLEncodingResolver.h"
 #include "../SourceUpdates/LoadUpdates.h"
+#include "../SourceUpdates/PerformInitialCSSUpdates.h"
 #include <ZipArchive.h>
 #include "../BookManipulation/XHTMLDoc.h"
 #include <QDomDocument>
@@ -316,7 +317,7 @@ void ImportEPUB::CleanAndUpdateOneHTMLFile( const QString &fullpath,
 void ImportEPUB::UpdateOneCSSFile( const QString &fullpath, const QHash< QString, QString > &css_updates )
 {
     QString source = Utility::ReadUnicodeTextFile( fullpath );
-    //source = LoadUpdates( source, html_updates, css_updates )();
+    source = PerformInitialCSSUpdates( source, css_updates )();
     Utility::WriteUnicodeTextFile( source, fullpath );
 }
 
@@ -364,6 +365,12 @@ QHash< QString, QString > > ImportEPUB::SeparateHTMLAndCSSUpdates( const QHash< 
         {
             css_updates[ key_path ] = html_updates.value( key_path );
             html_updates.remove( key_path );
+        }
+
+        if ( extension == "css" )
+        {
+            // Needed for CSS updates because of @import rules
+            css_updates[ key_path ] = html_updates.value( key_path );
         }
     }
 

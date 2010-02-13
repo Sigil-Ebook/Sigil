@@ -20,33 +20,25 @@
 *************************************************************************/
 
 #pragma once
-#ifndef LOADUPDATES_H
-#define LOADUPDATES_H
-
-#include <QFutureSynchronizer>
+#ifndef PERFORMINITIALCSSUPDATES_H
+#define PERFORMINITIALCSSUPDATES_H
 
 class QString;
-class QDomNode;
 
-class LoadUpdates
+class PerformInitialCSSUpdates
 {
 
 public:
 
-    LoadUpdates( const QString &source,
-                 const QHash< QString, QString > &html_updates,
-                 const QHash< QString, QString > &css_updates );
+    PerformInitialCSSUpdates( const QString &source,
+                              const QHash< QString, QString > &css_updates );
 
     QString operator()( );
 
 private:
 
-    // Updates the resource references in the HTML.
-    void UpdateHTMLReferences();
-
-    // Updates the resource references in the attributes 
-    // of the one specified node in the HTML.
-    void UpdateReferenceInNode( QDomNode node );
+    // Updates the resource references in the CSS.
+    void UpdateCSSReferences();
 
     ///////////////////////////////
     // PRIVATE MEMBER VARIABLES
@@ -54,12 +46,7 @@ private:
 
     QString m_Source;
 
-    const QHash< QString, QString > &m_HTMLUpdates;
     const QHash< QString, QString > &m_CSSUpdates;
-
-    // This synchronizer is used to wait for all
-    // the HTML node updates to finish before moving on
-    QFutureSynchronizer< void > m_NodeUpdateSynchronizer;
 };
 
-#endif // LOADUPDATES_H
+#endif // PERFORMINITIALCSSUPDATES_H

@@ -21,6 +21,7 @@
 
 #include <stdafx.h>
 #include "LoadUpdates.h"
+#include "PerformInitialCSSUpdates.h"
 #include <QDomDocument>
 #include "../BookManipulation/XHTMLDoc.h"
 
@@ -43,9 +44,7 @@ LoadUpdates::LoadUpdates( const QString &source,
 QString LoadUpdates::operator()()
 {
     UpdateHTMLReferences();
-    UpdateCSSReferences();
-
-    return m_Source;
+    return PerformInitialCSSUpdates( m_Source, m_CSSUpdates )();
 }
 
 
@@ -134,38 +133,5 @@ void LoadUpdates::UpdateReferenceInNode( QDomNode node )
             }  
         }
     }
-}
-
-
-void LoadUpdates::UpdateCSSReferences()
-{
-    QList< QString > keys = m_CSSUpdates.keys();
-    int num_keys = keys.count();
-
-    for ( int i = 0; i < num_keys; ++i )
-    {
-        QString key_path = keys.at( i );
-        QString filename = QFileInfo( key_path ).fileName();
-
-        QRegExp reference = QRegExp( "src:\\s*\\w+\\([\"']*([^\\)]*/" + QRegExp::escape( filename ) + "|"
-            + QRegExp::escape( filename ) + ")[\"']*\\)" );
-
-        int index = -1;
-
-        while ( true )
-        {
-            int newindex = m_Source.indexOf( reference );
-
-            // We need to make sure we don't end up
-            // replacing the same thing over and over again
-            if ( ( index == newindex ) || ( newindex == -1 ) )
-
-                break;
-
-            m_Source.replace( reference.cap( 1 ), m_CSSUpdates.value( key_path ) );
-
-            index = newindex;
-        }
-    }  
 }
 
