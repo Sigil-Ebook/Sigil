@@ -299,7 +299,7 @@ void ImportEPUB::CleanAndUpdateFiles( const QHash< QString, QString > &updates )
 // just one saves us expensive (and unnecessary) loading
 // from disk. Here we just load it once, do everything
 // and then save back to disk.
-void ImportEPUB::CleanAndUpdateOneHTMLFile( QString fullpath, 
+void ImportEPUB::CleanAndUpdateOneHTMLFile( const QString &fullpath,
                                             const QHash< QString, QString > &html_updates,
                                             const QHash< QString, QString > &css_updates )
 {
@@ -308,7 +308,7 @@ void ImportEPUB::CleanAndUpdateOneHTMLFile( QString fullpath,
     Utility::WriteUnicodeTextFile( source, fullpath );
 }
 
-void ImportEPUB::UpdateOneCSSFile( QString fullpath, const QHash< QString, QString > &css_updates )
+void ImportEPUB::UpdateOneCSSFile( const QString &fullpath, const QHash< QString, QString > &css_updates )
 {
     QString source = Utility::ReadUnicodeTextFile( fullpath );
     //source = LoadUpdates( source, html_updates, css_updates )();
