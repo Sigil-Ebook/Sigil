@@ -276,8 +276,13 @@ void ImportEPUB::CleanAndUpdateFiles( const QHash< QString, QString > &updates )
     QList< QString > html_files;
     QList< QString > css_files;
 
-    foreach( QString file, m_Book.mainfolder.GetContentFilesList() )
+    QList< QString > all_files = m_Book.mainfolder.GetContentFilesList();
+    int num_files = all_files.count();
+
+    for ( int i = 0; i < num_files; ++i )
     {
+        QString file = all_files.at( i );
+
         if ( file.contains( TEXT_FOLDER_NAME + "/" ) )
 
             html_files.append( m_Book.mainfolder.GetFullPathToOEBPSFolder() + "/" + file );
