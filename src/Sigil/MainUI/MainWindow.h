@@ -173,11 +173,6 @@ private:
     // Returns true if the provided extension is supported as a save type
     bool IsSupportedSaveType( const QString &filename ) const;
 
-    // Accepts the path to saved epub and a reference
-    // to the main book. Calls calibre (in a special way)
-    // with a path to a temp copy of the saved epub.
-    // Needs to be called in a separate thread.
-    static void CalibreInterop( QString filepath, Book &book );
 
     // Performs zoom operations in the views using the default
     // zoom step. Setting zoom_in to true zooms the views *in*,

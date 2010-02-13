@@ -23,24 +23,12 @@
 #include "../BookManipulation/Book.h"
 #include "../Misc/Utility.h"
 
-bool Book::s_IgnoreCalibreEnvFlag = false;
-
 // Constructor
 Book::Book()
     : 
-    PublicationIdentifier( Utility::CreateUUID() ),
-    m_ReportToCalibre( false )
+    PublicationIdentifier( Utility::CreateUUID() )
 {
-    QMutexLocker locker( &m_IgnoreCalibreEnvFlagSync );
-
-    if ( !Utility::GetEnvironmentVar( "CALLED_FROM_CALIBRE" ).isEmpty() &&
-         !s_IgnoreCalibreEnvFlag 
-        )
-    {
-        SetReportToCalibreStatus( true );
-
-        s_IgnoreCalibreEnvFlag = true;
-    }
+   
 }
 
 
@@ -51,8 +39,6 @@ Book::Book( const Book& other )
     metadata = other.metadata;
     PublicationIdentifier = other.PublicationIdentifier;
     mainfolder = other.mainfolder;
-
-    // We do NOT copy the m_ReportToCalibre value
 }
 
 
@@ -66,8 +52,6 @@ Book& Book::operator = ( const Book& other )
         metadata = other.metadata;
         PublicationIdentifier = other.PublicationIdentifier;
         mainfolder = other.mainfolder;
-
-        // We do NOT copy the m_ReportToCalibre value
     }
 
     // By convention, always return *this
@@ -81,24 +65,4 @@ Book& Book::operator = ( const Book& other )
 QUrl Book::GetBaseUrl() const
 {
     return QUrl::fromLocalFile( mainfolder.GetFullPathToTextFolder() + "/" );
-}
-
-
-// Returns the status of the m_ReportToCalibre
-// variable. Thread-safe.
-bool Book::GetReportToCalibreStatus()
-{
-    QMutexLocker locker( &m_ReportToCalibreSync );
-
-    return m_ReportToCalibre;
-}
-
-
-// Sets the status of the m_ReportToCalibre
-// variable. Thread-safe.
-void Book::SetReportToCalibreStatus( bool new_status )
-{
-    QMutexLocker locker( &m_ReportToCalibreSync );
-
-    m_ReportToCalibre = new_status;
 }

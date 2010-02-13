@@ -131,16 +131,6 @@ int main( int argc, char *argv[] )
         app.setWindowIcon( GetApplicationIcon() );
     #endif
 
-        // We write the full path to Sigil's executable
-        // in a file in the home folder for calibre interoperability
-    #ifdef Q_WS_WIN
-        QString location_file = QDir::homePath() + WIN_PATH_SUFFIX + "/sigil-location.txt";
-    #else
-        QString location_file = QDir::homePath() + NIX_PATH_SUFFIX + "/sigil-location.txt";
-    #endif
-
-        Utility::WriteUnicodeTextFile( QCoreApplication::applicationFilePath(), location_file );
-
         // Needs to be created on the heap so that
         // the reply has time to return.
         UpdateChecker *checker = new UpdateChecker( &app );

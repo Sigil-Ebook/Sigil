@@ -66,8 +66,6 @@ void ExportEPUB::WriteBook()
     CreatePublication();
 
     SaveTo( m_FullFilePath );
-
-    CalibreInterop();
 }
 
 
@@ -481,25 +479,6 @@ void ExportEPUB::CreateTocNCX()
     }
 
     // FIXME: throw exception if not open
-}
-
-
-// Performs actions need for interoperability
-// with calibre; if Sigil was called from it,
-// special actions need to be taken
-void ExportEPUB::CalibreInterop()
-{
-    QString calibre_id = Utility::GetEnvironmentVar( "CALLED_FROM_CALIBRE" );
-
-    if ( !calibre_id.isEmpty() )
-    {
-        QString opf_path  = Utility::CreateTemporaryCopy( m_Folder.GetFullPathToOEBPSFolder() + "/" + OPF_FILE_NAME );
-        QString epub_path = Utility::CreateTemporaryCopy( m_FullFilePath );
-
-        QString argument  = "sigil:" + calibre_id + ":" + epub_path + ":" + opf_path;
-
-        QProcess::startDetached( "calibre", QStringList( argument ) );
-    }
 }
 
 

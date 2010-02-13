@@ -48,14 +48,6 @@ public:
     // within the main folder
     QUrl GetBaseUrl() const;
 
-    // Returns the status of the m_ReportToCalibre
-    // variable. Thread-safe.
-    bool GetReportToCalibreStatus();
-
-    // Sets the status of the m_ReportToCalibre
-    // variable. Thread-safe.
-    void SetReportToCalibreStatus( bool new_status );
-
     // This used to be a struct so these are public.
     // TODO: Find the time to update the codebase
     // to use getters and setters.
@@ -77,14 +69,7 @@ public:
     FolderKeeper mainfolder;
 
 private:    
-
-    bool m_ReportToCalibre;
-
-    QMutex m_ReportToCalibreSync;
-
-    static bool s_IgnoreCalibreEnvFlag;
-
-    QMutex m_IgnoreCalibreEnvFlagSync;    
+ 
 };
 
 #endif // BOOK_H
