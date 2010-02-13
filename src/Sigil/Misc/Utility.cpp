@@ -323,12 +323,7 @@ void Utility::WriteUnicodeTextFile( const QString &text, const QString &fullfile
 
         // We ALWAYS output in UTF-8
         out.setCodec( "UTF-8" );
-
         out << text;
-
-        // Write to disk immediately
-        out.flush();
-        file.flush();
     }
 
     // TODO: throw error if not open    
