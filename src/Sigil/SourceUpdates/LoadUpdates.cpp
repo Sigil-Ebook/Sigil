@@ -81,34 +81,67 @@ void LoadUpdates::UpdateHTMLReferences()
 }
 
 
+// This function has been brutally optimized since it is the main
+// bottleneck during loading (well, not anymore :) ).
+// Be vewy, vewy careful when editing it.
 void LoadUpdates::UpdateReferenceInNode( QDomNode node )
 {
     QDomNamedNodeMap attributes = node.attributes();
     int num_attributes = attributes.count();
 
+    QList< QString > keys = m_HTMLUpdates.keys();
+    int num_keys = keys.count();
+
     for ( int i = 0; i < num_attributes; ++i )
     {
         QDomAttr attribute = attributes.item( i ).toAttr();
 
-        if ( !attribute.isNull() && 
-             PATH_ATTRIBUTES.contains( XHTMLDoc::GetAttributeName( attribute ), Qt::CaseInsensitive ) )
+        if ( !PATH_ATTRIBUTES.contains( XHTMLDoc::GetAttributeName( attribute ), Qt::CaseInsensitive ) )
+
+             continue;
+
+        for ( int j = 0; j < num_keys; ++j )
         {
-            QList< QString > keys = m_HTMLUpdates.keys();
-            int num_keys = keys.count();
+            QString key_path  = keys.at( j );
+            QString filename  = QFileInfo( key_path ).fileName();
+            QString atr_value = QUrl::fromPercentEncoding( attribute.value().toUtf8() );
 
-            for ( int j = 0; j < num_keys; ++j )
+            int name_index = atr_value.lastIndexOf( filename );
+
+            if ( name_index != -1 )
             {
-                QString key_path  = keys.at( j );
-                QString filename  = QFileInfo( key_path ).fileName();
-                QString atr_value = QUrl::fromPercentEncoding( attribute.value().toUtf8() );
+                int filename_length  = filename.length();
+                int atr_value_length = atr_value.length();
 
-                if ( atr_value == filename || atr_value.endsWith( "/" + filename ) )
+                QString new_path;
+
+                // First we look at whether the filename matches the attribute value,
+                // and then we determine whether it's actually a path that ends with the filename
+                if ( filename_length == atr_value_length || 
+                     ( ( name_index + filename_length == atr_value_length ) &&
+                       ( atr_value.at( name_index - 1 ) == QChar::fromAscii( '/' ) )
+                     )
+                   )
                 {
-                    QByteArray encoded_url = QUrl::toPercentEncoding( m_HTMLUpdates[ key_path ], QByteArray( "/" ) );
-
-                    attribute.setValue( QString::fromUtf8( encoded_url.constData(), encoded_url.count() ) );
+                    new_path = m_HTMLUpdates.value( key_path );
                 }
-            }            
+
+                // This checks for when the path has a fragment ID (anchor reference)
+                else if ( atr_value.at( name_index + filename_length ) == QChar::fromAscii( '#' ) )
+                {
+                    new_path = atr_value.mid( name_index + filename_length ).prepend( m_HTMLUpdates.value( key_path ) );
+                }
+
+                if ( !new_path.isEmpty() )
+                {
+                    QByteArray encoded_url = QUrl::toPercentEncoding( new_path, QByteArray( "/#" ) );
+                    attribute.setValue( QString::fromUtf8( encoded_url.constData(), encoded_url.count() ) );
+
+                    // We assign to "i" to break the outer loop
+                    i = num_attributes;
+                    break;
+                }
+            }  
         }
     }
 }
