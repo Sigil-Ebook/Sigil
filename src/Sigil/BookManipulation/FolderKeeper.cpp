@@ -184,45 +184,9 @@ QStringList FolderKeeper::GetContentFilesList() const
 {
     QStringList filelist;
 
-    QDir images(  m_FullPathToImagesFolder );
-    QDir fonts(   m_FullPathToFontsFolder  );
-    QDir texts(   m_FullPathToTextFolder   );
-    QDir styles(  m_FullPathToStylesFolder );
-    QDir misc(    m_FullPathToMiscFolder   );
-
-    foreach( QString file, images.entryList() )
+    foreach( Resource* resource, m_Resources.values() )
     {
-        if ( ( file != "." ) && ( file != ".." ) )
-
-            filelist.append( IMAGE_FOLDER_NAME + "/" + file );
-    }
-
-    foreach( QString file, fonts.entryList() )
-    {
-        if ( ( file != "." ) && ( file != ".." ) )
-
-            filelist.append( FONT_FOLDER_NAME +"/" + file );
-    }
-
-    foreach( QString file, texts.entryList() )
-    {
-        if ( ( file != "." ) && ( file != ".." ) )
-
-            filelist.append( TEXT_FOLDER_NAME + "/" + file );
-    }
-
-    foreach( QString file, styles.entryList() )
-    {
-        if ( ( file != "." ) && ( file != ".." ) )
-
-            filelist.append( STYLE_FOLDER_NAME + "/" + file );
-    }
-
-    foreach( QString file, misc.entryList() )
-    {
-        if ( ( file != "." ) && ( file != ".." ) )
-
-            filelist.append( MISC_FOLDER_NAME + "/" + file );
+        filelist.append( resource->GetRelativePathToOEBPS() );
     }
 
     return filelist;
