@@ -30,7 +30,6 @@ Book::Book()
     : 
     PublicationIdentifier( Utility::CreateUUID() ),
     m_ReportToCalibre( false )
-
 {
     QMutexLocker locker( &m_IgnoreCalibreEnvFlagSync );
 

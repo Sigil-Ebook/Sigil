@@ -23,6 +23,8 @@
 #ifndef IMPORTER_H
 #define IMPORTER_H
 
+#include <QSharedPointer>
+
 #include "../BookManipulation/Book.h"
 
 // Interface for Importers
@@ -33,7 +35,7 @@ public:
 
     virtual ~Importer() {}
 
-    virtual Book GetBook() = 0;
+    virtual QSharedPointer< Book > GetBook() = 0;
 };
 
 #endif // IMPORTER_H

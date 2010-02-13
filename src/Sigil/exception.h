@@ -50,3 +50,7 @@ struct CZipExceptionWrapper : virtual ExceptionBase {};
 
 typedef boost::error_info< struct error_string, std::string > errinfo_zip_info;
 
+struct CannotReadFile : virtual ExceptionBase {};
+
+typedef boost::error_info< struct error_string, std::string > errinfo_file_read;
+

@@ -37,7 +37,7 @@ public:
     // Reads and parses the file 
     // and returns the created Book;
     // Overrides;
-    Book GetBook();
+    QSharedPointer< Book > GetBook();
 
 private:
 

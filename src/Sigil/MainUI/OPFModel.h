@@ -24,6 +24,7 @@
 #define OPFMODEL_H
 
 #include <QStandardItemModel>
+#include <QSharedPointer>
 
 class Book;
 class QModelIndex;
@@ -36,7 +37,7 @@ public:
 
     OPFModel( QWidget *parent = 0 );
 
-    void SetBook( Book &book );
+    void SetBook( QSharedPointer< Book > book );
 
     QModelIndex GetFirstHTMLModelIndex();
 
@@ -54,7 +55,7 @@ private:
 
     void ClearModel();
 
-    Book *m_Book;
+    QSharedPointer< Book > m_Book;
 
     QStandardItem &m_TextFolderItem;
     QStandardItem &m_StylesFolderItem;

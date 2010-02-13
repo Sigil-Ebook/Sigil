@@ -23,6 +23,8 @@
 #ifndef BOOKNORMALIZATION_H
 #define BOOKNORMALIZATION_H
 
+#include <QSharedPointer>
+
 class Book;
 
 class BookNormalization
@@ -33,7 +35,7 @@ public:
     // Performs all the operations necessary
     // on the Book before it is exported,
     // like adding ID's to all headings etc.
-    static Book Normalize( const Book &book ); 
+    //static Book Normalize( QSharedPointer< Book > book ); 
 
 private:
 

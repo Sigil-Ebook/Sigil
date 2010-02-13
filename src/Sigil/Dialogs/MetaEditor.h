@@ -26,6 +26,7 @@
 #include <QtGui/QDialog>
 #include "ui_MetaEditor.h"
 #include <QStandardItemModel>
+#include <QSharedPointer>
 
 class Book;
 
@@ -37,7 +38,7 @@ class MetaEditor : public QDialog
 public:
 
     // Constructor
-    MetaEditor( Book &book, QWidget *parent = 0 );
+    MetaEditor( QSharedPointer< Book > book, QWidget *parent = 0 );
 
     // Destructor
     ~MetaEditor();	
@@ -85,6 +86,10 @@ private slots:
     void FillMetadataFromDialog();
 
 private:
+
+    // We need this to be able to use a forward
+    // declaration of Book in the QSharedPointer
+    Q_DISABLE_COPY( MetaEditor ) 
 
     // Reads the metadata from the Book and fills
     // the metadata table with it
@@ -135,7 +140,7 @@ private:
     bool m_isMore;
 
     // The Book whose metadata is being edited
-    Book &m_Book;
+    QSharedPointer< Book > m_Book;
 
     // The window height after expansion
     int m_ExpandedHeight;

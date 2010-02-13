@@ -274,7 +274,8 @@ void FolderKeeper::DeleteAllResources( const QString &folderpath )
 
     m_Resources.clear();
 
-    Utility::DeleteFolderAndFiles( folderpath );
+    // We can easily async delete this
+    QtConcurrent::run( Utility::DeleteFolderAndFiles, folderpath );
 }
 
 

@@ -72,7 +72,7 @@ MainWindow::MainWindow( const QString &openfilepath, QWidget *parent, Qt::WFlags
     : 
     QMainWindow( parent, flags ),
     m_CurrentFile( QString() ),
-    m_Book( Book() ),
+    m_Book( new Book() ),
     m_LastFolderOpen( QString() ),
     m_LastFolderSave( QString() ),
     m_TabManager( *new TabManager( this ) ),
@@ -718,9 +718,9 @@ bool MainWindow::MaybeSave()
 // the current one with it
 void MainWindow::CreateNew()
 {
-    m_Book = Book();
+    m_Book = QSharedPointer< Book >( new Book() );
     
-    m_Book.source =	"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+    m_Book->source =	"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
                     "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\"\n"
                     "    \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n\n"							
                     "<html xmlns=\"http://www.w3.org/1999/xhtml\">\n"
@@ -737,7 +737,7 @@ void MainWindow::CreateNew()
                     "</html>";
     
     // Add Sigil-specific markup
-    m_Book.source = SigilMarkup::AddSigilMarkup( m_Book.source );
+    m_Book->source = SigilMarkup::AddSigilMarkup( m_Book->source );
     
     //m_wBookView->SetBook( m_Book );    
     //m_wCodeView->SetBook( m_Book );
@@ -762,9 +762,9 @@ void MainWindow::LoadFile( const QString &filename )
         m_Book = ImporterFactory().GetImporter( filename ).GetBook();
 
         // Add Sigil-specific markup to non-SGF files
-        if ( QFileInfo( filename ).suffix().toLower() != "sgf" )
+        //if ( QFileInfo( filename ).suffix().toLower() != "sgf" )
 
-            m_Book.source = SigilMarkup::AddSigilMarkup( m_Book.source );
+        //    m_Book->source = SigilMarkup::AddSigilMarkup( m_Book->source );
 
         m_BookBrowser->SetBook( m_Book );
 
@@ -811,18 +811,18 @@ bool MainWindow::SaveFile( const QString &filename )
 
     // If the file is not an SGF, 
     // we normalize the book before exporting
-    if ( extension != "sgf" )
+//     if ( extension != "sgf" )
+// 
+//         ExporterFactory().GetExporter( filename, BookNormalization::Normalize( m_Book ) ).WriteBook();
+// 
+//     else
+//         
+//         ExporterFactory().GetExporter( filename, m_Book ).WriteBook();
 
-        ExporterFactory().GetExporter( filename, BookNormalization::Normalize( m_Book ) ).WriteBook();
 
-    else
-        
-        ExporterFactory().GetExporter( filename, m_Book ).WriteBook();
-
-
-    if ( m_Book.GetReportToCalibreStatus() )
-
-        QtConcurrent::run( CalibreInterop, filename, m_Book );
+//     if ( m_Book->GetReportToCalibreStatus() )
+// 
+//         QtConcurrent::run( CalibreInterop, filename, m_Book );
 
     QApplication::restoreOverrideCursor();
 

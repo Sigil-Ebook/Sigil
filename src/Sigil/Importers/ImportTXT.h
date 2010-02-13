@@ -25,6 +25,7 @@
 
 #include "Importer.h"
 #include <QUrl>
+#include <QSharedPointer>
 
 class ImportTXT : public Importer
 {
@@ -37,7 +38,7 @@ public:
 
     // Reads and parses the file 
     // and returns the created Book
-    virtual Book GetBook();
+    virtual QSharedPointer< Book > GetBook();
 
 protected:
 
@@ -54,7 +55,7 @@ protected:
 
     // The Book that will be created 
     // by the importing process
-    Book m_Book;
+    QSharedPointer< Book > m_Book;
 
 private:
 

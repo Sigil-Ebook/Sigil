@@ -25,8 +25,8 @@
 
 #include <QtGui/QMainWindow>
 #include "ui_main.h"
-#include "BookManipulation/Book.h"
-#include <QWeakPointer>
+#include "../BookManipulation/Book.h"
+#include <QSharedPointer>
 
 const int MAX_RECENT_FILES = 5;
 
@@ -245,7 +245,7 @@ private:
     QString m_CurrentFile;
 
     // The book currently being worked on
-    Book m_Book;
+    QSharedPointer< Book > m_Book;
 
     // The last folder from which the user opened a file
     QString m_LastFolderOpen;

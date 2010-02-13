@@ -35,15 +35,15 @@ static const QString SIGIL_HEADING_ID_REG    = SIGIL_HEADING_ID_PREFIX + "(\\d+)
 // Performs all the operations necessary
 // on the Book before it is exported,
 // like adding ID's to all headings etc.
-Book BookNormalization::Normalize( const Book &book )
-{
-    Book newbook = book;
-
-    newbook.source = GiveIDsToHeadings( newbook.source );
-    newbook.source = CleanSource::Clean( newbook.source );
-
-    return newbook;
-}
+// Book BookNormalization::Normalize( QSharedPointer< Book > book )
+// {
+//     Book newbook = book;
+// 
+//     newbook.source = GiveIDsToHeadings( newbook.source );
+//     newbook.source = CleanSource::Clean( newbook.source );
+// 
+//     return newbook;
+// }
 
 // Gives ID's to all headings that don't have them
 QString BookNormalization::GiveIDsToHeadings( const QString &source )

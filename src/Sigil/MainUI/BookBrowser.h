@@ -24,10 +24,11 @@
 #define BOOKBROWSER_H
 
 #include <QDockWidget>
+#include <QSharedPointer>
+#include "../BookManipulation/Book.h"
 
 class QTreeView;
 class OPFModel;
-class Book;
 class Resource;
 class QModelIndex;
 class QUrl;
@@ -42,7 +43,7 @@ public:
 
 public slots:
 
-    void SetBook( Book &book );
+    void SetBook( QSharedPointer< Book > book );
 
     void OpenUrlResource( const QUrl &url );
 
@@ -58,7 +59,7 @@ private slots:
 
 private:
 
-    Book *m_Book;
+    QSharedPointer< Book > m_Book;
     QTreeView &m_TreeView;
     OPFModel &m_OPFModel;
 };

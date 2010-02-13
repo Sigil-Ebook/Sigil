@@ -37,7 +37,7 @@ ImportSGF::ImportSGF( const QString &fullfilepath )
 // Reads and parses the file 
 // and returns the created Book;
 // Overrides;
-Book ImportSGF::GetBook()
+QSharedPointer< Book > ImportSGF::GetBook()
 {
     // These read the EPUB file
     ExtractContainer();
@@ -49,7 +49,7 @@ Book ImportSGF::GetBook()
     LoadSource();
     LoadFolderStructure();
 
-    m_Book.source = CleanSource::Clean( m_Book.source );
+    m_Book->source = CleanSource::Clean( m_Book->source );
 
     return m_Book;
 }
@@ -59,7 +59,7 @@ Book ImportSGF::GetBook()
 void ImportSGF::LoadSource()
 {
     QString fullpath = QFileInfo( m_OPFFilePath ).absolutePath() + "/" + m_Files.values().first();
-    m_Book.source    = Utility::ReadUnicodeTextFile( fullpath ); 
+    m_Book->source   = Utility::ReadUnicodeTextFile( fullpath ); 
 }
 
 
@@ -75,7 +75,7 @@ void ImportSGF::LoadFolderStructure()
         {
             QString fullfilepath = QFileInfo( m_OPFFilePath ).absolutePath() + "/" + path;
 
-            //m_Book.mainfolder.AddContentFileToFolder( fullfilepath, NULL, true );
+            //m_Book->mainfolder.AddContentFileToFolder( fullfilepath, NULL, true );
         }        
     }
 }

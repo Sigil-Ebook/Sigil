@@ -50,17 +50,17 @@ ImportEPUB::~ImportEPUB()
 {
     if ( !m_ExtractedFolderPath.isEmpty() )
 
-        Utility::DeleteFolderAndFiles( m_ExtractedFolderPath );
+        QtConcurrent::run( Utility::DeleteFolderAndFiles, m_ExtractedFolderPath );
 }
 
 
 // Reads and parses the file 
 // and returns the created Book
-Book ImportEPUB::GetBook()
+QSharedPointer< Book > ImportEPUB::GetBook()
 {
     if ( !Utility::IsFileReadable( m_FullFilePath ) )
 
-        return Book();
+        boost_throw( CannotReadFile() << errinfo_file_read( m_FullFilePath.toStdString() ) );
 
     // These read the EPUB file
     ExtractContainer();
@@ -95,11 +95,12 @@ void ImportEPUB::ExtractContainer()
 #endif
 
         int file_count = (int) zip.GetCount();
+        QString folder_path = folder.absolutePath();
 
 #ifdef Q_WS_WIN
-        const ushort *win_path = folder.absolutePath().utf16();
+        const ushort *win_path = folder_path.utf16();
 #else
-        QByteArray utf8_path( folder.absolutePath().toUtf8() );
+        QByteArray utf8_path( folder_path.toUtf8() );
         char *nix_path = utf8_path.data();
 #endif
         for ( int i = 0; i < file_count; ++i )
@@ -267,7 +268,7 @@ void ImportEPUB::LoadMetadata()
 
         if ( !book_meta.name.isEmpty() && !book_meta.value.toString().isEmpty() )
         {
-            m_Book.metadata[ book_meta.name ].append( book_meta.value );
+            m_Book->metadata[ book_meta.name ].append( book_meta.value );
         }
     }    
 }
@@ -281,7 +282,7 @@ void ImportEPUB::CleanAndUpdateFiles( const QHash< QString, QString > &updates )
     QList< QString > html_files;
     QList< QString > css_files;
 
-    QList< QString > all_files = m_Book.mainfolder.GetContentFilesList();
+    QList< QString > all_files = m_Book->mainfolder.GetContentFilesList();
     int num_files = all_files.count();
 
     for ( int i = 0; i < num_files; ++i )
@@ -290,11 +291,11 @@ void ImportEPUB::CleanAndUpdateFiles( const QHash< QString, QString > &updates )
 
         if ( file.contains( TEXT_FOLDER_NAME + "/" ) )
 
-            html_files.append( m_Book.mainfolder.GetFullPathToOEBPSFolder() + "/" + file );
+            html_files.append( m_Book->mainfolder.GetFullPathToOEBPSFolder() + "/" + file );
 
         else if ( file.contains( STYLE_FOLDER_NAME + "/" ) )   
 
-            css_files.append( m_Book.mainfolder.GetFullPathToOEBPSFolder() + "/" + file );
+            css_files.append( m_Book->mainfolder.GetFullPathToOEBPSFolder() + "/" + file );
     }
 
     QFutureSynchronizer<void> sync;
@@ -341,7 +342,7 @@ QHash< QString, QString > ImportEPUB::LoadFolderStructure()
         // We can't parallelize this since we need to create HTMLResource
         // objects, and they create QWebPages, and those can only be
         // created in the main GUI thread.
-        QString newpath = m_Book.mainfolder.AddContentFileToFolder( fullfilepath, m_ReadingOrderIds.indexOf( key ) );
+        QString newpath = m_Book->mainfolder.AddContentFileToFolder( fullfilepath, m_ReadingOrderIds.indexOf( key ) );
         newpath = "../" + newpath;  
 
         updates[ path ] = newpath;       

@@ -66,10 +66,9 @@ BookBrowser::BookBrowser( QWidget *parent )
             this,         SLOT(   EmitResourceDoubleClicked( const QModelIndex& ) ) );
 }
 
-
-void BookBrowser::SetBook( Book &book )
+void BookBrowser::SetBook( QSharedPointer< Book > book )
 {
-    m_Book = &book;
+    m_Book = book;
 
     m_OPFModel.SetBook( book );
 
@@ -113,3 +112,4 @@ void BookBrowser::EmitResourceDoubleClicked( const QModelIndex &index )
 
         emit ResourceDoubleClicked( m_Book->mainfolder.GetResourceByIdentifier( identifier ) );
 }
+

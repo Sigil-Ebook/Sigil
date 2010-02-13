@@ -25,6 +25,7 @@
 
 #include <QtGui/QDialog>
 #include <QStandardItemModel>
+#include <QSharedPointer>
 
 #include "ui_TOCEditor.h"
 #include "../BookManipulation/Headings.h"
@@ -40,7 +41,7 @@ public:
     // Constructor;
     // the first parameter is the book whose TOC
     // is being edited, the second is the dialog's parent
-    TOCEditor( Book &book, QWidget *parent = 0 );
+    TOCEditor( QSharedPointer< Book > book, QWidget *parent = 0 );
 
     // Destructor
     ~TOCEditor();
@@ -63,6 +64,10 @@ private slots:
     void UpdateBookSource();
 
 private:    
+
+    // We need this to be able to use a forward
+    // declaration of Book in the QSharedPointer
+    Q_DISABLE_COPY( TOCEditor ) 
 
     // Updates the inclusion of the heading in the TOC
     // whenever that heading's "include in TOC" checkbox
@@ -106,7 +111,7 @@ private:
     ///////////////////////////////
 
     // The book whose TOC is being edited
-    Book &m_Book;
+    QSharedPointer< Book > m_Book;
 
     // The model displayed and edited in the tree view
     QStandardItemModel m_TableOfContents;

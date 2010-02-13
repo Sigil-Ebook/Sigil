@@ -62,9 +62,9 @@ OPFModel::OPFModel( QWidget *parent )
     invisibleRootItem()->setDropEnabled( false );
 }
 
-void OPFModel::SetBook( Book &book )
+void OPFModel::SetBook( QSharedPointer< Book > book )
 {
-    m_Book = &book;
+    m_Book = book;
 
     InitializeModel();
 

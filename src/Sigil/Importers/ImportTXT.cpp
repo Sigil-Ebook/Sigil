@@ -29,23 +29,26 @@
 // Constructor;
 // The parameter is the file to be imported
 ImportTXT::ImportTXT( const QString &fullfilepath )
-    : m_FullFilePath( fullfilepath )
+    : 
+    m_FullFilePath( fullfilepath ),
+    m_Book( new Book() )
 {
 
 }
 
+
 // Reads and parses the file 
 // and returns the created Book
-Book ImportTXT::GetBook()
+QSharedPointer< Book > ImportTXT::GetBook()
 {
     if ( !Utility::IsFileReadable( m_FullFilePath ) )
         
-        return Book();
+        boost_throw( CannotReadFile() << errinfo_file_read( m_FullFilePath.toStdString() ) );
     
     LoadSource();
     
-    m_Book.source = CreateParagraphs( m_Book.source.split( QChar( '\n' ) ) );
-    m_Book.source = CleanSource::Clean( m_Book.source );
+    m_Book->source = CreateParagraphs( m_Book->source.split( QChar( '\n' ) ) );
+    m_Book->source = CleanSource::Clean( m_Book->source );
 
     return m_Book;
 }
@@ -54,7 +57,7 @@ Book ImportTXT::GetBook()
 // Loads the source code into the Book
 void ImportTXT::LoadSource()
 {
-    m_Book.source = Utility::ReadUnicodeTextFile( m_FullFilePath );    
+    m_Book->source = Utility::ReadUnicodeTextFile( m_FullFilePath );    
 }
 
 

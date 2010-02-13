@@ -30,8 +30,10 @@ static const int FIRST_COLUMN_PADDING = 30;
 // Constructor;
 // the first parameter is the book whose TOC
 // is being edited, the second is the dialog's parent
-TOCEditor::TOCEditor( Book &book, QWidget *parent )
-    : QDialog( parent ), m_Book( book )
+TOCEditor::TOCEditor( QSharedPointer< Book > book, QWidget *parent )
+    : 
+    QDialog( parent ), 
+    m_Book( book )
 {
     ui.setupUi( this );
 
@@ -49,7 +51,7 @@ TOCEditor::TOCEditor( Book &book, QWidget *parent )
 
     ui.tvTOCDisplay->setModel( &m_TableOfContents );  
 
-    m_Headings = Headings::GetHeadingList( m_Book.source );
+    m_Headings = Headings::GetHeadingList( m_Book->source );
     m_Headings = Headings::MakeHeadingHeirarchy( m_Headings );
 
     CreateTOCModel();
@@ -127,7 +129,7 @@ void TOCEditor::UpdateBookSource()
     // in the source and updates them
     while ( true )
     {
-        main_index = m_Book.source.indexOf( heading_regex, main_index );
+        main_index = m_Book->source.indexOf( heading_regex, main_index );
 
         if ( main_index == -1 )
 
@@ -135,7 +137,7 @@ void TOCEditor::UpdateBookSource()
 
         QString new_heading = Headings::GetNewHeadingSource( headings[ numheading ] );
 
-        m_Book.source.replace( main_index, heading_regex.matchedLength(), new_heading );
+        m_Book->source.replace( main_index, heading_regex.matchedLength(), new_heading );
 
         main_index += new_heading.size();
 

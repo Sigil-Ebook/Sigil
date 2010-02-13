@@ -28,7 +28,7 @@ static const int DEFAULT_EXPANDED_HEIGHT = 304;
 static const QString SETTINGS_GROUP      = "meta_editor";
 
 // Constructor
-MetaEditor::MetaEditor( Book &book, QWidget *parent )
+MetaEditor::MetaEditor( QSharedPointer< Book > book, QWidget *parent )
     : QDialog( parent ), m_Book( book )
 {
     ui.setupUi( this );	
@@ -52,7 +52,7 @@ MetaEditor::MetaEditor( Book &book, QWidget *parent )
     ReadMetadataFromBook();
 
     // Set the default language to English
-    if ( m_Book.metadata[ "Language" ].isEmpty() )
+    if ( m_Book->metadata[ "Language" ].isEmpty() )
         
         ui.cbLanguages->setCurrentIndex( ui.cbLanguages->findText( tr( "English" ) ) );	     
 }
@@ -205,9 +205,9 @@ void MetaEditor::FillMetadataFromDialog()
 
     // For string-based metadata, create multiple entries
     // if the typed in value contains semicolons
-    m_Book.metadata[ "Title" ]		.append( InputsInField( ui.leTitle->text() ) );
-    m_Book.metadata[ "Author" ]		.append( InputsInField( ui.leAuthor->text() ) );
-    m_Book.metadata[ "Language" ]	.append( InputsInField( ui.cbLanguages->currentText() ) );
+    m_Book->metadata[ "Title" ]		.append( InputsInField( ui.leTitle->text() ) );
+    m_Book->metadata[ "Author" ]		.append( InputsInField( ui.leAuthor->text() ) );
+    m_Book->metadata[ "Language" ]	.append( InputsInField( ui.cbLanguages->currentText() ) );
 
     for ( int row = 0; row < m_MetaModel.rowCount(); row++ )
     {
@@ -218,11 +218,11 @@ void MetaEditor::FillMetadataFromDialog()
         // if the typed in value contains semicolons
         if ( ( value.type() == QVariant::String ) && ( OkToSplitInput( name ) == true ) )
         
-            m_Book.metadata[ name ].append( InputsInField( value.toString() ) );
+            m_Book->metadata[ name ].append( InputsInField( value.toString() ) );
 
         else
             
-            m_Book.metadata[ name ].append( value );
+            m_Book->metadata[ name ].append( value );
     }
 }
 
@@ -231,9 +231,9 @@ void MetaEditor::FillMetadataFromDialog()
 // the metadata table with it
 void MetaEditor::ReadMetadataFromBook()
 {
-    foreach ( QString name, m_Book.metadata.keys() )
+    foreach ( QString name, m_Book->metadata.keys() )
     {
-        foreach ( QVariant single_value, m_Book.metadata[ name ] )
+        foreach ( QVariant single_value, m_Book->metadata[ name ] )
         {
             if ( name == "Title" )
 
@@ -258,9 +258,9 @@ void MetaEditor::ReadMetadataFromBook()
 // Clears all the metadata stored in the Book
 void MetaEditor::ClearBookMetadata()
 {
-    foreach ( QString name, m_Book.metadata.keys() )
+    foreach ( QString name, m_Book->metadata.keys() )
     {
-        m_Book.metadata[ name ].clear();
+        m_Book->metadata[ name ].clear();
     }
 }
 

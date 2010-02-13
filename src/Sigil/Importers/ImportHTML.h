@@ -38,7 +38,7 @@ public:
 
     // Reads and parses the file 
     // and returns the created Book
-    virtual Book GetBook();
+    virtual QSharedPointer< Book > GetBook();
 
 protected:
 

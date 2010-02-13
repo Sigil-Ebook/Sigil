@@ -44,23 +44,23 @@ ImportHTML::ImportHTML( const QString &fullfilepath )
 
 // Reads and parses the file 
 // and returns the created Book
-Book ImportHTML::GetBook()
+QSharedPointer< Book > ImportHTML::GetBook()
 {
     if ( !Utility::IsFileReadable( m_FullFilePath ) )
 
-        return Book();
+        boost_throw( CannotReadFile() << errinfo_file_read( m_FullFilePath.toStdString() ) );
 
     LoadSource(); 
 
     // We need to make the source valid XHTML to allow us to 
     // parse it with XML parsers
-    m_Book.source = CleanSource::ToValidXHTML( m_Book.source );
+    m_Book->source = CleanSource::ToValidXHTML( m_Book->source );
 
     LoadMetadata();
     StripFilesFromAnchors();
     //UpdateReferences( LoadFolderStructure() );
 
-    m_Book.source = CleanSource::Clean( m_Book.source );
+    m_Book->source = CleanSource::Clean( m_Book->source );
 
     return m_Book;
 }
@@ -135,7 +135,7 @@ void ImportHTML::StripFilesFromAnchors()
 {
     QDomDocument document;
  
-    document.setContent( m_Book.source );
+    document.setContent( m_Book->source );
 
     QDomNodeList anchors = document.elementsByTagName( "a" );
 
@@ -154,7 +154,7 @@ void ImportHTML::StripFilesFromAnchors()
         } 
     }
 
-    m_Book.source = XHTMLDoc::GetQDomNodeAsString( document );      
+    m_Book->source = XHTMLDoc::GetQDomNodeAsString( document );      
 }
 
 // Searches for meta information in the HTML file
@@ -162,7 +162,7 @@ void ImportHTML::StripFilesFromAnchors()
 void ImportHTML::LoadMetadata()
 {
     QDomDocument document; 
-    document.setContent( m_Book.source );
+    document.setContent( m_Book->source );
 
     QDomNodeList metatags = document.elementsByTagName( "meta" );
 
@@ -181,7 +181,7 @@ void ImportHTML::LoadMetadata()
 
             if ( !book_meta.name.isEmpty() && !book_meta.value.toString().isEmpty() )
             {
-                m_Book.metadata[ book_meta.name ].append( book_meta.value );
+                m_Book->metadata[ book_meta.name ].append( book_meta.value );
             }
         }
     }    
@@ -191,8 +191,8 @@ void ImportHTML::LoadMetadata()
 // Loads the source code into the Book
 void ImportHTML::LoadSource()
 {
-    m_Book.source = HTMLEncodingResolver::ReadHTMLFile( m_FullFilePath );
-    m_Book.source = ResolveCustomEntities( m_Book.source );
+    m_Book->source = HTMLEncodingResolver::ReadHTMLFile( m_FullFilePath );
+    m_Book->source = ResolveCustomEntities( m_Book->source );
 }
 
 
@@ -213,10 +213,10 @@ QHash< QString, QString > ImportHTML::LoadFolderStructure()
 QHash< QString, QString > ImportHTML::LoadImages()
 {
     // "Normal" HTML image elements
-    QList< XHTMLDoc::XMLElement > image_nodes = XHTMLDoc::GetTagsInDocument( m_Book.source, "img" );
+    QList< XHTMLDoc::XMLElement > image_nodes = XHTMLDoc::GetTagsInDocument( m_Book->source, "img" );
 
     // SVG image elements
-    image_nodes.append( XHTMLDoc::GetTagsInDocument( m_Book.source, "image" ) );
+    image_nodes.append( XHTMLDoc::GetTagsInDocument( m_Book->source, "image" ) );
 
     QStringList image_links;
 
@@ -250,7 +250,7 @@ QHash< QString, QString > ImportHTML::LoadImages()
         QDir folder( QFileInfo( m_FullFilePath ).absoluteDir() );
 
         QString fullfilepath = QFileInfo( folder, QUrl( image_link ).toString() ).absoluteFilePath();
-        QString newpath      = "../" + m_Book.mainfolder.AddContentFileToFolder( fullfilepath );
+        QString newpath      = "../" + m_Book->mainfolder.AddContentFileToFolder( fullfilepath );
 
         updates[ image_link ] = newpath;
     }
@@ -263,7 +263,7 @@ QHash< QString, QString > ImportHTML::LoadImages()
 void ImportHTML::LoadStyleFiles()
 {
     QDomDocument document;
-    document.setContent( m_Book.source );
+    document.setContent( m_Book->source );
 
     QDomNodeList link_nodes = document.elementsByTagName( "link" );
 
@@ -303,7 +303,7 @@ void ImportHTML::LoadStyleFiles()
         new_source.replace( QRegExp( "(</\\s*(?:head|HEAD)[^>]*>)" ), style + "\n\\1" );
     }  
 
-    m_Book.source = new_source;
+    m_Book->source = new_source;
 }
 
 
