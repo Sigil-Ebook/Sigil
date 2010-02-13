@@ -28,25 +28,15 @@ static const QStringList PATH_TAGS       = QStringList() << "link" << "a" << "im
 static const QStringList PATH_ATTRIBUTES = QStringList() << "href" << "src";
 
 
-LoadUpdates::LoadUpdates( const QString &source, const QHash< QString, QString > &updates )
-    : m_Source( source ) 
+LoadUpdates::LoadUpdates( const QString &source,
+                          const QHash< QString, QString > &html_updates,
+                          const QHash< QString, QString > &css_updates )
+    : 
+    m_Source( source ), 
+    m_HTMLUpdates( html_updates ),
+    m_CSSUpdates( css_updates )
 {
-    m_HTMLUpdates = updates;
-    QList< QString > keys = m_HTMLUpdates.keys();
-    int num_keys = keys.count();
-
-    for ( int i = 0; i < num_keys; ++i )
-    {
-        QString key_path = keys.at( i );
-        QString extension = QFileInfo( key_path ).suffix().toLower();
-
-        // Font file updates are CSS updates, not HTML updates
-        if ( extension == "ttf" || extension == "otf" )
-        {
-            m_CSSUpdates[ key_path ] = m_HTMLUpdates.value( key_path );
-            m_HTMLUpdates.remove( key_path );
-        }
-    }
+    
 }
 
 

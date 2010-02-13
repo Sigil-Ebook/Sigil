@@ -31,6 +31,9 @@
 
 static const QString OEBPS_MIMETYPE = "application/oebps-package+xml";
 
+using boost::tuple;
+using boost::make_tuple;
+using boost::tie;
 
 // Constructor;
 // The parameter is the file to be imported
@@ -66,11 +69,7 @@ Book ImportEPUB::GetBook()
     // These mutate the m_Book object
     LoadMetadata();
 
-    QHash< QString, QString > updates = LoadFolderStructure(); 
-    CleanAndUpdateHTMLFiles( updates );
-
-    // TODO: reference updating... this will be hard
-    //UpdateReferences( updates );
+    CleanAndUpdateFiles( LoadFolderStructure() );
 
     return m_Book;
 }
@@ -268,32 +267,51 @@ void ImportEPUB::LoadMetadata()
     }    
 }
 
-
-void ImportEPUB::CleanAndUpdateHTMLFiles( const QHash< QString, QString > &updates )
+void ImportEPUB::CleanAndUpdateFiles( const QHash< QString, QString > &updates )
 {
-    QList< QString > files_to_clean;
+    QHash< QString, QString > html_updates;
+    QHash< QString, QString > css_updates;
+    tie( html_updates, css_updates ) = SeparateHTMLAndCSSUpdates( updates );
+
+    QList< QString > html_files;
+    QList< QString > css_files;
 
     foreach( QString file, m_Book.mainfolder.GetContentFilesList() )
     {
-        if ( !file.contains( TEXT_FOLDER_NAME + "/" ) )
+        if ( file.contains( TEXT_FOLDER_NAME + "/" ) )
 
-            continue;
-        
-        files_to_clean.append( m_Book.mainfolder.GetFullPathToOEBPSFolder() + "/" + file );    
+            html_files.append( m_Book.mainfolder.GetFullPathToOEBPSFolder() + "/" + file );
+
+        else if ( file.contains( STYLE_FOLDER_NAME + "/" ) )   
+
+            css_files.append( m_Book.mainfolder.GetFullPathToOEBPSFolder() + "/" + file );
     }
 
-    QtConcurrent::blockingMap( files_to_clean, boost::bind( CleanAndUpdateOneHTMLFile, _1, updates ) );
+    QFutureSynchronizer<void> sync;
+    sync.addFuture( QtConcurrent::map( html_files, boost::bind( CleanAndUpdateOneHTMLFile, _1, html_updates, css_updates ) ) );
+    sync.addFuture( QtConcurrent::map( css_files, boost::bind( UpdateOneCSSFile, _1, css_updates ) ) );
+    sync.waitForFinished();
 }
+
 
 
 // Normally, this would be two functions. But making it
 // just one saves us expensive (and unnecessary) loading
 // from disk. Here we just load it once, do everything
 // and then save back to disk.
-void ImportEPUB::CleanAndUpdateOneHTMLFile( const QString &fullpath, const QHash< QString, QString > &updates )
+void ImportEPUB::CleanAndUpdateOneHTMLFile( QString fullpath, 
+                                            const QHash< QString, QString > &html_updates,
+                                            const QHash< QString, QString > &css_updates )
 {
     QString source = CleanSource::Clean( HTMLEncodingResolver::ReadHTMLFile( fullpath ) );
-    source = LoadUpdates( source, updates )();
+    source = LoadUpdates( source, html_updates, css_updates )();
+    Utility::WriteUnicodeTextFile( source, fullpath );
+}
+
+void ImportEPUB::UpdateOneCSSFile( QString fullpath, const QHash< QString, QString > &css_updates )
+{
+    QString source = Utility::ReadUnicodeTextFile( fullpath );
+    //source = LoadUpdates( source, html_updates, css_updates )();
     Utility::WriteUnicodeTextFile( source, fullpath );
 }
 
@@ -321,3 +339,31 @@ QHash< QString, QString > ImportEPUB::LoadFolderStructure()
 
     return updates;
 }
+
+tuple< QHash< QString, QString >, 
+QHash< QString, QString > > ImportEPUB::SeparateHTMLAndCSSUpdates( const QHash< QString, QString > &updates )
+{
+    QHash< QString, QString > html_updates = updates;
+    QHash< QString, QString > css_updates;
+
+    QList< QString > keys = updates.keys();
+    int num_keys = keys.count();
+
+    for ( int i = 0; i < num_keys; ++i )
+    {
+        QString key_path = keys.at( i );
+        QString extension = QFileInfo( key_path ).suffix().toLower();
+
+        // Font file updates are CSS updates, not HTML updates
+        if ( extension == "ttf" || extension == "otf" )
+        {
+            css_updates[ key_path ] = html_updates.value( key_path );
+            html_updates.remove( key_path );
+        }
+    }
+
+    return make_tuple( html_updates, css_updates );
+}
+
+
+

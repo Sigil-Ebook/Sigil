@@ -29,6 +29,7 @@
 #include <QHash>
 #include <QStringList>
 
+
 class ImportEPUB : public ImportHTML
 {
 
@@ -63,15 +64,22 @@ protected:
     // (filled by reading the OPF) into the book
     void LoadMetadata();
 
-    void CleanAndUpdateHTMLFiles( const QHash< QString, QString > &updates );
+    void CleanAndUpdateFiles( const QHash< QString, QString > &updates );
 
-    static void CleanAndUpdateOneHTMLFile( const QString &fullpath, 
-                                           const QHash< QString, QString > &updates );
+    static void CleanAndUpdateOneHTMLFile( QString fullpath, 
+                                           const QHash< QString, QString > &html_updates,
+                                           const QHash< QString, QString > &css_updates );
+
+    static void UpdateOneCSSFile( QString fullpath, 
+                                  const QHash< QString, QString > &css_updates );
 
     // Loads the referenced files into the main folder of the book.
     // Returns a hash with keys being old references (URLs) to resources,
     // and values being the new references to those resources.
     QHash< QString, QString > LoadFolderStructure();
+
+    boost::tuple< QHash< QString, QString >, 
+    QHash< QString, QString > > SeparateHTMLAndCSSUpdates( const QHash< QString, QString > &updates );
 
 
     ///////////////////////////////

@@ -34,7 +34,9 @@ class LoadUpdates
 
 public:
 
-    LoadUpdates( const QString &source, const QHash< QString, QString > &updates );
+    LoadUpdates( const QString &source,
+                 const QHash< QString, QString > &html_updates,
+                 const QHash< QString, QString > &css_updates );
 
     QString operator()( );
 
@@ -56,9 +58,8 @@ private:
 
     QString m_Source;
 
-    QHash< QString, QString > m_HTMLUpdates;
-
-    QHash< QString, QString > m_CSSUpdates;
+    const QHash< QString, QString > &m_HTMLUpdates;
+    const QHash< QString, QString > &m_CSSUpdates;
 
     // This synchronizer is used to wait for all
     // the HTML node updates to finish before moving on

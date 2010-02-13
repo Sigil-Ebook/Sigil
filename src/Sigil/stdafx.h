@@ -26,4 +26,3 @@
 #include "constants.h"
 #include "exception.h"
 
-
