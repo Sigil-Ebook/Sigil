@@ -133,9 +133,7 @@ void ImportEPUB::ExtractContainer()
 void ImportEPUB::LocateOPF()
 {
     QDir folder( m_ExtractedFolderPath );
-
     folder.cd( "META-INF" );
-
     QString fullpath = folder.absoluteFilePath( "container.xml" );
 
     QXmlStreamReader container( Utility::ReadUnicodeTextFile( fullpath ) );

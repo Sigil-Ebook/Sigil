@@ -58,7 +58,8 @@ public:
     static void CopyFiles( const QString &fullfolderpath_source, const QString &fullfolderpath_destination );
 
     // Deletes the folder specified with fullfolderpath
-    // and all the files (and folders, recursively) in it
+    // and all the files (and folders, recursively) in it.
+    // WARNING: ALWAYS call this async, with QtConcurrent::run 
     static bool DeleteFolderAndFiles( const QString &fullfolderpath ); 
 
     // Deletes the specified file if it exists

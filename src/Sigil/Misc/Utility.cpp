@@ -137,8 +137,7 @@ void Utility::CopyFiles( const QString &fullfolderpath_source, const QString &fu
     }
 }
 
-// Deletes the folder specified with fullfolderpath
-// and all the files (and folders, recursively) in it
+
 bool Utility::DeleteFolderAndFiles( const QString &fullfolderpath )
 {
     // Make sure the path exists, otherwise very
@@ -149,20 +148,30 @@ bool Utility::DeleteFolderAndFiles( const QString &fullfolderpath )
 
     QDir folder( fullfolderpath );
 
-    // Erase all the files in this folder
-    foreach( QFileInfo file, folder.entryInfoList() )
+    // We run this in a loop since we can delete all the files
+    // and still have QDir report there are files in it... and
+    // then we can't delete the folder... it gets the picture
+    // after a while...
+    // Also, QDir.count() for some reason can return
+    // a higher (and incorrect) number than
+    // QDir.entryList().count()... contrary to Qt docs.
+    while ( folder.entryList().count() > 2 )
     {
-        if ( ( file.fileName() != "." ) && ( file.fileName() != ".." ) )
+        // Erase all the files in this folder
+        foreach( QFileInfo file, folder.entryInfoList() )
         {
-            // If it's a file, delete it
-            if ( file.isFile() == true )
+            if ( ( file.fileName() != "." ) && ( file.fileName() != ".." ) )
+            {
+                // If it's a file, delete it
+                if ( file.isFile() == true )
 
-                folder.remove( file.fileName() );
+                    folder.remove( file.fileName() );
 
-            // Else it's a directory, delete it recursively
-            else 
+                // Else it's a directory, delete it recursively
+                else 
 
-                DeleteFolderAndFiles( file.absoluteFilePath() );
+                    DeleteFolderAndFiles( file.absoluteFilePath() );
+            }
         }
     }
 
