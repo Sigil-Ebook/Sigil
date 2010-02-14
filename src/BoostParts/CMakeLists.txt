@@ -7,6 +7,18 @@
 #
 #########################################################
 
+# The interesting parts of Boost have been extracted using 
+# the BCP tool:
+#   http://www.boost.org/doc/libs/1_41_0/tools/bcp/bcp.html
+#    
+# bcp call: bcp bind lambda exception tuple /foo
+#
+# WARNING: When doing this from fresh boost sources, note that
+# in the file /boost/config/user.hpp the BOOST_ALL_NO_LIB
+# define has be uncommented. Otherwise, we will get linker 
+# errors on MSVC because of boost auto-linking.
+
+
 cmake_minimum_required( VERSION 2.8 ) 
 
 project( BoostParts )

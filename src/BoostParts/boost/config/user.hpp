@@ -108,7 +108,7 @@
 // build variant will be automatically selected and linked against, 
 // simply by the act of including one of that library's headers.  
 // This macro turns that feature off.
-// #define BOOST_ALL_NO_LIB
+#define BOOST_ALL_NO_LIB
  
 // BOOST_WHATEVER_NO_LIB: Tells the config system not to automatically 
 // select which library to link against for library "whatever", 
