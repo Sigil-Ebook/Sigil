@@ -24,7 +24,7 @@
 #include "../BookManipulation/CleanSource.h"
 #include "../Misc/Utility.h"
 #include "../Misc/HTMLEncodingResolver.h"
-#include "../SourceUpdates/LoadUpdates.h"
+#include "../SourceUpdates/PerformInitialHTMLUpdates.h"
 #include "../SourceUpdates/PerformInitialCSSUpdates.h"
 #include <ZipArchive.h>
 #include "../BookManipulation/XHTMLDoc.h"
@@ -315,7 +315,7 @@ void ImportEPUB::CleanAndUpdateOneHTMLFile( const QString &fullpath,
                                             const QHash< QString, QString > &css_updates )
 {
     QString source = CleanSource::Clean( HTMLEncodingResolver::ReadHTMLFile( fullpath ) );
-    source = LoadUpdates( source, html_updates, css_updates )();
+    source = PerformInitialHTMLUpdates( source, html_updates, css_updates )();
     Utility::WriteUnicodeTextFile( source, fullpath );
 }
 

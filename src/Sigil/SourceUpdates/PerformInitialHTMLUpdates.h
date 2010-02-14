@@ -20,22 +20,22 @@
 *************************************************************************/
 
 #pragma once
-#ifndef LOADUPDATES_H
-#define LOADUPDATES_H
+#ifndef PERFORMINITIALHTMLUPDATES_H
+#define PERFORMINITIALHTMLUPDATES_H
 
 #include <QFutureSynchronizer>
 
 class QString;
 class QDomNode;
 
-class LoadUpdates
+class PerformInitialHTMLUpdates
 {
 
 public:
 
-    LoadUpdates( const QString &source,
-                 const QHash< QString, QString > &html_updates,
-                 const QHash< QString, QString > &css_updates );
+    PerformInitialHTMLUpdates( const QString &source,
+                               const QHash< QString, QString > &html_updates,
+                               const QHash< QString, QString > &css_updates );
 
     QString operator()( );
 
@@ -62,4 +62,4 @@ private:
     QFutureSynchronizer< void > m_NodeUpdateSynchronizer;
 };
 
-#endif // LOADUPDATES_H
+#endif // PERFORMINITIALHTMLUPDATES_H

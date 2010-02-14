@@ -222,8 +222,8 @@ set( UI_FILES
     )
     
 set( SOURCEUPDATE_FILES   
-    SourceUpdates/LoadUpdates.cpp 
-    SourceUpdates/LoadUpdates.h
+    SourceUpdates/PerformInitialHTMLUpdates.cpp 
+    SourceUpdates/PerformInitialHTMLUpdates.h
     SourceUpdates/PerformInitialCSSUpdates.cpp
     SourceUpdates/PerformInitialCSSUpdates.h
     )

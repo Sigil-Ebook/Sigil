@@ -20,7 +20,7 @@
 *************************************************************************/
 
 #include <stdafx.h>
-#include "LoadUpdates.h"
+#include "PerformInitialHTMLUpdates.h"
 #include "PerformInitialCSSUpdates.h"
 #include <QDomDocument>
 #include "../BookManipulation/XHTMLDoc.h"
@@ -29,9 +29,9 @@ static const QStringList PATH_TAGS       = QStringList() << "link" << "a" << "im
 static const QStringList PATH_ATTRIBUTES = QStringList() << "href" << "src";
 
 
-LoadUpdates::LoadUpdates( const QString &source,
-                          const QHash< QString, QString > &html_updates,
-                          const QHash< QString, QString > &css_updates )
+PerformInitialHTMLUpdates::PerformInitialHTMLUpdates( const QString &source,
+                                                      const QHash< QString, QString > &html_updates,
+                                                      const QHash< QString, QString > &css_updates )
     : 
     m_Source( source ), 
     m_HTMLUpdates( html_updates ),
@@ -41,14 +41,14 @@ LoadUpdates::LoadUpdates( const QString &source,
 }
 
 
-QString LoadUpdates::operator()()
+QString PerformInitialHTMLUpdates::operator()()
 {
     UpdateHTMLReferences();
     return PerformInitialCSSUpdates( m_Source, m_CSSUpdates )();
 }
 
 
-void LoadUpdates::UpdateHTMLReferences()
+void PerformInitialHTMLUpdates::UpdateHTMLReferences()
 {
     QDomDocument document;
     document.setContent( m_Source );
@@ -60,7 +60,7 @@ void LoadUpdates::UpdateHTMLReferences()
     for ( int j = 0; j < node_count; ++j )
     {
         m_NodeUpdateSynchronizer.addFuture(
-            QtConcurrent::run( this, &LoadUpdates::UpdateReferenceInNode, nodes.at( j ) ) );
+            QtConcurrent::run( this, &PerformInitialHTMLUpdates::UpdateReferenceInNode, nodes.at( j ) ) );
     }
 
     // We wait until all the nodes are updated
@@ -73,7 +73,7 @@ void LoadUpdates::UpdateHTMLReferences()
 // This function has been brutally optimized since it is the main
 // bottleneck during loading (well, not anymore :) ).
 // Be vewy, vewy careful when editing it.
-void LoadUpdates::UpdateReferenceInNode( QDomNode node )
+void PerformInitialHTMLUpdates::UpdateReferenceInNode( QDomNode node )
 {
     QDomNamedNodeMap attributes = node.attributes();
     int num_attributes = attributes.count();
