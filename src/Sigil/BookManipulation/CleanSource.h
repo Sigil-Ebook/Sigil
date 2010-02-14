@@ -70,18 +70,10 @@ private:
     // Writes the new CSS style tags to the source, replacing the old ones
     static QString WriteNewCSSStyleTags( const QString &source, const QStringList &css_style_tags );
 
-    // Used for the return value of RemoveRedundantClasses
-    // because C++ doesn't have tuples (TR-1 and Boost don't count).
-    // Using non-const references would be rather ugly here.
-    struct SourceAndStyles
-    {
-        QString source;
-        QStringList css_style_tags;
-    };
-
     // Removes redundant CSS classes from the style tags and source code;
     // Calls more specific version.
-    static SourceAndStyles RemoveRedundantClasses( const QString &source, const QStringList &css_style_tags );
+    static tuple< QString, QStringList > RemoveRedundantClasses( const QString &source, 
+                                                                 const QStringList &css_style_tags );
 
     // Removes redundant CSS classes from the provided CSS style tags
     static QStringList RemoveRedundantClassesTags(  const QStringList &css_style_tags, 

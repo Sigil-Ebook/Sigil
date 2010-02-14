@@ -91,10 +91,7 @@ QString CleanSource::CleanCSS( const QString &source, int old_num_styles )
     // If Tidy added a new tag, we remove the redundant ones
     if ( css_style_tags.count() > old_num_styles )
     {
-        SourceAndStyles cleaned = RemoveRedundantClasses( newsource, css_style_tags );
-
-        newsource       = cleaned.source;
-        css_style_tags  = cleaned.css_style_tags;
+        tie( newsource, css_style_tags ) = RemoveRedundantClasses( newsource, css_style_tags );
     }
 
     css_style_tags = RemoveEmptyComments( css_style_tags );
@@ -407,17 +404,12 @@ QString CleanSource::WriteNewCSSStyleTags( const QString &source, const QStringL
 }
 
 
-// Removes redundant classes from the style tags and source code;
-// Calls more specific version.
-CleanSource::SourceAndStyles CleanSource::RemoveRedundantClasses( const QString &source, const QStringList &css_style_tags )
+tuple< QString, QStringList > CleanSource::RemoveRedundantClasses( const QString &source, const QStringList &css_style_tags )
 {
     QHash< QString, QString > redundant_classes = GetRedundantClasses( css_style_tags );
-    
-    SourceAndStyles cleaned;
-    cleaned.source          = RemoveRedundantClassesSource( source, redundant_classes );
-    cleaned.css_style_tags  = RemoveRedundantClassesTags( css_style_tags, redundant_classes );   
 
-    return cleaned;
+    return make_tuple( RemoveRedundantClassesSource( source, redundant_classes ), 
+                       RemoveRedundantClassesTags( css_style_tags, redundant_classes ) );
 }
 
 // Removes redundant CSS classes from the provided CSS style tags

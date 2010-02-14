@@ -27,6 +27,7 @@
 #include "ViewEditor.h"
 #include <QStack>
 #include <QList>
+#include <boost/tuple/tuple.hpp>
 
 class QResizeEvent;
 class QSize;
@@ -155,19 +156,6 @@ private slots:
 
 private:
 
-    // Specifies the lines and characters the caret will
-    // need to move to get to the required position
-    struct CaretMove
-    {
-        // The vertical lines from
-        // the start of the document
-        int vertical_lines;
-
-        // The number of horizontal characters
-        // on the destination line
-        int horizontal_chars;
-    };
-
     // An element on the stack when searching for
     // the current caret location. 
     struct StackElement
@@ -190,8 +178,9 @@ private:
     // and converts it into the element location hierarchy
     QList< ElementIndex > ConvertStackToHierarchy( const QStack< StackElement > stack ) const;
 
-    // Converts a ViewEditor element hierarchy to a CaretMove
-    CaretMove ConvertHierarchyToCaretMove( const QList< ViewEditor::ElementIndex > &hierarchy ) const;
+    // Converts a ViewEditor element hierarchy to a "CaretMove" tuple:
+    // the tuple contains the vertical lines and horizontal chars move deltas
+    boost::tuple< int, int > ConvertHierarchyToCaretMove( const QList< ViewEditor::ElementIndex > &hierarchy ) const;
 
     // Executes the caret updating code
     // if such an update is pending;

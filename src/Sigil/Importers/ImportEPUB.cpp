@@ -32,9 +32,6 @@
 
 static const QString OEBPS_MIMETYPE = "application/oebps-package+xml";
 
-using boost::tuple;
-using boost::make_tuple;
-using boost::tie;
 
 // Constructor;
 // The parameter is the file to be imported

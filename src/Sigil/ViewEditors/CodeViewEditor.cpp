@@ -503,29 +503,21 @@ QList< ViewEditor::ElementIndex > CodeViewEditor::ConvertStackToHierarchy( const
 
 
 // Converts a ViewEditor element hierarchy to a CaretMove
-CodeViewEditor::CaretMove CodeViewEditor::ConvertHierarchyToCaretMove( const QList< ViewEditor::ElementIndex > &hierarchy ) const
+tuple< int, int > CodeViewEditor::ConvertHierarchyToCaretMove( const QList< ViewEditor::ElementIndex > &hierarchy ) const
 {
     QDomDocument dom;
     dom.setContent( toPlainText() );
 
     QDomNode end_node = XHTMLDoc::GetNodeFromHierarchy( dom, hierarchy );
-
     QTextCursor cursor( document() );
-    CodeViewEditor::CaretMove caret_move;
 
     if ( !end_node.isNull() ) 
-    {
-        caret_move.vertical_lines   = end_node.lineNumber() - cursor.blockNumber();
-        caret_move.horizontal_chars = end_node.columnNumber();   
-    }
-
+    
+        return make_tuple( end_node.lineNumber() - cursor.blockNumber(), end_node.columnNumber() ); 
+    
     else
-    {   
-        caret_move.vertical_lines   = 0;
-        caret_move.horizontal_chars = 0;
-    }
-
-    return caret_move;
+    
+        return make_tuple( 0, 0 );
 }
 
 
@@ -543,15 +535,17 @@ bool CodeViewEditor::ExecuteCaretUpdate()
 
     QTextCursor cursor( document() );
 
+    int vertical_lines_move = 0;
+    int horizontal_chars_move = 0;
+
     // We *have* to do the conversion on-demand since the 
     // conversion uses toPlainText(), and the text needs to up-to-date.
-    CodeViewEditor::CaretMove caret_move = ConvertHierarchyToCaretMove( m_CaretUpdate );
+    tie( vertical_lines_move, horizontal_chars_move ) = ConvertHierarchyToCaretMove( m_CaretUpdate );
 
-    cursor.movePosition( QTextCursor::NextBlock, QTextCursor::MoveAnchor, caret_move.vertical_lines );
-    cursor.movePosition( QTextCursor::Left,      QTextCursor::MoveAnchor, caret_move.horizontal_chars );
+    cursor.movePosition( QTextCursor::NextBlock, QTextCursor::MoveAnchor, vertical_lines_move );
+    cursor.movePosition( QTextCursor::Left,      QTextCursor::MoveAnchor, horizontal_chars_move );
 
     m_CaretUpdate.clear();
-
     setTextCursor( cursor );
 
     // Center the screen on the cursor/caret location.

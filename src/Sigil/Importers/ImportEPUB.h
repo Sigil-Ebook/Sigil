@@ -78,7 +78,7 @@ protected:
     // and values being the new references to those resources.
     QHash< QString, QString > LoadFolderStructure();
 
-    boost::tuple< QHash< QString, QString >, 
+    tuple< QHash< QString, QString >, 
     QHash< QString, QString > > SeparateHTMLAndCSSUpdates( const QHash< QString, QString > &updates );
 
 

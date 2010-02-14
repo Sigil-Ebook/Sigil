@@ -26,3 +26,8 @@
 #include "constants.h"
 #include "exception.h"
 
+// We will be using these everywhere,
+// so let's make life a bit easier.
+using boost::tuple;
+using boost::make_tuple;
+using boost::tie;
