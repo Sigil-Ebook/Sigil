@@ -36,6 +36,7 @@
 #include "MainUI/BookBrowser.h"
 #include "Tabs/ContentTab.h"
 #include "Tabs/TabManager.h"
+#include "ResourceObjects/HTMLResource.h"
 
 
 static const int STATUSBAR_MSG_DISPLAY_TIME = 2000;
@@ -56,7 +57,7 @@ static const QString SIGIL_DEV_BLOG         = "http://sigildev.blogspot.com/";
 // basically it's a workaround for a webkit bug
 const QString BREAK_TAG_INSERT              = "<div><hr class=\"sigilChapterBreak\" /></div>";
 
-static const QString FRAME_NAME = "managerframe";
+static const QString FRAME_NAME      = "managerframe";
 static const QString TAB_STYLE_SHEET =  "#managerframe {border-top: 0px solid white;"
                                         "border-left: 1px solid grey;"
                                         "border-right: 1px solid grey;"
@@ -760,18 +761,11 @@ void MainWindow::LoadFile( const QString &filename )
         // Create the new book, clean up the old one
         // (destructors take care of that)
         m_Book = ImporterFactory().GetImporter( filename ).GetBook();
-
-        // Add Sigil-specific markup to non-SGF files
-        //if ( QFileInfo( filename ).suffix().toLower() != "sgf" )
-
-        //    m_Book->source = SigilMarkup::AddSigilMarkup( m_Book->source );
-
         m_BookBrowser->SetBook( m_Book );
 
         QApplication::restoreOverrideCursor();
 
         SetCurrentFile( filename );
-
         statusBar()->showMessage( tr( "File loaded" ), STATUSBAR_MSG_DISPLAY_TIME );
     }
     

@@ -27,7 +27,6 @@
 #include "../Misc/Utility.h"
 #include <QDomDocument>
 
-//static const QString LOADED_CONTENT_MIMETYPE = "application/xhtml+xml";
 const int PROGRESS_BAR_MINIMUM_DURATION = 1500;
 
 // Constructor;
@@ -49,11 +48,6 @@ BookViewEditor::BookViewEditor( QWebPage &webpage, QWidget *parent )
     m_ScrollOneLineDown( *( new QShortcut( QKeySequence( Qt::ControlModifier + Qt::Key_Down ), this ) ) )
 {
     setPage( &webpage );
-
-    QWebSettings &settings = *webpage.settings();
-    settings.setAttribute( QWebSettings::LocalContentCanAccessRemoteUrls, false );
-    settings.setAttribute( QWebSettings::JavascriptCanAccessClipboard, true );
-    settings.setAttribute( QWebSettings::ZoomTextOnly, true );
 
     connect( &m_PageUp,            SIGNAL( activated() ),          this, SLOT( PageUp()                   ) );
     connect( &m_PageDown,          SIGNAL( activated() ),          this, SLOT( PageDown()                 ) );

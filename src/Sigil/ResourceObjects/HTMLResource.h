@@ -47,12 +47,12 @@ public:
 
     QString GetHtml();
 
-    void SyncToDisk();
+    void SaveToDisk();
 
     // The contents of the file on the disk should only
     // be newer right after this resource object is created
     // and before this function is called for the first time
-    void SyncFromDisk();
+    void LoadFromDisk();
 
     int GetReadingOrder();
 

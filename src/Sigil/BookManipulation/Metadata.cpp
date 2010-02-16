@@ -40,6 +40,9 @@ Metadata& Metadata::Instance()
     // to hold our singleton instance; using a pointer member
     // variable creates problems with object destruction;
     // Sigil is single-threaded so this is ok
+
+    // FIXME: Sigil is now multi-threaded, 
+    // make this a private member var + mutex guarding 
     static Metadata meta;
 
     return meta;

@@ -24,7 +24,6 @@
 #include "../Misc/Utility.h"
 #include "../BookManipulation/CleanSource.h"
 
-
 static const QString LOADED_CONTENT_MIMETYPE = "application/xhtml+xml";
 
 
@@ -40,7 +39,6 @@ HTMLResource::HTMLResource( const QString &fullfilepath,
 {
 
 }
-
 
 Resource::ResourceType HTMLResource::Type() const
 {
@@ -68,7 +66,7 @@ QString HTMLResource::GetHtml()
 }
 
 
-void HTMLResource::SyncToDisk()
+void HTMLResource::SaveToDisk()
 {
     QWriteLocker locker( &m_ReadWriteLock );
 
@@ -76,21 +74,31 @@ void HTMLResource::SyncToDisk()
 }
 
 
-void HTMLResource::SyncFromDisk()
+void HTMLResource::LoadFromDisk()
 {
-    // We need a write locker since we are actually
-    // going to write to the QWebPage 
-    QWriteLocker locker( &m_ReadWriteLock );
+    // When a thread enters this function, the content is either:
+    // 1. already loaded          ( m_InitialLoadFromDiskDone = true  )
+    // 2. currently being loaded  ( m_InitialLoadFromDiskDone = false )
+    // 3. not loaded              ( m_InitialLoadFromDiskDone = false )
 
+    // Check for 1.
     if ( m_InitialLoadFromDiskDone )
+    
+        return;
 
-        return;    
+    // If this returns false, then it's 2.
+    // If it returns true, we have the lock and it's 3.
+    if ( !m_ReadWriteLock.tryLockForWrite() )
 
-    // We use SetRawHTML since the loading procedure should have
+        return;  
+
+    // We use SetRawHTML since the importing procedure should have
     // cleaned the file already. No need to do it twice.
     SetRawHTML( Utility::ReadUnicodeTextFile( m_FullFilePath ) );
 
     m_InitialLoadFromDiskDone = true;
+
+    m_ReadWriteLock.unlock();
 }
 
 
@@ -124,6 +132,11 @@ void HTMLResource::SetRawHTML( const QString &source )
     // TODO: we kill external links; a dialog should be used
     // that asks the user if he wants to open this external link in a browser
     m_WebPage.setLinkDelegationPolicy( QWebPage::DelegateAllLinks );
+
+    QWebSettings &settings = *m_WebPage.settings();
+    settings.setAttribute( QWebSettings::LocalContentCanAccessRemoteUrls, false );
+    settings.setAttribute( QWebSettings::JavascriptCanAccessClipboard, true );
+    settings.setAttribute( QWebSettings::ZoomTextOnly, true );
 }
 
 

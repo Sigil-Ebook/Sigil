@@ -216,6 +216,22 @@ QList< Resource* > FolderKeeper::GetResourceList() const
 }
 
 
+// Returned in ARBITRARY ORDER
+QList< HTMLResource* > FolderKeeper::GetHTMLResources() const
+{
+    QList< HTMLResource* > html_resources;
+
+    foreach( Resource *resource, m_Resources.values() )
+    {
+        if ( resource->Type() == Resource::HTMLResource )
+
+            html_resources.append( qobject_cast< HTMLResource* >( resource ) );
+    }
+
+    return html_resources;
+}
+
+
 // Returns the full path to the main folder of the publication
 QString FolderKeeper::GetFullPathToMainFolder() const
 {
@@ -308,6 +324,5 @@ void FolderKeeper::CreateFolderStructure()
     m_FullPathToStylesFolder  = m_FullPathToOEBPSFolder + "/" + STYLE_FOLDER_NAME;
     m_FullPathToMiscFolder    = m_FullPathToOEBPSFolder + "/" + MISC_FOLDER_NAME;
 }
-
 
 

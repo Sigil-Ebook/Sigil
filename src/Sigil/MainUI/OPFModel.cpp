@@ -124,7 +124,9 @@ void OPFModel::InitializeModel()
             m_TextFolderItem.appendRow( item );
         }
 
-        else if ( resource->Type() == Resource::CSSResource || resource->Type() == Resource::XPGTResource )
+        else if ( resource->Type() == Resource::CSSResource || 
+                  resource->Type() == Resource::XPGTResource 
+                )
         {
             m_StylesFolderItem.appendRow( item );
         }

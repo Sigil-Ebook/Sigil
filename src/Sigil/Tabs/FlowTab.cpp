@@ -50,7 +50,7 @@ FlowTab::FlowTab( Resource& resource, const QUrl &fragment, QWidget *parent )
 
     ConnectSignalsToSlots();
 
-    m_HTMLResource.SyncFromDisk();
+    m_HTMLResource.LoadFromDisk();
 
     BookView();
 

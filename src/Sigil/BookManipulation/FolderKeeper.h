@@ -27,6 +27,7 @@
 #include <QHash>
 
 class Resource;
+class HTMLResource;
 
 class FolderKeeper
 {
@@ -58,6 +59,8 @@ public:
     QStringList GetContentFilesList() const;
 
     QList< Resource* > GetResourceList() const;
+
+    QList< HTMLResource* > GetHTMLResources() const;
 
     Resource& GetResourceByIdentifier( const QString &identifier ) const;
 
