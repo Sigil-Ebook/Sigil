@@ -37,7 +37,7 @@ FlowTab::FlowTab( Resource& resource, const QUrl &fragment, QWidget *parent )
     ContentTab( resource, parent ),
     m_HTMLResource( *( qobject_cast< HTMLResource* >( &resource ) ) ),
     m_Splitter( *new QSplitter( this ) ),
-    m_wBookView( *new BookViewEditor( m_HTMLResource.GetWebPage(), this ) ),
+    m_wBookView( *new BookViewEditor( this ) ),
     m_wCodeView( *new CodeViewEditor( CodeViewEditor::Highlight_XHTML, this ) ),
     m_IsLastViewBook( true ),
     m_InSplitView( false )
@@ -50,8 +50,9 @@ FlowTab::FlowTab( Resource& resource, const QUrl &fragment, QWidget *parent )
 
     ConnectSignalsToSlots();
 
-    m_HTMLResource.LoadFromDisk();
-
+    m_HTMLResource.UpdateWebPageFromDocument();
+    m_wBookView.CustomSetWebPage( m_HTMLResource.GetWebPage() );
+    
     BookView();
 
     m_wBookView.ScrollToFragmentAfterLoad( fragment.toString() );

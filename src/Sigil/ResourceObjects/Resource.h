@@ -53,6 +53,8 @@ public:
 
     QString GetRelativePathToOEBPS() const;
 
+    QString GetFullPath() const;
+
     QUrl GetBaseUrl() const;
 
     QIcon Icon() const;

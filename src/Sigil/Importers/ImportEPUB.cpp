@@ -29,6 +29,8 @@
 #include <ZipArchive.h>
 #include "../BookManipulation/XHTMLDoc.h"
 #include <QDomDocument>
+#include "ResourceObjects/HTMLResource.h"
+#include "ResourceObjects/CSSResource.h"
 
 static const QString OEBPS_MIMETYPE = "application/oebps-package+xml";
 
@@ -274,28 +276,28 @@ void ImportEPUB::CleanAndUpdateFiles( const QHash< QString, QString > &updates )
     QHash< QString, QString > css_updates;
     tie( html_updates, css_updates ) = SeparateHTMLAndCSSUpdates( updates );
 
-    QList< QString > html_files;
-    QList< QString > css_files;
+    QList< HTMLResource* > html_resources;
+    QList< CSSResource* > css_resources;
 
-    QList< QString > all_files = m_Book->mainfolder.GetContentFilesList();
+    QList< Resource* > all_files = m_Book->mainfolder.GetResourceList();
     int num_files = all_files.count();
 
     for ( int i = 0; i < num_files; ++i )
     {
-        QString file = all_files.at( i );
+        Resource *resource = all_files.at( i );
 
-        if ( file.contains( TEXT_FOLDER_NAME + "/" ) )
+        if ( resource->Type() == Resource::HTMLResource )
 
-            html_files.append( m_Book->mainfolder.GetFullPathToOEBPSFolder() + "/" + file );
+            html_resources.append( qobject_cast< HTMLResource* >( resource ) );
 
-        else if ( file.contains( STYLE_FOLDER_NAME + "/" ) )   
+        else if ( resource->Type() == Resource::CSSResource )   
 
-            css_files.append( m_Book->mainfolder.GetFullPathToOEBPSFolder() + "/" + file );
+            css_resources.append( qobject_cast< CSSResource* >( resource ) );
     }
 
     QFutureSynchronizer<void> sync;
-    sync.addFuture( QtConcurrent::map( html_files, boost::bind( CleanAndUpdateOneHTMLFile, _1, html_updates, css_updates ) ) );
-    sync.addFuture( QtConcurrent::map( css_files, boost::bind( UpdateOneCSSFile, _1, css_updates ) ) );
+    sync.addFuture( QtConcurrent::map( html_resources, boost::bind( CleanAndUpdateOneHTMLFile, _1, html_updates, css_updates ) ) );
+    sync.addFuture( QtConcurrent::map( css_resources, boost::bind( UpdateOneCSSFile, _1, css_updates ) ) );
     sync.waitForFinished();
 }
 
@@ -305,20 +307,21 @@ void ImportEPUB::CleanAndUpdateFiles( const QHash< QString, QString > &updates )
 // just one saves us expensive (and unnecessary) loading
 // from disk. Here we just load it once, do everything
 // and then save back to disk.
-void ImportEPUB::CleanAndUpdateOneHTMLFile( const QString &fullpath,
+void ImportEPUB::CleanAndUpdateOneHTMLFile( HTMLResource* html_resource,
                                             const QHash< QString, QString > &html_updates,
                                             const QHash< QString, QString > &css_updates )
 {
-    QString source = CleanSource::Clean( HTMLEncodingResolver::ReadHTMLFile( fullpath ) );
-    source = PerformInitialHTMLUpdates( source, html_updates, css_updates )();
-    Utility::WriteUnicodeTextFile( source, fullpath );
+    QString source = CleanSource::Clean( HTMLEncodingResolver::ReadHTMLFile( html_resource->GetFullPath() ) );
+    html_resource->SetDocument( PerformInitialHTMLUpdates( source, html_updates, css_updates )() );
 }
 
-void ImportEPUB::UpdateOneCSSFile( const QString &fullpath, const QHash< QString, QString > &css_updates )
+void ImportEPUB::UpdateOneCSSFile( CSSResource* css_resource, const QHash< QString, QString > &css_updates )
 {
-    QString source = Utility::ReadUnicodeTextFile( fullpath );
+    QString source = Utility::ReadUnicodeTextFile( css_resource->GetFullPath() );
     source = PerformInitialCSSUpdates( source, css_updates )();
-    Utility::WriteUnicodeTextFile( source, fullpath );
+
+    // TODO: load to QTextDocument
+    Utility::WriteUnicodeTextFile( source, css_resource->GetFullPath() );
 }
 
 

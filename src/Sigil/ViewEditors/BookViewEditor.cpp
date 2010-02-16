@@ -31,7 +31,7 @@ const int PROGRESS_BAR_MINIMUM_DURATION = 1500;
 
 // Constructor;
 // the parameter is the object's parent
-BookViewEditor::BookViewEditor( QWebPage &webpage, QWidget *parent )
+BookViewEditor::BookViewEditor( QWidget *parent )
     : 
     QWebView( parent ),
     c_JQuery(           Utility::ReadUnicodeTextFile( ":/javascript/jquery-1.3.2.min.js"           ) ),
@@ -47,15 +47,19 @@ BookViewEditor::BookViewEditor( QWebPage &webpage, QWidget *parent )
     m_ScrollOneLineUp(   *( new QShortcut( QKeySequence( Qt::ControlModifier + Qt::Key_Up   ), this ) ) ),
     m_ScrollOneLineDown( *( new QShortcut( QKeySequence( Qt::ControlModifier + Qt::Key_Down ), this ) ) )
 {
-    setPage( &webpage );
-
     connect( &m_PageUp,            SIGNAL( activated() ),          this, SLOT( PageUp()                   ) );
     connect( &m_PageDown,          SIGNAL( activated() ),          this, SLOT( PageDown()                 ) );
     connect( &m_ScrollOneLineUp,   SIGNAL( activated() ),          this, SLOT( ScrollOneLineUp()          ) );
     connect( &m_ScrollOneLineDown, SIGNAL( activated() ),          this, SLOT( ScrollOneLineDown()        ) );
-    connect( page(),               SIGNAL( contentsChanged() ),    this, SIGNAL( textChanged()            ) );
-    connect( page(),               SIGNAL( loadFinished( bool ) ), this, SLOT( JavascriptOnDocumentLoad() ) );
-    connect( page(),               SIGNAL( loadProgress( int ) ),  this, SLOT( UpdateFinishedState( int ) ) );
+}
+
+
+void BookViewEditor::CustomSetWebPage( QWebPage &webpage )
+{
+    setPage( &webpage );
+    connect( page(), SIGNAL( contentsChanged() ),    this, SIGNAL( textChanged()            ) );
+    connect( page(), SIGNAL( loadFinished( bool ) ), this, SLOT( JavascriptOnDocumentLoad() ) );
+    connect( page(), SIGNAL( loadProgress( int ) ),  this, SLOT( UpdateFinishedState( int ) ) );
 
     connect( page(),         SIGNAL( linkClicked( const QUrl& ) ),
              this->parent(), SIGNAL( LinkClicked( const QUrl& ) ) );

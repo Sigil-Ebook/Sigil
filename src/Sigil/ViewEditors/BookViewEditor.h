@@ -38,7 +38,9 @@ public:
 
     // Constructor;
     // the parameters is the object's parent
-    BookViewEditor( QWebPage &webpage, QWidget *parent = 0 );
+    BookViewEditor( QWidget *parent = 0 );
+
+    void CustomSetWebPage( QWebPage &webpage );
 
     // Executes the specified command on the document with javascript
     void ExecCommand( const QString &command );

@@ -52,6 +52,11 @@ QString Resource::GetRelativePathToOEBPS() const
     return QFileInfo( m_FullFilePath ).dir().dirName() + "/" + Filename();
 }
 
+QString Resource::GetFullPath() const
+{
+    return m_FullFilePath;
+}
+
 
 QUrl Resource::GetBaseUrl() const
 {
@@ -102,4 +107,5 @@ Resource::ResourceType Resource::Type() const
 {
     return Resource::GenericResource;
 }
+
 

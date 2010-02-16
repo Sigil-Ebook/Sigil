@@ -33,27 +33,26 @@ PerformInitialHTMLUpdates::PerformInitialHTMLUpdates( const QString &source,
                                                       const QHash< QString, QString > &html_updates,
                                                       const QHash< QString, QString > &css_updates )
     : 
-    m_Source( source ), 
     m_HTMLUpdates( html_updates ),
     m_CSSUpdates( css_updates )
-{
-    
+{   
+    m_Document.setContent( source );
 }
 
 
-QString PerformInitialHTMLUpdates::operator()()
+QDomDocument PerformInitialHTMLUpdates::operator()()
 {
     UpdateHTMLReferences();
-    return PerformInitialCSSUpdates( m_Source, m_CSSUpdates )();
+    m_Document.setContent(
+        PerformInitialCSSUpdates( XHTMLDoc::GetQDomNodeAsString( m_Document ), m_CSSUpdates )() );
+
+    return m_Document;
 }
 
 
 void PerformInitialHTMLUpdates::UpdateHTMLReferences()
 {
-    QDomDocument document;
-    document.setContent( m_Source );
-
-    QList< QDomNode > nodes = XHTMLDoc::GetTagMatchingChildren( document.documentElement(), PATH_TAGS );
+    QList< QDomNode > nodes = XHTMLDoc::GetTagMatchingChildren( m_Document.documentElement(), PATH_TAGS );
 
     int node_count = nodes.count();
 
@@ -65,8 +64,6 @@ void PerformInitialHTMLUpdates::UpdateHTMLReferences()
 
     // We wait until all the nodes are updated
     m_NodeUpdateSynchronizer.waitForFinished();
-
-    m_Source = XHTMLDoc::GetQDomNodeAsString( document );
 }
 
 

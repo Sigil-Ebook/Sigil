@@ -24,9 +24,11 @@
 #define PERFORMINITIALHTMLUPDATES_H
 
 #include <QFutureSynchronizer>
+#include <QDomDocument>
 
 class QString;
 class QDomNode;
+
 
 class PerformInitialHTMLUpdates
 {
@@ -37,7 +39,7 @@ public:
                                const QHash< QString, QString > &html_updates,
                                const QHash< QString, QString > &css_updates );
 
-    QString operator()( );
+    QDomDocument operator()( );
 
 private:
 
@@ -52,7 +54,7 @@ private:
     // PRIVATE MEMBER VARIABLES
     ///////////////////////////////
 
-    QString m_Source;
+    QDomDocument m_Document;
 
     const QHash< QString, QString > &m_HTMLUpdates;
     const QHash< QString, QString > &m_CSSUpdates;

@@ -23,6 +23,7 @@
 #include "HTMLResource.h"
 #include "../Misc/Utility.h"
 #include "../BookManipulation/CleanSource.h"
+#include "../BookManipulation/XHTMLDoc.h"
 
 static const QString LOADED_CONTENT_MIMETYPE = "application/xhtml+xml";
 
@@ -33,9 +34,9 @@ HTMLResource::HTMLResource( const QString &fullfilepath,
                             QObject *parent )
     : 
     Resource( fullfilepath, hash_owner, parent ),
-    m_WebPage( *new QWebPage( this ) ),
-    m_ReadingOrder( reading_order ),
-    m_InitialLoadFromDiskDone( false )
+    m_WebPage( NULL ),
+    m_WebPageIsOld( true ),
+    m_ReadingOrder( reading_order )
 {
 
 }
@@ -48,21 +49,91 @@ Resource::ResourceType HTMLResource::Type() const
 
 QWebPage& HTMLResource::GetWebPage()
 {
-    return m_WebPage;
+    return *m_WebPage;
 }
 
 
+// only ever call this from the GUI thread
 void HTMLResource::SetHtml( const QString &source )
 {
-    SetRawHTML( CleanSource::Clean( source ) );
+    Q_ASSERT( QThread::currentThread() == QApplication::instance()->thread() );
+
+    QString new_source = CleanSource::Clean( source );
+    
+    m_Document.setContent( new_source );
+
+    if ( m_WebPage == NULL )
+
+        m_WebPage = new QWebPage( this );
+
+    SetRawHTML( new_source );
+
+    m_WebPageIsOld = false;
 }
 
 
 QString HTMLResource::GetHtml()
 {
+    // TODO: use a special Tidy pretty-printer
+    return XHTMLDoc::GetQDomNodeAsString( m_Document );
+}
+
+void HTMLResource::SetDocument( const QDomDocument &document )
+{
+    QWriteLocker locker( &m_ReadWriteLock );
+
+    m_Document = document;
+    m_WebPageIsOld = true;
+}
+
+// Make sure to get a read lock externally before calling this function!
+const QDomDocument& HTMLResource::GetDocumentForReading()
+{
+    // We can't check with tryLockForRead because that
+    // can still legitimately succeed.
+    Q_ASSERT( m_ReadWriteLock.tryLockForWrite() == false );
+
+    return m_Document;
+}
+
+
+// Make sure to get a read lock externally before calling this function!
+QDomDocument& HTMLResource::GetDocumentForWriting()
+{
+    Q_ASSERT( m_ReadWriteLock.tryLockForWrite() == false );
+
+    m_WebPageIsOld = true;
+    
+    return m_Document;
+}
+
+
+// only ever call this from the GUI thread
+void HTMLResource::UpdateDocumentFromWebPage()
+{
+    Q_ASSERT( QThread::currentThread() == QApplication::instance()->thread() );
+
     RemoveWebkitClasses();
 
-    return m_WebPage.mainFrame()->toHtml();
+    m_Document.setContent( m_WebPage->mainFrame()->toHtml() );
+}
+
+// only ever call this from the GUI thread
+void HTMLResource::UpdateWebPageFromDocument()
+{
+    Q_ASSERT( QThread::currentThread() == QApplication::instance()->thread() );
+
+    if ( m_WebPageIsOld == false )
+
+        return;
+
+    if ( m_WebPage == NULL )
+
+        m_WebPage = new QWebPage( this );
+
+    SetRawHTML( XHTMLDoc::GetQDomNodeAsString( m_Document ) );
+
+    m_WebPageIsOld = false;
 }
 
 
@@ -70,37 +141,8 @@ void HTMLResource::SaveToDisk()
 {
     QWriteLocker locker( &m_ReadWriteLock );
 
-    Utility::WriteUnicodeTextFile( m_WebPage.mainFrame()->toHtml(), m_FullFilePath );
+    Utility::WriteUnicodeTextFile( XHTMLDoc::GetQDomNodeAsString( m_Document ), m_FullFilePath );
 }
-
-
-void HTMLResource::LoadFromDisk()
-{
-    // When a thread enters this function, the content is either:
-    // 1. already loaded          ( m_InitialLoadFromDiskDone = true  )
-    // 2. currently being loaded  ( m_InitialLoadFromDiskDone = false )
-    // 3. not loaded              ( m_InitialLoadFromDiskDone = false )
-
-    // Check for 1.
-    if ( m_InitialLoadFromDiskDone )
-    
-        return;
-
-    // If this returns false, then it's 2.
-    // If it returns true, we have the lock and it's 3.
-    if ( !m_ReadWriteLock.tryLockForWrite() )
-
-        return;  
-
-    // We use SetRawHTML since the importing procedure should have
-    // cleaned the file already. No need to do it twice.
-    SetRawHTML( Utility::ReadUnicodeTextFile( m_FullFilePath ) );
-
-    m_InitialLoadFromDiskDone = true;
-
-    m_ReadWriteLock.unlock();
-}
-
 
 int HTMLResource::GetReadingOrder()
 {
@@ -126,17 +168,16 @@ void HTMLResource::RemoveWebkitClasses()
 
 void HTMLResource::SetRawHTML( const QString &source )
 {
-    m_WebPage.mainFrame()->setContent( source.toUtf8(), LOADED_CONTENT_MIMETYPE, GetBaseUrl() ); 
-    m_WebPage.setContentEditable( true );
+    m_WebPage->mainFrame()->setContent( source.toUtf8(), LOADED_CONTENT_MIMETYPE, GetBaseUrl() ); 
+    m_WebPage->setContentEditable( true );
 
     // TODO: we kill external links; a dialog should be used
     // that asks the user if he wants to open this external link in a browser
-    m_WebPage.setLinkDelegationPolicy( QWebPage::DelegateAllLinks );
+    m_WebPage->setLinkDelegationPolicy( QWebPage::DelegateAllLinks );
 
-    QWebSettings &settings = *m_WebPage.settings();
+    QWebSettings &settings = *m_WebPage->settings();
     settings.setAttribute( QWebSettings::LocalContentCanAccessRemoteUrls, false );
     settings.setAttribute( QWebSettings::JavascriptCanAccessClipboard, true );
     settings.setAttribute( QWebSettings::ZoomTextOnly, true );
 }
-
 

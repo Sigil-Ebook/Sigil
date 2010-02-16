@@ -29,6 +29,9 @@
 #include <QHash>
 #include <QStringList>
 
+class HTMLResource;
+class CSSResource;
+
 
 class ImportEPUB : public ImportHTML
 {
@@ -66,11 +69,11 @@ protected:
 
     void CleanAndUpdateFiles( const QHash< QString, QString > &updates );
 
-    static void CleanAndUpdateOneHTMLFile( const QString &fullpath, 
+    static void CleanAndUpdateOneHTMLFile( HTMLResource* html_resource, 
                                            const QHash< QString, QString > &html_updates,
                                            const QHash< QString, QString > &css_updates );
 
-    static void UpdateOneCSSFile( const QString &fullpath, 
+    static void UpdateOneCSSFile( CSSResource* css_resource, 
                                   const QHash< QString, QString > &css_updates );
 
     // Loads the referenced files into the main folder of the book.

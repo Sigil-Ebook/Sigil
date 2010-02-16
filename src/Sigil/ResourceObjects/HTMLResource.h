@@ -23,6 +23,7 @@
 #ifndef HTMLRESOURCE_H
 #define HTMLRESOURCE_H
 
+#include <QDomDocument>
 #include "Resource.h"
 
 class QWebPage;
@@ -47,12 +48,17 @@ public:
 
     QString GetHtml();
 
-    void SaveToDisk();
+    void SetDocument( const QDomDocument &document );
 
-    // The contents of the file on the disk should only
-    // be newer right after this resource object is created
-    // and before this function is called for the first time
-    void LoadFromDisk();
+    const QDomDocument& GetDocumentForReading();
+
+    QDomDocument& GetDocumentForWriting();
+
+    void UpdateDocumentFromWebPage();
+
+    void UpdateWebPageFromDocument();
+
+    void SaveToDisk();
 
     int GetReadingOrder();
 
@@ -64,11 +70,13 @@ private:
 
     void SetRawHTML( const QString &source );
 
-    QWebPage &m_WebPage;
+    QDomDocument m_Document;
+
+    QWebPage *m_WebPage;
+
+    bool m_WebPageIsOld;
 
     int m_ReadingOrder;
-
-    bool m_InitialLoadFromDiskDone;
 };
 
 #endif // HTMLRESOURCE_H
