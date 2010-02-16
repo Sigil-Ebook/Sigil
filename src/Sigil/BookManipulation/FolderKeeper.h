@@ -25,6 +25,7 @@
 
 #include <QString>
 #include <QHash>
+#include <QMutex>
 
 class Resource;
 class HTMLResource;
@@ -106,6 +107,7 @@ private:
 
     QHash< QString, Resource* > m_Resources;
 
+    QMutex m_AccessMutex;
 
     // Full paths to all the folders in the publication
     QString m_FullPathToMainFolder;

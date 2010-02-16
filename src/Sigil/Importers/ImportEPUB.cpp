@@ -329,25 +329,45 @@ void ImportEPUB::UpdateOneCSSFile( CSSResource* css_resource, const QHash< QStri
 // Returns a hash with keys being old references (URLs) to resources,
 // and values being the new references to those resources.
 QHash< QString, QString > ImportEPUB::LoadFolderStructure()
-{
+{ 
+    QList< QString > keys = m_Files.keys();
+    int num_files = keys.count();
+
+    QFutureSynchronizer< tuple< QString, QString > > sync;
+
+    for ( int i = 0; i < num_files; ++i )
+    {   
+        sync.addFuture( QtConcurrent::run( this, &ImportEPUB::LoadOneFile, keys.at( i ) ) );   
+    }
+
+    sync.waitForFinished();
+
+    QList< QFuture< tuple< QString, QString > > > futures = sync.futures();
+    int num_futures = futures.count();
+
     QHash< QString, QString > updates;
 
-    foreach( QString key, m_Files.keys() )
+    for ( int i = 0; i < num_futures; ++i )
     {
-        QString path         = m_Files[ key ];
-        QString fullfilepath = QFileInfo( m_OPFFilePath ).absolutePath() + "/" + path;
-
-        // We can't parallelize this since we need to create HTMLResource
-        // objects, and they create QWebPages, and those can only be
-        // created in the main GUI thread.
-        QString newpath = m_Book->mainfolder.AddContentFileToFolder( fullfilepath, m_ReadingOrderIds.indexOf( key ) );
-        newpath = "../" + newpath;  
-
-        updates[ path ] = newpath;       
-    }
+        tuple< QString, QString > result = futures.at( i ).result();
+        updates[ result.get< 0 >() ] = result.get< 1 >();
+    }   
 
     return updates;
 }
+
+
+tuple< QString, QString > ImportEPUB::LoadOneFile( const QString &key )
+{
+    QString path         = m_Files.value( key );
+    QString fullfilepath = QFileInfo( m_OPFFilePath ).absolutePath() + "/" + path;
+
+    QString newpath = m_Book->mainfolder.AddContentFileToFolder( fullfilepath, m_ReadingOrderIds.indexOf( key ) );
+    newpath = "../" + newpath; 
+
+    return make_tuple( path, newpath );
+}
+
 
 tuple< QHash< QString, QString >, 
 QHash< QString, QString > > ImportEPUB::SeparateHTMLAndCSSUpdates( const QHash< QString, QString > &updates )
@@ -379,6 +399,7 @@ QHash< QString, QString > > ImportEPUB::SeparateHTMLAndCSSUpdates( const QHash< 
 
     return make_tuple( html_updates, css_updates );
 }
+
 
 
 

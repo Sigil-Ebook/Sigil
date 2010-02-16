@@ -169,14 +169,22 @@ QString FolderKeeper::AddContentFileToFolder( const QString &fullfilepath, int r
         relative_path = MISC_FOLDER_NAME + "/" + filename;
 
         resource = new Resource( new_file_path, &m_Resources );
-    }
+    }    
 
     QFile::copy( fullfilepath, new_file_path );
 
-    m_Resources[ resource->GetIdentifier() ] = resource;
+    {
+        QMutexLocker locker( &m_AccessMutex );
+        m_Resources[ resource->GetIdentifier() ] = resource;
+    }
+
+    if ( QThread::currentThread() != QApplication::instance()->thread() )
+
+        resource->moveToThread( QApplication::instance()->thread() );
 
     return relative_path;
 }
+
 
 // Returns a list of all the content files in the directory
 // with a path relative to the OEBPS directory

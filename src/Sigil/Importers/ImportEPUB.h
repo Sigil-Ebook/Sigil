@@ -81,6 +81,8 @@ protected:
     // and values being the new references to those resources.
     QHash< QString, QString > LoadFolderStructure();
 
+    tuple< QString, QString > LoadOneFile( const QString &key );
+
     tuple< QHash< QString, QString >, 
     QHash< QString, QString > > SeparateHTMLAndCSSUpdates( const QHash< QString, QString > &updates );
 
