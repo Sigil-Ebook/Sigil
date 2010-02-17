@@ -47,10 +47,10 @@ BookViewEditor::BookViewEditor( QWidget *parent )
     m_ScrollOneLineUp(   *( new QShortcut( QKeySequence( Qt::ControlModifier + Qt::Key_Up   ), this ) ) ),
     m_ScrollOneLineDown( *( new QShortcut( QKeySequence( Qt::ControlModifier + Qt::Key_Down ), this ) ) )
 {
-    connect( &m_PageUp,            SIGNAL( activated() ),          this, SLOT( PageUp()                   ) );
-    connect( &m_PageDown,          SIGNAL( activated() ),          this, SLOT( PageDown()                 ) );
-    connect( &m_ScrollOneLineUp,   SIGNAL( activated() ),          this, SLOT( ScrollOneLineUp()          ) );
-    connect( &m_ScrollOneLineDown, SIGNAL( activated() ),          this, SLOT( ScrollOneLineDown()        ) );
+    connect( &m_PageUp,            SIGNAL( activated() ), this, SLOT( PageUp()            ) );
+    connect( &m_PageDown,          SIGNAL( activated() ), this, SLOT( PageDown()          ) );
+    connect( &m_ScrollOneLineUp,   SIGNAL( activated() ), this, SLOT( ScrollOneLineUp()   ) );
+    connect( &m_ScrollOneLineDown, SIGNAL( activated() ), this, SLOT( ScrollOneLineDown() ) );
 }
 
 
@@ -61,8 +61,8 @@ void BookViewEditor::CustomSetWebPage( QWebPage &webpage )
     connect( page(), SIGNAL( loadFinished( bool ) ), this, SLOT( JavascriptOnDocumentLoad() ) );
     connect( page(), SIGNAL( loadProgress( int ) ),  this, SLOT( UpdateFinishedState( int ) ) );
 
-    connect( page(),         SIGNAL( linkClicked( const QUrl& ) ),
-             this->parent(), SIGNAL( LinkClicked( const QUrl& ) ) );
+    connect( page(),                   SIGNAL( linkClicked( const QUrl& ) ),
+             this->parent()->parent(), SIGNAL( LinkClicked( const QUrl& ) ) );
 }
 
 // Executes the specified command on the document with javascript

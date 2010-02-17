@@ -40,4 +40,5 @@ extern const QString FONT_FOLDER_NAME;
 extern const QString TEXT_FOLDER_NAME;
 extern const QString STYLE_FOLDER_NAME;
 extern const QString MISC_FOLDER_NAME;
+extern const QString NOT_IN_TOC_CLASS;
 

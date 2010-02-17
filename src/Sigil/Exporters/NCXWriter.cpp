@@ -34,7 +34,8 @@ NCXWriter::NCXWriter( const Book &book, const FolderKeeper &fkeeper )
     XMLWriter( book, fkeeper ), 
     m_HeadingIDsPerFile( GetHeadingIDsPerFile() ),
     m_HeadingSourcesPerFile( GetHeadingSourcesPerFile() ),
-    m_Headings( Headings::MakeHeadingHeirarchy( Headings::GetHeadingList( m_Book.source ) ) )
+    m_Headings( Headings::MakeHeadingHeirarchy( Headings::GetHeadingList( 
+                                                m_Book.mainfolder.GetSortedHTMLResources() ) ) )
 {
 
 }
@@ -199,7 +200,7 @@ void NCXWriter::WriteNavPoint( const Headings::Heading &heading, int &play_order
         play_order++;
 
         m_Writer->writeStartElement( "navLabel" );
-        m_Writer->writeTextElement( "text", heading.text );
+        m_Writer->writeTextElement( "text", heading.element.text() );
         m_Writer->writeEndElement();
 
         QString myfile = GetHeadingFile( heading );        
@@ -209,13 +210,13 @@ void NCXWriter::WriteNavPoint( const Headings::Heading &heading, int &play_order
         // If this heading appears right after a chapter break,
         // then it "represents" and links to its file; otherwise,
         // we link to the heading element directly
-        if ( heading.after_chapter_break == true )
+        if ( heading.at_file_start == true )
         
             m_Writer->writeAttribute( "src", myfile );
 
         else
             
-            m_Writer->writeAttribute( "src", myfile + "#" + heading.id );
+            m_Writer->writeAttribute( "src", myfile + "#" + heading.element.attribute( "id" ) );
     }
 
     foreach( Headings::Heading child, heading.children )
@@ -246,14 +247,15 @@ QHash< QString, QStringList > NCXWriter::GetHeadingIDsPerFile() const
         QString fullfilepath = m_Folder.GetFullPathToOEBPSFolder() + "/" + relfilepath;
         QString source       = Utility::ReadUnicodeTextFile( fullfilepath );
 
-        QList< Headings::Heading > headings = Headings::GetHeadingList( source );
+        // FIXME: need headings.
+        //QList< Headings::Heading > headings = Headings::GetHeadingList( source );
 
-        foreach( Headings::Heading heading, headings )
-        {
-            if ( !heading.id.isEmpty() )
-            
-                file_headings[ relfilepath ].append( heading.id );
-        }
+//         foreach( Headings::Heading heading, headings )
+//         {
+//             if ( !heading.id.isEmpty() )
+//             
+//                 file_headings[ relfilepath ].append( heading.id );
+//         }
     }
     
     return file_headings;
@@ -277,12 +279,13 @@ QHash< QString, QStringList > NCXWriter::GetHeadingSourcesPerFile() const
         QString fullfilepath = m_Folder.GetFullPathToOEBPSFolder() + "/" + relfilepath;
         QString source       = Utility::ReadUnicodeTextFile( fullfilepath );
 
-        QList< Headings::Heading > headings = Headings::GetHeadingList( source );
-
-        foreach( Headings::Heading heading, headings )
-        {
-            file_headings[ relfilepath ].append( heading.element_source );
-        }
+        // FIXME: need headings.
+//         QList< Headings::Heading > headings = Headings::GetHeadingList( source );
+// 
+//         foreach( Headings::Heading heading, headings )
+//         {
+//             file_headings[ relfilepath ].append( heading.element_source );
+//         }
     }
 
     return file_headings;
@@ -310,7 +313,7 @@ QString NCXWriter::GetHeadingFile( const Headings::Heading &heading ) const
     // We *really* want to find just one.
     foreach( QString file, m_HeadingIDsPerFile.keys() )
     {
-        if ( m_HeadingIDsPerFile[ file ].contains( heading.id ) )
+        if ( m_HeadingIDsPerFile[ file ].contains( heading.element.attribute( "id" ) ) )
         {
             files_with_heading_ID.append( file );
         }
@@ -325,13 +328,15 @@ QString NCXWriter::GetHeadingFile( const Headings::Heading &heading ) const
     // including classes, text etc. Anything that would differentiate it from
     // the other headings that unfortunately have the same ID.
     // We return the first file that has this source, which may not be unique...
-    foreach( QString file, m_HeadingSourcesPerFile.keys() )
-    {
-        if ( m_HeadingSourcesPerFile[ file ].contains( heading.element_source ) )
-        {
-            return file;
-        }
-    }
+
+    // FIXME
+//     foreach( QString file, m_HeadingSourcesPerFile.keys() )
+//     {
+//         if ( m_HeadingSourcesPerFile[ file ].contains( heading.element_source ) )
+//         {
+//             return file;
+//         }
+//     }
 
     // TODO: throw an exception.
     return "";

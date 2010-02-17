@@ -122,6 +122,9 @@ QString FolderKeeper::AddContentFileToFolder( const QString &fullfilepath, int r
 
     QString new_file_path;
     QString relative_path;
+
+    // TODO: How about making all resources shared pointers?
+    // or at least references...
     Resource *resource = NULL;
 
     if ( IMAGES.contains( extension ) )
@@ -224,8 +227,8 @@ QList< Resource* > FolderKeeper::GetResourceList() const
 }
 
 
-// Returned in ARBITRARY ORDER
-QList< HTMLResource* > FolderKeeper::GetHTMLResources() const
+// Returned in reading order
+QList< HTMLResource* > FolderKeeper::GetSortedHTMLResources() const
 {
     QList< HTMLResource* > html_resources;
 
@@ -235,6 +238,8 @@ QList< HTMLResource* > FolderKeeper::GetHTMLResources() const
 
             html_resources.append( qobject_cast< HTMLResource* >( resource ) );
     }
+
+    qSort( html_resources.begin(), html_resources.end(), HTMLResource::LessThan );
 
     return html_resources;
 }

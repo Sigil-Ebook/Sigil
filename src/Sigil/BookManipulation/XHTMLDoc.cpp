@@ -122,7 +122,7 @@ QList< QDomNode > XHTMLDoc::GetTagMatchingChildren( const QDomNode &node, const 
 
     if ( tag_names.contains( GetNodeName( node ), Qt::CaseInsensitive ) )
     
-        matching_nodes.append( node );    
+        matching_nodes.append( node );
 
     if ( node.hasChildNodes() )
     {

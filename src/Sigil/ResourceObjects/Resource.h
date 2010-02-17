@@ -57,6 +57,8 @@ public:
 
     QUrl GetBaseUrl() const;
 
+    QReadWriteLock& GetLock();
+
     QIcon Icon() const;
 
     bool RenameTo( const QString &new_filename );

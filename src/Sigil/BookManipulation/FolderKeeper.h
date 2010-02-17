@@ -61,7 +61,7 @@ public:
 
     QList< Resource* > GetResourceList() const;
 
-    QList< HTMLResource* > GetHTMLResources() const;
+    QList< HTMLResource* > GetSortedHTMLResources() const;
 
     Resource& GetResourceByIdentifier( const QString &identifier ) const;
 

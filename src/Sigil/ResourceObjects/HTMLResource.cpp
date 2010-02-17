@@ -98,14 +98,20 @@ const QDomDocument& HTMLResource::GetDocumentForReading()
 
 
 // Make sure to get a read lock externally before calling this function!
+// Call MarkWebPageAsOld() if you updated the document.
 QDomDocument& HTMLResource::GetDocumentForWriting()
 {
     Q_ASSERT( m_ReadWriteLock.tryLockForWrite() == false );
-
-    m_WebPageIsOld = true;
     
     return m_Document;
 }
+
+
+void HTMLResource::MarkWebPageAsOld()
+{
+    m_WebPageIsOld = true;
+}
+
 
 
 // only ever call this from the GUI thread
@@ -166,6 +172,12 @@ void HTMLResource::RemoveWebkitClasses()
     //m_Source.replace( QRegExp( "(class=\"[^\"]*)webkit-indent-blockquote" ), "\\1" );
 }
 
+bool HTMLResource::LessThan( HTMLResource* res_1, HTMLResource* res_2 )
+{
+    return res_1->GetReadingOrder() < res_2->GetReadingOrder();
+}
+
+
 void HTMLResource::SetRawHTML( const QString &source )
 {
     m_WebPage->mainFrame()->setContent( source.toUtf8(), LOADED_CONTENT_MIMETYPE, GetBaseUrl() ); 
@@ -180,4 +192,3 @@ void HTMLResource::SetRawHTML( const QString &source )
     settings.setAttribute( QWebSettings::JavascriptCanAccessClipboard, true );
     settings.setAttribute( QWebSettings::ZoomTextOnly, true );
 }
-

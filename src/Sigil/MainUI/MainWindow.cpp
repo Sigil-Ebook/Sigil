@@ -322,10 +322,6 @@ void MainWindow::ZoomOut()
 // Implements Meta Editor action functionality
 void MainWindow::MetaEditorDialog()
 {
-    // ALWAYS clean up source first before
-    // using m_Book outside of MainWindow!
-    //TidyUp();
-
     MetaEditor meta( m_Book, this );
 
     if ( meta.exec() == QDialog::Accepted )
@@ -337,9 +333,8 @@ void MainWindow::MetaEditorDialog()
 // Implements TOC Preview action functionality
 void MainWindow::TOCEditorDialog()
 {
-    // ALWAYS clean up source first before
-    // using m_Book outside of MainWindow!
-    //TidyUp();
+    // TODO: Unlock the resource mutex the 
+    // tab is holding... or will the focusOut take care of that?
 
     TOCEditor toc( m_Book, this );
 

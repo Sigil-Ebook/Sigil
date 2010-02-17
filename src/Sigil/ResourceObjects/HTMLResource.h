@@ -54,6 +54,8 @@ public:
 
     QDomDocument& GetDocumentForWriting();
 
+    void MarkWebPageAsOld();
+
     void UpdateDocumentFromWebPage();
 
     void UpdateWebPageFromDocument();
@@ -65,6 +67,9 @@ public:
     void SetReadingOrder( int reading_order );
     
     void RemoveWebkitClasses();
+
+    // TODO: turn this into operator<
+    static bool LessThan( HTMLResource* res_1, HTMLResource* res_2 );
 
 private:
 

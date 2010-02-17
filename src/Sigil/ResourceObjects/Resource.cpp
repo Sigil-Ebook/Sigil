@@ -64,6 +64,12 @@ QUrl Resource::GetBaseUrl() const
 }
 
 
+QReadWriteLock& Resource::GetLock()
+{
+    return m_ReadWriteLock;
+}
+
+
 QIcon Resource::Icon() const
 {
     return QFileIconProvider().icon( QFileInfo( m_FullFilePath ) );
@@ -107,5 +113,6 @@ Resource::ResourceType Resource::Type() const
 {
     return Resource::GenericResource;
 }
+
 
 

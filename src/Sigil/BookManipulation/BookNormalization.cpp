@@ -83,21 +83,22 @@ int BookNormalization::MaxSigilHeadingIDIndex( const QString &source )
 {
     int maxindex = 1;
 
-    QList< Headings::Heading > headings = Headings::GetHeadingList( source );
-    
-    foreach( Headings::Heading heading, headings )
-    {
-        QRegExp suffix( SIGIL_HEADING_ID_REG );
-
-        if ( heading.id.contains( suffix ) )
-        {
-            int index = suffix.cap( 1 ).toInt();
-
-            if ( index > maxindex )
-
-                maxindex = index;
-        }
-    }
+    // FIXME: get headings
+//     QList< Headings::Heading > headings = Headings::GetHeadingList( source );
+//     
+//     foreach( Headings::Heading heading, headings )
+//     {
+//         QRegExp suffix( SIGIL_HEADING_ID_REG );
+// 
+//         if ( heading.id.contains( suffix ) )
+//         {
+//             int index = suffix.cap( 1 ).toInt();
+// 
+//             if ( index > maxindex )
+// 
+//                 maxindex = index;
+//         }
+//     }
 
     return maxindex;
 }

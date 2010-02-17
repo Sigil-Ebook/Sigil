@@ -23,144 +23,68 @@
 #include "../BookManipulation/Headings.h"
 #include "../BookManipulation/XHTMLDoc.h"
 #include "../Misc/Utility.h"
+#include "ResourceObjects/HTMLResource.h"
 #include <QDomDocument>
 
-// The maximum allowed distance (in characters) that a heading
-// can be located from a chapter break (or body tag) and still
-// be detected as the "name" for that chapter;
-// The value was picked arbitrarily
-static const int CHAPTER_TO_HEADING_DIST = 1000;
+// The maximum allowed distance (in lines) that a heading
+// can be located from a body tag and still
+// be detected as the "name" for that chapter.
+// The value was picked arbitrarily.
+static const int ALLOWED_HEADING_DISTANCE = 20;
+static const QStringList HEADING_TAGS = QStringList() << "h1" << "h2" << "h3" << "h4" << "h5" << "h6";
 
-// Use with <QRegExp>.setMinimal( true )
-const QString HEADING                    = "<\\s*(?:h|H)\\d[^>]*>(.*)</\\s*(?:h|H)\\d[^>]*>";
-
-static const QString NOT_IN_TOC_CLASS    = "sigilNotInTOC";
-static const QString TOC_CLASS_PRESENT   = "(<[^>]*)" + NOT_IN_TOC_CLASS + "([^>]*>)";
-static const QString CLASS_ATTRIBUTE     = "<[^>]*class\\s*=\\s*\"([^\"]+)\"[^>]*>";
-static const QString ID_ATTRIBUTE        = "<[^>]*id\\s*=\\s*\"([^\"]+)\"[^>]*>";
-static const QString TITLE_ATTRIBUTE     = "<[^>]*title\\s*=\\s*\"([^\"]+)\"[^>]*>";
-static const QString ELEMENT_BODY        = "<([^/>]+)>";
-static const QString HEADING_LEVEL       = "(?:h|H)(\\d)";
-static const QString XML_TAG             = "<[^>]*>";
-
-
-// Constructs the new heading element source
-// created from the provided heading struct
-QString Headings::GetNewHeadingSource( const Heading &heading )
-{
-    QString source = heading.element_source;
-
-    QDomDocument document;
-    document.setContent( source );
-
-    QDomElement heading_element = document.documentElement();
-
-    QString class_attribute = heading_element.attribute( "class", "" );
-
-    // Make sure that the heading does not have the special
-    // class attribute if it should be included in the TOC
-    if ( heading.include_in_toc )
-    {
-        class_attribute.remove( NOT_IN_TOC_CLASS );
-    }
-
-    // If it needs to be left out of the TOC,
-    // then add the special class if it's not already present
-    else if ( !class_attribute.contains( NOT_IN_TOC_CLASS ) )
-    {
-        class_attribute += " " + NOT_IN_TOC_CLASS;
-    }
-
-    // Avoid writing an empty class attribute
-    if ( !class_attribute.isEmpty() )
-
-        heading_element.setAttribute( "class", class_attribute );
-
-    // Write the new heading text if it's been changed 
-    if ( heading_element.text() != heading.text )
-    {
-        // If the heading element has a "title" attribute,
-        // then that is set since it has a higher priority.
-        if ( heading_element.hasAttribute( "title" ) )
-
-            heading_element.setAttribute( "title", heading.text );
-
-        else
-
-            XHTMLDoc::RemoveChildren( heading_element ).appendChild( document.createTextNode( heading.text ) );
-    }
-
-    return XHTMLDoc::GetQDomNodeAsString( document ).trimmed();
-}
+const QString NOT_IN_TOC_CLASS = "sigilNotInTOC";
 
 
 // Returns a list of headings from the provided XHTML source;
 // the list is flat, the headings are *not* in a hierarchy tree
-QList< Headings::Heading > Headings::GetHeadingList( const QString &source )
+QList< Headings::Heading > Headings::GetHeadingList( QList< HTMLResource* > html_resources )
 {
-    // TODO: Refactor this so it uses QDomDocument. It
-    // should then be a lot more robust, if possibly a bit slower.
+    QList< Headings::Heading > heading_list;
+    
+    QList< QList< Headings::Heading > > per_file_headings =
+        QtConcurrent::blockingMapped( html_resources, GetHeadingListForOneFile );
 
-    QList< Heading > heading_list;
-
-    QRegExp heading_regex( HEADING );
-    heading_regex.setMinimal( true );
-
-    int main_index = 0;
-
-    while ( true )
+    for ( int i = 0; i < per_file_headings.count(); ++i )
     {
-        main_index = source.indexOf( heading_regex, main_index );
-
-        if ( main_index == -1 )
-
-            break;
-
-        Heading heading;
-
-        heading.element_source      = heading_regex.cap( 0 );
-
-        // We use the title attribute for the
-        // heading text if the attribute is present
-        QRegExp title( TITLE_ATTRIBUTE );
-
-        if ( heading_regex.cap( 0 ).contains( title )  )
-
-            heading.text = XHTMLDoc::ResolveHTMLEntities( title.cap( 1 ) ).simplified();
-
-        else
-        
-            heading.text = XHTMLDoc::GetTextInHtml( heading_regex.cap( 0 ) ).simplified();
-        
-        heading.after_chapter_break = IsAfterChapterBreak( source, main_index );         
-
-        QRegExp level( HEADING_LEVEL );
-        heading_regex.cap( 0 ).indexOf( level );
-
-        heading.level = level.cap( 1 ).toInt();  
-
-        QRegExp id( ID_ATTRIBUTE );
-        heading_regex.cap( 0 ).indexOf( id );
-
-        heading.id    = id.cap( 1 );
-
-        QRegExp sigil_class( TOC_CLASS_PRESENT );
-
-        if ( heading_regex.cap( 0 ).indexOf( sigil_class ) != -1 )
-
-            heading.include_in_toc = false;
-
-        else
-
-            heading.include_in_toc = true;              
-
-        heading_list.append( heading );
-
-        main_index += heading_regex.matchedLength();
+        heading_list.append( per_file_headings.at( i ) );
     }
 
     return heading_list;
 }
+
+QList< Headings::Heading > Headings::GetHeadingListForOneFile( HTMLResource* html_resource )
+{
+    Q_ASSERT( html_resource );
+
+    QDomDocument document    = html_resource->GetDocumentForReading();
+    QDomElement body_element = document.firstChildElement( "body" );
+
+    QList< QDomNode > heading_nodes = XHTMLDoc::GetTagMatchingChildren( document, HEADING_TAGS );
+    int num_heading_nodes = heading_nodes.count();
+
+    QList< Headings::Heading > headings;
+
+    for ( int i = 0; i < num_heading_nodes; ++i )
+    {
+        QDomElement element = heading_nodes.at( i ).toElement();
+
+        Q_ASSERT( !element.isNull() );
+
+        Heading heading;
+        heading.resource_file  = html_resource;
+        heading.element        = element;
+        heading.level          = QString( element.tagName()[ 1 ] ).toInt();
+        heading.include_in_toc = !element.attribute( "class", "" ).contains( NOT_IN_TOC_CLASS );
+        heading.at_file_start  = i == 0 && 
+            element.lineNumber() - body_element.lineNumber() < ALLOWED_HEADING_DISTANCE;
+
+        headings.append( heading );
+    }
+
+    return headings;
+}
+
 
 
 // Takes a flat list of headings and returns a list with those
@@ -176,8 +100,8 @@ QList< Headings::Heading > Headings::MakeHeadingHeirarchy( const QList< Heading 
         // adding them as this heading's children
         while ( true )
         {
-            if (    ( i == ordered_headings.size() - 1 ) ||
-                    ( ordered_headings[ i + 1 ].level <= ordered_headings[ i ].level ) 
+            if ( ( i == ordered_headings.size() - 1 ) ||
+                 ( ordered_headings[ i + 1 ].level <= ordered_headings[ i ].level ) 
                )
             {
                 break;
@@ -196,7 +120,6 @@ QList< Headings::Heading > Headings::MakeHeadingHeirarchy( const QList< Heading 
 }
 
 
-// Takes a hierarchical list of headings and returns a flat list of them
 QList< Headings::Heading > Headings::GetFlattenedHeadings( const QList< Heading > &headings )
 {
     QList< Heading > flat_headings;
@@ -227,55 +150,12 @@ QList< Headings::Heading > Headings::FlattenHeadingNode( Heading heading )
 }
 
 
-// Returns true if the provided heading location 
-// appears within 1000 chars after a chapter break
-bool Headings::IsAfterChapterBreak( const QString &source, int heading_location )
-{
-    // Our search is between search_start and heading_location
-    int search_start = heading_location - CHAPTER_TO_HEADING_DIST;
-
-    if ( search_start < 0 )
-
-        search_start = 0;
-
-    QRegExp chapter_break_tag( BREAK_TAG_SEARCH );
-    int chapter_location        = source.lastIndexOf( chapter_break_tag, heading_location - 1 );
-
-    // We look for a heading that appears before "this one"
-    // because we need to make sure we don't "assign"
-    // a chapter break that is already "taken"
-    QRegExp heading_regex( HEADING );
-    heading_regex.setMinimal( true );
-    int previous_heading_location = source.lastIndexOf( heading_regex, heading_location - 1 );
-
-    QRegExp body_tag( BODY_START );
-    int body_tag_location         = source.lastIndexOf( body_tag, heading_location - 1 );
-
-    // The tags are considered "found" if they appear within our search interval
-    bool chapter_tag_found      = ( chapter_location          != -1 ) && ( chapter_location          > search_start );
-    bool body_tag_found         = ( body_tag_location         != -1 ) && ( body_tag_location         > search_start );
-
-    // There is no need to check that chapter_location and body_tag_location
-    // are greater than -1 because if they're both aren't, the next IF is false anyway
-    bool previous_heading_found = ( previous_heading_location != -1 ) && ( previous_heading_location > search_start ) &&
-        ( previous_heading_location > chapter_location ) && ( previous_heading_location > body_tag_location );
-
-    if ( ( chapter_tag_found || body_tag_found ) && !previous_heading_found )
-
-        return true;
-
-    else
-
-        return false;
-}
-
-
 // Adds the new_child heading to the parent heading;
 // the new_child is propagated down the tree if necessary
 void Headings::AddChildHeading( Heading &parent, Heading new_child )
 {
-    if (    ( !parent.children.isEmpty() ) && 
-            ( parent.children.last().level < new_child.level )
+    if ( ( !parent.children.isEmpty() ) && 
+         ( parent.children.last().level < new_child.level )
        )
     {
         AddChildHeading( parent.children.last(), new_child );
@@ -286,3 +166,4 @@ void Headings::AddChildHeading( Heading &parent, Heading new_child )
         parent.children.append( new_child );
     }
 }
+

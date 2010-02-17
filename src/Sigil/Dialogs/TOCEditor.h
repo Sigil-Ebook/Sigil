@@ -59,15 +59,17 @@ private slots:
     // and showing only headings that are to be included in the TOC
     void ChangeDisplayType( int new_check_state );
 
-    // Updates the Book's XHTML source code
-    // with the new information on headings
-    void UpdateBookSource();
+    // Updates the heading elements with new text
+    // values and Sigil inclusion class
+    void UpdateHeadingElements();
 
-private:    
+private:
 
     // We need this to be able to use a forward
     // declaration of Book in the QSharedPointer
-    Q_DISABLE_COPY( TOCEditor ) 
+    Q_DISABLE_COPY( TOCEditor );
+
+    void UpdateOneHeadingElement( QStandardItem *item );
 
     // Updates the inclusion of the heading in the TOC
     // whenever that heading's "include in TOC" checkbox
@@ -104,6 +106,12 @@ private:
     // Writes all the stored dialog settings like
     // window position, geometry etc.
     void WriteSettings();
+
+    void LockHTMLResources();
+
+    void UnlockHTMLResources();
+
+    void ConnectSignalsToSlots();
 
 
     ///////////////////////////////

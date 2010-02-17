@@ -24,6 +24,9 @@
 #define HEADINGS_H
 
 #include <QString>
+#include <QDomElement>
+
+class HTMLResource;
 
 class Headings
 {
@@ -34,31 +37,26 @@ public:
     // in the XHTML source code
     struct Heading
     {
-        // The whole source of the element; for instance:
-        // <h1 class="something">I'm a heading!</h1>
-        QString element_source;
+        // The HTMLResource file the heading belongs to
+        HTMLResource* resource_file;
 
-        // The value of the ID attribute of the heading;
-        // NULL if heading doesn't have the attribute set
-        QString id;
-
-        // The text value of the heading; for instance:
-        // I'm a heading!
-        QString text;
+        // The QDomElement of the heading in the file's QDomDocument
+        QDomElement element;
 
         // The level of the heading, from 1 to 6
         // (lower number means 'bigger' heading )
         int level;
 
         // True if the heading appears within
-        // 1000 chars after a chapter break
-        bool after_chapter_break;
+        // 20 lines after the body tag 
+        // (only one heading per file)
+        bool at_file_start;
 
         // Should the heading be included in the TOC or not
         bool include_in_toc;
 
         // The headings 'below' this one
-        // (appear after it in the source and
+        // (those that appear after it in the source and
         // are of higher level/smaller size)
         QList< Heading > children;
     };
@@ -71,30 +69,25 @@ public:
         Heading *heading;
     }; 
 
-    // Constructs the new heading element source
-    // created from the provided heading struct
-    static QString GetNewHeadingSource( const Heading &heading );
 
     // Returns a list of headings from the provided XHTML source;
     // the list is flat, the headings are *not* in a hierarchy tree
-    static QList< Heading > GetHeadingList( const QString &source ); 
+    static QList< Heading > GetHeadingList( QList< HTMLResource* > html_resources ); 
+
+    static QList< Heading > GetHeadingListForOneFile( HTMLResource* html_resource );
 
     // Takes a flat list of headings and returns a list with those
     // headings sorted into a hierarchy
     static QList< Heading > MakeHeadingHeirarchy( const QList< Heading > &headings );
 
-    // Takes a hierarchical list of headings and returns a flat list of them
+    // Takes a hierarchical list of headings and converts it into a flat list
     static QList< Heading > GetFlattenedHeadings( const QList< Heading > &headings );       
 
 private:
 
     // Flattens the provided heading node and its children
     // into a list and returns it
-    static QList< Heading > FlattenHeadingNode( Heading heading );
-
-    // Returns true if the provided heading location 
-    // appears within 1000 chars after a chapter break
-    static bool IsAfterChapterBreak( const QString &source, int heading_location );     
+    static QList< Heading > FlattenHeadingNode( Heading heading );   
 
     // Adds the new_child heading to the parent heading;
     // the new_child is propagated down the tree if necessary
