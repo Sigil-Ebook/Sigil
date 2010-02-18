@@ -302,7 +302,6 @@ void ImportEPUB::CleanAndUpdateFiles( const QHash< QString, QString > &updates )
 }
 
 
-
 // Normally, this would be two functions. But making it
 // just one saves us expensive (and unnecessary) loading
 // from disk. Here we just load it once, do everything

@@ -224,10 +224,19 @@ void HTMLResource::RemoveWebkitClasses()
 {
     Q_ASSERT( m_WebPage );
 
-    // TODO: Use the QWebElement API to perform the same thing
+    QWebElementCollection collection = m_WebPage->mainFrame()->findAllElements( ".Apple-style-span" );
 
-    //m_Source.replace( QRegExp( "(class=\"[^\"]*)Apple-style-span" ), "\\1" );
-    //m_Source.replace( QRegExp( "(class=\"[^\"]*)webkit-indent-blockquote" ), "\\1" );
+    foreach( QWebElement element, collection )
+    {
+        element.toggleClass( "Apple-style-span" );
+    }
+
+    collection = m_WebPage->mainFrame()->findAllElements( ".webkit-indent-blockquote" );
+
+    foreach( QWebElement element, collection )
+    {
+        element.toggleClass( "webkit-indent-blockquote" );
+    }
 }
 
 
