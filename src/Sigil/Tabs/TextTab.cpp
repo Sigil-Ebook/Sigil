@@ -31,12 +31,15 @@ TextTab::TextTab( Resource& resource, CodeViewEditor::HighlighterType type, QWid
     m_wCodeView( *new CodeViewEditor( type, this ) )
 {
     m_Layout.addWidget( &m_wCodeView );
+    setFocusProxy( &m_wCodeView );
 
     ConnectSignalsToSlots();
 
-    m_Source = m_TextResource.ReadFile();
-
-    m_wCodeView.setPlainText( m_Source );
+    // Actually we get a lock here just to get around
+    // the Q_ASSERT in GetTextDocumentForWriting().
+    // We will get the "real" lock when the tab receives focus.
+    QWriteLocker locker( &m_TextResource.GetLock() );
+    m_wCodeView.CustomSetDocument( m_TextResource.GetTextDocumentForWriting() );
 }   
 
 
@@ -69,18 +72,26 @@ float TextTab::GetZoomFactor() const
     return m_wCodeView.GetZoomFactor();
 }
 
+
 void TextTab::SetZoomFactor( float new_zoom_factor )
 {
     m_wCodeView.SetZoomFactor( new_zoom_factor );
 }
+
 
 ContentTab::ViewState TextTab::GetViewState()
 {
     return ContentTab::ViewState_RawView;
 }
 
+
 void TextTab::ConnectSignalsToSlots()
 {
+    // We set the Code View as the focus proxy for the tab,
+    // so the ContentTab focusIn/Out handlers are not called.
+    connect( &m_wCodeView, SIGNAL( FocusGained() ),              this, SLOT( LoadContentOnTabEnter() )      );
+    connect( &m_wCodeView, SIGNAL( FocusLost() ),                this, SLOT( SaveContentOnTabLeave() )      );
+
     connect( &m_wCodeView, SIGNAL( textChanged() ),              this, SIGNAL( ContentChanged() )           );
     connect( &m_wCodeView, SIGNAL( ZoomFactorChanged( float ) ), this, SIGNAL( ZoomFactorChanged( float ) ) );
     connect( &m_wCodeView, SIGNAL( selectionChanged() ),         this, SIGNAL( SelectionChanged() )         );

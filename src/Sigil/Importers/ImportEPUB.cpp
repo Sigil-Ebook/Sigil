@@ -312,16 +312,14 @@ void ImportEPUB::CleanAndUpdateOneHTMLFile( HTMLResource* html_resource,
                                             const QHash< QString, QString > &css_updates )
 {
     QString source = CleanSource::Clean( HTMLEncodingResolver::ReadHTMLFile( html_resource->GetFullPath() ) );
-    html_resource->SetDocument( PerformInitialHTMLUpdates( source, html_updates, css_updates )() );
+    html_resource->SetDomDocument( PerformInitialHTMLUpdates( source, html_updates, css_updates )() );
 }
 
 void ImportEPUB::UpdateOneCSSFile( CSSResource* css_resource, const QHash< QString, QString > &css_updates )
 {
     QString source = Utility::ReadUnicodeTextFile( css_resource->GetFullPath() );
     source = PerformInitialCSSUpdates( source, css_updates )();
-
-    // TODO: load to QTextDocument
-    Utility::WriteUnicodeTextFile( source, css_resource->GetFullPath() );
+    css_resource->SetText( source );
 }
 
 

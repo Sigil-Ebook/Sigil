@@ -95,7 +95,21 @@ protected slots:
 
     void EmitDeleteMe();
 
+    virtual void SaveContentOnTabLeave();
+
+    virtual void LoadContentOnTabEnter();
+
 protected:
+
+    // These will *not* be called for child tabs
+    // that set a focus proxy (like FlowTab, TextTab etc.)
+    virtual void focusInEvent( QFocusEvent *event );
+
+    virtual void focusOutEvent( QFocusEvent *event );
+
+    ///////////////////////////////
+    // PROTECTED MEMBER VARIABLES
+    ///////////////////////////////
 
     Resource &m_Resource;
 

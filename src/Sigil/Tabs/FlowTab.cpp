@@ -50,9 +50,16 @@ FlowTab::FlowTab( Resource& resource, const QUrl &fragment, QWidget *parent )
 
     ConnectSignalsToSlots();
 
-    m_HTMLResource.UpdateWebPageFromDocument();
+    m_HTMLResource.UpdateWebPageFromDomDocument();
+    m_HTMLResource.UpdateTextDocumentFromDomDocument();
     m_wBookView.CustomSetWebPage( m_HTMLResource.GetWebPage() );
+    m_wCodeView.CustomSetDocument( m_HTMLResource.GetTextDocument() );
     
+    // We need to set this in the constructor too,
+    // so that the ContentTab focus handlers don't 
+    // get called when the tab is created.
+    setFocusProxy( &m_wBookView );
+
     BookView();
 
     m_wBookView.ScrollToFragmentAfterLoad( fragment.toString() );
@@ -594,7 +601,7 @@ void FlowTab::CodeView()
     // in the book view
     if ( m_IsLastViewBook )
     
-        EnterCodeView();    
+        EnterCodeView();
 
     m_InSplitView = false;
 
@@ -607,9 +614,57 @@ void FlowTab::CodeView()
 }
 
 
-// Used to catch the focus changeover from one widget
-// (code or book view) to the other; needed for source synchronization.
-void FlowTab::FocusFilter( QWidget *old_widget, QWidget *new_widget )
+void FlowTab::SaveContentOnTabLeave()
+{
+    if ( m_IsLastViewBook )
+
+        m_HTMLResource.UpdateDomDocumentFromWebPage();
+
+    else
+
+        m_HTMLResource.UpdateDomDocumentFromTextDocument();
+
+    ContentTab::SaveContentOnTabLeave();
+}
+
+
+void FlowTab::LoadContentOnTabEnter()
+{
+    ContentTab::LoadContentOnTabEnter();
+
+    if ( m_IsLastViewBook )
+
+        m_HTMLResource.UpdateWebPageFromDomDocument();
+
+    else
+
+        m_HTMLResource.UpdateTextDocumentFromDomDocument();
+}
+
+
+void FlowTab::TabFocusChange( QWidget *old_widget, QWidget *new_widget )
+{   
+    // Whole tab gains focus
+    if ( ( new_widget == &m_wBookView || new_widget == &m_wCodeView ) &&
+           old_widget != &m_wBookView &&
+           old_widget != &m_wCodeView 
+       )
+    {
+        LoadContentOnTabEnter();
+    }   
+
+    // Whole tab loses focus
+    else if ( ( old_widget == &m_wBookView || old_widget == &m_wCodeView ) &&
+              new_widget != &m_wBookView && 
+              new_widget != &m_wCodeView 
+            )
+    {
+        SaveContentOnTabLeave();
+    } 
+}
+
+
+void FlowTab::SplitViewFocusSwitch( QWidget *old_widget, QWidget *new_widget )
 {
     // We make sure we are looking at focus changes
     // in Split View; otherwise, we don't care.
@@ -645,14 +700,10 @@ void FlowTab::EmitContentChanged()
 void FlowTab::EnterBookView()
 {
     m_wBookView.StoreCaretLocationUpdate( m_wCodeView.GetCaretLocation() );
+    m_HTMLResource.UpdateWebPageFromTextDocument();
 
-    // If we haven't updated yet, then update
-    if ( m_OldSource != m_wCodeView.toPlainText() )
-    {
-        UpdateStoredPageFromCodeView();
-    }
-
-    m_IsLastViewBook = true;  
+    m_IsLastViewBook = true;
+    setFocusProxy( &m_wBookView );
 
     emit EnteringBookView();
 }
@@ -660,42 +711,12 @@ void FlowTab::EnterBookView()
 void FlowTab::EnterCodeView()
 {
     m_wCodeView.StoreCaretLocationUpdate( m_wBookView.GetCaretLocation() );
+    m_HTMLResource.UpdateTextDocumentFromWebPage(); 
 
-    // If we haven't updated yet, then update
-    if ( m_OldSource != m_HTMLResource.GetHtml() )
-    {
-        UpdateCodeViewFromStoredPage();            
-    }
-
-    m_IsLastViewBook = false;   
+    m_IsLastViewBook = false; 
+    setFocusProxy( &m_wCodeView );
 
     emit EnteringCodeView();
-}
-
-
-// On changeover, updates the code in code view
-void FlowTab::UpdateCodeViewFromStoredPage()
-{
-    m_HTMLResource.RemoveWebkitClasses();
-
-    QString source = m_HTMLResource.GetHtml();
-    m_wCodeView.setPlainText( source );
-
-    // Store current source so we can compare and check
-    // if we updated yet or we haven't
-    m_OldSource = source;
-}
-
-
-// On changeover, updates the code in book view
-void FlowTab::UpdateStoredPageFromCodeView()
-{
-    QString source = m_wCodeView.toPlainText();
-    m_HTMLResource.SetHtml( source );
-
-    // Store current source so we can compare and check
-    // if we updated yet or we haven't
-    m_OldSource = source;
 }
 
 void FlowTab::ReadSettings()
@@ -740,6 +761,7 @@ void FlowTab::ConnectSignalsToSlots()
     connect( m_wBookView.page(),   SIGNAL( selectionChanged() ), this, SIGNAL( SelectionChanged() ) );
     connect( &m_wCodeView,         SIGNAL( selectionChanged() ), this, SIGNAL( SelectionChanged() ) );
 
-    connect( qApp, SIGNAL( focusChanged( QWidget*, QWidget* ) ), this, SLOT( FocusFilter( QWidget*, QWidget* ) ) );
+    connect( qApp, SIGNAL( focusChanged( QWidget*, QWidget* ) ), this, SLOT( TabFocusChange( QWidget*, QWidget* ) ) );
+    connect( qApp, SIGNAL( focusChanged( QWidget*, QWidget* ) ), this, SLOT( SplitViewFocusSwitch( QWidget*, QWidget* ) ) );
 }
 

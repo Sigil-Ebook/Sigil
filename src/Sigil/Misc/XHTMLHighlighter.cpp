@@ -55,7 +55,7 @@ static const QColor ENTITY_COLOR            = Qt::darkMagenta;
 
 
 // Constructor
-XHTMLHighlighter::XHTMLHighlighter( QTextDocument *parent )
+XHTMLHighlighter::XHTMLHighlighter( QObject *parent )
      : QSyntaxHighlighter( parent )
 {
     QTextCharFormat html_format;

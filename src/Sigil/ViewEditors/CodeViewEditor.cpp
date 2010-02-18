@@ -50,11 +50,11 @@ CodeViewEditor::CodeViewEditor( HighlighterType high_type, QWidget *parent )
 {
     if ( high_type == CodeViewEditor::Highlight_XHTML )
 
-        m_Highlighter = new XHTMLHighlighter( document() );
+        m_Highlighter = new XHTMLHighlighter( this );
 
     else
 
-        m_Highlighter = new CSSHighlighter( document() );
+        m_Highlighter = new CSSHighlighter( this );
 
     connect( this, SIGNAL( blockCountChanged( int ) ),           this, SLOT( UpdateLineNumberAreaMargin() ) );
     connect( this, SIGNAL( updateRequest( const QRect &, int) ), this, SLOT( UpdateLineNumberArea( const QRect &, int) ) );
@@ -66,6 +66,15 @@ CodeViewEditor::CodeViewEditor( HighlighterType high_type, QWidget *parent )
     UpdateLineNumberAreaMargin();
     HighlightCurrentLine();
 
+    setFrameStyle( QFrame::NoFrame );
+}
+
+
+void CodeViewEditor::CustomSetDocument( QTextDocument &document )
+{
+    setDocument( &document );
+    m_Highlighter->setDocument( &document );
+
     // Let's try to use Consolas as our font
     QFont font( "Consolas", BASE_FONT_SIZE );
 
@@ -74,9 +83,8 @@ CodeViewEditor::CodeViewEditor( HighlighterType high_type, QWidget *parent )
     font.setStyleHint( QFont::TypeWriter );
     setFont( font );
     setTabStopWidth( TAB_SPACES_WIDTH * QFontMetrics( font ).width( ' ' ) );
-
-    setFrameStyle( QFrame::NoFrame );
 }
+
 
 // Paints the line number area;
 // receives the event directly 
@@ -359,6 +367,22 @@ void CodeViewEditor::mousePressEvent( QMouseEvent *event )
 }
 
 
+void CodeViewEditor::focusInEvent( QFocusEvent *event )
+{
+    emit FocusGained();
+
+    QPlainTextEdit::focusInEvent( event );
+}
+
+
+void CodeViewEditor::focusOutEvent( QFocusEvent *event )
+{
+    emit FocusLost();
+
+    QPlainTextEdit::focusOutEvent( event );
+}
+
+
 // Called whenever the number of lines changes;
 // sets a margin where the line number area can be displayed
 void CodeViewEditor::UpdateLineNumberAreaMargin()
@@ -601,7 +625,5 @@ void CodeViewEditor::ScrollByLine( bool down )
     }
        
 }
-
-
 
 

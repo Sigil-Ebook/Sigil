@@ -25,25 +25,46 @@
 
 TextResource::TextResource( const QString &fullfilepath, QHash< QString, Resource* > *hash_owner, QObject *parent )
     : 
-    Resource( fullfilepath, hash_owner, parent )
-    //m_TextDocument( new QTextDocument( this ) )
+    Resource( fullfilepath, hash_owner, parent ),
+    m_TextDocument( new QTextDocument( this ) )
 {
+    m_TextDocument->setDocumentLayout( new QPlainTextDocumentLayout( m_TextDocument ) );
+}
 
+void TextResource::SetText( const QString& text )
+{
+    m_TextDocument->setPlainText( text );
+}
+
+// Make sure to get a read lock externally before calling this function!
+const QTextDocument& TextResource::GetTextDocumentForReading()
+{
+    // We can't check with tryLockForRead because that
+    // can still legitimately succeed.
+    Q_ASSERT( m_ReadWriteLock.tryLockForWrite() == false );
+    Q_ASSERT( m_TextDocument );
+
+    return *m_TextDocument;
 }
 
 
-QString TextResource::ReadFile() 
+// Make sure to get a write lock externally before calling this function!
+QTextDocument& TextResource::GetTextDocumentForWriting()
 {
-    QReadLocker locker( &m_ReadWriteLock );
+    Q_ASSERT( m_ReadWriteLock.tryLockForWrite() == false );
+    Q_ASSERT( m_TextDocument );
 
-    return Utility::ReadUnicodeTextFile( m_FullFilePath );
+    return *m_TextDocument;    
 }
 
-void TextResource::WriteFile( const QString &content )
+
+void TextResource::SaveToDisk()
 {
     QWriteLocker locker( &m_ReadWriteLock );
 
-    Utility::WriteUnicodeTextFile( content, m_FullFilePath );
+    Q_ASSERT( m_TextDocument );
+
+    Utility::WriteUnicodeTextFile( m_TextDocument->toPlainText(), m_FullFilePath );
 }
 
 
@@ -51,3 +72,4 @@ Resource::ResourceType TextResource::Type() const
 {
     return Resource::TextResource;
 }
+

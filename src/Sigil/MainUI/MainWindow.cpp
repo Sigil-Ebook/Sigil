@@ -333,16 +333,13 @@ void MainWindow::MetaEditorDialog()
 // Implements TOC Preview action functionality
 void MainWindow::TOCEditorDialog()
 {
-    // TODO: Unlock the resource mutex the 
-    // tab is holding... or will the focusOut take care of that?
+    // Make sure the current tab has unlocked
+    // its resource (which it does on losing focus)
+    setFocus();
 
     TOCEditor toc( m_Book, this );
 
-    if ( toc.exec() == QDialog::Accepted )
-    {
-        //UpdateBookViewFromSource();
-        //UpdateCodeViewFromSource();
-    }
+    toc.exec();
 }
 
 
@@ -752,6 +749,9 @@ void MainWindow::LoadFile( const QString &filename )
     try
     {
         QApplication::setOverrideCursor( Qt::WaitCursor );
+
+        // Steal focus from the tab so the resource gets unlocked
+        setFocus();
 
         // Create the new book, clean up the old one
         // (destructors take care of that)

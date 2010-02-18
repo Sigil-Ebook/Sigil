@@ -32,7 +32,7 @@ class XHTMLHighlighter : public QSyntaxHighlighter
 public:
 
     // Constructor
-    XHTMLHighlighter( QTextDocument *parent = 0 );
+    XHTMLHighlighter( QObject *parent = 0 );
 
 protected:
 

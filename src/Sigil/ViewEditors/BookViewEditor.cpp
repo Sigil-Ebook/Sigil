@@ -104,9 +104,9 @@ void BookViewEditor::GrabFocus()
     // can have focus (and its QWebFrame) and still not
     // really have it (no blinking cursor).
 
-    qobject_cast< QWidget *>( parent() )->setFocus( Qt::OtherFocusReason );
+    qobject_cast< QWidget *>( parent() )->setFocus();
     
-    setFocus( Qt::OtherFocusReason );
+    setFocus();
 }
 
 

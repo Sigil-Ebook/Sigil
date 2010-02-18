@@ -27,6 +27,7 @@
 #include "Resource.h"
 
 class QWebPage;
+class QTextDocument;
 class QString;
 
 class HTMLResource : public Resource 
@@ -44,21 +45,32 @@ public:
 
     QWebPage& GetWebPage();
 
-    void SetHtml( const QString &source );
+    QTextDocument& GetTextDocument();
 
-    QString GetHtml();
+    void SetDomDocument( const QDomDocument &document );
 
-    void SetDocument( const QDomDocument &document );
+    const QDomDocument& GetDomDocumentForReading();
 
-    const QDomDocument& GetDocumentForReading();
+    QDomDocument& GetDomDocumentForWriting();
 
-    QDomDocument& GetDocumentForWriting();
+    void MarkSecondaryCachesAsOld();
 
-    void MarkWebPageAsOld();
+    // All of these Update* functions may look silly,
+    // but updating only the parts that are needed
+    // improves performance *considerably*.
+    // They are always called only from the GUI thread.
 
-    void UpdateDocumentFromWebPage();
+    void UpdateDomDocumentFromWebPage();
 
-    void UpdateWebPageFromDocument();
+    void UpdateDomDocumentFromTextDocument();
+
+    void UpdateWebPageFromDomDocument();
+
+    void UpdateTextDocumentFromDomDocument();
+
+    void UpdateWebPageFromTextDocument();
+
+    void UpdateTextDocumentFromWebPage();
 
     void SaveToDisk();
 
@@ -73,13 +85,30 @@ public:
 
 private:
 
-    void SetRawHTML( const QString &source );
+    QString GetWebPageHTML();
 
-    QDomDocument m_Document;
+    void SetWebPageHTML( const QString &source );
 
+    // This is the actual HTML resource backing store.
+    // The final arbiter of the content in the HTMLResource.
+    // AKA the main, primary cache.
+    QDomDocument m_DomDocument;
+
+    // These are here only for convenience so that
+    // the FlowTabs don't need to create and populate
+    // them every time, but just once. Improves performance.
+    // AKA the auxiliary, secondary caches.
     QWebPage *m_WebPage;
+    QTextDocument *m_TextDocument;
+
+    // This holds the state of the content of the secondary
+    // caches the last time they were updated. It's used
+    // to prevent syncing between them when no new changes
+    // have been made.
+    QString m_OldSourceCache;
 
     bool m_WebPageIsOld;
+    bool m_TextDocumentIsOld;
 
     int m_ReadingOrder;
 };

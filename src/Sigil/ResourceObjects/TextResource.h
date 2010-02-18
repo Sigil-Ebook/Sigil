@@ -35,16 +35,19 @@ public:
     
     TextResource( const QString &fullfilepath, QHash< QString, Resource* > *hash_owner, QObject *parent = NULL );
 
-    virtual QString ReadFile();
+    void SetText( const QString& text );
 
-    virtual void WriteFile( const QString &content );
+    const QTextDocument& GetTextDocumentForReading();
+
+    QTextDocument& GetTextDocumentForWriting();
+
+    virtual void SaveToDisk();
 
     virtual ResourceType Type() const;
 
 private:
 
-    //QTextDocument &m_TextDocument;
-
+    QTextDocument *m_TextDocument;
 };
 
 #endif // TEXTRESOURCE_H

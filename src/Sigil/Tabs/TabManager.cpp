@@ -123,8 +123,10 @@ bool TabManager::SwitchedToExistingTab( Resource& resource, const QUrl &fragment
     if ( resource_index != -1 )
     {
         setCurrentIndex( resource_index );
+        QWidget *tab = widget( resource_index );
+        tab->setFocus();
 
-        FlowTab *flow_tab = qobject_cast< FlowTab* >( widget( resource_index ) );
+        FlowTab *flow_tab = qobject_cast< FlowTab* >( tab );
 
         if ( flow_tab != NULL )
 
@@ -175,6 +177,7 @@ bool TabManager::AddNewContentTab( ContentTab *new_tab )
 
     addTab( new_tab, new_tab->GetIcon(), new_tab->GetFilename() );
     setCurrentWidget( new_tab );
+    new_tab->setFocus();
     connect( new_tab, SIGNAL( DeleteMe( ContentTab* ) ), this, SLOT( DeleteTab( ContentTab* ) ) );
 
     return true;

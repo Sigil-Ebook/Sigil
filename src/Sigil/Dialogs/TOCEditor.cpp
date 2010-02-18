@@ -33,7 +33,7 @@ static const int FIRST_COLUMN_PADDING = 30;
 // is being edited, the second is the dialog's parent
 TOCEditor::TOCEditor( QSharedPointer< Book > book, QWidget *parent )
     : 
-    QDialog( parent ), 
+    QDialog( parent ),
     m_Book( book )
 {
     ui.setupUi( this );
@@ -131,7 +131,7 @@ void TOCEditor::UpdateOneHeadingElement( QStandardItem *item )
             class_attribute.append( " " + NOT_IN_TOC_CLASS );
 
         heading->element.setAttribute( "class", class_attribute );
-        heading->resource_file->MarkWebPageAsOld();
+        heading->resource_file->MarkSecondaryCachesAsOld();
     }
 
     if ( item->hasChildren() == true )

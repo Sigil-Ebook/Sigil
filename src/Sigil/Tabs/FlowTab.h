@@ -167,11 +167,24 @@ signals:
     // Emitted by Book View (wired)
     void LinkClicked( const QUrl &url );
 
+protected slots:
+
+    void SaveContentOnTabLeave();
+    
+    void LoadContentOnTabEnter();
+
 private slots:
 
+    // Since we use two child widgets (the View Editors) that cover 
+    // the whole tab, we cannot just reimplement focusIn and focusOut
+    // event handlers (they won't get called). So we use this function
+    // to implement our own focusIn and focusOut handling. 
+    void TabFocusChange( QWidget *old_widget, QWidget *new_widget );
+
     // Used to catch the focus changeover from one widget
-    // (code or book view) to the other; needed for source synchronization
-    void FocusFilter( QWidget *old_widget, QWidget *new_widget );
+    // (code or book view) to the other in Split View;
+    // needed for source synchronization.
+    void SplitViewFocusSwitch( QWidget *old_widget, QWidget *new_widget );
 
     void EmitContentChanged();  
 
@@ -180,12 +193,6 @@ private:
     void EnterBookView();
 
     void EnterCodeView();
-
-    // On changeover, updates the code in code view
-    void UpdateCodeViewFromStoredPage();
-
-    // On changeover, updates the code in book view
-    void UpdateStoredPageFromCodeView();
 
     void ReadSettings();
     
@@ -216,10 +223,6 @@ private:
     // We need this variable because for some reason,
     // checking for isVisible on both views doesn't work.
     bool m_InSplitView;
-
-    // The value of the m_Source variable
-    // after the last view change
-    QString m_OldSource;
 
     // The last folder to which the user imported an image;
     // Static is safe since only the GUI thread can

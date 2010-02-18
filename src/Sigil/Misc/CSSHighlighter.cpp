@@ -68,8 +68,8 @@ static const int transitions[ 10 ][ 9 ] =
 };
 
 
-CSSHighlighter::CSSHighlighter( QTextDocument *document )
-    : QSyntaxHighlighter( document )
+CSSHighlighter::CSSHighlighter( QObject *parent )
+    : QSyntaxHighlighter( parent )
 {
 }
 

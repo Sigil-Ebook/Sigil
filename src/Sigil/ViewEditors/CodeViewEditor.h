@@ -55,6 +55,8 @@ public:
     // the second parameter is the object's parent
     CodeViewEditor( HighlighterType high_type, QWidget *parent = 0 );
 
+    void CustomSetDocument( QTextDocument &document );
+
     // Paints the line number area;
     // receives the event directly 
     // from the area's paintEvent() handler
@@ -108,6 +110,10 @@ signals:
     // Emitted whenever the zoom factor changes
     void ZoomFactorChanged( float new_zoom_factor );
 
+    void FocusLost();
+
+    void FocusGained();
+
 public slots:
 
     // The base class implementation of the print()
@@ -133,6 +139,10 @@ protected:
     // override causes graphical artifacts for SplitView.
     // So in those conditions, this handler takes over.
     void mousePressEvent( QMouseEvent *event );
+
+    void focusInEvent( QFocusEvent *event );
+
+    void focusOutEvent( QFocusEvent *event );
 
 private slots:
 

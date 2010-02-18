@@ -34,23 +34,27 @@ ContentTab::ContentTab( Resource& resource, QWidget *parent )
 
     m_Layout.setContentsMargins( 0, 0, 0, 0 );
 
-    setLayout( &m_Layout );    
+    setLayout( &m_Layout );
 }
+
 
 QString ContentTab::GetFilename()
 {
     return m_Resource.Filename();
 }
 
+
 QIcon ContentTab::GetIcon()
 {
     return m_Resource.Icon();
 }
 
+
 Searchable* ContentTab::GetSearchableContent()
 {
     return NULL;
 }
+
 
 void ContentTab::Close()
 {
@@ -59,7 +63,37 @@ void ContentTab::Close()
     EmitDeleteMe();
 }
 
+
 void ContentTab::EmitDeleteMe()
 {
     emit DeleteMe( this );
 }
+
+
+void ContentTab::SaveContentOnTabLeave()
+{
+    m_Resource.GetLock().unlock();
+}
+
+
+void ContentTab::LoadContentOnTabEnter()
+{
+    m_Resource.GetLock().lockForWrite();
+}
+
+
+void ContentTab::focusInEvent( QFocusEvent *event )
+{
+    QWidget::focusInEvent( event );
+
+    LoadContentOnTabEnter();
+}
+
+
+void ContentTab::focusOutEvent( QFocusEvent *event )
+{
+    QWidget::focusOutEvent( event );
+
+    SaveContentOnTabLeave();
+}
+
