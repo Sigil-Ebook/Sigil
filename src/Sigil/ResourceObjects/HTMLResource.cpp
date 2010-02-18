@@ -159,8 +159,7 @@ void HTMLResource::UpdateTextDocumentFromDomDocument()
         m_TextDocument->setDocumentLayout( new QPlainTextDocumentLayout( m_TextDocument ) );
     }
 
-    // TODO: use pretty-print Tidy
-    m_TextDocument->setPlainText( XHTMLDoc::GetQDomNodeAsString( m_DomDocument ) );
+    m_TextDocument->setPlainText( CleanSource::PrettyPrint( XHTMLDoc::GetQDomNodeAsString( m_DomDocument ) ) );
 
     m_TextDocumentIsOld = false;
 }
@@ -202,7 +201,8 @@ void HTMLResource::SaveToDisk()
 {
     QWriteLocker locker( &m_ReadWriteLock );
 
-    Utility::WriteUnicodeTextFile( XHTMLDoc::GetQDomNodeAsString( m_DomDocument ), m_FullFilePath );
+    Utility::WriteUnicodeTextFile( CleanSource::PrettyPrint( XHTMLDoc::GetQDomNodeAsString( m_DomDocument ) ),
+                                   m_FullFilePath );
 }
 
 
@@ -252,7 +252,6 @@ QString HTMLResource::GetWebPageHTML()
 
     RemoveWebkitClasses();
 
-    // TODO: use pretty-print Tidy
     return CleanSource::Clean( m_WebPage->mainFrame()->toHtml() );
 }
 

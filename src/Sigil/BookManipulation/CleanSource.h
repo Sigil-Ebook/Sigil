@@ -37,6 +37,8 @@ public:
     // No cleaning, just convert the source to valid XHTML
     static QString ToValidXHTML( const QString &source );
 
+    static QString PrettyPrint( const QString &source );
+
 private:
 
     // Cleans CSS; currently it removes the redundant CSS classes
@@ -66,6 +68,9 @@ private:
     // Tries to run Tidy's error correcting parser
     // as fast as possible, with no unnecessary cleaning
     static QString FastXHTMLTidy( const QString &source );
+
+    // Like FastXHTMLTidy, but pretty printing
+    static QString PrettyPrintTidy( const QString &source );  
 
     // Writes the new CSS style tags to the source, replacing the old ones
     static QString WriteNewCSSStyleTags( const QString &source, const QStringList &css_style_tags );
