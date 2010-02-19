@@ -208,25 +208,23 @@ bool Utility::RenameFile( const QString &oldfilepath, const QString &newfilepath
 }
 
 
+QString Utility::GetPathToSigilScratchpad()
+{
+#ifdef Q_WS_WIN
+    return QDir::homePath() + WIN_PATH_SUFFIX + "/scratchpad";
+#else
+    return QDir::homePath() + NIX_PATH_SUFFIX + "/scratchpad";
+#endif
+}
+
+
 // Returns the full path to a new temporary folder;
 // the caller is responsible for creating and deleting the folder
 QString Utility::GetNewTempFolderPath()
 {
     QString token = Utility::CreateUUID();
 
-    // The path used to store the folders depends on the OS used
-
-#ifdef Q_WS_WIN
-
-    QString folderpath = QDir::homePath() + WIN_PATH_SUFFIX + "/scratchpad/" + token;
-
-#else
-
-    QString folderpath = QDir::homePath() + NIX_PATH_SUFFIX + "/scratchpad/." + token;
-
-#endif
-
-    return folderpath;
+    return GetPathToSigilScratchpad() + "/" + token;
 }
 
 
@@ -415,7 +413,6 @@ float Utility::RoundToOneDecimal( float number )
 {
     return QString::number( number, 'f', 1 ).toFloat();
 }
-
 
 
 

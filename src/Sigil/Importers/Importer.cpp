@@ -19,39 +19,13 @@
 **
 *************************************************************************/
 
-#pragma once
-#ifndef IMPORTTXT_H
-#define IMPORTTXT_H
-
+#include <stdafx.h>
 #include "Importer.h"
-#include <QUrl>
-#include <QSharedPointer>
 
-class ImportTXT : public Importer
+Importer::Importer( const QString &fullfilepath )
+    :
+    m_FullFilePath( fullfilepath ),
+    m_Book( new Book() )
 {
 
-public:
-
-    // Constructor;
-    // The parameter is the file to be imported
-    ImportTXT( const QString &fullfilepath );
-
-    // Reads and parses the file 
-    // and returns the created Book
-    virtual QSharedPointer< Book > GetBook();
-
-private:
-
-    QString LoadSource() const;
-
-    HTMLResource* CreateHTMLResource( const QString &source );
-
-    void InitializeHTMLResource( const QString &source, HTMLResource *resource );
-
-    // Accepts a list of text lines and returns
-    // a string with paragraphs wrapped into <p> tags
-    QString CreateParagraphs( const QStringList &lines ) const;
-};
-
-#endif // IMPORTTXT_H
-
+}

@@ -38,7 +38,7 @@ static const QString OEBPS_MIMETYPE = "application/oebps-package+xml";
 // Constructor;
 // The parameter is the file to be imported
 ImportEPUB::ImportEPUB( const QString &fullfilepath )
-    : ImportHTML( fullfilepath )
+    : Importer( fullfilepath )
 {
 
 }

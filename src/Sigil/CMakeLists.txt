@@ -144,6 +144,7 @@ set( EXPORTER_FILES
 set( IMPORTER_FILES
     Importers/ImportEPUB.cpp
     Importers/ImportEPUB.h
+    Importers/Importer.cpp
     Importers/Importer.h
     Importers/ImporterFactory.cpp
     Importers/ImporterFactory.h

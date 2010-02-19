@@ -23,11 +23,11 @@
 #ifndef IMPORTHTML_H
 #define IMPORTHTML_H
 
-#include "ImportTXT.h"
+#include "Importer.h"
 #include "../BookManipulation/FolderKeeper.h"
 
 
-class ImportHTML : public ImportTXT
+class ImportHTML : public Importer
 {
 
 public:

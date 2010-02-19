@@ -705,7 +705,7 @@ void FlowTab::DelayedInitialization()
 
     m_wBookView.ScrollToFragmentAfterLoad( m_FragmentToScroll.toString() );
 
-    // Fix for missing blinking cursor... even though
+    // Fix for missing blinking caret... even though
     // the Book View already has focus... QtWebkit is really lovely, isn't it?
     m_wBookView.GrabFocus();
 

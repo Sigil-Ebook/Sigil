@@ -23,7 +23,7 @@
 #ifndef IMPORTEPUB_H
 #define IMPORTEPUB_H
 
-#include "ImportHTML.h"
+#include "Importer.h"
 #include "../BookManipulation/FolderKeeper.h"
 #include "../BookManipulation/Metadata.h"
 #include <QHash>
@@ -33,7 +33,7 @@ class HTMLResource;
 class CSSResource;
 
 
-class ImportEPUB : public ImportHTML
+class ImportEPUB : public Importer
 {
 
 public:

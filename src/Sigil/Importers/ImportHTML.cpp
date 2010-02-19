@@ -36,7 +36,7 @@ const QString HEAD_END = "</\\s*head\\s*>";
 // Constructor;
 // The parameter is the file to be imported
 ImportHTML::ImportHTML( const QString &fullfilepath )
-    : ImportTXT( fullfilepath )
+    : Importer( fullfilepath )
 {
 
 }

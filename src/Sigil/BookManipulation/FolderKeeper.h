@@ -45,7 +45,7 @@ public:
     FolderKeeper& operator= ( const FolderKeeper& other );
 
     // Destructor
-    ~FolderKeeper();	
+    ~FolderKeeper();
 
     // A dispatcher function that routes the given *infrastructure* file
     // to the appropriate specific folder function; the name of the new file

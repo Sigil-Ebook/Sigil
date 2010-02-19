@@ -66,6 +66,8 @@ public:
     static bool DeleteFile( const QString &fullfilepath );
 
     static bool RenameFile( const QString &oldfilepath, const QString &newfilepath );
+
+    static QString GetPathToSigilScratchpad();
   
     // Returns the full path to a new temporary folder;
     // the caller is responsible for creating and deleting the folder
