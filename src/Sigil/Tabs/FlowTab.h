@@ -24,6 +24,7 @@
 #define FLOWTAB_H
 
 #include "ContentTab.h"
+#include <QUrl>
 
 class QSplitter;
 class BookViewEditor;
@@ -186,6 +187,8 @@ private slots:
     // needed for source synchronization.
     void SplitViewFocusSwitch( QWidget *old_widget, QWidget *new_widget );
 
+    void DelayedInitialization();
+
     void EmitContentChanged();  
 
 private:
@@ -206,6 +209,8 @@ private:
     ///////////////////////////////
     // PRIVATE MEMBER VARIABLES
     ///////////////////////////////
+
+    const QUrl m_FragmentToScroll;
 
     HTMLResource &m_HTMLResource;
 

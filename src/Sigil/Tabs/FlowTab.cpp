@@ -35,6 +35,7 @@ QString FlowTab::s_LastFolderImage = QString();
 FlowTab::FlowTab( Resource& resource, const QUrl &fragment, QWidget *parent )
     : 
     ContentTab( resource, parent ),
+    m_FragmentToScroll( fragment ),
     m_HTMLResource( *( qobject_cast< HTMLResource* >( &resource ) ) ),
     m_Splitter( *new QSplitter( this ) ),
     m_wBookView( *new BookViewEditor( this ) ),
@@ -42,6 +43,10 @@ FlowTab::FlowTab( Resource& resource, const QUrl &fragment, QWidget *parent )
     m_IsLastViewBook( true ),
     m_InSplitView( false )
 {
+    // Loading a tab can take a while. We set the wait
+    // cursor and clear it at the end of the delayed initialization.
+    QApplication::setOverrideCursor( Qt::WaitCursor );
+
     m_Layout.addWidget( &m_Splitter );
 
     m_Splitter.setOrientation( Qt::Vertical );
@@ -50,19 +55,14 @@ FlowTab::FlowTab( Resource& resource, const QUrl &fragment, QWidget *parent )
 
     ConnectSignalsToSlots();
 
-    m_HTMLResource.UpdateWebPageFromDomDocument();
-    m_HTMLResource.UpdateTextDocumentFromDomDocument();
-    m_wBookView.CustomSetWebPage( m_HTMLResource.GetWebPage() );
-    m_wCodeView.CustomSetDocument( m_HTMLResource.GetTextDocument() );
-    
     // We need to set this in the constructor too,
     // so that the ContentTab focus handlers don't 
     // get called when the tab is created.
     setFocusProxy( &m_wBookView );
 
-    BookView();
-
-    m_wBookView.ScrollToFragmentAfterLoad( fragment.toString() );
+    // We perform delayed initialization after the widget is on
+    // the screen. This way, the user experiences less "lag" time.
+    QTimer::singleShot( 0, this, SLOT( DelayedInitialization() ) );
 }
 
 
@@ -689,6 +689,22 @@ void FlowTab::SplitViewFocusSwitch( QWidget *old_widget, QWidget *new_widget )
     }
 
     // else we don't care
+}
+
+
+void FlowTab::DelayedInitialization()
+{
+    m_HTMLResource.UpdateWebPageFromDomDocument();
+    m_HTMLResource.UpdateTextDocumentFromDomDocument();
+    m_wBookView.CustomSetWebPage( m_HTMLResource.GetWebPage() );
+    m_wCodeView.CustomSetDocument( m_HTMLResource.GetTextDocument() );
+
+    BookView();
+
+    m_wBookView.ScrollToFragmentAfterLoad( m_FragmentToScroll.toString() );
+
+    // Cursor set in constructor
+    QApplication::restoreOverrideCursor();
 }
 
 
