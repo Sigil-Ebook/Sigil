@@ -45,9 +45,15 @@ public:
 
     virtual Qt::DropActions supportedDropActions() const;
 
+private slots:
+
+    void RowsRemovedHandler( const QModelIndex &parent, int start, int end );
+
 private:
 
     void InitializeModel();
+
+    void UpdateHTMLReadingOrders();
 
     void SortFilesByFilenames();
 

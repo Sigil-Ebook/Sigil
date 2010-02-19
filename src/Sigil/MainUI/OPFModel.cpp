@@ -38,6 +38,9 @@ OPFModel::OPFModel( QWidget *parent )
     m_FontsFolderItem(  *new QStandardItem( FONT_FOLDER_NAME  ) ),
     m_MiscFolderItem(   *new QStandardItem( MISC_FOLDER_NAME  ) )
 {
+    connect( this, SIGNAL( rowsRemoved( const QModelIndex&, int, int ) ),
+             this, SLOT(   RowsRemovedHandler( const QModelIndex&, int, int ) ) );  
+
     QList< QStandardItem* > items;
 
     items.append( &m_TextFolderItem   );
@@ -62,6 +65,7 @@ OPFModel::OPFModel( QWidget *parent )
     invisibleRootItem()->setDropEnabled( false );
 }
 
+
 void OPFModel::SetBook( QSharedPointer< Book > book )
 {
     m_Book = book;
@@ -71,6 +75,7 @@ void OPFModel::SetBook( QSharedPointer< Book > book )
     SortFilesByFilenames();
     SortHTMLFilesByReadingOrder();
 }
+
 
 QModelIndex OPFModel::GetFirstHTMLModelIndex()
 {
@@ -92,6 +97,25 @@ void OPFModel::sort( int column, Qt::SortOrder order )
 Qt::DropActions OPFModel::supportedDropActions() const
 {
     return Qt::MoveAction;
+}
+
+
+//   This function initiates HTML reading order updating when the user
+// moves the HTML files in the Book Browser.
+//   You would expect the use of QAbstractItemModel::rowsMoved, but that
+// signal is never emitted because in QStandardItemModel, row moves
+// are actually handled by creating a copy of the row in the new position
+// and then deleting the old row. 
+//   Yes, it's stupid and violates the guarantees of the QAbstractItemModel
+// class. Oh and it's not documented anywhere. Nokia FTW.
+//   This also handles actual HTML item deletion.
+void OPFModel::RowsRemovedHandler( const QModelIndex &parent, int start, int end )
+{
+    if ( itemFromIndex( parent ) != &m_TextFolderItem )
+
+        return;
+
+    UpdateHTMLReadingOrders();
 }
 
 
@@ -148,6 +172,26 @@ void OPFModel::InitializeModel()
     }
 }
 
+
+void OPFModel::UpdateHTMLReadingOrders()
+{
+    for ( int i = 0; i < m_TextFolderItem.rowCount(); ++i )
+    {
+        QStandardItem *html_item = m_TextFolderItem.child( i );
+
+        Q_ASSERT( html_item );
+
+        if ( html_item->data( READING_ORDER_ROLE ).toInt() != i )
+        {
+            html_item->setData( i, READING_ORDER_ROLE );
+            qobject_cast< HTMLResource* >( 
+                &m_Book->mainfolder.GetResourceByIdentifier( html_item->data().toString() ) )->SetReadingOrder( i );
+
+        }
+    }
+}
+
+
 void OPFModel::ClearModel()
 {
     while ( m_TextFolderItem.rowCount() != 0 )
@@ -193,4 +237,5 @@ void OPFModel::SortHTMLFilesByReadingOrder()
 
     setSortRole( old_sort_role );
 }
+
 

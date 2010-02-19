@@ -110,6 +110,7 @@ private:
     bool m_WebPageIsOld;
     bool m_TextDocumentIsOld;
 
+    // Starts at 0, not 1
     int m_ReadingOrder;
 };
 
