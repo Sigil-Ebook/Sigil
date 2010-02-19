@@ -184,9 +184,12 @@ void OPFModel::UpdateHTMLReadingOrders()
         if ( html_item->data( READING_ORDER_ROLE ).toInt() != i )
         {
             html_item->setData( i, READING_ORDER_ROLE );
-            qobject_cast< HTMLResource* >( 
-                &m_Book->mainfolder.GetResourceByIdentifier( html_item->data().toString() ) )->SetReadingOrder( i );
+            HTMLResource *html_resource =  qobject_cast< HTMLResource* >(
+                                                &m_Book->mainfolder.GetResourceByIdentifier( html_item->data().toString() ) );
 
+            if ( html_resource != NULL )
+                
+                html_resource->SetReadingOrder( i );
         }
     }
 }

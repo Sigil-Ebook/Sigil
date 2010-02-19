@@ -53,10 +53,6 @@ static const int ZOOM_SLIDER_WIDTH          = 140;
 static const QString REPORTING_ISSUES_WIKI  = "http://code.google.com/p/sigil/wiki/ReportingIssues";
 static const QString SIGIL_DEV_BLOG         = "http://sigildev.blogspot.com/";
 
-// The <hr> tag is wrapped in <div>'s because of issue #78;
-// basically it's a workaround for a webkit bug
-const QString BREAK_TAG_INSERT              = "<div><hr class=\"sigilChapterBreak\" /></div>";
-
 static const QString FRAME_NAME      = "managerframe";
 static const QString TAB_STYLE_SHEET =  "#managerframe {border-top: 0px solid white;"
                                         "border-left: 1px solid grey;"

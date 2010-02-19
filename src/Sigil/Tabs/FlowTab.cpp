@@ -29,6 +29,8 @@
 
 static const QString SETTINGS_GROUP = "flowtab";
 
+const QString BREAK_TAG_INSERT      = "<hr class=\"sigilChapterBreak\" />";
+
 QString FlowTab::s_LastFolderImage = QString();
 
 
