@@ -89,11 +89,14 @@ void ImportTXT::InitializeHTMLResource( const QString &source, HTMLResource *res
 QString ImportTXT::CreateParagraphs( const QStringList &lines ) const
 {
     QString text = "";
-
     QString paragraph = "<p>";
 
-    foreach( QString line, lines )
+    int num_lines = lines.count();
+
+    for ( int i = 0; i < num_lines; ++i )
     {
+        QString line = lines.at( i );
+
         if ( line.isEmpty() || line[ 0 ].isSpace() )
         {
             text.append( paragraph.append( "</p>\n" ) );
