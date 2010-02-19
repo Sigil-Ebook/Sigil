@@ -68,8 +68,21 @@ void TextResource::SaveToDisk()
 }
 
 
+void TextResource::InitialLoad()
+{
+    QWriteLocker locker( &m_ReadWriteLock );
+
+    Q_ASSERT( m_TextDocument );
+
+    if ( m_TextDocument->toPlainText().isEmpty() )
+
+        m_TextDocument->setPlainText( Utility::ReadUnicodeTextFile( GetFullPath() ) );
+}
+
+
 Resource::ResourceType TextResource::Type() const
 {
     return Resource::TextResource;
 }
+
 

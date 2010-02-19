@@ -43,6 +43,8 @@ public:
 
     virtual void SaveToDisk();
 
+    virtual void InitialLoad();
+
     virtual ResourceType Type() const;
 
 private:

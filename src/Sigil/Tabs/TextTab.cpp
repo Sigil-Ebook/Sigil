@@ -35,6 +35,8 @@ TextTab::TextTab( Resource& resource, CodeViewEditor::HighlighterType type, QWid
 
     ConnectSignalsToSlots();
 
+    m_TextResource.InitialLoad();
+
     // Actually we get a lock here just to get around
     // the Q_ASSERT in GetTextDocumentForWriting().
     // We will get the "real" lock when the tab receives focus.
