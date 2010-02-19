@@ -43,7 +43,7 @@ FlowTab::FlowTab( Resource& resource, const QUrl &fragment, QWidget *parent )
     m_IsLastViewBook( true ),
     m_InSplitView( false )
 {
-    // Loading a tab can take a while. We set the wait
+    // Loading a flow tab can take a while. We set the wait
     // cursor and clear it at the end of the delayed initialization.
     QApplication::setOverrideCursor( Qt::WaitCursor );
 
@@ -61,7 +61,7 @@ FlowTab::FlowTab( Resource& resource, const QUrl &fragment, QWidget *parent )
     setFocusProxy( &m_wBookView );
 
     // We perform delayed initialization after the widget is on
-    // the screen. This way, the user experiences less "lag" time.
+    // the screen. This way, the user perceives less load time.
     QTimer::singleShot( 0, this, SLOT( DelayedInitialization() ) );
 }
 

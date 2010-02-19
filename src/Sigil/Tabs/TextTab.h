@@ -57,6 +57,10 @@ signals:
 
     void SelectionChanged();
 
+private slots:
+
+    void DelayedInitialization();
+
 private:
 
     virtual void ConnectSignalsToSlots();

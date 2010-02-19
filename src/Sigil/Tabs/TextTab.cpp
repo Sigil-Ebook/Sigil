@@ -37,11 +37,9 @@ TextTab::TextTab( Resource& resource, CodeViewEditor::HighlighterType type, QWid
 
     m_TextResource.InitialLoad();
 
-    // Actually we get a lock here just to get around
-    // the Q_ASSERT in GetTextDocumentForWriting().
-    // We will get the "real" lock when the tab receives focus.
-    QWriteLocker locker( &m_TextResource.GetLock() );
-    m_wCodeView.CustomSetDocument( m_TextResource.GetTextDocumentForWriting() );
+    // We perform delayed initialization after the widget is on
+    // the screen. This way, the user perceives less load time.
+    QTimer::singleShot( 0, this, SLOT( DelayedInitialization() ) );    
 }   
 
 
@@ -87,6 +85,12 @@ ContentTab::ViewState TextTab::GetViewState()
 }
 
 
+void TextTab::DelayedInitialization()
+{
+    m_wCodeView.CustomSetDocument( m_TextResource.GetTextDocumentForWriting() );
+}
+
+
 void TextTab::ConnectSignalsToSlots()
 {
     // We set the Code View as the focus proxy for the tab,
@@ -98,4 +102,3 @@ void TextTab::ConnectSignalsToSlots()
     connect( &m_wCodeView, SIGNAL( ZoomFactorChanged( float ) ), this, SIGNAL( ZoomFactorChanged( float ) ) );
     connect( &m_wCodeView, SIGNAL( selectionChanged() ),         this, SIGNAL( SelectionChanged() )         );
 }
-
