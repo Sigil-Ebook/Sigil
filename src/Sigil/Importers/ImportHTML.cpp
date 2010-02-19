@@ -25,12 +25,16 @@
 #include "../Misc/HTMLEncodingResolver.h"
 #include "../BookManipulation/Metadata.h"
 #include "../BookManipulation/CleanSource.h"
-#include <QDomDocument>
+#include "ResourceObjects/HTMLResource.h"
+#include "../SourceUpdates/PerformInitialHTMLUpdates.h"
 #include "../BookManipulation/XHTMLDoc.h"
+#include <QDomDocument>
 
 static const QString ENTITY_SEARCH = "<!ENTITY\\s+(\\w+)\\s+\"([^\"]+)\">";
 
 const QString HEAD_END = "</\\s*head\\s*>";
+
+static const QStringList IMAGE_TAGS = QStringList() << "img" << "image"; 
 
 
 // Constructor;
@@ -50,40 +54,27 @@ QSharedPointer< Book > ImportHTML::GetBook()
 
         boost_throw( CannotReadFile() << errinfo_file_read( m_FullFilePath.toStdString() ) );
 
-    LoadSource(); 
+    QDomDocument document;
+    document.setContent( CleanSource::ToValidXHTML( LoadSource() ) );
 
-    // We need to make the source valid XHTML to allow us to 
-    // parse it with XML parsers
-    m_Book->source = CleanSource::ToValidXHTML( m_Book->source );
+    StripFilesFromAnchors( document );
+    LoadMetadata( document );
 
-    LoadMetadata();
-    StripFilesFromAnchors();
-    //UpdateReferences( LoadFolderStructure() );
+    HTMLResource *resource = CreateHTMLResource();
 
-    m_Book->source = CleanSource::Clean( m_Book->source );
+    resource->SetDomDocument( PerformInitialHTMLUpdates( XHTMLDoc::GetQDomNodeAsString( document ),
+                                                         LoadFolderStructure( document ),
+                                                         QHash< QString, QString >() )() );
 
     return m_Book;
 }
 
 
-// Returns a style tag created 
-// from the provided path to a CSS file
-QString ImportHTML::CreateStyleTag( const QString &fullfilepath ) const
+// Loads the source code into the Book
+QString ImportHTML::LoadSource()
 {
-    QString source    = Utility::ReadUnicodeTextFile( fullfilepath ); 
-    QString style_tag = "";
-
-    if ( QFileInfo( fullfilepath ).suffix() == "css" )
-    {
-        style_tag = "<style type=\"text/css\">\n" + source + "\n</style>\n";
-    }
-
-    else // XPGT stylesheet
-    {
-        style_tag = "<style type=\"application/vnd.adobe-page-template+xml\">\n" + source + "\n</style>\n";
-    }
-
-    return style_tag;
+    QString source = HTMLEncodingResolver::ReadHTMLFile( m_FullFilePath );
+    return ResolveCustomEntities( source );
 }
 
 
@@ -91,7 +82,6 @@ QString ImportHTML::CreateStyleTag( const QString &fullfilepath ) const
 QString ImportHTML::ResolveCustomEntities( const QString &html_source ) const
 {
     QString source = html_source;
-
     QRegExp entity_search( ENTITY_SEARCH );
 
     QHash< QString, QString > entities;
@@ -126,17 +116,12 @@ QString ImportHTML::ResolveCustomEntities( const QString &html_source ) const
 }
 
 
-
 // Strips the file specifier on all the href attributes 
 // of anchor tags with filesystem links with fragment identifiers;
 // thus something like <a href="chapter01.html#firstheading" />
 // becomes just <a href="#firstheading" />
-void ImportHTML::StripFilesFromAnchors()
+void ImportHTML::StripFilesFromAnchors( QDomDocument &document )
 {
-    QDomDocument document;
- 
-    document.setContent( m_Book->source );
-
     QDomNodeList anchors = document.elementsByTagName( "a" );
 
     for ( int i = 0; i < anchors.count(); ++i )
@@ -152,18 +137,13 @@ void ImportHTML::StripFilesFromAnchors()
         {
             element.setAttribute( "href", "#" + element.attribute( "href" ).split( "#" )[ 1 ] );            
         } 
-    }
-
-    m_Book->source = XHTMLDoc::GetQDomNodeAsString( document );      
+    }     
 }
 
 // Searches for meta information in the HTML file
 // and tries to convert it to Dublin Core
-void ImportHTML::LoadMetadata()
+void ImportHTML::LoadMetadata( const QDomDocument &document )
 {
-    QDomDocument document; 
-    document.setContent( m_Book->source );
-
     QDomNodeList metatags = document.elementsByTagName( "meta" );
 
     for ( int i = 0; i < metatags.count(); ++i )
@@ -188,50 +168,57 @@ void ImportHTML::LoadMetadata()
 }
 
 
-// Loads the source code into the Book
-void ImportHTML::LoadSource()
+HTMLResource* ImportHTML::CreateHTMLResource()
 {
-    m_Book->source = HTMLEncodingResolver::ReadHTMLFile( m_FullFilePath );
-    m_Book->source = ResolveCustomEntities( m_Book->source );
+    QDir dir( Utility::GetNewTempFolderPath() );
+    dir.mkpath( dir.absolutePath() );
+
+    QString fullfilepath = dir.absolutePath() + "/" + FIRST_CHAPTER_NAME;
+    Utility::WriteUnicodeTextFile( "TEMP_SOURCE", fullfilepath );
+
+    m_Book->mainfolder.AddContentFileToFolder( fullfilepath, 0 );
+
+    return m_Book->mainfolder.GetSortedHTMLResources()[ 0 ];
 }
 
 
 // Loads the referenced files into the main folder of the book;
 // as the files get a new name, the references are updated
-QHash< QString, QString > ImportHTML::LoadFolderStructure()
+QHash< QString, QString > ImportHTML::LoadFolderStructure( const QDomDocument &document )
 {
     QHash< QString, QString > updates;
     
-    updates = LoadImages();
-    LoadStyleFiles();
+    updates = LoadImages( document );
+    updates.unite( LoadStyleFiles( document ) );
 
     return updates;    
 }
 
 
 // Loads the images into the book
-QHash< QString, QString > ImportHTML::LoadImages()
+QHash< QString, QString > ImportHTML::LoadImages( const QDomDocument &document )
 {
     // "Normal" HTML image elements
-    QList< XHTMLDoc::XMLElement > image_nodes = XHTMLDoc::GetTagsInDocument( m_Book->source, "img" );
-
-    // SVG image elements
-    image_nodes.append( XHTMLDoc::GetTagsInDocument( m_Book->source, "image" ) );
+    QList< QDomNode > image_nodes = XHTMLDoc::GetTagMatchingChildren( document, IMAGE_TAGS );
 
     QStringList image_links;
 
     // Get a list of all images referenced
-    foreach( XHTMLDoc::XMLElement element, image_nodes )
+    foreach( QDomNode node, image_nodes )
     {
+        QDomElement element = node.toElement();
+
+        Q_ASSERT( !element.isNull() );
+
         QString url_reference;
 
-        if ( element.attributes.contains( "src" ) )
+        if ( element.hasAttribute( "src" ) )
 
-            url_reference = element.attributes.value( "src" );
+            url_reference = QUrl::fromPercentEncoding( element.attribute( "src" ).toUtf8() );
 
         else // This covers the SVG "image" tags
 
-            url_reference = element.attributes.value( "xlink:href" );
+            url_reference = QUrl::fromPercentEncoding( element.attribute( "xlink:href" ).toUtf8() );
         
         if ( !url_reference.isEmpty() )
 
@@ -243,13 +230,13 @@ QHash< QString, QString > ImportHTML::LoadImages()
 
     QHash< QString, QString > updates;
 
+    QDir folder( QFileInfo( m_FullFilePath ).absoluteDir() );
+
     // Load the images into the book and
     // update all references with new urls
     foreach( QString image_link, image_links )
     {
-        QDir folder( QFileInfo( m_FullFilePath ).absoluteDir() );
-
-        QString fullfilepath = QFileInfo( folder, QUrl( image_link ).toString() ).absoluteFilePath();
+        QString fullfilepath = QFileInfo( folder, image_link ).absoluteFilePath();
         QString newpath      = "../" + m_Book->mainfolder.AddContentFileToFolder( fullfilepath );
 
         updates[ image_link ] = newpath;
@@ -260,50 +247,37 @@ QHash< QString, QString > ImportHTML::LoadImages()
 
 
 // Loads CSS files from link tags to style tags
-void ImportHTML::LoadStyleFiles()
+QHash< QString, QString > ImportHTML::LoadStyleFiles( const QDomDocument &document )
 {
-    QDomDocument document;
-    document.setContent( m_Book->source );
-
     QDomNodeList link_nodes = document.elementsByTagName( "link" );
 
-    QStringList style_tags;
+    QHash< QString, QString > updates;
 
     // Get all the style files references in link tags
     // and convert them into style tags
     for ( int i = 0; i < link_nodes.count(); ++i )
     {
-        QDir folder( QFileInfo( m_FullFilePath ).absoluteDir() );
-
         QDomElement element = link_nodes.at( i ).toElement();
 
-        QFileInfo file_info( folder, QUrl( element.attribute( "href" ) ).toString() );
+        Q_ASSERT( !element.isNull() );
 
-        if (    file_info.suffix().toLower() == "css" ||
-                file_info.suffix().toLower() == "xpgt"
+        QDir folder( QFileInfo( m_FullFilePath ).absoluteDir() );
+
+        QString relative_path = QUrl::fromPercentEncoding( element.attribute( "href" ).toUtf8() );
+
+        QFileInfo file_info( folder, relative_path );
+
+        if (  file_info.suffix().toLower() == "css" ||
+              file_info.suffix().toLower() == "xpgt"
            )
         {
-            style_tags << CreateStyleTag( file_info.absoluteFilePath() );
+            QString newpath = "../" + m_Book->mainfolder.AddContentFileToFolder( file_info.absoluteFilePath() );
+
+            updates[ relative_path ] = newpath;
         }
     }
 
-    QDomNode head = document.elementsByTagName( "head" ).at( 0 );
-
-    // Remove the link tags
-    while ( !link_nodes.isEmpty() )
-    {
-        head.removeChild( link_nodes.at( 0 ) );        
-    }
-
-    QString new_source = XHTMLDoc::GetQDomNodeAsString( document );
-
-    // Paste the new style tags into the head section
-    foreach( QString style, style_tags )
-    {
-        new_source.replace( QRegExp( "(</\\s*(?:head|HEAD)[^>]*>)" ), style + "\n\\1" );
-    }  
-
-    m_Book->source = new_source;
+    return updates;
 }
 
 

@@ -26,6 +26,8 @@
 #include "Importer.h"
 #include "../BookManipulation/FolderKeeper.h"
 
+class HTMLResource;
+class QDomDocument;
 
 class ImportHTML : public Importer
 {
@@ -40,41 +42,37 @@ public:
     // and returns the created Book
     virtual QSharedPointer< Book > GetBook();
 
-protected:
+private:
 
-    // Returns a style tag created 
-    // from the provided path to a CSS file
-    QString CreateStyleTag( const QString &fullfilepath ) const;    
+    // Loads the source code into the Book
+    QString LoadSource();  
 
     // Resolves custom ENTITY declarations
-    QString ResolveCustomEntities( const QString &html_source ) const; 
+    QString ResolveCustomEntities( const QString &html_source ) const;
 
     // Strips the file specifier on all the href attributes 
     // of anchor tags with filesystem links with fragment identifiers;
     // thus something like <a href="chapter01.html#firstheading" />
     // becomes just <a href="#firstheading" />
-    void StripFilesFromAnchors();
+    void StripFilesFromAnchors( QDomDocument &document );
 
     // Searches for meta information in the HTML file
     // and tries to convert it to Dublin Core
-    void LoadMetadata();   
+    void LoadMetadata( const QDomDocument &document ); 
 
-private:
-    
-    // Loads the source code into the Book
-    void LoadSource();       
+    HTMLResource* ImportHTML::CreateHTMLResource();
 
     // Loads the referenced files into the main folder of the book;
     // as the files get a new name, the references are updated 
-    QHash< QString, QString > LoadFolderStructure();
+    QHash< QString, QString > LoadFolderStructure( const QDomDocument &document );
 
     // Loads CSS files from link tags to style tags.
     // Returns a hash with keys being old references (URLs) to resources,
     // and values being the new references to those resources.
-    QHash< QString, QString > LoadImages();
+    QHash< QString, QString > LoadImages( const QDomDocument &document );
 
     // Loads style files from link tags to style tags
-    void LoadStyleFiles();
+    QHash< QString, QString > LoadStyleFiles( const QDomDocument &document );
 };
 
 #endif // IMPORTHTML_H

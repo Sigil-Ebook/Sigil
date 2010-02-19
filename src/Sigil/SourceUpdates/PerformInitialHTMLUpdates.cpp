@@ -43,8 +43,12 @@ PerformInitialHTMLUpdates::PerformInitialHTMLUpdates( const QString &source,
 QDomDocument PerformInitialHTMLUpdates::operator()()
 {
     UpdateHTMLReferences();
-    m_Document.setContent(
-        PerformInitialCSSUpdates( XHTMLDoc::GetQDomNodeAsString( m_Document ), m_CSSUpdates )() );
+
+    if ( !m_CSSUpdates.isEmpty() )
+    {
+        m_Document.setContent(
+            PerformInitialCSSUpdates( XHTMLDoc::GetQDomNodeAsString( m_Document ), m_CSSUpdates )() );
+    }
 
     return m_Document;
 }
