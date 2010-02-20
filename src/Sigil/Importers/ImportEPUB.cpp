@@ -26,19 +26,18 @@
 #include "../Misc/HTMLEncodingResolver.h"
 #include "../SourceUpdates/PerformHTMLUpdates.h"
 #include "../SourceUpdates/PerformCSSUpdates.h"
-#include <ZipArchive.h>
 #include "../BookManipulation/XHTMLDoc.h"
 #include <QDomDocument>
 #include "ResourceObjects/HTMLResource.h"
 #include "ResourceObjects/CSSResource.h"
 
-static const QString OEBPS_MIMETYPE = "application/oebps-package+xml";
+
 
 
 // Constructor;
 // The parameter is the file to be imported
 ImportEPUB::ImportEPUB( const QString &fullfilepath )
-    : Importer( fullfilepath )
+    : ImportOEBPS( fullfilepath )
 {
 
 }
@@ -72,202 +71,6 @@ QSharedPointer< Book > ImportEPUB::GetBook()
     CleanAndUpdateFiles( LoadFolderStructure() );
 
     return m_Book;
-}
-
-
-// Extracts the EPUB file to a temporary folder;
-// the path to this folder is stored in m_ExtractedFolderPath
-void ImportEPUB::ExtractContainer()
-{
-    QDir folder( Utility::GetNewTempFolderPath() );
-    m_ExtractedFolderPath = folder.absolutePath();
-    folder.mkpath( m_ExtractedFolderPath );
-
-    CZipArchive zip;
-
-    try
-    {
-#ifdef Q_WS_WIN
-        zip.Open( m_FullFilePath.utf16(), CZipArchive::zipOpenReadOnly );
-#else
-        zip.Open( m_FullFilePath.toUtf8().data(), CZipArchive::zipOpenReadOnly );
-#endif
-
-        int file_count = (int) zip.GetCount();
-        QString folder_path = folder.absolutePath();
-
-#ifdef Q_WS_WIN
-        const ushort *win_path = folder_path.utf16();
-#else
-        QByteArray utf8_path( folder_path.toUtf8() );
-        char *nix_path = utf8_path.data();
-#endif
-        for ( int i = 0; i < file_count; ++i )
-        {
-#ifdef Q_WS_WIN
-            zip.ExtractFile( i, win_path );
-#else
-            zip.ExtractFile( i, nix_path );
-#endif
-        }
-
-        zip.Close(); 
-    }
-    
-    // We have to to do this here: if we don't wrap
-    // this exception and try to catch "raw" in MainWindow,
-    // we get some dumb header name clash from ZipArchive
-    catch ( CZipException &exception )
-    {
-        // The error description is always ASCII
-        boost_throw( CZipExceptionWrapper() 
-                     << errinfo_zip_info( QString::fromStdWString( exception.GetErrorDescription() ).toStdString() ) );
-        
-    }
-}
-
-
-// Locates the OPF file in the extracted folder;
-// the path to the OPF is stored in m_OPFFilePath
-void ImportEPUB::LocateOPF()
-{
-    QDir folder( m_ExtractedFolderPath );
-    folder.cd( "META-INF" );
-    QString fullpath = folder.absoluteFilePath( "container.xml" );
-
-    QXmlStreamReader container( Utility::ReadUnicodeTextFile( fullpath ) );
-
-    while ( !container.atEnd() ) 
-    {
-        // Get the next token from the stream
-        QXmlStreamReader::TokenType type = container.readNext();
-
-        if (  type == QXmlStreamReader::StartElement && 
-              container.name() == "rootfile"
-           ) 
-        {
-            if (  container.attributes().hasAttribute( "media-type" ) &&
-                  container.attributes().value( "", "media-type" ) == OEBPS_MIMETYPE 
-               )
-            {
-                m_OPFFilePath = m_ExtractedFolderPath + "/" + container.attributes().value( "", "full-path" ).toString();
-
-                // As per OCF spec, the first rootfile element
-                // with the OEBPS mimetype is considered the "main" one.
-                break;
-            }
-        }
-    }
-
-    if ( container.hasError() )
-    {
-        boost_throw( ErrorParsingContentXML() 
-                     << errinfo_XML_parsing_error_string( container.errorString().toStdString() )
-                     << errinfo_XML_parsing_line_number( container.lineNumber() )
-                     << errinfo_XML_parsing_column_number( container.columnNumber() )
-                   );
-    }
-
-    if ( m_OPFFilePath.isEmpty() )
-    {
-        boost_throw( NoAppropriateOPFFileFound() );    
-    }
-}
-
-
-// Parses the OPF file and stores the parsed information
-// inside m_MetaElements, m_Files and m_ReadingOrderIds
-void ImportEPUB::ReadOPF()
-{
-    QString opf_text = Utility::ReadUnicodeTextFile( m_OPFFilePath );
-
-    // MASSIVE hack for XML 1.1 "support";
-    // this is only for people who specify
-    // XML 1.1 when they actually only use XML 1.0 
-    QString source = opf_text.replace(  QRegExp( "<\\?xml\\s+version=\"1.1\"\\s*\\?>" ),
-                                                 "<?xml version=\"1.0\"?>"
-                                     );
-
-    QXmlStreamReader opf( source );
-
-    while ( !opf.atEnd() ) 
-    {
-        // Get the next token from the stream
-        QXmlStreamReader::TokenType type = opf.readNext();
-
-        if ( type == QXmlStreamReader::StartElement ) 
-        {
-            // Parse and store Dublin Core metadata elements
-            if ( opf.qualifiedName().toString().startsWith( "dc:" ) == true )
-            {
-                Metadata::MetaElement meta;                
-                
-                // We create a copy of the attributes because
-                // the QXmlStreamAttributes die out after we 
-                // move away from the token
-                foreach( QXmlStreamAttribute attribute, opf.attributes() )
-                {
-                    meta.attributes[ attribute.name().toString() ] = attribute.value().toString();
-                }
-
-                meta.name = opf.name().toString();
-
-                QString element_text = opf.readElementText();
-                meta.value = element_text;
-
-                // Empty metadata entries
-                if ( !element_text.isEmpty() )
-
-                    m_MetaElements.append( meta );
-            }
-
-            // Get the list of content files that
-            // make up the publication
-            else if ( opf.name() == "item" )           
-            {
-                QString id   = opf.attributes().value( "", "id" ).toString(); 
-                QString href = opf.attributes().value( "", "href" ).toString();
-
-                href = QUrl::fromPercentEncoding( href.toUtf8() );
-
-                if ( !href.contains( ".ncx" ) )
-                     
-                    m_Files[ id ] = href;
-            }
-
-            // Get the list of XHTML files that
-            // represent the reading order
-            else if ( opf.name() == "itemref" )           
-            {
-                m_ReadingOrderIds.append( opf.attributes().value( "", "idref" ).toString() );
-            }
-        }
-    }
-
-    if ( opf.hasError() )
-    {
-        boost_throw( ErrorParsingOPF() 
-                     << errinfo_XML_parsing_error_string( opf.errorString().toStdString() )
-                     << errinfo_XML_parsing_line_number( opf.lineNumber() )
-                     << errinfo_XML_parsing_column_number( opf.columnNumber() )
-                   );
-    }
-    
-}
-
-// Loads the metadata from the m_MetaElements list
-// (filled by reading the OPF) into the book
-void ImportEPUB::LoadMetadata()
-{
-    foreach( Metadata::MetaElement meta, m_MetaElements )
-    {
-        Metadata::MetaElement book_meta = Metadata::Instance().MapToBookMetadata( meta, "DublinCore" );
-
-        if ( !book_meta.name.isEmpty() && !book_meta.value.toString().isEmpty() )
-        {
-            m_Book->metadata[ book_meta.name ].append( book_meta.value );
-        }
-    }    
 }
 
 void ImportEPUB::CleanAndUpdateFiles( const QHash< QString, QString > &updates )
@@ -359,8 +162,8 @@ tuple< QString, QString > ImportEPUB::LoadOneFile( const QString &key )
     QString path         = m_Files.value( key );
     QString fullfilepath = QFileInfo( m_OPFFilePath ).absolutePath() + "/" + path;
 
-    QString newpath = m_Book->mainfolder.AddContentFileToFolder( fullfilepath, m_ReadingOrderIds.indexOf( key ) );
-    newpath = "../" + newpath; 
+    Resource &resource = m_Book->mainfolder.AddContentFileToFolder( fullfilepath, m_ReadingOrderIds.indexOf( key ) );
+    QString newpath = "../" + resource.GetRelativePathToOEBPS(); 
 
     return make_tuple( path, newpath );
 }

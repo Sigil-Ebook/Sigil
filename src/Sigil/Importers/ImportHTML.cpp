@@ -44,6 +44,7 @@ ImportHTML::ImportHTML( const QString &fullfilepath )
 
 }
 
+
 void ImportHTML::SetBook( QSharedPointer< Book > book )
 {
     m_Book = book;
@@ -170,7 +171,7 @@ void ImportHTML::LoadMetadata( const QDomDocument &document )
 }
 
 
-HTMLResource* ImportHTML::CreateHTMLResource()
+HTMLResource& ImportHTML::CreateHTMLResource()
 {
     QDir dir( Utility::GetNewTempFolderPath() );
     dir.mkpath( dir.absolutePath() );
@@ -178,15 +179,16 @@ HTMLResource* ImportHTML::CreateHTMLResource()
     QString fullfilepath = dir.absolutePath() + "/" + FIRST_CHAPTER_NAME;
     Utility::WriteUnicodeTextFile( "TEMP_SOURCE", fullfilepath );
 
-    m_Book->mainfolder.AddContentFileToFolder( fullfilepath, 0 );
+    HTMLResource &resource = *qobject_cast< HTMLResource* >(
+                                &m_Book->mainfolder.AddContentFileToFolder( fullfilepath, 0 ) );
 
-    return m_Book->mainfolder.GetSortedHTMLResources()[ 0 ];
+    return resource;
 }
 
 
-void ImportHTML::UpdateFiles( HTMLResource *html_resource, QDomDocument &document )
+void ImportHTML::UpdateFiles( HTMLResource &html_resource, QDomDocument &document )
 {
-    Q_ASSERT( html_resource );
+    Q_ASSERT( &html_resource != NULL );
 
     QHash< QString, QString > html_updates;
     QHash< QString, QString > css_updates;
@@ -209,7 +211,7 @@ void ImportHTML::UpdateFiles( HTMLResource *html_resource, QDomDocument &documen
     QFutureSynchronizer<void> sync;
     sync.addFuture( QtConcurrent::map( css_resources, boost::bind( UpdateOneCSSFile, _1, css_updates ) ) );
 
-    html_resource->SetDomDocument( PerformHTMLUpdates( document, html_updates, css_updates )() );
+    html_resource.SetDomDocument( PerformHTMLUpdates( document, html_updates, css_updates )() );
 
     sync.waitForFinished();
 }
@@ -290,7 +292,7 @@ QHash< QString, QString > ImportHTML::LoadImages( const QDomDocument &document )
     foreach( QString image_link, image_links )
     {
         QString fullfilepath = QFileInfo( folder, image_link ).absoluteFilePath();
-        QString newpath      = "../" + m_Book->mainfolder.AddContentFileToFolder( fullfilepath );
+        QString newpath      = "../" + m_Book->mainfolder.AddContentFileToFolder( fullfilepath ).GetRelativePathToOEBPS();
 
         updates[ image_link ] = newpath;
     }
@@ -324,7 +326,8 @@ QHash< QString, QString > ImportHTML::LoadStyleFiles( const QDomDocument &docume
               file_info.suffix().toLower() == "xpgt"
            )
         {
-            QString newpath = "../" + m_Book->mainfolder.AddContentFileToFolder( file_info.absoluteFilePath() );
+            QString newpath = "../" + m_Book->mainfolder.AddContentFileToFolder( 
+                                            file_info.absoluteFilePath() ).GetRelativePathToOEBPS();
 
             updates[ relative_path ] = newpath;
         }

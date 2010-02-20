@@ -53,7 +53,7 @@ public:
     void AddInfraFileToFolder( const QString &fullfilepath, const QString &newfilename );
 
     // The file is recognized according to its extension.
-    QString AddContentFileToFolder( const QString &fullfilepath, int reading_order = -1 );
+    Resource& AddContentFileToFolder( const QString &fullfilepath, int reading_order = -1 );
 
     // Returns a list of all the content files in the directory
     // with a path relative to the OEBPS directory

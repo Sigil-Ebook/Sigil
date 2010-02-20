@@ -23,9 +23,12 @@
 #ifndef IMPORTSGF_H
 #define IMPORTSGF_H
 
-#include "ImportEPUB.h"
+#include "ImportOEBPS.h"
+#include "../BookManipulation/XHTMLDoc.h"
 
-class ImportSGF : public ImportEPUB
+class Resource;
+
+class ImportSGF : public ImportOEBPS
 {
 
 public:
@@ -42,7 +45,32 @@ public:
 private:
 
     // Loads the source code into the Book
-    void LoadSource();
+    QString LoadSource();
+
+    // Creates style files from the style tags in the source
+    // and returns a list of their file paths relative 
+    // to the OEBPS folder in the FolderKeeper
+    QList< Resource* > CreateStyleResources( const QString &source );
+
+    Resource* CreateOneStyleFile( const XHTMLDoc::XMLElement &element, 
+                                  const QString &folderpath, 
+                                  int index );
+
+    // Strips CDATA declarations from the provided source
+    static QString StripCDATA( const QString &style_source );
+
+    // Removes Sigil styles from the provided source
+    static QString RemoveSigilStyles( const QString &style_source );
+
+    // Takes a list of style sheet file names 
+    // and returns the header for XHTML files
+    QString CreateHeader( const QList< Resource* > &style_resources ) const;
+
+    // Creates XHTML files from the book source;
+    // the provided header is used as the header of the created files
+    void CreateXHTMLFiles( const QString &source, const QString &header );
+
+    void CreateOneXHTMLFile( QString source, int reading_order, const QString &folderpath );
 
     // Loads the referenced files into the main folder of the book
     void LoadFolderStructure();

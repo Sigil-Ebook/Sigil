@@ -65,9 +65,9 @@ private:
     // and tries to convert it to Dublin Core
     void LoadMetadata( const QDomDocument &document ); 
 
-    HTMLResource* ImportHTML::CreateHTMLResource();
+    HTMLResource& ImportHTML::CreateHTMLResource();
 
-    void UpdateFiles( HTMLResource *html_resource, QDomDocument &document );
+    void UpdateFiles( HTMLResource &html_resource, QDomDocument &document );
 
     // Copied from ImportEPUB because the importers will
     // soon become independent plugins (as shared libraries)

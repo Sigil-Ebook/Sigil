@@ -23,17 +23,13 @@
 #ifndef IMPORTEPUB_H
 #define IMPORTEPUB_H
 
-#include "Importer.h"
-#include "../BookManipulation/FolderKeeper.h"
-#include "../BookManipulation/Metadata.h"
-#include <QHash>
-#include <QStringList>
+#include "ImportOEBPS.h"
 
 class HTMLResource;
 class CSSResource;
 
 
-class ImportEPUB : public Importer
+class ImportEPUB : public ImportOEBPS
 {
 
 public:
@@ -51,21 +47,7 @@ public:
 
 protected:
 
-    // Extracts the EPUB file to a temporary folder;
-    // the path to this folder is stored in m_ExtractedFolderPath
-    void ExtractContainer();
-
-    // Locates the OPF file in the extracted folder;
-    // the path to the OPF is stored in m_OPFFilePath
-    void LocateOPF();
-
-    // Parses the OPF file and stores the parsed information
-    // inside m_MetaElements, m_Files and m_ReadingOrderIds 
-    void ReadOPF();
-
-    // Loads the metadata from the m_MetaElements list
-    // (filled by reading the OPF) into the book
-    void LoadMetadata();
+   
 
     void CleanAndUpdateFiles( const QHash< QString, QString > &updates );
 
@@ -82,31 +64,6 @@ protected:
     QHash< QString, QString > LoadFolderStructure();
 
     tuple< QString, QString > LoadOneFile( const QString &key );
-
-
-    ///////////////////////////////
-    // PROTECTED MEMBER VARIABLES
-    ///////////////////////////////
-
-    // The full path to the folder where the
-    // EPUB was extracted to
-    QString m_ExtractedFolderPath;
-
-    // The full path to the OPF file
-    // of the publication
-    QString m_OPFFilePath;
-
-    // The map of all the files in the publication's
-    // manifest; The keys are the element ID's, 
-    // the values are stored paths to the files
-    QMap< QString, QString > m_Files;
-
-    // The list of ID's to the files in the manifest
-    // that represent the reading order of the publication
-    QStringList m_ReadingOrderIds;
-
-    // The list of metadata elements in the OPF
-    QList< Metadata::MetaElement > m_MetaElements;
     
 };
 

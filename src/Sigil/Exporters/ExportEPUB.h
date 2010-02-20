@@ -57,31 +57,6 @@ protected:
     // mimetype to write to the special "mimetype" file
     void SaveTo( const QString &fullfilepath, const QString &mimetype = QString( EPUB_MIME_TYPE ) );
 
-    // Creates style files from the style tags in the source
-    // and returns a list of their file paths relative 
-    // to the OEBPS folder in the FolderKeeper
-    QStringList CreateStyleFiles();
-
-    // Takes a list of style sheet file names 
-    // and returns the header for XHTML files
-    QString CreateHeader( const QStringList &cssfiles ) const;
-
-    // Creates XHTML files from the book source;
-    // the provided header is used as the header of the created files
-    void CreateXHTMLFiles( const QString &header );
-
-    // Creates one text file from the provided source
-    // and adds it to the FolderKeeper object with
-    // the provided extension; returns the file path
-    // relative to the OEBPS folder
-    QString CreateOneTextFile( const QString &source, const QString &extension );
-
-    // Strips CDATA declarations from the provided source
-    QString StripCDATA( const QString &style_source ) const;
-
-    // Removes Sigil styles from the provided source
-    QString RemoveSigilStyles( const QString &style_source ) const;
-
     // Updates the href attributes of all <a> tags
     // to point to the files the ID's referenced are located in
     void UpdateAnchors();

@@ -50,7 +50,7 @@ void ExportSGF::WriteBook()
 // (creates XHTML, OPF, NCX files etc.)
 void ExportSGF::CreatePublication()
 {
-    CreateOneTextFile( m_Book.source, "xhtml" );
+    //CreateOneTextFile( m_Book.source, "xhtml" );
 
     CreateContainerXML();
     CreateContentOPF();

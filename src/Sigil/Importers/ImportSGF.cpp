@@ -23,12 +23,14 @@
 #include "ImportSGF.h"
 #include "../Misc/Utility.h"
 #include "../BookManipulation/CleanSource.h"
+#include "ResourceObjects/HTMLResource.h"
+#include "ResourceObjects/TextResource.h"
 
 
 // Constructor;
 // The parameter is the file to be imported
 ImportSGF::ImportSGF( const QString &fullfilepath )
-    : ImportEPUB( fullfilepath )
+    : ImportOEBPS( fullfilepath )
 {
 
 }
@@ -39,6 +41,10 @@ ImportSGF::ImportSGF( const QString &fullfilepath )
 // Overrides;
 QSharedPointer< Book > ImportSGF::GetBook()
 {
+    if ( !Utility::IsFileReadable( m_FullFilePath ) )
+
+        boost_throw( CannotReadFile() << errinfo_file_read( m_FullFilePath.toStdString() ) );
+
     // These read the EPUB file
     ExtractContainer();
     LocateOPF();
@@ -46,20 +52,217 @@ QSharedPointer< Book > ImportSGF::GetBook()
 
     // These mutate the m_Book object
     LoadMetadata();
-    LoadSource();
-    LoadFolderStructure();
 
-    m_Book->source = CleanSource::Clean( m_Book->source );
+    QString source = LoadSource();
+    QString header = CreateHeader( CreateStyleResources( source ) );
+
+    CreateXHTMLFiles( source, header );
+    LoadFolderStructure();
 
     return m_Book;
 }
 
 
 // Loads the source code into the Book
-void ImportSGF::LoadSource()
+QString ImportSGF::LoadSource()
 {
     QString fullpath = QFileInfo( m_OPFFilePath ).absolutePath() + "/" + m_Files.values().first();
-    m_Book->source   = Utility::ReadUnicodeTextFile( fullpath ); 
+    return CleanSource::ToValidXHTML( Utility::ReadUnicodeTextFile( fullpath ) ); 
+}
+
+
+// Creates style files from the style tags in the source
+// and returns a list of their file paths relative 
+// to the OEBPS folder in the FolderKeeper
+QList< Resource* > ImportSGF::CreateStyleResources( const QString &source )
+{    
+    QList< XHTMLDoc::XMLElement > style_tag_nodes = XHTMLDoc::GetTagsInHead( source, "style" );
+
+    QDir dir( Utility::GetNewTempFolderPath() );
+    dir.mkpath( dir.absolutePath() );
+    QString folderpath = dir.absolutePath();
+
+    QFutureSynchronizer< Resource* > sync;
+
+    for ( int i = 0; i < style_tag_nodes.count(); ++i ) 
+    {
+        sync.addFuture( QtConcurrent::run( 
+            this, &ImportSGF::CreateOneStyleFile, style_tag_nodes.at( i ), folderpath, i ) );        
+    }
+
+    sync.waitForFinished();
+
+    QtConcurrent::run( Utility::DeleteFolderAndFiles, folderpath );
+
+    QList< QFuture< Resource* > > futures = sync.futures();
+    QList< Resource* > style_resources;
+
+    for ( int i = 0; i < futures.count(); ++i )
+    {
+        style_resources.append( futures.at( i ).result() );
+    }    
+
+    return style_resources;
+}
+
+
+Resource* ImportSGF::CreateOneStyleFile( const XHTMLDoc::XMLElement &element, 
+                                         const QString &folderpath, 
+                                         int index )
+{
+    QString style_text = element.text;
+    style_text = RemoveSigilStyles( style_text );
+    style_text = StripCDATA( style_text );
+    style_text = style_text.trimmed();  
+
+    if ( style_text.isEmpty() )
+
+        return NULL;
+    
+    QString extension    = element.attributes.value( "type" ) == "text/css" ? "css" : "xpgt";
+    QString filename     = QString( "style" ) + QString( "%1" ).arg( index, 3, 10, QChar( '0' ) ) + "." + extension;
+    QString fullfilepath = folderpath + "/" + filename;
+
+    Utility::WriteUnicodeTextFile( "PLACEHOLDER", fullfilepath );
+
+    TextResource *text_resource = qobject_cast< TextResource* >( 
+                                     &m_Book->mainfolder.AddContentFileToFolder( fullfilepath ) );
+
+    Q_ASSERT( text_resource );
+    text_resource->SetText( style_text );
+
+    return text_resource;
+}
+
+
+// Strips CDATA declarations from the provided source
+QString ImportSGF::StripCDATA( const QString &style_source )
+{
+    QString newsource = style_source;
+
+    newsource.replace( "/*<![CDATA[*/", "" );
+    newsource.replace( "/*]]>*/", "" );
+    newsource.replace( "/**/", "" );
+
+    newsource.replace( "<![CDATA[", "" );
+    newsource.replace( "]]>", "" );
+
+    return newsource;
+}
+
+
+// Removes Sigil styles from the provided source
+QString ImportSGF::RemoveSigilStyles( const QString &style_source )
+{
+    QString newsource = style_source;
+
+    QRegExp chapter_break_style( "hr\\.sigilChapterBreak[^\\}]+\\}" );
+    QRegExp sigil_comment( "/\\*SG.*SG\\*/" );
+
+    sigil_comment.setMinimal( true );
+
+    newsource.remove( chapter_break_style );
+    newsource.remove( sigil_comment );
+
+    return newsource;
+}
+
+
+// Takes a list of style sheet file names 
+// and returns the header for XHTML files
+QString ImportSGF::CreateHeader( const QList< Resource* > &style_resources ) const
+{
+    QString header = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
+                     "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\"\n"
+                     "    \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n\n"							
+                     "<html xmlns=\"http://www.w3.org/1999/xhtml\">\n"
+                     "<head>\n";
+
+    foreach( Resource* resource, style_resources )
+    {
+        if ( resource )
+
+            header += "    <link href=\"../" + resource->GetRelativePathToOEBPS() + 
+                      "\" rel=\"stylesheet\" type=\"text/css\" />\n";
+    }
+
+    header += "</head>\n";
+
+    return header;
+}
+
+
+// Creates XHTML files from the book source;
+// the provided header is used as the header of the created files
+void ImportSGF::CreateXHTMLFiles( const QString &source, const QString &header )
+{
+    QRegExp body_start_tag( BODY_START );
+    QRegExp body_end_tag( BODY_END );
+
+    int body_begin = source.indexOf( body_start_tag, 0 ) + body_start_tag.matchedLength();
+    int body_end   = source.indexOf( body_end_tag,   0 );
+
+    int main_index    = body_begin;
+    int reading_order = 0;
+
+    QDir dir( Utility::GetNewTempFolderPath() );
+    dir.mkpath( dir.absolutePath() );
+    QString folderpath = dir.absolutePath();
+
+    QFutureSynchronizer< void > sync;
+
+    while ( main_index != body_end )
+    {
+        // move up?
+        QRegExp break_tag( BREAK_TAG_SEARCH );
+
+        // We search for our HR break tag
+        int break_index = source.indexOf( break_tag, main_index );
+
+        QString body;
+
+        // We break up the remainder of the file on the HR tag index if it's found
+        if ( break_index > -1 )
+        {
+            body = Utility::Substring( main_index, break_index, source );
+            main_index = break_index + break_tag.matchedLength();
+        }
+
+        // Otherwise, we take the rest of the file
+        else
+        {
+            body = Utility::Substring( main_index, body_end, source );
+            main_index = body_end;
+        }
+
+        QString wholefile = header + "<body>\n" + body + "</body> </html>";
+
+        sync.addFuture( QtConcurrent::run( this, &ImportSGF::CreateOneXHTMLFile, wholefile, reading_order, folderpath ) );
+
+        ++reading_order;
+    }	
+
+    sync.waitForFinished();
+
+    QtConcurrent::run( Utility::DeleteFolderAndFiles, folderpath );
+}
+
+void ImportSGF::CreateOneXHTMLFile( QString source, int reading_order, const QString &folderpath )
+{
+    QString filename     = QString( "content" ) + QString( "%1" ).arg( reading_order + 1, 3, 10, QChar( '0' ) ) + ".xhtml";
+    QString fullfilepath = folderpath + "/" + filename;
+
+    Utility::WriteUnicodeTextFile( "PLACEHOLDER", fullfilepath );
+
+    HTMLResource *html_resource = qobject_cast< HTMLResource* >( 
+                                        &m_Book->mainfolder.AddContentFileToFolder( fullfilepath ) );
+
+    Q_ASSERT( html_resource );
+
+    QDomDocument document;
+    document.setContent( CleanSource::Clean( source ) );
+
+    html_resource->SetDomDocument( document );
 }
 
 
@@ -68,15 +271,13 @@ void ImportSGF::LoadFolderStructure()
 {
     foreach( QString key, m_Files.keys() )
     {
-        QString path = m_Files[ key ];
-
         // We skip over the book text
         if ( !m_ReadingOrderIds.contains( key ) )
         {
-            QString fullfilepath = QFileInfo( m_OPFFilePath ).absolutePath() + "/" + path;
-
-            //m_Book->mainfolder.AddContentFileToFolder( fullfilepath, NULL, true );
+            QString fullfilepath = QFileInfo( m_OPFFilePath ).absolutePath() + "/" + m_Files.value( key );
+            m_Book->mainfolder.AddContentFileToFolder( fullfilepath );
         }        
     }
 }
+
 

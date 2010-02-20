@@ -109,10 +109,8 @@ void FolderKeeper::AddInfraFileToFolder( const QString &fullfilepath, const QStr
     }
 }
 
-// Adds the given *content* file to the appropriate specific folder.
-// The file is recognized according to its extension.
-// The function returns the file's new path relative to the OEBPS folder.
-QString FolderKeeper::AddContentFileToFolder( const QString &fullfilepath, int reading_order )
+
+Resource& FolderKeeper::AddContentFileToFolder( const QString &fullfilepath, int reading_order )
 {
     // TODO: check if file with this filename exists,
     // and append a suffix if it does
@@ -185,7 +183,7 @@ QString FolderKeeper::AddContentFileToFolder( const QString &fullfilepath, int r
 
         resource->moveToThread( QApplication::instance()->thread() );
 
-    return relative_path;
+    return *resource;
 }
 
 
