@@ -39,8 +39,12 @@ public:
     // The parameter is the file to be imported
     ImportHTML( const QString &fullfilepath );
 
+    // Needed so that we can use an existing Book
+    // in which to load HTML files (and their dependencies).
+    void SetBook( QSharedPointer< Book > book );
+
     // Reads and parses the file 
-    // and returns the created Book
+    // and returns the created Book.
     virtual QSharedPointer< Book > GetBook();
 
 private:

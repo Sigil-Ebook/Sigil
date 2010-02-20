@@ -44,6 +44,11 @@ ImportHTML::ImportHTML( const QString &fullfilepath )
 
 }
 
+void ImportHTML::SetBook( QSharedPointer< Book > book )
+{
+    m_Book = book;
+}
+
 
 // Reads and parses the file 
 // and returns the created Book
