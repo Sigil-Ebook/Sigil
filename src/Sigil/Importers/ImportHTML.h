@@ -27,6 +27,7 @@
 #include "../BookManipulation/FolderKeeper.h"
 
 class HTMLResource;
+class CSSResource;
 class QDomDocument;
 
 class ImportHTML : public Importer
@@ -61,6 +62,13 @@ private:
     void LoadMetadata( const QDomDocument &document ); 
 
     HTMLResource* ImportHTML::CreateHTMLResource();
+
+    void UpdateFiles( HTMLResource *html_resource, QDomDocument &document );
+
+    // Copied from ImportEPUB because the importers will
+    // soon become independent plugins (as shared libraries)
+    static void UpdateOneCSSFile( CSSResource* css_resource, 
+                                  const QHash< QString, QString > &css_updates );
 
     // Loads the referenced files into the main folder of the book;
     // as the files get a new name, the references are updated 

@@ -30,8 +30,8 @@ static const QStringList PATH_ATTRIBUTES = QStringList() << "href" << "src";
 
 
 PerformHTMLUpdates::PerformHTMLUpdates( const QString &source,
-                                                      const QHash< QString, QString > &html_updates,
-                                                      const QHash< QString, QString > &css_updates )
+                                        const QHash< QString, QString > &html_updates,
+                                        const QHash< QString, QString > &css_updates )
     : 
     m_HTMLUpdates( html_updates ),
     m_CSSUpdates( css_updates )
@@ -41,8 +41,8 @@ PerformHTMLUpdates::PerformHTMLUpdates( const QString &source,
 
 
 PerformHTMLUpdates::PerformHTMLUpdates( const QDomDocument &document, 
-                                                      const QHash< QString, QString > &html_updates, 
-                                                      const QHash< QString, QString > &css_updates )
+                                        const QHash< QString, QString > &html_updates, 
+                                        const QHash< QString, QString > &css_updates )
     : 
     m_HTMLUpdates( html_updates ),
     m_CSSUpdates( css_updates )

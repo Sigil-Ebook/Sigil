@@ -23,6 +23,8 @@
 #include "HTMLEncodingResolver.h"
 #include "Utility.h"
 
+static const QString HEAD_END = "</\\s*head\\s*>";
+
 
 // Accepts a full path to an HTML file.
 // Reads the file, detects the encoding

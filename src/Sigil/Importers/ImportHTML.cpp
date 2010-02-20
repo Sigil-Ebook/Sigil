@@ -26,14 +26,13 @@
 #include "../BookManipulation/Metadata.h"
 #include "../BookManipulation/CleanSource.h"
 #include "ResourceObjects/HTMLResource.h"
+#include "ResourceObjects/CSSResource.h"
 #include "../SourceUpdates/PerformHTMLUpdates.h"
+#include "../SourceUpdates/PerformCSSUpdates.h"
 #include "../BookManipulation/XHTMLDoc.h"
 #include <QDomDocument>
 
 static const QString ENTITY_SEARCH = "<!ENTITY\\s+(\\w+)\\s+\"([^\"]+)\">";
-
-const QString HEAD_END = "</\\s*head\\s*>";
-
 static const QStringList IMAGE_TAGS = QStringList() << "img" << "image"; 
 
 
@@ -55,16 +54,12 @@ QSharedPointer< Book > ImportHTML::GetBook()
         boost_throw( CannotReadFile() << errinfo_file_read( m_FullFilePath.toStdString() ) );
 
     QDomDocument document;
-    document.setContent( CleanSource::ToValidXHTML( LoadSource() ) );
+    document.setContent( LoadSource() );
 
     StripFilesFromAnchors( document );
     LoadMetadata( document );
 
-    HTMLResource *resource = CreateHTMLResource();
-
-    resource->SetDomDocument( PerformHTMLUpdates( document,
-                                                  LoadFolderStructure( document ),
-                                                  QHash< QString, QString >() )() );
+    UpdateFiles( CreateHTMLResource(), document );
 
     return m_Book;
 }
@@ -73,7 +68,7 @@ QSharedPointer< Book > ImportHTML::GetBook()
 // Loads the source code into the Book
 QString ImportHTML::LoadSource()
 {
-    QString source = HTMLEncodingResolver::ReadHTMLFile( m_FullFilePath );
+    QString source = CleanSource::Clean( HTMLEncodingResolver::ReadHTMLFile( m_FullFilePath ) );
     return ResolveCustomEntities( source );
 }
 
@@ -128,11 +123,13 @@ void ImportHTML::StripFilesFromAnchors( QDomDocument &document )
     {
         QDomElement element = anchors.at( i ).toElement();
 
+        Q_ASSERT( !element.isNull() );
+
         // We strip the file specifier on all
         // the filesystem links with fragment identifiers
-        if (    element.hasAttribute( "href" ) &&
-                QUrl( element.attribute( "href" ) ).isRelative() &&
-                element.attribute( "href" ).contains( "#" )
+        if ( element.hasAttribute( "href" ) &&
+             QUrl( element.attribute( "href" ) ).isRelative() &&
+             element.attribute( "href" ).contains( "#" )
            )
         {
             element.setAttribute( "href", "#" + element.attribute( "href" ).split( "#" )[ 1 ] );            
@@ -182,16 +179,67 @@ HTMLResource* ImportHTML::CreateHTMLResource()
 }
 
 
+void ImportHTML::UpdateFiles( HTMLResource *html_resource, QDomDocument &document )
+{
+    Q_ASSERT( html_resource );
+
+    QHash< QString, QString > html_updates;
+    QHash< QString, QString > css_updates;
+    tie( html_updates, css_updates ) = PerformHTMLUpdates::SeparateHTMLAndCSSUpdates( LoadFolderStructure( document ) );
+
+    QList< Resource* > all_files = m_Book->mainfolder.GetResourceList();
+    int num_files = all_files.count();
+
+    QList< CSSResource* > css_resources;
+
+    for ( int i = 0; i < num_files; ++i )
+    {
+        Resource *resource = all_files.at( i );
+
+        if ( resource->Type() == Resource::CSSResource )   
+        
+            css_resources.append( qobject_cast< CSSResource* >( resource ) );          
+    }
+
+    QFutureSynchronizer<void> sync;
+    sync.addFuture( QtConcurrent::map( css_resources, boost::bind( UpdateOneCSSFile, _1, css_updates ) ) );
+
+    html_resource->SetDomDocument( PerformHTMLUpdates( document, html_updates, css_updates )() );
+
+    sync.waitForFinished();
+}
+
+
+void ImportHTML::UpdateOneCSSFile( CSSResource* css_resource, const QHash< QString, QString > &css_updates )
+{
+    QString source = Utility::ReadUnicodeTextFile( css_resource->GetFullPath() );
+    source = PerformCSSUpdates( source, css_updates )();
+    css_resource->SetText( source );
+}
+
+
 // Loads the referenced files into the main folder of the book;
 // as the files get a new name, the references are updated
 QHash< QString, QString > ImportHTML::LoadFolderStructure( const QDomDocument &document )
 {
-    QHash< QString, QString > updates;
-    
-    updates = LoadImages( document );
-    updates.unite( LoadStyleFiles( document ) );
+    QFutureSynchronizer< QHash< QString, QString > > sync;
 
-    return updates;    
+    sync.addFuture( QtConcurrent::run( this, &ImportHTML::LoadImages,     document ) );
+    sync.addFuture( QtConcurrent::run( this, &ImportHTML::LoadStyleFiles, document ) );
+    
+    sync.waitForFinished();
+
+    QList< QFuture< QHash< QString, QString > > > futures = sync.futures();
+    int num_futures = futures.count();
+
+    QHash< QString, QString > updates;
+
+    for ( int i = 0; i < num_futures; ++i )
+    {
+        updates.unite( futures.at( i ).result() );
+    }   
+
+    return updates;
 }
 
 
