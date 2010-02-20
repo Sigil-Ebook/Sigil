@@ -83,9 +83,6 @@ protected:
 
     tuple< QString, QString > LoadOneFile( const QString &key );
 
-    tuple< QHash< QString, QString >, 
-    QHash< QString, QString > > SeparateHTMLAndCSSUpdates( const QHash< QString, QString > &updates );
-
 
     ///////////////////////////////
     // PROTECTED MEMBER VARIABLES

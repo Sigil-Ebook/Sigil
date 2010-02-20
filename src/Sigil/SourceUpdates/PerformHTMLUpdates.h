@@ -44,6 +44,9 @@ public:
 
     QDomDocument operator()( );
 
+    static tuple< QHash< QString, QString >, 
+                  QHash< QString, QString > > SeparateHTMLAndCSSUpdates( const QHash< QString, QString > &updates );
+
 private:
 
     // Updates the resource references in the HTML.

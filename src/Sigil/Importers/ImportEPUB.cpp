@@ -274,7 +274,7 @@ void ImportEPUB::CleanAndUpdateFiles( const QHash< QString, QString > &updates )
 {
     QHash< QString, QString > html_updates;
     QHash< QString, QString > css_updates;
-    tie( html_updates, css_updates ) = SeparateHTMLAndCSSUpdates( updates );
+    tie( html_updates, css_updates ) = PerformHTMLUpdates::SeparateHTMLAndCSSUpdates( updates );
 
     QList< HTMLResource* > html_resources;
     QList< CSSResource* > css_resources;
@@ -364,39 +364,5 @@ tuple< QString, QString > ImportEPUB::LoadOneFile( const QString &key )
 
     return make_tuple( path, newpath );
 }
-
-
-tuple< QHash< QString, QString >, 
-QHash< QString, QString > > ImportEPUB::SeparateHTMLAndCSSUpdates( const QHash< QString, QString > &updates )
-{
-    QHash< QString, QString > html_updates = updates;
-    QHash< QString, QString > css_updates;
-
-    QList< QString > keys = updates.keys();
-    int num_keys = keys.count();
-
-    for ( int i = 0; i < num_keys; ++i )
-    {
-        QString key_path = keys.at( i );
-        QString extension = QFileInfo( key_path ).suffix().toLower();
-
-        // Font file updates are CSS updates, not HTML updates
-        if ( extension == "ttf" || extension == "otf" )
-        {
-            css_updates[ key_path ] = html_updates.value( key_path );
-            html_updates.remove( key_path );
-        }
-
-        if ( extension == "css" )
-        {
-            // Needed for CSS updates because of @import rules
-            css_updates[ key_path ] = html_updates.value( key_path );
-        }
-    }
-
-    return make_tuple( html_updates, css_updates );
-}
-
-
 
 
