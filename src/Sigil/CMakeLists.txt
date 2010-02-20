@@ -223,10 +223,10 @@ set( UI_FILES
     )
     
 set( SOURCEUPDATE_FILES   
-    SourceUpdates/PerformInitialHTMLUpdates.cpp 
-    SourceUpdates/PerformInitialHTMLUpdates.h
-    SourceUpdates/PerformInitialCSSUpdates.cpp
-    SourceUpdates/PerformInitialCSSUpdates.h
+    SourceUpdates/PerformHTMLUpdates.cpp 
+    SourceUpdates/PerformHTMLUpdates.h
+    SourceUpdates/PerformCSSUpdates.cpp
+    SourceUpdates/PerformCSSUpdates.h
     )
             
 set( QRC_FILES  

@@ -20,9 +20,9 @@
 *************************************************************************/
 
 #include <stdafx.h>
-#include "PerformInitialCSSUpdates.h"
+#include "PerformCSSUpdates.h"
 
-PerformInitialCSSUpdates::PerformInitialCSSUpdates( const QString &source, const QHash< QString, QString > &css_updates )
+PerformCSSUpdates::PerformCSSUpdates( const QString &source, const QHash< QString, QString > &css_updates )
     : 
     m_Source( source ), 
     m_CSSUpdates( css_updates )
@@ -31,7 +31,7 @@ PerformInitialCSSUpdates::PerformInitialCSSUpdates( const QString &source, const
 }
 
 
-QString PerformInitialCSSUpdates::operator()()
+QString PerformCSSUpdates::operator()()
 {
     QList< QString > keys = m_CSSUpdates.keys();
     int num_keys = keys.count();

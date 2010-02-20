@@ -20,33 +20,47 @@
 *************************************************************************/
 
 #pragma once
-#ifndef PERFORMINITIALCSSUPDATES_H
-#define PERFORMINITIALCSSUPDATES_H
+#ifndef PERFORMHTMLUPDATES_H
+#define PERFORMHTMLUPDATES_H
+
+#include <QDomDocument>
 
 class QString;
+class QDomNode;
 
-class PerformInitialCSSUpdates
+
+class PerformHTMLUpdates
 {
 
 public:
 
-    PerformInitialCSSUpdates( const QString &source,
-                              const QHash< QString, QString > &css_updates );
+    PerformHTMLUpdates( const QString &source,
+                        const QHash< QString, QString > &html_updates,
+                        const QHash< QString, QString > &css_updates );
 
-    QString operator()( );
+    PerformHTMLUpdates( const QDomDocument &document,
+                        const QHash< QString, QString > &html_updates,
+                        const QHash< QString, QString > &css_updates );
+
+    QDomDocument operator()( );
 
 private:
 
-    // Updates the resource references in the CSS.
-    void UpdateCSSReferences();
+    // Updates the resource references in the HTML.
+    void UpdateHTMLReferences();
+
+    // Updates the resource references in the attributes 
+    // of the one specified node in the HTML.
+    void UpdateReferenceInNode( QDomNode node );
 
     ///////////////////////////////
     // PRIVATE MEMBER VARIABLES
     ///////////////////////////////
 
-    QString m_Source;
+    QDomDocument m_Document;
 
+    const QHash< QString, QString > &m_HTMLUpdates;
     const QHash< QString, QString > &m_CSSUpdates;
 };
 
-#endif // PERFORMINITIALCSSUPDATES_H
+#endif // PERFORMHTMLUPDATES_H

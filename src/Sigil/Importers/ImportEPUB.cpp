@@ -24,8 +24,8 @@
 #include "../BookManipulation/CleanSource.h"
 #include "../Misc/Utility.h"
 #include "../Misc/HTMLEncodingResolver.h"
-#include "../SourceUpdates/PerformInitialHTMLUpdates.h"
-#include "../SourceUpdates/PerformInitialCSSUpdates.h"
+#include "../SourceUpdates/PerformHTMLUpdates.h"
+#include "../SourceUpdates/PerformCSSUpdates.h"
 #include <ZipArchive.h>
 #include "../BookManipulation/XHTMLDoc.h"
 #include <QDomDocument>
@@ -311,13 +311,13 @@ void ImportEPUB::CleanAndUpdateOneHTMLFile( HTMLResource* html_resource,
                                             const QHash< QString, QString > &css_updates )
 {
     QString source = CleanSource::Clean( HTMLEncodingResolver::ReadHTMLFile( html_resource->GetFullPath() ) );
-    html_resource->SetDomDocument( PerformInitialHTMLUpdates( source, html_updates, css_updates )() );
+    html_resource->SetDomDocument( PerformHTMLUpdates( source, html_updates, css_updates )() );
 }
 
 void ImportEPUB::UpdateOneCSSFile( CSSResource* css_resource, const QHash< QString, QString > &css_updates )
 {
     QString source = Utility::ReadUnicodeTextFile( css_resource->GetFullPath() );
-    source = PerformInitialCSSUpdates( source, css_updates )();
+    source = PerformCSSUpdates( source, css_updates )();
     css_resource->SetText( source );
 }
 

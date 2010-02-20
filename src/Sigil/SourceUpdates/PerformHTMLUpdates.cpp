@@ -20,8 +20,8 @@
 *************************************************************************/
 
 #include <stdafx.h>
-#include "PerformInitialHTMLUpdates.h"
-#include "PerformInitialCSSUpdates.h"
+#include "PerformHTMLUpdates.h"
+#include "PerformCSSUpdates.h"
 #include <QDomDocument>
 #include "../BookManipulation/XHTMLDoc.h"
 
@@ -29,7 +29,7 @@ static const QStringList PATH_TAGS       = QStringList() << "link" << "a" << "im
 static const QStringList PATH_ATTRIBUTES = QStringList() << "href" << "src";
 
 
-PerformInitialHTMLUpdates::PerformInitialHTMLUpdates( const QString &source,
+PerformHTMLUpdates::PerformHTMLUpdates( const QString &source,
                                                       const QHash< QString, QString > &html_updates,
                                                       const QHash< QString, QString > &css_updates )
     : 
@@ -40,41 +40,53 @@ PerformInitialHTMLUpdates::PerformInitialHTMLUpdates( const QString &source,
 }
 
 
-QDomDocument PerformInitialHTMLUpdates::operator()()
+PerformHTMLUpdates::PerformHTMLUpdates( const QDomDocument &document, 
+                                                      const QHash< QString, QString > &html_updates, 
+                                                      const QHash< QString, QString > &css_updates )
+    : 
+    m_HTMLUpdates( html_updates ),
+    m_CSSUpdates( css_updates )
+{
+    m_Document = document;
+}
+
+
+QDomDocument PerformHTMLUpdates::operator()()
 {
     UpdateHTMLReferences();
 
     if ( !m_CSSUpdates.isEmpty() )
     {
         m_Document.setContent(
-            PerformInitialCSSUpdates( XHTMLDoc::GetQDomNodeAsString( m_Document ), m_CSSUpdates )() );
+            PerformCSSUpdates( XHTMLDoc::GetQDomNodeAsString( m_Document ), m_CSSUpdates )() );
     }
 
     return m_Document;
 }
 
 
-void PerformInitialHTMLUpdates::UpdateHTMLReferences()
+void PerformHTMLUpdates::UpdateHTMLReferences()
 {
     QList< QDomNode > nodes = XHTMLDoc::GetTagMatchingChildren( m_Document.documentElement(), PATH_TAGS );
 
     int node_count = nodes.count();
 
-    for ( int j = 0; j < node_count; ++j )
+    QFutureSynchronizer< void > sync;
+
+    for ( int i = 0; i < node_count; ++i )
     {
-        m_NodeUpdateSynchronizer.addFuture(
-            QtConcurrent::run( this, &PerformInitialHTMLUpdates::UpdateReferenceInNode, nodes.at( j ) ) );
+        sync.addFuture( QtConcurrent::run( this, &PerformHTMLUpdates::UpdateReferenceInNode, nodes.at( i ) ) );
     }
 
     // We wait until all the nodes are updated
-    m_NodeUpdateSynchronizer.waitForFinished();
+    sync.waitForFinished();
 }
 
 
 // This function has been brutally optimized since it is the main
 // bottleneck during loading (well, not anymore :) ).
 // Be vewy, vewy careful when editing it.
-void PerformInitialHTMLUpdates::UpdateReferenceInNode( QDomNode node )
+void PerformHTMLUpdates::UpdateReferenceInNode( QDomNode node )
 {
     QDomNamedNodeMap attributes = node.attributes();
     int num_attributes = attributes.count();

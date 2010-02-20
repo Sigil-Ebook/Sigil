@@ -26,7 +26,7 @@
 #include "../BookManipulation/Metadata.h"
 #include "../BookManipulation/CleanSource.h"
 #include "ResourceObjects/HTMLResource.h"
-#include "../SourceUpdates/PerformInitialHTMLUpdates.h"
+#include "../SourceUpdates/PerformHTMLUpdates.h"
 #include "../BookManipulation/XHTMLDoc.h"
 #include <QDomDocument>
 
@@ -62,9 +62,9 @@ QSharedPointer< Book > ImportHTML::GetBook()
 
     HTMLResource *resource = CreateHTMLResource();
 
-    resource->SetDomDocument( PerformInitialHTMLUpdates( XHTMLDoc::GetQDomNodeAsString( document ),
-                                                         LoadFolderStructure( document ),
-                                                         QHash< QString, QString >() )() );
+    resource->SetDomDocument( PerformHTMLUpdates( document,
+                                                  LoadFolderStructure( document ),
+                                                  QHash< QString, QString >() )() );
 
     return m_Book;
 }
