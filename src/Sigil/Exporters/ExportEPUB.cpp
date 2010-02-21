@@ -152,7 +152,7 @@ void ExportEPUB::CreateContainerXML()
     {
         boost_throw( CannotOpenFile() 
                      << errinfo_file_fullpath( file.fileName().toStdString() )
-                     << errinfo_qfile_error( file.error() ) 
+                     << errinfo_file_errorstring( file.errorString().toStdString() ) 
                    );
     }
 
@@ -180,7 +180,7 @@ void ExportEPUB::CreateContentOPF()
     {
         boost_throw( CannotOpenFile() 
                      << errinfo_file_fullpath( file.fileName().toStdString() )
-                     << errinfo_qfile_error( file.error() ) 
+                     << errinfo_file_errorstring( file.errorString().toStdString() ) 
                    );
     }
     
@@ -210,7 +210,7 @@ void ExportEPUB::CreateTocNCX()
     {
         boost_throw( CannotOpenFile() 
                      << errinfo_file_fullpath( file.fileName().toStdString() )
-                     << errinfo_qfile_error( file.error() ) 
+                     << errinfo_file_errorstring( file.errorString().toStdString() ) 
                    );
     }
     

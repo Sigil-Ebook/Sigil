@@ -38,7 +38,7 @@ QString HTMLEncodingResolver::ReadHTMLFile( const QString &fullfilepath )
     {
         boost_throw( CannotOpenFile() 
                      << errinfo_file_fullpath( file.fileName().toStdString() )
-                     << errinfo_qfile_error( file.error() ) 
+                     << errinfo_file_errorstring( file.errorString().toStdString() ) 
                    );
     }
 

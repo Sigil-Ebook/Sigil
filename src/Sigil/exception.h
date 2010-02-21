@@ -52,5 +52,5 @@ struct CannotReadFile : virtual ExceptionBase {};
 typedef boost::error_info< struct error_string, std::string > errinfo_file_fullpath;
 
 struct CannotOpenFile : virtual ExceptionBase {};
-typedef boost::error_info< struct error_string, int > errinfo_qfile_error;
+typedef boost::error_info< struct error_string, std::string > errinfo_file_errorstring;
 

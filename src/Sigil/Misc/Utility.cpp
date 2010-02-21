@@ -292,13 +292,10 @@ QString Utility::ReadUnicodeTextFile( const QString &fullfilepath )
     // Check if we can open the file
     if ( !file.open( QFile::ReadOnly ) )
     {
-        QMessageBox::warning(	0,
-                                QObject::tr( "Sigil" ),
-                                QObject::tr( "Cannot read file %1:\n%2." )
-                                .arg( fullfilepath )
-                                .arg( file.errorString() ) 
-                             );
-        return "";
+        boost_throw( CannotOpenFile() 
+                     << errinfo_file_fullpath( file.fileName().toStdString() )
+                     << errinfo_file_errorstring( file.errorString().toStdString() ) 
+                   );
     }
 
     QTextStream in( &file );
@@ -320,20 +317,23 @@ void Utility::WriteUnicodeTextFile( const QString &text, const QString &fullfile
 {
     QFile file( fullfilepath );
 
-    if ( file.open(  QIODevice::WriteOnly | 
+    if ( !file.open( QIODevice::WriteOnly | 
                      QIODevice::Truncate | 
                      QIODevice::Text  
                   ) 
        )
     {
-        QTextStream out( &file );
-
-        // We ALWAYS output in UTF-8
-        out.setCodec( "UTF-8" );
-        out << text;
+        boost_throw( CannotOpenFile() 
+                     << errinfo_file_fullpath( file.fileName().toStdString() )
+                     << errinfo_file_errorstring( file.errorString().toStdString() ) 
+                   );
     }
 
-    // TODO: throw error if not open    
+    QTextStream out( &file );
+
+    // We ALWAYS output in UTF-8
+    out.setCodec( "UTF-8" );
+    out << text;
 }
 
 
