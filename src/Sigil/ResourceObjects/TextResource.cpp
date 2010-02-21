@@ -34,14 +34,12 @@ TextResource::TextResource( const QString &fullfilepath, QHash< QString, Resourc
 void TextResource::SetText( const QString& text )
 {
     m_TextDocument->setPlainText( text );
+    m_TextDocument->setModified( false );
 }
 
 // Make sure to get a read lock externally before calling this function!
 const QTextDocument& TextResource::GetTextDocumentForReading()
 {
-    // We can't check with tryLockForRead because that
-    // can still legitimately succeed.
-    Q_ASSERT( m_ReadWriteLock.tryLockForWrite() == false );
     Q_ASSERT( m_TextDocument );
 
     return *m_TextDocument;
@@ -51,7 +49,6 @@ const QTextDocument& TextResource::GetTextDocumentForReading()
 // Make sure to get a write lock externally before calling this function!
 QTextDocument& TextResource::GetTextDocumentForWriting()
 {
-    Q_ASSERT( m_ReadWriteLock.tryLockForWrite() == false );
     Q_ASSERT( m_TextDocument );
 
     return *m_TextDocument;    
@@ -64,7 +61,13 @@ void TextResource::SaveToDisk()
 
     Q_ASSERT( m_TextDocument );
 
+    if ( !m_TextDocument->isModified() )
+
+        return;
+
     Utility::WriteUnicodeTextFile( m_TextDocument->toPlainText(), m_FullFilePath );
+
+    m_TextDocument->setModified( false );
 }
 
 

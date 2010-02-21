@@ -260,8 +260,6 @@ void HTMLResource::SetWebPageHTML( const QString &source )
 {
     Q_ASSERT( m_WebPage );
 
-    qDebug() << GetBaseUrl();
-
     m_WebPage->mainFrame()->setContent( source.toUtf8(), LOADED_CONTENT_MIMETYPE, GetBaseUrl() ); 
     m_WebPage->setContentEditable( true );
 

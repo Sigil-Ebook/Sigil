@@ -123,7 +123,7 @@ Resource* ImportSGF::CreateOneStyleFile( const XHTMLDoc::XMLElement &element,
     QString filename     = QString( "style" ) + QString( "%1" ).arg( index + 1, 3, 10, QChar( '0' ) ) + "." + extension;
     QString fullfilepath = folderpath + "/" + filename;
 
-    Utility::WriteUnicodeTextFile( "PLACEHOLDER", fullfilepath );
+    Utility::WriteUnicodeTextFile( style_text, fullfilepath );
 
     TextResource *text_resource = qobject_cast< TextResource* >( 
                                      &m_Book->mainfolder.AddContentFileToFolder( fullfilepath ) );

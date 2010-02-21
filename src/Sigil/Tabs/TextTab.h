@@ -57,6 +57,10 @@ signals:
 
     void SelectionChanged();
 
+protected slots:
+
+    void SaveContentOnTabLeave();
+
 private slots:
 
     void DelayedInitialization();

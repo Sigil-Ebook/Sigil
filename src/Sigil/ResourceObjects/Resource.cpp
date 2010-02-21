@@ -29,6 +29,7 @@ Resource::Resource( const QString &fullfilepath, QHash< QString, Resource* > *ha
     QObject( parent ),
     m_Identifier( Utility::CreateUUID() ),
     m_FullFilePath( fullfilepath ),
+    m_ReadWriteLock( QReadWriteLock::Recursive ),
     m_HashOwner( *hash_owner )
 {
 

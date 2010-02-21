@@ -85,6 +85,13 @@ ContentTab::ViewState TextTab::GetViewState()
 }
 
 
+void TextTab::SaveContentOnTabLeave()
+{
+    m_TextResource.SaveToDisk();
+
+    ContentTab::SaveContentOnTabLeave();
+}
+
 void TextTab::DelayedInitialization()
 {
     m_wCodeView.CustomSetDocument( m_TextResource.GetTextDocumentForWriting() );
@@ -102,3 +109,4 @@ void TextTab::ConnectSignalsToSlots()
     connect( &m_wCodeView, SIGNAL( ZoomFactorChanged( float ) ), this, SIGNAL( ZoomFactorChanged( float ) ) );
     connect( &m_wCodeView, SIGNAL( selectionChanged() ),         this, SIGNAL( SelectionChanged() )         );
 }
+
