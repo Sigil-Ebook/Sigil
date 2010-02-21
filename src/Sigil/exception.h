@@ -37,7 +37,6 @@ struct NoHTMLFiles : virtual ExceptionBase {};
 struct ErrorParsingXML : virtual ExceptionBase {};
 
 struct ErrorParsingContentXML : virtual ErrorParsingXML {};
-
 typedef boost::error_info< struct error_string, std::string > errinfo_XML_parsing_error_string;
 typedef boost::error_info< struct line_number, qint64 > errinfo_XML_parsing_line_number;
 typedef boost::error_info< struct column_number, qint64 > errinfo_XML_parsing_column_number;
@@ -47,10 +46,11 @@ struct ErrorParsingOPF : virtual ErrorParsingXML {};
 struct NoAppropriateOPFFileFound : virtual ExceptionBase {};
 
 struct CZipExceptionWrapper : virtual ExceptionBase {};
-
 typedef boost::error_info< struct error_string, std::string > errinfo_zip_info;
 
 struct CannotReadFile : virtual ExceptionBase {};
+typedef boost::error_info< struct error_string, std::string > errinfo_file_fullpath;
 
-typedef boost::error_info< struct error_string, std::string > errinfo_file_read;
+struct CannotOpenFile : virtual ExceptionBase {};
+typedef boost::error_info< struct error_string, int > errinfo_qfile_error;
 

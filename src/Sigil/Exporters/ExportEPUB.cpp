@@ -148,23 +148,26 @@ void ExportEPUB::CreateContainerXML()
 
     QTemporaryFile file;
 
-    if ( file.open() )
+    if ( !file.open() )
     {
-        QTextStream out( &file );
-
-        // We ALWAYS output in UTF-8
-        out.setCodec( "UTF-8" );
-
-        out << xml;
-
-        // Write to disk immediately
-        out.flush();
-        file.flush();
-
-        m_Folder.AddInfraFileToFolder( file.fileName(), CONTAINER_XML_FILE_NAME );
+        boost_throw( CannotOpenFile() 
+                     << errinfo_file_fullpath( file.fileName().toStdString() )
+                     << errinfo_qfile_error( file.error() ) 
+                   );
     }
 
-    // FIXME: throw exception if not open
+    QTextStream out( &file );
+
+    // We ALWAYS output in UTF-8
+    out.setCodec( "UTF-8" );
+
+    out << xml;
+
+    // Write to disk immediately
+    out.flush();
+    file.flush();
+
+    m_Folder.AddInfraFileToFolder( file.fileName(), CONTAINER_XML_FILE_NAME );    
 }
 
 
@@ -173,25 +176,28 @@ void ExportEPUB::CreateContentOPF()
 {
     QTemporaryFile file;
 
-    if ( file.open() )
+    if ( !file.open() )
     {
-        QTextStream out( &file );
-
-        // We ALWAYS output in UTF-8
-        out.setCodec( "UTF-8" );
-
-        OPFWriter opf( m_Book, m_Folder );
-
-        out << opf.GetXML();
-
-        // Write to disk immediately
-        out.flush();
-        file.flush();
-
-        m_Folder.AddInfraFileToFolder( file.fileName(), OPF_FILE_NAME );
+        boost_throw( CannotOpenFile() 
+                     << errinfo_file_fullpath( file.fileName().toStdString() )
+                     << errinfo_qfile_error( file.error() ) 
+                   );
     }
+    
+    QTextStream out( &file );
 
-    // FIXME: throw exception if not open
+    // We ALWAYS output in UTF-8
+    out.setCodec( "UTF-8" );
+
+    OPFWriter opf( m_Book, m_Folder );
+
+    out << opf.GetXML();
+
+    // Write to disk immediately
+    out.flush();
+    file.flush();
+
+    m_Folder.AddInfraFileToFolder( file.fileName(), OPF_FILE_NAME );
 }
 
 
@@ -200,25 +206,28 @@ void ExportEPUB::CreateTocNCX()
 {
     QTemporaryFile file;
 
-    if ( file.open() )
+    if ( !file.open() )
     {
-        QTextStream out( &file );
-
-        // We ALWAYS output in UTF-8
-        out.setCodec( "UTF-8" );
-
-        NCXWriter ncx( m_Book, m_Folder );
-
-        out << ncx.GetXML();
-
-        // Write to disk immediately
-        out.flush();
-        file.flush();
-
-        m_Folder.AddInfraFileToFolder( file.fileName(), NCX_FILE_NAME );
+        boost_throw( CannotOpenFile() 
+                     << errinfo_file_fullpath( file.fileName().toStdString() )
+                     << errinfo_qfile_error( file.error() ) 
+                   );
     }
+    
+    QTextStream out( &file );
 
-    // FIXME: throw exception if not open
+    // We ALWAYS output in UTF-8
+    out.setCodec( "UTF-8" );
+
+    NCXWriter ncx( m_Book, m_Folder );
+
+    out << ncx.GetXML();
+
+    // Write to disk immediately
+    out.flush();
+    file.flush();
+
+    m_Folder.AddInfraFileToFolder( file.fileName(), NCX_FILE_NAME );
 }
 
 

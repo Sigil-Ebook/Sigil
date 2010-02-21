@@ -44,7 +44,7 @@ QSharedPointer< Book > ImportSGF::GetBook()
 {
     if ( !Utility::IsFileReadable( m_FullFilePath ) )
 
-        boost_throw( CannotReadFile() << errinfo_file_read( m_FullFilePath.toStdString() ) );
+        boost_throw( CannotReadFile() << errinfo_file_fullpath( m_FullFilePath.toStdString() ) );
 
     // These read the EPUB file
     ExtractContainer();

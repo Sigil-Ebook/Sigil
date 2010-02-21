@@ -470,7 +470,7 @@ QDomNode XHTMLDoc::GetAncestorBlockElement( const QDomNode &node )
 
         return parent_node;
 
-    else // FIXME: throw an exception when it's null
+    else
 
         return node.ownerDocument().elementsByTagName( "body" ).at( 0 );
 }
