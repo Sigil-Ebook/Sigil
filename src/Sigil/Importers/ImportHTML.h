@@ -67,7 +67,9 @@ private:
 
     HTMLResource& ImportHTML::CreateHTMLResource();
 
-    void UpdateFiles( HTMLResource &html_resource, QDomDocument &document );
+    void UpdateFiles( HTMLResource &html_resource, 
+                      QDomDocument &document,
+                      const QHash< QString, QString > &updates );
 
     // Copied from ImportEPUB because the importers will
     // soon become independent plugins (as shared libraries)

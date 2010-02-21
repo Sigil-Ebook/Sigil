@@ -65,7 +65,7 @@ QSharedPointer< Book > ImportHTML::GetBook()
     StripFilesFromAnchors( document );
     LoadMetadata( document );
 
-    UpdateFiles( CreateHTMLResource(), document );
+    UpdateFiles( CreateHTMLResource(), document, LoadFolderStructure( document ) );
 
     return m_Book;
 }
@@ -186,13 +186,15 @@ HTMLResource& ImportHTML::CreateHTMLResource()
 }
 
 
-void ImportHTML::UpdateFiles( HTMLResource &html_resource, QDomDocument &document )
+void ImportHTML::UpdateFiles( HTMLResource &html_resource, 
+                              QDomDocument &document,
+                              const QHash< QString, QString > &updates )
 {
     Q_ASSERT( &html_resource != NULL );
 
     QHash< QString, QString > html_updates;
     QHash< QString, QString > css_updates;
-    tie( html_updates, css_updates ) = PerformHTMLUpdates::SeparateHTMLAndCSSUpdates( LoadFolderStructure( document ) );
+    tie( html_updates, css_updates ) = PerformHTMLUpdates::SeparateHTMLAndCSSUpdates( updates );
 
     QList< Resource* > all_files = m_Book->mainfolder.GetResourceList();
     int num_files = all_files.count();
