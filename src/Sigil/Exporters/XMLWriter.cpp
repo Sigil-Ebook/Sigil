@@ -28,7 +28,7 @@
 // The first parameter is the book for which this XML file
 // is being written, and the second is the list of files
 // in the folder that will become the exported book
-XMLWriter::XMLWriter( const Book &book, const FolderKeeper &fkeeper )
+XMLWriter::XMLWriter( QSharedPointer< Book > book, const FolderKeeper &fkeeper )
     : 
     m_Book( book ), 
     m_Folder( fkeeper ),

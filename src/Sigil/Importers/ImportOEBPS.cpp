@@ -227,15 +227,19 @@ void ImportOEBPS::ReadOPF()
 // (filled by reading the OPF) into the book
 void ImportOEBPS::LoadMetadata()
 {
+    QHash< QString, QList< QVariant > > metadata;
+
     foreach( Metadata::MetaElement meta, m_MetaElements )
     {
         Metadata::MetaElement book_meta = Metadata::Instance().MapToBookMetadata( meta, "DublinCore" );
 
         if ( !book_meta.name.isEmpty() && !book_meta.value.toString().isEmpty() )
         {
-            m_Book->metadata[ book_meta.name ].append( book_meta.value );
+            metadata[ book_meta.name ].append( book_meta.value );
         }
     }    
+
+    m_Book->SetMetadata( metadata );
 }
 
 // Loads the referenced files into the main folder of the book.
@@ -275,7 +279,7 @@ tuple< QString, QString > ImportOEBPS::LoadOneFile( const QString &key )
     QString path         = m_Files.value( key );
     QString fullfilepath = QFileInfo( m_OPFFilePath ).absolutePath() + "/" + path;
 
-    Resource &resource = m_Book->mainfolder.AddContentFileToFolder( fullfilepath, m_ReadingOrderIds.indexOf( key ) );
+    Resource &resource = m_Book->GetFolderKeeper().AddContentFileToFolder( fullfilepath, m_ReadingOrderIds.indexOf( key ) );
     QString newpath = "../" + resource.GetRelativePathToOEBPS(); 
 
     return make_tuple( path, newpath );

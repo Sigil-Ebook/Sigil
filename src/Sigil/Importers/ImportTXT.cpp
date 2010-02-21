@@ -70,9 +70,9 @@ HTMLResource* ImportTXT::CreateHTMLResource( const QString &source )
     QString fullfilepath = dir.absolutePath() + "/" + FIRST_CHAPTER_NAME;
     Utility::WriteUnicodeTextFile( source, fullfilepath );
 
-    m_Book->mainfolder.AddContentFileToFolder( fullfilepath, 0 );
+    m_Book->GetFolderKeeper().AddContentFileToFolder( fullfilepath, 0 );
 
-    return m_Book->mainfolder.GetSortedHTMLResources()[ 0 ];
+    return m_Book->GetFolderKeeper().GetSortedHTMLResources()[ 0 ];
 }
 
 

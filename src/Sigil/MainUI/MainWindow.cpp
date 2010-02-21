@@ -709,24 +709,24 @@ void MainWindow::CreateNew()
 {
     m_Book = QSharedPointer< Book >( new Book() );
     
-    m_Book->source =	"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
-                    "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\"\n"
-                    "    \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n\n"							
-                    "<html xmlns=\"http://www.w3.org/1999/xhtml\">\n"
-                    "<head>\n"
-                    "<title></title>\n"
-                    "</head>\n"
-                    "<body>\n"
-                    
-                    // The "nbsp" is here so that the user starts writing
-                    // inside the <p> element; if it's not here, webkit
-                    // inserts text _outside_ the <p> element
-                    "<p>&nbsp;</p>\n"
-                    "</body>\n"
-                    "</html>";
+//     m_Book->source =	"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+//                     "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\"\n"
+//                     "    \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n\n"							
+//                     "<html xmlns=\"http://www.w3.org/1999/xhtml\">\n"
+//                     "<head>\n"
+//                     "<title></title>\n"
+//                     "</head>\n"
+//                     "<body>\n"
+//                     
+//                     // The "nbsp" is here so that the user starts writing
+//                     // inside the <p> element; if it's not here, webkit
+//                     // inserts text _outside_ the <p> element
+//                     "<p>&nbsp;</p>\n"
+//                     "</body>\n"
+//                     "</html>";
     
     // Add Sigil-specific markup
-    m_Book->source = SigilMarkup::AddSigilMarkup( m_Book->source );
+    //m_Book->source = SigilMarkup::AddSigilMarkup( m_Book->source );
     
     //m_wBookView->SetBook( m_Book );    
     //m_wCodeView->SetBook( m_Book );

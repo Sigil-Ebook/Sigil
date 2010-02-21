@@ -429,7 +429,7 @@ void FlowTab::InsertImage()
 
 //     foreach( QString filename, filenames )
 //     {
-//         QString relative_path = "../" + m_Book.mainfolder.AddContentFileToFolder( filename );
+//         QString relative_path = "../" + m_Book->GetFolderKeeper().AddContentFileToFolder( filename );
 // 
 //         m_wBookView.ExecCommand( "insertImage", relative_path );
 //     }    

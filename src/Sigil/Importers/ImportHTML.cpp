@@ -149,6 +149,8 @@ void ImportHTML::LoadMetadata( const QDomDocument &document )
 {
     QDomNodeList metatags = document.elementsByTagName( "meta" );
 
+    QHash< QString, QList< QVariant > > metadata;
+
     for ( int i = 0; i < metatags.count(); ++i )
     {
         QDomElement element = metatags.at( i ).toElement();
@@ -164,10 +166,12 @@ void ImportHTML::LoadMetadata( const QDomDocument &document )
 
             if ( !book_meta.name.isEmpty() && !book_meta.value.toString().isEmpty() )
             {
-                m_Book->metadata[ book_meta.name ].append( book_meta.value );
+                metadata[ book_meta.name ].append( book_meta.value );
             }
         }
-    }    
+    }
+
+    m_Book->SetMetadata( metadata );
 }
 
 
@@ -180,7 +184,7 @@ HTMLResource& ImportHTML::CreateHTMLResource()
     Utility::WriteUnicodeTextFile( "TEMP_SOURCE", fullfilepath );
 
     HTMLResource &resource = *qobject_cast< HTMLResource* >(
-                                &m_Book->mainfolder.AddContentFileToFolder( fullfilepath, 0 ) );
+                                &m_Book->GetFolderKeeper().AddContentFileToFolder( fullfilepath, 0 ) );
 
     return resource;
 }
@@ -196,7 +200,7 @@ void ImportHTML::UpdateFiles( HTMLResource &html_resource,
     QHash< QString, QString > css_updates;
     tie( html_updates, css_updates ) = PerformHTMLUpdates::SeparateHTMLAndCSSUpdates( updates );
 
-    QList< Resource* > all_files = m_Book->mainfolder.GetResourceList();
+    QList< Resource* > all_files = m_Book->GetFolderKeeper().GetResourceList();
     int num_files = all_files.count();
 
     QList< CSSResource* > css_resources;
@@ -294,7 +298,7 @@ QHash< QString, QString > ImportHTML::LoadImages( const QDomDocument &document )
     foreach( QString image_link, image_links )
     {
         QString fullfilepath = QFileInfo( folder, image_link ).absoluteFilePath();
-        QString newpath      = "../" + m_Book->mainfolder.AddContentFileToFolder( fullfilepath ).GetRelativePathToOEBPS();
+        QString newpath      = "../" + m_Book->GetFolderKeeper().AddContentFileToFolder( fullfilepath ).GetRelativePathToOEBPS();
 
         updates[ image_link ] = newpath;
     }
@@ -328,7 +332,7 @@ QHash< QString, QString > ImportHTML::LoadStyleFiles( const QDomDocument &docume
               file_info.suffix().toLower() == "xpgt"
            )
         {
-            QString newpath = "../" + m_Book->mainfolder.AddContentFileToFolder( 
+            QString newpath = "../" + m_Book->GetFolderKeeper().AddContentFileToFolder( 
                                             file_info.absoluteFilePath() ).GetRelativePathToOEBPS();
 
             updates[ relative_path ] = newpath;

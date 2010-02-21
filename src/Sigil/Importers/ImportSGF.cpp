@@ -132,7 +132,7 @@ Resource* ImportSGF::CreateOneStyleFile( const XHTMLDoc::XMLElement &element,
     Utility::WriteUnicodeTextFile( style_text, fullfilepath );
 
     TextResource *text_resource = qobject_cast< TextResource* >( 
-                                     &m_Book->mainfolder.AddContentFileToFolder( fullfilepath ) );
+                                     &m_Book->GetFolderKeeper().AddContentFileToFolder( fullfilepath ) );
 
     Q_ASSERT( text_resource );
     text_resource->SetText( style_text );
@@ -269,7 +269,7 @@ void ImportSGF::CreateOneXHTMLFile( QString source,
     Utility::WriteUnicodeTextFile( "PLACEHOLDER", fullfilepath );
 
     HTMLResource *html_resource = qobject_cast< HTMLResource* >( 
-                                        &m_Book->mainfolder.AddContentFileToFolder( fullfilepath ) );
+                                        &m_Book->GetFolderKeeper().AddContentFileToFolder( fullfilepath ) );
 
     Q_ASSERT( html_resource );
 
@@ -280,7 +280,7 @@ void ImportSGF::CreateOneXHTMLFile( QString source,
 
 QHash< QString, QString > ImportSGF::GetIDLocations()
 {
-    QList< HTMLResource* > html_resources = m_Book->mainfolder.GetSortedHTMLResources();
+    QList< HTMLResource* > html_resources = m_Book->GetFolderKeeper().GetSortedHTMLResources();
 
     QList< tuple< QString, QList< QString > > > IDs_in_files =
         QtConcurrent::blockingMapped( html_resources, GetOneFileIDs );
@@ -316,7 +316,7 @@ tuple< QString, QList< QString > > ImportSGF::GetOneFileIDs( HTMLResource* html_
 
 void ImportSGF::UpdateAnchors( const QHash< QString, QString > ID_locations )
 {
-    QList< HTMLResource* > html_resources = m_Book->mainfolder.GetSortedHTMLResources();
+    QList< HTMLResource* > html_resources = m_Book->GetFolderKeeper().GetSortedHTMLResources();
 
     QtConcurrent::blockingMap( html_resources, boost::bind( UpdateAnchorsInOneFile, _1, ID_locations ) );
 }

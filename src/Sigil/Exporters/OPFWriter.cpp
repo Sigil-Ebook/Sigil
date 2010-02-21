@@ -32,7 +32,7 @@ static const int FLOW_SIZE_THRESHOLD = 1000;
 // The first parameter is the book being exported,
 // and the second is the list of files
 // in the folder that will become the exported book
-OPFWriter::OPFWriter( const Book &book, const FolderKeeper &fkeeper )
+OPFWriter::OPFWriter( QSharedPointer< Book > book, const FolderKeeper &fkeeper )
     : XMLWriter( book, fkeeper )
 {
     CreateMimetypes();
@@ -67,14 +67,16 @@ QString OPFWriter::GetXML()
 // Writes the <metadata> element
 void OPFWriter::WriteMetadata()
 {
+    QHash< QString, QList< QVariant > > metadata = m_Book->GetMetadata();
+
     m_Writer->writeStartElement( "metadata" );
 
     m_Writer->writeAttribute( "xmlns:dc", "http://purl.org/dc/elements/1.1/" );
     m_Writer->writeAttribute( "xmlns:opf", "http://www.idpf.org/2007/opf" );
 
-        foreach ( QString name, m_Book.metadata.keys() )
+        foreach ( QString name, metadata.keys() )
         {
-            foreach ( QVariant single_value, m_Book.metadata[ name ] )
+            foreach ( QVariant single_value, metadata[ name ] )
             {
                 MetadataDispatcher( name, single_value );
             }
@@ -84,16 +86,16 @@ void OPFWriter::WriteMetadata()
 
         m_Writer->writeAttribute( "id", "BookID" );
 
-        if ( m_Book.metadata.contains( "CustomID" ) )
+        if ( metadata.contains( "CustomID" ) )
         {
             m_Writer->writeAttribute( "opf:scheme", "CustomID" );
-            m_Writer->writeCharacters( m_Book.metadata[ "CustomID" ][ 0 ].toString() );
+            m_Writer->writeCharacters( metadata[ "CustomID" ][ 0 ].toString() );
         }
 
         else
         {
             m_Writer->writeAttribute( "opf:scheme", "UUID" );
-            m_Writer->writeCharacters( m_Book.PublicationIdentifier );
+            m_Writer->writeCharacters( m_Book->GetPublicationIdentifier() );
         }       
 
         m_Writer->writeEndElement();

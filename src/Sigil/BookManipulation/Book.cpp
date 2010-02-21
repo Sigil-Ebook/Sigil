@@ -26,7 +26,7 @@
 // Constructor
 Book::Book()
     : 
-    PublicationIdentifier( Utility::CreateUUID() )
+    m_PublicationIdentifier( Utility::CreateUUID() )
 {
    
 }
@@ -35,10 +35,9 @@ Book::Book()
 // Copy constructor
 Book::Book( const Book& other )
 {
-    source = other.source;
-    metadata = other.metadata;
-    PublicationIdentifier = other.PublicationIdentifier;
-    mainfolder = other.mainfolder;
+    m_Metadata = other.m_Metadata;
+    m_PublicationIdentifier = other.m_PublicationIdentifier;
+    m_Mainfolder = other.m_Mainfolder;
 }
 
 
@@ -48,10 +47,9 @@ Book& Book::operator = ( const Book& other )
     // Protect against invalid self-assignment
     if ( this != &other ) 
     {
-        source = other.source;
-        metadata = other.metadata;
-        PublicationIdentifier = other.PublicationIdentifier;
-        mainfolder = other.mainfolder;
+        m_Metadata = other.m_Metadata;
+        m_PublicationIdentifier = other.m_PublicationIdentifier;
+        m_Mainfolder = other.m_Mainfolder;
     }
 
     // By convention, always return *this
@@ -64,5 +62,33 @@ Book& Book::operator = ( const Book& other )
 // within the main folder
 QUrl Book::GetBaseUrl() const
 {
-    return QUrl::fromLocalFile( mainfolder.GetFullPathToTextFolder() + "/" );
+    return QUrl::fromLocalFile( m_Mainfolder.GetFullPathToTextFolder() + "/" );
+}
+
+
+FolderKeeper& Book::GetFolderKeeper()
+{
+    return m_Mainfolder;
+}
+
+
+const FolderKeeper& Book::GetConstFolderKeeper()
+{
+    return m_Mainfolder;
+}
+
+
+QString Book::GetPublicationIdentifier()
+{
+    return m_PublicationIdentifier;
+}
+
+QHash< QString, QList< QVariant > > Book::GetMetadata()
+{
+    return m_Metadata;
+}
+
+void Book::SetMetadata( const QHash< QString, QList< QVariant > > metadata )
+{
+    m_Metadata = metadata;
 }

@@ -34,7 +34,7 @@ public:
     // The first parameter is the book being exported,
     // and the second is the FolderKeeper object representing
     // the folder where the book will be exported
-    OPFWriter( const Book &book, const FolderKeeper &fkeeper );
+    OPFWriter( QSharedPointer< Book > book, const FolderKeeper &fkeeper );
 
     // Returns the created XML file
     QString GetXML();

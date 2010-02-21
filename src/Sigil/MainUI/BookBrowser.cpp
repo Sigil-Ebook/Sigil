@@ -92,7 +92,7 @@ void BookBrowser::OpenUrlResource( const QUrl &url )
 {
     try
     {
-        Resource &resource = m_Book->mainfolder.GetResourceByFilename( QFileInfo( url.path() ).fileName() );
+        Resource &resource = m_Book->GetFolderKeeper().GetResourceByFilename( QFileInfo( url.path() ).fileName() );
 
         emit OpenResourceRequest( resource, url.fragment() );
     }
@@ -110,6 +110,6 @@ void BookBrowser::EmitResourceDoubleClicked( const QModelIndex &index )
 
     if ( !identifier.isEmpty() )
 
-        emit ResourceDoubleClicked( m_Book->mainfolder.GetResourceByIdentifier( identifier ) );
+        emit ResourceDoubleClicked( m_Book->GetFolderKeeper().GetResourceByIdentifier( identifier ) );
 }
 

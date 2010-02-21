@@ -37,7 +37,7 @@ public:
     // Constructor;
     // the first parameter is the location where the book 
     // should be save to, and the second is the book to be saved
-    ExportEPUB( const QString &fullfilepath, const Book &book );
+    ExportEPUB( const QString &fullfilepath, QSharedPointer< Book > book );
 
     // Destructor
     virtual ~ExportEPUB();
@@ -76,11 +76,7 @@ protected:
     QString m_FullFilePath;
 
     // The book being exported
-    Book m_Book;
-
-    // The folder which contains all the files
-    // that will end up in the final exported file
-    FolderKeeper m_Folder;
+    QSharedPointer< Book > m_Book;
 
 };
 

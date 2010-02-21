@@ -28,10 +28,10 @@
 #include <QHash>
 #include <QUrl>
 #include <QVariant>
-#include <QMutex>
 
 class Book
 {	
+
 public:
 
     // Constructor
@@ -48,28 +48,30 @@ public:
     // within the main folder
     QUrl GetBaseUrl() const;
 
-    // This used to be a struct so these are public.
-    // TODO: Find the time to update the codebase
-    // to use getters and setters.
+    FolderKeeper& GetFolderKeeper();
 
-    // Stores the full XHTML source code of the book
-    QString source;
+    const FolderKeeper& GetConstFolderKeeper();
+
+    QString GetPublicationIdentifier();
+
+    QHash< QString, QList< QVariant > > GetMetadata();
+
+    void SetMetadata( const QHash< QString, QList< QVariant > > metadata );
+
+private:   
+
+    // The FolderKeeper object that represents
+    // this books presence on the hard drive
+    FolderKeeper m_Mainfolder; 
+
+    // The UUID that uniquely represents this book
+    QString m_PublicationIdentifier;
 
     // Stores all the metadata for the book;
     // the key is the metadata name, the values
     // are the lists of metadata values
-    QHash< QString, QList< QVariant > > metadata;
+    QHash< QString, QList< QVariant > > m_Metadata;
 
-    // The 30 character random identifier
-    // that uniquely represents this book
-    QString PublicationIdentifier;
-
-    // The FolderKeeper object that represents
-    // this books presence on the hard drive
-    FolderKeeper mainfolder;
-
-private:    
- 
 };
 
 #endif // BOOK_H

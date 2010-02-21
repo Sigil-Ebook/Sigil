@@ -71,7 +71,7 @@ void ImportEPUB::CleanAndUpdateFiles( const QHash< QString, QString > &updates )
     QList< HTMLResource* > html_resources;
     QList< CSSResource* > css_resources;
 
-    QList< Resource* > all_files = m_Book->mainfolder.GetResourceList();
+    QList< Resource* > all_files = m_Book->GetFolderKeeper().GetResourceList();
     int num_files = all_files.count();
 
     for ( int i = 0; i < num_files; ++i )

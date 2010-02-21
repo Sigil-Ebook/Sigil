@@ -142,6 +142,8 @@ private:
     // The Book whose metadata is being edited
     QSharedPointer< Book > m_Book;
 
+    QHash< QString, QList< QVariant > > m_Metadata;
+
     // The window height after expansion
     int m_ExpandedHeight;
 

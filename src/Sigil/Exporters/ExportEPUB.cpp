@@ -45,8 +45,10 @@ static const QString CONTAINER_XML_FILE_NAME = "container.xml";
 // Constructor;
 // the first parameter is the location where the book 
 // should be save to, and the second is the book to be saved
-ExportEPUB::ExportEPUB( const QString &fullfilepath, const Book &book ) 
-    : m_FullFilePath( fullfilepath ), m_Book( book ), m_Folder( book.mainfolder )
+ExportEPUB::ExportEPUB( const QString &fullfilepath, QSharedPointer< Book > book ) 
+    : 
+    m_FullFilePath( fullfilepath ), 
+    m_Book( book ) 
 {
 	
 }
@@ -119,7 +121,7 @@ void ExportEPUB::SaveTo( const QString &fullfilepath, const QString &mimetype )
     zip.AddNewFile( mimetype_file.fileName().utf16(), QString( "mimetype" ).utf16(), 0 );
 
     // Add all the files and folders in the publication structure
-    zip.AddNewFiles( QDir::toNativeSeparators( m_Folder.GetFullPathToMainFolder() ).utf16() );
+    //zip.AddNewFiles( QDir::toNativeSeparators( m_Folder.GetFullPathToMainFolder() ).utf16() );
 
 #else
     // The location where the epub file will be written to
@@ -129,7 +131,7 @@ void ExportEPUB::SaveTo( const QString &fullfilepath, const QString &mimetype )
     zip.AddNewFile( mimetype_file.fileName().toUtf8().data(), QString( "mimetype" ).toUtf8().data(), 0 );
 
     // Add all the files and folders in the publication structure
-    zip.AddNewFiles( QDir::toNativeSeparators( m_Folder.GetFullPathToMainFolder() ).toUtf8().data() );
+    //zip.AddNewFiles( QDir::toNativeSeparators( m_Folder.GetFullPathToMainFolder() ).toUtf8().data() );
 #endif
 
     zip.Close();
@@ -167,7 +169,7 @@ void ExportEPUB::CreateContainerXML()
     out.flush();
     file.flush();
 
-    m_Folder.AddInfraFileToFolder( file.fileName(), CONTAINER_XML_FILE_NAME );    
+    //m_Folder.AddInfraFileToFolder( file.fileName(), CONTAINER_XML_FILE_NAME );    
 }
 
 
@@ -189,15 +191,15 @@ void ExportEPUB::CreateContentOPF()
     // We ALWAYS output in UTF-8
     out.setCodec( "UTF-8" );
 
-    OPFWriter opf( m_Book, m_Folder );
+    //OPFWriter opf( m_Book, m_Folder );
 
-    out << opf.GetXML();
+    //out << opf.GetXML();
 
     // Write to disk immediately
     out.flush();
     file.flush();
 
-    m_Folder.AddInfraFileToFolder( file.fileName(), OPF_FILE_NAME );
+    //m_Folder.AddInfraFileToFolder( file.fileName(), OPF_FILE_NAME );
 }
 
 
@@ -219,15 +221,15 @@ void ExportEPUB::CreateTocNCX()
     // We ALWAYS output in UTF-8
     out.setCodec( "UTF-8" );
 
-    NCXWriter ncx( m_Book, m_Folder );
+    //NCXWriter ncx( m_Book, m_Folder );
 
-    out << ncx.GetXML();
+    //out << ncx.GetXML();
 
     // Write to disk immediately
     out.flush();
     file.flush();
 
-    m_Folder.AddInfraFileToFolder( file.fileName(), NCX_FILE_NAME );
+    //m_Folder.AddInfraFileToFolder( file.fileName(), NCX_FILE_NAME );
 }
 
 

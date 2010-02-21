@@ -125,7 +125,7 @@ void OPFModel::InitializeModel()
 
     ClearModel();
 
-    QList< Resource* > resources = m_Book->mainfolder.GetResourceList();
+    QList< Resource* > resources = m_Book->GetFolderKeeper().GetResourceList();
     QHash< int, QStandardItem* > text_items;
 
     int num_ordered_html_files = 0;
@@ -185,7 +185,7 @@ void OPFModel::UpdateHTMLReadingOrders()
         {
             html_item->setData( i, READING_ORDER_ROLE );
             HTMLResource *html_resource =  qobject_cast< HTMLResource* >(
-                                                &m_Book->mainfolder.GetResourceByIdentifier( html_item->data().toString() ) );
+                                                &m_Book->GetFolderKeeper().GetResourceByIdentifier( html_item->data().toString() ) );
 
             if ( html_resource != NULL )
                 

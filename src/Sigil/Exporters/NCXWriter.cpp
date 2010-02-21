@@ -29,13 +29,13 @@
 // The first parameter is the book being exported,
 // and the second is the FolderKeeper object representing
 // the folder where the book will be exported
-NCXWriter::NCXWriter( const Book &book, const FolderKeeper &fkeeper )
+NCXWriter::NCXWriter( QSharedPointer< Book > book, const FolderKeeper &fkeeper )
     : 
     XMLWriter( book, fkeeper ), 
     m_HeadingIDsPerFile( GetHeadingIDsPerFile() ),
     m_HeadingSourcesPerFile( GetHeadingSourcesPerFile() ),
     m_Headings( Headings::MakeHeadingHeirarchy( Headings::GetHeadingList( 
-                                                m_Book.mainfolder.GetSortedHTMLResources() ) ) )
+                                                m_Book->GetFolderKeeper().GetSortedHTMLResources() ) ) )
 {
 
 }
@@ -80,7 +80,7 @@ void NCXWriter::WriteHead()
         m_Writer->writeAttribute( "name", "dtb:uid" );
 
         // TODO: We should use the ISBN if it's provided
-        m_Writer->writeAttribute( "content", m_Book.PublicationIdentifier );
+        m_Writer->writeAttribute( "content", m_Book->GetPublicationIdentifier() );
 
         m_Writer->writeEmptyElement( "meta" );
         m_Writer->writeAttribute( "name", "dtb:depth" );
@@ -103,7 +103,7 @@ void NCXWriter::WriteDocTitle()
 {
     QString document_title;
     
-    QList< QVariant > titles = m_Book.metadata.value( "Title" );
+    QList< QVariant > titles = m_Book->GetMetadata().value( "Title" );
 
     if ( titles.isEmpty() )
     
