@@ -34,7 +34,7 @@ const int PROGRESS_BAR_MINIMUM_DURATION = 1500;
 BookViewEditor::BookViewEditor( QWidget *parent )
     : 
     QWebView( parent ),
-    c_JQuery(           Utility::ReadUnicodeTextFile( ":/javascript/jquery-1.3.2.min.js"           ) ),
+    c_JQuery(           Utility::ReadUnicodeTextFile( ":/javascript/jquery-1.4.2.min.js"           ) ),
     c_JQueryScrollTo(   Utility::ReadUnicodeTextFile( ":/javascript/jquery.scrollTo-1.4.2-min.js"  ) ),
     c_GetCaretLocation( Utility::ReadUnicodeTextFile( ":/javascript/book_view_current_location.js" ) ),
     c_NewSelection(     Utility::ReadUnicodeTextFile( ":/javascript/new_selection.js"              ) ),

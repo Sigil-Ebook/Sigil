@@ -321,8 +321,9 @@ void MainWindow::MetaEditorDialog()
     MetaEditor meta( m_Book, this );
 
     if ( meta.exec() == QDialog::Accepted )
-
-        setWindowModified( true );        
+    {
+        setWindowModified( true );  
+    }
 }
 
 
@@ -335,7 +336,10 @@ void MainWindow::TOCEditorDialog()
 
     TOCEditor toc( m_Book, this );
 
-    toc.exec();
+    if ( toc.exec() == QDialog::Accepted )
+    {
+        setWindowModified( true );  
+    }
 }
 
 

@@ -1,6 +1,6 @@
 <RCC>
   <qresource prefix="javascript" >
-    <file>jquery-1.3.2.min.js</file>
+    <file>jquery-1.4.2.min.js</file>
     <file>jquery.scrollTo-1.4.2-min.js</file>    
     <file>book_view_current_location.js</file>
     <file>new_selection.js</file>
