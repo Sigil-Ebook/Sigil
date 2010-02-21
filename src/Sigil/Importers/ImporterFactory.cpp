@@ -82,9 +82,7 @@ Importer& ImporterFactory::GetImporter( const QString &filename )
     // FIXME: Tell the user that the extension wasn't
     // recognized and then offer a default method
     // of loading (or maybe a list of methods?)
-    
-    // FIXME: should probably just be a TXT importer
-    imImporter = new ImportHTML( filename );
+    imImporter = new ImportTXT( filename );
 
     return *imImporter;
 }

@@ -236,8 +236,6 @@ QString OPFWriter::GetNormalName( const QString &name ) const
 
         return QString();
 
-    // FIXME: add check and error throw for multiple commas
-
     QStringList splits = name.split( "," );
 
     return splits[ 1 ].trimmed() + " " + splits[ 0 ].trimmed();
