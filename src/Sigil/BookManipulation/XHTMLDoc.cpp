@@ -77,7 +77,11 @@ QList< XHTMLDoc::XMLElement > XHTMLDoc::GetTagsInHead( const QString &source, co
 
     if ( reader.hasError() )
     {
-        // TODO: error handling
+        boost_throw( ErrorParsingContentXML() 
+                     << errinfo_XML_parsing_error_string( reader.errorString().toStdString() )
+                     << errinfo_XML_parsing_line_number( reader.lineNumber() )
+                     << errinfo_XML_parsing_column_number( reader.columnNumber() )
+                   );
     }
     
     return matching_elements;
@@ -107,7 +111,11 @@ QList< XHTMLDoc::XMLElement > XHTMLDoc::GetTagsInDocument( const QString &source
 
     if ( reader.hasError() )
     {
-        // TODO: error handling
+        boost_throw( ErrorParsingContentXML() 
+                     << errinfo_XML_parsing_error_string( reader.errorString().toStdString() )
+                     << errinfo_XML_parsing_line_number( reader.lineNumber() )
+                     << errinfo_XML_parsing_column_number( reader.columnNumber() )
+                   );
     }
 
     return matching_elements;

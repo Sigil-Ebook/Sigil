@@ -113,7 +113,6 @@ void NCXWriter::WriteDocTitle()
 
         document_title = titles.first().toString();
 
-
     m_Writer->writeStartElement( "docTitle" );
     m_Writer->writeTextElement( "text", document_title );
     m_Writer->writeEndElement();
