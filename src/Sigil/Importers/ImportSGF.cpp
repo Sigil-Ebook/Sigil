@@ -63,6 +63,7 @@ QSharedPointer< Book > ImportSGF::GetBook()
     m_Files.remove( m_ReadingOrderIds.at( 0 ) );
 
     CreateXHTMLFiles( source, header, LoadFolderStructure() );
+    UpdateAnchors( GetIDLocations() );
 
     return m_Book;
 }
@@ -83,9 +84,9 @@ QList< Resource* > ImportSGF::CreateStyleResources( const QString &source )
 {    
     QList< XHTMLDoc::XMLElement > style_tag_nodes = XHTMLDoc::GetTagsInHead( source, "style" );
 
-    QDir dir( Utility::GetNewTempFolderPath() );
-    dir.mkpath( dir.absolutePath() );
-    QString folderpath = dir.absolutePath();
+    QString folderpath = Utility::GetNewTempFolderPath();
+    QDir dir( folderpath );
+    dir.mkpath( folderpath );
 
     QFutureSynchronizer< Resource* > sync;
 
@@ -276,3 +277,81 @@ void ImportSGF::CreateOneXHTMLFile( QString source,
         PerformHTMLUpdates( CleanSource::Clean( source ), html_updates, QHash< QString, QString >() )() );
 }
 
+
+QHash< QString, QString > ImportSGF::GetIDLocations()
+{
+    QList< HTMLResource* > html_resources = m_Book->mainfolder.GetSortedHTMLResources();
+
+    QList< tuple< QString, QList< QString > > > IDs_in_files =
+        QtConcurrent::blockingMapped( html_resources, GetOneFileIDs );
+
+    QHash< QString, QString > ID_locations;
+
+    for ( int i = 0; i < IDs_in_files.count(); ++i )
+    {
+        QList< QString > file_element_IDs;
+        QString resource_filename;
+
+        tie( resource_filename, file_element_IDs ) = IDs_in_files.at( i );
+
+        for ( int j = 0; j < file_element_IDs.count(); ++j )
+        {
+            ID_locations[ file_element_IDs.at( j ) ] = resource_filename;
+        }
+    }
+
+    return ID_locations;
+}
+
+
+tuple< QString, QList< QString > > ImportSGF::GetOneFileIDs( HTMLResource* html_resource )
+{
+    Q_ASSERT( html_resource );
+
+    QReadLocker locker( &html_resource->GetLock() );
+
+    return make_tuple( html_resource->Filename(),
+                       XHTMLDoc::GetAllChildIDs( html_resource->GetDomDocumentForReading().documentElement() ) );
+}
+
+void ImportSGF::UpdateAnchors( const QHash< QString, QString > ID_locations )
+{
+    QList< HTMLResource* > html_resources = m_Book->mainfolder.GetSortedHTMLResources();
+
+    QtConcurrent::blockingMap( html_resources, boost::bind( UpdateAnchorsInOneFile, _1, ID_locations ) );
+}
+
+
+void ImportSGF::UpdateAnchorsInOneFile( HTMLResource *html_resource, 
+                                        const QHash< QString, QString > ID_locations )
+{
+    Q_ASSERT( html_resource );
+
+    QWriteLocker locker( &html_resource->GetLock() );
+
+    QDomDocument document = html_resource->GetDomDocumentForWriting();
+    QDomNodeList anchors = document.elementsByTagName( "a" );
+
+    QString resource_filename = html_resource->Filename();
+
+    for ( int i = 0; i < anchors.count(); ++i )
+    {
+        QDomElement element = anchors.at( i ).toElement();
+
+        Q_ASSERT( !element.isNull() );
+
+        if ( element.hasAttribute( "href" ) &&
+             QUrl( element.attribute( "href" ) ).isRelative() &&
+             element.attribute( "href" ).contains( "#" )
+           )
+        {
+            // Remove the '#' character
+            QString id = element.attribute( "href" ).remove( 0, 1 );
+
+            // If the ID is in a different file, update the link
+            if ( ID_locations.value( id ) != resource_filename )
+
+                element.setAttribute( "href", "../" + TEXT_FOLDER_NAME + "/" + ID_locations.value( id ) + "#" + id );            
+        } 
+    }
+}

@@ -78,7 +78,7 @@ void ExportEPUB::CreatePublication()
 // 
 //     CreateXHTMLFiles( header );
 
-    UpdateAnchors();
+    //UpdateAnchors();
 
     CreateContainerXML();
     CreateContentOPF();
@@ -133,91 +133,6 @@ void ExportEPUB::SaveTo( const QString &fullfilepath, const QString &mimetype )
 #endif
 
     zip.Close();
-}
-
-
-// Updates the href attributes of all <a> tags
-// to point to the files the ID's referenced are located in
-void ExportEPUB::UpdateAnchors()
-{
-    QHash< QString, QString > id_locations = GetIDFileLocations();
-
-    foreach( QString file, m_Folder.GetContentFilesList() )
-    {
-        if ( !file.contains( TEXT_FOLDER_NAME + "/" ) )
-
-            continue;
-
-        QString fullfilepath = m_Folder.GetFullPathToOEBPSFolder() + "/" + file;
-        QString source = Utility::ReadUnicodeTextFile( fullfilepath );
-
-        QDomDocument document;
-        document.setContent( source );
-
-        QDomNodeList anchors = document.elementsByTagName( "a" );
-
-        for ( int i = 0; i < anchors.count(); ++i )
-        {
-            QDomElement element = anchors.at( i ).toElement();
-
-            if (    element.hasAttribute( "href" ) &&
-                    QUrl( element.attribute( "href" ) ).isRelative() &&
-                    element.attribute( "href" ).contains( "#" )
-               )
-            {
-                // Remove the '#' character
-                QString id = element.attribute( "href" ).remove( 0, 1 );
-
-                // If the ID is in a different file, update the link
-                if ( id_locations[ id ] != file.remove( TEXT_FOLDER_NAME + "/" ) )
-
-                    element.setAttribute( "href", id_locations[ id ] + "#" + id );            
-            } 
-        }
-
-        source = CleanSource::Clean( XHTMLDoc::GetQDomNodeAsString( document ) );
-
-        Utility::WriteUnicodeTextFile( source, fullfilepath );
-    }
-}
-
-
-// Returns a hash with keys being ID or NAME attributes
-// of XHTML elements and the values being the files in
-// which these attribute values are located
-QHash< QString, QString > ExportEPUB::GetIDFileLocations() const
-{
-    QHash< QString, QString > id_locations;
-
-    foreach( QString file, m_Folder.GetContentFilesList() )
-    {
-        if ( !file.contains( TEXT_FOLDER_NAME + "/" ) )
-
-            continue;
-
-        QString fullfilepath = m_Folder.GetFullPathToOEBPSFolder() + "/" + file;
-        QString source = Utility::ReadUnicodeTextFile( fullfilepath );
-
-        QRegExp ids_names( ID_AND_NAME_ATTRIBUTE );
-        ids_names.setCaseSensitivity( Qt::CaseInsensitive );
-
-        int main_index = 0;
-
-        while ( true )
-        {
-            main_index = source.indexOf( ids_names, main_index );
-
-            if ( main_index == -1 )
-
-                break;
-
-            id_locations[ ids_names.cap( 1 ) ] = file.remove( TEXT_FOLDER_NAME + "/" );
-
-            main_index += ids_names.matchedLength();
-        }
-    }
-
-    return id_locations;
 }
 
 

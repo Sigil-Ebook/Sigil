@@ -57,15 +57,6 @@ protected:
     // mimetype to write to the special "mimetype" file
     void SaveTo( const QString &fullfilepath, const QString &mimetype = QString( EPUB_MIME_TYPE ) );
 
-    // Updates the href attributes of all <a> tags
-    // to point to the files the ID's referenced are located in
-    void UpdateAnchors();
-
-    // Returns a hash with keys being ID or NAME attributes
-    // of XHTML elements and the values being the files in
-    // which these attribute values are located
-    QHash< QString, QString > GetIDFileLocations() const;
-
     // Creates the publication's container.xml file
     void CreateContainerXML();
 

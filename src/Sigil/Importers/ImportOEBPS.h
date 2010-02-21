@@ -95,8 +95,6 @@ protected:
 
     // The list of metadata elements in the OPF
     QList< Metadata::MetaElement > m_MetaElements;
-
-
 };
 
 

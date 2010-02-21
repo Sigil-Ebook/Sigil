@@ -133,11 +133,43 @@ QList< QDomNode > XHTMLDoc::GetTagMatchingChildren( const QDomNode &node, const 
         {
             matching_nodes.append( GetTagMatchingChildren( children.at( i ), tag_names ) );              
         }
-
-        return matching_nodes;
     }    
 
     return matching_nodes;
+}
+
+QList< QString > XHTMLDoc::GetAllChildIDs( const QDomNode &node )
+{
+    Q_ASSERT( !node.isNull() );
+
+    QDomElement element = node.toElement();
+
+    if ( element.isNull() )
+
+        return QList< QString >();
+
+    QList< QString > IDs;
+
+    if ( element.hasAttribute( "id" ) )
+    
+        IDs.append( element.attribute( "id" ) );
+    
+    else if ( element.hasAttribute( "name" ) )
+
+        IDs.append( element.attribute( "name" ) );
+
+    if ( node.hasChildNodes() )
+    {
+        QDomNodeList children = node.childNodes();
+        int num_children = children.count();
+
+        for ( int i = 0; i < num_children; ++i )
+        {
+            IDs.append( GetAllChildIDs( children.at( i ) ) );              
+        }
+    }    
+
+    return IDs;
 }
 
 

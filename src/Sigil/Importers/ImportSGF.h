@@ -76,6 +76,15 @@ private:
                              int reading_order, 
                              const QString &folderpath,
                              const QHash< QString, QString > &html_updates );
+
+    QHash< QString, QString > GetIDLocations();
+
+    static tuple< QString, QList< QString > > GetOneFileIDs( HTMLResource* html_resource );
+
+    void UpdateAnchors( const QHash< QString, QString > ID_locations );
+
+    static void UpdateAnchorsInOneFile( HTMLResource *html_resource, 
+                                        const QHash< QString, QString > ID_locations );  
 };
 
 #endif // IMPORTSGF_H

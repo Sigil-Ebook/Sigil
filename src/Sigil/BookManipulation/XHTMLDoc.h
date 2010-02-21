@@ -63,6 +63,8 @@ public:
 
     static QList< QDomNode > GetTagMatchingChildren( const QDomNode &node, const QStringList &tag_names );
 
+    static QList< QString > GetAllChildIDs( const QDomNode &node ); 
+
     // We need to remove the XML carriage returns ("&#xD" sequences)
     // that the default toString() method creates so we wrap it in this function
     static QString GetQDomNodeAsString( const QDomNode &node );
