@@ -64,6 +64,13 @@ protected:
     // (filled by reading the OPF) into the book
     void LoadMetadata();
 
+    // Loads the referenced files into the main folder of the book.
+    // Returns a hash with keys being old references (URLs) to resources,
+    // and values being the new references to those resources.
+    QHash< QString, QString > LoadFolderStructure();
+
+    tuple< QString, QString > LoadOneFile( const QString &key );
+
 
     ///////////////////////////////
     // PROTECTED MEMBER VARIABLES

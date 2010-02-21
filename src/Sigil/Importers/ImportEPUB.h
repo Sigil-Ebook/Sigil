@@ -42,9 +42,7 @@ public:
     // and returns the created Book
     virtual QSharedPointer< Book > GetBook();
 
-protected:
-
-   
+protected:   
 
     void CleanAndUpdateFiles( const QHash< QString, QString > &updates );
 
@@ -54,13 +52,6 @@ protected:
 
     static void UpdateOneCSSFile( CSSResource* css_resource, 
                                   const QHash< QString, QString > &css_updates );
-
-    // Loads the referenced files into the main folder of the book.
-    // Returns a hash with keys being old references (URLs) to resources,
-    // and values being the new references to those resources.
-    QHash< QString, QString > LoadFolderStructure();
-
-    tuple< QString, QString > LoadOneFile( const QString &key );
     
 };
 

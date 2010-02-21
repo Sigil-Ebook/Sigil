@@ -22,6 +22,7 @@
 #include <stdafx.h>
 #include "ImportOEBPS.h"
 #include "../Misc/Utility.h"
+#include "ResourceObjects/Resource.h"
 #include <ZipArchive.h>
 
 static const QString OEBPS_MIMETYPE = "application/oebps-package+xml";
@@ -235,5 +236,48 @@ void ImportOEBPS::LoadMetadata()
             m_Book->metadata[ book_meta.name ].append( book_meta.value );
         }
     }    
+}
+
+// Loads the referenced files into the main folder of the book.
+// Returns a hash with keys being old references (URLs) to resources,
+// and values being the new references to those resources.
+QHash< QString, QString > ImportOEBPS::LoadFolderStructure()
+{ 
+    QList< QString > keys = m_Files.keys();
+    int num_files = keys.count();
+
+    QFutureSynchronizer< tuple< QString, QString > > sync;
+
+    for ( int i = 0; i < num_files; ++i )
+    {   
+        sync.addFuture( QtConcurrent::run( this, &ImportOEBPS::LoadOneFile, keys.at( i ) ) );   
+    }
+
+    sync.waitForFinished();
+
+    QList< QFuture< tuple< QString, QString > > > futures = sync.futures();
+    int num_futures = futures.count();
+
+    QHash< QString, QString > updates;
+
+    for ( int i = 0; i < num_futures; ++i )
+    {
+        tuple< QString, QString > result = futures.at( i ).result();
+        updates[ result.get< 0 >() ] = result.get< 1 >();
+    }   
+
+    return updates;
+}
+
+
+tuple< QString, QString > ImportOEBPS::LoadOneFile( const QString &key )
+{
+    QString path         = m_Files.value( key );
+    QString fullfilepath = QFileInfo( m_OPFFilePath ).absolutePath() + "/" + path;
+
+    Resource &resource = m_Book->mainfolder.AddContentFileToFolder( fullfilepath, m_ReadingOrderIds.indexOf( key ) );
+    QString newpath = "../" + resource.GetRelativePathToOEBPS(); 
+
+    return make_tuple( path, newpath );
 }
 

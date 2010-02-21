@@ -25,6 +25,7 @@
 #include "../BookManipulation/CleanSource.h"
 #include "ResourceObjects/HTMLResource.h"
 #include "ResourceObjects/TextResource.h"
+#include "../SourceUpdates/PerformHTMLUpdates.h"
 
 
 // Constructor;
@@ -56,8 +57,12 @@ QSharedPointer< Book > ImportSGF::GetBook()
     QString source = LoadSource();
     QString header = CreateHeader( CreateStyleResources( source ) );
 
-    CreateXHTMLFiles( source, header );
-    LoadFolderStructure();
+    // We remove the first and only XHTML resource
+    // since we don't want to load that directly.
+    // We will chop it up and create new XHTMLs in CreateXHTMLFiles.
+    m_Files.remove( m_ReadingOrderIds.at( 0 ) );
+
+    CreateXHTMLFiles( source, header, LoadFolderStructure() );
 
     return m_Book;
 }
@@ -170,7 +175,7 @@ QString ImportSGF::RemoveSigilStyles( const QString &style_source )
 
 // Takes a list of style sheet file names 
 // and returns the header for XHTML files
-QString ImportSGF::CreateHeader( const QList< Resource* > &style_resources ) const
+QString ImportSGF::CreateHeader( const QList< Resource* > &style_resources )
 {
     QString header = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
                      "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\"\n"
@@ -195,7 +200,9 @@ QString ImportSGF::CreateHeader( const QList< Resource* > &style_resources ) con
 
 // Creates XHTML files from the book source;
 // the provided header is used as the header of the created files
-void ImportSGF::CreateXHTMLFiles( const QString &source, const QString &header )
+void ImportSGF::CreateXHTMLFiles( const QString &source, 
+                                  const QString &header,
+                                  const QHash< QString, QString > &html_updates )
 {
     QRegExp body_start_tag( BODY_START );
     QRegExp body_end_tag( BODY_END );
@@ -238,7 +245,8 @@ void ImportSGF::CreateXHTMLFiles( const QString &source, const QString &header )
 
         QString wholefile = header + "<body>\n" + body + "</body> </html>";
 
-        sync.addFuture( QtConcurrent::run( this, &ImportSGF::CreateOneXHTMLFile, wholefile, reading_order, folderpath ) );
+        sync.addFuture( 
+            QtConcurrent::run( this, &ImportSGF::CreateOneXHTMLFile, wholefile, reading_order, folderpath, html_updates ) );
 
         ++reading_order;
     }	
@@ -248,7 +256,11 @@ void ImportSGF::CreateXHTMLFiles( const QString &source, const QString &header )
     QtConcurrent::run( Utility::DeleteFolderAndFiles, folderpath );
 }
 
-void ImportSGF::CreateOneXHTMLFile( QString source, int reading_order, const QString &folderpath )
+
+void ImportSGF::CreateOneXHTMLFile( QString source, 
+                                    int reading_order, 
+                                    const QString &folderpath,
+                                    const QHash< QString, QString > &html_updates )
 {
     QString filename     = QString( "content" ) + QString( "%1" ).arg( reading_order + 1, 3, 10, QChar( '0' ) ) + ".xhtml";
     QString fullfilepath = folderpath + "/" + filename;
@@ -260,36 +272,7 @@ void ImportSGF::CreateOneXHTMLFile( QString source, int reading_order, const QSt
 
     Q_ASSERT( html_resource );
 
-    QDomDocument document;
-    document.setContent( CleanSource::Clean( source ) );
-
-    html_resource->SetDomDocument( document );
-}
-
-
-// Loads the referenced files into the main folder of the book
-void ImportSGF::LoadFolderStructure()
-{
-    QFutureSynchronizer< void > sync;
-
-    QList< QString > keys = m_Files.keys();
-    int num_keys = keys.count();        
-
-    for ( int i = 0; i < num_keys; ++i )
-    {
-        sync.addFuture( QtConcurrent::run( this, &ImportSGF::LoadOneFile, keys.at( i ) ) );
-    }
-
-    sync.waitForFinished();
-}
-
-void ImportSGF::LoadOneFile( const QString &key )
-{
-    // We skip over the book text
-    if ( !m_ReadingOrderIds.contains( key ) )
-    {
-        QString fullfilepath = QFileInfo( m_OPFFilePath ).absolutePath() + "/" + m_Files.value( key );
-        m_Book->mainfolder.AddContentFileToFolder( fullfilepath );
-    }   
+    html_resource->SetDomDocument( 
+        PerformHTMLUpdates( CleanSource::Clean( source ), html_updates, QHash< QString, QString >() )() );
 }
 

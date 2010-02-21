@@ -64,19 +64,18 @@ private:
 
     // Takes a list of style sheet file names 
     // and returns the header for XHTML files
-    QString CreateHeader( const QList< Resource* > &style_resources ) const;
+    static QString CreateHeader( const QList< Resource* > &style_resources );
 
     // Creates XHTML files from the book source;
     // the provided header is used as the header of the created files
-    void CreateXHTMLFiles( const QString &source, const QString &header );
+    void CreateXHTMLFiles( const QString &source, 
+                           const QString &header,
+                           const QHash< QString, QString > &html_updates );
 
-    void CreateOneXHTMLFile( QString source, int reading_order, const QString &folderpath );
-
-    // Loads the referenced files into the main folder of the book
-    void LoadFolderStructure();
-
-    void LoadOneFile( const QString &key  );
-
+    void CreateOneXHTMLFile( QString source, 
+                             int reading_order, 
+                             const QString &folderpath,
+                             const QHash< QString, QString > &html_updates );
 };
 
 #endif // IMPORTSGF_H

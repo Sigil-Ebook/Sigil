@@ -32,8 +32,6 @@
 #include "ResourceObjects/CSSResource.h"
 
 
-
-
 // Constructor;
 // The parameter is the file to be imported
 ImportEPUB::ImportEPUB( const QString &fullfilepath )
@@ -113,50 +111,6 @@ void ImportEPUB::UpdateOneCSSFile( CSSResource* css_resource, const QHash< QStri
     QString source = Utility::ReadUnicodeTextFile( css_resource->GetFullPath() );
     source = PerformCSSUpdates( source, css_updates )();
     css_resource->SetText( source );
-}
-
-
-// Loads the referenced files into the main folder of the book.
-// Returns a hash with keys being old references (URLs) to resources,
-// and values being the new references to those resources.
-QHash< QString, QString > ImportEPUB::LoadFolderStructure()
-{ 
-    QList< QString > keys = m_Files.keys();
-    int num_files = keys.count();
-
-    QFutureSynchronizer< tuple< QString, QString > > sync;
-
-    for ( int i = 0; i < num_files; ++i )
-    {   
-        sync.addFuture( QtConcurrent::run( this, &ImportEPUB::LoadOneFile, keys.at( i ) ) );   
-    }
-
-    sync.waitForFinished();
-
-    QList< QFuture< tuple< QString, QString > > > futures = sync.futures();
-    int num_futures = futures.count();
-
-    QHash< QString, QString > updates;
-
-    for ( int i = 0; i < num_futures; ++i )
-    {
-        tuple< QString, QString > result = futures.at( i ).result();
-        updates[ result.get< 0 >() ] = result.get< 1 >();
-    }   
-
-    return updates;
-}
-
-
-tuple< QString, QString > ImportEPUB::LoadOneFile( const QString &key )
-{
-    QString path         = m_Files.value( key );
-    QString fullfilepath = QFileInfo( m_OPFFilePath ).absolutePath() + "/" + path;
-
-    Resource &resource = m_Book->mainfolder.AddContentFileToFolder( fullfilepath, m_ReadingOrderIds.indexOf( key ) );
-    QString newpath = "../" + resource.GetRelativePathToOEBPS(); 
-
-    return make_tuple( path, newpath );
 }
 
 
