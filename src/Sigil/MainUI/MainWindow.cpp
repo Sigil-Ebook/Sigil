@@ -53,6 +53,7 @@ static const int ZOOM_SLIDER_WIDTH          = 140;
 static const QString REPORTING_ISSUES_WIKI  = "http://code.google.com/p/sigil/wiki/ReportingIssues";
 static const QString SIGIL_DEV_BLOG         = "http://sigildev.blogspot.com/";
 
+static const QStringList SUPPORTED_SAVE_TYPE = QStringList() << "epub"; 
 static const QString FRAME_NAME      = "managerframe";
 static const QString TAB_STYLE_SHEET =  "#managerframe {border-top: 0px solid white;"
                                         "border-left: 1px solid grey;"
@@ -776,7 +777,7 @@ bool MainWindow::SaveFile( const QString &filename )
 
     // TODO: Move to ExporterFactory and throw exception
     // when the user tries to save an unsupported type
-    if ( !IsSupportedSaveType( extension ) )
+    if ( !SUPPORTED_SAVE_TYPE.contains( extension ) )
     {
         QMessageBox::warning(	0,
                                 tr( "Sigil" ),
@@ -788,8 +789,6 @@ bool MainWindow::SaveFile( const QString &filename )
     }
 
     QApplication::setOverrideCursor( Qt::WaitCursor );
-
-    //TidyUp();
 
     // We delete the file if it exists
     Utility::DeleteFile( filename );
@@ -811,17 +810,6 @@ bool MainWindow::SaveFile( const QString &filename )
     statusBar()->showMessage( tr( "File saved" ), STATUSBAR_MSG_DISPLAY_TIME );
 
     return true;
-}
-
-
-// Returns true if the provided extension is supported as a save type
-bool MainWindow::IsSupportedSaveType( const QString &extension ) const
-{
-    QStringList supported;
-
-    supported << "epub" << "sgf";
-
-    return supported.contains( extension );
 }
 
 
