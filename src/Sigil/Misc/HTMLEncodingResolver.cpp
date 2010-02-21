@@ -33,18 +33,13 @@ QString HTMLEncodingResolver::ReadHTMLFile( const QString &fullfilepath )
 {
     QFile file( fullfilepath );
 
-    // TODO: throw FileNotFound exception
-
     // Check if we can open the file
     if ( !file.open( QFile::ReadOnly ) ) 
     {
-        QMessageBox::warning(	0,
-            QObject::tr( "Sigil" ),
-            QObject::tr( "Cannot read file %1:\n%2." )
-            .arg( fullfilepath )
-            .arg( file.errorString() ) 
-            );
-        return "";
+        boost_throw( CannotOpenFile() 
+                     << errinfo_file_fullpath( file.fileName().toStdString() )
+                     << errinfo_qfile_error( file.error() ) 
+                   );
     }
 
     QByteArray data = file.readAll();

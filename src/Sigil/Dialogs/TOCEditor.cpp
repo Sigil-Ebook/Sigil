@@ -241,8 +241,6 @@ void TOCEditor::InsertHeadingIntoModel( Headings::Heading &heading, QStandardIte
     heading_included_check->setEditable( false );
     heading_included_check->setCheckable( true );
 
-    // TODO: red/pink background for include == false headings
-
     if ( heading.include_in_toc == true )
 
         heading_included_check->setCheckState( Qt::Checked );
