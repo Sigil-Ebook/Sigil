@@ -33,6 +33,15 @@ ImportOEBPS::ImportOEBPS( const QString &fullfilepath )
 }
 
 
+// Destructor
+ImportOEBPS::~ImportOEBPS()
+{
+    if ( !m_ExtractedFolderPath.isEmpty() )
+
+        QtConcurrent::run( Utility::DeleteFolderAndFiles, m_ExtractedFolderPath );
+}
+
+
 // Extracts the EPUB file to a temporary folder;
 // the path to this folder is stored in m_ExtractedFolderPath
 void ImportOEBPS::ExtractContainer()

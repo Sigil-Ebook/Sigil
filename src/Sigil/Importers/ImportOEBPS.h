@@ -41,6 +41,9 @@ public:
     // The parameter is the file to be imported
     ImportOEBPS( const QString &fullfilepath );
 
+    // Destructor
+    virtual ~ImportOEBPS();
+
     virtual QSharedPointer< Book > GetBook() = 0;
 
 protected:

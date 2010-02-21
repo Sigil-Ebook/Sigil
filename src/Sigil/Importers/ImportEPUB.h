@@ -38,9 +38,6 @@ public:
     // The parameter is the file to be imported
     ImportEPUB( const QString &fullfilepath );
 
-    // Destructor
-    virtual ~ImportEPUB();
-
     // Reads and parses the file 
     // and returns the created Book
     virtual QSharedPointer< Book > GetBook();

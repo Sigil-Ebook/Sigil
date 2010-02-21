@@ -75,6 +75,8 @@ private:
     // Loads the referenced files into the main folder of the book
     void LoadFolderStructure();
 
+    void LoadOneFile( const QString &key  );
+
 };
 
 #endif // IMPORTSGF_H

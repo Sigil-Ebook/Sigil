@@ -120,7 +120,7 @@ Resource* ImportSGF::CreateOneStyleFile( const XHTMLDoc::XMLElement &element,
         return NULL;
     
     QString extension    = element.attributes.value( "type" ) == "text/css" ? "css" : "xpgt";
-    QString filename     = QString( "style" ) + QString( "%1" ).arg( index, 3, 10, QChar( '0' ) ) + "." + extension;
+    QString filename     = QString( "style" ) + QString( "%1" ).arg( index + 1, 3, 10, QChar( '0' ) ) + "." + extension;
     QString fullfilepath = folderpath + "/" + filename;
 
     Utility::WriteUnicodeTextFile( "PLACEHOLDER", fullfilepath );
@@ -181,9 +181,10 @@ QString ImportSGF::CreateHeader( const QList< Resource* > &style_resources ) con
     foreach( Resource* resource, style_resources )
     {
         if ( resource )
-
+        {
             header += "    <link href=\"../" + resource->GetRelativePathToOEBPS() + 
                       "\" rel=\"stylesheet\" type=\"text/css\" />\n";
+        }
     }
 
     header += "</head>\n";
@@ -269,15 +270,26 @@ void ImportSGF::CreateOneXHTMLFile( QString source, int reading_order, const QSt
 // Loads the referenced files into the main folder of the book
 void ImportSGF::LoadFolderStructure()
 {
-    foreach( QString key, m_Files.keys() )
+    QFutureSynchronizer< void > sync;
+
+    QList< QString > keys = m_Files.keys();
+    int num_keys = keys.count();        
+
+    for ( int i = 0; i < num_keys; ++i )
     {
-        // We skip over the book text
-        if ( !m_ReadingOrderIds.contains( key ) )
-        {
-            QString fullfilepath = QFileInfo( m_OPFFilePath ).absolutePath() + "/" + m_Files.value( key );
-            m_Book->mainfolder.AddContentFileToFolder( fullfilepath );
-        }        
+        sync.addFuture( QtConcurrent::run( this, &ImportSGF::LoadOneFile, keys.at( i ) ) );
     }
+
+    sync.waitForFinished();
 }
 
+void ImportSGF::LoadOneFile( const QString &key )
+{
+    // We skip over the book text
+    if ( !m_ReadingOrderIds.contains( key ) )
+    {
+        QString fullfilepath = QFileInfo( m_OPFFilePath ).absolutePath() + "/" + m_Files.value( key );
+        m_Book->mainfolder.AddContentFileToFolder( fullfilepath );
+    }   
+}
 

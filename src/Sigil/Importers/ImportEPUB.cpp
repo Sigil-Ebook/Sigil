@@ -43,15 +43,6 @@ ImportEPUB::ImportEPUB( const QString &fullfilepath )
 }
 
 
-// Destructor
-ImportEPUB::~ImportEPUB()
-{
-    if ( !m_ExtractedFolderPath.isEmpty() )
-
-        QtConcurrent::run( Utility::DeleteFolderAndFiles, m_ExtractedFolderPath );
-}
-
-
 // Reads and parses the file 
 // and returns the created Book
 QSharedPointer< Book > ImportEPUB::GetBook()
