@@ -131,8 +131,6 @@ set( EXPORTER_FILES
     Exporters/Exporter.h
     Exporters/ExporterFactory.cpp
     Exporters/ExporterFactory.h
-    Exporters/ExportSGF.cpp
-    Exporters/ExportSGF.h
     Exporters/NCXWriter.cpp
     Exporters/NCXWriter.h
     Exporters/OPFWriter.cpp

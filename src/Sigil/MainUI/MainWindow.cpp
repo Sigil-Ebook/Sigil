@@ -24,7 +24,6 @@
 #include "MainWindow.h"
 #include "BookManipulation/FolderKeeper.h"
 #include "Exporters/ExportEPUB.h"
-#include "Exporters/ExportSGF.h"
 #include "Dialogs/MetaEditor.h"
 #include "Dialogs/About.h"
 #include "Dialogs/TOCEditor.h"

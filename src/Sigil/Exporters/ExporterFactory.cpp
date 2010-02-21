@@ -21,7 +21,6 @@
 
 #include <stdafx.h>
 #include "ExporterFactory.h"
-#include "ExportSGF.h"
 #include "ExportEPUB.h"
 
 
@@ -44,23 +43,6 @@ ExporterFactory::~ExporterFactory()
 Exporter& ExporterFactory::GetExporter( const QString &filename, const Book &book  )
 {
     QString extension = QFileInfo( filename ).suffix().toLower();
-
-//     if (	( extension == "xhtml" ) ||
-//             ( extension == "html" ) ||
-//             ( extension == "htm" )
-//         )
-//     {
-//         exExporter = new ExportHTML( filename );
-// 
-//         return *m_Exporter;
-//     }
-
-    if ( ( extension == "sgf" ) )
-    {
-        m_Exporter = new ExportSGF( filename, book );
-
-        return *m_Exporter;
-    }
 
     if ( ( extension == "epub" ) )
     {

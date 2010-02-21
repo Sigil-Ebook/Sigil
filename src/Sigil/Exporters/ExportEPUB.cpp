@@ -20,7 +20,7 @@
 *************************************************************************/
 
 #include <stdafx.h>
-#include "ExportSGF.h"
+#include "ExportEPUB.h"
 #include "../BookManipulation/FolderKeeper.h"
 #include "OPFWriter.h"
 #include "NCXWriter.h"
