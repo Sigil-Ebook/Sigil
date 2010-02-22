@@ -80,10 +80,6 @@ void HTMLResource::SetDomDocument( const QDomDocument &document )
 // Make sure to get a read lock externally before calling this function!
 const QDomDocument& HTMLResource::GetDomDocumentForReading()
 {
-    // We can't check with tryLockForRead because that
-    // can still legitimately succeed.
-    Q_ASSERT( m_ReadWriteLock.tryLockForWrite() == false );
-
     return m_DomDocument;
 }
 
@@ -92,8 +88,6 @@ const QDomDocument& HTMLResource::GetDomDocumentForReading()
 // Call MarkSecondaryCachesAsOld() if you updated the document.
 QDomDocument& HTMLResource::GetDomDocumentForWriting()
 {
-    Q_ASSERT( m_ReadWriteLock.tryLockForWrite() == false );
-
     // We can't just mark the caches as old right here since
     // some consumers need write access but don't end up writing anything.
 
