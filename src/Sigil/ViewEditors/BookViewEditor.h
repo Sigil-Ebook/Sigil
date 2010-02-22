@@ -119,6 +119,8 @@ signals:
     // Emitted whenever the zoom factor changes
     void ZoomFactorChanged( float new_zoom_factor );
 
+    void FilteredLinkClicked( const QUrl& url );
+
 protected:
 
     // Overridden because we need to update the cursor
@@ -138,6 +140,8 @@ private slots:
     // depending on the received loading progress; if the 
     // progress equals 100, the state is true, otherwise false.
     void UpdateFinishedState( int progress );
+
+    void LinkClickedFilter( const QUrl& url );
 
     // Wrapper slot for the Page Up shortcut
     void PageUp();

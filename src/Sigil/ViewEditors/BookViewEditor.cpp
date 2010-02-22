@@ -61,8 +61,10 @@ void BookViewEditor::CustomSetWebPage( QWebPage &webpage )
     connect( page(), SIGNAL( loadFinished( bool ) ), this, SLOT( JavascriptOnDocumentLoad() ) );
     connect( page(), SIGNAL( loadProgress( int ) ),  this, SLOT( UpdateFinishedState( int ) ) );
 
-    connect( page(),                   SIGNAL( linkClicked( const QUrl& ) ),
-             this->parent()->parent(), SIGNAL( LinkClicked( const QUrl& ) ) );
+    connect( page(), SIGNAL( linkClicked( const QUrl& ) ), this, SLOT( LinkClickedFilter( const QUrl&  ) ) );
+
+    connect( this,                     SIGNAL( FilteredLinkClicked( const QUrl& ) ),
+             this->parent()->parent(), SIGNAL( LinkClicked(         const QUrl& ) ) );
 }
 
 // Executes the specified command on the document with javascript
@@ -384,6 +386,22 @@ void BookViewEditor::UpdateFinishedState( int progress )
     else
 
         m_isLoadFinished = false;
+}
+
+
+void BookViewEditor::LinkClickedFilter( const QUrl& url )
+{
+    // Urls in the document that have just "#fragmentID"
+    // and no path (that is, "file local" urls), are returned
+    // by QUrl.toString() as a path to the folder of this 
+    // file with the fragment attached.
+    if ( url.toString().contains( "/#" ) )
+
+        ScrollToFragment( url.fragment() );
+
+    else
+
+        emit FilteredLinkClicked( url );
 }
 
 
