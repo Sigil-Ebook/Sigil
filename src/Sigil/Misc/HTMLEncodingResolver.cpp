@@ -23,7 +23,7 @@
 #include "HTMLEncodingResolver.h"
 #include "Utility.h"
 
-static const QString HEAD_END = "</\\s*head\\s*>";
+const QString HEAD_END = "</\\s*head\\s*>";
 
 
 // Accepts a full path to an HTML file.

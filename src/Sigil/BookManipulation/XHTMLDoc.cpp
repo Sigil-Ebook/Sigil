@@ -67,8 +67,8 @@ QList< XHTMLDoc::XMLElement > XHTMLDoc::GetTagsInHead( const QString &source, co
                 matching_elements.append( CreateXMLElement( reader ) );
         }
 
-        else if (    type == QXmlStreamReader::EndElement &&
-                    ( reader.name() == "head" || reader.name() == "HEAD" )
+        else if ( type == QXmlStreamReader::EndElement &&
+                  ( reader.name() == "head" || reader.name() == "HEAD" )
                 )
         {
             break;        
@@ -77,7 +77,7 @@ QList< XHTMLDoc::XMLElement > XHTMLDoc::GetTagsInHead( const QString &source, co
 
     if ( reader.hasError() )
     {
-        boost_throw( ErrorParsingContentXML() 
+        boost_throw( ErrorParsingXML() 
                      << errinfo_XML_parsing_error_string( reader.errorString().toStdString() )
                      << errinfo_XML_parsing_line_number( reader.lineNumber() )
                      << errinfo_XML_parsing_column_number( reader.columnNumber() )
@@ -111,7 +111,7 @@ QList< XHTMLDoc::XMLElement > XHTMLDoc::GetTagsInDocument( const QString &source
 
     if ( reader.hasError() )
     {
-        boost_throw( ErrorParsingContentXML() 
+        boost_throw( ErrorParsingXML() 
                      << errinfo_XML_parsing_error_string( reader.errorString().toStdString() )
                      << errinfo_XML_parsing_line_number( reader.lineNumber() )
                      << errinfo_XML_parsing_column_number( reader.columnNumber() )

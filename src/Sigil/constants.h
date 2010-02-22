@@ -25,6 +25,7 @@ class QString;
 // in one CPP file to be used in another
 extern const QString BODY_START;
 extern const QString BODY_END;
+extern const QString HEAD_END;
 extern const QString BREAK_TAG_SEARCH;
 extern const QString BREAK_TAG_INSERT;
 extern const QString HEADING;

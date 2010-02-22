@@ -48,9 +48,9 @@ Importer& ImporterFactory::GetImporter( const QString &filename )
 {
     QString extension = QFileInfo( filename ).suffix().toLower();
 
-    if (	( extension == "xhtml" ) ||
-            ( extension == "html" ) ||
-            ( extension == "htm" )
+    if ( ( extension == "xhtml" ) ||
+         ( extension == "html" )  ||
+         ( extension == "htm" )
         )
     {
         imImporter = new ImportHTML( filename );

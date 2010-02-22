@@ -26,32 +26,34 @@
 #include <buffio.h>
 #include "../BookManipulation/XHTMLDoc.h"
 
-static const QString SIGIL_CLASS_NAME       = "sgc";
-static const QString SIGIL_CLASS_NAME_REG   = SIGIL_CLASS_NAME + "-(\\d+)";
+static const QString SIGIL_CLASS_NAME     = "sgc";
+static const QString SIGIL_CLASS_NAME_REG = SIGIL_CLASS_NAME + "-(\\d+)";
+
+static const QString CSS_STYLE_TAG_START  = "<\\s*style[^>]*type\\s*=\\s*\"text/css\"[^>]*>";
 
 // Use with <QRegExp>.setMinimal( true )
-static const QString STYLE_TAG_CSS_ONLY     = "<\\s*style[^>]*type\\s*=\\s*\"text/css\"[^>]*>.*</\\s*style[^>]*>";
+static const QString STYLE_TAG_CSS_ONLY   = CSS_STYLE_TAG_START + ".*</\\s*style[^>]*>";
 
-static const QString CLASS_REMOVE_START     = "<[^>]*class\\s*=\\s*\"[^\"]*";
-static const QString CLASS_REMOVE_END       = "[^\"]*\"[^>]*>";
+static const QString CLASS_REMOVE_START   = "<[^>]*class\\s*=\\s*\"[^\"]*";
+static const QString CLASS_REMOVE_END     = "[^\"]*\"[^>]*>";
 
 // Use with <QRegExp>.setMinimal( true )
-static const QString TIDY_NEW_STYLE         = "(\\w+)\\.[\\w-]+\\s*(\\{.*\\})";
+static const QString TIDY_NEW_STYLE       = "(\\w+)\\.[\\w-]+\\s*(\\{.*\\})";
 
 // The value was picked arbitrarily
-static const int TAG_SIZE_THRESHOLD         = 1000;
+static const int TAG_SIZE_THRESHOLD       = 1000;
 
-static const QString SVG_ELEMENTS           =   "a,altGlyph,altGlyphDef,altGlyphItem,animate,animateColor,animateMotion"
-                                                ",animateTransform,circle,clipPath,color-profile,cursor,definition-src,defs,desc"
-                                                ",ellipse,feBlend,feColorMatrix,feComponentTransfer,feComposite,feConvolveMatrix"
-                                                ",feDiffuseLighting,feDisplacementMap,feDistantLight,feFlood,feFuncA,feFuncB"
-                                                ",feFuncG,feFuncR,feGaussianBlur,feImage,feMerg,feMergeNode,feMorphology,feOffset"
-                                                ",fePointLight,feSpecularLighting,feSpotLight,feTile,feTurbulence,filter"
-                                                ",font,font-face,font-face-format,font-face-name,font-face-src,font-face-uri"
-                                                ",foreignObject,g,glyph,glyphRef,hkern,image,line,linearGradient,marker,mask"
-                                                ",metadata,missing-glyph,mpath,path,pattern,polygon,polyline,radialGradient"
-                                                ",rect,script,set,stop,style,svg,switch,symbol,text,textPath,title,tref,tspan"
-                                                ",use,view,vkern";
+static const QString SVG_ELEMENTS         = "a,altGlyph,altGlyphDef,altGlyphItem,animate,animateColor,animateMotion"
+                                            ",animateTransform,circle,clipPath,color-profile,cursor,definition-src,defs,desc"
+                                            ",ellipse,feBlend,feColorMatrix,feComponentTransfer,feComposite,feConvolveMatrix"
+                                            ",feDiffuseLighting,feDisplacementMap,feDistantLight,feFlood,feFuncA,feFuncB"
+                                            ",feFuncG,feFuncR,feGaussianBlur,feImage,feMerg,feMergeNode,feMorphology,feOffset"
+                                            ",fePointLight,feSpecularLighting,feSpotLight,feTile,feTurbulence,filter"
+                                            ",font,font-face,font-face-format,font-face-name,font-face-src,font-face-uri"
+                                            ",foreignObject,g,glyph,glyphRef,hkern,image,line,linearGradient,marker,mask"
+                                            ",metadata,missing-glyph,mpath,path,pattern,polygon,polyline,radialGradient"
+                                            ",rect,script,set,stop,style,svg,switch,symbol,text,textPath,title,tref,tspan"
+                                            ",use,view,vkern";
 
 
 // Performs general cleaning (and improving)
@@ -63,7 +65,7 @@ QString CleanSource::Clean( const QString &source )
     // We store the number of CSS style tags before
     // running Tidy so CleanCSS can remove redundant classes
     // if tidy added a new style tag
-    int old_num_styles = CSSStyleTags( newsource ).count();
+    int old_num_styles = RobustCSSStyleTagCount( newsource );
     
     newsource = HTMLTidy( newsource );
     newsource = CleanCSS( newsource, old_num_styles );
@@ -82,6 +84,14 @@ QString CleanSource::ToValidXHTML( const QString &source )
 QString CleanSource::PrettyPrint( const QString &source )
 {
     return PrettyPrintTidy( source );
+}
+
+
+int CleanSource::RobustCSSStyleTagCount( const QString &source )
+{
+    int head_end_index = source.indexOf( QRegExp( HEAD_END ) );
+    
+    return Utility::Substring( 0, head_end_index, source ).count( QRegExp( CSS_STYLE_TAG_START ) );
 }
 
 
@@ -113,15 +123,28 @@ QString CleanSource::CleanCSS( const QString &source, int old_num_styles )
 // where each element is a QString representing the content
 // of a single CSS style tag
 QStringList CleanSource::CSSStyleTags( const QString &source )
-{
-    QStringList css_style_tags;
+{    
+    QList< XHTMLDoc::XMLElement > style_tag_nodes;
 
-    QList< XHTMLDoc::XMLElement > style_tag_nodes = XHTMLDoc::GetTagsInHead( source, "style" );
+    try
+    {
+        style_tag_nodes = XHTMLDoc::GetTagsInHead( source, "style" );
+    }
+    
+    catch ( ErrorParsingXML &exception )
+    {
+    	// Nothing really. If we can't get the CSS style tags,
+        // than that's it. No CSS returned.
+        // TODO: log this error.
+        qDebug() << Utility::GetExceptionInfo( exception );
+    }
+
+    QStringList css_style_tags;
 
     foreach( XHTMLDoc::XMLElement element, style_tag_nodes )
     {
-        if (    element.attributes.contains( "type" ) && 
-              ( element.attributes.value( "type" ) == "text/css" ) 
+        if ( element.attributes.contains( "type" ) && 
+             ( element.attributes.value( "type" ) == "text/css" ) 
            )  
         {
             css_style_tags.append( element.text );

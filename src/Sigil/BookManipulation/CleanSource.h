@@ -41,6 +41,8 @@ public:
 
 private:
 
+    static int RobustCSSStyleTagCount( const QString &source );
+
     // Cleans CSS; currently it removes the redundant CSS classes
     // that Tidy sometimes adds because it doesn't parse existing
     // CSS classes, it only adds new ones; this also merges smaller
