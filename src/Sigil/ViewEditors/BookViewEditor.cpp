@@ -399,9 +399,14 @@ void BookViewEditor::LinkClickedFilter( const QUrl& url )
 
         ScrollToFragment( url.fragment() );
 
-    else
+    else if ( url.scheme() == "file" )
 
         emit FilteredLinkClicked( url );
+
+    // We kill all links to the internet
+    else
+
+        return;
 }
 
 
