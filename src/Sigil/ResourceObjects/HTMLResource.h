@@ -94,11 +94,9 @@ private:
 
     void SetWebPageHTML( const QString &source );
 
-    QString AddCacheParamsToLinks( const QString &source );
+    QStringList GetPathsToLinkedStylesheets();
 
     void TrackNewCSSResources( const QStringList &filepaths );
-
-    QString RemoveCacheParamsFromLinks( const QString &source );
 
     // Making this a list of CSSResources fails to compile,
     // no matter what header we include...
