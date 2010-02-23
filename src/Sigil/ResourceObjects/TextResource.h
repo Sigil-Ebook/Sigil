@@ -47,6 +47,10 @@ public:
 
     virtual ResourceType Type() const;
 
+signals:
+
+    void ResourceUpdatedOnDisk();
+
 private:
 
     QTextDocument *m_TextDocument;

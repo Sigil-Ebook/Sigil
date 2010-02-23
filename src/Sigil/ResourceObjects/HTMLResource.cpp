@@ -125,7 +125,7 @@ void HTMLResource::UpdateWebPageFromDomDocument()
 {
     Q_ASSERT( QThread::currentThread() == QApplication::instance()->thread() );
 
-    if ( !m_WebPageIsOld )
+    if ( !m_WebPageIsOld && !m_CSSResourcesUpdated )
 
         return;
 
@@ -136,6 +136,7 @@ void HTMLResource::UpdateWebPageFromDomDocument()
     SetWebPageHTML( XHTMLDoc::GetQDomNodeAsString( m_DomDocument ) );
 
     m_WebPageIsOld = false;
+    m_CSSResourcesUpdated = false;
 }
 
 
@@ -167,10 +168,11 @@ void HTMLResource::UpdateWebPageFromTextDocument()
 
     QString source = CleanSource::Clean( m_TextDocument->toPlainText() );
 
-    if ( m_OldSourceCache != source )
+    if ( m_OldSourceCache != source || m_CSSResourcesUpdated )
     {
         SetWebPageHTML( source );
         m_OldSourceCache = source;
+        m_CSSResourcesUpdated = false;
     }
 }
 
@@ -240,13 +242,19 @@ bool HTMLResource::LessThan( HTMLResource* res_1, HTMLResource* res_2 )
 }
 
 
+void HTMLResource::LinkedCSSResourceUpdated()
+{
+    m_CSSResourcesUpdated = true;
+}
+
+
 QString HTMLResource::GetWebPageHTML()
 {
     Q_ASSERT( m_WebPage );
 
     RemoveWebkitClasses();
 
-    return CleanSource::Clean( m_WebPage->mainFrame()->toHtml() );
+    return CleanSource::Clean( RemoveCacheParamsFromLinks( m_WebPage->mainFrame()->toHtml() ) );
 }
 
 
@@ -254,7 +262,11 @@ void HTMLResource::SetWebPageHTML( const QString &source )
 {
     Q_ASSERT( m_WebPage );
 
-    m_WebPage->mainFrame()->setContent( source.toUtf8(), LOADED_CONTENT_MIMETYPE, GetBaseUrl() ); 
+    m_WebPage->mainFrame()->setContent( AddCacheParamsToLinks( source ).toUtf8(), 
+                                        LOADED_CONTENT_MIMETYPE, 
+                                        GetBaseUrl() 
+                                      );
+
     m_WebPage->setContentEditable( true );
 
     // TODO: we kill external links; a dialog should be used
@@ -265,6 +277,101 @@ void HTMLResource::SetWebPageHTML( const QString &source )
     settings.setAttribute( QWebSettings::LocalContentCanAccessRemoteUrls, false );
     settings.setAttribute( QWebSettings::JavascriptCanAccessClipboard, true );
     settings.setAttribute( QWebSettings::ZoomTextOnly, true );
+}
+
+
+//   We have to use this absolutely ridiculous hack to get CSS
+// resources in <link> elements to reload properly. If we don't
+// append a random parameter to the end of the link, the QtWebkit
+// cache will *never* reload the CSS file. Not even if you call
+// the QWebPage::Reload action, not even if you call the 
+// QWebPage::ReloadAndBypassCache action, not event if you DESTROY
+// the QWebPage object and replace it with a new one.
+//   You have to use QWebSettings::clearMemoryCaches(), and that
+// kills the whole cache.
+//   So we hack it... 
+QString HTMLResource::AddCacheParamsToLinks( const QString &source )
+{
+    // We can't do this with the QWebElement API since we need to return
+    // a clean version to the QTextDocument, and for that we have to clean
+    // the QWebPage... and then put it all back... QRegExp is the only way.
+
+    int head_end_index = source.indexOf( QRegExp( HEAD_END ) );
+    QString head = Utility::Substring( 0, head_end_index, source );
+
+    QRegExp link( "(<\\s*link[^>]*href\\s*=\\s*\")([^\"]*)(\"[^>]*>)" );
+    link.setMinimal( true );
+
+    QStringList linked_files;
+
+    int main_index = 0;
+
+    while ( true )
+    {
+        main_index = head.indexOf( link, main_index );
+
+        if ( main_index == -1 )
+
+            break;
+
+        linked_files.append( link.cap( 2 ) );
+        
+        QString new_link = link.cap( 1 ) + link.cap( 2 ) + "?sgrnd=" + Utility::CreateUUID() + link.cap( 3 );
+        head.replace( main_index, link.matchedLength(), new_link );
+
+        main_index += new_link.size();
+    }
+
+    TrackNewCSSResources( linked_files );
+
+    return head + Utility::Substring( head_end_index, source.length(), source );
+}
+
+
+void HTMLResource::TrackNewCSSResources( const QStringList &filepaths )
+{    
+    foreach( Resource *resource, m_LinkedCSSResources )
+    {
+        disconnect( resource, SIGNAL( ResourceUpdatedOnDisk() ), this, SLOT( LinkedCSSResourceUpdated() ) );
+    }
+
+    m_LinkedCSSResources.clear();
+
+    QStringList filenames;
+
+    foreach( QString filepath, filepaths )
+    {
+        filenames.append( QFileInfo( filepath ).fileName() );
+    }
+
+    foreach( Resource *resource, m_HashOwner.values() )
+    {
+        if ( resource->Type() == Resource::CSSResource )
+        {
+            if ( filenames.contains( resource->Filename() ) )
+                
+                m_LinkedCSSResources.append( resource );
+        }
+    }
+
+    foreach( Resource *resource, m_LinkedCSSResources )
+    {
+        connect( resource, SIGNAL( ResourceUpdatedOnDisk() ), this, SLOT( LinkedCSSResourceUpdated() ) );
+    }
+}
+
+
+QString HTMLResource::RemoveCacheParamsFromLinks( const QString &source )
+{
+    int head_end_index = source.indexOf( QRegExp( HEAD_END ) );
+    QString head = Utility::Substring( 0, head_end_index, source );
+
+    QRegExp link( "(<\\s*link[^>]*href\\s*=\\s*\"[^\"]*)\\?sgrnd=.+(\"[^>]*>)" );
+    link.setMinimal( true );
+
+    head.replace( link, "\\1\\2" );
+
+    return head + Utility::Substring( head_end_index, source.length(), source );
 }
 
 

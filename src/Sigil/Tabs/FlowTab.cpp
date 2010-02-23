@@ -412,7 +412,7 @@ void FlowTab::InsertImage()
                                                             tr( "Insert Image(s)" ), 
                                                             s_LastFolderImage, 
                                                             tr( "Images (*.png *.jpg *.jpeg *.gif *.svg)")
-                                                            );
+                                                         );
 
     if ( filenames.isEmpty() )
 

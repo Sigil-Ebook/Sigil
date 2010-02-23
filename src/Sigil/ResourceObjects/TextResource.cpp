@@ -67,6 +67,8 @@ void TextResource::SaveToDisk()
 
     Utility::WriteUnicodeTextFile( m_TextDocument->toPlainText(), m_FullFilePath );
 
+    emit ResourceUpdatedOnDisk();
+
     m_TextDocument->setModified( false );
 }
 

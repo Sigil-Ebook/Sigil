@@ -86,8 +86,6 @@ protected:
     // (and reacquire it when the user is able to edit again)
     QReadWriteLock m_ReadWriteLock;
 
-private:
-
     QHash< QString, Resource* > &m_HashOwner;
 };
 

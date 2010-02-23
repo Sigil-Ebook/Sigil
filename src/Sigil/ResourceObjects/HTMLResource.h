@@ -30,6 +30,7 @@ class QWebPage;
 class QTextDocument;
 class QString;
 
+
 class HTMLResource : public Resource 
 {
     Q_OBJECT
@@ -83,11 +84,25 @@ public:
     // TODO: turn this into operator<
     static bool LessThan( HTMLResource* res_1, HTMLResource* res_2 );
 
+private slots:
+
+    void LinkedCSSResourceUpdated();
+
 private:
 
     QString GetWebPageHTML();
 
     void SetWebPageHTML( const QString &source );
+
+    QString AddCacheParamsToLinks( const QString &source );
+
+    void TrackNewCSSResources( const QStringList &filepaths );
+
+    QString RemoveCacheParamsFromLinks( const QString &source );
+
+    // Making this a list of CSSResources fails to compile,
+    // no matter what header we include...
+    QList< Resource* > m_LinkedCSSResources;
 
     // This is the actual HTML resource backing store.
     // The final arbiter of the content in the HTMLResource.
@@ -109,6 +124,8 @@ private:
 
     bool m_WebPageIsOld;
     bool m_TextDocumentIsOld;
+
+    bool m_CSSResourcesUpdated;
 
     // Starts at 0, not 1
     int m_ReadingOrder;
