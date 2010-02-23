@@ -22,6 +22,25 @@
 #include <stdafx.h>
 #include "../BookManipulation/Book.h"
 #include "../Misc/Utility.h"
+#include "ResourceObjects/HTMLResource.h"
+#include <QDomDocument>
+
+static const QString EMPTY_HTML_FILE =  "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                                        "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\"\n"
+                                        "    \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n\n"							
+                                        "<html xmlns=\"http://www.w3.org/1999/xhtml\">\n"
+                                        "<head>\n"
+                                        "<title></title>\n"
+                                        "</head>\n"
+                                        "<body>\n"
+
+                                        // The "nbsp" is here so that the user starts writing
+                                        // inside the <p> element; if it's not here, webkit
+                                        // inserts text _outside_ the <p> element
+                                        "<p>&nbsp;</p>\n"
+                                        "</body>\n"
+                                        "</html>";
+
 
 // Constructor
 Book::Book()
@@ -83,12 +102,38 @@ QString Book::GetPublicationIdentifier()
     return m_PublicationIdentifier;
 }
 
+
 QHash< QString, QList< QVariant > > Book::GetMetadata()
 {
     return m_Metadata;
 }
 
+
 void Book::SetMetadata( const QHash< QString, QList< QVariant > > metadata )
 {
     m_Metadata = metadata;
+}
+
+
+// FIXME: Check if file with FIRST_CHAPTER_NAME already exists
+// (in folderkeeper) and increment the number suffix.
+void Book::CreateEmptyTextFile()
+{
+    QString folderpath = Utility::GetNewTempFolderPath();
+    QDir dir( folderpath );
+    dir.mkpath( folderpath );
+
+    QString fullfilepath = folderpath + "/" + FIRST_CHAPTER_NAME;
+
+    Utility::WriteUnicodeTextFile( EMPTY_HTML_FILE, fullfilepath );
+
+    HTMLResource *html_resource = qobject_cast< HTMLResource* >( 
+                                    &m_Mainfolder.AddContentFileToFolder( fullfilepath ) );
+
+    Q_ASSERT( html_resource );
+
+    QDomDocument document;
+    document.setContent( EMPTY_HTML_FILE );
+
+    html_resource->SetDomDocument( document );
 }

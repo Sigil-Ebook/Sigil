@@ -58,22 +58,6 @@ static const QString TAB_STYLE_SHEET =  "#managerframe {border-top: 0px solid wh
                                         "border-right: 1px solid grey;"
                                         "border-bottom: 1px solid grey;} ";
 
-static const QString EMPTY_HTML_FILE =  "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
-                                        "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\"\n"
-                                        "    \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n\n"							
-                                        "<html xmlns=\"http://www.w3.org/1999/xhtml\">\n"
-                                        "<head>\n"
-                                        "<title></title>\n"
-                                        "</head>\n"
-                                        "<body>\n"
-
-                                        // The "nbsp" is here so that the user starts writing
-                                        // inside the <p> element; if it's not here, webkit
-                                        // inserts text _outside_ the <p> element
-                                        "<p>&nbsp;</p>\n"
-                                        "</body>\n"
-                                        "</html>";
-
 static const QStringList SUPPORTED_SAVE_TYPE = QStringList() << "epub"; 
 
 QStringList MainWindow::s_RecentFiles = QStringList();
@@ -732,23 +716,7 @@ void MainWindow::CreateNew()
 {
     m_Book = QSharedPointer< Book >( new Book() );
 
-    QString folderpath = Utility::GetNewTempFolderPath();
-    QDir dir( folderpath );
-    dir.mkpath( folderpath );
-
-    QString fullfilepath = folderpath + "/" + FIRST_CHAPTER_NAME;
-
-    Utility::WriteUnicodeTextFile( EMPTY_HTML_FILE, fullfilepath );
-
-    HTMLResource *html_resource = qobject_cast< HTMLResource* >( 
-                                    &m_Book->GetFolderKeeper().AddContentFileToFolder( fullfilepath ) );
-
-    Q_ASSERT( html_resource );
-
-    QDomDocument document;
-    document.setContent( EMPTY_HTML_FILE );
-
-    html_resource->SetDomDocument( document );
+    m_Book->CreateEmptyTextFile();
     m_BookBrowser->SetBook( m_Book );
     
     SetCurrentFile( "" );

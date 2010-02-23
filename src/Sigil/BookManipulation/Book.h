@@ -58,6 +58,8 @@ public:
 
     void SetMetadata( const QHash< QString, QList< QVariant > > metadata );
 
+    void CreateEmptyTextFile();
+
 private:   
 
     // The FolderKeeper object that represents
