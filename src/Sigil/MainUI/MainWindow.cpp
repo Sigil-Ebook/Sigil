@@ -52,14 +52,33 @@ static const int ZOOM_SLIDER_WIDTH          = 140;
 static const QString REPORTING_ISSUES_WIKI  = "http://code.google.com/p/sigil/wiki/ReportingIssues";
 static const QString SIGIL_DEV_BLOG         = "http://sigildev.blogspot.com/";
 
-static const QStringList SUPPORTED_SAVE_TYPE = QStringList() << "epub"; 
 static const QString FRAME_NAME      = "managerframe";
 static const QString TAB_STYLE_SHEET =  "#managerframe {border-top: 0px solid white;"
                                         "border-left: 1px solid grey;"
                                         "border-right: 1px solid grey;"
                                         "border-bottom: 1px solid grey;} ";
 
+static const QString EMPTY_HTML_FILE =  "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                                        "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\"\n"
+                                        "    \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n\n"							
+                                        "<html xmlns=\"http://www.w3.org/1999/xhtml\">\n"
+                                        "<head>\n"
+                                        "<title></title>\n"
+                                        "</head>\n"
+                                        "<body>\n"
+
+                                        // The "nbsp" is here so that the user starts writing
+                                        // inside the <p> element; if it's not here, webkit
+                                        // inserts text _outside_ the <p> element
+                                        "<p>&nbsp;</p>\n"
+                                        "</body>\n"
+                                        "</html>";
+
+static const QStringList SUPPORTED_SAVE_TYPE = QStringList() << "epub"; 
+
 QStringList MainWindow::s_RecentFiles = QStringList();
+
+
 
 // Constructor.
 // The first argument is the path to the file that the window
@@ -712,28 +731,25 @@ bool MainWindow::MaybeSave()
 void MainWindow::CreateNew()
 {
     m_Book = QSharedPointer< Book >( new Book() );
-    
-//     m_Book->source =	"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
-//                     "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\"\n"
-//                     "    \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n\n"							
-//                     "<html xmlns=\"http://www.w3.org/1999/xhtml\">\n"
-//                     "<head>\n"
-//                     "<title></title>\n"
-//                     "</head>\n"
-//                     "<body>\n"
-//                     
-//                     // The "nbsp" is here so that the user starts writing
-//                     // inside the <p> element; if it's not here, webkit
-//                     // inserts text _outside_ the <p> element
-//                     "<p>&nbsp;</p>\n"
-//                     "</body>\n"
-//                     "</html>";
-    
-    // Add Sigil-specific markup
-    //m_Book->source = SigilMarkup::AddSigilMarkup( m_Book->source );
-    
-    //m_wBookView->SetBook( m_Book );    
-    //m_wCodeView->SetBook( m_Book );
+
+    QString folderpath = Utility::GetNewTempFolderPath();
+    QDir dir( folderpath );
+    dir.mkpath( folderpath );
+
+    QString fullfilepath = folderpath + "/" + FIRST_CHAPTER_NAME;
+
+    Utility::WriteUnicodeTextFile( EMPTY_HTML_FILE, fullfilepath );
+
+    HTMLResource *html_resource = qobject_cast< HTMLResource* >( 
+                                    &m_Book->GetFolderKeeper().AddContentFileToFolder( fullfilepath ) );
+
+    Q_ASSERT( html_resource );
+
+    QDomDocument document;
+    document.setContent( EMPTY_HTML_FILE );
+
+    html_resource->SetDomDocument( document );
+    m_BookBrowser->SetBook( m_Book );
     
     SetCurrentFile( "" );
 }
