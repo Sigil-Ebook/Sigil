@@ -115,6 +115,12 @@ void Book::SetMetadata( const QHash< QString, QList< QVariant > > metadata )
 }
 
 
+void Book::SaveAllResourceCachesToDisk()
+{
+
+}
+
+
 // FIXME: Check if file with FIRST_CHAPTER_NAME already exists
 // (in folderkeeper) and increment the number suffix.
 void Book::CreateEmptyTextFile()
@@ -137,3 +143,4 @@ void Book::CreateEmptyTextFile()
 
     html_resource->SetDomDocument( document );
 }
+

@@ -41,7 +41,7 @@ public:
 
     QTextDocument& GetTextDocumentForWriting();
 
-    virtual void SaveToDisk();
+    void SaveToDisk();
 
     virtual void InitialLoad();
 

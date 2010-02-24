@@ -27,6 +27,8 @@
 #include "ResourceObjects/TextResource.h"
 #include "../SourceUpdates/PerformHTMLUpdates.h"
 
+const QString BREAK_TAG_SEARCH  = "(<div>\\s*)?<hr\\s*class\\s*=\\s*\"[^\"]*sigilChapterBreak[^\"]*\"\\s*/>(\\s*</div>)?";
+
 
 // Constructor;
 // The parameter is the file to be imported

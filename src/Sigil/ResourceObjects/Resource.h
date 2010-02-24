@@ -67,6 +67,8 @@ public:
 
     virtual ResourceType Type() const;
 
+    virtual void SaveToDisk();
+
 signals:
 
     void RenamedTo( QString );

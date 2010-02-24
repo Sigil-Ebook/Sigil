@@ -58,6 +58,8 @@ public:
 
     void SetMetadata( const QHash< QString, QList< QVariant > > metadata );
 
+    void SaveAllResourceCachesToDisk();
+
     void CreateEmptyTextFile();
 
 private:   
