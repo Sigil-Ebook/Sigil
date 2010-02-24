@@ -58,11 +58,13 @@ public:
 
     void SetMetadata( const QHash< QString, QList< QVariant > > metadata );
 
-    void SaveAllResourceCachesToDisk();
-
     void CreateEmptyTextFile();
 
-private:   
+    void SaveAllResourcesToDisk();
+
+private:
+
+    static void SaveOneResourceToDisk( Resource *resource );
 
     // The FolderKeeper object that represents
     // this books presence on the hard drive

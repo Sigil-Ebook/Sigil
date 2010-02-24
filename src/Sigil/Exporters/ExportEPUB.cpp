@@ -67,7 +67,7 @@ ExportEPUB::~ExportEPUB()
 // specified in the constructor
 void ExportEPUB::WriteBook()
 {
-    m_Book->SaveAllResourceCachesToDisk();
+    m_Book->SaveAllResourcesToDisk();
 
     // TODO: wrap all occurrences of this idiom into an object
     // that deletes the temp folder in the destructor
