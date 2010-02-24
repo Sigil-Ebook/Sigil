@@ -907,7 +907,7 @@ float MainWindow::SliderRangeToZoomFactor( int slider_range_value ) const
 
 // Returns a map with keys being extensions of file types
 // we can load, and the values being filters for use in file dialogs
-const QMap< QString, QString > MainWindow::GetLoadFiltersMap() const
+const QMap< QString, QString > MainWindow::GetLoadFiltersMap()
 {
     QMap< QString, QString > file_filters;
 
@@ -925,11 +925,10 @@ const QMap< QString, QString > MainWindow::GetLoadFiltersMap() const
 
 // Returns a map with keys being extensions of file types
 // we can save, and the values being filters for use in file dialogs
-const QMap< QString, QString > MainWindow::GetSaveFiltersMap() const
+const QMap< QString, QString > MainWindow::GetSaveFiltersMap()
 {
     QMap< QString, QString > file_filters;
 
-    file_filters[ "sgf"  ] = tr( "Sigil Format file (*.sgf)" );
     file_filters[ "epub" ] = tr( "EPUB file (*.epub)" );
 
     return file_filters;

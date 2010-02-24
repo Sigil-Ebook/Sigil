@@ -188,11 +188,11 @@ private:
 
     // Returns a map with keys being extensions of file types
     // we can load, and the values being filters for use in file dialogs
-    const QMap< QString, QString > GetLoadFiltersMap() const;
+    static const QMap< QString, QString > GetLoadFiltersMap();
 
     // Returns a map with keys being extensions of file types
     // we can save, and the values being filters for use in file dialogs
-    const QMap< QString, QString > GetSaveFiltersMap() const;
+    static const QMap< QString, QString > GetSaveFiltersMap();
 
     // Sets the current file in window title;
     // updates the recent files list
