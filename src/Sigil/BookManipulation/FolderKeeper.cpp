@@ -195,27 +195,14 @@ QStringList FolderKeeper::GetContentFilesList() const
 
     foreach( Resource* resource, m_Resources.values() )
     {
-        filelist.append( resource->GetRelativePathToOEBPS() );
+        if ( resource->Type() != Resource::HTMLResource )
+
+            filelist.append( resource->GetRelativePathToOEBPS() );
     }
+
+
 
     return filelist;
-}
-
-Resource& FolderKeeper::GetResourceByIdentifier( const QString &identifier ) const
-{
-    return *m_Resources[ identifier ];
-}
-
-Resource& FolderKeeper::GetResourceByFilename( const QString &filename ) const
-{
-    foreach( Resource *resource, m_Resources.values() )
-    {
-        if ( resource->Filename() == filename )
-
-            return *resource;
-    }
-
-    boost_throw( ResourceDoesNotExist() << errinfo_resource_name( filename.toStdString() ) );
 }
 
 
@@ -240,6 +227,25 @@ QList< HTMLResource* > FolderKeeper::GetSortedHTMLResources() const
     qSort( html_resources.begin(), html_resources.end(), HTMLResource::LessThan );
 
     return html_resources;
+}
+
+
+Resource& FolderKeeper::GetResourceByIdentifier( const QString &identifier ) const
+{
+    return *m_Resources[ identifier ];
+}
+
+
+Resource& FolderKeeper::GetResourceByFilename( const QString &filename ) const
+{
+    foreach( Resource *resource, m_Resources.values() )
+    {
+        if ( resource->Filename() == filename )
+
+            return *resource;
+    }
+
+    boost_throw( ResourceDoesNotExist() << errinfo_resource_name( filename.toStdString() ) );
 }
 
 

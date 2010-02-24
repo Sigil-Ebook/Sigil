@@ -255,14 +255,15 @@ void OPFWriter::WriteManifest()
     m_Writer->writeAttribute( "href", "toc.ncx" );
     m_Writer->writeAttribute( "media-type", m_Mimetypes[ "ncx" ] );
 
-    foreach( QString file, m_Files )
+    foreach( Resource *resource, m_Book->GetConstFolderKeeper().GetResourceList() )
     {
-        QString name		= QFileInfo( file ).baseName();
-        QString extension	= QFileInfo( file ).suffix();
+        QFileInfo info( resource->Filename() );
+        QString name      = info.baseName();
+        QString extension = info.suffix();
 
         m_Writer->writeEmptyElement( "item" );
         m_Writer->writeAttribute( "id", name + "." + extension );
-        m_Writer->writeAttribute( "href", file );
+        m_Writer->writeAttribute( "href", resource->GetRelativePathToOEBPS() );
         m_Writer->writeAttribute( "media-type", m_Mimetypes[ extension ] );
     }
 
@@ -276,16 +277,11 @@ void OPFWriter::WriteSpine()
     m_Writer->writeStartElement( "spine" );
     m_Writer->writeAttribute( "toc", "ncx" );
 
-    foreach( QString file, m_Files )
+    foreach( HTMLResource *html_resource, m_Book->GetConstFolderKeeper().GetSortedHTMLResources() )
     {
-        // We skip all the files that are not in the
-        // text subdirectory
-        if ( !file.contains( TEXT_FOLDER_NAME + "/" ) )
-
-            continue;
-
-        QString name		= QFileInfo( file ).baseName();
-        QString extension	= QFileInfo( file ).suffix();
+        QFileInfo info( html_resource->Filename() );
+        QString name      = info.baseName();
+        QString extension = info.suffix();
 
         m_Writer->writeEmptyElement( "itemref" );
         m_Writer->writeAttribute( "idref", name + "." + extension );

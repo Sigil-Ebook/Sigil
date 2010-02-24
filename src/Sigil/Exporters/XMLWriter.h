@@ -49,10 +49,6 @@ protected:
     // The book being exported
     QSharedPointer< Book > m_Book;
 
-    // The list of files in the folder
-    // that will become the exported book
-    const QStringList m_Files;	
-
     // The XML source that is being written
     QString m_XMLSource;
 

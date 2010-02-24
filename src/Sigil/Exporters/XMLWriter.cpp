@@ -30,8 +30,7 @@
 // in the folder that will become the exported book
 XMLWriter::XMLWriter( QSharedPointer< Book > book )
     : 
-    m_Book( book ), 
-    m_Files( m_Book->GetFolderKeeper().GetContentFilesList() ),
+    m_Book( book ),
     m_XMLSource( "" ),
     m_Writer( new QXmlStreamWriter( &m_XMLSource ) )
 {

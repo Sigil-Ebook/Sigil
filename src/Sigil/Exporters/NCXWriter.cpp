@@ -157,23 +157,11 @@ void NCXWriter::WriteFallbackNavPoint()
     m_Writer->writeTextElement( "text", "Start");
     m_Writer->writeEndElement();
 
-    QString first_text_file = "";
-
-    foreach( QString relfilepath, m_Files )
-    {
-        // We skip all the files that are not in the
-        // text subdirectory
-        if ( !relfilepath.contains( TEXT_FOLDER_NAME + "/" ) )
-
-            continue;
-
-        first_text_file = relfilepath;
-    }
-
-    Q_ASSERT( !first_text_file.isEmpty() );
+    QList< HTMLResource* > html_resources = m_Book->GetConstFolderKeeper().GetSortedHTMLResources();  
+    Q_ASSERT( !html_resources.isEmpty() );
 
     m_Writer->writeEmptyElement( "content" );
-    m_Writer->writeAttribute( "src", first_text_file );
+    m_Writer->writeAttribute( "src", html_resources.at( 0 )->GetRelativePathToOEBPS() );
 
     m_Writer->writeEndElement();
 }
