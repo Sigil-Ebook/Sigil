@@ -27,6 +27,7 @@
 #include "../BookManipulation/CleanSource.h"
 #include "../BookManipulation/Headings.h"
 #include "../BookManipulation/XHTMLDoc.h"
+#include "ResourceObjects/HTMLResource.h"
 
 static const QString SIGIL_HEADING_ID_PREFIX = "heading_id_";
 static const QString SIGIL_HEADING_ID_REG    = SIGIL_HEADING_ID_PREFIX + "(\\d+)";
@@ -35,70 +36,58 @@ static const QString SIGIL_HEADING_ID_REG    = SIGIL_HEADING_ID_PREFIX + "(\\d+)
 // Performs all the operations necessary
 // on the Book before it is exported,
 // like adding ID's to all headings etc.
-// Book BookNormalization::Normalize( QSharedPointer< Book > book )
-// {
-//     Book newbook = book;
-// 
-//     newbook.source = GiveIDsToHeadings( newbook.source );
-//     newbook.source = CleanSource::Clean( newbook.source );
-// 
-//     return newbook;
-// }
+void BookNormalization::Normalize( QSharedPointer< Book > book )
+{
+    QList< HTMLResource* > html_resources = book->GetFolderKeeper().GetSortedHTMLResources();
+
+    QtConcurrent::blockingMap( html_resources, GiveIDsToHeadings );
+}
+
 
 // Gives ID's to all headings that don't have them
-QString BookNormalization::GiveIDsToHeadings( const QString &source )
+void BookNormalization::GiveIDsToHeadings( HTMLResource *html_resource )
 {
-    QDomDocument document;
+    QReadLocker locker( &html_resource->GetLock() );
 
-    document.setContent( source );
+    QList< Headings::Heading > headings = Headings::GetHeadingListForOneFile( html_resource );
 
-    int heading_id_index = MaxSigilHeadingIDIndex( source ) + 1;
+    int heading_id_index = MaxSigilHeadingIDIndex( headings ) + 1;
 
-    for ( int level = 1; level < 7; level++ )
+    for ( int index = 0; index < headings.count(); index++ )
     {
-        QString tag = "h" + QString::number( level );
-
-        QDomNodeList headings = document.elementsByTagName( tag );
-
-        for ( int index = 0; index < headings.count(); index++ )
+        QDomElement element = headings.at( index ).element;
+        
+        if ( !element.hasAttribute( "id" ) )
         {
-            QDomElement element = headings.at( index ).toElement();
+            element.setAttribute( "id", SIGIL_HEADING_ID_PREFIX + QString::number( heading_id_index ) );
             
-            if ( !element.hasAttribute( "id" ) )
-            {
-                element.setAttribute( "id", SIGIL_HEADING_ID_PREFIX + QString::number( heading_id_index ) );
-                
-                heading_id_index++;
-            }
+            heading_id_index++;
         }
-    }
-
-    return XHTMLDoc::GetQDomNodeAsString( document );
+    }    
 }
 
 
 // Returns the maximum index for Sigil heading IDs
 // present in the provided XHTML source
-int BookNormalization::MaxSigilHeadingIDIndex( const QString &source )
+int BookNormalization::MaxSigilHeadingIDIndex( const QList< Headings::Heading > headings )
 {
     int maxindex = 1;
+    
+    for ( int index = 0; index < headings.count(); index++ )
+    {
+        QDomElement element = headings.at( index ).element;
 
-    // FIXME: get headings
-//     QList< Headings::Heading > headings = Headings::GetHeadingList( source );
-//     
-//     foreach( Headings::Heading heading, headings )
-//     {
-//         QRegExp suffix( SIGIL_HEADING_ID_REG );
-// 
-//         if ( heading.id.contains( suffix ) )
-//         {
-//             int index = suffix.cap( 1 ).toInt();
-// 
-//             if ( index > maxindex )
-// 
-//                 maxindex = index;
-//         }
-//     }
+        QRegExp suffix( SIGIL_HEADING_ID_REG );
+
+        if ( element.attribute( "id" ).contains( suffix ) )
+        {
+            int index = suffix.cap( 1 ).toInt();
+
+            if ( index > maxindex )
+
+                maxindex = index;
+        }
+    }
 
     return maxindex;
 }

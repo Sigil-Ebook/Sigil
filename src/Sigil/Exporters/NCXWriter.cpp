@@ -23,19 +23,18 @@
 #include "NCXWriter.h"
 #include "../BookManipulation/Book.h"
 #include "../Misc/Utility.h"
+#include "ResourceObjects/HTMLResource.h"
 
 
 // Constructor;
 // The first parameter is the book being exported,
 // and the second is the FolderKeeper object representing
 // the folder where the book will be exported
-NCXWriter::NCXWriter( QSharedPointer< Book > book, const FolderKeeper &fkeeper )
+NCXWriter::NCXWriter( QSharedPointer< Book > book  )
     : 
-    XMLWriter( book, fkeeper ), 
-    m_HeadingIDsPerFile( GetHeadingIDsPerFile() ),
-    m_HeadingSourcesPerFile( GetHeadingSourcesPerFile() ),
-    m_Headings( Headings::MakeHeadingHeirarchy( Headings::GetHeadingList( 
-                                                m_Book->GetFolderKeeper().GetSortedHTMLResources() ) ) )
+    XMLWriter( book ),
+    m_Headings( Headings::MakeHeadingHeirarchy( 
+                Headings::GetHeadingList( m_Book->GetFolderKeeper().GetSortedHTMLResources() ) ) )
 {
 
 }
@@ -61,19 +60,15 @@ QString NCXWriter::GetXML()
     WriteNavMap();
 
     m_Writer->writeEndElement();
-    m_Writer->writeEndDocument();	
+    m_Writer->writeEndDocument();
 
-    return m_Source;
+    return m_XMLSource;
 }
 
 
 // Writes the <head> element
 void NCXWriter::WriteHead()
 {
-    // The heading depth should be exactly the same as the depth
-    // of the NavMap element (since they are used to write it)
-    QString depth = QString::number( GetHeadingsDepth() );
-
     m_Writer->writeStartElement( "head" );
 
         m_Writer->writeEmptyElement( "meta" );
@@ -82,9 +77,11 @@ void NCXWriter::WriteHead()
         // TODO: We should use the ISBN if it's provided
         m_Writer->writeAttribute( "content", m_Book->GetPublicationIdentifier() );
 
+        // The heading depth should be exactly the same as the depth
+        // of the NavMap element (since they are used to write it)
         m_Writer->writeEmptyElement( "meta" );
         m_Writer->writeAttribute( "name", "dtb:depth" );
-        m_Writer->writeAttribute( "content", depth );
+        m_Writer->writeAttribute( "content", QString::number( GetHeadingsDepth() ) );
 
         m_Writer->writeEmptyElement( "meta" );
         m_Writer->writeAttribute( "name", "dtb:totalPageCount" );
@@ -202,7 +199,7 @@ void NCXWriter::WriteNavPoint( const Headings::Heading &heading, int &play_order
         m_Writer->writeTextElement( "text", heading.element.text() );
         m_Writer->writeEndElement();
 
-        QString myfile = GetHeadingFile( heading );        
+        QString heading_file = heading.resource_file->GetRelativePathToOEBPS();       
 
         m_Writer->writeEmptyElement( "content" );
 
@@ -211,11 +208,11 @@ void NCXWriter::WriteNavPoint( const Headings::Heading &heading, int &play_order
         // we link to the heading element directly
         if ( heading.at_file_start == true )
         
-            m_Writer->writeAttribute( "src", myfile );
+            m_Writer->writeAttribute( "src", heading_file );
 
         else
             
-            m_Writer->writeAttribute( "src", myfile + "#" + heading.element.attribute( "id" ) );
+            m_Writer->writeAttribute( "src", heading_file + "#" + heading.element.attribute( "id" ) );
     }
 
     foreach( Headings::Heading child, heading.children )
@@ -226,119 +223,6 @@ void NCXWriter::WriteNavPoint( const Headings::Heading &heading, int &play_order
     if ( heading.include_in_toc == true )
 
         m_Writer->writeEndElement();
-}
-
-
-// Returns a hash that lists all the heading ID's
-// in a particular file
-QHash< QString, QStringList > NCXWriter::GetHeadingIDsPerFile() const
-{
-    QHash< QString, QStringList > file_headings;
-
-    foreach( QString relfilepath, m_Files )
-    {
-        // We skip all the files that are not in the
-        // text subdirectory
-        if ( !relfilepath.contains( TEXT_FOLDER_NAME + "/" ) )
-
-            continue;
-
-        QString fullfilepath = m_Folder.GetFullPathToOEBPSFolder() + "/" + relfilepath;
-        QString source       = Utility::ReadUnicodeTextFile( fullfilepath );
-
-        // FIXME: need headings.
-        //QList< Headings::Heading > headings = Headings::GetHeadingList( source );
-
-//         foreach( Headings::Heading heading, headings )
-//         {
-//             if ( !heading.id.isEmpty() )
-//             
-//                 file_headings[ relfilepath ].append( heading.id );
-//         }
-    }
-    
-    return file_headings;
-}
-
-
-// Returns a hash that lists all the heading sources
-// in a particular file. "Source" means full element HTML.
-QHash< QString, QStringList > NCXWriter::GetHeadingSourcesPerFile() const
-{
-    QHash< QString, QStringList > file_headings;
-
-    foreach( QString relfilepath, m_Files )
-    {
-        // We skip all the files that are not in the
-        // text subdirectory
-        if ( !relfilepath.contains( TEXT_FOLDER_NAME + "/" ) )
-
-            continue;
-
-        QString fullfilepath = m_Folder.GetFullPathToOEBPSFolder() + "/" + relfilepath;
-        QString source       = Utility::ReadUnicodeTextFile( fullfilepath );
-
-        // FIXME: need headings.
-//         QList< Headings::Heading > headings = Headings::GetHeadingList( source );
-// 
-//         foreach( Headings::Heading heading, headings )
-//         {
-//             file_headings[ relfilepath ].append( heading.element_source );
-//         }
-    }
-
-    return file_headings;
-}
-
-
-// Returns the relative path to the XHTML file
-// the provided heading is located in.
-QString NCXWriter::GetHeadingFile( const Headings::Heading &heading ) const
-{
-    // MASSIVE HACK!
-    //   Sigil used to (stupidly) expect that a heading ID was unique epub-wide.
-    // And it is if the file is created with Sigil, but not necessarily
-    // true for imported epubs. This problem will go away in 0.2.0 when we
-    // switch to multi-flow editing, but is too deep to be fixed in this architecture.
-    // We need to support multi-level TOC across XHTML files, so we can't just scan
-    // the individual files and search for headings. We need to look at the heading
-    // hierarchy epub-wide.
-    //   This hack works in 99% of cases, and work on 0.2.0 has already started
-    // so hopefully we won't have to live with this for long.
-
-    QList< QString > files_with_heading_ID;
-
-    // We try to search for the file that has the heading's ID.
-    // We *really* want to find just one.
-    foreach( QString file, m_HeadingIDsPerFile.keys() )
-    {
-        if ( m_HeadingIDsPerFile[ file ].contains( heading.element.attribute( "id" ) ) )
-        {
-            files_with_heading_ID.append( file );
-        }
-    }
-
-    // If only one file has the heading ID, we return it.
-    if ( files_with_heading_ID.count() == 1 )
-
-        return files_with_heading_ID[ 0 ];
-
-    // This is very bad. We now try to look for the exact heading source code,
-    // including classes, text etc. Anything that would differentiate it from
-    // the other headings that unfortunately have the same ID.
-    // We return the first file that has this source, which may not be unique...
-
-    // FIXME
-//     foreach( QString file, m_HeadingSourcesPerFile.keys() )
-//     {
-//         if ( m_HeadingSourcesPerFile[ file ].contains( heading.element_source ) )
-//         {
-//             return file;
-//         }
-//     }
-
-    // TODO: throw an exception.
-    return "";
 }
 
 

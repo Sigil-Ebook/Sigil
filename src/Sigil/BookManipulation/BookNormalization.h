@@ -23,9 +23,11 @@
 #ifndef BOOKNORMALIZATION_H
 #define BOOKNORMALIZATION_H
 
+#include "../BookManipulation/Headings.h"
 #include <QSharedPointer>
 
 class Book;
+class HTMLResource;
 
 class BookNormalization
 {
@@ -35,16 +37,16 @@ public:
     // Performs all the operations necessary
     // on the Book before it is exported,
     // like adding ID's to all headings etc.
-    //static Book Normalize( QSharedPointer< Book > book ); 
+    static void Normalize( QSharedPointer< Book > book ); 
 
 private:
 
     // Gives ID's to all headings that don't have them
-    static QString GiveIDsToHeadings( const QString &source );
+    static void GiveIDsToHeadings( HTMLResource *html_resource );
 
     // Returns the maximum index for Sigil heading IDs
     // present in the provided XHTML source
-    static int MaxSigilHeadingIDIndex( const QString &source );
+    static int MaxSigilHeadingIDIndex( const QList< Headings::Heading > headings );
 };
 
 #endif // BOOKNORMALIZATION_H

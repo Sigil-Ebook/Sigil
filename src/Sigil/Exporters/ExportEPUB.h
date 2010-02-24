@@ -27,7 +27,7 @@
 #include "../BookManipulation/FolderKeeper.h"
 #include "../BookManipulation/Book.h"
 
-static const QString EPUB_MIME_TYPE = "application/epub+zip";
+
 
 class ExportEPUB : public Exporter
 {
@@ -50,21 +50,22 @@ protected:
 
     // Creates the publication from the Book
     // (creates XHTML, CSS, OPF, NCX files etc.)
-    void virtual CreatePublication();
+    void virtual CreatePublication( const QString &fullfolderpath );
 
-    // Saves the publication to the specified path;
+    // Saves the publication in the specified folder 
+    // to the specified file path as an epub;
     // the second optional parameter specifies the
     // mimetype to write to the special "mimetype" file
-    void SaveTo( const QString &fullfilepath, const QString &mimetype = QString( EPUB_MIME_TYPE ) );
+    void SaveFolderAsEpubToLocation( const QString &fullfolderpath, const QString &fullfilepath );
 
     // Creates the publication's container.xml file
-    void CreateContainerXML();
+    void CreateContainerXML( const QString &fullfolderpath );
 
     // Creates the publication's content.opf file
-    void CreateContentOPF();
+    void CreateContentOPF( const QString &fullfolderpath  );
 
     // Creates the publication's toc.ncx file
-    void CreateTocNCX();
+    void CreateTocNCX( const QString &fullfolderpath );
 
 
     ///////////////////////////////

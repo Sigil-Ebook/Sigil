@@ -28,13 +28,12 @@
 // The first parameter is the book for which this XML file
 // is being written, and the second is the list of files
 // in the folder that will become the exported book
-XMLWriter::XMLWriter( QSharedPointer< Book > book, const FolderKeeper &fkeeper )
+XMLWriter::XMLWriter( QSharedPointer< Book > book )
     : 
     m_Book( book ), 
-    m_Folder( fkeeper ),
-    m_Files( fkeeper.GetContentFilesList() ),
-    m_Source( "" ),
-    m_Writer( new QXmlStreamWriter( &m_Source ) )
+    m_Files( m_Book->GetFolderKeeper().GetContentFilesList() ),
+    m_XMLSource( "" ),
+    m_Writer( new QXmlStreamWriter( &m_XMLSource ) )
 {
 
 }
@@ -43,6 +42,7 @@ XMLWriter::XMLWriter( QSharedPointer< Book > book, const FolderKeeper &fkeeper )
 // Destructor
 XMLWriter::~XMLWriter( )
 {
+    // TODO: Why is this on the heap?
     delete m_Writer;
 }
 

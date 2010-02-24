@@ -53,6 +53,7 @@ QList< Headings::Heading > Headings::GetHeadingList( QList< HTMLResource* > html
     return heading_list;
 }
 
+
 QList< Headings::Heading > Headings::GetHeadingListForOneFile( HTMLResource* html_resource )
 {
     Q_ASSERT( html_resource );
@@ -84,7 +85,6 @@ QList< Headings::Heading > Headings::GetHeadingListForOneFile( HTMLResource* htm
 
     return headings;
 }
-
 
 
 // Takes a flat list of headings and returns a list with those

@@ -34,9 +34,14 @@
 const QString BODY_START = "<\\s*body[^>]*>";
 const QString BODY_END   = "</\\s*body\\s*>";
 
-static const QString OPF_FILE_NAME           = "content.opf"; 
-static const QString NCX_FILE_NAME           = "toc.ncx";
-static const QString CONTAINER_XML_FILE_NAME = "container.xml"; 
+const QString OPF_FILE_NAME           = "content.opf"; 
+const QString NCX_FILE_NAME           = "toc.ncx";
+const QString CONTAINER_XML_FILE_NAME = "container.xml";
+
+static const QString METAINF_FOLDER_SUFFIX = "/META-INF";
+static const QString OEBPS_FOLDER_SUFFIX   = "/OEBPS";
+
+static const QString EPUB_MIME_TYPE = "application/epub+zip";
 
 
 // Constructor;
@@ -62,33 +67,34 @@ ExportEPUB::~ExportEPUB()
 // specified in the constructor
 void ExportEPUB::WriteBook()
 {
-    CreatePublication();
+    m_Book->SaveAllResourceCachesToDisk();
 
-    SaveTo( m_FullFilePath );
+    // TODO: wrap all occurrences of this idiom into an object
+    // that deletes the temp folder in the destructor
+    QString folderpath = Utility::GetNewTempFolderPath();
+    QDir dir( folderpath );
+    dir.mkpath( dir.absolutePath() );
+
+    CreatePublication( folderpath );
+    SaveFolderAsEpubToLocation( folderpath, m_FullFilePath );
+
+    QtConcurrent::run( Utility::DeleteFolderAndFiles, folderpath );
 }
 
 
 // Creates the publication from the Book
 // (creates XHTML, CSS, OPF, NCX files etc.)
-void ExportEPUB::CreatePublication()
+void ExportEPUB::CreatePublication( const QString &fullfolderpath )
 {
-//     QStringList css_files = CreateStyleFiles();
-//     QString header        = CreateHeader( css_files );
-// 
-//     CreateXHTMLFiles( header );
+    Utility::CopyFiles( m_Book->GetFolderKeeper().GetFullPathToMainFolder(), fullfolderpath );
 
-    //UpdateAnchors();
-
-    CreateContainerXML();
-    CreateContentOPF();
-    CreateTocNCX();
+    CreateContainerXML( fullfolderpath + METAINF_FOLDER_SUFFIX );
+    CreateContentOPF( fullfolderpath + OEBPS_FOLDER_SUFFIX );
+    CreateTocNCX( fullfolderpath + OEBPS_FOLDER_SUFFIX );
 }
 
 
-// Saves the publication to the specified path;
-// the second optional parameter specifies the
-// mimetype to write to the special "mimetype" file
-void ExportEPUB::SaveTo( const QString &fullfilepath, const QString &mimetype )
+void ExportEPUB::SaveFolderAsEpubToLocation( const QString &fullfolderpath, const QString &fullfilepath )
 {
     QTemporaryFile mimetype_file;
 
@@ -99,7 +105,7 @@ void ExportEPUB::SaveTo( const QString &fullfilepath, const QString &mimetype )
         // We ALWAYS output in UTF-8
         out.setCodec( "UTF-8" );
 
-        out << mimetype;
+        out << EPUB_MIME_TYPE;
 
         // Write to disk immediately
         out.flush();
@@ -118,7 +124,7 @@ void ExportEPUB::SaveTo( const QString &fullfilepath, const QString &mimetype )
     zip.AddNewFile( mimetype_file.fileName().utf16(), QString( "mimetype" ).utf16(), 0 );
 
     // Add all the files and folders in the publication structure
-    //zip.AddNewFiles( QDir::toNativeSeparators( m_Folder.GetFullPathToMainFolder() ).utf16() );
+    zip.AddNewFiles( QDir::toNativeSeparators( fullfolderpath ).utf16() );
 
 #else
     // The location where the epub file will be written to
@@ -128,7 +134,7 @@ void ExportEPUB::SaveTo( const QString &fullfilepath, const QString &mimetype )
     zip.AddNewFile( mimetype_file.fileName().toUtf8().data(), QString( "mimetype" ).toUtf8().data(), 0 );
 
     // Add all the files and folders in the publication structure
-    //zip.AddNewFiles( QDir::toNativeSeparators( m_Folder.GetFullPathToMainFolder() ).toUtf8().data() );
+    zip.AddNewFiles( QDir::toNativeSeparators( fullfolderpath ).toUtf8().data() );
 #endif
 
     zip.Close();
@@ -136,7 +142,7 @@ void ExportEPUB::SaveTo( const QString &fullfilepath, const QString &mimetype )
 
 
 // Creates the publication's container.xml file
-void ExportEPUB::CreateContainerXML()
+void ExportEPUB::CreateContainerXML( const QString &fullfolderpath )
 {
     QString xml =	"<?xml version=\"1.0\"?>\n"
                     "<container version=\"1.0\" xmlns=\"urn:oasis:names:tc:opendocument:xmlns:container\">\n"
@@ -166,12 +172,12 @@ void ExportEPUB::CreateContainerXML()
     out.flush();
     file.flush();
 
-    //m_Folder.AddInfraFileToFolder( file.fileName(), CONTAINER_XML_FILE_NAME );    
+    QFile::copy( file.fileName(), fullfolderpath + "/" + CONTAINER_XML_FILE_NAME );  
 }
 
 
 // Creates the publication's content.opf file
-void ExportEPUB::CreateContentOPF()
+void ExportEPUB::CreateContentOPF( const QString &fullfolderpath )
 {
     QTemporaryFile file;
 
@@ -188,20 +194,20 @@ void ExportEPUB::CreateContentOPF()
     // We ALWAYS output in UTF-8
     out.setCodec( "UTF-8" );
 
-    //OPFWriter opf( m_Book, m_Folder );
+    OPFWriter opf( m_Book );
 
-    //out << opf.GetXML();
+    out << opf.GetXML();
 
     // Write to disk immediately
     out.flush();
     file.flush();
 
-    //m_Folder.AddInfraFileToFolder( file.fileName(), OPF_FILE_NAME );
+    QFile::copy( file.fileName(), fullfolderpath + "/" + OPF_FILE_NAME ); 
 }
 
 
 // Creates the publication's toc.ncx file
-void ExportEPUB::CreateTocNCX()
+void ExportEPUB::CreateTocNCX( const QString &fullfolderpath )
 {
     QTemporaryFile file;
 
@@ -218,15 +224,15 @@ void ExportEPUB::CreateTocNCX()
     // We ALWAYS output in UTF-8
     out.setCodec( "UTF-8" );
 
-    //NCXWriter ncx( m_Book, m_Folder );
+    NCXWriter ncx( m_Book );
 
-    //out << ncx.GetXML();
+    out << ncx.GetXML();
 
     // Write to disk immediately
     out.flush();
     file.flush();
 
-    //m_Folder.AddInfraFileToFolder( file.fileName(), NCX_FILE_NAME );
+    QFile::copy( file.fileName(), fullfolderpath + "/" + NCX_FILE_NAME ); 
 }
 
 

@@ -95,11 +95,11 @@ FolderKeeper::~FolderKeeper()
 // to the appropriate specific folder function
 void FolderKeeper::AddInfraFileToFolder( const QString &fullfilepath, const QString &newfilename  )
 {
-    if ( newfilename == "container.xml" )
+    if ( newfilename == CONTAINER_XML_FILE_NAME )
     
         QFile::copy( fullfilepath, m_FullPathToMetaInfFolder + "/" + newfilename );
 
-    else if ( ( newfilename == "content.opf" ) || ( newfilename == "toc.ncx" ) )
+    else if ( ( newfilename == OPF_FILE_NAME ) || ( newfilename == NCX_FILE_NAME ) )
 
         QFile::copy( fullfilepath, m_FullPathToOEBPSFolder + "/" + newfilename );
 

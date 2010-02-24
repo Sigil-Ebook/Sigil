@@ -35,7 +35,7 @@ public:
     // The first parameter is the book being exported,
     // and the second is the FolderKeeper object representing
     // the folder where the book will be exported
-    NCXWriter( QSharedPointer< Book > book, const FolderKeeper &fkeeper );
+    NCXWriter( QSharedPointer< Book > book );
 
     // Returns the created XML file
     QString GetXML();
@@ -59,18 +59,6 @@ private:
     // the second is a reference to the playorder NavPoints
     void WriteNavPoint( const Headings::Heading &heading, int &play_order );
 
-    // Returns a hash that lists all the heading ID's
-    // in a particular file
-    QHash< QString, QStringList > GetHeadingIDsPerFile() const;
-
-    // Returns a hash that lists all the heading sources
-    // in a particular file. "Source" means full element HTML.
-    QHash< QString, QStringList > GetHeadingSourcesPerFile() const;
-
-    // Returns the relative path to the XHTML file
-    // the provided heading is located in.
-    QString GetHeadingFile( const Headings::Heading &heading ) const;
-
     // Returns the depth of the headings tree
     // specified in m_Headings
     int GetHeadingsDepth() const;
@@ -79,20 +67,10 @@ private:
     // search for the it's maximum depth
     void DepthWalker( const Headings::Heading &heading, int &current_depth, int &max_depth ) const;
 
+
     ///////////////////////////////
     // PRIVATE MEMBER VARIABLES
     ///////////////////////////////
-
-    // Lists all the heading ID's in a particular file;
-    // the keys are the relative path names, and the values
-    // are the ID's of all the headings in it
-    const QHash< QString, QStringList > m_HeadingIDsPerFile;
-
-    // Lists all the heading sources in a particular file;
-    // the keys are the relative path names, and the values
-    // are the HTML element sources of all the headings in it
-    // USED FOR A MASSIVE HACK!
-    const QHash< QString, QStringList > m_HeadingSourcesPerFile;
 
     // A hierarchical tree of all the headings in the book
     const QList< Headings::Heading > m_Headings;

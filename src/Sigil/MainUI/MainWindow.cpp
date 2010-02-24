@@ -254,18 +254,18 @@ bool MainWindow::SaveAs()
         default_filter  = c_SaveFilters.value( QFileInfo( m_CurrentFile ).suffix().toLower() );
     }
 
-    // If not, we change the extension to SGF
+    // If not, we change the extension to EPUB
     else
     {
-        save_path       = m_LastFolderSave + "/" + QFileInfo( m_CurrentFile ).baseName() + ".sgf";
-        default_filter  = c_SaveFilters.value( "sgf" );
+        save_path       = m_LastFolderSave + "/" + QFileInfo( m_CurrentFile ).baseName() + ".epub";
+        default_filter  = c_SaveFilters.value( "epub" );
     }
 
-    QString filename = QFileDialog::getSaveFileName(    this, 
-                                                        tr( "Save File" ), 
-                                                        save_path,
-                                                        filter_string,
-                                                        &default_filter
+    QString filename = QFileDialog::getSaveFileName( this, 
+                                                     tr( "Save File" ), 
+                                                     save_path,
+                                                     filter_string,
+                                                     &default_filter
                                                    );
 
     if ( filename.isEmpty() )
@@ -724,9 +724,9 @@ void MainWindow::CreateNew()
 
 
 // Loads from the file specified
-void MainWindow::LoadFile( const QString &filename )
+void MainWindow::LoadFile( const QString &fullfilepath )
 {
-    if ( !Utility::IsFileReadable( filename ) )
+    if ( !Utility::IsFileReadable( fullfilepath ) )
 
         return;
 
@@ -739,18 +739,18 @@ void MainWindow::LoadFile( const QString &filename )
 
         // Create the new book, clean up the old one
         // (destructors take care of that)
-        m_Book = ImporterFactory().GetImporter( filename ).GetBook();
+        m_Book = ImporterFactory().GetImporter( fullfilepath ).GetBook();
         m_BookBrowser->SetBook( m_Book );
 
         QApplication::restoreOverrideCursor();
 
-        SetCurrentFile( filename );
+        SetCurrentFile( fullfilepath );
         statusBar()->showMessage( tr( "File loaded" ), STATUSBAR_MSG_DISPLAY_TIME );
     }
     
     catch ( const ExceptionBase &exception )
     {
-        Utility::DisplayStdErrorDialog( "Cannot load file " + filename + ": " + Utility::GetExceptionInfo( exception ) );
+        Utility::DisplayStdErrorDialog( "Cannot load file " + fullfilepath + ": " + Utility::GetExceptionInfo( exception ) );
 
         QApplication::restoreOverrideCursor();
     }
@@ -758,43 +758,65 @@ void MainWindow::LoadFile( const QString &filename )
 
 
 // Saves to the file specified
-bool MainWindow::SaveFile( const QString &filename )
+bool MainWindow::SaveFile( const QString &fullfilepath )
 {
-    QString extension = QFileInfo( filename ).suffix().toLower();
-
-    // TODO: Move to ExporterFactory and throw exception
-    // when the user tries to save an unsupported type
-    if ( !SUPPORTED_SAVE_TYPE.contains( extension ) )
+    try
     {
-        QMessageBox::warning(	0,
-                                tr( "Sigil" ),
-                                tr( "Sigil currently cannot save files of type \"%1\".\n"
-                                    "Please choose a different format." )
-                                .arg( extension )
-                            );
-        return false;
+        // Make sure the current tab has unlocked
+        // its resource (which it does on losing focus)
+        setFocus();
+
+        QString extension = QFileInfo( fullfilepath ).suffix().toLower();
+
+        // TODO: Move to ExporterFactory and throw exception
+        // when the user tries to save an unsupported type
+        if ( !SUPPORTED_SAVE_TYPE.contains( extension ) )
+        {
+            QMessageBox::warning( 0,
+                                  tr( "Sigil" ),
+                                  tr( "Sigil currently cannot save files of type \"%1\".\n"
+                                      "Please choose a different format." )
+                                  .arg( extension )
+                                );
+            return false;
+        }
+
+        QApplication::setOverrideCursor( Qt::WaitCursor );
+
+        if ( QFileInfo( fullfilepath ).exists() && !Utility::DeleteFile( fullfilepath ) )
+        {
+            QMessageBox::critical( 0,
+                                   tr( "Sigil" ),
+                                   tr( "Sigil cannot delete the old version of file \"%1\".\n"
+                                       "Make sure the file is not open in other applications." )
+                                   .arg( QFileInfo( fullfilepath ).fileName() )
+                                 );
+            return false;          
+        }
+
+        BookNormalization::Normalize( m_Book );
+        ExporterFactory().GetExporter( fullfilepath, m_Book ).WriteBook();
+
+        QApplication::restoreOverrideCursor();
+
+        // Return the focus back to the current tab
+        ContentTab &tab = m_TabManager.GetCurrentContentTab();
+
+        if ( &tab != NULL )
+
+            tab.setFocus();
+
+        SetCurrentFile( fullfilepath );
+
+        statusBar()->showMessage( tr( "File saved" ), STATUSBAR_MSG_DISPLAY_TIME );
     }
 
-    QApplication::setOverrideCursor( Qt::WaitCursor );
+    catch ( const ExceptionBase &exception )
+    {
+        Utility::DisplayStdErrorDialog( "Cannot save file " + fullfilepath + ": " + Utility::GetExceptionInfo( exception ) );
 
-    // We delete the file if it exists
-    Utility::DeleteFile( filename );
-
-    // If the file is not an SGF, 
-    // we normalize the book before exporting
-//     if ( extension != "sgf" )
-// 
-//         ExporterFactory().GetExporter( filename, BookNormalization::Normalize( m_Book ) ).WriteBook();
-// 
-//     else
-//         
-//         ExporterFactory().GetExporter( filename, m_Book ).WriteBook();
-
-    QApplication::restoreOverrideCursor();
-
-    SetCurrentFile( filename );
-
-    statusBar()->showMessage( tr( "File saved" ), STATUSBAR_MSG_DISPLAY_TIME );
+        QApplication::restoreOverrideCursor();
+    }
 
     return true;
 }
@@ -947,7 +969,7 @@ void MainWindow::SetCurrentFile( const QString &filename )
 
     if ( m_CurrentFile.isEmpty() )
 
-        shownName = "untitled.sgf";
+        shownName = "untitled.epub";
 
     else
      

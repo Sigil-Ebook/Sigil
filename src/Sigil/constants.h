@@ -41,3 +41,6 @@ extern const QString STYLE_FOLDER_NAME;
 extern const QString MISC_FOLDER_NAME;
 extern const QString NOT_IN_TOC_CLASS;
 extern const QString FIRST_CHAPTER_NAME; 
+extern const QString OPF_FILE_NAME; 
+extern const QString NCX_FILE_NAME;
+extern const QString CONTAINER_XML_FILE_NAME;

@@ -117,7 +117,10 @@ void Book::SetMetadata( const QHash< QString, QList< QVariant > > metadata )
 
 void Book::SaveAllResourceCachesToDisk()
 {
-
+    foreach( Resource* resource, m_Mainfolder.GetResourceList() )
+    {
+        resource->SaveToDisk();
+    }
 }
 
 
