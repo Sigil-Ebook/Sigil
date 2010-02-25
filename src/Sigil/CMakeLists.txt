@@ -10,7 +10,7 @@
 cmake_minimum_required( VERSION 2.8 ) 
 
 # Print a message and fail for people who don't
-# read the building instructions and then complain
+# read the build instructions and then complain
 # when the build process fails for them.
 if ( ${CMAKE_CURRENT_SOURCE_DIR} STREQUAL ${CMAKE_SOURCE_DIR} )
     message( FATAL_ERROR "You are trying to run CMake from the <top_folder>/src/Sigil directory, "
@@ -46,18 +46,34 @@ set( QOBJECT_HEADERS
     ViewEditors/BookViewEditor.h
     ViewEditors/CodeViewEditor.h 
     Dialogs/TOCEditor.h 
-    MainWindow.h
     Dialogs/MetaEditor.h
     Dialogs/FindReplace.h
+    MainUi/MainWindow.h
+    Tabs/TabManager.h
+    Tabs/ContentTab.h 
+    Tabs/FlowTab.h
+    Tabs/TextTab.h
+    Tabs/CSSTab.h 
+    Tabs/ImageTab.h
+    Tabs/XPGTTab.h
+    MainUI/BookBrowser.h
+    MainUI/OPFModel.h
     Misc/AppEventFilter.h
     Misc/UpdateChecker.h 
+    Misc/RasterizeImageResource.h
+    ResourceObjects/Resource.h
+    ResourceObjects/TextResource.h
+    ResourceObjects/HTMLResource.h
+    ResourceObjects/CSSResource.h
+    ResourceObjects/XPGTResource.h
+    ResourceObjects/ImageResource.h
+    ResourceObjects/FontResource.h
     )
 
 set( MAIN_FILES
     constants.h
+    exception.h
     main.cpp
-    MainWindow.cpp
-    MainWindow.h
     )
     
 set( BOOK_MANIPULATION_FILES 
@@ -76,7 +92,24 @@ set( BOOK_MANIPULATION_FILES
     BookManipulation/SigilMarkup.cpp
     BookManipulation/SigilMarkup.h
     BookManipulation/XHTMLDoc.cpp
-    BookManipulation/XHTMLDoc.h  
+    BookManipulation/XHTMLDoc.h
+    )
+
+set( RESOURCE_OBJECT_FILES
+    ResourceObjects/Resource.cpp
+    ResourceObjects/Resource.h
+    ResourceObjects/TextResource.cpp
+    ResourceObjects/TextResource.h
+    ResourceObjects/HTMLResource.cpp
+    ResourceObjects/HTMLResource.h
+    ResourceObjects/CSSResource.cpp
+    ResourceObjects/CSSResource.h
+    ResourceObjects/XPGTResource.cpp
+    ResourceObjects/XPGTResource.h
+    ResourceObjects/ImageResource.cpp
+    ResourceObjects/ImageResource.h
+    ResourceObjects/FontResource.cpp
+    ResourceObjects/FontResource.h
     )
         
 set( DIALOG_FILES
@@ -98,8 +131,6 @@ set( EXPORTER_FILES
     Exporters/Exporter.h
     Exporters/ExporterFactory.cpp
     Exporters/ExporterFactory.h
-    Exporters/ExportSGF.cpp
-    Exporters/ExportSGF.h
     Exporters/NCXWriter.cpp
     Exporters/NCXWriter.h
     Exporters/OPFWriter.cpp
@@ -111,7 +142,10 @@ set( EXPORTER_FILES
 set( IMPORTER_FILES
     Importers/ImportEPUB.cpp
     Importers/ImportEPUB.h
+    Importers/Importer.cpp
     Importers/Importer.h
+    Importers/ImportOEBPS.cpp
+    Importers/ImportOEBPS.h
     Importers/ImporterFactory.cpp
     Importers/ImporterFactory.h
     Importers/ImportHTML.cpp
@@ -129,10 +163,15 @@ set( MISC_FILES
     Misc/UpdateChecker.h
     Misc/Utility.cpp
     Misc/Utility.h
+    Misc/SleepFunctions.h
     Misc/XHTMLHighlighter.cpp
     Misc/XHTMLHighlighter.h
+    Misc/CSSHighlighter.cpp
+    Misc/CSSHighlighter.h
     Misc/HTMLEncodingResolver.cpp
     Misc/HTMLEncodingResolver.h
+    Misc/RasterizeImageResource.cpp
+    Misc/RasterizeImageResource.h
     )
 
 set( VIEW_EDITOR_FILES
@@ -143,8 +182,35 @@ set( VIEW_EDITOR_FILES
     ViewEditors/LineNumberArea.cpp
     ViewEditors/LineNumberArea.h  
     ViewEditors/Searchable.cpp    
-    ViewEditors/Searchable.h  
+    ViewEditors/Searchable.h 
+    ViewEditors/Zoomable.h 
     ViewEditors/ViewEditor.h     
+    )
+
+set( MAINUI_FILES 
+    MainUI/MainWindow.cpp
+    MainUI/MainWindow.h
+    MainUI/BookBrowser.cpp
+    MainUI/BookBrowser.h
+    MainUI/OPFModel.cpp
+    MainUI/OPFModel.h
+    )
+
+set( TAB_FILES
+    Tabs/TabManager.cpp
+    Tabs/TabManager.h
+    Tabs/FlowTab.cpp
+    Tabs/FlowTab.h 
+    Tabs/ContentTab.cpp
+    Tabs/ContentTab.h 
+    Tabs/TextTab.cpp
+    Tabs/TextTab.h
+    Tabs/CSSTab.cpp
+    Tabs/CSSTab.h
+    Tabs/XPGTTab.cpp
+    Tabs/XPGTTab.h
+    Tabs/ImageTab.cpp
+    Tabs/ImageTab.h
     )
             
 set( UI_FILES   
@@ -155,6 +221,13 @@ set( UI_FILES
     Form_Files/TOCEditor.ui 
     Form_Files/FindReplace.ui 
     )
+    
+set( SOURCEUPDATE_FILES   
+    SourceUpdates/PerformHTMLUpdates.cpp 
+    SourceUpdates/PerformHTMLUpdates.h
+    SourceUpdates/PerformCSSUpdates.cpp
+    SourceUpdates/PerformCSSUpdates.h
+    )
             
 set( QRC_FILES  
     Resource_Files/main/main.qrc
@@ -164,8 +237,8 @@ set( QRC_FILES
     Resource_Files/icon/icon.qrc  
     )
     
-set( RAW_SOURCES ${MAIN_FILES} ${BOOK_MANIPULATION_FILES} ${DIALOG_FILES} ${EXPORTER_FILES}
-                 ${IMPORTER_FILES} ${MISC_FILES} ${VIEW_EDITOR_FILES} )
+set( RAW_SOURCES ${MAIN_FILES} ${TAB_FILES} ${SOURCEUPDATE_FILES} ${BOOK_MANIPULATION_FILES} ${RESOURCE_OBJECT_FILES} ${DIALOG_FILES} ${EXPORTER_FILES}
+                 ${IMPORTER_FILES} ${MISC_FILES} ${VIEW_EDITOR_FILES} ${MAINUI_FILES} )
 
 # Runs MOC on specifed files
 qt4_wrap_cpp( MOC_FILES_CPP ${QOBJECT_HEADERS} )
@@ -178,6 +251,7 @@ qt4_add_resources( QRC_FILES_CPP ${QRC_FILES} )
 
 # Define the Sigil version string for use in source files
 set_source_files_properties( Dialogs/About.cpp PROPERTIES COMPILE_DEFINITIONS SIGIL_FULL_VERSION="${SIGIL_FULL_VERSION}" )
+set_source_files_properties( Misc/Utility.cpp PROPERTIES COMPILE_DEFINITIONS SIGIL_FULL_VERSION="${SIGIL_FULL_VERSION}" )
 
 # MSVC precompiled headers cmake code
 if ( MSVC )
@@ -235,19 +309,24 @@ elseif( CMAKE_COMPILER_IS_GNUCXX AND NOT APPLE )
                         COMMAND ${CMAKE_CXX_COMPILER} ${compile_flags} ${CMAKE_CURRENT_SOURCE_DIR}/stdafx.h -o stdafx.h.gch
                         WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
                         VERBATIM )
-endif()
+endif() 
 
 # Adds folders for Visual Studio solution explorer (and for Xcode explorer)
 source_group( "Generated"         FILES ${MOC_FILES_CPP} ${UI_FILES_H} ${QRC_FILES_CPP} )
 source_group( "Forms"             FILES ${UI_FILES} )
-source_group( "Resources"         FILES ${QRC_FILES} )
+source_group( "Resource Files"    FILES ${QRC_FILES} )
 source_group( "Book Manipulation" FILES ${BOOK_MANIPULATION_FILES} )
+source_group( "Resource Objects"  FILES ${RESOURCE_OBJECT_FILES} )
 source_group( "Dialogs"           FILES ${DIALOG_FILES} )
 source_group( "Exporters"         FILES ${EXPORTER_FILES} )
 source_group( "Importers"         FILES ${IMPORTER_FILES} )
 source_group( "Misc"              FILES ${MISC_FILES} )
 source_group( "View Editors"      FILES ${VIEW_EDITOR_FILES} )
+source_group( "Tabs"              FILES ${TAB_FILES} )
+source_group( "MainUI"            FILES ${MAINUI_FILES} )
 source_group( "Main Files"        FILES ${MAIN_FILES} )
+source_group( "Source Updates"    FILES ${SOURCEUPDATE_FILES} )
+
 
 set( ALL_SOURCES ${RAW_SOURCES} ${MOC_FILES_CPP} ${UI_FILES_H} ${QRC_FILES_CPP} )
 
@@ -277,7 +356,7 @@ endif()
 
 # We need to pick up the stdafx.h file, the ui*.h files,
 # and the headers for the linked-to libraries
-include_directories( ${CMAKE_CURRENT_BINARY_DIR} ${CMAKE_CURRENT_SOURCE_DIR} ../ZipArchive ../tidyLib )
+include_directories( ${CMAKE_CURRENT_BINARY_DIR} ${CMAKE_CURRENT_SOURCE_DIR} ../ZipArchive ../tidyLib ../BoostParts )
 
 link_directories ( ${PROJECT_BINARY_DIR}/lib ) 
 
@@ -290,7 +369,7 @@ else()
     add_executable( ${PROJECT_NAME} ${ALL_SOURCES} )
 endif()
 
-target_link_libraries( ${PROJECT_NAME} tidyLib ZipArchive ${QT_LIBRARIES} )
+target_link_libraries( ${PROJECT_NAME} tidyLib ZipArchive BoostParts ${QT_LIBRARIES} )
 
 # "Link time code generation" flags for MSVC
 if( MSVC )

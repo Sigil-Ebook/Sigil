@@ -24,6 +24,7 @@
 #include "../BookManipulation/Metadata.h"
 #include "../BookManipulation/Book.h"
 #include "../Misc/Utility.h"
+#include "ResourceObjects/HTMLResource.h"
 
 static const int FLOW_SIZE_THRESHOLD = 1000;
 
@@ -32,8 +33,8 @@ static const int FLOW_SIZE_THRESHOLD = 1000;
 // The first parameter is the book being exported,
 // and the second is the list of files
 // in the folder that will become the exported book
-OPFWriter::OPFWriter( const Book &book, const FolderKeeper &fkeeper )
-    : XMLWriter( book, fkeeper )
+OPFWriter::OPFWriter( QSharedPointer< Book > book )
+    : XMLWriter( book )
 {
     CreateMimetypes();
 }
@@ -60,21 +61,23 @@ QString OPFWriter::GetXML()
     m_Writer->writeEndElement();
     m_Writer->writeEndDocument();
     
-    return m_Source;
+    return m_XMLSource;
 }
 
 
 // Writes the <metadata> element
 void OPFWriter::WriteMetadata()
 {
+    QHash< QString, QList< QVariant > > metadata = m_Book->GetMetadata();
+
     m_Writer->writeStartElement( "metadata" );
 
     m_Writer->writeAttribute( "xmlns:dc", "http://purl.org/dc/elements/1.1/" );
     m_Writer->writeAttribute( "xmlns:opf", "http://www.idpf.org/2007/opf" );
 
-        foreach ( QString name, m_Book.metadata.keys() )
+        foreach ( QString name, metadata.keys() )
         {
-            foreach ( QVariant single_value, m_Book.metadata[ name ] )
+            foreach ( QVariant single_value, metadata[ name ] )
             {
                 MetadataDispatcher( name, single_value );
             }
@@ -84,16 +87,16 @@ void OPFWriter::WriteMetadata()
 
         m_Writer->writeAttribute( "id", "BookID" );
 
-        if ( m_Book.metadata.contains( "CustomID" ) )
+        if ( metadata.contains( "CustomID" ) )
         {
             m_Writer->writeAttribute( "opf:scheme", "CustomID" );
-            m_Writer->writeCharacters( m_Book.metadata[ "CustomID" ][ 0 ].toString() );
+            m_Writer->writeCharacters( metadata[ "CustomID" ][ 0 ].toString() );
         }
 
         else
         {
             m_Writer->writeAttribute( "opf:scheme", "UUID" );
-            m_Writer->writeCharacters( m_Book.PublicationIdentifier );
+            m_Writer->writeCharacters( m_Book->GetPublicationIdentifier() );
         }       
 
         m_Writer->writeEndElement();
@@ -116,19 +119,19 @@ void OPFWriter::MetadataDispatcher( const QString &metaname, const QVariant &met
           metaname != QObject::tr( "Publisher" ) 
        )
     {
-        WriteCreatorsAndContributors( metaname, metavalue.toString() );
+        WriteCreatorOrContributor( metaname, metavalue.toString() );
     }
 
     else if ( metaname == QObject::tr( "Language" ) )
     {
-        WriteSimpleMetadata(	metaname.toLower(), 
-                                Metadata::Instance().GetLanguageMap()[ metavalue.toString() ] 
+        WriteSimpleMetadata( metaname.toLower(), 
+                             Metadata::Instance().GetLanguageMap()[ metavalue.toString() ] 
                             );
     }
 
-    else if (	( metaname == QObject::tr( "ISBN" ) ) || 
-                ( metaname == QObject::tr( "ISSN" ) ) ||
-                ( metaname == QObject::tr( "DOI" ) )
+    else if ( ( metaname == QObject::tr( "ISBN" ) ) || 
+              ( metaname == QObject::tr( "ISSN" ) ) ||
+              ( metaname == QObject::tr( "DOI" ) )
             )
     {
         WriteIdentifier( metaname, metavalue.toString() );
@@ -154,7 +157,7 @@ void OPFWriter::MetadataDispatcher( const QString &metaname, const QVariant &met
 
 
 // Write <creator> and <contributor> metadata elements
-void OPFWriter::WriteCreatorsAndContributors( const QString &metaname, const QString &metavalue )
+void OPFWriter::WriteCreatorOrContributor( const QString &metaname, const QString &metavalue )
 {
     // Authors get written as creators, all other relators
     // are written as contributors
@@ -236,8 +239,6 @@ QString OPFWriter::GetNormalName( const QString &name ) const
 
         return QString();
 
-    // FIXME: add check and error throw for multiple commas
-
     QStringList splits = name.split( "," );
 
     return splits[ 1 ].trimmed() + " " + splits[ 0 ].trimmed();
@@ -254,14 +255,15 @@ void OPFWriter::WriteManifest()
     m_Writer->writeAttribute( "href", "toc.ncx" );
     m_Writer->writeAttribute( "media-type", m_Mimetypes[ "ncx" ] );
 
-    foreach( QString file, m_Files )
+    foreach( QString relative_path, m_Book->GetConstFolderKeeper().GetSortedContentFilesList() )
     {
-        QString name		= QFileInfo( file ).baseName();
-        QString extension	= QFileInfo( file ).suffix();
+        QFileInfo info( relative_path );
+        QString name      = info.baseName();
+        QString extension = info.suffix();
 
         m_Writer->writeEmptyElement( "item" );
         m_Writer->writeAttribute( "id", name + "." + extension );
-        m_Writer->writeAttribute( "href", file );
+        m_Writer->writeAttribute( "href", relative_path );
         m_Writer->writeAttribute( "media-type", m_Mimetypes[ extension ] );
     }
 
@@ -275,16 +277,11 @@ void OPFWriter::WriteSpine()
     m_Writer->writeStartElement( "spine" );
     m_Writer->writeAttribute( "toc", "ncx" );
 
-    foreach( QString file, m_Files )
+    foreach( HTMLResource *html_resource, m_Book->GetConstFolderKeeper().GetSortedHTMLResources() )
     {
-        // We skip all the files that are not in the
-        // text subdirectory
-        if ( !file.contains( "text/" ) )
-
-            continue;
-
-        QString name		= QFileInfo( file ).baseName();
-        QString extension	= QFileInfo( file ).suffix();
+        QFileInfo info( html_resource->Filename() );
+        QString name      = info.baseName();
+        QString extension = info.suffix();
 
         m_Writer->writeEmptyElement( "itemref" );
         m_Writer->writeAttribute( "idref", name + "." + extension );
@@ -297,37 +294,33 @@ void OPFWriter::WriteSpine()
 // Writes the <guide> element
 void OPFWriter::WriteGuide()
 {
-    QString relative_path = m_Files.filter( "text/" )[ 0 ];
+    HTMLResource *first_html = m_Book->GetConstFolderKeeper().GetSortedHTMLResources()[ 0 ];
+
+    Q_ASSERT( first_html );
     
     // We write the cover page (and the guide in general)
     // only if the first OPS document (flow) is smaller
     // than our threshold
-    if ( IsFlowUnderThreshold( relative_path, FLOW_SIZE_THRESHOLD ) )
+    if ( IsFlowUnderThreshold( first_html, FLOW_SIZE_THRESHOLD ) )
     {
         m_Writer->writeStartElement( "guide" );
 
         m_Writer->writeEmptyElement( "reference" );
         m_Writer->writeAttribute( "type", "cover" );
         m_Writer->writeAttribute( "title", "Cover Page" );
-        m_Writer->writeAttribute( "href", relative_path );
+        m_Writer->writeAttribute( "href", first_html->GetRelativePathToOEBPS() );
 
-        m_Writer->writeEndElement();	
+        m_Writer->writeEndElement();
     }
 }
 
 
-// Returns true if the content of the file specified
-// has fewer characters than 'threshold' number;
-// by the path specified is relative to the OEBPS folder 
-bool OPFWriter::IsFlowUnderThreshold( const QString &relative_path, int threshold ) const
+bool OPFWriter::IsFlowUnderThreshold( HTMLResource *resource, int threshold ) const
 {
-    QString fullfilepath = m_Folder.GetFullPathToOEBPSFolder() + "/" + relative_path;
+    QReadLocker locker( &resource->GetLock() );
 
-    QRegExp content( BODY_START + "(.*)" + BODY_END );
-
-    Utility::ReadUnicodeTextFile( fullfilepath ).contains( content );
-
-    return content.cap( 1 ).count() < threshold;
+    QDomElement doc_element = resource->GetDomDocumentForReading().documentElement();
+    return doc_element.text().count() < threshold;
 }
 
 

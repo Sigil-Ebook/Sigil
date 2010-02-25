@@ -28,10 +28,10 @@
 #include <QHash>
 #include <QUrl>
 #include <QVariant>
-#include <QMutex>
 
 class Book
 {	
+
 public:
 
     // Constructor
@@ -48,43 +48,36 @@ public:
     // within the main folder
     QUrl GetBaseUrl() const;
 
-    // Returns the status of the m_ReportToCalibre
-    // variable. Thread-safe.
-    bool GetReportToCalibreStatus();
+    FolderKeeper& GetFolderKeeper();
 
-    // Sets the status of the m_ReportToCalibre
-    // variable. Thread-safe.
-    void SetReportToCalibreStatus( bool new_status );
+    const FolderKeeper& GetConstFolderKeeper();
 
-    // This used to be a struct so these are public.
-    // TODO: Find the time to update the codebase
-    // to use getters and setters.
+    QString GetPublicationIdentifier();
 
-    // Stores the full XHTML source code of the book
-    QString source;
+    QHash< QString, QList< QVariant > > GetMetadata();
+
+    void SetMetadata( const QHash< QString, QList< QVariant > > metadata );
+
+    void CreateEmptyTextFile();
+
+    void SaveAllResourcesToDisk();
+
+private:
+
+    static void SaveOneResourceToDisk( Resource *resource );
+
+    // The FolderKeeper object that represents
+    // this books presence on the hard drive
+    FolderKeeper m_Mainfolder; 
+
+    // The UUID that uniquely represents this book
+    QString m_PublicationIdentifier;
 
     // Stores all the metadata for the book;
     // the key is the metadata name, the values
     // are the lists of metadata values
-    QHash< QString, QList< QVariant > > metadata;
+    QHash< QString, QList< QVariant > > m_Metadata;
 
-    // The 30 character random identifier
-    // that uniquely represents this book
-    QString PublicationIdentifier;
-
-    // The FolderKeeper object that represents
-    // this books presence on the hard drive
-    FolderKeeper mainfolder;
-
-private:    
-
-    bool m_ReportToCalibre;
-
-    QMutex m_ReportToCalibreSync;
-
-    static bool s_IgnoreCalibreEnvFlag;
-
-    QMutex m_IgnoreCalibreEnvFlagSync;    
 };
 
 #endif // BOOK_H

@@ -24,7 +24,11 @@
 #define FOLDERKEEPER_H
 
 #include <QString>
+#include <QHash>
+#include <QMutex>
 
+class Resource;
+class HTMLResource;
 
 class FolderKeeper
 {
@@ -38,29 +42,35 @@ public:
     FolderKeeper( const FolderKeeper& other );
 
     // Assignment operator
-    FolderKeeper& operator = ( const FolderKeeper& other );
+    FolderKeeper& operator= ( const FolderKeeper& other );
 
     // Destructor
-    ~FolderKeeper();	
+    ~FolderKeeper();
 
     // A dispatcher function that routes the given *infrastructure* file
     // to the appropriate specific folder function; the name of the new file
     // needs to be specified
     void AddInfraFileToFolder( const QString &fullfilepath, const QString &newfilename );
 
-    // A dispatcher function that routes the given *content* file
-    // to the appropriate specific folder function.
-    // The file is recognized according to its extension: use force_extension
-    // to override the recognition and force an extension.
-    // Set preserve_filename to true to preserve the original filename.
-    // The function returns the new file's path relative to the OEBPS folder.
-    QString AddContentFileToFolder( const QString &fullfilepath, 
-                                    const QString &force_extension = NULL,
-                                    const bool preserve_filename = false );
-    
+    // The file is recognized according to its extension.
+    Resource& AddContentFileToFolder( const QString &fullfilepath, int reading_order = -1 );
+
     // Returns a list of all the content files in the directory
-    // with a path relative to the OEBPS directory
-    QStringList GetContentFilesList() const;
+    // with a path relative to the OEBPS directory.
+    // The list is alphabetically sorted.
+    QStringList GetSortedContentFilesList() const;
+
+    QList< Resource* > GetResourceList() const;
+
+    QList< HTMLResource* > GetSortedHTMLResources() const;
+
+    Resource& GetResourceByIdentifier( const QString &identifier ) const;
+
+    // NOTE THAT RESOURCE FILENAMES CAN CHANGE,
+    // while identifiers don't. Also, retrieving 
+    // resources by identifier is O(1), this is O(n).
+    // (and a *very* slow O(n) since we query the filesystem)
+    Resource& GetResourceByFilename( const QString &filename ) const;
 
     // Returns the full path to the main folder of the publication
     QString GetFullPathToMainFolder() const;	
@@ -69,60 +79,26 @@ public:
     QString GetFullPathToOEBPSFolder() const;	
 
     // Returns the full path to the OEBPS folder of the publication
-    QString GetFullPathToTextFolder() const;	
+    QString GetFullPathToTextFolder() const;
 
 private:
-
-    // Copies the file specified with fullfilepath
-    // to the META-INF folder with the name newfilename
-    void AddFileToMetaInfFolder(    const QString &fullfilepath, const QString &newfilename );
-
-    // Copies the file specified with fullfilepath
-    // to the OEBPS folder with the name newfilename
-    void AddFileToOEBPSFolder(      const QString &fullfilepath, const QString &newfilename );
-
-    // Copies the file specified with fullfilepath
-    // to the OEBPS/images folder with a generated name;
-    // the generated name is returned.
-    // Set preserve_filename to true to preserve the original filename.
-    QString AddFileToImagesFolder(  const QString &fullfilepath, const QString &extension, const bool preserve_filename );
-
-    // Copies the file specified with fullfilepath
-    // to the OEBPS/fonts folder with a generated name;
-    // the generated name is returned.
-    // Set preserve_filename to true to preserve the original filename.
-    QString AddFileToFontsFolder(   const QString &fullfilepath, const QString &extension, const bool preserve_filename );	
-
-    // Copies the file specified with fullfilepath
-    // to the OEBPS/text folder with a generated name;
-    // the generated name is returned.
-    // Set preserve_filename to true to preserve the original filename.
-    QString AddFileToTextFolder(    const QString &fullfilepath, const QString &extension, const bool preserve_filename );
-
-    // Copies the file specified with fullfilepath
-    // to the OEBPS/styles folder with a generated name;
-    // the generated name is returned.
-    // Set preserve_filename to true to preserve the original filename.
-    QString AddFileToStylesFolder(  const QString &fullfilepath, const QString &extension, const bool preserve_filename );
-
-    // Copies the file specified with fullfilepath
-    // to the OEBPS/misc folder with a generated name;
-    // the generated name is returned.
-    // Set preserve_filename to true to preserve the original filename.
-    QString AddFileToMiscFolder(    const QString &fullfilepath, const QString &extension, const bool preserve_filename );
 
     // Performs common constructor duties
     // for all constructors
     void Initialize();
 
+    void CopyFiles( const FolderKeeper &other );
+
+    void DeleteAllResources( const QString &folderpath );
+
     // Creates the required folder structure:
     //	 META-INF
     //	 OEBPS
-    //	    images
-    //	    fonts
-    //	    text
-    //      styles
-    //      misc
+    //	    Images
+    //	    Fonts
+    //	    Text
+    //      Styles
+    //      Misc
     void CreateFolderStructure();
 
 
@@ -130,16 +106,20 @@ private:
     // PRIVATE MEMBER VARIABLES
     ///////////////////////////////
 
-    // Full paths to all the folders in the publication
-    QString FullPathToMainFolder;
-    QString FullPathToMetaInfFolder;
-    QString FullPathToOEBPSFolder;
+    QHash< QString, Resource* > m_Resources;
 
-    QString FullPathToImagesFolder;
-    QString FullPathToFontsFolder;
-    QString FullPathToTextFolder;
-    QString FullPathToStylesFolder;
-    QString FullPathToMiscFolder;
+    QMutex m_AccessMutex;
+
+    // Full paths to all the folders in the publication
+    QString m_FullPathToMainFolder;
+    QString m_FullPathToMetaInfFolder;
+    QString m_FullPathToOEBPSFolder;
+
+    QString m_FullPathToImagesFolder;
+    QString m_FullPathToFontsFolder;
+    QString m_FullPathToTextFolder;
+    QString m_FullPathToStylesFolder;
+    QString m_FullPathToMiscFolder;
 };
 
 #endif // FOLDERKEEPER_H

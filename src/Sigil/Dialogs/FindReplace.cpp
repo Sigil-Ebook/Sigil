@@ -21,8 +21,10 @@
 
 #include <stdafx.h>
 #include "FindReplace.h"
-#include "../MainWindow.h"
+#include "../MainUI/MainWindow.h"
 #include "../ViewEditors/ViewEditor.h"
+#include "../Tabs/TabManager.h"
+#include "../Tabs/ContentTab.h"
 
 static const QString SETTINGS_GROUP = "find_replace";
 
@@ -30,10 +32,10 @@ static const QString SETTINGS_GROUP = "find_replace";
 // the first argument specifies which tab to load first;
 // the second argument is the MainWindow that created the dialog;
 // the third argument is the widget's parent.
-FindReplace::FindReplace( bool find_tab, const MainWindow &mainwindow, QWidget *parent )
+FindReplace::FindReplace( bool find_tab, TabManager &tabmanager, QWidget *parent )
     :
     QDialog( parent ),
-    m_MainWindow( mainwindow )
+    m_TabManager( tabmanager )
 {
     ui.setupUi( this );
 
@@ -142,7 +144,8 @@ void FindReplace::FindNext()
 
         return;
 
-    bool found = m_MainWindow.GetActiveViewEditor().FindNext( GetSearchRegex(), GetSearchDirection() );
+    bool found = m_TabManager.GetCurrentContentTab().GetSearchableContent()->
+                    FindNext( GetSearchRegex(), GetSearchDirection() );
 
     if ( !found )
 
@@ -158,7 +161,8 @@ void FindReplace::Count()
 
         return;
 
-    int count = m_MainWindow.GetActiveViewEditor().Count( GetSearchRegex() );
+    int count = m_TabManager.GetCurrentContentTab().GetSearchableContent()->
+                    Count( GetSearchRegex() );
 
     QString message;
 
@@ -184,7 +188,8 @@ void FindReplace::Replace()
         return;
 
     // If we have the matching text selected, replace it
-    m_MainWindow.GetActiveViewEditor().ReplaceSelected( GetSearchRegex(), ui.leReplace->text() );
+    m_TabManager.GetCurrentContentTab().GetSearchableContent()->
+        ReplaceSelected( GetSearchRegex(), ui.leReplace->text() );
 
     // Go find the next match
     FindNext(); 
@@ -200,7 +205,8 @@ void FindReplace::ReplaceAll()
 
         return;
 
-    int count = m_MainWindow.GetActiveViewEditor().ReplaceAll( GetSearchRegex(), ui.leReplace->text() );
+    int count = m_TabManager.GetCurrentContentTab().GetSearchableContent()->
+                    ReplaceAll( GetSearchRegex(), ui.leReplace->text() );
 
     QString message;
 

@@ -26,32 +26,34 @@
 #include <buffio.h>
 #include "../BookManipulation/XHTMLDoc.h"
 
-static const QString SIGIL_CLASS_NAME       = "sgc";
-static const QString SIGIL_CLASS_NAME_REG   = SIGIL_CLASS_NAME + "-(\\d+)";
+static const QString SIGIL_CLASS_NAME     = "sgc";
+static const QString SIGIL_CLASS_NAME_REG = SIGIL_CLASS_NAME + "-(\\d+)";
+
+static const QString CSS_STYLE_TAG_START  = "<\\s*style[^>]*type\\s*=\\s*\"text/css\"[^>]*>";
 
 // Use with <QRegExp>.setMinimal( true )
-static const QString STYLE_TAG_CSS_ONLY     = "<\\s*style[^>]*type\\s*=\\s*\"text/css\"[^>]*>.*</\\s*style[^>]*>";
+static const QString STYLE_TAG_CSS_ONLY   = CSS_STYLE_TAG_START + ".*</\\s*style[^>]*>";
 
-static const QString CLASS_REMOVE_START     = "<[^>]*class\\s*=\\s*\"[^\"]*";
-static const QString CLASS_REMOVE_END       = "[^\"]*\"[^>]*>";
+static const QString CLASS_REMOVE_START   = "<[^>]*class\\s*=\\s*\"[^\"]*";
+static const QString CLASS_REMOVE_END     = "[^\"]*\"[^>]*>";
 
 // Use with <QRegExp>.setMinimal( true )
-static const QString TIDY_NEW_STYLE         = "(\\w+)\\.[\\w-]+\\s*(\\{.*\\})";
+static const QString TIDY_NEW_STYLE       = "(\\w+)\\.[\\w-]+\\s*(\\{.*\\})";
 
 // The value was picked arbitrarily
-static const int TAG_SIZE_THRESHOLD         = 1000;
+static const int TAG_SIZE_THRESHOLD       = 1000;
 
-static const QString SVG_ELEMENTS           =   "a,altGlyph,altGlyphDef,altGlyphItem,animate,animateColor,animateMotion"
-                                                ",animateTransform,circle,clipPath,color-profile,cursor,definition-src,defs,desc"
-                                                ",ellipse,feBlend,feColorMatrix,feComponentTransfer,feComposite,feConvolveMatrix"
-                                                ",feDiffuseLighting,feDisplacementMap,feDistantLight,feFlood,feFuncA,feFuncB"
-                                                ",feFuncG,feFuncR,feGaussianBlur,feImage,feMerg,feMergeNode,feMorphology,feOffset"
-                                                ",fePointLight,feSpecularLighting,feSpotLight,feTile,feTurbulence,filter"
-                                                ",font,font-face,font-face-format,font-face-name,font-face-src,font-face-uri"
-                                                ",foreignObject,g,glyph,glyphRef,hkern,image,line,linearGradient,marker,mask"
-                                                ",metadata,missing-glyph,mpath,path,pattern,polygon,polyline,radialGradient"
-                                                ",rect,script,set,stop,style,svg,switch,symbol,text,textPath,title,tref,tspan"
-                                                ",use,view,vkern";
+static const QString SVG_ELEMENTS         = "a,altGlyph,altGlyphDef,altGlyphItem,animate,animateColor,animateMotion"
+                                            ",animateTransform,circle,clipPath,color-profile,cursor,definition-src,defs,desc"
+                                            ",ellipse,feBlend,feColorMatrix,feComponentTransfer,feComposite,feConvolveMatrix"
+                                            ",feDiffuseLighting,feDisplacementMap,feDistantLight,feFlood,feFuncA,feFuncB"
+                                            ",feFuncG,feFuncR,feGaussianBlur,feImage,feMerg,feMergeNode,feMorphology,feOffset"
+                                            ",fePointLight,feSpecularLighting,feSpotLight,feTile,feTurbulence,filter"
+                                            ",font,font-face,font-face-format,font-face-name,font-face-src,font-face-uri"
+                                            ",foreignObject,g,glyph,glyphRef,hkern,image,line,linearGradient,marker,mask"
+                                            ",metadata,missing-glyph,mpath,path,pattern,polygon,polyline,radialGradient"
+                                            ",rect,script,set,stop,style,svg,switch,symbol,text,textPath,title,tref,tspan"
+                                            ",use,view,vkern";
 
 
 // Performs general cleaning (and improving)
@@ -63,14 +65,10 @@ QString CleanSource::Clean( const QString &source )
     // We store the number of CSS style tags before
     // running Tidy so CleanCSS can remove redundant classes
     // if tidy added a new style tag
-    int old_num_styles = CSSStyleTags( newsource ).count();
+    int old_num_styles = RobustCSSStyleTagCount( newsource );
     
     newsource = HTMLTidy( newsource );
     newsource = CleanCSS( newsource, old_num_styles );
-
-    // Once more, so we get the nice pretty-printed
-    // output of our CSS code too
-    newsource = HTMLTidy( newsource );
 
     return newsource;
 }
@@ -80,6 +78,20 @@ QString CleanSource::Clean( const QString &source )
 QString CleanSource::ToValidXHTML( const QString &source )
 {
     return FastXHTMLTidy( source );
+}
+
+
+QString CleanSource::PrettyPrint( const QString &source )
+{
+    return PrettyPrintTidy( source );
+}
+
+
+int CleanSource::RobustCSSStyleTagCount( const QString &source )
+{
+    int head_end_index = source.indexOf( QRegExp( HEAD_END ) );
+    
+    return Utility::Substring( 0, head_end_index, source ).count( QRegExp( CSS_STYLE_TAG_START ) );
 }
 
 
@@ -95,10 +107,7 @@ QString CleanSource::CleanCSS( const QString &source, int old_num_styles )
     // If Tidy added a new tag, we remove the redundant ones
     if ( css_style_tags.count() > old_num_styles )
     {
-        SourceAndStyles cleaned = RemoveRedundantClasses( newsource, css_style_tags );
-
-        newsource       = cleaned.source;
-        css_style_tags  = cleaned.css_style_tags;
+        tie( newsource, css_style_tags ) = RemoveRedundantClasses( newsource, css_style_tags );
     }
 
     css_style_tags = RemoveEmptyComments( css_style_tags );
@@ -114,15 +123,28 @@ QString CleanSource::CleanCSS( const QString &source, int old_num_styles )
 // where each element is a QString representing the content
 // of a single CSS style tag
 QStringList CleanSource::CSSStyleTags( const QString &source )
-{
-    QStringList css_style_tags;
+{    
+    QList< XHTMLDoc::XMLElement > style_tag_nodes;
 
-    QList< XHTMLDoc::XMLElement > style_tag_nodes = XHTMLDoc::GetTagsInHead( source, "style" );
+    try
+    {
+        style_tag_nodes = XHTMLDoc::GetTagsInHead( source, "style" );
+    }
+    
+    catch ( ErrorParsingXML &exception )
+    {
+    	// Nothing really. If we can't get the CSS style tags,
+        // than that's it. No CSS returned.
+        // TODO: log this error.
+        qDebug() << Utility::GetExceptionInfo( exception );
+    }
+
+    QStringList css_style_tags;
 
     foreach( XHTMLDoc::XMLElement element, style_tag_nodes )
     {
-        if (    element.attributes.contains( "type" ) && 
-              ( element.attributes.value( "type" ) == "text/css" ) 
+        if ( element.attributes.contains( "type" ) && 
+             ( element.attributes.value( "type" ) == "text/css" ) 
            )  
         {
             css_style_tags.append( element.text );
@@ -388,6 +410,85 @@ QString CleanSource::FastXHTMLTidy( const QString &source )
     return clean;
 }
 
+QString CleanSource::PrettyPrintTidy( const QString &source )
+{
+    TidyDoc tidy_document = tidyCreate();
+
+    TidyBuffer output = { 0 };
+    TidyBuffer errbuf = { 0 };
+
+    // For more information on Tidy configuration
+    // options, see http://tidy.sourceforge.net/docs/quickref.html
+
+    // "output-xhtml"
+    tidyOptSetBool( tidy_document, TidyXhtmlOut, yes );
+
+    // "add-xml-decl"
+    tidyOptSetBool( tidy_document, TidyXmlDecl, yes );
+
+    // "preserve-entities"
+    tidyOptSetBool( tidy_document, TidyPreserveEntities, yes );	
+
+    // "join-styles"
+    tidyOptSetBool( tidy_document, TidyJoinStyles, no );
+
+    // "merge-divs"
+    tidyOptSetInt( tidy_document, TidyMergeDivs, TidyNoState );
+
+    // "merge-spans"
+    tidyOptSetInt( tidy_document, TidyMergeSpans, TidyNoState );
+
+    // "wrap"
+    tidyOptSetInt( tidy_document, TidyWrapLen, 0 );
+
+    // "doctype"
+    tidyOptSetValue( tidy_document, TidyDoctype, "strict" );
+
+    // Needed so that Tidy doesn't kill off SVG elements
+    // "new-blocklevel-tags"
+    tidyOptSetValue( tidy_document, TidyBlockTags, SVG_ELEMENTS.toUtf8().data() );
+
+    // "indent"
+    tidyOptSetInt( tidy_document, TidyIndentContent, TidyAutoState );
+
+    // "tidy-mark"
+    tidyOptSetBool( tidy_document, TidyMark, no );	
+
+    // UTF-8 for input and output
+    tidySetCharEncoding( tidy_document, "utf8" );  	
+
+    // Force output
+    tidyOptSetBool( tidy_document, TidyForceOutput, yes );
+
+    // Write all errors to error buffer
+    tidySetErrorBuffer( tidy_document, &errbuf );
+
+    // Set the input
+    tidyParseString( tidy_document, source.toUtf8().constData() );
+
+    // GO BABY GO!
+    tidyCleanAndRepair( tidy_document );
+
+    // Run diagnostics
+    tidyRunDiagnostics( tidy_document );
+
+    // TODO: read and report any possible errors
+    // from the error buffer
+
+    // Store the cleaned up XHTML
+    tidySaveBuffer( tidy_document, &output );
+
+    QString clean = QString::fromUtf8( (const char*) output.bp );
+
+    // Free memory
+    tidyBufFree( &output );
+    tidyBufFree( &errbuf );
+    tidyRelease( tidy_document );
+
+    return clean;
+}
+
+
 
 // Writes the new CSS style tags to the source, replacing the old ones
 QString CleanSource::WriteNewCSSStyleTags( const QString &source, const QStringList &css_style_tags )
@@ -417,17 +518,12 @@ QString CleanSource::WriteNewCSSStyleTags( const QString &source, const QStringL
 }
 
 
-// Removes redundant classes from the style tags and source code;
-// Calls more specific version.
-CleanSource::SourceAndStyles CleanSource::RemoveRedundantClasses( const QString &source, const QStringList &css_style_tags )
+tuple< QString, QStringList > CleanSource::RemoveRedundantClasses( const QString &source, const QStringList &css_style_tags )
 {
     QHash< QString, QString > redundant_classes = GetRedundantClasses( css_style_tags );
-    
-    SourceAndStyles cleaned;
-    cleaned.source          = RemoveRedundantClassesSource( source, redundant_classes );
-    cleaned.css_style_tags  = RemoveRedundantClassesTags( css_style_tags, redundant_classes );   
 
-    return cleaned;
+    return make_tuple( RemoveRedundantClassesSource( source, redundant_classes ), 
+                       RemoveRedundantClassesTags( css_style_tags, redundant_classes ) );
 }
 
 // Removes redundant CSS classes from the provided CSS style tags
@@ -466,7 +562,6 @@ QString CleanSource::RemoveRedundantClassesSource( const QString &source, const 
             QString matched = remove_old.cap( 0 );
 
             matched.replace( key, redundant_classes.value( key ) );
-
             newsource.replace( remove_old.cap( 0 ), matched );
         }
     }
@@ -489,7 +584,6 @@ QHash< QString, QString > CleanSource::GetRedundantClasses( const QStringList &c
     // Tidy always create ONE style tag for its new classes,
     // and it is always the last one
     QString new_style_tag = css_style_tags.last();
-
     QStringList new_style_tag_lines = new_style_tag.split( QChar( '\n' ) );
 
     // We search through all the tags that come before this new one 

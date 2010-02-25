@@ -25,6 +25,7 @@
 
 #include "Importer.h"
 #include <QUrl>
+#include <QSharedPointer>
 
 class ImportTXT : public Importer
 {
@@ -37,26 +38,15 @@ public:
 
     // Reads and parses the file 
     // and returns the created Book
-    virtual Book GetBook();
-
-protected:
-
-    // Loads the source code into the Book
-    virtual void LoadSource();
-
-
-    ///////////////////////////////
-    // PROTECTED MEMBER VARIABLES
-    ///////////////////////////////
-
-    // The full path to the file to be imported
-    const QString &m_FullFilePath;
-
-    // The Book that will be created 
-    // by the importing process
-    Book m_Book;
+    virtual QSharedPointer< Book > GetBook();
 
 private:
+
+    QString LoadSource() const;
+
+    HTMLResource* CreateHTMLResource( const QString &source );
+
+    void InitializeHTMLResource( const QString &source, HTMLResource *resource );
 
     // Accepts a list of text lines and returns
     // a string with paragraphs wrapped into <p> tags

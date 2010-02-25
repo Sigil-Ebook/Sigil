@@ -40,8 +40,7 @@ public:
     // the parameters is the object's parent
     BookViewEditor( QWidget *parent = 0 );
 
-    // Sets the content of the View to the specified book
-    void SetBook( const Book &book );
+    void CustomSetWebPage( QWebPage &webpage );
 
     // Executes the specified command on the document with javascript
     void ExecCommand( const QString &command );
@@ -53,8 +52,12 @@ public:
     // Returns the state of the JavaScript command provided
     bool QueryCommandState( const QString &command );
 
-    // Workaround for a crappy setFocus implementation for Webkit
+    // Workaround for a crappy setFocus implementation in Webkit
     void GrabFocus();
+
+    void ScrollToFragment( const QString &fragment );
+
+    void ScrollToFragmentAfterLoad( const QString &fragment );
 
     // Implements the "formatBlock" execCommand because
     // WebKit's default one has bugs.
@@ -79,6 +82,8 @@ public:
     // in this view to the specified element.
     // The BookView implementation initiates the update in
     // the JavascriptOnDocumentLoad() function.
+    // This should *always* be called *before* the page is updated
+    // to avoid loading race conditions.
     void StoreCaretLocationUpdate( const QList< ViewEditor::ElementIndex > &hierarchy );
 
     // Sets a zoom factor for the view,
@@ -114,6 +119,17 @@ signals:
     // Emitted whenever the zoom factor changes
     void ZoomFactorChanged( float new_zoom_factor );
 
+    void FilteredLinkClicked( const QUrl& url );
+
+protected:
+
+    // Overridden because we need to update the cursor
+    // location if a cursor update (from CodeView) 
+    // is waiting to be processed.
+    // The update is pending only when we switch
+    // from Code View and there were no source changes
+    bool event( QEvent *event );
+
 private slots:
 
     // Executes javascript that needs to be run when
@@ -124,6 +140,8 @@ private slots:
     // depending on the received loading progress; if the 
     // progress equals 100, the state is true, otherwise false.
     void UpdateFinishedState( int progress );
+
+    void LinkClickedFilter( const QUrl& url );
 
     // Wrapper slot for the Page Up shortcut
     void PageUp();

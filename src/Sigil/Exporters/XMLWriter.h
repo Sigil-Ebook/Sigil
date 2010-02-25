@@ -36,7 +36,7 @@ public:
     // The first parameter is the book being exported,
     // and the second is the FolderKeeper object representing
     // the folder where the book will be exported
-    XMLWriter( const Book &book, const FolderKeeper &fkeeper );
+    XMLWriter( QSharedPointer< Book > book );
 
     // Destructor
     virtual ~XMLWriter();
@@ -47,17 +47,10 @@ public:
 protected:
 
     // The book being exported
-    const Book &m_Book;
-
-    // Represents the folder where the book will be exported
-    const FolderKeeper &m_Folder;
-
-    // The list of files in the folder
-    // that will become the exported book
-    const QStringList m_Files;	
+    QSharedPointer< Book > m_Book;
 
     // The XML source that is being written
-    QString m_Source;
+    QString m_XMLSource;
 
     // The XML writer used to write XML
     QXmlStreamWriter *m_Writer;

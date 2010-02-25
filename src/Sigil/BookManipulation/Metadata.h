@@ -23,6 +23,8 @@
 #ifndef METADATA_H
 #define METADATA_H
 
+#include <QMutex>
+
 
 class Metadata
 {	
@@ -54,7 +56,7 @@ public:
 
     static Metadata& Instance();
 
-    const QMap< QString, QString >& GetLanguageMap();
+    const QMap< QString, QString >&  GetLanguageMap();
     const QMap< QString, MetaInfo >& GetRelatorMap();
     const QMap< QString, MetaInfo >& GetBasicMetaMap();
     const QHash< QString, QString >& GetFullRelatorNameHash();
@@ -98,6 +100,10 @@ private:
     ///////////////////////////////
     // PRIVATE MEMBER VARIABLES
     ///////////////////////////////
+
+    static QMutex s_AccessMutex;
+
+    static Metadata *m_Instance;
 
     // The keys are the full English language names
     // and the values are the ISO 639-1 language codes

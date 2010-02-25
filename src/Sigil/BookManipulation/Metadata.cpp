@@ -33,16 +33,24 @@ static const QStringList CREATION_ALIASES     = QStringList() << "created"  << "
 static const QStringList PUBLICATION_ALIASES  = QStringList() << "issued"   << "published" << "publication";
 static const QStringList SCHEME_LIST          = QStringList() << "ISBN" << "ISSN" << "DOI" << "CustomID";
 
+QMutex Metadata::s_AccessMutex;
+Metadata* Metadata::m_Instance = NULL;
 
 Metadata& Metadata::Instance()
 {
     // We use a static local variable
     // to hold our singleton instance; using a pointer member
     // variable creates problems with object destruction;
-    // Sigil is single-threaded so this is ok
-    static Metadata meta;
 
-    return meta;
+    QMutexLocker locker( &s_AccessMutex );
+
+    if ( !m_Instance )
+    {
+        static Metadata meta;
+        m_Instance = &meta;
+    }
+
+    return *m_Instance;
 }
 
 const QMap< QString, QString >& Metadata::GetLanguageMap()

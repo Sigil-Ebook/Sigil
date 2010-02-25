@@ -21,7 +21,7 @@
 
 #include <stdafx.h>
 #include "AppEventFilter.h"
-#include "../MainWindow.h"
+#include "../MainUI/MainWindow.h"
 
 
 // Constructor;

@@ -23,17 +23,35 @@
 #ifndef IMPORTER_H
 #define IMPORTER_H
 
+#include <QSharedPointer>
 #include "../BookManipulation/Book.h"
 
-// Interface for Importers
+// Base class for Importers
 class Importer
 {
 
 public:
 
+    // Constructor;
+    // The parameter is the file to be imported
+    Importer( const QString &fullfilepath );
+
     virtual ~Importer() {}
 
-    virtual Book GetBook() = 0;
+    virtual QSharedPointer< Book > GetBook() = 0;
+
+protected:
+
+    ///////////////////////////////
+    // PROTECTED MEMBER VARIABLES
+    ///////////////////////////////
+
+    // The full path to the file to be imported
+    const QString &m_FullFilePath;
+
+    // The Book that will be created 
+    // by the importing process
+    QSharedPointer< Book > m_Book;
 };
 
 #endif // IMPORTER_H

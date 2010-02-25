@@ -29,6 +29,8 @@ class QDomNode;
 class QDomDocument;
 class QString;
 class QDomNodeList;
+class QDomAttr;
+class QStringList;
 
 class XHTMLDoc
 {
@@ -59,6 +61,10 @@ public:
     // in the entire document of the provided XHTML source code
     static QList< XMLElement > GetTagsInDocument( const QString &source, const QString &tag_name );
 
+    static QList< QDomNode > GetTagMatchingChildren( const QDomNode &node, const QStringList &tag_names );
+
+    static QList< QString > GetAllChildIDs( const QDomNode &node ); 
+
     // We need to remove the XML carriage returns ("&#xD" sequences)
     // that the default toString() method creates so we wrap it in this function
     static QString GetQDomNodeAsString( const QDomNode &node );
@@ -85,6 +91,10 @@ public:
     // Returns the node's "real" name. We don't care
     // about namespace prefixes and whatnot.
     static QString GetNodeName( const QDomNode &node );
+
+    // Returns the attribute's "real" name. We don't care
+    // about namespace prefixes and whatnot.
+    static QString GetAttributeName( const QDomAttr &attribute );
 
     // Converts a QDomNodeList to a regular QList
     static QList< QDomNode > ConvertToRegularList( const QDomNodeList &list );

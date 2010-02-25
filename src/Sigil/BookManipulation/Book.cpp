@@ -22,38 +22,41 @@
 #include <stdafx.h>
 #include "../BookManipulation/Book.h"
 #include "../Misc/Utility.h"
+#include "ResourceObjects/HTMLResource.h"
+#include <QDomDocument>
 
-bool Book::s_IgnoreCalibreEnvFlag = false;
+static const QString EMPTY_HTML_FILE =  "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                                        "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\"\n"
+                                        "    \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n\n"							
+                                        "<html xmlns=\"http://www.w3.org/1999/xhtml\">\n"
+                                        "<head>\n"
+                                        "<title></title>\n"
+                                        "</head>\n"
+                                        "<body>\n"
+
+                                        // The "nbsp" is here so that the user starts writing
+                                        // inside the <p> element; if it's not here, webkit
+                                        // inserts text _outside_ the <p> element
+                                        "<p>&nbsp;</p>\n"
+                                        "</body>\n"
+                                        "</html>";
+
 
 // Constructor
 Book::Book()
     : 
-    PublicationIdentifier( QUuid::createUuid().toString().remove( "{" ).remove( "}" ) ),
-    m_ReportToCalibre( false )
-
+    m_PublicationIdentifier( Utility::CreateUUID() )
 {
-    QMutexLocker locker( &m_IgnoreCalibreEnvFlagSync );
-
-    if ( !Utility::GetEnvironmentVar( "CALLED_FROM_CALIBRE" ).isEmpty() &&
-         !s_IgnoreCalibreEnvFlag 
-        )
-    {
-        SetReportToCalibreStatus( true );
-
-        s_IgnoreCalibreEnvFlag = true;
-    }
+   
 }
 
 
 // Copy constructor
 Book::Book( const Book& other )
 {
-    source = other.source;
-    metadata = other.metadata;
-    PublicationIdentifier = other.PublicationIdentifier;
-    mainfolder = other.mainfolder;
-
-    // We do NOT copy the m_ReportToCalibre value
+    m_Metadata = other.m_Metadata;
+    m_PublicationIdentifier = other.m_PublicationIdentifier;
+    m_Mainfolder = other.m_Mainfolder;
 }
 
 
@@ -63,12 +66,9 @@ Book& Book::operator = ( const Book& other )
     // Protect against invalid self-assignment
     if ( this != &other ) 
     {
-        source = other.source;
-        metadata = other.metadata;
-        PublicationIdentifier = other.PublicationIdentifier;
-        mainfolder = other.mainfolder;
-
-        // We do NOT copy the m_ReportToCalibre value
+        m_Metadata = other.m_Metadata;
+        m_PublicationIdentifier = other.m_PublicationIdentifier;
+        m_Mainfolder = other.m_Mainfolder;
     }
 
     // By convention, always return *this
@@ -81,25 +81,71 @@ Book& Book::operator = ( const Book& other )
 // within the main folder
 QUrl Book::GetBaseUrl() const
 {
-    return QUrl::fromLocalFile( mainfolder.GetFullPathToTextFolder() + "/" );
+    return QUrl::fromLocalFile( m_Mainfolder.GetFullPathToTextFolder() + "/" );
 }
 
 
-// Returns the status of the m_ReportToCalibre
-// variable. Thread-safe.
-bool Book::GetReportToCalibreStatus()
+FolderKeeper& Book::GetFolderKeeper()
 {
-    QMutexLocker locker( &m_ReportToCalibreSync );
-
-    return m_ReportToCalibre;
+    return m_Mainfolder;
 }
 
 
-// Sets the status of the m_ReportToCalibre
-// variable. Thread-safe.
-void Book::SetReportToCalibreStatus( bool new_status )
+const FolderKeeper& Book::GetConstFolderKeeper()
 {
-    QMutexLocker locker( &m_ReportToCalibreSync );
+    return m_Mainfolder;
+}
 
-    m_ReportToCalibre = new_status;
+
+QString Book::GetPublicationIdentifier()
+{
+    return m_PublicationIdentifier;
+}
+
+
+QHash< QString, QList< QVariant > > Book::GetMetadata()
+{
+    return m_Metadata;
+}
+
+
+void Book::SetMetadata( const QHash< QString, QList< QVariant > > metadata )
+{
+    m_Metadata = metadata;
+}
+
+
+// FIXME: Check if file with FIRST_CHAPTER_NAME already exists
+// (in folderkeeper) and increment the number suffix.
+void Book::CreateEmptyTextFile()
+{
+    QString folderpath = Utility::GetNewTempFolderPath();
+    QDir dir( folderpath );
+    dir.mkpath( folderpath );
+
+    QString fullfilepath = folderpath + "/" + FIRST_CHAPTER_NAME;
+
+    Utility::WriteUnicodeTextFile( EMPTY_HTML_FILE, fullfilepath );
+
+    HTMLResource *html_resource = qobject_cast< HTMLResource* >( 
+                                    &m_Mainfolder.AddContentFileToFolder( fullfilepath ) );
+
+    Q_ASSERT( html_resource );
+
+    QDomDocument document;
+    document.setContent( EMPTY_HTML_FILE );
+
+    html_resource->SetDomDocument( document );
+}
+
+
+void Book::SaveAllResourcesToDisk()
+{
+    QtConcurrent::blockingMap( m_Mainfolder.GetResourceList(), SaveOneResourceToDisk );    
+}
+
+
+void Book::SaveOneResourceToDisk( Resource *resource )
+{
+    resource->SaveToDisk();        
 }

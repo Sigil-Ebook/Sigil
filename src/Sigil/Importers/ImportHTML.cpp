@@ -25,65 +25,57 @@
 #include "../Misc/HTMLEncodingResolver.h"
 #include "../BookManipulation/Metadata.h"
 #include "../BookManipulation/CleanSource.h"
-#include <QDomDocument>
+#include "ResourceObjects/HTMLResource.h"
+#include "ResourceObjects/CSSResource.h"
+#include "../SourceUpdates/PerformHTMLUpdates.h"
+#include "../SourceUpdates/PerformCSSUpdates.h"
 #include "../BookManipulation/XHTMLDoc.h"
+#include <QDomDocument>
 
 static const QString ENTITY_SEARCH = "<!ENTITY\\s+(\\w+)\\s+\"([^\"]+)\">";
-
-const QString HEAD_END = "</\\s*head\\s*>";
+static const QStringList IMAGE_TAGS = QStringList() << "img" << "image"; 
 
 
 // Constructor;
 // The parameter is the file to be imported
 ImportHTML::ImportHTML( const QString &fullfilepath )
-    : ImportTXT( fullfilepath )
+    : Importer( fullfilepath )
 {
 
+}
+
+
+void ImportHTML::SetBook( QSharedPointer< Book > book )
+{
+    m_Book = book;
 }
 
 
 // Reads and parses the file 
 // and returns the created Book
-Book ImportHTML::GetBook()
+QSharedPointer< Book > ImportHTML::GetBook()
 {
     if ( !Utility::IsFileReadable( m_FullFilePath ) )
 
-        return Book();
+        boost_throw( CannotReadFile() << errinfo_file_fullpath( m_FullFilePath.toStdString() ) );
 
-    LoadSource(); 
+    QDomDocument document;
+    document.setContent( LoadSource() );
 
-    // We need to make the source valid XHTML to allow us to 
-    // parse it with XML parsers
-    m_Book.source = CleanSource::ToValidXHTML( m_Book.source );
+    StripFilesFromAnchors( document );
+    LoadMetadata( document );
 
-    LoadMetadata();
-    StripFilesFromAnchors();
-    UpdateReferences( LoadFolderStructure() );
-
-    m_Book.source = CleanSource::Clean( m_Book.source );
+    UpdateFiles( CreateHTMLResource(), document, LoadFolderStructure( document ) );
 
     return m_Book;
 }
 
 
-// Returns a style tag created 
-// from the provided path to a CSS file
-QString ImportHTML::CreateStyleTag( const QString &fullfilepath ) const
+// Loads the source code into the Book
+QString ImportHTML::LoadSource()
 {
-    QString source    = Utility::ReadUnicodeTextFile( fullfilepath ); 
-    QString style_tag = "";
-
-    if ( QFileInfo( fullfilepath ).suffix() == "css" )
-    {
-        style_tag = "<style type=\"text/css\">\n" + source + "\n</style>\n";
-    }
-
-    else // XPGT stylesheet
-    {
-        style_tag = "<style type=\"application/vnd.adobe-page-template+xml\">\n" + source + "\n</style>\n";
-    }
-
-    return style_tag;
+    QString source = CleanSource::Clean( HTMLEncodingResolver::ReadHTMLFile( m_FullFilePath ) );
+    return ResolveCustomEntities( source );
 }
 
 
@@ -91,7 +83,6 @@ QString ImportHTML::CreateStyleTag( const QString &fullfilepath ) const
 QString ImportHTML::ResolveCustomEntities( const QString &html_source ) const
 {
     QString source = html_source;
-
     QRegExp entity_search( ENTITY_SEARCH );
 
     QHash< QString, QString > entities;
@@ -126,46 +117,39 @@ QString ImportHTML::ResolveCustomEntities( const QString &html_source ) const
 }
 
 
-
 // Strips the file specifier on all the href attributes 
 // of anchor tags with filesystem links with fragment identifiers;
 // thus something like <a href="chapter01.html#firstheading" />
 // becomes just <a href="#firstheading" />
-void ImportHTML::StripFilesFromAnchors()
+void ImportHTML::StripFilesFromAnchors( QDomDocument &document )
 {
-    QDomDocument document;
- 
-    document.setContent( m_Book.source );
-
     QDomNodeList anchors = document.elementsByTagName( "a" );
 
     for ( int i = 0; i < anchors.count(); ++i )
     {
         QDomElement element = anchors.at( i ).toElement();
 
+        Q_ASSERT( !element.isNull() );
+
         // We strip the file specifier on all
         // the filesystem links with fragment identifiers
-        if (    element.hasAttribute( "href" ) &&
-                QUrl( element.attribute( "href" ) ).isRelative() &&
-                element.attribute( "href" ).contains( "#" )
+        if ( element.hasAttribute( "href" ) &&
+             QUrl( element.attribute( "href" ) ).isRelative() &&
+             element.attribute( "href" ).contains( "#" )
            )
         {
             element.setAttribute( "href", "#" + element.attribute( "href" ).split( "#" )[ 1 ] );            
         } 
-    }
-
-    m_Book.source = XHTMLDoc::GetQDomNodeAsString( document );      
+    }     
 }
-
 
 // Searches for meta information in the HTML file
 // and tries to convert it to Dublin Core
-void ImportHTML::LoadMetadata()
+void ImportHTML::LoadMetadata( const QDomDocument &document )
 {
-    QDomDocument document; 
-    document.setContent( m_Book.source );
-
     QDomNodeList metatags = document.elementsByTagName( "meta" );
+
+    QHash< QString, QList< QVariant > > metadata;
 
     for ( int i = 0; i < metatags.count(); ++i )
     {
@@ -182,177 +166,120 @@ void ImportHTML::LoadMetadata()
 
             if ( !book_meta.name.isEmpty() && !book_meta.value.toString().isEmpty() )
             {
-                m_Book.metadata[ book_meta.name ].append( book_meta.value );
+                metadata[ book_meta.name ].append( book_meta.value );
             }
         }
-    }    
+    }
+
+    m_Book->SetMetadata( metadata );
 }
 
 
-// Accepts a hash with keys being old references (URLs) to resources,
-// and values being the new references to those resources.
-// The book XHTML source is updated accordingly.
-void ImportHTML::UpdateReferences( const QHash< QString, QString > updates )
+HTMLResource& ImportHTML::CreateHTMLResource()
 {
-    QHash< QString, QString > html_updates = updates;
+    QDir dir( Utility::GetNewTempFolderPath() );
+    dir.mkpath( dir.absolutePath() );
+
+    QString fullfilepath = dir.absolutePath() + "/" + FIRST_CHAPTER_NAME;
+    Utility::WriteUnicodeTextFile( "TEMP_SOURCE", fullfilepath );
+
+    HTMLResource &resource = *qobject_cast< HTMLResource* >(
+                                &m_Book->GetFolderKeeper().AddContentFileToFolder( fullfilepath, 0 ) );
+
+    return resource;
+}
+
+
+void ImportHTML::UpdateFiles( HTMLResource &html_resource, 
+                              QDomDocument &document,
+                              const QHash< QString, QString > &updates )
+{
+    Q_ASSERT( &html_resource != NULL );
+
+    QHash< QString, QString > html_updates;
     QHash< QString, QString > css_updates;
+    tie( html_updates, css_updates ) = PerformHTMLUpdates::SeparateHTMLAndCSSUpdates( updates );
 
-    foreach( QString old_path, html_updates.keys() )
+    QList< Resource* > all_files = m_Book->GetFolderKeeper().GetResourceList();
+    int num_files = all_files.count();
+
+    QList< CSSResource* > css_resources;
+
+    for ( int i = 0; i < num_files; ++i )
     {
-        QString extension = QFileInfo( old_path ).suffix().toLower();
+        Resource *resource = all_files.at( i );
 
-        // Font file updates are CSS updates, not HTML updates
-        if ( extension == "ttf" || extension == "otf" )
-        {
-            css_updates[ old_path ] = html_updates[ old_path ];
-            html_updates.remove( old_path );
-        }
+        if ( resource->Type() == Resource::CSSResource )   
+        
+            css_resources.append( qobject_cast< CSSResource* >( resource ) );          
     }
 
-    UpdateHTMLReferences( html_updates );
-    UpdateCSSReferences( css_updates );
+    QFutureSynchronizer<void> sync;
+    sync.addFuture( QtConcurrent::map( css_resources, boost::bind( UpdateOneCSSFile, _1, css_updates ) ) );
+
+    html_resource.SetDomDocument( PerformHTMLUpdates( document, html_updates, css_updates )() );
+
+    sync.waitForFinished();
 }
 
 
-// Updates the resource references in the HTML.
-// Accepts a hash with keys being old references (URLs) to resources,
-// and values being the new references to those resources.
-void ImportHTML::UpdateHTMLReferences( const QHash< QString, QString > updates )
+void ImportHTML::UpdateOneCSSFile( CSSResource* css_resource, const QHash< QString, QString > &css_updates )
 {
-    QDomDocument document;
-    document.setContent( m_Book.source );
-
-    UpdateReferenceInNode( document.documentElement(), updates );
-
-    // We wait until all the nodes are updated
-    m_NodeUpdateSynchronizer.waitForFinished();
-
-    m_Book.source = XHTMLDoc::GetQDomNodeAsString( document );
-}
-
-
-// Updates the resource references in the attributes 
-// of the one specified node in the HTML.
-// Accepts a hash with keys being old references (URLs) to resources,
-// and values being the new references to those resources.
-void ImportHTML::UpdateReferenceInNode( QDomNode node, const QHash< QString, QString > updates )
-{
-    QDomNamedNodeMap attributes = node.attributes();
-
-    for ( int i = 0; i < attributes.count(); ++i )
-    {
-        QDomAttr attribute = attributes.item( i ).toAttr();
-
-        if ( !attribute.isNull() )
-        {
-            foreach ( QString old_path, updates.keys() )
-            {
-                QString filename = QFileInfo( old_path ).fileName();
-
-                QRegExp file_match( ".*/" + QRegExp::escape( filename ) + "|" + QRegExp::escape( filename ) );
-
-                if ( file_match.exactMatch( QUrl::fromPercentEncoding( attribute.value().toUtf8() ) ) )
-                {
-                    QByteArray encoded_url = QUrl::toPercentEncoding( updates[ old_path ], QByteArray( "/" ) );
-
-                    attribute.setValue( QString::fromUtf8( encoded_url.constData(), encoded_url.count() ) );
-                }
-            }            
-        }
-    }
-
-    QDomNodeList children = node.childNodes();
-
-    // We used to have a new synchronizer here that would monitor
-    // the calls on its children, but that proved inefficient.
-    // So we use a class global sync that waits for all nodes.
-    
-    QMutexLocker locker( &m_SynchronizerMutex );
-
-    for ( int i = 0; i < children.count(); ++i )
-    {        
-        m_NodeUpdateSynchronizer.addFuture( QtConcurrent::run(  this, &ImportHTML::UpdateReferenceInNode, 
-                                                                children.at( i ), updates ) );
-    }
-}
-
-
-// Updates the resource references in the CSS.
-// Accepts a hash with keys being old references (URLs) to resources,
-// and values being the new references to those resources.
-void ImportHTML::UpdateCSSReferences( const QHash< QString, QString > updates )
-{
-    foreach( QString old_path, updates.keys() )
-    {
-        QString filename  = QFileInfo( old_path ).fileName();
-
-        QRegExp reference = QRegExp( "src:\\s*\\w+\\([\"']*([^\\)]*/" + QRegExp::escape( filename ) + "|"
-                                        + QRegExp::escape( filename ) + ")[\"']*\\)" );
-
-        int index = -1;
-
-        while ( true )
-        {
-            int newindex = m_Book.source.indexOf( reference );
-
-            // We need to make sure we don't end up
-            // replacing the same thing over and over again
-            if ( ( index == newindex ) || ( newindex == -1 ) )
-
-                break;
-
-            m_Book.source.replace( reference.cap( 1 ), updates[ old_path ] );
-
-            index = newindex;
-        }
-    }  
-}
-
-
-// Loads the source code into the Book
-void ImportHTML::LoadSource()
-{
-    m_Book.source = HTMLEncodingResolver::ReadHTMLFile( m_FullFilePath );
-    m_Book.source = ResolveCustomEntities( m_Book.source );
+    QString source = Utility::ReadUnicodeTextFile( css_resource->GetFullPath() );
+    source = PerformCSSUpdates( source, css_updates )();
+    css_resource->SetText( source );
 }
 
 
 // Loads the referenced files into the main folder of the book;
 // as the files get a new name, the references are updated
-QHash< QString, QString > ImportHTML::LoadFolderStructure()
+QHash< QString, QString > ImportHTML::LoadFolderStructure( const QDomDocument &document )
 {
-    QHash< QString, QString > updates;
-    
-    updates = LoadImages();
-    LoadStyleFiles();
+    QFutureSynchronizer< QHash< QString, QString > > sync;
 
-    return updates;    
+    sync.addFuture( QtConcurrent::run( this, &ImportHTML::LoadImages,     document ) );
+    sync.addFuture( QtConcurrent::run( this, &ImportHTML::LoadStyleFiles, document ) );
+    
+    sync.waitForFinished();
+
+    QList< QFuture< QHash< QString, QString > > > futures = sync.futures();
+    int num_futures = futures.count();
+
+    QHash< QString, QString > updates;
+
+    for ( int i = 0; i < num_futures; ++i )
+    {
+        updates.unite( futures.at( i ).result() );
+    }   
+
+    return updates;
 }
 
 
 // Loads the images into the book
-QHash< QString, QString > ImportHTML::LoadImages()
+QHash< QString, QString > ImportHTML::LoadImages( const QDomDocument &document )
 {
     // "Normal" HTML image elements
-    QList< XHTMLDoc::XMLElement > image_nodes = XHTMLDoc::GetTagsInDocument( m_Book.source, "img" );
-
-    // SVG image elements
-    image_nodes.append( XHTMLDoc::GetTagsInDocument( m_Book.source, "image" ) );
+    QList< QDomNode > image_nodes = XHTMLDoc::GetTagMatchingChildren( document, IMAGE_TAGS );
 
     QStringList image_links;
 
     // Get a list of all images referenced
-    foreach( XHTMLDoc::XMLElement element, image_nodes )
+    foreach( QDomNode node, image_nodes )
     {
+        QDomElement element = node.toElement();
+
+        Q_ASSERT( !element.isNull() );
+
         QString url_reference;
 
-        if ( element.attributes.contains( "src" ) )
+        if ( element.hasAttribute( "src" ) )
 
-            url_reference = element.attributes.value( "src" );
+            url_reference = QUrl::fromPercentEncoding( element.attribute( "src" ).toUtf8() );
 
         else // This covers the SVG "image" tags
 
-            url_reference = element.attributes.value( "xlink:href" );
+            url_reference = QUrl::fromPercentEncoding( element.attribute( "xlink:href" ).toUtf8() );
         
         if ( !url_reference.isEmpty() )
 
@@ -364,14 +291,14 @@ QHash< QString, QString > ImportHTML::LoadImages()
 
     QHash< QString, QString > updates;
 
+    QDir folder( QFileInfo( m_FullFilePath ).absoluteDir() );
+
     // Load the images into the book and
     // update all references with new urls
     foreach( QString image_link, image_links )
     {
-        QDir folder( QFileInfo( m_FullFilePath ).absoluteDir() );
-
-        QString fullfilepath = QFileInfo( folder, QUrl( image_link ).toString() ).absoluteFilePath();
-        QString newpath      = "../" + m_Book.mainfolder.AddContentFileToFolder( fullfilepath );
+        QString fullfilepath = QFileInfo( folder, image_link ).absoluteFilePath();
+        QString newpath      = "../" + m_Book->GetFolderKeeper().AddContentFileToFolder( fullfilepath ).GetRelativePathToOEBPS();
 
         updates[ image_link ] = newpath;
     }
@@ -381,50 +308,39 @@ QHash< QString, QString > ImportHTML::LoadImages()
 
 
 // Loads CSS files from link tags to style tags
-void ImportHTML::LoadStyleFiles()
+QHash< QString, QString > ImportHTML::LoadStyleFiles( const QDomDocument &document )
 {
-    QDomDocument document;
-    document.setContent( m_Book.source );
-
     QDomNodeList link_nodes = document.elementsByTagName( "link" );
 
-    QStringList style_tags;
+    QHash< QString, QString > updates;
 
     // Get all the style files references in link tags
     // and convert them into style tags
     for ( int i = 0; i < link_nodes.count(); ++i )
     {
-        QDir folder( QFileInfo( m_FullFilePath ).absoluteDir() );
-
         QDomElement element = link_nodes.at( i ).toElement();
 
-        QFileInfo file_info( folder, QUrl( element.attribute( "href" ) ).toString() );
+        Q_ASSERT( !element.isNull() );
 
-        if (    file_info.suffix().toLower() == "css" ||
-                file_info.suffix().toLower() == "xpgt"
+        QDir folder( QFileInfo( m_FullFilePath ).absoluteDir() );
+
+        QString relative_path = QUrl::fromPercentEncoding( element.attribute( "href" ).toUtf8() );
+
+        QFileInfo file_info( folder, relative_path );
+
+        if (  file_info.suffix().toLower() == "css" ||
+              file_info.suffix().toLower() == "xpgt"
            )
         {
-            style_tags << CreateStyleTag( file_info.absoluteFilePath() );
+            QString newpath = "../" + m_Book->GetFolderKeeper().AddContentFileToFolder( 
+                                            file_info.absoluteFilePath() ).GetRelativePathToOEBPS();
+
+            updates[ relative_path ] = newpath;
         }
     }
 
-    QDomNode head = document.elementsByTagName( "head" ).at( 0 );
-
-    // Remove the link tags
-    while ( !link_nodes.isEmpty() )
-    {
-        head.removeChild( link_nodes.at( 0 ) );        
-    }
-
-    QString new_source = XHTMLDoc::GetQDomNodeAsString( document );
-
-    // Paste the new style tags into the head section
-    foreach( QString style, style_tags )
-    {
-        new_source.replace( QRegExp( "(</\\s*(?:head|HEAD)[^>]*>)" ), style + "\n\\1" );
-    }  
-
-    m_Book.source = new_source;
+    return updates;
 }
+
 
 

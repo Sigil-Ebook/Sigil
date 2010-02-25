@@ -27,7 +27,7 @@
 #include "../BookManipulation/FolderKeeper.h"
 #include "../BookManipulation/Book.h"
 
-static const QString EPUB_MIME_TYPE = "application/epub+zip";
+
 
 class ExportEPUB : public Exporter
 {
@@ -37,7 +37,7 @@ public:
     // Constructor;
     // the first parameter is the location where the book 
     // should be save to, and the second is the book to be saved
-    ExportEPUB( const QString &fullfilepath, const Book &book );
+    ExportEPUB( const QString &fullfilepath, QSharedPointer< Book > book );
 
     // Destructor
     virtual ~ExportEPUB();
@@ -50,60 +50,22 @@ protected:
 
     // Creates the publication from the Book
     // (creates XHTML, CSS, OPF, NCX files etc.)
-    void virtual CreatePublication();
+    void virtual CreatePublication( const QString &fullfolderpath );
 
-    // Saves the publication to the specified path;
+    // Saves the publication in the specified folder 
+    // to the specified file path as an epub;
     // the second optional parameter specifies the
     // mimetype to write to the special "mimetype" file
-    void SaveTo( const QString &fullfilepath, const QString &mimetype = QString( EPUB_MIME_TYPE ) );
-
-    // Creates style files from the style tags in the source
-    // and returns a list of their file paths relative 
-    // to the OEBPS folder in the FolderKeeper
-    QStringList CreateStyleFiles();
-
-    // Takes a list of style sheet file names 
-    // and returns the header for XHTML files
-    QString CreateHeader( const QStringList &cssfiles ) const;
-
-    // Creates XHTML files from the book source;
-    // the provided header is used as the header of the created files
-    void CreateXHTMLFiles( const QString &header );
-
-    // Creates one text file from the provided source
-    // and adds it to the FolderKeeper object with
-    // the provided extension; returns the file path
-    // relative to the OEBPS folder
-    QString CreateOneTextFile( const QString &source, const QString &extension );
-
-    // Strips CDATA declarations from the provided source
-    QString StripCDATA( const QString &style_source ) const;
-
-    // Removes Sigil styles from the provided source
-    QString RemoveSigilStyles( const QString &style_source ) const;
-
-    // Updates the href attributes of all <a> tags
-    // to point to the files the ID's referenced are located in
-    void UpdateAnchors();
-
-    // Returns a hash with keys being ID or NAME attributes
-    // of XHTML elements and the values being the files in
-    // which these attribute values are located
-    QHash< QString, QString > GetIDFileLocations() const;
+    void SaveFolderAsEpubToLocation( const QString &fullfolderpath, const QString &fullfilepath );
 
     // Creates the publication's container.xml file
-    void CreateContainerXML();
+    void CreateContainerXML( const QString &fullfolderpath );
 
     // Creates the publication's content.opf file
-    void CreateContentOPF();
+    void CreateContentOPF( const QString &fullfolderpath  );
 
     // Creates the publication's toc.ncx file
-    void CreateTocNCX();
-
-    // Performs actions need for interoperability
-    // with calibre; if Sigil was called from it,
-    // special actions need to be taken
-    void CalibreInterop();
+    void CreateTocNCX( const QString &fullfolderpath );
 
 
     ///////////////////////////////
@@ -115,11 +77,7 @@ protected:
     QString m_FullFilePath;
 
     // The book being exported
-    Book m_Book;
-
-    // The folder which contains all the files
-    // that will end up in the final exported file
-    FolderKeeper m_Folder;
+    QSharedPointer< Book > m_Book;
 
 };
 

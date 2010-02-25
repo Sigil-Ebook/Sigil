@@ -67,8 +67,8 @@ QList< XHTMLDoc::XMLElement > XHTMLDoc::GetTagsInHead( const QString &source, co
                 matching_elements.append( CreateXMLElement( reader ) );
         }
 
-        else if (    type == QXmlStreamReader::EndElement &&
-                    ( reader.name() == "head" || reader.name() == "HEAD" )
+        else if ( type == QXmlStreamReader::EndElement &&
+                  ( reader.name() == "head" || reader.name() == "HEAD" )
                 )
         {
             break;        
@@ -77,7 +77,11 @@ QList< XHTMLDoc::XMLElement > XHTMLDoc::GetTagsInHead( const QString &source, co
 
     if ( reader.hasError() )
     {
-        // TODO: error handling
+        boost_throw( ErrorParsingXML() 
+                     << errinfo_XML_parsing_error_string( reader.errorString().toStdString() )
+                     << errinfo_XML_parsing_line_number( reader.lineNumber() )
+                     << errinfo_XML_parsing_column_number( reader.columnNumber() )
+                   );
     }
     
     return matching_elements;
@@ -107,10 +111,73 @@ QList< XHTMLDoc::XMLElement > XHTMLDoc::GetTagsInDocument( const QString &source
 
     if ( reader.hasError() )
     {
-        // TODO: error handling
+        boost_throw( ErrorParsingXML() 
+                     << errinfo_XML_parsing_error_string( reader.errorString().toStdString() )
+                     << errinfo_XML_parsing_line_number( reader.lineNumber() )
+                     << errinfo_XML_parsing_column_number( reader.columnNumber() )
+                   );
     }
 
     return matching_elements;
+}
+
+
+QList< QDomNode > XHTMLDoc::GetTagMatchingChildren( const QDomNode &node, const QStringList &tag_names )
+{
+    Q_ASSERT( !node.isNull() );
+
+    QList< QDomNode > matching_nodes;
+
+    if ( tag_names.contains( GetNodeName( node ), Qt::CaseInsensitive ) )
+    
+        matching_nodes.append( node );
+
+    if ( node.hasChildNodes() )
+    {
+        QDomNodeList children = node.childNodes();
+        int num_children = children.count();
+
+        for ( int i = 0; i < num_children; ++i )
+        {
+            matching_nodes.append( GetTagMatchingChildren( children.at( i ), tag_names ) );              
+        }
+    }    
+
+    return matching_nodes;
+}
+
+QList< QString > XHTMLDoc::GetAllChildIDs( const QDomNode &node )
+{
+    Q_ASSERT( !node.isNull() );
+
+    QDomElement element = node.toElement();
+
+    if ( element.isNull() )
+
+        return QList< QString >();
+
+    QList< QString > IDs;
+
+    if ( element.hasAttribute( "id" ) )
+    
+        IDs.append( element.attribute( "id" ) );
+    
+    else if ( element.hasAttribute( "name" ) )
+
+        IDs.append( element.attribute( "name" ) );
+
+    if ( node.hasChildNodes() )
+    {
+        QDomNodeList children = node.childNodes();
+        int num_children = children.count();
+
+        for ( int i = 0; i < num_children; ++i )
+        {
+            IDs.append( GetAllChildIDs( children.at( i ) ) );              
+        }
+    }    
+
+    return IDs;
 }
 
 
@@ -123,7 +190,8 @@ QString XHTMLDoc::GetQDomNodeAsString( const QDomNode &node )
     //    return document.toString().replace( "&#xd;", "" );
     //
     // But Qt has a bug with the toString() method if the XML
-    // encoding is specified as "us-ascii"... so we work around it.
+    // encoding is specified as "us-ascii"... so we work around it...
+    // and other Qt bugs and weirdness...
 
     Q_ASSERT( !node.isNull() );
 
@@ -204,6 +272,23 @@ QString XHTMLDoc::GetNodeName( const QDomNode &node )
     else
 
         return local_name;
+}
+
+
+QString XHTMLDoc::GetAttributeName( const QDomAttr &attribute )
+{
+    Q_ASSERT( !attribute.isNull() );
+
+    QString name = attribute.name();
+    int colon_index = name.lastIndexOf( QChar( ':' ) );
+
+    if ( colon_index < 0 )
+
+        return name;
+
+    else
+
+        return name.mid( colon_index + 1 );
 }
 
 
@@ -357,8 +442,6 @@ QList< QDomNode > XHTMLDoc::GetAllTextNodes( const QDomNode &node  )
 
     else
     {
-        QString node_name = GetNodeName( node );
-
         if ( node.hasChildNodes() )
         {
             QDomNodeList children = node.childNodes();
@@ -395,7 +478,7 @@ QDomNode XHTMLDoc::GetAncestorBlockElement( const QDomNode &node )
 
         return parent_node;
 
-    else // FIXME: throw an exception when it's null
+    else
 
         return node.ownerDocument().elementsByTagName( "body" ).at( 0 );
 }
@@ -498,6 +581,7 @@ XHTMLDoc::XMLElement XHTMLDoc::CreateXMLElement( QXmlStreamReader &reader )
 
     return element; 
 }
+
 
 
 

@@ -23,14 +23,14 @@
 #ifndef IMPORTHTML_H
 #define IMPORTHTML_H
 
-#include "ImportTXT.h"
+#include "Importer.h"
 #include "../BookManipulation/FolderKeeper.h"
-#include <QMutex>
-#include <QFutureSynchronizer>
 
-class QDomNode;
+class HTMLResource;
+class CSSResource;
+class QDomDocument;
 
-class ImportHTML : public ImportTXT
+class ImportHTML : public Importer
 {
 
 public:
@@ -39,74 +39,54 @@ public:
     // The parameter is the file to be imported
     ImportHTML( const QString &fullfilepath );
 
+    // Needed so that we can use an existing Book
+    // in which to load HTML files (and their dependencies).
+    void SetBook( QSharedPointer< Book > book );
+
     // Reads and parses the file 
-    // and returns the created Book
-    virtual Book GetBook();
+    // and returns the created Book.
+    virtual QSharedPointer< Book > GetBook();
 
-protected:
+private:
 
-    // Returns a style tag created 
-    // from the provided path to a CSS file
-    QString CreateStyleTag( const QString &fullfilepath ) const;    
+    // Loads the source code into the Book
+    QString LoadSource();  
 
     // Resolves custom ENTITY declarations
-    QString ResolveCustomEntities( const QString &html_source ) const; 
+    QString ResolveCustomEntities( const QString &html_source ) const;
 
     // Strips the file specifier on all the href attributes 
     // of anchor tags with filesystem links with fragment identifiers;
     // thus something like <a href="chapter01.html#firstheading" />
     // becomes just <a href="#firstheading" />
-    void StripFilesFromAnchors();
+    void StripFilesFromAnchors( QDomDocument &document );
 
     // Searches for meta information in the HTML file
     // and tries to convert it to Dublin Core
-    void LoadMetadata();
+    void LoadMetadata( const QDomDocument &document ); 
 
-    // Accepts a hash with keys being old references (URLs) to resources,
-    // and values being the new references to those resources.
-    // The book XHTML source is updated accordingly.
-    void UpdateReferences( const QHash< QString, QString > updates );
+    HTMLResource& ImportHTML::CreateHTMLResource();
 
-private:
+    void UpdateFiles( HTMLResource &html_resource, 
+                      QDomDocument &document,
+                      const QHash< QString, QString > &updates );
 
-    // Updates the resource references in the HTML.
-    // Accepts a hash with keys being old references (URLs) to resources,
-    // and values being the new references to those resources.
-    void UpdateHTMLReferences( const QHash< QString, QString > updates );
-
-    // Updates the resource references in the attributes 
-    // of the one specified node in the HTML.
-    // Accepts a hash with keys being old references (URLs) to resources,
-    // and values being the new references to those resources.
-    void UpdateReferenceInNode( QDomNode node, const QHash< QString, QString > updates );
-
-    // Updates the resource references in the CSS.
-    // Accepts a hash with keys being old references (URLs) to resources,
-    // and values being the new references to those resources.
-    void UpdateCSSReferences( const QHash< QString, QString > updates );
-
-    // Loads the source code into the Book
-    void LoadSource();       
+    // Copied from ImportEPUB because the importers will
+    // soon become independent plugins (as shared libraries)
+    static void UpdateOneCSSFile( CSSResource* css_resource, 
+                                  const QHash< QString, QString > &css_updates );
 
     // Loads the referenced files into the main folder of the book;
     // as the files get a new name, the references are updated 
-    QHash< QString, QString > LoadFolderStructure();
+    QHash< QString, QString > LoadFolderStructure( const QDomDocument &document );
 
     // Loads CSS files from link tags to style tags.
     // Returns a hash with keys being old references (URLs) to resources,
     // and values being the new references to those resources.
-    QHash< QString, QString > LoadImages();
+    QHash< QString, QString > LoadImages( const QDomDocument &document );
 
     // Loads style files from link tags to style tags
-    void LoadStyleFiles();
-
-    // This synchronizer is used to wait for all
-    // the HTML node updates to finish beforre moving on
-    QFutureSynchronizer< void > m_NodeUpdateSynchronizer;
-    
-    // The mutex used for locking access
-    // to the QFuture synchronizer
-    QMutex m_SynchronizerMutex;
+    QHash< QString, QString > LoadStyleFiles( const QDomDocument &document );
 };
 
 #endif // IMPORTHTML_H

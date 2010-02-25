@@ -24,7 +24,8 @@
 #include "LineNumberArea.h"
 #include "../BookManipulation/Book.h"
 #include "../BookManipulation/XHTMLDoc.h"
-#include "Misc/XHTMLHighlighter.h"
+#include "../Misc/XHTMLHighlighter.h"
+#include "../Misc/CSSHighlighter.h"
 #include <QDomDocument>
 
 static const int COLOR_FADE_AMOUNT       = 175;
@@ -36,18 +37,25 @@ static const QColor NUMBER_AREA_NUMCOLOR = QColor( 100, 100, 100 );
                   
 static const QString XML_OPENING_TAG = "(<[^>/][^>]*[^>/]>|<[^>/]>)";
 
-
 // Constructor;
-// the parameters is the object's parent
-CodeViewEditor::CodeViewEditor( QWidget *parent )
+// the first parameter says which syn. highlighter to use;
+// the second parameter is the object's parent
+CodeViewEditor::CodeViewEditor( HighlighterType high_type, QWidget *parent )
     :
     QPlainTextEdit( parent ),
     m_LineNumberArea( new LineNumberArea( this ) ),
-    m_Highlighter( new XHTMLHighlighter( document() ) ),
     m_CurrentZoomFactor( 1.0 ),
     m_ScrollOneLineUp( *(   new QShortcut( QKeySequence( Qt::ControlModifier + Qt::Key_Up   ), this ) ) ),
     m_ScrollOneLineDown( *( new QShortcut( QKeySequence( Qt::ControlModifier + Qt::Key_Down ), this ) ) )
 {
+    if ( high_type == CodeViewEditor::Highlight_XHTML )
+
+        m_Highlighter = new XHTMLHighlighter( this );
+
+    else
+
+        m_Highlighter = new CSSHighlighter( this );
+
     connect( this, SIGNAL( blockCountChanged( int ) ),           this, SLOT( UpdateLineNumberAreaMargin() ) );
     connect( this, SIGNAL( updateRequest( const QRect &, int) ), this, SLOT( UpdateLineNumberArea( const QRect &, int) ) );
     connect( this, SIGNAL( cursorPositionChanged() ),            this, SLOT( HighlightCurrentLine() ) );
@@ -58,6 +66,15 @@ CodeViewEditor::CodeViewEditor( QWidget *parent )
     UpdateLineNumberAreaMargin();
     HighlightCurrentLine();
 
+    setFrameStyle( QFrame::NoFrame );
+}
+
+
+void CodeViewEditor::CustomSetDocument( QTextDocument &document )
+{
+    setDocument( &document );
+    m_Highlighter->setDocument( &document );
+
     // Let's try to use Consolas as our font
     QFont font( "Consolas", BASE_FONT_SIZE );
 
@@ -66,12 +83,6 @@ CodeViewEditor::CodeViewEditor( QWidget *parent )
     font.setStyleHint( QFont::TypeWriter );
     setFont( font );
     setTabStopWidth( TAB_SPACES_WIDTH * QFontMetrics( font ).width( ' ' ) );
-}
-
-// Sets the content of the View to the specified book
-void CodeViewEditor::SetBook( const Book &book )
-{
-    setPlainText( book.source );
 }
 
 
@@ -185,6 +196,7 @@ void CodeViewEditor::SetZoomFactor( float factor )
     setFont( current_font );
     
     // We update size of the line number area
+    m_LineNumberArea->setFont( current_font );
     m_LineNumberArea->MyUpdateGeometry();
     UpdateLineNumberAreaMargin();
 
@@ -355,6 +367,22 @@ void CodeViewEditor::mousePressEvent( QMouseEvent *event )
 }
 
 
+void CodeViewEditor::focusInEvent( QFocusEvent *event )
+{
+    emit FocusGained();
+
+    QPlainTextEdit::focusInEvent( event );
+}
+
+
+void CodeViewEditor::focusOutEvent( QFocusEvent *event )
+{
+    emit FocusLost();
+
+    QPlainTextEdit::focusOutEvent( event );
+}
+
+
 // Called whenever the number of lines changes;
 // sets a margin where the line number area can be displayed
 void CodeViewEditor::UpdateLineNumberAreaMargin()
@@ -499,29 +527,21 @@ QList< ViewEditor::ElementIndex > CodeViewEditor::ConvertStackToHierarchy( const
 
 
 // Converts a ViewEditor element hierarchy to a CaretMove
-CodeViewEditor::CaretMove CodeViewEditor::ConvertHierarchyToCaretMove( const QList< ViewEditor::ElementIndex > &hierarchy ) const
+tuple< int, int > CodeViewEditor::ConvertHierarchyToCaretMove( const QList< ViewEditor::ElementIndex > &hierarchy ) const
 {
     QDomDocument dom;
     dom.setContent( toPlainText() );
 
     QDomNode end_node = XHTMLDoc::GetNodeFromHierarchy( dom, hierarchy );
-
     QTextCursor cursor( document() );
-    CodeViewEditor::CaretMove caret_move;
 
     if ( !end_node.isNull() ) 
-    {
-        caret_move.vertical_lines   = end_node.lineNumber() - cursor.blockNumber();
-        caret_move.horizontal_chars = end_node.columnNumber();   
-    }
-
+    
+        return make_tuple( end_node.lineNumber() - cursor.blockNumber(), end_node.columnNumber() ); 
+    
     else
-    {   
-        caret_move.vertical_lines   = 0;
-        caret_move.horizontal_chars = 0;
-    }
-
-    return caret_move;
+    
+        return make_tuple( 0, 0 );
 }
 
 
@@ -539,15 +559,17 @@ bool CodeViewEditor::ExecuteCaretUpdate()
 
     QTextCursor cursor( document() );
 
+    int vertical_lines_move = 0;
+    int horizontal_chars_move = 0;
+
     // We *have* to do the conversion on-demand since the 
     // conversion uses toPlainText(), and the text needs to up-to-date.
-    CodeViewEditor::CaretMove caret_move = ConvertHierarchyToCaretMove( m_CaretUpdate );
+    tie( vertical_lines_move, horizontal_chars_move ) = ConvertHierarchyToCaretMove( m_CaretUpdate );
 
-    cursor.movePosition( QTextCursor::NextBlock, QTextCursor::MoveAnchor, caret_move.vertical_lines );
-    cursor.movePosition( QTextCursor::Left     , QTextCursor::MoveAnchor, caret_move.horizontal_chars );
+    cursor.movePosition( QTextCursor::NextBlock, QTextCursor::MoveAnchor, vertical_lines_move );
+    cursor.movePosition( QTextCursor::Left,      QTextCursor::MoveAnchor, horizontal_chars_move );
 
     m_CaretUpdate.clear();
-
     setTextCursor( cursor );
 
     // Center the screen on the cursor/caret location.
@@ -603,7 +625,5 @@ void CodeViewEditor::ScrollByLine( bool down )
     }
        
 }
-
-
 
 
