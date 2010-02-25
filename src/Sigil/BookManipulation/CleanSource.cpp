@@ -236,6 +236,9 @@ int CleanSource::MaxSigilCSSClassIndex( const QStringList &css_style_tags  )
 // Runs HTML Tidy on the provided XHTML source code
 QString CleanSource::HTMLTidy( const QString &source )
 {
+    // TODO: This is getting ridiculous. Unify the three
+    // Tidy versions so we don't have all this code duplication.
+
     TidyDoc tidy_document = tidyCreate();
 
     TidyBuffer output = { 0 };
@@ -428,6 +431,9 @@ QString CleanSource::PrettyPrintTidy( const QString &source )
 
     // "preserve-entities"
     tidyOptSetBool( tidy_document, TidyPreserveEntities, yes );	
+
+    // "anchor-as-name"
+    tidyOptSetBool( tidy_document, TidyAnchorAsName, no );
 
     // "join-styles"
     tidyOptSetBool( tidy_document, TidyJoinStyles, no );
