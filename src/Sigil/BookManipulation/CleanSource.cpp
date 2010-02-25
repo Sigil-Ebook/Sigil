@@ -234,6 +234,9 @@ QString CleanSource::HTMLTidy( const QString &source )
     // "preserve-entities"
     tidyOptSetBool( tidy_document, TidyPreserveEntities, yes );	
 
+    // "anchor-as-name"
+    tidyOptSetBool( tidy_document, TidyAnchorAsName, no );	
+
     // Turning these two options on produces ugly markup
     // from WYSIWYG actions... for now, it's better we turn it off.
 
@@ -325,6 +328,9 @@ QString CleanSource::FastXHTMLTidy( const QString &source )
 
     // "preserve-entities"
     tidyOptSetBool( tidy_document, TidyPreserveEntities, yes );	
+
+    // "anchor-as-name"
+    tidyOptSetBool( tidy_document, TidyAnchorAsName, no );
 
     // "join-styles"
     tidyOptSetBool( tidy_document, TidyJoinStyles, no );

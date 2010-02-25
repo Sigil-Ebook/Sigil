@@ -1,3 +1,6 @@
+Sigil v0.1.2. ADD_DATE
+    - fixed an issue with anchor elements getting unnecessary "name" attributes (issue #226)
+
 Sigil v0.1.9 2010.02.08.
     - fixed a regression that caused Sigil to demand that all XHTML streams in an epub file
     be valid XML (issue #248)
