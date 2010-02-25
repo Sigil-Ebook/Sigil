@@ -186,6 +186,8 @@ HTMLResource& ImportHTML::CreateHTMLResource()
     HTMLResource &resource = *qobject_cast< HTMLResource* >(
                                 &m_Book->GetFolderKeeper().AddContentFileToFolder( fullfilepath, 0 ) );
 
+    QtConcurrent::run( Utility::DeleteFolderAndFiles, dir.absolutePath() );
+
     return resource;
 }
 
