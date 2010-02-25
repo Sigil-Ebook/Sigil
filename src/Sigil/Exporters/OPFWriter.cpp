@@ -255,15 +255,15 @@ void OPFWriter::WriteManifest()
     m_Writer->writeAttribute( "href", "toc.ncx" );
     m_Writer->writeAttribute( "media-type", m_Mimetypes[ "ncx" ] );
 
-    foreach( Resource *resource, m_Book->GetConstFolderKeeper().GetResourceList() )
+    foreach( QString relative_path, m_Book->GetConstFolderKeeper().GetSortedContentFilesList() )
     {
-        QFileInfo info( resource->Filename() );
+        QFileInfo info( relative_path );
         QString name      = info.baseName();
         QString extension = info.suffix();
 
         m_Writer->writeEmptyElement( "item" );
         m_Writer->writeAttribute( "id", name + "." + extension );
-        m_Writer->writeAttribute( "href", resource->GetRelativePathToOEBPS() );
+        m_Writer->writeAttribute( "href", relative_path );
         m_Writer->writeAttribute( "media-type", m_Mimetypes[ extension ] );
     }
 

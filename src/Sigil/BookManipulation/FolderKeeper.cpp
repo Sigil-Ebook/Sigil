@@ -189,19 +189,16 @@ Resource& FolderKeeper::AddContentFileToFolder( const QString &fullfilepath, int
 
 // Returns a list of all the content files in the directory
 // with a path relative to the OEBPS directory
-QStringList FolderKeeper::GetContentFilesList() const
+QStringList FolderKeeper::GetSortedContentFilesList() const
 {
     QStringList filelist;
 
     foreach( Resource* resource, m_Resources.values() )
     {
-        if ( resource->Type() != Resource::HTMLResource )
-
-            filelist.append( resource->GetRelativePathToOEBPS() );
+        filelist.append( resource->GetRelativePathToOEBPS() );
     }
-
-
-
+    
+    filelist.sort();
     return filelist;
 }
 

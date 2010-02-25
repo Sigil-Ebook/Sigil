@@ -57,13 +57,12 @@ QTextDocument& TextResource::GetTextDocumentForWriting()
 
 void TextResource::SaveToDisk()
 {
+    // We can't perform the document modified check
+    // here because that causes problems with epub export
+    // when the user has not changed the text file.
+    // (some text files have placeholder text on disk)
+
     QWriteLocker locker( &m_ReadWriteLock );
-
-    Q_ASSERT( m_TextDocument );
-
-    if ( !m_TextDocument->isModified() )
-
-        return;
 
     Utility::WriteUnicodeTextFile( m_TextDocument->toPlainText(), m_FullFilePath );
 

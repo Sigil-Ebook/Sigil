@@ -56,8 +56,9 @@ public:
     Resource& AddContentFileToFolder( const QString &fullfilepath, int reading_order = -1 );
 
     // Returns a list of all the content files in the directory
-    // with a path relative to the OEBPS directory
-    QStringList GetContentFilesList() const;
+    // with a path relative to the OEBPS directory.
+    // The list is alphabetically sorted.
+    QStringList GetSortedContentFilesList() const;
 
     QList< Resource* > GetResourceList() const;
 

@@ -87,6 +87,14 @@ ContentTab::ViewState TextTab::GetViewState()
 
 void TextTab::SaveContentOnTabLeave()
 {
+    // We can't perform the document modified check
+    // here because that causes problems with epub export
+    // when the user has not changed the text file.
+    // (some text files have placeholder text on disk)
+    if ( !m_wCodeView.document()->isModified() )
+
+        return;
+
     m_TextResource.SaveToDisk();
 
     ContentTab::SaveContentOnTabLeave();
