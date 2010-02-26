@@ -273,7 +273,7 @@ void ImportSGF::CreateOneXHTMLFile( QString source,
     Utility::WriteUnicodeTextFile( "PLACEHOLDER", fullfilepath );
 
     HTMLResource *html_resource = qobject_cast< HTMLResource* >( 
-                                        &m_Book->GetFolderKeeper().AddContentFileToFolder( fullfilepath ) );
+                                        &m_Book->GetFolderKeeper().AddContentFileToFolder( fullfilepath, reading_order ) );
 
     Q_ASSERT( html_resource );
 
