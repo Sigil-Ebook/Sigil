@@ -117,7 +117,7 @@ void BookBrowser::CreateOldTab( QString content, HTMLResource& originating_resou
     int reading_order = originating_resource.GetReadingOrder();
     QList< HTMLResource* > html_resources = m_Book->GetConstFolderKeeper().GetSortedHTMLResources();
 
-    for ( int i = reading_order; i < html_resources.count(); ++i)
+    for ( int i = reading_order; i < html_resources.count(); ++i )
     {
         HTMLResource* resource = html_resources[ i ];
         resource->SetReadingOrder( resource->GetReadingOrder() + 1 );

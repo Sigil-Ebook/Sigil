@@ -32,6 +32,8 @@ static const int READING_ORDER_ROLE = Qt::UserRole + 2;
 OPFModel::OPFModel( QWidget *parent )
     : 
     QStandardItemModel( parent ),
+    m_Book( NULL ),
+    m_Refreshing( false ),
     m_TextFolderItem(   *new QStandardItem( TEXT_FOLDER_NAME  ) ),
     m_StylesFolderItem( *new QStandardItem( STYLE_FOLDER_NAME ) ),
     m_ImagesFolderItem( *new QStandardItem( IMAGE_FOLDER_NAME ) ),
@@ -76,10 +78,14 @@ void OPFModel::SetBook( QSharedPointer< Book > book )
 
 void OPFModel::Refresh()
 {
+    m_Refreshing = true;
+
     InitializeModel();
 
     SortFilesByFilenames();
     SortHTMLFilesByReadingOrder();
+
+    m_Refreshing = false;
 }
 
 
@@ -117,9 +123,11 @@ Qt::DropActions OPFModel::supportedDropActions() const
 //   This also handles actual HTML item deletion.
 void OPFModel::RowsRemovedHandler( const QModelIndex &parent, int start, int end )
 {
-    if ( itemFromIndex( parent ) != &m_TextFolderItem )
-
+    if ( m_Refreshing || 
+         itemFromIndex( parent ) != &m_TextFolderItem )
+    {
         return;
+    }
 
     UpdateHTMLReadingOrders();
 }

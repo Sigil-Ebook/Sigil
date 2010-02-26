@@ -63,6 +63,15 @@ private:
 
     void ClearModel();
 
+
+    ///////////////////////////////
+    // PRIVATE MEMBER VARIABLES
+    ///////////////////////////////
+
+    // Used to keep the RowsRemovedHandler
+    // from messing up the reading orders.
+    bool m_Refreshing;
+
     QSharedPointer< Book > m_Book;
 
     QStandardItem &m_TextFolderItem;
