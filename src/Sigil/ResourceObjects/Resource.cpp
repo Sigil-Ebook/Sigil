@@ -81,10 +81,13 @@ bool Resource::RenameTo( const QString &new_filename )
 {
     QWriteLocker locker( &m_ReadWriteLock );
 
-    bool successful = Utility::RenameFile( m_FullFilePath, QFileInfo( m_FullFilePath ).absolutePath() + "/" + new_filename );
+    QString new_path =  QFileInfo( m_FullFilePath ).absolutePath() + "/" + new_filename; 
+
+    bool successful = Utility::RenameFile( m_FullFilePath, new_path );
 
     if ( successful )
     {
+        m_FullFilePath = new_path;
         emit RenamedTo( new_filename );
     }
 

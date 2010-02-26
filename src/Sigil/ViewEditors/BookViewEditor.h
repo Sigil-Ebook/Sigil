@@ -27,6 +27,7 @@
 #include "ViewEditor.h"
 #include <QDomNode>
 #include <QMap>
+#include <QWebElement>
 
 class QShortcut;
 
@@ -42,6 +43,8 @@ public:
 
     void CustomSetWebPage( QWebPage &webpage );
 
+    QString SplitChapter();
+
     // Executes the specified command on the document with javascript
     void ExecCommand( const QString &command );
 
@@ -54,6 +57,8 @@ public:
 
     // Workaround for a crappy setFocus implementation in Webkit
     void GrabFocus();
+
+    void ScrollToTop();
 
     void ScrollToFragment( const QString &fragment );
 
@@ -156,6 +161,8 @@ private slots:
     void ScrollOneLineDown();
 
 private:
+
+    static QWebElement OldChapterExtraction( QWebElement real_element, QWebElement clone_element );
 
     // Evaluates the provided javascript source code 
     // and returns the result of the last executed javascript statement

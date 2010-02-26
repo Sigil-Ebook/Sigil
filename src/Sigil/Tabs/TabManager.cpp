@@ -32,8 +32,8 @@ TabManager::TabManager( QWidget *parent )
     : 
     QTabWidget( parent )
 {
-    connect( this, SIGNAL( currentChanged( int ) ),     this, SLOT( EmitTabChanged() ) );
-    connect( this, SIGNAL( tabCloseRequested( int ) ),  this, SLOT( CloseTab( int ) ) );
+    connect( this, SIGNAL( currentChanged( int ) ),    this, SLOT( EmitTabChanged() ) );
+    connect( this, SIGNAL( tabCloseRequested( int ) ), this, SLOT( CloseTab( int ) ) );
 
     setDocumentMode( true );
     setMovable( true );
@@ -52,13 +52,17 @@ ContentTab& TabManager::GetCurrentContentTab()
     return *qobject_cast< ContentTab* >( widget );
 }
 
-void TabManager::OpenResource( Resource& resource, const QUrl &fragment )
+void TabManager::OpenResource( Resource& resource, 
+                               bool preceed_current_tab,
+                               const QUrl &fragment )
 {
     if ( SwitchedToExistingTab( resource, fragment ) )
 
         return;    
 
-    AddNewContentTab( CreateTabForResource( resource, fragment ) );
+    // TODO: preceed_current_tab
+
+    AddNewContentTab( CreateTabForResource( resource, fragment ), preceed_current_tab );
 
     // TODO: loading bar update    
 }
@@ -73,6 +77,7 @@ void TabManager::EmitTabChanged()
     m_LastContentTab = QWeakPointer< ContentTab >( current_tab );
 }
 
+
 void TabManager::DeleteTab( ContentTab *tab_to_delete )
 {
     Q_ASSERT( tab_to_delete );
@@ -81,6 +86,7 @@ void TabManager::DeleteTab( ContentTab *tab_to_delete )
 
     tab_to_delete->deleteLater();
 }
+
 
 void TabManager::CloseTab( int tab_index )
 {   
@@ -91,6 +97,14 @@ void TabManager::CloseTab( int tab_index )
     Q_ASSERT( tab_index >= 0 );
 
     qobject_cast< ContentTab* >( widget( tab_index ) )->Close();
+}
+
+
+void TabManager::TabRenamed( ContentTab *renamed_tab )
+{
+    Q_ASSERT( renamed_tab );
+
+    setTabText( indexOf( renamed_tab ), renamed_tab->GetFilename() );
 }
 
 
@@ -148,6 +162,8 @@ ContentTab* TabManager::CreateTabForResource( Resource& resource, const QUrl &fr
         tab = new FlowTab( resource, fragment, this );
 
         connect( tab, SIGNAL( LinkClicked( const QUrl& ) ), this, SIGNAL( OpenUrlRequest( const QUrl& ) ) );
+        connect( tab,  SIGNAL( OldTabRequest( QString, HTMLResource& ) ), 
+                 this, SIGNAL( OldTabRequest( QString, HTMLResource& ) ) );
     }
 
     else if ( resource.Type() == Resource::CSSResource )
@@ -169,17 +185,40 @@ ContentTab* TabManager::CreateTabForResource( Resource& resource, const QUrl &fr
 }
 
 
-bool TabManager::AddNewContentTab( ContentTab *new_tab )
+bool TabManager::AddNewContentTab( ContentTab *new_tab, bool preceed_current_tab )
 {
     if ( new_tab == NULL )
 
         return false;
 
-    addTab( new_tab, new_tab->GetIcon(), new_tab->GetFilename() );
-    setCurrentWidget( new_tab );
-    new_tab->setFocus();
-    connect( new_tab, SIGNAL( DeleteMe( ContentTab* ) ), this, SLOT( DeleteTab( ContentTab* ) ) );
+    if ( !preceed_current_tab )
+    {
+        addTab( new_tab, new_tab->GetIcon(), new_tab->GetFilename() );
+        setCurrentWidget( new_tab );
+        new_tab->setFocus();
+    }
+
+    else
+    {
+        insertTab( currentIndex(), new_tab, new_tab->GetIcon(), new_tab->GetFilename() );
+
+        FlowTab *flow_tab = qobject_cast< FlowTab* >( currentWidget() );
+
+        // If the added tab has not become the current tab,
+        // then we added it through the chapter break functionality
+        // and now we want the current tab to be scrolled to the top.
+        if ( flow_tab && 
+             indexOf( new_tab ) != currentIndex() )
+        {
+            flow_tab->ScrollToTop();
+        }
+    }
+
+    connect( new_tab, SIGNAL( DeleteMe(   ContentTab* ) ), this, SLOT( DeleteTab(  ContentTab* ) ) );
+    connect( new_tab, SIGNAL( TabRenamed( ContentTab* ) ), this, SLOT( TabRenamed( ContentTab* ) ) );
 
     return true;
 }   
+
+
 

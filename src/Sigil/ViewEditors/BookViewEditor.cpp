@@ -29,6 +29,10 @@
 
 const int PROGRESS_BAR_MINIMUM_DURATION = 1500;
 
+const QString BREAK_TAG_ID     = "sigilChBrMN364299QX";
+const QString BREAK_TAG_INSERT = "<hr id=\"" + BREAK_TAG_ID + "\" />";
+
+
 // Constructor;
 // the parameter is the object's parent
 BookViewEditor::BookViewEditor( QWidget *parent )
@@ -66,6 +70,34 @@ void BookViewEditor::CustomSetWebPage( QWebPage &webpage )
     connect( this,                     SIGNAL( FilteredLinkClicked( const QUrl& ) ),
              this->parent()->parent(), SIGNAL( LinkClicked(         const QUrl& ) ) );
 }
+
+
+//   What we actually do when the user wants to split the loaded chapter
+// is create a new tab with the XHTML content *above* the split point.
+// The new tab is actually the "old" chapter, and this tab becomes the
+// "new" chapter. 
+//    Why? Because we can only avoid a tab render in the tab from which
+// we remove elements. Since the users move from the top of a large HTML
+// file down, the new chapter will be the one with the most content.
+// So this way we avoid the painfull render time on the biggest chapter.
+QString BookViewEditor::SplitChapter()
+{
+    ExecCommand( "insertHTML", BREAK_TAG_INSERT );
+
+    QWebElement document      = page()->mainFrame()->documentElement();   
+    QWebElement chapter_break = document.findFirst( "hr#" + BREAK_TAG_ID );
+
+    QWebElement segment = OldChapterExtraction( chapter_break, chapter_break.clone() );
+    chapter_break.removeFromDocument();
+    segment.findFirst( "hr#" + BREAK_TAG_ID ).removeFromDocument();
+
+    QString new_chapter = QString( "<html>" ) + document.findFirst( "head" ).toOuterXml();
+    new_chapter.append( segment.toOuterXml() );
+    new_chapter.append( "</html>" );
+
+    return new_chapter;
+}
+
 
 // Executes the specified command on the document with javascript
 void BookViewEditor::ExecCommand( const QString &command )
@@ -109,6 +141,12 @@ void BookViewEditor::GrabFocus()
     qobject_cast< QWidget *>( parent() )->setFocus();
     
     setFocus();
+}
+
+
+void BookViewEditor::ScrollToTop()
+{
+    page()->currentFrame()->setScrollBarValue( Qt::Vertical, 0 );
 }
 
 
@@ -435,6 +473,52 @@ void BookViewEditor::ScrollOneLineUp()
 void BookViewEditor::ScrollOneLineDown()
 {
     ScrollByLine( true );
+}
+
+
+QWebElement BookViewEditor::OldChapterExtraction( QWebElement real_element, QWebElement clone_element )
+{
+    QWebElement parent = real_element.parent();
+
+    if ( parent == real_element.document() )
+
+        return clone_element;
+
+    QWebElement child = parent.firstChild();
+
+    QList< QWebElement > preceding_children; 
+
+    // The QWebElement API has no children() function,
+    // even though there is one in the WebCore::Element/Node
+    // API Nokia is wrapping. What were they thinking? 
+    // And no, findAll( tagName() + " > *" ) is not a
+    // replacement. It fails on many corner cases.
+    while ( !child.isNull() )
+    {
+        if ( child == real_element )
+        {
+            preceding_children.append( clone_element );
+            break;
+        }
+
+        QWebElement next_child = child.nextSibling();
+        preceding_children.append( child.takeFromDocument() );
+        child = next_child;
+    }
+
+    // Here we (badly) emulate a cloneWithoutChildren()
+    // method that again, exists in WebKit but is 
+    // left out of QWebElement. Brilliant move Nokia,
+    // truly stellar.
+    QWebElement parent_clone = parent.clone();
+    parent_clone.removeAllChildren();
+
+    for ( int i = 0; i < preceding_children.count(); ++i )
+    {
+        parent_clone.appendInside( preceding_children.at( i ) );
+    }
+
+    return OldChapterExtraction( parent, parent_clone );
 }
 
 
@@ -792,6 +876,8 @@ void BookViewEditor::ScrollByNumPixels( int pixel_number, bool down )
 
     page()->mainFrame()->setScrollBarValue( Qt::Vertical, new_scroll_Y );
 }
+
+
 
 
 

@@ -29,6 +29,7 @@
 
 class QTreeView;
 class OPFModel;
+class HTMLResource;
 class Resource;
 class QModelIndex;
 class QUrl;
@@ -47,11 +48,13 @@ public slots:
 
     void OpenUrlResource( const QUrl &url );
 
+    void CreateOldTab( QString content, HTMLResource& originating_resource );
+
 signals:
 
     void ResourceDoubleClicked( Resource &resource );
 
-    void OpenResourceRequest( Resource &resource, const QUrl &fragment );
+    void OpenResourceRequest( Resource &resource, bool preceed_current_tab, const QUrl &fragment );
 
 private slots:
 

@@ -29,8 +29,6 @@
 
 static const QString SETTINGS_GROUP = "flowtab";
 
-const QString BREAK_TAG_INSERT      = "<hr class=\"sigilChapterBreak\" />";
-
 QString FlowTab::s_LastFolderImage = QString();
 
 
@@ -199,6 +197,18 @@ void FlowTab::ScrollToFragment( const QString &fragment )
     if ( m_wBookView.isVisible() )
 
         m_wBookView.ScrollToFragment( fragment );
+}
+
+
+void FlowTab::ScrollToTop()
+{
+    if ( m_IsLastViewBook )
+    
+        m_wBookView.ScrollToTop();
+
+    else
+
+        m_wCodeView.ScrollToTop();
 }
 
 
@@ -399,9 +409,7 @@ void FlowTab::Justify()
 // Implements Insert chapter break action functionality
 void FlowTab::InsertChapterBreak()
 {
-    m_wBookView.ExecCommand( "insertHTML", BREAK_TAG_INSERT );
-
-    m_HTMLResource.RemoveWebkitClasses();
+    emit OldTabRequest( m_wBookView.SplitChapter(), m_HTMLResource );
 }
 
 
@@ -786,4 +794,3 @@ void FlowTab::ConnectSignalsToSlots()
     connect( qApp, SIGNAL( focusChanged( QWidget*, QWidget* ) ), this, SLOT( TabFocusChange( QWidget*, QWidget* ) ) );
     connect( qApp, SIGNAL( focusChanged( QWidget*, QWidget* ) ), this, SLOT( SplitViewFocusSwitch( QWidget*, QWidget* ) ) );
 }
-

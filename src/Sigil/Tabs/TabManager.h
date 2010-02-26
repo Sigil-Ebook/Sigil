@@ -29,6 +29,7 @@
 
 class ContentTab;
 class Resource;
+class HTMLResource;
 
 class TabManager : public QTabWidget
 {
@@ -42,13 +43,17 @@ public:
 
 public slots:
 
-    void OpenResource( Resource& resource, const QUrl &fragment= QUrl() );
+    void OpenResource( Resource& resource, 
+                       bool preceed_current_tab = false,
+                       const QUrl &fragment = QUrl() );
 
 signals:
 
     void TabChanged( ContentTab* old_tab, ContentTab* new_tab );
 
     void OpenUrlRequest( const QUrl &url );
+
+    void OldTabRequest( QString content, HTMLResource& originating_resource );
 
 private slots:
 
@@ -58,6 +63,8 @@ private slots:
 
     void CloseTab( int tab_index );
 
+    void TabRenamed( ContentTab *renamed_tab );
+
 private:
 
     int ResourceTabIndex( const Resource& resource ) const;
@@ -66,7 +73,7 @@ private:
 
     ContentTab* CreateTabForResource( Resource& resource, const QUrl &fragment );
 
-    bool AddNewContentTab( ContentTab *new_tab );
+    bool AddNewContentTab( ContentTab *new_tab, bool preceed_current_tab );
 
     QWeakPointer< ContentTab > m_LastContentTab;
 };

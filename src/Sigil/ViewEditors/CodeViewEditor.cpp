@@ -185,6 +185,12 @@ void CodeViewEditor::StoreCaretLocationUpdate( const QList< ViewEditor::ElementI
 }
 
 
+void CodeViewEditor::ScrollToTop()
+{
+    verticalScrollBar()->setValue( 0 );
+}
+
+
 // Sets a zoom factor for the view,
 // thus zooming in (factor > 1.0) or out (factor < 1.0). 
 void CodeViewEditor::SetZoomFactor( float factor )

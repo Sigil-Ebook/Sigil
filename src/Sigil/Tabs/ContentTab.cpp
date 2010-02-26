@@ -30,7 +30,8 @@ ContentTab::ContentTab( Resource& resource, QWidget *parent )
     m_Resource( resource ),
     m_Layout( *new QVBoxLayout( this ) )
 {
-    connect( &resource, SIGNAL( Deleted() ), this, SLOT( EmitDeleteMe() ) );
+    connect( &resource, SIGNAL( Deleted() ),            this, SLOT( EmitDeleteMe()   ) );
+    connect( &resource, SIGNAL( RenamedTo( QString ) ), this, SLOT( EmitTabRenamed() ) );
 
     m_Layout.setContentsMargins( 0, 0, 0, 0 );
 
@@ -69,6 +70,11 @@ void ContentTab::EmitDeleteMe()
     emit DeleteMe( this );
 }
 
+void ContentTab::EmitTabRenamed()
+{
+    emit TabRenamed( this );
+}
+
 
 void ContentTab::SaveContentOnTabLeave()
 {
@@ -96,4 +102,5 @@ void ContentTab::focusOutEvent( QFocusEvent *event )
 
     SaveContentOnTabLeave();
 }
+
 

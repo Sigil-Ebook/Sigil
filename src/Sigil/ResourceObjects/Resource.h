@@ -71,7 +71,7 @@ public:
 
 signals:
 
-    void RenamedTo( QString );
+    void RenamedTo( QString new_filename );
 
     void Deleted();
 

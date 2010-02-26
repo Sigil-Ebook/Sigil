@@ -80,6 +80,8 @@ public:
     // the main event handler.
     void StoreCaretLocationUpdate( const QList< ViewEditor::ElementIndex > &hierarchy );
 
+    void ScrollToTop();
+
     // Sets a zoom factor for the view,
     // thus zooming in (factor > 1.0) or out (factor < 1.0). 
     void SetZoomFactor( float factor );

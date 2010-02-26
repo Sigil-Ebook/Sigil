@@ -80,7 +80,7 @@ public:
 
 public slots:
 
-    // saves the tab data, then schedules tab for deletion
+    // Saves the tab data, then schedules tab for deletion
     void Close();
 
 signals:
@@ -91,9 +91,13 @@ signals:
 
     void ContentChanged();
 
+    void TabRenamed( ContentTab *renamed_tab );
+
 protected slots:
 
     void EmitDeleteMe();
+
+    void EmitTabRenamed();
 
     virtual void SaveContentOnTabLeave();
 

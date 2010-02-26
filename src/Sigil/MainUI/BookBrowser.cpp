@@ -23,8 +23,12 @@
 #include "BookBrowser.h"
 #include "OPFModel.h"
 #include "../BookManipulation/Book.h"
-#include <QTreeView>
 #include "../Misc/Utility.h"
+#include "ResourceObjects/HTMLResource.h"
+#include "../BookManipulation/CleanSource.h"
+#include <QTreeView>
+#include <QDomDocument>
+
 
 // We will add a few spaces to the front so the title isn't
 // glued to the widget side when it's docked. Ugly, but works.
@@ -94,13 +98,52 @@ void BookBrowser::OpenUrlResource( const QUrl &url )
     {
         Resource &resource = m_Book->GetFolderKeeper().GetResourceByFilename( QFileInfo( url.path() ).fileName() );
 
-        emit OpenResourceRequest( resource, url.fragment() );
+        emit OpenResourceRequest( resource, false, url.fragment() );
     }
 
     catch ( const ExceptionBase &exception )
     {
         Utility::DisplayStdErrorDialog( Utility::GetExceptionInfo( exception ) );
     }       
+}
+
+
+void BookBrowser::CreateOldTab( QString content, HTMLResource& originating_resource )
+{
+    QString filename = originating_resource.Filename();
+
+    // FIXME: name already taken, rename failed?
+    originating_resource.RenameTo( FIRST_CHAPTER_NAME );
+
+    int reading_order = originating_resource.GetReadingOrder();
+    QList< HTMLResource* > html_resources = m_Book->GetConstFolderKeeper().GetSortedHTMLResources();
+
+    for ( int i = reading_order; i < html_resources.count(); ++i)
+    {
+        HTMLResource* resource = html_resources[ i ];
+        resource->SetReadingOrder( resource->GetReadingOrder() + 1 );
+    }
+
+    // FIXME: Most of this is a direct paste from ImportHTML::CreateHTMLResource
+
+    QDir dir( Utility::GetNewTempFolderPath() );
+    dir.mkpath( dir.absolutePath() );
+
+    QString fullfilepath = dir.absolutePath() + "/" + filename;
+    Utility::WriteUnicodeTextFile( "TEMP_SOURCE", fullfilepath );
+
+    HTMLResource &html_resource = *qobject_cast< HTMLResource* >(
+                                     &m_Book->GetFolderKeeper().AddContentFileToFolder( fullfilepath, 0 ) );
+
+    QtConcurrent::run( Utility::DeleteFolderAndFiles, dir.absolutePath() );
+
+    QDomDocument document;
+    document.setContent( CleanSource::Clean( content ) );
+    html_resource.SetDomDocument( document );
+
+    html_resource.SetReadingOrder( reading_order );
+
+    emit OpenResourceRequest( html_resource, true, QUrl() );
 }
 
 
@@ -112,4 +155,5 @@ void BookBrowser::EmitResourceDoubleClicked( const QModelIndex &index )
 
         emit ResourceDoubleClicked( m_Book->GetFolderKeeper().GetResourceByIdentifier( identifier ) );
 }
+
 

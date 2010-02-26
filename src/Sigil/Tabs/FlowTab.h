@@ -30,6 +30,7 @@ class QSplitter;
 class BookViewEditor;
 class CodeViewEditor;
 class ViewEditor;
+class Resource;
 class HTMLResource;
 class QUrl;
 
@@ -75,6 +76,8 @@ public:
     void SetZoomFactor( float new_zoom_factor );
 
     void ScrollToFragment( const QString &fragment );
+
+    void ScrollToTop();
 
     ViewState GetViewState();
 
@@ -167,6 +170,8 @@ signals:
 
     // Emitted by Book View (wired)
     void LinkClicked( const QUrl &url );
+
+    void OldTabRequest( QString content, HTMLResource& originating_resource );
 
 protected slots:
 

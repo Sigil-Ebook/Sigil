@@ -716,7 +716,7 @@ void MainWindow::CreateNew()
 {
     m_Book = QSharedPointer< Book >( new Book() );
 
-    m_Book->CreateEmptyTextFile();
+    m_Book->CreateEmptyHTMLFile();
     m_BookBrowser->SetBook( m_Book );
     
     SetCurrentFile( "" );
@@ -1230,11 +1230,14 @@ void MainWindow::ConnectSignalsToSlots()
     connect( m_BookBrowser, SIGNAL( ResourceDoubleClicked( Resource& ) ),
              &m_TabManager, SLOT(   OpenResource(          Resource& ) ) );
 
-    connect( m_BookBrowser, SIGNAL( OpenResourceRequest( Resource&, const QUrl& ) ),
-            &m_TabManager,  SLOT(   OpenResource(        Resource&, const QUrl& ) ) );
+    connect( m_BookBrowser, SIGNAL( OpenResourceRequest( Resource&, bool, const QUrl& ) ),
+            &m_TabManager,  SLOT(   OpenResource(        Resource&, bool, const QUrl& ) ) );
     
-    connect( &m_TabManager, SIGNAL( OpenUrlRequest( const QUrl& ) ),
-             m_BookBrowser, SLOT(  OpenUrlResource( const QUrl& ) ) );
+    connect( &m_TabManager, SIGNAL( OpenUrlRequest(  const QUrl& ) ),
+             m_BookBrowser, SLOT(   OpenUrlResource( const QUrl& ) ) );
+
+    connect( &m_TabManager, SIGNAL( OldTabRequest( QString, HTMLResource& ) ),
+             m_BookBrowser, SLOT(   CreateOldTab(  QString, HTMLResource& ) ) );
 }
 
 void MainWindow::MakeTabConnections( ContentTab *tab )
