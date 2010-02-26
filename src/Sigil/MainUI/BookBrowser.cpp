@@ -26,6 +26,7 @@
 #include "../Misc/Utility.h"
 #include "ResourceObjects/HTMLResource.h"
 #include "../BookManipulation/CleanSource.h"
+#include "../SourceUpdates/AnchorUpdates.h"
 #include <QTreeView>
 #include <QDomDocument>
 
@@ -110,13 +111,20 @@ void BookBrowser::OpenUrlResource( const QUrl &url )
 
 void BookBrowser::CreateOldTab( QString content, HTMLResource& originating_resource )
 {
-    QString originating_filename = originating_resource.Filename();
+    // Steal focus from the current tab so it
+    // unlocks its resource. TODO: give focus back.
+    setFocus();
+
+    const QString &originating_filename = originating_resource.Filename();
 
     originating_resource.RenameTo( m_Book->GetConstFolderKeeper().GetUniqueFilenameVersion( FIRST_CHAPTER_NAME ) );
 
     int reading_order = originating_resource.GetReadingOrder();
+    Q_ASSERT( reading_order >= 0 );
+
     QList< HTMLResource* > html_resources = m_Book->GetConstFolderKeeper().GetSortedHTMLResources();
 
+    // We need to "make room" for the reading order of the new resource
     for ( int i = reading_order; i < html_resources.count(); ++i )
     {
         HTMLResource* resource = html_resources[ i ];
@@ -131,6 +139,11 @@ void BookBrowser::CreateOldTab( QString content, HTMLResource& originating_resou
     html_resource.SetDomDocument( document );
 
     html_resource.SetReadingOrder( reading_order );
+
+    // We can just append this since we don't need
+    // them in sorted order for the updates.
+    html_resources.append( &html_resource );
+    AnchorUpdates::UpdateAllAnchors( html_resources );
 
     m_OPFModel.Refresh();
 

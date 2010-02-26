@@ -75,9 +75,9 @@ void AnchorUpdates::UpdateAnchorsInOneFile( HTMLResource *html_resource,
     QWriteLocker locker( &html_resource->GetLock() );
 
     QDomDocument document = html_resource->GetDomDocumentForWriting();
-    QDomNodeList anchors = document.elementsByTagName( "a" );
+    QDomNodeList anchors  = document.elementsByTagName( "a" );
 
-    QString resource_filename = html_resource->Filename();
+    const QString &resource_filename = html_resource->Filename();
 
     for ( int i = 0; i < anchors.count(); ++i )
     {
@@ -86,17 +86,19 @@ void AnchorUpdates::UpdateAnchorsInOneFile( HTMLResource *html_resource,
         Q_ASSERT( !element.isNull() );
 
         if ( element.hasAttribute( "href" ) &&
-            QUrl( element.attribute( "href" ) ).isRelative() &&
-            element.attribute( "href" ).contains( "#" )
+             QUrl( element.attribute( "href" ) ).isRelative() &&
+             element.attribute( "href" ).contains( "#" )
             )
         {
-            // Remove the '#' character
-            QString id = element.attribute( "href" ).remove( 0, 1 );
+            const QString &href = element.attribute( "href" );
+            const QString &id   = href.right( href.size() - ( href.indexOf( QChar( '#' ) ) + 1 ) );
 
             // If the ID is in a different file, update the link
             if ( ID_locations.value( id ) != resource_filename )
-
-                element.setAttribute( "href", "../" + TEXT_FOLDER_NAME + "/" + ID_locations.value( id ) + "#" + id );            
+            {
+                element.setAttribute( "href", "../" + TEXT_FOLDER_NAME + "/" + ID_locations.value( id ) + "#" + id ); 
+                html_resource->MarkSecondaryCachesAsOld();
+            }
         } 
     }
 }
