@@ -112,17 +112,17 @@ void FolderKeeper::AddInfraFileToFolder( const QString &fullfilepath, const QStr
 
 Resource& FolderKeeper::AddContentFileToFolder( const QString &fullfilepath, int reading_order )
 {
-    // TODO: check if file with this filename exists,
-    // and append a suffix if it does
+    // We need to lock at the start of the func
+    // because otherwise several threads can get
+    // the same "unique" name.
+    m_AccessMutex.lock();
 
-    QString filename  = QFileInfo( fullfilepath ).fileName();
+    QString filename  = GetUniqueFilenameVersion( QFileInfo( fullfilepath ).fileName() );
     QString extension = QFileInfo( fullfilepath ).suffix().toLower();
 
     QString new_file_path;
     QString relative_path;
 
-    // TODO: How about making all resources shared pointers?
-    // or at least references...
     Resource *resource = NULL;
 
     if ( IMAGES.contains( extension ) )
@@ -172,12 +172,12 @@ Resource& FolderKeeper::AddContentFileToFolder( const QString &fullfilepath, int
         resource = new Resource( new_file_path, &m_Resources );
     }    
 
-    QFile::copy( fullfilepath, new_file_path );
+    m_Resources[ resource->GetIdentifier() ] = resource;
 
-    {
-        QMutexLocker locker( &m_AccessMutex );
-        m_Resources[ resource->GetIdentifier() ] = resource;
-    }
+    // After we deal with the resource hash, other threads can continue.
+    m_AccessMutex.unlock();
+
+    QFile::copy( fullfilepath, new_file_path );
 
     if ( QThread::currentThread() != QApplication::instance()->thread() )
 

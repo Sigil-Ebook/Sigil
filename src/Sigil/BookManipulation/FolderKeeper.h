@@ -112,6 +112,8 @@ private:
     // PRIVATE MEMBER VARIABLES
     ///////////////////////////////
 
+    // Resources have to be pointers because
+    // we cannot store references in a QHash
     QHash< QString, Resource* > m_Resources;
 
     QMutex m_AccessMutex;
