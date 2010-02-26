@@ -605,7 +605,7 @@ void MainWindow::UpdateZoomLabel( float new_zoom_factor )
 }
 
 
-void MainWindow::CreateOldTab( QString content, HTMLResource& originating_resource )
+void MainWindow::CreateChapterBreakOldTab( QString content, HTMLResource& originating_resource )
 {
     // Steal focus from the current tab so it
     // unlocks its resource.
@@ -615,6 +615,8 @@ void MainWindow::CreateOldTab( QString content, HTMLResource& originating_resour
 
     m_BookBrowser->Refresh();
     m_TabManager.OpenResource( html_resource, true, QUrl() );
+
+    m_TabManager.GetCurrentContentTab().setFocus();
 }
 
 
@@ -1249,8 +1251,8 @@ void MainWindow::ConnectSignalsToSlots()
     connect( &m_TabManager, SIGNAL( OpenUrlRequest(  const QUrl& ) ),
              m_BookBrowser, SLOT(   OpenUrlResource( const QUrl& ) ) );
 
-    connect( &m_TabManager, SIGNAL( OldTabRequest( QString, HTMLResource& ) ),
-             this,          SLOT(   CreateOldTab(  QString, HTMLResource& ) ) );
+    connect( &m_TabManager, SIGNAL( OldTabRequest(            QString, HTMLResource& ) ),
+             this,          SLOT(   CreateChapterBreakOldTab( QString, HTMLResource& ) ) );
 }
 
 void MainWindow::MakeTabConnections( ContentTab *tab )

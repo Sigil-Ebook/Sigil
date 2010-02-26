@@ -58,9 +58,7 @@ void TabManager::OpenResource( Resource& resource,
 {
     if ( SwitchedToExistingTab( resource, fragment ) )
 
-        return;    
-
-    // TODO: preceed_current_tab
+        return;
 
     AddNewContentTab( CreateTabForResource( resource, fragment ), preceed_current_tab );
 

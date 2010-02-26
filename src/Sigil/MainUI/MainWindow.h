@@ -143,7 +143,7 @@ private slots:
     // Updates the zoom label to reflect the new zoom factor
     void UpdateZoomLabel( float new_zoom_factor );
 
-    void CreateOldTab( QString content, HTMLResource& originating_resource );
+    void CreateChapterBreakOldTab( QString content, HTMLResource& originating_resource );
 
 private:
 
