@@ -110,10 +110,9 @@ void BookBrowser::OpenUrlResource( const QUrl &url )
 
 void BookBrowser::CreateOldTab( QString content, HTMLResource& originating_resource )
 {
-    QString filename = originating_resource.Filename();
+    QString originating_filename = originating_resource.Filename();
 
-    // FIXME: name already taken, rename failed?
-    originating_resource.RenameTo( FIRST_CHAPTER_NAME );
+    originating_resource.RenameTo( m_Book->GetConstFolderKeeper().GetUniqueFilenameVersion( FIRST_CHAPTER_NAME ) );
 
     int reading_order = originating_resource.GetReadingOrder();
     QList< HTMLResource* > html_resources = m_Book->GetConstFolderKeeper().GetSortedHTMLResources();
@@ -124,19 +123,9 @@ void BookBrowser::CreateOldTab( QString content, HTMLResource& originating_resou
         resource->SetReadingOrder( resource->GetReadingOrder() + 1 );
     }
 
-    // FIXME: Most of this is a direct paste from ImportHTML::CreateHTMLResource
-
-    QDir dir( Utility::GetNewTempFolderPath() );
-    dir.mkpath( dir.absolutePath() );
-
-    QString fullfilepath = dir.absolutePath() + "/" + filename;
-    Utility::WriteUnicodeTextFile( "TEMP_SOURCE", fullfilepath );
-
-    HTMLResource &html_resource = *qobject_cast< HTMLResource* >(
-                                     &m_Book->GetFolderKeeper().AddContentFileToFolder( fullfilepath, 0 ) );
-
-    QtConcurrent::run( Utility::DeleteFolderAndFiles, dir.absolutePath() );
-
+    HTMLResource &html_resource = m_Book->CreateNewHTMLFile();
+    html_resource.RenameTo( originating_filename );
+   
     QDomDocument document;
     document.setContent( CleanSource::Clean( content ) );
     html_resource.SetDomDocument( document );

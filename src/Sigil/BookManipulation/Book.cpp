@@ -25,7 +25,8 @@
 #include "ResourceObjects/HTMLResource.h"
 #include <QDomDocument>
 
-static const QString EMPTY_HTML_FILE =  "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+static const QString PLACEHOLDER_TEXT = "PLACEHOLDER";
+static const QString EMPTY_HTML_FILE  = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
                                         "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\"\n"
                                         "    \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n\n"							
                                         "<html xmlns=\"http://www.w3.org/1999/xhtml\">\n"
@@ -115,27 +116,32 @@ void Book::SetMetadata( const QHash< QString, QList< QVariant > > metadata )
 }
 
 
-// FIXME: Check if file with FIRST_CHAPTER_NAME already exists
-// (in folderkeeper) and increment the number suffix.
-void Book::CreateEmptyTextFile()
+HTMLResource& Book::CreateNewHTMLFile()
 {
     QString folderpath = Utility::GetNewTempFolderPath();
     QDir dir( folderpath );
     dir.mkpath( folderpath );
 
-    QString fullfilepath = folderpath + "/" + FIRST_CHAPTER_NAME;
+    QString fullfilepath = folderpath + "/" + m_Mainfolder.GetUniqueFilenameVersion( FIRST_CHAPTER_NAME );
+    int reading_order = m_Mainfolder.GetHighestReadingOrder() + 1;
 
-    Utility::WriteUnicodeTextFile( EMPTY_HTML_FILE, fullfilepath );
+    Utility::WriteUnicodeTextFile( PLACEHOLDER_TEXT, fullfilepath );
 
-    HTMLResource *html_resource = qobject_cast< HTMLResource* >( 
-                                    &m_Mainfolder.AddContentFileToFolder( fullfilepath ) );
+    HTMLResource &html_resource = *qobject_cast< HTMLResource* >( 
+                                        &m_Mainfolder.AddContentFileToFolder( fullfilepath, reading_order ) );
 
-    Q_ASSERT( html_resource );
+    QtConcurrent::run( Utility::DeleteFolderAndFiles, dir.absolutePath() );
 
+    return html_resource;
+}
+
+
+void Book::CreateEmptyHTMLFile()
+{
     QDomDocument document;
     document.setContent( EMPTY_HTML_FILE );
 
-    html_resource->SetDomDocument( document );
+    CreateNewHTMLFile().SetDomDocument( document );
 }
 
 

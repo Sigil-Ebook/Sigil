@@ -187,6 +187,84 @@ Resource& FolderKeeper::AddContentFileToFolder( const QString &fullfilepath, int
 }
 
 
+int FolderKeeper::GetHighestReadingOrder()
+{
+    int highest_reading_order = -1;
+
+    foreach( Resource *resource, m_Resources.values() )
+    {
+        if ( resource->Type() == Resource::HTMLResource )
+        {
+            HTMLResource* html_resource = qobject_cast< HTMLResource* >( resource );
+
+            Q_ASSERT( html_resource );
+
+            int reading_order = html_resource->GetReadingOrder();
+
+            if ( reading_order > highest_reading_order )
+
+                highest_reading_order = reading_order;
+        }
+    }
+
+    return highest_reading_order;
+}
+
+
+QString FolderKeeper::GetUniqueFilenameVersion( const QString &filename ) const
+{
+    const QStringList &filenames = GetAllFilenames();
+
+    if ( !filenames.contains( filename ) )
+
+        return filename;
+
+    QString name_prefix = QFileInfo( filename ).baseName().remove( QRegExp( "\\d+$" ) );
+    QString extension   = QFileInfo( filename ).completeSuffix();
+    
+    QString search_string = QRegExp::escape( name_prefix ).prepend( "^" ) + 
+                            "(\\d*)" +
+                            ( !extension.isEmpty() ? ( "\\." + QRegExp::escape( extension ) ) : QString() ) + 
+                            "$";
+
+    QRegExp filename_search( search_string );
+
+    int max_num_length = -1;
+    int max_num = -1;
+
+    foreach( QString existing_file, filenames )
+    {
+        if ( existing_file.indexOf( filename_search ) == -1 )
+
+            continue;
+        
+        bool conversion_successful = false; 
+        int number_suffix = filename_search.cap( 1 ).toInt( &conversion_successful );
+
+        if ( conversion_successful && number_suffix > max_num )
+        {
+            max_num = number_suffix;
+            max_num_length = filename_search.cap( 1 ).length();
+        }
+    }
+
+    if ( max_num == -1 )
+    {
+        max_num = 0;
+        max_num_length = 4;
+    }
+
+    const int conversion_base = 10;
+
+    QString new_name = name_prefix + QString( "%1" ).arg( max_num + 1, 
+                                                          max_num_length, 
+                                                          conversion_base, 
+                                                          QChar( '0' ) );
+
+    return new_name + ( !extension.isEmpty() ? ( "." + extension ) : QString() );
+}
+
+
 // Returns a list of all the content files in the directory
 // with a path relative to the OEBPS directory
 QStringList FolderKeeper::GetSortedContentFilesList() const
@@ -266,18 +344,32 @@ QString FolderKeeper::GetFullPathToTextFolder() const
     return m_FullPathToTextFolder;
 }
 
+
 // Performs common constructor duties
 // for all constructors
 void FolderKeeper::Initialize()
 {
     QDir folder( Utility::GetNewTempFolderPath() );
-
     folder.mkpath( folder.absolutePath() );
 
     m_FullPathToMainFolder = folder.absolutePath();
 
     CreateFolderStructure();
 }
+
+
+QStringList FolderKeeper::GetAllFilenames() const
+{
+    QStringList filelist;
+
+    foreach( Resource* resource, m_Resources.values() )
+    {
+        filelist.append( resource->Filename() );
+    }
+
+    return filelist;
+}
+
 
 void FolderKeeper::CopyFiles( const FolderKeeper &other )
 {
@@ -294,6 +386,7 @@ void FolderKeeper::CopyFiles( const FolderKeeper &other )
         AddContentFileToFolder( filepath, reading_order );
     }
 }
+
 
 void FolderKeeper::DeleteAllResources( const QString &folderpath )
 {

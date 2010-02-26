@@ -55,6 +55,10 @@ public:
     // The file is recognized according to its extension.
     Resource& AddContentFileToFolder( const QString &fullfilepath, int reading_order = -1 );
 
+    int GetHighestReadingOrder();
+
+    QString GetUniqueFilenameVersion( const QString &filename ) const;
+
     // Returns a list of all the content files in the directory
     // with a path relative to the OEBPS directory.
     // The list is alphabetically sorted.
@@ -86,6 +90,8 @@ private:
     // Performs common constructor duties
     // for all constructors
     void Initialize();
+
+    QStringList GetAllFilenames() const;
 
     void CopyFiles( const FolderKeeper &other );
 
