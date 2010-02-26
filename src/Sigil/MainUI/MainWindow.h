@@ -143,6 +143,8 @@ private slots:
     // Updates the zoom label to reflect the new zoom factor
     void UpdateZoomLabel( float new_zoom_factor );
 
+    void CreateOldTab( QString content, HTMLResource& originating_resource );
+
 private:
 
     // Reads all the stored application settings like
@@ -274,7 +276,7 @@ private:
     const QMap< QString, QString > c_LoadFilters;
 
     // A guarded pointer to the FindReplace dialog;
-    QWeakPointer<FindReplace> m_FindReplace;
+    QWeakPointer< FindReplace > m_FindReplace;
 
     // Holds all the widgets Qt Designer created for us
     Ui::MainWindow ui;

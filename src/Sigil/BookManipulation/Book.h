@@ -62,6 +62,9 @@ public:
 
     void CreateEmptyHTMLFile();
 
+    HTMLResource& CreateChapterBreakOriginalResource( const QString &content, 
+                                                      HTMLResource& originating_resource );
+
     void SaveAllResourcesToDisk();
 
 private:

@@ -46,9 +46,9 @@ public slots:
 
     void SetBook( QSharedPointer< Book > book );
 
-    void OpenUrlResource( const QUrl &url );
+    void Refresh();
 
-    void CreateOldTab( QString content, HTMLResource& originating_resource );
+    void OpenUrlResource( const QUrl &url );
 
 signals:
 

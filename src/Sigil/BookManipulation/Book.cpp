@@ -23,6 +23,8 @@
 #include "../BookManipulation/Book.h"
 #include "../Misc/Utility.h"
 #include "ResourceObjects/HTMLResource.h"
+#include "../BookManipulation/CleanSource.h"
+#include "../SourceUpdates/AnchorUpdates.h"
 #include <QDomDocument>
 
 static const QString PLACEHOLDER_TEXT = "PLACEHOLDER";
@@ -142,6 +144,42 @@ void Book::CreateEmptyHTMLFile()
     document.setContent( EMPTY_HTML_FILE );
 
     CreateNewHTMLFile().SetDomDocument( document );
+}
+
+
+HTMLResource& Book::CreateChapterBreakOriginalResource( const QString &content, HTMLResource& originating_resource )
+{
+    const QString &originating_filename = originating_resource.Filename();
+
+    originating_resource.RenameTo( m_Mainfolder.GetUniqueFilenameVersion( FIRST_CHAPTER_NAME ) );
+
+    int reading_order = originating_resource.GetReadingOrder();
+    Q_ASSERT( reading_order >= 0 );
+
+    QList< HTMLResource* > html_resources = m_Mainfolder.GetSortedHTMLResources();
+
+    // We need to "make room" for the reading order of the new resource
+    for ( int i = reading_order; i < html_resources.count(); ++i )
+    {
+        HTMLResource* resource = html_resources[ i ];
+        resource->SetReadingOrder( resource->GetReadingOrder() + 1 );
+    }
+
+    HTMLResource &html_resource = CreateNewHTMLFile();
+    html_resource.RenameTo( originating_filename );
+
+    QDomDocument document;
+    document.setContent( CleanSource::Clean( content ) );
+    html_resource.SetDomDocument( document );
+
+    html_resource.SetReadingOrder( reading_order );
+
+    // We can just append this since we don't need
+    // them in sorted order for the updates.
+    html_resources.append( &html_resource );
+    AnchorUpdates::UpdateAllAnchors( html_resources );
+
+    return html_resource;
 }
 
 

@@ -25,10 +25,7 @@
 #include "../BookManipulation/Book.h"
 #include "../Misc/Utility.h"
 #include "ResourceObjects/HTMLResource.h"
-#include "../BookManipulation/CleanSource.h"
-#include "../SourceUpdates/AnchorUpdates.h"
 #include <QTreeView>
-#include <QDomDocument>
 
 
 // We will add a few spaces to the front so the title isn't
@@ -93,6 +90,12 @@ void BookBrowser::SetBook( QSharedPointer< Book > book )
 }
 
 
+void BookBrowser::Refresh()
+{
+    m_OPFModel.Refresh();
+}
+
+
 void BookBrowser::OpenUrlResource( const QUrl &url )
 {
     try
@@ -109,48 +112,6 @@ void BookBrowser::OpenUrlResource( const QUrl &url )
 }
 
 
-void BookBrowser::CreateOldTab( QString content, HTMLResource& originating_resource )
-{
-    // Steal focus from the current tab so it
-    // unlocks its resource. TODO: give focus back.
-    setFocus();
-
-    const QString &originating_filename = originating_resource.Filename();
-
-    originating_resource.RenameTo( m_Book->GetConstFolderKeeper().GetUniqueFilenameVersion( FIRST_CHAPTER_NAME ) );
-
-    int reading_order = originating_resource.GetReadingOrder();
-    Q_ASSERT( reading_order >= 0 );
-
-    QList< HTMLResource* > html_resources = m_Book->GetConstFolderKeeper().GetSortedHTMLResources();
-
-    // We need to "make room" for the reading order of the new resource
-    for ( int i = reading_order; i < html_resources.count(); ++i )
-    {
-        HTMLResource* resource = html_resources[ i ];
-        resource->SetReadingOrder( resource->GetReadingOrder() + 1 );
-    }
-
-    HTMLResource &html_resource = m_Book->CreateNewHTMLFile();
-    html_resource.RenameTo( originating_filename );
-   
-    QDomDocument document;
-    document.setContent( CleanSource::Clean( content ) );
-    html_resource.SetDomDocument( document );
-
-    html_resource.SetReadingOrder( reading_order );
-
-    // We can just append this since we don't need
-    // them in sorted order for the updates.
-    html_resources.append( &html_resource );
-    AnchorUpdates::UpdateAllAnchors( html_resources );
-
-    m_OPFModel.Refresh();
-
-    emit OpenResourceRequest( html_resource, true, QUrl() );
-}
-
-
 void BookBrowser::EmitResourceDoubleClicked( const QModelIndex &index )
 {
     QString identifier( m_OPFModel.itemFromIndex( index )->data().toString() );  
@@ -159,5 +120,6 @@ void BookBrowser::EmitResourceDoubleClicked( const QModelIndex &index )
 
         emit ResourceDoubleClicked( m_Book->GetFolderKeeper().GetResourceByIdentifier( identifier ) );
 }
+
 
 
