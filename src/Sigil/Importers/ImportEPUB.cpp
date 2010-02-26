@@ -26,8 +26,6 @@
 #include "../Misc/HTMLEncodingResolver.h"
 #include "../SourceUpdates/PerformHTMLUpdates.h"
 #include "../SourceUpdates/PerformCSSUpdates.h"
-#include "../BookManipulation/XHTMLDoc.h"
-#include <QDomDocument>
 #include "ResourceObjects/HTMLResource.h"
 #include "ResourceObjects/CSSResource.h"
 
