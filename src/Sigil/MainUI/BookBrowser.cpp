@@ -132,6 +132,8 @@ void BookBrowser::CreateOldTab( QString content, HTMLResource& originating_resou
 
     html_resource.SetReadingOrder( reading_order );
 
+    m_OPFModel.Refresh();
+
     emit OpenResourceRequest( html_resource, true, QUrl() );
 }
 

@@ -39,6 +39,8 @@ public:
 
     void SetBook( QSharedPointer< Book > book );
 
+    void Refresh();
+
     QModelIndex GetFirstHTMLModelIndex();
 
     virtual void sort( int column, Qt::SortOrder order = Qt::AscendingOrder );

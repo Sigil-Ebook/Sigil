@@ -70,6 +70,12 @@ void OPFModel::SetBook( QSharedPointer< Book > book )
 {
     m_Book = book;
 
+    Refresh();
+}
+
+
+void OPFModel::Refresh()
+{
     InitializeModel();
 
     SortFilesByFilenames();
@@ -240,5 +246,6 @@ void OPFModel::SortHTMLFilesByReadingOrder()
 
     setSortRole( old_sort_role );
 }
+
 
 
