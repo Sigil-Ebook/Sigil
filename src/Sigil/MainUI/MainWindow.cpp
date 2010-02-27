@@ -1222,31 +1222,31 @@ void MainWindow::LoadInitialFile( const QString &openfilepath )
 // Connects all the required signals to their slots
 void MainWindow::ConnectSignalsToSlots()
 {
-    connect( ui.actionExit,                 SIGNAL( triggered() ),      qApp,   SLOT( closeAllWindows()     ) );
-    connect( ui.actionClose,                SIGNAL( triggered() ),      this,   SLOT( close()               ) );
-    connect( ui.actionNew,                  SIGNAL( triggered() ),      this,   SLOT( New()                 ) );
-    connect( ui.actionOpen,                 SIGNAL( triggered() ),      this,   SLOT( Open()                ) );
-    connect( ui.actionSave,                 SIGNAL( triggered() ),      this,   SLOT( Save()                ) );
-    connect( ui.actionSaveAs,               SIGNAL( triggered() ),      this,   SLOT( SaveAs()              ) );
-    connect( ui.actionFind,                 SIGNAL( triggered() ),      this,   SLOT( Find()                ) );
-    connect( ui.actionReplace,              SIGNAL( triggered() ),      this,   SLOT( Replace()             ) );
-    connect( ui.actionZoomIn,               SIGNAL( triggered() ),      this,   SLOT( ZoomIn()              ) );
-    connect( ui.actionZoomOut,              SIGNAL( triggered() ),      this,   SLOT( ZoomOut()             ) );  
-    connect( ui.actionMetaEditor,           SIGNAL( triggered() ),      this,   SLOT( MetaEditorDialog()    ) );
-    connect( ui.actionTOCEditor,            SIGNAL( triggered() ),      this,   SLOT( TOCEditorDialog()     ) );
-    connect( ui.actionReportAnIssue,        SIGNAL( triggered() ),      this,   SLOT( ReportAnIssue()       ) );
-    connect( ui.actionSigilDevBlog,         SIGNAL( triggered() ),      this,   SLOT( SigilDevBlog()        ) );
-    connect( ui.actionAbout,                SIGNAL( triggered() ),      this,   SLOT( AboutDialog()         ) );
+    connect( ui.actionExit,          SIGNAL( triggered() ), qApp, SLOT( closeAllWindows()  ) );
+    connect( ui.actionClose,         SIGNAL( triggered() ), this, SLOT( close()            ) );
+    connect( ui.actionNew,           SIGNAL( triggered() ), this, SLOT( New()              ) );
+    connect( ui.actionOpen,          SIGNAL( triggered() ), this, SLOT( Open()             ) );
+    connect( ui.actionSave,          SIGNAL( triggered() ), this, SLOT( Save()             ) );
+    connect( ui.actionSaveAs,        SIGNAL( triggered() ), this, SLOT( SaveAs()           ) );
+    connect( ui.actionFind,          SIGNAL( triggered() ), this, SLOT( Find()             ) );
+    connect( ui.actionReplace,       SIGNAL( triggered() ), this, SLOT( Replace()          ) );
+    connect( ui.actionZoomIn,        SIGNAL( triggered() ), this, SLOT( ZoomIn()           ) );
+    connect( ui.actionZoomOut,       SIGNAL( triggered() ), this, SLOT( ZoomOut()          ) );  
+    connect( ui.actionMetaEditor,    SIGNAL( triggered() ), this, SLOT( MetaEditorDialog() ) );
+    connect( ui.actionTOCEditor,     SIGNAL( triggered() ), this, SLOT( TOCEditorDialog()  ) );
+    connect( ui.actionReportAnIssue, SIGNAL( triggered() ), this, SLOT( ReportAnIssue()    ) );
+    connect( ui.actionSigilDevBlog,  SIGNAL( triggered() ), this, SLOT( SigilDevBlog()     ) );
+    connect( ui.actionAbout,         SIGNAL( triggered() ), this, SLOT( AboutDialog()      ) );
     
-    connect( &m_TabManager,                 SIGNAL( TabChanged( ContentTab*, ContentTab* ) ), this, SLOT( TabChanged( ContentTab*, ContentTab* ) ) );
-    connect( &m_TabManager,                 SIGNAL( TabChanged( ContentTab*, ContentTab* ) ), this, SLOT( UpdateUI() ) );
-    connect( &m_TabManager,                 SIGNAL( TabChanged( ContentTab*, ContentTab* ) ), this, SLOT( TabSwitchChanges() ) );
+    connect( &m_TabManager,          SIGNAL( TabChanged( ContentTab*, ContentTab* ) ), this, SLOT( TabChanged( ContentTab*, ContentTab* ) ) );
+    connect( &m_TabManager,          SIGNAL( TabChanged( ContentTab*, ContentTab* ) ), this, SLOT( UpdateUI() ) );
+    connect( &m_TabManager,          SIGNAL( TabChanged( ContentTab*, ContentTab* ) ), this, SLOT( TabSwitchChanges() ) );
 
-    connect( m_slZoomSlider,                SIGNAL( valueChanged( int ) ),          this,   SLOT( SliderZoom( int ) ) );
+    connect( m_slZoomSlider,         SIGNAL( valueChanged( int ) ), this, SLOT( SliderZoom( int ) )      );
 
     // We also update the label when the slider moves... this is to show
     // the zoom value the slider will land on while it is being moved.
-    connect( m_slZoomSlider,                SIGNAL( sliderMoved( int ) ),           this,   SLOT( UpdateZoomLabel( int ) ) );
+    connect( m_slZoomSlider,         SIGNAL( sliderMoved( int ) ),  this, SLOT( UpdateZoomLabel( int ) ) );
 
     connect( m_BookBrowser, SIGNAL( ResourceDoubleClicked( Resource& ) ),
              &m_TabManager, SLOT(   OpenResource(          Resource& ) ) );
