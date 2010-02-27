@@ -26,6 +26,7 @@
 #include <QDockWidget>
 #include <QSharedPointer>
 #include "../BookManipulation/Book.h"
+#include "../ResourceObjects/Resource.h"
 
 class QTreeView;
 class OPFModel;
@@ -66,13 +67,21 @@ private slots:
 
     void OpenContextMenu( const QPoint &point );
 
+    void AddNew();
+
+    void AddExisting();
+
+    void Rename();
+
+    void Remove();
+
 private:
 
     void SetupTreeView();
 
     void CreateActions();
 
-    void SetupContextMenu();
+    bool SuccessfullySetupContextMenu( const QPoint &point );
 
     void ConnectSignalsToSlots();
 
@@ -87,6 +96,9 @@ private:
     QAction *m_AddNew;
     QAction *m_Rename;
     QAction *m_Remove;
+
+    Resource *m_LastContextMenuResource;
+    Resource::ResourceType m_LastContextMenuType;
 };
 
 #endif // BOOKBROWSER_H

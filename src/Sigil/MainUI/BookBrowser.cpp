@@ -39,7 +39,9 @@ BookBrowser::BookBrowser( QWidget *parent )
     QDockWidget( "   " + DOCK_WIDGET_TITLE, parent ),
     m_TreeView( *new QTreeView( this ) ),
     m_OPFModel( *new OPFModel( this ) ),
-    m_ContextMenu( *new QMenu( this ) )
+    m_ContextMenu( *new QMenu( this ) ),
+    m_LastContextMenuResource( NULL ),
+    m_LastContextMenuType( Resource::GenericResource )
 {   
     setWidget( &m_TreeView );
 
@@ -108,9 +110,47 @@ void BookBrowser::EmitResourceDoubleClicked( const QModelIndex &index )
 
 void BookBrowser::OpenContextMenu( const QPoint &point )
 {
-    SetupContextMenu();
+    if ( !SuccessfullySetupContextMenu( point ) )
+
+        return;
+
     m_ContextMenu.exec( m_TreeView.viewport()->mapToGlobal( point ) );
     m_ContextMenu.clear();
+}
+
+
+void BookBrowser::AddNew()
+{
+    if ( m_LastContextMenuType == Resource::HTMLResource )
+    {
+        m_Book->CreateEmptyHTMLFile();
+    }
+
+    else if ( m_LastContextMenuType == Resource::CSSResource )
+    {
+        m_Book->CreateEmptyCSSFile();
+    }
+
+    m_OPFModel.Refresh();
+}
+
+
+void BookBrowser::AddExisting()
+{
+
+}
+
+
+void BookBrowser::Rename()
+{
+
+}
+
+
+void BookBrowser::Remove()
+{
+
+    m_LastContextMenuResource = NULL;
 }
 
 
@@ -140,32 +180,63 @@ void BookBrowser::SetupTreeView()
 
 void BookBrowser::CreateActions()
 {
-    m_AddNew      = new QAction( "New item...",      this );
-    m_AddExisting = new QAction( "Existing item...", this );
-    m_Rename      = new QAction( "Rename",           this );
-    m_Remove      = new QAction( "Remove",           this );
+    m_AddNew      = new QAction( "Add new item...",      this );
+    m_AddExisting = new QAction( "Add existing item...", this );
+    m_Rename      = new QAction( "Rename",               this );
+    m_Remove      = new QAction( "Remove",               this );
 }
 
 
-void BookBrowser::SetupContextMenu()
+bool BookBrowser::SuccessfullySetupContextMenu( const QPoint &point )
 {
-    QMenu *add_menu = m_ContextMenu.addMenu( "Add" );
-    add_menu->addAction( m_AddNew );
-    add_menu->addAction( m_AddExisting );
+    m_ContextMenu.addAction( m_AddExisting );
+
+    QModelIndex index = m_TreeView.indexAt( point );
+
+    if ( !index.isValid() )
+
+        return false;
+
+    QStandardItem *item = m_OPFModel.itemFromIndex( index );
+    Q_ASSERT( item );
+
+    m_LastContextMenuType = m_OPFModel.GetResourceType( item );
+
+    if ( m_LastContextMenuType == Resource::HTMLResource ||
+         m_LastContextMenuType == Resource::CSSResource )
+    {
+        m_ContextMenu.addAction( m_AddNew );
+    }
+
+    const QString &identifier = item->data().toString(); 
+    Resource *resource = &m_Book->GetFolderKeeper().GetResourceByIdentifier( identifier );
+
+    // We just don't add the remove and rename
+    // actions, but we do pop up the context menu.
+    if ( !resource )
+
+        return true;
+
+    m_LastContextMenuResource = resource;   
 
     m_ContextMenu.addSeparator();
-
     m_ContextMenu.addAction( m_Remove );
     m_ContextMenu.addAction( m_Rename );
+
+    return true;
 }
 
 
 void BookBrowser::ConnectSignalsToSlots()
 {
-    connect( &m_TreeView, SIGNAL( doubleClicked(              const QModelIndex& ) ), 
-             this,         SLOT(   EmitResourceDoubleClicked( const QModelIndex& ) ) );
+    connect( &m_TreeView, SIGNAL( doubleClicked(             const QModelIndex& ) ), 
+             this,         SLOT(  EmitResourceDoubleClicked( const QModelIndex& ) ) );
 
     connect( &m_TreeView, SIGNAL( customContextMenuRequested( const QPoint& ) ),
              this,        SLOT(   OpenContextMenu(            const QPoint& ) ) );
-}
 
+    connect( m_AddNew,      SIGNAL( triggered() ), this, SLOT( AddNew()      ) );
+    connect( m_AddExisting, SIGNAL( triggered() ), this, SLOT( AddExisting() ) );
+    connect( m_Rename,      SIGNAL( triggered() ), this, SLOT( Rename()      ) );
+    connect( m_Remove,      SIGNAL( triggered() ), this, SLOT( Remove()      ) );
+}

@@ -25,6 +25,7 @@
 
 #include <QStandardItemModel>
 #include <QSharedPointer>
+#include "../ResourceObjects/Resource.h"
 
 class Book;
 class QModelIndex;
@@ -42,6 +43,8 @@ public:
     void Refresh();
 
     QModelIndex GetFirstHTMLModelIndex();
+
+    Resource::ResourceType GetResourceType( QStandardItem const *item );
 
     virtual void sort( int column, Qt::SortOrder order = Qt::AscendingOrder );
 

@@ -99,6 +99,35 @@ QModelIndex OPFModel::GetFirstHTMLModelIndex()
 }
 
 
+Resource::ResourceType OPFModel::GetResourceType( QStandardItem const *item )
+{
+    Q_ASSERT( item );
+
+    if ( item == &m_TextFolderItem )
+
+        return Resource::HTMLResource;
+
+    if ( item == &m_StylesFolderItem )
+
+        return Resource::CSSResource;
+
+    if ( item == &m_ImagesFolderItem )
+
+        return Resource::ImageResource;
+
+    if ( item == &m_FontsFolderItem )
+
+        return Resource::FontResource;
+
+    if ( item == &m_MiscFolderItem )
+
+        return Resource::GenericResource;  
+    
+    const QString &identifier = item->data().toString();
+    return m_Book->GetFolderKeeper().GetResourceByIdentifier( identifier ).Type();
+}
+
+
 // We need to kill the inherited sort function
 void OPFModel::sort( int column, Qt::SortOrder order )
 {

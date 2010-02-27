@@ -27,6 +27,7 @@
 #include "../SourceUpdates/AnchorUpdates.h"
 #include <QDomDocument>
 
+static const QString FIRST_CSS_NAME   = "Style0001.css";
 static const QString PLACEHOLDER_TEXT = "PLACEHOLDER";
 static const QString EMPTY_HTML_FILE  = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
                                         "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\"\n"
@@ -147,6 +148,22 @@ void Book::CreateEmptyHTMLFile()
 }
 
 
+void Book::CreateEmptyCSSFile()
+{
+    QString folderpath = Utility::GetNewTempFolderPath();
+    QDir dir( folderpath );
+    dir.mkpath( folderpath );
+
+    QString fullfilepath = folderpath + "/" + m_Mainfolder.GetUniqueFilenameVersion( FIRST_CSS_NAME );
+
+    Utility::WriteUnicodeTextFile( "", fullfilepath );
+
+    m_Mainfolder.AddContentFileToFolder( fullfilepath );
+
+    QtConcurrent::run( Utility::DeleteFolderAndFiles, dir.absolutePath() );
+}
+
+
 HTMLResource& Book::CreateChapterBreakOriginalResource( const QString &content, HTMLResource& originating_resource )
 {
     const QString &originating_filename = originating_resource.Filename();
@@ -193,3 +210,4 @@ void Book::SaveOneResourceToDisk( Resource *resource )
 {
     resource->SaveToDisk();        
 }
+

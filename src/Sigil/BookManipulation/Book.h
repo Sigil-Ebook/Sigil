@@ -62,6 +62,8 @@ public:
 
     void CreateEmptyHTMLFile();
 
+    void CreateEmptyCSSFile();
+
     HTMLResource& CreateChapterBreakOriginalResource( const QString &content, 
                                                       HTMLResource& originating_resource );
 
