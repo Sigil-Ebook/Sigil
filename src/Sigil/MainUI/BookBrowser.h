@@ -33,6 +33,10 @@ class HTMLResource;
 class Resource;
 class QModelIndex;
 class QUrl;
+class QPoint;
+class QMenu;
+class QAction;
+
 
 class BookBrowser : public QDockWidget
 {
@@ -60,11 +64,29 @@ private slots:
 
     void EmitResourceDoubleClicked( const QModelIndex &index );
 
+    void OpenContextMenu( const QPoint &point );
+
 private:
 
+    void SetupTreeView();
+
+    void CreateActions();
+
+    void SetupContextMenu();
+
+    void ConnectSignalsToSlots();
+
     QSharedPointer< Book > m_Book;
+    
     QTreeView &m_TreeView;
+    
     OPFModel &m_OPFModel;
+
+    QMenu &m_ContextMenu;
+    QAction *m_AddExisting;
+    QAction *m_AddNew;
+    QAction *m_Rename;
+    QAction *m_Remove;
 };
 
 #endif // BOOKBROWSER_H

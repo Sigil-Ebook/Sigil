@@ -38,35 +38,19 @@ BookBrowser::BookBrowser( QWidget *parent )
     : 
     QDockWidget( "   " + DOCK_WIDGET_TITLE, parent ),
     m_TreeView( *new QTreeView( this ) ),
-    m_OPFModel( *new OPFModel( this ) )
+    m_OPFModel( *new OPFModel( this ) ),
+    m_ContextMenu( *new QMenu( this ) )
 {   
     setWidget( &m_TreeView );
 
     setFeatures( QDockWidget::DockWidgetFloatable | QDockWidget::DockWidgetMovable );
     setAllowedAreas( Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea );
 
-    m_TreeView.setEditTriggers( QAbstractItemView::EditKeyPressed );
-    m_TreeView.setSortingEnabled( false );
-    m_TreeView.sortByColumn( -1 );
-    m_TreeView.setUniformRowHeights( true );
-    m_TreeView.setDragEnabled( true );
-    m_TreeView.setAcceptDrops( false );
-    m_TreeView.setDropIndicatorShown( true );
-    m_TreeView.setDragDropMode( QAbstractItemView::InternalMove );
-    
-    m_TreeView.setModel( &m_OPFModel ); 
-
-    for ( int i = 1; i < m_OPFModel.columnCount(); ++i )
-    {
-        m_TreeView.hideColumn( i );
-    }
-
-    m_TreeView.setIndentation( COLUMN_INDENTATION );
-    m_TreeView.setHeaderHidden( true );
-
-    connect( &m_TreeView, SIGNAL( doubleClicked(             const QModelIndex& ) ), 
-            this,         SLOT(   EmitResourceDoubleClicked( const QModelIndex& ) ) );
+    SetupTreeView();
+    CreateActions();
+    ConnectSignalsToSlots();
 }
+
 
 void BookBrowser::SetBook( QSharedPointer< Book > book )
 {
@@ -122,4 +106,66 @@ void BookBrowser::EmitResourceDoubleClicked( const QModelIndex &index )
 }
 
 
+void BookBrowser::OpenContextMenu( const QPoint &point )
+{
+    SetupContextMenu();
+    m_ContextMenu.exec( m_TreeView.viewport()->mapToGlobal( point ) );
+    m_ContextMenu.clear();
+}
+
+
+void BookBrowser::SetupTreeView()
+{
+    m_TreeView.setEditTriggers( QAbstractItemView::EditKeyPressed );
+    m_TreeView.setSortingEnabled( false );
+    m_TreeView.sortByColumn( -1 );
+    m_TreeView.setUniformRowHeights( true );
+    m_TreeView.setDragEnabled( true );
+    m_TreeView.setAcceptDrops( false );
+    m_TreeView.setDropIndicatorShown( true );
+    m_TreeView.setDragDropMode( QAbstractItemView::InternalMove );
+    m_TreeView.setContextMenuPolicy( Qt::CustomContextMenu );
+
+    m_TreeView.setModel( &m_OPFModel ); 
+
+    for ( int i = 1; i < m_OPFModel.columnCount(); ++i )
+    {
+        m_TreeView.hideColumn( i );
+    }
+
+    m_TreeView.setIndentation( COLUMN_INDENTATION );
+    m_TreeView.setHeaderHidden( true );
+}
+
+
+void BookBrowser::CreateActions()
+{
+    m_AddNew      = new QAction( "New item...",      this );
+    m_AddExisting = new QAction( "Existing item...", this );
+    m_Rename      = new QAction( "Rename",           this );
+    m_Remove      = new QAction( "Remove",           this );
+}
+
+
+void BookBrowser::SetupContextMenu()
+{
+    QMenu *add_menu = m_ContextMenu.addMenu( "Add" );
+    add_menu->addAction( m_AddNew );
+    add_menu->addAction( m_AddExisting );
+
+    m_ContextMenu.addSeparator();
+
+    m_ContextMenu.addAction( m_Remove );
+    m_ContextMenu.addAction( m_Rename );
+}
+
+
+void BookBrowser::ConnectSignalsToSlots()
+{
+    connect( &m_TreeView, SIGNAL( doubleClicked(              const QModelIndex& ) ), 
+             this,         SLOT(   EmitResourceDoubleClicked( const QModelIndex& ) ) );
+
+    connect( &m_TreeView, SIGNAL( customContextMenuRequested( const QPoint& ) ),
+             this,        SLOT(   OpenContextMenu(            const QPoint& ) ) );
+}
 

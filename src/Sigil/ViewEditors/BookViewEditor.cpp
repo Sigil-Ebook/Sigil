@@ -55,6 +55,7 @@ BookViewEditor::BookViewEditor( QWidget *parent )
     m_ScrollOneLineDown( *( new QShortcut( QKeySequence( Qt::ControlModifier + Qt::Key_Down ), this ) ) )
 {
     connect( &m_PageUp,            SIGNAL( activated() ), this, SLOT( PageUp()            ) );
+
     connect( &m_PageDown,          SIGNAL( activated() ), this, SLOT( PageDown()          ) );
     connect( &m_ScrollOneLineUp,   SIGNAL( activated() ), this, SLOT( ScrollOneLineUp()   ) );
     connect( &m_ScrollOneLineDown, SIGNAL( activated() ), this, SLOT( ScrollOneLineDown() ) );
