@@ -25,6 +25,7 @@
 #include "../BookManipulation/Book.h"
 #include "../Misc/Utility.h"
 #include "ResourceObjects/HTMLResource.h"
+#include "../Importers/ImportHTML.h"
 #include <QTreeView>
 
 
@@ -137,13 +138,43 @@ void BookBrowser::AddNew()
 
 void BookBrowser::AddExisting()
 {
+    // TODO: remember last folder
+    QStringList filenames = QFileDialog::getOpenFileNames(  this, 
+                                                            tr( "Add existing file(s)" )
+                                                         );
 
+    if ( filenames.isEmpty() )
+
+        return;
+
+    //s_LastFolder = QFileInfo( filenames.first() ).absolutePath();
+
+    foreach( QString filename, filenames )
+    {
+        if ( TEXT_EXTENSIONS.contains( QFileInfo( filename ).suffix().toLower() ) )
+        {
+            ImportHTML html_import( filename );
+            html_import.SetBook( m_Book );
+
+            // Since we set the Book manually,
+            // this call merely mutates our Book.
+            html_import.GetBook();
+        }
+
+        else
+        {
+            m_Book->GetFolderKeeper().AddContentFileToFolder( filename );
+        }
+    }    
+    
+    m_OPFModel.Refresh();
 }
 
 
 void BookBrowser::Rename()
 {
 
+    m_OPFModel.Refresh();
 }
 
 
@@ -180,10 +211,10 @@ void BookBrowser::SetupTreeView()
 
 void BookBrowser::CreateActions()
 {
-    m_AddNew      = new QAction( "Add new item...",      this );
-    m_AddExisting = new QAction( "Add existing item...", this );
-    m_Rename      = new QAction( "Rename",               this );
-    m_Remove      = new QAction( "Remove",               this );
+    m_AddNew      = new QAction( "Add new item...",       this );
+    m_AddExisting = new QAction( "Add existing items...", this );
+    m_Rename      = new QAction( "Rename",                this );
+    m_Remove      = new QAction( "Remove",                this );
 }
 
 

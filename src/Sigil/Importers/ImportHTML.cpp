@@ -180,11 +180,13 @@ HTMLResource& ImportHTML::CreateHTMLResource()
     QDir dir( Utility::GetNewTempFolderPath() );
     dir.mkpath( dir.absolutePath() );
 
-    QString fullfilepath = dir.absolutePath() + "/" + FIRST_CHAPTER_NAME;
+    QString fullfilepath = dir.absolutePath() + "/" + QFileInfo( m_FullFilePath ).fileName();
     Utility::WriteUnicodeTextFile( "TEMP_SOURCE", fullfilepath );
 
+    int reading_order = m_Book->GetConstFolderKeeper().GetHighestReadingOrder() + 1;
+
     HTMLResource &resource = *qobject_cast< HTMLResource* >(
-                                &m_Book->GetFolderKeeper().AddContentFileToFolder( fullfilepath, 0 ) );
+                                &m_Book->GetFolderKeeper().AddContentFileToFolder( fullfilepath, reading_order ) );
 
     QtConcurrent::run( Utility::DeleteFolderAndFiles, dir.absolutePath() );
 

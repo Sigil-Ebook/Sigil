@@ -55,7 +55,7 @@ public:
     // The file is recognized according to its extension.
     Resource& AddContentFileToFolder( const QString &fullfilepath, int reading_order = -1 );
 
-    int GetHighestReadingOrder();
+    int GetHighestReadingOrder() const;
 
     QString GetUniqueFilenameVersion( const QString &filename ) const;
 

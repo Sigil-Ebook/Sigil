@@ -29,13 +29,13 @@
 #include "../ResourceObjects/Resource.h"
 #include "../Misc/Utility.h"
 
-static const QStringList IMAGES = QStringList() << "jpg"   << "jpeg"  << "png"
-                                                << "gif"   << "tif"   << "tiff"
-                                                << "bm"    << "bmp"   << "svg";
+static const QStringList IMAGE_EXTENSIONS = QStringList() << "jpg"   << "jpeg"  << "png"
+                                                          << "gif"   << "tif"   << "tiff"
+                                                          << "bm"    << "bmp"   << "svg";
 
-static const QStringList FONTS  = QStringList() << "ttf"   << "otf";
-static const QStringList TEXTS  = QStringList() << "xhtml" << "html"  << "htm" << "xml";
-static const QStringList STYLES = QStringList() << "css"   << "xpgt";
+static const QStringList FONT_EXTENSIONS  = QStringList() << "ttf"   << "otf";
+const QStringList TEXT_EXTENSIONS         = QStringList() << "xhtml" << "html"  << "htm" << "xml";
+static const QStringList STYLE_EXTENSIONS = QStringList() << "css"   << "xpgt";
 
 const QString IMAGE_FOLDER_NAME = "Images";
 const QString FONT_FOLDER_NAME  = "Fonts";
@@ -125,7 +125,7 @@ Resource& FolderKeeper::AddContentFileToFolder( const QString &fullfilepath, int
 
     Resource *resource = NULL;
 
-    if ( IMAGES.contains( extension ) )
+    if ( IMAGE_EXTENSIONS.contains( extension ) )
     {
         new_file_path = m_FullPathToImagesFolder + "/" + filename;
         relative_path = IMAGE_FOLDER_NAME + "/" + filename;
@@ -133,7 +133,7 @@ Resource& FolderKeeper::AddContentFileToFolder( const QString &fullfilepath, int
         resource = new ImageResource( new_file_path, &m_Resources );
     }
 
-    else if ( FONTS.contains( extension ) )
+    else if ( FONT_EXTENSIONS.contains( extension ) )
     {
         new_file_path = m_FullPathToFontsFolder + "/" + filename;
         relative_path = FONT_FOLDER_NAME + "/" + filename;
@@ -141,7 +141,7 @@ Resource& FolderKeeper::AddContentFileToFolder( const QString &fullfilepath, int
         resource = new FontResource( new_file_path, &m_Resources );
     }
 
-    else if ( TEXTS.contains( extension ) )
+    else if ( TEXT_EXTENSIONS.contains( extension ) )
     {
         new_file_path = m_FullPathToTextFolder + "/" + filename;
         relative_path = TEXT_FOLDER_NAME + "/" + filename;
@@ -149,7 +149,7 @@ Resource& FolderKeeper::AddContentFileToFolder( const QString &fullfilepath, int
         resource = new HTMLResource( new_file_path, &m_Resources, reading_order );
     }
 
-    else if ( STYLES.contains( extension ) )
+    else if ( STYLE_EXTENSIONS.contains( extension ) )
     {
         new_file_path = m_FullPathToStylesFolder + "/" + filename;
         relative_path = STYLE_FOLDER_NAME + "/" + filename;
@@ -166,7 +166,7 @@ Resource& FolderKeeper::AddContentFileToFolder( const QString &fullfilepath, int
     else
     {
         // Fallback mechanism
-        new_file_path = fullfilepath, m_FullPathToMiscFolder + "/" + filename;
+        new_file_path = m_FullPathToMiscFolder + "/" + filename;
         relative_path = MISC_FOLDER_NAME + "/" + filename;
 
         resource = new Resource( new_file_path, &m_Resources );
@@ -187,7 +187,7 @@ Resource& FolderKeeper::AddContentFileToFolder( const QString &fullfilepath, int
 }
 
 
-int FolderKeeper::GetHighestReadingOrder()
+int FolderKeeper::GetHighestReadingOrder() const
 {
     int highest_reading_order = -1;
 
