@@ -616,6 +616,12 @@ void MainWindow::CreateChapterBreakOldTab( QString content, HTMLResource& origin
     m_BookBrowser->Refresh();
     m_TabManager.OpenResource( html_resource, true, QUrl() );
 
+    // The right content tab is retrieved, and the
+    // right widget (the BookViewEditor) receives the focus,
+    // and all the diagnostics show this. And yet the tab
+    // doesn't have focus. Why? Because focus switches 
+    // don't work right for QtWebkit widgets. WTG Nokia.
+    // So the following line is basically wishful thinking.
     m_TabManager.GetCurrentContentTab().setFocus();
 }
 
