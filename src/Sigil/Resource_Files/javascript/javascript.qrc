@@ -6,5 +6,6 @@
     <file>new_selection.js</file>
     <file>get_range.js</file>
     <file>replace_text.js</file>
-  </qresource>
+    <file>get_segment_html.js</file>
+    </qresource>
 </RCC>

@@ -162,10 +162,6 @@ private slots:
 
 private:
 
-    void InsertChapterBreakHTML();
-
-    static QWebElement OldChapterExtraction( QWebElement real_element, QWebElement clone_element );
-
     // Evaluates the provided javascript source code 
     // and returns the result of the last executed javascript statement
     QVariant EvaluateJavascript( const QString &javascript );
@@ -293,6 +289,8 @@ private:
     // contents of the range in "range" and replaces
     // them with a new text node whose text should be inputted.
     const QString c_ReplaceText;
+
+    const QString c_GetSegmentHTML;
 
     // The javascript source code for the 
     // caret update when switching from 

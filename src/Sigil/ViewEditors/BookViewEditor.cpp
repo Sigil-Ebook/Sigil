@@ -32,6 +32,8 @@ const int PROGRESS_BAR_MINIMUM_DURATION = 1500;
 const QString BREAK_TAG_ID     = "sigilChBrMN364299QX";
 const QString BREAK_TAG_INSERT = "<hr id=\"" + BREAK_TAG_ID + "\" />";
 
+static const QString GET_BODY_TAG_HTML = "new XMLSerializer().serializeToString( document.body.cloneNode(false) );";
+
 
 // Constructor;
 // the parameter is the object's parent
@@ -44,6 +46,7 @@ BookViewEditor::BookViewEditor( QWidget *parent )
     c_NewSelection(     Utility::ReadUnicodeTextFile( ":/javascript/new_selection.js"              ) ),
     c_GetRange(         Utility::ReadUnicodeTextFile( ":/javascript/get_range.js"                  ) ),
     c_ReplaceText(      Utility::ReadUnicodeTextFile( ":/javascript/replace_text.js"               ) ),
+    c_GetSegmentHTML(   Utility::ReadUnicodeTextFile( ":/javascript/get_segment_html.js"           ) ),
     m_CaretLocationUpdate( QString() ),
     m_isLoadFinished( false ),
     m_PageUp(   *( new QShortcut( QKeySequence( QKeySequence::MoveToPreviousPage ), this ) ) ),
@@ -82,19 +85,9 @@ void BookViewEditor::CustomSetWebPage( QWebPage &webpage )
 // So this way we avoid the painfull render time on the biggest chapter.
 QString BookViewEditor::SplitChapter()
 {
-    QString js = "var node = document.getSelection().anchorNode;"
-                 "var caret_node = (node.nodeName == \"#text\" ? node.parentNode : node);"
-                 "var range = document.createRange();"
-                 "range.setStart(document.body, 0);"
-                 "range.setEnd(caret_node, caret_node.childNodes.length );"  
-                 "new XMLSerializer().serializeToString( range.extractContents() );";
-
-    QString js2 = "new XMLSerializer().serializeToString( document.body.cloneNode(false) );";
-
-    QString head = page()->mainFrame()->documentElement().findFirst( "head" ).toOuterXml();
-    
-    QString body_tag = EvaluateJavascript( js2 ).toString();
-    QString segment  = EvaluateJavascript( js ).toString();
+    QString head     = page()->mainFrame()->documentElement().findFirst( "head" ).toOuterXml();    
+    QString body_tag = EvaluateJavascript( GET_BODY_TAG_HTML ).toString();
+    QString segment  = EvaluateJavascript( c_GetSegmentHTML  ).toString();
 
     return QString( "<html>" )
             .append( head )
@@ -478,64 +471,6 @@ void BookViewEditor::ScrollOneLineUp()
 void BookViewEditor::ScrollOneLineDown()
 {
     ScrollByLine( true );
-}
-
-
-void BookViewEditor::InsertChapterBreakHTML()
-{
-    QString javascript =  "var node = document.getSelection().anchorNode;"
-                          "var startNode = (node.nodeName == \"#text\" ? node.parentNode : node);"
-                          "$(startNode).after('" + BREAK_TAG_INSERT + "');";
-
-    EvaluateJavascript( javascript );
-
-    emit textChanged();
-}
-
-
-QWebElement BookViewEditor::OldChapterExtraction( QWebElement real_element, QWebElement clone_element )
-{
-    QWebElement parent = real_element.parent();
-
-    if ( parent == real_element.document() )
-
-        return clone_element;
-
-    QWebElement child = parent.firstChild();
-
-    QList< QWebElement > preceding_children; 
-
-    // The QWebElement API has no children() function,
-    // even though there is one in the WebCore::Element/Node
-    // API Nokia is wrapping. What were they thinking? 
-    // And no, findAll( tagName() + " > *" ) is not a
-    // replacement. It fails on many corner cases.
-    while ( !child.isNull() )
-    {
-        if ( child == real_element )
-        {
-            preceding_children.append( clone_element );
-            break;
-        }
-
-        QWebElement next_child = child.nextSibling();
-        preceding_children.append( child.takeFromDocument() );
-        child = next_child;
-    }
-
-    // Here we (badly) emulate a cloneWithoutChildren()
-    // method that again, exists in WebKit but is 
-    // left out of QWebElement. Brilliant move Nokia,
-    // truly stellar.
-    QWebElement parent_clone = parent.clone();
-    parent_clone.removeAllChildren();
-
-    for ( int i = 0; i < preceding_children.count(); ++i )
-    {
-        parent_clone.appendInside( preceding_children.at( i ) );
-    }
-
-    return OldChapterExtraction( parent, parent_clone );
 }
 
 
