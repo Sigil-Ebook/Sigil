@@ -656,11 +656,11 @@ void MainWindow::ReadSettings()
     //    ui.splitter->restoreState( splitter_position );
 
     // The last folders used for saving and opening files
-    m_LastFolderSave    = settings.value( "lastfoldersave"  ).toString();
-    m_LastFolderOpen    = settings.value( "lastfolderopen"  ).toString();
+    m_LastFolderSave = settings.value( "lastfoldersave"  ).toString();
+    m_LastFolderOpen = settings.value( "lastfolderopen"  ).toString();
 
     // The list of recent files
-    s_RecentFiles       = settings.value( "recentfiles" ).toStringList();
+    s_RecentFiles    = settings.value( "recentfiles" ).toStringList();
 
     // View Editor zoom factors
     //float zoom_factor = (float) settings.value( "codeviewzoom" ).toDouble();
@@ -689,8 +689,8 @@ void MainWindow::WriteSettings()
     //settings.setValue( "splitview_splitter", ui.splitter->saveState() );
 
     // The last folders used for saving and opening files
-    settings.setValue( "lastfoldersave",  m_LastFolderSave  );
-    settings.setValue( "lastfolderopen",  m_LastFolderOpen  );   
+    settings.setValue( "lastfoldersave", m_LastFolderSave );
+    settings.setValue( "lastfolderopen", m_LastFolderOpen );   
 
     // The list of recent files
     settings.setValue( "recentfiles", s_RecentFiles );

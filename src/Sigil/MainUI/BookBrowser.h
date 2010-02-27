@@ -47,6 +47,8 @@ public:
 
     BookBrowser( QWidget *parent = 0 );
 
+    ~BookBrowser();
+
 public slots:
 
     void SetBook( QSharedPointer< Book > book );
@@ -77,6 +79,14 @@ private slots:
 
 private:
 
+    // Reads all the stored application settings like
+    // window position, geometry etc.
+    void ReadSettings();
+
+    // Writes all the stored application settings like
+    // window position, geometry etc.
+    void WriteSettings();
+
     void SetupTreeView();
 
     void CreateActions();
@@ -84,6 +94,11 @@ private:
     bool SuccessfullySetupContextMenu( const QPoint &point );
 
     void ConnectSignalsToSlots();
+
+
+    ///////////////////////////////
+    // PRIVATE MEMBER VARIABLES
+    ///////////////////////////////
 
     QSharedPointer< Book > m_Book;
     
@@ -99,6 +114,10 @@ private:
 
     Resource *m_LastContextMenuResource;
     Resource::ResourceType m_LastContextMenuType;
+
+    // The last folder from which the user 
+    // added an existing file.
+    QString m_LastFolderOpen;
 };
 
 #endif // BOOKBROWSER_H

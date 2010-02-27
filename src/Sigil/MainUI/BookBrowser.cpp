@@ -28,6 +28,7 @@
 #include "../Importers/ImportHTML.h"
 #include <QTreeView>
 
+static const QString SETTINGS_GROUP = "bookbrowser";
 
 // We will add a few spaces to the front so the title isn't
 // glued to the widget side when it's docked. Ugly, but works.
@@ -49,9 +50,17 @@ BookBrowser::BookBrowser( QWidget *parent )
     setFeatures( QDockWidget::DockWidgetFloatable | QDockWidget::DockWidgetMovable );
     setAllowedAreas( Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea );
 
+    ReadSettings();
+
     SetupTreeView();
     CreateActions();
     ConnectSignalsToSlots();
+}
+
+
+BookBrowser::~BookBrowser()
+{
+    WriteSettings();
 }
 
 
@@ -138,16 +147,16 @@ void BookBrowser::AddNew()
 
 void BookBrowser::AddExisting()
 {
-    // TODO: remember last folder
     QStringList filenames = QFileDialog::getOpenFileNames(  this, 
-                                                            tr( "Add existing file(s)" )
+                                                            tr( "Add existing file(s)" ),
+                                                            m_LastFolderOpen
                                                          );
 
     if ( filenames.isEmpty() )
 
         return;
 
-    //s_LastFolder = QFileInfo( filenames.first() ).absolutePath();
+    m_LastFolderOpen = QFileInfo( filenames.first() ).absolutePath();
 
     foreach( QString filename, filenames )
     {
@@ -163,6 +172,7 @@ void BookBrowser::AddExisting()
 
         else
         {
+            // TODO: adding a CSS file should add the referenced fonts too
             m_Book->GetFolderKeeper().AddContentFileToFolder( filename );
         }
     }    
@@ -182,6 +192,24 @@ void BookBrowser::Remove()
 {
 
     m_LastContextMenuResource = NULL;
+}
+
+
+void BookBrowser::ReadSettings()
+{
+    QSettings settings;
+    settings.beginGroup( SETTINGS_GROUP );
+
+    m_LastFolderOpen = settings.value( "lastfolderopen"  ).toString();
+}
+
+
+void BookBrowser::WriteSettings()
+{
+    QSettings settings;
+    settings.beginGroup( SETTINGS_GROUP );
+
+    settings.setValue( "lastfolderopen", m_LastFolderOpen );
 }
 
 
@@ -271,3 +299,6 @@ void BookBrowser::ConnectSignalsToSlots()
     connect( m_Rename,      SIGNAL( triggered() ), this, SLOT( Rename()      ) );
     connect( m_Remove,      SIGNAL( triggered() ), this, SLOT( Remove()      ) );
 }
+
+
+
