@@ -94,16 +94,22 @@ void BookBrowser::Refresh()
 
 void BookBrowser::OpenUrlResource( const QUrl &url )
 {
+    const QString &filename = QFileInfo( url.path() ).fileName();
+
     try
     {
-        Resource &resource = m_Book->GetFolderKeeper().GetResourceByFilename( QFileInfo( url.path() ).fileName() );
+        Resource &resource = m_Book->GetFolderKeeper().GetResourceByFilename( filename );
 
         emit OpenResourceRequest( resource, false, url.fragment() );
     }
 
-    catch ( const ExceptionBase &exception )
+    catch ( const ResourceDoesNotExist& )
     {
-        Utility::DisplayStdErrorDialog( Utility::GetExceptionInfo( exception ) );
+        QMessageBox::warning( 0,
+                              tr( "Sigil" ),
+                              tr( "The file \"%1\" does not exist." )
+                              .arg( filename )
+                            );
     }       
 }
 
