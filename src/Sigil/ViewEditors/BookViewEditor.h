@@ -162,6 +162,8 @@ private slots:
 
 private:
 
+    void InsertChapterBreakHTML();
+
     static QWebElement OldChapterExtraction( QWebElement real_element, QWebElement clone_element );
 
     // Evaluates the provided javascript source code 

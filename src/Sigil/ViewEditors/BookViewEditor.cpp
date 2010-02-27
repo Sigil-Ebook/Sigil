@@ -82,20 +82,25 @@ void BookViewEditor::CustomSetWebPage( QWebPage &webpage )
 // So this way we avoid the painfull render time on the biggest chapter.
 QString BookViewEditor::SplitChapter()
 {
-    ExecCommand( "insertHTML", BREAK_TAG_INSERT );
+    QString js = "var node = document.getSelection().anchorNode;"
+                 "var caret_node = (node.nodeName == \"#text\" ? node.parentNode : node);"
+                 "var range = document.createRange();"
+                 "range.setStart(document.body, 0);"
+                 "range.setEnd(caret_node, caret_node.childNodes.length );"  
+                 "new XMLSerializer().serializeToString( range.extractContents() );";
 
-    QWebElement document      = page()->mainFrame()->documentElement();   
-    QWebElement chapter_break = document.findFirst( "hr#" + BREAK_TAG_ID );
+    QString js2 = "new XMLSerializer().serializeToString( document.body.cloneNode(false) );";
 
-    QWebElement segment = OldChapterExtraction( chapter_break, chapter_break.clone() );
-    chapter_break.removeFromDocument();
-    segment.findFirst( "hr#" + BREAK_TAG_ID ).removeFromDocument();
+    QString head = page()->mainFrame()->documentElement().findFirst( "head" ).toOuterXml();
+    
+    QString body_tag = EvaluateJavascript( js2 ).toString();
+    QString segment  = EvaluateJavascript( js ).toString();
 
-    QString new_chapter = QString( "<html>" ) + document.findFirst( "head" ).toOuterXml();
-    new_chapter.append( segment.toOuterXml() );
-    new_chapter.append( "</html>" );
-
-    return new_chapter;
+    return QString( "<html>" )
+            .append( head )
+            .append( body_tag )
+            .append( segment )
+            .append( "</body></html>" );
 }
 
 
@@ -473,6 +478,18 @@ void BookViewEditor::ScrollOneLineUp()
 void BookViewEditor::ScrollOneLineDown()
 {
     ScrollByLine( true );
+}
+
+
+void BookViewEditor::InsertChapterBreakHTML()
+{
+    QString javascript =  "var node = document.getSelection().anchorNode;"
+                          "var startNode = (node.nodeName == \"#text\" ? node.parentNode : node);"
+                          "$(startNode).after('" + BREAK_TAG_INSERT + "');";
+
+    EvaluateJavascript( javascript );
+
+    emit textChanged();
 }
 
 
@@ -876,6 +893,7 @@ void BookViewEditor::ScrollByNumPixels( int pixel_number, bool down )
 
     page()->mainFrame()->setScrollBarValue( Qt::Vertical, new_scroll_Y );
 }
+
 
 
 
