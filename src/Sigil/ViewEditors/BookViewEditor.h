@@ -117,9 +117,13 @@ public:
     
 signals:
 
-    // The identically named QWebPage signal is wired to this one,
+    // The contentsChanged QWebPage signal is wired to this one,
     // and we also emit it ourselves when necessary.
     void textChanged();
+
+    // The selectionChanged QWebPage signal is wired to this one,
+    // and we also emit it ourselves when necessary.
+    void selectionChanged();
 
     // Emitted whenever the zoom factor changes
     void ZoomFactorChanged( float new_zoom_factor );

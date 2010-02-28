@@ -110,37 +110,73 @@ bool FlowTab::PasteEnabled()
 
 bool FlowTab::BoldChecked()
 {
-    return m_wBookView.pageAction( QWebPage::ToggleBold )->isChecked();
+    if ( m_IsLastViewBook )
+        
+        return m_wBookView.pageAction( QWebPage::ToggleBold )->isChecked();
+
+    else
+
+        return ContentTab::BoldChecked();
 }
 
 
 bool FlowTab::ItalicChecked()
 {
-    return m_wBookView.pageAction( QWebPage::ToggleItalic )->isChecked();
+    if ( m_IsLastViewBook )
+    
+        return m_wBookView.pageAction( QWebPage::ToggleItalic )->isChecked();
+
+    else
+
+        return ContentTab::ItalicChecked();
 }
 
 
 bool FlowTab::UnderlineChecked()
 {
-    return m_wBookView.pageAction( QWebPage::ToggleUnderline )->isChecked();       
+    if ( m_IsLastViewBook )
+        
+        return m_wBookView.pageAction( QWebPage::ToggleUnderline )->isChecked(); 
+
+    else
+
+        return ContentTab::UnderlineChecked();
 }
 
 
 bool FlowTab::StrikethroughChecked()
 {
-    return m_wBookView.QueryCommandState( "strikeThrough" );
+    if ( m_IsLastViewBook )
+    
+        return m_wBookView.QueryCommandState( "strikeThrough" );
+
+    else
+
+        return ContentTab::StrikethroughChecked();
 }
 
 
 bool FlowTab::BulletListChecked()
 {
-    return m_wBookView.QueryCommandState( "insertUnorderedList" );
+    if ( m_IsLastViewBook )
+        
+        return m_wBookView.QueryCommandState( "insertUnorderedList" );
+
+    else
+
+        return ContentTab::BulletListChecked();
 }
 
 
 bool FlowTab::NumberListChecked()
 {
-    return m_wBookView.QueryCommandState( "insertOrderedList" );
+    if ( m_IsLastViewBook )
+    
+        return m_wBookView.QueryCommandState( "insertOrderedList" );
+
+    else
+
+        return ContentTab::NumberListChecked();
 }
 
 
@@ -164,7 +200,13 @@ bool FlowTab::CodeViewChecked()
 
 QString FlowTab::GetCaretElementName()
 {
-    return m_wBookView.GetCaretElementName();
+    if ( m_IsLastViewBook )
+        
+        return m_wBookView.GetCaretElementName();
+
+    else
+
+        return ContentTab::GetCaretElementName();
 }
 
 
@@ -788,8 +830,8 @@ void FlowTab::ConnectSignalsToSlots()
     connect( &m_wBookView, SIGNAL( ZoomFactorChanged( float ) ), this, SIGNAL( ZoomFactorChanged( float ) ) );
     connect( &m_wCodeView, SIGNAL( ZoomFactorChanged( float ) ), this, SIGNAL( ZoomFactorChanged( float ) ) );
 
-    connect( m_wBookView.page(),   SIGNAL( selectionChanged() ), this, SIGNAL( SelectionChanged() ) );
-    connect( &m_wCodeView,         SIGNAL( selectionChanged() ), this, SIGNAL( SelectionChanged() ) );
+    connect( &m_wBookView, SIGNAL( selectionChanged() ), this, SIGNAL( SelectionChanged() ) );
+    connect( &m_wCodeView, SIGNAL( selectionChanged() ), this, SIGNAL( SelectionChanged() ) );
 
     connect( qApp, SIGNAL( focusChanged( QWidget*, QWidget* ) ), this, SLOT( TabFocusChange( QWidget*, QWidget* ) ) );
     connect( qApp, SIGNAL( focusChanged( QWidget*, QWidget* ) ), this, SLOT( SplitViewFocusSwitch( QWidget*, QWidget* ) ) );

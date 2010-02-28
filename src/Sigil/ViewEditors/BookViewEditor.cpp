@@ -65,9 +65,10 @@ BookViewEditor::BookViewEditor( QWidget *parent )
 void BookViewEditor::CustomSetWebPage( QWebPage &webpage )
 {
     setPage( &webpage );
-    connect( page(), SIGNAL( contentsChanged() ),    this, SIGNAL( textChanged()            ) );
+    connect( page(), SIGNAL( contentsChanged()    ), this, SIGNAL( textChanged()            ) );
+    connect( page(), SIGNAL( selectionChanged()   ), this, SIGNAL( selectionChanged()       ) );
     connect( page(), SIGNAL( loadFinished( bool ) ), this, SLOT( JavascriptOnDocumentLoad() ) );
-    connect( page(), SIGNAL( loadProgress( int ) ),  this, SLOT( UpdateFinishedState( int ) ) );
+    connect( page(), SIGNAL( loadProgress( int )  ), this, SLOT( UpdateFinishedState( int ) ) );
 
     connect( page(), SIGNAL( linkClicked( const QUrl& ) ), this, SLOT( LinkClickedFilter( const QUrl&  ) ) );
 
@@ -201,8 +202,6 @@ void BookViewEditor::FormatBlock( const QString &element_name )
 // where the selection *starts*
 QString BookViewEditor::GetCaretElementName()
 {
-    // TODO: replace javascript with QWebElement
-
     QString javascript =  "var node = document.getSelection().anchorNode;"
                           "var startNode = (node.nodeName == \"#text\" ? node.parentNode : node);"
                           "startNode.nodeName;";
