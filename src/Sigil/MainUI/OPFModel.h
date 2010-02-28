@@ -69,6 +69,8 @@ private:
 
     void ClearModel();
 
+    bool FilenameIsValid( const QString &old_filename, const QString &new_filename );
+
 
     ///////////////////////////////
     // PRIVATE MEMBER VARIABLES

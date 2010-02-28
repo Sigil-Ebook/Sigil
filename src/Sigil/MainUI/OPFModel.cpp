@@ -183,9 +183,11 @@ void OPFModel::ItemChangedHandler( QStandardItem *item )
     const QString &old_filename = resource->Filename();
     const QString &new_filename = item->text();
     
-    if ( old_filename == new_filename )
-
+    if ( old_filename == new_filename || !FilenameIsValid( old_filename, new_filename ) )
+    {
+        item->setText( old_filename );
         return;
+    }
 
     resource->RenameTo( new_filename );
     QHash< QString, QString > update;
@@ -301,6 +303,7 @@ void OPFModel::ClearModel()
     }
 }
 
+
 void OPFModel::SortFilesByFilenames()
 {
     for ( int i = 0; i < invisibleRootItem()->rowCount(); ++i )
@@ -308,6 +311,7 @@ void OPFModel::SortFilesByFilenames()
         invisibleRootItem()->child( i )->sortChildren( 0 );
     }
 }
+
 
 void OPFModel::SortHTMLFilesByReadingOrder()
 {
@@ -320,5 +324,46 @@ void OPFModel::SortHTMLFilesByReadingOrder()
 }
 
 
+bool OPFModel::FilenameIsValid( const QString &old_filename, const QString &new_filename )
+{
+    if ( new_filename.isEmpty() )
+    {
+        QMessageBox::critical( 0,
+                               tr( "Sigil" ),
+                               tr( "The filename cannot be empty." )
+                             );
+
+        return false;
+    }
+
+    const QString &old_extension = QFileInfo( old_filename ).suffix();
+    const QString &new_extension = QFileInfo( new_filename ).suffix();
+
+    if ( old_extension != new_extension )
+    {
+        QMessageBox::critical( 0,
+                               tr( "Sigil" ),
+                               tr( "The file's extension cannot be changed.\n"
+                                   "You used \"%1\", and the old extension was \"%2\"." )
+                               .arg( old_extension )
+                               .arg( new_extension )
+                             );
+
+        return false;
+    }
+    
+    if ( new_filename != m_Book->GetConstFolderKeeper().GetUniqueFilenameVersion( new_filename ) )
+    {
+        QMessageBox::critical( 0,
+                               tr( "Sigil" ),
+                               tr( "The filename \"%1\" is already in use.\n" )
+                               .arg( new_filename )
+                             );
+
+        return false;
+    }
+
+    return true;
+}
 
 
