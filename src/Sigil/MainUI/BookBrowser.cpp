@@ -188,7 +188,8 @@ void BookBrowser::AddExisting()
 
 void BookBrowser::Rename()
 {
-
+    // The actual renaming code is in OPFModel::ItemChangedHandler
+    m_TreeView.edit( m_TreeView.currentIndex() );
 }
 
 

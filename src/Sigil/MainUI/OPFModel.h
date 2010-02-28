@@ -29,6 +29,7 @@
 
 class Book;
 class QModelIndex;
+class QStandardItem;
 
 class OPFModel : public QStandardItemModel
 {
@@ -53,6 +54,8 @@ public:
 private slots:
 
     void RowsRemovedHandler( const QModelIndex &parent, int start, int end );
+
+    void ItemChangedHandler( QStandardItem *item );
 
 private:
 

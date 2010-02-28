@@ -92,11 +92,12 @@ void TextTab::SaveContentOnTabLeave()
     // when the user has not changed the text file.
     // (some text files have placeholder text on disk)
     if ( !m_wCodeView.document()->isModified() )
-
+    {
+        ContentTab::SaveContentOnTabLeave();
         return;
+    }
 
     m_TextResource.SaveToDisk();
-
     ContentTab::SaveContentOnTabLeave();
 }
 

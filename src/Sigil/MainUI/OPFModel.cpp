@@ -24,6 +24,7 @@
 #include "../BookManipulation/Book.h"
 #include "../ResourceObjects/Resource.h"
 #include "../ResourceObjects/HTMLResource.h"
+#include "../SourceUpdates/UniversalUpdates.h"
 #include <limits>
 
 static const int NO_READING_ORDER   = std::numeric_limits< int >::max();
@@ -40,8 +41,11 @@ OPFModel::OPFModel( QWidget *parent )
     m_FontsFolderItem(  *new QStandardItem( FONT_FOLDER_NAME  ) ),
     m_MiscFolderItem(   *new QStandardItem( MISC_FOLDER_NAME  ) )
 {
-    connect( this, SIGNAL( rowsRemoved( const QModelIndex&, int, int ) ),
+    connect( this, SIGNAL( rowsRemoved(        const QModelIndex&, int, int ) ),
              this, SLOT(   RowsRemovedHandler( const QModelIndex&, int, int ) ) );  
+
+    connect( this, SIGNAL( itemChanged(        QStandardItem* ) ),
+             this, SLOT(   ItemChangedHandler( QStandardItem* ) ) );   
 
     QList< QStandardItem* > items;
 
@@ -159,6 +163,37 @@ void OPFModel::RowsRemovedHandler( const QModelIndex &parent, int start, int end
     }
 
     UpdateHTMLReadingOrders();
+}
+
+
+// Only handles item renames
+void OPFModel::ItemChangedHandler( QStandardItem *item )
+{
+    Q_ASSERT( item );
+
+    const QString &identifier = item->data().toString(); 
+
+    if ( identifier.isEmpty() )
+
+        return;
+
+    Resource *resource = &m_Book->GetFolderKeeper().GetResourceByIdentifier( identifier );
+    Q_ASSERT( resource );
+
+    const QString &old_filename = resource->Filename();
+    const QString &new_filename = item->text();
+    
+    if ( old_filename == new_filename )
+
+        return;
+
+    resource->RenameTo( new_filename );
+    QHash< QString, QString > update;
+    update[ old_filename ] = "../" + resource->GetRelativePathToOEBPS();
+
+    QApplication::setOverrideCursor( Qt::WaitCursor );
+    UniversalUpdates::PerformUniversalUpdates( true, m_Book->GetFolderKeeper().GetResourceList(), update );
+    QApplication::restoreOverrideCursor();
 }
 
 
@@ -283,6 +318,7 @@ void OPFModel::SortHTMLFilesByReadingOrder()
 
     setSortRole( old_sort_role );
 }
+
 
 
 
