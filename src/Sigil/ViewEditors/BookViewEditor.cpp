@@ -34,17 +34,34 @@ const QString BREAK_TAG_INSERT = "<hr id=\"" + BREAK_TAG_ID + "\" />";
 
 static const QString GET_BODY_TAG_HTML = "new XMLSerializer().serializeToString( document.body.cloneNode(false) );";
 
+// The javascript source code used
+// to get a hierarchy of elements from
+// the caret element to the top of the document
+static const QString GET_CARET_LOCATION_JS = Utility::ReadUnicodeTextFile( ":/javascript/book_view_current_location.js" );
+
+// The javascript source code that
+// removes all of the current selections
+// and adds the range in the "range"
+// variable to the current selection.
+static const QString NEW_SELECTION_JS = Utility::ReadUnicodeTextFile( ":/javascript/new_selection.js" );
+
+// The javascript source code
+// for creating DOM ranges
+static const QString GET_RANGE_JS = Utility::ReadUnicodeTextFile( ":/javascript/get_range.js");
+
+// The javascript source code that deletes the
+// contents of the range in "range" and replaces
+// them with a new text node whose text should be inputted.
+static const QString REPLACE_TEXT_JS = Utility::ReadUnicodeTextFile( ":/javascript/replace_text.js" );
+
+static const QString GET_SEGMENT_HTML_JS = Utility::ReadUnicodeTextFile( ":/javascript/get_segment_html.js" );
+
 
 // Constructor;
 // the parameter is the object's parent
 BookViewEditor::BookViewEditor( QWidget *parent )
     : 
     QWebView( parent ),
-    c_GetCaretLocation( Utility::ReadUnicodeTextFile( ":/javascript/book_view_current_location.js" ) ),
-    c_NewSelection(     Utility::ReadUnicodeTextFile( ":/javascript/new_selection.js"              ) ),
-    c_GetRange(         Utility::ReadUnicodeTextFile( ":/javascript/get_range.js"                  ) ),
-    c_ReplaceText(      Utility::ReadUnicodeTextFile( ":/javascript/replace_text.js"               ) ),
-    c_GetSegmentHTML(   Utility::ReadUnicodeTextFile( ":/javascript/get_segment_html.js"           ) ),
     m_CaretLocationUpdate( QString() ),
     m_isLoadFinished( false ),
     m_PageUp(   *( new QShortcut( QKeySequence( QKeySequence::MoveToPreviousPage ), this ) ) ),
@@ -91,7 +108,7 @@ QString BookViewEditor::SplitChapter()
 {
     QString head     = page()->mainFrame()->documentElement().findFirst( "head" ).toOuterXml();    
     QString body_tag = EvaluateJavascript( GET_BODY_TAG_HTML ).toString();
-    QString segment  = EvaluateJavascript( c_GetSegmentHTML  ).toString();
+    QString segment  = EvaluateJavascript( GET_SEGMENT_HTML_JS  ).toString();
 
     return QString( "<html>" )
             .append( head )
@@ -220,7 +237,7 @@ QString BookViewEditor::GetCaretElementName()
 QList< ViewEditor::ElementIndex > BookViewEditor::GetCaretLocation()
 {
     // The location element hierarchy encoded in a string
-    QString location_string = EvaluateJavascript( c_GetCaretLocation ).toString();
+    QString location_string = EvaluateJavascript( GET_CARET_LOCATION_JS ).toString();
     QStringList elements    = location_string.split( ",", QString::SkipEmptyParts );
 
     QList< ElementIndex > caret_location;
@@ -324,10 +341,10 @@ bool BookViewEditor::ReplaceSelected( const QRegExp &search_regex, const QString
     if ( result_regex.exactMatch( selected_text ) )
     {
         QString final_replacement = FillWithCapturedTexts( result_regex.capturedTexts(), replacement );
-        QString replacing_js      = QString( c_ReplaceText ).replace( "$ESCAPED_TEXT_HERE", EscapeJSString( final_replacement ) );
+        QString replacing_js      = QString( REPLACE_TEXT_JS ).replace( "$ESCAPED_TEXT_HERE", EscapeJSString( final_replacement ) );
 
         SelectRangeInputs input   = GetRangeInputs( search_tools.node_offsets, selection_offset, selected_text.length() );
-        EvaluateJavascript( GetRangeJS( input ) + replacing_js + c_NewSelection ); 
+        EvaluateJavascript( GetRangeJS( input ) + replacing_js + NEW_SELECTION_JS ); 
 
         // Tell anyone who's interested that the document has been updated.
         emit textChanged();
@@ -362,7 +379,7 @@ int BookViewEditor::ReplaceAll( const QRegExp &search_regex, const QString &repl
         if ( search_tools.fulltext.indexOf( result_regex ) != -1 )
         {
             QString final_replacement = FillWithCapturedTexts( result_regex.capturedTexts(), replacement );
-            QString replacing_js      = QString( c_ReplaceText ).replace( "$ESCAPED_TEXT_HERE", EscapeJSString( final_replacement ) );
+            QString replacing_js      = QString( REPLACE_TEXT_JS ).replace( "$ESCAPED_TEXT_HERE", EscapeJSString( final_replacement ) );
 
             SelectRangeInputs input   = GetRangeInputs( search_tools.node_offsets, result_regex.pos(), result_regex.matchedLength() );
             EvaluateJavascript( GetRangeJS( input ) + replacing_js ); 
@@ -733,7 +750,7 @@ QString BookViewEditor::GetRangeJS( const SelectRangeInputs &input ) const
     QString start_node_index = QString::number( input.start_node_index );
     QString end_node_index   = QString::number( input.end_node_index );
 
-    QString get_range_js = c_GetRange;
+    QString get_range_js = GET_RANGE_JS;
 
     get_range_js.replace( "$START_NODE",   start_node_js    );
     get_range_js.replace( "$END_NODE",     end_node_js      );
@@ -747,7 +764,7 @@ QString BookViewEditor::GetRangeJS( const SelectRangeInputs &input ) const
 // Selects the string identified by the range inputs
 void BookViewEditor::SelectTextRange( const SelectRangeInputs &input )
 {
-    EvaluateJavascript( GetRangeJS( input ) + c_NewSelection );
+    EvaluateJavascript( GetRangeJS( input ) + NEW_SELECTION_JS );
 }
 
 

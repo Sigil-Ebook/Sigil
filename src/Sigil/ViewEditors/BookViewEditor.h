@@ -263,28 +263,6 @@ private:
     // PRIVATE MEMBER VARIABLES
     ///////////////////////////////
 
-    // The javascript source code used
-    // to get a hierarchy of elements from
-    // the caret element to the top of the document
-    const QString c_GetCaretLocation;
-
-    // The javascript source code that
-    // removes all of the current selections
-    // and adds the range in the "range"
-    // variable to the current selection.
-    const QString c_NewSelection;
-
-    // The javascript source code
-    // for creating DOM ranges
-    const QString c_GetRange;
-
-    // The javascript source code that deletes the
-    // contents of the range in "range" and replaces
-    // them with a new text node whose text should be inputted.
-    const QString c_ReplaceText;
-
-    const QString c_GetSegmentHTML;
-
     // The javascript source code for the 
     // caret update when switching from 
     // CodeView to BookView
