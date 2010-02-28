@@ -25,7 +25,7 @@
 #include "../BookManipulation/XHTMLDoc.h"
 
 
-void AnchorUpdates::UpdateAllAnchors( const QList< HTMLResource* > &html_resources )
+void AnchorUpdates::UpdateAllAnchorsWithIDs( const QList< HTMLResource* > &html_resources )
 {
      const QHash< QString, QString > &ID_locations = GetIDLocations( html_resources );
 

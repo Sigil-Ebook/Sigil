@@ -93,6 +93,8 @@ private:
 
     bool SuccessfullySetupContextMenu( const QPoint &point );
 
+    Resource* GetCurrentResource();
+
     void ConnectSignalsToSlots();
 
 
@@ -112,7 +114,6 @@ private:
     QAction *m_Rename;
     QAction *m_Remove;
 
-    Resource *m_LastContextMenuResource;
     Resource::ResourceType m_LastContextMenuType;
 
     // The last folder from which the user 

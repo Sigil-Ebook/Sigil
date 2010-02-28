@@ -194,7 +194,7 @@ HTMLResource& Book::CreateChapterBreakOriginalResource( const QString &content, 
     // We can just append this since we don't need
     // them in sorted order for the updates.
     html_resources.append( &html_resource );
-    AnchorUpdates::UpdateAllAnchors( html_resources );
+    AnchorUpdates::UpdateAllAnchorsWithIDs( html_resources );
 
     return html_resource;
 }

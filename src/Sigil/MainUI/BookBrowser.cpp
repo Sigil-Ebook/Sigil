@@ -42,7 +42,6 @@ BookBrowser::BookBrowser( QWidget *parent )
     m_TreeView( *new QTreeView( this ) ),
     m_OPFModel( *new OPFModel( this ) ),
     m_ContextMenu( *new QMenu( this ) ),
-    m_LastContextMenuResource( NULL ),
     m_LastContextMenuType( Resource::GenericResource )
 {   
     setWidget( &m_TreeView );
@@ -190,13 +189,18 @@ void BookBrowser::AddExisting()
 void BookBrowser::Rename()
 {
 
-    m_OPFModel.Refresh();
 }
 
 
 void BookBrowser::Remove()
-{    
-    Resource::ResourceType resource_type = m_LastContextMenuResource->Type();
+{
+    Resource *resource = GetCurrentResource();
+    
+    if ( !resource )
+
+        return;
+
+    Resource::ResourceType resource_type = resource->Type();
 
     if ( resource_type == Resource::HTMLResource &&
          m_Book->GetConstFolderKeeper().GetSortedHTMLResources().count() == 1 )
@@ -210,8 +214,7 @@ void BookBrowser::Remove()
         return;
     }
 
-    m_LastContextMenuResource->Delete();
-    m_LastContextMenuResource = NULL;
+    resource->Delete();
 
     m_OPFModel.Refresh();
 }
@@ -265,6 +268,10 @@ void BookBrowser::CreateActions()
     m_AddExisting = new QAction( "Add existing items...", this );
     m_Rename      = new QAction( "Rename",                this );
     m_Remove      = new QAction( "Remove",                this );
+
+    m_Remove->setShortcut( QKeySequence::Delete );
+
+    addAction( m_Remove );
 }
 
 
@@ -289,16 +296,13 @@ bool BookBrowser::SuccessfullySetupContextMenu( const QPoint &point )
         m_ContextMenu.addAction( m_AddNew );
     }
 
-    const QString &identifier = item->data().toString(); 
-    Resource *resource = &m_Book->GetFolderKeeper().GetResourceByIdentifier( identifier );
+    Resource *resource = GetCurrentResource();
 
     // We just don't add the remove and rename
     // actions, but we do pop up the context menu.
     if ( !resource )
 
-        return true;
-
-    m_LastContextMenuResource = resource;   
+        return true; 
 
     m_ContextMenu.addSeparator();
     m_ContextMenu.addAction( m_Remove );
@@ -322,5 +326,21 @@ void BookBrowser::ConnectSignalsToSlots()
     connect( m_Remove,      SIGNAL( triggered() ), this, SLOT( Remove()      ) );
 }
 
+
+// Can return NULL
+Resource* BookBrowser::GetCurrentResource()
+{
+    QModelIndex index = m_TreeView.currentIndex();
+
+    if ( !index.isValid() )
+
+        return NULL;
+
+    QStandardItem *item = m_OPFModel.itemFromIndex( index );
+    Q_ASSERT( item );
+
+    const QString &identifier = item->data().toString(); 
+    return &m_Book->GetFolderKeeper().GetResourceByIdentifier( identifier );
+}   
 
 

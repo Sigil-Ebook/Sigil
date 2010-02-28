@@ -30,7 +30,7 @@ class AnchorUpdates
 
 public:
 
-    static void UpdateAllAnchors( const QList< HTMLResource* > &html_resources );
+    static void UpdateAllAnchorsWithIDs( const QList< HTMLResource* > &html_resources );
 
 private:
 

@@ -67,7 +67,7 @@ QSharedPointer< Book > ImportSGF::GetBook()
 
     CreateXHTMLFiles( source, header, LoadFolderStructure() );
    
-    AnchorUpdates::UpdateAllAnchors( m_Book->GetFolderKeeper().GetSortedHTMLResources() );
+    AnchorUpdates::UpdateAllAnchorsWithIDs( m_Book->GetFolderKeeper().GetSortedHTMLResources() );
 
     return m_Book;
 }
