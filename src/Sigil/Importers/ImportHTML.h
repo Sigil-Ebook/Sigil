@@ -71,11 +71,6 @@ private:
                       QDomDocument &document,
                       const QHash< QString, QString > &updates );
 
-    // Copied from ImportEPUB because the importers will
-    // soon become independent plugins (as shared libraries)
-    static void UpdateOneCSSFile( CSSResource* css_resource, 
-                                  const QHash< QString, QString > &css_updates );
-
     // Loads the referenced files into the main folder of the book;
     // as the files get a new name, the references are updated 
     QHash< QString, QString > LoadFolderStructure( const QDomDocument &document );

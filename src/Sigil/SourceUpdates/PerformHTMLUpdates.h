@@ -42,10 +42,7 @@ public:
                         const QHash< QString, QString > &html_updates,
                         const QHash< QString, QString > &css_updates );
 
-    QDomDocument operator()( );
-
-    static tuple< QHash< QString, QString >, 
-                  QHash< QString, QString > > SeparateHTMLAndCSSUpdates( const QHash< QString, QString > &updates );
+    QDomDocument operator()();
 
 private:
 

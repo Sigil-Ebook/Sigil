@@ -28,7 +28,7 @@
 #include "ResourceObjects/HTMLResource.h"
 #include "ResourceObjects/CSSResource.h"
 #include "../SourceUpdates/PerformHTMLUpdates.h"
-#include "../SourceUpdates/PerformCSSUpdates.h"
+#include "../SourceUpdates/UniversalUpdates.h"
 #include "../BookManipulation/XHTMLDoc.h"
 #include <QDomDocument>
 
@@ -202,7 +202,7 @@ void ImportHTML::UpdateFiles( HTMLResource &html_resource,
 
     QHash< QString, QString > html_updates;
     QHash< QString, QString > css_updates;
-    tie( html_updates, css_updates ) = PerformHTMLUpdates::SeparateHTMLAndCSSUpdates( updates );
+    tie( html_updates, css_updates ) = UniversalUpdates::SeparateHTMLAndCSSUpdates( updates );
 
     QList< Resource* > all_files = m_Book->GetFolderKeeper().GetResourceList();
     int num_files = all_files.count();
@@ -219,19 +219,12 @@ void ImportHTML::UpdateFiles( HTMLResource &html_resource,
     }
 
     QFutureSynchronizer<void> sync;
-    sync.addFuture( QtConcurrent::map( css_resources, boost::bind( UpdateOneCSSFile, _1, css_updates ) ) );
+    sync.addFuture( QtConcurrent::map( css_resources, 
+        boost::bind( UniversalUpdates::LoadAndUpdateOneCSSFile, _1, css_updates ) ) );
 
     html_resource.SetDomDocument( PerformHTMLUpdates( document, html_updates, css_updates )() );
 
     sync.waitForFinished();
-}
-
-
-void ImportHTML::UpdateOneCSSFile( CSSResource* css_resource, const QHash< QString, QString > &css_updates )
-{
-    QString source = Utility::ReadUnicodeTextFile( css_resource->GetFullPath() );
-    source = PerformCSSUpdates( source, css_updates )();
-    css_resource->SetText( source );
 }
 
 

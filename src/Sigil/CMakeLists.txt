@@ -229,6 +229,8 @@ set( SOURCEUPDATE_FILES
     SourceUpdates/PerformCSSUpdates.h
     SourceUpdates/AnchorUpdates.cpp
     SourceUpdates/AnchorUpdates.h
+    SourceUpdates/UniversalUpdates.cpp
+    SourceUpdates/UniversalUpdates.h
     )
             
 set( QRC_FILES  
