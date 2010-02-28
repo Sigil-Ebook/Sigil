@@ -27,6 +27,13 @@
 
 static const QString LOADED_CONTENT_MIMETYPE = "application/xhtml+xml";
 
+ // The javascript source code of the jQuery library
+static const QString JQUERY_SOURCE = Utility::ReadUnicodeTextFile( ":/javascript/jquery-1.4.2.min.js" );
+
+// The javascript source code of the jQuery
+// ScrollTo extension library
+static const QString JQUERY_SCROLLTO_SOURCE = Utility::ReadUnicodeTextFile( ":/javascript/jquery.scrollTo-1.4.2-min.js" );
+
 
 HTMLResource::HTMLResource( const QString &fullfilepath, 
                             QHash< QString, Resource* > *hash_owner,
@@ -250,6 +257,18 @@ void HTMLResource::LinkedCSSResourceUpdated()
 }
 
 
+// We need to load the jQuery libs here since
+// we sometimes need to use them outside of
+// BookViewEditor.
+void HTMLResource::WebPageJavascriptOnLoad()
+{
+    Q_ASSERT( m_WebPage );
+
+    m_WebPage->mainFrame()->evaluateJavaScript( JQUERY_SOURCE          );
+    m_WebPage->mainFrame()->evaluateJavaScript( JQUERY_SCROLLTO_SOURCE );
+}
+
+
 QString HTMLResource::GetWebPageHTML()
 {
     Q_ASSERT( m_WebPage );
@@ -263,6 +282,8 @@ QString HTMLResource::GetWebPageHTML()
 void HTMLResource::SetWebPageHTML( const QString &source )
 {
     Q_ASSERT( m_WebPage );
+
+    connect( m_WebPage, SIGNAL( loadFinished( bool ) ), this, SLOT( WebPageJavascriptOnLoad() ) );
 
     m_WebPage->mainFrame()->setContent( source.toUtf8(), LOADED_CONTENT_MIMETYPE, GetBaseUrl() );
     m_WebPage->setContentEditable( true );
@@ -332,5 +353,3 @@ void HTMLResource::TrackNewCSSResources( const QStringList &filepaths )
         connect( resource, SIGNAL( ResourceUpdatedOnDisk() ), this, SLOT( LinkedCSSResourceUpdated() ) );
     }
 }
-
-

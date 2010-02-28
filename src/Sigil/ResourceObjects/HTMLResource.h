@@ -88,6 +88,8 @@ private slots:
 
     void LinkedCSSResourceUpdated();
 
+    void WebPageJavascriptOnLoad();
+
 private:
 
     QString GetWebPageHTML();

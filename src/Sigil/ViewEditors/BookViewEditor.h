@@ -121,10 +121,6 @@ signals:
     // and we also emit it ourselves when necessary.
     void textChanged();
 
-    // The selectionChanged QWebPage signal is wired to this one,
-    // and we also emit it ourselves when necessary.
-    void selectionChanged();
-
     // Emitted whenever the zoom factor changes
     void ZoomFactorChanged( float new_zoom_factor );
 
@@ -266,13 +262,6 @@ private:
     ///////////////////////////////
     // PRIVATE MEMBER VARIABLES
     ///////////////////////////////
-
-    // The javascript source code of the jQuery library
-    const QString c_JQuery;
-
-    // The javascript source code of the jQuery
-    // ScrollTo extension library
-    const QString c_JQueryScrollTo;
 
     // The javascript source code used
     // to get a hierarchy of elements from

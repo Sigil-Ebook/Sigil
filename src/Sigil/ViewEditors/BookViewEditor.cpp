@@ -40,8 +40,6 @@ static const QString GET_BODY_TAG_HTML = "new XMLSerializer().serializeToString(
 BookViewEditor::BookViewEditor( QWidget *parent )
     : 
     QWebView( parent ),
-    c_JQuery(           Utility::ReadUnicodeTextFile( ":/javascript/jquery-1.4.2.min.js"           ) ),
-    c_JQueryScrollTo(   Utility::ReadUnicodeTextFile( ":/javascript/jquery.scrollTo-1.4.2-min.js"  ) ),
     c_GetCaretLocation( Utility::ReadUnicodeTextFile( ":/javascript/book_view_current_location.js" ) ),
     c_NewSelection(     Utility::ReadUnicodeTextFile( ":/javascript/new_selection.js"              ) ),
     c_GetRange(         Utility::ReadUnicodeTextFile( ":/javascript/get_range.js"                  ) ),
@@ -64,16 +62,19 @@ BookViewEditor::BookViewEditor( QWidget *parent )
 
 void BookViewEditor::CustomSetWebPage( QWebPage &webpage )
 {
-    setPage( &webpage );
-    connect( page(), SIGNAL( contentsChanged()    ), this, SIGNAL( textChanged()            ) );
-    connect( page(), SIGNAL( selectionChanged()   ), this, SIGNAL( selectionChanged()       ) );
-    connect( page(), SIGNAL( loadFinished( bool ) ), this, SLOT( JavascriptOnDocumentLoad() ) );
-    connect( page(), SIGNAL( loadProgress( int )  ), this, SLOT( UpdateFinishedState( int ) ) );
+    connect( &webpage, SIGNAL( contentsChanged()    ), this, SIGNAL( textChanged()            ) );
+    connect( &webpage, SIGNAL( selectionChanged()   ), this, SIGNAL( selectionChanged()       ) );
+    connect( &webpage, SIGNAL( loadFinished( bool ) ), this, SLOT( JavascriptOnDocumentLoad() ) );
+    connect( &webpage, SIGNAL( loadProgress( int )  ), this, SLOT( UpdateFinishedState( int ) ) );
 
-    connect( page(), SIGNAL( linkClicked( const QUrl& ) ), this, SLOT( LinkClickedFilter( const QUrl&  ) ) );
+    connect( &webpage, SIGNAL( linkClicked( const QUrl& ) ), this, SLOT( LinkClickedFilter( const QUrl&  ) ) );
 
     connect( this,                     SIGNAL( FilteredLinkClicked( const QUrl& ) ),
              this->parent()->parent(), SIGNAL( LinkClicked(         const QUrl& ) ) );
+
+    // Needs to come after the signals connect;
+    // we don't want race conditions.
+    setPage( &webpage );
 }
 
 
@@ -84,7 +85,8 @@ void BookViewEditor::CustomSetWebPage( QWebPage &webpage )
 //    Why? Because we can only avoid a tab render in the tab from which
 // we remove elements. Since the users move from the top of a large HTML
 // file down, the new chapter will be the one with the most content.
-// So this way we avoid the painfull render time on the biggest chapter.
+// So this way we *try* avoid the painfull render time on the biggest
+// chapter, but there is still some render time left...
 QString BookViewEditor::SplitChapter()
 {
     QString head     = page()->mainFrame()->documentElement().findFirst( "head" ).toOuterXml();    
@@ -402,9 +404,8 @@ bool BookViewEditor::event( QEvent *event )
 // the document has finished loading
 void BookViewEditor::JavascriptOnDocumentLoad()
 {
-    // Javascript libraries needed
-    EvaluateJavascript( c_JQuery );
-    EvaluateJavascript( c_JQueryScrollTo ); 
+    // The jQuery libs are loaded in 
+    // HTMLResouce::WebPageJavascriptOnLoad
 
     // Run the caret update if it's pending
     ExecuteCaretUpdate();
