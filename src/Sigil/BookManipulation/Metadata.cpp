@@ -330,6 +330,13 @@ Metadata::MetaElement Metadata::CreateContribMetadata( const Metadata::MetaEleme
     // We convert the role into the new metadata name (e.g. aut -> Author)
     QString name    = GetFullRelatorNameHash()[ role ];
 
+    // Some epub exporters set incorrect opf:role attributes
+    // and we need to handle that. Otherwise, Sigil bugs out on export.
+    // Since we can't tell what the role is, just guess author.
+    if ( name.isEmpty() )
+
+        name = GetFullRelatorNameHash()[ "aut" ];
+
     // If a "file-as" attribute is provided, we use that as the value
     QString file_as = meta.attributes.value( "file-as" );
 

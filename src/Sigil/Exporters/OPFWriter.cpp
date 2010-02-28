@@ -113,10 +113,15 @@ void OPFWriter::WriteMetadata()
 // the specialized Write* functions write the elements
 void OPFWriter::MetadataDispatcher( const QString &metaname, const QVariant &metavalue )
 {
+    // We ignore badly formed meta elements.
+    if ( metaname.isEmpty() || metavalue.isNull() )
+
+        return;
+
     // There is a relator for the publisher, but there is
     // also a special publisher element that we would rather use
     if (  Metadata::Instance().GetRelatorMap().contains( metaname ) &&
-          metaname != QObject::tr( "Publisher" ) 
+          metaname != QObject::tr( "Publisher" )
        )
     {
         WriteCreatorOrContributor( metaname, metavalue.toString() );
