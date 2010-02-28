@@ -343,9 +343,11 @@ void OPFWriter::CreateMimetypes()
     m_Mimetypes[ "svg"   ] = "image/svg+xml";	
 
     m_Mimetypes[ "ncx"   ] = "application/x-dtbncx+xml"; 
+
+    // We convert all HTML document types to XHTML
     m_Mimetypes[ "xhtml" ] = "application/xhtml+xml"; 
-    m_Mimetypes[ "html"  ] = "text/html"; 
-    m_Mimetypes[ "htm"   ] = "text/html"; 
+    m_Mimetypes[ "html"  ] = "application/xhtml+xml"; 
+    m_Mimetypes[ "htm"   ] = "application/xhtml+xml"; 
     m_Mimetypes[ "css"   ] = "text/css"; 
 
     // Hopefully we won't get a lot of these
