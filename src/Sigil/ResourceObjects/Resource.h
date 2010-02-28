@@ -75,6 +75,8 @@ signals:
 
     void Deleted();
 
+    void ResourceUpdatedOnDisk();
+
 protected:
 
     QString m_Identifier;

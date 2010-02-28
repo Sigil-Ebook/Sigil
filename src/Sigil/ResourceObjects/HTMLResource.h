@@ -86,7 +86,7 @@ public:
 
 private slots:
 
-    void LinkedCSSResourceUpdated();
+    void LinkedResourceUpdated();
 
     void WebPageJavascriptOnLoad();
 
@@ -96,13 +96,13 @@ private:
 
     void SetWebPageHTML( const QString &source );
 
-    QStringList GetPathsToLinkedStylesheets();
+    QStringList GetPathsToLinkedResources();
 
-    void TrackNewCSSResources( const QStringList &filepaths );
+    void TrackNewResources( const QStringList &filepaths );
 
-    // Making this a list of CSSResources fails to compile,
-    // no matter what header we include...
-    QList< Resource* > m_LinkedCSSResources;
+    // We use resource IDs and not resource pointers
+    // to avoid problems with dangling pointers.
+    QStringList m_LinkedResourceIDs;
 
     // This is the actual HTML resource backing store.
     // The final arbiter of the content in the HTMLResource.
@@ -125,7 +125,7 @@ private:
     bool m_WebPageIsOld;
     bool m_TextDocumentIsOld;
 
-    bool m_CSSResourcesUpdated;
+    bool m_RefreshNeeded;
 
     // Starts at 0, not 1
     int m_ReadingOrder;

@@ -195,9 +195,25 @@ void BookBrowser::Rename()
 
 
 void BookBrowser::Remove()
-{
+{    
+    Resource::ResourceType resource_type = m_LastContextMenuResource->Type();
 
+    if ( resource_type == Resource::HTMLResource &&
+         m_Book->GetConstFolderKeeper().GetSortedHTMLResources().count() == 1 )
+    {
+        QMessageBox::warning( 0,
+                              tr( "Sigil" ),
+                              tr( "The last HTML file cannot be removed.\n" 
+                                  "There always has to be at least one." )
+                            );
+
+        return;
+    }
+
+    m_LastContextMenuResource->Delete();
     m_LastContextMenuResource = NULL;
+
+    m_OPFModel.Refresh();
 }
 
 

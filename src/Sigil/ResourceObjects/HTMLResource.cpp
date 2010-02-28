@@ -132,7 +132,7 @@ void HTMLResource::UpdateWebPageFromDomDocument()
 {
     Q_ASSERT( QThread::currentThread() == QApplication::instance()->thread() );
 
-    if ( !m_WebPageIsOld && !m_CSSResourcesUpdated )
+    if ( !m_WebPageIsOld && !m_RefreshNeeded )
 
         return;
 
@@ -143,7 +143,7 @@ void HTMLResource::UpdateWebPageFromDomDocument()
     SetWebPageHTML( XHTMLDoc::GetQDomNodeAsString( m_DomDocument ) );
 
     m_WebPageIsOld = false;
-    m_CSSResourcesUpdated = false;
+    m_RefreshNeeded = false;
 }
 
 
@@ -175,11 +175,11 @@ void HTMLResource::UpdateWebPageFromTextDocument()
 
     QString source = CleanSource::Clean( m_TextDocument->toPlainText() );
 
-    if ( m_OldSourceCache != source || m_CSSResourcesUpdated )
+    if ( m_OldSourceCache != source || m_RefreshNeeded )
     {
         SetWebPageHTML( source );
         m_OldSourceCache = source;
-        m_CSSResourcesUpdated = false;
+        m_RefreshNeeded = false;
     }
 }
 
@@ -249,9 +249,9 @@ bool HTMLResource::LessThan( HTMLResource* res_1, HTMLResource* res_2 )
 }
 
 
-void HTMLResource::LinkedCSSResourceUpdated()
+void HTMLResource::LinkedResourceUpdated()
 {
-    m_CSSResourcesUpdated = true;
+    m_RefreshNeeded = true;
 
     QWebSettings::clearMemoryCaches();
 }
@@ -292,7 +292,7 @@ void HTMLResource::SetWebPageHTML( const QString &source )
     // that asks the user if he wants to open this external link in a browser
     m_WebPage->setLinkDelegationPolicy( QWebPage::DelegateAllLinks );
 
-    TrackNewCSSResources( GetPathsToLinkedStylesheets() );
+    TrackNewResources( GetPathsToLinkedResources() );
 
     QWebSettings &settings = *m_WebPage->settings();
     settings.setAttribute( QWebSettings::LocalContentCanAccessRemoteUrls, false );
@@ -301,36 +301,50 @@ void HTMLResource::SetWebPageHTML( const QString &source )
 }
 
 
-QStringList HTMLResource::GetPathsToLinkedStylesheets()
+QStringList HTMLResource::GetPathsToLinkedResources()
 {
     Q_ASSERT( m_WebPage );
 
-    QWebElementCollection collection = m_WebPage->mainFrame()->findAllElements( "link" );
+    QWebElementCollection elements = m_WebPage->mainFrame()->findAllElements( "link, img" );
 
-    QStringList linked_stylesheets;
+    QStringList linked_resources;
 
-    foreach( QWebElement element, collection )
+    foreach( QWebElement element, elements )
     {
-        if ( element.attribute( "rel" ).toLower() == "stylesheet" &&
-             element.hasAttribute( "href" ) 
-           )
+        // We skip the link elements that are not stylesheets
+        if ( element.tagName().toLower() == "link" && 
+             element.attribute( "rel" ).toLower() != "stylesheet" )
         {
-            linked_stylesheets.append( element.attribute( "href" ) );
+            continue;
         }
+
+        if ( element.hasAttribute( "href" ) )
+        
+            linked_resources.append( element.attribute( "href" ) );        
+
+        else if ( element.hasAttribute( "src" ) )
+        
+            linked_resources.append( element.attribute( "src" ) );
     }
 
-    return linked_stylesheets;
+    return linked_resources;
 }
 
 
-void HTMLResource::TrackNewCSSResources( const QStringList &filepaths )
+void HTMLResource::TrackNewResources( const QStringList &filepaths )
 {    
-    foreach( Resource *resource, m_LinkedCSSResources )
+    foreach( QString resource_id, m_LinkedResourceIDs )
     {
-        disconnect( resource, SIGNAL( ResourceUpdatedOnDisk() ), this, SLOT( LinkedCSSResourceUpdated() ) );
+        Resource *resource = m_HashOwner.value( resource_id );
+
+        if ( resource )
+        {
+            disconnect( resource, SIGNAL( ResourceUpdatedOnDisk() ), this, SLOT( LinkedResourceUpdated() ) );
+            disconnect( resource, SIGNAL( Deleted()               ), this, SLOT( LinkedResourceUpdated() ) );
+        }
     }
 
-    m_LinkedCSSResources.clear();
+    m_LinkedResourceIDs.clear();
     QStringList filenames;
 
     foreach( QString filepath, filepaths )
@@ -340,16 +354,19 @@ void HTMLResource::TrackNewCSSResources( const QStringList &filepaths )
 
     foreach( Resource *resource, m_HashOwner.values() )
     {
-        if ( resource->Type() == Resource::CSSResource )
-        {
-            if ( filenames.contains( resource->Filename() ) )
-                
-                m_LinkedCSSResources.append( resource );
-        }
+        if ( filenames.contains( resource->Filename() ) )
+            
+            m_LinkedResourceIDs.append( resource->GetIdentifier() );
     }
 
-    foreach( Resource *resource, m_LinkedCSSResources )
+    foreach( QString resource_id, m_LinkedResourceIDs )
     {
-        connect( resource, SIGNAL( ResourceUpdatedOnDisk() ), this, SLOT( LinkedCSSResourceUpdated() ) );
+        Resource *resource = m_HashOwner.value( resource_id );
+
+        if ( resource )
+        {
+            connect( resource, SIGNAL( ResourceUpdatedOnDisk() ), this, SLOT( LinkedResourceUpdated() ) );
+            connect( resource, SIGNAL( Deleted()               ), this, SLOT( LinkedResourceUpdated() ) );
+        }
     }
 }
