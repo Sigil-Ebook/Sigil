@@ -63,7 +63,7 @@ BookViewEditor::BookViewEditor( QWidget *parent )
     : 
     QWebView( parent ),
     m_CaretLocationUpdate( QString() ),
-    m_isLoadFinished( false ),
+    m_isLoadFinished( true ),
     m_PageUp(   *( new QShortcut( QKeySequence( QKeySequence::MoveToPreviousPage ), this ) ) ),
     m_PageDown( *( new QShortcut( QKeySequence( QKeySequence::MoveToNextPage     ), this ) ) ),
     m_ScrollOneLineUp(   *( new QShortcut( QKeySequence( Qt::ControlModifier + Qt::Key_Up   ), this ) ) ),
