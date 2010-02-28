@@ -125,8 +125,10 @@ public slots:
     // Implements Insert chapter break action functionality
     void InsertChapterBreak();
 
-    // Implements Insert image action functionality
-    void InsertImage();
+    // Implements *a part* of Insert image action functionality
+    // The rest is in MainWindow. (it has to be, FlowTabs don't
+    // have a reference to the Book object)
+    void InsertImage( const QString &image_path );
 
     // Implements Insert bulleted list action functionality
     void InsertBulletedList();
@@ -233,11 +235,6 @@ private:
     // We need this variable because for some reason,
     // checking for isVisible on both views doesn't work.
     bool m_InSplitView;
-
-    // The last folder to which the user imported an image;
-    // Static is safe since only the GUI thread can
-    // open/close dialogs and thus change this value.
-    static QString s_LastFolderImage;
 };
 
 #endif // FLOWTAB_H

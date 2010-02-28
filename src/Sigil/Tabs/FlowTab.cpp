@@ -29,8 +29,6 @@
 
 static const QString SETTINGS_GROUP = "flowtab";
 
-QString FlowTab::s_LastFolderImage = QString();
-
 
 FlowTab::FlowTab( Resource& resource, const QUrl &fragment, QWidget *parent )
     : 
@@ -456,33 +454,12 @@ void FlowTab::InsertChapterBreak()
 
 
 // Implements Insert image action functionality
-void FlowTab::InsertImage()
+void FlowTab::InsertImage( const QString &image_path )
 {
-    QStringList filenames = QFileDialog::getOpenFileNames(  this, 
-                                                            tr( "Insert Image(s)" ), 
-                                                            s_LastFolderImage, 
-                                                            tr( "Images (*.png *.jpg *.jpeg *.gif *.svg)")
-                                                         );
-
-    if ( filenames.isEmpty() )
-
-        return;
-
-    // Store the folder the user inserted the image from
-    s_LastFolderImage = QFileInfo( filenames.first() ).absolutePath();
-
     // Make sure the Book View has focus before inserting images,
     // otherwise they are not inserted
     m_wBookView.GrabFocus();
-
-    // FIXME: image loading
-
-//     foreach( QString filename, filenames )
-//     {
-//         QString relative_path = "../" + m_Book->GetFolderKeeper().AddContentFileToFolder( filename );
-// 
-//         m_wBookView.ExecCommand( "insertImage", relative_path );
-//     }    
+    m_wBookView.ExecCommand( "insertImage", image_path );
 
     m_HTMLResource.RemoveWebkitClasses();
 }
@@ -796,7 +773,13 @@ void FlowTab::ReadSettings()
     QSettings settings;
     settings.beginGroup( SETTINGS_GROUP );
 
-    s_LastFolderImage = settings.value( "lastfolderimage" ).toString();
+    // TODO: fill this... with what?
+}
+
+void FlowTab::WriteSettings()
+{
+    QSettings settings;
+    settings.beginGroup( SETTINGS_GROUP );    
 }
 
 
@@ -810,15 +793,6 @@ ViewEditor& FlowTab::GetActiveViewEditor() const
     else
 
         return m_wCodeView;
-}
-
-
-void FlowTab::WriteSettings()
-{
-    QSettings settings;
-    settings.beginGroup( SETTINGS_GROUP );
-
-    settings.setValue( "lastfolderimage", s_LastFolderImage );
 }
 
 

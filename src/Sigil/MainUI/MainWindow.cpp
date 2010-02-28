@@ -34,6 +34,7 @@
 #include "BookManipulation/SigilMarkup.h"
 #include "MainUI/BookBrowser.h"
 #include "Tabs/ContentTab.h"
+#include "Tabs/FlowTab.h"
 #include "Tabs/TabManager.h"
 #include "ResourceObjects/HTMLResource.h"
 
@@ -315,6 +316,36 @@ void MainWindow::ZoomIn()
 void MainWindow::ZoomOut()
 {
     ZoomByStep( false );  
+}
+
+
+void MainWindow::InsertImage()
+{
+    QStringList filenames = QFileDialog::getOpenFileNames( this, 
+                                                           tr( "Insert Image(s)" ), 
+                                                           m_LastFolderImage, 
+                                                           tr( "Images (*.png *.jpg *.jpeg *.gif *.svg)")
+                                                         );
+
+    if ( filenames.isEmpty() )
+
+        return;
+
+    // Store the folder the user inserted the image from
+    m_LastFolderImage = QFileInfo( filenames.first() ).absolutePath();
+
+    FlowTab &flow_tab = *qobject_cast< FlowTab* >( &m_TabManager.GetCurrentContentTab() );
+    Q_ASSERT( &flow_tab );
+
+    foreach( QString filename, filenames )
+    {
+        Resource &resource = m_Book->GetFolderKeeper().AddContentFileToFolder( filename );
+        const QString &relative_path = "../" + resource.GetRelativePathToOEBPS();
+        
+        flow_tab.InsertImage( relative_path );
+    }  
+
+    m_BookBrowser->Refresh();
 }
 
 
@@ -656,8 +687,9 @@ void MainWindow::ReadSettings()
     //    ui.splitter->restoreState( splitter_position );
 
     // The last folders used for saving and opening files
-    m_LastFolderSave = settings.value( "lastfoldersave"  ).toString();
-    m_LastFolderOpen = settings.value( "lastfolderopen"  ).toString();
+    m_LastFolderSave  = settings.value( "lastfoldersave"  ).toString();
+    m_LastFolderOpen  = settings.value( "lastfolderopen"  ).toString();
+    m_LastFolderImage = settings.value( "lastfolderimage" ).toString();
 
     // The list of recent files
     s_RecentFiles    = settings.value( "recentfiles" ).toStringList();
@@ -689,8 +721,9 @@ void MainWindow::WriteSettings()
     //settings.setValue( "splitview_splitter", ui.splitter->saveState() );
 
     // The last folders used for saving and opening files
-    settings.setValue( "lastfoldersave", m_LastFolderSave );
-    settings.setValue( "lastfolderopen", m_LastFolderOpen );   
+    settings.setValue( "lastfoldersave",  m_LastFolderSave  );
+    settings.setValue( "lastfolderopen",  m_LastFolderOpen  );
+    settings.setValue( "lastfolderimage", m_LastFolderImage );
 
     // The list of recent files
     settings.setValue( "recentfiles", s_RecentFiles );
@@ -1231,7 +1264,8 @@ void MainWindow::ConnectSignalsToSlots()
     connect( ui.actionFind,          SIGNAL( triggered() ), this, SLOT( Find()             ) );
     connect( ui.actionReplace,       SIGNAL( triggered() ), this, SLOT( Replace()          ) );
     connect( ui.actionZoomIn,        SIGNAL( triggered() ), this, SLOT( ZoomIn()           ) );
-    connect( ui.actionZoomOut,       SIGNAL( triggered() ), this, SLOT( ZoomOut()          ) );  
+    connect( ui.actionZoomOut,       SIGNAL( triggered() ), this, SLOT( ZoomOut()          ) );
+    connect( ui.actionInsertImage,   SIGNAL( triggered() ), this, SLOT( InsertImage()      ) );
     connect( ui.actionMetaEditor,    SIGNAL( triggered() ), this, SLOT( MetaEditorDialog() ) );
     connect( ui.actionTOCEditor,     SIGNAL( triggered() ), this, SLOT( TOCEditorDialog()  ) );
     connect( ui.actionReportAnIssue, SIGNAL( triggered() ), this, SLOT( ReportAnIssue()    ) );
@@ -1281,7 +1315,6 @@ void MainWindow::MakeTabConnections( ContentTab *tab )
     connect( ui.actionAlignRight,           SIGNAL( triggered() ),  tab,   SLOT( AlignRight()          ) );
     connect( ui.actionJustify,              SIGNAL( triggered() ),  tab,   SLOT( Justify()             ) );
     connect( ui.actionInsertChapterBreak,   SIGNAL( triggered() ),  tab,   SLOT( InsertChapterBreak()  ) );
-    connect( ui.actionInsertImage,          SIGNAL( triggered() ),  tab,   SLOT( InsertImage()         ) );
     connect( ui.actionInsertBulletedList,   SIGNAL( triggered() ),  tab,   SLOT( InsertBulletedList()  ) );
     connect( ui.actionInsertNumberedList,   SIGNAL( triggered() ),  tab,   SLOT( InsertNumberedList()  ) );
     connect( ui.actionDecreaseIndent,       SIGNAL( triggered() ),  tab,   SLOT( DecreaseIndent()      ) );
@@ -1328,7 +1361,6 @@ void MainWindow::BreakTabConnections( ContentTab *tab )
     disconnect( ui.actionAlignRight,          0, tab, 0 );
     disconnect( ui.actionJustify,             0, tab, 0 );
     disconnect( ui.actionInsertChapterBreak,  0, tab, 0 );
-    disconnect( ui.actionInsertImage,         0, tab, 0 );
     disconnect( ui.actionInsertBulletedList,  0, tab, 0 );
     disconnect( ui.actionInsertNumberedList,  0, tab, 0 );
     disconnect( ui.actionDecreaseIndent,      0, tab, 0 );
@@ -1346,7 +1378,6 @@ void MainWindow::BreakTabConnections( ContentTab *tab )
 
     disconnect( tab,                          0, this, 0 );
 }
-
 
 
 

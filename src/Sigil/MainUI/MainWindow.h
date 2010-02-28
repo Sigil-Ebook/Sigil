@@ -86,6 +86,9 @@ private slots:
     // Implements Zoom Out action functionality
     void ZoomOut();
 
+    // Implements Insert image action functionality
+    void InsertImage();
+
     // Implements Meta Editor action functionality
     void MetaEditorDialog();
 
@@ -245,6 +248,9 @@ private:
 
     // The last folder to which the user saved a file
     QString m_LastFolderSave;
+
+    // The last folder to which the user imported an image;
+    QString m_LastFolderImage;
 
     // The list of full file names/paths
     // for the last MAX_RECENT_FILES files;
