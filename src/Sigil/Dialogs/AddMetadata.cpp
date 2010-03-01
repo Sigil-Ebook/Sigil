@@ -25,14 +25,16 @@
 
 static const QString SETTINGS_GROUP = "add_metadata";
 
-// Constructor
+
 AddMetadata::AddMetadata( const QMap< QString, Metadata::MetaInfo > &metadata, QWidget *parent )
-    : QDialog( parent ), m_Metadata( metadata )
+    : 
+    QDialog( parent ),
+    m_Metadata( metadata )
 {
     ui.setupUi( this );
 
-    connect(	ui.lwProperties,	SIGNAL( currentItemChanged( QListWidgetItem*, QListWidgetItem* ) ),
-                this,				SLOT( UpdateDescription( QListWidgetItem* ) )		);
+    connect( ui.lwProperties, SIGNAL( currentItemChanged( QListWidgetItem*, QListWidgetItem* ) ),
+             this,	          SLOT(   UpdateDescription(  QListWidgetItem* ) ) );
 
     connect( this, SIGNAL( accepted() ), this, SLOT( EmitSelection() ) );
 
@@ -45,15 +47,13 @@ AddMetadata::AddMetadata( const QMap< QString, Metadata::MetaInfo > &metadata, Q
     ReadSettings();
 }
 
-// Destructor
+
 AddMetadata::~AddMetadata()
 {
     WriteSettings();
 }
 
 
-// Updates the description of the currently selected item
-// whenever the user selects a new item
 void AddMetadata::UpdateDescription( QListWidgetItem *current )
 {
     QString text = m_Metadata.value( current->text() ).description;
@@ -64,17 +64,12 @@ void AddMetadata::UpdateDescription( QListWidgetItem *current )
 }
 
 
-// Emits the name of the metadata that
-// should be added to the metadata table;
-// should be called on accept signal
 void AddMetadata::EmitSelection()
 {
     emit MetadataToAdd( ui.lwProperties->currentItem()->text() );
 }
 
 
-// Reads all the stored application settings like
-// window position, geometry etc.
 void AddMetadata::ReadSettings()
 {
     QSettings settings;
@@ -96,8 +91,6 @@ void AddMetadata::ReadSettings()
 }
 
 
-// Writes all the stored application settings like
-// window position, geometry etc.
 void AddMetadata::WriteSettings()
 {
     QSettings settings;
