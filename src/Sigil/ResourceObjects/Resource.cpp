@@ -119,9 +119,6 @@ Resource::ResourceType Resource::Type() const
 }
 
 
-// The default implementation does nothing,
-// and assumes the resource data is not being
-// cached in memory.
 void Resource::SaveToDisk()
 {
     return;
