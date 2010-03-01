@@ -83,6 +83,8 @@ private:
     // that his last search term could not be found.
     void CannotFindSearchTerm();
 
+    Searchable* GetAvailableSearchable();
+
     // Constructs a searching regex from the selected 
     // options and fields and then returns it.
     QRegExp GetSearchRegex();

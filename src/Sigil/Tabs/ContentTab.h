@@ -66,6 +66,9 @@ public:
     virtual float GetZoomFactor() const { return 1.0;   }
     virtual void SetZoomFactor( float new_zoom_factor ) { }
 
+    // Returns pointer instead of reference
+    // because we need to return NULL for
+    // tabs with no searchable content.
     virtual Searchable* GetSearchableContent();
 
     enum ViewState

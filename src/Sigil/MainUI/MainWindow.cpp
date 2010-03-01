@@ -287,7 +287,6 @@ void MainWindow::Find()
     {   
         // Qt will delete this dialog from memory when it closes
         m_FindReplace = new FindReplace( true, m_TabManager, this );
-
         m_FindReplace.data()->show();
     }
 }
@@ -300,10 +299,10 @@ void MainWindow::Replace()
     {   
         // Qt will delete this dialog from memory when it closes
         m_FindReplace = new FindReplace( false, m_TabManager, this );
-
         m_FindReplace.data()->show();
     }
 }
+
 
 // Implements Zoom In action functionality
 void MainWindow::ZoomIn()

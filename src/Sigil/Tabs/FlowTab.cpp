@@ -232,6 +232,30 @@ void FlowTab::SetZoomFactor( float new_zoom_factor )
 }
 
 
+Searchable* FlowTab::GetSearchableContent()
+{
+    if ( m_IsLastViewBook )
+
+        return &m_wBookView;
+
+    else
+
+        return &m_wCodeView;
+}
+
+
+ContentTab::ViewState FlowTab::GetViewState()
+{
+    if ( m_IsLastViewBook )
+
+        return ContentTab::ViewState_BookView;
+
+    else
+
+        return ContentTab::ViewState_CodeView;
+}
+
+
 void FlowTab::ScrollToFragment( const QString &fragment )
 {   
     if ( m_wBookView.isVisible() )
@@ -250,19 +274,6 @@ void FlowTab::ScrollToTop()
 
         m_wCodeView.ScrollToTop();
 }
-
-
-ContentTab::ViewState FlowTab::GetViewState()
-{
-    if ( m_IsLastViewBook )
-
-        return ContentTab::ViewState_BookView;
-
-    else
-
-        return ContentTab::ViewState_CodeView;
-}
-
 
 
 // Implements Undo action functionality
@@ -810,3 +821,4 @@ void FlowTab::ConnectSignalsToSlots()
     connect( qApp, SIGNAL( focusChanged( QWidget*, QWidget* ) ), this, SLOT( TabFocusChange( QWidget*, QWidget* ) ) );
     connect( qApp, SIGNAL( focusChanged( QWidget*, QWidget* ) ), this, SLOT( SplitViewFocusSwitch( QWidget*, QWidget* ) ) );
 }
+

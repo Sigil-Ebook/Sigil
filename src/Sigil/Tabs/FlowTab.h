@@ -75,11 +75,13 @@ public:
 
     void SetZoomFactor( float new_zoom_factor );
 
+    Searchable* GetSearchableContent();
+
+    ViewState GetViewState();
+
     void ScrollToFragment( const QString &fragment );
 
     void ScrollToTop();
-
-    ViewState GetViewState();
 
 public slots:
 

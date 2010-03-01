@@ -39,19 +39,21 @@ public:
     TextTab( Resource& resource, CodeViewEditor::HighlighterType type, QWidget *parent = 0 );
 
     // Overrides inherited from ContentTab
-    virtual bool IsModified();
+    bool IsModified();
 
-    virtual bool CutEnabled();
+    bool CutEnabled();
 
-    virtual bool CopyEnabled();
+    bool CopyEnabled();
 
-    virtual bool PasteEnabled();
+    bool PasteEnabled();
 
-    virtual float GetZoomFactor() const;
+    float GetZoomFactor() const;
 
-    virtual void SetZoomFactor( float new_zoom_factor );
+    void SetZoomFactor( float new_zoom_factor );
 
-    virtual ViewState GetViewState();
+    Searchable* GetSearchableContent();
+
+    ViewState GetViewState();
 
 signals:
 

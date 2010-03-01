@@ -79,6 +79,12 @@ void TextTab::SetZoomFactor( float new_zoom_factor )
 }
 
 
+Searchable* TextTab::GetSearchableContent()
+{
+    return &m_wCodeView;
+}
+
+
 ContentTab::ViewState TextTab::GetViewState()
 {
     return ContentTab::ViewState_RawView;
