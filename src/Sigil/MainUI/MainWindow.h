@@ -38,6 +38,14 @@ class TabManager;
 class BookBrowser;
 class ContentTab;
 
+/**
+ * @mainpage 
+ * The conversion of all source comments to Doxygen format
+ * is in progress. Some files have been converted, others have not.
+ * 
+ * Be patient.
+ */
+
 
 class MainWindow : public QMainWindow
 {
