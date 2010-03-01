@@ -174,15 +174,9 @@ void FindReplace::Count()
 
     int count = searchable->Count( GetSearchRegex() );
 
-    QString message;
-
-    if ( count < 1 || count > 1 )
-
-        message = tr( "%1 matches were found." );
-
-    else
-
-        message = tr( "%1 match was found." );
+    QString message = ( count < 1 || count > 1 )     ? 
+                      tr( "%1 matches were found." ) :
+                      tr( "%1 match was found."    );
 
     QMessageBox::information( 0, tr( "Sigil" ), message.arg( count ) );        
 }
@@ -228,15 +222,9 @@ void FindReplace::ReplaceAll()
 
     int count = searchable->ReplaceAll( GetSearchRegex(), ui.leReplace->text() );
 
-    QString message;
-
-    if ( count < 1 || count > 1 )
-
-        message = tr( "The search term was replaced %1 times." );
-
-    else
-
-        message = tr( "The search term was replaced %1 time." );
+    QString message = ( count < 1 || count > 1 )                     ? 
+                      tr( "The search term was replaced %1 times." ) :
+                      tr( "The search term was replaced %1 time."  );
 
     QMessageBox::information( 0, tr( "Sigil" ), message.arg( count ) ); 
 }

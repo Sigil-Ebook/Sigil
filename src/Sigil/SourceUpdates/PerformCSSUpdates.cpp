@@ -33,16 +33,16 @@ PerformCSSUpdates::PerformCSSUpdates( const QString &source, const QHash< QStrin
 
 QString PerformCSSUpdates::operator()()
 {
-    QList< QString > keys = m_CSSUpdates.keys();
+    const QList< QString > &keys = m_CSSUpdates.keys();
     int num_keys = keys.count();
 
     for ( int i = 0; i < num_keys; ++i )
     {
-        QString key_path = keys.at( i );
-        QString filename = QFileInfo( key_path ).fileName();
+        const QString &key_path = keys.at( i );
+        const QString &filename = QFileInfo( key_path ).fileName();
 
         QRegExp reference = QRegExp( "(?:src:|@import)\\s*\\w+\\([\"']*([^\\)\"']*/" + QRegExp::escape( filename ) + "|"
-            + QRegExp::escape( filename ) + ")[\"']*\\)" );
+                            + QRegExp::escape( filename ) + ")[\"']*\\)" );
 
         int index = -1;
 

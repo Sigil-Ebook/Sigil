@@ -35,7 +35,7 @@ void AnchorUpdates::UpdateAllAnchorsWithIDs( const QList< HTMLResource* > &html_
 
 QHash< QString, QString > AnchorUpdates::GetIDLocations( const QList< HTMLResource* > &html_resources )
 {
-    QList< tuple< QString, QList< QString > > > IDs_in_files = QtConcurrent::blockingMapped( html_resources, GetOneFileIDs );
+    const QList< tuple< QString, QList< QString > > > &IDs_in_files = QtConcurrent::blockingMapped( html_resources, GetOneFileIDs );
 
     QHash< QString, QString > ID_locations;
 

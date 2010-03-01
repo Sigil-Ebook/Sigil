@@ -91,7 +91,7 @@ void PerformHTMLUpdates::UpdateReferenceInNode( QDomNode node )
     QDomNamedNodeMap attributes = node.attributes();
     int num_attributes = attributes.count();
 
-    QList< QString > keys = m_HTMLUpdates.keys();
+    const QList< QString > &keys = m_HTMLUpdates.keys();
     int num_keys = keys.count();
 
     for ( int i = 0; i < num_attributes; ++i )
@@ -104,9 +104,9 @@ void PerformHTMLUpdates::UpdateReferenceInNode( QDomNode node )
 
         for ( int j = 0; j < num_keys; ++j )
         {
-            QString key_path  = keys.at( j );
-            QString filename  = QFileInfo( key_path ).fileName();
-            QString atr_value = QUrl::fromPercentEncoding( attribute.value().toUtf8() );
+            const QString &key_path  = keys.at( j );
+            const QString &filename  = QFileInfo( key_path ).fileName();
+            const QString &atr_value = QUrl::fromPercentEncoding( attribute.value().toUtf8() );
 
             int name_index = atr_value.lastIndexOf( filename );
 

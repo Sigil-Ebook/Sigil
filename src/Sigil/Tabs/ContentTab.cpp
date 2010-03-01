@@ -24,6 +24,7 @@
 #include "../ViewEditors/Searchable.h"
 #include "../ResourceObjects/Resource.h"
 
+
 ContentTab::ContentTab( Resource& resource, QWidget *parent )
     :
     QWidget( parent ),
