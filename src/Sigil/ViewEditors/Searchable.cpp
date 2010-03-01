@@ -24,17 +24,13 @@
 #include "../Misc/Utility.h"
 
 
-// Accepts a regex, the full text to search,
-// the starting offset and the search direction.
-// Runs the regex through the text.
-// MODIFIES search_regex IN PLACE
-void Searchable::RunSearchRegex(    QRegExp &search_regex, 
-                                    const QString &full_text, 
-                                    int selection_offset, 
-                                    Direction search_direction )
+void Searchable::RunSearchRegex( QRegExp &search_regex, 
+                                 const QString &full_text, 
+                                 int selection_offset, 
+                                 Direction search_direction )
 {
-    if (    search_direction == Searchable::Direction_Down || 
-            search_direction == Searchable::Direction_All 
+    if ( search_direction == Searchable::Direction_Down || 
+         search_direction == Searchable::Direction_All 
         )
     {
         full_text.indexOf( search_regex, selection_offset );
@@ -42,8 +38,8 @@ void Searchable::RunSearchRegex(    QRegExp &search_regex,
         // If we need to search through the whole doc,
         // then we also wrap around and search from the 
         // beginning to the old search start point.
-        if (    search_direction == Searchable::Direction_All &&
-                search_regex.pos() == -1 
+        if ( search_direction == Searchable::Direction_All &&
+             search_regex.pos() == -1 
             )
         {
             QString upper_half = Utility::Substring( 0, selection_offset, full_text );
@@ -60,10 +56,8 @@ void Searchable::RunSearchRegex(    QRegExp &search_regex,
 }
 
 
-// Accepts a list of text capture groups and a replacement string,
-// and returns a new replacement string with capture group references
-// replaced with capture group contents.
-QString Searchable::FillWithCapturedTexts( const QStringList &captured_texts, const QString &replacement )
+QString Searchable::FillWithCapturedTexts( const QStringList &captured_texts, 
+                                           const QString &replacement )
 {
     QString filled_string( replacement );
 

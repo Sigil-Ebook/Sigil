@@ -23,16 +23,27 @@
 #ifndef ZOOMABLE_H
 #define ZOOMABLE_H
 
+/**
+ * An interface for widgets that can be zoomed.
+ */
 class Zoomable
 {
 
 public:
 
-    // Sets a zoom factor for the view,
-    // thus zooming in (factor > 1.0) or out (factor < 1.0). 
+    /**
+     * Sets a zoom factor for the view,
+     * thus zooming in (factor > 1.0) or out (factor < 1.0).
+     *
+     * @param factor The zoom factor to use. 
+     */
     virtual void SetZoomFactor( float factor ) = 0;
 
-    // Returns the View's current zoom factor
+    /**
+     * Returns the widget's current zoom factor.
+     *
+     * @return The current zoom factor.
+     */
     virtual float GetZoomFactor() const = 0;
 };
 

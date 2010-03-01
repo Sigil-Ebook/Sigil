@@ -46,7 +46,6 @@ static const QString EMPTY_HTML_FILE  = "<?xml version=\"1.0\" encoding=\"utf-8\
                                         "</html>";
 
 
-// Constructor
 Book::Book()
     : 
     m_PublicationIdentifier( Utility::CreateUUID() )
@@ -55,7 +54,6 @@ Book::Book()
 }
 
 
-// Copy constructor
 Book::Book( const Book& other )
 {
     m_Metadata = other.m_Metadata;
@@ -64,7 +62,6 @@ Book::Book( const Book& other )
 }
 
 
-// Assignment operator
 Book& Book::operator = ( const Book& other )
 {
     // Protect against invalid self-assignment
@@ -80,9 +77,6 @@ Book& Book::operator = ( const Book& other )
 }
 
 
-// Returns the base url of the book,
-// that is the location to the text folder
-// within the main folder
 QUrl Book::GetBaseUrl() const
 {
     return QUrl::fromLocalFile( m_Mainfolder.GetFullPathToTextFolder() + "/" );

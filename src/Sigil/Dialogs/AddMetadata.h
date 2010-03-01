@@ -43,8 +43,9 @@ public:
 
     /**
      * Constructor.
-     * \param metadata The metadata list that this dialog displays. \see Metadata
-     * \param parent The dialog's parent.
+     *
+     * @param metadata The metadata list that this dialog displays. \see Metadata
+     * @param parent The dialog's parent.
      */
     AddMetadata( const QMap< QString, Metadata::MetaInfo > &metadata, QWidget *parent = 0 );
 
@@ -57,7 +58,8 @@ signals:
 
     /**
      * Emitted when the user has selected what he wants to insert.
-     * \param name The name of the metadata the user
+     *
+     * @param name The name of the metadata the user
      *             wants inserted into the table.
      */
     void MetadataToAdd( QString name );
@@ -67,7 +69,8 @@ private slots:
     /**
      * Updates the description of the currently selected item
      * whenever the user selects a new item.
-     * \param current The currently selected item.
+     *
+     * @param current The currently selected item.
      */
     void UpdateDescription( QListWidgetItem *current );
 
@@ -75,7 +78,7 @@ private slots:
      * Emits the name of the metadata that
      * should be added to the metadata table.
      *
-     * \note Should be called on accept signal.
+     * @note Should be called on accept signal.
      */
     void EmitSelection();
 
@@ -95,7 +98,7 @@ private:
 
     /**
      * Represents the metadata list that this dialog displays.
-     * \see Metadata 
+     * @see Metadata 
      */
     const QMap< QString, Metadata::MetaInfo > &m_Metadata;
 
