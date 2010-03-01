@@ -65,7 +65,7 @@ public:
      * is create a new tab with the XHTML content \em above the split point.
      * The new tab is actually the "old" chapter, and this tab becomes the
      * "new" chapter.
-     * @par 
+     * \par 
      * Why? Because we can only avoid a tab render in the tab from which
      * we remove elements. Since the users move from the top of a large HTML
      * file down, the new chapter will be the one with the most content.

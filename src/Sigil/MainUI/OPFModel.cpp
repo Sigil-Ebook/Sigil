@@ -132,7 +132,6 @@ Resource::ResourceType OPFModel::GetResourceType( QStandardItem const *item )
 }
 
 
-// We need to kill the inherited sort function
 void OPFModel::sort( int column, Qt::SortOrder order )
 {
     return;
@@ -166,7 +165,6 @@ void OPFModel::RowsRemovedHandler( const QModelIndex &parent, int start, int end
 }
 
 
-// Only handles item renames
 void OPFModel::ItemChangedHandler( QStandardItem *item )
 {
     Q_ASSERT( item );

@@ -33,9 +33,6 @@ static const QString SIGIL_HEADING_ID_PREFIX = "heading_id_";
 static const QString SIGIL_HEADING_ID_REG    = SIGIL_HEADING_ID_PREFIX + "(\\d+)";
 
 
-// Performs all the operations necessary
-// on the Book before it is exported,
-// like adding ID's to all headings etc.
 void BookNormalization::Normalize( QSharedPointer< Book > book )
 {
     QList< HTMLResource* > html_resources = book->GetFolderKeeper().GetSortedHTMLResources();
@@ -44,7 +41,6 @@ void BookNormalization::Normalize( QSharedPointer< Book > book )
 }
 
 
-// Gives ID's to all headings that don't have them
 void BookNormalization::GiveIDsToHeadings( HTMLResource *html_resource )
 {
     QReadLocker locker( &html_resource->GetLock() );
@@ -67,8 +63,6 @@ void BookNormalization::GiveIDsToHeadings( HTMLResource *html_resource )
 }
 
 
-// Returns the maximum index for Sigil heading IDs
-// present in the provided XHTML source
 int BookNormalization::MaxSigilHeadingIDIndex( const QList< Headings::Heading > headings )
 {
     int maxindex = 1;
