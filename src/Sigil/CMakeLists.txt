@@ -89,8 +89,6 @@ set( BOOK_MANIPULATION_FILES
     BookManipulation/Headings.h
     BookManipulation/Metadata.cpp
     BookManipulation/Metadata.h
-    BookManipulation/SigilMarkup.cpp
-    BookManipulation/SigilMarkup.h
     BookManipulation/XHTMLDoc.cpp
     BookManipulation/XHTMLDoc.h
     )

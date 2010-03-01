@@ -31,7 +31,6 @@
 #include "Importers/ImporterFactory.h"
 #include "Exporters/ExporterFactory.h"
 #include "BookManipulation/BookNormalization.h"
-#include "BookManipulation/SigilMarkup.h"
 #include "MainUI/BookBrowser.h"
 #include "Tabs/ContentTab.h"
 #include "Tabs/FlowTab.h"
