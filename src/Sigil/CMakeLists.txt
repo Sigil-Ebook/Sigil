@@ -287,6 +287,9 @@ elseif( CMAKE_COMPILER_IS_GNUCXX AND NOT APPLE )
         list( APPEND compile_flags "-I${item}" )
     endforeach()
 
+    # Include the BoostParts directory
+    list( APPEND compile_flags "-I${BoostParts_SOURCE_DIR}" )
+
     # Get the list of all build-independent preprocessor definitions
     get_directory_property( defines_global COMPILE_DEFINITIONS )
     list( APPEND defines ${defines_global} )
