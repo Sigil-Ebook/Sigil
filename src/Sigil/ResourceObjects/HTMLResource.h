@@ -129,6 +129,17 @@ private:
 
     // Starts at 0, not 1
     int m_ReadingOrder;
+
+    /**
+     * The javascript source code of the jQuery library.
+     */
+    const QString c_jQuery;
+    
+    /**
+     * The javascript source code of the jQuery 
+     * ScrollTo extension library.
+     */
+    const QString c_jQueryScrollTo;
 };
 
 #endif // HTMLRESOURCE_H

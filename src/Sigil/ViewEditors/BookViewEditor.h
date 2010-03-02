@@ -463,6 +463,41 @@ private:
     * Keyboard shortcut for scrolling one line down.
     */
     QShortcut &m_ScrollOneLineDown;
+
+    /** 
+    * The JavaScript source code used 
+    * to get a hierarchy of elements from
+    * the caret element to the top of the document.
+    */
+    const QString c_GetCaretLocation;
+
+    /**
+    * The JavaScript source code that
+    * removes all of the current selections
+    * and adds the range in the "range"
+    * variable to the current selection.
+    */
+    const QString c_NewSelection;
+
+    /**
+    * The JavaScript source code
+    * for creating DOM ranges.
+    */
+    const QString c_GetRange;
+
+    /**
+    * The JavaScript source code that deletes the
+    * contents of the range in "range" and replaces
+    * them with a new text node whose text should be inputted.
+    */
+    const QString c_ReplaceText;
+
+    /**
+    * The JavaScript source code that returns the XHTML source
+    * from the caret to the top of the file. This code is also
+    * removed from the current chapter.
+    */
+    const QString c_GetSegmentHTML;
 };
 
 

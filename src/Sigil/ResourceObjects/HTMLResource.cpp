@@ -27,13 +27,6 @@
 
 static const QString LOADED_CONTENT_MIMETYPE = "application/xhtml+xml";
 
- // The javascript source code of the jQuery library
-static const QString JQUERY_JS = Utility::ReadUnicodeTextFile( ":/javascript/jquery-1.4.2.min.js" );
-
-// The javascript source code of the jQuery
-// ScrollTo extension library
-static const QString JQUERY_SCROLLTO_JS = Utility::ReadUnicodeTextFile( ":/javascript/jquery.scrollTo-1.4.2-min.js" );
-
 
 HTMLResource::HTMLResource( const QString &fullfilepath, 
                             QHash< QString, Resource* > *hash_owner,
@@ -45,7 +38,9 @@ HTMLResource::HTMLResource( const QString &fullfilepath,
     m_TextDocument( NULL ),
     m_WebPageIsOld( true ),
     m_TextDocumentIsOld( true ),
-    m_ReadingOrder( reading_order )
+    m_ReadingOrder( reading_order ),
+    c_jQuery(         Utility::ReadUnicodeTextFile( ":/javascript/jquery-1.4.2.min.js"          ) ),
+    c_jQueryScrollTo( Utility::ReadUnicodeTextFile( ":/javascript/jquery.scrollTo-1.4.2-min.js" ) )
 {
 
 }
@@ -264,8 +259,8 @@ void HTMLResource::WebPageJavascriptOnLoad()
 {
     Q_ASSERT( m_WebPage );
 
-    m_WebPage->mainFrame()->evaluateJavaScript( JQUERY_JS          );
-    m_WebPage->mainFrame()->evaluateJavaScript( JQUERY_SCROLLTO_JS );
+    m_WebPage->mainFrame()->evaluateJavaScript( c_jQuery          );
+    m_WebPage->mainFrame()->evaluateJavaScript( c_jQueryScrollTo );
 }
 
 
