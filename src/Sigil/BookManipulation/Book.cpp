@@ -196,7 +196,8 @@ HTMLResource& Book::CreateChapterBreakOriginalResource( const QString &content, 
 
 void Book::SaveAllResourcesToDisk()
 {
-    QtConcurrent::blockingMap( m_Mainfolder.GetResourceList(), SaveOneResourceToDisk );    
+    QList< Resource* > resources =  m_Mainfolder.GetResourceList();
+    QtConcurrent::blockingMap( resources, SaveOneResourceToDisk );
 }
 
 

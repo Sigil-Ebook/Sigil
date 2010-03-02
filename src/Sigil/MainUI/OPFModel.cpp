@@ -33,8 +33,8 @@ static const int READING_ORDER_ROLE = Qt::UserRole + 2;
 OPFModel::OPFModel( QWidget *parent )
     : 
     QStandardItemModel( parent ),
-    m_Book( NULL ),
     m_Refreshing( false ),
+    m_Book( NULL ),
     m_TextFolderItem(   *new QStandardItem( TEXT_FOLDER_NAME  ) ),
     m_StylesFolderItem( *new QStandardItem( STYLE_FOLDER_NAME ) ),
     m_ImagesFolderItem( *new QStandardItem( IMAGE_FOLDER_NAME ) ),
@@ -204,9 +204,6 @@ void OPFModel::InitializeModel()
     ClearModel();
 
     QList< Resource* > resources = m_Book->GetFolderKeeper().GetResourceList();
-    QHash< int, QStandardItem* > text_items;
-
-    int num_ordered_html_files = 0;
 
     foreach( Resource *resource, resources )
     {

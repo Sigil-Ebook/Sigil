@@ -48,7 +48,7 @@ set( QOBJECT_HEADERS
     Dialogs/TOCEditor.h 
     Dialogs/MetaEditor.h
     Dialogs/FindReplace.h
-    MainUi/MainWindow.h
+    MainUI/MainWindow.h
     Tabs/TabManager.h
     Tabs/ContentTab.h 
     Tabs/FlowTab.h

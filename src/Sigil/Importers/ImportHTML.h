@@ -65,7 +65,7 @@ private:
     // and tries to convert it to Dublin Core
     void LoadMetadata( const QDomDocument &document ); 
 
-    HTMLResource& ImportHTML::CreateHTMLResource();
+    HTMLResource& CreateHTMLResource();
 
     void UpdateFiles( HTMLResource &html_resource, 
                       QDomDocument &document,

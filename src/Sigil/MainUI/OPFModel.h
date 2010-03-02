@@ -26,8 +26,8 @@
 #include <QStandardItemModel>
 #include <QSharedPointer>
 #include "../ResourceObjects/Resource.h"
+#include "../BookManipulation/Book.h"
 
-class Book;
 class QModelIndex;
 class QStandardItem;
 

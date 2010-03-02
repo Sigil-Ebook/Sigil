@@ -89,7 +89,7 @@ void ImportOEBPS::ExtractContainer()
     {
         // The error description is always ASCII
         boost_throw( CZipExceptionWrapper() 
-                     << errinfo_zip_info( QString::fromStdWString( exception.GetErrorDescription() ).toStdString() ) );
+                     << errinfo_zip_info( QString::fromAscii( exception.GetErrorDescription().c_str() ).toStdString() ) );
 
     }
 }
