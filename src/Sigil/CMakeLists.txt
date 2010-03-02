@@ -48,7 +48,7 @@ set( QOBJECT_HEADERS
     Dialogs/TOCEditor.h 
     Dialogs/MetaEditor.h
     Dialogs/FindReplace.h
-    MainUi/MainWindow.h
+    MainUI/MainWindow.h
     Tabs/TabManager.h
     Tabs/ContentTab.h 
     Tabs/FlowTab.h
@@ -286,6 +286,9 @@ elseif( CMAKE_COMPILER_IS_GNUCXX AND NOT APPLE )
     foreach( item ${QT_INCLUDES} )
         list( APPEND compile_flags "-I${item}" )
     endforeach()
+
+    # Include the BoostParts directory
+    list( APPEND compile_flags "-I${BoostParts_SOURCE_DIR}" )
 
     # Get the list of all build-independent preprocessor definitions
     get_directory_property( defines_global COMPILE_DEFINITIONS )
