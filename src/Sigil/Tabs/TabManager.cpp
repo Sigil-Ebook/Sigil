@@ -38,6 +38,7 @@ TabManager::TabManager( QWidget *parent )
     setDocumentMode( true );
     setMovable( true );
     setTabsClosable( true );
+    setUsesScrollButtons( true );
 }
 
     
