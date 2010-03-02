@@ -1,4 +1,7 @@
-Sigil v0.1.2. ADD_DATE
+Sigil v0.2.0 ß1 2010.03.02.
+    - after *many* months of work, the complete redesign of the Sigil main interface and backend is finished,
+    resulting in waaaay too many changes, fixes and modifications under the hood that are too numerous
+    to list here
     - fixed an issue with anchor elements getting unnecessary "name" attributes (issue #226)
 
 Sigil v0.1.9 2010.02.08.
