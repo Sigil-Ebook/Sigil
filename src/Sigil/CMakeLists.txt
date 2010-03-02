@@ -465,7 +465,7 @@ else()
                         COMMAND cmake -E copy ${CMAKE_SOURCE_DIR}/installer/Sigil.mpi ${MPI_LOCATION} )      
     
     # Copy Qt runtime libs
-    set( QT_LIBS QtCore QtGui QtNetwork QtSvg QtWebKit QtXml QtXmlPatterns phonon )
+    set( QT_LIBS QtCore QtGui QtNetwork QtSvg QtWebKit QtXml QtXmlPatterns QtDBus phonon )
     
     # Apparently phonon is not needed on Linux...
     if( UNIX )
