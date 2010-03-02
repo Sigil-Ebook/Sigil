@@ -52,11 +52,11 @@ static const int ZOOM_SLIDER_WIDTH          = 140;
 static const QString REPORTING_ISSUES_WIKI  = "http://code.google.com/p/sigil/wiki/ReportingIssues";
 static const QString SIGIL_DEV_BLOG         = "http://sigildev.blogspot.com/";
 
-static const QString FRAME_NAME      = "managerframe";
-static const QString TAB_STYLE_SHEET =  "#managerframe {border-top: 0px solid white;"
-                                        "border-left: 1px solid grey;"
-                                        //"border-right: 1px solid grey;"
-                                        "border-bottom: 1px solid grey;} ";
+static const QString BOOK_BROWSER_NAME = "bookbrowser";
+static const QString FRAME_NAME        = "managerframe";
+static const QString TAB_STYLE_SHEET   =  "#managerframe {border-top: 0px solid white;"
+                                          "border-left: 1px solid grey;"
+                                          "border-bottom: 1px solid grey;} ";
 
 static const QStringList SUPPORTED_SAVE_TYPE = QStringList() << "epub"; 
 
@@ -1158,6 +1158,7 @@ void MainWindow::ExtendUI()
     setCentralWidget( frame );       
 
     m_BookBrowser = new BookBrowser( this );
+    m_BookBrowser->setObjectName( BOOK_BROWSER_NAME );
     addDockWidget( Qt::LeftDockWidgetArea, m_BookBrowser );
 
     // Creating the Heading combo box
