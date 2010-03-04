@@ -345,6 +345,7 @@ void OPFWriter::CreateMimetypes()
     m_Mimetypes[ "ncx"   ] = "application/x-dtbncx+xml"; 
 
     // We convert all HTML document types to XHTML
+    m_Mimetypes[ "xml"   ] = "application/xhtml+xml"; 
     m_Mimetypes[ "xhtml" ] = "application/xhtml+xml"; 
     m_Mimetypes[ "html"  ] = "application/xhtml+xml"; 
     m_Mimetypes[ "htm"   ] = "application/xhtml+xml"; 
