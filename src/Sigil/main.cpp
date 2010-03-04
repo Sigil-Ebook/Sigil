@@ -99,7 +99,8 @@ void MessageHandler( QtMsgType type, const char *message )
 }
 
 
-
+// Used for an undocumented, unsupported *-to-epub
+// console conversion. USE AT YOUR OWN PERIL!
 static bool QuickConvert( const QStringList &arguments )
 {
     if ( arguments.count() != 4 )
@@ -126,8 +127,9 @@ static bool QuickConvert( const QStringList &arguments )
         return false;
     }
 
-    Book book = ImporterFactory().GetImporter( arguments.at( 1 ) ).GetBook();
-    ExporterFactory().GetExporter( arguments.at( 3 ), BookNormalization::Normalize( book ) ).WriteBook();
+    QSharedPointer< Book > book = ImporterFactory().GetImporter( arguments.at( 1 ) ).GetBook();
+    BookNormalization::Normalize( book );
+    ExporterFactory().GetExporter( arguments.at( 3 ), book ).WriteBook();
 
     return true;
 }
@@ -188,7 +190,8 @@ int main( int argc, char *argv[] )
 
             return app.exec();
         }
-        // Used for an undocumented, unsupported epub-to-epub
+
+        // Used for an undocumented, unsupported *-to-epub
         // console conversion. USE AT YOUR OWN PERIL!
         else
         {
