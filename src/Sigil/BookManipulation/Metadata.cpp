@@ -33,16 +33,24 @@ static const QStringList CREATION_ALIASES     = QStringList() << "created"  << "
 static const QStringList PUBLICATION_ALIASES  = QStringList() << "issued"   << "published" << "publication";
 static const QStringList SCHEME_LIST          = QStringList() << "ISBN" << "ISSN" << "DOI" << "CustomID";
 
+QMutex Metadata::s_AccessMutex;
+Metadata* Metadata::m_Instance = NULL;
 
 Metadata& Metadata::Instance()
 {
     // We use a static local variable
     // to hold our singleton instance; using a pointer member
     // variable creates problems with object destruction;
-    // Sigil is single-threaded so this is ok
-    static Metadata meta;
 
-    return meta;
+    QMutexLocker locker( &s_AccessMutex );
+
+    if ( !m_Instance )
+    {
+        static Metadata meta;
+        m_Instance = &meta;
+    }
+
+    return *m_Instance;
 }
 
 const QMap< QString, QString >& Metadata::GetLanguageMap()
@@ -321,6 +329,13 @@ Metadata::MetaElement Metadata::CreateContribMetadata( const Metadata::MetaEleme
 
     // We convert the role into the new metadata name (e.g. aut -> Author)
     QString name    = GetFullRelatorNameHash()[ role ];
+
+    // Some epub exporters set incorrect opf:role attributes
+    // and we need to handle that. Otherwise, Sigil bugs out on export.
+    // Since we can't tell what the role is, just guess author.
+    if ( name.isEmpty() )
+
+        name = GetFullRelatorNameHash()[ "aut" ];
 
     // If a "file-as" attribute is provided, we use that as the value
     QString file_as = meta.attributes.value( "file-as" );

@@ -23,65 +23,82 @@
 #ifndef VIEWEDITOR_H
 #define VIEWEDITOR_H
 
-#include <QString>
 #include <QList>
+#include <QString>
 #include "Searchable.h"
+#include "Zoomable.h"
 
-class Book;
+class QUrl;
 
-// Interface for ViewEditors.
-// It would be lovely if we could make this a QObject
-// subclass, but multiple inheritance with multiple
-// QObject subclasses is apparently a bad idea.
-class ViewEditor : public Searchable
+
+/**
+ * Interface for ViewEditors.
+ * It would be lovely if we could make this a QObject
+ * subclass, but multiple inheritance with multiple
+ * QObject subclasses is apparently a bad idea.
+ */
+class ViewEditor : public Searchable, public Zoomable
 {
 
 public:
 
-    //   Represents an element in the XHTML document tree
-    // and the index of its child that selects the
-    // next element in the chain.
-    //   By constructing a list of these items, one can
-    // navigate the tree by selecting the element,
-    // its child with the specified index, its child
-    // with its index and so on until reaching
-    // the element ultimately identified by this chain.
-    //   Because of webkit limitations, this hierarchy
-    // does not really look at all child nodes, but only
-    // at element child nodes. The text nodes are considered
-    // children only for the last element... and even then,
-    // it depends on the specific ViewEditor... BookView 
-    // does this, CodeView doesn't.
+    
+    /**
+     *   Represents an element in the XHTML document tree
+     * and the index of its child that selects the
+     * next element in the chain.
+     *   
+     *   By constructing a list of these items, one can
+     * navigate the tree by selecting the element,
+     * its child with the specified index, its child
+     * with its index and so on until reaching
+     * the element ultimately identified by this chain.
+     *   
+     *   Because of WebKit limitations, this hierarchy
+     * does not really look at all child nodes, but only
+     * at element child nodes. The text nodes are considered
+     * children only for the last element... and even then,
+     * it depends on the specific ViewEditor... BookViewEditor 
+     * does this, CodeViewEditor doesn't.
+     */
     struct ElementIndex
     {
+        /**
+         * The name of the element.
+         */
         QString name;
+
+        /**
+         * The index of this element in its parent's list of children. 
+         */
         int index;
     };
 
-    // Destructor
+    /**
+     * Destructor.
+     */ 
     virtual ~ViewEditor() {}
 
-    // Sets the content of the View to the specified book
-    virtual void SetBook( const Book &book ) = 0;
-
-    // Returns a list of elements representing a "chain"
-    // or "walk" through the XHTML document with which one
-    // can identify a single element in the document.
-    // This list identifies the element in which the 
-    // keyboard caret is currently located.
+    /**
+     * Returns an "encoded" location of the caret element.
+     * The returned list of elements represents a "chain"
+     * or "walk" through the XHTML document with which one
+     * can identify a single element in the document.
+     * This list identifies the element in which the 
+     * keyboard caret is currently located.
+     * 
+     * @return The element selecting list.
+     */
     virtual QList< ElementIndex > GetCaretLocation() = 0;
 
-    // Accepts a list returned by a view's GetCaretLocation
-    // and creates and stores an update that sends the caret
-    // in this view to the specified element.
+    /**
+     * Accepts a list returned by a view's GetCaretLocation()
+     * and creates and stores an update that sends the caret
+     * in this view to the specified element.
+     *
+     * @param hierarchy The element selecting list.
+     */
     virtual void StoreCaretLocationUpdate( const QList< ElementIndex > &hierarchy ) = 0;
-
-    // Sets a zoom factor for the view,
-    // thus zooming in (factor > 1.0) or out (factor < 1.0). 
-    virtual void SetZoomFactor( float factor ) = 0;
-
-    // Returns the View's current zoom factor
-    virtual float GetZoomFactor() const = 0;
 };
 
 #endif // VIEWEDITOR_H

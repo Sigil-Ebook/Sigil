@@ -25,54 +25,100 @@
 
 class QRegExp;
 class QString;
+class QStringList;
 
+
+/**
+ * The interface for searchable content.
+ * Provides methods for searching, replacing 
+ * and counting search term occurrences.
+ */
 class Searchable
 {
 
 public:
 
+    /**
+     * The search direction.
+     */
     enum Direction
     {
-        Direction_Up,
-        Direction_Down,
-        Direction_All,
+        Direction_Up,   /**< Search from the caret point upwards. */
+        Direction_Down, /**< Search from the caret point downwards. */
+        Direction_All,  /**< Search from the caret point down, then wrap around. */
     };
 
-    // Destructor
+    /**
+     * Destructor.
+     */
     virtual ~Searchable() {}
 
-    // Finds the next occurrence of the search term in the document,
-    // and selects the matched string. The first argument is the matching
-    // regex, the second is the direction of the search.
+    /**
+     * Finds the next occurrence of the search term in the document.
+     * The matched string is selected. 
+     *
+     * @param search_regex The regex to match with.
+     * @param search_direction The direction of the search.
+     * @return \c true if the term is found.
+     */
     virtual bool FindNext( const QRegExp &search_regex, Direction search_direction ) = 0;
 
-    // Returns the number of times that the specified
-    // regex matches in the document.
+    /**
+     * Returns the number of matching occurrences.
+     *
+     * @param search_regex The regex to match with.
+     * @return The number of occurrences of matching occurrences.
+     */
     virtual int Count( const QRegExp &search_regex ) = 0;
 
-    // If the currently selected text matches the specified regex, 
-    // it is replaced by the specified replacement string.
+    /**
+     * If the currently selected text matches the specified regex, 
+     * it is replaced by the specified replacement string.
+     *
+     * @param search_regex The regex to match with. 
+     * @param replacement The text with which to replace the matched string.
+     * @return \c true if the searched term was successfully replaced.
+     */
     virtual bool ReplaceSelected( const QRegExp &search_regex, const QString &replacement ) = 0;
 
-    // Replaces all occurrences of the specified regex in 
-    // the document with the specified replacement string.
+    /**
+     * Replaces all occurrences of the specified regex.
+     *
+     * @param search_regex The regex to match with. 
+     * @param replacement The text with which to replace the matched string.
+     * @return The number of performed replacements.
+     */
     virtual int ReplaceAll( const QRegExp &search_regex, const QString &replacement ) = 0;
 
 protected:
 
-    // Accepts a regex, the full text to search,
-    // the starting offset and the search direction.
-    // Runs the regex through the text.
-    // MODIFIES search_regex IN PLACE
+    /**
+     * Runs the regex through the text.
+     *
+     * @param[in,out] search_regex The regex to match with. IT IS MODIFIED IN PLACE!
+     * @param full_text The text through which the search regex will be run.
+     * @param selection_offset The offset from which the search starts.
+     * @param search_direction The direction of the search.
+     */
     static void RunSearchRegex( QRegExp &search_regex, 
                                 const QString &full_text, 
                                 int selection_offset, 
                                 Searchable::Direction search_direction );
 
-    // Accepts a list of text capture groups and a replacement string,
-    // and returns a new replacement string with capture group references
-    // replaced with capture group contents.
-    static QString FillWithCapturedTexts( const QStringList captured_texts, const QString &replacement );
+    /**
+     * Fills the replacement text with the captured groups.
+     * Accepts a list of text capture groups and a replacement string,
+     * and returns a new replacement string with capture group references
+     * replaced with capture group contents.
+     * 
+     * @param captured_texts The list of captured texts.
+     * @param replacement The replacement string that potentially 
+     *                    has capture group references.
+     * @return The replacement string with the capture group references replaced
+     *         with their actual values.
+     */
+    static QString FillWithCapturedTexts( const QStringList &captured_texts, 
+                                          const QString &replacement );
 };
 
 #endif // SEARCHABLE_H

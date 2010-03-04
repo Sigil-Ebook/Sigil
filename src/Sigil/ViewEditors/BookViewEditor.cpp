@@ -27,55 +27,73 @@
 #include "../Misc/Utility.h"
 #include <QDomDocument>
 
-static const QString LOADED_CONTENT_MIMETYPE = "application/xhtml+xml";
 const int PROGRESS_BAR_MINIMUM_DURATION = 1500;
 
-// Constructor;
-// the parameter is the object's parent
+const QString BREAK_TAG_ID     = "sigilChBrMN364299QX";
+const QString BREAK_TAG_INSERT = "<hr id=\"" + BREAK_TAG_ID + "\" />";
+
+/**
+ * The JavaScript source code for getting a string representation
+ * of the "body" tag (without the children).
+ */
+static const QString GET_BODY_TAG_HTML = "new XMLSerializer().serializeToString( document.body.cloneNode(false) );";
+
+
 BookViewEditor::BookViewEditor( QWidget *parent )
     : 
     QWebView( parent ),
-    c_JQuery(           Utility::ReadUnicodeTextFile( ":/javascript/jquery-1.3.2.min.js"            ) ),
-    c_JQueryScrollTo(   Utility::ReadUnicodeTextFile( ":/javascript/jquery.scrollTo-1.4.2-min.js"   ) ),
-    c_GetCaretLocation( Utility::ReadUnicodeTextFile( ":/javascript/book_view_current_location.js"  ) ),
-    c_NewSelection(     Utility::ReadUnicodeTextFile( ":/javascript/new_selection.js"               ) ),
-    c_GetRange(         Utility::ReadUnicodeTextFile( ":/javascript/get_range.js"                   ) ),
-    c_ReplaceText(      Utility::ReadUnicodeTextFile( ":/javascript/replace_text.js"                ) ),
     m_CaretLocationUpdate( QString() ),
-    m_isLoadFinished( false ),
+    m_isLoadFinished( true ),
     m_PageUp(   *( new QShortcut( QKeySequence( QKeySequence::MoveToPreviousPage ), this ) ) ),
     m_PageDown( *( new QShortcut( QKeySequence( QKeySequence::MoveToNextPage     ), this ) ) ),
-    m_ScrollOneLineUp( *(   new QShortcut( QKeySequence( Qt::ControlModifier + Qt::Key_Up   ), this ) ) ),
-    m_ScrollOneLineDown( *( new QShortcut( QKeySequence( Qt::ControlModifier + Qt::Key_Down ), this ) ) )
-{
-    QWebSettings &settings = *QWebSettings::globalSettings();
-    settings.setAttribute( QWebSettings::LocalContentCanAccessRemoteUrls,  true );
-    settings.setAttribute( QWebSettings::JavascriptCanAccessClipboard,     true );
+    m_ScrollOneLineUp(   *( new QShortcut( QKeySequence( Qt::ControlModifier + Qt::Key_Up   ), this ) ) ),
+    m_ScrollOneLineDown( *( new QShortcut( QKeySequence( Qt::ControlModifier + Qt::Key_Down ), this ) ) ),
+    c_GetCaretLocation( Utility::ReadUnicodeTextFile( ":/javascript/book_view_current_location.js" ) ),
+    c_NewSelection(     Utility::ReadUnicodeTextFile( ":/javascript/new_selection.js"              ) ),
+    c_GetRange(         Utility::ReadUnicodeTextFile( ":/javascript/get_range.js"                  ) ),
+    c_ReplaceText(      Utility::ReadUnicodeTextFile( ":/javascript/replace_text.js"               ) ),
+    c_GetSegmentHTML(   Utility::ReadUnicodeTextFile( ":/javascript/get_segment_html.js"           ) )
 
-    connect( &m_PageUp,            SIGNAL( activated() ),          this, SLOT( PageUp()                   ) );
-    connect( &m_PageDown,          SIGNAL( activated() ),          this, SLOT( PageDown()                 ) );
-    connect( &m_ScrollOneLineUp,   SIGNAL( activated() ),          this, SLOT( ScrollOneLineUp()          ) );
-    connect( &m_ScrollOneLineDown, SIGNAL( activated() ),          this, SLOT( ScrollOneLineDown()        ) );
-    connect( page(),               SIGNAL( contentsChanged() ),    this, SIGNAL( textChanged()            ) );
-    connect( page(),               SIGNAL( loadFinished( bool ) ), this, SLOT( JavascriptOnDocumentLoad() ) );
-    connect( page(),               SIGNAL( loadProgress( int ) ),  this, SLOT( UpdateFinishedState( int ) ) );
+{
+    connect( &m_PageUp,            SIGNAL( activated() ), this, SLOT( PageUp()            ) );
+    connect( &m_PageDown,          SIGNAL( activated() ), this, SLOT( PageDown()          ) );
+    connect( &m_ScrollOneLineUp,   SIGNAL( activated() ), this, SLOT( ScrollOneLineUp()   ) );
+    connect( &m_ScrollOneLineDown, SIGNAL( activated() ), this, SLOT( ScrollOneLineDown() ) );
 }
 
 
-// Sets the content of the View to the specified book
-void BookViewEditor::SetBook( const Book &book )
+void BookViewEditor::CustomSetWebPage( QWebPage &webpage )
 {
-    page()->mainFrame()->setContent( book.source.toUtf8(), LOADED_CONTENT_MIMETYPE, book.GetBaseUrl() );
+    connect( &webpage, SIGNAL( contentsChanged()    ), this, SIGNAL( textChanged()            ) );
+    connect( &webpage, SIGNAL( selectionChanged()   ), this, SIGNAL( selectionChanged()       ) );
+    connect( &webpage, SIGNAL( loadFinished( bool ) ), this, SLOT( JavascriptOnDocumentLoad() ) );
+    connect( &webpage, SIGNAL( loadProgress( int )  ), this, SLOT( UpdateFinishedState( int ) ) );
 
-    page()->setContentEditable( true );
+    connect( &webpage, SIGNAL( linkClicked( const QUrl& ) ), this, SLOT( LinkClickedFilter( const QUrl&  ) ) );
 
-    // TODO: we kill external links; a dialog should be used
-    // that asks the user if he wants to open this external link in a browser
-    page()->setLinkDelegationPolicy( QWebPage::DelegateExternalLinks );
+    connect( this,                     SIGNAL( FilteredLinkClicked( const QUrl& ) ),
+             this->parent()->parent(), SIGNAL( LinkClicked(         const QUrl& ) ) );
+
+    // Needs to come after the signals connect;
+    // we don't want race conditions.
+    setPage( &webpage );
 }
 
 
-// Executes the specified command on the document with javascript
+QString BookViewEditor::SplitChapter()
+{
+    QString head     = page()->mainFrame()->documentElement().findFirst( "head" ).toOuterXml();    
+    QString body_tag = EvaluateJavascript( GET_BODY_TAG_HTML ).toString();
+    QString segment  = EvaluateJavascript( c_GetSegmentHTML  ).toString();
+
+    return QString( "<html>" )
+            .append( head )
+            .append( body_tag )
+            .append( segment )
+            .append( "</body></html>" );
+}
+
+
 void BookViewEditor::ExecCommand( const QString &command )
 {       
     QString javascript = QString( "document.execCommand( '%1', false, null)" ).arg( command );
@@ -84,8 +102,6 @@ void BookViewEditor::ExecCommand( const QString &command )
 }
 
 
-// Executes the specified command with the specified parameter
-// on the document with javascript
 void BookViewEditor::ExecCommand( const QString &command, const QString &parameter )
 {       
     QString javascript = QString( "document.execCommand( '%1', false, '%2' )" ).arg( command ).arg( parameter );
@@ -94,7 +110,6 @@ void BookViewEditor::ExecCommand( const QString &command, const QString &paramet
 }
 
 
-// Returns the state of the JavaScript command provided
 bool BookViewEditor::QueryCommandState( const QString &command )
 {
     QString javascript = QString( "document.queryCommandState( '%1', false, null)" ).arg( command );
@@ -103,29 +118,59 @@ bool BookViewEditor::QueryCommandState( const QString &command )
 }
 
 
-// Workaround for a crappy setFocus implementation for Webkit
+//   We need to make sure that the Book View has focus,
+// but just calling setFocus isn't enough because Nokia
+// did a terrible job integrating Webkit. So we first
+// have to steal focus away, and then give it back.
+//   If we don't steal focus first, then the QWebView
+// can have focus (and its QWebFrame) and still not
+// really have it (no blinking cursor).
 void BookViewEditor::GrabFocus()
 {
-    //   We need to make sure that the Book View has focus,
-    // but just calling setFocus isn't enough because Nokia
-    // did a terrible job integrating Webkit. So we first
-    // have to steal focus away, and then give it back.
-    //   If we don't steal focus first, then the QWebView
-    // can have focus (and its QWebFrame) and still not
-    // really have it (no blinking cursor).
-
-    qobject_cast< QWidget *>( parent() )->setFocus( Qt::OtherFocusReason );
+    qobject_cast< QWidget *>( parent() )->setFocus();
     
-    setFocus( Qt::OtherFocusReason );
+    setFocus();
 }
 
 
-// Implements the "formatBlock" execCommand because
-// WebKit's default one has bugs.
-// It takes an element name as an argument (e.g. "p"),
-// and replaces the element the cursor is located in with it.
+void BookViewEditor::ScrollToTop()
+{
+    page()->currentFrame()->setScrollBarValue( Qt::Vertical, 0 );
+}
+
+
+void BookViewEditor::ScrollToFragment( const QString &fragment )
+{
+    if ( fragment.isEmpty() )
+
+        return;
+
+    QString javascript = "window.location.hash = \""  + fragment + "\";";
+
+    EvaluateJavascript( javascript );
+}
+
+
+void BookViewEditor::ScrollToFragmentAfterLoad( const QString &fragment )
+{
+    if ( fragment.isEmpty() )
+
+        return;
+
+    QString javascript = "window.addEventListener('load', GoToFragment, false);"
+                         "function GoToFragment() { window.location.hash = \""  + fragment + "\"; }";
+
+    EvaluateJavascript( javascript );
+}
+
+
 void BookViewEditor::FormatBlock( const QString &element_name )
 {
+
+    if ( element_name.isEmpty() )
+
+        return;
+
     QString javascript =  "var node = document.getSelection().anchorNode;"
                           "var startNode = (node.nodeName == \"#text\" ? node.parentNode : node);"                          
                           "$(startNode).replaceWith( '<"+ element_name + ">' + $(startNode).html() + '</"+ element_name + ">' );";
@@ -136,9 +181,6 @@ void BookViewEditor::FormatBlock( const QString &element_name )
 }
 
 
-// Returns the name of the element the caret is located in;
-// if text is selected, returns the name of the element
-// where the selection *starts*
 QString BookViewEditor::GetCaretElementName()
 {
     QString javascript =  "var node = document.getSelection().anchorNode;"
@@ -149,11 +191,6 @@ QString BookViewEditor::GetCaretElementName()
 }
 
 
-// Returns a list of elements representing a "chain"
-// or "walk" through the XHTML document with which one
-// can identify a single element in the document.
-// This list identifies the element in which the 
-// keyboard caret is currently located.
 QList< ViewEditor::ElementIndex > BookViewEditor::GetCaretLocation()
 {
     // The location element hierarchy encoded in a string
@@ -176,11 +213,6 @@ QList< ViewEditor::ElementIndex > BookViewEditor::GetCaretLocation()
 }
 
 
-// Accepts a list returned by a view's GetCaretLocation
-// and creates and stores an update that sends the caret
-// in this view to the specified element.
-// The BookView implementation initiates the update in
-// the JavascriptOnDocumentLoad() function.
 void BookViewEditor::StoreCaretLocationUpdate( const QList< ViewEditor::ElementIndex > &hierarchy )
 {
     QString caret_location = "var element = " + GetElementSelectingJS_NoTextNodes( hierarchy ) + ";";
@@ -189,17 +221,10 @@ void BookViewEditor::StoreCaretLocationUpdate( const QList< ViewEditor::ElementI
     QString scroll = "var from_top = window.innerHeight / 2;"
                      "$.scrollTo( element, 0, {offset: {top:-from_top, left:0 } } );";
 
-    m_CaretLocationUpdate = caret_location + scroll;
-
-    // If we have focus, then we run the update right now;
-    // otherwise, we defer the update until later
-    if ( hasFocus() && m_isLoadFinished )
-        
-        ExecuteCaretUpdate();        
+    m_CaretLocationUpdate = caret_location + scroll;     
 }
 
-// Sets a zoom factor for the view,
-// thus zooming in (factor > 1.0) or out (factor < 1.0). 
+
 void BookViewEditor::SetZoomFactor( float factor )
 {
     setZoomFactor( factor );
@@ -208,16 +233,13 @@ void BookViewEditor::SetZoomFactor( float factor )
 }
 
 
-// Returns the View's current zoom factor
+
 float BookViewEditor::GetZoomFactor() const
 {
     return (float) zoomFactor();
 }
 
 
-// Finds the next occurrence of the search term in the document,
-// and selects the matched string. The first argument is the matching
-// regex, the second is the direction of the search.
 bool BookViewEditor::FindNext( const QRegExp &search_regex, Searchable::Direction search_direction )
 {
     SearchTools search_tools = GetSearchTools();
@@ -239,8 +261,6 @@ bool BookViewEditor::FindNext( const QRegExp &search_regex, Searchable::Directio
 }
 
 
-// Returns the number of times that the specified
-// regex matches in the document.
 int BookViewEditor::Count( const QRegExp &search_regex )
 {
     SearchTools search_tools = GetSearchTools();
@@ -249,8 +269,6 @@ int BookViewEditor::Count( const QRegExp &search_regex )
 }
 
 
-// If the currently selected text matches the specified regex, 
-// it is replaced by the specified replacement string.
 bool BookViewEditor::ReplaceSelected( const QRegExp &search_regex, const QString &replacement )
 {
     SearchTools search_tools = GetSearchTools();
@@ -282,8 +300,6 @@ bool BookViewEditor::ReplaceSelected( const QRegExp &search_regex, const QString
 }
 
 
-// Replaces all occurrences of the specified regex in 
-// the document with the specified replacement string.
 int BookViewEditor::ReplaceAll( const QRegExp &search_regex, const QString &replacement )
 {    
     QRegExp result_regex = search_regex;
@@ -326,22 +342,38 @@ int BookViewEditor::ReplaceAll( const QRegExp &search_regex, const QString &repl
 }
 
 
+// Overridden because we need to update the cursor
+// location if a cursor update (from CodeView) 
+// is waiting to be processed.
+// The update is pending only when we switch
+// from Code View and there were no source changes
+bool BookViewEditor::event( QEvent *event )
+{
+    // We just return whatever the "real" event handler returns
+    bool real_return = QWebView::event( event );
 
-// Executes javascript that needs to be run when
-// the document has finished loading
+    // Executing the caret update inside the paint event
+    // handler causes artifacts on mac. So we do it after
+    // the event is processed and accepted.
+    if ( m_isLoadFinished && event->type() == QEvent::Paint )
+    {
+        ExecuteCaretUpdate();
+    }
+
+    return real_return;
+}
+
+
 void BookViewEditor::JavascriptOnDocumentLoad()
 {
-    // Javascript libraries needed
-    EvaluateJavascript( c_JQuery );
-    EvaluateJavascript( c_JQueryScrollTo ); 
+    // The jQuery libs are loaded in 
+    // HTMLResouce::WebPageJavascriptOnLoad
 
     // Run the caret update if it's pending
     ExecuteCaretUpdate();
 }
 
-// Updates the state of the m_isLoadFinished variable
-// depending on the received loading progress; if the 
-// progress equals 100, the state is true, otherwise false.
+
 void BookViewEditor::UpdateFinishedState( int progress )
 { 
     if ( progress == 100 )
@@ -354,45 +386,57 @@ void BookViewEditor::UpdateFinishedState( int progress )
 }
 
 
-// Wrapper slot for the Page Up shortcut
+void BookViewEditor::LinkClickedFilter( const QUrl& url )
+{
+    // Urls in the document that have just "#fragmentID"
+    // and no path (that is, "file local" urls), are returned
+    // by QUrl.toString() as a path to the folder of this 
+    // file with the fragment attached.
+    if ( url.toString().contains( "/#" ) )
+
+        ScrollToFragment( url.fragment() );
+
+    else if ( url.scheme() == "file" )
+
+        emit FilteredLinkClicked( url );
+
+    // We kill all links to the internet
+    else
+
+        return;
+}
+
+
 void BookViewEditor::PageUp()
 {
     ScrollByNumPixels( height(), false );
 }
 
 
-// Wrapper slot for the Page Down shortcut
 void BookViewEditor::PageDown()
 {
     ScrollByNumPixels( height(), true );
 }
 
 
-// Wrapper slot for the Scroll One Line Up shortcut
 void BookViewEditor::ScrollOneLineUp()
 {
     ScrollByLine( false );
 }
 
 
-// Wrapper slot for the Scroll One Line Down shortcut
 void BookViewEditor::ScrollOneLineDown()
 {
     ScrollByLine( true );
 }
 
 
-// Evaluates the provided javascript source code 
-// and returns the result of the last executed javascript statement
 QVariant BookViewEditor::EvaluateJavascript( const QString &javascript )
 {
     return page()->mainFrame()->evaluateJavaScript( javascript );
 }
 
 
-// Returns the local character offset of the selection
-// (in the local text node). Depending on the argument,
-// it returns the offset of the start of the selection or the end.
 int BookViewEditor::GetLocalSelectionOffset( bool start_of_selection )
 {
     int anchor_offset = EvaluateJavascript( "document.getSelection().anchorOffset;" ).toInt();
@@ -436,9 +480,6 @@ int BookViewEditor::GetLocalSelectionOffset( bool start_of_selection )
 }
 
 
-// Returns the selection offset from the start of the document.
-// The first argument is the loaded DOM doc, the second is the
-// text node offset map and the third is the search direction.
 int BookViewEditor::GetSelectionOffset( const QDomDocument &document,
                                         const QMap< int, QDomNode > &node_offsets, 
                                         Searchable::Direction search_direction )
@@ -455,7 +496,6 @@ int BookViewEditor::GetSelectionOffset( const QDomDocument &document,
 }
 
 
-// Returns the currently selected text string
 QString BookViewEditor::GetSelectedText()
 {
     QString javascript = "window.getSelection().toString();";
@@ -464,8 +504,6 @@ QString BookViewEditor::GetSelectedText()
 }
 
 
-// Returns the all the necessary tools for searching.
-// Reads from the QWebPage source.
 BookViewEditor::SearchTools BookViewEditor::GetSearchTools() const
 {
     SearchTools search_tools;
@@ -504,8 +542,6 @@ BookViewEditor::SearchTools BookViewEditor::GetSearchTools() const
 }
 
 
-// Returns the element selecting javascript code that completely
-// ignore text nodes and always just chains children() jQuery calls
 QString BookViewEditor::GetElementSelectingJS_NoTextNodes( const QList< ViewEditor::ElementIndex > &hierarchy ) const
 {
     // TODO: see if replacing jQuery with pure JS will speed up
@@ -525,10 +561,7 @@ QString BookViewEditor::GetElementSelectingJS_NoTextNodes( const QList< ViewEdit
 }
 
 
-// Returns the element selecting javascript code that chains
-// text node ignoring children() jQuery calls, but that uses
-// contents() for the last element (the text node, naturally)
-QString BookViewEditor::GetElementSelectingJS_WithTextNodes( const QList< ViewEditor::ElementIndex > &hierarchy ) const
+QString BookViewEditor::GetElementSelectingJS_WithTextNode( const QList< ViewEditor::ElementIndex > &hierarchy ) const
 {
     QString element_selector = "$('html')";
 
@@ -544,8 +577,6 @@ QString BookViewEditor::GetElementSelectingJS_WithTextNodes( const QList< ViewEd
 }
 
 
-// Escapes a string so that it can be embedded
-// inside a javascript source code string
 QString BookViewEditor::EscapeJSString( const QString &string )
 {
     QString new_string( string );
@@ -555,9 +586,6 @@ QString BookViewEditor::EscapeJSString( const QString &string )
 }
 
 
-// Executes the caret updating code
-// if an update is pending;
-// returns true if update was performed
 bool BookViewEditor::ExecuteCaretUpdate()
 {
     // If there is no caret location update pending... 
@@ -575,10 +603,10 @@ bool BookViewEditor::ExecuteCaretUpdate()
 }
 
 
-// Accepts a node offset map, the index of the string in the full doc text
-// and the string's length. Converts this information into a struct
-// with which a JS range object can be created to select this particular string.
-BookViewEditor::SelectRangeInputs BookViewEditor::GetRangeInputs( const QMap< int, QDomNode > &node_offsets, int string_start, int string_length ) const
+
+BookViewEditor::SelectRangeInputs BookViewEditor::GetRangeInputs( const QMap< int, QDomNode > &node_offsets,
+                                                                  int string_start, 
+                                                                  int string_length ) const
 {
     SelectRangeInputs input;
 
@@ -600,16 +628,16 @@ BookViewEditor::SelectRangeInputs BookViewEditor::GetRangeInputs( const QMap< in
             // + 1 because we are pretending there is another text node after this one
             next_offset = offsets[ i ] + node_offsets[ offsets[ i ] ].nodeValue().length() + 1;
 
-        if (    next_offset > string_start && 
-                input.start_node.isNull() 
+        if ( next_offset > string_start && 
+             input.start_node.isNull() 
            )
         {
             input.start_node_index = string_start - last_offset;
             input.start_node       = node_offsets.value( last_offset );
         }
 
-        if (    next_offset > string_start + string_length &&
-                input.end_node.isNull() 
+        if ( next_offset > string_start + string_length &&
+             input.end_node.isNull() 
            )
         {
             input.end_node_index = string_start + string_length - last_offset;
@@ -630,12 +658,10 @@ BookViewEditor::SelectRangeInputs BookViewEditor::GetRangeInputs( const QMap< in
 }
 
 
-// Accepts the range input struct and returns  
-// the range creating javascript code
 QString BookViewEditor::GetRangeJS( const SelectRangeInputs &input ) const
 {
-    QString start_node_js = GetElementSelectingJS_WithTextNodes( XHTMLDoc::GetHierarchyFromNode( input.start_node ) );
-    QString end_node_js   = GetElementSelectingJS_WithTextNodes( XHTMLDoc::GetHierarchyFromNode( input.end_node   ) );
+    QString start_node_js = GetElementSelectingJS_WithTextNode( XHTMLDoc::GetHierarchyFromNode( input.start_node ) );
+    QString end_node_js   = GetElementSelectingJS_WithTextNode( XHTMLDoc::GetHierarchyFromNode( input.end_node   ) );
 
     QString start_node_index = QString::number( input.start_node_index );
     QString end_node_index   = QString::number( input.end_node_index );
@@ -651,15 +677,12 @@ QString BookViewEditor::GetRangeJS( const SelectRangeInputs &input ) const
 }
 
 
-// Selects the string identified by the range inputs
 void BookViewEditor::SelectTextRange( const SelectRangeInputs &input )
 {
     EvaluateJavascript( GetRangeJS( input ) + c_NewSelection );
 }
 
 
-// Scrolls the view to the specified node.
-// Does NOT center the node in view.
 void BookViewEditor::ScrollToNode( const QDomNode &node )
 {
     QString element_selector = GetElementSelectingJS_NoTextNodes( XHTMLDoc::GetHierarchyFromNode( node ) );
@@ -707,9 +730,6 @@ void BookViewEditor::ScrollToNode( const QDomNode &node )
 }
 
 
-// Scrolls the whole screen by one line.
-// The parameter specifies are we scrolling up or down.
-// Used for ScrollOneLineUp and ScrollOneLineDown shortcuts.
 void BookViewEditor::ScrollByLine( bool down )
 {
     // This is an educated guess at best since QWebView is not
@@ -720,8 +740,6 @@ void BookViewEditor::ScrollByLine( bool down )
 }
 
 
-// Scrolls the whole screen by pixel_number.
-// "down" specifies are we scrolling up or down.
 void BookViewEditor::ScrollByNumPixels( int pixel_number, bool down )
 {
     Q_ASSERT( pixel_number != 0 );
@@ -736,6 +754,10 @@ void BookViewEditor::ScrollByNumPixels( int pixel_number, bool down )
 
     page()->mainFrame()->setScrollBarValue( Qt::Vertical, new_scroll_Y );
 }
+
+
+
+
 
 
 

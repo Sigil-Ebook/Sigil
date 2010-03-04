@@ -23,9 +23,12 @@
 #ifndef IMPORTSGF_H
 #define IMPORTSGF_H
 
-#include "ImportEPUB.h"
+#include "ImportOEBPS.h"
+#include "../BookManipulation/XHTMLDoc.h"
 
-class ImportSGF : public ImportEPUB
+class Resource;
+
+class ImportSGF : public ImportOEBPS
 {
 
 public:
@@ -37,15 +40,43 @@ public:
     // Reads and parses the file 
     // and returns the created Book;
     // Overrides;
-    Book GetBook();
+    QSharedPointer< Book > GetBook();
 
 private:
 
     // Loads the source code into the Book
-    void LoadSource();
+    QString LoadSource();
 
-    // Loads the referenced files into the main folder of the book
-    void LoadFolderStructure();
+    // Creates style files from the style tags in the source
+    // and returns a list of their file paths relative 
+    // to the OEBPS folder in the FolderKeeper
+    QList< Resource* > CreateStyleResources( const QString &source );
+
+    Resource* CreateOneStyleFile( const XHTMLDoc::XMLElement &element, 
+                                  const QString &folderpath, 
+                                  int index );
+
+    // Strips CDATA declarations from the provided source
+    static QString StripCDATA( const QString &style_source );
+
+    // Removes Sigil styles from the provided source
+    static QString RemoveSigilStyles( const QString &style_source );
+
+    // Takes a list of style sheet file names 
+    // and returns the header for XHTML files
+    static QString CreateHeader( const QList< Resource* > &style_resources );
+
+    // Creates XHTML files from the book source;
+    // the provided header is used as the header of the created files
+    void CreateXHTMLFiles( const QString &source, 
+                           const QString &header,
+                           const QHash< QString, QString > &html_updates );
+
+    void CreateOneXHTMLFile( QString source, 
+                             int reading_order, 
+                             const QString &folderpath,
+                             const QHash< QString, QString > &html_updates );
+
 
 };
 

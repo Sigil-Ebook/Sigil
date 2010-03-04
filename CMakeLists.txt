@@ -18,8 +18,8 @@ set( CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/lib )
 set( PACKAGE_DIRECTORY ${PROJECT_BINARY_DIR}/package )
 
 set( SIGIL_MAJOR_VERSION 0 )
-set( SIGIL_MINOR_VERSION 1 )
-set( SIGIL_REVISION_VERSION 9 )
+set( SIGIL_MINOR_VERSION 2 )
+set( SIGIL_REVISION_VERSION 0 )
 set( SIGIL_FULL_VERSION ${SIGIL_MAJOR_VERSION}.${SIGIL_MINOR_VERSION}.${SIGIL_REVISION_VERSION} )
 
 # Check if platform is 64 bit
@@ -47,6 +47,7 @@ set( CMAKE_OSX_DEPLOYMENT_TARGET "10.4" )
 
 add_subdirectory( src/tidyLib )
 add_subdirectory( src/ZipArchive )
+add_subdirectory( src/BoostParts )
 add_subdirectory( src/Sigil )
 
 

@@ -23,38 +23,64 @@
 #include "ImportTXT.h"
 #include "../BookManipulation/CleanSource.h"
 #include "../Misc/Utility.h"
+#include "ResourceObjects/HTMLResource.h"
+#include <QDomDocument>
 
-
+const QString FIRST_CHAPTER_NAME = "Section0001.xhtml";
 
 // Constructor;
 // The parameter is the file to be imported
 ImportTXT::ImportTXT( const QString &fullfilepath )
-    : m_FullFilePath( fullfilepath )
+    : Importer( fullfilepath )
 {
 
 }
 
+
 // Reads and parses the file 
 // and returns the created Book
-Book ImportTXT::GetBook()
+QSharedPointer< Book > ImportTXT::GetBook()
 {
     if ( !Utility::IsFileReadable( m_FullFilePath ) )
         
-        return Book();
+        boost_throw( CannotReadFile() << errinfo_file_fullpath( m_FullFilePath.toStdString() ) );
     
-    LoadSource();
-    
-    m_Book.source = CreateParagraphs( m_Book.source.split( QChar( '\n' ) ) );
-    m_Book.source = CleanSource::Clean( m_Book.source );
+    QString source = LoadSource();
+
+    InitializeHTMLResource( source, CreateHTMLResource( source ) );
 
     return m_Book;
 }
 
 
-// Loads the source code into the Book
-void ImportTXT::LoadSource()
+QString ImportTXT::LoadSource() const
 {
-    m_Book.source = Utility::ReadUnicodeTextFile( m_FullFilePath );    
+    QString source = Utility::ReadUnicodeTextFile( m_FullFilePath );   
+
+    source = CreateParagraphs( source.split( QChar( '\n' ) ) );
+    return CleanSource::Clean( source );    
+}
+
+
+HTMLResource* ImportTXT::CreateHTMLResource( const QString &source )
+{
+    QDir dir( Utility::GetNewTempFolderPath() );
+    dir.mkpath( dir.absolutePath() );
+
+    QString fullfilepath = dir.absolutePath() + "/" + FIRST_CHAPTER_NAME;
+    Utility::WriteUnicodeTextFile( source, fullfilepath );
+
+    m_Book->GetFolderKeeper().AddContentFileToFolder( fullfilepath, 0 );
+
+    return m_Book->GetFolderKeeper().GetSortedHTMLResources()[ 0 ];
+}
+
+
+void ImportTXT::InitializeHTMLResource( const QString &source, HTMLResource *resource )
+{
+    QDomDocument document;
+    document.setContent( source );
+    resource->SetDomDocument( document );
 }
 
 
@@ -63,11 +89,14 @@ void ImportTXT::LoadSource()
 QString ImportTXT::CreateParagraphs( const QStringList &lines ) const
 {
     QString text = "";
-
     QString paragraph = "<p>";
 
-    foreach( QString line, lines )
+    int num_lines = lines.count();
+
+    for ( int i = 0; i < num_lines; ++i )
     {
+        QString line = lines.at( i );
+
         if ( line.isEmpty() || line[ 0 ].isSpace() )
         {
             text.append( paragraph.append( "</p>\n" ) );

@@ -21,8 +21,10 @@
 
 #include <stdafx.h>
 #include "FindReplace.h"
-#include "../MainWindow.h"
-#include "../ViewEditors/ViewEditor.h"
+#include "../MainUI/MainWindow.h"
+#include "../ViewEditors/Searchable.h"
+#include "../Tabs/TabManager.h"
+#include "../Tabs/ContentTab.h"
 
 static const QString SETTINGS_GROUP = "find_replace";
 
@@ -30,10 +32,10 @@ static const QString SETTINGS_GROUP = "find_replace";
 // the first argument specifies which tab to load first;
 // the second argument is the MainWindow that created the dialog;
 // the third argument is the widget's parent.
-FindReplace::FindReplace( bool find_tab, const MainWindow &mainwindow, QWidget *parent )
+FindReplace::FindReplace( bool find_tab, TabManager &tabmanager, QWidget *parent )
     :
     QDialog( parent ),
-    m_MainWindow( mainwindow )
+    m_TabManager( tabmanager )
 {
     ui.setupUi( this );
 
@@ -43,13 +45,13 @@ FindReplace::FindReplace( bool find_tab, const MainWindow &mainwindow, QWidget *
 
     ExtendUI();
 
-    connect( ui.twTabs,          SIGNAL( currentChanged( int ) ), this, SLOT( TabChanged()                   ) );
-    connect( ui.btMore,          SIGNAL( clicked()             ), this, SLOT( ToggleMoreLess()               ) );
-    connect( ui.btFindNext,      SIGNAL( clicked()             ), this, SLOT( FindNext()                     ) );
-    connect( ui.btCount,         SIGNAL( clicked()             ), this, SLOT( Count()                        ) );
-    connect( ui.btReplace,       SIGNAL( clicked()             ), this, SLOT( Replace()                      ) );
-    connect( ui.btReplaceAll,    SIGNAL( clicked()             ), this, SLOT( ReplaceAll()                   ) );
-    connect( ui.rbNormalSearch,  SIGNAL( toggled( bool )       ), this, SLOT( ToggleAvailableOptions( bool ) ) );
+    connect( ui.twTabs,         SIGNAL( currentChanged( int ) ), this, SLOT( TabChanged()                   ) );
+    connect( ui.btMore,         SIGNAL( clicked()             ), this, SLOT( ToggleMoreLess()               ) );
+    connect( ui.btFindNext,     SIGNAL( clicked()             ), this, SLOT( FindNext()                     ) );
+    connect( ui.btCount,        SIGNAL( clicked()             ), this, SLOT( Count()                        ) );
+    connect( ui.btReplace,      SIGNAL( clicked()             ), this, SLOT( Replace()                      ) );
+    connect( ui.btReplaceAll,   SIGNAL( clicked()             ), this, SLOT( ReplaceAll()                   ) );
+    connect( ui.rbNormalSearch, SIGNAL( toggled( bool )       ), this, SLOT( ToggleAvailableOptions( bool ) ) );
 
     // Defaults
     ui.rbNormalSearch->setChecked( true );
@@ -108,7 +110,6 @@ void FindReplace::ToggleMoreLess()
         ui.twTabs->hide();
         ui.wOptions->show();
         ui.twTabs->show(); 
-
         ui.btMore->setText( tr( "Less" ) );
 
         m_isMore = true;
@@ -142,7 +143,13 @@ void FindReplace::FindNext()
 
         return;
 
-    bool found = m_MainWindow.GetActiveViewEditor().FindNext( GetSearchRegex(), GetSearchDirection() );
+    Searchable *searchable = GetAvailableSearchable();
+    
+    if ( !searchable )
+
+        return;
+
+    bool found = searchable->FindNext( GetSearchRegex(), GetSearchDirection() );
 
     if ( !found )
 
@@ -158,17 +165,17 @@ void FindReplace::Count()
 
         return;
 
-    int count = m_MainWindow.GetActiveViewEditor().Count( GetSearchRegex() );
+    Searchable *searchable = GetAvailableSearchable();
 
-    QString message;
+    if ( !searchable )
 
-    if ( count < 1 || count > 1 )
+        return;
 
-        message = tr( "%1 matches were found." );
+    int count = searchable->Count( GetSearchRegex() );
 
-    else
-
-        message = tr( "%1 match was found." );
+    QString message = ( count < 1 || count > 1 )     ? 
+                      tr( "%1 matches were found." ) :
+                      tr( "%1 match was found."    );
 
     QMessageBox::information( 0, tr( "Sigil" ), message.arg( count ) );        
 }
@@ -183,8 +190,14 @@ void FindReplace::Replace()
 
         return;
 
+    Searchable *searchable = GetAvailableSearchable();
+
+    if ( !searchable )
+
+        return;
+
     // If we have the matching text selected, replace it
-    m_MainWindow.GetActiveViewEditor().ReplaceSelected( GetSearchRegex(), ui.leReplace->text() );
+    searchable->ReplaceSelected( GetSearchRegex(), ui.leReplace->text() );
 
     // Go find the next match
     FindNext(); 
@@ -200,17 +213,17 @@ void FindReplace::ReplaceAll()
 
         return;
 
-    int count = m_MainWindow.GetActiveViewEditor().ReplaceAll( GetSearchRegex(), ui.leReplace->text() );
+    Searchable *searchable = GetAvailableSearchable();
 
-    QString message;
+    if ( !searchable )
 
-    if ( count < 1 || count > 1 )
+        return;
 
-        message = tr( "The search term was replaced %1 times." );
+    int count = searchable->ReplaceAll( GetSearchRegex(), ui.leReplace->text() );
 
-    else
-
-        message = tr( "The search term was replaced %1 time." );
+    QString message = ( count < 1 || count > 1 )                     ? 
+                      tr( "The search term was replaced %1 times." ) :
+                      tr( "The search term was replaced %1 time."  );
 
     QMessageBox::information( 0, tr( "Sigil" ), message.arg( count ) ); 
 }
@@ -377,21 +390,21 @@ void FindReplace::ReadSettings()
     }
 
     // Checkbox and radio button values
-    ui.cbMatchCase->        setChecked( settings.value( "match_case"        ).toBool() );
-    ui.cbMinimalMatching->  setChecked( settings.value( "minimal_matching"  ).toBool() );
-    ui.cbWholeWord->        setChecked( settings.value( "whole_word"        ).toBool() );
+    ui.cbMatchCase->      setChecked( settings.value( "match_case"       ).toBool() );
+    ui.cbMinimalMatching->setChecked( settings.value( "minimal_matching" ).toBool() );
+    ui.cbWholeWord->      setChecked( settings.value( "whole_word"       ).toBool() );
 
-    ui.rbNormalSearch->     setChecked( settings.value( "normal_search"     ).toBool() );
-    ui.rbWildcardSearch->   setChecked( settings.value( "wildcard_search"   ).toBool() );
-    ui.rbRegexSearch->      setChecked( settings.value( "regex_search"      ).toBool() );
+    ui.rbNormalSearch->   setChecked( settings.value( "normal_search"    ).toBool() );
+    ui.rbWildcardSearch-> setChecked( settings.value( "wildcard_search"  ).toBool() );
+    ui.rbRegexSearch->    setChecked( settings.value( "regex_search"     ).toBool() );
 
-    ui.rbUpDirection->      setChecked( settings.value( "up_direction"      ).toBool() );
-    ui.rbDownDirection->    setChecked( settings.value( "down_direction"    ).toBool() );
-    ui.rbAllDirection->     setChecked( settings.value( "all_direction"     ).toBool() );
+    ui.rbUpDirection->    setChecked( settings.value( "up_direction"     ).toBool() );
+    ui.rbDownDirection->  setChecked( settings.value( "down_direction"   ).toBool() );
+    ui.rbAllDirection->   setChecked( settings.value( "all_direction"    ).toBool() );
 
     // Input fields
-    ui.leFind->     setText( settings.value( "find_text"    ).toString() );
-    ui.leReplace->  setText( settings.value( "replace_text" ).toString() );
+    ui.leFind->   setText( settings.value( "find_text"    ).toString() );
+    ui.leReplace->setText( settings.value( "replace_text" ).toString() );
 }
 
 // Writes all the stored dialog settings like
@@ -408,17 +421,17 @@ void FindReplace::WriteSettings()
     settings.setValue( "is_more", m_isMore );
 
     // Checkbox and radio button values
-    settings.setValue( "match_case",        ui.cbMatchCase->        isChecked() );
-    settings.setValue( "minimal_matching",  ui.cbMinimalMatching->  isChecked() );
-    settings.setValue( "whole_word",        ui.cbWholeWord->        isChecked() );
+    settings.setValue( "match_case",       ui.cbMatchCase->      isChecked() );
+    settings.setValue( "minimal_matching", ui.cbMinimalMatching->isChecked() );
+    settings.setValue( "whole_word",       ui.cbWholeWord->      isChecked() );
 
-    settings.setValue( "normal_search",     ui.rbNormalSearch->     isChecked() );
-    settings.setValue( "wildcard_search",   ui.rbWildcardSearch->   isChecked() );
-    settings.setValue( "regex_search",      ui.rbRegexSearch->      isChecked() );
+    settings.setValue( "normal_search",    ui.rbNormalSearch->   isChecked() );
+    settings.setValue( "wildcard_search",  ui.rbWildcardSearch-> isChecked() );
+    settings.setValue( "regex_search",     ui.rbRegexSearch->    isChecked() );
 
-    settings.setValue( "up_direction",      ui.rbUpDirection->      isChecked() );
-    settings.setValue( "down_direction",    ui.rbDownDirection->    isChecked() );
-    settings.setValue( "all_direction",     ui.rbAllDirection->     isChecked() );
+    settings.setValue( "up_direction",     ui.rbUpDirection->    isChecked() );
+    settings.setValue( "down_direction",   ui.rbDownDirection->  isChecked() );
+    settings.setValue( "all_direction",    ui.rbAllDirection->   isChecked() );
 
     // Input fields
     settings.setValue( "find_text",    ui.leFind->   text() );
@@ -433,6 +446,21 @@ void FindReplace::ExtendUI()
     new QVBoxLayout( ui.ReplaceTab );
 }
 
+
+Searchable* FindReplace::GetAvailableSearchable()
+{
+    Searchable *searchable = m_TabManager.GetCurrentContentTab().GetSearchableContent();
+    
+    if ( !searchable )
+    {
+        QMessageBox::warning( this,
+                              tr( "Sigil" ),
+                              tr( "This tab cannot be searched." )
+                            );
+    }
+
+    return searchable;
+}
 
 
 

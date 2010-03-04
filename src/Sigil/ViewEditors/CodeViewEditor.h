@@ -27,6 +27,7 @@
 #include "ViewEditor.h"
 #include <QStack>
 #include <QList>
+#include <boost/tuple/tuple.hpp>
 
 class QResizeEvent;
 class QSize;
@@ -34,7 +35,7 @@ class QWidget;
 class QPrinter;
 class QShortcut;
 class LineNumberArea;
-class XHTMLHighlighter;
+class QSyntaxHighlighter;
 
 
 class CodeViewEditor : public QPlainTextEdit, public ViewEditor
@@ -43,12 +44,18 @@ class CodeViewEditor : public QPlainTextEdit, public ViewEditor
 
 public:
 
-    // Constructor;
-    // the parameters is the object's parent
-    CodeViewEditor( QWidget *parent = 0 );
+    enum HighlighterType
+    {
+        Highlight_XHTML, 
+        Highlight_CSS
+    };
 
-    // Sets the content of the View to the specified book
-    void SetBook( const Book &book );
+    // Constructor;
+    // the first parameter says which syn. highlighter to use;
+    // the second parameter is the object's parent
+    CodeViewEditor( HighlighterType high_type, QWidget *parent = 0 );
+
+    void CustomSetDocument( QTextDocument &document );
 
     // Paints the line number area;
     // receives the event directly 
@@ -72,6 +79,8 @@ public:
     // The CodeView implementation initiates the update in
     // the main event handler.
     void StoreCaretLocationUpdate( const QList< ViewEditor::ElementIndex > &hierarchy );
+
+    void ScrollToTop();
 
     // Sets a zoom factor for the view,
     // thus zooming in (factor > 1.0) or out (factor < 1.0). 
@@ -97,10 +106,15 @@ public:
     // the document with the specified replacement string.
     int ReplaceAll( const QRegExp &search_regex, const QString &replacement );
 
+
 signals:
     
     // Emitted whenever the zoom factor changes
     void ZoomFactorChanged( float new_zoom_factor );
+
+    void FocusLost();
+
+    void FocusGained();
 
 public slots:
 
@@ -128,6 +142,10 @@ protected:
     // So in those conditions, this handler takes over.
     void mousePressEvent( QMouseEvent *event );
 
+    void focusInEvent( QFocusEvent *event );
+
+    void focusOutEvent( QFocusEvent *event );
+
 private slots:
 
     // Called whenever the number of lines changes;
@@ -149,19 +167,6 @@ private slots:
     void ScrollOneLineDown();
 
 private:
-
-    // Specifies the lines and characters the caret will
-    // need to move to get to the required position
-    struct CaretMove
-    {
-        // The vertical lines from
-        // the start of the document
-        int vertical_lines;
-
-        // The number of horizontal characters
-        // on the destination line
-        int horizontal_chars;
-    };
 
     // An element on the stack when searching for
     // the current caret location. 
@@ -185,8 +190,9 @@ private:
     // and converts it into the element location hierarchy
     QList< ElementIndex > ConvertStackToHierarchy( const QStack< StackElement > stack ) const;
 
-    // Converts a ViewEditor element hierarchy to a CaretMove
-    CaretMove ConvertHierarchyToCaretMove( const QList< ViewEditor::ElementIndex > &hierarchy ) const;
+    // Converts a ViewEditor element hierarchy to a "CaretMove" tuple:
+    // the tuple contains the vertical lines and horizontal chars move deltas
+    boost::tuple< int, int > ConvertHierarchyToCaretMove( const QList< ViewEditor::ElementIndex > &hierarchy ) const;
 
     // Executes the caret updating code
     // if such an update is pending;
@@ -213,7 +219,7 @@ private:
     LineNumberArea *m_LineNumberArea;
 
     // The syntax highlighter
-    XHTMLHighlighter *m_Highlighter;
+    QSyntaxHighlighter *m_Highlighter;
 
     // The view's current zoom factor
     float m_CurrentZoomFactor;

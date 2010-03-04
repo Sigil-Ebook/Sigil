@@ -25,6 +25,8 @@
 
 #include "XMLWriter.h"
 
+class HTMLResource;
+
 class OPFWriter : private XMLWriter
 {
 
@@ -34,7 +36,7 @@ public:
     // The first parameter is the book being exported,
     // and the second is the FolderKeeper object representing
     // the folder where the book will be exported
-    OPFWriter( const Book &book, const FolderKeeper &fkeeper );
+    OPFWriter( QSharedPointer< Book > book );
 
     // Returns the created XML file
     QString GetXML();
@@ -46,24 +48,24 @@ private:
 
     // Dispatches each metadata entry based on its type;
     // the specialized Write* functions write the elements
-    void MetadataDispatcher(			const QString &metaname, const QVariant &metavalue );
+    void MetadataDispatcher(        const QString &metaname, const QVariant &metavalue );
 
     // Write <creator> and <contributor> metadata elements
-    void WriteCreatorsAndContributors(	const QString &metaname, const QString &metavalue );
+    void WriteCreatorOrContributor( const QString &metaname, const QString &metavalue );
 
     // Writes simple metadata; the metaname will be the element name
     // and the metavalue will be written as the value
-    void WriteSimpleMetadata(			const QString &metaname, const QString &metavalue );
+    void WriteSimpleMetadata(       const QString &metaname, const QString &metavalue );
 
     // Writes the <identifier> elements;
     // the metaname will be used for the scheme
     // and the metavalue for the value
-    void WriteIdentifier(				const QString &metaname, const QString &metavalue );
+    void WriteIdentifier(           const QString &metaname, const QString &metavalue );
 
     // Writes the <date> elements;
     // the metaname will be used for the event
     // and the metavalue for the value 
-    void WriteDate(						const QString &metaname, const QVariant &metavalue );
+    void WriteDate(                 const QString &metaname, const QVariant &metavalue );
 
     // Takes the reversed form of a name ("Doe, John")
     // and returns the normal form ("John Doe"); if the
@@ -79,10 +81,9 @@ private:
     // Writes the <guide> element
     void WriteGuide();
 
-    // Returns true if the content of the file specified
-    // has fewer characters than 'threshold' number;
-    // by the path specified is relative to the OEBPS folder 
-    bool IsFlowUnderThreshold( const QString &relative_path, int threshold ) const;
+    // Returns true if the text of the HTML resource specified
+    // has fewer characters than 'threshold' number. 
+    bool IsFlowUnderThreshold( HTMLResource *resource, int threshold ) const;
 
     // Initializes m_Mimetypes
     void CreateMimetypes();

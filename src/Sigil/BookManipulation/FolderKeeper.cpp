@@ -21,12 +21,35 @@
 
 #include <stdafx.h>
 #include "../BookManipulation/FolderKeeper.h"
+#include "../ResourceObjects/HTMLResource.h"
+#include "../ResourceObjects/ImageResource.h"
+#include "../ResourceObjects/CSSResource.h"
+#include "../ResourceObjects/XPGTResource.h"
+#include "../ResourceObjects/FontResource.h"
+#include "../ResourceObjects/Resource.h"
 #include "../Misc/Utility.h"
+
+static const QStringList IMAGE_EXTENSIONS = QStringList() << "jpg"   << "jpeg"  << "png"
+                                                          << "gif"   << "tif"   << "tiff"
+                                                          << "bm"    << "bmp"   << "svg";
+
+static const QStringList FONT_EXTENSIONS  = QStringList() << "ttf"   << "otf";
+const QStringList TEXT_EXTENSIONS         = QStringList() << "xhtml" << "html"  << "htm" << "xml";
+static const QStringList STYLE_EXTENSIONS = QStringList() << "css"   << "xpgt";
+
+const QString IMAGE_FOLDER_NAME = "Images";
+const QString FONT_FOLDER_NAME  = "Fonts";
+const QString TEXT_FOLDER_NAME  = "Text";
+const QString STYLE_FOLDER_NAME = "Styles";
+const QString MISC_FOLDER_NAME  = "Misc";
+
+typedef boost::error_info< struct resource_name, std::string > errinfo_resource_name;
+
 
 // Constructor
 FolderKeeper::FolderKeeper()
 {
-    Initialize();	
+    Initialize();
 }
 
 
@@ -34,24 +57,24 @@ FolderKeeper::FolderKeeper()
 FolderKeeper::FolderKeeper( const FolderKeeper& other )
 {
     Initialize();
-    
-    Utility::CopyFiles( other.FullPathToMainFolder, FullPathToMainFolder );
+
+    CopyFiles( other );
 }
 
 
 // Assignment operator
-FolderKeeper& FolderKeeper::operator = ( const FolderKeeper& other )
+FolderKeeper& FolderKeeper::operator= ( const FolderKeeper& other )
 {
     // Protect against invalid self-assignment
     if ( this != &other ) 
     {
-        QString path_to_old = FullPathToMainFolder;
+        QString path_to_old = m_FullPathToMainFolder;
 
         Initialize();
 
-        Utility::DeleteFolderAndFiles( path_to_old );
+        DeleteAllResources( path_to_old );        
 
-        Utility::CopyFiles( other.FullPathToMainFolder, FullPathToMainFolder );
+        CopyFiles( other );        
     }
 
     // By convention, always return *this
@@ -62,327 +85,263 @@ FolderKeeper& FolderKeeper::operator = ( const FolderKeeper& other )
 // Destructor
 FolderKeeper::~FolderKeeper()
 {
-    if ( FullPathToMainFolder.isEmpty() == false )
+    if ( m_FullPathToMainFolder.isEmpty() == false )
 
-        Utility::DeleteFolderAndFiles( FullPathToMainFolder );
+        DeleteAllResources( m_FullPathToMainFolder );           
 }
+
 
 // A dispatcher function that routes the given *infrastructure* file
 // to the appropriate specific folder function
 void FolderKeeper::AddInfraFileToFolder( const QString &fullfilepath, const QString &newfilename  )
 {
-    if ( newfilename == "container.xml" )
+    if ( newfilename == CONTAINER_XML_FILE_NAME )
     
-        AddFileToMetaInfFolder( fullfilepath, newfilename );
+        QFile::copy( fullfilepath, m_FullPathToMetaInfFolder + "/" + newfilename );
 
-    else if ( ( newfilename == "content.opf" ) || ( newfilename == "toc.ncx" ) )
+    else if ( ( newfilename == OPF_FILE_NAME ) || ( newfilename == NCX_FILE_NAME ) )
 
-        AddFileToOEBPSFolder( fullfilepath, newfilename );
+        QFile::copy( fullfilepath, m_FullPathToOEBPSFolder + "/" + newfilename );
 
     else
     {
-        // FIXME: throw exception
+        Q_ASSERT( false );
     }
 }
 
-// A dispatcher function that routes the given *content* file
-// to the appropriate specific folder function.
-// The file is recognized according to its extension: use force_extension
-// to override the recognition and force an extension.
-// Set preserve_filename to true to preserve the original filename.
-// The function returns the new file's path relative to the OEBPS folder.
-QString FolderKeeper::AddContentFileToFolder( const QString &fullfilepath, 
-                                              const QString &force_extension,
-                                              const bool preserve_filename    )
+
+Resource& FolderKeeper::AddContentFileToFolder( const QString &fullfilepath, int reading_order )
 {
-    QList< QString > images;
-    images  << "jpg"    << "jpeg"   << "png"
-            << "gif"    << "tif"    << "tiff"
-            << "bm"     << "bmp"    << "svg";
+    // We need to lock at the start of the func
+    // because otherwise several threads can get
+    // the same "unique" name.
+    m_AccessMutex.lock();
 
-    QList< QString > fonts;
-    fonts << "ttf" << "otf";
+    QString filename  = GetUniqueFilenameVersion( QFileInfo( fullfilepath ).fileName() );
+    QString extension = QFileInfo( fullfilepath ).suffix().toLower();
 
-    QList< QString > texts;
-    texts << "xhtml" << "html" << "htm";
+    QString new_file_path;
+    QString relative_path;
 
-    QList< QString > styles;
-    styles << "css" << "xpgt";
+    Resource *resource = NULL;
 
-    QString extension = "";
-
-    if ( force_extension.isNull() )
+    if ( IMAGE_EXTENSIONS.contains( extension ) )
     {
-        extension = QFileInfo( fullfilepath ).suffix().toLower();
-    }      
+        new_file_path = m_FullPathToImagesFolder + "/" + filename;
+        relative_path = IMAGE_FOLDER_NAME + "/" + filename;
 
-    else
+        resource = new ImageResource( new_file_path, &m_Resources );
+    }
+
+    else if ( FONT_EXTENSIONS.contains( extension ) )
     {
-        // If the caller specified for instance ".txt",
-        // it is converted to "txt" (we remove the dot)
-        if ( force_extension[ 0 ] == QChar( '.' ) )
+        new_file_path = m_FullPathToFontsFolder + "/" + filename;
+        relative_path = FONT_FOLDER_NAME + "/" + filename;
 
-            extension = Utility::Substring( 1, force_extension.length(), force_extension ).toLower();
+        resource = new FontResource( new_file_path, &m_Resources );
+    }
+
+    else if ( TEXT_EXTENSIONS.contains( extension ) )
+    {
+        new_file_path = m_FullPathToTextFolder + "/" + filename;
+        relative_path = TEXT_FOLDER_NAME + "/" + filename;
+
+        resource = new HTMLResource( new_file_path, &m_Resources, reading_order );
+    }
+
+    else if ( STYLE_EXTENSIONS.contains( extension ) )
+    {
+        new_file_path = m_FullPathToStylesFolder + "/" + filename;
+        relative_path = STYLE_FOLDER_NAME + "/" + filename;
+
+        if ( extension == "css" )
+
+            resource = new CSSResource( new_file_path, &m_Resources );
 
         else
 
-            extension = force_extension.toLower();;
-    }        
+            resource = new XPGTResource( new_file_path, &m_Resources );
+    }
 
-    if ( images.contains( extension ) )
+    else
+    {
+        // Fallback mechanism
+        new_file_path = m_FullPathToMiscFolder + "/" + filename;
+        relative_path = MISC_FOLDER_NAME + "/" + filename;
 
-        return "images/" + AddFileToImagesFolder( fullfilepath, extension, preserve_filename );
+        resource = new Resource( new_file_path, &m_Resources );
+    }    
 
-    if ( fonts.contains( extension ) )
+    m_Resources[ resource->GetIdentifier() ] = resource;
+
+    // After we deal with the resource hash, other threads can continue.
+    m_AccessMutex.unlock();
+
+    QFile::copy( fullfilepath, new_file_path );
+
+    if ( QThread::currentThread() != QApplication::instance()->thread() )
+
+        resource->moveToThread( QApplication::instance()->thread() );
+
+    return *resource;
+}
+
+
+int FolderKeeper::GetHighestReadingOrder() const
+{
+    int highest_reading_order = -1;
+
+    foreach( Resource *resource, m_Resources.values() )
+    {
+        if ( resource->Type() == Resource::HTMLResource )
+        {
+            HTMLResource* html_resource = qobject_cast< HTMLResource* >( resource );
+
+            Q_ASSERT( html_resource );
+
+            int reading_order = html_resource->GetReadingOrder();
+
+            if ( reading_order > highest_reading_order )
+
+                highest_reading_order = reading_order;
+        }
+    }
+
+    return highest_reading_order;
+}
+
+
+QString FolderKeeper::GetUniqueFilenameVersion( const QString &filename ) const
+{
+    const QStringList &filenames = GetAllFilenames();
+
+    if ( !filenames.contains( filename ) )
+
+        return filename;
+
+    QString name_prefix = QFileInfo( filename ).baseName().remove( QRegExp( "\\d+$" ) );
+    QString extension   = QFileInfo( filename ).completeSuffix();
     
-        return "fonts/" + AddFileToFontsFolder( fullfilepath, extension, preserve_filename );
+    QString search_string = QRegExp::escape( name_prefix ).prepend( "^" ) + 
+                            "(\\d*)" +
+                            ( !extension.isEmpty() ? ( "\\." + QRegExp::escape( extension ) ) : QString() ) + 
+                            "$";
 
-    if ( texts.contains( extension ) )
+    QRegExp filename_search( search_string );
 
-        return "text/" + AddFileToTextFolder( fullfilepath, extension, preserve_filename );
+    int max_num_length = -1;
+    int max_num = -1;
 
-    if ( styles.contains( extension ) )
+    foreach( QString existing_file, filenames )
+    {
+        if ( existing_file.indexOf( filename_search ) == -1 )
 
-        return "styles/" + AddFileToStylesFolder( fullfilepath, extension, preserve_filename );
+            continue;
+        
+        bool conversion_successful = false; 
+        int number_suffix = filename_search.cap( 1 ).toInt( &conversion_successful );
 
-    // Fallback mechanism
-    return "misc/" + AddFileToMiscFolder( fullfilepath, extension, preserve_filename );
+        if ( conversion_successful && number_suffix > max_num )
+        {
+            max_num = number_suffix;
+            max_num_length = filename_search.cap( 1 ).length();
+        }
+    }
+
+    if ( max_num == -1 )
+    {
+        max_num = 0;
+        max_num_length = 4;
+    }
+
+    const int conversion_base = 10;
+
+    QString new_name = name_prefix + QString( "%1" ).arg( max_num + 1, 
+                                                          max_num_length, 
+                                                          conversion_base, 
+                                                          QChar( '0' ) );
+
+    return new_name + ( !extension.isEmpty() ? ( "." + extension ) : QString() );
 }
 
 
 // Returns a list of all the content files in the directory
 // with a path relative to the OEBPS directory
-QStringList FolderKeeper::GetContentFilesList() const
+QStringList FolderKeeper::GetSortedContentFilesList() const
 {
     QStringList filelist;
 
-    QDir images(    FullPathToImagesFolder  );
-    QDir fonts(     FullPathToFontsFolder   );
-    QDir texts(     FullPathToTextFolder    );
-    QDir styles(    FullPathToStylesFolder  );
-    QDir misc(      FullPathToMiscFolder    );
-
-    foreach( QString file, images.entryList() )
+    foreach( Resource* resource, m_Resources.values() )
     {
-        if ( ( file != "." ) && ( file != ".." ) )
-
-            filelist.append( "images/" + file );
+        filelist.append( resource->GetRelativePathToOEBPS() );
     }
-
-    foreach( QString file, fonts.entryList() )
-    {
-        if ( ( file != "." ) && ( file != ".." ) )
-
-            filelist.append( "fonts/" + file );
-    }
-
-    foreach( QString file, texts.entryList() )
-    {
-        if ( ( file != "." ) && ( file != ".." ) )
-
-            filelist.append( "text/" + file );
-    }
-
-    foreach( QString file, styles.entryList() )
-    {
-        if ( ( file != "." ) && ( file != ".." ) )
-
-            filelist.append( "styles/" + file );
-    }
-
-    foreach( QString file, misc.entryList() )
-    {
-        if ( ( file != "." ) && ( file != ".." ) )
-
-            filelist.append( "misc/" + file );
-    }
-
+    
+    filelist.sort();
     return filelist;
+}
+
+
+QList< Resource* > FolderKeeper::GetResourceList() const
+{
+    return m_Resources.values();
+}
+
+
+// Returned in reading order
+QList< HTMLResource* > FolderKeeper::GetSortedHTMLResources() const
+{
+    QList< HTMLResource* > html_resources;
+
+    foreach( Resource *resource, m_Resources.values() )
+    {
+        if ( resource->Type() == Resource::HTMLResource )
+
+            html_resources.append( qobject_cast< HTMLResource* >( resource ) );
+    }
+
+    qSort( html_resources.begin(), html_resources.end(), HTMLResource::LessThan );
+
+    return html_resources;
+}
+
+
+Resource& FolderKeeper::GetResourceByIdentifier( const QString &identifier ) const
+{
+    return *m_Resources[ identifier ];
+}
+
+
+Resource& FolderKeeper::GetResourceByFilename( const QString &filename ) const
+{
+    foreach( Resource *resource, m_Resources.values() )
+    {
+        if ( resource->Filename() == filename )
+
+            return *resource;
+    }
+
+    boost_throw( ResourceDoesNotExist() << errinfo_resource_name( filename.toStdString() ) );
 }
 
 
 // Returns the full path to the main folder of the publication
 QString FolderKeeper::GetFullPathToMainFolder() const
 {
-    return FullPathToMainFolder;
+    return m_FullPathToMainFolder;
 }
 
 
 // Returns the full path to the OEBPS folder of the publication
 QString FolderKeeper::GetFullPathToOEBPSFolder() const
 {
-    return FullPathToOEBPSFolder;
+    return m_FullPathToOEBPSFolder;
 }
 
 
 // Returns the full path to the OEBPS/text folder of the publication
 QString FolderKeeper::GetFullPathToTextFolder() const
 {
-    return FullPathToTextFolder;
-}
-
-
-// Copies the file specified with fullfilepath
-// to the META-INF folder with the name newfilename
-void FolderKeeper::AddFileToMetaInfFolder( const QString &fullfilepath, const QString &newfilename )
-{
-    QFile::copy( fullfilepath, FullPathToMetaInfFolder + "/" + newfilename );	
-}
-
-
-// Copies the file specified with fullfilepath
-// to the OEBPS folder with the name newfilename
-void FolderKeeper::AddFileToOEBPSFolder( const QString &fullfilepath, const QString &newfilename )
-{
-    QFile::copy( fullfilepath, FullPathToOEBPSFolder + "/" + newfilename );	
-}
-
-
-// Copies the file specified with fullfilepath
-// to the OEBPS/images folder with a generated name;
-// the generated name is returned
-QString FolderKeeper::AddFileToImagesFolder(    const QString &fullfilepath, 
-                                                const QString &extension, 
-                                                const bool preserve_filename )
-{
-    QString filename;    
-
-    if ( preserve_filename )
-    {
-        filename = QFileInfo( fullfilepath ).fileName();
-    }
-
-    else
-    {
-        // Count - 2 because we don't care for the "." and ".." folders
-        // + 1 because we are adding a file
-        int index = QDir( FullPathToImagesFolder ).count() - 2 + 1;
-
-        // We add a number to the file, so e.g. we get "img0001.png", "img0035.jpg" etc.
-        filename = QString( "img" ) + QString( "%1" ).arg( index, 4, 10, QChar( '0' ) ) + "." + extension;
-    }
-
-    QFile::copy( fullfilepath, FullPathToImagesFolder + "/" + filename );
-
-    return filename;
-}
-
-
-// Copies the file specified with fullfilepath
-// to the OEBPS/images folder with a generated name;
-// the generated name is returned
-QString FolderKeeper::AddFileToFontsFolder(    const QString &fullfilepath, 
-                                               const QString &extension, 
-                                               const bool preserve_filename )
-{
-    QString filename;    
-
-    if ( preserve_filename )
-    {
-        filename = QFileInfo( fullfilepath ).fileName();
-    }
-
-    else
-    {
-        // Count - 2 because we don't care for the "." and ".." folders
-        // + 1 because we are adding a file
-        int index = QDir( FullPathToFontsFolder ).count() - 2 + 1;
-
-        // We add a number to the file, so e.g. we get "font001.otf", "font035.ttf" etc.
-        filename = QString( "font" ) + QString( "%1" ).arg( index, 3, 10, QChar( '0' ) ) + "." + extension;
-    }
-
-    QFile::copy( fullfilepath, FullPathToFontsFolder + "/" + filename );
-
-    return filename;
-}
-
-
-// Copies the file specified with fullfilepath
-// to the OEBPS/text folder with a generated name;
-// the generated name is returned
-QString FolderKeeper::AddFileToTextFolder(    const QString &fullfilepath, 
-                                              const QString &extension, 
-                                              const bool preserve_filename )
-{
-    QString filename;    
-
-    if ( preserve_filename )
-    {
-        filename = QFileInfo( fullfilepath ).fileName();
-    }
-
-    else
-    {
-        // Count - 2 because we don't care for the "." and ".." folders
-        // + 1 because we are adding a file
-        int index = QDir( FullPathToTextFolder ).count() - 2 + 1;
-
-        // We add a number to the file, so e.g. we get "content001.xhtml", "content035.xhtml" etc.
-        filename = QString( "content" ) + QString( "%1" ).arg( index, 3, 10, QChar( '0' ) ) + "." + extension;
-    }
-
-    QFile::copy( fullfilepath, FullPathToTextFolder + "/" + filename );
-
-    return filename;
-}
-
-// Copies the file specified with fullfilepath
-// to the OEBPS/styles folder with a generated name;
-// the generated name is returned
-QString FolderKeeper::AddFileToStylesFolder(    const QString &fullfilepath, 
-                                                const QString &extension, 
-                                                const bool preserve_filename )
-{
-    QString filename;    
-
-    if ( preserve_filename )
-    {
-        filename = QFileInfo( fullfilepath ).fileName();
-    }
-
-    else
-    {
-        // Count - 2 because we don't care for the "." and ".." folders
-        // + 1 because we are adding a file
-        int index = QDir( FullPathToStylesFolder ).count() - 2 + 1;
-
-        // We add a number to the file, so e.g. we get "style001.css", "style035.css" etc.
-        filename = QString( "style" ) + QString( "%1" ).arg( index, 3, 10, QChar( '0' ) ) + "." + extension;
-    }
-
-    QFile::copy( fullfilepath, FullPathToStylesFolder + "/" + filename );
-
-    return filename;
-}
-
-// Copies the file specified with fullfilepath
-// to the OEBPS/misc folder with a generated name;
-// the generated name is returned
-QString FolderKeeper::AddFileToMiscFolder(    const QString &fullfilepath, 
-                                              const QString &extension, 
-                                              const bool preserve_filename )
-{
-    QString filename;    
-
-    if ( preserve_filename )
-    {
-        filename = QFileInfo( fullfilepath ).fileName();
-    }
-
-    else
-    {
-        // Count - 2 because we don't care for the "." and ".." folders
-        // + 1 because we are adding a file
-        int index = QDir( FullPathToMiscFolder ).count() - 2 + 1;
-
-        // We add a number to the file, so e.g. we get "misc001.xxx", "misc035.xxx" etc.
-        filename = QString( "misc" ) + QString( "%1" ).arg( index, 3, 10, QChar( '0' ) ) + "." + extension;
-    }
-
-    QFile::copy( fullfilepath, FullPathToMiscFolder + "/" + filename );
-
-    return filename;
+    return m_FullPathToTextFolder;
 }
 
 
@@ -391,44 +350,86 @@ QString FolderKeeper::AddFileToMiscFolder(    const QString &fullfilepath,
 void FolderKeeper::Initialize()
 {
     QDir folder( Utility::GetNewTempFolderPath() );
-
     folder.mkpath( folder.absolutePath() );
 
-    FullPathToMainFolder = folder.absolutePath();
+    m_FullPathToMainFolder = folder.absolutePath();
 
     CreateFolderStructure();
+}
+
+
+QStringList FolderKeeper::GetAllFilenames() const
+{
+    QStringList filelist;
+
+    foreach( Resource* resource, m_Resources.values() )
+    {
+        filelist.append( resource->Filename() );
+    }
+
+    return filelist;
+}
+
+
+void FolderKeeper::CopyFiles( const FolderKeeper &other )
+{
+    foreach( Resource *resource, other.m_Resources.values() )
+    {
+        QString filepath( other.GetFullPathToOEBPSFolder() + "/" + resource->GetRelativePathToOEBPS() );
+
+        int reading_order = -1;
+
+        if ( resource->Type() == Resource::HTMLResource )
+
+            reading_order = qobject_cast< HTMLResource* >( resource )->GetReadingOrder();
+
+        AddContentFileToFolder( filepath, reading_order );
+    }
+}
+
+
+void FolderKeeper::DeleteAllResources( const QString &folderpath )
+{
+    foreach( Resource *resource, m_Resources.values() )
+    {
+        resource->Delete();
+    }
+
+    m_Resources.clear();
+
+    QtConcurrent::run( Utility::DeleteFolderAndFiles, folderpath );
 }
 
 
 // Creates the required folder structure:
 //	 META-INF
 //	 OEBPS
-//	    images
-//	    fonts
-//	    text
-//      styles
-//      misc
+//	    Images
+//	    Fonts
+//	    Text
+//      Styles
+//      Misc
 void FolderKeeper::CreateFolderStructure()
 {
-    QDir folder( FullPathToMainFolder );
+    QDir folder( m_FullPathToMainFolder );
 
     folder.mkdir( "META-INF" );
-    folder.mkdir( "OEBPS" );
+    folder.mkdir( "OEBPS"    );
 
-    folder.mkpath( "OEBPS/fonts" );
-    folder.mkpath( "OEBPS/images" );
-    folder.mkpath( "OEBPS/text" );
-    folder.mkpath( "OEBPS/styles" );
-    folder.mkpath( "OEBPS/misc" );
+    folder.mkpath( "OEBPS/" + IMAGE_FOLDER_NAME );
+    folder.mkpath( "OEBPS/" + FONT_FOLDER_NAME  );
+    folder.mkpath( "OEBPS/" + TEXT_FOLDER_NAME  );
+    folder.mkpath( "OEBPS/" + STYLE_FOLDER_NAME );
+    folder.mkpath( "OEBPS/" + MISC_FOLDER_NAME  );
 
-    FullPathToMetaInfFolder		= FullPathToMainFolder + "/META-INF";
-    FullPathToOEBPSFolder		= FullPathToMainFolder + "/OEBPS";
+    m_FullPathToMetaInfFolder = m_FullPathToMainFolder + "/META-INF";
+    m_FullPathToOEBPSFolder   = m_FullPathToMainFolder + "/OEBPS";
 
-    FullPathToImagesFolder		= FullPathToOEBPSFolder + "/images";
-    FullPathToFontsFolder		= FullPathToOEBPSFolder + "/fonts";
-    FullPathToTextFolder		= FullPathToOEBPSFolder + "/text";
-    FullPathToStylesFolder		= FullPathToOEBPSFolder + "/styles";
-    FullPathToMiscFolder        = FullPathToOEBPSFolder + "/misc";
+    m_FullPathToImagesFolder  = m_FullPathToOEBPSFolder + "/" + IMAGE_FOLDER_NAME;
+    m_FullPathToFontsFolder   = m_FullPathToOEBPSFolder + "/" + FONT_FOLDER_NAME;
+    m_FullPathToTextFolder    = m_FullPathToOEBPSFolder + "/" + TEXT_FOLDER_NAME;
+    m_FullPathToStylesFolder  = m_FullPathToOEBPSFolder + "/" + STYLE_FOLDER_NAME;
+    m_FullPathToMiscFolder    = m_FullPathToOEBPSFolder + "/" + MISC_FOLDER_NAME;
 }
 
 

@@ -7,9 +7,11 @@ It's website is located here: http://code.google.com/p/sigil/
 
 The src directory contains all of the source code. It has
 a few subdirectories:
-	src/Sigil - source code for the Sigil application
-	src/libTidy - source code for HTML Tidy, an HTML cleaner
-	src/ZipArchive - source code for ZipArchive, a zipping library
+    src/BoostParts - source code of various parts of the Boost C++ 
+                     Libraries that Sigil uses
+    src/Sigil - source code for the Sigil application
+    src/libTidy - source code for HTML Tidy, an HTML cleaner
+    src/ZipArchive - source code for ZipArchive, a zipping library
 
 The installer directory contains the files needed to produce
 a binary installer for Windows and Linux.

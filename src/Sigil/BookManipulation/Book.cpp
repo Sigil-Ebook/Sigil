@@ -22,53 +22,54 @@
 #include <stdafx.h>
 #include "../BookManipulation/Book.h"
 #include "../Misc/Utility.h"
+#include "ResourceObjects/HTMLResource.h"
+#include "../BookManipulation/CleanSource.h"
+#include "../SourceUpdates/AnchorUpdates.h"
+#include <QDomDocument>
 
-bool Book::s_IgnoreCalibreEnvFlag = false;
+static const QString FIRST_CSS_NAME   = "Style0001.css";
+static const QString PLACEHOLDER_TEXT = "PLACEHOLDER";
+static const QString EMPTY_HTML_FILE  = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                                        "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\"\n"
+                                        "    \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n\n"							
+                                        "<html xmlns=\"http://www.w3.org/1999/xhtml\">\n"
+                                        "<head>\n"
+                                        "<title></title>\n"
+                                        "</head>\n"
+                                        "<body>\n"
 
-// Constructor
+                                        // The "nbsp" is here so that the user starts writing
+                                        // inside the <p> element; if it's not here, webkit
+                                        // inserts text _outside_ the <p> element
+                                        "<p>&nbsp;</p>\n"
+                                        "</body>\n"
+                                        "</html>";
+
+
 Book::Book()
     : 
-    PublicationIdentifier( QUuid::createUuid().toString().remove( "{" ).remove( "}" ) ),
-    m_ReportToCalibre( false )
-
+    m_PublicationIdentifier( Utility::CreateUUID() )
 {
-    QMutexLocker locker( &m_IgnoreCalibreEnvFlagSync );
-
-    if ( !Utility::GetEnvironmentVar( "CALLED_FROM_CALIBRE" ).isEmpty() &&
-         !s_IgnoreCalibreEnvFlag 
-        )
-    {
-        SetReportToCalibreStatus( true );
-
-        s_IgnoreCalibreEnvFlag = true;
-    }
+   
 }
 
 
-// Copy constructor
 Book::Book( const Book& other )
 {
-    source = other.source;
-    metadata = other.metadata;
-    PublicationIdentifier = other.PublicationIdentifier;
-    mainfolder = other.mainfolder;
-
-    // We do NOT copy the m_ReportToCalibre value
+    m_Metadata = other.m_Metadata;
+    m_PublicationIdentifier = other.m_PublicationIdentifier;
+    m_Mainfolder = other.m_Mainfolder;
 }
 
 
-// Assignment operator
 Book& Book::operator = ( const Book& other )
 {
     // Protect against invalid self-assignment
     if ( this != &other ) 
     {
-        source = other.source;
-        metadata = other.metadata;
-        PublicationIdentifier = other.PublicationIdentifier;
-        mainfolder = other.mainfolder;
-
-        // We do NOT copy the m_ReportToCalibre value
+        m_Metadata = other.m_Metadata;
+        m_PublicationIdentifier = other.m_PublicationIdentifier;
+        m_Mainfolder = other.m_Mainfolder;
     }
 
     // By convention, always return *this
@@ -76,30 +77,132 @@ Book& Book::operator = ( const Book& other )
 }
 
 
-// Returns the base url of the book,
-// that is the location to the text folder
-// within the main folder
 QUrl Book::GetBaseUrl() const
 {
-    return QUrl::fromLocalFile( mainfolder.GetFullPathToTextFolder() + "/" );
+    return QUrl::fromLocalFile( m_Mainfolder.GetFullPathToTextFolder() + "/" );
 }
 
 
-// Returns the status of the m_ReportToCalibre
-// variable. Thread-safe.
-bool Book::GetReportToCalibreStatus()
+FolderKeeper& Book::GetFolderKeeper()
 {
-    QMutexLocker locker( &m_ReportToCalibreSync );
-
-    return m_ReportToCalibre;
+    return m_Mainfolder;
 }
 
 
-// Sets the status of the m_ReportToCalibre
-// variable. Thread-safe.
-void Book::SetReportToCalibreStatus( bool new_status )
+const FolderKeeper& Book::GetConstFolderKeeper()
 {
-    QMutexLocker locker( &m_ReportToCalibreSync );
-
-    m_ReportToCalibre = new_status;
+    return m_Mainfolder;
 }
+
+
+QString Book::GetPublicationIdentifier()
+{
+    return m_PublicationIdentifier;
+}
+
+
+QHash< QString, QList< QVariant > > Book::GetMetadata()
+{
+    return m_Metadata;
+}
+
+
+void Book::SetMetadata( const QHash< QString, QList< QVariant > > metadata )
+{
+    m_Metadata = metadata;
+}
+
+
+HTMLResource& Book::CreateNewHTMLFile()
+{
+    QString folderpath = Utility::GetNewTempFolderPath();
+    QDir dir( folderpath );
+    dir.mkpath( folderpath );
+
+    QString fullfilepath = folderpath + "/" + m_Mainfolder.GetUniqueFilenameVersion( FIRST_CHAPTER_NAME );
+    int reading_order = m_Mainfolder.GetHighestReadingOrder() + 1;
+
+    Utility::WriteUnicodeTextFile( PLACEHOLDER_TEXT, fullfilepath );
+
+    HTMLResource &html_resource = *qobject_cast< HTMLResource* >( 
+                                        &m_Mainfolder.AddContentFileToFolder( fullfilepath, reading_order ) );
+
+    QtConcurrent::run( Utility::DeleteFolderAndFiles, dir.absolutePath() );
+
+    return html_resource;
+}
+
+
+void Book::CreateEmptyHTMLFile()
+{
+    QDomDocument document;
+    document.setContent( EMPTY_HTML_FILE );
+
+    CreateNewHTMLFile().SetDomDocument( document );
+}
+
+
+void Book::CreateEmptyCSSFile()
+{
+    QString folderpath = Utility::GetNewTempFolderPath();
+    QDir dir( folderpath );
+    dir.mkpath( folderpath );
+
+    QString fullfilepath = folderpath + "/" + m_Mainfolder.GetUniqueFilenameVersion( FIRST_CSS_NAME );
+
+    Utility::WriteUnicodeTextFile( "", fullfilepath );
+
+    m_Mainfolder.AddContentFileToFolder( fullfilepath );
+
+    QtConcurrent::run( Utility::DeleteFolderAndFiles, dir.absolutePath() );
+}
+
+
+HTMLResource& Book::CreateChapterBreakOriginalResource( const QString &content, HTMLResource& originating_resource )
+{
+    const QString &originating_filename = originating_resource.Filename();
+
+    originating_resource.RenameTo( m_Mainfolder.GetUniqueFilenameVersion( FIRST_CHAPTER_NAME ) );
+
+    int reading_order = originating_resource.GetReadingOrder();
+    Q_ASSERT( reading_order >= 0 );
+
+    QList< HTMLResource* > html_resources = m_Mainfolder.GetSortedHTMLResources();
+
+    // We need to "make room" for the reading order of the new resource
+    for ( int i = reading_order; i < html_resources.count(); ++i )
+    {
+        HTMLResource* resource = html_resources[ i ];
+        resource->SetReadingOrder( resource->GetReadingOrder() + 1 );
+    }
+
+    HTMLResource &html_resource = CreateNewHTMLFile();
+    html_resource.RenameTo( originating_filename );
+
+    QDomDocument document;
+    document.setContent( CleanSource::Clean( content ) );
+    html_resource.SetDomDocument( document );
+
+    html_resource.SetReadingOrder( reading_order );
+
+    // We can just append this since we don't need
+    // them in sorted order for the updates.
+    html_resources.append( &html_resource );
+    AnchorUpdates::UpdateAllAnchorsWithIDs( html_resources );
+
+    return html_resource;
+}
+
+
+void Book::SaveAllResourcesToDisk()
+{
+    QList< Resource* > resources =  m_Mainfolder.GetResourceList();
+    QtConcurrent::blockingMap( resources, SaveOneResourceToDisk );
+}
+
+
+void Book::SaveOneResourceToDisk( Resource *resource )
+{
+    resource->SaveToDisk();        
+}
+

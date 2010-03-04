@@ -41,6 +41,9 @@ static const QString CSS_COMMENT_END        = "\\*/";
 static const QString ATTRIBUTE_VALUE        = "\"[^<\"]*\"|'[^<']*'";
 static const QString ATTRIBUTE_NAME         = "[\\w:-]+";
 
+static const QString ENTITY_BEGIN           = "&";
+static const QString ENTITY_END             = ";";
+
 // TODO: These should probably be user-selectable in some options menu
 static const QColor HTML_COLOR              = Qt::blue;
 static const QColor HTML_COMMENT_COLOR      = Qt::darkGreen;
@@ -48,77 +51,90 @@ static const QColor CSS_COLOR               = Qt::darkYellow;
 static const QColor CSS_COMMENT_COLOR       = Qt::darkGreen;
 static const QColor ATTRIBUTE_NAME_COLOR    = Qt::darkRed;
 static const QColor ATTRIBUTE_VALUE_COLOR   = Qt::darkCyan;
+static const QColor ENTITY_COLOR            = Qt::darkMagenta;
 
 
 // Constructor
-XHTMLHighlighter::XHTMLHighlighter( QTextDocument *parent )
+XHTMLHighlighter::XHTMLHighlighter( QObject *parent )
      : QSyntaxHighlighter( parent )
 {
-    QTextCharFormat fmtHTML;
-    QTextCharFormat fmtHTMLcomment;
-    QTextCharFormat fmtCSS;
-    QTextCharFormat fmtCSScomment;
-    QTextCharFormat fmtAttributeName;
-    QTextCharFormat fmtAttributeValue;
+    QTextCharFormat html_format;
+    QTextCharFormat html_comment_format;
+    QTextCharFormat css_format;
+    QTextCharFormat css_comment_format;
+    QTextCharFormat attribute_name_format;
+    QTextCharFormat attribute_value_format;
+    QTextCharFormat entity_format;
 
-    fmtHTML             .setForeground( HTML_COLOR              );
-    fmtHTMLcomment      .setForeground( HTML_COMMENT_COLOR      );
-    fmtCSS              .setForeground( CSS_COLOR               );
-    fmtCSScomment       .setForeground( CSS_COMMENT_COLOR       );
-    fmtAttributeName    .setForeground( ATTRIBUTE_NAME_COLOR    );
-    fmtAttributeValue   .setForeground( ATTRIBUTE_VALUE_COLOR   );
+    html_format           .setForeground( HTML_COLOR            );
+    html_comment_format   .setForeground( HTML_COMMENT_COLOR    );
+    css_format            .setForeground( CSS_COLOR             );
+    css_comment_format    .setForeground( CSS_COMMENT_COLOR     );
+    attribute_name_format .setForeground( ATTRIBUTE_NAME_COLOR  );
+    attribute_value_format.setForeground( ATTRIBUTE_VALUE_COLOR );
+    entity_format         .setForeground( ENTITY_COLOR          );
 
     HighlightingRule rule;
 
-    rule.pattern    = QRegExp( HTML_ELEMENT_BEGIN );
-    rule.format     = fmtHTML;
+    rule.pattern = QRegExp( HTML_ELEMENT_BEGIN );
+    rule.format  = html_format;
 
-    hshRules[ "HTML_ELEMENT_BEGIN" ] = rule;
+    m_Rules[ "HTML_ELEMENT_BEGIN" ] = rule;
 
-    rule.pattern    = QRegExp( HTML_ELEMENT_END );
-    rule.format     = fmtHTML;
+    rule.pattern = QRegExp( HTML_ELEMENT_END );
+    rule.format  = html_format;
 
-    hshRules[ "HTML_ELEMENT_END" ] = rule;
+    m_Rules[ "HTML_ELEMENT_END" ] = rule;
 
-    rule.pattern    = QRegExp( HTML_COMMENT_BEGIN );
-    rule.format     = fmtHTMLcomment;
+    rule.pattern = QRegExp( HTML_COMMENT_BEGIN );
+    rule.format  = html_comment_format;
 
-    hshRules[ "HTML_COMMENT_BEGIN" ] = rule;
+    m_Rules[ "HTML_COMMENT_BEGIN" ] = rule;
 
-    rule.pattern    = QRegExp( HTML_COMMENT_END );
-    rule.format     = fmtHTMLcomment;
+    rule.pattern = QRegExp( HTML_COMMENT_END );
+    rule.format  = html_comment_format;
 
-    hshRules[ "HTML_COMMENT_END" ] = rule;
+    m_Rules[ "HTML_COMMENT_END" ] = rule;
 
-    rule.pattern    = QRegExp( CSS_BEGIN );
-    rule.format     = fmtCSS;
+    rule.pattern = QRegExp( CSS_BEGIN );
+    rule.format  = css_format;
 
-    hshRules[ "CSS_BEGIN" ] = rule;
+    m_Rules[ "CSS_BEGIN" ] = rule;
 
-    rule.pattern    = QRegExp( CSS_END );
-    rule.format     = fmtCSS;
+    rule.pattern = QRegExp( CSS_END );
+    rule.format  = css_format;
 
-    hshRules[ "CSS_END" ] = rule;
+    m_Rules[ "CSS_END" ] = rule;
 
-    rule.pattern    = QRegExp( CSS_COMMENT_BEGIN );
-    rule.format     = fmtCSScomment;
+    rule.pattern = QRegExp( CSS_COMMENT_BEGIN );
+    rule.format  = css_comment_format;
 
-    hshRules[ "CSS_COMMENT_BEGIN" ] = rule;
+    m_Rules[ "CSS_COMMENT_BEGIN" ] = rule;
 
-    rule.pattern    = QRegExp( CSS_COMMENT_END );
-    rule.format     = fmtCSScomment;
+    rule.pattern = QRegExp( CSS_COMMENT_END );
+    rule.format  = css_comment_format;
 
-    hshRules[ "CSS_COMMENT_END" ] = rule;
+    m_Rules[ "CSS_COMMENT_END" ] = rule;
 
-    rule.pattern    = QRegExp( ATTRIBUTE_NAME );
-    rule.format     = fmtAttributeName;
+    rule.pattern = QRegExp( ATTRIBUTE_NAME );
+    rule.format  = attribute_name_format;
 
-    hshRules[ "ATTRIBUTE_NAME" ] = rule;
+    m_Rules[ "ATTRIBUTE_NAME" ] = rule;
 
-    rule.pattern    = QRegExp( ATTRIBUTE_VALUE );
-    rule.format     = fmtAttributeValue;
+    rule.pattern = QRegExp( ATTRIBUTE_VALUE );
+    rule.format  = attribute_value_format;
 
-    hshRules[ "ATTRIBUTE_VALUE" ] = rule;
+    m_Rules[ "ATTRIBUTE_VALUE" ] = rule;
+
+    rule.pattern = QRegExp( ENTITY_BEGIN );
+    rule.format  = entity_format;
+
+    m_Rules[ "ENTITY_BEGIN" ] = rule;
+
+    rule.pattern = QRegExp( ENTITY_END );
+    rule.format  = entity_format;
+
+    m_Rules[ "ENTITY_END" ] = rule;
 }
 
 
@@ -142,9 +158,10 @@ void XHTMLHighlighter::highlightBlock( const QString& text )
         
     // The order of these operations is important
     // because some states format text over previous states!
-    HighlightLine( text, State_CSS );
-    HighlightLine( text, State_HTML );
-    HighlightLine( text, State_CSSComment );
+    HighlightLine( text, State_Entity      );
+    HighlightLine( text, State_CSS         );
+    HighlightLine( text, State_HTML        );
+    HighlightLine( text, State_CSSComment  );
     HighlightLine( text, State_HTMLComment );	
 }
 
@@ -156,24 +173,22 @@ QRegExp XHTMLHighlighter::GetLeftBracketRegEx( int state ) const
     
     switch ( state )
     {
-        case State_HTML:
+        case State_Entity:
+            return m_Rules.value( "ENTITY_BEGIN"       ).pattern;
 
-            return hshRules.value( "HTML_ELEMENT_BEGIN" ).pattern;
+        case State_HTML:
+            return m_Rules.value( "HTML_ELEMENT_BEGIN" ).pattern;
 
         case State_HTMLComment:
-
-            return hshRules.value( "HTML_COMMENT_BEGIN" ).pattern;
+            return m_Rules.value( "HTML_COMMENT_BEGIN" ).pattern;
 
         case State_CSS:
-
-            return hshRules.value( "CSS_BEGIN" ).pattern;
+            return m_Rules.value( "CSS_BEGIN"          ).pattern;
 
         case State_CSSComment:
-
-            return hshRules.value( "CSS_COMMENT_BEGIN" ).pattern;
+            return m_Rules.value( "CSS_COMMENT_BEGIN"  ).pattern;
 
         default:
-
             return empty;
     }
 }
@@ -186,24 +201,22 @@ QRegExp XHTMLHighlighter::GetRightBracketRegEx( int state ) const
     
     switch ( state )
     {
-        case State_HTML:
+        case State_Entity:
+            return m_Rules.value( "ENTITY_END"       ).pattern;
 
-            return hshRules.value( "HTML_ELEMENT_END" ).pattern;
+        case State_HTML:
+            return m_Rules.value( "HTML_ELEMENT_END" ).pattern;
 
         case State_HTMLComment:
-
-            return hshRules.value( "HTML_COMMENT_END" ).pattern;
+            return m_Rules.value( "HTML_COMMENT_END" ).pattern;
 
         case State_CSS:
-
-            return hshRules.value( "CSS_END" ).pattern;
+            return m_Rules.value( "CSS_END"          ).pattern;
 
         case State_CSSComment:
-
-            return hshRules.value( "CSS_COMMENT_END" ).pattern;
+            return m_Rules.value( "CSS_COMMENT_END"  ).pattern;
 
         default:
-
             return empty;
     }
 }
@@ -260,13 +273,13 @@ void XHTMLHighlighter::FormatBody( const QString& text, int state, int index, in
     if ( state == State_HTML )
     {
         // First paint everything the color of the brackets
-        setFormat( index, length, hshRules.value( "HTML_ELEMENT_BEGIN" ).format );
+        setFormat( index, length, m_Rules.value( "HTML_ELEMENT_BEGIN" ).format );
 
-        QRegExp name    = hshRules.value( "ATTRIBUTE_NAME" ).pattern;
-        QRegExp value   = hshRules.value( "ATTRIBUTE_VALUE" ).pattern;
+        QRegExp name  = m_Rules.value( "ATTRIBUTE_NAME"  ).pattern;
+        QRegExp value = m_Rules.value( "ATTRIBUTE_VALUE" ).pattern;
 
         // Used to move over the line
-        int main_index  = index;
+        int main_index = index;
 
         // We skip over the left bracket (if it's present)
         QRegExp bracket( HTML_ELEMENT_BEGIN );
@@ -288,7 +301,7 @@ void XHTMLHighlighter::FormatBody( const QString& text, int state, int index, in
         while( true )
         {
             // Get the indexes of the attribute names and values
-            int name_index  = text.indexOf( name, main_index );
+            int name_index  = text.indexOf( name, main_index  );
             int value_index = text.indexOf( value, main_index );
             
             // If we can't find the names and values or we found them 
@@ -298,8 +311,8 @@ void XHTMLHighlighter::FormatBody( const QString& text, int state, int index, in
                 
             {
                 // ... otherwise format the found sections
-                setFormat( name_index,  name.matchedLength(),   hshRules.value( "ATTRIBUTE_NAME" ).format );
-                setFormat( value_index, value.matchedLength(),  hshRules.value( "ATTRIBUTE_VALUE" ).format );
+                setFormat( name_index,  name.matchedLength(),  m_Rules.value( "ATTRIBUTE_NAME"  ).format );
+                setFormat( value_index, value.matchedLength(), m_Rules.value( "ATTRIBUTE_VALUE" ).format );
             }
             
             else
@@ -319,17 +332,22 @@ void XHTMLHighlighter::FormatBody( const QString& text, int state, int index, in
 
     else if ( state == State_HTMLComment )
     {
-        setFormat( index, length, hshRules.value( "HTML_COMMENT_BEGIN" ).format );
+        setFormat( index, length, m_Rules.value( "HTML_COMMENT_BEGIN" ).format );
     }
 
     else if ( state == State_CSS )
     {
-        setFormat( index, length, hshRules.value( "CSS_BEGIN" ).format );
+        setFormat( index, length, m_Rules.value( "CSS_BEGIN" ).format );
     }
 
     else if ( state == State_CSSComment )
     {
-        setFormat( index, length, hshRules.value( "CSS_COMMENT_BEGIN" ).format );
+        setFormat( index, length, m_Rules.value( "CSS_COMMENT_BEGIN" ).format );
+    }
+
+    else if ( state == State_Entity )
+    {
+        setFormat( index, length, m_Rules.value( "ENTITY_BEGIN" ).format );
     }
 }
 
@@ -342,8 +360,8 @@ void XHTMLHighlighter::HighlightLine( const QString& text, int state )
     QRegExp left_bracket_regex  = GetLeftBracketRegEx( state );
     QRegExp right_bracket_regex = GetRightBracketRegEx( state );
 
-    int left_bracket_index      = -1;
-    int right_bracket_index     = -1;
+    int left_bracket_index  = -1;
+    int right_bracket_index = -1;
 
     int main_index = 0;
 
@@ -377,9 +395,8 @@ void XHTMLHighlighter::HighlightLine( const QString& text, int state )
             // (1)
             if ( right_bracket_index != -1 )
             {
-                main_index  = right_bracket_index + right_bracket_regex.matchedLength();
-
-                int length  = right_bracket_index - left_bracket_index + right_bracket_regex.matchedLength();
+                main_index = right_bracket_index + right_bracket_regex.matchedLength();
+                int length = right_bracket_index - left_bracket_index + right_bracket_regex.matchedLength();
 
                 FormatBody( text, state, left_bracket_index, length );
 
@@ -407,9 +424,8 @@ void XHTMLHighlighter::HighlightLine( const QString& text, int state )
             // (3)
             if ( right_bracket_index != -1 )
             {
-                main_index  = right_bracket_index + right_bracket_regex.matchedLength();
-
-                int length  = right_bracket_index + right_bracket_regex.matchedLength();
+                main_index = right_bracket_index + right_bracket_regex.matchedLength();
+                int length = right_bracket_index + right_bracket_regex.matchedLength();
 
                 FormatBody( text, state, 0, length );
 
@@ -429,6 +445,4 @@ void XHTMLHighlighter::HighlightLine( const QString& text, int state )
         }
     }
 }
-
-
 
