@@ -745,7 +745,9 @@ void FlowTab::DelayedInitialization()
 
     // Fix for missing blinking caret... even though
     // the Book View already has focus... QtWebkit is really lovely, isn't it?
-    m_wBookView.GrabFocus();
+    if ( hasFocus() )
+    
+        m_wBookView.GrabFocus();
 
     // Cursor set in constructor
     QApplication::restoreOverrideCursor();

@@ -200,17 +200,6 @@ bool TabManager::AddNewContentTab( ContentTab *new_tab, bool preceed_current_tab
     else
     {
         insertTab( currentIndex(), new_tab, new_tab->GetIcon(), new_tab->GetFilename() );
-
-        FlowTab *flow_tab = qobject_cast< FlowTab* >( currentWidget() );
-
-        // If the added tab has not become the current tab,
-        // then we added it through the chapter break functionality
-        // and now we want the current tab to be scrolled to the top.
-        if ( flow_tab && 
-             indexOf( new_tab ) != currentIndex() )
-        {
-            flow_tab->ScrollToTop();
-        }
     }
 
     connect( new_tab, SIGNAL( DeleteMe(   ContentTab* ) ), this, SLOT( DeleteTab(  ContentTab* ) ) );
