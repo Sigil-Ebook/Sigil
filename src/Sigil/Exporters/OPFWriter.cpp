@@ -238,7 +238,7 @@ void OPFWriter::WriteDate( const QString &metaname, const QVariant &metavalue )
 // Takes the reversed form of a name ("Doe, John")
 // and returns the normal form ("John Doe"); if the
 // provided name is already normal, returns an empty string
-QString OPFWriter::GetNormalName( const QString &name ) const
+QString OPFWriter::GetNormalName( const QString &name )
 {
     if ( !name.contains( "," ) )
 
@@ -247,6 +247,36 @@ QString OPFWriter::GetNormalName( const QString &name ) const
     QStringList splits = name.split( "," );
 
     return splits[ 1 ].trimmed() + " " + splits[ 0 ].trimmed();
+}
+
+
+QString OPFWriter::GetValidID( const QString &value )
+{
+    QString new_value = value.simplified();
+    int i = 0;
+
+    // Remove all whitespace
+    while ( i < new_value.size() )
+    {
+        if ( new_value.at( i ).isSpace() )
+
+            new_value.remove( i );
+
+        else
+
+            ++i;
+    }
+
+    if ( new_value.isEmpty() )
+
+        return Utility::CreateUUID();
+
+    // IDs cannot start with a number
+    if ( new_value.at( 0 ).isNumber() )
+
+        new_value.prepend( "x" );
+
+    return new_value;
 }
 
 
@@ -267,7 +297,7 @@ void OPFWriter::WriteManifest()
         QString extension = info.suffix();
 
         m_Writer->writeEmptyElement( "item" );
-        m_Writer->writeAttribute( "id", name + "." + extension );
+        m_Writer->writeAttribute( "id", GetValidID( name + "." + extension ) );
         m_Writer->writeAttribute( "href", relative_path );
         m_Writer->writeAttribute( "media-type", m_Mimetypes[ extension ] );
     }
@@ -289,7 +319,7 @@ void OPFWriter::WriteSpine()
         QString extension = info.suffix();
 
         m_Writer->writeEmptyElement( "itemref" );
-        m_Writer->writeAttribute( "idref", name + "." + extension );
+        m_Writer->writeAttribute( "idref", GetValidID( name + "." + extension ) );
     }
 
     m_Writer->writeEndElement();
@@ -359,6 +389,7 @@ void OPFWriter::CreateMimetypes()
     m_Mimetypes[ "otf"   ] = "application/x-font-opentype"; 
     m_Mimetypes[ "ttf"   ] = "application/x-font-truetype";
 }
+
 
 
 

@@ -1,3 +1,7 @@
+Sigil v0.2.0 ß2 ADD_DATE
+    - making sure that ID attribues used in the manifest section of the OPF are always valid
+    - fixing export of epubs with XML files for OPS documents
+
 Sigil v0.2.0 ß1 2010.03.02.
     - after *many* months of work, the complete redesign of the Sigil main interface and backend is finished,
     resulting in waaaay too many changes, fixes and modifications under the hood that are too numerous
