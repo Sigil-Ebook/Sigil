@@ -45,8 +45,8 @@ CodeViewEditor::CodeViewEditor( HighlighterType high_type, QWidget *parent )
     QPlainTextEdit( parent ),
     m_LineNumberArea( new LineNumberArea( this ) ),
     m_CurrentZoomFactor( 1.0 ),
-    m_ScrollOneLineUp( *(   new QShortcut( QKeySequence( Qt::ControlModifier + Qt::Key_Up   ), this ) ) ),
-    m_ScrollOneLineDown( *( new QShortcut( QKeySequence( Qt::ControlModifier + Qt::Key_Down ), this ) ) )
+    m_ScrollOneLineUp( *(   new QShortcut( QKeySequence( Qt::ControlModifier + Qt::Key_Up   ), this, 0, 0, Qt::WidgetShortcut ) ) ),
+    m_ScrollOneLineDown( *( new QShortcut( QKeySequence( Qt::ControlModifier + Qt::Key_Down ), this, 0, 0, Qt::WidgetShortcut ) ) )
 {
     if ( high_type == CodeViewEditor::Highlight_XHTML )
 
