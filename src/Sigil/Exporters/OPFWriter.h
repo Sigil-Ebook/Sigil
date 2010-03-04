@@ -70,7 +70,15 @@ private:
     // Takes the reversed form of a name ("Doe, John")
     // and returns the normal form ("John Doe"); if the
     // provided name is already normal, returns an empty string
-    QString GetNormalName( const QString &name ) const;
+    static QString GetNormalName( const QString &name );
+
+    /**
+     * Creates a valid ID from the requested value.
+     * 
+     * @param value What the caller wants the ID value to be.
+     * @return The potentially modified value to make the ID valid.
+     */
+    static QString GetValidID( const QString &value );
 
     // Writes the <manifest> element
     void WriteManifest();

@@ -1327,7 +1327,10 @@ int         tidyDocCleanAndRepair( TidyDocImpl* doc )
             TY_(SetXHTMLDocType)(doc);
             TY_(FixAnchors)(doc, &doc->root, wantNameAttr, yes);
             TY_(FixXhtmlNamespace)(doc, yes);
-            TY_(FixLanguageInformation)(doc, &doc->root, yes, yes);
+
+            /* S.M. - changed "yes, yes" to "yes, no";
+               the 'lang' attribute not allowed for XHTML 1.1.*/
+            TY_(FixLanguageInformation)(doc, &doc->root, yes, no);
         }
         else
         {
