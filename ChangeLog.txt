@@ -1,4 +1,6 @@
 Sigil v0.2.0 ß2 ADD_DATE
+    - fixed an issue with Tidy adding a superfluous 'lang' attribute that is also not allowed
+    in XHTML 1.1
     - making sure that ID attribues used in the manifest section of the OPF are always valid
     - fixing export of epubs with XML files for OPS documents
 
