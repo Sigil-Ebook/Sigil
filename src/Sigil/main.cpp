@@ -25,17 +25,22 @@
 #include <QtGui/QApplication>
 #include "Misc/UpdateChecker.h"
 #include "Misc/AppEventFilter.h"
+#include "BookManipulation/Book.h"
+#include "Importers/ImporterFactory.h"
+#include "Exporters/ExporterFactory.h"
+#include "BookManipulation/BookNormalization.h"
+#include <iostream>
+
 
 // Creates a MainWindow instance depending
 // on command line arguments
-static MainWindow* GetMainWindow()
+static MainWindow* GetMainWindow( const QStringList &arguments )
 {
     // We use the first argument
     // as the file to load after starting
-    QStringList arguments = QCoreApplication::arguments();
 
-    if (    arguments.size() > 1 &&
-            Utility::IsFileReadable( arguments.at( 1 ) )
+    if ( arguments.size() > 1 &&
+         Utility::IsFileReadable( arguments.at( 1 ) )
        )
     {
         return new MainWindow( arguments.at( 1 ) );
@@ -62,6 +67,39 @@ static QIcon GetApplicationIcon()
     app_icon.addFile( ":/icon/app_icon_512.png",    QSize( 512, 512 )   );
 
     return app_icon;
+}
+
+
+static bool QuickConvert( const QStringList &arguments )
+{
+    if ( arguments.count() != 4 )
+
+        return false;
+
+    // Hm... no text is printed to the console
+    // for a QApplication...
+    if ( !QFileInfo( arguments.at( 1 ) ).isAbsolute() )
+    {
+        std::cout << "ERROR: The input file path is not an absolute path." << std::endl;
+        return false;
+    }
+
+    if ( !QFileInfo( arguments.at( 3 ) ).isAbsolute() )
+    {
+        std::cout << "ERROR: The output file path is not an absolute path." << std::endl;
+        return false;
+    }
+
+    if ( !QFileInfo( arguments.at( 1 ) ).isReadable() )
+    {
+        std::cout << "ERROR: The input file cannot be read." << std::endl;
+        return false;
+    }
+
+    Book book = ImporterFactory().GetImporter( arguments.at( 1 ) ).GetBook();
+    ExporterFactory().GetExporter( arguments.at( 3 ), BookNormalization::Normalize( book ) ).WriteBook();
+
+    return true;
 }
 
 
@@ -110,10 +148,22 @@ int main( int argc, char *argv[] )
     AppEventFilter *filter = new AppEventFilter( &app );
     app.installEventFilter( filter );
 
-    MainWindow *widget = GetMainWindow();    
-    widget->show();
-    
-    return app.exec();
+    const QStringList &arguments = QCoreApplication::arguments();
+
+    if ( arguments.count() != 4 )
+    {
+        MainWindow *widget = GetMainWindow( arguments );    
+        widget->show();
+
+        return app.exec();
+    }
+
+    // Used for an undocumented, unsupported epub-to-epub
+    // console conversion. USE AT YOUR OWN PERIL!
+    else
+    {
+        return QuickConvert( arguments ) ? 0 : 1;
+    }
 }
 
 
