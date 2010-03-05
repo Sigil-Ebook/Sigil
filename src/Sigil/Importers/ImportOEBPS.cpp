@@ -203,7 +203,7 @@ void ImportOEBPS::ReadOPF()
 
                 href = QUrl::fromPercentEncoding( href.toUtf8() );
 
-                if ( !href.contains( ".ncx" ) )
+                if ( !href.endsWith( ".ncx" ) )
 
                     m_Files[ id ] = href;
             }
@@ -242,7 +242,7 @@ void ImportOEBPS::LoadMetadata()
         {
             metadata[ book_meta.name ].append( book_meta.value );
         }
-    }    
+    }
 
     m_Book->SetMetadata( metadata );
 }
