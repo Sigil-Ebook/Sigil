@@ -570,6 +570,7 @@ void MainWindow::SetStateActionsRawView()
     ui.actionCodeView ->setEnabled( false );  
 }
 
+
 void MainWindow::SetStateActionsStaticView()
 {
     SetStateActionsRawView();

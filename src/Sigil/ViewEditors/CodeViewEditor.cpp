@@ -43,6 +43,7 @@ static const QString XML_OPENING_TAG = "(<[^>/][^>]*[^>/]>|<[^>/]>)";
 CodeViewEditor::CodeViewEditor( HighlighterType high_type, QWidget *parent )
     :
     QPlainTextEdit( parent ),
+    m_isUndoAvailable( false ),  
     m_LineNumberArea( new LineNumberArea( this ) ),
     m_CurrentZoomFactor( 1.0 ),
     m_ScrollOneLineUp( *(   new QShortcut( QKeySequence( Qt::ControlModifier + Qt::Key_Up   ), this, 0, 0, Qt::WidgetShortcut ) ) ),
@@ -56,13 +57,7 @@ CodeViewEditor::CodeViewEditor( HighlighterType high_type, QWidget *parent )
 
         m_Highlighter = new CSSHighlighter( this );
 
-    connect( this, SIGNAL( blockCountChanged( int ) ),           this, SLOT( UpdateLineNumberAreaMargin() ) );
-    connect( this, SIGNAL( updateRequest( const QRect &, int) ), this, SLOT( UpdateLineNumberArea( const QRect &, int) ) );
-    connect( this, SIGNAL( cursorPositionChanged() ),            this, SLOT( HighlightCurrentLine() ) );
-
-    connect( &m_ScrollOneLineUp,   SIGNAL( activated() ), this, SLOT( ScrollOneLineUp()   ) );
-    connect( &m_ScrollOneLineDown, SIGNAL( activated() ), this, SLOT( ScrollOneLineDown() ) );
-
+    ConnectSignalsToSlots();
     UpdateLineNumberAreaMargin();
     HighlightCurrentLine();
 
@@ -389,6 +384,21 @@ void CodeViewEditor::focusOutEvent( QFocusEvent *event )
 }
 
 
+void CodeViewEditor::TextChangedFilter()
+{
+    if ( m_isUndoAvailable )
+
+        emit FilteredTextChanged();
+}
+
+
+void CodeViewEditor::UpdateUndoAvailable( bool available )
+{
+    m_isUndoAvailable = available;
+}
+
+
+
 // Called whenever the number of lines changes;
 // sets a margin where the line number area can be displayed
 void CodeViewEditor::UpdateLineNumberAreaMargin()
@@ -396,6 +406,7 @@ void CodeViewEditor::UpdateLineNumberAreaMargin()
     // The left margin width depends on width of the line number area
     setViewportMargins( CalculateLineNumberAreaWidth(), 0, 0, 0 );
 }
+
 
 // The first parameter represents the area 
 // that the editor needs an update of, and the second
@@ -632,4 +643,16 @@ void CodeViewEditor::ScrollByLine( bool down )
        
 }
 
+
+void CodeViewEditor::ConnectSignalsToSlots()
+{
+    connect( this, SIGNAL( blockCountChanged( int )           ), this, SLOT( UpdateLineNumberAreaMargin()              ) );
+    connect( this, SIGNAL( updateRequest( const QRect&, int ) ), this, SLOT( UpdateLineNumberArea( const QRect&, int ) ) );
+    connect( this, SIGNAL( cursorPositionChanged()            ), this, SLOT( HighlightCurrentLine()                    ) );
+    connect( this, SIGNAL( textChanged()                      ), this, SLOT( TextChangedFilter()                       ) );
+    connect( this, SIGNAL( undoAvailable( bool )              ), this, SLOT( UpdateUndoAvailable( bool )               ) );
+
+    connect( &m_ScrollOneLineUp,   SIGNAL( activated() ), this, SLOT( ScrollOneLineUp()   ) );
+    connect( &m_ScrollOneLineDown, SIGNAL( activated() ), this, SLOT( ScrollOneLineDown() ) );
+}
 

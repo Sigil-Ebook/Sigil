@@ -116,6 +116,12 @@ signals:
 
     void FocusGained();
 
+    /**
+     * A filtered version of the QPlainTextEdit::textChnaged signal.
+     * We use it to prevent our syntax highlighter from emitting that signal.
+     */
+    void FilteredTextChanged();
+
 public slots:
 
     // The base class implementation of the print()
@@ -147,6 +153,20 @@ protected:
     void focusOutEvent( QFocusEvent *event );
 
 private slots:
+
+    /**
+     * Filters the textChanged signal.
+     * Does this based on the availability of undo.
+     */
+    void TextChangedFilter();
+
+    /**
+     * Used solely to update the m_isUndoAvailable variable
+     * on undo availability change.
+     *
+     * @param available The current availability of the undo action.
+     */
+    void UpdateUndoAvailable( bool available );
 
     // Called whenever the number of lines changes;
     // sets a margin where the line number area can be displayed
@@ -209,11 +229,18 @@ private:
     // It will also move the cursor position if the
     // scroll would make it "fall of the screen".
     void ScrollByLine( bool down );
+    
+    /**
+     * Connects all the required signals to their respective slots.
+     */
+    void ConnectSignalsToSlots();
 
 
     ///////////////////////////////
     // PRIVATE MEMBER VARIABLES
     ///////////////////////////////
+
+    bool m_isUndoAvailable;
 
     // The line number area widget of the code view
     LineNumberArea *m_LineNumberArea;

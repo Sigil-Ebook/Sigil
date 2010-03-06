@@ -749,6 +749,8 @@ void FlowTab::DelayedInitialization()
     
         m_wBookView.GrabFocus();
 
+    DelayedConnectSignalsToSlots();
+
     // Cursor set in constructor
     QApplication::restoreOverrideCursor();
 }
@@ -811,9 +813,6 @@ ViewEditor& FlowTab::GetActiveViewEditor() const
 
 void FlowTab::ConnectSignalsToSlots()
 {
-    connect( &m_wBookView, SIGNAL( textChanged() ), this, SLOT( EmitContentChanged() ) );
-    connect( &m_wCodeView, SIGNAL( textChanged() ), this, SLOT( EmitContentChanged() ) );
-
     connect( &m_wBookView, SIGNAL( ZoomFactorChanged( float ) ), this, SIGNAL( ZoomFactorChanged( float ) ) );
     connect( &m_wCodeView, SIGNAL( ZoomFactorChanged( float ) ), this, SIGNAL( ZoomFactorChanged( float ) ) );
 
@@ -824,3 +823,9 @@ void FlowTab::ConnectSignalsToSlots()
     connect( qApp, SIGNAL( focusChanged( QWidget*, QWidget* ) ), this, SLOT( SplitViewFocusSwitch( QWidget*, QWidget* ) ) );
 }
 
+
+void FlowTab::DelayedConnectSignalsToSlots()
+{
+    connect( &m_wBookView, SIGNAL( textChanged() ),         this, SLOT( EmitContentChanged() ) );
+    connect( &m_wCodeView, SIGNAL( FilteredTextChanged() ), this, SLOT( EmitContentChanged() ) );
+}

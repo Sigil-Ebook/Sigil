@@ -212,7 +212,16 @@ private:
 
     ViewEditor& GetActiveViewEditor() const;
 
+    /**
+    * Connects all the required signals to their respective slots.
+    */
     void ConnectSignalsToSlots();
+
+    /**
+     * Connects all the required signals to their respective slots,
+     * after some initial setup work has been done.
+     */
+    void DelayedConnectSignalsToSlots();
 
 
     ///////////////////////////////
