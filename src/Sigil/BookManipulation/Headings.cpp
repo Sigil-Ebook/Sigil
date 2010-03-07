@@ -75,10 +75,11 @@ QList< Headings::Heading > Headings::GetHeadingListForOneFile( HTMLResource* htm
         Heading heading;
         heading.resource_file  = html_resource;
         heading.element        = element;
+        heading.text           = element.hasAttribute( "title" ) ? element.attribute( "title" ) : element.text(); 
         heading.level          = QString( element.tagName()[ 1 ] ).toInt();
         heading.include_in_toc = !element.attribute( "class", "" ).contains( NOT_IN_TOC_CLASS );
         heading.at_file_start  = i == 0 && 
-            element.lineNumber() - body_element.lineNumber() < ALLOWED_HEADING_DISTANCE;
+            element.lineNumber() - body_element.lineNumber() < ALLOWED_HEADING_DISTANCE;       
 
         headings.append( heading );
     }

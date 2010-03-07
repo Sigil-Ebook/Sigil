@@ -761,6 +761,7 @@ void FlowTab::EmitContentChanged()
     emit ContentChanged();
 }
 
+
 void FlowTab::EnterBookView()
 {
     m_wBookView.StoreCaretLocationUpdate( m_wCodeView.GetCaretLocation() );
@@ -771,6 +772,7 @@ void FlowTab::EnterBookView()
 
     emit EnteringBookView();
 }
+
 
 void FlowTab::EnterCodeView()
 {
@@ -783,6 +785,7 @@ void FlowTab::EnterCodeView()
     emit EnteringCodeView();
 }
 
+
 void FlowTab::ReadSettings()
 {
     QSettings settings;
@@ -790,6 +793,7 @@ void FlowTab::ReadSettings()
 
     // TODO: fill this... with what?
 }
+
 
 void FlowTab::WriteSettings()
 {

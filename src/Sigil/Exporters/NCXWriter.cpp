@@ -174,7 +174,7 @@ void NCXWriter::WriteNavPoint( const Headings::Heading &heading, int &play_order
 {
     // Headings that shouldn't be included in the TOC
     // are naturally not written to it
-    if ( heading.include_in_toc == true )
+    if ( heading.include_in_toc )
     {
         m_Writer->writeStartElement( "navPoint" );
 
@@ -184,7 +184,7 @@ void NCXWriter::WriteNavPoint( const Headings::Heading &heading, int &play_order
         play_order++;
 
         m_Writer->writeStartElement( "navLabel" );
-        m_Writer->writeTextElement( "text", heading.element.text() );
+        m_Writer->writeTextElement( "text", heading.text );
         m_Writer->writeEndElement();
 
         QString heading_file = heading.resource_file->GetRelativePathToOEBPS();       
@@ -194,7 +194,7 @@ void NCXWriter::WriteNavPoint( const Headings::Heading &heading, int &play_order
         // If this heading appears right after a chapter break,
         // then it "represents" and links to its file; otherwise,
         // we link to the heading element directly
-        if ( heading.at_file_start == true )
+        if ( heading.at_file_start )
         
             m_Writer->writeAttribute( "src", heading_file );
 
@@ -208,7 +208,7 @@ void NCXWriter::WriteNavPoint( const Headings::Heading &heading, int &play_order
         WriteNavPoint( child, play_order );
     }
 
-    if ( heading.include_in_toc == true )
+    if ( heading.include_in_toc )
 
         m_Writer->writeEndElement();
 }

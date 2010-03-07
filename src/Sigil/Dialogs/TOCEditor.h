@@ -78,8 +78,8 @@ private:
 
     // Updates the text in the heading if
     // it has been changed in the editor
-    void UpdateHeadingText( QStandardItem *text_item  );
-    
+    void UpdateHeadingText( QStandardItem *text_item );
+
     // Updates the display of the tree view
     // (resizes columns etc.)
     void UpdateTreeViewDisplay();              

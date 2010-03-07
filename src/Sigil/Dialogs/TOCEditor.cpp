@@ -24,6 +24,7 @@
 #include "../BookManipulation/Book.h"
 #include "../Misc/Utility.h"
 #include "ResourceObjects/HTMLResource.h"
+#include "../BookManipulation/XHTMLDoc.h"
 
 static const QString SETTINGS_GROUP   = "toc_editor";
 static const int FIRST_COLUMN_PADDING = 30;
@@ -79,6 +80,10 @@ void TOCEditor::ModelItemFilter( QStandardItem *item )
     if ( item->isCheckable() == true )
     
         UpdateHeadingInclusion( item );
+
+    else
+
+        UpdateHeadingText( item );
 }
 
 
@@ -96,7 +101,6 @@ void TOCEditor::ChangeDisplayType(  int new_check_state  )
     else
     {
         CreateTOCModel();
-
         UpdateTreeViewDisplay();       
     }
 }
@@ -117,8 +121,17 @@ void TOCEditor::UpdateOneHeadingElement( QStandardItem *item )
 
     if ( heading != NULL )
     {
-        // Update heading text/value
-        heading->element.setNodeValue( item->text() ); 
+        // Update heading title attribute (if used) or the value itself
+        if ( heading->element.hasAttribute( "title" ) )
+        {
+            heading->element.setAttribute( "title", heading->text );
+        }
+
+        else
+        {
+            QDomNode element = XHTMLDoc::RemoveChildren( heading->element );
+            element.appendChild( element.ownerDocument().createTextNode( heading->text ) );
+        }
 
         // Update heading inclusion: if a heading element
         // has the NOT_IN_TOC_CLASS class, then it's not in the TOC
@@ -192,7 +205,7 @@ void TOCEditor::UpdateHeadingText( QStandardItem *text_item )
 
     Q_ASSERT( heading );
 
-    heading->element.setNodeValue( text_item->text() );
+    heading->text = text_item->text();
 }
 
 
@@ -235,7 +248,7 @@ void TOCEditor::InsertHeadingIntoModel( Headings::Heading &heading, QStandardIte
 {
     Q_ASSERT( parent_item );
 
-    QStandardItem *item_heading             = new QStandardItem( heading.element.text() );
+    QStandardItem *item_heading             = new QStandardItem( heading.text );
     QStandardItem *heading_included_check   = new QStandardItem();
 
     heading_included_check->setEditable( false );
@@ -405,8 +418,8 @@ void TOCEditor::ConnectSignalsToSlots()
              this,               SLOT(   ChangeDisplayType( int ) ) 
            );
 
-    connect( this,				 SIGNAL( accepted() ),
-             this,               SLOT(   UpdateHeadingElements()	) 
+    connect( this,               SIGNAL( accepted() ),
+             this,               SLOT(   UpdateHeadingElements() ) 
              );
 }
 

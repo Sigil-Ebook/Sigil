@@ -43,6 +43,10 @@ public:
         // The QDomElement of the heading in the file's QDomDocument
         QDomElement element;
 
+        // Represents what the heading should
+        // look like in the TOC.
+        QString text;
+
         // The level of the heading, from 1 to 6
         // (lower number means 'bigger' heading )
         int level;
