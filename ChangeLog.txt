@@ -1,4 +1,5 @@
 Sigil v0.2.0 ß2 ADD_DATE
+    - fixed an issue with the user seeing the old, uncleaned source in the Code View (issue #286)
     - fixed an issue with the user being prompted to save when quitting even when no changes
     have been performed on the new/loaded file (issue #276)
     - fixed an issue with Book/Code View keyboard shortcuts firing in the wrong view (issue #266)
