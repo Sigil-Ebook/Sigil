@@ -78,56 +78,56 @@ public:
     QString GetIdentifier() const;
 
     /**
-    * Returns the resource's filename.
-    *
-    * @return The resource's filename.
-    */
+     * Returns the resource's filename.
+     *
+     * @return The resource's filename.
+     */
     QString Filename() const;
 
     /**
-    * Returns the resource's path relative to the OEBPS folder.
-    * Returned \em without leading "../" characters.
-    *
-    * @return The resource's path relative to the OEBPS folder.
-    */
+     * Returns the resource's path relative to the OEBPS folder.
+     * Returned \em without leading "../" characters.
+     *
+     * @return The resource's path relative to the OEBPS folder.
+     */
     QString GetRelativePathToOEBPS() const;
 
     /**
-    * Returns the resource's full file path.
-    * We \em really shouldn't be using this, 
-    * it kinda breaks encapsulation.
-    *
-    * @return The resource's full file path.
-    */
+     * Returns the resource's full file path.
+     * We \em really shouldn't be using this, 
+     * it kinda breaks encapsulation.
+     *
+     * @return The resource's full file path.
+     */
     QString GetFullPath() const;
 
     /**
-    * Returns the resource's filename.
-    *
-    * @return The resource's filename.
-    */
+     * Returns the resource's filename.
+     *
+     * @return The resource's filename.
+     */
     QUrl GetBaseUrl() const;
 
     /**
-    * Returns a reference to the resource's ReadWriteLock.
-    *
-    * @return The resource's ReadWriteLock.
-    */
+     * Returns a reference to the resource's ReadWriteLock.
+     *
+     * @return The resource's ReadWriteLock.
+     */
     QReadWriteLock& GetLock();
 
     /**
-    * Returns the resource's icon.
-    *
-    * @return The resource's icon.
-    */
+     * Returns the resource's icon.
+     *
+     * @return The resource's icon.
+     */
     QIcon Icon() const;
 
     /**
-    * Renames the resource.
-    *
-    * @param new_filename The new name.
-    * @return \c true if the operation was successful.
-    */
+     * Renames the resource.
+     *
+     * @param new_filename The new name.
+     * @return \c true if the operation was successful.
+     */
     bool RenameTo( const QString &new_filename );
 
     /**
@@ -138,10 +138,10 @@ public:
     bool Delete();    
 
     /**
-    * Returns the resource's type.
-    *
-    * @return The resource's type.
-    */
+     * Returns the resource's type.
+     *
+     * @return The resource's type.
+     */
     virtual ResourceType Type() const;
 
     /**
@@ -162,13 +162,13 @@ signals:
     void RenamedTo( QString new_filename );
 
     /**
-    * Emitted when the resource has been scheduled for deletion.
-    */
+     * Emitted when the resource has been scheduled for deletion.
+     */
     void Deleted();
 
     /**
-    * Emitted when the resource has been updated on disk.
-    */
+     * Emitted when the resource has been updated on disk.
+     */
     void ResourceUpdatedOnDisk();
 
 protected:

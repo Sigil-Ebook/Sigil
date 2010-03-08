@@ -248,8 +248,8 @@ signals:
     void EnteringBookView();
 
     /**
-    * Emitted when the tab enters the Code View.
-    */
+     * Emitted when the tab enters the Code View.
+     */
     void EnteringCodeView();
 
     /**

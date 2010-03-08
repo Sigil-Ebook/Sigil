@@ -91,9 +91,9 @@ private:
     void ReadSettings();
 
     /**
-    * Writes all the stored application settings like
-    * window position, geometry etc.
-    */
+     * Writes all the stored application settings like
+     * window position, geometry etc.
+     */
     void WriteSettings();
 
     /**

@@ -460,8 +460,8 @@ private:
     QShortcut &m_ScrollOneLineUp;
 
     /**
-    * Keyboard shortcut for scrolling one line down.
-    */
+     * Keyboard shortcut for scrolling one line down.
+     */
     QShortcut &m_ScrollOneLineDown;
 
     /** 

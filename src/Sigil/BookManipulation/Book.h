@@ -69,10 +69,10 @@ public:
     FolderKeeper& GetFolderKeeper();
 
     /**
-    * Returns the FolderKeeper instance.
-    *
-    * @return A const reference to the FolderKeeper instance of the Book.
-    */
+     * Returns the FolderKeeper instance.
+     *
+     * @return A const reference to the FolderKeeper instance of the Book.
+     */
     const FolderKeeper& GetConstFolderKeeper();
 
     /**
