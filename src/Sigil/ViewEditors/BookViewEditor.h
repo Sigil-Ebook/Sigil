@@ -83,12 +83,12 @@ public:
     void ExecCommand( const QString &command );
 
     /**
-    * Executes a contentEditable command.
-    * The command is executed through JavaScript.
-    *
-    * @param command The command to execute.
-    * @param parameter The parameter that should be passed to the command.
-    */
+     * Executes a contentEditable command.
+     * The command is executed through JavaScript.
+     *
+     * @param command The command to execute.
+     * @param parameter The parameter that should be passed to the command.
+     */
     void ExecCommand( const QString &command, const QString &parameter );
 
     /**
@@ -116,11 +116,11 @@ public:
     void ScrollToFragment( const QString &fragment );
 
     /**
-    * Scrolls the editor to the specified fragment after the document is loaded.
-    *
-    * @param fragment The fragment ID to scroll to. 
-    *                 It should have the "#" character as the first character. 
-    */
+     * Scrolls the editor to the specified fragment after the document is loaded.
+     *
+     * @param fragment The fragment ID to scroll to. 
+     *                 It should have the "#" character as the first character. 
+     */
     void ScrollToFragmentAfterLoad( const QString &fragment );
 
     /**
@@ -145,13 +145,13 @@ public:
     QList< ViewEditor::ElementIndex > GetCaretLocation(); 
 
     /**
-    * @copydoc ViewEditor::StoreCaretLocationUpdate
-    *
-    * The BookView implementation initiates the update in
-    * the JavascriptOnDocumentLoad() function.
-    * This should \em always be called \em before the page is updated
-    * to avoid loading race conditions.
-    */
+     * @copydoc ViewEditor::StoreCaretLocationUpdate
+     *
+     * The BookView implementation initiates the update in
+     * the JavascriptOnDocumentLoad() function.
+     * This should \em always be called \em before the page is updated
+     * to avoid loading race conditions.
+     */
     void StoreCaretLocationUpdate( const QList< ViewEditor::ElementIndex > &hierarchy );
 
     void SetZoomFactor( float factor );
@@ -325,13 +325,13 @@ private:
     QString GetElementSelectingJS_NoTextNodes( const QList< ViewEditor::ElementIndex > &hierarchy ) const;
 
     /**
-    * Builds the element-selecting JavaScript code, ignoring all the
-    * text nodes except the last one.
-    * Chains children() jQuery calls, and then the contents() function
-    * for the last element (the text node, naturally).
-    *
-    * @return The element-selecting JavaScript code.
-    */
+     * Builds the element-selecting JavaScript code, ignoring all the
+     * text nodes except the last one.
+     * Chains children() jQuery calls, and then the contents() function
+     * for the last element (the text node, naturally).
+     *
+     * @return The element-selecting JavaScript code.
+     */
     QString GetElementSelectingJS_WithTextNode( const QList< ViewEditor::ElementIndex > &hierarchy ) const;
 
     /**
@@ -465,38 +465,38 @@ private:
     QShortcut &m_ScrollOneLineDown;
 
     /** 
-    * The JavaScript source code used 
-    * to get a hierarchy of elements from
-    * the caret element to the top of the document.
-    */
+     * The JavaScript source code used 
+     * to get a hierarchy of elements from
+     * the caret element to the top of the document.
+     */
     const QString c_GetCaretLocation;
 
     /**
-    * The JavaScript source code that
-    * removes all of the current selections
-    * and adds the range in the "range"
-    * variable to the current selection.
-    */
+     * The JavaScript source code that
+     * removes all of the current selections
+     * and adds the range in the "range"
+     * variable to the current selection.
+     */
     const QString c_NewSelection;
 
     /**
-    * The JavaScript source code
-    * for creating DOM ranges.
-    */
+     * The JavaScript source code
+     * for creating DOM ranges.
+     */
     const QString c_GetRange;
 
     /**
-    * The JavaScript source code that deletes the
-    * contents of the range in "range" and replaces
-    * them with a new text node whose text should be inputted.
-    */
+     * The JavaScript source code that deletes the
+     * contents of the range in "range" and replaces
+     * them with a new text node whose text should be inputted.
+     */
     const QString c_ReplaceText;
 
     /**
-    * The JavaScript source code that returns the XHTML source
-    * from the caret to the top of the file. This code is also
-    * removed from the current chapter.
-    */
+     * The JavaScript source code that returns the XHTML source
+     * from the caret to the top of the file. This code is also
+     * removed from the current chapter.
+     */
     const QString c_GetSegmentHTML;
 };
 

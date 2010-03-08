@@ -34,15 +34,28 @@ class Resource;
 class HTMLResource;
 class QUrl;
 
+/**
+ * A tab widget used for displaying XHTML chapters.
+ * It can display the chapter in both rendered view (Book View)
+ * and raw code view (Code View).
+ */
 class FlowTab : public ContentTab
 {
     Q_OBJECT
 
 public:
 
+    /**
+     * Constructor.
+     * 
+     * @param resource The resource this tab will be displaying.
+     * @param fragment The URL fragment ID to which the tab should scroll.
+     * @param parent The parent of this QObject.
+     */
     FlowTab( Resource& resource, const QUrl &fragment, QWidget *parent = 0 );
 
     // Overrides inherited from ContentTab
+
     bool IsModified();
 
     bool CutEnabled();
@@ -79,102 +92,191 @@ public:
 
     ViewState GetViewState();
 
+    /**
+     * Scrolls the tab to the specified fragment.
+     *
+     * @param fragment The URL fragment ID to which the tab should scroll.
+     */
     void ScrollToFragment( const QString &fragment );
 
+    /**
+     * Scrolls the tab to the top.
+     */
     void ScrollToTop();
 
 public slots:
 
-    // Implements Undo action functionality
+    /**
+     * Implements Undo action functionality.
+     */
     void Undo();
 
-    // Implements Redo action functionality
+    /**
+     * Implements Redo action functionality.
+     */ 
     void Redo();
 
-    // Implements Cut action functionality
+    /**
+     * Implements Cut action functionality.
+     */
     void Cut();
 
-    // Implements Copy action functionality
+    /**
+     * Implements Copy action functionality.
+     */
     void Copy();
 
-    // Implements Paste action functionality
+    /**
+     * Implements Paste action functionality.
+     */
     void Paste();
 
-    // Implements Bold action functionality
+    /**
+     * Implements Bold action functionality.
+     */
     void Bold();
 
-    // Implements Italic action functionality
+    /**
+     * Implements Italic action functionality.
+     */
     void Italic();
 
-    // Implements Underline action functionality
+    /**
+     * Implements Underline action functionality.
+     */
     void Underline();
 
-    // Implements Strikethrough action functionality
+    /**
+     * Implements Strikethrough action functionality.
+     */
     void Strikethrough();
 
-    // Implements Align Left action functionality
+    /**
+     * Implements Align Left action functionality.
+     */
     void AlignLeft();
 
-    // Implements Center action functionality
+    /**
+     * Implements Center action functionality.
+     */
     void Center();
 
-    // Implements Align Right action functionality
+    /**
+     * Implements Align Right action functionality.
+     */
     void AlignRight();
 
-    // Implements Justify action functionality
+    /**
+     * Implements Justify action functionality.
+     */
     void Justify();
 
-    // Implements Insert chapter break action functionality
+    /**
+     * Implements Insert chapter break action functionality.
+     */
     void InsertChapterBreak();
 
-    // Implements *a part* of Insert image action functionality
-    // The rest is in MainWindow. (it has to be, FlowTabs don't
-    // have a reference to the Book object)
+    /**
+     * Implements \em a \em part of Insert image action functionality. 
+     * The rest is in MainWindow. It has to be, FlowTabs don't
+     * have a reference to the Book object.
+     *
+     * @param image_path The full path to the image that should be inserted.
+     */
     void InsertImage( const QString &image_path );
 
-    // Implements Insert bulleted list action functionality
+    /**
+     * Implements Insert bulleted list action functionality.
+     */
     void InsertBulletedList();
 
-    // Implements Insert numbered list action functionality
+    /**
+     * Implements Insert numbered list action functionality.
+     */
     void InsertNumberedList();
 
-    // Implements Decrease indent action functionality
+    /**
+     * Implements Decrease indent action functionality.
+     */
     void DecreaseIndent();
 
-    // Implements Increase indent action functionality
+    /**
+     * Implements Increase indent action functionality.
+     */
     void IncreaseIndent();
 
-    // Implements Remove Formatting action functionality
+    /**
+     * Implements Remove Formatting action functionality.
+     */
     void RemoveFormatting();
 
-    // Implements the heading combo box functionality
+    /**
+     * Implements the heading combo box functionality.
+     */
     void HeadingStyle( const QString& heading_type );
 
-    // Implements Print Preview action functionality
+    /**
+     * Implements Print Preview action functionality.
+     */
     void PrintPreview();
 
-    // Implements Print action functionality
+    /**
+     * Implements Print action functionality.
+     */
     void Print();
 
+    /**
+     * Implements Book View action functionality.
+     */
     void BookView();
 
+    /**
+     * Implements Split View action functionality.
+     */
     void SplitView();
 
+    /**
+     *  Implements Code View action functionality.
+     */
     void CodeView();
 
 signals:
 
+    /**
+     * Emitted when the tab enters the Book View.
+     */
     void EnteringBookView();
 
+    /**
+    * Emitted when the tab enters the Code View.
+    */
     void EnteringCodeView();
 
+    /**
+     * Emitted when the View changes.
+     */
     void ViewChanged();    
 
+    /**
+     * Emitted when the selection in the view has changed.
+     */
     void SelectionChanged();
 
-    // Emitted by Book View (wired)
+    /**
+     * Emitted when a linked is clicked in the Book View.
+     *
+     * @param url The URL of the clicked link.
+     */
     void LinkClicked( const QUrl &url );
 
+    /**
+     * Emitted when an "old" tab should be created.
+     * Usually emitted as part of the chapter break operation.
+     *
+     * @param content The content of the "old" tab/resource.
+     * @param originating_resource  The original resource from which the content
+     *                              was extracted to create the "old" tab/resource.
+     */
     void OldTabRequest( QString content, HTMLResource& originating_resource );
 
 protected slots:
@@ -185,36 +287,74 @@ protected slots:
 
 private slots:
 
-    // Since we use two child widgets (the View Editors) that cover 
-    // the whole tab, we cannot just reimplement focusIn and focusOut
-    // event handlers (they won't get called). So we use this function
-    // to implement our own focusIn and focusOut handling. 
+    /**
+     * A global focus switch filter used to catch tab enter and
+     * tab leave events.
+     * 
+     * @param old_widget The widget that just lost focus.
+     * @param new_widget The widget that just gained focus. 
+     * @note Since we use two child widgets (the View Editors) that cover 
+     *       the whole tab, we cannot just reimplement focusIn and focusOut
+     *       event handlers (they won't get called). So we use this function
+     *       to implement our own focusIn and focusOut handling. 
+     */
     void TabFocusChange( QWidget *old_widget, QWidget *new_widget );
 
-    // Used to catch the focus changeover from one widget
-    // (code or book view) to the other in Split View;
-    // needed for source synchronization.
+    /**
+     * A global focus switch filter used to catch focus switches
+     * inside the Split View.
+     * 
+     * @param old_widget The widget that just lost focus.
+     * @param new_widget The widget that just gained focus. 
+     */
     void SplitViewFocusSwitch( QWidget *old_widget, QWidget *new_widget );
 
+    /**
+     * Performs the delayed initialization of the tab.
+     * We perform delayed initialization after the widget is on
+     * the screen. This way, the user perceives less load time.
+     */
     void DelayedInitialization();
 
+    /**
+     * Emits the ContentChanged signal.
+     */
     void EmitContentChanged();  
 
 private:
 
+    /**
+     * Makes the Book View the current View.
+     */
     void EnterBookView();
 
+    /**
+     * Makes the Code View the current View.
+     */
     void EnterCodeView();
 
+    /**
+     * Reads all the stored application settings like
+     * window position, geometry etc.
+     */
     void ReadSettings();
     
+    /**
+     * Writes all the stored application settings like
+     * window position, geometry etc.
+     */
     void WriteSettings();
 
+    /**
+     * Returns the active View Editor.
+     *
+     * @return The active View Editor.
+     */
     ViewEditor& GetActiveViewEditor() const;
 
     /**
-    * Connects all the required signals to their respective slots.
-    */
+     * Connects all the required signals to their respective slots.
+     */
     void ConnectSignalsToSlots();
 
     /**
@@ -228,23 +368,45 @@ private:
     // PRIVATE MEMBER VARIABLES
     ///////////////////////////////
 
+    /**
+     * The fragment to scroll to after the tab is initialized.
+     */
     const QUrl m_FragmentToScroll;
 
+    /**
+     * The HTML resource the tab is currently displaying.
+     */
     HTMLResource &m_HTMLResource;
 
+    /**
+     * The splitter widget that separates the two Views.
+     */
     QSplitter &m_Splitter;
 
-    // The webview component that renders out HTML
+    /**
+     * The Book View Editor.
+     * Displays and edits the rendered state of the HTML.
+     */
     BookViewEditor &m_wBookView;
 
-    // The plain text code editor 
+    /**
+     * The Code View Editor.
+     * Displays and edits the raw code.
+     */ 
     CodeViewEditor &m_wCodeView;
 
-    // true if the last view the user edited in was book view
+    /**
+     * Specifies which view was used last.
+     * True if the last view the user edited in was Book View. 
+     */
     bool m_IsLastViewBook; 
 
-    // We need this variable because for some reason,
-    // checking for isVisible on both views doesn't work.
+    /**
+     * True when the user is using the Split View.
+     *
+     * @note We need this variable because for some reason, 
+     *       checking for isVisible on both views doesn't work.
+     */
     bool m_InSplitView;
 };
 

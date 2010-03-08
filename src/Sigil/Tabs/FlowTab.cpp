@@ -276,7 +276,6 @@ void FlowTab::ScrollToTop()
 }
 
 
-// Implements Undo action functionality
 void FlowTab::Undo()
 {
     if ( m_wBookView.hasFocus() )
@@ -293,7 +292,6 @@ void FlowTab::Undo()
 }
 
 
-// Implements Redo action functionality
 void FlowTab::Redo()
 {
     if ( m_wBookView.hasFocus() )
@@ -310,7 +308,6 @@ void FlowTab::Redo()
 }
 
 
-// Implements Cut action functionality
 void FlowTab::Cut()
 {
     if ( m_wBookView.hasFocus() )
@@ -327,7 +324,6 @@ void FlowTab::Cut()
 }
 
 
-// Implements Copy action functionality
 void FlowTab::Copy()
 {
     if ( m_wBookView.hasFocus() )
@@ -344,7 +340,6 @@ void FlowTab::Copy()
 }
 
 
-// Implements Paste action functionality
 void FlowTab::Paste()
 {
     if ( m_wBookView.hasFocus() )
@@ -361,7 +356,6 @@ void FlowTab::Paste()
 }
 
 
-// Implements Bold action functionality
 void FlowTab::Bold()
 {
     if ( m_wBookView.hasFocus() )
@@ -373,7 +367,6 @@ void FlowTab::Bold()
 }
 
 
-// Implements Italic action functionality
 void FlowTab::Italic()
 {
     if ( m_wBookView.hasFocus() )
@@ -385,7 +378,6 @@ void FlowTab::Italic()
 }
 
 
-// Implements Underline action functionality
 void FlowTab::Underline()
 {
     if ( m_wBookView.hasFocus() )
@@ -397,7 +389,6 @@ void FlowTab::Underline()
 }
 
 
-// Implements Strikethrough action functionality
 void FlowTab::Strikethrough()
 {
     if ( m_wBookView.hasFocus() )
@@ -409,7 +400,6 @@ void FlowTab::Strikethrough()
 }
 
 
-// Implements Align Left action functionality
 void FlowTab::AlignLeft()
 {
     if ( m_wBookView.hasFocus() )
@@ -421,7 +411,6 @@ void FlowTab::AlignLeft()
 }
 
 
-// Implements Center action functionality
 void FlowTab::Center()
 {
     if ( m_wBookView.hasFocus() )
@@ -433,7 +422,6 @@ void FlowTab::Center()
 }
 
 
-// Implements Align Right action functionality
 void FlowTab::AlignRight()
 {
     if ( m_wBookView.hasFocus() )
@@ -445,7 +433,6 @@ void FlowTab::AlignRight()
 }
 
 
-// Implements Justify action functionality
 void FlowTab::Justify()
 {
     if ( m_wBookView.hasFocus() )
@@ -457,14 +444,12 @@ void FlowTab::Justify()
 }
 
 
-// Implements Insert chapter break action functionality
 void FlowTab::InsertChapterBreak()
 {
     emit OldTabRequest( m_wBookView.SplitChapter(), m_HTMLResource );
 }
 
 
-// Implements Insert image action functionality
 void FlowTab::InsertImage( const QString &image_path )
 {
     // Make sure the Book View has focus before inserting images,
@@ -476,7 +461,6 @@ void FlowTab::InsertImage( const QString &image_path )
 }
 
 
-// Implements Insert bulleted list action functionality
 void FlowTab::InsertBulletedList()
 {
     m_wBookView.ExecCommand( "insertUnorderedList" );
@@ -485,7 +469,6 @@ void FlowTab::InsertBulletedList()
 }
 
 
-// Implements Insert numbered list action functionality
 void FlowTab::InsertNumberedList()
 {
     m_wBookView.ExecCommand( "insertOrderedList" );
@@ -494,28 +477,24 @@ void FlowTab::InsertNumberedList()
 }
 
 
-// Implements Decrease indent action functionality
 void FlowTab::DecreaseIndent()
 {
     m_wBookView.page()->triggerAction( QWebPage::Outdent );
 }
 
 
-// Implements Increase indent action functionality
 void FlowTab::IncreaseIndent()
 {
     m_wBookView.page()->triggerAction( QWebPage::Indent );
 }
 
 
-// Implements Remove Formatting action functionality
 void FlowTab::RemoveFormatting()
 {
     m_wBookView.page()->triggerAction( QWebPage::RemoveFormat );
 }
 
 
-// Implements the heading combo box functionality
 void FlowTab::HeadingStyle( const QString& heading_type )
 {
     QChar last_char = heading_type[ heading_type.count() - 1 ];
@@ -533,7 +512,6 @@ void FlowTab::HeadingStyle( const QString& heading_type )
 }
 
 
-// Implements Print Preview action functionality
 void FlowTab::PrintPreview()
 {
     if ( !m_wBookView.hasFocus() && !m_wCodeView.hasFocus() )
@@ -561,7 +539,6 @@ void FlowTab::PrintPreview()
 }
 
 
-// Implements Print action functionality
 void FlowTab::Print()
 {
     if ( !m_wBookView.hasFocus() && !m_wCodeView.hasFocus() )
@@ -585,7 +562,6 @@ void FlowTab::Print()
 }
 
 
-// Implements Book View action functionality
 void FlowTab::BookView()
 {
     QApplication::setOverrideCursor( Qt::WaitCursor );
@@ -607,7 +583,6 @@ void FlowTab::BookView()
 }
 
 
-// Implements Split View action functionality
 void FlowTab::SplitView()
 {
     QApplication::setOverrideCursor( Qt::WaitCursor );
@@ -632,7 +607,6 @@ void FlowTab::SplitView()
 }
 
 
-// Implements Code View action functionality
 void FlowTab::CodeView()
 {
     QApplication::setOverrideCursor( Qt::WaitCursor );
@@ -802,7 +776,6 @@ void FlowTab::WriteSettings()
 }
 
 
-// Returns the currently active View Editor
 ViewEditor& FlowTab::GetActiveViewEditor() const
 {
     if ( m_IsLastViewBook )
