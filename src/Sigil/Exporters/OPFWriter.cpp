@@ -33,19 +33,18 @@ static const int FLOW_SIZE_THRESHOLD = 1000;
 // The first parameter is the book being exported,
 // and the second is the list of files
 // in the folder that will become the exported book
-OPFWriter::OPFWriter( QSharedPointer< Book > book )
-    : XMLWriter( book )
+OPFWriter::OPFWriter( QSharedPointer< Book > book, QIODevice &device )
+    : 
+    XMLWriter( book, device )
 {
     CreateMimetypes();
 }
 
 
 // Returns the created XML file
-QString OPFWriter::GetXML()
+void OPFWriter::WriteXML()
 {
     m_Writer->writeStartDocument();
-
-    m_Writer->setAutoFormatting( true );
 
     m_Writer->writeStartElement( "package" );
 
@@ -60,8 +59,6 @@ QString OPFWriter::GetXML()
 
     m_Writer->writeEndElement();
     m_Writer->writeEndDocument();
-    
-    return m_XMLSource;
 }
 
 

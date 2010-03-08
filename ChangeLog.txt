@@ -1,4 +1,6 @@
 Sigil v0.2.0 ß2 ADD_DATE
+    - OPF and NCX files don't rely anymore on UTF-8 XML default parsing, but specify their UTF-8
+    encoding directly in the declaration
     - fixed an issue with changes in the TOC editor not being reflected in the book (issue #277)
     - fixed an issue with the TOC editor not recognizing the "title" attribute on headings (issue #271)
     - fixed an issue with the user seeing the old, uncleaned source in the Code View (issue #286)

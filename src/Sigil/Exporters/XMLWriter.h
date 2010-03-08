@@ -26,6 +26,7 @@
 #include "../BookManipulation/FolderKeeper.h"
 
 class Book;
+class QIODevice;
 
 class XMLWriter
 {
@@ -36,21 +37,21 @@ public:
     // The first parameter is the book being exported,
     // and the second is the FolderKeeper object representing
     // the folder where the book will be exported
-    XMLWriter( QSharedPointer< Book > book );
+    XMLWriter( QSharedPointer< Book > book, QIODevice &device );
 
     // Destructor
     virtual ~XMLWriter();
     
     // Returns the created XML file
-    virtual QString GetXML() = 0;
+    virtual void WriteXML() = 0;
     
 protected:
 
     // The book being exported
     QSharedPointer< Book > m_Book;
 
-    // The XML source that is being written
-    QString m_XMLSource;
+    // The XML device that we are writing to.
+    QIODevice &m_IODevice;
 
     // The XML writer used to write XML
     QXmlStreamWriter *m_Writer;

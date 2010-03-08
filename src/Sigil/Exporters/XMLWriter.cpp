@@ -28,13 +28,13 @@
 // The first parameter is the book for which this XML file
 // is being written, and the second is the list of files
 // in the folder that will become the exported book
-XMLWriter::XMLWriter( QSharedPointer< Book > book )
+XMLWriter::XMLWriter( QSharedPointer< Book > book, QIODevice &device )
     : 
     m_Book( book ),
-    m_XMLSource( "" ),
-    m_Writer( new QXmlStreamWriter( &m_XMLSource ) )
+    m_IODevice( device ),
+    m_Writer( new QXmlStreamWriter( &m_IODevice ) )
 {
-
+    m_Writer->setAutoFormatting( true );
 }
 
     

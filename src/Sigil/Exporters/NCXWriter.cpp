@@ -30,9 +30,9 @@
 // The first parameter is the book being exported,
 // and the second is the FolderKeeper object representing
 // the folder where the book will be exported
-NCXWriter::NCXWriter( QSharedPointer< Book > book  )
+NCXWriter::NCXWriter( QSharedPointer< Book > book, QIODevice &device )
     : 
-    XMLWriter( book ),
+    XMLWriter( book, device ),
     m_Headings( Headings::MakeHeadingHeirarchy( 
                 Headings::GetHeadingList( m_Book->GetFolderKeeper().GetSortedHTMLResources() ) ) )
 {
@@ -41,11 +41,9 @@ NCXWriter::NCXWriter( QSharedPointer< Book > book  )
 
 
 // Returns the created XML file
-QString NCXWriter::GetXML()
+void NCXWriter::WriteXML()
 {
     m_Writer->writeStartDocument();
-
-    m_Writer->setAutoFormatting( true );
 
     m_Writer->writeDTD( "<!DOCTYPE ncx PUBLIC \"-//NISO//DTD ncx 2005-1//EN\"\n" 
                          "   \"http://www.daisy.org/z3986/2005/ncx-2005-1.dtd\">\n" );
@@ -61,8 +59,6 @@ QString NCXWriter::GetXML()
 
     m_Writer->writeEndElement();
     m_Writer->writeEndDocument();
-
-    return m_XMLSource;
 }
 
 

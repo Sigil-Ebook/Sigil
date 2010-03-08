@@ -35,10 +35,10 @@ public:
     // The first parameter is the book being exported,
     // and the second is the FolderKeeper object representing
     // the folder where the book will be exported
-    NCXWriter( QSharedPointer< Book > book );
+    NCXWriter( QSharedPointer< Book > book, QIODevice &device );
 
     // Returns the created XML file
-    QString GetXML();
+    void WriteXML();
     
 private:
 

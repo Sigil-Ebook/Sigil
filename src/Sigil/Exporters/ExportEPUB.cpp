@@ -189,17 +189,10 @@ void ExportEPUB::CreateContentOPF( const QString &fullfolderpath )
                    );
     }
     
-    QTextStream out( &file );
-
-    // We ALWAYS output in UTF-8
-    out.setCodec( "UTF-8" );
-
-    OPFWriter opf( m_Book );
-
-    out << opf.GetXML();
+    OPFWriter opf( m_Book, file );
+    opf.WriteXML();
 
     // Write to disk immediately
-    out.flush();
     file.flush();
 
     QFile::copy( file.fileName(), fullfolderpath + "/" + OPF_FILE_NAME ); 
@@ -218,18 +211,11 @@ void ExportEPUB::CreateTocNCX( const QString &fullfolderpath )
                      << errinfo_file_errorstring( file.errorString().toStdString() ) 
                    );
     }
-    
-    QTextStream out( &file );
 
-    // We ALWAYS output in UTF-8
-    out.setCodec( "UTF-8" );
-
-    NCXWriter ncx( m_Book );
-
-    out << ncx.GetXML();
+    NCXWriter ncx( m_Book, file );
+    ncx.WriteXML();
 
     // Write to disk immediately
-    out.flush();
     file.flush();
 
     QFile::copy( file.fileName(), fullfolderpath + "/" + NCX_FILE_NAME ); 
