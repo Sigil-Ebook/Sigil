@@ -114,70 +114,69 @@ Resource& FolderKeeper::AddContentFileToFolder( const QString &fullfilepath, int
 
         boost_throw( FileDoesNotExist() << errinfo_file_name( fullfilepath.toStdString() ) );
 
+    QString new_file_path;
+    Resource *resource = NULL;
+
     // We need to lock at the start of the func
     // because otherwise several threads can get
     // the same "unique" name.
-    m_AccessMutex.lock();
-
-    QString filename  = GetUniqueFilenameVersion( QFileInfo( fullfilepath ).fileName() );
-    QString extension = QFileInfo( fullfilepath ).suffix().toLower();
-
-    QString new_file_path;
-    QString relative_path;
-
-    Resource *resource = NULL;
-
-    if ( IMAGE_EXTENSIONS.contains( extension ) )
+    // After we deal with the resource hash, other threads can continue.
     {
-        new_file_path = m_FullPathToImagesFolder + "/" + filename;
-        relative_path = IMAGE_FOLDER_NAME + "/" + filename;
+        QMutexLocker locker( &m_AccessMutex );
 
-        resource = new ImageResource( new_file_path, &m_Resources );
-    }
+        QString filename  = GetUniqueFilenameVersion( QFileInfo( fullfilepath ).fileName() );
+        QString extension = QFileInfo( fullfilepath ).suffix().toLower();
+        QString relative_path;
 
-    else if ( FONT_EXTENSIONS.contains( extension ) )
-    {
-        new_file_path = m_FullPathToFontsFolder + "/" + filename;
-        relative_path = FONT_FOLDER_NAME + "/" + filename;
+        if ( IMAGE_EXTENSIONS.contains( extension ) )
+        {
+            new_file_path = m_FullPathToImagesFolder + "/" + filename;
+            relative_path = IMAGE_FOLDER_NAME + "/" + filename;
 
-        resource = new FontResource( new_file_path, &m_Resources );
-    }
+            resource = new ImageResource( new_file_path, &m_Resources );
+        }
 
-    else if ( TEXT_EXTENSIONS.contains( extension ) )
-    {
-        new_file_path = m_FullPathToTextFolder + "/" + filename;
-        relative_path = TEXT_FOLDER_NAME + "/" + filename;
+        else if ( FONT_EXTENSIONS.contains( extension ) )
+        {
+            new_file_path = m_FullPathToFontsFolder + "/" + filename;
+            relative_path = FONT_FOLDER_NAME + "/" + filename;
 
-        resource = new HTMLResource( new_file_path, &m_Resources, reading_order );
-    }
+            resource = new FontResource( new_file_path, &m_Resources );
+        }
 
-    else if ( STYLE_EXTENSIONS.contains( extension ) )
-    {
-        new_file_path = m_FullPathToStylesFolder + "/" + filename;
-        relative_path = STYLE_FOLDER_NAME + "/" + filename;
+        else if ( TEXT_EXTENSIONS.contains( extension ) )
+        {
+            new_file_path = m_FullPathToTextFolder + "/" + filename;
+            relative_path = TEXT_FOLDER_NAME + "/" + filename;
 
-        if ( extension == "css" )
+            resource = new HTMLResource( new_file_path, &m_Resources, reading_order );
+        }
 
-            resource = new CSSResource( new_file_path, &m_Resources );
+        else if ( STYLE_EXTENSIONS.contains( extension ) )
+        {
+            new_file_path = m_FullPathToStylesFolder + "/" + filename;
+            relative_path = STYLE_FOLDER_NAME + "/" + filename;
+
+            if ( extension == "css" )
+
+                resource = new CSSResource( new_file_path, &m_Resources );
+
+            else
+
+                resource = new XPGTResource( new_file_path, &m_Resources );
+        }
 
         else
+        {
+            // Fallback mechanism
+            new_file_path = m_FullPathToMiscFolder + "/" + filename;
+            relative_path = MISC_FOLDER_NAME + "/" + filename;
 
-            resource = new XPGTResource( new_file_path, &m_Resources );
+            resource = new Resource( new_file_path, &m_Resources );
+        }    
+
+        m_Resources[ resource->GetIdentifier() ] = resource;
     }
-
-    else
-    {
-        // Fallback mechanism
-        new_file_path = m_FullPathToMiscFolder + "/" + filename;
-        relative_path = MISC_FOLDER_NAME + "/" + filename;
-
-        resource = new Resource( new_file_path, &m_Resources );
-    }    
-
-    m_Resources[ resource->GetIdentifier() ] = resource;
-
-    // After we deal with the resource hash, other threads can continue.
-    m_AccessMutex.unlock();
 
     QFile::copy( fullfilepath, new_file_path );
 
