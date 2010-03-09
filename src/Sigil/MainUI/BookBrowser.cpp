@@ -87,7 +87,9 @@ void BookBrowser::SetBook( QSharedPointer< Book > book )
 
 void BookBrowser::Refresh()
 {
+    int scroll_value = m_TreeView.verticalScrollBar()->value();
     m_OPFModel.Refresh();
+    m_TreeView.verticalScrollBar()->setValue( scroll_value );
 }
 
 
@@ -146,7 +148,7 @@ void BookBrowser::AddNew()
         m_Book->CreateEmptyCSSFile();
     }
 
-    m_OPFModel.Refresh();
+    Refresh();
 }
 
 
@@ -182,7 +184,7 @@ void BookBrowser::AddExisting()
         }
     }    
     
-    m_OPFModel.Refresh();
+    Refresh();
 }
 
 
@@ -217,7 +219,7 @@ void BookBrowser::Remove()
 
     resource->Delete();
 
-    m_OPFModel.Refresh();
+    Refresh();
 }
 
 

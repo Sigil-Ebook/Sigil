@@ -1,4 +1,5 @@
 Sigil v0.2.0 ß2 ADD_DATE
+    - the Book Browser now doesn't scroll back to the top when an item is delted or added (issue #263)
     - the Book Browser now allows a file's extension to change between HTM, HTML, XHTML and XML
     (issue #264)
     - OPF and NCX files don't rely anymore on UTF-8 XML default parsing, but specify their UTF-8
