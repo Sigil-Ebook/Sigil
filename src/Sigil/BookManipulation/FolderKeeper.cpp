@@ -117,9 +117,8 @@ Resource& FolderKeeper::AddContentFileToFolder( const QString &fullfilepath, int
     QString new_file_path;
     Resource *resource = NULL;
 
-    // We need to lock at the start of the func
-    // because otherwise several threads can get
-    // the same "unique" name.
+    // We need to lock here because otherwise
+    // several threads can get the same "unique" name.
     // After we deal with the resource hash, other threads can continue.
     {
         QMutexLocker locker( &m_AccessMutex );

@@ -52,7 +52,7 @@ BookBrowser::BookBrowser( QWidget *parent )
     ReadSettings();
 
     SetupTreeView();
-    CreateActions();
+    CreateContextMenuActions();
     ConnectSignalsToSlots();
 }
 
@@ -265,7 +265,7 @@ void BookBrowser::SetupTreeView()
 }
 
 
-void BookBrowser::CreateActions()
+void BookBrowser::CreateContextMenuActions()
 {
     m_AddNew      = new QAction( "Add new item...",       this );
     m_AddExisting = new QAction( "Add existing items...", this );
@@ -330,7 +330,6 @@ void BookBrowser::ConnectSignalsToSlots()
 }
 
 
-// Can return NULL
 Resource* BookBrowser::GetCurrentResource()
 {
     QModelIndex index = m_TreeView.currentIndex();
