@@ -43,8 +43,6 @@ const QString TEXT_FOLDER_NAME  = "Text";
 const QString STYLE_FOLDER_NAME = "Styles";
 const QString MISC_FOLDER_NAME  = "Misc";
 
-typedef boost::error_info< struct resource_name, std::string > errinfo_resource_name;
-
 
 // Constructor
 FolderKeeper::FolderKeeper()
@@ -112,6 +110,10 @@ void FolderKeeper::AddInfraFileToFolder( const QString &fullfilepath, const QStr
 
 Resource& FolderKeeper::AddContentFileToFolder( const QString &fullfilepath, int reading_order )
 {
+    if ( !QFileInfo( fullfilepath ).exists() )
+
+        boost_throw( FileDoesNotExist() << errinfo_file_name( fullfilepath.toStdString() ) );
+
     // We need to lock at the start of the func
     // because otherwise several threads can get
     // the same "unique" name.

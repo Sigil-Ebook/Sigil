@@ -33,9 +33,16 @@
 struct ExceptionBase: virtual std::exception, virtual boost::exception {};
 
 /**
+* Thrown when a file does not exist.
+*/
+struct FileDoesNotExist : virtual ExceptionBase {};
+typedef boost::error_info< struct file_name, std::string > errinfo_file_name;
+
+/**
  * Thrown when a resource object does not exist.
  */
 struct ResourceDoesNotExist : virtual ExceptionBase {};
+typedef boost::error_info< struct resource_name, std::string > errinfo_resource_name;
 
 /**
  * Thrown when the book has no HTML files.

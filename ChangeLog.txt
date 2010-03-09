@@ -1,4 +1,5 @@
 Sigil v0.2.0 ß2 ADD_DATE
+    - Sigil now handles corrupt epub files with an OPF referencing non-existent files (issue #289)
     - the Book Browser now doesn't scroll back to the top when an item is delted or added (issue #263)
     - the Book Browser now allows a file's extension to change between HTM, HTML, XHTML and XML
     (issue #264)

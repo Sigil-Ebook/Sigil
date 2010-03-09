@@ -25,7 +25,9 @@
 #include "ResourceObjects/Resource.h"
 #include <ZipArchive.h>
 
-static const QString OEBPS_MIMETYPE = "application/oebps-package+xml";
+static const QString OEBPS_MIMETYPE      = "application/oebps-package+xml";
+static const QString UPDATE_ERROR_STRING = "SG_ERROR";
+
 
 ImportOEBPS::ImportOEBPS( const QString &fullfilepath )
     : Importer( fullfilepath )
@@ -273,8 +275,9 @@ QHash< QString, QString > ImportOEBPS::LoadFolderStructure()
     {
         tuple< QString, QString > result = futures.at( i ).result();
         updates[ result.get< 0 >() ] = result.get< 1 >();
-    }   
+    }
 
+    updates.remove( UPDATE_ERROR_STRING );
     return updates;
 }
 
@@ -284,9 +287,17 @@ tuple< QString, QString > ImportOEBPS::LoadOneFile( const QString &key )
     QString path         = m_Files.value( key );
     QString fullfilepath = QFileInfo( m_OPFFilePath ).absolutePath() + "/" + path;
 
-    Resource &resource = m_Book->GetFolderKeeper().AddContentFileToFolder( fullfilepath, m_ReadingOrderIds.indexOf( key ) );
-    QString newpath = "../" + resource.GetRelativePathToOEBPS(); 
+    try
+    {
+        Resource &resource = m_Book->GetFolderKeeper().AddContentFileToFolder( fullfilepath, m_ReadingOrderIds.indexOf( key ) );
+        QString newpath = "../" + resource.GetRelativePathToOEBPS(); 
 
-    return make_tuple( path, newpath );
+        return make_tuple( path, newpath );
+    }
+    
+    catch ( FileDoesNotExist& )
+    {
+    	return make_tuple( UPDATE_ERROR_STRING, UPDATE_ERROR_STRING );
+    }
 }
 
