@@ -188,6 +188,14 @@ private slots:
 
 private:
 
+    /**
+     * Updates the font used in the line number area
+     * and also repaints it.
+     *
+     * @param font The new font to use.
+     */
+    void UpdateLineNumberAreaFont( const QFont &font );
+
     // An element on the stack when searching for
     // the current caret location. 
     struct StackElement

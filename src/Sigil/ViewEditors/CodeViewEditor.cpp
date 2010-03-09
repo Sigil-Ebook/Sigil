@@ -78,6 +78,8 @@ void CodeViewEditor::CustomSetDocument( QTextDocument &document )
     font.setStyleHint( QFont::TypeWriter );
     setFont( font );
     setTabStopWidth( TAB_SPACES_WIDTH * QFontMetrics( font ).width( ' ' ) );
+
+    UpdateLineNumberAreaFont( font );
 }
 
 
@@ -196,10 +198,7 @@ void CodeViewEditor::SetZoomFactor( float factor )
     current_font.setPointSizeF( BASE_FONT_SIZE * m_CurrentZoomFactor );
     setFont( current_font );
     
-    // We update size of the line number area
-    m_LineNumberArea->setFont( current_font );
-    m_LineNumberArea->MyUpdateGeometry();
-    UpdateLineNumberAreaMargin();
+    UpdateLineNumberAreaFont( current_font );
 
     emit ZoomFactorChanged( factor );
 }
@@ -466,6 +465,14 @@ void CodeViewEditor::ScrollOneLineDown()
 }
 
 
+void CodeViewEditor::UpdateLineNumberAreaFont( const QFont &font )
+{
+    m_LineNumberArea->setFont( font );
+    m_LineNumberArea->MyUpdateGeometry();
+    UpdateLineNumberAreaMargin();
+}
+
+
 // Returns a stack of elements representing the
 // current location of the caret in the document.
 // Accepts the number of characters to the end of
@@ -655,4 +662,5 @@ void CodeViewEditor::ConnectSignalsToSlots()
     connect( &m_ScrollOneLineUp,   SIGNAL( activated() ), this, SLOT( ScrollOneLineUp()   ) );
     connect( &m_ScrollOneLineDown, SIGNAL( activated() ), this, SLOT( ScrollOneLineDown() ) );
 }
+
 
