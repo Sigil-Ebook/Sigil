@@ -1,4 +1,6 @@
 Sigil v0.2.0 ß2 ADD_DATE
+    - the Book Browser now allows a file's extension to change between HTM, HTML, XHTML and XML
+    (issue #264)
     - OPF and NCX files don't rely anymore on UTF-8 XML default parsing, but specify their UTF-8
     encoding directly in the declaration
     - fixed an issue with changes in the TOC editor not being reflected in the book (issue #277)

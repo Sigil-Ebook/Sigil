@@ -50,7 +50,7 @@ protected:
     // The book being exported
     QSharedPointer< Book > m_Book;
 
-    // The XML device that we are writing to.
+    // The IO device that we are writing to.
     QIODevice &m_IODevice;
 
     // The XML writer used to write XML

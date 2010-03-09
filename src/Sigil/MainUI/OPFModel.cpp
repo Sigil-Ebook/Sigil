@@ -334,14 +334,18 @@ bool OPFModel::FilenameIsValid( const QString &old_filename, const QString &new_
     const QString &old_extension = QFileInfo( old_filename ).suffix();
     const QString &new_extension = QFileInfo( new_filename ).suffix();
 
-    if ( old_extension != new_extension )
+    // We normally don't allow an extension change, but we
+    // allow it for changes between HTML, HTM, XHTML and XML.
+    if ( old_extension != new_extension &&
+         !( TEXT_EXTENSIONS.contains( old_extension ) && TEXT_EXTENSIONS.contains( new_extension ) )
+       )
     {
         QMessageBox::critical( 0,
                                tr( "Sigil" ),
-                               tr( "The file's extension cannot be changed.\n"
+                               tr( "This file's extension cannot be changed in that way.\n"
                                    "You used \"%1\", and the old extension was \"%2\"." )
-                               .arg( old_extension )
                                .arg( new_extension )
+                               .arg( old_extension )
                              );
 
         return false;
