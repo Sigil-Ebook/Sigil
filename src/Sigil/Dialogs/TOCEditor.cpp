@@ -141,9 +141,12 @@ void TOCEditor::UpdateOneHeadingElement( QStandardItem *item )
 
         if ( !heading->include_in_toc )
        
-            class_attribute.append( " " + NOT_IN_TOC_CLASS );
+            class_attribute = class_attribute.append( " " + NOT_IN_TOC_CLASS ).simplified();
 
-        heading->element.setAttribute( "class", class_attribute );
+        if ( !class_attribute.isEmpty() )
+
+            heading->element.setAttribute( "class", class_attribute );
+        
         heading->resource_file->MarkSecondaryCachesAsOld();
     }
 
