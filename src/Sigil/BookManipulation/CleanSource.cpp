@@ -280,6 +280,9 @@ QString CleanSource::HTMLTidy( const QString &source )
     // "wrap"
     tidyOptSetInt( tidy_document, TidyWrapLen, 0 );	
 
+    // "newline"
+    tidyOptSetValue( tidy_document, TidyNewline, "LF" );
+
     // "css-prefix"
     tidyOptSetValue( tidy_document, TidyCSSPrefix, SIGIL_CLASS_NAME.toUtf8().data() );	
 
@@ -369,6 +372,9 @@ QString CleanSource::FastXHTMLTidy( const QString &source )
     // "wrap"
     tidyOptSetInt( tidy_document, TidyWrapLen, 0 );
 
+    // "newline"
+    tidyOptSetValue( tidy_document, TidyNewline, "LF" );
+
     // "doctype"
     tidyOptSetValue( tidy_document, TidyDoctype, "strict" );
 
@@ -449,6 +455,9 @@ QString CleanSource::PrettyPrintTidy( const QString &source )
 
     // "doctype"
     tidyOptSetValue( tidy_document, TidyDoctype, "strict" );
+
+    // "newline"
+    tidyOptSetValue( tidy_document, TidyNewline, "LF" );
 
     // Needed so that Tidy doesn't kill off SVG elements
     // "new-blocklevel-tags"
