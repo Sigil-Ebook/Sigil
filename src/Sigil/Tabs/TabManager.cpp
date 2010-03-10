@@ -54,14 +54,14 @@ ContentTab& TabManager::GetCurrentContentTab()
 }
 
 void TabManager::OpenResource( Resource& resource, 
-                               bool preceed_current_tab,
+                               bool precede_current_tab,
                                const QUrl &fragment )
 {
     if ( SwitchedToExistingTab( resource, fragment ) )
 
         return;
 
-    AddNewContentTab( CreateTabForResource( resource, fragment ), preceed_current_tab );
+    AddNewContentTab( CreateTabForResource( resource, fragment ), precede_current_tab );
 
     // TODO: loading bar update    
 }
@@ -145,7 +145,7 @@ void TabManager::CloseTab( int tab_index )
 }
 
 
-void TabManager::TabRenamed( ContentTab *renamed_tab )
+void TabManager::UpdateTabName( ContentTab *renamed_tab )
 {
     Q_ASSERT( renamed_tab );
 
@@ -230,13 +230,13 @@ ContentTab* TabManager::CreateTabForResource( Resource& resource, const QUrl &fr
 }
 
 
-bool TabManager::AddNewContentTab( ContentTab *new_tab, bool preceed_current_tab )
+bool TabManager::AddNewContentTab( ContentTab *new_tab, bool precede_current_tab )
 {
     if ( new_tab == NULL )
 
         return false;
 
-    if ( !preceed_current_tab )
+    if ( !precede_current_tab )
     {
         addTab( new_tab, new_tab->GetIcon(), new_tab->GetFilename() );
         setCurrentWidget( new_tab );
@@ -248,8 +248,8 @@ bool TabManager::AddNewContentTab( ContentTab *new_tab, bool preceed_current_tab
         insertTab( currentIndex(), new_tab, new_tab->GetIcon(), new_tab->GetFilename() );
     }
 
-    connect( new_tab, SIGNAL( DeleteMe(   ContentTab* ) ), this, SLOT( DeleteTab(  ContentTab* ) ) );
-    connect( new_tab, SIGNAL( TabRenamed( ContentTab* ) ), this, SLOT( TabRenamed( ContentTab* ) ) );
+    connect( new_tab, SIGNAL( DeleteMe(   ContentTab* ) ), this, SLOT( DeleteTab(     ContentTab* ) ) );
+    connect( new_tab, SIGNAL( TabRenamed( ContentTab* ) ), this, SLOT( UpdateTabName( ContentTab* ) ) );
 
     return true;
 }   

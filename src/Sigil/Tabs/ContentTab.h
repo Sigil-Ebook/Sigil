@@ -71,91 +71,91 @@ public:
     /**
      * The modification state of the resource.
      *
-     * @return True if the tab has modified the resource.
+     * @return \c true if the tab has modified the resource.
      */
     virtual bool IsModified()           { return false; }
 
     /**
      * Can the user perform the Cut clipboard operation.
      *
-     * @return True if the user can Cut.
+     * @return \c true if the user can Cut.
      */
     virtual bool CutEnabled()           { return false; }
 
     /**
      * Can the user perform the Copy clipboard operation.
      *
-     * @return True if the user can Copy.
+     * @return \c true if the user can Copy.
      */
     virtual bool CopyEnabled()          { return false; }
 
     /**
      * Can the user perform the Paste clipboard operation.
      *
-     * @return True if the user can Paste.
+     * @return \c true if the user can Paste.
      */
     virtual bool PasteEnabled()         { return false; }
 
     /**
      * Checked state of the Bold action.
      *
-     * @return True if the Bold action should be checked.
+     * @return \c true if the Bold action should be checked.
      */
     virtual bool BoldChecked()          { return false; }
 
     /**
      * Checked state of the Italic action.
      *
-     * @return True if the Italic action should be checked.
+     * @return \c true if the Italic action should be checked.
      */
     virtual bool ItalicChecked()        { return false; }
     
     /**
      * Checked state of the Underline action.
      *
-     * @return True if the Underline action should be checked.
+     * @return \c true if the Underline action should be checked.
      */
     virtual bool UnderlineChecked()     { return false; }
     
     /**
      * Checked state of the Strikethrough action.
      *
-     * @return True if the Strikethrough action should be checked.
+     * @return \c true if the Strikethrough action should be checked.
      */
     virtual bool StrikethroughChecked() { return false; }
     
     /**
      * Checked state of the BulletList action.
      *
-     * @return True if the BulletList action should be checked.
+     * @return \c true if the BulletList action should be checked.
      */
     virtual bool BulletListChecked()    { return false; }
    
     /**
      * Checked state of the NumberList action.
      *
-     * @return True if the NumberList action should be checked.
+     * @return \c true if the NumberList action should be checked.
      */
     virtual bool NumberListChecked()    { return false; }
 
     /**
      * Checked state of the BookView action.
      *
-     * @return True if the BookView action should be checked.
+     * @return \c true if the BookView action should be checked.
      */
     virtual bool BookViewChecked()      { return false; }
     
     /**
      * Checked state of the SplitView action.
      *
-     * @return True if the SplitView action should be checked.
+     * @return \c true if the SplitView action should be checked.
      */
     virtual bool SplitViewChecked()     { return false; }
     
     /**
      * Checked state of the CodeView action.
      *
-     * @return True if the CodeView action should be checked.
+     * @return \c true if the CodeView action should be checked.
      */
     virtual bool CodeViewChecked()      { return false; }
 

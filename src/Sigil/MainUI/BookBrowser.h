@@ -98,10 +98,10 @@ signals:
      * Emitted when the browser wants a resource to be opened.
      *
      * @param resource The resource that should be opened.
-     * @param preceed_current_tab Should the new tab preceed the currently opened one.
+     * @param precede_current_tab Should the new tab precede the currently opened one.
      * @param fragment The fragment ID to which the new tab should be scrolled.
      */
-    void OpenResourceRequest( Resource &resource, bool preceed_current_tab, const QUrl &fragment );
+    void OpenResourceRequest( Resource &resource, bool precede_current_tab, const QUrl &fragment );
 
 private slots:
 
@@ -168,7 +168,7 @@ private:
      * and returns true on success.
      *
      * @param point The point at which the menu should be opened.
-     * @return True if the menu could be set up.
+     * @return \c true if the menu could be set up.
      */
     bool SuccessfullySetupContextMenu( const QPoint &point );
 
