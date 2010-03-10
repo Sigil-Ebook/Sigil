@@ -28,6 +28,7 @@
 #include "XPGTTab.h"
 #include "../ResourceObjects/Resource.h"
 
+
 TabManager::TabManager( QWidget *parent )
     : 
     QTabWidget( parent )

@@ -53,6 +53,7 @@ static MainWindow* GetMainWindow( const QStringList &arguments )
 }
 
 
+#ifdef Q_WS_X11
 // Returns a QIcon with the Sigil "S" logo in various sizes
 static QIcon GetApplicationIcon()
 {
@@ -68,6 +69,8 @@ static QIcon GetApplicationIcon()
 
     return app_icon;
 }
+#endif
+
 
 // The message handler installed to handle Qt messages
 void MessageHandler( QtMsgType type, const char *message )
