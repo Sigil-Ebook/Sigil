@@ -6,21 +6,21 @@ Sigil v0.2.0 ß2 2010.03.10.
     - fixed an issue with the font used in the line number area in the Code View being incorrect
     when the Code View is first opened; the problem affected mostly Mac machines (issue #290)
     - Sigil now handles corrupt epub files with an OPF referencing non-existent files (issue #289)
-    - the Book Browser now doesn't scroll back to the top when an item is delted or added (issue #263)
+    - the Book Browser now doesn't scroll back to the top when an item is deleted or added (issue #263)
     - the Book Browser now allows a file's extension to change between HTM, HTML, XHTML and XML
     (issue #264)
     - OPF and NCX files don't rely anymore on UTF-8 XML default parsing, but specify their UTF-8
     encoding directly in the declaration
     - fixed an issue with changes in the TOC editor not being reflected in the book (issue #277)
     - fixed an issue with the TOC editor not recognizing the "title" attribute on headings (issue #271)
-    - fixed an issue with the user seeing the old, uncleaned source in the Code View (issue #286)
+    - fixed an issue with the user seeing the old, unclean source in the Code View (issue #286)
     - fixed an issue with the user being prompted to save when quitting even when no changes
     have been performed on the new/loaded file (issue #276)
     - fixed an issue with Book/Code View keyboard shortcuts firing in the wrong view (issue #266)
     - tentatively fixed an issue with Sigil locking up when chapter breaking (issue #267)
     - fixed an issue with Tidy adding a superfluous 'lang' attribute that is also not allowed
     in XHTML 1.1
-    - making sure that ID attribues used in the manifest section of the OPF are always valid
+    - making sure that ID attributes used in the manifest section of the OPF are always valid
     - fixing export of epubs with XML files for OPS documents
 
 Sigil v0.2.0 ß1 2010.03.02.
