@@ -67,6 +67,52 @@ void TabManager::OpenResource( Resource& resource,
 }
 
 
+void TabManager::NextTab()
+{
+    int current_index = currentIndex();
+
+    // No tabs present
+    if ( current_index == -1 )
+
+        return;
+
+    // Wrap around
+    int next_index = current_index != count() - 1 ? current_index + 1 : 0;
+
+    if ( widget( next_index ) != 0 && 
+         current_index != next_index )
+    {
+        setCurrentIndex( next_index );
+    }
+}
+
+
+void TabManager::PreviousTab()
+{
+    int current_index = currentIndex();
+
+    // No tabs present
+    if ( current_index == -1 )
+
+        return;
+
+    // Wrap around
+    int previous_index = current_index != 0 ? current_index - 1 : count() - 1;
+
+    if ( widget( previous_index ) != 0 &&
+         current_index != previous_index )
+    {
+        setCurrentIndex( previous_index );
+    }
+}
+
+
+void TabManager::CloseTab()
+{
+     CloseTab( currentIndex() );
+}
+
+
 void TabManager::EmitTabChanged()
 {
     ContentTab *current_tab = qobject_cast< ContentTab* >( currentWidget() );
@@ -207,6 +253,4 @@ bool TabManager::AddNewContentTab( ContentTab *new_tab, bool preceed_current_tab
 
     return true;
 }   
-
-
 

@@ -47,6 +47,12 @@ public slots:
                        bool preceed_current_tab = false,
                        const QUrl &fragment = QUrl() );
 
+    void NextTab();
+
+    void PreviousTab();
+
+    void CloseTab();
+
 signals:
 
     void TabChanged( ContentTab* old_tab, ContentTab* new_tab );
@@ -74,6 +80,11 @@ private:
     ContentTab* CreateTabForResource( Resource& resource, const QUrl &fragment );
 
     bool AddNewContentTab( ContentTab *new_tab, bool preceed_current_tab );
+
+
+    ///////////////////////////////
+    // PRIVATE MEMBER VARIABLES
+    ///////////////////////////////
 
     QWeakPointer< ContentTab > m_LastContentTab;
 };

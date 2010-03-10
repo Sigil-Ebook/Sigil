@@ -1272,6 +1272,10 @@ void MainWindow::ConnectSignalsToSlots()
     connect( ui.actionSigilDevBlog,  SIGNAL( triggered() ), this, SLOT( SigilDevBlog()     ) );
     connect( ui.actionAbout,         SIGNAL( triggered() ), this, SLOT( AboutDialog()      ) );
     
+    connect( ui.actionNextTab,       SIGNAL( triggered() ), &m_TabManager, SLOT( NextTab()     ) );
+    connect( ui.actionPreviousTab,   SIGNAL( triggered() ), &m_TabManager, SLOT( PreviousTab() ) );
+    connect( ui.actionCloseTab,      SIGNAL( triggered() ), &m_TabManager, SLOT( CloseTab()    ) );
+
     connect( &m_TabManager,          SIGNAL( TabChanged( ContentTab*, ContentTab* ) ), this, SLOT( TabChanged( ContentTab*, ContentTab* ) ) );
     connect( &m_TabManager,          SIGNAL( TabChanged( ContentTab*, ContentTab* ) ), this, SLOT( UpdateUI() ) );
     connect( &m_TabManager,          SIGNAL( TabChanged( ContentTab*, ContentTab* ) ), this, SLOT( TabSwitchChanges() ) );

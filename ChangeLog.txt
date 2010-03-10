@@ -1,4 +1,6 @@
 Sigil v0.2.0 ß2 ADD_DATE
+    - added a new "Window" menu item with new "Next Tab", "Previous Tab" and "Close Tab" actions 
+    (issue #273)
     - fixed an issue with the font used in the line number area in the Code View being incorrect
     when the Code View is first opened; the problem affected mostly Mac machines (issue #290)
     - Sigil now handles corrupt epub files with an OPF referencing non-existent files (issue #289)

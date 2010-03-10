@@ -130,12 +130,21 @@
     <addaction name="actionInsertChapterBreak"/>
     <addaction name="actionInsertImage"/>
    </widget>
+   <widget class="QMenu" name="menu_Window">
+    <property name="title">
+     <string>&amp;Window</string>
+    </property>
+    <addaction name="actionNextTab"/>
+    <addaction name="actionPreviousTab"/>
+    <addaction name="actionCloseTab"/>
+   </widget>
    <addaction name="menuFile"/>
    <addaction name="menuEdit"/>
    <addaction name="menuFormat"/>
    <addaction name="menuInsert"/>
    <addaction name="menuView"/>
    <addaction name="menuTools"/>
+   <addaction name="menu_Window"/>
    <addaction name="menuHelp"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
@@ -915,6 +924,30 @@
   <action name="actionSigilDevBlog">
    <property name="text">
     <string>Sigil Dev &amp;Blog...</string>
+   </property>
+  </action>
+  <action name="actionNextTab">
+   <property name="text">
+    <string>&amp;Next Tab</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+PgUp</string>
+   </property>
+  </action>
+  <action name="actionPreviousTab">
+   <property name="text">
+    <string>&amp;Previous Tab</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+PgDown</string>
+   </property>
+  </action>
+  <action name="actionCloseTab">
+   <property name="text">
+    <string>Close Tab</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+W</string>
    </property>
   </action>
  </widget>
