@@ -1,4 +1,4 @@
-Sigil v0.2.0 ß2 ADD_DATE
+Sigil v0.2.0 ß2 2010.03.10.
     - fixed an issue with exported HTML/CSS/etc. files inside EPUBs having superfluous newlines
     - fixed an issue with the TOC editor adding empty "class" attributes to headings (issue #297)
     - added a new "Window" menu item with new "Next Tab", "Previous Tab" and "Close Tab" actions 
