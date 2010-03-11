@@ -294,10 +294,19 @@ QHash< QString, QString > ImportHTML::LoadImages( const QDomDocument &document )
     // update all references with new urls
     foreach( QString image_link, image_links )
     {
-        QString fullfilepath = QFileInfo( folder, image_link ).absoluteFilePath();
-        QString newpath      = "../" + m_Book->GetFolderKeeper().AddContentFileToFolder( fullfilepath ).GetRelativePathToOEBPS();
-
-        updates[ image_link ] = newpath;
+        try
+        {
+            QString fullfilepath = QFileInfo( folder, image_link ).absoluteFilePath();
+            QString newpath      = "../" + m_Book->GetFolderKeeper().AddContentFileToFolder( fullfilepath ).GetRelativePathToOEBPS();
+            updates[ image_link ] = newpath;
+        }
+        
+        catch ( FileDoesNotExist& )
+        {
+            // Do nothing. If the referenced file does not exist,
+            // well then we don't load it.
+        	// TODO: log this.
+        }
     }
 
     return updates;
@@ -329,10 +338,20 @@ QHash< QString, QString > ImportHTML::LoadStyleFiles( const QDomDocument &docume
               file_info.suffix().toLower() == "xpgt"
            )
         {
-            QString newpath = "../" + m_Book->GetFolderKeeper().AddContentFileToFolder( 
-                                            file_info.absoluteFilePath() ).GetRelativePathToOEBPS();
+            try
+            {
+                QString newpath = "../" + m_Book->GetFolderKeeper().AddContentFileToFolder( 
+                                                file_info.absoluteFilePath() ).GetRelativePathToOEBPS();
 
-            updates[ relative_path ] = newpath;
+                updates[ relative_path ] = newpath;
+            }
+
+            catch ( FileDoesNotExist& )
+            {
+                // Do nothing. If the referenced file does not exist,
+                // well then we don't load it.
+                // TODO: log this.
+            }
         }
     }
 

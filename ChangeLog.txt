@@ -1,4 +1,6 @@
 Sigil v0.2.0 ß3 ADD_DATE
+    - fixed a regression causing Sigil to crash when importing HTML files that reference resources
+    that don't exist on disk
     - Tidy now converts all uppercase attributes to lowercase; mixed-case attributes are left as is
     - fixed an issue with Tidy choking on uppercase attribute names
 
