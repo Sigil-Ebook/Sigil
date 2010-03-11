@@ -1,4 +1,5 @@
 Sigil v0.2.0 ß3 ADD_DATE
+    - Tidy now converts all uppercase attributes to lowercase; mixed-case attributes are left as is
     - fixed an issue with Tidy choking on uppercase attribute names
 
 Sigil v0.2.0 ß2 2010.03.10.

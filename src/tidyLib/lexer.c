@@ -2984,16 +2984,23 @@ static tmbstr  ParseAttribute( TidyDocImpl* doc, Bool *isempty,
     tmbstr attr = NULL;
     uint c, lastc;
 
+    /* This WILL explode if someone uses an attribute
+    that has more than 50 characters. Fortunately, such
+    attributes don't exist in XHTML, SVG or anything similar.*/
+    uint attribute_buffer[ 50 ] = { 0 };
+    int attribute_buffer_index = 0;
+    int index = 0;
+    Bool all_chars_uppercase = yes;
+
     *asp = NULL;  /* clear asp pointer */
     *php = NULL;  /* clear php pointer */
-
- /* skip white space before the attribute */
-
+ 
+    /* skip white space before the attribute */
     for (;;)
     {
         c = TY_(ReadChar)( doc->docIn );
 
-
+        // Tag is ending.
         if (c == '/')
         {
             c = TY_(ReadChar)( doc->docIn );
@@ -3060,6 +3067,7 @@ static tmbstr  ParseAttribute( TidyDocImpl* doc, Bool *isempty,
     start = lexer->lexsize;
     lastc = c;
 
+    // Read the attribute name
     for (;;)
     {
      /* but push back '=' for parseValue() */
@@ -3089,14 +3097,41 @@ static tmbstr  ParseAttribute( TidyDocImpl* doc, Bool *isempty,
         /* what should be done about non-namechar characters? */
         /* currently these are incorporated into the attr name */
 
-        // Commented out by Strahinja Markovic;
-        // ugly hack to preserve case of attribute names
-        //if ( !cfgBool(doc, TidyXmlTags) && TY_(IsUpper)(c) )
-        //     c = TY_(ToLower)(c);
+        attribute_buffer[ attribute_buffer_index ] = c;
+        ++attribute_buffer_index;
 
-        TY_(AddCharToLexer)( lexer, c );
         lastc = c;
         c = TY_(ReadChar)(doc->docIn);
+    }
+
+    /* Are all chars in buffer uppercase? 
+       We leave mixed-case names alone. */
+    for ( index = 0; index < attribute_buffer_index; ++index )
+    {
+        uint character = attribute_buffer[ index ];
+
+        if ( TY_(IsLetter)( character ) && !TY_(IsUpper)( character ) )
+        {
+            all_chars_uppercase = no;
+            break;
+        }
+    }    
+
+    /* If they are, make them all lowercase */
+    if ( all_chars_uppercase )
+    {
+        for ( index = 0; index < attribute_buffer_index; ++index )
+        {
+            if ( TY_(IsLetter)( attribute_buffer[ index ] ) )
+
+                attribute_buffer[ index ] = TY_(ToLower)( attribute_buffer[ index ] );
+        }
+    }
+
+    /* Add all the chars from the buffer to the lexer */
+    for ( index = 0; index < attribute_buffer_index; ++index )
+    {
+        TY_(AddCharToLexer)( lexer, attribute_buffer[ index ] );
     }
 
     /* handle attribute names with multibyte chars */
