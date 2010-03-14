@@ -257,7 +257,7 @@ QString OPFWriter::GetValidID( const QString &value )
     {
         if ( new_value.at( i ).isSpace() )
 
-            new_value.remove( i );
+            new_value.remove( i, 1 );
 
         else
 

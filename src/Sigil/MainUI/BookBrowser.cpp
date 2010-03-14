@@ -228,7 +228,7 @@ void BookBrowser::ReadSettings()
     QSettings settings;
     settings.beginGroup( SETTINGS_GROUP );
 
-    m_LastFolderOpen = settings.value( "lastfolderopen"  ).toString();
+    m_LastFolderOpen = settings.value( "lastfolderopen" ).toString();
 }
 
 
