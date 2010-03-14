@@ -96,6 +96,23 @@ public:
     // Converts Mac and Windows style line endings to Unix style
     // line endings that are expected throughout the Qt framework
     static QString ConvertLineEndings( const QString &text );
+    
+    /**
+     * URL encodes the provided path string.
+     * The path separator ('/') and the ID hash ('#') are left alone.
+     *
+     * @param path The path to encode.
+     * @return The encoded path string.
+     */
+    static QString URLEncodePath( const QString &path );
+
+    /**
+    * URL decodes the provided path string.
+    *
+    * @param path The path to decode.
+    * @return The decoded path string.
+    */
+    static QString URLDecodePath( const QString &path );
 
     static void DisplayStdErrorDialog( const QString &error_info );
 

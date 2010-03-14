@@ -336,6 +336,19 @@ QString Utility::ConvertLineEndings( const QString &text )
 }
 
 
+QString Utility::URLEncodePath( const QString &path )
+{
+    QByteArray encoded_url = QUrl::toPercentEncoding( path, QByteArray( "/#" ) );
+    return QString::fromUtf8( encoded_url.constData(), encoded_url.count() );
+}
+
+
+QString Utility::URLDecodePath( const QString &path )
+{
+    return QUrl::fromPercentEncoding( path.toUtf8() );
+}
+
+
 void Utility::DisplayStdErrorDialog( const QString &error_info )
 {
     QMessageBox message_box;

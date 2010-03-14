@@ -272,11 +272,11 @@ QHash< QString, QString > ImportHTML::LoadImages( const QDomDocument &document )
 
         if ( element.hasAttribute( "src" ) )
 
-            url_reference = QUrl::fromPercentEncoding( element.attribute( "src" ).toUtf8() );
+            url_reference = Utility::URLDecodePath( element.attribute( "src" ) );
 
         else // This covers the SVG "image" tags
 
-            url_reference = QUrl::fromPercentEncoding( element.attribute( "xlink:href" ).toUtf8() );
+            url_reference = Utility::URLDecodePath( element.attribute( "xlink:href" ) );
         
         if ( !url_reference.isEmpty() )
 
@@ -330,7 +330,7 @@ QHash< QString, QString > ImportHTML::LoadStyleFiles( const QDomDocument &docume
 
         QDir folder( QFileInfo( m_FullFilePath ).absoluteDir() );
 
-        QString relative_path = QUrl::fromPercentEncoding( element.attribute( "href" ).toUtf8() );
+        QString relative_path = Utility::URLDecodePath( element.attribute( "href" ) );
 
         QFileInfo file_info( folder, relative_path );
 

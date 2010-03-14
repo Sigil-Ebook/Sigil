@@ -22,6 +22,7 @@
 #include <stdafx.h>
 #include "RasterizeImageResource.h"
 #include "../ResourceObjects/ImageResource.h"
+#include "../Misc/Utility.h"
 
 static const QString PAGE_SOURCE =  "<html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\">"
                                     "<head>"
@@ -50,7 +51,7 @@ RasterizeImageResource::RasterizeImageResource( QWidget *parent )
 QPixmap RasterizeImageResource::operator()( const ImageResource &resource, float zoom_factor )
 {
     QString source( PAGE_SOURCE );
-    source.replace( "REPLACEME", QUrl::toPercentEncoding( resource.Filename() ) );
+    source.replace( "REPLACEME", Utility::URLEncodePath( resource.Filename() ) );
 
     m_WebPage.mainFrame()->setHtml( source, resource.GetBaseUrl() );
     m_WebPage.mainFrame()->setZoomFactor( zoom_factor );

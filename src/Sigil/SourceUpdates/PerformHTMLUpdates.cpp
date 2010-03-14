@@ -22,8 +22,9 @@
 #include <stdafx.h>
 #include "PerformHTMLUpdates.h"
 #include "PerformCSSUpdates.h"
-#include <QDomDocument>
 #include "../BookManipulation/XHTMLDoc.h"
+#include "../Misc/Utility.h"
+#include <QDomDocument>
 
 static const QStringList PATH_TAGS       = QStringList() << "link" << "a" << "img" << "image";
 static const QStringList PATH_ATTRIBUTES = QStringList() << "href" << "src";
@@ -106,7 +107,7 @@ void PerformHTMLUpdates::UpdateReferenceInNode( QDomNode node )
         {
             const QString &key_path  = keys.at( j );
             const QString &filename  = QFileInfo( key_path ).fileName();
-            const QString &atr_value = QUrl::fromPercentEncoding( attribute.value().toUtf8() );
+            const QString &atr_value = Utility::URLDecodePath( attribute.value() );
 
             int name_index = atr_value.lastIndexOf( filename );
 
@@ -136,8 +137,7 @@ void PerformHTMLUpdates::UpdateReferenceInNode( QDomNode node )
 
                 if ( !new_path.isEmpty() )
                 {
-                    QByteArray encoded_url = QUrl::toPercentEncoding( new_path, QByteArray( "/#" ) );
-                    attribute.setValue( QString::fromUtf8( encoded_url.constData(), encoded_url.count() ) );
+                    attribute.setValue( Utility::URLEncodePath( new_path ) );
 
                     // We assign to "i" to break the outer loop
                     i = num_attributes;

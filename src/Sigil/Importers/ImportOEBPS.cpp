@@ -203,7 +203,7 @@ void ImportOEBPS::ReadOPF()
                 QString id   = opf.attributes().value( "", "id" ).toString(); 
                 QString href = opf.attributes().value( "", "href" ).toString();
 
-                href = QUrl::fromPercentEncoding( href.toUtf8() );
+                href = Utility::URLDecodePath( href );
 
                 if ( !href.endsWith( ".ncx" ) )
 
