@@ -836,17 +836,6 @@ bool MainWindow::SaveFile( const QString &fullfilepath )
 
         QApplication::setOverrideCursor( Qt::WaitCursor );
 
-        if ( QFileInfo( fullfilepath ).exists() && !Utility::DeleteFile( fullfilepath ) )
-        {
-            QMessageBox::critical( 0,
-                                   tr( "Sigil" ),
-                                   tr( "Sigil cannot delete the old version of file \"%1\".\n"
-                                       "Make sure the file is not open in other applications." )
-                                   .arg( QFileInfo( fullfilepath ).fileName() )
-                                 );
-            return false;          
-        }
-
         BookNormalization::Normalize( m_Book );
         ExporterFactory().GetExporter( fullfilepath, m_Book ).WriteBook();
 
@@ -866,9 +855,9 @@ bool MainWindow::SaveFile( const QString &fullfilepath )
 
     catch ( const ExceptionBase &exception )
     {
-        Utility::DisplayStdErrorDialog( "Cannot save file " + fullfilepath + ": " + Utility::GetExceptionInfo( exception ) );
-
         QApplication::restoreOverrideCursor();
+
+        Utility::DisplayStdErrorDialog( "Cannot save file " + fullfilepath + ": " + Utility::GetExceptionInfo( exception ) );
     }
 
     return true;
