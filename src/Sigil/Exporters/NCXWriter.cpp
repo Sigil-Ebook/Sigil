@@ -157,7 +157,7 @@ void NCXWriter::WriteFallbackNavPoint()
     Q_ASSERT( !html_resources.isEmpty() );
 
     m_Writer->writeEmptyElement( "content" );
-    m_Writer->writeAttribute( "src", html_resources.at( 0 )->GetRelativePathToOEBPS() );
+    m_Writer->writeAttribute( "src", Utility::URLEncodePath( html_resources.at( 0 )->GetRelativePathToOEBPS() ) );
 
     m_Writer->writeEndElement();
 }
@@ -192,11 +192,12 @@ void NCXWriter::WriteNavPoint( const Headings::Heading &heading, int &play_order
         // we link to the heading element directly
         if ( heading.at_file_start )
         
-            m_Writer->writeAttribute( "src", heading_file );
+            m_Writer->writeAttribute( "src", Utility::URLEncodePath( heading_file ) );
 
         else
             
-            m_Writer->writeAttribute( "src", heading_file + "#" + heading.element.attribute( "id" ) );
+            m_Writer->writeAttribute( "src", Utility::URLEncodePath( 
+                                                heading_file + "#" + heading.element.attribute( "id" ) ) );
     }
 
     foreach( Headings::Heading child, heading.children )

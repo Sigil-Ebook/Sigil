@@ -295,7 +295,7 @@ void OPFWriter::WriteManifest()
 
         m_Writer->writeEmptyElement( "item" );
         m_Writer->writeAttribute( "id", GetValidID( name + "." + extension ) );
-        m_Writer->writeAttribute( "href", relative_path );
+        m_Writer->writeAttribute( "href", Utility::URLEncodePath( relative_path ) );
         m_Writer->writeAttribute( "media-type", m_Mimetypes[ extension ] );
     }
 
@@ -340,7 +340,7 @@ void OPFWriter::WriteGuide()
         m_Writer->writeEmptyElement( "reference" );
         m_Writer->writeAttribute( "type", "cover" );
         m_Writer->writeAttribute( "title", "Cover Page" );
-        m_Writer->writeAttribute( "href", first_html->GetRelativePathToOEBPS() );
+        m_Writer->writeAttribute( "href", Utility::URLEncodePath( first_html->GetRelativePathToOEBPS() ) );
 
         m_Writer->writeEndElement();
     }

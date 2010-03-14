@@ -1,4 +1,6 @@
 Sigil v0.2.0 ß3 ADD_DATE
+    - fixed an issue with spaces in filenames not being URL encoded in "href" and "src" attributes
+    in the OPF and NCX files
     - fixed an issue with spaces in filenames causing invalid IDs (issue #301)
     - fixed a regression causing Sigil to crash when importing HTML files that reference resources
     that don't exist on disk
