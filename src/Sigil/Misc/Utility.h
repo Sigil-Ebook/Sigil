@@ -107,11 +107,11 @@ public:
     static QString URLEncodePath( const QString &path );
 
     /**
-    * URL decodes the provided path string.
-    *
-    * @param path The path to decode.
-    * @return The decoded path string.
-    */
+     * URL decodes the provided path string.
+     *
+     * @param path The path to decode.
+     * @return The decoded path string.
+     */
     static QString URLDecodePath( const QString &path );
 
     static void DisplayStdErrorDialog( const QString &error_info );
