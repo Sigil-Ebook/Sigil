@@ -114,30 +114,46 @@ void ExportEPUB::SaveFolderAsEpubToLocation( const QString &fullfolderpath, cons
 
     CZipArchive zip;
 
-    // FIXME: check for return true on zip.open
+    try
+    {
+    #ifdef Q_WS_WIN
+        // The location where the epub file will be written to
+        zip.Open( fullfilepath.utf16(), CZipArchive::zipCreate );  
 
+        // Add the uncompressed mimetype file as per OPF spec
+        zip.AddNewFile( mimetype_file.fileName().utf16(), QString( "mimetype" ).utf16(), 0 );
+
+        // Add all the files and folders in the publication structure
+        zip.AddNewFiles( QDir::toNativeSeparators( fullfolderpath ).utf16() );
+
+    #else
+        // The location where the epub file will be written to
+        zip.Open( fullfilepath.toUtf8().data(), CZipArchive::zipCreate );  
+
+        // Add the uncompressed mimetype file as per OPF spec
+        zip.AddNewFile( mimetype_file.fileName().toUtf8().data(), QString( "mimetype" ).toUtf8().data(), 0 );
+
+        // Add all the files and folders in the publication structure
+        zip.AddNewFiles( QDir::toNativeSeparators( fullfolderpath ).toUtf8().data() );
+    #endif
+
+        zip.Close();
+    }
+
+    // We have to to do this here: if we don't wrap
+    // this exception and try to catch "raw" in MainWindow,
+    // we get some dumb header name clash from ZipArchive
+    catch ( CZipException &exception )
+    {
+        // The error description is always ASCII
 #ifdef Q_WS_WIN
-    // The location where the epub file will be written to
-    zip.Open( fullfilepath.utf16(), CZipArchive::zipCreate );  
-
-    // Add the uncompressed mimetype file as per OPF spec
-    zip.AddNewFile( mimetype_file.fileName().utf16(), QString( "mimetype" ).utf16(), 0 );
-
-    // Add all the files and folders in the publication structure
-    zip.AddNewFiles( QDir::toNativeSeparators( fullfolderpath ).utf16() );
-
+        boost_throw( CZipExceptionWrapper() 
+                     << errinfo_zip_info( QString::fromStdWString( exception.GetErrorDescription() ).toStdString() ) );
 #else
-    // The location where the epub file will be written to
-    zip.Open( fullfilepath.toUtf8().data(), CZipArchive::zipCreate );  
-
-    // Add the uncompressed mimetype file as per OPF spec
-    zip.AddNewFile( mimetype_file.fileName().toUtf8().data(), QString( "mimetype" ).toUtf8().data(), 0 );
-
-    // Add all the files and folders in the publication structure
-    zip.AddNewFiles( QDir::toNativeSeparators( fullfolderpath ).toUtf8().data() );
+        boost_throw( CZipExceptionWrapper()
+                     << errinfo_zip_info( QString::fromAscii( exception.GetErrorDescription().c_str() ).toStdString() ) );
 #endif
-
-    zip.Close();
+    }
 }
 
 
