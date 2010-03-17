@@ -1,4 +1,5 @@
 Sigil v0.2.0 ß3 ADD_DATE
+    - added a confirmation dialog for removing items in the Book Browser (issue #306)
     - fixed an issue with the line number area overlapping the text in the Code View 
     - made Sigil remove the CSS cruft WebKit was adding to the "body" element
     - fixed an issue with spaces in filenames causing bad anchor element path updates

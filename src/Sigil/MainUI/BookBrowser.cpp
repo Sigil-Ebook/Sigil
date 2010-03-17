@@ -217,6 +217,19 @@ void BookBrowser::Remove()
         return;
     }
 
+    QMessageBox::StandardButton button_pressed;
+    button_pressed = QMessageBox::warning(	this,
+                                            tr( "Sigil" ),
+                                            tr( "Are you sure you want to delete the file \"%1\"?\n"
+                                                "This action cannot be reversed." )
+                                            .arg( resource->Filename() ),
+                                            QMessageBox::Ok | QMessageBox::Cancel
+                                         );
+
+    if ( button_pressed != QMessageBox::Ok )
+
+        return;
+
     resource->Delete();
 
     Refresh();
