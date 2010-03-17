@@ -224,9 +224,7 @@ void HTMLResource::SetReadingOrder( int reading_order )
 }
 
 
-// Removes every occurrence of "signing" classes
-// with which webkit litters our source code 
-void HTMLResource::RemoveWebkitClasses()
+void HTMLResource::RemoveWebkitCruft()
 {
     Q_ASSERT( m_WebPage );
 
@@ -243,6 +241,14 @@ void HTMLResource::RemoveWebkitClasses()
     {
         element.toggleClass( "webkit-indent-blockquote" );
     }
+
+    QWebElement body_tag =  m_WebPage->mainFrame()->findFirstElement( "body" );
+
+    // Removing junk webkit styles
+    body_tag.setStyleProperty( "word-wrap", "" );
+    body_tag.setStyleProperty( "-webkit-nbsp-mode", "" );
+    body_tag.setStyleProperty( "-webkit-line-break", "" );
+
 }
 
 
@@ -276,7 +282,7 @@ QString HTMLResource::GetWebPageHTML()
 {
     Q_ASSERT( m_WebPage );
 
-    RemoveWebkitClasses();
+    RemoveWebkitCruft();
 
     return CleanSource::Clean( m_WebPage->mainFrame()->toHtml() );
 }

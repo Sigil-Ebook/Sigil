@@ -79,7 +79,12 @@ public:
 
     void SetReadingOrder( int reading_order );
     
-    void RemoveWebkitClasses();
+    /**
+     * Removes all the cruft with which WebKit litters our source code.
+     * The cruft is removed from the QWebPage cache, and includes
+     * superfluous CSS styles and classes. 
+     */
+    void RemoveWebkitCruft();
 
     // TODO: turn this into operator<
     static bool LessThan( HTMLResource* res_1, HTMLResource* res_2 );
