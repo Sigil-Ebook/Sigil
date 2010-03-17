@@ -42,7 +42,7 @@ class CodeViewEditor : public QPlainTextEdit, public ViewEditor
 {
     Q_OBJECT
 
-public:
+public: 
 
     enum HighlighterType
     {
@@ -64,7 +64,7 @@ public:
 
     // Returns the width the LinuNumberArea
     // should take (in pixels)
-    int CalculateLineNumberAreaWidth() const;
+    int CalculateLineNumberAreaWidth();
 
     // Returns a list of elements representing a "chain"
     // or "walk" through the XHTML document with which one
@@ -189,6 +189,11 @@ private slots:
 private:
 
     /**
+     * Resets the currently used font.
+     */
+    void ResetFont();
+
+    /**
      * Updates the font used in the line number area
      * and also repaints it.
      *
@@ -250,6 +255,13 @@ private:
 
     bool m_isUndoAvailable;
 
+    /**
+     * Keeps track of the last block count.
+     * Needed because QTextDocument::setPlainText sets
+     * this back to 1 before updating it.
+     */
+    int m_LastBlockCount;
+
     // The line number area widget of the code view
     LineNumberArea *m_LineNumberArea;
 
@@ -267,6 +279,8 @@ private:
     // wants to scroll the view by one line up/down.
     QShortcut &m_ScrollOneLineUp;
     QShortcut &m_ScrollOneLineDown;
+
+
 };
 
 #endif // CODEVIEWEDITOR_H

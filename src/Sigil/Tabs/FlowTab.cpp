@@ -282,7 +282,7 @@ void FlowTab::Undo()
     {
         m_wBookView.page()->triggerAction( QWebPage::Undo );
 
-        m_HTMLResource.RemoveWebkitClasses();
+        m_HTMLResource.RemoveWebkitCruft();
     }
 
     else if ( m_wCodeView.hasFocus() )
@@ -298,7 +298,7 @@ void FlowTab::Redo()
     {
         m_wBookView.page()->triggerAction( QWebPage::Redo );
 
-        m_HTMLResource.RemoveWebkitClasses();
+        m_HTMLResource.RemoveWebkitCruft();
     }
 
     else if ( m_wCodeView.hasFocus() )
@@ -314,7 +314,7 @@ void FlowTab::Cut()
     {
         m_wBookView.page()->triggerAction( QWebPage::Cut );
 
-        m_HTMLResource.RemoveWebkitClasses();
+        m_HTMLResource.RemoveWebkitCruft();
     }
 
     else if ( m_wCodeView.hasFocus() )
@@ -330,7 +330,7 @@ void FlowTab::Copy()
     {
         m_wBookView.page()->triggerAction( QWebPage::Copy );
 
-        m_HTMLResource.RemoveWebkitClasses();
+        m_HTMLResource.RemoveWebkitCruft();
     }
 
     else if ( m_wCodeView.hasFocus() )
@@ -346,7 +346,7 @@ void FlowTab::Paste()
     {
         m_wBookView.page()->triggerAction( QWebPage::Paste );
 
-        m_HTMLResource.RemoveWebkitClasses();
+        m_HTMLResource.RemoveWebkitCruft();
     }
 
     else if ( m_wCodeView.hasFocus() )
@@ -362,7 +362,7 @@ void FlowTab::Bold()
     {
         m_wBookView.page()->triggerAction( QWebPage::ToggleBold );
 
-        m_HTMLResource.RemoveWebkitClasses();
+        m_HTMLResource.RemoveWebkitCruft();
     }    
 }
 
@@ -373,7 +373,7 @@ void FlowTab::Italic()
     {
         m_wBookView.page()->triggerAction( QWebPage::ToggleItalic );
 
-        m_HTMLResource.RemoveWebkitClasses();
+        m_HTMLResource.RemoveWebkitCruft();
     }    
 }
 
@@ -384,7 +384,7 @@ void FlowTab::Underline()
     {
         m_wBookView.page()->triggerAction( QWebPage::ToggleUnderline );
 
-        m_HTMLResource.RemoveWebkitClasses();
+        m_HTMLResource.RemoveWebkitCruft();
     }    
 }
 
@@ -395,7 +395,7 @@ void FlowTab::Strikethrough()
     {
         m_wBookView.ExecCommand( "strikeThrough" );
 
-        m_HTMLResource.RemoveWebkitClasses();
+        m_HTMLResource.RemoveWebkitCruft();
     }    
 }
 
@@ -406,7 +406,7 @@ void FlowTab::AlignLeft()
     {
         m_wBookView.ExecCommand( "justifyLeft" );
 
-        m_HTMLResource.RemoveWebkitClasses();
+        m_HTMLResource.RemoveWebkitCruft();
     }    
 }
 
@@ -417,7 +417,7 @@ void FlowTab::Center()
     {
         m_wBookView.ExecCommand( "justifyCenter" );
 
-        m_HTMLResource.RemoveWebkitClasses();
+        m_HTMLResource.RemoveWebkitCruft();
     }    
 }
 
@@ -428,7 +428,7 @@ void FlowTab::AlignRight()
     {
         m_wBookView.ExecCommand( "justifyRight" );
 
-        m_HTMLResource.RemoveWebkitClasses();
+        m_HTMLResource.RemoveWebkitCruft();
     }    
 }
 
@@ -439,7 +439,7 @@ void FlowTab::Justify()
     {
         m_wBookView.ExecCommand( "justifyFull" );
 
-        m_HTMLResource.RemoveWebkitClasses();
+        m_HTMLResource.RemoveWebkitCruft();
     }    
 }
 
@@ -457,7 +457,7 @@ void FlowTab::InsertImage( const QString &image_path )
     m_wBookView.GrabFocus();
     m_wBookView.ExecCommand( "insertImage", image_path );
 
-    m_HTMLResource.RemoveWebkitClasses();
+    m_HTMLResource.RemoveWebkitCruft();
 }
 
 
@@ -465,7 +465,7 @@ void FlowTab::InsertBulletedList()
 {
     m_wBookView.ExecCommand( "insertUnorderedList" );
 
-    m_HTMLResource.RemoveWebkitClasses();
+    m_HTMLResource.RemoveWebkitCruft();
 }
 
 
@@ -473,7 +473,7 @@ void FlowTab::InsertNumberedList()
 {
     m_wBookView.ExecCommand( "insertOrderedList" );
 
-    m_HTMLResource.RemoveWebkitClasses();
+    m_HTMLResource.RemoveWebkitCruft();
 }
 
 

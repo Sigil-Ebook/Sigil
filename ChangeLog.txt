@@ -1,4 +1,5 @@
 Sigil v0.2.0 ß3 ADD_DATE
+    - fixed an issue with the line number area overlapping the text in the Code View 
     - made Sigil remove the CSS cruft WebKit was adding to the "body" element
     - fixed an issue with spaces in filenames causing bad anchor element path updates
     - fixed an issue with spaces in filenames not being URL encoded in "href" and "src" attributes

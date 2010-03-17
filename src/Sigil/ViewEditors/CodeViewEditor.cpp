@@ -43,7 +43,8 @@ static const QString XML_OPENING_TAG = "(<[^>/][^>]*[^>/]>|<[^>/]>)";
 CodeViewEditor::CodeViewEditor( HighlighterType high_type, QWidget *parent )
     :
     QPlainTextEdit( parent ),
-    m_isUndoAvailable( false ),  
+    m_isUndoAvailable( false ),
+    m_LastBlockCount( 0 ),
     m_LineNumberArea( new LineNumberArea( this ) ),
     m_CurrentZoomFactor( 1.0 ),
     m_ScrollOneLineUp( *(   new QShortcut( QKeySequence( Qt::ControlModifier + Qt::Key_Up   ), this, 0, 0, Qt::WidgetShortcut ) ) ),
@@ -70,16 +71,7 @@ void CodeViewEditor::CustomSetDocument( QTextDocument &document )
     setDocument( &document );
     m_Highlighter->setDocument( &document );
 
-    // Let's try to use Consolas as our font
-    QFont font( "Consolas", BASE_FONT_SIZE );
-
-    // But just in case, say we want a fixed width font
-    // if Consolas is not on the system
-    font.setStyleHint( QFont::TypeWriter );
-    setFont( font );
-    setTabStopWidth( TAB_SPACES_WIDTH * QFontMetrics( font ).width( ' ' ) );
-
-    UpdateLineNumberAreaFont( font );
+    ResetFont();
 }
 
 
@@ -116,29 +108,37 @@ void CodeViewEditor::LineNumberAreaPaintEvent( QPaintEvent *event )
             // Draw the line number
             painter.setPen( NUMBER_AREA_NUMCOLOR );
 
-            painter.drawText(   - LINE_NUMBER_MARGIN,
-                                topY,
-                                m_LineNumberArea->width(),
-                                fontMetrics().height(),
-                                Qt::AlignRight,
-                                number_to_paint
+            painter.drawText( - LINE_NUMBER_MARGIN,
+                              topY,
+                              m_LineNumberArea->width(),
+                              fontMetrics().height(),
+                              Qt::AlignRight,
+                              number_to_paint
                             );
         }
 
-        block    = block.next();
-        topY     = bottomY;
-        bottomY  = topY + (int) blockBoundingRect( block ).height();
+        block   = block.next();
+        topY    = bottomY;
+        bottomY = topY + (int) blockBoundingRect( block ).height();
 
         blockNumber++;
     }
 }
 
+
 // Returns the width the LinuNumberArea
 // should take (in pixels)
-int CodeViewEditor::CalculateLineNumberAreaWidth() const
+int CodeViewEditor::CalculateLineNumberAreaWidth()
 {
-    int num_digits       = 1;
-    int last_line_number = blockCount();
+    int current_block_count = blockCount();
+
+    // QTextDocument::setPlainText sets the current block count
+    // to 1 before updating it (for no damn good reason), but  
+    // we need it to *not* be 1, ever.
+    int last_line_number = current_block_count != 1 ? current_block_count : m_LastBlockCount;
+    m_LastBlockCount = last_line_number;
+
+    int num_digits = 1;
 
     // We count the number of digits
     // for the line number of the last line
@@ -148,9 +148,7 @@ int CodeViewEditor::CalculateLineNumberAreaWidth() const
         num_digits++;
     }
 
-    int needed_width = LINE_NUMBER_MARGIN * 2 + fontMetrics().width( QChar( '0' ) ) * num_digits;
-
-    return needed_width;
+    return LINE_NUMBER_MARGIN * 2 + fontMetrics().width( QChar( '0' ) ) * num_digits;
 }
 
 
@@ -343,10 +341,10 @@ void CodeViewEditor::resizeEvent( QResizeEvent *event )
     QRect contents_area = contentsRect();
 
     // Now update the line number area
-    m_LineNumberArea->setGeometry( QRect(   contents_area.left(), 
-                                            contents_area.top(), 
-                                            CalculateLineNumberAreaWidth(), 
-                                            contents_area.height() 
+    m_LineNumberArea->setGeometry( QRect( contents_area.left(), 
+                                          contents_area.top(), 
+                                          CalculateLineNumberAreaWidth(), 
+                                          contents_area.height() 
                                         ) 
                                  );
 }
@@ -395,7 +393,6 @@ void CodeViewEditor::UpdateUndoAvailable( bool available )
 {
     m_isUndoAvailable = available;
 }
-
 
 
 // Called whenever the number of lines changes;
@@ -462,6 +459,21 @@ void CodeViewEditor::ScrollOneLineUp()
 void CodeViewEditor::ScrollOneLineDown()
 {
     ScrollByLine( true );
+}
+
+
+void CodeViewEditor::ResetFont()
+{
+    // Let's try to use Consolas as our font
+    QFont font( "Consolas", BASE_FONT_SIZE );
+
+    // But just in case, say we want a fixed width font
+    // if Consolas is not on the system
+    font.setStyleHint( QFont::TypeWriter );
+    setFont( font );
+    setTabStopWidth( TAB_SPACES_WIDTH * QFontMetrics( font ).width( ' ' ) );
+
+    UpdateLineNumberAreaFont( font );
 }
 
 
@@ -662,5 +674,7 @@ void CodeViewEditor::ConnectSignalsToSlots()
     connect( &m_ScrollOneLineUp,   SIGNAL( activated() ), this, SLOT( ScrollOneLineUp()   ) );
     connect( &m_ScrollOneLineDown, SIGNAL( activated() ), this, SLOT( ScrollOneLineDown() ) );
 }
+
+
 
 
