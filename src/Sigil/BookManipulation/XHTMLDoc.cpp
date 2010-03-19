@@ -37,6 +37,11 @@ static const QStringList BLOCK_LEVEL_TAGS = QStringList() << "address" << "block
                                                             "noframes" << "noscript" << "ol" << "p" << "pre" <<
                                                             "table" << "ul" << "body";
 
+static const QString INLINE_TAGS_PART = "abbr|acronym|b|big|cite|code|dfn|em|font|i|q|"
+                                         "s|samp|small|span|strike|strong|sub|sup|tt|u|var";
+
+static const QString INLINE_TAGS_REGEX = "(</(?:" + INLINE_TAGS_PART + ")>)\n";
+
 
 // Returns a list of XMLElements representing all
 // the elements of the specified tag name
@@ -199,15 +204,20 @@ QString XHTMLDoc::GetQDomNodeAsString( const QDomNode &node )
     QTextStream stream( &document_text );
     stream.setCodec( "UTF-8" );
 
-    node.save( stream, 1, QDomNode::EncodingFromTextStream );
+    node.save( stream, 0, QDomNode::EncodingFromTextStream );
     document_text.remove( "&#xd;" );
 
     QRegExp xml_declaration( XML_DECLARATION );
     xml_declaration.setMinimal( true );
 
+    QRegExp inline_tags_fix( INLINE_TAGS_REGEX );
+
     // We need to add the XHTML doctype so XML parsers
-    // don't flake-out on HTML character entities
-    return document_text.replace( xml_declaration, "\\1\n" + XHTML_DOCTYPE );     
+    // don't flake-out on HTML character entities.
+    // The second replace makes sure that constructs such as
+    // "<p>aa<i>bbb</i><i>bbb</i>aa</p>" don't get a space
+    // between the two "bbb" groups... it's a bug in QDom.
+    return document_text.replace( xml_declaration, "\\1\n" + XHTML_DOCTYPE ).replace( inline_tags_fix, "\\1" );     
 }
 
 

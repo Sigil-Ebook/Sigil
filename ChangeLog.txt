@@ -1,4 +1,5 @@
 Sigil v0.2.0 ß3 ADD_DATE
+    - fixed a rare issue with false spaces being inserted into words during import (issue #139)
     - added a confirmation dialog for removing items in the Book Browser (issue #306)
     - fixed an issue with the line number area overlapping the text in the Code View 
     - made Sigil remove the CSS cruft WebKit was adding to the "body" element
@@ -73,7 +74,6 @@ Sigil v0.1.7 2009.12.28.
     - fixed an issue with loading UTF-16 encoded files that used Windows style (CRLF) line endings
     - Sigil should now detect UTF-8 encoded HTML files even when they don't specify that they   
     are UTF-8 encoded, and HTML files that use the XML "encoding" attribute (for any encoding)
-    - fixed a rare issue with false spaces being inserted into words during import (issue #139)
     - the Views can now be scrolled by one line up/down by pressing CTRL+Up/Down (issue #72)
     - the About dialog now links to the online version of the GPLv3
     - made viewport switching more robust; the rare crashes should now become much rarer
