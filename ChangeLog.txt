@@ -1,4 +1,6 @@
 Sigil v0.2.0 ß3 ADD_DATE
+    - fixed an issue with Sigil adding "xmlns='http://www.w3.org/1999/xhtml'" to every element
+    when performing a chapter break operation (issue #313)
     - fixed a rare issue with false spaces being inserted into words during import (issue #139)
     - added a confirmation dialog for removing items in the Book Browser (issue #306)
     - fixed an issue with the line number area overlapping the text in the Code View 

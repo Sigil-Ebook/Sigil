@@ -31,6 +31,7 @@ const int PROGRESS_BAR_MINIMUM_DURATION = 1500;
 
 const QString BREAK_TAG_ID     = "sigilChBrMN364299QX";
 const QString BREAK_TAG_INSERT = "<hr id=\"" + BREAK_TAG_ID + "\" />";
+const QString XML_NAMESPACE_CRUFT = "xmlns=\"http://www.w3.org/1999/xhtml\"";
 
 /**
  * The JavaScript source code for getting a string representation
@@ -90,7 +91,11 @@ QString BookViewEditor::SplitChapter()
             .append( head )
             .append( body_tag )
             .append( segment )
-            .append( "</body></html>" );
+            .append( "</body></html>" )
+            // Webkit adds this xmlns attribute to *every*
+            // element... for no reason. Tidy will add it back
+            // to the <head> so we just remove it globally.
+            .remove( XML_NAMESPACE_CRUFT );
 }
 
 
