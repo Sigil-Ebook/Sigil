@@ -36,7 +36,8 @@ static const int LINE_NUMBER_MARGIN      = 5;
 static const QColor NUMBER_AREA_BGCOLOR  = QColor( 230, 230, 230 );
 static const QColor NUMBER_AREA_NUMCOLOR = QColor( 100, 100, 100 );
                   
-static const QString XML_OPENING_TAG = "(<[^>/][^>]*[^>/]>|<[^>/]>)";
+static const QString XML_OPENING_TAG        = "(<[^>/][^>]*[^>/]>|<[^>/]>)";
+static const QString NEXT_OPEN_TAG_LOCATION = "<\\s*(?!/)";
 
 // Constructor;
 // the first parameter says which syn. highlighter to use;
@@ -86,7 +87,7 @@ QString CodeViewEditor::SplitChapter()
 
     QString head = text.left( body_start );
 
-    int next_open_tag_index = text.indexOf( QRegExp( "<\\s*(?!/)" ), textCursor().position() );
+    int next_open_tag_index = text.indexOf( QRegExp( NEXT_OPEN_TAG_LOCATION ), textCursor().position() );
     if ( next_open_tag_index == -1 || next_open_tag_index < body_end )
     
         next_open_tag_index = body_end; 

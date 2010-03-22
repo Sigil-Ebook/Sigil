@@ -41,6 +41,7 @@ static const QString INLINE_TAGS_PART = "abbr|acronym|b|big|cite|code|dfn|em|fon
                                          "s|samp|small|span|strike|strong|sub|sup|tt|u|var";
 
 static const QString INLINE_TAGS_REGEX = "(</(?:" + INLINE_TAGS_PART + ")>)\n";
+const QString BREAK_TAG_SEARCH  = "(<div>\\s*)?<hr\\s*class\\s*=\\s*\"[^\"]*sigilChapterBreak[^\"]*\"\\s*/>(\\s*</div>)?";
 
 
 // Returns a list of XMLElements representing all
@@ -246,6 +247,50 @@ QString XHTMLDoc::ResolveHTMLEntities( const QString &text )
     QString newsource = "<div>" + text + "</div>";
 
     return GetTextInHtml( newsource );
+}
+
+
+QStringList XHTMLDoc::GetSGFChapterSplits( const QString& source,
+                                           const QString& custom_header )
+{
+    QRegExp body_start_tag( BODY_START );
+    QRegExp body_end_tag( BODY_END );
+
+    int body_begin = source.indexOf( body_start_tag, 0 ) + body_start_tag.matchedLength();
+    int body_end   = source.indexOf( body_end_tag,   0 );
+
+    int main_index = body_begin;
+
+    QString header = !custom_header.isEmpty() ? custom_header + "<body>\n" : source.left( body_begin );
+    
+    QStringList chapters;
+    QRegExp break_tag( BREAK_TAG_SEARCH );
+
+    while ( main_index != body_end )
+    {        
+        // We search for our HR break tag
+        int break_index = source.indexOf( break_tag, main_index );
+
+        QString body;
+
+        // We break up the remainder of the file on the HR tag index if it's found
+        if ( break_index > -1 )
+        {
+            body = Utility::Substring( main_index, break_index, source );
+            main_index = break_index + break_tag.matchedLength();
+        }
+
+        // Otherwise, we take the rest of the file
+        else
+        {
+            body = Utility::Substring( main_index, body_end, source );
+            main_index = body_end;
+        }
+
+        chapters.append( header + body + "</body> </html>" );
+    }	
+
+    return chapters;
 }
 
 

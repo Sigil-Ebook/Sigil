@@ -83,6 +83,17 @@ public:
     //    Bonnie & Clyde
     static QString ResolveHTMLEntities( const QString &text );
 
+    /**
+     * Splits the provided source on SGF chapter breaks.
+     *
+     * @param source The source which we want to split.
+     * @param custom_header An option custom header to be used instead of 
+     *                      the one in the current source.
+     * @return The split chapters.
+     */
+    static QStringList GetSGFChapterSplits( const QString& source, 
+                                            const QString& custom_header = QString() );
+
     // Removes all the children of a node and
     // returns that same modified node back.
     // (QDomNodes objects are internally references)

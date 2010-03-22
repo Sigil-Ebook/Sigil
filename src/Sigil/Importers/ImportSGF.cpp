@@ -28,8 +28,6 @@
 #include "../SourceUpdates/PerformHTMLUpdates.h"
 #include "../SourceUpdates/AnchorUpdates.h"
 
-const QString BREAK_TAG_SEARCH  = "(<div>\\s*)?<hr\\s*class\\s*=\\s*\"[^\"]*sigilChapterBreak[^\"]*\"\\s*/>(\\s*</div>)?";
-
 
 // Constructor;
 // The parameter is the file to be imported
@@ -209,51 +207,17 @@ void ImportSGF::CreateXHTMLFiles( const QString &source,
                                   const QString &header,
                                   const QHash< QString, QString > &html_updates )
 {
-    QRegExp body_start_tag( BODY_START );
-    QRegExp body_end_tag( BODY_END );
-
-    int body_begin = source.indexOf( body_start_tag, 0 ) + body_start_tag.matchedLength();
-    int body_end   = source.indexOf( body_end_tag,   0 );
-
-    int main_index    = body_begin;
-    int reading_order = 0;
-
     QDir dir( Utility::GetNewTempFolderPath() );
     dir.mkpath( dir.absolutePath() );
     QString folderpath = dir.absolutePath();
 
+    const QStringList chapters = XHTMLDoc::GetSGFChapterSplits( source, header );
     QFutureSynchronizer< void > sync;
 
-    while ( main_index != body_end )
+    for ( int i = 0; i < chapters.count(); ++i )
     {
-        // move up?
-        QRegExp break_tag( BREAK_TAG_SEARCH );
-
-        // We search for our HR break tag
-        int break_index = source.indexOf( break_tag, main_index );
-
-        QString body;
-
-        // We break up the remainder of the file on the HR tag index if it's found
-        if ( break_index > -1 )
-        {
-            body = Utility::Substring( main_index, break_index, source );
-            main_index = break_index + break_tag.matchedLength();
-        }
-
-        // Otherwise, we take the rest of the file
-        else
-        {
-            body = Utility::Substring( main_index, body_end, source );
-            main_index = body_end;
-        }
-
-        QString wholefile = header + "<body>\n" + body + "</body> </html>";
-
         sync.addFuture( 
-            QtConcurrent::run( this, &ImportSGF::CreateOneXHTMLFile, wholefile, reading_order, folderpath, html_updates ) );
-
-        ++reading_order;
+            QtConcurrent::run( this, &ImportSGF::CreateOneXHTMLFile, chapters.at( i ), i, folderpath, html_updates ) );
     }	
 
     sync.waitForFinished();
