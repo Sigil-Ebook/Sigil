@@ -446,7 +446,13 @@ void FlowTab::Justify()
 
 void FlowTab::InsertChapterBreak()
 {
-    emit OldTabRequest( m_wBookView.SplitChapter(), m_HTMLResource );
+    if ( m_IsLastViewBook )
+
+        emit OldTabRequest( m_wBookView.SplitChapter(), m_HTMLResource );
+
+    else
+
+        emit OldTabRequest( m_wCodeView.SplitChapter(), m_HTMLResource );
 }
 
 

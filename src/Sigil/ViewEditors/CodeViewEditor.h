@@ -57,6 +57,25 @@ public:
 
     void CustomSetDocument( QTextDocument &document );
 
+    /**
+    * Splits the chapter and returns the "upper" content.
+    * The current flow is split at the caret point.
+    *
+    * @return The content of the chapter up to the chapter break point.
+    * 
+    * @note What we actually do when the user wants to split the loaded chapter
+    * is create a new tab with the XHTML content \em above the split point.
+    * The new tab is actually the "old" chapter, and this tab becomes the
+    * "new" chapter.
+    * \par 
+    * Why? Because we can only avoid a tab render in the tab from which
+    * we remove elements. Since the users move from the top of a large HTML
+    * file down, the new chapter will be the one with the most content.
+    * So this way we \em try to avoid the painful render time on the biggest
+    * chapter, but there is still some render time left...
+    */
+    QString SplitChapter();
+
     // Paints the line number area;
     // receives the event directly 
     // from the area's paintEvent() handler

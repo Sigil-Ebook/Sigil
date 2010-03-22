@@ -26,6 +26,7 @@
 #include "../BookManipulation/XHTMLDoc.h"
 #include "../Misc/XHTMLHighlighter.h"
 #include "../Misc/CSSHighlighter.h"
+#include "../Misc/Utility.h"
 #include <QDomDocument>
 
 static const int COLOR_FADE_AMOUNT       = 175;
@@ -72,6 +73,48 @@ void CodeViewEditor::CustomSetDocument( QTextDocument &document )
     m_Highlighter->setDocument( &document );
 
     ResetFont();
+}
+
+
+QString CodeViewEditor::SplitChapter()
+{
+    QString text = toPlainText();
+
+    QRegExp body_search( BODY_START ); 
+    int body_start = text.indexOf( body_search );
+    int body_end   = body_start + body_search.matchedLength();
+
+    QString head = text.left( body_start );
+
+    int next_open_tag_index = text.indexOf( QRegExp( "<\\s*(?!/)" ), textCursor().position() );
+    if ( next_open_tag_index == -1 || next_open_tag_index < body_end )
+    
+        next_open_tag_index = body_end; 
+
+    const QString &text_segment = next_open_tag_index != body_end                             ? 
+                                  Utility::Substring( body_start, next_open_tag_index, text ) :
+                                  QString( "<p>&nbsp;</p>" );
+
+    // Remove the text that will be in 
+    // the new chapter from the View.
+    QTextCursor cursor = textCursor();
+    cursor.beginEditBlock();
+    cursor.setPosition( body_end );
+    cursor.setPosition( next_open_tag_index, QTextCursor::KeepAnchor );
+    cursor.removeSelectedText();
+
+    // We add a newline if the next tag
+    // is sitting right next to the end of the body tag.
+    if ( toPlainText().at( body_end ) == QChar( '<' ) )
+        
+        cursor.insertBlock();
+    
+    cursor.endEditBlock();
+
+    return QString()
+           .append( head )
+           .append( text_segment )
+           .append( "</body></html>" );
 }
 
 
@@ -674,7 +717,6 @@ void CodeViewEditor::ConnectSignalsToSlots()
     connect( &m_ScrollOneLineUp,   SIGNAL( activated() ), this, SLOT( ScrollOneLineUp()   ) );
     connect( &m_ScrollOneLineDown, SIGNAL( activated() ), this, SLOT( ScrollOneLineDown() ) );
 }
-
 
 
 

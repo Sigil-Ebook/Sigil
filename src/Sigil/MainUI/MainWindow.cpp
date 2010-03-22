@@ -539,7 +539,7 @@ void MainWindow::SetStateActionsCodeView()
     ui.actionJustify   ->setEnabled( false );
 
     ui.actionInsertImage       ->setEnabled( false );
-    ui.actionInsertChapterBreak->setEnabled( false );
+    // Chapter break is TRUE!
     
     ui.actionInsertBulletedList->setEnabled( false );
     ui.actionInsertNumberedList->setEnabled( false );
@@ -568,6 +568,8 @@ void MainWindow::SetStateActionsRawView()
     ui.actionBookView ->setEnabled( false );
     ui.actionSplitView->setEnabled( false );
     ui.actionCodeView ->setEnabled( false );  
+
+    ui.actionInsertChapterBreak->setEnabled( false );
 }
 
 
