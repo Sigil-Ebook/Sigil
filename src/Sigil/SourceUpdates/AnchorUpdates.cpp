@@ -97,12 +97,12 @@ void AnchorUpdates::UpdateAnchorsInOneFile( HTMLResource *html_resource,
             // If the ID is in a different file, update the link
             if ( ID_locations.value( id ) != resource_filename )
             {
-                const QString &attribute_value = QString( "../" )
-                                                 .append( TEXT_FOLDER_NAME )
-                                                 .append( "/" )
-                                                 .append( Utility::URLEncodePath( ID_locations.value( id ) ) )
-                                                 .append( "#" )
-                                                 .append( id );
+                QString attribute_value = QString( "../" )
+                                          .append( TEXT_FOLDER_NAME )
+                                          .append( "/" )
+                                          .append( Utility::URLEncodePath( ID_locations.value( id ) ) )
+                                          .append( "#" )
+                                          .append( id );
 
                 element.setAttribute( "href", attribute_value ); 
                 html_resource->MarkSecondaryCachesAsOld();
