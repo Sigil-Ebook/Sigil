@@ -1,4 +1,4 @@
-Sigil v0.2.0 ß3 ADD_DATE
+Sigil v0.2.0 ß3 2010.03.23.
     - added two new WYSIWG actions that work for both Views: "Insert SGF Chapter Marker" which
     inserts the old SGF horizontal rule chapter breaking marker and "Split On SGF Chapter Markers"
     which splits the current chapter according to the placement of these markers (issue #262)
