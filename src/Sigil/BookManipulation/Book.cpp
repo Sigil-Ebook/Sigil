@@ -25,6 +25,8 @@
 #include "ResourceObjects/HTMLResource.h"
 #include "../BookManipulation/CleanSource.h"
 #include "../SourceUpdates/AnchorUpdates.h"
+#include "../SourceUpdates/PerformHTMLUpdates.h"
+#include "../SourceUpdates/AnchorUpdates.h"
 #include <QDomDocument>
 
 static const QString FIRST_CSS_NAME   = "Style0001.css";
@@ -194,6 +196,34 @@ HTMLResource& Book::CreateChapterBreakOriginalResource( const QString &content, 
 }
 
 
+void Book::CreateNewChapters( const QStringList& new_chapters,
+                              const QHash< QString, QString > &html_updates )
+{
+    QDir dir( Utility::GetNewTempFolderPath() );
+    dir.mkpath( dir.absolutePath() );
+    QString folderpath = dir.absolutePath();
+
+    QFutureSynchronizer< void > sync;
+
+    int next_reading_order = m_Mainfolder.GetHighestReadingOrder() + 1;
+
+    for ( int i = 0; i < new_chapters.count(); ++i )
+    {
+        int reading_order = next_reading_order + i;
+
+        sync.addFuture( 
+            QtConcurrent::run( 
+                this, &Book::CreateOneNewChapter, new_chapters.at( i ), reading_order, folderpath, html_updates ) );
+    }	
+
+    sync.waitForFinished();
+
+    QtConcurrent::run( Utility::DeleteFolderAndFiles, folderpath );
+
+    AnchorUpdates::UpdateAllAnchorsWithIDs( m_Mainfolder.GetSortedHTMLResources() );
+}
+
+
 void Book::SaveAllResourcesToDisk()
 {
     QList< Resource* > resources =  m_Mainfolder.GetResourceList();
@@ -206,3 +236,32 @@ void Book::SaveOneResourceToDisk( Resource *resource )
     resource->SaveToDisk();        
 }
 
+
+void Book::CreateOneNewChapter( const QString &source, 
+                                int reading_order, 
+                                const QString &temp_folder_path,
+                                const QHash< QString, QString > &html_updates )
+{
+    QString filename     = QString( "content" ) + QString( "%1" ).arg( reading_order + 1, 3, 10, QChar( '0' ) ) + ".xhtml";
+    QString fullfilepath = temp_folder_path + "/" + filename;
+
+    Utility::WriteUnicodeTextFile( "PLACEHOLDER", fullfilepath );
+
+    HTMLResource *html_resource = qobject_cast< HTMLResource* >( 
+        &m_Mainfolder.AddContentFileToFolder( fullfilepath, reading_order ) );
+
+    Q_ASSERT( html_resource );
+
+    if ( html_updates.isEmpty() )
+    {
+        QDomDocument document;
+        document.setContent( CleanSource::Clean( source ) );
+        html_resource->SetDomDocument( document );
+    }
+
+    else
+    {
+        html_resource->SetDomDocument( 
+            PerformHTMLUpdates( CleanSource::Clean( source ), html_updates, QHash< QString, QString >() )() );
+    }    
+}

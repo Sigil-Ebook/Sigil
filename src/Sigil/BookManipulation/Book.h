@@ -137,6 +137,15 @@ public:
                                                       HTMLResource& originating_resource );
 
     /**
+     * Creates new chapters/XHTML documents.
+     * 
+     * @param new_chapters The contents of the new chapters.
+     * @param html_updates If provided, the new chapters are updated with these updates.
+     */
+    void CreateNewChapters( const QStringList& new_chapters,
+                            const QHash< QString, QString > &html_updates = QHash< QString, QString >() );
+
+    /**
      * Makes sure that all the resources have saved the state of 
      * their caches to the disk.
      */
@@ -149,6 +158,20 @@ private:
      * @param resource The resource to be synced.
      */
     static void SaveOneResourceToDisk( Resource *resource );
+
+    /**
+     * Creates one new chapter/XHTML document.
+     * 
+     * @param source The source code of the new chapter.
+     * @param reading_order The reading order of the new chapter.
+     * @param temp_folder_path The path to the temporary folder where the new file 
+     *                         will be created before being copied to the folderkeeper.
+     * @param html_updates Any reference updates that need to be performed.
+     */
+    void CreateOneNewChapter( const QString &source, 
+                              int reading_order, 
+                              const QString &temp_folder_path,
+                              const QHash< QString, QString > &html_updates = QHash< QString, QString >() );
 
     /**
      * The FolderKeeper object that represents

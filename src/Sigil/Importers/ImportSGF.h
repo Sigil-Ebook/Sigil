@@ -72,11 +72,6 @@ private:
                            const QString &header,
                            const QHash< QString, QString > &html_updates );
 
-    void CreateOneXHTMLFile( QString source, 
-                             int reading_order, 
-                             const QString &folderpath,
-                             const QHash< QString, QString > &html_updates );
-
 
 };
 

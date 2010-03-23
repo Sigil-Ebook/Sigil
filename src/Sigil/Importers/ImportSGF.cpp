@@ -25,8 +25,6 @@
 #include "../BookManipulation/CleanSource.h"
 #include "ResourceObjects/HTMLResource.h"
 #include "ResourceObjects/TextResource.h"
-#include "../SourceUpdates/PerformHTMLUpdates.h"
-#include "../SourceUpdates/AnchorUpdates.h"
 
 
 // Constructor;
@@ -64,8 +62,6 @@ QSharedPointer< Book > ImportSGF::GetBook()
     m_Files.remove( m_ReadingOrderIds.at( 0 ) );
 
     CreateXHTMLFiles( source, header, LoadFolderStructure() );
-   
-    AnchorUpdates::UpdateAllAnchorsWithIDs( m_Book->GetFolderKeeper().GetSortedHTMLResources() );
 
     return m_Book;
 }
@@ -206,41 +202,8 @@ QString ImportSGF::CreateHeader( const QList< Resource* > &style_resources )
 void ImportSGF::CreateXHTMLFiles( const QString &source, 
                                   const QString &header,
                                   const QHash< QString, QString > &html_updates )
-{
-    QDir dir( Utility::GetNewTempFolderPath() );
-    dir.mkpath( dir.absolutePath() );
-    QString folderpath = dir.absolutePath();
-
+{    
     const QStringList chapters = XHTMLDoc::GetSGFChapterSplits( source, header );
-    QFutureSynchronizer< void > sync;
 
-    for ( int i = 0; i < chapters.count(); ++i )
-    {
-        sync.addFuture( 
-            QtConcurrent::run( this, &ImportSGF::CreateOneXHTMLFile, chapters.at( i ), i, folderpath, html_updates ) );
-    }	
-
-    sync.waitForFinished();
-
-    QtConcurrent::run( Utility::DeleteFolderAndFiles, folderpath );
-}
-
-
-void ImportSGF::CreateOneXHTMLFile( QString source, 
-                                    int reading_order, 
-                                    const QString &folderpath,
-                                    const QHash< QString, QString > &html_updates )
-{
-    QString filename     = QString( "content" ) + QString( "%1" ).arg( reading_order + 1, 3, 10, QChar( '0' ) ) + ".xhtml";
-    QString fullfilepath = folderpath + "/" + filename;
-
-    Utility::WriteUnicodeTextFile( "PLACEHOLDER", fullfilepath );
-
-    HTMLResource *html_resource = qobject_cast< HTMLResource* >( 
-                                        &m_Book->GetFolderKeeper().AddContentFileToFolder( fullfilepath, reading_order ) );
-
-    Q_ASSERT( html_resource );
-
-    html_resource->SetDomDocument( 
-        PerformHTMLUpdates( CleanSource::Clean( source ), html_updates, QHash< QString, QString >() )() );
+    m_Book->CreateNewChapters( chapters, html_updates );   
 }
