@@ -195,6 +195,11 @@ HTMLResource& Book::CreateChapterBreakOriginalResource( const QString &content, 
     return html_resource;
 }
 
+void Book::CreateNewChapters( const QStringList& new_chapters )
+{
+    CreateNewChapters( new_chapters, QHash< QString, QString >() );
+}
+
 
 void Book::CreateNewChapters( const QStringList& new_chapters,
                               const QHash< QString, QString > &html_updates )
@@ -238,6 +243,13 @@ void Book::SaveAllResourcesToDisk()
 void Book::SaveOneResourceToDisk( Resource *resource )
 {
     resource->SaveToDisk();        
+}
+
+void Book::CreateOneNewChapter( const QString &source,
+                                int reading_order,
+                                const QString &temp_folder_path )
+{
+    CreateOneNewChapter( source, reading_order, temp_folder_path, QHash< QString, QString >() );
 }
 
 
