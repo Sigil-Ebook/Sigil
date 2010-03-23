@@ -109,6 +109,11 @@ signals:
      */
     void OldTabRequest( QString content, HTMLResource& originating_resource );
 
+    /**
+     * Wired to the current FlowTab::NewChaptersRequest signal.
+     */
+    void NewChaptersRequest( QStringList chapters );
+
 private slots:
 
     /**

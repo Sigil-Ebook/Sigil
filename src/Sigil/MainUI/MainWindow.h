@@ -156,6 +156,8 @@ private slots:
 
     void CreateChapterBreakOldTab( QString content, HTMLResource& originating_resource );
 
+    void CreateNewChapters( QStringList new_chapters );
+
 private:
 
     // Reads all the stored application settings like

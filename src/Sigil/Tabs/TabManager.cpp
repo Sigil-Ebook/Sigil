@@ -210,6 +210,8 @@ ContentTab* TabManager::CreateTabForResource( Resource& resource, const QUrl &fr
         connect( tab, SIGNAL( LinkClicked( const QUrl& ) ), this, SIGNAL( OpenUrlRequest( const QUrl& ) ) );
         connect( tab,  SIGNAL( OldTabRequest( QString, HTMLResource& ) ), 
                  this, SIGNAL( OldTabRequest( QString, HTMLResource& ) ) );
+        connect( tab,  SIGNAL( NewChaptersRequest( QStringList ) ), 
+                 this, SIGNAL( NewChaptersRequest( QStringList ) ) );
     }
 
     else if ( resource.Type() == Resource::CSSResource )

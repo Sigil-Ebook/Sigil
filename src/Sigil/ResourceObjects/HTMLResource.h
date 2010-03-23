@@ -86,6 +86,8 @@ public:
      */
     void RemoveWebkitCruft();
 
+    QStringList SplitOnSGFChapterMarkers();
+
     // TODO: turn this into operator<
     static bool LessThan( HTMLResource* res_1, HTMLResource* res_2 );
 

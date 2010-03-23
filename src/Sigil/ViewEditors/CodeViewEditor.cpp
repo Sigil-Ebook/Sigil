@@ -82,31 +82,31 @@ QString CodeViewEditor::SplitChapter()
     QString text = toPlainText();
 
     QRegExp body_search( BODY_START ); 
-    int body_start = text.indexOf( body_search );
-    int body_end   = body_start + body_search.matchedLength();
+    int body_tag_start = text.indexOf( body_search );
+    int body_tag_end   = body_tag_start + body_search.matchedLength();
 
-    QString head = text.left( body_start );
+    QString head = text.left( body_tag_start );
 
     int next_open_tag_index = text.indexOf( QRegExp( NEXT_OPEN_TAG_LOCATION ), textCursor().position() );
-    if ( next_open_tag_index == -1 || next_open_tag_index < body_end )
+    if ( next_open_tag_index == -1 || next_open_tag_index < body_tag_end )
     
-        next_open_tag_index = body_end; 
+        next_open_tag_index = body_tag_end; 
 
-    const QString &text_segment = next_open_tag_index != body_end                             ? 
-                                  Utility::Substring( body_start, next_open_tag_index, text ) :
+    const QString &text_segment = next_open_tag_index != body_tag_end                             ? 
+                                  Utility::Substring( body_tag_start, next_open_tag_index, text ) :
                                   QString( "<p>&nbsp;</p>" );
 
     // Remove the text that will be in 
     // the new chapter from the View.
     QTextCursor cursor = textCursor();
     cursor.beginEditBlock();
-    cursor.setPosition( body_end );
+    cursor.setPosition( body_tag_end );
     cursor.setPosition( next_open_tag_index, QTextCursor::KeepAnchor );
     cursor.removeSelectedText();
 
     // We add a newline if the next tag
     // is sitting right next to the end of the body tag.
-    if ( toPlainText().at( body_end ) == QChar( '<' ) )
+    if ( toPlainText().at( body_tag_end ) == QChar( '<' ) )
         
         cursor.insertBlock();
     
@@ -116,6 +116,12 @@ QString CodeViewEditor::SplitChapter()
            .append( head )
            .append( text_segment )
            .append( "</body></html>" );
+}
+
+
+void CodeViewEditor::InsertSGFChapterMarker()
+{
+    textCursor().insertText( BREAK_TAG_INSERT );
 }
 
 

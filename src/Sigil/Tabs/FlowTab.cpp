@@ -456,6 +456,26 @@ void FlowTab::InsertChapterBreak()
 }
 
 
+void FlowTab::InsertSGFChapterMarker()
+{
+    if ( m_wBookView.hasFocus() )
+    
+        m_wBookView.ExecCommand( "insertHTML", BREAK_TAG_INSERT );    
+
+    else if ( m_wCodeView.hasFocus() )
+    
+        m_wCodeView.InsertSGFChapterMarker();    
+}
+
+
+void FlowTab::SplitOnSGFChapterMarkers()
+{
+    SaveContentOnTabLeave();
+    emit NewChaptersRequest( m_HTMLResource.SplitOnSGFChapterMarkers() );
+    LoadContentOnTabEnter();
+}
+
+
 void FlowTab::InsertImage( const QString &image_path )
 {
     // Make sure the Book View has focus before inserting images,

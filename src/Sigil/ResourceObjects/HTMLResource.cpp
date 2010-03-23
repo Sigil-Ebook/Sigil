@@ -251,6 +251,17 @@ void HTMLResource::RemoveWebkitCruft()
 }
 
 
+QStringList HTMLResource::SplitOnSGFChapterMarkers()
+{
+    QStringList chapters = XHTMLDoc::GetSGFChapterSplits( XHTMLDoc::GetQDomNodeAsString( m_DomDocument ) );
+
+    m_DomDocument.setContent( CleanSource::Clean( chapters.takeFirst() ) );
+    MarkSecondaryCachesAsOld();
+
+    return chapters;
+}
+
+
 bool HTMLResource::LessThan( HTMLResource* res_1, HTMLResource* res_2 )
 {
     return res_1->GetReadingOrder() < res_2->GetReadingOrder();
@@ -378,3 +389,4 @@ void HTMLResource::TrackNewResources( const QStringList &filepaths )
         }
     }
 }
+

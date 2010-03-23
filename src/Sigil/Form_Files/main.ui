@@ -122,6 +122,7 @@
     </property>
     <addaction name="actionMetaEditor"/>
     <addaction name="actionTOCEditor"/>
+    <addaction name="actionSplitOnSGFChapterMarkers"/>
    </widget>
    <widget class="QMenu" name="menuInsert">
     <property name="title">
@@ -129,6 +130,7 @@
     </property>
     <addaction name="actionInsertChapterBreak"/>
     <addaction name="actionInsertImage"/>
+    <addaction name="actionInsertSGFChapterMarker"/>
    </widget>
    <widget class="QMenu" name="menu_Window">
     <property name="title">
@@ -944,10 +946,32 @@
   </action>
   <action name="actionCloseTab">
    <property name="text">
-    <string>Close Tab</string>
+    <string>&amp;Close Tab</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+W</string>
+   </property>
+  </action>
+  <action name="actionSplitOnSGFChapterMarkers">
+   <property name="text">
+    <string>&amp;Split On SGF Chapter Markers</string>
+   </property>
+   <property name="toolTip">
+    <string>Split On SGF Chapter Markers</string>
+   </property>
+   <property name="shortcut">
+    <string>F6</string>
+   </property>
+  </action>
+  <action name="actionInsertSGFChapterMarker">
+   <property name="text">
+    <string>&amp;SGF Chapter Marker</string>
+   </property>
+   <property name="toolTip">
+    <string>Insert SGF Chapter Marker</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+Return</string>
    </property>
   </action>
  </widget>

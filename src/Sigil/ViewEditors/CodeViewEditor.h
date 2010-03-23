@@ -76,6 +76,11 @@ public:
     */
     QString SplitChapter();
 
+    /**
+     * Inserts the SGF chapter marker code at the current caret location.
+     */
+    void InsertSGFChapterMarker();
+
     // Paints the line number area;
     // receives the event directly 
     // from the area's paintEvent() handler

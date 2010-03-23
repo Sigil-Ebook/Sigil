@@ -29,8 +29,7 @@
 
 const int PROGRESS_BAR_MINIMUM_DURATION = 1500;
 
-const QString BREAK_TAG_ID        = "sigilChBrMN364299QX";
-const QString BREAK_TAG_INSERT    = "<hr id=\"" + BREAK_TAG_ID + "\" />";
+const QString BREAK_TAG_INSERT    = "<hr class=\"sigilChapterBreak\" />";
 const QString XML_NAMESPACE_CRUFT = "xmlns=\"http://www.w3.org/1999/xhtml\"";
 
 /**
@@ -759,6 +758,7 @@ void BookViewEditor::ScrollByNumPixels( int pixel_number, bool down )
 
     page()->mainFrame()->setScrollBarValue( Qt::Vertical, new_scroll_Y );
 }
+
 
 
 

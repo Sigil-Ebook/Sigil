@@ -199,6 +199,10 @@ HTMLResource& Book::CreateChapterBreakOriginalResource( const QString &content, 
 void Book::CreateNewChapters( const QStringList& new_chapters,
                               const QHash< QString, QString > &html_updates )
 {
+    if ( new_chapters.isEmpty() )
+
+        return;
+
     QDir dir( Utility::GetNewTempFolderPath() );
     dir.mkpath( dir.absolutePath() );
     QString folderpath = dir.absolutePath();
@@ -242,7 +246,7 @@ void Book::CreateOneNewChapter( const QString &source,
                                 const QString &temp_folder_path,
                                 const QHash< QString, QString > &html_updates )
 {
-    QString filename     = QString( "content" ) + QString( "%1" ).arg( reading_order + 1, 3, 10, QChar( '0' ) ) + ".xhtml";
+    QString filename     = FIRST_CHAPTER_PREFIX + QString( "%1" ).arg( reading_order + 1, 4, 10, QChar( '0' ) ) + ".xhtml";
     QString fullfilepath = temp_folder_path + "/" + filename;
 
     Utility::WriteUnicodeTextFile( "PLACEHOLDER", fullfilepath );

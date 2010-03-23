@@ -26,7 +26,8 @@
 #include "ResourceObjects/HTMLResource.h"
 #include <QDomDocument>
 
-const QString FIRST_CHAPTER_NAME = "Section0001.xhtml";
+const QString FIRST_CHAPTER_PREFIX = "Section";
+const QString FIRST_CHAPTER_NAME   = FIRST_CHAPTER_PREFIX + "0001.xhtml";
 
 // Constructor;
 // The parameter is the file to be imported

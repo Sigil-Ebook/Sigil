@@ -658,6 +658,16 @@ void MainWindow::CreateChapterBreakOldTab( QString content, HTMLResource& origin
 }
 
 
+void MainWindow::CreateNewChapters( QStringList new_chapters )
+{   
+    // The FlowTab will unlock the resource itself
+    // for this operation.
+
+    m_Book->CreateNewChapters( new_chapters );
+    m_BookBrowser->Refresh();
+}
+
+
 // Reads all the stored application settings like
 // window position, geometry etc.
 void MainWindow::ReadSettings()
@@ -1288,6 +1298,9 @@ void MainWindow::ConnectSignalsToSlots()
 
     connect( &m_TabManager, SIGNAL( OldTabRequest(            QString, HTMLResource& ) ),
              this,          SLOT(   CreateChapterBreakOldTab( QString, HTMLResource& ) ) );
+
+    connect( &m_TabManager, SIGNAL( NewChaptersRequest( QStringList ) ),
+             this,          SLOT(   CreateNewChapters(  QStringList ) ) );
 }
 
 void MainWindow::MakeTabConnections( ContentTab *tab )
@@ -1296,34 +1309,37 @@ void MainWindow::MakeTabConnections( ContentTab *tab )
 
         return;
 
-    connect( ui.actionUndo,                 SIGNAL( triggered() ),  tab,   SLOT( Undo()                ) );
-    connect( ui.actionRedo,                 SIGNAL( triggered() ),  tab,   SLOT( Redo()                ) );
-    connect( ui.actionCut,                  SIGNAL( triggered() ),  tab,   SLOT( Cut()                 ) );
-    connect( ui.actionCopy,                 SIGNAL( triggered() ),  tab,   SLOT( Copy()                ) );
-    connect( ui.actionPaste,                SIGNAL( triggered() ),  tab,   SLOT( Paste()               ) );
-    connect( ui.actionBold,                 SIGNAL( triggered() ),  tab,   SLOT( Bold()                ) );
-    connect( ui.actionItalic,               SIGNAL( triggered() ),  tab,   SLOT( Italic()              ) );
-    connect( ui.actionUnderline,            SIGNAL( triggered() ),  tab,   SLOT( Underline()           ) );
-    connect( ui.actionStrikethrough,        SIGNAL( triggered() ),  tab,   SLOT( Strikethrough()       ) );
-    connect( ui.actionAlignLeft,            SIGNAL( triggered() ),  tab,   SLOT( AlignLeft()           ) );
-    connect( ui.actionCenter,               SIGNAL( triggered() ),  tab,   SLOT( Center()              ) );
-    connect( ui.actionAlignRight,           SIGNAL( triggered() ),  tab,   SLOT( AlignRight()          ) );
-    connect( ui.actionJustify,              SIGNAL( triggered() ),  tab,   SLOT( Justify()             ) );
-    connect( ui.actionInsertChapterBreak,   SIGNAL( triggered() ),  tab,   SLOT( InsertChapterBreak()  ) );
-    connect( ui.actionInsertBulletedList,   SIGNAL( triggered() ),  tab,   SLOT( InsertBulletedList()  ) );
-    connect( ui.actionInsertNumberedList,   SIGNAL( triggered() ),  tab,   SLOT( InsertNumberedList()  ) );
-    connect( ui.actionDecreaseIndent,       SIGNAL( triggered() ),  tab,   SLOT( DecreaseIndent()      ) );
-    connect( ui.actionIncreaseIndent,       SIGNAL( triggered() ),  tab,   SLOT( IncreaseIndent()      ) );
-    connect( ui.actionRemoveFormatting,     SIGNAL( triggered() ),  tab,   SLOT( RemoveFormatting()    ) );
+    connect( ui.actionUndo,                     SIGNAL( triggered() ),  tab,   SLOT( Undo()                     ) );
+    connect( ui.actionRedo,                     SIGNAL( triggered() ),  tab,   SLOT( Redo()                     ) );
+    connect( ui.actionCut,                      SIGNAL( triggered() ),  tab,   SLOT( Cut()                      ) );
+    connect( ui.actionCopy,                     SIGNAL( triggered() ),  tab,   SLOT( Copy()                     ) );
+    connect( ui.actionPaste,                    SIGNAL( triggered() ),  tab,   SLOT( Paste()                    ) );
+    connect( ui.actionBold,                     SIGNAL( triggered() ),  tab,   SLOT( Bold()                     ) );
+    connect( ui.actionItalic,                   SIGNAL( triggered() ),  tab,   SLOT( Italic()                   ) );
+    connect( ui.actionUnderline,                SIGNAL( triggered() ),  tab,   SLOT( Underline()                ) );
+    connect( ui.actionStrikethrough,            SIGNAL( triggered() ),  tab,   SLOT( Strikethrough()            ) );
+    connect( ui.actionAlignLeft,                SIGNAL( triggered() ),  tab,   SLOT( AlignLeft()                ) );
+    connect( ui.actionCenter,                   SIGNAL( triggered() ),  tab,   SLOT( Center()                   ) );
+    connect( ui.actionAlignRight,               SIGNAL( triggered() ),  tab,   SLOT( AlignRight()               ) );
+    connect( ui.actionJustify,                  SIGNAL( triggered() ),  tab,   SLOT( Justify()                  ) );
+    connect( ui.actionInsertChapterBreak,       SIGNAL( triggered() ),  tab,   SLOT( InsertChapterBreak()       ) );
+    connect( ui.actionInsertSGFChapterMarker,   SIGNAL( triggered() ),  tab,   SLOT( InsertSGFChapterMarker()   ) );
+    connect( ui.actionSplitOnSGFChapterMarkers, SIGNAL( triggered() ),  tab,   SLOT( SplitOnSGFChapterMarkers() ) );
+    
+    connect( ui.actionInsertBulletedList,       SIGNAL( triggered() ),  tab,   SLOT( InsertBulletedList()       ) );
+    connect( ui.actionInsertNumberedList,       SIGNAL( triggered() ),  tab,   SLOT( InsertNumberedList()       ) );
+    connect( ui.actionDecreaseIndent,           SIGNAL( triggered() ),  tab,   SLOT( DecreaseIndent()           ) );
+    connect( ui.actionIncreaseIndent,           SIGNAL( triggered() ),  tab,   SLOT( IncreaseIndent()           ) );
+    connect( ui.actionRemoveFormatting,         SIGNAL( triggered() ),  tab,   SLOT( RemoveFormatting()         ) );
 
-    connect( ui.actionPrintPreview,         SIGNAL( triggered() ),  tab,   SLOT( PrintPreview()        ) );
-    connect( ui.actionPrint,                SIGNAL( triggered() ),  tab,   SLOT( Print()               ) );
+    connect( ui.actionPrintPreview,             SIGNAL( triggered() ),  tab,   SLOT( PrintPreview()             ) );
+    connect( ui.actionPrint,                    SIGNAL( triggered() ),  tab,   SLOT( Print()                    ) );
 
-    connect( ui.actionBookView,             SIGNAL( triggered() ),  tab,   SLOT( BookView()            ) );
-    connect( ui.actionSplitView,            SIGNAL( triggered() ),  tab,   SLOT( SplitView()           ) );
-    connect( ui.actionCodeView,             SIGNAL( triggered() ),  tab,   SLOT( CodeView()            ) );   
+    connect( ui.actionBookView,                 SIGNAL( triggered() ),  tab,   SLOT( BookView()                 ) );
+    connect( ui.actionSplitView,                SIGNAL( triggered() ),  tab,   SLOT( SplitView()                ) );
+    connect( ui.actionCodeView,                 SIGNAL( triggered() ),  tab,   SLOT( CodeView()                 ) );   
 
-    connect( m_cbHeadings,                  SIGNAL( activated( const QString& ) ),  tab,   SLOT( HeadingStyle( const QString& ) ) );
+    connect( m_cbHeadings, SIGNAL( activated( const QString& ) ),  tab,   SLOT( HeadingStyle( const QString& ) ) );
 
     connect( tab,   SIGNAL( ViewChanged() ),                this,   SLOT( UpdateUI()                ) );
     connect( tab,   SIGNAL( SelectionChanged() ),           this,   SLOT( UpdateUI()                ) );
@@ -1342,38 +1358,39 @@ void MainWindow::BreakTabConnections( ContentTab *tab )
 
         return;
 
-    disconnect( ui.actionUndo,                0, tab, 0 );
-    disconnect( ui.actionRedo,                0, tab, 0 );
-    disconnect( ui.actionCut,                 0, tab, 0 );
-    disconnect( ui.actionCopy,                0, tab, 0 );
-    disconnect( ui.actionPaste,               0, tab, 0 );
-    disconnect( ui.actionBold,                0, tab, 0 );
-    disconnect( ui.actionItalic,              0, tab, 0 );
-    disconnect( ui.actionUnderline,           0, tab, 0 );
-    disconnect( ui.actionStrikethrough,       0, tab, 0 );
-    disconnect( ui.actionAlignLeft,           0, tab, 0 );
-    disconnect( ui.actionCenter,              0, tab, 0 );
-    disconnect( ui.actionAlignRight,          0, tab, 0 );
-    disconnect( ui.actionJustify,             0, tab, 0 );
-    disconnect( ui.actionInsertChapterBreak,  0, tab, 0 );
-    disconnect( ui.actionInsertBulletedList,  0, tab, 0 );
-    disconnect( ui.actionInsertNumberedList,  0, tab, 0 );
-    disconnect( ui.actionDecreaseIndent,      0, tab, 0 );
-    disconnect( ui.actionIncreaseIndent,      0, tab, 0 );
-    disconnect( ui.actionRemoveFormatting,    0, tab, 0 );
+    disconnect( ui.actionUndo,                      0, tab, 0 );
+    disconnect( ui.actionRedo,                      0, tab, 0 );
+    disconnect( ui.actionCut,                       0, tab, 0 );
+    disconnect( ui.actionCopy,                      0, tab, 0 );
+    disconnect( ui.actionPaste,                     0, tab, 0 );
+    disconnect( ui.actionBold,                      0, tab, 0 );
+    disconnect( ui.actionItalic,                    0, tab, 0 );
+    disconnect( ui.actionUnderline,                 0, tab, 0 );
+    disconnect( ui.actionStrikethrough,             0, tab, 0 );
+    disconnect( ui.actionAlignLeft,                 0, tab, 0 );
+    disconnect( ui.actionCenter,                    0, tab, 0 );
+    disconnect( ui.actionAlignRight,                0, tab, 0 );
+    disconnect( ui.actionJustify,                   0, tab, 0 );
+    disconnect( ui.actionInsertChapterBreak,        0, tab, 0 );
+    disconnect( ui.actionInsertSGFChapterMarker,    0, tab, 0 );
+    disconnect( ui.actionSplitOnSGFChapterMarkers,  0, tab, 0 );
+    disconnect( ui.actionInsertBulletedList,        0, tab, 0 );
+    disconnect( ui.actionInsertNumberedList,        0, tab, 0 );
+    disconnect( ui.actionDecreaseIndent,            0, tab, 0 );
+    disconnect( ui.actionIncreaseIndent,            0, tab, 0 );
+    disconnect( ui.actionRemoveFormatting,          0, tab, 0 );
 
-    disconnect( ui.actionPrintPreview,        0, tab, 0 );
-    disconnect( ui.actionPrint,               0, tab, 0 );
+    disconnect( ui.actionPrintPreview,              0, tab, 0 );
+    disconnect( ui.actionPrint,                     0, tab, 0 );
 
-    disconnect( ui.actionBookView,            0, tab, 0 );
-    disconnect( ui.actionSplitView,           0, tab, 0 );
-    disconnect( ui.actionCodeView,            0, tab, 0 );   
+    disconnect( ui.actionBookView,                  0, tab, 0 );
+    disconnect( ui.actionSplitView,                 0, tab, 0 );
+    disconnect( ui.actionCodeView,                  0, tab, 0 );   
 
-    disconnect( m_cbHeadings,                 0, tab, 0 );
+    disconnect( m_cbHeadings,                       0, tab, 0 );
 
-    disconnect( tab,                          0, this, 0 );
+    disconnect( tab,                                0, this, 0 );
 }
-
 
 
 

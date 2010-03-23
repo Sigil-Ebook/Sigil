@@ -177,6 +177,16 @@ public slots:
     void InsertChapterBreak();
 
     /**
+     * Implements Insert SGF chapter marker action functionality.
+     */
+    void InsertSGFChapterMarker();
+
+    /**
+     * Implements Split on SGF chapter markers action functionality.
+     */
+    void SplitOnSGFChapterMarkers();
+
+    /**
      * Implements \em a \em part of Insert image action functionality. 
      * The rest is in MainWindow. It has to be, FlowTabs don't
      * have a reference to the Book object.
@@ -271,13 +281,20 @@ signals:
 
     /**
      * Emitted when an "old" tab should be created.
-     * Usually emitted as part of the chapter break operation.
+     * Emitted as part of the chapter break operation.
      *
      * @param content The content of the "old" tab/resource.
      * @param originating_resource  The original resource from which the content
      *                              was extracted to create the "old" tab/resource.
      */
     void OldTabRequest( QString content, HTMLResource& originating_resource );
+
+    /**
+     * Emitted when the user wants to create several new chapters.
+     *
+     * @param chapters The content of the new chapters to be created.
+     */
+    void NewChaptersRequest( QStringList chapters );
 
 protected slots:
 

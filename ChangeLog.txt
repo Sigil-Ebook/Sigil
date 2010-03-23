@@ -1,4 +1,7 @@
 Sigil v0.2.0 ß3 ADD_DATE
+    - added two new WYSIWG actions that work for both Views: "Insert SGF Chapter Marker" which
+    inserts the old SGF horizontal rule chapter breaking marker and "Split On SGF Chapter Markers"
+    which splits the current chapter according to the placement of these markers (issue #262)
     - chapter splitting now works in Code View
     - fixed an issue with Sigil adding "xmlns='http://www.w3.org/1999/xhtml'" to every element
     when performing a chapter break operation (issue #313)
