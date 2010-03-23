@@ -504,8 +504,8 @@ void MainWindow::SetStateActionsBookView()
     ui.actionAlignRight->setEnabled( true );
     ui.actionJustify   ->setEnabled( true );
 
-    ui.actionInsertImage       ->setEnabled( true );
-    ui.actionInsertChapterBreak->setEnabled( true );
+    ui.actionInsertImage ->setEnabled( true );
+    ui.actionSplitChapter->setEnabled( true );
 
     ui.actionInsertBulletedList->setEnabled( true );
     ui.actionInsertNumberedList->setEnabled( true );
@@ -558,6 +558,7 @@ void MainWindow::SetStateActionsCodeView()
     ui.actionInsertNumberedList->setChecked( false );
 }
 
+
 // Set initial state for actions in Raw View
 // (same as Code View, but, the actions for switching
 // views are off as well; Raw View is for CSS, XML ... editing )
@@ -569,7 +570,7 @@ void MainWindow::SetStateActionsRawView()
     ui.actionSplitView->setEnabled( false );
     ui.actionCodeView ->setEnabled( false );  
 
-    ui.actionInsertChapterBreak->setEnabled( false );
+    ui.actionSplitChapter->setEnabled( false );
 }
 
 
@@ -1322,7 +1323,7 @@ void MainWindow::MakeTabConnections( ContentTab *tab )
     connect( ui.actionCenter,                   SIGNAL( triggered() ),  tab,   SLOT( Center()                   ) );
     connect( ui.actionAlignRight,               SIGNAL( triggered() ),  tab,   SLOT( AlignRight()               ) );
     connect( ui.actionJustify,                  SIGNAL( triggered() ),  tab,   SLOT( Justify()                  ) );
-    connect( ui.actionInsertChapterBreak,       SIGNAL( triggered() ),  tab,   SLOT( InsertChapterBreak()       ) );
+    connect( ui.actionSplitChapter,             SIGNAL( triggered() ),  tab,   SLOT( SplitChapter()             ) );
     connect( ui.actionInsertSGFChapterMarker,   SIGNAL( triggered() ),  tab,   SLOT( InsertSGFChapterMarker()   ) );
     connect( ui.actionSplitOnSGFChapterMarkers, SIGNAL( triggered() ),  tab,   SLOT( SplitOnSGFChapterMarkers() ) );
     
@@ -1371,7 +1372,7 @@ void MainWindow::BreakTabConnections( ContentTab *tab )
     disconnect( ui.actionCenter,                    0, tab, 0 );
     disconnect( ui.actionAlignRight,                0, tab, 0 );
     disconnect( ui.actionJustify,                   0, tab, 0 );
-    disconnect( ui.actionInsertChapterBreak,        0, tab, 0 );
+    disconnect( ui.actionSplitChapter,              0, tab, 0 );
     disconnect( ui.actionInsertSGFChapterMarker,    0, tab, 0 );
     disconnect( ui.actionSplitOnSGFChapterMarkers,  0, tab, 0 );
     disconnect( ui.actionInsertBulletedList,        0, tab, 0 );

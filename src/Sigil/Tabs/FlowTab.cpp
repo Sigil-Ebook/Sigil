@@ -444,7 +444,7 @@ void FlowTab::Justify()
 }
 
 
-void FlowTab::InsertChapterBreak()
+void FlowTab::SplitChapter()
 {
     if ( m_IsLastViewBook )
 

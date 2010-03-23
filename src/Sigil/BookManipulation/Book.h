@@ -130,7 +130,7 @@ public:
      * @param originating_resource  The original resource from which the content
      *                              was extracted to create the "old" tab/resource.
      * @return A reference to the newly created "old" tab/resource.
-     * @see FlowTab::InsertChapterBreak, FlowTab::OldTabRequest,
+     * @see FlowTab::SplitChapter, FlowTab::OldTabRequest,
      *      BookViewEditor::SplitChapter, MainWindow::CreateChapterBreakOldTab
      */
     HTMLResource& CreateChapterBreakOriginalResource( const QString &content, 

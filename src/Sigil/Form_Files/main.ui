@@ -128,7 +128,7 @@
     <property name="title">
      <string>&amp;Insert</string>
     </property>
-    <addaction name="actionInsertChapterBreak"/>
+    <addaction name="actionSplitChapter"/>
     <addaction name="actionInsertImage"/>
     <addaction name="actionInsertSGFChapterMarker"/>
    </widget>
@@ -209,7 +209,7 @@
    <attribute name="toolBarBreak">
     <bool>false</bool>
    </attribute>
-   <addaction name="actionInsertChapterBreak"/>
+   <addaction name="actionSplitChapter"/>
    <addaction name="actionInsertImage"/>
   </widget>
   <widget class="QToolBar" name="toolBarHeadings">
@@ -662,7 +662,7 @@
     <string>F11</string>
    </property>
   </action>
-  <action name="actionInsertChapterBreak">
+  <action name="actionSplitChapter">
    <property name="icon">
     <iconset resource="../Resource_Files/main/main.qrc">
      <normaloff>:/main/insert-chapter-break.png</normaloff>:/main/insert-chapter-break.png</iconset>
@@ -671,11 +671,11 @@
     <string>&amp;Chapter Break</string>
    </property>
    <property name="toolTip">
-    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert Chapter Break&lt;/b&gt;&lt;/p&gt;
+    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Chapter Break&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Chapter breaks split your document into multiple XHTML documents (where supported).&lt;/p&gt;
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Splits the current chapter in two.&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Use them often and where appropriate.&lt;/p&gt;</string>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Do this often and where appropriate.&lt;/p&gt;</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+Return</string>

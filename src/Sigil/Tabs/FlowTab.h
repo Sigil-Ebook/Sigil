@@ -172,9 +172,9 @@ public slots:
     void Justify();
 
     /**
-     * Implements Insert chapter break action functionality.
+     * Implements Split chapter action functionality.
      */
-    void InsertChapterBreak();
+    void SplitChapter();
 
     /**
      * Implements Insert SGF chapter marker action functionality.
