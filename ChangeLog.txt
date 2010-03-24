@@ -1,4 +1,4 @@
-Sigil v0.2.0 ß3 2010.03.23.
+ï»¿Sigil v0.2.0 ÃŸ3 2010.03.23.
     - added two new WYSIWG actions that work for both Views: "Insert SGF Chapter Marker" which
     inserts the old SGF horizontal rule chapter breaking marker and "Split On SGF Chapter Markers"
     which splits the current chapter according to the placement of these markers (issue #262)
@@ -18,7 +18,7 @@ Sigil v0.2.0 ß3 2010.03.23.
     - Tidy now converts all uppercase attributes to lowercase; mixed-case attributes are left as is
     - fixed an issue with Tidy choking on uppercase attribute names
 
-Sigil v0.2.0 ß2 2010.03.10.
+Sigil v0.2.0 ÃŸ2 2010.03.10.
     - fixed an issue with exported HTML/CSS/etc. files inside EPUBs having superfluous newlines
     - fixed an issue with the TOC editor adding empty "class" attributes to headings (issue #297)
     - added a new "Window" menu item with new "Next Tab", "Previous Tab" and "Close Tab" actions 
@@ -43,7 +43,7 @@ Sigil v0.2.0 ß2 2010.03.10.
     - making sure that ID attributes used in the manifest section of the OPF are always valid
     - fixing export of epubs with XML files for OPS documents
 
-Sigil v0.2.0 ß1 2010.03.02.
+Sigil v0.2.0 ÃŸ1 2010.03.02.
     - after *many* months of work, the complete redesign of the Sigil main interface and backend is finished,
     resulting in waaaay too many changes, fixes and modifications under the hood that are too numerous
     to list here
