@@ -465,11 +465,14 @@ else()
                         COMMAND cmake -E copy ${CMAKE_SOURCE_DIR}/installer/Sigil.mpi ${MPI_LOCATION} )      
     
     # Copy Qt runtime libs
-    set( QT_LIBS QtCore QtGui QtNetwork QtSvg QtWebKit QtXml QtXmlPatterns QtDBus phonon )
+    set( QT_LIBS QtCore QtGui QtNetwork QtSvg QtWebKit QtXml QtXmlPatterns phonon )
     
-    # Apparently phonon is not needed on Linux...
     if( UNIX )
+        # Apparently phonon is not needed on Linux...
         list( REMOVE_ITEM QT_LIBS phonon)
+        
+        # ... and DBus is.
+        list( APPEND QT_LIBS QtDBus )
     endif()
 
     add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E make_directory ${MAIN_PACKAGE_DIR}/ )    
