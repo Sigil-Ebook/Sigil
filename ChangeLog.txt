@@ -1,4 +1,8 @@
-﻿Sigil v0.2.0 ß3 2010.03.23.
+﻿Sigil v0.2.0 RC1 ADD_DATE
+    - fixed an issue with Sigil crashing when trying to save a loaded epub that had some badly
+    formed metadata elements (issue #325)
+
+Sigil v0.2.0 ß3 2010.03.23.
     - added two new WYSIWYG actions that work for both Views: "Insert SGF Chapter Marker" which
     inserts the old SGF horizontal rule chapter breaking marker and "Split On SGF Chapter Markers"
     which splits the current chapter according to the placement of these markers (issue #262)

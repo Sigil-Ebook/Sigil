@@ -222,8 +222,14 @@ void OPFWriter::WriteDate( const QString &metaname, const QVariant &metavalue )
 {
     m_Writer->writeStartElement( "dc:date" );
 
-    QString date		= metavalue.toDate().toString( "yyyy-MM-dd" );
-    QString event_type	= metaname.split( " " )[ 2 ].toLower();
+    QString date = metavalue.toDate().toString( "yyyy-MM-dd" );
+    
+    // The metaname should be "Date of X", where X is
+    // "publication", "creation" etc.
+    QStringList metaname_words = metaname.split( " " );
+    QString event_type = metaname_words.count() == 3          ? 
+                         metaname.split( " " )[ 2 ].toLower() :
+                         "publication";
 
     m_Writer->writeAttribute( "opf:event", event_type );
     m_Writer->writeCharacters( date );
