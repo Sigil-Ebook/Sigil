@@ -160,8 +160,13 @@ void ImportOEBPS::ReadOPF()
     // this is only for people who specify
     // XML 1.1 when they actually only use XML 1.0 
     QString source = opf_text.replace(  QRegExp( "<\\?xml\\s+version=\"1.1\"\\s*\\?>" ),
-                                        "<?xml version=\"1.0\"?>"
+                                                 "<?xml version=\"1.0\"?>"
                                      );
+
+    // InDesign likes listing several files multiple times in the manifest,
+    // even though that's explicitly forbidden by the spec. So we use this
+    // to make sure we don't load such files multiple times.
+    QSet< QString > mainfest_file_paths;
 
     QXmlStreamReader opf( source );
 
@@ -179,7 +184,7 @@ void ImportOEBPS::ReadOPF()
 
                 // We create a copy of the attributes because
                 // the QXmlStreamAttributes die out after we 
-                // move away from the token
+                // move away from the token.
                 foreach( QXmlStreamAttribute attribute, opf.attributes() )
                 {
                     meta.attributes[ attribute.name().toString() ] = attribute.value().toString();
@@ -203,11 +208,15 @@ void ImportOEBPS::ReadOPF()
                 QString id   = opf.attributes().value( "", "id" ).toString(); 
                 QString href = opf.attributes().value( "", "href" ).toString();
 
+                // Paths are percent encoded in the OPF, we use "normal" paths internally
                 href = Utility::URLDecodePath( href );
 
-                if ( !href.endsWith( ".ncx" ) )
-
+                if ( !href.endsWith( ".ncx" ) && 
+                     !mainfest_file_paths.contains( href ) )
+                {                    
                     m_Files[ id ] = href;
+                    mainfest_file_paths << href;
+                }
             }
 
             // Get the list of XHTML files that

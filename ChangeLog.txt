@@ -1,4 +1,6 @@
 ﻿Sigil v0.2.0 RC1 ADD_DATE
+    - added a check that prevents Sigil from loading the same resource multiple times in 
+    invalid epubs (issue #339) 
     - fixed a bug that made the direct XHTML references in the NCX file less likely (issue #333)
     - fixed an issue with Sigil crashing when trying to save a loaded epub that had some badly
     formed metadata elements (issue #325)
