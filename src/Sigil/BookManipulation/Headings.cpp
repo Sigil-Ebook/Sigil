@@ -59,7 +59,7 @@ QList< Headings::Heading > Headings::GetHeadingListForOneFile( HTMLResource* htm
     Q_ASSERT( html_resource );
 
     QDomDocument document    = html_resource->GetDomDocumentForReading();
-    QDomElement body_element = document.firstChildElement( "body" );
+    QDomElement body_element = document.documentElement().firstChildElement( "body" );
 
     QList< QDomNode > heading_nodes = XHTMLDoc::GetTagMatchingChildren( document, HEADING_TAGS );
     int num_heading_nodes = heading_nodes.count();

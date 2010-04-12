@@ -127,8 +127,7 @@ void OPFWriter::MetadataDispatcher( const QString &metaname, const QVariant &met
     else if ( metaname == QObject::tr( "Language" ) )
     {
         WriteSimpleMetadata( metaname.toLower(), 
-                             Metadata::Instance().GetLanguageMap()[ metavalue.toString() ] 
-                            );
+                             Metadata::Instance().GetLanguageMap()[ metavalue.toString() ] );
     }
 
     else if ( ( metaname == QObject::tr( "ISBN" ) ) || 
