@@ -165,6 +165,10 @@ void BookBrowser::AddExisting()
 
     m_LastFolderOpen = QFileInfo( filenames.first() ).absolutePath();
 
+    // We need to store the current metadata since the 
+    // GetBook call will clear it.
+    QHash< QString, QList< QVariant > > old_metadata = m_Book->GetMetadata();
+
     foreach( QString filename, filenames )
     {
         if ( TEXT_EXTENSIONS.contains( QFileInfo( filename ).suffix().toLower() ) )
@@ -183,6 +187,8 @@ void BookBrowser::AddExisting()
             m_Book->GetFolderKeeper().AddContentFileToFolder( filename );
         }
     }    
+
+    m_Book->SetMetadata( old_metadata );
     
     Refresh();
 }

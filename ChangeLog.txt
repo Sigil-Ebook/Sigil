@@ -1,4 +1,6 @@
 ﻿Sigil v0.2.0 RC1 ADD_DATE
+    - fixed an issue where adding an existing HTML file through the Book Browser would clear
+    the current metadata in the book (issue #329)
     - added a check that prevents Sigil from loading the same resource multiple times in 
     invalid epubs (issue #339) 
     - fixed a bug that made the direct XHTML references in the NCX file less likely (issue #333)
