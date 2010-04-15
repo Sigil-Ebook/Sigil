@@ -111,39 +111,40 @@ void PerformHTMLUpdates::UpdateReferenceInNode( QDomNode node )
 
             int name_index = atr_value.lastIndexOf( filename );
 
-            if ( name_index != -1 )
+            if ( name_index == -1 )
+
+                continue;
+            
+            int filename_length  = filename.length();
+            int atr_value_length = atr_value.length();
+
+            QString new_path;
+
+            // First we look at whether the filename matches the attribute value,
+            // and then we determine whether it's actually a path that ends with the filename
+            if ( filename_length == atr_value_length || 
+                 ( ( name_index + filename_length == atr_value_length ) &&
+                   ( atr_value.at( name_index - 1 ) == QChar::fromAscii( '/' ) )
+                 )
+               )
             {
-                int filename_length  = filename.length();
-                int atr_value_length = atr_value.length();
+                new_path = m_HTMLUpdates.value( key_path );
+            }
 
-                QString new_path;
+            // This checks for when the path has a fragment ID (anchor reference)
+            else if ( atr_value.at( name_index + filename_length ) == QChar::fromAscii( '#' ) )
+            {
+                new_path = atr_value.mid( name_index + filename_length ).prepend( m_HTMLUpdates.value( key_path ) );
+            }
 
-                // First we look at whether the filename matches the attribute value,
-                // and then we determine whether it's actually a path that ends with the filename
-                if ( filename_length == atr_value_length || 
-                     ( ( name_index + filename_length == atr_value_length ) &&
-                       ( atr_value.at( name_index - 1 ) == QChar::fromAscii( '/' ) )
-                     )
-                   )
-                {
-                    new_path = m_HTMLUpdates.value( key_path );
-                }
+            if ( !new_path.isEmpty() )
+            {
+                attribute.setValue( Utility::URLEncodePath( new_path ) );
 
-                // This checks for when the path has a fragment ID (anchor reference)
-                else if ( atr_value.at( name_index + filename_length ) == QChar::fromAscii( '#' ) )
-                {
-                    new_path = atr_value.mid( name_index + filename_length ).prepend( m_HTMLUpdates.value( key_path ) );
-                }
-
-                if ( !new_path.isEmpty() )
-                {
-                    attribute.setValue( Utility::URLEncodePath( new_path ) );
-
-                    // We assign to "i" to break the outer loop
-                    i = num_attributes;
-                    break;
-                }
-            }  
+                // We assign to "i" to break the outer loop
+                i = num_attributes;
+                break;
+            }
         }
     }
 }
