@@ -301,7 +301,7 @@ void OPFWriter::WriteManifest()
         m_Writer->writeEmptyElement( "item" );
         m_Writer->writeAttribute( "id", GetValidID( name + "." + extension ) );
         m_Writer->writeAttribute( "href", Utility::URLEncodePath( relative_path ) );
-        m_Writer->writeAttribute( "media-type", m_Mimetypes[ extension ] );
+        m_Writer->writeAttribute( "media-type", m_Mimetypes[ extension.toLower() ] );
     }
 
     m_Writer->writeEndElement();	

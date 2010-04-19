@@ -1,4 +1,6 @@
 ﻿Sigil v0.2.0 RC1 ADD_DATE
+    - fixed an issue with files with uppercase extensions not having a mimetype set in the OPF
+    (issue #349)
     - fixed an issue with Sigil rewriting headings when the TOC was opened and no heading was 
     edited (issue #327)
     - fixed an issue where adding an existing HTML file through the Book Browser would clear
