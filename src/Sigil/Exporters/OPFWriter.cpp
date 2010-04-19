@@ -257,30 +257,50 @@ QString OPFWriter::GetValidID( const QString &value )
     QString new_value = value.simplified();
     int i = 0;
 
-    // Remove all whitespace
+    // Remove all forbidden characters.
     while ( i < new_value.size() )
     {
-        if ( new_value.at( i ).isSpace() )
-
+        if ( !IsValidIDCharacter( new_value.at( i ) ) )
+        
             new_value.remove( i, 1 );
-
+        
         else
-
-            ++i;
+        
+            ++i;        
     }
 
     if ( new_value.isEmpty() )
 
         return Utility::CreateUUID();
 
-    // IDs cannot start with a number
-    if ( new_value.at( 0 ).isNumber() )
+    QChar first_char = new_value.at( 0 );
 
+    // IDs cannot start with a number, a dash or a dot
+    if ( first_char.isNumber()      ||
+         first_char == QChar( '-' ) ||
+         first_char == QChar( '.' )
+       )
+    {
         new_value.prepend( "x" );
+    }
 
     return new_value;
 }
 
+
+// This is probably more rigorous 
+// than the XML spec, but it's simpler.
+// (spec ref: http://www.w3.org/TR/xml-id/#processing)
+bool OPFWriter::IsValidIDCharacter( const QChar &character )
+{
+    return character.isLetterOrNumber() ||
+           character == QChar( '=' )    ||
+           character == QChar( '-' )    ||
+           character == QChar( '_' )    ||
+           character == QChar( '.' )    ||
+           character == QChar( ':' )
+           ;
+}
 
 // Writes the <manifest> element
 void OPFWriter::WriteManifest()
@@ -391,6 +411,7 @@ void OPFWriter::CreateMimetypes()
     m_Mimetypes[ "otf"   ] = "application/x-font-opentype"; 
     m_Mimetypes[ "ttf"   ] = "application/x-font-truetype";
 }
+
 
 
 

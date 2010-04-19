@@ -80,6 +80,15 @@ private:
      */
     static QString GetValidID( const QString &value );
 
+    /**
+     * Determines if the provided character can appear
+     * in an XML ID attribute.
+     *
+     * @param character The character that needs to be checked.
+     * @return True if the character is valid.
+     */
+    static bool IsValidIDCharacter( const QChar &character );
+
     // Writes the <manifest> element
     void WriteManifest();
 
