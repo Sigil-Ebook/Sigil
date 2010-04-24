@@ -27,8 +27,10 @@
 #include "ui_main.h"
 #include "../BookManipulation/Book.h"
 #include <QSharedPointer>
+#include <QMutex>
 
 const int MAX_RECENT_FILES = 5;
+const int STATUSBAR_MSG_DISPLAY_TIME = 2000;
 
 class QComboBox;
 class QLabel;
@@ -37,6 +39,7 @@ class FindReplace;
 class TabManager;
 class BookBrowser;
 class ContentTab;
+
 
 /**
  * @mainpage 
@@ -58,6 +61,26 @@ public:
     // should load (new file loaded if empty); the second is the
     // windows parent; the third specifies the flags used to modify window behaviour
     MainWindow( const QString &openfilepath = QString(), QWidget *parent = 0, Qt::WFlags flags = 0 );
+
+    /**
+     * Returns the status bar mutex used to protect 
+     * write access to the MainWindow's status bar.
+     * 
+     * @return The status bar mutex.
+     */
+    QMutex& GetStatusBarMutex();
+
+    /**
+     * Shows a message on the status bar of the current MainWindow.
+     *
+     * @param message The message to display.
+     * @param millisecond_duration The millisecond duration during
+     *                             which the message should be displayed.
+     *
+     * @note This function is thread-safe.
+     */
+    static void ShowMessageOnCurrentStatusBar( const QString &message, 
+                                               int millisecond_duration = STATUSBAR_MSG_DISPLAY_TIME );
 
 protected:
 
@@ -209,6 +232,13 @@ private:
     // we can save, and the values being filters for use in file dialogs
     static const QMap< QString, QString > GetSaveFiltersMap();
 
+    /**
+     * Returns the currently active MainWindow. 
+     *
+     * @return The currently active MainWindow.
+     */
+    static MainWindow& GetCurrentMainWindow();
+
     // Sets the current file in window title;
     // updates the recent files list
     void SetCurrentFile( const QString &filename );
@@ -266,6 +296,12 @@ private:
     // for the last MAX_RECENT_FILES files;
     // static because on Mac we have many MainWindows
     static QStringList s_RecentFiles;
+
+    /**
+     * Protects the status bar showMessage() func
+     * from being called from several threads at once.
+     */
+    QMutex m_StatusBarMutex;
 
     // Array of recent files actions that are in the File menu;
     QAction *m_RecentFileActions[ MAX_RECENT_FILES ];

@@ -37,8 +37,6 @@
 #include "Tabs/TabManager.h"
 #include "ResourceObjects/HTMLResource.h"
 
-
-static const int STATUSBAR_MSG_DISPLAY_TIME = 2000;
 static const int TEXT_ELIDE_WIDTH           = 300;
 static const QString SETTINGS_GROUP         = "mainwindow";
 static const float ZOOM_STEP                = 0.1f;
@@ -102,6 +100,28 @@ MainWindow::MainWindow( const QString &openfilepath, QWidget *parent, Qt::WFlags
     TabChanged( NULL, &m_TabManager.GetCurrentContentTab() );
 
     LoadInitialFile( openfilepath );
+}
+
+
+QMutex& MainWindow::GetStatusBarMutex()
+{
+    return m_StatusBarMutex;
+}
+
+
+void MainWindow::ShowMessageOnCurrentStatusBar( const QString &message, 
+                                                int millisecond_duration )
+{
+    MainWindow& main_window = GetCurrentMainWindow();
+
+    QMutexLocker locker( &main_window.GetStatusBarMutex() );
+
+    QStatusBar* status_bar = GetCurrentMainWindow().statusBar();
+
+    // In Sigil, every MainWindow has to have a status bar
+    Q_ASSERT( status_bar );
+
+    status_bar->showMessage( message, millisecond_duration );
 }
 
 
@@ -396,7 +416,6 @@ void MainWindow::AboutDialog()
 
     about.exec();
 }
-
 
 
 // Gets called every time the document is modified;
@@ -1012,6 +1031,34 @@ const QMap< QString, QString > MainWindow::GetSaveFiltersMap()
 }
 
 
+MainWindow& MainWindow::GetCurrentMainWindow()
+{
+    QObject *object = qobject_cast< QObject* >( QApplication::activeWindow() );
+    MainWindow *main_window = NULL;
+
+    // In Sigil, every window has to be either a MainWindow,
+    // or the child of one.
+    while (true)
+    {
+        main_window = qobject_cast< MainWindow* >( object );
+
+        if ( main_window )
+        {
+            break;
+        }
+
+        else
+        {
+            object = object->parent();
+
+            Q_ASSERT( object );
+        }
+    }
+
+    return *main_window;
+}
+
+
 // Sets the current file in window title;
 // updates the recent files list
 void MainWindow::SetCurrentFile( const QString &filename )
@@ -1392,6 +1439,8 @@ void MainWindow::BreakTabConnections( ContentTab *tab )
 
     disconnect( tab,                                0, this, 0 );
 }
+
+
 
 
 
