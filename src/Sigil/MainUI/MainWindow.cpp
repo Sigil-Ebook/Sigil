@@ -113,9 +113,7 @@ void MainWindow::ShowMessageOnCurrentStatusBar( const QString &message,
                                                 int millisecond_duration )
 {
     MainWindow& main_window = GetCurrentMainWindow();
-
     QMutexLocker locker( &main_window.GetStatusBarMutex() );
-
     QStatusBar* status_bar = GetCurrentMainWindow().statusBar();
 
     // In Sigil, every MainWindow has to have a status bar
@@ -675,6 +673,8 @@ void MainWindow::CreateChapterBreakOldTab( QString content, HTMLResource& origin
     {
         flow_tab->ScrollToTop();
     }
+
+    statusBar()->showMessage( tr( "Chapter split" ), STATUSBAR_MSG_DISPLAY_TIME );
 }
 
 
@@ -685,6 +685,8 @@ void MainWindow::CreateNewChapters( QStringList new_chapters )
 
     m_Book->CreateNewChapters( new_chapters );
     m_BookBrowser->Refresh();
+
+    statusBar()->showMessage( tr( "Chapters split" ), STATUSBAR_MSG_DISPLAY_TIME );
 }
 
 

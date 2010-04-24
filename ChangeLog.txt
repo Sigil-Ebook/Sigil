@@ -1,4 +1,5 @@
 ﻿Sigil v0.2.0 RC1 ADD_DATE
+    - the status bar now shows a message after chapter split operations
     - fixed an issue with filenames with characters that should not appear in valid XML IDs
     having those characters added anyway (issue #344)
     - fixed an issue with files with uppercase extensions not having a mimetype set in the OPF
