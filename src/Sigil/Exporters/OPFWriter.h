@@ -102,8 +102,12 @@ private:
     // has fewer characters than 'threshold' number. 
     bool IsFlowUnderThreshold( HTMLResource *resource, int threshold ) const;
 
+    bool GuideTypesPresent();
+
     // Initializes m_Mimetypes
     void CreateMimetypes();
+
+    void CreateGuideTypes();
 
 
     ///////////////////////////////
@@ -111,6 +115,9 @@ private:
     ///////////////////////////////
 
     QHash<QString, QString> m_Mimetypes;
+
+    // TODO: this should probably go to some singleton
+    QHash< int, tuple< QString, QString > > m_GuideTypes;
 };
 
 #endif // OPFWRITER_H

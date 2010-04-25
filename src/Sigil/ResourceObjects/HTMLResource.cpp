@@ -38,11 +38,23 @@ HTMLResource::HTMLResource( const QString &fullfilepath,
     m_TextDocument( NULL ),
     m_WebPageIsOld( true ),
     m_TextDocumentIsOld( true ),
+    m_GuideSemanticType( HTMLResource::GuideSemanticType_NoType ),
     m_ReadingOrder( reading_order ),
     c_jQuery(         Utility::ReadUnicodeTextFile( ":/javascript/jquery-1.4.2.min.js"          ) ),
     c_jQueryScrollTo( Utility::ReadUnicodeTextFile( ":/javascript/jquery.scrollTo-1.4.2-min.js" ) )
 {
 
+}
+
+
+HTMLResource::GuideSemanticType HTMLResource::GetGuideSemanticType()
+{
+    return m_GuideSemanticType;
+}
+
+void HTMLResource::SetGuideSemanticType( GuideSemanticType type )
+{
+    m_GuideSemanticType = type;
 }
 
 
@@ -389,4 +401,3 @@ void HTMLResource::TrackNewResources( const QStringList &filepaths )
         }
     }
 }
-

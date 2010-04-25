@@ -37,6 +37,7 @@ class QUrl;
 class QPoint;
 class QMenu;
 class QAction;
+class QSignalMapper;
 
 
 /**
@@ -139,6 +140,15 @@ private slots:
     */
     void Remove();
 
+    /**
+     * Adds the semantic type information to the currently
+     * selected resource.
+     *
+     * @param type The integer value of the HTMLResource::GuideSemanticType
+     *             to be added to the resource.
+     */
+    void AddGuideSemanticType( int type );
+
 private:
 
     /**
@@ -164,6 +174,12 @@ private:
     void CreateContextMenuActions();
 
     /**
+     * Creates all the actions for the <guide>
+     * element semantics.
+     */
+    void CreateGuideSemanticActions();
+
+    /**
      * Tries to setup the context menu for the specified point,
      * and returns true on success.
      *
@@ -171,6 +187,22 @@ private:
      * @return \c true if the menu could be set up.
      */
     bool SuccessfullySetupContextMenu( const QPoint &point );
+
+    /**
+     * Sets up the sub-menu for adding semantic information.
+     *
+     * @param resource The resource on which the context menu was invoked.
+     */
+    void SetupSemanticContextmenu( Resource *resource );
+
+
+    /**
+     * Sets the checked state for the semantic actions
+     * based on the resource current state.
+     *
+     * @param resource The resource on which the context menu was invoked.
+     */
+    void SetSemanticActionCheckState( Resource *resource );
 
     /**
      * Returns the currently selected resource in the tree view.
@@ -210,12 +242,22 @@ private:
      */
     QMenu &m_ContextMenu;
 
+    /**
+     * The sub-menu for adding semantic
+     * information to resources.
+     */
+    QMenu &m_SemanticsContextMenu;
+
     // The context menu actions.
 
     QAction *m_AddExisting;
     QAction *m_AddNew;
     QAction *m_Rename;
     QAction *m_Remove;
+
+    QList< QAction* > m_GuideSemanticActions;
+
+    QSignalMapper &m_SemanticMapper;
 
     /**
      * The resource type of the last item on which the 

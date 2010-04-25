@@ -42,6 +42,38 @@ public:
                   int reading_order,
                   QObject *parent = NULL );
 
+    /**
+    * Represents all the semantic types
+    * for the <guide> element.
+    *
+    * @sa http://www.idpf.org/2007/opf/OPF_2.0_final_spec.html#Section2.6
+    */
+    enum GuideSemanticType
+    {
+        GuideSemanticType_NoType = -1,
+        GuideSemanticType_Cover,
+        GuideSemanticType_TitlePage,
+        GuideSemanticType_TableOfContents,
+        GuideSemanticType_Index,
+        GuideSemanticType_Glossary, 	
+        GuideSemanticType_Acknowledgments, 	
+        GuideSemanticType_Bibliography,
+        GuideSemanticType_Colophon,
+        GuideSemanticType_CopyrightPage, 	
+        GuideSemanticType_Dedication,
+        GuideSemanticType_Epigraph,
+        GuideSemanticType_Foreword,	
+        GuideSemanticType_ListOfIllustrations,
+        GuideSemanticType_ListOfTables,
+        GuideSemanticType_Notes,
+        GuideSemanticType_Preface, 	
+        GuideSemanticType_Text
+    };
+
+    GuideSemanticType GetGuideSemanticType();
+
+    void SetGuideSemanticType( GuideSemanticType type );
+
     virtual ResourceType Type() const;
 
     QWebPage& GetWebPage();
@@ -91,6 +123,7 @@ public:
     // TODO: turn this into operator<
     static bool LessThan( HTMLResource* res_1, HTMLResource* res_2 );
 
+
 private slots:
 
     void LinkedResourceUpdated();
@@ -133,6 +166,8 @@ private:
     bool m_TextDocumentIsOld;
 
     bool m_RefreshNeeded;
+
+    GuideSemanticType m_GuideSemanticType;
 
     // Starts at 0, not 1
     int m_ReadingOrder;

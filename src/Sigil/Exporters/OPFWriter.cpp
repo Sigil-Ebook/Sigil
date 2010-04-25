@@ -38,6 +38,7 @@ OPFWriter::OPFWriter( QSharedPointer< Book > book, QIODevice &device )
     XMLWriter( book, device )
 {
     CreateMimetypes();
+    CreateGuideTypes();
 }
 
 
@@ -351,24 +352,31 @@ void OPFWriter::WriteSpine()
 // Writes the <guide> element
 void OPFWriter::WriteGuide()
 {
-    HTMLResource *first_html = m_Book->GetConstFolderKeeper().GetSortedHTMLResources()[ 0 ];
+    if ( !GuideTypesPresent() )
 
-    Q_ASSERT( first_html );
-    
-    // We write the cover page (and the guide in general)
-    // only if the first OPS document (flow) is smaller
-    // than our threshold
-    if ( IsFlowUnderThreshold( first_html, FLOW_SIZE_THRESHOLD ) )
+        return;
+
+    m_Writer->writeStartElement( "guide" );
+
+    foreach( HTMLResource *html_resource, m_Book->GetConstFolderKeeper().GetSortedHTMLResources() )
     {
-        m_Writer->writeStartElement( "guide" );
+        HTMLResource::GuideSemanticType semantic_type = html_resource->GetGuideSemanticType();
+
+        if ( semantic_type == HTMLResource::GuideSemanticType_NoType )
+
+            continue;
+
+        QString type_attribute;
+        QString title_attribute;
+        tie( type_attribute, title_attribute ) = m_GuideTypes[ semantic_type ];
 
         m_Writer->writeEmptyElement( "reference" );
-        m_Writer->writeAttribute( "type", "cover" );
-        m_Writer->writeAttribute( "title", "Cover Page" );
-        m_Writer->writeAttribute( "href", Utility::URLEncodePath( first_html->GetRelativePathToOEBPS() ) );
-
-        m_Writer->writeEndElement();
+        m_Writer->writeAttribute( "type", type_attribute );
+        m_Writer->writeAttribute( "title", title_attribute );
+        m_Writer->writeAttribute( "href", Utility::URLEncodePath( html_resource->GetRelativePathToOEBPS() ) );
     }
+
+    m_Writer->writeEndElement();
 }
 
 
@@ -378,6 +386,19 @@ bool OPFWriter::IsFlowUnderThreshold( HTMLResource *resource, int threshold ) co
 
     QDomElement doc_element = resource->GetDomDocumentForReading().documentElement();
     return doc_element.text().count() < threshold;
+}
+
+
+bool OPFWriter::GuideTypesPresent()
+{
+    foreach( HTMLResource *html_resource, m_Book->GetConstFolderKeeper().GetSortedHTMLResources() )
+    {
+        if ( html_resource->GetGuideSemanticType() != HTMLResource::GuideSemanticType_NoType )
+
+            return true;
+    }
+
+    return false;
 }
 
 
@@ -410,6 +431,61 @@ void OPFWriter::CreateMimetypes()
     // these will have to do
     m_Mimetypes[ "otf"   ] = "application/x-font-opentype"; 
     m_Mimetypes[ "ttf"   ] = "application/x-font-truetype";
+}
+
+
+void OPFWriter::CreateGuideTypes()
+{
+    m_GuideTypes[ HTMLResource::GuideSemanticType_Cover ]           
+        = make_tuple( QString( "cover" ),           QString( "Cover" ) );
+
+    m_GuideTypes[ HTMLResource::GuideSemanticType_TitlePage ]       
+        = make_tuple( QString( "title-page" ),      QString( "Title Page" ) );
+
+    m_GuideTypes[ HTMLResource::GuideSemanticType_TableOfContents ] 
+        = make_tuple( QString( "toc" ),             QString( "Table Of Contents" ) );
+
+    m_GuideTypes[ HTMLResource::GuideSemanticType_Index ] 
+        = make_tuple( QString( "index" ),           QString( "Index" ) );
+
+    m_GuideTypes[ HTMLResource::GuideSemanticType_Glossary ] 
+        = make_tuple( QString( "glossary" ),        QString( "Glossary" ) );
+
+    m_GuideTypes[ HTMLResource::GuideSemanticType_Acknowledgments ] 
+        = make_tuple( QString( "acknowledgments" ), QString( "Acknowledgments" ) );
+
+    m_GuideTypes[ HTMLResource::GuideSemanticType_Bibliography ] 
+        = make_tuple( QString( "bibliography" ),    QString( "Bibliography" ) );
+
+    m_GuideTypes[ HTMLResource::GuideSemanticType_Colophon ] 
+        = make_tuple( QString( "colophon" ),        QString( "Colophon" ) );
+
+    m_GuideTypes[ HTMLResource::GuideSemanticType_CopyrightPage ] 
+        = make_tuple( QString( "copyright-page" ),  QString( "Copyright Page" ) );
+
+    m_GuideTypes[ HTMLResource::GuideSemanticType_Dedication ] 
+        = make_tuple( QString( "dedication" ),      QString( "Dedication" ) );
+
+    m_GuideTypes[ HTMLResource::GuideSemanticType_Epigraph ] 
+        = make_tuple( QString( "epigraph" ),        QString( "Epigraph" ) );
+
+    m_GuideTypes[ HTMLResource::GuideSemanticType_Foreword ] 
+        = make_tuple( QString( "foreword" ),        QString( "Foreword" ) );
+
+    m_GuideTypes[ HTMLResource::GuideSemanticType_ListOfIllustrations ] 
+        = make_tuple( QString( "loi" ),             QString( "List Of Illustrations" ) );
+
+    m_GuideTypes[ HTMLResource::GuideSemanticType_ListOfTables ] 
+        = make_tuple( QString( "lot" ),             QString( "List Of Tables" ) );
+
+    m_GuideTypes[ HTMLResource::GuideSemanticType_Notes ] 
+        = make_tuple( QString( "notes" ),           QString( "Notes" ) );
+
+    m_GuideTypes[ HTMLResource::GuideSemanticType_Preface ] 
+        = make_tuple( QString( "preface" ),         QString( "Preface" ) );
+
+    m_GuideTypes[ HTMLResource::GuideSemanticType_Text ] 
+        = make_tuple( QString( "text" ),            QString( "Text" ) );
 }
 
 
