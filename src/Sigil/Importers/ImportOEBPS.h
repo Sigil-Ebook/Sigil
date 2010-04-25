@@ -67,6 +67,8 @@ protected:
 
     void ReadSpineElementChild( QXmlStreamReader &opf_reader );
 
+    void ReadGuideElementChild( QXmlStreamReader &opf_reader );
+
     // Loads the metadata from the m_MetaElements list
     // (filled by reading the OPF) into the book
     void LoadMetadata();
@@ -107,6 +109,10 @@ protected:
 
     // The list of metadata elements in the OPF
     QList< Metadata::MetaElement > m_MetaElements;
+
+    // The keys are the file ID's, the values 
+    // are key-value pairs of semantic information
+    QHash< QString, QHash< QString, QString > > m_SemanticInformation;
 };
 
 

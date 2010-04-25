@@ -58,6 +58,7 @@ GuideSemantics::GuideSemanticType GuideSemantics::MapReferenceTypeToGuideEnum( c
 GuideSemantics::GuideSemantics()
 {
     CreateGuideMapping();
+    CreateReferenceTypeToGuideEnum();
 }
 
 

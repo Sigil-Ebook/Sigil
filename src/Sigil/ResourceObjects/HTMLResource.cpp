@@ -24,6 +24,7 @@
 #include "../Misc/Utility.h"
 #include "../BookManipulation/CleanSource.h"
 #include "../BookManipulation/XHTMLDoc.h"
+#include "../BookManipulation/GuideSemantics.h"
 
 static const QString LOADED_CONTENT_MIMETYPE = "application/xhtml+xml";
 
@@ -31,6 +32,7 @@ static const QString LOADED_CONTENT_MIMETYPE = "application/xhtml+xml";
 HTMLResource::HTMLResource( const QString &fullfilepath, 
                             QHash< QString, Resource* > *hash_owner,
                             int reading_order,
+                            QHash< QString, QString > semantic_information,
                             QObject *parent )
     : 
     Resource( fullfilepath, hash_owner, parent ),
@@ -43,7 +45,13 @@ HTMLResource::HTMLResource( const QString &fullfilepath,
     c_jQuery(         Utility::ReadUnicodeTextFile( ":/javascript/jquery-1.4.2.min.js"          ) ),
     c_jQueryScrollTo( Utility::ReadUnicodeTextFile( ":/javascript/jquery.scrollTo-1.4.2-min.js" ) )
 {
-
+    // There should only be one entry in the hash for HTMLResources,
+    // and that's guide type -> title
+    if ( semantic_information.keys().count() == 1 )
+    {
+        m_GuideSemanticType  = GuideSemantics::Instance().MapReferenceTypeToGuideEnum( semantic_information.keys()[ 0 ] );
+        m_GuideSemanticTitle = semantic_information.values()[ 0 ];
+    }
 }
 
 
@@ -52,9 +60,20 @@ GuideSemantics::GuideSemanticType HTMLResource::GetGuideSemanticType()
     return m_GuideSemanticType;
 }
 
+
+QString HTMLResource::GetGuideSemanticTitle()
+{
+    return m_GuideSemanticTitle;
+}
+
+
 void HTMLResource::SetGuideSemanticType( GuideSemantics::GuideSemanticType type )
 {
     m_GuideSemanticType = type;
+
+    // We reset the title since it's tied to
+    // the type. On export, empty titles take default values.
+    m_GuideSemanticTitle = "";
 }
 
 

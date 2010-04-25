@@ -24,6 +24,7 @@
 #define HTMLRESOURCE_H
 
 #include <QDomDocument>
+#include <QHash>
 #include "Resource.h"
 #include "../BookManipulation/GuideSemantics.h"
 
@@ -42,9 +43,12 @@ public:
     HTMLResource( const QString &fullfilepath, 
                   QHash< QString, Resource* > *hash_owner,
                   int reading_order,
+                  QHash< QString, QString > semantic_information,
                   QObject *parent = NULL );
 
     GuideSemantics::GuideSemanticType GetGuideSemanticType();
+
+    QString GetGuideSemanticTitle();
 
     void SetGuideSemanticType( GuideSemantics::GuideSemanticType type );
 
@@ -142,6 +146,8 @@ private:
     bool m_RefreshNeeded;
 
     GuideSemantics::GuideSemanticType m_GuideSemanticType;
+
+    QString m_GuideSemanticTitle;
 
     // Starts at 0, not 1
     int m_ReadingOrder;

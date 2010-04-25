@@ -108,7 +108,9 @@ void FolderKeeper::AddInfraFileToFolder( const QString &fullfilepath, const QStr
 }
 
 
-Resource& FolderKeeper::AddContentFileToFolder( const QString &fullfilepath, int reading_order )
+Resource& FolderKeeper::AddContentFileToFolder( const QString &fullfilepath, 
+                                                int reading_order,
+                                                QHash< QString, QString > semantic_information )
 {
     if ( !QFileInfo( fullfilepath ).exists() )
 
@@ -148,7 +150,7 @@ Resource& FolderKeeper::AddContentFileToFolder( const QString &fullfilepath, int
             new_file_path = m_FullPathToTextFolder + "/" + filename;
             relative_path = TEXT_FOLDER_NAME + "/" + filename;
 
-            resource = new HTMLResource( new_file_path, &m_Resources, reading_order );
+            resource = new HTMLResource( new_file_path, &m_Resources, reading_order, semantic_information );
         }
 
         else if ( STYLE_EXTENSIONS.contains( extension ) )

@@ -348,6 +348,10 @@ void OPFWriter::WriteGuide()
         QString title_attribute;
         tie( type_attribute, title_attribute ) = GuideSemantics::Instance().GetGuideTypeMapping()[ semantic_type ];
 
+        if ( !html_resource->GetGuideSemanticTitle().isEmpty() )
+
+            title_attribute = html_resource->GetGuideSemanticTitle();
+
         m_Writer->writeEmptyElement( "reference" );
         m_Writer->writeAttribute( "type", type_attribute );
         m_Writer->writeAttribute( "title", title_attribute );

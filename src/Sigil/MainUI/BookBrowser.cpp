@@ -254,13 +254,18 @@ void BookBrowser::AddGuideSemanticType( int type )
     HTMLResource *html_resource = qobject_cast< HTMLResource* >( GetCurrentResource() );
     Q_ASSERT( html_resource );
 
-    // There can be only one!
+    // Industry best practice is to have only one 
+    // <guide> reference type instance per book.
     foreach( HTMLResource *iter_resource, m_Book->GetFolderKeeper().GetSortedHTMLResources() )
     {
         if ( iter_resource->GetGuideSemanticType() == semantic_type )
         {
             iter_resource->SetGuideSemanticType( GuideSemantics::NoType );
-            break;
+            
+            // There is no "break" statement here because we might
+            // load an epub that has several instance of one ref type.
+            // We preserve them on load, but if the user is intent on
+            // changing them, then we enforce "on type instance per book".
         }
     }
 

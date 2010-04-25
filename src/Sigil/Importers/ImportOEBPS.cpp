@@ -189,7 +189,13 @@ void ImportOEBPS::ReadOPF()
         // represent the reading order
         else if ( opf_reader.name() == "itemref" )           
         
-            ReadSpineElementChild( opf_reader ); 
+            ReadSpineElementChild( opf_reader );
+
+        // Get the <guide> semantic information 
+        else if ( opf_reader.name() == "reference" )
+        
+            ReadGuideElementChild( opf_reader );            
+        
     }
 
     if ( opf_reader.hasError() )
@@ -230,10 +236,10 @@ void ImportOEBPS::ReadMetadataElementChild( QXmlStreamReader &opf_reader )
 
 void ImportOEBPS::ReadManifestElementChild( QXmlStreamReader &opf_reader )
 {
-    QString id   = opf_reader.attributes().value( "", "id" ).toString(); 
+    QString id   = opf_reader.attributes().value( "", "id"   ).toString(); 
     QString href = opf_reader.attributes().value( "", "href" ).toString();
 
-    // Paths are percent encoded in the OPF, we use "normal" paths internally
+    // Paths are percent encoded in the OPF, we use "normal" paths internally.
     href = Utility::URLDecodePath( href );
 
     if ( !href.endsWith( ".ncx" ) && 
@@ -250,6 +256,31 @@ void ImportOEBPS::ReadSpineElementChild( QXmlStreamReader &opf_reader )
     m_ReadingOrderIds.append( opf_reader.attributes().value( "", "idref" ).toString() );
 }
 
+
+void ImportOEBPS::ReadGuideElementChild( QXmlStreamReader &opf_reader )
+{
+    QString type  = opf_reader.attributes().value( "", "type"  ).toString(); 
+    QString title = opf_reader.attributes().value( "", "title" ).toString();
+    QString href  = opf_reader.attributes().value( "", "href"  ).toString();
+
+    // Paths are percent encoded in the OPF, we use "normal" paths internally.
+    href = Utility::URLDecodePath( href );
+
+    // We remove the fragment identifier if there is one.
+    href = !href.contains( "#" ) ? href : href.left( href.indexOf( "#" ) );
+
+    foreach( QString id, m_Files.keys() )
+    {
+        if ( m_Files[ id ] == href )
+        {
+            QHash< QString, QString > semantics;
+            semantics[ type ] = title;
+            m_SemanticInformation[ id ] = semantics;
+
+            break;
+        }
+    }
+}
 
 
 // Loads the metadata from the m_MetaElements list
@@ -304,14 +335,15 @@ QHash< QString, QString > ImportOEBPS::LoadFolderStructure()
 }
 
 
-tuple< QString, QString > ImportOEBPS::LoadOneFile( const QString &key )
+tuple< QString, QString > ImportOEBPS::LoadOneFile( const QString &ID )
 {
-    QString path         = m_Files.value( key );
+    QString path         = m_Files.value( ID );
     QString fullfilepath = QFileInfo( m_OPFFilePath ).absolutePath() + "/" + path;
 
     try
     {
-        Resource &resource = m_Book->GetFolderKeeper().AddContentFileToFolder( fullfilepath, m_ReadingOrderIds.indexOf( key ) );
+        Resource &resource = m_Book->GetFolderKeeper().AddContentFileToFolder( fullfilepath, 
+                                m_ReadingOrderIds.indexOf( ID ), m_SemanticInformation[ ID ] );
         QString newpath = "../" + resource.GetRelativePathToOEBPS(); 
 
         return make_tuple( path, newpath );

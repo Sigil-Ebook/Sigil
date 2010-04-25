@@ -1,4 +1,5 @@
 ﻿Sigil v0.2.0 RC1 ADD_DATE
+    - all OPF <guide> element information when loading epubs is now preserved
     - added a new "Add Semantics" menu for XHTML documents; it can be used to mark XHTMLs as
     "Dedication", "Colophon", "Glossary" etc. for the <guide> element of the OPF
     - the status bar now shows a message after chapter split operations

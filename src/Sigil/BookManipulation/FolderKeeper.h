@@ -53,7 +53,9 @@ public:
     void AddInfraFileToFolder( const QString &fullfilepath, const QString &newfilename );
 
     // The file is recognized according to its extension.
-    Resource& AddContentFileToFolder( const QString &fullfilepath, int reading_order = -1 );
+    Resource& AddContentFileToFolder( const QString &fullfilepath, 
+                                      int reading_order = -1,
+                                      QHash< QString, QString > semantic_information = QHash< QString, QString >() );
 
     int GetHighestReadingOrder() const;
 
