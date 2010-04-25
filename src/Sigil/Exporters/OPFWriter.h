@@ -162,11 +162,6 @@ private:
      */
     void CreateMimetypes();
 
-    /**
-     * Initializes m_GuideTypes. 
-     */
-    void CreateGuideTypes();
-
 
     ///////////////////////////////
     // PRIVATE MEMBER VARIABLES
@@ -177,14 +172,6 @@ private:
      * and appropriate MIME types.
      */
     QHash<QString, QString> m_Mimetypes;
-
-    // TODO: this should probably go to some singleton
-
-    /**
-     * A mapping between HTMLResource::GuideSemanticType
-     * and the reference type and title.
-     */
-    QHash< int, tuple< QString, QString > > m_GuideTypes;
 };
 
 #endif // OPFWRITER_H

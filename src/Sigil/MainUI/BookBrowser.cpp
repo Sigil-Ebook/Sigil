@@ -23,6 +23,7 @@
 #include "BookBrowser.h"
 #include "OPFModel.h"
 #include "../BookManipulation/Book.h"
+#include "../BookManipulation/GuideSemantics.h"
 #include "../Misc/Utility.h"
 #include "ResourceObjects/HTMLResource.h"
 #include "../Importers/ImportHTML.h"
@@ -248,7 +249,7 @@ void BookBrowser::Remove()
 
 void BookBrowser::AddGuideSemanticType( int type )
 {
-    HTMLResource::GuideSemanticType semantic_type = (HTMLResource::GuideSemanticType) type;
+    GuideSemantics::GuideSemanticType semantic_type = (GuideSemantics::GuideSemanticType) type;
 
     HTMLResource *html_resource = qobject_cast< HTMLResource* >( GetCurrentResource() );
     Q_ASSERT( html_resource );
@@ -258,7 +259,7 @@ void BookBrowser::AddGuideSemanticType( int type )
     {
         if ( iter_resource->GetGuideSemanticType() == semantic_type )
         {
-            iter_resource->SetGuideSemanticType( HTMLResource::GuideSemanticType_NoType );
+            iter_resource->SetGuideSemanticType( GuideSemantics::NoType );
             break;
         }
     }
@@ -329,88 +330,88 @@ void BookBrowser::CreateGuideSemanticActions()
     QAction *action = NULL;
 
     action = new QAction( tr( "Cover" ), this );
-    action->setData( HTMLResource::GuideSemanticType_Cover );
-    m_SemanticMapper.setMapping( action, HTMLResource::GuideSemanticType_Cover );
+    action->setData( GuideSemantics::Cover );
+    m_SemanticMapper.setMapping( action, GuideSemantics::Cover );
     m_GuideSemanticActions.append( action );
 
     action = new QAction( tr( "Title Page" ), this );
-    action->setData( HTMLResource::GuideSemanticType_TitlePage );
-    m_SemanticMapper.setMapping( action, HTMLResource::GuideSemanticType_TitlePage );
+    action->setData( GuideSemantics::TitlePage );
+    m_SemanticMapper.setMapping( action, GuideSemantics::TitlePage );
     m_GuideSemanticActions.append( action );
 
     action = new QAction( tr( "Table Of Contents" ), this );
-    action->setData( HTMLResource::GuideSemanticType_TableOfContents );
-    m_SemanticMapper.setMapping( action, HTMLResource::GuideSemanticType_TableOfContents );
+    action->setData( GuideSemantics::TableOfContents );
+    m_SemanticMapper.setMapping( action, GuideSemantics::TableOfContents );
     m_GuideSemanticActions.append( action );
 
     action = new QAction( tr( "Index" ), this );
-    action->setData( HTMLResource::GuideSemanticType_Index );
-    m_SemanticMapper.setMapping( action, HTMLResource::GuideSemanticType_Index );
+    action->setData( GuideSemantics::Index );
+    m_SemanticMapper.setMapping( action, GuideSemantics::Index );
     m_GuideSemanticActions.append( action );
 
     action = new QAction( tr( "Glossary" ), this );
-    action->setData( HTMLResource::GuideSemanticType_Glossary );
-    m_SemanticMapper.setMapping( action, HTMLResource::GuideSemanticType_Glossary );
+    action->setData( GuideSemantics::Glossary );
+    m_SemanticMapper.setMapping( action, GuideSemantics::Glossary );
     m_GuideSemanticActions.append( action );
 
     action = new QAction( tr( "Acknowledgments" ), this );
-    action->setData( HTMLResource::GuideSemanticType_Acknowledgments );
-    m_SemanticMapper.setMapping( action, HTMLResource::GuideSemanticType_Acknowledgments );
+    action->setData( GuideSemantics::Acknowledgments );
+    m_SemanticMapper.setMapping( action, GuideSemantics::Acknowledgments );
     m_GuideSemanticActions.append( action );
 
     action = new QAction( tr( "Bibliography" ), this );
-    action->setData( HTMLResource::GuideSemanticType_Bibliography );
-    m_SemanticMapper.setMapping( action, HTMLResource::GuideSemanticType_Bibliography );
+    action->setData( GuideSemantics::Bibliography );
+    m_SemanticMapper.setMapping( action, GuideSemantics::Bibliography );
     m_GuideSemanticActions.append( action );
 
     action = new QAction( tr( "Colophon" ), this );
-    action->setData( HTMLResource::GuideSemanticType_Colophon );
-    m_SemanticMapper.setMapping( action, HTMLResource::GuideSemanticType_Colophon );
+    action->setData( GuideSemantics::Colophon );
+    m_SemanticMapper.setMapping( action, GuideSemantics::Colophon );
     m_GuideSemanticActions.append( action );
 
     action = new QAction( tr( "CopyrightPage" ), this );
-    action->setData( HTMLResource::GuideSemanticType_CopyrightPage );
-    m_SemanticMapper.setMapping( action, HTMLResource::GuideSemanticType_CopyrightPage );
+    action->setData( GuideSemantics::CopyrightPage );
+    m_SemanticMapper.setMapping( action, GuideSemantics::CopyrightPage );
     m_GuideSemanticActions.append( action );
 
     action = new QAction( tr( "Dedication" ), this );
-    action->setData( HTMLResource::GuideSemanticType_Dedication );
-    m_SemanticMapper.setMapping( action, HTMLResource::GuideSemanticType_Dedication );
+    action->setData( GuideSemantics::Dedication );
+    m_SemanticMapper.setMapping( action, GuideSemantics::Dedication );
     m_GuideSemanticActions.append( action );
 
     action = new QAction( tr( "Epigraph" ), this );
-    action->setData( HTMLResource::GuideSemanticType_Epigraph );
-    m_SemanticMapper.setMapping( action, HTMLResource::GuideSemanticType_Epigraph );
+    action->setData( GuideSemantics::Epigraph );
+    m_SemanticMapper.setMapping( action, GuideSemantics::Epigraph );
     m_GuideSemanticActions.append( action );
 
     action = new QAction( tr( "Foreword" ), this );
-    action->setData( HTMLResource::GuideSemanticType_Foreword );
-    m_SemanticMapper.setMapping( action, HTMLResource::GuideSemanticType_Foreword );
+    action->setData( GuideSemantics::Foreword );
+    m_SemanticMapper.setMapping( action, GuideSemantics::Foreword );
     m_GuideSemanticActions.append( action );
 
     action = new QAction( tr( "List Of Illustrations" ), this );
-    action->setData( HTMLResource::GuideSemanticType_ListOfIllustrations );
-    m_SemanticMapper.setMapping( action, HTMLResource::GuideSemanticType_ListOfIllustrations );
+    action->setData( GuideSemantics::ListOfIllustrations );
+    m_SemanticMapper.setMapping( action, GuideSemantics::ListOfIllustrations );
     m_GuideSemanticActions.append( action );
 
     action = new QAction( tr( "List Of Tables" ), this );
-    action->setData( HTMLResource::GuideSemanticType_ListOfTables );
-    m_SemanticMapper.setMapping( action, HTMLResource::GuideSemanticType_ListOfTables );
+    action->setData( GuideSemantics::ListOfTables );
+    m_SemanticMapper.setMapping( action, GuideSemantics::ListOfTables );
     m_GuideSemanticActions.append( action );
 
     action = new QAction( tr( "Notes" ), this );
-    action->setData( HTMLResource::GuideSemanticType_Notes );
-    m_SemanticMapper.setMapping( action, HTMLResource::GuideSemanticType_Notes );
+    action->setData( GuideSemantics::Notes );
+    m_SemanticMapper.setMapping( action, GuideSemantics::Notes );
     m_GuideSemanticActions.append( action );
 
     action = new QAction( tr( "Preface" ), this );
-    action->setData( HTMLResource::GuideSemanticType_Preface );
-    m_SemanticMapper.setMapping( action, HTMLResource::GuideSemanticType_Preface );
+    action->setData( GuideSemantics::Preface );
+    m_SemanticMapper.setMapping( action, GuideSemantics::Preface );
     m_GuideSemanticActions.append( action );
 
     action = new QAction( tr( "Text" ), this );
-    action->setData( HTMLResource::GuideSemanticType_Text );
-    m_SemanticMapper.setMapping( action, HTMLResource::GuideSemanticType_Text );
+    action->setData( GuideSemantics::Text );
+    m_SemanticMapper.setMapping( action, GuideSemantics::Text );
     m_GuideSemanticActions.append( action );
 
     foreach( QAction* action, m_GuideSemanticActions )
@@ -490,9 +491,9 @@ void BookBrowser::SetSemanticActionCheckState( Resource *resource )
         action->setChecked( false );
     }
 
-    HTMLResource::GuideSemanticType semantic_type = html_resource->GetGuideSemanticType();
+    GuideSemantics::GuideSemanticType semantic_type = html_resource->GetGuideSemanticType();
 
-    if ( semantic_type == HTMLResource::GuideSemanticType_NoType )
+    if ( semantic_type == GuideSemantics::NoType )
 
         return;
 

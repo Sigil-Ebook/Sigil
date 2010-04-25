@@ -144,7 +144,7 @@ private slots:
      * Adds the semantic type information to the currently
      * selected resource.
      *
-     * @param type The integer value of the HTMLResource::GuideSemanticType
+     * @param type The integer value of the GuideSemantics::GuideSemanticType
      *             to be added to the resource.
      */
     void AddGuideSemanticType( int type );

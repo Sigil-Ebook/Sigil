@@ -91,6 +91,8 @@ set( BOOK_MANIPULATION_FILES
     BookManipulation/Metadata.h
     BookManipulation/XHTMLDoc.cpp
     BookManipulation/XHTMLDoc.h
+    BookManipulation/GuideSemantics.cpp
+    BookManipulation/GuideSemantics.h
     )
 
 set( RESOURCE_OBJECT_FILES
