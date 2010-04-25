@@ -1,4 +1,9 @@
 ﻿Sigil v0.2.0 RC1 ADD_DATE
+    - if an image is not set as a cover image manually, Sigil now uses heuristics on save
+    to determine if the epub has a cover image
+    - if an epub has an image set as a cover image, Sigil will now write a special meta tag
+    that identifies this image in the OPF; this tag is then used by the iPad (and Calibre)
+    for the book cover, for instance
     - all OPF <guide> element information when loading epubs is now preserved
     - added a new "Add Semantics" menu for XHTML documents; it can be used to mark XHTMLs as
     "Dedication", "Colophon", "Glossary" etc. for the <guide> element of the OPF

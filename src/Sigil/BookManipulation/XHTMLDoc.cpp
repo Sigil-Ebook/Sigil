@@ -37,6 +37,8 @@ static const QStringList BLOCK_LEVEL_TAGS = QStringList() << "address" << "block
                                                             "noframes" << "noscript" << "ol" << "p" << "pre" <<
                                                             "table" << "ul" << "body";
 
+static const QStringList IMAGE_TAGS = QStringList() << "img" << "image"; 
+
 static const QString INLINE_TAGS_PART = "abbr|acronym|b|big|cite|code|dfn|em|font|i|q|"
                                          "s|samp|small|span|strike|strong|sub|sup|tt|u|var";
 
@@ -608,6 +610,42 @@ QList< ViewEditor::ElementIndex > XHTMLDoc::GetHierarchyFromNode( const QDomNode
     }
 
     return element_list;
+}
+
+
+QStringList XHTMLDoc::GetImagePathsFromImageChildren( const QDomNode &node )
+{
+    // "Normal" HTML image elements
+    QList< QDomNode > image_nodes = GetTagMatchingChildren( node, IMAGE_TAGS );
+
+    QStringList image_links;
+
+    // Get a list of all images referenced
+    foreach( QDomNode node, image_nodes )
+    {
+        QDomElement element = node.toElement();
+
+        Q_ASSERT( !element.isNull() );
+
+        QString url_reference;
+
+        if ( element.hasAttribute( "src" ) )
+
+            url_reference = Utility::URLDecodePath( element.attribute( "src" ) );
+
+        else // This covers the SVG "image" tags
+
+            url_reference = Utility::URLDecodePath( element.attribute( "xlink:href" ) );
+
+        if ( !url_reference.isEmpty() )
+
+            image_links << url_reference;
+    }
+
+    // Remove duplicate references
+    image_links.removeDuplicates();
+    
+    return image_links;
 }
 
 

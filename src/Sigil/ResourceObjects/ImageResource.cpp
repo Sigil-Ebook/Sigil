@@ -23,14 +23,36 @@
 #include "ImageResource.h"
 #include "../Misc/Utility.h"
 
-ImageResource::ImageResource( const QString &fullfilepath, QHash< QString, Resource* > *hash_owner, QObject *parent )
-    : Resource( fullfilepath, hash_owner, parent )
+ImageResource::ImageResource( const QString &fullfilepath,
+                              QHash< QString, Resource* > *hash_owner,
+                              QHash< QString, QString > semantic_information,
+                              QObject *parent )
+    : 
+    Resource( fullfilepath, hash_owner, parent ),
+    m_IsCoverImage( false )  
 {
-
+    // There should only be one entry in the hash for ImageResources,
+    // and entry merely states that the image is a cover image
+    if ( semantic_information.keys().count() == 1 )
+    {
+        m_IsCoverImage = true;
+    }
 }
 
 
 Resource::ResourceType ImageResource::Type() const
 {
     return Resource::ImageResource;
+}
+
+
+bool ImageResource::IsCoverImage()
+{
+    return m_IsCoverImage;
+}
+
+
+void ImageResource::SetIsCoverImage( bool is_cover )
+{
+    m_IsCoverImage = is_cover;
 }

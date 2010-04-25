@@ -46,7 +46,7 @@ public:
     // specified in the constructor
     virtual void WriteBook();
 
-protected:
+private:
 
     // Creates the publication from the Book
     // (creates XHTML, CSS, OPF, NCX files etc.)

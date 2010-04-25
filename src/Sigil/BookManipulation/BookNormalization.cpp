@@ -27,21 +27,39 @@
 #include "../BookManipulation/CleanSource.h"
 #include "../BookManipulation/Headings.h"
 #include "../BookManipulation/XHTMLDoc.h"
+#include "../BookManipulation/GuideSemantics.h"
 #include "ResourceObjects/HTMLResource.h"
 
 static const QString SIGIL_HEADING_ID_PREFIX = "heading_id_";
 static const QString SIGIL_HEADING_ID_REG    = SIGIL_HEADING_ID_PREFIX + "(\\d+)";
+static const int FLOW_SIZE_THRESHOLD         = 1000;
 
 
 void BookNormalization::Normalize( QSharedPointer< Book > book )
 {
     QList< HTMLResource* > html_resources = book->GetFolderKeeper().GetSortedHTMLResources();
 
-    QtConcurrent::blockingMap( html_resources, GiveIDsToHeadings );
+    GiveIDsToHeadings( html_resources );
+
+    if ( !CoverPageExists( html_resources ) )
+    
+        TryToSetCoverPage( html_resources );
+
+    QList< ImageResource* > image_resources = book->GetFolderKeeper().GetSpecificResourceType< ImageResource >();
+
+    if ( !CoverImageExists( image_resources ) )
+
+        TryToSetCoverImage( html_resources, image_resources );
 }
 
 
-void BookNormalization::GiveIDsToHeadings( HTMLResource *html_resource )
+void BookNormalization::GiveIDsToHeadings( QList< HTMLResource* > html_resources )
+{
+    QtConcurrent::blockingMap( html_resources, GiveIDsToHeadingsInResource );
+}
+
+
+void BookNormalization::GiveIDsToHeadingsInResource( HTMLResource *html_resource )
 {
     QReadLocker locker( &html_resource->GetLock() );
 
@@ -84,6 +102,87 @@ int BookNormalization::MaxSigilHeadingIDIndex( const QList< Headings::Heading > 
     }
 
     return maxindex;
+}
+
+
+HTMLResource* BookNormalization::GetCoverPage( QList< HTMLResource* > html_resources )
+{
+    foreach( HTMLResource* html_resource, html_resources )
+    {
+        if ( html_resource->GetGuideSemanticType() == GuideSemantics::Cover )
+
+            return html_resource;
+    }
+
+    return NULL;
+}
+
+
+bool BookNormalization::CoverPageExists( QList< HTMLResource* > html_resources )
+{
+    return GetCoverPage( html_resources ) != NULL;
+}
+
+
+void BookNormalization::TryToSetCoverPage( QList< HTMLResource* > html_resources )
+{
+    HTMLResource *first_html = html_resources[ 0 ];
+
+    if ( IsFlowUnderThreshold( first_html, FLOW_SIZE_THRESHOLD ) )
+
+        first_html->SetGuideSemanticType( GuideSemantics::Cover );
+}
+
+
+bool BookNormalization::CoverImageExists( QList< ImageResource* > image_resources )
+{
+    foreach( ImageResource* image_resource, image_resources )
+    {
+        if ( image_resource->IsCoverImage() )
+
+            return true;
+    }
+
+    return false;
+}
+
+
+void BookNormalization::TryToSetCoverImage( QList< HTMLResource* > html_resources, 
+                                            QList< ImageResource* > image_resources )
+{
+    HTMLResource *cover_page = GetCoverPage( html_resources );
+
+    if ( !cover_page )
+
+        return;
+
+    QReadLocker locker( &cover_page->GetLock() );
+
+    QStringList image_paths = XHTMLDoc::GetImagePathsFromImageChildren( cover_page->GetDomDocumentForReading() );
+
+    if ( image_paths.count() == 0 )
+         
+        return;
+
+    QString first_image_name = QFileInfo( image_paths[ 0 ] ).fileName();
+
+    foreach( ImageResource *image_resource, image_resources )
+    {
+        if ( image_resource->Filename() == first_image_name )
+        {
+            image_resource->SetIsCoverImage( true );
+            break;
+        }
+    }
+}
+
+
+bool BookNormalization::IsFlowUnderThreshold( HTMLResource *html_resource, int threshold )
+{
+    QReadLocker locker( &html_resource->GetLock() );
+
+    QDomElement doc_element = html_resource->GetDomDocumentForReading().documentElement();
+    return doc_element.text().count() < threshold;
 }
 
 

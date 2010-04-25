@@ -145,6 +145,8 @@ public:
     // Creates a ViewEditor element hierarchy from the specified node
     static QList< ViewEditor::ElementIndex > GetHierarchyFromNode( const QDomNode &node ); 
 
+    static QStringList GetImagePathsFromImageChildren( const QDomNode &node );
+
 private:
 
     // Accepts a reference to an XML stream reader positioned on an XML element.

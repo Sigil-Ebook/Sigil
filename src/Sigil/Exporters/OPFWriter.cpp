@@ -27,8 +27,6 @@
 #include "ResourceObjects/HTMLResource.h"
 #include "../BookManipulation/GuideSemantics.h"
 
-static const int FLOW_SIZE_THRESHOLD = 1000;
-
 
 OPFWriter::OPFWriter( QSharedPointer< Book > book, QIODevice &device )
     : 
@@ -93,9 +91,8 @@ void OPFWriter::WriteMetadata()
 
         m_Writer->writeEndElement();
 
-        m_Writer->writeEmptyElement( "meta" );
-        m_Writer->writeAttribute( "name", "Sigil version" );
-        m_Writer->writeAttribute( "content", SIGIL_VERSION );
+        WriteCoverImageMeta();
+        WriteSigilVersionMeta();
 
     m_Writer->writeEndElement();
 }
@@ -218,6 +215,50 @@ void OPFWriter::WriteDate( const QString &metaname, const QVariant &metavalue )
     m_Writer->writeCharacters( date );
 
     m_Writer->writeEndElement();
+}
+
+
+void OPFWriter::WriteCoverImageMeta()
+{
+    // FIXME: Currently, this function works by assuming
+    // that GetValidID will return the same ID for one filename.
+    // And it will, in 99.9999% of cases... but fix that 0.0001%.
+    // Do it by filling a hash with filename -> ID relations 
+    // in the ctor. While you're at it, make sure that generated
+    // ID's are unique with regards to those previously generated.
+
+    QList< ImageResource* > image_resources = m_Book->GetConstFolderKeeper().GetSpecificResourceType< ImageResource >();
+
+    if ( image_resources.count() == 0 )
+
+        return;
+
+    QString cover_filename;
+
+    foreach( ImageResource* image_resource, image_resources )
+    {
+        if ( image_resource->IsCoverImage() )
+        {
+            cover_filename = image_resource->Filename();
+            break;
+        }
+    }
+
+    if ( cover_filename.isEmpty() )
+
+        return;
+
+    m_Writer->writeEmptyElement( "meta" );
+    m_Writer->writeAttribute( "name", "cover" );
+    m_Writer->writeAttribute( "content", GetValidID( cover_filename ) );
+}
+
+
+void OPFWriter::WriteSigilVersionMeta()
+{
+    m_Writer->writeEmptyElement( "meta" );
+    m_Writer->writeAttribute( "name", "Sigil version" );
+    m_Writer->writeAttribute( "content", SIGIL_VERSION );
 }
 
 
@@ -362,15 +403,6 @@ void OPFWriter::WriteGuide()
 }
 
 
-bool OPFWriter::IsFlowUnderThreshold( HTMLResource *resource, int threshold ) const
-{
-    QReadLocker locker( &resource->GetLock() );
-
-    QDomElement doc_element = resource->GetDomDocumentForReading().documentElement();
-    return doc_element.text().count() < threshold;
-}
-
-
 bool OPFWriter::GuideTypesPresent()
 {
     foreach( HTMLResource *html_resource, m_Book->GetConstFolderKeeper().GetSortedHTMLResources() )
@@ -414,6 +446,8 @@ void OPFWriter::CreateMimetypes()
     m_Mimetypes[ "otf"   ] = "application/x-font-opentype"; 
     m_Mimetypes[ "ttf"   ] = "application/x-font-truetype";
 }
+
+
 
 
 

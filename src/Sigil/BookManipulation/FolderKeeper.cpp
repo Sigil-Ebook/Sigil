@@ -21,11 +21,6 @@
 
 #include <stdafx.h>
 #include "../BookManipulation/FolderKeeper.h"
-#include "../ResourceObjects/HTMLResource.h"
-#include "../ResourceObjects/ImageResource.h"
-#include "../ResourceObjects/CSSResource.h"
-#include "../ResourceObjects/XPGTResource.h"
-#include "../ResourceObjects/FontResource.h"
 #include "../ResourceObjects/Resource.h"
 #include "../Misc/Utility.h"
 
@@ -134,7 +129,7 @@ Resource& FolderKeeper::AddContentFileToFolder( const QString &fullfilepath,
             new_file_path = m_FullPathToImagesFolder + "/" + filename;
             relative_path = IMAGE_FOLDER_NAME + "/" + filename;
 
-            resource = new ImageResource( new_file_path, &m_Resources );
+            resource = new ImageResource( new_file_path, &m_Resources, semantic_information );
         }
 
         else if ( FONT_EXTENSIONS.contains( extension ) )
@@ -290,6 +285,9 @@ QList< Resource* > FolderKeeper::GetResourceList() const
 
 
 // Returned in reading order
+// TODO: Add a bool sorted param to GetSpecificResourceType
+// and "less than" operators for resources (default by filename)
+// and then remove this func.
 QList< HTMLResource* > FolderKeeper::GetSortedHTMLResources() const
 {
     QList< HTMLResource* > html_resources;

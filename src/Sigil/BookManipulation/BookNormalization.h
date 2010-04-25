@@ -28,6 +28,7 @@
 
 class Book;
 class HTMLResource;
+class ImageResource;
 
 /**
  * Houses the book normalization process.
@@ -52,10 +53,18 @@ private:
     /**
      * Gives ID's to all headings that don't have them.
      *
+     * @param html_resources All the book's html resources.
+     */
+    static void GiveIDsToHeadings( QList< HTMLResource* > html_resources );
+
+    /**
+     * Gives ID's to all headings that don't have them
+     * in the specified resource.
+     *
      * @param html_resource The HTMLResource on whose headings 
      *                      the operation will be performed.
      */
-    static void GiveIDsToHeadings( HTMLResource *html_resource );
+    static void GiveIDsToHeadingsInResource( HTMLResource *html_resource );
 
     /**
      * Returns the maximum Sigil heading ID index. 
@@ -64,6 +73,61 @@ private:
      * @return The highest index.
      */
     static int MaxSigilHeadingIDIndex( const QList< Headings::Heading > headings );
+
+    /**
+     * Returns the cover page from the HTML resources.
+     *
+     * @param html_resource The book's HTML resources.
+     * @return The cover page resource.
+     */
+    static HTMLResource* GetCoverPage( QList< HTMLResource* > html_resources );
+
+    /**
+     * Determines if a cover page exists.
+     *
+     * @param html_resource The book's HTML resources.
+     * @return \c true if a cover page exists.
+     */
+    static bool CoverPageExists( QList< HTMLResource* > html_resources );
+
+    /**
+     * Uses heuristics to try and guess which of the
+     * HTML resources is a cover page. If it finds 
+     * a resource that matches, it sets it as the cover page.
+     *
+     * @param html_resource The book's HTML resources.
+     */
+    static void TryToSetCoverPage( QList< HTMLResource* > html_resources );
+    
+    /**
+     * Determines if a cover image exists.
+     *
+     * @param image_resources The book's image resources.
+     * @return \c true if a cover image exists.
+     */
+    static bool CoverImageExists( QList< ImageResource* > image_resources );
+
+    /**
+     * Uses heuristics to try and guess which of the 
+     * image resources is a cover image. If it finds 
+     * a resource that matches, it sets it as the cover page.
+     *
+     * @param html_resource The book's HTML resources.
+     * @param image_resources The book's image resources.
+     */
+    static void TryToSetCoverImage( QList< HTMLResource* > html_resources,
+                                    QList< ImageResource* > image_resources );
+
+    /**
+     * Determines if a flow is under the specified threshold.
+     * Used as a heuristic for finding the cover XHTML file.
+     *
+     * @param resource The XHTML flow to inspect.
+     * @param threshold The maximum number of text characters.
+     * @return \c true if the text of the HTML resource specified 
+     *         has fewer characters than 'threshold' number. 
+     */
+    static bool IsFlowUnderThreshold( HTMLResource *html_resource, int threshold );
 };
 
 #endif // BOOKNORMALIZATION_H

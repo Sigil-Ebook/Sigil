@@ -95,6 +95,14 @@ private:
      */
     void WriteDate(                 const QString &metaname, const QVariant &metavalue );
 
+    void WriteCoverImageMeta();
+
+    /**
+     * Writes a meta element with the version of Sigil
+     * that wrote this OPF file.
+     */
+    void WriteSigilVersionMeta();
+
     /**
      * Takes the reversed form of a name ("Doe, John")
      * and returns the normal form ("John Doe"). If the
@@ -137,17 +145,6 @@ private:
      * Writes the <guide> element.
      */
     void WriteGuide();
-
-    /**
-     * Determines if a flow is under the specified threshold.
-     * Used as a heuristic for finding the cover XHTML file.
-     *
-     * @param resource The XHTML flow to inspect.
-     * @param threshold The maximum number of text characters.
-     * @return \c true if the text of the HTML resource specified 
-     *         has fewer characters than 'threshold' number. 
-     */
-    bool IsFlowUnderThreshold( HTMLResource *resource, int threshold ) const;
 
     /**
      * Determines the presence of <guide> semantic information

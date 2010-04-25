@@ -27,8 +27,17 @@
 #include <QHash>
 #include <QMutex>
 
+// These have to be included directly because
+// of the template function.
+#include "../ResourceObjects/HTMLResource.h"
+#include "../ResourceObjects/ImageResource.h"
+#include "../ResourceObjects/CSSResource.h"
+#include "../ResourceObjects/XPGTResource.h"
+#include "../ResourceObjects/FontResource.h"
+
+
 class Resource;
-class HTMLResource;
+
 
 class FolderKeeper
 {
@@ -67,6 +76,9 @@ public:
     QStringList GetSortedContentFilesList() const;
 
     QList< Resource* > GetResourceList() const;
+
+    template< class T >
+    QList< T* > GetSpecificResourceType() const;
 
     QList< HTMLResource* > GetSortedHTMLResources() const;
 
@@ -132,6 +144,22 @@ private:
     QString m_FullPathToMiscFolder;
 };
 
+template< class T >
+QList< T* > FolderKeeper::GetSpecificResourceType() const
+{
+    QList< T* > onetype_resources;
+
+    foreach( Resource *resource, m_Resources.values() )
+    {
+        T* type_resource = qobject_cast< T* >( resource );
+
+        if ( type_resource != NULL )
+
+            onetype_resources.append( type_resource );
+    }
+
+    return onetype_resources;
+}
 #endif // FOLDERKEEPER_H
 
 
