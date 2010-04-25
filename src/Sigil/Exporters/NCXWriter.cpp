@@ -26,10 +26,6 @@
 #include "ResourceObjects/HTMLResource.h"
 
 
-// Constructor;
-// The first parameter is the book being exported,
-// and the second is the FolderKeeper object representing
-// the folder where the book will be exported
 NCXWriter::NCXWriter( QSharedPointer< Book > book, QIODevice &device )
     : 
     XMLWriter( book, device ),
@@ -40,7 +36,6 @@ NCXWriter::NCXWriter( QSharedPointer< Book > book, QIODevice &device )
 }
 
 
-// Returns the created XML file
 void NCXWriter::WriteXML()
 {
     m_Writer->writeStartDocument();
@@ -62,7 +57,6 @@ void NCXWriter::WriteXML()
 }
 
 
-// Writes the <head> element
 void NCXWriter::WriteHead()
 {
     m_Writer->writeStartElement( "head" );
@@ -91,7 +85,6 @@ void NCXWriter::WriteHead()
 }
 
 
-// Writes the <docTitle> element
 void NCXWriter::WriteDocTitle()
 {
     QString document_title;
@@ -112,7 +105,6 @@ void NCXWriter::WriteDocTitle()
 }
 
 
-// Writes the <navMap> element
 void NCXWriter::WriteNavMap()
 {
     int play_order = 1;
@@ -141,7 +133,6 @@ void NCXWriter::WriteNavMap()
 }
 
 
-// Writes a fallback NavPoint for when the book has no headings
 void NCXWriter::WriteFallbackNavPoint()
 {
     m_Writer->writeStartElement( "navPoint" );
@@ -163,9 +154,6 @@ void NCXWriter::WriteFallbackNavPoint()
 }
 
 
-// Called recursively to write the TOC tree;
-// the first parameter is the heading being written,
-// the second is a reference to the NavPoints playorder
 void NCXWriter::WriteNavPoint( const Headings::Heading &heading, int &play_order )
 {
     // Headings that shouldn't be included in the TOC
@@ -211,12 +199,12 @@ void NCXWriter::WriteNavPoint( const Headings::Heading &heading, int &play_order
 }
 
 
-// Returns the depth of the headings tree
-// specified in m_Headings
 int NCXWriter::GetHeadingsDepth() const
 {
     int max_depth = 0;
 
+    // The first heading level can already have 
+    // several headings.
     foreach ( Headings::Heading heading, m_Headings )
     {
         int current_depth = 0;
@@ -228,8 +216,6 @@ int NCXWriter::GetHeadingsDepth() const
 }
 
 
-// Used to walk through the headings tree and 
-// search for the it's maximum depth
 void NCXWriter::DepthWalker( const Headings::Heading &heading, int &current_depth, int &max_depth ) const
 {
    if ( heading.include_in_toc == true )

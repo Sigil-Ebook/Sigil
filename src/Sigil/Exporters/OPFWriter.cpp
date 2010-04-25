@@ -29,10 +29,6 @@
 static const int FLOW_SIZE_THRESHOLD = 1000;
 
 
-// Constructor;
-// The first parameter is the book being exported,
-// and the second is the list of files
-// in the folder that will become the exported book
 OPFWriter::OPFWriter( QSharedPointer< Book > book, QIODevice &device )
     : 
     XMLWriter( book, device )
@@ -42,7 +38,6 @@ OPFWriter::OPFWriter( QSharedPointer< Book > book, QIODevice &device )
 }
 
 
-// Returns the created XML file
 void OPFWriter::WriteXML()
 {
     m_Writer->writeStartDocument();
@@ -63,7 +58,6 @@ void OPFWriter::WriteXML()
 }
 
 
-// Writes the <metadata> element
 void OPFWriter::WriteMetadata()
 {
     QHash< QString, QList< QVariant > > metadata = m_Book->GetMetadata();
@@ -107,8 +101,6 @@ void OPFWriter::WriteMetadata()
 }
 
 
-// Dispatches each metadata entry based on its type;
-// the specialized Write* functions write the elements
 void OPFWriter::MetadataDispatcher( const QString &metaname, const QVariant &metavalue )
 {
     // We ignore badly formed meta elements.
@@ -158,7 +150,6 @@ void OPFWriter::MetadataDispatcher( const QString &metaname, const QVariant &met
 }
 
 
-// Write <creator> and <contributor> metadata elements
 void OPFWriter::WriteCreatorOrContributor( const QString &metaname, const QString &metavalue )
 {
     // Authors get written as creators, all other relators
@@ -193,17 +184,12 @@ void OPFWriter::WriteCreatorOrContributor( const QString &metaname, const QStrin
 }
 
 
-// Writes simple metadata; the metaname will be the element name
-// and the metavalue will be written as the value
 void OPFWriter::WriteSimpleMetadata( const QString &metaname, const QString &metavalue )
 {
     m_Writer->writeTextElement( "dc:" + metaname, metavalue );
 }
 
 
-// Writes the <identifier> elements;
-// the metaname will be used for the scheme
-// and the metavalue for the value
 void OPFWriter::WriteIdentifier( const QString &metaname, const QString &metavalue )
 {
     m_Writer->writeStartElement( "dc:identifier" );
@@ -215,9 +201,6 @@ void OPFWriter::WriteIdentifier( const QString &metaname, const QString &metaval
 }
 
 
-// Writes the <date> elements;
-// the metaname will be used for the event
-// and the metavalue for the value 
 void OPFWriter::WriteDate( const QString &metaname, const QVariant &metavalue )
 {
     m_Writer->writeStartElement( "dc:date" );
@@ -238,9 +221,6 @@ void OPFWriter::WriteDate( const QString &metaname, const QVariant &metavalue )
 }
 
 
-// Takes the reversed form of a name ("Doe, John")
-// and returns the normal form ("John Doe"); if the
-// provided name is already normal, returns an empty string
 QString OPFWriter::GetNormalName( const QString &name )
 {
     if ( !name.contains( "," ) )
@@ -303,7 +283,7 @@ bool OPFWriter::IsValidIDCharacter( const QChar &character )
            ;
 }
 
-// Writes the <manifest> element
+
 void OPFWriter::WriteManifest()
 {
     m_Writer->writeStartElement( "manifest" );
@@ -329,7 +309,6 @@ void OPFWriter::WriteManifest()
 }
 
 
-// Writes the <spine> element
 void OPFWriter::WriteSpine()
 {
     m_Writer->writeStartElement( "spine" );
@@ -349,7 +328,6 @@ void OPFWriter::WriteSpine()
 }
 
 
-// Writes the <guide> element
 void OPFWriter::WriteGuide()
 {
     if ( !GuideTypesPresent() )

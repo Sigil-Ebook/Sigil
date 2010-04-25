@@ -26,45 +26,70 @@
 #include "XMLWriter.h"
 #include "../BookManipulation/Headings.h"
 
+/**
+ * Writes the NCX file of the EPUB publication.
+ */
 class NCXWriter : private XMLWriter
 {
 
 public:
 
-    // Constructor;
-    // The first parameter is the book being exported,
-    // and the second is the FolderKeeper object representing
-    // the folder where the book will be exported
+    /**
+     * Constructor.
+     *
+     * @param book The book for which we're writing the NCX.
+     * @param device The IODevice into which we should write the XML.
+     */
     NCXWriter( QSharedPointer< Book > book, QIODevice &device );
 
-    // Returns the created XML file
     void WriteXML();
     
 private:
 
-    // Writes the <head> element
+    /**
+     *  Writes the <head> element.
+     */
     void WriteHead();
 
-    // Writes the <docTitle> element
+    /**
+     * Writes the <docTitle> element.
+     */
     void WriteDocTitle();
 
-    // Writes the <navMap> element
+    /**
+     * Writes the <navMap> element.
+     */
     void WriteNavMap();
 
-    // Writes a fallback NavPoint for when the book has no headings
+    /**
+     * Writes a fallback <navPoint> for when the book has no headings.
+     */
     void WriteFallbackNavPoint();
 
-    // Called recursively to write the TOC tree;
-    // the first parameter is the heading being written,
-    // the second is a reference to the playorder NavPoints
+    /**
+     * Writes a <navPoint>; called recursively to write the TOC tree.
+     *
+     * @param heading The heading being written.
+     * @param play_order A reference to the general <navPoints> playorder. 
+     */
     void WriteNavPoint( const Headings::Heading &heading, int &play_order );
 
-    // Returns the depth of the headings tree
-    // specified in m_Headings
+    /**
+     * Returns the depth of the headings tree 
+     * specified in m_Headings.
+     *
+     * @return The heading hierarchy depth.
+     */
     int GetHeadingsDepth() const;
 
-    // Used to walk through the headings tree and 
-    // search for the it's maximum depth
+    /**
+     * Used to walk through the headings tree and
+     * search for the its maximum depth.
+     *
+     * @param heading The current heading we are walking through.
+     * @param current_depth A reference to the depth of the current sub-tree.
+     * @param max_depth A reference to the current maximum depth.
+     */
     void DepthWalker( const Headings::Heading &heading, int &current_depth, int &max_depth ) const;
 
 
@@ -72,7 +97,9 @@ private:
     // PRIVATE MEMBER VARIABLES
     ///////////////////////////////
 
-    // A hierarchical tree of all the headings in the book
+    /**
+     * A hierarchical tree of all the headings in the book.
+     */
     const QList< Headings::Heading > m_Headings;
 };
 

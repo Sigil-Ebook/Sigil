@@ -24,10 +24,6 @@
 #include "../BookManipulation/Book.h"
 
 
-// Constructor;
-// The first parameter is the book for which this XML file
-// is being written, and the second is the list of files
-// in the folder that will become the exported book
 XMLWriter::XMLWriter( QSharedPointer< Book > book, QIODevice &device )
     : 
     m_Book( book ),
@@ -38,7 +34,6 @@ XMLWriter::XMLWriter( QSharedPointer< Book > book, QIODevice &device )
 }
 
     
-// Destructor
 XMLWriter::~XMLWriter( )
 {
     // TODO: Why is this on the heap?

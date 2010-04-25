@@ -27,49 +27,83 @@
 
 class HTMLResource;
 
+/**
+ * Writes the OPF file of the EPUB publication.
+ */
 class OPFWriter : private XMLWriter
 {
 
 public:
 
-    // Constructor;
-    // The first parameter is the book being exported,
-    // and the second is the FolderKeeper object representing
-    // the folder where the book will be exported
+    /**
+     * Constructor.
+     *
+     * @param book The book for which we're writing the OPF.
+     * @param device The IODevice into which we should write the XML.
+     */
     OPFWriter( QSharedPointer< Book > book, QIODevice &device );
 
-    // Returns the created XML file
     void WriteXML();
     
 private:
 
-    // Writes the <metadata> element
+    /**
+     *  Writes the <metadata> element.
+     */
     void WriteMetadata();
 
-    // Dispatches each metadata entry based on its type;
-    // the specialized Write* functions write the elements
+    /**
+     * Dispatches each metadata entry based on its type. 
+     * The specialized Write* functions write the elements.
+     *
+     * @param metaname The name of the metadata to be written.
+     * @param metavalue The value of the metadata to be written. 
+     */
     void MetadataDispatcher(        const QString &metaname, const QVariant &metavalue );
 
-    // Write <creator> and <contributor> metadata elements
+    /**
+     * Writes <creator> and <contributor> metadata elements.
+     *
+     * @param metaname The name of the metadata to be written.
+     * @param metavalue The value of the metadata to be written. 
+     */
     void WriteCreatorOrContributor( const QString &metaname, const QString &metavalue );
 
-    // Writes simple metadata; the metaname will be the element name
-    // and the metavalue will be written as the value
+    /**
+     * Writes simple metadata. 
+     *
+     * @param metaname The name of the metadata to be written.
+     * @param metavalue The value of the metadata to be written. 
+     */
     void WriteSimpleMetadata(       const QString &metaname, const QString &metavalue );
 
-    // Writes the <identifier> elements;
-    // the metaname will be used for the scheme
-    // and the metavalue for the value
+    /**
+     * Writes the <identifier> elements.
+     * The metaname will be used for the scheme.
+     *
+     * @param metaname The name of the metadata to be written.
+     * @param metavalue The value of the metadata to be written. 
+     */
     void WriteIdentifier(           const QString &metaname, const QString &metavalue );
 
-    // Writes the <date> elements;
-    // the metaname will be used for the event
-    // and the metavalue for the value 
+    /**
+     * Writes the <date> elements.
+     * The metaname will be used for the event.
+     *
+     * @param metaname The name of the metadata to be written.
+     * @param metavalue The value of the metadata to be written. 
+     */
     void WriteDate(                 const QString &metaname, const QVariant &metavalue );
 
-    // Takes the reversed form of a name ("Doe, John")
-    // and returns the normal form ("John Doe"); if the
-    // provided name is already normal, returns an empty string
+    /**
+     * Takes the reversed form of a name ("Doe, John")
+     * and returns the normal form ("John Doe"). If the
+     * provided name is already normal, returns an empty string
+     *
+     * @param name The name in reversed form.
+     * @return The normalized name, or an empty string if the name 
+     *         was already normalized.
+     */
     static QString GetNormalName( const QString &name );
 
     /**
@@ -89,24 +123,48 @@ private:
      */
     static bool IsValidIDCharacter( const QChar &character );
 
-    // Writes the <manifest> element
+    /**
+     * Writes the <manifest> element.
+     */
     void WriteManifest();
 
-    // Writes the <spine> element
+    /**
+     * Writes the <spine> element.
+     */
     void WriteSpine();	
 
-    // Writes the <guide> element
+    /**
+     * Writes the <guide> element.
+     */
     void WriteGuide();
 
-    // Returns true if the text of the HTML resource specified
-    // has fewer characters than 'threshold' number. 
+    /**
+     * Determines if a flow is under the specified threshold.
+     * Used as a heuristic for finding the cover XHTML file.
+     *
+     * @param resource The XHTML flow to inspect.
+     * @param threshold The maximum number of text characters.
+     * @return \c true if the text of the HTML resource specified 
+     *         has fewer characters than 'threshold' number. 
+     */
     bool IsFlowUnderThreshold( HTMLResource *resource, int threshold ) const;
 
+    /**
+     * Determines the presence of <guide> semantic information
+     * in the HTMLResources.
+     *
+     * @return \c true if the information is present.
+     */
     bool GuideTypesPresent();
 
-    // Initializes m_Mimetypes
+    /**
+     * Initializes m_Mimetypes.
+     */
     void CreateMimetypes();
 
+    /**
+     * Initializes m_GuideTypes. 
+     */
     void CreateGuideTypes();
 
 
@@ -114,9 +172,18 @@ private:
     // PRIVATE MEMBER VARIABLES
     ///////////////////////////////
 
+    /**
+     * A mapping between file extensions
+     * and appropriate MIME types.
+     */
     QHash<QString, QString> m_Mimetypes;
 
     // TODO: this should probably go to some singleton
+
+    /**
+     * A mapping between HTMLResource::GuideSemanticType
+     * and the reference type and title.
+     */
     QHash< int, tuple< QString, QString > > m_GuideTypes;
 };
 
