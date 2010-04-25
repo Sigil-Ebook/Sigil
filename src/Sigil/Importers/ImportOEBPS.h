@@ -31,6 +31,7 @@
 class HTMLResource;
 class CSSResource;
 class QDomDocument;
+class QXmlStreamReader;
 
 class ImportOEBPS : public Importer
 {
@@ -60,6 +61,12 @@ protected:
     // inside m_MetaElements, m_Files and m_ReadingOrderIds 
     void ReadOPF();
 
+    void ReadMetadataElementChild( QXmlStreamReader &opf_reader );
+
+    void ReadManifestElementChild( QXmlStreamReader &opf_reader );
+
+    void ReadSpineElementChild( QXmlStreamReader &opf_reader );
+
     // Loads the metadata from the m_MetaElements list
     // (filled by reading the OPF) into the book
     void LoadMetadata();
@@ -88,6 +95,11 @@ protected:
     // manifest; The keys are the element ID's, 
     // the values are stored paths to the files
     QMap< QString, QString > m_Files;
+
+    // InDesign likes listing several files multiple times in the manifest,
+    // even though that's explicitly forbidden by the spec. So we use this
+    // to make sure we don't load such files multiple times.
+    QSet< QString > m_MainfestFilePaths;
 
     // The list of ID's to the files in the manifest
     // that represent the reading order of the publication
