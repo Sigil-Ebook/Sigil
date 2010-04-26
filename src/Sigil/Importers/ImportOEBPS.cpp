@@ -173,25 +173,28 @@ void ImportOEBPS::ReadOPF()
         // Parse and store Dublin Core metadata elements
         if ( opf_reader.qualifiedName().toString().startsWith( "dc:" ) == true )
         
-            ReadMetadataElementChild( opf_reader );            
+            ReadDublinCoreElement( opf_reader );
+
+        else if ( opf_reader.name() == "meta" )
+
+            ReadRegularMetaElement( opf_reader );
 
         // Get the list of content files that
         // make up the publication
-        else if ( opf_reader.name() == "item" )           
-        
-            ReadManifestElementChild( opf_reader );            
+        else if ( opf_reader.name() == "item" )
+
+            ReadManifestItemElement( opf_reader );
 
         // Get the list of XHTML files that
         // represent the reading order
-        else if ( opf_reader.name() == "itemref" )           
-        
-            ReadSpineElementChild( opf_reader );
+        else if ( opf_reader.name() == "itemref" )
+
+            ReadSpineItemRefElement( opf_reader );
 
         // Get the <guide> semantic information 
         else if ( opf_reader.name() == "reference" )
         
-            ReadGuideElementChild( opf_reader );            
-        
+            ReadGuideReferenceElement( opf_reader );
     }
 
     if ( opf_reader.hasError() )
@@ -206,7 +209,7 @@ void ImportOEBPS::ReadOPF()
 }
 
 
-void ImportOEBPS::ReadMetadataElementChild( QXmlStreamReader &opf_reader )
+void ImportOEBPS::ReadDublinCoreElement( QXmlStreamReader &opf_reader )
 {
     Metadata::MetaElement meta;                
 
@@ -230,7 +233,24 @@ void ImportOEBPS::ReadMetadataElementChild( QXmlStreamReader &opf_reader )
 }
 
 
-void ImportOEBPS::ReadManifestElementChild( QXmlStreamReader &opf_reader )
+void ImportOEBPS::ReadRegularMetaElement( QXmlStreamReader &opf_reader )
+{
+    QString name    = opf_reader.attributes().value( "", "name"    ).toString(); 
+    QString content = opf_reader.attributes().value( "", "content" ).toString();
+
+    // For now, we only recognize the special iPad
+    // cover meta. It is in the form of name=cover
+    // and content=imageID, where the ID is from the manifest.
+    if ( name == "cover" )
+    {
+        QHash< QString, QString > semantics;
+        semantics[ name ] = name;
+        m_SemanticInformation[ content ] = semantics;
+    }
+}
+
+
+void ImportOEBPS::ReadManifestItemElement( QXmlStreamReader &opf_reader )
 {
     QString id   = opf_reader.attributes().value( "", "id"   ).toString(); 
     QString href = opf_reader.attributes().value( "", "href" ).toString();
@@ -247,13 +267,13 @@ void ImportOEBPS::ReadManifestElementChild( QXmlStreamReader &opf_reader )
 }
 
 
-void ImportOEBPS::ReadSpineElementChild( QXmlStreamReader &opf_reader )
+void ImportOEBPS::ReadSpineItemRefElement( QXmlStreamReader &opf_reader )
 {
     m_ReadingOrderIds.append( opf_reader.attributes().value( "", "idref" ).toString() );
 }
 
 
-void ImportOEBPS::ReadGuideElementChild( QXmlStreamReader &opf_reader )
+void ImportOEBPS::ReadGuideReferenceElement( QXmlStreamReader &opf_reader )
 {
     QString type  = opf_reader.attributes().value( "", "type"  ).toString(); 
     QString title = opf_reader.attributes().value( "", "title" ).toString();
@@ -350,3 +370,4 @@ tuple< QString, QString > ImportOEBPS::LoadOneFile( const QString &ID )
     	return make_tuple( UPDATE_ERROR_STRING, UPDATE_ERROR_STRING );
     }
 }
+

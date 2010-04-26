@@ -61,13 +61,15 @@ protected:
     // inside m_MetaElements, m_Files and m_ReadingOrderIds 
     void ReadOPF();
 
-    void ReadMetadataElementChild( QXmlStreamReader &opf_reader );
+    void ReadDublinCoreElement( QXmlStreamReader &opf_reader );
 
-    void ReadManifestElementChild( QXmlStreamReader &opf_reader );
+    void ReadRegularMetaElement( QXmlStreamReader &opf_reader );
 
-    void ReadSpineElementChild( QXmlStreamReader &opf_reader );
+    void ReadManifestItemElement( QXmlStreamReader &opf_reader );
 
-    void ReadGuideElementChild( QXmlStreamReader &opf_reader );
+    void ReadSpineItemRefElement( QXmlStreamReader &opf_reader );
+
+    void ReadGuideReferenceElement( QXmlStreamReader &opf_reader );
 
     // Loads the metadata from the m_MetaElements list
     // (filled by reading the OPF) into the book
