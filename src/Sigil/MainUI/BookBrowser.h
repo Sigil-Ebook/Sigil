@@ -141,6 +141,11 @@ private slots:
     void Remove();
 
     /**
+     * Implements the Cover Image semantic context menu action functionality.
+     */
+    void SetCoverImage();
+
+    /**
      * Adds the semantic type information to the currently
      * selected resource.
      *
@@ -195,20 +200,36 @@ private:
      */
     void SetupSemanticContextmenu( Resource *resource );
 
-
     /**
-     * Sets the checked state for the semantic actions
-     * based on the resource current state.
+     * Sets up the sub-menu for adding semantic information,
+     * when the menu is invoked for HTMLResources.
      *
      * @param resource The resource on which the context menu was invoked.
      */
-    void SetSemanticActionCheckState( Resource *resource );
+    void SetupHTMLSemanticContextMenu( Resource *resource );
+
+    /**
+     * Sets up the sub-menu for adding semantic information,
+     * when the menu is invoked for ImageResources.
+     *
+     * @param resource The resource on which the context menu was invoked.
+     */
+    void SetupImageSemanticContextMenu( Resource *resource ); 
+
+
+    /**
+     * Sets the checked state for the HTML semantic actions
+     * based on the resource's current state.
+     *
+     * @param resource The resource on which the context menu was invoked.
+     */
+    void SetHTMLSemanticActionCheckState( Resource *resource );
 
     /**
      * Returns the currently selected resource in the tree view.
      *
-     * @return The currently selected resource in the tree view.
-     * @warning Can be NULL!
+     * @return The currently selected resource in the tree view,
+     *         or NULL if no resource is selected. 
      */
     Resource* GetCurrentResource();
 
@@ -254,10 +275,20 @@ private:
     QAction *m_AddNew;
     QAction *m_Rename;
     QAction *m_Remove;
+    QAction *m_CoverImage;
 
+    /**
+     * All the semantic actions for the <guide>
+     * element. Only present on HTMLResources.
+     */
     QList< QAction* > m_GuideSemanticActions;
 
-    QSignalMapper &m_SemanticMapper;
+    /**
+     * Used to translate all the triggered() signals from the
+     * various guide-related semantic actions into calls to
+     * AddGuideSemanticType().
+     */
+    QSignalMapper &m_GuideSemanticMapper;
 
     /**
      * The resource type of the last item on which the 

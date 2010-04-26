@@ -1,4 +1,5 @@
 ﻿Sigil v0.2.0 RC1 ADD_DATE
+    - added a new "Cover Image" entry for image resource in the "Add Semantics" Book Browser menu  
     - if an image is not set as a cover image manually, Sigil now uses heuristics on save
     to determine if the epub has a cover image
     - if an epub has an image set as a cover image, Sigil will now write a special meta tag
