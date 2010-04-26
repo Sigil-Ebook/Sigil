@@ -274,29 +274,37 @@ void BookBrowser::SetCoverImage()
 
 void BookBrowser::AddGuideSemanticType( int type )
 {
-    GuideSemantics::GuideSemanticType semantic_type = (GuideSemantics::GuideSemanticType) type;
+    GuideSemantics::GuideSemanticType semantic_type_to_add = (GuideSemantics::GuideSemanticType) type;
 
     HTMLResource *changing_html = qobject_cast< HTMLResource* >( GetCurrentResource() );
     Q_ASSERT( changing_html );
 
-    // TODO: turn off semantic?
-
-    // Industry best practice is to have only one 
-    // <guide> reference type instance per book.
-    foreach( HTMLResource *html_resource, m_Book->GetFolderKeeper().GetSortedHTMLResources() )
+    // Turn on.
+    if ( changing_html->GetGuideSemanticType() != semantic_type_to_add )
     {
-        if ( html_resource->GetGuideSemanticType() == semantic_type )
+        // Industry best practice is to have only one 
+        // <guide> reference type instance per book.
+        foreach( HTMLResource *html_resource, m_Book->GetFolderKeeper().GetSortedHTMLResources() )
         {
-            html_resource->SetGuideSemanticType( GuideSemantics::NoType );
-            
-            // There is no "break" statement here because we might
-            // load an epub that has several instance of one ref type.
-            // We preserve them on load, but if the user is intent on
-            // changing them, then we enforce "on type instance per book".
+            if ( html_resource->GetGuideSemanticType() == semantic_type_to_add )
+            {
+                html_resource->SetGuideSemanticType( GuideSemantics::NoType );
+
+                // There is no "break" statement here because we might
+                // load an epub that has several instance of one ref type.
+                // We preserve them on load, but if the user is intent on
+                // changing them, then we enforce "on type instance per book".
+            }
         }
+
+        changing_html->SetGuideSemanticType( semantic_type_to_add );
     }
 
-    changing_html->SetGuideSemanticType( semantic_type );
+    // Turn off.
+    else
+    {
+        changing_html->SetGuideSemanticType( GuideSemantics::NoType );
+    }
 }
 
 
