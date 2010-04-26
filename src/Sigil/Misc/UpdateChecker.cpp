@@ -148,10 +148,8 @@ QString UpdateChecker::ReadOnlineVersion( QString online_version_xml ) const
     while ( !version_reader.atEnd() ) 
     {
         // Get the next token from the stream
-        QXmlStreamReader::TokenType type = version_reader.readNext();
-
-        if (    ( type == QXmlStreamReader::StartElement ) &&
-                ( version_reader.name() == XML_VERSION_ELEMENT )
+        if ( ( version_reader.readNext() == QXmlStreamReader::StartElement ) &&
+             ( version_reader.name() == XML_VERSION_ELEMENT )
            ) 
         {
            return version_reader.readElementText();
