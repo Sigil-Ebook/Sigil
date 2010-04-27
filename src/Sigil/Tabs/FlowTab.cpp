@@ -523,6 +523,12 @@ void FlowTab::RemoveFormatting()
 
 void FlowTab::HeadingStyle( const QString& heading_type )
 {
+    // This slot is invoked from MainWindow 
+    // (via the combobox signal), while
+    // the FlowTab does not have a modify lock.
+    // So we need to get one first.
+    LoadContentOnTabEnter();
+
     QChar last_char = heading_type[ heading_type.count() - 1 ];
 
     // For heading_type == "Heading #"
@@ -535,6 +541,8 @@ void FlowTab::HeadingStyle( const QString& heading_type )
         m_wBookView.FormatBlock( "p" );
 
     // else is "<Select heading>" which does nothing
+
+    SaveContentOnTabLeave();
 }
 
 
