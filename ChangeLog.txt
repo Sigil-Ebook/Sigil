@@ -1,4 +1,6 @@
 ﻿Sigil v0.2.0 RC1 ADD_DATE
+    - fixed issues with filename basenames being read only until the first dot; was causing
+    problems with OPF manifest ID generation (issue #351)
     - hitting the keyboard shortcut for the Find&Replace window while the window is open
     now switches focus to that window (issue #362)
     - fixed an issue with the applied headings not "sticking" and not showing up in the TOC

@@ -216,9 +216,12 @@ QString FolderKeeper::GetUniqueFilenameVersion( const QString &filename ) const
 
         return filename;
 
+    // name_prefix is part of the name without the number suffix.
+    // So for "Section0001.xhtml", it is "Section"
     QString name_prefix = QFileInfo( filename ).baseName().remove( QRegExp( "\\d+$" ) );
     QString extension   = QFileInfo( filename ).completeSuffix();
     
+    // Used to search for the filename number suffixes.
     QString search_string = QRegExp::escape( name_prefix ).prepend( "^" ) + 
                             "(\\d*)" +
                             ( !extension.isEmpty() ? ( "\\." + QRegExp::escape( extension ) ) : QString() ) + 

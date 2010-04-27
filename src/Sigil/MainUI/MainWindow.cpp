@@ -275,7 +275,7 @@ bool MainWindow::SaveAs()
     // If not, we change the extension to EPUB
     else
     {
-        save_path       = m_LastFolderSave + "/" + QFileInfo( m_CurrentFile ).baseName() + ".epub";
+        save_path       = m_LastFolderSave + "/" + QFileInfo( m_CurrentFile ).completeBaseName() + ".epub";
         default_filter  = c_SaveFilters.value( "epub" );
     }
 

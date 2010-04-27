@@ -337,7 +337,7 @@ void OPFWriter::WriteManifest()
     foreach( QString relative_path, m_Book->GetConstFolderKeeper().GetSortedContentFilesList() )
     {
         QFileInfo info( relative_path );
-        QString name      = info.baseName();
+        QString name      = info.completeBaseName();
         QString extension = info.suffix();
 
         m_Writer->writeEmptyElement( "item" );
@@ -358,7 +358,7 @@ void OPFWriter::WriteSpine()
     foreach( HTMLResource *html_resource, m_Book->GetConstFolderKeeper().GetSortedHTMLResources() )
     {
         QFileInfo info( html_resource->Filename() );
-        QString name      = info.baseName();
+        QString name      = info.completeBaseName();
         QString extension = info.suffix();
 
         m_Writer->writeEmptyElement( "itemref" );
