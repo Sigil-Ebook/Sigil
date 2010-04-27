@@ -306,6 +306,11 @@ void MainWindow::Find()
         m_FindReplace = new FindReplace( true, m_TabManager, this );
         m_FindReplace.data()->show();
     }
+
+    else
+    {
+        m_FindReplace.data()->activateWindow();
+    }
 }
 
 
@@ -317,6 +322,11 @@ void MainWindow::Replace()
         // Qt will delete this dialog from memory when it closes
         m_FindReplace = new FindReplace( false, m_TabManager, this );
         m_FindReplace.data()->show();
+    }
+
+    else
+    {
+        m_FindReplace.data()->activateWindow();
     }
 }
 

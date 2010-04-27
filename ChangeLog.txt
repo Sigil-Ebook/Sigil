@@ -1,4 +1,6 @@
 ﻿Sigil v0.2.0 RC1 ADD_DATE
+    - hitting the keyboard shortcut for the Find&Replace window while the window is open
+    now switches focus to that window (issue #362)
     - fixed an issue with the applied headings not "sticking" and not showing up in the TOC
     editor (issue #300)
     - the special iPad- and Calibre-friendly cover meta tag information is now preserved
@@ -73,9 +75,9 @@ Sigil v0.2.0 ß2 2010.03.10.
     - fixing export of epubs with XML files for OPS documents
 
 Sigil v0.2.0 ß1 2010.03.02.
-    - after *many* months of work, the complete redesign of the Sigil main interface and backend is finished,
-    resulting in waaaay too many changes, fixes and modifications under the hood that are too numerous
-    to list here
+    - after *many* months of work, the complete redesign of the Sigil main interface and backend is 
+    finished, resulting in waaaay too many changes, fixes and modifications under the hood that are
+    too numerous to list here
     - fixed an issue with anchor elements getting unnecessary "name" attributes (issue #226)
 
 Sigil v0.1.9 2010.02.08.
