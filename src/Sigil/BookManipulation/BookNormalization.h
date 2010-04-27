@@ -128,6 +128,14 @@ private:
      *         has fewer characters than 'threshold' number. 
      */
     static bool IsFlowUnderThreshold( HTMLResource *html_resource, int threshold );
+
+    /**
+     * Determines if the specified flow has only one image in it.
+     *
+     * @param html_resource The XHTML flow to inspect.
+     * @return \c true if only one image present.
+     */
+    static bool FlowHasOnlyOneImage( HTMLResource* html_resource );
 };
 
 #endif // BOOKNORMALIZATION_H

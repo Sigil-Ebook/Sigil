@@ -128,9 +128,12 @@ void BookNormalization::TryToSetCoverPage( QList< HTMLResource* > html_resources
 {
     HTMLResource *first_html = html_resources[ 0 ];
 
-    if ( IsFlowUnderThreshold( first_html, FLOW_SIZE_THRESHOLD ) )
-
+    if ( IsFlowUnderThreshold( first_html, FLOW_SIZE_THRESHOLD ) &&
+         FlowHasOnlyOneImage( first_html )
+       )
+    {
         first_html->SetGuideSemanticType( GuideSemantics::Cover );
+    }
 }
 
 
@@ -183,6 +186,11 @@ bool BookNormalization::IsFlowUnderThreshold( HTMLResource *html_resource, int t
 
     QDomElement doc_element = html_resource->GetDomDocumentForReading().documentElement();
     return doc_element.text().count() < threshold;
+}
+
+bool BookNormalization::FlowHasOnlyOneImage( HTMLResource* html_resource )
+{
+    return XHTMLDoc::GetImagePathsFromImageChildren( html_resource->GetDomDocumentForReading() ).count() == 1;
 }
 
 
