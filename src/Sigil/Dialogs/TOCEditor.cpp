@@ -44,7 +44,7 @@ TOCEditor::TOCEditor( QSharedPointer< Book > book, QWidget *parent )
 
     LockHTMLResources();
 
-    m_Headings = Headings::GetHeadingList( m_Book->GetFolderKeeper().GetSortedHTMLResources() );
+    m_Headings = Headings::GetHeadingList( m_Book->GetFolderKeeper().GetResourceTypeList< HTMLResource >( true ) );
     m_Headings = Headings::MakeHeadingHeirarchy( m_Headings );
 
     CreateTOCModel();
@@ -399,7 +399,7 @@ void TOCEditor::WriteSettings()
 
 void TOCEditor::LockHTMLResources()
 {
-    foreach( HTMLResource* resource, m_Book->GetFolderKeeper().GetSortedHTMLResources() )
+    foreach( HTMLResource* resource, m_Book->GetFolderKeeper().GetResourceTypeList< HTMLResource >( true ) )
     {
         resource->GetLock().lockForWrite();
     }
@@ -408,7 +408,7 @@ void TOCEditor::LockHTMLResources()
 
 void TOCEditor::UnlockHTMLResources()
 {
-    foreach( HTMLResource* resource, m_Book->GetFolderKeeper().GetSortedHTMLResources() )
+    foreach( HTMLResource* resource, m_Book->GetFolderKeeper().GetResourceTypeList< HTMLResource >( true ) )
     {
         resource->GetLock().unlock();
     }

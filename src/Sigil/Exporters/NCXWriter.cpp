@@ -30,7 +30,7 @@ NCXWriter::NCXWriter( QSharedPointer< Book > book, QIODevice &device )
     : 
     XMLWriter( book, device ),
     m_Headings( Headings::MakeHeadingHeirarchy( 
-                Headings::GetHeadingList( m_Book->GetFolderKeeper().GetSortedHTMLResources() ) ) )
+                Headings::GetHeadingList( m_Book->GetFolderKeeper().GetResourceTypeList< HTMLResource >( true ) ) ) )
 {
 
 }
@@ -144,7 +144,7 @@ void NCXWriter::WriteFallbackNavPoint()
     m_Writer->writeTextElement( "text", "Start");
     m_Writer->writeEndElement();
 
-    QList< HTMLResource* > html_resources = m_Book->GetConstFolderKeeper().GetSortedHTMLResources();  
+    QList< HTMLResource* > html_resources = m_Book->GetConstFolderKeeper().GetResourceTypeList< HTMLResource >( true ); 
     Q_ASSERT( !html_resources.isEmpty() );
 
     m_Writer->writeEmptyElement( "content" );

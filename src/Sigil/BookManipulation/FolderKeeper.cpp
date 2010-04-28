@@ -287,27 +287,6 @@ QList< Resource* > FolderKeeper::GetResourceList() const
 }
 
 
-// Returned in reading order
-// TODO: Add a bool sorted param to GetSpecificResourceType
-// and "less than" operators for resources (default by filename)
-// and then remove this func.
-QList< HTMLResource* > FolderKeeper::GetSortedHTMLResources() const
-{
-    QList< HTMLResource* > html_resources;
-
-    foreach( Resource *resource, m_Resources.values() )
-    {
-        if ( resource->Type() == Resource::HTMLResource )
-
-            html_resources.append( qobject_cast< HTMLResource* >( resource ) );
-    }
-
-    qSort( html_resources.begin(), html_resources.end(), HTMLResource::LessThan );
-
-    return html_resources;
-}
-
-
 Resource& FolderKeeper::GetResourceByIdentifier( const QString &identifier ) const
 {
     return *m_Resources[ identifier ];

@@ -73,7 +73,7 @@ HTMLResource* ImportTXT::CreateHTMLResource( const QString &source )
 
     m_Book->GetFolderKeeper().AddContentFileToFolder( fullfilepath, 0 );
 
-    return m_Book->GetFolderKeeper().GetSortedHTMLResources()[ 0 ];
+    return m_Book->GetFolderKeeper().GetResourceTypeList< HTMLResource >()[ 0 ];
 }
 
 

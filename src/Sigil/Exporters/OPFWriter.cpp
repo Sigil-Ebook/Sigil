@@ -227,7 +227,7 @@ void OPFWriter::WriteCoverImageMeta()
     // in the ctor. While you're at it, make sure that generated
     // ID's are unique with regards to those previously generated.
 
-    QList< ImageResource* > image_resources = m_Book->GetConstFolderKeeper().GetSpecificResourceType< ImageResource >();
+    QList< ImageResource* > image_resources = m_Book->GetConstFolderKeeper().GetResourceTypeList< ImageResource >();
 
     if ( image_resources.count() == 0 )
 
@@ -355,7 +355,7 @@ void OPFWriter::WriteSpine()
     m_Writer->writeStartElement( "spine" );
     m_Writer->writeAttribute( "toc", "ncx" );
 
-    foreach( HTMLResource *html_resource, m_Book->GetConstFolderKeeper().GetSortedHTMLResources() )
+    foreach( HTMLResource *html_resource, m_Book->GetConstFolderKeeper().GetResourceTypeList< HTMLResource >( true ) )
     {
         QFileInfo info( html_resource->Filename() );
         QString name      = info.completeBaseName();
@@ -377,7 +377,7 @@ void OPFWriter::WriteGuide()
 
     m_Writer->writeStartElement( "guide" );
 
-    foreach( HTMLResource *html_resource, m_Book->GetConstFolderKeeper().GetSortedHTMLResources() )
+    foreach( HTMLResource *html_resource, m_Book->GetConstFolderKeeper().GetResourceTypeList< HTMLResource >( true ) )
     {
         GuideSemantics::GuideSemanticType semantic_type = html_resource->GetGuideSemanticType();
 
@@ -405,7 +405,7 @@ void OPFWriter::WriteGuide()
 
 bool OPFWriter::GuideTypesPresent()
 {
-    foreach( HTMLResource *html_resource, m_Book->GetConstFolderKeeper().GetSortedHTMLResources() )
+    foreach( HTMLResource *html_resource, m_Book->GetConstFolderKeeper().GetResourceTypeList< HTMLResource >() )
     {
         if ( html_resource->GetGuideSemanticType() != GuideSemantics::NoType )
 

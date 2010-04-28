@@ -28,7 +28,7 @@
 #include <QMutex>
 
 // These have to be included directly because
-// of the template function.
+// of the template functions.
 #include "../ResourceObjects/HTMLResource.h"
 #include "../ResourceObjects/ImageResource.h"
 #include "../ResourceObjects/CSSResource.h"
@@ -78,9 +78,7 @@ public:
     QList< Resource* > GetResourceList() const;
 
     template< class T >
-    QList< T* > GetSpecificResourceType() const;
-
-    QList< HTMLResource* > GetSortedHTMLResources() const;
+    QList< T* > GetResourceTypeList( bool should_be_sorted = false ) const;
 
     Resource& GetResourceByIdentifier( const QString &identifier ) const;
 
@@ -121,6 +119,8 @@ private:
     //      Misc
     void CreateFolderStructure();
 
+    template< typename T >
+    static bool PointerLessThan( T* first_item, T* second_item );
 
     ///////////////////////////////
     // PRIVATE MEMBER VARIABLES
@@ -145,7 +145,7 @@ private:
 };
 
 template< class T >
-QList< T* > FolderKeeper::GetSpecificResourceType() const
+QList< T* > FolderKeeper::GetResourceTypeList( bool should_be_sorted ) const
 {
     QList< T* > onetype_resources;
 
@@ -153,12 +153,25 @@ QList< T* > FolderKeeper::GetSpecificResourceType() const
     {
         T* type_resource = qobject_cast< T* >( resource );
 
-        if ( type_resource != NULL )
+        if ( type_resource )
 
             onetype_resources.append( type_resource );
     }
 
+    if ( should_be_sorted )
+
+        qSort( onetype_resources.begin(), onetype_resources.end(), FolderKeeper::PointerLessThan< T > );
+
     return onetype_resources;
+}
+
+template< typename T >
+bool FolderKeeper::PointerLessThan( T* first_item, T* second_item )
+{
+    Q_ASSERT( first_item );
+    Q_ASSERT( second_item );
+
+    return *first_item < *second_item;
 }
 #endif // FOLDERKEEPER_H
 

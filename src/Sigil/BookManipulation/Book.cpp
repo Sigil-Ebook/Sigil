@@ -169,7 +169,7 @@ HTMLResource& Book::CreateChapterBreakOriginalResource( const QString &content, 
     int reading_order = originating_resource.GetReadingOrder();
     Q_ASSERT( reading_order >= 0 );
 
-    QList< HTMLResource* > html_resources = m_Mainfolder.GetSortedHTMLResources();
+    QList< HTMLResource* > html_resources = m_Mainfolder.GetResourceTypeList< HTMLResource >( true );
 
     // We need to "make room" for the reading order of the new resource
     for ( int i = reading_order; i < html_resources.count(); ++i )
@@ -229,7 +229,7 @@ void Book::CreateNewChapters( const QStringList& new_chapters,
 
     QtConcurrent::run( Utility::DeleteFolderAndFiles, folderpath );
 
-    AnchorUpdates::UpdateAllAnchorsWithIDs( m_Mainfolder.GetSortedHTMLResources() );
+    AnchorUpdates::UpdateAllAnchorsWithIDs( m_Mainfolder.GetResourceTypeList< HTMLResource >() );
 }
 
 

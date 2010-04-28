@@ -37,7 +37,7 @@ static const int FLOW_SIZE_THRESHOLD         = 1000;
 
 void BookNormalization::Normalize( QSharedPointer< Book > book )
 {
-    QList< HTMLResource* > html_resources = book->GetFolderKeeper().GetSortedHTMLResources();
+    QList< HTMLResource* > html_resources = book->GetFolderKeeper().GetResourceTypeList< HTMLResource >( true );
 
     GiveIDsToHeadings( html_resources );
 
@@ -45,7 +45,7 @@ void BookNormalization::Normalize( QSharedPointer< Book > book )
     
         TryToSetCoverPage( html_resources );
 
-    QList< ImageResource* > image_resources = book->GetFolderKeeper().GetSpecificResourceType< ImageResource >();
+    QList< ImageResource* > image_resources = book->GetFolderKeeper().GetResourceTypeList< ImageResource >();
 
     if ( !CoverImageExists( image_resources ) )
 

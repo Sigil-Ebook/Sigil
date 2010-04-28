@@ -71,6 +71,14 @@ public:
     Resource( const QString &fullfilepath, QHash< QString, Resource* > *hash_owner, QObject *parent = NULL );
 
     /**
+     * The less-than operator overload. By default, compares
+     * the resources by filename (lexical).
+     *
+     * @param other The other Resource object we're comparing with.
+     */
+    virtual bool operator< ( const Resource& other );
+
+    /**
      * Returns the resource's UUID.
      *
      * @return The resource's UUID.

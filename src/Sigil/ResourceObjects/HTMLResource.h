@@ -45,9 +45,17 @@ public:
                   QHash< QString, QString > semantic_information,
                   QObject *parent = NULL );
 
-    GuideSemantics::GuideSemanticType GetGuideSemanticType();
+    /**
+    * The less-than operator overload. Overridden because HTMLResources
+    * are compared by their reading order, not by filename.
+    *
+    * @param other The other HTMLResource object we're comparing with.
+    */
+    virtual bool operator< ( const HTMLResource& other );
 
-    QString GetGuideSemanticTitle();
+    GuideSemantics::GuideSemanticType GetGuideSemanticType() const;
+
+    QString GetGuideSemanticTitle() const;
 
     void SetGuideSemanticType( GuideSemantics::GuideSemanticType type );
 
@@ -84,7 +92,7 @@ public:
 
     void SaveToDisk( bool book_wide_save = false );
 
-    int GetReadingOrder();
+    int GetReadingOrder() const;
 
     void SetReadingOrder( int reading_order );
     
@@ -96,9 +104,6 @@ public:
     void RemoveWebkitCruft();
 
     QStringList SplitOnSGFChapterMarkers();
-
-    // TODO: turn this into operator<
-    static bool LessThan( HTMLResource* res_1, HTMLResource* res_2 );
 
 
 private slots:

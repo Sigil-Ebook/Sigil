@@ -35,6 +35,11 @@ Resource::Resource( const QString &fullfilepath, QHash< QString, Resource* > *ha
 
 }
 
+bool Resource::operator< ( const Resource& other )
+{
+    return Filename() < other.Filename();
+}
+
 
 QString Resource::GetIdentifier() const
 {

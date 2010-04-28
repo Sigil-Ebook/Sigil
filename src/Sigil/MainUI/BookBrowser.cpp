@@ -218,7 +218,7 @@ void BookBrowser::Remove()
     Resource::ResourceType resource_type = resource->Type();
 
     if ( resource_type == Resource::HTMLResource &&
-         m_Book->GetConstFolderKeeper().GetSortedHTMLResources().count() == 1 )
+         m_Book->GetConstFolderKeeper().GetResourceTypeList< HTMLResource >().count() == 1 )
     {
         QMessageBox::warning( 0,
                               tr( "Sigil" ),
@@ -256,7 +256,7 @@ void BookBrowser::SetCoverImage()
     // Turn on.
     if ( !changing_image->IsCoverImage() )
     {
-        foreach( ImageResource *image_resource, m_Book->GetFolderKeeper().GetSpecificResourceType< ImageResource >() )
+        foreach( ImageResource *image_resource, m_Book->GetFolderKeeper().GetResourceTypeList< ImageResource >() )
         {
             image_resource->SetIsCoverImage( false );
         }
@@ -284,7 +284,7 @@ void BookBrowser::AddGuideSemanticType( int type )
     {
         // Industry best practice is to have only one 
         // <guide> reference type instance per book.
-        foreach( HTMLResource *html_resource, m_Book->GetFolderKeeper().GetSortedHTMLResources() )
+        foreach( HTMLResource *html_resource, m_Book->GetFolderKeeper().GetResourceTypeList< HTMLResource >() )
         {
             if ( html_resource->GetGuideSemanticType() == semantic_type_to_add )
             {

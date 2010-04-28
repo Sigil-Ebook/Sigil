@@ -55,13 +55,19 @@ HTMLResource::HTMLResource( const QString &fullfilepath,
 }
 
 
-GuideSemantics::GuideSemanticType HTMLResource::GetGuideSemanticType()
+bool HTMLResource::operator< ( const HTMLResource& other )
+{
+    return GetReadingOrder() < other.GetReadingOrder();
+}
+
+
+GuideSemantics::GuideSemanticType HTMLResource::GetGuideSemanticType() const
 {
     return m_GuideSemanticType;
 }
 
 
-QString HTMLResource::GetGuideSemanticTitle()
+QString HTMLResource::GetGuideSemanticTitle() const
 {
     return m_GuideSemanticTitle;
 }
@@ -247,7 +253,7 @@ void HTMLResource::SaveToDisk( bool book_wide_save )
 }
 
 
-int HTMLResource::GetReadingOrder()
+int HTMLResource::GetReadingOrder() const
 {
     return m_ReadingOrder;
 }
@@ -294,12 +300,6 @@ QStringList HTMLResource::SplitOnSGFChapterMarkers()
     MarkSecondaryCachesAsOld();
 
     return chapters;
-}
-
-
-bool HTMLResource::LessThan( HTMLResource* res_1, HTMLResource* res_2 )
-{
-    return res_1->GetReadingOrder() < res_2->GetReadingOrder();
 }
 
 
@@ -424,3 +424,4 @@ void HTMLResource::TrackNewResources( const QStringList &filepaths )
         }
     }
 }
+
