@@ -1,4 +1,6 @@
 ﻿Sigil v0.2.0 RC1 ADD_DATE
+    - fixed an issue with Tidy not fixing free ampersands into "&amp;", even when configured
+    to do so (issue #365)
     - fixed an issue with the current tab unnecessarily reloading after book saves (issue #354)
     - fixed issues with filename basenames being read only until the first dot; was causing
     problems with OPF manifest ID generation (issue #351)
