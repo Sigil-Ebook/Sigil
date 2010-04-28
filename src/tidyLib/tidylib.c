@@ -915,7 +915,7 @@ int   tidyDocParseString( TidyDocImpl* doc, ctmbstr content )
     TidyBuffer inbuf;
     StreamIn* in = NULL;
 
-    // Ugly hack added by Strahinja Markovic
+    /* Ugly hack added by Strahinja Markovic */
     doc->nClassId = cfg(doc, TidyClassStartID);
 
     if ( content )

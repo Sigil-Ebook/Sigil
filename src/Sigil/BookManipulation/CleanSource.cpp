@@ -330,8 +330,7 @@ QString CleanSource::HTMLTidy( const QString &source, TidyType type )
 
     else
 
-        tidy_document = TidyOptions( tidy_document, type );
-    
+        tidy_document = TidyOptions( tidy_document, type );    
 
     // Write all errors to error buffer
     tidySetErrorBuffer( tidy_document, &errbuf );
