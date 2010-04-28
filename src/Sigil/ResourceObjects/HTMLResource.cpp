@@ -234,7 +234,7 @@ void HTMLResource::UpdateTextDocumentFromWebPage()
 }
 
 
-void HTMLResource::SaveToDisk()
+void HTMLResource::SaveToDisk( bool book_wide_save )
 {
     QWriteLocker locker( &m_ReadWriteLock );
 

@@ -242,7 +242,7 @@ void Book::SaveAllResourcesToDisk()
 
 void Book::SaveOneResourceToDisk( Resource *resource )
 {
-    resource->SaveToDisk();        
+    resource->SaveToDisk( true );        
 }
 
 void Book::CreateOneNewChapter( const QString &source,

@@ -1,4 +1,5 @@
 ﻿Sigil v0.2.0 RC1 ADD_DATE
+    - fixed an issue with the current tab unnecessarily reloading after book saves (issue #354)
     - fixed issues with filename basenames being read only until the first dot; was causing
     problems with OPF manifest ID generation (issue #351)
     - hitting the keyboard shortcut for the Find&Replace window while the window is open

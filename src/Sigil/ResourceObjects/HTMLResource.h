@@ -33,7 +33,6 @@ class QTextDocument;
 class QString;
 
 
-
 class HTMLResource : public Resource 
 {
     Q_OBJECT
@@ -83,7 +82,7 @@ public:
 
     void UpdateTextDocumentFromWebPage();
 
-    void SaveToDisk();
+    void SaveToDisk( bool book_wide_save = false );
 
     int GetReadingOrder();
 

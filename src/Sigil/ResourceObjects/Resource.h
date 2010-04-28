@@ -149,8 +149,11 @@ public:
      * The default implementation does nothing,
      * and assumes the resource data is not being
      * cached in memory.
+     *
+     * @param book_wide_save If \c false (the default), a ResourceUpdatedOnDisk()
+     *                       signal will be emitted.
      */
-    virtual void SaveToDisk();
+    virtual void SaveToDisk( bool book_wide_save = false );
 
 signals:
 

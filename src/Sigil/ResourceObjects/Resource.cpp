@@ -119,7 +119,7 @@ Resource::ResourceType Resource::Type() const
 }
 
 
-void Resource::SaveToDisk()
+void Resource::SaveToDisk( bool book_wide_save )
 {
     return;
 }

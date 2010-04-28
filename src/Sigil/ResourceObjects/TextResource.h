@@ -41,7 +41,7 @@ public:
 
     QTextDocument& GetTextDocumentForWriting();
 
-    void SaveToDisk();
+    void SaveToDisk( bool book_wide_save = false );
 
     virtual void InitialLoad();
 
