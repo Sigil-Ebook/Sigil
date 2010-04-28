@@ -240,6 +240,10 @@ void HTMLResource::SaveToDisk( bool book_wide_save )
 
     Utility::WriteUnicodeTextFile( CleanSource::PrettyPrint( XHTMLDoc::GetQDomNodeAsString( m_DomDocument ) ),
                                    m_FullFilePath );
+
+    if ( !book_wide_save )
+
+        emit ResourceUpdatedOnDisk();
 }
 
 
