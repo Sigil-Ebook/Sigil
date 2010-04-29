@@ -256,7 +256,7 @@ bool BookViewEditor::FindNext( const QRegExp &search_regex, Searchable::Directio
     {
         SelectRangeInputs input = GetRangeInputs( search_tools.node_offsets, result_regex.pos(), result_regex.matchedLength() );
         SelectTextRange( input );
-        ScrollToNode( input.start_node );  
+        ScrollToNodeText( input.start_node, input.start_node_index );  
 
         return true;
     } 
@@ -514,7 +514,8 @@ BookViewEditor::SearchTools BookViewEditor::GetSearchTools() const
     search_tools.fulltext = "";
     search_tools.document.setContent( page()->mainFrame()->toHtml() );
 
-    QList< QDomNode > text_nodes = XHTMLDoc::GetVisibleTextNodes( search_tools.document.elementsByTagName( "body" ).at( 0 ) );
+    QList< QDomNode > text_nodes = XHTMLDoc::GetVisibleTextNodes( 
+                                    search_tools.document.elementsByTagName( "body" ).at( 0 ) );
 
     QDomNode current_block_ancestor;    
 
@@ -578,6 +579,21 @@ QString BookViewEditor::GetElementSelectingJS_WithTextNode( const QList< ViewEdi
     element_selector.append( ".get(0)" );
 
     return element_selector;
+}
+
+
+QWebElement BookViewEditor::QDomNodeToQWebElement( const QDomNode &node )
+{
+    const QList< ViewEditor::ElementIndex > &hierarchy = XHTMLDoc::GetHierarchyFromNode( node );
+    QWebElement element = page()->mainFrame()->documentElement();
+    element.findFirst( "html" );
+
+    for ( int i = 0; i < hierarchy.count() - 1; ++i )
+    {
+        element = XHTMLDoc::QWebElementChildren( element ).at( hierarchy[ i ].index );
+    }
+
+    return element;
 }
 
 
@@ -687,15 +703,13 @@ void BookViewEditor::SelectTextRange( const SelectRangeInputs &input )
 }
 
 
-void BookViewEditor::ScrollToNode( const QDomNode &node )
+void BookViewEditor::ScrollToNodeText( const QDomNode &node, int character_offset )
 {
-    QString element_selector = GetElementSelectingJS_NoTextNodes( XHTMLDoc::GetHierarchyFromNode( node ) );
+    const QWebElement element = QDomNodeToQWebElement( node );
+    QRect element_geometry    = element.geometry();
 
-    QString offset_js = "$(" + element_selector + ").offset().top;";
-    QString height_js = "$(" + element_selector + ").height();";
-
-    int elem_offset  = EvaluateJavascript( offset_js ).toInt();
-    int elem_height  = EvaluateJavascript( height_js ).toInt();
+    int elem_offset  = element_geometry.top();
+    int elem_height  = element_geometry.height();
     int frame_height = height();
 
     Q_ASSERT( frame_height != 0 );
@@ -710,6 +724,14 @@ void BookViewEditor::ScrollToNode( const QDomNode &node )
         return;       
     }
 
+    else if ( elem_height >= frame_height )
+    {
+        // The relative position of the text string start to the whole node
+        float char_position = character_offset / (float) element.toPlainText().count();
+        
+        new_scroll_Y = elem_offset + elem_height * char_position - frame_height / 2;
+    }
+
     // If it's "above" the currently displayed page section,
     // we scroll to the element, positioning the top of screen just above it
     else if ( elem_offset < current_scroll_offset )
@@ -721,7 +743,7 @@ void BookViewEditor::ScrollToNode( const QDomNode &node )
     // we scroll to the element, positioning the bottom of screen on the element
     else
     {
-        new_scroll_Y = elem_offset - frame_height + elem_height;
+        new_scroll_Y = elem_offset + elem_height - frame_height;
     }   
 
     // If the element is very near the beginning of the document,
@@ -758,6 +780,7 @@ void BookViewEditor::ScrollByNumPixels( int pixel_number, bool down )
 
     page()->mainFrame()->setScrollBarValue( Qt::Vertical, new_scroll_Y );
 }
+
 
 
 

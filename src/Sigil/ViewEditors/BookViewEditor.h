@@ -335,6 +335,14 @@ private:
     QString GetElementSelectingJS_WithTextNode( const QList< ViewEditor::ElementIndex > &hierarchy ) const;
 
     /**
+     * Converts a QDomNode from a QDom of the current page
+     * into the QWebElement of that same element on tha page.
+     *
+     * @param node The node to covert.
+     */
+    QWebElement QDomNodeToQWebElement( const QDomNode &node );
+
+    /**
      * Escapes JavaScript string special characters.
      *
      * @return The escaped string.
@@ -404,12 +412,14 @@ private:
     void SelectTextRange( const SelectRangeInputs &input );
 
     /**
-     * Scrolls the view to the specified node. 
-     * \note Does NOT center the node in view.
+     * Scrolls the view to the specified node and text offset
+     * within that node. 
      *
-     * @param The node to scroll to.
+     * @param node The node to scroll to.
+     * @param character_offset The specific offset we're interested
+     *                         in within the node.
      */
-    void ScrollToNode( const QDomNode &node );
+    void ScrollToNodeText( const QDomNode &node, int character_offset );
 
     /**
      * Scrolls the whole screen by one line. 

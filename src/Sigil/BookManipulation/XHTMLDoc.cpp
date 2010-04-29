@@ -252,6 +252,30 @@ QString XHTMLDoc::ResolveHTMLEntities( const QString &text )
 }
 
 
+// A tree node class without a children() function...
+// appallingly stupid, isn't it?
+QList< QWebElement > XHTMLDoc::QWebElementChildren( const QWebElement &element )
+{
+    QList< QWebElement > children;
+
+    const QWebElement &first_child = element.firstChild();
+    
+    if ( !first_child.isNull() )
+
+        children.append( first_child );
+
+    QWebElement next_sibling = first_child.nextSibling();
+
+    while ( !next_sibling.isNull() )
+    {
+        children.append( next_sibling );
+        next_sibling = next_sibling.nextSibling();
+    }
+
+    return children;
+}
+
+
 QStringList XHTMLDoc::GetSGFChapterSplits( const QString& source,
                                            const QString& custom_header )
 {

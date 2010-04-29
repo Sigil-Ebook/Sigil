@@ -1,4 +1,6 @@
 ﻿Sigil v0.2.0 RC1 ADD_DATE
+    - fixed an issue with the Find Dialog not correctly scrolling to the found text in
+    Book View (issue #195)
     - fixed an issue with Tidy not fixing free ampersands into "&amp;", even when configured
     to do so (issue #365)
     - fixed an issue with the current tab unnecessarily reloading after book saves (issue #354)

@@ -24,6 +24,7 @@
 #define XHTMLDOC_H
 
 #include "../ViewEditors/ViewEditor.h"
+#include <QWebElement>
 
 class QDomNode;
 class QDomDocument;
@@ -82,6 +83,8 @@ public:
     // returns
     //    Bonnie & Clyde
     static QString ResolveHTMLEntities( const QString &text );
+
+    static QList< QWebElement > QWebElementChildren( const QWebElement &element );
 
     /**
      * Splits the provided source on SGF chapter breaks.
