@@ -456,6 +456,12 @@ int BookViewEditor::GetLocalSelectionOffset( bool start_of_selection )
     // If the result is 0, then the anchor and focus are the same node
     if ( result_bitmask == 0 )
     {
+        // If they are the collapsed, then it's just the caret
+        if ( anchor_offset == focus_offset )
+
+            return anchor_offset;
+
+        // This handles the situation with some text selected.
         // If we need the start of selection, we return the smaller
         // index; otherwise, the larger one.
         if ( start_of_selection )
@@ -490,8 +496,8 @@ int BookViewEditor::GetSelectionOffset( const QDomDocument &document,
 {
     QDomNode caret_node = XHTMLDoc::GetNodeFromHierarchy( document, GetCaretLocation() );
 
-    bool searching_down =   search_direction == Searchable::Direction_Down || 
-                            search_direction == Searchable::Direction_All ? true : false;
+    bool searching_down = search_direction == Searchable::Direction_Down || 
+                          search_direction == Searchable::Direction_All ? true : false;
 
     int local_offset    = GetLocalSelectionOffset( !searching_down );
     int search_start    = node_offsets.key( caret_node ) + local_offset;

@@ -267,8 +267,7 @@ private:
     int GetLocalSelectionOffset( bool start_of_selection );
 
     /**
-     * Returns the selection offset from the start of the document. 
-     * The first argument is the, the second is  and the third is the search direction.
+     * Returns the selection offset from the start of the document.
      *
      * @param document The loaded DOM document.
      * @param node_offsets The text node offset map from SearchTools.
