@@ -875,12 +875,12 @@ bool MainWindow::SaveFile( const QString &fullfilepath )
         // when the user tries to save an unsupported type
         if ( !SUPPORTED_SAVE_TYPE.contains( extension ) )
         {
-            QMessageBox::warning( 0,
-                                  tr( "Sigil" ),
-                                  tr( "Sigil currently cannot save files of type \"%1\".\n"
-                                      "Please choose a different format." )
-                                  .arg( extension )
-                                );
+            QMessageBox::critical( 0,
+                                   tr( "Sigil" ),
+                                   tr( "Sigil currently cannot save files of type \"%1\".\n"
+                                       "Please choose a different format." )
+                                   .arg( extension )
+                                 );
             return false;
         }
 

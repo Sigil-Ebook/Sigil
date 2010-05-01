@@ -340,12 +340,12 @@ int BookViewEditor::ReplaceAll( const QRegExp &search_regex, const QString &repl
 
             else
             {
-                QMessageBox::warning( 0,
-                                      tr( "Sigil" ),
-                                      tr( "An error occurred during the search.\n"
-                                          "Some of the instances were replaced, but some weren't. "
-                                          "Try performing your search in the Code View." )
-                                    );
+                QMessageBox::critical( 0,
+                                       tr( "Sigil" ),
+                                       tr( "An error occurred during the search.\n"
+                                           "Some of the instances were replaced, but some weren't. "
+                                           "Try performing your search in the Code View." )
+                                     );
                 --count;
                 break;
             }
