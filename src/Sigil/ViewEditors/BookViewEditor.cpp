@@ -281,17 +281,20 @@ bool BookViewEditor::ReplaceSelected( const QRegExp &search_regex, const QString
     // the "back" index of the selection range
     int selection_offset = GetSelectionOffset( search_tools.document, search_tools.node_offsets, Searchable::Direction_Up ); 
 
-    QRegExp result_regex  = search_regex;
-    QString selected_text = GetSelectedText();
+    QRegExp result_regex = search_regex;
+
+    // We always say Direction_Down since we're comparing
+    // with already selected text
+    RunSearchRegex( result_regex, search_tools.fulltext, selection_offset, Searchable::Direction_Down );
 
     // If we are currently sitting at the start 
     // of a matching substring, we replace it.
-    if ( result_regex.exactMatch( selected_text ) )
+    if ( result_regex.pos() == selection_offset )
     {
         QString final_replacement = FillWithCapturedTexts( result_regex.capturedTexts(), replacement );
         QString replacing_js      = QString( c_ReplaceText ).replace( "$ESCAPED_TEXT_HERE", EscapeJSString( final_replacement ) );
 
-        SelectRangeInputs input   = GetRangeInputs( search_tools.node_offsets, selection_offset, selected_text.length() );
+        SelectRangeInputs input   = GetRangeInputs( search_tools.node_offsets, selection_offset, GetSelectedText().length() );
         EvaluateJavascript( GetRangeJS( input ) + replacing_js + c_NewSelection ); 
 
         // Tell anyone who's interested that the document has been updated.

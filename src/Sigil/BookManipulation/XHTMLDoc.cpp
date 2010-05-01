@@ -486,10 +486,10 @@ QList< QDomNode > XHTMLDoc::GetVisibleTextNodes( const QDomNode &node  )
     {
         QString node_name = GetNodeName( node );
 
-        if (    node.hasChildNodes() && 
-                node_name != "script" && 
-                node_name != "style" 
-            )
+        if ( node.hasChildNodes() && 
+             node_name != "script" && 
+             node_name != "style" 
+           )
         {
             QDomNodeList children = node.childNodes();
             QList< QDomNode > text_nodes;

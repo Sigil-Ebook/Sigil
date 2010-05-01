@@ -297,16 +297,17 @@ int CodeViewEditor::Count( const QRegExp &search_regex )
 // it is replaced by the specified replacement string.
 bool CodeViewEditor::ReplaceSelected( const QRegExp &search_regex, const QString &replacement )
 {
-    QRegExp result_regex  = search_regex;
-    QTextCursor cursor    = textCursor();
-    QString selected_text = cursor.selectedText().replace( QChar::ParagraphSeparator, QChar( '\n' ) );
+    int selection_start = textCursor().selectionStart();
+
+    QRegExp result_regex = search_regex;
+    RunSearchRegex( result_regex, toPlainText(), selection_start, Searchable::Direction_Down ); 
 
     // If we are currently sitting at the start 
     // of a matching substring, we replace it.
-    if ( result_regex.exactMatch( selected_text ) )
+    if ( result_regex.pos() == selection_start )
     {
         QString final_replacement = FillWithCapturedTexts( result_regex.capturedTexts(), replacement );
-        cursor.insertText( final_replacement );
+        textCursor().insertText( final_replacement );
 
         return true;
     }
@@ -672,8 +673,8 @@ bool CodeViewEditor::ExecuteCaretUpdate()
 // document depending on the search direction specified
 int CodeViewEditor::GetSelectionOffset( Searchable::Direction search_direction ) const
 {
-    if (    search_direction == Searchable::Direction_Down ||
-            search_direction == Searchable::Direction_All
+    if ( search_direction == Searchable::Direction_Down ||
+         search_direction == Searchable::Direction_All
        )
     {
         return textCursor().selectionEnd();
