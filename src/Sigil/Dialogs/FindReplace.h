@@ -77,6 +77,14 @@ private slots:
     // whether the normal search type is selected.
     void ToggleAvailableOptions( bool normal_search_checked );
 
+    /**
+     * Handles changes to the cbLookWhere combo box.
+     * Connected to the activated() signal of cbLookWhere.
+     *
+     * @param text The newly selected text in the combo box.
+     */
+    void LookWhereChanged( const QString &text );  
+
 private:
 
     // Displays a message to the user informing him

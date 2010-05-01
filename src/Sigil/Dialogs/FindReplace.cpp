@@ -240,6 +240,23 @@ void FindReplace::ToggleAvailableOptions( bool normal_search_checked )
 }
 
 
+void FindReplace::LookWhereChanged( const QString &text )
+{
+    if ( text == tr( "All HTML Files" ) &&
+         m_MainWindow.GetCurrentContentTab().GetViewState() == ContentTab::ViewState_BookView )
+    {
+        QMessageBox::warning( this,
+                              tr( "Sigil" ),
+                              tr( "It is not currently possible to search all the files in Book View mode. "
+                                  "Switch to Code View to perform such searches.")
+                            );
+
+        // Back to current document search mode
+        ui.cbLookWhere->setCurrentIndex( 0 );
+    }
+}
+
+
 // Displays a message to the user informing him
 // that his last search term could not be found.
 void FindReplace::CannotFindSearchTerm()
@@ -467,6 +484,9 @@ void FindReplace::ConnectSignalsToSlots()
     connect( ui.btReplace,      SIGNAL( clicked()             ), this, SLOT( Replace()                      ) );
     connect( ui.btReplaceAll,   SIGNAL( clicked()             ), this, SLOT( ReplaceAll()                   ) );
     connect( ui.rbNormalSearch, SIGNAL( toggled( bool )       ), this, SLOT( ToggleAvailableOptions( bool ) ) );
+
+    connect( ui.cbLookWhere,    SIGNAL( activated( const QString& ) ), this, SLOT( LookWhereChanged( const QString& )    ) );
+
 }
 
 
