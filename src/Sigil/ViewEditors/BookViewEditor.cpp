@@ -332,7 +332,7 @@ int BookViewEditor::ReplaceAll( const QRegExp &search_regex, const QString &repl
         {
             // FIXME: This is a stop-gap for issue 293
             // http://code.google.com/p/sigil/issues/detail?id=293
-            // Remove this code when you replace QDom with Xerces
+            // Remove this code when you replace QDom with Xerces.
             if ( search_index != previous_search_index )
             {
                 previous_search_index = search_index;

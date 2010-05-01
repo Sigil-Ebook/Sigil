@@ -1,4 +1,6 @@
 ﻿Sigil v0.2.0 RC1 ADD_DATE
+    - fixed a minor issue with the More/Less button in the Find&Replace dialog not having an
+    ALT shortcut letter
     - fixed an issue with positive regex lookaheads in normal Replace (not ReplaceAll) (issue #261) 
     - fixed a rare off-by-one error in Book View searching when the caret was at the start of
     the matched string; this made the search skip that instance of the match (issue #280)

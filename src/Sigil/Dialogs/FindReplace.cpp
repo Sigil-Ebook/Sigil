@@ -96,7 +96,7 @@ void FindReplace::ToggleMoreLess()
         ui.wOptions->hide();
         ui.twTabs->show();        
 
-        ui.btMore->setText( tr( "More" ) );
+        ui.btMore->setText( tr( "&More" ) );
 
         m_isMore = false;
     }
@@ -110,7 +110,7 @@ void FindReplace::ToggleMoreLess()
         ui.twTabs->hide();
         ui.wOptions->show();
         ui.twTabs->show(); 
-        ui.btMore->setText( tr( "Less" ) );
+        ui.btMore->setText( tr( "Le&ss" ) );
 
         m_isMore = true;
     }
