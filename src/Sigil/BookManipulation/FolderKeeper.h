@@ -80,6 +80,9 @@ public:
     template< class T >
     QList< T* > GetResourceTypeList( bool should_be_sorted = false ) const;
 
+    template< class T >
+    QList< Resource* > GetResourceTypeAsGenericList( bool should_be_sorted = false ) const;
+
     Resource& GetResourceByIdentifier( const QString &identifier ) const;
 
     // NOTE THAT RESOURCE FILENAMES CAN CHANGE,
@@ -144,6 +147,7 @@ private:
     QString m_FullPathToMiscFolder;
 };
 
+
 template< class T >
 QList< T* > FolderKeeper::GetResourceTypeList( bool should_be_sorted ) const
 {
@@ -163,6 +167,27 @@ QList< T* > FolderKeeper::GetResourceTypeList( bool should_be_sorted ) const
         qSort( onetype_resources.begin(), onetype_resources.end(), FolderKeeper::PointerLessThan< T > );
 
     return onetype_resources;
+}
+
+template< class T >
+QList< Resource* > FolderKeeper::GetResourceTypeAsGenericList( bool should_be_sorted ) const
+{
+    QList< Resource* > resources;
+
+    foreach( Resource *resource, m_Resources.values() )
+    {
+        T* type_resource = qobject_cast< T* >( resource );
+
+        if ( type_resource )
+
+            resources.append( resource );
+    }
+
+    if ( should_be_sorted )
+
+        qSort( resources.begin(), resources.end(), FolderKeeper::PointerLessThan< Resource > );
+
+    return resources;
 }
 
 template< typename T >

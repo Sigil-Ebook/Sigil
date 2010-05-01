@@ -172,6 +172,8 @@ set( MISC_FILES
     Misc/HTMLEncodingResolver.h
     Misc/RasterizeImageResource.cpp
     Misc/RasterizeImageResource.h
+    Misc/SearchOperations.cpp
+    Misc/SearchOperations.h
     )
 
 set( VIEW_EDITOR_FILES

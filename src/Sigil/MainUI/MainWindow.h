@@ -63,6 +63,13 @@ public:
     MainWindow( const QString &openfilepath = QString(), QWidget *parent = 0, Qt::WFlags flags = 0 );
 
     /**
+     * The book currently being edited.
+     *
+     * @return A shared pointer to the book.
+     */
+    QSharedPointer< Book > GetCurrentBook();
+
+    /**
      * Returns a reference to the current content tab.
      *
      * @return A reference to the current content tab.

@@ -83,9 +83,18 @@ private slots:
      *
      * @param text The newly selected text in the combo box.
      */
-    void LookWhereChanged( const QString &text );  
+    void LookWhereChanged( int index );  
 
 private:
+
+    /**
+     * Defines possible areas where the search can be performed.
+     */
+    enum LookWhere 
+    {
+        CurrentFile,
+        AllHTMLFiles
+    };
 
     // Displays a message to the user informing him
     // that his last search term could not be found.
@@ -99,6 +108,10 @@ private:
 
     // Returns the selected search direction.
     Searchable::Direction GetSearchDirection();
+
+    LookWhere CurrentLookWhere();
+
+    int CountInFiles();
 
     // Changes the layout of the controls to the Find tab style
     void ToFindTab();

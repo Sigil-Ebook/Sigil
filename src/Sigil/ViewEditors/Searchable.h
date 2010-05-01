@@ -67,7 +67,7 @@ public:
      * Returns the number of matching occurrences.
      *
      * @param search_regex The regex to match with.
-     * @return The number of occurrences of matching occurrences.
+     * @return The number of matching occurrences.
      */
     virtual int Count( const QRegExp &search_regex ) = 0;
 
