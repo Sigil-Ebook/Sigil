@@ -314,8 +314,10 @@ int BookViewEditor::ReplaceAll( const QRegExp &search_regex, const QString &repl
     
     QProgressDialog progress( tr( "Replacing search term..." ), QString(), 0, Count( search_regex ) );
     progress.setMinimumDuration( PROGRESS_BAR_MINIMUM_DURATION );
+
+    int previous_search_index = -1;
     
-    // Slow as hell. Find a way to speed this up.
+    // TODO: Slow as hell. Find a way to speed this up.
     // Something that does NOT require parsing the whole
     // document every single time we change something...
     while ( true )
@@ -324,9 +326,30 @@ int BookViewEditor::ReplaceAll( const QRegExp &search_regex, const QString &repl
         progress.setValue( count );
 
         SearchTools search_tools = GetSearchTools();
+        int search_index = search_tools.fulltext.indexOf( result_regex );
 
-        if ( search_tools.fulltext.indexOf( result_regex ) != -1 )
+        if ( search_index != -1 )
         {
+            // FIXME: This is a stop-gap for issue 293
+            // http://code.google.com/p/sigil/issues/detail?id=293
+            // Remove this code when you replace QDom with Xerces
+            if ( search_index != previous_search_index )
+            {
+                previous_search_index = search_index;
+            }
+
+            else
+            {
+                QMessageBox::warning( 0,
+                                      tr( "Sigil" ),
+                                      tr( "An error occurred during the search.\n"
+                                          "Some of the instances were replaced, but some weren't. "
+                                          "Try performing your search in the Code View." )
+                                    );
+                --count;
+                break;
+            }
+
             QString final_replacement = FillWithCapturedTexts( result_regex.capturedTexts(), replacement );
             QString replacing_js      = QString( c_ReplaceText ).replace( "$ESCAPED_TEXT_HERE", EscapeJSString( final_replacement ) );
 
