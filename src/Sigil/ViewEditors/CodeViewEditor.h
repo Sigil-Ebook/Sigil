@@ -104,6 +104,8 @@ public:
     // the main event handler.
     void StoreCaretLocationUpdate( const QList< ViewEditor::ElementIndex > &hierarchy );
 
+    bool IsLoadingFinished();
+
     void ScrollToTop();
 
     // Sets a zoom factor for the view,
@@ -116,7 +118,9 @@ public:
     // Finds the next occurrence of the search term in the document,
     // and selects the matched string. The first argument is the matching
     // regex, the second is the direction of the search.
-    bool FindNext( const QRegExp &search_regex, Searchable::Direction search_direction );
+    bool FindNext( const QRegExp &search_regex, 
+                   Searchable::Direction search_direction,
+                   bool ignore_selection_offset = false );
 
     // Returns the number of times that the specified
     // regex matches in the document.
@@ -258,7 +262,7 @@ private:
 
     // Returns the selection offset from the start of the 
     // document depending on the search direction specified
-    int GetSelectionOffset( Searchable::Direction search_direction ) const;
+    int GetSelectionOffset( Searchable::Direction search_direction, bool ignore_selection_offset ) const;
 
     // Scrolls the whole screen by one line.
     // The parameter specifies are we scrolling up or down.
@@ -304,7 +308,10 @@ private:
     QShortcut &m_ScrollOneLineUp;
     QShortcut &m_ScrollOneLineDown;
 
-
+    /**
+     * Set to \c false whenever the page is loading content.
+     */
+    bool m_isLoadFinished;
 };
 
 #endif // CODEVIEWEDITOR_H

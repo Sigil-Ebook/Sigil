@@ -29,6 +29,8 @@
 
 class MainWindow;
 class QRegExp;
+class Resource;
+class HTMLResource;
 
 class FindReplace : public QDialog
 {
@@ -115,6 +117,20 @@ private:
 
     int ReplaceInAllFiles();
 
+    void FindInAllFiles( Searchable *searchable );
+
+    HTMLResource* GetNextContainingHTMLResource();
+
+    HTMLResource* GetNextHTMLResource( HTMLResource *current_resource );
+
+    template< class T >
+    T* GetStartingResource();
+
+    Resource* GetCurrentResource();
+
+    template< class T >
+    bool ResourceContainsCurrentRegex( T *resource );
+
     // Changes the layout of the controls to the Find tab style
     void ToFindTab();
 
@@ -176,6 +192,8 @@ private:
     // state of the dialog
     bool m_isMore;
 
+    Searchable *m_LastUsedSearchable;
+
     // A const reference to the mainwindow that
     // spawned this dialog. Needed for searching.
     MainWindow &m_MainWindow;
@@ -183,6 +201,45 @@ private:
     // Holds all the widgets Qt Designer created for us
     Ui::FindReplace ui;
 };
+
+
+template< class T >
+bool FindReplace::ResourceContainsCurrentRegex( T *resource )
+{
+    // For now, this must hold
+    Q_ASSERT( CurrentLookWhere() == AllHTMLFiles );
+
+    Resource *generic_resource = resource;
+
+    return SearchOperations::CountInFiles( 
+            GetSearchRegex(), 
+            QList< Resource* >() << generic_resource,
+            SearchOperations::CodeViewSearch ) > 0;
+}
+
+
+template< class T >
+T* FindReplace::GetStartingResource()
+{
+    Resource* resource = GetCurrentResource();
+    T* typed_resource  = qobject_cast< T* >( resource );
+
+    if ( typed_resource )
+
+        return typed_resource;
+
+    // If the current one is not the correct type,
+    // we return the first resource of that type from the book.
+    QList< T* > resources = m_MainWindow.GetCurrentBook()->GetFolderKeeper().GetResourceTypeList< T >( true );
+
+    if ( resources.count() > 0 )
+
+        return resources[ 0 ];
+
+    else
+
+        return NULL;
+}
 
 #endif // FINDREPLACE_H
 

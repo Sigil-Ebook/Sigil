@@ -43,7 +43,7 @@ BookViewEditor::BookViewEditor( QWidget *parent )
     : 
     QWebView( parent ),
     m_CaretLocationUpdate( QString() ),
-    m_isLoadFinished( true ),
+    m_isLoadFinished( false ),
     m_PageUp(   *( new QShortcut( QKeySequence( QKeySequence::MoveToPreviousPage ), this, 0, 0, Qt::WidgetShortcut ) ) ),
     m_PageDown( *( new QShortcut( QKeySequence( QKeySequence::MoveToNextPage     ), this, 0, 0, Qt::WidgetShortcut ) ) ),
     m_ScrollOneLineUp(   *( new QShortcut( QKeySequence( Qt::ControlModifier + Qt::Key_Up   ), this, 0, 0, Qt::WidgetShortcut ) ) ),
@@ -64,6 +64,8 @@ BookViewEditor::BookViewEditor( QWidget *parent )
 
 void BookViewEditor::CustomSetWebPage( QWebPage &webpage )
 {
+    m_isLoadFinished = true;
+
     connect( &webpage, SIGNAL( contentsChanged()    ), this, SIGNAL( textChanged()            ) );
     connect( &webpage, SIGNAL( selectionChanged()   ), this, SIGNAL( selectionChanged()       ) );
     connect( &webpage, SIGNAL( loadFinished( bool ) ), this, SLOT( JavascriptOnDocumentLoad() ) );
@@ -229,6 +231,12 @@ void BookViewEditor::StoreCaretLocationUpdate( const QList< ViewEditor::ElementI
 }
 
 
+bool BookViewEditor::IsLoadingFinished()
+{
+    return m_isLoadFinished;
+}
+
+
 void BookViewEditor::SetZoomFactor( float factor )
 {
     setZoomFactor( factor );
@@ -244,10 +252,20 @@ float BookViewEditor::GetZoomFactor() const
 }
 
 
-bool BookViewEditor::FindNext( const QRegExp &search_regex, Searchable::Direction search_direction )
+bool BookViewEditor::FindNext( const QRegExp &search_regex, 
+                               Searchable::Direction search_direction,
+                               bool ignore_selection_offset )
 {
     SearchTools search_tools = GetSearchTools();
-    int selection_offset     = GetSelectionOffset( search_tools.document, search_tools.node_offsets, search_direction ); 
+    int selection_offset = -1;
+
+    if ( ignore_selection_offset )
+
+        selection_offset = search_direction == Searchable::Direction_Up ? search_tools.fulltext.count() - 1 : 0;
+
+    else
+        
+        selection_offset = GetSelectionOffset( search_tools.document, search_tools.node_offsets, search_direction ); 
 
     QRegExp result_regex = search_regex;
     RunSearchRegex( result_regex, search_tools.fulltext, selection_offset, search_direction ); 

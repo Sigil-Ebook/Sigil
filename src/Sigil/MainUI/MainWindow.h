@@ -26,6 +26,7 @@
 #include <QtGui/QMainWindow>
 #include "ui_main.h"
 #include "../BookManipulation/Book.h"
+#include "Tabs/ContentTab.h"
 #include <QSharedPointer>
 #include <QMutex>
 
@@ -38,7 +39,7 @@ class QSlider;
 class FindReplace;
 class TabManager;
 class BookBrowser;
-class ContentTab;
+
 
 
 /**
@@ -75,6 +76,8 @@ public:
      * @return A reference to the current content tab.
      */
     ContentTab& GetCurrentContentTab(); 
+
+    void OpenResource( Resource &resource, ContentTab::ViewState view_state );
 
     /**
      * Returns the status bar mutex used to protect 

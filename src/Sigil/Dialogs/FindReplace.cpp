@@ -26,6 +26,7 @@
 #include "../Tabs/TabManager.h"
 #include "../Tabs/ContentTab.h"
 #include "../Misc/SearchOperations.h"
+#include "../Misc/SleepFunctions.h"
 
 static const QString SETTINGS_GROUP = "find_replace";
 
@@ -143,11 +144,19 @@ void FindReplace::FindNext()
 
         return;
 
-    bool found = searchable->FindNext( GetSearchRegex(), GetSearchDirection() );
+    if ( CurrentLookWhere() == CurrentFile )
+    {
+        bool found = searchable->FindNext( GetSearchRegex(), GetSearchDirection() );
 
-    if ( !found )
+        if ( !found )
 
-        CannotFindSearchTerm();
+            CannotFindSearchTerm();
+    }
+
+    else
+    {
+        FindInAllFiles( searchable );
+    }
 
     UpdatePreviousFindStrings();
 }
@@ -382,6 +391,105 @@ int FindReplace::ReplaceInAllFiles()
 }
 
 
+void FindReplace::FindInAllFiles( Searchable *searchable )
+{
+    Q_ASSERT( searchable );
+
+    Searchable::Direction search_direction = GetSearchDirection();
+
+    bool ignore_offset = m_LastUsedSearchable == searchable ? false : true;
+
+    bool found = search_direction == Searchable::Direction_All                                       ?
+                 searchable->FindNext( GetSearchRegex(), Searchable::Direction_Down, ignore_offset ) :
+                 searchable->FindNext( GetSearchRegex(), search_direction, ignore_offset );
+
+    m_LastUsedSearchable = searchable;
+
+    if ( !found )
+    {
+        // TODO: make this handle all types of files
+        Resource *containing_resource = GetNextContainingHTMLResource(); 
+
+        if ( containing_resource )
+        {
+            m_MainWindow.OpenResource( *containing_resource, ContentTab::ViewState_CodeView );
+
+            while ( !m_MainWindow.GetCurrentContentTab().IsLoadingFinished() )
+            {
+                // Make sure Qt processes events, signals and calls slots
+                qApp->processEvents();
+                SleepFunctions::msleep( 100 );
+            }
+
+            FindNext();
+        }
+
+        else
+        {
+            CannotFindSearchTerm();
+        }
+    }   
+}
+
+
+HTMLResource* FindReplace::GetNextContainingHTMLResource()
+{
+    HTMLResource *next_html_resource = GetStartingResource< HTMLResource >();
+
+    while ( true )
+    {
+        next_html_resource = GetNextHTMLResource( next_html_resource );
+
+        if ( next_html_resource )
+        {
+            if ( ResourceContainsCurrentRegex( next_html_resource ) )
+
+                return next_html_resource;
+        }
+
+        else
+        {
+            return NULL;
+        }
+    }
+}
+
+
+HTMLResource* FindReplace::GetNextHTMLResource( HTMLResource *current_resource )
+{
+    QSharedPointer< Book > book = m_MainWindow.GetCurrentBook();
+    int max_reading_order       = book->GetConstFolderKeeper().GetHighestReadingOrder();
+    int current_reading_order   = current_resource->GetReadingOrder();
+    int next_reading_order      = 0;
+
+    if ( GetSearchDirection() == Searchable::Direction_Down )
+    
+        next_reading_order = current_reading_order + 1;
+
+    else if ( GetSearchDirection() == Searchable::Direction_Up )
+
+        next_reading_order = current_reading_order - 1;
+
+    else
+
+        // We wrap back (if needed) for Direction_All
+        next_reading_order = current_reading_order + 1 < max_reading_order ? current_reading_order + 1 : 0;
+
+    if ( next_reading_order > max_reading_order || next_reading_order < 0 )
+
+        return NULL;
+
+    else
+
+        return book->GetFolderKeeper().GetResourceTypeList< HTMLResource >( true )[ next_reading_order ];
+}
+
+
+Resource* FindReplace::GetCurrentResource()
+{
+    return &m_MainWindow.GetCurrentContentTab().GetLoadedResource();
+}
+
 
 // Changes the layout of the controls to the Find tab style
 void FindReplace::ToFindTab()
@@ -594,7 +702,6 @@ void FindReplace::ConnectSignalsToSlots()
     connect( ui.cbLookWhere,    SIGNAL( activated( int )      ), this, SLOT( LookWhereChanged( int )        ) );
 
 }
-
 
 
 

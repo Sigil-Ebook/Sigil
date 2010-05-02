@@ -32,7 +32,6 @@
 #include "Exporters/ExporterFactory.h"
 #include "BookManipulation/BookNormalization.h"
 #include "MainUI/BookBrowser.h"
-#include "Tabs/ContentTab.h"
 #include "Tabs/FlowTab.h"
 #include "Tabs/TabManager.h"
 #include "ResourceObjects/HTMLResource.h"
@@ -112,6 +111,12 @@ QSharedPointer< Book > MainWindow::GetCurrentBook()
 ContentTab& MainWindow::GetCurrentContentTab()
 {
     return m_TabManager.GetCurrentContentTab();
+}
+
+
+void MainWindow::OpenResource( Resource &resource, ContentTab::ViewState view_state )
+{
+    m_TabManager.OpenResource( resource, false, QUrl(), view_state );
 }
 
 
@@ -1462,6 +1467,7 @@ void MainWindow::BreakTabConnections( ContentTab *tab )
 
     disconnect( tab,                                0, this, 0 );
 }
+
 
 
 

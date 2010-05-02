@@ -61,7 +61,9 @@ public:
      * @param search_direction The direction of the search.
      * @return \c true if the term is found.
      */
-    virtual bool FindNext( const QRegExp &search_regex, Direction search_direction ) = 0;
+    virtual bool FindNext( const QRegExp &search_regex, 
+                           Direction search_direction, 
+                           bool ignore_selection_offset = false ) = 0;
 
     /**
      * Returns the number of matching occurrences.

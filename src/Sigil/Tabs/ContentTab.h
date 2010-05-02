@@ -69,6 +69,13 @@ public:
     QIcon GetIcon();
 
     /**
+     * The resource currently loaded in the tab.
+     *
+     * @return A reference to the resource.
+     */
+    Resource& GetLoadedResource();
+
+    /**
      * The modification state of the resource.
      *
      * @return \c true if the tab has modified the resource.
@@ -196,6 +203,10 @@ public:
      * @return The current view state.
      */
     virtual ViewState GetViewState() { return ViewState_StaticView; };
+
+    virtual void SetViewState( ViewState new_view_state ) {};
+
+    virtual bool IsLoadingFinished() { return true; } 
 
 public slots:
 

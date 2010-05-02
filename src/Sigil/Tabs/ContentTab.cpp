@@ -52,6 +52,12 @@ QIcon ContentTab::GetIcon()
 }
 
 
+Resource& ContentTab::GetLoadedResource()
+{
+    return m_Resource;
+}
+
+
 Searchable* ContentTab::GetSearchableContent()
 {
     return NULL;
@@ -103,5 +109,4 @@ void ContentTab::focusOutEvent( QFocusEvent *event )
 
     SaveContentOnTabLeave();
 }
-
 

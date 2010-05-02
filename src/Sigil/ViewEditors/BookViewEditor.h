@@ -154,11 +154,15 @@ public:
      */
     void StoreCaretLocationUpdate( const QList< ViewEditor::ElementIndex > &hierarchy );
 
+    bool IsLoadingFinished();
+
     void SetZoomFactor( float factor );
 
     float GetZoomFactor() const;
 
-    bool FindNext( const QRegExp &search_regex, Searchable::Direction search_direction );
+    bool FindNext( const QRegExp &search_regex, 
+                   Searchable::Direction search_direction,
+                   bool ignore_selection_offset = false );
 
     int Count( const QRegExp &search_regex );
 
