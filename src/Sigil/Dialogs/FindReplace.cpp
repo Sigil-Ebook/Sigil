@@ -25,6 +25,7 @@
 #include "../ViewEditors/Searchable.h"
 #include "../Tabs/TabManager.h"
 #include "../Tabs/ContentTab.h"
+#include "../Misc/SearchOperations.h"
 
 static const QString SETTINGS_GROUP = "find_replace";
 
@@ -44,7 +45,7 @@ FindReplace::FindReplace( bool find_tab, MainWindow &main_window, QWidget *paren
     setAttribute( Qt::WA_DeleteOnClose );
 
     ExtendUI();
-    ConnectSignalsToSlots();    
+    ConnectSignalsToSlots();
 
     // Defaults
     ui.rbNormalSearch->setChecked( true );
@@ -166,7 +167,9 @@ void FindReplace::Count()
 
         return;
 
-    int count = searchable->Count( GetSearchRegex() );
+    int count = CurrentLookWhere() == CurrentFile     ? 
+                searchable->Count( GetSearchRegex() ) :
+                CountInFiles();
 
     QString message = ( count < 1 || count > 1 )     ? 
                       tr( "%1 matches were found." ) :
@@ -250,9 +253,9 @@ void FindReplace::ToggleAvailableOptions( bool normal_search_checked )
 }
 
 
-void FindReplace::LookWhereChanged( const QString &text )
+void FindReplace::LookWhereChanged( int index  )
 {
-    if ( text == tr( "All HTML Files" ) &&
+    if ( ui.cbLookWhere->itemData( index ) == FindReplace::AllHTMLFiles &&
          m_MainWindow.GetCurrentContentTab().GetViewState() == ContentTab::ViewState_BookView )
     {
         QMessageBox::critical( this,
@@ -345,6 +348,23 @@ Searchable::Direction FindReplace::GetSearchDirection()
         return Searchable::Direction_All;
 }
 
+
+FindReplace::LookWhere FindReplace::CurrentLookWhere()
+{
+    return (LookWhere) ui.cbLookWhere->itemData( ui.cbLookWhere->currentIndex() ).toInt();
+}
+
+
+int FindReplace::CountInFiles()
+{
+    // For now, this must hold
+    Q_ASSERT( CurrentLookWhere() == AllHTMLFiles );
+
+    return SearchOperations::CountInFiles( 
+            GetSearchRegex(), 
+            m_MainWindow.GetCurrentBook()->GetFolderKeeper().GetResourceTypeAsGenericList< HTMLResource >(),
+            SearchOperations::CodeViewSearch );
+}
 
 
 // Changes the layout of the controls to the Find tab style
@@ -525,7 +545,8 @@ void FindReplace::ExtendUI()
     // layout on the Replace tab. 
     new QVBoxLayout( ui.ReplaceTab );
 
-    ui.cbLookWhere->addItems( QStringList() << tr( "Current File" ) << tr( "All HTML Files" ) );
+    ui.cbLookWhere->addItem( tr( "Current File" ),   FindReplace::CurrentFile  );
+    ui.cbLookWhere->addItem( tr( "All HTML Files" ), FindReplace::AllHTMLFiles );
 }
 
 
@@ -554,10 +575,11 @@ void FindReplace::ConnectSignalsToSlots()
     connect( ui.btReplace,      SIGNAL( clicked()             ), this, SLOT( Replace()                      ) );
     connect( ui.btReplaceAll,   SIGNAL( clicked()             ), this, SLOT( ReplaceAll()                   ) );
     connect( ui.rbNormalSearch, SIGNAL( toggled( bool )       ), this, SLOT( ToggleAvailableOptions( bool ) ) );
-
-    connect( ui.cbLookWhere,    SIGNAL( activated( const QString& ) ), this, SLOT( LookWhereChanged( const QString& ) ) );
+    connect( ui.cbLookWhere,    SIGNAL( activated( int )      ), this, SLOT( LookWhereChanged( int )        ) );
 
 }
+
+
 
 
 

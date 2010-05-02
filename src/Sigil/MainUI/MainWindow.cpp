@@ -103,6 +103,12 @@ MainWindow::MainWindow( const QString &openfilepath, QWidget *parent, Qt::WFlags
 }
 
 
+QSharedPointer< Book > MainWindow::GetCurrentBook()
+{
+    return m_Book;
+}
+
+
 ContentTab& MainWindow::GetCurrentContentTab()
 {
     return m_TabManager.GetCurrentContentTab();

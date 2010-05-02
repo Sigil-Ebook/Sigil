@@ -23,6 +23,7 @@
 #include <QtWebKit>
 #include <boost/tuple/tuple.hpp>
 #include <boost/bind/bind.hpp>
+#include <boost/lambda/lambda.hpp>
 #include "constants.h"
 #include "exception.h"
 
