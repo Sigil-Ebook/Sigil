@@ -98,6 +98,34 @@ private:
     // Changes the layout of the controls to the Replace tab style
     void ToReplaceTab();
 
+    /**
+     * Returns a list of all the strings
+     * currently stored in the find combo box.
+     *
+     * @return The stored find strings.
+     */
+    QStringList GetPreviousFindStrings();
+
+    /**
+     * Returns a list of all the strings
+     * currently stored in the replace combo box.
+     *
+     * @return The stored replace strings.
+     */
+    QStringList GetPreviousReplaceStrings();
+
+    /**
+     * Updates the find combo box with the
+     * currently typed-in string.
+     */
+    void UpdatePreviousFindStrings();
+
+    /**
+     * Updates the replace combo box with the
+     * currently typed-in string.
+     */
+    void UpdatePreviousReplaceStrings();
+
     // Reads all the stored dialog settings like
     // window position, geometry etc.
     void ReadSettings();

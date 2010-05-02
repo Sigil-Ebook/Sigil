@@ -71,7 +71,7 @@ FindReplace::FindReplace( bool find_tab, TabManager &tabmanager, QWidget *parent
 
     // If there is any leftover text from a previous
     // search, then that text should be selected by default
-    ui.leFind->selectAll();
+    ui.cbFind->lineEdit()->selectAll();
 }
 
 
@@ -139,7 +139,7 @@ void FindReplace::TabChanged()
 // Shows a dialog if the term cannot be found.
 void FindReplace::FindNext()
 {
-    if ( ui.leFind->text().isEmpty() )
+    if ( ui.cbFind->lineEdit()->text().isEmpty() )
 
         return;
 
@@ -154,6 +154,8 @@ void FindReplace::FindNext()
     if ( !found )
 
         CannotFindSearchTerm();
+
+    UpdatePreviousFindStrings();
 }
 
 
@@ -161,7 +163,7 @@ void FindReplace::FindNext()
 // term in the document. Shows a dialog with the number.
 void FindReplace::Count()
 {
-    if ( ui.leFind->text().isEmpty() )
+    if ( ui.cbFind->lineEdit()->text().isEmpty() )
 
         return;
 
@@ -177,7 +179,9 @@ void FindReplace::Count()
                       tr( "%1 matches were found." ) :
                       tr( "%1 match was found."    );
 
-    QMessageBox::information( 0, tr( "Sigil" ), message.arg( count ) );        
+    QMessageBox::information( 0, tr( "Sigil" ), message.arg( count ) );
+
+    UpdatePreviousFindStrings();
 }
 
 
@@ -186,7 +190,7 @@ void FindReplace::Count()
 // calls FindNext() so it becomes selected.
 void FindReplace::Replace()
 {
-    if ( ui.leFind->text().isEmpty() )
+    if ( ui.cbFind->lineEdit()->text().isEmpty() )
 
         return;
 
@@ -197,10 +201,13 @@ void FindReplace::Replace()
         return;
 
     // If we have the matching text selected, replace it
-    searchable->ReplaceSelected( GetSearchRegex(), ui.leReplace->text() );
+    searchable->ReplaceSelected( GetSearchRegex(), ui.cbReplace->lineEdit()->text() );
 
     // Go find the next match
     FindNext(); 
+
+    UpdatePreviousFindStrings();
+    UpdatePreviousReplaceStrings();
 }
 
 
@@ -209,7 +216,7 @@ void FindReplace::Replace()
 // dialog telling how many occurrences were replaced.
 void FindReplace::ReplaceAll()
 {
-    if ( ui.leFind->text().isEmpty() )
+    if ( ui.cbFind->lineEdit()->text().isEmpty() )
 
         return;
 
@@ -219,13 +226,16 @@ void FindReplace::ReplaceAll()
 
         return;
 
-    int count = searchable->ReplaceAll( GetSearchRegex(), ui.leReplace->text() );
+    int count = searchable->ReplaceAll( GetSearchRegex(), ui.cbReplace->lineEdit()->text() );
 
     QString message = ( count < 1 || count > 1 )                     ? 
                       tr( "The search term was replaced %1 times." ) :
                       tr( "The search term was replaced %1 time."  );
 
-    QMessageBox::information( 0, tr( "Sigil" ), message.arg( count ) ); 
+    QMessageBox::information( 0, tr( "Sigil" ), message.arg( count ) );
+
+    UpdatePreviousFindStrings();
+    UpdatePreviousReplaceStrings();
 }
 
 
@@ -259,7 +269,7 @@ void FindReplace::CannotFindSearchTerm()
 // options and fields and then returns it.
 QRegExp FindReplace::GetSearchRegex()
 {
-    QRegExp search( ui.leFind->text() ); 
+    QRegExp search( ui.cbFind->lineEdit()->text() );
 
     // Search type
     if ( ui.rbWildcardSearch->isChecked() )
@@ -275,7 +285,7 @@ QRegExp FindReplace::GetSearchRegex()
 
         if ( ui.rbNormalSearch->isChecked() )
 
-            search.setPattern( QRegExp::escape( ui.leFind->text() ) );
+            search.setPattern( QRegExp::escape( ui.cbFind->lineEdit()->text() ) );
     }
 
     // Whole word searching. The user can select 
@@ -283,7 +293,7 @@ QRegExp FindReplace::GetSearchRegex()
     // is also selected
     if ( ui.cbWholeWord->isEnabled() && ui.cbWholeWord->isChecked() )
         
-        search.setPattern( "\\b" + QRegExp::escape( ui.leFind->text() ) + "\\b" );
+        search.setPattern( "\\b" + QRegExp::escape( ui.cbFind->lineEdit()->text() ) + "\\b" );
 
     // Case sensitivity
     if ( ui.cbMatchCase->isEnabled() && ui.cbMatchCase->isChecked() )
@@ -360,6 +370,67 @@ void FindReplace::ToReplaceTab()
     ui.swReplaceFieldHider->setCurrentIndex( 0 );
 }
 
+
+QStringList FindReplace::GetPreviousFindStrings()
+{
+    QStringList find_strings;
+
+    for ( int i = 0; i < ui.cbFind->count(); ++i )
+    {
+        find_strings.append( ui.cbFind->itemText( i ) );
+    }
+
+    return find_strings;
+}
+
+
+QStringList FindReplace::GetPreviousReplaceStrings()
+{
+    QStringList replace_strings;
+
+    for ( int i = 0; i < ui.cbReplace->count(); ++i )
+    {
+        replace_strings.append( ui.cbReplace->itemText( i ) );
+    }
+
+    return replace_strings;
+}
+
+
+void FindReplace::UpdatePreviousFindStrings()
+{
+    QString new_find_string = ui.cbFind->lineEdit()->text();
+    int used_at_index = ui.cbFind->findText( new_find_string );
+
+    if ( used_at_index != -1 )
+    {
+        ui.cbFind->removeItem( used_at_index );
+    }
+
+    ui.cbFind->insertItem( 0, new_find_string );
+
+    // Must not change the current string!
+    ui.cbFind->lineEdit()->setText( new_find_string );
+}
+
+
+void FindReplace::UpdatePreviousReplaceStrings()
+{
+    QString new_replace_string = ui.cbReplace->lineEdit()->text();
+    int used_at_index = ui.cbReplace->findText( new_replace_string );
+
+    if ( used_at_index != -1 )
+    {
+        ui.cbReplace->removeItem( used_at_index );
+    }
+
+    ui.cbReplace->insertItem( 0, new_replace_string );
+
+    // Must not change the current string!
+    ui.cbReplace->lineEdit()->setText( new_replace_string );
+}
+
+
 // Reads all the stored dialog settings like
 // window position, geometry etc.
 void FindReplace::ReadSettings()
@@ -403,8 +474,8 @@ void FindReplace::ReadSettings()
     ui.rbAllDirection->   setChecked( settings.value( "all_direction"    ).toBool() );
 
     // Input fields
-    ui.leFind->   setText( settings.value( "find_text"    ).toString() );
-    ui.leReplace->setText( settings.value( "replace_text" ).toString() );
+    ui.cbFind->   addItems( settings.value( "find_strings"    ).toStringList() );
+    ui.cbReplace->addItems( settings.value( "replace_strings" ).toStringList() );
 }
 
 // Writes all the stored dialog settings like
@@ -433,9 +504,8 @@ void FindReplace::WriteSettings()
     settings.setValue( "down_direction",   ui.rbDownDirection->  isChecked() );
     settings.setValue( "all_direction",    ui.rbAllDirection->   isChecked() );
 
-    // Input fields
-    settings.setValue( "find_text",    ui.leFind->   text() );
-    settings.setValue( "replace_text", ui.leReplace->text() );
+    settings.setValue( "find_strings",    GetPreviousFindStrings()    );
+    settings.setValue( "replace_strings", GetPreviousReplaceStrings() );
 }
 
 

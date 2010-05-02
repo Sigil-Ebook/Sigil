@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>451</width>
-    <height>251</height>
+    <width>529</width>
+    <height>295</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -53,16 +53,13 @@
             <property name="leftMargin">
              <number>2</number>
             </property>
-            <item row="0" column="1">
-             <widget class="QLineEdit" name="leFind"/>
-            </item>
             <item row="0" column="0">
              <widget class="QLabel" name="lbFindWhat">
               <property name="text">
                <string>Fi&amp;nd what:</string>
               </property>
               <property name="buddy">
-               <cstring>leFind</cstring>
+               <cstring>cbFind</cstring>
               </property>
              </widget>
             </item>
@@ -85,7 +82,7 @@
                    <string>Replace w&amp;ith:</string>
                   </property>
                   <property name="buddy">
-                   <cstring>leReplace</cstring>
+                   <cstring>cbReplace</cstring>
                   </property>
                  </widget>
                 </item>
@@ -108,11 +105,28 @@
                  <number>0</number>
                 </property>
                 <item>
-                 <widget class="QLineEdit" name="leReplace"/>
+                 <widget class="QComboBox" name="cbReplace">
+                  <property name="editable">
+                   <bool>true</bool>
+                  </property>
+                  <property name="maxCount">
+                   <number>20</number>
+                  </property>
+                 </widget>
                 </item>
                </layout>
               </widget>
               <widget class="QWidget" name="wHidePageLabel"/>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="QComboBox" name="cbFind">
+              <property name="editable">
+               <bool>true</bool>
+              </property>
+              <property name="maxCount">
+               <number>20</number>
+              </property>
              </widget>
             </item>
            </layout>
@@ -316,8 +330,6 @@
   </layout>
  </widget>
  <tabstops>
-  <tabstop>leFind</tabstop>
-  <tabstop>leReplace</tabstop>
   <tabstop>btMore</tabstop>
   <tabstop>btReplace</tabstop>
   <tabstop>btReplaceAll</tabstop>
