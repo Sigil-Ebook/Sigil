@@ -254,12 +254,12 @@ bool Utility::IsFileReadable( const QString &fullfilepath )
     // Check if we can open the file
     if ( !file.open( QFile::ReadOnly ) )
     {
-        QMessageBox::warning(	0,
-                                QObject::tr( "Sigil" ),
-                                QObject::tr( "Cannot read file %1:\n%2." )
-                                .arg( fullfilepath )
-                                .arg( file.errorString() ) 
-                            );
+        QMessageBox::critical( 0,
+                               QObject::tr( "Sigil" ),
+                               QObject::tr( "Cannot read file %1:\n%2." )
+                               .arg( fullfilepath )
+                               .arg( file.errorString() ) 
+                             );
         return false;
     }
     

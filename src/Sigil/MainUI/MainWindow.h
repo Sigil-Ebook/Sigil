@@ -63,6 +63,13 @@ public:
     MainWindow( const QString &openfilepath = QString(), QWidget *parent = 0, Qt::WFlags flags = 0 );
 
     /**
+     * Returns a reference to the current content tab.
+     *
+     * @return A reference to the current content tab.
+     */
+    ContentTab& GetCurrentContentTab(); 
+
+    /**
      * Returns the status bar mutex used to protect 
      * write access to the MainWindow's status bar.
      * 

@@ -234,8 +234,8 @@ private:
     Resource* GetCurrentResource();
 
     /**
-    * Connects all the required signals to their respective slots.
-    */
+     * Connects all the required signals to their respective slots.
+     */
     void ConnectSignalsToSlots();
 
 

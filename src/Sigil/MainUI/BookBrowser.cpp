@@ -111,11 +111,11 @@ void BookBrowser::OpenUrlResource( const QUrl &url )
 
     catch ( const ResourceDoesNotExist& )
     {
-        QMessageBox::warning( 0,
-                              tr( "Sigil" ),
-                              tr( "The file \"%1\" does not exist." )
-                              .arg( filename )
-                            );
+        QMessageBox::critical( 0,
+                               tr( "Sigil" ),
+                               tr( "The file \"%1\" does not exist." )
+                               .arg( filename )
+                             );
     }       
 }
 
@@ -220,11 +220,11 @@ void BookBrowser::Remove()
     if ( resource_type == Resource::HTMLResource &&
          m_Book->GetConstFolderKeeper().GetResourceTypeList< HTMLResource >().count() == 1 )
     {
-        QMessageBox::warning( 0,
-                              tr( "Sigil" ),
-                              tr( "The last HTML file cannot be removed.\n" 
-                                  "There always has to be at least one." )
-                            );
+        QMessageBox::critical( 0,
+                               tr( "Sigil" ),
+                               tr( "The last HTML file cannot be removed.\n" 
+                                   "There always has to be at least one." )
+                             );
 
         return;
     }

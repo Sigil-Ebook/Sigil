@@ -32,10 +32,10 @@ static const QString SETTINGS_GROUP = "find_replace";
 // the first argument specifies which tab to load first;
 // the second argument is the MainWindow that created the dialog;
 // the third argument is the widget's parent.
-FindReplace::FindReplace( bool find_tab, TabManager &tabmanager, QWidget *parent )
+FindReplace::FindReplace( bool find_tab, MainWindow &main_window, QWidget *parent )
     :
     QDialog( parent ),
-    m_TabManager( tabmanager )
+    m_MainWindow( main_window )
 {
     ui.setupUi( this );
 
@@ -44,14 +44,7 @@ FindReplace::FindReplace( bool find_tab, TabManager &tabmanager, QWidget *parent
     setAttribute( Qt::WA_DeleteOnClose );
 
     ExtendUI();
-
-    connect( ui.twTabs,         SIGNAL( currentChanged( int ) ), this, SLOT( TabChanged()                   ) );
-    connect( ui.btMore,         SIGNAL( clicked()             ), this, SLOT( ToggleMoreLess()               ) );
-    connect( ui.btFindNext,     SIGNAL( clicked()             ), this, SLOT( FindNext()                     ) );
-    connect( ui.btCount,        SIGNAL( clicked()             ), this, SLOT( Count()                        ) );
-    connect( ui.btReplace,      SIGNAL( clicked()             ), this, SLOT( Replace()                      ) );
-    connect( ui.btReplaceAll,   SIGNAL( clicked()             ), this, SLOT( ReplaceAll()                   ) );
-    connect( ui.rbNormalSearch, SIGNAL( toggled( bool )       ), this, SLOT( ToggleAvailableOptions( bool ) ) );
+    ConnectSignalsToSlots();    
 
     // Defaults
     ui.rbNormalSearch->setChecked( true );
@@ -96,7 +89,7 @@ void FindReplace::ToggleMoreLess()
         ui.wOptions->hide();
         ui.twTabs->show();        
 
-        ui.btMore->setText( tr( "More" ) );
+        ui.btMore->setText( tr( "&More" ) );
 
         m_isMore = false;
     }
@@ -110,7 +103,7 @@ void FindReplace::ToggleMoreLess()
         ui.twTabs->hide();
         ui.wOptions->show();
         ui.twTabs->show(); 
-        ui.btMore->setText( tr( "Less" ) );
+        ui.btMore->setText( tr( "Le&ss" ) );
 
         m_isMore = true;
     }
@@ -253,6 +246,23 @@ void FindReplace::ToggleAvailableOptions( bool normal_search_checked )
     {
         ui.cbMinimalMatching->setEnabled( true );
         ui.cbWholeWord->setEnabled( false );
+    }
+}
+
+
+void FindReplace::LookWhereChanged( const QString &text )
+{
+    if ( text == tr( "All HTML Files" ) &&
+         m_MainWindow.GetCurrentContentTab().GetViewState() == ContentTab::ViewState_BookView )
+    {
+        QMessageBox::critical( this,
+                               tr( "Sigil" ),
+                               tr( "It is not currently possible to search all the files in Book View mode. "
+                                   "Switch to Code View to perform such searches.")
+                             );
+
+        // Back to current document search mode
+        ui.cbLookWhere->setCurrentIndex( 0 );
     }
 }
 
@@ -514,24 +524,40 @@ void FindReplace::ExtendUI()
     // This is necessary. We need to have a default
     // layout on the Replace tab. 
     new QVBoxLayout( ui.ReplaceTab );
+
+    ui.cbLookWhere->addItems( QStringList() << tr( "Current File" ) << tr( "All HTML Files" ) );
 }
 
 
 Searchable* FindReplace::GetAvailableSearchable()
 {
-    Searchable *searchable = m_TabManager.GetCurrentContentTab().GetSearchableContent();
+    Searchable *searchable = m_MainWindow.GetCurrentContentTab().GetSearchableContent();
     
     if ( !searchable )
     {
-        QMessageBox::warning( this,
-                              tr( "Sigil" ),
-                              tr( "This tab cannot be searched." )
-                            );
+        QMessageBox::critical( this,
+                               tr( "Sigil" ),
+                               tr( "This tab cannot be searched." )
+                             );
     }
 
     return searchable;
 }
 
+
+void FindReplace::ConnectSignalsToSlots()
+{
+    connect( ui.twTabs,         SIGNAL( currentChanged( int ) ), this, SLOT( TabChanged()                   ) );
+    connect( ui.btMore,         SIGNAL( clicked()             ), this, SLOT( ToggleMoreLess()               ) );
+    connect( ui.btFindNext,     SIGNAL( clicked()             ), this, SLOT( FindNext()                     ) );
+    connect( ui.btCount,        SIGNAL( clicked()             ), this, SLOT( Count()                        ) );
+    connect( ui.btReplace,      SIGNAL( clicked()             ), this, SLOT( Replace()                      ) );
+    connect( ui.btReplaceAll,   SIGNAL( clicked()             ), this, SLOT( ReplaceAll()                   ) );
+    connect( ui.rbNormalSearch, SIGNAL( toggled( bool )       ), this, SLOT( ToggleAvailableOptions( bool ) ) );
+
+    connect( ui.cbLookWhere,    SIGNAL( activated( const QString& ) ), this, SLOT( LookWhereChanged( const QString& ) ) );
+
+}
 
 
 

@@ -103,6 +103,12 @@ MainWindow::MainWindow( const QString &openfilepath, QWidget *parent, Qt::WFlags
 }
 
 
+ContentTab& MainWindow::GetCurrentContentTab()
+{
+    return m_TabManager.GetCurrentContentTab();
+}
+
+
 QMutex& MainWindow::GetStatusBarMutex()
 {
     return m_StatusBarMutex;
@@ -114,7 +120,7 @@ void MainWindow::ShowMessageOnCurrentStatusBar( const QString &message,
 {
     MainWindow& main_window = GetCurrentMainWindow();
     QMutexLocker locker( &main_window.GetStatusBarMutex() );
-    QStatusBar* status_bar = GetCurrentMainWindow().statusBar();
+    QStatusBar* status_bar = main_window.statusBar();
 
     // In Sigil, every MainWindow has to have a status bar
     Q_ASSERT( status_bar );
@@ -303,7 +309,7 @@ void MainWindow::Find()
     if ( m_FindReplace.isNull() )
     {   
         // Qt will delete this dialog from memory when it closes
-        m_FindReplace = new FindReplace( true, m_TabManager, this );
+        m_FindReplace = new FindReplace( true, *this, this );
         m_FindReplace.data()->show();
     }
 
@@ -320,7 +326,7 @@ void MainWindow::Replace()
     if ( m_FindReplace.isNull() )
     {   
         // Qt will delete this dialog from memory when it closes
-        m_FindReplace = new FindReplace( false, m_TabManager, this );
+        m_FindReplace = new FindReplace( false, *this, this );
         m_FindReplace.data()->show();
     }
 
@@ -869,12 +875,12 @@ bool MainWindow::SaveFile( const QString &fullfilepath )
         // when the user tries to save an unsupported type
         if ( !SUPPORTED_SAVE_TYPE.contains( extension ) )
         {
-            QMessageBox::warning( 0,
-                                  tr( "Sigil" ),
-                                  tr( "Sigil currently cannot save files of type \"%1\".\n"
-                                      "Please choose a different format." )
-                                  .arg( extension )
-                                );
+            QMessageBox::critical( 0,
+                                   tr( "Sigil" ),
+                                   tr( "Sigil currently cannot save files of type \"%1\".\n"
+                                       "Please choose a different format." )
+                                   .arg( extension )
+                                 );
             return false;
         }
 
@@ -1062,7 +1068,6 @@ MainWindow& MainWindow::GetCurrentMainWindow()
         else
         {
             object = object->parent();
-
             Q_ASSERT( object );
         }
     }
@@ -1451,6 +1456,7 @@ void MainWindow::BreakTabConnections( ContentTab *tab )
 
     disconnect( tab,                                0, this, 0 );
 }
+
 
 
 

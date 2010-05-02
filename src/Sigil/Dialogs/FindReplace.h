@@ -27,7 +27,7 @@
 #include "ui_FindReplace.h"
 #include "../ViewEditors/Searchable.h"
 
-class TabManager;
+class MainWindow;
 class QRegExp;
 
 class FindReplace : public QDialog
@@ -40,7 +40,7 @@ public:
     // the first argument specifies which tab to load first;
     // the second argument is the MainWindow that created the dialog;
     // the third argument is the widget's parent.
-    FindReplace( bool find_tab, TabManager &tabmanager, QWidget *parent = 0 );
+    FindReplace( bool find_tab, MainWindow &main_window, QWidget *parent = 0 );
 
     // Destructor
     ~FindReplace();
@@ -76,6 +76,14 @@ private slots:
     // Toggles the availability of options depending on
     // whether the normal search type is selected.
     void ToggleAvailableOptions( bool normal_search_checked );
+
+    /**
+     * Handles changes to the cbLookWhere combo box.
+     * Connected to the activated() signal of cbLookWhere.
+     *
+     * @param text The newly selected text in the combo box.
+     */
+    void LookWhereChanged( const QString &text );  
 
 private:
 
@@ -139,6 +147,11 @@ private:
     // to extend the UI created by the Designer
     void ExtendUI();
 
+    /**
+     * Connects all the required signals to their respective slots.
+     */
+    void ConnectSignalsToSlots();
+
 
     ///////////////////////////////
     // PRIVATE MEMBER VARIABLES
@@ -150,7 +163,7 @@ private:
 
     // A const reference to the mainwindow that
     // spawned this dialog. Needed for searching.
-    TabManager &m_TabManager;
+    MainWindow &m_MainWindow;
 
     // Holds all the widgets Qt Designer created for us
     Ui::FindReplace ui;
