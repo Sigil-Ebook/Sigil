@@ -440,7 +440,7 @@ void FindReplace::UpdatePreviousFindStrings()
     ui.cbFind->insertItem( 0, new_find_string );
 
     // Must not change the current string!
-    ui.cbFind->lineEdit()->setText( new_find_string );
+    ui.cbFind->setCurrentIndex( 0 );
 }
 
 
@@ -457,7 +457,7 @@ void FindReplace::UpdatePreviousReplaceStrings()
     ui.cbReplace->insertItem( 0, new_replace_string );
 
     // Must not change the current string!
-    ui.cbReplace->lineEdit()->setText( new_replace_string );
+    ui.cbReplace->setCurrentIndex( 0 );
 }
 
 
