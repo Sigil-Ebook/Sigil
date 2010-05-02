@@ -48,6 +48,11 @@ public:
                              QList< Resource* > resources,
                              SearchType search_type );
 
+    static int ReplaceInAllFIles( const QRegExp &search_regex,
+                                  const QString &replacement,
+                                  QList< Resource* > resources,
+                                  SearchType search_type );
+
 private:
 
     static int CountInFile( const QRegExp &search_regex,
@@ -60,6 +65,24 @@ private:
 
     static int CountInTextFile( const QRegExp &search_regex,
                                 TextResource* text_resource );
+
+    static int ReplaceInFile( const QRegExp &search_regex,
+                              const QString &replacement,
+                              Resource* resource,
+                              SearchType search_type );
+
+    static int ReplaceHTMLInFile( const QRegExp &search_regex,
+                                  const QString &replacement,
+                                  HTMLResource* html_resource,
+                                  SearchType search_type );
+
+    static int ReplaceTextInFile( const QRegExp &search_regex,
+                                  const QString &replacement,
+                                  TextResource* text_resource );
+
+    static tuple< QString, int > PerformGlobalReplace( const QString &text,
+                                         const QRegExp &search_regex,
+                                         const QString &replacement );
 
     static void Accumulate( int &first, const int &second );
 };

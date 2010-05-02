@@ -90,8 +90,6 @@ public:
      */
     virtual int ReplaceAll( const QRegExp &search_regex, const QString &replacement ) = 0;
 
-protected:
-
     /**
      * Runs the regex through the text.
      *

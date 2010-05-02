@@ -25,7 +25,8 @@
 #include "../ResourceObjects/HTMLResource.h"
 #include "../BookManipulation/XHTMLDoc.h"
 #include "../BookManipulation/CleanSource.h"
-
+#include "../ViewEditors/Searchable.h"
+#include "../BookManipulation/CleanSource.h"
 
 
 int SearchOperations::CountInFiles( const QRegExp &search_regex,
@@ -46,10 +47,31 @@ int SearchOperations::CountInFiles( const QRegExp &search_regex,
 }
 
 
+int SearchOperations::ReplaceInAllFIles( const QRegExp &search_regex, 
+                                         const QString &replacement,
+                                         QList< Resource* > resources, 
+                                         SearchType search_type )
+{
+    QProgressDialog progress( QObject::tr( "Replacing search term..." ), QString(), 0, resources.count() );
+    progress.setMinimumDuration( PROGRESS_BAR_MINIMUM_DURATION );
+
+    QFutureWatcher<int> watcher;
+    QObject::connect( &watcher, SIGNAL( progressValueChanged( int ) ), &progress, SLOT( setValue( int ) ) );
+
+    watcher.setFuture( QtConcurrent::mappedReduced( resources, 
+                                                    boost::bind( ReplaceInFile, search_regex, replacement, _1, search_type ),
+                                                    Accumulate ) );
+
+    return watcher.result();
+}
+
+
 int SearchOperations::CountInFile( const QRegExp &search_regex, 
                                    Resource* resource, 
                                    SearchType search_type )
 {
+    QReadLocker locker( &resource->GetLock() );
+
     HTMLResource *html_resource = qobject_cast< HTMLResource* >( resource );
 
     if ( html_resource )
@@ -91,6 +113,92 @@ int SearchOperations::CountInTextFile( const QRegExp &search_regex, TextResource
 {
     // TODO
     return 0;
+}
+
+
+int SearchOperations::ReplaceInFile( const QRegExp &search_regex, 
+                                     const QString &replacement, 
+                                     Resource* resource, 
+                                     SearchType search_type )
+{
+    QWriteLocker locker( &resource->GetLock() );
+
+    HTMLResource *html_resource = qobject_cast< HTMLResource* >( resource );
+
+    if ( html_resource )
+    {
+        return ReplaceHTMLInFile( search_regex, replacement, html_resource, search_type );
+    }
+
+    TextResource *text_resource = qobject_cast< TextResource* >( resource );
+
+    if ( text_resource )
+    {
+        return ReplaceTextInFile( search_regex, replacement, text_resource );
+    }
+
+    // We should never get here.
+    Q_ASSERT( false );
+    return 0;
+}
+
+
+int SearchOperations::ReplaceHTMLInFile( const QRegExp &search_regex, 
+                                         const QString &replacement, 
+                                         HTMLResource* html_resource, 
+                                         SearchType search_type )
+{
+    if ( search_type == SearchOperations::CodeViewSearch )
+    {
+        QDomDocument document = html_resource->GetDomDocumentForWriting();
+        const QString &text   = CleanSource::PrettyPrint( XHTMLDoc::GetQDomNodeAsString( document ) );
+    
+        QString new_text;
+        int count;
+        tie( new_text, count ) = PerformGlobalReplace( text, search_regex, replacement );
+
+        document.setContent( CleanSource::ToValidXHTML( new_text ) );
+        return count;
+    }
+
+    //TODO: BookViewSearch
+    return 0;
+}
+
+
+int SearchOperations::ReplaceTextInFile( const QRegExp &search_regex, 
+                                         const QString &replacement, 
+                                         TextResource* text_resource )
+{
+    // TODO
+    return 0;
+}
+
+
+// We don't use QString.replace(QRegExp, QString) because
+// 1. we want the same behavior across all search algos;
+// 2. it doesn't return replace count;
+// 3. it would have to be replaced with this code either way
+//    when we integrate PCRE. 
+tuple< QString, int > SearchOperations::PerformGlobalReplace( const QString &text, 
+                                                              const QRegExp &search_regex,
+                                                              const QString &replacement )
+{
+    QRegExp result_regex = search_regex;
+    QString new_text = text;
+    int count = 0;
+    int index = 0;
+
+    while ( new_text.indexOf( result_regex, index ) != -1 )
+    {
+        QString final_replacement = Searchable::FillWithCapturedTexts( result_regex.capturedTexts(), replacement );        
+        new_text.replace( result_regex.pos(), final_replacement.length(), final_replacement );
+
+        index = result_regex.pos() + final_replacement.length();
+        ++count;
+    }
+
+    return make_tuple( new_text, count );
 }
 
 

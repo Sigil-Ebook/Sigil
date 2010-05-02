@@ -113,6 +113,8 @@ private:
 
     int CountInFiles();
 
+    int ReplaceInAllFiles();
+
     // Changes the layout of the controls to the Find tab style
     void ToFindTab();
 

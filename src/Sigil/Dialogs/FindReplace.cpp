@@ -222,7 +222,9 @@ void FindReplace::ReplaceAll()
 
         return;
 
-    int count = searchable->ReplaceAll( GetSearchRegex(), ui.cbReplace->lineEdit()->text() );
+    int count = CurrentLookWhere() == CurrentFile                                            ? 
+                searchable->ReplaceAll( GetSearchRegex(), ui.cbReplace->lineEdit()->text() ) :
+                ReplaceInAllFiles();
 
     QString message = ( count < 1 || count > 1 )                     ? 
                       tr( "The search term was replaced %1 times." ) :
@@ -365,6 +367,20 @@ int FindReplace::CountInFiles()
             m_MainWindow.GetCurrentBook()->GetFolderKeeper().GetResourceTypeAsGenericList< HTMLResource >(),
             SearchOperations::CodeViewSearch );
 }
+
+
+int FindReplace::ReplaceInAllFiles()
+{
+    // For now, this must hold
+    Q_ASSERT( CurrentLookWhere() == AllHTMLFiles );
+
+    return SearchOperations::ReplaceInAllFIles( 
+            GetSearchRegex(),
+            ui.cbReplace->lineEdit()->text(),
+            m_MainWindow.GetCurrentBook()->GetFolderKeeper().GetResourceTypeAsGenericList< HTMLResource >(),
+            SearchOperations::CodeViewSearch );
+}
+
 
 
 // Changes the layout of the controls to the Find tab style
