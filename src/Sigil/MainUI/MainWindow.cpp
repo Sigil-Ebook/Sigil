@@ -1239,6 +1239,9 @@ void MainWindow::ExtendUI()
     m_BookBrowser->setObjectName( BOOK_BROWSER_NAME );
     addDockWidget( Qt::LeftDockWidgetArea, m_BookBrowser );
 
+    ui.menuView->addSeparator();
+    ui.menuView->addAction( m_BookBrowser->toggleViewAction() );
+
     // Creating the Heading combo box
 
     m_cbHeadings = new QComboBox();

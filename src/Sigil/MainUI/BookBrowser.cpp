@@ -30,16 +30,12 @@
 #include <QTreeView>
 
 static const QString SETTINGS_GROUP = "bookbrowser";
-
-// We will add a few spaces to the front so the title isn't
-// glued to the widget side when it's docked. Ugly, but works.
-static const QString DOCK_WIDGET_TITLE = QObject::tr( "Book Browser" );
 static const int COLUMN_INDENTATION = 10;
 
 
 BookBrowser::BookBrowser( QWidget *parent )
     : 
-    QDockWidget( "   " + DOCK_WIDGET_TITLE, parent ),
+    QDockWidget( tr( "Book Browser" ), parent ),
     m_TreeView( *new QTreeView( this ) ),
     m_OPFModel( *new OPFModel( this ) ),
     m_ContextMenu( *new QMenu( this ) ),
@@ -51,7 +47,10 @@ BookBrowser::BookBrowser( QWidget *parent )
 
     setWidget( &m_TreeView );
 
-    setFeatures( QDockWidget::DockWidgetFloatable | QDockWidget::DockWidgetMovable );
+    setFeatures( QDockWidget::DockWidgetFloatable | 
+                 QDockWidget::DockWidgetMovable   | 
+                 QDockWidget::DockWidgetClosable );
+
     setAllowedAreas( Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea );
 
     ReadSettings();
