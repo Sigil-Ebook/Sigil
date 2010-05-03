@@ -54,10 +54,17 @@ public:
     // needs to be specified
     void AddInfraFileToFolder( const QString &fullfilepath, const QString &newfilename );
 
+    /**
+     * The only reason why we have an overload instead of just one function
+     * with a default argument is because then Apple GCC 4.2 flakes out here.
+     */
+    Resource& AddContentFileToFolder( const QString &fullfilepath,
+                                      int reading_order = -1 );
+
     // The file is recognized according to its extension.
     Resource& AddContentFileToFolder( const QString &fullfilepath, 
-                                      int reading_order = -1,
-                                      QHash< QString, QString > semantic_information = QHash< QString, QString >() );
+                                      int reading_order,
+                                      QHash< QString, QString > semantic_information );
 
     int GetHighestReadingOrder() const;
 
