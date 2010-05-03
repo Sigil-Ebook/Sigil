@@ -146,7 +146,7 @@ void HTMLResource::UpdateDomDocumentFromWebPage()
 {
     Q_ASSERT( QThread::currentThread() == QApplication::instance()->thread() );
 
-    m_DomDocument.setContent( GetWebPageHTML() );
+    XHTMLDoc::LoadTextIntoDocument( GetWebPageHTML(), m_DomDocument );
 }
 
 
@@ -155,7 +155,7 @@ void HTMLResource::UpdateDomDocumentFromTextDocument()
     Q_ASSERT( QThread::currentThread() == QApplication::instance()->thread() );
     Q_ASSERT( m_TextDocument );
 
-    m_DomDocument.setContent( CleanSource::Clean( m_TextDocument->toPlainText() ) );
+    XHTMLDoc::LoadTextIntoDocument( CleanSource::Clean( m_TextDocument->toPlainText() ), m_DomDocument );
 }
 
 
@@ -296,7 +296,7 @@ QStringList HTMLResource::SplitOnSGFChapterMarkers()
 {
     QStringList chapters = XHTMLDoc::GetSGFChapterSplits( XHTMLDoc::GetQDomNodeAsString( m_DomDocument ) );
 
-    m_DomDocument.setContent( CleanSource::Clean( chapters.takeFirst() ) );
+    XHTMLDoc::LoadTextIntoDocument( CleanSource::Clean( chapters.takeFirst() ), m_DomDocument );
     MarkSecondaryCachesAsOld();
 
     return chapters;

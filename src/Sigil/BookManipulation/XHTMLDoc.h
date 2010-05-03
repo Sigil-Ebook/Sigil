@@ -70,6 +70,8 @@ public:
     // that the default toString() method creates so we wrap it in this function
     static QString GetQDomNodeAsString( const QDomNode &node );
 
+    static void LoadTextIntoDocument( const QString &text, QDomDocument &document ); 
+
     // Accepts a string with HTML and returns the text
     // in that HTML fragment. For instance: 
     //   <h1>Hello <b>Qt</b>&nbsp;this is great</h1>

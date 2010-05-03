@@ -628,7 +628,7 @@ QList< ViewEditor::ElementIndex > CodeViewEditor::ConvertStackToHierarchy( const
 tuple< int, int > CodeViewEditor::ConvertHierarchyToCaretMove( const QList< ViewEditor::ElementIndex > &hierarchy ) const
 {
     QDomDocument dom;
-    dom.setContent( toPlainText() );
+    XHTMLDoc::LoadTextIntoDocument( toPlainText(), dom );
 
     QDomNode end_node = XHTMLDoc::GetNodeFromHierarchy( dom, hierarchy );
     QTextCursor cursor( document() );

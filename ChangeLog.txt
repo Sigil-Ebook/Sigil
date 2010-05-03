@@ -1,4 +1,8 @@
 ﻿Sigil v0.2.0 RC1 ADD_DATE
+    - by injecting a custom XML reader into QDom, the following issue were fixed:
+        - Book View search sometimes skipping over instances (issue #253)
+        - Book View ReplaceAll causing Sigil to hang on rare occasions (issue #293)
+        - spaces disappearing from some HTML constructs (issue #352)
     - implemented component-wide search&replace for Code View searches (issue #372)
     - the Find&Replace dialog now remembers up to 20 previously used search and replace strings
     (issue #369)

@@ -24,6 +24,8 @@
 #include "../Misc/Utility.h"
 #include "../BookManipulation/CleanSource.h"
 #include <QDomDocument>
+#include <QXmlInputSource>
+#include <QXmlSimpleReader>
 
 static const QString XHTML_DOCTYPE = "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\"\n"
                                      "    \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n\n"; 
@@ -221,6 +223,25 @@ QString XHTMLDoc::GetQDomNodeAsString( const QDomNode &node )
     // "<p>aa<i>bbb</i><i>bbb</i>aa</p>" don't get a space
     // between the two "bbb" groups... it's a bug in QDom.
     return document_text.replace( xml_declaration, "\\1\n" + XHTML_DOCTYPE ).replace( inline_tags_fix, "\\1" );     
+}
+
+
+// This function is basically a workaround for QDom
+// by default ignoring whitespace-only text nodes.
+// Forcing it to use a custom QXmlSimpleReader
+// "solves" this problem.
+void XHTMLDoc::LoadTextIntoDocument( const QString &text, QDomDocument &document )
+{
+    QXmlInputSource source;
+    source.setData( text );
+
+    // If we don't turn off this feature, an xmlns attribute 
+    // with the full path to the namespace will be added to 
+    // EVERY single element.
+    QXmlSimpleReader reader;
+    reader.setFeature( "http://xml.org/sax/features/namespaces", false );
+
+    document.setContent( &source, &reader );
 }
 
 

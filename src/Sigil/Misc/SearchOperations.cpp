@@ -157,7 +157,7 @@ int SearchOperations::ReplaceHTMLInFile( const QRegExp &search_regex,
         int count;
         tie( new_text, count ) = PerformGlobalReplace( text, search_regex, replacement );
 
-        document.setContent( CleanSource::ToValidXHTML( new_text ) );
+        XHTMLDoc::LoadTextIntoDocument( CleanSource::ToValidXHTML( new_text ), document );
         return count;
     }
 

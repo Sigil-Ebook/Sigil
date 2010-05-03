@@ -562,7 +562,7 @@ BookViewEditor::SearchTools BookViewEditor::GetSearchTools() const
 {
     SearchTools search_tools;
     search_tools.fulltext = "";
-    search_tools.document.setContent( page()->mainFrame()->toHtml() );
+    XHTMLDoc::LoadTextIntoDocument( page()->mainFrame()->toHtml(), search_tools.document );
 
     QList< QDomNode > text_nodes = XHTMLDoc::GetVisibleTextNodes( 
                                     search_tools.document.elementsByTagName( "body" ).at( 0 ) );

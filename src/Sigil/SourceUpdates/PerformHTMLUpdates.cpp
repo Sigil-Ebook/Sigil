@@ -37,7 +37,7 @@ PerformHTMLUpdates::PerformHTMLUpdates( const QString &source,
     m_HTMLUpdates( html_updates ),
     m_CSSUpdates( css_updates )
 {   
-    m_Document.setContent( source );
+    XHTMLDoc::LoadTextIntoDocument( source, m_Document );
 }
 
 
@@ -58,8 +58,9 @@ QDomDocument PerformHTMLUpdates::operator()()
 
     if ( !m_CSSUpdates.isEmpty() )
     {
-        m_Document.setContent(
-            PerformCSSUpdates( XHTMLDoc::GetQDomNodeAsString( m_Document ), m_CSSUpdates )() );
+        XHTMLDoc::LoadTextIntoDocument( 
+            PerformCSSUpdates( XHTMLDoc::GetQDomNodeAsString( m_Document ), m_CSSUpdates )(),
+            m_Document );
     }
 
     return m_Document;

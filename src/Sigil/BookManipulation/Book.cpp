@@ -21,6 +21,7 @@
 
 #include <stdafx.h>
 #include "../BookManipulation/Book.h"
+#include "../BookManipulation/XHTMLDoc.h"
 #include "../Misc/Utility.h"
 #include "ResourceObjects/HTMLResource.h"
 #include "../BookManipulation/CleanSource.h"
@@ -138,7 +139,7 @@ HTMLResource& Book::CreateNewHTMLFile()
 void Book::CreateEmptyHTMLFile()
 {
     QDomDocument document;
-    document.setContent( EMPTY_HTML_FILE );
+    XHTMLDoc::LoadTextIntoDocument( EMPTY_HTML_FILE, document );
 
     CreateNewHTMLFile().SetDomDocument( document );
 }
@@ -182,7 +183,7 @@ HTMLResource& Book::CreateChapterBreakOriginalResource( const QString &content, 
     html_resource.RenameTo( originating_filename );
 
     QDomDocument document;
-    document.setContent( CleanSource::Clean( content ) );
+    XHTMLDoc::LoadTextIntoDocument( CleanSource::Clean( content ), document );
     html_resource.SetDomDocument( document );
 
     html_resource.SetReadingOrder( reading_order );
@@ -271,7 +272,7 @@ void Book::CreateOneNewChapter( const QString &source,
     if ( html_updates.isEmpty() )
     {
         QDomDocument document;
-        document.setContent( CleanSource::Clean( source ) );
+        XHTMLDoc::LoadTextIntoDocument( CleanSource::Clean( source ), document );
         html_resource->SetDomDocument( document );
     }
 

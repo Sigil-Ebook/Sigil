@@ -59,7 +59,7 @@ QSharedPointer< Book > ImportHTML::GetBook()
         boost_throw( CannotReadFile() << errinfo_file_fullpath( m_FullFilePath.toStdString() ) );
 
     QDomDocument document;
-    document.setContent( LoadSource() );
+    XHTMLDoc::LoadTextIntoDocument( LoadSource(), document );
 
     StripFilesFromAnchors( document );
     LoadMetadata( document );
