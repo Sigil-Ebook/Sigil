@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2009  Strahinja Markovic
+**  Copyright (C) 2009, 2010  Strahinja Markovic
 **
 **  This file is part of Sigil.
 **
@@ -33,6 +33,11 @@ Resource::Resource( const QString &fullfilepath, QHash< QString, Resource* > *ha
     m_HashOwner( *hash_owner )
 {
 
+}
+
+bool Resource::operator< ( const Resource& other )
+{
+    return Filename() < other.Filename();
 }
 
 
@@ -119,7 +124,7 @@ Resource::ResourceType Resource::Type() const
 }
 
 
-void Resource::SaveToDisk()
+void Resource::SaveToDisk( bool book_wide_save )
 {
     return;
 }

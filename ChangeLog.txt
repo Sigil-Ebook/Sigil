@@ -1,4 +1,48 @@
-﻿Sigil v0.2.0 RC1 ADD_DATE
+﻿Sigil v0.2.0 RC1 2010.05.03.
+    - changes in the Book Browser now update the modified state of the main window (issue #331)
+    - the Book Browser can now be opened/closed from thr View menu (issue #335)
+    - all the toolbars now have UI-facing names
+    - by injecting a custom XML reader into QDom, the following issue were fixed:
+        - Book View search sometimes skipping over instances (issue #253)
+        - Book View ReplaceAll causing Sigil to hang on rare occasions (issue #293)
+        - spaces disappearing from some HTML constructs (issue #352)
+    - implemented component-wide search&replace for Code View searches (issue #372)
+    - the Find&Replace dialog now remembers up to 20 previously used search and replace strings
+    (issue #369)
+    - fixed an issue with positive regex lookaheads in normal Replace (not ReplaceAll) (issue #261) 
+    - fixed a rare off-by-one error in Book View searching when the caret was at the start of
+    the matched string; this made the search skip that instance of the match (issue #280)
+    - fixed an issue with the Find Dialog not correctly scrolling to the found text in
+    Book View (issue #195)
+    - fixed an issue with Tidy not fixing free ampersands into "&amp;", even when configured
+    to do so (issue #365)
+    - fixed an issue with the current tab unnecessarily reloading after book saves (issue #354)
+    - fixed issues with filename basenames being read only until the first dot; was causing
+    problems with OPF manifest ID generation (issue #351)
+    - hitting the keyboard shortcut for the Find&Replace window while the window is open
+    now switches focus to that window (issue #362)
+    - fixed an issue with the applied headings not "sticking" and not showing up in the TOC
+    editor (issue #300)
+    - the special iPad- and Calibre-friendly cover meta tag information is now preserved
+    after loading
+    - added a new "Cover Image" entry for image resource in the "Add Semantics" Book Browser menu  
+    - if an image is not set as a cover image manually, Sigil now uses heuristics on save
+    to determine if the epub has a cover image
+    - if an epub has an image set as a cover image, Sigil will now write a special meta tag
+    that identifies this image in the OPF; this tag is then used by the iPad (and Calibre)
+    for the book cover, for instance
+    - all OPF <guide> element information when loading epubs is now preserved
+    - added a new "Add Semantics" menu for XHTML documents; it can be used to mark XHTMLs as
+    "Dedication", "Colophon", "Glossary" etc. for the <guide> element of the OPF
+    - the status bar now shows a message after chapter split operations
+    - fixed an issue with filenames with characters that should not appear in valid XML IDs
+    having those characters added anyway (issue #344)
+    - fixed an issue with files with uppercase extensions not having a mimetype set in the OPF
+    (issue #349)
+    - fixed an issue with Sigil rewriting headings when the TOC was opened and no heading was 
+    edited (issue #327)
+    - fixed an issue where adding an existing HTML file through the Book Browser would clear
+    the current metadata in the book (issue #329)
     - added a check that prevents Sigil from loading the same resource multiple times in 
     invalid epubs (issue #339) 
     - fixed a bug that made the direct XHTML references in the NCX file less likely (issue #333)
@@ -51,9 +95,9 @@ Sigil v0.2.0 ß2 2010.03.10.
     - fixing export of epubs with XML files for OPS documents
 
 Sigil v0.2.0 ß1 2010.03.02.
-    - after *many* months of work, the complete redesign of the Sigil main interface and backend is finished,
-    resulting in waaaay too many changes, fixes and modifications under the hood that are too numerous
-    to list here
+    - after *many* months of work, the complete redesign of the Sigil main interface and backend is 
+    finished, resulting in waaaay too many changes, fixes and modifications under the hood that are
+    too numerous to list here
     - fixed an issue with anchor elements getting unnecessary "name" attributes (issue #226)
 
 Sigil v0.1.9 2010.02.08.

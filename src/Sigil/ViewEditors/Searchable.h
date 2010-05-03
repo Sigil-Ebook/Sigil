@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2009  Strahinja Markovic
+**  Copyright (C) 2009, 2010  Strahinja Markovic
 **
 **  This file is part of Sigil.
 **
@@ -61,13 +61,15 @@ public:
      * @param search_direction The direction of the search.
      * @return \c true if the term is found.
      */
-    virtual bool FindNext( const QRegExp &search_regex, Direction search_direction ) = 0;
+    virtual bool FindNext( const QRegExp &search_regex, 
+                           Direction search_direction, 
+                           bool ignore_selection_offset = false ) = 0;
 
     /**
      * Returns the number of matching occurrences.
      *
      * @param search_regex The regex to match with.
-     * @return The number of occurrences of matching occurrences.
+     * @return The number of matching occurrences.
      */
     virtual int Count( const QRegExp &search_regex ) = 0;
 
@@ -89,8 +91,6 @@ public:
      * @return The number of performed replacements.
      */
     virtual int ReplaceAll( const QRegExp &search_regex, const QString &replacement ) = 0;
-
-protected:
 
     /**
      * Runs the regex through the text.

@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2009  Strahinja Markovic
+**  Copyright (C) 2009, 2010  Strahinja Markovic
 **
 **  This file is part of Sigil.
 **
@@ -32,13 +32,10 @@
 #include "Exporters/ExporterFactory.h"
 #include "BookManipulation/BookNormalization.h"
 #include "MainUI/BookBrowser.h"
-#include "Tabs/ContentTab.h"
 #include "Tabs/FlowTab.h"
 #include "Tabs/TabManager.h"
 #include "ResourceObjects/HTMLResource.h"
 
-
-static const int STATUSBAR_MSG_DISPLAY_TIME = 2000;
 static const int TEXT_ELIDE_WIDTH           = 300;
 static const QString SETTINGS_GROUP         = "mainwindow";
 static const float ZOOM_STEP                = 0.1f;
@@ -105,6 +102,44 @@ MainWindow::MainWindow( const QString &openfilepath, QWidget *parent, Qt::WFlags
 }
 
 
+QSharedPointer< Book > MainWindow::GetCurrentBook()
+{
+    return m_Book;
+}
+
+
+ContentTab& MainWindow::GetCurrentContentTab()
+{
+    return m_TabManager.GetCurrentContentTab();
+}
+
+
+void MainWindow::OpenResource( Resource &resource, ContentTab::ViewState view_state )
+{
+    m_TabManager.OpenResource( resource, false, QUrl(), view_state );
+}
+
+
+QMutex& MainWindow::GetStatusBarMutex()
+{
+    return m_StatusBarMutex;
+}
+
+
+void MainWindow::ShowMessageOnCurrentStatusBar( const QString &message, 
+                                                int millisecond_duration )
+{
+    MainWindow& main_window = GetCurrentMainWindow();
+    QMutexLocker locker( &main_window.GetStatusBarMutex() );
+    QStatusBar* status_bar = main_window.statusBar();
+
+    // In Sigil, every MainWindow has to have a status bar
+    Q_ASSERT( status_bar );
+
+    status_bar->showMessage( message, millisecond_duration );
+}
+
+
 // Overrides the closeEvent handler so we can check
 // for saved status before actually closing
 void MainWindow::closeEvent( QCloseEvent *event )
@@ -137,7 +172,7 @@ void MainWindow::New()
         MainWindow *new_window = new MainWindow();
         new_window->show();
 #else
-        CreateNew();
+        CreateNewBook();
 #endif
     }
 }
@@ -257,7 +292,7 @@ bool MainWindow::SaveAs()
     // If not, we change the extension to EPUB
     else
     {
-        save_path       = m_LastFolderSave + "/" + QFileInfo( m_CurrentFile ).baseName() + ".epub";
+        save_path       = m_LastFolderSave + "/" + QFileInfo( m_CurrentFile ).completeBaseName() + ".epub";
         default_filter  = c_SaveFilters.value( "epub" );
     }
 
@@ -285,8 +320,13 @@ void MainWindow::Find()
     if ( m_FindReplace.isNull() )
     {   
         // Qt will delete this dialog from memory when it closes
-        m_FindReplace = new FindReplace( true, m_TabManager, this );
+        m_FindReplace = new FindReplace( true, *this, this );
         m_FindReplace.data()->show();
+    }
+
+    else
+    {
+        m_FindReplace.data()->activateWindow();
     }
 }
 
@@ -297,8 +337,13 @@ void MainWindow::Replace()
     if ( m_FindReplace.isNull() )
     {   
         // Qt will delete this dialog from memory when it closes
-        m_FindReplace = new FindReplace( false, m_TabManager, this );
+        m_FindReplace = new FindReplace( false, *this, this );
         m_FindReplace.data()->show();
+    }
+
+    else
+    {
+        m_FindReplace.data()->activateWindow();
     }
 }
 
@@ -351,11 +396,7 @@ void MainWindow::InsertImage()
 void MainWindow::MetaEditorDialog()
 {
     MetaEditor meta( m_Book, this );
-
-    if ( meta.exec() == QDialog::Accepted )
-    {
-        setWindowModified( true );  
-    }
+    meta.exec();
 }
 
 
@@ -370,7 +411,7 @@ void MainWindow::TOCEditorDialog()
 
     if ( toc.exec() == QDialog::Accepted )
     {
-        setWindowModified( true );  
+        m_Book->SetModified( true );
     }
 }
 
@@ -395,16 +436,6 @@ void MainWindow::AboutDialog()
     About about( this );
 
     about.exec();
-}
-
-
-
-// Gets called every time the document is modified;
-// changes the UI to accordingly;
-// (star in titlebar on win and lin, different button colors on mac)
-void MainWindow::DocumentWasModified()
-{
-    setWindowModified( m_TabManager.GetCurrentContentTab().IsModified() );
 }
 
 
@@ -656,6 +687,8 @@ void MainWindow::CreateChapterBreakOldTab( QString content, HTMLResource& origin
     {
         flow_tab->ScrollToTop();
     }
+
+    statusBar()->showMessage( tr( "Chapter split" ), STATUSBAR_MSG_DISPLAY_TIME );
 }
 
 
@@ -666,6 +699,8 @@ void MainWindow::CreateNewChapters( QStringList new_chapters )
 
     m_Book->CreateNewChapters( new_chapters );
     m_BookBrowser->Refresh();
+
+    statusBar()->showMessage( tr( "Chapters split" ), STATUSBAR_MSG_DISPLAY_TIME );
 }
 
 
@@ -776,15 +811,24 @@ bool MainWindow::MaybeSave()
     return true;
 }
 
+
+void MainWindow::SetNewBook( QSharedPointer< Book > new_book )
+{
+    m_Book = new_book;
+    m_BookBrowser->SetBook( m_Book );
+    connect( m_Book.data(), SIGNAL( ModifiedStateChanged( bool ) ), this, SLOT( setWindowModified( bool ) ) );
+    m_Book->SetModified( false );
+}
+
+
 // Creates a new, empty book and replaces
 // the current one with it
-void MainWindow::CreateNew()
+void MainWindow::CreateNewBook()
 {
-    m_Book = QSharedPointer< Book >( new Book() );
-
-    m_Book->CreateEmptyHTMLFile();
-    m_BookBrowser->SetBook( m_Book );
+    QSharedPointer< Book > new_book = QSharedPointer< Book >( new Book() );
+    new_book->CreateEmptyHTMLFile();
     
+    SetNewBook( new_book );
     SetCurrentFile( "" );
 }
 
@@ -805,8 +849,7 @@ void MainWindow::LoadFile( const QString &fullfilepath )
 
         // Create the new book, clean up the old one
         // (destructors take care of that)
-        m_Book = ImporterFactory().GetImporter( fullfilepath ).GetBook();
-        m_BookBrowser->SetBook( m_Book );
+        SetNewBook( ImporterFactory().GetImporter( fullfilepath ).GetBook() );
 
         QApplication::restoreOverrideCursor();
 
@@ -838,12 +881,12 @@ bool MainWindow::SaveFile( const QString &fullfilepath )
         // when the user tries to save an unsupported type
         if ( !SUPPORTED_SAVE_TYPE.contains( extension ) )
         {
-            QMessageBox::warning( 0,
-                                  tr( "Sigil" ),
-                                  tr( "Sigil currently cannot save files of type \"%1\".\n"
-                                      "Please choose a different format." )
-                                  .arg( extension )
-                                );
+            QMessageBox::critical( 0,
+                                   tr( "Sigil" ),
+                                   tr( "Sigil currently cannot save files of type \"%1\".\n"
+                                       "Please choose a different format." )
+                                   .arg( extension )
+                                 );
             return false;
         }
 
@@ -851,6 +894,7 @@ bool MainWindow::SaveFile( const QString &fullfilepath )
 
         BookNormalization::Normalize( m_Book );
         ExporterFactory().GetExporter( fullfilepath, m_Book ).WriteBook();
+        m_Book->SetModified( false );
 
         QApplication::restoreOverrideCursor();
 
@@ -1012,23 +1056,40 @@ const QMap< QString, QString > MainWindow::GetSaveFiltersMap()
 }
 
 
+MainWindow& MainWindow::GetCurrentMainWindow()
+{
+    QObject *object = qobject_cast< QObject* >( QApplication::activeWindow() );
+    MainWindow *main_window = NULL;
+
+    // In Sigil, every window has to be either a MainWindow,
+    // or the child of one.
+    while (true)
+    {
+        main_window = qobject_cast< MainWindow* >( object );
+
+        if ( main_window )
+        {
+            break;
+        }
+
+        else
+        {
+            object = object->parent();
+            Q_ASSERT( object );
+        }
+    }
+
+    return *main_window;
+}
+
+
 // Sets the current file in window title;
 // updates the recent files list
 void MainWindow::SetCurrentFile( const QString &filename )
 {
     m_CurrentFile = filename;
 
-    setWindowModified( false );
-
-    QString shownName;
-
-    if ( m_CurrentFile.isEmpty() )
-
-        shownName = "untitled.epub";
-
-    else
-     
-        shownName = QFileInfo( m_CurrentFile ).fileName();
+    QString shownName = m_CurrentFile.isEmpty() ? "untitled.epub" : QFileInfo( m_CurrentFile ).fileName();
 
     // Update the titlebar
     setWindowTitle( tr( "%1[*] - %2" ).arg( shownName ).arg( tr( "Sigil" ) ) );
@@ -1164,6 +1225,9 @@ void MainWindow::ExtendUI()
     m_BookBrowser->setObjectName( BOOK_BROWSER_NAME );
     addDockWidget( Qt::LeftDockWidgetArea, m_BookBrowser );
 
+    ui.menuView->addSeparator();
+    ui.menuView->addAction( m_BookBrowser->toggleViewAction() );
+
     // Creating the Heading combo box
 
     m_cbHeadings = new QComboBox();
@@ -1249,7 +1313,7 @@ void MainWindow::LoadInitialFile( const QString &openfilepath )
 
     else
     {
-        CreateNew();
+        CreateNewBook();
     }
 }
 
@@ -1342,15 +1406,15 @@ void MainWindow::MakeTabConnections( ContentTab *tab )
 
     connect( m_cbHeadings, SIGNAL( activated( const QString& ) ),  tab,   SLOT( HeadingStyle( const QString& ) ) );
 
-    connect( tab,   SIGNAL( ViewChanged() ),                this,   SLOT( UpdateUI()                ) );
-    connect( tab,   SIGNAL( SelectionChanged() ),           this,   SLOT( UpdateUI()                ) );
-    connect( tab,   SIGNAL( EnteringBookView() ),           this,   SLOT( SetStateActionsBookView() ) );
-    connect( tab,   SIGNAL( EnteringCodeView() ),           this,   SLOT( SetStateActionsCodeView() ) );
-    connect( tab,   SIGNAL( EnteringBookView() ),           this,   SLOT( UpdateZoomControls()      ) );
-    connect( tab,   SIGNAL( EnteringCodeView() ),           this,   SLOT( UpdateZoomControls()      ) );
-    connect( tab,   SIGNAL( ContentChanged() ),             this,   SLOT( DocumentWasModified()     ) );
-    connect( tab,   SIGNAL( ZoomFactorChanged( float ) ),   this,   SLOT( UpdateZoomLabel( float )  ) );
-    connect( tab,   SIGNAL( ZoomFactorChanged( float ) ),   this,   SLOT( UpdateZoomSlider( float ) ) );
+    connect( tab,   SIGNAL( ViewChanged() ),                this,          SLOT( UpdateUI()                ) );
+    connect( tab,   SIGNAL( SelectionChanged() ),           this,          SLOT( UpdateUI()                ) );
+    connect( tab,   SIGNAL( EnteringBookView() ),           this,          SLOT( SetStateActionsBookView() ) );
+    connect( tab,   SIGNAL( EnteringCodeView() ),           this,          SLOT( SetStateActionsCodeView() ) );
+    connect( tab,   SIGNAL( EnteringBookView() ),           this,          SLOT( UpdateZoomControls()      ) );
+    connect( tab,   SIGNAL( EnteringCodeView() ),           this,          SLOT( UpdateZoomControls()      ) );
+    connect( tab,   SIGNAL( ContentChanged() ),             m_Book.data(), SLOT( SetModified()             ) );
+    connect( tab,   SIGNAL( ZoomFactorChanged( float ) ),   this,          SLOT( UpdateZoomLabel( float )  ) );
+    connect( tab,   SIGNAL( ZoomFactorChanged( float ) ),   this,          SLOT( UpdateZoomSlider( float ) ) );
 }
 
 void MainWindow::BreakTabConnections( ContentTab *tab )
@@ -1391,7 +1455,12 @@ void MainWindow::BreakTabConnections( ContentTab *tab )
     disconnect( m_cbHeadings,                       0, tab, 0 );
 
     disconnect( tab,                                0, this, 0 );
+    disconnect( tab,                                0, m_Book.data(), 0 );
 }
+
+
+
+
 
 
 

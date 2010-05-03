@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2009  Strahinja Markovic
+**  Copyright (C) 2009, 2010  Strahinja Markovic
 **
 **  This file is part of Sigil.
 **
@@ -23,6 +23,7 @@
 #include <QtWebKit>
 #include <boost/tuple/tuple.hpp>
 #include <boost/bind/bind.hpp>
+#include <boost/lambda/lambda.hpp>
 #include "constants.h"
 #include "exception.h"
 

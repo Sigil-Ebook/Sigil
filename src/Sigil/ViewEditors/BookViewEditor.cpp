@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2009  Strahinja Markovic
+**  Copyright (C) 2009, 2010  Strahinja Markovic
 **
 **  This file is part of Sigil.
 **
@@ -43,7 +43,7 @@ BookViewEditor::BookViewEditor( QWidget *parent )
     : 
     QWebView( parent ),
     m_CaretLocationUpdate( QString() ),
-    m_isLoadFinished( true ),
+    m_isLoadFinished( false ),
     m_PageUp(   *( new QShortcut( QKeySequence( QKeySequence::MoveToPreviousPage ), this, 0, 0, Qt::WidgetShortcut ) ) ),
     m_PageDown( *( new QShortcut( QKeySequence( QKeySequence::MoveToNextPage     ), this, 0, 0, Qt::WidgetShortcut ) ) ),
     m_ScrollOneLineUp(   *( new QShortcut( QKeySequence( Qt::ControlModifier + Qt::Key_Up   ), this, 0, 0, Qt::WidgetShortcut ) ) ),
@@ -64,6 +64,8 @@ BookViewEditor::BookViewEditor( QWidget *parent )
 
 void BookViewEditor::CustomSetWebPage( QWebPage &webpage )
 {
+    m_isLoadFinished = true;
+
     connect( &webpage, SIGNAL( contentsChanged()    ), this, SIGNAL( textChanged()            ) );
     connect( &webpage, SIGNAL( selectionChanged()   ), this, SIGNAL( selectionChanged()       ) );
     connect( &webpage, SIGNAL( loadFinished( bool ) ), this, SLOT( JavascriptOnDocumentLoad() ) );
@@ -229,6 +231,12 @@ void BookViewEditor::StoreCaretLocationUpdate( const QList< ViewEditor::ElementI
 }
 
 
+bool BookViewEditor::IsLoadingFinished()
+{
+    return m_isLoadFinished;
+}
+
+
 void BookViewEditor::SetZoomFactor( float factor )
 {
     setZoomFactor( factor );
@@ -244,10 +252,20 @@ float BookViewEditor::GetZoomFactor() const
 }
 
 
-bool BookViewEditor::FindNext( const QRegExp &search_regex, Searchable::Direction search_direction )
+bool BookViewEditor::FindNext( const QRegExp &search_regex, 
+                               Searchable::Direction search_direction,
+                               bool ignore_selection_offset )
 {
     SearchTools search_tools = GetSearchTools();
-    int selection_offset     = GetSelectionOffset( search_tools.document, search_tools.node_offsets, search_direction ); 
+    int selection_offset = -1;
+
+    if ( ignore_selection_offset )
+
+        selection_offset = search_direction == Searchable::Direction_Up ? search_tools.fulltext.count() - 1 : 0;
+
+    else
+        
+        selection_offset = GetSelectionOffset( search_tools.document, search_tools.node_offsets, search_direction ); 
 
     QRegExp result_regex = search_regex;
     RunSearchRegex( result_regex, search_tools.fulltext, selection_offset, search_direction ); 
@@ -256,7 +274,7 @@ bool BookViewEditor::FindNext( const QRegExp &search_regex, Searchable::Directio
     {
         SelectRangeInputs input = GetRangeInputs( search_tools.node_offsets, result_regex.pos(), result_regex.matchedLength() );
         SelectTextRange( input );
-        ScrollToNode( input.start_node );  
+        ScrollToNodeText( input.start_node, input.start_node_index );  
 
         return true;
     } 
@@ -281,17 +299,20 @@ bool BookViewEditor::ReplaceSelected( const QRegExp &search_regex, const QString
     // the "back" index of the selection range
     int selection_offset = GetSelectionOffset( search_tools.document, search_tools.node_offsets, Searchable::Direction_Up ); 
 
-    QRegExp result_regex  = search_regex;
-    QString selected_text = GetSelectedText();
+    QRegExp result_regex = search_regex;
+
+    // We always say Direction_Down since we're comparing
+    // with already selected text
+    RunSearchRegex( result_regex, search_tools.fulltext, selection_offset, Searchable::Direction_Down );
 
     // If we are currently sitting at the start 
     // of a matching substring, we replace it.
-    if ( result_regex.exactMatch( selected_text ) )
+    if ( result_regex.pos() == selection_offset )
     {
         QString final_replacement = FillWithCapturedTexts( result_regex.capturedTexts(), replacement );
         QString replacing_js      = QString( c_ReplaceText ).replace( "$ESCAPED_TEXT_HERE", EscapeJSString( final_replacement ) );
 
-        SelectRangeInputs input   = GetRangeInputs( search_tools.node_offsets, selection_offset, selected_text.length() );
+        SelectRangeInputs input   = GetRangeInputs( search_tools.node_offsets, selection_offset, GetSelectedText().length() );
         EvaluateJavascript( GetRangeJS( input ) + replacing_js + c_NewSelection ); 
 
         // Tell anyone who's interested that the document has been updated.
@@ -311,8 +332,10 @@ int BookViewEditor::ReplaceAll( const QRegExp &search_regex, const QString &repl
     
     QProgressDialog progress( tr( "Replacing search term..." ), QString(), 0, Count( search_regex ) );
     progress.setMinimumDuration( PROGRESS_BAR_MINIMUM_DURATION );
+
+    int previous_search_index = -1;
     
-    // Slow as hell. Find a way to speed this up.
+    // TODO: Slow as hell. Find a way to speed this up.
     // Something that does NOT require parsing the whole
     // document every single time we change something...
     while ( true )
@@ -321,9 +344,30 @@ int BookViewEditor::ReplaceAll( const QRegExp &search_regex, const QString &repl
         progress.setValue( count );
 
         SearchTools search_tools = GetSearchTools();
+        int search_index = search_tools.fulltext.indexOf( result_regex );
 
-        if ( search_tools.fulltext.indexOf( result_regex ) != -1 )
+        if ( search_index != -1 )
         {
+            // FIXME: This is a stop-gap for issue 293
+            // http://code.google.com/p/sigil/issues/detail?id=293
+            // Remove this code when you replace QDom with Xerces.
+            if ( search_index != previous_search_index )
+            {
+                previous_search_index = search_index;
+            }
+
+            else
+            {
+                QMessageBox::critical( 0,
+                                       tr( "Sigil" ),
+                                       tr( "An error occurred during the search.\n"
+                                           "Some of the instances were replaced, but some weren't. "
+                                           "Try performing your search in the Code View." )
+                                     );
+                --count;
+                break;
+            }
+
             QString final_replacement = FillWithCapturedTexts( result_regex.capturedTexts(), replacement );
             QString replacing_js      = QString( c_ReplaceText ).replace( "$ESCAPED_TEXT_HERE", EscapeJSString( final_replacement ) );
 
@@ -456,6 +500,12 @@ int BookViewEditor::GetLocalSelectionOffset( bool start_of_selection )
     // If the result is 0, then the anchor and focus are the same node
     if ( result_bitmask == 0 )
     {
+        // If they are the collapsed, then it's just the caret
+        if ( anchor_offset == focus_offset )
+
+            return anchor_offset;
+
+        // This handles the situation with some text selected.
         // If we need the start of selection, we return the smaller
         // index; otherwise, the larger one.
         if ( start_of_selection )
@@ -490,8 +540,8 @@ int BookViewEditor::GetSelectionOffset( const QDomDocument &document,
 {
     QDomNode caret_node = XHTMLDoc::GetNodeFromHierarchy( document, GetCaretLocation() );
 
-    bool searching_down =   search_direction == Searchable::Direction_Down || 
-                            search_direction == Searchable::Direction_All ? true : false;
+    bool searching_down = search_direction == Searchable::Direction_Down || 
+                          search_direction == Searchable::Direction_All ? true : false;
 
     int local_offset    = GetLocalSelectionOffset( !searching_down );
     int search_start    = node_offsets.key( caret_node ) + local_offset;
@@ -512,9 +562,10 @@ BookViewEditor::SearchTools BookViewEditor::GetSearchTools() const
 {
     SearchTools search_tools;
     search_tools.fulltext = "";
-    search_tools.document.setContent( page()->mainFrame()->toHtml() );
+    XHTMLDoc::LoadTextIntoDocument( page()->mainFrame()->toHtml(), search_tools.document );
 
-    QList< QDomNode > text_nodes = XHTMLDoc::GetVisibleTextNodes( search_tools.document.elementsByTagName( "body" ).at( 0 ) );
+    QList< QDomNode > text_nodes = XHTMLDoc::GetVisibleTextNodes( 
+                                    search_tools.document.elementsByTagName( "body" ).at( 0 ) );
 
     QDomNode current_block_ancestor;    
 
@@ -578,6 +629,21 @@ QString BookViewEditor::GetElementSelectingJS_WithTextNode( const QList< ViewEdi
     element_selector.append( ".get(0)" );
 
     return element_selector;
+}
+
+
+QWebElement BookViewEditor::QDomNodeToQWebElement( const QDomNode &node )
+{
+    const QList< ViewEditor::ElementIndex > &hierarchy = XHTMLDoc::GetHierarchyFromNode( node );
+    QWebElement element = page()->mainFrame()->documentElement();
+    element.findFirst( "html" );
+
+    for ( int i = 0; i < hierarchy.count() - 1; ++i )
+    {
+        element = XHTMLDoc::QWebElementChildren( element ).at( hierarchy[ i ].index );
+    }
+
+    return element;
 }
 
 
@@ -687,15 +753,13 @@ void BookViewEditor::SelectTextRange( const SelectRangeInputs &input )
 }
 
 
-void BookViewEditor::ScrollToNode( const QDomNode &node )
+void BookViewEditor::ScrollToNodeText( const QDomNode &node, int character_offset )
 {
-    QString element_selector = GetElementSelectingJS_NoTextNodes( XHTMLDoc::GetHierarchyFromNode( node ) );
+    const QWebElement element = QDomNodeToQWebElement( node );
+    QRect element_geometry    = element.geometry();
 
-    QString offset_js = "$(" + element_selector + ").offset().top;";
-    QString height_js = "$(" + element_selector + ").height();";
-
-    int elem_offset  = EvaluateJavascript( offset_js ).toInt();
-    int elem_height  = EvaluateJavascript( height_js ).toInt();
+    int elem_offset  = element_geometry.top();
+    int elem_height  = element_geometry.height();
     int frame_height = height();
 
     Q_ASSERT( frame_height != 0 );
@@ -710,6 +774,14 @@ void BookViewEditor::ScrollToNode( const QDomNode &node )
         return;       
     }
 
+    else if ( elem_height >= frame_height )
+    {
+        // The relative position of the text string start to the whole node
+        float char_position = character_offset / (float) element.toPlainText().count();
+        
+        new_scroll_Y = elem_offset + elem_height * char_position - frame_height / 2;
+    }
+
     // If it's "above" the currently displayed page section,
     // we scroll to the element, positioning the top of screen just above it
     else if ( elem_offset < current_scroll_offset )
@@ -721,7 +793,7 @@ void BookViewEditor::ScrollToNode( const QDomNode &node )
     // we scroll to the element, positioning the bottom of screen on the element
     else
     {
-        new_scroll_Y = elem_offset - frame_height + elem_height;
+        new_scroll_Y = elem_offset + elem_height - frame_height;
     }   
 
     // If the element is very near the beginning of the document,
@@ -758,6 +830,7 @@ void BookViewEditor::ScrollByNumPixels( int pixel_number, bool down )
 
     page()->mainFrame()->setScrollBarValue( Qt::Vertical, new_scroll_Y );
 }
+
 
 
 

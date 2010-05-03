@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2009  Strahinja Markovic
+**  Copyright (C) 2009, 2010  Strahinja Markovic
 **
 **  This file is part of Sigil.
 **
@@ -67,6 +67,13 @@ public:
      * @return The icon appropriate for the displayed resource.
      */
     QIcon GetIcon();
+
+    /**
+     * The resource currently loaded in the tab.
+     *
+     * @return A reference to the resource.
+     */
+    Resource& GetLoadedResource();
 
     /**
      * The modification state of the resource.
@@ -196,6 +203,10 @@ public:
      * @return The current view state.
      */
     virtual ViewState GetViewState() { return ViewState_StaticView; };
+
+    virtual void SetViewState( ViewState new_view_state ) {};
+
+    virtual bool IsLoadingFinished() { return true; } 
 
 public slots:
 

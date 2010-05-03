@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2009  Strahinja Markovic
+**  Copyright (C) 2009, 2010  Strahinja Markovic
 **
 **  This file is part of Sigil.
 **
@@ -23,11 +23,11 @@
 #ifndef TABMANAGER_H
 #define TABMANAGER_H
 
+#include "ContentTab.h"
 #include <QTabWidget>
 #include <QWeakPointer>
 #include <QUrl>
 
-class ContentTab;
 class Resource;
 class HTMLResource;
 
@@ -64,10 +64,12 @@ public slots:
      * @param resource The resource that should be opened.
      * @param precede_current_tab Should the new tab precede the currently opened one.
      * @param fragment The fragment ID to which the new tab should be scrolled.
+     * @param 
      */
     void OpenResource( Resource& resource, 
                        bool precede_current_tab = false,
-                       const QUrl &fragment = QUrl() );
+                       const QUrl &fragment = QUrl(),
+                       ContentTab::ViewState view_state = ContentTab::ViewState_BookView );
 
     /**
      * Makes the next (right) tab the current one.
@@ -161,7 +163,9 @@ private:
      * @param fragment The fragment ID to which the tab should scroll.
      * @return \c true if we succeeded in switching.
      */
-    bool SwitchedToExistingTab( Resource& resource, const QUrl &fragment );
+    bool SwitchedToExistingTab( Resource& resource, 
+                                const QUrl &fragment, 
+                                ContentTab::ViewState view_state );
 
     /**
      * Creates a tab for the specified resource.
@@ -170,7 +174,9 @@ private:
      * @param fragment The fragment ID to which the tab should scroll after load.
      * @return The newly created tab.
      */
-    ContentTab* CreateTabForResource( Resource& resource, const QUrl &fragment );
+    ContentTab* CreateTabForResource( Resource& resource, 
+                                      const QUrl &fragment, 
+                                      ContentTab::ViewState view_state );
 
     /**
      * Adds a new content tab to the displayed tabs.

@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2009  Strahinja Markovic
+**  Copyright (C) 2009, 2010  Strahinja Markovic
 **
 **  This file is part of Sigil.
 **
@@ -37,6 +37,7 @@ class QUrl;
 class QPoint;
 class QMenu;
 class QAction;
+class QSignalMapper;
 
 
 /**
@@ -139,6 +140,20 @@ private slots:
     */
     void Remove();
 
+    /**
+     * Implements the Cover Image semantic context menu action functionality.
+     */
+    void SetCoverImage();
+
+    /**
+     * Adds the semantic type information to the currently
+     * selected resource.
+     *
+     * @param type The integer value of the GuideSemantics::GuideSemanticType
+     *             to be added to the resource.
+     */
+    void AddGuideSemanticType( int type );
+
 private:
 
     /**
@@ -164,6 +179,12 @@ private:
     void CreateContextMenuActions();
 
     /**
+     * Creates all the actions for the <guide>
+     * element semantics.
+     */
+    void CreateGuideSemanticActions();
+
+    /**
      * Tries to setup the context menu for the specified point,
      * and returns true on success.
      *
@@ -173,16 +194,48 @@ private:
     bool SuccessfullySetupContextMenu( const QPoint &point );
 
     /**
+     * Sets up the sub-menu for adding semantic information.
+     *
+     * @param resource The resource on which the context menu was invoked.
+     */
+    void SetupSemanticContextmenu( Resource *resource );
+
+    /**
+     * Sets up the sub-menu for adding semantic information,
+     * when the menu is invoked for HTMLResources.
+     *
+     * @param resource The resource on which the context menu was invoked.
+     */
+    void SetupHTMLSemanticContextMenu( Resource *resource );
+
+    /**
+     * Sets up the sub-menu for adding semantic information,
+     * when the menu is invoked for ImageResources.
+     *
+     * @param resource The resource on which the context menu was invoked.
+     */
+    void SetupImageSemanticContextMenu( Resource *resource ); 
+
+
+    /**
+     * Sets the checked state for the HTML semantic actions
+     * based on the resource's current state.
+     *
+     * @param resource The resource on which the context menu was invoked.
+     */
+    void SetHTMLSemanticActionCheckState( Resource *resource );
+
+    /**
      * Returns the currently selected resource in the tree view.
      *
-     * @return The currently selected resource in the tree view.
-     * @warning Can be NULL!
+     * @return The currently selected resource in the tree view,
+     *         or NULL if no resource is selected. 
      */
     Resource* GetCurrentResource();
 
     /**
-    * Connects all the required signals to their respective slots.
-    */
+     * Connects all the required signals to their respective slots.
+     */
     void ConnectSignalsToSlots();
 
 
@@ -210,12 +263,32 @@ private:
      */
     QMenu &m_ContextMenu;
 
+    /**
+     * The sub-menu for adding semantic
+     * information to resources.
+     */
+    QMenu &m_SemanticsContextMenu;
+
     // The context menu actions.
 
     QAction *m_AddExisting;
     QAction *m_AddNew;
     QAction *m_Rename;
     QAction *m_Remove;
+    QAction *m_CoverImage;
+
+    /**
+     * All the semantic actions for the <guide>
+     * element. Only present on HTMLResources.
+     */
+    QList< QAction* > m_GuideSemanticActions;
+
+    /**
+     * Used to translate all the triggered() signals from the
+     * various guide-related semantic actions into calls to
+     * AddGuideSemanticType().
+     */
+    QSignalMapper &m_GuideSemanticMapper;
 
     /**
      * The resource type of the last item on which the 

@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2009  Strahinja Markovic
+**  Copyright (C) 2009, 2010  Strahinja Markovic
 **
 **  This file is part of Sigil.
 **
@@ -25,14 +25,9 @@
 #include "../BookManipulation/Book.h"
 #include "../Misc/Utility.h"
 #include "ResourceObjects/HTMLResource.h"
+#include "../BookManipulation/GuideSemantics.h"
 
-static const int FLOW_SIZE_THRESHOLD = 1000;
 
-
-// Constructor;
-// The first parameter is the book being exported,
-// and the second is the list of files
-// in the folder that will become the exported book
 OPFWriter::OPFWriter( QSharedPointer< Book > book, QIODevice &device )
     : 
     XMLWriter( book, device )
@@ -41,7 +36,6 @@ OPFWriter::OPFWriter( QSharedPointer< Book > book, QIODevice &device )
 }
 
 
-// Returns the created XML file
 void OPFWriter::WriteXML()
 {
     m_Writer->writeStartDocument();
@@ -62,7 +56,6 @@ void OPFWriter::WriteXML()
 }
 
 
-// Writes the <metadata> element
 void OPFWriter::WriteMetadata()
 {
     QHash< QString, QList< QVariant > > metadata = m_Book->GetMetadata();
@@ -98,16 +91,13 @@ void OPFWriter::WriteMetadata()
 
         m_Writer->writeEndElement();
 
-        m_Writer->writeEmptyElement( "meta" );
-        m_Writer->writeAttribute( "name", "Sigil version" );
-        m_Writer->writeAttribute( "content", SIGIL_VERSION );
+        WriteCoverImageMeta();
+        WriteSigilVersionMeta();
 
     m_Writer->writeEndElement();
 }
 
 
-// Dispatches each metadata entry based on its type;
-// the specialized Write* functions write the elements
 void OPFWriter::MetadataDispatcher( const QString &metaname, const QVariant &metavalue )
 {
     // We ignore badly formed meta elements.
@@ -157,7 +147,6 @@ void OPFWriter::MetadataDispatcher( const QString &metaname, const QVariant &met
 }
 
 
-// Write <creator> and <contributor> metadata elements
 void OPFWriter::WriteCreatorOrContributor( const QString &metaname, const QString &metavalue )
 {
     // Authors get written as creators, all other relators
@@ -192,17 +181,12 @@ void OPFWriter::WriteCreatorOrContributor( const QString &metaname, const QStrin
 }
 
 
-// Writes simple metadata; the metaname will be the element name
-// and the metavalue will be written as the value
 void OPFWriter::WriteSimpleMetadata( const QString &metaname, const QString &metavalue )
 {
     m_Writer->writeTextElement( "dc:" + metaname, metavalue );
 }
 
 
-// Writes the <identifier> elements;
-// the metaname will be used for the scheme
-// and the metavalue for the value
 void OPFWriter::WriteIdentifier( const QString &metaname, const QString &metavalue )
 {
     m_Writer->writeStartElement( "dc:identifier" );
@@ -214,9 +198,6 @@ void OPFWriter::WriteIdentifier( const QString &metaname, const QString &metaval
 }
 
 
-// Writes the <date> elements;
-// the metaname will be used for the event
-// and the metavalue for the value 
 void OPFWriter::WriteDate( const QString &metaname, const QVariant &metavalue )
 {
     m_Writer->writeStartElement( "dc:date" );
@@ -237,9 +218,50 @@ void OPFWriter::WriteDate( const QString &metaname, const QVariant &metavalue )
 }
 
 
-// Takes the reversed form of a name ("Doe, John")
-// and returns the normal form ("John Doe"); if the
-// provided name is already normal, returns an empty string
+void OPFWriter::WriteCoverImageMeta()
+{
+    // FIXME: Currently, this function works by assuming
+    // that GetValidID will return the same ID for one filename.
+    // And it will, in 99.9999% of cases... but fix that 0.0001%.
+    // Do it by filling a hash with filename -> ID relations 
+    // in the ctor. While you're at it, make sure that generated
+    // ID's are unique with regards to those previously generated.
+
+    QList< ImageResource* > image_resources = m_Book->GetConstFolderKeeper().GetResourceTypeList< ImageResource >();
+
+    if ( image_resources.count() == 0 )
+
+        return;
+
+    QString cover_filename;
+
+    foreach( ImageResource* image_resource, image_resources )
+    {
+        if ( image_resource->IsCoverImage() )
+        {
+            cover_filename = image_resource->Filename();
+            break;
+        }
+    }
+
+    if ( cover_filename.isEmpty() )
+
+        return;
+
+    m_Writer->writeEmptyElement( "meta" );
+    m_Writer->writeAttribute( "name", "cover" );
+    m_Writer->writeAttribute( "content", GetValidID( cover_filename ) );
+}
+
+
+void OPFWriter::WriteSigilVersionMeta()
+{
+    m_Writer->writeEmptyElement( "meta" );
+    m_Writer->writeAttribute( "name", "Sigil version" );
+    m_Writer->writeAttribute( "content", SIGIL_VERSION );
+}
+
+
 QString OPFWriter::GetNormalName( const QString &name )
 {
     if ( !name.contains( "," ) )
@@ -257,32 +279,52 @@ QString OPFWriter::GetValidID( const QString &value )
     QString new_value = value.simplified();
     int i = 0;
 
-    // Remove all whitespace
+    // Remove all forbidden characters.
     while ( i < new_value.size() )
     {
-        if ( new_value.at( i ).isSpace() )
-
+        if ( !IsValidIDCharacter( new_value.at( i ) ) )
+        
             new_value.remove( i, 1 );
-
+        
         else
-
-            ++i;
+        
+            ++i;        
     }
 
     if ( new_value.isEmpty() )
 
         return Utility::CreateUUID();
 
-    // IDs cannot start with a number
-    if ( new_value.at( 0 ).isNumber() )
+    QChar first_char = new_value.at( 0 );
 
+    // IDs cannot start with a number, a dash or a dot
+    if ( first_char.isNumber()      ||
+         first_char == QChar( '-' ) ||
+         first_char == QChar( '.' )
+       )
+    {
         new_value.prepend( "x" );
+    }
 
     return new_value;
 }
 
 
-// Writes the <manifest> element
+// This is probably more rigorous 
+// than the XML spec, but it's simpler.
+// (spec ref: http://www.w3.org/TR/xml-id/#processing)
+bool OPFWriter::IsValidIDCharacter( const QChar &character )
+{
+    return character.isLetterOrNumber() ||
+           character == QChar( '=' )    ||
+           character == QChar( '-' )    ||
+           character == QChar( '_' )    ||
+           character == QChar( '.' )    ||
+           character == QChar( ':' )
+           ;
+}
+
+
 void OPFWriter::WriteManifest()
 {
     m_Writer->writeStartElement( "manifest" );
@@ -295,29 +337,28 @@ void OPFWriter::WriteManifest()
     foreach( QString relative_path, m_Book->GetConstFolderKeeper().GetSortedContentFilesList() )
     {
         QFileInfo info( relative_path );
-        QString name      = info.baseName();
+        QString name      = info.completeBaseName();
         QString extension = info.suffix();
 
         m_Writer->writeEmptyElement( "item" );
         m_Writer->writeAttribute( "id", GetValidID( name + "." + extension ) );
         m_Writer->writeAttribute( "href", Utility::URLEncodePath( relative_path ) );
-        m_Writer->writeAttribute( "media-type", m_Mimetypes[ extension ] );
+        m_Writer->writeAttribute( "media-type", m_Mimetypes[ extension.toLower() ] );
     }
 
     m_Writer->writeEndElement();	
 }
 
 
-// Writes the <spine> element
 void OPFWriter::WriteSpine()
 {
     m_Writer->writeStartElement( "spine" );
     m_Writer->writeAttribute( "toc", "ncx" );
 
-    foreach( HTMLResource *html_resource, m_Book->GetConstFolderKeeper().GetSortedHTMLResources() )
+    foreach( HTMLResource *html_resource, m_Book->GetConstFolderKeeper().GetResourceTypeList< HTMLResource >( true ) )
     {
         QFileInfo info( html_resource->Filename() );
-        QString name      = info.baseName();
+        QString name      = info.completeBaseName();
         QString extension = info.suffix();
 
         m_Writer->writeEmptyElement( "itemref" );
@@ -328,36 +369,50 @@ void OPFWriter::WriteSpine()
 }
 
 
-// Writes the <guide> element
 void OPFWriter::WriteGuide()
 {
-    HTMLResource *first_html = m_Book->GetConstFolderKeeper().GetSortedHTMLResources()[ 0 ];
+    if ( !GuideTypesPresent() )
 
-    Q_ASSERT( first_html );
-    
-    // We write the cover page (and the guide in general)
-    // only if the first OPS document (flow) is smaller
-    // than our threshold
-    if ( IsFlowUnderThreshold( first_html, FLOW_SIZE_THRESHOLD ) )
+        return;
+
+    m_Writer->writeStartElement( "guide" );
+
+    foreach( HTMLResource *html_resource, m_Book->GetConstFolderKeeper().GetResourceTypeList< HTMLResource >( true ) )
     {
-        m_Writer->writeStartElement( "guide" );
+        GuideSemantics::GuideSemanticType semantic_type = html_resource->GetGuideSemanticType();
+
+        if ( semantic_type == GuideSemantics::NoType )
+
+            continue;
+
+        QString type_attribute;
+        QString title_attribute;
+        tie( type_attribute, title_attribute ) = GuideSemantics::Instance().GetGuideTypeMapping()[ semantic_type ];
+
+        if ( !html_resource->GetGuideSemanticTitle().isEmpty() )
+
+            title_attribute = html_resource->GetGuideSemanticTitle();
 
         m_Writer->writeEmptyElement( "reference" );
-        m_Writer->writeAttribute( "type", "cover" );
-        m_Writer->writeAttribute( "title", "Cover Page" );
-        m_Writer->writeAttribute( "href", Utility::URLEncodePath( first_html->GetRelativePathToOEBPS() ) );
-
-        m_Writer->writeEndElement();
+        m_Writer->writeAttribute( "type", type_attribute );
+        m_Writer->writeAttribute( "title", title_attribute );
+        m_Writer->writeAttribute( "href", Utility::URLEncodePath( html_resource->GetRelativePathToOEBPS() ) );
     }
+
+    m_Writer->writeEndElement();
 }
 
 
-bool OPFWriter::IsFlowUnderThreshold( HTMLResource *resource, int threshold ) const
+bool OPFWriter::GuideTypesPresent()
 {
-    QReadLocker locker( &resource->GetLock() );
+    foreach( HTMLResource *html_resource, m_Book->GetConstFolderKeeper().GetResourceTypeList< HTMLResource >() )
+    {
+        if ( html_resource->GetGuideSemanticType() != GuideSemantics::NoType )
 
-    QDomElement doc_element = resource->GetDomDocumentForReading().documentElement();
-    return doc_element.text().count() < threshold;
+            return true;
+    }
+
+    return false;
 }
 
 
@@ -391,6 +446,11 @@ void OPFWriter::CreateMimetypes()
     m_Mimetypes[ "otf"   ] = "application/x-font-opentype"; 
     m_Mimetypes[ "ttf"   ] = "application/x-font-truetype";
 }
+
+
+
+
+
 
 
 

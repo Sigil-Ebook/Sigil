@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2009  Strahinja Markovic
+**  Copyright (C) 2009, 2010  Strahinja Markovic
 **
 **  This file is part of Sigil.
 **
@@ -24,7 +24,9 @@
 #define HTMLRESOURCE_H
 
 #include <QDomDocument>
+#include <QHash>
 #include "Resource.h"
+#include "../BookManipulation/GuideSemantics.h"
 
 class QWebPage;
 class QTextDocument;
@@ -40,7 +42,22 @@ public:
     HTMLResource( const QString &fullfilepath, 
                   QHash< QString, Resource* > *hash_owner,
                   int reading_order,
+                  QHash< QString, QString > semantic_information,
                   QObject *parent = NULL );
+
+    /**
+    * The less-than operator overload. Overridden because HTMLResources
+    * are compared by their reading order, not by filename.
+    *
+    * @param other The other HTMLResource object we're comparing with.
+    */
+    virtual bool operator< ( const HTMLResource& other );
+
+    GuideSemantics::GuideSemanticType GetGuideSemanticType() const;
+
+    QString GetGuideSemanticTitle() const;
+
+    void SetGuideSemanticType( GuideSemantics::GuideSemanticType type );
 
     virtual ResourceType Type() const;
 
@@ -73,9 +90,9 @@ public:
 
     void UpdateTextDocumentFromWebPage();
 
-    void SaveToDisk();
+    void SaveToDisk( bool book_wide_save = false );
 
-    int GetReadingOrder();
+    int GetReadingOrder() const;
 
     void SetReadingOrder( int reading_order );
     
@@ -88,8 +105,6 @@ public:
 
     QStringList SplitOnSGFChapterMarkers();
 
-    // TODO: turn this into operator<
-    static bool LessThan( HTMLResource* res_1, HTMLResource* res_2 );
 
 private slots:
 
@@ -133,6 +148,10 @@ private:
     bool m_TextDocumentIsOld;
 
     bool m_RefreshNeeded;
+
+    GuideSemantics::GuideSemanticType m_GuideSemanticType;
+
+    QString m_GuideSemanticTitle;
 
     // Starts at 0, not 1
     int m_ReadingOrder;

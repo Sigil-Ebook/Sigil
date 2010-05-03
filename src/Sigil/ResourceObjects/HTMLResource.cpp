@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2009  Strahinja Markovic
+**  Copyright (C) 2009, 2010  Strahinja Markovic
 **
 **  This file is part of Sigil.
 **
@@ -24,6 +24,7 @@
 #include "../Misc/Utility.h"
 #include "../BookManipulation/CleanSource.h"
 #include "../BookManipulation/XHTMLDoc.h"
+#include "../BookManipulation/GuideSemantics.h"
 
 static const QString LOADED_CONTENT_MIMETYPE = "application/xhtml+xml";
 
@@ -31,6 +32,7 @@ static const QString LOADED_CONTENT_MIMETYPE = "application/xhtml+xml";
 HTMLResource::HTMLResource( const QString &fullfilepath, 
                             QHash< QString, Resource* > *hash_owner,
                             int reading_order,
+                            QHash< QString, QString > semantic_information,
                             QObject *parent )
     : 
     Resource( fullfilepath, hash_owner, parent ),
@@ -38,11 +40,46 @@ HTMLResource::HTMLResource( const QString &fullfilepath,
     m_TextDocument( NULL ),
     m_WebPageIsOld( true ),
     m_TextDocumentIsOld( true ),
+    m_GuideSemanticType( GuideSemantics::NoType ),
     m_ReadingOrder( reading_order ),
     c_jQuery(         Utility::ReadUnicodeTextFile( ":/javascript/jquery-1.4.2.min.js"          ) ),
     c_jQueryScrollTo( Utility::ReadUnicodeTextFile( ":/javascript/jquery.scrollTo-1.4.2-min.js" ) )
 {
+    // There should only be one entry in the hash for HTMLResources,
+    // and that's guide type -> title
+    if ( semantic_information.keys().count() == 1 )
+    {
+        m_GuideSemanticType  = GuideSemantics::Instance().MapReferenceTypeToGuideEnum( semantic_information.keys()[ 0 ] );
+        m_GuideSemanticTitle = semantic_information.values()[ 0 ];
+    }
+}
 
+
+bool HTMLResource::operator< ( const HTMLResource& other )
+{
+    return GetReadingOrder() < other.GetReadingOrder();
+}
+
+
+GuideSemantics::GuideSemanticType HTMLResource::GetGuideSemanticType() const
+{
+    return m_GuideSemanticType;
+}
+
+
+QString HTMLResource::GetGuideSemanticTitle() const
+{
+    return m_GuideSemanticTitle;
+}
+
+
+void HTMLResource::SetGuideSemanticType( GuideSemantics::GuideSemanticType type )
+{
+    m_GuideSemanticType = type;
+
+    // We reset the title since it's tied to
+    // the type. On export, empty titles take default values.
+    m_GuideSemanticTitle = "";
 }
 
 
@@ -109,7 +146,7 @@ void HTMLResource::UpdateDomDocumentFromWebPage()
 {
     Q_ASSERT( QThread::currentThread() == QApplication::instance()->thread() );
 
-    m_DomDocument.setContent( GetWebPageHTML() );
+    XHTMLDoc::LoadTextIntoDocument( GetWebPageHTML(), m_DomDocument );
 }
 
 
@@ -118,7 +155,7 @@ void HTMLResource::UpdateDomDocumentFromTextDocument()
     Q_ASSERT( QThread::currentThread() == QApplication::instance()->thread() );
     Q_ASSERT( m_TextDocument );
 
-    m_DomDocument.setContent( CleanSource::Clean( m_TextDocument->toPlainText() ) );
+    XHTMLDoc::LoadTextIntoDocument( CleanSource::Clean( m_TextDocument->toPlainText() ), m_DomDocument );
 }
 
 
@@ -203,16 +240,20 @@ void HTMLResource::UpdateTextDocumentFromWebPage()
 }
 
 
-void HTMLResource::SaveToDisk()
+void HTMLResource::SaveToDisk( bool book_wide_save )
 {
     QWriteLocker locker( &m_ReadWriteLock );
 
     Utility::WriteUnicodeTextFile( CleanSource::PrettyPrint( XHTMLDoc::GetQDomNodeAsString( m_DomDocument ) ),
                                    m_FullFilePath );
+
+    if ( !book_wide_save )
+
+        emit ResourceUpdatedOnDisk();
 }
 
 
-int HTMLResource::GetReadingOrder()
+int HTMLResource::GetReadingOrder() const
 {
     return m_ReadingOrder;
 }
@@ -255,16 +296,10 @@ QStringList HTMLResource::SplitOnSGFChapterMarkers()
 {
     QStringList chapters = XHTMLDoc::GetSGFChapterSplits( XHTMLDoc::GetQDomNodeAsString( m_DomDocument ) );
 
-    m_DomDocument.setContent( CleanSource::Clean( chapters.takeFirst() ) );
+    XHTMLDoc::LoadTextIntoDocument( CleanSource::Clean( chapters.takeFirst() ), m_DomDocument );
     MarkSecondaryCachesAsOld();
 
     return chapters;
-}
-
-
-bool HTMLResource::LessThan( HTMLResource* res_1, HTMLResource* res_2 )
-{
-    return res_1->GetReadingOrder() < res_2->GetReadingOrder();
 }
 
 

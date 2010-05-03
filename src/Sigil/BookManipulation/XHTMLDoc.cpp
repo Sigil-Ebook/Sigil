@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2009  Strahinja Markovic
+**  Copyright (C) 2009, 2010  Strahinja Markovic
 **
 **  This file is part of Sigil.
 **
@@ -24,6 +24,8 @@
 #include "../Misc/Utility.h"
 #include "../BookManipulation/CleanSource.h"
 #include <QDomDocument>
+#include <QXmlInputSource>
+#include <QXmlSimpleReader>
 
 static const QString XHTML_DOCTYPE = "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\"\n"
                                      "    \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n\n"; 
@@ -36,6 +38,8 @@ static const QStringList BLOCK_LEVEL_TAGS = QStringList() << "address" << "block
                                                             "h4" << "h5" << "h6" << "hr" << "isindex" << "menu" << 
                                                             "noframes" << "noscript" << "ol" << "p" << "pre" <<
                                                             "table" << "ul" << "body";
+
+static const QStringList IMAGE_TAGS = QStringList() << "img" << "image"; 
 
 static const QString INLINE_TAGS_PART = "abbr|acronym|b|big|cite|code|dfn|em|font|i|q|"
                                          "s|samp|small|span|strike|strong|sub|sup|tt|u|var";
@@ -222,6 +226,25 @@ QString XHTMLDoc::GetQDomNodeAsString( const QDomNode &node )
 }
 
 
+// This function is basically a workaround for QDom
+// by default ignoring whitespace-only text nodes.
+// Forcing it to use a custom QXmlSimpleReader
+// "solves" this problem.
+void XHTMLDoc::LoadTextIntoDocument( const QString &text, QDomDocument &document )
+{
+    QXmlInputSource source;
+    source.setData( text );
+
+    // If we don't turn off this feature, an xmlns attribute 
+    // with the full path to the namespace will be added to 
+    // EVERY single element.
+    QXmlSimpleReader reader;
+    reader.setFeature( "http://xml.org/sax/features/namespaces", false );
+
+    document.setContent( &source, &reader );
+}
+
+
 // Accepts a string with HTML and returns the text
 // in that HTML fragment. For instance: 
 //   <h1>Hello <b>Qt</b>&nbsp;this is great</h1>
@@ -247,6 +270,30 @@ QString XHTMLDoc::ResolveHTMLEntities( const QString &text )
     QString newsource = "<div>" + text + "</div>";
 
     return GetTextInHtml( newsource );
+}
+
+
+// A tree node class without a children() function...
+// appallingly stupid, isn't it?
+QList< QWebElement > XHTMLDoc::QWebElementChildren( const QWebElement &element )
+{
+    QList< QWebElement > children;
+
+    const QWebElement &first_child = element.firstChild();
+    
+    if ( !first_child.isNull() )
+
+        children.append( first_child );
+
+    QWebElement next_sibling = first_child.nextSibling();
+
+    while ( !next_sibling.isNull() )
+    {
+        children.append( next_sibling );
+        next_sibling = next_sibling.nextSibling();
+    }
+
+    return children;
 }
 
 
@@ -460,10 +507,10 @@ QList< QDomNode > XHTMLDoc::GetVisibleTextNodes( const QDomNode &node  )
     {
         QString node_name = GetNodeName( node );
 
-        if (    node.hasChildNodes() && 
-                node_name != "script" && 
-                node_name != "style" 
-            )
+        if ( node.hasChildNodes() && 
+             node_name != "script" && 
+             node_name != "style" 
+           )
         {
             QDomNodeList children = node.childNodes();
             QList< QDomNode > text_nodes;
@@ -608,6 +655,42 @@ QList< ViewEditor::ElementIndex > XHTMLDoc::GetHierarchyFromNode( const QDomNode
     }
 
     return element_list;
+}
+
+
+QStringList XHTMLDoc::GetImagePathsFromImageChildren( const QDomNode &node )
+{
+    // "Normal" HTML image elements
+    QList< QDomNode > image_nodes = GetTagMatchingChildren( node, IMAGE_TAGS );
+
+    QStringList image_links;
+
+    // Get a list of all images referenced
+    foreach( QDomNode node, image_nodes )
+    {
+        QDomElement element = node.toElement();
+
+        Q_ASSERT( !element.isNull() );
+
+        QString url_reference;
+
+        if ( element.hasAttribute( "src" ) )
+
+            url_reference = Utility::URLDecodePath( element.attribute( "src" ) );
+
+        else // This covers the SVG "image" tags
+
+            url_reference = Utility::URLDecodePath( element.attribute( "xlink:href" ) );
+
+        if ( !url_reference.isEmpty() )
+
+            image_links << url_reference;
+    }
+
+    // Remove duplicate references
+    image_links.removeDuplicates();
+    
+    return image_links;
 }
 
 

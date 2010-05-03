@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2009  Strahinja Markovic
+**  Copyright (C) 2009, 2010  Strahinja Markovic
 **
 **  This file is part of Sigil.
 **
@@ -55,7 +55,7 @@ QTextDocument& TextResource::GetTextDocumentForWriting()
 }
 
 
-void TextResource::SaveToDisk()
+void TextResource::SaveToDisk( bool book_wide_save )
 {
     // We can't perform the document modified check
     // here because that causes problems with epub export
@@ -66,7 +66,9 @@ void TextResource::SaveToDisk()
 
     Utility::WriteUnicodeTextFile( m_TextDocument->toPlainText(), m_FullFilePath );
 
-    emit ResourceUpdatedOnDisk();
+    if ( !book_wide_save )
+
+        emit ResourceUpdatedOnDisk();
 
     m_TextDocument->setModified( false );
 }

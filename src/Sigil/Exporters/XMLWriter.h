@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2009  Strahinja Markovic
+**  Copyright (C) 2009, 2010  Strahinja Markovic
 **
 **  This file is part of Sigil.
 **
@@ -28,32 +28,48 @@
 class Book;
 class QIODevice;
 
+/**
+ * An abstract base class for XML writers like 
+ * NCXWriter and OPFWriter.
+ */
 class XMLWriter
 {
 
 public:
 
-    // Constructor;
-    // The first parameter is the book being exported,
-    // and the second is the FolderKeeper object representing
-    // the folder where the book will be exported
+    /**
+     * Constructor.
+     *
+     * @param book The book for which we're writing the XML.
+     * @param device The IODevice into which we should write the XML.
+     */
     XMLWriter( QSharedPointer< Book > book, QIODevice &device );
 
-    // Destructor
+    /**
+     * Destructor.
+     */
     virtual ~XMLWriter();
     
-    // Returns the created XML file
+    /**
+     * Writes the XML file to the disk.
+     */
     virtual void WriteXML() = 0;
     
 protected:
 
-    // The book being exported
+    /**
+     * The book being exported.
+     */
     QSharedPointer< Book > m_Book;
 
-    // The IO device that we are writing to.
+    /**
+     * The IO device that we are writing to.
+     */
     QIODevice &m_IODevice;
 
-    // The XML writer used to write XML
+    /**
+     *  The XML writer used to write XML.
+     */   
     QXmlStreamWriter *m_Writer;
 };
 

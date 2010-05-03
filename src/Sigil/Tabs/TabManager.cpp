@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2009  Strahinja Markovic
+**  Copyright (C) 2009, 2010  Strahinja Markovic
 **
 **  This file is part of Sigil.
 **
@@ -21,7 +21,6 @@
 
 #include <stdafx.h>
 #include "TabManager.h"
-#include "ContentTab.h"
 #include "FlowTab.h"
 #include "CSSTab.h"
 #include "ImageTab.h"
@@ -56,13 +55,14 @@ ContentTab& TabManager::GetCurrentContentTab()
 
 void TabManager::OpenResource( Resource& resource, 
                                bool precede_current_tab,
-                               const QUrl &fragment )
+                               const QUrl &fragment,
+                               ContentTab::ViewState view_state )
 {
-    if ( SwitchedToExistingTab( resource, fragment ) )
+    if ( SwitchedToExistingTab( resource, fragment, view_state ) )
 
         return;
 
-    AddNewContentTab( CreateTabForResource( resource, fragment ), precede_current_tab );
+    AddNewContentTab( CreateTabForResource( resource, fragment, view_state ), precede_current_tab );
 
     // TODO: loading bar update    
 }
@@ -174,7 +174,7 @@ int TabManager::ResourceTabIndex( const Resource& resource ) const
 }
 
 
-bool TabManager::SwitchedToExistingTab( Resource& resource, const QUrl &fragment )
+bool TabManager::SwitchedToExistingTab( Resource& resource, const QUrl &fragment, ContentTab::ViewState view_state )
 {
     int resource_index = ResourceTabIndex( resource );
 
@@ -189,8 +189,10 @@ bool TabManager::SwitchedToExistingTab( Resource& resource, const QUrl &fragment
         FlowTab *flow_tab = qobject_cast< FlowTab* >( tab );
 
         if ( flow_tab != NULL )
-
+        {
             flow_tab->ScrollToFragment( fragment.toString() );
+            flow_tab->SetViewState( view_state );
+        }
 
         return true;
     }
@@ -199,15 +201,15 @@ bool TabManager::SwitchedToExistingTab( Resource& resource, const QUrl &fragment
 }
 
 
-ContentTab* TabManager::CreateTabForResource( Resource& resource, const QUrl &fragment )
+ContentTab* TabManager::CreateTabForResource( Resource& resource, const QUrl &fragment, ContentTab::ViewState view_state )
 {
     ContentTab *tab = NULL;
 
     if ( resource.Type() == Resource::HTMLResource )
     {
-        tab = new FlowTab( resource, fragment, this );
+        tab = new FlowTab( resource, fragment, view_state, this );
 
-        connect( tab, SIGNAL( LinkClicked( const QUrl& ) ), this, SIGNAL( OpenUrlRequest( const QUrl& ) ) );
+        connect( tab,  SIGNAL( LinkClicked( const QUrl& ) ), this, SIGNAL( OpenUrlRequest( const QUrl& ) ) );
         connect( tab,  SIGNAL( OldTabRequest( QString, HTMLResource& ) ), 
                  this, SIGNAL( OldTabRequest( QString, HTMLResource& ) ) );
         connect( tab,  SIGNAL( NewChaptersRequest( QStringList ) ), 

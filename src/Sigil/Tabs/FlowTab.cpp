@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2009  Strahinja Markovic
+**  Copyright (C) 2009, 2010  Strahinja Markovic
 **
 **  This file is part of Sigil.
 **
@@ -30,7 +30,7 @@
 static const QString SETTINGS_GROUP = "flowtab";
 
 
-FlowTab::FlowTab( Resource& resource, const QUrl &fragment, QWidget *parent )
+FlowTab::FlowTab( Resource& resource, const QUrl &fragment, ContentTab::ViewState view_state, QWidget *parent )
     : 
     ContentTab( resource, parent ),
     m_FragmentToScroll( fragment ),
@@ -39,7 +39,8 @@ FlowTab::FlowTab( Resource& resource, const QUrl &fragment, QWidget *parent )
     m_wBookView( *new BookViewEditor( this ) ),
     m_wCodeView( *new CodeViewEditor( CodeViewEditor::Highlight_XHTML, this ) ),
     m_IsLastViewBook( true ),
-    m_InSplitView( false )
+    m_InSplitView( false ),
+    m_StartingViewState( view_state )
 {
     // Loading a flow tab can take a while. We set the wait
     // cursor and clear it at the end of the delayed initialization.
@@ -61,6 +62,12 @@ FlowTab::FlowTab( Resource& resource, const QUrl &fragment, QWidget *parent )
     // We perform delayed initialization after the widget is on
     // the screen. This way, the user perceives less load time.
     QTimer::singleShot( 0, this, SLOT( DelayedInitialization() ) );
+}
+
+
+int FlowTab::GetReadingOrder()
+{
+    return m_HTMLResource.GetReadingOrder();
 }
 
 
@@ -253,6 +260,32 @@ ContentTab::ViewState FlowTab::GetViewState()
     else
 
         return ContentTab::ViewState_CodeView;
+}
+
+
+void FlowTab::SetViewState( ViewState new_view_state )
+{
+    if ( new_view_state == ContentTab::ViewState_BookView )
+    
+        BookView();
+
+    else if ( new_view_state == ContentTab::ViewState_CodeView )
+
+        CodeView();
+
+    // otherwise ignore it
+}
+
+
+bool FlowTab::IsLoadingFinished()
+{
+    if ( m_IsLastViewBook )
+
+        return m_wBookView.IsLoadingFinished();
+
+    else
+
+        return m_wCodeView.IsLoadingFinished();
 }
 
 
@@ -523,6 +556,12 @@ void FlowTab::RemoveFormatting()
 
 void FlowTab::HeadingStyle( const QString& heading_type )
 {
+    // This slot is invoked from MainWindow 
+    // (via the combobox signal), while
+    // the FlowTab does not have a modify lock.
+    // So we need to get one first.
+    LoadContentOnTabEnter();
+
     QChar last_char = heading_type[ heading_type.count() - 1 ];
 
     // For heading_type == "Heading #"
@@ -535,6 +574,8 @@ void FlowTab::HeadingStyle( const QString& heading_type )
         m_wBookView.FormatBlock( "p" );
 
     // else is "<Select heading>" which does nothing
+
+    SaveContentOnTabLeave();
 }
 
 
@@ -739,15 +780,23 @@ void FlowTab::DelayedInitialization()
     m_wBookView.CustomSetWebPage( m_HTMLResource.GetWebPage() );
     m_wCodeView.CustomSetDocument( m_HTMLResource.GetTextDocument() );
 
-    BookView();
+    if ( m_StartingViewState == ContentTab::ViewState_BookView )
+    {
+        BookView();
 
-    m_wBookView.ScrollToFragmentAfterLoad( m_FragmentToScroll.toString() );
+        m_wBookView.ScrollToFragmentAfterLoad( m_FragmentToScroll.toString() );
 
-    // Fix for missing blinking caret... even though
-    // the Book View already has focus... QtWebkit is really lovely, isn't it?
-    if ( hasFocus() )
-    
-        m_wBookView.GrabFocus();
+        // Fix for missing blinking caret... even though
+        // the Book View already has focus... QtWebkit is really lovely, isn't it?
+        if ( hasFocus() )
+
+            m_wBookView.GrabFocus();
+    }
+
+    else
+    {
+        CodeView();
+    }
 
     DelayedConnectSignalsToSlots();
 
@@ -832,3 +881,5 @@ void FlowTab::DelayedConnectSignalsToSlots()
     connect( &m_wBookView, SIGNAL( textChanged() ),         this, SLOT( EmitContentChanged() ) );
     connect( &m_wCodeView, SIGNAL( FilteredTextChanged() ), this, SLOT( EmitContentChanged() ) );
 }
+
+

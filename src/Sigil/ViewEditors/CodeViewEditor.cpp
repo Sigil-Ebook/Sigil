@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2009  Strahinja Markovic, Nokia Corporation
+**  Copyright (C) 2009, 2010  Strahinja Markovic, Nokia Corporation
 **
 **  This file is part of Sigil.
 **
@@ -50,7 +50,8 @@ CodeViewEditor::CodeViewEditor( HighlighterType high_type, QWidget *parent )
     m_LineNumberArea( new LineNumberArea( this ) ),
     m_CurrentZoomFactor( 1.0 ),
     m_ScrollOneLineUp( *(   new QShortcut( QKeySequence( Qt::ControlModifier + Qt::Key_Up   ), this, 0, 0, Qt::WidgetShortcut ) ) ),
-    m_ScrollOneLineDown( *( new QShortcut( QKeySequence( Qt::ControlModifier + Qt::Key_Down ), this, 0, 0, Qt::WidgetShortcut ) ) )
+    m_ScrollOneLineDown( *( new QShortcut( QKeySequence( Qt::ControlModifier + Qt::Key_Down ), this, 0, 0, Qt::WidgetShortcut ) ) ),
+    m_isLoadFinished( false )
 {
     if ( high_type == CodeViewEditor::Highlight_XHTML )
 
@@ -74,6 +75,8 @@ void CodeViewEditor::CustomSetDocument( QTextDocument &document )
     m_Highlighter->setDocument( &document );
 
     ResetFont();
+
+    m_isLoadFinished = true;
 }
 
 
@@ -230,6 +233,12 @@ void CodeViewEditor::StoreCaretLocationUpdate( const QList< ViewEditor::ElementI
 }
 
 
+bool CodeViewEditor::IsLoadingFinished()
+{
+    return m_isLoadFinished;
+}
+
+
 void CodeViewEditor::ScrollToTop()
 {
     verticalScrollBar()->setValue( 0 );
@@ -262,9 +271,11 @@ float CodeViewEditor::GetZoomFactor() const
 // Finds the next occurrence of the search term in the document,
 // and selects the matched string. The first argument is the matching
 // regex, the second is the direction of the search.
-bool CodeViewEditor::FindNext( const QRegExp &search_regex, Searchable::Direction search_direction )
+bool CodeViewEditor::FindNext( const QRegExp &search_regex, 
+                               Searchable::Direction search_direction,
+                               bool ignore_selection_offset )
 {
-    int selection_offset = GetSelectionOffset( search_direction );
+    int selection_offset = GetSelectionOffset( search_direction, ignore_selection_offset );
 
     QRegExp result_regex = search_regex;
     RunSearchRegex( result_regex, toPlainText(), selection_offset, search_direction ); 
@@ -297,16 +308,17 @@ int CodeViewEditor::Count( const QRegExp &search_regex )
 // it is replaced by the specified replacement string.
 bool CodeViewEditor::ReplaceSelected( const QRegExp &search_regex, const QString &replacement )
 {
-    QRegExp result_regex  = search_regex;
-    QTextCursor cursor    = textCursor();
-    QString selected_text = cursor.selectedText().replace( QChar::ParagraphSeparator, QChar( '\n' ) );
+    int selection_start = textCursor().selectionStart();
+
+    QRegExp result_regex = search_regex;
+    RunSearchRegex( result_regex, toPlainText(), selection_start, Searchable::Direction_Down ); 
 
     // If we are currently sitting at the start 
     // of a matching substring, we replace it.
-    if ( result_regex.exactMatch( selected_text ) )
+    if ( result_regex.pos() == selection_start )
     {
         QString final_replacement = FillWithCapturedTexts( result_regex.capturedTexts(), replacement );
-        cursor.insertText( final_replacement );
+        textCursor().insertText( final_replacement );
 
         return true;
     }
@@ -616,7 +628,7 @@ QList< ViewEditor::ElementIndex > CodeViewEditor::ConvertStackToHierarchy( const
 tuple< int, int > CodeViewEditor::ConvertHierarchyToCaretMove( const QList< ViewEditor::ElementIndex > &hierarchy ) const
 {
     QDomDocument dom;
-    dom.setContent( toPlainText() );
+    XHTMLDoc::LoadTextIntoDocument( toPlainText(), dom );
 
     QDomNode end_node = XHTMLDoc::GetNodeFromHierarchy( dom, hierarchy );
     QTextCursor cursor( document() );
@@ -670,18 +682,18 @@ bool CodeViewEditor::ExecuteCaretUpdate()
 
 // Returns the selection offset from the start of the 
 // document depending on the search direction specified
-int CodeViewEditor::GetSelectionOffset( Searchable::Direction search_direction ) const
+int CodeViewEditor::GetSelectionOffset( Searchable::Direction search_direction, bool ignore_selection_offset ) const
 {
-    if (    search_direction == Searchable::Direction_Down ||
-            search_direction == Searchable::Direction_All
+    if ( search_direction == Searchable::Direction_Down ||
+         search_direction == Searchable::Direction_All
        )
     {
-        return textCursor().selectionEnd();
+        return !ignore_selection_offset ? textCursor().selectionEnd() : 0;
     }
 
     else
     {
-        return textCursor().selectionStart();
+        return !ignore_selection_offset ? textCursor().selectionStart() : toPlainText().count() - 1;
     }
 }
 
@@ -724,6 +736,5 @@ void CodeViewEditor::ConnectSignalsToSlots()
     connect( &m_ScrollOneLineUp,   SIGNAL( activated() ), this, SLOT( ScrollOneLineUp()   ) );
     connect( &m_ScrollOneLineDown, SIGNAL( activated() ), this, SLOT( ScrollOneLineDown() ) );
 }
-
 
 

@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2009  Strahinja Markovic
+**  Copyright (C) 2009, 2010  Strahinja Markovic
 **
 **  This file is part of Sigil.
 **
@@ -31,6 +31,7 @@
 class HTMLResource;
 class CSSResource;
 class QDomDocument;
+class QXmlStreamReader;
 
 class ImportOEBPS : public Importer
 {
@@ -59,6 +60,16 @@ protected:
     // Parses the OPF file and stores the parsed information
     // inside m_MetaElements, m_Files and m_ReadingOrderIds 
     void ReadOPF();
+
+    void ReadDublinCoreElement( QXmlStreamReader &opf_reader );
+
+    void ReadRegularMetaElement( QXmlStreamReader &opf_reader );
+
+    void ReadManifestItemElement( QXmlStreamReader &opf_reader );
+
+    void ReadSpineItemRefElement( QXmlStreamReader &opf_reader );
+
+    void ReadGuideReferenceElement( QXmlStreamReader &opf_reader );
 
     // Loads the metadata from the m_MetaElements list
     // (filled by reading the OPF) into the book
@@ -89,12 +100,21 @@ protected:
     // the values are stored paths to the files
     QMap< QString, QString > m_Files;
 
+    // InDesign likes listing several files multiple times in the manifest,
+    // even though that's explicitly forbidden by the spec. So we use this
+    // to make sure we don't load such files multiple times.
+    QSet< QString > m_MainfestFilePaths;
+
     // The list of ID's to the files in the manifest
     // that represent the reading order of the publication
     QStringList m_ReadingOrderIds;
 
     // The list of metadata elements in the OPF
     QList< Metadata::MetaElement > m_MetaElements;
+
+    // The keys are the file ID's, the values 
+    // are key-value pairs of semantic information
+    QHash< QString, QHash< QString, QString > > m_SemanticInformation;
 };
 
 

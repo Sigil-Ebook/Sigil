@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2009  Strahinja Markovic
+**  Copyright (C) 2009, 2010  Strahinja Markovic
 **
 **  This file is part of Sigil.
 **
@@ -46,3 +46,4 @@ extern const QString OPF_FILE_NAME;
 extern const QString NCX_FILE_NAME;
 extern const QString CONTAINER_XML_FILE_NAME;
 extern const QStringList TEXT_EXTENSIONS;
+//extern const int STATUSBAR_MSG_DISPLAY_TIME;

@@ -316,7 +316,7 @@ static const TidyOptionImpl option_defs[] =
   { TidyMergeSpans,              MU, "merge-spans",                 IN, TidyAutoState,   ParseAutoBool,     autoBoolPicks   },
   { TidyAnchorAsName,            MU, "anchor-as-name",              BL, yes,             ParseBool,         boolPicks       },
 
-  // Added by Strahinja Markovic
+  /* Added by Strahinja Markovic */
   { TidyClassStartID,            MS, "class-start-id",              IN, 0,               ParseInt,          NULL            },
 
   { N_TIDY_OPTIONS,              XX, NULL,                          XY, 0,               NULL,              NULL            }

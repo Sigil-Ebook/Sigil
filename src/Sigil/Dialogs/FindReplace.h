@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2009  Strahinja Markovic
+**  Copyright (C) 2009, 2010  Strahinja Markovic
 **
 **  This file is part of Sigil.
 **
@@ -26,9 +26,12 @@
 #include <QtGui/QDialog>
 #include "ui_FindReplace.h"
 #include "../ViewEditors/Searchable.h"
+#include "../Misc/SearchOperations.h"
+#include "../MainUI/MainWindow.h"
 
-class TabManager;
 class QRegExp;
+class Resource;
+class HTMLResource;
 
 class FindReplace : public QDialog
 {
@@ -40,7 +43,7 @@ public:
     // the first argument specifies which tab to load first;
     // the second argument is the MainWindow that created the dialog;
     // the third argument is the widget's parent.
-    FindReplace( bool find_tab, TabManager &tabmanager, QWidget *parent = 0 );
+    FindReplace( bool find_tab, MainWindow &main_window, QWidget *parent = 0 );
 
     // Destructor
     ~FindReplace();
@@ -77,7 +80,24 @@ private slots:
     // whether the normal search type is selected.
     void ToggleAvailableOptions( bool normal_search_checked );
 
+    /**
+     * Handles changes to the cbLookWhere combo box.
+     * Connected to the activated() signal of cbLookWhere.
+     *
+     * @param text The newly selected text in the combo box.
+     */
+    void LookWhereChanged( int index );  
+
 private:
+
+    /**
+     * Defines possible areas where the search can be performed.
+     */
+    enum LookWhere 
+    {
+        CurrentFile,
+        AllHTMLFiles
+    };
 
     // Displays a message to the user informing him
     // that his last search term could not be found.
@@ -92,11 +112,59 @@ private:
     // Returns the selected search direction.
     Searchable::Direction GetSearchDirection();
 
+    LookWhere CurrentLookWhere();
+
+    int CountInFiles();
+
+    int ReplaceInAllFiles();
+
+    void FindInAllFiles( Searchable *searchable );
+
+    HTMLResource* GetNextContainingHTMLResource();
+
+    HTMLResource* GetNextHTMLResource( HTMLResource *current_resource );
+
+    template< class T >
+    T* GetStartingResource();
+
+    Resource* GetCurrentResource();
+
+    template< class T >
+    bool ResourceContainsCurrentRegex( T *resource );
+
     // Changes the layout of the controls to the Find tab style
     void ToFindTab();
 
     // Changes the layout of the controls to the Replace tab style
     void ToReplaceTab();
+
+    /**
+     * Returns a list of all the strings
+     * currently stored in the find combo box.
+     *
+     * @return The stored find strings.
+     */
+    QStringList GetPreviousFindStrings();
+
+    /**
+     * Returns a list of all the strings
+     * currently stored in the replace combo box.
+     *
+     * @return The stored replace strings.
+     */
+    QStringList GetPreviousReplaceStrings();
+
+    /**
+     * Updates the find combo box with the
+     * currently typed-in string.
+     */
+    void UpdatePreviousFindStrings();
+
+    /**
+     * Updates the replace combo box with the
+     * currently typed-in string.
+     */
+    void UpdatePreviousReplaceStrings();
 
     // Reads all the stored dialog settings like
     // window position, geometry etc.
@@ -111,6 +179,11 @@ private:
     // to extend the UI created by the Designer
     void ExtendUI();
 
+    /**
+     * Connects all the required signals to their respective slots.
+     */
+    void ConnectSignalsToSlots();
+
 
     ///////////////////////////////
     // PRIVATE MEMBER VARIABLES
@@ -120,13 +193,54 @@ private:
     // state of the dialog
     bool m_isMore;
 
+    Searchable *m_LastUsedSearchable;
+
     // A const reference to the mainwindow that
     // spawned this dialog. Needed for searching.
-    TabManager &m_TabManager;
+    MainWindow &m_MainWindow;
 
     // Holds all the widgets Qt Designer created for us
     Ui::FindReplace ui;
 };
+
+
+template< class T >
+bool FindReplace::ResourceContainsCurrentRegex( T *resource )
+{
+    // For now, this must hold
+    Q_ASSERT( CurrentLookWhere() == AllHTMLFiles );
+
+    Resource *generic_resource = resource;
+
+    return SearchOperations::CountInFiles( 
+            GetSearchRegex(), 
+            QList< Resource* >() << generic_resource,
+            SearchOperations::CodeViewSearch ) > 0;
+}
+
+
+template< class T >
+T* FindReplace::GetStartingResource()
+{
+    Resource* resource = GetCurrentResource();
+    T* typed_resource  = qobject_cast< T* >( resource );
+
+    if ( typed_resource )
+
+        return typed_resource;
+
+    // If the current one is not the correct type,
+    // we return the first resource of that type from the book.
+    QList< T* > resources = m_MainWindow.GetCurrentBook()->GetFolderKeeper().GetResourceTypeList< T >( true );
+
+    if ( resources.count() > 0 )
+
+        return resources[ 0 ];
+
+    else
+
+        return NULL;
+}
 
 #endif // FINDREPLACE_H
 

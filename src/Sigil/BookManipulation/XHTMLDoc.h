@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2009  Strahinja Markovic
+**  Copyright (C) 2009, 2010  Strahinja Markovic
 **
 **  This file is part of Sigil.
 **
@@ -24,6 +24,7 @@
 #define XHTMLDOC_H
 
 #include "../ViewEditors/ViewEditor.h"
+#include <QWebElement>
 
 class QDomNode;
 class QDomDocument;
@@ -69,6 +70,8 @@ public:
     // that the default toString() method creates so we wrap it in this function
     static QString GetQDomNodeAsString( const QDomNode &node );
 
+    static void LoadTextIntoDocument( const QString &text, QDomDocument &document ); 
+
     // Accepts a string with HTML and returns the text
     // in that HTML fragment. For instance: 
     //   <h1>Hello <b>Qt</b>&nbsp;this is great</h1>
@@ -82,6 +85,8 @@ public:
     // returns
     //    Bonnie & Clyde
     static QString ResolveHTMLEntities( const QString &text );
+
+    static QList< QWebElement > QWebElementChildren( const QWebElement &element );
 
     /**
      * Splits the provided source on SGF chapter breaks.
@@ -144,6 +149,8 @@ public:
 
     // Creates a ViewEditor element hierarchy from the specified node
     static QList< ViewEditor::ElementIndex > GetHierarchyFromNode( const QDomNode &node ); 
+
+    static QStringList GetImagePathsFromImageChildren( const QDomNode &node );
 
 private:
 

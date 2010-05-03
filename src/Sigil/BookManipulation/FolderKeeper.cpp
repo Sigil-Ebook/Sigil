@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2009  Strahinja Markovic
+**  Copyright (C) 2009, 2010  Strahinja Markovic
 **
 **  This file is part of Sigil.
 **
@@ -21,11 +21,6 @@
 
 #include <stdafx.h>
 #include "../BookManipulation/FolderKeeper.h"
-#include "../ResourceObjects/HTMLResource.h"
-#include "../ResourceObjects/ImageResource.h"
-#include "../ResourceObjects/CSSResource.h"
-#include "../ResourceObjects/XPGTResource.h"
-#include "../ResourceObjects/FontResource.h"
 #include "../ResourceObjects/Resource.h"
 #include "../Misc/Utility.h"
 
@@ -48,35 +43,6 @@ const QString MISC_FOLDER_NAME  = "Misc";
 FolderKeeper::FolderKeeper()
 {
     Initialize();
-}
-
-
-// Copy constructor
-FolderKeeper::FolderKeeper( const FolderKeeper& other )
-{
-    Initialize();
-
-    CopyFiles( other );
-}
-
-
-// Assignment operator
-FolderKeeper& FolderKeeper::operator= ( const FolderKeeper& other )
-{
-    // Protect against invalid self-assignment
-    if ( this != &other ) 
-    {
-        QString path_to_old = m_FullPathToMainFolder;
-
-        Initialize();
-
-        DeleteAllResources( path_to_old );        
-
-        CopyFiles( other );        
-    }
-
-    // By convention, always return *this
-    return *this;
 }
 
 
@@ -107,8 +73,16 @@ void FolderKeeper::AddInfraFileToFolder( const QString &fullfilepath, const QStr
     }
 }
 
+Resource& FolderKeeper::AddContentFileToFolder( const QString &fullfilepath,
+                                                int reading_order )
+{
+    return AddContentFileToFolder( fullfilepath, reading_order, QHash< QString, QString >() );
+}
 
-Resource& FolderKeeper::AddContentFileToFolder( const QString &fullfilepath, int reading_order )
+
+Resource& FolderKeeper::AddContentFileToFolder( const QString &fullfilepath, 
+                                                int reading_order,
+                                                QHash< QString, QString > semantic_information )
 {
     if ( !QFileInfo( fullfilepath ).exists() )
 
@@ -132,7 +106,7 @@ Resource& FolderKeeper::AddContentFileToFolder( const QString &fullfilepath, int
             new_file_path = m_FullPathToImagesFolder + "/" + filename;
             relative_path = IMAGE_FOLDER_NAME + "/" + filename;
 
-            resource = new ImageResource( new_file_path, &m_Resources );
+            resource = new ImageResource( new_file_path, &m_Resources, semantic_information );
         }
 
         else if ( FONT_EXTENSIONS.contains( extension ) )
@@ -148,7 +122,7 @@ Resource& FolderKeeper::AddContentFileToFolder( const QString &fullfilepath, int
             new_file_path = m_FullPathToTextFolder + "/" + filename;
             relative_path = TEXT_FOLDER_NAME + "/" + filename;
 
-            resource = new HTMLResource( new_file_path, &m_Resources, reading_order );
+            resource = new HTMLResource( new_file_path, &m_Resources, reading_order, semantic_information );
         }
 
         else if ( STYLE_EXTENSIONS.contains( extension ) )
@@ -219,9 +193,12 @@ QString FolderKeeper::GetUniqueFilenameVersion( const QString &filename ) const
 
         return filename;
 
+    // name_prefix is part of the name without the number suffix.
+    // So for "Section0001.xhtml", it is "Section"
     QString name_prefix = QFileInfo( filename ).baseName().remove( QRegExp( "\\d+$" ) );
     QString extension   = QFileInfo( filename ).completeSuffix();
     
+    // Used to search for the filename number suffixes.
     QString search_string = QRegExp::escape( name_prefix ).prepend( "^" ) + 
                             "(\\d*)" +
                             ( !extension.isEmpty() ? ( "\\." + QRegExp::escape( extension ) ) : QString() ) + 
@@ -284,24 +261,6 @@ QStringList FolderKeeper::GetSortedContentFilesList() const
 QList< Resource* > FolderKeeper::GetResourceList() const
 {
     return m_Resources.values();
-}
-
-
-// Returned in reading order
-QList< HTMLResource* > FolderKeeper::GetSortedHTMLResources() const
-{
-    QList< HTMLResource* > html_resources;
-
-    foreach( Resource *resource, m_Resources.values() )
-    {
-        if ( resource->Type() == Resource::HTMLResource )
-
-            html_resources.append( qobject_cast< HTMLResource* >( resource ) );
-    }
-
-    qSort( html_resources.begin(), html_resources.end(), HTMLResource::LessThan );
-
-    return html_resources;
 }
 
 
@@ -368,23 +327,6 @@ QStringList FolderKeeper::GetAllFilenames() const
     }
 
     return filelist;
-}
-
-
-void FolderKeeper::CopyFiles( const FolderKeeper &other )
-{
-    foreach( Resource *resource, other.m_Resources.values() )
-    {
-        QString filepath( other.GetFullPathToOEBPSFolder() + "/" + resource->GetRelativePathToOEBPS() );
-
-        int reading_order = -1;
-
-        if ( resource->Type() == Resource::HTMLResource )
-
-            reading_order = qobject_cast< HTMLResource* >( resource )->GetReadingOrder();
-
-        AddContentFileToFolder( filepath, reading_order );
-    }
 }
 
 

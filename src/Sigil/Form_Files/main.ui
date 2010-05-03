@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>945</width>
-    <height>721</height>
+    <height>673</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -139,6 +139,7 @@
     <addaction name="actionNextTab"/>
     <addaction name="actionPreviousTab"/>
     <addaction name="actionCloseTab"/>
+    <addaction name="separator"/>
    </widget>
    <addaction name="menuFile"/>
    <addaction name="menuEdit"/>
@@ -152,7 +153,7 @@
   <widget class="QStatusBar" name="statusbar"/>
   <widget class="QToolBar" name="toolBarFileActions">
    <property name="windowTitle">
-    <string>toolBar</string>
+    <string>File</string>
    </property>
    <attribute name="toolBarArea">
     <enum>TopToolBarArea</enum>
@@ -167,7 +168,7 @@
   </widget>
   <widget class="QToolBar" name="toolBarTextManip">
    <property name="windowTitle">
-    <string>toolBar_2</string>
+    <string>Edit</string>
    </property>
    <attribute name="toolBarArea">
     <enum>TopToolBarArea</enum>
@@ -187,7 +188,7 @@
   </widget>
   <widget class="QToolBar" name="toolBarViews">
    <property name="windowTitle">
-    <string>toolBar_5</string>
+    <string>View</string>
    </property>
    <attribute name="toolBarArea">
     <enum>TopToolBarArea</enum>
@@ -201,7 +202,7 @@
   </widget>
   <widget class="QToolBar" name="toolBarInsertions">
    <property name="windowTitle">
-    <string>toolBar_6</string>
+    <string>Insert</string>
    </property>
    <attribute name="toolBarArea">
     <enum>TopToolBarArea</enum>
@@ -214,7 +215,7 @@
   </widget>
   <widget class="QToolBar" name="toolBarHeadings">
    <property name="windowTitle">
-    <string>toolBar</string>
+    <string>Heading</string>
    </property>
    <attribute name="toolBarArea">
     <enum>TopToolBarArea</enum>
@@ -225,7 +226,7 @@
   </widget>
   <widget class="QToolBar" name="toolBarTextFormats">
    <property name="windowTitle">
-    <string>toolBar_3</string>
+    <string>Format</string>
    </property>
    <attribute name="toolBarArea">
     <enum>TopToolBarArea</enum>
@@ -240,7 +241,7 @@
   </widget>
   <widget class="QToolBar" name="toolBarTextAlign">
    <property name="windowTitle">
-    <string>toolBar_4</string>
+    <string>Align</string>
    </property>
    <attribute name="toolBarArea">
     <enum>TopToolBarArea</enum>
@@ -255,7 +256,7 @@
   </widget>
   <widget class="QToolBar" name="toolBarLists">
    <property name="windowTitle">
-    <string>toolBar_7</string>
+    <string>List</string>
    </property>
    <attribute name="toolBarArea">
     <enum>TopToolBarArea</enum>
@@ -268,7 +269,7 @@
   </widget>
   <widget class="QToolBar" name="toolBar">
    <property name="windowTitle">
-    <string>toolBar</string>
+    <string>Indent</string>
    </property>
    <attribute name="toolBarArea">
     <enum>TopToolBarArea</enum>

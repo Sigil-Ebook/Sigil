@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2009  Strahinja Markovic
+**  Copyright (C) 2009, 2010  Strahinja Markovic
 **
 **  This file is part of Sigil.
 **
@@ -41,7 +41,7 @@ public:
 
     QTextDocument& GetTextDocumentForWriting();
 
-    void SaveToDisk();
+    void SaveToDisk( bool book_wide_save = false );
 
     virtual void InitialLoad();
 

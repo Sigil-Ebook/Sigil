@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2009  Strahinja Markovic
+**  Copyright (C) 2009, 2010  Strahinja Markovic
 **
 **  This file is part of Sigil.
 **
@@ -22,7 +22,7 @@
 #include <stdafx.h>
 #include "../Misc/Utility.h"
 #include "../BookManipulation/CleanSource.h"
-#include <tidy.h>
+
 #include <buffio.h>
 #include "../BookManipulation/XHTMLDoc.h"
 
@@ -67,7 +67,7 @@ QString CleanSource::Clean( const QString &source )
     // if tidy added a new style tag
     int old_num_styles = RobustCSSStyleTagCount( newsource );
     
-    newsource = HTMLTidy( newsource );
+    newsource = HTMLTidy( newsource, Tidy_Clean );
     newsource = CleanCSS( newsource, old_num_styles );
 
     return newsource;
@@ -77,13 +77,13 @@ QString CleanSource::Clean( const QString &source )
 // No cleaning, just convert the source to valid XHTML
 QString CleanSource::ToValidXHTML( const QString &source )
 {
-    return FastXHTMLTidy( source );
+    return HTMLTidy( source, Tidy_Fast );
 }
 
 
 QString CleanSource::PrettyPrint( const QString &source )
 {
-    return PrettyPrintTidy( source );
+    return HTMLTidy( source, Tidy_PrettyPrint );
 }
 
 
@@ -233,17 +233,8 @@ int CleanSource::MaxSigilCSSClassIndex( const QStringList &css_style_tags  )
 }
 
 
-// Runs HTML Tidy on the provided XHTML source code
-QString CleanSource::HTMLTidy( const QString &source )
+TidyDoc CleanSource::TidyOptions( TidyDoc tidy_document, TidyType type, int max_class_index )
 {
-    // TODO: This is getting ridiculous. Unify the three
-    // Tidy versions so we don't have all this code duplication.
-
-    TidyDoc tidy_document = tidyCreate();
-
-    TidyBuffer output = { 0 };
-    TidyBuffer errbuf = { 0 };
-
     // For more information on Tidy configuration
     // options, see http://tidy.sourceforge.net/docs/quickref.html
 
@@ -253,24 +244,41 @@ QString CleanSource::HTMLTidy( const QString &source )
     // "add-xml-decl"
     tidyOptSetBool( tidy_document, TidyXmlDecl, yes );
 
-    // "clean"
-    tidyOptSetBool( tidy_document, TidyMakeClean, yes );
-
     // "preserve-entities"
     tidyOptSetBool( tidy_document, TidyPreserveEntities, yes );	
 
     // "anchor-as-name"
     tidyOptSetBool( tidy_document, TidyAnchorAsName, no );	
 
-    // Turning these two options on produces ugly markup
-    // from WYSIWYG actions... for now, it's better we turn it off.
+    if ( !type == Tidy_Clean )
+    {
+        // Turning the two merge options on produces ugly markup
+        // for WYSIWYG actions... 
 
-    // "merge-divs"
-    //tidyOptSetInt( tidy_document, TidyMergeDivs, no );
+        // "merge-divs"
+        tidyOptSetInt( tidy_document, TidyMergeDivs, no );
 
-    // "merge-spans"
-    //tidyOptSetInt( tidy_document, TidyMergeSpans, no );
+        // "merge-spans"
+        tidyOptSetInt( tidy_document, TidyMergeSpans, no );
 
+        // "join-styles"
+        tidyOptSetBool( tidy_document, TidyJoinStyles, no );
+    }
+
+    else
+    {
+        // "clean"
+        tidyOptSetBool( tidy_document, TidyMakeClean, yes );
+
+        // "css-prefix"
+        tidyOptSetValue( tidy_document, TidyCSSPrefix, SIGIL_CLASS_NAME.toUtf8().data() );	
+
+        // This option doesn't exist in "normal" Tidy. It has been hacked on
+        // and enables us to direct Tidy to start numbering new CSS classes
+        // from an index we provide it, and not always from 1 (which causes clashes).
+        tidyOptSetInt( tidy_document, TidyClassStartID, max_class_index );	
+    }
+ 
     // "doctype"
     tidyOptSetValue( tidy_document, TidyDoctype, "strict" );
 
@@ -283,20 +291,14 @@ QString CleanSource::HTMLTidy( const QString &source )
     // "newline"
     tidyOptSetValue( tidy_document, TidyNewline, "LF" );
 
-    // "css-prefix"
-    tidyOptSetValue( tidy_document, TidyCSSPrefix, SIGIL_CLASS_NAME.toUtf8().data() );	
-
     // Needed so that Tidy doesn't kill off SVG elements
     // "new-blocklevel-tags"
     tidyOptSetValue( tidy_document, TidyBlockTags, SVG_ELEMENTS.toUtf8().data() );
 
-    // This option doesn't exist in "normal" Tidy. It has been hacked on
-    // and enables us to direct Tidy to start numbering new CSS classes
-    // from an index we provide it, and not always from 1 (which causes clashes).
-    tidyOptSetInt( tidy_document, TidyClassStartID, MaxSigilCSSClassIndex( CSSStyleTags( source ) ) );	
+    if ( !type == Tidy_Fast )
 
-    // "indent"
-    tidyOptSetInt( tidy_document, TidyIndentContent, TidyAutoState );	
+        // "indent"
+        tidyOptSetInt( tidy_document, TidyIndentContent, TidyAutoState );	
 
     // "tidy-mark"
     tidyOptSetBool( tidy_document, TidyMark, no );	
@@ -307,89 +309,28 @@ QString CleanSource::HTMLTidy( const QString &source )
     // Force output
     tidyOptSetBool( tidy_document, TidyForceOutput, yes);
 
-    // Write all errors to error buffer
-    tidySetErrorBuffer( tidy_document, &errbuf );
-
-    // Set the input
-    tidyParseString( tidy_document, source.toUtf8().constData() );
-
-    // GO BABY GO!
-    tidyCleanAndRepair( tidy_document );
-
-    // Run diagnostics
-    tidyRunDiagnostics( tidy_document );
-
-    // TODO: read and report any possible errors
-    // from the error buffer
-
-    // Store the cleaned up XHTML
-    tidySaveBuffer( tidy_document, &output );
-
-    QString clean = QString::fromUtf8( (const char*) output.bp );
-
-    // Free memory
-    tidyBufFree( &output );
-    tidyBufFree( &errbuf );
-    tidyRelease( tidy_document );
-
-    return clean;
+    return tidy_document;
 }
 
 
-// Tries to run Tidy's error correcting parser
-// as fast as possible, with no unnecessary cleaning
-QString CleanSource::FastXHTMLTidy( const QString &source )
+// Runs HTML Tidy on the provided XHTML source code
+QString CleanSource::HTMLTidy( const QString &source, TidyType type )
 {
+    // TODO: This is getting ridiculous. Unify the three
+    // Tidy versions so we don't have all this code duplication.
+
     TidyDoc tidy_document = tidyCreate();
 
     TidyBuffer output = { 0 };
     TidyBuffer errbuf = { 0 };
 
-    // For more information on Tidy configuration
-    // options, see http://tidy.sourceforge.net/docs/quickref.html
+    if ( type == Tidy_Clean )
 
-    // "output-xhtml"
-    tidyOptSetBool( tidy_document, TidyXhtmlOut, yes );
+        tidy_document = TidyOptions( tidy_document, type, MaxSigilCSSClassIndex( CSSStyleTags( source ) ) );
 
-    // "add-xml-decl"
-    tidyOptSetBool( tidy_document, TidyXmlDecl, yes );
+    else
 
-    // "preserve-entities"
-    tidyOptSetBool( tidy_document, TidyPreserveEntities, yes );	
-
-    // "anchor-as-name"
-    tidyOptSetBool( tidy_document, TidyAnchorAsName, no );
-
-    // "join-styles"
-    tidyOptSetBool( tidy_document, TidyJoinStyles, no );
-
-    // "merge-divs"
-    tidyOptSetInt( tidy_document, TidyMergeDivs, TidyNoState );
-
-    // "merge-spans"
-    tidyOptSetInt( tidy_document, TidyMergeSpans, TidyNoState );
-
-    // "wrap"
-    tidyOptSetInt( tidy_document, TidyWrapLen, 0 );
-
-    // "newline"
-    tidyOptSetValue( tidy_document, TidyNewline, "LF" );
-
-    // "doctype"
-    tidyOptSetValue( tidy_document, TidyDoctype, "strict" );
-
-    // Needed so that Tidy doesn't kill off SVG elements
-    // "new-blocklevel-tags"
-    tidyOptSetValue( tidy_document, TidyBlockTags, SVG_ELEMENTS.toUtf8().data() );
-
-    // "tidy-mark"
-    tidyOptSetBool( tidy_document, TidyMark, no );	
-
-    // UTF-8 for input and output
-    tidySetCharEncoding( tidy_document, "utf8" );  	
-
-    // Force output
-    tidyOptSetBool( tidy_document, TidyForceOutput, yes );
+        tidy_document = TidyOptions( tidy_document, type );    
 
     // Write all errors to error buffer
     tidySetErrorBuffer( tidy_document, &errbuf );
@@ -418,91 +359,6 @@ QString CleanSource::FastXHTMLTidy( const QString &source )
 
     return clean;
 }
-
-QString CleanSource::PrettyPrintTidy( const QString &source )
-{
-    TidyDoc tidy_document = tidyCreate();
-
-    TidyBuffer output = { 0 };
-    TidyBuffer errbuf = { 0 };
-
-    // For more information on Tidy configuration
-    // options, see http://tidy.sourceforge.net/docs/quickref.html
-
-    // "output-xhtml"
-    tidyOptSetBool( tidy_document, TidyXhtmlOut, yes );
-
-    // "add-xml-decl"
-    tidyOptSetBool( tidy_document, TidyXmlDecl, yes );
-
-    // "preserve-entities"
-    tidyOptSetBool( tidy_document, TidyPreserveEntities, yes );	
-
-    // "anchor-as-name"
-    tidyOptSetBool( tidy_document, TidyAnchorAsName, no );
-
-    // "join-styles"
-    tidyOptSetBool( tidy_document, TidyJoinStyles, no );
-
-    // "merge-divs"
-    tidyOptSetInt( tidy_document, TidyMergeDivs, TidyNoState );
-
-    // "merge-spans"
-    tidyOptSetInt( tidy_document, TidyMergeSpans, TidyNoState );
-
-    // "wrap"
-    tidyOptSetInt( tidy_document, TidyWrapLen, 0 );
-
-    // "doctype"
-    tidyOptSetValue( tidy_document, TidyDoctype, "strict" );
-
-    // "newline"
-    tidyOptSetValue( tidy_document, TidyNewline, "LF" );
-
-    // Needed so that Tidy doesn't kill off SVG elements
-    // "new-blocklevel-tags"
-    tidyOptSetValue( tidy_document, TidyBlockTags, SVG_ELEMENTS.toUtf8().data() );
-
-    // "indent"
-    tidyOptSetInt( tidy_document, TidyIndentContent, TidyAutoState );
-
-    // "tidy-mark"
-    tidyOptSetBool( tidy_document, TidyMark, no );	
-
-    // UTF-8 for input and output
-    tidySetCharEncoding( tidy_document, "utf8" );  	
-
-    // Force output
-    tidyOptSetBool( tidy_document, TidyForceOutput, yes );
-
-    // Write all errors to error buffer
-    tidySetErrorBuffer( tidy_document, &errbuf );
-
-    // Set the input
-    tidyParseString( tidy_document, source.toUtf8().constData() );
-
-    // GO BABY GO!
-    tidyCleanAndRepair( tidy_document );
-
-    // Run diagnostics
-    tidyRunDiagnostics( tidy_document );
-
-    // TODO: read and report any possible errors
-    // from the error buffer
-
-    // Store the cleaned up XHTML
-    tidySaveBuffer( tidy_document, &output );
-
-    QString clean = QString::fromUtf8( (const char*) output.bp );
-
-    // Free memory
-    tidyBufFree( &output );
-    tidyBufFree( &errbuf );
-    tidyRelease( tidy_document );
-
-    return clean;
-}
-
 
 
 // Writes the new CSS style tags to the source, replacing the old ones

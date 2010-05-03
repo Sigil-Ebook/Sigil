@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2009  Strahinja Markovic
+**  Copyright (C) 2009, 2010  Strahinja Markovic
 **
 **  This file is part of Sigil.
 **
@@ -44,7 +44,7 @@ TOCEditor::TOCEditor( QSharedPointer< Book > book, QWidget *parent )
 
     LockHTMLResources();
 
-    m_Headings = Headings::GetHeadingList( m_Book->GetFolderKeeper().GetSortedHTMLResources() );
+    m_Headings = Headings::GetHeadingList( m_Book->GetFolderKeeper().GetResourceTypeList< HTMLResource >( true ) );
     m_Headings = Headings::MakeHeadingHeirarchy( m_Headings );
 
     CreateTOCModel();
@@ -121,16 +121,19 @@ void TOCEditor::UpdateOneHeadingElement( QStandardItem *item )
 
     if ( heading != NULL )
     {
-        // Update heading title attribute (if used) or the value itself
-        if ( heading->element.hasAttribute( "title" ) )
+        if ( heading->text_changed )
         {
-            heading->element.setAttribute( "title", heading->text );
-        }
+            // Update heading title attribute (if used) or the value itself
+            if ( heading->element.hasAttribute( "title" ) )
+            {
+                heading->element.setAttribute( "title", heading->text );
+            }
 
-        else
-        {
-            QDomNode element = XHTMLDoc::RemoveChildren( heading->element );
-            element.appendChild( element.ownerDocument().createTextNode( heading->text ) );
+            else
+            {
+                QDomNode element = XHTMLDoc::RemoveChildren( heading->element );
+                element.appendChild( element.ownerDocument().createTextNode( heading->text ) );
+            }
         }
 
         // Update heading inclusion: if a heading element
@@ -209,6 +212,7 @@ void TOCEditor::UpdateHeadingText( QStandardItem *text_item )
     Q_ASSERT( heading );
 
     heading->text = text_item->text();
+    heading->text_changed = true;
 }
 
 
@@ -251,8 +255,8 @@ void TOCEditor::InsertHeadingIntoModel( Headings::Heading &heading, QStandardIte
 {
     Q_ASSERT( parent_item );
 
-    QStandardItem *item_heading             = new QStandardItem( heading.text );
-    QStandardItem *heading_included_check   = new QStandardItem();
+    QStandardItem *item_heading           = new QStandardItem( heading.text );
+    QStandardItem *heading_included_check = new QStandardItem();
 
     heading_included_check->setEditable( false );
     heading_included_check->setCheckable( true );
@@ -395,7 +399,7 @@ void TOCEditor::WriteSettings()
 
 void TOCEditor::LockHTMLResources()
 {
-    foreach( HTMLResource* resource, m_Book->GetFolderKeeper().GetSortedHTMLResources() )
+    foreach( HTMLResource* resource, m_Book->GetFolderKeeper().GetResourceTypeList< HTMLResource >( true ) )
     {
         resource->GetLock().lockForWrite();
     }
@@ -404,7 +408,7 @@ void TOCEditor::LockHTMLResources()
 
 void TOCEditor::UnlockHTMLResources()
 {
-    foreach( HTMLResource* resource, m_Book->GetFolderKeeper().GetSortedHTMLResources() )
+    foreach( HTMLResource* resource, m_Book->GetFolderKeeper().GetResourceTypeList< HTMLResource >( true ) )
     {
         resource->GetLock().unlock();
     }

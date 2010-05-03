@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2009  Strahinja Markovic
+**  Copyright (C) 2009, 2010  Strahinja Markovic
 **
 **  This file is part of Sigil.
 **
@@ -49,6 +49,12 @@ QString ContentTab::GetFilename()
 QIcon ContentTab::GetIcon()
 {
     return m_Resource.Icon();
+}
+
+
+Resource& ContentTab::GetLoadedResource()
+{
+    return m_Resource;
 }
 
 
@@ -103,5 +109,4 @@ void ContentTab::focusOutEvent( QFocusEvent *event )
 
     SaveContentOnTabLeave();
 }
-
 

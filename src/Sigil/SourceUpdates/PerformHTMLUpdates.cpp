@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2009  Strahinja Markovic
+**  Copyright (C) 2009, 2010  Strahinja Markovic
 **
 **  This file is part of Sigil.
 **
@@ -37,7 +37,7 @@ PerformHTMLUpdates::PerformHTMLUpdates( const QString &source,
     m_HTMLUpdates( html_updates ),
     m_CSSUpdates( css_updates )
 {   
-    m_Document.setContent( source );
+    XHTMLDoc::LoadTextIntoDocument( source, m_Document );
 }
 
 
@@ -58,8 +58,9 @@ QDomDocument PerformHTMLUpdates::operator()()
 
     if ( !m_CSSUpdates.isEmpty() )
     {
-        m_Document.setContent(
-            PerformCSSUpdates( XHTMLDoc::GetQDomNodeAsString( m_Document ), m_CSSUpdates )() );
+        XHTMLDoc::LoadTextIntoDocument( 
+            PerformCSSUpdates( XHTMLDoc::GetQDomNodeAsString( m_Document ), m_CSSUpdates )(),
+            m_Document );
     }
 
     return m_Document;
@@ -111,39 +112,40 @@ void PerformHTMLUpdates::UpdateReferenceInNode( QDomNode node )
 
             int name_index = atr_value.lastIndexOf( filename );
 
-            if ( name_index != -1 )
+            if ( name_index == -1 )
+
+                continue;
+            
+            int filename_length  = filename.length();
+            int atr_value_length = atr_value.length();
+
+            QString new_path;
+
+            // First we look at whether the filename matches the attribute value,
+            // and then we determine whether it's actually a path that ends with the filename
+            if ( filename_length == atr_value_length || 
+                 ( ( name_index + filename_length == atr_value_length ) &&
+                   ( atr_value.at( name_index - 1 ) == QChar::fromAscii( '/' ) )
+                 )
+               )
             {
-                int filename_length  = filename.length();
-                int atr_value_length = atr_value.length();
+                new_path = m_HTMLUpdates.value( key_path );
+            }
 
-                QString new_path;
+            // This checks for when the path has a fragment ID (anchor reference)
+            else if ( atr_value.at( name_index + filename_length ) == QChar::fromAscii( '#' ) )
+            {
+                new_path = atr_value.mid( name_index + filename_length ).prepend( m_HTMLUpdates.value( key_path ) );
+            }
 
-                // First we look at whether the filename matches the attribute value,
-                // and then we determine whether it's actually a path that ends with the filename
-                if ( filename_length == atr_value_length || 
-                     ( ( name_index + filename_length == atr_value_length ) &&
-                       ( atr_value.at( name_index - 1 ) == QChar::fromAscii( '/' ) )
-                     )
-                   )
-                {
-                    new_path = m_HTMLUpdates.value( key_path );
-                }
+            if ( !new_path.isEmpty() )
+            {
+                attribute.setValue( Utility::URLEncodePath( new_path ) );
 
-                // This checks for when the path has a fragment ID (anchor reference)
-                else if ( atr_value.at( name_index + filename_length ) == QChar::fromAscii( '#' ) )
-                {
-                    new_path = atr_value.mid( name_index + filename_length ).prepend( m_HTMLUpdates.value( key_path ) );
-                }
-
-                if ( !new_path.isEmpty() )
-                {
-                    attribute.setValue( Utility::URLEncodePath( new_path ) );
-
-                    // We assign to "i" to break the outer loop
-                    i = num_attributes;
-                    break;
-                }
-            }  
+                // We assign to "i" to break the outer loop
+                i = num_attributes;
+                break;
+            }
         }
     }
 }

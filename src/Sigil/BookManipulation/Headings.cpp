@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2009  Strahinja Markovic
+**  Copyright (C) 2009, 2010  Strahinja Markovic
 **
 **  This file is part of Sigil.
 **
@@ -78,6 +78,7 @@ QList< Headings::Heading > Headings::GetHeadingListForOneFile( HTMLResource* htm
         heading.text           = element.hasAttribute( "title" ) ? element.attribute( "title" ) : element.text(); 
         heading.level          = QString( element.tagName()[ 1 ] ).toInt();
         heading.include_in_toc = !element.attribute( "class", "" ).contains( NOT_IN_TOC_CLASS );
+        heading.text_changed   = false;
         heading.at_file_start  = i == 0 && 
             element.lineNumber() - body_element.lineNumber() < ALLOWED_HEADING_DISTANCE;       
 

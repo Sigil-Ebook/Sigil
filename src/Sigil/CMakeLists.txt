@@ -68,6 +68,7 @@ set( QOBJECT_HEADERS
     ResourceObjects/XPGTResource.h
     ResourceObjects/ImageResource.h
     ResourceObjects/FontResource.h
+    BookManipulation/Book.h
     )
 
 set( MAIN_FILES
@@ -91,6 +92,8 @@ set( BOOK_MANIPULATION_FILES
     BookManipulation/Metadata.h
     BookManipulation/XHTMLDoc.cpp
     BookManipulation/XHTMLDoc.h
+    BookManipulation/GuideSemantics.cpp
+    BookManipulation/GuideSemantics.h
     )
 
 set( RESOURCE_OBJECT_FILES
@@ -170,6 +173,8 @@ set( MISC_FILES
     Misc/HTMLEncodingResolver.h
     Misc/RasterizeImageResource.cpp
     Misc/RasterizeImageResource.h
+    Misc/SearchOperations.cpp
+    Misc/SearchOperations.h
     )
 
 set( VIEW_EDITOR_FILES

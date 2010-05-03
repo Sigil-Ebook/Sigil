@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2009  Strahinja Markovic
+**  Copyright (C) 2009, 2010  Strahinja Markovic
 **
 **  This file is part of Sigil.
 **
@@ -31,9 +31,20 @@ class ImageResource : public Resource
 
 public:
     
-    ImageResource( const QString &fullfilepath, QHash< QString, Resource* > *hash_owner, QObject *parent = NULL );
+    ImageResource( const QString &fullfilepath,
+                   QHash< QString, Resource* > *hash_owner,
+                   QHash< QString, QString > semantic_information,
+                   QObject *parent = NULL );
 
     virtual ResourceType Type() const;
+
+    void SetIsCoverImage( bool is_cover );
+
+    bool IsCoverImage();
+
+private:
+
+    bool m_IsCoverImage;
 };
 
 #endif // IMAGERESOURCE_H

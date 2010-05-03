@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2009  Strahinja Markovic
+**  Copyright (C) 2009, 2010  Strahinja Markovic
 **
 **  This file is part of Sigil.
 **
@@ -52,9 +52,14 @@ public:
      * @param fragment The URL fragment ID to which the tab should scroll.
      * @param parent The parent of this QObject.
      */
-    FlowTab( Resource& resource, const QUrl &fragment, QWidget *parent = 0 );
+    FlowTab( Resource& resource, 
+             const QUrl &fragment, 
+             ContentTab::ViewState view_state, 
+             QWidget *parent = 0 );
 
     // Overrides inherited from ContentTab
+
+    int GetReadingOrder();
 
     bool IsModified();
 
@@ -91,6 +96,10 @@ public:
     Searchable* GetSearchableContent();
 
     ViewState GetViewState();
+
+    void SetViewState( ViewState new_view_state );
+
+    bool IsLoadingFinished();
 
     /**
      * Scrolls the tab to the specified fragment.
@@ -425,6 +434,8 @@ private:
      *       checking for isVisible on both views doesn't work.
      */
     bool m_InSplitView;
+
+    ContentTab::ViewState m_StartingViewState;
 };
 
 #endif // FLOWTAB_H

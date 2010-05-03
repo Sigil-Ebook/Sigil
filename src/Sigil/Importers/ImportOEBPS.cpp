@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2009  Strahinja Markovic
+**  Copyright (C) 2009, 2010  Strahinja Markovic
 **
 **  This file is part of Sigil.
 **
@@ -115,9 +115,7 @@ void ImportOEBPS::LocateOPF()
     while ( !container.atEnd() ) 
     {
         // Get the next token from the stream
-        QXmlStreamReader::TokenType type = container.readNext();
-
-        if (  type == QXmlStreamReader::StartElement && 
+        if (  container.readNext() == QXmlStreamReader::StartElement && 
               container.name() == "rootfile"
             ) 
         {
@@ -163,81 +161,143 @@ void ImportOEBPS::ReadOPF()
                                                  "<?xml version=\"1.0\"?>"
                                      );
 
-    // InDesign likes listing several files multiple times in the manifest,
-    // even though that's explicitly forbidden by the spec. So we use this
-    // to make sure we don't load such files multiple times.
-    QSet< QString > mainfest_file_paths;
+    QXmlStreamReader opf_reader( source );
 
-    QXmlStreamReader opf( source );
-
-    while ( !opf.atEnd() ) 
+    while ( !opf_reader.atEnd() ) 
     {
         // Get the next token from the stream
-        QXmlStreamReader::TokenType type = opf.readNext();
+        if ( opf_reader.readNext() != QXmlStreamReader::StartElement ) 
 
-        if ( type == QXmlStreamReader::StartElement ) 
-        {
-            // Parse and store Dublin Core metadata elements
-            if ( opf.qualifiedName().toString().startsWith( "dc:" ) == true )
-            {
-                Metadata::MetaElement meta;                
+            continue;
+        
+        // Parse and store Dublin Core metadata elements
+        if ( opf_reader.qualifiedName().toString().startsWith( "dc:" ) == true )
+        
+            ReadDublinCoreElement( opf_reader );
 
-                // We create a copy of the attributes because
-                // the QXmlStreamAttributes die out after we 
-                // move away from the token.
-                foreach( QXmlStreamAttribute attribute, opf.attributes() )
-                {
-                    meta.attributes[ attribute.name().toString() ] = attribute.value().toString();
-                }
+        else if ( opf_reader.name() == "meta" )
 
-                meta.name = opf.name().toString();
+            ReadRegularMetaElement( opf_reader );
 
-                QString element_text = opf.readElementText();
-                meta.value = element_text;
+        // Get the list of content files that
+        // make up the publication
+        else if ( opf_reader.name() == "item" )
 
-                // Empty metadata entries
-                if ( !element_text.isEmpty() )
+            ReadManifestItemElement( opf_reader );
 
-                    m_MetaElements.append( meta );
-            }
+        // Get the list of XHTML files that
+        // represent the reading order
+        else if ( opf_reader.name() == "itemref" )
 
-            // Get the list of content files that
-            // make up the publication
-            else if ( opf.name() == "item" )           
-            {
-                QString id   = opf.attributes().value( "", "id" ).toString(); 
-                QString href = opf.attributes().value( "", "href" ).toString();
+            ReadSpineItemRefElement( opf_reader );
 
-                // Paths are percent encoded in the OPF, we use "normal" paths internally
-                href = Utility::URLDecodePath( href );
-
-                if ( !href.endsWith( ".ncx" ) && 
-                     !mainfest_file_paths.contains( href ) )
-                {                    
-                    m_Files[ id ] = href;
-                    mainfest_file_paths << href;
-                }
-            }
-
-            // Get the list of XHTML files that
-            // represent the reading order
-            else if ( opf.name() == "itemref" )           
-            {
-                m_ReadingOrderIds.append( opf.attributes().value( "", "idref" ).toString() );
-            }
-        }
+        // Get the <guide> semantic information 
+        else if ( opf_reader.name() == "reference" )
+        
+            ReadGuideReferenceElement( opf_reader );
     }
 
-    if ( opf.hasError() )
+    if ( opf_reader.hasError() )
     {
         boost_throw( ErrorParsingOPF() 
-                     << errinfo_XML_parsing_error_string( opf.errorString().toStdString() )
-                     << errinfo_XML_parsing_line_number( opf.lineNumber() )
-                     << errinfo_XML_parsing_column_number( opf.columnNumber() )
+                     << errinfo_XML_parsing_error_string( opf_reader.errorString().toStdString() )
+                     << errinfo_XML_parsing_line_number( opf_reader.lineNumber() )
+                     << errinfo_XML_parsing_column_number( opf_reader.columnNumber() )
                    );
     }
 
 }
+
+
+void ImportOEBPS::ReadDublinCoreElement( QXmlStreamReader &opf_reader )
+{
+    Metadata::MetaElement meta;                
+
+    // We create a copy of the attributes because
+    // the QXmlStreamAttributes die out after we 
+    // move away from the token.
+    foreach( QXmlStreamAttribute attribute, opf_reader.attributes() )
+    {
+        meta.attributes[ attribute.name().toString() ] = attribute.value().toString();
+    }
+
+    meta.name = opf_reader.name().toString();
+
+    QString element_text = opf_reader.readElementText();
+    meta.value = element_text;
+
+    // Empty metadata entries
+    if ( !element_text.isEmpty() )
+
+        m_MetaElements.append( meta );
+}
+
+
+void ImportOEBPS::ReadRegularMetaElement( QXmlStreamReader &opf_reader )
+{
+    QString name    = opf_reader.attributes().value( "", "name"    ).toString(); 
+    QString content = opf_reader.attributes().value( "", "content" ).toString();
+
+    // For now, we only recognize the special iPad
+    // cover meta. It is in the form of name=cover
+    // and content=imageID, where the ID is from the manifest.
+    if ( name == "cover" )
+    {
+        QHash< QString, QString > semantics;
+        semantics[ name ] = name;
+        m_SemanticInformation[ content ] = semantics;
+    }
+}
+
+
+void ImportOEBPS::ReadManifestItemElement( QXmlStreamReader &opf_reader )
+{
+    QString id   = opf_reader.attributes().value( "", "id"   ).toString(); 
+    QString href = opf_reader.attributes().value( "", "href" ).toString();
+
+    // Paths are percent encoded in the OPF, we use "normal" paths internally.
+    href = Utility::URLDecodePath( href );
+
+    if ( !href.endsWith( ".ncx" ) && 
+         !m_MainfestFilePaths.contains( href ) )
+    {                    
+        m_Files[ id ] = href;
+        m_MainfestFilePaths << href;
+    }
+}
+
+
+void ImportOEBPS::ReadSpineItemRefElement( QXmlStreamReader &opf_reader )
+{
+    m_ReadingOrderIds.append( opf_reader.attributes().value( "", "idref" ).toString() );
+}
+
+
+void ImportOEBPS::ReadGuideReferenceElement( QXmlStreamReader &opf_reader )
+{
+    QString type  = opf_reader.attributes().value( "", "type"  ).toString(); 
+    QString title = opf_reader.attributes().value( "", "title" ).toString();
+    QString href  = opf_reader.attributes().value( "", "href"  ).toString();
+
+    // Paths are percent encoded in the OPF, we use "normal" paths internally.
+    href = Utility::URLDecodePath( href );
+
+    // We remove the fragment identifier if there is one.
+    href = !href.contains( "#" ) ? href : href.left( href.indexOf( "#" ) );
+
+    foreach( QString id, m_Files.keys() )
+    {
+        if ( m_Files[ id ] == href )
+        {
+            QHash< QString, QString > semantics;
+            semantics[ type ] = title;
+            m_SemanticInformation[ id ] = semantics;
+
+            break;
+        }
+    }
+}
+
 
 // Loads the metadata from the m_MetaElements list
 // (filled by reading the OPF) into the book
@@ -291,14 +351,15 @@ QHash< QString, QString > ImportOEBPS::LoadFolderStructure()
 }
 
 
-tuple< QString, QString > ImportOEBPS::LoadOneFile( const QString &key )
+tuple< QString, QString > ImportOEBPS::LoadOneFile( const QString &ID )
 {
-    QString path         = m_Files.value( key );
+    QString path         = m_Files.value( ID );
     QString fullfilepath = QFileInfo( m_OPFFilePath ).absolutePath() + "/" + path;
 
     try
     {
-        Resource &resource = m_Book->GetFolderKeeper().AddContentFileToFolder( fullfilepath, m_ReadingOrderIds.indexOf( key ) );
+        Resource &resource = m_Book->GetFolderKeeper().AddContentFileToFolder( fullfilepath, 
+                                m_ReadingOrderIds.indexOf( ID ), m_SemanticInformation[ ID ] );
         QString newpath = "../" + resource.GetRelativePathToOEBPS(); 
 
         return make_tuple( path, newpath );

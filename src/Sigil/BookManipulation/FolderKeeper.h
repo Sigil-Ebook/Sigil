@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2009  Strahinja Markovic
+**  Copyright (C) 2009, 2010  Strahinja Markovic
 **
 **  This file is part of Sigil.
 **
@@ -27,8 +27,16 @@
 #include <QHash>
 #include <QMutex>
 
+// These have to be included directly because
+// of the template functions.
+#include "../ResourceObjects/HTMLResource.h"
+#include "../ResourceObjects/ImageResource.h"
+#include "../ResourceObjects/CSSResource.h"
+#include "../ResourceObjects/XPGTResource.h"
+#include "../ResourceObjects/FontResource.h"
+
 class Resource;
-class HTMLResource;
+
 
 class FolderKeeper
 {
@@ -38,12 +46,6 @@ public:
     // Constructor
     FolderKeeper();
 
-    // Copy constructor
-    FolderKeeper( const FolderKeeper& other );
-
-    // Assignment operator
-    FolderKeeper& operator= ( const FolderKeeper& other );
-
     // Destructor
     ~FolderKeeper();
 
@@ -52,8 +54,17 @@ public:
     // needs to be specified
     void AddInfraFileToFolder( const QString &fullfilepath, const QString &newfilename );
 
+    /**
+     * The only reason why we have an overload instead of just one function
+     * with a default argument is because then Apple GCC 4.2 flakes out here.
+     */
+    Resource& AddContentFileToFolder( const QString &fullfilepath,
+                                      int reading_order = -1 );
+
     // The file is recognized according to its extension.
-    Resource& AddContentFileToFolder( const QString &fullfilepath, int reading_order = -1 );
+    Resource& AddContentFileToFolder( const QString &fullfilepath, 
+                                      int reading_order,
+                                      QHash< QString, QString > semantic_information );
 
     int GetHighestReadingOrder() const;
 
@@ -66,7 +77,11 @@ public:
 
     QList< Resource* > GetResourceList() const;
 
-    QList< HTMLResource* > GetSortedHTMLResources() const;
+    template< class T >
+    QList< T* > GetResourceTypeList( bool should_be_sorted = false ) const;
+
+    template< class T >
+    QList< Resource* > GetResourceTypeAsGenericList( bool should_be_sorted = false ) const;
 
     Resource& GetResourceByIdentifier( const QString &identifier ) const;
 
@@ -93,8 +108,6 @@ private:
 
     QStringList GetAllFilenames() const;
 
-    void CopyFiles( const FolderKeeper &other );
-
     void DeleteAllResources( const QString &folderpath );
 
     // Creates the required folder structure:
@@ -107,6 +120,8 @@ private:
     //      Misc
     void CreateFolderStructure();
 
+    template< typename T >
+    static bool PointerLessThan( T* first_item, T* second_item );
 
     ///////////////////////////////
     // PRIVATE MEMBER VARIABLES
@@ -130,6 +145,57 @@ private:
     QString m_FullPathToMiscFolder;
 };
 
+
+template< class T >
+QList< T* > FolderKeeper::GetResourceTypeList( bool should_be_sorted ) const
+{
+    QList< T* > onetype_resources;
+
+    foreach( Resource *resource, m_Resources.values() )
+    {
+        T* type_resource = qobject_cast< T* >( resource );
+
+        if ( type_resource )
+
+            onetype_resources.append( type_resource );
+    }
+
+    if ( should_be_sorted )
+
+        qSort( onetype_resources.begin(), onetype_resources.end(), FolderKeeper::PointerLessThan< T > );
+
+    return onetype_resources;
+}
+
+template< class T >
+QList< Resource* > FolderKeeper::GetResourceTypeAsGenericList( bool should_be_sorted ) const
+{
+    QList< Resource* > resources;
+
+    foreach( Resource *resource, m_Resources.values() )
+    {
+        T* type_resource = qobject_cast< T* >( resource );
+
+        if ( type_resource )
+
+            resources.append( resource );
+    }
+
+    if ( should_be_sorted )
+
+        qSort( resources.begin(), resources.end(), FolderKeeper::PointerLessThan< Resource > );
+
+    return resources;
+}
+
+template< typename T >
+bool FolderKeeper::PointerLessThan( T* first_item, T* second_item )
+{
+    Q_ASSERT( first_item );
+    Q_ASSERT( second_item );
+
+    return *first_item < *second_item;
+}
 #endif // FOLDERKEEPER_H
 
 

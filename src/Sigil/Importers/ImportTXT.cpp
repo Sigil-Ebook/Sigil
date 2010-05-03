@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2009  Strahinja Markovic
+**  Copyright (C) 2009, 2010  Strahinja Markovic
 **
 **  This file is part of Sigil.
 **
@@ -24,6 +24,7 @@
 #include "../BookManipulation/CleanSource.h"
 #include "../Misc/Utility.h"
 #include "ResourceObjects/HTMLResource.h"
+#include "../BookManipulation/XHTMLDoc.h"
 #include <QDomDocument>
 
 const QString FIRST_CHAPTER_PREFIX = "Section";
@@ -73,14 +74,14 @@ HTMLResource* ImportTXT::CreateHTMLResource( const QString &source )
 
     m_Book->GetFolderKeeper().AddContentFileToFolder( fullfilepath, 0 );
 
-    return m_Book->GetFolderKeeper().GetSortedHTMLResources()[ 0 ];
+    return m_Book->GetFolderKeeper().GetResourceTypeList< HTMLResource >()[ 0 ];
 }
 
 
 void ImportTXT::InitializeHTMLResource( const QString &source, HTMLResource *resource )
 {
     QDomDocument document;
-    document.setContent( source );
+    XHTMLDoc::LoadTextIntoDocument( source, document );
     resource->SetDomDocument( document );
 }
 

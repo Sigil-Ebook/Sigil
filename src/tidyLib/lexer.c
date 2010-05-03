@@ -952,8 +952,16 @@ static void ParseEntity( TidyDocImpl* doc, GetTokenMode mode )
                 TY_(AddCharToLexer)( lexer, ';' );
         }
         else /* naked & */
-            TY_(ReportEntityError)( doc, UNESCAPED_AMPERSAND,
-                                    lexer->lexbuf+start, ch );
+        {
+            /* Changed by Strahinja Markovic: instead of reporting
+               the error, how about fixing it? */
+
+            /*TY_(ReportEntityError)( doc, UNESCAPED_AMPERSAND,
+                                    lexer->lexbuf+start, ch );*/
+
+            if ( cfgBool(doc, TidyQuoteAmpersand) )
+                AddStringToLexer( lexer, "amp;" );
+        }
     }
     else
     {

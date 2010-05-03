@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2009  Strahinja Markovic
+**  Copyright (C) 2009, 2010  Strahinja Markovic
 **
 **  This file is part of Sigil.
 **
@@ -33,7 +33,6 @@
 #include <QDomDocument>
 
 static const QString ENTITY_SEARCH = "<!ENTITY\\s+(\\w+)\\s+\"([^\"]+)\">";
-static const QStringList IMAGE_TAGS = QStringList() << "img" << "image"; 
 
 
 // Constructor;
@@ -60,7 +59,7 @@ QSharedPointer< Book > ImportHTML::GetBook()
         boost_throw( CannotReadFile() << errinfo_file_fullpath( m_FullFilePath.toStdString() ) );
 
     QDomDocument document;
-    document.setContent( LoadSource() );
+    XHTMLDoc::LoadTextIntoDocument( LoadSource(), document );
 
     StripFilesFromAnchors( document );
     LoadMetadata( document );
@@ -256,35 +255,7 @@ QHash< QString, QString > ImportHTML::LoadFolderStructure( const QDomDocument &d
 // Loads the images into the book
 QHash< QString, QString > ImportHTML::LoadImages( const QDomDocument &document )
 {
-    // "Normal" HTML image elements
-    QList< QDomNode > image_nodes = XHTMLDoc::GetTagMatchingChildren( document, IMAGE_TAGS );
-
-    QStringList image_links;
-
-    // Get a list of all images referenced
-    foreach( QDomNode node, image_nodes )
-    {
-        QDomElement element = node.toElement();
-
-        Q_ASSERT( !element.isNull() );
-
-        QString url_reference;
-
-        if ( element.hasAttribute( "src" ) )
-
-            url_reference = Utility::URLDecodePath( element.attribute( "src" ) );
-
-        else // This covers the SVG "image" tags
-
-            url_reference = Utility::URLDecodePath( element.attribute( "xlink:href" ) );
-        
-        if ( !url_reference.isEmpty() )
-
-            image_links << url_reference;
-    }
-
-    // Remove duplicate references
-    image_links.removeDuplicates();
+    QStringList image_paths = XHTMLDoc::GetImagePathsFromImageChildren( document );
 
     QHash< QString, QString > updates;
 
@@ -292,13 +263,14 @@ QHash< QString, QString > ImportHTML::LoadImages( const QDomDocument &document )
 
     // Load the images into the book and
     // update all references with new urls
-    foreach( QString image_link, image_links )
+    foreach( QString image_path, image_paths )
     {
         try
         {
-            QString fullfilepath = QFileInfo( folder, image_link ).absoluteFilePath();
-            QString newpath      = "../" + m_Book->GetFolderKeeper().AddContentFileToFolder( fullfilepath ).GetRelativePathToOEBPS();
-            updates[ image_link ] = newpath;
+            QString fullfilepath  = QFileInfo( folder, image_path ).absoluteFilePath();
+            QString newpath       = "../" + m_Book->GetFolderKeeper()
+                                        .AddContentFileToFolder( fullfilepath ).GetRelativePathToOEBPS();
+            updates[ image_path ] = newpath;
         }
         
         catch ( FileDoesNotExist& )

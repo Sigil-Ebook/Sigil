@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2009  Strahinja Markovic
+**  Copyright (C) 2009, 2010  Strahinja Markovic
 **
 **  This file is part of Sigil.
 **
@@ -99,6 +99,8 @@ public:
      * @param hierarchy The element selecting list.
      */
     virtual void StoreCaretLocationUpdate( const QList< ElementIndex > &hierarchy ) = 0;
+
+    virtual bool IsLoadingFinished() = 0;
 };
 
 #endif // VIEWEDITOR_H

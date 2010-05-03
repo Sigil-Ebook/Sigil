@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2009  Strahinja Markovic
+**  Copyright (C) 2009, 2010  Strahinja Markovic
 **
 **  This file is part of Sigil.
 **
@@ -24,6 +24,8 @@
 #define CLEANSOURCE_H
 
 #include <QStringList>
+#include <tidy.h>
+
 
 class CleanSource
 {
@@ -40,6 +42,14 @@ public:
     static QString PrettyPrint( const QString &source );
 
 private:
+
+    enum TidyType
+    {
+        Tidy_Clean,      /**< Tidy with "clean" option (the works). */
+        Tidy_Fast,       /**< Tries to run Tidy's error correcting parser
+                              as fast as possible, with no unnecessary cleaning. */ 
+        Tidy_PrettyPrint /**< Like Tidy_Fast, but pretty printing. */
+    };
 
     static int RobustCSSStyleTagCount( const QString &source );
 
@@ -64,15 +74,10 @@ private:
     // Returns the largest index of all the Sigil CSS classes
     static int MaxSigilCSSClassIndex(       const QStringList &css_style_tags );
 
+    static TidyDoc TidyOptions( TidyDoc tidy_document, TidyType type, int max_class_index = 0 );
+
     // Runs HTML Tidy on the provided XHTML source code
-    static QString HTMLTidy( const QString &source );
-
-    // Tries to run Tidy's error correcting parser
-    // as fast as possible, with no unnecessary cleaning
-    static QString FastXHTMLTidy( const QString &source );
-
-    // Like FastXHTMLTidy, but pretty printing
-    static QString PrettyPrintTidy( const QString &source );  
+    static QString HTMLTidy( const QString &source, TidyType type );
 
     // Writes the new CSS style tags to the source, replacing the old ones
     static QString WriteNewCSSStyleTags( const QString &source, const QStringList &css_style_tags );

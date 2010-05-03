@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2009  Strahinja Markovic
+**  Copyright (C) 2009, 2010  Strahinja Markovic
 **
 **  This file is part of Sigil.
 **
@@ -58,6 +58,10 @@ public:
 
         // Should the heading be included in the TOC or not
         bool include_in_toc;
+
+        // Becomes true when the heading is edited
+        // in the TOC editor.
+        bool text_changed;
 
         // The headings 'below' this one
         // (those that appear after it in the source and
