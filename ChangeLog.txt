@@ -1,4 +1,4 @@
-﻿Sigil v0.2.0 RC1 ADD_DATE
+﻿Sigil v0.2.0 RC1 2010.05.03.
     - changes in the Book Browser now update the modified state of the main window (issue #331)
     - the Book Browser can now be opened/closed from thr View menu (issue #335)
     - all the toolbars now have UI-facing names
