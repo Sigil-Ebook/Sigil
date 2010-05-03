@@ -1,4 +1,5 @@
 ﻿Sigil v0.2.0 RC1 ADD_DATE
+    - all the toolbars now have UI-facing names
     - by injecting a custom XML reader into QDom, the following issue were fixed:
         - Book View search sometimes skipping over instances (issue #253)
         - Book View ReplaceAll causing Sigil to hang on rare occasions (issue #293)
