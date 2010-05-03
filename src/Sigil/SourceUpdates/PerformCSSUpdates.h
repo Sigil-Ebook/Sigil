@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2009  Strahinja Markovic
+**  Copyright (C) 2009, 2010  Strahinja Markovic
 **
 **  This file is part of Sigil.
 **
