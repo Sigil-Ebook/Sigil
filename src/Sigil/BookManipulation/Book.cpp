@@ -51,32 +51,10 @@ static const QString EMPTY_HTML_FILE  = "<?xml version=\"1.0\" encoding=\"utf-8\
 
 Book::Book()
     : 
-    m_PublicationIdentifier( Utility::CreateUUID() )
+    m_PublicationIdentifier( Utility::CreateUUID() ),
+    m_IsModified( false )
 {
    
-}
-
-
-Book::Book( const Book& other )
-{
-    m_Metadata = other.m_Metadata;
-    m_PublicationIdentifier = other.m_PublicationIdentifier;
-    m_Mainfolder = other.m_Mainfolder;
-}
-
-
-Book& Book::operator = ( const Book& other )
-{
-    // Protect against invalid self-assignment
-    if ( this != &other ) 
-    {
-        m_Metadata = other.m_Metadata;
-        m_PublicationIdentifier = other.m_PublicationIdentifier;
-        m_Mainfolder = other.m_Mainfolder;
-    }
-
-    // By convention, always return *this
-    return *this;
 }
 
 
@@ -84,6 +62,7 @@ QUrl Book::GetBaseUrl() const
 {
     return QUrl::fromLocalFile( m_Mainfolder.GetFullPathToTextFolder() + "/" );
 }
+
 
 
 FolderKeeper& Book::GetFolderKeeper()
@@ -98,13 +77,13 @@ const FolderKeeper& Book::GetConstFolderKeeper()
 }
 
 
-QString Book::GetPublicationIdentifier()
+QString Book::GetPublicationIdentifier() const
 {
     return m_PublicationIdentifier;
 }
 
 
-QHash< QString, QList< QVariant > > Book::GetMetadata()
+QHash< QString, QList< QVariant > > Book::GetMetadata() const
 {
     return m_Metadata;
 }
@@ -113,6 +92,7 @@ QHash< QString, QList< QVariant > > Book::GetMetadata()
 void Book::SetMetadata( const QHash< QString, QList< QVariant > > metadata )
 {
     m_Metadata = metadata;
+    SetModified( true );
 }
 
 
@@ -132,6 +112,7 @@ HTMLResource& Book::CreateNewHTMLFile()
 
     QtConcurrent::run( Utility::DeleteFolderAndFiles, dir.absolutePath() );
 
+    SetModified( true );
     return html_resource;
 }
 
@@ -142,6 +123,7 @@ void Book::CreateEmptyHTMLFile()
     XHTMLDoc::LoadTextIntoDocument( EMPTY_HTML_FILE, document );
 
     CreateNewHTMLFile().SetDomDocument( document );
+    SetModified( true );
 }
 
 
@@ -158,6 +140,7 @@ void Book::CreateEmptyCSSFile()
     m_Mainfolder.AddContentFileToFolder( fullfilepath );
 
     QtConcurrent::run( Utility::DeleteFolderAndFiles, dir.absolutePath() );
+    SetModified( true );
 }
 
 
@@ -193,12 +176,14 @@ HTMLResource& Book::CreateChapterBreakOriginalResource( const QString &content, 
     html_resources.append( &html_resource );
     AnchorUpdates::UpdateAllAnchorsWithIDs( html_resources );
 
+    SetModified( true );
     return html_resource;
 }
 
 void Book::CreateNewChapters( const QStringList& new_chapters )
 {
     CreateNewChapters( new_chapters, QHash< QString, QString >() );
+    SetModified( true );
 }
 
 
@@ -231,6 +216,7 @@ void Book::CreateNewChapters( const QStringList& new_chapters,
     QtConcurrent::run( Utility::DeleteFolderAndFiles, folderpath );
 
     AnchorUpdates::UpdateAllAnchorsWithIDs( m_Mainfolder.GetResourceTypeList< HTMLResource >() );
+    SetModified( true );
 }
 
 
@@ -241,9 +227,26 @@ void Book::SaveAllResourcesToDisk()
 }
 
 
+bool Book::IsModified() const
+{
+    return m_IsModified;
+}
+
+
+void Book::SetModified( bool modified )
+{
+    bool old_modified_state = m_IsModified;
+    m_IsModified = modified;
+
+    if ( modified != old_modified_state )
+
+        emit ModifiedStateChanged( m_IsModified );
+}
+
+
 void Book::SaveOneResourceToDisk( Resource *resource )
 {
-    resource->SaveToDisk( true );        
+    resource->SaveToDisk( true );
 }
 
 void Book::CreateOneNewChapter( const QString &source,
@@ -282,3 +285,4 @@ void Book::CreateOneNewChapter( const QString &source,
             PerformHTMLUpdates( CleanSource::Clean( source ), html_updates, QHash< QString, QString >() )() );
     }    
 }
+

@@ -194,6 +194,9 @@ void OPFModel::ItemChangedHandler( QStandardItem *item )
     QApplication::setOverrideCursor( Qt::WaitCursor );
     UniversalUpdates::PerformUniversalUpdates( true, m_Book->GetFolderKeeper().GetResourceList(), update );
     QApplication::restoreOverrideCursor();
+
+    // TODO: this should be automatic through signals/slots
+    m_Book->SetModified( true );
 }
 
 

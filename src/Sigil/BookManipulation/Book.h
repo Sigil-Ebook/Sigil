@@ -27,6 +27,7 @@
 #include <QHash>
 #include <QUrl>
 #include <QVariant>
+#include <QObject>
 
 
 /**
@@ -34,8 +35,9 @@
  * of Sigil. The book's resources are accessed through the FolderKeeper
  * instance.
  */
-class Book
+class Book : public QObject
 {    
+    Q_OBJECT
 
 public:
 
@@ -43,16 +45,6 @@ public:
      * Constructor.
      */
     Book();
-
-    /**
-     * Copy constructor.
-     */
-    Book( const Book& other );
-
-    /**
-     * Assignment operator.
-     */
-    Book& operator = ( const Book& other );
 
     /**
      * Returns the base url of the book. 
@@ -81,7 +73,7 @@ public:
      * @return A string representing the publication identifier
      *         of the book. Used in the OPF file on epub export. 
      */
-    QString GetPublicationIdentifier();
+    QString GetPublicationIdentifier() const;
 
     /**
      * Returns the book's metadata.
@@ -90,7 +82,7 @@ public:
      *         are the metadata names, and the values are the lists of
      *         metadata values for that metadata name.
      */
-    QHash< QString, QList< QVariant > > GetMetadata();
+    QHash< QString, QList< QVariant > > GetMetadata() const;
 
     /**
      * Replaces the book's current meta information with the received metadata.
@@ -160,6 +152,35 @@ public:
      */
     void SaveAllResourcesToDisk();
 
+    /**
+     * Returns the modified state of the book. A book
+     * is loaded/created as not modified.
+     *
+     * @return \c true if the book has been modified.
+     */
+    bool IsModified() const;
+
+public slots:
+
+    /**
+     * Sets the modified state of the book.
+     * @note \b Always use this function to change the state of
+     *          m_IsModified variable since this will emit the 
+     *          ModifiedStateChanged() signal if needed.
+     *
+     * @param modified The new modified state.
+     */
+    void SetModified( bool modified = true );
+
+signals:
+
+    /**
+     * Emitted whenever the book's modified state changes.
+     *
+     * @param new_state The new modified state.
+     */
+    void ModifiedStateChanged( bool new_state );
+
 private:
 
     /**
@@ -214,6 +235,11 @@ private:
      * metadata values for that metadata name.
      */
     QHash< QString, QList< QVariant > > m_Metadata;
+
+    /**
+     * Stores the modified state of the book.
+     */
+    bool m_IsModified;
 
 };
 

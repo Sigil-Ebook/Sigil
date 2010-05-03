@@ -148,6 +148,9 @@ void BookBrowser::AddNew()
     }
 
     Refresh();
+
+    // TODO: this should be automatic through signals/slots
+    m_Book->SetModified( true );
 }
 
 
@@ -188,6 +191,9 @@ void BookBrowser::AddExisting()
     }    
 
     m_Book->SetMetadata( old_metadata );
+
+    // TODO: this should be automatic through signals/slots
+    m_Book->SetModified( true );
     
     Refresh();
 }
@@ -237,6 +243,9 @@ void BookBrowser::Remove()
 
     resource->Delete();
 
+    // TODO: this should be automatic through signals/slots
+    m_Book->SetModified( true );
+
     Refresh();
 }
 
@@ -262,6 +271,9 @@ void BookBrowser::SetCoverImage()
     {
         changing_image->SetIsCoverImage( false );
     }
+
+    // TODO: this should be automatic through signals/slots
+    m_Book->SetModified( true );
 }
 
 
@@ -298,6 +310,9 @@ void BookBrowser::AddGuideSemanticType( int type )
     {
         changing_html->SetGuideSemanticType( GuideSemantics::NoType );
     }
+
+    // TODO: this should be automatic through signals/slots
+    m_Book->SetModified( true );
 }
 
 

@@ -35,7 +35,6 @@
 #include "../ResourceObjects/XPGTResource.h"
 #include "../ResourceObjects/FontResource.h"
 
-
 class Resource;
 
 
@@ -46,12 +45,6 @@ public:
 
     // Constructor
     FolderKeeper();
-
-    // Copy constructor
-    FolderKeeper( const FolderKeeper& other );
-
-    // Assignment operator
-    FolderKeeper& operator= ( const FolderKeeper& other );
 
     // Destructor
     ~FolderKeeper();
@@ -107,8 +100,6 @@ private:
     void Initialize();
 
     QStringList GetAllFilenames() const;
-
-    void CopyFiles( const FolderKeeper &other );
 
     void DeleteAllResources( const QString &folderpath );
 

@@ -172,7 +172,7 @@ void MainWindow::New()
         MainWindow *new_window = new MainWindow();
         new_window->show();
 #else
-        CreateNew();
+        CreateNewBook();
 #endif
     }
 }
@@ -396,11 +396,7 @@ void MainWindow::InsertImage()
 void MainWindow::MetaEditorDialog()
 {
     MetaEditor meta( m_Book, this );
-
-    if ( meta.exec() == QDialog::Accepted )
-    {
-        setWindowModified( true );  
-    }
+    meta.exec();
 }
 
 
@@ -415,7 +411,7 @@ void MainWindow::TOCEditorDialog()
 
     if ( toc.exec() == QDialog::Accepted )
     {
-        setWindowModified( true );  
+        m_Book->SetModified( true );
     }
 }
 
@@ -440,15 +436,6 @@ void MainWindow::AboutDialog()
     About about( this );
 
     about.exec();
-}
-
-
-// Gets called every time the document is modified;
-// changes the UI to accordingly;
-// (star in titlebar on win and lin, different button colors on mac)
-void MainWindow::DocumentWasModified()
-{
-    setWindowModified( m_TabManager.GetCurrentContentTab().IsModified() );
 }
 
 
@@ -824,15 +811,24 @@ bool MainWindow::MaybeSave()
     return true;
 }
 
+
+void MainWindow::SetNewBook( QSharedPointer< Book > new_book )
+{
+    m_Book = new_book;
+    m_BookBrowser->SetBook( m_Book );
+    connect( m_Book.data(), SIGNAL( ModifiedStateChanged( bool ) ), this, SLOT( setWindowModified( bool ) ) );
+    m_Book->SetModified( false );
+}
+
+
 // Creates a new, empty book and replaces
 // the current one with it
-void MainWindow::CreateNew()
+void MainWindow::CreateNewBook()
 {
-    m_Book = QSharedPointer< Book >( new Book() );
-
-    m_Book->CreateEmptyHTMLFile();
-    m_BookBrowser->SetBook( m_Book );
+    QSharedPointer< Book > new_book = QSharedPointer< Book >( new Book() );
+    new_book->CreateEmptyHTMLFile();
     
+    SetNewBook( new_book );
     SetCurrentFile( "" );
 }
 
@@ -853,8 +849,7 @@ void MainWindow::LoadFile( const QString &fullfilepath )
 
         // Create the new book, clean up the old one
         // (destructors take care of that)
-        m_Book = ImporterFactory().GetImporter( fullfilepath ).GetBook();
-        m_BookBrowser->SetBook( m_Book );
+        SetNewBook( ImporterFactory().GetImporter( fullfilepath ).GetBook() );
 
         QApplication::restoreOverrideCursor();
 
@@ -899,6 +894,7 @@ bool MainWindow::SaveFile( const QString &fullfilepath )
 
         BookNormalization::Normalize( m_Book );
         ExporterFactory().GetExporter( fullfilepath, m_Book ).WriteBook();
+        m_Book->SetModified( false );
 
         QApplication::restoreOverrideCursor();
 
@@ -1093,17 +1089,7 @@ void MainWindow::SetCurrentFile( const QString &filename )
 {
     m_CurrentFile = filename;
 
-    setWindowModified( false );
-
-    QString shownName;
-
-    if ( m_CurrentFile.isEmpty() )
-
-        shownName = "untitled.epub";
-
-    else
-     
-        shownName = QFileInfo( m_CurrentFile ).fileName();
+    QString shownName = m_CurrentFile.isEmpty() ? "untitled.epub" : QFileInfo( m_CurrentFile ).fileName();
 
     // Update the titlebar
     setWindowTitle( tr( "%1[*] - %2" ).arg( shownName ).arg( tr( "Sigil" ) ) );
@@ -1327,7 +1313,7 @@ void MainWindow::LoadInitialFile( const QString &openfilepath )
 
     else
     {
-        CreateNew();
+        CreateNewBook();
     }
 }
 
@@ -1420,15 +1406,15 @@ void MainWindow::MakeTabConnections( ContentTab *tab )
 
     connect( m_cbHeadings, SIGNAL( activated( const QString& ) ),  tab,   SLOT( HeadingStyle( const QString& ) ) );
 
-    connect( tab,   SIGNAL( ViewChanged() ),                this,   SLOT( UpdateUI()                ) );
-    connect( tab,   SIGNAL( SelectionChanged() ),           this,   SLOT( UpdateUI()                ) );
-    connect( tab,   SIGNAL( EnteringBookView() ),           this,   SLOT( SetStateActionsBookView() ) );
-    connect( tab,   SIGNAL( EnteringCodeView() ),           this,   SLOT( SetStateActionsCodeView() ) );
-    connect( tab,   SIGNAL( EnteringBookView() ),           this,   SLOT( UpdateZoomControls()      ) );
-    connect( tab,   SIGNAL( EnteringCodeView() ),           this,   SLOT( UpdateZoomControls()      ) );
-    connect( tab,   SIGNAL( ContentChanged() ),             this,   SLOT( DocumentWasModified()     ) );
-    connect( tab,   SIGNAL( ZoomFactorChanged( float ) ),   this,   SLOT( UpdateZoomLabel( float )  ) );
-    connect( tab,   SIGNAL( ZoomFactorChanged( float ) ),   this,   SLOT( UpdateZoomSlider( float ) ) );
+    connect( tab,   SIGNAL( ViewChanged() ),                this,          SLOT( UpdateUI()                ) );
+    connect( tab,   SIGNAL( SelectionChanged() ),           this,          SLOT( UpdateUI()                ) );
+    connect( tab,   SIGNAL( EnteringBookView() ),           this,          SLOT( SetStateActionsBookView() ) );
+    connect( tab,   SIGNAL( EnteringCodeView() ),           this,          SLOT( SetStateActionsCodeView() ) );
+    connect( tab,   SIGNAL( EnteringBookView() ),           this,          SLOT( UpdateZoomControls()      ) );
+    connect( tab,   SIGNAL( EnteringCodeView() ),           this,          SLOT( UpdateZoomControls()      ) );
+    connect( tab,   SIGNAL( ContentChanged() ),             m_Book.data(), SLOT( SetModified()             ) );
+    connect( tab,   SIGNAL( ZoomFactorChanged( float ) ),   this,          SLOT( UpdateZoomLabel( float )  ) );
+    connect( tab,   SIGNAL( ZoomFactorChanged( float ) ),   this,          SLOT( UpdateZoomSlider( float ) ) );
 }
 
 void MainWindow::BreakTabConnections( ContentTab *tab )
@@ -1469,6 +1455,7 @@ void MainWindow::BreakTabConnections( ContentTab *tab )
     disconnect( m_cbHeadings,                       0, tab, 0 );
 
     disconnect( tab,                                0, this, 0 );
+    disconnect( tab,                                0, m_Book.data(), 0 );
 }
 
 

@@ -152,11 +152,6 @@ private slots:
     // Implements About action functionality
     void AboutDialog();
 
-    // Gets called every time the document is modified;
-    // changes the UI to accordingly;
-    // (star in titlebar on win and lin, different button colors on mac)
-    void DocumentWasModified();
-
     void TabChanged( ContentTab* old_tab, ContentTab* new_tab ); 
 
     void UpdateUI();
@@ -214,10 +209,12 @@ private:
     // if the user chooses DISCARD, we don't save and continue
     // if the user chooses CANCEL, we don't save and stop what we were doing
     bool MaybeSave();
+
+    void SetNewBook( QSharedPointer< Book > new_book );
     
     // Creates a new, empty book and replaces
     // the current one with it
-    void CreateNew();
+    void CreateNewBook();
 
     // Loads from the file specified
     void LoadFile( const QString &filename );

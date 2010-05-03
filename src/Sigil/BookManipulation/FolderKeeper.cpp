@@ -46,35 +46,6 @@ FolderKeeper::FolderKeeper()
 }
 
 
-// Copy constructor
-FolderKeeper::FolderKeeper( const FolderKeeper& other )
-{
-    Initialize();
-
-    CopyFiles( other );
-}
-
-
-// Assignment operator
-FolderKeeper& FolderKeeper::operator= ( const FolderKeeper& other )
-{
-    // Protect against invalid self-assignment
-    if ( this != &other ) 
-    {
-        QString path_to_old = m_FullPathToMainFolder;
-
-        Initialize();
-
-        DeleteAllResources( path_to_old );        
-
-        CopyFiles( other );        
-    }
-
-    // By convention, always return *this
-    return *this;
-}
-
-
 // Destructor
 FolderKeeper::~FolderKeeper()
 {
@@ -350,23 +321,6 @@ QStringList FolderKeeper::GetAllFilenames() const
     }
 
     return filelist;
-}
-
-
-void FolderKeeper::CopyFiles( const FolderKeeper &other )
-{
-    foreach( Resource *resource, other.m_Resources.values() )
-    {
-        QString filepath( other.GetFullPathToOEBPSFolder() + "/" + resource->GetRelativePathToOEBPS() );
-
-        int reading_order = -1;
-
-        if ( resource->Type() == Resource::HTMLResource )
-
-            reading_order = qobject_cast< HTMLResource* >( resource )->GetReadingOrder();
-
-        AddContentFileToFolder( filepath, reading_order );
-    }
 }
 
 
