@@ -76,7 +76,7 @@ void FolderKeeper::AddInfraFileToFolder( const QString &fullfilepath, const QStr
 Resource& FolderKeeper::AddContentFileToFolder( const QString &fullfilepath,
                                                 int reading_order )
 {
-    AddContentFileToFolder( fullfilepath, reading_order, QHash< QString, QString >() );
+    return AddContentFileToFolder( fullfilepath, reading_order, QHash< QString, QString >() );
 }
 
 
