@@ -46,11 +46,6 @@ BookBrowser::BookBrowser( QWidget *parent )
     m_SemanticsContextMenu.setTitle( tr( "Add Semantics" ) );
 
     setWidget( &m_TreeView );
-
-    setFeatures( QDockWidget::DockWidgetFloatable | 
-                 QDockWidget::DockWidgetMovable   | 
-                 QDockWidget::DockWidgetClosable );
-
     setAllowedAreas( Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea );
 
     ReadSettings();
@@ -70,7 +65,6 @@ BookBrowser::~BookBrowser()
 void BookBrowser::SetBook( QSharedPointer< Book > book )
 {
     m_Book = book;
-
     m_OPFModel.SetBook( book );
 
     try
