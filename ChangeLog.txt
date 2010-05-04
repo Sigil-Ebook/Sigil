@@ -1,8 +1,11 @@
-﻿Sigil v0.2.0 RC1 2010.05.03.
+﻿Sigil v0.2.0 RC2 ADD_DATE
+    - fixed an issue with the ReplaceAll across files not informing the opened tabs of the change
+
+Sigil v0.2.0 RC1 2010.05.03.
     - changes in the Book Browser now update the modified state of the main window (issue #331)
-    - the Book Browser can now be opened/closed from thr View menu (issue #335)
+    - the Book Browser can now be opened/closed from the View menu (issue #335)
     - all the toolbars now have UI-facing names
-    - by injecting a custom XML reader into QDom, the following issue were fixed:
+    - by injecting a custom XML reader into QDom, the following issues were fixed:
         - Book View search sometimes skipping over instances (issue #253)
         - Book View ReplaceAll causing Sigil to hang on rare occasions (issue #293)
         - spaces disappearing from some HTML constructs (issue #352)
@@ -25,7 +28,7 @@
     editor (issue #300)
     - the special iPad- and Calibre-friendly cover meta tag information is now preserved
     after loading
-    - added a new "Cover Image" entry for image resource in the "Add Semantics" Book Browser menu  
+    - added a new "Cover Image" entry for image resources in the "Add Semantics" Book Browser menu  
     - if an image is not set as a cover image manually, Sigil now uses heuristics on save
     to determine if the epub has a cover image
     - if an epub has an image set as a cover image, Sigil will now write a special meta tag

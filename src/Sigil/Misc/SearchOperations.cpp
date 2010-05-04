@@ -158,6 +158,7 @@ int SearchOperations::ReplaceHTMLInFile( const QRegExp &search_regex,
         tie( new_text, count ) = PerformGlobalReplace( text, search_regex, replacement );
 
         XHTMLDoc::LoadTextIntoDocument( CleanSource::ToValidXHTML( new_text ), document );
+        html_resource->MarkSecondaryCachesAsOld();
         return count;
     }
 
