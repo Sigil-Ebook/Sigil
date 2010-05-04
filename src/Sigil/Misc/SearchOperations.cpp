@@ -193,7 +193,7 @@ tuple< QString, int > SearchOperations::PerformGlobalReplace( const QString &tex
     while ( new_text.indexOf( result_regex, index ) != -1 )
     {
         QString final_replacement = Searchable::FillWithCapturedTexts( result_regex.capturedTexts(), replacement );        
-        new_text.replace( result_regex.pos(), final_replacement.length(), final_replacement );
+        new_text.replace( result_regex.pos(), result_regex.matchedLength(), final_replacement );
 
         index = result_regex.pos() + final_replacement.length();
         ++count;
