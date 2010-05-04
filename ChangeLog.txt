@@ -1,4 +1,4 @@
-﻿Sigil v0.2.0 RC2 ADD_DATE
+﻿Sigil v0.2.0 RC2 2010.05.05.
     - fixed an issue with ReplaceAll across files not using correct replacement lengths
     - fixed an issue with code in Code View not being pretty-printed
     - fixed an issue with the ReplaceAll across files not informing the opened tabs of the change
