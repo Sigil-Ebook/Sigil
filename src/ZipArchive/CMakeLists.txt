@@ -31,7 +31,10 @@ add_library( ZipArchive ${SOURCES} )
 
 # Special compiler and linker flags for MSVC
 if( MSVC )
-	add_definitions( /DUNICODE /D_UNICODE /Zc:wchar_t-  )
+	add_definitions( /DUNICODE /D_UNICODE )
+    # The /Zc:wchar_t- flag can't go into add_definitions
+    # because the RC compiler picks it up too and it provokes a name clash
+    set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /Zc:wchar_t-")
 	set( CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} /Oi /GL" ) 
 	set_target_properties( ZipArchive PROPERTIES STATIC_LIBRARY_FLAGS "/LTCG" )
 endif()

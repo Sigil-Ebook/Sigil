@@ -383,7 +383,10 @@ target_link_libraries( ${PROJECT_NAME} tidyLib ZipArchive BoostParts ${QT_LIBRAR
 
 # "Link time code generation" flags for MSVC
 if( MSVC )
-    add_definitions( /DUNICODE /D_UNICODE /Zc:wchar_t- )
+    add_definitions( /DUNICODE /D_UNICODE )
+    # The /Zc:wchar_t- flag can't go into add_definitions
+    # because the RC compiler picks it up too and it provokes a name clash
+    set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /Zc:wchar_t-")
     set( CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} /Oi /GL" ) 
     set( CMAKE_EXE_LINKER_FLAGS_RELEASE "${CMAKE_EXE_LINKER_FLAGS_RELEASE} /LTCG" )
 
