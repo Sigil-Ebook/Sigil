@@ -250,7 +250,7 @@ TidyDoc CleanSource::TidyOptions( TidyDoc tidy_document, TidyType type, int max_
     // "anchor-as-name"
     tidyOptSetBool( tidy_document, TidyAnchorAsName, no );	
 
-    if ( !type == Tidy_Clean )
+    if ( type != Tidy_Clean )
     {
         // Turning the two merge options on produces ugly markup
         // for WYSIWYG actions... 
@@ -295,7 +295,7 @@ TidyDoc CleanSource::TidyOptions( TidyDoc tidy_document, TidyType type, int max_
     // "new-blocklevel-tags"
     tidyOptSetValue( tidy_document, TidyBlockTags, SVG_ELEMENTS.toUtf8().data() );
 
-    if ( !type == Tidy_Fast )
+    if ( type != Tidy_Fast )
 
         // "indent"
         tidyOptSetInt( tidy_document, TidyIndentContent, TidyAutoState );	
