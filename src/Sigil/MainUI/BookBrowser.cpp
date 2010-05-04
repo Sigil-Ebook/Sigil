@@ -360,7 +360,7 @@ void BookBrowser::SetupTreeView()
 
 void BookBrowser::CreateContextMenuActions()
 {
-    m_AddNew      = new QAction( tr( "Add New Item..." ),       this );
+    m_AddNew      = new QAction( tr( "Add New Item" ),          this );
     m_AddExisting = new QAction( tr( "Add Existing Items..." ), this );
     m_Rename      = new QAction( tr( "Rename" ),                this );
     m_Remove      = new QAction( tr( "Remove" ),                this );
