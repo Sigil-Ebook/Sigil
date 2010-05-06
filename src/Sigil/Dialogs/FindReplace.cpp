@@ -432,7 +432,8 @@ void FindReplace::FindInAllFiles( Searchable *searchable )
 
 HTMLResource* FindReplace::GetNextContainingHTMLResource()
 {
-    HTMLResource *next_html_resource = GetStartingResource< HTMLResource >();
+    HTMLResource *starting_html_resource = GetStartingResource< HTMLResource >();
+    HTMLResource *next_html_resource     = starting_html_resource;
 
     while ( true )
     {
@@ -443,6 +444,14 @@ HTMLResource* FindReplace::GetNextContainingHTMLResource()
             if ( ResourceContainsCurrentRegex( next_html_resource ) )
 
                 return next_html_resource;
+
+            else if ( next_html_resource != starting_html_resource )
+
+                continue;
+
+            else
+
+                return NULL;
         }
 
         else
