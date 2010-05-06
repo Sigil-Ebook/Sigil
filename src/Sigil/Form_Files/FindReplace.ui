@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>529</width>
-    <height>332</height>
+    <height>270</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -343,15 +343,23 @@
   </layout>
  </widget>
  <tabstops>
+  <tabstop>cbFind</tabstop>
+  <tabstop>cbReplace</tabstop>
+  <tabstop>cbLookWhere</tabstop>
   <tabstop>btMore</tabstop>
   <tabstop>btReplace</tabstop>
   <tabstop>btReplaceAll</tabstop>
   <tabstop>btCount</tabstop>
   <tabstop>btFindNext</tabstop>
+  <tabstop>cbWholeWord</tabstop>
+  <tabstop>cbMatchCase</tabstop>
+  <tabstop>cbMinimalMatching</tabstop>
   <tabstop>rbNormalSearch</tabstop>
+  <tabstop>rbWildcardSearch</tabstop>
   <tabstop>rbRegexSearch</tabstop>
   <tabstop>rbUpDirection</tabstop>
   <tabstop>rbDownDirection</tabstop>
+  <tabstop>rbAllDirection</tabstop>
   <tabstop>twTabs</tabstop>
  </tabstops>
  <resources/>

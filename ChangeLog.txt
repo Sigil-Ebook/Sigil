@@ -1,4 +1,6 @@
 ﻿Sigil v0.2.0 ADD_DATE
+    - fixed a regression that messed up the tab order of the controls in the Find dialog
+    (issue #380)
     - fixed an issue with cross-file FindNext causing a hang when the search term is not in
     the book and "Direction: All" is used (issue #378)
     - the Text folder in the Book Browser is now expanded by default after loading
