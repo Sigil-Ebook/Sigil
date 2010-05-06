@@ -395,7 +395,7 @@ void FindReplace::FindInAllFiles( Searchable *searchable )
 
     Searchable::Direction search_direction = GetSearchDirection();
 
-    bool ignore_offset = m_LastUsedSearchable == searchable ? false : true;
+    bool ignore_offset = m_LastUsedSearchable != searchable ? true : false;
 
     bool found = search_direction == Searchable::Direction_All                                       ?
                  searchable->FindNext( GetSearchRegex(), Searchable::Direction_Down, ignore_offset ) :
@@ -441,17 +441,16 @@ HTMLResource* FindReplace::GetNextContainingHTMLResource()
 
         if ( next_html_resource )
         {
-            if ( ResourceContainsCurrentRegex( next_html_resource ) )
-
+            if ( next_html_resource != starting_html_resource &&
+                 ResourceContainsCurrentRegex( next_html_resource ) )
+            {
                 return next_html_resource;
-
-            else if ( next_html_resource != starting_html_resource )
-
-                continue;
+            }
 
             else
-
+            {
                 return NULL;
+            }
         }
 
         else
@@ -707,7 +706,6 @@ void FindReplace::ConnectSignalsToSlots()
     connect( ui.btReplaceAll,   SIGNAL( clicked()             ), this, SLOT( ReplaceAll()                   ) );
     connect( ui.rbNormalSearch, SIGNAL( toggled( bool )       ), this, SLOT( ToggleAvailableOptions( bool ) ) );
     connect( ui.cbLookWhere,    SIGNAL( activated( int )      ), this, SLOT( LookWhereChanged( int )        ) );
-
 }
 
 
