@@ -71,6 +71,13 @@ public:
     QModelIndex GetFirstHTMLModelIndex();
 
     /**
+     * Returns the QModelIndex of the Text folder.
+     *
+     * @return The QModelIndex of the Text folder.
+     */
+    QModelIndex GetTextFolderModelIndex();
+
+    /**
      * Gets an item's resource type.
      *
      * @param item THe item whose resource type we want.

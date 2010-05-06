@@ -103,6 +103,12 @@ QModelIndex OPFModel::GetFirstHTMLModelIndex()
 }
 
 
+QModelIndex OPFModel::GetTextFolderModelIndex()
+{
+    return m_TextFolderItem.index();
+}
+
+
 Resource::ResourceType OPFModel::GetResourceType( QStandardItem const *item )
 {
     Q_ASSERT( item );

@@ -66,6 +66,7 @@ void BookBrowser::SetBook( QSharedPointer< Book > book )
 {
     m_Book = book;
     m_OPFModel.SetBook( book );
+    ExpandTextFolder();
 
     try
     {
@@ -313,6 +314,12 @@ void BookBrowser::AddGuideSemanticType( int type )
 
     // TODO: this should be automatic through signals/slots
     m_Book->SetModified( true );
+}
+
+
+void BookBrowser::ExpandTextFolder()
+{
+    m_TreeView.expand( m_OPFModel.GetTextFolderModelIndex() );
 }
 
 
@@ -627,6 +634,7 @@ Resource* BookBrowser::GetCurrentResource()
     const QString &identifier = item->data().toString(); 
     return &m_Book->GetFolderKeeper().GetResourceByIdentifier( identifier );
 }   
+
 
 
 

@@ -126,18 +126,18 @@ private slots:
     void AddNew();
 
     /**
-    * Implements the Add Existing context menu action functionality.
-    */
+     * Implements the Add Existing context menu action functionality.
+     */
     void AddExisting();
 
     /**
-    * Implements the Rename context menu action functionality.
-    */
+     * Implements the Rename context menu action functionality.
+     */
     void Rename();
 
     /**
-    * Implements the Add New context menu action functionality.
-    */
+     * Implements the Add New context menu action functionality.
+     */
     void Remove();
 
     /**
@@ -157,15 +157,20 @@ private slots:
 private:
 
     /**
-    * Reads all the stored application settings like
-    * window position, geometry etc.
-    */
+     * Expands the Text folder so that all HTML files are shown.
+     */
+    void ExpandTextFolder();    
+
+    /**
+     * Reads all the stored application settings like
+     * window position, geometry etc.
+     */
     void ReadSettings();
 
     /**
-    * Writes all the stored application settings like
-    * window position, geometry etc.
-    */
+     * Writes all the stored application settings like
+     * window position, geometry etc.
+     */
     void WriteSettings();
 
     /**
