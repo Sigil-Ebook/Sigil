@@ -1,4 +1,4 @@
-﻿Sigil v0.2.0 ADD_DATE
+﻿Sigil v0.2.0 RC3 2010.05.07
     - fixed a regression that messed up the tab order of the controls in the Find dialog
     (issue #380)
     - fixed an issue with cross-file FindNext causing a hang when the search term is not in
