@@ -1,0 +1,35 @@
+
+.. |xhtml| replace:: :abbr:`XHTML`
+.. |html| replace:: :abbr:`HTML`
+.. |htm| replace:: :abbr:`HTM`
+.. |css| replace:: :abbr:`CSS`
+.. |png| replace:: :abbr:`PNG`
+.. |ttf| replace:: :abbr:`TTF`
+.. |otf| replace:: :abbr:`OTF`
+.. |ops| replace:: :abbr:`OPS`
+.. |opf| replace:: :abbr:`OPF`
+.. |ocf| replace:: :abbr:`OCF`
+.. |ncx| replace:: :abbr:`NCX`
+.. |xml| replace:: :abbr:`XML`
+.. |oebps| replace:: :abbr:`OEBPS`
+.. |idpf| replace:: :abbr:`IDPF`
+.. |bb| replace:: :abbr:`BB`
+.. |epub| replace:: :abbr:`EPUB`
+.. |cpu| replace:: :abbr:`CPU`
+.. |isbn| replace:: :abbr:`ISBN`
+.. |issn| replace:: :abbr:`ISSN`
+.. |doi| replace:: :abbr:`DOI`
+.. |toc| replace:: :abbr:`TOC`
+.. |xpgt| replace:: :abbr:`XPGT`
+.. |jpg| replace:: :abbr:`JPG`
+.. |gif| replace:: :abbr:`GIF`
+.. |zip| replace:: :abbr:`ZIP`
+.. |docx| replace:: :abbr:`DOCX`
+.. |faq| replace:: :abbr:`FAQ`
+.. |ui| replace:: :abbr:`UI`
+.. |wysiwyg| replace:: :abbr:`WYSIWYG`
+.. |rs| replace:: :abbr:`RS`
+.. |svg| replace:: :abbr:`SVG`
+
+
+

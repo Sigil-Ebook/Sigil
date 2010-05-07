@@ -16,6 +16,9 @@ a few subdirectories:
 The installer directory contains the files needed to produce
 a binary installer for Windows and Linux.
 
+The manual directory contains the manual in reStructuredText format,
+designed to be preprocessed with Sphinx.
+
 The INSTALL.txt file contains information on building Sigil from
 source code (and installing it on Linux machines).
 
