@@ -441,10 +441,13 @@ HTMLResource* FindReplace::GetNextContainingHTMLResource()
 
         if ( next_html_resource )
         {
-            if ( next_html_resource != starting_html_resource &&
-                 ResourceContainsCurrentRegex( next_html_resource ) )
+            if ( next_html_resource != starting_html_resource )
             {
-                return next_html_resource;
+                if ( ResourceContainsCurrentRegex( next_html_resource ) )
+                
+                    return next_html_resource;
+
+                // else continue
             }
 
             else
