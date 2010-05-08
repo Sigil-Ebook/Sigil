@@ -1,4 +1,7 @@
-﻿Sigil v0.2.0 RC3 2010.05.07
+﻿Sigil v0.2.0 RC4 ADD_DATE
+    - fixed an issue with autocompletion in Find dialog ignoring the case of search terms (issue #385)
+
+Sigil v0.2.0 RC3 2010.05.07
     - fixed a regression that messed up the tab order of the controls in the Find dialog
     (issue #380)
     - fixed an issue with cross-file FindNext causing a hang when the search term is not in

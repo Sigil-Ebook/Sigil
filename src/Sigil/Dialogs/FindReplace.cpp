@@ -677,6 +677,14 @@ void FindReplace::ExtendUI()
 
     ui.cbLookWhere->addItem( tr( "Current File" ),   FindReplace::CurrentFile  );
     ui.cbLookWhere->addItem( tr( "All HTML Files" ), FindReplace::AllHTMLFiles );
+
+    QCompleter *find_completer = new QCompleter( ui.cbFind );
+    find_completer->setCaseSensitivity( Qt::CaseSensitive );
+    ui.cbFind->setCompleter( find_completer );
+
+    QCompleter *replace_completer = new QCompleter( ui.cbReplace );
+    replace_completer->setCaseSensitivity( Qt::CaseSensitive );
+    ui.cbReplace->setCompleter( replace_completer );
 }
 
 
