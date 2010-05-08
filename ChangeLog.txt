@@ -1,4 +1,4 @@
-﻿Sigil v0.2.0 RC4 ADD_DATE
+﻿Sigil v0.2.0 RC4 2010.05.08
     - fixed a regression that broke FindNext opening new tabs when searching across HTML files (issue #384)
     - fixed an issue with autocompletion in Find dialog ignoring the case of search terms (issue #385)
 
