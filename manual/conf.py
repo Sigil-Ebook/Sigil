@@ -21,6 +21,7 @@ modindex_common_prefix = ['sigil.']
 html_static_path = ['_static']
 html_logo = '_static/small_logo.png'
 html_style = 'custom.css'
+html_favicon = 'app_16.ico'
 
 htmlhelp_basename = 'Sigildoc'
 
