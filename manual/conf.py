@@ -20,6 +20,7 @@ html_theme = 'sphinxdoc'
 modindex_common_prefix = ['sigil.']
 html_static_path = ['_static']
 html_logo = '_static/small_logo.png'
+html_style = 'custom.css'
 
 htmlhelp_basename = 'Sigildoc'
 

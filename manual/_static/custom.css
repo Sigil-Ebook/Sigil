@@ -1,0 +1,5 @@
+@import url("sphinxdoc.css");
+
+div.body .figure {
+    text-align: center;
+}

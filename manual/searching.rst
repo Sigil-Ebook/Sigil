@@ -25,7 +25,6 @@ Direction All
     
 The :guilabel:`Look in` combo-box offers various places where Sigil should search. Currently, it can only search in the currently open file or all the |html| files [#]_. In the future it will be able to search across all the |css| files and all the files of any type in the |epub| book.
 
-.. [#] And only in the :ref:`code-view`, not in the :ref:`book-view`. This limitation exists because of technical restrictions, and will be removed in time. 
     
 This leads us to the various search modes, which represent the true power of the Find & Replace dialog; the *Normal* search mode just matches every character you typed exactly as it is, but the other modes are more involved.
 
@@ -74,6 +73,9 @@ Here are *some* of the differences from Perl:
 * Back-reference syntax is ``sed``-like, that is in the form of ``\#``, e.g. ``\1``, ``\2``, ``\3`` etc. (``\0`` is the whole matched string). 
 
 * While zero-width positive and zero-width negative lookahead assertions (in the form of ``(?=pattern)`` and ``(?!pattern)``) are supported, Perl's look-behind assertions, "independent" subexpressions and conditional expressions are **not** supported.
+
+
+.. [#] And only in the :ref:`code-view`, not in the :ref:`book-view`. This limitation exists because of technical restrictions, and will be removed in time. 
 
 .. [#] The current regex engine used is actually Qt's QRegExp. It will eventually be replaced with `PCRE <http://en.wikipedia.org/wiki/Perl_Compatible_Regular_Expressions>`_ because of the latter's advanced features and performance.
 

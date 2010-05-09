@@ -47,8 +47,6 @@ If you select :guilabel:`Add existing items`, then an :guilabel:`Open file` dial
 
 The :guilabel:`Add Semantics` sub-menu is special. It is only displayed for |xhtml| files and images, and the contents differ. When invoked on an |xhtml| file, it enables you to indicate that that file contains the book's dedication section, the glossary, the foreword, the preface and many more [#]_. Some (but few) Reading Systems will then use this information and display it to the user.
 
-.. [#] For those interested in the technical details, this information is stored in :ref:`opf`'s ``<guide>`` element. 
-
 For images, a different semantic action is offered. You can mark an image as a *cover*. This bit of semantic information is important for several *Reading Systems*, the most prominent of which is the *iBooks* application for the *iPad*. If an image is not marked as a cover, the book won't have a cover set in the iBooks "bookshelf".
 
 .. hint:: 
@@ -56,6 +54,8 @@ For images, a different semantic action is offered. You can mark an image as a *
 
     So if you follow best practices, Sigil helps you out. Still, mark it by hand if you can. You will always know better than the machine.  
 
+.. [#] For those interested in the technical details, this information is stored in :ref:`opf`'s ``<guide>`` element. 
+    
 .. [#] Sigil looks for a normal ``<img>`` tag or an |svg| ``<image>`` one.
 
 
