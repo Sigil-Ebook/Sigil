@@ -476,10 +476,7 @@ else()
     set( QT_LIBS QtCore QtGui QtNetwork QtSvg QtWebKit QtXml QtXmlPatterns phonon )
     
     if( UNIX )
-        # Apparently phonon is not needed on Linux...
-        list( REMOVE_ITEM QT_LIBS phonon)
-        
-        # ... and DBus is.
+        # DBus is needed on Linux
         list( APPEND QT_LIBS QtDBus )
     endif()
 
