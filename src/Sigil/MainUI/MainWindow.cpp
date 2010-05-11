@@ -48,6 +48,8 @@ static const int ZOOM_SLIDER_MIDDLE         = qRound( ( ZOOM_SLIDER_MAX - ZOOM_S
 static const int ZOOM_SLIDER_WIDTH          = 140;
 static const QString REPORTING_ISSUES_WIKI  = "http://code.google.com/p/sigil/wiki/ReportingIssues";
 static const QString SIGIL_DEV_BLOG         = "http://sigildev.blogspot.com/";
+static const QString USER_MANUAL_URL        = "http://web.sigil.googlecode.com/hg/contents.html";
+static const QString FAQ_WIKI_URL           = "http://code.google.com/p/sigil/wiki/FAQ";
 
 static const QString BOOK_BROWSER_NAME = "bookbrowser";
 static const QString FRAME_NAME        = "managerframe";
@@ -413,6 +415,18 @@ void MainWindow::TOCEditorDialog()
     {
         m_Book->SetModified( true );
     }
+}
+
+
+void MainWindow::UserManual()
+{
+    QDesktopServices::openUrl( QUrl( USER_MANUAL_URL ) );
+}
+
+
+void MainWindow::FrequentlyAskedQuestions()
+{
+    QDesktopServices::openUrl( QUrl( FAQ_WIKI_URL ) );
 }
 
 
@@ -1321,22 +1335,24 @@ void MainWindow::LoadInitialFile( const QString &openfilepath )
 // Connects all the required signals to their slots
 void MainWindow::ConnectSignalsToSlots()
 {
-    connect( ui.actionExit,          SIGNAL( triggered() ), qApp, SLOT( closeAllWindows()  ) );
-    connect( ui.actionClose,         SIGNAL( triggered() ), this, SLOT( close()            ) );
-    connect( ui.actionNew,           SIGNAL( triggered() ), this, SLOT( New()              ) );
-    connect( ui.actionOpen,          SIGNAL( triggered() ), this, SLOT( Open()             ) );
-    connect( ui.actionSave,          SIGNAL( triggered() ), this, SLOT( Save()             ) );
-    connect( ui.actionSaveAs,        SIGNAL( triggered() ), this, SLOT( SaveAs()           ) );
-    connect( ui.actionFind,          SIGNAL( triggered() ), this, SLOT( Find()             ) );
-    connect( ui.actionReplace,       SIGNAL( triggered() ), this, SLOT( Replace()          ) );
-    connect( ui.actionZoomIn,        SIGNAL( triggered() ), this, SLOT( ZoomIn()           ) );
-    connect( ui.actionZoomOut,       SIGNAL( triggered() ), this, SLOT( ZoomOut()          ) );
-    connect( ui.actionInsertImage,   SIGNAL( triggered() ), this, SLOT( InsertImage()      ) );
-    connect( ui.actionMetaEditor,    SIGNAL( triggered() ), this, SLOT( MetaEditorDialog() ) );
-    connect( ui.actionTOCEditor,     SIGNAL( triggered() ), this, SLOT( TOCEditorDialog()  ) );
-    connect( ui.actionReportAnIssue, SIGNAL( triggered() ), this, SLOT( ReportAnIssue()    ) );
-    connect( ui.actionSigilDevBlog,  SIGNAL( triggered() ), this, SLOT( SigilDevBlog()     ) );
-    connect( ui.actionAbout,         SIGNAL( triggered() ), this, SLOT( AboutDialog()      ) );
+    connect( ui.actionExit,          SIGNAL( triggered() ), qApp, SLOT( closeAllWindows()          ) );
+    connect( ui.actionClose,         SIGNAL( triggered() ), this, SLOT( close()                    ) );
+    connect( ui.actionNew,           SIGNAL( triggered() ), this, SLOT( New()                      ) );
+    connect( ui.actionOpen,          SIGNAL( triggered() ), this, SLOT( Open()                     ) );
+    connect( ui.actionSave,          SIGNAL( triggered() ), this, SLOT( Save()                     ) );
+    connect( ui.actionSaveAs,        SIGNAL( triggered() ), this, SLOT( SaveAs()                   ) );
+    connect( ui.actionFind,          SIGNAL( triggered() ), this, SLOT( Find()                     ) );
+    connect( ui.actionReplace,       SIGNAL( triggered() ), this, SLOT( Replace()                  ) );
+    connect( ui.actionZoomIn,        SIGNAL( triggered() ), this, SLOT( ZoomIn()                   ) );
+    connect( ui.actionZoomOut,       SIGNAL( triggered() ), this, SLOT( ZoomOut()                  ) );
+    connect( ui.actionInsertImage,   SIGNAL( triggered() ), this, SLOT( InsertImage()              ) );
+    connect( ui.actionMetaEditor,    SIGNAL( triggered() ), this, SLOT( MetaEditorDialog()         ) );
+    connect( ui.actionTOCEditor,     SIGNAL( triggered() ), this, SLOT( TOCEditorDialog()          ) );
+    connect( ui.actionUserManual,    SIGNAL( triggered() ), this, SLOT( UserManual()               ) );
+    connect( ui.actionFAQ,           SIGNAL( triggered() ), this, SLOT( FrequentlyAskedQuestions() ) );
+    connect( ui.actionReportAnIssue, SIGNAL( triggered() ), this, SLOT( ReportAnIssue()            ) );
+    connect( ui.actionSigilDevBlog,  SIGNAL( triggered() ), this, SLOT( SigilDevBlog()             ) );
+    connect( ui.actionAbout,         SIGNAL( triggered() ), this, SLOT( AboutDialog()              ) );
     
     connect( ui.actionNextTab,       SIGNAL( triggered() ), &m_TabManager, SLOT( NextTab()     ) );
     connect( ui.actionPreviousTab,   SIGNAL( triggered() ), &m_TabManager, SLOT( PreviousTab() ) );
@@ -1457,7 +1473,6 @@ void MainWindow::BreakTabConnections( ContentTab *tab )
     disconnect( tab,                                0, this, 0 );
     disconnect( tab,                                0, m_Book.data(), 0 );
 }
-
 
 
 

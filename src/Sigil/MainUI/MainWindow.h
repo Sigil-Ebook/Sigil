@@ -143,6 +143,12 @@ private slots:
     // Implements TOC Editor action functionality
     void TOCEditorDialog();
 
+    // Implements User Manual action functionality
+    void UserManual();
+
+    // Implements Frequently Asked Questions action functionality
+    void FrequentlyAskedQuestions();
+
     // Implements Report An Issue action functionality
     void ReportAnIssue();
 

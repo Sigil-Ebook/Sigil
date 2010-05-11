@@ -52,7 +52,7 @@ Notice the :guilabel:`TOC items only` checkbox at the bottom of the dialog. If t
 Advanced uses
 -------------
 
-Advanced users may want to show a different value in the |toc| than what the actual heading text is. This can be easily achieve by locating the heading element in the :ref:`code-view` and adding a ``title`` attribute to it. 
+Advanced users may want to show a different value in the |toc| than what the actual heading text is. This can be easily achieved by locating the heading element in the :ref:`code-view` and adding a ``title`` attribute to it. 
 
 .. code-block:: html
 

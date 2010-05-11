@@ -79,6 +79,9 @@
     <property name="title">
      <string>&amp;Help</string>
     </property>
+    <addaction name="actionUserManual"/>
+    <addaction name="actionFAQ"/>
+    <addaction name="separator"/>
     <addaction name="actionReportAnIssue"/>
     <addaction name="actionSigilDevBlog"/>
     <addaction name="actionAbout"/>
@@ -973,6 +976,22 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+Shift+Return</string>
+   </property>
+  </action>
+  <action name="actionUserManual">
+   <property name="text">
+    <string>User &amp;Manual...</string>
+   </property>
+   <property name="toolTip">
+    <string>User Manual</string>
+   </property>
+  </action>
+  <action name="actionFAQ">
+   <property name="text">
+    <string>&amp;Frequently Asked Questions...</string>
+   </property>
+   <property name="toolTip">
+    <string>Frequently Asked Questions</string>
    </property>
   </action>
  </widget>
