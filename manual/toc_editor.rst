@@ -64,7 +64,7 @@ You can also use this functionality to have images as the targets of the |toc| e
 
 .. code-block:: html
 
-   <h1 title="Text in TOC"><img src="..Images/some_image.png" /></h1>   
+   <h1 title="Text in TOC"><img src="../Images/some_image.png" /></h1>   
    
    
    
