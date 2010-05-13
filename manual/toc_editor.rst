@@ -5,7 +5,9 @@
 Table Of Contents Editor
 ========================
 
-Every book needs a Table of Contents (|toc|). It makes navigation simpler, and also provides a quick overview of the book's structure. With Sigil, one can create a hierarchical |toc| with ease. The user interface is illustrated in :ref:`fig_toc`.
+Every book needs a Table of Contents (|toc|). It makes navigation simpler, and also provides a quick overview of the book's structure. With Sigil, one can create a hierarchical |toc| with ease. The user interface is illustrated in :ref:`fig_toc`. 
+
+You can open the |toc| Editor by selecting :menuselection:`Tools --> TOC Editor`.
 
 .. _fig_toc:
 

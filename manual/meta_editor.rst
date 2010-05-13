@@ -7,6 +7,8 @@ Meta Editor
 
 The Meta Editor is what you use when you want to add or edit metadata for your |epub| book. As the :ref:`epub-overview` explains, the standard allows for hundreds of different metadata entries to be added to any book.
 
+You can open the Meta Editor by selecting :menuselection:`Tools --> Meta Editor`.
+
 Collapsed UI
 ------------
 
