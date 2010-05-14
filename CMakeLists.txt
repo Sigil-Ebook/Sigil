@@ -11,7 +11,6 @@ cmake_minimum_required( VERSION 2.8 )
 
 project( Sigil ) 
 
-set( CMAKE_OSX_ARCHITECTURES "ppc;i386" )
 set( CMAKE_DEBUG_POSTFIX "d" )
 set( CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/bin )
 set( CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/lib )
@@ -44,6 +43,11 @@ endif()
 # We need this to make sure g++ and the linker
 # create exes that can run on 10.4+
 set( CMAKE_OSX_DEPLOYMENT_TARGET "10.4" )
+set( CMAKE_OSX_SYSROOT "/Developer/SDKs/MacOSX10.4u.sdk" )
+
+# Universal builds for mac
+set( CMAKE_OSX_ARCHITECTURES "ppc;i386" )
+
 
 add_subdirectory( src/tidyLib )
 add_subdirectory( src/ZipArchive )
