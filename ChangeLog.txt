@@ -1,4 +1,7 @@
-﻿Sigil v0.2.0 2010.05.11.
+﻿Sigil v0.2.1 ADD_DATE
+    - added the build time to the About dialog, showing date and time in UTC
+
+Sigil v0.2.0 2010.05.11.
     - added new entries to the help menu for the online manual and the FAQ
 
 Sigil v0.2.0 RC4 2010.05.08

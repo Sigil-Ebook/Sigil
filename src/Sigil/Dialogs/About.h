@@ -24,20 +24,49 @@
 #define ABOUT_H
 
 #include <QtGui/QDialog>
+#include <QDateTime>
 #include "ui_About.h"
 
+/**
+ * Shows general information about Sigil.
+ * Information includes things like author, license and website,
+ * but also useful debugging information like loaded Qt version,
+ * the build time and Sigil version.
+ */
 class About : public QDialog
 {
     Q_OBJECT
 
 public:
 
-    // Constructor
+    /**
+     * Constructor.
+     *
+     * @param parent The dialog's parent.
+     */
     About( QWidget *parent = 0 );
 
 private:
 
-    // Holds all the widgets Qt Designer created for us
+    /**
+     * Returns the time that Sigil was built in UTC.
+     * 
+     * @return The build time in UTC.
+     */
+    static QDateTime GetUTCBuildTime();
+
+    /**
+     * Converts a three letter string like "Jun"
+     * into that month's index.
+     *
+     * @param three_letter_string The month string.
+     * @return The index of that month, 1-12.
+     */
+    static int MonthIndexFromString( const QString& three_letter_string );
+
+    /**
+     * Holds all the widgets Qt Designer created for us.
+     */
     Ui::About ui;
 };
 
