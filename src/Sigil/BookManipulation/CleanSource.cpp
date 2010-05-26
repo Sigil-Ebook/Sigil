@@ -250,6 +250,9 @@ TidyDoc CleanSource::TidyOptions( TidyDoc tidy_document, TidyType type, int max_
     // "anchor-as-name"
     tidyOptSetBool( tidy_document, TidyAnchorAsName, no );	
 
+    // "alt-text"
+    tidyOptSetValue( tidy_document, TidyAltText, "" );
+
     if ( type != Tidy_Clean )
     {
         // Turning the two merge options on produces ugly markup

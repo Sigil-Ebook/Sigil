@@ -186,6 +186,7 @@ int main( int argc, char *argv[] )
 
         const QStringList &arguments = QCoreApplication::arguments();
 
+        // Normal startup
         if ( arguments.count() != 4 )
         {
             MainWindow *widget = GetMainWindow( arguments );    
