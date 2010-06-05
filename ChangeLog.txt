@@ -1,5 +1,6 @@
 ﻿Sigil v0.2.1 ADD_DATE
-    - Sigil now adds an empty ALT attribute to <img> elements that don't have them (issue #406)
+    - TOC text now has leading and trailing whitespace trimmed, and inner whitespace condensed (issue #422)
+    - an empty ALT attribute is now added to <img> elements that don't have them (issue #406)
     - added the build time to the About dialog, showing date and time in UTC
 
 Sigil v0.2.0 2010.05.11.
