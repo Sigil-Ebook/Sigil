@@ -37,7 +37,7 @@ void TextResource::SetText( const QString& text )
     m_TextDocument->setModified( false );
 }
 
-// Make sure to get a read lock externally before calling this function!
+
 const QTextDocument& TextResource::GetTextDocumentForReading()
 {
     Q_ASSERT( m_TextDocument );
@@ -46,7 +46,6 @@ const QTextDocument& TextResource::GetTextDocumentForReading()
 }
 
 
-// Make sure to get a write lock externally before calling this function!
 QTextDocument& TextResource::GetTextDocumentForWriting()
 {
     Q_ASSERT( m_TextDocument );

@@ -33,6 +33,13 @@ class QTextDocument;
 class QString;
 
 
+/**
+ * Represents an HTML file of the book.
+ * Stores several caches of the content for faster access.
+ * There's a QWebPage cache that stores the rendered form of
+ * the HTML and a QTextDocument cache that stores the syntax 
+ * colored version.
+ */
 class HTMLResource : public Resource 
 {
     Q_OBJECT

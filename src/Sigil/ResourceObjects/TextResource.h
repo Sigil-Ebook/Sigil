@@ -27,28 +27,71 @@
 
 class QTextDocument;
 
+/**
+ * A parent class for textual resources like CSS and XPGT stylesheets.
+ * Takes care of loading and caching content etc.
+ */
 class TextResource : public Resource 
 {
     Q_OBJECT
 
 public:
     
+    /**
+     * Constructor.
+     *
+     * @param fullfilepath The full path to the file that this
+     *                     resource is representing.
+     * @param hash_owner The hash object that is the "owner" of this resource.
+     *                   Needed so that the resource can remove itself from the
+     *                   hash when it is deleted.
+     * @param parent The object's parent.
+     */
     TextResource( const QString &fullfilepath, QHash< QString, Resource* > *hash_owner, QObject *parent = NULL );
 
+    /**
+     * Sets the text of the resource, replacing the stored content.
+     */
     void SetText( const QString& text );
 
+    /**
+     * Returns a reference to the QTextDocument that can be read from in consumers.
+     * If you need write access too, use GetTextDocumentForWriting().
+     *
+     * @warning Make sure to get a read lock externally before calling this function!
+     *
+     * @return A const reference to the QTextDocument cache.
+     */
     const QTextDocument& GetTextDocumentForReading();
 
+    /**
+     * Returns a reference to the QTextDocument that can be read and written to
+     * in consumers. If you need just read access, use GetTextDocumentForReading().
+     *
+     * @warning Make sure to get a write lock externally before calling this function!
+     *
+     * @return A reference to the QTextDocument cache.
+     */
     QTextDocument& GetTextDocumentForWriting();
 
+    // inherited
     void SaveToDisk( bool book_wide_save = false );
 
+    /**
+     * Loads the text content into the QTextDocument cache if
+     * nothing has been loaded so far. This is not done automatically
+     * because we want to do loading on demand (for performance reasons).
+     */
     virtual void InitialLoad();
-
+    
+    // inherited
     virtual ResourceType Type() const;
 
 private:
 
+    /**
+     * The syntax colored cache of the text resource text content.
+     */
     QTextDocument *m_TextDocument;
 };
 
