@@ -116,15 +116,12 @@ void HTMLResource::SetDomDocument( const QDomDocument &document )
 }
 
 
-// Make sure to get a read lock externally before calling this function!
 const QDomDocument& HTMLResource::GetDomDocumentForReading()
 {
     return m_DomDocument;
 }
 
 
-// Make sure to get a write lock externally before calling this function!
-// Call MarkSecondaryCachesAsOld() if you updated the document.
 QDomDocument& HTMLResource::GetDomDocumentForWriting()
 {
     // We can't just mark the caches as old right here since
@@ -140,8 +137,6 @@ void HTMLResource::MarkSecondaryCachesAsOld()
     m_TextDocumentIsOld = true;
 }
 
-
-// only ever call this from the GUI thread
 void HTMLResource::UpdateDomDocumentFromWebPage()
 {
     Q_ASSERT( QThread::currentThread() == QApplication::instance()->thread() );
@@ -159,7 +154,6 @@ void HTMLResource::UpdateDomDocumentFromTextDocument()
 }
 
 
-// only ever call this from the GUI thread
 void HTMLResource::UpdateWebPageFromDomDocument()
 {
     Q_ASSERT( QThread::currentThread() == QApplication::instance()->thread() );
@@ -318,7 +312,7 @@ void HTMLResource::WebPageJavascriptOnLoad()
 {
     Q_ASSERT( m_WebPage );
 
-    m_WebPage->mainFrame()->evaluateJavaScript( c_jQuery          );
+    m_WebPage->mainFrame()->evaluateJavaScript( c_jQuery         );
     m_WebPage->mainFrame()->evaluateJavaScript( c_jQueryScrollTo );
 }
 
