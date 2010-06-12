@@ -100,7 +100,7 @@ public:
      * @return The newly created resource.
      */
     Resource& AddContentFileToFolder( const QString &fullfilepath, 
-                                      int reading_order = -1,
+                                      int reading_order,
                                       QHash< QString, QString > semantic_information );
 
     /**
@@ -204,24 +204,11 @@ public:
 private:
 
     /**
-     * Performs common constructor duties 
-     * for all constructors.
-     */
-    void Initialize();
-
-    /**
      * Returns a list of all the resource filenames in the book. 
      *
      * @return The filename list.
      */
     QStringList GetAllFilenames() const;
-
-    /**
-     * Deletes all the resources (and their backing files) in the book.
-     *
-     * @param folderpath The path to the main book folder.
-     */
-    void DeleteAllResources( const QString &folderpath );
 
     /**
      * Creates the required subfolders of each book.

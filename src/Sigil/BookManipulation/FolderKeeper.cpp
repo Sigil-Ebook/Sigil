@@ -41,15 +41,29 @@ const QString MISC_FOLDER_NAME  = "Misc";
 
 FolderKeeper::FolderKeeper()
 {
-    Initialize();
+    QDir folder( Utility::GetNewTempFolderPath() );
+    folder.mkpath( folder.absolutePath() );
+
+    m_FullPathToMainFolder = folder.absolutePath();
+
+    CreateFolderStructure();
 }
 
 
 FolderKeeper::~FolderKeeper()
 {
-    if ( m_FullPathToMainFolder.isEmpty() == false )
+    if ( m_FullPathToMainFolder.isEmpty() != false )
 
-        DeleteAllResources( m_FullPathToMainFolder );           
+        return;
+
+    foreach( Resource *resource, m_Resources.values() )
+    {
+        resource->Delete();
+    }
+
+    m_Resources.clear();
+
+    QtConcurrent::run( Utility::DeleteFolderAndFiles, m_FullPathToMainFolder );    
 }
 
 
@@ -297,18 +311,6 @@ QString FolderKeeper::GetFullPathToTextFolder() const
 }
 
 
-// TODO: Not needed anymore, roll this into the ctor
-void FolderKeeper::Initialize()
-{
-    QDir folder( Utility::GetNewTempFolderPath() );
-    folder.mkpath( folder.absolutePath() );
-
-    m_FullPathToMainFolder = folder.absolutePath();
-
-    CreateFolderStructure();
-}
-
-
 QStringList FolderKeeper::GetAllFilenames() const
 {
     QStringList filelist;
@@ -319,19 +321,6 @@ QStringList FolderKeeper::GetAllFilenames() const
     }
 
     return filelist;
-}
-
-
-void FolderKeeper::DeleteAllResources( const QString &folderpath )
-{
-    foreach( Resource *resource, m_Resources.values() )
-    {
-        resource->Delete();
-    }
-
-    m_Resources.clear();
-
-    QtConcurrent::run( Utility::DeleteFolderAndFiles, folderpath );
 }
 
 
