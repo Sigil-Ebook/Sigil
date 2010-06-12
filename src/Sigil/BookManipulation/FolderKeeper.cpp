@@ -39,14 +39,12 @@ const QString STYLE_FOLDER_NAME = "Styles";
 const QString MISC_FOLDER_NAME  = "Misc";
 
 
-// Constructor
 FolderKeeper::FolderKeeper()
 {
     Initialize();
 }
 
 
-// Destructor
 FolderKeeper::~FolderKeeper()
 {
     if ( m_FullPathToMainFolder.isEmpty() == false )
@@ -55,17 +53,17 @@ FolderKeeper::~FolderKeeper()
 }
 
 
-// A dispatcher function that routes the given *infrastructure* file
-// to the appropriate specific folder function
 void FolderKeeper::AddInfraFileToFolder( const QString &fullfilepath, const QString &newfilename  )
 {
     if ( newfilename == CONTAINER_XML_FILE_NAME )
-    
+    {
         QFile::copy( fullfilepath, m_FullPathToMetaInfFolder + "/" + newfilename );
+    }
 
     else if ( ( newfilename == OPF_FILE_NAME ) || ( newfilename == NCX_FILE_NAME ) )
-
+    {
         QFile::copy( fullfilepath, m_FullPathToOEBPSFolder + "/" + newfilename );
+    }
 
     else
     {
@@ -242,8 +240,6 @@ QString FolderKeeper::GetUniqueFilenameVersion( const QString &filename ) const
 }
 
 
-// Returns a list of all the content files in the directory
-// with a path relative to the OEBPS directory
 QStringList FolderKeeper::GetSortedContentFilesList() const
 {
     QStringList filelist;
@@ -283,29 +279,25 @@ Resource& FolderKeeper::GetResourceByFilename( const QString &filename ) const
 }
 
 
-// Returns the full path to the main folder of the publication
 QString FolderKeeper::GetFullPathToMainFolder() const
 {
     return m_FullPathToMainFolder;
 }
 
 
-// Returns the full path to the OEBPS folder of the publication
 QString FolderKeeper::GetFullPathToOEBPSFolder() const
 {
     return m_FullPathToOEBPSFolder;
 }
 
 
-// Returns the full path to the OEBPS/text folder of the publication
 QString FolderKeeper::GetFullPathToTextFolder() const
 {
     return m_FullPathToTextFolder;
 }
 
 
-// Performs common constructor duties
-// for all constructors
+// TODO: Not needed anymore, roll this into the ctor
 void FolderKeeper::Initialize()
 {
     QDir folder( Utility::GetNewTempFolderPath() );
@@ -343,7 +335,7 @@ void FolderKeeper::DeleteAllResources( const QString &folderpath )
 }
 
 
-// Creates the required folder structure:
+// The required folder structure is this:
 //	 META-INF
 //	 OEBPS
 //	    Images

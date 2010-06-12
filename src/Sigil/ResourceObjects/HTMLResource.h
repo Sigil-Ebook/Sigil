@@ -122,6 +122,7 @@ public:
     /**
      * Returns a const reference to the DOM document that can be read
      * in consumers. If you need write access, use GetDomDocumentForWriting().
+     *
      * @warning Make sure to get a read lock externally before calling this function!
      *
      * @return A const reference to the QDom.
@@ -131,6 +132,7 @@ public:
     /**
      * Returns a reference to the DOM document that can be read and written to
      * in consumers. If you need just read access, use GetDomDocumentForReading().
+     *
      * @warning Make sure to get a write lock externally before calling this function!
      * @warning Call MarkSecondaryCachesAsOld() if you updated the document!
      *
@@ -150,6 +152,7 @@ public:
 
     /**
      * Updates the DOM document from the content of the QWebPage.
+     *
      * @warning Only ever call this from the GUI thread.
      */ 
     void UpdateDomDocumentFromWebPage();
@@ -161,6 +164,7 @@ public:
 
     /**
      * Updates the QWebPage from the content of the DOM.
+     *
      * @warning Only ever call this from the GUI thread.
      */ 
     void UpdateWebPageFromDomDocument();

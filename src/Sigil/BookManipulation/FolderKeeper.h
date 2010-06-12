@@ -37,91 +37,207 @@
 
 class Resource;
 
-
+/**
+ * Stores the resources of a book.
+ * The book uses one main folder with several
+ * subfolders. Some are needed by the epub spec,
+ * and some are for categorizing files.
+ *
+ * Also contains all the operations involving 
+ * the stored files.
+ */
 class FolderKeeper
 {
 
 public:
 
-    // Constructor
+    /**
+     * Constructor.
+     */
     FolderKeeper();
 
-    // Destructor
+    /**
+     *  Destructor.
+     */
     ~FolderKeeper();
 
-    // A dispatcher function that routes the given *infrastructure* file
-    // to the appropriate specific folder function; the name of the new file
-    // needs to be specified
+    /**
+     * Adds an infrastructure file to the book folder.
+     * Valid infrastructure files are OPF_FILE_NAME, NCX_FILE_NAME
+     * and CONTAINER_XML_FILE_NAME.
+     *
+     * @param fullfilepath The full path to the file to add.
+     * @param newfilename The name this file should have in the book folder.
+     */
     void AddInfraFileToFolder( const QString &fullfilepath, const QString &newfilename );
 
     /**
-     * The only reason why we have an overload instead of just one function
+     * Adds a content file to the book folder and returns the
+     * corresponding Resource object. The file type is recognized
+     * according to the extension.
+     *
+     * @note The only reason why we have an overload instead of just one function
      * with a default argument is because then Apple GCC 4.2 flakes out here.
+     * 
+     * @param fullfilepath The full path to the file to add.
+     * @param reading_order The reading order for HTMLResources.
+     * @param semantic_information Various semantic information about
+     *                             the file, in key-value pairs.
+     * @return The newly created resource.
      */
     Resource& AddContentFileToFolder( const QString &fullfilepath,
                                       int reading_order = -1 );
 
-    // The file is recognized according to its extension.
+    /**
+     * Adds a content file to the book folder and returns the
+     * corresponding Resource object. The file type is recognized
+     * according to the extension.
+     * 
+     * @param fullfilepath The full path to the file to add.
+     * @param reading_order The reading order for HTMLResources.
+     * @param semantic_information Various semantic information about
+     *                             the file, in key-value pairs.
+     * @return The newly created resource.
+     */
     Resource& AddContentFileToFolder( const QString &fullfilepath, 
-                                      int reading_order,
+                                      int reading_order = -1,
                                       QHash< QString, QString > semantic_information );
 
+    /**
+     * Returns the highest reading order number present in the book.
+     *
+     * @return The highest reading order.
+     */
     int GetHighestReadingOrder() const;
 
+    /**
+     * Returns a book-wide unique filename. Given a filename,
+     * if a file with the same name already exists, a number suffix
+     * is added and a new filename returned. Otherwise, the filename
+     * is returned unchanged.
+     *
+     * @param filename The original filename.
+     * @return The unique filename.
+     */
     QString GetUniqueFilenameVersion( const QString &filename ) const;
 
-    // Returns a list of all the content files in the directory
-    // with a path relative to the OEBPS directory.
-    // The list is alphabetically sorted.
+    /**
+     * Returns a sorted list of all the content filepaths.
+     * The paths returned are relative to the OEBPS directory,
+     * and the sort is alphabetical.
+     * 
+     * @return The sorted filepaths.
+     */
     QStringList GetSortedContentFilesList() const;
 
+    /**
+     * Returns a list of all the resources in the book.
+     * The order of the items is random.
+     *
+     * @return The resource list.
+     */
     QList< Resource* > GetResourceList() const;
 
+    /**
+     * Returns a list of all resources of type T in a list
+     * of pointers to type T. The list can be sorted.
+     *
+     * @param should_be_sorted If \c true, the list is sorted.
+     * @return The resource list.
+     */
     template< class T >
     QList< T* > GetResourceTypeList( bool should_be_sorted = false ) const;
 
+    /**
+     * Returns a list of all resources of type T in a list
+     * of pointers to the Resource base class. The list can be sorted.
+     *
+     * @param should_be_sorted If \c true, the list is sorted.
+     * @return The resource list.
+     */
     template< class T >
     QList< Resource* > GetResourceTypeAsGenericList( bool should_be_sorted = false ) const;
 
+    /**
+     * Returns a resource with the given identifier. 
+     * This function is a very fast O(1).
+     * 
+     * @param identifier The identifier to search for.
+     * @return The searched-for resource.
+     */
     Resource& GetResourceByIdentifier( const QString &identifier ) const;
 
-    // NOTE THAT RESOURCE FILENAMES CAN CHANGE,
-    // while identifiers don't. Also, retrieving 
-    // resources by identifier is O(1), this is O(n).
-    // (and a *very* slow O(n) since we query the filesystem)
+    /**
+     * Returns the resource with the given filename.
+     * @note NOTE THAT RESOURCE FILENAMES CAN CHANGE,
+     *       while identifiers don't. Also, retrieving 
+     *       resources by identifier is O(1), this is O(n)
+     *       (and a \b very slow O(n) since we query the filesystem).
+     * @throws ResourceDoesNotExist if the filename is not found.
+     *
+     * @param filename The filename to search for.
+     * @return The searched-for resource.
+     */
     Resource& GetResourceByFilename( const QString &filename ) const;
 
-    // Returns the full path to the main folder of the publication
+    /**
+     * Returns the full path to the main folder of the publication.
+     *
+     * @return The full path.
+     */
     QString GetFullPathToMainFolder() const;	
 
-    // Returns the full path to the OEBPS folder of the publication
+    /**
+     * Returns the full path to the OEBPS folder of the publication.
+     *
+     * @return The full path.
+     */
     QString GetFullPathToOEBPSFolder() const;	
 
-    // Returns the full path to the OEBPS folder of the publication
+    /**
+     * Returns the full path to the Text folder of the publication.
+     *
+     * @return The full path.
+     */
     QString GetFullPathToTextFolder() const;
 
 private:
 
-    // Performs common constructor duties
-    // for all constructors
+    /**
+     * Performs common constructor duties 
+     * for all constructors.
+     */
     void Initialize();
 
+    /**
+     * Returns a list of all the resource filenames in the book. 
+     *
+     * @return The filename list.
+     */
     QStringList GetAllFilenames() const;
 
+    /**
+     * Deletes all the resources (and their backing files) in the book.
+     *
+     * @param folderpath The path to the main book folder.
+     */
     void DeleteAllResources( const QString &folderpath );
 
-    // Creates the required folder structure:
-    //	 META-INF
-    //	 OEBPS
-    //	    Images
-    //	    Fonts
-    //	    Text
-    //      Styles
-    //      Misc
+    /**
+     * Creates the required subfolders of each book.
+     */
     void CreateFolderStructure();
 
+    /**
+     * Dereferences two pointers and compares the values with "<".
+     *
+     * @param first_item The first item in the comparison.
+     * @param second_item The second item in the comparison.
+     * @return The less-than comparison result.
+     */
     template< typename T >
     static bool PointerLessThan( T* first_item, T* second_item );
+
 
     ///////////////////////////////
     // PRIVATE MEMBER VARIABLES
@@ -129,8 +245,16 @@ private:
 
     // Resources have to be pointers because
     // we cannot store references in a QHash
+    /**
+     * The hash store of the resources in this book.
+     * The keys are the UUID identifiers, the values
+     * are the pointers to the actual resources.
+     */
     QHash< QString, Resource* > m_Resources;
 
+    /**
+     * Ensures thread-safe access to the m_Resources hash.
+     */
     QMutex m_AccessMutex;
 
     // Full paths to all the folders in the publication
