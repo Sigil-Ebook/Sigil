@@ -102,7 +102,7 @@ QString BookViewEditor::SplitChapter()
 
 void BookViewEditor::ExecCommand( const QString &command )
 {       
-    QString javascript = QString( "document.execCommand( '%1', false, null)" ).arg( command );
+    QString javascript = QString( "document.execCommand( '%1', false, null)" ).arg( EscapeJSString( command ) );
 
     EvaluateJavascript( javascript );
 }
@@ -110,7 +110,9 @@ void BookViewEditor::ExecCommand( const QString &command )
 
 void BookViewEditor::ExecCommand( const QString &command, const QString &parameter )
 {       
-    QString javascript = QString( "document.execCommand( '%1', false, '%2' )" ).arg( command ).arg( parameter );
+    QString javascript = QString( "document.execCommand( '%1', false, '%2' )" )
+                            .arg( EscapeJSString( command ) )
+                            .arg( EscapeJSString( parameter ) );
 
     EvaluateJavascript( javascript );
 }
@@ -118,7 +120,7 @@ void BookViewEditor::ExecCommand( const QString &command, const QString &paramet
 
 bool BookViewEditor::QueryCommandState( const QString &command )
 {
-    QString javascript = QString( "document.queryCommandState( '%1', false, null)" ).arg( command );
+    QString javascript = QString( "document.queryCommandState( '%1', false, null)" ).arg( EscapeJSString( command ) );
 
     return EvaluateJavascript( javascript ).toBool();
 }
@@ -651,8 +653,10 @@ QString BookViewEditor::EscapeJSString( const QString &string )
 {
     QString new_string( string );
 
-    // \ -> \\ and " -> \"
-    return new_string.replace( "\\", "\\\\" ).replace( "\"", "\\\"" );
+    // \ -> \\ 
+    // " -> \"
+    // ' -> \'
+    return new_string.replace( "\\", "\\\\" ).replace( "\"", "\\\"" ).replace( "'", "\\'" );
 }
 
 

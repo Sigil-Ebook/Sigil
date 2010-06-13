@@ -142,6 +142,7 @@ public:
      */
     QString GetCaretElementName();
 
+    // inherited
     QList< ViewEditor::ElementIndex > GetCaretLocation(); 
 
     /**
@@ -154,6 +155,7 @@ public:
      */
     void StoreCaretLocationUpdate( const QList< ViewEditor::ElementIndex > &hierarchy );
 
+    // inherited
     bool IsLoadingFinished();
 
     void SetZoomFactor( float factor );
