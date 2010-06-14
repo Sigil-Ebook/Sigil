@@ -1,6 +1,9 @@
 ﻿Sigil v0.2.1 ADD_DATE
+    - fixed an issue with &nbsp; in heading text not being converted to a normal space in the TOC 
+    (issue #420)
     - fixed an issue with inserting images that have apostrophes in the filename (issue #391) 
-    - TOC text now has leading and trailing whitespace trimmed, and inner whitespace condensed (issue #422)
+    - TOC text now has leading and trailing whitespace trimmed, and inner whitespace condensed 
+    (issue #422)
     - an empty ALT attribute is now added to <img> elements that don't have them (issue #406)
     - added the build time to the About dialog, showing date and time in UTC
 
@@ -8,8 +11,10 @@ Sigil v0.2.0 2010.05.11.
     - added new entries to the help menu for the online manual and the FAQ
 
 Sigil v0.2.0 RC4 2010.05.08
-    - fixed a regression that broke FindNext opening new tabs when searching across HTML files (issue #384)
-    - fixed an issue with autocompletion in Find dialog ignoring the case of search terms (issue #385)
+    - fixed a regression that broke FindNext opening new tabs when searching across HTML files 
+    (issue #384)
+    - fixed an issue with autocompletion in Find dialog ignoring the case of search terms 
+    (issue #385)
 
 Sigil v0.2.0 RC3 2010.05.07
     - fixed a regression that messed up the tab order of the controls in the Find dialog
@@ -102,13 +107,15 @@ Sigil v0.2.0 ß2 2010.03.10.
     - fixed an issue with the font used in the line number area in the Code View being incorrect
     when the Code View is first opened; the problem affected mostly Mac machines (issue #290)
     - Sigil now handles corrupt epub files with an OPF referencing non-existent files (issue #289)
-    - the Book Browser now doesn't scroll back to the top when an item is deleted or added (issue #263)
+    - the Book Browser now doesn't scroll back to the top when an item is deleted or added 
+    (issue #263)
     - the Book Browser now allows a file's extension to change between HTM, HTML, XHTML and XML
     (issue #264)
     - OPF and NCX files don't rely anymore on UTF-8 XML default parsing, but specify their UTF-8
     encoding directly in the declaration
     - fixed an issue with changes in the TOC editor not being reflected in the book (issue #277)
-    - fixed an issue with the TOC editor not recognizing the "title" attribute on headings (issue #271)
+    - fixed an issue with the TOC editor not recognizing the "title" attribute on headings 
+    (issue #271)
     - fixed an issue with the user seeing the old, unclean source in the Code View (issue #286)
     - fixed an issue with the user being prompted to save when quitting even when no changes
     have been performed on the new/loaded file (issue #276)
@@ -131,9 +138,10 @@ Sigil v0.1.9 2010.02.08.
     - the "container.xml" reading subsystem now handles XML files with namespaces (issue #235)
     - HTML encoding detection is now performed even on XHTML files in epub archives (per spec, 
     they have to be UTF-8 or UTF-16, but Sigil will now handle those that aren't)
-    - fixed an issue with content file filenames using "%20" for spaces not being loaded (issue #232)
-    - the temp directory used on Windows is now <Profile>/Sigil instead of <Profile>/My Documents/Sigil
-    (issue #222)
+    - fixed an issue with content file filenames using "%20" for spaces not being loaded 
+    (issue #232)
+    - the temp directory used on Windows is now <Profile>/Sigil instead of 
+    <Profile>/My Documents/Sigil (issue #222)
     - added a "Sigil Dev Blog" Help menu entry
 
 Sigil v0.1.8 2009.12.30.
@@ -142,9 +150,11 @@ Sigil v0.1.8 2009.12.30.
 
 Sigil v0.1.7 2009.12.28.
     - minor aesthetic toolbar fixes for Mac
-    - fixed an issue with "&nbsp;" in headings not being converted to a space in the TOC (issue #215)
+    - fixed an issue with "&nbsp;" in headings not being converted to a space in the TOC 
+    (issue #215)
     - minor aesthetic changes to the line number area in Code View
-    - fixed an issue with "Insert Image" not working if the Book View doesn't have focus (issue #204)
+    - fixed an issue with "Insert Image" not working if the Book View doesn't have focus 
+    (issue #204)
     - the "Add metadata property" dialogs in the Meta Editor now remember their size, position
     and splitter bar position
     - Sigil now loads HTML metadata when importing if metadata conforms to Dublin Core;
@@ -167,10 +177,12 @@ Sigil v0.1.6 2009.12.06.
     the epub specification forbids empty NavMaps (issue #174)
     - fixed an issue with the document not being marked as modified in the GUI if the user only
     changed the document's metadata (issue #189)
-    - fixed a rare bug with searching for a string that is at the very end of a document (issue #181)
+    - fixed a rare bug with searching for a string that is at the very end of a document 
+    (issue #181)
     - new "Remove Formatting" WYSIWYG action (issue #56)
-    - Sigil now preserves ALL HTML entity references (it used to convert most to Unicode equivalents);
-    this change was necessary since soft hyphens were becoming "invisible" (issue #186)
+    - Sigil now preserves ALL HTML entity references (it used to convert most to Unicode 
+    equivalents); this change was necessary since soft hyphens were becoming "invisible" 
+    (issue #186)
     - implemented "blockquote" support through new WYSIWYG actions: "Indent Less" and
     "Indent More" (issue #41)
     - updating Qt fixed an issue with images wrapped in SVG tags not being shown (issue #91)
@@ -187,16 +199,21 @@ Sigil v0.1.6 2009.12.06.
 
 Sigil v0.1.5 2009.11.25
     - fixed a race condition with view syncing in Book View
-    - fixed an issue with loading text files that don't end with a newline (some text would end up missing)
+    - fixed an issue with loading text files that don't end with a newline (some text would end up 
+    missing)
     - A NEW FIND & REPLACE DIALOG (issue #13)
-    - no more hard line breaks in Code View (courtesy of recent performance optimisations) (issue #61)
+    - no more hard line breaks in Code View (courtesy of recent performance optimisations) 
+    (issue #61)
     - TOC Editor now remembers its size across invocations and program launches
     - the uninstaller now removes Sigil's temporary working directories 
-    - removed the "Start Sigil" checkbox in the last page of the installer; starting Sigil like this
-    was causing problems because Sigil had admin privileges (issue #163)
-    - fixed an issue with chapter breaks not working after they are Left/Center/Right Aligned (issue #158)
-    - multiple images can now be inserted with the "Insert Image" dialog by selecting multiple images 
-    - fixed an issue with loading images from documents with uppercase tags and attributes (issue #156)
+    - removed the "Start Sigil" checkbox in the last page of the installer; starting Sigil like 
+    this was causing problems because Sigil had admin privileges (issue #163)
+    - fixed an issue with chapter breaks not working after they are Left/Center/Right Aligned 
+    (issue #158)
+    - multiple images can now be inserted with the "Insert Image" dialog by selecting multiple 
+    images 
+    - fixed an issue with loading images from documents with uppercase tags and attributes 
+    (issue #156)
     - tentatively fixed an issue with Sigil crashing on overwriting existing epubs (issue #146)
     - fixed an issue with Sigil crashing on epubs with "date" OPF elements but no value set
     for those elements (InDesign CS4 creates such invalid epubs) (issue #149)
@@ -232,18 +249,20 @@ Sigil v0.1.4 2009.10.08.
     - fixed display of the Sigil chapter break in Book View: the red double-line now
     properly appears after all images (issue #117)
     - added support for importing images referenced in SVG elements in HTML import
-    - HTML importing now defaults to a locale-aware codec if one is not detected in the HTML stream;
-    previously the fallback codec was UTF-8; this change should improve importing of old HTML
-    documents (issue #113)
+    - HTML importing now defaults to a locale-aware codec if one is not detected in the HTML 
+    stream; previously the fallback codec was UTF-8; this change should improve importing of 
+    old HTML documents (issue #113)
 
 Sigil v0.1.3 2009.09.02.
     - implemented a work-around for a bug in Qt causing documents with "us-ascii" encoding
     specified in the XML declaration to crash Sigil (issue #109)
     - resource path updating rewritten; should be more robust
     - fixed an issue where EPUB files from Google Books could not be opened (issue #106)
-    - fixed regression for storing the folder from which the user last imported an image (issue #105)  
+    - fixed regression for storing the folder from which the user last imported an image 
+    (issue #105)  
     - refactored HTML file import resource loading: should be a lot more robust now
-    - fixed an issue with loading HTML files that reference the same images multiple times (issue #90)
+    - fixed an issue with loading HTML files that reference the same images multiple times 
+    (issue #90)
     - implemented non-live View position synchronization; the Views are now synced
     by HTML element: moving the caret in one View will center the other View (upon switching)
     to the same HTML element that held the caret in the first View (issue #8)
@@ -302,7 +321,8 @@ Sigil v0.1.1 2009.08.06.
     - choosing 'cancel' in TOC editor now no longer forces the views to update
     - fixed bug with new headings getting existing IDs. (issue #36)
     - printing support! new file menu actions: "print" and "print preview"
-    - fixed an issue when sometimes switching between views didn't enable/disable appropriate actions
+    - fixed an issue when sometimes switching between views didn't enable/disable appropriate 
+    actions
     - fixed an issue with mixed-up CSS classes on Mac and Linux (issue #16)
     - added line numbering for Code View (issue #9)
     - added current line highlighting for Code View 

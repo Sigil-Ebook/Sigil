@@ -75,7 +75,11 @@ QList< Headings::Heading > Headings::GetHeadingListForOneFile( HTMLResource* htm
         Heading heading;
         heading.resource_file  = html_resource;
         heading.element        = element;
-        heading.text           = ( element.hasAttribute( "title" ) ? element.attribute( "title" ) : element.text() ).simplified(); 
+        heading.text           = ( element.hasAttribute( "title" ) ? 
+                                   element.attribute( "title" )    :
+                                   XHTMLDoc::ResolveHTMLEntities( XHTMLDoc::GetQDomNodeAsString( element ) ) 
+                                  ).simplified(); 
+
         heading.level          = QString( element.tagName()[ 1 ] ).toInt();
         heading.include_in_toc = !element.attribute( "class", "" ).contains( NOT_IN_TOC_CLASS );
         heading.text_changed   = false;
