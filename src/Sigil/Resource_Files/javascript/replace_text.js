@@ -6,6 +6,6 @@ range.insertNode( new_text_node );
 
 // We need to normalize the text nodes since they're screwed up now
 range.startContainer.parentNode.normalize();
-range.collapse( true );
+range.collapse( false );
 
 // Expects new_selection.js to run after it here
