@@ -1,8 +1,6 @@
 ﻿Sigil v0.2.1 ADD_DATE
     - fixed a problem with the search not progressing in Book View find&replace when using
     recursive replacements
-    - fixed an issue with &nbsp; in heading text not being converted to a normal space in the TOC 
-    (issue #420)
     - fixed an issue with inserting images that have apostrophes in the filename (issue #391) 
     - TOC text now has leading and trailing whitespace trimmed, and inner whitespace condensed 
     (issue #422)

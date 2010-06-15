@@ -77,7 +77,7 @@ QList< Headings::Heading > Headings::GetHeadingListForOneFile( HTMLResource* htm
         heading.element        = element;
         heading.text           = ( element.hasAttribute( "title" ) ? 
                                    element.attribute( "title" )    :
-                                   XHTMLDoc::ResolveHTMLEntities( XHTMLDoc::GetQDomNodeAsString( element ) ) 
+                                   element.text()
                                  ).simplified(); 
 
         heading.level          = QString( element.tagName()[ 1 ] ).toInt();
