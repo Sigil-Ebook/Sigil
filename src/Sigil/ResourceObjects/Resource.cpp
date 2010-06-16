@@ -22,6 +22,8 @@
 #include <stdafx.h>
 #include "Resource.h"
 #include "../Misc/Utility.h"
+#include "CustomSyncs/SGReadLocker.h"
+#include "CustomSyncs/SGWriteLocker.h"
 
 
 Resource::Resource( const QString &fullfilepath, QHash< QString, Resource* > *hash_owner, QObject *parent )
@@ -29,7 +31,7 @@ Resource::Resource( const QString &fullfilepath, QHash< QString, Resource* > *ha
     QObject( parent ),
     m_Identifier( Utility::CreateUUID() ),
     m_FullFilePath( fullfilepath ),
-    m_ReadWriteLock( QReadWriteLock::Recursive ),
+    m_ReadWriteLock(),
     m_HashOwner( *hash_owner )
 {
 
@@ -70,7 +72,7 @@ QUrl Resource::GetBaseUrl() const
 }
 
 
-QReadWriteLock& Resource::GetLock()
+SGReadWriteLock& Resource::GetLock()
 {
     return m_ReadWriteLock;
 }
@@ -84,7 +86,7 @@ QIcon Resource::Icon() const
 
 bool Resource::RenameTo( const QString &new_filename )
 {
-    QWriteLocker locker( &m_ReadWriteLock );
+    SGWriteLocker locker( &m_ReadWriteLock );
 
     QString new_path = QFileInfo( m_FullFilePath ).absolutePath() + "/" + new_filename; 
 
@@ -101,7 +103,7 @@ bool Resource::RenameTo( const QString &new_filename )
 
 bool Resource::Delete()
 {
-    QWriteLocker locker( &m_ReadWriteLock );
+    SGWriteLocker locker( &m_ReadWriteLock );
 
     bool successful = Utility::DeleteFile( m_FullFilePath );
 

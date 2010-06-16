@@ -27,6 +27,8 @@
 #include "../BookManipulation/CleanSource.h"
 #include "../ViewEditors/Searchable.h"
 #include "../BookManipulation/CleanSource.h"
+#include "CustomSyncs/SGReadLocker.h"
+#include "CustomSyncs/SGWriteLocker.h"
 
 
 int SearchOperations::CountInFiles( const QRegExp &search_regex,
@@ -70,7 +72,7 @@ int SearchOperations::CountInFile( const QRegExp &search_regex,
                                    Resource* resource, 
                                    SearchType search_type )
 {
-    QReadLocker locker( &resource->GetLock() );
+    SGReadLocker locker( &resource->GetLock() );
 
     HTMLResource *html_resource = qobject_cast< HTMLResource* >( resource );
 
@@ -121,7 +123,7 @@ int SearchOperations::ReplaceInFile( const QRegExp &search_regex,
                                      Resource* resource, 
                                      SearchType search_type )
 {
-    QWriteLocker locker( &resource->GetLock() );
+    SGWriteLocker locker( &resource->GetLock() );
 
     HTMLResource *html_resource = qobject_cast< HTMLResource* >( resource );
 

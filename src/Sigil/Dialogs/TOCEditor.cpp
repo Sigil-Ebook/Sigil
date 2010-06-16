@@ -401,7 +401,7 @@ void TOCEditor::LockHTMLResources()
 {
     foreach( HTMLResource* resource, m_Book->GetFolderKeeper().GetResourceTypeList< HTMLResource >( true ) )
     {
-        resource->GetLock().lockForWrite();
+        resource->GetLock().LockForWriteIfNeeded();
     }
 }
 
@@ -410,7 +410,7 @@ void TOCEditor::UnlockHTMLResources()
 {
     foreach( HTMLResource* resource, m_Book->GetFolderKeeper().GetResourceTypeList< HTMLResource >( true ) )
     {
-        resource->GetLock().unlock();
+        resource->GetLock().UnlockIfNeeded();
     }
 }
 

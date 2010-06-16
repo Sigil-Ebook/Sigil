@@ -28,6 +28,8 @@
 #include "../Misc/HTMLEncodingResolver.h"
 #include "../BookManipulation/CleanSource.h"
 #include "../Misc/Utility.h"
+#include "CustomSyncs/SGReadLocker.h"
+#include "CustomSyncs/SGWriteLocker.h"
 
 
 void UniversalUpdates::PerformUniversalUpdates( bool resources_already_loaded,
@@ -110,7 +112,7 @@ void UniversalUpdates::UpdateOneHTMLFile( HTMLResource* html_resource,
                                           const QHash< QString, QString > &html_updates, 
                                           const QHash< QString, QString > &css_updates )
 {
-    QWriteLocker locker( &html_resource->GetLock() );
+    SGWriteLocker locker( &html_resource->GetLock() );
     const QDomDocument &document = html_resource->GetDomDocumentForWriting();
     html_resource->SetDomDocument( PerformHTMLUpdates( document, html_updates, css_updates )() );
 }
@@ -119,7 +121,7 @@ void UniversalUpdates::UpdateOneHTMLFile( HTMLResource* html_resource,
 void UniversalUpdates::UpdateOneCSSFile( CSSResource* css_resource, 
                                          const QHash< QString, QString > &css_updates )
 {
-    QWriteLocker locker( &css_resource->GetLock() );
+    SGWriteLocker locker( &css_resource->GetLock() );
     const QString &source = css_resource->GetTextDocumentForWriting().toPlainText();
     css_resource->SetText( PerformCSSUpdates( source, css_updates )() );
 }
