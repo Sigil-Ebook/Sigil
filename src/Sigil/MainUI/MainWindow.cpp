@@ -203,11 +203,11 @@ void MainWindow::Open()
         // "All Files (*.*)" is the default
         QString default_filter = c_LoadFilters.value( "*" );
 
-        QString filename = QFileDialog::getOpenFileName(    this,
-                                                            tr( "Open File" ),
-                                                            m_LastFolderOpen,
-                                                            filter_string,
-                                                            &default_filter
+        QString filename = QFileDialog::getOpenFileName( this,
+                                                         tr( "Open File" ),
+                                                         m_LastFolderOpen,
+                                                         filter_string,
+                                                         &default_filter
                                                        );
 
         if ( !filename.isEmpty() )
@@ -1048,9 +1048,9 @@ const QMap< QString, QString > MainWindow::GetLoadFiltersMap()
 
     file_filters[ "sgf"   ] = tr( "Sigil Format files (*.sgf)" );
     file_filters[ "epub"  ] = tr( "EPUB files (*.epub)" );
-    file_filters[ "htm"   ] = tr( "HTML files (*.htm, *.html, *.xhtml)" );
-    file_filters[ "html"  ] = tr( "HTML files (*.htm, *.html, *.xhtml)" );
-    file_filters[ "xhtml" ] = tr( "HTML files (*.htm, *.html, *.xhtml)" );
+    file_filters[ "htm"   ] = tr( "HTML files (*.htm *.html *.xhtml)" );
+    file_filters[ "html"  ] = tr( "HTML files (*.htm *.html *.xhtml)" );
+    file_filters[ "xhtml" ] = tr( "HTML files (*.htm *.html *.xhtml)" );
     file_filters[ "txt"   ] = tr( "Text files (*.txt)" );
     file_filters[ "*"     ] = tr( "All files (*.*)" );
 

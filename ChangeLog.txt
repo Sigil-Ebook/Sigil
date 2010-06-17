@@ -1,4 +1,6 @@
 ﻿Sigil v0.2.1 ADD_DATE
+    - fixed an issue with the HTML file filter in the open file dialog not correctly filtering 
+    files (issue #416)
     - fixed an issue with files without extensions not being saved in the final epub (issue #400)
     - fixed an issue with XPGT resources sometimes being saved blank (issue #433)
     - fixed a regression that made it impossible to add removed headings back into the TOC
