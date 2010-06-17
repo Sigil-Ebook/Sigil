@@ -53,7 +53,7 @@ QTextDocument& TextResource::GetTextDocumentForWriting()
 {
     Q_ASSERT( m_TextDocument );
 
-    return *m_TextDocument;    
+    return *m_TextDocument;
 }
 
 
