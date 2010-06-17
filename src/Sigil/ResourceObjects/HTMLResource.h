@@ -324,6 +324,14 @@ private:
     QTextDocument *m_TextDocument;
 
     /**
+     * This holds the state of the content of the secondary
+     * caches the last time they were updated. It's used
+     * to prevent syncing between them when no new changes
+     * have been made.
+     */
+    QString m_OldSourceCache;
+
+    /**
      * \c true if the WebPage was modified by the user.
      */
     bool m_WebPageModified;

@@ -177,9 +177,22 @@ signals:
     /**
      * Emitted when the text changes.
      * The contentsChanged QWebPage signal is wired to this one,
-     * and we also emit it ourselves when necessary.
+     * and contentsChangedExtra is wired to contentsChanged.
      */
     void textChanged();
+
+    /**
+     * Extends the QWebPage contentsChanged signal.
+     * Use textChanged to know when the BookView has been modified.
+     *
+     * The QWebPage contentsChanged signal is not emitted on every
+     * occasion we want it to, so we emit this when necessary.
+     * This signal is in turn wired to contentsChanged. Why?
+     * Because we want others connected to our QWebPage but not to 
+     * the Book View textChanged signal to be aware of these changes.
+     * Thus, the wired extension.
+     */
+    void contentsChangedExtra();
 
     /**
      * Emitted whenever the zoom factor changes.

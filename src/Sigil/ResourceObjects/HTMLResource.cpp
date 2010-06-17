@@ -219,13 +219,25 @@ void HTMLResource::UpdateWebPageFromTextDocument()
     Q_ASSERT( m_TextDocument );
     Q_ASSERT( m_WebPage );
 
-    if ( TextDocumentModified() || m_RefreshNeeded )
-    {
-        SetTextDocumentModified( false );
-        SetWebPageHTML( CleanSource::Clean( m_TextDocument->toPlainText() ) );
-        SetWebPageModified( false );
+    const QString &source  = m_TextDocument->toPlainText();
+    const QString &cleaned = CleanSource::Clean( source );
 
-        m_RefreshNeeded = false;
+    // We can't just check for the modified state of the other
+    // cache since the other cache could have saved its changes
+    // back to the DOM and thus be set as unmodified.
+
+    if ( m_OldSourceCache != cleaned || m_RefreshNeeded )
+    {
+        SetWebPageHTML( cleaned );
+
+        // We store the original, "uncleaned" source
+        // in the source cache since that is what we
+        // want to compare against. If we didn't, the user
+        // would see the old source in the TextDocument even
+        // after we became committed to the cleaned source.
+        // See issue #286.
+        m_OldSourceCache = source;
+        m_RefreshNeeded  = false;
     }
 }
 
@@ -236,12 +248,18 @@ void HTMLResource::UpdateTextDocumentFromWebPage()
     Q_ASSERT( m_TextDocument );
     Q_ASSERT( m_WebPage );
 
-    if ( WebPageModified() )
+    const QString &source = GetWebPageHTML();
+
+    // We can't just check for the modified state of the other
+    // cache since the other cache could have saved its changes
+    // back to the DOM and thus be set as unmodified.
+
+    if ( m_OldSourceCache != source )
     {
-        SetWebPageModified( false );
-        m_TextDocument->setPlainText( GetWebPageHTML() );
-        SetTextDocumentModified( false );
-    } 
+        m_TextDocument->setPlainText( source );
+        m_OldSourceCache = source;
+    }    
+ 
 }
 
 

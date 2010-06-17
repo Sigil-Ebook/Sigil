@@ -66,10 +66,11 @@ void BookViewEditor::CustomSetWebPage( QWebPage &webpage )
 {
     m_isLoadFinished = true;
 
-    connect( &webpage, SIGNAL( contentsChanged()    ), this, SIGNAL( textChanged()            ) );
-    connect( &webpage, SIGNAL( selectionChanged()   ), this, SIGNAL( selectionChanged()       ) );
-    connect( &webpage, SIGNAL( loadFinished( bool ) ), this, SLOT( JavascriptOnDocumentLoad() ) );
-    connect( &webpage, SIGNAL( loadProgress( int )  ), this, SLOT( UpdateFinishedState( int ) ) );
+    connect( this,     SIGNAL( contentsChangedExtra() ), &webpage, SIGNAL( contentsChanged()        ) );
+    connect( &webpage, SIGNAL( contentsChanged()      ), this,     SIGNAL( textChanged()            ) );
+    connect( &webpage, SIGNAL( selectionChanged()     ), this,     SIGNAL( selectionChanged()       ) );
+    connect( &webpage, SIGNAL( loadFinished( bool )   ), this,     SLOT( JavascriptOnDocumentLoad() ) );
+    connect( &webpage, SIGNAL( loadProgress( int )    ), this,     SLOT( UpdateFinishedState( int ) ) );
 
     connect( &webpage, SIGNAL( linkClicked( const QUrl& ) ), this, SLOT( LinkClickedFilter( const QUrl&  ) ) );
 
@@ -185,7 +186,7 @@ void BookViewEditor::FormatBlock( const QString &element_name )
 
     EvaluateJavascript( javascript );
 
-    emit textChanged();
+    emit contentsChangedExtra();
 }
 
 
@@ -318,7 +319,7 @@ bool BookViewEditor::ReplaceSelected( const QRegExp &search_regex, const QString
         EvaluateJavascript( GetRangeJS( input ) + replacing_js + c_NewSelection ); 
 
         // Tell anyone who's interested that the document has been updated.
-        emit textChanged();
+        emit contentsChangedExtra();
 
         return true;
     }
@@ -386,7 +387,7 @@ int BookViewEditor::ReplaceAll( const QRegExp &search_regex, const QString &repl
     }
 
     // Tell anyone who's interested that the document has been updated.
-    emit textChanged();
+    emit contentsChangedExtra();
 
     return count;
 }
