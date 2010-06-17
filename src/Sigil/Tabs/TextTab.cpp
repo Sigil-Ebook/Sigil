@@ -120,7 +120,7 @@ void TextTab::ConnectSignalsToSlots()
     connect( &m_wCodeView, SIGNAL( FocusGained() ),              this, SLOT( LoadContentOnTabEnter() )      );
     connect( &m_wCodeView, SIGNAL( FocusLost() ),                this, SLOT( SaveContentOnTabLeave() )      );
 
-    connect( &m_wCodeView, SIGNAL( textChanged() ),              this, SIGNAL( ContentChanged() )           );
+    connect( &m_wCodeView, SIGNAL( FilteredTextChanged() ),      this, SIGNAL( ContentChanged() )           );
     connect( &m_wCodeView, SIGNAL( ZoomFactorChanged( float ) ), this, SIGNAL( ZoomFactorChanged( float ) ) );
     connect( &m_wCodeView, SIGNAL( selectionChanged() ),         this, SIGNAL( SelectionChanged() )         );
 }
