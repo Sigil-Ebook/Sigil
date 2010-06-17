@@ -700,6 +700,7 @@ void FlowTab::SaveContentOnTabLeave()
     // We need to make sure we have a lock. The lock is released
     // when the tab loses focus or the user switches to a different tab.
     // Sometimes only one of these events occurs, and sometimes both.
+    // While we want to load only once, we *always* want to save. 
     m_Resource.GetLock().LockForWriteIfNeeded();
 
     if ( m_IsLastViewBook )
