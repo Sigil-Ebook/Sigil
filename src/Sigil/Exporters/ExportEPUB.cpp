@@ -124,7 +124,7 @@ void ExportEPUB::SaveFolderAsEpubToLocation( const QString &fullfolderpath, cons
         zip.AddNewFile( mimetype_file.fileName().utf16(), QString( "mimetype" ).utf16(), 0 );
 
         // Add all the files and folders in the publication structure
-        zip.AddNewFiles( QDir::toNativeSeparators( fullfolderpath ).utf16() );
+        zip.AddNewFiles( QDir::toNativeSeparators( fullfolderpath ).utf16(), QString( "*" ).utf16() );
 
     #else
         // The location where the epub file will be written to
@@ -134,7 +134,7 @@ void ExportEPUB::SaveFolderAsEpubToLocation( const QString &fullfolderpath, cons
         zip.AddNewFile( mimetype_file.fileName().toUtf8().data(), QString( "mimetype" ).toUtf8().data(), 0 );
 
         // Add all the files and folders in the publication structure
-        zip.AddNewFiles( QDir::toNativeSeparators( fullfolderpath ).toUtf8().data() );
+        zip.AddNewFiles( QDir::toNativeSeparators( fullfolderpath ).toUtf8().data(), QString( "*" ).toUtf8().data() );
     #endif
 
         zip.Close();

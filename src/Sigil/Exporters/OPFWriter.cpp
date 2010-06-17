@@ -27,6 +27,8 @@
 #include "ResourceObjects/HTMLResource.h"
 #include "../BookManipulation/GuideSemantics.h"
 
+static const QString FALLBACK_MIMETYPE = "text/plain";
+
 
 OPFWriter::OPFWriter( QSharedPointer< Book > book, QIODevice &device )
     : 
@@ -343,7 +345,7 @@ void OPFWriter::WriteManifest()
         m_Writer->writeEmptyElement( "item" );
         m_Writer->writeAttribute( "id", GetValidID( name + "." + extension ) );
         m_Writer->writeAttribute( "href", Utility::URLEncodePath( relative_path ) );
-        m_Writer->writeAttribute( "media-type", m_Mimetypes[ extension.toLower() ] );
+        m_Writer->writeAttribute( "media-type", m_Mimetypes.value( extension.toLower(), FALLBACK_MIMETYPE ) );
     }
 
     m_Writer->writeEndElement();	
