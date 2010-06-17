@@ -697,6 +697,11 @@ void FlowTab::CodeView()
 
 void FlowTab::SaveContentOnTabLeave()
 {
+    // We need to make sure we have a lock. The lock is released
+    // when the tab loses focus or the user switches to a different tab.
+    // Sometimes only one of these events occurs, and sometimes both.
+    m_Resource.GetLock().LockForWriteIfNeeded();
+
     if ( m_IsLastViewBook )
 
         m_HTMLResource.UpdateDomDocumentFromWebPage();
@@ -705,13 +710,19 @@ void FlowTab::SaveContentOnTabLeave()
 
         m_HTMLResource.UpdateDomDocumentFromTextDocument();
 
-    ContentTab::SaveContentOnTabLeave();
+    m_Resource.GetLock().UnlockIfNeeded();
 }
 
 
 void FlowTab::LoadContentOnTabEnter()
 {
-    ContentTab::LoadContentOnTabEnter();
+    // If we already have a lock, that means the initial loading
+    // is already done. LoadContentOnTabEnter() can get called twice:
+    // once when the user switches to the tab, and a second time
+    // when he clicks inside it and gives it focus. 
+    if ( !m_Resource.GetLock().LockForWriteIfNeeded() )
+
+        return;
 
     if ( m_IsLastViewBook )
 
@@ -727,8 +738,8 @@ void FlowTab::TabFocusChange( QWidget *old_widget, QWidget *new_widget )
 {   
     // Whole tab gains focus
     if ( ( new_widget == &m_wBookView || new_widget == &m_wCodeView ) &&
-           old_widget != &m_wBookView &&
-           old_widget != &m_wCodeView 
+         old_widget != &m_wBookView &&
+         old_widget != &m_wCodeView 
        )
     {
         LoadContentOnTabEnter();

@@ -66,20 +66,9 @@ Searchable* ContentTab::GetSearchableContent()
 
 void ContentTab::Close()
 {
-    // TODO: save tab data here
+    SaveContentOnTabLeave();
     
     EmitDeleteMe();
-}
-
-
-void ContentTab::EmitDeleteMe()
-{
-    emit DeleteMe( this );
-}
-
-void ContentTab::EmitTabRenamed()
-{
-    emit TabRenamed( this );
 }
 
 
@@ -92,6 +81,18 @@ void ContentTab::SaveContentOnTabLeave()
 void ContentTab::LoadContentOnTabEnter()
 {
     m_Resource.GetLock().LockForWriteIfNeeded();
+}
+
+
+void ContentTab::EmitDeleteMe()
+{
+    emit DeleteMe( this );
+}
+
+
+void ContentTab::EmitTabRenamed()
+{
+    emit TabRenamed( this );
 }
 
 

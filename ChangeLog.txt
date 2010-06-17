@@ -1,4 +1,9 @@
 ﻿Sigil v0.2.1 ADD_DATE
+    - fixed a problem with some file-wide replacements reverting
+    - fixed a problem with the opened tabs not being updated until the user gave them keyboard
+    focus when a file-wide replace was performed (issue 408)
+    - fixed a problem with Book View not reflecting changes done in Code View when the
+    Code View was used for editing, and then the tab closed
     - use of custom synchronization primitives should resolve most infrequent hang bugs
     - fixed a problem with the search not progressing in Book View find&replace when using
     recursive replacements

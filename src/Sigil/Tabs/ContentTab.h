@@ -215,6 +215,16 @@ public slots:
      */
     void Close();
 
+    /**
+     * Saves the changed content when the user leaves the tab.
+     */
+    virtual void SaveContentOnTabLeave();
+
+    /**
+     * Loads the resource content when the user enters the tab.
+     */
+    virtual void LoadContentOnTabEnter();
+
 signals:
 
     /**
@@ -254,16 +264,6 @@ protected slots:
      * Emits the TabRenamed signal.
      */
     void EmitTabRenamed();
-
-    /**
-     * Saves the changed content when the user leaves the tab.
-     */
-    virtual void SaveContentOnTabLeave();
-
-    /**
-     * Loads the resource content when the user enters the tab.
-     */
-    virtual void LoadContentOnTabEnter();
 
 protected:
 

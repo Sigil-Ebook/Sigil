@@ -145,6 +145,7 @@ void HTMLResource::UpdateDomDocumentFromWebPage()
     Q_ASSERT( QThread::currentThread() == QApplication::instance()->thread() );
 
     XHTMLDoc::LoadTextIntoDocument( GetWebPageHTML(), m_DomDocument );
+    m_TextDocumentIsOld = true;
 }
 
 
@@ -154,6 +155,7 @@ void HTMLResource::UpdateDomDocumentFromTextDocument()
     Q_ASSERT( m_TextDocument );
 
     XHTMLDoc::LoadTextIntoDocument( CleanSource::Clean( m_TextDocument->toPlainText() ), m_DomDocument );
+    m_WebPageIsOld = true;
 }
 
 
