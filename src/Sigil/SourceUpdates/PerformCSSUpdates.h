@@ -30,15 +30,11 @@ class PerformCSSUpdates
 
 public:
 
-    PerformCSSUpdates( const QString &source,
-                              const QHash< QString, QString > &css_updates );
+    PerformCSSUpdates( const QString &source, const QHash< QString, QString > &css_updates );
 
     QString operator()( );
 
 private:
-
-    // Updates the resource references in the CSS.
-    void UpdateCSSReferences();
 
     ///////////////////////////////
     // PRIVATE MEMBER VARIABLES
