@@ -40,7 +40,7 @@ class QThread;
  * Other than that, provides the same features: there can be
  * multiple concurrent readers, but only one writer who has priority.
  *
- * @warning DOES \B NOT SUPPORT RECURSIVE LOCKING! Using recursive locking 
+ * @warning DOES \b NOT SUPPORT RECURSIVE LOCKING! Using recursive locking 
  * with this primitive will make the thread lose the lock on the first unlock call!
  */
 class SGReadWriteLock

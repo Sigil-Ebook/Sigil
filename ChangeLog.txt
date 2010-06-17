@@ -1,4 +1,6 @@
 ﻿Sigil v0.2.1 ADD_DATE
+    - fixed a regression that made it impossible to add removed headings back into the TOC
+    (issue #439)
     - fixed a problem with some file-wide replacements reverting
     - fixed a problem with the opened tabs not being updated until the user gave them keyboard
     focus when a file-wide replace was performed (issue 408)
