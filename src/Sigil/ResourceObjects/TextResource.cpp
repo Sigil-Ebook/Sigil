@@ -64,6 +64,9 @@ void TextResource::SaveToDisk( bool book_wide_save )
     // when the user has not changed the text file.
     // (some text files have placeholder text on disk)
 
+    // Just in case there was no initial load until now.
+    InitialLoad();
+
     SGWriteLocker locker( &m_ReadWriteLock );
 
     Utility::WriteUnicodeTextFile( m_TextDocument->toPlainText(), m_FullFilePath );
