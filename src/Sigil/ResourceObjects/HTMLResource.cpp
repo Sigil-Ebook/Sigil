@@ -41,6 +41,7 @@ HTMLResource::HTMLResource( const QString &fullfilepath,
     Resource( fullfilepath, hash_owner, parent ),
     m_WebPage( NULL ),
     m_TextDocument( NULL ),
+    m_WebPageModified( false ),
     m_WebPageIsOld( true ),
     m_TextDocumentIsOld( true ),
     m_GuideSemanticType( GuideSemantics::NoType ),
@@ -142,20 +143,32 @@ void HTMLResource::MarkSecondaryCachesAsOld()
 
 void HTMLResource::UpdateDomDocumentFromWebPage()
 {
+    if ( !WebPageModified() )
+
+        return;
+
     Q_ASSERT( QThread::currentThread() == QApplication::instance()->thread() );
 
     XHTMLDoc::LoadTextIntoDocument( GetWebPageHTML(), m_DomDocument );
+
     m_TextDocumentIsOld = true;
+    SetWebPageModified( false );
 }
 
 
 void HTMLResource::UpdateDomDocumentFromTextDocument()
 {
+    if ( !TextDocumentModified() )
+
+        return;
+
     Q_ASSERT( QThread::currentThread() == QApplication::instance()->thread() );
     Q_ASSERT( m_TextDocument );
 
     XHTMLDoc::LoadTextIntoDocument( CleanSource::Clean( m_TextDocument->toPlainText() ), m_DomDocument );
+
     m_WebPageIsOld = true;
+    SetTextDocumentModified( false );
 }
 
 
@@ -168,8 +181,10 @@ void HTMLResource::UpdateWebPageFromDomDocument()
         return;
 
     if ( m_WebPage == NULL )
-
+    {
         m_WebPage = new QWebPage( this );
+        connect( m_WebPage, SIGNAL( contentsChanged() ), this, SLOT( SetWebPageModified() ) );
+    }
 
     SetWebPageHTML( XHTMLDoc::GetQDomNodeAsString( m_DomDocument ) );
 
@@ -204,21 +219,13 @@ void HTMLResource::UpdateWebPageFromTextDocument()
     Q_ASSERT( m_TextDocument );
     Q_ASSERT( m_WebPage );
 
-    const QString &source  = m_TextDocument->toPlainText();
-    const QString &cleaned = CleanSource::Clean( source );
-
-    if ( m_OldSourceCache != cleaned || m_RefreshNeeded )
+    if ( TextDocumentModified() || m_RefreshNeeded )
     {
-        SetWebPageHTML( cleaned );
+        SetTextDocumentModified( false );
+        SetWebPageHTML( CleanSource::Clean( m_TextDocument->toPlainText() ) );
+        SetWebPageModified( false );
 
-        // We store the original, "uncleaned" source
-        // in the source cache since that is what we
-        // want to compare against. If we didn't, the user
-        // would see the old source in the TextDocument even
-        // after we became committed to the cleaned source.
-        // See issue #286.
-        m_OldSourceCache = source;
-        m_RefreshNeeded  = false;
+        m_RefreshNeeded = false;
     }
 }
 
@@ -229,13 +236,12 @@ void HTMLResource::UpdateTextDocumentFromWebPage()
     Q_ASSERT( m_TextDocument );
     Q_ASSERT( m_WebPage );
 
-    const QString &source = GetWebPageHTML();
-
-    if ( m_OldSourceCache != source )
+    if ( WebPageModified() )
     {
-        m_TextDocument->setPlainText( source );
-        m_OldSourceCache = source;
-    }    
+        SetWebPageModified( false );
+        m_TextDocument->setPlainText( GetWebPageHTML() );
+        SetTextDocumentModified( false );
+    } 
 }
 
 
@@ -319,6 +325,35 @@ void HTMLResource::WebPageJavascriptOnLoad()
 
     m_WebPage->mainFrame()->evaluateJavaScript( c_jQuery         );
     m_WebPage->mainFrame()->evaluateJavaScript( c_jQueryScrollTo );
+}
+
+
+void HTMLResource::SetWebPageModified( bool modified )
+{
+    m_WebPageModified = modified;
+}
+
+
+// QWebPage::isModified() only looks at form data,
+// which makes it absolutely useless.
+bool HTMLResource::WebPageModified()
+{
+    return m_WebPageModified;
+}
+
+
+// We have a "modified" getter and setter for
+// the TextDocument even when it has its own
+// because QWebPage does not and we want a unified interface.
+void HTMLResource::SetTextDocumentModified( bool modified )
+{
+    m_TextDocument->setModified( modified );
+}
+
+
+bool HTMLResource::TextDocumentModified()
+{
+    return m_TextDocument->isModified();
 }
 
 

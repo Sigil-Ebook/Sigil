@@ -232,7 +232,35 @@ private slots:
      */
     void WebPageJavascriptOnLoad();
 
+    /**
+     * Sets the web page modified state.
+     *
+     * @param modified The new modified state.
+     */
+    void SetWebPageModified( bool modified = true );
+
 private:
+
+    /**
+     * Returns the modified state of the web page. 
+     *
+     * @return The modified state.
+     */
+    bool WebPageModified();
+
+    /**
+     * Sets the text document modified state.
+     *
+     * @param modified The new modified state.
+     */
+    void SetTextDocumentModified( bool modified = true );
+
+    /**
+     * Returns the modified state of the text document.
+     *
+     * @return The modified state.
+     */
+    bool TextDocumentModified();
 
     /**
      * Returns the HTML content of the QWebPage.
@@ -294,14 +322,11 @@ private:
      * AKA the auxiliary, secondary cache of the colored source.
      */
     QTextDocument *m_TextDocument;
-    
+
     /**
-     * This holds the state of the content of the secondary
-     * caches the last time they were updated. It's used
-     * to prevent syncing between them when no new changes
-     * have been made.
+     * \c true if the WebPage was modified by the user.
      */
-    QString m_OldSourceCache;
+    bool m_WebPageModified;
 
     /**
      * True when the QWebPage cache needs to be updated.

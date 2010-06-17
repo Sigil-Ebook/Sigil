@@ -1,4 +1,5 @@
 ﻿Sigil v0.2.1 ADD_DATE
+    - fixed issues with unnecessary reloads of the code view (issue #412, issue #398)
     - fixed an issue with the HTML file filter in the open file dialog not correctly filtering 
     files (issue #416)
     - fixed an issue with files without extensions not being saved in the final epub (issue #400)
