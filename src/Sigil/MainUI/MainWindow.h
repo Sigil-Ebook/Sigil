@@ -280,6 +280,13 @@ private:
     // to extend the UI created by the Designer
     void ExtendUI();
 
+    /**
+     * Extends all the icons with 16px versions.
+     * The prevents the use of automatic, blurry, scaled
+     * down versions that Qt creates.
+     */
+    void ExtendIconSizes();
+
     // If a file was provided to be loaded
     // with this main window instance, that file is loaded;
     // if not, or it can't be opened, an empty file is loaded
