@@ -69,6 +69,7 @@ QString CleanSource::Clean( const QString &source )
     
     newsource = HTMLTidy( newsource, Tidy_Clean );
     newsource = CleanCSS( newsource, old_num_styles );
+    newsource = RemoveMetaCharset( newsource );
 
     return newsource;
 }
@@ -504,4 +505,27 @@ QHash< QString, QString > CleanSource::GetRedundantClasses( const QStringList &c
     return redundant_classes;
 }
 
+
+QString CleanSource::RemoveMetaCharset( const QString &source )
+{
+    int head_end = source.indexOf( QRegExp( HEAD_END ) );
+
+    if ( head_end == -1 )
+
+        return source;
+    
+    QString head = Utility::Substring( 0, head_end, source );
+
+    QRegExp metacharset( "<meta[^>]+charset[^>]+>" );
+    
+    int meta_start = head.indexOf( metacharset );
+
+    if ( meta_start == -1 )
+
+        return source;
+    
+    head.remove( meta_start, metacharset.matchedLength() );
+
+    return head + Utility::Substring( head_end, source.length(), source );
+}
 

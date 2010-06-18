@@ -100,6 +100,15 @@ private:
     // and the values the old classes that already do the job of the new ones.
     static QHash< QString, QString > GetRedundantClasses( const QStringList &css_style_tags );
 
+    /**
+     * Removes HTML meta tags with charset declarations.
+     * Some applications leave a faulty charset encoding
+     * even when the XML encoding is different. This makes
+     * the epub invalid since no HTML file can have 2 encodings.
+     * Sigil will specify UTF-8 in the XML declaration on export,
+     * so this meta tag is useless anyway.
+     */
+    static QString RemoveMetaCharset( const QString source );
 };
 
 
