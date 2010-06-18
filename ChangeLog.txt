@@ -1,4 +1,6 @@
 ﻿Sigil v0.2.1 2010.06.18
+    - Sigil now checks the XML encoding attribute for an encoding before the HTML metatag
+    and charset; should now be more compatible with Calibre created epub books
     - created/used 16px version of all icons; icons in menus are not blurry anymore (issue #121)
     - the Find&Replace dialog now uses the currently selected text (if any) as the default search
     term (issue #370)

@@ -1462,7 +1462,6 @@ void MainWindow::ExtendIconSizes()
 }
 
 
-
 // If a file was provided to be loaded
 // with this main window instance, that file is loaded;
 // if not, or it can't be opened, an empty file is loaded
