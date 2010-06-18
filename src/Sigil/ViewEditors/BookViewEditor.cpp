@@ -393,6 +393,14 @@ int BookViewEditor::ReplaceAll( const QRegExp &search_regex, const QString &repl
 }
 
 
+QString BookViewEditor::GetSelectedText()
+{
+    QString javascript = "window.getSelection().toString();";
+
+    return EvaluateJavascript( javascript ).toString();
+}
+
+
 // Overridden because we need to update the cursor
 // location if a cursor update (from CodeView) 
 // is waiting to be processed.
@@ -550,14 +558,6 @@ int BookViewEditor::GetSelectionOffset( const QDomDocument &document,
     int search_start    = node_offsets.key( caret_node ) + local_offset;
 
     return search_start;
-}
-
-
-QString BookViewEditor::GetSelectedText()
-{
-    QString javascript = "window.getSelection().toString();";
-
-    return EvaluateJavascript( javascript ).toString();
 }
 
 

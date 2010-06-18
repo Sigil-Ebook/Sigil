@@ -134,6 +134,7 @@ public:
     // the document with the specified replacement string.
     int ReplaceAll( const QRegExp &search_regex, const QString &replacement );
 
+    QString GetSelectedText();
 
 signals:
     

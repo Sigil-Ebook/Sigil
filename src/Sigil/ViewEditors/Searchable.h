@@ -93,6 +93,13 @@ public:
     virtual int ReplaceAll( const QRegExp &search_regex, const QString &replacement ) = 0;
 
     /**
+     * Returns the currently selected text string.
+     * 
+     * @return The currently selected text string.
+     */
+    virtual QString GetSelectedText() = 0;
+
+    /**
      * Runs the regex through the text.
      *
      * @param[in,out] search_regex The regex to match with. IT IS MODIFIED IN PLACE!
@@ -119,6 +126,7 @@ public:
      */
     static QString FillWithCapturedTexts( const QStringList &captured_texts, 
                                           const QString &replacement );
+
 };
 
 #endif // SEARCHABLE_H

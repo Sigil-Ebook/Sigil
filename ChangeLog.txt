@@ -1,4 +1,6 @@
 ﻿Sigil v0.2.1 ADD_DATE
+    - the Find&Replace dialog now uses the currently selected text (if any) as the default search
+    term (issue #370)
     - fixed issues with unnecessary reloads of the code view (issue #412, issue #398)
     - fixed an issue with the HTML file filter in the open file dialog not correctly filtering 
     files (issue #416)

@@ -171,7 +171,9 @@ public:
     bool ReplaceSelected( const QRegExp &search_regex, const QString &replacement );
 
     int ReplaceAll( const QRegExp &search_regex, const QString &replacement );
-    
+
+    QString GetSelectedText();
+
 signals:
 
     /**
@@ -296,13 +298,6 @@ private:
     int GetSelectionOffset( const QDomDocument &document,
                             const QMap< int, QDomNode > &node_offsets, 
                             Searchable::Direction search_direction );
-
-    /**
-     * Returns the currently selected text string.
-     * 
-     * @return The currently selected search string.
-     */
-    QString GetSelectedText();
 
     /**
      * The necessary tools for searching.

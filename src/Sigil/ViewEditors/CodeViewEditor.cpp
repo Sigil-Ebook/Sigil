@@ -364,6 +364,12 @@ int CodeViewEditor::ReplaceAll( const QRegExp &search_regex, const QString &repl
 }
 
 
+QString CodeViewEditor::GetSelectedText()
+{
+    return textCursor().selectedText();
+}
+
+
 // The base class implementation of the print()
 // method is not a slot, and we need it as a slot
 // for print preview support; so this is just

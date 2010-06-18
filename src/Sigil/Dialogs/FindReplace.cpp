@@ -27,6 +27,7 @@
 #include "../Misc/SleepFunctions.h"
 
 static const QString SETTINGS_GROUP = "find_replace";
+static const int MAXIMUM_SELECTED_TEXT_LIMIT = 100;
 
 // Constructor;
 // the first argument specifies which tab to load first;
@@ -61,10 +62,7 @@ FindReplace::FindReplace( bool find_tab, MainWindow &main_window, QWidget *paren
     TabChanged();    
     ReadSettings();
     ToggleMoreLess();
-
-    // If there is any leftover text from a previous
-    // search, then that text should be selected by default
-    ui.cbFind->lineEdit()->selectAll();
+    SetUpFindText();
 }
 
 
@@ -591,6 +589,28 @@ void FindReplace::UpdatePreviousReplaceStrings()
 
     // Must not change the current string!
     ui.cbReplace->setCurrentIndex( 0 );
+}
+
+
+void FindReplace::SetUpFindText()
+{
+    Searchable* searchable = GetAvailableSearchable();
+
+    if ( searchable )
+    {
+        QString selected_text = searchable->GetSelectedText();
+
+        // We want to make the text selected in the editor
+        // as the default search text, but only if it's not "too long"
+        if ( !selected_text.isEmpty() && 
+             selected_text.length() < MAXIMUM_SELECTED_TEXT_LIMIT )
+        {
+            ui.cbFind->lineEdit()->setText( selected_text );
+        }
+    }        
+
+    // Find text should be selected by default
+    ui.cbFind->lineEdit()->selectAll();
 }
 
 
