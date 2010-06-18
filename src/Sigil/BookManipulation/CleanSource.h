@@ -108,7 +108,7 @@ private:
      * Sigil will specify UTF-8 in the XML declaration on export,
      * so this meta tag is useless anyway.
      */
-    static QString RemoveMetaCharset( const QString source );
+    static QString RemoveMetaCharset( const QString &source );
 };
 
 
