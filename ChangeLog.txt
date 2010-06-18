@@ -1,4 +1,4 @@
-﻿Sigil v0.2.1 ADD_DATE
+﻿Sigil v0.2.1 2010.06.18
     - created/used 16px version of all icons; icons in menus are not blurry anymore (issue #121)
     - the Find&Replace dialog now uses the currently selected text (if any) as the default search
     term (issue #370)
