@@ -709,12 +709,6 @@ void FlowTab::SaveContentOnTabLeave()
 
 void FlowTab::LoadContentOnTabEnter()
 {
-    // If we already have a lock, that means the initial loading
-    // is already done. LoadContentOnTabEnter() can get called twice:
-    // once when the user switches to the tab, and a second time
-    // when he clicks inside it and gives it focus. 
-    // FIXME: DOUBLE LOAD!
-
     if ( m_IsLastViewBook )
 
         m_HTMLResource.UpdateWebPageFromDomDocument();
