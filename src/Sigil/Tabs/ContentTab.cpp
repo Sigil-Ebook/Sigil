@@ -85,13 +85,13 @@ void ContentTab::EmitTabRenamed()
 
 void ContentTab::SaveContentOnTabLeave()
 {
-    m_Resource.GetLock().UnlockIfNeeded();
+    m_Resource.GetLock().unlock();
 }
 
 
 void ContentTab::LoadContentOnTabEnter()
 {
-    m_Resource.GetLock().LockForWriteIfNeeded();
+    m_Resource.GetLock().lockForWrite();
 }
 
 

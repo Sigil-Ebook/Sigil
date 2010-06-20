@@ -29,9 +29,6 @@
 #include "../BookManipulation/XHTMLDoc.h"
 #include "../BookManipulation/GuideSemantics.h"
 #include "ResourceObjects/HTMLResource.h"
-#include "CustomSyncs/SGReadLocker.h"
-#include "CustomSyncs/SGWriteLocker.h"
-
 
 static const QString SIGIL_HEADING_ID_PREFIX = "heading_id_";
 static const QString SIGIL_HEADING_ID_REG    = SIGIL_HEADING_ID_PREFIX + "(\\d+)";
@@ -64,7 +61,7 @@ void BookNormalization::GiveIDsToHeadings( QList< HTMLResource* > html_resources
 
 void BookNormalization::GiveIDsToHeadingsInResource( HTMLResource *html_resource )
 {
-    SGReadLocker locker( &html_resource->GetLock() );
+    QReadLocker locker( &html_resource->GetLock() );
 
     QList< Headings::Heading > headings = Headings::GetHeadingListForOneFile( html_resource );
 
@@ -162,7 +159,7 @@ void BookNormalization::TryToSetCoverImage( QList< HTMLResource* > html_resource
 
         return;
 
-    SGReadLocker locker( &cover_page->GetLock() );
+    QReadLocker locker( &cover_page->GetLock() );
 
     QStringList image_paths = XHTMLDoc::GetImagePathsFromImageChildren( cover_page->GetDomDocumentForReading() );
 
@@ -185,7 +182,7 @@ void BookNormalization::TryToSetCoverImage( QList< HTMLResource* > html_resource
 
 bool BookNormalization::IsFlowUnderThreshold( HTMLResource *html_resource, int threshold )
 {
-    SGReadLocker locker( &html_resource->GetLock() );
+    QReadLocker locker( &html_resource->GetLock() );
 
     QDomElement doc_element = html_resource->GetDomDocumentForReading().documentElement();
     return doc_element.text().count() < threshold;

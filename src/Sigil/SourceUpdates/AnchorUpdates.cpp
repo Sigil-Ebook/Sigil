@@ -24,8 +24,6 @@
 #include "ResourceObjects/HTMLResource.h"
 #include "../BookManipulation/XHTMLDoc.h"
 #include "../Misc/Utility.h"
-#include "CustomSyncs/SGReadLocker.h"
-#include "CustomSyncs/SGWriteLocker.h"
 
 
 void AnchorUpdates::UpdateAllAnchorsWithIDs( const QList< HTMLResource* > &html_resources )
@@ -63,7 +61,7 @@ tuple< QString, QList< QString > > AnchorUpdates::GetOneFileIDs( HTMLResource* h
 {
     Q_ASSERT( html_resource );
 
-    SGReadLocker locker( &html_resource->GetLock() );
+    QReadLocker locker( &html_resource->GetLock() );
 
     return make_tuple( html_resource->Filename(),
         XHTMLDoc::GetAllChildIDs( html_resource->GetDomDocumentForReading().documentElement() ) );
@@ -75,7 +73,7 @@ void AnchorUpdates::UpdateAnchorsInOneFile( HTMLResource *html_resource,
 {
     Q_ASSERT( html_resource );
 
-    SGWriteLocker locker( &html_resource->GetLock() );
+    QWriteLocker locker( &html_resource->GetLock() );
 
     QDomDocument document = html_resource->GetDomDocumentForWriting();
     QDomNodeList anchors  = document.elementsByTagName( "a" );

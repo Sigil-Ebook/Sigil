@@ -22,9 +22,6 @@
 #include <stdafx.h>
 #include "TextResource.h"
 #include "../Misc/Utility.h"
-#include "CustomSyncs/SGReadLocker.h"
-#include "CustomSyncs/SGWriteLocker.h"
-
 
 TextResource::TextResource( const QString &fullfilepath, QHash< QString, Resource* > *hash_owner, QObject *parent )
     : 
@@ -64,7 +61,7 @@ void TextResource::SaveToDisk( bool book_wide_save )
     // when the user has not changed the text file.
     // (some text files have placeholder text on disk)
 
-    SGWriteLocker locker( &m_ReadWriteLock );
+    QWriteLocker locker( &m_ReadWriteLock );
 
     Utility::WriteUnicodeTextFile( m_TextDocument->toPlainText(), m_FullFilePath );
 
@@ -78,7 +75,7 @@ void TextResource::SaveToDisk( bool book_wide_save )
 
 void TextResource::InitialLoad()
 {
-    SGWriteLocker locker( &m_ReadWriteLock );
+    QWriteLocker locker( &m_ReadWriteLock );
 
     Q_ASSERT( m_TextDocument );
 

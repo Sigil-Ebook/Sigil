@@ -176,15 +176,6 @@ set( MISC_FILES
     Misc/SearchOperations.cpp
     Misc/SearchOperations.h
     )
-    
-set( CUSTOM_SYNC_FILES
-    CustomSyncs/SGReadWriteLock.cpp
-    CustomSyncs/SGReadWriteLock.h
-    CustomSyncs/SGReadLocker.cpp
-    CustomSyncs/SGReadLocker.h
-    CustomSyncs/SGWriteLocker.cpp
-    CustomSyncs/SGWriteLocker.h
-    )
 
 set( VIEW_EDITOR_FILES
     ViewEditors/BookViewEditor.cpp
@@ -254,7 +245,7 @@ set( QRC_FILES
     )
     
 set( RAW_SOURCES ${MAIN_FILES} ${TAB_FILES} ${SOURCEUPDATE_FILES} ${BOOK_MANIPULATION_FILES} ${RESOURCE_OBJECT_FILES} ${DIALOG_FILES} ${EXPORTER_FILES}
-                 ${IMPORTER_FILES} ${MISC_FILES} ${VIEW_EDITOR_FILES} ${MAINUI_FILES} ${CUSTOM_SYNC_FILES} )
+                 ${IMPORTER_FILES} ${MISC_FILES} ${VIEW_EDITOR_FILES} ${MAINUI_FILES} )
 
 # Runs MOC on specifed files
 qt4_wrap_cpp( MOC_FILES_CPP ${QOBJECT_HEADERS} )
@@ -345,8 +336,6 @@ source_group( "Tabs"              FILES ${TAB_FILES} )
 source_group( "MainUI"            FILES ${MAINUI_FILES} )
 source_group( "Main Files"        FILES ${MAIN_FILES} )
 source_group( "Source Updates"    FILES ${SOURCEUPDATE_FILES} )
-source_group( "Custom Syncs"      FILES ${CUSTOM_SYNC_FILES} )
-
 
 
 set( ALL_SOURCES ${RAW_SOURCES} ${MOC_FILES_CPP} ${UI_FILES_H} ${QRC_FILES_CPP} )

@@ -24,9 +24,9 @@
 #define RESOURCE_H
 
 #include <QObject>
+#include <QReadWriteLock>
 #include <QIcon>
 #include <QUrl>
-#include "CustomSyncs/SGReadWriteLock.h"
 
 /**
  * Represents a resource file on disk.
@@ -121,7 +121,7 @@ public:
      *
      * @return The resource's ReadWriteLock.
      */
-    SGReadWriteLock& GetLock();
+    QReadWriteLock& GetLock();
 
     /**
      * Returns the resource's icon.
@@ -195,9 +195,9 @@ protected:
     QString m_FullFilePath;
 
     /**
-     * The ReadWriteLock guarding access to the resource's data.
+     * The ReaWriteLock guarding access to the resource's data.
      */
-    SGReadWriteLock m_ReadWriteLock;
+    QReadWriteLock m_ReadWriteLock;
 
     /**
      * The hash owner of the resource.

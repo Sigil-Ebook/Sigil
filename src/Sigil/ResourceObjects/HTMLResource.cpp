@@ -25,9 +25,6 @@
 #include "../BookManipulation/CleanSource.h"
 #include "../BookManipulation/XHTMLDoc.h"
 #include "../BookManipulation/GuideSemantics.h"
-#include "CustomSyncs/SGReadLocker.h"
-#include "CustomSyncs/SGWriteLocker.h"
-
 
 static const QString LOADED_CONTENT_MIMETYPE = "application/xhtml+xml";
 
@@ -110,7 +107,7 @@ QTextDocument& HTMLResource::GetTextDocument()
 
 void HTMLResource::SetDomDocument( const QDomDocument &document )
 {
-    SGWriteLocker locker( &m_ReadWriteLock );
+    QWriteLocker locker( &m_ReadWriteLock );
 
     m_DomDocument = document;
 
@@ -239,7 +236,7 @@ void HTMLResource::UpdateTextDocumentFromWebPage()
 
 void HTMLResource::SaveToDisk( bool book_wide_save )
 {
-    SGWriteLocker locker( &m_ReadWriteLock );
+    QWriteLocker locker( &m_ReadWriteLock );
 
     Utility::WriteUnicodeTextFile( CleanSource::PrettyPrint( XHTMLDoc::GetQDomNodeAsString( m_DomDocument ) ),
                                    m_FullFilePath );
