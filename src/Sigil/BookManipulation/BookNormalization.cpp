@@ -159,9 +159,13 @@ void BookNormalization::TryToSetCoverImage( QList< HTMLResource* > html_resource
 
         return;
 
-    QReadLocker locker( &cover_page->GetLock() );
+    QStringList image_paths;
 
-    QStringList image_paths = XHTMLDoc::GetImagePathsFromImageChildren( cover_page->GetDomDocumentForReading() );
+    {
+        QReadLocker locker( &cover_page->GetLock() );
+
+        image_paths = XHTMLDoc::GetImagePathsFromImageChildren( cover_page->GetDomDocumentForReading() );
+    }
 
     if ( image_paths.count() == 0 )
          

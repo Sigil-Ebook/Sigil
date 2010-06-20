@@ -84,11 +84,15 @@ QIcon Resource::Icon() const
 
 bool Resource::RenameTo( const QString &new_filename )
 {
-    QWriteLocker locker( &m_ReadWriteLock );
+    QString new_path;
+    bool successful = false;
 
-    QString new_path = QFileInfo( m_FullFilePath ).absolutePath() + "/" + new_filename; 
+    {
+        QWriteLocker locker( &m_ReadWriteLock );
 
-    bool successful = Utility::RenameFile( m_FullFilePath, new_path );
+        new_path = QFileInfo( m_FullFilePath ).absolutePath() + "/" + new_filename; 
+        successful = Utility::RenameFile( m_FullFilePath, new_path );
+    }
 
     if ( successful )
     {
@@ -101,9 +105,12 @@ bool Resource::RenameTo( const QString &new_filename )
 
 bool Resource::Delete()
 {
-    QWriteLocker locker( &m_ReadWriteLock );
+    bool successful = false;
 
-    bool successful = Utility::DeleteFile( m_FullFilePath );
+    {
+        QWriteLocker locker( &m_ReadWriteLock );
+        successful = Utility::DeleteFile( m_FullFilePath );
+    }
 
     if ( successful )
     {

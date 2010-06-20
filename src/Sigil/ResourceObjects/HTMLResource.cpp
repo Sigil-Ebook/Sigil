@@ -261,10 +261,12 @@ void HTMLResource::UpdateTextDocumentFromWebPage()
 
 void HTMLResource::SaveToDisk( bool book_wide_save )
 {
-    QWriteLocker locker( &m_ReadWriteLock );
+    {
+        QWriteLocker locker( &m_ReadWriteLock );
 
-    Utility::WriteUnicodeTextFile( CleanSource::PrettyPrint( XHTMLDoc::GetQDomNodeAsString( m_DomDocument ) ),
-                                   m_FullFilePath );
+        Utility::WriteUnicodeTextFile( CleanSource::PrettyPrint( XHTMLDoc::GetQDomNodeAsString( m_DomDocument ) ),
+                                       m_FullFilePath );
+    }
 
     if ( !book_wide_save )
 

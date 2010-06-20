@@ -887,6 +887,7 @@ bool MainWindow::SaveFile( const QString &fullfilepath )
     {
         // Make sure the current tab has unlocked
         // its resource (which it does on losing focus).
+        // Obsolete now, but let's leave it.
         setFocus();
 
         QString extension = QFileInfo( fullfilepath ).suffix().toLower();

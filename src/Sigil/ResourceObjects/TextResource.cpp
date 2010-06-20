@@ -64,9 +64,11 @@ void TextResource::SaveToDisk( bool book_wide_save )
     // Just in case there was no initial load until now.
     InitialLoad();
 
-    QWriteLocker locker( &m_ReadWriteLock );
+    {
+        QWriteLocker locker( &m_ReadWriteLock );
 
-    Utility::WriteUnicodeTextFile( m_TextDocument->toPlainText(), m_FullFilePath );
+        Utility::WriteUnicodeTextFile( m_TextDocument->toPlainText(), m_FullFilePath );
+    }
 
     if ( !book_wide_save )
 
