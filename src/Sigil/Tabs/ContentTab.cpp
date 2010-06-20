@@ -74,13 +74,13 @@ void ContentTab::Close()
 
 void ContentTab::SaveContentOnTabLeave()
 {
-    m_Resource.GetLock().unlock();
+
 }
 
 
 void ContentTab::LoadContentOnTabEnter()
 {
-    m_Resource.GetLock().lockForWrite();
+
 }
 
 

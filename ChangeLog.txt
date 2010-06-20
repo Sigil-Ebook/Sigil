@@ -1,4 +1,5 @@
 ﻿Sigil v0.2.2 ADD_DATE
+    - simplified the resource locking mechanism; should eliminate the hang-on-save issue
     - fixed a problem with BookView chapter splitting sometimes not being registered on save,
     causing duplicate content (issue #450)
 
