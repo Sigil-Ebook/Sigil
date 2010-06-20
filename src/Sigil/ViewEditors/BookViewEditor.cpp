@@ -250,7 +250,6 @@ void BookViewEditor::SetZoomFactor( float factor )
 }
 
 
-
 float BookViewEditor::GetZoomFactor() const
 {
     return (float) zoomFactor();
@@ -678,7 +677,6 @@ bool BookViewEditor::ExecuteCaretUpdate()
 
     return true;
 }
-
 
 
 BookViewEditor::SelectRangeInputs BookViewEditor::GetRangeInputs( const QMap< int, QDomNode > &node_offsets,
