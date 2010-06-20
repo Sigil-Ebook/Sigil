@@ -1,4 +1,8 @@
-﻿Sigil v0.2.1 2010.06.18
+﻿Sigil v0.2.2 ADD_DATE
+    - fixed a problem with BookView chapter splitting sometimes not being registered on save,
+    causing duplicate content (issue #450)
+
+Sigil v0.2.1 2010.06.18
     - XHTML files that specify two different encodings are now fixed by removing the incorrect one
     - Sigil now checks the XML encoding attribute for an encoding before the HTML metatag
     and charset; should now be more compatible with Calibre created epub books

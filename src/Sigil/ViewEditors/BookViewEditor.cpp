@@ -89,6 +89,8 @@ QString BookViewEditor::SplitChapter()
     QString body_tag = EvaluateJavascript( GET_BODY_TAG_HTML ).toString();
     QString segment  = EvaluateJavascript( c_GetSegmentHTML  ).toString();
 
+    emit contentsChangedExtra();
+
     return QString( "<html>" )
            .append( head )
            .append( body_tag )

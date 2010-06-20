@@ -258,8 +258,7 @@ void HTMLResource::UpdateTextDocumentFromWebPage()
     {
         m_TextDocument->setPlainText( source );
         m_OldSourceCache = source;
-    }    
- 
+    }     
 }
 
 
