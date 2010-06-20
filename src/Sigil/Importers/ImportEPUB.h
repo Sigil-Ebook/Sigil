@@ -40,19 +40,7 @@ public:
 
     // Reads and parses the file 
     // and returns the created Book
-    virtual QSharedPointer< Book > GetBook();
-
-protected:   
-
-    void CleanAndUpdateFiles( const QHash< QString, QString > &updates );
-
-    static void CleanAndUpdateOneHTMLFile( HTMLResource* html_resource, 
-                                           const QHash< QString, QString > &html_updates,
-                                           const QHash< QString, QString > &css_updates );
-
-    static void UpdateOneCSSFile( CSSResource* css_resource, 
-                                  const QHash< QString, QString > &css_updates );
-    
+    virtual QSharedPointer< Book > GetBook();    
 };
 
 #endif // IMPORTEPUB_H

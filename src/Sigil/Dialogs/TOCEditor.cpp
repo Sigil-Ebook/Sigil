@@ -149,6 +149,10 @@ void TOCEditor::UpdateOneHeadingElement( QStandardItem *item )
         if ( !class_attribute.isEmpty() )
 
             heading->element.setAttribute( "class", class_attribute );
+
+        else
+            
+            heading->element.removeAttribute( "class" );
         
         heading->resource_file->MarkSecondaryCachesAsOld();
     }

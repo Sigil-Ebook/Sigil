@@ -64,44 +64,45 @@ const QTextCodec& HTMLEncodingResolver::GetCodecForHTML( const QByteArray &raw_t
     ascii_data.replace( QRegExp( "<\\s*meta([^>]*)http-equiv=\"Content-Type\"([^>]*)>" ),
                                  "<meta http-equiv=\"Content-Type\" \\1 \\2>" );
 
+    int head_end = ascii_data.indexOf( QRegExp( HEAD_END ) );
+
+    if ( head_end != -1 )
+    {
+        QString head = Utility::Substring( 0, head_end, ascii_data );
+
+        QRegExp encoding( "encoding=\"([^\"]+)\"" );
+        head.indexOf( encoding );
+        QTextCodec *encoding_codec = QTextCodec::codecForName( encoding.cap( 1 ).toAscii() );
+
+        if ( encoding_codec != 0 )
+
+            return *encoding_codec;
+
+        QRegExp charset( "charset=([^\"]+)\"" );
+        head.indexOf( charset );
+        QTextCodec *charset_codec  = QTextCodec::codecForName( charset .cap( 1 ).toAscii() );
+
+        if ( charset_codec != 0 )
+
+            return *charset_codec;
+    }
+
+    // If we couldn't find a codec ourselves,
+    // we use Qt's function.
     QTextCodec &locale_codec   = *QTextCodec::codecForLocale();
     QTextCodec &detected_codec = *QTextCodec::codecForHtml( ascii_data.toAscii(), QTextCodec::codecForLocale() ); 
 
-    // If Qt's function was unable to detect an encoding, 
-    // we look for one ourselves.
-    if ( detected_codec.name() == locale_codec.name() )
-    {
-        int head_end = ascii_data.indexOf( QRegExp( HEAD_END ) );
+    if ( detected_codec.name() != locale_codec.name() )
 
-        if ( head_end != -1 )
-        {
-            QString head = Utility::Substring( 0, head_end, ascii_data );
+        return detected_codec;
 
-            QRegExp charset( "charset=([^\"]+)\"" );
-            QRegExp encoding( "encoding=\"([^\"]+)\"" );
-            head.indexOf( charset );
-            head.indexOf( encoding );
+    // If that couldn't find anything, then let's test for UTF-8
+    if ( IsValidUtf8( raw_text ) )
 
-            QTextCodec *charset_codec  = QTextCodec::codecForName( charset .cap( 1 ).toAscii() );
-            QTextCodec *encoding_codec = QTextCodec::codecForName( encoding.cap( 1 ).toAscii() );
+        return *QTextCodec::codecForName( "UTF-8" );
 
-            if ( charset_codec != 0 )
-
-                return *charset_codec;
-
-            if ( encoding_codec != 0 )
-
-                return *encoding_codec;
-        }
-
-        if ( IsValidUtf8( raw_text ) )
-
-            return *QTextCodec::codecForName( "UTF-8" );
-
-        return locale_codec;
-    }
-
-    return detected_codec;
+    // If everything fails, we fall back to the locale default
+    return locale_codec;
 }
 
 

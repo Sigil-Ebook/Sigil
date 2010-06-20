@@ -203,11 +203,11 @@ void MainWindow::Open()
         // "All Files (*.*)" is the default
         QString default_filter = c_LoadFilters.value( "*" );
 
-        QString filename = QFileDialog::getOpenFileName(    this,
-                                                            tr( "Open File" ),
-                                                            m_LastFolderOpen,
-                                                            filter_string,
-                                                            &default_filter
+        QString filename = QFileDialog::getOpenFileName( this,
+                                                         tr( "Open File" ),
+                                                         m_LastFolderOpen,
+                                                         filter_string,
+                                                         &default_filter
                                                        );
 
         if ( !filename.isEmpty() )
@@ -1048,9 +1048,9 @@ const QMap< QString, QString > MainWindow::GetLoadFiltersMap()
 
     file_filters[ "sgf"   ] = tr( "Sigil Format files (*.sgf)" );
     file_filters[ "epub"  ] = tr( "EPUB files (*.epub)" );
-    file_filters[ "htm"   ] = tr( "HTML files (*.htm, *.html, *.xhtml)" );
-    file_filters[ "html"  ] = tr( "HTML files (*.htm, *.html, *.xhtml)" );
-    file_filters[ "xhtml" ] = tr( "HTML files (*.htm, *.html, *.xhtml)" );
+    file_filters[ "htm"   ] = tr( "HTML files (*.htm *.html *.xhtml)" );
+    file_filters[ "html"  ] = tr( "HTML files (*.htm *.html *.xhtml)" );
+    file_filters[ "xhtml" ] = tr( "HTML files (*.htm *.html *.xhtml)" );
     file_filters[ "txt"   ] = tr( "Text files (*.txt)" );
     file_filters[ "*"     ] = tr( "All files (*.*)" );
 
@@ -1312,6 +1312,153 @@ void MainWindow::ExtendUI()
     palette.setColor( QPalette::Inactive, QPalette::Highlight, Qt::darkGreen );
     palette.setColor( QPalette::Inactive, QPalette::HighlightedText, Qt::white );
     qApp->setPalette( palette );
+
+    ExtendIconSizes();
+}
+
+
+void MainWindow::ExtendIconSizes()
+{
+    QIcon icon;
+    icon = ui.actionNew->icon();
+    icon.addFile(QString::fromUtf8(":/main/document-new_16px.png") );
+    ui.actionNew->setIcon(icon);
+
+    icon = ui.actionSave->icon();
+    icon.addFile(QString::fromUtf8(":/main/document-save_16px.png"));
+    ui.actionSave->setIcon(icon);
+
+    icon = ui.actionSaveAs->icon();
+    icon.addFile(QString::fromUtf8(":/main/document-save-as_16px.png"));
+    ui.actionSaveAs->setIcon(icon);
+
+    icon = ui.actionCut->icon();
+    icon.addFile(QString::fromUtf8(":/main/edit-cut_16px.png"));
+    ui.actionCut->setIcon(icon);
+
+    icon = ui.actionPaste->icon();
+    icon.addFile(QString::fromUtf8(":/main/edit-paste_16px.png"));
+    ui.actionPaste->setIcon(icon);
+
+    icon = ui.actionUndo->icon();
+    icon.addFile(QString::fromUtf8(":/main/edit-undo_16px.png"));
+    ui.actionUndo->setIcon(icon);
+
+    icon = ui.actionRedo->icon();
+    icon.addFile(QString::fromUtf8(":/main/edit-redo_16px.png"));
+    ui.actionRedo->setIcon(icon);
+
+    icon = ui.actionCopy->icon();
+    icon.addFile(QString::fromUtf8(":/main/edit-copy_16px.png"));
+    ui.actionCopy->setIcon(icon);
+
+    icon = ui.actionAlignLeft->icon();
+    icon.addFile(QString::fromUtf8(":/main/format-justify-left_16px.png"));
+    ui.actionAlignLeft->setIcon(icon);
+
+    icon = ui.actionAlignRight->icon();
+    icon.addFile(QString::fromUtf8(":/main/format-justify-right_16px.png"));
+    ui.actionAlignRight->setIcon(icon);
+
+    icon = ui.actionCenter->icon();
+    icon.addFile(QString::fromUtf8(":/main/format-justify-center_16px.png"));
+    ui.actionCenter->setIcon(icon);
+
+    icon = ui.actionJustify->icon();
+    icon.addFile(QString::fromUtf8(":/main/format-justify-fill_16px.png"));
+    ui.actionJustify->setIcon(icon);
+
+    icon = ui.actionBold->icon();
+    icon.addFile(QString::fromUtf8(":/main/format-text-bold_16px.png"));
+    ui.actionBold->setIcon(icon);
+
+    icon = ui.actionItalic->icon();
+    icon.addFile(QString::fromUtf8(":/main/format-text-italic_16px.png"));
+    ui.actionItalic->setIcon(icon);
+
+    icon = ui.actionOpen->icon();
+    icon.addFile(QString::fromUtf8(":/main/document-open_16px.png"));
+    ui.actionOpen->setIcon(icon);
+
+    icon = ui.actionUnderline->icon();
+    icon.addFile(QString::fromUtf8(":/main/format-text-underline_16px.png"));
+    ui.actionUnderline->setIcon(icon);
+
+    icon = ui.actionExit->icon();
+    icon.addFile(QString::fromUtf8(":/main/process-stop_16px.png"));
+    ui.actionExit->setIcon(icon);
+
+    icon = ui.actionAbout->icon();
+    icon.addFile(QString::fromUtf8(":/main/help-browser_16px.png"));
+    ui.actionAbout->setIcon(icon);
+
+    icon = ui.actionBookView->icon();
+    icon.addFile(QString::fromUtf8(":/main/view-book_16px.png"));
+    ui.actionBookView->setIcon(icon);
+
+    icon = ui.actionSplitView->icon();
+    icon.addFile(QString::fromUtf8(":/main/view-split_16px.png"));
+    ui.actionSplitView->setIcon(icon);
+
+    icon = ui.actionCodeView->icon();
+    icon.addFile(QString::fromUtf8(":/main/view-code_16px.png"));
+    ui.actionCodeView->setIcon(icon);
+
+    icon = ui.actionSplitChapter->icon();
+    icon.addFile(QString::fromUtf8(":/main/insert-chapter-break_16px.png"));
+    ui.actionSplitChapter->setIcon(icon);
+
+    icon = ui.actionInsertImage->icon();
+    icon.addFile(QString::fromUtf8(":/main/insert-image_16px.png"));
+    ui.actionInsertImage->setIcon(icon);
+
+    icon = ui.actionInsertNumberedList->icon();
+    icon.addFile(QString::fromUtf8(":/main/insert-numbered-list_16px.png"));
+    ui.actionInsertNumberedList->setIcon(icon);
+
+    icon = ui.actionInsertBulletedList->icon();
+    icon.addFile(QString::fromUtf8(":/main/insert-bullet-list_16px.png"));
+    ui.actionInsertBulletedList->setIcon(icon);
+
+    icon = ui.actionStrikethrough->icon();
+    icon.addFile(QString::fromUtf8(":/main/format-text-strikethrough_16px.png"));
+    ui.actionStrikethrough->setIcon(icon);
+
+    icon = ui.actionPrint->icon();
+    icon.addFile(QString::fromUtf8(":/main/document-print_16px.png"));
+    ui.actionPrint->setIcon(icon);
+
+    icon = ui.actionPrintPreview->icon();
+    icon.addFile(QString::fromUtf8(":/main/document-print-preview_16px.png"));
+    ui.actionPrintPreview->setIcon(icon);
+
+    icon = ui.actionZoomIn->icon();
+    icon.addFile(QString::fromUtf8(":/main/list-add_16px.png"));
+    ui.actionZoomIn->setIcon(icon);
+
+    icon = ui.actionZoomOut->icon();
+    icon.addFile(QString::fromUtf8(":/main/list-remove_16px.png"));
+    ui.actionZoomOut->setIcon(icon);
+
+    icon = ui.actionFind->icon();
+    icon.addFile(QString::fromUtf8(":/main/edit-find_16px.png"));
+    ui.actionFind->setIcon(icon);
+
+    icon = ui.actionReplace->icon();
+    icon.addFile(QString::fromUtf8(":/main/edit-find-replace_16px.png"));
+    ui.actionReplace->setIcon(icon);
+
+    icon = ui.actionIncreaseIndent->icon();
+    icon.addFile(QString::fromUtf8(":/main/format-indent-more_16px.png"));
+    ui.actionIncreaseIndent->setIcon(icon);
+
+    icon = ui.actionDecreaseIndent->icon();
+    icon.addFile(QString::fromUtf8(":/main/format-indent-less_16px.png"));
+    ui.actionDecreaseIndent->setIcon(icon);
+
+    icon = ui.actionRemoveFormatting->icon();
+    icon.addFile(QString::fromUtf8(":/main/edit-clear_16px.png"));
+    ui.actionRemoveFormatting->setIcon(icon);
 }
 
 

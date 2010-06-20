@@ -61,7 +61,7 @@ void BookNormalization::GiveIDsToHeadings( QList< HTMLResource* > html_resources
 
 void BookNormalization::GiveIDsToHeadingsInResource( HTMLResource *html_resource )
 {
-    QReadLocker locker( &html_resource->GetLock() );
+    QWriteLocker locker( &html_resource->GetLock() );
 
     QList< Headings::Heading > headings = Headings::GetHeadingListForOneFile( html_resource );
 

@@ -704,14 +704,16 @@ void FlowTab::SaveContentOnTabLeave()
     else
 
         m_HTMLResource.UpdateDomDocumentFromTextDocument();
-
-    ContentTab::SaveContentOnTabLeave();
 }
 
 
 void FlowTab::LoadContentOnTabEnter()
 {
-    ContentTab::LoadContentOnTabEnter();
+    // If we already have a lock, that means the initial loading
+    // is already done. LoadContentOnTabEnter() can get called twice:
+    // once when the user switches to the tab, and a second time
+    // when he clicks inside it and gives it focus. 
+    // FIXME: DOUBLE LOAD!
 
     if ( m_IsLastViewBook )
 
@@ -727,8 +729,8 @@ void FlowTab::TabFocusChange( QWidget *old_widget, QWidget *new_widget )
 {   
     // Whole tab gains focus
     if ( ( new_widget == &m_wBookView || new_widget == &m_wCodeView ) &&
-           old_widget != &m_wBookView &&
-           old_widget != &m_wCodeView 
+         old_widget != &m_wBookView &&
+         old_widget != &m_wCodeView 
        )
     {
         LoadContentOnTabEnter();

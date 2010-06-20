@@ -258,6 +258,12 @@ public slots:
      *  Implements Code View action functionality.
      */
     void CodeView();
+    
+    // inherited 
+
+    void SaveContentOnTabLeave();
+
+    void LoadContentOnTabEnter();
 
 signals:
 
@@ -304,12 +310,6 @@ signals:
      * @param chapters The content of the new chapters to be created.
      */
     void NewChaptersRequest( QStringList chapters );
-
-protected slots:
-
-    void SaveContentOnTabLeave();
-    
-    void LoadContentOnTabEnter();
 
 private slots:
 
@@ -423,12 +423,12 @@ private:
 
     /**
      * Specifies which view was used last.
-     * True if the last view the user edited in was Book View. 
+     * \c True if the last view the user edited in was Book View. 
      */
     bool m_IsLastViewBook; 
 
     /**
-     * True when the user is using the Split View.
+     * \c True when the user is using the Split View.
      *
      * @note We need this variable because for some reason, 
      *       checking for isVisible on both views doesn't work.

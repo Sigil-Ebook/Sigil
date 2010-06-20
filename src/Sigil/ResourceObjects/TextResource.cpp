@@ -50,7 +50,7 @@ QTextDocument& TextResource::GetTextDocumentForWriting()
 {
     Q_ASSERT( m_TextDocument );
 
-    return *m_TextDocument;    
+    return *m_TextDocument;
 }
 
 
@@ -60,6 +60,9 @@ void TextResource::SaveToDisk( bool book_wide_save )
     // here because that causes problems with epub export
     // when the user has not changed the text file.
     // (some text files have placeholder text on disk)
+
+    // Just in case there was no initial load until now.
+    InitialLoad();
 
     QWriteLocker locker( &m_ReadWriteLock );
 

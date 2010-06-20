@@ -35,6 +35,9 @@ TabManager::TabManager( QWidget *parent )
     connect( this, SIGNAL( currentChanged( int ) ),    this, SLOT( EmitTabChanged() ) );
     connect( this, SIGNAL( tabCloseRequested( int ) ), this, SLOT( CloseTab( int ) ) );
 
+    connect( this, SIGNAL( TabChanged(              ContentTab*, ContentTab* ) ), 
+             this, SLOT(   UpdateTabStatesOnSwitch( ContentTab*, ContentTab* ) ) );
+
     setDocumentMode( true );
     setMovable( true );
     setTabsClosable( true );
@@ -121,6 +124,18 @@ void TabManager::EmitTabChanged()
     emit TabChanged( m_LastContentTab.data(), current_tab );
 
     m_LastContentTab = QWeakPointer< ContentTab >( current_tab );
+}
+
+
+void TabManager::UpdateTabStatesOnSwitch( ContentTab* old_tab, ContentTab* new_tab )
+{
+    if ( old_tab )
+
+        old_tab->SaveContentOnTabLeave();
+
+    if ( new_tab )
+
+        new_tab->LoadContentOnTabEnter();
 }
 
 

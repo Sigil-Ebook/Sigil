@@ -166,6 +166,11 @@ private:
      */
     void UpdatePreviousReplaceStrings();
 
+    /**
+     * Sets up the default Find text during dialog creation.
+     */
+    void SetUpFindText();
+
     // Reads all the stored dialog settings like
     // window position, geometry etc.
     void ReadSettings();

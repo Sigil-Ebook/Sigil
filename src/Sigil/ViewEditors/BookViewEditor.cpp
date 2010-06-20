@@ -66,10 +66,11 @@ void BookViewEditor::CustomSetWebPage( QWebPage &webpage )
 {
     m_isLoadFinished = true;
 
-    connect( &webpage, SIGNAL( contentsChanged()    ), this, SIGNAL( textChanged()            ) );
-    connect( &webpage, SIGNAL( selectionChanged()   ), this, SIGNAL( selectionChanged()       ) );
-    connect( &webpage, SIGNAL( loadFinished( bool ) ), this, SLOT( JavascriptOnDocumentLoad() ) );
-    connect( &webpage, SIGNAL( loadProgress( int )  ), this, SLOT( UpdateFinishedState( int ) ) );
+    connect( this,     SIGNAL( contentsChangedExtra() ), &webpage, SIGNAL( contentsChanged()        ) );
+    connect( &webpage, SIGNAL( contentsChanged()      ), this,     SIGNAL( textChanged()            ) );
+    connect( &webpage, SIGNAL( selectionChanged()     ), this,     SIGNAL( selectionChanged()       ) );
+    connect( &webpage, SIGNAL( loadFinished( bool )   ), this,     SLOT( JavascriptOnDocumentLoad() ) );
+    connect( &webpage, SIGNAL( loadProgress( int )    ), this,     SLOT( UpdateFinishedState( int ) ) );
 
     connect( &webpage, SIGNAL( linkClicked( const QUrl& ) ), this, SLOT( LinkClickedFilter( const QUrl&  ) ) );
 
@@ -87,6 +88,8 @@ QString BookViewEditor::SplitChapter()
     QString head     = page()->mainFrame()->documentElement().findFirst( "head" ).toOuterXml();    
     QString body_tag = EvaluateJavascript( GET_BODY_TAG_HTML ).toString();
     QString segment  = EvaluateJavascript( c_GetSegmentHTML  ).toString();
+
+    emit contentsChangedExtra();
 
     return QString( "<html>" )
            .append( head )
@@ -185,7 +188,7 @@ void BookViewEditor::FormatBlock( const QString &element_name )
 
     EvaluateJavascript( javascript );
 
-    emit textChanged();
+    emit contentsChangedExtra();
 }
 
 
@@ -245,7 +248,6 @@ void BookViewEditor::SetZoomFactor( float factor )
 
     emit ZoomFactorChanged( factor );
 }
-
 
 
 float BookViewEditor::GetZoomFactor() const
@@ -318,7 +320,7 @@ bool BookViewEditor::ReplaceSelected( const QRegExp &search_regex, const QString
         EvaluateJavascript( GetRangeJS( input ) + replacing_js + c_NewSelection ); 
 
         // Tell anyone who's interested that the document has been updated.
-        emit textChanged();
+        emit contentsChangedExtra();
 
         return true;
     }
@@ -386,9 +388,17 @@ int BookViewEditor::ReplaceAll( const QRegExp &search_regex, const QString &repl
     }
 
     // Tell anyone who's interested that the document has been updated.
-    emit textChanged();
+    emit contentsChangedExtra();
 
     return count;
+}
+
+
+QString BookViewEditor::GetSelectedText()
+{
+    QString javascript = "window.getSelection().toString();";
+
+    return EvaluateJavascript( javascript ).toString();
 }
 
 
@@ -552,14 +562,6 @@ int BookViewEditor::GetSelectionOffset( const QDomDocument &document,
 }
 
 
-QString BookViewEditor::GetSelectedText()
-{
-    QString javascript = "window.getSelection().toString();";
-
-    return EvaluateJavascript( javascript ).toString();
-}
-
-
 BookViewEditor::SearchTools BookViewEditor::GetSearchTools() const
 {
     SearchTools search_tools;
@@ -675,7 +677,6 @@ bool BookViewEditor::ExecuteCaretUpdate()
 
     return true;
 }
-
 
 
 BookViewEditor::SelectRangeInputs BookViewEditor::GetRangeInputs( const QMap< int, QDomNode > &node_offsets,

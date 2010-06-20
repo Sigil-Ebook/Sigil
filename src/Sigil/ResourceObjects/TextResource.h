@@ -90,7 +90,7 @@ public:
 private:
 
     /**
-     * The syntax colored cache of the text resource text content.
+     * The syntax colored cache of the TextResource text content.
      */
     QTextDocument *m_TextDocument;
 };

@@ -1,4 +1,27 @@
-﻿Sigil v0.2.1 ADD_DATE
+﻿Sigil v0.2.2 ADD_DATE
+    - fixed a problem with BookView chapter splitting sometimes not being registered on save,
+    causing duplicate content (issue #450)
+
+Sigil v0.2.1 2010.06.18
+    - XHTML files that specify two different encodings are now fixed by removing the incorrect one
+    - Sigil now checks the XML encoding attribute for an encoding before the HTML metatag
+    and charset; should now be more compatible with Calibre created epub books
+    - created/used 16px version of all icons; icons in menus are not blurry anymore (issue #121)
+    - the Find&Replace dialog now uses the currently selected text (if any) as the default search
+    term (issue #370)
+    - fixed issues with unnecessary reloads of the code view (issue #412, issue #398)
+    - fixed an issue with the HTML file filter in the open file dialog not correctly filtering 
+    files (issue #416)
+    - fixed an issue with files without extensions not being saved in the final epub (issue #400)
+    - fixed an issue with XPGT resources sometimes being saved blank (issue #433)
+    - fixed a regression that made it impossible to add removed headings back into the TOC
+    (issue #439)
+    - fixed a problem with some file-wide replacements reverting
+    - fixed a problem with the opened tabs not being updated until the user gave them keyboard
+    focus when a file-wide replace was performed (issue 408)
+    - fixed a problem with Book View not reflecting changes done in Code View when the
+    Code View was used for editing, and then the tab closed
+    - use of custom synchronization primitives should resolve most infrequent hang bugs
     - fixed a problem with the search not progressing in Book View find&replace when using
     recursive replacements
     - fixed an issue with inserting images that have apostrophes in the filename (issue #391) 
