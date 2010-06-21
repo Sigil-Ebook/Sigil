@@ -405,9 +405,9 @@ void MainWindow::MetaEditorDialog()
 // Implements TOC Preview action functionality
 void MainWindow::TOCEditorDialog()
 {
-    // Make sure the current tab has unlocked
-    // its resource (which it does on losing focus)
-    setFocus();
+    // Make sure the current tab has saved
+    // any unsaved data.
+    GetCurrentContentTab().SaveContentOnTabLeave();
 
     TOCEditor toc( m_Book, this );
 
@@ -685,16 +685,15 @@ void MainWindow::UpdateZoomLabel( float new_zoom_factor )
 
 void MainWindow::CreateChapterBreakOldTab( QString content, HTMLResource& originating_resource )
 {
-    // Steal focus from the current tab so it
-    // unlocks its resource.
-    setFocus();
+    // Force the saving of any unsaved data.
+    GetCurrentContentTab().SaveContentOnTabLeave();
 
     HTMLResource& html_resource = m_Book->CreateChapterBreakOriginalResource( content, originating_resource );
 
     m_BookBrowser->Refresh();
     m_TabManager.OpenResource( html_resource, true, QUrl() );
 
-    FlowTab *flow_tab = qobject_cast< FlowTab* >( &m_TabManager.GetCurrentContentTab() );
+    FlowTab *flow_tab = qobject_cast< FlowTab* >( &GetCurrentContentTab() );
 
     // We want the current tab to be scrolled to the top.
     if ( flow_tab )
@@ -858,8 +857,8 @@ void MainWindow::LoadFile( const QString &fullfilepath )
     {
         QApplication::setOverrideCursor( Qt::WaitCursor );
 
-        // Steal focus from the tab so the resource gets unlocked
-        setFocus();
+        // Force the saving of any unsaved data.
+        GetCurrentContentTab().SaveContentOnTabLeave();
 
         // Create the new book, clean up the old one
         // (destructors take care of that)
@@ -885,10 +884,8 @@ bool MainWindow::SaveFile( const QString &fullfilepath )
 {
     try
     {
-        // Make sure the current tab has unlocked
-        // its resource (which it does on losing focus).
-        // Obsolete now, but let's leave it.
-        setFocus();
+        // Force the saving of any unsaved data.
+        GetCurrentContentTab().SaveContentOnTabLeave();
 
         QString extension = QFileInfo( fullfilepath ).suffix().toLower();
 
@@ -914,7 +911,7 @@ bool MainWindow::SaveFile( const QString &fullfilepath )
         QApplication::restoreOverrideCursor();
 
         // Return the focus back to the current tab
-        ContentTab &tab = m_TabManager.GetCurrentContentTab();
+        ContentTab &tab = GetCurrentContentTab();
 
         if ( &tab != NULL )
 

@@ -1,4 +1,9 @@
-﻿Sigil v0.2.2 2010.06.20
+﻿Sigil v0.2.3 ADD_DATE
+    - worked around a Qt focus issue causing current tab data to sometimes not be saved;
+    this was uncovered by fixing the hang-on-save issue, which was caused by the same 
+    underlying problem (issue #466)
+
+Sigil v0.2.2 2010.06.20
     - simplified the resource locking mechanism; should eliminate the hang-on-save issue
     - fixed a problem with BookView chapter splitting sometimes not being registered on save,
     causing duplicate content (issue #450)
