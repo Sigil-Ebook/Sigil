@@ -1,4 +1,6 @@
 ﻿Sigil v0.2.3 ADD_DATE
+    - fixed an issue with the new data from one view sometimes not being saved in the final
+    epub when switching to the other view
     - worked around a Qt focus issue causing current tab data to sometimes not be saved;
     this was uncovered by fixing the hang-on-save issue, which was caused by the same 
     underlying problem (issue #466)
