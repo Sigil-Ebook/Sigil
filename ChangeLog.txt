@@ -1,16 +1,16 @@
-﻿Sigil v0.2.3 ADD_DATE
+﻿Sigil v0.2.3 2010.06.22.
     - fixed an issue with the new data from one view sometimes not being saved in the final
     epub when switching to the other view
     - worked around a Qt focus issue causing current tab data to sometimes not be saved;
     this was uncovered by fixing the hang-on-save issue, which was caused by the same 
     underlying problem (issue #466)
 
-Sigil v0.2.2 2010.06.20
+Sigil v0.2.2 2010.06.20.
     - simplified the resource locking mechanism; should eliminate the hang-on-save issue
     - fixed a problem with BookView chapter splitting sometimes not being registered on save,
     causing duplicate content (issue #450)
 
-Sigil v0.2.1 2010.06.18
+Sigil v0.2.1 2010.06.18.
     - XHTML files that specify two different encodings are now fixed by removing the incorrect one
     - Sigil now checks the XML encoding attribute for an encoding before the HTML metatag
     and charset; should now be more compatible with Calibre created epub books
@@ -41,13 +41,13 @@ Sigil v0.2.1 2010.06.18
 Sigil v0.2.0 2010.05.11.
     - added new entries to the help menu for the online manual and the FAQ
 
-Sigil v0.2.0 RC4 2010.05.08
+Sigil v0.2.0 RC4 2010.05.08.
     - fixed a regression that broke FindNext opening new tabs when searching across HTML files 
     (issue #384)
     - fixed an issue with autocompletion in Find dialog ignoring the case of search terms 
     (issue #385)
 
-Sigil v0.2.0 RC3 2010.05.07
+Sigil v0.2.0 RC3 2010.05.07.
     - fixed a regression that messed up the tab order of the controls in the Find dialog
     (issue #380)
     - fixed an issue with cross-file FindNext causing a hang when the search term is not in

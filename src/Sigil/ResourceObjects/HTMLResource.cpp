@@ -258,7 +258,7 @@ void HTMLResource::UpdateTextDocumentFromWebPage()
     {
         m_TextDocument->setPlainText( source );
         m_OldSourceCache = source;
-    }     
+    }
 
     // We need to transfer the modified state to the other cache
     SetTextDocumentModified( WebPageModified() );
