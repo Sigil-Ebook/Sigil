@@ -218,12 +218,12 @@ public slots:
     /**
      * Saves the changed content when the user leaves the tab.
      */
-    virtual void SaveContentOnTabLeave();
+    virtual void SaveTabContent();
 
     /**
      * Loads the resource content when the user enters the tab.
      */
-    virtual void LoadContentOnTabEnter();
+    virtual void LoadTabContent();
 
 signals:
 
@@ -269,7 +269,7 @@ protected:
 
     /**
      * A custom focusIn handler.
-     * By default, calls the LoadContentOnTabEnter function.
+     * By default, calls the LoadTabContent function.
      *
      * @warning Will \b not be called for child tabs
      *          that set a focus proxy (like FlowTab, TextTab etc.)
@@ -278,7 +278,7 @@ protected:
 
     /**
      * A custom focusOut handler.
-     * By default, calls the SaveContentOnTabLeave function.
+     * By default, calls the SaveTabContent function.
      *
      * @warning Will \b not be called for child tabs
      *          that set a focus proxy (like FlowTab, TextTab etc.)

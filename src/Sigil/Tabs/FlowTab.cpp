@@ -503,9 +503,9 @@ void FlowTab::InsertSGFChapterMarker()
 
 void FlowTab::SplitOnSGFChapterMarkers()
 {
-    SaveContentOnTabLeave();
+    SaveTabContent();
     emit NewChaptersRequest( m_HTMLResource.SplitOnSGFChapterMarkers() );
-    LoadContentOnTabEnter();
+    LoadTabContent();
 }
 
 
@@ -560,7 +560,7 @@ void FlowTab::HeadingStyle( const QString& heading_type )
     // (via the combobox signal), while
     // the FlowTab does not have a modify lock.
     // So we need to get one first.
-    LoadContentOnTabEnter();
+    LoadTabContent();
 
     QChar last_char = heading_type[ heading_type.count() - 1 ];
 
@@ -575,7 +575,7 @@ void FlowTab::HeadingStyle( const QString& heading_type )
 
     // else is "<Select heading>" which does nothing
 
-    SaveContentOnTabLeave();
+    SaveTabContent();
 }
 
 
@@ -695,7 +695,7 @@ void FlowTab::CodeView()
 }
 
 
-void FlowTab::SaveContentOnTabLeave()
+void FlowTab::SaveTabContent()
 {
     if ( m_IsLastViewBook )
 
@@ -707,7 +707,7 @@ void FlowTab::SaveContentOnTabLeave()
 }
 
 
-void FlowTab::LoadContentOnTabEnter()
+void FlowTab::LoadTabContent()
 {
     if ( m_IsLastViewBook )
 
@@ -727,7 +727,7 @@ void FlowTab::TabFocusChange( QWidget *old_widget, QWidget *new_widget )
          old_widget != &m_wCodeView 
        )
     {
-        LoadContentOnTabEnter();
+        LoadTabContent();
     }   
 
     // Whole tab loses focus
@@ -736,7 +736,7 @@ void FlowTab::TabFocusChange( QWidget *old_widget, QWidget *new_widget )
               new_widget != &m_wCodeView 
             )
     {
-        SaveContentOnTabLeave();
+        SaveTabContent();
     } 
 }
 

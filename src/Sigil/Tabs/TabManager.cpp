@@ -131,11 +131,11 @@ void TabManager::UpdateTabStatesOnSwitch( ContentTab* old_tab, ContentTab* new_t
 {
     if ( old_tab )
 
-        old_tab->SaveContentOnTabLeave();
+        old_tab->SaveTabContent();
 
     if ( new_tab )
 
-        new_tab->LoadContentOnTabEnter();
+        new_tab->LoadTabContent();
 }
 
 

@@ -66,19 +66,19 @@ Searchable* ContentTab::GetSearchableContent()
 
 void ContentTab::Close()
 {
-    SaveContentOnTabLeave();
+    SaveTabContent();
     
     EmitDeleteMe();
 }
 
 
-void ContentTab::SaveContentOnTabLeave()
+void ContentTab::SaveTabContent()
 {
 
 }
 
 
-void ContentTab::LoadContentOnTabEnter()
+void ContentTab::LoadTabContent()
 {
 
 }
@@ -100,7 +100,7 @@ void ContentTab::focusInEvent( QFocusEvent *event )
 {
     QWidget::focusInEvent( event );
 
-    LoadContentOnTabEnter();
+    LoadTabContent();
 }
 
 
@@ -108,6 +108,6 @@ void ContentTab::focusOutEvent( QFocusEvent *event )
 {
     QWidget::focusOutEvent( event );
 
-    SaveContentOnTabLeave();
+    SaveTabContent();
 }
 

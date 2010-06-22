@@ -261,9 +261,9 @@ public slots:
     
     // inherited 
 
-    void SaveContentOnTabLeave();
+    void SaveTabContent();
 
-    void LoadContentOnTabEnter();
+    void LoadTabContent();
 
 signals:
 

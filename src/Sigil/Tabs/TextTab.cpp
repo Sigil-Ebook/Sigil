@@ -91,7 +91,7 @@ ContentTab::ViewState TextTab::GetViewState()
 }
 
 
-void TextTab::SaveContentOnTabLeave()
+void TextTab::SaveTabContent()
 {
     // We can't perform the document modified check
     // here because that causes problems with epub export
@@ -99,12 +99,12 @@ void TextTab::SaveContentOnTabLeave()
     // (some text files have placeholder text on disk)
     if ( !m_wCodeView.document()->isModified() )
     {
-        ContentTab::SaveContentOnTabLeave();
+        ContentTab::SaveTabContent();
         return;
     }
 
     m_TextResource.SaveToDisk();
-    ContentTab::SaveContentOnTabLeave();
+    ContentTab::SaveTabContent();
 }
 
 void TextTab::DelayedInitialization()
@@ -117,8 +117,8 @@ void TextTab::ConnectSignalsToSlots()
 {
     // We set the Code View as the focus proxy for the tab,
     // so the ContentTab focusIn/Out handlers are not called.
-    connect( &m_wCodeView, SIGNAL( FocusGained() ),              this, SLOT( LoadContentOnTabEnter() )      );
-    connect( &m_wCodeView, SIGNAL( FocusLost() ),                this, SLOT( SaveContentOnTabLeave() )      );
+    connect( &m_wCodeView, SIGNAL( FocusGained() ),              this, SLOT( LoadTabContent() )      );
+    connect( &m_wCodeView, SIGNAL( FocusLost() ),                this, SLOT( SaveTabContent() )      );
 
     connect( &m_wCodeView, SIGNAL( FilteredTextChanged() ),      this, SIGNAL( ContentChanged() )           );
     connect( &m_wCodeView, SIGNAL( ZoomFactorChanged( float ) ), this, SIGNAL( ZoomFactorChanged( float ) ) );

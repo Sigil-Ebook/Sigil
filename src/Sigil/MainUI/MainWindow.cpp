@@ -407,7 +407,7 @@ void MainWindow::TOCEditorDialog()
 {
     // Make sure the current tab has saved
     // any unsaved data.
-    GetCurrentContentTab().SaveContentOnTabLeave();
+    GetCurrentContentTab().SaveTabContent();
 
     TOCEditor toc( m_Book, this );
 
@@ -686,7 +686,7 @@ void MainWindow::UpdateZoomLabel( float new_zoom_factor )
 void MainWindow::CreateChapterBreakOldTab( QString content, HTMLResource& originating_resource )
 {
     // Force the saving of any unsaved data.
-    GetCurrentContentTab().SaveContentOnTabLeave();
+    GetCurrentContentTab().SaveTabContent();
 
     HTMLResource& html_resource = m_Book->CreateChapterBreakOriginalResource( content, originating_resource );
 
@@ -858,7 +858,7 @@ void MainWindow::LoadFile( const QString &fullfilepath )
         QApplication::setOverrideCursor( Qt::WaitCursor );
 
         // Force the saving of any unsaved data.
-        GetCurrentContentTab().SaveContentOnTabLeave();
+        GetCurrentContentTab().SaveTabContent();
 
         // Create the new book, clean up the old one
         // (destructors take care of that)
@@ -885,7 +885,7 @@ bool MainWindow::SaveFile( const QString &fullfilepath )
     try
     {
         // Force the saving of any unsaved data.
-        GetCurrentContentTab().SaveContentOnTabLeave();
+        GetCurrentContentTab().SaveTabContent();
 
         QString extension = QFileInfo( fullfilepath ).suffix().toLower();
 

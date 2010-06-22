@@ -61,7 +61,7 @@ signals:
 
 protected slots:
 
-    void SaveContentOnTabLeave();
+    void SaveTabContent();
 
 private slots:
 
