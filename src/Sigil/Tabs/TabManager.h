@@ -46,7 +46,12 @@ public:
      * 
      * @param parent The QObject's parent.
      */
-    TabManager( QWidget *parent = 0 ); 
+    TabManager( QWidget *parent = 0 );
+
+    /**
+     * Saves any unsaved data in the current tab.
+     */
+    void SaveCurrentTabData();
 
     /**
      * Returns a reference to the current content tab.

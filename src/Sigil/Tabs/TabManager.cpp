@@ -44,7 +44,20 @@ TabManager::TabManager( QWidget *parent )
     setUsesScrollButtons( true );
 }
 
-    
+
+void TabManager::SaveCurrentTabData()
+{
+    ContentTab& tab = GetCurrentContentTab();
+
+    // just in case
+    if ( &tab == NULL )
+
+        return;
+
+    tab.SaveTabContent();
+}
+
+
 ContentTab& TabManager::GetCurrentContentTab()
 {
     QWidget* widget = currentWidget();
@@ -55,6 +68,7 @@ ContentTab& TabManager::GetCurrentContentTab()
 
     return *qobject_cast< ContentTab* >( widget );
 }
+
 
 void TabManager::OpenResource( Resource& resource, 
                                bool precede_current_tab,
@@ -273,4 +287,3 @@ bool TabManager::AddNewContentTab( ContentTab *new_tab, bool precede_current_tab
 
     return true;
 }   
-
