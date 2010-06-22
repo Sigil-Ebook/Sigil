@@ -319,6 +319,8 @@ bool MainWindow::SaveAs()
 // Implements Find action functionality
 void MainWindow::Find()
 {
+    m_TabManager.SaveCurrentTabData();
+
     if ( m_FindReplace.isNull() )
     {   
         // Qt will delete this dialog from memory when it closes
@@ -336,6 +338,8 @@ void MainWindow::Find()
 // Implements Replace action functionality
 void MainWindow::Replace()
 {
+    m_TabManager.SaveCurrentTabData();
+
     if ( m_FindReplace.isNull() )
     {   
         // Qt will delete this dialog from memory when it closes
