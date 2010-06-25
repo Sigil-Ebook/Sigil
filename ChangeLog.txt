@@ -1,4 +1,8 @@
-﻿Sigil v0.2.3 2010.06.22.
+﻿Sigil v0.2.4 ADD_DATE
+    - fixed an issue where the user could avoid the warning dialog for book-wide searching in
+    Book View if he switched to this mode in Code View, and then switched back
+
+Sigil v0.2.3 2010.06.22.
     - fixed an issue with the new data from one view sometimes not being saved in the final
     epub when switching to the other view
     - worked around a Qt focus issue causing current tab data to sometimes not be saved;

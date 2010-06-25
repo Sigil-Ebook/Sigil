@@ -91,6 +91,15 @@ private slots:
 private:
 
     /**
+     * Checks if book-wide searching is allowed for the current view,
+     * and warns appropriately. The Look Where combo box is also reset
+     * to the "Current File" setting.
+     *
+     * @return \c true if book-wide searching is allowed.
+     */
+    bool CheckBookWideSearchingAllowed();
+
+    /**
      * Defines possible areas where the search can be performed.
      */
     enum LookWhere 

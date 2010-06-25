@@ -149,9 +149,14 @@ void FindReplace::FindNext()
             CannotFindSearchTerm();
     }
 
-    else
+    else if ( CheckBookWideSearchingAllowed() )
     {
         FindInAllFiles( searchable );
+    }
+
+    else
+    {
+        return;
     }
 
     UpdatePreviousFindStrings();
@@ -163,6 +168,10 @@ void FindReplace::FindNext()
 void FindReplace::Count()
 {
     if ( ui.cbFind->lineEdit()->text().isEmpty() )
+
+        return;
+
+    if ( !CheckBookWideSearchingAllowed() )
 
         return;
 
@@ -195,6 +204,10 @@ void FindReplace::Replace()
 
         return;
 
+    if ( !CheckBookWideSearchingAllowed() )
+
+        return;
+
     Searchable *searchable = GetAvailableSearchable();
 
     if ( !searchable )
@@ -218,6 +231,10 @@ void FindReplace::Replace()
 void FindReplace::ReplaceAll()
 {
     if ( ui.cbFind->lineEdit()->text().isEmpty() )
+
+        return;
+
+    if ( !CheckBookWideSearchingAllowed() )
 
         return;
 
@@ -260,20 +277,30 @@ void FindReplace::ToggleAvailableOptions( bool normal_search_checked )
 }
 
 
-void FindReplace::LookWhereChanged( int index  )
+void FindReplace::LookWhereChanged( int index )
 {
-    if ( ui.cbLookWhere->itemData( index ) == FindReplace::AllHTMLFiles &&
+    CheckBookWideSearchingAllowed();
+}
+
+
+bool FindReplace::CheckBookWideSearchingAllowed()
+{
+    if ( ui.cbLookWhere->itemData( ui.cbLookWhere->currentIndex() ) == FindReplace::AllHTMLFiles &&
          m_MainWindow.GetCurrentContentTab().GetViewState() == ContentTab::ViewState_BookView )
     {
         QMessageBox::critical( this,
                                tr( "Sigil" ),
                                tr( "It is not currently possible to search all the files in Book View mode. "
-                                   "Switch to Code View to perform such searches.")
+                               "Switch to Code View to perform such searches.")
                              );
 
         // Back to current document search mode
         ui.cbLookWhere->setCurrentIndex( 0 );
+
+        return false;
     }
+
+    return true;
 }
 
 
@@ -738,7 +765,5 @@ void FindReplace::ConnectSignalsToSlots()
     connect( ui.rbNormalSearch, SIGNAL( toggled( bool )       ), this, SLOT( ToggleAvailableOptions( bool ) ) );
     connect( ui.cbLookWhere,    SIGNAL( activated( int )      ), this, SLOT( LookWhereChanged( int )        ) );
 }
-
-
 
 
