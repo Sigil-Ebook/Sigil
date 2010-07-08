@@ -18,7 +18,7 @@ Thumbs.db
 *.sln
 *.suo
 *.vcproj
-*.user
+*.user*
 #*.rc
 *.ncb
 *.pch
