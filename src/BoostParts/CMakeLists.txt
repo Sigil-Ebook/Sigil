@@ -15,7 +15,7 @@
 #
 # WARNING: When doing this from fresh boost sources, note that
 # in the file /boost/config/user.hpp the BOOST_ALL_NO_LIB
-# define has be uncommented. Otherwise, we will get linker 
+# define has been uncommented. Otherwise, we will get linker 
 # errors on MSVC because of boost auto-linking.
 
 

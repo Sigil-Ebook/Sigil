@@ -7,7 +7,9 @@
 #
 #########################################################
 
-cmake_minimum_required( VERSION 2.8 ) 
+cmake_minimum_required( VERSION 2.8 )
+
+#############################################################################
 
 # Print a message and fail for people who don't
 # read the build instructions and then complain
@@ -20,6 +22,8 @@ if ( ${CMAKE_CURRENT_SOURCE_DIR} STREQUAL ${CMAKE_SOURCE_DIR} )
                          "You will probably now need to clean your build directory first." )
 endif()
 
+#############################################################################
+
 # We use the lower case name
 # on UNIX systems other than Mac OS X
 if ( WIN32 OR APPLE )
@@ -27,6 +31,8 @@ if ( WIN32 OR APPLE )
 else()
     project( sigil )
 endif()
+
+#############################################################################
 
 find_package( Qt4 REQUIRED )
 
@@ -244,8 +250,9 @@ set( QRC_FILES
     Resource_Files/icon/icon.qrc  
     )
     
-set( RAW_SOURCES ${MAIN_FILES} ${TAB_FILES} ${SOURCEUPDATE_FILES} ${BOOK_MANIPULATION_FILES} ${RESOURCE_OBJECT_FILES} ${DIALOG_FILES} ${EXPORTER_FILES}
-                 ${IMPORTER_FILES} ${MISC_FILES} ${VIEW_EDITOR_FILES} ${MAINUI_FILES} )
+set( RAW_SOURCES ${MAIN_FILES} ${TAB_FILES} ${SOURCEUPDATE_FILES} ${BOOK_MANIPULATION_FILES} ${RESOURCE_OBJECT_FILES} ${DIALOG_FILES} ${EXPORTER_FILES} ${IMPORTER_FILES} ${MISC_FILES} ${VIEW_EDITOR_FILES} ${MAINUI_FILES} )
+
+#############################################################################
 
 # Runs MOC on specifed files
 qt4_wrap_cpp( MOC_FILES_CPP ${QOBJECT_HEADERS} )
@@ -260,66 +267,18 @@ qt4_add_resources( QRC_FILES_CPP ${QRC_FILES} )
 set_source_files_properties( Dialogs/About.cpp PROPERTIES COMPILE_DEFINITIONS SIGIL_FULL_VERSION="${SIGIL_FULL_VERSION}" )
 set_source_files_properties( Misc/Utility.cpp PROPERTIES COMPILE_DEFINITIONS SIGIL_FULL_VERSION="${SIGIL_FULL_VERSION}" )
 
-# MSVC precompiled headers cmake code
-if ( MSVC )
-    set_source_files_properties( stdafx.cpp PROPERTIES COMPILE_FLAGS "/Ycstdafx.h" )
-    set_source_files_properties( stdafx.h   PROPERTIES COMPILE_FLAGS "/Yustdafx.h" )
-        
-    foreach( src_file ${RAW_SOURCES} )
-        if( ${src_file} MATCHES ".*cpp$" )
-            set_source_files_properties( ${src_file} PROPERTIES COMPILE_FLAGS "/Yustdafx.h" )
-        endif()
-    endforeach()
+#############################################################################
 
-    # stdafx.cpp has to come before stdafx.h, 
-    # otherwise we get a linker error...
-    list( INSERT RAW_SOURCES 0 stdafx.h )
-    list( APPEND MAIN_FILES stdafx.h )
-    list( INSERT RAW_SOURCES 0 stdafx.cpp )
-    list( APPEND MAIN_FILES stdafx.cpp )
+# creating PCH's for MSVC and GCC on Linux
+include( ${CMAKE_SOURCE_DIR}/CustomPCH.cmake )
+set( ALL_INCLUDES ${BoostParts_SOURCE_DIR} ${QT_INCLUDES} )
 
-# GCC precompiled headers cmake code
-# We don't do this on Macs since GCC there goes haywire
-# when you try to generate a PCH with two "-arch" flags
-elseif( CMAKE_COMPILER_IS_GNUCXX AND NOT APPLE )
+precompiled_header( RAW_SOURCES ALL_INCLUDES "gccPCH" )
 
-    # Get the compiler flags for this build type
-    string( TOUPPER "CMAKE_CXX_FLAGS_${CMAKE_BUILD_TYPE}" flags_for_build_name )
-    set( compile_flags ${${flags_for_build_name}} )
-    
-    # Add all the Qt include directories
-    foreach( item ${QT_INCLUDES} )
-        list( APPEND compile_flags "-I${item}" )
-    endforeach()
+list( APPEND MAIN_FILES stdafx.h )
+list( APPEND MAIN_FILES stdafx.cpp )
 
-    # Include the BoostParts directory
-    list( APPEND compile_flags "-I${BoostParts_SOURCE_DIR}" )
-
-    # Get the list of all build-independent preprocessor definitions
-    get_directory_property( defines_global COMPILE_DEFINITIONS )
-    list( APPEND defines ${defines_global} )
-
-    # Get the list of all build-dependent preprocessor definitions
-    string( TOUPPER "COMPILE_DEFINITIONS_${CMAKE_BUILD_TYPE}" defines_for_build_name )
-    get_directory_property( defines_build ${defines_for_build_name} )
-    list( APPEND defines ${defines_build} )
-
-    # Add the "-D" prefix to all of them
-    foreach( item ${defines} )
-        list( APPEND all_define_flags "-D${item}" )
-    endforeach()
-    
-    list( APPEND compile_flags ${all_define_flags} ) 
-    
-    # Prepare the compile flags var for passing to GCC
-    separate_arguments( compile_flags )
-    
-    # Finally, build the precompiled header
-    add_custom_target(  gccPCH ALL 
-                        COMMAND ${CMAKE_CXX_COMPILER} ${compile_flags} ${CMAKE_CURRENT_SOURCE_DIR}/stdafx.h -o stdafx.h.gch
-                        WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
-                        VERBATIM )
-endif() 
+#############################################################################
 
 # Adds folders for Visual Studio solution explorer (and for Xcode explorer)
 source_group( "Generated"         FILES ${MOC_FILES_CPP} ${UI_FILES_H} ${QRC_FILES_CPP} )
@@ -337,6 +296,7 @@ source_group( "MainUI"            FILES ${MAINUI_FILES} )
 source_group( "Main Files"        FILES ${MAIN_FILES} )
 source_group( "Source Updates"    FILES ${SOURCEUPDATE_FILES} )
 
+#############################################################################
 
 set( ALL_SOURCES ${RAW_SOURCES} ${MOC_FILES_CPP} ${UI_FILES_H} ${QRC_FILES_CPP} )
 
@@ -345,6 +305,8 @@ if ( MSVC )
     list( APPEND ALL_SOURCES Resource_Files/icon/icon.rc )
     source_group( "Resources" FILES Resource_Files/icon/icon.rc )
 endif()
+
+#############################################################################
 
 # Apple bundle configuration
 if( APPLE )
@@ -364,11 +326,15 @@ if( APPLE )
     exec_program( "sed -i -e 's/SGVERSION/${SIGIL_FULL_VERSION}/g' ${PROJECT_BINARY_DIR}/MacOSXBundleInfo.plist")
 endif()
 
+#############################################################################
+
 # We need to pick up the stdafx.h file, the ui*.h files,
 # and the headers for the linked-to libraries
 include_directories( ${CMAKE_CURRENT_BINARY_DIR} ${CMAKE_CURRENT_SOURCE_DIR} ../ZipArchive ../tidyLib ../BoostParts )
 
 link_directories ( ${PROJECT_BINARY_DIR}/lib ) 
+
+#############################################################################
 
 # We make bundles for Mac OS X
 if ( APPLE )
@@ -380,6 +346,8 @@ else()
 endif()
 
 target_link_libraries( ${PROJECT_NAME} tidyLib ZipArchive BoostParts ${QT_LIBRARIES} )
+
+#############################################################################
 
 # "Link time code generation" flags for MSVC
 if( MSVC )
@@ -402,6 +370,8 @@ endif()
 if ( WIN32 )
     set_target_properties( ${PROJECT_NAME} PROPERTIES LINK_FLAGS "/SUBSYSTEM:WINDOWS" )
 endif()
+
+#############################################################################
 
 # For Mac, add frameworks and make a DMG
 if( APPLE )
@@ -555,6 +525,8 @@ else()
                         COMMAND cmake -E remove_directory ${TEMP_PACKAGE_DIR}
                         COMMENT "Removing temporary directory..." )
 endif()
+
+#############################################################################
 
 # You can change the install location by 
 # running cmake like this:
