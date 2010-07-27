@@ -57,12 +57,7 @@ const QTextCodec& HTMLEncodingResolver::GetCodecForHTML( const QByteArray &raw_t
     // Qt docs say Qt will take care of deleting
     // any QTextCodec objects on application exit
 
-    // This is a workaround for a bug in QTextCodec which
-    // expects the 'charset' attribute to always come after
-    // the 'http-equiv' attribute
     QString ascii_data = raw_text;
-    ascii_data.replace( QRegExp( "<\\s*meta([^>]*)http-equiv=\"Content-Type\"([^>]*)>" ),
-                                 "<meta http-equiv=\"Content-Type\" \\1 \\2>" );
 
     int head_end = ascii_data.indexOf( QRegExp( HEAD_END ) );
 
@@ -86,6 +81,12 @@ const QTextCodec& HTMLEncodingResolver::GetCodecForHTML( const QByteArray &raw_t
 
             return *charset_codec;
     }
+
+    // This is a workaround for a bug in QTextCodec which
+    // expects the 'charset' attribute to always come after
+    // the 'http-equiv' attribute
+    ascii_data.replace( QRegExp( "<\\s*meta([^>]*)http-equiv=\"Content-Type\"([^>]*)>" ),
+                                 "<meta http-equiv=\"Content-Type\" \\1 \\2>" );
 
     // If we couldn't find a codec ourselves,
     // we use Qt's function.
