@@ -100,6 +100,11 @@ public:
      */
     virtual void StoreCaretLocationUpdate( const QList< ElementIndex > &hierarchy ) = 0;
 
+    /**
+     * Returns the state of the loading procedure.
+     *
+     * @return \c true if loading is finished.
+     */
     virtual bool IsLoadingFinished() = 0;
 };
 

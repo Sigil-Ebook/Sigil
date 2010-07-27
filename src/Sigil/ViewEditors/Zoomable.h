@@ -32,8 +32,8 @@ class Zoomable
 public:
 
     /**
-     * Sets a zoom factor for the view,
-     * thus zooming in (factor > 1.0) or out (factor < 1.0).
+     * Sets a zoom factor for the view.
+     * Thus, zooms in (factor > 1.0) or out (factor < 1.0).
      *
      * @param factor The zoom factor to use. 
      */

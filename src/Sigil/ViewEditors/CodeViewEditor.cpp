@@ -39,9 +39,7 @@ static const QColor NUMBER_AREA_NUMCOLOR = QColor( 100, 100, 100 );
 static const QString XML_OPENING_TAG        = "(<[^>/][^>]*[^>/]>|<[^>/]>)";
 static const QString NEXT_OPEN_TAG_LOCATION = "<\\s*(?!/)";
 
-// Constructor;
-// the first parameter says which syn. highlighter to use;
-// the second parameter is the object's parent
+
 CodeViewEditor::CodeViewEditor( HighlighterType high_type, QWidget *parent )
     :
     QPlainTextEdit( parent ),
@@ -128,9 +126,6 @@ void CodeViewEditor::InsertSGFChapterMarker()
 }
 
 
-// Paints the line number area;
-// receives the event directly 
-// from the area's paintEvent() handler
 void CodeViewEditor::LineNumberAreaPaintEvent( QPaintEvent *event )
 {
     QPainter painter( m_LineNumberArea );
@@ -179,8 +174,6 @@ void CodeViewEditor::LineNumberAreaPaintEvent( QPaintEvent *event )
 }
 
 
-// Returns the width the LinuNumberArea
-// should take (in pixels)
 int CodeViewEditor::CalculateLineNumberAreaWidth()
 {
     int current_block_count = blockCount();
@@ -205,16 +198,17 @@ int CodeViewEditor::CalculateLineNumberAreaWidth()
 }
 
 
-// Returns a list of elements representing a "chain"
-// or "walk" through the XHTML document with which one
-// can identify a single element in the document.
-// This list identifies the element in which the 
-// keyboard caret is currently located.
+void CodeViewEditor::ScrollToTop()
+{
+    verticalScrollBar()->setValue( 0 );
+}
+
+
 QList< ViewEditor::ElementIndex > CodeViewEditor::GetCaretLocation()
 {
     QRegExp tag( XML_OPENING_TAG );
 
-    // We search for the first opening tag behind the caret.
+    // We search for the first opening tag *behind* the caret.
     // This specifies the element the caret is located in.
     int offset = toPlainText().lastIndexOf( tag, textCursor().position() );
 
@@ -222,11 +216,6 @@ QList< ViewEditor::ElementIndex > CodeViewEditor::GetCaretLocation()
 }
 
 
-// Accepts a list returned by a view's GetCaretLocation
-// and creates and stores an update that sends the caret
-// in this view to the specified element.
-// The CodeView implementation initiates the update in
-// the main event handler.
 void CodeViewEditor::StoreCaretLocationUpdate( const QList< ViewEditor::ElementIndex > &hierarchy )
 {
     m_CaretUpdate = hierarchy;
@@ -239,14 +228,6 @@ bool CodeViewEditor::IsLoadingFinished()
 }
 
 
-void CodeViewEditor::ScrollToTop()
-{
-    verticalScrollBar()->setValue( 0 );
-}
-
-
-// Sets a zoom factor for the view,
-// thus zooming in (factor > 1.0) or out (factor < 1.0). 
 void CodeViewEditor::SetZoomFactor( float factor )
 {
     m_CurrentZoomFactor = factor;
@@ -261,16 +242,12 @@ void CodeViewEditor::SetZoomFactor( float factor )
 }
 
 
-// Returns the View's current zoom factor
 float CodeViewEditor::GetZoomFactor() const
 {
     return m_CurrentZoomFactor;
 }
 
 
-// Finds the next occurrence of the search term in the document,
-// and selects the matched string. The first argument is the matching
-// regex, the second is the direction of the search.
 bool CodeViewEditor::FindNext( const QRegExp &search_regex, 
                                Searchable::Direction search_direction,
                                bool ignore_selection_offset )
@@ -296,16 +273,12 @@ bool CodeViewEditor::FindNext( const QRegExp &search_regex,
 }
 
 
-// Returns the number of times that the specified
-// regex matches in the document.
 int CodeViewEditor::Count( const QRegExp &search_regex )
 {
     return toPlainText().count( search_regex );
 }
 
 
-// If the currently selected text matches the specified regex, 
-// it is replaced by the specified replacement string.
 bool CodeViewEditor::ReplaceSelected( const QRegExp &search_regex, const QString &replacement )
 {
     int selection_start = textCursor().selectionStart();
@@ -326,8 +299,7 @@ bool CodeViewEditor::ReplaceSelected( const QRegExp &search_regex, const QString
     return false;
 }
 
-// Replaces all occurrences of the specified regex in 
-// the document with the specified replacement string.
+
 int CodeViewEditor::ReplaceAll( const QRegExp &search_regex, const QString &replacement )
 {
     QRegExp result_regex  = search_regex;
@@ -378,6 +350,7 @@ void CodeViewEditor::print( QPrinter* printer )
 {
     QPlainTextEdit::print( printer );
 }
+
 
 // Overridden because we need to update the cursor
 // location if a cursor update (from BookView) 
@@ -433,6 +406,7 @@ void CodeViewEditor::mousePressEvent( QMouseEvent *event )
 }
 
 
+// Overridden so we can emit the FocusGained() signal.
 void CodeViewEditor::focusInEvent( QFocusEvent *event )
 {
     emit FocusGained();
@@ -441,6 +415,7 @@ void CodeViewEditor::focusInEvent( QFocusEvent *event )
 }
 
 
+// Overridden so we can emit the FocusLost() signal.
 void CodeViewEditor::focusOutEvent( QFocusEvent *event )
 {
     emit FocusLost();
@@ -463,8 +438,6 @@ void CodeViewEditor::UpdateUndoAvailable( bool available )
 }
 
 
-// Called whenever the number of lines changes;
-// sets a margin where the line number area can be displayed
 void CodeViewEditor::UpdateLineNumberAreaMargin()
 { 
     // The left margin width depends on width of the line number area
@@ -472,9 +445,6 @@ void CodeViewEditor::UpdateLineNumberAreaMargin()
 }
 
 
-// The first parameter represents the area 
-// that the editor needs an update of, and the second
-// is the amount of pixels the viewport is vertically scrolled
 void CodeViewEditor::UpdateLineNumberArea( const QRect &area_to_update, int vertically_scrolled )
 {
     // If the editor scrolled, scroll the line numbers too
@@ -492,7 +462,6 @@ void CodeViewEditor::UpdateLineNumberArea( const QRect &area_to_update, int vert
 }
 
 
-// Highlights the line the user is editing
 void CodeViewEditor::HighlightCurrentLine()
 {
     QList< QTextEdit::ExtraSelection > extraSelections;
@@ -516,14 +485,12 @@ void CodeViewEditor::HighlightCurrentLine()
 }
 
 
-// Wrapper slot for the Scroll One Line Up shortcut
 void CodeViewEditor::ScrollOneLineUp()
 {
     ScrollByLine( false );
 }
 
 
-// Wrapper slot for the Scroll One Line Down shortcut
 void CodeViewEditor::ScrollOneLineDown()
 {
     ScrollByLine( true );
@@ -553,10 +520,6 @@ void CodeViewEditor::UpdateLineNumberAreaFont( const QFont &font )
 }
 
 
-// Returns a stack of elements representing the
-// current location of the caret in the document.
-// Accepts the number of characters to the end of
-// the start tag of the element the caret is residing in. 
 QStack< CodeViewEditor::StackElement > CodeViewEditor::GetCaretLocationStack( int offset ) const
 {
     QString source = toPlainText();
@@ -610,8 +573,6 @@ QStack< CodeViewEditor::StackElement > CodeViewEditor::GetCaretLocationStack( in
 }
 
 
-// Converts the stack provided by GetCaretLocationStack()
-// and converts it into the element location hierarchy
 QList< ViewEditor::ElementIndex > CodeViewEditor::ConvertStackToHierarchy( const QStack< StackElement > stack ) const
 {
     QList< ViewEditor::ElementIndex > hierarchy;
@@ -630,7 +591,6 @@ QList< ViewEditor::ElementIndex > CodeViewEditor::ConvertStackToHierarchy( const
 }
 
 
-// Converts a ViewEditor element hierarchy to a CaretMove
 tuple< int, int > CodeViewEditor::ConvertHierarchyToCaretMove( const QList< ViewEditor::ElementIndex > &hierarchy ) const
 {
     QDomDocument dom;
@@ -649,9 +609,6 @@ tuple< int, int > CodeViewEditor::ConvertHierarchyToCaretMove( const QList< View
 }
 
 
-// Executes the caret updating code
-// if an update is pending;
-// returns true if update was performed
 bool CodeViewEditor::ExecuteCaretUpdate()
 {
     // If there's a cursor/caret update waiting (from BookView),
@@ -686,8 +643,6 @@ bool CodeViewEditor::ExecuteCaretUpdate()
 }
 
 
-// Returns the selection offset from the start of the 
-// document depending on the search direction specified
 int CodeViewEditor::GetSelectionOffset( Searchable::Direction search_direction, bool ignore_selection_offset ) const
 {
     if ( search_direction == Searchable::Direction_Down ||
@@ -704,12 +659,6 @@ int CodeViewEditor::GetSelectionOffset( Searchable::Direction search_direction, 
 }
 
 
-
-// Scrolls the whole screen by one line.
-// The parameter specifies are we scrolling up or down.
-// Used for ScrollOneLineUp and ScrollOneLineDown shortcuts.
-// It will also move the cursor position if the
-// scroll would make it "fall of the screen".
 void CodeViewEditor::ScrollByLine( bool down )
 {
     int current_scroll_value = verticalScrollBar()->value();
