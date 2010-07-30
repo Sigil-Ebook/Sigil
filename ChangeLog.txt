@@ -1,4 +1,6 @@
 ﻿Sigil v0.2.4 ADD_DATE
+    - fixed an issue with Direction: All in book wide searching skipping last XHTML file 
+    (issue #520)
     - fixed an issue with the declared XML encoding not being picked up if it was wrapped
     in single quotes instead of the more standard double quotes
     - fixed an issue where the user could avoid the warning dialog for book-wide searching in

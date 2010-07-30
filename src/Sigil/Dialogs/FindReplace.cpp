@@ -507,7 +507,7 @@ HTMLResource* FindReplace::GetNextHTMLResource( HTMLResource *current_resource )
     else
 
         // We wrap back (if needed) for Direction_All
-        next_reading_order = current_reading_order + 1 < max_reading_order ? current_reading_order + 1 : 0;
+        next_reading_order = current_reading_order + 1 <= max_reading_order ? current_reading_order + 1 : 0;
 
     if ( next_reading_order > max_reading_order || next_reading_order < 0 )
 
