@@ -1575,9 +1575,15 @@ Bool TY_(SetXHTMLDocType)( TidyDocImpl* doc )
     {
     case TidyDoctypeStrict:
         /* XHTML 1.0 Strict */
-        TY_(RepairAttrValue)(doc, doctype, pub, GetFPIFromVers(X10S));
+        /*TY_(RepairAttrValue)(doc, doctype, pub, GetFPIFromVers(X10S));
         TY_(RepairAttrValue)(doc, doctype, sys, GetSIFromVers(X10S));
-        lexer->versionEmitted = X10S;
+        lexer->versionEmitted = X10S;*/
+
+        /* Changed by Strahinja Markovic: We need XHTML 1.1 for OPS docs */
+        /* XHTML 1.1 */
+        TY_(RepairAttrValue)(doc, doctype, pub, GetFPIFromVers(XH11));
+        TY_(RepairAttrValue)(doc, doctype, sys, GetSIFromVers(XH11));
+        lexer->versionEmitted = XH11;
         break;
     case TidyDoctypeLoose:
         /* XHTML 1.0 Transitional */

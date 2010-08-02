@@ -301,9 +301,9 @@ void BookBrowser::AddGuideSemanticType( int type )
                     html_resource->SetGuideSemanticType( GuideSemantics::NoType );
 	
                     // There is no "break" statement here because we might
-                    // load an epub that has several instance of one ref type.
+                    // load an epub that has several instance of one guide type.
                     // We preserve them on load, but if the user is intent on
-                    // changing them, then we enforce "on type instance per book".
+                    // changing them, then we enforce "one type instance per book".
                 }
             }
         }

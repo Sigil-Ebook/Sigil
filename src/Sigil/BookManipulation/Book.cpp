@@ -33,8 +33,8 @@
 static const QString FIRST_CSS_NAME   = "Style0001.css";
 static const QString PLACEHOLDER_TEXT = "PLACEHOLDER";
 static const QString EMPTY_HTML_FILE  = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
-                                        "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\"\n"
-                                        "    \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n\n"							
+                                        "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.1//EN\"\n"
+                                        "    \"http://www.w3.org/TR/xhtml1/DTD/xhtml11.dtd\">\n\n"							
                                         "<html xmlns=\"http://www.w3.org/1999/xhtml\">\n"
                                         "<head>\n"
                                         "<title></title>\n"

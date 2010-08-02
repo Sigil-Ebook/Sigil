@@ -27,8 +27,8 @@
 #include <QXmlInputSource>
 #include <QXmlSimpleReader>
 
-static const QString XHTML_DOCTYPE = "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\"\n"
-                                     "    \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n\n"; 
+static const QString XHTML_DOCTYPE = "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.1//EN\"\n"
+                                     "    \"http://www.w3.org/TR/xhtml1/DTD/xhtml11.dtd\">\n\n"; 
 
 // Use with <QRegExp>.setMinimal(true)
 static const QString XML_DECLARATION = "(<\\?xml.+\\?>)";

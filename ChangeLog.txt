@@ -1,4 +1,6 @@
 ﻿Sigil v0.2.4 ADD_DATE
+    - fixed an issue with Sigil using XHTML 1.0 for OPS doctypes, instead of XHTML 1.1
+    (issue #503)
     - several files can now be marked as having the Text semantic type (issue #522)
     - fixed an issue with Direction: All in book wide searching skipping last XHTML file 
     (issue #520)
