@@ -1220,14 +1220,18 @@ void MainWindow::PlatformSpecificTweaks()
     ui.actionClose->setEnabled( false );
     ui.actionClose->setVisible( false );
 #else
+    // Macs also use bigger icons
     QList<QToolBar *> all_toolbars = findChildren<QToolBar *>();
 
     foreach( QToolBar *toolbar, all_toolbars )
     {
         toolbar->setIconSize( QSize( 32, 32 ) );
     }
-#endif
 
+    // The Cmd/Ctrl+H shortcut is reserved for the OS on Macs,
+    // so we change it to Cmd/Ctrl+R
+    ui.actionReplace->setShortcut( QKeySequence( Qt::ControlModifier + Qt::Key_R ) );
+#endif
 }
 
 
