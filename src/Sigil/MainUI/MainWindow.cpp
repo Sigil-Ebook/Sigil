@@ -1229,8 +1229,8 @@ void MainWindow::PlatformSpecificTweaks()
     }
 
     // The Cmd/Ctrl+H shortcut is reserved for the OS on Macs,
-    // so we change it to Cmd/Ctrl+R
-    ui.actionReplace->setShortcut( QKeySequence( Qt::ControlModifier + Qt::Key_R ) );
+    // so we change it to Cmd/Ctrl+Shift+F
+    ui.actionReplace->setShortcut( QKeySequence( Qt::ControlModifier + Qt::ShiftModifier + Qt::Key_F ) );
 #endif
 }
 
