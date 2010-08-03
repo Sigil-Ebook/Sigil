@@ -29,6 +29,9 @@
 
 static const int NO_READING_ORDER   = std::numeric_limits< int >::max();
 static const int READING_ORDER_ROLE = Qt::UserRole + 2;
+static const QList< QChar > FORBIDDEN_FILENAME_CHARS = QList< QChar >() << '<' << '>' << ':' 
+                                                                        << '"' << '/' << '\\'
+                                                                        << '|' << '?' << '*';
 
 OPFModel::OPFModel( QWidget *parent )
     : 
@@ -193,7 +196,19 @@ void OPFModel::ItemChangedHandler( QStandardItem *item )
         return;
     }
 
-    resource->RenameTo( new_filename );
+    bool rename_sucess = resource->RenameTo( new_filename );
+
+    if ( !rename_sucess )
+    {
+        QMessageBox::critical( 0,
+                               tr( "Sigil" ),
+                               tr( "The file could not be renamed." )
+                             );
+
+        item->setText( old_filename );
+        return;
+    }
+
     QHash< QString, QString > update;
     update[ old_filename ] = "../" + resource->GetRelativePathToOEBPS();
 
@@ -338,6 +353,20 @@ bool OPFModel::FilenameIsValid( const QString &old_filename, const QString &new_
                              );
 
         return false;
+    }
+
+    foreach( QChar character, new_filename )
+    {
+        if ( FORBIDDEN_FILENAME_CHARS.contains( character ) )
+        {
+            QMessageBox::critical( 0,
+                                   tr( "Sigil" ),
+                                   tr( "A filename cannot contains the character \"%1\"." )
+                                   .arg( character )
+                                 );
+
+            return false;
+        }
     }
 
     const QString &old_extension = QFileInfo( old_filename ).suffix();

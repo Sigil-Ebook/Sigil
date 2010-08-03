@@ -1,4 +1,6 @@
 Sigil v0.2.4 ADD_DATE
+    - Sigil now prevents the renaming of files in the Book Browser to filesystem invalid names
+    (issue #493)
     - changed the keyboard shortcut that opens the Replace dialog from Cmd+H to Cmd+Shift+F
     on Macs only; Cmd+H is used by Mac OS X for window hiding (issue #477)
     - fixed an issue with Sigil using XHTML 1.0 for OPS doctypes, instead of XHTML 1.1
