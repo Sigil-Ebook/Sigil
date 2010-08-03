@@ -275,6 +275,11 @@ private:
     // list of files to be listed has changed
     void UpdateRecentFileActions();
 
+    /**
+     * Performs specific changes based on the OS platform.
+     */
+    void PlatformSpecificTweaks();
+
     // Qt Designer is not able to create all the widgets
     // we want in the MainWindow, so we use this function
     // to extend the UI created by the Designer

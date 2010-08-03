@@ -88,6 +88,7 @@ MainWindow::MainWindow( const QString &openfilepath, QWidget *parent, Qt::WFlags
 	setAttribute( Qt::WA_DeleteOnClose );
 
     ExtendUI();
+    PlatformSpecificTweaks();
 
     // Needs to come before signals connect
     // (avoiding side-effects)
@@ -1211,6 +1212,25 @@ void MainWindow::UpdateRecentFileActions()
 }
 
 
+void MainWindow::PlatformSpecificTweaks()
+{
+    // We use the "close" action only on Macs,
+    // because they need it for the multi-document interface
+#ifndef Q_WS_MAC
+    ui.actionClose->setEnabled( false );
+    ui.actionClose->setVisible( false );
+#else
+    QList<QToolBar *> all_toolbars = findChildren<QToolBar *>();
+
+    foreach( QToolBar *toolbar, all_toolbars )
+    {
+        toolbar->setIconSize( QSize( 32, 32 ) );
+    }
+#endif
+
+}
+
+
 // Qt Designer is not able to create all the widgets
 // we want in the MainWindow, so we use this function
 // to extend the UI created by the Designer
@@ -1284,20 +1304,6 @@ void MainWindow::ExtendUI()
     statusBar()->addPermanentWidget( zoom_out       );
     statusBar()->addPermanentWidget( m_slZoomSlider );
     statusBar()->addPermanentWidget( zoom_in        );
-    
-    // We use the "close" action only on Macs,
-    // because they need it for the multi-document interface
-#ifndef Q_WS_MAC
-    ui.actionClose->setEnabled( false );
-    ui.actionClose->setVisible( false );
-#else
-    QList<QToolBar *> all_toolbars = findChildren<QToolBar *>();
-    
-    foreach( QToolBar *toolbar, all_toolbars )
-    {
-        toolbar->setIconSize( QSize( 32, 32 ) );
-    }
-#endif
 
     // We override the default color for highlighted text
     // so we can actually *see* the text that the FindReplace
