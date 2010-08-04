@@ -285,29 +285,23 @@ QHash< QString, QString > ImportHTML::LoadImages( const QDomDocument &document )
 }
 
 
-// Loads CSS files from link tags to style tags
 QHash< QString, QString > ImportHTML::LoadStyleFiles( const QDomDocument &document )
 {
     QDomNodeList link_nodes = document.elementsByTagName( "link" );
-
     QHash< QString, QString > updates;
 
-    // Get all the style files references in link tags
-    // and convert them into style tags
     for ( int i = 0; i < link_nodes.count(); ++i )
     {
         QDomElement element = link_nodes.at( i ).toElement();
-
         Q_ASSERT( !element.isNull() );
 
         QDir folder( QFileInfo( m_FullFilePath ).absoluteDir() );
-
         QString relative_path = Utility::URLDecodePath( element.attribute( "href" ) );
 
         QFileInfo file_info( folder, relative_path );
 
-        if (  file_info.suffix().toLower() == "css" ||
-              file_info.suffix().toLower() == "xpgt"
+        if ( file_info.suffix().toLower() == "css" ||
+             file_info.suffix().toLower() == "xpgt"
            )
         {
             try

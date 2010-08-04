@@ -75,12 +75,10 @@ private:
     // as the files get a new name, the references are updated 
     QHash< QString, QString > LoadFolderStructure( const QDomDocument &document );
 
-    // Loads CSS files from link tags to style tags.
     // Returns a hash with keys being old references (URLs) to resources,
     // and values being the new references to those resources.
     QHash< QString, QString > LoadImages( const QDomDocument &document );
 
-    // Loads style files from link tags to style tags
     QHash< QString, QString > LoadStyleFiles( const QDomDocument &document );
 };
 

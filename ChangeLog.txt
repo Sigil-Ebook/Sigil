@@ -1,4 +1,7 @@
 Sigil v0.2.4 ADD_DATE
+    - re-engineered the locations where Sigil stores its work files; the system-provided temp
+    folder is now used; this should alleviate some permissions issues on certain machines
+    (issue #404)
     - Sigil now prevents the renaming of files in the Book Browser to filesystem invalid names
     (issue #493)
     - changed the keyboard shortcut that opens the Replace dialog from Cmd+H to Cmd+Shift+F

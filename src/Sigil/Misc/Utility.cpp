@@ -26,8 +26,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-const QString WIN_PATH_SUFFIX = "/Sigil";
-const QString NIX_PATH_SUFFIX = "/.Sigil";
+const QString PATH_SUFFIX = "/Sigil";
 
 
 // Uses QUuid to generate a random UUID but also removes
@@ -200,11 +199,7 @@ bool Utility::RenameFile( const QString &oldfilepath, const QString &newfilepath
 
 QString Utility::GetPathToSigilScratchpad()
 {
-#ifdef Q_WS_WIN
-    return QDir::homePath() + WIN_PATH_SUFFIX + "/scratchpad";
-#else
-    return QDir::homePath() + NIX_PATH_SUFFIX + "/scratchpad";
-#endif
+    return QDir::tempPath() + PATH_SUFFIX + "/scratchpad";
 }
 
 
