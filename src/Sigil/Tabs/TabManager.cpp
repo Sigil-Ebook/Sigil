@@ -79,7 +79,11 @@ void TabManager::OpenResource( Resource& resource,
 
         return;
 
-    AddNewContentTab( CreateTabForResource( resource, fragment, view_state ), precede_current_tab );
+    ContentTab::ViewState new_view_state = view_state != ContentTab::ViewState_AnyView ?
+                                           view_state                                  :
+                                           GetNewViewState();
+
+    AddNewContentTab( CreateTabForResource( resource, fragment, new_view_state ), precede_current_tab );
 
     // TODO: loading bar update    
 }
@@ -220,7 +224,12 @@ bool TabManager::SwitchedToExistingTab( Resource& resource, const QUrl &fragment
         if ( flow_tab != NULL )
         {
             flow_tab->ScrollToFragment( fragment.toString() );
-            flow_tab->SetViewState( view_state );
+
+            // If the caller doesn't care what the view is, then we stay
+            // in the current view. Otherwise, we switch.
+            if ( view_state != ContentTab::ViewState_AnyView )
+            
+                flow_tab->SetViewState( view_state );
         }
 
         return true;
@@ -287,3 +296,17 @@ bool TabManager::AddNewContentTab( ContentTab *new_tab, bool precede_current_tab
 
     return true;
 }   
+
+
+ContentTab::ViewState TabManager::GetNewViewState()
+{
+    ContentTab &current_tab = GetCurrentContentTab();
+
+    // TODO: remove this we we can guarantee that GetCurrentContentTab
+    // always returns a valid reference
+    if ( &current_tab == NULL )
+
+        return ContentTab::ViewState_BookView;
+
+    return current_tab.GetViewState();
+}
