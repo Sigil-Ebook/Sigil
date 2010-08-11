@@ -839,6 +839,13 @@ static void ParseEntity( TidyDocImpl* doc, GetTokenMode mode )
 
     while ( (c = TY_(ReadChar)(doc->docIn)) != EndOfStream )
     {
+        /* Added by Strahinja Markovic: using a colon instead of a semicolon
+           is a frequent typing error. Let's try to handle it. */
+        if ( c == ':' )
+        {
+            c = ';';       
+        }
+
         if ( c == ';' )
         {
             semicolon = yes;
