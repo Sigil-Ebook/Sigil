@@ -32,6 +32,7 @@ class QString;
 class QDomNodeList;
 class QDomAttr;
 class QStringList;
+class QDomDocumentFragment;
 
 class XHTMLDoc
 {
@@ -111,6 +112,16 @@ public:
     // Returns the attribute's "real" name. We don't care
     // about namespace prefixes and whatnot.
     static QString GetAttributeName( const QDomAttr &attribute );
+
+    /**
+     * Converts a QDomNodeList of nodes (and all their descendants)
+     * into a document fragment that can then be easily inserted 
+     * into other documents.
+     *
+     * @param list The list of nodes to go into the fragment.
+     * @return The new document fragment.
+     */
+    static QDomDocumentFragment ConvertToDocumentFragment( const QDomNodeList &list );
 
     // Converts a QDomNodeList to a regular QList
     static QList< QDomNode > ConvertToRegularList( const QDomNodeList &list );

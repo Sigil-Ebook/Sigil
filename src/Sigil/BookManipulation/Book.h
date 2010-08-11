@@ -48,7 +48,7 @@ public:
 
     /**
      * Returns the base url of the book. 
-     * This is the location to the text folder
+     * This is the location of the text folder
      * within the main folder.
      */
     QUrl GetBaseUrl() const;
@@ -147,6 +147,14 @@ public:
                             const QHash< QString, QString > &html_updates );
 
     /**
+     * Merges the provided HTML resource with the previous one
+     * in the reading order.
+     *
+     * @param html_resource The resource being merged.
+     */
+    void MergeWithPrevious( HTMLResource& html_resource );
+
+    /**
      * Makes sure that all the resources have saved the state of 
      * their caches to the disk.
      */
@@ -216,6 +224,12 @@ private:
                               int reading_order, 
                               const QString &temp_folder_path,
                               const QHash< QString, QString > &html_updates );
+
+    /**
+     * Makes sure that there are no "gaps" in the reading order
+     * of HTML resources.
+     */
+    void NormalizeReadingOrders();
 
     /**
      * The FolderKeeper object that represents

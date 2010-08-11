@@ -1,13 +1,15 @@
 Sigil v0.2.4 ADD_DATE
+    - added a new "Merge With Previous" context menu action for XHTML files in the Book Browser
+    (issue #265)
     - changed Tidy to handle the common typing mistake of ending entities with a ':' instead
-    of a ';' (issue 535)
+    of a ';' (issue #535)
     - fixed a bug where double-clicking a file in the Book Browser for a file that was already 
     opened in a tab switched that tab back to Book View; the tab now retains whatever View
     it was in previously
     - newly opened tabs now default to the View of the current tab (issue 468)
     - re-engineered the locations where Sigil stores its work files; the system-provided temp
-    folder is now used; this should alleviate some permissions issues on certain machines
-    (issue #404)
+    folder is now used; this should alleviate some permissions issues on certain machines,
+    especially Macs (issue #404)
     - Sigil now prevents the renaming of files in the Book Browser to filesystem invalid names
     (issue #493)
     - changed the keyboard shortcut that opens the Replace dialog from Cmd+H to Cmd+Shift+F

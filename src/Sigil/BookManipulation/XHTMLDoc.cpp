@@ -394,6 +394,29 @@ QString XHTMLDoc::GetAttributeName( const QDomAttr &attribute )
 }
 
 
+QDomDocumentFragment XHTMLDoc::ConvertToDocumentFragment( const QDomNodeList &list )
+{
+    if ( list.isEmpty() )
+
+        return QDomDocumentFragment();
+
+    QDomDocumentFragment fragment = list.at( 0 ).ownerDocument().createDocumentFragment();
+
+    // Since a QDomNodeList is "live", we store the count
+    // so we don't have to recalculate it every loop iteration
+    int count = list.count();
+
+    for ( int i = 0; i < count; ++i )
+    {
+        // We need to clone the node before inserting it in the 
+        // fragment so as to pick up the node's descendants too
+        fragment.appendChild( list.at( i ).cloneNode( true ) );
+    }
+
+    return fragment;
+}
+
+
 // Converts a QDomNodeList to a regular QList
 QList< QDomNode > XHTMLDoc::ConvertToRegularList( const QDomNodeList &list )
 {
@@ -719,6 +742,7 @@ XHTMLDoc::XMLElement XHTMLDoc::CreateXMLElement( QXmlStreamReader &reader )
 
     return element; 
 }
+
 
 
 

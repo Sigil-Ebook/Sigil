@@ -28,6 +28,7 @@
 #include "../SourceUpdates/AnchorUpdates.h"
 #include "../SourceUpdates/PerformHTMLUpdates.h"
 #include "../SourceUpdates/AnchorUpdates.h"
+#include "../SourceUpdates/UniversalUpdates.h"
 #include <QDomDocument>
 
 static const QString FIRST_CSS_NAME   = "Style0001.css";
@@ -220,6 +221,61 @@ void Book::CreateNewChapters( const QStringList& new_chapters,
 }
 
 
+void Book::MergeWithPrevious( HTMLResource& html_resource )
+{
+    int previous_file_reading_order = html_resource.GetReadingOrder() - 1;
+    Q_ASSERT( previous_file_reading_order >= 0 );
+
+    QList< HTMLResource* > html_resources = m_Mainfolder.GetResourceTypeList< HTMLResource >( true );
+    HTMLResource& previous_html = *html_resources[ previous_file_reading_order ];
+
+    QString html_resource_path = html_resource.GetRelativePathToOEBPS();
+
+    {
+        QDomDocumentFragment body_children_fragment;
+
+        {
+            QWriteLocker source_locker( &html_resource.GetLock() );
+            QDomDocument source_dom        = html_resource.GetDomDocumentForReading();
+            QDomNodeList source_body_nodes = source_dom.elementsByTagName( "body" );
+
+            if ( source_body_nodes.count() != 1 )
+
+                return;
+
+            QDomNode source_body_node = source_body_nodes.at( 0 );
+            body_children_fragment    = XHTMLDoc::ConvertToDocumentFragment( source_body_node.childNodes() ); 
+        }  
+
+        QWriteLocker sink_locker( &previous_html.GetLock() );
+        QDomDocument sink_dom        = previous_html.GetDomDocumentForWriting();
+        QDomNodeList sink_body_nodes = sink_dom.elementsByTagName( "body" );
+
+        if ( sink_body_nodes.count() != 1 )
+
+            return;
+
+        QDomNode sink_body_node = sink_body_nodes.at( 0 );         
+        sink_body_node.appendChild( sink_dom.importNode( body_children_fragment, true ) );
+        previous_html.MarkSecondaryCachesAsOld();
+
+        html_resource.Delete();
+    }
+
+    // The html_resources list is now old after we deleted one,
+    // and PerformUniversalUpdates accepts generic Resources
+    QList< Resource* > resources = m_Mainfolder.GetResourceTypeAsGenericList< HTMLResource >();
+    AnchorUpdates::UpdateAllAnchorsWithIDs( html_resources );
+
+    QHash< QString, QString > updates;
+    updates[ html_resource_path ] = "../" + previous_html.GetRelativePathToOEBPS();
+
+    UniversalUpdates::PerformUniversalUpdates( true, resources, updates );
+    NormalizeReadingOrders();
+    SetModified( true );
+}
+
+
 void Book::SaveAllResourcesToDisk()
 {
     QList< Resource* > resources =  m_Mainfolder.GetResourceList();
@@ -284,5 +340,17 @@ void Book::CreateOneNewChapter( const QString &source,
         html_resource->SetDomDocument( 
             PerformHTMLUpdates( CleanSource::Clean( source ), html_updates, QHash< QString, QString >() )() );
     }    
+}
+
+
+void Book::NormalizeReadingOrders()
+{
+    QList< HTMLResource* > html_resources = m_Mainfolder.GetResourceTypeList< HTMLResource >( true );
+
+    // We need to "make room" for the reading order of the new resource
+    for ( int i = 0; i < html_resources.count(); ++i )
+    {
+        html_resources[ i ]->SetReadingOrder( i );
+    }
 }
 

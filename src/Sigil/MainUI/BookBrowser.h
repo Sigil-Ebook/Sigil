@@ -154,6 +154,11 @@ private slots:
      */
     void AddGuideSemanticType( int type );
 
+    /**
+     * Implements the Merge With Previous context menu action functionality.
+     */
+    void MergeWithPrevious();
+
 private:
 
     /**
@@ -199,6 +204,13 @@ private:
     bool SuccessfullySetupContextMenu( const QPoint &point );
 
     /**
+     * Sets up the sub-menu for adding resource-specific context menu actions.
+     *
+     * @param resource The resource on which the context menu was invoked.
+     */
+    void SetupResourceSpecificContextMenu( Resource *resource );
+
+    /**
      * Sets up the sub-menu for adding semantic information.
      *
      * @param resource The resource on which the context menu was invoked.
@@ -221,7 +233,6 @@ private:
      */
     void SetupImageSemanticContextMenu( Resource *resource ); 
 
-
     /**
      * Sets the checked state for the HTML semantic actions
      * based on the resource's current state.
@@ -229,6 +240,14 @@ private:
      * @param resource The resource on which the context menu was invoked.
      */
     void SetHTMLSemanticActionCheckState( Resource *resource );
+
+    /**
+     * Adds the MergeWithPrevious action to the context menu
+     * if conditions are met.
+     *
+     * @param resource The resource on which the context menu was invoked.
+     */
+    void AddMergeWithPreviousAction( Resource *resource );
 
     /**
      * Returns the currently selected resource in the tree view.
@@ -281,6 +300,7 @@ private:
     QAction *m_Rename;
     QAction *m_Remove;
     QAction *m_CoverImage;
+    QAction *m_MergeWithPrevious;
 
     /**
      * All the semantic actions for the <guide>

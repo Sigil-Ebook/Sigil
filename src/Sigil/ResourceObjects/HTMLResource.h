@@ -188,7 +188,8 @@ public:
     void SaveToDisk( bool book_wide_save = false );
 
     /**
-     * Returns the reading roder of the resource.
+     * Returns the reading order of the resource.
+     * The ordering is zero-based (first file has order 0).
      *
      * @return The reading order.
      */
