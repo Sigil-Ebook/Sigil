@@ -229,7 +229,7 @@ void Book::MergeWithPrevious( HTMLResource& html_resource )
     QList< HTMLResource* > html_resources = m_Mainfolder.GetResourceTypeList< HTMLResource >( true );
     HTMLResource& previous_html = *html_resources[ previous_file_reading_order ];
 
-    QString html_resource_path = html_resource.GetRelativePathToOEBPS();
+    QString html_resource_fullpath = html_resource.GetFullPath();
 
     {
         QDomDocumentFragment body_children_fragment;
@@ -268,7 +268,7 @@ void Book::MergeWithPrevious( HTMLResource& html_resource )
     AnchorUpdates::UpdateAllAnchorsWithIDs( html_resources );
 
     QHash< QString, QString > updates;
-    updates[ html_resource_path ] = "../" + previous_html.GetRelativePathToOEBPS();
+    updates[ html_resource_fullpath ] = "../" + previous_html.GetRelativePathToOEBPS();
 
     UniversalUpdates::PerformUniversalUpdates( true, resources, updates );
     NormalizeReadingOrders();
@@ -338,7 +338,10 @@ void Book::CreateOneNewChapter( const QString &source,
     else
     {
         html_resource->SetDomDocument( 
-            PerformHTMLUpdates( CleanSource::Clean( source ), html_updates, QHash< QString, QString >() )() );
+            PerformHTMLUpdates( CleanSource::Clean( source ),
+                                html_updates, 
+                                QHash< QString, QString >() 
+                              )() );
     }    
 }
 

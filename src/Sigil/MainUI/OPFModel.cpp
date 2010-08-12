@@ -187,6 +187,7 @@ void OPFModel::ItemChangedHandler( QStandardItem *item )
     Resource *resource = &m_Book->GetFolderKeeper().GetResourceByIdentifier( identifier );
     Q_ASSERT( resource );
 
+    const QString &old_fullpath = resource->GetFullPath();
     const QString &old_filename = resource->Filename();
     const QString &new_filename = item->text();
     
@@ -210,7 +211,7 @@ void OPFModel::ItemChangedHandler( QStandardItem *item )
     }
 
     QHash< QString, QString > update;
-    update[ old_filename ] = "../" + resource->GetRelativePathToOEBPS();
+    update[ old_fullpath ] = "../" + resource->GetRelativePathToOEBPS();
 
     QApplication::setOverrideCursor( Qt::WaitCursor );
     UniversalUpdates::PerformUniversalUpdates( true, m_Book->GetFolderKeeper().GetResourceList(), update );

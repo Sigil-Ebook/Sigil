@@ -19,7 +19,7 @@ if ( ${CMAKE_CURRENT_SOURCE_DIR} STREQUAL ${CMAKE_SOURCE_DIR} )
                          "instead of just from the <top_folder> directory.\nDO NOT DO THIS.\n"
                          "The correct way looks like this:\n"
                          "  cmake -G '<generator_name>' /path/to/topmost/folder/in/source/package\n"
-                         "You will probably now need to clean your build directory first." )
+                         "You will probably now need to first clean your build directory." )
 endif()
 
 #############################################################################

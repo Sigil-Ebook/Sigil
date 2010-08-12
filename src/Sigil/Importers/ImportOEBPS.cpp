@@ -362,7 +362,7 @@ tuple< QString, QString > ImportOEBPS::LoadOneFile( const QString &ID )
                                 m_ReadingOrderIds.indexOf( ID ), m_SemanticInformation[ ID ] );
         QString newpath = "../" + resource.GetRelativePathToOEBPS(); 
 
-        return make_tuple( path, newpath );
+        return make_tuple( fullfilepath, newpath );
     }
     
     catch ( FileDoesNotExist& )

@@ -28,15 +28,17 @@
 
 static const QStringList PATH_TAGS       = QStringList() << "link" << "a" << "img" << "image";
 static const QStringList PATH_ATTRIBUTES = QStringList() << "href" << "src";
+static const QChar POUND_SIGN            = QChar::fromAscii( '#' );
+static const QChar FORWARD_SLASH         = QChar::fromAscii( '/' );
 
 
 PerformHTMLUpdates::PerformHTMLUpdates( const QString &source,
                                         const QHash< QString, QString > &html_updates,
                                         const QHash< QString, QString > &css_updates )
-    : 
+    :
     m_HTMLUpdates( html_updates ),
     m_CSSUpdates( css_updates )
-{   
+{
     XHTMLDoc::LoadTextIntoDocument( source, m_Document );
 }
 
@@ -106,36 +108,62 @@ void PerformHTMLUpdates::UpdateReferenceInNode( QDomNode node )
 
         for ( int j = 0; j < num_keys; ++j )
         {
-            const QString &key_path  = keys.at( j );
-            const QString &filename  = QFileInfo( key_path ).fileName();
-            const QString &atr_value = Utility::URLDecodePath( attribute.value() );
+            const QString &key_path        = keys.at( j );
+            const QString &filename        = QFileInfo( key_path ).fileName();
+            const QString &atrribute_value = Utility::URLDecodePath( attribute.value() );
 
-            int name_index = atr_value.lastIndexOf( filename );
+            int name_index = atrribute_value.lastIndexOf( filename );
 
             if ( name_index == -1 )
 
                 continue;
-            
+
             int filename_length  = filename.length();
-            int atr_value_length = atr_value.length();
+            int name_end_index   = name_index + filename_length;
+            bool has_fragment_id = name_end_index < atrribute_value.length() &&
+                                   atrribute_value.at( name_end_index ) == POUND_SIGN;
+
+            // The left() call returns the part of the string before the
+            // fragment ID, if any.
+            const QString &attribute_path_dir_name = 
+                !has_fragment_id                                                   ?
+                QFileInfo( atrribute_value ).dir().dirName()                       :
+                QFileInfo( atrribute_value.left( name_end_index ) ).dir().dirName();
+
+            const QString &old_path_dir_name = QFileInfo( key_path ).dir().dirName();
+
+            // We need to make sure that files with the same name
+            // but having a different parent directory still compare
+            // differently. This still isn't perfect since they could
+            // differ in the grandfather directory, but comparing 
+            // absolute values would mean querying the filesystem and
+            // that would kill performance. This is good enough
+            // (famous last words etc...).
+            if ( !attribute_path_dir_name.isEmpty() &&
+                 attribute_path_dir_name != "." &&
+                 attribute_path_dir_name != old_path_dir_name )
+            {
+                continue;
+            }
+
+            int atr_value_length = atrribute_value.length();
 
             QString new_path;
 
             // First we look at whether the filename matches the attribute value,
             // and then we determine whether it's actually a path that ends with the filename
             if ( filename_length == atr_value_length || 
-                 ( ( name_index + filename_length == atr_value_length ) &&
-                   ( atr_value.at( name_index - 1 ) == QChar::fromAscii( '/' ) )
+                 ( ( name_end_index == atr_value_length ) &&
+                   ( atrribute_value.at( name_index - 1 ) == FORWARD_SLASH )
                  )
                )
             {
                 new_path = m_HTMLUpdates.value( key_path );
             }
 
-            // This checks for when the path has a fragment ID (anchor reference)
-            else if ( atr_value.at( name_index + filename_length ) == QChar::fromAscii( '#' ) )
+            else if ( has_fragment_id )
             {
-                new_path = atr_value.mid( name_index + filename_length ).prepend( m_HTMLUpdates.value( key_path ) );
+                new_path = atrribute_value.mid( name_end_index ).prepend( m_HTMLUpdates.value( key_path ) );
             }
 
             if ( !new_path.isEmpty() )

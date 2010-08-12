@@ -256,9 +256,7 @@ QHash< QString, QString > ImportHTML::LoadFolderStructure( const QDomDocument &d
 QHash< QString, QString > ImportHTML::LoadImages( const QDomDocument &document )
 {
     QStringList image_paths = XHTMLDoc::GetImagePathsFromImageChildren( document );
-
     QHash< QString, QString > updates;
-
     QDir folder( QFileInfo( m_FullFilePath ).absoluteDir() );
 
     // Load the images into the book and
@@ -270,7 +268,7 @@ QHash< QString, QString > ImportHTML::LoadImages( const QDomDocument &document )
             QString fullfilepath  = QFileInfo( folder, image_path ).absoluteFilePath();
             QString newpath       = "../" + m_Book->GetFolderKeeper()
                                         .AddContentFileToFolder( fullfilepath ).GetRelativePathToOEBPS();
-            updates[ image_path ] = newpath;
+            updates[ fullfilepath ] = newpath;
         }
         
         catch ( FileDoesNotExist& )
