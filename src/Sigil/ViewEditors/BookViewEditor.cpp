@@ -655,7 +655,7 @@ QString BookViewEditor::EscapeJSString( const QString &string )
 {
     QString new_string( string );
 
-    // \ -> \ and another \ 
+    /* \ -> \\ */ 
     // " -> \"
     // ' -> \'
     return new_string.replace( "\\", "\\\\" ).replace( "\"", "\\\"" ).replace( "'", "\\'" );
