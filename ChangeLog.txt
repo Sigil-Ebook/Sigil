@@ -1,4 +1,4 @@
-Sigil v0.2.4 ADD_DATE
+Sigil v0.2.4 2010.08.12.
     - fixed a problem with updating image paths for images with the same filename but coming from
     different parent directories (issue #501)
     - added a new "Merge With Previous" context menu action for XHTML files in the Book Browser
