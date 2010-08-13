@@ -161,6 +161,12 @@ public:
     void SaveAllResourcesToDisk();
 
     /**
+     * Makes sure that there are no "gaps" in the reading order
+     * of HTML resources.
+     */
+    void NormalizeReadingOrders();
+
+    /**
      * Returns the modified state of the book. A book
      * is loaded/created as not modified.
      *
@@ -224,12 +230,6 @@ private:
                               int reading_order, 
                               const QString &temp_folder_path,
                               const QHash< QString, QString > &html_updates );
-
-    /**
-     * Makes sure that there are no "gaps" in the reading order
-     * of HTML resources.
-     */
-    void NormalizeReadingOrders();
 
     /**
      * The FolderKeeper object that represents

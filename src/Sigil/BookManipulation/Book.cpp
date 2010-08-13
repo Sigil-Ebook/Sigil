@@ -283,6 +283,17 @@ void Book::SaveAllResourcesToDisk()
 }
 
 
+void Book::NormalizeReadingOrders()
+{
+    QList< HTMLResource* > html_resources = m_Mainfolder.GetResourceTypeList< HTMLResource >( true );
+
+    for ( int i = 0; i < html_resources.count(); ++i )
+    {
+        html_resources[ i ]->SetReadingOrder( i );
+    }
+}
+
+
 bool Book::IsModified() const
 {
     return m_IsModified;
@@ -343,17 +354,5 @@ void Book::CreateOneNewChapter( const QString &source,
                                 QHash< QString, QString >() 
                               )() );
     }    
-}
-
-
-void Book::NormalizeReadingOrders()
-{
-    QList< HTMLResource* > html_resources = m_Mainfolder.GetResourceTypeList< HTMLResource >( true );
-
-    // We need to "make room" for the reading order of the new resource
-    for ( int i = 0; i < html_resources.count(); ++i )
-    {
-        html_resources[ i ]->SetReadingOrder( i );
-    }
 }
 

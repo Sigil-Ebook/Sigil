@@ -1,3 +1,7 @@
+Sigil v0.3.0 ADD_DATE
+    - fixed a problem with chapter splits being placed in the wrong reading order if a file was
+    previously deleted from the Book Browser (issue #497)
+
 Sigil v0.2.4 2010.08.12.
     - fixed a problem with updating image paths for images with the same filename but coming from
     different parent directories (issue #501)
@@ -8,7 +12,7 @@ Sigil v0.2.4 2010.08.12.
     - fixed a bug where double-clicking a file in the Book Browser for a file that was already 
     opened in a tab switched that tab back to Book View; the tab now retains whatever View
     it was in previously
-    - newly opened tabs now default to the View of the current tab (issue 468)
+    - newly opened tabs now default to the View of the current tab (issue #468)
     - re-engineered the locations where Sigil stores its work files; the system-provided temp
     folder is now used; this should alleviate some permissions issues on certain machines,
     especially Macs (issue #404)

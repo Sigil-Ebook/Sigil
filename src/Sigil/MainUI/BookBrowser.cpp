@@ -244,6 +244,8 @@ void BookBrowser::Remove()
 
     resource->Delete();
 
+    m_Book->NormalizeReadingOrders();
+
     // TODO: this should be automatic through signals/slots
     m_Book->SetModified( true );
 
