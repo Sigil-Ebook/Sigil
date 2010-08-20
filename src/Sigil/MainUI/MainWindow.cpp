@@ -63,14 +63,10 @@ QStringList MainWindow::s_RecentFiles = QStringList();
 
 
 
-// Constructor.
-// The first argument is the path to the file that the window
-// should load (new file loaded if empty); the second is the
-// window's parent; the third specifies the flags used to modify window behaviour
 MainWindow::MainWindow( const QString &openfilepath, QWidget *parent, Qt::WFlags flags )
     : 
     QMainWindow( parent, flags ),
-    m_CurrentFile( QString() ),
+    m_CurrentFilePath( QString() ),
     m_Book( new Book() ),
     m_LastFolderOpen( QString() ),
     m_LastFolderSave( QString() ),
@@ -99,7 +95,7 @@ MainWindow::MainWindow( const QString &openfilepath, QWidget *parent, Qt::WFlags
     CreateRecentFilesActions();
     UpdateRecentFileActions();
 
-    TabChanged( NULL, &m_TabManager.GetCurrentContentTab() );
+    ChangeSignalsWhenTabChanges( NULL, &m_TabManager.GetCurrentContentTab() );
 
     LoadInitialFile( openfilepath );
 }
@@ -143,11 +139,9 @@ void MainWindow::ShowMessageOnCurrentStatusBar( const QString &message,
 }
 
 
-// Overrides the closeEvent handler so we can check
-// for saved status before actually closing
 void MainWindow::closeEvent( QCloseEvent *event )
 {
-    if ( MaybeSave() )
+    if ( MaybeSaveDialogSaysProceed() )
     {
         WriteSettings();
 
@@ -161,14 +155,13 @@ void MainWindow::closeEvent( QCloseEvent *event )
 }
 
 
-// Implements New action functionality
 void MainWindow::New()
 {
     // The nasty IFDEFs are here to enable the multi-document
     // interface on the Mac; Lin and Win just use multiple
     // instances of the Sigil application
 #ifndef Q_WS_MAC
-    if ( MaybeSave() )
+    if ( MaybeSaveDialogSaysProceed() )
 #endif
     {
 #ifdef Q_WS_MAC
@@ -181,14 +174,13 @@ void MainWindow::New()
 }
 
 
-// Implements Open action functionality
 void MainWindow::Open()
 {
     // The nasty IFDEFs are here to enable the multi-document
     // interface on the Mac; Lin and Win just use multiple
     // instances of the Sigil application
 #ifndef Q_WS_MAC
-    if ( MaybeSave() )
+    if ( MaybeSaveDialogSaysProceed() )
 #endif
     {
         QStringList filters( c_LoadFilters.values() );
@@ -227,7 +219,6 @@ void MainWindow::Open()
 }
 
 
-// Implements Open recent file action functionality
 void MainWindow::OpenRecentFile()
 {
     // The nasty IFDEFs are here to enable the multi-document
@@ -239,7 +230,7 @@ void MainWindow::OpenRecentFile()
     if ( action != NULL )
     {
 #ifndef Q_WS_MAC
-        if ( MaybeSave() )
+        if ( MaybeSaveDialogSaysProceed() )
 #endif
         {   
 
@@ -254,22 +245,20 @@ void MainWindow::OpenRecentFile()
 }
 
 
-// Implements Save action functionality
 bool MainWindow::Save()
 {
-    if ( m_CurrentFile.isEmpty() )
+    if ( m_CurrentFilePath.isEmpty() )
     {
         return SaveAs();
     }
 
     else
     {
-        return SaveFile( m_CurrentFile );
+        return SaveFile( m_CurrentFilePath );
     }
 }
 
 
-// Implements Save As action functionality
 bool MainWindow::SaveAs()
 {
     QStringList filters( c_SaveFilters.values() );
@@ -286,16 +275,16 @@ bool MainWindow::SaveAs()
     QString default_filter  = "";
 
     // If we can save this file type, then we use the current filename
-    if ( c_SaveFilters.contains( QFileInfo( m_CurrentFile ).suffix().toLower() ) )
+    if ( c_SaveFilters.contains( QFileInfo( m_CurrentFilePath ).suffix().toLower() ) )
     {
-        save_path       = m_LastFolderSave + "/" + QFileInfo( m_CurrentFile ).fileName();
-        default_filter  = c_SaveFilters.value( QFileInfo( m_CurrentFile ).suffix().toLower() );
+        save_path       = m_LastFolderSave + "/" + QFileInfo( m_CurrentFilePath ).fileName();
+        default_filter  = c_SaveFilters.value( QFileInfo( m_CurrentFilePath ).suffix().toLower() );
     }
 
     // If not, we change the extension to EPUB
     else
     {
-        save_path       = m_LastFolderSave + "/" + QFileInfo( m_CurrentFile ).completeBaseName() + ".epub";
+        save_path       = m_LastFolderSave + "/" + QFileInfo( m_CurrentFilePath ).completeBaseName() + ".epub";
         default_filter  = c_SaveFilters.value( "epub" );
     }
 
@@ -317,7 +306,6 @@ bool MainWindow::SaveAs()
 }
 
 
-// Implements Find action functionality
 void MainWindow::Find()
 {
     m_TabManager.SaveCurrentTabData();
@@ -336,7 +324,6 @@ void MainWindow::Find()
 }
 
 
-// Implements Replace action functionality
 void MainWindow::Replace()
 {
     m_TabManager.SaveCurrentTabData();
@@ -355,14 +342,12 @@ void MainWindow::Replace()
 }
 
 
-// Implements Zoom In action functionality
 void MainWindow::ZoomIn()
 {
     ZoomByStep( true );  
 }
 
 
-// Implements Zoom Out action functionality
 void MainWindow::ZoomOut()
 {
     ZoomByStep( false );  
@@ -399,7 +384,6 @@ void MainWindow::InsertImage()
 }
 
 
-// Implements Meta Editor action functionality
 void MainWindow::MetaEditorDialog()
 {
     MetaEditor meta( m_Book, this );
@@ -407,7 +391,6 @@ void MainWindow::MetaEditorDialog()
 }
 
 
-// Implements TOC Preview action functionality
 void MainWindow::TOCEditorDialog()
 {
     m_TabManager.SaveCurrentTabData();
@@ -433,21 +416,18 @@ void MainWindow::FrequentlyAskedQuestions()
 }
 
 
-// Implements Report An Issue action functionality
 void MainWindow::ReportAnIssue()
 {
     QDesktopServices::openUrl( QUrl( REPORTING_ISSUES_WIKI ) );
 }
 
 
-// Implements Sigil Dev Blog action functionality
 void MainWindow::SigilDevBlog()
 {
     QDesktopServices::openUrl( QUrl( SIGIL_DEV_BLOG ) );
 }
 
 
-// Implements About action functionality
 void MainWindow::AboutDialog()
 {
     About about( this );
@@ -456,14 +436,14 @@ void MainWindow::AboutDialog()
 }
 
 
-void MainWindow::TabChanged( ContentTab* old_tab, ContentTab* new_tab )
+void MainWindow::ChangeSignalsWhenTabChanges( ContentTab* old_tab, ContentTab* new_tab )
 {
     BreakTabConnections( old_tab );
     MakeTabConnections( new_tab );
 }
 
 
-void MainWindow::UpdateUI()
+void MainWindow::UpdateUIOnTabChanges()
 {
     ContentTab &tab = m_TabManager.GetCurrentContentTab();
 
@@ -491,9 +471,9 @@ void MainWindow::UpdateUI()
 }
 
 
-// When the user switches tabs, we need to enable/disable
-// the WYSIWYG actions depending on the new tab's "view state" 
-void MainWindow::TabSwitchChanges()
+// We need to enable/disable the WYSIWYG actions depending
+// on the new tab's "view state".  
+void MainWindow::UpdateUiWhenTabsSwitch()
 {
     ContentTab &tab = m_TabManager.GetCurrentContentTab();
 
@@ -524,8 +504,6 @@ void MainWindow::TabSwitchChanges()
 }
 
 
-// Set initial state for actions in Book View
-// (enable the actions the Code View disabled)
 void MainWindow::SetStateActionsBookView()
 {
     ui.actionUndo->setEnabled( true );
@@ -565,9 +543,6 @@ void MainWindow::SetStateActionsBookView()
 }
 
 
-// Set initial state for actions in Code View
-// (disable the actions used in Book View that
-// are not appropriate here)
 void MainWindow::SetStateActionsCodeView()
 {
     SetStateActionsBookView();
@@ -607,9 +582,6 @@ void MainWindow::SetStateActionsCodeView()
 }
 
 
-// Set initial state for actions in Raw View
-// (same as Code View, but, the actions for switching
-// views are off as well; Raw View is for CSS, XML ... editing )
 void MainWindow::SetStateActionsRawView()
 {
     SetStateActionsCodeView();
@@ -638,7 +610,6 @@ void MainWindow::SetStateActionsStaticView()
 }
 
 
-// Zooms the current view with the new zoom slider value
 void MainWindow::SliderZoom( int slider_value )
 {
     float new_zoom_factor     = SliderRangeToZoomFactor( slider_value );
@@ -650,8 +621,7 @@ void MainWindow::SliderZoom( int slider_value )
         ZoomByFactor( new_zoom_factor );
 }
 
-// Updates the zoom controls by reading the current
-// zoom factor from the view. Needed on View changeover.
+
 void MainWindow::UpdateZoomControls()
 {
     float zoom_factor = m_TabManager.GetCurrentContentTab().GetZoomFactor(); 
@@ -661,16 +631,12 @@ void MainWindow::UpdateZoomControls()
 }
 
 
-// Updates the zooming slider to reflect the new zoom factor
 void MainWindow::UpdateZoomSlider( float new_zoom_factor )
 {
     m_slZoomSlider->setValue( ZoomFactorToSliderRange( new_zoom_factor ) );
 }
 
 
-// Updates the zoom label to reflect the state of the zoom slider.
-// This is needed so the user can see to what zoom value the slider
-// is being dragged to.
 void MainWindow::UpdateZoomLabel( int slider_value )
 {
     float zoom_factor = SliderRangeToZoomFactor( slider_value );
@@ -679,7 +645,6 @@ void MainWindow::UpdateZoomLabel( int slider_value )
 }
 
 
-// Updates the zoom label to reflect the new zoom factor
 void MainWindow::UpdateZoomLabel( float new_zoom_factor )
 {
     m_lbZoomLabel->setText( QString( "%1% " ).arg( qRound( new_zoom_factor * 100 ) ) );
@@ -719,8 +684,6 @@ void MainWindow::CreateNewChapters( QStringList new_chapters )
 }
 
 
-// Reads all the stored application settings like
-// window position, geometry etc.
 void MainWindow::ReadSettings()
 {
     QSettings settings;
@@ -765,8 +728,6 @@ void MainWindow::ReadSettings()
 }
 
 
-// Writes all the stored application settings like
-// window position, geometry etc.
 void MainWindow::WriteSettings()
 {
     QSettings settings;
@@ -796,12 +757,7 @@ void MainWindow::WriteSettings()
 }
 
 
-// Gets called on possible saves; asks the user
-// does he want to save; 
-// if the user chooses SAVE, we save and continue
-// if the user chooses DISCARD, we don't save and continue
-// if the user chooses CANCEL, we don't save and stop what we were doing
-bool MainWindow::MaybeSave()
+bool MainWindow::MaybeSaveDialogSaysProceed()
 {
     if ( isWindowModified() ) 
     {
@@ -836,19 +792,16 @@ void MainWindow::SetNewBook( QSharedPointer< Book > new_book )
 }
 
 
-// Creates a new, empty book and replaces
-// the current one with it
 void MainWindow::CreateNewBook()
 {
     QSharedPointer< Book > new_book = QSharedPointer< Book >( new Book() );
     new_book->CreateEmptyHTMLFile();
     
     SetNewBook( new_book );
-    SetCurrentFile( "" );
+    UpdateUiWithCurrentFile( "" );
 }
 
 
-// Loads from the file specified
 void MainWindow::LoadFile( const QString &fullfilepath )
 {
     if ( !Utility::IsFileReadable( fullfilepath ) )
@@ -865,7 +818,7 @@ void MainWindow::LoadFile( const QString &fullfilepath )
 
         QApplication::restoreOverrideCursor();
 
-        SetCurrentFile( fullfilepath );
+        UpdateUiWithCurrentFile( fullfilepath );
         statusBar()->showMessage( tr( "File loaded" ), STATUSBAR_MSG_DISPLAY_TIME );
     }
     
@@ -878,7 +831,6 @@ void MainWindow::LoadFile( const QString &fullfilepath )
 }
 
 
-// Saves to the file specified
 bool MainWindow::SaveFile( const QString &fullfilepath )
 {
     try
@@ -915,7 +867,7 @@ bool MainWindow::SaveFile( const QString &fullfilepath )
 
             tab.setFocus();
 
-        SetCurrentFile( fullfilepath );
+        UpdateUiWithCurrentFile( fullfilepath );
 
         statusBar()->showMessage( tr( "File saved" ), STATUSBAR_MSG_DISPLAY_TIME );
     }
@@ -931,10 +883,6 @@ bool MainWindow::SaveFile( const QString &fullfilepath )
 }
 
 
-// Performs zoom operations in the views using the default
-// zoom step. Setting zoom_in to true zooms the views *in*,
-// and a setting of false zooms them *out*. The zoom value
-// is first wrapped to the nearest zoom step (relative to the zoom direction).
 void MainWindow::ZoomByStep( bool zoom_in )
 {
     // We use a negative zoom stepping if we are zooming *out*
@@ -961,8 +909,6 @@ void MainWindow::ZoomByStep( bool zoom_in )
 }
 
 
-// Sets the provided zoom factor on the active view editor.
-// Valid values are between ZOOM_MAX and ZOOM_MIN, others are ignored.
 void MainWindow::ZoomByFactor( float new_zoom_factor )
 {
     if ( new_zoom_factor > ZOOM_MAX || new_zoom_factor < ZOOM_MIN )
@@ -973,8 +919,7 @@ void MainWindow::ZoomByFactor( float new_zoom_factor )
 }
 
 
-// Converts a zoom factor to a value in the slider range
-int MainWindow::ZoomFactorToSliderRange( float zoom_factor ) const
+int MainWindow::ZoomFactorToSliderRange( float zoom_factor )
 {
     // We want a precise value for the 100% zoom,
     // so we pick up all float values near it.
@@ -1005,8 +950,7 @@ int MainWindow::ZoomFactorToSliderRange( float zoom_factor ) const
 }
 
 
-// Converts a value in the zoom slider range to a zoom factor
-float MainWindow::SliderRangeToZoomFactor( int slider_range_value ) const
+float MainWindow::SliderRangeToZoomFactor( int slider_range_value )
 {
     // We want a precise value for the 100% zoom
     if ( slider_range_value == ZOOM_SLIDER_MIDDLE )
@@ -1036,8 +980,6 @@ float MainWindow::SliderRangeToZoomFactor( int slider_range_value ) const
 }
 
 
-// Returns a map with keys being extensions of file types
-// we can load, and the values being filters for use in file dialogs
 const QMap< QString, QString > MainWindow::GetLoadFiltersMap()
 {
     QMap< QString, QString > file_filters;
@@ -1054,8 +996,6 @@ const QMap< QString, QString > MainWindow::GetLoadFiltersMap()
 }
 
 
-// Returns a map with keys being extensions of file types
-// we can save, and the values being filters for use in file dialogs
 const QMap< QString, QString > MainWindow::GetSaveFiltersMap()
 {
     QMap< QString, QString > file_filters;
@@ -1093,24 +1033,22 @@ MainWindow& MainWindow::GetCurrentMainWindow()
 }
 
 
-// Sets the current file in window title;
-// updates the recent files list
-void MainWindow::SetCurrentFile( const QString &filename )
+void MainWindow::UpdateUiWithCurrentFile( const QString &fullfilepath )
 {
-    m_CurrentFile = filename;
+    m_CurrentFilePath = fullfilepath;
 
-    QString shownName = m_CurrentFile.isEmpty() ? "untitled.epub" : QFileInfo( m_CurrentFile ).fileName();
+    QString shownName = m_CurrentFilePath.isEmpty() ? "untitled.epub" : QFileInfo( m_CurrentFilePath ).fileName();
 
     // Update the titlebar
     setWindowTitle( tr( "%1[*] - %2" ).arg( shownName ).arg( tr( "Sigil" ) ) );
 
-    if ( m_CurrentFile.isEmpty() )
+    if ( m_CurrentFilePath.isEmpty() )
 
         return;
 
     // Update recent files actions
-    s_RecentFiles.removeAll( filename );
-    s_RecentFiles.prepend( filename );
+    s_RecentFiles.removeAll( m_CurrentFilePath );
+    s_RecentFiles.prepend( m_CurrentFilePath );
 
     while ( s_RecentFiles.size() > MAX_RECENT_FILES )
     {
@@ -1128,8 +1066,6 @@ void MainWindow::SetCurrentFile( const QString &filename )
 }
 
 
-// Selects the appropriate entry in the heading combo box
-// based on the provided name of the element
 void MainWindow::SelectEntryInHeadingCombo( const QString &element_name )
 {
     QString select = "";
@@ -1154,8 +1090,6 @@ void MainWindow::SelectEntryInHeadingCombo( const QString &element_name )
 }
 
 
-// Creates and adds the recent files actions
-// to the File menu
 void MainWindow::CreateRecentFilesActions()
 {
     for ( int i = 0; i < MAX_RECENT_FILES; ++i ) 
@@ -1176,8 +1110,6 @@ void MainWindow::CreateRecentFilesActions()
 }
 
 
-// Updates the recent files actions when the
-// list of files to be listed has changed
 void MainWindow::UpdateRecentFileActions()
 {
     int num_recent_files = qMin( s_RecentFiles.size(), MAX_RECENT_FILES );
@@ -1235,9 +1167,6 @@ void MainWindow::PlatformSpecificTweaks()
 }
 
 
-// Qt Designer is not able to create all the widgets
-// we want in the MainWindow, so we use this function
-// to extend the UI created by the Designer
 void MainWindow::ExtendUI()
 {
     // Creating the tabs and the book browser 
@@ -1467,9 +1396,6 @@ void MainWindow::ExtendIconSizes()
 }
 
 
-// If a file was provided to be loaded
-// with this main window instance, that file is loaded;
-// if not, or it can't be opened, an empty file is loaded
 void MainWindow::LoadInitialFile( const QString &openfilepath )
 {
     if ( !openfilepath.isEmpty() )
@@ -1484,7 +1410,6 @@ void MainWindow::LoadInitialFile( const QString &openfilepath )
 }
 
 
-// Connects all the required signals to their slots
 void MainWindow::ConnectSignalsToSlots()
 {
     connect( ui.actionExit,          SIGNAL( triggered() ), qApp, SLOT( closeAllWindows()          ) );
@@ -1510,15 +1435,20 @@ void MainWindow::ConnectSignalsToSlots()
     connect( ui.actionPreviousTab,   SIGNAL( triggered() ), &m_TabManager, SLOT( PreviousTab() ) );
     connect( ui.actionCloseTab,      SIGNAL( triggered() ), &m_TabManager, SLOT( CloseTab()    ) );
 
-    connect( &m_TabManager,          SIGNAL( TabChanged( ContentTab*, ContentTab* ) ), this, SLOT( TabChanged( ContentTab*, ContentTab* ) ) );
-    connect( &m_TabManager,          SIGNAL( TabChanged( ContentTab*, ContentTab* ) ), this, SLOT( UpdateUI() ) );
-    connect( &m_TabManager,          SIGNAL( TabChanged( ContentTab*, ContentTab* ) ), this, SLOT( TabSwitchChanges() ) );
-
-    connect( m_slZoomSlider,         SIGNAL( valueChanged( int ) ), this, SLOT( SliderZoom( int ) )      );
+    connect( m_slZoomSlider,         SIGNAL( valueChanged( int ) ), this, SLOT( SliderZoom( int ) ) );
 
     // We also update the label when the slider moves... this is to show
     // the zoom value the slider will land on while it is being moved.
     connect( m_slZoomSlider,         SIGNAL( sliderMoved( int ) ),  this, SLOT( UpdateZoomLabel( int ) ) );
+
+    connect( &m_TabManager,          SIGNAL( TabChanged( ContentTab*, ContentTab* ) ), 
+             this,                   SLOT( ChangeSignalsWhenTabChanges( ContentTab*, ContentTab* ) ) );
+
+    connect( &m_TabManager,          SIGNAL( TabChanged( ContentTab*, ContentTab* ) ), 
+             this,                   SLOT( UpdateUIOnTabChanges() ) );
+
+    connect( &m_TabManager,          SIGNAL( TabChanged( ContentTab*, ContentTab* ) ),
+             this,                   SLOT( UpdateUiWhenTabsSwitch() ) );
 
     connect( m_BookBrowser, SIGNAL( ResourceDoubleClicked( Resource& ) ),
              &m_TabManager, SLOT(   OpenResource(          Resource& ) ) );
@@ -1535,6 +1465,7 @@ void MainWindow::ConnectSignalsToSlots()
     connect( &m_TabManager, SIGNAL( NewChaptersRequest( QStringList ) ),
              this,          SLOT(   CreateNewChapters(  QStringList ) ) );
 }
+
 
 void MainWindow::MakeTabConnections( ContentTab *tab )
 {
@@ -1574,8 +1505,8 @@ void MainWindow::MakeTabConnections( ContentTab *tab )
 
     connect( m_cbHeadings, SIGNAL( activated( const QString& ) ),  tab,   SLOT( HeadingStyle( const QString& ) ) );
 
-    connect( tab,   SIGNAL( ViewChanged() ),                this,          SLOT( UpdateUI()                ) );
-    connect( tab,   SIGNAL( SelectionChanged() ),           this,          SLOT( UpdateUI()                ) );
+    connect( tab,   SIGNAL( ViewChanged() ),                this,          SLOT( UpdateUIOnTabChanges()    ) );
+    connect( tab,   SIGNAL( SelectionChanged() ),           this,          SLOT( UpdateUIOnTabChanges()    ) );
     connect( tab,   SIGNAL( EnteringBookView() ),           this,          SLOT( SetStateActionsBookView() ) );
     connect( tab,   SIGNAL( EnteringCodeView() ),           this,          SLOT( SetStateActionsCodeView() ) );
     connect( tab,   SIGNAL( EnteringBookView() ),           this,          SLOT( UpdateZoomControls()      ) );
@@ -1584,6 +1515,7 @@ void MainWindow::MakeTabConnections( ContentTab *tab )
     connect( tab,   SIGNAL( ZoomFactorChanged( float ) ),   this,          SLOT( UpdateZoomLabel( float )  ) );
     connect( tab,   SIGNAL( ZoomFactorChanged( float ) ),   this,          SLOT( UpdateZoomSlider( float ) ) );
 }
+
 
 void MainWindow::BreakTabConnections( ContentTab *tab )
 {
@@ -1625,11 +1557,4 @@ void MainWindow::BreakTabConnections( ContentTab *tab )
     disconnect( tab,                                0, this, 0 );
     disconnect( tab,                                0, m_Book.data(), 0 );
 }
-
-
-
-
-
-
-
 

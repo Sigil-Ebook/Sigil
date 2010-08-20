@@ -45,7 +45,7 @@ public:
     * Represents all the semantic types
     * for the <guide> element.
     *
-    * @sa http://www.idpf.org/2007/opf/OPF_2.0_final_spec.html#Section2.6
+    * @see http://www.idpf.org/2007/opf/OPF_2.0_final_spec.html#Section2.6
     */
     enum GuideSemanticType
     {

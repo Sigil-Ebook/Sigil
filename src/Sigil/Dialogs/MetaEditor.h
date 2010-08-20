@@ -216,7 +216,7 @@ private:
      * A working copy of the book's metadata store.
      * This is what we are changing with the dialog.
      *
-     * @sa Book::m_Metadata
+     * @see Book::m_Metadata
      */
     QHash< QString, QList< QVariant > > m_Metadata;
 
