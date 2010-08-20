@@ -244,7 +244,7 @@ private:
     QString m_PublicationIdentifier;
 
     /**
-     * A hash with meta information about the book.The keys are
+     * A hash with meta information about the book. The keys are
      * are the metadata names, and the values are the lists of
      * metadata values for that metadata name.
      */

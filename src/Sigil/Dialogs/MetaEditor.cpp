@@ -27,7 +27,7 @@
 static const int DEFAULT_EXPANDED_HEIGHT = 304;
 static const QString SETTINGS_GROUP      = "meta_editor";
 
-// Constructor
+
 MetaEditor::MetaEditor( QSharedPointer< Book > book, QWidget *parent )
     :
     QDialog( parent ),
@@ -60,7 +60,7 @@ MetaEditor::MetaEditor( QSharedPointer< Book > book, QWidget *parent )
         ui.cbLanguages->setCurrentIndex( ui.cbLanguages->findText( tr( "English" ) ) );	     
 }
 
-// Destructor
+
 MetaEditor::~MetaEditor()
 {
     if ( m_isMore == true )
@@ -70,7 +70,7 @@ MetaEditor::~MetaEditor()
     WriteSettings();
 }
 
-// Overrides
+
 void MetaEditor::showEvent( QShowEvent * event )
 {
     RefreshVerticalHeader();
@@ -79,22 +79,18 @@ void MetaEditor::showEvent( QShowEvent * event )
 }
 
 
-// Switches the display between the "more" version with 
-// the metadata table and the "less" version without it
 void MetaEditor::ToggleMoreLess()
 {
-    if ( m_isMore == true )
+    if ( m_isMore )
     {
         m_ExpandedHeight = size().height();
-
         ui.wgExtension->hide();
-
         ui.btMore->setText( tr( "More" ) );
 
         m_isMore = false;
     }
 
-    else // isMore == false
+    else
     {		
         ui.wgExtension->show();
 
@@ -113,8 +109,6 @@ void MetaEditor::ToggleMoreLess()
 }
 
 
-// Inserts a metadata field with the provided name
-// into the table; the value of the field is empty
 void MetaEditor::AddEmptyMetadataToTable( const QString &metaname )
 {
     // If we are inserting a date, that needs special treatment;
@@ -131,25 +125,18 @@ void MetaEditor::AddEmptyMetadataToTable( const QString &metaname )
 }
 
 
-// Inserts a metadata field with the provided name
-// and value into the table
 void MetaEditor::AddMetadataToTable( const QString &metaname, const QVariant &metavalue )
 {
     m_MetaModel.insertRow( m_MetaModel.rowCount() );
-
     m_MetaModel.setData( m_MetaModel.index( m_MetaModel.rowCount() - 1, 0 ), metaname );
 
     // The user should not be able to edit
     // the field with the metadata's name
     m_MetaModel.item( m_MetaModel.rowCount() - 1, 0 )->setEditable( false );
-
     m_MetaModel.setData( m_MetaModel.index( m_MetaModel.rowCount() - 1, 1 ), metavalue );
 }
 
 
-// Add Basic button functionality;
-// Shows the window for selecting the new basic
-// metadata type which creates the new type upon return
 void MetaEditor::AddBasic()
 {
     AddMetadata addmeta( Metadata::Instance().GetBasicMetaMap(), this );
@@ -160,9 +147,6 @@ void MetaEditor::AddBasic()
 }
 
 
-// Add Advanced button functionality;
-// Shows the window for selecting the new advance
-// metadata type which creates the new type upon return
 void MetaEditor::AddAdvanced()
 {
     AddMetadata addmeta( Metadata::Instance().GetRelatorMap(), this );
@@ -173,9 +157,6 @@ void MetaEditor::AddAdvanced()
 }
 
 
-// Remove button functionality;
-// removes the currently selected row
-// from the metadata table
 void MetaEditor::Remove()
 {
     m_MetaModel.removeRow( ui.tvMetaTable->currentIndex().row() );
@@ -198,8 +179,6 @@ void MetaEditor::RefreshVerticalHeader()
 }
 
 
-// Reads the metadata in the metadata table and transfers it 
-// to the Book; this is usually called before closing the dialog
 void MetaEditor::FillMetadataFromDialog()
 {
     // Clear the book metadata so we don't duplicate something...
@@ -214,8 +193,8 @@ void MetaEditor::FillMetadataFromDialog()
 
     for ( int row = 0; row < m_MetaModel.rowCount(); row++ )
     {
-        QString name	= m_MetaModel.data( m_MetaModel.index( row, 0 ) ).toString();
-        QVariant value	= m_MetaModel.data( m_MetaModel.index( row, 1 ) );
+        QString name  = m_MetaModel.data( m_MetaModel.index( row, 0 ) ).toString();
+        QVariant value = m_MetaModel.data( m_MetaModel.index( row, 1 ) );
 
         // For string-based metadata, create multiple entries
         // if the typed in value contains semicolons
@@ -232,8 +211,6 @@ void MetaEditor::FillMetadataFromDialog()
 }
 
 
-// Reads the metadata from the Book and fills
-// the metadata table with it
 void MetaEditor::ReadMetadataFromBook()
 {
     foreach ( QString name, m_Metadata.keys() )
@@ -260,7 +237,6 @@ void MetaEditor::ReadMetadataFromBook()
 }
 
 
-// Clears all the metadata stored in the Book
 void MetaEditor::ClearBookMetadata()
 {
     foreach ( QString name, m_Metadata.keys() )
@@ -269,14 +245,14 @@ void MetaEditor::ClearBookMetadata()
     }
 }
 
-// Returns true if it's ok to split this metadata field
-bool MetaEditor::OkToSplitInput( const QString &metaname ) const
+
+bool MetaEditor::OkToSplitInput( const QString &metaname )
 {
     // The "description" and "rights" fields could have a semicolon
     // in the text and there's also little point in providing multiple
     // entries for these so we don't split them.
-    if (	( metaname == "Description" ) ||
-            ( metaname == "Rights" )
+    if ( metaname == "Description" ||
+         metaname == "Rights"
         )
     {
         return false;
@@ -286,10 +262,7 @@ bool MetaEditor::OkToSplitInput( const QString &metaname ) const
 }
 
 
-// Returns a list of all entries in the specified field;
-// Entries are separated by semicolons, so for instance
-// "Doe, John;Doe, Jane" would return "Doe, John" and "Doe, Jane" in a list
-QList< QVariant > MetaEditor::InputsInField( const QString &field_value ) const
+QList< QVariant > MetaEditor::InputsInField( const QString &field_value )
 {
     QList< QVariant > inputs;
 
@@ -301,21 +274,19 @@ QList< QVariant > MetaEditor::InputsInField( const QString &field_value ) const
     return inputs;
 }
 
-// Adds a value to a field; if a value already exists, 
-// the new value is appended after a semicolon
-QString MetaEditor::AddValueToField( const QString &field, const QString &value ) const
+
+QString MetaEditor::AddValueToField( const QString &field_value, const QString &value )
 {
-    if ( field.isEmpty() )
+    if ( field_value.isEmpty() )
 
         return value;
 
     else
 
-        return field + "; " + value;
+        return field_value + "; " + value;
 }
 
 
-// Fills the language combobox with all the supported languages
 void MetaEditor::FillLanguageComboBox()
 {
     foreach ( QString lang, Metadata::Instance().GetLanguageMap().keys() )
@@ -324,7 +295,7 @@ void MetaEditor::FillLanguageComboBox()
     }	
 }
 
-// Sets up the metadata table
+
 void MetaEditor::SetUpMetaTable()
 {
     QStringList header;
@@ -345,8 +316,7 @@ void MetaEditor::SetUpMetaTable()
     ui.tvMetaTable->setAlternatingRowColors( true );    
 }
 
-// Reads all the stored dialog settings like
-// window position, geometry etc.
+
 void MetaEditor::ReadSettings()
 {
     QSettings settings;
@@ -355,11 +325,11 @@ void MetaEditor::ReadSettings()
     // We flip the stored isMore state because we have to pass through
     // the ToggleMoreLess function to actually set the widgets
     // (and the isMore variable) to the stored state
-    m_isMore	= ! settings.value( "is_more" ).toBool();		
+    m_isMore = !settings.value( "is_more" ).toBool();		
 
     // Window width and the height after expansion
-    int width		    = settings.value( "width" ).toInt();
-    m_ExpandedHeight	= settings.value( "expanded_height" ).toInt();		
+    int width        = settings.value( "width" ).toInt();
+    m_ExpandedHeight = settings.value( "expanded_height" ).toInt();		
 
     if ( ( width != 0 ) && ( m_ExpandedHeight != 0 ) )
 
@@ -373,8 +343,7 @@ void MetaEditor::ReadSettings()
         move( position );
 }
 
-// Writes all the stored dialog settings like
-// window position, geometry etc.
+
 void MetaEditor::WriteSettings()
 {
     QSettings settings;
@@ -392,12 +361,9 @@ void MetaEditor::WriteSettings()
 }
 
 
-// Performs specific changes based on the OS platform
 void MetaEditor::PlatformSpecificTweaks()
 {
-
 #ifdef Q_WS_WIN
-
     // Increasing the spacing between the controls so they
     // line up nicely with the buttons on Windows. Setting 
     // this for other platforms has the opposite effect.
