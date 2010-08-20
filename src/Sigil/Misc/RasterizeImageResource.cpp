@@ -23,6 +23,7 @@
 #include "RasterizeImageResource.h"
 #include "../ResourceObjects/ImageResource.h"
 #include "../Misc/Utility.h"
+#include "../Misc/SleepFunctions.h"
 
 static const QString PAGE_SOURCE =  "<html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\">"
                                     "<head>"
@@ -60,6 +61,7 @@ QPixmap RasterizeImageResource::operator()( const ImageResource &resource, float
     {
         // Make sure Qt processes events, signals and calls slots
         qApp->processEvents();
+        SleepFunctions::msleep( 10 );
     }
 
     // The flag needs to be reset so the caller
