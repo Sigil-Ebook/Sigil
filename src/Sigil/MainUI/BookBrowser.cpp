@@ -296,12 +296,12 @@ void BookBrowser::AddGuideSemanticType( int type )
         // we customarily have more than one instance.
         if ( semantic_type_to_add != GuideSemantics::Text )
         {
-	        foreach( HTMLResource *html_resource, m_Book->GetFolderKeeper().GetResourceTypeList< HTMLResource >() )
+            foreach( HTMLResource *html_resource, m_Book->GetFolderKeeper().GetResourceTypeList< HTMLResource >() )
             {
                 if ( html_resource->GetGuideSemanticType() == semantic_type_to_add )
                 {
                     html_resource->SetGuideSemanticType( GuideSemantics::NoType );
-	
+    
                     // There is no "break" statement here because we might
                     // load an epub that has several instance of one guide type.
                     // We preserve them on load, but if the user is intent on

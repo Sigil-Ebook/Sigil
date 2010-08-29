@@ -78,10 +78,10 @@ MainWindow::MainWindow( const QString &openfilepath, QWidget *parent, Qt::WFlags
     c_LoadFilters( GetLoadFiltersMap() )
 {
     ui.setupUi( this );
-	
+    
     // Telling Qt to delete this window
     // from memory when it is closed
-	setAttribute( Qt::WA_DeleteOnClose );
+    setAttribute( Qt::WA_DeleteOnClose );
 
     ExtendUI();
     PlatformSpecificTweaks();

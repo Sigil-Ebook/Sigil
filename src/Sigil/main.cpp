@@ -141,7 +141,7 @@ static bool QuickConvert( const QStringList &arguments )
 // Application entry point
 int main( int argc, char *argv[] )
 {
-    QT_REQUIRE_VERSION( argc, argv, "4.6.0" );
+    QT_REQUIRE_VERSION( argc, argv, "4.7.0" );
 
 #ifndef QT_DEBUG
     qInstallMsgHandler( MessageHandler );
