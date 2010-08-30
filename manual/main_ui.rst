@@ -11,7 +11,8 @@ Sigil provides an advanced editing environment for |epub| books. The main user i
 
 .. _fig_mainui:
 
-.. figure:: _static/book_view.* 
+.. figure:: _static/book_view.*
+   :height: 809px
    :scale: 80 %
  
    Main user interface
@@ -60,6 +61,7 @@ An example of what an |xhtml| file looks like in this view can bee seen in the :
 .. _fig_codeview:
 
 .. figure:: _static/code_view.* 
+   :height: 809px
    :scale: 80 %
    
    Code View
@@ -74,6 +76,7 @@ This view is also only available for |xhtml| files. An example is shown in the :
 .. _fig_splitview:
 
 .. figure:: _static/split_view.* 
+   :height: 809px
    :scale: 80 %
    
    Split View
