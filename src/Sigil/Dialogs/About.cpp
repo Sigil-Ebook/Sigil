@@ -54,7 +54,7 @@ QDateTime About::GetUTCBuildTime()
     Q_ASSERT( !date_string.isEmpty() );
     Q_ASSERT( !time_string.isEmpty() );
 
-    QRegExp date_match( "(\\w{3}) (\\d{2}) (\\d{4})" );
+    QRegExp date_match( "(\\w{3})\\s+(\\d+)\\s+(\\d{4})" );
     date_string.indexOf( date_match );
 
     QDate date( date_match.cap( 3 ).toInt(), 
