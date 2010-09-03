@@ -57,6 +57,10 @@ QSharedPointer< Book > ImportEPUB::GetBook()
 
     UniversalUpdates::PerformUniversalUpdates( false, resources, updates );
 
+    // Sometimes we load crappy epubs created by Calibre,
+    // and this fixes problems with phantom files in the spine.
+    m_Book->NormalizeReadingOrders();
+
     return m_Book;
 }
 
