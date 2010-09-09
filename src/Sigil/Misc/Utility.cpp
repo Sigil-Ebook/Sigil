@@ -121,7 +121,16 @@ void Utility::CopyFiles( const QString &fullfolderpath_source, const QString &fu
             // If it's a file, copy it
             if ( file.isFile() == true )
             {
-                QFile::copy( file.absoluteFilePath(), fullfolderpath_destination + "/" + file.fileName() );
+                QString destination = fullfolderpath_destination + "/" + file.fileName();
+                bool success = QFile::copy( file.absoluteFilePath(), destination );
+
+                if ( !success )
+                {
+                    boost_throw( CannotCopyFile() 
+                                 << errinfo_file_fullpath( file.absoluteFilePath().toStdString() )
+                                 << errinfo_file_copypath( destination.toStdString() ) 
+                               );
+                }
             }
 
             // Else it's a directory, copy everything in it
@@ -278,7 +287,7 @@ QString Utility::ReadUnicodeTextFile( const QString &fullfilepath )
     if ( !file.open( QFile::ReadOnly ) )
     {
         boost_throw( CannotOpenFile() 
-                     << errinfo_file_fullpath( file.fileName().toStdString() )
+                     << errinfo_file_fullpath( fullfilepath.toStdString() )
                      << errinfo_file_errorstring( file.errorString().toStdString() ) 
                    );
     }
@@ -303,7 +312,7 @@ void Utility::WriteUnicodeTextFile( const QString &text, const QString &fullfile
     QFile file( fullfilepath );
 
     if ( !file.open( QIODevice::WriteOnly | 
-                     QIODevice::Truncate | 
+                     QIODevice::Truncate  | 
                      QIODevice::Text  
                   ) 
        )

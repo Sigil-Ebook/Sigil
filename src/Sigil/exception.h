@@ -86,3 +86,14 @@ typedef boost::error_info< struct error_string, std::string > errinfo_file_fullp
 struct CannotOpenFile : virtual ExceptionBase {};
 typedef boost::error_info< struct error_string, std::string > errinfo_file_errorstring;
 
+/**
+ * Thrown when a file cannot be opened.
+ */
+struct CannotExtractFile : virtual ExceptionBase {};
+
+/**
+ * Thrown when a file cannot be copied.
+ */
+struct CannotCopyFile : virtual ExceptionBase {};
+typedef boost::error_info< struct error_string, std::string > errinfo_file_copypath;
+

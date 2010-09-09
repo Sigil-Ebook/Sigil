@@ -278,7 +278,8 @@ void Book::MergeWithPrevious( HTMLResource& html_resource )
 
 void Book::SaveAllResourcesToDisk()
 {
-    QList< Resource* > resources =  m_Mainfolder.GetResourceList();
+    QList< Resource* > resources = m_Mainfolder.GetResourceList(); 
+
     QtConcurrent::blockingMap( resources, SaveOneResourceToDisk );
 }
 

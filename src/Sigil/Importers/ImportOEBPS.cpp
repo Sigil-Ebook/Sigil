@@ -47,6 +47,7 @@ ImportOEBPS::~ImportOEBPS()
 
 // Extracts the EPUB file to a temporary folder;
 // the path to this folder is stored in m_ExtractedFolderPath
+// TODO: create a wrapper lib for this CZipArchive POS
 void ImportOEBPS::ExtractContainer()
 {
     QDir folder( Utility::GetNewTempFolderPath() );
@@ -75,10 +76,23 @@ void ImportOEBPS::ExtractContainer()
         for ( int i = 0; i < file_count; ++i )
         {
 #ifdef Q_WS_WIN
-            zip.ExtractFile( i, win_path );
+            bool success = zip.ExtractFile( i, win_path );
 #else
-            zip.ExtractFile( i, nix_path );
+            bool success = zip.ExtractFile( i, nix_path );
 #endif
+            if ( !success )
+            {
+                CZipFileHeader* file_header = zip.GetFileInfo( i );
+                #ifdef Q_WS_WIN
+                std::string filename = QString::fromStdWString( file_header->GetFileName() ).toStdString();
+                #else
+                std::string filename = QString::fromStdWString( file_header->GetFileName().c_str() ).toStdString();
+                #endif
+
+                zip.Close(); 
+
+                boost_throw( CannotExtractFile() << errinfo_file_fullpath( filename ) );
+            }
         }
 
         zip.Close(); 
@@ -89,6 +103,8 @@ void ImportOEBPS::ExtractContainer()
     // we get some dumb header name clash from ZipArchive
     catch ( CZipException &exception )
     {
+        zip.Close( CZipArchive::afAfterException ); 
+
         // The error description is always ASCII
 #ifdef Q_WS_WIN
         boost_throw( CZipExceptionWrapper() 

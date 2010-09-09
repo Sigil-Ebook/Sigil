@@ -65,7 +65,7 @@ const QTextCodec& HTMLEncodingResolver::GetCodecForHTML( const QByteArray &raw_t
     {
         QString head = Utility::Substring( 0, head_end, ascii_data );
 
-        QRegExp encoding( "encoding=(?:\"|')([^\"']+)(?:\"|')" );
+        QRegExp encoding( "encoding\\s*=\\s*(?:\"|')([^\"']+)(?:\"|')" );
         head.indexOf( encoding );
         QTextCodec *encoding_codec = QTextCodec::codecForName( encoding.cap( 1 ).toAscii() );
 
