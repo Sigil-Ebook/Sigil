@@ -1,4 +1,4 @@
-//  (C) Copyright 2008-9 Anthony Williams 
+//  (C) Copyright 2008-10 Anthony Williams 
 //
 //  Distributed under the Boost Software License, Version 1.0. (See
 //  accompanying file LICENSE_1_0.txt or copy at
@@ -9,6 +9,8 @@
 #include <stdexcept>
 #include <boost/thread/detail/move.hpp>
 #include <boost/thread/thread_time.hpp>
+#include <boost/thread/mutex.hpp>
+#include <boost/thread/condition_variable.hpp>
 #include <boost/exception_ptr.hpp>
 #include <boost/shared_ptr.hpp>
 #include <boost/scoped_ptr.hpp>
@@ -16,6 +18,7 @@
 #include <boost/type_traits/is_convertible.hpp>
 #include <boost/mpl/if.hpp>
 #include <boost/config.hpp>
+#include <boost/throw_exception.hpp>
 #include <algorithm>
 #include <boost/function.hpp>
 #include <boost/bind.hpp>
@@ -139,6 +142,8 @@ namespace boost
                 {
                     lock.lock();
                 }
+            private:
+                relocker& operator=(relocker const&);
             };
 
             void do_callback(boost::unique_lock<boost::mutex>& lock)
@@ -218,7 +223,7 @@ namespace boost
         struct future_traits
         {
             typedef boost::scoped_ptr<T> storage_type;
-#ifdef BOOST_HAS_RVALUE_REFS
+#ifndef BOOST_NO_RVALUE_REFERENCES
             typedef T const& source_reference_type;
             struct dummy;
             typedef typename boost::mpl::if_<boost::is_fundamental<T>,dummy&,T&&>::type rvalue_source_type;
@@ -323,7 +328,7 @@ namespace boost
             move_dest_type get()
             {
                 wait();
-                return *result;
+                return static_cast<move_dest_type>(*result);
             }
 
             future_state::state get_state()
@@ -387,15 +392,18 @@ namespace boost
 
         class future_waiter
         {
+            struct registered_waiter;
+            typedef std::vector<registered_waiter>::size_type count_type;
+            
             struct registered_waiter
             {
                 boost::shared_ptr<detail::future_object_base> future;
                 detail::future_object_base::waiter_list::iterator wait_iterator;
-                unsigned index;
+                count_type index;
 
                 registered_waiter(boost::shared_ptr<detail::future_object_base> const& future_,
                                   detail::future_object_base::waiter_list::iterator wait_iterator_,
-                                  unsigned index_):
+                                  count_type index_):
                     future(future_),wait_iterator(wait_iterator_),index(index_)
                 {}
 
@@ -403,13 +411,13 @@ namespace boost
             
             struct all_futures_lock
             {
-                unsigned count;
+                count_type count;
                 boost::scoped_array<boost::unique_lock<boost::mutex> > locks;
                 
                 all_futures_lock(std::vector<registered_waiter>& futures):
                     count(futures.size()),locks(new boost::unique_lock<boost::mutex>[count])
                 {
-                    for(unsigned i=0;i<count;++i)
+                    for(count_type i=0;i<count;++i)
                     {
                         locks[i]=boost::unique_lock<boost::mutex>(futures[i].future->mutex);
                     }
@@ -422,7 +430,7 @@ namespace boost
                 
                 void unlock()
                 {
-                    for(unsigned i=0;i<count;++i)
+                    for(count_type i=0;i<count;++i)
                     {
                         locks[i].unlock();
                     }
@@ -431,7 +439,7 @@ namespace boost
             
             boost::condition_variable_any cv;
             std::vector<registered_waiter> futures;
-            unsigned future_count;
+            count_type future_count;
             
         public:
             future_waiter():
@@ -448,12 +456,12 @@ namespace boost
                 ++future_count;
             }
 
-            unsigned wait()
+            count_type wait()
             {
                 all_futures_lock lk(futures);
                 for(;;)
                 {
-                    for(unsigned i=0;i<futures.size();++i)
+                    for(count_type i=0;i<futures.size();++i)
                     {
                         if(futures[i].future->done)
                         {
@@ -466,7 +474,7 @@ namespace boost
             
             ~future_waiter()
             {
-                for(unsigned i=0;i<futures.size();++i)
+                for(count_type i=0;i<futures.size();++i)
                 {
                     futures[i].future->remove_external_waiter(futures[i].wait_iterator);
                 }
@@ -546,6 +554,9 @@ namespace boost
     template<typename Iterator>
     typename boost::disable_if<is_future_type<Iterator>,Iterator>::type wait_for_any(Iterator begin,Iterator end)
     {
+        if(begin==end)
+            return end;
+        
         detail::future_waiter waiter;
         for(Iterator current=begin;current!=end;++current)
         {
@@ -632,7 +643,7 @@ namespace boost
         ~unique_future()
         {}
 
-#ifdef BOOST_HAS_RVALUE_REFS
+#ifndef BOOST_NO_RVALUE_REFERENCES
         unique_future(unique_future && other)
         {
             future.swap(other.future);
@@ -673,7 +684,7 @@ namespace boost
         {
             if(!future)
             {
-                throw future_uninitialized();
+                boost::throw_exception(future_uninitialized());
             }
 
             return future->get();
@@ -709,7 +720,7 @@ namespace boost
         {
             if(!future)
             {
-                throw future_uninitialized();
+                boost::throw_exception(future_uninitialized());
             }
             future->wait(false);
         }
@@ -724,7 +735,7 @@ namespace boost
         {
             if(!future)
             {
-                throw future_uninitialized();
+                boost::throw_exception(future_uninitialized());
             }
             return future->timed_wait_until(abs_time);
         }
@@ -767,7 +778,7 @@ namespace boost
             future=other.future;
             return *this;
         }
-#ifdef BOOST_HAS_RVALUE_REFS
+#ifndef BOOST_NO_RVALUE_REFERENCES
         shared_future(shared_future && other)
         {
             future.swap(other.future);
@@ -830,7 +841,7 @@ namespace boost
         {
             if(!future)
             {
-                throw future_uninitialized();
+                boost::throw_exception(future_uninitialized());
             }
 
             return future->get();
@@ -866,7 +877,7 @@ namespace boost
         {
             if(!future)
             {
-                throw future_uninitialized();
+                boost::throw_exception(future_uninitialized());
             }
             future->wait(false);
         }
@@ -881,7 +892,7 @@ namespace boost
         {
             if(!future)
             {
-                throw future_uninitialized();
+                boost::throw_exception(future_uninitialized());
             }
             return future->timed_wait_until(abs_time);
         }
@@ -929,7 +940,7 @@ namespace boost
         }
 
         // Assignment
-#ifdef BOOST_HAS_RVALUE_REFS
+#ifndef BOOST_NO_RVALUE_REFERENCES
         promise(promise && rhs):
             future_obtained(rhs.future_obtained)
         {
@@ -974,7 +985,7 @@ namespace boost
             lazy_init();
             if(future_obtained)
             {
-                throw future_already_retrieved();
+                boost::throw_exception(future_already_retrieved());
             }
             future_obtained=true;
             return unique_future<R>(future);
@@ -986,7 +997,7 @@ namespace boost
             boost::lock_guard<boost::mutex> lock(future->mutex);
             if(future->done)
             {
-                throw promise_already_satisfied();
+                boost::throw_exception(promise_already_satisfied());
             }
             future->mark_finished_with_result_internal(r);
         }
@@ -998,7 +1009,7 @@ namespace boost
             boost::lock_guard<boost::mutex> lock(future->mutex);
             if(future->done)
             {
-                throw promise_already_satisfied();
+                boost::throw_exception(promise_already_satisfied());
             }
             future->mark_finished_with_result_internal(static_cast<typename detail::future_traits<R>::rvalue_source_type>(r));
         }
@@ -1009,7 +1020,7 @@ namespace boost
             boost::lock_guard<boost::mutex> lock(future->mutex);
             if(future->done)
             {
-                throw promise_already_satisfied();
+                boost::throw_exception(promise_already_satisfied());
             }
             future->mark_exceptional_finish_internal(p);
         }
@@ -1063,7 +1074,7 @@ namespace boost
         }
 
         // Assignment
-#ifdef BOOST_HAS_RVALUE_REFS
+#ifndef BOOST_NO_RVALUE_REFERENCES
         promise(promise && rhs):
             future_obtained(rhs.future_obtained)
         {
@@ -1109,7 +1120,7 @@ namespace boost
             
             if(future_obtained)
             {
-                throw future_already_retrieved();
+                boost::throw_exception(future_already_retrieved());
             }
             future_obtained=true;
             return unique_future<void>(future);
@@ -1121,7 +1132,7 @@ namespace boost
             boost::lock_guard<boost::mutex> lock(future->mutex);
             if(future->done)
             {
-                throw promise_already_satisfied();
+                boost::throw_exception(promise_already_satisfied());
             }
             future->mark_finished_with_result_internal();
         }
@@ -1132,7 +1143,7 @@ namespace boost
             boost::lock_guard<boost::mutex> lock(future->mutex);
             if(future->done)
             {
-                throw promise_already_satisfied();
+                boost::throw_exception(promise_already_satisfied());
             }
             future->mark_exceptional_finish_internal(p);
         }
@@ -1164,7 +1175,7 @@ namespace boost
                     boost::lock_guard<boost::mutex> lk(this->mutex);
                     if(started)
                     {
-                        throw task_already_started();
+                        boost::throw_exception(task_already_started());
                     }
                     started=true;
                 }
@@ -1283,7 +1294,7 @@ namespace boost
         }
 
         // assignment
-#ifdef BOOST_HAS_RVALUE_REFS
+#ifndef BOOST_NO_RVALUE_REFERENCES
         packaged_task(packaged_task&& other):
             future_obtained(other.future_obtained)
         {
@@ -1326,7 +1337,7 @@ namespace boost
         {
             if(!task)
             {
-                throw task_moved();
+                boost::throw_exception(task_moved());
             }
             else if(!future_obtained)
             {
@@ -1335,7 +1346,7 @@ namespace boost
             }
             else
             {
-                throw future_already_retrieved();
+                boost::throw_exception(future_already_retrieved());
             }
         }
         
@@ -1345,7 +1356,7 @@ namespace boost
         {
             if(!task)
             {
-                throw task_moved();
+                boost::throw_exception(task_moved());
             }
             task->run();
         }

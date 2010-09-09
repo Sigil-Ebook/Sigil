@@ -55,7 +55,7 @@ namespace detail
 {
 
 #if !defined( BOOST_USE_WINDOWS_H )
-  extern "C" void __stdcall Sleep( unsigned ms );
+  extern "C" void __stdcall Sleep( unsigned long ms );
 #endif
 
 inline void yield( unsigned k )

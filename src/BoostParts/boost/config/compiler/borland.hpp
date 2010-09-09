@@ -218,7 +218,7 @@
 //
 // check for exception handling support:
 //
-#if !defined(_CPPUNWIND) && !defined(BOOST_CPPUNWIND) && !defined(__EXCEPTIONS)
+#if !defined(_CPPUNWIND) && !defined(BOOST_CPPUNWIND) && !defined(__EXCEPTIONS) && !defined(BOOST_NO_EXCEPTIONS)
 #  define BOOST_NO_EXCEPTIONS
 #endif
 //
@@ -230,8 +230,9 @@
 //
 // all versions support __declspec:
 //
-#ifndef __STRICT_ANSI__
-#  define BOOST_HAS_DECLSPEC
+#if defined(__STRICT_ANSI__)
+// config/platform/win32.hpp will define BOOST_SYMBOL_EXPORT, etc., unless already defined  
+#  define BOOST_SYMBOL_EXPORT
 #endif
 //
 // ABI fixing headers:
@@ -260,6 +261,13 @@
 #  define BOOST_NO_ARGUMENT_DEPENDENT_LOOKUP
 #  define BOOST_NO_VOID_RETURNS
 #endif
+
+// Borland did not implement value-initialization completely, as I reported
+// in 2007, Borland Report 51854, "Value-initialization: POD struct should be
+// zero-initialized", http://qc.embarcadero.com/wc/qcmain.aspx?d=51854
+// See also: http://www.boost.org/libs/utility/value_init.htm#compiler_issues
+// (Niels Dekker, LKEB, April 2010)
+#define BOOST_NO_COMPLETE_VALUE_INITIALIZATION
 
 #define BOOST_COMPILER "Borland C++ version " BOOST_STRINGIZE(__BORLANDC__)
 

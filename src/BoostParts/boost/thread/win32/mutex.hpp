@@ -20,9 +20,11 @@ namespace boost
     }
 
     class mutex:
-        boost::noncopyable,
         public ::boost::detail::underlying_mutex
     {
+    private:
+        mutex(mutex const&);
+        mutex& operator=(mutex const&);
     public:
         mutex()
         {
@@ -40,9 +42,11 @@ namespace boost
     typedef mutex try_mutex;
 
     class timed_mutex:
-        boost::noncopyable,
         public ::boost::detail::basic_timed_mutex
     {
+    private:
+        timed_mutex(timed_mutex const&);
+        timed_mutex& operator=(timed_mutex const&);
     public:
         timed_mutex()
         {

@@ -12,25 +12,167 @@
 #ifndef BOOST_LAMBDA_FUNCTION_ADAPTORS_HPP
 #define BOOST_LAMBDA_FUNCTION_ADAPTORS_HPP
 
+#include "boost/mpl/has_xxx.hpp"
+#include "boost/tuple/tuple.hpp"
 #include "boost/type_traits/same_traits.hpp"
+#include "boost/type_traits/remove_reference.hpp"
+#include "boost/utility/result_of.hpp"
 
 namespace boost { 
 namespace lambda {
 
+namespace detail {
+
+BOOST_MPL_HAS_XXX_TEMPLATE_DEF(sig)
+
+template<class Tuple>
+struct remove_references_from_elements {
+  typedef typename boost::tuples::cons<
+    typename boost::remove_reference<typename Tuple::head_type>::type,
+    typename remove_references_from_elements<typename Tuple::tail_type>::type
+  > type;
+};
+
+template<>
+struct remove_references_from_elements<boost::tuples::null_type> {
+  typedef boost::tuples::null_type type;
+};
+
+}
+
 template <class Func> struct function_adaptor {
 
+  typedef typename detail::remove_reference_and_cv<Func>::type plainF;
+
+#if !defined(BOOST_NO_RESULT_OF)
+  // Support functors that use the boost::result_of return type convention.
+  template<class Tuple, int Length, bool HasSig>
+  struct result_converter;
+  template<class Tuple, int Length>
+  struct result_converter<Tuple, Length, true>
+    : plainF::template sig<
+        typename detail::remove_references_from_elements<Tuple>::type
+      >
+  {};
+  template<class Tuple>
+  struct result_converter<Tuple, 0, false>
+    : result_of<plainF()>
+  {};
+  template<class Tuple>
+  struct result_converter<Tuple, 1, false>
+    : result_of<plainF(
+        typename tuples::element<1, Tuple>::type)
+      >
+  {};
+  template<class Tuple>
+  struct result_converter<Tuple, 2, false>
+    : result_of<plainF(
+        typename tuples::element<1, Tuple>::type,
+        typename tuples::element<2, Tuple>::type)
+      >
+  {};
+  template<class Tuple>
+  struct result_converter<Tuple, 3, false>
+    : result_of<plainF(
+        typename tuples::element<1, Tuple>::type,
+        typename tuples::element<2, Tuple>::type,
+        typename tuples::element<3, Tuple>::type)
+      >
+  {};
+  template<class Tuple>
+  struct result_converter<Tuple, 4, false>
+    : result_of<plainF(
+        typename tuples::element<1, Tuple>::type,
+        typename tuples::element<2, Tuple>::type,
+        typename tuples::element<3, Tuple>::type,
+        typename tuples::element<4, Tuple>::type)
+      >
+  {};
+  template<class Tuple>
+  struct result_converter<Tuple, 5, false>
+    : result_of<plainF(
+        typename tuples::element<1, Tuple>::type,
+        typename tuples::element<2, Tuple>::type,
+        typename tuples::element<3, Tuple>::type,
+        typename tuples::element<4, Tuple>::type,
+        typename tuples::element<5, Tuple>::type)
+      >
+  {};
+  template<class Tuple>
+  struct result_converter<Tuple, 6, false>
+    : result_of<plainF(
+        typename tuples::element<1, Tuple>::type,
+        typename tuples::element<2, Tuple>::type,
+        typename tuples::element<3, Tuple>::type,
+        typename tuples::element<4, Tuple>::type,
+        typename tuples::element<5, Tuple>::type,
+        typename tuples::element<6, Tuple>::type)
+      >
+  {};
+  template<class Tuple>
+  struct result_converter<Tuple, 7, false>
+    : result_of<plainF(
+        typename tuples::element<1, Tuple>::type,
+        typename tuples::element<2, Tuple>::type,
+        typename tuples::element<3, Tuple>::type,
+        typename tuples::element<4, Tuple>::type,
+        typename tuples::element<5, Tuple>::type,
+        typename tuples::element<6, Tuple>::type,
+        typename tuples::element<7, Tuple>::type)
+      >
+  {};
+  template<class Tuple>
+  struct result_converter<Tuple, 8, false>
+    : result_of<plainF(
+        typename tuples::element<1, Tuple>::type,
+        typename tuples::element<2, Tuple>::type,
+        typename tuples::element<3, Tuple>::type,
+        typename tuples::element<4, Tuple>::type,
+        typename tuples::element<5, Tuple>::type,
+        typename tuples::element<6, Tuple>::type,
+        typename tuples::element<7, Tuple>::type,
+        typename tuples::element<8, Tuple>::type)
+      >
+  {};
+  template<class Tuple>
+  struct result_converter<Tuple, 9, false>
+    : result_of<plainF(
+        typename tuples::element<1, Tuple>::type,
+        typename tuples::element<2, Tuple>::type,
+        typename tuples::element<3, Tuple>::type,
+        typename tuples::element<4, Tuple>::type,
+        typename tuples::element<5, Tuple>::type,
+        typename tuples::element<6, Tuple>::type,
+        typename tuples::element<7, Tuple>::type,
+        typename tuples::element<8, Tuple>::type,
+        typename tuples::element<9, Tuple>::type)
+      >
+  {};
+
   // we do not know the return type off-hand, we must ask it from Func
-  template <class Args> class sig { 
-    typedef typename Args::head_type F; 
+  // To sig we pass a cons list, where the head is the function object type
+  // itself (potentially cv-qualified)
+  // and the tail contains the types of the actual arguments to be passed
+  // to the function object. The arguments can be cv qualified
+  // as well.
+  template <class Args>
+  struct sig
+    : result_converter<
+        Args
+      , tuples::length<typename Args::tail_type>::value
+      , detail::has_sig<plainF>::value
+      >
+  {};
+#else // BOOST_NO_RESULT_OF
+
+  template <class Args> class sig {
     typedef typename detail::remove_reference_and_cv<Func>::type plainF;
   public:
-    // To sig we pass a cons list, where the head is the function object type
-    // itself (potentially cv-qualified)
-    // and the tail contains the types of the actual arguments to be passed
-    // to the function object. The arguments can be cv qualified
-    // as well.
-    typedef typename plainF::template sig<Args>::type type;
+    typedef typename plainF::template sig<
+      typename detail::remove_references_from_elements<Args>::type
+    >::type type;
   };
+#endif
 
   template<class RET, class A1>
   static RET apply(A1& a1) {

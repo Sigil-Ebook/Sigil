@@ -132,7 +132,7 @@ template <typename From, typename To>
 struct is_convertible_basic_impl
 {
     static From _m_from;
-    static bool const value = sizeof( detail::checker<To>::_m_check(_m_from, 0) )
+    static bool const value = sizeof( boost::detail::checker<To>::_m_check(_m_from, 0) )
         == sizeof(::boost::type_traits::yes_type);
 };
 

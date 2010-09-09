@@ -25,7 +25,7 @@ struct is_convertible_from_tester
 
 }
 
-BOOST_TT_AUX_BOOL_TRAIT_DEF1(is_complex,T,(::boost::is_convertible<T, detail::is_convertible_from_tester>::value))
+BOOST_TT_AUX_BOOL_TRAIT_DEF1(is_complex,T,(::boost::is_convertible<T, boost::detail::is_convertible_from_tester>::value))
 
 } // namespace boost
 

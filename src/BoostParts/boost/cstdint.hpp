@@ -366,58 +366,87 @@ INT#_C macros if they're not already defined (John Maddock).
 
 ******************************************************/
 
-#if !defined(BOOST__STDC_CONSTANT_MACROS_DEFINED) && !defined(INT8_C)
+#if !defined(BOOST__STDC_CONSTANT_MACROS_DEFINED) && \
+   (!defined(INT8_C) || !defined(INT16_C) || !defined(INT32_C) || !defined(INT64_C))
+//
+// For the following code we get several warnings along the lines of: 
+// 
+// boost/cstdint.hpp:428:35: error: use of C99 long long integer constant 
+// 
+// So we declare this a system header to suppress these warnings. 
+//
+#if defined(__GNUC__) && (__GNUC__ >= 4) 
+#pragma GCC system_header 
+#endif 
+
 #include <limits.h>
 # define BOOST__STDC_CONSTANT_MACROS_DEFINED
 # if defined(BOOST_HAS_MS_INT64)
 //
 // Borland/Intel/Microsoft compilers have width specific suffixes:
 //
+#ifndef INT8_C
 #  define INT8_C(value)     value##i8
+#endif
+#ifndef INT16_C
 #  define INT16_C(value)    value##i16
+#endif
+#ifndef INT32_C
 #  define INT32_C(value)    value##i32
+#endif
+#ifndef INT64_C
 #  define INT64_C(value)    value##i64
+#endif
 #  ifdef __BORLANDC__
     // Borland bug: appending ui8 makes the type a signed char
 #   define UINT8_C(value)    static_cast<unsigned char>(value##u)
 #  else
 #   define UINT8_C(value)    value##ui8
 #  endif
+#ifndef UINT16_C
 #  define UINT16_C(value)   value##ui16
+#endif
+#ifndef UINT32_C
 #  define UINT32_C(value)   value##ui32
+#endif
+#ifndef UINT64_C
 #  define UINT64_C(value)   value##ui64
+#endif
+#ifndef INTMAX_C
 #  define INTMAX_C(value)   value##i64
 #  define UINTMAX_C(value)  value##ui64
+#endif
 
 # else
 //  do it the old fashioned way:
 
 //  8-bit types  ------------------------------------------------------------//
 
-#  if UCHAR_MAX == 0xff
+#  if (UCHAR_MAX == 0xff) && !defined(INT8_C)
 #   define INT8_C(value) static_cast<boost::int8_t>(value)
 #   define UINT8_C(value) static_cast<boost::uint8_t>(value##u)
 #  endif
 
 //  16-bit types  -----------------------------------------------------------//
 
-#  if USHRT_MAX == 0xffff
+#  if (USHRT_MAX == 0xffff) && !defined(INT16_C)
 #   define INT16_C(value) static_cast<boost::int16_t>(value)
 #   define UINT16_C(value) static_cast<boost::uint16_t>(value##u)
 #  endif
 
 //  32-bit types  -----------------------------------------------------------//
-
-#  if UINT_MAX == 0xffffffff
+#ifndef INT32_C
+#  if (UINT_MAX == 0xffffffff)
 #   define INT32_C(value) value
 #   define UINT32_C(value) value##u
 #  elif ULONG_MAX == 0xffffffff
 #   define INT32_C(value) value##L
 #   define UINT32_C(value) value##uL
 #  endif
+#endif
 
 //  64-bit types + intmax_t and uintmax_t  ----------------------------------//
-
+#ifndef INT64_C
 #  if defined(BOOST_HAS_LONG_LONG) && \
     (defined(ULLONG_MAX) || defined(ULONG_LONG_MAX) || defined(ULONGLONG_MAX) || defined(_LLONG_MAX))
 
@@ -462,7 +491,7 @@ INT#_C macros if they're not already defined (John Maddock).
 #   define INTMAX_C(value) INT64_C(value)
 #   define UINTMAX_C(value) UINT64_C(value)
 #  endif
-
+#endif
 # endif // Borland/Microsoft specific width suffixes
 
 #endif // INT#_C macros.

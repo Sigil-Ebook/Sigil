@@ -25,7 +25,7 @@
 # define BOOST_SP_NO_SP_CONVERTIBLE
 #endif
 
-#if !defined( BOOST_SP_NO_SP_CONVERTIBLE ) && defined( __BORLANDC__ ) && ( __BORLANDC__ <= 0x620 )
+#if !defined( BOOST_SP_NO_SP_CONVERTIBLE ) && defined( __BORLANDC__ ) && ( __BORLANDC__ < 0x630 )
 # define BOOST_SP_NO_SP_CONVERTIBLE
 #endif
 
@@ -45,7 +45,7 @@ template< class Y, class T > struct sp_convertible
     static yes f( T* );
     static no  f( ... );
 
-    enum _vt { value = sizeof( f( static_cast<Y*>(0) ) ) == sizeof(yes) };
+    enum _vt { value = sizeof( (f)( static_cast<Y*>(0) ) ) == sizeof(yes) };
 };
 
 struct sp_empty

@@ -17,6 +17,7 @@
 #include <boost/thread/once.hpp>
 #include <boost/thread/tss.hpp>
 #include <boost/assert.hpp>
+#include <boost/throw_exception.hpp>
 #include <boost/thread/detail/tss_hooks.hpp>
 #include <boost/date_time/posix_time/conversion.hpp>
 
@@ -188,7 +189,7 @@ namespace boost
         uintptr_t const new_thread=_beginthreadex(0,0,&thread_start_function,thread_info.get(),CREATE_SUSPENDED,&thread_info->id);
         if(!new_thread)
         {
-            throw thread_resource_error();
+            boost::throw_exception(thread_resource_error());
         }
         intrusive_ptr_add_ref(thread_info.get());
         thread_info->thread_handle=(detail::win32::handle)(new_thread);
@@ -243,17 +244,17 @@ namespace boost
     
     thread::id thread::get_id() const
     {
-        return thread::id(get_thread_info());
+        return thread::id((get_thread_info)());
     }
 
     bool thread::joinable() const
     {
-        return get_thread_info();
+        return (get_thread_info)();
     }
 
     void thread::join()
     {
-        detail::thread_data_ptr local_thread_info=get_thread_info();
+        detail::thread_data_ptr local_thread_info=(get_thread_info)();
         if(local_thread_info)
         {
             this_thread::interruptible_wait(local_thread_info->thread_handle,detail::timeout::sentinel());
@@ -263,7 +264,7 @@ namespace boost
 
     bool thread::timed_join(boost::system_time const& wait_until)
     {
-        detail::thread_data_ptr local_thread_info=get_thread_info();
+        detail::thread_data_ptr local_thread_info=(get_thread_info)();
         if(local_thread_info)
         {
             if(!this_thread::interruptible_wait(local_thread_info->thread_handle,get_milliseconds_until(wait_until)))
@@ -282,13 +283,12 @@ namespace boost
 
     void thread::release_handle()
     {
-        lock_guard<mutex> l1(thread_info_mutex);
         thread_info=0;
     }
     
     void thread::interrupt()
     {
-        detail::thread_data_ptr local_thread_info=get_thread_info();
+        detail::thread_data_ptr local_thread_info=(get_thread_info)();
         if(local_thread_info)
         {
             local_thread_info->interrupt();
@@ -297,26 +297,25 @@ namespace boost
     
     bool thread::interruption_requested() const
     {
-        detail::thread_data_ptr local_thread_info=get_thread_info();
+        detail::thread_data_ptr local_thread_info=(get_thread_info)();
         return local_thread_info.get() && (detail::win32::WaitForSingleObject(local_thread_info->interruption_handle,0)==0);
     }
     
     unsigned thread::hardware_concurrency()
     {
-        SYSTEM_INFO info={0};
+        SYSTEM_INFO info={{0}};
         GetSystemInfo(&info);
         return info.dwNumberOfProcessors;
     }
     
     thread::native_handle_type thread::native_handle()
     {
-        detail::thread_data_ptr local_thread_info=get_thread_info();
+        detail::thread_data_ptr local_thread_info=(get_thread_info)();
         return local_thread_info?(detail::win32::handle)local_thread_info->thread_handle:detail::win32::invalid_handle_value;
     }
 
-    detail::thread_data_ptr thread::get_thread_info() const
+    detail::thread_data_ptr thread::get_thread_info BOOST_PREVENT_MACRO_SUBSTITUTION () const
     {
-        boost::mutex::scoped_lock l(thread_info_mutex);
         return thread_info;
     }
 
@@ -326,7 +325,7 @@ namespace boost
         {
             LARGE_INTEGER get_due_time(detail::timeout const&  target_time)
             {
-                LARGE_INTEGER due_time={0};
+                LARGE_INTEGER due_time={{0}};
                 if(target_time.relative)
                 {
                     unsigned long const elapsed_milliseconds=GetTickCount()-target_time.start;
@@ -355,7 +354,23 @@ namespace boost
                     else
                     {
                         long const hundred_nanoseconds_in_one_second=10000000;
-                        due_time.QuadPart+=target_time.abs_time.time_of_day().fractional_seconds()*(hundred_nanoseconds_in_one_second/target_time.abs_time.time_of_day().ticks_per_second());
+                        posix_time::time_duration::tick_type const ticks_per_second=
+                            target_time.abs_time.time_of_day().ticks_per_second();
+                        if(ticks_per_second>hundred_nanoseconds_in_one_second)
+                        {
+                            posix_time::time_duration::tick_type const 
+                                ticks_per_hundred_nanoseconds=
+                                ticks_per_second/hundred_nanoseconds_in_one_second;
+                            due_time.QuadPart+=
+                                target_time.abs_time.time_of_day().fractional_seconds()/
+                                ticks_per_hundred_nanoseconds;
+                        }
+                        else
+                        {
+                            due_time.QuadPart+=
+                                target_time.abs_time.time_of_day().fractional_seconds()*
+                                (hundred_nanoseconds_in_one_second/ticks_per_second);
+                        }
                     }
                 }
                 return due_time;
@@ -576,22 +591,22 @@ namespace boost
             }
         }
     }
+    BOOST_THREAD_DECL void __cdecl on_process_enter()
+    {}
+
+    BOOST_THREAD_DECL void __cdecl on_thread_enter()
+    {}
+
+    BOOST_THREAD_DECL void __cdecl on_process_exit()
+    {
+        boost::cleanup_tls_key();
+    }
+
+    BOOST_THREAD_DECL void __cdecl on_thread_exit()
+    {
+        boost::run_thread_exit_callbacks();
+    }
+
 }
 
-
-extern "C" BOOST_THREAD_DECL void on_process_enter()
-{}
-
-extern "C" BOOST_THREAD_DECL void on_thread_enter()
-{}
-
-extern "C" BOOST_THREAD_DECL void on_process_exit()
-{
-    boost::cleanup_tls_key();
-}
-
-extern "C" BOOST_THREAD_DECL void on_thread_exit()
-{
-    boost::run_thread_exit_callbacks();
-}
 

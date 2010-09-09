@@ -69,6 +69,25 @@
 #      define BOOST_NO_IS_ABSTRACT
 #    endif
 
+#    if (__SUNPRO_CC <= 0x5100)
+       // Sun 5.10 may not correctly value-initialize objects of
+       // some user defined types, as was reported in April 2010
+       // (CR 6947016), and confirmed by Steve Clamage.
+       // (Niels Dekker, LKEB, May 2010).
+#      define BOOST_NO_COMPLETE_VALUE_INITIALIZATION
+#    endif
+
+//
+// Dynamic shared object (DSO) and dynamic-link library (DLL) support
+//
+#if __SUNPRO_CC > 0x500
+#  define BOOST_SYMBOL_EXPORT __global
+#  define BOOST_SYMBOL_IMPORT __global
+#  define BOOST_SYMBOL_VISIBLE __global
+#endif
+
+
+
 //
 // Issues that effect all known versions:
 //
@@ -78,12 +97,7 @@
 //
 // C++0x features
 //
-
-#if(__SUNPRO_CC >= 0x590) 
 #  define BOOST_HAS_LONG_LONG
-#else
-#  define BOOST_NO_LONG_LONG
-#endif
 
 #define BOOST_NO_AUTO_DECLARATIONS
 #define BOOST_NO_AUTO_MULTIDECLARATIONS

@@ -32,7 +32,7 @@ namespace boost {
 
     template<typename T>
     struct remove_pointer {
-        typedef typename detail::remove_pointer_impl_typeof<
+        typedef typename boost::detail::remove_pointer_impl_typeof<
             boost::is_pointer<T>::value
         >::template inner<T,remove_pointer<T> >::type type;
         BOOST_MPL_AUX_LAMBDA_SUPPORT(1,remove_pointer,T)

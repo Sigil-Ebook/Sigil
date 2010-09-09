@@ -19,9 +19,11 @@
 
 namespace boost
 {
-    class shared_mutex:
-        private boost::noncopyable
+    class shared_mutex
     {
+    private:
+        shared_mutex(shared_mutex const&);
+        shared_mutex& operator=(shared_mutex const&);        
     private:
         struct state_data
         {
@@ -49,33 +51,35 @@ namespace boost
             return *reinterpret_cast<T const*>(&res);
         }
 
+        enum
+        {
+            unlock_sem = 0,
+            exclusive_sem = 1
+        };
+
         state_data state;
         detail::win32::handle semaphores[2];
-        detail::win32::handle &unlock_sem;
-        detail::win32::handle &exclusive_sem;
         detail::win32::handle upgrade_sem;
 
         void release_waiters(state_data old_state)
         {
             if(old_state.exclusive_waiting)
             {
-                BOOST_VERIFY(detail::win32::ReleaseSemaphore(exclusive_sem,1,0)!=0);
+                BOOST_VERIFY(detail::win32::ReleaseSemaphore(semaphores[exclusive_sem],1,0)!=0);
             }
                         
             if(old_state.shared_waiting || old_state.exclusive_waiting)
             {
-                BOOST_VERIFY(detail::win32::ReleaseSemaphore(unlock_sem,old_state.shared_waiting + (old_state.exclusive_waiting?1:0),0)!=0);
+                BOOST_VERIFY(detail::win32::ReleaseSemaphore(semaphores[unlock_sem],old_state.shared_waiting + (old_state.exclusive_waiting?1:0),0)!=0);
             }
         }
         
 
     public:
-        shared_mutex():
-            unlock_sem(semaphores[0]),
-            exclusive_sem(semaphores[1]) 
+        shared_mutex()
         {
-            unlock_sem=detail::win32::create_anonymous_semaphore(0,LONG_MAX);
-            exclusive_sem=detail::win32::create_anonymous_semaphore(0,LONG_MAX);
+            semaphores[unlock_sem]=detail::win32::create_anonymous_semaphore(0,LONG_MAX);
+            semaphores[exclusive_sem]=detail::win32::create_anonymous_semaphore(0,LONG_MAX);
             upgrade_sem=detail::win32::create_anonymous_semaphore(0,LONG_MAX);
             state_data state_={0};
             state=state_;
@@ -84,8 +88,8 @@ namespace boost
         ~shared_mutex()
         {
             detail::win32::CloseHandle(upgrade_sem);
-            detail::win32::CloseHandle(unlock_sem);
-            detail::win32::CloseHandle(exclusive_sem);
+            detail::win32::CloseHandle(semaphores[unlock_sem]);
+            detail::win32::CloseHandle(semaphores[exclusive_sem]);
         }
 
         bool try_lock_shared()
@@ -97,6 +101,10 @@ namespace boost
                 if(!new_state.exclusive && !new_state.exclusive_waiting_blocked)
                 {
                     ++new_state.shared_count;
+                    if(!new_state.shared_count)
+                    {
+                        return false;
+                    }
                 }
                 
                 state_data const current_state=interlocked_compare_exchange(&state,new_state,old_state);
@@ -131,10 +139,18 @@ namespace boost
                     if(new_state.exclusive || new_state.exclusive_waiting_blocked)
                     {
                         ++new_state.shared_waiting;
+                        if(!new_state.shared_waiting)
+                        {
+                            boost::throw_exception(boost::lock_error());
+                        }
                     }
                     else
                     {
                         ++new_state.shared_count;
+                        if(!new_state.shared_count)
+                        {
+                            boost::throw_exception(boost::lock_error());
+                        }
                     }
 
                     state_data const current_state=interlocked_compare_exchange(&state,new_state,old_state);
@@ -150,7 +166,7 @@ namespace boost
                     return true;
                 }
                     
-                unsigned long const res=detail::win32::WaitForSingleObject(unlock_sem,::boost::detail::get_milliseconds_until(wait_until));
+                unsigned long const res=detail::win32::WaitForSingleObject(semaphores[unlock_sem],::boost::detail::get_milliseconds_until(wait_until));
                 if(res==detail::win32::timeout)
                 {
                     for(;;)
@@ -166,6 +182,10 @@ namespace boost
                         else
                         {
                             ++new_state.shared_count;
+                            if(!new_state.shared_count)
+                            {
+                                return false;
+                            }
                         }
 
                         state_data const current_state=interlocked_compare_exchange(&state,new_state,old_state);
@@ -282,6 +302,11 @@ namespace boost
                     if(new_state.shared_count || new_state.exclusive)
                     {
                         ++new_state.exclusive_waiting;
+                        if(!new_state.exclusive_waiting)
+                        {
+                            boost::throw_exception(boost::lock_error());
+                        }
+                        
                         new_state.exclusive_waiting_blocked=true;
                     }
                     else
@@ -374,10 +399,18 @@ namespace boost
                     if(new_state.exclusive || new_state.exclusive_waiting_blocked || new_state.upgrade)
                     {
                         ++new_state.shared_waiting;
+                        if(!new_state.shared_waiting)
+                        {
+                            boost::throw_exception(boost::lock_error());
+                        }
                     }
                     else
                     {
                         ++new_state.shared_count;
+                        if(!new_state.shared_count)
+                        {
+                            boost::throw_exception(boost::lock_error());
+                        }
                         new_state.upgrade=true;
                     }
 
@@ -394,7 +427,7 @@ namespace boost
                     return;
                 }
                     
-                BOOST_VERIFY(!detail::win32::WaitForSingleObject(unlock_sem,detail::win32::infinite));
+                BOOST_VERIFY(!detail::win32::WaitForSingleObject(semaphores[unlock_sem],detail::win32::infinite));
             }
         }
 
@@ -411,6 +444,10 @@ namespace boost
                 else
                 {
                     ++new_state.shared_count;
+                    if(!new_state.shared_count)
+                    {
+                        return false;
+                    }
                     new_state.upgrade=true;
                 }
                 

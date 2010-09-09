@@ -67,6 +67,7 @@
 #  define BOOST_NO_0X_HDR_THREAD
 #  define BOOST_NO_0X_HDR_TUPLE
 #  define BOOST_NO_0X_HDR_TYPE_TRAITS
+#  define BOOST_NO_0X_HDR_TYPEINDEX
 #  define BOOST_NO_STD_UNORDERED        // deprecated; see following
 #  define BOOST_NO_0X_HDR_UNORDERED_MAP
 #  define BOOST_NO_0X_HDR_UNORDERED_SET

@@ -17,7 +17,7 @@ namespace boost
             return new T();
         }
 
-#ifdef BOOST_HAS_RVALUE_REFS
+#ifndef BOOST_NO_RVALUE_REFERENCES
         template<typename T,typename A1>
         inline T* heap_new(A1&& a1)
         {

@@ -11,6 +11,7 @@
 //  http://www.boost.org/LICENSE_1_0.txt)
 
 #include <boost/config.hpp>
+#include <boost/throw_exception.hpp>
 #include <boost/assert.hpp>
 #include <boost/thread/exceptions.hpp>
 #include <boost/detail/interlocked.hpp>
@@ -30,14 +31,18 @@ namespace boost
             unsigned const infinite=INFINITE;
             unsigned const timeout=WAIT_TIMEOUT;
             handle const invalid_handle_value=INVALID_HANDLE_VALUE;
+            unsigned const event_modify_state=EVENT_MODIFY_STATE;
+            unsigned const synchronize=SYNCHRONIZE;
 
 # ifdef BOOST_NO_ANSI_APIS
             using ::CreateMutexW;
             using ::CreateEventW;
+            using ::OpenEventW;
             using ::CreateSemaphoreW;
 # else
             using ::CreateMutexA;
             using ::CreateEventA;
+            using ::OpenEventA;
             using ::CreateSemaphoreA;
 # endif
             using ::CloseHandle;
@@ -99,6 +104,8 @@ namespace boost
             unsigned const infinite=~0U;
             unsigned const timeout=258U;
             handle const invalid_handle_value=(handle)(-1);
+            unsigned const event_modify_state=2;
+            unsigned const synchronize=0x100000u;
 
             extern "C"
             {
@@ -107,10 +114,12 @@ namespace boost
                 __declspec(dllimport) void* __stdcall CreateMutexW(_SECURITY_ATTRIBUTES*,int,wchar_t const*);
                 __declspec(dllimport) void* __stdcall CreateSemaphoreW(_SECURITY_ATTRIBUTES*,long,long,wchar_t const*);
                 __declspec(dllimport) void* __stdcall CreateEventW(_SECURITY_ATTRIBUTES*,int,int,wchar_t const*);
+                __declspec(dllimport) void* __stdcall OpenEventW(unsigned long,int,wchar_t const*);
 # else
                 __declspec(dllimport) void* __stdcall CreateMutexA(_SECURITY_ATTRIBUTES*,int,char const*);
                 __declspec(dllimport) void* __stdcall CreateSemaphoreA(_SECURITY_ATTRIBUTES*,long,long,char const*);
                 __declspec(dllimport) void* __stdcall CreateEventA(_SECURITY_ATTRIBUTES*,int,int,char const*);
+                __declspec(dllimport) void* __stdcall OpenEventA(unsigned long,int,char const*);
 # endif
                 __declspec(dllimport) int __stdcall CloseHandle(void*);
                 __declspec(dllimport) int __stdcall ReleaseMutex(void*);
@@ -177,7 +186,7 @@ namespace boost
 #endif                
                 if(!res)
                 {
-                    throw thread_resource_error();
+                    boost::throw_exception(thread_resource_error());
                 }
                 return res;
             }
@@ -191,7 +200,7 @@ namespace boost
 #endif               
                 if(!res)
                 {
-                    throw thread_resource_error();
+                    boost::throw_exception(thread_resource_error());
                 }
                 return res;
             }
@@ -204,7 +213,7 @@ namespace boost
                 bool const success=DuplicateHandle(current_process,source,current_process,&new_handle,0,false,same_access_flag)!=0;
                 if(!success)
                 {
-                    throw thread_resource_error();
+                    boost::throw_exception(thread_resource_error());
                 }
                 return new_handle;
             }

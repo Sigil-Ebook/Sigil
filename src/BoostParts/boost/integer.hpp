@@ -57,6 +57,8 @@ namespace boost
   //  no specializations for 0 and 5: requests for a type > long are in error
 #ifdef BOOST_HAS_LONG_LONG
   template<> struct int_least_helper<1> { typedef boost::long_long_type least; };
+#elif defined(BOOST_HAS_MS_INT64)
+  template<> struct int_least_helper<1> { typedef __int64 least; };
 #endif
   template<> struct int_least_helper<2> { typedef long least; };
   template<> struct int_least_helper<3> { typedef int least; };
@@ -64,6 +66,8 @@ namespace boost
   template<> struct int_least_helper<5> { typedef signed char least; };
 #ifdef BOOST_HAS_LONG_LONG
   template<> struct int_least_helper<6> { typedef boost::ulong_long_type least; };
+#elif defined(BOOST_HAS_MS_INT64)
+  template<> struct int_least_helper<6> { typedef unsigned __int64 least; };
 #endif
   template<> struct int_least_helper<7> { typedef unsigned long least; };
   template<> struct int_least_helper<8> { typedef unsigned int least; };

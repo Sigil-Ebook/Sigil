@@ -1,4 +1,4 @@
-//Copyright (c) 2006-2009 Emil Dotchevski and Reverge Studios, Inc.
+//Copyright (c) 2006-2010 Emil Dotchevski and Reverge Studios, Inc.
 
 //Distributed under the Boost Software License, Version 1.0. (See accompanying
 //file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
@@ -15,7 +15,9 @@
 #include <boost/config.hpp>
 #include <boost/exception/get_error_info.hpp>
 #include <boost/utility/enable_if.hpp>
-#include <boost/config.hpp>
+#ifndef BOOST_NO_RTTI
+#include <boost/units/detail/utility.hpp>
+#endif
 #include <exception>
 #include <sstream>
 #include <string>
@@ -135,7 +137,7 @@ boost
                 }
 #ifndef BOOST_NO_RTTI
             tmp << std::string("Dynamic exception type: ") <<
-                (be?BOOST_EXCEPTION_DYNAMIC_TYPEID(*be):BOOST_EXCEPTION_DYNAMIC_TYPEID(*se)).type_.name() << '\n';
+                units::detail::demangle((be?BOOST_EXCEPTION_DYNAMIC_TYPEID(*be):BOOST_EXCEPTION_DYNAMIC_TYPEID(*se)).type_.name()) << '\n';
 #endif
             if( with_what && se )
                 tmp << "std::exception::what: " << wh << '\n';

@@ -24,7 +24,27 @@ namespace boost {
 
 #ifndef BOOST_NO_TEMPLATE_PARTIAL_SPECIALIZATION
 
-BOOST_TT_AUX_TYPE_TRAIT_DEF1(remove_reference,T,T)
+namespace detail{
+//
+// We can't filter out rvalue_references at the same level as
+// references or we get ambiguities from msvc:
+//
+template <class T>
+struct remove_rvalue_ref
+{
+	typedef T type;
+};
+#ifndef BOOST_NO_RVALUE_REFERENCES
+template <class T>
+struct remove_rvalue_ref<T&&>
+{
+	typedef T type;
+};
+#endif
+
+} // namespace detail
+
+BOOST_TT_AUX_TYPE_TRAIT_DEF1(remove_reference,T,typename boost::detail::remove_rvalue_ref<T>::type)
 BOOST_TT_AUX_TYPE_TRAIT_PARTIAL_SPEC1_1(typename T,remove_reference,T&,T)
 
 #if defined(BOOST_ILLEGAL_CV_REFERENCES)

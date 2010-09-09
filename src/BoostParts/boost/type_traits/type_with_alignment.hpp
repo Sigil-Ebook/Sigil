@@ -286,43 +286,43 @@ struct __declspec(align(128)) a128 {
 template<> class type_with_alignment<8>  
 { 
    typedef mpl::if_c<
-      ::boost::alignment_of<detail::max_align>::value < 8,
+      ::boost::alignment_of<boost::detail::max_align>::value < 8,
       align::a8,
-      detail::type_with_alignment_imp<8> >::type t1; 
+      boost::detail::type_with_alignment_imp<8> >::type t1; 
 public: 
    typedef t1::type type;
 };
 template<> class type_with_alignment<16> 
 { 
    typedef mpl::if_c<
-      ::boost::alignment_of<detail::max_align>::value < 16,
+      ::boost::alignment_of<boost::detail::max_align>::value < 16,
       align::a16,
-      detail::type_with_alignment_imp<16> >::type t1; 
+      boost::detail::type_with_alignment_imp<16> >::type t1; 
 public: 
    typedef t1::type type;
 };
 template<> class type_with_alignment<32> 
 { 
    typedef mpl::if_c<
-      ::boost::alignment_of<detail::max_align>::value < 32,
+      ::boost::alignment_of<boost::detail::max_align>::value < 32,
       align::a32,
-      detail::type_with_alignment_imp<32> >::type t1; 
+      boost::detail::type_with_alignment_imp<32> >::type t1; 
 public: 
    typedef t1::type type;
 };
 template<> class type_with_alignment<64> {
    typedef mpl::if_c<
-      ::boost::alignment_of<detail::max_align>::value < 64,
+      ::boost::alignment_of<boost::detail::max_align>::value < 64,
       align::a64,
-      detail::type_with_alignment_imp<64> >::type t1; 
+      boost::detail::type_with_alignment_imp<64> >::type t1; 
 public: 
    typedef t1::type type;
 };
 template<> class type_with_alignment<128> {
    typedef mpl::if_c<
-      ::boost::alignment_of<detail::max_align>::value < 128,
+      ::boost::alignment_of<boost::detail::max_align>::value < 128,
       align::a128,
-      detail::type_with_alignment_imp<128> >::type t1; 
+      boost::detail::type_with_alignment_imp<128> >::type t1; 
 public: 
    typedef t1::type type;
 };

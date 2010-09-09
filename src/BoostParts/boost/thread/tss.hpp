@@ -62,6 +62,8 @@ namespace boost
         boost::shared_ptr<detail::tss_cleanup_function> cleanup;
         
     public:
+        typedef T element_type;
+        
         thread_specific_ptr():
             cleanup(detail::heap_new<delete_data>(),detail::do_heap_delete<delete_data>())
         {}

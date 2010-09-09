@@ -6,7 +6,7 @@
  * Boost Software License, Version 1.0. (See accompanying
  * file LICENSE_1_0.txt or http://www.boost.org/LICENSE_1_0.txt)
  * Author: Jeff Garland, Bart Garst
- * $Date: 2009-06-04 07:36:43 -0400 (Thu, 04 Jun 2009) $
+ * $Date: 2010-05-10 05:15:48 -0400 (Mon, 10 May 2010) $
  */
 
 
@@ -98,9 +98,9 @@ namespace date_time {
 
       std::tm curr;
       std::tm* curr_ptr = converter(&t, &curr);
-      date_type d(curr_ptr->tm_year + 1900,
-                  curr_ptr->tm_mon + 1,
-                  curr_ptr->tm_mday);
+      date_type d(static_cast< typename date_type::year_type::value_type >(curr_ptr->tm_year + 1900),
+                  static_cast< typename date_type::month_type::value_type >(curr_ptr->tm_mon + 1),
+                  static_cast< typename date_type::day_type::value_type >(curr_ptr->tm_mday));
 
       //The following line will adjust the fractional second tick in terms
       //of the current time system.  For example, if the time system
@@ -108,9 +108,9 @@ namespace date_time {
       //and all the fractional seconds return 0.
       int adjust = static_cast< int >(resolution_traits_type::res_adjust() / 1000000);
 
-      time_duration_type td(curr_ptr->tm_hour,
-                            curr_ptr->tm_min,
-                            curr_ptr->tm_sec,
+      time_duration_type td(static_cast< typename time_duration_type::hour_type >(curr_ptr->tm_hour),
+                            static_cast< typename time_duration_type::min_type >(curr_ptr->tm_min),
+                            static_cast< typename time_duration_type::sec_type >(curr_ptr->tm_sec),
                             sub_sec * adjust);
 
       return time_type(d,td);

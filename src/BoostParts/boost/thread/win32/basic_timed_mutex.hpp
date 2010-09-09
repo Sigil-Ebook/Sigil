@@ -61,15 +61,30 @@ namespace boost
             
             void lock()
             {
-                BOOST_VERIFY(timed_lock(::boost::detail::get_system_time_sentinel()));
-            }
-            bool timed_lock(::boost::system_time const& wait_until)
-            {
-                if(!win32::interlocked_bit_test_and_set(&active_count,lock_flag_bit))
+                if(try_lock())
                 {
-                    return true;
+                    return;
                 }
                 long old_count=active_count;
+                mark_waiting_and_try_lock(old_count);
+
+                if(old_count&lock_flag_value)
+                {
+                    bool lock_acquired=false;
+                    void* const sem=get_event();
+
+                    do
+                    {
+                        BOOST_VERIFY(win32::WaitForSingleObject(
+                                         sem,::boost::detail::win32::infinite)==0);
+                        clear_waiting_and_try_lock(old_count);
+                        lock_acquired=!(old_count&lock_flag_value);
+                    }
+                    while(!lock_acquired);
+                }
+            }
+            void mark_waiting_and_try_lock(long& old_count)
+            {
                 for(;;)
                 {
                     long const new_count=(old_count&lock_flag_value)?(old_count+1):(old_count|lock_flag_value);
@@ -80,6 +95,33 @@ namespace boost
                     }
                     old_count=current;
                 }
+            }
+
+            void clear_waiting_and_try_lock(long& old_count)
+            {
+                old_count&=~lock_flag_value;
+                old_count|=event_set_flag_value;
+                for(;;)
+                {
+                    long const new_count=((old_count&lock_flag_value)?old_count:((old_count-1)|lock_flag_value))&~event_set_flag_value;
+                    long const current=BOOST_INTERLOCKED_COMPARE_EXCHANGE(&active_count,new_count,old_count);
+                    if(current==old_count)
+                    {
+                        break;
+                    }
+                    old_count=current;
+                }
+            }
+            
+            
+            bool timed_lock(::boost::system_time const& wait_until)
+            {
+                if(try_lock())
+                {
+                    return true;
+                }
+                long old_count=active_count;
+                mark_waiting_and_try_lock(old_count);
 
                 if(old_count&lock_flag_value)
                 {
@@ -93,18 +135,7 @@ namespace boost
                             BOOST_INTERLOCKED_DECREMENT(&active_count);
                             return false;
                         }
-                        old_count&=~lock_flag_value;
-                        old_count|=event_set_flag_value;
-                        for(;;)
-                        {
-                            long const new_count=((old_count&lock_flag_value)?old_count:((old_count-1)|lock_flag_value))&~event_set_flag_value;
-                            long const current=BOOST_INTERLOCKED_COMPARE_EXCHANGE(&active_count,new_count,old_count);
-                            if(current==old_count)
-                            {
-                                break;
-                            }
-                            old_count=current;
-                        }
+                        clear_waiting_and_try_lock(old_count);
                         lock_acquired=!(old_count&lock_flag_value);
                     }
                     while(!lock_acquired);

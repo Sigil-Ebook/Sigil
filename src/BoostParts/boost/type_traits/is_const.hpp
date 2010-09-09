@@ -50,12 +50,31 @@ BOOST_TT_AUX_BOOL_TRAIT_DEF1(is_const,T,__is_const(T))
 
 #elif !defined(BOOST_NO_TEMPLATE_PARTIAL_SPECIALIZATION)
 
-//* is a type T  declared const - is_const<T>
+namespace detail{
+//
+// We can't filter out rvalue_references at the same level as
+// references or we get ambiguities from msvc:
+//
+template <class T>
+struct is_const_rvalue_filter
+{
 #if BOOST_WORKAROUND(BOOST_MSVC, < 1400)
-   BOOST_TT_AUX_BOOL_TRAIT_DEF1(is_const,T,::boost::detail::cv_traits_imp<typename remove_bounds<T>::type*>::is_const)
+	BOOST_STATIC_CONSTANT(bool, value = ::boost::detail::cv_traits_imp<typename boost::remove_bounds<T>::type*>::is_const);
 #else
-   BOOST_TT_AUX_BOOL_TRAIT_DEF1(is_const,T,::boost::detail::cv_traits_imp<T*>::is_const)
+	BOOST_STATIC_CONSTANT(bool, value = ::boost::detail::cv_traits_imp<T*>::is_const);
 #endif
+};
+#ifndef BOOST_NO_RVALUE_REFERENCES
+template <class T>
+struct is_const_rvalue_filter<T&&>
+{
+	BOOST_STATIC_CONSTANT(bool, value = false);
+};
+#endif
+}
+
+//* is a type T  declared const - is_const<T>
+BOOST_TT_AUX_BOOL_TRAIT_DEF1(is_const,T,::boost::detail::is_const_rvalue_filter<T>::value)
 BOOST_TT_AUX_BOOL_TRAIT_PARTIAL_SPEC1_1(typename T,is_const,T&,false)
 
 #if  defined(BOOST_ILLEGAL_CV_REFERENCES)
@@ -98,7 +117,7 @@ struct is_const_helper<false,false>
     {
         static T* t;
         BOOST_STATIC_CONSTANT(bool, value = (
-            sizeof(detail::yes_type) == sizeof(detail::is_const_tester(t))
+            sizeof(boost::detail::yes_type) == sizeof(boost::detail::is_const_tester(t))
             ));
     };
 };
@@ -110,7 +129,7 @@ struct is_const_helper<false,true>
     {
         static T t;
         BOOST_STATIC_CONSTANT(bool, value = (
-            sizeof(detail::yes_type) == sizeof(detail::is_const_tester(&t))
+            sizeof(boost::detail::yes_type) == sizeof(boost::detail::is_const_tester(&t))
             ));
     };
 };

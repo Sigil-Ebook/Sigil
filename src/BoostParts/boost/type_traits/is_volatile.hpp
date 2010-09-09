@@ -41,16 +41,35 @@
 
 namespace boost {
 
+namespace detail{
+template <class T>
+struct is_volatile_rval_filter
+{
+#if BOOST_WORKAROUND(BOOST_MSVC, < 1400)
+	BOOST_STATIC_CONSTANT(bool, value = ::boost::detail::cv_traits_imp<typename boost::remove_bounds<T>::type*>::is_volatile);
+#else
+	BOOST_STATIC_CONSTANT(bool, value = ::boost::detail::cv_traits_imp<T*>::is_volatile);
+#endif
+};
+#ifndef BOOST_NO_RVALUE_REFERENCES
+//
+// We can't filter out rvalue_references at the same level as
+// references or we get ambiguities from msvc:
+//
+template <class T>
+struct is_volatile_rval_filter<T&&>
+{
+	BOOST_STATIC_CONSTANT(bool, value = false);
+};
+#endif
+}
+
 #if defined( __CODEGEARC__ )
 BOOST_TT_AUX_BOOL_TRAIT_DEF1(is_volatile,T,__is_volatile(T))
 #elif !defined(BOOST_NO_TEMPLATE_PARTIAL_SPECIALIZATION)
 
 //* is a type T declared volatile - is_volatile<T>
-#if BOOST_WORKAROUND(BOOST_MSVC, < 1400)
-   BOOST_TT_AUX_BOOL_TRAIT_DEF1(is_volatile,T,::boost::detail::cv_traits_imp<typename boost::remove_bounds<T>::type*>::is_volatile)
-#else
-   BOOST_TT_AUX_BOOL_TRAIT_DEF1(is_volatile,T,::boost::detail::cv_traits_imp<T*>::is_volatile)
-#endif
+BOOST_TT_AUX_BOOL_TRAIT_DEF1(is_volatile,T,::boost::detail::is_volatile_rval_filter<T>::value)
 BOOST_TT_AUX_BOOL_TRAIT_PARTIAL_SPEC1_1(typename T,is_volatile,T&,false)
 
 #if  defined(BOOST_ILLEGAL_CV_REFERENCES)
@@ -86,7 +105,7 @@ struct is_volatile_helper<false,false>
     {
         static T* t;
         BOOST_STATIC_CONSTANT(bool, value = (
-            sizeof(detail::yes_type) == sizeof(detail::is_volatile_tester(t))
+            sizeof(boost::detail::yes_type) == sizeof(boost::detail::is_volatile_tester(t))
             ));
     };
 };
@@ -98,7 +117,7 @@ struct is_volatile_helper<false,true>
     {
         static T t;
         BOOST_STATIC_CONSTANT(bool, value = (
-            sizeof(detail::yes_type) == sizeof(detail::is_volatile_tester(&t))
+            sizeof(boost::detail::yes_type) == sizeof(boost::detail::is_volatile_tester(&t))
             ));
     };
 };

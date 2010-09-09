@@ -74,7 +74,7 @@ template<class T> struct sp_typeid_
     }
 };
 
-template<class T> sp_typeinfo sp_typeid_< T >::ti_( sp_typeid_< T >::name() );
+template<class T> sp_typeinfo sp_typeid_< T >::ti_ = sp_typeid_< T >::name();
 
 template<class T> struct sp_typeid_< T & >: sp_typeid_< T >
 {

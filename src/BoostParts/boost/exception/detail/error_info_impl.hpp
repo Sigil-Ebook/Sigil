@@ -1,4 +1,4 @@
-//Copyright (c) 2006-2009 Emil Dotchevski and Reverge Studios, Inc.
+//Copyright (c) 2006-2010 Emil Dotchevski and Reverge Studios, Inc.
 
 //Distributed under the Boost Software License, Version 1.0. (See accompanying
 //file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
@@ -25,7 +25,7 @@ boost
             {
             public:
 
-            virtual char const * tag_typeid_name() const = 0;
+            virtual std::string tag_typeid_name() const = 0;
             virtual std::string value_as_string() const = 0;
 
             protected:
@@ -62,7 +62,7 @@ boost
 
         private:
 
-        char const * tag_typeid_name() const;
+        std::string tag_typeid_name() const;
         std::string value_as_string() const;
 
         value_type value_;

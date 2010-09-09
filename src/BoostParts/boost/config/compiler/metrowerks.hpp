@@ -48,7 +48,7 @@
 #   define BOOST_NO_INTRINSIC_WCHAR_T
 #endif
 
-#if !__option(exceptions)
+#if !__option(exceptions) && !defined(BOOST_NO_EXCEPTIONS)
 #   define BOOST_NO_EXCEPTIONS
 #endif
 

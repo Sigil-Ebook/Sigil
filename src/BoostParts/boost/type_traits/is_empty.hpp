@@ -36,6 +36,12 @@ namespace boost {
 namespace detail {
 
 #ifndef BOOST_NO_TEMPLATE_PARTIAL_SPECIALIZATION
+
+#ifdef BOOST_MSVC
+#pragma warning(push)
+#pragma warning(disable:4624) // destructor could not be generated
+#endif
+
 template <typename T>
 struct empty_helper_t1 : public T
 {
@@ -46,6 +52,10 @@ private:
    empty_helper_t1(const empty_helper_t1&);
    empty_helper_t1& operator=(const empty_helper_t1&);
 };
+
+#ifdef BOOST_MSVC
+#pragma warning(pop)
+#endif
 
 struct empty_helper_t2 { int i[256]; };
 

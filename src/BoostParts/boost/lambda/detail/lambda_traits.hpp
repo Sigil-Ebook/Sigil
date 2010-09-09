@@ -16,6 +16,7 @@
 #include "boost/type_traits/cv_traits.hpp"
 #include "boost/type_traits/function_traits.hpp"
 #include "boost/type_traits/object_traits.hpp"
+#include "boost/tuple/tuple.hpp"
 
 namespace boost {
 namespace lambda {

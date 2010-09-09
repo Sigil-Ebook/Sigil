@@ -1,5 +1,6 @@
 // Copyright 2005 Caleb Epstein
 // Copyright 2006 John Maddock
+// Copyright 2010 Rene Rivera
 // Distributed under the Boost Software License, Version 1.0. (See accompany-
 // ing file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 
@@ -42,10 +43,12 @@
 #  error Unknown machine endianness detected.
 # endif
 # define BOOST_BYTE_ORDER __BYTE_ORDER
-#elif defined(_BIG_ENDIAN) && !defined(_LITTLE_ENDIAN)
+#elif defined(_BIG_ENDIAN) && !defined(_LITTLE_ENDIAN) || \
+    defined(__BIG_ENDIAN__) && !defined(__LITTLE_ENDIAN__)
 # define BOOST_BIG_ENDIAN
 # define BOOST_BYTE_ORDER 4321
-#elif defined(_LITTLE_ENDIAN) && !defined(_BIG_ENDIAN)
+#elif defined(_LITTLE_ENDIAN) && !defined(_BIG_ENDIAN) || \
+    defined(__LITTLE_ENDIAN__) && !defined(__BIG_ENDIAN__)
 # define BOOST_LITTLE_ENDIAN
 # define BOOST_BYTE_ORDER 1234
 #elif defined(__sparc) || defined(__sparc__) \

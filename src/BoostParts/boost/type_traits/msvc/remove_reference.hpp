@@ -32,7 +32,7 @@ namespace boost {
     
     template<typename T>
     struct remove_reference {
-        typedef typename detail::remove_reference_impl_typeof<
+        typedef typename boost::detail::remove_reference_impl_typeof<
             boost::is_reference<T>::value
         >::template inner<T,remove_reference<T> >::type type;
         BOOST_MPL_AUX_LAMBDA_SUPPORT(1,remove_reference,T)

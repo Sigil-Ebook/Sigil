@@ -11,6 +11,7 @@
 #include <iterator>
 #include <boost/thread/thread_time.hpp>
 #include <boost/detail/workaround.hpp>
+#include <boost/type_traits/is_class.hpp>
 
 #include <boost/config/abi_prefix.hpp>
 
@@ -27,40 +28,100 @@ namespace boost
 #ifndef BOOST_THREAD_NO_AUTO_DETECT_MUTEX_TYPES
     namespace detail
     {
-        template<typename T>
+#define BOOST_DEFINE_HAS_MEMBER_CALLED(member_name)                     \
+        template<typename T, bool=boost::is_class<T>::value>            \
+        struct has_member_called_##member_name                          \
+        {                                                               \
+            BOOST_STATIC_CONSTANT(bool, value=false);                   \
+        };                                                              \
+                                                                        \
+        template<typename T>                                            \
+        struct has_member_called_##member_name<T,true>                  \
+        {                                                               \
+            typedef char true_type;                                     \
+            struct false_type                                           \
+            {                                                           \
+                true_type dummy[2];                                     \
+            };                                                          \
+                                                                        \
+            struct fallback { int member_name; };                       \
+            struct derived:                                             \
+                T, fallback                                             \
+            {                                                           \
+                derived();                                              \
+            };                                                          \
+                                                                        \
+            template<int fallback::*> struct tester;                    \
+                                                                        \
+            template<typename U>                                        \
+                static false_type has_member(tester<&U::member_name>*); \
+            template<typename U>                                        \
+                static true_type has_member(...);                       \
+                                                                        \
+            BOOST_STATIC_CONSTANT(                                      \
+                bool, value=sizeof(has_member<derived>(0))==sizeof(true_type)); \
+        }
+
+        BOOST_DEFINE_HAS_MEMBER_CALLED(lock);
+        BOOST_DEFINE_HAS_MEMBER_CALLED(unlock);
+        BOOST_DEFINE_HAS_MEMBER_CALLED(try_lock);
+
+        template<typename T,bool=has_member_called_lock<T>::value >
         struct has_member_lock
         {
-            typedef char true_type;
-            struct false_type
-            {
-                true_type dummy[2];
-            };
-            
-            template<typename U>
-            static true_type has_member(U*,void (U::*dummy)()=&U::lock);
-            static false_type has_member(void*);
-            
-            BOOST_STATIC_CONSTANT(bool, value=sizeof(has_member_lock<T>::has_member((T*)NULL))==sizeof(true_type));
-        };
-
-        template<typename T>
-        struct has_member_unlock
-        {
-            typedef char true_type;
-            struct false_type
-            {
-                true_type dummy[2];
-            };
-            
-            template<typename U>
-            static true_type has_member(U*,void (U::*dummy)()=&U::unlock);
-            static false_type has_member(void*);
-            
-            BOOST_STATIC_CONSTANT(bool, value=sizeof(has_member_unlock<T>::has_member((T*)NULL))==sizeof(true_type));
+            BOOST_STATIC_CONSTANT(bool, value=false);
         };
         
         template<typename T>
+        struct has_member_lock<T,true>
+        {
+            typedef char true_type;
+            struct false_type
+            {
+                true_type dummy[2];
+            };
+            
+            template<typename U,typename V>
+            static true_type has_member(V (U::*)());
+            template<typename U>
+            static false_type has_member(U);
+            
+            BOOST_STATIC_CONSTANT(
+                bool,value=sizeof(has_member_lock<T>::has_member(&T::lock))==sizeof(true_type));
+        };
+        
+        template<typename T,bool=has_member_called_unlock<T>::value >
+        struct has_member_unlock
+        {
+            BOOST_STATIC_CONSTANT(bool, value=false);
+        };
+        
+        template<typename T>
+        struct has_member_unlock<T,true>
+        {
+            typedef char true_type;
+            struct false_type
+            {
+                true_type dummy[2];
+            };
+            
+            template<typename U,typename V>
+            static true_type has_member(V (U::*)());
+            template<typename U>
+            static false_type has_member(U);
+            
+            BOOST_STATIC_CONSTANT(
+                bool,value=sizeof(has_member_unlock<T>::has_member(&T::unlock))==sizeof(true_type));
+        };
+        
+        template<typename T,bool=has_member_called_try_lock<T>::value >
         struct has_member_try_lock
+        {
+            BOOST_STATIC_CONSTANT(bool, value=false);
+        };
+        
+        template<typename T>
+        struct has_member_try_lock<T,true>
         {
             typedef char true_type;
             struct false_type
@@ -69,10 +130,12 @@ namespace boost
             };
             
             template<typename U>
-            static true_type has_member(U*,bool (U::*dummy)()=&U::try_lock);
-            static false_type has_member(void*);
+            static true_type has_member(bool (U::*)());
+            template<typename U>
+            static false_type has_member(U);
             
-            BOOST_STATIC_CONSTANT(bool, value=sizeof(has_member_try_lock<T>::has_member((T*)NULL))==sizeof(true_type));
+            BOOST_STATIC_CONSTANT(
+                bool,value=sizeof(has_member_try_lock<T>::has_member(&T::try_lock))==sizeof(true_type));
         };
 
     }
@@ -214,7 +277,7 @@ namespace boost
         unique_lock& operator=(unique_lock&);
         unique_lock& operator=(upgrade_lock<Mutex>& other);
     public:
-#ifdef __SUNPRO_CC 
+#if BOOST_WORKAROUND(__SUNPRO_CC, < 0x5100) 
         unique_lock(const volatile unique_lock&); 
 #endif
         unique_lock():
@@ -248,7 +311,7 @@ namespace boost
         {
             timed_lock(target_time);
         }
-#ifdef BOOST_HAS_RVALUE_REFS
+#ifndef BOOST_NO_RVALUE_REFERENCES
         unique_lock(unique_lock&& other):
             m(other.m),is_locked(other.is_locked)
         {
@@ -300,7 +363,7 @@ namespace boost
             return detail::thread_move_t<unique_lock<Mutex> >(*this);
         }
 
-#ifdef __SUNPRO_CC
+#if BOOST_WORKAROUND(__SUNPRO_CC, < 0x5100) 
         unique_lock& operator=(unique_lock<Mutex> other) 
         { 
             swap(other); 
@@ -321,17 +384,17 @@ namespace boost
             swap(temp);
             return *this;
         }
-        void swap(unique_lock& other)
-        {
-            std::swap(m,other.m);
-            std::swap(is_locked,other.is_locked);
-        }
         void swap(detail::thread_move_t<unique_lock<Mutex> > other)
         {
             std::swap(m,other->m);
             std::swap(is_locked,other->is_locked);
         }
 #endif
+        void swap(unique_lock& other)
+        {
+            std::swap(m,other.m);
+            std::swap(is_locked,other.is_locked);
+        }
         
         ~unique_lock()
         {
@@ -344,7 +407,7 @@ namespace boost
         {
             if(owns_lock())
             {
-                throw boost::lock_error();
+                boost::throw_exception(boost::lock_error());
             }
             m->lock();
             is_locked=true;
@@ -353,7 +416,7 @@ namespace boost
         {
             if(owns_lock())
             {
-                throw boost::lock_error();
+                boost::throw_exception(boost::lock_error());
             }
             is_locked=m->try_lock();
             return is_locked;
@@ -379,7 +442,7 @@ namespace boost
         {
             if(!owns_lock())
             {
-                throw boost::lock_error();
+                boost::throw_exception(boost::lock_error());
             }
             m->unlock();
             is_locked=false;
@@ -416,25 +479,42 @@ namespace boost
         friend class upgrade_lock<Mutex>;
     };
 
-#ifdef BOOST_HAS_RVALUE_REFS
+#ifndef BOOST_NO_RVALUE_REFERENCES
     template<typename Mutex>
     void swap(unique_lock<Mutex>&& lhs,unique_lock<Mutex>&& rhs)
     {
         lhs.swap(rhs);
     }
-#else
+
+    template<typename Mutex>
+    inline upgrade_lock<Mutex>&& move(upgrade_lock<Mutex>&& ul)
+    {
+        return static_cast<upgrade_lock<Mutex>&&>(ul);
+    }
+
+    template<typename Mutex>
+    inline upgrade_lock<Mutex>&& move(upgrade_lock<Mutex>& ul)
+    {
+        return static_cast<upgrade_lock<Mutex>&&>(ul);
+    }
+#endif
     template<typename Mutex>
     void swap(unique_lock<Mutex>& lhs,unique_lock<Mutex>& rhs)
     {
         lhs.swap(rhs);
     }
-#endif
 
-#ifdef BOOST_HAS_RVALUE_REFS
+#ifndef BOOST_NO_RVALUE_REFERENCES
     template<typename Mutex>
     inline unique_lock<Mutex>&& move(unique_lock<Mutex>&& ul)
     {
-        return ul;
+        return static_cast<unique_lock<Mutex>&&>(ul);
+    }
+
+    template<typename Mutex>
+    inline unique_lock<Mutex>&& move(unique_lock<Mutex>& ul)
+    {
+        return static_cast<unique_lock<Mutex>&&>(ul);
     }
 #endif
 
@@ -535,24 +615,24 @@ namespace boost
             return *this;
         }
 
-#ifdef BOOST_HAS_RVALUE_REFS
+#ifndef BOOST_NO_RVALUE_REFERENCES
         void swap(shared_lock&& other)
         {
             std::swap(m,other.m);
             std::swap(is_locked,other.is_locked);
         }
 #else
-        void swap(shared_lock& other)
-        {
-            std::swap(m,other.m);
-            std::swap(is_locked,other.is_locked);
-        }
         void swap(boost::detail::thread_move_t<shared_lock<Mutex> > other)
         {
             std::swap(m,other->m);
             std::swap(is_locked,other->is_locked);
         }
 #endif
+        void swap(shared_lock& other)
+        {
+            std::swap(m,other.m);
+            std::swap(is_locked,other.is_locked);
+        }
 
         Mutex* mutex() const
         {
@@ -570,7 +650,7 @@ namespace boost
         {
             if(owns_lock())
             {
-                throw boost::lock_error();
+                boost::throw_exception(boost::lock_error());
             }
             m->lock_shared();
             is_locked=true;
@@ -579,7 +659,7 @@ namespace boost
         {
             if(owns_lock())
             {
-                throw boost::lock_error();
+                boost::throw_exception(boost::lock_error());
             }
             is_locked=m->try_lock_shared();
             return is_locked;
@@ -588,7 +668,7 @@ namespace boost
         {
             if(owns_lock())
             {
-                throw boost::lock_error();
+                boost::throw_exception(boost::lock_error());
             }
             is_locked=m->timed_lock_shared(target_time);
             return is_locked;
@@ -598,7 +678,7 @@ namespace boost
         {
             if(owns_lock())
             {
-                throw boost::lock_error();
+                boost::throw_exception(boost::lock_error());
             }
             is_locked=m->timed_lock_shared(target_time);
             return is_locked;
@@ -607,7 +687,7 @@ namespace boost
         {
             if(!owns_lock())
             {
-                throw boost::lock_error();
+                boost::throw_exception(boost::lock_error());
             }
             m->unlock_shared();
             is_locked=false;
@@ -629,7 +709,7 @@ namespace boost
 
     };
 
-#ifdef BOOST_HAS_RVALUE_REFS
+#ifndef BOOST_NO_RVALUE_REFERENCES
     template<typename Mutex>
     void swap(shared_lock<Mutex>&& lhs,shared_lock<Mutex>&& rhs)
     {
@@ -673,6 +753,39 @@ namespace boost
         {
             try_lock();
         }
+#ifdef BOOST_HAS_RVALUE_REFS
+        upgrade_lock(upgrade_lock<Mutex>&& other):
+            m(other.m),is_locked(other.is_locked)
+        {
+            other.is_locked=false;
+            other.m=0;
+        }
+
+        upgrade_lock(unique_lock<Mutex>&& other):
+            m(other.m),is_locked(other.is_locked)
+        {
+            if(is_locked)
+            {
+                m->unlock_and_lock_upgrade();
+            }
+            other.is_locked=false;
+            other.m=0;
+        }
+
+        upgrade_lock& operator=(upgrade_lock<Mutex>&& other)
+        {
+            upgrade_lock temp(static_cast<upgrade_lock<Mutex>&&>(other));
+            swap(temp);
+            return *this;
+        }
+
+        upgrade_lock& operator=(unique_lock<Mutex>&& other)
+        {
+            upgrade_lock temp(static_cast<unique_lock<Mutex>&&>(other));
+            swap(temp);
+            return *this;
+        }
+#else
         upgrade_lock(detail::thread_move_t<upgrade_lock<Mutex> > other):
             m(other->m),is_locked(other->is_locked)
         {
@@ -715,6 +828,7 @@ namespace boost
             swap(temp);
             return *this;
         }
+#endif
 
         void swap(upgrade_lock& other)
         {
@@ -733,7 +847,7 @@ namespace boost
         {
             if(owns_lock())
             {
-                throw boost::lock_error();
+                boost::throw_exception(boost::lock_error());
             }
             m->lock_upgrade();
             is_locked=true;
@@ -742,7 +856,7 @@ namespace boost
         {
             if(owns_lock())
             {
-                throw boost::lock_error();
+                boost::throw_exception(boost::lock_error());
             }
             is_locked=m->try_lock_upgrade();
             return is_locked;
@@ -751,7 +865,7 @@ namespace boost
         {
             if(!owns_lock())
             {
-                throw boost::lock_error();
+                boost::throw_exception(boost::lock_error());
             }
             m->unlock_upgrade();
             is_locked=false;
@@ -775,7 +889,7 @@ namespace boost
     };
 
 
-#ifdef BOOST_HAS_RVALUE_REFS
+#ifndef BOOST_NO_RVALUE_REFERENCES
     template<typename Mutex>
     unique_lock<Mutex>::unique_lock(upgrade_lock<Mutex>&& other):
         m(other.m),is_locked(other.is_locked)
@@ -819,6 +933,20 @@ namespace boost
             }
         }
 
+#ifdef BOOST_HAS_RVALUE_REFS
+        upgrade_to_unique_lock(upgrade_to_unique_lock<Mutex>&& other):
+            source(other.source),exclusive(move(other.exclusive))
+        {
+            other.source=0;
+        }
+        
+        upgrade_to_unique_lock& operator=(upgrade_to_unique_lock<Mutex>&& other)
+        {
+            upgrade_to_unique_lock temp(other);
+            swap(temp);
+            return *this;
+        }
+#else
         upgrade_to_unique_lock(detail::thread_move_t<upgrade_to_unique_lock<Mutex> > other):
             source(other->source),exclusive(move(other->exclusive))
         {
@@ -831,6 +959,7 @@ namespace boost
             swap(temp);
             return *this;
         }
+#endif
         void swap(upgrade_to_unique_lock& other)
         {
             std::swap(source,other.source);
@@ -875,7 +1004,7 @@ namespace boost
             try_lock_wrapper(Mutex& m_,try_to_lock_t):
                 base(m_,try_to_lock)
             {}
-#ifdef BOOST_HAS_RVALUE_REFS
+#ifndef BOOST_NO_RVALUE_REFERENCES
             try_lock_wrapper(try_lock_wrapper&& other):
                 base(other.move())
             {}
@@ -918,15 +1047,15 @@ namespace boost
                 return *this;
             }
 
-            void swap(try_lock_wrapper& other)
-            {
-                base::swap(other);
-            }
             void swap(detail::thread_move_t<try_lock_wrapper<Mutex> > other)
             {
                 base::swap(*other);
             }
 #endif
+            void swap(try_lock_wrapper& other)
+            {
+                base::swap(other);
+            }
             void lock()
             {
                 base::lock();
@@ -963,7 +1092,7 @@ namespace boost
             }
         };
 
-#ifdef BOOST_HAS_RVALUE_REFS
+#ifndef BOOST_NO_RVALUE_REFERENCES
         template<typename Mutex>
         void swap(try_lock_wrapper<Mutex>&& lhs,try_lock_wrapper<Mutex>&& rhs)
         {
@@ -1111,7 +1240,7 @@ namespace boost
         {
             unsigned const lock_count=2;
             unsigned lock_first=0;
-            while(true)
+            for(;;)
             {
                 switch(lock_first)
                 {
@@ -1164,7 +1293,7 @@ namespace boost
     {
         unsigned const lock_count=3;
         unsigned lock_first=0;
-        while(true)
+        for(;;)
         {
             switch(lock_first)
             {
@@ -1196,7 +1325,7 @@ namespace boost
     {
         unsigned const lock_count=4;
         unsigned lock_first=0;
-        while(true)
+        for(;;)
         {
             switch(lock_first)
             {
@@ -1234,7 +1363,7 @@ namespace boost
     {
         unsigned const lock_count=5;
         unsigned lock_first=0;
-        while(true)
+        for(;;)
         {
             switch(lock_first)
             {

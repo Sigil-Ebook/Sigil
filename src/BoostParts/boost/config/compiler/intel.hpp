@@ -158,6 +158,29 @@ template<> struct assert_intrinsic_wchar_t<unsigned short> {};
 #endif
 
 //
+// An attempt to value-initialize a pointer-to-member may trigger an
+// internal error on Intel <= 11.1 (last checked version), as was 
+// reported by John Maddock, Intel support issue 589832, May 2010.
+// Moreover, according to test results from Huang-Vista-x86_32_intel,
+// intel-vc9-win-11.1 may leave a non-POD array uninitialized, in some 
+// cases when it should be value-initialized.
+// (Niels Dekker, LKEB, May 2010)
+#if defined(__INTEL_COMPILER)
+#  if __INTEL_COMPILER <= 1110
+#    define BOOST_NO_COMPLETE_VALUE_INITIALIZATION
+#  endif
+#endif
+
+//
+// Dynamic shared object (DSO) and dynamic-link library (DLL) support
+//
+#if defined(__GNUC__) && (__GNUC__ >= 4)
+#  define BOOST_SYMBOL_EXPORT __attribute__((visibility("default")))
+#  define BOOST_SYMBOL_IMPORT
+#  define BOOST_SYMBOL_VISIBLE __attribute__((visibility("default")))
+#endif
+
+//
 // last known and checked version:
 #if (BOOST_INTEL_CXX_VERSION > 1110)
 #  if defined(BOOST_ASSERT_CONFIG)

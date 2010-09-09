@@ -61,7 +61,7 @@ struct is_same_part_1
 template< typename T1, typename T2 >
 struct is_same_impl
 {
-    enum { value = detail::is_same_part_1<T1>::template part_2<T2>::value };
+    enum { value = boost::detail::is_same_part_1<T1>::template part_2<T2>::value };
 };
 
 #else // generic "no-partial-specialization" version
@@ -81,7 +81,7 @@ struct is_same_impl
 
    BOOST_STATIC_CONSTANT(bool, value =
       (::boost::type_traits::ice_and<
-         (sizeof(type_traits::yes_type) == sizeof(detail::is_same_tester(&t,&u))),
+         (sizeof(type_traits::yes_type) == sizeof(boost::detail::is_same_tester(&t,&u))),
          (::boost::is_reference<T>::value == ::boost::is_reference<U>::value),
          (sizeof(T) == sizeof(U))
         >::value));

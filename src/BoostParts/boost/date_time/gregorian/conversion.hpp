@@ -6,9 +6,10 @@
  * Boost Software License, Version 1.0. (See accompanying
  * file LICENSE_1_0.txt or http://www.boost.org/LICENSE_1_0.txt)
  * Author: Jeff Garland, Bart Garst
- * $Date: 2009-06-06 07:27:35 -0400 (Sat, 06 Jun 2009) $
+ * $Date: 2010-06-09 14:10:13 -0400 (Wed, 09 Jun 2010) $
  */
 
+#include <cstring>
 #include <string>
 #include <stdexcept>
 #include <boost/throw_exception.hpp>
@@ -41,7 +42,8 @@ namespace gregorian {
         boost::throw_exception(std::out_of_range(s));
     }
 
-    std::tm datetm = {}; // zero initialization is needed for extension members, like tm_zone
+    std::tm datetm;
+    std::memset(&datetm, 0, sizeof(datetm));
     boost::gregorian::date::ymd_type ymd = d.year_month_day();
     datetm.tm_year = ymd.year - 1900;
     datetm.tm_mon = ymd.month - 1;

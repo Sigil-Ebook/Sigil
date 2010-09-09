@@ -44,7 +44,7 @@
 #endif 
 
 // See also kai.hpp which checks a Kai-specific symbol for EH
-# if !defined(__KCC) && !defined(__EXCEPTIONS)
+# if !defined(__KCC) && !defined(__EXCEPTIONS) && !defined(BOOST_NO_EXCEPTIONS)
 #     define BOOST_NO_EXCEPTIONS
 # endif
 
@@ -59,6 +59,9 @@
 //
 //   See above for BOOST_NO_LONG_LONG
 //
+#if (__EDG_VERSION__ < 310)
+#  define BOOST_NO_EXTERN_TEMPLATE
+#endif
 #if (__EDG_VERSION__ <= 310) || !defined(BOOST_STRICT_CONFIG)
 // No support for initializer lists
 #  define BOOST_NO_INITIALIZER_LISTS
@@ -74,7 +77,6 @@
 #define BOOST_NO_DEFAULTED_FUNCTIONS
 #define BOOST_NO_DELETED_FUNCTIONS
 #define BOOST_NO_EXPLICIT_CONVERSION_OPERATORS
-#define BOOST_NO_EXTERN_TEMPLATE
 #define BOOST_NO_FUNCTION_TEMPLATE_DEFAULT_ARGS
 #define BOOST_NO_LAMBDAS
 #define BOOST_NO_NULLPTR

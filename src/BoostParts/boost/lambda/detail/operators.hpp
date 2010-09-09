@@ -37,16 +37,16 @@ inline const                                                                 \
 lambda_functor<                                                              \
   lambda_functor_base<                                                       \
     ACTION,                                                                  \
-    tuple<lambda_functor<Arg>, typename CONVERSION <CONSTB>::type>         \
+    tuple<lambda_functor<Arg>, typename const_copy_argument <CONSTB>::type>  \
   >                                                                          \
 >                                                                            \
 OPER_NAME (const lambda_functor<Arg>& a, CONSTB& b) {                      \
   return                                                                     \
     lambda_functor_base<                                                     \
       ACTION,                                                                \
-      tuple<lambda_functor<Arg>, typename CONVERSION <CONSTB>::type>       \
+      tuple<lambda_functor<Arg>, typename const_copy_argument <CONSTB>::type>\
     >                                                                        \
-   (tuple<lambda_functor<Arg>, typename CONVERSION <CONSTB>::type>(a, b)); \
+   (tuple<lambda_functor<Arg>, typename const_copy_argument <CONSTB>::type>(a, b)); \
 }
 
 

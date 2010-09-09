@@ -18,10 +18,13 @@
 
 namespace boost
 {
-    class thread_group:
-        private noncopyable
+    class thread_group
     {
+    private:
+        thread_group(thread_group const&);
+        thread_group& operator=(thread_group const&);        
     public:
+        thread_group() {}
         ~thread_group()
         {
             for(std::list<thread*>::iterator it=threads.begin(),end=threads.end();

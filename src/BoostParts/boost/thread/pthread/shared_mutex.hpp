@@ -225,7 +225,7 @@ namespace boost
         template<typename TimeDuration>
         bool timed_lock_upgrade(TimeDuration const & relative_time)
         {
-            return timed_lock(get_system_time()+relative_time);
+            return timed_lock_upgrade(get_system_time()+relative_time);
         }
 
         bool try_lock_upgrade()

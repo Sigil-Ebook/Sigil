@@ -11,9 +11,9 @@
 //
 // See http://www.boost.org/libs/mpl for documentation.
 
-// $Id: has_xxx.hpp 49267 2008-10-11 06:19:02Z agurtovoy $
-// $Date: 2008-10-11 02:19:02 -0400 (Sat, 11 Oct 2008) $
-// $Revision: 49267 $
+// $Id: has_xxx.hpp 63518 2010-07-02 08:32:03Z agurtovoy $
+// $Date: 2010-07-02 04:32:03 -0400 (Fri, 02 Jul 2010) $
+// $Revision: 63518 $
 
 #include <boost/mpl/aux_/config/overload_resolution.hpp>
 #include <boost/mpl/aux_/config/workaround.hpp>
@@ -27,6 +27,7 @@
         )
 
 #   define BOOST_MPL_CFG_NO_HAS_XXX
+#   define BOOST_MPL_CFG_NO_HAS_XXX_TEMPLATE
 
 #endif
 

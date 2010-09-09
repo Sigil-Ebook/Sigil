@@ -1,4 +1,4 @@
-//Copyright (c) 2006-2009 Emil Dotchevski and Reverge Studios, Inc.
+//Copyright (c) 2006-2010 Emil Dotchevski and Reverge Studios, Inc.
 
 //Distributed under the Boost Software License, Version 1.0. (See accompanying
 //file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
@@ -15,31 +15,35 @@
 #include <boost/detail/sp_typeinfo.hpp>
 #include <boost/current_function.hpp>
 #include <boost/config.hpp>
+#ifndef BOOST_NO_TYPEID
+#include <boost/units/detail/utility.hpp>
+#endif
+#include <string>
 
 namespace
 boost
     {
     template <class T>
     inline
-    char const *
+    std::string
     tag_type_name()
         {
 #ifdef BOOST_NO_TYPEID
         return BOOST_CURRENT_FUNCTION;
 #else
-        return typeid(T*).name();
+        return units::detail::demangle(typeid(T*).name());
 #endif
         }
 
     template <class T>
     inline
-    char const *
+    std::string
     type_name()
         {
 #ifdef BOOST_NO_TYPEID
         return BOOST_CURRENT_FUNCTION;
 #else
-        return typeid(T).name();
+        return units::detail::demangle(typeid(T).name());
 #endif
         }
 

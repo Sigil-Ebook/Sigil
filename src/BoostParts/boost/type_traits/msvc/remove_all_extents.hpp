@@ -36,7 +36,7 @@ namespace boost {
 
     template<typename T>
     struct remove_all_extents {
-        typedef typename detail::remove_all_extents_impl_typeof<
+        typedef typename boost::detail::remove_all_extents_impl_typeof<
             boost::is_array<T>::value                
         >::template inner<T,remove_all_extents<T> >::type type;
         BOOST_MPL_AUX_LAMBDA_SUPPORT(1,remove_all_extents,T)

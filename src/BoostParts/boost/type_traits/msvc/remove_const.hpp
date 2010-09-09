@@ -124,7 +124,7 @@ namespace boost {
 
     template<typename T>
     struct remove_const {
-        typedef detail::remove_const_impl_typeof<
+        typedef boost::detail::remove_const_impl_typeof<
             boost::is_pointer<T>::value,
             boost::is_array<T>::value,
             boost::is_const<T>::value,

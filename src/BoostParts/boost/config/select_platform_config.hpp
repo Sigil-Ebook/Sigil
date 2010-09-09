@@ -65,6 +65,10 @@
 // vxWorks:
 #  define BOOST_PLATFORM_CONFIG "boost/config/platform/vxworks.hpp"
 
+#elif defined(__SYMBIAN32__) 
+// Symbian: 
+#  define BOOST_PLATFORM_CONFIG "boost/config/platform/symbian.hpp" 
+
 #else
 
 #  if defined(unix) \

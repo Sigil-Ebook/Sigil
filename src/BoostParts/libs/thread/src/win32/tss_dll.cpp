@@ -24,27 +24,27 @@
         {
             case DLL_PROCESS_ATTACH:
             {
-                on_process_enter();
-                on_thread_enter();
+                boost::on_process_enter();
+                boost::on_thread_enter();
                 break;
             }
 
             case DLL_THREAD_ATTACH:
             {
-                on_thread_enter();
+                boost::on_thread_enter();
                 break;
             }
 
             case DLL_THREAD_DETACH:
             {
-                on_thread_exit();
+                boost::on_thread_exit();
                 break;
             }
 
             case DLL_PROCESS_DETACH:
             {
-                on_thread_exit();
-                on_process_exit();
+                boost::on_thread_exit();
+                boost::on_process_exit();
                 break;
             }
         }
@@ -52,7 +52,9 @@
         return TRUE;
     }
 
-    extern "C" void tss_cleanup_implemented(void)
+namespace boost
+{
+    void tss_cleanup_implemented()
     {
         /*
         This function's sole purpose is to cause a link error in cases where
@@ -68,5 +70,7 @@
         longer needed and can be removed.
         */
     }
+}
+
 
 #endif //defined(BOOST_HAS_WINTHREADS) && defined(BOOST_THREAD_BUILD_DLL)

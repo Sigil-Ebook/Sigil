@@ -166,7 +166,7 @@ struct function_traits_helper<R (*)(T1, T2, T3, T4, T5, T6, T7, T8, T9, T10)>
 
 template<typename Function>
 struct function_traits : 
-   public detail::function_traits_helper<typename boost::add_pointer<Function>::type>
+	public boost::detail::function_traits_helper<typename boost::add_pointer<Function>::type>
 {
 };
 
@@ -227,7 +227,7 @@ type_of_size<11> function_arity_helper(R (*f)(T1, T2, T3, T4, T5, T6, T7, T8,
 template<typename Function>
 struct function_traits
 {
-  BOOST_STATIC_CONSTANT(unsigned, arity = (sizeof(detail::function_arity_helper((Function*)0))-1));
+  BOOST_STATIC_CONSTANT(unsigned, arity = (sizeof(boost::detail::function_arity_helper((Function*)0))-1));
 };
 
 #endif // BOOST_NO_TEMPLATE_PARTIAL_SPECIALIZATION

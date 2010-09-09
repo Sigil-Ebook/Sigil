@@ -20,8 +20,21 @@ boost
     namespace
     to_string_detail
         {
-        template <class T,class CharT,class Traits>
-        char operator<<( std::basic_ostream<CharT,Traits> &, T const & );
+        struct
+        partial_ordering_helper1
+            {
+            template <class CharT,class Traits>
+            partial_ordering_helper1( std::basic_ostream<CharT,Traits> & );
+            };
+
+        struct
+        partial_ordering_helper2
+            {
+            template <class T>
+            partial_ordering_helper2( T const & );
+            };
+
+        char operator<<( partial_ordering_helper1, partial_ordering_helper2 );
 
         template <class T,class CharT,class Traits>
         struct
