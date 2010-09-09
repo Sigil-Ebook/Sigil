@@ -56,6 +56,7 @@ add_subdirectory( src/tidyLib )
 add_subdirectory( src/ZipArchive )
 add_subdirectory( src/BoostParts )
 add_subdirectory( src/Xerces )
+add_subdirectory( src/XercesExtensions )
 add_subdirectory( src/Sigil )
 
 
