@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="US-ASCII" ?>
+
+<!-- =====================================================================
+     A message represents a single named message that can be loaded
+     ===================================================================== -->
+<!ELEMENT   Message (#PCDATA)>
+<!ATTLIST   Message
+            Id      CDATA #REQUIRED
+            Text    CDATA #REQUIRED>
+
+
+<!-- =====================================================================
+     A message type represents groups of messages of the same severity
+     ===================================================================== -->
+<!ELEMENT   Warning     (Message*)>
+<!ELEMENT   Error       (Message*)>
+<!ELEMENT   FatalError  (Message*)>
+
+
+<!-- =====================================================================
+     A message domain represents (optionally) a group of warnings, errors,
+     and validity errors.
+     ===================================================================== -->
+<!ELEMENT   MsgDomain   (Warning?, Error?, FatalError?)>
+<!ATTLIST   MsgDomain
+            Domain      CDATA #REQUIRED>
+
+
+<!-- =====================================================================
+     A message file is the top level element, which contains all the
+     general info about the messages contained, and the child elements
+     that contain the various message domain.
+     ===================================================================== -->
+<!ELEMENT   MsgFile     (MsgDomain+)>
+<!ATTLIST   MsgFile
+            Locale      CDATA #REQUIRED>

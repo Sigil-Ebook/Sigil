@@ -1,0 +1,767 @@
+$quote "
+$set 1
+2  notation '{0}' has already been declared
+3  attribute '{0}' has already been declared for element '{1}'
+4  encoding '{0}' from XML declaration or manually set contradicts the auto-sensed encoding; ignoring
+5  element '{0}' is referenced in a content model but was never declared
+6  element '{0}' is referenced in an ATTLIST but was never declared
+7  {0}
+8  unable to include document '{0}'
+9  unable to open text file target '{0}'
+10  unable to include resource '{0}'
+13  '{0}' is not allowed for the content of simpleType; only list, union, and restriction are allowed
+14  globally-defined complex type must have a name
+15  globally-declared attribute must have a name
+16  attribute declaration must have name or 'ref' attribute
+17  element declaration must have name or 'ref' attribute
+18  group declaration must have name or a 'ref' attribute
+19  attributeGroup declaration must have name or 'ref' attribute
+20  anonymous complexType in element '{0}' has name
+21  anonymous simpleType in element '{0}' has name
+22  content of element declaration must match (annotation?, (simpleType | complexType)?, (unique | key | keyref)*)
+23  invalid content in simple type '{0}'; only list, union, and restriction are allowed
+24  expected simpleType in list definition for type '{0}'
+25  list, union, or restriction content is invalid for type '{0}'
+26  invalid content in list definition for type '{0}'
+27  expected simpleType in restriction definition for type '{0}'
+28  facet '{0}' is already defined
+29  expected simpleType in union definition for type '{0}'
+30  content in simpleType definition is empty
+31  expected restriction or extension in simpleContent definition
+32  base attribute must be specified for restriction or extension definition
+33  expected restriction or extension in complexContent definition
+34  invalid content in 'schema' element
+35  invalid content for type '{0}'
+36  unknown simpleType '{0}'
+37  unknown complexType '{0}'
+38  prefix '{0}' can not be resolved to namespace URI
+39  referenced element '{0}' not found
+40  type '{0}:{1}' not found
+41  attribute '{0}' not found
+42  invalid element '{0}' in complex type definition
+43  base type '{0}' not found
+44  unable to create validator for '{0}'
+45  invalid element following simpleContent definition in complexType
+46  invalid element following complexContent definition in complexType
+47  attribute '{0}' cannot have both fixed and default values
+48  attribute '{0}' with default value must be optional
+49  attribute '{0}' declared more than once in the same scope
+50  attribute '{0}' cannot have both 'type' attribute and simpleType definition
+51  simpleType '{0}:{1}' for attribute '{2}' not found
+52  element '{0}' cannot have both fixed and default values
+53  invalid {0} name '{1}'
+54  element '{0}' cannot have both 'type' attribute and simpleType/complexType definition
+55  element '{0}' has fixed or default value and must have mixed simple or simple content model
+56  simpleType '{0}' that '{1}' extends has a value of the final attribute that does not permit extension
+57  type '{0}' specified as the base in simpleContent definition must not have complex content
+58  type '{0}' is a simple type and cannot be used in derivation by restriction in complexType definition
+59  invalid element following restriction or extension definition in simpleContent
+60  invalid element following restriction or extension definition in complexContent
+61  duplicate annotation in type '{0}'
+62  type '{0}' cannot be used in its own union, list, or restriction definition
+63  block value '{0}' is invalid
+64  final value '{0}' is invalid
+65  element '{0}' cannot be part of the substitution group headed by '{1}'
+66  element '{0}' has a type which does not derive from the type of the element at the head of the substitution group
+67  element '{0}' declared more than once in the same scope
+68  value '{0}' invalid for attribute '{1}'
+69  attribute '{0}' has both 'ref' attribute and inline simpleType definition or 'form' or 'type' attribute
+70  duplicate reference attribute '{0}:{1}' in complexType definition
+71  derivation by restriction is forbidden by either base type '{0}' or globally
+72  derivation by extension is forbidden by either base type '{0}' or globally
+73  base type specified in complexContent definition must be a complex type
+74  imported schema '{0}' has different target namespace '{1}'; expected '{2}'
+75  'schemaLocation' attribute must be specified in element '{0}'
+76  included schema '{0}' has different target namespace '{1}'
+77  at most one annotation is allowed
+78  content of attribute '{0}' must match (annotation?, simpleType?)
+79  attribute '{0}' must appear in global {1} declarations
+80  attribute '{0}' must appear in local {1} declarations
+81  attribute '{0}' cannot appear in global {1} declarations
+82  attribute '{0}' cannot appear in local {1} declarations
+83  minOccurs value '{0}' must not be greater than maxOccurs value '{1}'
+84  duplicate annotation in anyAttribute declaration
+85  global {0} declaration must have name
+86  circular definition in '{0}'
+87  global type '{0}:{1}' declared more than once or also declared as {2}
+88  global {0} '{1}' declared more than once
+89  invalid value '{0}' for whiteSpace facet; expected 'collapse'
+90  namespace of import declaration must be different from target namespace of importing schema
+91  importing schema must have target namespace if namespace in import declaration is not present
+92  element '{0}' cannot have value constraint '{1}' if its type is derived from ID
+93  element/attribute '{0}' is of NOTATION type
+94  element '{0}' has mixed content type and the content type's particle must be emptiable
+95  complexType definition has empty content but base type is not empty or does not have emptiable particle
+96  content types of base type '{0}' and derived type '{1}' must both be mixed or element-only
+97  derived content type is not a valid restriction of base content type
+98  derivation by extension or restriction is forbidden by either base type '{0}' or globally
+99  item type definition must have variety of atomic or union where all member types must be atomic
+100  group '{0}' must contain all, choice, or sequence compositor
+101  content of attributeGroup '{0}' must match (annotation?, ((attribute | attributeGroup)*, anyAttribute?))
+102  top-level compositor in a group must not have 'minOccurs' or 'maxOccurs' attribute
+103  {0} '{1}:{2}' not found
+104  group with the all compositor must only appear as content type of a complex type
+105  group with the all compositor constituting the content type of a complex type must have both minOccurs and maxOccurs equal 1
+106  element declaration in the all compositor must have minOccurs and maxOccurs equal 0 or 1
+107  attribute '{0}' is already defined in base
+108  intensional intersection of attribute wildcards must be expressible
+109  base type does not have any attributes
+110  attribute '{0}' has incompatible use value in the base
+111  type of attribute '{0}' must be derived by restriction from type of the corresponding attribute in the base
+112  attribute '{0}' does not have a fixed value or has a different fixed value from that of the base
+113  attribute '{0}' has invalid target namespace with respect to the base wildcard constraint or base has no wildcard
+114  attribute wildcard is present in the derived type but not in the base
+115  attribute wildcard in the derived type is not a valid subset of that in the base
+116  attribute '{0}' cannot have different use value in the derived type if the base attribute use value is 'prohibited'
+117  attribute wildcard in the derived type must be identical to or stricter than the one in the base
+118  unexpected '{0}' in the content of the all compositor; only elements are allowed
+119  redefined schema '{0}' has a different target namespace '{1}'
+120  simpleType in redefine must have a restriction definition
+121  simpleType base attribute in redefine must reference the original type with the same name
+122  complexType in redefine must have a restriction or extension definition
+123  complexType base attribute in redefine must reference the original type with the same name
+124  group '{0}' must have minOccurs and maxOccurs equal 1
+125  unable to find declaration in the schema being redefined corresponding to '{0}'
+126  group declaration in redefine may only contain one reference to itself
+127  attributeGroup declaration in redefine may only contain one reference to itself
+128  redefine declaration cannot contain '{0}'
+129  notation declaration '{0}:{1}' not found
+130  more than one identity constraint has name '{0}'
+131  identity constraint declaration must match (annotation?, selector, field+)
+132  key reference declaration '{0}' refers to unknown key '{1}'
+133  field cardinalities for keyref '{0}' and key '{1}' must match
+134  XPath expression is missing or empty
+135  fixed value in attribute reference is not set or differs from the fixed value of '{0}'
+136  attribute '{0}' is of ID type or type derived from ID and cannot have default/fixed value constraint
+137  attribute '{0}' is a subsequent attribute in this complex type with a type derived from ID
+138  attribute '{0}' is a subsequent attribute in this attribute group with a type derived from ID
+139  empty value illegal for 'targetNamespace' attribute; target namespace must be absent or contain non-empty value
+140  {0}
+141  '{0}' has already been included or redefined
+142  namespace '{0}' is referenced without import declaration
+143  all compositor that is part of a complex type definition must constitute the entire content of the definition
+144  annotation can only contain appinfo and documentation declarations
+145  invalid facet name '{0}'
+146  root element name of XML Schema document must be 'schema'
+147  circular substitution group in element '{0}'
+148  element '{0}' must be from the XML Schema namespace
+149  target namespace of attribute '{0}' cannot be http://www.w3.org/2001/XMLSchema-instance
+150  invalid namespace declaration
+151  namespace fix-up cannot be performed on DOM Level 1 node
+152  more than one anyAttribute declaration found in complex type declaration
+153  anyAttribute must not be followed by other declarations
+156  parser has encountered more than '{0}' entity expansions in the document; this is the limit imposed by the application
+157  expected comment or CDATA section
+158  attribute name expected
+159  notation name expected
+160  illegal repetition of elements in mixed content model
+161  default attribute declaration expected
+162  equal sign expected
+163  element name expected
+164  comment must start with <!--
+165  invalid document structure
+166  expected version, encoding, or standalone declaration
+167  invalid XML version declaration
+168  unsupported XML version '{0}'
+169  unterminated XML declaration
+170  invalid XML encoding declaration '{0}'
+171  invalid standalone declaration
+172  unterminated comment
+173  processing instruction name expected
+174  unterminated processing instruction
+175  invalid character 0x{0}
+176  unterminated start tag '{0}'
+177  attribute value expected
+178  unterminated end tag '{0}'
+179  expected type for attribute '{0}' of element '{1}'
+180  expected end of tag '{0}'
+181  expected tag name, comment, PI, or other markup
+182  invalid content after root element's end tag
+183  comment expected
+184  comment or processing instruction expected
+185  whitespace expected
+186  expected root element in DOCTYPE declaration
+187  quoted string expected
+188  public id expected
+189  invalid character 0x{0} in public id
+190  unterminated DOCTYPE declaration
+191  invalid character 0x{0} in internal subset
+192  unexpected whitespace
+193  invalid character 0x{1} in attribute value '{0}'
+194  markup declaration expected
+195  TEXT declaration is illegal at this point
+196  conditional section in internal subset
+197  parameter entity name expected
+198  unterminated entity declaration '{0}'
+199  invalid character reference
+200  unterminated character reference
+201  expected entity name for reference
+202  entity '{0}' not found
+203  unparsed entity reference '{0}' is invalid at this point
+204  unterminated entity reference '{0}'
+205  recursive entity expansion '{0}'
+206  partial markup in entity value
+207  unterminated element declaration '{0}'
+208  expected content specification for element '{0}'
+209  '*' expected
+210  mixed content model '{0}' not terminated properly
+211  system or public id expected
+212  unterminated notation declaration
+213  expected ',', '|', or ')'
+214  expected '|' or ')'
+215  expected ',', '|', or ')' in content model of element '{0}'
+216  expected enumeration value for attribute '{0}'
+217  expected '|' or ')'
+218  unterminated entity literal
+219  unmatched end tag detected
+220  '(' expected
+221  attribute '{0}' is already specified for element '{1}'
+222  '<' character cannot be used in attribute value '{0}'; use &lt; instead
+223  leading surrogate character is not followed by a legal second character
+224  expected ']]>' sequence to end conditional section
+225  expected INCLUDE or IGNORE at this point
+226  expected '[' to follow INCLUDE or IGNORE
+227  unexpected end of entity '{0}'
+228  parameter entity propagated out of internal/external subset
+229  unmatched ']' character detected
+230  parameter entity references are not allowed inside markup in internal subset
+231  entity propagated out of the content section into miscellaneous
+232  expected &# to be followed by a numeric character value
+233  '[' expected
+234  ']]>' sequence is not allowed in character data
+235  '--' sequence is illegal in comment
+236  unterminated CDATA section
+237  NDATA expected
+238  NDATA is illegal for parameter entities
+239  hex radix character references must use 'x', not 'X'
+240  {0} declaration already seen
+241  XML declarations must be in this order: version, encoding, standalone
+242  external entity cannot be referred to from attribute value
+243  XML or TEXT declaration must start with '<?xml ', not '<?XML '
+244  expected literal entity value or public/system id
+245  '{0}' is not a valid digit for the specified radix
+246  input ended before all started tags were ended; last tag started is '{0}'
+247  nested CDATA section illegal
+248  prefix '{0}' can not be resolved to namespace URI
+249  start and the end tags are in different entities
+250  XML document cannot be empty
+251  CDATA section is illegal outside the root element
+252  unexpected trailing surrogate character
+253  processing instruction cannot start with 'xml'
+254  XML or TEXT declaration must start at line 1, column 1
+255  version declaration is required in XML declaration
+256  standalone declaration is only legal in the main XML entity
+257  encoding declaration is required in TEXT declaration
+258  colon is illegal in names when namespaces are enabled
+259  {0}
+260  schemaLocation does not contain namespace-location pairs
+261  fatal error during schema scan
+262  reference to external entity declaration '{0}' is illegal in standalone document
+263  partial markup in parameter entity replacement text in complete declaration
+264  invalid namespace value in prefix-namespace mapping '{0}'
+265  prefix 'xmlns' cannot be explicitly bound to namespace
+266  namespace for 'xmlns' cannot be explicitly bound to prefix
+267  prefix 'xml' cannot be bound to namespace other than its canonical namespace
+268  namespace for 'xml' cannot be bound to prefix other than 'xml'
+269  element '{0}' cannot have 'xmlns' as its prefix
+270  restriction must contain simpleType definition
+271  invalid root element '{0}' in DOCTYPE declaration
+272  invalid element name '{0}'
+273  invalid attribute name '{0}'
+274  invalid entity reference name '{0}'
+275  DOCTYPE declaration already seen
+276  fallback element is not a direct child of include element
+277  include element without 'href' attribute
+278  include element with XPointer specification; XPointer is not yet supported
+279  invalid 'parse' attribute value '{0}'; expected 'text' or 'xml'
+280  multiple fallback elements in document '{0}'
+281  include failed and no fallback element found in document '{0}'
+282  circular inclusion in document '{0}'
+283  self-inclusion in document '{0}'
+284  element '{0}' is not allowed as a child of include element
+285  included notation '{0}' conflicts with notation already defined
+286  included entity '{0}' conflicts with entity already defined
+
+
+$set 2
+2  no declaration found for element '{0}'
+3  no declaration found for attribute '{0}'
+4  notation '{0}' is referenced but was never declared
+5  root element differs from that declared in DOCTYPE
+6  missing required attribute '{0}'
+7  element '{0}' is not allowed for content model '{1}'
+8  ID attribute must be #IMPLIED or #REQUIRED
+9  attribute cannot have empty value
+10  element '{0}' has already been declared
+11  element '{0}' has more than one ID attribute
+12  ID value '{0}' has already been used
+13  ID attribute '{0}' is referenced but was never declared
+14  attribute '{0}' refers to undeclared notation '{1}'
+15  element '{0}' is specified in DOCTYPE but was never declared
+16  empty content is not valid for content model '{0}'
+17  attribute '{0}' is not declared for element '{1}'
+18  value '{0}' for attribute '{1}' of type ENTITY/ENTITIES must refer to external, unparsed entity
+19  attribute '{0}' refers to unknown entity '{1}'
+20  attribute of type ID/IDREF/IDREFS/ENTITY/ENTITIES/NOTATION cannot contain colon when namespaces are enabled
+21  missing elements in content model '{0}'
+22  no character data is allowed by content model
+23  value '{0}' for attribute '{1}' does not match its type's defined enumeration or notation list
+24  value '{0}' for attribute '{1}' is invalid Name or NMTOKEN value
+25  attribute '{0}' does not allow multiple values
+26  attribute '{0}' has value '{1}' that does not match its #FIXED value '{2}'
+27  element types cannot be duplicated in mixed content model
+28  {0} is not supported
+29  '{0}' is not allowed in the {1} compositor; only element, group, choice, sequence, and any are allowed
+30  base type '{0}' not found in '{1}' definition
+31  {0} declaration with 'ref' attribute cannot have content
+32  {0}
+33  prohibited attribute '{0}' is present
+34  illegal 'xml:space' declaration
+35  schema document '{0}' has different target namespace from the one specified in instance document '{1}'
+36  element '{0}' is of simple type and cannot have elements in its content
+37  unable to find validator for simple type of element '{0}'
+38  grammar not found for namespace '{0}'
+39  {0}
+40  'xsi:nil' specified for non-nillable element '{0}'
+41  element '{0}' is nil and must be empty
+42  content of element '{0}' differs from its declared fixed value
+43  unable to find validator for simple type of attribute '{0}'
+44  error during schema scan
+45  element '{0}' must be qualified
+46  element '{0}' must be unqualified
+47  reference to external entity declaration '{0}' is not allowed in standalone document
+48  attribute '{0}' in element '{1}' has default value and must be specified in standalone document
+49  attribute '{0}' must not be changed by normalization in standalone document
+50  whitespace must not occur between externally declared elements with element content in standalone document
+51  entity '{0}' not found
+52  partial markup in parameter entity replacement text
+53  failed to validate '{0}'
+54  complex type '{0}' violates the unique particle attribution rule in its components '{1}' and '{2}'
+55  abstract type '{0}' cannot be used in 'xsi:type'
+56  element '{0}' is abstract; use non-abstract member of its substitution group instead
+57  type of element '{0}' is abstract; use 'xsi:type' to specify non-abstract type instead
+58  type '{0}' specified in 'xsi:type' cannot be resolved
+59  type '{0}' specified in 'xsi:type' does not derive from type of element '{1}'
+60  element '{0}' does not permit substitution
+61  complex type '{0}' does not permit substitution
+62  attribute '{0}' must be qualified
+63  attribute '{0}' must be unqualified
+64  identity constraint field matches more than one value within the scope of its selector; field must match unique value
+65  unknown identity constraint field
+66  element '{0}' has identity constraint key with no value
+67  element '{0}' does not have enough values for identity constraint key '{1}'
+68  element '{0}' declares identity constraint key that matches nillable element
+69  element '{0}' declares duplicate identity constraint unique values
+70  element '{0}' declares duplicate identity constraint key values
+71  keyref '{0}' refers to out of scope key/unique
+72  identity constraint key for element '{0}' not found
+73  non-whitespace characters are not allowed in schema declarations other than appinfo and documentation
+74  element '{0}' declared EMPTY but has attribute '{1}' of type NOTATION
+75  element '{0}' declared EMPTY and cannot have content, not even entity references, comments, PIs, or whitespaces
+76  element '{0}' has more than one attribute of type NOTATION
+77  attribute '{0}' has non-distinct token '{1}'
+78  content model of element '{0}' does not allow escaped whitespaces
+
+
+$set 3
+2  unable to open primary document entity '{0}'
+5  index is beyond array bounds
+6  new array size is less than the old
+7  index is beyond maximum attribute index
+8  invalid AttType value
+9  invalid DefAttType value
+10  bit index is beyond set size
+11  bit sets have different sizes
+12  no more buffers available
+13  buffer is not found in the manager's pool
+14  NULL pointer
+15  binary operation node has unary node type
+16  content type must be mixed or children
+17  PCDATA node is illegal at this point
+18  unary operation node has binary node type
+19  unknown content model type
+20  unknown content spec type
+21  parent element has no content spec node
+22  invalid spec type for '{0}'
+23  unknown creation reason value
+24  element stack is empty
+25  pop operation requested on empty stack
+26  parent operation requested with only one element in stack
+27  no more elements in enumerator
+28  unable to open file '{0}'
+29  unable to query file position
+30  unable to close file
+31  unable to seek to the end of file
+32  unable to seek to the required position in file
+33  unable to duplicate handle
+34  unable to read data from file
+35  unable to write data to file
+36  unable to reset file position to the beginning
+37  unable to get file size
+38  unable to determine file base pathname
+39  parsing in progress
+40  DOCTYPE declaration was seen but installed validator does not support DTD
+41  unable to open DTD document '{0}'
+42  unable to open external entity '{0}'
+43  unexpected end of input
+44  zero hash modulus
+45  hashing key produced invalid hash
+46  no such key in hash table
+47  unable to destroy mutex
+48  internal error in NetAccessor
+49  NetAccessor is unable to determine length of remote file
+50  unable to initialize NetAccessor
+51  unable to resolve host/address '{0}'
+52  unable to create socket for URL '{0}'
+53  unable to connect socket for URL '{0}'
+54  unable to write to socket for URL '{0}'
+55  unable to read from socket for URL '{0}'
+56  specified HTTP method is not supported by NetAccessor
+57  element '{0}' is already in pool
+58  invalid pool element id
+59  zero hash modulus
+60  reader id not found
+61  invalid auto encoding value
+62  unable to decode first line in entity '{0}'
+63  XML or TEXT declaration '{0}' cannot have NEL or lsep
+64  current transcoding service does not support source offset information
+65  EBCDIC file must provide encoding declaration
+66  unable to open primary document entity '{0}'
+67  unbalanced start/end tags
+68  call to scanNext is illegal at this point
+69  index is past top of stack
+70  empty stack
+71  target buffer cannot have zero max size
+72  unsupported radix; expected 2, 8, 10, or 16
+73  target buffer is too small
+74  start index is past the end of string
+75  string representation overflows output binary result
+76  illegal string pool id
+77  char 0x{0} is not representable in '{1}' encoding
+78  invalid multi-byte sequence
+79  code point 0x{0} is invalid for '{1}' encoding
+80  leading surrogate followed by invalid trailing surrogate
+81  unable to create converter for '{0}' encoding
+82  malformed URL
+83  unsupported protocol in URL
+84  URL protocol '{0}' is unsupported
+85  missing protocol prefix
+86  expected '//' after protocol
+87  base part of URL cannot be relative
+88  port field must be 16-bit decimal number
+89  invalid byte '{1}' at position {0} of a {2}-byte sequence
+90  invalid bytes '{0}' and '{1}' of a 3-byte sequence
+91  irregular bytes '{0}' and '{1}' of a 3-byte sequence
+92  invalid bytes '{0}' and '{1}' of a 4-byte sequence
+93  exceeded byte limit at byte '{0}' in a {1}-byte sequence
+94  index is beyond vector bounds
+95  invalid element id
+96  internal subset is not allowed when reusing the grammar
+97  unknown recognizer encoding
+98  illegal character at offset {0} in regular expression '{1}'
+99  invalid reference number
+100  character expected after backslash
+101  unexpected '?'; '(?:', '(?=', '(?!', '(?<', '(?#', or '(?>' expected
+102  '(?<=' or '(?<!' expected
+103  unterminated comment
+104  ')' expected
+105  unexpected end of pattern in modifier group
+106  ':' expected
+107  unexpected end of pattern in conditional group
+108  back reference, anchor, lookahead, or lookbehind expected in conditional pattern
+109  more than three choices in conditional group
+110  character in the U+0040-U+005f range must follow '\c'
+111  '{' expected before category character
+112  property name must be closed with '}'
+113  unexpected meta character
+114  unknown property
+115  POSIX character class must be closed with ':]'
+116  unexpected end of pattern in character class
+117  unknown name for POSIX character class
+118  ']' expected
+119  '{0}' is invalid character range; use '\{1}' instead
+120  '[' expected
+121  ')', '-[', '+[', or '&[' expected
+122  range end code point '{0}' is less than start code point '{1}'
+123  invalid Unicode hex notation
+124  '\ x{' must be closed with '}'
+125  invalid Unicode code point
+126  anchor cannot be present at this point
+127  '{0}' is invalid character escape sequence
+128  invalid quantifier in '{0}'; digit expected
+129  invalid quantifier in '{0}'; invalid quantity or missing  '}'
+130  invalid quantifier in '{0}'; digit or '}' expected
+131  invalid quantifier in '{0}'; min quantity must be less than or equal max quantity
+132  invalid quantifier in '{0}'; quantity value overflow
+133  XML Schema was seen but installed validator does not support XML Schema
+134  SubstitutionGroupComparator has no grammar resolver
+135  invalid length value '{0}'
+136  invalid maxLength value '{0}'
+137  invalid minLength value '{0}'
+138  length value '{0}' must be a non-negative integer
+139  maxLength value '{0}' must be a non-negative integer
+140  minLength value '{0}' must be a non-negative integer
+141  both length and maxLength cannot be present at the same time
+142  both length and minLength cannot be present at the same time
+143  maxLength value '{0}' must be greater than minLength value '{1}'
+144  invalid facet tag '{0}'
+145  length value '{0}' must be equal to length value '{1}' in the base
+146  minLength value '{0}' must be greater than or equal to minLength value '{1}' in the base
+147  minLength value '{0}' must be less than or equal to maxLength value '{1}' in the base
+148  maxLength value '{0}' must be less than or equal to maxLength value '{1}' in the base
+149  maxLength value '{0}' must be greater than or equal to minLength value '{1}' in the base
+150  length value '{0}' must be greater than or equal to minLength value '{1}' in the base
+151  length value '{0}' must be less than or equal to maxLength value '{1}' in the base
+152  minLength value '{0}' must be less than or equal to length value '{1}' in the base
+153  maxLength value '{0}' must be greater than or equal to length value '{1}' in the base
+154  enumeration value '{0}' must be from the value space of the base
+155  whiteSpace value '{0}' must be one of 'preserve', 'replace', or 'collapse'
+156  whiteSpace value is 'preserve' or 'replace' while base type whiteSpace value is 'collapse'
+157  whiteSpace value is 'preserve' while base type whiteSpace value is 'replace'
+158  invalid maxInclusive value '{0}'
+159  invalid maxExclusive value '{0}'
+160  invalid minInclusive value '{0}'
+161  invalid minExclusive value '{0}'
+162  invalid totalDigits value '{0}'
+163  invalid fractionDigits value '{0}'
+164  totalDigits value '{0}' must be a positive integer
+165  fractionDigits value '{0}' must be a non-negative integer
+166  both maxInclusive and maxExclusive cannot be present at the same time
+167  both minInclusive and minExclusive cannot be present at the same time
+168  maxExclusive value '{0}' must be greater than minExclusive value '{1}'
+169  maxExclusive value '{0}' must be greater than minInclusive value '{1}'
+170  maxInclusive value '{0}' must be greater than minExclusive value '{1}'
+171  maxInclusive value '{0}' must be greater than minInclusive value '{1}'
+172  totalDigits value '{0}' must be greater than fractionDigits value '{1}'
+173  maxInclusive value '{0}' must be less than maxExclusive value '{1}' in the base
+174  maxInclusive value '{0}' must be less than or equal to maxInclusive value '{1}' in the base
+175  maxInclusive value '{0}' must be greater than or equal to minInclusive value '{1}' in the base
+176  maxInclusive value '{0}' must be greater than minExclusive value '{1}' in the base
+177  maxExclusive value '{0}' must be less than or equal to maxExclusive value '{1}' in the base
+178  maxExclusive value '{0}' must be less than or equal to maxInclusive value '{1}' in the base
+179  maxExclusive value '{0}' must be greater than minInclusive value '{1}' in the base
+180  maxExclusive value '{0}' must be greater than minExclusive value '{1}' in the base
+181  minExclusive value '{0}' must be less than maxExclusive value '{1}' in the base
+182  minExclusive value '{0}' must be less than or equal to maxInclusive value '{1}' in the base
+183  minExclusive value '{0}' must be greater than minInclusive value '{1}' in the base
+184  minExclusive value '{0}' must be greater than minExclusive value '{1}' in the base
+185  minInclusive value '{0}' must be less than maxExclusive value '{1}' in the base
+186  minInclusive value '{0}' must be less than or equal to maxInclusive value '{1}' in the base
+187  minInclusive value '{0}' must be greater than or equal to minInclusive value '{1}' in the base
+188  minInclusive value '{0}' must be greater than minExclusive value '{1}' in the base
+189  maxInclusive value '{0}' must be from the base type value space
+190  maxExclusive value '{0}' must be from the base type value space
+191  minInclusive value '{0}' must be from the base type value space
+192  minExclusive value '{0}' must be from the base type value space
+193  totalDigits value '{0}' must be less than or equal to totalDigits value '{1}' in the base
+194  fractionDigits value '{0}' must be less than or equal to totalDigits value '{1}' in the base
+195  fractionDigits value '{0}' must be less than or equal to fractionDigits value '{1}' in the base
+196  maxInclusive value '{0}' must be equal to fixed maxInclusive value '{1}' in the base
+197  maxExclusive value '{0}' must be equal to fixed maxExclusive value '{1}' in the base
+198  minInclusive value '{0}' must be equal to fixed minInclusive value '{1}' in the base
+199  minExclusive value '{0}' must be equal to fixed minExclusive value '{1}' in the base
+200  totalDigits value '{0}' must be equal to fixed totalDigits value '{1}' in the base
+201  fractionDigits value '{0}' must be equal to fixed fractionDigits value '{1}' in the base
+202  maxLength value '{0}' must be equal to fixed maxLength value '{1}' in the base
+203  minLength value '{0}' must be equal to fixed minLength value '{1}' in the base
+204  whiteSpace value '{0}' must be equal to fixed whiteSpace value '{1}' in the base
+205  internal error while processing fixed facet
+206  list itemType is empty
+207  union memberTypes is empty
+208  restriction union base is empty
+209  restriction union base is '{0}' instead of union
+210  value '{0}' does not match regular expression facet '{1}'
+211  value '{0}' is invalid Base64-encoded binary
+212  value '{0}' is invalid Hex-encoded binary
+213  value '{0}' has length '{1}' which exceeds maxLength facet value '{2}'
+214  value '{0}' has length '{1}' which is less than minLength facet value '{2}'
+215  value '{0}' has length '{1}' which is not equal to length facet value '{2}'
+216  value '{0}' not in enumeration
+217  value '{0}' has '{1}' total digits which exceeds totalDigits facet value '{2}'
+218  value '{0}' has '{1}' fraction digits which exceeds fractionDigits facet value '{2}'
+219  value '{0}' must be less than or equal to maxInclusive facet value '{1}'
+220  value '{0}' must be less than maxExclusive facet value '{1}'
+221  value '{0}' must be greater than or equal to minInclusive facet value '{1}'
+222  value '{0}' must be greater than or equal to minExclusive facet value '{1}'
+223  value '{0}' is not whitespace replaced
+224  value '{0}' is not whitespace collapsed
+225  value '{0}' is invalid NCName
+226  value '{0}' is invalid {1}
+227  ID value '{0}' is not unique
+228  value '{0}' is invalid ENTITY
+229  value '{0}' is invalid QName
+230  NOTATION '{0}' must be valid QName
+231  value '{0}' does not match any member types of the union
+232  value '{0}' is invalid anyURI
+233  empty string encountered
+234  string contains only whitespaces
+235  more than one decimal point encountered
+236  invalid character encountered
+237  NULL pointer encountered
+238  unable to construct URI with NULL/empty {0}
+239  {0} '{1}' can only be set for a generic URI
+240  {0} contains invalid escape sequence '{1}'
+241  {0} contains invalid character '{1}'
+242  {0} cannot be NULL
+243  '{1}' is not conformant to {0}
+244  no scheme found in URI
+245  {0} '{1}' may not be specified if host is not specified
+246  {0} '{1}' may not be specified if path is not specified
+247  port number '{0}' must be in the (0,65535) range
+248  internal error while validating '{0}'
+249  result not set
+250  internal error in CompactRanges
+251  mismatched type in MergeRanges
+252  internal error in SubtractRanges
+253  internal error in IntersectRanges
+254  argument must be RangeToken
+255  invalid category name '{0}'
+256  keyword '{0}' not found
+257  reference number must be greater than zero
+258  option '{0}' unknown
+259  unknown token type
+260  unable to get RangeToken for '{0}'
+261  not supported
+262  invalid child index
+263  replace pattern cannot match zero-length string
+264  invalid replace pattern
+265  enabling NEL option can only be done once per process
+266  out of memory
+267  operation is not allowed
+268  selector cannot select attribute
+269  '|' at the beginning of XPath expression is illegal
+270  '||' in XPath expression is illegal
+271  missing attribute name in XPath expression
+272  unexpected XPath token; expected qname, any, or namespace test
+273  prefix '{0}' used in XPath expression can not be resolved to namespace URI
+274  '::' in XPath expression is illegal
+275  expected step following 'child' token in XPath expression
+276  expected step following '//' in XPath expression
+277  expected step following '/' in XPath expression
+278  '/' not allowed after '//' in XPath expression
+279  '//' only allowed after '.' at the beginning of XPath expression
+280  '/' at the beginning of XPath expression is illegal
+281  root element selection is illegal in XPath expression
+282  empty XPath expression
+283  XPath expression cannot end with '|'
+284  invalid character '{0}' in XPath expression
+285  unsupported XPath token
+286  fractional values not supported in XPath expression
+287  invalid dateTime value '{0}'
+288  missing 'T' separator in dateTime value '{0}'
+289  invalid gDay value '{0}'
+290  invalid gMonth value '{0}'
+291  invalid gMonthDay value '{0}'
+292  invalid duration value '{0}'
+293  duration value '{0}' must start with '-' or 'P'
+294  duration value '{0}' must contain 'P'
+295  duration value '{0}' can contain '-' only as the first character
+296  duration value '{0}' contains invalid text before 'T'
+297  duration value '{0}' has no time component after 'T'
+298  duration value '{0}' must have at least one component
+299  duration value '{0}' must have at least one digit after '.'
+300  incomplete date value '{0}'
+301  invalid date value '{0}'
+302  incomplete time value '{0}'
+303  invalid time value '{0}'
+304  expected fractional seconds after '.' in time value '{0}'
+305  incomplete gYearMonth value '{0}'
+306  invalid gYearMonth value '{0}'
+307  invalid gYear value '{0}'
+308  year value '{0}' must follow 'CCYY' format
+309  invalid leading zero in gYear value '{0}'
+310  month component missing in gYearMonth value '{0}'
+311  time zone expected in '{0}'
+312  unexpected text after 'Z' in time zone value '{0}'
+313  invalid time zone value '{0}'
+314  illegal year value '{0}'
+315  month value '{0}' must be between 1 and 12
+316  day value '{0}' must be between 1 and {1}
+317  hours value '{0}' must be between 0 and 23
+318  minutes value '{0}' must be between 0 and 59
+319  seconds value '{0}' must be between 0 and 60
+320  minutes value '{0}' must be between 0 and 59
+321  derived by restriction complex type has content while base type is empty
+322  namespace of element '{0}' is not allowed by wildcard in the base
+323  occurrence range of element '{0}' is not a valid restriction of base element's range
+324  element name/namespace in restriction does not match that of corresponding element in the base
+325  element '{0}' is nillable in the restriction while it is non-nillable in the base
+326  element '{0}' is either not fixed or is fixed to a different value compared to corresponding element in the base
+327  disallowed substitutions for element '{0}' are not a superset of those for corresponding element in the base
+328  element '{0}' has type that does not derive from type of corresponding element in the base
+329  element '{0}' has fewer identity constraints compared to corresponding element '{1}' in the base
+330  element '{0}' has identity constraint that does not appear in corresponding element '{1}' in the base
+331  occurrence range of group is not a valid restriction of occurrence range of base group
+332  no complete functional mapping between particles
+333  forbidden restriction of any particle
+334  forbidden restriction of all compositor
+335  forbidden restriction of choice compositor
+336  forbidden restriction of sequence compositor
+337  occurrence range of wildcard is not a valid restriction of base wildcard's range
+338  wildcard is not a subset of corresponding wildcard in the base
+339  occurrence range of group is not a restriction of base wildcard's range
+340  no complete functional mapping between particles
+341  no complete functional mapping between particles
+342  invalid content spec node type
+343  NodeIDMap exceeds largest available size
+344  ProtoType has NULL class name
+345  ProtoType name length '{0}' differs from expected '{1}'
+346  ProtoType name '{0}' differs from expected '{1}'
+347  InputStream read '{0}' is less than required '{1}'
+348  InputStream read '{0}' is beyond available buffer size '{1}'
+349  storing violation
+350  store buffer violation '{0}', '{1}'
+351  object tag '{0}' exceeds load pool upper boundary '{1}'
+352  load pool size '{0}' does not tally with object count '{1}'
+353  loading violation
+354  load buffer violation '{0}', '{1}'
+355  invalid class index '{0}', '{1}'
+356  invalid checkFillBuffer size '{0}'
+357  invalid checkFlushBuffer size '{0}'
+358  invalid NULL pointer encountered '{0}'
+359  createObject fails
+360  object count '{0}' exceeds upper boundary '{1}'
+361  grammar pool is empty
+362  grammar pool is not empty
+363  string pool is not empty
+364  storer level '{0}' does not match loader level '{1}'
+365  undefined prefix in QName value '{0}'
+
+
+$set 4
+2  dummy
+3  index or size is negative, or greater than the allowed value
+4  specified range of text does not fit into DOMString
+5  attempt is made to insert a node where it is not permitted
+6  node is used in a different document than the one that created it
+7  invalid or illegal XML character
+8  node does not support storing data
+9  attempt is made to modify an object where modifications are not allowed
+10  attempt is made to reference a node in a context where it does not exist
+11  implementation does not support the requested type of object or operation
+12  attempt is made to add an attribute that is already in use elsewhere
+13  attempt is made to use an object that is not or is no longer usable
+14  invalid or illegal string
+15  attempt is made to modify the type of the underlying object
+16  attempt is made to create or change an object in a way which is incorrect with respect to namespaces
+17  parameter or requested operation is not supported by the underlying object
+18  call to a method such as insertBefore or removeChild would make the node invalid with respect to document grammar
+19  type of an object is incompatible with the expected type of the parameter associated with the object
+20  dummy
+21  boundary points of a range do not meet specific requirements
+22  container of a range boundary point is set to a node of an invalid type or to a node with an ancestor of an invalid type
+23  dummy
+24  failed to load a document or an XML fragment using DOMLSParser
+25  failed to serialize a DOM node using DOMLSSerializer
+26  dummy
+27  expression has incorrect syntax or contains XPath features not supported by the XML Schema XPath subset
+28  requested result type not supported
+29  no current result in the result object
+30  nested CDATA sections
+31  unrepresentable character
+32  unrecognized node type
+33  parsing in progress
+34  parsing aborted by the user
+35  parsing failed
+
+
