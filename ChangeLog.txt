@@ -1,4 +1,6 @@
 Sigil v0.3.0 ADD_DATE
+    - fixed several crash/error problems relating to opening, saving and modifying epub files which
+    have onerous file permissions set for internal content files (issue #574)
     - added a workaround for broken epubs created by other epub-producing software which caused
     a crash on certain searches with the Find dialog (issue #548)
     - fixed a problem with chapter splits being placed in the wrong reading order if a file was

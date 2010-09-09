@@ -25,13 +25,13 @@
 #include <sys/stat.h>
 
 #ifndef __BORLANDC__
-        #include <sys/utime.h>
+		#include <sys/utime.h>
 #else
 	#ifndef _UTIMBUF_DEFINED
 		#define _utimbuf utimbuf
 		#define _UTIMBUF_DEFINED
 	#endif
-        #include <utime.h>
+		#include <utime.h>
 #endif
 
 #ifndef INVALID_FILE_ATTRIBUTES
@@ -62,7 +62,7 @@ ULONGLONG ZipPlatform::GetDeviceFreeSpace(LPCTSTR lpszPath)
 		szDrive,
 		(PULARGE_INTEGER)&uFreeBytesToCaller,
 		(PULARGE_INTEGER)&uTotalBytes,
-        (PULARGE_INTEGER)&uFreeBytes))
+		(PULARGE_INTEGER)&uFreeBytes))
 
 	{
 		CZipPathComponent::AppendSeparator(szDrive); // in spite of what is written in MSDN it is sometimes needed (on fixed disks)
@@ -126,7 +126,13 @@ bool ZipPlatform::GetCurrentDirectory(CZipString& sz)
 
 bool ZipPlatform::SetFileAttr(LPCTSTR lpFileName, DWORD uAttr)
 {
-	return ::SetFileAttributes(lpFileName, uAttr) != 0;
+	// Changed by Strahinja Markovic.
+	// Preserving file attributes bites us
+	// in the ass when the attributes don't allow
+	// us to read or modify the extracted files.
+
+	//return ::SetFileAttributes(lpFileName, uAttr) != 0;
+	return true;
 }
 
 bool ZipPlatform::GetFileAttr(LPCTSTR lpFileName, DWORD& uAttr)
@@ -149,8 +155,8 @@ bool ZipPlatform::GetFileModTime(LPCTSTR lpFileName, time_t & ttime)
 		return false;
 	}
 	bool ret = false;
-    if ( findData.ftLastWriteTime.dwLowDateTime || findData.ftLastWriteTime.dwHighDateTime )
-    {
+	if ( findData.ftLastWriteTime.dwLowDateTime || findData.ftLastWriteTime.dwHighDateTime )
+	{
 		LONGLONG val = (findData.ftLastWriteTime.dwLowDateTime & 0xFFFFFFFF);
 
 		val |= ((LONGLONG)findData.ftLastWriteTime.dwHighDateTime << 32) & SUFFIX_I64(0xFFFFFFFF00000000);
@@ -158,7 +164,7 @@ bool ZipPlatform::GetFileModTime(LPCTSTR lpFileName, time_t & ttime)
 
 		ttime = (time_t)(val / 10000000);
 		ret = ttime >= 0;
-    }
+	}
 	FindClose(handle);
 	if (ret == false)
 		ttime = time(NULL);	
@@ -175,8 +181,8 @@ bool ZipPlatform::SetFileModTime(LPCTSTR lpFileName, time_t ttime)
 	
 	FILETIME ft;
 	LONGLONG val = ((LONGLONG)ttime * 10000000) + SUFFIX_I64(116444736000000000);
-    ft.dwLowDateTime = (DWORD)(val & 0xFFFFFFFF);
-    ft.dwHighDateTime = (DWORD)((val >> 32) & 0xFFFFFFFF);
+	ft.dwLowDateTime = (DWORD)(val & 0xFFFFFFFF);
+	ft.dwHighDateTime = (DWORD)((val >> 32) & 0xFFFFFFFF);
 
 	bool ret = ::SetFileTime(handle, NULL, NULL, &ft) != 0;
 	CloseHandle(handle);

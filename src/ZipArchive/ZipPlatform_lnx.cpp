@@ -72,7 +72,7 @@ ULONGLONG ZipPlatform::GetDeviceFreeSpace(LPCTSTR lpszPath)
 	#endif
 		return 0;
 
-        return sStats.f_bsize * sStats.f_bavail;
+		return sStats.f_bsize * sStats.f_bavail;
 }
 
 
@@ -110,7 +110,13 @@ bool ZipPlatform::GetCurrentDirectory(CZipString& sz)
 
 bool ZipPlatform::SetFileAttr(LPCTSTR lpFileName, DWORD uAttr)
 {
-	return chmod(lpFileName, uAttr) == 0;
+	// Changed by Strahinja Markovic.
+	// Preserving file attributes bites us
+	// in the ass when the attributes don't allow
+	// us to read or modify the extracted files.
+
+	//return chmod(lpFileName, uAttr) == 0;
+	return true;
 }
 
 bool ZipPlatform::GetFileAttr(LPCTSTR lpFileName, DWORD& uAttr)
@@ -118,8 +124,8 @@ bool ZipPlatform::GetFileAttr(LPCTSTR lpFileName, DWORD& uAttr)
 	struct stat sStats;
 	if (stat(lpFileName, &sStats) == -1)
 		return false;
-  	uAttr = (sStats.st_mode & (S_IRWXU | S_IRWXG | S_IRWXO | S_IFMT));
-  	return true;
+	uAttr = (sStats.st_mode & (S_IRWXU | S_IRWXG | S_IRWXO | S_IFMT));
+	return true;
 }
 
 bool ZipPlatform::SetExeAttr(LPCTSTR lpFileName)
@@ -134,11 +140,11 @@ bool ZipPlatform::SetExeAttr(LPCTSTR lpFileName)
 
 bool ZipPlatform::GetFileModTime(LPCTSTR lpFileName, time_t & ttime)
 {
-    struct stat st;
+	struct stat st;
 	if (stat(lpFileName, &st) != 0)
 		return false;
 
- 	ttime = st.st_mtime;
+	ttime = st.st_mtime;
 	if (ttime == (time_t)-1)
 	{
 		ttime = time(NULL);
@@ -163,7 +169,7 @@ bool ZipPlatform::ChangeDirectory(LPCTSTR lpDirectory)
 }
 int ZipPlatform::FileExists(LPCTSTR lpszName)
 {
-    	struct stat st;
+		struct stat st;
 	if (stat(lpszName, &st) != 0)
 		return 0;
 	else
@@ -184,7 +190,7 @@ ZIPINLINE  bool ZipPlatform::IsDriveRemovable(LPCTSTR lpszFilePath)
 ZIPINLINE  bool ZipPlatform::SetVolLabel(LPCTSTR lpszPath, LPCTSTR lpszLabel)
 {
 	// not implemented
-        return true;
+		return true;
 }
 
 ZIPINLINE void ZipPlatform::AnsiOem(CZipAutoBuffer& buffer, bool bAnsiToOem)
@@ -273,7 +279,7 @@ bool ZipPlatform::FlushFile(int iDes)
 
 intptr_t ZipPlatform::GetFileSystemHandle(int iDes)
 {
-        return iDes;
+		return iDes;
 }
 
 
