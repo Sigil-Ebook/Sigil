@@ -21,8 +21,8 @@
 
 #include <stdafx.h>
 #include "FlowTab.h"
-#include "../ViewEditors/Searchable.h"
-#include "../ResourceObjects/Resource.h"
+#include "ViewEditors/Searchable.h"
+#include "ResourceObjects/Resource.h"
 
 
 ContentTab::ContentTab( Resource& resource, QWidget *parent )

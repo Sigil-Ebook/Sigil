@@ -21,10 +21,10 @@
 
 #include <stdafx.h>
 #include "ImportTXT.h"
-#include "../BookManipulation/CleanSource.h"
-#include "../Misc/Utility.h"
+#include "BookManipulation/CleanSource.h"
+#include "Misc/Utility.h"
 #include "ResourceObjects/HTMLResource.h"
-#include "../BookManipulation/XhtmlDoc.h"
+#include "BookManipulation/XhtmlDoc.h"
 
 const QString FIRST_CHAPTER_PREFIX = "Section";
 const QString FIRST_CHAPTER_NAME   = FIRST_CHAPTER_PREFIX + "0001.xhtml";

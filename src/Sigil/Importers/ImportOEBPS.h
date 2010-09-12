@@ -24,7 +24,7 @@
 #define IMPORTOEBPS_H
 
 #include "Importer.h"
-#include "../BookManipulation/Metadata.h"
+#include "BookManipulation/Metadata.h"
 #include <QHash>
 #include <QStringList>
 

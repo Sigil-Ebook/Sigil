@@ -20,7 +20,7 @@
 *************************************************************************/
 
 #include <stdafx.h>
-#include "../Misc/Utility.h"
+#include "Misc/Utility.h"
 
 #include <stdlib.h>
 #include <time.h>

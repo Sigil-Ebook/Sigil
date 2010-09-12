@@ -21,9 +21,9 @@
 
 #include <stdafx.h>
 #include "RasterizeImageResource.h"
-#include "../ResourceObjects/ImageResource.h"
-#include "../Misc/Utility.h"
-#include "../Misc/SleepFunctions.h"
+#include "ResourceObjects/ImageResource.h"
+#include "Misc/Utility.h"
+#include "Misc/SleepFunctions.h"
 
 static const QString PAGE_SOURCE =  "<html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\">"
                                     "<head>"

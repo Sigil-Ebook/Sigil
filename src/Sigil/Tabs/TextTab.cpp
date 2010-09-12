@@ -21,7 +21,7 @@
 
 #include <stdafx.h>
 #include "TextTab.h"
-#include "../ResourceObjects/TextResource.h"
+#include "ResourceObjects/TextResource.h"
 
 
 TextTab::TextTab( Resource& resource, CodeViewEditor::HighlighterType type, QWidget *parent )

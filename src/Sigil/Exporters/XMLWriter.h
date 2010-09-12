@@ -23,7 +23,7 @@
 #ifndef XMLWRITER_H
 #define XMLWRITER_H
 
-#include "../BookManipulation/FolderKeeper.h"
+#include "BookManipulation/FolderKeeper.h"
 
 class Book;
 class QIODevice;

@@ -25,7 +25,7 @@
 
 #include <QtGui/QDialog>
 #include "ui_AddMetadata.h"
-#include "../BookManipulation/Metadata.h"
+#include "BookManipulation/Metadata.h"
 
 
 /**

@@ -21,8 +21,8 @@
 
 #include <stdafx.h>
 #include "ImageTab.h"
-#include "../ResourceObjects/ImageResource.h"
-#include "../Misc/RasterizeImageResource.h"
+#include "ResourceObjects/ImageResource.h"
+#include "Misc/RasterizeImageResource.h"
 
 
 ImageTab::ImageTab( Resource& resource, QWidget *parent )

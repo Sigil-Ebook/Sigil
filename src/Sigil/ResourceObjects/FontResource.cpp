@@ -21,7 +21,7 @@
 
 #include <stdafx.h>
 #include "FontResource.h"
-#include "../Misc/Utility.h"
+#include "Misc/Utility.h"
 
 FontResource::FontResource( const QString &fullfilepath, QHash< QString, Resource* > *hash_owner, QObject *parent )
     : Resource( fullfilepath, hash_owner, parent )

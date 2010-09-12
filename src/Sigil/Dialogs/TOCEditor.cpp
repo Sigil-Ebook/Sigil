@@ -21,10 +21,10 @@
 
 #include <stdafx.h>
 #include "TOCEditor.h"
-#include "../BookManipulation/Book.h"
-#include "../Misc/Utility.h"
+#include "BookManipulation/Book.h"
+#include "Misc/Utility.h"
 #include "ResourceObjects/HTMLResource.h"
-#include "../BookManipulation/XhtmlDoc.h"
+#include "BookManipulation/XhtmlDoc.h"
 #include "BookManipulation/XercesCppUse.h"
 
 static const QString SETTINGS_GROUP   = "toc_editor";

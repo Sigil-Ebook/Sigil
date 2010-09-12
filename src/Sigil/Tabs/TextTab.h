@@ -24,7 +24,7 @@
 #define TextTAB_H
 
 #include "ContentTab.h"
-#include "../ViewEditors/CodeViewEditor.h"
+#include "ViewEditors/CodeViewEditor.h"
 
 class TextResource;
 class QTextDocument;

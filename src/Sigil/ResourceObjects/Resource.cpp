@@ -21,7 +21,7 @@
 
 #include <stdafx.h>
 #include "Resource.h"
-#include "../Misc/Utility.h"
+#include "Misc/Utility.h"
 
 
 Resource::Resource( const QString &fullfilepath, QHash< QString, Resource* > *hash_owner, QObject *parent )

@@ -29,11 +29,11 @@
 
 // These have to be included directly because
 // of the template functions.
-#include "../ResourceObjects/HTMLResource.h"
-#include "../ResourceObjects/ImageResource.h"
-#include "../ResourceObjects/CSSResource.h"
-#include "../ResourceObjects/XPGTResource.h"
-#include "../ResourceObjects/FontResource.h"
+#include "ResourceObjects/HTMLResource.h"
+#include "ResourceObjects/ImageResource.h"
+#include "ResourceObjects/CSSResource.h"
+#include "ResourceObjects/XPGTResource.h"
+#include "ResourceObjects/FontResource.h"
 
 class Resource;
 

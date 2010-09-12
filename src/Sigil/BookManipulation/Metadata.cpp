@@ -20,8 +20,8 @@
 *************************************************************************/
 
 #include <stdafx.h>
-#include "../BookManipulation/Metadata.h"
-#include "../Misc/Utility.h"
+#include "BookManipulation/Metadata.h"
+#include "Misc/Utility.h"
 
 static const QString PATH_TO_LANGUAGES  = ":/data/languages.csv";
 static const QString PATH_TO_BASICMETA  = ":/data/basicmeta.csv";

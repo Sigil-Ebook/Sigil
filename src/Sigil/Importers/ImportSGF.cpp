@@ -21,8 +21,8 @@
 
 #include <stdafx.h>
 #include "ImportSGF.h"
-#include "../Misc/Utility.h"
-#include "../BookManipulation/CleanSource.h"
+#include "Misc/Utility.h"
+#include "BookManipulation/CleanSource.h"
 #include "ResourceObjects/HTMLResource.h"
 #include "ResourceObjects/TextResource.h"
 

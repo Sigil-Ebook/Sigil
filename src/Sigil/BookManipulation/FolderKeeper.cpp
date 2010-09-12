@@ -20,9 +20,9 @@
 *************************************************************************/
 
 #include <stdafx.h>
-#include "../BookManipulation/FolderKeeper.h"
-#include "../ResourceObjects/Resource.h"
-#include "../Misc/Utility.h"
+#include "BookManipulation/FolderKeeper.h"
+#include "ResourceObjects/Resource.h"
+#include "Misc/Utility.h"
 
 static const QStringList IMAGE_EXTENSIONS = QStringList() << "jpg"   << "jpeg"  << "png"
                                                           << "gif"   << "tif"   << "tiff"

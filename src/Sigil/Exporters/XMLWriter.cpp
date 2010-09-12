@@ -21,7 +21,7 @@
 
 #include <stdafx.h>
 #include "XMLWriter.h"
-#include "../BookManipulation/Book.h"
+#include "BookManipulation/Book.h"
 
 
 XMLWriter::XMLWriter( QSharedPointer< Book > book, QIODevice &device )

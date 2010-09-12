@@ -21,10 +21,10 @@
 
 #include <stdafx.h>
 #include "FlowTab.h"
-#include "../Misc/Utility.h"
-#include "../ViewEditors/CodeViewEditor.h"
-#include "../ViewEditors/BookViewEditor.h"
-#include "../ResourceObjects/HTMLResource.h"
+#include "Misc/Utility.h"
+#include "ViewEditors/CodeViewEditor.h"
+#include "ViewEditors/BookViewEditor.h"
+#include "ResourceObjects/HTMLResource.h"
 #include <QUrl>
 
 static const QString SETTINGS_GROUP = "flowtab";

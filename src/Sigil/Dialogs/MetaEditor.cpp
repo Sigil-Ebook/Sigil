@@ -22,7 +22,7 @@
 #include <stdafx.h>
 #include "MetaEditor.h"
 #include "AddMetadata.h"
-#include "../BookManipulation/Book.h"
+#include "BookManipulation/Book.h"
 
 static const int DEFAULT_EXPANDED_HEIGHT = 304;
 static const QString SETTINGS_GROUP      = "meta_editor";

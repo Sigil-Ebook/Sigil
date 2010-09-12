@@ -22,11 +22,11 @@
 #include <stdafx.h>
 #include "BookBrowser.h"
 #include "OPFModel.h"
-#include "../BookManipulation/Book.h"
-#include "../BookManipulation/GuideSemantics.h"
-#include "../Misc/Utility.h"
+#include "BookManipulation/Book.h"
+#include "BookManipulation/GuideSemantics.h"
+#include "Misc/Utility.h"
 #include "ResourceObjects/HTMLResource.h"
-#include "../Importers/ImportHTML.h"
+#include "Importers/ImportHTML.h"
 #include <QTreeView>
 
 static const QString SETTINGS_GROUP = "bookbrowser";

@@ -21,13 +21,13 @@
 
 #include <stdafx.h>
 #include "ExportEPUB.h"
-#include "../BookManipulation/FolderKeeper.h"
+#include "BookManipulation/FolderKeeper.h"
 #include "OPFWriter.h"
 #include "NCXWriter.h"
 #include <ZipArchive.h>
-#include "../BookManipulation/CleanSource.h"
-#include "../Misc/Utility.h"
-#include "../BookManipulation/XhtmlDoc.h"
+#include "BookManipulation/CleanSource.h"
+#include "Misc/Utility.h"
+#include "BookManipulation/XhtmlDoc.h"
 
 const QString BODY_START = "<\\s*body[^>]*>";
 const QString BODY_END   = "</\\s*body\\s*>";

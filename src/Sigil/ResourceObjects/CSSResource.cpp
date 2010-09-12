@@ -21,7 +21,7 @@
 
 #include <stdafx.h>
 #include "CSSResource.h"
-#include "../Misc/Utility.h"
+#include "Misc/Utility.h"
 
 CSSResource::CSSResource( const QString &fullfilepath, QHash< QString, Resource* > *hash_owner, QObject *parent )
     : TextResource( fullfilepath, hash_owner, parent )

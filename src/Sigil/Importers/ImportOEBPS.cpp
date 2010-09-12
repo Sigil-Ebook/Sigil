@@ -21,7 +21,7 @@
 
 #include <stdafx.h>
 #include "ImportOEBPS.h"
-#include "../Misc/Utility.h"
+#include "Misc/Utility.h"
 #include "ResourceObjects/Resource.h"
 #include <ZipArchive.h>
 

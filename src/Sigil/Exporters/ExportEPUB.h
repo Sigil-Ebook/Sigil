@@ -24,8 +24,8 @@
 #define EXPORTEPUB_H
 
 #include "Exporter.h"
-#include "../BookManipulation/FolderKeeper.h"
-#include "../BookManipulation/Book.h"
+#include "BookManipulation/FolderKeeper.h"
+#include "BookManipulation/Book.h"
 
 
 

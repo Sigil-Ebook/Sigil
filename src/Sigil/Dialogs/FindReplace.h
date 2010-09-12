@@ -25,9 +25,9 @@
 
 #include <QtGui/QDialog>
 #include "ui_FindReplace.h"
-#include "../ViewEditors/Searchable.h"
-#include "../Misc/SearchOperations.h"
-#include "../MainUI/MainWindow.h"
+#include "ViewEditors/Searchable.h"
+#include "Misc/SearchOperations.h"
+#include "MainUI/MainWindow.h"
 
 class QRegExp;
 class Resource;

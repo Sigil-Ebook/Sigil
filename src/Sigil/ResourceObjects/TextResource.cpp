@@ -21,7 +21,7 @@
 
 #include <stdafx.h>
 #include "TextResource.h"
-#include "../Misc/Utility.h"
+#include "Misc/Utility.h"
 
 TextResource::TextResource( const QString &fullfilepath, QHash< QString, Resource* > *hash_owner, QObject *parent )
     : 

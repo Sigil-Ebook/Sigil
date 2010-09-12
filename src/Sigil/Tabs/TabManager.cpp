@@ -25,7 +25,7 @@
 #include "CSSTab.h"
 #include "ImageTab.h"
 #include "XPGTTab.h"
-#include "../ResourceObjects/Resource.h"
+#include "ResourceObjects/Resource.h"
 
 
 TabManager::TabManager( QWidget *parent )

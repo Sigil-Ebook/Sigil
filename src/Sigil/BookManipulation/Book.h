@@ -23,7 +23,7 @@
 #ifndef BOOK_H
 #define BOOK_H
 
-#include "../BookManipulation/FolderKeeper.h"
+#include "BookManipulation/FolderKeeper.h"
 #include <QHash>
 #include <QUrl>
 #include <QVariant>

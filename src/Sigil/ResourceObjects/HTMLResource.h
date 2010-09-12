@@ -26,7 +26,7 @@
 #include <QHash>
 #include "BookManipulation/XercesHUse.h"
 #include "Resource.h"
-#include "../BookManipulation/GuideSemantics.h"
+#include "BookManipulation/GuideSemantics.h"
 #include <boost/shared_ptr.hpp>
 using boost::shared_ptr;
 

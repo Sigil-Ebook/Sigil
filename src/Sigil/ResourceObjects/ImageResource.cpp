@@ -21,7 +21,7 @@
 
 #include <stdafx.h>
 #include "ImageResource.h"
-#include "../Misc/Utility.h"
+#include "Misc/Utility.h"
 
 ImageResource::ImageResource( const QString &fullfilepath,
                               QHash< QString, Resource* > *hash_owner,

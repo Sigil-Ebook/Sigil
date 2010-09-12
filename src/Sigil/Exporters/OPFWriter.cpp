@@ -21,11 +21,11 @@
 
 #include <stdafx.h>
 #include "OPFWriter.h"
-#include "../BookManipulation/Metadata.h"
-#include "../BookManipulation/Book.h"
-#include "../Misc/Utility.h"
+#include "BookManipulation/Metadata.h"
+#include "BookManipulation/Book.h"
+#include "Misc/Utility.h"
 #include "ResourceObjects/HTMLResource.h"
-#include "../BookManipulation/GuideSemantics.h"
+#include "BookManipulation/GuideSemantics.h"
 
 static const QString FALLBACK_MIMETYPE = "text/plain";
 

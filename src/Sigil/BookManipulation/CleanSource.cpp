@@ -20,11 +20,11 @@
 *************************************************************************/
 
 #include <stdafx.h>
-#include "../Misc/Utility.h"
-#include "../BookManipulation/CleanSource.h"
+#include "Misc/Utility.h"
+#include "BookManipulation/CleanSource.h"
 
 #include <buffio.h>
-#include "../BookManipulation/XhtmlDoc.h"
+#include "BookManipulation/XhtmlDoc.h"
 
 static const QString SIGIL_CLASS_NAME     = "sgc";
 static const QString SIGIL_CLASS_NAME_REG = SIGIL_CLASS_NAME + "-(\\d+)";

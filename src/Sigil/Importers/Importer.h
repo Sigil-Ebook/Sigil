@@ -24,7 +24,7 @@
 #define IMPORTER_H
 
 #include <QSharedPointer>
-#include "../BookManipulation/Book.h"
+#include "BookManipulation/Book.h"
 
 // Base class for Importers
 class Importer

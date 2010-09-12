@@ -25,8 +25,8 @@
 
 #include <QDockWidget>
 #include <QSharedPointer>
-#include "../BookManipulation/Book.h"
-#include "../ResourceObjects/Resource.h"
+#include "BookManipulation/Book.h"
+#include "ResourceObjects/Resource.h"
 
 class QTreeView;
 class OPFModel;

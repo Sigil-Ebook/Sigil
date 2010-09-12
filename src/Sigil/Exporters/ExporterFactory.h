@@ -24,7 +24,7 @@
 #define EXPORTERFACTORY_H
 
 #include "Exporter.h"
-#include "../BookManipulation/Book.h"
+#include "BookManipulation/Book.h"
 
 class ExporterFactory
 {

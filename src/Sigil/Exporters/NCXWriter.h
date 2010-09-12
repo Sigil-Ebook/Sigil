@@ -24,7 +24,7 @@
 #define NCXWRITER_H
 
 #include "XMLWriter.h"
-#include "../BookManipulation/Headings.h"
+#include "BookManipulation/Headings.h"
 
 /**
  * Writes the NCX file of the EPUB publication.

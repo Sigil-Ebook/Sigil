@@ -21,10 +21,10 @@
 
 #include <stdafx.h>
 #include "FindReplace.h"
-#include "../ViewEditors/Searchable.h"
-#include "../Tabs/TabManager.h"
-#include "../Tabs/ContentTab.h"
-#include "../Misc/SleepFunctions.h"
+#include "ViewEditors/Searchable.h"
+#include "Tabs/TabManager.h"
+#include "Tabs/ContentTab.h"
+#include "Misc/SleepFunctions.h"
 
 static const QString SETTINGS_GROUP = "find_replace";
 static const int MAXIMUM_SELECTED_TEXT_LIMIT = 100;

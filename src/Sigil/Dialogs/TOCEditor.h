@@ -28,7 +28,7 @@
 #include <QSharedPointer>
 
 #include "ui_TOCEditor.h"
-#include "../BookManipulation/Headings.h"
+#include "BookManipulation/Headings.h"
 
 class Book;
 

@@ -21,8 +21,8 @@
 
 #include <stdafx.h>
 #include "ImportEPUB.h"
-#include "../Misc/Utility.h"
-#include "../SourceUpdates/UniversalUpdates.h"
+#include "Misc/Utility.h"
+#include "SourceUpdates/UniversalUpdates.h"
 #include "ResourceObjects/HTMLResource.h"
 #include "ResourceObjects/CSSResource.h"
 

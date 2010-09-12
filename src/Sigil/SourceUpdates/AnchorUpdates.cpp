@@ -22,8 +22,8 @@
 #include <stdafx.h>
 #include "AnchorUpdates.h"
 #include "ResourceObjects/HTMLResource.h"
-#include "../BookManipulation/XhtmlDoc.h"
-#include "../Misc/Utility.h"
+#include "BookManipulation/XhtmlDoc.h"
+#include "Misc/Utility.h"
 #include "BookManipulation/XercesCppUse.h"
 
 

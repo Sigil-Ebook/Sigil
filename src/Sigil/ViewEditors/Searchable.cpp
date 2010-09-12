@@ -21,7 +21,7 @@
 
 #include <stdafx.h>
 #include "Searchable.h"
-#include "../Misc/Utility.h"
+#include "Misc/Utility.h"
 
 
 void Searchable::RunSearchRegex( QRegExp &search_regex, 

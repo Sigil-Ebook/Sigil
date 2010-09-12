@@ -21,7 +21,7 @@
 
 #include <stdafx.h>
 #include "AddMetadata.h"
-#include "../BookManipulation/Metadata.h"
+#include "BookManipulation/Metadata.h"
 
 static const QString SETTINGS_GROUP = "add_metadata";
 

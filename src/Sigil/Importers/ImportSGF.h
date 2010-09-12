@@ -24,7 +24,7 @@
 #define IMPORTSGF_H
 
 #include "ImportOEBPS.h"
-#include "../BookManipulation/XhtmlDoc.h"
+#include "BookManipulation/XhtmlDoc.h"
 
 class Resource;
 

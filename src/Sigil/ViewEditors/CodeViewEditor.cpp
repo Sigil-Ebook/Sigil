@@ -22,11 +22,11 @@
 #include <stdafx.h>
 #include "CodeViewEditor.h"
 #include "LineNumberArea.h"
-#include "../BookManipulation/Book.h"
-#include "../BookManipulation/XhtmlDoc.h"
-#include "../Misc/XHTMLHighlighter.h"
-#include "../Misc/CSSHighlighter.h"
-#include "../Misc/Utility.h"
+#include "BookManipulation/Book.h"
+#include "BookManipulation/XhtmlDoc.h"
+#include "Misc/XHTMLHighlighter.h"
+#include "Misc/CSSHighlighter.h"
+#include "Misc/Utility.h"
 
 static const int COLOR_FADE_AMOUNT       = 175;
 static const int TAB_SPACES_WIDTH        = 4;

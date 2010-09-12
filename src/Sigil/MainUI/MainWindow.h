@@ -25,7 +25,7 @@
 
 #include <QtGui/QMainWindow>
 #include "ui_main.h"
-#include "../BookManipulation/Book.h"
+#include "BookManipulation/Book.h"
 #include "Tabs/ContentTab.h"
 #include <QSharedPointer>
 #include <QMutex>

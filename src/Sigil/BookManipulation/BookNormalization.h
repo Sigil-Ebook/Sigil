@@ -23,7 +23,7 @@
 #ifndef BOOKNORMALIZATION_H
 #define BOOKNORMALIZATION_H
 
-#include "../BookManipulation/Headings.h"
+#include "BookManipulation/Headings.h"
 #include <QSharedPointer>
 
 class Book;

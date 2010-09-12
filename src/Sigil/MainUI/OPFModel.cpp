@@ -21,10 +21,10 @@
 
 #include <stdafx.h>
 #include "OPFModel.h"
-#include "../BookManipulation/Book.h"
-#include "../ResourceObjects/Resource.h"
-#include "../ResourceObjects/HTMLResource.h"
-#include "../SourceUpdates/UniversalUpdates.h"
+#include "BookManipulation/Book.h"
+#include "ResourceObjects/Resource.h"
+#include "ResourceObjects/HTMLResource.h"
+#include "SourceUpdates/UniversalUpdates.h"
 #include <limits>
 
 static const int NO_READING_ORDER   = std::numeric_limits< int >::max();
