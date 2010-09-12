@@ -952,8 +952,40 @@ static void ParseEntity( TidyDocImpl* doc, GetTokenMode mode )
                
             }
             else
-                TY_(ReportEntityError)( doc, UNKNOWN_ENTITY,
-                                        lexer->lexbuf+start, ch );
+            {
+                /* Changed by Strahinja Markovic: 
+                   When the user has something like "&co." in his
+                   source that should really be "&amp;co.", this
+                   code makes it happen.
+                */
+
+                /* Points to the part of the "entity" after
+                   the ampersand. */
+                tmbstr points_after_amp = lexer->lexbuf + start + 1;
+                uint size = TY_(tmbstrlen)( points_after_amp );                
+
+                /* 50 bytes should certainly be big enough, 
+                   but let's try not to introduce buffer overflows anyway. */
+                if ( size < 50 )
+                {
+                    tmbchar string_after_amp[ 50 + 1 ] = { 0 };
+
+                    TY_(tmbstrncpy)( string_after_amp, points_after_amp, size + 1 );
+
+                    /* We move the lexer back to the start of the entity;
+                       we will be writing over the old entity value. */
+                    lexer->lexsize = start;
+
+                    AddStringToLexer( lexer, "&amp;" );
+                    AddStringToLexer( lexer, string_after_amp );
+                }
+
+                else
+                {                   
+                    TY_(ReportEntityError)( doc, UNKNOWN_ENTITY,
+                                            lexer->lexbuf+start, ch );
+                }
+            }
 
             if (semicolon)
                 TY_(AddCharToLexer)( lexer, ';' );
