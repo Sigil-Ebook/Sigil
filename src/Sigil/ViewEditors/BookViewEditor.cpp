@@ -153,13 +153,7 @@ void BookViewEditor::ScrollToTop()
 
 void BookViewEditor::ScrollToFragment( const QString &fragment )
 {
-    if ( fragment.isEmpty() )
-
-        return;
-
-    QString javascript = "window.location.hash = \""  + fragment + "\";";
-
-    EvaluateJavascript( javascript );
+    page()->currentFrame()->scrollToAnchor( fragment );
 }
 
 
