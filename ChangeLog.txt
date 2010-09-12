@@ -1,4 +1,6 @@
 Sigil v0.3.0RC1 ADD_DATE
+    - fixed a rare Tidy bug with dissapearing spaces when the only whitespace in an element was 
+    the newline following a start tag (issue #387)
     - changed the internal DOM engine from Qt's QDom to Xerces; this should also bring numerous
     bug fixes and performance improvements plus a small (~10%) decrease in memory consumption
     (issue #367)

@@ -2451,10 +2451,17 @@ static Node* GetTokenFromStream( TidyDocImpl* doc, GetTokenMode mode )
                 if ((mode != Preformatted && ExpectsContent(lexer->token))
                     || nodeIsBR(lexer->token) || nodeIsHR(lexer->token))
                 {
+                    /* Changed by Strahinja Markovic:
+                       DON'T swallow the newline following the start tag!
+                       Why would you ever want to do that for Christ's sake,
+                       a newline counts as whitespace too.*/
+
+                    /*
                     c = TY_(ReadChar)(doc->docIn);
 
                     if (c != '\n' && c != '\f')
                         TY_(UngetChar)(c, doc->docIn);
+                        */
 
                     lexer->waswhite = yes;  /* to swallow leading whitespace */
                 }
