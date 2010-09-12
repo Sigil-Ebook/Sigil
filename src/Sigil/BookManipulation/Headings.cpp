@@ -21,7 +21,7 @@
 
 #include <stdafx.h>
 #include "BookManipulation/Headings.h"
-#include "BookManipulation/XHTMLDoc.h"
+#include "BookManipulation/XhtmlDoc.h"
 #include "BookManipulation/XercesCppUse.h"
 #include "Misc/Utility.h"
 #include "ResourceObjects/HTMLResource.h"
@@ -59,9 +59,9 @@ QList< Headings::Heading > Headings::GetHeadingListForOneFile( HTMLResource* htm
     Q_ASSERT( html_resource );
 
     const xc::DOMDocument &document = html_resource->GetDomDocumentForReading();
-    xc::DOMElement &body_element    = *XHTMLDoc::GetTagMatchingDescendants( document, "body" ).at( 0 );
+    xc::DOMElement &body_element    = *XhtmlDoc::GetTagMatchingDescendants( document, "body" ).at( 0 );
 
-    QList< xc::DOMElement* > heading_nodes = XHTMLDoc::GetTagMatchingDescendants( document, HEADING_TAGS );
+    QList< xc::DOMElement* > heading_nodes = XhtmlDoc::GetTagMatchingDescendants( document, HEADING_TAGS );
     int num_heading_nodes = heading_nodes.count();
 
     QList< Headings::Heading > headings;
@@ -85,8 +85,8 @@ QList< Headings::Heading > Headings::GetHeadingListForOneFile( HTMLResource* htm
         heading.text_changed   = false;
         heading.at_file_start  = 
             i == 0 && 
-            XHTMLDoc::NodeLineNumber( element ) - 
-            XHTMLDoc::NodeLineNumber( body_element ) < ALLOWED_HEADING_DISTANCE;       
+            XhtmlDoc::NodeLineNumber( element ) - 
+            XhtmlDoc::NodeLineNumber( body_element ) < ALLOWED_HEADING_DISTANCE;       
 
         headings.append( heading );
     }

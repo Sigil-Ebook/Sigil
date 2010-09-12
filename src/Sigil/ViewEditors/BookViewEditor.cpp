@@ -22,7 +22,7 @@
 #include <stdafx.h>
 #include "BookViewEditor.h"
 #include "BookManipulation/Book.h"
-#include "BookManipulation/XHTMLDoc.h"
+#include "BookManipulation/XhtmlDoc.h"
 #include "BookManipulation/CleanSource.h"
 #include "Misc/Utility.h"
 #include "BookManipulation/XercesCppUse.h"
@@ -551,7 +551,7 @@ int BookViewEditor::GetSelectionOffset( const xc::DOMDocument &document,
                                         const QMap< int, xc::DOMNode* > &node_offsets, 
                                         Searchable::Direction search_direction )
 {
-    xc::DOMNode *caret_node = XHTMLDoc::GetNodeFromHierarchy( document, GetCaretLocation() );
+    xc::DOMNode *caret_node = XhtmlDoc::GetNodeFromHierarchy( document, GetCaretLocation() );
 
     bool searching_down = search_direction == Searchable::Direction_Down || 
                           search_direction == Searchable::Direction_All ? true : false;
@@ -567,9 +567,9 @@ BookViewEditor::SearchTools BookViewEditor::GetSearchTools() const
 {
     SearchTools search_tools;
     search_tools.fulltext = "";
-    search_tools.document = XHTMLDoc::LoadTextIntoDocument( page()->mainFrame()->toHtml() );
+    search_tools.document = XhtmlDoc::LoadTextIntoDocument( page()->mainFrame()->toHtml() );
 
-    QList< xc::DOMNode* > text_nodes = XHTMLDoc::GetVisibleTextNodes( 
+    QList< xc::DOMNode* > text_nodes = XhtmlDoc::GetVisibleTextNodes( 
         *( search_tools.document->getElementsByTagName( QtoX( "body" ) )->item( 0 ) ) );
 
     xc::DOMNode *current_block_ancestor = NULL;    
@@ -580,7 +580,7 @@ BookViewEditor::SearchTools BookViewEditor::GetSearchTools() const
     // We also record the starting offset of every text node.
     for ( int i = 0; i < text_nodes.count(); ++i )
     {
-        xc::DOMNode *new_block_ancestor = &XHTMLDoc::GetAncestorBlockElement( *text_nodes[ i ] );
+        xc::DOMNode *new_block_ancestor = &XhtmlDoc::GetAncestorBlockElement( *text_nodes[ i ] );
 
         if ( new_block_ancestor == current_block_ancestor )
         {
@@ -639,13 +639,13 @@ QString BookViewEditor::GetElementSelectingJS_WithTextNode( const QList< ViewEdi
 
 QWebElement BookViewEditor::DomNodeToQWebElement( const xc::DOMNode &node )
 {
-    const QList< ViewEditor::ElementIndex > &hierarchy = XHTMLDoc::GetHierarchyFromNode( node );
+    const QList< ViewEditor::ElementIndex > &hierarchy = XhtmlDoc::GetHierarchyFromNode( node );
     QWebElement element = page()->mainFrame()->documentElement();
     element.findFirst( "html" );
 
     for ( int i = 0; i < hierarchy.count() - 1; ++i )
     {
-        element = XHTMLDoc::QWebElementChildren( element ).at( hierarchy[ i ].index );
+        element = XhtmlDoc::QWebElementChildren( element ).at( hierarchy[ i ].index );
     }
 
     return element;
@@ -736,8 +736,8 @@ BookViewEditor::SelectRangeInputs BookViewEditor::GetRangeInputs( const QMap< in
 
 QString BookViewEditor::GetRangeJS( const SelectRangeInputs &input ) const
 {
-    QString start_node_js = GetElementSelectingJS_WithTextNode( XHTMLDoc::GetHierarchyFromNode( *input.start_node ) );
-    QString end_node_js   = GetElementSelectingJS_WithTextNode( XHTMLDoc::GetHierarchyFromNode( *input.end_node   ) );
+    QString start_node_js = GetElementSelectingJS_WithTextNode( XhtmlDoc::GetHierarchyFromNode( *input.start_node ) );
+    QString end_node_js   = GetElementSelectingJS_WithTextNode( XhtmlDoc::GetHierarchyFromNode( *input.end_node   ) );
 
     QString start_node_index = QString::number( input.start_node_index );
     QString end_node_index   = QString::number( input.end_node_index );

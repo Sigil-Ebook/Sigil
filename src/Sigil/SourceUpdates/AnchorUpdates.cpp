@@ -22,7 +22,7 @@
 #include <stdafx.h>
 #include "AnchorUpdates.h"
 #include "ResourceObjects/HTMLResource.h"
-#include "../BookManipulation/XHTMLDoc.h"
+#include "../BookManipulation/XhtmlDoc.h"
 #include "../Misc/Utility.h"
 #include "BookManipulation/XercesCppUse.h"
 
@@ -65,7 +65,7 @@ tuple< QString, QList< QString > > AnchorUpdates::GetOneFileIDs( HTMLResource* h
     QReadLocker locker( &html_resource->GetLock() );
 
     return make_tuple( html_resource->Filename(),
-        XHTMLDoc::GetAllDescendantIDs( *html_resource->GetDomDocumentForReading().getDocumentElement() ) );
+        XhtmlDoc::GetAllDescendantIDs( *html_resource->GetDomDocumentForReading().getDocumentElement() ) );
 }
 
 

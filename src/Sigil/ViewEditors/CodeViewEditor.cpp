@@ -23,7 +23,7 @@
 #include "CodeViewEditor.h"
 #include "LineNumberArea.h"
 #include "../BookManipulation/Book.h"
-#include "../BookManipulation/XHTMLDoc.h"
+#include "../BookManipulation/XhtmlDoc.h"
 #include "../Misc/XHTMLHighlighter.h"
 #include "../Misc/CSSHighlighter.h"
 #include "../Misc/Utility.h"
@@ -592,15 +592,15 @@ QList< ViewEditor::ElementIndex > CodeViewEditor::ConvertStackToHierarchy( const
 
 tuple< int, int > CodeViewEditor::ConvertHierarchyToCaretMove( const QList< ViewEditor::ElementIndex > &hierarchy ) const
 {
-    shared_ptr< xc::DOMDocument > dom = XHTMLDoc::LoadTextIntoDocument( toPlainText() );
+    shared_ptr< xc::DOMDocument > dom = XhtmlDoc::LoadTextIntoDocument( toPlainText() );
 
-    xc::DOMNode *end_node = XHTMLDoc::GetNodeFromHierarchy( *dom, hierarchy );
+    xc::DOMNode *end_node = XhtmlDoc::GetNodeFromHierarchy( *dom, hierarchy );
     QTextCursor cursor( document() );
 
-    if ( end_node ) 
+    if ( end_node )
     
-        return make_tuple( XHTMLDoc::NodeLineNumber( *end_node ) - cursor.blockNumber(), 
-                           XHTMLDoc::NodeColumnNumber( *end_node ) ); 
+        return make_tuple( XhtmlDoc::NodeLineNumber( *end_node ) - cursor.blockNumber(), 
+                           XhtmlDoc::NodeColumnNumber( *end_node ) ); 
     
     else
     

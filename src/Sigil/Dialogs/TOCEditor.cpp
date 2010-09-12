@@ -24,7 +24,7 @@
 #include "../BookManipulation/Book.h"
 #include "../Misc/Utility.h"
 #include "ResourceObjects/HTMLResource.h"
-#include "../BookManipulation/XHTMLDoc.h"
+#include "../BookManipulation/XhtmlDoc.h"
 #include "BookManipulation/XercesCppUse.h"
 
 static const QString SETTINGS_GROUP   = "toc_editor";
@@ -132,7 +132,7 @@ void TOCEditor::UpdateOneHeadingElement( QStandardItem *item )
 
             else
             {
-                XHTMLDoc::RemoveChildren( *heading->element );
+                XhtmlDoc::RemoveChildren( *heading->element );
                 heading->element->appendChild( 
                     heading->element->getOwnerDocument()->createTextNode( QtoX( heading->text ) ) );
             }

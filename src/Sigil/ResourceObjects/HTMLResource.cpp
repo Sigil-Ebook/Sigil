@@ -24,7 +24,7 @@
 #include "BookManipulation/XercesCppUse.h"
 #include "Misc/Utility.h"
 #include "BookManipulation/CleanSource.h"
-#include "BookManipulation/XHTMLDoc.h"
+#include "BookManipulation/XhtmlDoc.h"
 #include "BookManipulation/GuideSemantics.h"
 
 static const QString LOADED_CONTENT_MIMETYPE = "application/xhtml+xml";
@@ -145,7 +145,7 @@ void HTMLResource::UpdateDomDocumentFromWebPage()
 
     Q_ASSERT( QThread::currentThread() == QApplication::instance()->thread() );
 
-    m_DomDocument = XHTMLDoc::LoadTextIntoDocument( GetWebPageHTML() );
+    m_DomDocument = XhtmlDoc::LoadTextIntoDocument( GetWebPageHTML() );
 
     m_TextDocumentIsOld = true;
     SetWebPageModified( false );
@@ -161,7 +161,7 @@ void HTMLResource::UpdateDomDocumentFromTextDocument()
     Q_ASSERT( QThread::currentThread() == QApplication::instance()->thread() );
     Q_ASSERT( m_TextDocument );
 
-    m_DomDocument = XHTMLDoc::LoadTextIntoDocument( CleanSource::Clean( m_TextDocument->toPlainText() ) );
+    m_DomDocument = XhtmlDoc::LoadTextIntoDocument( CleanSource::Clean( m_TextDocument->toPlainText() ) );
 
     m_WebPageIsOld = true;
     SetTextDocumentModified( false );
@@ -182,7 +182,7 @@ void HTMLResource::UpdateWebPageFromDomDocument()
         connect( m_WebPage, SIGNAL( contentsChanged() ), this, SLOT( SetWebPageModified() ) );
     }
 
-    SetWebPageHTML( XHTMLDoc::GetDomNodeAsString( *m_DomDocument ) );
+    SetWebPageHTML( XhtmlDoc::GetDomNodeAsString( *m_DomDocument ) );
 
     m_WebPageIsOld = false;
     m_RefreshNeeded = false;
@@ -203,7 +203,7 @@ void HTMLResource::UpdateTextDocumentFromDomDocument()
         m_TextDocument->setDocumentLayout( new QPlainTextDocumentLayout( m_TextDocument ) );
     }
 
-    m_TextDocument->setPlainText( CleanSource::PrettyPrint( XHTMLDoc::GetDomNodeAsString( *m_DomDocument ) ) );
+    m_TextDocument->setPlainText( CleanSource::PrettyPrint( XhtmlDoc::GetDomNodeAsString( *m_DomDocument ) ) );
 
     m_TextDocumentIsOld = false;
 }
@@ -269,7 +269,7 @@ void HTMLResource::SaveToDisk( bool book_wide_save )
     {
         QWriteLocker locker( &m_ReadWriteLock );
 
-        Utility::WriteUnicodeTextFile( CleanSource::PrettyPrint( XHTMLDoc::GetDomNodeAsString( *m_DomDocument ) ),
+        Utility::WriteUnicodeTextFile( CleanSource::PrettyPrint( XhtmlDoc::GetDomNodeAsString( *m_DomDocument ) ),
                                        m_FullFilePath );
     }
 
@@ -320,9 +320,9 @@ void HTMLResource::RemoveWebkitCruft()
 
 QStringList HTMLResource::SplitOnSGFChapterMarkers()
 {
-    QStringList chapters = XHTMLDoc::GetSGFChapterSplits( XHTMLDoc::GetDomNodeAsString( *m_DomDocument ) );
+    QStringList chapters = XhtmlDoc::GetSGFChapterSplits( XhtmlDoc::GetDomNodeAsString( *m_DomDocument ) );
 
-    m_DomDocument = XHTMLDoc::LoadTextIntoDocument( CleanSource::Clean( chapters.takeFirst() ) );
+    m_DomDocument = XhtmlDoc::LoadTextIntoDocument( CleanSource::Clean( chapters.takeFirst() ) );
     MarkSecondaryCachesAsOld();
 
     return chapters;

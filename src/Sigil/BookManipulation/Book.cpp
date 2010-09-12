@@ -21,7 +21,7 @@
 
 #include <stdafx.h>
 #include "BookManipulation/Book.h"
-#include "BookManipulation/XHTMLDoc.h"
+#include "BookManipulation/XhtmlDoc.h"
 #include "Misc/Utility.h"
 #include "ResourceObjects/HTMLResource.h"
 #include "BookManipulation/CleanSource.h"
@@ -120,7 +120,7 @@ HTMLResource& Book::CreateNewHTMLFile()
 
 void Book::CreateEmptyHTMLFile()
 {
-    CreateNewHTMLFile().SetDomDocument( XHTMLDoc::LoadTextIntoDocument( EMPTY_HTML_FILE ) );
+    CreateNewHTMLFile().SetDomDocument( XhtmlDoc::LoadTextIntoDocument( EMPTY_HTML_FILE ) );
     SetModified( true );
 }
 
@@ -164,7 +164,7 @@ HTMLResource& Book::CreateChapterBreakOriginalResource( const QString &content, 
     html_resource.RenameTo( originating_filename );
 
     html_resource.SetDomDocument( 
-        XHTMLDoc::LoadTextIntoDocument( CleanSource::Clean( content ) ) );
+        XhtmlDoc::LoadTextIntoDocument( CleanSource::Clean( content ) ) );
 
     html_resource.SetReadingOrder( reading_order );
 
@@ -240,7 +240,7 @@ void Book::MergeWithPrevious( HTMLResource& html_resource )
                 return;
 
             xc::DOMNode &source_body_node = *source_body_nodes.item( 0 );
-            body_children_fragment        = XHTMLDoc::ConvertToDocumentFragment( *source_body_node.getChildNodes() ); 
+            body_children_fragment        = XhtmlDoc::ConvertToDocumentFragment( *source_body_node.getChildNodes() ); 
         }  
 
         QWriteLocker sink_locker( &previous_html.GetLock() );
@@ -339,7 +339,7 @@ void Book::CreateOneNewChapter( const QString &source,
     if ( html_updates.isEmpty() )
     {
         html_resource->SetDomDocument( 
-            XHTMLDoc::LoadTextIntoDocument( CleanSource::Clean( source ) ) );
+            XhtmlDoc::LoadTextIntoDocument( CleanSource::Clean( source ) ) );
     }
 
     else

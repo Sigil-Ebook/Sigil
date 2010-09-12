@@ -30,7 +30,7 @@
 #include "ResourceObjects/CSSResource.h"
 #include "SourceUpdates/PerformHTMLUpdates.h"
 #include "SourceUpdates/UniversalUpdates.h"
-#include "BookManipulation/XHTMLDoc.h"
+#include "BookManipulation/XhtmlDoc.h"
 
 static const QString ENTITY_SEARCH = "<!ENTITY\\s+(\\w+)\\s+\"([^\"]+)\">";
 
@@ -58,7 +58,7 @@ QSharedPointer< Book > ImportHTML::GetBook()
 
         boost_throw( CannotReadFile() << errinfo_file_fullpath( m_FullFilePath.toStdString() ) );
 
-    shared_ptr< xc::DOMDocument > document = XHTMLDoc::LoadTextIntoDocument( LoadSource() );
+    shared_ptr< xc::DOMDocument > document = XhtmlDoc::LoadTextIntoDocument( LoadSource() );
 
     StripFilesFromAnchors( *document );
     LoadMetadata( *document );
@@ -121,7 +121,7 @@ QString ImportHTML::ResolveCustomEntities( const QString &html_source ) const
 // becomes just <a href="#firstheading" />
 void ImportHTML::StripFilesFromAnchors( xc::DOMDocument &document )
 {
-    QList< xc::DOMElement* > anchors = XHTMLDoc::GetTagMatchingDescendants( document, "a" );
+    QList< xc::DOMElement* > anchors = XhtmlDoc::GetTagMatchingDescendants( document, "a" );
 
     for ( int i = 0; i < anchors.count(); ++i )
     {
@@ -145,7 +145,7 @@ void ImportHTML::StripFilesFromAnchors( xc::DOMDocument &document )
 // and tries to convert it to Dublin Core
 void ImportHTML::LoadMetadata( const xc::DOMDocument &document )
 {
-    QList< xc::DOMElement* > metatags = XHTMLDoc::GetTagMatchingDescendants( document, "meta" );
+    QList< xc::DOMElement* > metatags = XhtmlDoc::GetTagMatchingDescendants( document, "meta" );
 
     QHash< QString, QList< QVariant > > metadata;
 
@@ -254,7 +254,7 @@ QHash< QString, QString > ImportHTML::LoadFolderStructure( const xc::DOMDocument
 // Loads the images into the book
 QHash< QString, QString > ImportHTML::LoadImages( const xc::DOMDocument *document )
 {
-    QStringList image_paths = XHTMLDoc::GetImagePathsFromImageChildren( *document );
+    QStringList image_paths = XhtmlDoc::GetImagePathsFromImageChildren( *document );
     QHash< QString, QString > updates;
     QDir folder( QFileInfo( m_FullFilePath ).absoluteDir() );
 
@@ -284,7 +284,7 @@ QHash< QString, QString > ImportHTML::LoadImages( const xc::DOMDocument *documen
 
 QHash< QString, QString > ImportHTML::LoadStyleFiles( const xc::DOMDocument *document )
 {
-    QList< xc::DOMElement* > link_nodes = XHTMLDoc::GetTagMatchingDescendants( *document, "link" );
+    QList< xc::DOMElement* > link_nodes = XhtmlDoc::GetTagMatchingDescendants( *document, "link" );
     QHash< QString, QString > updates;
 
     for ( int i = 0; i < link_nodes.count(); ++i )

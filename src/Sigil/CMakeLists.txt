@@ -96,8 +96,8 @@ set( BOOK_MANIPULATION_FILES
     BookManipulation/Headings.h
     BookManipulation/Metadata.cpp
     BookManipulation/Metadata.h
-    BookManipulation/XHTMLDoc.cpp
-    BookManipulation/XHTMLDoc.h
+    BookManipulation/XhtmlDoc.cpp
+    BookManipulation/XhtmlDoc.h
     BookManipulation/GuideSemantics.cpp
     BookManipulation/GuideSemantics.h
     BookManipulation/XercesCppUse.h

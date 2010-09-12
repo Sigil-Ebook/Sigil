@@ -30,7 +30,7 @@
 class QString;
 class QStringList;
 
-class XHTMLDoc
+class XhtmlDoc
 {
 
 public:

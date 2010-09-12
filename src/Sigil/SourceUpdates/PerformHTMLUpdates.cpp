@@ -22,7 +22,7 @@
 #include <stdafx.h>
 #include "PerformHTMLUpdates.h"
 #include "PerformCSSUpdates.h"
-#include "BookManipulation/XHTMLDoc.h"
+#include "BookManipulation/XhtmlDoc.h"
 #include "BookManipulation/XercesCppUse.h"
 #include "Misc/Utility.h"
 
@@ -40,7 +40,7 @@ PerformHTMLUpdates::PerformHTMLUpdates( const QString &source,
     m_HTMLUpdates( html_updates ),
     m_CSSUpdates( css_updates )
 {
-    m_Document = XHTMLDoc::LoadTextIntoDocument( source );
+    m_Document = XhtmlDoc::LoadTextIntoDocument( source );
 }
 
 
@@ -51,7 +51,7 @@ PerformHTMLUpdates::PerformHTMLUpdates( const xc::DOMDocument &document,
     m_HTMLUpdates( html_updates ),
     m_CSSUpdates( css_updates )
 {
-    m_Document = XHTMLDoc::CopyDomDocument( document );
+    m_Document = XhtmlDoc::CopyDomDocument( document );
 }
 
 
@@ -61,8 +61,8 @@ shared_ptr< xc::DOMDocument > PerformHTMLUpdates::operator()()
 
     if ( !m_CSSUpdates.isEmpty() )
     {
-        m_Document = XHTMLDoc::LoadTextIntoDocument( 
-            PerformCSSUpdates( XHTMLDoc::GetDomNodeAsString( *m_Document ), m_CSSUpdates )() );
+        m_Document = XhtmlDoc::LoadTextIntoDocument( 
+            PerformCSSUpdates( XhtmlDoc::GetDomNodeAsString( *m_Document ), m_CSSUpdates )() );
     }
 
     return m_Document;
@@ -71,7 +71,7 @@ shared_ptr< xc::DOMDocument > PerformHTMLUpdates::operator()()
 
 void PerformHTMLUpdates::UpdateHTMLReferences()
 {
-    QList< xc::DOMElement* > nodes = XHTMLDoc::GetTagMatchingDescendants( *m_Document->getDocumentElement(), PATH_TAGS );
+    QList< xc::DOMElement* > nodes = XhtmlDoc::GetTagMatchingDescendants( *m_Document->getDocumentElement(), PATH_TAGS );
 
     int node_count = nodes.count();
 
@@ -103,7 +103,7 @@ void PerformHTMLUpdates::UpdateReferenceInNode( xc::DOMElement *node )
         xc::DOMAttr &attribute = *static_cast< xc::DOMAttr* >( attributes.item( i ) );
         Q_ASSERT( &attribute );
 
-        if ( !PATH_ATTRIBUTES.contains( XHTMLDoc::GetAttributeName( attribute ), Qt::CaseInsensitive ) )
+        if ( !PATH_ATTRIBUTES.contains( XhtmlDoc::GetAttributeName( attribute ), Qt::CaseInsensitive ) )
 
              continue;
 

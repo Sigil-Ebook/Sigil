@@ -25,7 +25,7 @@
 #include "BookNormalization.h"
 #include "BookManipulation/CleanSource.h"
 #include "BookManipulation/Headings.h"
-#include "BookManipulation/XHTMLDoc.h"
+#include "BookManipulation/XhtmlDoc.h"
 #include "BookManipulation/GuideSemantics.h"
 #include "BookManipulation/XercesCppUse.h"
 #include "ResourceObjects/HTMLResource.h"
@@ -166,7 +166,7 @@ void BookNormalization::TryToSetCoverImage( QList< HTMLResource* > html_resource
     {
         QReadLocker locker( &cover_page->GetLock() );
 
-        image_paths = XHTMLDoc::GetImagePathsFromImageChildren( cover_page->GetDomDocumentForReading() );
+        image_paths = XhtmlDoc::GetImagePathsFromImageChildren( cover_page->GetDomDocumentForReading() );
     }
 
     if ( image_paths.count() == 0 )
@@ -196,7 +196,7 @@ bool BookNormalization::IsFlowUnderThreshold( HTMLResource *html_resource, int t
 
 bool BookNormalization::FlowHasOnlyOneImage( HTMLResource* html_resource )
 {
-    return XHTMLDoc::GetImagePathsFromImageChildren( html_resource->GetDomDocumentForReading() ).count() == 1;
+    return XhtmlDoc::GetImagePathsFromImageChildren( html_resource->GetDomDocumentForReading() ).count() == 1;
 }
 
 

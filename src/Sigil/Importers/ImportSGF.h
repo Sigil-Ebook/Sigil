@@ -24,7 +24,7 @@
 #define IMPORTSGF_H
 
 #include "ImportOEBPS.h"
-#include "../BookManipulation/XHTMLDoc.h"
+#include "../BookManipulation/XhtmlDoc.h"
 
 class Resource;
 
@@ -52,7 +52,7 @@ private:
     // to the OEBPS folder in the FolderKeeper
     QList< Resource* > CreateStyleResources( const QString &source );
 
-    Resource* CreateOneStyleFile( const XHTMLDoc::XMLElement &element, 
+    Resource* CreateOneStyleFile( const XhtmlDoc::XMLElement &element, 
                                   const QString &folderpath, 
                                   int index );
 

@@ -27,7 +27,7 @@
 #include <ZipArchive.h>
 #include "../BookManipulation/CleanSource.h"
 #include "../Misc/Utility.h"
-#include "../BookManipulation/XHTMLDoc.h"
+#include "../BookManipulation/XhtmlDoc.h"
 
 const QString BODY_START = "<\\s*body[^>]*>";
 const QString BODY_END   = "</\\s*body\\s*>";

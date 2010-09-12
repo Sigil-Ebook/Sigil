@@ -24,7 +24,7 @@
 #include "../BookManipulation/CleanSource.h"
 #include "../Misc/Utility.h"
 #include "ResourceObjects/HTMLResource.h"
-#include "../BookManipulation/XHTMLDoc.h"
+#include "../BookManipulation/XhtmlDoc.h"
 
 const QString FIRST_CHAPTER_PREFIX = "Section";
 const QString FIRST_CHAPTER_NAME   = FIRST_CHAPTER_PREFIX + "0001.xhtml";
@@ -79,7 +79,7 @@ HTMLResource* ImportTXT::CreateHTMLResource( const QString &source )
 
 void ImportTXT::InitializeHTMLResource( const QString &source, HTMLResource *resource )
 {
-    resource->SetDomDocument( XHTMLDoc::LoadTextIntoDocument( source ) );
+    resource->SetDomDocument( XhtmlDoc::LoadTextIntoDocument( source ) );
 }
 
 

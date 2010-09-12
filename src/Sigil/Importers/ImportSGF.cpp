@@ -80,7 +80,7 @@ QString ImportSGF::LoadSource()
 // to the OEBPS folder in the FolderKeeper
 QList< Resource* > ImportSGF::CreateStyleResources( const QString &source )
 {    
-    QList< XHTMLDoc::XMLElement > style_tag_nodes = XHTMLDoc::GetTagsInHead( source, "style" );
+    QList< XhtmlDoc::XMLElement > style_tag_nodes = XhtmlDoc::GetTagsInHead( source, "style" );
 
     QString folderpath = Utility::GetNewTempFolderPath();
     QDir dir( folderpath );
@@ -110,7 +110,7 @@ QList< Resource* > ImportSGF::CreateStyleResources( const QString &source )
 }
 
 
-Resource* ImportSGF::CreateOneStyleFile( const XHTMLDoc::XMLElement &element, 
+Resource* ImportSGF::CreateOneStyleFile( const XhtmlDoc::XMLElement &element, 
                                          const QString &folderpath, 
                                          int index )
 {
@@ -203,7 +203,7 @@ void ImportSGF::CreateXHTMLFiles( const QString &source,
                                   const QString &header,
                                   const QHash< QString, QString > &html_updates )
 {    
-    const QStringList chapters = XHTMLDoc::GetSGFChapterSplits( source, header );
+    const QStringList chapters = XhtmlDoc::GetSGFChapterSplits( source, header );
 
     m_Book->CreateNewChapters( chapters, html_updates );   
 }

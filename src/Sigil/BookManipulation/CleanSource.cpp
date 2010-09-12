@@ -24,7 +24,7 @@
 #include "../BookManipulation/CleanSource.h"
 
 #include <buffio.h>
-#include "../BookManipulation/XHTMLDoc.h"
+#include "../BookManipulation/XhtmlDoc.h"
 
 static const QString SIGIL_CLASS_NAME     = "sgc";
 static const QString SIGIL_CLASS_NAME_REG = SIGIL_CLASS_NAME + "-(\\d+)";
@@ -125,11 +125,11 @@ QString CleanSource::CleanCSS( const QString &source, int old_num_styles )
 // of a single CSS style tag
 QStringList CleanSource::CSSStyleTags( const QString &source )
 {    
-    QList< XHTMLDoc::XMLElement > style_tag_nodes;
+    QList< XhtmlDoc::XMLElement > style_tag_nodes;
 
     try
     {
-        style_tag_nodes = XHTMLDoc::GetTagsInHead( source, "style" );
+        style_tag_nodes = XhtmlDoc::GetTagsInHead( source, "style" );
     }
     
     catch ( ErrorParsingXML &exception )
@@ -142,7 +142,7 @@ QStringList CleanSource::CSSStyleTags( const QString &source )
 
     QStringList css_style_tags;
 
-    foreach( XHTMLDoc::XMLElement element, style_tag_nodes )
+    foreach( XhtmlDoc::XMLElement element, style_tag_nodes )
     {
         if ( element.attributes.contains( "type" ) && 
              ( element.attributes.value( "type" ) == "text/css" ) 
