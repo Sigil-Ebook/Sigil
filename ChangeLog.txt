@@ -1,4 +1,10 @@
-Sigil v0.3.0 ADD_DATE
+Sigil v0.3.0RC1 ADD_DATE
+    - changed the internal DOM engine from Qt's QDom to Xerces; this should also bring numerous
+    bug fixes and performance improvements plus a small (~10%) decrease in memory consumption
+    - updated Qt to 4.7: this should bring a 400%+ performance increase in Book View rendering 
+    along with countless smaller performance improvements and bug fixes across the board
+    - switched to the MSVC 10 compiler for Windows releases; should bring ~5% general performance 
+    improvement 
     - fixed several crash/error problems relating to opening, saving and modifying epub files which
     have onerous file permissions set for internal content files (issue #574)
     - added a workaround for broken epubs created by other epub-producing software which caused
