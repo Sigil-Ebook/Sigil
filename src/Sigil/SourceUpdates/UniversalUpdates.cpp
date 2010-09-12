@@ -23,12 +23,12 @@
 #include "UniversalUpdates.h"
 #include "PerformHTMLUpdates.h"
 #include "PerformCSSUpdates.h"
-#include "../ResourceObjects/HTMLResource.h"
-#include "../ResourceObjects/CSSResource.h"
-#include "../Misc/HTMLEncodingResolver.h"
-#include "../BookManipulation/CleanSource.h"
-#include "../Misc/Utility.h"
-
+#include "ResourceObjects/HTMLResource.h"
+#include "ResourceObjects/CSSResource.h"
+#include "Misc/HTMLEncodingResolver.h"
+#include "BookManipulation/CleanSource.h"
+#include "BookManipulation/XercesCppUse.h"
+#include "Misc/Utility.h"
 
 void UniversalUpdates::PerformUniversalUpdates( bool resources_already_loaded,
                                                 const QList< Resource* > &resources,
@@ -111,7 +111,7 @@ void UniversalUpdates::UpdateOneHTMLFile( HTMLResource* html_resource,
                                           const QHash< QString, QString > &css_updates )
 {
     QWriteLocker locker( &html_resource->GetLock() );
-    const QDomDocument &document = html_resource->GetDomDocumentForWriting();
+    const xc::DOMDocument &document = html_resource->GetDomDocumentForWriting();
     html_resource->SetDomDocument( PerformHTMLUpdates( document, html_updates, css_updates )() );
 }
 

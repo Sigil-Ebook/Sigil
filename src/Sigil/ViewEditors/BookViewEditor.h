@@ -23,11 +23,13 @@
 #ifndef BOOKVIEWEDITOR_H
 #define BOOKVIEWEDITOR_H
 
-#include <QWebView>
 #include "ViewEditor.h"
-#include <QDomNode>
+#include "BookManipulation/XercesHUse.h"
+#include <QWebView>
 #include <QMap>
 #include <QWebElement>
+#include <boost/shared_ptr.hpp>
+using boost::shared_ptr;
 
 class QShortcut;
 
@@ -295,8 +297,8 @@ private:
      * @param search_direction The direction of the search.
      * @return The offset.
      */
-    int GetSelectionOffset( const QDomDocument &document,
-                            const QMap< int, QDomNode > &node_offsets, 
+    int GetSelectionOffset( const xc::DOMDocument &document,
+                            const QMap< int, xc::DOMNode* > &node_offsets, 
                             Searchable::Direction search_direction );
 
     /**
@@ -313,12 +315,12 @@ private:
          * A map with text node starting offsets as keys,
          * and those text nodes as values.
          */
-        QMap< int, QDomNode > node_offsets;
+        QMap< int, xc::DOMNode* > node_offsets;
 
         /**
          *  A DOM document with the loaded text.
          */
-        QDomDocument document;
+        shared_ptr< xc::DOMDocument > document;
     };
 
     /**
@@ -348,12 +350,12 @@ private:
     QString GetElementSelectingJS_WithTextNode( const QList< ViewEditor::ElementIndex > &hierarchy ) const;
 
     /**
-     * Converts a QDomNode from a QDom of the current page
+     * Converts a DomNode from a Dom of the current page
      * into the QWebElement of that same element on tha page.
      *
      * @param node The node to covert.
      */
-    QWebElement QDomNodeToQWebElement( const QDomNode &node );
+    QWebElement DomNodeToQWebElement( const xc::DOMNode &node );
 
     /**
      * Escapes JavaScript string special characters.
@@ -374,15 +376,22 @@ private:
      */
     struct SelectRangeInputs
     {
+        SelectRangeInputs() 
+            : 
+            start_node( NULL ), 
+            end_node( NULL ), 
+            start_node_index( -1 ), 
+            end_node_index( -1 ) {}
+
         /**
          * The range start node.
          */
-        QDomNode start_node;
+        xc::DOMNode* start_node;
 
         /**
          *  The range end node.
          */
-        QDomNode end_node;
+        xc::DOMNode* end_node;
 
         /**
          * The char index inside the start node.
@@ -405,7 +414,7 @@ private:
      * @return The inputs for a \c range object.
      * @see SearchTools
      */
-    SelectRangeInputs GetRangeInputs( const QMap< int, QDomNode > &node_offsets, 
+    SelectRangeInputs GetRangeInputs( const QMap< int, xc::DOMNode* > &node_offsets, 
                                       int string_start, 
                                       int string_length ) const;
 
@@ -432,7 +441,7 @@ private:
      * @param character_offset The specific offset we're interested
      *                         in within the node.
      */
-    void ScrollToNodeText( const QDomNode &node, int character_offset );
+    void ScrollToNodeText( const xc::DOMNode &node, int character_offset );
 
     /**
      * Scrolls the whole screen by one line. 

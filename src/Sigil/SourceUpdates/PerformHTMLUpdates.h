@@ -23,11 +23,8 @@
 #ifndef PERFORMHTMLUPDATES_H
 #define PERFORMHTMLUPDATES_H
 
-#include <QDomDocument>
-
+#include "BookManipulation/XercesHUse.h"
 class QString;
-class QDomNode;
-
 
 class PerformHTMLUpdates
 {
@@ -38,11 +35,11 @@ public:
                         const QHash< QString, QString > &html_updates,
                         const QHash< QString, QString > &css_updates );
 
-    PerformHTMLUpdates( const QDomDocument &document,
+    PerformHTMLUpdates( const xc::DOMDocument &document,
                         const QHash< QString, QString > &html_updates,
                         const QHash< QString, QString > &css_updates );
 
-    QDomDocument operator()();
+    shared_ptr< xc::DOMDocument > operator()();
 
 private:
 
@@ -51,13 +48,13 @@ private:
 
     // Updates the resource references in the attributes 
     // of the one specified node in the HTML.
-    void UpdateReferenceInNode( QDomNode node );
+    void UpdateReferenceInNode( xc::DOMElement *node );
 
     ///////////////////////////////
     // PRIVATE MEMBER VARIABLES
     ///////////////////////////////
 
-    QDomDocument m_Document;
+    shared_ptr< xc::DOMDocument > m_Document;
 
     const QHash< QString, QString > &m_HTMLUpdates;
     const QHash< QString, QString > &m_CSSUpdates;

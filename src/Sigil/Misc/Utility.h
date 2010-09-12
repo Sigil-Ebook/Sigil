@@ -26,8 +26,6 @@
 #include <QString>
 #include <QDir>
 
-class QDomNode;
-
 class Utility
 {	
 

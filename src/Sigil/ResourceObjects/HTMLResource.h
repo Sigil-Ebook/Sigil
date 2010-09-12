@@ -23,10 +23,12 @@
 #ifndef HTMLRESOURCE_H
 #define HTMLRESOURCE_H
 
-#include <QDomDocument>
 #include <QHash>
+#include "BookManipulation/XercesHUse.h"
 #include "Resource.h"
 #include "../BookManipulation/GuideSemantics.h"
+#include <boost/shared_ptr.hpp>
+using boost::shared_ptr;
 
 class QWebPage;
 class QTextDocument;
@@ -115,9 +117,9 @@ public:
      * Sets the DOM document that is *the* representaion of the 
      * resource's content.
      *
-     * @param document The new QDom instance.
+     * @param document The new Dom instance.
      */
-    void SetDomDocument( const QDomDocument &document );
+    void SetDomDocument( shared_ptr< xc::DOMDocument > document );
 
     /**
      * Returns a const reference to the DOM document that can be read
@@ -125,9 +127,9 @@ public:
      *
      * @warning Make sure to get a read lock externally before calling this function!
      *
-     * @return A const reference to the QDom.
+     * @return A const reference to the Dom.
      */
-    const QDomDocument& GetDomDocumentForReading();
+    const xc::DOMDocument& GetDomDocumentForReading();
 
     /**
      * Returns a reference to the DOM document that can be read and written to
@@ -136,9 +138,9 @@ public:
      * @warning Make sure to get a write lock externally before calling this function!
      * @warning Call MarkSecondaryCachesAsOld() if you updated the document!
      *
-     * @return A const reference to the QDom.
+     * @return A const reference to the Dom.
      */
-    QDomDocument& GetDomDocumentForWriting();
+    xc::DOMDocument& GetDomDocumentForWriting();
 
     /**
      * Marks the QTextDocument and QWebPage as needing a update/refresh.
@@ -306,7 +308,7 @@ private:
      * The final arbiter of the content in the HTMLResource.
      * AKA the main, primary cache.
      */
-    QDomDocument m_DomDocument;
+    shared_ptr< xc::DOMDocument > m_DomDocument;
 
     /**
      * This is here only for convenience so that

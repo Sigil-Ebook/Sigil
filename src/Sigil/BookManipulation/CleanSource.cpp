@@ -320,9 +320,6 @@ TidyDoc CleanSource::TidyOptions( TidyDoc tidy_document, TidyType type, int max_
 // Runs HTML Tidy on the provided XHTML source code
 QString CleanSource::HTMLTidy( const QString &source, TidyType type )
 {
-    // TODO: This is getting ridiculous. Unify the three
-    // Tidy versions so we don't have all this code duplication.
-
     TidyDoc tidy_document = tidyCreate();
 
     TidyBuffer output = { 0 };

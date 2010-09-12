@@ -100,6 +100,8 @@ set( BOOK_MANIPULATION_FILES
     BookManipulation/XHTMLDoc.h
     BookManipulation/GuideSemantics.cpp
     BookManipulation/GuideSemantics.h
+    BookManipulation/XercesCppUse.h
+    BookManipulation/XercesHUse.h
     )
 
 set( RESOURCE_OBJECT_FILES
@@ -181,6 +183,7 @@ set( MISC_FILES
     Misc/RasterizeImageResource.h
     Misc/SearchOperations.cpp
     Misc/SearchOperations.h
+    Misc/XhtmlEntitiesDtd.cpp
     )
 
 set( VIEW_EDITOR_FILES
@@ -271,7 +274,12 @@ set_source_files_properties( Misc/Utility.cpp PROPERTIES COMPILE_DEFINITIONS SIG
 
 # creating PCH's for MSVC and GCC on Linux
 include( ${CMAKE_SOURCE_DIR}/CustomPCH.cmake )
-set( ALL_INCLUDES ${BoostParts_SOURCE_DIR} ${QT_INCLUDES} )
+set( ALL_INCLUDES ${BoostParts_SOURCE_DIR}
+                  ${Xerces_SOURCE_DIR} 
+                  ${XercesExtensions_SOURCE_DIR} 
+                  ${ZipArchive_SOURCE_DIR}
+                  ${tidyLib_SOURCE_DIR}                  
+                  ${QT_INCLUDES} )
 
 precompiled_header( RAW_SOURCES ALL_INCLUDES "gccPCH" )
 
@@ -330,7 +338,13 @@ endif()
 
 # We need to pick up the stdafx.h file, the ui*.h files,
 # and the headers for the linked-to libraries
-include_directories( ${CMAKE_CURRENT_BINARY_DIR} ${CMAKE_CURRENT_SOURCE_DIR} ../ZipArchive ../tidyLib ../BoostParts )
+include_directories( ${CMAKE_CURRENT_BINARY_DIR} 
+                     ${CMAKE_CURRENT_SOURCE_DIR} 
+                     ${BoostParts_SOURCE_DIR}
+                     ${Xerces_SOURCE_DIR} 
+                     ${XercesExtensions_SOURCE_DIR} 
+                     ${ZipArchive_SOURCE_DIR}
+                     ${tidyLib_SOURCE_DIR} )
 
 link_directories ( ${PROJECT_BINARY_DIR}/lib ) 
 
@@ -345,7 +359,12 @@ else()
     add_executable( ${PROJECT_NAME} ${ALL_SOURCES} )
 endif()
 
-target_link_libraries( ${PROJECT_NAME} tidyLib ZipArchive BoostParts ${QT_LIBRARIES} )
+target_link_libraries( ${PROJECT_NAME} tidyLib ZipArchive BoostParts Xerces XercesExtensions ${QT_LIBRARIES} )
+
+#############################################################################
+
+# needed for correct Xerces header inclusion
+add_definitions( -DXERCES_STATIC_LIBRARY )
 
 #############################################################################
 

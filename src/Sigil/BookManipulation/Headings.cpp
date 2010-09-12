@@ -20,11 +20,11 @@
 *************************************************************************/
 
 #include <stdafx.h>
-#include "../BookManipulation/Headings.h"
-#include "../BookManipulation/XHTMLDoc.h"
-#include "../Misc/Utility.h"
+#include "BookManipulation/Headings.h"
+#include "BookManipulation/XHTMLDoc.h"
+#include "BookManipulation/XercesCppUse.h"
+#include "Misc/Utility.h"
 #include "ResourceObjects/HTMLResource.h"
-#include <QDomDocument>
 
 // The maximum allowed distance (in lines) that a heading
 // can be located from a body tag and still
@@ -58,33 +58,35 @@ QList< Headings::Heading > Headings::GetHeadingListForOneFile( HTMLResource* htm
 {
     Q_ASSERT( html_resource );
 
-    QDomDocument document    = html_resource->GetDomDocumentForReading();
-    QDomElement body_element = document.documentElement().firstChildElement( "body" );
+    const xc::DOMDocument &document = html_resource->GetDomDocumentForReading();
+    xc::DOMElement &body_element    = *XHTMLDoc::GetTagMatchingDescendants( document, "body" ).at( 0 );
 
-    QList< QDomNode > heading_nodes = XHTMLDoc::GetTagMatchingChildren( document, HEADING_TAGS );
+    QList< xc::DOMElement* > heading_nodes = XHTMLDoc::GetTagMatchingDescendants( document, HEADING_TAGS );
     int num_heading_nodes = heading_nodes.count();
 
     QList< Headings::Heading > headings;
 
     for ( int i = 0; i < num_heading_nodes; ++i )
     {
-        QDomElement element = heading_nodes.at( i ).toElement();
-
-        Q_ASSERT( !element.isNull() );
+        xc::DOMElement &element = *heading_nodes.at( i );
+        Q_ASSERT( &element );
 
         Heading heading;
         heading.resource_file  = html_resource;
-        heading.element        = element;
-        heading.text           = ( element.hasAttribute( "title" ) ? 
-                                   element.attribute( "title" )    :
-                                   element.text()
-                                 ).simplified(); 
+        heading.element        = &element;
+        heading.text           = ( element.hasAttribute( QtoX( "title" ) )          ? 
+                                   XtoQ( element.getAttribute( QtoX( "title" ) ) )  :
+                                   XtoQ( element.getTextContent() )
+                                 ).simplified();
 
-        heading.level          = QString( element.tagName()[ 1 ] ).toInt();
-        heading.include_in_toc = !element.attribute( "class", "" ).contains( NOT_IN_TOC_CLASS );
+        heading.level          = QString( XtoQ( element.getTagName() ).at( 1 ) ).toInt();
+        heading.include_in_toc = !XtoQ( element.getAttribute( QtoX( "class" ) ) )
+                                 .contains( NOT_IN_TOC_CLASS );
         heading.text_changed   = false;
-        heading.at_file_start  = i == 0 && 
-            element.lineNumber() - body_element.lineNumber() < ALLOWED_HEADING_DISTANCE;       
+        heading.at_file_start  = 
+            i == 0 && 
+            XHTMLDoc::NodeLineNumber( element ) - 
+            XHTMLDoc::NodeLineNumber( body_element ) < ALLOWED_HEADING_DISTANCE;       
 
         headings.append( heading );
     }

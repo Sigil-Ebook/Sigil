@@ -21,12 +21,14 @@
 
 #include <stdafx.h>
 #include "SearchOperations.h"
-#include "../ResourceObjects/TextResource.h"
-#include "../ResourceObjects/HTMLResource.h"
-#include "../BookManipulation/XHTMLDoc.h"
-#include "../BookManipulation/CleanSource.h"
-#include "../ViewEditors/Searchable.h"
-#include "../BookManipulation/CleanSource.h"
+#include "ResourceObjects/TextResource.h"
+#include "ResourceObjects/HTMLResource.h"
+#include "BookManipulation/XHTMLDoc.h"
+#include "BookManipulation/CleanSource.h"
+#include "ViewEditors/Searchable.h"
+#include "BookManipulation/CleanSource.h"
+#include "BookManipulation/XercesCppUse.h"
+
 
 
 int SearchOperations::CountInFiles( const QRegExp &search_regex,
@@ -98,8 +100,8 @@ int SearchOperations::CountInHTMLFile( const QRegExp &search_regex,
 {
     if ( search_type == SearchOperations::CodeViewSearch )
     {
-        const QDomDocument &document = html_resource->GetDomDocumentForReading();
-        const QString &text          = CleanSource::PrettyPrint( XHTMLDoc::GetQDomNodeAsString( document ) );
+        const xc::DOMDocument &document = html_resource->GetDomDocumentForReading();
+        const QString &text             = CleanSource::PrettyPrint( XHTMLDoc::GetDomNodeAsString( document ) );
 
         return text.count( search_regex );
     }
@@ -150,15 +152,16 @@ int SearchOperations::ReplaceHTMLInFile( const QRegExp &search_regex,
 {
     if ( search_type == SearchOperations::CodeViewSearch )
     {
-        QDomDocument document = html_resource->GetDomDocumentForWriting();
-        const QString &text   = CleanSource::PrettyPrint( XHTMLDoc::GetQDomNodeAsString( document ) );
+        const QString &text = CleanSource::PrettyPrint( 
+            XHTMLDoc::GetDomNodeAsString( html_resource->GetDomDocumentForReading() ) );
     
         QString new_text;
         int count;
         tie( new_text, count ) = PerformGlobalReplace( text, search_regex, replacement );
 
-        XHTMLDoc::LoadTextIntoDocument( CleanSource::ToValidXHTML( new_text ), document );
-        html_resource->MarkSecondaryCachesAsOld();
+        html_resource->SetDomDocument( 
+            XHTMLDoc::LoadTextIntoDocument( CleanSource::ToValidXHTML( new_text ) ) );
+
         return count;
     }
 

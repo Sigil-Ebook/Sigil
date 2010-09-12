@@ -20,14 +20,14 @@
 *************************************************************************/
 
 #include <stdafx.h>
-#include <QDomDocument>
-#include "../Misc/Utility.h"
-#include "../BookManipulation/Book.h"
+#include "Misc/Utility.h"
+#include "BookManipulation/Book.h"
 #include "BookNormalization.h"
-#include "../BookManipulation/CleanSource.h"
-#include "../BookManipulation/Headings.h"
-#include "../BookManipulation/XHTMLDoc.h"
-#include "../BookManipulation/GuideSemantics.h"
+#include "BookManipulation/CleanSource.h"
+#include "BookManipulation/Headings.h"
+#include "BookManipulation/XHTMLDoc.h"
+#include "BookManipulation/GuideSemantics.h"
+#include "BookManipulation/XercesCppUse.h"
 #include "ResourceObjects/HTMLResource.h"
 
 static const QString SIGIL_HEADING_ID_PREFIX = "heading_id_";
@@ -69,11 +69,13 @@ void BookNormalization::GiveIDsToHeadingsInResource( HTMLResource *html_resource
 
     for ( int index = 0; index < headings.count(); index++ )
     {
-        QDomElement element = headings.at( index ).element;
+        xc::DOMElement &element = *headings.at( index ).element;
         
-        if ( !element.hasAttribute( "id" ) )
+        if ( !element.hasAttribute( QtoX( "id" ) ) )
         {
-            element.setAttribute( "id", SIGIL_HEADING_ID_PREFIX + QString::number( heading_id_index ) );
+            element.setAttribute( 
+                QtoX( "id" ), 
+                QtoX( SIGIL_HEADING_ID_PREFIX + QString::number( heading_id_index ) ) );
             
             heading_id_index++;
         }
@@ -87,11 +89,11 @@ int BookNormalization::MaxSigilHeadingIDIndex( const QList< Headings::Heading > 
     
     for ( int index = 0; index < headings.count(); index++ )
     {
-        QDomElement element = headings.at( index ).element;
+        xc::DOMElement &element = *headings.at( index ).element;
 
         QRegExp suffix( SIGIL_HEADING_ID_REG );
 
-        if ( element.attribute( "id" ).contains( suffix ) )
+        if ( XtoQ( element.getAttribute( QtoX( "id" ) ) ).contains( suffix ) )
         {
             int index = suffix.cap( 1 ).toInt();
 
@@ -188,8 +190,8 @@ bool BookNormalization::IsFlowUnderThreshold( HTMLResource *html_resource, int t
 {
     QReadLocker locker( &html_resource->GetLock() );
 
-    QDomElement doc_element = html_resource->GetDomDocumentForReading().documentElement();
-    return doc_element.text().count() < threshold;
+    xc::DOMElement &doc_element = *html_resource->GetDomDocumentForReading().getDocumentElement();
+    return XtoQ( doc_element.getTextContent() ).count() < threshold;
 }
 
 bool BookNormalization::FlowHasOnlyOneImage( HTMLResource* html_resource )

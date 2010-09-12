@@ -23,8 +23,8 @@
 #ifndef HEADINGS_H
 #define HEADINGS_H
 
+#include "BookManipulation/XercesHUse.h"
 #include <QString>
-#include <QDomElement>
 
 class HTMLResource;
 
@@ -40,8 +40,8 @@ public:
         // The HTMLResource file the heading belongs to
         HTMLResource* resource_file;
 
-        // The QDomElement of the heading in the file's QDomDocument
-        QDomElement element;
+        // The DomElement of the heading in the file's DomDocument
+        xc::DOMElement *element;
 
         // Represents what the heading should
         // look like in the TOC.

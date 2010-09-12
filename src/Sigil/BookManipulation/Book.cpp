@@ -20,22 +20,22 @@
 *************************************************************************/
 
 #include <stdafx.h>
-#include "../BookManipulation/Book.h"
-#include "../BookManipulation/XHTMLDoc.h"
-#include "../Misc/Utility.h"
+#include "BookManipulation/Book.h"
+#include "BookManipulation/XHTMLDoc.h"
+#include "Misc/Utility.h"
 #include "ResourceObjects/HTMLResource.h"
-#include "../BookManipulation/CleanSource.h"
-#include "../SourceUpdates/AnchorUpdates.h"
-#include "../SourceUpdates/PerformHTMLUpdates.h"
-#include "../SourceUpdates/AnchorUpdates.h"
-#include "../SourceUpdates/UniversalUpdates.h"
-#include <QDomDocument>
+#include "BookManipulation/CleanSource.h"
+#include "SourceUpdates/AnchorUpdates.h"
+#include "SourceUpdates/PerformHTMLUpdates.h"
+#include "SourceUpdates/AnchorUpdates.h"
+#include "SourceUpdates/UniversalUpdates.h"
+#include "XercesCppUse.h"
 
 static const QString FIRST_CSS_NAME   = "Style0001.css";
 static const QString PLACEHOLDER_TEXT = "PLACEHOLDER";
 static const QString EMPTY_HTML_FILE  = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
                                         "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.1//EN\"\n"
-                                        "    \"http://www.w3.org/TR/xhtml1/DTD/xhtml11.dtd\">\n\n"							
+                                        "    \"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd\">\n\n"							
                                         "<html xmlns=\"http://www.w3.org/1999/xhtml\">\n"
                                         "<head>\n"
                                         "<title></title>\n"
@@ -120,10 +120,7 @@ HTMLResource& Book::CreateNewHTMLFile()
 
 void Book::CreateEmptyHTMLFile()
 {
-    QDomDocument document;
-    XHTMLDoc::LoadTextIntoDocument( EMPTY_HTML_FILE, document );
-
-    CreateNewHTMLFile().SetDomDocument( document );
+    CreateNewHTMLFile().SetDomDocument( XHTMLDoc::LoadTextIntoDocument( EMPTY_HTML_FILE ) );
     SetModified( true );
 }
 
@@ -166,9 +163,8 @@ HTMLResource& Book::CreateChapterBreakOriginalResource( const QString &content, 
     HTMLResource &html_resource = CreateNewHTMLFile();
     html_resource.RenameTo( originating_filename );
 
-    QDomDocument document;
-    XHTMLDoc::LoadTextIntoDocument( CleanSource::Clean( content ), document );
-    html_resource.SetDomDocument( document );
+    html_resource.SetDomDocument( 
+        XHTMLDoc::LoadTextIntoDocument( CleanSource::Clean( content ) ) );
 
     html_resource.SetReadingOrder( reading_order );
 
@@ -232,30 +228,30 @@ void Book::MergeWithPrevious( HTMLResource& html_resource )
     QString html_resource_fullpath = html_resource.GetFullPath();
 
     {
-        QDomDocumentFragment body_children_fragment;
+        xc::DOMDocumentFragment *body_children_fragment = NULL;
 
         {
             QWriteLocker source_locker( &html_resource.GetLock() );
-            QDomDocument source_dom        = html_resource.GetDomDocumentForReading();
-            QDomNodeList source_body_nodes = source_dom.elementsByTagName( "body" );
+            const xc::DOMDocument &source_dom  = html_resource.GetDomDocumentForReading();
+            xc::DOMNodeList &source_body_nodes = *source_dom.getElementsByTagName( QtoX( "body" ) );
 
-            if ( source_body_nodes.count() != 1 )
+            if ( source_body_nodes.getLength() != 1 )
 
                 return;
 
-            QDomNode source_body_node = source_body_nodes.at( 0 );
-            body_children_fragment    = XHTMLDoc::ConvertToDocumentFragment( source_body_node.childNodes() ); 
+            xc::DOMNode &source_body_node = *source_body_nodes.item( 0 );
+            body_children_fragment        = XHTMLDoc::ConvertToDocumentFragment( *source_body_node.getChildNodes() ); 
         }  
 
         QWriteLocker sink_locker( &previous_html.GetLock() );
-        QDomDocument sink_dom        = previous_html.GetDomDocumentForWriting();
-        QDomNodeList sink_body_nodes = sink_dom.elementsByTagName( "body" );
+        xc::DOMDocument &sink_dom        = previous_html.GetDomDocumentForWriting();
+        xc::DOMNodeList &sink_body_nodes = *sink_dom.getElementsByTagName( QtoX( "body" ) );
 
-        if ( sink_body_nodes.count() != 1 )
+        if ( sink_body_nodes.getLength() != 1 )
 
             return;
 
-        QDomNode sink_body_node = sink_body_nodes.at( 0 );         
+        xc::DOMNode & sink_body_node = *sink_body_nodes.item( 0 );         
         sink_body_node.appendChild( sink_dom.importNode( body_children_fragment, true ) );
         previous_html.MarkSecondaryCachesAsOld();
 
@@ -342,9 +338,8 @@ void Book::CreateOneNewChapter( const QString &source,
 
     if ( html_updates.isEmpty() )
     {
-        QDomDocument document;
-        XHTMLDoc::LoadTextIntoDocument( CleanSource::Clean( source ), document );
-        html_resource->SetDomDocument( document );
+        html_resource->SetDomDocument( 
+            XHTMLDoc::LoadTextIntoDocument( CleanSource::Clean( source ) ) );
     }
 
     else

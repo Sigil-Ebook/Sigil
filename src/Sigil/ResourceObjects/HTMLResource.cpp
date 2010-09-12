@@ -21,10 +21,11 @@
 
 #include <stdafx.h>
 #include "HTMLResource.h"
-#include "../Misc/Utility.h"
-#include "../BookManipulation/CleanSource.h"
-#include "../BookManipulation/XHTMLDoc.h"
-#include "../BookManipulation/GuideSemantics.h"
+#include "BookManipulation/XercesCppUse.h"
+#include "Misc/Utility.h"
+#include "BookManipulation/CleanSource.h"
+#include "BookManipulation/XHTMLDoc.h"
+#include "BookManipulation/GuideSemantics.h"
 
 static const QString LOADED_CONTENT_MIMETYPE = "application/xhtml+xml";
 
@@ -106,29 +107,27 @@ QTextDocument& HTMLResource::GetTextDocument()
 }
 
 
-void HTMLResource::SetDomDocument( const QDomDocument &document )
+void HTMLResource::SetDomDocument( shared_ptr< xc::DOMDocument > document )
 {
     QWriteLocker locker( &m_ReadWriteLock );
 
     m_DomDocument = document;
-
-    m_WebPageIsOld      = true;
-    m_TextDocumentIsOld = true;
+    MarkSecondaryCachesAsOld();
 }
 
 
-const QDomDocument& HTMLResource::GetDomDocumentForReading()
+const xc::DOMDocument& HTMLResource::GetDomDocumentForReading()
 {
-    return m_DomDocument;
+    return *m_DomDocument;
 }
 
 
-QDomDocument& HTMLResource::GetDomDocumentForWriting()
+xc::DOMDocument& HTMLResource::GetDomDocumentForWriting()
 {
     // We can't just mark the caches as old right here since
     // some consumers need write access but don't end up writing anything.
 
-    return m_DomDocument;
+    return *m_DomDocument;
 }
 
 
@@ -146,7 +145,7 @@ void HTMLResource::UpdateDomDocumentFromWebPage()
 
     Q_ASSERT( QThread::currentThread() == QApplication::instance()->thread() );
 
-    XHTMLDoc::LoadTextIntoDocument( GetWebPageHTML(), m_DomDocument );
+    m_DomDocument = XHTMLDoc::LoadTextIntoDocument( GetWebPageHTML() );
 
     m_TextDocumentIsOld = true;
     SetWebPageModified( false );
@@ -162,7 +161,7 @@ void HTMLResource::UpdateDomDocumentFromTextDocument()
     Q_ASSERT( QThread::currentThread() == QApplication::instance()->thread() );
     Q_ASSERT( m_TextDocument );
 
-    XHTMLDoc::LoadTextIntoDocument( CleanSource::Clean( m_TextDocument->toPlainText() ), m_DomDocument );
+    m_DomDocument = XHTMLDoc::LoadTextIntoDocument( CleanSource::Clean( m_TextDocument->toPlainText() ) );
 
     m_WebPageIsOld = true;
     SetTextDocumentModified( false );
@@ -183,7 +182,7 @@ void HTMLResource::UpdateWebPageFromDomDocument()
         connect( m_WebPage, SIGNAL( contentsChanged() ), this, SLOT( SetWebPageModified() ) );
     }
 
-    SetWebPageHTML( XHTMLDoc::GetQDomNodeAsString( m_DomDocument ) );
+    SetWebPageHTML( XHTMLDoc::GetDomNodeAsString( *m_DomDocument ) );
 
     m_WebPageIsOld = false;
     m_RefreshNeeded = false;
@@ -204,7 +203,7 @@ void HTMLResource::UpdateTextDocumentFromDomDocument()
         m_TextDocument->setDocumentLayout( new QPlainTextDocumentLayout( m_TextDocument ) );
     }
 
-    m_TextDocument->setPlainText( CleanSource::PrettyPrint( XHTMLDoc::GetQDomNodeAsString( m_DomDocument ) ) );
+    m_TextDocument->setPlainText( CleanSource::PrettyPrint( XHTMLDoc::GetDomNodeAsString( *m_DomDocument ) ) );
 
     m_TextDocumentIsOld = false;
 }
@@ -270,7 +269,7 @@ void HTMLResource::SaveToDisk( bool book_wide_save )
     {
         QWriteLocker locker( &m_ReadWriteLock );
 
-        Utility::WriteUnicodeTextFile( CleanSource::PrettyPrint( XHTMLDoc::GetQDomNodeAsString( m_DomDocument ) ),
+        Utility::WriteUnicodeTextFile( CleanSource::PrettyPrint( XHTMLDoc::GetDomNodeAsString( *m_DomDocument ) ),
                                        m_FullFilePath );
     }
 
@@ -321,9 +320,9 @@ void HTMLResource::RemoveWebkitCruft()
 
 QStringList HTMLResource::SplitOnSGFChapterMarkers()
 {
-    QStringList chapters = XHTMLDoc::GetSGFChapterSplits( XHTMLDoc::GetQDomNodeAsString( m_DomDocument ) );
+    QStringList chapters = XHTMLDoc::GetSGFChapterSplits( XHTMLDoc::GetDomNodeAsString( *m_DomDocument ) );
 
-    XHTMLDoc::LoadTextIntoDocument( CleanSource::Clean( chapters.takeFirst() ), m_DomDocument );
+    m_DomDocument = XHTMLDoc::LoadTextIntoDocument( CleanSource::Clean( chapters.takeFirst() ) );
     MarkSecondaryCachesAsOld();
 
     return chapters;

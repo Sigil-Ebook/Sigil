@@ -29,6 +29,7 @@
 #include "Importers/ImporterFactory.h"
 #include "Exporters/ExporterFactory.h"
 #include "BookManipulation/BookNormalization.h"
+#include <XercesInit.h>
 #include <iostream>
 
 
@@ -148,6 +149,7 @@ int main( int argc, char *argv[] )
 #endif
     
     QApplication app( argc, argv );
+    XercesExt::XercesInit init;
 
     try
     {

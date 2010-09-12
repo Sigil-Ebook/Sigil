@@ -21,7 +21,6 @@
 
 #include <stdafx.h>
 #include "../Misc/Utility.h"
-#include <QDomDocument>
 
 #include <stdlib.h>
 #include <time.h>

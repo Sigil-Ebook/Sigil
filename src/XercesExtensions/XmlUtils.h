@@ -93,6 +93,14 @@ namespace XercesExt
      */
     xc::DOMNode* GetFirstAvailableElement( const QName &element_qname,
                                            const xc::DOMDocument &document );
+    
+    void XercesStringDeallocator( XMLCh *xstring );
+
+    template< class T >
+    void XercesDeallocator( T *xerclass )
+    {
+        xerclass->release();
+    }
 }
 
 #endif // XMLUTILS_H

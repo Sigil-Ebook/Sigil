@@ -47,3 +47,7 @@ extern const QString NCX_FILE_NAME;
 extern const QString CONTAINER_XML_FILE_NAME;
 extern const QStringList TEXT_EXTENSIONS;
 //extern const int STATUSBAR_MSG_DISPLAY_TIME;
+
+extern const char*         XHTML_ENTITIES_DTD_ID; 
+extern const unsigned int  XHTML_ENTITIES_DTD_LEN;
+extern const unsigned char XHTML_ENTITIES_DTD[];  

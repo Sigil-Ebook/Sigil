@@ -25,6 +25,7 @@
 #include "../Misc/Utility.h"
 #include "ResourceObjects/HTMLResource.h"
 #include "../BookManipulation/XHTMLDoc.h"
+#include "BookManipulation/XercesCppUse.h"
 
 static const QString SETTINGS_GROUP   = "toc_editor";
 static const int FIRST_COLUMN_PADDING = 30;
@@ -124,21 +125,22 @@ void TOCEditor::UpdateOneHeadingElement( QStandardItem *item )
         if ( heading->text_changed )
         {
             // Update heading title attribute (if used) or the value itself
-            if ( heading->element.hasAttribute( "title" ) )
+            if ( heading->element->hasAttribute( QtoX( "title" ) ) )
             {
-                heading->element.setAttribute( "title", heading->text );
+                heading->element->setAttribute( QtoX( "title" ), QtoX( heading->text ) );
             }
 
             else
             {
-                QDomNode element = XHTMLDoc::RemoveChildren( heading->element );
-                element.appendChild( element.ownerDocument().createTextNode( heading->text ) );
+                XHTMLDoc::RemoveChildren( *heading->element );
+                heading->element->appendChild( 
+                    heading->element->getOwnerDocument()->createTextNode( QtoX( heading->text ) ) );
             }
         }
 
         // Update heading inclusion: if a heading element
         // has the NOT_IN_TOC_CLASS class, then it's not in the TOC
-        QString class_attribute = heading->element.attribute( "class", "" )
+        QString class_attribute = XtoQ( heading->element->getAttribute( QtoX( "class" ) ) )
                                   .remove( NOT_IN_TOC_CLASS )
                                   .simplified();
 
@@ -148,11 +150,11 @@ void TOCEditor::UpdateOneHeadingElement( QStandardItem *item )
 
         if ( !class_attribute.isEmpty() )
 
-            heading->element.setAttribute( "class", class_attribute );
+            heading->element->setAttribute( QtoX( "class" ), QtoX( class_attribute ) );
 
         else
             
-            heading->element.removeAttribute( "class" );
+            heading->element->removeAttribute( QtoX( "class" ) );
         
         heading->resource_file->MarkSecondaryCachesAsOld();
     }

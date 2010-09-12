@@ -24,6 +24,7 @@
 #include "ResourceObjects/HTMLResource.h"
 #include "../BookManipulation/XHTMLDoc.h"
 #include "../Misc/Utility.h"
+#include "BookManipulation/XercesCppUse.h"
 
 
 void AnchorUpdates::UpdateAllAnchorsWithIDs( const QList< HTMLResource* > &html_resources )
@@ -64,7 +65,7 @@ tuple< QString, QList< QString > > AnchorUpdates::GetOneFileIDs( HTMLResource* h
     QReadLocker locker( &html_resource->GetLock() );
 
     return make_tuple( html_resource->Filename(),
-        XHTMLDoc::GetAllChildIDs( html_resource->GetDomDocumentForReading().documentElement() ) );
+        XHTMLDoc::GetAllDescendantIDs( *html_resource->GetDomDocumentForReading().getDocumentElement() ) );
 }
 
 
@@ -75,24 +76,24 @@ void AnchorUpdates::UpdateAnchorsInOneFile( HTMLResource *html_resource,
 
     QWriteLocker locker( &html_resource->GetLock() );
 
-    QDomDocument document = html_resource->GetDomDocumentForWriting();
-    QDomNodeList anchors  = document.elementsByTagName( "a" );
+    xc::DOMDocument &document = html_resource->GetDomDocumentForWriting();
+    xc::DOMNodeList *anchors  = document.getElementsByTagName( QtoX( "a" ) );
 
     const QString &resource_filename = html_resource->Filename();
 
-    for ( int i = 0; i < anchors.count(); ++i )
+    for ( uint i = 0; i < anchors->getLength(); ++i )
     {
-        QDomElement element = anchors.at( i ).toElement();
+        xc::DOMElement &element = *static_cast< xc::DOMElement* >( anchors->item( i ) ); 
 
-        Q_ASSERT( !element.isNull() );
+        Q_ASSERT( &element );
 
-        if ( element.hasAttribute( "href" ) &&
-             QUrl( element.attribute( "href" ) ).isRelative() &&
-             element.attribute( "href" ).contains( "#" )
+        if ( element.hasAttribute( QtoX( "href" ) ) &&
+             QUrl( XtoQ( element.getAttribute( QtoX(  "href" ) ) ) ).isRelative() &&
+             XtoQ( element.getAttribute( QtoX(  "href" ) ) ).contains( "#" )
             )
         {
-            const QString &href = element.attribute( "href" );
-            const QString &id   = href.right( href.size() - ( href.indexOf( QChar( '#' ) ) + 1 ) );
+            QString href = XtoQ( element.getAttribute( QtoX( "href" ) ) );
+            QString id   = href.right( href.size() - ( href.indexOf( QChar( '#' ) ) + 1 ) );
 
             // If the ID is in a different file, update the link
             if ( ID_locations.value( id ) != resource_filename )
@@ -104,7 +105,7 @@ void AnchorUpdates::UpdateAnchorsInOneFile( HTMLResource *html_resource,
                                           .append( "#" )
                                           .append( id );
 
-                element.setAttribute( "href", attribute_value ); 
+                element.setAttribute( QtoX( "href" ), QtoX( attribute_value ) ); 
                 html_resource->MarkSecondaryCachesAsOld();
             }
         } 

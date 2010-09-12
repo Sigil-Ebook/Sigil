@@ -21,16 +21,16 @@
 
 #include <stdafx.h>
 #include "ImportHTML.h"
-#include "../Misc/Utility.h"
-#include "../Misc/HTMLEncodingResolver.h"
-#include "../BookManipulation/Metadata.h"
-#include "../BookManipulation/CleanSource.h"
+#include "Misc/Utility.h"
+#include "Misc/HTMLEncodingResolver.h"
+#include "BookManipulation/Metadata.h"
+#include "BookManipulation/CleanSource.h"
+#include "BookManipulation/XercesCppUse.h"
 #include "ResourceObjects/HTMLResource.h"
 #include "ResourceObjects/CSSResource.h"
-#include "../SourceUpdates/PerformHTMLUpdates.h"
-#include "../SourceUpdates/UniversalUpdates.h"
-#include "../BookManipulation/XHTMLDoc.h"
-#include <QDomDocument>
+#include "SourceUpdates/PerformHTMLUpdates.h"
+#include "SourceUpdates/UniversalUpdates.h"
+#include "BookManipulation/XHTMLDoc.h"
 
 static const QString ENTITY_SEARCH = "<!ENTITY\\s+(\\w+)\\s+\"([^\"]+)\">";
 
@@ -58,13 +58,12 @@ QSharedPointer< Book > ImportHTML::GetBook()
 
         boost_throw( CannotReadFile() << errinfo_file_fullpath( m_FullFilePath.toStdString() ) );
 
-    QDomDocument document;
-    XHTMLDoc::LoadTextIntoDocument( LoadSource(), document );
+    shared_ptr< xc::DOMDocument > document = XHTMLDoc::LoadTextIntoDocument( LoadSource() );
 
-    StripFilesFromAnchors( document );
-    LoadMetadata( document );
+    StripFilesFromAnchors( *document );
+    LoadMetadata( *document );
 
-    UpdateFiles( CreateHTMLResource(), document, LoadFolderStructure( document ) );
+    UpdateFiles( CreateHTMLResource(), *document, LoadFolderStructure( *document ) );
 
     return m_Book;
 }
@@ -120,44 +119,44 @@ QString ImportHTML::ResolveCustomEntities( const QString &html_source ) const
 // of anchor tags with filesystem links with fragment identifiers;
 // thus something like <a href="chapter01.html#firstheading" />
 // becomes just <a href="#firstheading" />
-void ImportHTML::StripFilesFromAnchors( QDomDocument &document )
+void ImportHTML::StripFilesFromAnchors( xc::DOMDocument &document )
 {
-    QDomNodeList anchors = document.elementsByTagName( "a" );
+    QList< xc::DOMElement* > anchors = XHTMLDoc::GetTagMatchingDescendants( document, "a" );
 
     for ( int i = 0; i < anchors.count(); ++i )
     {
-        QDomElement element = anchors.at( i ).toElement();
-
-        Q_ASSERT( !element.isNull() );
+        xc::DOMElement &element = *anchors.at( i );
+        Q_ASSERT( &element );
 
         // We strip the file specifier on all
         // the filesystem links with fragment identifiers
-        if ( element.hasAttribute( "href" ) &&
-             QUrl( element.attribute( "href" ) ).isRelative() &&
-             element.attribute( "href" ).contains( "#" )
+        if ( element.hasAttribute( QtoX( "href" ) ) &&
+             QUrl( XtoQ( element.getAttribute( QtoX( "href" ) ) ) ).isRelative() &&
+             XtoQ( element.getAttribute( QtoX( "href" ) ) ).contains( "#" )
            )
         {
-            element.setAttribute( "href", "#" + element.attribute( "href" ).split( "#" )[ 1 ] );            
+            QString value = ( "#" + XtoQ( element.getAttribute( QtoX( "href" ) ) ).split( "#" )[ 1 ] );
+            element.setAttribute( QtoX( "href" ), QtoX( value ) );            
         } 
     }     
 }
 
 // Searches for meta information in the HTML file
 // and tries to convert it to Dublin Core
-void ImportHTML::LoadMetadata( const QDomDocument &document )
+void ImportHTML::LoadMetadata( const xc::DOMDocument &document )
 {
-    QDomNodeList metatags = document.elementsByTagName( "meta" );
+    QList< xc::DOMElement* > metatags = XHTMLDoc::GetTagMatchingDescendants( document, "meta" );
 
     QHash< QString, QList< QVariant > > metadata;
 
     for ( int i = 0; i < metatags.count(); ++i )
     {
-        QDomElement element = metatags.at( i ).toElement();
+        xc::DOMElement &element = *metatags.at( i );
 
         Metadata::MetaElement meta;
-        meta.name  = element.attribute( "name" );
-        meta.value = element.attribute( "content" );
-        meta.attributes[ "scheme" ] = element.attribute( "scheme" );
+        meta.name  = XtoQ( element.getAttribute( QtoX( "name" ) ) );
+        meta.value = XtoQ( element.getAttribute( QtoX( "content" ) ) );
+        meta.attributes[ "scheme" ] = XtoQ( element.getAttribute( QtoX( "scheme" ) ) );
 
         if ( ( !meta.name.isEmpty() ) && ( !meta.value.toString().isEmpty() ) ) 
         { 
@@ -194,7 +193,7 @@ HTMLResource& ImportHTML::CreateHTMLResource()
 
 
 void ImportHTML::UpdateFiles( HTMLResource &html_resource, 
-                              QDomDocument &document,
+                              xc::DOMDocument &document,
                               const QHash< QString, QString > &updates )
 {
     Q_ASSERT( &html_resource != NULL );
@@ -229,12 +228,12 @@ void ImportHTML::UpdateFiles( HTMLResource &html_resource,
 
 // Loads the referenced files into the main folder of the book;
 // as the files get a new name, the references are updated
-QHash< QString, QString > ImportHTML::LoadFolderStructure( const QDomDocument &document )
+QHash< QString, QString > ImportHTML::LoadFolderStructure( const xc::DOMDocument &document )
 {
     QFutureSynchronizer< QHash< QString, QString > > sync;
 
-    sync.addFuture( QtConcurrent::run( this, &ImportHTML::LoadImages,     document ) );
-    sync.addFuture( QtConcurrent::run( this, &ImportHTML::LoadStyleFiles, document ) );
+    sync.addFuture( QtConcurrent::run( this, &ImportHTML::LoadImages,     &document ) );
+    sync.addFuture( QtConcurrent::run( this, &ImportHTML::LoadStyleFiles, &document ) );
     
     sync.waitForFinished();
 
@@ -253,9 +252,9 @@ QHash< QString, QString > ImportHTML::LoadFolderStructure( const QDomDocument &d
 
 
 // Loads the images into the book
-QHash< QString, QString > ImportHTML::LoadImages( const QDomDocument &document )
+QHash< QString, QString > ImportHTML::LoadImages( const xc::DOMDocument *document )
 {
-    QStringList image_paths = XHTMLDoc::GetImagePathsFromImageChildren( document );
+    QStringList image_paths = XHTMLDoc::GetImagePathsFromImageChildren( *document );
     QHash< QString, QString > updates;
     QDir folder( QFileInfo( m_FullFilePath ).absoluteDir() );
 
@@ -283,18 +282,18 @@ QHash< QString, QString > ImportHTML::LoadImages( const QDomDocument &document )
 }
 
 
-QHash< QString, QString > ImportHTML::LoadStyleFiles( const QDomDocument &document )
+QHash< QString, QString > ImportHTML::LoadStyleFiles( const xc::DOMDocument *document )
 {
-    QDomNodeList link_nodes = document.elementsByTagName( "link" );
+    QList< xc::DOMElement* > link_nodes = XHTMLDoc::GetTagMatchingDescendants( *document, "link" );
     QHash< QString, QString > updates;
 
     for ( int i = 0; i < link_nodes.count(); ++i )
     {
-        QDomElement element = link_nodes.at( i ).toElement();
-        Q_ASSERT( !element.isNull() );
+        xc::DOMElement &element = *link_nodes.at( i );
+        Q_ASSERT( &element );
 
         QDir folder( QFileInfo( m_FullFilePath ).absoluteDir() );
-        QString relative_path = Utility::URLDecodePath( element.attribute( "href" ) );
+        QString relative_path = Utility::URLDecodePath( XtoQ( element.getAttribute( QtoX( "href" ) ) ) );
 
         QFileInfo file_info( folder, relative_path );
 

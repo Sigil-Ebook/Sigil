@@ -22,9 +22,10 @@
 #include <stdafx.h>
 #include "PerformHTMLUpdates.h"
 #include "PerformCSSUpdates.h"
-#include "../BookManipulation/XHTMLDoc.h"
-#include "../Misc/Utility.h"
-#include <QDomDocument>
+#include "BookManipulation/XHTMLDoc.h"
+#include "BookManipulation/XercesCppUse.h"
+#include "Misc/Utility.h"
+
 
 static const QStringList PATH_TAGS       = QStringList() << "link" << "a" << "img" << "image";
 static const QStringList PATH_ATTRIBUTES = QStringList() << "href" << "src";
@@ -39,30 +40,29 @@ PerformHTMLUpdates::PerformHTMLUpdates( const QString &source,
     m_HTMLUpdates( html_updates ),
     m_CSSUpdates( css_updates )
 {
-    XHTMLDoc::LoadTextIntoDocument( source, m_Document );
+    m_Document = XHTMLDoc::LoadTextIntoDocument( source );
 }
 
 
-PerformHTMLUpdates::PerformHTMLUpdates( const QDomDocument &document, 
+PerformHTMLUpdates::PerformHTMLUpdates( const xc::DOMDocument &document, 
                                         const QHash< QString, QString > &html_updates, 
                                         const QHash< QString, QString > &css_updates )
     : 
     m_HTMLUpdates( html_updates ),
     m_CSSUpdates( css_updates )
 {
-    m_Document = document;
+    m_Document = XHTMLDoc::CopyDomDocument( document );
 }
 
 
-QDomDocument PerformHTMLUpdates::operator()()
+shared_ptr< xc::DOMDocument > PerformHTMLUpdates::operator()()
 {
     UpdateHTMLReferences();
 
     if ( !m_CSSUpdates.isEmpty() )
     {
-        XHTMLDoc::LoadTextIntoDocument( 
-            PerformCSSUpdates( XHTMLDoc::GetQDomNodeAsString( m_Document ), m_CSSUpdates )(),
-            m_Document );
+        m_Document = XHTMLDoc::LoadTextIntoDocument( 
+            PerformCSSUpdates( XHTMLDoc::GetDomNodeAsString( *m_Document ), m_CSSUpdates )() );
     }
 
     return m_Document;
@@ -71,7 +71,7 @@ QDomDocument PerformHTMLUpdates::operator()()
 
 void PerformHTMLUpdates::UpdateHTMLReferences()
 {
-    QList< QDomNode > nodes = XHTMLDoc::GetTagMatchingChildren( m_Document.documentElement(), PATH_TAGS );
+    QList< xc::DOMElement* > nodes = XHTMLDoc::GetTagMatchingDescendants( *m_Document->getDocumentElement(), PATH_TAGS );
 
     int node_count = nodes.count();
 
@@ -90,17 +90,18 @@ void PerformHTMLUpdates::UpdateHTMLReferences()
 // This function has been brutally optimized since it is the main
 // bottleneck during loading (well, not anymore :) ).
 // Be vewy, vewy careful when editing it.
-void PerformHTMLUpdates::UpdateReferenceInNode( QDomNode node )
+void PerformHTMLUpdates::UpdateReferenceInNode( xc::DOMElement *node )
 {
-    QDomNamedNodeMap attributes = node.attributes();
-    int num_attributes = attributes.count();
+    xc::DOMNamedNodeMap &attributes = *node->getAttributes();
+    int num_attributes = attributes.getLength();
 
     const QList< QString > &keys = m_HTMLUpdates.keys();
     int num_keys = keys.count();
 
     for ( int i = 0; i < num_attributes; ++i )
     {
-        QDomAttr attribute = attributes.item( i ).toAttr();
+        xc::DOMAttr &attribute = *static_cast< xc::DOMAttr* >( attributes.item( i ) );
+        Q_ASSERT( &attribute );
 
         if ( !PATH_ATTRIBUTES.contains( XHTMLDoc::GetAttributeName( attribute ), Qt::CaseInsensitive ) )
 
@@ -110,7 +111,7 @@ void PerformHTMLUpdates::UpdateReferenceInNode( QDomNode node )
         {
             const QString &key_path        = keys.at( j );
             const QString &filename        = QFileInfo( key_path ).fileName();
-            const QString &atrribute_value = Utility::URLDecodePath( attribute.value() );
+            const QString &atrribute_value = Utility::URLDecodePath( XtoQ( attribute.getValue() ) );
 
             int name_index = atrribute_value.lastIndexOf( filename );
 
@@ -168,7 +169,7 @@ void PerformHTMLUpdates::UpdateReferenceInNode( QDomNode node )
 
             if ( !new_path.isEmpty() )
             {
-                attribute.setValue( Utility::URLEncodePath( new_path ) );
+                attribute.setValue( QtoX( Utility::URLEncodePath( new_path ) ) );
 
                 // We assign to "i" to break the outer loop
                 i = num_attributes;

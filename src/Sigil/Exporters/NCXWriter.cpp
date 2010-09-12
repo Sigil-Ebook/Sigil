@@ -21,9 +21,10 @@
 
 #include <stdafx.h>
 #include "NCXWriter.h"
-#include "../BookManipulation/Book.h"
-#include "../Misc/Utility.h"
+#include "BookManipulation/Book.h"
+#include "Misc/Utility.h"
 #include "ResourceObjects/HTMLResource.h"
+#include "BookManipulation/XercesCppUse.h"
 
 
 NCXWriter::NCXWriter( QSharedPointer< Book > book, QIODevice &device )
@@ -179,13 +180,15 @@ void NCXWriter::WriteNavPoint( const Headings::Heading &heading, int &play_order
         // then it "represents" and links to its file; otherwise,
         // we link to the heading element directly
         if ( heading.at_file_start )
-        
+        {
             m_Writer->writeAttribute( "src", Utility::URLEncodePath( heading_file ) );
+        }
 
         else
-            
-            m_Writer->writeAttribute( "src", Utility::URLEncodePath( 
-                                                heading_file + "#" + heading.element.attribute( "id" ) ) );
+        { 
+            QString path = heading_file + "#" + XtoQ( heading.element->getAttribute( QtoX( "id" ) ) );
+            m_Writer->writeAttribute( "src", Utility::URLEncodePath( path ) );
+        }
     }
 
     foreach( Headings::Heading child, heading.children )

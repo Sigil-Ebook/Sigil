@@ -27,7 +27,6 @@
 #include "../Misc/XHTMLHighlighter.h"
 #include "../Misc/CSSHighlighter.h"
 #include "../Misc/Utility.h"
-#include <QDomDocument>
 
 static const int COLOR_FADE_AMOUNT       = 175;
 static const int TAB_SPACES_WIDTH        = 4;
@@ -593,15 +592,15 @@ QList< ViewEditor::ElementIndex > CodeViewEditor::ConvertStackToHierarchy( const
 
 tuple< int, int > CodeViewEditor::ConvertHierarchyToCaretMove( const QList< ViewEditor::ElementIndex > &hierarchy ) const
 {
-    QDomDocument dom;
-    XHTMLDoc::LoadTextIntoDocument( toPlainText(), dom );
+    shared_ptr< xc::DOMDocument > dom = XHTMLDoc::LoadTextIntoDocument( toPlainText() );
 
-    QDomNode end_node = XHTMLDoc::GetNodeFromHierarchy( dom, hierarchy );
+    xc::DOMNode *end_node = XHTMLDoc::GetNodeFromHierarchy( *dom, hierarchy );
     QTextCursor cursor( document() );
 
-    if ( !end_node.isNull() ) 
+    if ( end_node ) 
     
-        return make_tuple( end_node.lineNumber() - cursor.blockNumber(), end_node.columnNumber() ); 
+        return make_tuple( XHTMLDoc::NodeLineNumber( *end_node ) - cursor.blockNumber(), 
+                           XHTMLDoc::NodeColumnNumber( *end_node ) ); 
     
     else
     

@@ -19,18 +19,18 @@
 **
 *************************************************************************/
 
-#include <QtGui>
-#include <QtWebKit>
-#include <boost/shared_ptr.hpp>
-#include <boost/tuple/tuple.hpp>
-#include <boost/bind/bind.hpp>
-#include <boost/lambda/lambda.hpp>
-#include "constants.h"
-#include "exception.h"
+#pragma once
+#ifndef XERCESCPPUSE_H
+#define XERCESCPPUSE_H
 
-// We will be using these everywhere,
-// so let's make life a bit easier.
-using boost::tuple;
-using boost::make_tuple;
-using boost::tie;
-using boost::shared_ptr;
+#include <xercesc/dom/DOM.hpp>
+#include <xercesc/util/XMLString.hpp>
+#include <xercesc/util/PlatformUtils.hpp>
+#include <xercesc/parsers/XercesDOMParser.hpp>
+
+namespace xc = XERCES_CPP_NAMESPACE;
+
+#define QtoX( str ) QString( (str) ).utf16()
+#define XtoQ( str ) QString( (const QChar *) (str) )
+
+#endif // XERCESCPPUSE_H

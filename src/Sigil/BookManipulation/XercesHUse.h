@@ -19,18 +19,20 @@
 **
 *************************************************************************/
 
-#include <QtGui>
-#include <QtWebKit>
-#include <boost/shared_ptr.hpp>
-#include <boost/tuple/tuple.hpp>
-#include <boost/bind/bind.hpp>
-#include <boost/lambda/lambda.hpp>
-#include "constants.h"
-#include "exception.h"
+#pragma once
+#ifndef XERCEHSUSE_H
+#define XERCEHSUSE_H
 
-// We will be using these everywhere,
-// so let's make life a bit easier.
-using boost::tuple;
-using boost::make_tuple;
-using boost::tie;
-using boost::shared_ptr;
+#include <xercesc/util/XercesDefs.hpp>
+namespace XERCES_CPP_NAMESPACE 
+{
+    class DOMNode;
+    class DOMAttr;
+    class DOMDocument;
+    class DOMDocumentFragment;
+    class DOMElement;
+    class DOMNodeList;    
+};
+namespace xc = XERCES_CPP_NAMESPACE;
+
+#endif // XERCEHSUSE_H

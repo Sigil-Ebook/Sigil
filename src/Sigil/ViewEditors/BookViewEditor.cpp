@@ -21,11 +21,12 @@
 
 #include <stdafx.h>
 #include "BookViewEditor.h"
-#include "../BookManipulation/Book.h"
-#include "../BookManipulation/XHTMLDoc.h"
-#include "../BookManipulation/CleanSource.h"
-#include "../Misc/Utility.h"
-#include <QDomDocument>
+#include "BookManipulation/Book.h"
+#include "BookManipulation/XHTMLDoc.h"
+#include "BookManipulation/CleanSource.h"
+#include "Misc/Utility.h"
+#include "BookManipulation/XercesCppUse.h"
+
 
 const int PROGRESS_BAR_MINIMUM_DURATION = 1500;
 
@@ -269,7 +270,7 @@ bool BookViewEditor::FindNext( const QRegExp &search_regex,
 
     else
         
-        selection_offset = GetSelectionOffset( search_tools.document, search_tools.node_offsets, search_direction ); 
+        selection_offset = GetSelectionOffset( *search_tools.document, search_tools.node_offsets, search_direction ); 
 
     QRegExp result_regex = search_regex;
     RunSearchRegex( result_regex, search_tools.fulltext, selection_offset, search_direction ); 
@@ -278,7 +279,7 @@ bool BookViewEditor::FindNext( const QRegExp &search_regex,
     {
         SelectRangeInputs input = GetRangeInputs( search_tools.node_offsets, result_regex.pos(), result_regex.matchedLength() );
         SelectTextRange( input );
-        ScrollToNodeText( input.start_node, input.start_node_index );  
+        ScrollToNodeText( *input.start_node, input.start_node_index );  
 
         return true;
     } 
@@ -301,7 +302,7 @@ bool BookViewEditor::ReplaceSelected( const QRegExp &search_regex, const QString
 
     // We ALWAYS say Direction_Up because we want
     // the "back" index of the selection range
-    int selection_offset = GetSelectionOffset( search_tools.document, search_tools.node_offsets, Searchable::Direction_Up ); 
+    int selection_offset = GetSelectionOffset( *search_tools.document, search_tools.node_offsets, Searchable::Direction_Up ); 
 
     QRegExp result_regex = search_regex;
 
@@ -546,11 +547,11 @@ int BookViewEditor::GetLocalSelectionOffset( bool start_of_selection )
 }
 
 
-int BookViewEditor::GetSelectionOffset( const QDomDocument &document,
-                                        const QMap< int, QDomNode > &node_offsets, 
+int BookViewEditor::GetSelectionOffset( const xc::DOMDocument &document,
+                                        const QMap< int, xc::DOMNode* > &node_offsets, 
                                         Searchable::Direction search_direction )
 {
-    QDomNode caret_node = XHTMLDoc::GetNodeFromHierarchy( document, GetCaretLocation() );
+    xc::DOMNode *caret_node = XHTMLDoc::GetNodeFromHierarchy( document, GetCaretLocation() );
 
     bool searching_down = search_direction == Searchable::Direction_Down || 
                           search_direction == Searchable::Direction_All ? true : false;
@@ -566,12 +567,12 @@ BookViewEditor::SearchTools BookViewEditor::GetSearchTools() const
 {
     SearchTools search_tools;
     search_tools.fulltext = "";
-    XHTMLDoc::LoadTextIntoDocument( page()->mainFrame()->toHtml(), search_tools.document );
+    search_tools.document = XHTMLDoc::LoadTextIntoDocument( page()->mainFrame()->toHtml() );
 
-    QList< QDomNode > text_nodes = XHTMLDoc::GetVisibleTextNodes( 
-                                    search_tools.document.elementsByTagName( "body" ).at( 0 ) );
+    QList< xc::DOMNode* > text_nodes = XHTMLDoc::GetVisibleTextNodes( 
+        *( search_tools.document->getElementsByTagName( QtoX( "body" ) )->item( 0 ) ) );
 
-    QDomNode current_block_ancestor;    
+    xc::DOMNode *current_block_ancestor = NULL;    
 
     // We concatenate all text nodes that have the same 
     // block level ancestor element. A newline is added
@@ -579,12 +580,12 @@ BookViewEditor::SearchTools BookViewEditor::GetSearchTools() const
     // We also record the starting offset of every text node.
     for ( int i = 0; i < text_nodes.count(); ++i )
     {
-        QDomNode new_block_ancestor = XHTMLDoc::GetAncestorBlockElement( text_nodes[ i ] );
+        xc::DOMNode *new_block_ancestor = &XHTMLDoc::GetAncestorBlockElement( *text_nodes[ i ] );
 
         if ( new_block_ancestor == current_block_ancestor )
         {
             search_tools.node_offsets[ search_tools.fulltext.length() ] = text_nodes[ i ];
-            search_tools.fulltext.append( text_nodes[ i ].nodeValue() );
+            search_tools.fulltext.append( XtoQ( text_nodes[ i ]->getNodeValue() ) );
         }
 
         else
@@ -593,7 +594,7 @@ BookViewEditor::SearchTools BookViewEditor::GetSearchTools() const
             search_tools.fulltext.append( "\n" );
 
             search_tools.node_offsets[ search_tools.fulltext.length() ] = text_nodes[ i ];
-            search_tools.fulltext.append( text_nodes[ i ].nodeValue() );
+            search_tools.fulltext.append( XtoQ( text_nodes[ i ]->getNodeValue() ) );
         }
     }
 
@@ -636,7 +637,7 @@ QString BookViewEditor::GetElementSelectingJS_WithTextNode( const QList< ViewEdi
 }
 
 
-QWebElement BookViewEditor::QDomNodeToQWebElement( const QDomNode &node )
+QWebElement BookViewEditor::DomNodeToQWebElement( const xc::DOMNode &node )
 {
     const QList< ViewEditor::ElementIndex > &hierarchy = XHTMLDoc::GetHierarchyFromNode( node );
     QWebElement element = page()->mainFrame()->documentElement();
@@ -679,14 +680,14 @@ bool BookViewEditor::ExecuteCaretUpdate()
 }
 
 
-BookViewEditor::SelectRangeInputs BookViewEditor::GetRangeInputs( const QMap< int, QDomNode > &node_offsets,
+BookViewEditor::SelectRangeInputs BookViewEditor::GetRangeInputs( const QMap< int, xc::DOMNode* > &node_offsets,
                                                                   int string_start, 
                                                                   int string_length ) const
 {
     SelectRangeInputs input;
 
     QList< int > offsets = node_offsets.keys();
-    int last_offset = offsets.first();
+    int last_offset      = offsets.first();
 
     for ( int i = 0; i < offsets.length(); ++i )
     {
@@ -701,10 +702,10 @@ BookViewEditor::SelectRangeInputs BookViewEditor::GetRangeInputs( const QMap< in
         else
 
             // + 1 because we are pretending there is another text node after this one
-            next_offset = offsets[ i ] + node_offsets[ offsets[ i ] ].nodeValue().length() + 1;
+            next_offset = offsets[ i ] + XtoQ( node_offsets[ offsets[ i ] ]->getNodeValue() ).length() + 1;
 
         if ( next_offset > string_start && 
-             input.start_node.isNull() 
+             input.start_node == NULL
            )
         {
             input.start_node_index = string_start - last_offset;
@@ -712,14 +713,14 @@ BookViewEditor::SelectRangeInputs BookViewEditor::GetRangeInputs( const QMap< in
         }
 
         if ( next_offset > string_start + string_length &&
-             input.end_node.isNull() 
+             input.end_node == NULL 
            )
         {
             input.end_node_index = string_start + string_length - last_offset;
             input.end_node       = node_offsets.value( last_offset );
         }
 
-        if ( !input.start_node.isNull() && !input.end_node.isNull() )
+        if ( input.start_node != NULL && input.end_node != NULL )
 
             break;
 
@@ -727,7 +728,7 @@ BookViewEditor::SelectRangeInputs BookViewEditor::GetRangeInputs( const QMap< in
     }
 
     // TODO: throw an exception
-    Q_ASSERT( !input.start_node.isNull() && !input.end_node.isNull() );
+    Q_ASSERT( input.start_node != NULL && input.end_node != NULL );
 
     return input;
 }
@@ -735,8 +736,8 @@ BookViewEditor::SelectRangeInputs BookViewEditor::GetRangeInputs( const QMap< in
 
 QString BookViewEditor::GetRangeJS( const SelectRangeInputs &input ) const
 {
-    QString start_node_js = GetElementSelectingJS_WithTextNode( XHTMLDoc::GetHierarchyFromNode( input.start_node ) );
-    QString end_node_js   = GetElementSelectingJS_WithTextNode( XHTMLDoc::GetHierarchyFromNode( input.end_node   ) );
+    QString start_node_js = GetElementSelectingJS_WithTextNode( XHTMLDoc::GetHierarchyFromNode( *input.start_node ) );
+    QString end_node_js   = GetElementSelectingJS_WithTextNode( XHTMLDoc::GetHierarchyFromNode( *input.end_node   ) );
 
     QString start_node_index = QString::number( input.start_node_index );
     QString end_node_index   = QString::number( input.end_node_index );
@@ -758,9 +759,9 @@ void BookViewEditor::SelectTextRange( const SelectRangeInputs &input )
 }
 
 
-void BookViewEditor::ScrollToNodeText( const QDomNode &node, int character_offset )
+void BookViewEditor::ScrollToNodeText( const xc::DOMNode &node, int character_offset )
 {
-    const QWebElement element = QDomNodeToQWebElement( node );
+    const QWebElement element = DomNodeToQWebElement( node );
     QRect element_geometry    = element.geometry();
 
     int elem_offset  = element_geometry.top();
