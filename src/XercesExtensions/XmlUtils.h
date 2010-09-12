@@ -37,6 +37,8 @@ namespace XercesExt
 {
     NodeLocationInfo GetNodeLocationInfo( const xc::DOMNode &node );
 
+    NodeLocationInfo GetNearestNodeLocationInfo( const xc::DOMNode &node );
+
     /**
      * Returns a list of elements that are descendants of the provided element
      * that also match the provided qualified name.

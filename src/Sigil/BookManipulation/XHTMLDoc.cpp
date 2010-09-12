@@ -290,13 +290,13 @@ shared_ptr< xc::DOMDocument > XhtmlDoc::RaiiWrapDocument( xc::DOMDocument *docum
 
 int XhtmlDoc::NodeLineNumber( const xc::DOMNode &node )
 {
-    return XercesExt::GetNodeLocationInfo( node ).LineNumber;
+    return XercesExt::GetNearestNodeLocationInfo( node ).LineNumber;
 }
 
 
 int XhtmlDoc::NodeColumnNumber( const xc::DOMNode &node )
 {
-    return XercesExt::GetNodeLocationInfo( node ).ColumnNumber;
+    return XercesExt::GetNearestNodeLocationInfo( node ).ColumnNumber;
 }
 
 

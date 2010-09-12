@@ -50,6 +50,34 @@ NodeLocationInfo GetNodeLocationInfo( const xc::DOMNode &node )
 }
 
 
+XercesExt::NodeLocationInfo GetNearestNodeLocationInfo( const xc::DOMNode &node )
+{
+    const xc::DOMNode *current_node = &node;
+    NodeLocationInfo location;
+
+    while ( true )
+    {
+        location = GetNodeLocationInfo( *current_node );
+
+        if ( location.LineNumber != -1 )
+        {
+            break;                        
+        }
+
+        else
+        {
+            current_node = current_node->getParentNode();
+
+            if ( !current_node )
+
+                break;   
+        }        
+    }
+
+    return location;
+}
+
+
 std::vector< xc::DOMElement* > GetElementsByQName( const xc::DOMElement &start_element, 
                                                    const QName &element_qname )
 {
