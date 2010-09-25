@@ -15,4 +15,11 @@ dirname=$PWD/$dirname
 fi
 LD_LIBRARY_PATH=$dirname
 export LD_LIBRARY_PATH
-$dirname/$appname $* 
+#if no agruments are passed then call just sigil program; else pass arguments.
+if [$* == ""]
+then
+$dirname/$appname 
+else
+#argument may not be pass correctly without qoutation marks.
+$dirname/$appname "$*"
+fi
