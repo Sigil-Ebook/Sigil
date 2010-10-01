@@ -1,4 +1,7 @@
 Sigil v0.3.0RC1 ADD_DATE
+    - on Mac OS X, the universal build now includes an x64 version of Sigil, and builds now
+    use Cocoa instead of Carbon; support for Mac OS X 10.4 is dropped along with support for
+    PowerPC Macs
     - fixed a problem with opening files from the Ubuntu "Open With" menu (issue #524)
     - made Tidy handle common user errors like "&co." in the HTML source instead of "&amp;co."
     - fixed a rare Tidy bug with dissapearing spaces when the only whitespace in an element was 
