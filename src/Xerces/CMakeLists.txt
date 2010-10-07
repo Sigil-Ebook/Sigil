@@ -80,6 +80,10 @@ file(GLOB to_remove xercesc/dom/impl/DOMDeepNodeListPool.c
                     xercesc/util/ValueHashTableOf.c 
                     xercesc/util/ValueStackOf.c 
                     xercesc/util/ValueVectorOf.c
+					
+                    # these are just not needed
+                    towlower.c
+                    towupper.c
                     )
                     
 list(REMOVE_ITEM SOURCES ${to_remove} )
@@ -98,7 +102,7 @@ if( MSVC )
     list( REMOVE_ITEM SOURCES ${to_remove} )
 else()
     if( APPLE )
-        add_to_sources( xercesc/util/Transcoders/MacOSUnicodeConverter )
+        add_to_sources( xercesc/util/Transcoders/Iconv )
     else()
         add_to_sources( xercesc/util/Transcoders/IconvGNU )
     endif()    
@@ -124,7 +128,11 @@ add_definitions( -DXERCES_STATIC_LIBRARY
                  -DHAVE_WCSNICMP
                  -DHAVE_STRING_H
                  -DHAVE_STRCASECMP
-                 -DHAVE_STRNCASECMP )
+                 -DHAVE_STRNCASECMP
+                 -DHAVE_WCHAR_H
+                 -DHAVE_WCTYPE_H
+                 -DHAVE_TOWLOWER
+                 -DHAVE_TOWUPPER )
 
 if( MSVC )
     add_definitions( -DUNICODE -D_UNICODE )
@@ -147,7 +155,23 @@ if( MSVC )
     
 else()
     add_definitions( -DXERCES_USE_FILEMGR_POSIX
-                     -DXERCES_USE_TRANSCODER_GNUICONV
                      -DXERCES_USE_MUTEXMGR_POSIX 
-                   )                     
+                   )  
+    
+    if( APPLE )
+        add_definitions( -DXERCES_USE_TRANSCODER_ICONV )
+    else()
+        add_definitions( -DXERCES_USE_TRANSCODER_GNUICONV )
+    endif()
+    
+    if( CMAKE_COMPILER_IS_GNUCXX )
+        # SSE2 autodetection sometimes fails on Linux, so we'll just
+        # require the presence of SSE2. Everything since the year 2000 (Pentium 4)
+        # has it, so it's not like we're leaving anyone out.
+        add_definitions( -msse2 ) 
+    endif()
+                   
+    # We need to link to pthreads on unix                                 
+    target_link_libraries( ${PROJECT_NAME} pthread )
+                       
 endif()
