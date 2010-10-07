@@ -80,7 +80,7 @@ void GuideSemantics::CreateGuideMapping()
         = make_tuple( QString( "glossary" ),        QString( "Glossary" ) );
 
     m_GuideTypeMapping[ GuideSemantics::Acknowledgments ] 
-        = make_tuple( QString( "acknowledgments" ), QString( "Acknowledgments" ) );
+        = make_tuple( QString( "acknowledgements" ), QString( "Acknowledgements" ) );
 
     m_GuideTypeMapping[ GuideSemantics::Bibliography ] 
         = make_tuple( QString( "bibliography" ),    QString( "Bibliography" ) );
