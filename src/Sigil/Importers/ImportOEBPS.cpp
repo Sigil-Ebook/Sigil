@@ -86,7 +86,7 @@ void ImportOEBPS::ExtractContainer()
                 #ifdef Q_WS_WIN
                 std::string filename = QString::fromStdWString( file_header->GetFileName() ).toStdString();
                 #else
-                std::string filename = QString::fromStdWString( file_header->GetFileName().c_str() ).toStdString();
+                std::string filename = QString::fromAscii( file_header->GetFileName().c_str() ).toStdString();
                 #endif
 
                 zip.Close(); 
