@@ -446,7 +446,7 @@ void OPFWriter::CreateMimetypes()
     // Until the standards gods grace us with font mimetypes,
     // these will have to do
     m_Mimetypes[ "otf"   ] = "application/x-font-opentype"; 
-    m_Mimetypes[ "ttf"   ] = "application/x-font-truetype";
+    m_Mimetypes[ "ttf"   ] = "application/x-font-ttf";
 }
 
 
