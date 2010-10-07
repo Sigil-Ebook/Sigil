@@ -21,6 +21,8 @@ Sigil v0.3.0RC1 ADD_DATE
     have onerous file permissions set for internal content files (issue #574)
     - added a workaround for broken epubs created by other epub-producing software which caused
     a crash on certain searches with the Find dialog (issue #548)
+    - fixed a problem with Book Browser's "Merge with previous" action if a file was previously 
+    deleted from the Book Browser (issue #565)
     - fixed a problem with chapter splits being placed in the wrong reading order if a file was
     previously deleted from the Book Browser (issue #497)
 
