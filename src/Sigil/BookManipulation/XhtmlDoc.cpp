@@ -198,17 +198,17 @@ QList< xc::DOMElement* > XhtmlDoc::GetTagMatchingDescendants( const xc::DOMDocum
 
 QList< QString > XhtmlDoc::GetAllDescendantIDs( const xc::DOMNode &node )
 {
-    const xc::DOMElement* element = static_cast< const xc::DOMElement* >( &node );
+    if ( node.getNodeType() != xc::DOMNode::ELEMENT_NODE )
 
-    if ( !element )
+        return QList< QString >();   
 
-        return QList< QString >();    
+    const xc::DOMElement* element = static_cast< const xc::DOMElement* >( &node ); 
 
     QList< QString > IDs;
 
     if ( element->hasAttribute( QtoX( "id" ) ) )
     
-        IDs.append( XtoQ( element->getAttribute( QtoX( "id" ) ) ) );
+        IDs.append( XtoQ( element->getAttribute( QtoX( "id" ) ) ) );    
     
     else if ( element->hasAttribute( QtoX( "name" ) ) )
 

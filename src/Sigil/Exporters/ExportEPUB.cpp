@@ -50,7 +50,7 @@ ExportEPUB::ExportEPUB( const QString &fullfilepath, QSharedPointer< Book > book
     m_FullFilePath( fullfilepath ), 
     m_Book( book ) 
 {
-	
+    
 }
 
 
