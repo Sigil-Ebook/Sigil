@@ -228,6 +228,7 @@ QList< QString > XhtmlDoc::GetAllDescendantIDs( const xc::DOMNode &node )
 }
 
 
+// DO NOT USE FOR DOMDOCUMENTS! Use GetDomDocumentAsString for such needs!
 QString XhtmlDoc::GetDomNodeAsString( const xc::DOMNode &node )
 {
     XMLCh LS[] = { xc::chLatin_L, xc::chLatin_S, xc::chNull };
@@ -243,6 +244,17 @@ QString XhtmlDoc::GetDomNodeAsString( const xc::DOMNode &node )
     shared_ptr< XMLCh > xwritten( serializer->writeToString( &node ), XercesExt::XercesStringDeallocator );
 
     return XtoQ( xwritten.get() );
+}
+
+
+// This func makes sure that the UTF-8 encoding is set for the XML declaration
+QString XhtmlDoc::GetDomDocumentAsString( const xc::DOMDocument &document )
+{
+    QString raw_source = GetDomNodeAsString( document );
+    QRegExp encoding( ENCODING_ATTRIBUTE );
+    int encoding_start = raw_source.indexOf( encoding );
+
+    return raw_source.replace( encoding_start, encoding.matchedLength(), "encoding=\"UTF-8\"" );
 }
 
 

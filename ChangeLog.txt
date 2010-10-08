@@ -1,3 +1,7 @@
+Sigil v0.3.0RC2 2010.10.08
+    - fixed a file-corruption-on-save issue caused by XHTML files being saved in UTF-8, but
+    declared as UTF-16 (issue #617)
+
 Sigil v0.3.0RC1 2010.10.08
     - fixed a validation issue caused by using the American spelling for "acknowledgments" where
     the OPF spec uses the British "acknowledgements" (issue #611)
@@ -8,7 +12,7 @@ Sigil v0.3.0RC1 2010.10.08
     PowerPC Macs
     - fixed a problem with opening files from the Ubuntu "Open With" menu (issue #524)
     - made Tidy handle common user errors like "&co." in the HTML source instead of "&amp;co."
-    - fixed a rare Tidy bug with dissapearing spaces when the only whitespace in an element was 
+    - fixed a rare Tidy bug with disappearing spaces when the only whitespace in an element was 
     the newline following a start tag (issue #387)
     - changed the internal DOM engine from Qt's QDom to Xerces; this should also bring numerous
     bug fixes and performance improvements plus a small (~10%) decrease in memory consumption

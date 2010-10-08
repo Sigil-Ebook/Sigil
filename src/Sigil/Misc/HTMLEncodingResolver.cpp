@@ -24,6 +24,7 @@
 #include "Utility.h"
 
 const QString HEAD_END = "</\\s*head\\s*>";
+const QString ENCODING_ATTRIBUTE = "encoding\\s*=\\s*(?:\"|')([^\"']+)(?:\"|')";
 
 
 // Accepts a full path to an HTML file.
@@ -65,7 +66,7 @@ const QTextCodec& HTMLEncodingResolver::GetCodecForHTML( const QByteArray &raw_t
     {
         QString head = Utility::Substring( 0, head_end, ascii_data );
 
-        QRegExp encoding( "encoding\\s*=\\s*(?:\"|')([^\"']+)(?:\"|')" );
+        QRegExp encoding( ENCODING_ATTRIBUTE );
         head.indexOf( encoding );
         QTextCodec *encoding_codec = QTextCodec::codecForName( encoding.cap( 1 ).toAscii() );
 

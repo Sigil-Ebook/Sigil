@@ -69,9 +69,9 @@ public:
 
     static QList< QString > GetAllDescendantIDs( const xc::DOMNode &node ); 
 
-    // We need to remove the XML carriage returns ("&#xD" sequences)
-    // that the default toString() method creates so we wrap it in this function
     static QString GetDomNodeAsString( const xc::DOMNode &node );
+
+    static QString GetDomDocumentAsString( const xc::DOMDocument &document );
 
     /**
      * Parses the source text into a DOM and returns a shared pointer

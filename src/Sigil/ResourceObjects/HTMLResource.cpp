@@ -182,7 +182,7 @@ void HTMLResource::UpdateWebPageFromDomDocument()
         connect( m_WebPage, SIGNAL( contentsChanged() ), this, SLOT( SetWebPageModified() ) );
     }
 
-    SetWebPageHTML( XhtmlDoc::GetDomNodeAsString( *m_DomDocument ) );
+    SetWebPageHTML( XhtmlDoc::GetDomDocumentAsString( *m_DomDocument ) );
 
     m_WebPageIsOld = false;
     m_RefreshNeeded = false;
@@ -203,7 +203,7 @@ void HTMLResource::UpdateTextDocumentFromDomDocument()
         m_TextDocument->setDocumentLayout( new QPlainTextDocumentLayout( m_TextDocument ) );
     }
 
-    m_TextDocument->setPlainText( CleanSource::PrettyPrint( XhtmlDoc::GetDomNodeAsString( *m_DomDocument ) ) );
+    m_TextDocument->setPlainText( CleanSource::PrettyPrint( XhtmlDoc::GetDomDocumentAsString( *m_DomDocument ) ) );
 
     m_TextDocumentIsOld = false;
 }
@@ -269,7 +269,7 @@ void HTMLResource::SaveToDisk( bool book_wide_save )
     {
         QWriteLocker locker( &m_ReadWriteLock );
 
-        Utility::WriteUnicodeTextFile( CleanSource::PrettyPrint( XhtmlDoc::GetDomNodeAsString( *m_DomDocument ) ),
+        Utility::WriteUnicodeTextFile( CleanSource::PrettyPrint( XhtmlDoc::GetDomDocumentAsString( *m_DomDocument ) ),
                                        m_FullFilePath );
     }
 
@@ -320,7 +320,7 @@ void HTMLResource::RemoveWebkitCruft()
 
 QStringList HTMLResource::SplitOnSGFChapterMarkers()
 {
-    QStringList chapters = XhtmlDoc::GetSGFChapterSplits( XhtmlDoc::GetDomNodeAsString( *m_DomDocument ) );
+    QStringList chapters = XhtmlDoc::GetSGFChapterSplits( XhtmlDoc::GetDomDocumentAsString( *m_DomDocument ) );
 
     m_DomDocument = XhtmlDoc::LoadTextIntoDocument( CleanSource::Clean( chapters.takeFirst() ) );
     MarkSecondaryCachesAsOld();

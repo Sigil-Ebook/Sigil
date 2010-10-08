@@ -62,7 +62,7 @@ shared_ptr< xc::DOMDocument > PerformHTMLUpdates::operator()()
     if ( !m_CSSUpdates.isEmpty() )
     {
         m_Document = XhtmlDoc::LoadTextIntoDocument( 
-            PerformCSSUpdates( XhtmlDoc::GetDomNodeAsString( *m_Document ), m_CSSUpdates )() );
+            PerformCSSUpdates( XhtmlDoc::GetDomDocumentAsString( *m_Document ), m_CSSUpdates )() );
     }
 
     return m_Document;

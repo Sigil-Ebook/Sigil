@@ -101,7 +101,7 @@ int SearchOperations::CountInHTMLFile( const QRegExp &search_regex,
     if ( search_type == SearchOperations::CodeViewSearch )
     {
         const xc::DOMDocument &document = html_resource->GetDomDocumentForReading();
-        const QString &text             = CleanSource::PrettyPrint( XhtmlDoc::GetDomNodeAsString( document ) );
+        const QString &text             = CleanSource::PrettyPrint( XhtmlDoc::GetDomDocumentAsString( document ) );
 
         return text.count( search_regex );
     }
@@ -153,7 +153,7 @@ int SearchOperations::ReplaceHTMLInFile( const QRegExp &search_regex,
     if ( search_type == SearchOperations::CodeViewSearch )
     {
         const QString &text = CleanSource::PrettyPrint( 
-            XhtmlDoc::GetDomNodeAsString( html_resource->GetDomDocumentForReading() ) );
+            XhtmlDoc::GetDomDocumentAsString( html_resource->GetDomDocumentForReading() ) );
     
         QString new_text;
         int count;
