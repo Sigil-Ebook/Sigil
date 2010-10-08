@@ -443,7 +443,7 @@ else()
     # since the PRE_BUILD condition is not supported. Using the intermediate for
     # MSVC makes it unnecessarily recompile that target every time the project is built.
     # So we use the direct way on MSVC, and the intemediate way for other generators.
-    if( MSVC )
+    if( MSVC_IDE )
         set( TARGET_FOR_COPY makeinstaller )
         add_dependencies( makeinstaller ${PROJECT_NAME} )
     else()
@@ -513,6 +513,24 @@ else()
     # Copy the application executable
     add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD 
                         COMMAND cmake -E copy ${EXE_PATH} ${MAIN_PACKAGE_DIR} )
+                        
+    # We need to copy the CRT dlls
+    if ( WIN32 )
+        # Add -DWIN_INSTALLER_USE_64BIT_CRT=1 to the cmake call if you want to build
+        # an installer for the for the x64 verison of Sigil. This will make sure that
+        # the correct CRT libs are included in the installer.
+        if ( WIN_INSTALLER_USE_64BIT_CRT )
+            add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD 
+                COMMAND cmake -E copy ${CMAKE_SOURCE_DIR}/installer/msvc_crt/x64/msvcp100.dll ${MAIN_PACKAGE_DIR} )
+            add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD 
+                COMMAND cmake -E copy ${CMAKE_SOURCE_DIR}/installer/msvc_crt/x64/msvcr100.dll ${MAIN_PACKAGE_DIR} )
+        else()
+            add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD 
+                COMMAND cmake -E copy ${CMAKE_SOURCE_DIR}/installer/msvc_crt/x86/msvcp100.dll ${MAIN_PACKAGE_DIR} )
+            add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD 
+                COMMAND cmake -E copy ${CMAKE_SOURCE_DIR}/installer/msvc_crt/x86/msvcr100.dll ${MAIN_PACKAGE_DIR} )            
+        endif()
+    endif()
 
     if( UNIX )
         # Copy the Unix launcher that adds the working directory to the LD_LIBRARY_PATH
