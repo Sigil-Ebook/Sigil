@@ -1,4 +1,4 @@
-Sigil v0.3.0RC1 ADD_DATE
+Sigil v0.3.0RC1 2010.10.08
     - fixed a validation issue caused by using the American spelling for "acknowledgments" where
     the OPF spec uses the British "acknowledgements" (issue #611)
     - Sigil now uses "application/x-font-ttf" as the media type in the OPF for TrueType fonts
