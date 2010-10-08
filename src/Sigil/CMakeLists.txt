@@ -520,11 +520,13 @@ else()
         # an installer for the for the x64 verison of Sigil. This will make sure that
         # the correct CRT libs are included in the installer.
         if ( WIN_INSTALLER_USE_64BIT_CRT )
+            message( "-- Using the 64 bit CRT in the installers" )
             add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD 
                 COMMAND cmake -E copy ${CMAKE_SOURCE_DIR}/installer/msvc_crt/x64/msvcp100.dll ${MAIN_PACKAGE_DIR} )
             add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD 
                 COMMAND cmake -E copy ${CMAKE_SOURCE_DIR}/installer/msvc_crt/x64/msvcr100.dll ${MAIN_PACKAGE_DIR} )
         else()
+            message( "-- Using the 32 bit CRT in the installers" )
             add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD 
                 COMMAND cmake -E copy ${CMAKE_SOURCE_DIR}/installer/msvc_crt/x86/msvcp100.dll ${MAIN_PACKAGE_DIR} )
             add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD 

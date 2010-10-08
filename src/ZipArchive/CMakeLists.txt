@@ -37,6 +37,11 @@ if( MSVC )
     set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /Zc:wchar_t-")
 	set( CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} /Oi /GL" ) 
 	set_target_properties( ZipArchive PROPERTIES STATIC_LIBRARY_FLAGS "/LTCG" )
+    
+    if ( CMAKE_CL_64 )
+        # For some strange reason, we need to add this by hand otherwise we get a linker error
+        set_target_properties( ZipArchive PROPERTIES STATIC_LIBRARY_FLAGS "/MACHINE:X64" )
+    endif()
 endif()
 
 # Special compiler and linker flags for GCC
