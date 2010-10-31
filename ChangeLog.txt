@@ -1,4 +1,4 @@
-Sigil v0.3.0
+Sigil v0.3.0 ADD_DATE
     - fixed a randomly occurring crash, usually triggered on Macs during loading (issue #643) 
 
 Sigil v0.3.0RC2 2010.10.08
