@@ -75,15 +75,10 @@ void PerformHTMLUpdates::UpdateHTMLReferences()
 
     int node_count = nodes.count();
 
-    QFutureSynchronizer< void > sync;
-
     for ( int i = 0; i < node_count; ++i )
     {
-        sync.addFuture( QtConcurrent::run( this, &PerformHTMLUpdates::UpdateReferenceInNode, nodes.at( i ) ) );
+        PerformHTMLUpdates::UpdateReferenceInNode( nodes.at( i ) );
     }
-
-    // We wait until all the nodes are updated
-    sync.waitForFinished();
 }
 
 

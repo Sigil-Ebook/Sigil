@@ -1,3 +1,6 @@
+Sigil v0.3.0
+    - fixed a randomly occurring crash, usually triggered on Macs during loading (issue #643) 
+
 Sigil v0.3.0RC2 2010.10.08
     - fixed a file-corruption-on-save issue caused by XHTML files being saved in UTF-8, but
     declared as UTF-16 (issue #617)
