@@ -1,4 +1,6 @@
 Sigil v0.3.0 ADD_DATE
+    - fixed a crash on load (with an error dialog) issue on Linux systems occurring when multiple
+    users on the same machine tried to use Sigil (issue #642)
     - fixed a randomly occurring crash, usually triggered on Macs during loading (issue #643) 
 
 Sigil v0.3.0RC2 2010.10.08

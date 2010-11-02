@@ -138,6 +138,20 @@ static bool QuickConvert( const QStringList &arguments )
     return true;
 }
 
+/**
+ * Creates (or modifies, if it already exists) the Sigil temp folder so that it
+ * can be read and modified by anyone.
+ **/
+void CreateTempFolderWithCorrectPermissions()
+{
+    QString temp_path = Utility::GetPathToSigilScratchpad();
+    QDir( temp_path ).mkpath( temp_path );
+
+    QFile::setPermissions( temp_path, QFile::ReadOwner | QFile::WriteOwner | QFile::ExeOwner |
+                                      QFile::ReadGroup | QFile::WriteGroup | QFile::ExeGroup |
+                                      QFile::ReadOther | QFile::WriteOther | QFile::ExeOther );
+}
+
 
 // Application entry point
 int main( int argc, char *argv[] )
@@ -174,6 +188,13 @@ int main( int argc, char *argv[] )
         // and on Mac by the ICNS file.
     #ifdef Q_WS_X11
         app.setWindowIcon( GetApplicationIcon() );
+    #endif
+
+        // On Unix systems, we make sure that the temp folder we
+        // create is accessible by all users. On Windows, there's
+        // a temp folder per user.
+    #ifndef Q_WS_WIN
+        CreateTempFolderWithCorrectPermissions();
     #endif
 
         // Needs to be created on the heap so that
