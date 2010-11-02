@@ -141,7 +141,7 @@ static bool QuickConvert( const QStringList &arguments )
 /**
  * Creates (or modifies, if it already exists) the Sigil temp folder so that it
  * can be read and modified by anyone.
- **/
+ */
 void CreateTempFolderWithCorrectPermissions()
 {
     QString temp_path = Utility::GetPathToSigilScratchpad();
@@ -231,7 +231,6 @@ int main( int argc, char *argv[] )
         Utility::DisplayStdErrorDialog( Utility::GetExceptionInfo( exception ) );
         return 1;
     }
-
 }
 
 

@@ -79,7 +79,7 @@ void GuideSemantics::CreateGuideMapping()
     m_GuideTypeMapping[ GuideSemantics::Glossary ] 
         = make_tuple( QString( "glossary" ),        QString( "Glossary" ) );
 
-    m_GuideTypeMapping[ GuideSemantics::Acknowledgments ] 
+    m_GuideTypeMapping[ GuideSemantics::Acknowledgements ] 
         = make_tuple( QString( "acknowledgements" ), QString( "Acknowledgements" ) );
 
     m_GuideTypeMapping[ GuideSemantics::Bibliography ] 
@@ -118,21 +118,21 @@ void GuideSemantics::CreateGuideMapping()
 
 void GuideSemantics::CreateReferenceTypeToGuideEnum()
 {
-    m_ReferenceTypeToGuideEnum[ "cover"           ] = Cover;
-    m_ReferenceTypeToGuideEnum[ "title-page"      ] = TitlePage;
-    m_ReferenceTypeToGuideEnum[ "toc"             ] = TableOfContents;
-    m_ReferenceTypeToGuideEnum[ "index"           ] = Index;
-    m_ReferenceTypeToGuideEnum[ "glossary"        ] = Glossary;
-    m_ReferenceTypeToGuideEnum[ "acknowledgments" ] = Acknowledgments;
-    m_ReferenceTypeToGuideEnum[ "bibliography"    ] = Bibliography;
-    m_ReferenceTypeToGuideEnum[ "colophon"        ] = Colophon;
-    m_ReferenceTypeToGuideEnum[ "copyright-page"  ] = CopyrightPage;
-    m_ReferenceTypeToGuideEnum[ "dedication"      ] = Dedication;
-    m_ReferenceTypeToGuideEnum[ "epigraph"        ] = Epigraph;
-    m_ReferenceTypeToGuideEnum[ "foreword"        ] = Foreword;
-    m_ReferenceTypeToGuideEnum[ "loi"             ] = ListOfIllustrations;
-    m_ReferenceTypeToGuideEnum[ "lot"             ] = ListOfTables;
-    m_ReferenceTypeToGuideEnum[ "notes"           ] = Notes;
-    m_ReferenceTypeToGuideEnum[ "preface"         ] = Preface;
-    m_ReferenceTypeToGuideEnum[ "text"            ] = Text;
+    m_ReferenceTypeToGuideEnum[ "cover"            ] = Cover;
+    m_ReferenceTypeToGuideEnum[ "title-page"       ] = TitlePage;
+    m_ReferenceTypeToGuideEnum[ "toc"              ] = TableOfContents;
+    m_ReferenceTypeToGuideEnum[ "index"            ] = Index;
+    m_ReferenceTypeToGuideEnum[ "glossary"         ] = Glossary;
+    m_ReferenceTypeToGuideEnum[ "acknowledgements" ] = Acknowledgements;
+    m_ReferenceTypeToGuideEnum[ "bibliography"     ] = Bibliography;
+    m_ReferenceTypeToGuideEnum[ "colophon"         ] = Colophon;
+    m_ReferenceTypeToGuideEnum[ "copyright-page"   ] = CopyrightPage;
+    m_ReferenceTypeToGuideEnum[ "dedication"       ] = Dedication;
+    m_ReferenceTypeToGuideEnum[ "epigraph"         ] = Epigraph;
+    m_ReferenceTypeToGuideEnum[ "foreword"         ] = Foreword;
+    m_ReferenceTypeToGuideEnum[ "loi"              ] = ListOfIllustrations;
+    m_ReferenceTypeToGuideEnum[ "lot"              ] = ListOfTables;
+    m_ReferenceTypeToGuideEnum[ "notes"            ] = Notes;
+    m_ReferenceTypeToGuideEnum[ "preface"          ] = Preface;
+    m_ReferenceTypeToGuideEnum[ "text"             ] = Text;
 }

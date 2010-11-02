@@ -436,8 +436,8 @@ void BookBrowser::CreateGuideSemanticActions()
     m_GuideSemanticActions.append( action );
 
     action = new QAction( tr( "Acknowledgements" ), this );
-    action->setData( GuideSemantics::Acknowledgments );
-    m_GuideSemanticMapper.setMapping( action, GuideSemantics::Acknowledgments );
+    action->setData( GuideSemantics::Acknowledgements );
+    m_GuideSemanticMapper.setMapping( action, GuideSemantics::Acknowledgements );
     m_GuideSemanticActions.append( action );
 
     action = new QAction( tr( "Bibliography" ), this );

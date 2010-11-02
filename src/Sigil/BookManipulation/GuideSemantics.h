@@ -55,7 +55,7 @@ public:
         TableOfContents,
         Index,
         Glossary, 	
-        Acknowledgments, 	
+        Acknowledgements, 	
         Bibliography,
         Colophon,
         CopyrightPage, 	
