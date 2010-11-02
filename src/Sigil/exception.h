@@ -72,19 +72,19 @@ struct NoAppropriateOPFFileFound : virtual ExceptionBase {};
  * Wrapper for CZipExceptions.
  */
 struct CZipExceptionWrapper : virtual ExceptionBase {};
-typedef boost::error_info< struct error_string, std::string > errinfo_zip_info;
+typedef boost::error_info< struct zip_info, std::string > errinfo_zip_info;
 
 /**
  * Thrown when a file cannot be read.
  */
 struct CannotReadFile : virtual ExceptionBase {};
-typedef boost::error_info< struct error_string, std::string > errinfo_file_fullpath;
+typedef boost::error_info< struct file_fullpath, std::string > errinfo_file_fullpath;
 
 /**
  * Thrown when a file cannot be opened.
  */
 struct CannotOpenFile : virtual ExceptionBase {};
-typedef boost::error_info< struct error_string, std::string > errinfo_file_errorstring;
+typedef boost::error_info< struct file_errorstring, std::string > errinfo_file_errorstring;
 
 /**
  * Thrown when a file cannot be opened.
@@ -95,5 +95,5 @@ struct CannotExtractFile : virtual ExceptionBase {};
  * Thrown when a file cannot be copied.
  */
 struct CannotCopyFile : virtual ExceptionBase {};
-typedef boost::error_info< struct error_string, std::string > errinfo_file_copypath;
+typedef boost::error_info< struct file_copypath, std::string > errinfo_file_copypath;
 
