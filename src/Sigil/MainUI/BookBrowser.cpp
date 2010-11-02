@@ -157,27 +157,41 @@ void BookBrowser::AddNew()
 
 void BookBrowser::AddExisting()
 {
-    QStringList filenames = QFileDialog::getOpenFileNames(  this, 
+    QStringList filepaths = QFileDialog::getOpenFileNames(  this, 
                                                             tr( "Add existing file(s)" ),
                                                             m_LastFolderOpen
                                                          );
 
-    if ( filenames.isEmpty() )
+    if ( filepaths.isEmpty() )
 
         return;
 
-    m_LastFolderOpen = QFileInfo( filenames.first() ).absolutePath();
+    m_LastFolderOpen = QFileInfo( filepaths.first() ).absolutePath();
 
     // We need to store the current metadata since the 
     // GetBook call will clear it.
     QHash< QString, QList< QVariant > > old_metadata = m_Book->GetMetadata();
 
-    foreach( QString filename, filenames )
+    QStringList current_filenames = m_Book->GetConstFolderKeeper().GetAllFilenames();
+
+    foreach( QString filepath, filepaths )
     {
-        if ( TEXT_EXTENSIONS.contains( QFileInfo( filename ).suffix().toLower() ) )
+        QString filename = QFileInfo( filepath ).fileName();
+
+        if ( current_filenames.contains( filename ) )
         {
-            ImportHTML html_import( filename );
-            html_import.SetBook( m_Book );
+            QMessageBox::warning( this,
+                                  tr( "Sigil" ),
+                                  tr( "A file with the name \"%1\" already exists in the epub." )
+                                  .arg( filename )
+                                );
+            continue;
+        }
+
+        if ( TEXT_EXTENSIONS.contains( QFileInfo( filepath ).suffix().toLower() ) )
+        {
+            ImportHTML html_import( filepath );
+            html_import.SetBook( m_Book, true );
 
             // Since we set the Book manually,
             // this call merely mutates our Book.
@@ -187,7 +201,7 @@ void BookBrowser::AddExisting()
         else
         {
             // TODO: adding a CSS file should add the referenced fonts too
-            m_Book->GetFolderKeeper().AddContentFileToFolder( filename );
+            m_Book->GetFolderKeeper().AddContentFileToFolder( filepath );
         }
     }    
 

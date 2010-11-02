@@ -38,15 +38,18 @@ static const QString ENTITY_SEARCH = "<!ENTITY\\s+(\\w+)\\s+\"([^\"]+)\">";
 // Constructor;
 // The parameter is the file to be imported
 ImportHTML::ImportHTML( const QString &fullfilepath )
-    : Importer( fullfilepath )
+    : 
+    Importer( fullfilepath ),
+    m_IgnoreDuplicates( false )
 {
 
 }
 
 
-void ImportHTML::SetBook( QSharedPointer< Book > book )
+void ImportHTML::SetBook( QSharedPointer< Book > book, bool ignore_duplicates )
 {
     m_Book = book;
+    m_IgnoreDuplicates = ignore_duplicates;
 }
 
 
@@ -258,12 +261,20 @@ QHash< QString, QString > ImportHTML::LoadImages( const xc::DOMDocument *documen
     QHash< QString, QString > updates;
     QDir folder( QFileInfo( m_FullFilePath ).absoluteDir() );
 
+    QStringList current_filenames = m_Book->GetConstFolderKeeper().GetAllFilenames();
+
     // Load the images into the book and
     // update all references with new urls
     foreach( QString image_path, image_paths )
     {
         try
         {
+            QString filename = QFileInfo( image_path ).fileName();
+
+            if ( m_IgnoreDuplicates && current_filenames.contains( filename ) )
+
+                continue;
+
             QString fullfilepath  = QFileInfo( folder, image_path ).absoluteFilePath();
             QString newpath       = "../" + m_Book->GetFolderKeeper()
                                         .AddContentFileToFolder( fullfilepath ).GetRelativePathToOEBPS();
@@ -287,6 +298,8 @@ QHash< QString, QString > ImportHTML::LoadStyleFiles( const xc::DOMDocument *doc
     QList< xc::DOMElement* > link_nodes = XhtmlDoc::GetTagMatchingDescendants( *document, "link" );
     QHash< QString, QString > updates;
 
+    QStringList current_filenames = m_Book->GetConstFolderKeeper().GetAllFilenames();
+
     for ( int i = 0; i < link_nodes.count(); ++i )
     {
         xc::DOMElement &element = *link_nodes.at( i );
@@ -303,6 +316,10 @@ QHash< QString, QString > ImportHTML::LoadStyleFiles( const xc::DOMDocument *doc
         {
             try
             {
+                if ( m_IgnoreDuplicates && current_filenames.contains( file_info.fileName() ) )
+
+                    continue;
+
                 QString newpath = "../" + m_Book->GetFolderKeeper().AddContentFileToFolder( 
                                                 file_info.absoluteFilePath() ).GetRelativePathToOEBPS();
 

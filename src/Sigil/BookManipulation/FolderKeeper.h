@@ -201,14 +201,14 @@ public:
      */
     QString GetFullPathToTextFolder() const;
 
-private:
-
     /**
      * Returns a list of all the resource filenames in the book. 
      *
      * @return The filename list.
      */
     QStringList GetAllFilenames() const;
+
+private:
 
     /**
      * Creates the required subfolders of each book.

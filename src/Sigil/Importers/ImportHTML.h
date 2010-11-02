@@ -42,7 +42,7 @@ public:
 
     // Needed so that we can use an existing Book
     // in which to load HTML files (and their dependencies).
-    void SetBook( QSharedPointer< Book > book );
+    void SetBook( QSharedPointer< Book > book, bool ignore_duplicates );
 
     // Reads and parses the file 
     // and returns the created Book.
@@ -81,6 +81,13 @@ private:
     QHash< QString, QString > LoadImages( const xc::DOMDocument *document );
 
     QHash< QString, QString > LoadStyleFiles( const xc::DOMDocument *document );
+
+
+    ///////////////////////////////
+    // PRIVATE MEMBER VARIABLES
+    ///////////////////////////////
+
+    bool m_IgnoreDuplicates;
 };
 
 #endif // IMPORTHTML_H

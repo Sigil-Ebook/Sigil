@@ -1,4 +1,11 @@
 Sigil v0.3.0 ADD_DATE
+    - the Book Browser now prevents adding files that already exist in the epub
+    - previously, when adding external XHTML files through the Book Browser, any files (like CSS 
+    stylesheets or images) that were linked from that file were included in the epub under a 
+    different name if their original name was "taken"; this caused duplicates so this behavior 
+    has changed: files whose names are "taken" are now skipped over (issue #482)    
+    - Sigil will not anymore add duplicate files (under a different name) when adding external XHTML
+    files through the Book Browser (issue #)
     - fixed a rare issue that caused incorrect path updates for anchor links pointing to file names
     that were suffixes of other chapter file names, and the anchor had a fragment ID (issue #598)  
     - fixed an issue with the image paths in background-image CSS rules not being updated when
