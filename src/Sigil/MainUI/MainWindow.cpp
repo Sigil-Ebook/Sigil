@@ -821,12 +821,23 @@ void MainWindow::LoadFile( const QString &fullfilepath )
         UpdateUiWithCurrentFile( fullfilepath );
         statusBar()->showMessage( tr( "File loaded" ), STATUSBAR_MSG_DISPLAY_TIME );
     }
+
+    catch ( const FileEncryptedWithDrm& )
+    {
+        QApplication::restoreOverrideCursor();
+
+        QMessageBox::critical( this,
+                               tr( "Sigil" ),
+                               tr( "The creator of this file has encrypted it with DRM. "
+                                   "Sigil cannot open such files." )
+                            );        
+    }
     
     catch ( const ExceptionBase &exception )
     {
-        Utility::DisplayStdErrorDialog( "Cannot load file " + fullfilepath + ": " + Utility::GetExceptionInfo( exception ) );
-
         QApplication::restoreOverrideCursor();
+
+        Utility::DisplayStdErrorDialog( "Cannot load file " + fullfilepath + ": " + Utility::GetExceptionInfo( exception ) );        
     }
 }
 
@@ -843,7 +854,7 @@ bool MainWindow::SaveFile( const QString &fullfilepath )
         // when the user tries to save an unsupported type
         if ( !SUPPORTED_SAVE_TYPE.contains( extension ) )
         {
-            QMessageBox::critical( 0,
+            QMessageBox::critical( this,
                                    tr( "Sigil" ),
                                    tr( "Sigil currently cannot save files of type \"%1\".\n"
                                        "Please choose a different format." )

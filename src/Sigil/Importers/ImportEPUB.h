@@ -41,6 +41,17 @@ public:
     // Reads and parses the file 
     // and returns the created Book
     virtual QSharedPointer< Book > GetBook();    
+
+private:
+
+    /**
+     * Checks for the presence of the encryption.xml file
+     * in the META-INF folder.
+     *
+     * @return \c True when the epub contains encryption.xml
+     */
+    bool EpubContainsEncryptionXml();
+
 };
 
 #endif // IMPORTEPUB_H

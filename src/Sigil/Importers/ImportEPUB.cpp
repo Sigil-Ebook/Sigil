@@ -26,7 +26,6 @@
 #include "ResourceObjects/HTMLResource.h"
 #include "ResourceObjects/CSSResource.h"
 
-
 // Constructor;
 // The parameter is the file to be imported
 ImportEPUB::ImportEPUB( const QString &fullfilepath )
@@ -46,6 +45,11 @@ QSharedPointer< Book > ImportEPUB::GetBook()
 
     // These read the EPUB file
     ExtractContainer();
+
+    if ( EpubContainsEncryptionXml() )
+
+        boost_throw( FileEncryptedWithDrm() );
+
     LocateOPF();
     ReadOPF();
 
@@ -62,5 +66,11 @@ QSharedPointer< Book > ImportEPUB::GetBook()
     m_Book->NormalizeReadingOrders();
 
     return m_Book;
+}
+
+
+bool ImportEPUB::EpubContainsEncryptionXml()
+{
+    return QFileInfo( m_ExtractedFolderPath + "/META-INF/encryption.xml" ).exists();
 }
 

@@ -294,6 +294,12 @@ private:
      */
     void TrackNewResources( const QStringList &filepaths );
 
+
+
+    ///////////////////////////////
+    // PRIVATE MEMBER VARIABLES
+    ///////////////////////////////
+
     /**
      * IDs of all the resources that are linked in this 
      * HTML resource.

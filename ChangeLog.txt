@@ -1,4 +1,6 @@
 Sigil v0.3.0 ADD_DATE
+    - Sigil now informs the user that DRMed files cannot be opened, instead of just crashing
+    (issue #624)
     - this time *really* fixed the "acknowledgments" error that was reported as fixed in RC1
     - fixed a crash on load (with an error dialog) issue on Linux systems occurring when multiple
     users on the same machine tried to use Sigil (issue #642)
