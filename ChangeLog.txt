@@ -1,4 +1,6 @@
 Sigil v0.3.0 ADD_DATE
+    - fixed a rare issue that caused incorrect path updates for anchor links pointing to file names
+    that were suffixes of other chapter file names, and the anchor had a fragment ID (issue #598)  
     - fixed an issue with the image paths in background-image CSS rules not being updated when
     the path changes (issue #594)
     - Sigil now informs the user that DRMed files cannot be opened, instead of just crashing

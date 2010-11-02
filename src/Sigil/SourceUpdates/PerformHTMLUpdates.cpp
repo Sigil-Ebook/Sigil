@@ -149,15 +149,16 @@ void PerformHTMLUpdates::UpdateReferenceInNode( xc::DOMElement *node )
             // First we look at whether the filename matches the attribute value,
             // and then we determine whether it's actually a path that ends with the filename
             if ( filename_length == atr_value_length || 
-                 ( ( name_end_index == atr_value_length ) &&
-                   ( atrribute_value.at( name_index - 1 ) == FORWARD_SLASH )
+                 ( name_end_index == atr_value_length &&
+                   atrribute_value.at( name_index - 1 ) == FORWARD_SLASH
                  )
                )
             {
                 new_path = m_HTMLUpdates.value( key_path );
             }
 
-            else if ( has_fragment_id )
+            else if ( has_fragment_id &&
+                      atrribute_value.at( name_index - 1 ) == FORWARD_SLASH )
             {
                 new_path = atrribute_value.mid( name_end_index ).prepend( m_HTMLUpdates.value( key_path ) );
             }
