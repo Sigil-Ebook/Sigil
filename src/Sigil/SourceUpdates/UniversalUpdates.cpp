@@ -100,6 +100,12 @@ QHash< QString, QString > > UniversalUpdates::SeparateHTMLAndCSSUpdates( const Q
             // Needed for CSS updates because of @import rules
             css_updates[ key_path ] = html_updates.value( key_path );
         }
+
+        if ( IMAGE_EXTENSIONS.contains( extension ) )
+        {
+            // Needed for CSS updates because of background-image rules
+            css_updates[ key_path ] = html_updates.value( key_path );
+        }
     }
 
     return make_tuple( html_updates, css_updates );

@@ -46,6 +46,7 @@ extern const QString OPF_FILE_NAME;
 extern const QString NCX_FILE_NAME;
 extern const QString CONTAINER_XML_FILE_NAME;
 extern const QStringList TEXT_EXTENSIONS;
+extern const QStringList IMAGE_EXTENSIONS;
 extern const QString ENCODING_ATTRIBUTE;
 //extern const int STATUSBAR_MSG_DISPLAY_TIME;
 

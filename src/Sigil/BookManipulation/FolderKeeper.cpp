@@ -24,9 +24,9 @@
 #include "ResourceObjects/Resource.h"
 #include "Misc/Utility.h"
 
-static const QStringList IMAGE_EXTENSIONS = QStringList() << "jpg"   << "jpeg"  << "png"
-                                                          << "gif"   << "tif"   << "tiff"
-                                                          << "bm"    << "bmp"   << "svg";
+const QStringList IMAGE_EXTENSIONS = QStringList() << "jpg"   << "jpeg"  << "png"
+                                                   << "gif"   << "tif"   << "tiff"
+                                                   << "bm"    << "bmp"   << "svg";
 
 static const QStringList FONT_EXTENSIONS  = QStringList() << "ttf"   << "otf";
 const QStringList TEXT_EXTENSIONS         = QStringList() << "xhtml" << "html"  << "htm" << "xml";

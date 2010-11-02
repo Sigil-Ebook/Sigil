@@ -1,4 +1,6 @@
 Sigil v0.3.0 ADD_DATE
+    - fixed an issue with the image paths in background-image CSS rules not being updated when
+    the path changes (issue #594)
     - Sigil now informs the user that DRMed files cannot be opened, instead of just crashing
     (issue #624)
     - this time *really* fixed the "acknowledgments" error that was reported as fixed in RC1

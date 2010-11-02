@@ -41,8 +41,9 @@ QString PerformCSSUpdates::operator()()
         const QString &key_path = keys.at( i );
         const QString &filename = QFileInfo( key_path ).fileName();
 
-        QRegExp reference = QRegExp( "(?:src:|@import)\\s*\\w+\\([\"']*([^\\)\"']*/" + QRegExp::escape( filename ) + "|"
-                            + QRegExp::escape( filename ) + ")[\"']*\\)" );
+        QRegExp reference = QRegExp( "(?:src:|@import|background-image:)\\s*\\w+\\([\"']*([^\\)\"']*/"
+                                     + QRegExp::escape( filename ) + "|"
+                                     + QRegExp::escape( filename ) + ")[\"']*\\)" );
 
         int index = -1;
 
