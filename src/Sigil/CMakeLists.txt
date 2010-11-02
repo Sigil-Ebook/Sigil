@@ -356,7 +356,7 @@ if ( APPLE )
     set_target_properties( ${PROJECT_NAME} PROPERTIES MACOSX_BUNDLE_INFO_PLIST ${PROJECT_BINARY_DIR}/MacOSXBundleInfo.plist )
 # ...and a normal executable for everything else.
 else()
-    add_executable( ${PROJECT_NAME} ${ALL_SOURCES} )
+    add_executable( ${PROJECT_NAME} WIN32 ${ALL_SOURCES} )
 endif()
 
 target_link_libraries( ${PROJECT_NAME} tidyLib ZipArchive BoostParts Xerces XercesExtensions ${QT_LIBRARIES} )
@@ -385,10 +385,6 @@ elseif( CMAKE_COMPILER_IS_GNUCXX )
     add_dependencies( ${PROJECT_NAME} gccPCH )
 endif()
 
-# No console window shown on launch
-if ( WIN32 )
-    set_target_properties( ${PROJECT_NAME} PROPERTIES LINK_FLAGS "/SUBSYSTEM:WINDOWS" )
-endif()
 
 #############################################################################
 
