@@ -1,4 +1,6 @@
 Sigil v0.3.0 ADD_DATE
+    - fixed an issue with some UTF-8 characters outside the BMP (usually CJK characters) not being
+    saved properly (issue #180)    
     - fixed an issue with certain path types not being correctly updated as a result of the 
     fix for issue #501 (issue #561)
     - the Book Browser now prevents adding files that already exist in the epub
