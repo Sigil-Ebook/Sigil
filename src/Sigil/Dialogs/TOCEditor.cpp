@@ -45,7 +45,8 @@ TOCEditor::TOCEditor( QSharedPointer< Book > book, QWidget *parent )
 
     LockHTMLResources();
 
-    m_Headings = Headings::GetHeadingList( m_Book->GetFolderKeeper().GetResourceTypeList< HTMLResource >( true ) );
+    m_Headings = Headings::GetHeadingList(
+        m_Book->GetFolderKeeper().GetResourceTypeList< HTMLResource >( true ), true );
     m_Headings = Headings::MakeHeadingHeirarchy( m_Headings );
 
     CreateTOCModel();
@@ -176,18 +177,7 @@ void TOCEditor::UpdateHeadingInclusion( QStandardItem *checkbox_item )
 {
     Q_ASSERT( checkbox_item );
 
-    // Working around Qt design issues
-    // to get the actual item parent
-    QStandardItem *item_parent = NULL;
-
-    if ( checkbox_item->parent() == 0 )
-
-        item_parent = m_TableOfContents.invisibleRootItem();
-
-    else
-
-        item_parent = checkbox_item->parent();
-
+    QStandardItem *item_parent = GetActualItemParent( *checkbox_item );
     Headings::Heading *heading = GetItemHeading( *item_parent->child( checkbox_item->row(), 0 ) );   
     Q_ASSERT( heading );
 
@@ -297,6 +287,8 @@ void TOCEditor::InsertHeadingIntoModel( Headings::Heading &heading, QStandardIte
 // Removes from the tree items that represent headings
 // that are not to be included in the TOC; the children
 // of those items rise to their parent's hierarchy level
+// OR (more likely) are attached as children to the first
+// previous heading that is lower in level.
 void TOCEditor::RemoveExcludedItems( QStandardItem *item )
 {
     Q_ASSERT( item );
@@ -326,30 +318,8 @@ void TOCEditor::RemoveExcludedItems( QStandardItem *item )
     if ( item == m_TableOfContents.invisibleRootItem() )
 
         return;
-
-    //    Unfortunately, while the invisible root of a QStandardItemModel
-    // can have children, those children do not have a parent set.
-    // Of course, their parent is the invisible root, but their
-    // parent() function returns 0. So now you have *two* tree levels
-    // for which parent() returns 0. This is clearly inconsistent
-    // and makes the whole idea of using the same recursive
-    // functions for tree traversal rather difficult to implement.
-    // The only item for which parent() should return 0 should be 
-    // the invisible root.
-    //    Admittedly, Qt has some design issues. The next few lines
-    // try to work around them by manually setting an item parent.
-
-    QStandardItem *item_parent = NULL;
-
-    if ( item->parent() == 0 )
-    {
-        item_parent = m_TableOfContents.invisibleRootItem();
-    }  
-
-    else
-    {
-        item_parent = item->parent();
-    }
+        
+    QStandardItem *item_parent = GetActualItemParent( *item );
 
     // We query the "include in TOC" checkbox
     Qt::CheckState check_state = item_parent->child( item->row(), 1 )->checkState();
@@ -360,10 +330,13 @@ void TOCEditor::RemoveExcludedItems( QStandardItem *item )
     {
         if ( item->hasChildren() == true )
         {
-            // Item pushes its children up to its parent
             while ( item->rowCount() > 0 )
             {
-                item_parent->insertRow( item->row(), item->takeRow( 0 ) );
+                QList< QStandardItem* > child_row = item->takeRow( 0 ); 
+
+                if ( !AddRowToVisiblePredecessorSucceeded( child_row, item ) )
+
+                    item_parent->insertRow( item->row(), child_row );
             }
         }
 
@@ -373,9 +346,83 @@ void TOCEditor::RemoveExcludedItems( QStandardItem *item )
 }
 
 
+bool TOCEditor::AddRowToVisiblePredecessorSucceeded( const QList< QStandardItem* > &child_row,
+                                                     QStandardItem* row_parent )
+{
+    Q_ASSERT( row_parent );
+    QStandardItem *row_grandparent = GetActualItemParent( *row_parent );
+    
+    if ( row_grandparent == NULL )
+
+        return false;
+
+    return AddRowToCorrectItem( row_grandparent, child_row, row_parent->row() );    
+}
+
+
+// Basically we're looking for the first heading of a lower level that comes
+// before the child_row heading whose parent heading is disappearing. The new parent
+// needs to also be marked as "include_in_toc".
+bool TOCEditor::AddRowToCorrectItem( QStandardItem* item,                                       
+                                     const QList< QStandardItem* > &child_row,
+                                     int child_index_limit )
+{
+    int child_start_index = child_index_limit != -1 ? child_index_limit - 1: item->rowCount() - 1;
+
+    for ( int i = child_start_index; i > -1; --i )
+    {
+        bool row_placed = AddRowToCorrectItem( item->child( i ), child_row );
+        if ( row_placed )
+
+            return true;
+    }
+
+    Headings::Heading *heading       = GetItemHeading( *item );
+    Headings::Heading *child_heading = GetItemHeading( *child_row[ 0 ] );
+    
+    if ( heading->include_in_toc &&
+         heading->level < child_heading->level )
+    {
+        item->insertRow( child_start_index + 1, child_row );
+        return true;
+    }
+
+    return false;
+}
+
+
+//    Unfortunately, while the invisible root of a QStandardItemModel
+// can have children, those children do not have a parent set.
+// Of course, their parent is the invisible root, but their
+// parent() function returns 0. So now you have *two* tree levels
+// for which parent() returns 0. This is clearly inconsistent
+// and makes the whole idea of using the same recursive
+// functions for tree traversal rather difficult to implement.
+// The only item for which parent() should return 0 should be 
+// the invisible root.
+//    Admittedly, Qt has some design issues. The next few lines
+// try to work around them by manually setting an item parent.
+QStandardItem* TOCEditor::GetActualItemParent( const QStandardItem &item )
+{
+    if ( &item == m_TableOfContents.invisibleRootItem() )
+
+        return NULL;
+
+    if ( item.parent() == 0 )
+    
+        return m_TableOfContents.invisibleRootItem();
+    
+    return item.parent();
+}
+
+
 // CAN RETURN NULL!
 Headings::Heading* TOCEditor::GetItemHeading( const QStandardItem &item )
 {
+    if ( &item == m_TableOfContents.invisibleRootItem() )
+
+        return NULL;
+
     Headings::Heading *heading = item.data().value< Headings::HeadingPointer >().heading;
 
     return heading;

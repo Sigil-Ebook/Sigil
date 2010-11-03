@@ -99,7 +99,28 @@ private:
     // of those items rise to their parent's hierarchy level
     void RemoveExcludedItems( QStandardItem *item );
 
-    Headings::Heading* GetItemHeading( const QStandardItem &item );
+    bool AddRowToVisiblePredecessorSucceeded( const QList< QStandardItem* > &child_row, 
+                                              QStandardItem* row_parent );
+
+    /**
+     * Adds the child row to the "correct" item in the hierarchy below the
+     * specified item. We are looking for the first previous item/heading
+     * that has a lower level and that should be included in the TOC.
+     *
+     * @param item The item in which hierarchy the row should be placed.
+     * @param child_row The row that we want to add.
+     * @param child_index_limit If specified, then it's the index of the 
+     *                          row's (disappearing) parent in row's grandparent
+     *                          children list. We only look at children with
+     *                          a lower index than this.
+     */
+    bool AddRowToCorrectItem( QStandardItem* item, 
+                              const QList< QStandardItem* > &child_row,
+                              int child_index_limit = -1 );
+
+    QStandardItem* GetActualItemParent( const QStandardItem &item );
+
+    Headings::Heading* GetItemHeading( const QStandardItem &item );    
 
     // Reads all the stored dialog settings like
     // window position, geometry etc.

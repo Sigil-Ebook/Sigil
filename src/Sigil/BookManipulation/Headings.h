@@ -79,10 +79,14 @@ public:
 
 
     // Returns a list of headings from the provided XHTML source;
-    // the list is flat, the headings are *not* in a hierarchy tree
-    static QList< Heading > GetHeadingList( QList< HTMLResource* > html_resources ); 
+    // the list is flat, the headings are *not* in a hierarchy tree.
+    // Set include_unwanted_headings to true to get headings that the 
+    // user has marked as unwanted.
+    static QList< Heading > GetHeadingList( QList< HTMLResource* > html_resources,
+                                            bool include_unwanted_headings = false ); 
 
-    static QList< Heading > GetHeadingListForOneFile( HTMLResource* html_resource );
+    static QList< Heading > GetHeadingListForOneFile( HTMLResource* html_resource,
+                                                      bool include_unwanted_headings = false );
 
     // Takes a flat list of headings and returns a list with those
     // headings sorted into a hierarchy

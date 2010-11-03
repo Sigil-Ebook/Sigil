@@ -38,12 +38,14 @@ const QString NOT_IN_TOC_CLASS = "sigilNotInTOC";
 
 // Returns a list of headings from the provided XHTML source;
 // the list is flat, the headings are *not* in a hierarchy tree
-QList< Headings::Heading > Headings::GetHeadingList( QList< HTMLResource* > html_resources )
+QList< Headings::Heading > Headings::GetHeadingList( QList< HTMLResource* > html_resources,
+                                                     bool include_unwanted_headings )
 {
     QList< Headings::Heading > heading_list;
     
     QList< QList< Headings::Heading > > per_file_headings =
-        QtConcurrent::blockingMapped( html_resources, GetHeadingListForOneFile );
+        QtConcurrent::blockingMapped( html_resources, 
+            boost::bind( GetHeadingListForOneFile, _1, include_unwanted_headings ) );
 
     for ( int i = 0; i < per_file_headings.count(); ++i )
     {
@@ -54,7 +56,8 @@ QList< Headings::Heading > Headings::GetHeadingList( QList< HTMLResource* > html
 }
 
 
-QList< Headings::Heading > Headings::GetHeadingListForOneFile( HTMLResource* html_resource )
+QList< Headings::Heading > Headings::GetHeadingListForOneFile( HTMLResource* html_resource, 
+                                                               bool include_unwanted_headings )
 {
     Q_ASSERT( html_resource );
 
@@ -86,9 +89,11 @@ QList< Headings::Heading > Headings::GetHeadingListForOneFile( HTMLResource* htm
         heading.at_file_start  = 
             i == 0 && 
             XhtmlDoc::NodeLineNumber( element ) - 
-            XhtmlDoc::NodeLineNumber( body_element ) < ALLOWED_HEADING_DISTANCE;       
+            XhtmlDoc::NodeLineNumber( body_element ) < ALLOWED_HEADING_DISTANCE;     
 
-        headings.append( heading );
+        if ( heading.include_in_toc || include_unwanted_headings )
+
+            headings.append( heading );
     }
 
     return headings;
