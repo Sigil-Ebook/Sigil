@@ -99,6 +99,8 @@ private:
     // of those items rise to their parent's hierarchy level
     void RemoveExcludedItems( QStandardItem *item );
 
+    Headings::Heading* GetItemHeading( const QStandardItem &item );
+
     // Reads all the stored dialog settings like
     // window position, geometry etc.
     void ReadSettings();

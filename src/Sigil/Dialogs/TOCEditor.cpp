@@ -118,7 +118,7 @@ void TOCEditor::UpdateHeadingElements()
 
 void TOCEditor::UpdateOneHeadingElement( QStandardItem *item )
 {
-    Headings::Heading *heading = item->data().value< Headings::HeadingPointer >().heading;
+    Headings::Heading *heading = GetItemHeading( *item );
 
     if ( heading != NULL )
     {
@@ -188,9 +188,7 @@ void TOCEditor::UpdateHeadingInclusion( QStandardItem *checkbox_item )
 
         item_parent = checkbox_item->parent();
 
-    Headings::Heading *heading = item_parent->child( checkbox_item->row(), 0 )->
-        data().value< Headings::HeadingPointer >().heading;
-
+    Headings::Heading *heading = GetItemHeading( *item_parent->child( checkbox_item->row(), 0 ) );   
     Q_ASSERT( heading );
 
     if ( checkbox_item->checkState() == Qt::Unchecked )
@@ -213,8 +211,7 @@ void TOCEditor::UpdateHeadingText( QStandardItem *text_item )
 {
     Q_ASSERT( text_item );
 
-    Headings::Heading *heading = text_item->data().value< Headings::HeadingPointer >().heading;
-
+    Headings::Heading *heading = GetItemHeading( *text_item );    
     Q_ASSERT( heading );
 
     heading->text = text_item->text();
@@ -374,6 +371,16 @@ void TOCEditor::RemoveExcludedItems( QStandardItem *item )
         item_parent->removeRow( item->row() );
     }
 }
+
+
+// CAN RETURN NULL!
+Headings::Heading* TOCEditor::GetItemHeading( const QStandardItem &item )
+{
+    Headings::Heading *heading = item.data().value< Headings::HeadingPointer >().heading;
+
+    return heading;
+}
+
 
 // Reads all the stored dialog settings like
 // window position, geometry etc.
