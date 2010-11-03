@@ -31,6 +31,8 @@ static const QStringList PATH_TAGS       = QStringList() << "link" << "a" << "im
 static const QStringList PATH_ATTRIBUTES = QStringList() << "href" << "src";
 static const QChar POUND_SIGN            = QChar::fromAscii( '#' );
 static const QChar FORWARD_SLASH         = QChar::fromAscii( '/' );
+static const QString DOT                 = ".";
+static const QString DOT_DOT             = "..";
 
 
 PerformHTMLUpdates::PerformHTMLUpdates( const QString &source,
@@ -135,8 +137,9 @@ void PerformHTMLUpdates::UpdateReferenceInNode( xc::DOMElement *node )
             // absolute values would mean querying the filesystem and
             // that would kill performance. This is good enough
             // (famous last words etc...).
-            if ( !attribute_path_dir_name.isEmpty() &&
-                 attribute_path_dir_name != "." &&
+            if ( !attribute_path_dir_name.isEmpty()           &&
+                 attribute_path_dir_name != DOT               &&
+                 attribute_path_dir_name != DOT_DOT           &&
                  attribute_path_dir_name != old_path_dir_name )
             {
                 continue;

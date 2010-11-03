@@ -1,4 +1,6 @@
 Sigil v0.3.0 ADD_DATE
+    - fixed an issue with certain path types not being correctly updated as a result of the 
+    fix for issue #501 (issue #561)
     - the Book Browser now prevents adding files that already exist in the epub
     - previously, when adding external XHTML files through the Book Browser, any files (like CSS 
     stylesheets or images) that were linked from that file were included in the epub under a 
