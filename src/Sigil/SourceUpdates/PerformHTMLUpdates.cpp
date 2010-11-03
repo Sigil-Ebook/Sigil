@@ -158,7 +158,10 @@ void PerformHTMLUpdates::UpdateReferenceInNode( xc::DOMElement *node )
             }
 
             else if ( has_fragment_id &&
-                      atrribute_value.at( name_index - 1 ) == FORWARD_SLASH )
+                      ( name_index == 0 ||
+                        atrribute_value.at( name_index - 1 ) == FORWARD_SLASH
+                      )
+                    )
             {
                 new_path = atrribute_value.mid( name_end_index ).prepend( m_HTMLUpdates.value( key_path ) );
             }
