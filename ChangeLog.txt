@@ -1,4 +1,4 @@
-Sigil v0.3.0 ADD_DATE
+Sigil v0.3.0 2010.11.02
     - root rights no longer needed to install on Linux
     - fixed an issue with some child headings being attached to incorrect parent headings in the 
     TOC if the parent was marked as "not in TOC" (issue #476)
