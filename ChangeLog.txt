@@ -1,4 +1,5 @@
 Sigil v0.3.0 ADD_DATE
+    - root rights no longer needed to install on Linux
     - fixed an issue with some child headings being attached to incorrect parent headings in the 
     TOC if the parent was marked as "not in TOC" (issue #476)
     - fixed an issue with some UTF-8 characters outside the BMP (usually CJK characters) not being

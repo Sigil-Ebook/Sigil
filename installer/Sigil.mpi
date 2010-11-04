@@ -1290,7 +1290,7 @@ AIX-ppc,PromptForRoot
 {No}
 
 AIX-ppc,RequireRoot
-{Yes}
+{No}
 
 AIX-ppc,RootInstallDir
 {/opt/<%ShortAppName%>}
@@ -1632,7 +1632,7 @@ FreeBSD-4-x86,PromptForRoot
 {No}
 
 FreeBSD-4-x86,RequireRoot
-{Yes}
+{No}
 
 FreeBSD-4-x86,RootInstallDir
 {/opt/<%ShortAppName%>}
@@ -1686,7 +1686,7 @@ FreeBSD-5-x86,PromptForRoot
 {No}
 
 FreeBSD-5-x86,RequireRoot
-{Yes}
+{No}
 
 FreeBSD-5-x86,RootInstallDir
 {/opt/<%ShortAppName%>}
@@ -1740,7 +1740,7 @@ FreeBSD-6-x86,PromptForRoot
 {No}
 
 FreeBSD-6-x86,RequireRoot
-{Yes}
+{No}
 
 FreeBSD-6-x86,RootInstallDir
 {/opt/<%ShortAppName%>}
@@ -1794,7 +1794,7 @@ FreeBSD-7-x86,PromptForRoot
 {No}
 
 FreeBSD-7-x86,RequireRoot
-{Yes}
+{No}
 
 FreeBSD-7-x86,RootInstallDir
 {/opt/<%ShortAppName%>}
@@ -1902,7 +1902,7 @@ Linux-x86,PromptForRoot
 {No}
 
 Linux-x86,RequireRoot
-{Yes}
+{No}
 
 Linux-x86,RootInstallDir
 {/opt/<%ShortAppName%>}
@@ -1956,7 +1956,7 @@ Linux-x86_64,PromptForRoot
 {No}
 
 Linux-x86_64,RequireRoot
-{Yes}
+{No}
 
 Linux-x86_64,RootInstallDir
 {/opt/<%ShortAppName%>}
@@ -2010,7 +2010,7 @@ Solaris-sparc,PromptForRoot
 {No}
 
 Solaris-sparc,RequireRoot
-{Yes}
+{No}
 
 Solaris-sparc,RootInstallDir
 {/opt/<%ShortAppName%>}
@@ -2064,7 +2064,7 @@ Solaris-x86,PromptForRoot
 {No}
 
 Solaris-x86,RequireRoot
-{Yes}
+{No}
 
 Solaris-x86,RootInstallDir
 {/opt/<%ShortAppName%>}
