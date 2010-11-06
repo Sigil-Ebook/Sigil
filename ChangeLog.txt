@@ -1,4 +1,6 @@
 Sigil v0.3.1 ADD_DATE
+    - fixed a validation issue caused by Sigil using "application/x-font-opentype" as the OPF
+    mimetype instead of "application/vnd.ms-opentype"
     - fixed a crash when opening the TOC editor for some epub files (issue #654)
 
 Sigil v0.3.0 2010.11.02
