@@ -19,30 +19,15 @@
 **
 *************************************************************************/
 
-#include <stdafx.h>
-#include "FontResource.h"
-#include "Misc/Utility.h"
+#pragma once
+#ifndef FONTOBFUSCATION_H
+#define FONTOBFUSCATION_H
 
-FontResource::FontResource( const QString &fullfilepath, QHash< QString, Resource* > *hash_owner, QObject *parent )
-    : Resource( fullfilepath, hash_owner, parent )
+namespace FontObfuscation
 {
-
+    void ObfuscateFile( const QString &filepath, 
+                        const QString &algorithm, 
+                        const QString &identifier );
 }
 
-
-Resource::ResourceType FontResource::Type() const
-{
-    return Resource::FontResource;
-}
-
-
-QString FontResource::GetObfuscationAlgorithm() const
-{
-    return m_ObfuscationAlgorithm;
-}
-
-
-void FontResource::SetObfuscationAlgorithm( const QString &algorithm )
-{
-    m_ObfuscationAlgorithm = algorithm;
-}
+#endif // FONTOBFUSCATION_H

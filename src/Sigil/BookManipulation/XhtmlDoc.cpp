@@ -80,7 +80,7 @@ QList< XhtmlDoc::XMLElement > XhtmlDoc::GetTagsInHead( const QString &source, co
 
     if ( reader.hasError() )
     {
-        boost_throw( ErrorParsingXML() 
+        boost_throw( ErrorParsingXml() 
                      << errinfo_XML_parsing_error_string( reader.errorString().toStdString() )
                      << errinfo_XML_parsing_line_number( reader.lineNumber() )
                      << errinfo_XML_parsing_column_number( reader.columnNumber() )
@@ -114,7 +114,7 @@ QList< XhtmlDoc::XMLElement > XhtmlDoc::GetTagsInDocument( const QString &source
 
     if ( reader.hasError() )
     {
-        boost_throw( ErrorParsingXML() 
+        boost_throw( ErrorParsingXml() 
                      << errinfo_XML_parsing_error_string( reader.errorString().toStdString() )
                      << errinfo_XML_parsing_line_number( reader.lineNumber() )
                      << errinfo_XML_parsing_column_number( reader.columnNumber() )

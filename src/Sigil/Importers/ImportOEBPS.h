@@ -109,6 +109,9 @@ protected:
     // that represent the reading order of the publication
     QStringList m_ReadingOrderIds;
 
+    // The identifier of the book's unique identifier
+    QString m_UniqueIdentifierId;
+
     // The list of metadata elements in the OPF
     QList< Metadata::MetaElement > m_MetaElements;
 

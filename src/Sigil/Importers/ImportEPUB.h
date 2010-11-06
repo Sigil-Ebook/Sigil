@@ -45,13 +45,35 @@ public:
 private:
 
     /**
-     * Checks for the presence of the encryption.xml file
-     * in the META-INF folder.
-     *
-     * @return \c True when the epub contains encryption.xml
+     * Parses the "encryption.xml" file in the META-INF folder.
+     * We return the list of file paths and the algorithms used
+     * to encrypt them.
+     * 
+     * @return The list of encrypted files. The keys are the
+     *         absolute paths to the files and the values are the 
+     *         encryption algorithm IDs.     
      */
-    bool EpubContainsEncryptionXml();
+    QHash< QString, QString > ParseEncryptionXml();
 
+    bool BookContentEncrypted( const QHash< QString, QString > &encrypted_files );
+
+    /**
+     * Returns the book's main identifier.
+     *
+     * @return The id.
+     */
+    QString MainBookId();
+
+    /**
+     * Returns the book's first urn:uuid identifier.
+     *
+     * @return The id.
+     */
+    QString FirstUrnUuid();
+
+    void ProcessFontFiles( const QList< Resource* > &resources, 
+                           const QHash< QString, QString > &updates,
+                           const QHash< QString, QString > &encrypted_files );
 };
 
 #endif // IMPORTEPUB_H

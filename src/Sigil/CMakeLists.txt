@@ -165,7 +165,7 @@ set( IMPORTER_FILES
     Importers/ImportTXT.h
     )
     
-set( MISC_FILES
+set( MISC_FILES    
     Misc/AppEventFilter.cpp
     Misc/AppEventFilter.h
     Misc/UpdateChecker.cpp
@@ -184,6 +184,8 @@ set( MISC_FILES
     Misc/SearchOperations.cpp
     Misc/SearchOperations.h
     Misc/XhtmlEntitiesDtd.cpp
+    Misc/FontObfuscation.cpp
+    Misc/FontObfuscation.h
     )
 
 set( VIEW_EDITOR_FILES

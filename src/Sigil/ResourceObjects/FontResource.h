@@ -33,7 +33,7 @@ class FontResource : public Resource
     Q_OBJECT
 
 public:
-    
+       
     /**
      * Constructor.
      *
@@ -48,6 +48,14 @@ public:
 
     // inherited
     virtual ResourceType Type() const;
+
+    QString GetObfuscationAlgorithm() const;
+
+    void SetObfuscationAlgorithm( const QString &algorithm );
+
+private:
+
+    QString m_ObfuscationAlgorithm;
 };
 
 #endif // FONTRESOURCE_H

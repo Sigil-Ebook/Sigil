@@ -52,7 +52,7 @@ struct NoHTMLFiles : virtual ExceptionBase {};
 /**
  * Thrown for XML parsing errors.
  */
-struct ErrorParsingXML : virtual ExceptionBase {};
+struct ErrorParsingXml : virtual ExceptionBase {};
 typedef boost::error_info< struct error_string, std::string > errinfo_XML_parsing_error_string;
 typedef boost::error_info< struct line_number, qint64 > errinfo_XML_parsing_line_number;
 typedef boost::error_info< struct column_number, qint64 > errinfo_XML_parsing_column_number;
@@ -60,8 +60,9 @@ typedef boost::error_info< struct column_number, qint64 > errinfo_XML_parsing_co
 /**
  * Thrown for content.xml parsing errors.
  */
-struct ErrorParsingContentXML : virtual ErrorParsingXML {};
-struct ErrorParsingOPF : virtual ErrorParsingXML {};
+struct ErrorParsingContentXml : virtual ErrorParsingXml {};
+struct ErrorParsingOpf : virtual ErrorParsingXml {};
+struct ErrorParsingEncryptionXml : virtual ErrorParsingXml {};
 
 /**
  * Thrown when an OPF file cannot be found.

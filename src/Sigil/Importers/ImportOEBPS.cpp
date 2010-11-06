@@ -122,10 +122,7 @@ void ImportOEBPS::ExtractContainer()
 // the path to the OPF is stored in m_OPFFilePath
 void ImportOEBPS::LocateOPF()
 {
-    QDir folder( m_ExtractedFolderPath );
-    folder.cd( "META-INF" );
-    QString fullpath = folder.absoluteFilePath( "container.xml" );
-
+    QString fullpath = m_ExtractedFolderPath + "/META-INF/container.xml";
     QXmlStreamReader container( Utility::ReadUnicodeTextFile( fullpath ) );
 
     while ( !container.atEnd() ) 
@@ -150,7 +147,7 @@ void ImportOEBPS::LocateOPF()
 
     if ( container.hasError() )
     {
-        boost_throw( ErrorParsingContentXML() 
+        boost_throw( ErrorParsingContentXml() 
                      << errinfo_XML_parsing_error_string( container.errorString().toStdString() )
                      << errinfo_XML_parsing_line_number( container.lineNumber() )
                      << errinfo_XML_parsing_column_number( container.columnNumber() )
@@ -185,9 +182,14 @@ void ImportOEBPS::ReadOPF()
         if ( opf_reader.readNext() != QXmlStreamReader::StartElement ) 
 
             continue;
+
+        if ( opf_reader.name() == "package" )
+
+            m_UniqueIdentifierId = opf_reader.attributes().value( "", "unique-identifier" ).toString();
         
         // Parse and store Dublin Core metadata elements
-        if ( opf_reader.qualifiedName().toString().startsWith( "dc:" ) == true )
+        // FIXME: use namespaceUri instead of qualifiedName
+        else if ( opf_reader.qualifiedName().toString().startsWith( "dc:" ) == true )
         
             ReadDublinCoreElement( opf_reader );
 
@@ -215,13 +217,12 @@ void ImportOEBPS::ReadOPF()
 
     if ( opf_reader.hasError() )
     {
-        boost_throw( ErrorParsingOPF() 
+        boost_throw( ErrorParsingOpf() 
                      << errinfo_XML_parsing_error_string( opf_reader.errorString().toStdString() )
                      << errinfo_XML_parsing_line_number( opf_reader.lineNumber() )
                      << errinfo_XML_parsing_column_number( opf_reader.columnNumber() )
                    );
     }
-
 }
 
 
