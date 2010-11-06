@@ -119,7 +119,7 @@ void TOCEditor::UpdateHeadingElements()
 
 void TOCEditor::UpdateOneHeadingElement( QStandardItem *item )
 {
-    Headings::Heading *heading = GetItemHeading( *item );
+    Headings::Heading *heading = GetItemHeading( item );
 
     if ( heading != NULL )
     {
@@ -177,8 +177,8 @@ void TOCEditor::UpdateHeadingInclusion( QStandardItem *checkbox_item )
 {
     Q_ASSERT( checkbox_item );
 
-    QStandardItem *item_parent = GetActualItemParent( *checkbox_item );
-    Headings::Heading *heading = GetItemHeading( *item_parent->child( checkbox_item->row(), 0 ) );   
+    QStandardItem *item_parent = GetActualItemParent( checkbox_item );
+    Headings::Heading *heading = GetItemHeading( item_parent->child( checkbox_item->row(), 0 ) );   
     Q_ASSERT( heading );
 
     if ( checkbox_item->checkState() == Qt::Unchecked )
@@ -201,7 +201,7 @@ void TOCEditor::UpdateHeadingText( QStandardItem *text_item )
 {
     Q_ASSERT( text_item );
 
-    Headings::Heading *heading = GetItemHeading( *text_item );    
+    Headings::Heading *heading = GetItemHeading( text_item );    
     Q_ASSERT( heading );
 
     heading->text = text_item->text();
@@ -319,7 +319,7 @@ void TOCEditor::RemoveExcludedItems( QStandardItem *item )
 
         return;
         
-    QStandardItem *item_parent = GetActualItemParent( *item );
+    QStandardItem *item_parent = GetActualItemParent( item );
 
     // We query the "include in TOC" checkbox
     Qt::CheckState check_state = item_parent->child( item->row(), 1 )->checkState();
@@ -350,7 +350,7 @@ bool TOCEditor::AddRowToVisiblePredecessorSucceeded( const QList< QStandardItem*
                                                      QStandardItem* row_parent )
 {
     Q_ASSERT( row_parent );
-    QStandardItem *row_grandparent = GetActualItemParent( *row_parent );
+    QStandardItem *row_grandparent = GetActualItemParent( row_parent );
     
     if ( row_grandparent == NULL )
 
@@ -377,8 +377,13 @@ bool TOCEditor::AddRowToCorrectItem( QStandardItem* item,
             return true;
     }
 
-    Headings::Heading *heading       = GetItemHeading( *item );
-    Headings::Heading *child_heading = GetItemHeading( *child_row[ 0 ] );
+    Headings::Heading *heading = GetItemHeading( item );
+
+    if ( heading == NULL )
+
+        return false;
+
+    Headings::Heading *child_heading = GetItemHeading( child_row[ 0 ] );
     
     if ( heading->include_in_toc &&
          heading->level < child_heading->level )
@@ -402,28 +407,32 @@ bool TOCEditor::AddRowToCorrectItem( QStandardItem* item,
 // the invisible root.
 //    Admittedly, Qt has some design issues. The next few lines
 // try to work around them by manually setting an item parent.
-QStandardItem* TOCEditor::GetActualItemParent( const QStandardItem &item )
+QStandardItem* TOCEditor::GetActualItemParent( const QStandardItem *item )
 {
-    if ( &item == m_TableOfContents.invisibleRootItem() )
+    Q_ASSERT( item );
+
+    if ( item == m_TableOfContents.invisibleRootItem() )
 
         return NULL;
 
-    if ( item.parent() == 0 )
+    if ( item->parent() == 0 )
     
         return m_TableOfContents.invisibleRootItem();
     
-    return item.parent();
+    return item->parent();
 }
 
 
 // CAN RETURN NULL!
-Headings::Heading* TOCEditor::GetItemHeading( const QStandardItem &item )
+Headings::Heading* TOCEditor::GetItemHeading( const QStandardItem *item )
 {
-    if ( &item == m_TableOfContents.invisibleRootItem() )
+    Q_ASSERT( item );
+
+    if ( item == m_TableOfContents.invisibleRootItem() )
 
         return NULL;
 
-    Headings::Heading *heading = item.data().value< Headings::HeadingPointer >().heading;
+    Headings::Heading *heading = item->data().value< Headings::HeadingPointer >().heading;
 
     return heading;
 }

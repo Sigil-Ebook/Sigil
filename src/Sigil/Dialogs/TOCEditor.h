@@ -118,9 +118,9 @@ private:
                               const QList< QStandardItem* > &child_row,
                               int child_index_limit = -1 );
 
-    QStandardItem* GetActualItemParent( const QStandardItem &item );
+    QStandardItem* GetActualItemParent( const QStandardItem *item );
 
-    Headings::Heading* GetItemHeading( const QStandardItem &item );    
+    Headings::Heading* GetItemHeading( const QStandardItem *item );    
 
     // Reads all the stored dialog settings like
     // window position, geometry etc.

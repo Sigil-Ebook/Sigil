@@ -1,3 +1,6 @@
+Sigil v0.3.1 ADD_DATE
+    - fixed a crash when opening the TOC editor for some epub files (issue #654)
+
 Sigil v0.3.0 2010.11.02
     - root rights no longer needed to install on Linux
     - fixed an issue with some child headings being attached to incorrect parent headings in the 
