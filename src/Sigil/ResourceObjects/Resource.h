@@ -101,6 +101,14 @@ public:
     QString GetRelativePathToOEBPS() const;
 
     /**
+     * Returns the resource's path relative to the publication's
+     * root folder. Returned \em without leading "../" characters.
+     *
+     * @return The root-relative path.
+     */
+    QString GetRelativePathToRoot() const;
+
+    /**
      * Returns the resource's full file path.
      * We \em really shouldn't be using this, 
      * it kinda breaks encapsulation.
@@ -110,9 +118,9 @@ public:
     QString GetFullPath() const;
 
     /**
-     * Returns the resource's filename.
+     * Returns the URL to the parent folder ("base URL") of this resource.
      *
-     * @return The resource's filename.
+     * @return The base URL.
      */
     QUrl GetBaseUrl() const;
 

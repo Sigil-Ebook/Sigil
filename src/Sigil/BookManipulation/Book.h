@@ -174,6 +174,13 @@ public:
      */
     bool IsModified() const;
 
+    /**
+     * Checks for the presence of obfuscated fonts in the book.
+     *
+     * @return \c true if the book has obfuscated fonts.
+     */
+    bool HasObfuscatedFonts() const ;
+
 public slots:
 
     /**

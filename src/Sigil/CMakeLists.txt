@@ -146,6 +146,8 @@ set( EXPORTER_FILES
     Exporters/OPFWriter.h
     Exporters/XMLWriter.cpp
     Exporters/XMLWriter.h
+    Exporters/EncryptionXmlWriter.cpp
+    Exporters/EncryptionXmlWriter.h
     )
     
 set( IMPORTER_FILES

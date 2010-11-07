@@ -75,23 +75,26 @@ void OPFWriter::WriteMetadata()
             }
         }
         
+        // We *always* add a UUID identifier and we make it the 
+        // main one if the user hasn't set a CustomID
         m_Writer->writeStartElement( "dc:identifier" );
 
-        m_Writer->writeAttribute( "id", "BookID" );
+        if ( !metadata.contains( "CustomID" ) )
+
+            m_Writer->writeAttribute( "id", "BookID" );
+
+        m_Writer->writeAttribute( "opf:scheme", "UUID" );
+        m_Writer->writeCharacters( "urn:uuid:" + m_Book->GetPublicationIdentifier() );
+        m_Writer->writeEndElement();        
 
         if ( metadata.contains( "CustomID" ) )
         {
+            m_Writer->writeStartElement( "dc:identifier" );
             m_Writer->writeAttribute( "opf:scheme", "CustomID" );
+            m_Writer->writeAttribute( "id", "BookID" );
             m_Writer->writeCharacters( metadata[ "CustomID" ][ 0 ].toString() );
-        }
-
-        else
-        {
-            m_Writer->writeAttribute( "opf:scheme", "UUID" );
-            m_Writer->writeCharacters( m_Book->GetPublicationIdentifier() );
-        }       
-
-        m_Writer->writeEndElement();
+            m_Writer->writeEndElement();
+        }            
 
         WriteCoverImageMeta();
         WriteSigilVersionMeta();

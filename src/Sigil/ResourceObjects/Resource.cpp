@@ -58,6 +58,20 @@ QString Resource::GetRelativePathToOEBPS() const
     return QFileInfo( m_FullFilePath ).dir().dirName() + "/" + Filename();
 }
 
+
+QString Resource::GetRelativePathToRoot() const
+{
+    QFileInfo info( m_FullFilePath );
+    QDir parent_dir = info.dir();
+    QString parent_name = parent_dir.dirName();
+
+    parent_dir.cdUp();
+    QString grandparent_name = parent_dir.dirName();
+
+    return grandparent_name + "/" + parent_name + "/" + Filename();
+}
+
+
 QString Resource::GetFullPath() const
 {
     return m_FullFilePath;

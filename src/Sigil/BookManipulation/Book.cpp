@@ -297,6 +297,25 @@ bool Book::IsModified() const
 }
 
 
+bool Book::HasObfuscatedFonts() const
+{
+    QList< FontResource* > font_resources = m_Mainfolder.GetResourceTypeList< FontResource >();
+
+    if ( font_resources.empty() )
+
+        return false;
+
+    foreach( FontResource *font_resource, font_resources )
+    {
+        if ( !font_resource->GetObfuscationAlgorithm().isEmpty() )
+
+            return true;
+    }
+
+    return false;
+}
+
+
 void Book::SetModified( bool modified )
 {
     bool old_modified_state = m_IsModified;

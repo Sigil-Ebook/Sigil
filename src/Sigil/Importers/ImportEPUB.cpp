@@ -179,16 +179,7 @@ void ImportEPUB::ProcessFontFiles( const QList< Resource* > &resources,
 
         return;
 
-    QList< FontResource* > font_resources;
-
-    for ( int i = 0; i < resources.count(); ++i )
-    {
-        Resource *resource = resources.at( i );
-
-        if ( resource->Type() == Resource::FontResource )
-
-            font_resources.append( qobject_cast< FontResource* >( resource ) );
-    }
+    QList< FontResource* > font_resources = m_Book->GetFolderKeeper().GetResourceTypeList< FontResource >();
 
     if ( font_resources.empty() )
 
@@ -222,6 +213,9 @@ void ImportEPUB::ProcessFontFiles( const QList< Resource* > &resources,
 
         font_resource->SetObfuscationAlgorithm( algorithm );
 
+        // Actually we are de-obfuscating, but the inverse operations of the obfuscation methods 
+        // are the obfuscation methods themselves. For the math oriented, the obfuscation methods
+        // are involutary [ f( f( x ) ) = x ].
         if ( algorithm == ADOBE_FONT_ALGO_ID )
 
             FontObfuscation::ObfuscateFile( font_resource->GetFullPath(), algorithm, urn_uuid );

@@ -23,18 +23,22 @@
 #include "ExportEPUB.h"
 #include "BookManipulation/FolderKeeper.h"
 #include "OPFWriter.h"
+#include "EncryptionXmlWriter.h"
 #include "NCXWriter.h"
 #include <ZipArchive.h>
 #include "BookManipulation/CleanSource.h"
 #include "Misc/Utility.h"
+#include "Misc/FontObfuscation.h"
 #include "BookManipulation/XhtmlDoc.h"
+#include "ResourceObjects/FontResource.h"
 
 const QString BODY_START = "<\\s*body[^>]*>";
 const QString BODY_END   = "</\\s*body\\s*>";
 
-const QString OPF_FILE_NAME           = "content.opf"; 
-const QString NCX_FILE_NAME           = "toc.ncx";
-const QString CONTAINER_XML_FILE_NAME = "container.xml";
+const QString OPF_FILE_NAME            = "content.opf"; 
+const QString NCX_FILE_NAME            = "toc.ncx";
+const QString CONTAINER_XML_FILE_NAME  = "container.xml";
+const QString ENCRYPTION_XML_FILE_NAME = "encryption.xml";
 
 static const QString METAINF_FOLDER_SUFFIX = "/META-INF";
 static const QString OEBPS_FOLDER_SUFFIX   = "/OEBPS";
@@ -74,6 +78,11 @@ void ExportEPUB::WriteBook()
     dir.mkpath( dir.absolutePath() );
 
     CreatePublication( folderpath );
+
+    if ( m_Book->HasObfuscatedFonts() )
+
+        ObfuscateFonts( folderpath );
+
     SaveFolderAsEpubToLocation( folderpath, m_FullFilePath );
 
     QtConcurrent::run( Utility::DeleteFolderAndFiles, folderpath );
@@ -86,9 +95,13 @@ void ExportEPUB::CreatePublication( const QString &fullfolderpath )
 {
     Utility::CopyFiles( m_Book->GetFolderKeeper().GetFullPathToMainFolder(), fullfolderpath );
 
-    CreateContainerXML( fullfolderpath + METAINF_FOLDER_SUFFIX );
+    CreateContainerXML( fullfolderpath + METAINF_FOLDER_SUFFIX );    
     CreateContentOPF( fullfolderpath + OEBPS_FOLDER_SUFFIX );
     CreateTocNCX( fullfolderpath + OEBPS_FOLDER_SUFFIX );
+
+    if ( m_Book->HasObfuscatedFonts() )
+        
+        CreateEncryptionXML( fullfolderpath + METAINF_FOLDER_SUFFIX );
 }
 
 
@@ -190,6 +203,28 @@ void ExportEPUB::CreateContainerXML( const QString &fullfolderpath )
 }
 
 
+void ExportEPUB::CreateEncryptionXML( const QString &fullfolderpath )
+{
+    QTemporaryFile file;
+
+    if ( !file.open() )
+    {
+        boost_throw( CannotOpenFile() 
+                     << errinfo_file_fullpath( file.fileName().toStdString() )
+                     << errinfo_file_errorstring( file.errorString().toStdString() ) 
+                   );
+    }
+    
+    EncryptionXmlWriter enc( m_Book, file );
+    enc.WriteXML();
+
+    // Write to disk immediately
+    file.flush();
+
+    QFile::copy( file.fileName(), fullfolderpath + "/" + ENCRYPTION_XML_FILE_NAME ); 
+}
+
+
 // Creates the publication's content.opf file
 void ExportEPUB::CreateContentOPF( const QString &fullfolderpath )
 {
@@ -233,6 +268,40 @@ void ExportEPUB::CreateTocNCX( const QString &fullfolderpath )
     file.flush();
 
     QFile::copy( file.fileName(), fullfolderpath + "/" + NCX_FILE_NAME ); 
+}
+
+
+void ExportEPUB::ObfuscateFonts( const QString &fullfolderpath )
+{
+    QString uuid_id = "urn:uuid:" + m_Book->GetPublicationIdentifier();
+
+    QHash< QString, QList< QVariant > > metadata = m_Book->GetMetadata();    
+
+    // Also see OPFWriter::WriteMetadata
+    QString main_id = metadata.contains( "CustomID" )        ?
+                      metadata[ "CustomID" ][ 0 ].toString() :
+                      uuid_id;
+
+    QList< FontResource* > font_resources = m_Book->GetFolderKeeper().GetResourceTypeList< FontResource >();
+
+    foreach( FontResource *font_resource, font_resources )
+    {
+        QString algorithm = font_resource->GetObfuscationAlgorithm();
+
+        if ( algorithm.isEmpty() )
+
+            continue;
+
+        QString font_path = fullfolderpath + "/" + font_resource->GetRelativePathToRoot();
+
+        if ( algorithm == ADOBE_FONT_ALGO_ID )
+
+            FontObfuscation::ObfuscateFile( font_path, algorithm, uuid_id );
+
+        else 
+
+            FontObfuscation::ObfuscateFile( font_path, algorithm, main_id );
+    }    
 }
 
 

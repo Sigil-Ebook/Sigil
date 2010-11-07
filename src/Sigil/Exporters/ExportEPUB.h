@@ -67,6 +67,13 @@ private:
     // Creates the publication's toc.ncx file
     void CreateTocNCX( const QString &fullfolderpath );
 
+    // Creates the publication's encryption.xml file,
+    // if there are any fonts to obfuscate
+    void CreateEncryptionXML( const QString &fullfolderpath );
+
+    // Obfuscates the fonts marked for obfuscation
+    void ObfuscateFonts( const QString &fullfolderpath );
+
 
     ///////////////////////////////
     // PROTECTED MEMBER VARIABLES
