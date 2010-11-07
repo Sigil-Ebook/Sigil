@@ -1,4 +1,4 @@
-Sigil v0.3.1 ADD_DATE
+Sigil v0.3.1 2010.11.07
     - added a new "Font Obfuscation" context menu for font files in the Book Browser; the user can
     now select (or de-select) the use of Adobe's or the IDPF's font obfuscation methods; this also
     resolves the problem where Sigil refused to open epub files that use such obfuscated fonts with  
@@ -7,7 +7,7 @@ Sigil v0.3.1 ADD_DATE
     mimetype instead of "application/vnd.ms-opentype"
     - fixed a crash when opening the TOC editor for some epub files (issue #654)
 
-Sigil v0.3.0 2010.11.02
+Sigil v0.3.0 2010.11.04
     - root rights no longer needed to install on Linux
     - fixed an issue with some child headings being attached to incorrect parent headings in the 
     TOC if the parent was marked as "not in TOC" (issue #476)
