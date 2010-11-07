@@ -203,28 +203,6 @@ void ExportEPUB::CreateContainerXML( const QString &fullfolderpath )
 }
 
 
-void ExportEPUB::CreateEncryptionXML( const QString &fullfolderpath )
-{
-    QTemporaryFile file;
-
-    if ( !file.open() )
-    {
-        boost_throw( CannotOpenFile() 
-                     << errinfo_file_fullpath( file.fileName().toStdString() )
-                     << errinfo_file_errorstring( file.errorString().toStdString() ) 
-                   );
-    }
-    
-    EncryptionXmlWriter enc( m_Book, file );
-    enc.WriteXML();
-
-    // Write to disk immediately
-    file.flush();
-
-    QFile::copy( file.fileName(), fullfolderpath + "/" + ENCRYPTION_XML_FILE_NAME ); 
-}
-
-
 // Creates the publication's content.opf file
 void ExportEPUB::CreateContentOPF( const QString &fullfolderpath )
 {
@@ -268,6 +246,28 @@ void ExportEPUB::CreateTocNCX( const QString &fullfolderpath )
     file.flush();
 
     QFile::copy( file.fileName(), fullfolderpath + "/" + NCX_FILE_NAME ); 
+}
+
+
+void ExportEPUB::CreateEncryptionXML( const QString &fullfolderpath )
+{
+    QTemporaryFile file;
+
+    if ( !file.open() )
+    {
+        boost_throw( CannotOpenFile() 
+                     << errinfo_file_fullpath( file.fileName().toStdString() )
+                     << errinfo_file_errorstring( file.errorString().toStdString() ) 
+                   );
+    }
+    
+    EncryptionXmlWriter enc( m_Book, file );
+    enc.WriteXML();
+
+    // Write to disk immediately
+    file.flush();
+
+    QFile::copy( file.fileName(), fullfolderpath + "/" + ENCRYPTION_XML_FILE_NAME ); 
 }
 
 

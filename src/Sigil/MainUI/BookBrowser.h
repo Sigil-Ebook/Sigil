@@ -159,6 +159,16 @@ private slots:
      */
     void MergeWithPrevious();
 
+    /**
+     * Sets the use of Adobe's obfuscation method for the current resource.
+     */
+    void AdobesObfuscationMethod();
+
+    /**
+     * Sets the use of the IDPF's obfuscation method for the current resource.
+     */
+    void IdpfsObfuscationMethod();
+
 private:
 
     /**
@@ -242,6 +252,22 @@ private:
     void SetHTMLSemanticActionCheckState( Resource *resource );
 
     /**
+     * Sets up the sub-menu for adding or removing font obfuscation,
+     * when the menu is invoked for FontResources.
+     *
+     * @param resource The resource on which the context menu was invoked.
+     */
+    void SetupFontObfuscationMenu( Resource * esource );
+
+    /**
+     * Sets the checked state for the font obfuscation actions
+     * based on the resource's current state.
+     *
+     * @param resource The resource on which the context menu was invoked.
+     */
+    void SetFontObfuscationActionCheckState( Resource *resource );
+
+    /**
      * Adds the MergeWithPrevious action to the context menu
      * if conditions are met.
      *
@@ -261,6 +287,7 @@ private:
      * Connects all the required signals to their respective slots.
      */
     void ConnectSignalsToSlots();
+    
 
 
     ///////////////////////////////
@@ -293,6 +320,12 @@ private:
      */
     QMenu &m_SemanticsContextMenu;
 
+    /**
+     * The sub-menu for marking fonts
+     * for obfuscation.
+     */
+    QMenu &m_FontObfuscationContextMenu;
+
     // The context menu actions.
 
     QAction *m_AddExisting;
@@ -301,6 +334,8 @@ private:
     QAction *m_Remove;
     QAction *m_CoverImage;
     QAction *m_MergeWithPrevious;
+    QAction *m_AdobesObfuscationMethod;
+    QAction *m_IdpfsObfuscationMethod;
 
     /**
      * All the semantic actions for the <guide>

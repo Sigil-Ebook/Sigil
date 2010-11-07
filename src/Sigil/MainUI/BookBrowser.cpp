@@ -40,10 +40,12 @@ BookBrowser::BookBrowser( QWidget *parent )
     m_OPFModel( *new OPFModel( this ) ),
     m_ContextMenu( *new QMenu( this ) ),
     m_SemanticsContextMenu( *new QMenu( this ) ),
+    m_FontObfuscationContextMenu( *new QMenu( this ) ),
     m_GuideSemanticMapper( *new QSignalMapper( this ) ),
     m_LastContextMenuType( Resource::GenericResource )
 { 
-    m_SemanticsContextMenu.setTitle( tr( "Add Semantics" ) );
+    m_SemanticsContextMenu      .setTitle( tr( "Add Semantics"    ) );
+    m_FontObfuscationContextMenu.setTitle( tr( "Font Obfuscation" ) );
 
     setWidget( &m_TreeView );
     setAllowedAreas( Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea );
@@ -352,6 +354,40 @@ void BookBrowser::MergeWithPrevious()
 }
 
 
+void BookBrowser::AdobesObfuscationMethod()
+{
+    FontResource *font_resource = qobject_cast< FontResource* >( GetCurrentResource() );
+    Q_ASSERT( font_resource );
+
+    QString current_algorithm = font_resource->GetObfuscationAlgorithm();
+
+    if ( current_algorithm == IDPF_FONT_ALGO_ID || current_algorithm.isEmpty() )
+
+        font_resource->SetObfuscationAlgorithm( ADOBE_FONT_ALGO_ID );
+
+    else
+
+        font_resource->SetObfuscationAlgorithm( "" );
+}
+
+
+void BookBrowser::IdpfsObfuscationMethod()
+{
+    FontResource *font_resource = qobject_cast< FontResource* >( GetCurrentResource() );
+    Q_ASSERT( font_resource );
+
+    QString current_algorithm = font_resource->GetObfuscationAlgorithm();
+
+    if ( current_algorithm == ADOBE_FONT_ALGO_ID || current_algorithm.isEmpty() )
+
+        font_resource->SetObfuscationAlgorithm( IDPF_FONT_ALGO_ID );
+
+    else
+
+        font_resource->SetObfuscationAlgorithm( "" );
+}
+
+
 void BookBrowser::ExpandTextFolder()
 {
     m_TreeView.expand( m_OPFModel.GetTextFolderModelIndex() );
@@ -402,14 +438,19 @@ void BookBrowser::SetupTreeView()
 
 void BookBrowser::CreateContextMenuActions()
 {
-    m_AddNew            = new QAction( tr( "Add New Item" ),          this );
-    m_AddExisting       = new QAction( tr( "Add Existing Items..." ), this );
-    m_Rename            = new QAction( tr( "Rename" ),                this );
-    m_Remove            = new QAction( tr( "Remove" ),                this );
-    m_CoverImage        = new QAction( tr( "Cover Image" ),           this );
-    m_MergeWithPrevious = new QAction( tr( "Merge With Previous" ),   this );
-   
-    m_CoverImage->setCheckable( true );    
+    m_AddNew                  = new QAction( tr( "Add New Item" ),          this );
+    m_AddExisting             = new QAction( tr( "Add Existing Items..." ), this );
+    m_Rename                  = new QAction( tr( "Rename" ),                this );
+    m_Remove                  = new QAction( tr( "Remove" ),                this );
+    m_CoverImage              = new QAction( tr( "Cover Image" ),           this );
+    m_MergeWithPrevious       = new QAction( tr( "Merge With Previous" ),   this );
+    m_AdobesObfuscationMethod = new QAction( tr( "Use Adobe's Method" ),    this );
+    m_IdpfsObfuscationMethod  = new QAction( tr( "Use IDPF's Method" ),     this );
+
+    m_CoverImage             ->setCheckable( true );  
+    m_AdobesObfuscationMethod->setCheckable( true ); 
+    m_IdpfsObfuscationMethod ->setCheckable( true );
+
     m_Remove->setShortcut( QKeySequence::Delete );
 
     // Has to be added to the book browser itself as well
@@ -560,7 +601,11 @@ void BookBrowser::SetupResourceSpecificContextMenu( Resource *resource  )
 {
     if ( resource->Type() == Resource::HTMLResource )
     
-        AddMergeWithPreviousAction( resource );        
+        AddMergeWithPreviousAction( resource ); 
+
+    if ( resource->Type() == Resource::FontResource )
+
+        SetupFontObfuscationMenu( resource );
 
     SetupSemanticContextmenu( resource );
 }
@@ -643,6 +688,33 @@ void BookBrowser::SetHTMLSemanticActionCheckState( Resource *resource )
 }
 
 
+void BookBrowser::SetupFontObfuscationMenu( Resource *resource )
+{
+    m_FontObfuscationContextMenu.addAction( m_AdobesObfuscationMethod );    
+    m_FontObfuscationContextMenu.addAction( m_IdpfsObfuscationMethod );    
+
+    SetFontObfuscationActionCheckState( resource );
+
+    m_ContextMenu.addMenu( &m_FontObfuscationContextMenu );
+}
+
+
+void BookBrowser::SetFontObfuscationActionCheckState( Resource *resource )
+{
+    if ( resource->Type() != Resource::FontResource )
+
+        return;
+
+    FontResource *font_resource = qobject_cast< FontResource* >( resource );
+    Q_ASSERT( font_resource );
+
+    QString algorithm = font_resource->GetObfuscationAlgorithm();
+
+    m_AdobesObfuscationMethod->setChecked( algorithm == ADOBE_FONT_ALGO_ID );
+    m_IdpfsObfuscationMethod ->setChecked( algorithm == IDPF_FONT_ALGO_ID  );
+}
+
+
 void BookBrowser::AddMergeWithPreviousAction( Resource *resource )
 {
     HTMLResource *html_resource = qobject_cast< HTMLResource* >( resource );
@@ -665,12 +737,15 @@ void BookBrowser::ConnectSignalsToSlots()
     connect( &m_TreeView, SIGNAL( customContextMenuRequested( const QPoint& ) ),
              this,        SLOT(   OpenContextMenu(            const QPoint& ) ) );
 
-    connect( m_AddNew,            SIGNAL( triggered() ), this, SLOT( AddNew()            ) );
-    connect( m_AddExisting,       SIGNAL( triggered() ), this, SLOT( AddExisting()       ) );
-    connect( m_Rename,            SIGNAL( triggered() ), this, SLOT( Rename()            ) );
-    connect( m_Remove,            SIGNAL( triggered() ), this, SLOT( Remove()            ) );
-    connect( m_CoverImage,        SIGNAL( triggered() ), this, SLOT( SetCoverImage()     ) );
-    connect( m_MergeWithPrevious, SIGNAL( triggered() ), this, SLOT( MergeWithPrevious() ) );
+    connect( m_AddNew,                  SIGNAL( triggered() ), this, SLOT( AddNew()                  ) );
+    connect( m_AddExisting,             SIGNAL( triggered() ), this, SLOT( AddExisting()             ) );
+    connect( m_Rename,                  SIGNAL( triggered() ), this, SLOT( Rename()                  ) );
+    connect( m_Remove,                  SIGNAL( triggered() ), this, SLOT( Remove()                  ) );
+    connect( m_CoverImage,              SIGNAL( triggered() ), this, SLOT( SetCoverImage()           ) );
+    connect( m_MergeWithPrevious,       SIGNAL( triggered() ), this, SLOT( MergeWithPrevious()       ) );
+
+    connect( m_AdobesObfuscationMethod, SIGNAL( triggered() ), this, SLOT( AdobesObfuscationMethod() ) );
+    connect( m_IdpfsObfuscationMethod,  SIGNAL( triggered() ), this, SLOT( IdpfsObfuscationMethod()  ) );
 
     foreach( QAction* action, m_GuideSemanticActions )
     {
@@ -695,6 +770,7 @@ Resource* BookBrowser::GetCurrentResource()
     const QString &identifier = item->data().toString(); 
     return &m_Book->GetFolderKeeper().GetResourceByIdentifier( identifier );
 }   
+
 
 
 

@@ -1,4 +1,8 @@
 Sigil v0.3.1 ADD_DATE
+    - added a new "Font Obfuscation" context menu for font files in the Book Browser; the user can
+    now select (or de-select) the use of Adobe's or the IDPF's font obfuscation methods; this also
+    resolves the problem where Sigil refused to open epub files that use such obfuscated fonts with  
+    the message that the epub has DRM
     - fixed a validation issue caused by Sigil using "application/x-font-opentype" as the OPF
     mimetype instead of "application/vnd.ms-opentype"
     - fixed a crash when opening the TOC editor for some epub files (issue #654)
