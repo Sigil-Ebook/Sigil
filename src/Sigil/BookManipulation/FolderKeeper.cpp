@@ -28,7 +28,7 @@ const QStringList IMAGE_EXTENSIONS = QStringList() << "jpg"   << "jpeg"  << "png
                                                    << "gif"   << "tif"   << "tiff"
                                                    << "bm"    << "bmp"   << "svg";
 
-static const QStringList FONT_EXTENSIONS  = QStringList() << "ttf"   << "otf";
+const QStringList FONT_EXTENSIONS         = QStringList() << "ttf"   << "ttc"   << "otf";
 const QStringList TEXT_EXTENSIONS         = QStringList() << "xhtml" << "html"  << "htm" << "xml";
 static const QStringList STYLE_EXTENSIONS = QStringList() << "css"   << "xpgt";
 

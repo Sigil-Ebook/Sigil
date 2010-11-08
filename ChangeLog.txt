@@ -1,4 +1,5 @@
 Sigil v0.3.2 ADD_DATE
+    - added support for TrueType Collection fonts with extension TTC
     - InDesign (as of CS5) refuses to list the fonts it embeds in the OPF manifest of the epub 
     files it exports, even though the epub standard demands it. This causes Sigil to not pick up
     these fonts when opening such epub files. A workaround has been added that will detect such

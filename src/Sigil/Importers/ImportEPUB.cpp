@@ -153,12 +153,10 @@ void ImportEPUB::AddObfuscatedButUndeclaredFonts( const QHash< QString, QString 
 
     foreach( QString filepath, encrypted_files.keys() )
     {
-        if ( !filepath.endsWith( ".ttf", Qt::CaseInsensitive ) &&
-             !filepath.endsWith( ".otf", Qt::CaseInsensitive ) )
-        {
+        if ( !FONT_EXTENSIONS.contains( QFileInfo( filepath ).suffix().toLower() ) )
+
             continue;
-        }
-        
+       
         m_Files[ Utility::CreateUUID() ] = opf_dir.relativeFilePath( filepath );
     }
 }
@@ -214,11 +212,9 @@ void ImportEPUB::ProcessFontFiles( const QList< Resource* > &resources,
 
     foreach( QString old_update_path, updates.keys() )
     {
-        if ( !old_update_path.endsWith( ".ttf", Qt::CaseInsensitive ) &&
-             !old_update_path.endsWith( ".otf", Qt::CaseInsensitive ) )
-        {
-            continue;
-        }
+        if ( !FONT_EXTENSIONS.contains( QFileInfo( old_update_path ).suffix().toLower() ) )
+
+            continue;        
 
         QString new_update_path = updates[ old_update_path ];
 

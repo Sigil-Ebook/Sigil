@@ -89,7 +89,7 @@ QHash< QString, QString > > UniversalUpdates::SeparateHTMLAndCSSUpdates( const Q
         QString extension = QFileInfo( key_path ).suffix().toLower();
 
         // Font file updates are CSS updates, not HTML updates
-        if ( extension == "ttf" || extension == "otf" )
+        if ( FONT_EXTENSIONS.contains( extension ) )
         {
             css_updates[ key_path ] = html_updates.value( key_path );
             html_updates.remove( key_path );

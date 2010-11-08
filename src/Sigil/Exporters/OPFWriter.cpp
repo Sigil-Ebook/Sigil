@@ -450,6 +450,8 @@ void OPFWriter::CreateMimetypes()
     // these will have to do
     m_Mimetypes[ "otf"   ] = "application/vnd.ms-opentype"; 
     m_Mimetypes[ "ttf"   ] = "application/x-font-ttf";
+    m_Mimetypes[ "ttc"   ] = "application/x-font-truetype-collection";
+
 }
 
 
