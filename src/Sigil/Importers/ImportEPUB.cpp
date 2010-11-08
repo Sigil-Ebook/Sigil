@@ -58,6 +58,7 @@ QSharedPointer< Book > ImportEPUB::GetBook()
 
     LocateOPF();
     ReadOPF();
+    AddObfuscatedButUndeclaredFonts( encrypted_files );
 
     // These mutate the m_Book object
     LoadMetadata();
@@ -139,6 +140,30 @@ bool ImportEPUB::BookContentEncrypted( const QHash< QString, QString > &encrypte
 }
 
 
+// This is basically a workaround for InDesign not listing the fonts it
+// embedded in the OPF manifest, even though the specs say it has to.
+// It does list them in the encryption.xml, so we use that.
+void ImportEPUB::AddObfuscatedButUndeclaredFonts( const QHash< QString, QString > &encrypted_files )
+{
+    if ( encrypted_files.empty() )
+
+        return;
+
+    QDir opf_dir = QFileInfo( m_OPFFilePath ).dir();
+
+    foreach( QString filepath, encrypted_files.keys() )
+    {
+        if ( !filepath.endsWith( ".ttf", Qt::CaseInsensitive ) &&
+             !filepath.endsWith( ".otf", Qt::CaseInsensitive ) )
+        {
+            continue;
+        }
+        
+        m_Files[ Utility::CreateUUID() ] = opf_dir.relativeFilePath( filepath );
+    }
+}
+
+
 QString ImportEPUB::MainBookId()
 {
     foreach( Metadata::MetaElement meta, m_MetaElements )
@@ -189,9 +214,11 @@ void ImportEPUB::ProcessFontFiles( const QList< Resource* > &resources,
 
     foreach( QString old_update_path, updates.keys() )
     {
-        if ( !old_update_path.endsWith( ".ttf" ) && !old_update_path.endsWith( ".otf" ) )
-
+        if ( !old_update_path.endsWith( ".ttf", Qt::CaseInsensitive ) &&
+             !old_update_path.endsWith( ".otf", Qt::CaseInsensitive ) )
+        {
             continue;
+        }
 
         QString new_update_path = updates[ old_update_path ];
 
@@ -225,6 +252,9 @@ void ImportEPUB::ProcessFontFiles( const QList< Resource* > &resources,
             FontObfuscation::ObfuscateFile( font_resource->GetFullPath(), algorithm, main_id );
     }
 }
+
+
+
 
 
 

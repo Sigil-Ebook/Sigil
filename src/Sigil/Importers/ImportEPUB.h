@@ -49,13 +49,15 @@ private:
      * We return the list of file paths and the algorithms used
      * to encrypt them.
      * 
-     * @return The list of encrypted files. The keys are the
+     * @return The list of encrypted fsiles. The keys are the
      *         absolute paths to the files and the values are the 
      *         encryption algorithm IDs.     
      */
     QHash< QString, QString > ParseEncryptionXml();
 
     bool BookContentEncrypted( const QHash< QString, QString > &encrypted_files );
+
+    void AddObfuscatedButUndeclaredFonts( const QHash< QString, QString > &encrypted_files );
 
     /**
      * Returns the book's main identifier.
@@ -73,7 +75,7 @@ private:
 
     void ProcessFontFiles( const QList< Resource* > &resources, 
                            const QHash< QString, QString > &updates,
-                           const QHash< QString, QString > &encrypted_files );
+                           const QHash< QString, QString > &encrypted_files );    
 };
 
 #endif // IMPORTEPUB_H
