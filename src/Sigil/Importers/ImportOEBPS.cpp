@@ -347,7 +347,14 @@ QHash< QString, QString > ImportOEBPS::LoadFolderStructure()
 
     for ( int i = 0; i < num_files; ++i )
     {   
-        sync.addFuture( QtConcurrent::run( this, &ImportOEBPS::LoadOneFile, keys.at( i ) ) );   
+        QString id = keys.at( i );
+        sync.addFuture( QtConcurrent::run( 
+                this, 
+                &ImportOEBPS::LoadOneFile, 
+                id,
+                m_Files.value( id ),
+                m_ReadingOrderIds.indexOf( id ),
+                m_SemanticInformation.value( id ) ) );   
     }
 
     sync.waitForFinished();
@@ -368,15 +375,17 @@ QHash< QString, QString > ImportOEBPS::LoadFolderStructure()
 }
 
 
-tuple< QString, QString > ImportOEBPS::LoadOneFile( const QString &ID )
+tuple< QString, QString > ImportOEBPS::LoadOneFile( const QString &ID,
+                                                    const QString &path,
+                                                    int reading_order,
+                                                    const QHash< QString, QString > &semantic_info )
 {
-    QString path         = m_Files.value( ID );
     QString fullfilepath = QFileInfo( m_OPFFilePath ).absolutePath() + "/" + path;
 
     try
     {
         Resource &resource = m_Book->GetFolderKeeper().AddContentFileToFolder( fullfilepath, 
-                                m_ReadingOrderIds.indexOf( ID ), m_SemanticInformation[ ID ] );
+                                reading_order, semantic_info );
         QString newpath = "../" + resource.GetRelativePathToOEBPS(); 
 
         return make_tuple( fullfilepath, newpath );

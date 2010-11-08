@@ -1,3 +1,6 @@
+Sigil v0.3.2 ADD_DATE
+    - fixed a rare crash issue when loading epub files
+
 Sigil v0.3.1 2010.11.07
     - added a new "Font Obfuscation" context menu for font files in the Book Browser; the user can
     now select (or de-select) the use of Adobe's or the IDPF's font obfuscation methods; this also
