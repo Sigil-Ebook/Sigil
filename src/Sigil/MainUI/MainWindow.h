@@ -116,6 +116,12 @@ public:
     static void ShowMessageOnCurrentStatusBar( const QString &message, 
                                                int millisecond_duration = STATUSBAR_MSG_DISPLAY_TIME );
 
+    /**
+     * Returns the current state of the Tidy clean option,
+     * as specified by the user.
+     */
+    static bool ShouldUseTidyClean();
+
 protected:
 
     /**
@@ -311,6 +317,14 @@ private slots:
      * @see Book::CreateNewChapters
      */
     void CreateNewChapters( QStringList new_chapters );
+
+    /**
+     * Sets the new state of the option that controls 
+     * whether to clean with Tidy or not.
+     *
+     * @param new_state The new state of the option.
+     */
+    void SetTidyCleanOption( bool new_state );
 
 private:
 

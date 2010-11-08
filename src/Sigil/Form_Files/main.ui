@@ -126,6 +126,8 @@
     <addaction name="actionMetaEditor"/>
     <addaction name="actionTOCEditor"/>
     <addaction name="actionSplitOnSGFChapterMarkers"/>
+    <addaction name="separator"/>
+    <addaction name="actionTidyClean"/>
    </widget>
    <widget class="QMenu" name="menuInsert">
     <property name="title">
@@ -270,7 +272,7 @@
    <addaction name="actionInsertBulletedList"/>
    <addaction name="actionInsertNumberedList"/>
   </widget>
-  <widget class="QToolBar" name="toolBar">
+  <widget class="QToolBar" name="toolBarIndents">
    <property name="windowTitle">
     <string>Indent</string>
    </property>
@@ -282,6 +284,18 @@
    </attribute>
    <addaction name="actionDecreaseIndent"/>
    <addaction name="actionIncreaseIndent"/>
+  </widget>
+  <widget class="QToolBar" name="toolBarTools">
+   <property name="windowTitle">
+    <string>toolBar</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionTidyClean"/>
   </widget>
   <action name="actionNew">
    <property name="icon">
@@ -911,10 +925,6 @@
    </property>
   </action>
   <action name="actionRemoveFormatting">
-   <property name="icon">
-    <iconset resource="../Resource_Files/main/main.qrc">
-     <normaloff>:/main/edit-clear_22px.png</normaloff>:/main/edit-clear_22px.png</iconset>
-   </property>
    <property name="text">
     <string>Remove Formatting</string>
    </property>
@@ -992,6 +1002,28 @@
    </property>
    <property name="toolTip">
     <string>Frequently Asked Questions</string>
+   </property>
+  </action>
+  <action name="actionTidyClean">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../Resource_Files/main/main.qrc">
+     <normaloff>:/main/edit-clear_22px.png</normaloff>:/main/edit-clear_22px.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Cleaning With HTML Tidy</string>
+   </property>
+   <property name="toolTip">
+    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Cleaning With HTML Tidy&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;If this option is checked, then your HTML content documents will be cleaned with Tidy's &quot;clean&quot; option when first opened (as part of an epub or individually) and when saved. The current document will also be cleaned when going between different Views. &lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;When the option is unchecked, only the most basic error-correcting passes are performed to ensure that your documents are valid XHTML.&lt;/p&gt;</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+D</string>
    </property>
   </action>
  </widget>

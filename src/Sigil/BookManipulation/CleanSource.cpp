@@ -25,6 +25,7 @@
 
 #include <buffio.h>
 #include "BookManipulation/XhtmlDoc.h"
+#include "MainUI/MainWindow.h"
 
 static const QString SIGIL_CLASS_NAME     = "sgc";
 static const QString SIGIL_CLASS_NAME_REG = SIGIL_CLASS_NAME + "-(\\d+)";
@@ -60,6 +61,10 @@ static const QString SVG_ELEMENTS         = "a,altGlyph,altGlyphDef,altGlyphItem
 // of provided book XHTML source code
 QString CleanSource::Clean( const QString &source )
 {
+    if ( !MainWindow::ShouldUseTidyClean() )
+
+        return PrettyPrint( source );
+
     QString newsource = source;
 
     // We store the number of CSS style tags before
@@ -68,8 +73,7 @@ QString CleanSource::Clean( const QString &source )
     int old_num_styles = RobustCSSStyleTagCount( newsource );
     
     newsource = HTMLTidy( newsource, Tidy_Clean );
-    newsource = CleanCSS( newsource, old_num_styles );
-    newsource = RemoveMetaCharset( newsource );
+    newsource = CleanCSS( newsource, old_num_styles );    
 
     return newsource;
 }
@@ -357,6 +361,8 @@ QString CleanSource::HTMLTidy( const QString &source, TidyType type )
     tidyBufFree( &output );
     tidyBufFree( &errbuf );
     tidyRelease( tidy_document );
+
+    clean = RemoveMetaCharset( clean );
 
     return clean;
 }

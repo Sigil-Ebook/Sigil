@@ -139,6 +139,18 @@ void MainWindow::ShowMessageOnCurrentStatusBar( const QString &message,
 }
 
 
+bool MainWindow::ShouldUseTidyClean()
+{
+    QSettings settings;
+    settings.beginGroup( SETTINGS_GROUP );
+    QVariant tidyclean = settings.value( "tidyclean" );
+
+    // For the tidyclean option, we want to default to true
+    // if no value has been set. 
+    return tidyclean.isNull() ? true : tidyclean.toBool(); 
+}
+
+
 void MainWindow::closeEvent( QCloseEvent *event )
 {
     if ( MaybeSaveDialogSaysProceed() )
@@ -645,6 +657,15 @@ void MainWindow::UpdateZoomLabel( int slider_value )
 }
 
 
+void MainWindow::SetTidyCleanOption( bool new_state )
+{
+    QSettings settings;
+    settings.beginGroup( SETTINGS_GROUP );
+
+    settings.setValue( "tidyclean", new_state );
+}
+
+
 void MainWindow::UpdateZoomLabel( float new_zoom_factor )
 {
     m_lbZoomLabel->setText( QString( "%1% " ).arg( qRound( new_zoom_factor * 100 ) ) );
@@ -702,6 +723,13 @@ void MainWindow::ReadSettings()
     if ( !toolbars.isNull() )
 
         restoreState( toolbars );
+
+    // For the tidyclean option, we want to default to true
+    // if no value has been set. We also don't store the current
+    // state of the action on exit since we save it every time
+    // it is changed in the UI.
+    QVariant tidyclean = settings.value( "tidyclean" );
+    ui.actionTidyClean->setChecked( tidyclean.isNull() ? true : tidyclean.toBool() );    
 
     // The position of the splitter handle in split view
     QByteArray splitter_position = settings.value( "splitview_splitter" ).toByteArray();
@@ -1452,6 +1480,8 @@ void MainWindow::ConnectSignalsToSlots()
     // the zoom value the slider will land on while it is being moved.
     connect( m_slZoomSlider,         SIGNAL( sliderMoved( int ) ),  this, SLOT( UpdateZoomLabel( int ) ) );
 
+    connect( ui.actionTidyClean,     SIGNAL( triggered( bool ) ),   this, SLOT( SetTidyCleanOption( bool ) ) );  
+
     connect( &m_TabManager,          SIGNAL( TabChanged( ContentTab*, ContentTab* ) ), 
              this,                   SLOT( ChangeSignalsWhenTabChanges( ContentTab*, ContentTab* ) ) );
 
@@ -1512,7 +1542,7 @@ void MainWindow::MakeTabConnections( ContentTab *tab )
 
     connect( ui.actionBookView,                 SIGNAL( triggered() ),  tab,   SLOT( BookView()                 ) );
     connect( ui.actionSplitView,                SIGNAL( triggered() ),  tab,   SLOT( SplitView()                ) );
-    connect( ui.actionCodeView,                 SIGNAL( triggered() ),  tab,   SLOT( CodeView()                 ) );   
+    connect( ui.actionCodeView,                 SIGNAL( triggered() ),  tab,   SLOT( CodeView()                 ) ); 
 
     connect( m_cbHeadings, SIGNAL( activated( const QString& ) ),  tab,   SLOT( HeadingStyle( const QString& ) ) );
 
