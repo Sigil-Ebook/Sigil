@@ -1,4 +1,6 @@
 Sigil v0.3.2 ADD_DATE
+    - worked around a Tidy bug that added blank lines to the start of <pre> and <style> elements
+    (issue #655)
     - fixed a rare crash issue when loading epub files
 
 Sigil v0.3.1 2010.11.07

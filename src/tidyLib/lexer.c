@@ -2488,12 +2488,24 @@ static Node* GetTokenFromStream( TidyDocImpl* doc, GetTokenMode mode )
                        Why would you ever want to do that for Christ's sake,
                        a newline counts as whitespace too.*/
 
-                    /*
-                    c = TY_(ReadChar)(doc->docIn);
+                    /* Changed by Strahinja Markovic: 
+                       We only swallow the newline if the element is <pre>, <script> or
+                       <style> since Tidy appears to add a newline for these elements
+                       for no damn good reason. This cancels that out. 
+                       
+                       I'd love to find the place where Tidy inserts this extra 
+                       newline, but since this whole library is one large pile of
+                       unreadable shit, that's somewhat difficult.*/
+                    
+                    if ( nodeIsPRE(lexer->token)   || 
+                         nodeIsSTYLE(lexer->token) || 
+                         nodeIsSCRIPT(lexer->token) )
+                    {
+                        c = TY_(ReadChar)(doc->docIn);
 
-                    if (c != '\n' && c != '\f')
-                        TY_(UngetChar)(c, doc->docIn);
-                        */
+                        if (c != '\n' && c != '\f')
+                            TY_(UngetChar)(c, doc->docIn);
+                    }                        
 
                     lexer->waswhite = yes;  /* to swallow leading whitespace */
                 }
