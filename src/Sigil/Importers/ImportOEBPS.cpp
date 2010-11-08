@@ -351,7 +351,6 @@ QHash< QString, QString > ImportOEBPS::LoadFolderStructure()
         sync.addFuture( QtConcurrent::run( 
                 this, 
                 &ImportOEBPS::LoadOneFile, 
-                id,
                 m_Files.value( id ),
                 m_ReadingOrderIds.indexOf( id ),
                 m_SemanticInformation.value( id ) ) );   
@@ -375,8 +374,7 @@ QHash< QString, QString > ImportOEBPS::LoadFolderStructure()
 }
 
 
-tuple< QString, QString > ImportOEBPS::LoadOneFile( const QString &ID,
-                                                    const QString &path,
+tuple< QString, QString > ImportOEBPS::LoadOneFile( const QString &path,
                                                     int reading_order,
                                                     const QHash< QString, QString > &semantic_info )
 {

@@ -80,8 +80,7 @@ protected:
     // and values being the new references to those resources.
     QHash< QString, QString > LoadFolderStructure();
 
-    tuple< QString, QString > LoadOneFile( const QString &ID,
-                                           const QString &path,
+    tuple< QString, QString > LoadOneFile( const QString &path,
                                            int reading_order,
                                            const QHash< QString, QString > &semantic_info );
 
