@@ -28,57 +28,90 @@
 class QNetworkAccessManager;
 class QNetworkReply;
 
-// Objects of this class should ALWAYS be created on the heap
-// and never explicitly deleted. The reason is that these objects
-// receive replies asynchronously from the web and need to persist.
-// Upon receiving and processing the network reply, the object
-// schedules its own deletion.
+/**
+ * Responsible for checking the current online version of
+ * FlightCrew against the running one. If a newer version
+ * exists, then a dialog is displayed informing the user
+ * about it.
+ *
+ * Objects of this class should ALWAYS be created on the heap
+ * and never explicitly deleted. The reason is that these objects
+ * receive replies asynchronously from the web and need to persist.
+ * Upon receiving and processing the network reply, the object
+ * schedules its own deletion.
+ */
 class UpdateChecker : QObject
 {
     Q_OBJECT
 
 public:
 
-    // Constructor;
-    // The argument is the object's parent.
+    /**
+     * Constructor.
+     *
+     * @param parent The object's parent.
+     */
     UpdateChecker( QObject *parent );
 
-    // Sends a request for the online version
-    // if the last check was performed
-    // a SECONDS_BETWEEN_CHECKS amount of time ago
+    /**
+     * Sends a request for the online version
+     * if the last check was performed
+     * a SECONDS_BETWEEN_CHECKS amount of time ago.
+     */
     void CheckForUpdate();
 
 private slots:
 
-    // Gets called when the request posted by CheckForUpdate()
-    // gets to the server and it replies with "reply"
+    /**
+     * Gets called when the request posted by CheckForUpdate() 
+     * gets a reply from the server.
+     *
+     * @param reply The network reply.
+     */
     void ReplyRecieved( QNetworkReply* reply );
 
 private:
 
-    // Returns the full text present in the network reply
+    /**
+     * Extracts the full text present in the network reply.
+     *
+     * @param reply The reply from which text should be extracted.
+     * @return The full text content.
+     */
     QString TextInReply( QNetworkReply* reply ) const;
 
-    // Returns the version string present
-    // in the specified XML file, or an empty QString
-    // if the required element is not present.
-    QString ReadOnlineVersion( QString online_version_xml ) const;
+    /**
+     * Returns the version string present 
+     * in the specified XML file, or an empty QString
+     * if the required element is not present.
+     *
+     * @param online_version_xml The xml content from the reply.
+     * @return The version string.
+     */
+    QString ReadOnlineVersion( const QString &online_version_xml ) const;
 
-    // Compares the two provided version strings
-    // and returns true if the online string specifies
-    // that the online version is newer.
-    bool IsOnlineVersionNewer( QString current_version_string, QString online_version_string ) const;
+    /**
+     * Compares the two provided version strings.
+     *
+     * @param current_version_string The version of the running program.
+     * @param online_version_string The newest version.
+     * @return \c true if the online string specifies
+     *         that the online version is newer.
+     */
+    bool IsOnlineVersionNewer( const QString &current_version_string, 
+                               const QString &online_version_string ) const;
 
 
     ///////////////////////////////
     // PRIVATE MEMBER VARIABLES
     ///////////////////////////////
 
-    // The network manager used
-    // to post network requests
+    /**
+     * The network manager used to post 
+     * network requests and receive replies.
+     */ 
     QNetworkAccessManager *m_NetworkManager;
 
 };
 
 #endif // UPDATECHECKER_H
-

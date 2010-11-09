@@ -33,8 +33,6 @@ static const QString SETTINGS_GROUP          = "updatechecker";
 static const int SECONDS_BETWEEN_CHECKS      = 60 * 60 * 6 ;
 
 
-// Constructor;
-// The argument is the object's parent
 UpdateChecker::UpdateChecker( QObject *parent )
     : 
     QObject( parent ),
@@ -46,9 +44,6 @@ UpdateChecker::UpdateChecker( QObject *parent )
 }
 
 
-// Sends a request for the online version
-// if the last check was performed
-// a SECONDS_BETWEEN_CHECKS amount of time ago
 void UpdateChecker::CheckForUpdate()
 {
     QSettings settings;
@@ -69,8 +64,6 @@ void UpdateChecker::CheckForUpdate()
 }
 
 
-// Gets called when the request posted by CheckForUpdate()
-// gets to the server and it replies with "reply"
 void UpdateChecker::ReplyRecieved( QNetworkReply* reply )
 {
     QSettings settings;
@@ -112,10 +105,8 @@ void UpdateChecker::ReplyRecieved( QNetworkReply* reply )
 }
 
 
-// Returns the full text present in the network reply
 QString UpdateChecker::TextInReply( QNetworkReply* reply ) const
 {
-    // Check if we can open the reply
     if ( !reply->open( QIODevice::ReadOnly | QIODevice::Text ) )
     {
         return "";
@@ -134,10 +125,7 @@ QString UpdateChecker::TextInReply( QNetworkReply* reply ) const
 }
 
 
-// Returns the version string present
-// in the specified XML file, or an empty QString
-// if the required element is not present.
-QString UpdateChecker::ReadOnlineVersion( QString online_version_xml ) const
+QString UpdateChecker::ReadOnlineVersion( const QString &online_version_xml ) const
 {
     if ( online_version_xml.isEmpty() )
 
@@ -160,10 +148,8 @@ QString UpdateChecker::ReadOnlineVersion( QString online_version_xml ) const
 }
 
 
-// Compares the two provided version strings
-// and returns true if the online string specifies
-// that the online version is newer.
-bool UpdateChecker::IsOnlineVersionNewer( QString current_version_string, QString online_version_string ) const
+bool UpdateChecker::IsOnlineVersionNewer( const QString &current_version_string, 
+                                          const QString &online_version_string ) const
 {
     if ( current_version_string.isEmpty() || online_version_string.isEmpty() )
 
