@@ -1,4 +1,4 @@
-Sigil v0.3.2 ADD_DATE
+Sigil v0.3.2 2010.11.24.
     - added a new toolbar button for turning Tidy cleaning on/off; this option is also available
     from the Tools menu (issue #553)
     - added support for TrueType Collection fonts with extension TTC
