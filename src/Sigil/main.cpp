@@ -222,7 +222,7 @@ int main( int argc, char *argv[] )
         // console conversion. USE AT YOUR OWN PERIL!
         else
         {
-            return QuickConvert( arguments ) ? 0 : 1;
+            return QuickConvert( arguments );
         }
     }
     
