@@ -38,6 +38,8 @@ static const QStringList BLOCK_LEVEL_TAGS = QStringList() << "address" << "block
  
 static const QStringList IMAGE_TAGS = QStringList() << "img" << "image";
 
+static const int XML_STANDALONE_SEARCH_PREFIX_SIZE = 150;
+
 const QString BREAK_TAG_SEARCH  = "(<div>\\s*)?<hr\\s*class\\s*=\\s*\"[^\"]*sigilChapterBreak[^\"]*\"\\s*/>(\\s*</div>)?";
 
 
@@ -266,6 +268,8 @@ shared_ptr< xc::DOMDocument > XhtmlDoc::CopyDomDocument( const xc::DOMDocument &
 
 shared_ptr< xc::DOMDocument > XhtmlDoc::LoadTextIntoDocument( const QString &source )
 {
+    QString prepared_source = PrepareSourceForXerces( source );
+
     XercesExt::LocationAwareDOMParser parser;
 
     // This scanner ignores schemas
@@ -281,8 +285,8 @@ shared_ptr< xc::DOMDocument > XhtmlDoc::LoadTextIntoDocument( const QString &sou
     // We use source.count() * 2 because count returns
     // the number of QChars, which are 2 bytes long
     xc::MemBufInputSource input( 
-        reinterpret_cast< const XMLByte* >( source.utf16() ), 
-        source.count() * 2, 
+        reinterpret_cast< const XMLByte* >( prepared_source.utf16() ), 
+        prepared_source.count() * 2, 
         "empty" );
 
     XMLCh UTF16[] = { xc::chLatin_U, xc::chLatin_T, xc::chLatin_F, xc::chDigit_1, xc::chDigit_6, xc::chNull };
@@ -795,6 +799,16 @@ XhtmlDoc::XMLElement XhtmlDoc::CreateXMLElement( QXmlStreamReader &reader )
     element.text = reader.readElementText();
 
     return element; 
+}
+
+
+QString XhtmlDoc::PrepareSourceForXerces( const QString &source )
+{
+    QString prefix = source.left( XML_STANDALONE_SEARCH_PREFIX_SIZE );
+    QRegExp standalone( STANDALONE_ATTRIBUTE );
+    prefix.indexOf( standalone );
+
+    return QString( source ).remove( standalone.pos(), standalone.matchedLength() );
 }
 
 

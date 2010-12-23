@@ -180,6 +180,8 @@ private:
     // Accepts a reference to an XML stream reader positioned on an XML element.
     // Returns an XMLElement struct with the data in the stream.
     static XMLElement CreateXMLElement( QXmlStreamReader &reader );
+
+    static QString PrepareSourceForXerces( const QString &source );
 };
 
 #endif // XHTMLDOC_H

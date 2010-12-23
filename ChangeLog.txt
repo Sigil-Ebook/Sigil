@@ -1,3 +1,7 @@
+Sigil v0.3.3 ADD_DATE
+    - fixed a rare input truncation problem when the input file contains a unicode nbsp and also
+    specifies standalone="yes" in the XML declaration (issue #677)
+
 Sigil v0.3.2 2010.11.24.
     - added a new toolbar button for turning Tidy cleaning on/off; this option is also available
     from the Tools menu (issue #553)

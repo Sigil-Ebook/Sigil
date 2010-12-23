@@ -25,6 +25,7 @@
 
 const QString HEAD_END = "</\\s*head\\s*>";
 const QString ENCODING_ATTRIBUTE = "encoding\\s*=\\s*(?:\"|')([^\"']+)(?:\"|')";
+const QString STANDALONE_ATTRIBUTE = "standalone\\s*=\\s*(?:\"|')([^\"']+)(?:\"|')";
 
 
 // Accepts a full path to an HTML file.
