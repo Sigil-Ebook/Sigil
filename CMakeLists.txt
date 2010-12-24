@@ -51,12 +51,17 @@ set( CMAKE_OSX_SYSROOT "/Developer/SDKs/MacOSX10.5.sdk" )
 # Universal builds for mac
 set( CMAKE_OSX_ARCHITECTURES "i386;x86_64" )
 
+# This disables the building of the test runner app for FlightCrew
+set( NO_TEST_EXE 1 )
 
 add_subdirectory( src/tidyLib )
 add_subdirectory( src/ZipArchive )
 add_subdirectory( src/BoostParts )
 add_subdirectory( src/Xerces )
 add_subdirectory( src/XercesExtensions )
+add_subdirectory( src/zlib )
+add_subdirectory( src/zipios )
+add_subdirectory( src/FlightCrew )
 add_subdirectory( src/Sigil )
 
 

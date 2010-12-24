@@ -44,6 +44,9 @@
 #endif
 #endif
 
+#ifdef BOOST_INTEL
+#pragma warning(disable:383)
+#endif
 
 namespace boost{
 

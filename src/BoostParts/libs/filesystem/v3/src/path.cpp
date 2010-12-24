@@ -236,7 +236,7 @@ namespace filesystem3
   {
     // erase existing extension if any
     size_type pos(m_pathname.rfind(dot));
-    if (pos != string_type::npos)
+    if (pos != string_type::npos && pos >= filename_pos(m_pathname, m_pathname.size()))
       m_pathname.erase(pos);
 
     // append source extension if any

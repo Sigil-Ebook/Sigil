@@ -31,6 +31,9 @@ typedef boost::match_flag_type match_flag_type;
 #ifdef BOOST_MSVC
 #pragma warning(disable:4309)
 #endif
+#ifdef BOOST_INTEL
+#pragma warning(disable:981 383)
+#endif
 
 namespace boost{
 

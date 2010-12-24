@@ -277,7 +277,7 @@ set_source_files_properties( Misc/Utility.cpp PROPERTIES COMPILE_DEFINITIONS SIG
 #############################################################################
 
 # creating PCH's for MSVC and GCC on Linux
-include( ${CMAKE_SOURCE_DIR}/CustomPCH.cmake )
+include( ${CMAKE_SOURCE_DIR}/cmake_extras/CustomPCH.cmake )
 set( ALL_INCLUDES ${BoostParts_SOURCE_DIR}
                   ${Xerces_SOURCE_DIR} 
                   ${XercesExtensions_SOURCE_DIR} 
@@ -285,10 +285,12 @@ set( ALL_INCLUDES ${BoostParts_SOURCE_DIR}
                   ${tidyLib_SOURCE_DIR}                  
                   ${QT_INCLUDES} )
 
-precompiled_header( RAW_SOURCES ALL_INCLUDES "gccPCH" )
+set( PCH_NAME stdafx )
+set( GCC_PCH_TARGET gccPCH )
+precompiled_header( RAW_SOURCES ALL_INCLUDES ${GCC_PCH_TARGET} ${PCH_NAME} )
 
-list( APPEND MAIN_FILES stdafx.h )
-list( APPEND MAIN_FILES stdafx.cpp )
+list( APPEND MAIN_FILES ${PCH_NAME}.h )
+list( APPEND MAIN_FILES ${PCH_NAME}.cpp )
 
 #############################################################################
 
@@ -517,16 +519,16 @@ else()
     # We need to copy the CRT dlls
     if ( WIN32 )
         # Add -DWIN_INSTALLER_USE_64BIT_CRT=1 to the cmake call if you want to build
-        # an installer for the for the x64 verison of Sigil. This will make sure that
-        # the correct CRT libs are included in the installer.
+        # an installer for the x64 verison of Sigil. This will make sure that the
+        # correct CRT libs are included in the installer.
         if ( WIN_INSTALLER_USE_64BIT_CRT )
-            message( STATUS "-- Using the 64 bit CRT in the installers" )
+            message( STATUS "Using the 64 bit CRT in the Sigil Windows installer" )
             add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD 
                 COMMAND cmake -E copy ${CMAKE_SOURCE_DIR}/installer/msvc_crt/x64/msvcp100.dll ${MAIN_PACKAGE_DIR} )
             add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD 
                 COMMAND cmake -E copy ${CMAKE_SOURCE_DIR}/installer/msvc_crt/x64/msvcr100.dll ${MAIN_PACKAGE_DIR} )
         else()
-            message( STATUS "-- Using the 32 bit CRT in the installers" )
+            message( STATUS "Using the 32 bit CRT in the Sigil Windows installer" )
             add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD 
                 COMMAND cmake -E copy ${CMAKE_SOURCE_DIR}/installer/msvc_crt/x86/msvcp100.dll ${MAIN_PACKAGE_DIR} )
             add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD 

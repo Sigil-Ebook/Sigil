@@ -22,6 +22,10 @@
 #define BOOST_REGEX_ICU_INSTANTIATE
 #include <boost/regex/icu.hpp>
 
+#ifdef BOOST_INTEL
+#pragma warning(disable:981 2259 383)
+#endif
+
 namespace boost{
 
 namespace re_detail{

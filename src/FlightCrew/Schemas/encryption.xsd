@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema 
+  elementFormDefault="qualified" 
+  targetNamespace="urn:oasis:names:tc:opendocument:xmlns:container"
+  xmlns:enc="http://www.w3.org/2001/04/xmlenc#" 
+  xmlns:xs="http://www.w3.org/2001/XMLSchema" >
+  
+  <xs:import namespace="http://www.w3.org/2001/04/xmlenc#" schemaLocation="xenc-schema.xsd"/>
+  
+  <xs:element name="encryption">
+    <xs:complexType>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element ref="enc:EncryptedData"/>
+        <xs:element ref="enc:EncryptedKey"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  
+</xs:schema>

@@ -100,7 +100,7 @@ BOOST_REGEX_DECL const char* BOOST_REGEX_CALL get_default_syntax(regex_constants
          "p",
          "P",
          "N",
-         "g",
+         "gk",
          "K",
          "R",
    };

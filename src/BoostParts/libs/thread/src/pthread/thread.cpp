@@ -411,6 +411,7 @@ namespace boost
             local_thread_info->interrupt_requested=true;
             if(local_thread_info->current_cond)
             {
+                boost::pthread::pthread_mutex_scoped_lock internal_lock(local_thread_info->cond_mutex);
                 BOOST_VERIFY(!pthread_cond_broadcast(local_thread_info->current_cond));
             }
         }

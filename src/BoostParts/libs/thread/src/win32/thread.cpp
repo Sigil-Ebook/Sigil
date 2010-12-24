@@ -56,7 +56,10 @@ namespace boost
         void set_current_thread_data(detail::thread_data_base* new_data)
         {
             boost::call_once(current_thread_tls_init_flag,create_current_thread_tls_key);
-            BOOST_VERIFY(TlsSetValue(current_thread_tls_key,new_data));
+            if(current_thread_tls_key)
+                BOOST_VERIFY(TlsSetValue(current_thread_tls_key,new_data));
+            else
+                boost::throw_exception(thread_resource_error());
         }
 
 #ifdef BOOST_NO_THREADEX
@@ -221,7 +224,15 @@ namespace boost
         void make_external_thread_data()
         {
             externally_launched_thread* me=detail::heap_new<externally_launched_thread>();
-            set_current_thread_data(me);
+            try
+            {
+                set_current_thread_data(me);
+            }
+            catch(...)
+            {
+                detail::heap_delete(me);
+                throw;
+            }
         }
 
         detail::thread_data_base* get_or_make_current_thread_data()
@@ -540,8 +551,8 @@ namespace boost
         {
             detail::thread_data_base* const current_thread_data(get_or_make_current_thread_data());
             thread_exit_callback_node* const new_node=
-                heap_new<thread_exit_callback_node>(func,
-                                                    current_thread_data->thread_exit_callbacks);
+                heap_new<thread_exit_callback_node>(
+                    func,current_thread_data->thread_exit_callbacks);
             current_thread_data->thread_exit_callbacks=new_node;
         }
 
@@ -583,10 +594,11 @@ namespace boost
                 current_node->func=func;
                 current_node->value=tss_data;
             }
-            else
+            else if(func && tss_data)
             {
                 detail::thread_data_base* const current_thread_data(get_or_make_current_thread_data());
-                tss_data_node* const new_node=heap_new<tss_data_node>(key,func,tss_data,current_thread_data->tss_data);
+                tss_data_node* const new_node=
+                    heap_new<tss_data_node>(key,func,tss_data,current_thread_data->tss_data);
                 current_thread_data->tss_data=new_node;
             }
         }
