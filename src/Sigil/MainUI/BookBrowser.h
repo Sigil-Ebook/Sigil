@@ -295,7 +295,7 @@ private:
     ///////////////////////////////
 
     /**
-     * The bool currently being displayed.
+     * The book currently being displayed.
      */
     QSharedPointer< Book > m_Book;
 

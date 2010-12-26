@@ -32,6 +32,7 @@
 #include "Exporters/ExporterFactory.h"
 #include "BookManipulation/BookNormalization.h"
 #include "MainUI/BookBrowser.h"
+#include "MainUI/ValidationResultsView.h"
 #include "Tabs/FlowTab.h"
 #include "Tabs/TabManager.h"
 #include "ResourceObjects/HTMLResource.h"
@@ -51,11 +52,12 @@ static const QString SIGIL_DEV_BLOG         = "http://sigildev.blogspot.com/";
 static const QString USER_MANUAL_URL        = "http://web.sigil.googlecode.com/hg/contents.html";
 static const QString FAQ_WIKI_URL           = "http://code.google.com/p/sigil/wiki/FAQ";
 
-static const QString BOOK_BROWSER_NAME = "bookbrowser";
-static const QString FRAME_NAME        = "managerframe";
-static const QString TAB_STYLE_SHEET   =  "#managerframe {border-top: 0px solid white;"
-                                          "border-left: 1px solid grey;"
-                                          "border-bottom: 1px solid grey;} ";
+static const QString BOOK_BROWSER_NAME            = "bookbrowser";
+static const QString VALIDATION_RESULTS_VIEW_NAME = "validationresultsname";
+static const QString FRAME_NAME                   = "managerframe";
+static const QString TAB_STYLE_SHEET              = "#managerframe {border-top: 0px solid white;"
+                                                    "border-left: 1px solid grey;"
+                                                    "border-bottom: 1px solid grey;} ";
 
 static const QStringList SUPPORTED_SAVE_TYPE = QStringList() << "epub"; 
 
@@ -72,6 +74,8 @@ MainWindow::MainWindow( const QString &openfilepath, QWidget *parent, Qt::WFlags
     m_LastFolderSave( QString() ),
     m_cbHeadings( NULL ),
     m_TabManager( *new TabManager( this ) ),
+    m_BookBrowser( NULL ),
+    m_ValidationResultsView( NULL ),
     m_slZoomSlider( NULL ),
     m_lbZoomLabel( NULL ),
     c_SaveFilters( GetSaveFiltersMap() ),
@@ -448,6 +452,18 @@ void MainWindow::AboutDialog()
 }
 
 
+void MainWindow::ValidateEpub()
+{
+    QString temp_file = QDir::tempPath() + "/" + Utility::CreateUUID() + ".epub";
+    
+    SaveFile( temp_file, false );
+    m_ValidationResultsView->ValidateEpub( temp_file );    
+
+    // TODO: Make deleting this file RAII.
+    Utility::DeleteFile( temp_file );
+}
+
+
 void MainWindow::ChangeSignalsWhenTabChanges( ContentTab* old_tab, ContentTab* new_tab )
 {
     BreakTabConnections( old_tab );
@@ -710,7 +726,7 @@ void MainWindow::ReadSettings()
     QSettings settings;
     settings.beginGroup( SETTINGS_GROUP );
 
-    // The size of the window and it's full screen status
+    // The size of the window and its full screen status
     QByteArray geometry = settings.value( "geometry" ).toByteArray();
 
     if ( !geometry.isNull() )
@@ -815,6 +831,7 @@ void MainWindow::SetNewBook( QSharedPointer< Book > new_book )
 {
     m_Book = new_book;
     m_BookBrowser->SetBook( m_Book );
+    m_ValidationResultsView->ClearResults();
     connect( m_Book.data(), SIGNAL( ModifiedStateChanged( bool ) ), this, SLOT( setWindowModified( bool ) ) );
     m_Book->SetModified( false );
 }
@@ -870,7 +887,7 @@ void MainWindow::LoadFile( const QString &fullfilepath )
 }
 
 
-bool MainWindow::SaveFile( const QString &fullfilepath )
+bool MainWindow::SaveFile( const QString &fullfilepath, bool update_ui )
 {
     try
     {
@@ -895,8 +912,7 @@ bool MainWindow::SaveFile( const QString &fullfilepath )
 
         BookNormalization::Normalize( m_Book );
         ExporterFactory().GetExporter( fullfilepath, m_Book ).WriteBook();
-        m_Book->SetModified( false );
-
+        
         QApplication::restoreOverrideCursor();
 
         // Return the focus back to the current tab
@@ -906,9 +922,12 @@ bool MainWindow::SaveFile( const QString &fullfilepath )
 
             tab.setFocus();
 
-        UpdateUiWithCurrentFile( fullfilepath );
-
-        statusBar()->showMessage( tr( "File saved" ), STATUSBAR_MSG_DISPLAY_TIME );
+        if ( update_ui )
+        {
+            m_Book->SetModified( false );
+            UpdateUiWithCurrentFile( fullfilepath );
+            statusBar()->showMessage( tr( "File saved" ), STATUSBAR_MSG_DISPLAY_TIME );
+        }
     }
 
     catch ( const ExceptionBase &exception )
@@ -1226,8 +1245,23 @@ void MainWindow::ExtendUI()
     m_BookBrowser->setObjectName( BOOK_BROWSER_NAME );
     addDockWidget( Qt::LeftDockWidgetArea, m_BookBrowser );
 
+    m_ValidationResultsView = new ValidationResultsView( this );
+    m_ValidationResultsView->setObjectName( VALIDATION_RESULTS_VIEW_NAME );
+    addDockWidget( Qt::BottomDockWidgetArea, m_ValidationResultsView );
+
+    // By default, we want the validation results view to be hidden
+    // *for first-time users*. That is, when a new user installs and opens Sigil,
+    // the val. results view is hidden, but if he leaves it open before exiting,
+    // then it will be open when he opens Sigil the next time.
+    // Basically, restoreGeometry() in ReadSettings() overrules this command.
+    m_ValidationResultsView->hide();
+
     ui.menuView->addSeparator();
     ui.menuView->addAction( m_BookBrowser->toggleViewAction() );
+    m_BookBrowser->toggleViewAction()->setShortcut( QKeySequence( Qt::ALT + Qt::Key_F1 ) );
+
+    ui.menuView->addAction( m_ValidationResultsView->toggleViewAction() );
+    m_ValidationResultsView->toggleViewAction()->setShortcut( QKeySequence( Qt::ALT + Qt::Key_F2 ) );
 
     // Creating the Heading combo box
 
@@ -1305,6 +1339,10 @@ void MainWindow::ExtendIconSizes()
     icon.addFile(QString::fromUtf8(":/main/document-save-as_16px.png"));
     ui.actionSaveAs->setIcon(icon);
 
+    icon = ui.actionValidateEpub->icon();
+    icon.addFile(QString::fromUtf8(":/main/document-validate_16px.png"));
+    ui.actionValidateEpub->setIcon(icon);
+
     icon = ui.actionCut->icon();
     icon.addFile(QString::fromUtf8(":/main/edit-cut_16px.png"));
     ui.actionCut->setIcon(icon);
@@ -1324,6 +1362,10 @@ void MainWindow::ExtendIconSizes()
     icon = ui.actionCopy->icon();
     icon.addFile(QString::fromUtf8(":/main/edit-copy_16px.png"));
     ui.actionCopy->setIcon(icon);
+
+    icon = ui.actionTidyClean->icon();
+    icon.addFile(QString::fromUtf8(":/main/edit-clear_16px.png"));
+    ui.actionTidyClean->setIcon(icon);
 
     icon = ui.actionAlignLeft->icon();
     icon.addFile(QString::fromUtf8(":/main/format-justify-left_16px.png"));
@@ -1469,6 +1511,8 @@ void MainWindow::ConnectSignalsToSlots()
     connect( ui.actionReportAnIssue, SIGNAL( triggered() ), this, SLOT( ReportAnIssue()            ) );
     connect( ui.actionSigilDevBlog,  SIGNAL( triggered() ), this, SLOT( SigilDevBlog()             ) );
     connect( ui.actionAbout,         SIGNAL( triggered() ), this, SLOT( AboutDialog()              ) );
+    connect( ui.actionValidateEpub,  SIGNAL( triggered() ), this, SLOT( ValidateEpub()             ) );
+
     
     connect( ui.actionNextTab,       SIGNAL( triggered() ), &m_TabManager, SLOT( NextTab()     ) );
     connect( ui.actionPreviousTab,   SIGNAL( triggered() ), &m_TabManager, SLOT( PreviousTab() ) );

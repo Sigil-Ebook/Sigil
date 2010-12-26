@@ -8,6 +8,8 @@
     <file>document-print_22px.png</file>
     <file>document-print-preview_22px.png</file>
     <file>format-text-strikethrough_22px.png</file>
+    <file>document-validate_16px.png</file>
+    <file>document-validate_22px.png</file>
     <file>insert-bullet-list_22px.png</file>
     <file>insert-numbered-list_22px.png</file>
     <file>insert-font_22px.png</file>
@@ -35,7 +37,7 @@
     <file>format-text-bold_22px.png</file>
     <file>format-text-italic_22px.png</file>
     <file>list-add_22px.png</file>
-    <file>list-remove_22px.png</file>     
+    <file>list-remove_22px.png</file>
     <file>edit-clear_16px.png</file>
     <file>format-indent-less_16px.png</file>
     <file>format-indent-more_16px.png</file>

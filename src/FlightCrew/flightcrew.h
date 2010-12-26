@@ -41,35 +41,46 @@ namespace FlightCrew
  *                 current working directory.
  * @return A vector of Results, sorted by internal file and then by line number.
  */
-FC_WIN_DLL_API std::vector< Result > ValidateEpub(  const std::string &filepath );
+FC_WIN_DLL_API std::vector< Result > ValidateEpub( const std::string &filepath );
+
+/**
+ * Same as ValidateEpub(), except that it accepts a path to the root folder of an
+ * already extracted epub publication.
+ *
+ * @param filepath A UTF-8 encoded path to the epub root folder to validate.
+ *                 The path can be either absolute or relative to the 
+ *                 current working directory.
+ * @return A vector of Results, sorted by internal file and then by line number.
+ */
+FC_WIN_DLL_API std::vector< Result > ValidateEpubRootFolder( const std::string &root_folder_path );
 
 /**
  * Validates the provided OPF file of an epub. The files that are listed in the
  * OPF are expected to exist.
  *
- * @param filepath A UTF-8 encoded path to the epub file to validate.
+ * @param filepath A UTF-8 encoded path to the OPF file to validate.
  *                 The path can be either absolute or relative to the 
  *                 current working directory.
  * @return A vector of Results, sorted by internal file and then by line number.
  */
-FC_WIN_DLL_API std::vector< Result > ValidateOpf(   const std::string &filepath );
+FC_WIN_DLL_API std::vector< Result > ValidateOpf( const std::string &filepath );
 
 /**
  * Validates the provided NCX file of an epub. The files that are listed in the
  * NCX are expected to exist.
  *
- * @param filepath A UTF-8 encoded path to the epub file to validate.
+ * @param filepath A UTF-8 encoded path to the NCX file to validate.
  *                 The path can be either absolute or relative to the 
  *                 current working directory.
  * @return A vector of Results, sorted by internal file and then by line number.
  */
-FC_WIN_DLL_API std::vector< Result > ValidateNcx(   const std::string &filepath );
+FC_WIN_DLL_API std::vector< Result > ValidateNcx( const std::string &filepath );
 
 /**
  * Validates the provided XHTML file of an epub. The resources linked from the file
  * are expected to exist.
  *
- * @param filepath A UTF-8 encoded path to the epub file to validate.
+ * @param filepath A UTF-8 encoded path to the XHTML file to validate.
  *                 The path can be either absolute or relative to the 
  *                 current working directory.
  * @return A vector of Results, sorted by internal file and then by line number.
@@ -81,12 +92,12 @@ FC_WIN_DLL_API std::vector< Result > ValidateXhtml( const std::string &filepath 
  * are expected to exist. NOTE: this function is currently a stub. It doesn't really
  * do anything (yet).
  *
- * @param filepath A UTF-8 encoded path to the epub file to validate.
+ * @param filepath A UTF-8 encoded path to the CSS file to validate.
  *                 The path can be either absolute or relative to the 
  *                 current working directory.
  * @return A vector of Results, sorted by internal file and then by line number.
  */
-FC_WIN_DLL_API std::vector< Result > ValidateCss(   const std::string &filepath );
+FC_WIN_DLL_API std::vector< Result > ValidateCss( const std::string &filepath );
 
 } // namespace FlightCrew
 

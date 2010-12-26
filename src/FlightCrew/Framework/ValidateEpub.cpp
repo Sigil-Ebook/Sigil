@@ -276,14 +276,33 @@ void AddEpubFilenameToResultPaths( std::vector< Result > &results, const std::st
 }
 
 
-std::vector< Result > ValidateEpub( const fs::path &filepath )
+std::vector< Result > ValidateEpubRootFolder( const fs::path &root_folder_path )
 {
     xe::XercesInit init;
 
-    if ( !fs::exists( filepath ) )
+    if ( !fs::exists( root_folder_path ) )
 
-        boost_throw( FileDoesNotExistEx() << ei_FilePath( Util::BoostPathToUtf8Path( filepath ) ) );
+        boost_throw( FileDoesNotExistEx() << ei_FilePath( Util::BoostPathToUtf8Path( root_folder_path ) ) );
 
+    std::vector< Result > results;   
+    Util::Extend( results, ValidateMetaInf( root_folder_path / "META-INF" ) );
+
+    fs::path path_to_content_xml = root_folder_path / "META-INF/container.xml";
+
+    if ( !fs::exists( path_to_content_xml ) )
+    {
+        return results;
+    }
+    
+    Util::Extend( results, DescendToContentXml( path_to_content_xml ) );
+
+    RemoveBasePathFromResultPaths( results, root_folder_path );
+    return results;
+}
+
+
+std::vector< Result > ValidateEpub( const fs::path &filepath )
+{
     TempFolder temp_folder;
 
     std::vector< Result > results;
@@ -301,18 +320,9 @@ std::vector< Result > ValidateEpub( const fs::path &filepath )
     }
     
     Util::Extend( results, MimetypeBytesValid().ValidateFile( filepath ) );
-    Util::Extend( results, ValidateMetaInf( temp_folder.GetPath() / "META-INF" ) );
-
-    fs::path path_to_content_xml = temp_folder.GetPath() / "META-INF/container.xml";
-
-    if ( !fs::exists( path_to_content_xml ) )
-    {
-        return results;
-    }
-    
-    Util::Extend( results, DescendToContentXml( path_to_content_xml ) );
-
     RemoveBasePathFromResultPaths( results, temp_folder.GetPath() );
+
+    Util::Extend( results, ValidateEpubRootFolder( temp_folder.GetPath() ) );    
     AddEpubFilenameToResultPaths( results, Util::BoostPathToUtf8Path( filepath.filename() ) );
     return results;
 }

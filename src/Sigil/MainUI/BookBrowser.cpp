@@ -36,6 +36,7 @@ static const int COLUMN_INDENTATION = 10;
 BookBrowser::BookBrowser( QWidget *parent )
     : 
     QDockWidget( tr( "Book Browser" ), parent ),
+    m_Book( NULL ),
     m_TreeView( *new QTreeView( this ) ),
     m_OPFModel( *new OPFModel( this ) ),
     m_ContextMenu( *new QMenu( this ) ),

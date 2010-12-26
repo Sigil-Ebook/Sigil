@@ -33,6 +33,12 @@ FC_WIN_DLL_API std::vector< Result > ValidateEpub( const std::string &filepath )
 }
 
 
+FC_WIN_DLL_API std::vector< Result > ValidateEpubRootFolder( const std::string &root_folder_path )
+{
+    return ValidateEpubRootFolder( Util::Utf8PathToBoostPath( root_folder_path ) );
+}
+
+
 FC_WIN_DLL_API std::vector< Result > ValidateOpf( const std::string &filepath )
 {
     return ValidateOpf( Util::Utf8PathToBoostPath( filepath ) );

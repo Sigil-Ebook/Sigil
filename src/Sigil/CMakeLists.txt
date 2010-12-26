@@ -64,6 +64,7 @@ set( QOBJECT_HEADERS
     Tabs/XPGTTab.h
     MainUI/BookBrowser.h
     MainUI/OPFModel.h
+    MainUI/ValidationResultsView.h
     Misc/AppEventFilter.h
     Misc/UpdateChecker.h 
     Misc/RasterizeImageResource.h
@@ -210,6 +211,8 @@ set( MAINUI_FILES
     MainUI/BookBrowser.h
     MainUI/OPFModel.cpp
     MainUI/OPFModel.h
+    MainUI/ValidationResultsView.cpp
+    MainUI/ValidationResultsView.h
     )
 
 set( TAB_FILES
@@ -282,7 +285,8 @@ set( ALL_INCLUDES ${BoostParts_SOURCE_DIR}
                   ${Xerces_SOURCE_DIR} 
                   ${XercesExtensions_SOURCE_DIR} 
                   ${ZipArchive_SOURCE_DIR}
-                  ${tidyLib_SOURCE_DIR}                  
+                  ${tidyLib_SOURCE_DIR} 
+                  ${FlightCrew_SOURCE_DIR}
                   ${QT_INCLUDES} )
 
 set( PCH_NAME stdafx )
@@ -350,7 +354,8 @@ include_directories( ${CMAKE_CURRENT_BINARY_DIR}
                      ${Xerces_SOURCE_DIR} 
                      ${XercesExtensions_SOURCE_DIR} 
                      ${ZipArchive_SOURCE_DIR}
-                     ${tidyLib_SOURCE_DIR} )
+                     ${tidyLib_SOURCE_DIR} 
+                     ${FlightCrew_SOURCE_DIR} )
 
 link_directories ( ${PROJECT_BINARY_DIR}/lib ) 
 
@@ -365,7 +370,7 @@ else()
     add_executable( ${PROJECT_NAME} WIN32 ${ALL_SOURCES} )
 endif()
 
-target_link_libraries( ${PROJECT_NAME} tidyLib ZipArchive BoostParts Xerces XercesExtensions ${QT_LIBRARIES} )
+target_link_libraries( ${PROJECT_NAME} tidyLib ZipArchive BoostParts Xerces XercesExtensions FlightCrew ${QT_LIBRARIES} )
 
 #############################################################################
 

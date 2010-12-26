@@ -39,6 +39,7 @@ class QSlider;
 class FindReplace;
 class TabManager;
 class BookBrowser;
+class ValidationResultsView;
 
 
 
@@ -220,6 +221,11 @@ private slots:
     void AboutDialog();
 
     /**
+     * Implements Validate Epub action functionality.
+     */
+    void ValidateEpub();
+
+    /**
      * Disconnects all signals to the old tab 
      * and reconnects them to the new tab when the
      * current tab is changed.
@@ -375,8 +381,11 @@ private:
      * Saves the current book to the file specified.
      *
      * @param fullfilepath The path to save to.
+     * @param update_ui If \c true, then the UI will be notified
+     *                  that the file was saved. Otherwise, it's a 
+     *                  "silent" save.
      */    
-    bool SaveFile( const QString &fullfilepath );
+    bool SaveFile( const QString &fullfilepath, bool update_ui = true );
 
     /**
      * Performs zoom operations in the views using the default 
@@ -574,6 +583,11 @@ private:
      * The Book Browser pane that lists all the files in the book.
      */
     BookBrowser *m_BookBrowser;
+
+    /**
+     * The Validation Results pane that lists all the validation problems.
+     */
+    ValidationResultsView *m_ValidationResultsView;
 
     /**
      * The slider which the user can use to zoom.

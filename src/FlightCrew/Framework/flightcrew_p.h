@@ -31,15 +31,17 @@
 namespace FlightCrew
 {
 
-std::vector< Result > ValidateEpub(  const fs::path &filepath );
+std::vector< Result > ValidateEpub( const fs::path &filepath );
 
-std::vector< Result > ValidateOpf(   const fs::path &filepath );
+std::vector< Result > ValidateEpubRootFolder( const fs::path &root_folder_path );
 
-std::vector< Result > ValidateNcx(   const fs::path &filepath );
+std::vector< Result > ValidateOpf( const fs::path &filepath );
+
+std::vector< Result > ValidateNcx( const fs::path &filepath );
 
 std::vector< Result > ValidateXhtml( const fs::path &filepath );
 
-std::vector< Result > ValidateCss(   const fs::path &filepath );
+std::vector< Result > ValidateCss( const fs::path &filepath );
 
 } // namespace FlightCrew
 

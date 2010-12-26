@@ -128,6 +128,7 @@
     <addaction name="actionSplitOnSGFChapterMarkers"/>
     <addaction name="separator"/>
     <addaction name="actionTidyClean"/>
+    <addaction name="actionValidateEpub"/>
    </widget>
    <widget class="QMenu" name="menuInsert">
     <property name="title">
@@ -296,6 +297,7 @@
     <bool>false</bool>
    </attribute>
    <addaction name="actionTidyClean"/>
+   <addaction name="actionValidateEpub"/>
   </widget>
   <action name="actionNew">
    <property name="icon">
@@ -1024,6 +1026,23 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+D</string>
+   </property>
+  </action>
+  <action name="actionValidateEpub">
+   <property name="icon">
+    <iconset resource="../Resource_Files/main/main.qrc">
+     <normaloff>:/main/document-validate_22px.png</normaloff>:/main/document-validate_22px.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Validate Epub</string>
+   </property>
+   <property name="toolTip">
+    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Validate Epub&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Performs epub validation using the FlightCrew validator.&lt;/p&gt;</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+V</string>
    </property>
   </action>
  </widget>
