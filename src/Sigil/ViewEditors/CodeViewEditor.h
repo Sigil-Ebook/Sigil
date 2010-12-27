@@ -118,6 +118,13 @@ public:
      */
     void ScrollToTop();
 
+    /**
+     * Scrolls the view to the specified line.
+     *
+     * @param line The line to scroll to.
+     */
+    void ScrollToLine( int line );
+
     // inherited
     QList< ViewEditor::ElementIndex > GetCaretLocation(); 
 
@@ -336,6 +343,12 @@ private:
     bool ExecuteCaretUpdate();
 
     /**
+     * Executes a centerCursor() call if requested
+     * with m_DelayedCursorScreenCenteringRequired.
+     */
+    void DelayedCursorScreenCentering();
+
+    /**
      * Returns the selection offset from the start of the  
      * document depending on the search direction specified
      *
@@ -395,13 +408,12 @@ private:
      * Stores the update for the caret location 
      * when switching from BookView to CodeView.
      */
-    QList< ViewEditor::ElementIndex >  m_CaretUpdate;
+    QList< ViewEditor::ElementIndex > m_CaretUpdate;
 
     /**
      * Catches when the user wants to scroll the view by one line up.
      */
     QShortcut &m_ScrollOneLineUp;
-
 
     /**
      * Catches when the user wants to scroll the view by one line down.
@@ -412,6 +424,12 @@ private:
      * Set to \c false whenever the page is loading content.
      */
     bool m_isLoadFinished;
+
+    /**
+     * When \c true, a centerCursor() call will be executed
+     * once after the View is repainted.
+     */
+    bool m_DelayedCursorScreenCenteringRequired;
 };
 
 #endif // CODEVIEWEDITOR_H

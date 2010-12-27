@@ -457,7 +457,7 @@ void MainWindow::ValidateEpub()
     QString temp_file = QDir::tempPath() + "/" + Utility::CreateUUID() + ".epub";
     
     SaveFile( temp_file, false );
-    m_ValidationResultsView->ValidateEpub( temp_file );    
+    m_ValidationResultsView->ValidateCurrentBook( temp_file );    
 
     // TODO: Make deleting this file RAII.
     Utility::DeleteFile( temp_file );
@@ -831,7 +831,7 @@ void MainWindow::SetNewBook( QSharedPointer< Book > new_book )
 {
     m_Book = new_book;
     m_BookBrowser->SetBook( m_Book );
-    m_ValidationResultsView->ClearResults();
+    m_ValidationResultsView->SetBook( m_Book );
     connect( m_Book.data(), SIGNAL( ModifiedStateChanged( bool ) ), this, SLOT( setWindowModified( bool ) ) );
     m_Book->SetModified( false );
 }
@@ -1540,6 +1540,11 @@ void MainWindow::ConnectSignalsToSlots()
 
     connect( m_BookBrowser, SIGNAL( OpenResourceRequest( Resource&, bool, const QUrl& ) ),
              &m_TabManager, SLOT(   OpenResource(        Resource&, bool, const QUrl& ) ) );
+
+    connect( m_ValidationResultsView, 
+                SIGNAL( OpenResourceRequest( Resource&, bool, const QUrl&, ContentTab::ViewState, int ) ),
+             &m_TabManager,          
+                SLOT(   OpenResource(        Resource&, bool, const QUrl&, ContentTab::ViewState, int ) ) );
     
     connect( &m_TabManager, SIGNAL( OpenUrlRequest(  const QUrl& ) ),
              m_BookBrowser, SLOT(   OpenUrlResource( const QUrl& ) ) );

@@ -30,10 +30,15 @@
 static const QString SETTINGS_GROUP = "flowtab";
 
 
-FlowTab::FlowTab( Resource& resource, const QUrl &fragment, ContentTab::ViewState view_state, QWidget *parent )
+FlowTab::FlowTab( Resource& resource, 
+                  const QUrl &fragment, 
+                  ContentTab::ViewState view_state,
+                  int line_to_scroll_to,
+                  QWidget *parent )
     : 
     ContentTab( resource, parent ),
     m_FragmentToScroll( fragment ),
+    m_LineToScrollTo( line_to_scroll_to ),
     m_HTMLResource( *( qobject_cast< HTMLResource* >( &resource ) ) ),
     m_Splitter( *new QSplitter( this ) ),
     m_wBookView( *new BookViewEditor( this ) ),
@@ -294,6 +299,14 @@ void FlowTab::ScrollToFragment( const QString &fragment )
     if ( m_wBookView.isVisible() )
 
         m_wBookView.ScrollToFragment( fragment );
+}
+
+
+void FlowTab::ScrollToLine( int line )
+{
+    if ( m_wCodeView.isVisible() )
+
+        m_wCodeView.ScrollToLine( line );
 }
 
 
@@ -792,6 +805,8 @@ void FlowTab::DelayedInitialization()
     else
     {
         CodeView();
+
+        m_wCodeView.ScrollToLine( m_LineToScrollTo );
     }
 
     DelayedConnectSignalsToSlots();

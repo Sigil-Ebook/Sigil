@@ -25,11 +25,15 @@
 
 #include <QDockWidget>
 #include <vector>
+#include <QSharedPointer>
+#include "BookManipulation/Book.h"
+#include "Tabs/ContentTab.h"
 
 namespace FlightCrew { class Result; };
 namespace fc = FlightCrew;
 
 class QTableWidget;
+class QTableWidgetItem;
 
 /**
  * Represents the pane in which all the validation results are displayed.
@@ -50,12 +54,48 @@ public:
     /**
      * Validates the epub file given and displays the results.
      */
-    void ValidateEpub( const QString &filepath );
+    void ValidateCurrentBook( const QString &filepath );
 
     /**
      * Clears the result table.
      */
     void ClearResults();
+
+public slots:
+
+    /**
+     * Sets the book that should be validated.
+     *
+     * @param book The book to be validated.
+     */
+    void SetBook( QSharedPointer< Book > book );
+
+signals:
+
+    /**
+     * Emitted when the user clicks a result and thus wants
+     * a resource to be opened on that error.
+     *
+     * @param resource The resource that should be opened.
+     * @param precede_current_tab Should the new tab precede the currently opened one.
+     * @param fragment The fragment ID to which the new tab should be scrolled.
+     * @param view_state In which View should the resource open or switch to.
+     * @param line_to_scroll_to To which line should the resource scroll.
+     */
+    void OpenResourceRequest( Resource &resource, 
+                              bool precede_current_tab, 
+                              const QUrl &fragment,
+                              ContentTab::ViewState view_state,
+                              int line_to_scroll_to );
+
+private slots:
+
+    /**
+     * Handles double-clicking on a result in the table.
+     *
+     * @param item The item that was clicked.
+     */
+    void ResultDoubleClicked( QTableWidgetItem *item );
 
 private:
 
@@ -97,6 +137,11 @@ private:
      * The table that holds all the validation results.
      */
     QTableWidget &m_ResultTable;
+
+    /**
+     * The book being validated.
+     */
+    QSharedPointer< Book > m_Book;
 };
 
 #endif // VALIDATIONRESULTSVIEW_H

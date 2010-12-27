@@ -69,12 +69,14 @@ public slots:
      * @param resource The resource that should be opened.
      * @param precede_current_tab Should the new tab precede the currently opened one.
      * @param fragment The fragment ID to which the new tab should be scrolled.
-     * @param 
+     * @param view_state In which View should the resource open or switch to.
+     * @param line_to_scroll_to To which line should the resource scroll.
      */
     void OpenResource( Resource& resource, 
                        bool precede_current_tab = false,
                        const QUrl &fragment = QUrl(),
-                       ContentTab::ViewState view_state = ContentTab::ViewState_AnyView );
+                       ContentTab::ViewState view_state = ContentTab::ViewState_AnyView,
+                       int line_to_scroll_to = -1);
 
     /**
      * Makes the next (right) tab the current one.
@@ -172,22 +174,28 @@ private:
      * 
      * @param resource The resource we want to switch to.
      * @param fragment The fragment ID to which the tab should scroll.
+     * @param view_state In which View should the resource open or switch to.
+     * @param line_to_scroll_to To which line should the resource scroll.
      * @return \c true if we succeeded in switching.
      */
     bool SwitchedToExistingTab( Resource& resource, 
                                 const QUrl &fragment, 
-                                ContentTab::ViewState view_state );
+                                ContentTab::ViewState view_state,
+                                int line_to_scroll_to );
 
     /**
      * Creates a tab for the specified resource.
      *
      * @param resource The resource for which we want to create a tab.
      * @param fragment The fragment ID to which the tab should scroll after load.
+     * @param view_state In which View should the resource open or switch to.
+     * @param line_to_scroll_to To which line should the resource scroll.
      * @return The newly created tab.
      */
     ContentTab* CreateTabForResource( Resource& resource, 
                                       const QUrl &fragment, 
-                                      ContentTab::ViewState view_state );
+                                      ContentTab::ViewState view_state,
+                                      int line_to_scroll_to );
 
     /**
      * Adds a new content tab to the displayed tabs.

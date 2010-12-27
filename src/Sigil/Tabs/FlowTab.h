@@ -50,11 +50,14 @@ public:
      * 
      * @param resource The resource this tab will be displaying.
      * @param fragment The URL fragment ID to which the tab should scroll.
+     * @param view_state In which View should the resource open or switch to.
+     * @param line_to_scroll_to To which line should the resource scroll.
      * @param parent The parent of this QObject.
      */
     FlowTab( Resource& resource, 
              const QUrl &fragment, 
              ContentTab::ViewState view_state, 
+             int line_to_scroll_to = -1,
              QWidget *parent = 0 );
 
     // Overrides inherited from ContentTab
@@ -102,16 +105,23 @@ public:
     bool IsLoadingFinished();
 
     /**
-     * Scrolls the tab to the specified fragment.
+     * Scrolls the tab to the specified fragment (if in Book View).
      *
      * @param fragment The URL fragment ID to which the tab should scroll.
      */
     void ScrollToFragment( const QString &fragment );
 
     /**
+     * Scrolls the tab to the specified line (if in Code View).
+     *
+     * @param line The line to scroll to.
+     */
+    void ScrollToLine( int line );
+
+    /**
      * Scrolls the tab to the top.
      */
-    void ScrollToTop();
+    void ScrollToTop();    
 
 public slots:
 
@@ -398,6 +408,11 @@ private:
      * The fragment to scroll to after the tab is initialized.
      */
     const QUrl m_FragmentToScroll;
+
+    /**
+     * The line to scroll to after the tab is initialized.
+     */
+    int m_LineToScrollTo;
 
     /**
      * The HTML resource the tab is currently displaying.

@@ -73,9 +73,10 @@ ContentTab& TabManager::GetCurrentContentTab()
 void TabManager::OpenResource( Resource& resource, 
                                bool precede_current_tab,
                                const QUrl &fragment,
-                               ContentTab::ViewState view_state )
+                               ContentTab::ViewState view_state,
+                               int line_to_scroll_to )
 {
-    if ( SwitchedToExistingTab( resource, fragment, view_state ) )
+    if ( SwitchedToExistingTab( resource, fragment, view_state, line_to_scroll_to ) )
 
         return;
 
@@ -83,7 +84,8 @@ void TabManager::OpenResource( Resource& resource,
                                            view_state                                  :
                                            GetNewViewState();
 
-    AddNewContentTab( CreateTabForResource( resource, fragment, new_view_state ), precede_current_tab );
+    AddNewContentTab( CreateTabForResource( resource, fragment, new_view_state, line_to_scroll_to ), 
+                      precede_current_tab );
 
     // TODO: loading bar update    
 }
@@ -207,7 +209,10 @@ int TabManager::ResourceTabIndex( const Resource& resource ) const
 }
 
 
-bool TabManager::SwitchedToExistingTab( Resource& resource, const QUrl &fragment, ContentTab::ViewState view_state )
+bool TabManager::SwitchedToExistingTab( Resource& resource, 
+                                        const QUrl &fragment, 
+                                        ContentTab::ViewState view_state,
+                                        int line_to_scroll_to )
 {
     int resource_index = ResourceTabIndex( resource );
 
@@ -221,15 +226,20 @@ bool TabManager::SwitchedToExistingTab( Resource& resource, const QUrl &fragment
 
         FlowTab *flow_tab = qobject_cast< FlowTab* >( tab );
 
+        // TODO: line_to_scroll_to support for other resource types
+
         if ( flow_tab != NULL )
         {
-            flow_tab->ScrollToFragment( fragment.toString() );
-
             // If the caller doesn't care what the view is, then we stay
             // in the current view. Otherwise, we switch.
             if ( view_state != ContentTab::ViewState_AnyView )
             
                 flow_tab->SetViewState( view_state );
+            
+            // Depending on the state of the current view and 
+            // the given parameters, only one of these is going to work.
+            flow_tab->ScrollToFragment( fragment.toString() );
+            flow_tab->ScrollToLine( line_to_scroll_to );
         }
 
         return true;
@@ -239,13 +249,18 @@ bool TabManager::SwitchedToExistingTab( Resource& resource, const QUrl &fragment
 }
 
 
-ContentTab* TabManager::CreateTabForResource( Resource& resource, const QUrl &fragment, ContentTab::ViewState view_state )
+ContentTab* TabManager::CreateTabForResource( Resource& resource, 
+                                              const QUrl &fragment, 
+                                              ContentTab::ViewState view_state,
+                                              int line_to_scroll_to )
 {
+    // TODO: line_to_scroll_to support for other resource types
+
     ContentTab *tab = NULL;
 
     if ( resource.Type() == Resource::HTMLResource )
     {
-        tab = new FlowTab( resource, fragment, view_state, this );
+        tab = new FlowTab( resource, fragment, view_state, line_to_scroll_to, this );
 
         connect( tab,  SIGNAL( LinkClicked( const QUrl& ) ), this, SIGNAL( OpenUrlRequest( const QUrl& ) ) );
         connect( tab,  SIGNAL( OldTabRequest( QString, HTMLResource& ) ), 

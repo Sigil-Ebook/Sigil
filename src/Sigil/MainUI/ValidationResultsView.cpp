@@ -37,10 +37,19 @@ ValidationResultsView::ValidationResultsView( QWidget *parent )
     setAllowedAreas( Qt::BottomDockWidgetArea );
 
     SetUpTable();
+
+    connect( &m_ResultTable, SIGNAL( itemDoubleClicked( QTableWidgetItem* ) ), 
+             this,           SLOT( ResultDoubleClicked( QTableWidgetItem* ) ) );
 }
 
 
-void ValidationResultsView::ValidateEpub( const QString &filepath )
+// TODO: Currently, we depend on MainWindow to hand us a temp epub
+// of the current book so that we can validate it. We can't just
+// run through the files in the book's current main folder since
+// we (currently) only create the the OPF and NCX files on save.
+// When we change that, this function should accept no arguments
+// and merely use the m_Book var to access the current main folder.
+void ValidationResultsView::ValidateCurrentBook( const QString &filepath )
 {
     ClearResults();
     std::vector< fc::Result > results;
@@ -66,7 +75,6 @@ void ValidationResultsView::ValidateEpub( const QString &filepath )
     QApplication::restoreOverrideCursor();
 
     DisplayResults( results );
-
     show();
 }
 
@@ -75,6 +83,47 @@ void ValidationResultsView::ClearResults()
 {
     m_ResultTable.clearContents();
     m_ResultTable.setRowCount( 0 );
+}
+
+
+void ValidationResultsView::SetBook( QSharedPointer< Book > book )
+{
+    m_Book = book;
+    ClearResults();
+}
+
+
+void ValidationResultsView::ResultDoubleClicked( QTableWidgetItem *item )
+{
+    Q_ASSERT( item );
+
+    int row = item->row();
+
+    QTableWidgetItem *path_item = m_ResultTable.item( row, 0 );
+    if ( !path_item )
+
+        return;
+
+    QString filename = QFileInfo( path_item->text() ).fileName();
+
+    QTableWidgetItem *line_item = m_ResultTable.item( row, 1 );
+    if ( !line_item )
+
+        return;
+
+    int line = line_item->text().toInt();
+
+    try
+    {
+        Resource &resource = m_Book->GetConstFolderKeeper().GetResourceByFilename( filename );
+
+        emit OpenResourceRequest( resource, false, QUrl(), ContentTab::ViewState_CodeView, line );
+    }
+
+    catch ( ResourceDoesNotExist& )
+    {
+        return;
+    }
 }
 
 
@@ -170,3 +219,4 @@ QString ValidationResultsView::RemoveEpubPathPrefix( const QString &path )
 {
     return QString( path ).remove( QRegExp( "^[\\w-]+\\.epub/?" ) );
 }
+

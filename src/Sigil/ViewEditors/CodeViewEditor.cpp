@@ -48,7 +48,8 @@ CodeViewEditor::CodeViewEditor( HighlighterType high_type, QWidget *parent )
     m_CurrentZoomFactor( 1.0 ),
     m_ScrollOneLineUp( *(   new QShortcut( QKeySequence( Qt::ControlModifier + Qt::Key_Up   ), this, 0, 0, Qt::WidgetShortcut ) ) ),
     m_ScrollOneLineDown( *( new QShortcut( QKeySequence( Qt::ControlModifier + Qt::Key_Down ), this, 0, 0, Qt::WidgetShortcut ) ) ),
-    m_isLoadFinished( false )
+    m_isLoadFinished( false ),
+    m_DelayedCursorScreenCenteringRequired( false )
 {
     if ( high_type == CodeViewEditor::Highlight_XHTML )
 
@@ -200,6 +201,32 @@ int CodeViewEditor::CalculateLineNumberAreaWidth()
 void CodeViewEditor::ScrollToTop()
 {
     verticalScrollBar()->setValue( 0 );
+}
+
+
+void CodeViewEditor::ScrollToLine( int line )
+{
+    if ( line <= 0 )
+
+        return;
+
+    // A pending caret update will overrule us, 
+    // and we don't want that.
+    m_CaretUpdate.clear();
+
+    QTextCursor cursor( document() );
+    cursor.movePosition( QTextCursor::NextBlock, QTextCursor::MoveAnchor, line - 1 );
+    setTextCursor( cursor );
+
+    // If height is 0, then the widget is still collapsed
+    // and centering the screen will do squat.
+    if ( height() > 0 )
+    
+        centerCursor();
+
+    else
+
+        m_DelayedCursorScreenCenteringRequired = true;
 }
 
 
@@ -365,6 +392,7 @@ bool CodeViewEditor::event( QEvent *event )
     if ( event->type() == QEvent::Paint )
     {
         ExecuteCaretUpdate();
+        DelayedCursorScreenCentering();
     }
     
     return real_return;
@@ -632,13 +660,22 @@ bool CodeViewEditor::ExecuteCaretUpdate()
     m_CaretUpdate.clear();
     setTextCursor( cursor );
 
-    // Center the screen on the cursor/caret location.
-    // Centering requires fresh information about the
-    // visible viewport, so we usually call this after
-    // the paint event has been processed.
-    centerCursor();
+    m_DelayedCursorScreenCenteringRequired = true;
 
     return true;
+}
+
+// Center the screen on the cursor/caret location.
+// Centering requires fresh information about the
+// visible viewport, so we usually call this after
+// the paint event has been processed.
+void CodeViewEditor::DelayedCursorScreenCentering()
+{
+     if ( m_DelayedCursorScreenCenteringRequired )
+    {
+        centerCursor();
+        m_DelayedCursorScreenCenteringRequired = false;
+    }
 }
 
 
@@ -669,7 +706,7 @@ void CodeViewEditor::ScrollByLine( bool down )
     {
         if ( move_delta > 0 )
 
-             moveCursor( QTextCursor::Down );
+            moveCursor( QTextCursor::Down );
 
         else
 
