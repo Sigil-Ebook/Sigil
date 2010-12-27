@@ -111,3 +111,8 @@ typedef boost::error_info< struct font_filepath, std::string > errinfo_font_file
 typedef boost::error_info< struct algorithm, std::string > errinfo_font_obfuscation_algorithm;
 typedef boost::error_info< struct key, std::string > errinfo_font_obfuscation_key;
 
+/**
+ * Thrown when the document has no root document element.
+ */
+struct ErrorBuildingDOM : virtual ExceptionBase {};
+

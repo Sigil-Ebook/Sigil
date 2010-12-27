@@ -73,7 +73,12 @@ shared_ptr< xc::DOMDocument > PerformHTMLUpdates::operator()()
 
 void PerformHTMLUpdates::UpdateHTMLReferences()
 {
-    QList< xc::DOMElement* > nodes = XhtmlDoc::GetTagMatchingDescendants( *m_Document->getDocumentElement(), PATH_TAGS );
+    xc::DOMElement* document_element = m_Document->getDocumentElement();
+    if ( !document_element )
+    
+        boost_throw( ErrorBuildingDOM() );    
+
+    QList< xc::DOMElement* > nodes = XhtmlDoc::GetTagMatchingDescendants( *document_element, PATH_TAGS );
 
     int node_count = nodes.count();
 

@@ -28,6 +28,7 @@
 #include "Misc/HTMLEncodingResolver.h"
 #include "BookManipulation/CleanSource.h"
 #include "BookManipulation/XercesCppUse.h"
+#include "BookManipulation/XhtmlDoc.h"
 #include "Misc/Utility.h"
 
 void UniversalUpdates::PerformUniversalUpdates( bool resources_already_loaded,
@@ -135,7 +136,11 @@ void UniversalUpdates::LoadAndUpdateOneHTMLFile( HTMLResource* html_resource,
                                                  const QHash< QString, QString > &html_updates,
                                                  const QHash< QString, QString > &css_updates )
 {
-    const QString &source = CleanSource::Clean( HTMLEncodingResolver::ReadHTMLFile( html_resource->GetFullPath() ) );
+    const QString &source = 
+        CleanSource::Clean( 
+            XhtmlDoc::ResolveCustomEntities( 
+                HTMLEncodingResolver::ReadHTMLFile( html_resource->GetFullPath() ) ) );
+
     html_resource->SetDomDocument( PerformHTMLUpdates( source, html_updates, css_updates )() );
 }
 

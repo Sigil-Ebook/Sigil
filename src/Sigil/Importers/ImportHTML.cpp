@@ -32,8 +32,6 @@
 #include "SourceUpdates/UniversalUpdates.h"
 #include "BookManipulation/XhtmlDoc.h"
 
-static const QString ENTITY_SEARCH = "<!ENTITY\\s+(\\w+)\\s+\"([^\"]+)\">";
-
 
 // Constructor;
 // The parameter is the file to be imported
@@ -75,46 +73,10 @@ QSharedPointer< Book > ImportHTML::GetBook()
 // Loads the source code into the Book
 QString ImportHTML::LoadSource()
 {
-    QString source = CleanSource::Clean( HTMLEncodingResolver::ReadHTMLFile( m_FullFilePath ) );
-    return ResolveCustomEntities( source );
-}
-
-
-// Resolves custom ENTITY declarations
-QString ImportHTML::ResolveCustomEntities( const QString &html_source ) const
-{
-    QString source = html_source;
-    QRegExp entity_search( ENTITY_SEARCH );
-
-    QHash< QString, QString > entities;
-
-    int main_index = 0;
-
-    // Catch all custom entity declarations...
-    while ( true )
-    {
-        main_index = source.indexOf( entity_search, main_index );
-
-        if ( main_index == -1 )
-
-            break;
-
-        entities[ "&" + entity_search.cap( 1 ) + ";" ] = entity_search.cap( 2 );
-
-        // Erase the entity declaration
-        source.replace( entity_search.cap( 0 ), "" );
-    }
-
-    // ...and now replace all occurrences
-    foreach( QString key, entities.keys() )
-    {
-        source.replace( key, entities[ key ] );
-    }
-
-    // Clean up what's left of the custom entity declaration field
-    source.replace( QRegExp( "\\[\\s*\\]>" ), "" );
-
-    return source;
+    return 
+        CleanSource::Clean( 
+            XhtmlDoc::ResolveCustomEntities( 
+                HTMLEncodingResolver::ReadHTMLFile( m_FullFilePath ) ) );
 }
 
 

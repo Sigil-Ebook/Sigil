@@ -51,10 +51,7 @@ public:
 private:
 
     // Loads the source code into the Book
-    QString LoadSource();  
-
-    // Resolves custom ENTITY declarations
-    QString ResolveCustomEntities( const QString &html_source ) const;
+    QString LoadSource();      
 
     // Strips the file specifier on all the href attributes 
     // of anchor tags with filesystem links with fragment identifiers;

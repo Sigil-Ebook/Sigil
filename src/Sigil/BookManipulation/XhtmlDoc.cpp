@@ -39,8 +39,54 @@ static const QStringList BLOCK_LEVEL_TAGS = QStringList() << "address" << "block
 static const QStringList IMAGE_TAGS = QStringList() << "img" << "image";
 
 static const int XML_STANDALONE_SEARCH_PREFIX_SIZE = 150;
+static const int XML_CUSTOM_ENTITY_SEARCH_PREFIX_SIZE = 500;
+static const QString ENTITY_SEARCH = "<!ENTITY\\s+(\\w+)\\s+\"([^\"]+)\">";
 
 const QString BREAK_TAG_SEARCH  = "(<div>\\s*)?<hr\\s*class\\s*=\\s*\"[^\"]*sigilChapterBreak[^\"]*\"\\s*/>(\\s*</div>)?";
+
+
+// Resolves custom ENTITY declarations
+QString XhtmlDoc::ResolveCustomEntities( const QString &source ) 
+{
+    QString search_prefix = source.left( XML_CUSTOM_ENTITY_SEARCH_PREFIX_SIZE );
+
+    if ( !search_prefix.contains( "<!ENTITY" ) )
+
+        return source;
+
+    QString new_source = source;
+    QRegExp entity_search( ENTITY_SEARCH );
+
+    QHash< QString, QString > entities;
+
+    int main_index = 0;
+
+    // Catch all custom entity declarations...
+    while ( true )
+    {
+        main_index = new_source.indexOf( entity_search, main_index );
+
+        if ( main_index == -1 )
+
+            break;
+
+        entities[ "&" + entity_search.cap( 1 ) + ";" ] = entity_search.cap( 2 );
+
+        // Erase the entity declaration
+        new_source.replace( entity_search.cap( 0 ), "" );
+    }
+
+    // ...and now replace all occurrences
+    foreach( QString key, entities.keys() )
+    {
+        new_source.replace( key, entities[ key ] );
+    }
+
+    // Clean up what's left of the custom entity declaration field
+    new_source.replace( QRegExp( "\\[\\s*\\]>" ), "" );
+
+    return new_source;
+}
 
 
 // Returns a list of XMLElements representing all

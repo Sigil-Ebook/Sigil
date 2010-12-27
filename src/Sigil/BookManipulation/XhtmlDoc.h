@@ -49,6 +49,9 @@ public:
         QHash< QString, QString > attributes;
     };
 
+    // Resolves custom ENTITY declarations
+    static QString ResolveCustomEntities( const QString &source );
+
     // Returns a list of XMLElements representing all
     // the elements of the specified tag name
     // in the head section of the provided XHTML source code
