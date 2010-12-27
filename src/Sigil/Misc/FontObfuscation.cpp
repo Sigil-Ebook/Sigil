@@ -99,17 +99,35 @@ void FontObfuscation::ObfuscateFile( const QString &filepath,
                                      const QString &algorithm, 
                                      const QString &identifier )
 {
-    if ( !QFileInfo( filepath ).exists() )
-
-        return;
+    if ( !QFileInfo( filepath ).exists() || 
+         algorithm.isEmpty()             ||
+         identifier.isEmpty() )
+    {
+        boost_throw( FontObfuscationError() 
+                     << errinfo_font_filepath( filepath.toStdString() )
+                     << errinfo_font_obfuscation_algorithm( algorithm.toStdString() )
+                     << errinfo_font_obfuscation_key( identifier.toStdString() )
+                   );
+    }
 
     if ( algorithm == ADOBE_FONT_ALGO_ID )
-
+    {
         AdobeObfuscate( filepath, identifier );
+    }
 
-    else 
-
+    else if ( algorithm == IDPF_FONT_ALGO_ID )
+    {
         IdpfObfuscate( filepath, identifier );
+    }
+
+    else
+    {
+        boost_throw( FontObfuscationError() 
+                     << errinfo_font_filepath( filepath.toStdString() )
+                     << errinfo_font_obfuscation_algorithm( algorithm.toStdString() )
+                     << errinfo_font_obfuscation_key( identifier.toStdString() )
+                    );
+    }
 }
 
 

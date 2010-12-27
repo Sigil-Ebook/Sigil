@@ -103,3 +103,11 @@ typedef boost::error_info< struct file_copypath, std::string > errinfo_file_copy
  */
 struct FileEncryptedWithDrm : virtual ExceptionBase {};
 
+/**
+ * Thrown for XML parsing errors.
+ */
+struct FontObfuscationError : virtual ExceptionBase {};
+typedef boost::error_info< struct font_filepath, std::string > errinfo_font_filepath;
+typedef boost::error_info< struct algorithm, std::string > errinfo_font_obfuscation_algorithm;
+typedef boost::error_info< struct key, std::string > errinfo_font_obfuscation_key;
+

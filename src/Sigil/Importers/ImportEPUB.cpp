@@ -234,6 +234,10 @@ void ImportEPUB::ProcessFontFiles( const QList< Resource* > &resources,
         QString match_path = "../" + font_resource->GetRelativePathToOEBPS();
         QString algorithm  = new_font_paths_to_algorithms.value( match_path );
 
+        if ( algorithm.isEmpty() )
+
+            continue;
+
         font_resource->SetObfuscationAlgorithm( algorithm );
 
         // Actually we are de-obfuscating, but the inverse operations of the obfuscation methods 
