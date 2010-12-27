@@ -1,4 +1,6 @@
 Sigil v0.3.3 ADD_DATE
+    - added a workaround for a crash bug caused by invalid epubs that use obfuscated fonts but 
+    with incorrect UUID URN key syntax (issue #709)
     - integrated the FlightCrew epub validation library; a new toolbar icon triggers epub 
     validation and displays the results (issue #28)
     - fixed a rare input truncation problem when the input file contains a unicode nbsp and also

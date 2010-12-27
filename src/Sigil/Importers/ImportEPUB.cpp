@@ -181,7 +181,7 @@ QString ImportEPUB::FirstUrnUuid()
     {
         QString value = meta.value.toString();
 
-        if ( value.contains( "urn:uuid:" ) )
+        if ( value.contains( "urn:uuid:" ) || meta.attributes[ "scheme" ].toLower() == "uuid" )
 
             return value;
     }
