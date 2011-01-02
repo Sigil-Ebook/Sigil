@@ -16,7 +16,7 @@
 
 #ifdef _ZIP_SYSTEM_LINUX
 
-#if defined __APPLE__ || defined __CYGWIN__
+#if defined __APPLE__ || defined __CYGWIN__ || defined __NetBSD__ 
 	#define FILE_FUNCTIONS_64B_BY_DEFAULT
 #else
 	#undef FILE_FUNCTIONS_64B_BY_DEFAULT	
@@ -34,11 +34,14 @@
 
 #include <sys/types.h>
 
-#if defined (__FreeBSD__) || defined (__APPLE__)
+#if defined (__FreeBSD__) || defined (__APPLE__) || defined (__NetBSD__)
 	#include <sys/param.h>
 	#include <sys/mount.h>
 #else
 	#include <sys/vfs.h>
+#endif
+#if defined (__NetBSD__)
+#define statfs statvfs
 #endif
 #include <sys/stat.h>
 
