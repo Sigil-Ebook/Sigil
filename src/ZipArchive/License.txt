@@ -1,4 +1,4 @@
-is Copyrighted 2000 - 2009 by Artpol Software - Tadeusz Dracz
+is Copyrighted 2000 - 2010 by Artpol Software - Tadeusz Dracz
 For the licensing details, please visit:
 http://www.artpol-software.com/ZipArchive/KB/license.aspx
 ------------------------------------------------------------------

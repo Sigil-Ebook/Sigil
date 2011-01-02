@@ -1,6 +1,6 @@
 ////////////////////////////////////////////////////////////////////////////////
 // This source file is part of the ZipArchive library source distribution and
-// is Copyrighted 2000 - 2009 by Artpol Software - Tadeusz Dracz
+// is Copyrighted 2000 - 2010 by Artpol Software - Tadeusz Dracz
 //
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -37,7 +37,17 @@ class CZipAutoBuffer;
 */
 namespace ZipPlatform
 {
-
+	/**
+		The mode for deleting files.
+	*/
+	enum DeleteFileMode
+	{
+		dfmRegular = 0x00,				///< No special action is taken when overwriting a file.
+		dfmRemoveReadOnly = 0x01		///< The read-only attribute is cleared before overwriting a file.
+#if defined _ZIP_SYSTEM_WIN && defined SHFileOperation
+		,dfmRecycleBin = 0x02			///< The overwritten file is moved to the Recycle Bin (Windows only).
+#endif
+	};
 	/**
 		Returns the default case-sensitivity for the current file system.
 
@@ -111,7 +121,7 @@ namespace ZipPlatform
 	ZIP_API bool CreateNewDirectory(LPCTSTR lpDirectory);	///< Creates a new directory.
 	ZIP_API bool SetVolLabel(LPCTSTR lpszPath, LPCTSTR lpszLabel); ///< Sets a label on a removable device. \c lpszPath may point to a file on the device.
 	ZIP_API bool ForceDirectory(LPCTSTR lpDirectory);	///< Creates nested directories at once.
-	ZIP_API bool RemoveFile(LPCTSTR lpszFileName, bool bThrow = true); ///< Removes a file.
+	ZIP_API bool RemoveFile(LPCTSTR lpszFileName, bool bThrow = true, int iMode = dfmRegular); ///< Removes a file.
 	ZIP_API bool RenameFile( LPCTSTR lpszOldName, LPCTSTR lpszNewName, bool bThrow = true); ///< Renames a file.
 
 #ifdef _ZIP_SYSTEM_LINUX

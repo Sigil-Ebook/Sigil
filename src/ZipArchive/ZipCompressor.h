@@ -1,6 +1,6 @@
 ////////////////////////////////////////////////////////////////////////////////
 // This source file is part of the ZipArchive library source distribution and
-// is Copyrighted 2000 - 2009 by Artpol Software - Tadeusz Dracz
+// is Copyrighted 2000 - 2010 by Artpol Software - Tadeusz Dracz
 //
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -69,7 +69,8 @@ public:
 	enum CompressorType
 	{
 		typeDeflate = 1,	///< Deflate compression (default in zip archives).
-		typeBzip2			///< Bzip2 compression.
+		typeBzip2,			///< Bzip2 compression.
+		typePPMd			///< PPMd compression
 	};
 
 	/**
@@ -97,6 +98,7 @@ public:
 				<a href="kb">0610231446|bzip2</a>				
 		*/
 		methodBzip2 = 12,
+
 		/**
 			This value means that WinZip AES encryption is used.
 			The original compression method is stored in a WinZip extra field.
@@ -415,10 +417,48 @@ protected:
 	*/
 	void FlushWriteBuffer()
 	{
-		if (m_pCryptograph)
-			m_pCryptograph->Encode(m_pBuffer, (DWORD)m_uComprLeft);
-		m_pStorage->Write(m_pBuffer, (DWORD)m_uComprLeft, false);
+		WriteBuffer(m_pBuffer, (DWORD)m_uComprLeft);
 		m_uComprLeft = 0;
+	}
+
+	/**
+		Writes the buffer into the storage, encrypting the data if needed.
+
+		\param pBuffer
+			The buffer with data to write.
+
+		\param uSize
+			The size of the buffer.
+	*/
+	void WriteBuffer(char* pBuffer, DWORD uSize)
+	{
+		if (uSize == 0)
+			return;
+		if (m_pCryptograph)
+			m_pCryptograph->Encode(pBuffer, uSize);
+		m_pStorage->Write(pBuffer, uSize, false);		
+	}
+
+	/**
+		Fills the read buffer.
+
+		\return
+			The number of bytes read.
+	*/
+	DWORD FillBuffer()
+	{
+		DWORD uToRead = m_pBuffer.GetSize();
+		if (m_uComprLeft < uToRead)
+			uToRead = (DWORD)m_uComprLeft;
+		
+		if (uToRead > 0)
+		{
+			m_pStorage->Read(m_pBuffer, uToRead, false);
+			if (m_pCryptograph)
+				m_pCryptograph->Decode(m_pBuffer, uToRead);
+			m_uComprLeft -= uToRead;
+		}
+		return uToRead;
 	}
 
 	/**

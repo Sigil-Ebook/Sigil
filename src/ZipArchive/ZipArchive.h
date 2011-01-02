@@ -1,6 +1,6 @@
 ////////////////////////////////////////////////////////////////////////////////
 // This source file is part of the ZipArchive library source distribution and
-// is Copyrighted 2000 - 2009 by Artpol Software - Tadeusz Dracz
+// is Copyrighted 2000 - 2010 by Artpol Software - Tadeusz Dracz
 //
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -90,8 +90,8 @@ struct ZIP_API CZipAddNewFileInfo
 	CZipAddNewFileInfo(LPCTSTR lpszFilePath, LPCTSTR lpszFileNameInZip)
 	{
 		Defaults();
-		 m_szFilePath = lpszFilePath;
-		 m_szFileNameInZip = lpszFileNameInZip;
+		m_szFilePath = lpszFilePath;
+		m_szFileNameInZip = lpszFileNameInZip;
 	}
 
 	/**
@@ -671,8 +671,8 @@ public:
 		zipCreateBinSplit	= zipCreate | zipModeBinSplit, ///< Creates a binary split archive.
 		zipCreateSpan		= zipCreate | zipModeSpan, ///< Creates a span archive.
 
-		zipOpenSplit		= zipOpen | zipModeSplit, ///< Opens an existing split archive. Use when opening split archives on removable devices or under Linux/Mac OS X.
-		zipOpenBinSplit	= zipOpen | zipModeBinSplit ///< Opens an existing binary split archive.
+		zipOpenSplit		= zipOpenReadOnly | zipModeSplit, ///< Opens an existing split archive. Use when opening split archives on removable devices or under Linux/Mac OS X.
+		zipOpenBinSplit	= zipOpenReadOnly | zipModeBinSplit ///< Opens an existing binary split archive.
 		
 	};
 
@@ -738,15 +738,23 @@ public:
 
 	/**
 		Opens the archive from the already opened archive. Both archives will share the same central directory.
-		The \a zip archive must be opened in read-only mode and the newly opened archive will open as read-only as well.
+		The \a zip archive must be opened in read-only mode (unless \a allowNonReadOnly is set to \c true) 
+		and the newly opened archive will open as read-only as well.
 
 		\param zip
-			The archive that provides the reference to the central directory. It must be a read-only archive and if it is in memory, 
-			\a pArchiveFile needs to be used. When \a pArchiveFile is used, the \a zip archive cannot be segmented.
+			The archive that provides the reference to the central directory. It must be a read-only archive.
+			If the archive has no physical representation, the storage file of that archive
+			has to return \c false from the <code>CZipAbstractFile::HasFilePath()</code> method. 
+			Alternatively, \a pArchiveFile can be used. When \a pArchiveFile is used, the \a zip archive cannot be segmented.
 
 		\param pArchiveFile
 			When used, the current CZipArchive instance will use this file as the storage. This file must be opened in advance and the 
 			library will not attempt to close it at any time.
+
+		\param bAllowNonReadOnly
+			When set to \c true, the method will allow opening from a non-read only archive. However it is up to the user to ensure 
+			that the modifications to the \a zip archive won't corrupt the state of the CZipArchive object opened from it. Such a situation 
+			can happen when the \a zip archive is being modified and the current archive is reading at the same time.
 
 		\return 
 			\c true, if the new archive was successfully opened; \c false otherwise.
@@ -762,7 +770,7 @@ public:
 			zipOpenReadOnly
 
 	*/
-	bool OpenFrom(CZipArchive& zip, CZipAbstractFile* pArchiveFile = NULL);
+	bool OpenFrom(CZipArchive& zip, CZipAbstractFile* pArchiveFile = NULL, bool bAllowNonReadOnly = false);
 
 	/**
 		Sets the path fragment to be removed from the beginning of the full path when adding or extracting a file.
@@ -1044,6 +1052,17 @@ public:
 			bSkipInitialPath, iSmartLevel, nBufSize);
 	}
 
+	/** 
+		Returns the index of the recently added file (if any).
+
+		\return
+			The index of the recently added file or \c ZIP_FILE_INDEX_UNSPECIFIED if the index is unknown.
+	*/
+	ZIP_INDEX_TYPE GetLastIndexAdded() const
+	{
+		return m_centralDir.GetLastIndexAdded();
+	}
+
 	/**
 		Adds a new file to the opened archive. The archive cannot be 
 		an existing (at the moment of opening the archive) segmented archive,
@@ -1155,7 +1174,7 @@ public:
 		without decompression.
 
 		\param zip 
-			The opened archive to get the file from (must not be a segmented archive).
+			The opened archive to get the file from.
 
 		\param	uIndex
 			A zero-based index of the file to get from the \a zip archive.
@@ -1227,7 +1246,7 @@ public:
 		without decompression.
 
 		\param zip 
-			The opened archive to get the file from (must not be a segmented archive).
+			The opened archive to get the file from.
 
 		\param	aIndexes
 			An array of zero-based indexes of the files to acquire from the \a zip archive.
@@ -1275,7 +1294,7 @@ public:
 		without decompression.
 
 		\param zip 
-			The opened archive to get the file from (must not be a segmented archive).
+			The opened archive to get the file from.
 
 		\param	aNames
 			An array of filenames to acquire from the \a zip archive.
@@ -1377,6 +1396,9 @@ public:
 			May include a path information, but if \a bFullPath is \c false, 
 			only the filename is extracted from this value.
 
+		\param iOverwriteMode
+			The mode used when overwriting a file during extraction. Can be one or more of <span class="linkapi">ZipPlatform::DeleteMode</span> values.
+
 		\param pSeekPair
 			If not NULL, the file will be extracted starting from the seek position described by this value.
 
@@ -1396,20 +1418,21 @@ public:
 		\see
 			<a href="kb">0711101739</a>
 		\see 
-			ExtractFile(ZIP_INDEX_TYPE, CZipAbstractFile&, bool, CZipCompressor::COffsetsPair*, DWORD)
+			ExtractFile(ZIP_INDEX_TYPE, CZipAbstractFile&, bool, ZipPlatform::DeleteFileMode, CZipCompressor::COffsetsPair*, DWORD)
 		\see
 			FindMatches
 		\see
 			SetCallback
-	*/
+	*/	
 	bool ExtractFile(ZIP_INDEX_TYPE uIndex,
 		LPCTSTR lpszPath,
 		bool bFullPath = true,
 		LPCTSTR lpszNewName = NULL,
+		ZipPlatform::DeleteFileMode iOverwriteMode = ZipPlatform::dfmRegular,
 		DWORD nBufSize = 65536);
 	
 	/**
-		The same as #ExtractFile(ZIP_INDEX_TYPE, LPCTSTR, bool, LPCTSTR, CZipCompressor::COffsetsPair*, DWORD )
+		The same as #ExtractFile(ZIP_INDEX_TYPE, CZipAbstractFile&, bool, ZipPlatform::DeleteFileMode, CZipCompressor::COffsetsPair*, DWORD)
 		but instead to a physical file, this method extracts data into a \c CZipMemFile object.
 
 		\param	uIndex
@@ -1438,7 +1461,7 @@ public:
 		\see
 			<a href="kb">0711101739</a>
 		\see
-			ExtractFile(ZIP_INDEX_TYPE, LPCTSTR, bool, LPCTSTR, CZipCompressor::COffsetsPair*, DWORD )
+			ExtractFile(ZIP_INDEX_TYPE, CZipAbstractFile&, bool, ZipPlatform::DeleteFileMode, CZipCompressor::COffsetsPair*, DWORD)
 	*/
 	bool ExtractFile(ZIP_INDEX_TYPE uIndex,
 		CZipAbstractFile& af,
@@ -2627,7 +2650,7 @@ public:
     /**
        Predicts the full resulting filename with path after extraction. 
 	   The parameters (except for the first) are in the form you would pass
-	   to the #ExtractFile(ZIP_INDEX_TYPE , LPCTSTR , bool , LPCTSTR , CZipCompressor::COffsetsPair*, DWORD ) method.
+	   to the #ExtractFile(ZIP_INDEX_TYPE, CZipAbstractFile&, bool, ZipPlatform::DeleteFileMode, CZipCompressor::COffsetsPair*, DWORD)
 	   The method takes into account the root path set with the #SetRootPath method.
 
        \param lpszFileNameInZip
@@ -2808,7 +2831,27 @@ public:
 		checkDataDescriptor		= 0x0100, ///< Verifies that values written in extra data descriptor match values written in central header. This verification is performed when closing a file after extraction, but only if a file has a data descriptor (see CZipFileHeader::IsDataDescriptor()). Ignored by default (it is consistent with behavior of popular archivers).
 		checkVolumeEntries		= 0x0200, ///< Verifies that the number of volumes and entries are correctly reported.
 		checkAll				= checkCRC | checkLocalAll | checkDataDescriptor | checkVolumeEntries, ///< Logical sum of all possible verifications.
-		checkIgnoredByDefault	= checkDataDescriptor | checkVolumeEntries ///< Verifies that are ignored by default by the ZipArchive Library
+		checkIgnoredByDefault	= checkDataDescriptor | checkVolumeEntries ///< Checks that are ignored by default by the ZipArchive Library
+	};
+
+	/**
+		Flags for workarounding various problems in archives.
+
+		\see
+			SetSpecialFlags
+	*/
+	enum SpecialFlags
+	{
+		sfNone,
+		/** 		
+			Forces reading all headers from the central directory, even if the number of files reported by the archive is different. 
+			By default, the ZipArchive Library reads only the number of headers declared by the archive. Call this method before opening an archive. 
+
+			This method is useful when dealing with archives created with
+			external software that puts more files inside an archive that it is permitted by the zip format. Such a situation
+			can take place with archives created with e.g. BOMArchiveHelper (Mac OS X utility), when the number of files exceeds 65,535.
+		*/
+		sfExhaustiveRead,
 	};
 
 	/**
@@ -2845,41 +2888,30 @@ public:
 	}
 
 	/**
-		Forces reading all headers from the central directory, even if the number of files reported by the archive is different. 
-		By default, the ZipArchive Library reads only the number of headers declared by the archive. Call this method before opening an archive.
-
-		\param bExhaustiveRead
-			If \c true, exhaustive read will be performed; \c false otherwise.
-
-		\note This method is useful when dealing with archives created with
-		external software that put more files inside an archive that it is permitted by the zip format. Such a situation
-		can take place with archives created with e.g. BOMArchiveHelper (Mac OS X utility), when the number of files exceeds 65,535.
+		Sets special flags. It can be one or more of the #SpecialFlags values.
 
 		\see
-			GetExhaustiveRead
+			GetSpecialFlags
 	*/
-	void SetExhaustiveRead(bool bExhaustiveRead)
+	void SetSpecialFlags(int iSpecialFlags)
 	{
 		if (!IsClosed())
 		{
 			ZIPTRACE("%s(%i) : Set it before opening the archive.\n");
 			return;
 		}
-		m_bExhaustiveRead = bExhaustiveRead;
+		m_centralDir.m_specialFlags = iSpecialFlags;
 	}
 
 	/**
-		Returns the value indicating whether the exhaustive read function is active.
-
-		\return
-			\c true, if the exhaustive read function is active; \c false otherwise.
+		Returns the currently set special flags. It can be one or more of the #SpecialFlags values.
 
 		\see
-			SetExhaustiveRead
+			SetSpecialFlags
 	*/
-	bool GetExhaustiveRead() const
+	int GetSpecialFlags() const
 	{
-		return m_bExhaustiveRead;
+		return m_centralDir.m_specialFlags;
 	}
 
     /**
@@ -3174,11 +3206,6 @@ protected:
 	*/
 	bool EncryptFilesInternal(CZipIndexesArray* pIndexes);
 
-
-	/**
-		The value set with #SetExhaustiveRead.
-	*/
-	bool m_bExhaustiveRead;
 
 	/**
 		See the description of #OpenNewFile(CZipFileHeader&, int, LPCTSTR)

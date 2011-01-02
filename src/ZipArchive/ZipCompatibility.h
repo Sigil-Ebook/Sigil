@@ -1,6 +1,6 @@
 ////////////////////////////////////////////////////////////////////////////////
 // This source file is part of the ZipArchive library source distribution and
-// is Copyrighted 2000 - 2009 by Artpol Software - Tadeusz Dracz
+// is Copyrighted 2000 - 2010 by Artpol Software - Tadeusz Dracz
 //
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -49,28 +49,43 @@ namespace ZipCompatibility
 	*/
 	enum ZipPlatforms
 	{		   
-			   zcDosFat,		///< MS-DOS and OS/2 (FAT / VFAT / FAT32 file systems)
-               zcAmiga,			///< Amiga 
-               zcVaxVms,		///< VAX/VMS
-               zcUnix,			///< Unix / Linux
-               zcVmCms,			///< VM/CMS
-               zcAtari,			///< Atari ST
-               zcOs2Hpfs,		///< OS/2 H.P.F.S.
-               zcMacintosh,		///< Macintosh 
-               zcZsystem,		///< Z-System
-               zcCpm,			///< CP/M 
-			   zcTops20,		///< TOPS-20
-               zcNtfs,			///< Windows NTFS
-			   zcQDos,			///< SMS/QDOS
-			   zcAcorn,			///< Acorn RISC OS
-			   ZcMvs,			///< MVS
-			   zcVfat,			///< Win32 VFAT
-			   zcAtheOS,		///< AtheOS
-			   zcBeOS,			///< BeOS
-			   zcTandem,		///< Tandem NSK
-			   zcTheos,			///< Theos
-			   zcMacDarwin		///< Mac OS/X (Darwin)
+	   zcDosFat,		///< MS-DOS and OS/2 (FAT / VFAT / FAT32 file systems)
+       zcAmiga,			///< Amiga 
+       zcVaxVms,		///< VAX/VMS
+       zcUnix,			///< Unix / Linux
+       zcVmCms,			///< VM/CMS
+       zcAtari,			///< Atari ST
+       zcOs2Hpfs,		///< OS/2 H.P.F.S.
+       zcMacintosh,		///< Macintosh 
+       zcZsystem,		///< Z-System
+       zcCpm,			///< CP/M 
+	   zcTops20,		///< TOPS-20
+       zcNtfs,			///< Windows NTFS
+	   zcQDos,			///< SMS/QDOS
+	   zcAcorn,			///< Acorn RISC OS
+	   ZcMvs,			///< MVS
+	   zcVfat,			///< Win32 VFAT
+	   zcAtheOS,		///< AtheOS
+	   zcBeOS,			///< BeOS
+	   zcTandem,		///< Tandem NSK
+	   zcTheos,			///< Theos
+	   zcMacDarwin,		///< Mac OS/X (Darwin)
+	   zcLast			///< For the internal use
 	};
+
+	/**
+		Platform independent attributes.
+	*/
+	enum InternalFileAttributes
+	{
+		attROnly	= 0x01,	///< Read-only attribute.
+		attHidd		= 0x02,	///< Hidden attribute.
+		attSys		= 0x04,	///< System attribute.
+		attDir		= 0x10,	///< Directory attribute.
+		attArch		= 0x20	///< Archived attribute.
+	};
+
+	ZIP_API DWORD GetAsInternalAttributes(DWORD uAttr, int iFromSystem);
 
 	/**
 		Checks whether the system with the given code is supported by the ZipArchive Library.
@@ -141,7 +156,15 @@ namespace ZipCompatibility
 		\param	bReplaceSlash
 			If \c true, changes slash to backslash. If \c false, changes backslash to slash.
 	*/
-	void SlashBackslashChg(CZipString& szFileName, bool bReplaceSlash);
+	ZIP_API void SlashBackslashChg(CZipString& szFileName, bool bReplaceSlash);
+
+	/**
+		Normalizes path separators to the default character used by the current platform.
+
+		\param szFileName
+			The filename to have the path separators normalized.
+	*/
+	ZIP_API void NormalizePathSeparators(CZipString& szFileName);
 
 	/**
 		Returns the default filename code page for the given platform.

@@ -1,6 +1,6 @@
 ////////////////////////////////////////////////////////////////////////////////
 // This source file is part of the ZipArchive library source distribution and
-// is Copyrighted 2000 - 2009 by Artpol Software - Tadeusz Dracz
+// is Copyrighted 2000 - 2010 by Artpol Software - Tadeusz Dracz
 //
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -50,7 +50,7 @@ void CZipCrc32Cryptograph::InitEncode(CZipAutoBuffer& password, CZipFileHeader& 
 		buffer[i] = c;
 
 	}
-	long iCrc = (long)currentFile.m_uModTime << 16;	
+	int iCrc = (int)currentFile.m_uModTime << 16;	
 	c = (char)((iCrc >> 16) & 0xFF);
 	CryptEncode(c);
 	buffer[ZIPARCHIVE_ENCR_HEADER_LEN - 2] = c;

@@ -1,6 +1,6 @@
 ////////////////////////////////////////////////////////////////////////////////
 // This source file is part of the ZipArchive library source distribution and
-// is Copyrighted 2000 - 2009 by Artpol Software - Tadeusz Dracz
+// is Copyrighted 2000 - 2010 by Artpol Software - Tadeusz Dracz
 //
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -236,8 +236,9 @@ public:
 	CZipString Left( int nCount ) const { return substr(0, nCount);}
 	CZipString Right( int nCount) const 
 	{
-		nCount = (int)size() < nCount ? (int)size() : nCount;
-		return substr(size() - nCount);
+		int s = (int)size();
+		nCount = s < nCount ? s : nCount;
+		return substr(s - nCount);
 	}
 	CZipString Mid( int nFirst ) const {return substr(nFirst);}
 	CZipString Mid( int nFirst, int nCount ) const {return substr(nFirst, nCount);}

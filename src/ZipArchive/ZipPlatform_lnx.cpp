@@ -1,6 +1,6 @@
 ////////////////////////////////////////////////////////////////////////////////
 // This source file is part of the ZipArchive library source distribution and
-// is Copyrighted 2000 - 2009 by Artpol Software - Tadeusz Dracz
+// is Copyrighted 2000 - 2010 by Artpol Software - Tadeusz Dracz
 //
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -16,7 +16,7 @@
 
 #ifdef _ZIP_SYSTEM_LINUX
 
-#if defined __APPLE__ || defined __CYGWIN__ || defined __NetBSD__ 
+#if defined __APPLE__ || defined __CYGWIN__
 	#define FILE_FUNCTIONS_64B_BY_DEFAULT
 #else
 	#undef FILE_FUNCTIONS_64B_BY_DEFAULT	
@@ -34,14 +34,11 @@
 
 #include <sys/types.h>
 
-#if defined (__FreeBSD__) || defined (__APPLE__) || defined (__NetBSD__)
+#if defined (__FreeBSD__) || defined (__APPLE__)
 	#include <sys/param.h>
 	#include <sys/mount.h>
 #else
 	#include <sys/vfs.h>
-#endif
-#if defined (__NetBSD__)
-#define statfs statvfs
 #endif
 #include <sys/stat.h>
 
@@ -72,7 +69,7 @@ ULONGLONG ZipPlatform::GetDeviceFreeSpace(LPCTSTR lpszPath)
 	#endif
 		return 0;
 
-		return sStats.f_bsize * sStats.f_bavail;
+        return sStats.f_bsize * sStats.f_bavail;
 }
 
 
@@ -110,13 +107,7 @@ bool ZipPlatform::GetCurrentDirectory(CZipString& sz)
 
 bool ZipPlatform::SetFileAttr(LPCTSTR lpFileName, DWORD uAttr)
 {
-	// Changed by Strahinja Markovic.
-	// Preserving file attributes bites us
-	// in the ass when the attributes don't allow
-	// us to read or modify the extracted files.
-
-	//return chmod(lpFileName, uAttr) == 0;
-	return true;
+	return chmod(lpFileName, uAttr) == 0;
 }
 
 bool ZipPlatform::GetFileAttr(LPCTSTR lpFileName, DWORD& uAttr)
@@ -124,8 +115,8 @@ bool ZipPlatform::GetFileAttr(LPCTSTR lpFileName, DWORD& uAttr)
 	struct stat sStats;
 	if (stat(lpFileName, &sStats) == -1)
 		return false;
-	uAttr = (sStats.st_mode & (S_IRWXU | S_IRWXG | S_IRWXO | S_IFMT));
-	return true;
+  	uAttr = (sStats.st_mode & (S_IRWXU | S_IRWXG | S_IRWXO | S_IFMT));
+  	return true;
 }
 
 bool ZipPlatform::SetExeAttr(LPCTSTR lpFileName)
@@ -140,11 +131,11 @@ bool ZipPlatform::SetExeAttr(LPCTSTR lpFileName)
 
 bool ZipPlatform::GetFileModTime(LPCTSTR lpFileName, time_t & ttime)
 {
-	struct stat st;
+    struct stat st;
 	if (stat(lpFileName, &st) != 0)
 		return false;
 
-	ttime = st.st_mtime;
+ 	ttime = st.st_mtime;
 	if (ttime == (time_t)-1)
 	{
 		ttime = time(NULL);
@@ -169,7 +160,7 @@ bool ZipPlatform::ChangeDirectory(LPCTSTR lpDirectory)
 }
 int ZipPlatform::FileExists(LPCTSTR lpszName)
 {
-		struct stat st;
+    	struct stat st;
 	if (stat(lpszName, &st) != 0)
 		return 0;
 	else
@@ -190,7 +181,7 @@ ZIPINLINE  bool ZipPlatform::IsDriveRemovable(LPCTSTR lpszFilePath)
 ZIPINLINE  bool ZipPlatform::SetVolLabel(LPCTSTR lpszPath, LPCTSTR lpszLabel)
 {
 	// not implemented
-		return true;
+        return true;
 }
 
 ZIPINLINE void ZipPlatform::AnsiOem(CZipAutoBuffer& buffer, bool bAnsiToOem)
@@ -198,28 +189,36 @@ ZIPINLINE void ZipPlatform::AnsiOem(CZipAutoBuffer& buffer, bool bAnsiToOem)
 	// not implemented
 }
 
-ZIPINLINE  bool ZipPlatform::RemoveFile(LPCTSTR lpszFileName, bool bThrow)
+ZIPINLINE  bool ZipPlatform::RemoveFile(LPCTSTR lpszFileName, bool bThrow, int iMode)
 {
+	if ((iMode & ZipPlatform::dfmRemoveReadOnly) != 0)
+	{
+		DWORD attr;
+		if (ZipPlatform::GetFileAttr(lpszFileName, attr)
+			&& (ZipCompatibility::GetAsInternalAttributes(attr, ZipPlatform::GetSystemID()) & ZipCompatibility::attROnly) != 0)
+		{
+			ZipPlatform::SetFileAttr(lpszFileName, ZipPlatform::GetDefaultAttributes());
+		}
+	}
 	if (unlink(lpszFileName) != 0)
 		if (bThrow)
 			CZipException::Throw(CZipException::notRemoved, lpszFileName);
 		else 
 			return false;
 	return true;
-
-
 }
-ZIPINLINE  bool ZipPlatform::RenameFile( LPCTSTR lpszOldName, LPCTSTR lpszNewName , bool bThrow)
-{
 
+ZIPINLINE  bool ZipPlatform::RenameFile( LPCTSTR lpszOldName, LPCTSTR lpszNewName, bool bThrow)
+{	
 	if (rename(lpszOldName, lpszNewName) != 0)
+	{
 		if (bThrow)
 			CZipException::Throw(CZipException::notRenamed, lpszOldName);
-		else 
-			return false;
-		return true;
-
+		return false;
+	}
+	return true;
 }
+
 ZIPINLINE  bool ZipPlatform::IsDirectory(DWORD uAttr)
 {
 	return S_ISDIR(uAttr) != 0;
@@ -279,7 +278,7 @@ bool ZipPlatform::FlushFile(int iDes)
 
 intptr_t ZipPlatform::GetFileSystemHandle(int iDes)
 {
-		return iDes;
+        return iDes;
 }
 
 

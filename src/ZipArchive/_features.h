@@ -1,6 +1,6 @@
 ////////////////////////////////////////////////////////////////////////////////
 // This source file is part of the ZipArchive library source distribution and
-// is Copyrighted 2000 - 2009 by Artpol Software - Tadeusz Dracz
+// is Copyrighted 2000 - 2010 by Artpol Software - Tadeusz Dracz
 //
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -17,7 +17,6 @@
 *	Contains the definitions that enable or disable certain features in the ZipArchive Library.
 *
 */
-
 #if !defined(ZIPARCHIVE_FEATURES_DOT_H)
 /// @cond
 #define ZIPARCHIVE_FEATURES_DOT_H 
@@ -149,7 +148,7 @@
 
 #if defined _ZIP_ZIP64 && (defined __BORLANDC__ || (defined _MSC_VER && _MSC_VER < 1300 && defined _ZIP_IMPL_MFC))
 	/**
-		Define this, if you want to use Zip64 functionality in Visual Studio 6.0 MFC or Borland. These platforms do not support large files, 
+		Define this, if you want to use Zip64 functionality in Visual Studio 6.0 MFC or C++Builder. These platforms do not support large files, 
 		but this definition will cause to use the STL implementation of CZipFile (which has the support for large files) instead of MFC.
 		\see
 			<a href="kb">0610050933|fileImpl</a>

@@ -1,6 +1,6 @@
 ////////////////////////////////////////////////////////////////////////////////
 // This source file is part of the ZipArchive library source distribution and
-// is Copyrighted 2000 - 2009 by Artpol Software - Tadeusz Dracz
+// is Copyrighted 2000 - 2010 by Artpol Software - Tadeusz Dracz
 //
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -33,6 +33,10 @@
 	Automatically grows when necessary.
 */
 class ZIP_API CZipMemFile : public CZipAbstractFile
+// when ZIP_ZFI_WIN is defined under VS 6.0, do not derive from CFile, as sizes are limited to DWORD
+#if defined _ZIP_IMPL_MFC && (_MSC_VER >= 1300 || _ZIP_FILE_IMPLEMENTATION != ZIP_ZFI_WIN) 
+	, public CFile
+#endif
 {
 protected:
 	size_t m_nGrowBy, m_nPos;
@@ -56,6 +60,9 @@ protected:
 	}
 	void Grow(size_t nBytes);
 public:
+#if defined _ZIP_IMPL_MFC && (_MSC_VER >= 1300 || _ZIP_FILE_IMPLEMENTATION != ZIP_ZFI_WIN) 
+	DECLARE_DYNAMIC(CZipMemFile)
+#endif
 	bool IsClosed() const { return m_lpBuf == NULL;}
 	void Flush(){}
 
@@ -65,14 +72,17 @@ public:
 	UINT Read(void* lpBuf, UINT nCount);
 	void SetLength(ZIP_FILE_USIZE nNewLen);
 	CZipString GetFilePath() const  {return _T("");} 	
+	bool HasFilePath() const
+	{
+		return false;
+	}
+
 	CZipMemFile(long nGrowBy = 1024)
 	{
 		Init();
 		m_nGrowBy = nGrowBy;
 		m_bAutoDelete = true;
 	}
-
-	
 
 	CZipMemFile(BYTE* lpBuf, UINT nBufSize, long nGrowBy = 0)
 	{

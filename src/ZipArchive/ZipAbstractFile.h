@@ -1,6 +1,6 @@
 ////////////////////////////////////////////////////////////////////////////////
 // This source file is part of the ZipArchive library source distribution and
-// is Copyrighted 2000 - 2009 by Artpol Software - Tadeusz Dracz
+// is Copyrighted 2000 - 2010 by Artpol Software - Tadeusz Dracz
 //
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -31,9 +31,10 @@ class ZIP_API CZipAbstractFile
 {
 public:
 
-	enum {	begin	= SEEK_SET, // 0
-			current = SEEK_CUR, // 1
-			end		= SEEK_END  // 2
+	enum 
+	{	begin	= SEEK_SET, // 0
+		current = SEEK_CUR, // 1
+		end		= SEEK_END  // 2
 	};
 	CZipAbstractFile(){}
 	virtual bool Open(LPCTSTR , UINT , bool ){return false;}
@@ -62,6 +63,7 @@ public:
 	virtual ZIP_FILE_USIZE SeekToBegin(){return Seek(0, begin);}
 	virtual ZIP_FILE_USIZE SeekToEnd(){return Seek(0, end);}
 	virtual CZipString GetFilePath() const = 0;	
+	virtual bool HasFilePath() const = 0;	
 	virtual UINT Read(void *lpBuf, UINT nCount) = 0;
 	virtual void Write(const void* lpBuf, UINT nCount) = 0;	
 	virtual bool IsClosed() const = 0;	

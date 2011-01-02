@@ -1,6 +1,6 @@
 ////////////////////////////////////////////////////////////////////////////////
 // This source file is part of the ZipArchive library source distribution and
-// is Copyrighted 2000 - 2009 by Artpol Software - Tadeusz Dracz
+// is Copyrighted 2000 - 2010 by Artpol Software - Tadeusz Dracz
 //
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -37,9 +37,9 @@
 class ZIP_API CZipPathComponent  
 {
 	
-public:
-	static const CZipString PathPrefix;
+public:	
 #ifdef _ZIP_SYSTEM_WIN
+	static const CZipString PathPrefix;
 	/**
 		The type of the prefix in path.
 	*/
@@ -60,6 +60,32 @@ public:
 			The length of the path prefix or \c 0, if no prefix was detected.
 	*/
 	static int IsPrefixed(const CZipString& path);
+
+	/**
+		Adds an UNC prefix to the paths.
+
+		\param path
+			The path to add a prefix to.
+
+		\param isFolder
+			\c true if the \a path points to a folder; \c false otherwise.
+
+		\return
+			The prefixed path.
+	*/
+	static CZipString AddPrefix(LPCTSTR path, bool isFolder = true);
+
+	/**
+		Adds an UNC prefix to the paths.
+
+		\param path
+			The path to add a prefix to.
+
+		\param isFolder
+			\c true if the \a path points to a folder; \c false otherwise.
+	*/
+	static void AddPrefix(CZipString& path, bool isFolder = true);
+
 #endif
 	CZipPathComponent(){}
 	/**
@@ -116,7 +142,6 @@ public:
 	*/
 	static void RemoveSeparators(CZipString& szPath)
 	{
-// 		szPath.TrimRight(m_cSeparator);
 		szPath.TrimRight(_T("\\/"));
 	}
 

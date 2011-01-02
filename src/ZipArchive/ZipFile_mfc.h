@@ -1,6 +1,6 @@
 ////////////////////////////////////////////////////////////////////////////////
 // This source file is part of the ZipArchive library source distribution and
-// is Copyrighted 2000 - 2009 by Artpol Software - Tadeusz Dracz
+// is Copyrighted 2000 - 2010 by Artpol Software - Tadeusz Dracz
 //
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -47,7 +47,10 @@ public:
 	void SetLength(ZIP_FILE_USIZE nNewLen) {CFile::SetLength(nNewLen);}	
 	ZIP_FILE_USIZE Seek(ZIP_FILE_SIZE lOff , int nFrom){return CFile::Seek(lOff, nFrom);}
 	ZIP_FILE_USIZE GetLength() const {return CFile::GetLength();}
-
+	bool HasFilePath() const
+	{
+		return true;
+	}
 
 	UINT Read(void *lpBuf, UINT nCount){return CFile::Read(lpBuf, nCount);}
 	void Write(const void* lpBuf, UINT nCount){CFile::Write(lpBuf, nCount);}

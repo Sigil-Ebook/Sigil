@@ -1,6 +1,6 @@
 ////////////////////////////////////////////////////////////////////////////////
 // This source file is part of the ZipArchive library source distribution and
-// is Copyrighted 2000 - 2009 by Artpol Software - Tadeusz Dracz
+// is Copyrighted 2000 - 2010 by Artpol Software - Tadeusz Dracz
 //
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -134,9 +134,8 @@ public:
 	enum ZipErrors
 	{
 		noError,			///< No error.
-// 			 1 - 42 reserved for errno (from STL) values - used only in non-MFC versions
-// 			 43 - 99 reserved
-		genericError		= 100,	///< An unspecified error.
+// 			 1 - 199 reserved for errno (from STL) values - used only in non-MFC versions
+		genericError		= 200,	///< An unspecified error.
 		badZipFile,			///< Damaged or not a zip file.
 		badCrc,				///< Crc is mismatched.
 		noCallback,			///< There is no spanned archive callback object set.
@@ -181,7 +180,7 @@ public:
 	int m_iCause;
 	/**
 		An error code reported by the system during the recent operation.
-		It is set to \c ::GetLastError value on Windows and to \c errno on other platforms.		
+		It is set to \c <code>GetLastError()</code> value on Windows and to \c errno on other platforms.		
 	*/
 	ZIP_SYSTEM_ERROR_TYPE m_iSystemError;
 	virtual ~CZipException() throw();

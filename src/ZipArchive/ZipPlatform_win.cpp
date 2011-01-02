@@ -1,6 +1,6 @@
 ////////////////////////////////////////////////////////////////////////////////
 // This source file is part of the ZipArchive library source distribution and
-// is Copyrighted 2000 - 2009 by Artpol Software - Tadeusz Dracz
+// is Copyrighted 2000 - 2010 by Artpol Software - Tadeusz Dracz
 //
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -25,13 +25,13 @@
 #include <sys/stat.h>
 
 #ifndef __BORLANDC__
-		#include <sys/utime.h>
+        #include <sys/utime.h>
 #else
 	#ifndef _UTIMBUF_DEFINED
 		#define _utimbuf utimbuf
 		#define _UTIMBUF_DEFINED
 	#endif
-		#include <utime.h>
+        #include <utime.h>
 #endif
 
 #ifndef INVALID_FILE_ATTRIBUTES
@@ -62,7 +62,7 @@ ULONGLONG ZipPlatform::GetDeviceFreeSpace(LPCTSTR lpszPath)
 		szDrive,
 		(PULARGE_INTEGER)&uFreeBytesToCaller,
 		(PULARGE_INTEGER)&uTotalBytes,
-		(PULARGE_INTEGER)&uFreeBytes))
+        (PULARGE_INTEGER)&uFreeBytes))
 
 	{
 		CZipPathComponent::AppendSeparator(szDrive); // in spite of what is written in MSDN it is sometimes needed (on fixed disks)
@@ -126,18 +126,12 @@ bool ZipPlatform::GetCurrentDirectory(CZipString& sz)
 
 bool ZipPlatform::SetFileAttr(LPCTSTR lpFileName, DWORD uAttr)
 {
-	// Changed by Strahinja Markovic.
-	// Preserving file attributes bites us
-	// in the ass when the attributes don't allow
-	// us to read or modify the extracted files.
-
-	//return ::SetFileAttributes(lpFileName, uAttr) != 0;
-	return true;
+	return ::SetFileAttributes(CZipPathComponent::AddPrefix(lpFileName), uAttr) != 0;
 }
 
 bool ZipPlatform::GetFileAttr(LPCTSTR lpFileName, DWORD& uAttr)
 {
-	DWORD temp = ::GetFileAttributes(lpFileName);
+	DWORD temp = ::GetFileAttributes(CZipPathComponent::AddPrefix(lpFileName));
 	if (temp == INVALID_FILE_ATTRIBUTES)
 		return false;
 	uAttr = temp;
@@ -148,15 +142,15 @@ bool ZipPlatform::GetFileAttr(LPCTSTR lpFileName, DWORD& uAttr)
 bool ZipPlatform::GetFileModTime(LPCTSTR lpFileName, time_t & ttime)
 {
 	WIN32_FIND_DATA findData = {0};
-	HANDLE handle = ::FindFirstFile(lpFileName, &findData);
+	HANDLE handle = ::FindFirstFile(CZipPathComponent::AddPrefix(lpFileName), &findData);
 	if (handle == INVALID_HANDLE_VALUE)
 	{
 		ttime = time(NULL);
 		return false;
 	}
 	bool ret = false;
-	if ( findData.ftLastWriteTime.dwLowDateTime || findData.ftLastWriteTime.dwHighDateTime )
-	{
+    if ( findData.ftLastWriteTime.dwLowDateTime || findData.ftLastWriteTime.dwHighDateTime )
+    {
 		LONGLONG val = (findData.ftLastWriteTime.dwLowDateTime & 0xFFFFFFFF);
 
 		val |= ((LONGLONG)findData.ftLastWriteTime.dwHighDateTime << 32) & SUFFIX_I64(0xFFFFFFFF00000000);
@@ -164,7 +158,7 @@ bool ZipPlatform::GetFileModTime(LPCTSTR lpFileName, time_t & ttime)
 
 		ttime = (time_t)(val / 10000000);
 		ret = ttime >= 0;
-	}
+    }
 	FindClose(handle);
 	if (ret == false)
 		ttime = time(NULL);	
@@ -173,7 +167,7 @@ bool ZipPlatform::GetFileModTime(LPCTSTR lpFileName, time_t & ttime)
 
 bool ZipPlatform::SetFileModTime(LPCTSTR lpFileName, time_t ttime)
 {
-	HANDLE handle = ::CreateFile(lpFileName, GENERIC_READ | GENERIC_WRITE, FILE_SHARE_WRITE | FILE_SHARE_READ, NULL, OPEN_EXISTING, 0, 0);
+	HANDLE handle = ::CreateFile(CZipPathComponent::AddPrefix(lpFileName), GENERIC_READ | GENERIC_WRITE, FILE_SHARE_WRITE | FILE_SHARE_READ, NULL, OPEN_EXISTING, 0, 0);
 	if (handle == INVALID_HANDLE_VALUE)
 	{
 		return false;
@@ -181,8 +175,8 @@ bool ZipPlatform::SetFileModTime(LPCTSTR lpFileName, time_t ttime)
 	
 	FILETIME ft;
 	LONGLONG val = ((LONGLONG)ttime * 10000000) + SUFFIX_I64(116444736000000000);
-	ft.dwLowDateTime = (DWORD)(val & 0xFFFFFFFF);
-	ft.dwHighDateTime = (DWORD)((val >> 32) & 0xFFFFFFFF);
+    ft.dwLowDateTime = (DWORD)(val & 0xFFFFFFFF);
+    ft.dwHighDateTime = (DWORD)((val >> 32) & 0xFFFFFFFF);
 
 	bool ret = ::SetFileTime(handle, NULL, NULL, &ft) != 0;
 	CloseHandle(handle);
@@ -196,7 +190,7 @@ bool ZipPlatform::ChangeDirectory(LPCTSTR lpDirectory)
 
 int ZipPlatform::FileExists(LPCTSTR lpszName)
 {
-	DWORD attributes = ::GetFileAttributes(lpszName);
+	DWORD attributes = ::GetFileAttributes(CZipPathComponent::AddPrefix(lpszName));
 	if (attributes == INVALID_FILE_ATTRIBUTES)
 		return 0;
 	return ((attributes & FILE_ATTRIBUTE_DIRECTORY) != 0) ? -1 : 1;
@@ -258,19 +252,73 @@ ZIPINLINE void ZipPlatform::AnsiOem(CZipAutoBuffer& buffer, bool bAnsiToOem)
 #endif
 }
 
-ZIPINLINE  bool ZipPlatform::RemoveFile(LPCTSTR lpszFileName, bool bThrow)
+ZIPINLINE  bool ZipPlatform::RemoveFile(LPCTSTR lpszFileName, bool bThrow, int iMode)
 {
-	if (!::DeleteFile((LPTSTR)lpszFileName))
-		if (bThrow)
-			CZipException::Throw(CZipException::notRemoved, lpszFileName);
-		else 
-			return false;
-	return true;
-
+	if ((iMode & ZipPlatform::dfmRemoveReadOnly) != 0)
+	{
+		DWORD attr;
+		if (ZipPlatform::GetFileAttr(lpszFileName, attr)
+			&& (ZipCompatibility::GetAsInternalAttributes(attr, ZipPlatform::GetSystemID()) & ZipCompatibility::attROnly) != 0)
+		{
+			ZipPlatform::SetFileAttr(lpszFileName, ZipPlatform::GetDefaultAttributes());
+		}
+	}
+#ifdef SHFileOperation
+	if ((iMode & ZipPlatform::dfmRecycleBin) == 0)
+	{
+#endif
+		if (::DeleteFile((LPTSTR)(LPCTSTR)CZipPathComponent::AddPrefix(lpszFileName, false)))		
+			return true;
+#ifdef SHFileOperation
+	}
+	else
+	{
+		CZipString file = lpszFileName;
+#if defined _UNICODE && _MSC_VER >= 1400
+		if (file.GetLength() >= MAX_PATH)
+		{
+			// cannot prefix for SHFileOperation, use short path
+			CZipString temp = CZipPathComponent::AddPrefix(lpszFileName, false);
+			DWORD size = ::GetShortPathName(temp, NULL, 0);
+			if (size != 0)
+			{
+				size = ::GetShortPathName(temp, file.GetBuffer(size), size);
+				file.ReleaseBuffer();
+			}			
+			if (size == 0)
+			{
+				if (bThrow)
+					CZipException::Throw(CZipException::notRemoved, lpszFileName);
+				return false;
+			}			
+			// GetShortPathName keeps the prefix - remove it
+			int prefixLength = CZipPathComponent::IsPrefixed(file);
+			if (prefixLength > 0)
+			{
+				file = file.Mid(prefixLength);
+			}
+		}
+#endif
+		int length = file.GetLength();
+		CZipAutoBuffer buffer((length + 2) * sizeof(TCHAR), true); // double NULL is required
+		memcpy(buffer, (LPCTSTR)file, length * sizeof(TCHAR));
+		SHFILEOPSTRUCT shFileOp;
+		shFileOp.wFunc = FO_DELETE;
+		shFileOp.fFlags = FOF_ALLOWUNDO | FOF_NOCONFIRMATION | FOF_SILENT | FOF_NOERRORUI; 
+		shFileOp.pFrom = (LPCTSTR)(char*)buffer;
+		if (SHFileOperation(&shFileOp) == 0 && !shFileOp.fAnyOperationsAborted)
+			return true;
+	}
+#endif
+	if (bThrow)
+		CZipException::Throw(CZipException::notRemoved, lpszFileName);
+	return false;		
 }
+
 ZIPINLINE  bool ZipPlatform::RenameFile( LPCTSTR lpszOldName, LPCTSTR lpszNewName, bool bThrow)
 {
-	if (!::MoveFile((LPTSTR)lpszOldName, (LPTSTR)lpszNewName))
+	if (!::MoveFile((LPTSTR)(LPCTSTR)CZipPathComponent::AddPrefix(lpszOldName, false), 
+		(LPTSTR)(LPCTSTR)CZipPathComponent::AddPrefix(lpszNewName, false)))
 		if (bThrow)
 			CZipException::Throw(CZipException::notRenamed, lpszOldName);
 		else 
@@ -286,7 +334,7 @@ ZIPINLINE  bool ZipPlatform::IsDirectory(DWORD uAttr)
 
 ZIPINLINE  bool ZipPlatform::CreateNewDirectory(LPCTSTR lpDirectory)
 {
-	return ::CreateDirectory(lpDirectory, NULL) != 0;
+	return ::CreateDirectory(CZipPathComponent::AddPrefix(lpDirectory), NULL) != 0;
 }
 
 ZIPINLINE  DWORD ZipPlatform::GetDefaultAttributes()
@@ -406,9 +454,7 @@ bool ZipPlatform::TruncateFile(int iDes, ULONGLONG uSize)
 #if (_MSC_VER >= 1400)
 	return _chsize_s(iDes, uSize) == 0;
 #else
-	if (uSize <= LONG_MAX)
-		return chsize(iDes, (LONG)uSize) == 0;
-	else if (uSize > _I64_MAX)
+	if (uSize > _I64_MAX)
 		CZipException::Throw(CZipException::tooBigSize);
 	else
 	{

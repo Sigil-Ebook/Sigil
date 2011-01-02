@@ -8,88 +8,14 @@
 	This file is part of bzip2/libbzip2, a program and library for
 	lossless, block-sorting data compression.
 
-   bzip2/libbzip2 version 1.0.5 of 10 December 2007
-   Copyright (C) 1996-2007 Julian Seward <jseward@bzip.org>
+   bzip2/libbzip2 version 1.0.6 of 6 September 2010
+   Copyright (C) 1996-2010 Julian Seward <jseward@bzip.org>
 
-	This program, "bzip2", the associated library "libbzip2", and all
-	documentation, are copyright (C) 1996-2006 Julian R Seward.  All
-	rights reserved.
+   Please read the WARNING, DISCLAIMER and PATENTS sections in the 
+   README file.
 
-	Redistribution and use in source and binary forms, with or without
-	modification, are permitted provided that the following conditions
-	are met:
-
-	1. Redistributions of source code must retain the above copyright
-	   notice, this list of conditions and the following disclaimer.
-
-	2. The origin of this software must not be misrepresented; you must 
-	   not claim that you wrote the original software.  If you use this 
-	   software in a product, an acknowledgment in the product 
-	   documentation would be appreciated but is not required.
-
-	3. Altered source versions must be plainly marked as such, and must
-	   not be misrepresented as being the original software.
-
-	4. The name of the author may not be used to endorse or promote 
-	   products derived from this software without specific prior written 
-	   permission.
-
-	THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS
-	OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-	WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
-	ARE DISCLAIMED.  IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY
-	DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
-	DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE
-	GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
-	INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-	WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
-	NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
-	SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-
-	Julian Seward, Cambridge, UK.
-	jseward@bzip.org
-	bzip2/libbzip2 version 1.0.4 of 20 December 2006 
-
-	Please read and be aware of the following:
-
-	WARNING:
-
-	   This program and library (attempts to) compress data by 
-	   performing several non-trivial transformations on it.  
-	   Unless you are 100% familiar with *all* the algorithms 
-	   contained herein, and with the consequences of modifying them, 
-	   you should NOT meddle with the compression or decompression 
-	   machinery.  Incorrect changes can and very likely *will* 
-	   lead to disastrous loss of data.
-
-
-	DISCLAIMER:
-
-	   I TAKE NO RESPONSIBILITY FOR ANY LOSS OF DATA ARISING FROM THE
-	   USE OF THIS PROGRAM/LIBRARY, HOWSOEVER CAUSED.
-
-	   Every compression of a file implies an assumption that the
-	   compressed file can be decompressed to reproduce the original.
-	   Great efforts in design, coding and testing have been made to
-	   ensure that this program works correctly.  However, the complexity
-	   of the algorithms, and, in particular, the presence of various
-	   special cases in the code which occur with very low but non-zero
-	   probability make it impossible to rule out the possibility of bugs
-	   remaining in the program.  DO NOT COMPRESS ANY DATA WITH THIS
-	   PROGRAM UNLESS YOU ARE PREPARED TO ACCEPT THE POSSIBILITY, HOWEVER
-	   SMALL, THAT THE DATA WILL NOT BE RECOVERABLE.
-
-	   That is not to say this program is inherently unreliable.  
-	   Indeed, I very much hope the opposite is true.  bzip2/libbzip2 
-	   has been carefully constructed and extensively tested.
-
-
-	PATENTS:
-
-	   To the best of my knowledge, bzip2/libbzip2 does not use any 
-	   patented algorithms.  However, I do not have the resources 
-	   to carry out a patent search.  Therefore I cannot give any 
-	   guarantee of the above statement.  
+   This program is released under the terms of the license contained
+   in the file LICENSE.
    ------------------------------------------------------------------ */
 
 #include "../_features.h"

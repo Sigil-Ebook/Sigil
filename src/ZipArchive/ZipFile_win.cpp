@@ -1,6 +1,6 @@
 ////////////////////////////////////////////////////////////////////////////////
 // This source file is part of the ZipArchive library source distribution and
-// is Copyrighted 2000 - 2009 by Artpol Software - Tadeusz Dracz
+// is Copyrighted 2000 - 2010 by Artpol Software - Tadeusz Dracz
 //
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -84,21 +84,7 @@ bool CZipFile::Open(LPCTSTR lpszFileName, UINT openFlags, bool bThrow)
 	{
 		share = 0;
 	}
-
-#if defined _UNICODE && _MSC_VER >= 1400
-	if (fileName.GetLength() > MAX_PATH)
-	{
-		int prefixLength = CZipPathComponent::IsPrefixed(fileName);
-		if (prefixLength < CZipPathComponent::ptUnicode)
-		{
-			if (prefixLength > 0)
-			{
-				fileName = fileName.Mid(prefixLength);
-			}
-			fileName.Insert(0, CZipPathComponent::PathPrefix.Left(CZipPathComponent::ptUnicode));
-		}
-	}
-#endif
+	CZipPathComponent::AddPrefix(fileName, false);
 
 	DWORD create;
 	if (openFlags & modeCreate)
@@ -121,7 +107,6 @@ bool CZipFile::Open(LPCTSTR lpszFileName, UINT openFlags, bool bThrow)
 	sa.nLength = sizeof(sa);
 	sa.lpSecurityDescriptor = NULL;
 	sa.bInheritHandle = TRUE;
-
 	m_hFile = ::CreateFile(fileName, access, share, &sa, create, FILE_ATTRIBUTE_NORMAL, NULL);
 	if (m_hFile == INVALID_HANDLE_VALUE)
 	{

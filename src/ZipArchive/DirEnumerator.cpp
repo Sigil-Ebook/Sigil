@@ -1,6 +1,6 @@
 ////////////////////////////////////////////////////////////////////////////////
 // This source file is part of the ZipArchive library source distribution and
-// is Copyrighted 2000 - 2009 by Artpol Software - Tadeusz Dracz
+// is Copyrighted 2000 - 2010 by Artpol Software - Tadeusz Dracz
 //
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -73,7 +73,7 @@ bool CDirEnumerator::Start(CFileFilter& filter)
 				if (!entry)
 					break;								
 				CZipString path(m_szCurrentDirectory + entry->d_name);
-	#if !defined __APPLE__ && !defined __CYGWIN__ && !defined __NetBSD__ 
+	#if !defined __APPLE__ && !defined __CYGWIN__
 				struct stat64 sStats;
 				if (stat64(path, &sStats) == -1)
 	#else

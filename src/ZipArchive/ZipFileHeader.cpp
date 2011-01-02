@@ -1,6 +1,6 @@
 ////////////////////////////////////////////////////////////////////////////////
 // This source file is part of the ZipArchive library source distribution and
-// is Copyrighted 2000 - 2009 by Artpol Software - Tadeusz Dracz
+// is Copyrighted 2000 - 2010 by Artpol Software - Tadeusz Dracz
 //
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -211,7 +211,7 @@ bool CZipFileHeader::Read(bool bReadSignature)
 	}
 
 	m_aCentralExtraData.RemoveInternalHeaders();
-	
+
 	return pStorage->GetCurrentVolume() == uCurDsk || pStorage->IsBinarySplit(); // check that the whole header is in one volume
 }
 
@@ -236,7 +236,6 @@ DWORD CZipFileHeader::Write(CZipStorage *pStorage)
 	m_aCentralExtraData.RemoveInternalHeaders();
 	
 	WORD uMethod = m_uMethod;
-
 
 	PrepareStringBuffers();
 
@@ -505,11 +504,8 @@ void CZipFileHeader::ConvertFileName(CZipString& szFileName) const
 		codePage = GetDefaultFileNameCodePage();
 	}
 	ZipCompatibility::ConvertBufferToString(szFileName, m_fileName.m_buffer, codePage);
-	int sc = ZipPlatform::GetSystemID();
-	if (sc == ZipCompatibility::zcDosFat || sc == ZipCompatibility::zcNtfs)
-		ZipCompatibility::SlashBackslashChg(szFileName, true);
-	else // some archives may have an invalid path separator stored
-		ZipCompatibility::SlashBackslashChg(szFileName, false);
+	// some archives may have an invalid path separator stored
+	ZipCompatibility::NormalizePathSeparators(szFileName);
 }
 
 void CZipFileHeader::ConvertComment(CZipAutoBuffer& buffer) const
@@ -567,7 +563,6 @@ void CZipFileHeader::WriteLocal(CZipStorage *pStorage)
 	}
 
 	WORD uMethod = m_uMethod;
-
 
 	PrepareStringBuffers();
 	// this check was already performed, if a file was replaced
@@ -805,12 +800,15 @@ int CZipFileHeader::GetCompressionLevel() const
 
 bool CZipFileHeader::SetFileName(LPCTSTR lpszFileName)
 {
+	CZipString newFileName(lpszFileName);
+	if (!IsDirectory() || newFileName.GetLength() != 1 || !CZipPathComponent::IsSeparator(newFileName[0]))
+		// do not remove from directories where only path separator is present
+		CZipPathComponent::RemoveSeparatorsLeft(newFileName);
 	if (m_pCentralDir)
 	{
 		// update the lpszFileName to make sure the renaming is necessary
 		GetFileName();
 
-		CZipString newFileName(lpszFileName);
 		if (!UpdateFileNameFlags(&newFileName, true))
 		{						
 			if (IsDirectory())
@@ -839,8 +837,8 @@ bool CZipFileHeader::SetFileName(LPCTSTR lpszFileName)
 	}
 	else
 	{
-		m_fileName.ClearBuffer();
-		m_fileName.SetString(lpszFileName);
+		m_fileName.ClearBuffer();		
+		m_fileName.SetString(newFileName);
 		return true;
 	}
 }
@@ -871,17 +869,19 @@ DWORD CZipFileHeader::GetSystemAttr()
 	if (ZipCompatibility::IsPlatformSupported(GetSystemCompatibility()))
 	{		
 		DWORD uAttr = GetSystemCompatibility() == ZipCompatibility::zcUnix ? (m_uExternalAttr >> 16) : (m_uExternalAttr & 0xFFFF);
-		if (CZipPathComponent::HasEndingSeparator(GetFileName()))			
-			return ZipPlatform::GetDefaultDirAttributes(); // can happen
+		DWORD uConvertedAttr = ZipCompatibility::ConvertToSystem(uAttr, GetSystemCompatibility(), ZipPlatform::GetSystemID());
+		if (m_uComprSize == 0 && !ZipPlatform::IsDirectory(uConvertedAttr) && CZipPathComponent::HasEndingSeparator(GetFileName()))			
+			// can happen, a folder can have attributes set and no dir attribute (Python modules)
+			// TODO: [postponed] fix and cache after reading from central dir, but avoid calling GetFileName() there to keep lazy name conversion
+			return ZipPlatform::GetDefaultDirAttributes() | uConvertedAttr; 
 		else
-		{			
-			uAttr = ZipCompatibility::ConvertToSystem(uAttr, GetSystemCompatibility(), ZipPlatform::GetSystemID());
+		{						
 #ifdef _ZIP_SYSTEM_LINUX
 			// converting from Windows attributes may create a not readable linux directory
-			if (GetSystemCompatibility() != ZipCompatibility::zcUnix && ZipPlatform::IsDirectory(uAttr))
+			if (GetSystemCompatibility() != ZipCompatibility::zcUnix && ZipPlatform::IsDirectory(uConvertedAttr))
 				return ZipPlatform::GetDefaultDirAttributes();
 #endif
-			return uAttr;
+			return uConvertedAttr;
 		}
 	}
 	else

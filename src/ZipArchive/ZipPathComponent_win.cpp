@@ -1,6 +1,6 @@
 ////////////////////////////////////////////////////////////////////////////////
 // This source file is part of the ZipArchive library source distribution and
-// is Copyrighted 2000 - 2009 by Artpol Software - Tadeusz Dracz
+// is Copyrighted 2000 - 2010 by Artpol Software - Tadeusz Dracz
 //
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -36,6 +36,53 @@ int CZipPathComponent::IsPrefixed(const CZipString& path)
 	while (++i < iLen && szPossiblePrefix[i] == PathPrefix[i]);
 	return i;
 }
+
+#if defined _UNICODE && _MSC_VER >= 1400
+
+CZipString CZipPathComponent::AddPrefix(LPCTSTR path, bool isFolder)
+{	
+
+	CZipString ret = path;
+	AddPrefix(ret, isFolder);
+	return ret;
+}
+
+void CZipPathComponent::AddPrefix(CZipString& path, bool isFolder)
+{	
+
+	if (path.GetLength() >= (isFolder ? 248 : MAX_PATH))
+	{
+		int prefixLength = IsPrefixed(path);
+		if (prefixLength < ptUnicode)
+		{			
+			if (prefixLength == ptUnc)
+			{
+				path = path.Mid(prefixLength);
+				// long UNC
+				path.Insert(0, PathPrefix.Left(CZipPathComponent::ptUncWin));
+			}
+			else
+			{
+				path.Insert(0, PathPrefix.Left(CZipPathComponent::ptUnicode));
+			}
+		}
+	}
+}
+
+
+#else
+
+CZipString CZipPathComponent::AddPrefix(LPCTSTR path, bool)
+{	
+	return path;
+}
+
+void CZipPathComponent::AddPrefix(CZipString&, bool)
+{	
+
+}
+
+#endif
 
 void CZipPathComponent::SetFullPath(LPCTSTR lpszFullPath)
 {
