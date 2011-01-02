@@ -125,8 +125,13 @@ bool ZipPlatform::GetCurrentDirectory(CZipString& sz)
 }
 
 bool ZipPlatform::SetFileAttr(LPCTSTR lpFileName, DWORD uAttr)
-{
-	return ::SetFileAttributes(CZipPathComponent::AddPrefix(lpFileName), uAttr) != 0;
+{	
+    // Changed by Strahinja Markovic.
+	// Preserving file attributes bites us
+	// in the ass when the attributes don't allow
+	// us to read or modify the extracted files.
+    //return ::SetFileAttributes(CZipPathComponent::AddPrefix(lpFileName), uAttr) != 0;
+    return true;
 }
 
 bool ZipPlatform::GetFileAttr(LPCTSTR lpFileName, DWORD& uAttr)
