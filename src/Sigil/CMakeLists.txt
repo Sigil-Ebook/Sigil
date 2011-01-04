@@ -411,14 +411,32 @@ if( APPLE )
                         DEPENDS ${PROJECT_NAME} )
                 
 # For Linux and Windows, provide binary installers.
-# For this to work, InstallJammer needs to be installed and on the system path.
+# For this to work on Linux, InstallJammer needs to be installed and on the system path.
+# For this to work on Windows, Inno Setup's iscc compiler needs to be installed and on the system path.
 else()
     set( TEMP_PACKAGE_DIR ${CMAKE_BINARY_DIR}/temp_folder )
     set( MAIN_PACKAGE_DIR ${TEMP_PACKAGE_DIR}/Sigil )
     set( OUTPUT_PACKAGE_DIR ${CMAKE_BINARY_DIR}/installer )
     
-    # MPI file will need to be copied to this location
+    # MPI (InstallJammer) file will need to be copied to this location
     set( MPI_LOCATION ${CMAKE_BINARY_DIR}/temp_folder/Sigil.mpi )
+    
+    # ISS conf file for the Inno Setup compiler
+    # We first create a CMake configured version of the ISS file,
+    # and then we copy it to the temp folder every time we need to build the installer.
+    set( ISS_CONFIGURED_LOCATION ${CMAKE_BINARY_DIR}/Sigil_configured.iss )
+    set( ISS_TEMP_LOCATION ${CMAKE_BINARY_DIR}/temp_folder/Sigil_configured.iss )
+    
+    # Used in the ISS CMake configuration
+    set( LICENSE_LOCATION ${CMAKE_SOURCE_DIR}/installer/win_installer_note.txt  )
+    
+    if ( 64_BIT_PLATFORM )
+        # Used in the ISS CMake configuration
+        set( ISS_ARCH "x64" )
+    endif()
+       
+    # Creates a copy of the ISS file in ${ISS_CONFIGURED_LOCATION} and then configures it 
+    configure_file( ${CMAKE_SOURCE_DIR}/installer/Sigil.iss ${ISS_CONFIGURED_LOCATION} ) 
     
     # Specify platform var for installjammer
     if ( WIN32 )
@@ -431,18 +449,26 @@ else()
         endif()
     endif()
     
-    # Run InstallJammer (*AFTER* all the PRE_BUILD custom commands execute)
-    add_custom_target(  makeinstaller 
-                        COMMAND cmake -E echo "For this to work, InstallJammer needs to be installed and on the system path."
-                        COMMAND installjammer   -DBaseDir ${MAIN_PACKAGE_DIR}  
-                                                -DSGMajorVersion ${SIGIL_MAJOR_VERSION}
-                                                -DSGMinorVersion ${SIGIL_MINOR_VERSION}
-                                                -DSGRevisionVersion ${SIGIL_REVISION_VERSION}
-                                                --platform ${PLATFORM}
-                                                --output-dir ${OUTPUT_PACKAGE_DIR}
-                                                --build-for-release
-                                                --verbose   
-                                                --build ${MPI_LOCATION} )
+    # We use Inno for the Windows installers and InstallJammer for the Linux ones
+    if ( WIN32 )
+        # Run Inno Setup's iscc compiler (*AFTER* all the PRE_BUILD custom commands execute)
+        add_custom_target(  makeinstaller 
+                            COMMAND cmake -E echo "For this to work, Inno Setup's iscc compiler needs to be installed and on the system path."
+                            COMMAND iscc ${ISS_TEMP_LOCATION} )
+    else()
+        # Run InstallJammer (*AFTER* all the PRE_BUILD custom commands execute)
+        add_custom_target(  makeinstaller 
+                            COMMAND cmake -E echo "For this to work, InstallJammer needs to be installed and on the system path."
+                            COMMAND installjammer   -DBaseDir ${MAIN_PACKAGE_DIR}  
+                                                    -DSGMajorVersion ${SIGIL_MAJOR_VERSION}
+                                                    -DSGMinorVersion ${SIGIL_MINOR_VERSION}
+                                                    -DSGRevisionVersion ${SIGIL_REVISION_VERSION}
+                                                    --platform ${PLATFORM}
+                                                    --output-dir ${OUTPUT_PACKAGE_DIR}
+                                                    --build-for-release
+                                                    --verbose   
+                                                    --build ${MPI_LOCATION} )
+    endif()
 
     # We need to copy the files that will be used to make the installer to
     # a temporary directory. On the MSVC compiler the PRE_BUILD custom commands
@@ -466,7 +492,12 @@ else()
     
     # Copy MPI file to temp folder location
     add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD 
-                        COMMAND cmake -E copy ${CMAKE_SOURCE_DIR}/installer/Sigil.mpi ${MPI_LOCATION} )      
+                        COMMAND cmake -E copy ${CMAKE_SOURCE_DIR}/installer/Sigil.mpi ${MPI_LOCATION} )     
+
+
+    # Copy ISS file to temp folder location
+    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD 
+                        COMMAND cmake -E copy ${ISS_CONFIGURED_LOCATION} ${ISS_TEMP_LOCATION} )     
     
     # Copy Qt runtime libs
     set( QT_LIBS QtCore QtGui QtNetwork QtSvg QtWebKit QtXml QtXmlPatterns phonon )
