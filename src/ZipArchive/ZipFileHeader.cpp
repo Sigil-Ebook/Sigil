@@ -870,7 +870,7 @@ DWORD CZipFileHeader::GetSystemAttr()
 	{		
 		DWORD uAttr = GetSystemCompatibility() == ZipCompatibility::zcUnix ? (m_uExternalAttr >> 16) : (m_uExternalAttr & 0xFFFF);
 		DWORD uConvertedAttr = ZipCompatibility::ConvertToSystem(uAttr, GetSystemCompatibility(), ZipPlatform::GetSystemID());
-		if (m_uComprSize == 0 && !ZipPlatform::IsDirectory(uConvertedAttr) && CZipPathComponent::HasEndingSeparator(GetFileName()))			
+		if ( !ZipPlatform::IsDirectory(uConvertedAttr) && CZipPathComponent::HasEndingSeparator(GetFileName()))			
 			// can happen, a folder can have attributes set and no dir attribute (Python modules)
 			// TODO: [postponed] fix and cache after reading from central dir, but avoid calling GetFileName() there to keep lazy name conversion
 			return ZipPlatform::GetDefaultDirAttributes() | uConvertedAttr; 
