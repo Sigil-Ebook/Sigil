@@ -1,4 +1,5 @@
 Sigil v0.3.3 ADD_DATE
+    - updated ZipArchive from 4.0.1 to 4.1.0
     - fixed a regression crash bug with loading extremely rare HTML content documents that have
     an internal DTD subset
     - added a workaround for a crash bug caused by invalid epubs that use obfuscated fonts but 
