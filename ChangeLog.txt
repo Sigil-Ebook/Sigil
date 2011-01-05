@@ -1,4 +1,6 @@
 Sigil v0.3.3 ADD_DATE
+    - this time *really* worked around a Tidy bug that added blank lines to the start of <pre> 
+    and <style> elements (issue #655)
     - updated ZipArchive from 4.0.1 to 4.1.0
     - fixed a regression crash bug with loading extremely rare HTML content documents that have
     an internal DTD subset
@@ -17,8 +19,6 @@ Sigil v0.3.2 2010.11.24.
     files it exports, even though the epub standard demands it. This causes Sigil to not pick up
     these fonts when opening such epub files. A workaround has been added that will detect such
     problematic epubs and then load the font files.
-    - worked around a Tidy bug that added blank lines to the start of <pre> and <style> elements
-    (issue #655)
     - fixed a rare crash issue when loading epub files
 
 Sigil v0.3.1 2010.11.07

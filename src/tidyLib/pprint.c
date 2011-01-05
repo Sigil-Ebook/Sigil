@@ -2023,14 +2023,19 @@ void TY_(PPrintTree)( TidyDocImpl* doc, uint mode, uint indent, Node *node )
             PPrintTag( doc, mode, indent, node );
 
             indent = 0;
-            TY_(PFlushLine)( doc, indent );
+
+            if ( !nodeIsPRE(node) )
+                TY_(PFlushLine)( doc, indent );
 
             for ( content = node->content; content; content = content->next )
             {
                 TY_(PPrintTree)( doc, (mode | PREFORMATTED | NOWRAP),
                                  indent, content );
             }
-            PCondFlushLine( doc, indent );
+
+            if ( !nodeIsPRE(node) )
+                PCondFlushLine( doc, indent );
+            
             indent = indprev;
             PPrintEndTag( doc, mode, indent, node );
 
