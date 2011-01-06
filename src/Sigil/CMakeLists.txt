@@ -252,11 +252,11 @@ set( QRC_FILES
     Resource_Files/icon/icon.qrc  
     )
 
-set( DESKTOP_FILE
+set( LINUX_DESKTOP_FILE
     Resource_Files/freedesktop/sigil.desktop
     )
 
-set( ICON_FILE
+set( LINUX_DESKTOP_ICON_FILE
     Resource_Files/icon/app_icon_48.png
     )
     
@@ -614,7 +614,7 @@ endif()
 # 
 if( UNIX AND NOT APPLE )
     install( TARGETS ${PROJECT_NAME} RUNTIME DESTINATION ${CMAKE_INSTALL_PREFIX}/bin )
-    install( FILES ${DESKTOP_FILE} DESTINATION ${CMAKE_INSTALL_PREFIX}/share/applications )
-    install( FILES ${ICON_FILE} DESTINATION ${CMAKE_INSTALL_PREFIX}/share/pixmaps RENAME sigil.png )
+    install( FILES ${LINUX_DESKTOP_FILE} DESTINATION ${CMAKE_INSTALL_PREFIX}/share/applications )
+    install( FILES ${LINUX_DESKTOP_ICON_FILE} DESTINATION ${CMAKE_INSTALL_PREFIX}/share/pixmaps RENAME sigil.png )
 endif()
 
