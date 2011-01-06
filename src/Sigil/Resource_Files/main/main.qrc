@@ -1,6 +1,7 @@
 <RCC>
   <qresource prefix="main">
     <file>edit-clear_22px.png</file>
+    <file>emblem-favorite_22px.png</file>
     <file>format-indent-less_22px.png</file>
     <file>format-indent-more_22px.png</file>
     <file>edit-find_22px.png</file>
@@ -38,6 +39,7 @@
     <file>format-text-italic_22px.png</file>
     <file>list-add_22px.png</file>
     <file>list-remove_22px.png</file>
+    <file>emblem-favorite_16px.png</file>
     <file>edit-clear_16px.png</file>
     <file>format-indent-less_16px.png</file>
     <file>format-indent-more_16px.png</file>

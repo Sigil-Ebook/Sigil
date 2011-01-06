@@ -206,6 +206,11 @@ private slots:
     void FrequentlyAskedQuestions();
 
     /**
+     * Implements Donate action functionality.
+     */
+    void Donate();
+
+    /**
      * Implements Report An Issue action functionality.
      */
     void ReportAnIssue();

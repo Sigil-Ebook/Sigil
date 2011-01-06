@@ -48,6 +48,7 @@ static const int ZOOM_SLIDER_MAX            = 1000;
 static const int ZOOM_SLIDER_MIDDLE         = 500;
 static const int ZOOM_SLIDER_WIDTH          = 140;
 static const QString REPORTING_ISSUES_WIKI  = "http://code.google.com/p/sigil/wiki/ReportingIssues";
+static const QString DONATE_WIKI            = "http://code.google.com/p/sigil/wiki/Donate";
 static const QString SIGIL_DEV_BLOG         = "http://sigildev.blogspot.com/";
 static const QString USER_MANUAL_URL        = "http://web.sigil.googlecode.com/hg/contents.html";
 static const QString FAQ_WIKI_URL           = "http://code.google.com/p/sigil/wiki/FAQ";
@@ -429,6 +430,12 @@ void MainWindow::UserManual()
 void MainWindow::FrequentlyAskedQuestions()
 {
     QDesktopServices::openUrl( QUrl( FAQ_WIKI_URL ) );
+}
+
+
+void MainWindow::Donate()
+{
+    QDesktopServices::openUrl( QUrl( DONATE_WIKI ) );
 }
 
 
@@ -1474,6 +1481,10 @@ void MainWindow::ExtendIconSizes()
     icon = ui.actionRemoveFormatting->icon();
     icon.addFile(QString::fromUtf8(":/main/edit-clear_16px.png"));
     ui.actionRemoveFormatting->setIcon(icon);
+
+    icon = ui.actionDonate->icon();
+    icon.addFile(QString::fromUtf8(":/main/emblem-favorite_16px.png"));
+    ui.actionDonate->setIcon(icon);
 }
 
 
@@ -1508,6 +1519,7 @@ void MainWindow::ConnectSignalsToSlots()
     connect( ui.actionTOCEditor,     SIGNAL( triggered() ), this, SLOT( TOCEditorDialog()          ) );
     connect( ui.actionUserManual,    SIGNAL( triggered() ), this, SLOT( UserManual()               ) );
     connect( ui.actionFAQ,           SIGNAL( triggered() ), this, SLOT( FrequentlyAskedQuestions() ) );
+    connect( ui.actionDonate,        SIGNAL( triggered() ), this, SLOT( Donate()                   ) );
     connect( ui.actionReportAnIssue, SIGNAL( triggered() ), this, SLOT( ReportAnIssue()            ) );
     connect( ui.actionSigilDevBlog,  SIGNAL( triggered() ), this, SLOT( SigilDevBlog()             ) );
     connect( ui.actionAbout,         SIGNAL( triggered() ), this, SLOT( AboutDialog()              ) );
