@@ -19,6 +19,10 @@
 **
 *************************************************************************/
 
+#pragma once
+#ifndef SG_EXCEPTION_H
+#define SG_EXCEPTION_H
+
 #include <boost/exception/all.hpp>
 
 #define boost_throw(x) BOOST_THROW_EXCEPTION(x)
@@ -115,4 +119,6 @@ typedef boost::error_info< struct key, std::string > errinfo_font_obfuscation_ke
  * Thrown when the document has no root document element.
  */
 struct ErrorBuildingDOM : virtual ExceptionBase {};
+
+#endif // SG_EXCEPTION_H
 

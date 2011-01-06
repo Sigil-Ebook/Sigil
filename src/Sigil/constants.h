@@ -19,6 +19,10 @@
 **
 *************************************************************************/
 
+#pragma once
+#ifndef SG_CONSTANTS_H
+#define SG_CONSTANTS_H
+
 class QString;
 
 // These enable us to use constants defined
@@ -57,3 +61,5 @@ extern const QString IDPF_FONT_ALGO_ID;
 extern const char*         XHTML_ENTITIES_DTD_ID; 
 extern const unsigned int  XHTML_ENTITIES_DTD_LEN;
 extern const unsigned char XHTML_ENTITIES_DTD[];  
+
+#endif // SG_CONSTANTS_H
