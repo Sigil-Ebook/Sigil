@@ -332,7 +332,7 @@ if( APPLE )
     # TODO: put these in some sort of add_custom_command( TARGET ${PROJECT_NAME} PRE_BUILD COMMAND ...)
     # also delete the Sigil.app folder as PRE_BUILD of Sigil executable
     
-    if( XCODE_VERSION )
+    if( CMAKE_GENERATOR STREQUAL Xcode )
         exec_program( "mkdir -p ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Release/Sigil.app/Contents/Resources")
         exec_program( "cp ${PROJECT_SOURCE_DIR}/Resource_Files/icon/Sigil.icns ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Release/Sigil.app/Contents/Resources")
         exec_program( "cp ${PROJECT_SOURCE_DIR}/Resource_Files/icon/sgf.icns ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Release/Sigil.app/Contents/Resources")
@@ -413,14 +413,20 @@ endif()
 
 # For Mac, add frameworks and make a DMG
 if( APPLE )
+    if(CMAKE_GENERATOR STREQUAL Xcode)
+        set( WORK_DIR "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Release" )
+    else()
+        set( WORK_DIR "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}" )
+    endif()
+    
     add_custom_target(  addframeworks ALL 
                         COMMAND ${QT_BINARY_DIR}/macdeployqt Sigil.app
-                        WORKING_DIRECTORY ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}
+                        WORKING_DIRECTORY ${WORK_DIR}
                         DEPENDS ${PROJECT_NAME} )
 
     add_custom_target(  makedmg 
                         COMMAND ${QT_BINARY_DIR}/macdeployqt Sigil.app -dmg -no-plugins
-                        WORKING_DIRECTORY ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}
+                        WORKING_DIRECTORY ${WORK_DIR}
                         DEPENDS addframeworks )
                 
 # For Linux and Windows, provide binary installers.
