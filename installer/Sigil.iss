@@ -19,6 +19,7 @@ LicenseFile=${LICENSE_LOCATION}
 ; WinXP is the lowest supported version
 MinVersion=0,5.1
 PrivilegesRequired=admin
+OutputBaseFilename=Sigil-${SIGIL_FULL_VERSION}-Windows${ISS_SETUP_FILENAME_PLATFORM}-Setup
 
 ; "ArchitecturesAllowed=x64" specifies that Setup cannot run on
 ; anything but x64.

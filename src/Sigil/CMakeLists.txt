@@ -435,6 +435,7 @@ else()
     if ( 64_BIT_PLATFORM )
         # Used in the ISS CMake configuration
         set( ISS_ARCH "x64" )
+        set( ISS_SETUP_FILENAME_PLATFORM "-x64" )
     endif()
     
     # This is used to build OpenCandy installers. You can't build them
