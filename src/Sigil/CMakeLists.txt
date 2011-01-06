@@ -374,6 +374,11 @@ target_link_libraries( ${PROJECT_NAME} tidyLib ZipArchive BoostParts Xerces Xerc
 
 #############################################################################
 
+# Xcode PCH support. Has to come after the target is created.              
+xcode_pch( ${PCH_NAME} )
+
+#############################################################################
+
 # needed for correct Xerces header inclusion
 add_definitions( -DXERCES_STATIC_LIBRARY )
 

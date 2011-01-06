@@ -87,14 +87,7 @@ target_link_libraries( ${PROJECT_NAME} zipios BoostParts XercesExtensions )
 #############################################################################
 
 # Xcode PCH support. Has to come after the target is created.              
-if( APPLE )                   
-    set_target_properties(
-        ${PROJECT_NAME} 
-        PROPERTIES
-        XCODE_ATTRIBUTE_GCC_PREFIX_HEADER "${CMAKE_CURRENT_SOURCE_DIR}/${PCH_NAME}.h"
-        XCODE_ATTRIBUTE_GCC_PRECOMPILE_PREFIX_HEADER "YES"
-    )
-endif() 
+xcode_pch( ${PCH_NAME} )
 
 #############################################################################
 

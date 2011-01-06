@@ -73,3 +73,17 @@ macro( precompiled_header sources includes target_name header_name )
                             VERBATIM )
     endif() 
 endmacro()
+
+# Xcode PCH support. Has to be called *AFTER* the target is created.  
+# "header_name" - the name of the PCH header, without the extension; "stdafx" or something similar;
+#                  note that the source file compiling the header needs to have the same name 
+macro( xcode_pch header_name )
+    if( APPLE )                   
+        set_target_properties(
+            ${PROJECT_NAME} 
+            PROPERTIES
+            XCODE_ATTRIBUTE_GCC_PREFIX_HEADER "${CMAKE_CURRENT_SOURCE_DIR}/${PCH_NAME}.h"
+            XCODE_ATTRIBUTE_GCC_PRECOMPILE_PREFIX_HEADER "YES"
+        )
+    endif()
+endmacro() 
