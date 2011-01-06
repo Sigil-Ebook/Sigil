@@ -415,12 +415,13 @@ endif()
 if( APPLE )
     add_custom_target(  addframeworks ALL 
                         COMMAND ${QT_BINARY_DIR}/macdeployqt Sigil.app
-                        WORKING_DIRECTORY ${CMAKE_RUNTIME_OUTPUT_DIRECTORY} )
+                        WORKING_DIRECTORY ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}
+                        DEPENDS ${PROJECT_NAME} )
 
     add_custom_target(  makedmg 
                         COMMAND ${QT_BINARY_DIR}/macdeployqt Sigil.app -dmg -no-plugins
                         WORKING_DIRECTORY ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}
-                        DEPENDS ${PROJECT_NAME} )
+                        DEPENDS addframeworks )
                 
 # For Linux and Windows, provide binary installers.
 # For this to work on Linux, InstallJammer needs to be installed and on the system path.
