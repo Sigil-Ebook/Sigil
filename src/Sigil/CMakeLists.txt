@@ -424,6 +424,8 @@ else()
     # ISS conf file for the Inno Setup compiler
     # We first create a CMake configured version of the ISS file,
     # and then we copy it to the temp folder every time we need to build the installer.
+    set( ISS_MAIN_LOCATION ${CMAKE_SOURCE_DIR}/installer/Sigil.iss  )
+    Set( ISS_OC_LOCATION ${CMAKE_SOURCE_DIR}/OpenCandy/SigilOC.iss  )
     set( ISS_CONFIGURED_LOCATION ${CMAKE_BINARY_DIR}/Sigil_configured.iss )
     set( ISS_TEMP_LOCATION ${CMAKE_BINARY_DIR}/temp_folder/Sigil_configured.iss )
     
@@ -434,9 +436,20 @@ else()
         # Used in the ISS CMake configuration
         set( ISS_ARCH "x64" )
     endif()
-       
+    
+    # This is used to build OpenCandy installers. You can't build them
+    # from the source repo and you shouldn't want to either. By default,
+    # vanilla installers are built. You want the vanillas.
+    if ( EXISTS ${ISS_OC_LOCATION} )
+        set( OC_INSTALLERS TRUE )
+    endif()
+    
     # Creates a copy of the ISS file in ${ISS_CONFIGURED_LOCATION} and then configures it 
-    configure_file( ${CMAKE_SOURCE_DIR}/installer/Sigil.iss ${ISS_CONFIGURED_LOCATION} ) 
+    if ( OC_INSTALLERS )        
+        configure_file( ${ISS_OC_LOCATION} ${ISS_CONFIGURED_LOCATION} ) 
+    else()
+        configure_file( ${ISS_MAIN_LOCATION} ${ISS_CONFIGURED_LOCATION} ) 
+    endif()
     
     # Specify platform var for installjammer
     if ( WIN32 )
