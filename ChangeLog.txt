@@ -1,4 +1,4 @@
-Sigil v0.3.3 ADD_DATE
+Sigil v0.3.3 2011.01.06.
     - added a .desktop file for the make install target (courtesy of Richard Gibert)
     - this time *really* worked around a Tidy bug that added blank lines to the start of <pre> 
     and <style> elements (issue #655)
