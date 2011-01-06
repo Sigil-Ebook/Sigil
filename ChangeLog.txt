@@ -1,4 +1,5 @@
 Sigil v0.3.3 ADD_DATE
+    - added a .desktop file for the make install target (courtesy of Richard Gibert)
     - this time *really* worked around a Tidy bug that added blank lines to the start of <pre> 
     and <style> elements (issue #655)
     - updated ZipArchive from 4.0.1 to 4.1.0
