@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Sigil
+Comment=ePUB file editor
+Exec=sigil
+Icon=sigil
+Categories=Office;FileTools;Qt;Viewer;TextTools;TextEditor;Utility;
+MimeType=application/epub+zip;

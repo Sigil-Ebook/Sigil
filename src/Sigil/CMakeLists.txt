@@ -251,6 +251,14 @@ set( QRC_FILES
     Resource_Files/javascript/javascript.qrc
     Resource_Files/icon/icon.qrc  
     )
+
+set( DESKTOP_FILE
+    Resource_Files/freedesktop/sigil.desktop
+    )
+
+set( ICON_FILE
+    Resource_Files/icon/app_icon_48.png
+    )
     
 set( RAW_SOURCES ${MAIN_FILES} ${TAB_FILES} ${SOURCEUPDATE_FILES} ${BOOK_MANIPULATION_FILES} ${RESOURCE_OBJECT_FILES} ${DIALOG_FILES} ${EXPORTER_FILES} ${IMPORTER_FILES} ${MISC_FILES} ${VIEW_EDITOR_FILES} ${MAINUI_FILES} )
 
@@ -606,5 +614,7 @@ endif()
 # 
 if( UNIX AND NOT APPLE )
     install( TARGETS ${PROJECT_NAME} RUNTIME DESTINATION ${CMAKE_INSTALL_PREFIX}/bin )
+    install( FILES ${DESKTOP_FILE} DESTINATION ${CMAKE_INSTALL_PREFIX}/share/applications )
+    install( FILES ${ICON_FILE} DESTINATION ${CMAKE_INSTALL_PREFIX}/share/pixmaps RENAME sigil.png )
 endif()
 
