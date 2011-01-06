@@ -34,15 +34,7 @@ endif()
 
 #############################################################################
 
-find_package( Qt4 REQUIRED )
-
-set( QT_USE_QTWEBKIT TRUE )
-set( QT_USE_QTSVG TRUE )
-set( QT_USE_QTXML TRUE )
-set( QT_USE_QTNETWORK TRUE ) 
-set( QT_USE_QTMAIN TRUE )
-set( QT_USE_QTXMLPATTERNS TRUE )
-
+find_package( Qt4 4.7.0 COMPONENTS QtCore QtGui QtMain QtNetwork QtWebkit QtSvg QtXml QtXmlPatterns REQUIRED )
 include( ${QT_USE_FILE} )
 
 # These headers need to go through Qt's MOC compiler
