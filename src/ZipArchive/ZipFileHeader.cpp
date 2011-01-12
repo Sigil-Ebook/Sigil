@@ -866,26 +866,7 @@ bool CZipFileHeader::IsDirectory()
 
 DWORD CZipFileHeader::GetSystemAttr()
 {
-	if (ZipCompatibility::IsPlatformSupported(GetSystemCompatibility()))
-	{		
-		DWORD uAttr = GetSystemCompatibility() == ZipCompatibility::zcUnix ? (m_uExternalAttr >> 16) : (m_uExternalAttr & 0xFFFF);
-		DWORD uConvertedAttr = ZipCompatibility::ConvertToSystem(uAttr, GetSystemCompatibility(), ZipPlatform::GetSystemID());
-		if ( !ZipPlatform::IsDirectory(uConvertedAttr) && CZipPathComponent::HasEndingSeparator(GetFileName()))			
-			// can happen, a folder can have attributes set and no dir attribute (Python modules)
-			// TODO: [postponed] fix and cache after reading from central dir, but avoid calling GetFileName() there to keep lazy name conversion
-			return ZipPlatform::GetDefaultDirAttributes() | uConvertedAttr; 
-		else
-		{						
-#ifdef _ZIP_SYSTEM_LINUX
-			// converting from Windows attributes may create a not readable linux directory
-			if (GetSystemCompatibility() != ZipCompatibility::zcUnix && ZipPlatform::IsDirectory(uConvertedAttr))
-				return ZipPlatform::GetDefaultDirAttributes();
-#endif
-			return uConvertedAttr;
-		}
-	}
-	else
-		return CZipPathComponent::HasEndingSeparator(GetFileName()) ? ZipPlatform::GetDefaultDirAttributes() : ZipPlatform::GetDefaultAttributes();
+        return CZipPathComponent::HasEndingSeparator(GetFileName()) ? ZipPlatform::GetDefaultDirAttributes() : ZipPlatform::GetDefaultAttributes();
 }
 
 bool CZipFileHeader::SetSystemAttr(DWORD uAttr)
