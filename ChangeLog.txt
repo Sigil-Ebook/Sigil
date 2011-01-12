@@ -1,3 +1,7 @@
+Sigil v0.3.4 2011.01.12.
+    - fixed a regression ("Not a folder" error) with opening certain epub files on Mac and 
+    Linux systems (issue #731) 
+
 Sigil v0.3.3 2011.01.06.
     - added a small "Donate" button to the toolbar and a related entry in the Help menu 
     - added a .desktop file for the make install target (courtesy of Richard Gibert)
