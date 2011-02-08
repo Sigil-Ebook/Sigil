@@ -5,21 +5,22 @@
 # in to the LD_LIBRARY_PATH so the custom Qt libs
 # are recognized and loaded.
 
-appname=`basename $0 | sed s,\.sh$,,`
+appname=$(basename "$0" | sed 's,\.sh$,,')
 
-dirname=`dirname $0`
+dirname=$(dirname "$0")
 tmp="${dirname#?}"
 
 if [ "${dirname%$tmp}" != "/" ]; then
-dirname=$PWD/$dirname
+  dirname="$PWD/$dirname"
 fi
-LD_LIBRARY_PATH=$dirname
-export LD_LIBRARY_PATH
-#if no agruments are passed then call just sigil program; else pass arguments.
-if [$* == ""]
-then
-$dirname/$appname 
+
+if [ -z "$LD_LIBRARY_PATH" ]; then
+  LD_LIBRARY_PATH="$dirname"
 else
-#argument may not be pass correctly without qoutation marks.
-$dirname/$appname "$*"
+  LD_LIBRARY_PATH="$dirname:$LD_LIBRARY_PATH"
 fi
+
+export LD_LIBRARY_PATH
+
+exec $dirname/$appname "$@"
+
