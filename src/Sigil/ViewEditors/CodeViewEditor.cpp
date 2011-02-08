@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2009, 2010  Strahinja Markovic, Nokia Corporation
+**  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>, Nokia Corporation
 **
 **  This file is part of Sigil.
 **
