@@ -90,9 +90,8 @@ void UpdateChecker::ReplyRecieved( QNetworkReply* reply )
                      QMessageBox::Yes );
 
         if ( button_clicked == QMessageBox::Yes )
-        {
-            QDesktopServices::openUrl( QUrl( DOWNLOAD_PAGE_LOCATION ) );
-        }
+        
+            QDesktopServices::openUrl( QUrl( DOWNLOAD_PAGE_LOCATION ) );        
     }
 
     // Store the current online version as the last one checked
