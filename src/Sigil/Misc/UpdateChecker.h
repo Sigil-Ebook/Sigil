@@ -30,7 +30,7 @@ class QNetworkReply;
 
 /**
  * Responsible for checking the current online version of
- * FlightCrew against the running one. If a newer version
+ * Sigil against the running one. If a newer version
  * exists, then a dialog is displayed informing the user
  * about it.
  *

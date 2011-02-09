@@ -36,7 +36,6 @@ ImportOEBPS::ImportOEBPS( const QString &fullfilepath )
 }
 
 
-// Destructor
 ImportOEBPS::~ImportOEBPS()
 {
     if ( !m_ExtractedFolderPath.isEmpty() )
@@ -45,8 +44,6 @@ ImportOEBPS::~ImportOEBPS()
 }
 
 
-// Extracts the EPUB file to a temporary folder;
-// the path to this folder is stored in m_ExtractedFolderPath
 // TODO: create a wrapper lib for this CZipArchive POS
 void ImportOEBPS::ExtractContainer()
 {
@@ -99,8 +96,9 @@ void ImportOEBPS::ExtractContainer()
     }
 
     // We have to to do this here: if we don't wrap
-    // this exception and try to catch "raw" in MainWindow,
-    // we get some dumb header name clash from ZipArchive
+    // this exception and try to catch it "raw" in MainWindow,
+    // we get a header name clash from ZipArchive. 
+    // The headers are Windows-specific so we can't just rename them.
     catch ( CZipException &exception )
     {
         zip.Close( CZipArchive::afAfterException ); 
@@ -118,8 +116,6 @@ void ImportOEBPS::ExtractContainer()
 }
 
 
-// Locates the OPF file in the extracted folder;
-// the path to the OPF is stored in m_OPFFilePath
 void ImportOEBPS::LocateOPF()
 {
     QString fullpath = m_ExtractedFolderPath + "/META-INF/container.xml";
@@ -127,14 +123,13 @@ void ImportOEBPS::LocateOPF()
 
     while ( !container.atEnd() ) 
     {
-        // Get the next token from the stream
-        if (  container.readNext() == QXmlStreamReader::StartElement && 
-              container.name() == "rootfile"
-            ) 
+        if ( container.readNext() == QXmlStreamReader::StartElement && 
+             container.name() == "rootfile"
+           ) 
         {
-            if (  container.attributes().hasAttribute( "media-type" ) &&
-                  container.attributes().value( "", "media-type" ) == OEBPS_MIMETYPE 
-                )
+            if ( container.attributes().hasAttribute( "media-type" ) &&
+                 container.attributes().value( "", "media-type" ) == OEBPS_MIMETYPE 
+               )
             {
                 m_OPFFilePath = m_ExtractedFolderPath + "/" + container.attributes().value( "", "full-path" ).toString();
 
@@ -148,8 +143,8 @@ void ImportOEBPS::LocateOPF()
     if ( container.hasError() )
     {
         boost_throw( ErrorParsingContentXml() 
-                     << errinfo_XML_parsing_error_string( container.errorString().toStdString() )
-                     << errinfo_XML_parsing_line_number( container.lineNumber() )
+                     << errinfo_XML_parsing_error_string(  container.errorString().toStdString() )
+                     << errinfo_XML_parsing_line_number(   container.lineNumber() )
                      << errinfo_XML_parsing_column_number( container.columnNumber() )
                    );
     }
@@ -161,8 +156,6 @@ void ImportOEBPS::LocateOPF()
 }
 
 
-// Parses the OPF file and stores the parsed information
-// inside m_MetaElements, m_Files and m_ReadingOrderIds
 void ImportOEBPS::ReadOPF()
 {
     QString opf_text = Utility::ReadUnicodeTextFile( m_OPFFilePath );
@@ -316,8 +309,6 @@ void ImportOEBPS::ReadGuideReferenceElement( QXmlStreamReader &opf_reader )
 }
 
 
-// Loads the metadata from the m_MetaElements list
-// (filled by reading the OPF) into the book
 void ImportOEBPS::LoadMetadata()
 {
     QHash< QString, QList< QVariant > > metadata;
@@ -335,9 +326,7 @@ void ImportOEBPS::LoadMetadata()
     m_Book->SetMetadata( metadata );
 }
 
-// Loads the referenced files into the main folder of the book.
-// Returns a hash with keys being old references (URLs) to resources,
-// and values being the new references to those resources.
+
 QHash< QString, QString > ImportOEBPS::LoadFolderStructure()
 { 
     QList< QString > keys = m_Files.keys();

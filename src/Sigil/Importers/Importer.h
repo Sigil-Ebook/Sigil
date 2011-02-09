@@ -26,18 +26,32 @@
 #include <QSharedPointer>
 #include "BookManipulation/Book.h"
 
-// Base class for Importers
+/**
+ * The abstract base class for Importers. 
+ * Defines the GetBook() method that the importer subclasses need to implement. 
+ */
 class Importer
 {
 
 public:
 
-    // Constructor;
-    // The parameter is the file to be imported
+    /**
+     * Constructor.
+     * 
+     * @param fullfilepath The path to the file to be imported.
+     */
     Importer( const QString &fullfilepath );
 
+    /**
+     * Destructor.
+     */
     virtual ~Importer() {}
 
+    /**
+     * Loads the file as a Book and returns it.
+     *
+     * @return The file as a Book object, RAII wrapped.
+     */
     virtual QSharedPointer< Book > GetBook() = 0;
 
 protected:
@@ -46,11 +60,15 @@ protected:
     // PROTECTED MEMBER VARIABLES
     ///////////////////////////////
 
-    // The full path to the file to be imported
+    /**
+     * The full path to the file to be imported.
+     */
     const QString &m_FullFilePath;
 
-    // The Book that will be created 
-    // by the importing process
+    /**
+     * The Book that will be created  
+     * by the importing process.
+     */ 
     QSharedPointer< Book > m_Book;
 };
 

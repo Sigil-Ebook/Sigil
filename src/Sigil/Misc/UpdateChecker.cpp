@@ -38,8 +38,8 @@ UpdateChecker::UpdateChecker( QObject *parent )
     QObject( parent ),
     m_NetworkManager( new QNetworkAccessManager( this ) )
 {
-    connect(    m_NetworkManager,  SIGNAL( finished( QNetworkReply* ) ),
-                this,              SLOT( ReplyRecieved( QNetworkReply* ) )
+    connect( m_NetworkManager, SIGNAL( finished( QNetworkReply* ) ),
+             this,             SLOT( ReplyRecieved( QNetworkReply* ) )
            );
 }
 
@@ -108,9 +108,8 @@ void UpdateChecker::ReplyRecieved( QNetworkReply* reply )
 QString UpdateChecker::TextInReply( QNetworkReply* reply ) const
 {
     if ( !reply->open( QIODevice::ReadOnly | QIODevice::Text ) )
-    {
-        return "";
-    }
+    
+        return "";    
 
     QTextStream in( reply );
 
@@ -135,7 +134,6 @@ QString UpdateChecker::ReadOnlineVersion( const QString &online_version_xml ) co
 
     while ( !version_reader.atEnd() ) 
     {
-        // Get the next token from the stream
         if ( ( version_reader.readNext() == QXmlStreamReader::StartElement ) &&
              ( version_reader.name() == XML_VERSION_ELEMENT )
            ) 
@@ -162,7 +160,7 @@ bool UpdateChecker::IsOnlineVersionNewer( const QString &current_version_string,
     QString( online_version_string ).indexOf( online_version_numbers );
 
     // This code assumes three digits per field,
-    // which should be way more than enough
+    // which should be way more than enough.
     int current_version = current_version_numbers.cap( 1 ).toInt() * 1000000 +
                           current_version_numbers.cap( 2 ).toInt() * 1000 +
                           current_version_numbers.cap( 3 ).toInt();
