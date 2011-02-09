@@ -66,6 +66,8 @@ void UpdateChecker::CheckForUpdate()
 
 void UpdateChecker::ReplyRecieved( QNetworkReply* reply )
 {
+    Q_ASSERT( reply );
+
     QSettings settings;
     settings.beginGroup( SETTINGS_GROUP );
 
@@ -104,11 +106,13 @@ void UpdateChecker::ReplyRecieved( QNetworkReply* reply )
 }
 
 
-QString UpdateChecker::TextInReply( QNetworkReply* reply ) const
+QString UpdateChecker::TextInReply( QNetworkReply* reply )
 {
+    Q_ASSERT( reply );
+
     if ( !reply->open( QIODevice::ReadOnly | QIODevice::Text ) )
     
-        return "";    
+        return QString();    
 
     QTextStream in( reply );
 
@@ -123,7 +127,7 @@ QString UpdateChecker::TextInReply( QNetworkReply* reply ) const
 }
 
 
-QString UpdateChecker::ReadOnlineVersion( const QString &online_version_xml ) const
+QString UpdateChecker::ReadOnlineVersion( const QString &online_version_xml )
 {
     if ( online_version_xml.isEmpty() )
 
@@ -146,7 +150,7 @@ QString UpdateChecker::ReadOnlineVersion( const QString &online_version_xml ) co
 
 
 bool UpdateChecker::IsOnlineVersionNewer( const QString &current_version_string, 
-                                          const QString &online_version_string ) const
+                                          const QString &online_version_string )
 {
     if ( current_version_string.isEmpty() || online_version_string.isEmpty() )
 

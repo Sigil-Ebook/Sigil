@@ -78,7 +78,7 @@ private:
      * @param reply The reply from which text should be extracted.
      * @return The full text content.
      */
-    QString TextInReply( QNetworkReply* reply ) const;
+    static QString TextInReply( QNetworkReply* reply );
 
     /**
      * Returns the version string present 
@@ -88,7 +88,7 @@ private:
      * @param online_version_xml The xml content from the reply.
      * @return The version string.
      */
-    QString ReadOnlineVersion( const QString &online_version_xml ) const;
+    static QString ReadOnlineVersion( const QString &online_version_xml );
 
     /**
      * Compares the two provided version strings.
@@ -98,8 +98,8 @@ private:
      * @return \c true if the online string specifies
      *         that the online version is newer.
      */
-    bool IsOnlineVersionNewer( const QString &current_version_string, 
-                               const QString &online_version_string ) const;
+    static bool IsOnlineVersionNewer( const QString &current_version_string, 
+                                      const QString &online_version_string );
 
 
     ///////////////////////////////
