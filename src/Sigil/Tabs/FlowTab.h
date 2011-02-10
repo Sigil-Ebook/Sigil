@@ -54,7 +54,7 @@ public:
      * @param line_to_scroll_to To which line should the resource scroll.
      * @param parent The parent of this QObject.
      */
-    FlowTab( Resource& resource, 
+    FlowTab( HTMLResource& resource, 
              const QUrl &fragment, 
              ContentTab::ViewState view_state, 
              int line_to_scroll_to = -1,

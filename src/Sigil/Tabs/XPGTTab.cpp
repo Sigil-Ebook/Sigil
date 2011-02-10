@@ -21,9 +21,10 @@
 
 #include <stdafx.h>
 #include "XPGTTab.h"
+#include "ResourceObjects/XPGTResource.h"
 
 
-XPGTTab::XPGTTab( Resource& resource, QWidget *parent )
+XPGTTab::XPGTTab( XPGTResource& resource, QWidget *parent )
     :
     TextTab( resource, CodeViewEditor::Highlight_XHTML, parent )
 {

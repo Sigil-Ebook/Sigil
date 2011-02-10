@@ -24,10 +24,10 @@
 #include "ResourceObjects/TextResource.h"
 
 
-TextTab::TextTab( Resource& resource, CodeViewEditor::HighlighterType type, QWidget *parent )
+TextTab::TextTab( TextResource& resource, CodeViewEditor::HighlighterType type, QWidget *parent )
     :
     ContentTab( resource, parent ),
-    m_TextResource( *( qobject_cast< TextResource* >( &resource ) ) ),
+    m_TextResource( resource ),
     m_wCodeView( *new CodeViewEditor( type, this ) )
 {
     m_Layout.addWidget( &m_wCodeView );

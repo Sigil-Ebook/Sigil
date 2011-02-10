@@ -30,7 +30,7 @@
 static const QString SETTINGS_GROUP = "flowtab";
 
 
-FlowTab::FlowTab( Resource& resource, 
+FlowTab::FlowTab( HTMLResource& resource, 
                   const QUrl &fragment, 
                   ContentTab::ViewState view_state,
                   int line_to_scroll_to,
@@ -39,7 +39,7 @@ FlowTab::FlowTab( Resource& resource,
     ContentTab( resource, parent ),
     m_FragmentToScroll( fragment ),
     m_LineToScrollTo( line_to_scroll_to ),
-    m_HTMLResource( *( qobject_cast< HTMLResource* >( &resource ) ) ),
+    m_HTMLResource( resource ),
     m_Splitter( *new QSplitter( this ) ),
     m_wBookView( *new BookViewEditor( this ) ),
     m_wCodeView( *new CodeViewEditor( CodeViewEditor::Highlight_XHTML, this ) ),

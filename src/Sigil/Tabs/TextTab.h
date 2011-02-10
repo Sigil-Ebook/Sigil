@@ -36,7 +36,7 @@ class TextTab : public ContentTab
 
 public:
 
-    TextTab( Resource& resource, CodeViewEditor::HighlighterType type, QWidget *parent = 0 );
+    TextTab( TextResource& resource, CodeViewEditor::HighlighterType type, QWidget *parent = 0 );
 
     // Overrides inherited from ContentTab
     bool IsModified();

@@ -25,13 +25,15 @@
 
 #include "TextTab.h"
 
+class CSSResource;
+
 class CSSTab : public TextTab
 {
     Q_OBJECT
 
 public:
 
-    CSSTab( Resource& resource, QWidget *parent = 0 );
+    CSSTab( CSSResource& resource, QWidget *parent = 0 );
 
 };
 

@@ -37,7 +37,7 @@ class ImageTab : public ContentTab
 
 public:
 
-    ImageTab( Resource& resource, QWidget *parent = 0 );
+    ImageTab( ImageResource& resource, QWidget *parent = 0 );
 
     // Overrides inherited from ContentTab
     float GetZoomFactor() const;

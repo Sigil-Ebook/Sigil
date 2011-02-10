@@ -25,13 +25,15 @@
 
 #include "TextTab.h"
 
+class XPGTResource;
+
 class XPGTTab : public TextTab
 {
     Q_OBJECT
 
 public:
 
-    XPGTTab( Resource& resource, QWidget *parent = 0 );
+    XPGTTab( XPGTResource& resource, QWidget *parent = 0 );
 };
 
 #endif // XPGTTAB_H

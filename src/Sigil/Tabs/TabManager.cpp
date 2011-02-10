@@ -26,6 +26,10 @@
 #include "ImageTab.h"
 #include "XPGTTab.h"
 #include "ResourceObjects/Resource.h"
+#include "ResourceObjects/CSSResource.h"
+#include "ResourceObjects/XPGTResource.h"
+#include "ResourceObjects/HTMLResource.h"
+#include "ResourceObjects/ImageResource.h"
 
 
 TabManager::TabManager( QWidget *parent )
@@ -260,7 +264,11 @@ ContentTab* TabManager::CreateTabForResource( Resource& resource,
 
     if ( resource.Type() == Resource::HTMLResource )
     {
-        tab = new FlowTab( resource, fragment, view_state, line_to_scroll_to, this );
+        tab = new FlowTab( *( qobject_cast< HTMLResource* >( &resource ) ), 
+                           fragment, 
+                           view_state, 
+                           line_to_scroll_to, 
+                           this );
 
         connect( tab,  SIGNAL( LinkClicked( const QUrl& ) ), this, SIGNAL( OpenUrlRequest( const QUrl& ) ) );
         connect( tab,  SIGNAL( OldTabRequest( QString, HTMLResource& ) ), 
@@ -271,17 +279,17 @@ ContentTab* TabManager::CreateTabForResource( Resource& resource,
 
     else if ( resource.Type() == Resource::CSSResource )
     {
-        tab = new CSSTab( resource, this );
+        tab = new CSSTab( *( qobject_cast< CSSResource* >( &resource ) ), this );
     }
 
     else if ( resource.Type() == Resource::XPGTResource )
     {
-        tab = new XPGTTab( resource, this );
+        tab = new XPGTTab( *( qobject_cast< XPGTResource* >( &resource ) ), this );
     }
 
     else if ( resource.Type() == Resource::ImageResource )
     {
-        tab = new ImageTab( resource, this );
+        tab = new ImageTab( *( qobject_cast< ImageResource* >( &resource ) ), this );
     }
 
     return tab;    

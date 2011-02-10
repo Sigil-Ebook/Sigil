@@ -21,9 +21,9 @@
 
 #include <stdafx.h>
 #include "CSSTab.h"
+#include "ResourceObjects/CSSResource.h"
 
-
-CSSTab::CSSTab( Resource& resource, QWidget *parent )
+CSSTab::CSSTab( CSSResource& resource, QWidget *parent )
     :
     TextTab( resource, CodeViewEditor::Highlight_CSS, parent )
 {

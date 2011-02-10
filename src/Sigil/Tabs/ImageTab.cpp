@@ -25,10 +25,10 @@
 #include "Misc/RasterizeImageResource.h"
 
 
-ImageTab::ImageTab( Resource& resource, QWidget *parent )
+ImageTab::ImageTab( ImageResource& resource, QWidget *parent )
     :
     ContentTab( resource, parent ),
-    m_ImageResource( *( qobject_cast< ImageResource* >( &resource ) ) ),
+    m_ImageResource( resource ),
     m_ImageLabel( *new QLabel( this ) ),
     m_ScrollArea( *new QScrollArea( this ) ),
     m_CurrentZoomFactor( 1.0 )
