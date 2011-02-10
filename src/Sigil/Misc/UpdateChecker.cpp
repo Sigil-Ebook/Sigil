@@ -82,14 +82,15 @@ void UpdateChecker::ReplyRecieved( QNetworkReply* reply )
     {
         QMessageBox::StandardButton button_clicked;
 
-        button_clicked = QMessageBox::question(  0,
-                     QObject::tr( "Sigil" ),
-                     QObject::tr( "<p>A newer version of Sigil is available, version <b>%1</b>.<br/>"
-                         "The ChangeLog can be seen <a href='http://sigil.googlecode.com/hg/ChangeLog.txt'>here</a>.</p>"
-                         "<p>Would you like to go to the download page?</p>" )
-                     .arg( current_online_version ),
-                     QMessageBox::Yes | QMessageBox::No,
-                     QMessageBox::Yes );
+        button_clicked = QMessageBox::question( 
+            0,
+            QObject::tr( "Sigil" ),
+            QObject::tr( "<p>A newer version of Sigil is available, version <b>%1</b>.<br/>"
+                "The ChangeLog can be seen <a href='http://sigil.googlecode.com/hg/ChangeLog.txt'>here</a>.</p>"
+                "<p>Would you like to go to the download page?</p>" )
+            .arg( current_online_version ),
+            QMessageBox::Yes | QMessageBox::No,
+            QMessageBox::Yes );
 
         if ( button_clicked == QMessageBox::Yes )
         
