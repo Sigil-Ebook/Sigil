@@ -25,6 +25,7 @@
 #include "Misc/Utility.h"
 #include "ResourceObjects/HTMLResource.h"
 #include "BookManipulation/XhtmlDoc.h"
+#include "BookManipulation/FolderKeeper.h"
 
 const QString FIRST_CHAPTER_PREFIX = "Section";
 const QString FIRST_CHAPTER_NAME   = FIRST_CHAPTER_PREFIX + "0001.xhtml";

@@ -25,6 +25,7 @@
 #include "ResourceObjects/Resource.h"
 #include "ResourceObjects/HTMLResource.h"
 #include "SourceUpdates/UniversalUpdates.h"
+#include "BookManipulation/FolderKeeper.h"
 #include <limits>
 
 static const int NO_READING_ORDER   = std::numeric_limits< int >::max();

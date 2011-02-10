@@ -39,12 +39,9 @@ public:
      *
      * @param fullfilepath The full path to the file that this
      *                     resource is representing.
-     * @param hash_owner The hash object that is the "owner" of this resource.
-     *                   Needed so that the resource can remove itself from the
-     *                   hash when it is deleted.
      * @param parent The object's parent.
      */
-    CSSResource( const QString &fullfilepath, QHash< QString, Resource* > *hash_owner, QObject *parent = NULL );
+    CSSResource( const QString &fullfilepath, QObject *parent = NULL );
 
     // inherited
     virtual ResourceType Type() const;

@@ -68,6 +68,7 @@ set( QOBJECT_HEADERS
     ResourceObjects/ImageResource.h
     ResourceObjects/FontResource.h
     BookManipulation/Book.h
+    BookManipulation/FolderKeeper.h
     )
 
 set( MAIN_FILES

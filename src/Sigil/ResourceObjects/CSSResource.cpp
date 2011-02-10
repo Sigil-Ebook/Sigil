@@ -23,8 +23,8 @@
 #include "CSSResource.h"
 #include "Misc/Utility.h"
 
-CSSResource::CSSResource( const QString &fullfilepath, QHash< QString, Resource* > *hash_owner, QObject *parent )
-    : TextResource( fullfilepath, hash_owner, parent )
+CSSResource::CSSResource( const QString &fullfilepath, QObject *parent )
+    : TextResource( fullfilepath, parent )
 {
 
 }

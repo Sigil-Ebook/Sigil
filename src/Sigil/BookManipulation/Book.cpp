@@ -29,6 +29,7 @@
 #include "SourceUpdates/PerformHTMLUpdates.h"
 #include "SourceUpdates/AnchorUpdates.h"
 #include "SourceUpdates/UniversalUpdates.h"
+#include "BookManipulation/FolderKeeper.h"
 #include "XercesCppUse.h"
 
 static const QString FIRST_CSS_NAME   = "Style0001.css";
@@ -53,6 +54,7 @@ static const QString EMPTY_HTML_FILE  = "<?xml version=\"1.0\" encoding=\"utf-8\
 Book::Book()
     : 
     m_PublicationIdentifier( Utility::CreateUUID() ),
+    m_Mainfolder( *new FolderKeeper( this ) ),
     m_IsModified( false )
 {
    

@@ -23,8 +23,8 @@
 #include "FontResource.h"
 #include "Misc/Utility.h"
 
-FontResource::FontResource( const QString &fullfilepath, QHash< QString, Resource* > *hash_owner, QObject *parent )
-    : Resource( fullfilepath, hash_owner, parent )
+FontResource::FontResource( const QString &fullfilepath, QObject *parent )
+    : Resource( fullfilepath, parent )
 {
 
 }

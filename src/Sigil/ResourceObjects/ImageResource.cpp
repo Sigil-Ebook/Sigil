@@ -24,11 +24,10 @@
 #include "Misc/Utility.h"
 
 ImageResource::ImageResource( const QString &fullfilepath,
-                              QHash< QString, Resource* > *hash_owner,
                               QHash< QString, QString > semantic_information,
                               QObject *parent )
     : 
-    Resource( fullfilepath, hash_owner, parent ),
+    Resource( fullfilepath, parent ),
     m_IsCoverImage( false )  
 {
     // There should only be one entry in the hash for ImageResources,

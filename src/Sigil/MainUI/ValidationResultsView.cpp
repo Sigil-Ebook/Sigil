@@ -23,6 +23,7 @@
 #include <flightcrew.h>
 namespace fc = FlightCrew;
 #include "ValidationResultsView.h"
+#include "BookManipulation/FolderKeeper.h"
 
 static const QBrush WARNING_BRUSH = QBrush( QColor( 255, 255, 230 ) );
 static const QBrush ERROR_BRUSH   = QBrush( QColor( 255, 230, 230 ) );

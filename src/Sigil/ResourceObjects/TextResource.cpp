@@ -23,9 +23,9 @@
 #include "TextResource.h"
 #include "Misc/Utility.h"
 
-TextResource::TextResource( const QString &fullfilepath, QHash< QString, Resource* > *hash_owner, QObject *parent )
+TextResource::TextResource( const QString &fullfilepath, QObject *parent )
     : 
-    Resource( fullfilepath, hash_owner, parent ),
+    Resource( fullfilepath, parent ),
     m_TextDocument( new QTextDocument( this ) )
 {
     m_TextDocument->setDocumentLayout( new QPlainTextDocumentLayout( m_TextDocument ) );

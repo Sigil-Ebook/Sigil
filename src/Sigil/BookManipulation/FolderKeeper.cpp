@@ -39,7 +39,8 @@ const QString STYLE_FOLDER_NAME = "Styles";
 const QString MISC_FOLDER_NAME  = "Misc";
 
 
-FolderKeeper::FolderKeeper()
+FolderKeeper::FolderKeeper( QObject *parent )
+    : QObject( parent )
 {
     QDir folder( Utility::GetNewTempFolderPath() );
     folder.mkpath( folder.absolutePath() );
@@ -118,7 +119,7 @@ Resource& FolderKeeper::AddContentFileToFolder( const QString &fullfilepath,
             new_file_path = m_FullPathToImagesFolder + "/" + filename;
             relative_path = IMAGE_FOLDER_NAME + "/" + filename;
 
-            resource = new ImageResource( new_file_path, &m_Resources, semantic_information );
+            resource = new ImageResource( new_file_path, semantic_information );
         }
 
         else if ( FONT_EXTENSIONS.contains( extension ) )
@@ -126,7 +127,7 @@ Resource& FolderKeeper::AddContentFileToFolder( const QString &fullfilepath,
             new_file_path = m_FullPathToFontsFolder + "/" + filename;
             relative_path = FONT_FOLDER_NAME + "/" + filename;
 
-            resource = new FontResource( new_file_path, &m_Resources );
+            resource = new FontResource( new_file_path );
         }
 
         else if ( TEXT_EXTENSIONS.contains( extension ) )
@@ -134,7 +135,7 @@ Resource& FolderKeeper::AddContentFileToFolder( const QString &fullfilepath,
             new_file_path = m_FullPathToTextFolder + "/" + filename;
             relative_path = TEXT_FOLDER_NAME + "/" + filename;
 
-            resource = new HTMLResource( new_file_path, &m_Resources, reading_order, semantic_information );
+            resource = new HTMLResource( new_file_path, reading_order, semantic_information, m_Resources );
         }
 
         else if ( STYLE_EXTENSIONS.contains( extension ) )
@@ -144,11 +145,11 @@ Resource& FolderKeeper::AddContentFileToFolder( const QString &fullfilepath,
 
             if ( extension == "css" )
 
-                resource = new CSSResource( new_file_path, &m_Resources );
+                resource = new CSSResource( new_file_path );
 
             else
 
-                resource = new XPGTResource( new_file_path, &m_Resources );
+                resource = new XPGTResource( new_file_path );
         }
 
         else
@@ -157,7 +158,7 @@ Resource& FolderKeeper::AddContentFileToFolder( const QString &fullfilepath,
             new_file_path = m_FullPathToMiscFolder + "/" + filename;
             relative_path = MISC_FOLDER_NAME + "/" + filename;
 
-            resource = new Resource( new_file_path, &m_Resources );
+            resource = new Resource( new_file_path );
         }    
 
         m_Resources[ resource->GetIdentifier() ] = resource;
@@ -166,8 +167,10 @@ Resource& FolderKeeper::AddContentFileToFolder( const QString &fullfilepath,
     QFile::copy( fullfilepath, new_file_path );
 
     if ( QThread::currentThread() != QApplication::instance()->thread() )
-
+    
         resource->moveToThread( QApplication::instance()->thread() );
+
+    connect( resource, SIGNAL( Deleted( Resource* ) ), this, SLOT( RemoveResource( Resource* ) ) );
 
     return *resource;
 }
@@ -321,6 +324,14 @@ QStringList FolderKeeper::GetAllFilenames() const
     }
 
     return filelist;
+}
+
+
+void FolderKeeper::RemoveResource( Resource *resource )
+{
+    Q_ASSERT( resource );
+
+    m_Resources.remove( resource->GetIdentifier() );
 }
 
 

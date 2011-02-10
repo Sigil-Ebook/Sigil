@@ -60,15 +60,9 @@ public:
      *
      * @param fullfilepath The full path to the file that this
      *                     resource is representing.
-     * @param hash_owner The hash object that is the "owner" of this resource.
-     *                   Needed so that the resource can remove itself from the
-     *                   hash when it is deleted.
      * @param parent The object's parent.
-     * @todo Remove the hash parameter and dependency. It was needed when the
-     *       FolderKeeper was a copyable object and thus couldn't be a QObject
-     *       to which we could send signals, but it's not anymore.
      */
-    Resource( const QString &fullfilepath, QHash< QString, Resource* > *hash_owner, QObject *parent = NULL );
+    Resource( const QString &fullfilepath, QObject *parent = NULL );
 
     /**
      * The less-than operator overload. By default, compares
@@ -183,7 +177,7 @@ signals:
     /**
      * Emitted when the resource has been scheduled for deletion.
      */
-    void Deleted();
+    void Deleted( Resource *resource );
 
     /**
      * Emitted when the resource has been updated on disk.
@@ -206,11 +200,6 @@ protected:
      * The ReaWriteLock guarding access to the resource's data.
      */
     QReadWriteLock m_ReadWriteLock;
-
-    /**
-     * The hash owner of the resource.
-     */
-    QHash< QString, Resource* > &m_HashOwner;
 };
 
 #endif // RESOURCE_H

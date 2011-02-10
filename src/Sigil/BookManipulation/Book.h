@@ -23,12 +23,14 @@
 #ifndef BOOK_H
 #define BOOK_H
 
-#include "BookManipulation/FolderKeeper.h"
 #include <QHash>
 #include <QUrl>
 #include <QVariant>
 #include <QObject>
 
+class FolderKeeper;
+class HTMLResource;
+class Resource;
 
 /**
  * Represents the book loaded in the current MainWindow instance
@@ -242,7 +244,7 @@ private:
      * The FolderKeeper object that represents
      * this book's presence on the hard drive.
      */
-    FolderKeeper m_Mainfolder; 
+    FolderKeeper &m_Mainfolder; 
 
     /**
      * The book's publication identifier. 

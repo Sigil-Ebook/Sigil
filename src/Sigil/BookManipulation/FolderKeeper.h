@@ -23,6 +23,7 @@
 #ifndef FOLDERKEEPER_H
 #define FOLDERKEEPER_H
 
+#include <QObject>
 #include <QString>
 #include <QHash>
 #include <QMutex>
@@ -46,15 +47,18 @@ class Resource;
  * Also contains all the operations involving 
  * the stored files.
  */
-class FolderKeeper
+class FolderKeeper : public QObject 
 {
+    Q_OBJECT
 
 public:
 
     /**
      * Constructor.
+     *
+     * @param parent The object's parent.
      */
-    FolderKeeper();
+    FolderKeeper( QObject *parent = NULL );
 
     /**
      *  Destructor.
@@ -207,6 +211,13 @@ public:
      * @return The filename list.
      */
     QStringList GetAllFilenames() const;
+
+private slots:
+
+    /**
+     * 
+     */
+    void RemoveResource( Resource *resource );
 
 private:
 

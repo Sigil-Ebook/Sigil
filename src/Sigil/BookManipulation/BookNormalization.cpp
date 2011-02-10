@@ -29,6 +29,7 @@
 #include "BookManipulation/GuideSemantics.h"
 #include "BookManipulation/XercesCppUse.h"
 #include "ResourceObjects/HTMLResource.h"
+#include "BookManipulation/FolderKeeper.h"
 
 static const QString SIGIL_HEADING_ID_PREFIX = "heading_id_";
 static const QString SIGIL_HEADING_ID_REG    = SIGIL_HEADING_ID_PREFIX + "(\\d+)";

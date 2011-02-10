@@ -23,6 +23,7 @@
 #include "ImportOEBPS.h"
 #include "Misc/Utility.h"
 #include "ResourceObjects/Resource.h"
+#include "BookManipulation/FolderKeeper.h"
 #include <ZipArchive.h>
 
 static const QString DUBLIN_CORE_NS      = "http://purl.org/dc/elements/1.1/";

@@ -25,6 +25,7 @@
 #include "BookManipulation/CleanSource.h"
 #include "ResourceObjects/HTMLResource.h"
 #include "ResourceObjects/TextResource.h"
+#include "BookManipulation/FolderKeeper.h"
 
 
 // Constructor;

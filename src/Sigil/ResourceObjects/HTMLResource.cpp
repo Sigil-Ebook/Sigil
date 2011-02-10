@@ -31,12 +31,13 @@ static const QString LOADED_CONTENT_MIMETYPE = "application/xhtml+xml";
 
 
 HTMLResource::HTMLResource( const QString &fullfilepath, 
-                            QHash< QString, Resource* > *hash_owner,
                             int reading_order,
                             QHash< QString, QString > semantic_information,
+                            const QHash< QString, Resource* > &resources,
                             QObject *parent )
     : 
-    Resource( fullfilepath, hash_owner, parent ),
+    Resource( fullfilepath, parent ),
+    m_Resources( resources ),
     m_WebPage( NULL ),
     m_TextDocument( NULL ),
     m_WebPageModified( false ),
@@ -444,12 +445,12 @@ void HTMLResource::TrackNewResources( const QStringList &filepaths )
 {    
     foreach( QString resource_id, m_LinkedResourceIDs )
     {
-        Resource *resource = m_HashOwner.value( resource_id );
+        Resource *resource = m_Resources.value( resource_id );
 
         if ( resource )
         {
             disconnect( resource, SIGNAL( ResourceUpdatedOnDisk() ), this, SLOT( LinkedResourceUpdated() ) );
-            disconnect( resource, SIGNAL( Deleted()               ), this, SLOT( LinkedResourceUpdated() ) );
+            disconnect( resource, SIGNAL( Deleted( Resource* )    ), this, SLOT( LinkedResourceUpdated() ) );
         }
     }
 
@@ -461,7 +462,7 @@ void HTMLResource::TrackNewResources( const QStringList &filepaths )
         filenames.append( QFileInfo( filepath ).fileName() );
     }
 
-    foreach( Resource *resource, m_HashOwner.values() )
+    foreach( Resource *resource, m_Resources.values() )
     {
         if ( filenames.contains( resource->Filename() ) )
             
@@ -470,12 +471,12 @@ void HTMLResource::TrackNewResources( const QStringList &filepaths )
 
     foreach( QString resource_id, m_LinkedResourceIDs )
     {
-        Resource *resource = m_HashOwner.value( resource_id );
+        Resource *resource = m_Resources.value( resource_id );
 
         if ( resource )
         {
             connect( resource, SIGNAL( ResourceUpdatedOnDisk() ), this, SLOT( LinkedResourceUpdated() ) );
-            connect( resource, SIGNAL( Deleted()               ), this, SLOT( LinkedResourceUpdated() ) );
+            connect( resource, SIGNAL( Deleted( Resource* )    ), this, SLOT( LinkedResourceUpdated() ) );
         }
     }
 }

@@ -24,13 +24,12 @@
 #include "Misc/Utility.h"
 
 
-Resource::Resource( const QString &fullfilepath, QHash< QString, Resource* > *hash_owner, QObject *parent )
+Resource::Resource( const QString &fullfilepath, QObject *parent )
     : 
     QObject( parent ),
     m_Identifier( Utility::CreateUUID() ),
     m_FullFilePath( fullfilepath ),
-    m_ReadWriteLock( QReadWriteLock::Recursive ),
-    m_HashOwner( *hash_owner )
+    m_ReadWriteLock( QReadWriteLock::Recursive )
 {
 
 }
@@ -127,10 +126,8 @@ bool Resource::Delete()
     }
 
     if ( successful )
-    {
-        m_HashOwner.remove( m_Identifier );
-
-        emit Deleted();
+    {        
+        emit Deleted( this );
 
         deleteLater();
     }

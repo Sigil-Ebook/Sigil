@@ -53,18 +53,16 @@ public:
      *
      * @param fullfilepath The full path to the file that this
      *                     resource is representing.
-     * @param hash_owner The hash object that is the "owner" of this resource.
-     *                   Needed so that the resource can remove itself from the
-     *                   hash when it is deleted.
      * @param reading_order The reading order of the HTML resource.
      * @param semantic_information The guide element information and other
      *                             semantic info in key-value pairs.
+     * @param resources The hash of Resources present in the FolderKeeper.
      * @param parent The object's parent.
      */
     HTMLResource( const QString &fullfilepath, 
-                  QHash< QString, Resource* > *hash_owner,
                   int reading_order,
                   QHash< QString, QString > semantic_information,
+                  const QHash< QString, Resource* > &resources,
                   QObject *parent = NULL );
 
     /**
@@ -390,6 +388,12 @@ private:
      * ScrollTo extension library.
      */
     const QString c_jQueryScrollTo;
+
+    /**
+     * The resource list from FolderKeeper.
+     * @todo This is ugly as hell. Find a way to remove this.
+     */
+    const QHash< QString, Resource* > &m_Resources;
 };
 
 #endif // HTMLRESOURCE_H

@@ -26,6 +26,7 @@
 #include "ResourceObjects/HTMLResource.h"
 #include "BookManipulation/XhtmlDoc.h"
 #include "BookManipulation/XercesCppUse.h"
+#include "BookManipulation/FolderKeeper.h"
 
 static const QString SETTINGS_GROUP   = "toc_editor";
 static const int FIRST_COLUMN_PADDING = 30;
