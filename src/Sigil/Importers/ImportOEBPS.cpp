@@ -25,6 +25,7 @@
 #include "ResourceObjects/Resource.h"
 #include <ZipArchive.h>
 
+static const QString DUBLIN_CORE_NS      = "http://purl.org/dc/elements/1.1/";
 static const QString OEBPS_MIMETYPE      = "application/oebps-package+xml";
 static const QString UPDATE_ERROR_STRING = "SG_ERROR";
 
@@ -181,8 +182,7 @@ void ImportOEBPS::ReadOPF()
             m_UniqueIdentifierId = opf_reader.attributes().value( "", "unique-identifier" ).toString();
         
         // Parse and store Dublin Core metadata elements
-        // FIXME: use namespaceUri instead of qualifiedName
-        else if ( opf_reader.qualifiedName().toString().startsWith( "dc:" ) == true )
+        else if ( opf_reader.namespaceUri() == DUBLIN_CORE_NS )
         
             ReadDublinCoreElement( opf_reader );
 
