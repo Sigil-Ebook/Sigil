@@ -67,6 +67,8 @@ set( QOBJECT_HEADERS
     ResourceObjects/XPGTResource.h
     ResourceObjects/ImageResource.h
     ResourceObjects/FontResource.h
+    ResourceObjects/NCXResource.h
+    ResourceObjects/OPFResource.h
     BookManipulation/Book.h
     BookManipulation/FolderKeeper.h
     )
@@ -113,6 +115,10 @@ set( RESOURCE_OBJECT_FILES
     ResourceObjects/ImageResource.h
     ResourceObjects/FontResource.cpp
     ResourceObjects/FontResource.h
+    ResourceObjects/OPFResource.cpp
+    ResourceObjects/OPFResource.h
+    ResourceObjects/NCXResource.cpp
+    ResourceObjects/NCXResource.h
     )
         
 set( DIALOG_FILES
