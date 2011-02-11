@@ -28,3 +28,23 @@ NCXResource::NCXResource( const QString &fullfilepath, QObject *parent )
 {
 
 }
+
+
+bool NCXResource::RenameTo( const QString &new_filename )
+{
+    // The user is not allowed to rename the NCX file.
+    return false;
+}
+
+
+bool NCXResource::Delete()
+{
+    // The user is not allowed to delete the NCX file.
+    return false;
+}
+
+
+Resource::ResourceType NCXResource::Type() const
+{
+    return Resource::NCXResource;
+}

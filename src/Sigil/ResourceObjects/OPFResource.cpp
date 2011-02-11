@@ -28,3 +28,25 @@ OPFResource::OPFResource( const QString &fullfilepath, QObject *parent )
 {
 
 }
+
+
+bool OPFResource::RenameTo( const QString &new_filename )
+{
+    // The user is not allowed to rename the OPF file.
+    return false;
+}
+
+
+bool OPFResource::Delete()
+{
+    // The user is not allowed to delete the OPF file.
+    return false;
+}
+
+
+Resource::ResourceType OPFResource::Type() const
+{
+    return Resource::OPFResource;
+}
+
+

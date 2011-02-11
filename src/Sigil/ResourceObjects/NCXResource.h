@@ -41,6 +41,14 @@ public:
      */
     NCXResource( const QString &fullfilepath, QObject *parent = NULL );
 
+    // inherited
+
+    virtual bool RenameTo( const QString &new_filename );
+
+    virtual bool Delete(); 
+
+    virtual ResourceType Type() const;
+
 };
 
 #endif // NCXRESOURCE_H

@@ -52,7 +52,9 @@ public:
         CSSResource,     /**< Used for CSS resources (stylesheets). */
         XPGTResource,    /**< Used for XPGT resources. */
         ImageResource,   /**< Used for image resource, of all types. */
-        FontResource     /**< Used for font resources, both TTF and OTF. */
+        FontResource,    /**< Used for font resources, both TTF and OTF. */
+        OPFResource,     /**< Used for the OPF document. */
+        NCXResource      /**< Used for the NCX table of contents. */
     };
 
     /**
@@ -138,14 +140,14 @@ public:
      * @param new_filename The new name.
      * @return \c true if the operation was successful.
      */
-    bool RenameTo( const QString &new_filename );
+    virtual bool RenameTo( const QString &new_filename );
 
     /**
      * Deletes the resource.
      *
      * @return \c true if the operation was successful.
      */
-    bool Delete();    
+    virtual bool Delete();    
 
     /**
      * Returns the resource's type.
