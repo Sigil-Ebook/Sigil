@@ -24,7 +24,7 @@
 
 
 OPFResource::OPFResource( const QString &fullfilepath, QObject *parent )
-    : Resource( fullfilepath, parent )
+    : TextResource( fullfilepath, parent )
 {
 
 }

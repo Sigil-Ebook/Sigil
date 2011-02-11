@@ -23,10 +23,10 @@
 #ifndef NCXRESOURCE_H
 #define NCXRESOURCE_H
 
-#include "Resource.h"
+#include "TextResource.h"
 
 
-class NCXResource : public Resource 
+class NCXResource : public TextResource 
 {
     Q_OBJECT
 
