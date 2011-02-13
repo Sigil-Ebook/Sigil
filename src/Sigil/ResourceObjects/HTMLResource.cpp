@@ -37,7 +37,6 @@ HTMLResource::HTMLResource( const QString &fullfilepath,
                             QObject *parent )
     : 
     Resource( fullfilepath, parent ),
-    m_Resources( resources ),
     m_WebPage( NULL ),
     m_TextDocument( NULL ),
     m_WebPageModified( false ),
@@ -46,7 +45,8 @@ HTMLResource::HTMLResource( const QString &fullfilepath,
     m_GuideSemanticType( GuideSemantics::NoType ),
     m_ReadingOrder( reading_order ),
     c_jQuery(         Utility::ReadUnicodeTextFile( ":/javascript/jquery-1.4.2.min.js"          ) ),
-    c_jQueryScrollTo( Utility::ReadUnicodeTextFile( ":/javascript/jquery.scrollTo-1.4.2-min.js" ) )
+    c_jQueryScrollTo( Utility::ReadUnicodeTextFile( ":/javascript/jquery.scrollTo-1.4.2-min.js" ) ),
+    m_Resources( resources )
 {
     // There should only be one entry in the hash for HTMLResources,
     // and that's guide type -> title

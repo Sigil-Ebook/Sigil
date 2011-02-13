@@ -257,16 +257,16 @@ private:
                               const QHash< QString, QString > &html_updates );
 
     /**
+     * The book's publication identifier.
+     * Currently an UUID.
+     */
+    QString m_PublicationIdentifier;
+
+    /**
      * The FolderKeeper object that represents
      * this book's presence on the hard drive.
      */
     FolderKeeper &m_Mainfolder; 
-
-    /**
-     * The book's publication identifier. 
-     * Currently an UUID.
-     */
-    QString m_PublicationIdentifier;
 
     /**
      * A hash with meta information about the book. The keys are

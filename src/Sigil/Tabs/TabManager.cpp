@@ -200,13 +200,15 @@ void TabManager::UpdateTabName( ContentTab *renamed_tab )
 // Returns the index of the tab the index is loaded in, -1 if it isn't
 int TabManager::ResourceTabIndex( const Resource& resource ) const
 {
-    QString filename( resource.Filename() );
+    QString identifier( resource.GetIdentifier() );
 
     int index = -1;
 
     for ( int i = 0; i < count(); ++i )
     {
-        if ( tabText( i ) == filename )
+        ContentTab *tab = qobject_cast< ContentTab* >( widget( i ) );
+
+        if ( tab && tab->GetLoadedResource().GetIdentifier() == identifier )
         {
             index = i;
             break;
