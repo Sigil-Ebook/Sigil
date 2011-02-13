@@ -28,6 +28,7 @@
 #include "ViewEditors/Searchable.h"
 #include "Misc/SearchOperations.h"
 #include "MainUI/MainWindow.h"
+#include "BookManipulation/FolderKeeper.h"
 
 class QRegExp;
 class Resource;
