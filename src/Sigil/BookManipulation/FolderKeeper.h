@@ -283,7 +283,7 @@ private:
      * The keys are the UUID identifiers, the values
      * are the pointers to the actual resources.
      */
-    QHash< QString, Resource* > c;
+    QHash< QString, Resource* > m_Resources;
 
     /**
      * Ensures thread-safe access to the m_Resources hash.
