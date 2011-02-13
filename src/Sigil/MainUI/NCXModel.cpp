@@ -157,7 +157,8 @@ NCXModel::NCXEntry NCXModel::ParseNavPoint( QXmlStreamReader &ncx )
                     ncx.readNext();
                 }
 
-                // TODO: check whether this text() string is unescaped
+                // The string returned from text() is unescaped
+                // (that is, XML entities have already been converted to text).
                 current.text = ncx.text().toString();
             }
 
