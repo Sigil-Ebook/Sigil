@@ -69,11 +69,6 @@ private:
      */
     void SetupTreeView();
 
-    /**
-     * Connects all the required signals to their respective slots.
-     */
-    void ConnectSignalsToSlots();
-
 
     ///////////////////////////////
     // PRIVATE MEMBER VARIABLES

@@ -71,10 +71,3 @@ void TableOfContents::SetupTreeView()
     m_TreeView.setHeaderHidden( true );
 }
 
-
-void TableOfContents::ConnectSignalsToSlots()
-{
-
-}
-
-
