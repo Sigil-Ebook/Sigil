@@ -23,6 +23,7 @@
 #include "TableOfContents.h"
 #include <QTreeView>
 #include "NCXModel.h"
+#include "BookManipulation/FolderKeeper.h"
 
 static const int COLUMN_INDENTATION = 10;
 
@@ -36,6 +37,9 @@ TableOfContents::TableOfContents( QWidget *parent )
 {
     setWidget( &m_TreeView );
     SetupTreeView();
+
+    connect( &m_TreeView,  SIGNAL( clicked(            const QModelIndex& ) ), 
+             this,         SLOT(   ItemClickedHandler( const QModelIndex& ) ) );
 }
 
 
@@ -51,6 +55,29 @@ void TableOfContents::SetBook( QSharedPointer< Book > book )
 void TableOfContents::Refresh()
 {
     m_NCXModel.Refresh();
+}
+
+
+void TableOfContents::ItemClickedHandler( const QModelIndex &index )
+{
+    QUrl url         = m_NCXModel.GetUrlForIndex( index );
+    QString filename = QFileInfo( url.path() ).fileName();
+
+    try
+    {
+        Resource &resource = m_Book->GetFolderKeeper().GetResourceByFilename( filename );
+
+        emit OpenResourceRequest( resource, false, url.fragment() );
+    }
+
+    catch ( const ResourceDoesNotExist& )
+    {
+        QMessageBox::critical( 0,
+                               tr( "Sigil" ),
+                               tr( "The file \"%1\" does not exist." )
+                               .arg( filename )
+                             );
+    }       
 }
 
 

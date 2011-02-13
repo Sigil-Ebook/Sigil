@@ -33,6 +33,7 @@ class QModelIndex;
 class QStandardItem;
 class QXmlStreamReader;
 class NCXResource;
+class QUrl;
 
 
 /**
@@ -60,6 +61,15 @@ public:
     void SetBook( QSharedPointer< Book > book );
 
     /**
+     * Translates a model index of an item into an URL 
+     * that points to the TOC item target.
+     * 
+     * @param index The model index of an item.
+     * @return The target URL of the item.
+     */
+    QUrl GetUrlForIndex( const QModelIndex &index );
+
+    /**
      * Forces the recreation of the model
      * from the information in the stored book.
      * The refresh is done asynchronously, meaning that this
@@ -68,7 +78,7 @@ public:
      * in RefreshEnd.
      * Can be called repeatedly while a refresh is still in progress.
      */
-    void Refresh();
+    void Refresh();    
 
 private:
 

@@ -24,7 +24,6 @@
 #include "ResourceObjects/NCXResource.h"
 #include "Misc/Utility.h"
 
-
 NCXModel::NCXModel( QWidget *parent )
     : 
     QStandardItemModel( parent ),
@@ -34,6 +33,7 @@ NCXModel::NCXModel( QWidget *parent )
 {
     connect( &m_NcxRootWatcher, SIGNAL( finished() ), this, SLOT( RefreshEnd() ) );
 }
+
 
 void NCXModel::SetBook( QSharedPointer< Book > book )
 {
@@ -45,6 +45,18 @@ void NCXModel::SetBook( QSharedPointer< Book > book )
     }
 
     Refresh();
+}
+
+
+QUrl NCXModel::GetUrlForIndex( const QModelIndex &index )
+{
+    QStandardItem *item = itemFromIndex( index );
+
+    if ( !item )
+
+        return QUrl();
+
+    return item->data().toUrl();
 }
 
 
@@ -204,8 +216,8 @@ void NCXModel::AddEntryToParentItem( const NCXEntry &entry, QStandardItem *paren
     Q_ASSERT( parent );
 
     QStandardItem *item = new QStandardItem( entry.text );
-    // TODO: the target should be processed first
-    item->setData( entry.target );
+
+    item->setData( QUrl( entry.target ) );
     item->setEditable( false );
     item->setDragEnabled( false );
     item->setDropEnabled( false );
@@ -217,6 +229,8 @@ void NCXModel::AddEntryToParentItem( const NCXEntry &entry, QStandardItem *paren
         AddEntryToParentItem( child_entry, item );
     }
 }
+
+
 
 
 

@@ -29,6 +29,7 @@
 
 class NCXModel;
 class QTreeView;
+class QModelIndex;
 
 
 /**
@@ -61,6 +62,27 @@ public slots:
      * Refreshes the display of the book's TOC.
      */
     void Refresh();
+
+private slots:
+
+    /**
+     * Handles the mouse clicks in the TOC and causes
+     * those clicks to open/activate files in the main view area.
+     * 
+     * @param index The model index of the item clicked.
+     */
+    void ItemClickedHandler( const QModelIndex &index );
+
+signals:
+
+    /**
+     * Emitted when the TOC wants a resource to be opened.
+     *
+     * @param resource The resource that should be opened.
+     * @param precede_current_tab Should the new tab precede the currently opened one.
+     * @param fragment The fragment ID to which the new tab should be scrolled.
+     */
+    void OpenResourceRequest( Resource &resource, bool precede_current_tab, const QUrl &fragment );
 
 private:
 
