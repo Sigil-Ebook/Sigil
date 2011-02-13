@@ -172,6 +172,18 @@ private slots:
 private:
 
     /**
+     * Asks the user to confirm editing the OFP or NCX.
+     * If the provided resource is an OPF or an NCX, then the user
+     * is warned that editing them is only for experts. The dialog
+     * also provides an option to remember the choice in the future.
+     * 
+     * @param resource The resource to ask permission about. 
+     * @return \true if the user wishes to continue or the provided
+     *         resource is not an OPF or an NCX.
+     */
+    bool ShouldContinueOpeningResource( const Resource &resource );
+
+    /**
      * Expands the Text folder so that all HTML files are shown.
      */
     void ExpandTextFolder();    

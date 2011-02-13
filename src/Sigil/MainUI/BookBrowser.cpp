@@ -122,8 +122,13 @@ void BookBrowser::EmitResourceDoubleClicked( const QModelIndex &index )
     QString identifier( m_OPFModel.itemFromIndex( index )->data().toString() );  
 
     if ( !identifier.isEmpty() )
+    {
+        Resource &resource = m_Book->GetFolderKeeper().GetResourceByIdentifier( identifier );
 
-        emit ResourceDoubleClicked( m_Book->GetFolderKeeper().GetResourceByIdentifier( identifier ) );
+        if ( ShouldContinueOpeningResource( resource ) )
+
+            emit ResourceDoubleClicked( resource );
+    }
 }
 
 
@@ -397,6 +402,27 @@ void BookBrowser::IdpfsObfuscationMethod()
     else
 
         font_resource->SetObfuscationAlgorithm( "" );
+}
+
+
+bool BookBrowser::ShouldContinueOpeningResource( const Resource &resource )
+{
+    if ( resource.Type() != Resource::OPFResource &&
+         resource.Type() != Resource::NCXResource )
+    {
+        return true;
+    }
+
+    // TODO: use a "don't ask again" checkbox
+    QMessageBox::StandardButton button_pressed;
+    button_pressed = QMessageBox::warning( 
+        0,
+        tr( "Sigil" ),
+        tr( "Editing the OPF and NCX files is for experts only!\n\nContinue?" ),
+        QMessageBox::Yes | QMessageBox::No
+        );
+
+    return button_pressed == QMessageBox::Yes;
 }
 
 
