@@ -44,8 +44,6 @@ public:
     // inherited
 
     virtual bool RenameTo( const QString &new_filename );
-
-    virtual bool Delete();  
     
     virtual ResourceType Type() const;
 

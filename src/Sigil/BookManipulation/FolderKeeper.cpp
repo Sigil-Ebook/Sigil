@@ -22,6 +22,8 @@
 #include <stdafx.h>
 #include "BookManipulation/FolderKeeper.h"
 #include "ResourceObjects/Resource.h"
+#include "ResourceObjects/OPFResource.h"
+#include "ResourceObjects/NCXResource.h"
 #include "Misc/Utility.h"
 
 const QStringList IMAGE_EXTENSIONS = QStringList() << "jpg"   << "jpeg"  << "png"
@@ -40,7 +42,10 @@ const QString MISC_FOLDER_NAME  = "Misc";
 
 
 FolderKeeper::FolderKeeper( QObject *parent )
-    : QObject( parent )
+    : 
+    QObject( parent ),
+    m_OPF( NULL ),
+    m_NCX( NULL )    
 {
     QDir folder( Utility::GetNewTempFolderPath() );
     folder.mkpath( folder.absolutePath() );
@@ -48,6 +53,7 @@ FolderKeeper::FolderKeeper( QObject *parent )
     m_FullPathToMainFolder = folder.absolutePath();
 
     CreateFolderStructure();
+    CreateInfrastructureFiles();
 }
 
 
@@ -170,7 +176,8 @@ Resource& FolderKeeper::AddContentFileToFolder( const QString &fullfilepath,
     
         resource->moveToThread( QApplication::instance()->thread() );
 
-    connect( resource, SIGNAL( Deleted( Resource* ) ), this, SLOT( RemoveResource( Resource* ) ) );
+    connect( resource, SIGNAL( Deleted( Resource* ) ), 
+             this,     SLOT( RemoveResource( Resource* ) ), Qt::DirectConnection );
 
     return *resource;
 }
@@ -296,6 +303,18 @@ Resource& FolderKeeper::GetResourceByFilename( const QString &filename ) const
 }
 
 
+OPFResource& FolderKeeper::GetOPF()
+{
+    return *m_OPF;
+}
+
+
+NCXResource& FolderKeeper::GetNCX()
+{
+    return *m_NCX;
+}
+
+
 QString FolderKeeper::GetFullPathToMainFolder() const
 {
     return m_FullPathToMainFolder;
@@ -365,5 +384,19 @@ void FolderKeeper::CreateFolderStructure()
     m_FullPathToStylesFolder  = m_FullPathToOEBPSFolder + "/" + STYLE_FOLDER_NAME;
     m_FullPathToMiscFolder    = m_FullPathToOEBPSFolder + "/" + MISC_FOLDER_NAME;
 }
+
+void FolderKeeper::CreateInfrastructureFiles()
+{
+    m_OPF = new OPFResource( m_FullPathToOEBPSFolder + "/" + OPF_FILE_NAME, this );
+    m_NCX = new NCXResource( m_FullPathToOEBPSFolder + "/" + NCX_FILE_NAME, this );
+
+    connect( m_OPF, SIGNAL( Deleted( Resource* ) ), this, SLOT( RemoveResource( Resource* ) ) );
+    connect( m_NCX, SIGNAL( Deleted( Resource* ) ), this, SLOT( RemoveResource( Resource* ) ) );
+
+    m_Resources[ m_OPF->GetIdentifier() ] = m_OPF;
+    m_Resources[ m_NCX->GetIdentifier() ] = m_NCX;
+}
+
+
 
 

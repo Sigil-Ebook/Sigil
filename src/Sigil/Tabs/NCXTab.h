@@ -19,30 +19,22 @@
 **
 *************************************************************************/
 
-#include <stdafx.h>
-#include "OPFResource.h"
+#pragma once
+#ifndef NCXTAB_H
+#define NCXTAB_H
 
+#include "TextTab.h"
 
-OPFResource::OPFResource( const QString &fullfilepath, QObject *parent )
-    : TextResource( fullfilepath, parent )
+class NCXResource;
+
+class NCXTab : public TextTab
 {
-    // Make sure the file exists on disk.
-    // Among many reasons, this also solves the problem
-    // with the Book Browser not displaying an icon for this resource.
-    SaveToDisk();
-}
+    Q_OBJECT
 
+public:
 
-bool OPFResource::RenameTo( const QString &new_filename )
-{
-    // The user is not allowed to rename the OPF file.
-    return false;
-}
+    NCXTab( NCXResource& resource, QWidget *parent = 0 );
 
+};
 
-Resource::ResourceType OPFResource::Type() const
-{
-    return Resource::OPFResource;
-}
-
-
+#endif // NCXTAB_H

@@ -24,6 +24,8 @@
 #include "BookManipulation/XhtmlDoc.h"
 #include "Misc/Utility.h"
 #include "ResourceObjects/HTMLResource.h"
+#include "ResourceObjects/OPFResource.h"
+#include "ResourceObjects/NCXResource.h"
 #include "BookManipulation/CleanSource.h"
 #include "SourceUpdates/AnchorUpdates.h"
 #include "SourceUpdates/PerformHTMLUpdates.h"
@@ -77,6 +79,19 @@ FolderKeeper& Book::GetFolderKeeper()
 const FolderKeeper& Book::GetConstFolderKeeper()
 {
     return m_Mainfolder;
+}
+
+
+
+OPFResource& Book::GetOPF()
+{
+    return m_Mainfolder.GetOPF();
+}
+
+
+NCXResource& Book::GetNCX()
+{
+    return m_Mainfolder.GetNCX();
 }
 
 

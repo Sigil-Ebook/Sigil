@@ -23,12 +23,15 @@
 #include "ImportOEBPS.h"
 #include "Misc/Utility.h"
 #include "ResourceObjects/Resource.h"
+#include "ResourceObjects/OPFResource.h"
+#include "ResourceObjects/NCXResource.h"
 #include "BookManipulation/FolderKeeper.h"
 #include <ZipArchive.h>
 
 static const QString DUBLIN_CORE_NS      = "http://purl.org/dc/elements/1.1/";
 static const QString OEBPS_MIMETYPE      = "application/oebps-package+xml";
 static const QString UPDATE_ERROR_STRING = "SG_ERROR";
+const QString NCX_MIMETYPE               = "application/x-dtbncx+xml";
 
 
 ImportOEBPS::ImportOEBPS( const QString &fullfilepath )
@@ -197,6 +200,11 @@ void ImportOEBPS::ReadOPF()
 
             ReadManifestItemElement( opf_reader );
 
+        // We read this just to get the NCX id
+        else if ( opf_reader.name() == "spine" )
+
+            ReadSpineElement( opf_reader );
+
         // Get the list of XHTML files that
         // represent the reading order
         else if ( opf_reader.name() == "itemref" )
@@ -206,7 +214,7 @@ void ImportOEBPS::ReadOPF()
         // Get the <guide> semantic information 
         else if ( opf_reader.name() == "reference" )
         
-            ReadGuideReferenceElement( opf_reader );
+            ReadGuideReferenceElement( opf_reader );        
     }
 
     if ( opf_reader.hasError() )
@@ -263,18 +271,34 @@ void ImportOEBPS::ReadRegularMetaElement( QXmlStreamReader &opf_reader )
 
 void ImportOEBPS::ReadManifestItemElement( QXmlStreamReader &opf_reader )
 {
-    QString id   = opf_reader.attributes().value( "", "id"   ).toString(); 
-    QString href = opf_reader.attributes().value( "", "href" ).toString();
+    QString id   = opf_reader.attributes().value( "", "id"         ).toString(); 
+    QString href = opf_reader.attributes().value( "", "href"       ).toString();
+    QString type = opf_reader.attributes().value( "", "media-type" ).toString();
 
     // Paths are percent encoded in the OPF, we use "normal" paths internally.
     href = Utility::URLDecodePath( href );
 
-    if ( !href.endsWith( ".ncx" ) && 
-         !m_MainfestFilePaths.contains( href ) )
+    if ( type != NCX_MIMETYPE )         
     {                    
-        m_Files[ id ] = href;
-        m_MainfestFilePaths << href;
+        if ( !m_MainfestFilePaths.contains( href ) )
+        {
+            m_Files[ id ] = href;
+            m_MainfestFilePaths << href;
+        }
     }
+
+    else
+    {
+        m_NcxCandidates[ id ] = href;
+    }
+}
+
+
+void ImportOEBPS::ReadSpineElement( QXmlStreamReader &opf_reader )
+{
+    QString ncx_id = opf_reader.attributes().value( "", "toc" ).toString();
+
+    m_NCXFilePath = QFileInfo( m_OPFFilePath ).absolutePath() + "/" + m_NcxCandidates[ ncx_id ];
 }
 
 
@@ -307,6 +331,13 @@ void ImportOEBPS::ReadGuideReferenceElement( QXmlStreamReader &opf_reader )
             break;
         }
     }
+}
+
+
+void ImportOEBPS::LoadInfrastructureFiles()
+{
+    m_Book->GetOPF().SetText( Utility::ReadUnicodeTextFile( m_OPFFilePath ) );
+    m_Book->GetNCX().SetText( Utility::ReadUnicodeTextFile( m_NCXFilePath ) );
 }
 
 
@@ -384,4 +415,5 @@ tuple< QString, QString > ImportOEBPS::LoadOneFile( const QString &path,
     	return make_tuple( UPDATE_ERROR_STRING, UPDATE_ERROR_STRING );
     }
 }
+
 

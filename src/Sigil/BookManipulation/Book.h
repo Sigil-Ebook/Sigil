@@ -31,6 +31,8 @@
 class FolderKeeper;
 class HTMLResource;
 class Resource;
+class OPFResource;
+class NCXResource;
 
 /**
  * Represents the book loaded in the current MainWindow instance
@@ -68,6 +70,20 @@ public:
      * @return A const reference to the FolderKeeper instance of the Book.
      */
     const FolderKeeper& GetConstFolderKeeper();
+
+    /**
+     * Returns the book's OPF file.
+     * 
+     * @return The OPF.
+     */
+    OPFResource& GetOPF();
+
+    /**
+     * Returns the book's NCX file.
+     * 
+     * @return The NCX.
+     */
+    NCXResource& GetNCX();
 
     /**
      * Returns the book's publication identifier.

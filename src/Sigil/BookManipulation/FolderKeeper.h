@@ -37,6 +37,8 @@
 #include "ResourceObjects/FontResource.h"
 
 class Resource;
+class OPFResource;
+class NCXResource;
 
 /**
  * Stores the resources of a book.
@@ -167,7 +169,7 @@ public:
      * This function is a very fast O(1).
      * 
      * @param identifier The identifier to search for.
-     * @return The searched-for resource.
+     * @return The searched-for resourcse.
      */
     Resource& GetResourceByIdentifier( const QString &identifier ) const;
 
@@ -183,6 +185,20 @@ public:
      * @return The searched-for resource.
      */
     Resource& GetResourceByFilename( const QString &filename ) const;
+
+    /**
+     * Returns the book's OPF file.
+     * 
+     * @return The OPF.
+     */
+    OPFResource& GetOPF();
+
+    /**
+     * Returns the book's NCX file.
+     * 
+     * @return The NCX.
+     */
+    NCXResource& GetNCX();
 
     /**
      * Returns the full path to the main folder of the publication.
@@ -215,7 +231,10 @@ public:
 private slots:
 
     /**
+     * Removes the provided resource from the m_Resources hash.
+     * Usually called when a resource is being deleted.
      * 
+     * @param resource The resource to remove.
      */
     void RemoveResource( Resource *resource );
 
@@ -227,6 +246,12 @@ private:
     void CreateFolderStructure();
 
     /**
+     * Creates the book's infrastructure files, like 
+     * the NCX and the OPF.
+     */
+    void CreateInfrastructureFiles();
+
+    /**
      * Dereferences two pointers and compares the values with "<".
      *
      * @param first_item The first item in the comparison.
@@ -236,10 +261,20 @@ private:
     template< typename T >
     static bool PointerLessThan( T* first_item, T* second_item );
 
-
     ///////////////////////////////
     // PRIVATE MEMBER VARIABLES
     ///////////////////////////////
+
+    /**
+     * The book's OPF file.
+     */
+    OPFResource *m_OPF;
+
+    /**
+     * The book's NCX file.
+     */
+    NCXResource *m_NCX;
+
 
     // Resources have to be pointers because
     // we cannot store references in a QHash
@@ -248,7 +283,7 @@ private:
      * The keys are the UUID identifiers, the values
      * are the pointers to the actual resources.
      */
-    QHash< QString, Resource* > m_Resources;
+    QHash< QString, Resource* > c;
 
     /**
      * Ensures thread-safe access to the m_Resources hash.

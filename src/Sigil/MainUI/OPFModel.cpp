@@ -266,11 +266,18 @@ void OPFModel::InitializeModel()
             m_FontsFolderItem.appendRow( item );
         }
 
+        else if ( resource->Type() == Resource::OPFResource || 
+                  resource->Type() == Resource::NCXResource )
+        {
+            item->setEditable( false );
+            appendRow( item );
+        }
+
         else
         {
             m_MiscFolderItem.appendRow( item );        
         }
-    }
+    }           
 }
 
 
@@ -321,6 +328,26 @@ void OPFModel::ClearModel()
     while ( m_MiscFolderItem.rowCount() != 0 )
     {
         m_MiscFolderItem.removeRow( 0 );
+    }
+
+    int i = 0; 
+    while ( i < invisibleRootItem()->rowCount() )
+    {
+        QStandardItem *child = invisibleRootItem()->child( i, 0 );
+
+        if ( child != &m_TextFolderItem   &&
+             child != &m_StylesFolderItem &&
+             child != &m_ImagesFolderItem &&
+             child != &m_FontsFolderItem  &&
+             child != &m_MiscFolderItem )
+        {
+            invisibleRootItem()->removeRow( i );
+        }
+
+        else
+        {
+            ++i;
+        }
     }
 }
 

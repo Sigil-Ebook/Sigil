@@ -246,6 +246,17 @@ void BookBrowser::Remove()
         return;
     }
 
+    if ( resource_type == Resource::OPFResource || 
+         resource_type == Resource::NCXResource )
+    {
+        QMessageBox::critical( 0,
+                               tr( "Sigil" ),
+                               tr( "Neither the NCX nor the OPF can be removed." )
+                             );
+
+        return;
+    }
+
     QMessageBox::StandardButton button_pressed;
     button_pressed = QMessageBox::warning(	this,
                                             tr( "Sigil" ),
@@ -588,9 +599,14 @@ bool BookBrowser::SuccessfullySetupContextMenu( const QPoint &point )
         return true; 
 
     m_ContextMenu.addSeparator();
-    m_ContextMenu.addAction( m_Remove );
-    m_ContextMenu.addAction( m_Rename );
-    m_ContextMenu.addSeparator();
+
+    if ( m_LastContextMenuType != Resource::OPFResource &&
+         m_LastContextMenuType != Resource::NCXResource )
+    {
+        m_ContextMenu.addAction( m_Remove );
+        m_ContextMenu.addAction( m_Rename );
+        m_ContextMenu.addSeparator();
+    }
 
     SetupResourceSpecificContextMenu( resource );    
 

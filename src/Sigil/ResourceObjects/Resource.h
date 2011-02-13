@@ -158,9 +158,8 @@ public:
 
     /**
      * Instructs the resource to save any cached data to disk.
-     * The default implementation does nothing,
-     * and assumes the resource data is not being
-     * cached in memory.
+     * The default implementation does nothing, and assumes
+     * the resource data is not being cached in memory.
      *
      * @param book_wide_save If \c false (the default), a ResourceUpdatedOnDisk()
      *                       signal will be emitted.

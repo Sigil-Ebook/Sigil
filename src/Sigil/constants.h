@@ -56,7 +56,8 @@ extern const QString ENCODING_ATTRIBUTE;
 extern const QString STANDALONE_ATTRIBUTE;
 extern const QString ADOBE_FONT_ALGO_ID;
 extern const QString IDPF_FONT_ALGO_ID; 
-//extern const int STATUSBAR_MSG_DISPLAY_TIME;
+
+extern const QString NCX_MIMETYPE;
 
 extern const char*         XHTML_ENTITIES_DTD_ID; 
 extern const unsigned int  XHTML_ENTITIES_DTD_LEN;

@@ -100,6 +100,14 @@ protected:
     void ReadManifestItemElement( QXmlStreamReader &opf_reader );
 
     /**
+     * Reads a <spine> element.
+     *
+     * @param opf_reader The OPF reader positioned to read 
+     *                   the required element type.
+     */
+    void ReadSpineElement( QXmlStreamReader &opf_reader );
+
+    /**
      * Reads a spine <item> element.
      *
      * @param opf_reader The OPF reader positioned to read 
@@ -122,6 +130,12 @@ protected:
     void LoadMetadata();
 
     /**
+     * Loads the book's infrastructure files, like 
+     * the NCX and the OPF.
+     */
+    void LoadInfrastructureFiles();
+
+    /**
      * Loads the referenced files into the main folder of the book. 
      * @return A hash with keys being old references (URLs) to resources,
      *         and values being the new references to those resources.
@@ -137,7 +151,7 @@ protected:
     tuple< QString, QString > LoadOneFile( const QString &path,
                                            int reading_order,
                                            const QHash< QString, QString > &semantic_info );
-
+    
 
     ///////////////////////////////
     // PROTECTED MEMBER VARIABLES
@@ -154,6 +168,12 @@ protected:
      * of the publication.
      */ 
     QString m_OPFFilePath;
+
+    /**
+     * The full path to the NCX file 
+     * of the publication.
+     */ 
+    QString m_NCXFilePath;
 
     /**
      * The map of all the files in the publication's 
@@ -190,6 +210,14 @@ protected:
      * are key-value pairs of semantic information.
      */ 
     QHash< QString, QHash< QString, QString > > m_SemanticInformation;
+
+    /**
+     * It's theoretically possible (although unlikely) that an epub
+     * will have more than one file listed in the OPF manifest with
+     * an NCX mimetype. Only one of them will be the actual NCX though.
+     * This hash stores all the candidates, as an ID-to-href mapping.
+     */
+    QHash< QString, QString > m_NcxCandidates;
 };
 
 

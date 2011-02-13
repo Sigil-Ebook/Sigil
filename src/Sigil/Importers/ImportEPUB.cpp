@@ -63,6 +63,7 @@ QSharedPointer< Book > ImportEPUB::GetBook()
 
     // These mutate the m_Book object
     LoadMetadata();
+    LoadInfrastructureFiles();
 
     const QHash< QString, QString > &updates = LoadFolderStructure();
     const QList< Resource* > &resources      = m_Book->GetFolderKeeper().GetResourceList();

@@ -54,6 +54,8 @@ set( QOBJECT_HEADERS
     Tabs/CSSTab.h 
     Tabs/ImageTab.h
     Tabs/XPGTTab.h
+    Tabs/OPFTab.h
+    Tabs/NCXTab.h
     MainUI/BookBrowser.h
     MainUI/OPFModel.h
     MainUI/ValidationResultsView.h
@@ -229,6 +231,10 @@ set( TAB_FILES
     Tabs/XPGTTab.h
     Tabs/ImageTab.cpp
     Tabs/ImageTab.h
+    Tabs/OPFTab.cpp
+    Tabs/OPFTab.h
+    Tabs/NCXTab.cpp
+    Tabs/NCXTab.h
     )
             
 set( UI_FILES   

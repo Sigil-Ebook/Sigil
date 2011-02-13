@@ -23,10 +23,14 @@
 #include "TabManager.h"
 #include "FlowTab.h"
 #include "CSSTab.h"
+#include "OPFTab.h"
+#include "NCXTab.h"
 #include "ImageTab.h"
 #include "XPGTTab.h"
 #include "ResourceObjects/Resource.h"
 #include "ResourceObjects/CSSResource.h"
+#include "ResourceObjects/OPFResource.h"
+#include "ResourceObjects/NCXResource.h"
 #include "ResourceObjects/XPGTResource.h"
 #include "ResourceObjects/HTMLResource.h"
 #include "ResourceObjects/ImageResource.h"
@@ -290,6 +294,16 @@ ContentTab* TabManager::CreateTabForResource( Resource& resource,
     else if ( resource.Type() == Resource::ImageResource )
     {
         tab = new ImageTab( *( qobject_cast< ImageResource* >( &resource ) ), this );
+    }
+
+    else if ( resource.Type() == Resource::OPFResource )
+    {
+        tab = new OPFTab( *( qobject_cast< OPFResource* >( &resource ) ), this );
+    }
+
+    else if ( resource.Type() == Resource::NCXResource )
+    {
+        tab = new NCXTab( *( qobject_cast< NCXResource* >( &resource ) ), this );
     }
 
     return tab;    

@@ -84,7 +84,7 @@ void TextResource::InitialLoad()
 
     Q_ASSERT( m_TextDocument );
 
-    if ( m_TextDocument->toPlainText().isEmpty() )
+    if ( m_TextDocument->toPlainText().isEmpty() && QFile::exists( GetFullPath() ) )
 
         m_TextDocument->setPlainText( Utility::ReadUnicodeTextFile( GetFullPath() ) );
 }

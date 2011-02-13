@@ -26,20 +26,16 @@
 NCXResource::NCXResource( const QString &fullfilepath, QObject *parent )
     : TextResource( fullfilepath, parent )
 {
-
+    // Make sure the file exists on disk.
+    // Among many reasons, this also solves the problem
+    // with the Book Browser not displaying an icon for this resource.
+    SaveToDisk();
 }
 
 
 bool NCXResource::RenameTo( const QString &new_filename )
 {
     // The user is not allowed to rename the NCX file.
-    return false;
-}
-
-
-bool NCXResource::Delete()
-{
-    // The user is not allowed to delete the NCX file.
     return false;
 }
 
