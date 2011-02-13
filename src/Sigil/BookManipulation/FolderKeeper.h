@@ -261,6 +261,7 @@ private:
     template< typename T >
     static bool PointerLessThan( T* first_item, T* second_item );
 
+
     ///////////////////////////////
     // PRIVATE MEMBER VARIABLES
     ///////////////////////////////
@@ -274,7 +275,6 @@ private:
      * The book's NCX file.
      */
     NCXResource *m_NCX;
-
 
     // Resources have to be pointers because
     // we cannot store references in a QHash

@@ -174,7 +174,7 @@ private:
      * from messing up the reading orders.
      * Is \c true while the model is refreshing.
      */
-    bool m_Refreshing;
+    bool m_RefreshInProgress;
 
     /**
      * The book whose model we are representing.

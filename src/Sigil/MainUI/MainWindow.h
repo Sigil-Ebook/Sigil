@@ -39,6 +39,7 @@ class QSlider;
 class FindReplace;
 class TabManager;
 class BookBrowser;
+class TableOfContents;
 class ValidationResultsView;
 
 
@@ -588,6 +589,11 @@ private:
      * The Book Browser pane that lists all the files in the book.
      */
     BookBrowser *m_BookBrowser;
+
+    /**
+     * The Table of Contents pane that displays a rendered view of the NCX.
+     */
+    TableOfContents *m_TableOfContents;
 
     /**
      * The Validation Results pane that lists all the validation problems.

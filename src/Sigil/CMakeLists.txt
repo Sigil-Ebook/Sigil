@@ -38,15 +38,14 @@ find_package( Qt4 4.7.0 COMPONENTS QtCore QtGui QtMain QtNetwork QtWebkit QtSvg 
 include( ${QT_USE_FILE} )
 
 # These headers need to go through Qt's MOC compiler
-set( QOBJECT_HEADERS    
-    Dialogs/AddMetadata.h 
-    Dialogs/About.h
+set( QOBJECT_HEADERS 
     ViewEditors/BookViewEditor.h
     ViewEditors/CodeViewEditor.h 
+    Dialogs/AddMetadata.h 
+    Dialogs/About.h
     Dialogs/TOCEditor.h 
     Dialogs/MetaEditor.h
     Dialogs/FindReplace.h
-    MainUI/MainWindow.h
     Tabs/TabManager.h
     Tabs/ContentTab.h 
     Tabs/FlowTab.h
@@ -56,8 +55,11 @@ set( QOBJECT_HEADERS
     Tabs/XPGTTab.h
     Tabs/OPFTab.h
     Tabs/NCXTab.h
+    MainUI/MainWindow.h
     MainUI/BookBrowser.h
+    MainUI/TableOfContents.h
     MainUI/OPFModel.h
+    MainUI/NCXModel.h
     MainUI/ValidationResultsView.h
     Misc/AppEventFilter.h
     Misc/UpdateChecker.h 
@@ -210,8 +212,12 @@ set( MAINUI_FILES
     MainUI/MainWindow.h
     MainUI/BookBrowser.cpp
     MainUI/BookBrowser.h
+    MainUI/TableOfContents.cpp
+    MainUI/TableOfContents.h
     MainUI/OPFModel.cpp
     MainUI/OPFModel.h
+    MainUI/NCXModel.cpp
+    MainUI/NCXModel.h
     MainUI/ValidationResultsView.cpp
     MainUI/ValidationResultsView.h
     )

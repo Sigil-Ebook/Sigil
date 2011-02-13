@@ -33,6 +33,7 @@
 #include "BookManipulation/BookNormalization.h"
 #include "MainUI/BookBrowser.h"
 #include "MainUI/ValidationResultsView.h"
+#include "MainUI/TableOfContents.h"
 #include "Tabs/FlowTab.h"
 #include "Tabs/TabManager.h"
 #include "ResourceObjects/HTMLResource.h"
@@ -55,9 +56,11 @@ static const QString FAQ_WIKI_URL           = "http://code.google.com/p/sigil/wi
 
 static const QString BOOK_BROWSER_NAME            = "bookbrowser";
 static const QString VALIDATION_RESULTS_VIEW_NAME = "validationresultsname";
+static const QString TABLE_OF_CONTENTS_NAME       = "tableofcontents";
 static const QString FRAME_NAME                   = "managerframe";
 static const QString TAB_STYLE_SHEET              = "#managerframe {border-top: 0px solid white;"
                                                     "border-left: 1px solid grey;"
+                                                    "border-right: 1px solid grey;"
                                                     "border-bottom: 1px solid grey;} ";
 
 static const QStringList SUPPORTED_SAVE_TYPE = QStringList() << "epub"; 
@@ -76,6 +79,7 @@ MainWindow::MainWindow( const QString &openfilepath, QWidget *parent, Qt::WFlags
     m_cbHeadings( NULL ),
     m_TabManager( *new TabManager( this ) ),
     m_BookBrowser( NULL ),
+    m_TableOfContents( NULL ),
     m_ValidationResultsView( NULL ),
     m_slZoomSlider( NULL ),
     m_lbZoomLabel( NULL ),
@@ -838,6 +842,7 @@ void MainWindow::SetNewBook( QSharedPointer< Book > new_book )
 {
     m_Book = new_book;
     m_BookBrowser->SetBook( m_Book );
+    m_TableOfContents->SetBook( m_Book );
     m_ValidationResultsView->SetBook( m_Book );
     connect( m_Book.data(), SIGNAL( ModifiedStateChanged( bool ) ), this, SLOT( setWindowModified( bool ) ) );
     m_Book->SetModified( false );
@@ -1252,6 +1257,10 @@ void MainWindow::ExtendUI()
     m_BookBrowser->setObjectName( BOOK_BROWSER_NAME );
     addDockWidget( Qt::LeftDockWidgetArea, m_BookBrowser );
 
+    m_TableOfContents = new TableOfContents( this );
+    m_TableOfContents->setObjectName( TABLE_OF_CONTENTS_NAME );
+    addDockWidget( Qt::RightDockWidgetArea, m_TableOfContents );
+
     m_ValidationResultsView = new ValidationResultsView( this );
     m_ValidationResultsView->setObjectName( VALIDATION_RESULTS_VIEW_NAME );
     addDockWidget( Qt::BottomDockWidgetArea, m_ValidationResultsView );
@@ -1269,6 +1278,9 @@ void MainWindow::ExtendUI()
 
     ui.menuView->addAction( m_ValidationResultsView->toggleViewAction() );
     m_ValidationResultsView->toggleViewAction()->setShortcut( QKeySequence( Qt::ALT + Qt::Key_F2 ) );
+
+    ui.menuView->addAction( m_TableOfContents->toggleViewAction() );
+    m_TableOfContents->toggleViewAction()->setShortcut( QKeySequence( Qt::ALT + Qt::Key_F3 ) );
 
     // Creating the Heading combo box
 

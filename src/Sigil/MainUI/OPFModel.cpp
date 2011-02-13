@@ -37,7 +37,7 @@ static const QList< QChar > FORBIDDEN_FILENAME_CHARS = QList< QChar >() << '<' <
 OPFModel::OPFModel( QWidget *parent )
     : 
     QStandardItemModel( parent ),
-    m_Refreshing( false ),
+    m_RefreshInProgress( false ),
     m_Book( NULL ),
     m_TextFolderItem(   *new QStandardItem( TEXT_FOLDER_NAME  ) ),
     m_StylesFolderItem( *new QStandardItem( STYLE_FOLDER_NAME ) ),
@@ -86,14 +86,14 @@ void OPFModel::SetBook( QSharedPointer< Book > book )
 
 void OPFModel::Refresh()
 {
-    m_Refreshing = true;
+    m_RefreshInProgress = true;
 
     InitializeModel();
 
     SortFilesByFilenames();
     SortHTMLFilesByReadingOrder();
 
-    m_Refreshing = false;
+    m_RefreshInProgress = false;
 }
 
 
@@ -165,7 +165,7 @@ Qt::DropActions OPFModel::supportedDropActions() const
 //   This also handles actual HTML item deletion.
 void OPFModel::RowsRemovedHandler( const QModelIndex &parent, int start, int end )
 {
-    if ( m_Refreshing || 
+    if ( m_RefreshInProgress || 
          itemFromIndex( parent ) != &m_TextFolderItem )
     {
         return;
