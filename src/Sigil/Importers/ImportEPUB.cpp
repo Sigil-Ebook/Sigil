@@ -96,8 +96,9 @@ QHash< QString, QString > ImportEPUB::ParseEncryptionXml()
 
     while ( !encryption.atEnd() ) 
     {
-        // Get the next token from the stream
-        if ( encryption.readNext() == QXmlStreamReader::StartElement )  
+        encryption.readNext(); 
+
+        if ( encryption.isStartElement() )  
         {
             if ( encryption.name() == "EncryptionMethod" )
             {

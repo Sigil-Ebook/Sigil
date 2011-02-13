@@ -148,7 +148,6 @@ NCXModel::NCXEntry NCXModel::ParseNavPoint( QXmlStreamReader &ncx )
     {
         ncx.readNext();
 
-        // TODO: use isStartElement etc everywhere
         if ( ncx.isStartElement() ) 
         {
             if ( ncx.name() == "text" )

@@ -138,8 +138,10 @@ QString UpdateChecker::ReadOnlineVersion( const QString &online_version_xml )
 
     while ( !version_reader.atEnd() ) 
     {
-        if ( ( version_reader.readNext() == QXmlStreamReader::StartElement ) &&
-             ( version_reader.name() == XML_VERSION_ELEMENT )
+        version_reader.readNext();
+
+        if ( version_reader.isStartElement() &&
+             version_reader.name() == XML_VERSION_ELEMENT
            ) 
         {
            return version_reader.readElementText();

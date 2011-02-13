@@ -128,7 +128,9 @@ void ImportOEBPS::LocateOPF()
 
     while ( !container.atEnd() ) 
     {
-        if ( container.readNext() == QXmlStreamReader::StartElement && 
+        container.readNext();
+
+        if ( container.isStartElement() && 
              container.name() == "rootfile"
            ) 
         {
@@ -176,8 +178,9 @@ void ImportOEBPS::ReadOPF()
 
     while ( !opf_reader.atEnd() ) 
     {
-        // Get the next token from the stream
-        if ( opf_reader.readNext() != QXmlStreamReader::StartElement ) 
+        opf_reader.readNext();
+
+        if ( !opf_reader.isStartElement() ) 
 
             continue;
 

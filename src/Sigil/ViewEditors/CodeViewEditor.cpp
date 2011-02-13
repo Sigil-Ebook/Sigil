@@ -556,10 +556,9 @@ QStack< CodeViewEditor::StackElement > CodeViewEditor::GetCaretLocationStack( in
 
     while ( !reader.atEnd() ) 
     {
-        // Get the next token from the stream
-        QXmlStreamReader::TokenType type = reader.readNext();
+        reader.readNext();
 
-        if ( type == QXmlStreamReader::StartElement ) 
+        if ( reader.isStartElement() ) 
         {
             // If we detected the start of a new element, then
             // the element currently on the top of the stack
@@ -583,7 +582,7 @@ QStack< CodeViewEditor::StackElement > CodeViewEditor::GetCaretLocationStack( in
 
         // If we detect the end tag of an element,
         // we remove it from the top of the stack
-        else if ( type == QXmlStreamReader::EndElement )
+        else if ( reader.isEndElement() )
         {
             stack.pop();
         }

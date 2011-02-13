@@ -105,9 +105,9 @@ QList< XhtmlDoc::XMLElement > XhtmlDoc::GetTagsInHead( const QString &source, co
 
     while ( !reader.atEnd() ) 
     {
-        QXmlStreamReader::TokenType type = reader.readNext();
+        reader.readNext();
 
-        if ( type == QXmlStreamReader::StartElement ) 
+        if ( reader.isStartElement() ) 
         {
             if ( reader.name() == "head" || reader.name() == "HEAD" )
             
@@ -118,7 +118,7 @@ QList< XhtmlDoc::XMLElement > XhtmlDoc::GetTagsInHead( const QString &source, co
                 matching_elements.append( CreateXMLElement( reader ) );
         }
 
-        else if ( type == QXmlStreamReader::EndElement &&
+        else if ( reader.isEndElement() &&
                   ( reader.name() == "head" || reader.name() == "HEAD" )
                 )
         {
@@ -153,11 +153,13 @@ QList< XhtmlDoc::XMLElement > XhtmlDoc::GetTagsInDocument( const QString &source
 
     while ( !reader.atEnd() ) 
     {
-        QXmlStreamReader::TokenType type = reader.readNext();
+        reader.readNext();
 
-        if ( ( type == QXmlStreamReader::StartElement ) && ( reader.name() == tag_name ) ) 
- 
-            matching_elements.append( CreateXMLElement( reader ) );        
+        if ( reader.isStartElement() && 
+             reader.name() == tag_name ) 
+        {
+            matching_elements.append( CreateXMLElement( reader ) );   
+        }
     }
 
     if ( reader.hasError() )
