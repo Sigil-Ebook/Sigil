@@ -27,9 +27,11 @@
 #include "Misc/Utility.h"
 #include "ResourceObjects/HTMLResource.h"
 #include "Importers/ImportHTML.h"
+#include "Qxt/qxtconfirmationmessage.h"
 #include <QTreeView>
 
 static const QString SETTINGS_GROUP = "bookbrowser";
+static const QString OPF_NCX_EDIT_WARNING_KEY = SETTINGS_GROUP + "-opfncx-warning";
 static const int COLUMN_INDENTATION = 10;
 
 
@@ -413,16 +415,19 @@ bool BookBrowser::ShouldContinueOpeningResource( const Resource &resource )
         return true;
     }
 
-    // TODO: use a "don't ask again" checkbox
-    QMessageBox::StandardButton button_pressed;
-    button_pressed = QMessageBox::warning( 
-        0,
+    QxtConfirmationMessage message( 
+        QMessageBox::Information,
         tr( "Sigil" ),
         tr( "Editing the OPF and NCX files is for experts only!\n\nContinue?" ),
-        QMessageBox::Yes | QMessageBox::No
+        tr( "Don't show again." ),
+        QMessageBox::Ok | QMessageBox::Cancel, 
+        this
         );
 
-    return button_pressed == QMessageBox::Yes;
+    message.setOverrideSettingsKey( OPF_NCX_EDIT_WARNING_KEY );
+    message.setDefaultButton( QMessageBox::Cancel );
+
+    return message.exec() == QMessageBox::Yes;
 }
 
 

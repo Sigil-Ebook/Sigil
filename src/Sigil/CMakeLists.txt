@@ -75,6 +75,7 @@ set( QOBJECT_HEADERS
     ResourceObjects/OPFResource.h
     BookManipulation/Book.h
     BookManipulation/FolderKeeper.h
+    Qxt/qxtconfirmationmessage.h
     )
 
 set( MAIN_FILES
@@ -270,6 +271,12 @@ set( QRC_FILES
     Resource_Files/javascript/javascript.qrc
     Resource_Files/icon/icon.qrc  
     )
+    
+set( QXT_FILES
+    Qxt/qxtconfirmationmessage.h
+    Qxt/qxtconfirmationmessage.cpp
+    Qxt/qxtglobal.h
+    )
 
 set( LINUX_DESKTOP_FILE
     Resource_Files/freedesktop/sigil.desktop
@@ -279,7 +286,7 @@ set( LINUX_DESKTOP_ICON_FILE
     Resource_Files/icon/app_icon_48.png
     )
     
-set( RAW_SOURCES ${MAIN_FILES} ${TAB_FILES} ${SOURCEUPDATE_FILES} ${BOOK_MANIPULATION_FILES} ${RESOURCE_OBJECT_FILES} ${DIALOG_FILES} ${EXPORTER_FILES} ${IMPORTER_FILES} ${MISC_FILES} ${VIEW_EDITOR_FILES} ${MAINUI_FILES} )
+set( RAW_SOURCES ${MAIN_FILES} ${TAB_FILES} ${SOURCEUPDATE_FILES} ${BOOK_MANIPULATION_FILES} ${RESOURCE_OBJECT_FILES} ${DIALOG_FILES} ${EXPORTER_FILES} ${IMPORTER_FILES} ${MISC_FILES} ${VIEW_EDITOR_FILES} ${MAINUI_FILES} ${QXT_FILES} )
 
 #############################################################################
 
@@ -332,6 +339,8 @@ source_group( "Tabs"              FILES ${TAB_FILES} )
 source_group( "MainUI"            FILES ${MAINUI_FILES} )
 source_group( "Main Files"        FILES ${MAIN_FILES} )
 source_group( "Source Updates"    FILES ${SOURCEUPDATE_FILES} )
+source_group( "Qxt"               FILES ${QXT_FILES} )
+
 
 #############################################################################
 
