@@ -33,6 +33,7 @@ class QModelIndex;
 class QVBoxLayout;
 class QWidget;
 class QPushButton;
+class QTimer;
 
 
 /**
@@ -66,6 +67,12 @@ public slots:
      */
     void Refresh();
 
+    /**
+     * Starts the refresh operation, but on a delay.
+     * Repeatedly calling this function resets the delay timer.
+     */
+    void StartRefreshDelay();
+
 private slots:
 
     /**
@@ -76,6 +83,9 @@ private slots:
      */
     void ItemClickedHandler( const QModelIndex &index );
 
+    /**
+     * Implements the "Generate TOC From headings" button functionality.
+     */
     void GenerateTocFromHeadings();
 
 signals:
@@ -89,6 +99,10 @@ signals:
      */
     void OpenResourceRequest( Resource &resource, bool precede_current_tab, const QUrl &fragment );
 
+    /**
+     * Emitted when the TOC wants all tab data to be stored
+     * in the internal caches.
+     */
     void TabDataSavedRequest();
 
 private:
@@ -108,8 +122,14 @@ private:
      */
     QSharedPointer< Book > m_Book;
 
+    /**
+     * A container widget for the TOC UI widgets.
+     */
     QWidget &m_MainWidget;
-
+    
+    /**
+     * The layout for the container widget.
+     */
     QVBoxLayout &m_Layout;
 
     /**
@@ -117,7 +137,15 @@ private:
      */
     QTreeView &m_TreeView;
 
+    /**
+     * The button that initiates the TOC-generation-from-headings process.
+     */
     QPushButton &m_GenerateTocButton;
+
+    /**
+     * The timer that provides the delay for the refresh operation.
+     */
+    QTimer &m_RefreshTimer;
     
     /**
      * The data model used to feed the tree view.

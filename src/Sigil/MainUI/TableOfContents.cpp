@@ -29,6 +29,7 @@
 #include "ResourceObjects/NCXResource.h"
 
 static const int COLUMN_INDENTATION = 10;
+static const int REFRESH_DELAY = 1000;
 
 
 
@@ -40,6 +41,7 @@ TableOfContents::TableOfContents( QWidget *parent )
     m_Layout( *new QVBoxLayout( &m_MainWidget ) ),
     m_TreeView( *new QTreeView( &m_MainWidget ) ),
     m_GenerateTocButton( *new QPushButton( tr( "Generate TOC from headings" ), &m_MainWidget ) ),
+    m_RefreshTimer( *new QTimer( this ) ),
     m_NCXModel( *new NCXModel( this ) )
 {
     m_Layout.setContentsMargins( 0, 0, 0, 0 );
@@ -51,6 +53,9 @@ TableOfContents::TableOfContents( QWidget *parent )
 
     setWidget( &m_MainWidget );
 
+    m_RefreshTimer.setInterval( REFRESH_DELAY );
+    m_RefreshTimer.setSingleShot( true );
+        
     SetupTreeView();
 
     connect( &m_TreeView, SIGNAL( clicked(            const QModelIndex& ) ), 
@@ -58,6 +63,9 @@ TableOfContents::TableOfContents( QWidget *parent )
 
     connect( &m_GenerateTocButton, SIGNAL( clicked() ), 
              this,                 SLOT( GenerateTocFromHeadings() ) );
+
+    connect( &m_RefreshTimer, SIGNAL( timeout() ), 
+             this,            SLOT( Refresh() ) );
 }
 
 
@@ -66,6 +74,9 @@ void TableOfContents::SetBook( QSharedPointer< Book > book )
     m_Book = book;
     m_NCXModel.SetBook( book );
 
+    connect( &m_Book->GetNCX(), SIGNAL( Modified()), 
+             this,              SLOT( StartRefreshDelay() ) );
+
     Refresh();
 }
 
@@ -73,6 +84,16 @@ void TableOfContents::SetBook( QSharedPointer< Book > book )
 void TableOfContents::Refresh()
 {
     m_NCXModel.Refresh();
+}
+
+
+void TableOfContents::StartRefreshDelay()
+{
+    // Repeatedly calling start() will re-start the timer
+    // and that's exactly what we want.
+    // We want the timer to fire REFRESH_DELAY miliseconds
+    // after the user has stopped typing up the NCX.
+    m_RefreshTimer.start();
 }
 
 
@@ -144,4 +165,6 @@ void TableOfContents::SetupTreeView()
     m_TreeView.setIndentation( COLUMN_INDENTATION );
     m_TreeView.setHeaderHidden( true );
 }
+
+
 
