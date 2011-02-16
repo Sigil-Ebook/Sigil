@@ -1476,9 +1476,9 @@ void MainWindow::ExtendIconSizes()
     icon.addFile(QString::fromUtf8(":/main/format-indent-less_16px.png"));
     ui.actionDecreaseIndent->setIcon(icon);
 
-    icon = ui.actionRemoveFormatting->icon();
+    icon = ui.actionTidyClean->icon();
     icon.addFile(QString::fromUtf8(":/main/edit-clear_16px.png"));
-    ui.actionRemoveFormatting->setIcon(icon);
+    ui.actionTidyClean->setIcon(icon);
 
     icon = ui.actionDonate->icon();
     icon.addFile(QString::fromUtf8(":/main/emblem-favorite_16px.png"));
