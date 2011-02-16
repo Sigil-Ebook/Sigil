@@ -26,7 +26,6 @@
 #include "Exporters/ExportEPUB.h"
 #include "Dialogs/MetaEditor.h"
 #include "Dialogs/About.h"
-#include "Dialogs/HeadingSelector.h"
 #include "Dialogs/FindReplace.h"
 #include "Importers/ImporterFactory.h"
 #include "Exporters/ExporterFactory.h"
@@ -409,19 +408,6 @@ void MainWindow::MetaEditorDialog()
 {
     MetaEditor meta( m_Book, this );
     meta.exec();
-}
-
-
-void MainWindow::TOCEditorDialog()
-{
-    m_TabManager.SaveCurrentTabData();
-
-    HeadingSelector toc( m_Book, this );
-
-    if ( toc.exec() == QDialog::Accepted )
-    {
-        m_Book->SetModified( true );
-    }
 }
 
 
@@ -1528,7 +1514,6 @@ void MainWindow::ConnectSignalsToSlots()
     connect( ui.actionZoomOut,       SIGNAL( triggered() ), this, SLOT( ZoomOut()                  ) );
     connect( ui.actionInsertImage,   SIGNAL( triggered() ), this, SLOT( InsertImage()              ) );
     connect( ui.actionMetaEditor,    SIGNAL( triggered() ), this, SLOT( MetaEditorDialog()         ) );
-    connect( ui.actionTOCEditor,     SIGNAL( triggered() ), this, SLOT( TOCEditorDialog()          ) );
     connect( ui.actionUserManual,    SIGNAL( triggered() ), this, SLOT( UserManual()               ) );
     connect( ui.actionFAQ,           SIGNAL( triggered() ), this, SLOT( FrequentlyAskedQuestions() ) );
     connect( ui.actionDonate,        SIGNAL( triggered() ), this, SLOT( Donate()                   ) );

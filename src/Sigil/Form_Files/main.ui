@@ -125,7 +125,6 @@
      <string>&amp;Tools</string>
     </property>
     <addaction name="actionMetaEditor"/>
-    <addaction name="actionTOCEditor"/>
     <addaction name="actionSplitOnSGFChapterMarkers"/>
     <addaction name="separator"/>
     <addaction name="actionTidyClean"/>
@@ -770,14 +769,6 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+Shift+L</string>
-   </property>
-  </action>
-  <action name="actionTOCEditor">
-   <property name="text">
-    <string>&amp;TOC Editor...</string>
-   </property>
-   <property name="shortcut">
-    <string>F7</string>
    </property>
   </action>
   <action name="actionStrikethrough">

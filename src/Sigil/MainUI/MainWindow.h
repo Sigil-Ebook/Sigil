@@ -192,11 +192,6 @@ private slots:
     void MetaEditorDialog();
 
     /**
-     * Implements TOC Editor action functionality.
-     */
-    void TOCEditorDialog();
-
-    /**
      * Implements User Manual action functionality.
      */
     void UserManual();
