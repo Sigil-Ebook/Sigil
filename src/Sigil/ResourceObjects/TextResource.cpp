@@ -29,7 +29,10 @@ TextResource::TextResource( const QString &fullfilepath, QObject *parent )
     m_TextDocument( new QTextDocument( this ) )
 {
     m_TextDocument->setDocumentLayout( new QPlainTextDocumentLayout( m_TextDocument ) );
+ 
+    connect( m_TextDocument, SIGNAL( contentsChanged() ), this, SIGNAL( Modified() ) );
 }
+
 
 void TextResource::SetText( const QString& text )
 {

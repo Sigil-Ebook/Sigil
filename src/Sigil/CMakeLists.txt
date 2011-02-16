@@ -43,7 +43,7 @@ set( QOBJECT_HEADERS
     ViewEditors/CodeViewEditor.h 
     Dialogs/AddMetadata.h 
     Dialogs/About.h
-    Dialogs/TOCEditor.h 
+    Dialogs/HeadingSelector.h 
     Dialogs/MetaEditor.h
     Dialogs/FindReplace.h
     Tabs/TabManager.h
@@ -133,8 +133,8 @@ set( DIALOG_FILES
     Dialogs/AddMetadata.h
     Dialogs/MetaEditor.cpp
     Dialogs/MetaEditor.h
-    Dialogs/TOCEditor.cpp
-    Dialogs/TOCEditor.h
+    Dialogs/HeadingSelector.cpp
+    Dialogs/HeadingSelector.h
     Dialogs/FindReplace.cpp
     Dialogs/FindReplace.h
     )
@@ -249,7 +249,7 @@ set( UI_FILES
     Form_Files/MetaEditor.ui 
     Form_Files/AddMetadata.ui 
     Form_Files/About.ui 
-    Form_Files/TOCEditor.ui 
+    Form_Files/HeadingSelector.ui 
     Form_Files/FindReplace.ui 
     )
     

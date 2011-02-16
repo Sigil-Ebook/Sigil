@@ -85,7 +85,6 @@ QList< Headings::Heading > Headings::GetHeadingListForOneFile( HTMLResource* htm
         heading.level          = QString( XtoQ( element.getTagName() ).at( 1 ) ).toInt();
         heading.include_in_toc = !XtoQ( element.getAttribute( QtoX( "class" ) ) )
                                  .contains( NOT_IN_TOC_CLASS );
-        heading.text_changed   = false;
         heading.at_file_start  = 
             i == 0 && 
             XhtmlDoc::NodeLineNumber( element ) - 

@@ -49,11 +49,6 @@ public:
     TabManager( QWidget *parent = 0 );
 
     /**
-     * Saves any unsaved data in the current tab.
-     */
-    void SaveCurrentTabData();
-
-    /**
      * Returns a reference to the current content tab.
      *
      * @return A reference to the current content tab.
@@ -61,6 +56,11 @@ public:
     ContentTab& GetCurrentContentTab();    
 
 public slots:
+
+    /**
+     * Saves any unsaved data in the current tab.
+     */
+    void SaveCurrentTabData();
 
     /**
      * Opens the specified resource in a new tab.

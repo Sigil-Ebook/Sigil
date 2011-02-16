@@ -427,7 +427,7 @@ bool BookBrowser::ShouldContinueOpeningResource( const Resource &resource )
     message.setOverrideSettingsKey( OPF_NCX_EDIT_WARNING_KEY );
     message.setDefaultButton( QMessageBox::Cancel );
 
-    return message.exec() == QMessageBox::Yes;
+    return message.exec() == QMessageBox::Ok;
 }
 
 

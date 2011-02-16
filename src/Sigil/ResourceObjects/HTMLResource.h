@@ -145,9 +145,9 @@ public:
      */
     void MarkSecondaryCachesAsOld();
 
-    // All of these Update* functions may look silly,
-    // but updating only the parts that are needed
-    // improves performance *considerably*.
+    // All of these Update* functions may look silly and complex,
+    // but updating only the parts that are needed improves
+    // performance *considerably*.
     // They are always called only from the GUI thread.
 
     /**

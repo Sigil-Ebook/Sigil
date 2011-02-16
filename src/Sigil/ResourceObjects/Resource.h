@@ -185,6 +185,19 @@ signals:
      */
     void ResourceUpdatedOnDisk();
 
+    /**
+     * Emitted when the resource has been modified. This 
+     * modification may or may not be visible on the disk.
+     * (this means that the ResourceUpdatedOnDisk may or may
+     * not have been also emitted).
+     * Note that in the cases where a user of the Resource is
+     * using its low-level interfaces, the resource can be modified
+     * without this signal being emitted. It is then up to the user
+     * to emit this signal. Modifying the resource in such a way
+     * without emitting this signal is an error.
+     */
+    void Modified();
+
 protected:
 
     /**

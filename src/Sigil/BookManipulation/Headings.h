@@ -59,10 +59,6 @@ public:
         // Should the heading be included in the TOC or not
         bool include_in_toc;
 
-        // Becomes true when the heading is edited
-        // in the TOC editor.
-        bool text_changed;
-
         // The headings 'below' this one
         // (those that appear after it in the source and
         // are of higher level/smaller size)

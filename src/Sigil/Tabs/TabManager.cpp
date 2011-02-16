@@ -53,19 +53,6 @@ TabManager::TabManager( QWidget *parent )
 }
 
 
-void TabManager::SaveCurrentTabData()
-{
-    ContentTab& tab = GetCurrentContentTab();
-
-    // just in case
-    if ( &tab == NULL )
-
-        return;
-
-    tab.SaveTabContent();
-}
-
-
 ContentTab& TabManager::GetCurrentContentTab()
 {
     QWidget* widget = currentWidget();
@@ -75,6 +62,21 @@ ContentTab& TabManager::GetCurrentContentTab()
     //Q_ASSERT( widget != NULL );
 
     return *qobject_cast< ContentTab* >( widget );
+}
+
+
+void TabManager::SaveCurrentTabData()
+{
+    // TODO: Save the data in ALL the open tabs!
+
+    ContentTab& tab = GetCurrentContentTab();
+
+    // just in case
+    if ( &tab == NULL )
+
+        return;
+
+    tab.SaveTabContent();
 }
 
 

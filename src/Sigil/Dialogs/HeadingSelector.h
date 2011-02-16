@@ -20,19 +20,19 @@
 *************************************************************************/
 
 #pragma once
-#ifndef TOCEDITOR_H
-#define TOCEDITOR_H
+#ifndef HEADINGSELECTOR_H
+#define HEADINGSELECTOR_H
 
 #include <QtGui/QDialog>
 #include <QStandardItemModel>
 #include <QSharedPointer>
 
-#include "ui_TOCEditor.h"
+#include "ui_HeadingSelector.h"
 #include "BookManipulation/Headings.h"
 
 class Book;
 
-class TOCEditor : public QDialog
+class HeadingSelector : public QDialog
 {
     Q_OBJECT
 
@@ -41,10 +41,10 @@ public:
     // Constructor;
     // the first parameter is the book whose TOC
     // is being edited, the second is the dialog's parent
-    TOCEditor( QSharedPointer< Book > book, QWidget *parent = 0 );
+    HeadingSelector( QSharedPointer< Book > book, QWidget *parent = 0 );
 
     // Destructor
-    ~TOCEditor();
+    ~HeadingSelector();
 
 private slots:
 
@@ -67,7 +67,7 @@ private:
 
     // We need this to be able to use a forward
     // declaration of Book in the QSharedPointer
-    Q_DISABLE_COPY( TOCEditor );
+    Q_DISABLE_COPY( HeadingSelector );
 
     void UpdateOneHeadingElement( QStandardItem *item );
 
@@ -75,10 +75,6 @@ private:
     // whenever that heading's "include in TOC" checkbox
     // is checked/unchecked. 
     void UpdateHeadingInclusion( QStandardItem *checkbox_item );
-
-    // Updates the text in the heading if
-    // it has been changed in the editor
-    void UpdateHeadingText( QStandardItem *text_item );
 
     // Updates the display of the tree view
     // (resizes columns etc.)
@@ -151,9 +147,9 @@ private:
     QList< Headings::Heading > m_Headings;
 
     // Holds all the widgets Qt Designer created for us
-    Ui::TOCEditor ui;
+    Ui::HeadingSelector ui;
 };
 
 
-#endif // TOCEDITOR_H
+#endif // HEADINGSELECTOR_H
 

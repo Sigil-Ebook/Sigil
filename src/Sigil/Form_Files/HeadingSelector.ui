@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>TOCEditor</class>
- <widget class="QDialog" name="TOCEditor">
+ <class>HeadingSelector</class>
+ <widget class="QDialog" name="HeadingSelector">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -11,12 +11,21 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Table Of Contents Editor</string>
+   <string>Heading Selector</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
     <widget class="QTreeView" name="tvTOCDisplay">
+     <property name="editTriggers">
+      <set>QAbstractItemView::NoEditTriggers</set>
+     </property>
      <property name="tabKeyNavigation">
+      <bool>false</bool>
+     </property>
+     <property name="showDropIndicator" stdset="0">
+      <bool>false</bool>
+     </property>
+     <property name="dragEnabled">
       <bool>false</bool>
      </property>
      <property name="alternatingRowColors">
@@ -66,7 +75,7 @@
   <connection>
    <sender>buttonBox</sender>
    <signal>accepted()</signal>
-   <receiver>TOCEditor</receiver>
+   <receiver>HeadingSelector</receiver>
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -82,7 +91,7 @@
   <connection>
    <sender>buttonBox</sender>
    <signal>rejected()</signal>
-   <receiver>TOCEditor</receiver>
+   <receiver>HeadingSelector</receiver>
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">

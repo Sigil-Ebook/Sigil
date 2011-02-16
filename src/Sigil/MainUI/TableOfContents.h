@@ -30,6 +30,9 @@
 class NCXModel;
 class QTreeView;
 class QModelIndex;
+class QVBoxLayout;
+class QWidget;
+class QPushButton;
 
 
 /**
@@ -73,6 +76,8 @@ private slots:
      */
     void ItemClickedHandler( const QModelIndex &index );
 
+    void GenerateTocFromHeadings();
+
 signals:
 
     /**
@@ -83,6 +88,8 @@ signals:
      * @param fragment The fragment ID to which the new tab should be scrolled.
      */
     void OpenResourceRequest( Resource &resource, bool precede_current_tab, const QUrl &fragment );
+
+    void TabDataSavedRequest();
 
 private:
 
@@ -101,10 +108,16 @@ private:
      */
     QSharedPointer< Book > m_Book;
 
+    QWidget &m_MainWidget;
+
+    QVBoxLayout &m_Layout;
+
     /**
      * The tree view used to represent the TOC.
      */
     QTreeView &m_TreeView;
+
+    QPushButton &m_GenerateTocButton;
     
     /**
      * The data model used to feed the tree view.

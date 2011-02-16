@@ -24,22 +24,40 @@
 #include <QTreeView>
 #include "NCXModel.h"
 #include "BookManipulation/FolderKeeper.h"
+#include "Dialogs/HeadingSelector.h"
+#include "Exporters/NCXWriter.h"
+#include "ResourceObjects/NCXResource.h"
 
 static const int COLUMN_INDENTATION = 10;
+
 
 
 TableOfContents::TableOfContents( QWidget *parent )
     : 
     QDockWidget( tr( "Table of Contents" ), parent ),
     m_Book( NULL ),
-    m_TreeView( *new QTreeView( this ) ),
+    m_MainWidget( *new QWidget( this ) ),
+    m_Layout( *new QVBoxLayout( &m_MainWidget ) ),
+    m_TreeView( *new QTreeView( &m_MainWidget ) ),
+    m_GenerateTocButton( *new QPushButton( tr( "Generate TOC from headings" ), &m_MainWidget ) ),
     m_NCXModel( *new NCXModel( this ) )
 {
-    setWidget( &m_TreeView );
+    m_Layout.setContentsMargins( 0, 0, 0, 0 );
+
+    m_Layout.addWidget( &m_TreeView );
+    m_Layout.addWidget( &m_GenerateTocButton );
+
+    m_MainWidget.setLayout( &m_Layout );
+
+    setWidget( &m_MainWidget );
+
     SetupTreeView();
 
-    connect( &m_TreeView,  SIGNAL( clicked(            const QModelIndex& ) ), 
-             this,         SLOT(   ItemClickedHandler( const QModelIndex& ) ) );
+    connect( &m_TreeView, SIGNAL( clicked(            const QModelIndex& ) ), 
+             this,        SLOT(   ItemClickedHandler( const QModelIndex& ) ) );
+
+    connect( &m_GenerateTocButton, SIGNAL( clicked() ), 
+             this,                 SLOT( GenerateTocFromHeadings() ) );
 }
 
 
@@ -81,6 +99,34 @@ void TableOfContents::ItemClickedHandler( const QModelIndex &index )
 }
 
 
+void TableOfContents::GenerateTocFromHeadings()
+{
+    emit TabDataSavedRequest();
+
+    {
+        HeadingSelector toc( m_Book, this );
+
+        if ( toc.exec() != QDialog::Accepted )
+
+            return;
+    }
+    
+    // TODO: switch all explicit calls to Book::SetModified to 
+    // signal/slot connections
+    m_Book->SetModified( true );
+
+    QByteArray raw_ncx;
+    QBuffer buffer( &raw_ncx );
+
+    buffer.open( QIODevice::WriteOnly );    
+    NCXWriter ncx( m_Book, buffer );
+    ncx.WriteXML();
+    buffer.close();
+
+    m_Book->GetNCX().SetText( QString::fromUtf8( raw_ncx.constData(), raw_ncx.size() ) );    
+}
+
+
 void TableOfContents::SetupTreeView()
 {
     m_TreeView.setEditTriggers( QAbstractItemView::NoEditTriggers );
@@ -91,6 +137,7 @@ void TableOfContents::SetupTreeView()
     m_TreeView.setAcceptDrops( false );
     m_TreeView.setDropIndicatorShown( false );
     m_TreeView.setDragDropMode( QAbstractItemView::NoDragDrop );
+    m_TreeView.setAnimated( true );
 
     m_TreeView.setModel( &m_NCXModel ); 
 

@@ -20,7 +20,7 @@
 *************************************************************************/
 
 #include <stdafx.h>
-#include "TOCEditor.h"
+#include "HeadingSelector.h"
 #include "BookManipulation/Book.h"
 #include "Misc/Utility.h"
 #include "ResourceObjects/HTMLResource.h"
@@ -28,13 +28,13 @@
 #include "BookManipulation/XercesCppUse.h"
 #include "BookManipulation/FolderKeeper.h"
 
-static const QString SETTINGS_GROUP   = "toc_editor";
+static const QString SETTINGS_GROUP   = "heading_selector";
 static const int FIRST_COLUMN_PADDING = 30;
 
 // Constructor;
 // the first parameter is the book whose TOC
 // is being edited, the second is the dialog's parent
-TOCEditor::TOCEditor( QSharedPointer< Book > book, QWidget *parent )
+HeadingSelector::HeadingSelector( QSharedPointer< Book > book, QWidget *parent )
     : 
     QDialog( parent ),
     m_Book( book )
@@ -63,7 +63,7 @@ TOCEditor::TOCEditor( QSharedPointer< Book > book, QWidget *parent )
 
 
 // Destructor
-TOCEditor::~TOCEditor()
+HeadingSelector::~HeadingSelector()
 {
     WriteSettings();
 
@@ -76,23 +76,19 @@ TOCEditor::~TOCEditor()
 // because some would-be slots delete the item in question.
 // So, the signal connects here and this function calls the 
 // appropriate item-handling functions. 
-void TOCEditor::ModelItemFilter( QStandardItem *item )
+void HeadingSelector::ModelItemFilter( QStandardItem *item )
 {
     Q_ASSERT( item );
 
     if ( item->isCheckable() == true )
     
         UpdateHeadingInclusion( item );
-
-    else
-
-        UpdateHeadingText( item );
 }
 
 
 // Switches the display between showing all headings
 // and showing only headings that are to be included in the TOC
-void TOCEditor::ChangeDisplayType(  int new_check_state  )
+void HeadingSelector::ChangeDisplayType(  int new_check_state  )
 {
     // If checked, show only TOC items
     if ( new_check_state == Qt::Checked )
@@ -109,7 +105,7 @@ void TOCEditor::ChangeDisplayType(  int new_check_state  )
 }
 
 
-void TOCEditor::UpdateHeadingElements()
+void HeadingSelector::UpdateHeadingElements()
 {
     // We recreate the model to make sure even those
     // headings marked as "don't include" are in the model.
@@ -118,28 +114,12 @@ void TOCEditor::UpdateHeadingElements()
     UpdateOneHeadingElement( m_TableOfContents.invisibleRootItem() );
 }
 
-void TOCEditor::UpdateOneHeadingElement( QStandardItem *item )
+void HeadingSelector::UpdateOneHeadingElement( QStandardItem *item )
 {
     Headings::Heading *heading = GetItemHeading( item );
 
     if ( heading != NULL )
-    {
-        if ( heading->text_changed )
-        {
-            // Update heading title attribute (if used) or the value itself
-            if ( heading->element->hasAttribute( QtoX( "title" ) ) )
-            {
-                heading->element->setAttribute( QtoX( "title" ), QtoX( heading->text ) );
-            }
-
-            else
-            {
-                XhtmlDoc::RemoveChildren( *heading->element );
-                heading->element->appendChild( 
-                    heading->element->getOwnerDocument()->createTextNode( QtoX( heading->text ) ) );
-            }
-        }
-
+    {       
         // Update heading inclusion: if a heading element
         // has the NOT_IN_TOC_CLASS class, then it's not in the TOC
         QString class_attribute = XtoQ( heading->element->getAttribute( QtoX( "class" ) ) )
@@ -174,7 +154,7 @@ void TOCEditor::UpdateOneHeadingElement( QStandardItem *item )
 // Updates the inclusion of the heading in the TOC
 // whenever that heading's "include in TOC" checkbox
 // is checked/unchecked. 
-void TOCEditor::UpdateHeadingInclusion( QStandardItem *checkbox_item )
+void HeadingSelector::UpdateHeadingInclusion( QStandardItem *checkbox_item )
 {
     Q_ASSERT( checkbox_item );
 
@@ -196,23 +176,10 @@ void TOCEditor::UpdateHeadingInclusion( QStandardItem *checkbox_item )
 }
 
 
-// Updates the text in the heading if
-// it has been changed in the editor
-void TOCEditor::UpdateHeadingText( QStandardItem *text_item )
-{
-    Q_ASSERT( text_item );
-
-    Headings::Heading *heading = GetItemHeading( text_item );    
-    Q_ASSERT( heading );
-
-    heading->text = text_item->text();
-    heading->text_changed = true;
-}
-
 
 // Updates the display of the tree view
 // (resizes columns etc.)
-void TOCEditor::UpdateTreeViewDisplay()
+void HeadingSelector::UpdateTreeViewDisplay()
 {      
     ui.tvTOCDisplay->expandAll();
     ui.tvTOCDisplay->resizeColumnToContents( 0 );
@@ -222,7 +189,7 @@ void TOCEditor::UpdateTreeViewDisplay()
 
 // Creates the model that is displayed
 // in the tree view 
-void TOCEditor::CreateTOCModel()
+void HeadingSelector::CreateTOCModel()
 {
     m_TableOfContents.clear();
 
@@ -245,7 +212,7 @@ void TOCEditor::CreateTOCModel()
 // as the child of the specified parent item;
 // recursively calls itself on the headings children,
 // thus building a TOC tree
-void TOCEditor::InsertHeadingIntoModel( Headings::Heading &heading, QStandardItem *parent_item )
+void HeadingSelector::InsertHeadingIntoModel( Headings::Heading &heading, QStandardItem *parent_item )
 {
     Q_ASSERT( parent_item );
 
@@ -254,6 +221,9 @@ void TOCEditor::InsertHeadingIntoModel( Headings::Heading &heading, QStandardIte
 
     heading_included_check->setEditable( false );
     heading_included_check->setCheckable( true );
+    item_heading->setEditable( false );
+    item_heading->setDragEnabled( false );
+    item_heading->setDropEnabled( false );
 
     if ( heading.include_in_toc == true )
 
@@ -290,7 +260,7 @@ void TOCEditor::InsertHeadingIntoModel( Headings::Heading &heading, QStandardIte
 // of those items rise to their parent's hierarchy level
 // OR (more likely) are attached as children to the first
 // previous heading that is lower in level.
-void TOCEditor::RemoveExcludedItems( QStandardItem *item )
+void HeadingSelector::RemoveExcludedItems( QStandardItem *item )
 {
     Q_ASSERT( item );
 
@@ -347,7 +317,7 @@ void TOCEditor::RemoveExcludedItems( QStandardItem *item )
 }
 
 
-bool TOCEditor::AddRowToVisiblePredecessorSucceeded( const QList< QStandardItem* > &child_row,
+bool HeadingSelector::AddRowToVisiblePredecessorSucceeded( const QList< QStandardItem* > &child_row,
                                                      QStandardItem* row_parent )
 {
     Q_ASSERT( row_parent );
@@ -364,7 +334,7 @@ bool TOCEditor::AddRowToVisiblePredecessorSucceeded( const QList< QStandardItem*
 // Basically we're looking for the first heading of a lower level that comes
 // before the child_row heading whose parent heading is disappearing. The new parent
 // needs to also be marked as "include_in_toc".
-bool TOCEditor::AddRowToCorrectItem( QStandardItem* item,                                       
+bool HeadingSelector::AddRowToCorrectItem( QStandardItem* item,                                       
                                      const QList< QStandardItem* > &child_row,
                                      int child_index_limit )
 {
@@ -408,7 +378,7 @@ bool TOCEditor::AddRowToCorrectItem( QStandardItem* item,
 // the invisible root.
 //    Admittedly, Qt has some design issues. The next few lines
 // try to work around them by manually setting an item parent.
-QStandardItem* TOCEditor::GetActualItemParent( const QStandardItem *item )
+QStandardItem* HeadingSelector::GetActualItemParent( const QStandardItem *item )
 {
     Q_ASSERT( item );
 
@@ -425,7 +395,7 @@ QStandardItem* TOCEditor::GetActualItemParent( const QStandardItem *item )
 
 
 // CAN RETURN NULL!
-Headings::Heading* TOCEditor::GetItemHeading( const QStandardItem *item )
+Headings::Heading* HeadingSelector::GetItemHeading( const QStandardItem *item )
 {
     Q_ASSERT( item );
 
@@ -441,7 +411,7 @@ Headings::Heading* TOCEditor::GetItemHeading( const QStandardItem *item )
 
 // Reads all the stored dialog settings like
 // window position, geometry etc.
-void TOCEditor::ReadSettings()
+void HeadingSelector::ReadSettings()
 {
     QSettings settings;
     settings.beginGroup( SETTINGS_GROUP );
@@ -457,7 +427,7 @@ void TOCEditor::ReadSettings()
 
 // Writes all the stored dialog settings like
 // window position, geometry etc.
-void TOCEditor::WriteSettings()
+void HeadingSelector::WriteSettings()
 {
     QSettings settings;
     settings.beginGroup( SETTINGS_GROUP );
@@ -467,7 +437,7 @@ void TOCEditor::WriteSettings()
 }
 
 
-void TOCEditor::LockHTMLResources()
+void HeadingSelector::LockHTMLResources()
 {
     foreach( HTMLResource* resource, m_Book->GetFolderKeeper().GetResourceTypeList< HTMLResource >( true ) )
     {
@@ -476,7 +446,7 @@ void TOCEditor::LockHTMLResources()
 }
 
 
-void TOCEditor::UnlockHTMLResources()
+void HeadingSelector::UnlockHTMLResources()
 {
     foreach( HTMLResource* resource, m_Book->GetFolderKeeper().GetResourceTypeList< HTMLResource >( true ) )
     {
@@ -485,7 +455,7 @@ void TOCEditor::UnlockHTMLResources()
 }
 
 
-void TOCEditor::ConnectSignalsToSlots()
+void HeadingSelector::ConnectSignalsToSlots()
 {
     connect( &m_TableOfContents, SIGNAL( itemChanged( QStandardItem* ) ),
              this,               SLOT(   ModelItemFilter( QStandardItem* ) ) 
