@@ -51,6 +51,8 @@ void ValidationResultsView::ValidateCurrentBook()
 
     QApplication::setOverrideCursor( Qt::WaitCursor );
 
+    m_Book->SaveAllResourcesToDisk();
+
     try
     {
         results = fc::ValidateEpubRootFolder( 
