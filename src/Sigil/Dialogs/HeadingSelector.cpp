@@ -468,6 +468,10 @@ void HeadingSelector::ConnectSignalsToSlots()
     connect( this,               SIGNAL( accepted() ),
              this,               SLOT(   UpdateHeadingElements() ) 
              );
+
+    connect( this,               SIGNAL( accepted() ),
+             m_Book.data(),      SLOT(   SetModified() ) 
+             );
 }
 
 

@@ -131,10 +131,6 @@ void TableOfContents::GenerateTocFromHeadings()
 
             return;
     }
-    
-    // TODO: switch all explicit calls to Book::SetModified to 
-    // signal/slot connections
-    m_Book->SetModified( true );
 
     QByteArray raw_ncx;
     QBuffer buffer( &raw_ncx );

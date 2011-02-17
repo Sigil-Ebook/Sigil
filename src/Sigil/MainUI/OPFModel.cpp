@@ -80,6 +80,8 @@ void OPFModel::SetBook( QSharedPointer< Book > book )
 {
     m_Book = book;
 
+    connect( this, SIGNAL( BookContentModified() ), m_Book.data(), SLOT( SetModified() ) );
+
     Refresh();
 }
 
@@ -218,8 +220,7 @@ void OPFModel::ItemChangedHandler( QStandardItem *item )
     UniversalUpdates::PerformUniversalUpdates( true, m_Book->GetFolderKeeper().GetResourceList(), update );
     QApplication::restoreOverrideCursor();
 
-    // TODO: this should be automatic through signals/slots
-    m_Book->SetModified( true );
+    emit BookContentModified();
 }
 
 

@@ -71,6 +71,9 @@ void BookBrowser::SetBook( QSharedPointer< Book > book )
 {
     m_Book = book;
     m_OPFModel.SetBook( book );
+
+    connect( this, SIGNAL( BookContentModified() ), m_Book.data(), SLOT( SetModified() ) );
+
     ExpandTextFolder();
 
     try
@@ -160,8 +163,7 @@ void BookBrowser::AddNew()
 
     Refresh();
 
-    // TODO: this should be automatic through signals/slots
-    m_Book->SetModified( true );
+    emit BookContentModified();
 }
 
 
@@ -217,8 +219,7 @@ void BookBrowser::AddExisting()
 
     m_Book->SetMetadata( old_metadata );
 
-    // TODO: this should be automatic through signals/slots
-    m_Book->SetModified( true );
+    emit BookContentModified();
     
     Refresh();
 }
@@ -281,8 +282,7 @@ void BookBrowser::Remove()
 
     m_Book->NormalizeReadingOrders();
 
-    // TODO: this should be automatic through signals/slots
-    m_Book->SetModified( true );
+    emit BookContentModified();
 
     Refresh();
 }
@@ -310,8 +310,7 @@ void BookBrowser::SetCoverImage()
         changing_image->SetIsCoverImage( false );
     }
 
-    // TODO: this should be automatic through signals/slots
-    m_Book->SetModified( true );
+    emit BookContentModified();
 }
 
 
@@ -354,8 +353,7 @@ void BookBrowser::AddGuideSemanticType( int type )
         changing_html->SetGuideSemanticType( GuideSemantics::NoType );
     }
 
-    // TODO: this should be automatic through signals/slots
-    m_Book->SetModified( true );
+    emit BookContentModified();
 }
 
 

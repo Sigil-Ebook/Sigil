@@ -104,6 +104,11 @@ signals:
      */
     void OpenResourceRequest( Resource &resource, bool precede_current_tab, const QUrl &fragment );
 
+    /**
+     * Emitted when the book's content is modified through the Book Browser.
+     */
+    void BookContentModified();
+
 private slots:
 
     /**

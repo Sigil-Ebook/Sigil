@@ -104,6 +104,13 @@ public:
      */
     virtual Qt::DropActions supportedDropActions() const;
 
+signals:
+
+    /**
+     * Emitted when the book's content is modified with the OPF model.
+     */
+    void BookContentModified();
+
 private slots:
 
     /**
