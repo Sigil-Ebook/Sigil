@@ -1536,7 +1536,7 @@ void MainWindow::ConnectSignalsToSlots()
              this,                   SLOT( UpdateUiWhenTabsSwitch() ) );
 
     connect( m_TableOfContents, SIGNAL( TabDataSavedRequest() ),
-             &m_TabManager,     SLOT(   SaveCurrentTabData() ) );
+             &m_TabManager,     SLOT(   SaveTabData() ) );
 
     connect( m_BookBrowser, SIGNAL( ResourceDoubleClicked( Resource& ) ),
              &m_TabManager, SLOT(   OpenResource(          Resource& ) ) );
