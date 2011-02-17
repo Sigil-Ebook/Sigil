@@ -23,6 +23,7 @@
 #include "ImportTXT.h"
 #include "BookManipulation/CleanSource.h"
 #include "Misc/Utility.h"
+#include "Misc/TempFolder.h"
 #include "ResourceObjects/HTMLResource.h"
 #include "BookManipulation/XhtmlDoc.h"
 #include "BookManipulation/FolderKeeper.h"
@@ -66,10 +67,9 @@ QString ImportTXT::LoadSource() const
 
 HTMLResource* ImportTXT::CreateHTMLResource( const QString &source )
 {
-    QDir dir( Utility::GetNewTempFolderPath() );
-    dir.mkpath( dir.absolutePath() );
+    TempFolder tempfolder;
 
-    QString fullfilepath = dir.absolutePath() + "/" + FIRST_CHAPTER_NAME;
+    QString fullfilepath = tempfolder.GetPath() + "/" + FIRST_CHAPTER_NAME;
     Utility::WriteUnicodeTextFile( source, fullfilepath );
 
     m_Book->GetFolderKeeper().AddContentFileToFolder( fullfilepath, 0 );

@@ -28,6 +28,8 @@
 #include <QHash>
 #include <QMutex>
 
+#include "Misc/TempFolder.h"
+
 // These have to be included directly because
 // of the template functions.
 #include "ResourceObjects/HTMLResource.h"
@@ -289,6 +291,11 @@ private:
      * Ensures thread-safe access to the m_Resources hash.
      */
     QMutex m_AccessMutex;
+
+    /**
+     * The main temp folder where files are stored.
+     */
+    TempFolder m_TempFolder;
 
     // Full paths to all the folders in the publication
     QString m_FullPathToMainFolder;

@@ -21,6 +21,7 @@
 
 #include "stdafx.h"
 #include "Misc/Utility.h"
+#include "Misc/TempFolder.h"
 #include "MainUI/MainWindow.h"
 #include <QtGui/QApplication>
 #include "Misc/UpdateChecker.h"
@@ -144,7 +145,7 @@ static bool QuickConvert( const QStringList &arguments )
  */
 void CreateTempFolderWithCorrectPermissions()
 {
-    QString temp_path = Utility::GetPathToSigilScratchpad();
+    QString temp_path = TempFolder::GetPathToSigilScratchpad();
     QDir( temp_path ).mkpath( temp_path );
 
     QFile::setPermissions( temp_path, QFile::ReadOwner | QFile::WriteOwner | QFile::ExeOwner |

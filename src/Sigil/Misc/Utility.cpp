@@ -25,8 +25,6 @@
 #include <stdlib.h>
 #include <time.h>
 
-const QString PATH_SUFFIX = "/Sigil";
-
 
 // Uses QUuid to generate a random UUID but also removes
 // the curly braces that QUuid::createUuid() adds
@@ -145,38 +143,6 @@ void Utility::CopyFiles( const QString &fullfolderpath_source, const QString &fu
 }
 
 
-bool Utility::DeleteFolderAndFiles( const QString &fullfolderpath )
-{
-    // Make sure the path exists, otherwise very
-    // bad things could happen
-    if ( !QFileInfo( fullfolderpath ).exists() )
-
-        return false;
-
-    QDir folder( fullfolderpath );
-
-    // Erase all the files in this folder
-    foreach( QFileInfo file, folder.entryInfoList() )
-    {
-        if ( ( file.fileName() != "." ) && ( file.fileName() != ".." ) )
-        {
-            // If it's a file, delete it
-            if ( file.isFile() == true )
-
-                folder.remove( file.fileName() );
-
-            // Else it's a directory, delete it recursively
-            else 
-
-                DeleteFolderAndFiles( file.absoluteFilePath() );
-        }
-    }
-
-    // Delete the folder after it's empty
-    folder.rmdir( folder.absolutePath() );
-
-    return true;
-}
 
 // Deletes the specified file if it exists
 bool Utility::DeleteFile( const QString &fullfilepath )
@@ -202,22 +168,6 @@ bool Utility::RenameFile( const QString &oldfilepath, const QString &newfilepath
 
     QFile file( oldfilepath );
     return file.rename( newfilepath );
-}
-
-
-QString Utility::GetPathToSigilScratchpad()
-{
-    return QDir::tempPath() + PATH_SUFFIX + "/scratchpad";
-}
-
-
-// Returns the full path to a new temporary folder;
-// the caller is responsible for creating and deleting the folder
-QString Utility::GetNewTempFolderPath()
-{
-    QString token = Utility::CreateUUID();
-
-    return GetPathToSigilScratchpad() + "/" + token;
 }
 
 

@@ -193,6 +193,8 @@ set( MISC_FILES
     Misc/XhtmlEntitiesDtd.cpp
     Misc/FontObfuscation.cpp
     Misc/FontObfuscation.h
+    Misc/TempFolder.cpp
+    Misc/TempFolder.h
     )
 
 set( VIEW_EDITOR_FILES

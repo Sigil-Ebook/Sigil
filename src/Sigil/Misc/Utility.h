@@ -54,22 +54,11 @@ public:
     // to the destination folder; the paths to the folders are submitted;
     // the destination folder needs to be created in advance
     static void CopyFiles( const QString &fullfolderpath_source, const QString &fullfolderpath_destination );
-
-    // Deletes the folder specified with fullfolderpath
-    // and all the files (and folders, recursively) in it.
-    // WARNING: ALWAYS call this async, with QtConcurrent::run 
-    static bool DeleteFolderAndFiles( const QString &fullfolderpath ); 
-
+    
     // Deletes the specified file if it exists
     static bool DeleteFile( const QString &fullfilepath );
 
     static bool RenameFile( const QString &oldfilepath, const QString &newfilepath );
-
-    static QString GetPathToSigilScratchpad();
-  
-    // Returns the full path to a new temporary folder;
-    // the caller is responsible for creating and deleting the folder
-    static QString GetNewTempFolderPath(); 
 
     // Creates a copy of the provided file with a random name in
     // the systems TEMP directory and returns the full path to the new file.

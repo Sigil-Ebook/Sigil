@@ -26,6 +26,7 @@
 #include "ResourceObjects/NCXResource.h"
 #include "Misc/Utility.h"
 
+
 const QStringList IMAGE_EXTENSIONS = QStringList() << "jpg"   << "jpeg"  << "png"
                                                    << "gif"   << "tif"   << "tiff"
                                                    << "bm"    << "bmp"   << "svg";
@@ -45,13 +46,9 @@ FolderKeeper::FolderKeeper( QObject *parent )
     : 
     QObject( parent ),
     m_OPF( NULL ),
-    m_NCX( NULL )    
+    m_NCX( NULL ),
+    m_FullPathToMainFolder( m_TempFolder.GetPath() )
 {
-    QDir folder( Utility::GetNewTempFolderPath() );
-    folder.mkpath( folder.absolutePath() );
-
-    m_FullPathToMainFolder = folder.absolutePath();
-
     CreateFolderStructure();
     CreateInfrastructureFiles();
 }
@@ -68,9 +65,7 @@ FolderKeeper::~FolderKeeper()
         resource->Delete();
     }
 
-    m_Resources.clear();
-
-    QtConcurrent::run( Utility::DeleteFolderAndFiles, m_FullPathToMainFolder );    
+    m_Resources.clear(); 
 }
 
 

@@ -22,6 +22,7 @@
 #include <stdafx.h>
 #include "ImportHTML.h"
 #include "Misc/Utility.h"
+#include "Misc/TempFolder.h"
 #include "Misc/HTMLEncodingResolver.h"
 #include "BookManipulation/Metadata.h"
 #include "BookManipulation/CleanSource.h"
@@ -140,18 +141,15 @@ void ImportHTML::LoadMetadata( const xc::DOMDocument &document )
 
 HTMLResource& ImportHTML::CreateHTMLResource()
 {
-    QDir dir( Utility::GetNewTempFolderPath() );
-    dir.mkpath( dir.absolutePath() );
+    TempFolder tempfolder;
 
-    QString fullfilepath = dir.absolutePath() + "/" + QFileInfo( m_FullFilePath ).fileName();
+    QString fullfilepath = tempfolder.GetPath() + "/" + QFileInfo( m_FullFilePath ).fileName();
     Utility::WriteUnicodeTextFile( "TEMP_SOURCE", fullfilepath );
 
     int reading_order = m_Book->GetConstFolderKeeper().GetHighestReadingOrder() + 1;
 
     HTMLResource &resource = *qobject_cast< HTMLResource* >(
                                 &m_Book->GetFolderKeeper().AddContentFileToFolder( fullfilepath, reading_order ) );
-
-    QtConcurrent::run( Utility::DeleteFolderAndFiles, dir.absolutePath() );
 
     return resource;
 }

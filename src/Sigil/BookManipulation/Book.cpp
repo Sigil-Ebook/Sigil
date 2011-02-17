@@ -23,6 +23,7 @@
 #include "BookManipulation/Book.h"
 #include "BookManipulation/XhtmlDoc.h"
 #include "Misc/Utility.h"
+#include "Misc/TempFolder.h"
 #include "ResourceObjects/HTMLResource.h"
 #include "ResourceObjects/OPFResource.h"
 #include "ResourceObjects/NCXResource.h"
@@ -116,19 +117,15 @@ void Book::SetMetadata( const QHash< QString, QList< QVariant > > metadata )
 
 HTMLResource& Book::CreateNewHTMLFile()
 {
-    QString folderpath = Utility::GetNewTempFolderPath();
-    QDir dir( folderpath );
-    dir.mkpath( folderpath );
+    TempFolder tempfolder;
 
-    QString fullfilepath = folderpath + "/" + m_Mainfolder.GetUniqueFilenameVersion( FIRST_CHAPTER_NAME );
+    QString fullfilepath = tempfolder.GetPath() + "/" + m_Mainfolder.GetUniqueFilenameVersion( FIRST_CHAPTER_NAME );
     int reading_order = m_Mainfolder.GetHighestReadingOrder() + 1;
 
     Utility::WriteUnicodeTextFile( PLACEHOLDER_TEXT, fullfilepath );
 
     HTMLResource &html_resource = *qobject_cast< HTMLResource* >( 
                                         &m_Mainfolder.AddContentFileToFolder( fullfilepath, reading_order ) );
-
-    QtConcurrent::run( Utility::DeleteFolderAndFiles, dir.absolutePath() );
 
     SetModified( true );
     return html_resource;
@@ -144,17 +141,13 @@ void Book::CreateEmptyHTMLFile()
 
 void Book::CreateEmptyCSSFile()
 {
-    QString folderpath = Utility::GetNewTempFolderPath();
-    QDir dir( folderpath );
-    dir.mkpath( folderpath );
+    TempFolder tempfolder;
 
-    QString fullfilepath = folderpath + "/" + m_Mainfolder.GetUniqueFilenameVersion( FIRST_CSS_NAME );
+    QString fullfilepath = tempfolder.GetPath() + "/" + m_Mainfolder.GetUniqueFilenameVersion( FIRST_CSS_NAME );
 
     Utility::WriteUnicodeTextFile( "", fullfilepath );
 
     m_Mainfolder.AddContentFileToFolder( fullfilepath );
-
-    QtConcurrent::run( Utility::DeleteFolderAndFiles, dir.absolutePath() );
     SetModified( true );
 }
 
@@ -208,9 +201,7 @@ void Book::CreateNewChapters( const QStringList& new_chapters,
 
         return;
 
-    QDir dir( Utility::GetNewTempFolderPath() );
-    dir.mkpath( dir.absolutePath() );
-    QString folderpath = dir.absolutePath();
+    TempFolder tempfolder;
 
     QFutureSynchronizer< void > sync;
 
@@ -222,14 +213,18 @@ void Book::CreateNewChapters( const QStringList& new_chapters,
 
         sync.addFuture( 
             QtConcurrent::run( 
-                this, &Book::CreateOneNewChapter, new_chapters.at( i ), reading_order, folderpath, html_updates ) );
+                this, 
+                &Book::CreateOneNewChapter, 
+                new_chapters.at( i ), 
+                reading_order, 
+                tempfolder.GetPath(), 
+                html_updates ) );
     }	
 
     sync.waitForFinished();
 
-    QtConcurrent::run( Utility::DeleteFolderAndFiles, folderpath );
-
-    AnchorUpdates::UpdateAllAnchorsWithIDs( m_Mainfolder.GetResourceTypeList< HTMLResource >() );
+    AnchorUpdates::UpdateAllAnchorsWithIDs( 
+        m_Mainfolder.GetResourceTypeList< HTMLResource >() );
     SetModified( true );
 }
 

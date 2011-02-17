@@ -24,6 +24,7 @@
 #define IMPORTOEBPS_H
 
 #include "Importer.h"
+#include "Misc/TempFolder.h"
 #include "BookManipulation/Metadata.h"
 #include <QHash>
 #include <QStringList>
@@ -47,10 +48,6 @@ public:
      * @param fullfilepath The path to the file to be imported.
      */
     ImportOEBPS( const QString &fullfilepath );
-
-    // inherited
-
-    virtual ~ImportOEBPS();
 
     virtual QSharedPointer< Book > GetBook() = 0;
 
@@ -156,6 +153,11 @@ protected:
     ///////////////////////////////
     // PROTECTED MEMBER VARIABLES
     ///////////////////////////////
+
+    /**
+     * The main temp folder where files are stored.
+     */
+    TempFolder m_TempFolder;
     
     /**
      * The full path to the folder where the 

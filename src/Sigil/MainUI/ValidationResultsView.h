@@ -129,6 +129,7 @@ private:
      */
     static QString RemoveEpubPathPrefix( const QString &path );
 
+
     ///////////////////////////////
     // PRIVATE MEMBER VARIABLES
     ///////////////////////////////

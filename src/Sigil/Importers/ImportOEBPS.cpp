@@ -35,27 +35,18 @@ const QString NCX_MIMETYPE               = "application/x-dtbncx+xml";
 
 
 ImportOEBPS::ImportOEBPS( const QString &fullfilepath )
-    : Importer( fullfilepath )
+    : 
+    Importer( fullfilepath ),
+    m_ExtractedFolderPath( m_TempFolder.GetPath() )
 {
 
 }
 
-
-ImportOEBPS::~ImportOEBPS()
-{
-    if ( !m_ExtractedFolderPath.isEmpty() )
-
-        QtConcurrent::run( Utility::DeleteFolderAndFiles, m_ExtractedFolderPath );
-}
 
 
 // TODO: create a wrapper lib for this CZipArchive POS
 void ImportOEBPS::ExtractContainer()
 {
-    QDir folder( Utility::GetNewTempFolderPath() );
-    m_ExtractedFolderPath = folder.absolutePath();
-    folder.mkpath( m_ExtractedFolderPath );
-
     CZipArchive zip;
 
     try
@@ -67,7 +58,7 @@ void ImportOEBPS::ExtractContainer()
 #endif
 
         int file_count = (int) zip.GetCount();
-        QString folder_path = folder.absolutePath();
+        QString folder_path = m_ExtractedFolderPath;
 
 #ifdef Q_WS_WIN
         const ushort *win_path = folder_path.utf16();

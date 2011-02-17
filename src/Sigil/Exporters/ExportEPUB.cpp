@@ -28,6 +28,7 @@
 #include <ZipArchive.h>
 #include "BookManipulation/CleanSource.h"
 #include "Misc/Utility.h"
+#include "Misc/TempFolder.h"
 #include "Misc/FontObfuscation.h"
 #include "BookManipulation/XhtmlDoc.h"
 #include "ResourceObjects/FontResource.h"
@@ -71,21 +72,15 @@ void ExportEPUB::WriteBook()
 {
     m_Book->SaveAllResourcesToDisk();
 
-    // TODO: wrap all occurrences of this idiom into an object
-    // that deletes the temp folder in the destructor
-    QString folderpath = Utility::GetNewTempFolderPath();
-    QDir dir( folderpath );
-    dir.mkpath( dir.absolutePath() );
+    TempFolder tempfolder;
 
-    CreatePublication( folderpath );
+    CreatePublication( tempfolder.GetPath() );
 
     if ( m_Book->HasObfuscatedFonts() )
 
-        ObfuscateFonts( folderpath );
+        ObfuscateFonts( tempfolder.GetPath() );
 
-    SaveFolderAsEpubToLocation( folderpath, m_FullFilePath );
-
-    QtConcurrent::run( Utility::DeleteFolderAndFiles, folderpath );
+    SaveFolderAsEpubToLocation( tempfolder.GetPath(), m_FullFilePath );
 }
 
 

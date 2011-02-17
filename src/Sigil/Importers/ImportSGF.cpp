@@ -83,21 +83,17 @@ QList< Resource* > ImportSGF::CreateStyleResources( const QString &source )
 {    
     QList< XhtmlDoc::XMLElement > style_tag_nodes = XhtmlDoc::GetTagsInHead( source, "style" );
 
-    QString folderpath = Utility::GetNewTempFolderPath();
-    QDir dir( folderpath );
-    dir.mkpath( folderpath );
+    TempFolder tempfolder;
 
     QFutureSynchronizer< Resource* > sync;
 
     for ( int i = 0; i < style_tag_nodes.count(); ++i ) 
     {
         sync.addFuture( QtConcurrent::run( 
-            this, &ImportSGF::CreateOneStyleFile, style_tag_nodes.at( i ), folderpath, i ) );        
+            this, &ImportSGF::CreateOneStyleFile, style_tag_nodes.at( i ), tempfolder.GetPath(), i ) );        
     }
 
     sync.waitForFinished();
-
-    QtConcurrent::run( Utility::DeleteFolderAndFiles, folderpath );
 
     QList< QFuture< Resource* > > futures = sync.futures();
     QList< Resource* > style_resources;
