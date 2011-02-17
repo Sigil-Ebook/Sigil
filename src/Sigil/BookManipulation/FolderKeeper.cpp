@@ -42,6 +42,14 @@ const QString STYLE_FOLDER_NAME = "Styles";
 const QString MISC_FOLDER_NAME  = "Misc";
 
 
+static const QString CONTAINER_XML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
+                                     "<container version=\"1.0\" xmlns=\"urn:oasis:names:tc:opendocument:xmlns:container\">\n"
+                                     "    <rootfiles>\n"
+                                     "        <rootfile full-path=\"OEBPS/content.opf\" media-type=\"application/oebps-package+xml\"/>\n"
+                                     "   </rootfiles>\n"
+                                     "</container>\n";
+
+
 FolderKeeper::FolderKeeper( QObject *parent )
     : 
     QObject( parent ),
@@ -69,7 +77,7 @@ FolderKeeper::~FolderKeeper()
 }
 
 
-void FolderKeeper::AddInfraFileToFolder( const QString &fullfilepath, const QString &newfilename  )
+void FolderKeeper::AddInfraFileToFolder( const QString &fullfilepath, const QString &newfilename )
 {
     if ( newfilename == CONTAINER_XML_FILE_NAME )
     {
@@ -380,6 +388,7 @@ void FolderKeeper::CreateFolderStructure()
     m_FullPathToMiscFolder    = m_FullPathToOEBPSFolder + "/" + MISC_FOLDER_NAME;
 }
 
+
 void FolderKeeper::CreateInfrastructureFiles()
 {
     m_OPF = new OPFResource( m_FullPathToOEBPSFolder + "/" + OPF_FILE_NAME, this );
@@ -390,7 +399,10 @@ void FolderKeeper::CreateInfrastructureFiles()
 
     m_Resources[ m_OPF->GetIdentifier() ] = m_OPF;
     m_Resources[ m_NCX->GetIdentifier() ] = m_NCX;
+
+    Utility::WriteUnicodeTextFile( CONTAINER_XML, m_FullPathToMetaInfFolder + "/container.xml" );
 }
+
 
 
 
