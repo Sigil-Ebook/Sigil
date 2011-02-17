@@ -58,9 +58,9 @@ public:
 public slots:
 
     /**
-     * Saves any unsaved data in the current tab.
+     * Saves any unsaved data in the all the open tabs.
      */
-    void SaveCurrentTabData();
+    void SaveTabData();
 
     /**
      * Opens the specified resource in a new tab.

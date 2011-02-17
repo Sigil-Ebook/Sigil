@@ -65,18 +65,16 @@ ContentTab& TabManager::GetCurrentContentTab()
 }
 
 
-void TabManager::SaveCurrentTabData()
+void TabManager::SaveTabData()
 {
-    // TODO: Save the data in ALL the open tabs!
+    for ( int i = 0; i < count(); ++i )
+    {
+        ContentTab *tab = qobject_cast< ContentTab* >( widget( i ) );
+        
+        if ( tab )
 
-    ContentTab& tab = GetCurrentContentTab();
-
-    // just in case
-    if ( &tab == NULL )
-
-        return;
-
-    tab.SaveTabContent();
+            tab->SaveTabContent();
+    }
 }
 
 

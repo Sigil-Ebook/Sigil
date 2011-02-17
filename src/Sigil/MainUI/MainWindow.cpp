@@ -328,7 +328,7 @@ bool MainWindow::SaveAs()
 
 void MainWindow::Find()
 {
-    m_TabManager.SaveCurrentTabData();
+    m_TabManager.SaveTabData();
 
     if ( m_FindReplace.isNull() )
     {   
@@ -346,7 +346,7 @@ void MainWindow::Find()
 
 void MainWindow::Replace()
 {
-    m_TabManager.SaveCurrentTabData();
+    m_TabManager.SaveTabData();
 
     if ( m_FindReplace.isNull() )
     {   
@@ -687,7 +687,7 @@ void MainWindow::UpdateZoomLabel( float new_zoom_factor )
 
 void MainWindow::CreateChapterBreakOldTab( QString content, HTMLResource& originating_resource )
 {
-    m_TabManager.SaveCurrentTabData();
+    m_TabManager.SaveTabData();
 
     HTMLResource& html_resource = m_Book->CreateChapterBreakOriginalResource( content, originating_resource );
 
@@ -889,7 +889,7 @@ bool MainWindow::SaveFile( const QString &fullfilepath, bool update_ui )
 {
     try
     {
-        m_TabManager.SaveCurrentTabData();
+        m_TabManager.SaveTabData();
 
         QString extension = QFileInfo( fullfilepath ).suffix().toLower();
 
