@@ -54,7 +54,7 @@ public:
     /**
      * Validates the epub file given and displays the results.
      */
-    void ValidateCurrentBook( const QString &filepath );
+    void ValidateCurrentBook();
 
     /**
      * Clears the result table.

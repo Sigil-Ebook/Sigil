@@ -451,13 +451,7 @@ void MainWindow::AboutDialog()
 
 void MainWindow::ValidateEpub()
 {
-    QString temp_file = QDir::tempPath() + "/" + Utility::CreateUUID() + ".epub";
-    
-    SaveFile( temp_file, false );
-    m_ValidationResultsView->ValidateCurrentBook( temp_file );    
-
-    // TODO: Make deleting this file RAII.
-    Utility::DeleteFile( temp_file );
+    m_ValidationResultsView->ValidateCurrentBook();
 }
 
 
@@ -885,7 +879,7 @@ void MainWindow::LoadFile( const QString &fullfilepath )
 }
 
 
-bool MainWindow::SaveFile( const QString &fullfilepath, bool update_ui )
+bool MainWindow::SaveFile( const QString &fullfilepath )
 {
     try
     {
@@ -920,12 +914,9 @@ bool MainWindow::SaveFile( const QString &fullfilepath, bool update_ui )
 
             tab.setFocus();
 
-        if ( update_ui )
-        {
-            m_Book->SetModified( false );
-            UpdateUiWithCurrentFile( fullfilepath );
-            statusBar()->showMessage( tr( "File saved" ), STATUSBAR_MSG_DISPLAY_TIME );
-        }
+        m_Book->SetModified( false );
+        UpdateUiWithCurrentFile( fullfilepath );
+        statusBar()->showMessage( tr( "File saved" ), STATUSBAR_MSG_DISPLAY_TIME );        
     }
 
     catch ( const ExceptionBase &exception )

@@ -382,11 +382,8 @@ private:
      * Saves the current book to the file specified.
      *
      * @param fullfilepath The path to save to.
-     * @param update_ui If \c true, then the UI will be notified
-     *                  that the file was saved. Otherwise, it's a 
-     *                  "silent" save.
      */    
-    bool SaveFile( const QString &fullfilepath, bool update_ui = true );
+    bool SaveFile( const QString &fullfilepath );
 
     /**
      * Performs zoom operations in the views using the default 

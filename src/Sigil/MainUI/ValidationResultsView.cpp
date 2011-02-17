@@ -44,13 +44,7 @@ ValidationResultsView::ValidationResultsView( QWidget *parent )
 }
 
 
-// TODO: Currently, we depend on MainWindow to hand us a temp epub
-// of the current book so that we can validate it. We can't just
-// run through the files in the book's current main folder since
-// we (currently) only create the the OPF and NCX files on save.
-// When we change that, this function should accept no arguments
-// and merely use the m_Book var to access the current main folder.
-void ValidationResultsView::ValidateCurrentBook( const QString &filepath )
+void ValidationResultsView::ValidateCurrentBook()
 {
     ClearResults();
     std::vector< fc::Result > results;
@@ -59,7 +53,8 @@ void ValidationResultsView::ValidateCurrentBook( const QString &filepath )
 
     try
     {
-        results = fc::ValidateEpub( filepath.toUtf8().constData() );
+        results = fc::ValidateEpubRootFolder( 
+            m_Book->GetConstFolderKeeper().GetFullPathToMainFolder().toUtf8().constData() );
     }
 
     catch ( std::exception& exception )
