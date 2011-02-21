@@ -23,8 +23,8 @@
 #include "NCXTab.h"
 #include "ResourceObjects/NCXResource.h"
 
-NCXTab::NCXTab( NCXResource& resource, QWidget *parent )
+NCXTab::NCXTab( NCXResource& resource, int line_to_scroll_to, QWidget *parent )
     :
-    TextTab( resource, CodeViewEditor::Highlight_XHTML, parent )
+    TextTab( resource, CodeViewEditor::Highlight_XHTML, line_to_scroll_to, parent )
 {
 }   

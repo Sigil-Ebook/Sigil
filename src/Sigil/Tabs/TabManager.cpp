@@ -232,11 +232,10 @@ bool TabManager::SwitchedToExistingTab( Resource& resource,
     {
         setCurrentIndex( resource_index );
         QWidget *tab = widget( resource_index );
+        Q_ASSERT( tab );
         tab->setFocus();
 
         FlowTab *flow_tab = qobject_cast< FlowTab* >( tab );
-
-        // TODO: line_to_scroll_to support for other resource types
 
         if ( flow_tab != NULL )
         {
@@ -250,9 +249,17 @@ bool TabManager::SwitchedToExistingTab( Resource& resource,
             // the given parameters, only one of these is going to work.
             flow_tab->ScrollToFragment( fragment.toString() );
             flow_tab->ScrollToLine( line_to_scroll_to );
+
+            return true;
         }
 
-        return true;
+        TextTab *text_tab = qobject_cast< TextTab* >( tab );
+
+        if ( text_tab != NULL )
+        {
+            text_tab->ScrollToLine( line_to_scroll_to );
+            return true;
+        }
     }
 
     return false;
@@ -264,8 +271,6 @@ ContentTab* TabManager::CreateTabForResource( Resource& resource,
                                               ContentTab::ViewState view_state,
                                               int line_to_scroll_to )
 {
-    // TODO: line_to_scroll_to support for other resource types
-
     ContentTab *tab = NULL;
 
     if ( resource.Type() == Resource::HTMLResource )
@@ -285,12 +290,12 @@ ContentTab* TabManager::CreateTabForResource( Resource& resource,
 
     else if ( resource.Type() == Resource::CSSResource )
     {
-        tab = new CSSTab( *( qobject_cast< CSSResource* >( &resource ) ), this );
+        tab = new CSSTab( *( qobject_cast< CSSResource* >( &resource ) ), line_to_scroll_to, this );
     }
 
     else if ( resource.Type() == Resource::XPGTResource )
     {
-        tab = new XPGTTab( *( qobject_cast< XPGTResource* >( &resource ) ), this );
+        tab = new XPGTTab( *( qobject_cast< XPGTResource* >( &resource ) ), line_to_scroll_to, this );
     }
 
     else if ( resource.Type() == Resource::ImageResource )
@@ -300,12 +305,12 @@ ContentTab* TabManager::CreateTabForResource( Resource& resource,
 
     else if ( resource.Type() == Resource::OPFResource )
     {
-        tab = new OPFTab( *( qobject_cast< OPFResource* >( &resource ) ), this );
+        tab = new OPFTab( *( qobject_cast< OPFResource* >( &resource ) ), line_to_scroll_to, this );
     }
 
     else if ( resource.Type() == Resource::NCXResource )
     {
-        tab = new NCXTab( *( qobject_cast< NCXResource* >( &resource ) ), this );
+        tab = new NCXTab( *( qobject_cast< NCXResource* >( &resource ) ), line_to_scroll_to, this );
     }
 
     return tab;    

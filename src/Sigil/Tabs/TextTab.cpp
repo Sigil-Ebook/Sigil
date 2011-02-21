@@ -24,11 +24,15 @@
 #include "ResourceObjects/TextResource.h"
 
 
-TextTab::TextTab( TextResource& resource, CodeViewEditor::HighlighterType type, QWidget *parent )
+TextTab::TextTab( TextResource& resource,
+                  CodeViewEditor::HighlighterType type,  
+                  int line_to_scroll_to,
+                  QWidget *parent )
     :
     ContentTab( resource, parent ),
     m_TextResource( resource ),
-    m_wCodeView( *new CodeViewEditor( type, this ) )
+    m_wCodeView( *new CodeViewEditor( type, this ) ),
+    m_LineToScrollTo( line_to_scroll_to )
 {
     m_Layout.addWidget( &m_wCodeView );
     setFocusProxy( &m_wCodeView );
@@ -41,6 +45,12 @@ TextTab::TextTab( TextResource& resource, CodeViewEditor::HighlighterType type, 
     // the screen. This way, the user perceives less load time.
     QTimer::singleShot( 0, this, SLOT( DelayedInitialization() ) );    
 }   
+
+
+void TextTab::ScrollToLine( int line )
+{
+    m_wCodeView.ScrollToLine( line );
+}
 
 
 bool TextTab::IsModified()
@@ -110,6 +120,8 @@ void TextTab::SaveTabContent()
 void TextTab::DelayedInitialization()
 {
     m_wCodeView.CustomSetDocument( m_TextResource.GetTextDocumentForWriting() );
+
+    m_wCodeView.ScrollToLine( m_LineToScrollTo );
 }
 
 
@@ -124,4 +136,5 @@ void TextTab::ConnectSignalsToSlots()
     connect( &m_wCodeView, SIGNAL( ZoomFactorChanged( float ) ), this, SIGNAL( ZoomFactorChanged( float ) ) );
     connect( &m_wCodeView, SIGNAL( selectionChanged() ),         this, SIGNAL( SelectionChanged() )         );
 }
+
 

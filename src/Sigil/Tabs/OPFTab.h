@@ -33,7 +33,7 @@ class OPFTab : public TextTab
 
 public:
 
-    OPFTab( OPFResource& resource, QWidget *parent = 0 );
+    OPFTab( OPFResource& resource, int line_to_scroll_to = -1, QWidget *parent = 0 );
 
 };
 

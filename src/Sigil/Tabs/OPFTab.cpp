@@ -23,8 +23,8 @@
 #include "OPFTab.h"
 #include "ResourceObjects/OPFResource.h"
 
-OPFTab::OPFTab( OPFResource& resource, QWidget *parent )
+OPFTab::OPFTab( OPFResource& resource, int line_to_scroll_to, QWidget *parent )
     :
-    TextTab( resource, CodeViewEditor::Highlight_XHTML, parent )
+    TextTab( resource, CodeViewEditor::Highlight_XHTML, line_to_scroll_to, parent )
 {
 }   

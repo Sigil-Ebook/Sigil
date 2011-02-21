@@ -36,7 +36,17 @@ class TextTab : public ContentTab
 
 public:
 
-    TextTab( TextResource& resource, CodeViewEditor::HighlighterType type, QWidget *parent = 0 );
+    TextTab( TextResource& resource,
+             CodeViewEditor::HighlighterType type,
+             int line_to_scroll_to = -1,
+             QWidget *parent = 0 );
+
+    /**
+     * Scrolls the tab to the specified line (if in Code View).
+     *
+     * @param line The line to scroll to.
+     */
+    void ScrollToLine( int line );
 
     // Overrides inherited from ContentTab
     bool IsModified();
@@ -82,6 +92,8 @@ private:
 
     // The plain text code editor 
     CodeViewEditor &m_wCodeView;
+
+    int m_LineToScrollTo;
 
 };
 

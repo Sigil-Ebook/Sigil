@@ -33,7 +33,7 @@ class XPGTTab : public TextTab
 
 public:
 
-    XPGTTab( XPGTResource& resource, QWidget *parent = 0 );
+    XPGTTab( XPGTResource& resource, int line_to_scroll_to = -1, QWidget *parent = 0 );
 };
 
 #endif // XPGTTAB_H

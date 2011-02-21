@@ -24,9 +24,9 @@
 #include "ResourceObjects/XPGTResource.h"
 
 
-XPGTTab::XPGTTab( XPGTResource& resource, QWidget *parent )
+XPGTTab::XPGTTab( XPGTResource& resource, int line_to_scroll_to, QWidget *parent )
     :
-    TextTab( resource, CodeViewEditor::Highlight_XHTML, parent )
+    TextTab( resource, CodeViewEditor::Highlight_XHTML, line_to_scroll_to, parent )
 {
 }   
 
