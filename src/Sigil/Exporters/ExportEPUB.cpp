@@ -146,19 +146,20 @@ void ExportEPUB::SaveFolderAsEpubToLocation( const QString &fullfolderpath, cons
         zip.Close();
     }
 
-    // We have to to do this here: if we don't wrap
+    // We have to to do this here: if we don't wraps
     // this exception and try to catch "raw" in MainWindow,
     // we get some dumb header name clash from ZipArchive
     catch ( CZipException &exception )
     {
         // The error description is always ASCII
 #ifdef Q_WS_WIN
-        boost_throw( CZipExceptionWrapper() 
-                     << errinfo_zip_info( QString::fromStdWString( exception.GetErrorDescription() ).toStdString() ) );
+        std::string error_description = QString::fromStdWString( exception.GetErrorDescription() ).toStdString();
 #else
-        boost_throw( CZipExceptionWrapper()
-                     << errinfo_zip_info( QString::fromAscii( exception.GetErrorDescription().c_str() ).toStdString() ) );
+        std::string error_description = QString::fromAscii( exception.GetErrorDescription().c_str() ).toStdString();
 #endif
+        boost_throw( CZipExceptionWrapper()
+            << errinfo_zip_info_msg( error_description )
+            << errinfo_zip_error_id( exception.m_iCause ) );
     }
 }
 

@@ -919,11 +919,35 @@ bool MainWindow::SaveFile( const QString &fullfilepath )
         statusBar()->showMessage( tr( "File saved" ), STATUSBAR_MSG_DISPLAY_TIME );        
     }
 
+    catch ( const CZipExceptionWrapper &exception )
+    {        
+        const int *error_id = boost::get_error_info< errinfo_zip_error_id >( exception );
+
+        if ( *error_id == EACCES )
+        {
+            QApplication::restoreOverrideCursor();
+
+            QMessageBox::critical(
+                0,
+                tr( "Sigil" ),
+                tr( "Sigil cannot save file: \"%1\"\n"
+                    "It is currently in use in a different application." )
+                .arg( fullfilepath )
+                );
+        }
+
+        else
+        {
+            throw exception;
+        }
+    }
+
     catch ( const ExceptionBase &exception )
     {
         QApplication::restoreOverrideCursor();
 
-        Utility::DisplayStdErrorDialog( "Cannot save file " + fullfilepath + ": " + Utility::GetExceptionInfo( exception ) );
+        Utility::DisplayStdErrorDialog( 
+            "Cannot save file " + fullfilepath + ": " + Utility::GetExceptionInfo( exception ) );
     }
 
     return true;

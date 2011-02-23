@@ -77,7 +77,8 @@ struct NoAppropriateOPFFileFound : virtual ExceptionBase {};
  * Wrapper for CZipExceptions.
  */
 struct CZipExceptionWrapper : virtual ExceptionBase {};
-typedef boost::error_info< struct zip_info, std::string > errinfo_zip_info;
+typedef boost::error_info< struct zip_info, std::string > errinfo_zip_info_msg;
+typedef boost::error_info< struct zip_iCause, int > errinfo_zip_error_id;
 
 /**
  * Thrown when a file cannot be read.
