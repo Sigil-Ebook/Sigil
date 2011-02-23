@@ -891,12 +891,14 @@ bool MainWindow::SaveFile( const QString &fullfilepath )
         // when the user tries to save an unsupported type
         if ( !SUPPORTED_SAVE_TYPE.contains( extension ) )
         {
-            QMessageBox::critical( 0,
-                                   tr( "Sigil" ),
-                                   tr( "Sigil currently cannot save files of type \"%1\".\n"
-                                       "Please choose a different format." )
-                                   .arg( extension )
-                                 );
+            QMessageBox::critical( 
+                0,
+                tr( "Sigil" ),
+                tr( "Sigil currently cannot save files of type \"%1\".\n"
+                    "Please choose a different format." )
+                .arg( extension )
+                );
+
             return false;
         }
 
@@ -923,6 +925,7 @@ bool MainWindow::SaveFile( const QString &fullfilepath )
     {        
         const int *error_id = boost::get_error_info< errinfo_zip_error_id >( exception );
 
+        // EACCES basically means "permission denied"
         if ( *error_id == EACCES )
         {
             QApplication::restoreOverrideCursor();
