@@ -163,7 +163,8 @@ void ImportHTML::UpdateFiles( HTMLResource &html_resource,
 
     QHash< QString, QString > html_updates;
     QHash< QString, QString > css_updates;
-    tie( html_updates, css_updates ) = UniversalUpdates::SeparateHTMLAndCSSUpdates( updates );
+    tie( html_updates, css_updates, boost::tuples::ignore ) = 
+        UniversalUpdates::SeparateHtmlCssXmlUpdates( updates );
 
     QList< Resource* > all_files = m_Book->GetFolderKeeper().GetResourceList();
     int num_files = all_files.count();

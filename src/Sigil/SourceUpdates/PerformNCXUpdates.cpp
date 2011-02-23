@@ -19,37 +19,27 @@
 **
 *************************************************************************/
 
-#pragma once
-#ifndef PERFORMHTMLUPDATES_H
-#define PERFORMHTMLUPDATES_H
+#include <stdafx.h>
+#include "PerformNCXUpdates.h"
 
-#include "PerformXMLUpdates.h"
-
-class PerformHTMLUpdates : public PerformXMLUpdates
+PerformNCXUpdates::PerformNCXUpdates( const QString &source,
+                                      const QHash< QString, QString > &xml_updates )
+    : PerformXMLUpdates( source, xml_updates )
 {
-
-public:
-
-    PerformHTMLUpdates( const QString &source,
-                        const QHash< QString, QString > &html_updates,
-                        const QHash< QString, QString > &css_updates );
-
-    PerformHTMLUpdates( const xc::DOMDocument &document,
-                        const QHash< QString, QString > &html_updates,
-                        const QHash< QString, QString > &css_updates );
-
-    shared_ptr< xc::DOMDocument > operator()();
-
-private:
-
-    void InitPathTags();
+    InitPathTags();
+}
 
 
-    ///////////////////////////////
-    // PRIVATE MEMBER VARIABLES
-    ///////////////////////////////
+PerformNCXUpdates::PerformNCXUpdates( const xc::DOMDocument &document, 
+                                      const QHash< QString, QString > &xml_updates )
+    : PerformXMLUpdates( document, xml_updates )
+{
+    InitPathTags();
+}
 
-    const QHash< QString, QString > &m_CSSUpdates;
-};
 
-#endif // PERFORMHTMLUPDATES_H
+void PerformNCXUpdates::InitPathTags()
+{
+    // We look at a different set of tags
+    m_PathTags = QStringList() << "content";
+}

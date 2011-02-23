@@ -43,6 +43,9 @@ void TextResource::SetText( const QString& text )
 
 const QTextDocument& TextResource::GetTextDocumentForReading()
 {
+    // TODO: for opf and ncx files, we're going to have to make sure
+    // that the document is valid xml
+
     Q_ASSERT( m_TextDocument );
 
     return *m_TextDocument;

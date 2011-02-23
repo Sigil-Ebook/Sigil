@@ -25,6 +25,8 @@
 
 class HTMLResource;
 class CSSResource;
+class OPFResource;
+class NCXResource;
 class Resource;
 
 
@@ -38,7 +40,8 @@ public:
                                          const QHash< QString, QString > &updates );
 
     static tuple< QHash< QString, QString >, 
-                  QHash< QString, QString > > SeparateHTMLAndCSSUpdates( const QHash< QString, QString > &updates );
+                  QHash< QString, QString >,
+                  QHash< QString, QString > > SeparateHtmlCssXmlUpdates( const QHash< QString, QString > &updates );
 
     // Made public so that ImportHTML can use it
     static void LoadAndUpdateOneCSSFile( CSSResource* css_resource, 
@@ -56,6 +59,12 @@ private:
     static void LoadAndUpdateOneHTMLFile( HTMLResource* html_resource, 
                                           const QHash< QString, QString > &html_updates,
                                           const QHash< QString, QString > &css_updates );
+
+    static void UpdateOPFFile( OPFResource* opf_resource,
+                               const QHash< QString, QString > &xml_updates );
+
+    static void UpdateNCXFile( NCXResource* ncx_resource,
+                               const QHash< QString, QString > &xml_updates );
 };
 
 #endif // UNIVERSALUPDATES_H

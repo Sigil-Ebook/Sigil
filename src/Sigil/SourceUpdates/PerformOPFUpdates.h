@@ -20,36 +20,25 @@
 *************************************************************************/
 
 #pragma once
-#ifndef PERFORMHTMLUPDATES_H
-#define PERFORMHTMLUPDATES_H
+#ifndef PERFORMOPFUPDATES_H
+#define PERFORMOPFUPDATES_H
 
 #include "PerformXMLUpdates.h"
 
-class PerformHTMLUpdates : public PerformXMLUpdates
+class PerformOPFUpdates : public PerformXMLUpdates
 {
 
 public:
 
-    PerformHTMLUpdates( const QString &source,
-                        const QHash< QString, QString > &html_updates,
-                        const QHash< QString, QString > &css_updates );
+    PerformOPFUpdates( const QString &source,
+                       const QHash< QString, QString > &xml_updates );
 
-    PerformHTMLUpdates( const xc::DOMDocument &document,
-                        const QHash< QString, QString > &html_updates,
-                        const QHash< QString, QString > &css_updates );
-
-    shared_ptr< xc::DOMDocument > operator()();
+    PerformOPFUpdates( const xc::DOMDocument &document,
+                       const QHash< QString, QString > &xml_updates );
 
 private:
 
     void InitPathTags();
-
-
-    ///////////////////////////////
-    // PRIVATE MEMBER VARIABLES
-    ///////////////////////////////
-
-    const QHash< QString, QString > &m_CSSUpdates;
 };
 
-#endif // PERFORMHTMLUPDATES_H
+#endif // PERFORMOPFUPDATES_H

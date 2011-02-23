@@ -44,6 +44,15 @@ static const QString ENTITY_SEARCH = "<!ENTITY\\s+(\\w+)\\s+\"([^\"]+)\">";
 
 const QString BREAK_TAG_SEARCH  = "(<div>\\s*)?<hr\\s*class\\s*=\\s*\"[^\"]*sigilChapterBreak[^\"]*\"\\s*/>(\\s*</div>)?";
 
+namespace FlightCrew
+{
+    extern const char*         NCX_2005_1_DTD_ID; 
+    extern const unsigned int  NCX_2005_1_DTD_LEN;
+    extern const unsigned char NCX_2005_1_DTD[];  
+}
+
+namespace fs = FlightCrew;
+
 
 // Resolves custom ENTITY declarations
 QString XhtmlDoc::ResolveCustomEntities( const QString &source ) 
@@ -327,8 +336,11 @@ shared_ptr< xc::DOMDocument > XhtmlDoc::LoadTextIntoDocument( const QString &sou
     parser.setLoadExternalDTD( true );
     parser.setDoNamespaces( true );
 
-    xc::MemBufInputSource dtd( XHTML_ENTITIES_DTD, XHTML_ENTITIES_DTD_LEN, XHTML_ENTITIES_DTD_ID );
-    parser.loadGrammar( dtd, xc::Grammar::DTDGrammarType, true ); 
+    xc::MemBufInputSource xhtml_dtd( XHTML_ENTITIES_DTD, XHTML_ENTITIES_DTD_LEN, XHTML_ENTITIES_DTD_ID );
+    parser.loadGrammar( xhtml_dtd, xc::Grammar::DTDGrammarType, true ); 
+
+    xc::MemBufInputSource ncx_dtd( fs::NCX_2005_1_DTD, fs::NCX_2005_1_DTD_LEN, fs::NCX_2005_1_DTD_ID );
+    parser.loadGrammar( ncx_dtd, xc::Grammar::DTDGrammarType, true ); 
 
     // We use source.count() * 2 because count returns
     // the number of QChars, which are 2 bytes long
