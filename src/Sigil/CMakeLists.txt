@@ -73,6 +73,7 @@ set( QOBJECT_HEADERS
     ResourceObjects/FontResource.h
     ResourceObjects/NCXResource.h
     ResourceObjects/OPFResource.h
+    ResourceObjects/XMLResource.h
     BookManipulation/Book.h
     BookManipulation/FolderKeeper.h
     Qxt/qxtconfirmationmessage.h
@@ -124,6 +125,8 @@ set( RESOURCE_OBJECT_FILES
     ResourceObjects/OPFResource.h
     ResourceObjects/NCXResource.cpp
     ResourceObjects/NCXResource.h
+    ResourceObjects/XMLResource.cpp
+    ResourceObjects/XMLResource.h
     )
         
 set( DIALOG_FILES

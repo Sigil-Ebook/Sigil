@@ -23,10 +23,10 @@
 #ifndef OPFRESOURCE_H
 #define OPFRESOURCE_H
 
-#include "TextResource.h"
+#include "XMLResource.h"
 
 
-class OPFResource : public TextResource 
+class OPFResource : public XMLResource 
 {
     Q_OBJECT
 

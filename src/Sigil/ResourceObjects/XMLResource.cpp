@@ -19,34 +19,18 @@
 **
 *************************************************************************/
 
-#pragma once
-#ifndef NCXRESOURCE_H
-#define NCXRESOURCE_H
-
+#include <stdafx.h>
 #include "XMLResource.h"
 
 
-class NCXResource : public XMLResource 
+XMLResource::XMLResource( const QString &fullfilepath, QObject *parent )
+    : TextResource( fullfilepath, parent )
 {
-    Q_OBJECT
 
-public:
+}
 
-    /**
-     * Constructor.
-     *
-     * @param fullfilepath The full path to the file that this
-     *                     resource is representing.
-     * @param parent The object's parent.
-     */
-    NCXResource( const QString &fullfilepath, QObject *parent = NULL );
 
-    // inherited
-
-    virtual bool RenameTo( const QString &new_filename );
-
-    virtual ResourceType Type() const;
-
-};
-
-#endif // NCXRESOURCE_H
+Resource::ResourceType XMLResource::Type() const
+{
+    return Resource::XMLResource;
+}

@@ -24,7 +24,7 @@
 
 
 OPFResource::OPFResource( const QString &fullfilepath, QObject *parent )
-    : TextResource( fullfilepath, parent )
+    : XMLResource( fullfilepath, parent )
 {
     // Make sure the file exists on disk.
     // Among many reasons, this also solves the problem

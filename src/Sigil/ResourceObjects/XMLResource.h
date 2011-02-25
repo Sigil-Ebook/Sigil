@@ -20,13 +20,13 @@
 *************************************************************************/
 
 #pragma once
-#ifndef NCXRESOURCE_H
-#define NCXRESOURCE_H
+#ifndef XMLRESOURCE_H
+#define XMLRESOURCE_H
 
-#include "XMLResource.h"
+#include "TextResource.h"
 
 
-class NCXResource : public XMLResource 
+class XMLResource : public TextResource 
 {
     Q_OBJECT
 
@@ -39,14 +39,12 @@ public:
      *                     resource is representing.
      * @param parent The object's parent.
      */
-    NCXResource( const QString &fullfilepath, QObject *parent = NULL );
+    XMLResource( const QString &fullfilepath, QObject *parent = NULL );
 
     // inherited
-
-    virtual bool RenameTo( const QString &new_filename );
 
     virtual ResourceType Type() const;
 
 };
 
-#endif // NCXRESOURCE_H
+#endif // XMLRESOURCE_H

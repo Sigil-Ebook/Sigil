@@ -48,6 +48,7 @@ public:
     {
         GenericResource, /**< A \em vulgaris resource; used for Misc resources. */
         TextResource,    /**< Used for Text resources, but \em not HTML files. */
+        XMLResource,    /**< Used for Text resources, but \em not HTML files. */
         HTMLResource,    /**< Used for pure (X)HTML resources. */
         CSSResource,     /**< Used for CSS resources (stylesheets). */
         XPGTResource,    /**< Used for XPGT resources. */
