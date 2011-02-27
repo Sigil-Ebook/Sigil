@@ -89,8 +89,6 @@ public:
      * 
      * @param fullfilepath The full path to the file to add.
      * @param reading_order The reading order for HTMLResources.
-     * @param semantic_information Various semantic information about
-     *                             the file, in key-value pairs.
      * @return The newly created resource.
      */
     Resource& AddContentFileToFolder( const QString &fullfilepath,
@@ -105,11 +103,15 @@ public:
      * @param reading_order The reading order for HTMLResources.
      * @param semantic_information Various semantic information about
      *                             the file, in key-value pairs.
+     * @param update_opf If set to \c true, then the OPF will be notified
+     *                   that a file was added. This will add entries in the
+     *                   OPF manifest and potentially the spine as well.
      * @return The newly created resource.
      */
     Resource& AddContentFileToFolder( const QString &fullfilepath, 
                                       int reading_order,
-                                      QHash< QString, QString > semantic_information );
+                                      QHash< QString, QString > semantic_information,
+                                      bool update_opf = true );
 
     /**
      * Returns the highest reading order number present in the book.
@@ -229,6 +231,10 @@ public:
      * @return The filename list.
      */
     QStringList GetAllFilenames() const;
+
+signals:
+
+    void ResourceAdded( const Resource& );
 
 private slots:
 

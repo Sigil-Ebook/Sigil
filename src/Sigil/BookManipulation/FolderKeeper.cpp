@@ -104,7 +104,8 @@ Resource& FolderKeeper::AddContentFileToFolder( const QString &fullfilepath,
 
 Resource& FolderKeeper::AddContentFileToFolder( const QString &fullfilepath, 
                                                 int reading_order,
-                                                QHash< QString, QString > semantic_information )
+                                                QHash< QString, QString > semantic_information,
+                                                bool update_opf )
 {
     if ( !QFileInfo( fullfilepath ).exists() )
 
@@ -181,6 +182,10 @@ Resource& FolderKeeper::AddContentFileToFolder( const QString &fullfilepath,
 
     connect( resource, SIGNAL( Deleted( Resource* ) ), 
              this,     SLOT( RemoveResource( Resource* ) ), Qt::DirectConnection );
+
+    if ( update_opf )
+    
+        emit ResourceAdded( *resource );
 
     return *resource;
 }
@@ -392,13 +397,16 @@ void FolderKeeper::CreateFolderStructure()
 void FolderKeeper::CreateInfrastructureFiles()
 {
     m_OPF = new OPFResource( m_FullPathToOEBPSFolder + "/" + OPF_FILE_NAME, this );
-    m_NCX = new NCXResource( m_FullPathToOEBPSFolder + "/" + NCX_FILE_NAME, this );
-
-    connect( m_OPF, SIGNAL( Deleted( Resource* ) ), this, SLOT( RemoveResource( Resource* ) ) );
-    connect( m_NCX, SIGNAL( Deleted( Resource* ) ), this, SLOT( RemoveResource( Resource* ) ) );
+    m_NCX = new NCXResource( m_FullPathToOEBPSFolder + "/" + NCX_FILE_NAME, this );    
 
     m_Resources[ m_OPF->GetIdentifier() ] = m_OPF;
     m_Resources[ m_NCX->GetIdentifier() ] = m_NCX;
+
+    // TODO: change from Resource* to const Resource&
+    connect( m_OPF, SIGNAL( Deleted( Resource* ) ), this, SLOT( RemoveResource( Resource* ) ) );
+    connect( m_NCX, SIGNAL( Deleted( Resource* ) ), this, SLOT( RemoveResource( Resource* ) ) );
+
+    connect( this, SIGNAL( ResourceAdded( const Resource& ) ), m_OPF, SLOT( AddResource( const Resource& ) ) );
 
     Utility::WriteUnicodeTextFile( CONTAINER_XML, m_FullPathToMetaInfFolder + "/container.xml" );
 }

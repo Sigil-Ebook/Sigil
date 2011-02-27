@@ -21,6 +21,8 @@
 
 #include <stdafx.h>
 #include "XMLResource.h"
+#include "BookManipulation/XhtmlDoc.h"
+#include "Misc/Utility.h"
 
 
 XMLResource::XMLResource( const QString &fullfilepath, QObject *parent )
@@ -34,3 +36,75 @@ Resource::ResourceType XMLResource::Type() const
 {
     return Resource::XMLResource;
 }
+
+
+bool XMLResource::FileIsWellFormed()
+{
+    // TODO: expand this with a dialog to fix the problem
+
+    QReadLocker locker( &m_ReadWriteLock );
+
+    int error_line, error_column = -1;
+    tie( error_line, error_column ) = XhtmlDoc::WellFormedErrorLocation( m_TextDocument->toPlainText() );
+
+    return error_line == -1; 
+}
+
+
+void XMLResource::UpdateTextFromDom( const xc::DOMDocument &document )
+{
+    QWriteLocker locker( &m_ReadWriteLock );
+    SetText( XhtmlDoc::GetDomDocumentAsString( document ) );
+}
+
+
+QString XMLResource::GetValidID( const QString &value )
+{
+    QString new_value = value.simplified();
+    int i = 0;
+
+    // Remove all forbidden characters.
+    while ( i < new_value.size() )
+    {
+        if ( !IsValidIDCharacter( new_value.at( i ) ) )
+        
+            new_value.remove( i, 1 );
+        
+        else
+        
+            ++i;        
+    }
+
+    if ( new_value.isEmpty() )
+
+        return Utility::CreateUUID();
+
+    QChar first_char = new_value.at( 0 );
+
+    // IDs cannot start with a number, a dash or a dot
+    if ( first_char.isNumber()      ||
+         first_char == QChar( '-' ) ||
+         first_char == QChar( '.' )
+       )
+    {
+        new_value.prepend( "x" );
+    }
+
+    return new_value;
+}
+
+
+// This is probably more rigorous 
+// than the XML spec, but it's simpler.
+// (spec ref: http://www.w3.org/TR/xml-id/#processing)
+bool XMLResource::IsValidIDCharacter( const QChar &character )
+{
+    return character.isLetterOrNumber() ||
+           character == QChar( '=' )    ||
+           character == QChar( '-' )    ||
+           character == QChar( '_' )    ||
+           character == QChar( '.' )    ||
+           character == QChar( ':' )
+           ;
+}
+

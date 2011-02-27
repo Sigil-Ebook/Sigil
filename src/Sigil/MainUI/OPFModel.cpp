@@ -24,6 +24,8 @@
 #include "BookManipulation/Book.h"
 #include "ResourceObjects/Resource.h"
 #include "ResourceObjects/HTMLResource.h"
+#include "ResourceObjects/OPFResource.h"
+#include "ResourceObjects/NCXResource.h"
 #include "SourceUpdates/UniversalUpdates.h"
 #include "BookManipulation/FolderKeeper.h"
 #include <limits>
@@ -194,7 +196,10 @@ void OPFModel::ItemChangedHandler( QStandardItem *item )
     const QString &old_filename = resource->Filename();
     const QString &new_filename = item->text();
     
-    if ( old_filename == new_filename || !FilenameIsValid( old_filename, new_filename ) )
+    if ( !m_Book->GetOPF().FileIsWellFormed()           ||
+         !m_Book->GetNCX().FileIsWellFormed()           ||
+         old_filename == new_filename                   || 
+         !FilenameIsValid( old_filename, new_filename )   )
     {
         item->setText( old_filename );
         return;
@@ -294,7 +299,7 @@ void OPFModel::UpdateHTMLReadingOrders()
         {
             html_item->setData( i, READING_ORDER_ROLE );
             HTMLResource *html_resource =  qobject_cast< HTMLResource* >(
-                                                &m_Book->GetFolderKeeper().GetResourceByIdentifier( html_item->data().toString() ) );
+                &m_Book->GetFolderKeeper().GetResourceByIdentifier( html_item->data().toString() ) );
 
             if ( html_resource != NULL )
                 

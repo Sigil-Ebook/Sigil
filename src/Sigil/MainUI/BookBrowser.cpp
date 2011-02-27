@@ -26,6 +26,8 @@
 #include "BookManipulation/GuideSemantics.h"
 #include "Misc/Utility.h"
 #include "ResourceObjects/HTMLResource.h"
+#include "ResourceObjects/OPFResource.h"
+#include "ResourceObjects/NCXResource.h"
 #include "Importers/ImportHTML.h"
 #include "Qxt/qxtconfirmationmessage.h"
 #include <QTreeView>
@@ -151,6 +153,10 @@ void BookBrowser::OpenContextMenu( const QPoint &point )
 
 void BookBrowser::AddNew()
 {
+    if ( !m_Book->GetOPF().FileIsWellFormed() )
+
+        return;
+
     if ( m_LastContextMenuType == Resource::HTMLResource )
     {
         m_Book->CreateEmptyHTMLFile();
@@ -169,6 +175,10 @@ void BookBrowser::AddNew()
 
 void BookBrowser::AddExisting()
 {
+    if ( !m_Book->GetOPF().FileIsWellFormed() )
+
+        return;
+
     QStringList filepaths = QFileDialog::getOpenFileNames(  this, 
                                                             tr( "Add existing file(s)" ),
                                                             m_LastFolderOpen
@@ -278,6 +288,10 @@ void BookBrowser::Remove()
 
         return;
 
+    if ( !m_Book->GetOPF().FileIsWellFormed() )
+
+        return;
+
     resource->Delete();
 
     m_Book->NormalizeReadingOrders();
@@ -290,6 +304,10 @@ void BookBrowser::Remove()
 
 void BookBrowser::SetCoverImage()
 {
+    if ( !m_Book->GetOPF().FileIsWellFormed() )
+
+        return;
+
     ImageResource *changing_image = qobject_cast< ImageResource* >( GetCurrentResource() );
     Q_ASSERT( changing_image );
 
@@ -316,6 +334,10 @@ void BookBrowser::SetCoverImage()
 
 void BookBrowser::AddGuideSemanticType( int type )
 {
+    if ( !m_Book->GetOPF().FileIsWellFormed() )
+
+        return;
+
     GuideSemantics::GuideSemanticType semantic_type_to_add = (GuideSemantics::GuideSemanticType) type;
 
     HTMLResource *changing_html = qobject_cast< HTMLResource* >( GetCurrentResource() );
@@ -359,6 +381,10 @@ void BookBrowser::AddGuideSemanticType( int type )
 
 void BookBrowser::MergeWithPrevious()
 {
+    if ( !m_Book->GetOPF().FileIsWellFormed() )
+
+        return;
+
     QApplication::setOverrideCursor( Qt::WaitCursor );
 
     HTMLResource *html_resource = qobject_cast< HTMLResource* >( GetCurrentResource() );

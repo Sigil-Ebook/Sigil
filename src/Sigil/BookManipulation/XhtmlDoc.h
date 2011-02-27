@@ -29,6 +29,7 @@
 
 class QString;
 class QStringList;
+class QXmlStreamReader;
 
 class XhtmlDoc
 {
@@ -89,6 +90,14 @@ public:
     static int NodeLineNumber( const xc::DOMNode &node );
 
     static int NodeColumnNumber( const xc::DOMNode &node );
+
+    static tuple< int, int > WellFormedErrorLocation( const QString &source ); 
+
+    static xc::DOMElement* CreateElementInDocument( 
+        const QString &tag_name,
+        const QString &namespace_name, 
+        xc::DOMDocument &document,
+        QHash< QString, QString > attributes = QHash< QString, QString >() );
 
     // Accepts a string with HTML and returns the text
     // in that HTML fragment. For instance: 

@@ -25,6 +25,9 @@
 
 #include "XMLResource.h"
 
+// Needed because the moc_* version of this file doesn't include stdafx.h
+#include <boost/shared_ptr.hpp>
+
 
 class OPFResource : public XMLResource 
 {
@@ -46,6 +49,40 @@ public:
     virtual bool RenameTo( const QString &new_filename );
     
     virtual ResourceType Type() const;
+
+public slots:
+
+    void AddResource( const Resource &resource );
+
+private:
+
+    void AppendToSpine( const QString &id, xc::DOMDocument &document );
+
+    boost::shared_ptr< xc::DOMDocument > GetDocument();
+
+    xc::DOMElement& GetManifestElement( const xc::DOMDocument &document );
+    
+    xc::DOMElement& GetSpineElement( const xc::DOMDocument &document );
+
+    void FillWithDefaultText();
+
+    QString GetResourceMimetype( const Resource &resource );
+
+    /**
+     * Initializes m_Mimetypes.
+     */
+    void CreateMimetypes();
+
+
+    ///////////////////////////////
+    // PRIVATE MEMBER VARIABLES
+    ///////////////////////////////
+
+    /**
+     * A mapping between file extensions
+     * and appropriate MIME types.
+     */
+    QHash< QString, QString > m_Mimetypes;
 
 };
 

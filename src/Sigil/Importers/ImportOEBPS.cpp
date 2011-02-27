@@ -398,7 +398,7 @@ tuple< QString, QString > ImportOEBPS::LoadOneFile( const QString &path,
     try
     {
         Resource &resource = m_Book->GetFolderKeeper().AddContentFileToFolder( fullfilepath, 
-                                reading_order, semantic_info );
+                                reading_order, semantic_info, false );
         QString newpath = "../" + resource.GetRelativePathToOEBPS(); 
 
         return make_tuple( fullfilepath, newpath );

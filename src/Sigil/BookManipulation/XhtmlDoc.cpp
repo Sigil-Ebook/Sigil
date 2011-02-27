@@ -24,6 +24,9 @@
 #include "Misc/Utility.h"
 #include "BookManipulation/CleanSource.h"
 #include "XercesCppUse.h"
+#include <Misc/ErrorResultCollector.h>
+#include <xercesc/sax2/SAX2XMLReader.hpp>
+#include <xercesc/sax2/XMLReaderFactory.hpp>
 #include <XmlUtils.h>
 #include <LocationAwareDOMParser.h>
 #include <xercesc/framework/MemBufInputSource.hpp>
@@ -51,7 +54,7 @@ namespace FlightCrew
     extern const unsigned char NCX_2005_1_DTD[];  
 }
 
-namespace fs = FlightCrew;
+namespace fc = FlightCrew;
 
 
 // Resolves custom ENTITY declarations
@@ -325,8 +328,6 @@ shared_ptr< xc::DOMDocument > XhtmlDoc::CopyDomDocument( const xc::DOMDocument &
 
 shared_ptr< xc::DOMDocument > XhtmlDoc::LoadTextIntoDocument( const QString &source )
 {
-    QString prepared_source = PrepareSourceForXerces( source );
-
     XercesExt::LocationAwareDOMParser parser;
 
     // This scanner ignores schemas
@@ -339,8 +340,10 @@ shared_ptr< xc::DOMDocument > XhtmlDoc::LoadTextIntoDocument( const QString &sou
     xc::MemBufInputSource xhtml_dtd( XHTML_ENTITIES_DTD, XHTML_ENTITIES_DTD_LEN, XHTML_ENTITIES_DTD_ID );
     parser.loadGrammar( xhtml_dtd, xc::Grammar::DTDGrammarType, true ); 
 
-    xc::MemBufInputSource ncx_dtd( fs::NCX_2005_1_DTD, fs::NCX_2005_1_DTD_LEN, fs::NCX_2005_1_DTD_ID );
+    xc::MemBufInputSource ncx_dtd( fc::NCX_2005_1_DTD, fc::NCX_2005_1_DTD_LEN, fc::NCX_2005_1_DTD_ID );
     parser.loadGrammar( ncx_dtd, xc::Grammar::DTDGrammarType, true ); 
+
+    QString prepared_source = PrepareSourceForXerces( source );
 
     // We use source.count() * 2 because count returns
     // the number of QChars, which are 2 bytes long
@@ -374,6 +377,87 @@ int XhtmlDoc::NodeColumnNumber( const xc::DOMNode &node )
 {
     return XercesExt::GetNearestNodeLocationInfo( node ).ColumnNumber;
 }
+
+
+tuple< int, int > XhtmlDoc::WellFormedErrorLocation( const QString &source )
+{
+    boost::scoped_ptr< xc::SAX2XMLReader > parser( xc::XMLReaderFactory::createXMLReader() );
+
+    parser->setFeature( xc::XMLUni::fgSAX2CoreValidation,            false );
+    parser->setFeature( xc::XMLUni::fgXercesSchema,                  false );      
+    parser->setFeature( xc::XMLUni::fgXercesLoadSchema,              false );
+    parser->setFeature( xc::XMLUni::fgXercesUseCachedGrammarInParse, true  );
+    parser->setFeature( xc::XMLUni::fgXercesSkipDTDValidation,       true  );
+
+    // We don't need DTD validation
+    parser->setProperty( xc::XMLUni::fgXercesScannerName, 
+                         (void*) xc::XMLUni::fgWFXMLScanner );    
+
+    // Check if the DTD's actually do anything for the WF scanner
+    xc::MemBufInputSource xhtml_dtd( XHTML_ENTITIES_DTD, XHTML_ENTITIES_DTD_LEN, XHTML_ENTITIES_DTD_ID );
+    parser->loadGrammar( xhtml_dtd, xc::Grammar::DTDGrammarType, true ); 
+
+    xc::MemBufInputSource ncx_dtd( fc::NCX_2005_1_DTD, fc::NCX_2005_1_DTD_LEN, fc::NCX_2005_1_DTD_ID );
+    parser->loadGrammar( ncx_dtd, xc::Grammar::DTDGrammarType, true ); 
+
+    fc::ErrorResultCollector collector;
+    parser->setErrorHandler( &collector );
+
+    QString prepared_source = PrepareSourceForXerces( source );
+
+    // We use source.count() * 2 because count returns
+    // the number of QChars, which are 2 bytes long
+    xc::MemBufInputSource input( 
+        reinterpret_cast< const XMLByte* >( prepared_source.utf16() ), 
+        prepared_source.count() * 2, 
+        "empty" );
+
+    XMLCh UTF16[] = { xc::chLatin_U, xc::chLatin_T, xc::chLatin_F, xc::chDigit_1, xc::chDigit_6, xc::chNull };
+    input.setEncoding( UTF16 );
+
+    try
+    {
+        parser->parse( input );
+    }
+
+    catch ( xc::SAXException& exception )
+    {
+    	collector.AddNewExceptionAsResult( exception );
+    }
+
+    catch ( xc::XMLException& exception )
+    {
+        collector.AddNewExceptionAsResult( exception );
+    }
+
+    std::vector< fc::Result > results = collector.GetResults();
+
+    if ( !results.empty() )
+    {
+        return make_tuple( results[ 0 ].GetErrorLine(), results[ 0 ].GetErrorColumn() );
+    }
+
+    return make_tuple( -1, -1 );
+}
+
+
+
+xc::DOMElement* XhtmlDoc::CreateElementInDocument( 
+    const QString &tag_name, 
+    const QString &namespace_name, 
+    xc::DOMDocument &document, 
+    QHash< QString, QString > attributes )
+{
+    xc::DOMElement *element = document.createElementNS( QtoX( namespace_name ), QtoX( tag_name ) );
+
+    foreach( QString attribute_name, attributes.keys() )
+    {
+        element->setAttribute( QtoX( attribute_name ), QtoX( attributes[ attribute_name ] ) );
+    }
+
+    return element;
+}
+
 
 
 // Accepts a string with HTML and returns the text

@@ -84,7 +84,7 @@ public:
     // inherited
     virtual ResourceType Type() const;
 
-private:
+protected:
 
     /**
      * The syntax colored cache of the TextResource text content.

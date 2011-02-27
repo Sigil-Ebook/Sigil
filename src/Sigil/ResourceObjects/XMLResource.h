@@ -24,6 +24,7 @@
 #define XMLRESOURCE_H
 
 #include "TextResource.h"
+#include "BookManipulation/XercesHUse.h"
 
 
 class XMLResource : public TextResource 
@@ -44,6 +45,29 @@ public:
     // inherited
 
     virtual ResourceType Type() const;
+
+    bool FileIsWellFormed();
+
+protected:
+
+    void UpdateTextFromDom( const xc::DOMDocument &document );
+
+    /**
+     * Creates a valid ID from the requested value.
+     * 
+     * @param value What the caller wants the ID value to be.
+     * @return The potentially modified value to make the ID valid.
+     */
+    static QString GetValidID( const QString &value );
+
+    /**
+     * Determines if the provided character can appear
+     * in an XML ID attribute.
+     *
+     * @param character The character that needs to be checked.
+     * @return True if the character is valid.
+     */
+    static bool IsValidIDCharacter( const QChar &character );
 
 };
 

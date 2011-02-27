@@ -22,6 +22,7 @@
 #include <QtGui>
 #include <QtWebKit>
 #include <boost/shared_ptr.hpp>
+#include <boost/scoped_ptr.hpp>
 #include <boost/tuple/tuple.hpp>
 #include <boost/bind/bind.hpp>
 #include <boost/lambda/lambda.hpp>
