@@ -41,14 +41,17 @@ public:
 
     static QString PrettyPrint( const QString &source );
 
+    static QString ProcessXML( const QString &source );
+
 private:
 
     enum TidyType
     {
-        Tidy_Clean,      /**< Tidy with "clean" option (the works). */
-        Tidy_Fast,       /**< Tries to run Tidy's error correcting parser
-                              as fast as possible, with no unnecessary cleaning. */ 
-        Tidy_PrettyPrint /**< Like Tidy_Fast, but pretty printing. */
+        Tidy_Clean,       /**< Tidy with "clean" option (the works). */
+        Tidy_Fast,        /**< Tries to run Tidy's error correcting parser
+                               as fast as possible, with no unnecessary cleaning. */ 
+        Tidy_PrettyPrint, /**< Like Tidy_Fast, but pretty printing. */
+        Tidy_XML          /**< For XML files. */
     };
 
     static int RobustCSSStyleTagCount( const QString &source );

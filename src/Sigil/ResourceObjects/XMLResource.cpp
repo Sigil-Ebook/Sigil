@@ -22,6 +22,7 @@
 #include <stdafx.h>
 #include "XMLResource.h"
 #include "BookManipulation/XhtmlDoc.h"
+#include "BookManipulation/CleanSource.h"
 #include "Misc/Utility.h"
 
 
@@ -54,7 +55,7 @@ bool XMLResource::FileIsWellFormed()
 void XMLResource::UpdateTextFromDom( const xc::DOMDocument &document )
 {
     QWriteLocker locker( &m_ReadWriteLock );
-    SetText( XhtmlDoc::GetDomDocumentAsString( document ) );
+    SetText( CleanSource::ProcessXML( XhtmlDoc::GetDomDocumentAsString( document ) ) );
 }
 
 

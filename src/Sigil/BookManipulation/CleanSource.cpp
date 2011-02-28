@@ -92,6 +92,12 @@ QString CleanSource::PrettyPrint( const QString &source )
 }
 
 
+QString CleanSource::ProcessXML( const QString &source )
+{
+    return HTMLTidy( source, Tidy_XML );
+}
+
+
 int CleanSource::RobustCSSStyleTagCount( const QString &source )
 {
     int head_end_index = source.indexOf( QRegExp( HEAD_END ) );
@@ -243,8 +249,20 @@ TidyDoc CleanSource::TidyOptions( TidyDoc tidy_document, TidyType type, int max_
     // For more information on Tidy configuration
     // options, see http://tidy.sourceforge.net/docs/quickref.html
 
-    // "output-xhtml"
-    tidyOptSetBool( tidy_document, TidyXhtmlOut, yes );
+    if ( type == Tidy_XML )
+    {
+        // "output-xml"
+        tidyOptSetBool( tidy_document, TidyXmlOut, yes );
+
+        // "input-xml"
+        tidyOptSetBool( tidy_document, TidyXmlTags, yes );        
+    }
+
+    else
+    {
+        // "output-xhtml"
+        tidyOptSetBool( tidy_document, TidyXhtmlOut, yes );
+    }    
 
     // "add-xml-decl"
     tidyOptSetBool( tidy_document, TidyXmlDecl, yes );
