@@ -36,6 +36,7 @@
 #include "Tabs/FlowTab.h"
 #include "Tabs/TabManager.h"
 #include "ResourceObjects/HTMLResource.h"
+#include "ResourceObjects/OPFResource.h"
 
 static const int TEXT_ELIDE_WIDTH           = 300;
 static const QString SETTINGS_GROUP         = "mainwindow";
@@ -376,6 +377,10 @@ void MainWindow::ZoomOut()
 
 void MainWindow::InsertImage()
 {
+    if ( !m_Book->GetOPF().FileIsWellFormed() )
+
+        return;
+
     QStringList filenames = QFileDialog::getOpenFileNames( this, 
                                                            tr( "Insert Image(s)" ), 
                                                            m_LastFolderImage, 
