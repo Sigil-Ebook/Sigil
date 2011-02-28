@@ -159,7 +159,11 @@ shared_ptr< xc::DOMDocument > OPFResource::GetDocument()
 {
     // TODO: make sure that the basic elements (package, metadata, manifest, spine) 
     // are present, otherwise rebuild the opf (and add a comment to the opf about this)
-    return XhtmlDoc::LoadTextIntoDocument( m_TextDocument->toPlainText() );
+    shared_ptr< xc::DOMDocument > document = XhtmlDoc::LoadTextIntoDocument( m_TextDocument->toPlainText() );
+
+    // For NCX files, the default of standalone == false should remain
+    document->setXmlStandalone( true );
+    return document;
 }
 
 
