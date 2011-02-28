@@ -24,6 +24,9 @@
 #include "BookManipulation/XhtmlDoc.h"
 #include "BookManipulation/XercesCppUse.h"
 #include "Misc/Utility.h"
+#include <XmlUtils.h>
+
+namespace xe = XercesExt;
 
 static const QString OPF_XML_NAMESPACE = "http://www.idpf.org/2007/opf"; 
 static const QString FALLBACK_MIMETYPE = "text/plain";
@@ -72,7 +75,7 @@ void OPFResource::AddResource( const Resource &resource )
     QWriteLocker locker( &m_ReadWriteLock );
 
     shared_ptr< xc::DOMDocument > document = GetDocument();
-    xc::DOMElement &manifest = GetManifestElement( *document );
+    xc::DOMElement &manifest               = GetManifestElement( *document );
 
     QHash< QString, QString > attributes;
     attributes[ "id"         ] = GetValidID( resource.Filename() );
@@ -91,6 +94,36 @@ void OPFResource::AddResource( const Resource &resource )
 }
 
 
+void OPFResource::RemoveResource( const Resource &resource )
+{
+    QWriteLocker locker( &m_ReadWriteLock );
+
+    shared_ptr< xc::DOMDocument > document  = GetDocument();
+    xc::DOMElement &manifest                = GetManifestElement( *document );
+    std::vector< xc::DOMElement* > children = xe::GetElementChildren( manifest );
+    QString resource_oebps_path             = resource.GetRelativePathToOEBPS();
+    QString item_id;
+
+    foreach( xc::DOMElement *child, children )
+    {
+        QString href = XtoQ( child->getAttribute( QtoX( "href" ) ) );
+        
+        if ( href == resource_oebps_path )
+        {
+            item_id = XtoQ( child->getAttribute( QtoX( "id" ) ) );
+            manifest.removeChild( child );
+            break;
+        }
+    }
+
+    if ( resource.Type() == Resource::HTMLResource )
+
+        RemoveFromSpine( item_id, *document );
+
+    UpdateTextFromDom( *document );
+}
+
+
 void OPFResource::AppendToSpine( const QString &id, xc::DOMDocument &document )
 {
     xc::DOMElement &spine = GetSpineElement( document );
@@ -101,6 +134,24 @@ void OPFResource::AppendToSpine( const QString &id, xc::DOMDocument &document )
     xc::DOMElement *new_item = XhtmlDoc::CreateElementInDocument(
         "itemref", OPF_XML_NAMESPACE, document, attributes );
     spine.appendChild( new_item );
+}
+
+
+void OPFResource::RemoveFromSpine( const QString &id, xc::DOMDocument &document )
+{
+    xc::DOMElement &spine = GetSpineElement( document );
+    std::vector< xc::DOMElement* > children = xe::GetElementChildren( spine );
+
+    foreach( xc::DOMElement *child, children )
+    {
+        QString idref = XtoQ( child->getAttribute( QtoX( "idref" ) ) );
+        
+        if ( idref == id )
+        {
+            spine.removeChild( child );
+            break;
+        }
+    }
 }
 
 

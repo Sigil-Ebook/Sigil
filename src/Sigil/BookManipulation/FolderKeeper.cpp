@@ -359,6 +359,8 @@ void FolderKeeper::RemoveResource( Resource *resource )
     Q_ASSERT( resource );
 
     m_Resources.remove( resource->GetIdentifier() );
+
+    emit ResourceRemoved( *resource );
 }
 
 
@@ -406,7 +408,8 @@ void FolderKeeper::CreateInfrastructureFiles()
     connect( m_OPF, SIGNAL( Deleted( Resource* ) ), this, SLOT( RemoveResource( Resource* ) ) );
     connect( m_NCX, SIGNAL( Deleted( Resource* ) ), this, SLOT( RemoveResource( Resource* ) ) );
 
-    connect( this, SIGNAL( ResourceAdded( const Resource& ) ), m_OPF, SLOT( AddResource( const Resource& ) ) );
+    connect( this, SIGNAL( ResourceAdded( const Resource& ) ),   m_OPF, SLOT( AddResource(    const Resource& ) ) );
+    connect( this, SIGNAL( ResourceRemoved( const Resource& ) ), m_OPF, SLOT( RemoveResource( const Resource& ) ) );
 
     Utility::WriteUnicodeTextFile( CONTAINER_XML, m_FullPathToMetaInfFolder + "/container.xml" );
 }

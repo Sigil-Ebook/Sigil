@@ -234,7 +234,19 @@ public:
 
 signals:
 
-    void ResourceAdded( const Resource& );
+    /**
+     * Emitted when a resource is added to the FolderKeeper.
+     * 
+     * @param resource The new resource.
+     */
+    void ResourceAdded( const Resource& resource );
+
+    /**
+     * Emitted when a resource is removed from the FolderKeeper.
+     * 
+     * @param resource The removed resource.
+     */
+    void ResourceRemoved( const Resource& resource );
 
 private slots:
 

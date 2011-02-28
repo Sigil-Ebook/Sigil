@@ -54,9 +54,13 @@ public slots:
 
     void AddResource( const Resource &resource );
 
+    void RemoveResource( const Resource &resource );
+
 private:
 
     void AppendToSpine( const QString &id, xc::DOMDocument &document );
+
+    void RemoveFromSpine( const QString &id, xc::DOMDocument &document );
 
     boost::shared_ptr< xc::DOMDocument > GetDocument();
 
