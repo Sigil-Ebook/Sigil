@@ -55,7 +55,7 @@ void BookNormalization::Normalize( QSharedPointer< Book > book )
 }
 
 
-void BookNormalization::GiveIDsToHeadings( QList< HTMLResource* > html_resources )
+void BookNormalization::GiveIDsToHeadings( const QList< HTMLResource* > &html_resources )
 {
     QtConcurrent::blockingMap( html_resources, GiveIDsToHeadingsInResource );
 }
@@ -129,7 +129,7 @@ bool BookNormalization::CoverPageExists( Book &book )
 }
 
 
-void BookNormalization::TryToSetCoverPage( QList< HTMLResource* > html_resources, Book &book )
+void BookNormalization::TryToSetCoverPage( const QList< HTMLResource* > &html_resources, Book &book )
 {
     HTMLResource *first_html = html_resources[ 0 ];
 
@@ -142,8 +142,8 @@ void BookNormalization::TryToSetCoverPage( QList< HTMLResource* > html_resources
 }
 
 
-void BookNormalization::TryToSetCoverImage( QList< HTMLResource* > html_resources, 
-                                            QList< ImageResource* > image_resources,
+void BookNormalization::TryToSetCoverImage( const QList< HTMLResource* > &html_resources, 
+                                            const QList< ImageResource* > &image_resources,
                                             Book &book )
 {
     HTMLResource *cover_page = GetCoverPage( html_resources, book );

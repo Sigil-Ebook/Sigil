@@ -55,7 +55,7 @@ private:
      *
      * @param html_resources All the book's html resources.
      */
-    static void GiveIDsToHeadings( QList< HTMLResource* > html_resources );
+    static void GiveIDsToHeadings( const QList< HTMLResource* > &html_resources );
 
     /**
      * Gives ID's to all headings that don't have them
@@ -99,7 +99,7 @@ private:
      * @param html_resource The book's HTML resources.
      * @param book The book we're manipulating.
      */
-    static void TryToSetCoverPage( QList< HTMLResource* > html_resources, Book &book );
+    static void TryToSetCoverPage( const QList< HTMLResource* > &html_resources, Book &book );
     
     /**
      * Uses heuristics to try and guess which of the 
@@ -110,8 +110,8 @@ private:
      * @param image_resources The book's image resources.
      * @param book The book we're manipulating.
      */
-    static void TryToSetCoverImage( QList< HTMLResource* > html_resources,
-                                    QList< ImageResource* > image_resources,
+    static void TryToSetCoverImage( const QList< HTMLResource* > &html_resources,
+                                    const QList< ImageResource* > &image_resources,
                                     Book &book );
 
     /**
