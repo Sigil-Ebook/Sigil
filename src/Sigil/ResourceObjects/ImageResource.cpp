@@ -24,7 +24,6 @@
 #include "Misc/Utility.h"
 
 ImageResource::ImageResource( const QString &fullfilepath,
-                              QHash< QString, QString > semantic_information,
                               QObject *parent )
     : 
     Resource( fullfilepath, parent )  

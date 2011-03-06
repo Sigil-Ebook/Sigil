@@ -184,10 +184,6 @@ void ImportOEBPS::ReadOPF()
         
             ReadDublinCoreElement( opf_reader );
 
-        else if ( opf_reader.name() == "meta" )
-
-            ReadRegularMetaElement( opf_reader );
-
         // Get the list of content files that
         // make up the publication
         else if ( opf_reader.name() == "item" )
@@ -203,12 +199,7 @@ void ImportOEBPS::ReadOPF()
         // represent the reading order
         else if ( opf_reader.name() == "itemref" )
 
-            ReadSpineItemRefElement( opf_reader );
-
-        // Get the <guide> semantic information 
-        else if ( opf_reader.name() == "reference" )
-        
-            ReadGuideReferenceElement( opf_reader );        
+            ReadSpineItemRefElement( opf_reader );     
     }
 
     if ( opf_reader.hasError() )
@@ -243,23 +234,6 @@ void ImportOEBPS::ReadDublinCoreElement( QXmlStreamReader &opf_reader )
     if ( !element_text.isEmpty() )
 
         m_MetaElements.append( meta );
-}
-
-
-void ImportOEBPS::ReadRegularMetaElement( QXmlStreamReader &opf_reader )
-{
-    QString name    = opf_reader.attributes().value( "", "name"    ).toString(); 
-    QString content = opf_reader.attributes().value( "", "content" ).toString();
-
-    // For now, we only recognize the special iPad
-    // cover meta. It is in the form of name=cover
-    // and content=imageID, where the ID is from the manifest.
-    if ( name == "cover" )
-    {
-        QHash< QString, QString > semantics;
-        semantics[ name ] = name;
-        m_SemanticInformation[ content ] = semantics;
-    }
 }
 
 
@@ -302,32 +276,6 @@ void ImportOEBPS::ReadSpineItemRefElement( QXmlStreamReader &opf_reader )
 }
 
 
-void ImportOEBPS::ReadGuideReferenceElement( QXmlStreamReader &opf_reader )
-{
-    QString type  = opf_reader.attributes().value( "", "type"  ).toString(); 
-    QString title = opf_reader.attributes().value( "", "title" ).toString();
-    QString href  = opf_reader.attributes().value( "", "href"  ).toString();
-
-    // Paths are percent encoded in the OPF, we use "normal" paths internally.
-    href = Utility::URLDecodePath( href );
-
-    // We remove the fragment identifier if there is one.
-    href = !href.contains( "#" ) ? href : href.left( href.indexOf( "#" ) );
-
-    foreach( QString id, m_Files.keys() )
-    {
-        if ( m_Files[ id ] == href )
-        {
-            QHash< QString, QString > semantics;
-            semantics[ type ] = title;
-            m_SemanticInformation[ id ] = semantics;
-
-            break;
-        }
-    }
-}
-
-
 void ImportOEBPS::LoadInfrastructureFiles()
 {
     m_Book->GetOPF().SetText( Utility::ReadUnicodeTextFile( m_OPFFilePath ) );
@@ -367,8 +315,7 @@ QHash< QString, QString > ImportOEBPS::LoadFolderStructure()
                 this, 
                 &ImportOEBPS::LoadOneFile, 
                 m_Files.value( id ),
-                m_ReadingOrderIds.indexOf( id ),
-                m_SemanticInformation.value( id ) ) );   
+                m_ReadingOrderIds.indexOf( id ) ) );   
     }
 
     sync.waitForFinished();
@@ -390,15 +337,14 @@ QHash< QString, QString > ImportOEBPS::LoadFolderStructure()
 
 
 tuple< QString, QString > ImportOEBPS::LoadOneFile( const QString &path,
-                                                    int reading_order,
-                                                    const QHash< QString, QString > &semantic_info )
+                                                    int reading_order )
 {
     QString fullfilepath = QFileInfo( m_OPFFilePath ).absolutePath() + "/" + path;
 
     try
     {
         Resource &resource = m_Book->GetFolderKeeper().AddContentFileToFolder( fullfilepath, 
-                                reading_order, semantic_info, false );
+                                reading_order, false );
         QString newpath = "../" + resource.GetRelativePathToOEBPS(); 
 
         return make_tuple( fullfilepath, newpath );

@@ -83,34 +83,16 @@ public:
      * Adds a content file to the book folder and returns the
      * corresponding Resource object. The file type is recognized
      * according to the extension.
-     *
-     * @note The only reason why we have an overload instead of just one function
-     * with a default argument is because then Apple GCC 4.2 flakes out here.
      * 
      * @param fullfilepath The full path to the file to add.
      * @param reading_order The reading order for HTMLResources.
-     * @return The newly created resource.
-     */
-    Resource& AddContentFileToFolder( const QString &fullfilepath,
-                                      int reading_order = -1 );
-
-    /**
-     * Adds a content file to the book folder and returns the
-     * corresponding Resource object. The file type is recognized
-     * according to the extension.
-     * 
-     * @param fullfilepath The full path to the file to add.
-     * @param reading_order The reading order for HTMLResources.
-     * @param semantic_information Various semantic information about
-     *                             the file, in key-value pairs.
      * @param update_opf If set to \c true, then the OPF will be notified
      *                   that a file was added. This will add entries in the
      *                   OPF manifest and potentially the spine as well.
      * @return The newly created resource.
      */
     Resource& AddContentFileToFolder( const QString &fullfilepath, 
-                                      int reading_order,
-                                      QHash< QString, QString > semantic_information,
+                                      int reading_order = -1,
                                       bool update_opf = true );
 
     /**

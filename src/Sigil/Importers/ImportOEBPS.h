@@ -81,14 +81,6 @@ protected:
     void ReadDublinCoreElement( QXmlStreamReader &opf_reader );
 
     /**
-     * Reads a regular <meta> element.
-     *
-     * @param opf_reader The OPF reader positioned to read 
-     *                   the required element type.
-     */
-    void ReadRegularMetaElement( QXmlStreamReader &opf_reader );
-
-    /**
      * Reads a manifest <item> element.
      *
      * @param opf_reader The OPF reader positioned to read 
@@ -111,14 +103,6 @@ protected:
      *                   the required element type.
      */
     void ReadSpineItemRefElement( QXmlStreamReader &opf_reader );
-
-    /**
-     * Reads a guide <reference> element.
-     *
-     * @param opf_reader The OPF reader positioned to read 
-     *                   the required element type.
-     */
-    void ReadGuideReferenceElement( QXmlStreamReader &opf_reader );
 
     /**
      * Loads the metadata from the m_MetaElements list 
@@ -146,8 +130,7 @@ protected:
      * @param reading_order 
      */
     tuple< QString, QString > LoadOneFile( const QString &path,
-                                           int reading_order,
-                                           const QHash< QString, QString > &semantic_info );
+                                           int reading_order );
     
 
     ///////////////////////////////
@@ -206,12 +189,6 @@ protected:
      * The list of metadata elements in the OPF. 
      */ 
     QList< Metadata::MetaElement > m_MetaElements;
-
-    /**
-     * The keys are the file ID's, the values  
-     * are key-value pairs of semantic information.
-     */ 
-    QHash< QString, QHash< QString, QString > > m_SemanticInformation;
 
     /**
      * It's theoretically possible (although unlikely) that an epub

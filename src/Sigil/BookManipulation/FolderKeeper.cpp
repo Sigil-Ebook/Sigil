@@ -95,16 +95,9 @@ void FolderKeeper::AddInfraFileToFolder( const QString &fullfilepath, const QStr
     }
 }
 
-Resource& FolderKeeper::AddContentFileToFolder( const QString &fullfilepath,
-                                                int reading_order )
-{
-    return AddContentFileToFolder( fullfilepath, reading_order, QHash< QString, QString >() );
-}
-
 
 Resource& FolderKeeper::AddContentFileToFolder( const QString &fullfilepath, 
                                                 int reading_order,
-                                                QHash< QString, QString > semantic_information,
                                                 bool update_opf )
 {
     if ( !QFileInfo( fullfilepath ).exists() )
@@ -129,7 +122,7 @@ Resource& FolderKeeper::AddContentFileToFolder( const QString &fullfilepath,
             new_file_path = m_FullPathToImagesFolder + "/" + filename;
             relative_path = IMAGE_FOLDER_NAME + "/" + filename;
 
-            resource = new ImageResource( new_file_path, semantic_information );
+            resource = new ImageResource( new_file_path );
         }
 
         else if ( FONT_EXTENSIONS.contains( extension ) )
@@ -145,7 +138,7 @@ Resource& FolderKeeper::AddContentFileToFolder( const QString &fullfilepath,
             new_file_path = m_FullPathToTextFolder + "/" + filename;
             relative_path = TEXT_FOLDER_NAME + "/" + filename;
 
-            resource = new HTMLResource( new_file_path, reading_order, semantic_information, m_Resources );
+            resource = new HTMLResource( new_file_path, reading_order, m_Resources );
         }
 
         else if ( STYLE_EXTENSIONS.contains( extension ) )

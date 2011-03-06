@@ -54,14 +54,11 @@ public:
      * @param fullfilepath The full path to the file that this
      *                     resource is representing.
      * @param reading_order The reading order of the HTML resource.
-     * @param semantic_information The guide element information and other
-     *                             semantic info in key-value pairs.
      * @param resources The hash of Resources present in the FolderKeeper.
      * @param parent The object's parent.
      */
     HTMLResource( const QString &fullfilepath, 
                   int reading_order,
-                  QHash< QString, QString > semantic_information,
                   const QHash< QString, Resource* > &resources,
                   QObject *parent = NULL );
 

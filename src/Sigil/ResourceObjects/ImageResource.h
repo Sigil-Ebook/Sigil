@@ -36,12 +36,9 @@ public:
      *
      * @param fullfilepath The full path to the file that this
      *                     resource is representing.
-     * @param semantic_information The cover image information and other
-     *                             semantic info in key-value pairs.
      * @param parent The object's parent.
      */
     ImageResource( const QString &fullfilepath,
-                   QHash< QString, QString > semantic_information,
                    QObject *parent = NULL );
 
     // inherited
