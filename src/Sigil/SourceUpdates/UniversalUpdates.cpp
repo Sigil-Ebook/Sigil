@@ -146,6 +146,10 @@ void UniversalUpdates::UpdateOneHTMLFile( HTMLResource* html_resource,
                                           const QHash< QString, QString > &html_updates, 
                                           const QHash< QString, QString > &css_updates )
 {
+    if ( !html_resource )
+
+        return;
+
     QWriteLocker locker( &html_resource->GetLock() );
     const xc::DOMDocument &document = html_resource->GetDomDocumentForWriting();
     html_resource->SetDomDocument( PerformHTMLUpdates( document, html_updates, css_updates )() );
@@ -155,6 +159,10 @@ void UniversalUpdates::UpdateOneHTMLFile( HTMLResource* html_resource,
 void UniversalUpdates::UpdateOneCSSFile( CSSResource* css_resource, 
                                          const QHash< QString, QString > &css_updates )
 {
+    if ( !css_resource )
+
+        return;
+
     QWriteLocker locker( &css_resource->GetLock() );
     const QString &source = css_resource->GetTextDocumentForWriting().toPlainText();
     css_resource->SetText( PerformCSSUpdates( source, css_updates )() );
@@ -165,6 +173,10 @@ void UniversalUpdates::LoadAndUpdateOneHTMLFile( HTMLResource* html_resource,
                                                  const QHash< QString, QString > &html_updates,
                                                  const QHash< QString, QString > &css_updates )
 {
+    if ( !html_resource )
+
+        return;
+
     const QString &source = 
         CleanSource::Clean( 
             XhtmlDoc::ResolveCustomEntities( 
@@ -177,6 +189,10 @@ void UniversalUpdates::LoadAndUpdateOneHTMLFile( HTMLResource* html_resource,
 void UniversalUpdates::LoadAndUpdateOneCSSFile( CSSResource* css_resource, 
                                                 const QHash< QString, QString > &css_updates )
 {
+    if ( !css_resource )
+
+        return;
+
     const QString &source = Utility::ReadUnicodeTextFile( css_resource->GetFullPath() );
     css_resource->SetText( PerformCSSUpdates( source, css_updates )() );
 }
@@ -185,6 +201,10 @@ void UniversalUpdates::LoadAndUpdateOneCSSFile( CSSResource* css_resource,
 void UniversalUpdates::UpdateOPFFile( OPFResource* opf_resource,
                                       const QHash< QString, QString > &xml_updates )
 {
+    if ( !opf_resource )
+
+        return;
+
     QWriteLocker locker( &opf_resource->GetLock() );
     const QString &source = opf_resource->GetTextDocumentForWriting().toPlainText();
 
@@ -206,6 +226,10 @@ void UniversalUpdates::UpdateOPFFile( OPFResource* opf_resource,
 void UniversalUpdates::UpdateNCXFile( NCXResource* ncx_resource,
                                       const QHash< QString, QString > &xml_updates )
 {
+    if ( !ncx_resource )
+
+        return;
+
     QWriteLocker locker( &ncx_resource->GetLock() );
     const QString &source = ncx_resource->GetTextDocumentForWriting().toPlainText();
    
