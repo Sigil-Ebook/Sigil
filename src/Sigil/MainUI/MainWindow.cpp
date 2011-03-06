@@ -829,7 +829,11 @@ void MainWindow::SetNewBook( QSharedPointer< Book > new_book )
     m_BookBrowser->SetBook( m_Book );
     m_TableOfContents->SetBook( m_Book );
     m_ValidationResultsView->SetBook( m_Book );
+
     connect( m_Book.data(), SIGNAL( ModifiedStateChanged( bool ) ), this, SLOT( setWindowModified( bool ) ) );
+    connect( m_BookBrowser,     SIGNAL( GuideSemanticTypeAdded( const Resource&, GuideSemantics::GuideSemanticType ) ),
+             &m_Book->GetOPF(), SLOT(   AddGuideSemanticType(   const Resource&, GuideSemantics::GuideSemanticType ) ) );
+
     m_Book->SetModified( false );
 }
 

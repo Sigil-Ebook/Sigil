@@ -42,47 +42,18 @@ HTMLResource::HTMLResource( const QString &fullfilepath,
     m_WebPageModified( false ),
     m_WebPageIsOld( true ),
     m_TextDocumentIsOld( true ),
-    m_GuideSemanticType( GuideSemantics::NoType ),
     m_ReadingOrder( reading_order ),
     c_jQuery(         Utility::ReadUnicodeTextFile( ":/javascript/jquery-1.4.2.min.js"          ) ),
     c_jQueryScrollTo( Utility::ReadUnicodeTextFile( ":/javascript/jquery.scrollTo-1.4.2-min.js" ) ),
     m_Resources( resources )
 {
-    // There should only be one entry in the hash for HTMLResources,
-    // and that's guide type -> title
-    if ( semantic_information.keys().count() == 1 )
-    {
-        m_GuideSemanticType  = GuideSemantics::Instance().MapReferenceTypeToGuideEnum( semantic_information.keys()[ 0 ] );
-        m_GuideSemanticTitle = semantic_information.values()[ 0 ];
-    }
+
 }
 
 
 bool HTMLResource::operator< ( const HTMLResource& other )
 {
     return GetReadingOrder() < other.GetReadingOrder();
-}
-
-
-GuideSemantics::GuideSemanticType HTMLResource::GetGuideSemanticType() const
-{
-    return m_GuideSemanticType;
-}
-
-
-QString HTMLResource::GetGuideSemanticTitle() const
-{
-    return m_GuideSemanticTitle;
-}
-
-
-void HTMLResource::SetGuideSemanticType( GuideSemantics::GuideSemanticType type )
-{
-    m_GuideSemanticType = type;
-
-    // We reset the title since it's tied to
-    // the type. On export, empty titles take default values.
-    m_GuideSemanticTitle = "";
 }
 
 

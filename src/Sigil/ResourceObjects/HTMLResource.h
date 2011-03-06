@@ -74,20 +74,6 @@ public:
     virtual bool operator< ( const HTMLResource& other );
 
     /**
-     * Returns the guide element semantic type.
-     * 
-     * @return The guide semantic type.
-     */
-    GuideSemantics::GuideSemanticType GetGuideSemanticType() const;
-
-    /**
-     * Returns the guide element semantic title. 
-     *
-     * @return The guide element semantic title. 
-     */
-    QString GetGuideSemanticTitle() const;
-
-    /**
      * Sets the guide semantic type information.
      *
      * @param type The new semantic type.
@@ -358,18 +344,6 @@ private:
      * This happens when for instance a linked stylesheet is updated on disk.
      */
     bool m_RefreshNeeded;
-
-    /**
-     * Stores the guide semantic type of this resource. 
-     * This type will be used in the guide element of the OPF.
-     */
-    GuideSemantics::GuideSemanticType m_GuideSemanticType;
-
-    /**
-     * Stores the guide semantic title of this resource. 
-     * This type will be used in the guide element of the OPF.
-     */
-    QString m_GuideSemanticTitle;
 
     /**
      * The reading order of the HTML resource. Resources with a lower

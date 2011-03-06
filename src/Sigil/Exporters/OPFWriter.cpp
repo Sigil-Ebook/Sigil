@@ -384,24 +384,24 @@ void OPFWriter::WriteGuide()
 
     foreach( HTMLResource *html_resource, m_Book->GetConstFolderKeeper().GetResourceTypeList< HTMLResource >( true ) )
     {
-        GuideSemantics::GuideSemanticType semantic_type = html_resource->GetGuideSemanticType();
-
-        if ( semantic_type == GuideSemantics::NoType )
-
-            continue;
-
-        QString type_attribute;
-        QString title_attribute;
-        tie( type_attribute, title_attribute ) = GuideSemantics::Instance().GetGuideTypeMapping()[ semantic_type ];
-
-        if ( !html_resource->GetGuideSemanticTitle().isEmpty() )
-
-            title_attribute = html_resource->GetGuideSemanticTitle();
-
-        m_Writer->writeEmptyElement( "reference" );
-        m_Writer->writeAttribute( "type", type_attribute );
-        m_Writer->writeAttribute( "title", title_attribute );
-        m_Writer->writeAttribute( "href", Utility::URLEncodePath( html_resource->GetRelativePathToOEBPS() ) );
+//         GuideSemantics::GuideSemanticType semantic_type = html_resource->GetGuideSemanticType();
+// 
+//         if ( semantic_type == GuideSemantics::NoType )
+// 
+//             continue;
+// 
+//         QString type_attribute;
+//         QString title_attribute;
+//         tie( type_attribute, title_attribute ) = GuideSemantics::Instance().GetGuideTypeMapping()[ semantic_type ];
+// 
+//         if ( !html_resource->GetGuideSemanticTitle().isEmpty() )
+// 
+//             title_attribute = html_resource->GetGuideSemanticTitle();
+// 
+//         m_Writer->writeEmptyElement( "reference" );
+//         m_Writer->writeAttribute( "type", type_attribute );
+//         m_Writer->writeAttribute( "title", title_attribute );
+//         m_Writer->writeAttribute( "href", Utility::URLEncodePath( html_resource->GetRelativePathToOEBPS() ) );
     }
 
     m_Writer->writeEndElement();
@@ -412,9 +412,9 @@ bool OPFWriter::GuideTypesPresent()
 {
     foreach( HTMLResource *html_resource, m_Book->GetConstFolderKeeper().GetResourceTypeList< HTMLResource >() )
     {
-        if ( html_resource->GetGuideSemanticType() != GuideSemantics::NoType )
-
-            return true;
+//         if ( html_resource->GetGuideSemanticType() != GuideSemantics::NoType )
+// 
+//             return true;
     }
 
     return false;

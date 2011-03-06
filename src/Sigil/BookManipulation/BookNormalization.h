@@ -78,17 +78,18 @@ private:
      * Returns the cover page from the HTML resources.
      *
      * @param html_resource The book's HTML resources.
+     * @param book The book we're manipulating.
      * @return The cover page resource.
      */
-    static HTMLResource* GetCoverPage( QList< HTMLResource* > html_resources );
+    static HTMLResource* GetCoverPage( const QList< HTMLResource* > &html_resources, Book &book );
 
     /**
      * Determines if a cover page exists.
      *
-     * @param html_resource The book's HTML resources.
+     * @param book The book we're manipulating.
      * @return \c true if a cover page exists.
      */
-    static bool CoverPageExists( QList< HTMLResource* > html_resources );
+    static bool CoverPageExists( Book &book );
 
     /**
      * Uses heuristics to try and guess which of the
@@ -96,8 +97,9 @@ private:
      * a resource that matches, it sets it as the cover page.
      *
      * @param html_resource The book's HTML resources.
+     * @param book The book we're manipulating.
      */
-    static void TryToSetCoverPage( QList< HTMLResource* > html_resources );
+    static void TryToSetCoverPage( QList< HTMLResource* > html_resources, Book &book );
     
     /**
      * Determines if a cover image exists.
@@ -114,9 +116,11 @@ private:
      *
      * @param html_resource The book's HTML resources.
      * @param image_resources The book's image resources.
+     * @param book The book we're manipulating.
      */
     static void TryToSetCoverImage( QList< HTMLResource* > html_resources,
-                                    QList< ImageResource* > image_resources );
+                                    QList< ImageResource* > image_resources,
+                                    Book &book );
 
     /**
      * Determines if a flow is under the specified threshold.

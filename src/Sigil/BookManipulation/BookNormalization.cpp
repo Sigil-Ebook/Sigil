@@ -29,6 +29,7 @@
 #include "BookManipulation/GuideSemantics.h"
 #include "BookManipulation/XercesCppUse.h"
 #include "ResourceObjects/HTMLResource.h"
+#include "ResourceObjects/OPFResource.h"
 #include "BookManipulation/FolderKeeper.h"
 
 static const QString SIGIL_HEADING_ID_PREFIX = "heading_id_";
@@ -42,15 +43,15 @@ void BookNormalization::Normalize( QSharedPointer< Book > book )
 
     GiveIDsToHeadings( html_resources );
 
-    if ( !CoverPageExists( html_resources ) )
+    if ( !CoverPageExists( *book ) )
     
-        TryToSetCoverPage( html_resources );
+        TryToSetCoverPage( html_resources, *book );
 
     QList< ImageResource* > image_resources = book->GetFolderKeeper().GetResourceTypeList< ImageResource >();
 
     if ( !CoverImageExists( image_resources ) )
 
-        TryToSetCoverImage( html_resources, image_resources );
+        TryToSetCoverImage( html_resources, image_resources, *book );
 }
 
 
@@ -108,11 +109,12 @@ int BookNormalization::MaxSigilHeadingIDIndex( const QList< Headings::Heading > 
 }
 
 
-HTMLResource* BookNormalization::GetCoverPage( QList< HTMLResource* > html_resources )
+HTMLResource* BookNormalization::GetCoverPage( const QList< HTMLResource* > &html_resources, Book &book )
 {
+    QString oebps_path = book.GetOPF().GetCoverPageOEBPSPath();
     foreach( HTMLResource* html_resource, html_resources )
     {
-        if ( html_resource->GetGuideSemanticType() == GuideSemantics::Cover )
+        if ( html_resource->GetRelativePathToOEBPS() == oebps_path )
 
             return html_resource;
     }
@@ -121,13 +123,13 @@ HTMLResource* BookNormalization::GetCoverPage( QList< HTMLResource* > html_resou
 }
 
 
-bool BookNormalization::CoverPageExists( QList< HTMLResource* > html_resources )
+bool BookNormalization::CoverPageExists( Book &book )
 {
-    return GetCoverPage( html_resources ) != NULL;
+    return !book.GetOPF().GetCoverPageOEBPSPath().isEmpty();
 }
 
 
-void BookNormalization::TryToSetCoverPage( QList< HTMLResource* > html_resources )
+void BookNormalization::TryToSetCoverPage( QList< HTMLResource* > html_resources, Book &book )
 {
     HTMLResource *first_html = html_resources[ 0 ];
 
@@ -135,7 +137,7 @@ void BookNormalization::TryToSetCoverPage( QList< HTMLResource* > html_resources
          FlowHasOnlyOneImage( first_html )
        )
     {
-        first_html->SetGuideSemanticType( GuideSemantics::Cover );
+        book.GetOPF().AddGuideSemanticType( *first_html, GuideSemantics::Cover );
     }
 }
 
@@ -154,9 +156,10 @@ bool BookNormalization::CoverImageExists( QList< ImageResource* > image_resource
 
 
 void BookNormalization::TryToSetCoverImage( QList< HTMLResource* > html_resources, 
-                                            QList< ImageResource* > image_resources )
+                                            QList< ImageResource* > image_resources,
+                                            Book &book )
 {
-    HTMLResource *cover_page = GetCoverPage( html_resources );
+    HTMLResource *cover_page = GetCoverPage( html_resources, book );
 
     if ( !cover_page )
 

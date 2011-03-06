@@ -27,6 +27,7 @@
 #include <QSharedPointer>
 #include "BookManipulation/Book.h"
 #include "ResourceObjects/Resource.h"
+#include "BookManipulation/GuideSemantics.h"
 
 class QTreeView;
 class OPFModel;
@@ -108,6 +109,16 @@ signals:
      * Emitted when the book's content is modified through the Book Browser.
      */
     void BookContentModified();
+
+    /**
+     * Emitted when the user clicks on a guide semantic type
+     * in the Add Semantics sub-menu. Note that this is also emitted
+     * when the user tries to un-check an added type in the menu. 
+     *
+     * @param resource The resource for which the type is being added.
+     * @param type The guide semantic type.
+     */
+    void GuideSemanticTypeAdded( const Resource &resource, GuideSemantics::GuideSemanticType type );
 
 private slots:
 

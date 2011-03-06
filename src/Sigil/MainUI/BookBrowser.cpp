@@ -23,7 +23,6 @@
 #include "BookBrowser.h"
 #include "OPFModel.h"
 #include "BookManipulation/Book.h"
-#include "BookManipulation/GuideSemantics.h"
 #include "Misc/Utility.h"
 #include "ResourceObjects/HTMLResource.h"
 #include "ResourceObjects/OPFResource.h"
@@ -338,43 +337,10 @@ void BookBrowser::AddGuideSemanticType( int type )
 
         return;
 
-    GuideSemantics::GuideSemanticType semantic_type_to_add = (GuideSemantics::GuideSemanticType) type;
+    Resource *resource = GetCurrentResource();
+    Q_ASSERT( resource );
 
-    HTMLResource *changing_html = qobject_cast< HTMLResource* >( GetCurrentResource() );
-    Q_ASSERT( changing_html );
-
-    // Turn on.
-    if ( changing_html->GetGuideSemanticType() != semantic_type_to_add )
-    {
-        // Industry best practice is to have only one 
-        // <guide> reference type instance per book.
-        // The only exception is the Text type, of which  
-        // we customarily have more than one instance.
-        if ( semantic_type_to_add != GuideSemantics::Text )
-        {
-            foreach( HTMLResource *html_resource, m_Book->GetFolderKeeper().GetResourceTypeList< HTMLResource >() )
-            {
-                if ( html_resource->GetGuideSemanticType() == semantic_type_to_add )
-                {
-                    html_resource->SetGuideSemanticType( GuideSemantics::NoType );
-    
-                    // There is no "break" statement here because we might
-                    // load an epub that has several instance of one guide type.
-                    // We preserve them on load, but if the user is intent on
-                    // changing them, then we enforce "one type instance per book".
-                }
-            }
-        }
-
-        changing_html->SetGuideSemanticType( semantic_type_to_add );
-    }
-
-    // Turn off.
-    else
-    {
-        changing_html->SetGuideSemanticType( GuideSemantics::NoType );
-    }
-
+    emit GuideSemanticTypeAdded( *resource, (GuideSemantics::GuideSemanticType) type );
     emit BookContentModified();
 }
 
@@ -743,7 +709,8 @@ void BookBrowser::SetHTMLSemanticActionCheckState( Resource *resource )
         action->setChecked( false );
     }
 
-    GuideSemantics::GuideSemanticType semantic_type = html_resource->GetGuideSemanticType();
+    GuideSemantics::GuideSemanticType semantic_type = 
+        m_Book->GetOPF().GetGuideSemanticTypeForResource( *html_resource );
 
     if ( semantic_type == GuideSemantics::NoType )
 

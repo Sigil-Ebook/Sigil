@@ -24,6 +24,7 @@
 #define OPFRESOURCE_H
 
 #include "XMLResource.h"
+#include "BookManipulation/GuideSemantics.h"
 
 // Needed because the moc_* version of this file doesn't include stdafx.h
 #include <boost/shared_ptr.hpp>
@@ -50,11 +51,17 @@ public:
     
     virtual ResourceType Type() const;
 
+    GuideSemantics::GuideSemanticType GetGuideSemanticTypeForResource( const Resource &resource );
+
+    QString GetCoverPageOEBPSPath();
+
 public slots:
 
     void AddResource( const Resource &resource );
 
     void RemoveResource( const Resource &resource );
+
+    void AddGuideSemanticType( const Resource &resource, GuideSemantics::GuideSemanticType new_type );
 
 private:
 
@@ -68,6 +75,30 @@ private:
     
     xc::DOMElement& GetSpineElement( const xc::DOMDocument &document );
 
+    xc::DOMElement& GetGuideElement( xc::DOMDocument &document );
+
+    // CAN BE NULL! NULL means no reference for resource
+    xc::DOMElement* GetGuideReferenceForResource( 
+        const Resource &resource, 
+        xc::DOMDocument &document );
+
+    void RemoveGuideReferenceForResource( 
+        const Resource &resource, 
+        xc::DOMDocument &document );
+
+    GuideSemantics::GuideSemanticType GetGuideSemanticTypeForResource( 
+        const Resource &resource, 
+        xc::DOMDocument &document );
+
+    void SetGuideSemanticTypeForResource(
+        GuideSemantics::GuideSemanticType type,
+        const Resource &resource, 
+        xc::DOMDocument &document );
+
+    void RemoveDuplicateGuideTypes(
+        GuideSemantics::GuideSemanticType new_type, 
+        xc::DOMDocument &document );
+
     void FillWithDefaultText();
 
     QString GetResourceMimetype( const Resource &resource );
@@ -76,7 +107,6 @@ private:
      * Initializes m_Mimetypes.
      */
     void CreateMimetypes();
-
 
     ///////////////////////////////
     // PRIVATE MEMBER VARIABLES

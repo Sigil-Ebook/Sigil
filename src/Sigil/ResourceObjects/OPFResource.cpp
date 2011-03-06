@@ -70,6 +70,34 @@ Resource::ResourceType OPFResource::Type() const
 }
 
 
+GuideSemantics::GuideSemanticType OPFResource::GetGuideSemanticTypeForResource( const Resource &resource )
+{
+    shared_ptr< xc::DOMDocument > document = GetDocument();
+    return GetGuideSemanticTypeForResource( resource, *document );
+}
+
+
+QString OPFResource::GetCoverPageOEBPSPath()
+{
+    shared_ptr< xc::DOMDocument > document = GetDocument();
+    QList< xc::DOMElement* > references = XhtmlDoc::GetTagMatchingDescendants( *document, "reference" );
+
+    foreach( xc::DOMElement* reference, references )
+    {
+        QString type_text = XtoQ( reference->getAttribute( QtoX( "type" ) ) );
+        GuideSemantics::GuideSemanticType current_type =
+            GuideSemantics::Instance().MapReferenceTypeToGuideEnum( type_text );
+
+        if ( current_type == GuideSemantics::Cover )
+        {
+            XtoQ( reference->getAttribute( QtoX( "href" ) ) );              
+        }        
+    }
+
+    return QString();
+}
+
+
 void OPFResource::AddResource( const Resource &resource )
 {
     QWriteLocker locker( &m_ReadWriteLock );
@@ -119,6 +147,30 @@ void OPFResource::RemoveResource( const Resource &resource )
     if ( resource.Type() == Resource::HTMLResource )
 
         RemoveFromSpine( item_id, *document );
+
+    UpdateTextFromDom( *document );
+}
+
+
+void OPFResource::AddGuideSemanticType( const Resource &resource, GuideSemantics::GuideSemanticType new_type )
+{
+    QWriteLocker locker( &m_ReadWriteLock );
+
+    shared_ptr< xc::DOMDocument > document         = GetDocument();
+    GuideSemantics::GuideSemanticType current_type = GetGuideSemanticTypeForResource( resource, *document );
+       
+    if ( current_type != new_type )
+    {
+        RemoveDuplicateGuideTypes( new_type, *document );
+        SetGuideSemanticTypeForResource( new_type, resource, *document );
+    }
+
+    // If the current type is the same as the new one,
+    // we toggle it off.
+    else 
+    {
+        RemoveGuideReferenceForResource( resource, *document );
+    }
 
     UpdateTextFromDom( *document );
 }
@@ -185,6 +237,133 @@ xc::DOMElement& OPFResource::GetSpineElement( const xc::DOMDocument &document )
 }
 
 
+xc::DOMElement& OPFResource::GetGuideElement( xc::DOMDocument &document )
+{
+    QList< xc::DOMElement* > guides = XhtmlDoc::GetTagMatchingDescendants( document, "guide" );
+    
+    if ( !guides.isEmpty() )
+
+        return *guides[ 0 ];
+
+    xc::DOMElement &package = *document.getDocumentElement();
+    xc::DOMElement *guide = XhtmlDoc::CreateElementInDocument(
+        "guide", OPF_XML_NAMESPACE, document, QHash< QString, QString >() );
+
+    package.appendChild( guide );
+
+    return *guide;
+}
+
+
+xc::DOMElement* OPFResource::GetGuideReferenceForResource( const Resource &resource, xc::DOMDocument &document )
+{
+    QString resource_oebps_path         = resource.GetRelativePathToOEBPS();
+    QList< xc::DOMElement* > references = XhtmlDoc::GetTagMatchingDescendants( document, "reference" );
+
+    foreach( xc::DOMElement* reference, references )
+    {
+        QString href = XtoQ( reference->getAttribute( QtoX( "href" ) ) );
+
+        if ( href == resource_oebps_path )
+        {
+            return reference;              
+        }        
+    }
+
+    return NULL;
+}
+
+
+void OPFResource::RemoveGuideReferenceForResource( const Resource &resource, xc::DOMDocument &document )
+{
+    xc::DOMElement &guide = GetGuideElement( document );
+    guide.removeChild( GetGuideReferenceForResource( resource, document ) );
+}
+
+
+GuideSemantics::GuideSemanticType OPFResource::GetGuideSemanticTypeForResource( 
+    const Resource &resource,
+    xc::DOMDocument &document )
+{
+    xc::DOMElement* reference = GetGuideReferenceForResource( resource, document );
+    
+    if ( reference )
+    {
+        QString type = XtoQ( reference->getAttribute( QtoX( "type" ) ) );
+        return GuideSemantics::Instance().MapReferenceTypeToGuideEnum( type );  
+    }
+
+    return GuideSemantics::NoType;
+}
+
+
+void OPFResource::SetGuideSemanticTypeForResource( 
+    GuideSemantics::GuideSemanticType type, 
+    const Resource &resource, 
+    xc::DOMDocument &document )
+{
+    xc::DOMElement* reference = GetGuideReferenceForResource( resource, document );
+    QString type_attribute;
+    QString title_attribute;
+    tie( type_attribute, title_attribute ) = GuideSemantics::Instance().GetGuideTypeMapping()[ type ];
+    
+    if ( reference )
+    {
+        reference->setAttribute( QtoX( "type" ), QtoX( type_attribute ) ); 
+    }
+
+    else
+    {
+        xc::DOMElement &guide = GetGuideElement( document );
+
+        QHash< QString, QString > attributes;
+        attributes[ "type"  ] = type_attribute;
+        attributes[ "title" ] = title_attribute;
+        attributes[ "href"  ] = resource.GetRelativePathToOEBPS();
+
+        xc::DOMElement *new_item = XhtmlDoc::CreateElementInDocument( 
+            "reference", OPF_XML_NAMESPACE, document, attributes );
+
+        guide.appendChild( new_item );
+    }
+}
+
+
+void OPFResource::RemoveDuplicateGuideTypes( 
+    GuideSemantics::GuideSemanticType new_type, 
+    xc::DOMDocument &document )
+{
+    // Industry best practice is to have only one 
+    // <guide> reference type instance per book.
+    // The only exception is the Text type, of which  
+    // we customarily have more than one instance.
+    // For NoType, there is nothing to remove.
+    if ( new_type == GuideSemantics::Text || new_type == GuideSemantics::NoType )
+
+        return;
+
+    xc::DOMElement &guide               = GetGuideElement( document );
+    QList< xc::DOMElement* > references = XhtmlDoc::GetTagMatchingDescendants( document, "reference" );
+
+    foreach( xc::DOMElement* reference, references )
+    {
+        QString type_text = XtoQ( reference->getAttribute( QtoX( "type" ) ) );
+        GuideSemantics::GuideSemanticType current_type =
+            GuideSemantics::Instance().MapReferenceTypeToGuideEnum( type_text );   
+
+        if ( current_type == new_type )
+        {
+            guide.removeChild( reference );
+
+            // There is no "break" statement here because we might
+            // load an epub that has several instance of one guide type.
+            // We preserve them on load, but if the user is intent on
+            // changing them, then we enforce "one type instance per book".
+        }        
+    }
+}
+
+
 void OPFResource::FillWithDefaultText()
 {
     // FIXME: This should use the Book's identifier... actually the Book's identifier 
@@ -231,6 +410,9 @@ void OPFResource::CreateMimetypes()
     m_Mimetypes[ "ttc"   ] = "application/x-font-truetype-collection";
 
 }
+
+
+
 
 
 
