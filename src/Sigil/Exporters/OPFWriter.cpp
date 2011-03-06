@@ -242,11 +242,11 @@ void OPFWriter::WriteCoverImageMeta()
 
     foreach( ImageResource* image_resource, image_resources )
     {
-        if ( image_resource->IsCoverImage() )
-        {
-            cover_filename = image_resource->Filename();
-            break;
-        }
+//         if ( image_resource->IsCoverImage() )
+//         {
+//             cover_filename = image_resource->Filename();
+//             break;
+//         }
     }
 
     if ( cover_filename.isEmpty() )

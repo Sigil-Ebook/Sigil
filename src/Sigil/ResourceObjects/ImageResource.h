@@ -46,29 +46,6 @@ public:
 
     // inherited
     virtual ResourceType Type() const;
-
-    /**
-     * Sets the cover image status.
-     *
-     * @param is_cover The new cover image status.
-     * @warning Setting one image as a cover does \b not unset
-     *          cover image status of other images.
-     */
-    void SetIsCoverImage( bool is_cover );
-
-    /**
-     * Returns the cover image status of this image.
-     *
-     * @return Cover image status.
-     */
-    bool IsCoverImage();
-
-private:
-
-    /**
-     * The cover image state of this image.
-     */
-    bool m_IsCoverImage;
 };
 
 #endif // IMAGERESOURCE_H

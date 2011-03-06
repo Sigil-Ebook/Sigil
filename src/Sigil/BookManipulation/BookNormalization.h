@@ -102,14 +102,6 @@ private:
     static void TryToSetCoverPage( QList< HTMLResource* > html_resources, Book &book );
     
     /**
-     * Determines if a cover image exists.
-     *
-     * @param image_resources The book's image resources.
-     * @return \c true if a cover image exists.
-     */
-    static bool CoverImageExists( QList< ImageResource* > image_resources );
-
-    /**
      * Uses heuristics to try and guess which of the 
      * image resources is a cover image. If it finds 
      * a resource that matches, it sets it as the cover page.

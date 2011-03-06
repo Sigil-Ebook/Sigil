@@ -833,6 +833,8 @@ void MainWindow::SetNewBook( QSharedPointer< Book > new_book )
     connect( m_Book.data(), SIGNAL( ModifiedStateChanged( bool ) ), this, SLOT( setWindowModified( bool ) ) );
     connect( m_BookBrowser,     SIGNAL( GuideSemanticTypeAdded( const Resource&, GuideSemantics::GuideSemanticType ) ),
              &m_Book->GetOPF(), SLOT(   AddGuideSemanticType(   const Resource&, GuideSemantics::GuideSemanticType ) ) );
+    connect( m_BookBrowser,     SIGNAL( CoverImageSet(           const Resource& ) ),
+             &m_Book->GetOPF(), SLOT(   SetResourceAsCoverImage( const Resource& ) ) );
 
     m_Book->SetModified( false );
 }

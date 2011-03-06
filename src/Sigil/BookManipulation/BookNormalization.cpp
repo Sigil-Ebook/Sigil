@@ -49,7 +49,7 @@ void BookNormalization::Normalize( QSharedPointer< Book > book )
 
     QList< ImageResource* > image_resources = book->GetFolderKeeper().GetResourceTypeList< ImageResource >();
 
-    if ( !CoverImageExists( image_resources ) )
+    if ( !book->GetOPF().CoverImageExists() )
 
         TryToSetCoverImage( html_resources, image_resources, *book );
 }
@@ -142,19 +142,6 @@ void BookNormalization::TryToSetCoverPage( QList< HTMLResource* > html_resources
 }
 
 
-bool BookNormalization::CoverImageExists( QList< ImageResource* > image_resources )
-{
-    foreach( ImageResource* image_resource, image_resources )
-    {
-        if ( image_resource->IsCoverImage() )
-
-            return true;
-    }
-
-    return false;
-}
-
-
 void BookNormalization::TryToSetCoverImage( QList< HTMLResource* > html_resources, 
                                             QList< ImageResource* > image_resources,
                                             Book &book )
@@ -183,7 +170,7 @@ void BookNormalization::TryToSetCoverImage( QList< HTMLResource* > html_resource
     {
         if ( image_resource->Filename() == first_image_name )
         {
-            image_resource->SetIsCoverImage( true );
+            book.GetOPF().SetResourceAsCoverImage( *image_resource );
             break;
         }
     }

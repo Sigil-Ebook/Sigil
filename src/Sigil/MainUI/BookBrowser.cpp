@@ -307,26 +307,10 @@ void BookBrowser::SetCoverImage()
 
         return;
 
-    ImageResource *changing_image = qobject_cast< ImageResource* >( GetCurrentResource() );
-    Q_ASSERT( changing_image );
+    Resource *resource = GetCurrentResource();
+    Q_ASSERT( resource );
 
-    // Turn on.
-    if ( !changing_image->IsCoverImage() )
-    {
-        foreach( ImageResource *image_resource, m_Book->GetFolderKeeper().GetResourceTypeList< ImageResource >() )
-        {
-            image_resource->SetIsCoverImage( false );
-        }
-
-        changing_image->SetIsCoverImage( true );            
-    }
-
-    // Turn off.
-    else
-    {
-        changing_image->SetIsCoverImage( false );
-    }
-
+    emit CoverImageSet( *resource );
     emit BookContentModified();
 }
 
@@ -689,7 +673,7 @@ void BookBrowser::SetupImageSemanticContextMenu( Resource *resource )
 
     m_CoverImage->setChecked( false );
 
-    if ( image_resource->IsCoverImage() )
+    if ( m_Book->GetOPF().IsCoverImage( *image_resource ) )
 
         m_CoverImage->setChecked( true );
 }

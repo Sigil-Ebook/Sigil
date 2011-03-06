@@ -55,6 +55,15 @@ public:
 
     QString GetCoverPageOEBPSPath();
 
+    bool IsCoverImage( const Resource &resource );
+
+    /**
+     * Determines if a cover image exists.
+     *
+     * @return \c true if a cover image exists.
+     */
+    bool CoverImageExists();
+
 public slots:
 
     void AddResource( const Resource &resource );
@@ -63,6 +72,8 @@ public slots:
 
     void AddGuideSemanticType( const Resource &resource, GuideSemantics::GuideSemanticType new_type );
 
+    void SetResourceAsCoverImage( const Resource &resource );
+
 private:
 
     void AppendToSpine( const QString &id, xc::DOMDocument &document );
@@ -70,6 +81,8 @@ private:
     void RemoveFromSpine( const QString &id, xc::DOMDocument &document );
 
     boost::shared_ptr< xc::DOMDocument > GetDocument();
+
+    xc::DOMElement& GetMetadataElement( const xc::DOMDocument &document );
 
     xc::DOMElement& GetManifestElement( const xc::DOMDocument &document );
     
@@ -80,7 +93,7 @@ private:
     // CAN BE NULL! NULL means no reference for resource
     xc::DOMElement* GetGuideReferenceForResource( 
         const Resource &resource, 
-        xc::DOMDocument &document );
+        const xc::DOMDocument &document );
 
     void RemoveGuideReferenceForResource( 
         const Resource &resource, 
@@ -98,6 +111,11 @@ private:
     void RemoveDuplicateGuideTypes(
         GuideSemantics::GuideSemanticType new_type, 
         xc::DOMDocument &document );
+
+    // CAN BE NULL! NULL means no cover meta element
+    xc::DOMElement* GetCoverMeta( const xc::DOMDocument &document );
+
+    QString GetResourceManifestID( const Resource &resource, const xc::DOMDocument &document );
 
     void FillWithDefaultText();
 

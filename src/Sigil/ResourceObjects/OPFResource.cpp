@@ -72,13 +72,47 @@ Resource::ResourceType OPFResource::Type() const
 
 GuideSemantics::GuideSemanticType OPFResource::GetGuideSemanticTypeForResource( const Resource &resource )
 {
+    QReadLocker locker( &m_ReadWriteLock );
     shared_ptr< xc::DOMDocument > document = GetDocument();
     return GetGuideSemanticTypeForResource( resource, *document );
 }
 
 
+bool OPFResource::IsCoverImage( const Resource &resource )
+{
+    if ( resource.Type() != ImageResource )
+
+        return false;
+
+    QReadLocker locker( &m_ReadWriteLock );
+
+    shared_ptr< xc::DOMDocument > document = GetDocument();
+    xc::DOMElement* meta                   = GetCoverMeta( *document );    
+    
+    if ( meta )
+    {
+        QString resource_id = GetResourceManifestID( resource, *document );
+
+        return XtoQ( meta->getAttribute( QtoX( "content" ) ) ) == resource_id;
+    }
+
+    return false;
+}
+
+
+bool OPFResource::CoverImageExists()
+{
+    QReadLocker locker( &m_ReadWriteLock );
+
+    shared_ptr< xc::DOMDocument > document = GetDocument();
+    
+    return GetCoverMeta( *document ) != NULL;
+}
+
+
 QString OPFResource::GetCoverPageOEBPSPath()
 {
+    QReadLocker locker( &m_ReadWriteLock );
     shared_ptr< xc::DOMDocument > document = GetDocument();
     QList< xc::DOMElement* > references = XhtmlDoc::GetTagMatchingDescendants( *document, "reference" );
 
@@ -176,6 +210,44 @@ void OPFResource::AddGuideSemanticType( const Resource &resource, GuideSemantics
 }
 
 
+void OPFResource::SetResourceAsCoverImage( const Resource &resource )
+{
+    QWriteLocker locker( &m_ReadWriteLock );
+
+    shared_ptr< xc::DOMDocument > document = GetDocument();
+    xc::DOMElement* meta = GetCoverMeta( *document );
+    QString resource_id = GetResourceManifestID( resource, *document );
+    
+    if ( meta )
+    {
+        // If the image is already set as the cover, then we toggle it off
+        if ( XtoQ( meta->getAttribute( QtoX( "content" ) ) ) == resource_id )
+        
+            GetMetadataElement( *document ).removeChild( meta );
+        
+        else
+        
+            meta->setAttribute( QtoX( "content" ), QtoX( resource_id ) );        
+    }
+
+    else
+    {
+        xc::DOMElement &metadata = GetMetadataElement( *document );
+
+        QHash< QString, QString > attributes;
+        attributes[ "name"    ] = "cover";
+        attributes[ "content" ] = resource_id;
+
+        xc::DOMElement *new_meta = XhtmlDoc::CreateElementInDocument( 
+            "meta", OPF_XML_NAMESPACE, *document, attributes );
+
+        metadata.appendChild( new_meta );
+    }
+
+    UpdateTextFromDom( *document );
+}
+
+
 void OPFResource::AppendToSpine( const QString &id, xc::DOMDocument &document )
 {
     xc::DOMElement &spine = GetSpineElement( document );
@@ -219,6 +291,15 @@ shared_ptr< xc::DOMDocument > OPFResource::GetDocument()
 }
 
 
+xc::DOMElement& OPFResource::GetMetadataElement( const xc::DOMDocument &document )
+{
+    QList< xc::DOMElement* > metadatas = XhtmlDoc::GetTagMatchingDescendants( document, "metadata" );
+    Q_ASSERT( !metadatas.isEmpty() );
+
+    return *metadatas[ 0 ];  
+}
+
+
 xc::DOMElement& OPFResource::GetManifestElement( const xc::DOMDocument &document )
 {
     QList< xc::DOMElement* > manifests = XhtmlDoc::GetTagMatchingDescendants( document, "manifest" );
@@ -255,7 +336,7 @@ xc::DOMElement& OPFResource::GetGuideElement( xc::DOMDocument &document )
 }
 
 
-xc::DOMElement* OPFResource::GetGuideReferenceForResource( const Resource &resource, xc::DOMDocument &document )
+xc::DOMElement* OPFResource::GetGuideReferenceForResource( const Resource &resource, const xc::DOMDocument &document )
 {
     QString resource_oebps_path         = resource.GetRelativePathToOEBPS();
     QList< xc::DOMElement* > references = XhtmlDoc::GetTagMatchingDescendants( document, "reference" );
@@ -364,6 +445,42 @@ void OPFResource::RemoveDuplicateGuideTypes(
 }
 
 
+xc::DOMElement* OPFResource::GetCoverMeta( const xc::DOMDocument &document )
+{
+    QList< xc::DOMElement* > metas = XhtmlDoc::GetTagMatchingDescendants( document, "meta" );
+
+    foreach( xc::DOMElement* meta, metas )
+    {
+        QString name = XtoQ( meta->getAttribute( QtoX( "name" ) ) );
+        
+        if ( name == "cover" )
+        {
+            return meta;
+        }
+    }
+
+    return NULL;
+}
+
+
+QString OPFResource::GetResourceManifestID( const Resource &resource, const xc::DOMDocument &document )
+{
+    QString oebps_path = resource.GetRelativePathToOEBPS();
+    QList< xc::DOMElement* > items = XhtmlDoc::GetTagMatchingDescendants( document, "item" );
+
+    foreach( xc::DOMElement* item, items )
+    {
+        QString href = XtoQ( item->getAttribute( QtoX( "href" ) ) );
+
+        if ( href == oebps_path )
+
+            return XtoQ( item->getAttribute( QtoX( "id" ) ) );
+    }
+
+    return QString();
+}
+
+
 void OPFResource::FillWithDefaultText()
 {
     // FIXME: This should use the Book's identifier... actually the Book's identifier 
@@ -408,8 +525,9 @@ void OPFResource::CreateMimetypes()
     m_Mimetypes[ "otf"   ] = "application/vnd.ms-opentype"; 
     m_Mimetypes[ "ttf"   ] = "application/x-font-ttf";
     m_Mimetypes[ "ttc"   ] = "application/x-font-truetype-collection";
-
 }
+
+
 
 
 

@@ -120,6 +120,15 @@ signals:
      */
     void GuideSemanticTypeAdded( const Resource &resource, GuideSemantics::GuideSemanticType type );
 
+    /**
+     * Emitted when the user selects an image as a cover.
+     * Note that this is also emitted when the user tries 
+     * to un-check an image as a cover in the menu. 
+     *
+     * @param resource The resource being set as the cover.
+     */
+    void CoverImageSet( const Resource &resource );
+
 private slots:
 
     /**
