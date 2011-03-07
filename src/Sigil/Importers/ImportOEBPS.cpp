@@ -28,7 +28,7 @@
 #include "BookManipulation/FolderKeeper.h"
 #include <ZipArchive.h>
 
-static const QString DUBLIN_CORE_NS      = "http://purl.org/dc/elements/1.1/";
+const QString DUBLIN_CORE_NS             = "http://purl.org/dc/elements/1.1/";
 static const QString OEBPS_MIMETYPE      = "application/oebps-package+xml";
 static const QString UPDATE_ERROR_STRING = "SG_ERROR";
 const QString NCX_MIMETYPE               = "application/x-dtbncx+xml";
@@ -178,11 +178,10 @@ void ImportOEBPS::ReadOPF()
         if ( opf_reader.name() == "package" )
 
             m_UniqueIdentifierId = opf_reader.attributes().value( "", "unique-identifier" ).toString();
-        
-        // Parse and store Dublin Core metadata elements
-        else if ( opf_reader.namespaceUri() == DUBLIN_CORE_NS )
-        
-            ReadDublinCoreElement( opf_reader );
+
+        else if ( opf_reader.name() == "identifier" )
+
+            ReadIdentifierElement( opf_reader );
 
         // Get the list of content files that
         // make up the publication
@@ -213,27 +212,21 @@ void ImportOEBPS::ReadOPF()
 }
 
 
-void ImportOEBPS::ReadDublinCoreElement( QXmlStreamReader &opf_reader )
+void ImportOEBPS::ReadIdentifierElement( QXmlStreamReader &opf_reader )
 {
-    Metadata::MetaElement meta;                
+    QString id     = opf_reader.attributes().value( "", "id"     ).toString(); 
+    QString scheme = opf_reader.attributes().value( "", "scheme" ).toString();
+    QString value  = opf_reader.readElementText();
 
-    // We create a copy of the attributes because
-    // the QXmlStreamAttributes die out after we 
-    // move away from the token.
-    foreach( QXmlStreamAttribute attribute, opf_reader.attributes() )
+    if ( id == m_UniqueIdentifierId )
+
+        m_UniqueIdentifierValue = value;
+
+    if ( m_UuidIdentifierValue.isEmpty() &&
+         ( value.contains( "urn:uuid:" ) || scheme.toLower() == "uuid" ) )
     {
-        meta.attributes[ attribute.name().toString() ] = attribute.value().toString();
-    }
-
-    meta.name = opf_reader.name().toString();
-
-    QString element_text = opf_reader.readElementText();
-    meta.value = element_text;
-
-    // Empty metadata entries
-    if ( !element_text.isEmpty() )
-
-        m_MetaElements.append( meta );
+        m_UuidIdentifierValue = value;
+    }            
 }
 
 
@@ -280,24 +273,6 @@ void ImportOEBPS::LoadInfrastructureFiles()
 {
     m_Book->GetOPF().SetText( Utility::ReadUnicodeTextFile( m_OPFFilePath ) );
     m_Book->GetNCX().SetText( Utility::ReadUnicodeTextFile( m_NCXFilePath ) );
-}
-
-
-void ImportOEBPS::LoadMetadata()
-{
-    QHash< QString, QList< QVariant > > metadata;
-
-    foreach( Metadata::MetaElement meta, m_MetaElements )
-    {
-        Metadata::MetaElement book_meta = Metadata::Instance().MapToBookMetadata( meta, "DublinCore" );
-
-        if ( !book_meta.name.isEmpty() && !book_meta.value.toString().isEmpty() )
-        {
-            metadata[ book_meta.name ].append( book_meta.value );
-        }
-    }
-
-    m_Book->SetMetadata( metadata );
 }
 
 

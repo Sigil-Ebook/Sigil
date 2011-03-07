@@ -21,6 +21,8 @@
 
 #include <stdafx.h>
 #include "BookManipulation/Metadata.h"
+#include "BookManipulation/XercesCppUse.h"
+#include "BookManipulation/XhtmlDoc.h"
 #include "Misc/Utility.h"
 
 static const QString PATH_TO_LANGUAGES  = ":/data/languages.csv";
@@ -83,19 +85,55 @@ const QHash< QString, QString >& Metadata::GetFullLanguageNameHash()
 }
 
 
+Metadata::MetaElement Metadata::MapToBookMetadata( const xc::DOMElement &element )
+{
+    Metadata::MetaElement meta;
+    QString element_name = XhtmlDoc::GetNodeName( element );
+
+    if ( element_name == "meta" )
+    {        
+        meta.name  = XtoQ( element.getAttribute( QtoX( "name" ) ) );
+        meta.value = XtoQ( element.getAttribute( QtoX( "content" ) ) );
+        meta.attributes[ "scheme" ] = XtoQ( element.getAttribute( QtoX( "scheme" ) ) );
+
+        if ( ( !meta.name.isEmpty() ) && ( !meta.value.toString().isEmpty() ) ) 
+        
+            return MapToBookMetadata( meta , false );        
+    }
+
+    else
+    {
+        meta.attributes = XhtmlDoc::GetNodeAttributes( element );
+        meta.name = element_name;
+
+        QString element_text = XtoQ( element.getTextContent() );
+        meta.value = element_text;
+
+        if ( !element_text.isEmpty() )
+
+            return MapToBookMetadata( meta , true ); 
+    }
+
+    return meta;
+}
+
+
 // Maps Dublic Core metadata to internal book meta format
-Metadata::MetaElement Metadata::MapToBookMetadata( const Metadata::MetaElement &meta, const QString &type )
+Metadata::MetaElement Metadata::MapToBookMetadata( const Metadata::MetaElement &meta, bool is_dc_element )
 {
     QString name = meta.name.toLower();
 
-    if ( ( type.toUpper() == "HTML" ) && ( !name.startsWith( "dc." ) ) && ( !name.startsWith( "dcterms." ) ) )  
-
+    if ( !is_dc_element && 
+         !name.startsWith( "dc." ) && 
+         !name.startsWith( "dcterms." ) )  
+    {
         return FreeFormMetadata( meta );
+    }
 
     // Dublin Core
 
     // Transform HTML based Dublin Core to OPF style meta element
-    MetaElement working_copy_meta = type.toUpper() == "HTML" ? HtmlToOpfDC( meta ) : meta;
+    MetaElement working_copy_meta = is_dc_element ? meta : HtmlToOpfDC( meta );
 
     name = working_copy_meta.name.toLower();
 
@@ -403,7 +441,7 @@ Metadata::MetaElement Metadata::IdentifierMetadata( const Metadata::MetaElement 
 
     MetaElement book_meta;
 
-    if ( SCHEME_LIST.contains( scheme ) )
+    if ( SCHEME_LIST.contains( scheme, Qt::CaseInsensitive ) )
     {
         book_meta.name = scheme;
         book_meta.value = meta.value;

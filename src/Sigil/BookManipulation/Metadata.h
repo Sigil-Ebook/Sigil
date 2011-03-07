@@ -21,9 +21,10 @@
 
 #pragma once
 #ifndef METADATA_H
-#define METADATA_H
+#define METADATA_Hc
 
 #include <QMutex>
+#include "BookManipulation/XercesHUse.h"
 
 
 class Metadata
@@ -62,10 +63,20 @@ public:
     const QHash< QString, QString >& GetFullRelatorNameHash();
     const QHash< QString, QString >& GetFullLanguageNameHash();
 
-    // Maps Dublic Core metadata to internal book meta format
-    MetaElement MapToBookMetadata( const MetaElement &meta, const QString &type );
+    /**
+     * Maps DC and <meta> metadata elements to "internal" MetaElements.
+     * Accepts both DublinCore metadata elements like one would find in an 
+     * OPF and custom <meta> elements like one would find in an HTML file.
+     * 
+     * @param element The element to convert.
+     * @return The converted MetaElement.
+     */
+    MetaElement MapToBookMetadata( const xc::DOMElement &element );
 
 private:
+
+    // Maps Dublic Core metadata to internal book meta format
+    MetaElement MapToBookMetadata( const MetaElement &meta, bool is_dc_element );
 
     // Constructor is private because
     // this is a singleton class

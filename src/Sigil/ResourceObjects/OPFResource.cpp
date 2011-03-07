@@ -23,6 +23,7 @@
 #include "OPFResource.h"
 #include "BookManipulation/XhtmlDoc.h"
 #include "BookManipulation/XercesCppUse.h"
+#include "BookManipulation/Metadata.h"
 #include "Misc/Utility.h"
 #include <XmlUtils.h>
 
@@ -34,7 +35,7 @@ static const QString TEMPLATE_TEXT     =
     "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
     "<package version=\"2.0\" xmlns=\"http://www.idpf.org/2007/opf\" unique-identifier=\"BookId\">\n\n"
     "  <metadata xmlns:dc=\"http://purl.org/dc/elements/1.1/\" xmlns:opf=\"http://www.idpf.org/2007/opf\">\n"
-    "    <dc:identifier opf:scheme=\"UUID\" id=\"BookId\">%1</dc:identifier>\n"
+    "    <dc:identifier opf:scheme=\"UUID\" id=\"BookId\">urn:uuid:%1</dc:identifier>\n"
     "  </metadata>\n\n"
     "  <manifest>\n"
     "    <item id=\"ncx\" href=\"toc.ncx\" media-type=\"application/x-dtbncx+xml\"/>\n"    
@@ -110,6 +111,50 @@ bool OPFResource::CoverImageExists()
 }
 
 
+QHash< QString, QList< QVariant > > OPFResource::GetDCMetadata() const
+{
+    QReadLocker locker( &m_ReadWriteLock );
+    shared_ptr< xc::DOMDocument > document = GetDocument();
+    QList< xc::DOMElement* > dc_elements = 
+        XhtmlDoc::GetTagMatchingDescendants( *document, "*", DUBLIN_CORE_NS );
+
+    QHash< QString, QList< QVariant > > metadata;
+
+    foreach( xc::DOMElement *dc_element, dc_elements )
+    {
+        Metadata::MetaElement book_meta = Metadata::Instance().MapToBookMetadata( *dc_element );
+
+        if ( !book_meta.name.isEmpty() && !book_meta.value.toString().isEmpty() )
+        {
+            metadata[ book_meta.name ].append( book_meta.value );
+        }
+    }
+
+    return metadata;
+}
+
+
+void OPFResource::SetDCMetadata( const QHash< QString, QList< QVariant > > &metadata )
+{
+    QWriteLocker locker( &m_ReadWriteLock );
+    shared_ptr< xc::DOMDocument > document = GetDocument();
+
+    RemoveDCElements( *document );
+
+    foreach ( QString name, metadata.keys() )
+    {
+        foreach ( QVariant single_value, metadata[ name ] )
+        {
+            MetadataDispatcher( name, single_value, *document );
+        }
+    }
+
+    SetMetaElementsLast( *document );
+
+    UpdateTextFromDom( *document );
+}
+
+
 QString OPFResource::GetCoverPageOEBPSPath()
 {
     QReadLocker locker( &m_ReadWriteLock );
@@ -136,16 +181,17 @@ void OPFResource::AddResource( const Resource &resource )
 {
     QWriteLocker locker( &m_ReadWriteLock );
 
-    shared_ptr< xc::DOMDocument > document = GetDocument();
-    xc::DOMElement &manifest               = GetManifestElement( *document );
-
     QHash< QString, QString > attributes;
     attributes[ "id"         ] = GetValidID( resource.Filename() );
     attributes[ "href"       ] = resource.GetRelativePathToOEBPS();
     attributes[ "media-type" ] = GetResourceMimetype( resource );
 
+    shared_ptr< xc::DOMDocument > document = GetDocument();
+
     xc::DOMElement *new_item = XhtmlDoc::CreateElementInDocument( 
         "item", OPF_XML_NAMESPACE, *document, attributes );
+
+    xc::DOMElement &manifest = GetManifestElement( *document );
     manifest.appendChild( new_item );
 
     if ( resource.Type() == Resource::HTMLResource )
@@ -232,8 +278,6 @@ void OPFResource::SetResourceAsCoverImage( const Resource &resource )
 
     else
     {
-        xc::DOMElement &metadata = GetMetadataElement( *document );
-
         QHash< QString, QString > attributes;
         attributes[ "name"    ] = "cover";
         attributes[ "content" ] = resource_id;
@@ -241,6 +285,7 @@ void OPFResource::SetResourceAsCoverImage( const Resource &resource )
         xc::DOMElement *new_meta = XhtmlDoc::CreateElementInDocument( 
             "meta", OPF_XML_NAMESPACE, *document, attributes );
 
+        xc::DOMElement &metadata = GetMetadataElement( *document );
         metadata.appendChild( new_meta );
     }
 
@@ -250,13 +295,13 @@ void OPFResource::SetResourceAsCoverImage( const Resource &resource )
 
 void OPFResource::AppendToSpine( const QString &id, xc::DOMDocument &document )
 {
-    xc::DOMElement &spine = GetSpineElement( document );
-
     QHash< QString, QString > attributes;
     attributes[ "idref" ] = id;
 
     xc::DOMElement *new_item = XhtmlDoc::CreateElementInDocument(
         "itemref", OPF_XML_NAMESPACE, document, attributes );
+
+    xc::DOMElement &spine = GetSpineElement( document );
     spine.appendChild( new_item );
 }
 
@@ -279,10 +324,11 @@ void OPFResource::RemoveFromSpine( const QString &id, xc::DOMDocument &document 
 }
 
 
-shared_ptr< xc::DOMDocument > OPFResource::GetDocument()
+shared_ptr< xc::DOMDocument > OPFResource::GetDocument() const
 {
     // TODO: make sure that the basic elements (package, metadata, manifest, spine) 
     // are present, otherwise rebuild the opf (and add a comment to the opf about this)
+    // also make sure there's an maid identifier
     shared_ptr< xc::DOMDocument > document = XhtmlDoc::LoadTextIntoDocument( m_TextDocument->toPlainText() );
 
     // For NCX files, the default of standalone == false should remain
@@ -291,12 +337,21 @@ shared_ptr< xc::DOMDocument > OPFResource::GetDocument()
 }
 
 
+xc::DOMElement& OPFResource::GetPackageElement( const xc::DOMDocument &document )
+{
+    QList< xc::DOMElement* > packages = XhtmlDoc::GetTagMatchingDescendants( document, "package" );
+    Q_ASSERT( !packages.isEmpty() );
+    
+    return *packages[ 0 ];
+}
+
+
 xc::DOMElement& OPFResource::GetMetadataElement( const xc::DOMDocument &document )
 {
     QList< xc::DOMElement* > metadatas = XhtmlDoc::GetTagMatchingDescendants( document, "metadata" );
     Q_ASSERT( !metadatas.isEmpty() );
 
-    return *metadatas[ 0 ];  
+    return *metadatas[ 0 ];
 }
 
 
@@ -326,10 +381,10 @@ xc::DOMElement& OPFResource::GetGuideElement( xc::DOMDocument &document )
 
         return *guides[ 0 ];
 
-    xc::DOMElement &package = *document.getDocumentElement();
     xc::DOMElement *guide = XhtmlDoc::CreateElementInDocument(
         "guide", OPF_XML_NAMESPACE, document, QHash< QString, QString >() );
 
+    xc::DOMElement &package = *document.getDocumentElement();
     package.appendChild( guide );
 
     return *guide;
@@ -395,7 +450,6 @@ void OPFResource::SetGuideSemanticTypeForResource(
 
     else
     {
-        xc::DOMElement &guide = GetGuideElement( document );
 
         QHash< QString, QString > attributes;
         attributes[ "type"  ] = type_attribute;
@@ -405,6 +459,7 @@ void OPFResource::SetGuideSemanticTypeForResource(
         xc::DOMElement *new_item = XhtmlDoc::CreateElementInDocument( 
             "reference", OPF_XML_NAMESPACE, document, attributes );
 
+        xc::DOMElement &guide = GetGuideElement( document );
         guide.appendChild( new_item );
     }
 }
@@ -463,6 +518,30 @@ xc::DOMElement* OPFResource::GetCoverMeta( const xc::DOMDocument &document )
 }
 
 
+xc::DOMElement& OPFResource::GetMainIdentifier( const xc::DOMDocument &document )
+{
+    xc::DOMElement &package = GetPackageElement( document );
+    QString unique_identifier = XtoQ( package.getAttribute( QtoX( "unique-identifier" ) ) );
+
+    QList< xc::DOMElement* > identifiers = 
+        XhtmlDoc::GetTagMatchingDescendants( document, "identifier", DUBLIN_CORE_NS );
+
+    foreach( xc::DOMElement *identifier, identifiers )
+    {
+        QString id = XtoQ( identifier->getAttribute( QtoX( "id" ) ) );
+
+        if ( id == unique_identifier )
+
+            return *identifier;
+    }
+
+    Q_ASSERT( false );
+    // This is just here to kill the warning,
+    // it should never be reached.
+    return *identifiers[ 0 ];
+}
+
+
 QString OPFResource::GetResourceManifestID( const Resource &resource, const xc::DOMDocument &document )
 {
     QString oebps_path = resource.GetRelativePathToOEBPS();
@@ -480,6 +559,215 @@ QString OPFResource::GetResourceManifestID( const Resource &resource, const xc::
     return QString();
 }
 
+
+void OPFResource::SetMetaElementsLast( xc::DOMDocument &document )
+{
+    QList< xc::DOMElement* > metas = XhtmlDoc::GetTagMatchingDescendants( document, "meta" );
+    xc::DOMElement &metadata = GetMetadataElement( document );
+
+    foreach( xc::DOMElement* meta, metas )
+    {
+        // This makes sure that the <meta> elements come last
+        metadata.removeChild( meta );
+        metadata.appendChild( meta );
+    }
+}
+
+
+void OPFResource::RemoveDCElements( xc::DOMDocument &document )
+{
+    QList< xc::DOMElement* > dc_elements = XhtmlDoc::GetTagMatchingDescendants( document, "*", DUBLIN_CORE_NS );
+    xc::DOMElement &main_identifier = GetMainIdentifier( document );
+
+    foreach( xc::DOMElement *dc_element, dc_elements )
+    {
+        // We preserve the original main identifier. Users
+        // complain when we don't.
+        if ( dc_element->isSameNode( &main_identifier ) )
+
+            continue;
+
+        xc::DOMNode *parent = dc_element->getParentNode();
+
+        if ( parent )
+
+            parent->removeChild( dc_element );
+    }
+}
+
+
+void OPFResource::MetadataDispatcher(
+    const QString &metaname, 
+    const QVariant &metavalue,
+    xc::DOMDocument &document )
+{
+    // We ignore badly formed meta elements.
+    if ( metaname.isEmpty() || metavalue.isNull() )
+
+        return;
+
+    // There is a relator for the publisher, but there is
+    // also a special publisher element that we would rather use
+    if (  Metadata::Instance().GetRelatorMap().contains( metaname ) &&
+          metaname != QObject::tr( "Publisher" )
+       )
+    {
+        WriteCreatorOrContributor( metaname, metavalue.toString(), document );
+    }
+
+    else if ( metaname == QObject::tr( "Language" ) )
+    {
+        WriteSimpleMetadata( metaname.toLower(), 
+                             Metadata::Instance().GetLanguageMap()[ metavalue.toString() ],
+                             document );
+    }
+
+    else if ( ( metaname == QObject::tr( "ISBN" ) ) || 
+              ( metaname == QObject::tr( "ISSN" ) ) ||
+              ( metaname == QObject::tr( "DOI" ) )
+            )
+    {
+        WriteIdentifier( metaname, metavalue.toString(), document );
+    }
+
+    else if ( metaname == QObject::tr( "CustomID" ) )
+    {
+        // FIXME: this should work in opfresource
+        // Don't write the CustomID, it is used as the
+        // main identifier if present
+    }
+
+    else if ( metaname.contains( QObject::tr( "Date" ) ) )
+    {
+        WriteDate( metaname, metavalue, document );		
+    }
+    
+    // Everything else should be simple
+    else
+    {
+        WriteSimpleMetadata( metaname.toLower(), metavalue.toString(), document );
+    }
+}
+
+
+void OPFResource::WriteCreatorOrContributor( 
+    const QString &metaname, 
+    const QString &metavalue, 
+    xc::DOMDocument &document )
+{
+    // Authors get written as creators, all other relators
+    // are written as contributors
+    QString element_name = metaname == QObject::tr( "Author" ) ? "creator" : "contributor";
+    QString role = Metadata::Instance().GetRelatorMap()[ metaname ].relator_code;
+    QString value;
+    QString file_as;
+
+    // if the name is written in standard form 
+    // ("John Doe"), just write it out
+    if ( GetNormalName( metavalue ) == metavalue )
+    {
+        value = metavalue;
+    }
+
+    // Otherwise it is written in reversed form
+    // ("Doe, John") and we write the reversed form
+    // to the "file-as" attribute and the normal form as the value
+    else
+    {
+        file_as = metavalue;
+        value = GetNormalName( metavalue );
+    }   
+
+    // This assumes that the "dc" prefix has been declared for the DC namespace
+    xc::DOMElement *element = document.createElementNS( QtoX( DUBLIN_CORE_NS ), QtoX( "dc:" + element_name ) );
+
+    element->setAttributeNS( QtoX( OPF_XML_NAMESPACE ), QtoX( "role" ), QtoX( role ) );
+
+    if ( !file_as.isEmpty() )
+
+        element->setAttributeNS( QtoX( OPF_XML_NAMESPACE ), QtoX( "file-as" ), QtoX( file_as ) );
+
+    element->setTextContent( QtoX( value ) );
+
+    xc::DOMElement &metadata = GetMetadataElement( document );
+    metadata.appendChild( element );
+}
+
+
+void OPFResource::WriteSimpleMetadata( 
+    const QString &metaname, 
+    const QString &metavalue, 
+    xc::DOMDocument &document )
+{
+    // This assumes that the "dc" prefix has been declared for the DC namespace
+    xc::DOMElement *element = document.createElementNS( QtoX( DUBLIN_CORE_NS ), QtoX( "dc:" + metaname ) );
+    element->setTextContent( QtoX( metavalue ) );
+
+    xc::DOMElement &metadata = GetMetadataElement( document );
+    metadata.appendChild( element );
+}
+
+
+void OPFResource::WriteIdentifier( 
+    const QString &metaname, 
+    const QString &metavalue, 
+    xc::DOMDocument &document )
+{
+    xc::DOMElement &main_identifier = GetMainIdentifier( document );
+
+    // There's a possibility that this identifier is a duplicate
+    // of the main identifier that we preserved, so we don't write
+    // it out if it is.
+    if ( metavalue == XtoQ( main_identifier.getTextContent() ) &&
+         metaname == XtoQ( main_identifier.getAttributeNS( QtoX( OPF_XML_NAMESPACE ), QtoX( "scheme" ) ) ) )
+    {
+        return;
+    }
+
+    // This assumes that the "dc" prefix has been declared for the DC namespace
+    xc::DOMElement *element = document.createElementNS( QtoX( DUBLIN_CORE_NS ), QtoX( "dc:identifier" ) );
+    element->setAttributeNS( QtoX( OPF_XML_NAMESPACE ), QtoX( "scheme" ), QtoX( metaname ) );
+    element->setTextContent( QtoX( metavalue ) );
+
+    xc::DOMElement &metadata = GetMetadataElement( document );
+    metadata.appendChild( element );
+}
+
+
+void OPFResource::WriteDate( 
+    const QString &metaname, 
+    const QVariant &metavalue,
+    xc::DOMDocument &document )
+{
+    QString date = metavalue.toDate().toString( "yyyy-MM-dd" );
+    
+    // The metaname should be "Date of X", where X is
+    // "publication", "creation" etc.
+    QStringList metaname_words = metaname.split( " " );
+    QString event_type = metaname_words.count() == 3          ? 
+                         metaname.split( " " )[ 2 ].toLower() :
+                         "publication";
+
+    // This assumes that the "dc" prefix has been declared for the DC namespace
+    xc::DOMElement *element = document.createElementNS( QtoX( DUBLIN_CORE_NS ), QtoX( "dc:date" ) );
+    element->setAttributeNS( QtoX( OPF_XML_NAMESPACE ), QtoX( "event" ), QtoX( event_type ) );
+    element->setTextContent( QtoX( date ) );
+
+    xc::DOMElement &metadata = GetMetadataElement( document );
+    metadata.appendChild( element );
+}
+
+
+QString OPFResource::GetNormalName( const QString &name )
+{
+    if ( !name.contains( "," ) )
+
+        return name;
+
+    QStringList splits = name.split( "," );
+
+    return splits[ 1 ].trimmed() + " " + splits[ 0 ].trimmed();
+}
 
 void OPFResource::FillWithDefaultText()
 {

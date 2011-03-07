@@ -52,8 +52,6 @@ QSharedPointer< Book > ImportSGF::GetBook()
     ReadOPF();
 
     // These mutate the m_Book object
-    LoadMetadata();
-
     QString source = LoadSource();
     QString header = CreateHeader( CreateStyleResources( source ) );
 

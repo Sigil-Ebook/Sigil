@@ -54,6 +54,7 @@ extern const QString ENCODING_ATTRIBUTE;
 extern const QString STANDALONE_ATTRIBUTE;
 extern const QString ADOBE_FONT_ALGO_ID;
 extern const QString IDPF_FONT_ALGO_ID; 
+extern const QString DUBLIN_CORE_NS;
 
 extern const QString NCX_MIMETYPE;
 

@@ -59,20 +59,6 @@ private:
 
     void AddObfuscatedButUndeclaredFonts( const QHash< QString, QString > &encrypted_files );
 
-    /**
-     * Returns the book's main identifier.
-     *
-     * @return The id.
-     */
-    QString MainBookId();
-
-    /**
-     * Returns the book's first urn:uuid identifier.
-     *
-     * @return The id.
-     */
-    QString FirstUrnUuid();
-
     void ProcessFontFiles( const QList< Resource* > &resources, 
                            const QHash< QString, QString > &updates,
                            const QHash< QString, QString > &encrypted_files );    

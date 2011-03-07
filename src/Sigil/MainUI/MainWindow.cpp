@@ -411,7 +411,11 @@ void MainWindow::InsertImage()
 
 void MainWindow::MetaEditorDialog()
 {
-    MetaEditor meta( m_Book, this );
+    if ( !m_Book->GetOPF().FileIsWellFormed() )
+
+        return;
+
+    MetaEditor meta( m_Book->GetOPF(), this );
     meta.exec();
 }
 

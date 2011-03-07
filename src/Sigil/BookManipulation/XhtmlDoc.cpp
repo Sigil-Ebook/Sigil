@@ -203,6 +203,26 @@ QList< xc::DOMNode* > XhtmlDoc::GetNodeChildren( const xc::DOMNode &node )
 }
 
 
+QHash< QString, QString > XhtmlDoc::GetNodeAttributes( const xc::DOMNode &node )
+{   
+    QHash< QString, QString > attributes_hash;
+
+    xc::DOMNamedNodeMap *attributes = node.getAttributes();
+
+    if ( !attributes )
+
+        return attributes_hash;
+
+    for ( int i = 0; i < attributes->getLength(); ++i )
+    {
+        xc::DOMAttr &attribute = *static_cast< xc::DOMAttr* >( attributes->item( i ) );
+        attributes_hash[ GetAttributeName( attribute ) ] = XtoQ( attribute.getValue() );
+    }
+
+    return attributes_hash;
+}
+
+
 QList< xc::DOMElement* > XhtmlDoc::GetTagMatchingDescendants( const xc::DOMNode &node, const QStringList &tag_names )
 {
     QList< xc::DOMElement* > matching_nodes;
@@ -244,7 +264,16 @@ QList< xc::DOMElement* > XhtmlDoc::GetTagMatchingDescendants( const xc::DOMEleme
 
 QList< xc::DOMElement* > XhtmlDoc::GetTagMatchingDescendants( const xc::DOMDocument &node, const QString &tag_name )
 {
-    xc::DOMNodeList *children = node.getElementsByTagName( QtoX( tag_name ) );
+    return GetTagMatchingDescendants( node, tag_name, "*" );
+}
+
+
+QList< xc::DOMElement* > XhtmlDoc::GetTagMatchingDescendants( 
+    const xc::DOMDocument &node, 
+    const QString &tag_name, 
+    const QString &namespace_name )
+{
+    xc::DOMNodeList *children = node.getElementsByTagNameNS( QtoX( namespace_name ), QtoX( tag_name ) );
     int num_children = children->getLength();
 
     QList< xc::DOMElement* > qtchildren;

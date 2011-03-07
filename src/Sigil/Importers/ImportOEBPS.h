@@ -25,7 +25,6 @@
 
 #include "Importer.h"
 #include "Misc/TempFolder.h"
-#include "BookManipulation/Metadata.h"
 #include <QHash>
 #include <QStringList>
 
@@ -73,12 +72,12 @@ protected:
     void ReadOPF();
 
     /**
-     * Reads a Dublin Core element.
+     * Reads an <identifier> element.
      *
      * @param opf_reader The OPF reader positioned to read 
      *                   the required element type.
      */
-    void ReadDublinCoreElement( QXmlStreamReader &opf_reader );
+    void ReadIdentifierElement( QXmlStreamReader &opf_reader );
 
     /**
      * Reads a manifest <item> element.
@@ -103,12 +102,6 @@ protected:
      *                   the required element type.
      */
     void ReadSpineItemRefElement( QXmlStreamReader &opf_reader );
-
-    /**
-     * Loads the metadata from the m_MetaElements list 
-     * (filled by reading the OPF) into the book.
-     */ 
-    void LoadMetadata();
 
     /**
      * Loads the book's infrastructure files, like 
@@ -186,9 +179,14 @@ protected:
     QString m_UniqueIdentifierId;
 
     /**
-     * The list of metadata elements in the OPF. 
-     */ 
-    QList< Metadata::MetaElement > m_MetaElements;
+     * The value of the book's unique identifier.
+     */
+    QString m_UniqueIdentifierValue;
+
+    /**
+     * The value of the book's first UUID-based identifier.
+     */
+    QString m_UuidIdentifierValue;
 
     /**
      * It's theoretically possible (although unlikely) that an epub

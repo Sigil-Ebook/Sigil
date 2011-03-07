@@ -65,11 +65,24 @@ public:
 
     static QList< xc::DOMNode* > GetNodeChildren( const xc::DOMNode &node );
 
-    static QList< xc::DOMElement* > GetTagMatchingDescendants( const xc::DOMNode &node, const QStringList &tag_names );
-   
-    static QList< xc::DOMElement* > GetTagMatchingDescendants( const xc::DOMElement &node, const QString &tag_name );
+    static QHash< QString, QString > GetNodeAttributes( const xc::DOMNode &node );
 
-    static QList< xc::DOMElement* > GetTagMatchingDescendants( const xc::DOMDocument &node, const QString &tag_name );
+    static QList< xc::DOMElement* > GetTagMatchingDescendants( 
+        const xc::DOMNode &node,
+        const QStringList &tag_names );
+   
+    static QList< xc::DOMElement* > GetTagMatchingDescendants(
+        const xc::DOMElement &node, 
+        const QString &tag_name );
+
+    static QList< xc::DOMElement* > GetTagMatchingDescendants( 
+        const xc::DOMDocument &node,
+        const QString &tag_name );
+
+    static QList< xc::DOMElement* > GetTagMatchingDescendants( 
+        const xc::DOMDocument &node, 
+        const QString &tag_name,
+        const QString &namespace_name );
 
     static QList< QString > GetAllDescendantIDs( const xc::DOMNode &node ); 
 

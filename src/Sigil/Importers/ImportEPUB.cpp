@@ -57,12 +57,11 @@ QSharedPointer< Book > ImportEPUB::GetBook()
 
         boost_throw( FileEncryptedWithDrm() );
 
+    // These mutate the m_Book object
     LocateOPF();
     ReadOPF();
     AddObfuscatedButUndeclaredFonts( encrypted_files );
 
-    // These mutate the m_Book object
-    LoadMetadata();
     LoadInfrastructureFiles();
 
     const QHash< QString, QString > &updates = LoadFolderStructure();
@@ -165,34 +164,6 @@ void ImportEPUB::AddObfuscatedButUndeclaredFonts( const QHash< QString, QString 
 }
 
 
-QString ImportEPUB::MainBookId()
-{
-    foreach( Metadata::MetaElement meta, m_MetaElements )
-    {
-        if ( meta.attributes[ "id" ] == m_UniqueIdentifierId )
-
-            return meta.value.toString();
-    }
-
-    return QString();
-}
-
-
-QString ImportEPUB::FirstUrnUuid()
-{
-    foreach( Metadata::MetaElement meta, m_MetaElements )
-    {
-        QString value = meta.value.toString();
-
-        if ( value.contains( "urn:uuid:" ) || meta.attributes[ "scheme" ].toLower() == "uuid" )
-
-            return value;
-    }
-
-    return QString();
-}
-
-
 // Each resource can provide us with its new path. encrypted_files provides
 // a mapping from old resource paths to the obfuscation algorithms. 
 // So we use the updates hash which provides a mapping from old paths to new
@@ -229,9 +200,6 @@ void ImportEPUB::ProcessFontFiles( const QList< Resource* > &resources,
         }        
     }
 
-    QString main_id  = MainBookId();
-    QString urn_uuid = FirstUrnUuid();
-
     foreach( FontResource *font_resource, font_resources )
     {
         QString match_path = "../" + font_resource->GetRelativePathToOEBPS();
@@ -248,11 +216,11 @@ void ImportEPUB::ProcessFontFiles( const QList< Resource* > &resources,
         // are involutary [ f( f( x ) ) = x ].
         if ( algorithm == ADOBE_FONT_ALGO_ID )
 
-            FontObfuscation::ObfuscateFile( font_resource->GetFullPath(), algorithm, urn_uuid );
+            FontObfuscation::ObfuscateFile( font_resource->GetFullPath(), algorithm, m_UuidIdentifierValue );
 
         else 
 
-            FontObfuscation::ObfuscateFile( font_resource->GetFullPath(), algorithm, main_id );
+            FontObfuscation::ObfuscateFile( font_resource->GetFullPath(), algorithm, m_UniqueIdentifierValue );
     }
 }
 

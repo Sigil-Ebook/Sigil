@@ -26,9 +26,9 @@
 #include <QtGui/QDialog>
 #include "ui_MetaEditor.h"
 #include <QStandardItemModel>
-#include <QSharedPointer>
 
-class Book;
+class OPFResource;
+
 
 /**
  * The editor used to create and modify the book's metadata.
@@ -42,10 +42,10 @@ public:
     /**
      * Constructor.
      * 
-     * @param book A shared pointer to the book whose metadata we want to edit.
+     * @param opf The OPF whose metadata we want to edit.
      * @param parent The object's parent.
      */
-    MetaEditor( QSharedPointer< Book > book, QWidget *parent = 0 );
+    MetaEditor( OPFResource &opf, QWidget *parent = 0 );
 
     /**
      * Destructor.
@@ -208,9 +208,9 @@ private:
     bool m_isMore;
 
     /**
-     * The Book whose metadata is being edited.
+     * The OPF whose metadata is being edited.
      */
-    QSharedPointer< Book > m_Book;
+    OPFResource& m_OPF;
 
     /**
      * A working copy of the book's metadata store.

@@ -90,6 +90,12 @@ OPFResource& Book::GetOPF()
 }
 
 
+const OPFResource& Book::GetConstOPF() const
+{
+    return m_Mainfolder.GetOPF();
+}
+
+
 NCXResource& Book::GetNCX()
 {
     return m_Mainfolder.GetNCX();
@@ -104,13 +110,13 @@ QString Book::GetPublicationIdentifier() const
 
 QHash< QString, QList< QVariant > > Book::GetMetadata() const
 {
-    return m_Metadata;
+    return GetConstOPF().GetDCMetadata();    
 }
 
 
 void Book::SetMetadata( const QHash< QString, QList< QVariant > > metadata )
 {
-    m_Metadata = metadata;
+    GetOPF().SetDCMetadata( metadata );
     SetModified( true );
 }
 

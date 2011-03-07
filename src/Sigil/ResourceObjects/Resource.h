@@ -214,7 +214,7 @@ protected:
     /**
      * The ReaWriteLock guarding access to the resource's data.
      */
-    QReadWriteLock m_ReadWriteLock;
+    mutable QReadWriteLock m_ReadWriteLock;
 };
 
 #endif // RESOURCE_H

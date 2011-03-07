@@ -79,6 +79,13 @@ public:
     OPFResource& GetOPF();
 
     /**
+     * Returns the book's OPF file as a const object.
+     * 
+     * @return The OPF.
+     */
+    const OPFResource& GetConstOPF() const;
+
+    /**
      * Returns the book's NCX file.
      * 
      * @return The NCX.

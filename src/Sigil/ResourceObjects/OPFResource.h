@@ -62,9 +62,26 @@ public:
      *
      * @return \c true if a cover image exists.
      */
-    bool CoverImageExists();
+    bool CoverImageExists();    
+
+    /**
+     * Returns the book's Dublin Core metadata. Note that metadata from
+     * <meta> elements is not included.
+     *
+     * @return The DC metadata, in the same format as the SetDCMetadata metadata parameter.
+     */
+    QHash< QString, QList< QVariant > > GetDCMetadata() const;
 
 public slots:
+
+    /**
+     * Writes metadata to the OPF <metadata> element.
+     *
+     * @param metadata A hash with meta information about the book.
+     *                 The keys are the metadata names, and the values
+     *                 are the lists of metadata values for that metadata name.
+     */
+    void SetDCMetadata( const QHash< QString, QList< QVariant > > &metadata );
 
     void AddResource( const Resource &resource );
 
@@ -80,7 +97,9 @@ private:
 
     void RemoveFromSpine( const QString &id, xc::DOMDocument &document );
 
-    boost::shared_ptr< xc::DOMDocument > GetDocument();
+    boost::shared_ptr< xc::DOMDocument > GetDocument() const;
+
+    xc::DOMElement& GetPackageElement( const xc::DOMDocument &document );
 
     xc::DOMElement& GetMetadataElement( const xc::DOMDocument &document );
 
@@ -115,7 +134,72 @@ private:
     // CAN BE NULL! NULL means no cover meta element
     xc::DOMElement* GetCoverMeta( const xc::DOMDocument &document );
 
+    xc::DOMElement& GetMainIdentifier( const xc::DOMDocument &document );
+
     QString GetResourceManifestID( const Resource &resource, const xc::DOMDocument &document );
+
+    void SetMetaElementsLast( xc::DOMDocument &document );
+
+    void RemoveDCElements( xc::DOMDocument &document );
+
+    /**
+     * Dispatches each metadata entry based on its type. 
+     * The specialized Write* functions write the elements.
+     *
+     * @param metaname The name of the metadata to be written.
+     * @param metavalue The value of the metadata to be written. 
+     * @param document The OPF DOM document.
+     */
+    void MetadataDispatcher( const QString &metaname, const QVariant &metavalue, xc::DOMDocument &document );
+
+    /**
+     * Writes <creator> and <contributor> metadata elements.
+     *
+     * @param metaname The name of the metadata to be written.
+     * @param metavalue The value of the metadata to be written. 
+     * @param document The OPF DOM document.
+     */
+    void WriteCreatorOrContributor( const QString &metaname, const QString &metavalue, xc::DOMDocument &document );
+
+    /**
+     * Writes simple metadata. 
+     *
+     * @param metaname The name of the metadata to be written.
+     * @param metavalue The value of the metadata to be written. 
+     * @param document The OPF DOM document.
+     */
+    void WriteSimpleMetadata( const QString &metaname, const QString &metavalue, xc::DOMDocument &document );
+
+    /**
+     * Writes the <identifier> elements.
+     * The metaname will be used for the scheme.
+     *
+     * @param metaname The name of the metadata to be written.
+     * @param metavalue The value of the metadata to be written. 
+     * @param document The OPF DOM document.
+     */
+    void WriteIdentifier( const QString &metaname, const QString &metavalue, xc::DOMDocument &document );
+
+    /**
+     * Writes the <date> elements.
+     * The metaname will be used for the event.
+     *
+     * @param metaname The name of the metadata to be written.
+     * @param metavalue The value of the metadata to be written. 
+     * @param document The OPF DOM document.
+     */
+    void WriteDate( const QString &metaname, const QVariant &metavalue, xc::DOMDocument &document );
+
+    /**
+     * Takes the reversed form of a name ("Doe, John")
+     * and returns the normal form ("John Doe"). If the
+     * provided name is already normal, returns an empty string
+     *
+     * @param name The name in reversed form.
+     * @return The normalized name, or an empty string if the name 
+     *         was already normalized.
+     */
+    static QString GetNormalName( const QString &name );
 
     void FillWithDefaultText();
 

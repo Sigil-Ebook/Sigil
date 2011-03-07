@@ -22,30 +22,30 @@
 #include <stdafx.h>
 #include "MetaEditor.h"
 #include "AddMetadata.h"
-#include "BookManipulation/Book.h"
+#include "ResourceObjects/OPFResource.h"
 
 static const int DEFAULT_EXPANDED_HEIGHT = 304;
 static const QString SETTINGS_GROUP      = "meta_editor";
 
 
-MetaEditor::MetaEditor( QSharedPointer< Book > book, QWidget *parent )
+MetaEditor::MetaEditor( OPFResource &opf, QWidget *parent )
     :
     QDialog( parent ),
-    m_Book( book ),
-    m_Metadata( m_Book->GetMetadata() )
+    m_OPF( opf ),
+    m_Metadata( m_OPF.GetDCMetadata() )
 {
     ui.setupUi( this );	
 
     PlatformSpecificTweaks();
 
-    connect( ui.btMore,			SIGNAL( clicked()  ),	this, SLOT( ToggleMoreLess()			) );
-    connect( ui.btAddBasic,		SIGNAL( clicked()  ),	this, SLOT( AddBasic()					) );
-    connect( ui.btAddAdvanced,	SIGNAL( clicked()  ),	this, SLOT( AddAdvanced()				) );
-    connect( ui.btRemove,		SIGNAL( clicked()  ),	this, SLOT( Remove()					) );
-    connect( this,				SIGNAL( accepted() ),	this, SLOT( FillMetadataFromDialog()	) );
+    connect( ui.btMore,        SIGNAL( clicked()  ), this, SLOT( ToggleMoreLess()         ) );
+    connect( ui.btAddBasic,    SIGNAL( clicked()  ), this, SLOT( AddBasic()	              ) );
+    connect( ui.btAddAdvanced, SIGNAL( clicked()  ), this, SLOT( AddAdvanced()            ) );
+    connect( ui.btRemove,      SIGNAL( clicked()  ), this, SLOT( Remove()                 ) );
+    connect( this,             SIGNAL( accepted() ), this, SLOT( FillMetadataFromDialog() ) );
 
     connect( ui.tvMetaTable->horizontalHeader(),  SIGNAL( sectionClicked( int ) ),
-                this, SLOT( RefreshVerticalHeader() ) );
+             this,                                SLOT( RefreshVerticalHeader() ) );
 
     ReadSettings();
     ToggleMoreLess();
@@ -187,13 +187,13 @@ void MetaEditor::FillMetadataFromDialog()
 
     // For string-based metadata, create multiple entries
     // if the typed in value contains semicolons
-    m_Metadata[ "Title" ]   .append( InputsInField( ui.leTitle->text()            ) );
-    m_Metadata[ "Author" ]  .append( InputsInField( ui.leAuthor->text()           ) );
+    m_Metadata[ "Title"    ].append( InputsInField( ui.leTitle->text()            ) );
+    m_Metadata[ "Author"   ].append( InputsInField( ui.leAuthor->text()           ) );
     m_Metadata[ "Language" ].append( InputsInField( ui.cbLanguages->currentText() ) );
 
     for ( int row = 0; row < m_MetaModel.rowCount(); row++ )
     {
-        QString name  = m_MetaModel.data( m_MetaModel.index( row, 0 ) ).toString();
+        QString name   = m_MetaModel.data( m_MetaModel.index( row, 0 ) ).toString();
         QVariant value = m_MetaModel.data( m_MetaModel.index( row, 1 ) );
 
         // For string-based metadata, create multiple entries
@@ -207,7 +207,7 @@ void MetaEditor::FillMetadataFromDialog()
             m_Metadata[ name ].append( value );
     }
 
-    m_Book->SetMetadata( m_Metadata );
+    m_OPF.SetDCMetadata( m_Metadata );
 }
 
 

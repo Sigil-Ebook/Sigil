@@ -118,21 +118,13 @@ void ImportHTML::LoadMetadata( const xc::DOMDocument &document )
     for ( int i = 0; i < metatags.count(); ++i )
     {
         xc::DOMElement &element = *metatags.at( i );
+       
+        Metadata::MetaElement book_meta = Metadata::Instance().MapToBookMetadata( element );
 
-        Metadata::MetaElement meta;
-        meta.name  = XtoQ( element.getAttribute( QtoX( "name" ) ) );
-        meta.value = XtoQ( element.getAttribute( QtoX( "content" ) ) );
-        meta.attributes[ "scheme" ] = XtoQ( element.getAttribute( QtoX( "scheme" ) ) );
-
-        if ( ( !meta.name.isEmpty() ) && ( !meta.value.toString().isEmpty() ) ) 
-        { 
-            Metadata::MetaElement book_meta = Metadata::Instance().MapToBookMetadata( meta , "HTML" );
-
-            if ( !book_meta.name.isEmpty() && !book_meta.value.toString().isEmpty() )
-            {
-                metadata[ book_meta.name ].append( book_meta.value );
-            }
-        }
+        if ( !book_meta.name.isEmpty() && !book_meta.value.toString().isEmpty() )
+        {
+            metadata[ book_meta.name ].append( book_meta.value );
+        }        
     }
 
     m_Book->SetMetadata( metadata );
