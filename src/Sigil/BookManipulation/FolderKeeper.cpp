@@ -77,25 +77,6 @@ FolderKeeper::~FolderKeeper()
 }
 
 
-void FolderKeeper::AddInfraFileToFolder( const QString &fullfilepath, const QString &newfilename )
-{
-    if ( newfilename == CONTAINER_XML_FILE_NAME )
-    {
-        QFile::copy( fullfilepath, m_FullPathToMetaInfFolder + "/" + newfilename );
-    }
-
-    else if ( ( newfilename == OPF_FILE_NAME ) || ( newfilename == NCX_FILE_NAME ) )
-    {
-        QFile::copy( fullfilepath, m_FullPathToOEBPSFolder + "/" + newfilename );
-    }
-
-    else
-    {
-        Q_ASSERT( false );
-    }
-}
-
-
 Resource& FolderKeeper::AddContentFileToFolder( const QString &fullfilepath, 
                                                 int reading_order,
                                                 bool update_opf )

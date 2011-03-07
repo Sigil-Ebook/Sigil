@@ -70,16 +70,6 @@ public:
     ~FolderKeeper();
 
     /**
-     * Adds an infrastructure file to the book folder.
-     * Valid infrastructure files are OPF_FILE_NAME, NCX_FILE_NAME
-     * and CONTAINER_XML_FILE_NAME.
-     *
-     * @param fullfilepath The full path to the file to add.
-     * @param newfilename The name this file should have in the book folder.
-     */
-    void AddInfraFileToFolder( const QString &fullfilepath, const QString &newfilename );
-
-    /**
      * Adds a content file to the book folder and returns the
      * corresponding Resource object. The file type is recognized
      * according to the extension.
