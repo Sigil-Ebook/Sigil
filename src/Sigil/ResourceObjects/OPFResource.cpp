@@ -71,7 +71,7 @@ Resource::ResourceType OPFResource::Type() const
 }
 
 
-GuideSemantics::GuideSemanticType OPFResource::GetGuideSemanticTypeForResource( const Resource &resource )
+GuideSemantics::GuideSemanticType OPFResource::GetGuideSemanticTypeForResource( const Resource &resource ) const
 {
     QReadLocker locker( &m_ReadWriteLock );
     shared_ptr< xc::DOMDocument > document = GetDocument();
@@ -79,7 +79,29 @@ GuideSemantics::GuideSemanticType OPFResource::GetGuideSemanticTypeForResource( 
 }
 
 
-bool OPFResource::IsCoverImage( const Resource &resource )
+QString OPFResource::GetCoverPageOEBPSPath() const
+{
+    QReadLocker locker( &m_ReadWriteLock );
+    shared_ptr< xc::DOMDocument > document = GetDocument();
+    QList< xc::DOMElement* > references = XhtmlDoc::GetTagMatchingDescendants( *document, "reference" );
+
+    foreach( xc::DOMElement* reference, references )
+    {
+        QString type_text = XtoQ( reference->getAttribute( QtoX( "type" ) ) );
+        GuideSemantics::GuideSemanticType current_type =
+            GuideSemantics::Instance().MapReferenceTypeToGuideEnum( type_text );
+
+        if ( current_type == GuideSemantics::Cover )
+        {
+            XtoQ( reference->getAttribute( QtoX( "href" ) ) );              
+        }        
+    }
+
+    return QString();
+}
+
+
+bool OPFResource::IsCoverImage( const Resource &resource ) const
 {
     if ( resource.Type() != ImageResource )
 
@@ -101,7 +123,7 @@ bool OPFResource::IsCoverImage( const Resource &resource )
 }
 
 
-bool OPFResource::CoverImageExists()
+bool OPFResource::CoverImageExists() const
 {
     QReadLocker locker( &m_ReadWriteLock );
 
@@ -152,28 +174,6 @@ void OPFResource::SetDCMetadata( const QHash< QString, QList< QVariant > > &meta
     SetMetaElementsLast( *document );
 
     UpdateTextFromDom( *document );
-}
-
-
-QString OPFResource::GetCoverPageOEBPSPath()
-{
-    QReadLocker locker( &m_ReadWriteLock );
-    shared_ptr< xc::DOMDocument > document = GetDocument();
-    QList< xc::DOMElement* > references = XhtmlDoc::GetTagMatchingDescendants( *document, "reference" );
-
-    foreach( xc::DOMElement* reference, references )
-    {
-        QString type_text = XtoQ( reference->getAttribute( QtoX( "type" ) ) );
-        GuideSemantics::GuideSemanticType current_type =
-            GuideSemantics::Instance().MapReferenceTypeToGuideEnum( type_text );
-
-        if ( current_type == GuideSemantics::Cover )
-        {
-            XtoQ( reference->getAttribute( QtoX( "href" ) ) );              
-        }        
-    }
-
-    return QString();
 }
 
 

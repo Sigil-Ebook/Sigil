@@ -51,18 +51,18 @@ public:
     
     virtual ResourceType Type() const;
 
-    GuideSemantics::GuideSemanticType GetGuideSemanticTypeForResource( const Resource &resource );
+    GuideSemantics::GuideSemanticType GetGuideSemanticTypeForResource( const Resource &resource ) const;
 
-    QString GetCoverPageOEBPSPath();
+    QString GetCoverPageOEBPSPath() const;
 
-    bool IsCoverImage( const Resource &resource );
+    bool IsCoverImage( const Resource &resource ) const;
 
     /**
      * Determines if a cover image exists.
      *
      * @return \c true if a cover image exists.
      */
-    bool CoverImageExists();    
+    bool CoverImageExists() const;    
 
     /**
      * Returns the book's Dublin Core metadata. Note that metadata from
@@ -93,54 +93,54 @@ public slots:
 
 private:
 
-    void AppendToSpine( const QString &id, xc::DOMDocument &document );
+    static void AppendToSpine( const QString &id, xc::DOMDocument &document );
 
-    void RemoveFromSpine( const QString &id, xc::DOMDocument &document );
+    static void RemoveFromSpine( const QString &id, xc::DOMDocument &document );
 
     boost::shared_ptr< xc::DOMDocument > GetDocument() const;
 
-    xc::DOMElement& GetPackageElement( const xc::DOMDocument &document );
+    static xc::DOMElement& GetPackageElement( const xc::DOMDocument &document );
 
-    xc::DOMElement& GetMetadataElement( const xc::DOMDocument &document );
+    static xc::DOMElement& GetMetadataElement( const xc::DOMDocument &document );
 
-    xc::DOMElement& GetManifestElement( const xc::DOMDocument &document );
+    static xc::DOMElement& GetManifestElement( const xc::DOMDocument &document );
     
-    xc::DOMElement& GetSpineElement( const xc::DOMDocument &document );
+    static xc::DOMElement& GetSpineElement( const xc::DOMDocument &document );
 
-    xc::DOMElement& GetGuideElement( xc::DOMDocument &document );
+    static xc::DOMElement& GetGuideElement( xc::DOMDocument &document );
 
     // CAN BE NULL! NULL means no reference for resource
-    xc::DOMElement* GetGuideReferenceForResource( 
+    static xc::DOMElement* GetGuideReferenceForResource( 
         const Resource &resource, 
         const xc::DOMDocument &document );
 
-    void RemoveGuideReferenceForResource( 
+    static void RemoveGuideReferenceForResource( 
         const Resource &resource, 
         xc::DOMDocument &document );
 
-    GuideSemantics::GuideSemanticType GetGuideSemanticTypeForResource( 
+    static GuideSemantics::GuideSemanticType GetGuideSemanticTypeForResource( 
         const Resource &resource, 
         xc::DOMDocument &document );
 
-    void SetGuideSemanticTypeForResource(
+    static void SetGuideSemanticTypeForResource(
         GuideSemantics::GuideSemanticType type,
         const Resource &resource, 
         xc::DOMDocument &document );
 
-    void RemoveDuplicateGuideTypes(
+    static void RemoveDuplicateGuideTypes(
         GuideSemantics::GuideSemanticType new_type, 
         xc::DOMDocument &document );
 
     // CAN BE NULL! NULL means no cover meta element
-    xc::DOMElement* GetCoverMeta( const xc::DOMDocument &document );
+    static xc::DOMElement* GetCoverMeta( const xc::DOMDocument &document );
 
-    xc::DOMElement& GetMainIdentifier( const xc::DOMDocument &document );
+    static xc::DOMElement& GetMainIdentifier( const xc::DOMDocument &document );
 
-    QString GetResourceManifestID( const Resource &resource, const xc::DOMDocument &document );
+    static QString GetResourceManifestID( const Resource &resource, const xc::DOMDocument &document );
 
-    void SetMetaElementsLast( xc::DOMDocument &document );
+    static void SetMetaElementsLast( xc::DOMDocument &document );
 
-    void RemoveDCElements( xc::DOMDocument &document );
+    static void RemoveDCElements( xc::DOMDocument &document );
 
     /**
      * Dispatches each metadata entry based on its type. 
@@ -150,7 +150,7 @@ private:
      * @param metavalue The value of the metadata to be written. 
      * @param document The OPF DOM document.
      */
-    void MetadataDispatcher( const QString &metaname, const QVariant &metavalue, xc::DOMDocument &document );
+    static void MetadataDispatcher( const QString &metaname, const QVariant &metavalue, xc::DOMDocument &document );
 
     /**
      * Writes <creator> and <contributor> metadata elements.
@@ -159,7 +159,7 @@ private:
      * @param metavalue The value of the metadata to be written. 
      * @param document The OPF DOM document.
      */
-    void WriteCreatorOrContributor( const QString &metaname, const QString &metavalue, xc::DOMDocument &document );
+    static void WriteCreatorOrContributor( const QString &metaname, const QString &metavalue, xc::DOMDocument &document );
 
     /**
      * Writes simple metadata. 
@@ -168,7 +168,7 @@ private:
      * @param metavalue The value of the metadata to be written. 
      * @param document The OPF DOM document.
      */
-    void WriteSimpleMetadata( const QString &metaname, const QString &metavalue, xc::DOMDocument &document );
+    static void WriteSimpleMetadata( const QString &metaname, const QString &metavalue, xc::DOMDocument &document );
 
     /**
      * Writes the <identifier> elements.
@@ -178,7 +178,7 @@ private:
      * @param metavalue The value of the metadata to be written. 
      * @param document The OPF DOM document.
      */
-    void WriteIdentifier( const QString &metaname, const QString &metavalue, xc::DOMDocument &document );
+    static void WriteIdentifier( const QString &metaname, const QString &metavalue, xc::DOMDocument &document );
 
     /**
      * Writes the <date> elements.
@@ -188,7 +188,7 @@ private:
      * @param metavalue The value of the metadata to be written. 
      * @param document The OPF DOM document.
      */
-    void WriteDate( const QString &metaname, const QVariant &metavalue, xc::DOMDocument &document );
+    static void WriteDate( const QString &metaname, const QVariant &metavalue, xc::DOMDocument &document );
 
     /**
      * Takes the reversed form of a name ("Doe, John")
