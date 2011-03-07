@@ -101,6 +101,14 @@ QString OPFResource::GetCoverPageOEBPSPath() const
 }
 
 
+QString OPFResource::GetMainIdentifierValue() const
+{
+    QReadLocker locker( &m_ReadWriteLock );
+    shared_ptr< xc::DOMDocument > document = GetDocument();
+    return XtoQ( GetMainIdentifier( *document ).getTextContent() ).remove( "urn:uuid:" );
+}
+
+
 bool OPFResource::IsCoverImage( const Resource &resource ) const
 {
     if ( resource.Type() != ImageResource )

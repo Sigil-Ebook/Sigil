@@ -56,7 +56,6 @@ static const QString EMPTY_HTML_FILE  = "<?xml version=\"1.0\" encoding=\"utf-8\
 
 Book::Book()
     : 
-    m_PublicationIdentifier( Utility::CreateUUID() ),
     m_Mainfolder( *new FolderKeeper( this ) ),
     m_IsModified( false )
 {
@@ -104,7 +103,7 @@ NCXResource& Book::GetNCX()
 
 QString Book::GetPublicationIdentifier() const
 {
-    return m_PublicationIdentifier;
+    return GetConstOPF().GetMainIdentifierValue();
 }
 
 

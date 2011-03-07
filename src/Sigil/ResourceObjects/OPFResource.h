@@ -55,6 +55,8 @@ public:
 
     QString GetCoverPageOEBPSPath() const;
 
+    QString GetMainIdentifierValue() const;
+
     bool IsCoverImage( const Resource &resource ) const;
 
     /**

@@ -263,11 +263,10 @@ private:
                               const QString &temp_folder_path,
                               const QHash< QString, QString > &html_updates );
 
-    /**
-     * The book's publication identifier.
-     * Currently an UUID.
-     */
-    QString m_PublicationIdentifier;
+
+    ////////////////////////////
+    // PRIVATE MEMBER VARIABLES
+    ////////////////////////////
 
     /**
      * The FolderKeeper object that represents
