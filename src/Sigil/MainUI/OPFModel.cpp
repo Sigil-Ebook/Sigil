@@ -196,9 +196,7 @@ void OPFModel::ItemChangedHandler( QStandardItem *item )
     const QString &old_filename = resource->Filename();
     const QString &new_filename = item->text();
     
-    if ( !m_Book->GetOPF().FileIsWellFormed()           ||
-         !m_Book->GetNCX().FileIsWellFormed()           ||
-         old_filename == new_filename                   || 
+    if ( old_filename == new_filename || 
          !FilenameIsValid( old_filename, new_filename )   )
     {
         item->setText( old_filename );

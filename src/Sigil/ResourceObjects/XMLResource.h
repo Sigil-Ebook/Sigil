@@ -25,6 +25,7 @@
 
 #include "TextResource.h"
 #include "BookManipulation/XercesHUse.h"
+#include "BookManipulation/XhtmlDoc.h"
 
 
 class XMLResource : public TextResource 
@@ -46,7 +47,9 @@ public:
 
     virtual ResourceType Type() const;
 
-    bool FileIsWellFormed();
+    bool FileIsWellFormed() const;
+
+    XhtmlDoc::WellFormedError WellFormedErrorLocation() const;
 
 protected:
 

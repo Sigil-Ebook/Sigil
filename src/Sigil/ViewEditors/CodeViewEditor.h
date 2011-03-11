@@ -114,6 +114,14 @@ public:
     int CalculateLineNumberAreaWidth();
 
     /**
+     * Replaces the text of the entire document with the new text.
+     * Records the replacement as one action for the undo stack.
+     * 
+     * @param new_text The new text of the document.
+     */
+    void ReplaceDocumentText( const QString &new_text );
+
+    /**
      * Scrolls the entire view to the top.
      */
     void ScrollToTop();

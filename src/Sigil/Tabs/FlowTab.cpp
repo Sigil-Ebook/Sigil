@@ -25,6 +25,8 @@
 #include "ViewEditors/CodeViewEditor.h"
 #include "ViewEditors/BookViewEditor.h"
 #include "ResourceObjects/HTMLResource.h"
+#include "WellFormedCheckComponent.h"
+#include "BookManipulation/CleanSource.h"
 #include <QUrl>
 
 static const QString SETTINGS_GROUP = "flowtab";
@@ -45,7 +47,8 @@ FlowTab::FlowTab( HTMLResource& resource,
     m_wCodeView( *new CodeViewEditor( CodeViewEditor::Highlight_XHTML, this ) ),
     m_IsLastViewBook( true ),
     m_InSplitView( false ),
-    m_StartingViewState( view_state )
+    m_StartingViewState( view_state ),
+    m_WellFormedCheckComponent( *new WellFormedCheckComponent( *this ) )
 {
     // Loading a flow tab can take a while. We set the wait
     // cursor and clear it at the end of the delayed initialization.
@@ -67,6 +70,12 @@ FlowTab::FlowTab( HTMLResource& resource,
     // We perform delayed initialization after the widget is on
     // the screen. This way, the user perceives less load time.
     QTimer::singleShot( 0, this, SLOT( DelayedInitialization() ) );
+}
+
+
+FlowTab::~FlowTab()
+{
+    m_WellFormedCheckComponent.deleteLater();
 }
 
 
@@ -322,6 +331,52 @@ void FlowTab::ScrollToTop()
 }
 
 
+void FlowTab::AutoFixWellFormedErrors()
+{
+    if ( m_IsLastViewBook )
+
+        return;
+
+    m_wCodeView.ReplaceDocumentText( CleanSource::Clean( m_wCodeView.toPlainText() ) );
+}
+
+
+void FlowTab::SetWellFormedDialogsEnabledState( bool enabled )
+{
+    m_WellFormedCheckComponent.SetWellFormedDialogsEnabledState( enabled );
+}
+
+
+void FlowTab::TakeControlOfUI()
+{
+    EmitCentralTabRequest();
+    setFocus();
+}
+
+
+QString FlowTab::GetFilename()
+{
+    return ContentTab::GetFilename();
+}
+
+
+bool FlowTab::IsDataWellFormed()
+{
+    if ( m_IsLastViewBook )
+
+        return true;
+
+    XhtmlDoc::WellFormedError error = XhtmlDoc::WellFormedErrorForSource( m_wCodeView.toPlainText() );
+    bool well_formed = error.line == -1;
+
+    if ( !well_formed )
+
+        m_WellFormedCheckComponent.DemandAttentionIfAllowed( error );
+
+    return well_formed;
+}
+
+
 void FlowTab::Undo()
 {
     if ( m_wBookView.hasFocus() )
@@ -492,6 +547,10 @@ void FlowTab::Justify()
 
 void FlowTab::SplitChapter()
 {
+    if ( !IsDataWellFormed() )
+
+        return;
+
     if ( m_IsLastViewBook )
 
         emit OldTabRequest( m_wBookView.SplitChapter(), m_HTMLResource );
@@ -504,6 +563,10 @@ void FlowTab::SplitChapter()
 
 void FlowTab::InsertSGFChapterMarker()
 {
+    if ( !IsDataWellFormed() )
+
+        return;
+
     if ( m_wBookView.hasFocus() )
     
         m_wBookView.ExecCommand( "insertHTML", BREAK_TAG_INSERT );    
@@ -516,6 +579,10 @@ void FlowTab::InsertSGFChapterMarker()
 
 void FlowTab::SplitOnSGFChapterMarkers()
 {
+    if ( !IsDataWellFormed() )
+
+        return;
+
     SaveTabContent();
     emit NewChaptersRequest( m_HTMLResource.SplitOnSGFChapterMarkers() );
     LoadTabContent();
@@ -644,6 +711,15 @@ void FlowTab::Print()
 
 void FlowTab::BookView()
 {
+    // The user probably got here by pressing one of
+    // the View buttons, and we may need to reset the
+    // checked state of those buttons.
+    emit ViewButtonsStateChanged();
+
+    if ( !IsDataWellFormed() )
+
+        return;
+
     QApplication::setOverrideCursor( Qt::WaitCursor );
 
     // Update the book view if we just edited
@@ -665,6 +741,15 @@ void FlowTab::BookView()
 
 void FlowTab::SplitView()
 {
+    // The user probably got here by pressing one of
+    // the View buttons, and we may need to reset the
+    // checked state of those buttons.
+    emit ViewButtonsStateChanged();
+
+    if ( !IsDataWellFormed() )
+
+        return;
+
     QApplication::setOverrideCursor( Qt::WaitCursor );
 
     // Update the required view
@@ -688,7 +773,7 @@ void FlowTab::SplitView()
 
 
 void FlowTab::CodeView()
-{
+{    
     QApplication::setOverrideCursor( Qt::WaitCursor );
 
     // Update the code view if we just edited
@@ -824,6 +909,10 @@ void FlowTab::EmitContentChanged()
 
 void FlowTab::EnterBookView()
 {
+    if ( !IsDataWellFormed() )
+
+        return;
+
     m_wBookView.StoreCaretLocationUpdate( m_wCodeView.GetCaretLocation() );
     m_HTMLResource.UpdateWebPageFromTextDocument();
 
@@ -884,6 +973,8 @@ void FlowTab::ConnectSignalsToSlots()
 
     connect( qApp, SIGNAL( focusChanged( QWidget*, QWidget* ) ), this, SLOT( TabFocusChange( QWidget*, QWidget* ) ) );
     connect( qApp, SIGNAL( focusChanged( QWidget*, QWidget* ) ), this, SLOT( SplitViewFocusSwitch( QWidget*, QWidget* ) ) );
+
+    connect( &m_wCodeView, SIGNAL( FocusLost() ), this, SLOT( IsDataWellFormed() ) );
 }
 
 

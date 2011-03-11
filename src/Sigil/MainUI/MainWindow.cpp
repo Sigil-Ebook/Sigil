@@ -35,6 +35,7 @@
 #include "MainUI/TableOfContents.h"
 #include "Tabs/FlowTab.h"
 #include "Tabs/TabManager.h"
+#include "Tabs/OPFTab.h"
 #include "ResourceObjects/HTMLResource.h"
 #include "ResourceObjects/OPFResource.h"
 
@@ -162,6 +163,8 @@ bool MainWindow::ShouldUseTidyClean()
 
 void MainWindow::closeEvent( QCloseEvent *event )
 {
+    m_TabManager.WellFormedDialogsEnabled( false );
+
     if ( MaybeSaveDialogSaysProceed() )
     {
         WriteSettings();
@@ -172,7 +175,8 @@ void MainWindow::closeEvent( QCloseEvent *event )
     else
     {
         event->ignore();
-    }
+        m_TabManager.WellFormedDialogsEnabled( true );
+    }    
 }
 
 
@@ -197,6 +201,8 @@ void MainWindow::New()
 
 void MainWindow::Open()
 {
+    m_TabManager.WellFormedDialogsEnabled( false );
+
     // The nasty IFDEFs are here to enable the multi-document
     // interface on the Mac; Lin and Win just use multiple
     // instances of the Sigil application
@@ -237,6 +243,8 @@ void MainWindow::Open()
 #endif
         }
     }
+
+    m_TabManager.WellFormedDialogsEnabled( true );
 }
 
 
@@ -268,6 +276,10 @@ void MainWindow::OpenRecentFile()
 
 bool MainWindow::Save()
 {
+    if ( !m_TabManager.TabDataIsWellFormed() )
+
+        return false;
+
     if ( m_CurrentFilePath.isEmpty() )
     {
         return SaveAs();
@@ -282,6 +294,10 @@ bool MainWindow::Save()
 
 bool MainWindow::SaveAs()
 {
+    if ( !m_TabManager.TabDataIsWellFormed() )
+
+        return false;
+
     QStringList filters( c_SaveFilters.values() );
     filters.removeDuplicates();
 
@@ -329,6 +345,10 @@ bool MainWindow::SaveAs()
 
 void MainWindow::Find()
 {
+    if ( !m_TabManager.TabDataIsWellFormed() )
+
+        return;
+
     m_TabManager.SaveTabData();
 
     if ( m_FindReplace.isNull() )
@@ -347,6 +367,10 @@ void MainWindow::Find()
 
 void MainWindow::Replace()
 {
+    if ( !m_TabManager.TabDataIsWellFormed() )
+
+        return;
+
     m_TabManager.SaveTabData();
 
     if ( m_FindReplace.isNull() )
@@ -377,7 +401,7 @@ void MainWindow::ZoomOut()
 
 void MainWindow::InsertImage()
 {
-    if ( !m_Book->GetOPF().FileIsWellFormed() )
+    if ( !m_TabManager.TabDataIsWellFormed() )
 
         return;
 
@@ -411,7 +435,7 @@ void MainWindow::InsertImage()
 
 void MainWindow::MetaEditorDialog()
 {
-    if ( !m_Book->GetOPF().FileIsWellFormed() )
+    if ( !m_TabManager.TabDataIsWellFormed() )
 
         return;
 
@@ -1643,6 +1667,7 @@ void MainWindow::MakeTabConnections( ContentTab *tab )
 
     connect( m_cbHeadings, SIGNAL( activated( const QString& ) ),  tab,   SLOT( HeadingStyle( const QString& ) ) );
 
+    connect( tab,   SIGNAL( ViewButtonsStateChanged() ),    this,          SLOT( UpdateUIOnTabChanges()    ) );
     connect( tab,   SIGNAL( ViewChanged() ),                this,          SLOT( UpdateUIOnTabChanges()    ) );
     connect( tab,   SIGNAL( SelectionChanged() ),           this,          SLOT( UpdateUIOnTabChanges()    ) );
     connect( tab,   SIGNAL( EnteringBookView() ),           this,          SLOT( SetStateActionsBookView() ) );

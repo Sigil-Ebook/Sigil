@@ -408,7 +408,7 @@ int XhtmlDoc::NodeColumnNumber( const xc::DOMNode &node )
 }
 
 
-tuple< int, int > XhtmlDoc::WellFormedErrorLocation( const QString &source )
+XhtmlDoc::WellFormedError XhtmlDoc::WellFormedErrorForSource( const QString &source )
 {
     boost::scoped_ptr< xc::SAX2XMLReader > parser( xc::XMLReaderFactory::createXMLReader() );
 
@@ -418,11 +418,10 @@ tuple< int, int > XhtmlDoc::WellFormedErrorLocation( const QString &source )
     parser->setFeature( xc::XMLUni::fgXercesUseCachedGrammarInParse, true  );
     parser->setFeature( xc::XMLUni::fgXercesSkipDTDValidation,       true  );
 
-    // We don't need DTD validation
+    // We need the DGXMLScanner because of the entities
     parser->setProperty( xc::XMLUni::fgXercesScannerName, 
-                         (void*) xc::XMLUni::fgWFXMLScanner );    
+                         (void*) xc::XMLUni::fgDGXMLScanner );    
 
-    // Check if the DTD's actually do anything for the WF scanner
     xc::MemBufInputSource xhtml_dtd( XHTML_ENTITIES_DTD, XHTML_ENTITIES_DTD_LEN, XHTML_ENTITIES_DTD_ID );
     parser->loadGrammar( xhtml_dtd, xc::Grammar::DTDGrammarType, true ); 
 
@@ -463,10 +462,15 @@ tuple< int, int > XhtmlDoc::WellFormedErrorLocation( const QString &source )
 
     if ( !results.empty() )
     {
-        return make_tuple( results[ 0 ].GetErrorLine(), results[ 0 ].GetErrorColumn() );
+        XhtmlDoc::WellFormedError error;
+        error.line    = results[ 0 ].GetErrorLine();
+        error.column  = results[ 0 ].GetErrorColumn();
+        error.message = QString::fromUtf8( results[ 0 ].GetMessage().data() );
+
+        return error;
     }
 
-    return make_tuple( -1, -1 );
+    return XhtmlDoc::WellFormedError();
 }
 
 

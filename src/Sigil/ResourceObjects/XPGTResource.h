@@ -23,12 +23,12 @@
 #ifndef XPGTRESOURCE_H
 #define XPGTRESOURCE_H
 
-#include "TextResource.h"
+#include "XMLResource.h"
 
 /**
  * Represents an XPGT stylesheet on disk. 
  */
-class XPGTResource : public TextResource 
+class XPGTResource : public XMLResource 
 {
     Q_OBJECT
 

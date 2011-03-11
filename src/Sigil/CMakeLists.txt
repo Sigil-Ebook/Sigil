@@ -55,6 +55,8 @@ set( QOBJECT_HEADERS
     Tabs/XPGTTab.h
     Tabs/OPFTab.h
     Tabs/NCXTab.h
+    Tabs/WellFormedCheckComponent.h
+    Tabs/XMLTab.h
     MainUI/MainWindow.h
     MainUI/BookBrowser.h
     MainUI/TableOfContents.h
@@ -247,6 +249,11 @@ set( TAB_FILES
     Tabs/OPFTab.h
     Tabs/NCXTab.cpp
     Tabs/NCXTab.h
+    Tabs/WellFormedCheckComponent.cpp
+    Tabs/WellFormedCheckComponent.h
+    Tabs/XMLTab.cpp
+    Tabs/XMLTab.h
+    Tabs/WellFormedContent.h
     )
             
 set( UI_FILES   

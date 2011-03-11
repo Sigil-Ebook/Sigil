@@ -205,7 +205,7 @@ public:
      */
     virtual ViewState GetViewState() { return ViewState_StaticView; };
 
-    virtual void SetViewState( ViewState new_view_state ) {};
+    virtual void SetViewState( ViewState new_view_state ) {}
 
     virtual bool IsLoadingFinished() { return true; } 
 
@@ -225,6 +225,11 @@ public slots:
      * Loads the resource content when the user enters the tab.
      */
     virtual void LoadTabContent();
+
+    /**
+     * Emits the CentralTabRequest signal.
+     */
+    void EmitCentralTabRequest();
 
 signals:
 
@@ -253,6 +258,14 @@ signals:
      * @param renamed_tab Pointer to this tab.
      */
     void TabRenamed( ContentTab *renamed_tab );
+
+    /**
+     * Emitted when the tab wants to become the 
+     * central (shown) tab of the UI.
+     *
+     * @param tab The tab that wants to become central.
+     */
+    void CentralTabRequest( ContentTab *tab );
 
 protected slots:
 

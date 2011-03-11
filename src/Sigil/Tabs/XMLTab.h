@@ -20,21 +20,58 @@
 *************************************************************************/
 
 #pragma once
-#ifndef NCXTAB_H
-#define NCXTAB_H
+#ifndef XMLTAB_H
+#define XMLTAB_H
 
-#include "XMLTab.h"
+#include "TextTab.h"
+#include "WellFormedContent.h"
 
-class NCXResource;
+class XMLResource;
+class WellFormedCheckComponent;
 
-class NCXTab : public XMLTab
+
+class XMLTab : public TextTab, public WellFormedContent
 {
     Q_OBJECT
 
 public:
 
-    NCXTab( NCXResource& resource, int line_to_scroll_to = -1, QWidget *parent = 0 );
+    XMLTab( XMLResource& resource,
+            int line_to_scroll_to = -1,
+            QWidget *parent = 0 );
 
+    ~XMLTab();
+
+    void ScrollToLine( int line );
+
+    virtual void AutoFixWellFormedErrors();
+
+    void TakeControlOfUI();
+
+    QString GetFilename();
+
+public slots:
+
+    void SetWellFormedDialogsEnabledState( bool enabled );
+    
+    bool IsDataWellFormed();
+
+private:
+
+    void ConnectSignalsToSlots();
+
+
+    ///////////////////////////////
+    // PRIVATE MEMBER VARIABLES
+    ///////////////////////////////
+
+    XMLResource &m_XMLResource;
+
+    /**
+     * The component used to display a dialog about 
+     * well-formedness errors.
+     */
+    WellFormedCheckComponent& m_WellFormedCheckComponent;
 };
 
-#endif // NCXTAB_H
+#endif // XMLTAB_H

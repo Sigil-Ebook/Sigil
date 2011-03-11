@@ -70,10 +70,14 @@ FolderKeeper::~FolderKeeper()
 
     foreach( Resource *resource, m_Resources.values() )
     {
+        // We disconnect the Deleted signal, since if we don't
+        // the OPF will try to update itself on every resource
+        // removal (and there's no point to that, FolderKeeper is dying).
+        // Disconnecting this speeds up FolderKeeper destruction.
+        disconnect( resource, SIGNAL( Deleted( Resource* ) ), 
+                    this,     SLOT( RemoveResource( Resource* ) ) );
         resource->Delete();
-    }
-
-    m_Resources.clear(); 
+    } 
 }
 
 

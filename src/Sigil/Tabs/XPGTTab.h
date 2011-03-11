@@ -23,11 +23,11 @@
 #ifndef XPGTTAB_H
 #define XPGTTAB_H
 
-#include "TextTab.h"
+#include "XMLTab.h"
 
 class XPGTResource;
 
-class XPGTTab : public TextTab
+class XPGTTab : public XMLTab
 {
     Q_OBJECT
 

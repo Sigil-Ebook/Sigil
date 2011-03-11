@@ -24,6 +24,7 @@
 #define FLOWTAB_H
 
 #include "ContentTab.h"
+#include "WellFormedContent.h"
 #include <QUrl>
 
 class QSplitter;
@@ -33,13 +34,14 @@ class ViewEditor;
 class Resource;
 class HTMLResource;
 class QUrl;
+class WellFormedCheckComponent;
 
 /**
  * A tab widget used for displaying XHTML chapters.
  * It can display the chapter in both rendered view (Book View)
  * and raw code view (Code View).
  */
-class FlowTab : public ContentTab
+class FlowTab : public ContentTab, public WellFormedContent
 {
     Q_OBJECT
 
@@ -59,6 +61,8 @@ public:
              ContentTab::ViewState view_state, 
              int line_to_scroll_to = -1,
              QWidget *parent = 0 );
+
+    ~FlowTab();
 
     // Overrides inherited from ContentTab
 
@@ -121,9 +125,21 @@ public:
     /**
      * Scrolls the tab to the top.
      */
-    void ScrollToTop();    
+    void ScrollToTop(); 
+
+    // Overrides inherited from WellFormedContent
+
+    void AutoFixWellFormedErrors();
+
+    void SetWellFormedDialogsEnabledState( bool enabled );
+
+    void TakeControlOfUI();
+
+    QString GetFilename();
 
 public slots:
+
+    bool IsDataWellFormed();
 
     /**
      * Implements Undo action functionality.
@@ -321,6 +337,11 @@ signals:
      */
     void NewChaptersRequest( QStringList chapters );
 
+    /**
+     * Emitted when the state of the Book/Code/Split View buttons has changed.
+     */
+    void ViewButtonsStateChanged();
+
 private slots:
 
     /**
@@ -450,7 +471,16 @@ private:
      */
     bool m_InSplitView;
 
+    /**
+     * The starting View state of the FlowTab.
+     */
     ContentTab::ViewState m_StartingViewState;
+
+    /**
+     * The component used to display a dialog about 
+     * well-formedness errors.
+     */
+    WellFormedCheckComponent& m_WellFormedCheckComponent;
 };
 
 #endif // FLOWTAB_H

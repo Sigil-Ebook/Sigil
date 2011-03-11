@@ -39,16 +39,25 @@ Resource::ResourceType XMLResource::Type() const
 }
 
 
-bool XMLResource::FileIsWellFormed()
+bool XMLResource::FileIsWellFormed() const
 {
     // TODO: expand this with a dialog to fix the problem
 
     QReadLocker locker( &m_ReadWriteLock );
 
-    int error_line, error_column = -1;
-    tie( error_line, error_column ) = XhtmlDoc::WellFormedErrorLocation( m_TextDocument->toPlainText() );
+    XhtmlDoc::WellFormedError error = XhtmlDoc::WellFormedErrorForSource( m_TextDocument->toPlainText() );
 
-    return error_line == -1; 
+    bool well_formed = error.line == -1;
+
+    return well_formed;
+}
+
+
+XhtmlDoc::WellFormedError XMLResource::WellFormedErrorLocation() const
+{
+    QReadLocker locker( &m_ReadWriteLock );
+
+    return XhtmlDoc::WellFormedErrorForSource( m_TextDocument->toPlainText() );
 }
 
 

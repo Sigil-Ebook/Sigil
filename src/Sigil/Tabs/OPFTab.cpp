@@ -25,6 +25,15 @@
 
 OPFTab::OPFTab( OPFResource& resource, int line_to_scroll_to, QWidget *parent )
     :
-    TextTab( resource, CodeViewEditor::Highlight_XHTML, line_to_scroll_to, parent )
+    XMLTab( resource, line_to_scroll_to, parent ),
+    m_OPFResource( resource )
 {
-}   
+    
+}
+
+
+
+
+
+
+

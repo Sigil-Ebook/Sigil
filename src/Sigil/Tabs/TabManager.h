@@ -30,6 +30,7 @@
 
 class Resource;
 class HTMLResource;
+class WellFormedContent;
 
 /**
  * Manages the tabs shown in the main UI.
@@ -55,7 +56,24 @@ public:
      */
     ContentTab& GetCurrentContentTab();    
 
+    /**
+     * Returns \c true if tab data is well-formed. Also,
+     * depending on whether the dialog is enabled, notifies
+     * the user about the problem.
+     *
+     * @return \c true if the tab data is well-formed.
+     */
+    bool TabDataIsWellFormed();
+
 public slots:
+
+    /**
+     * Turns on/off the dialog responsible for notifying the user
+     * about well-formed errors.
+     *
+     * @param enabled If \true, the dialog is enabled.
+     */
+    void WellFormedDialogsEnabled( bool enabled );
 
     /**
      * Saves any unsaved data in the all the open tabs.
@@ -92,9 +110,16 @@ public slots:
 
     /**
      * Closes the current tab.
-     * If there is the only one tab opened, the command is ignored.
+     * If there is only one tab opened, the command is ignored.
      */
     void CloseTab();
+
+    /**
+     * Makes the tab the central (shown) tab of the UI.
+     *
+     * @param tab The tab to make central.
+     */
+    void MakeCentralTab( ContentTab *tab );
 
 signals:
 
@@ -159,6 +184,14 @@ private slots:
     void UpdateTabName( ContentTab *renamed_tab );
 
 private:
+
+    /**
+     * Returns the element of the UI that houses well-formed XML data.
+     * 
+     * @note CAN BE NULL! This means the main tab has no XML data.
+     * @return The element with XML data.
+     */
+    WellFormedContent* GetWellFormedContent();
 
     /**
      * Returns the index of tab in which the resource is loaded.

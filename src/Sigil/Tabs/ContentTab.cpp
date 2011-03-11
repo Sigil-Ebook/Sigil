@@ -84,6 +84,12 @@ void ContentTab::LoadTabContent()
 }
 
 
+void ContentTab::EmitCentralTabRequest()
+{
+    emit CentralTabRequest( this );
+}
+
+
 void ContentTab::EmitDeleteMe()
 {
     emit DeleteMe( this );

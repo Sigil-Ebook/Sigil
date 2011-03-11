@@ -27,6 +27,7 @@
 #include "NCXTab.h"
 #include "ImageTab.h"
 #include "XPGTTab.h"
+#include "WellFormedContent.h"
 #include "ResourceObjects/Resource.h"
 #include "ResourceObjects/CSSResource.h"
 #include "ResourceObjects/OPFResource.h"
@@ -62,6 +63,28 @@ ContentTab& TabManager::GetCurrentContentTab()
     //Q_ASSERT( widget != NULL );
 
     return *qobject_cast< ContentTab* >( widget );
+}
+
+
+bool TabManager::TabDataIsWellFormed()
+{
+    WellFormedContent *content = GetWellFormedContent();
+
+    if ( content )
+        
+        return content->IsDataWellFormed(); 
+
+    return true;
+}
+
+
+void TabManager::WellFormedDialogsEnabled( bool enabled )
+{
+    WellFormedContent *content = GetWellFormedContent();
+
+    if ( content )
+        
+        content->SetWellFormedDialogsEnabledState( enabled );  
 }
 
 
@@ -141,7 +164,14 @@ void TabManager::PreviousTab()
 
 void TabManager::CloseTab()
 {
-     CloseTab( currentIndex() );
+    CloseTab( currentIndex() );
+}
+
+
+void TabManager::MakeCentralTab( ContentTab *tab )
+{
+    Q_ASSERT( tab );
+    setCurrentIndex( indexOf( tab ) );    
 }
 
 
@@ -181,11 +211,20 @@ void TabManager::CloseTab( int tab_index )
 {   
     if ( count() <= 1 )
 
-        return;
+        return;    
 
-    Q_ASSERT( tab_index >= 0 );
+    Q_ASSERT( tab_index >= 0 );      
 
-    qobject_cast< ContentTab* >( widget( tab_index ) )->Close();
+    WellFormedContent *content = GetWellFormedContent();
+
+    // We don't let the user leave the tab
+    // if the tab data is not well-formed.
+    if ( content && !content->IsDataWellFormed() )
+        
+        return;   
+
+    ContentTab *tab = qobject_cast< ContentTab* >( widget( tab_index ) );
+    tab->Close();
 }
 
 
@@ -195,6 +234,13 @@ void TabManager::UpdateTabName( ContentTab *renamed_tab )
 
     setTabText( indexOf( renamed_tab ), renamed_tab->GetFilename() );
 }
+
+
+WellFormedContent* TabManager::GetWellFormedContent()
+{
+    return dynamic_cast< WellFormedContent* >( currentWidget() );
+}
+
 
 
 // Returns the index of the tab the index is loaded in, -1 if it isn't
@@ -306,6 +352,9 @@ ContentTab* TabManager::CreateTabForResource( Resource& resource,
     else if ( resource.Type() == Resource::OPFResource )
     {
         tab = new OPFTab( *( qobject_cast< OPFResource* >( &resource ) ), line_to_scroll_to, this );
+
+        connect( tab,  SIGNAL( CentralTabRequest( ContentTab* ) ), 
+                 this, SLOT( MakeCentralTab( ContentTab* ) ) );//, Qt::QueuedConnection );
     }
 
     else if ( resource.Type() == Resource::NCXResource )

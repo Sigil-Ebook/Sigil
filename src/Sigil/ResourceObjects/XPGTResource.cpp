@@ -24,7 +24,7 @@
 #include "Misc/Utility.h"
 
 XPGTResource::XPGTResource( const QString &fullfilepath, QObject *parent )
-    : TextResource( fullfilepath, parent )
+    : XMLResource( fullfilepath, parent )
 {
 
 }

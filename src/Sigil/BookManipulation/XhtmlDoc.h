@@ -23,9 +23,11 @@
 #ifndef XHTMLDOC_H
 #define XHTMLDOC_H
 
-#include "ViewEditors/ViewEditor.h"
 #include <QWebElement>
+#include <boost/shared_ptr.hpp>
 #include "XercesHUse.h"
+#include "ViewEditors/ViewEditor.h"
+
 
 class QString;
 class QStringList;
@@ -94,17 +96,26 @@ public:
      * Parses the source text into a DOM and returns a shared pointer
      * to the heap-created document. 
      */
-    static shared_ptr< xc::DOMDocument > LoadTextIntoDocument( const QString &source );
+    static boost::shared_ptr< xc::DOMDocument > LoadTextIntoDocument( const QString &source );
 
-    static shared_ptr< xc::DOMDocument > CopyDomDocument( const xc::DOMDocument &document );
+    static boost::shared_ptr< xc::DOMDocument > CopyDomDocument( const xc::DOMDocument &document );
 
-    static shared_ptr< xc::DOMDocument > RaiiWrapDocument( xc::DOMDocument *document );
+    static boost::shared_ptr< xc::DOMDocument > RaiiWrapDocument( xc::DOMDocument *document );
 
     static int NodeLineNumber( const xc::DOMNode &node );
 
     static int NodeColumnNumber( const xc::DOMNode &node );
 
-    static tuple< int, int > WellFormedErrorLocation( const QString &source ); 
+    struct WellFormedError 
+    {
+        int line;
+        int column;
+        QString message;
+
+        WellFormedError() : line( -1 ), column( -1 ) {}
+    };
+
+    static WellFormedError WellFormedErrorForSource( const QString &source ); 
 
     static xc::DOMElement* CreateElementInDocument( 
         const QString &tag_name,

@@ -129,8 +129,8 @@ void TextTab::ConnectSignalsToSlots()
 {
     // We set the Code View as the focus proxy for the tab,
     // so the ContentTab focusIn/Out handlers are not called.
-    connect( &m_wCodeView, SIGNAL( FocusGained() ),              this, SLOT( LoadTabContent() )      );
-    connect( &m_wCodeView, SIGNAL( FocusLost() ),                this, SLOT( SaveTabContent() )      );
+    connect( &m_wCodeView, SIGNAL( FocusGained() ),              this, SLOT( LoadTabContent() ) );
+    connect( &m_wCodeView, SIGNAL( FocusLost() ),                this, SLOT( SaveTabContent() ) );
 
     connect( &m_wCodeView, SIGNAL( FilteredTextChanged() ),      this, SIGNAL( ContentChanged() )           );
     connect( &m_wCodeView, SIGNAL( ZoomFactorChanged( float ) ), this, SIGNAL( ZoomFactorChanged( float ) ) );

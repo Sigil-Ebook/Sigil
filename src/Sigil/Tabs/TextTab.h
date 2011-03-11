@@ -20,8 +20,8 @@
 *************************************************************************/
 
 #pragma once
-#ifndef TextTAB_H
-#define TextTAB_H
+#ifndef TEXTTAB_H
+#define TEXTTAB_H
 
 #include "ContentTab.h"
 #include "ViewEditors/CodeViewEditor.h"
@@ -41,11 +41,6 @@ public:
              int line_to_scroll_to = -1,
              QWidget *parent = 0 );
 
-    /**
-     * Scrolls the tab to the specified line (if in Code View).
-     *
-     * @param line The line to scroll to.
-     */
     void ScrollToLine( int line );
 
     // Overrides inherited from ContentTab
@@ -81,6 +76,12 @@ private:
 
     virtual void ConnectSignalsToSlots();
 
+protected:
+
+    // The plain text code editor 
+    CodeViewEditor &m_wCodeView;
+
+private:
 
     ///////////////////////////////
     // PRIVATE MEMBER VARIABLES
@@ -88,13 +89,8 @@ private:
 
     TextResource &m_TextResource;
 
-    QString m_Source;
-
-    // The plain text code editor 
-    CodeViewEditor &m_wCodeView;
-
     int m_LineToScrollTo;
 
 };
 
-#endif // TextTAB_H
+#endif // TEXTTAB_H

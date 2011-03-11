@@ -152,10 +152,6 @@ void BookBrowser::OpenContextMenu( const QPoint &point )
 
 void BookBrowser::AddNew()
 {
-    if ( !m_Book->GetOPF().FileIsWellFormed() )
-
-        return;
-
     if ( m_LastContextMenuType == Resource::HTMLResource )
     {
         m_Book->CreateEmptyHTMLFile();
@@ -174,10 +170,6 @@ void BookBrowser::AddNew()
 
 void BookBrowser::AddExisting()
 {
-    if ( !m_Book->GetOPF().FileIsWellFormed() )
-
-        return;
-
     QStringList filepaths = QFileDialog::getOpenFileNames(  this, 
                                                             tr( "Add existing file(s)" ),
                                                             m_LastFolderOpen
@@ -287,10 +279,6 @@ void BookBrowser::Remove()
 
         return;
 
-    if ( !m_Book->GetOPF().FileIsWellFormed() )
-
-        return;
-
     resource->Delete();
 
     m_Book->NormalizeReadingOrders();
@@ -303,10 +291,6 @@ void BookBrowser::Remove()
 
 void BookBrowser::SetCoverImage()
 {
-    if ( !m_Book->GetOPF().FileIsWellFormed() )
-
-        return;
-
     Resource *resource = GetCurrentResource();
     Q_ASSERT( resource );
 
@@ -317,10 +301,6 @@ void BookBrowser::SetCoverImage()
 
 void BookBrowser::AddGuideSemanticType( int type )
 {
-    if ( !m_Book->GetOPF().FileIsWellFormed() )
-
-        return;
-
     Resource *resource = GetCurrentResource();
     Q_ASSERT( resource );
 
@@ -331,10 +311,6 @@ void BookBrowser::AddGuideSemanticType( int type )
 
 void BookBrowser::MergeWithPrevious()
 {
-    if ( !m_Book->GetOPF().FileIsWellFormed() )
-
-        return;
-
     QApplication::setOverrideCursor( Qt::WaitCursor );
 
     HTMLResource *html_resource = qobject_cast< HTMLResource* >( GetCurrentResource() );

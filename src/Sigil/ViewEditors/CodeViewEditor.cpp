@@ -198,6 +198,19 @@ int CodeViewEditor::CalculateLineNumberAreaWidth()
 }
 
 
+void CodeViewEditor::ReplaceDocumentText( const QString &new_text )
+{
+    QTextCursor cursor = textCursor();
+    cursor.beginEditBlock();
+
+    cursor.select( QTextCursor::Document );
+    cursor.removeSelectedText();
+    cursor.insertText( new_text );
+
+    cursor.endEditBlock();
+}
+
+
 void CodeViewEditor::ScrollToTop()
 {
     verticalScrollBar()->setValue( 0 );

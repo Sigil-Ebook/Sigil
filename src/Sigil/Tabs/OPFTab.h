@@ -23,17 +23,25 @@
 #ifndef OPFTAB_H
 #define OPFTAB_H
 
-#include "TextTab.h"
+#include "XMLTab.h"
 
 class OPFResource;
 
-class OPFTab : public TextTab
+class OPFTab : public XMLTab
 {
     Q_OBJECT
 
 public:
 
     OPFTab( OPFResource& resource, int line_to_scroll_to = -1, QWidget *parent = 0 );
+
+private:
+
+    ///////////////////////////////
+    // PRIVATE MEMBER VARIABLES
+    ///////////////////////////////
+
+    OPFResource& m_OPFResource;
 
 };
 
