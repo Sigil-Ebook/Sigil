@@ -35,6 +35,8 @@ public:
 
     OPFTab( OPFResource& resource, int line_to_scroll_to = -1, QWidget *parent = 0 );
 
+    void AutoFixWellFormedErrors();
+
 private:
 
     ///////////////////////////////

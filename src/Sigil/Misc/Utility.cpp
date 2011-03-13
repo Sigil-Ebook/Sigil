@@ -74,7 +74,7 @@ QString Utility::ReplaceFirst( const QString &before, const QString &after, cons
 }
 
 
-QStringList Utility::RecursiveGetFiles( const QString &fullfolderpath )
+QStringList Utility::GetAbsolutePathsToFolderDescendantFiles( const QString &fullfolderpath )
 {
     QDir folder( fullfolderpath );
     QStringList files;
@@ -93,7 +93,7 @@ QStringList Utility::RecursiveGetFiles( const QString &fullfolderpath )
             // we add all files from that dir
             else 
             {
-                files.append( RecursiveGetFiles( file.absoluteFilePath() ) );                				
+                files.append( GetAbsolutePathsToFolderDescendantFiles( file.absoluteFilePath() ) );                				
             }
         }
     }

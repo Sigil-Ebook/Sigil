@@ -29,9 +29,14 @@
 
 namespace xe = XercesExt;
 
-static const QString OPF_XML_NAMESPACE = "http://www.idpf.org/2007/opf"; 
-static const QString FALLBACK_MIMETYPE = "text/plain";
-static const QString TEMPLATE_TEXT     = 
+static const QString OPF_XML_NAMESPACE        = "http://www.idpf.org/2007/opf"; 
+static const QString FALLBACK_MIMETYPE        = "text/plain";
+static const QString ITEM_ELEMENT_TEMPLATE    = "<item id=\"%1\" href=\"%2\" media-type=\"%3\"/>";
+static const QString ITEMREF_ELEMENT_TEMPLATE = "<itemref idref=\"%1\"/>";
+static const QString OPF_REWRITTEN_COMMENT    = "<!-- Your OPF file was broken so Sigil "
+                                                "was forced to create a new one from scratch. -->";
+
+static const QString TEMPLATE_TEXT = 
     "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
     "<package version=\"2.0\" xmlns=\"http://www.idpf.org/2007/opf\" unique-identifier=\"BookId\">\n\n"
     "  <metadata xmlns:dc=\"http://purl.org/dc/elements/1.1/\" xmlns:opf=\"http://www.idpf.org/2007/opf\">\n"
@@ -138,6 +143,14 @@ bool OPFResource::CoverImageExists() const
     shared_ptr< xc::DOMDocument > document = GetDocument();
     
     return GetCoverMeta( *document ) != NULL;
+}
+
+
+void OPFResource::AutoFixWellFormedErrors()
+{
+    QWriteLocker locker( &m_ReadWriteLock );
+
+    UpdateTextFromDom( *CreateOPFFromScratch() );
 }
 
 
@@ -334,10 +347,11 @@ void OPFResource::RemoveFromSpine( const QString &id, xc::DOMDocument &document 
 
 shared_ptr< xc::DOMDocument > OPFResource::GetDocument() const
 {
-    // TODO: make sure that the basic elements (package, metadata, manifest, spine) 
-    // are present, otherwise rebuild the opf (and add a comment to the opf about this)
-    // also make sure there's a main identifier
     shared_ptr< xc::DOMDocument > document = XhtmlDoc::LoadTextIntoDocument( m_TextDocument->toPlainText() );
+
+    if ( !BasicStructurePresent( *document ) )
+
+        document = CreateOPFFromScratch();
 
     // For NCX files, the default of standalone == false should remain
     document->setXmlStandalone( true );
@@ -528,6 +542,17 @@ xc::DOMElement* OPFResource::GetCoverMeta( const xc::DOMDocument &document )
 
 xc::DOMElement& OPFResource::GetMainIdentifier( const xc::DOMDocument &document )
 {
+    xc::DOMElement* identifier = GetMainIdentifierUnsafe( document );
+    Q_ASSERT( identifier );
+
+    return *identifier;
+}
+
+
+// This is here because we use it to check for the presence of the main identifier
+// during DOM validation. But after that, the GetMainIdentifier func should be used.
+xc::DOMElement* OPFResource::GetMainIdentifierUnsafe( const xc::DOMDocument &document )
+{
     xc::DOMElement &package = GetPackageElement( document );
     QString unique_identifier = XtoQ( package.getAttribute( QtoX( "unique-identifier" ) ) );
 
@@ -540,15 +565,11 @@ xc::DOMElement& OPFResource::GetMainIdentifier( const xc::DOMDocument &document 
 
         if ( id == unique_identifier )
 
-            return *identifier;
+            return identifier;
     }
 
-    Q_ASSERT( false );
-    // This is just here to kill the warning,
-    // it should never be reached.
-    return *identifiers[ 0 ];
+    return NULL;
 }
-
 
 QString OPFResource::GetResourceManifestID( const Resource &resource, const xc::DOMDocument &document )
 {
@@ -777,17 +798,128 @@ QString OPFResource::GetNormalName( const QString &name )
     return splits[ 1 ].trimmed() + " " + splits[ 0 ].trimmed();
 }
 
-void OPFResource::FillWithDefaultText()
+
+bool OPFResource::BasicStructurePresent( const xc::DOMDocument &document )
 {
-    // FIXME: This should use the Book's identifier... actually the Book's identifier 
-    // should become what is in the OPF, not the other way around.
-    SetText( TEMPLATE_TEXT.arg( Utility::CreateUUID() ) );
+    QList< xc::DOMElement* > packages = 
+        XhtmlDoc::GetTagMatchingDescendants( document, "package", OPF_XML_NAMESPACE );
+
+    if ( packages.count() != 1 )
+
+        return false;
+
+    QList< xc::DOMElement* > metadatas = 
+        XhtmlDoc::GetTagMatchingDescendants( document, "metadata", OPF_XML_NAMESPACE );
+
+    if ( metadatas.count() != 1 )
+
+        return false;
+
+    QList< xc::DOMElement* > manifests = 
+        XhtmlDoc::GetTagMatchingDescendants( document, "manifest", OPF_XML_NAMESPACE );
+
+    if ( manifests.count() != 1 )
+
+        return false;
+
+    QList< xc::DOMElement* > spines = 
+        XhtmlDoc::GetTagMatchingDescendants( document, "spine", OPF_XML_NAMESPACE );
+
+    if ( spines.count() != 1 )
+
+        return false;
+
+    xc::DOMElement* identifier = GetMainIdentifierUnsafe( document );
+    if ( !identifier )
+
+        return false;
+
+    return true;
 }
 
 
-QString OPFResource::GetResourceMimetype( const Resource &resource )
+shared_ptr< xc::DOMDocument > OPFResource::CreateOPFFromScratch() const
 {
-    return m_Mimetypes.value( QFileInfo( resource.Filename() ).suffix().toLower(), FALLBACK_MIMETYPE );
+    QString xml_source = GetOPFDefaultText();
+
+    QString manifest_content;
+    QString spine_content;
+    QStringList relative_oebps_paths = GetRelativePathsToAllFilesInOEPBS();
+
+    foreach( QString path, relative_oebps_paths )
+    {
+        // The OPF is not allowed to be in the manifest and the NCX
+        // is already in the template.
+        if ( path.contains( OPF_FILE_NAME ) || path.contains( NCX_FILE_NAME ) )
+
+            continue;
+
+        QString item_id = GetValidID( QFileInfo( path ).fileName() );
+        QString item = ITEM_ELEMENT_TEMPLATE
+                       .arg( item_id )
+                       .arg( path )
+                       .arg( GetFileMimetype( path ) );
+
+        manifest_content.append( item );
+        
+        if ( TEXT_EXTENSIONS.contains( QFileInfo( path ).suffix().toLower() ) )
+        {
+            spine_content.append( ITEMREF_ELEMENT_TEMPLATE.arg( item_id ) );
+        }
+    }
+
+    xml_source.replace( "</manifest>", manifest_content + "</manifest>" )
+              .replace( "</spine>", spine_content + "</spine>" )
+              .replace( "<metadata", OPF_REWRITTEN_COMMENT + "<metadata" );
+                
+
+    shared_ptr< xc::DOMDocument > document = 
+        XhtmlDoc::LoadTextIntoDocument( xml_source );
+
+    document->setXmlStandalone( true );
+    return document;
+}
+
+
+// Yeah, we could get this list of paths with the GetSortedContentFilesList()
+// func from FolderKeeper, but let's not create a strong coupling from
+// the opf to the FK just yet. If we can work without that dependency,
+// then let's do so.
+QStringList OPFResource::GetRelativePathsToAllFilesInOEPBS() const
+{
+    // The parent folder of the OPF will always be the OEBPS folder.
+    QString path_to_oebps_folder = QFileInfo( GetFullPath() ).absolutePath();
+    QStringList paths = Utility::GetAbsolutePathsToFolderDescendantFiles( path_to_oebps_folder );
+    paths.replaceInStrings( path_to_oebps_folder + "/", "" );
+
+    paths.sort();
+    return paths;
+}
+
+
+QString OPFResource::GetOPFDefaultText()
+{
+    // FIXME: This should use the Book's identifier... actually the Book's identifier 
+    // should become what is in the OPF, not the other way around.
+    return TEMPLATE_TEXT.arg( Utility::CreateUUID() );
+}
+
+
+void OPFResource::FillWithDefaultText()
+{
+    SetText( GetOPFDefaultText() );
+}
+
+
+QString OPFResource::GetResourceMimetype( const Resource &resource ) const
+{
+    return GetFileMimetype( resource.Filename() );
+}
+
+
+QString OPFResource::GetFileMimetype( const QString &filepath ) const
+{
+    return m_Mimetypes.value( QFileInfo( filepath ).suffix().toLower(), FALLBACK_MIMETYPE );
 }
 
 
@@ -822,6 +954,12 @@ void OPFResource::CreateMimetypes()
     m_Mimetypes[ "ttf"   ] = "application/x-font-ttf";
     m_Mimetypes[ "ttc"   ] = "application/x-font-truetype-collection";
 }
+
+
+
+
+
+
 
 
 

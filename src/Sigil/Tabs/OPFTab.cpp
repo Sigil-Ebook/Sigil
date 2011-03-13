@@ -31,6 +31,11 @@ OPFTab::OPFTab( OPFResource& resource, int line_to_scroll_to, QWidget *parent )
     
 }
 
+void OPFTab::AutoFixWellFormedErrors()
+{
+    m_OPFResource.AutoFixWellFormedErrors();
+}
+
 
 
 

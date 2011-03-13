@@ -66,6 +66,8 @@ public:
      */
     bool CoverImageExists() const;    
 
+    void AutoFixWellFormedErrors();
+
     /**
      * Returns the book's Dublin Core metadata. Note that metadata from
      * <meta> elements is not included.
@@ -138,6 +140,8 @@ private:
 
     static xc::DOMElement& GetMainIdentifier( const xc::DOMDocument &document );
 
+    static xc::DOMElement* GetMainIdentifierUnsafe( const xc::DOMDocument &document );
+
     static QString GetResourceManifestID( const Resource &resource, const xc::DOMDocument &document );
 
     static void SetMetaElementsLast( xc::DOMDocument &document );
@@ -203,9 +207,19 @@ private:
      */
     static QString GetNormalName( const QString &name );
 
+    static bool BasicStructurePresent( const xc::DOMDocument &document );
+
+    boost::shared_ptr< xc::DOMDocument > CreateOPFFromScratch() const;
+
+    QStringList GetRelativePathsToAllFilesInOEPBS() const;
+
+    static QString GetOPFDefaultText();
+
     void FillWithDefaultText();
 
-    QString GetResourceMimetype( const Resource &resource );
+    QString GetResourceMimetype( const Resource &resource ) const;
+
+    QString GetFileMimetype( const QString &filepath ) const;
 
     /**
      * Initializes m_Mimetypes.
