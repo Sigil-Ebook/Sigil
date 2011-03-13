@@ -24,6 +24,7 @@
 #include <QTreeView>
 #include "NCXModel.h"
 #include "BookManipulation/FolderKeeper.h"
+#include "BookManipulation/CleanSource.h"
 #include "Dialogs/HeadingSelector.h"
 #include "Exporters/NCXWriter.h"
 #include "ResourceObjects/NCXResource.h"
@@ -140,7 +141,8 @@ void TableOfContents::GenerateTocFromHeadings()
     ncx.WriteXML();
     buffer.close();
 
-    m_Book->GetNCX().SetText( QString::fromUtf8( raw_ncx.constData(), raw_ncx.size() ) );    
+    m_Book->GetNCX().SetText( 
+        CleanSource::ProcessXML( QString::fromUtf8( raw_ncx.constData(), raw_ncx.size() ) ) );    
 }
 
 
