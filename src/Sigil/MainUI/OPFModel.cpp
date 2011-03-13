@@ -243,7 +243,8 @@ void OPFModel::InitializeModel()
         
         if ( resource->Type() == Resource::HTMLResource )
         {
-            int reading_order = qobject_cast< HTMLResource* >( resource )->GetReadingOrder();
+            int reading_order = 
+                m_Book->GetOPF().GetReadingOrder( *qobject_cast< HTMLResource* >( resource ) );
 
             if ( reading_order == -1 )
             
@@ -287,23 +288,24 @@ void OPFModel::InitializeModel()
 
 void OPFModel::UpdateHTMLReadingOrders()
 {
+    QList< HTMLResource* > reading_order_htmls;
+
     for ( int i = 0; i < m_TextFolderItem.rowCount(); ++i )
     {
         QStandardItem *html_item = m_TextFolderItem.child( i );
 
         Q_ASSERT( html_item );
 
-        if ( html_item->data( READING_ORDER_ROLE ).toInt() != i )
-        {
-            html_item->setData( i, READING_ORDER_ROLE );
-            HTMLResource *html_resource =  qobject_cast< HTMLResource* >(
-                &m_Book->GetFolderKeeper().GetResourceByIdentifier( html_item->data().toString() ) );
+        html_item->setData( i, READING_ORDER_ROLE );
+        HTMLResource *html_resource =  qobject_cast< HTMLResource* >(
+            &m_Book->GetFolderKeeper().GetResourceByIdentifier( html_item->data().toString() ) );
 
-            if ( html_resource != NULL )
+        if ( html_resource != NULL )
                 
-                html_resource->SetReadingOrder( i );
-        }
+            reading_order_htmls.append( html_resource );        
     }
+
+    m_Book->GetOPF().UpdateSpineOrder( reading_order_htmls );
 }
 
 

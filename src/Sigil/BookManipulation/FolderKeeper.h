@@ -26,6 +26,7 @@
 #include <QObject>
 #include <QString>
 #include <QHash>
+#include <QList>
 #include <QMutex>
 
 #include "Misc/TempFolder.h"
@@ -33,13 +34,12 @@
 // These have to be included directly because
 // of the template functions.
 #include "ResourceObjects/HTMLResource.h"
+#include "ResourceObjects/OPFResource.h"
 #include "ResourceObjects/ImageResource.h"
 #include "ResourceObjects/CSSResource.h"
 #include "ResourceObjects/XPGTResource.h"
 #include "ResourceObjects/FontResource.h"
 
-class Resource;
-class OPFResource;
 class NCXResource;
 
 /**
@@ -167,14 +167,14 @@ public:
      * 
      * @return The OPF.
      */
-    OPFResource& GetOPF();
+    OPFResource& GetOPF() const;
 
     /**
      * Returns the book's NCX file.
      * 
      * @return The NCX.
      */
-    NCXResource& GetNCX();
+    NCXResource& GetNCX() const;
 
     /**
      * Returns the full path to the main folder of the publication.
@@ -253,6 +253,9 @@ private:
     template< typename T >
     static bool PointerLessThan( T* first_item, T* second_item );
 
+    template< typename T >
+    QList< T* > ListResourceSort( const QList< T* > &resource_list ) const;
+
 
     ///////////////////////////////
     // PRIVATE MEMBER VARIABLES
@@ -316,7 +319,7 @@ QList< T* > FolderKeeper::GetResourceTypeList( bool should_be_sorted ) const
 
     if ( should_be_sorted )
 
-        qSort( onetype_resources.begin(), onetype_resources.end(), FolderKeeper::PointerLessThan< T > );
+        onetype_resources = ListResourceSort( onetype_resources );
 
     return onetype_resources;
 }
@@ -337,12 +340,55 @@ QList< Resource* > FolderKeeper::GetResourceTypeAsGenericList( bool should_be_so
 
     if ( should_be_sorted )
 
-        qSort( resources.begin(), resources.end(), FolderKeeper::PointerLessThan< Resource > );
+        resources = ListResourceSort( resources );
 
     return resources;
 }
 
-template< typename T >
+
+template< typename T > inline
+QList< T* > FolderKeeper::ListResourceSort( const QList< T* > &resource_list )  const
+{
+    QList< T* > sorted_list = resource_list;
+    qSort( sorted_list.begin(), sorted_list.end(), FolderKeeper::PointerLessThan< T > );
+
+    return sorted_list;
+}
+
+
+// This has to be inline, otherwise we get linker errors about this
+// specialization already being defined.
+template<> inline
+QList< HTMLResource* > FolderKeeper::ListResourceSort< HTMLResource >( const QList< HTMLResource* > &resource_list ) const
+{
+    QStringList spine_order_filenames = GetOPF().GetSpineOrderFilenames();
+
+    QList< HTMLResource* > htmls = resource_list;
+    QList< HTMLResource* > sorted_htmls;
+
+    foreach( const QString &spine_filename, spine_order_filenames )
+    {
+        for ( int i = 0; i < htmls.count(); ++i )
+        {
+            if ( spine_filename == htmls[ i ]->Filename() )
+            {
+                sorted_htmls.append( htmls.takeAt( i ) );
+                break;
+            }
+        }
+    }
+
+    // It's possible that there are certain HTML files in the
+    // given resource list that are not in the spine filenames,
+    // for several reasons. So we make sure we add them to the end
+    // of the sorted list.
+    sorted_htmls.append( htmls );
+
+    return sorted_htmls;
+}
+
+
+template< typename T > inline
 bool FolderKeeper::PointerLessThan( T* first_item, T* second_item )
 {
     Q_ASSERT( first_item );

@@ -161,19 +161,12 @@ HTMLResource& Book::CreateChapterBreakOriginalResource( const QString &content, 
 {
     const QString &originating_filename = originating_resource.Filename();
 
-    originating_resource.RenameTo( m_Mainfolder.GetUniqueFilenameVersion( FIRST_CHAPTER_NAME ) );
+    originating_resource.RenameTo( m_Mainfolder.GetUniqueFilenameVersion( FIRST_CHAPTER_NAME ) );    
 
-    int reading_order = originating_resource.GetReadingOrder();
+    int reading_order = GetOPF().GetReadingOrder( originating_resource );
     Q_ASSERT( reading_order >= 0 );
 
     QList< HTMLResource* > html_resources = m_Mainfolder.GetResourceTypeList< HTMLResource >( true );
-
-    // We need to "make room" for the reading order of the new resource
-    for ( int i = reading_order; i < html_resources.count(); ++i )
-    {
-        HTMLResource* resource = html_resources[ i ];
-        resource->SetReadingOrder( resource->GetReadingOrder() + 1 );
-    }
 
     HTMLResource &html_resource = CreateNewHTMLFile();
     html_resource.RenameTo( originating_filename );
@@ -181,11 +174,9 @@ HTMLResource& Book::CreateChapterBreakOriginalResource( const QString &content, 
     html_resource.SetDomDocument( 
         XhtmlDoc::LoadTextIntoDocument( CleanSource::Clean( content ) ) );
 
-    html_resource.SetReadingOrder( reading_order );
+    html_resources.insert( reading_order, &html_resource );
+    GetOPF().UpdateSpineOrder( html_resources );
 
-    // We can just append this since we don't need
-    // them in sorted order for the updates.
-    html_resources.append( &html_resource );
     AnchorUpdates::UpdateAllAnchorsWithIDs( html_resources );
 
     SetModified( true );
@@ -235,11 +226,10 @@ void Book::CreateNewChapters( const QStringList& new_chapters,
 
 
 void Book::MergeWithPrevious( HTMLResource& html_resource )
-{
-    int previous_file_reading_order = html_resource.GetReadingOrder() - 1;
-    Q_ASSERT( previous_file_reading_order >= 0 );
-
+{    
     QList< HTMLResource* > html_resources = m_Mainfolder.GetResourceTypeList< HTMLResource >( true );
+    int previous_file_reading_order = html_resources.indexOf( &html_resource ) - 1;
+    Q_ASSERT( previous_file_reading_order >= 0 );
     HTMLResource& previous_html = *html_resources[ previous_file_reading_order ];
 
     QString html_resource_fullpath = html_resource.GetFullPath();
@@ -284,7 +274,6 @@ void Book::MergeWithPrevious( HTMLResource& html_resource )
     updates[ html_resource_fullpath ] = "../" + previous_html.GetRelativePathToOEBPS();
 
     UniversalUpdates::PerformUniversalUpdates( true, resources, updates );
-    NormalizeReadingOrders();
     SetModified( true );
 }
 
@@ -294,17 +283,6 @@ void Book::SaveAllResourcesToDisk()
     QList< Resource* > resources = m_Mainfolder.GetResourceList(); 
 
     QtConcurrent::blockingMap( resources, SaveOneResourceToDisk );
-}
-
-
-void Book::NormalizeReadingOrders()
-{
-    QList< HTMLResource* > html_resources = m_Mainfolder.GetResourceTypeList< HTMLResource >( true );
-
-    for ( int i = 0; i < html_resources.count(); ++i )
-    {
-        html_resources[ i ]->SetReadingOrder( i );
-    }
 }
 
 

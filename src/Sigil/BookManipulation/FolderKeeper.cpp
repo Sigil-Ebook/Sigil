@@ -22,7 +22,6 @@
 #include <stdafx.h>
 #include "BookManipulation/FolderKeeper.h"
 #include "ResourceObjects/Resource.h"
-#include "ResourceObjects/OPFResource.h"
 #include "ResourceObjects/NCXResource.h"
 #include "Misc/Utility.h"
 
@@ -171,7 +170,7 @@ Resource& FolderKeeper::AddContentFileToFolder( const QString &fullfilepath,
 
 int FolderKeeper::GetHighestReadingOrder() const
 {
-    int highest_reading_order = -1;
+    int count_of_html_resources = 0;
 
     foreach( Resource *resource, m_Resources.values() )
     {
@@ -181,15 +180,11 @@ int FolderKeeper::GetHighestReadingOrder() const
 
             Q_ASSERT( html_resource );
 
-            int reading_order = html_resource->GetReadingOrder();
-
-            if ( reading_order > highest_reading_order )
-
-                highest_reading_order = reading_order;
+            ++count_of_html_resources;            
         }
     }
 
-    return highest_reading_order;
+    return count_of_html_resources - 1;
 }
 
 
@@ -289,13 +284,13 @@ Resource& FolderKeeper::GetResourceByFilename( const QString &filename ) const
 }
 
 
-OPFResource& FolderKeeper::GetOPF()
+OPFResource& FolderKeeper::GetOPF() const
 {
     return *m_OPF;
 }
 
 
-NCXResource& FolderKeeper::GetNCX()
+NCXResource& FolderKeeper::GetNCX() const
 {
     return *m_NCX;
 }
@@ -391,6 +386,7 @@ void FolderKeeper::CreateInfrastructureFiles()
 
     Utility::WriteUnicodeTextFile( CONTAINER_XML, m_FullPathToMetaInfFolder + "/container.xml" );
 }
+
 
 
 

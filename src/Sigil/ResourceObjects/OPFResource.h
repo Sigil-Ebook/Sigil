@@ -29,6 +29,8 @@
 // Needed because the moc_* version of this file doesn't include stdafx.h
 #include <boost/shared_ptr.hpp>
 
+class HTMLResource;
+
 
 class OPFResource : public XMLResource 
 {
@@ -53,6 +55,8 @@ public:
 
     GuideSemantics::GuideSemanticType GetGuideSemanticTypeForResource( const Resource &resource ) const;
 
+    int GetReadingOrder( const ::HTMLResource &html_resource ) const;
+
     QString GetCoverPageOEBPSPath() const;
 
     QString GetMainIdentifierValue() const;
@@ -67,6 +71,8 @@ public:
     bool CoverImageExists() const;    
 
     void AutoFixWellFormedErrors();
+
+    QStringList GetSpineOrderFilenames() const;
 
     /**
      * Returns the book's Dublin Core metadata. Note that metadata from
@@ -94,6 +100,8 @@ public slots:
     void AddGuideSemanticType( const Resource &resource, GuideSemantics::GuideSemanticType new_type );
 
     void SetResourceAsCoverImage( const Resource &resource );
+
+    void UpdateSpineOrder( const QList< ::HTMLResource* > html_files );
 
 private:
 
@@ -135,6 +143,10 @@ private:
         GuideSemantics::GuideSemanticType new_type, 
         xc::DOMDocument &document );
 
+    static QHash< ::HTMLResource*, xc::DOMElement* > GetItemrefsForHTMLResources( 
+        const QList< ::HTMLResource* > html_files,
+        xc::DOMDocument &document );
+
     // CAN BE NULL! NULL means no cover meta element
     static xc::DOMElement* GetCoverMeta( const xc::DOMDocument &document );
 
@@ -143,6 +155,10 @@ private:
     static xc::DOMElement* GetMainIdentifierUnsafe( const xc::DOMDocument &document );
 
     static QString GetResourceManifestID( const Resource &resource, const xc::DOMDocument &document );
+
+    static QHash< Resource*, QString > GetResourceManifestIDMapping( 
+        const QList< Resource* > resources,
+        const xc::DOMDocument &document );
 
     static void SetMetaElementsLast( xc::DOMDocument &document );
 

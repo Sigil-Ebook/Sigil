@@ -64,9 +64,7 @@ public:
 
     ~FlowTab();
 
-    // Overrides inherited from ContentTab
-
-    int GetReadingOrder();
+    // Overrides inherited from ContentTabs
 
     bool IsModified();
 

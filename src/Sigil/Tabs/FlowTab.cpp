@@ -79,12 +79,6 @@ FlowTab::~FlowTab()
 }
 
 
-int FlowTab::GetReadingOrder()
-{
-    return m_HTMLResource.GetReadingOrder();
-}
-
-
 bool FlowTab::IsModified()
 {
     return m_wBookView.isModified() || m_wCodeView.document()->isModified();

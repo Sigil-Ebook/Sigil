@@ -281,8 +281,6 @@ void BookBrowser::Remove()
 
     resource->Delete();
 
-    m_Book->NormalizeReadingOrders();
-
     emit BookContentModified();
 
     Refresh();
@@ -722,7 +720,7 @@ void BookBrowser::AddMergeWithPreviousAction( Resource *resource )
     // We can't add the action for the first file;
     // what would be the "previous" file? Looping back
     // doesn't make any sense.
-    if ( html_resource->GetReadingOrder() > 0 )
+    if ( m_Book->GetOPF().GetReadingOrder( *html_resource ) > 0 )
 
         m_ContextMenu.addAction( m_MergeWithPrevious );    
 }

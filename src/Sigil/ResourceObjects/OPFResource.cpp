@@ -21,6 +21,7 @@
 
 #include <stdafx.h>
 #include "OPFResource.h"
+#include "HTMLResource.h"
 #include "BookManipulation/XhtmlDoc.h"
 #include "BookManipulation/XercesCppUse.h"
 #include "BookManipulation/Metadata.h"
@@ -84,6 +85,30 @@ GuideSemantics::GuideSemanticType OPFResource::GetGuideSemanticTypeForResource( 
 }
 
 
+int OPFResource::GetReadingOrder( const ::HTMLResource &html_resource ) const
+{
+    QReadLocker locker( &GetLock() );
+    shared_ptr< xc::DOMDocument > document = GetDocument();
+
+    const Resource &resource = *static_cast< const Resource* >( &html_resource );
+    QString resource_id = GetResourceManifestID( resource, *document );
+
+    QList< xc::DOMElement* > itemrefs = 
+        XhtmlDoc::GetTagMatchingDescendants( *document, "itemref", OPF_XML_NAMESPACE );
+
+    for ( int i = 0; i < itemrefs.count(); ++i )
+    {
+        QString idref = XtoQ( itemrefs[ i ]->getAttribute( QtoX( "idref" ) ) );
+
+        if ( resource_id == idref )
+
+            return i;
+    }
+
+    return -1;
+}
+
+
 QString OPFResource::GetCoverPageOEBPSPath() const
 {
     QReadLocker locker( &GetLock() );
@@ -115,6 +140,7 @@ QString OPFResource::GetMainIdentifierValue() const
 }
 
 
+// TODO: only accept ImageResource
 bool OPFResource::IsCoverImage( const Resource &resource ) const
 {
     if ( resource.Type() != ImageResource )
@@ -153,6 +179,43 @@ void OPFResource::AutoFixWellFormedErrors()
 
     UpdateTextFromDom( *CreateOPFFromScratch() );
 }
+
+
+QStringList OPFResource::GetSpineOrderFilenames() const
+{
+    QReadLocker locker( &GetLock() );
+    shared_ptr< xc::DOMDocument > document = GetDocument();
+
+    QList< xc::DOMElement* > items = 
+        XhtmlDoc::GetTagMatchingDescendants( *document, "item", OPF_XML_NAMESPACE );
+
+    QHash< QString, QString > id_to_filename_mapping;
+
+    foreach( xc::DOMElement* item, items )
+    {
+        QString id   = XtoQ( item->getAttribute( QtoX( "id" ) ) );
+        QString href = XtoQ( item->getAttribute( QtoX( "href" ) ) );
+
+        id_to_filename_mapping[ id ] = QFileInfo( href ).fileName();
+    }
+
+    QList< xc::DOMElement* > itemrefs = 
+        XhtmlDoc::GetTagMatchingDescendants( *document, "itemref", OPF_XML_NAMESPACE );
+
+    QStringList filenames_in_reading_order;
+    
+    foreach( xc::DOMElement* itemref, itemrefs )
+    {
+        QString idref = XtoQ( itemref->getAttribute( QtoX( "idref" ) ) );
+
+        if ( id_to_filename_mapping.contains( idref ) )
+
+           filenames_in_reading_order.append( id_to_filename_mapping[ idref ] );
+    }
+
+    return filenames_in_reading_order;
+}
+
 
 
 QHash< QString, QList< QVariant > > OPFResource::GetDCMetadata() const
@@ -254,6 +317,7 @@ void OPFResource::RemoveResource( const Resource &resource )
 }
 
 
+// TODO: only accept HTMLResources
 void OPFResource::AddGuideSemanticType( const Resource &resource, GuideSemantics::GuideSemanticType new_type )
 {
     QWriteLocker locker( &GetLock() );
@@ -277,7 +341,7 @@ void OPFResource::AddGuideSemanticType( const Resource &resource, GuideSemantics
     UpdateTextFromDom( *document );
 }
 
-
+// TODO: only accept ImageResources
 void OPFResource::SetResourceAsCoverImage( const Resource &resource )
 {
     QWriteLocker locker( &GetLock() );
@@ -309,6 +373,31 @@ void OPFResource::SetResourceAsCoverImage( const Resource &resource )
 
         xc::DOMElement &metadata = GetMetadataElement( *document );
         metadata.appendChild( new_meta );
+    }
+
+    UpdateTextFromDom( *document );
+}
+
+
+void OPFResource::UpdateSpineOrder( const QList< ::HTMLResource* > html_files )
+{
+    QWriteLocker locker( &GetLock() );
+    shared_ptr< xc::DOMDocument > document = GetDocument();
+
+    QHash< ::HTMLResource*, xc::DOMElement* > itemref_mapping =
+        GetItemrefsForHTMLResources( html_files, *document );
+
+    xc::DOMElement &spine = GetSpineElement( *document );
+
+    XhtmlDoc::RemoveChildren( spine );
+
+    foreach( ::HTMLResource* resource, html_files )
+    {
+        xc::DOMElement* itemref = itemref_mapping.value( resource, NULL );
+
+        if ( itemref )
+
+            spine.appendChild( itemref );
     }
 
     UpdateTextFromDom( *document );
@@ -529,6 +618,70 @@ void OPFResource::RemoveDuplicateGuideTypes(
     }
 }
 
+// If there is no itemref for the resource, one will be created (but NOT
+// attached to the spine element!).
+// Also, it's possible that a NULL will be set as an itemref for a resource
+// if that resource doesns't have an entry in the manifest.
+QHash< ::HTMLResource*, xc::DOMElement* > OPFResource::GetItemrefsForHTMLResources( 
+    const QList< ::HTMLResource* > html_files, 
+    xc::DOMDocument &document )
+{
+    QList< xc::DOMElement* > itemrefs = 
+        XhtmlDoc::GetTagMatchingDescendants( document, "itemref", OPF_XML_NAMESPACE );
+
+    QList< Resource* > resource_list;
+    foreach( ::HTMLResource* html_resource, html_files )
+    {
+        resource_list.append( static_cast< Resource* >( html_resource ) );
+    }
+
+    QHash< Resource*, QString > id_mapping = GetResourceManifestIDMapping( resource_list, document );
+
+    QList< Resource* > htmls_without_itemrefs;
+    QHash< ::HTMLResource*, xc::DOMElement* > itmeref_mapping;
+
+    foreach( Resource* resource, resource_list )
+    {
+        ::HTMLResource* html_resource = qobject_cast< ::HTMLResource* >( resource );
+        QString resource_id = id_mapping.value( resource, "" );
+
+        foreach( xc::DOMElement* itemref, itemrefs )
+        {
+            QString idref = XtoQ( itemref->getAttribute( QtoX( "idref" ) ) );
+
+            if ( idref == resource_id )
+            {
+                itmeref_mapping[ html_resource ] = itemref;
+                break;
+            }
+        }
+
+        if ( !itmeref_mapping.contains( html_resource ) )
+
+            htmls_without_itemrefs.append( resource );
+    }
+
+    foreach( Resource* resource, htmls_without_itemrefs )
+    {
+        QHash< QString, QString > attributes;
+        QString resource_id = id_mapping.value( resource, "" );
+        ::HTMLResource* html_resource = qobject_cast< ::HTMLResource* >( resource );
+
+        if ( resource_id.isEmpty() )
+
+            itmeref_mapping[ html_resource ] = NULL;
+
+        attributes[ "idref" ] = resource_id;
+
+        xc::DOMElement *new_itemref = XhtmlDoc::CreateElementInDocument(
+            "itemref", OPF_XML_NAMESPACE, document, attributes );
+
+        itmeref_mapping[ html_resource ] = new_itemref;
+    }
+
+    return itmeref_mapping;
+}
+
 
 xc::DOMElement* OPFResource::GetCoverMeta( const xc::DOMDocument &document )
 {
@@ -599,8 +752,40 @@ QString OPFResource::GetResourceManifestID( const Resource &resource, const xc::
 }
 
 
+QHash< Resource*, QString > OPFResource::GetResourceManifestIDMapping( 
+    const QList< Resource* > resources, 
+    const xc::DOMDocument &document )
+{
+    QHash< Resource*, QString > id_mapping;
+
+    QList< xc::DOMElement* > items = 
+        XhtmlDoc::GetTagMatchingDescendants( document, "item", OPF_XML_NAMESPACE );
+
+    foreach( Resource* resource, resources )
+    {
+        QString oebps_path = resource->GetRelativePathToOEBPS();        
+
+        foreach( xc::DOMElement* item, items )
+        {
+            QString href = XtoQ( item->getAttribute( QtoX( "href" ) ) );
+
+            if ( href == oebps_path )
+            {
+                id_mapping[ resource ] = XtoQ( item->getAttribute( QtoX( "id" ) ) );
+                break;
+            }
+        }
+    }
+
+    return id_mapping;
+}
+
+
 void OPFResource::SetMetaElementsLast( xc::DOMDocument &document )
 {
+    // TODO: this should probably be SetNonDCElementsLast,
+    // and then work that way too.
+
     QList< xc::DOMElement* > metas = 
         XhtmlDoc::GetTagMatchingDescendants( document, "meta", OPF_XML_NAMESPACE );
     xc::DOMElement &metadata = GetMetadataElement( document );

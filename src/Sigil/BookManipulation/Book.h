@@ -186,12 +186,6 @@ public:
     void SaveAllResourcesToDisk();
 
     /**
-     * Makes sure that there are no "gaps" in the reading order
-     * of HTML resources.
-     */
-    void NormalizeReadingOrders();
-
-    /**
      * Returns the modified state of the book. A book
      * is loaded/created as not modified.
      *

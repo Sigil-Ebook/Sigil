@@ -494,7 +494,7 @@ HTMLResource* FindReplace::GetNextHTMLResource( HTMLResource *current_resource )
 {
     QSharedPointer< Book > book = m_MainWindow.GetCurrentBook();
     int max_reading_order       = book->GetConstFolderKeeper().GetHighestReadingOrder();
-    int current_reading_order   = current_resource->GetReadingOrder();
+    int current_reading_order   = book->GetOPF().GetReadingOrder( *current_resource );
     int next_reading_order      = 0;
 
     if ( GetSearchDirection() == Searchable::Direction_Down )

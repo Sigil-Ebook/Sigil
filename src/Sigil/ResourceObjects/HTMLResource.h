@@ -63,14 +63,6 @@ public:
                   QObject *parent = NULL );
 
     /**
-     * The less-than operator overload. Overridden because HTMLResources
-     * are compared by their reading order, not by filename.
-     *
-     * @param other The other HTMLResource object we're comparing with.
-     */
-    virtual bool operator< ( const HTMLResource& other );
-
-    /**
      * Sets the guide semantic type information.
      *
      * @param type The new semantic type.
@@ -169,21 +161,6 @@ public:
 
     // inherited
     void SaveToDisk( bool book_wide_save = false );
-
-    /**
-     * Returns the reading order of the resource.
-     * The ordering is zero-based (first file has order 0).
-     *
-     * @return The reading order.
-     */
-    int GetReadingOrder() const;
-
-    /**
-     * Sets the reading order of the resource.
-     *
-     * @param reading_order The new reading order.
-     */
-    void SetReadingOrder( int reading_order );
     
     /**
      * Removes all the cruft with which WebKit litters our source code.
@@ -341,13 +318,6 @@ private:
      * This happens when for instance a linked stylesheet is updated on disk.
      */
     bool m_RefreshNeeded;
-
-    /**
-     * The reading order of the HTML resource. Resources with a lower
-     * reading order are shown before those with a higher one.
-     * Starts at 0, not 1.
-     */
-    int m_ReadingOrder;
 
     /**
      * The javascript source code of the jQuery library.

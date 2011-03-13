@@ -41,18 +41,11 @@ HTMLResource::HTMLResource( const QString &fullfilepath,
     m_WebPageModified( false ),
     m_WebPageIsOld( true ),
     m_TextDocumentIsOld( true ),
-    m_ReadingOrder( reading_order ),
     c_jQuery(         Utility::ReadUnicodeTextFile( ":/javascript/jquery-1.4.2.min.js"          ) ),
     c_jQueryScrollTo( Utility::ReadUnicodeTextFile( ":/javascript/jquery.scrollTo-1.4.2-min.js" ) ),
     m_Resources( resources )
 {
 
-}
-
-
-bool HTMLResource::operator< ( const HTMLResource& other )
-{
-    return GetReadingOrder() < other.GetReadingOrder();
 }
 
 
@@ -247,18 +240,6 @@ void HTMLResource::SaveToDisk( bool book_wide_save )
     if ( !book_wide_save )
 
         emit ResourceUpdatedOnDisk();
-}
-
-
-int HTMLResource::GetReadingOrder() const
-{
-    return m_ReadingOrder;
-}
-
-
-void HTMLResource::SetReadingOrder( int reading_order )
-{
-    m_ReadingOrder = reading_order;
 }
 
 
