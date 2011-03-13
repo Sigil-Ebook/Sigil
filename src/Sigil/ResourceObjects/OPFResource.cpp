@@ -88,7 +88,8 @@ QString OPFResource::GetCoverPageOEBPSPath() const
 {
     QReadLocker locker( &m_ReadWriteLock );
     shared_ptr< xc::DOMDocument > document = GetDocument();
-    QList< xc::DOMElement* > references = XhtmlDoc::GetTagMatchingDescendants( *document, "reference" );
+    QList< xc::DOMElement* > references = 
+        XhtmlDoc::GetTagMatchingDescendants( *document, "reference", OPF_XML_NAMESPACE );
 
     foreach( xc::DOMElement* reference, references )
     {
@@ -361,7 +362,8 @@ shared_ptr< xc::DOMDocument > OPFResource::GetDocument() const
 
 xc::DOMElement& OPFResource::GetPackageElement( const xc::DOMDocument &document )
 {
-    QList< xc::DOMElement* > packages = XhtmlDoc::GetTagMatchingDescendants( document, "package" );
+    QList< xc::DOMElement* > packages =
+        XhtmlDoc::GetTagMatchingDescendants( document, "package", OPF_XML_NAMESPACE );
     Q_ASSERT( !packages.isEmpty() );
     
     return *packages[ 0 ];
@@ -370,7 +372,8 @@ xc::DOMElement& OPFResource::GetPackageElement( const xc::DOMDocument &document 
 
 xc::DOMElement& OPFResource::GetMetadataElement( const xc::DOMDocument &document )
 {
-    QList< xc::DOMElement* > metadatas = XhtmlDoc::GetTagMatchingDescendants( document, "metadata" );
+    QList< xc::DOMElement* > metadatas =
+        XhtmlDoc::GetTagMatchingDescendants( document, "metadata", OPF_XML_NAMESPACE );
     Q_ASSERT( !metadatas.isEmpty() );
 
     return *metadatas[ 0 ];
@@ -379,7 +382,8 @@ xc::DOMElement& OPFResource::GetMetadataElement( const xc::DOMDocument &document
 
 xc::DOMElement& OPFResource::GetManifestElement( const xc::DOMDocument &document )
 {
-    QList< xc::DOMElement* > manifests = XhtmlDoc::GetTagMatchingDescendants( document, "manifest" );
+    QList< xc::DOMElement* > manifests =
+        XhtmlDoc::GetTagMatchingDescendants( document, "manifest", OPF_XML_NAMESPACE );
     Q_ASSERT( !manifests.isEmpty() );
 
     return *manifests[ 0 ];    
@@ -388,7 +392,8 @@ xc::DOMElement& OPFResource::GetManifestElement( const xc::DOMDocument &document
 
 xc::DOMElement& OPFResource::GetSpineElement( const xc::DOMDocument &document )
 {
-    QList< xc::DOMElement* > spines = XhtmlDoc::GetTagMatchingDescendants( document, "spine" );
+    QList< xc::DOMElement* > spines = 
+        XhtmlDoc::GetTagMatchingDescendants( document, "spine", OPF_XML_NAMESPACE );
     Q_ASSERT( !spines.isEmpty() );
 
     return *spines[ 0 ];    
@@ -397,7 +402,8 @@ xc::DOMElement& OPFResource::GetSpineElement( const xc::DOMDocument &document )
 
 xc::DOMElement& OPFResource::GetGuideElement( xc::DOMDocument &document )
 {
-    QList< xc::DOMElement* > guides = XhtmlDoc::GetTagMatchingDescendants( document, "guide" );
+    QList< xc::DOMElement* > guides = 
+        XhtmlDoc::GetTagMatchingDescendants( document, "guide", OPF_XML_NAMESPACE );
     
     if ( !guides.isEmpty() )
 
@@ -416,7 +422,8 @@ xc::DOMElement& OPFResource::GetGuideElement( xc::DOMDocument &document )
 xc::DOMElement* OPFResource::GetGuideReferenceForResource( const Resource &resource, const xc::DOMDocument &document )
 {
     QString resource_oebps_path         = resource.GetRelativePathToOEBPS();
-    QList< xc::DOMElement* > references = XhtmlDoc::GetTagMatchingDescendants( document, "reference" );
+    QList< xc::DOMElement* > references = 
+        XhtmlDoc::GetTagMatchingDescendants( document, "reference", OPF_XML_NAMESPACE );
 
     foreach( xc::DOMElement* reference, references )
     {
@@ -501,7 +508,8 @@ void OPFResource::RemoveDuplicateGuideTypes(
         return;
 
     xc::DOMElement &guide               = GetGuideElement( document );
-    QList< xc::DOMElement* > references = XhtmlDoc::GetTagMatchingDescendants( document, "reference" );
+    QList< xc::DOMElement* > references = 
+        XhtmlDoc::GetTagMatchingDescendants( document, "reference", OPF_XML_NAMESPACE );
 
     foreach( xc::DOMElement* reference, references )
     {
@@ -524,7 +532,8 @@ void OPFResource::RemoveDuplicateGuideTypes(
 
 xc::DOMElement* OPFResource::GetCoverMeta( const xc::DOMDocument &document )
 {
-    QList< xc::DOMElement* > metas = XhtmlDoc::GetTagMatchingDescendants( document, "meta" );
+    QList< xc::DOMElement* > metas =
+        XhtmlDoc::GetTagMatchingDescendants( document, "meta", OPF_XML_NAMESPACE );
 
     foreach( xc::DOMElement* meta, metas )
     {
@@ -574,7 +583,8 @@ xc::DOMElement* OPFResource::GetMainIdentifierUnsafe( const xc::DOMDocument &doc
 QString OPFResource::GetResourceManifestID( const Resource &resource, const xc::DOMDocument &document )
 {
     QString oebps_path = resource.GetRelativePathToOEBPS();
-    QList< xc::DOMElement* > items = XhtmlDoc::GetTagMatchingDescendants( document, "item" );
+    QList< xc::DOMElement* > items = 
+        XhtmlDoc::GetTagMatchingDescendants( document, "item", OPF_XML_NAMESPACE );
 
     foreach( xc::DOMElement* item, items )
     {
@@ -591,7 +601,8 @@ QString OPFResource::GetResourceManifestID( const Resource &resource, const xc::
 
 void OPFResource::SetMetaElementsLast( xc::DOMDocument &document )
 {
-    QList< xc::DOMElement* > metas = XhtmlDoc::GetTagMatchingDescendants( document, "meta" );
+    QList< xc::DOMElement* > metas = 
+        XhtmlDoc::GetTagMatchingDescendants( document, "meta", OPF_XML_NAMESPACE );
     xc::DOMElement &metadata = GetMetadataElement( document );
 
     foreach( xc::DOMElement* meta, metas )
