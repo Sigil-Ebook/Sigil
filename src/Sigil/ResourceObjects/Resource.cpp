@@ -83,7 +83,7 @@ QUrl Resource::GetBaseUrl() const
 }
 
 
-QReadWriteLock& Resource::GetLock()
+QReadWriteLock& Resource::GetLock() const
 {
     return m_ReadWriteLock;
 }

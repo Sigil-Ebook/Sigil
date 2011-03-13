@@ -126,7 +126,7 @@ public:
      *
      * @return The resource's ReadWriteLock.
      */
-    QReadWriteLock& GetLock();
+    QReadWriteLock& GetLock() const;
 
     /**
      * Returns the resource's icon.
@@ -199,7 +199,7 @@ signals:
      */
     void Modified();
 
-protected:
+private:
 
     /**
      * The resources identifying UUID.

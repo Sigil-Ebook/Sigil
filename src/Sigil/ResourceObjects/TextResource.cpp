@@ -71,9 +71,9 @@ void TextResource::SaveToDisk( bool book_wide_save )
     InitialLoad();
 
     {
-        QWriteLocker locker( &m_ReadWriteLock );
+        QWriteLocker locker( &GetLock() );
 
-        Utility::WriteUnicodeTextFile( m_TextDocument->toPlainText(), m_FullFilePath );
+        Utility::WriteUnicodeTextFile( m_TextDocument->toPlainText(), GetFullPath() );
     }
 
     if ( !book_wide_save )
@@ -86,7 +86,7 @@ void TextResource::SaveToDisk( bool book_wide_save )
 
 void TextResource::InitialLoad()
 {
-    QWriteLocker locker( &m_ReadWriteLock );
+    QWriteLocker locker( &GetLock() );
 
     Q_ASSERT( m_TextDocument );
 

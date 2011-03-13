@@ -80,7 +80,7 @@ QTextDocument& HTMLResource::GetTextDocument()
 
 void HTMLResource::SetDomDocument( shared_ptr< xc::DOMDocument > document )
 {
-    QWriteLocker locker( &m_ReadWriteLock );
+    QWriteLocker locker( &GetLock() );
 
     m_DomDocument = document;
     MarkSecondaryCachesAsOld();
@@ -238,10 +238,10 @@ void HTMLResource::UpdateTextDocumentFromWebPage()
 void HTMLResource::SaveToDisk( bool book_wide_save )
 {
     {
-        QWriteLocker locker( &m_ReadWriteLock );
+        QWriteLocker locker( &GetLock() );
 
         Utility::WriteUnicodeTextFile( CleanSource::PrettyPrint( XhtmlDoc::GetDomDocumentAsString( *m_DomDocument ) ),
-                                       m_FullFilePath );
+                                       GetFullPath() );
     }
 
     if ( !book_wide_save )

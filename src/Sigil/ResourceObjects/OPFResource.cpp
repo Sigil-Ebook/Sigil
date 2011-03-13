@@ -78,7 +78,7 @@ Resource::ResourceType OPFResource::Type() const
 
 GuideSemantics::GuideSemanticType OPFResource::GetGuideSemanticTypeForResource( const Resource &resource ) const
 {
-    QReadLocker locker( &m_ReadWriteLock );
+    QReadLocker locker( &GetLock() );
     shared_ptr< xc::DOMDocument > document = GetDocument();
     return GetGuideSemanticTypeForResource( resource, *document );
 }
@@ -86,7 +86,7 @@ GuideSemantics::GuideSemanticType OPFResource::GetGuideSemanticTypeForResource( 
 
 QString OPFResource::GetCoverPageOEBPSPath() const
 {
-    QReadLocker locker( &m_ReadWriteLock );
+    QReadLocker locker( &GetLock() );
     shared_ptr< xc::DOMDocument > document = GetDocument();
     QList< xc::DOMElement* > references = 
         XhtmlDoc::GetTagMatchingDescendants( *document, "reference", OPF_XML_NAMESPACE );
@@ -109,7 +109,7 @@ QString OPFResource::GetCoverPageOEBPSPath() const
 
 QString OPFResource::GetMainIdentifierValue() const
 {
-    QReadLocker locker( &m_ReadWriteLock );
+    QReadLocker locker( &GetLock() );
     shared_ptr< xc::DOMDocument > document = GetDocument();
     return XtoQ( GetMainIdentifier( *document ).getTextContent() ).remove( "urn:uuid:" );
 }
@@ -121,7 +121,7 @@ bool OPFResource::IsCoverImage( const Resource &resource ) const
 
         return false;
 
-    QReadLocker locker( &m_ReadWriteLock );
+    QReadLocker locker( &GetLock() );
 
     shared_ptr< xc::DOMDocument > document = GetDocument();
     xc::DOMElement* meta                   = GetCoverMeta( *document );    
@@ -139,7 +139,7 @@ bool OPFResource::IsCoverImage( const Resource &resource ) const
 
 bool OPFResource::CoverImageExists() const
 {
-    QReadLocker locker( &m_ReadWriteLock );
+    QReadLocker locker( &GetLock() );
 
     shared_ptr< xc::DOMDocument > document = GetDocument();
     
@@ -149,7 +149,7 @@ bool OPFResource::CoverImageExists() const
 
 void OPFResource::AutoFixWellFormedErrors()
 {
-    QWriteLocker locker( &m_ReadWriteLock );
+    QWriteLocker locker( &GetLock() );
 
     UpdateTextFromDom( *CreateOPFFromScratch() );
 }
@@ -157,7 +157,7 @@ void OPFResource::AutoFixWellFormedErrors()
 
 QHash< QString, QList< QVariant > > OPFResource::GetDCMetadata() const
 {
-    QReadLocker locker( &m_ReadWriteLock );
+    QReadLocker locker( &GetLock() );
     shared_ptr< xc::DOMDocument > document = GetDocument();
     QList< xc::DOMElement* > dc_elements = 
         XhtmlDoc::GetTagMatchingDescendants( *document, "*", DUBLIN_CORE_NS );
@@ -180,7 +180,7 @@ QHash< QString, QList< QVariant > > OPFResource::GetDCMetadata() const
 
 void OPFResource::SetDCMetadata( const QHash< QString, QList< QVariant > > &metadata )
 {
-    QWriteLocker locker( &m_ReadWriteLock );
+    QWriteLocker locker( &GetLock() );
     shared_ptr< xc::DOMDocument > document = GetDocument();
 
     RemoveDCElements( *document );
@@ -201,7 +201,7 @@ void OPFResource::SetDCMetadata( const QHash< QString, QList< QVariant > > &meta
 
 void OPFResource::AddResource( const Resource &resource )
 {
-    QWriteLocker locker( &m_ReadWriteLock );
+    QWriteLocker locker( &GetLock() );
 
     QHash< QString, QString > attributes;
     attributes[ "id"         ] = GetValidID( resource.Filename() );
@@ -226,7 +226,7 @@ void OPFResource::AddResource( const Resource &resource )
 
 void OPFResource::RemoveResource( const Resource &resource )
 {
-    QWriteLocker locker( &m_ReadWriteLock );
+    QWriteLocker locker( &GetLock() );
 
     shared_ptr< xc::DOMDocument > document  = GetDocument();
     xc::DOMElement &manifest                = GetManifestElement( *document );
@@ -256,7 +256,7 @@ void OPFResource::RemoveResource( const Resource &resource )
 
 void OPFResource::AddGuideSemanticType( const Resource &resource, GuideSemantics::GuideSemanticType new_type )
 {
-    QWriteLocker locker( &m_ReadWriteLock );
+    QWriteLocker locker( &GetLock() );
 
     shared_ptr< xc::DOMDocument > document         = GetDocument();
     GuideSemantics::GuideSemanticType current_type = GetGuideSemanticTypeForResource( resource, *document );
@@ -280,7 +280,7 @@ void OPFResource::AddGuideSemanticType( const Resource &resource, GuideSemantics
 
 void OPFResource::SetResourceAsCoverImage( const Resource &resource )
 {
-    QWriteLocker locker( &m_ReadWriteLock );
+    QWriteLocker locker( &GetLock() );
 
     shared_ptr< xc::DOMDocument > document = GetDocument();
     xc::DOMElement* meta = GetCoverMeta( *document );

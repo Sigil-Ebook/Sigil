@@ -43,7 +43,7 @@ bool XMLResource::FileIsWellFormed() const
 {
     // TODO: expand this with a dialog to fix the problem
 
-    QReadLocker locker( &m_ReadWriteLock );
+    QReadLocker locker( &GetLock() );
 
     XhtmlDoc::WellFormedError error = XhtmlDoc::WellFormedErrorForSource( m_TextDocument->toPlainText() );
 
@@ -55,7 +55,7 @@ bool XMLResource::FileIsWellFormed() const
 
 XhtmlDoc::WellFormedError XMLResource::WellFormedErrorLocation() const
 {
-    QReadLocker locker( &m_ReadWriteLock );
+    QReadLocker locker( &GetLock() );
 
     return XhtmlDoc::WellFormedErrorForSource( m_TextDocument->toPlainText() );
 }
@@ -63,7 +63,7 @@ XhtmlDoc::WellFormedError XMLResource::WellFormedErrorLocation() const
 
 void XMLResource::UpdateTextFromDom( const xc::DOMDocument &document )
 {
-    QWriteLocker locker( &m_ReadWriteLock );
+    QWriteLocker locker( &GetLock() );
     SetText( CleanSource::ProcessXML( XhtmlDoc::GetDomDocumentAsString( document ) ) );
 }
 
