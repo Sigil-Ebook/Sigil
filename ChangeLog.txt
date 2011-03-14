@@ -1,4 +1,14 @@
-Sigil v0.3.5 ADD_DATE
+Sigil v0.4.0 ß1 ADD_DATE
+    - the user can now edit the OPF file by hand (issue #281) 
+    - the user can now edit the NCX file by hand (issue #282)
+    - the OPF file is now preserved on import (issue #586)
+    - the NCX file is now preserved on import (issue #283)
+    - the Table Of Contents editor has been replaced with a new Table of Contents sidebar;
+    clicking on an item in this sidebar takes the user to the target location, enabling TOC
+    navigation (issue #100)
+    - a dialog now informs the user if his XHTML, NCX or OPF documents are not well-formed 
+    XML (with error location and description), thus allowing him to fix the potential problems
+    by hand instead of leaving them to Tidy to fix (issue #519)
     - fixed a rare issue with no tab opened by default when loading epubs
     - made the sigil.sh startup script more robust (courtesy of Craig Sanders) (issue #737) 
 
