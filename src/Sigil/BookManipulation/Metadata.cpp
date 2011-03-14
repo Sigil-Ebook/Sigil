@@ -33,7 +33,7 @@ static const QStringList EVENT_LIST           = QStringList() << "creation" << "
 static const QStringList MODIFICATION_ALIASES = QStringList() << "modified" << "modification";
 static const QStringList CREATION_ALIASES     = QStringList() << "created"  << "creation";
 static const QStringList PUBLICATION_ALIASES  = QStringList() << "issued"   << "published" << "publication";
-static const QStringList SCHEME_LIST          = QStringList() << "ISBN" << "ISSN" << "DOI" << "CustomID";
+static const QStringList SCHEME_LIST          = QStringList() << "ISBN" << "ISSN" << "DOI";
 
 QMutex Metadata::s_AccessMutex;
 Metadata* Metadata::m_Instance = NULL;
@@ -342,7 +342,6 @@ Metadata::MetaElement Metadata::FreeFormMetadata( const Metadata::MetaElement &m
             name == "eisbn"     ? "ISBN"     :
             name == "issn"      ? "ISSN"     :
             name == "doi"       ? "DOI"      :
-            name == "customid"  ? "CustomID" :
             name[ 0 ].toUpper() + name.mid( 1 );
     
     MetaElement book_meta;

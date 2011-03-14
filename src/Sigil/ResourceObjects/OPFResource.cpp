@@ -933,13 +933,6 @@ void OPFResource::MetadataDispatcher(
         WriteIdentifier( metaname, metavalue.toString(), document );
     }
 
-    else if ( metaname == QObject::tr( "CustomID" ) )
-    {
-        // FIXME: this should work in opfresource
-        // Don't write the CustomID, it is used as the
-        // main identifier if present
-    }
-
     else if ( metaname.contains( QObject::tr( "Date" ) ) )
     {
         WriteDate( metaname, metavalue, document );		

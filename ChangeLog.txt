@@ -1,4 +1,6 @@
 Sigil v0.4.0 ß1 ADD_DATE
+    - removed the "CustomID" basic metadata entry from the Meta Editor; those wishing to use
+    custom ID's can now add them directly to the OPF
     - Sigil now preserves custom unique identifiers in the OPF (issue #552)
     - removed support for the Sigil-proprietary SGF format
     - the user can now edit the OPF file by hand (issue #281) 
