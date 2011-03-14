@@ -213,7 +213,7 @@ QHash< QString, QString > XhtmlDoc::GetNodeAttributes( const xc::DOMNode &node )
 
         return attributes_hash;
 
-    for ( int i = 0; i < attributes->getLength(); ++i )
+    for ( uint i = 0; i < attributes->getLength(); ++i )
     {
         xc::DOMAttr &attribute = *static_cast< xc::DOMAttr* >( attributes->item( i ) );
         attributes_hash[ GetAttributeName( attribute ) ] = XtoQ( attribute.getValue() );

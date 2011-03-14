@@ -28,8 +28,8 @@
 WellFormedCheckComponent::WellFormedCheckComponent( WellFormedContent &content )
     :
     QObject(),
-    m_Message(),
     m_Content( content ),
+    m_Message(),
     m_MessageBox( new QMessageBox() ),
     m_AutoFixButton( NULL ),
     m_ManualFixButton( NULL ),

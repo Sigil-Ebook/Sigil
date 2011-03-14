@@ -30,8 +30,8 @@ TextTab::TextTab( TextResource& resource,
                   QWidget *parent )
     :
     ContentTab( resource, parent ),
-    m_TextResource( resource ),
     m_wCodeView( *new CodeViewEditor( type, this ) ),
+    m_TextResource( resource ),
     m_LineToScrollTo( line_to_scroll_to )
 {
     m_Layout.addWidget( &m_wCodeView );
