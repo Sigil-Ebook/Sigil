@@ -169,8 +169,6 @@ set( IMPORTER_FILES
     Importers/ImporterFactory.h
     Importers/ImportHTML.cpp
     Importers/ImportHTML.h
-    Importers/ImportSGF.cpp
-    Importers/ImportSGF.h
     Importers/ImportTXT.cpp
     Importers/ImportTXT.h
     )

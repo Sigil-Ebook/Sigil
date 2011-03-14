@@ -1097,7 +1097,6 @@ const QMap< QString, QString > MainWindow::GetLoadFiltersMap()
 {
     QMap< QString, QString > file_filters;
 
-    file_filters[ "sgf"   ] = tr( "Sigil Format files (*.sgf)" );
     file_filters[ "epub"  ] = tr( "EPUB files (*.epub)" );
     file_filters[ "htm"   ] = tr( "HTML files (*.htm *.html *.xhtml)" );
     file_filters[ "html"  ] = tr( "HTML files (*.htm *.html *.xhtml)" );

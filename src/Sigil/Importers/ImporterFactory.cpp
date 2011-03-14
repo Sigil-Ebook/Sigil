@@ -24,7 +24,6 @@
 #include "ImportTXT.h"
 #include "ImportHTML.h"
 #include "ImportEPUB.h"
-#include "ImportSGF.h"
 
 
 // Constructor
@@ -68,13 +67,6 @@ Importer& ImporterFactory::GetImporter( const QString &filename )
     if ( ( extension == "epub" ) )
     {
         imImporter = new ImportEPUB( filename );
-
-        return *imImporter;
-    }
-
-    if ( ( extension == "sgf" ) )
-    {
-        imImporter = new ImportSGF( filename );
 
         return *imImporter;
     }

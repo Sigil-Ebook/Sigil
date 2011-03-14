@@ -1,4 +1,5 @@
 Sigil v0.4.0 ß1 ADD_DATE
+    - removed support for the Sigil-proprietary SGF format
     - the user can now edit the OPF file by hand (issue #281) 
     - the user can now edit the NCX file by hand (issue #282)
     - the OPF file is now preserved on import (issue #586)
