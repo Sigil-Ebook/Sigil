@@ -30,6 +30,7 @@
 
 namespace xe = XercesExt;
 
+static const QString SIGIL_VERSION_META_NAME  = "Sigil version";
 static const QString OPF_XML_NAMESPACE        = "http://www.idpf.org/2007/opf"; 
 static const QString FALLBACK_MIMETYPE        = "text/plain";
 static const QString ITEM_ELEMENT_TEMPLATE    = "<item id=\"%1\" href=\"%2\" media-type=\"%3\"/>";
@@ -190,6 +191,38 @@ void OPFResource::EnsureUUIDIdentifierPresent()
     WriteIdentifier( "UUID", uuid, *document );
     UpdateTextFromDom( *document );    
 }
+
+
+void OPFResource::AddSigilVersionMeta()
+{
+    QWriteLocker locker( &GetLock() );
+    shared_ptr< xc::DOMDocument > document = GetDocument();
+
+    QList< xc::DOMElement* > metas = 
+        XhtmlDoc::GetTagMatchingDescendants( *document, "meta", OPF_XML_NAMESPACE );
+
+    foreach( xc::DOMElement *meta, metas )
+    {
+        QString name = XtoQ( meta->getAttribute( QtoX( "name" ) ) );
+
+        if ( name == SIGIL_VERSION_META_NAME )
+        {
+            meta->setAttribute( QtoX( "content" ), QtoX( SIGIL_VERSION ) );
+            UpdateTextFromDom( *document );  
+            return;
+        }
+    }
+
+    xc::DOMElement *element = document->createElementNS( QtoX( OPF_XML_NAMESPACE ), QtoX( "meta" ) );
+    element->setAttribute( QtoX( "name" ),    QtoX( "Sigil version" ) );
+    element->setAttribute( QtoX( "content" ), QtoX( SIGIL_VERSION ) );
+
+    xc::DOMElement &metadata = GetMetadataElement( *document );
+    metadata.appendChild( element );
+
+    UpdateTextFromDom( *document );    
+}
+
 
 
 // TODO: only accept ImageResource

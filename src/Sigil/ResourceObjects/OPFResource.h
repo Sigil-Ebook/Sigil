@@ -66,6 +66,8 @@ public:
 
     void EnsureUUIDIdentifierPresent();
 
+    void AddSigilVersionMeta();
+
     bool IsCoverImage( const Resource &resource ) const;
 
     /**
