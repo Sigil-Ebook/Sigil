@@ -65,7 +65,6 @@ void NCXWriter::WriteHead()
         m_Writer->writeEmptyElement( "meta" );
         m_Writer->writeAttribute( "name", "dtb:uid" );
 
-        // TODO: We should use the ISBN if it's provided
         m_Writer->writeAttribute( "content", m_Book->GetPublicationIdentifier() );
 
         // The heading depth should be exactly the same as the depth

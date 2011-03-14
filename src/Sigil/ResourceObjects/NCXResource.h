@@ -47,6 +47,12 @@ public:
 
     virtual ResourceType Type() const;
 
+    void SetMainID( const QString &main_id );
+
+private:
+
+    void FillWithDefaultText();
+
 };
 
 #endif // NCXRESOURCE_H

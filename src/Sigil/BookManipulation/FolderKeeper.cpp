@@ -63,7 +63,7 @@ FolderKeeper::FolderKeeper( QObject *parent )
 
 FolderKeeper::~FolderKeeper()
 {
-    if ( m_FullPathToMainFolder.isEmpty() != false )
+    if ( m_FullPathToMainFolder.isEmpty() )
 
         return;
 
@@ -372,7 +372,9 @@ void FolderKeeper::CreateFolderStructure()
 void FolderKeeper::CreateInfrastructureFiles()
 {
     m_OPF = new OPFResource( m_FullPathToOEBPSFolder + "/" + OPF_FILE_NAME, this );
-    m_NCX = new NCXResource( m_FullPathToOEBPSFolder + "/" + NCX_FILE_NAME, this );    
+    m_NCX = new NCXResource( m_FullPathToOEBPSFolder + "/" + NCX_FILE_NAME, this );
+
+    m_NCX->SetMainID( m_OPF->GetMainIdentifierValue() );
 
     m_Resources[ m_OPF->GetIdentifier() ] = m_OPF;
     m_Resources[ m_NCX->GetIdentifier() ] = m_NCX;

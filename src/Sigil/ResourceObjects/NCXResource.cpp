@@ -22,10 +22,36 @@
 #include <stdafx.h>
 #include "NCXResource.h"
 
+static const QString TEMPLATE_TEXT = 
+    "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+    "<!DOCTYPE ncx PUBLIC \"-//NISO//DTD ncx 2005-1//EN\"\n"
+    "   \"http://www.daisy.org/z3986/2005/ncx-2005-1.dtd\">\n"
+    "<ncx xmlns=\"http://www.daisy.org/z3986/2005/ncx/\" version=\"2005-1\">\n"
+    "<head>\n"
+    "   <meta name=\"dtb:uid\" content=\"ID_UNKNOWN\" />\n"
+    "   <meta name=\"dtb:depth\" content=\"0\" />\n"
+    "   <meta name=\"dtb:totalPageCount\" content=\"0\" />\n"
+    "   <meta name=\"dtb:maxPageNumber\" content=\"0\" />\n"
+    "</head>\n"
+    "<docTitle>\n"
+    "   <text>Unknown</text>\n"
+    "</docTitle>\n"
+    "<navMap>\n"
+    "<navPoint id=\"navPoint-1\" playOrder=\"1\">\n"
+    "  <navLabel>\n"
+    "    <text>Start</text>\n"
+    "  </navLabel>\n"
+    "  <content src=\"Text/%1\" />\n"
+    "</navPoint>\n"
+    "</navMap>\n"
+    "</ncx>";
+
 
 NCXResource::NCXResource( const QString &fullfilepath, QObject *parent )
     : XMLResource( fullfilepath, parent )
 {
+    FillWithDefaultText();
+
     // Make sure the file exists on disk.
     // Among many reasons, this also solves the problem
     // with the Book Browser not displaying an icon for this resource.
@@ -43,4 +69,16 @@ bool NCXResource::RenameTo( const QString &new_filename )
 Resource::ResourceType NCXResource::Type() const
 {
     return Resource::NCXResource;
+}
+
+
+void NCXResource::SetMainID( const QString &main_id )
+{
+    SetText( m_TextDocument->toPlainText().replace( "ID_UNKNOWN", main_id ) );
+}
+
+
+void NCXResource::FillWithDefaultText()
+{
+    SetText( TEMPLATE_TEXT.arg( FIRST_CHAPTER_NAME ) );
 }
