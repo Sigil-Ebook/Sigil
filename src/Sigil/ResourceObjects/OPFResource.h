@@ -30,6 +30,7 @@
 #include <boost/shared_ptr.hpp>
 
 class HTMLResource;
+class ImageResource;
 
 
 class OPFResource : public XMLResource 
@@ -68,7 +69,7 @@ public:
 
     void AddSigilVersionMeta();
 
-    bool IsCoverImage( const Resource &resource ) const;
+    bool IsCoverImage( const ::ImageResource &resource ) const;
 
     /**
      * Determines if a cover image exists.
@@ -104,9 +105,9 @@ public slots:
 
     void RemoveResource( const Resource &resource );
 
-    void AddGuideSemanticType( const Resource &resource, GuideSemantics::GuideSemanticType new_type );
+    void AddGuideSemanticType( const ::HTMLResource &html_resource, GuideSemantics::GuideSemanticType new_type );
 
-    void SetResourceAsCoverImage( const Resource &resource );
+    void SetResourceAsCoverImage( const ::ImageResource &image_resource );
 
     void UpdateSpineOrder( const QList< ::HTMLResource* > html_files );
 

@@ -22,6 +22,7 @@
 #include <stdafx.h>
 #include "OPFResource.h"
 #include "HTMLResource.h"
+#include "ImageResource.h"
 #include "BookManipulation/XhtmlDoc.h"
 #include "BookManipulation/XercesCppUse.h"
 #include "BookManipulation/Metadata.h"
@@ -224,14 +225,8 @@ void OPFResource::AddSigilVersionMeta()
 }
 
 
-
-// TODO: only accept ImageResource
-bool OPFResource::IsCoverImage( const Resource &resource ) const
+bool OPFResource::IsCoverImage( const ::ImageResource &image_resource ) const
 {
-    if ( resource.Type() != ImageResource )
-
-        return false;
-
     QReadLocker locker( &GetLock() );
 
     shared_ptr< xc::DOMDocument > document = GetDocument();
@@ -239,7 +234,7 @@ bool OPFResource::IsCoverImage( const Resource &resource ) const
     
     if ( meta )
     {
-        QString resource_id = GetResourceManifestID( resource, *document );
+        QString resource_id = GetResourceManifestID( image_resource, *document );
 
         return XtoQ( meta->getAttribute( QtoX( "content" ) ) ) == resource_id;
     }
@@ -402,38 +397,39 @@ void OPFResource::RemoveResource( const Resource &resource )
 }
 
 
-// TODO: only accept HTMLResources
-void OPFResource::AddGuideSemanticType( const Resource &resource, GuideSemantics::GuideSemanticType new_type )
+void OPFResource::AddGuideSemanticType( 
+    const ::HTMLResource &html_resource,
+    GuideSemantics::GuideSemanticType new_type )
 {
     QWriteLocker locker( &GetLock() );
 
     shared_ptr< xc::DOMDocument > document         = GetDocument();
-    GuideSemantics::GuideSemanticType current_type = GetGuideSemanticTypeForResource( resource, *document );
+    GuideSemantics::GuideSemanticType current_type = GetGuideSemanticTypeForResource( html_resource, *document );
        
     if ( current_type != new_type )
     {
         RemoveDuplicateGuideTypes( new_type, *document );
-        SetGuideSemanticTypeForResource( new_type, resource, *document );
+        SetGuideSemanticTypeForResource( new_type, html_resource, *document );
     }
 
     // If the current type is the same as the new one,
     // we toggle it off.
     else 
     {
-        RemoveGuideReferenceForResource( resource, *document );
+        RemoveGuideReferenceForResource( html_resource, *document );
     }
 
     UpdateTextFromDom( *document );
 }
 
-// TODO: only accept ImageResources
-void OPFResource::SetResourceAsCoverImage( const Resource &resource )
+
+void OPFResource::SetResourceAsCoverImage( const ::ImageResource &image_resource )
 {
     QWriteLocker locker( &GetLock() );
 
     shared_ptr< xc::DOMDocument > document = GetDocument();
     xc::DOMElement* meta = GetCoverMeta( *document );
-    QString resource_id = GetResourceManifestID( resource, *document );
+    QString resource_id = GetResourceManifestID( image_resource, *document );
     
     if ( meta )
     {
@@ -868,9 +864,6 @@ QHash< Resource*, QString > OPFResource::GetResourceManifestIDMapping(
 
 void OPFResource::SetMetaElementsLast( xc::DOMDocument &document )
 {
-    // TODO: this should probably be SetNonDCElementsLast,
-    // and then work that way too.
-
     QList< xc::DOMElement* > metas = 
         XhtmlDoc::GetTagMatchingDescendants( document, "meta", OPF_XML_NAMESPACE );
     xc::DOMElement &metadata = GetMetadataElement( document );
@@ -1187,8 +1180,6 @@ QStringList OPFResource::GetRelativePathsToAllFilesInOEPBS() const
 
 QString OPFResource::GetOPFDefaultText()
 {
-    // FIXME: This should use the Book's identifier... actually the Book's identifier 
-    // should become what is in the OPF, not the other way around.
     return TEMPLATE_TEXT.arg( Utility::CreateUUID() );
 }
 
