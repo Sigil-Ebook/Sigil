@@ -342,6 +342,10 @@ TidyDoc CleanSource::TidyOptions( TidyDoc tidy_document, TidyType type, int max_
 // Runs HTML Tidy on the provided XHTML source code
 QString CleanSource::HTMLTidy( const QString &source, TidyType type )
 {
+    if ( source.isEmpty() )
+
+        return QString();
+
     TidyDoc tidy_document = tidyCreate();
 
     TidyBuffer output = { 0 };
