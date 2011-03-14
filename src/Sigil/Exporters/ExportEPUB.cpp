@@ -22,9 +22,7 @@
 #include <stdafx.h>
 #include "ExportEPUB.h"
 #include "BookManipulation/FolderKeeper.h"
-#include "OPFWriter.h"
 #include "EncryptionXmlWriter.h"
-#include "NCXWriter.h"
 #include <ZipArchive.h>
 #include "BookManipulation/CleanSource.h"
 #include "Misc/Utility.h"

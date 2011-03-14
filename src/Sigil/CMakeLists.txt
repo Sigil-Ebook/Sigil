@@ -152,8 +152,6 @@ set( EXPORTER_FILES
     Exporters/ExporterFactory.h
     Exporters/NCXWriter.cpp
     Exporters/NCXWriter.h
-    Exporters/OPFWriter.cpp
-    Exporters/OPFWriter.h
     Exporters/XMLWriter.cpp
     Exporters/XMLWriter.h
     Exporters/EncryptionXmlWriter.cpp
