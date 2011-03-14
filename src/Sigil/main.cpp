@@ -108,7 +108,7 @@ void MessageHandler( QtMsgType type, const char *message )
 // console conversion. USE AT YOUR OWN PERIL!
 static bool QuickConvert( const QStringList &arguments )
 {
-    if ( arguments.count() != 4 )
+    if ( arguments.count() != 3 )
 
         return false;
 
@@ -120,7 +120,7 @@ static bool QuickConvert( const QStringList &arguments )
         return false;
     }
 
-    if ( !QFileInfo( arguments.at( 3 ) ).isAbsolute() )
+    if ( !QFileInfo( arguments.at( 2 ) ).isAbsolute() )
     {
         std::cout << "ERROR: The output file path is not an absolute path." << std::endl;
         return false;
@@ -134,7 +134,7 @@ static bool QuickConvert( const QStringList &arguments )
 
     QSharedPointer< Book > book = ImporterFactory().GetImporter( arguments.at( 1 ) ).GetBook();
     BookNormalization::Normalize( book );
-    ExporterFactory().GetExporter( arguments.at( 3 ), book ).WriteBook();
+    ExporterFactory().GetExporter( arguments.at( 2 ), book ).WriteBook();
 
     return true;
 }
@@ -211,7 +211,7 @@ int main( int argc, char *argv[] )
         const QStringList &arguments = QCoreApplication::arguments();
 
         // Normal startup
-        if ( arguments.count() != 4 )
+        if ( arguments.count() != 3 )
         {
             MainWindow *widget = GetMainWindow( arguments );    
             widget->show();
