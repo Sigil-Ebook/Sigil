@@ -31,6 +31,7 @@
 
 class HTMLResource;
 class ImageResource;
+class NCXResource;
 
 
 class OPFResource : public XMLResource 
@@ -67,9 +68,11 @@ public:
 
     void EnsureUUIDIdentifierPresent();
 
+    void UpdateNCXLocationInManifest( const ::NCXResource &ncx );
+
     void AddSigilVersionMeta();
 
-    bool IsCoverImage( const ::ImageResource &resource ) const;
+    bool IsCoverImage( const ::ImageResource &image_resource ) const;
 
     /**
      * Determines if a cover image exists.

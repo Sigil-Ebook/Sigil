@@ -69,6 +69,7 @@ QSharedPointer< Book > ImportEPUB::GetBook()
 
     UniversalUpdates::PerformUniversalUpdates( false, resources, updates );
     ProcessFontFiles( resources, updates, encrypted_files );
+    m_Book->GetOPF().UpdateNCXLocationInManifest( m_Book->GetNCX() );
 
     return m_Book;
 }

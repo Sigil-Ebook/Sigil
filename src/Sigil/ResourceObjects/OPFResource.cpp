@@ -21,6 +21,7 @@
 
 #include <stdafx.h>
 #include "OPFResource.h"
+#include "NCXResource.h"
 #include "HTMLResource.h"
 #include "ImageResource.h"
 #include "BookManipulation/XhtmlDoc.h"
@@ -191,6 +192,32 @@ void OPFResource::EnsureUUIDIdentifierPresent()
 
     WriteIdentifier( "UUID", uuid, *document );
     UpdateTextFromDom( *document );    
+}
+
+
+void OPFResource::UpdateNCXLocationInManifest( const ::NCXResource &ncx )
+{
+    QWriteLocker locker( &GetLock() );
+    shared_ptr< xc::DOMDocument > document = GetDocument();
+
+    xc::DOMElement &spine = GetSpineElement( *document );
+    QString ncx_id = XtoQ( spine.getAttribute( QtoX( "toc" ) ) );
+
+    QList< xc::DOMElement* > items = 
+        XhtmlDoc::GetTagMatchingDescendants( *document, "item", OPF_XML_NAMESPACE );
+
+    foreach( xc::DOMElement* item, items )
+    {
+        QString id = XtoQ( item->getAttribute( QtoX( "id" ) ) );
+
+        if ( id == ncx_id )
+        {
+            item->setAttribute( QtoX( "href" ), QtoX( ncx.Filename() ) );
+            break;
+        }
+    }
+   
+    UpdateTextFromDom( *document );  
 }
 
 
