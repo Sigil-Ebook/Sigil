@@ -182,6 +182,8 @@ void MainWindow::closeEvent( QCloseEvent *event )
 
 void MainWindow::New()
 {
+    m_TabManager.WellFormedDialogsEnabled( false );
+
     // The nasty IFDEFs are here to enable the multi-document
     // interface on the Mac; Lin and Win just use multiple
     // instances of the Sigil application
@@ -196,6 +198,8 @@ void MainWindow::New()
         CreateNewBook();
 #endif
     }
+
+    m_TabManager.WellFormedDialogsEnabled( true );
 }
 
 
