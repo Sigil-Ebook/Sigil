@@ -248,7 +248,7 @@ void XHTMLHighlighter::ClearState( int state )
 
 // Checks if the requested state is set
 // for the current text block
-bool XHTMLHighlighter::CheckState( int state ) const
+bool XHTMLHighlighter::StateChecked( int state ) const
 {
     int current_state = currentBlockState();
 
@@ -374,7 +374,7 @@ void XHTMLHighlighter::HighlightLine( const QString& text, int state )
 
         // If we are not starting our state and our state is
         // not already set, we don't format; see the four cases explanation below
-        if ( ( left_bracket_index == -1 ) && ( CheckState( state ) == false ) )
+        if ( left_bracket_index == -1 && !StateChecked( state ) )
 
             return;
 
@@ -388,7 +388,7 @@ void XHTMLHighlighter::HighlightLine( const QString& text, int state )
 
         // We also check the state because we don't want to start a new node
         // if the current node of the same type hasn't finished
-        if ( ( left_bracket_index != -1 ) && ( CheckState( state ) == false ) )
+        if ( left_bracket_index != -1 && !StateChecked( state ) )
         {
             main_index = left_bracket_index + left_bracket_regex.matchedLength();
 

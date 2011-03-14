@@ -84,7 +84,7 @@ QStringList Utility::GetAbsolutePathsToFolderDescendantFiles( const QString &ful
         if ( ( file.fileName() != "." ) && ( file.fileName() != ".." ) )
         {
             // If it's a file, add it to the list
-            if ( file.isFile() == true )
+            if ( file.isFile() )
             {
                 files.append( file.absoluteFilePath() );
             }
@@ -116,7 +116,7 @@ void Utility::CopyFiles( const QString &fullfolderpath_source, const QString &fu
         if ( ( file.fileName() != "." ) && ( file.fileName() != ".." ) )
         {
             // If it's a file, copy it
-            if ( file.isFile() == true )
+            if ( file.isFile() )
             {
                 QString destination = fullfolderpath_destination + "/" + file.fileName();
                 bool success = QFile::copy( file.absoluteFilePath(), destination );

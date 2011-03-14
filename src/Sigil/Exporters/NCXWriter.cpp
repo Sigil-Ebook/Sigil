@@ -220,7 +220,7 @@ int NCXWriter::GetHeadingsDepth() const
 
 void NCXWriter::DepthWalker( const Headings::Heading &heading, int &current_depth, int &max_depth ) const
 {
-   if ( heading.include_in_toc == true )
+   if ( heading.include_in_toc )
    {
         current_depth++;
 

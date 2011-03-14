@@ -57,7 +57,7 @@ private:
 
     // Checks if the requested state is set
     // for the current text block
-    bool CheckState( int state ) const;
+    bool StateChecked( int state ) const;
     
     // Formats the inside of a node;
     // "text" is the textblock/line;

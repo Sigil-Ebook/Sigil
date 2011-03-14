@@ -63,7 +63,7 @@ MetaEditor::MetaEditor( OPFResource &opf, QWidget *parent )
 
 MetaEditor::~MetaEditor()
 {
-    if ( m_isMore == true )
+    if ( m_isMore )
 
         m_ExpandedHeight = size().height();
 
@@ -71,7 +71,7 @@ MetaEditor::~MetaEditor()
 }
 
 
-void MetaEditor::showEvent( QShowEvent * event )
+void MetaEditor::showEvent( QShowEvent* event )
 {
     RefreshVerticalHeader();
 
@@ -198,7 +198,7 @@ void MetaEditor::FillMetadataFromDialog()
 
         // For string-based metadata, create multiple entries
         // if the typed in value contains semicolons
-        if ( ( value.type() == QVariant::String ) && ( OkToSplitInput( name ) == true ) )
+        if ( value.type() == QVariant::String && OkToSplitInput( name ) )
         
             m_Metadata[ name ].append( InputsInField( value.toString() ) );
 

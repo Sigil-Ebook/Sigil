@@ -78,7 +78,7 @@ FindReplace::~FindReplace()
 // the option controls and the "less" version without them
 void FindReplace::ToggleMoreLess()
 {
-    if ( m_isMore == true )
+    if ( m_isMore )
     {
         // We hide then show the tab widget between
         // update calls to wOptions because this prevents

@@ -76,7 +76,7 @@ bool TempFolder::DeleteFolderAndFiles( const QString &fullfolderpath )
         if ( ( file.fileName() != "." ) && ( file.fileName() != ".." ) )
         {
             // If it's a file, delete it
-            if ( file.isFile() == true )
+            if ( file.isFile() )
 
                 folder.remove( file.fileName() );
 

@@ -80,7 +80,7 @@ void HeadingSelector::ModelItemFilter( QStandardItem *item )
 {
     Q_ASSERT( item );
 
-    if ( item->isCheckable() == true )
+    if ( item->isCheckable() )
     
         UpdateHeadingInclusion( item );
 }
@@ -141,7 +141,7 @@ void HeadingSelector::UpdateOneHeadingElement( QStandardItem *item )
         heading->resource_file->MarkSecondaryCachesAsOld();
     }
 
-    if ( item->hasChildren() == true )
+    if ( item->hasChildren() )
     {
         for ( int i = 0; i < item->rowCount(); ++i )
         {
@@ -225,7 +225,7 @@ void HeadingSelector::InsertHeadingIntoModel( Headings::Heading &heading, QStand
     item_heading->setDragEnabled( false );
     item_heading->setDropEnabled( false );
 
-    if ( heading.include_in_toc == true )
+    if ( heading.include_in_toc )
 
         heading_included_check->setCheckState( Qt::Checked );
 
@@ -265,7 +265,7 @@ void HeadingSelector::RemoveExcludedItems( QStandardItem *item )
     Q_ASSERT( item );
 
     // Recursively call itself on the item's children
-    if ( item->hasChildren() == true )
+    if ( item->hasChildren() )
     {
         int row_index = 0;
 
@@ -299,7 +299,7 @@ void HeadingSelector::RemoveExcludedItems( QStandardItem *item )
     // be included in the TOC
     if ( check_state == Qt::Unchecked )
     {
-        if ( item->hasChildren() == true )
+        if ( item->hasChildren() )
         {
             while ( item->rowCount() > 0 )
             {
