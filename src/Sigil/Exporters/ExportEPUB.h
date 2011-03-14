@@ -58,15 +58,6 @@ private:
     // mimetype to write to the special "mimetype" file
     void SaveFolderAsEpubToLocation( const QString &fullfolderpath, const QString &fullfilepath );
 
-    // Creates the publication's container.xml file
-    void CreateContainerXML( const QString &fullfolderpath );
-
-    // Creates the publication's content.opf file
-    void CreateContentOPF( const QString &fullfolderpath  );
-
-    // Creates the publication's toc.ncx file
-    void CreateTocNCX( const QString &fullfolderpath );
-
     // Creates the publication's encryption.xml file,
     // if there are any fonts to obfuscate
     void CreateEncryptionXML( const QString &fullfolderpath );

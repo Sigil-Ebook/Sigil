@@ -69,11 +69,15 @@ ExportEPUB::~ExportEPUB()
 // Writes the book to the path 
 // specified in the constructor
 void ExportEPUB::WriteBook()
-{
+{    
+    // Obfuscating fonts needs an UUID ident
+    if ( m_Book->HasObfuscatedFonts() )
+
+        m_Book->GetOPF().EnsureUUIDIdentifierPresent();
+
     m_Book->SaveAllResourcesToDisk();
 
     TempFolder tempfolder;
-
     CreatePublication( tempfolder.GetPath() );
 
     if ( m_Book->HasObfuscatedFonts() )
@@ -89,10 +93,6 @@ void ExportEPUB::WriteBook()
 void ExportEPUB::CreatePublication( const QString &fullfolderpath )
 {
     Utility::CopyFiles( m_Book->GetFolderKeeper().GetFullPathToMainFolder(), fullfolderpath );
-
-    CreateContainerXML( fullfolderpath + METAINF_FOLDER_SUFFIX );    
-    CreateContentOPF( fullfolderpath + OEBPS_FOLDER_SUFFIX );
-    CreateTocNCX( fullfolderpath + OEBPS_FOLDER_SUFFIX );
 
     if ( m_Book->HasObfuscatedFonts() )
         
@@ -164,87 +164,6 @@ void ExportEPUB::SaveFolderAsEpubToLocation( const QString &fullfolderpath, cons
 }
 
 
-// Creates the publication's container.xml file
-void ExportEPUB::CreateContainerXML( const QString &fullfolderpath )
-{
-    QString xml =	"<?xml version=\"1.0\"?>\n"
-                    "<container version=\"1.0\" xmlns=\"urn:oasis:names:tc:opendocument:xmlns:container\">\n"
-                    "    <rootfiles>\n"
-                    "        <rootfile full-path=\"OEBPS/content.opf\" media-type=\"application/oebps-package+xml\"/>\n"
-                    "   </rootfiles>\n"
-                    "</container>\n";
-
-    QTemporaryFile file;
-
-    if ( !file.open() )
-    {
-        boost_throw( CannotOpenFile() 
-                     << errinfo_file_fullpath( file.fileName().toStdString() )
-                     << errinfo_file_errorstring( file.errorString().toStdString() ) 
-                   );
-    }
-
-    QTextStream out( &file );
-
-    // We ALWAYS output in UTF-8
-    out.setCodec( "UTF-8" );
-
-    out << xml;
-
-    // Write to disk immediately
-    out.flush();
-    file.flush();
-
-    QFile::copy( file.fileName(), fullfolderpath + "/" + CONTAINER_XML_FILE_NAME );  
-}
-
-
-// Creates the publication's content.opf file
-void ExportEPUB::CreateContentOPF( const QString &fullfolderpath )
-{
-    QTemporaryFile file;
-
-    if ( !file.open() )
-    {
-        boost_throw( CannotOpenFile() 
-                     << errinfo_file_fullpath( file.fileName().toStdString() )
-                     << errinfo_file_errorstring( file.errorString().toStdString() ) 
-                   );
-    }
-    
-    OPFWriter opf( m_Book, file );
-    opf.WriteXML();
-
-    // Write to disk immediately
-    file.flush();
-
-    QFile::copy( file.fileName(), fullfolderpath + "/" + OPF_FILE_NAME ); 
-}
-
-
-// Creates the publication's toc.ncx file
-void ExportEPUB::CreateTocNCX( const QString &fullfolderpath )
-{
-    QTemporaryFile file;
-
-    if ( !file.open() )
-    {
-        boost_throw( CannotOpenFile() 
-                     << errinfo_file_fullpath( file.fileName().toStdString() )
-                     << errinfo_file_errorstring( file.errorString().toStdString() ) 
-                   );
-    }
-
-    NCXWriter ncx( m_Book, file );
-    ncx.WriteXML();
-
-    // Write to disk immediately
-    file.flush();
-
-    QFile::copy( file.fileName(), fullfolderpath + "/" + NCX_FILE_NAME ); 
-}
-
-
 void ExportEPUB::CreateEncryptionXML( const QString &fullfolderpath )
 {
     QTemporaryFile file;
@@ -269,14 +188,8 @@ void ExportEPUB::CreateEncryptionXML( const QString &fullfolderpath )
 
 void ExportEPUB::ObfuscateFonts( const QString &fullfolderpath )
 {
-    QString uuid_id = "urn:uuid:" + m_Book->GetPublicationIdentifier();
-
-    QHash< QString, QList< QVariant > > metadata = m_Book->GetMetadata();    
-
-    // Also see OPFWriter::WriteMetadata
-    QString main_id = metadata.contains( "CustomID" )        ?
-                      metadata[ "CustomID" ][ 0 ].toString() :
-                      uuid_id;
+    QString uuid_id = m_Book->GetOPF().GetUUIDIdentifierValue();   
+    QString main_id = m_Book->GetPublicationIdentifier();
 
     QList< FontResource* > font_resources = m_Book->GetFolderKeeper().GetResourceTypeList< FontResource >();
 

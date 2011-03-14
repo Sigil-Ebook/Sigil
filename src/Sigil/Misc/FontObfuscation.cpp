@@ -22,6 +22,9 @@
 #include <stdafx.h>
 #include "FontObfuscation.h"
 
+static int ADOBE_METHOD_NUM_BYTES = 1024;
+static int IDPF_METHOD_NUM_BYTES  = 1040;
+
 namespace 
 {
 
@@ -60,8 +63,7 @@ void IdpfObfuscate( const QString &filepath, const QString &identifier )
     QByteArray key = IdpfKeyFromIdentifier( identifier );
     int key_size   = key.size();
 
-    // The IDPF method specifies that we use 1040 bytes, NOT 1024
-    for ( int i = 0; ( i < 1040 ) && ( i < contents.size() ); ++i )
+    for ( int i = 0; ( i < IDPF_METHOD_NUM_BYTES ) && ( i < contents.size() ); ++i )
     {
         contents[ i ] = contents[ i ] ^ key[ i % key_size ]; 
     }
@@ -83,7 +85,7 @@ void AdobeObfuscate( const QString &filepath, const QString &identifier )
     QByteArray key = AdobeKeyFromIdentifier( identifier );
     int key_size   = key.size();
 
-    for ( int i = 0; ( i < 1024 ) && ( i < contents.size() ); ++i )
+    for ( int i = 0; ( i < ADOBE_METHOD_NUM_BYTES ) && ( i < contents.size() ); ++i )
     {
         contents[ i ] = contents[ i ] ^ key[ i % key_size ]; 
     }

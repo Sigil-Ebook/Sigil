@@ -140,6 +140,58 @@ QString OPFResource::GetMainIdentifierValue() const
 }
 
 
+QString OPFResource::GetUUIDIdentifierValue()
+{
+    EnsureUUIDIdentifierPresent();
+
+    QReadLocker locker( &GetLock() );
+    shared_ptr< xc::DOMDocument > document = GetDocument();
+
+    QList< xc::DOMElement* > identifiers = 
+        XhtmlDoc::GetTagMatchingDescendants( *document, "identifier", DUBLIN_CORE_NS );
+
+    foreach( xc::DOMElement *identifier, identifiers )
+    {
+        QString value = XtoQ( identifier->getTextContent() ).remove( "urn:uuid:" );
+
+        if ( !QUuid( value ).isNull() )
+        {
+            return value;
+        }
+    }
+
+    // EnsureUUIDIdentifierPresent should ensure we 
+    // never reach here.
+    Q_ASSERT( false );
+    return QString();
+}
+
+
+void OPFResource::EnsureUUIDIdentifierPresent()
+{
+    QWriteLocker locker( &GetLock() );
+    shared_ptr< xc::DOMDocument > document = GetDocument();
+
+    QList< xc::DOMElement* > identifiers = 
+        XhtmlDoc::GetTagMatchingDescendants( *document, "identifier", DUBLIN_CORE_NS );
+
+    foreach( xc::DOMElement *identifier, identifiers )
+    {
+        QString value = XtoQ( identifier->getTextContent() ).remove( "urn:uuid:" );
+
+        if ( !QUuid( value ).isNull() )
+        {
+            return;
+        }
+    }
+    
+    QString uuid = Utility::CreateUUID();
+
+    WriteIdentifier( "UUID", uuid, *document );
+    UpdateTextFromDom( *document );    
+}
+
+
 // TODO: only accept ImageResource
 bool OPFResource::IsCoverImage( const Resource &resource ) const
 {
@@ -952,7 +1004,14 @@ void OPFResource::WriteIdentifier(
     // This assumes that the "dc" prefix has been declared for the DC namespace
     xc::DOMElement *element = document.createElementNS( QtoX( DUBLIN_CORE_NS ), QtoX( "dc:identifier" ) );
     element->setAttributeNS( QtoX( OPF_XML_NAMESPACE ), QtoX( "scheme" ), QtoX( metaname ) );
-    element->setTextContent( QtoX( metavalue ) );
+
+    if ( metaname.toLower() == "uuid" && !metavalue.contains( "urn:uuid:" ) )
+
+        element->setTextContent( QtoX( "urn:uuid:" + metavalue ) );
+
+    else
+
+        element->setTextContent( QtoX( metavalue ) );
 
     xc::DOMElement &metadata = GetMetadataElement( document );
     metadata.appendChild( element );

@@ -61,6 +61,11 @@ public:
 
     QString GetMainIdentifierValue() const;
 
+    // Also creates such an ident if none was found
+    QString GetUUIDIdentifierValue();
+
+    void EnsureUUIDIdentifierPresent();
+
     bool IsCoverImage( const Resource &resource ) const;
 
     /**
