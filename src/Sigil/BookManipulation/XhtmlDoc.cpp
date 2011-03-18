@@ -475,6 +475,18 @@ XhtmlDoc::WellFormedError XhtmlDoc::WellFormedErrorForSource( const QString &sou
 
 
 
+// This only exist because of a bug in Apple's GCC.
+// It has problems with templates in default arguments.
+xc::DOMElement* XhtmlDoc::CreateElementInDocument( 
+    const QString &tag_name, 
+    const QString &namespace_name, 
+    xc::DOMDocument &document )
+{
+    return CreateElementInDocument( tag_name, namespace_name, document, QHash< QString, QString >() );
+}
+
+
+
 xc::DOMElement* XhtmlDoc::CreateElementInDocument( 
     const QString &tag_name, 
     const QString &namespace_name, 

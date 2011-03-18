@@ -120,8 +120,13 @@ public:
     static xc::DOMElement* CreateElementInDocument( 
         const QString &tag_name,
         const QString &namespace_name, 
+        xc::DOMDocument &document );
+
+    static xc::DOMElement* CreateElementInDocument( 
+        const QString &tag_name,
+        const QString &namespace_name, 
         xc::DOMDocument &document,
-        QHash< QString, QString > attributes = QHash< QString, QString >() );
+        QHash< QString, QString > attributes );
 
     // Accepts a string with HTML and returns the text
     // in that HTML fragment. For instance: 
