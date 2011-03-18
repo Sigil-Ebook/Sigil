@@ -1,4 +1,6 @@
 Sigil v0.4.0 ß1 ADD_DATE
+    - fixed an issue with CSS @import rules in the '@import "something.css"' format not being 
+    recognized and thus not updated on import
     - removed the "CustomID" basic metadata entry from the Meta Editor; those wishing to use
     custom ID's can now add them directly to the OPF
     - Sigil now preserves custom unique identifiers in the OPF (issue #552)
