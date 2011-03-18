@@ -128,6 +128,14 @@ private:
     QWidget &m_MainWidget;
     
     /**
+     * A container widget for the m_GenerateTocButton.
+     * Used to work around a visual glitch on Mac OS X.
+     * If we didn't use this, then we would have an ugly
+     * margin on the left and right side of the m_TreeView.
+     */
+    QWidget &m_ButtonHolderWidget;
+    
+    /**
      * The layout for the container widget.
      */
     QVBoxLayout &m_Layout;

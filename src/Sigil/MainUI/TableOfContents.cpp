@@ -39,17 +39,27 @@ TableOfContents::TableOfContents( QWidget *parent )
     QDockWidget( tr( "Table of Contents" ), parent ),
     m_Book( NULL ),
     m_MainWidget( *new QWidget( this ) ),
+    m_ButtonHolderWidget( *new QWidget( &m_MainWidget ) ),
     m_Layout( *new QVBoxLayout( &m_MainWidget ) ),
     m_TreeView( *new QTreeView( &m_MainWidget ) ),
-    m_GenerateTocButton( *new QPushButton( tr( "Generate TOC from headings" ), &m_MainWidget ) ),
+    m_GenerateTocButton( *new QPushButton( tr( "Generate TOC from headings" ), &m_ButtonHolderWidget ) ),
     m_RefreshTimer( *new QTimer( this ) ),
     m_NCXModel( *new NCXModel( this ) )
 {
     m_Layout.setContentsMargins( 0, 0, 0, 0 );
-
+    
+#ifdef Q_WS_MAC
+    m_Layout.setSpacing( 4 );
+#endif
+    
+    QVBoxLayout *layout = new QVBoxLayout( &m_ButtonHolderWidget );
+    layout->setContentsMargins( 0, 0, 0, 0 );
+    layout->addWidget( &m_GenerateTocButton );
+    m_ButtonHolderWidget.setLayout( layout );
+    
     m_Layout.addWidget( &m_TreeView );
-    m_Layout.addWidget( &m_GenerateTocButton );
-
+    m_Layout.addWidget( &m_ButtonHolderWidget );
+    
     m_MainWidget.setLayout( &m_Layout );
 
     setWidget( &m_MainWidget );
