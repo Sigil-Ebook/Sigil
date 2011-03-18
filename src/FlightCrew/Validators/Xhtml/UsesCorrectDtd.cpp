@@ -33,9 +33,9 @@ const std::string XHTML11_SYSTEM_ID = "http://www.w3.org/TR/xhtml11/DTD/xhtml11.
 const std::string XHTML11_PUBLIC_ID = "-//W3C//DTD XHTML 1.1//EN";
 
 
-std::vector<Result> UsesCorrectDtd::ValidateFile( const fs::path &filepath )
+std::vector< Result > UsesCorrectDtd::ValidateFile( const fs::path &filepath )
 {
-    std::vector<Result> results;
+    std::vector< Result > results;
 
     try
     {

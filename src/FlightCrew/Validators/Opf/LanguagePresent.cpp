@@ -25,7 +25,7 @@
 namespace FlightCrew
 {
 
-std::vector<Result> LanguagePresent::ValidateXml(
+std::vector< Result > LanguagePresent::ValidateXml(
     const xc::DOMDocument &document,
     const fs::path& )
 {

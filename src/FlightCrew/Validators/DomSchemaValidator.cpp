@@ -30,7 +30,7 @@
 namespace FlightCrew
 {
     
-std::vector<Result> DomSchemaValidator::ValidateAgainstSchema(
+std::vector< Result > DomSchemaValidator::ValidateAgainstSchema(
     const fs::path &filepath,
     const std::string &external_schema_location,
     const std::vector< const xc::MemBufInputSource* > &schemas,

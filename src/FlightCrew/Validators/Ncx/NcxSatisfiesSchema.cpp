@@ -43,7 +43,7 @@ NcxSatisfiesSchema::NcxSatisfiesSchema()
 }
 
 
-std::vector<Result> NcxSatisfiesSchema::ValidateFile( const fs::path &filepath )
+std::vector< Result > NcxSatisfiesSchema::ValidateFile( const fs::path &filepath )
 {
     std::string location = std::string( NCX_XSD_NS )
                            .append( " " )

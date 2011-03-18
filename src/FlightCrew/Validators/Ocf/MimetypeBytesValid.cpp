@@ -28,7 +28,7 @@ static const std::string MIMETYPE_BYTES = "mimetypeapplication/epub+zipPK";
 namespace FlightCrew
 {
 
-std::vector<Result> MimetypeBytesValid::ValidateFile( const fs::path &filepath )
+std::vector< Result > MimetypeBytesValid::ValidateFile( const fs::path &filepath )
 {
     fs::ifstream file( filepath, std::ios::in | std::ios::binary );
 
@@ -39,7 +39,7 @@ std::vector<Result> MimetypeBytesValid::ValidateFile( const fs::path &filepath )
     file.read( bytes30to60, 30 );
 
     std::string string_bytes( bytes30to60 );
-    std::vector<Result> results;
+    std::vector< Result > results;
 
     if ( string_bytes != MIMETYPE_BYTES )
 

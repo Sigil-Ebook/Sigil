@@ -45,9 +45,9 @@ protected:
      * @param document The document being validated.
      * @return A list of validation results.
      */
-    std::vector<Result> VerifyElementCountOne( const xe::QName &element_qname,
-                                               const xe::QName &parent_qname,
-                                               const xc::DOMDocument &document );
+    std::vector< Result > VerifyElementCountOne( const xe::QName &element_qname,
+                                                 const xe::QName &parent_qname,
+                                                 const xc::DOMDocument &document );
 };
 
 } // namespace FlightCrew

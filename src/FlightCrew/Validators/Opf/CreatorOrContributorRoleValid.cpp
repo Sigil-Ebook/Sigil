@@ -29,7 +29,7 @@
 namespace FlightCrew
 {
 
-std::vector<Result> CreatorOrContributorRoleValid::ValidateXml(
+std::vector< Result > CreatorOrContributorRoleValid::ValidateXml(
     const xc::DOMDocument &document,
     const fs::path& )
 {
@@ -39,7 +39,7 @@ std::vector<Result> CreatorOrContributorRoleValid::ValidateXml(
     Util::Extend< xc::DOMElement* >( elements, xe::GetElementsByQName( 
         document, QName( "contributor", DC_XML_NAMESPACE ) ) );
 
-    std::vector<Result> results;
+    std::vector< Result > results;
     boost::unordered_set< std::string > relators = GetRelatorSet();
 
     foreach( xc::DOMElement* element, elements )

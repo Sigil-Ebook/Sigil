@@ -33,7 +33,7 @@ class ContainerListedOpfPresent : public IValidator
 {
 public:
 
-    virtual std::vector<Result> ValidateFile( const fs::path &filepath );    
+    virtual std::vector< Result > ValidateFile( const fs::path &filepath );    
 };
 
 } // namespace FlightCrew

@@ -25,7 +25,7 @@
 namespace FlightCrew
 {
 
-std::vector<Result> SpineAllowedChildren::ValidateXml(
+std::vector< Result > SpineAllowedChildren::ValidateXml(
     const xc::DOMDocument &document,
     const fs::path& )
 {

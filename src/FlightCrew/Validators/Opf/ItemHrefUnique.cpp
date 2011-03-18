@@ -29,7 +29,7 @@
 namespace FlightCrew
 {
 
-std::vector<Result> ItemHrefUnique::ValidateXml(
+std::vector< Result > ItemHrefUnique::ValidateXml(
     const xc::DOMDocument &document,
     const fs::path& )
 {
@@ -37,7 +37,7 @@ std::vector<Result> ItemHrefUnique::ValidateXml(
         document, QName( "item", OPF_XML_NAMESPACE ) );
 
     boost::unordered_set< std::string > hrefs;
-    std::vector<Result> results;
+    std::vector< Result > results;
 
     foreach( xc::DOMElement* item, items )
     {

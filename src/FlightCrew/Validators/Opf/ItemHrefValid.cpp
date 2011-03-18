@@ -29,14 +29,14 @@
 namespace FlightCrew
 {
 
-std::vector<Result> ItemHrefValid::ValidateXml(
+std::vector< Result > ItemHrefValid::ValidateXml(
     const xc::DOMDocument &document,
     const fs::path& )
 {
     std::vector< xc::DOMElement* > items = xe::GetElementsByQName( 
         document, QName( "item", OPF_XML_NAMESPACE ) );
 
-    std::vector<Result> results;
+    std::vector< Result > results;
 
     foreach( xc::DOMElement* item, items )
     {

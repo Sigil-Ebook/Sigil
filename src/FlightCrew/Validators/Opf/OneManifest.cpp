@@ -25,7 +25,7 @@
 namespace FlightCrew
 {
 
-std::vector<Result> OneManifest::ValidateXml(
+std::vector< Result > OneManifest::ValidateXml(
     const xc::DOMDocument &document,
     const fs::path& )
 {

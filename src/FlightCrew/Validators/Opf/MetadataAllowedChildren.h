@@ -35,7 +35,7 @@ class MetadataAllowedChildren : public AllowedChildrenValidator
 {
 public:
 
-    virtual std::vector<Result> ValidateXml( 
+    virtual std::vector< Result > ValidateXml( 
         const xc::DOMDocument &document,
         const fs::path &filepath = fs::path() );
 
@@ -46,14 +46,14 @@ private:
      *
      * @param children The children of the metadata element.
      */
-    std::vector<Result> ValidateDCXChildrenSubset( std::vector< xc::DOMElement* > children );
+    std::vector< Result > ValidateDCXChildrenSubset( std::vector< xc::DOMElement* > children );
 
     /**
      * Validates the metadata children when using standard children.
      *
      * @param children The children of the metadata element.
      */
-    std::vector<Result> ValidateStandardChildren( std::vector< xc::DOMElement* > children );       
+    std::vector< Result > ValidateStandardChildren( std::vector< xc::DOMElement* > children );       
 };
 
 } // namespace FlightCrew

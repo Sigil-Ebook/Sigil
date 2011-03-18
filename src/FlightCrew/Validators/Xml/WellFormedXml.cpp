@@ -40,7 +40,7 @@ WellFormedXml::WellFormedXml()
 }
 
 
-std::vector<Result> WellFormedXml::ValidateFile( const fs::path &filepath )
+std::vector< Result > WellFormedXml::ValidateFile( const fs::path &filepath )
 {
     parser.resetDocumentPool();
 

@@ -38,7 +38,7 @@ class DomSchemaValidator : public IValidator
 
 protected:
 
-    std::vector<Result> ValidateAgainstSchema( 
+    std::vector< Result > ValidateAgainstSchema( 
         const fs::path &filepath, 
         const std::string &external_schema_location,
         const std::vector< const xc::MemBufInputSource* > &schemas,

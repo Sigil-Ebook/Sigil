@@ -26,7 +26,7 @@
 namespace FlightCrew
 {
 
-std::vector<Result> TourAttributesPresent::ValidateXml(
+std::vector< Result > TourAttributesPresent::ValidateXml(
     const xc::DOMDocument &document,
     const fs::path& )
 {

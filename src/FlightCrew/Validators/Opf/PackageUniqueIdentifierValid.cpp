@@ -28,7 +28,7 @@
 namespace FlightCrew
 {
 
-std::vector<Result> PackageUniqueIdentifierValid::ValidateXml(
+std::vector< Result > PackageUniqueIdentifierValid::ValidateXml(
     const xc::DOMDocument &document,
     const fs::path& )
 {
@@ -40,7 +40,7 @@ std::vector<Result> PackageUniqueIdentifierValid::ValidateXml(
         QName( "id", "" ),
         document );
 
-    std::vector<Result> results;
+    std::vector< Result > results;
     bool id_found = false;
 
     foreach( xc::DOMAttr* identifier_id, identifier_ids )

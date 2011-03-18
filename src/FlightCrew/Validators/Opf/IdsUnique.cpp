@@ -29,14 +29,14 @@
 namespace FlightCrew
 {
 
-std::vector<Result> IdsUnique::ValidateXml(
+std::vector< Result > IdsUnique::ValidateXml(
     const xc::DOMDocument &document,
     const fs::path& )
 {
     xc::DOMNodeList *elements = document.getElementsByTagName( toX( "*" ) );
 
     boost::unordered_set< std::string > ids;
-    std::vector<Result> results;
+    std::vector< Result > results;
 
     for ( uint i = 0; i < elements->getLength(); ++i )
     {

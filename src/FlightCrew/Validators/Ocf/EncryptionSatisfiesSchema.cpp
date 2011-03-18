@@ -45,7 +45,7 @@ EncryptionSatisfiesSchema::EncryptionSatisfiesSchema()
 }
 
 
-std::vector<Result> EncryptionSatisfiesSchema::ValidateFile( const fs::path &filepath )
+std::vector< Result > EncryptionSatisfiesSchema::ValidateFile( const fs::path &filepath )
 {
     std::string location = std::string( CONTAINER_XSD_NS )
                                         .append( " " )

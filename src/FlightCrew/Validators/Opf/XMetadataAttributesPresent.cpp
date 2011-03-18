@@ -25,7 +25,7 @@
 namespace FlightCrew
 {
 
-std::vector<Result> XMetadataAttributesPresent::ValidateXml(
+std::vector< Result > XMetadataAttributesPresent::ValidateXml(
     const xc::DOMDocument &document,
     const fs::path& )
 {

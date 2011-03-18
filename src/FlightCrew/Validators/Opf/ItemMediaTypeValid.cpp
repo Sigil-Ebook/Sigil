@@ -30,7 +30,7 @@
 namespace FlightCrew
 {
 
-std::vector<Result> ItemMediaTypeValid::ValidateXml( 
+std::vector< Result > ItemMediaTypeValid::ValidateXml( 
     const xc::DOMDocument &document,
     const fs::path &filepath )
 {

@@ -30,7 +30,7 @@ namespace FlightCrew
 {
 
 
-std::vector<Result> ContainerListsOpf::ValidateXml( 
+std::vector< Result > ContainerListsOpf::ValidateXml( 
     const xc::DOMDocument &document,
     const fs::path& )
 {

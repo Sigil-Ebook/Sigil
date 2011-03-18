@@ -45,9 +45,9 @@ protected:
      * @param document The document being validated.
      * @return A list of validation results, empty if no problem were found.
      */
-    std::vector<Result> HasOnlyAllowedAttributes( const xe::QName &element_qname,
-                                                  const std::vector< xe::QName > &attribute_qnames,
-                                                  const xc::DOMDocument &document );
+    std::vector< Result > HasOnlyAllowedAttributes( const xe::QName &element_qname,
+                                                    const std::vector< xe::QName > &attribute_qnames,
+                                                    const xc::DOMDocument &document );
 
     /**
      * Checks that all the elements matching the given name have all their
@@ -58,9 +58,9 @@ protected:
      * @param document The document being validated.
      * @return A list of validation results, empty if no problem were found.
      */
-    std::vector<Result> HasMandatoryAttributes( const xe::QName &element_qname,
-                                                const std::vector< xe::QName > &attribute_qnames,
-                                                const xc::DOMDocument &document );
+    std::vector< Result > HasMandatoryAttributes( const xe::QName &element_qname,
+                                                  const std::vector< xe::QName > &attribute_qnames,
+                                                  const xc::DOMDocument &document );
 
 private:
 

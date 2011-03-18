@@ -34,7 +34,7 @@ public:
 
     EncryptionSatisfiesSchema();
 
-    std::vector<Result> ValidateFile( const fs::path &filepath );
+    std::vector< Result > ValidateFile( const fs::path &filepath );
 
 private:
 

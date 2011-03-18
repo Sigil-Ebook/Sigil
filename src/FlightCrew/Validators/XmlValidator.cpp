@@ -27,7 +27,7 @@
 namespace FlightCrew
 {
    
-std::vector<Result> XmlValidator::ValidateFile( const fs::path &filepath )
+std::vector< Result > XmlValidator::ValidateFile( const fs::path &filepath )
 {
     return Util::AddPathToResults( 
         ValidateXml( *Util::LoadXmlDocument( filepath ), filepath ),

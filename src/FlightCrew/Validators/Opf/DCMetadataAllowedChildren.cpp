@@ -25,7 +25,7 @@
 namespace FlightCrew
 {
 
-std::vector<Result> DCMetadataAllowedChildren::ValidateXml(
+std::vector< Result > DCMetadataAllowedChildren::ValidateXml(
     const xc::DOMDocument &document,
     const fs::path& )
 {

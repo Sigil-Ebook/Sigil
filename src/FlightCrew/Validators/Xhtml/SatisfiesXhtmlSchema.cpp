@@ -55,7 +55,7 @@ SatisfiesXhtmlSchema::SatisfiesXhtmlSchema()
 }
 
 
-std::vector<Result> SatisfiesXhtmlSchema::ValidateFile( const fs::path &filepath )
+std::vector< Result > SatisfiesXhtmlSchema::ValidateFile( const fs::path &filepath )
 {
     std::string location = std::string( OPS201_XSD_NS )
                            .append( " " )

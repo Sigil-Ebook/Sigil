@@ -120,8 +120,9 @@ fs::path GetRelativePathToNcx( const xc::DOMDocument &opf )
 
         if ( xc::XMLUri::isValidURI( true, toX( href ) ) &&
              media_type == NCX_MIME )
-
-            return Util::Utf8PathToBoostPath( Util::UrlDecode( href ) );        
+        {
+            return Util::Utf8PathToBoostPath( Util::UrlDecode( href ) );  
+        }
     }
 
     return fs::path();
@@ -142,8 +143,7 @@ std::vector< fs::path > GetRelativePathsToXhtmlDocuments( const xc::DOMDocument 
 
         if ( xc::XMLUri::isValidURI( true, toX( href ) ) &&
              ( media_type == XHTML_MIME || media_type == OEB_DOC_MIME ) )
-        {
-                    
+        {                    
             paths.push_back( Util::Utf8PathToBoostPath( Util::UrlDecode( href ) ) );
         }
     }

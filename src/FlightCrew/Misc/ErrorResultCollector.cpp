@@ -51,7 +51,7 @@ void ErrorResultCollector::resetErrors()
 }
 
 
-std::vector<Result> ErrorResultCollector::GetResults()
+std::vector< Result > ErrorResultCollector::GetResults()
 {
     return m_Results;
 }

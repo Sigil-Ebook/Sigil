@@ -26,7 +26,7 @@
 namespace FlightCrew
 {
 
-std::vector<Result> SpineAttributesPresent::ValidateXml(
+std::vector< Result > SpineAttributesPresent::ValidateXml(
     const xc::DOMDocument &document,
     const fs::path& )
 {

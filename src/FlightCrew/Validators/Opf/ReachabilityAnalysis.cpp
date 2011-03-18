@@ -54,7 +54,7 @@ namespace FlightCrew
 {
 
 
-std::vector<Result> ReachabilityAnalysis::ValidateXml( 
+std::vector< Result > ReachabilityAnalysis::ValidateXml( 
     const xc::DOMDocument &document,
     const fs::path &filepath )
 {
@@ -69,7 +69,7 @@ std::vector<Result> ReachabilityAnalysis::ValidateXml(
     boost::unordered_set< fs::path > reachable_resources =
         DetermineReachableResources( starting_set );
 
-    std::vector<Result> results;
+    std::vector< Result > results;
 
     Util::Extend( results, ResultsForOpsDocsNotInSpine( document, manifest_items, reachable_resources ) );
     Util::Extend( results, ResultsForResourcesNotInManifest( manifest_items, reachable_resources ) );
@@ -79,7 +79,7 @@ std::vector<Result> ReachabilityAnalysis::ValidateXml(
 }
 
 
-std::vector<Result> ReachabilityAnalysis::ResultsForOpsDocsNotInSpine( 
+std::vector< Result > ReachabilityAnalysis::ResultsForOpsDocsNotInSpine( 
     const xc::DOMDocument &document,
     const boost::unordered_map< std::string, fs::path > &manifest_items,
     const boost::unordered_set< fs::path > &reachable_resources )
@@ -87,7 +87,7 @@ std::vector<Result> ReachabilityAnalysis::ResultsForOpsDocsNotInSpine(
     boost::unordered_set< fs::path > spine_paths = SpinePaths( document, manifest_items );
     boost::unordered_set< fs::path > ops_docs    = GetOnlyOpsDocs( reachable_resources );
 
-    std::vector<Result> results;
+    std::vector< Result > results;
 
     foreach( const fs::path &ops_path, ops_docs )
     {
@@ -104,14 +104,14 @@ std::vector<Result> ReachabilityAnalysis::ResultsForOpsDocsNotInSpine(
 }
 
 
-std::vector<Result> ReachabilityAnalysis::ResultsForResourcesNotInManifest( 
+std::vector< Result > ReachabilityAnalysis::ResultsForResourcesNotInManifest( 
     const boost::unordered_map< std::string, fs::path > &manifest_items,
     const boost::unordered_set< fs::path > &reachable_resources )
 {
     boost::unordered_set< fs::path > manifest_paths =
         GetPathsFromItems( manifest_items );
 
-    std::vector<Result> results;
+    std::vector< Result > results;
 
     foreach( const fs::path &resource_path, reachable_resources )
     {
@@ -128,11 +128,11 @@ std::vector<Result> ReachabilityAnalysis::ResultsForResourcesNotInManifest(
 }
 
 
-std::vector<Result> ReachabilityAnalysis::ResultsForUnusedResources(
+std::vector< Result > ReachabilityAnalysis::ResultsForUnusedResources(
     const boost::unordered_map< std::string, fs::path > &manifest_items,
     const boost::unordered_set< fs::path > &reachable_resources )
 {
-    std::vector<Result> results;
+    std::vector< Result > results;
 
     boost::unordered_set< fs::path > manifest_paths =
         GetPathsFromItems( manifest_items );
@@ -155,6 +155,7 @@ std::vector<Result> ReachabilityAnalysis::ResultsForUnusedResources(
 
 bool ReachabilityAnalysis::AllowedToBeNotReachable( const fs::path &filepath )
 {
+    // As per spec, the only file that is allowed to be unreachable is the NCX file.
     return DetermineMimetype( filepath ) == NCX_MIME;
 }
 
@@ -336,7 +337,7 @@ boost::unordered_set< fs::path > ReachabilityAnalysis::DetermineReachableResourc
     while ( true )
     {
         boost::unordered_set< fs::path > reachable_resource_set =
-            GetDirectlyReachable( new_resource_set );
+            GetDirectlyReachableResources( new_resource_set );
         
         boost::unordered_set< fs::path > next_resource_set =
             Util::SetUnion( reachable_resource_set, current_resource_set );
@@ -353,7 +354,7 @@ boost::unordered_set< fs::path > ReachabilityAnalysis::DetermineReachableResourc
 }
 
 
-boost::unordered_set< fs::path > ReachabilityAnalysis::GetDirectlyReachable( 
+boost::unordered_set< fs::path > ReachabilityAnalysis::GetDirectlyReachableResources( 
     const boost::unordered_set< fs::path > &resources )
 {
     return Util::SetUnion( 
@@ -511,13 +512,18 @@ boost::unordered_set< fs::path > ReachabilityAnalysis::GetLinkedResourcesFromCss
     boost::unordered_set< fs::path > linked_resources;
     fs::path css_doc_folder = css_document.parent_path();
 
+    // We have to erase all comments first, because we don't want
+    // to count commented-out links.
+    boost::erase_all_regex( contents, boost::regex( "/\\*.*?\\*/" ) );
+
     std::string::const_iterator start = contents.begin();
     std::string::const_iterator end   = contents.end(); 
 
     boost::match_results< std::string::const_iterator > matches; 
-    boost::regex expression( "(?:src:|@import)\\s*\\w+\\([\"']?([^)\"']*)[\"']?\\)" );
+    boost::regex expression( 
+        "(?:(?:src|background|background-image)\\s*:|@import)\\s*\\w*\\(?[\"']?([^)\"']*)[\"']?\\)?" );
 
-    while( boost::regex_search( start, end, matches, expression ) ) 
+    while ( boost::regex_search( start, end, matches, expression ) ) 
     { 
         fs::path resource_path = Util::Utf8PathToBoostPath( matches[ 1 ] );        
         linked_resources.insert( Util::NormalizePath( css_doc_folder / resource_path ) );
@@ -550,7 +556,7 @@ bool ReachabilityAnalysis::IsFilesystemPath( const fs::path &path )
 {   
     // If the attribute value in a href has ':', it's because
     // this is a non-filesystem path. We already removed the
-    // "file://" prefix if it exists.
+    // "file://" prefix if it existed.
     
     return path.string().find( ':' ) == std::string::npos;
 }

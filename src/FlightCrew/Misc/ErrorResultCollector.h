@@ -46,7 +46,7 @@ public:
 
     void resetErrors();
 
-    std::vector<Result> GetResults();
+    std::vector< Result > GetResults();
 
     void AddNewExceptionAsResult( const xc::SAXParseException &exception,
                                   bool xml_error = false );
@@ -59,7 +59,7 @@ public:
 
 private:
 
-    std::vector<Result> m_Results;
+    std::vector< Result > m_Results;
 };
 
 } // namespace FlightCrew

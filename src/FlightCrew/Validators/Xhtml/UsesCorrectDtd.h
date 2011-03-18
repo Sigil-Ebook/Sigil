@@ -32,7 +32,7 @@ class UsesCorrectDtd : public IValidator
 {
 public:
 
-    std::vector<Result> ValidateFile( const fs::path &filepath );
+    std::vector< Result > ValidateFile( const fs::path &filepath );
 
 private:
 

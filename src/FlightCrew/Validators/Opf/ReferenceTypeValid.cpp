@@ -28,14 +28,14 @@
 namespace FlightCrew
 {
 
-std::vector<Result> ReferenceTypeValid::ValidateXml(
+std::vector< Result > ReferenceTypeValid::ValidateXml(
     const xc::DOMDocument &document,
     const fs::path& )
 {
     std::vector< xc::DOMElement* > elements = xe::GetElementsByQName( 
         document, QName( "reference", OPF_XML_NAMESPACE ) );
 
-    std::vector<Result> results;
+    std::vector< Result > results;
     boost::unordered_set< std::string > types = GetReferenceTypesSet();
 
     foreach( xc::DOMElement* element, elements )

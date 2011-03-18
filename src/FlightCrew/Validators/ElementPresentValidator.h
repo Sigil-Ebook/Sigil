@@ -49,9 +49,9 @@ protected:
      * @param document The document being validated.
      * @return A list of validation results.
      */
-    std::vector<Result> VerifyElementPresent( const xe::QName &element_qname,
-                                              const std::vector< xe::QName > &possible_parents,
-                                              const xc::DOMDocument &document );
+    std::vector< Result > VerifyElementPresent( const xe::QName &element_qname,
+                                                const std::vector< xe::QName > &possible_parents,
+                                                const xc::DOMDocument &document );
 };
 
 } // namespace FlightCrew

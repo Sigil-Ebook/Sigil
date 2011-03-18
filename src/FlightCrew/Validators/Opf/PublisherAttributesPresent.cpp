@@ -25,7 +25,7 @@
 namespace FlightCrew
 {
 
-std::vector<Result> PublisherAttributesPresent::ValidateXml(
+std::vector< Result > PublisherAttributesPresent::ValidateXml(
     const xc::DOMDocument &document,
     const fs::path& )
 {

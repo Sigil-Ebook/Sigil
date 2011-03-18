@@ -30,7 +30,7 @@
 namespace FlightCrew
 {
 
-std::vector<Result> AllowedChildrenValidator::ValidateAllowedChildren( 
+std::vector< Result > AllowedChildrenValidator::ValidateAllowedChildren( 
     const QName &parent_qname, 
     const std::vector< QName > &allowed_children, 
     const xc::DOMDocument &document )
@@ -38,7 +38,7 @@ std::vector<Result> AllowedChildrenValidator::ValidateAllowedChildren(
     xc::DOMNodeList *parents_matching = document.getElementsByTagNameNS(
         toX( parent_qname.namespace_name ),  toX( parent_qname.local_name ) );
 
-    std::vector<Result> results;
+    std::vector< Result > results;
 
     if ( parents_matching->getLength() < 1 )
     

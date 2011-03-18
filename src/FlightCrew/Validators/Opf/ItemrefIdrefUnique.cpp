@@ -28,7 +28,7 @@
 namespace FlightCrew
 {
 
-std::vector<Result> ItemrefIdrefUnique::ValidateXml( 
+std::vector< Result > ItemrefIdrefUnique::ValidateXml( 
     const xc::DOMDocument &document,
     const fs::path& )
 {
@@ -37,7 +37,7 @@ std::vector<Result> ItemrefIdrefUnique::ValidateXml(
         QName( "idref", "" ),
         document );
 
-    std::vector<Result> results;
+    std::vector< Result > results;
 
     boost::unordered_set< std::string > idref_values;
 

@@ -29,7 +29,7 @@
 namespace FlightCrew
 {
 
-std::vector<Result> AttributesPresentValidator::HasOnlyAllowedAttributes( 
+std::vector< Result > AttributesPresentValidator::HasOnlyAllowedAttributes( 
     const QName &element_qname,
     const std::vector< QName > &attribute_qnames, 
     const xc::DOMDocument &document )
@@ -37,7 +37,7 @@ std::vector<Result> AttributesPresentValidator::HasOnlyAllowedAttributes(
     xc::DOMNodeList *elements = document.getElementsByTagNameNS(
         toX( element_qname.namespace_name ),  toX( element_qname.local_name ) );
 
-    std::vector<Result> results;
+    std::vector< Result > results;
 
     for ( uint i = 0; i < elements->getLength(); ++i )
     {
@@ -63,7 +63,7 @@ std::vector<Result> AttributesPresentValidator::HasOnlyAllowedAttributes(
 }
 
 
-std::vector<Result> AttributesPresentValidator::HasMandatoryAttributes( 
+std::vector< Result > AttributesPresentValidator::HasMandatoryAttributes( 
     const QName &element_qname, 
     const std::vector< QName > &attribute_qnames, 
     const xc::DOMDocument &document )
@@ -71,7 +71,7 @@ std::vector<Result> AttributesPresentValidator::HasMandatoryAttributes(
     xc::DOMNodeList *elements = document.getElementsByTagNameNS(
         toX( element_qname.namespace_name ),  toX( element_qname.local_name ) );
 
-    std::vector<Result> results;
+    std::vector< Result > results;
 
     for ( uint i = 0; i < elements->getLength(); ++i )
     {

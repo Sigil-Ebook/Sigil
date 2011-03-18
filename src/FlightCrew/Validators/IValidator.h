@@ -35,7 +35,7 @@ class IValidator
 {
 public:
 
-    virtual std::vector<Result> ValidateFile( const fs::path &filepath ) = 0;
+    virtual std::vector< Result > ValidateFile( const fs::path &filepath ) = 0;
 
     virtual ~IValidator() {};
 };

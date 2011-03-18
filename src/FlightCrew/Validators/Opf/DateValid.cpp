@@ -51,14 +51,14 @@ static const boost::regex DATE_YMD_HMSF_REGEX( DATE_YMD_HMSF );
 namespace FlightCrew
 {
 
-std::vector<Result> DateValid::ValidateXml(
+std::vector< Result > DateValid::ValidateXml(
     const xc::DOMDocument &document,
     const fs::path& )
 {
     std::vector< xc::DOMElement* > dates = xe::GetElementsByQName( 
         document, QName( "date", DC_XML_NAMESPACE ) );
 
-    std::vector<Result> results;
+    std::vector< Result > results;
 
     foreach( xc::DOMElement* date, dates )
     {

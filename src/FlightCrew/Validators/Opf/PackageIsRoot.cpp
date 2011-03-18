@@ -26,13 +26,13 @@
 namespace FlightCrew
 {
 
-std::vector<Result> PackageIsRoot::ValidateXml(
+std::vector< Result > PackageIsRoot::ValidateXml(
     const xc::DOMDocument &document,
     const fs::path& )
 {
     xc::DOMElement *root_element = document.getDocumentElement();
 
-    std::vector<Result> results;
+    std::vector< Result > results;
 
     if ( fromX( root_element->getLocalName() ) != "package" ) 
     {

@@ -55,14 +55,14 @@ const QName RIGHTS_QNAME      = QName( "rights",      DC_XML_NAMESPACE  );
 const QName META_QNAME        = QName( "meta",        OPF_XML_NAMESPACE );
 
 
-std::vector<Result> MetadataAllowedChildren::ValidateXml(
+std::vector< Result > MetadataAllowedChildren::ValidateXml(
     const xc::DOMDocument &document,
     const fs::path& )
 {
     xc::DOMNodeList *metadatas = document.getElementsByTagNameNS(
                                     toX( OPF_XML_NAMESPACE ),  toX( "metadata" ) );
 
-    std::vector<Result> results;
+    std::vector< Result > results;
 
     if ( metadatas->getLength() < 1 )
     
@@ -80,13 +80,13 @@ std::vector<Result> MetadataAllowedChildren::ValidateXml(
     if ( xe::ElementListContains( children, DC_METADATA_QNAME ) ||
          xe::ElementListContains( children, X_METADATA_QNAME  ) )
     {
-        std::vector<Result> subresults = ValidateDCXChildrenSubset( children );
+        std::vector< Result > subresults = ValidateDCXChildrenSubset( children );
         results.insert( results.end(), subresults.begin(), subresults.end() );
     }
 
     else
     {
-        std::vector<Result> subresults = ValidateStandardChildren( children );
+        std::vector< Result > subresults = ValidateStandardChildren( children );
         results.insert( results.end(), subresults.begin(), subresults.end() );
     }
 
@@ -94,10 +94,10 @@ std::vector<Result> MetadataAllowedChildren::ValidateXml(
 }
 
 
-std::vector<Result> MetadataAllowedChildren::ValidateDCXChildrenSubset(
+std::vector< Result > MetadataAllowedChildren::ValidateDCXChildrenSubset(
     std::vector< xc::DOMElement* > children )
 {
-    std::vector<Result> results;
+    std::vector< Result > results;
 
     for ( uint i = 0; i < children.size(); ++i )
     {
@@ -117,10 +117,10 @@ std::vector<Result> MetadataAllowedChildren::ValidateDCXChildrenSubset(
 }
 
 
-std::vector<Result> MetadataAllowedChildren::ValidateStandardChildren( 
+std::vector< Result > MetadataAllowedChildren::ValidateStandardChildren( 
     std::vector< xc::DOMElement* > children )
 {
-    std::vector<Result> results;
+    std::vector< Result > results;
 
     for ( uint i = 0; i < children.size(); ++i )
     {

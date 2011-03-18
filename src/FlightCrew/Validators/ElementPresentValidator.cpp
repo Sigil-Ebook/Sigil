@@ -27,7 +27,7 @@
 namespace FlightCrew
 {
 
-std::vector<Result> ElementPresentValidator::VerifyElementPresent( 
+std::vector< Result > ElementPresentValidator::VerifyElementPresent( 
     const QName &element_qname, 
     const std::vector< QName > &possible_parents,
     const xc::DOMDocument &document )
@@ -35,7 +35,7 @@ std::vector<Result> ElementPresentValidator::VerifyElementPresent(
     xc::DOMNodeList *matching_elements = document.getElementsByTagNameNS(
         toX( element_qname.namespace_name ),  toX( element_qname.local_name ) );
 
-    std::vector<Result> results;
+    std::vector< Result > results;
 
     if ( matching_elements->getLength() < 1 )
     {

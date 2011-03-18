@@ -28,7 +28,7 @@
 namespace FlightCrew
 {
 
-std::vector<Result> ContentTargetsPresent::ValidateXml( 
+std::vector< Result > ContentTargetsPresent::ValidateXml( 
     const xc::DOMDocument &document,
     const fs::path &filepath )
 {

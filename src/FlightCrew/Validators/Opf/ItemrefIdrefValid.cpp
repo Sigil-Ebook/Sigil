@@ -27,7 +27,7 @@
 namespace FlightCrew
 {
 
-std::vector<Result> ItemrefIdrefValid::ValidateXml(
+std::vector< Result > ItemrefIdrefValid::ValidateXml(
     const xc::DOMDocument &document,
     const fs::path& )
 {
@@ -48,7 +48,7 @@ std::vector<Result> ItemrefIdrefValid::ValidateXml(
         item_id_set.insert( fromX( item_id->getValue() ) );
     }
 
-    std::vector<Result> results;
+    std::vector< Result > results;
 
     foreach( xc::DOMAttr* idref, idrefs )
     {

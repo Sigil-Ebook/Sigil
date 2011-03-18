@@ -28,7 +28,7 @@
 namespace FlightCrew
 {
 
-std::vector<Result> SpineTocValid::ValidateXml(
+std::vector< Result > SpineTocValid::ValidateXml(
     const xc::DOMDocument &document,
     const fs::path& )
 {
@@ -49,7 +49,7 @@ std::vector<Result> SpineTocValid::ValidateXml(
         item_id_set.insert( fromX( item_id->getValue() ) );
     }
 
-    std::vector<Result> results;
+    std::vector< Result > results;
 
     if ( tocs.empty() )
 

@@ -29,7 +29,7 @@
 namespace FlightCrew
 {
 
-std::vector<Result> ContainerListedOpfPresent::ValidateFile( const fs::path &filepath )
+std::vector< Result > ContainerListedOpfPresent::ValidateFile( const fs::path &filepath )
 {
     // TODO: try/catch for loaddoc
     boost::shared_ptr< xc::DOMDocument > document = Util::LoadXmlDocument( filepath );

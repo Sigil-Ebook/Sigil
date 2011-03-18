@@ -28,14 +28,14 @@
 namespace FlightCrew
 {
 
-std::vector<Result> IdsValid::ValidateXml(
+std::vector< Result > IdsValid::ValidateXml(
     const xc::DOMDocument &document,
     const fs::path& )
 {
     std::vector< xc::DOMElement* > elements = xe::GetElementsByQName( 
         document, QName( "*", "*" ) );
 
-    std::vector<Result> results;
+    std::vector< Result > results;
 
     foreach( xc::DOMElement* element, elements )
     {

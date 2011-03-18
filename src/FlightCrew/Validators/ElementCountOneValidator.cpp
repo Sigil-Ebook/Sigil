@@ -27,7 +27,7 @@
 namespace FlightCrew
 {
 
-std::vector<Result> ElementCountOneValidator::VerifyElementCountOne( 
+std::vector< Result > ElementCountOneValidator::VerifyElementCountOne( 
     const QName &element_qname, 
     const QName &parent_qname, 
     const xc::DOMDocument &document )
@@ -35,7 +35,7 @@ std::vector<Result> ElementCountOneValidator::VerifyElementCountOne(
     xc::DOMNodeList *elements = document.getElementsByTagNameNS(
         toX( element_qname.namespace_name ),  toX( element_qname.local_name ) );
 
-    std::vector<Result> results;
+    std::vector< Result > results;
 
     if ( elements->getLength() != 1 )
     {
