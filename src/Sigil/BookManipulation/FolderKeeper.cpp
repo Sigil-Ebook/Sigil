@@ -176,10 +176,6 @@ int FolderKeeper::GetHighestReadingOrder() const
     {
         if ( resource->Type() == Resource::HTMLResource )
         {
-            HTMLResource* html_resource = qobject_cast< HTMLResource* >( resource );
-
-            Q_ASSERT( html_resource );
-
             ++count_of_html_resources;            
         }
     }
