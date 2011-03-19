@@ -1,4 +1,4 @@
-Sigil v0.4.0 ß1 2011.03.18
+Sigil v0.4.0 ß1 2011.03.20
     - fixed an issue with CSS @import rules in the '@import "something.css"' format not being 
     recognized and thus not updated on import
     - removed the "CustomID" basic metadata entry from the Meta Editor; those wishing to use
