@@ -373,12 +373,12 @@ void OPFResource::AddResource( const Resource &resource )
 {
     QWriteLocker locker( &GetLock() );
 
+    shared_ptr< xc::DOMDocument > document = GetDocument();
+
     QHash< QString, QString > attributes;
-    attributes[ "id"         ] = GetValidID( resource.Filename() );
+    attributes[ "id"         ] = GetUniqueID( GetValidID( resource.Filename() ), *document );
     attributes[ "href"       ] = resource.GetRelativePathToOEBPS();
     attributes[ "media-type" ] = GetResourceMimetype( resource );
-
-    shared_ptr< xc::DOMDocument > document = GetDocument();
 
     xc::DOMElement *new_item = XhtmlDoc::CreateElementInDocument( 
         "item", OPF_XML_NAMESPACE, *document, attributes );
@@ -512,6 +512,39 @@ void OPFResource::UpdateSpineOrder( const QList< ::HTMLResource* > html_files )
 }
 
 
+void OPFResource::ResourceRenamed( Resource *resource, QString old_full_path )
+{
+    QWriteLocker locker( &GetLock() );
+    shared_ptr< xc::DOMDocument > document = GetDocument();
+
+    QString path_to_oebps_folder = QFileInfo( GetFullPath() ).absolutePath() + "/";
+    QString resource_oebps_path  = QString( old_full_path ).remove( path_to_oebps_folder );
+    QList< xc::DOMElement* > items = 
+        XhtmlDoc::GetTagMatchingDescendants( *document, "item", OPF_XML_NAMESPACE );
+
+    QString old_id;
+    QString new_id;
+
+    foreach( xc::DOMElement* item, items )
+    {
+        QString href = XtoQ( item->getAttribute( QtoX( "href" ) ) );
+
+        if ( href == resource_oebps_path )
+        {
+            item->setAttribute( QtoX( "href" ), QtoX( resource->GetRelativePathToOEBPS() ) );
+            
+            old_id = XtoQ( item->getAttribute( QtoX( "id" ) ) );
+            new_id = GetUniqueID( GetValidID( resource->Filename() ), *document );
+
+            item->setAttribute( QtoX( "id" ), QtoX( new_id ) );
+        }
+    }
+
+    UpdateItemrefID( old_id, new_id, *document );
+    UpdateTextFromDom( *document );
+}
+
+
 void OPFResource::AppendToSpine( const QString &id, xc::DOMDocument &document )
 {
     QHash< QString, QString > attributes;
@@ -537,6 +570,24 @@ void OPFResource::RemoveFromSpine( const QString &id, xc::DOMDocument &document 
         if ( idref == id )
         {
             spine.removeChild( child );
+            break;
+        }
+    }
+}
+
+
+void OPFResource::UpdateItemrefID( const QString &old_id, const QString &new_id, xc::DOMDocument &document )
+{
+    xc::DOMElement &spine = GetSpineElement( document );
+    std::vector< xc::DOMElement* > children = xe::GetElementChildren( spine );
+
+    foreach( xc::DOMElement *child, children )
+    {
+        QString idref = XtoQ( child->getAttribute( QtoX( "idref" ) ) );
+        
+        if ( idref == old_id )
+        {
+            child->setAttribute( QtoX( "idref" ), QtoX( new_id ) );
             break;
         }
     }
@@ -1207,6 +1258,18 @@ QString OPFResource::GetOPFDefaultText()
 void OPFResource::FillWithDefaultText()
 {
     SetText( GetOPFDefaultText() );
+}
+
+
+QString OPFResource::GetUniqueID( const QString &preferred_id, const xc::DOMDocument &document ) const
+{
+    xc::DOMElement* element = document.getElementById( QtoX( preferred_id ) );
+
+    if ( !element )
+
+        return preferred_id;
+
+    return Utility::CreateUUID();
 }
 
 

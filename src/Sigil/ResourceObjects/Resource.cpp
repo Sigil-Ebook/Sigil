@@ -109,8 +109,9 @@ bool Resource::RenameTo( const QString &new_filename )
 
     if ( successful )
     {
+        QString old_path = m_FullFilePath;
         m_FullFilePath = new_path;
-        emit RenamedTo( new_filename );
+        emit Renamed( this, old_path );
     }
 
     return successful;

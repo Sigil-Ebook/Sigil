@@ -114,11 +114,15 @@ public slots:
 
     void UpdateSpineOrder( const QList< ::HTMLResource* > html_files );
 
+    void ResourceRenamed( Resource *resource, QString old_full_path );
+
 private:
 
     static void AppendToSpine( const QString &id, xc::DOMDocument &document );
 
     static void RemoveFromSpine( const QString &id, xc::DOMDocument &document );
+
+    static void UpdateItemrefID( const QString &old_id, const QString &new_id, xc::DOMDocument &document );
 
     boost::shared_ptr< xc::DOMDocument > GetDocument() const;
 
@@ -243,6 +247,8 @@ private:
     static QString GetOPFDefaultText();
 
     void FillWithDefaultText();
+
+    QString GetUniqueID( const QString &preferred_id, const xc::DOMDocument &document ) const;
 
     QString GetResourceMimetype( const Resource &resource ) const;
 

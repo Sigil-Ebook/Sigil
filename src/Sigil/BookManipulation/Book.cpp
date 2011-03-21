@@ -161,8 +161,7 @@ HTMLResource& Book::CreateChapterBreakOriginalResource( const QString &content, 
 {
     const QString &originating_filename = originating_resource.Filename();
 
-    originating_resource.RenameTo( m_Mainfolder.GetUniqueFilenameVersion( FIRST_CHAPTER_NAME ) );    
-
+    originating_resource.RenameTo( m_Mainfolder.GetUniqueFilenameVersion( FIRST_CHAPTER_NAME ) );
     int reading_order = GetOPF().GetReadingOrder( originating_resource );
     Q_ASSERT( reading_order >= 0 );
 
@@ -175,8 +174,8 @@ HTMLResource& Book::CreateChapterBreakOriginalResource( const QString &content, 
         XhtmlDoc::LoadTextIntoDocument( CleanSource::Clean( content ) ) );
 
     html_resources.insert( reading_order, &html_resource );
-    GetOPF().UpdateSpineOrder( html_resources );
 
+    GetOPF().UpdateSpineOrder( html_resources );    
     AnchorUpdates::UpdateAllAnchorsWithIDs( html_resources );
 
     SetModified( true );

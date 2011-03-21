@@ -32,7 +32,7 @@ ContentTab::ContentTab( Resource& resource, QWidget *parent )
     m_Layout( *new QVBoxLayout( this ) )
 {
     connect( &resource, SIGNAL( Deleted( Resource* ) ), this, SLOT( EmitDeleteMe()   ) );
-    connect( &resource, SIGNAL( RenamedTo( QString ) ), this, SLOT( EmitTabRenamed() ) );
+    connect( &resource, SIGNAL( Renamed( Resource*, QString ) ), this, SLOT( EmitTabRenamed() ) );
 
     m_Layout.setContentsMargins( 0, 0, 0, 0 );
 

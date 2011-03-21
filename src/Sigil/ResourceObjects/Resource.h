@@ -172,12 +172,14 @@ signals:
     /**
      * Emitted whenever the resource changes its name.
      *
-     * @param new_filename The resource's new name.
+     * @param resource The resource's that was renamed.
      */
-    void RenamedTo( QString new_filename );
+    void Renamed( Resource *resource, QString old_full_path );
 
     /**
      * Emitted when the resource has been scheduled for deletion.
+     *
+     * @param resource The resource's that was deleted.
      */
     void Deleted( Resource *resource );
 
