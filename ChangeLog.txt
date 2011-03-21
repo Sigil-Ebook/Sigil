@@ -1,3 +1,7 @@
+Sigil v0.4.0 ß2 ADD_DATE
+    - fixed a validation issue with the Meta Editor not adding the correct namespace prefix to some
+    Dublin Core metadata element attributes
+
 Sigil v0.4.0 ß1 2011.03.20
     - fixed an issue with CSS @import rules in the '@import "something.css"' format not being 
     recognized and thus not updated on import

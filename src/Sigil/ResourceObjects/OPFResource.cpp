@@ -1004,11 +1004,11 @@ void OPFResource::WriteCreatorOrContributor(
     // This assumes that the "dc" prefix has been declared for the DC namespace
     xc::DOMElement *element = document.createElementNS( QtoX( DUBLIN_CORE_NS ), QtoX( "dc:" + element_name ) );
 
-    element->setAttributeNS( QtoX( OPF_XML_NAMESPACE ), QtoX( "role" ), QtoX( role ) );
+    element->setAttributeNS( QtoX( OPF_XML_NAMESPACE ), QtoX( "opf:role" ), QtoX( role ) );
 
     if ( !file_as.isEmpty() )
 
-        element->setAttributeNS( QtoX( OPF_XML_NAMESPACE ), QtoX( "file-as" ), QtoX( file_as ) );
+        element->setAttributeNS( QtoX( OPF_XML_NAMESPACE ), QtoX( "opf:file-as" ), QtoX( file_as ) );
 
     element->setTextContent( QtoX( value ) );
 
@@ -1049,7 +1049,7 @@ void OPFResource::WriteIdentifier(
 
     // This assumes that the "dc" prefix has been declared for the DC namespace
     xc::DOMElement *element = document.createElementNS( QtoX( DUBLIN_CORE_NS ), QtoX( "dc:identifier" ) );
-    element->setAttributeNS( QtoX( OPF_XML_NAMESPACE ), QtoX( "scheme" ), QtoX( metaname ) );
+    element->setAttributeNS( QtoX( OPF_XML_NAMESPACE ), QtoX( "opf:scheme" ), QtoX( metaname ) );
 
     if ( metaname.toLower() == "uuid" && !metavalue.contains( "urn:uuid:" ) )
 
@@ -1080,7 +1080,7 @@ void OPFResource::WriteDate(
 
     // This assumes that the "dc" prefix has been declared for the DC namespace
     xc::DOMElement *element = document.createElementNS( QtoX( DUBLIN_CORE_NS ), QtoX( "dc:date" ) );
-    element->setAttributeNS( QtoX( OPF_XML_NAMESPACE ), QtoX( "event" ), QtoX( event_type ) );
+    element->setAttributeNS( QtoX( OPF_XML_NAMESPACE ), QtoX( "opf:event" ), QtoX( event_type ) );
     element->setTextContent( QtoX( date ) );
 
     xc::DOMElement &metadata = GetMetadataElement( document );
