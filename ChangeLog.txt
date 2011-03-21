@@ -1,4 +1,4 @@
-Sigil v0.4.0 ß2 ADD_DATE
+Sigil v0.4.0 ß2 2011.03.21.
     - fixed an issue with the ID of the manifest item of a resource not being updated when the 
     resource was renamed
     - fixed an issue with chapter splits being created in the wrong reading order (issue #797)
