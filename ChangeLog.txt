@@ -1,4 +1,4 @@
-Sigil v0.4.0 ß3 ADD_DATE
+Sigil v0.4.0 ß3 2011.03.24
     - added a workaround for loading broken epub files that use the incorrect mimetype for the 
     NCX (issue #815)
     - fixed a rare issue with loading epub files with OPF's that had the XML version set to 1.1,
