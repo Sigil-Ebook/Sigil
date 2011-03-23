@@ -381,8 +381,13 @@ void FolderKeeper::CreateInfrastructureFiles()
     connect( m_OPF, SIGNAL( Deleted( Resource* ) ), this, SLOT( RemoveResource( Resource* ) ) );
     connect( m_NCX, SIGNAL( Deleted( Resource* ) ), this, SLOT( RemoveResource( Resource* ) ) );
 
-    connect( this, SIGNAL( ResourceAdded( const Resource& ) ),   m_OPF, SLOT( AddResource(    const Resource& ) ) );
-    connect( this, SIGNAL( ResourceRemoved( const Resource& ) ), m_OPF, SLOT( RemoveResource( const Resource& ) ) );
+    // For ResourceAdded, the connection has to be DirectConnection,
+    // otherwise the default of AutoConnection screws us when 
+    // AddContentFileToFolder is called from multiple threads.
+    connect( this,  SIGNAL( ResourceAdded( const Resource& ) ),   
+             m_OPF, SLOT( AddResource(     const Resource& ) ), Qt::DirectConnection );
+    connect( this,  SIGNAL( ResourceRemoved( const Resource& ) ), 
+             m_OPF, SLOT( RemoveResource(    const Resource& ) ) );
 
     Utility::WriteUnicodeTextFile( CONTAINER_XML, m_FullPathToMetaInfFolder + "/container.xml" );
 }

@@ -739,9 +739,6 @@ void MainWindow::CreateChapterBreakOldTab( QString content, HTMLResource& origin
 
 void MainWindow::CreateNewChapters( QStringList new_chapters )
 {   
-    // The FlowTab will unlock the resource itself
-    // for this operation.
-
     m_Book->CreateNewChapters( new_chapters );
     m_BookBrowser->Refresh();
 

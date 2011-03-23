@@ -1,4 +1,8 @@
 Sigil v0.4.0 ß3 ADD_DATE
+    - fixed an issue with entries appearing at random in the TOC after a split on SGF markers
+    is followed up with "Generate TOC from headings" request (issue #804)
+    - fixed an issue with files not appearing in the Book Browser after a split on SGF markers
+    (issue #816)
     - fixed a regression that caused the auto-cover-setting heuristics to unset covers when they
     are already set (issue #806)
     - opening an HTML file now automatically builds a TOC from the headings
