@@ -29,9 +29,11 @@
 #include "BookManipulation/XercesCppUse.h"
 #include "ResourceObjects/HTMLResource.h"
 #include "ResourceObjects/CSSResource.h"
+#include "ResourceObjects/NCXResource.h"
 #include "SourceUpdates/PerformHTMLUpdates.h"
 #include "SourceUpdates/UniversalUpdates.h"
 #include "BookManipulation/XhtmlDoc.h"
+
 
 
 // Constructor;
@@ -66,6 +68,7 @@ QSharedPointer< Book > ImportHTML::GetBook()
     LoadMetadata( *document );
 
     UpdateFiles( CreateHTMLResource(), *document, LoadFolderStructure( *document ) );
+    m_Book->GetNCX().GenerateNCXFromBookContents( *m_Book );
 
     return m_Book;
 }
