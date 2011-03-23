@@ -156,16 +156,8 @@ void ImportOEBPS::LocateOPF()
 
 void ImportOEBPS::ReadOPF()
 {
-    QString opf_text = Utility::ReadUnicodeTextFile( m_OPFFilePath );
-
-    // MASSIVE hack for XML 1.1 "support";
-    // this is only for people who specify
-    // XML 1.1 when they actually only use XML 1.0 
-    QString source = opf_text.replace(  QRegExp( "<\\?xml\\s+version=\"1.1\"\\s*\\?>" ),
-                                                 "<?xml version=\"1.0\"?>"
-                                     );
-
-    QXmlStreamReader opf_reader( source );
+    QString opf_text = PrepareOPFForReading( Utility::ReadUnicodeTextFile( m_OPFFilePath ) );
+    QXmlStreamReader opf_reader( opf_text );
 
     while ( !opf_reader.atEnd() ) 
     {
@@ -329,6 +321,22 @@ tuple< QString, QString > ImportOEBPS::LoadOneFile( const QString &path,
     {
     	return make_tuple( UPDATE_ERROR_STRING, UPDATE_ERROR_STRING );
     }
+}
+
+
+QString ImportOEBPS::PrepareOPFForReading( const QString &source )
+{
+    QString source_copy( source );
+    QString prefix = source_copy.left( XML_DECLARATION_SEARCH_PREFIX_SIZE );
+    QRegExp version( VERSION_ATTRIBUTE );
+    prefix.indexOf( version );
+
+    // MASSIVE hack for XML 1.1 "support";
+    // this is only for people who specify
+    // XML 1.1 when they actually only use XML 1.0
+    source_copy.replace( version.pos(), version.matchedLength(), "version=\"1.0\"" );
+    
+    return source_copy;
 }
 
 

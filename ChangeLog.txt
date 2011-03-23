@@ -1,4 +1,6 @@
 Sigil v0.4.0 ß3 ADD_DATE
+    - fixed a rare issue with loading epub files with OPF's that had the XML version set to 1.1,
+    but also had other attributes in the XML declaration (issue #812)
     - fixed an issue with entries appearing at random in the TOC after a split on SGF markers
     is followed up with "Generate TOC from headings" request (issue #804)
     - fixed an issue with files not appearing in the Book Browser after a split on SGF markers

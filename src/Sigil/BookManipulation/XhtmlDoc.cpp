@@ -41,7 +41,7 @@ static const QStringList BLOCK_LEVEL_TAGS = QStringList() << "address" << "block
  
 static const QStringList IMAGE_TAGS = QStringList() << "img" << "image";
 
-static const int XML_STANDALONE_SEARCH_PREFIX_SIZE = 150;
+const int XML_DECLARATION_SEARCH_PREFIX_SIZE = 150;
 static const int XML_CUSTOM_ENTITY_SEARCH_PREFIX_SIZE = 500;
 static const QString ENTITY_SEARCH = "<!ENTITY\\s+(\\w+)\\s+\"([^\"]+)\">";
 
@@ -993,7 +993,7 @@ XhtmlDoc::XMLElement XhtmlDoc::CreateXMLElement( QXmlStreamReader &reader )
 
 QString XhtmlDoc::PrepareSourceForXerces( const QString &source )
 {
-    QString prefix = source.left( XML_STANDALONE_SEARCH_PREFIX_SIZE );
+    QString prefix = source.left( XML_DECLARATION_SEARCH_PREFIX_SIZE );
     QRegExp standalone( STANDALONE_ATTRIBUTE );
     prefix.indexOf( standalone );
 

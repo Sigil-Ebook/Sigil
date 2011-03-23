@@ -52,9 +52,11 @@ extern const QStringList FONT_EXTENSIONS;
 extern const QStringList IMAGE_EXTENSIONS;
 extern const QString ENCODING_ATTRIBUTE;
 extern const QString STANDALONE_ATTRIBUTE;
+extern const QString VERSION_ATTRIBUTE;
 extern const QString ADOBE_FONT_ALGO_ID;
 extern const QString IDPF_FONT_ALGO_ID; 
 extern const QString DUBLIN_CORE_NS;
+extern const int XML_DECLARATION_SEARCH_PREFIX_SIZE;
 
 extern const QString NCX_MIMETYPE;
 

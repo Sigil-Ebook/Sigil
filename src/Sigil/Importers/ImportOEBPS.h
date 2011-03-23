@@ -111,6 +111,7 @@ protected:
 
     /**
      * Loads the referenced files into the main folder of the book. 
+     *
      * @return A hash with keys being old references (URLs) to resources,
      *         and values being the new references to those resources.
      */ 
@@ -120,10 +121,21 @@ protected:
      * Loads a single file.
      * 
      * @param path A full path to the file to load.
-     * @param reading_order 
+     * @param reading_order The reading order of the file.
+     * @return A tuple where the first member is the old path to the file,
+     *         and the new member is the new, OEBPS-relative path to it.
      */
     tuple< QString, QString > LoadOneFile( const QString &path,
                                            int reading_order );
+
+    /**
+     * Performs the necessary modifications to the OPF
+     * source so that it can be read.
+     *
+     * @param source The XML source of the OPF.
+     * @return The prepared source.
+     */
+    QString PrepareOPFForReading( const QString &source );
     
 
     ///////////////////////////////
