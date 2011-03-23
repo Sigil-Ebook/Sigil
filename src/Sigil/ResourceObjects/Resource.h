@@ -43,19 +43,25 @@ public:
 
     /**
      * Used to inspect a resource's type.
+     * There's a reason why all of these end with *Type. If we just use the
+     * name of the subclass without the suffix, then we get a name clash in
+     * Resource subclasses that use other Resource subclasses. While we can
+     * get around this with a ::, Qt's MOC is not smart enough and sees slots
+     * that refer to, say, ::HTMLResource as having a parameter type of "::HTMLResource".
+     * That is then incompatible with just "HTMLResource". So we use a suffix.
      */
     enum ResourceType
     {
-        GenericResource, /**< A \em vulgaris resource; used for Misc resources. */
-        TextResource,    /**< Used for Text resources, but \em not HTML files. */
-        XMLResource,    /**< Used for Text resources, but \em not HTML files. */
-        HTMLResource,    /**< Used for pure (X)HTML resources. */
-        CSSResource,     /**< Used for CSS resources (stylesheets). */
-        XPGTResource,    /**< Used for XPGT resources. */
-        ImageResource,   /**< Used for image resource, of all types. */
-        FontResource,    /**< Used for font resources, both TTF and OTF. */
-        OPFResource,     /**< Used for the OPF document. */
-        NCXResource      /**< Used for the NCX table of contents. */
+        GenericResourceType, /**< A \em vulgaris resource; used for Misc resources. */
+        TextResourceType,    /**< Used for Text resources, but \em not HTML files. */
+        XMLResourceType,     /**< Used for Text resources, but \em not HTML files. */
+        HTMLResourceType,    /**< Used for pure (X)HTML resources. */
+        CSSResourceType,     /**< Used for CSS resources (stylesheets). */
+        XPGTResourceType,    /**< Used for XPGT resources. */
+        ImageResourceType,   /**< Used for image resource, of all types. */
+        FontResourceType,    /**< Used for font resources, both TTF and OTF. */
+        OPFResourceType,     /**< Used for the OPF document. */
+        NCXResourceType      /**< Used for the NCX table of contents. */
     };
 
     /**

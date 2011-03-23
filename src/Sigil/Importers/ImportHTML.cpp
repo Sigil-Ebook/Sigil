@@ -167,7 +167,7 @@ void ImportHTML::UpdateFiles( HTMLResource &html_resource,
     {
         Resource *resource = all_files.at( i );
 
-        if ( resource->Type() == Resource::CSSResource )   
+        if ( resource->Type() == Resource::CSSResourceType )   
         
             css_resources.append( qobject_cast< CSSResource* >( resource ) );          
     }

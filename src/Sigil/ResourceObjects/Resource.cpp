@@ -139,7 +139,7 @@ bool Resource::Delete()
 
 Resource::ResourceType Resource::Type() const
 {
-    return Resource::GenericResource;
+    return Resource::GenericResourceType;
 }
 
 

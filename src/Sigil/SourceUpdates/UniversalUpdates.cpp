@@ -55,19 +55,19 @@ void UniversalUpdates::PerformUniversalUpdates( bool resources_already_loaded,
     {
         Resource *resource = resources.at( i );
 
-        if ( resource->Type() == Resource::HTMLResource )
+        if ( resource->Type() == Resource::HTMLResourceType )
 
             html_resources.append( qobject_cast< HTMLResource* >( resource ) );
 
-        else if ( resource->Type() == Resource::CSSResource )
+        else if ( resource->Type() == Resource::CSSResourceType )
 
             css_resources.append( qobject_cast< CSSResource* >( resource ) );
 
-        else if ( resource->Type() == Resource::OPFResource )
+        else if ( resource->Type() == Resource::OPFResourceType )
         
             opf_resource = qobject_cast< OPFResource* >( resource );
         
-        else if ( resource->Type() == Resource::NCXResource )
+        else if ( resource->Type() == Resource::NCXResourceType )
         
             ncx_resource = qobject_cast< NCXResource* >( resource );      
     }

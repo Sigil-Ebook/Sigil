@@ -32,5 +32,5 @@ XPGTResource::XPGTResource( const QString &fullfilepath, QObject *parent )
 
 Resource::ResourceType XPGTResource::Type() const
 {
-    return Resource::XPGTResource;
+    return Resource::XPGTResourceType;
 }

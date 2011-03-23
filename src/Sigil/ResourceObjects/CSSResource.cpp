@@ -32,5 +32,5 @@ CSSResource::CSSResource( const QString &fullfilepath, QObject *parent )
 
 Resource::ResourceType CSSResource::Type() const
 {
-    return Resource::CSSResource;
+    return Resource::CSSResourceType;
 }

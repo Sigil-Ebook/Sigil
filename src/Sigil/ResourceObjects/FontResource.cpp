@@ -32,7 +32,7 @@ FontResource::FontResource( const QString &fullfilepath, QObject *parent )
 
 Resource::ResourceType FontResource::Type() const
 {
-    return Resource::FontResource;
+    return Resource::FontResourceType;
 }
 
 

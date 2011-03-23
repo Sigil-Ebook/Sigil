@@ -108,11 +108,11 @@ public slots:
 
     void RemoveResource( const Resource &resource );
 
-    void AddGuideSemanticType( const ::HTMLResource &html_resource, GuideSemantics::GuideSemanticType new_type );
+    void AddGuideSemanticType( const HTMLResource &html_resource, GuideSemantics::GuideSemanticType new_type );
 
-    void SetResourceAsCoverImage( const ::ImageResource &image_resource );
+    void SetResourceAsCoverImage( const ImageResource &image_resource );
 
-    void UpdateSpineOrder( const QList< ::HTMLResource* > html_files );
+    void UpdateSpineOrder( const QList< HTMLResource* > html_files );
 
     void ResourceRenamed( Resource *resource, QString old_full_path );
 

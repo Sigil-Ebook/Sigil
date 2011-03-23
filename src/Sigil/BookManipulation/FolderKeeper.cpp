@@ -176,7 +176,7 @@ int FolderKeeper::GetHighestReadingOrder() const
 
     foreach( Resource *resource, m_Resources.values() )
     {
-        if ( resource->Type() == Resource::HTMLResource )
+        if ( resource->Type() == Resource::HTMLResourceType )
         {
             ++count_of_html_resources;            
         }

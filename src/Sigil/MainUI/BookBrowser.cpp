@@ -46,7 +46,7 @@ BookBrowser::BookBrowser( QWidget *parent )
     m_SemanticsContextMenu( *new QMenu( this ) ),
     m_FontObfuscationContextMenu( *new QMenu( this ) ),
     m_GuideSemanticMapper( *new QSignalMapper( this ) ),
-    m_LastContextMenuType( Resource::GenericResource )
+    m_LastContextMenuType( Resource::GenericResourceType )
 { 
     m_SemanticsContextMenu      .setTitle( tr( "Add Semantics"    ) );
     m_FontObfuscationContextMenu.setTitle( tr( "Font Obfuscation" ) );
@@ -152,12 +152,12 @@ void BookBrowser::OpenContextMenu( const QPoint &point )
 
 void BookBrowser::AddNew()
 {
-    if ( m_LastContextMenuType == Resource::HTMLResource )
+    if ( m_LastContextMenuType == Resource::HTMLResourceType )
     {
         m_Book->CreateEmptyHTMLFile();
     }
 
-    else if ( m_LastContextMenuType == Resource::CSSResource )
+    else if ( m_LastContextMenuType == Resource::CSSResourceType )
     {
         m_Book->CreateEmptyCSSFile();
     }
@@ -243,7 +243,7 @@ void BookBrowser::Remove()
 
     Resource::ResourceType resource_type = resource->Type();
 
-    if ( resource_type == Resource::HTMLResource &&
+    if ( resource_type == Resource::HTMLResourceType &&
          m_Book->GetConstFolderKeeper().GetResourceTypeList< HTMLResource >().count() == 1 )
     {
         QMessageBox::critical( 0,
@@ -255,8 +255,8 @@ void BookBrowser::Remove()
         return;
     }
 
-    if ( resource_type == Resource::OPFResource || 
-         resource_type == Resource::NCXResource )
+    if ( resource_type == Resource::OPFResourceType || 
+         resource_type == Resource::NCXResourceType )
     {
         QMessageBox::critical( 0,
                                tr( "Sigil" ),
@@ -289,20 +289,20 @@ void BookBrowser::Remove()
 
 void BookBrowser::SetCoverImage()
 {
-    Resource *resource = GetCurrentResource();
-    Q_ASSERT( resource );
+    ImageResource *image_resource = qobject_cast< ImageResource* >( GetCurrentResource() );
+    Q_ASSERT( image_resource );
 
-    emit CoverImageSet( *resource );
+    emit CoverImageSet( *image_resource );
     emit BookContentModified();
 }
 
 
 void BookBrowser::AddGuideSemanticType( int type )
 {
-    Resource *resource = GetCurrentResource();
-    Q_ASSERT( resource );
+    HTMLResource *html_resource = qobject_cast< HTMLResource* >( GetCurrentResource() );
+    Q_ASSERT( html_resource );
 
-    emit GuideSemanticTypeAdded( *resource, (GuideSemantics::GuideSemanticType) type );
+    emit GuideSemanticTypeAdded( *html_resource, (GuideSemantics::GuideSemanticType) type );
     emit BookContentModified();
 }
 
@@ -357,8 +357,8 @@ void BookBrowser::IdpfsObfuscationMethod()
 
 bool BookBrowser::ShouldContinueOpeningResource( const Resource &resource )
 {
-    if ( resource.Type() != Resource::OPFResource &&
-         resource.Type() != Resource::NCXResource )
+    if ( resource.Type() != Resource::OPFResourceType &&
+         resource.Type() != Resource::NCXResourceType )
     {
         return true;
     }
@@ -563,8 +563,8 @@ bool BookBrowser::SuccessfullySetupContextMenu( const QPoint &point )
 
     m_LastContextMenuType = m_OPFModel.GetResourceType( item );
 
-    if ( m_LastContextMenuType == Resource::HTMLResource ||
-         m_LastContextMenuType == Resource::CSSResource )
+    if ( m_LastContextMenuType == Resource::HTMLResourceType ||
+         m_LastContextMenuType == Resource::CSSResourceType )
     {
         m_ContextMenu.addAction( m_AddNew );
     }
@@ -579,8 +579,8 @@ bool BookBrowser::SuccessfullySetupContextMenu( const QPoint &point )
 
     m_ContextMenu.addSeparator();
 
-    if ( m_LastContextMenuType != Resource::OPFResource &&
-         m_LastContextMenuType != Resource::NCXResource )
+    if ( m_LastContextMenuType != Resource::OPFResourceType &&
+         m_LastContextMenuType != Resource::NCXResourceType )
     {
         m_ContextMenu.addAction( m_Remove );
         m_ContextMenu.addAction( m_Rename );
@@ -595,11 +595,11 @@ bool BookBrowser::SuccessfullySetupContextMenu( const QPoint &point )
 
 void BookBrowser::SetupResourceSpecificContextMenu( Resource *resource  )
 {
-    if ( resource->Type() == Resource::HTMLResource )
+    if ( resource->Type() == Resource::HTMLResourceType )
     
         AddMergeWithPreviousAction( resource ); 
 
-    if ( resource->Type() == Resource::FontResource )
+    if ( resource->Type() == Resource::FontResourceType )
 
         SetupFontObfuscationMenu( resource );
 
@@ -609,13 +609,13 @@ void BookBrowser::SetupResourceSpecificContextMenu( Resource *resource  )
 
 void BookBrowser::SetupSemanticContextmenu( Resource *resource )
 {
-    if ( resource->Type() != Resource::HTMLResource && 
-         resource->Type() != Resource::ImageResource )
+    if ( resource->Type() != Resource::HTMLResourceType && 
+         resource->Type() != Resource::ImageResourceType )
     {
         return;
     }
     
-    if ( resource->Type() == Resource::HTMLResource )
+    if ( resource->Type() == Resource::HTMLResourceType )
 
         SetupHTMLSemanticContextMenu( resource );
 
@@ -655,7 +655,7 @@ void BookBrowser::SetupImageSemanticContextMenu( Resource *resource )
 
 void BookBrowser::SetHTMLSemanticActionCheckState( Resource *resource )
 {
-    if ( resource->Type() != Resource::HTMLResource )
+    if ( resource->Type() != Resource::HTMLResourceType )
 
         return;
 
@@ -698,7 +698,7 @@ void BookBrowser::SetupFontObfuscationMenu( Resource *resource )
 
 void BookBrowser::SetFontObfuscationActionCheckState( Resource *resource )
 {
-    if ( resource->Type() != Resource::FontResource )
+    if ( resource->Type() != Resource::FontResourceType )
 
         return;
 

@@ -863,10 +863,10 @@ void MainWindow::SetNewBook( QSharedPointer< Book > new_book )
     m_ValidationResultsView->SetBook( m_Book );
 
     connect( m_Book.data(), SIGNAL( ModifiedStateChanged( bool ) ), this, SLOT( setWindowModified( bool ) ) );
-    connect( m_BookBrowser,     SIGNAL( GuideSemanticTypeAdded( const Resource&, GuideSemantics::GuideSemanticType ) ),
-             &m_Book->GetOPF(), SLOT(   AddGuideSemanticType(   const Resource&, GuideSemantics::GuideSemanticType ) ) );
-    connect( m_BookBrowser,     SIGNAL( CoverImageSet(           const Resource& ) ),
-             &m_Book->GetOPF(), SLOT(   SetResourceAsCoverImage( const Resource& ) ) );
+    connect( m_BookBrowser,     SIGNAL( GuideSemanticTypeAdded( const HTMLResource&, GuideSemantics::GuideSemanticType ) ),
+             &m_Book->GetOPF(), SLOT(   AddGuideSemanticType(   const HTMLResource&, GuideSemantics::GuideSemanticType ) ) );
+    connect( m_BookBrowser,     SIGNAL( CoverImageSet(           const ImageResource& ) ),
+             &m_Book->GetOPF(), SLOT(   SetResourceAsCoverImage( const ImageResource& ) ) );
 
     m_Book->SetModified( false );
 }

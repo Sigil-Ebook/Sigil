@@ -76,7 +76,7 @@ bool OPFResource::RenameTo( const QString &new_filename )
 
 Resource::ResourceType OPFResource::Type() const
 {
-    return Resource::OPFResource;
+    return Resource::OPFResourceType;
 }
 
 
@@ -386,7 +386,7 @@ void OPFResource::AddResource( const Resource &resource )
     xc::DOMElement &manifest = GetManifestElement( *document );
     manifest.appendChild( new_item );
 
-    if ( resource.Type() == Resource::HTMLResource )
+    if ( resource.Type() == Resource::HTMLResourceType )
 
         AppendToSpine( attributes[ "id" ], *document );
 
@@ -416,7 +416,7 @@ void OPFResource::RemoveResource( const Resource &resource )
         }
     }
 
-    if ( resource.Type() == Resource::HTMLResource )
+    if ( resource.Type() == Resource::HTMLResourceType )
 
         RemoveFromSpine( item_id, *document );
 

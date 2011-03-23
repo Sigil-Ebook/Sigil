@@ -34,5 +34,5 @@ ImageResource::ImageResource( const QString &fullfilepath,
 
 Resource::ResourceType ImageResource::Type() const
 {
-    return Resource::ImageResource;
+    return Resource::ImageResourceType;
 }

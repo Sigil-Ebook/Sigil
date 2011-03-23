@@ -319,7 +319,7 @@ ContentTab* TabManager::CreateTabForResource( Resource& resource,
 {
     ContentTab *tab = NULL;
 
-    if ( resource.Type() == Resource::HTMLResource )
+    if ( resource.Type() == Resource::HTMLResourceType )
     {
         tab = new FlowTab( *( qobject_cast< HTMLResource* >( &resource ) ), 
                            fragment, 
@@ -334,22 +334,22 @@ ContentTab* TabManager::CreateTabForResource( Resource& resource,
                  this, SIGNAL( NewChaptersRequest( QStringList ) ) );
     }
 
-    else if ( resource.Type() == Resource::CSSResource )
+    else if ( resource.Type() == Resource::CSSResourceType )
     {
         tab = new CSSTab( *( qobject_cast< CSSResource* >( &resource ) ), line_to_scroll_to, this );
     }
 
-    else if ( resource.Type() == Resource::XPGTResource )
+    else if ( resource.Type() == Resource::XPGTResourceType )
     {
         tab = new XPGTTab( *( qobject_cast< XPGTResource* >( &resource ) ), line_to_scroll_to, this );
     }
 
-    else if ( resource.Type() == Resource::ImageResource )
+    else if ( resource.Type() == Resource::ImageResourceType )
     {
         tab = new ImageTab( *( qobject_cast< ImageResource* >( &resource ) ), this );
     }
 
-    else if ( resource.Type() == Resource::OPFResource )
+    else if ( resource.Type() == Resource::OPFResourceType )
     {
         tab = new OPFTab( *( qobject_cast< OPFResource* >( &resource ) ), line_to_scroll_to, this );
 
@@ -357,7 +357,7 @@ ContentTab* TabManager::CreateTabForResource( Resource& resource,
                  this, SLOT( MakeCentralTab( ContentTab* ) ) );//, Qt::QueuedConnection );
     }
 
-    else if ( resource.Type() == Resource::NCXResource )
+    else if ( resource.Type() == Resource::NCXResourceType )
     {
         tab = new NCXTab( *( qobject_cast< NCXResource* >( &resource ) ), line_to_scroll_to, this );
     }

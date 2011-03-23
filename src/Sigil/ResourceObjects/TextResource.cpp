@@ -98,7 +98,7 @@ void TextResource::InitialLoad()
 
 Resource::ResourceType TextResource::Type() const
 {
-    return Resource::TextResource;
+    return Resource::TextResourceType;
 }
 
 

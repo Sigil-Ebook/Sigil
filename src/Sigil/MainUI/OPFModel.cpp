@@ -123,23 +123,23 @@ Resource::ResourceType OPFModel::GetResourceType( QStandardItem const *item )
 
     if ( item == &m_TextFolderItem )
 
-        return Resource::HTMLResource;
+        return Resource::HTMLResourceType;
 
     if ( item == &m_StylesFolderItem )
 
-        return Resource::CSSResource;
+        return Resource::CSSResourceType;
 
     if ( item == &m_ImagesFolderItem )
 
-        return Resource::ImageResource;
+        return Resource::ImageResourceType;
 
     if ( item == &m_FontsFolderItem )
 
-        return Resource::FontResource;
+        return Resource::FontResourceType;
 
     if ( item == &m_MiscFolderItem )
 
-        return Resource::GenericResource;  
+        return Resource::GenericResourceType;  
     
     const QString &identifier = item->data().toString();
     return m_Book->GetFolderKeeper().GetResourceByIdentifier( identifier ).Type();
@@ -241,7 +241,7 @@ void OPFModel::InitializeModel()
         item->setDropEnabled( false );
         item->setData( resource->GetIdentifier() );
         
-        if ( resource->Type() == Resource::HTMLResource )
+        if ( resource->Type() == Resource::HTMLResourceType )
         {
             int reading_order = 
                 m_Book->GetOPF().GetReadingOrder( *qobject_cast< HTMLResource* >( resource ) );
@@ -254,25 +254,25 @@ void OPFModel::InitializeModel()
             m_TextFolderItem.appendRow( item );
         }
 
-        else if ( resource->Type() == Resource::CSSResource || 
-                  resource->Type() == Resource::XPGTResource 
+        else if ( resource->Type() == Resource::CSSResourceType || 
+                  resource->Type() == Resource::XPGTResourceType 
                 )
         {
             m_StylesFolderItem.appendRow( item );
         }
 
-        else if ( resource->Type() == Resource::ImageResource )
+        else if ( resource->Type() == Resource::ImageResourceType )
         {
             m_ImagesFolderItem.appendRow( item );
         }
 
-        else if ( resource->Type() == Resource::FontResource )
+        else if ( resource->Type() == Resource::FontResourceType )
         {
             m_FontsFolderItem.appendRow( item );
         }
 
-        else if ( resource->Type() == Resource::OPFResource || 
-                  resource->Type() == Resource::NCXResource )
+        else if ( resource->Type() == Resource::OPFResourceType || 
+                  resource->Type() == Resource::NCXResourceType )
         {
             item->setEditable( false );
             appendRow( item );

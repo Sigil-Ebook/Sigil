@@ -51,7 +51,7 @@ HTMLResource::HTMLResource( const QString &fullfilepath,
 
 Resource::ResourceType HTMLResource::Type() const
 {
-    return Resource::HTMLResource;
+    return Resource::HTMLResourceType;
 }
 
 

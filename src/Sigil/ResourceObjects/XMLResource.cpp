@@ -35,7 +35,7 @@ XMLResource::XMLResource( const QString &fullfilepath, QObject *parent )
 
 Resource::ResourceType XMLResource::Type() const
 {
-    return Resource::XMLResource;
+    return Resource::XMLResourceType;
 }
 
 

@@ -32,6 +32,7 @@
 class QTreeView;
 class OPFModel;
 class HTMLResource;
+class ImageResource;
 class Resource;
 class QModelIndex;
 class QUrl;
@@ -115,19 +116,19 @@ signals:
      * in the Add Semantics sub-menu. Note that this is also emitted
      * when the user tries to un-check an added type in the menu. 
      *
-     * @param resource The resource for which the type is being added.
+     * @param html_resource The resource for which the type is being added.
      * @param type The guide semantic type.
      */
-    void GuideSemanticTypeAdded( const Resource &resource, GuideSemantics::GuideSemanticType type );
+    void GuideSemanticTypeAdded( const HTMLResource &html_resource, GuideSemantics::GuideSemanticType type );
 
     /**
      * Emitted when the user selects an image as a cover.
      * Note that this is also emitted when the user tries 
      * to un-check an image as a cover in the menu. 
      *
-     * @param resource The resource being set as the cover.
+     * @param image_resource The resource being set as the cover.
      */
-    void CoverImageSet( const Resource &resource );
+    void CoverImageSet( const ImageResource &image_resource );
 
 private slots:
 

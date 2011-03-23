@@ -68,7 +68,7 @@ bool NCXResource::RenameTo( const QString &new_filename )
 
 Resource::ResourceType NCXResource::Type() const
 {
-    return Resource::NCXResource;
+    return Resource::NCXResourceType;
 }
 
 
