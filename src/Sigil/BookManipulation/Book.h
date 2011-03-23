@@ -69,7 +69,7 @@ public:
      *
      * @return A const reference to the FolderKeeper instance of the Book.
      */
-    const FolderKeeper& GetConstFolderKeeper() const;
+    const FolderKeeper& GetFolderKeeper() const;
 
     /**
      * Returns the book's OPF file.

@@ -424,7 +424,7 @@ bool OPFModel::FilenameIsValid( const QString &old_filename, const QString &new_
         return false;
     }
     
-    if ( new_filename != m_Book->GetConstFolderKeeper().GetUniqueFilenameVersion( new_filename ) )
+    if ( new_filename != m_Book->GetFolderKeeper().GetUniqueFilenameVersion( new_filename ) )
     {
         QMessageBox::critical( 0,
                                tr( "Sigil" ),

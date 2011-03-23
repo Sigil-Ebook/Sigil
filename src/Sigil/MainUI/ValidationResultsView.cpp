@@ -56,7 +56,7 @@ void ValidationResultsView::ValidateCurrentBook()
     try
     {
         results = fc::ValidateEpubRootFolder( 
-            m_Book->GetConstFolderKeeper().GetFullPathToMainFolder().toUtf8().constData() );
+            m_Book->GetFolderKeeper().GetFullPathToMainFolder().toUtf8().constData() );
     }
 
     catch ( std::exception& exception )
@@ -113,7 +113,7 @@ void ValidationResultsView::ResultDoubleClicked( QTableWidgetItem *item )
 
     try
     {
-        Resource &resource = m_Book->GetConstFolderKeeper().GetResourceByFilename( filename );
+        Resource &resource = m_Book->GetFolderKeeper().GetResourceByFilename( filename );
 
         emit OpenResourceRequest( resource, false, QUrl(), ContentTab::ViewState_CodeView, line );
     }

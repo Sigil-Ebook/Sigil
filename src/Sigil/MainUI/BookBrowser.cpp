@@ -185,7 +185,7 @@ void BookBrowser::AddExisting()
     // GetBook call will clear it.
     QHash< QString, QList< QVariant > > old_metadata = m_Book->GetMetadata();
 
-    QStringList current_filenames = m_Book->GetConstFolderKeeper().GetAllFilenames();
+    QStringList current_filenames = m_Book->GetFolderKeeper().GetAllFilenames();
 
     foreach( QString filepath, filepaths )
     {
@@ -244,7 +244,7 @@ void BookBrowser::Remove()
     Resource::ResourceType resource_type = resource->Type();
 
     if ( resource_type == Resource::HTMLResourceType &&
-         m_Book->GetConstFolderKeeper().GetResourceTypeList< HTMLResource >().count() == 1 )
+         m_Book->GetFolderKeeper().GetResourceTypeList< HTMLResource >().count() == 1 )
     {
         QMessageBox::critical( 0,
                                tr( "Sigil" ),

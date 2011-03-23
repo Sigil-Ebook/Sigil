@@ -138,7 +138,7 @@ HTMLResource& ImportHTML::CreateHTMLResource()
     QString fullfilepath = tempfolder.GetPath() + "/" + QFileInfo( m_FullFilePath ).fileName();
     Utility::WriteUnicodeTextFile( "TEMP_SOURCE", fullfilepath );
 
-    int reading_order = m_Book->GetConstFolderKeeper().GetHighestReadingOrder() + 1;
+    int reading_order = m_Book->GetFolderKeeper().GetHighestReadingOrder() + 1;
 
     HTMLResource &resource = *qobject_cast< HTMLResource* >(
                                 &m_Book->GetFolderKeeper().AddContentFileToFolder( fullfilepath, reading_order ) );
@@ -214,7 +214,7 @@ QHash< QString, QString > ImportHTML::LoadImages( const xc::DOMDocument *documen
     QHash< QString, QString > updates;
     QDir folder( QFileInfo( m_FullFilePath ).absoluteDir() );
 
-    QStringList current_filenames = m_Book->GetConstFolderKeeper().GetAllFilenames();
+    QStringList current_filenames = m_Book->GetFolderKeeper().GetAllFilenames();
 
     // Load the images into the book and
     // update all references with new urls
@@ -251,7 +251,7 @@ QHash< QString, QString > ImportHTML::LoadStyleFiles( const xc::DOMDocument *doc
     QList< xc::DOMElement* > link_nodes = XhtmlDoc::GetTagMatchingDescendants( *document, "link" );
     QHash< QString, QString > updates;
 
-    QStringList current_filenames = m_Book->GetConstFolderKeeper().GetAllFilenames();
+    QStringList current_filenames = m_Book->GetFolderKeeper().GetAllFilenames();
 
     for ( int i = 0; i < link_nodes.count(); ++i )
     {

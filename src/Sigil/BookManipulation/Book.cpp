@@ -76,7 +76,7 @@ FolderKeeper& Book::GetFolderKeeper()
 }
 
 
-const FolderKeeper& Book::GetConstFolderKeeper() const
+const FolderKeeper& Book::GetFolderKeeper() const
 {
     return m_Mainfolder;
 }
