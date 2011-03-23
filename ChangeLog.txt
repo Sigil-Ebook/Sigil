@@ -1,6 +1,6 @@
 Sigil v0.4.0 ß3 ADD_DATE
-    - fixed a regression that caused the auto-cover-setting heuristics unset them when they are set
-    (issue #806)
+    - fixed a regression that caused the auto-cover-setting heuristics to unset covers when they
+    are already set (issue #806)
     - opening an HTML file now automatically builds a TOC from the headings
     - fixed a regression that caused the Add Semantics menu to stop working (issue #807)
 
