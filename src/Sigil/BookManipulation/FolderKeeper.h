@@ -228,7 +228,7 @@ private slots:
      * 
      * @param resource The resource to remove.
      */
-    void RemoveResource( Resource *resource );
+    void RemoveResource( const Resource& resource );
 
 private:
 

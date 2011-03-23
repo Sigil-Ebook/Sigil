@@ -128,7 +128,7 @@ bool Resource::Delete()
 
     if ( successful )
     {        
-        emit Deleted( this );
+        emit Deleted( *this );
 
         deleteLater();
     }

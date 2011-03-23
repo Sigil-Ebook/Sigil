@@ -187,7 +187,7 @@ signals:
      *
      * @param resource The resource's that was deleted.
      */
-    void Deleted( Resource *resource );
+    void Deleted( const Resource& resource );
 
     /**
      * Emitted when the resource has been updated on disk.

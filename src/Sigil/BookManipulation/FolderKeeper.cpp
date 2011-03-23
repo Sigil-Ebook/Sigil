@@ -73,8 +73,8 @@ FolderKeeper::~FolderKeeper()
         // the OPF will try to update itself on every resource
         // removal (and there's no point to that, FolderKeeper is dying).
         // Disconnecting this speeds up FolderKeeper destruction.
-        disconnect( resource, SIGNAL( Deleted( Resource* ) ), 
-                    this,     SLOT( RemoveResource( Resource* ) ) );
+        disconnect( resource, SIGNAL( Deleted( const Resource& ) ), 
+                    this,     SLOT( RemoveResource( const Resource& ) ) );
         resource->Delete();
     } 
 }
@@ -157,8 +157,8 @@ Resource& FolderKeeper::AddContentFileToFolder( const QString &fullfilepath,
     
         resource->moveToThread( QApplication::instance()->thread() );
 
-    connect( resource, SIGNAL( Deleted( Resource* ) ), 
-             this,     SLOT( RemoveResource( Resource* ) ), Qt::DirectConnection );
+    connect( resource, SIGNAL( Deleted( const Resource& ) ), 
+             this,     SLOT( RemoveResource( const Resource& ) ), Qt::DirectConnection );
     connect( resource, SIGNAL( Renamed( Resource*, QString ) ), 
              m_OPF,    SLOT( ResourceRenamed( Resource*, QString ) ), Qt::DirectConnection );
 
@@ -325,13 +325,11 @@ QStringList FolderKeeper::GetAllFilenames() const
 }
 
 
-void FolderKeeper::RemoveResource( Resource *resource )
+void FolderKeeper::RemoveResource( const Resource& resource )
 {
-    Q_ASSERT( resource );
+    m_Resources.remove( resource.GetIdentifier() );
 
-    m_Resources.remove( resource->GetIdentifier() );
-
-    emit ResourceRemoved( *resource );
+    emit ResourceRemoved( resource );
 }
 
 
@@ -378,8 +376,8 @@ void FolderKeeper::CreateInfrastructureFiles()
     m_Resources[ m_NCX->GetIdentifier() ] = m_NCX;
 
     // TODO: change from Resource* to const Resource&
-    connect( m_OPF, SIGNAL( Deleted( Resource* ) ), this, SLOT( RemoveResource( Resource* ) ) );
-    connect( m_NCX, SIGNAL( Deleted( Resource* ) ), this, SLOT( RemoveResource( Resource* ) ) );
+    connect( m_OPF, SIGNAL( Deleted( const Resource& ) ), this, SLOT( RemoveResource( const Resource& ) ) );
+    connect( m_NCX, SIGNAL( Deleted( const Resource& ) ), this, SLOT( RemoveResource( const Resource& ) ) );
 
     // For ResourceAdded, the connection has to be DirectConnection,
     // otherwise the default of AutoConnection screws us when 

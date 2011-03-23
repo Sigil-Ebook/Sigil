@@ -400,8 +400,8 @@ void HTMLResource::TrackNewResources( const QStringList &filepaths )
 
         if ( resource )
         {
-            disconnect( resource, SIGNAL( ResourceUpdatedOnDisk() ), this, SLOT( LinkedResourceUpdated() ) );
-            disconnect( resource, SIGNAL( Deleted( Resource* )    ), this, SLOT( LinkedResourceUpdated() ) );
+            disconnect( resource, SIGNAL( ResourceUpdatedOnDisk() ),    this, SLOT( LinkedResourceUpdated() ) );
+            disconnect( resource, SIGNAL( Deleted( const Resource& ) ), this, SLOT( LinkedResourceUpdated() ) );
         }
     }
 
@@ -426,8 +426,8 @@ void HTMLResource::TrackNewResources( const QStringList &filepaths )
 
         if ( resource )
         {
-            connect( resource, SIGNAL( ResourceUpdatedOnDisk() ), this, SLOT( LinkedResourceUpdated() ) );
-            connect( resource, SIGNAL( Deleted( Resource* )    ), this, SLOT( LinkedResourceUpdated() ) );
+            connect( resource, SIGNAL( ResourceUpdatedOnDisk() ),    this, SLOT( LinkedResourceUpdated() ) );
+            connect( resource, SIGNAL( Deleted( const Resource& ) ), this, SLOT( LinkedResourceUpdated() ) );
         }
     }
 }
