@@ -36,7 +36,7 @@ public:
      * @param book The book for which we're writing the OPF.
      * @param device The IODevice into which we should write the XML.
      */
-    EncryptionXmlWriter( QSharedPointer< Book > book, QIODevice &device );
+    EncryptionXmlWriter( const Book &book, QIODevice &device );
 
     void WriteXML();    
 

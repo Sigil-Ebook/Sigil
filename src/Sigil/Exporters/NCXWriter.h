@@ -40,7 +40,7 @@ public:
      * @param book The book for which we're writing the NCX.
      * @param device The IODevice into which we should write the XML.
      */
-    NCXWriter( QSharedPointer< Book > book, QIODevice &device );
+    NCXWriter( const Book &book, QIODevice &device );
 
     void WriteXML();
     

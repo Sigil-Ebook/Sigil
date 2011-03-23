@@ -24,9 +24,7 @@
 #include <QTreeView>
 #include "NCXModel.h"
 #include "BookManipulation/FolderKeeper.h"
-#include "BookManipulation/CleanSource.h"
 #include "Dialogs/HeadingSelector.h"
-#include "Exporters/NCXWriter.h"
 #include "ResourceObjects/NCXResource.h"
 
 static const int COLUMN_INDENTATION = 10;
@@ -143,16 +141,7 @@ void TableOfContents::GenerateTocFromHeadings()
             return;
     }
 
-    QByteArray raw_ncx;
-    QBuffer buffer( &raw_ncx );
-
-    buffer.open( QIODevice::WriteOnly );    
-    NCXWriter ncx( m_Book, buffer );
-    ncx.WriteXML();
-    buffer.close();
-
-    m_Book->GetNCX().SetText( 
-        CleanSource::ProcessXML( QString::fromUtf8( raw_ncx.constData(), raw_ncx.size() ) ) );    
+    m_Book->GetNCX().GenerateNCXFromBookContents( *m_Book );
 }
 
 

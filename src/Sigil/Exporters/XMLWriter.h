@@ -43,7 +43,7 @@ public:
      * @param book The book for which we're writing the XML.
      * @param device The IODevice into which we should write the XML.
      */
-    XMLWriter( QSharedPointer< Book > book, QIODevice &device );
+    XMLWriter( const Book &book, QIODevice &device );
 
     /**
      * Destructor.
@@ -60,7 +60,7 @@ protected:
     /**
      * The book being exported.
      */
-    QSharedPointer< Book > m_Book;
+    const Book &m_Book;
 
     /**
      * The IO device that we are writing to.

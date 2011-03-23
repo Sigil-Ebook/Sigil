@@ -21,6 +21,9 @@
 
 #include <stdafx.h>
 #include "NCXResource.h"
+#include "Exporters/NCXWriter.h"
+#include "BookManipulation/CleanSource.h"
+
 
 static const QString TEMPLATE_TEXT = 
     "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
@@ -75,6 +78,20 @@ Resource::ResourceType NCXResource::Type() const
 void NCXResource::SetMainID( const QString &main_id )
 {
     SetText( m_TextDocument->toPlainText().replace( "ID_UNKNOWN", main_id ) );
+}
+
+
+void NCXResource::GenerateNCXFromBookContents( const Book &book )
+{
+    QByteArray raw_ncx;
+    QBuffer buffer( &raw_ncx );
+
+    buffer.open( QIODevice::WriteOnly );    
+    NCXWriter ncx( book, buffer );
+    ncx.WriteXML();
+    buffer.close();
+
+    SetText( CleanSource::ProcessXML( QString::fromUtf8( raw_ncx.constData(), raw_ncx.size() ) ) );
 }
 
 

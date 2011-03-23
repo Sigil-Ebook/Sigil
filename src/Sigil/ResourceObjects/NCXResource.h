@@ -25,6 +25,7 @@
 
 #include "XMLResource.h"
 
+class Book;
 
 class NCXResource : public XMLResource 
 {
@@ -48,6 +49,8 @@ public:
     virtual ResourceType Type() const;
 
     void SetMainID( const QString &main_id );
+
+    void GenerateNCXFromBookContents( const Book &book );
 
 private:
 

@@ -27,11 +27,11 @@
 #include "BookManipulation/XercesCppUse.h"
 
 
-NCXWriter::NCXWriter( QSharedPointer< Book > book, QIODevice &device )
+NCXWriter::NCXWriter( const Book &book, QIODevice &device )
     : 
     XMLWriter( book, device ),
     m_Headings( Headings::MakeHeadingHeirarchy( 
-                Headings::GetHeadingList( m_Book->GetFolderKeeper().GetResourceTypeList< HTMLResource >( true ) ) ) )
+                Headings::GetHeadingList( book.GetConstFolderKeeper().GetResourceTypeList< HTMLResource >( true ) ) ) )
 {
 
 }
@@ -65,7 +65,7 @@ void NCXWriter::WriteHead()
         m_Writer->writeEmptyElement( "meta" );
         m_Writer->writeAttribute( "name", "dtb:uid" );
 
-        m_Writer->writeAttribute( "content", m_Book->GetPublicationIdentifier() );
+        m_Writer->writeAttribute( "content", m_Book.GetPublicationIdentifier() );
 
         // The heading depth should be exactly the same as the depth
         // of the NavMap element (since they are used to write it)
@@ -89,7 +89,7 @@ void NCXWriter::WriteDocTitle()
 {
     QString document_title;
     
-    QList< QVariant > titles = m_Book->GetMetadata().value( "Title" );
+    QList< QVariant > titles = m_Book.GetMetadata().value( "Title" );
 
     if ( titles.isEmpty() )
     
@@ -144,7 +144,7 @@ void NCXWriter::WriteFallbackNavPoint()
     m_Writer->writeTextElement( "text", "Start");
     m_Writer->writeEndElement();
 
-    QList< HTMLResource* > html_resources = m_Book->GetConstFolderKeeper().GetResourceTypeList< HTMLResource >( true ); 
+    QList< HTMLResource* > html_resources = m_Book.GetConstFolderKeeper().GetResourceTypeList< HTMLResource >( true ); 
     Q_ASSERT( !html_resources.isEmpty() );
 
     m_Writer->writeEmptyElement( "content" );

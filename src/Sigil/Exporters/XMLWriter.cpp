@@ -24,7 +24,7 @@
 #include "BookManipulation/Book.h"
 
 
-XMLWriter::XMLWriter( QSharedPointer< Book > book, QIODevice &device )
+XMLWriter::XMLWriter( const Book &book, QIODevice &device )
     : 
     m_Book( book ),
     m_IODevice( device ),

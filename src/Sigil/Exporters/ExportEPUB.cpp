@@ -175,7 +175,7 @@ void ExportEPUB::CreateEncryptionXML( const QString &fullfolderpath )
                    );
     }
     
-    EncryptionXmlWriter enc( m_Book, file );
+    EncryptionXmlWriter enc( *m_Book, file );
     enc.WriteXML();
 
     // Write to disk immediately
