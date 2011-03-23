@@ -32,6 +32,8 @@ const QString DUBLIN_CORE_NS             = "http://purl.org/dc/elements/1.1/";
 static const QString OEBPS_MIMETYPE      = "application/oebps-package+xml";
 static const QString UPDATE_ERROR_STRING = "SG_ERROR";
 const QString NCX_MIMETYPE               = "application/x-dtbncx+xml";
+static const QString NCX_EXTENSION       = "ncx";
+
 
 
 ImportOEBPS::ImportOEBPS( const QString &fullfilepath )
@@ -230,8 +232,9 @@ void ImportOEBPS::ReadManifestItemElement( QXmlStreamReader &opf_reader )
 
     // Paths are percent encoded in the OPF, we use "normal" paths internally.
     href = Utility::URLDecodePath( href );
+    QString extension = QFileInfo( href ).suffix().toLower();
 
-    if ( type != NCX_MIMETYPE )         
+    if ( type != NCX_MIMETYPE && extension != NCX_EXTENSION )         
     {                    
         if ( !m_MainfestFilePaths.contains( href ) )
         {

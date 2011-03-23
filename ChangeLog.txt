@@ -1,4 +1,6 @@
 Sigil v0.4.0 ß3 ADD_DATE
+    - added a workaround for loading broken epub files that use the incorrect mimetype for the 
+    NCX (issue #815)
     - fixed a rare issue with loading epub files with OPF's that had the XML version set to 1.1,
     but also had other attributes in the XML declaration (issue #812)
     - fixed an issue with entries appearing at random in the TOC after a split on SGF markers
