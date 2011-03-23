@@ -114,7 +114,7 @@ public slots:
 
     void UpdateSpineOrder( const QList< HTMLResource* > html_files );
 
-    void ResourceRenamed( Resource *resource, QString old_full_path );
+    void ResourceRenamed( const Resource& resource, QString old_full_path );
 
 private:
 

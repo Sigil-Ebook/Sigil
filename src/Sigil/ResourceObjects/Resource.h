@@ -180,7 +180,7 @@ signals:
      *
      * @param resource The resource's that was renamed.
      */
-    void Renamed( Resource *resource, QString old_full_path );
+    void Renamed( const Resource& resource, QString old_full_path );
 
     /**
      * Emitted when the resource has been scheduled for deletion.

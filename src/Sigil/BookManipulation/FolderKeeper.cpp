@@ -159,8 +159,8 @@ Resource& FolderKeeper::AddContentFileToFolder( const QString &fullfilepath,
 
     connect( resource, SIGNAL( Deleted( const Resource& ) ), 
              this,     SLOT( RemoveResource( const Resource& ) ), Qt::DirectConnection );
-    connect( resource, SIGNAL( Renamed( Resource*, QString ) ), 
-             m_OPF,    SLOT( ResourceRenamed( Resource*, QString ) ), Qt::DirectConnection );
+    connect( resource, SIGNAL( Renamed( const Resource&, QString ) ), 
+             m_OPF,    SLOT( ResourceRenamed( const Resource&, QString ) ), Qt::DirectConnection );
 
     if ( update_opf )
     

@@ -512,7 +512,7 @@ void OPFResource::UpdateSpineOrder( const QList< ::HTMLResource* > html_files )
 }
 
 
-void OPFResource::ResourceRenamed( Resource *resource, QString old_full_path )
+void OPFResource::ResourceRenamed( const Resource& resource, QString old_full_path )
 {
     QWriteLocker locker( &GetLock() );
     shared_ptr< xc::DOMDocument > document = GetDocument();
@@ -531,10 +531,10 @@ void OPFResource::ResourceRenamed( Resource *resource, QString old_full_path )
 
         if ( href == resource_oebps_path )
         {
-            item->setAttribute( QtoX( "href" ), QtoX( resource->GetRelativePathToOEBPS() ) );
+            item->setAttribute( QtoX( "href" ), QtoX( resource.GetRelativePathToOEBPS() ) );
             
             old_id = XtoQ( item->getAttribute( QtoX( "id" ) ) );
-            new_id = GetUniqueID( GetValidID( resource->Filename() ), *document );
+            new_id = GetUniqueID( GetValidID( resource.Filename() ), *document );
 
             item->setAttribute( QtoX( "id" ), QtoX( new_id ) );
         }
