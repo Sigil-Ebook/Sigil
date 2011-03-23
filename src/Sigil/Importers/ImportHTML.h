@@ -24,7 +24,6 @@
 #define IMPORTHTML_H
 
 #include "Importer.h"
-#include "BookManipulation/FolderKeeper.h"
 #include "BookManipulation/XercesHUse.h"
 
 class HTMLResource;

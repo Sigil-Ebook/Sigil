@@ -33,6 +33,7 @@
 #include "SourceUpdates/PerformHTMLUpdates.h"
 #include "SourceUpdates/UniversalUpdates.h"
 #include "BookManipulation/XhtmlDoc.h"
+#include "BookManipulation/FolderKeeper.h"
 
 
 

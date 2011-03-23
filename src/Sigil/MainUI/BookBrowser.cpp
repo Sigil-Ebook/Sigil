@@ -28,6 +28,7 @@
 #include "ResourceObjects/OPFResource.h"
 #include "ResourceObjects/NCXResource.h"
 #include "Importers/ImportHTML.h"
+#include "BookManipulation/FolderKeeper.h"
 #include "Qxt/qxtconfirmationmessage.h"
 #include <QTreeView>
 
