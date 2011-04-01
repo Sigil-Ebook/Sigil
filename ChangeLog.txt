@@ -1,4 +1,6 @@
 Sigil v0.4.0 ß4 ADD_DATE
+    - a more accurate error message is now displayed for problems with file loading/saving
+    (issue #772)
     - fixed an issue with incorrect font filepath updates in the CSS (issue #736)
     - fixed an issue with paths in the OPF not being URL-encoded (issue #823) 
 

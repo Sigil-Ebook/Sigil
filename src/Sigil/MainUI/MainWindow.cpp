@@ -909,12 +909,21 @@ void MainWindow::LoadFile( const QString &fullfilepath )
                                    "Sigil cannot open such files." )
                             );        
     }
+
+    catch ( const CZipExceptionWrapper &exception )
+    {
+        QApplication::restoreOverrideCursor();
+
+        Utility::DisplayStdErrorDialog( 
+            tr( "Sigil was unable to load your file." ),
+            Utility::GetExceptionInfo( exception ) );
+    }
     
     catch ( const ExceptionBase &exception )
     {
         QApplication::restoreOverrideCursor();
 
-        Utility::DisplayStdErrorDialog( "Cannot load file " + fullfilepath + ": " + Utility::GetExceptionInfo( exception ) );        
+        Utility::DisplayExceptionErrorDialog( "Cannot load file " + fullfilepath + ": " + Utility::GetExceptionInfo( exception ) );        
     }
 }
 
@@ -981,7 +990,9 @@ bool MainWindow::SaveFile( const QString &fullfilepath )
 
         else
         {
-            throw exception;
+            Utility::DisplayStdErrorDialog( 
+                tr( "Sigil was unable to save your file." ),
+                Utility::GetExceptionInfo( exception ) );
         }
     }
 
@@ -989,7 +1000,7 @@ bool MainWindow::SaveFile( const QString &fullfilepath )
     {
         QApplication::restoreOverrideCursor();
 
-        Utility::DisplayStdErrorDialog( 
+        Utility::DisplayExceptionErrorDialog( 
             "Cannot save file " + fullfilepath + ": " + Utility::GetExceptionInfo( exception ) );
     }
 

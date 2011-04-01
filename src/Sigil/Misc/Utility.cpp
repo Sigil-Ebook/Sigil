@@ -302,10 +302,9 @@ QString Utility::URLDecodePath( const QString &path )
 }
 
 
-void Utility::DisplayStdErrorDialog( const QString &error_info )
+void Utility::DisplayExceptionErrorDialog( const QString &error_info )
 {
     QMessageBox message_box;
-    //message_box.setTextFormat( Qt::PlainText );
     message_box.setIcon( QMessageBox::Critical );
     message_box.setWindowTitle( "Sigil" );
 
@@ -331,7 +330,22 @@ void Utility::DisplayStdErrorDialog( const QString &error_info )
 #endif
 
     message_box.setDetailedText( detailed_text.join( "\n" ) );
+    message_box.exec();
+}
 
+
+void Utility::DisplayStdErrorDialog( const QString &error_message, const QString &detailed_text )
+{
+    QMessageBox message_box;
+    message_box.setIcon( QMessageBox::Critical );
+    message_box.setWindowTitle( "Sigil" );
+    message_box.setText( error_message );
+
+    if ( !detailed_text.isEmpty() )
+       
+        message_box.setDetailedText( detailed_text );
+    
+    message_box.setStandardButtons( QMessageBox::Close );
     message_box.exec();
 }
 

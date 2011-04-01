@@ -101,7 +101,9 @@ public:
      */
     static QString URLDecodePath( const QString &path );
 
-    static void DisplayStdErrorDialog( const QString &error_info );
+    static void DisplayStdErrorDialog( const QString &error_message, const QString &detailed_text = QString() );
+
+    static void DisplayExceptionErrorDialog( const QString &error_info );
 
     static QString GetExceptionInfo( const ExceptionBase &exception );
 

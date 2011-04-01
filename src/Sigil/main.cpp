@@ -93,12 +93,12 @@ void MessageHandler( QtMsgType type, const char *message )
 
         case QtCriticalMsg:
 
-            Utility::DisplayStdErrorDialog( "Critical: " + QString( message ) );
+            Utility::DisplayExceptionErrorDialog( "Critical: " + QString( message ) );
             break;
 
         case QtFatalMsg:
 
-            Utility::DisplayStdErrorDialog( "Fatal: " + QString( message ) );
+            Utility::DisplayExceptionErrorDialog( "Fatal: " + QString( message ) );
             abort();
     }
 }
@@ -229,7 +229,7 @@ int main( int argc, char *argv[] )
     
     catch ( ExceptionBase &exception )
     {
-        Utility::DisplayStdErrorDialog( Utility::GetExceptionInfo( exception ) );
+        Utility::DisplayExceptionErrorDialog( Utility::GetExceptionInfo( exception ) );
         return 1;
     }
 }
