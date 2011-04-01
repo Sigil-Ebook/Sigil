@@ -1,4 +1,5 @@
 Sigil v0.4.0 ß4 ADD_DATE
+    - fixed an issue with incorrect font filepath updates in the CSS (issue #736)
     - fixed an issue with paths in the OPF not being URL-encoded (issue #823) 
 
 Sigil v0.4.0 ß3 2011.03.24
