@@ -127,7 +127,7 @@ QString OPFResource::GetCoverPageOEBPSPath() const
 
         if ( current_type == GuideSemantics::Cover )
         {
-            return XtoQ( reference->getAttribute( QtoX( "href" ) ) );              
+            return Utility::URLDecodePath( XtoQ( reference->getAttribute( QtoX( "href" ) ) ) );              
         }        
     }
 
@@ -317,7 +317,7 @@ QStringList OPFResource::GetSpineOrderFilenames() const
 
         if ( id_to_filename_mapping.contains( idref ) )
 
-           filenames_in_reading_order.append( id_to_filename_mapping[ idref ] );
+           filenames_in_reading_order.append( Utility::URLDecodePath( id_to_filename_mapping[ idref ] ) );
     }
 
     return filenames_in_reading_order;
@@ -377,7 +377,7 @@ void OPFResource::AddResource( const Resource &resource )
 
     QHash< QString, QString > attributes;
     attributes[ "id"         ] = GetUniqueID( GetValidID( resource.Filename() ), *document );
-    attributes[ "href"       ] = resource.GetRelativePathToOEBPS();
+    attributes[ "href"       ] = Utility::URLEncodePath( resource.GetRelativePathToOEBPS() );
     attributes[ "media-type" ] = GetResourceMimetype( resource );
 
     xc::DOMElement *new_item = XhtmlDoc::CreateElementInDocument( 
@@ -401,7 +401,7 @@ void OPFResource::RemoveResource( const Resource &resource )
     shared_ptr< xc::DOMDocument > document  = GetDocument();
     xc::DOMElement &manifest                = GetManifestElement( *document );
     std::vector< xc::DOMElement* > children = xe::GetElementChildren( manifest );
-    QString resource_oebps_path             = resource.GetRelativePathToOEBPS();
+    QString resource_oebps_path             = Utility::URLEncodePath( resource.GetRelativePathToOEBPS() );
     QString item_id;
 
     foreach( xc::DOMElement *child, children )
@@ -531,7 +531,7 @@ void OPFResource::ResourceRenamed( const Resource& resource, QString old_full_pa
 
         if ( href == resource_oebps_path )
         {
-            item->setAttribute( QtoX( "href" ), QtoX( resource.GetRelativePathToOEBPS() ) );
+            item->setAttribute( QtoX( "href" ), QtoX( Utility::URLEncodePath( resource.GetRelativePathToOEBPS() ) ) );
             
             old_id = XtoQ( item->getAttribute( QtoX( "id" ) ) );
             new_id = GetUniqueID( GetValidID( resource.Filename() ), *document );
@@ -669,7 +669,7 @@ xc::DOMElement& OPFResource::GetGuideElement( xc::DOMDocument &document )
 
 xc::DOMElement* OPFResource::GetGuideReferenceForResource( const Resource &resource, const xc::DOMDocument &document )
 {
-    QString resource_oebps_path         = resource.GetRelativePathToOEBPS();
+    QString resource_oebps_path         = Utility::URLEncodePath( resource.GetRelativePathToOEBPS() );
     QList< xc::DOMElement* > references = 
         XhtmlDoc::GetTagMatchingDescendants( document, "reference", OPF_XML_NAMESPACE );
 
@@ -731,7 +731,7 @@ void OPFResource::SetGuideSemanticTypeForResource(
         QHash< QString, QString > attributes;
         attributes[ "type"  ] = type_attribute;
         attributes[ "title" ] = title_attribute;
-        attributes[ "href"  ] = resource.GetRelativePathToOEBPS();
+        attributes[ "href"  ] = Utility::URLEncodePath( resource.GetRelativePathToOEBPS() );
 
         xc::DOMElement *new_item = XhtmlDoc::CreateElementInDocument( 
             "reference", OPF_XML_NAMESPACE, document, attributes );
@@ -894,7 +894,7 @@ xc::DOMElement* OPFResource::GetMainIdentifierUnsafe( const xc::DOMDocument &doc
 
 QString OPFResource::GetResourceManifestID( const Resource &resource, const xc::DOMDocument &document )
 {
-    QString oebps_path = resource.GetRelativePathToOEBPS();
+    QString oebps_path = Utility::URLEncodePath( resource.GetRelativePathToOEBPS() );
     QList< xc::DOMElement* > items = 
         XhtmlDoc::GetTagMatchingDescendants( document, "item", OPF_XML_NAMESPACE );
 
