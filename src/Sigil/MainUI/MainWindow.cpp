@@ -903,11 +903,9 @@ void MainWindow::LoadFile( const QString &fullfilepath )
     {
         QApplication::restoreOverrideCursor();
 
-        QMessageBox::critical( 0,
-                               tr( "Sigil" ),
-                               tr( "The creator of this file has encrypted it with DRM. "
-                                   "Sigil cannot open such files." )
-                            );        
+        Utility::DisplayStdErrorDialog( 
+            tr( "The creator of this file has encrypted it with DRM. "
+                "Sigil cannot open such files." ) );        
     }
 
     catch ( const CZipExceptionWrapper &exception )
@@ -940,9 +938,7 @@ bool MainWindow::SaveFile( const QString &fullfilepath )
         // when the user tries to save an unsupported type
         if ( !SUPPORTED_SAVE_TYPE.contains( extension ) )
         {
-            QMessageBox::critical( 
-                0,
-                tr( "Sigil" ),
+            Utility::DisplayStdErrorDialog( 
                 tr( "Sigil currently cannot save files of type \"%1\".\n"
                     "Please choose a different format." )
                 .arg( extension )
@@ -979,9 +975,7 @@ bool MainWindow::SaveFile( const QString &fullfilepath )
         {
             QApplication::restoreOverrideCursor();
 
-            QMessageBox::critical(
-                0,
-                tr( "Sigil" ),
+            Utility::DisplayStdErrorDialog( 
                 tr( "Sigil cannot save file: \"%1\"\n"
                     "It is currently in use in a different application." )
                 .arg( fullfilepath )

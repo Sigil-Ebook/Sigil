@@ -115,11 +115,10 @@ void BookBrowser::OpenUrlResource( const QUrl &url )
 
     catch ( const ResourceDoesNotExist& )
     {
-        QMessageBox::critical( 0,
-                               tr( "Sigil" ),
-                               tr( "The file \"%1\" does not exist." )
-                               .arg( filename )
-                             );
+        Utility::DisplayStdErrorDialog( 
+            tr( "The file \"%1\" does not exist." )
+            .arg( filename ) 
+            );
     }       
 }
 
@@ -247,11 +246,10 @@ void BookBrowser::Remove()
     if ( resource_type == Resource::HTMLResourceType &&
          m_Book->GetFolderKeeper().GetResourceTypeList< HTMLResource >().count() == 1 )
     {
-        QMessageBox::critical( 0,
-                               tr( "Sigil" ),
-                               tr( "The last HTML file cannot be removed.\n" 
-                                   "There always has to be at least one." )
-                             );
+        Utility::DisplayStdErrorDialog( 
+            tr( "The last HTML file cannot be removed.\n" 
+                "There always has to be at least one." )
+            );
 
         return;
     }
@@ -259,10 +257,9 @@ void BookBrowser::Remove()
     if ( resource_type == Resource::OPFResourceType || 
          resource_type == Resource::NCXResourceType )
     {
-        QMessageBox::critical( 0,
-                               tr( "Sigil" ),
-                               tr( "Neither the NCX nor the OPF can be removed." )
-                             );
+        Utility::DisplayStdErrorDialog( 
+            tr( "Neither the NCX nor the OPF can be removed." )
+            );
 
         return;
     }

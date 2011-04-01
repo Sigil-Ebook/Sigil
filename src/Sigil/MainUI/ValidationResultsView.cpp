@@ -24,6 +24,7 @@
 namespace fc = FlightCrew;
 #include "ValidationResultsView.h"
 #include "BookManipulation/FolderKeeper.h"
+#include "Misc/Utility.h"
 
 static const QBrush WARNING_BRUSH = QBrush( QColor( 255, 255, 230 ) );
 static const QBrush ERROR_BRUSH   = QBrush( QColor( 255, 230, 230 ) );
@@ -62,11 +63,10 @@ void ValidationResultsView::ValidateCurrentBook()
     catch ( std::exception& exception )
     {
         // TODO: extract boost exception info
-        QMessageBox::critical( this,
-                               tr( "Sigil" ),
-                               tr( "An exception occurred during validation: %1." )
-                               .arg( QString::fromStdString( exception.what() ) )
-                              );
+        Utility::DisplayStdErrorDialog( 
+            tr( "An exception occurred during validation: %1." )
+            .arg( QString::fromStdString( exception.what() ) )
+            );
         return;
     }
 

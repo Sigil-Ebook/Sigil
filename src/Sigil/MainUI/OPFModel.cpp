@@ -28,6 +28,7 @@
 #include "ResourceObjects/NCXResource.h"
 #include "SourceUpdates/UniversalUpdates.h"
 #include "BookManipulation/FolderKeeper.h"
+#include "Misc/Utility.h"
 #include <limits>
 
 static const int NO_READING_ORDER   = std::numeric_limits< int >::max();
@@ -207,10 +208,9 @@ void OPFModel::ItemChangedHandler( QStandardItem *item )
 
     if ( !rename_sucess )
     {
-        QMessageBox::critical( 0,
-                               tr( "Sigil" ),
-                               tr( "The file could not be renamed." )
-                             );
+        Utility::DisplayStdErrorDialog( 
+            tr( "The file could not be renamed." )
+            );
 
         item->setText( old_filename );
         return;
@@ -382,10 +382,9 @@ bool OPFModel::FilenameIsValid( const QString &old_filename, const QString &new_
 {
     if ( new_filename.isEmpty() )
     {
-        QMessageBox::critical( 0,
-                               tr( "Sigil" ),
-                               tr( "The filename cannot be empty." )
-                             );
+        Utility::DisplayStdErrorDialog( 
+            tr( "The filename cannot be empty." )
+            );
 
         return false;
     }
@@ -394,11 +393,10 @@ bool OPFModel::FilenameIsValid( const QString &old_filename, const QString &new_
     {
         if ( FORBIDDEN_FILENAME_CHARS.contains( character ) )
         {
-            QMessageBox::critical( 0,
-                                   tr( "Sigil" ),
-                                   tr( "A filename cannot contains the character \"%1\"." )
-                                   .arg( character )
-                                 );
+            Utility::DisplayStdErrorDialog( 
+                tr( "A filename cannot contains the character \"%1\"." )
+                .arg( character )
+                );
 
             return false;
         }
@@ -413,24 +411,22 @@ bool OPFModel::FilenameIsValid( const QString &old_filename, const QString &new_
          !( TEXT_EXTENSIONS.contains( old_extension ) && TEXT_EXTENSIONS.contains( new_extension ) )
        )
     {
-        QMessageBox::critical( 0,
-                               tr( "Sigil" ),
-                               tr( "This file's extension cannot be changed in that way.\n"
-                                   "You used \"%1\", and the old extension was \"%2\"." )
-                               .arg( new_extension )
-                               .arg( old_extension )
-                             );
+        Utility::DisplayStdErrorDialog( 
+            tr( "This file's extension cannot be changed in that way.\n"
+                "You used \"%1\", and the old extension was \"%2\"." )
+            .arg( new_extension )
+            .arg( old_extension )
+            );
 
         return false;
     }
     
     if ( new_filename != m_Book->GetFolderKeeper().GetUniqueFilenameVersion( new_filename ) )
     {
-        QMessageBox::critical( 0,
-                               tr( "Sigil" ),
-                               tr( "The filename \"%1\" is already in use.\n" )
-                               .arg( new_filename )
-                             );
+        Utility::DisplayStdErrorDialog( 
+            tr( "The filename \"%1\" is already in use.\n" )
+            .arg( new_filename )
+            );
 
         return false;
     }

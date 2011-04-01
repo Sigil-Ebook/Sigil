@@ -26,6 +26,7 @@
 #include "BookManipulation/FolderKeeper.h"
 #include "Dialogs/HeadingSelector.h"
 #include "ResourceObjects/NCXResource.h"
+#include "Misc/Utility.h"
 
 static const int COLUMN_INDENTATION = 10;
 static const int REFRESH_DELAY = 1000;
@@ -120,11 +121,10 @@ void TableOfContents::ItemClickedHandler( const QModelIndex &index )
 
     catch ( const ResourceDoesNotExist& )
     {
-        QMessageBox::critical( 0,
-                               tr( "Sigil" ),
-                               tr( "The file \"%1\" does not exist." )
-                               .arg( filename )
-                             );
+        Utility::DisplayStdErrorDialog( 
+            tr( "The file \"%1\" does not exist." )
+            .arg( filename )
+            );
     }       
 }
 
