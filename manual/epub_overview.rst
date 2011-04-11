@@ -9,7 +9,7 @@ The |epub| format is a standard created by the *International Digital Publishing
 
 * *Open Publication Structure* (|ops|), which describes how the content is to be presented;
 * *Open Packaging Format* (|opf|), which describes how the content files and resources are connected into a *logical* whole, a *publication*;
-* *OEBPS Container Format* (|ops|), which describes how the publication is encapsulated in a |zip| archive.
+* *OEBPS Container Format* (|ocf|), which describes how the publication is encapsulated in a |zip| archive.
 
 This chapter will provide a brief overview of the format aimed at beginners.
 
