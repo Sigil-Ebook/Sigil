@@ -521,14 +521,32 @@ boost::unordered_set< fs::path > ReachabilityAnalysis::GetLinkedResourcesFromCss
 
     boost::match_results< std::string::const_iterator > matches; 
     boost::regex expression( 
-        "(?:(?:src|background|background-image)\\s*:|@import)\\s*\\w*\\(?[\"']?([^)\"']*)[\"']?\\)?" );
+        "(?:(?:src|background|background-image)\\s*:|@import)\\s*"
+        "[^;\\}\\(\"']*"
+        "(?:"
+            "url\\([\"']?([^\\)\"']+)[\"']?\\)"
+            "|"
+            "[\"']([^\"']+)[\"']"
+        ")"
+        "[^;\\}]*"
+        "(?:;|\\})" );
 
     while ( boost::regex_search( start, end, matches, expression ) ) 
-    { 
-        fs::path resource_path = Util::Utf8PathToBoostPath( matches[ 1 ] );        
-        linked_resources.insert( Util::NormalizePath( css_doc_folder / resource_path ) );
+    {   
+        start = matches[ 0 ].second;
 
-        start = matches[ 0 ].second; 
+        for ( int i = 1; i < matches.size(); ++i )
+        {             
+            std::string matched_path = matches[ i ];
+            boost::trim( matched_path );
+
+            if ( matched_path.empty() )
+
+                continue;
+
+            fs::path resource_path = Util::Utf8PathToBoostPath( matched_path );        
+            linked_resources.insert( Util::NormalizePath( css_doc_folder / resource_path ) );  
+        }      
     }
 
     return linked_resources;
