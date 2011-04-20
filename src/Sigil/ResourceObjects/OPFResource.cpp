@@ -28,6 +28,7 @@
 #include "BookManipulation/XercesCppUse.h"
 #include "BookManipulation/Metadata.h"
 #include "Misc/Utility.h"
+#include "BookManipulation/CleanSource.h"
 #include <XmlUtils.h>
 
 namespace xe = XercesExt;
@@ -596,7 +597,12 @@ void OPFResource::UpdateItemrefID( const QString &old_id, const QString &new_id,
 
 shared_ptr< xc::DOMDocument > OPFResource::GetDocument() const
 {
-    shared_ptr< xc::DOMDocument > document = XhtmlDoc::LoadTextIntoDocument( m_TextDocument->toPlainText() );
+    // The call to ProcessXML is needed because even though we have well-formed
+    // checks tied to "focus lost" events of the OPF tab, on Win XP those events
+    // are sometimes not delivered at all. Blame MS. In the mean time, this
+    // work-around makes sure we get valid XML into Xerces no matter what.
+    shared_ptr< xc::DOMDocument > document = 
+        XhtmlDoc::LoadTextIntoDocument( CleanSource::ProcessXML( m_TextDocument->toPlainText() ) );
 
     if ( !BasicStructurePresent( *document ) )
 

@@ -1,4 +1,5 @@
 Sigil v0.4.0 ß4 ADD_DATE
+    - fixed an rare hang when opening the Meta Editor on Win XP machines
     - a more accurate error message is now displayed for problems with file loading/saving
     (issue #772)
     - fixed an issue with incorrect font filepath updates in the CSS (issue #736)
