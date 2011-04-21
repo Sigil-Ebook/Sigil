@@ -538,6 +538,7 @@ void OPFResource::ResourceRenamed( const Resource& resource, QString old_full_pa
             new_id = GetUniqueID( GetValidID( resource.Filename() ), *document );
 
             item->setAttribute( QtoX( "id" ), QtoX( new_id ) );
+            break;
         }
     }
 
