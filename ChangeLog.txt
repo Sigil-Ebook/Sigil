@@ -1,4 +1,4 @@
-Sigil v0.4.0 ß4 2011.04.21
+Sigil v0.4.0 ß4 ADD_DATE
     - fixed a rare crash/memory corruption issue with automatic OPF updates
     - made the CSS resource path updates faster and more robust
     - updated FlightCrew so that CSS resource use is now far more robustly detected (issue #822)
