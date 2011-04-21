@@ -1,6 +1,7 @@
 Sigil v0.4.0 ß4 ADD_DATE
+    - made the CSS resource path updates faster and more robust
     - updated FlightCrew so that CSS resource use is now far more robustly detected (issue #822)
-    - fixed an rare hang when opening the Meta Editor on Win XP machines
+    - fixed a rare hang when opening the Meta Editor on Win XP machines
     - a more accurate error message is now displayed for problems with file loading/saving
     (issue #772)
     - fixed an issue with incorrect font filepath updates in the CSS (issue #736)

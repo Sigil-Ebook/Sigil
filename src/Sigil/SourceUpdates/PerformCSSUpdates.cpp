@@ -41,27 +41,40 @@ QString PerformCSSUpdates::operator()()
         const QString &key_path = keys.at( i );
         const QString &filename = QFileInfo( key_path ).fileName();
 
-        QRegExp reference = QRegExp( 
-            "(?:(?:src|background|background-image)\\s*:|@import)\\s*\\w*\\(?[\"']*([^\\(\\)\"']*/"
+        QString filename_regex_part = 
+            "[^\\(\\)\"']*/"
             + QRegExp::escape( filename ) + "|"
-            + QRegExp::escape( filename ) + ")[\"']*\\)?" );
+            + QRegExp::escape( filename );
 
-        int index = -1;
+        QRegExp reference = QRegExp(
+            "(?:(?:src|background|background-image)\\s*:|@import)\\s*"
+            "[^;\\}\\(\"']*"
+            "(?:"
+                "url\\([\"']?(" + filename_regex_part + ")[\"']?\\)"
+                "|"
+                "[\"'](" + filename_regex_part + ")[\"']"
+            ")"
+            "[^;\\}]*"
+            "(?:;|\\})" );
 
-        while ( true )
+        int start_index = 0;
+
+        do
         {
-            int newindex = m_Source.indexOf( reference );
+            m_Source.indexOf( reference, start_index );
 
-            // We need to make sure we don't end up
-            // replacing the same thing over and over again
-            if ( ( index == newindex ) || ( newindex == -1 ) )
+            for ( int i = 1; i < reference.captureCount(); ++i )
+            {             
+                if ( reference.cap( i ).trimmed().isEmpty() )
 
-                break;
+                    continue;
 
-            m_Source.replace( reference.cap( 1 ), m_CSSUpdates.value( key_path ) );
+                m_Source.replace( reference.pos( i ), reference.cap( i ).length(), m_CSSUpdates.value( key_path ) );
+            }
 
-            index = newindex;
+            start_index += reference.matchedLength();
         }
+        while ( reference.matchedLength() != -1 );
     }
 
     return m_Source;
