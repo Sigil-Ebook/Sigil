@@ -45,7 +45,7 @@ bool XMLResource::FileIsWellFormed() const
 
     QReadLocker locker( &GetLock() );
 
-    XhtmlDoc::WellFormedError error = XhtmlDoc::WellFormedErrorForSource( m_TextDocument->toPlainText() );
+    XhtmlDoc::WellFormedError error = XhtmlDoc::WellFormedErrorForSource( GetText() );
 
     bool well_formed = error.line == -1;
 
@@ -57,7 +57,7 @@ XhtmlDoc::WellFormedError XMLResource::WellFormedErrorLocation() const
 {
     QReadLocker locker( &GetLock() );
 
-    return XhtmlDoc::WellFormedErrorForSource( m_TextDocument->toPlainText() );
+    return XhtmlDoc::WellFormedErrorForSource( GetText() );
 }
 
 

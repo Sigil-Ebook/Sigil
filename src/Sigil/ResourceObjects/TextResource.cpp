@@ -34,6 +34,12 @@ TextResource::TextResource( const QString &fullfilepath, QObject *parent )
 }
 
 
+QString TextResource::GetText() const
+{
+    return m_TextDocument->toPlainText();
+}
+
+
 void TextResource::SetText( const QString& text )
 {
     m_TextDocument->setPlainText( text );

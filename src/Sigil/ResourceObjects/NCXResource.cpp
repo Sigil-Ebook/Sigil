@@ -77,7 +77,7 @@ Resource::ResourceType NCXResource::Type() const
 
 void NCXResource::SetMainID( const QString &main_id )
 {
-    SetText( m_TextDocument->toPlainText().replace( "ID_UNKNOWN", main_id ) );
+    SetText( GetText().replace( "ID_UNKNOWN", main_id ) );
 }
 
 

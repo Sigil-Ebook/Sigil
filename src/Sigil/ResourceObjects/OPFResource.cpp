@@ -603,7 +603,7 @@ shared_ptr< xc::DOMDocument > OPFResource::GetDocument() const
     // are sometimes not delivered at all. Blame MS. In the mean time, this
     // work-around makes sure we get valid XML into Xerces no matter what.
     shared_ptr< xc::DOMDocument > document = 
-        XhtmlDoc::LoadTextIntoDocument( CleanSource::ProcessXML( m_TextDocument->toPlainText() ) );
+        XhtmlDoc::LoadTextIntoDocument( CleanSource::ProcessXML( GetText() ) );
 
     if ( !BasicStructurePresent( *document ) )
 

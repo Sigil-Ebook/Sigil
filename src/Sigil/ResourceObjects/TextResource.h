@@ -47,6 +47,13 @@ public:
     TextResource( const QString &fullfilepath, QObject *parent = NULL );
 
     /**
+     * Returns the text stored in the resource.
+     *
+     * @return The resource text.
+     */
+    QString GetText() const;
+
+    /**
      * Sets the text of the resource, replacing the stored content.
      */
     void SetText( const QString& text );
@@ -84,7 +91,7 @@ public:
     // inherited
     virtual ResourceType Type() const;
 
-protected:
+private:
 
     /**
      * The syntax colored cache of the TextResource text content.
