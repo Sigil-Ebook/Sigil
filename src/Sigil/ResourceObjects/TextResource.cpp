@@ -26,6 +26,7 @@
 TextResource::TextResource( const QString &fullfilepath, QObject *parent )
     : 
     Resource( fullfilepath, parent ),
+    m_CacheInUse( false ),
     m_TextDocument( new QTextDocument( this ) )
 {
     m_TextDocument->setDocumentLayout( new QPlainTextDocumentLayout( m_TextDocument ) );
@@ -36,14 +37,47 @@ TextResource::TextResource( const QString &fullfilepath, QObject *parent )
 
 QString TextResource::GetText() const
 {
+    QMutexLocker locker( &m_CacheAccessMutex );
+
+    if ( m_CacheInUse )
+
+        return m_Cache; 
+
     return m_TextDocument->toPlainText();
 }
 
 
 void TextResource::SetText( const QString& text )
 {
-    m_TextDocument->setPlainText( text );
-    m_TextDocument->setModified( false );
+    //   We need to delay updating the QTextDocument if SetText has
+    // been called from something other than the main GUI thread. Why?
+    // Because a CodeView is probably connected to the text document,
+    // and if we update it from a non-GUI thread, it will notify the 
+    // CodeView base class to update as well and that will crash us since
+    // the base class derives from QWidget (and those can only be updated
+    // in the GUI thread).
+    //   So we cache the text update into m_Cache and update the QTextDocument
+    // when we return to the GUI thread. The single-shot timer makes sure
+    // of that.
+
+    if ( QThread::currentThread() == QApplication::instance()->thread() )
+    {
+        SetTextInternal( text );          
+    }
+
+    else
+    {
+        QMutexLocker locker( &m_CacheAccessMutex );
+
+        m_Cache = text;
+
+        // We want to make sure we schedule only one delayed update
+        if ( !m_CacheInUse )
+        {
+            m_CacheInUse = true;        
+            QTimer::singleShot( 0, this, SLOT( DelayedUpdateToTextDocument() ) );  
+        }
+    }    
 }
 
 
@@ -94,6 +128,28 @@ void TextResource::InitialLoad()
 Resource::ResourceType TextResource::Type() const
 {
     return Resource::TextResourceType;
+}
+
+
+void TextResource::DelayedUpdateToTextDocument()
+{
+    QMutexLocker locker( &m_CacheAccessMutex );
+
+    if ( !m_CacheInUse )
+
+        return;
+    
+    SetTextInternal( m_Cache );
+
+    m_Cache = "";
+    m_CacheInUse = false;
+}
+
+
+void TextResource::SetTextInternal( const QString &text )
+{
+    m_TextDocument->setPlainText( text );
+    m_TextDocument->setModified( false );
 }
 
 

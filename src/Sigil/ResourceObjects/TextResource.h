@@ -24,6 +24,7 @@
 #define TEXTRESOURCE_H
 
 #include "Resource.h"
+#include <QMutex>
 
 class QTextDocument;
 
@@ -81,7 +82,42 @@ public:
     // inherited
     virtual ResourceType Type() const;
 
+private slots:
+
+    /**
+     * Performs the delayed update of m_TextDocument with the text
+     * stored in m_Cache.
+     */
+    void DelayedUpdateToTextDocument();
+
 private:
+
+    /**
+     * Actually sets the text to m_TextDocument.
+     * 
+     * @param text The text to set.
+     */
+    void SetTextInternal( const QString &text );
+
+
+    ///////////////////////////////
+    // PRIVATE MEMBER VARIABLES
+    ///////////////////////////////
+
+    /**
+     * If \c true, then the m_Cache var is holding cached text.
+     */
+    bool m_CacheInUse;
+
+    /**
+     * The cached text used when threads are in use. @see SetText() internals.
+     */
+    QString m_Cache;
+
+    /**
+     * The access mutex for the cache.
+     */
+    mutable QMutex m_CacheAccessMutex;
 
     /**
      * The syntax colored cache of the TextResource text content.
