@@ -59,16 +59,6 @@ public:
     void SetText( const QString& text );
 
     /**
-     * Returns a reference to the QTextDocument that can be read from in consumers.
-     * If you need write access too, use GetTextDocumentForWriting().
-     *
-     * @warning Make sure to get a read lock externally before calling this function!
-     *
-     * @return A const reference to the QTextDocument cache.
-     */
-    const QTextDocument& GetTextDocumentForReading();
-
-    /**
      * Returns a reference to the QTextDocument that can be read and written to
      * in consumers. If you need just read access, use GetTextDocumentForReading().
      *

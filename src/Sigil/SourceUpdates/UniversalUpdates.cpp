@@ -164,7 +164,7 @@ void UniversalUpdates::UpdateOneCSSFile( CSSResource* css_resource,
         return;
 
     QWriteLocker locker( &css_resource->GetLock() );
-    const QString &source = css_resource->GetTextDocumentForWriting().toPlainText();
+    const QString &source = css_resource->GetText();
     css_resource->SetText( PerformCSSUpdates( source, css_updates )() );
 }
 
@@ -206,7 +206,7 @@ void UniversalUpdates::UpdateOPFFile( OPFResource* opf_resource,
         return;
 
     QWriteLocker locker( &opf_resource->GetLock() );
-    const QString &source = opf_resource->GetTextDocumentForWriting().toPlainText();
+    const QString &source = opf_resource->GetText();
 
     try
     {
@@ -231,7 +231,7 @@ void UniversalUpdates::UpdateNCXFile( NCXResource* ncx_resource,
         return;
 
     QWriteLocker locker( &ncx_resource->GetLock() );
-    const QString &source = ncx_resource->GetTextDocumentForWriting().toPlainText();
+    const QString &source = ncx_resource->GetText();
    
     try
     {

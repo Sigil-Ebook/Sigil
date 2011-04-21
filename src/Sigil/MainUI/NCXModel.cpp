@@ -100,7 +100,7 @@ QString NCXModel::GetNCXText()
 
     QReadLocker locker( &ncx.GetLock() );
 
-    return ncx.GetTextDocumentForReading().toPlainText();
+    return ncx.GetText();
 }
 
 
