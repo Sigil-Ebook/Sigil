@@ -1,4 +1,4 @@
-Sigil v0.4.0 ß4 ADD_DATE
+Sigil v0.4.0 ß4 2011.04.22.
     - fixed an issue with splitting on SGF chapter markers creating the new HTML files in the wrong
     order (issue #828)
     - fixed a rare crash/memory corruption issue with automatic OPF updates
