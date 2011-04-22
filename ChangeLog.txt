@@ -1,3 +1,7 @@
+Sigil v0.4.0 ADD_DATE
+    - on Linux machines, the installer now places a shortcut to Sigil in the Applications->Office
+    menu instead of in a special "Sigil" folder under the Gnome root menu (issue #162)
+
 Sigil v0.4.0 RC1 2011.04.22.
     - fixed an issue with splitting on SGF chapter markers creating the new HTML files in the wrong
     order (issue #828)
