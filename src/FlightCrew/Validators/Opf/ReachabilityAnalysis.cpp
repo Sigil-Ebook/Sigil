@@ -535,7 +535,7 @@ boost::unordered_set< fs::path > ReachabilityAnalysis::GetLinkedResourcesFromCss
     {   
         start = matches[ 0 ].second;
 
-        for ( int i = 1; i < matches.size(); ++i )
+        for ( uint i = 1; i < matches.size(); ++i )
         {             
             std::string matched_path = matches[ i ];
             boost::trim( matched_path );
