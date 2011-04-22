@@ -72,7 +72,7 @@ HTMLResource* ImportTXT::CreateHTMLResource( const QString &source )
     QString fullfilepath = tempfolder.GetPath() + "/" + FIRST_CHAPTER_NAME;
     Utility::WriteUnicodeTextFile( source, fullfilepath );
 
-    m_Book->GetFolderKeeper().AddContentFileToFolder( fullfilepath, 0 );
+    m_Book->GetFolderKeeper().AddContentFileToFolder( fullfilepath );
 
     return m_Book->GetFolderKeeper().GetResourceTypeList< HTMLResource >()[ 0 ];
 }

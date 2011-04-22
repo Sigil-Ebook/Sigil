@@ -81,7 +81,6 @@ FolderKeeper::~FolderKeeper()
 
 
 Resource& FolderKeeper::AddContentFileToFolder( const QString &fullfilepath, 
-                                                int reading_order,
                                                 bool update_opf )
 {
     if ( !QFileInfo( fullfilepath ).exists() )
@@ -122,7 +121,7 @@ Resource& FolderKeeper::AddContentFileToFolder( const QString &fullfilepath,
             new_file_path = m_FullPathToTextFolder + "/" + filename;
             relative_path = TEXT_FOLDER_NAME + "/" + filename;
 
-            resource = new HTMLResource( new_file_path, reading_order, m_Resources );
+            resource = new HTMLResource( new_file_path, m_Resources );
         }
 
         else if ( STYLE_EXTENSIONS.contains( extension ) )

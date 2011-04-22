@@ -142,10 +142,8 @@ HTMLResource& ImportHTML::CreateHTMLResource()
     QString fullfilepath = tempfolder.GetPath() + "/" + QFileInfo( m_FullFilePath ).fileName();
     Utility::WriteUnicodeTextFile( "TEMP_SOURCE", fullfilepath );
 
-    int reading_order = m_Book->GetFolderKeeper().GetHighestReadingOrder() + 1;
-
     HTMLResource &resource = *qobject_cast< HTMLResource* >(
-                                &m_Book->GetFolderKeeper().AddContentFileToFolder( fullfilepath, reading_order ) );
+                                &m_Book->GetFolderKeeper().AddContentFileToFolder( fullfilepath ) );
 
     return resource;
 }

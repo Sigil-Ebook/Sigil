@@ -31,7 +31,6 @@ static const QString LOADED_CONTENT_MIMETYPE = "application/xhtml+xml";
 
 
 HTMLResource::HTMLResource( const QString &fullfilepath, 
-                            int reading_order,
                             const QHash< QString, Resource* > &resources,
                             QObject *parent )
     : 
