@@ -125,12 +125,11 @@ HTMLResource& Book::CreateNewHTMLFile()
     TempFolder tempfolder;
 
     QString fullfilepath = tempfolder.GetPath() + "/" + m_Mainfolder.GetUniqueFilenameVersion( FIRST_CHAPTER_NAME );
-    int reading_order = m_Mainfolder.GetHighestReadingOrder() + 1;
 
     Utility::WriteUnicodeTextFile( PLACEHOLDER_TEXT, fullfilepath );
 
     HTMLResource &html_resource = *qobject_cast< HTMLResource* >( 
-                                        &m_Mainfolder.AddContentFileToFolder( fullfilepath, reading_order ) );
+                                        &m_Mainfolder.AddContentFileToFolder( fullfilepath ) );
 
     SetModified( true );
     return html_resource;
@@ -198,7 +197,8 @@ void Book::CreateNewChapters( const QStringList& new_chapters,
 
     TempFolder tempfolder;
 
-    QFutureSynchronizer< void > sync;
+    QFutureSynchronizer< HTMLResource* > sync;
+    QList< HTMLResource* > html_resources = m_Mainfolder.GetResourceTypeList< HTMLResource >( true );
 
     int next_reading_order = m_Mainfolder.GetHighestReadingOrder() + 1;
 
@@ -218,8 +218,16 @@ void Book::CreateNewChapters( const QStringList& new_chapters,
 
     sync.waitForFinished();
 
-    AnchorUpdates::UpdateAllAnchorsWithIDs( 
-        m_Mainfolder.GetResourceTypeList< HTMLResource >() );
+    QList< QFuture< HTMLResource* > > futures = sync.futures();
+
+    for ( int i = 0; i < futures.count(); ++i )
+    {
+        html_resources.append( futures.at( i ).result() );
+    }
+
+    AnchorUpdates::UpdateAllAnchorsWithIDs( html_resources );
+    GetOPF().UpdateSpineOrder( html_resources ); 
+
     SetModified( true );
 }
 
@@ -326,18 +334,19 @@ void Book::SaveOneResourceToDisk( Resource *resource )
     resource->SaveToDisk( true );
 }
 
-void Book::CreateOneNewChapter( const QString &source,
-                                int reading_order,
-                                const QString &temp_folder_path )
+
+HTMLResource* Book::CreateOneNewChapter( const QString &source,
+                                         int reading_order,
+                                         const QString &temp_folder_path )
 {
-    CreateOneNewChapter( source, reading_order, temp_folder_path, QHash< QString, QString >() );
+    return CreateOneNewChapter( source, reading_order, temp_folder_path, QHash< QString, QString >() );
 }
 
 
-void Book::CreateOneNewChapter( const QString &source, 
-                                int reading_order, 
-                                const QString &temp_folder_path,
-                                const QHash< QString, QString > &html_updates )
+HTMLResource* Book::CreateOneNewChapter( const QString &source, 
+                                         int reading_order, 
+                                         const QString &temp_folder_path,
+                                         const QHash< QString, QString > &html_updates )
 {
     QString filename     = FIRST_CHAPTER_PREFIX + QString( "%1" ).arg( reading_order + 1, 4, 10, QChar( '0' ) ) + ".xhtml";
     QString fullfilepath = temp_folder_path + "/" + filename;
@@ -345,7 +354,7 @@ void Book::CreateOneNewChapter( const QString &source,
     Utility::WriteUnicodeTextFile( "PLACEHOLDER", fullfilepath );
 
     HTMLResource *html_resource = qobject_cast< HTMLResource* >( 
-        &m_Mainfolder.AddContentFileToFolder( fullfilepath, reading_order ) );
+        &m_Mainfolder.AddContentFileToFolder( fullfilepath ) );
 
     Q_ASSERT( html_resource );
 
@@ -362,6 +371,8 @@ void Book::CreateOneNewChapter( const QString &source,
                                 html_updates, 
                                 QHash< QString, QString >() 
                               )() );
-    }    
+    }
+
+    return html_resource;
 }
 

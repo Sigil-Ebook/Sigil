@@ -96,14 +96,6 @@ protected:
     void ReadSpineElement( QXmlStreamReader &opf_reader );
 
     /**
-     * Reads a spine <item> element.
-     *
-     * @param opf_reader The OPF reader positioned to read 
-     *                   the required element type.
-     */
-    void ReadSpineItemRefElement( QXmlStreamReader &opf_reader );
-
-    /**
      * Loads the book's infrastructure files, like 
      * the NCX and the OPF.
      */
@@ -121,12 +113,10 @@ protected:
      * Loads a single file.
      * 
      * @param path A full path to the file to load.
-     * @param reading_order The reading order of the file.
      * @return A tuple where the first member is the old path to the file,
      *         and the new member is the new, OEBPS-relative path to it.
      */
-    tuple< QString, QString > LoadOneFile( const QString &path,
-                                           int reading_order );
+    tuple< QString, QString > LoadOneFile( const QString &path );
 
     /**
      * Performs the necessary modifications to the OPF
@@ -178,12 +168,6 @@ protected:
      * to make sure we don't load such files multiple times.
      */
     QSet< QString > m_MainfestFilePaths;
-
-    /**
-     * The list of ID's to the files in the manifest
-     * that represent the reading order of the publication.
-     */ 
-    QStringList m_ReadingOrderIds;
 
     /**
      * The identifier of the book's unique identifier.

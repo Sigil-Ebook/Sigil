@@ -75,14 +75,12 @@ public:
      * according to the extension.
      * 
      * @param fullfilepath The full path to the file to add.
-     * @param reading_order The reading order for HTMLResources.
      * @param update_opf If set to \c true, then the OPF will be notified
      *                   that a file was added. This will add entries in the
      *                   OPF manifest and potentially the spine as well.
      * @return The newly created resource.
      */
     Resource& AddContentFileToFolder( const QString &fullfilepath, 
-                                      int reading_order = -1,
                                       bool update_opf = true );
 
     /**

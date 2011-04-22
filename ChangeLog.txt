@@ -1,4 +1,6 @@
 Sigil v0.4.0 ß4 ADD_DATE
+    - fixed an issue with splitting on SGF chapter markers creating the new HTML files in the wrong
+    order (issue #828)
     - fixed a rare crash/memory corruption issue with automatic OPF updates
     - made the CSS resource path updates faster and more robust
     - updated FlightCrew so that CSS resource use is now far more robustly detected (issue #822)

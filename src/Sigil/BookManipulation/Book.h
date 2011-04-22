@@ -237,9 +237,9 @@ private:
      * @param temp_folder_path The path to the temporary folder where the new file
      *                         will be created before being copied to the folderkeeper.
      */
-    void CreateOneNewChapter( const QString &source,
-                              int reading_order,
-                              const QString &temp_folder_path );
+    HTMLResource* CreateOneNewChapter( const QString &source,
+                                       int reading_order,
+                                       const QString &temp_folder_path );
 
     /**
      * Creates one new chapter/XHTML document.
@@ -252,10 +252,10 @@ private:
      *                         will be created before being copied to the folderkeeper.
      * @param html_updates Any reference updates that need to be performed.
      */
-    void CreateOneNewChapter( const QString &source, 
-                              int reading_order, 
-                              const QString &temp_folder_path,
-                              const QHash< QString, QString > &html_updates );
+    HTMLResource* CreateOneNewChapter( const QString &source, 
+                                       int reading_order, 
+                                       const QString &temp_folder_path,
+                                       const QHash< QString, QString > &html_updates );
 
 
     ////////////////////////////

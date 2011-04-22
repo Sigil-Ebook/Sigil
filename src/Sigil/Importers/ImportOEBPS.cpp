@@ -186,13 +186,7 @@ void ImportOEBPS::ReadOPF()
         // We read this just to get the NCX id
         else if ( opf_reader.name() == "spine" )
 
-            ReadSpineElement( opf_reader );
-
-        // Get the list of XHTML files that
-        // represent the reading order
-        else if ( opf_reader.name() == "itemref" )
-
-            ReadSpineItemRefElement( opf_reader );     
+            ReadSpineElement( opf_reader );   
     }
 
     if ( opf_reader.hasError() )
@@ -258,12 +252,6 @@ void ImportOEBPS::ReadSpineElement( QXmlStreamReader &opf_reader )
 }
 
 
-void ImportOEBPS::ReadSpineItemRefElement( QXmlStreamReader &opf_reader )
-{
-    m_ReadingOrderIds.append( opf_reader.attributes().value( "", "idref" ).toString() );
-}
-
-
 void ImportOEBPS::LoadInfrastructureFiles()
 {
     m_Book->GetOPF().SetText( Utility::ReadUnicodeTextFile( m_OPFFilePath ) );
@@ -284,8 +272,7 @@ QHash< QString, QString > ImportOEBPS::LoadFolderStructure()
         sync.addFuture( QtConcurrent::run( 
                 this, 
                 &ImportOEBPS::LoadOneFile, 
-                m_Files.value( id ),
-                m_ReadingOrderIds.indexOf( id ) ) );   
+                m_Files.value( id ) ) );   
     }
 
     sync.waitForFinished();
@@ -306,15 +293,13 @@ QHash< QString, QString > ImportOEBPS::LoadFolderStructure()
 }
 
 
-tuple< QString, QString > ImportOEBPS::LoadOneFile( const QString &path,
-                                                    int reading_order )
+tuple< QString, QString > ImportOEBPS::LoadOneFile( const QString &path )
 {
     QString fullfilepath = QFileInfo( m_OPFFilePath ).absolutePath() + "/" + path;
 
     try
     {
-        Resource &resource = m_Book->GetFolderKeeper().AddContentFileToFolder( fullfilepath, 
-                                reading_order, false );
+        Resource &resource = m_Book->GetFolderKeeper().AddContentFileToFolder( fullfilepath, false );
         QString newpath = "../" + resource.GetRelativePathToOEBPS(); 
 
         return make_tuple( fullfilepath, newpath );
