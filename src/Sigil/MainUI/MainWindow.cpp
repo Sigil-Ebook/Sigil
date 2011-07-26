@@ -1286,6 +1286,9 @@ void MainWindow::PlatformSpecificTweaks()
     // The Cmd/Ctrl+H shortcut is reserved for the OS on Macs,
     // so we change it to Cmd/Ctrl+Shift+F
     ui.actionReplace->setShortcut( QKeySequence( Qt::ControlModifier + Qt::ShiftModifier + Qt::Key_F ) );
+    // The F11 shortcust is reserved for the OS on Macs,
+    // so we change it to Cmd/Ctrl+F11
+    ui.actionCodeView->setShortcut( QKeySequence( Qt::ControlModifier + Qt::Key_F11 ) );
 #endif
 }
 
