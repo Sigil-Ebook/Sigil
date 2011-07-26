@@ -445,6 +445,11 @@ void MainWindow::MetaEditorDialog()
 
     MetaEditor meta( m_Book->GetOPF(), this );
     meta.exec();
+    // We really should be checking if the metadata was changed
+    // not if the user clicked OK in the dialog.
+    if (meta.result() == QDialog::Accepted) {
+        m_Book->SetModified( true );
+    }
 }
 
 
