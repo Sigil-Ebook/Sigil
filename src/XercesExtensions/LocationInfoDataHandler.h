@@ -34,6 +34,8 @@ class LocationInfoDataHandler :
 {
 public:
 
+    LocationInfoDataHandler() {}
+
     void handle( DOMOperationType operation,
                  const XMLCh *const key,
                  void *data,
