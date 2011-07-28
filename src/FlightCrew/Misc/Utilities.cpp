@@ -304,7 +304,7 @@ std::string UrlWithoutFileScheme( const std::string &decoded_url )
 fs::path NormalizePath( const fs::path &filepath )
 {
     std::string path_string = BoostPathToUtf8Path( filepath );        
-    boost::regex up_dir_regex( "[^/]+/../" );
+    boost::regex up_dir_regex( "[^/]+/\\.\\./" );
 
     while ( true )
     {
@@ -316,7 +316,7 @@ fs::path NormalizePath( const fs::path &filepath )
             break;
     }
 
-    boost::regex current_dir_regex( "/./" );
+    boost::regex current_dir_regex( "/\\./" );
 
     while ( true )
     {
