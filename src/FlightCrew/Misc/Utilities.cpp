@@ -316,7 +316,7 @@ fs::path NormalizePath( const fs::path &filepath )
             break;
     }
 
-    boost::regex current_dir_regex( "/\\./" );
+    boost::regex current_dir_regex( "(?<=/)\\./" );
 
     while ( true )
     {
