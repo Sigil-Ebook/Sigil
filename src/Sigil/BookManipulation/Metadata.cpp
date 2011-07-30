@@ -153,8 +153,9 @@ Metadata::MetaElement Metadata::MapToBookMetadata( const Metadata::MetaElement &
 
     if ( name == "language" )
     {
-        // We convert ISO 639-1 language code into full language name (e.g. en -> English)
-        value = GetFullLanguageNameHash()[ value ];
+        // We convert ISO 639-1 language code into full language name (e.g. en -> English).
+        // Only recognises 2-character primary tags and ignores any subtags.
+        value = GetFullLanguageNameHash()[ value.left(2) ];
         // fall through
     }
 
