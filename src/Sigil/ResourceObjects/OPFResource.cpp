@@ -140,7 +140,7 @@ QString OPFResource::GetMainIdentifierValue() const
 {
     QReadLocker locker( &GetLock() );
     shared_ptr< xc::DOMDocument > document = GetDocument();
-    return XtoQ( GetMainIdentifier( *document ).getTextContent() ).remove( "urn:uuid:" );
+    return XtoQ( GetMainIdentifier( *document ).getTextContent() );
 }
 
 

@@ -139,7 +139,7 @@ bool ImportEPUB::BookContentEncrypted( const QHash< QString, QString > &encrypte
 }
 
 
-// This is basically a workaround for InDesign not listing the fonts it
+// This is basically a workaround for old versions of InDesign not listing the fonts it
 // embedded in the OPF manifest, even though the specs say it has to.
 // It does list them in the encryption.xml, so we use that.
 void ImportEPUB::AddObfuscatedButUndeclaredFonts( const QHash< QString, QString > &encrypted_files )
@@ -156,7 +156,11 @@ void ImportEPUB::AddObfuscatedButUndeclaredFonts( const QHash< QString, QString 
 
             continue;
        
-        m_Files[ Utility::CreateUUID() ] = opf_dir.relativeFilePath( filepath );
+        // Only add the path to the manifest if it is not already included.
+        QMapIterator< QString, QString > valueSearch( m_Files );
+        if ( !valueSearch.findNext( opf_dir.relativeFilePath( filepath ) ) )
+
+            m_Files[ Utility::CreateUUID() ] = opf_dir.relativeFilePath( filepath );
     }
 }
 
