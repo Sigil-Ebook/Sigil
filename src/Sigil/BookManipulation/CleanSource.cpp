@@ -61,11 +61,16 @@ static const QString SVG_ELEMENTS         = "a,altGlyph,altGlyphDef,altGlyphItem
 // of provided book XHTML source code
 QString CleanSource::Clean( const QString &source )
 {
-    if ( !MainWindow::ShouldUseTidyClean() )
-
-        return PrettyPrint( source );
-
     QString newsource = source;
+
+    if ( !MainWindow::ShouldUseTidyClean() )
+    {
+        newsource = PrettyPrint( newsource );
+        // Remove any empty comments left over from pretty printing.
+        QStringList css_style_tags  = CSSStyleTags( newsource );
+        css_style_tags = RemoveEmptyComments( css_style_tags );
+        return WriteNewCSSStyleTags( newsource, css_style_tags );
+    }
 
     // We store the number of CSS style tags before
     // running Tidy so CleanCSS can remove redundant classes
