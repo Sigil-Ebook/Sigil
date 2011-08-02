@@ -140,9 +140,6 @@ void TextResource::DelayedUpdateToTextDocument()
         return;
     
     SetTextInternal( m_Cache );
-
-    m_Cache = "";
-    m_CacheInUse = false;
 }
 
 
@@ -150,6 +147,8 @@ void TextResource::SetTextInternal( const QString &text )
 {
     m_TextDocument->setPlainText( text );
     m_TextDocument->setModified( false );
+
+    // Clear anything left in the cache
+    m_Cache = "";
+    m_CacheInUse = false;
 }
-
-

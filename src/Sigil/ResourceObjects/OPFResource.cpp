@@ -929,7 +929,7 @@ QHash< Resource*, QString > OPFResource::GetResourceManifestIDMapping(
 
     foreach( Resource* resource, resources )
     {
-        QString oebps_path = resource->GetRelativePathToOEBPS();        
+        QString oebps_path = Utility::URLEncodePath( resource->GetRelativePathToOEBPS() );
 
         foreach( xc::DOMElement* item, items )
         {
