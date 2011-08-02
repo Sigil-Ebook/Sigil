@@ -19,6 +19,7 @@
 **
 *************************************************************************/
 
+#include <QFile>
 #include <stdafx.h>
 #include "About.h"
 
@@ -43,6 +44,12 @@ About::About( QWidget *parent )
                             .arg( version_number.cap( 3 ).toInt() );
 
     ui.lbVersionDisplay->setText( version_text );
+
+    QFile creditsFile( ":/about/Credits.html" );
+    creditsFile.open( QIODevice::ReadOnly );
+    QString credits_text = creditsFile.readAll();
+    creditsFile.close();
+    ui.creditsDisplay->setHtml( credits_text );
 }
 
 
