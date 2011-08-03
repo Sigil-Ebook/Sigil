@@ -36,6 +36,7 @@ class QPrinter;
 class QShortcut;
 class LineNumberArea;
 class QSyntaxHighlighter;
+class QContextMenuEvent;
 
 
 /**
@@ -220,6 +221,13 @@ protected:
      * @param event The event to process.
      */
     void mousePressEvent( QMouseEvent *event );
+
+    /**
+     * Handles the content menu event for the editor.
+     *
+     * @param event The event to process.
+     */
+    void contextMenuEvent( QContextMenuEvent *event );
 
     /**
      * Handles the focus in event for the editor.
