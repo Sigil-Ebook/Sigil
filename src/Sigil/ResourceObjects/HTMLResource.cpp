@@ -335,7 +335,7 @@ QString HTMLResource::GetWebPageHTML()
 
     RemoveWebkitCruft();
 
-    return CleanSource::Clean( m_WebPage->mainFrame()->toHtml() );
+    return ConvertToEntities( CleanSource::Clean( m_WebPage->mainFrame()->toHtml() ) );
 }
 
 
@@ -431,3 +431,14 @@ void HTMLResource::TrackNewResources( const QStringList &filepaths )
     }
 }
 
+
+QString HTMLResource::ConvertToEntities( const QString &source )
+{
+    QString newsource = source;
+
+    newsource = newsource.replace( QString::fromUtf8( "\u00ad" ), "&shy;" );
+    newsource = newsource.replace( QString::fromUtf8( "\u2014" ), "&mdash;" );
+    newsource = newsource.replace( QString::fromUtf8( "\u2013" ), "&ndash;" );
+
+    return newsource;
+}
