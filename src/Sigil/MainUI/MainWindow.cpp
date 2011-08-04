@@ -742,9 +742,9 @@ void MainWindow::CreateChapterBreakOldTab( QString content, HTMLResource& origin
 }
 
 
-void MainWindow::CreateNewChapters( QStringList new_chapters )
+void MainWindow::CreateNewChapters( QStringList new_chapters, HTMLResource &originalResource )
 {   
-    m_Book->CreateNewChapters( new_chapters );
+    m_Book->CreateNewChapters( new_chapters, originalResource );
     m_BookBrowser->Refresh();
 
     statusBar()->showMessage( tr( "Chapters split" ), STATUSBAR_MSG_DISPLAY_TIME );
@@ -1637,8 +1637,8 @@ void MainWindow::ConnectSignalsToSlots()
     connect( &m_TabManager, SIGNAL( OldTabRequest(            QString, HTMLResource& ) ),
              this,          SLOT(   CreateChapterBreakOldTab( QString, HTMLResource& ) ) );
 
-    connect( &m_TabManager, SIGNAL( NewChaptersRequest( QStringList ) ),
-             this,          SLOT(   CreateNewChapters(  QStringList ) ) );
+    connect( &m_TabManager, SIGNAL( NewChaptersRequest( QStringList, HTMLResource& ) ),
+             this,          SLOT(   CreateNewChapters(  QStringList, HTMLResource& ) ) );
 }
 
 

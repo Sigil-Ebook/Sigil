@@ -332,8 +332,10 @@ signals:
      * Emitted when the user wants to create several new chapters.
      *
      * @param chapters The content of the new chapters to be created.
+     * @param originating_resource The original HTML chapter that chapters
+     * will be created after.
      */
-    void NewChaptersRequest( QStringList chapters );
+    void NewChaptersRequest( QStringList chapters, HTMLResource &originating_resource );
 
     /**
      * Emitted when the state of the Book/Code/Split View buttons has changed.

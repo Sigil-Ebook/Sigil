@@ -146,7 +146,7 @@ signals:
     /**
      * Wired to the current FlowTab::NewChaptersRequest signal.
      */
-    void NewChaptersRequest( QStringList chapters );
+    void NewChaptersRequest( QStringList chapters, HTMLResource &originating_resource );
 
 private slots:
 

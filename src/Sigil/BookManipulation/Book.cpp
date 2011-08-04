@@ -183,13 +183,25 @@ HTMLResource& Book::CreateChapterBreakOriginalResource( const QString &content, 
 
 void Book::CreateNewChapters( const QStringList& new_chapters )
 {
-    CreateNewChapters( new_chapters, QHash< QString, QString >() );
+    CreateNewChapters( new_chapters, QHash< QString, QString >(), -1, "" );
     SetModified( true );
 }
 
+void Book::CreateNewChapters( const QStringList &new_chapters, HTMLResource &original_resource )
+{
+    int originalPosition = GetOPF().GetReadingOrder( original_resource );
+    Q_ASSERT( originalPosition >= 0 );
 
-void Book::CreateNewChapters( const QStringList& new_chapters,
-                              const QHash< QString, QString > &html_updates )
+    QString newFilePrefix = QFileInfo( original_resource.Filename() ).baseName();
+
+    CreateNewChapters( new_chapters, QHash< QString, QString >(), originalPosition, newFilePrefix );
+    SetModified( true );
+}
+
+void Book::CreateNewChapters( const QStringList &new_chapters,
+                             const QHash<QString, QString> &html_updates,
+                             int original_position,
+                             const QString &new_file_pefix )
 {
     if ( new_chapters.isEmpty() )
 
@@ -197,32 +209,64 @@ void Book::CreateNewChapters( const QStringList& new_chapters,
 
     TempFolder tempfolder;
 
-    QFutureSynchronizer< HTMLResource* > sync;
+    QFutureSynchronizer< NewChapterResult > sync;
     QList< HTMLResource* > html_resources = m_Mainfolder.GetResourceTypeList< HTMLResource >( true );
 
-    int next_reading_order = m_Mainfolder.GetHighestReadingOrder() + 1;
+    int next_reading_order;
+    if ( original_position == -1 )
+
+        next_reading_order = m_Mainfolder.GetHighestReadingOrder() + 1;
+
+    else
+
+        next_reading_order = original_position + 1;
 
     for ( int i = 0; i < new_chapters.count(); ++i )
     {
         int reading_order = next_reading_order + i;
 
+        NewChapter chapterInfo;
+        chapterInfo.source = new_chapters.at( i );
+        chapterInfo.reading_order = reading_order;
+        chapterInfo.temp_folder_path = tempfolder.GetPath();
+        chapterInfo.new_file_prefix = new_file_pefix;
+        chapterInfo.file_suffix = i + 1;
+
         sync.addFuture( 
             QtConcurrent::run( 
                 this, 
                 &Book::CreateOneNewChapter, 
-                new_chapters.at( i ), 
-                reading_order, 
-                tempfolder.GetPath(), 
+                chapterInfo,
                 html_updates ) );
     }	
 
     sync.waitForFinished();
 
-    QList< QFuture< HTMLResource* > > futures = sync.futures();
-
-    for ( int i = 0; i < futures.count(); ++i )
+    QList< QFuture< NewChapterResult > > futures = sync.futures();
+    if ( original_position == -1 )
     {
-        html_resources.append( futures.at( i ).result() );
+        // Add new chapters to the end of the book
+        for ( int i = 0; i < futures.count(); ++i )
+        {
+            html_resources.append( futures.at( i ).result().created_chapter );
+        }
+    }
+    else
+    {
+        // Insert the new files at the correct positions in the list
+        // TODO: These loops could possibly be refined
+        for ( int i = 0; i < new_chapters.count(); ++i )
+        {
+            int reading_order = next_reading_order + i;
+            for( int j = 0 ; j < futures.count() ; ++j )
+            {
+                if( futures.at(j).result().reading_order == reading_order )
+                {
+                    html_resources.insert( reading_order , futures.at( i ).result().created_chapter );
+                    break;
+                }
+            }
+        }
     }
 
     AnchorUpdates::UpdateAllAnchorsWithIDs( html_resources );
@@ -335,21 +379,17 @@ void Book::SaveOneResourceToDisk( Resource *resource )
 }
 
 
-HTMLResource* Book::CreateOneNewChapter( const QString &source,
-                                         int reading_order,
-                                         const QString &temp_folder_path )
+Book::NewChapterResult Book::CreateOneNewChapter( NewChapter chapter_info )
 {
-    return CreateOneNewChapter( source, reading_order, temp_folder_path, QHash< QString, QString >() );
+    return CreateOneNewChapter( chapter_info, QHash< QString, QString >() );
 }
 
 
-HTMLResource* Book::CreateOneNewChapter( const QString &source, 
-                                         int reading_order, 
-                                         const QString &temp_folder_path,
-                                         const QHash< QString, QString > &html_updates )
+Book::NewChapterResult Book::CreateOneNewChapter( NewChapter chapter_info,
+                                         const QHash<QString, QString> &html_updates )
 {
-    QString filename     = FIRST_CHAPTER_PREFIX + QString( "%1" ).arg( reading_order + 1, 4, 10, QChar( '0' ) ) + ".xhtml";
-    QString fullfilepath = temp_folder_path + "/" + filename;
+    QString filename = chapter_info.new_file_prefix % "_" % QString( "%1" ).arg( chapter_info.file_suffix + 1, 4, 10, QChar( '0' ) ) + ".xhtml";
+    QString fullfilepath = chapter_info.temp_folder_path + "/" + filename;
 
     Utility::WriteUnicodeTextFile( "PLACEHOLDER", fullfilepath );
 
@@ -361,18 +401,21 @@ HTMLResource* Book::CreateOneNewChapter( const QString &source,
     if ( html_updates.isEmpty() )
     {
         html_resource->SetDomDocument( 
-            XhtmlDoc::LoadTextIntoDocument( CleanSource::Clean( source ) ) );
+            XhtmlDoc::LoadTextIntoDocument( CleanSource::Clean( chapter_info.source ) ) );
     }
 
     else
     {
         html_resource->SetDomDocument( 
-            PerformHTMLUpdates( CleanSource::Clean( source ),
+            PerformHTMLUpdates( CleanSource::Clean( chapter_info.source ),
                                 html_updates, 
                                 QHash< QString, QString >() 
                               )() );
     }
 
-    return html_resource;
-}
+    NewChapterResult chapter;
+    chapter.created_chapter = html_resource;
+    chapter.reading_order = chapter_info.reading_order;
 
+    return chapter;
+}

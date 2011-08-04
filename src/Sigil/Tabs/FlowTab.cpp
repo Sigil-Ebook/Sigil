@@ -578,7 +578,7 @@ void FlowTab::SplitOnSGFChapterMarkers()
         return;
 
     SaveTabContent();
-    emit NewChaptersRequest( m_HTMLResource.SplitOnSGFChapterMarkers() );
+    emit NewChaptersRequest( m_HTMLResource.SplitOnSGFChapterMarkers(), m_HTMLResource );
     LoadTabContent();
 }
 

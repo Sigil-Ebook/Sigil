@@ -166,10 +166,24 @@ public:
      * Creates new chapters/XHTML documents.
      *
      * @param new_chapters The contents of the new chapters.
-     * @param html_updates The new chapters are updated with these updates.
+     * @param originating_resource The original HTML chapter that chapters
+     * will be created after.
      */
     void CreateNewChapters( const QStringList& new_chapters,
-                            const QHash< QString, QString > &html_updates );
+                            HTMLResource& originalResource );
+
+    /**
+     * Creates new chapters/XHTML documents.
+     *
+     * @param new_chapters The contents of the new chapters.
+     * @param html_updates The new chapters are updated with these updates.
+     * @param original_position The position in the chapter list we are starting from.
+     * @param new_file_prefix Prefix to add to the new chapter's filename.
+     */
+    void CreateNewChapters( const QStringList& new_chapters,
+                            const QHash< QString, QString > &html_updates,
+                            int original_position,
+                            const QString &new_file_pefix);
 
     /**
      * Merges the provided HTML resource with the previous one
@@ -223,6 +237,37 @@ signals:
 
 private:
 
+    // Describe a new chapter.
+    //
+    // This is needed because QtConcurrent only seems to accept functions with
+    //a maximum of 5 arguments.
+    struct NewChapter {
+        // The source code of the new chapter.
+        QString source;
+
+        // The reading order of the new chapter.
+        int reading_order;
+
+        // The path to the temporary folder where the new file will be
+        // created before being copied to the folderkeeper.
+        QString temp_folder_path;
+
+        // Prefix used when creating the filename.
+        QString new_file_prefix;
+
+        // Number to use as the suffix of the filename.
+        int file_suffix;
+    };
+
+    // Describe a newly created chapter.
+    struct NewChapterResult {
+        // Chatper that was created.
+        HTMLResource *created_chapter;
+
+        // Position in the reading order of this chapter.
+        int reading_order;
+    };
+
     /**
      * Syncs the content of one resource to the disk. 
      * @param resource The resource to be synced.
@@ -232,29 +277,19 @@ private:
     /**
      * Creates one new chapter/XHTML document.
      *
-     * @param source The source code of the new chapter.
-     * @param reading_order The reading order of the new chapter.
-     * @param temp_folder_path The path to the temporary folder where the new file
-     *                         will be created before being copied to the folderkeeper.
+     * @param chapter_info New chapter to create.
      */
-    HTMLResource* CreateOneNewChapter( const QString &source,
-                                       int reading_order,
-                                       const QString &temp_folder_path );
+    NewChapterResult CreateOneNewChapter( NewChapter chapter_info );
 
     /**
      * Creates one new chapter/XHTML document.
      * The only reason why we have an overload instead of just one function
      * with a default argument is because then Apple GCC 4.2 flakes out here.
      * 
-     * @param source The source code of the new chapter.
-     * @param reading_order The reading order of the new chapter.
-     * @param temp_folder_path The path to the temporary folder where the new file 
-     *                         will be created before being copied to the folderkeeper.
+     * @param chapter_info New chapter to create.
      * @param html_updates Any reference updates that need to be performed.
      */
-    HTMLResource* CreateOneNewChapter( const QString &source, 
-                                       int reading_order, 
-                                       const QString &temp_folder_path,
+    NewChapterResult CreateOneNewChapter( NewChapter chapter_info,
                                        const QHash< QString, QString > &html_updates );
 
 

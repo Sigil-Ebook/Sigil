@@ -266,6 +266,12 @@ void HTMLResource::RemoveWebkitCruft()
     body_tag.setStyleProperty( "word-wrap", "" );
     body_tag.setStyleProperty( "-webkit-nbsp-mode", "" );
     body_tag.setStyleProperty( "-webkit-line-break", "" );
+
+    // Banish the irritating <body style=""> tags
+    if( body_tag.attribute( "style", "none" ) == "" )
+    {
+        body_tag.removeAttribute( "style" );
+    }
 }
 
 

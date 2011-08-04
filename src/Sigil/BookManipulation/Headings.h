@@ -38,7 +38,7 @@ public:
     struct Heading
     {
         // The HTMLResource file the heading belongs to
-        HTMLResource* resource_file;
+        HTMLResource *resource_file;
 
         // The DomElement of the heading in the file's DomDocument
         xc::DOMElement *element;
