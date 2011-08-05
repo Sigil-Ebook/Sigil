@@ -254,16 +254,24 @@ void Book::CreateNewChapters( const QStringList &new_chapters,
     else
     {
         // Insert the new files at the correct positions in the list
-        // TODO: These loops could possibly be refined
+        // The new files need to be inserted in order from first to last
         for ( int i = 0; i < new_chapters.count(); ++i )
         {
             int reading_order = next_reading_order + i;
-            for( int j = 0 ; j < futures.count() ; ++j )
+            if( futures.at(i).result().reading_order == reading_order )
             {
-                if( futures.at(j).result().reading_order == reading_order )
+                html_resources.insert( reading_order , futures.at( i ).result().created_chapter );
+            }
+            else
+            {
+                // This is security code to protect against any mangling of the futures list by Qt
+                for( int j = 0 ; j < futures.count() ; ++j )
                 {
-                    html_resources.insert( reading_order , futures.at( i ).result().created_chapter );
-                    break;
+                    if( futures.at(j).result().reading_order == reading_order )
+                    {
+                        html_resources.insert( reading_order , futures.at( j ).result().created_chapter );
+                        break;
+                    }
                 }
             }
         }
