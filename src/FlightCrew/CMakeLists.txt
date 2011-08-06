@@ -71,8 +71,6 @@ include_directories( ${CMAKE_CURRENT_BINARY_DIR}
                      ../utf8-cpp
                    )
 
-link_directories ( ${PROJECT_BINARY_DIR}/lib ) 
-
 if( BUILD_SHARED_FC )
     # Windows clients also need to specify FC_BUILT_AS_DLL
     # when they want a dll, but NOT FC_DLL_EXPORTING

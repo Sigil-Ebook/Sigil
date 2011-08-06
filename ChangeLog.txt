@@ -1,4 +1,25 @@
 Sigil v0.4.0 ADD_DATE
+    - Build system changes to accomidate the Windows SDK.
+    - Remove empty styles on body tags when cleaning webkit junk.
+    - Fix  issue 549 : Split on SGF Chapter Markers puts new files (sections) at end of file list.
+    - Fix issue 869: Right-click in Code View with error in code shows error dialog.
+    - Fix issue 919 and issue 316: Replace potentially problematic characters with named or
+      numerical entities.
+    - Change About to include an authors section.
+    - Fixed and issue where chapter splitting loses some chapters, places others in wrong order
+      (issue 836).
+    - Fixed an issue where language was not being properly detected (issue 923).
+    - Fixed an issue where font mangling caused file duplication (issue 932).
+    - Fixed an issue where extra blank lines were left in the STYLE section (issue 937).
+    - Fixed an issue where FlightCrew was reporting erroneous Resource is reachable but not present
+      in OPF errors (issue 813).
+    - Fixed string format compile warnings (issue 892).
+    - Fixed GCC 4.6 compile failure (issue 864).
+    - Changed Save As shortcut key to Ctrl+Shift+S (issue 838).
+    - Fixed an issue where the shortcut keys were not working properly on OS X (issue 838).
+    - Fixed an issue where metadata changed in metadata editor unsaved if Sigil closed right after
+      (issue 930).
+    - OS X minimum version bumped to 10.6.
     - on Linux machines, the installer now places a shortcut to Sigil in the Applications->Office
     menu instead of in a special "Sigil" folder under the Gnome root menu (issue #162)
 

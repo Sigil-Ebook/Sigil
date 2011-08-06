@@ -406,8 +406,6 @@ include_directories( ${CMAKE_CURRENT_BINARY_DIR}
                      ${tidyLib_SOURCE_DIR} 
                      ${FlightCrew_SOURCE_DIR} )
 
-link_directories ( ${PROJECT_BINARY_DIR}/lib ) 
-
 #############################################################################
 
 # We make bundles for Mac OS X
