@@ -38,8 +38,8 @@ Source: "Sigil\*"; DestDir: "{app}"; Flags: createallsubdirs recursesubdirs
 ; Main files cannot be unchecked. Doesn't do anything, just here for show
 Name: main; Description: "Sigil"; Types: full compact custom; Flags: fixed
 ; Desktop icon.
-Name: dicon; Description: "Create a desktop icon"; Types: full compact
-Name: dicon\common; Description: "For all users"; Types: full compact; Flags: exclusive
+Name: dicon; Description: "Create a desktop icon"; Types: full custom
+Name: dicon\common; Description: "For all users"; Types: full custom; Flags: exclusive
 Name: dicon\user; Description: "For the current user only"; Flags: exclusive
 ; File associations
 Name: afiles; Description: "Associate ebook files with Sigil"; Types: full
@@ -49,17 +49,17 @@ Name: afiles\txt; Description: "TXT"; Types: full
 
 [Registry]
 ; Associate EPUB files if requested.
-Components: afiles\epub; Root: HKCR; Subkey: ".epub"; ValueType: string; ValueName: ""; ValueData: "SigilEPUB"; Flags: uninsdeletekey
+Components: afiles\epub; Root: HKCR; Subkey: ".epub"; ValueType: string; ValueName: ""; ValueData: "SigilEPUB"; Flags: uninsdeletevalue uninsdeletekeyifempty
 Components: afiles\epub; Root: HKCR; Subkey: "SigilEPUB"; ValueType: string; ValueName: ""; ValueData: "EPUB"; Flags: uninsdeletekey
 Components: afiles\epub; Root: HKCR; Subkey: "SigilEPUB\DefaultIcon"; ValueType: string; ValueName: ""; ValueData: "{app}\Sigil.exe,0"; Flags: uninsdeletekey
 Components: afiles\epub; Root: HKCR; Subkey: "SigilEPUB\shell\open\command"; ValueType: string; ValueName: ""; ValueData: """{app}\Sigil.exe"" ""%1"""; Flags: uninsdeletekey
 ; Associate HTML files if requested. 
-Components: afiles\html; Root: HKCR; Subkey: ".html"; ValueType: string; ValueName: ""; ValueData: "SigilHTML"; Flags: uninsdeletekey
+Components: afiles\html; Root: HKCR; Subkey: ".html"; ValueType: string; ValueName: ""; ValueData: "SigilHTML"; Flags: uninsdeletevalue uninsdeletekeyifempty
 Components: afiles\html; Root: HKCR; Subkey: "SigilHTML"; ValueType: string; ValueName: ""; ValueData: "HTML"; Flags: uninsdeletekey
 Components: afiles\html; Root: HKCR; Subkey: "SigilHTML\DefaultIcon"; ValueType: string; ValueName: ""; ValueData: "{app}\Sigil.exe,0"; Flags: uninsdeletekey
 Components: afiles\html; Root: HKCR; Subkey: "SigilHTML\shell\open\command"; ValueType: string; ValueName: ""; ValueData: """{app}\Sigil.exe"" ""%1"""; Flags: uninsdeletekey
 ; Associate TXT files if requested.
-Components: afiles\txt; Root: HKCR; Subkey: ".txt"; ValueType: string; ValueName: ""; ValueData: "SigilTXT"; Flags: uninsdeletekey
+Components: afiles\txt; Root: HKCR; Subkey: ".txt"; ValueType: string; ValueName: ""; ValueData: "SigilTXT"; Flags: uninsdeletevalue uninsdeletekeyifempty
 Components: afiles\txt; Root: HKCR; Subkey: "SigilTXT"; ValueType: string; ValueName: ""; ValueData: "TXT"; Flags: uninsdeletekey
 Components: afiles\txt; Root: HKCR; Subkey: "SigilTXT\DefaultIcon"; ValueType: string; ValueName: ""; ValueData: "{app}\Sigil.exe,0"; Flags: uninsdeletekey
 Components: afiles\txt; Root: HKCR; Subkey: "SigilTXT\shell\open\command"; ValueType: string; ValueName: ""; ValueData: """{app}\Sigil.exe"" ""%1"""; Flags: uninsdeletekey
