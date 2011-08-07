@@ -64,4 +64,8 @@ qrc_*
 *.smp
 *.pl
 *.py
+*.orig
+*.bak
+*.rar
 OpenCandy
+

@@ -181,11 +181,6 @@ HTMLResource& Book::CreateChapterBreakOriginalResource( const QString &content, 
     return html_resource;
 }
 
-void Book::CreateNewChapters( const QStringList& new_chapters )
-{
-    CreateNewChapters( new_chapters, QHash< QString, QString >(), -1, "" );
-    SetModified( true );
-}
 
 void Book::CreateNewChapters( const QStringList &new_chapters, HTMLResource &original_resource )
 {
@@ -197,6 +192,7 @@ void Book::CreateNewChapters( const QStringList &new_chapters, HTMLResource &ori
     CreateNewChapters( new_chapters, QHash< QString, QString >(), originalPosition, newFilePrefix );
     SetModified( true );
 }
+
 
 void Book::CreateNewChapters( const QStringList &new_chapters,
                              const QHash<QString, QString> &html_updates,

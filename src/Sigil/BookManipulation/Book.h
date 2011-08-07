@@ -155,15 +155,8 @@ public:
 
     /**
      * Creates new chapters/XHTML documents.
-     * The only reason why we have an overload instead of just one function
-     * with a default argument is because then Apple GCC 4.2 flakes out here.
-     * 
-     * @param new_chapters The contents of the new chapters.
-     */
-    void CreateNewChapters( const QStringList& new_chapters );
-
-    /**
-     * Creates new chapters/XHTML documents.
+	 * The only reason why we have an overload instead of just one function
+	 * with a default argument is because then Apple GCC 4.2 flakes out here.
      *
      * @param new_chapters The contents of the new chapters.
      * @param originating_resource The original HTML chapter that chapters
