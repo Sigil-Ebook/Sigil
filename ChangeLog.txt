@@ -1,4 +1,5 @@
 Sigil v0.4.0 ADD_DATE
+    - Fix issue 947: Normalise headings before automatically generating the TOC.
     - Build system changes to accomidate the Windows SDK.
     - Remove empty styles on body tags when cleaning webkit junk.
     - Fix  issue 549 : Split on SGF Chapter Markers puts new files (sections) at end of file list.
