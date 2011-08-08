@@ -88,7 +88,17 @@ Resource& FolderKeeper::AddContentFileToFolder( const QString &fullfilepath,
         boost_throw( FileDoesNotExist() << errinfo_file_name( fullfilepath.toStdString() ) );
 
     QString new_file_path;
+    QString normalised_file_path = fullfilepath;
     Resource *resource = NULL;
+
+    // Rename files that start with a '.'
+    // These merely introduce needless difficulties
+    QFileInfo fileInformation( normalised_file_path );
+    QString fileName = fileInformation.fileName();
+    if( fileName.left(1) == "." )
+    {
+        normalised_file_path = fileInformation.canonicalPath() % "/" % fileName.right( fileName.size() - 1 );
+    }
 
     // We need to lock here because otherwise
     // several threads can get the same "unique" name.
@@ -96,8 +106,8 @@ Resource& FolderKeeper::AddContentFileToFolder( const QString &fullfilepath,
     {
         QMutexLocker locker( &m_AccessMutex );
 
-        QString filename  = GetUniqueFilenameVersion( QFileInfo( fullfilepath ).fileName() );
-        QString extension = QFileInfo( fullfilepath ).suffix().toLower();
+        QString filename  = GetUniqueFilenameVersion( QFileInfo( normalised_file_path ).fileName() );
+        QString extension = QFileInfo( normalised_file_path ).suffix().toLower();
         QString relative_path;
 
         if ( IMAGE_EXTENSIONS.contains( extension ) )

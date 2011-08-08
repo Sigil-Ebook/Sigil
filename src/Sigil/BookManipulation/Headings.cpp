@@ -23,7 +23,6 @@
 #include "BookManipulation/Headings.h"
 #include "BookManipulation/XhtmlDoc.h"
 #include "BookManipulation/XercesCppUse.h"
-#include "BookManipulation/BookNormalization.h"
 #include "Misc/Utility.h"
 #include "ResourceObjects/HTMLResource.h"
 
@@ -43,9 +42,6 @@ QList< Headings::Heading > Headings::GetHeadingList( QList< HTMLResource* > html
                                                      bool include_unwanted_headings )
 {
     QList< Headings::Heading > heading_list;
-
-    // Make sure that the headings have an id
-    BookNormalization::GiveIDsToHeadings( html_resources );
 
     QList< QList< Headings::Heading > > per_file_headings =
         QtConcurrent::blockingMapped( html_resources, 

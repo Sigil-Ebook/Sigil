@@ -246,9 +246,61 @@ void ImportOEBPS::ReadManifestItemElement( QXmlStreamReader &opf_reader )
 
 void ImportOEBPS::ReadSpineElement( QXmlStreamReader &opf_reader )
 {
+    QString ncx_href = "not_found";
     QString ncx_id = opf_reader.attributes().value( "", "toc" ).toString();
 
-    m_NCXFilePath = QFileInfo( m_OPFFilePath ).absolutePath() + "/" + m_NcxCandidates[ ncx_id ];
+    if ( !ncx_id.isEmpty() )
+    {
+        ncx_href = m_NcxCandidates[ ncx_id ];
+    }
+    // Fallback behaviour to accommodate sloppy tools used by a
+    // particular conversion service.
+    else
+    {
+        // Search for the ncx in the manifest by looking for files with
+        // a .ncx extension.
+        QHashIterator< QString, QString > ncxSearch( m_NcxCandidates );
+        while( ncxSearch.hasNext() )
+        {
+            ncxSearch.next();
+            if( QFileInfo( ncxSearch.value() ).suffix().toLower() == NCX_EXTENSION )
+            {
+                ncx_id = ncxSearch.key();
+
+                QMessageBox msgBox;
+                msgBox.setIcon( QMessageBox::Warning );
+                msgBox.setTextFormat(Qt::RichText);
+                msgBox.setText( "<center><b>The OPF file is badly formed.</b></center>" );
+                msgBox.setInformativeText( Qt::convertFromPlainText( "Sigil will attempt to use the following file as the NCX:\n\n" % m_NcxCandidates[ ncx_id ] ) );
+                msgBox.exec();
+
+                ncx_href = m_NcxCandidates[ ncx_id ];
+                break;
+            }
+        }
+
+        if ( ncx_id.isEmpty() )
+        {
+            // Things are really bad and no .ncx file was found in the manifest.
+            // We need to create a new one.
+            QString newNCXPath = m_ExtractedFolderPath % "/" % NCX_FILE_NAME;
+            // Create a new file for the NCX.
+            new NCXResource( newNCXPath, &m_Book->GetFolderKeeper() );
+
+            QMessageBox msgBox;
+            msgBox.setIcon( QMessageBox::Warning );
+            msgBox.setTextFormat(Qt::RichText);
+            msgBox.setText( "<center><b>The OPF file is badly formed.</b></center>" );
+            msgBox.setInformativeText( "Sigil could not find an NCX file and will create a new one." );
+            msgBox.exec();
+
+            // Add the NCX we created to the book folder.
+            m_Book->GetFolderKeeper().AddContentFileToFolder( newNCXPath, true );
+            ncx_href = NCX_FILE_NAME;
+        }
+    }
+
+    m_NCXFilePath = QFileInfo( m_OPFFilePath ).absolutePath() + "/" + ncx_href;
 }
 
 

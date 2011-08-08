@@ -48,17 +48,14 @@ public:
      */
     static void Normalize( QSharedPointer< Book > book ); 
 
+private:
+
     /**
      * Gives ID's to all headings that don't have them.
-     * This is made public so that it's accessible from functions
-     * that expect to have a normalised input, specifically auto-
-     * generation of a ToC from headings.
      *
      * @param html_resources All the book's html resources.
      */
     static void GiveIDsToHeadings( const QList< HTMLResource* > &html_resources );
-
-private:
 
     /**
      * Gives ID's to all headings that don't have them
