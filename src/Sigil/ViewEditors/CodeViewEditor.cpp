@@ -87,12 +87,25 @@ QString CodeViewEditor::SplitChapter()
     int body_tag_start = text.indexOf( body_search );
     int body_tag_end   = body_tag_start + body_search.matchedLength();
 
+    QRegExp body_end_search( BODY_END );
+    int body_contents_end = text.indexOf( body_end_search );
+
     QString head = text.left( body_tag_start );
 
     int next_open_tag_index = text.indexOf( QRegExp( NEXT_OPEN_TAG_LOCATION ), textCursor().position() );
-    if ( next_open_tag_index == -1 || next_open_tag_index < body_tag_end )
-    
-        next_open_tag_index = body_tag_end; 
+    if ( next_open_tag_index == -1 )
+    {
+        // Cursor is at end of file
+        next_open_tag_index = body_contents_end;
+    }
+    else
+    {
+        if ( next_open_tag_index < body_tag_end )
+        {
+            // Cursor is before the start of the body
+            next_open_tag_index = body_tag_end;
+        }
+    }
 
     const QString &text_segment = next_open_tag_index != body_tag_end                             ? 
                                   Utility::Substring( body_tag_start, next_open_tag_index, text ) :
