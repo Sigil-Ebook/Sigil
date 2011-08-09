@@ -96,6 +96,11 @@ protected:
     void ReadSpineElement( QXmlStreamReader &opf_reader );
 
     /**
+     * Get the id of the NCX.
+     */
+    QString GetNCXId();
+
+    /**
      * Loads the book's infrastructure files, like 
      * the NCX and the OPF.
      */

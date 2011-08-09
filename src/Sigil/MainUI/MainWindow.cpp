@@ -870,7 +870,15 @@ void MainWindow::SetNewBook( QSharedPointer< Book > new_book )
     connect( m_BookBrowser,     SIGNAL( CoverImageSet(           const ImageResource& ) ),
              &m_Book->GetOPF(), SLOT(   SetResourceAsCoverImage( const ImageResource& ) ) );
 
-    m_Book->SetModified( false );
+    // The m_IsModified state variable is set in GetBook() to indicate whether the OPF
+    // file was invalid and had to be recreated.
+    // Since this happens before the connections have been established, it needs to be
+    // tested and retoggled if true in order to indicate the actual state.
+    if( m_Book->IsModified() )
+    {
+        m_Book->SetModified( false );
+        m_Book->SetModified( true );
+    }
 }
 
 
@@ -878,6 +886,7 @@ void MainWindow::CreateNewBook()
 {
     QSharedPointer< Book > new_book = QSharedPointer< Book >( new Book() );
     new_book->CreateEmptyHTMLFile();
+    new_book->SetModified( false );
     
     SetNewBook( new_book );
     UpdateUiWithCurrentFile( "" );

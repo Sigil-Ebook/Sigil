@@ -325,6 +325,55 @@ QStringList OPFResource::GetSpineOrderFilenames() const
 }
 
 
+void OPFResource::SetSpineOrderFromFilenames( const QStringList spineOrder )
+{
+    QWriteLocker locker( &GetLock() );
+    shared_ptr< xc::DOMDocument > document = GetDocument();
+
+    QList< xc::DOMElement* > items =
+            XhtmlDoc::GetTagMatchingDescendants( *document, "item", OPF_XML_NAMESPACE );
+
+    QHash< QString, QString > filename_to_id_mapping;
+
+    foreach( xc::DOMElement* item, items )
+    {
+        QString id   = XtoQ( item->getAttribute( QtoX( "id" ) ) );
+        QString href = XtoQ( item->getAttribute( QtoX( "href" ) ) );
+    }
+
+    QList< xc::DOMElement* > itemrefs =
+            XhtmlDoc::GetTagMatchingDescendants( *document, "itemref", OPF_XML_NAMESPACE );
+    QList< xc::DOMElement* > newSpine;
+
+    foreach( QString spineItem, spineOrder )
+    {
+        QString id = filename_to_id_mapping[ spineItem ];
+
+        bool found = false;
+        QListIterator< xc::DOMElement* > spineElementSearch( itemrefs );
+        while( spineElementSearch.hasNext() && !found )
+        {
+            xc::DOMElement* spineElement = spineElementSearch.next();
+            if( XtoQ( spineElement->getAttribute( QtoX( "idref") ) ) == spineItem )
+            {
+                newSpine.append( spineElement );
+                found = true;
+            }
+        }
+    }
+
+    xc::DOMElement &spine = GetSpineElement( *document );
+    XhtmlDoc::RemoveChildren( spine );
+
+    QListIterator< xc::DOMElement* > spineWriter( newSpine );
+    while( spineWriter.hasNext() )
+    {
+        spine.appendChild( spineWriter.next() );
+    }
+
+    UpdateTextFromDom( *document );
+}
+
 
 QHash< QString, QList< QVariant > > OPFResource::GetDCMetadata() const
 {

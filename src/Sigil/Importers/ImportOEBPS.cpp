@@ -304,6 +304,41 @@ void ImportOEBPS::ReadSpineElement( QXmlStreamReader &opf_reader )
 }
 
 
+QString ImportOEBPS::GetNCXId()
+{
+    QString opf_text = PrepareOPFForReading( Utility::ReadUnicodeTextFile( m_OPFFilePath ) );
+    QXmlStreamReader opf_reader( opf_text );
+    QString ncx_id;
+
+    while ( !opf_reader.atEnd() )
+    {
+        opf_reader.readNext();
+
+        if ( !opf_reader.isStartElement() )
+        {
+            continue;
+        }
+
+        if ( opf_reader.name() == "spine" )
+        {
+            ncx_id = opf_reader.attributes().value( "", "toc" ).toString();
+            break;
+        }
+    }
+
+    if ( opf_reader.hasError() )
+    {
+        boost_throw( ErrorParsingOpf()
+                     << errinfo_XML_parsing_error_string( opf_reader.errorString().toStdString() )
+                     << errinfo_XML_parsing_line_number( opf_reader.lineNumber() )
+                     << errinfo_XML_parsing_column_number( opf_reader.columnNumber() )
+                     );
+    }
+
+    return ncx_id;
+}
+
+
 void ImportOEBPS::LoadInfrastructureFiles()
 {
     m_Book->GetOPF().SetText( Utility::ReadUnicodeTextFile( m_OPFFilePath ) );

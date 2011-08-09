@@ -86,6 +86,15 @@ public:
     QStringList GetSpineOrderFilenames() const;
 
     /**
+     * SetSpineOrderFromFilenames
+     * The setter to complement GetSpineOrderFilenames()
+     *
+     * @param An list of the content file names that must be written
+     *        in order to the spine.
+     **/
+    void SetSpineOrderFromFilenames( const QStringList spineOrder );
+
+    /**
      * Returns the book's Dublin Core metadata. Note that metadata from
      * <meta> elements is not included.
      *
