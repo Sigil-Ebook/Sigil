@@ -30,6 +30,12 @@ const QStringList IMAGE_EXTENSIONS = QStringList() << "jpg"   << "jpeg"  << "png
                                                    << "gif"   << "tif"   << "tiff"
                                                    << "bm"    << "bmp"   << "svg";
 
+// Exception for non-standard Apple files in META-INF.
+// container.xml and encryption.xml will be rewritten
+// on export. Other files in this directory are passed
+// through untouched.
+const QRegExp FILE_EXCEPTIONS ( "META-INF" );
+
 const QStringList FONT_EXTENSIONS         = QStringList() << "ttf"   << "ttc"   << "otf";
 const QStringList TEXT_EXTENSIONS         = QStringList() << "xhtml" << "html"  << "htm" << "xml";
 static const QStringList STYLE_EXTENSIONS = QStringList() << "css"   << "xpgt";
@@ -110,7 +116,18 @@ Resource& FolderKeeper::AddContentFileToFolder( const QString &fullfilepath,
         QString extension = QFileInfo( normalised_file_path ).suffix().toLower();
         QString relative_path;
 
-        if ( IMAGE_EXTENSIONS.contains( extension ) )
+        if ( fullfilepath.contains( FILE_EXCEPTIONS ) )
+        {
+            // This is a big hack that assumes the new and old filepaths use root paths
+            // of the same length. I can't see how to fix this without refactoring
+            // a lot of the code to provide a more generalised interface.
+            relative_path = fullfilepath.right( fullfilepath.size() - m_FullPathToMainFolder.size() );
+            new_file_path = m_FullPathToMainFolder % relative_path;
+
+            resource = new Resource( new_file_path );
+        }
+
+        else if ( IMAGE_EXTENSIONS.contains( extension ) )
         {
             new_file_path = m_FullPathToImagesFolder + "/" + filename;
             relative_path = IMAGE_FOLDER_NAME + "/" + filename;
