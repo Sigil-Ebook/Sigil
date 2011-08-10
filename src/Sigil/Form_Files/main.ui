@@ -829,7 +829,7 @@
     <string>Close</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+W</string>
+    <string>Ctrl+Shift+W</string>
    </property>
   </action>
   <action name="actionZoomIn">
