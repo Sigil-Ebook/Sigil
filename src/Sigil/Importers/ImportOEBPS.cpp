@@ -310,6 +310,7 @@ QString ImportOEBPS::GetNCXId()
     QXmlStreamReader opf_reader( opf_text );
     QString ncx_id;
 
+    // Try to find the NCX listed in the OPF spine.
     while ( !opf_reader.atEnd() )
     {
         opf_reader.readNext();
@@ -323,6 +324,23 @@ QString ImportOEBPS::GetNCXId()
         {
             ncx_id = opf_reader.attributes().value( "", "toc" ).toString();
             break;
+        }
+    }
+
+    // Could not find a proper NCX in the spine.
+    if ( ncx_id.isEmpty() )
+    {
+        // Search for the ncx in the manifest by looking for files with
+        // a .ncx extension.
+        QHashIterator< QString, QString > ncxSearch( m_NcxCandidates );
+        while( ncxSearch.hasNext() )
+        {
+            ncxSearch.next();
+            if( QFileInfo( ncxSearch.value() ).suffix().toLower() == NCX_EXTENSION )
+            {
+                ncx_id = ncxSearch.key();
+                break;
+            }
         }
     }
 
