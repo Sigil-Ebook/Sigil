@@ -294,8 +294,6 @@ void ImportOEBPS::ReadSpineElement( QXmlStreamReader &opf_reader )
             msgBox.setInformativeText( "Sigil could not find an NCX file and will create a new one." );
             msgBox.exec();
 
-            // Add the NCX we created to the book folder.
-            m_Book->GetFolderKeeper().AddContentFileToFolder( newNCXPath, true );
             ncx_href = NCX_FILE_NAME;
         }
     }
