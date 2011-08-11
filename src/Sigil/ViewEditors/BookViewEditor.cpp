@@ -227,7 +227,14 @@ void BookViewEditor::StoreCaretLocationUpdate( const QList< ViewEditor::ElementI
     QString scroll = "var from_top = window.innerHeight / 2;"
                      "$.scrollTo( element, 0, {offset: {top:-from_top, left:0 } } );";
 
-    m_CaretLocationUpdate = caret_location + scroll;     
+    QString setCursor = "var range = document.createRange();"
+            "range.setStart(element, 0);"
+            "range.setEnd(element, 0);"
+            "var selection = window.getSelection();"
+            "selection.removeAllRanges();"
+            "selection.addRange(range);" ;
+
+    m_CaretLocationUpdate = caret_location + scroll + setCursor;
 }
 
 

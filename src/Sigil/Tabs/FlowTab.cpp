@@ -911,7 +911,7 @@ void FlowTab::EnterBookView()
     m_HTMLResource.UpdateWebPageFromTextDocument();
 
     m_IsLastViewBook = true;
-    setFocusProxy( &m_wBookView );
+    m_wBookView.GrabFocus();
 
     emit EnteringBookView();
 }
