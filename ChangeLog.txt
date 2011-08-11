@@ -1,4 +1,8 @@
 Sigil v0.4.0 ADD_DATE
+    - Fix issue 835: File, Close shortcut does not work on OS X due to shortcut conflict.
+    - Fix issue 793: Don't delete com.apple.ibooks.display-options.xml.
+    - Fix issue 319: Adding chapter break in code view at end of current chapter creates new
+      chapter before the current one.
     - Fix issue 947: Normalise headings before automatically generating the TOC.
     - Build system changes to accomidate the Windows SDK.
     - Remove empty styles on body tags when cleaning webkit junk.
