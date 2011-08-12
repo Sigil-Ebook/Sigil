@@ -253,6 +253,13 @@ void FindReplace::ReplaceAll()
                       tr( "The search term was replaced %1 times." ) :
                       tr( "The search term was replaced %1 time."  );
 
+    if ( count > 0 )
+    {
+        // Signal that the contents have changed and update the view
+        m_MainWindow.GetCurrentBook()->SetModified( true );
+        m_MainWindow.GetCurrentContentTab().ContentChangedExternally();
+    }
+
     QMessageBox::information( 0, tr( "Sigil" ), message.arg( count ) );
 
     UpdatePreviousFindStrings();

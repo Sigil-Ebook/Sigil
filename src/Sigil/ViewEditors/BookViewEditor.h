@@ -27,6 +27,7 @@
 #include "BookManipulation/XercesHUse.h"
 #include <QWebView>
 #include <QMap>
+#include <QMapIterator>
 #include <QWebElement>
 #include <boost/shared_ptr.hpp>
 using boost::shared_ptr;
@@ -321,6 +322,21 @@ private:
          *  A DOM document with the loaded text.
          */
         shared_ptr< xc::DOMDocument > document;
+    };
+
+    /**
+     * Defines a matched string of text when searching.
+     */
+    struct FoundItem {
+        /**
+         * Lenghts of the text.
+         */
+        int matchedLength;
+
+        /**
+         * Text that matched.
+         */
+        QStringList capturedText;
     };
 
     /**

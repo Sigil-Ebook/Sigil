@@ -332,39 +332,68 @@ bool BookViewEditor::ReplaceSelected( const QRegExp &search_regex, const QString
 
 
 int BookViewEditor::ReplaceAll( const QRegExp &search_regex, const QString &replacement )
-{    
+{
     QRegExp result_regex = search_regex;
     int count = 0;
     
     QProgressDialog progress( tr( "Replacing search term..." ), QString(), 0, Count( search_regex ) );
     progress.setMinimumDuration( PROGRESS_BAR_MINIMUM_DURATION );
     
-    // TODO: Slow as hell. Find a way to speed this up.
-    // Something that does NOT require parsing the whole
-    // document every single time we change something...
-    while ( true )
+    SearchTools search_tools = GetSearchTools();
+
+    QMap< int, FoundItem > replace_items;
+    int search_index = -1;
+
+    do
     {
-        // Update the progress bar
-        progress.setValue( count );
+        search_index++;
+        search_index = search_tools.fulltext.indexOf( result_regex, search_index );
 
-        SearchTools search_tools = GetSearchTools();
-        int search_index = search_tools.fulltext.indexOf( result_regex );
+        if( search_index != -1 )
+        {
+            FoundItem search_result;
 
-        if ( search_index != -1 )
-        {            
-            QString final_replacement = FillWithCapturedTexts( result_regex.capturedTexts(), replacement );
-            QString replacing_js      = QString( c_ReplaceText ).replace( "$ESCAPED_TEXT_HERE", EscapeJSString( final_replacement ) );
+            search_result.matchedLength = result_regex.matchedLength();
+            search_result.capturedText = result_regex.capturedTexts();
 
-            SelectRangeInputs input   = GetRangeInputs( search_tools.node_offsets, result_regex.pos(), result_regex.matchedLength() );
-            EvaluateJavascript( GetRangeJS( input ) + replacing_js ); 
-
-            ++count;
+            replace_items[ result_regex.pos() ] = search_result;
         }
+    } while ( search_index != -1 );
 
+    xc::DOMNode* last_node = NULL;
+    int offset = 0;
+
+    QMapIterator< int, FoundItem > result_list( replace_items );
+    while( result_list.hasNext() )
+    {
+        result_list.next();
+        QString final_replacement = FillWithCapturedTexts( result_list.value().capturedText, replacement );
+        QString replacing_js      = QString( c_ReplaceText ).replace( "$ESCAPED_TEXT_HERE", EscapeJSString( final_replacement ) );
+
+        SelectRangeInputs input   = GetRangeInputs( search_tools.node_offsets, result_list.key(), result_list.value().matchedLength );
+
+        offset += final_replacement.length() - result_list.value().capturedText[0].length() ;
+
+        if( input.end_node == last_node )
+        {
+            // Adjust replacement position to account for a previous replacement within the same node.
+            // The current search mechanism does not allow a search result in Book View to span nodes,
+            // so this is safe.
+            input.start_node_index += offset;
+            input.end_node_index += offset;
+        }
         else
         {
-            break;
+            // New node, so clear the offset.
+            offset = 0;
         }
+
+        last_node = input.end_node;
+
+        EvaluateJavascript( GetRangeJS( input ) + replacing_js );
+
+        // Update the progress bar
+        progress.setValue( count++ );
     }
 
     // Tell anyone who's interested that the document has been updated.

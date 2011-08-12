@@ -90,6 +90,16 @@ void ContentTab::EmitCentralTabRequest()
 }
 
 
+void ContentTab::ContentChangedExternally()
+{
+    // This seems to be the easiest way to get the tab's display to
+    // update and reflect the changed contents. But it still causes a
+    // scroll to top in Code View (though the cursor remains unchanged).
+    // The focus mechanism for Code View needs to be looked at.
+    activateWindow();
+}
+
+
 void ContentTab::EmitDeleteMe()
 {
     emit DeleteMe( this );

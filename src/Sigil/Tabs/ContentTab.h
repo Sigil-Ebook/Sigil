@@ -231,6 +231,12 @@ public slots:
      */
     void EmitCentralTabRequest();
 
+    /**
+     * Refresh display after external change of contents
+     * (Replace in All Files).
+     */
+    void ContentChangedExternally();
+
 signals:
 
     /**
