@@ -29,6 +29,8 @@
 const QStringList IMAGE_EXTENSIONS = QStringList() << "jpg"   << "jpeg"  << "png"
                                                    << "gif"   << "tif"   << "tiff"
                                                    << "bm"    << "bmp"   << "svg";
+const QStringList JPG_EXTENSIONS = QStringList()   << "jpg"   << "jpeg";
+const QStringList TIFF_EXTENSIONS = QStringList()  << "tif"  << "tiff";
 
 // Exception for non-standard Apple files in META-INF.
 // container.xml and encryption.xml will be rewritten

@@ -406,9 +406,16 @@ bool OPFModel::FilenameIsValid( const QString &old_filename, const QString &new_
     const QString &new_extension = QFileInfo( new_filename ).suffix();
 
     // We normally don't allow an extension change, but we
-    // allow it for changes between HTML, HTM, XHTML and XML.
+    // allow it for changes within the following sets:
+    // HTML, HTM, XHTML and XML.
+    // JPG, JPEG.
+    // TIF, TIFF.
     if ( old_extension != new_extension &&
-         !( TEXT_EXTENSIONS.contains( old_extension ) && TEXT_EXTENSIONS.contains( new_extension ) )
+         !(
+             ( TEXT_EXTENSIONS.contains( old_extension ) && TEXT_EXTENSIONS.contains( new_extension ) ) ||
+             ( JPG_EXTENSIONS.contains( old_extension ) && JPG_EXTENSIONS.contains( new_extension ) ) ||
+             ( TIFF_EXTENSIONS.contains( old_extension ) && TIFF_EXTENSIONS.contains( new_extension ) )
+         )
        )
     {
         Utility::DisplayStdErrorDialog( 
