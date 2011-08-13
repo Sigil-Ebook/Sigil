@@ -1,4 +1,6 @@
 Sigil v0.4.0 ADD_DATE
+    - Fix issue 650: Convert SVG prefixes into a form that Tidy will tolerate.
+    - Fix issue 952: Allow compatible extension changes.
     - Fix issue 835: File, Close shortcut does not work on OS X due to shortcut conflict.
     - Fix issue 793: Don't delete com.apple.ibooks.display-options.xml.
     - Fix issue 319: Adding chapter break in code view at end of current chapter creates new

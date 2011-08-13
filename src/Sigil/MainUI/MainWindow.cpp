@@ -52,7 +52,7 @@ static const int ZOOM_SLIDER_WIDTH          = 140;
 static const QString REPORTING_ISSUES_WIKI  = "http://code.google.com/p/sigil/wiki/ReportingIssues";
 static const QString DONATE_WIKI            = "http://code.google.com/p/sigil/wiki/Donate";
 static const QString SIGIL_DEV_BLOG         = "http://sigildev.blogspot.com/";
-static const QString USER_MANUAL_URL        = "http://web.sigil.googlecode.com/hg/contents.html";
+static const QString USER_MANUAL_URL        = "http://web.sigil.googlecode.com/git/contents.html";
 static const QString FAQ_WIKI_URL           = "http://code.google.com/p/sigil/wiki/FAQ";
 
 static const QString BOOK_BROWSER_NAME            = "bookbrowser";
