@@ -61,7 +61,7 @@ static const QString SVG_ELEMENTS         = "a,altGlyph,altGlyphDef,altGlyphItem
 // of provided book XHTML source code
 QString CleanSource::Clean( const QString &source )
 {
-    QString newsource = source;
+    QString newsource = PreprocessSpecialCases( source );
 
     if ( !MainWindow::ShouldUseTidyClean() )
     {
@@ -559,3 +559,26 @@ QString CleanSource::RemoveMetaCharset( const QString &source )
     return head + Utility::Substring( head_end, source.length(), source );
 }
 
+
+QString CleanSource::PreprocessSpecialCases( const QString &source )
+{
+    QString newsource = source;
+
+    // For content files we want to retain the functionality offered by HTMLTidy's
+    // auto-correcting html parser, but this can only handle one namespace
+    // in the <html> tag and simply strips tags with namespace prefixes it
+    // doesn't understand. The solution used here is to embed the namespace
+    // definition in the root tag itself.
+    QRegExp root_svg_tag_with_prefix( "<\\s*svg\\s*:\\s*svg" );
+    QString root_svg_embeddedNS = "<svg xmlns=\"http://www.w3.org/2000/svg\"";
+
+    newsource.replace( root_svg_tag_with_prefix, root_svg_embeddedNS );
+
+    // Once the root tag has an embedded namespace, strip the prefix from all other tags
+    QRegExp child_svg_tag_with_prefix( "<\\s*svg\\s*:" );
+    QString child_tag_no_prefix = "<";
+
+    newsource.replace( child_svg_tag_with_prefix, child_tag_no_prefix );
+
+    return newsource;
+}

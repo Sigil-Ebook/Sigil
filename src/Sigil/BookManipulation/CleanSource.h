@@ -112,6 +112,15 @@ private:
      * so this meta tag is useless anyway.
      */
     static QString RemoveMetaCharset( const QString &source );
+
+    /**
+     * Additional pre-processing for special cases that aren't handled properly
+     * by HTML Tidy.
+     *
+     * @param The source code to be cleaned
+     * @return The processed code to be fed to HTML Tidy.
+     */
+    static QString PreprocessSpecialCases( const QString &source );
 };
 
 
