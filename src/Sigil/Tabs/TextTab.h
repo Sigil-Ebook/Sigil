@@ -60,6 +60,33 @@ public:
 
     ViewState GetViewState();
 
+public slots:
+
+    /**
+     * Implements Undo action functionality.
+     */
+    void Undo();
+
+    /**
+     * Implements Redo action functionality.
+     */
+    void Redo();
+
+    /**
+     * Implements Cut action functionality.
+     */
+    void Cut();
+
+    /**
+     * void Cut();
+     */
+    void Copy();
+
+    /**
+     * Implements Paste action functionality.
+     */
+    void Paste();
+
 signals:
 
     void SelectionChanged();

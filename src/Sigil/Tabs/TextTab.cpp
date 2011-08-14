@@ -101,6 +101,51 @@ ContentTab::ViewState TextTab::GetViewState()
 }
 
 
+void TextTab::Undo()
+{
+    if( m_wCodeView.hasFocus() )
+    {
+        m_wCodeView.undo();
+    }
+}
+
+
+void TextTab::Redo()
+{
+    if( m_wCodeView.hasFocus() )
+    {
+        m_wCodeView.redo();
+    }
+}
+
+
+void TextTab::Cut()
+{
+    if( m_wCodeView.hasFocus() )
+    {
+        m_wCodeView.cut();
+    }
+}
+
+
+void TextTab::Copy()
+{
+    if( m_wCodeView.hasFocus() )
+    {
+        m_wCodeView.copy();
+    }
+}
+
+
+void TextTab::Paste()
+{
+    if( m_wCodeView.hasFocus() )
+    {
+        m_wCodeView.paste();
+    }
+}
+
+
 void TextTab::SaveTabContent()
 {
     // We can't perform the document modified check
