@@ -568,7 +568,7 @@ void OPFResource::ResourceRenamed( const Resource& resource, QString old_full_pa
     shared_ptr< xc::DOMDocument > document = GetDocument();
 
     QString path_to_oebps_folder = QFileInfo( GetFullPath() ).absolutePath() + "/";
-    QString resource_oebps_path  = QString( old_full_path ).remove( path_to_oebps_folder );
+    QString resource_oebps_path  = Utility::URLEncodePath( QString( old_full_path ).remove( path_to_oebps_folder ) );
     QList< xc::DOMElement* > items = 
         XhtmlDoc::GetTagMatchingDescendants( *document, "item", OPF_XML_NAMESPACE );
 

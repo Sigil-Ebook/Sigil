@@ -86,7 +86,7 @@ QStringList Utility::GetAbsolutePathsToFolderDescendantFiles( const QString &ful
             // If it's a file, add it to the list
             if ( file.isFile() )
             {
-                files.append( file.absoluteFilePath() );
+                files.append( Utility::URLEncodePath( file.absoluteFilePath() ) );
             }
 
             // Else it's a directory, so

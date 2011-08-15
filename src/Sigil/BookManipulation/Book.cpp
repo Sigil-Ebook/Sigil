@@ -160,11 +160,12 @@ HTMLResource& Book::CreateChapterBreakOriginalResource( const QString &content, 
 {
     const QString &originating_filename = originating_resource.Filename();
 
-    originating_resource.RenameTo( m_Mainfolder.GetUniqueFilenameVersion( FIRST_CHAPTER_NAME ) );
     int reading_order = GetOPF().GetReadingOrder( originating_resource );
     Q_ASSERT( reading_order >= 0 );
 
     QList< HTMLResource* > html_resources = m_Mainfolder.GetResourceTypeList< HTMLResource >( true );
+
+    originating_resource.RenameTo( m_Mainfolder.GetUniqueFilenameVersion( FIRST_CHAPTER_NAME ) );
 
     HTMLResource &html_resource = CreateNewHTMLFile();
     html_resource.RenameTo( originating_filename );
