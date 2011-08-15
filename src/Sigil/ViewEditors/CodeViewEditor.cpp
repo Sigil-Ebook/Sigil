@@ -722,6 +722,11 @@ void CodeViewEditor::DelayedCursorScreenCentering()
      if ( m_DelayedCursorScreenCenteringRequired )
     {
         centerCursor();
+
+        // Make sure the cursor is properly displayed
+        QFocusEvent  ensureFocus = QFocusEvent::FocusIn;
+        focusInEvent( &ensureFocus );
+
         m_DelayedCursorScreenCenteringRequired = false;
     }
 }
