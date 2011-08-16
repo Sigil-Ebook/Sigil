@@ -74,6 +74,8 @@
     <addaction name="separator"/>
     <addaction name="actionFind"/>
     <addaction name="actionReplace"/>
+    <addaction name="separator"/>
+    <addaction name="actionGoToLine"/>
    </widget>
    <widget class="QMenu" name="menuHelp">
     <property name="title">
@@ -1071,6 +1073,14 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+Alt+W</string>
+   </property>
+  </action>
+  <action name="actionGoToLine">
+   <property name="text">
+    <string>Go To Line...</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+/</string>
    </property>
   </action>
  </widget>

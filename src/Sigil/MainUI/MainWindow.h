@@ -170,6 +170,11 @@ private slots:
      * Implements Replace action functionality.
      */
     void Replace();
+
+    /**
+     * Implements Go To Line action functionality.
+     */
+    void GoToLine();
    
     /**
      * Implements Zoom In action functionality.

@@ -20,6 +20,7 @@
 *************************************************************************/
 
 #include <stdafx.h>
+#include <QInputDialog>
 #include "Misc/Utility.h"
 #include "MainWindow.h"
 #include "BookManipulation/FolderKeeper.h"
@@ -387,6 +388,17 @@ void MainWindow::Replace()
     else
     {
         m_FindReplace.data()->activateWindow();
+    }
+}
+
+
+void MainWindow::GoToLine()
+{
+    int line = QInputDialog::getInt( this, "Go To Line", "Line #", -1, 1 );
+
+    if ( line >= 1 )
+    {
+        m_TabManager.OpenResource( m_TabManager.GetCurrentContentTab().GetLoadedResource(), false, QUrl(), ContentTab::ViewState_CodeView, line );
     }
 }
 
@@ -1590,6 +1602,7 @@ void MainWindow::ConnectSignalsToSlots()
     connect( ui.actionSaveAs,        SIGNAL( triggered() ), this, SLOT( SaveAs()                   ) );
     connect( ui.actionFind,          SIGNAL( triggered() ), this, SLOT( Find()                     ) );
     connect( ui.actionReplace,       SIGNAL( triggered() ), this, SLOT( Replace()                  ) );
+    connect( ui.actionGoToLine,      SIGNAL( triggered() ), this, SLOT( GoToLine()                 ) );
     connect( ui.actionZoomIn,        SIGNAL( triggered() ), this, SLOT( ZoomIn()                   ) );
     connect( ui.actionZoomOut,       SIGNAL( triggered() ), this, SLOT( ZoomOut()                  ) );
     connect( ui.actionInsertImage,   SIGNAL( triggered() ), this, SLOT( InsertImage()              ) );

@@ -1,4 +1,5 @@
 Sigil vNEXT DATE_TBA
+    - Fix issue 364: Go to line #.
     - Fix issue 742: Shortcut/menu action to close all tabs except the current one.
     - Fix issue 959: Original creator's name is mangled in About dialog.
 
