@@ -47,7 +47,7 @@ About::About( QWidget *parent )
 
     QFile creditsFile( ":/about/Credits.html" );
     creditsFile.open( QIODevice::ReadOnly );
-    QString credits_text = creditsFile.readAll();
+    QString credits_text = QString::fromUtf8( creditsFile.readAll() );
     creditsFile.close();
     ui.creditsDisplay->setHtml( credits_text );
 }

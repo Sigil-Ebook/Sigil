@@ -1,3 +1,6 @@
+Sigil vNEXT DATE_TBA
+    - Fix issue 959: Original creator's name is mangled in About dialog.
+
 Sigil v0.4.0 2011.08.15
     - Fix issue 650: Convert SVG prefixes into a form that Tidy will tolerate.
     - Fix issue 952: Allow compatible extension changes.
