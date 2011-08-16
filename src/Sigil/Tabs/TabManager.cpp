@@ -168,6 +168,30 @@ void TabManager::CloseTab()
 }
 
 
+void TabManager::CloseOtherTabs()
+{
+    if ( count() <= 1 )
+    {
+        return;
+    }
+
+    int current_index = currentIndex();
+    int max_index = count() - 1;
+
+    // Close all tabs after the current one.
+    for ( int i = current_index + 1; i <= max_index; i++ )
+    {
+        CloseTab( current_index + 1 );
+    }
+
+    // Close all tabs before the current one.
+    for ( int i = 0; i < current_index; i++ )
+    {
+        CloseTab( 0 );
+    }
+}
+
+
 void TabManager::MakeCentralTab( ContentTab *tab )
 {
     Q_ASSERT( tab );
@@ -221,7 +245,7 @@ void TabManager::CloseTab( int tab_index )
     // if the tab data is not well-formed.
     if ( content && !content->IsDataWellFormed() )
         
-        return;   
+        return;
 
     ContentTab *tab = qobject_cast< ContentTab* >( widget( tab_index ) );
     tab->Close();

@@ -145,6 +145,7 @@
     <addaction name="actionNextTab"/>
     <addaction name="actionPreviousTab"/>
     <addaction name="actionCloseTab"/>
+    <addaction name="actionCloseOtherTabs"/>
     <addaction name="separator"/>
    </widget>
    <addaction name="menuFile"/>
@@ -1062,6 +1063,14 @@
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Your donations keep the project going!&lt;/p&gt;
 </string>
+   </property>
+  </action>
+  <action name="actionCloseOtherTabs">
+   <property name="text">
+    <string>Close Other Tabs</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Alt+W</string>
    </property>
   </action>
  </widget>

@@ -115,6 +115,12 @@ public slots:
     void CloseTab();
 
     /**
+     * Closes all tabs except the curren tab.
+     * If there is only one tab opened, the command is ignored.
+     */
+    void CloseOtherTabs();
+
+    /**
      * Makes the tab the central (shown) tab of the UI.
      *
      * @param tab The tab to make central.
