@@ -20,7 +20,6 @@
 *************************************************************************/
 
 #include <stdafx.h>
-#include <QInputDialog>
 #include "Misc/Utility.h"
 #include "MainWindow.h"
 #include "BookManipulation/FolderKeeper.h"
