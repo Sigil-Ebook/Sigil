@@ -812,52 +812,61 @@ void FlowTab::LoadTabContent()
 
 
 void FlowTab::TabFocusChange( QWidget *old_widget, QWidget *new_widget )
-{   
-    // Whole tab gains focus
-    if ( ( new_widget == &m_wBookView || new_widget == &m_wCodeView ) &&
-         old_widget != &m_wBookView &&
-         old_widget != &m_wCodeView 
-       )
-    {
-        LoadTabContent();
-    }   
-
-    // Whole tab loses focus
-    else if ( ( old_widget == &m_wBookView || old_widget == &m_wCodeView ) &&
-              new_widget != &m_wBookView && 
-              new_widget != &m_wCodeView 
-            )
-    {
-        SaveTabContent();
-    } 
-}
-
-
-void FlowTab::SplitViewFocusSwitch( QWidget *old_widget, QWidget *new_widget )
 {
-    // We make sure we are looking at focus changes
-    // in Split View; otherwise, we don't care.
-    if ( !m_InSplitView )
-
-        return;
-
-    // If we switched focus from the book view to the code view...
-    if ( ( old_widget == &m_wBookView ) && ( new_widget == &m_wCodeView ) )
-    { 
-        QApplication::setOverrideCursor( Qt::WaitCursor );
-        EnterCodeView();
-        QApplication::restoreOverrideCursor();
-    }
-
-    // If we switched focus from the code view to the book view...
-    else if ( ( old_widget == &m_wCodeView ) && ( new_widget == &m_wBookView ) )
+    // First check if the code view lost focus.
+    if ( old_widget == &m_wCodeView )
     {
-        QApplication::setOverrideCursor( Qt::WaitCursor );
-        EnterBookView();
-        QApplication::restoreOverrideCursor();
+        //setFocusProxy( &m_wCodeView );
+        if ( !IsDataWellFormed() )
+        {
+            setFocus();
+            return;
+        }
     }
 
-    // else we don't care
+    // If were in split view then we are getting the changes between the
+    // book and code views.
+    if ( m_InSplitView )
+    {
+        // If we switched focus from the book view to the code view...
+        if ( ( old_widget == &m_wBookView ) && ( new_widget == &m_wCodeView ) )
+        {
+            QApplication::setOverrideCursor( Qt::WaitCursor );
+            EnterCodeView();
+            QApplication::restoreOverrideCursor();
+        }
+
+        // If we switched focus from the code view to the book view...
+        else if ( ( old_widget == &m_wCodeView ) && ( new_widget == &m_wBookView ) )
+        {
+            QApplication::setOverrideCursor( Qt::WaitCursor );
+            EnterBookView();
+            QApplication::restoreOverrideCursor();
+        }
+
+        // else we don't care
+    }
+    // the entire tab either gained or lost focus
+    else
+    {
+        // Whole tab gains focus
+        if ( ( new_widget == &m_wBookView || new_widget == &m_wCodeView ) &&
+             old_widget != &m_wBookView &&
+             old_widget != &m_wCodeView
+           )
+        {
+            LoadTabContent();
+        }
+
+        // Whole tab loses focus
+        else if ( ( old_widget == &m_wBookView || old_widget == &m_wCodeView ) &&
+                  new_widget != &m_wBookView &&
+                  new_widget != &m_wCodeView
+                )
+        {
+            SaveTabContent();
+        }
+    }
 }
 
 
@@ -966,9 +975,6 @@ void FlowTab::ConnectSignalsToSlots()
     connect( &m_wCodeView, SIGNAL( selectionChanged() ), this, SIGNAL( SelectionChanged() ) );
 
     connect( qApp, SIGNAL( focusChanged( QWidget*, QWidget* ) ), this, SLOT( TabFocusChange( QWidget*, QWidget* ) ) );
-    connect( qApp, SIGNAL( focusChanged( QWidget*, QWidget* ) ), this, SLOT( SplitViewFocusSwitch( QWidget*, QWidget* ) ) );
-
-    connect( &m_wCodeView, SIGNAL( FocusLost() ), this, SLOT( IsDataWellFormed() ) );
 }
 
 

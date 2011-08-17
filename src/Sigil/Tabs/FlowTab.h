@@ -346,7 +346,7 @@ private slots:
 
     /**
      * A global focus switch filter used to catch tab enter and
-     * tab leave events.
+     * tab leave events. Also, catches focus switches inside the Split View.
      * 
      * @param old_widget The widget that just lost focus.
      * @param new_widget The widget that just gained focus. 
@@ -356,15 +356,6 @@ private slots:
      *       to implement our own focusIn and focusOut handling. 
      */
     void TabFocusChange( QWidget *old_widget, QWidget *new_widget );
-
-    /**
-     * A global focus switch filter used to catch focus switches
-     * inside the Split View.
-     * 
-     * @param old_widget The widget that just lost focus.
-     * @param new_widget The widget that just gained focus. 
-     */
-    void SplitViewFocusSwitch( QWidget *old_widget, QWidget *new_widget );
 
     /**
      * Performs the delayed initialization of the tab.

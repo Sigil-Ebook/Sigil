@@ -119,7 +119,7 @@ void WellFormedCheckComponent::DisplayErrorMessage()
         m_Content.AutoFixWellFormedErrors();
      
     else // manual_fix_button
-    
+
         m_Content.ScrollToLine( m_LastError.line );
 }
 

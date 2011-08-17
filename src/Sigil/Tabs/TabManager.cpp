@@ -44,7 +44,7 @@ TabManager::TabManager( QWidget *parent )
     connect( this, SIGNAL( currentChanged( int ) ),    this, SLOT( EmitTabChanged() ) );
     connect( this, SIGNAL( tabCloseRequested( int ) ), this, SLOT( CloseTab( int ) ) );
 
-    connect( this, SIGNAL( TabChanged(              ContentTab*, ContentTab* ) ), 
+    connect( this, SIGNAL( TabChanged(              ContentTab*, ContentTab* ) ),
              this, SLOT(   UpdateTabStatesOnSwitch( ContentTab*, ContentTab* ) ) );
 
     setDocumentMode( true );
@@ -195,7 +195,7 @@ void TabManager::CloseOtherTabs()
 void TabManager::MakeCentralTab( ContentTab *tab )
 {
     Q_ASSERT( tab );
-    setCurrentIndex( indexOf( tab ) );    
+    setCurrentIndex( indexOf( tab ) );
 }
 
 
@@ -376,15 +376,16 @@ ContentTab* TabManager::CreateTabForResource( Resource& resource,
     else if ( resource.Type() == Resource::OPFResourceType )
     {
         tab = new OPFTab( *( qobject_cast< OPFResource* >( &resource ) ), line_to_scroll_to, this );
-
-        connect( tab,  SIGNAL( CentralTabRequest( ContentTab* ) ), 
-                 this, SLOT( MakeCentralTab( ContentTab* ) ) );//, Qt::QueuedConnection );
     }
 
     else if ( resource.Type() == Resource::NCXResourceType )
     {
         tab = new NCXTab( *( qobject_cast< NCXResource* >( &resource ) ), line_to_scroll_to, this );
     }
+
+    // In case of well-formed errors we want the tab to be focused.
+    connect( tab,  SIGNAL( CentralTabRequest( ContentTab* ) ),
+             this, SLOT( MakeCentralTab( ContentTab* ) ) );//, Qt::QueuedConnection );
 
     return tab;    
 }
