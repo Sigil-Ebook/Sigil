@@ -141,7 +141,7 @@ void BookViewEditor::GrabFocus()
 {
     qobject_cast< QWidget *>( parent() )->setFocus();
     
-    setFocus();
+    QWebView::setFocus();
 }
 
 
@@ -439,7 +439,7 @@ void BookViewEditor::JavascriptOnDocumentLoad()
     // HTMLResouce::WebPageJavascriptOnLoad
 
     // Run the caret update if it's pending
-    ExecuteCaretUpdate();
+    // ExecuteCaretUpdate();
 }
 
 

@@ -724,8 +724,8 @@ void FlowTab::BookView()
 
     m_InSplitView = false;
 
-    m_wBookView.show();
     m_wCodeView.hide();
+    m_wBookView.show();
 
     emit ViewChanged();
 
@@ -780,6 +780,12 @@ void FlowTab::CodeView()
 
     m_wBookView.hide();
     m_wCodeView.show();       
+
+    // Make sure the cursor is properly displayed
+    if( !m_wCodeView.hasFocus() )
+    {
+        m_wCodeView.setFocus();
+    }
 
     emit ViewChanged();
 
@@ -920,6 +926,7 @@ void FlowTab::EnterBookView()
     m_HTMLResource.UpdateWebPageFromTextDocument();
 
     m_IsLastViewBook = true;
+
     m_wBookView.GrabFocus();
 
     emit EnteringBookView();

@@ -480,6 +480,10 @@ void CodeViewEditor::focusInEvent( QFocusEvent *event )
 {
     emit FocusGained();
 
+    // setFocus grabs the keyboard input
+    QPlainTextEdit::setFocus();
+    // but we need to call this as well so the
+    // cursor is displayed.
     QPlainTextEdit::focusInEvent( event );
 }
 
@@ -722,10 +726,6 @@ void CodeViewEditor::DelayedCursorScreenCentering()
      if ( m_DelayedCursorScreenCenteringRequired )
     {
         centerCursor();
-
-        // Make sure the cursor is properly displayed
-        QFocusEvent  ensureFocus = QFocusEvent::FocusIn;
-        focusInEvent( &ensureFocus );
 
         m_DelayedCursorScreenCenteringRequired = false;
     }
