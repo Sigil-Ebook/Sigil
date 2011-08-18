@@ -1,4 +1,6 @@
 Sigil vNEXT DATE_TBA
+    - Insert the xml tag explicitly so that Tidy doesn't insert one without encoding and standalone
+      attributes.
     - Fix issue #877: Invalid xml error prevents Find/Replace window from opening.
     - Fix issue where switching between code and book view causes the code view to load old data
       from book view.

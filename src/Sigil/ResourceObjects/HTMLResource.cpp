@@ -29,6 +29,7 @@
 
 static const QString LOADED_CONTENT_MIMETYPE = "application/xhtml+xml";
 
+const QString XML_TAG = "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"no\"?>";
 
 HTMLResource::HTMLResource( const QString &fullfilepath, 
                             const QHash< QString, Resource* > &resources,
@@ -341,7 +342,10 @@ QString HTMLResource::GetWebPageHTML()
 
     RemoveWebkitCruft();
 
-    return ConvertToEntities( CleanSource::Clean( m_WebPage->mainFrame()->toHtml() ) );
+    // Set the xml tag here rather than let Tidy do it.
+    // This prevents false mismatches with the cache later on.
+    QString html_from_Qt = m_WebPage->mainFrame()->toHtml();
+    return ConvertToEntities( CleanSource::Clean( XML_TAG % html_from_Qt ) );
 }
 
 
