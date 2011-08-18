@@ -1,4 +1,5 @@
 Sigil vNEXT DATE_TBA
+    - Set modified state on book when page order is changed.
     - Fixed the cursor issues on moving from Book to Code View and vice-versa. The new view should
       now always gain keyboard focus and show the cursor properly.
     - Insert the xml tag explicitly so that Tidy doesn't insert one without encoding and standalone

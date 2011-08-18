@@ -306,6 +306,7 @@ void OPFModel::UpdateHTMLReadingOrders()
     }
 
     m_Book->GetOPF().UpdateSpineOrder( reading_order_htmls );
+    m_Book->SetModified();
 }
 
 
