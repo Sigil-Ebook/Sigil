@@ -1,4 +1,5 @@
 Sigil vNEXT DATE_TBA
+    - Fix issue #877: Invalid xml error prevents Find/Replace window from opening.
     - Fix issue where switching between code and book view causes the code view to load old data
       from book view.
     - Fix issue 364: Go to line #.

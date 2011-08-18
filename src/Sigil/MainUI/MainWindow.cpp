@@ -349,10 +349,6 @@ bool MainWindow::SaveAs()
 
 void MainWindow::Find()
 {
-    if ( !m_TabManager.TabDataIsWellFormed() )
-
-        return;
-
     m_TabManager.SaveTabData();
 
     if ( m_FindReplace.isNull() )
@@ -371,10 +367,6 @@ void MainWindow::Find()
 
 void MainWindow::Replace()
 {
-    if ( !m_TabManager.TabDataIsWellFormed() )
-
-        return;
-
     m_TabManager.SaveTabData();
 
     if ( m_FindReplace.isNull() )
