@@ -60,6 +60,8 @@ CodeViewEditor::CodeViewEditor( HighlighterType high_type, QWidget *parent )
 
         m_Highlighter = new CSSHighlighter( this );
 
+    setFocusPolicy( Qt::StrongFocus );
+
     ConnectSignalsToSlots();
     UpdateLineNumberAreaMargin();
     HighlightCurrentLine();
@@ -480,10 +482,6 @@ void CodeViewEditor::focusInEvent( QFocusEvent *event )
 {
     emit FocusGained();
 
-    // setFocus grabs the keyboard input
-    QPlainTextEdit::setFocus();
-    // but we need to call this as well so the
-    // cursor is displayed.
     QPlainTextEdit::focusInEvent( event );
 }
 
