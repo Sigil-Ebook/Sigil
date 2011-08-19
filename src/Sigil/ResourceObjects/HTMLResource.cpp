@@ -446,9 +446,12 @@ QString HTMLResource::ConvertToEntities( const QString &source )
 {
     QString newsource = source;
 
-    newsource = newsource.replace( QString::fromUtf8( "\u00ad" ), "&shy;" );
-    newsource = newsource.replace( QString::fromUtf8( "\u2014" ), "&mdash;" );
-    newsource = newsource.replace( QString::fromUtf8( "\u2013" ), "&ndash;" );
+    QChar shy[] = { 0x00ad };
+    newsource = newsource.replace( QString::fromRawData( shy, 1 ), "&shy;" );
+    QChar mdash[] = { 0x2014 };
+    newsource = newsource.replace( QString::fromRawData( mdash, 1 ), "&mdash;" );
+    QChar ndash[] = { 0x213 };
+    newsource = newsource.replace( QString::fromRawData( ndash, 1 ), "&ndash;" );
 
     return newsource;
 }
