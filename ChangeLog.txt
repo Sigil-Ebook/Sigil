@@ -1,4 +1,5 @@
 Sigil vNEXT DATE_TBA
+    - Fix issue 967: toc.ncx file keeps erasing manual input.
     - Fix issues 657, 661, 694 and 867: The Heading Selector in Book View will now function as
       expected and find the correct block-level tag to change rather than attempting to change
       inline tags. It will also retain the attributes (including class) of the old tag.

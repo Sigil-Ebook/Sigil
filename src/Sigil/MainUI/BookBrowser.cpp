@@ -28,7 +28,6 @@
 #include "ResourceObjects/OPFResource.h"
 #include "ResourceObjects/NCXResource.h"
 #include "Importers/ImportHTML.h"
-#include "BookManipulation/BookNormalization.h"
 #include "BookManipulation/FolderKeeper.h"
 #include "Qxt/qxtconfirmationmessage.h"
 #include <QTreeView>
@@ -218,12 +217,6 @@ void BookBrowser::AddExisting()
             m_Book->GetFolderKeeper().AddContentFileToFolder( filepath );
         }
     }    
-
-    // Ensure that all headings have an id attribute
-    BookNormalization::Normalize( m_Book );
-
-    // Final update of the NCX once heading ids are in place
-    m_Book->GetNCX().GenerateNCXFromBookContents( *m_Book );
 
     m_Book->SetMetadata( old_metadata );
 

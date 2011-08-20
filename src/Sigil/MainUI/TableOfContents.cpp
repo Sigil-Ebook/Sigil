@@ -24,6 +24,7 @@
 #include <QTreeView>
 #include "NCXModel.h"
 #include "BookManipulation/FolderKeeper.h"
+#include "BookManipulation/BookNormalization.h"
 #include "Dialogs/HeadingSelector.h"
 #include "ResourceObjects/NCXResource.h"
 #include "Misc/Utility.h"
@@ -140,6 +141,9 @@ void TableOfContents::GenerateTocFromHeadings()
 
             return;
     }
+
+    // Ensure that all headings have an id attribute
+    BookNormalization::Normalize( m_Book );
 
     m_Book->GetNCX().GenerateNCXFromBookContents( *m_Book );
 }
