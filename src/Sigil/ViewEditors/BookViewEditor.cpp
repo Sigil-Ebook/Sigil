@@ -196,10 +196,10 @@ void BookViewEditor::FormatBlock( const QString &element_name )
 QString BookViewEditor::GetCaretElementName()
 {
     QString javascript =  "var node = document.getSelection().anchorNode;"
-                          "var startNode = (node.nodeName == \"#text\" ? node.parentNode : node);"
+                          "var startNode = get_block( node );"
                           "startNode.nodeName;";
 
-    return EvaluateJavascript( javascript ).toString();
+    return EvaluateJavascript( c_GetBlock % javascript ).toString();
 }
 
 

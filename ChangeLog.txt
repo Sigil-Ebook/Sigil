@@ -1,4 +1,5 @@
 Sigil vNEXT DATE_TBA
+    - Fix issue 871: Update heading combo when putting cursor on block with heading style.
     - Fix the formation of an empty paragraph at the top of the new file on doing a chapter split
       in Book View.
     - Fix issue 967: toc.ncx file keeps erasing manual input.
