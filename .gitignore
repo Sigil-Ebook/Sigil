@@ -1,4 +1,3 @@
-syntax: glob
 # Backup files left behind by the Emacs editor.
 *~
 

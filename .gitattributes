@@ -1,0 +1,4 @@
+.git export-ignore
+.gitattributes export-ignore
+.gitignore export-ignore
+version.xml export-ignore
