@@ -53,7 +53,10 @@ BookViewEditor::BookViewEditor( QWidget *parent )
     c_NewSelection(     Utility::ReadUnicodeTextFile( ":/javascript/new_selection.js"              ) ),
     c_GetRange(         Utility::ReadUnicodeTextFile( ":/javascript/get_range.js"                  ) ),
     c_ReplaceText(      Utility::ReadUnicodeTextFile( ":/javascript/replace_text.js"               ) ),
-    c_GetSegmentHTML(   Utility::ReadUnicodeTextFile( ":/javascript/get_segment_html.js"           ) )
+    c_GetSegmentHTML(   Utility::ReadUnicodeTextFile( ":/javascript/get_segment_html.js"           ) ),
+    c_GetBlock(         Utility::ReadUnicodeTextFile( ":/javascript/get_block.js"                  ) ),
+    c_FormatBlock(      Utility::ReadUnicodeTextFile( ":/javascript/format_block.js"               ) ),
+    c_SetCursor(        Utility::ReadUnicodeTextFile( ":/javascript/set_cursor.js"                 ) )
 
 {
     connect( &m_PageUp,            SIGNAL( activated() ), this, SLOT( PageUp()            ) );
@@ -177,9 +180,12 @@ void BookViewEditor::FormatBlock( const QString &element_name )
 
         return;
 
-    QString javascript =  "var node = document.getSelection().anchorNode;"
-                          "var startNode = (node.nodeName == \"#text\" ? node.parentNode : node);"                          
-                          "$(startNode).replaceWith( '<"+ element_name + ">' + $(startNode).html() + '</"+ element_name + ">' );";
+    QString javascript =  c_GetBlock % c_FormatBlock %
+            "var node = document.getSelection().anchorNode;"
+            "var startNode = get_block( node );"
+            "var element = format_block( startNode, \""+element_name+"\" );"
+            "startNode.parentNode.replaceChild( element, startNode );"
+            % c_SetCursor;
 
     EvaluateJavascript( javascript );
 
@@ -227,14 +233,7 @@ void BookViewEditor::StoreCaretLocationUpdate( const QList< ViewEditor::ElementI
     QString scroll = "var from_top = window.innerHeight / 2;"
                      "$.scrollTo( element, 0, {offset: {top:-from_top, left:0 } } );";
 
-    QString setCursor = "var range = document.createRange();"
-            "range.setStart(element, 0);"
-            "range.setEnd(element, 0);"
-            "var selection = window.getSelection();"
-            "selection.removeAllRanges();"
-            "selection.addRange(range);" ;
-
-    m_CaretLocationUpdate = caret_location + scroll + setCursor;
+    m_CaretLocationUpdate = caret_location + scroll + c_SetCursor;
 }
 
 

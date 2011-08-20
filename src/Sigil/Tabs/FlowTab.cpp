@@ -650,6 +650,9 @@ void FlowTab::HeadingStyle( const QString& heading_type )
     // else is "<Select heading>" which does nothing
 
     SaveTabContent();
+
+    // Focus will have switched to the combobox, so let BookView grab it back
+    m_wBookView.GrabFocus();
 }
 
 
