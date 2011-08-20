@@ -1,4 +1,6 @@
 Sigil vNEXT DATE_TBA
+    - Fix the formation of an empty paragraph at the top of the new file on doing a chapter split
+      in Book View.
     - Fix issue 967: toc.ncx file keeps erasing manual input.
     - Fix issues 657, 661, 694 and 867: The Heading Selector in Book View will now function as
       expected and find the correct block-level tag to change rather than attempting to change

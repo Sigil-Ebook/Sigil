@@ -91,7 +91,7 @@ QString BookViewEditor::SplitChapter()
 {
     QString head     = page()->mainFrame()->documentElement().findFirst( "head" ).toOuterXml();    
     QString body_tag = EvaluateJavascript( GET_BODY_TAG_HTML ).toString();
-    QString segment  = EvaluateJavascript( c_GetSegmentHTML  ).toString();
+    QString segment  = EvaluateJavascript( c_GetBlock % c_GetSegmentHTML ).toString();
 
     emit contentsChangedExtra();
 
