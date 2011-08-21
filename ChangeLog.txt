@@ -1,4 +1,6 @@
 Sigil v0.4.1 DATE_TBA
+    - Fix issue 942: Work around for the Nook not being able to deal with cover meta element having
+      attributes in alphabetic order.
     - Fix issue 976: Creation of new Code View tab fails to show all content if the web page's 
       asynchronous loading is delayed.
     - Fix an issue where the line numbers in code view were not aligned to the line they represent.
