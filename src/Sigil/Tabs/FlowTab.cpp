@@ -901,6 +901,10 @@ void FlowTab::DelayedInitialization()
 
     else
     {
+        // Stop Code View attempting to read the content from the web page, since it already
+        // has a valid copy of the content and the web page might not have finished loading yet.
+        m_IsLastViewBook = false;
+
         CodeView();
 
         m_wCodeView.ScrollToLine( m_LineToScrollTo );
