@@ -314,7 +314,7 @@ private:
      * True when the QWebPage cache needs to be updated.
      */
     bool m_WebPageIsOld;
-    
+
     /**
      * True when the QTextDocument cache needs to be updated.
      */
