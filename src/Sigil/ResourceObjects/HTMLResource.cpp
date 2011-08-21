@@ -355,10 +355,10 @@ void HTMLResource::SetWebPageHTML( const QString &source )
 
     connect( m_WebPage, SIGNAL( loadFinished( bool ) ), this, SLOT( WebPageJavascriptOnLoad() ) );
 
-	// NOTE: content loading is asynchronous, and attempts to read the content back out immediately
-	// with toHtml() *will* fail if the page contains external links, particularly if those cannot
-	// be resolved and it ends up waiting for a timeout. The web page content is only readable
-	// once it issues the loadFinished() signal.
+    // NOTE: content loading is asynchronous, and attempts to read the content back out immediately
+    // with toHtml() *will* fail if the page contains external links, particularly if those cannot
+    // be resolved and it ends up waiting for a timeout. The web page content is only readable
+    // once it issues the loadFinished() signal.
     m_WebPage->mainFrame()->setContent( source.toUtf8(), LOADED_CONTENT_MIMETYPE, GetBaseUrl() );
 
     m_WebPage->setContentEditable( true );
