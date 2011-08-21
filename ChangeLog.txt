@@ -1,4 +1,7 @@
-Sigil vNEXT DATE_TBA
+Sigil v0.4.1 DATE_TBA
+    - Fix issue 976: Creation of new Code View tab fails to show all content if the web page's 
+      asynchronous loading is delayed.
+    - Fix an issue where the line numbers in code view were not aligned to the line they represent.
     - Fix issue 871: Update heading combo when putting cursor on block with heading style.
     - Fix the formation of an empty paragraph at the top of the new file on doing a chapter split
       in Book View.
