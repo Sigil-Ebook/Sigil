@@ -20,8 +20,8 @@ Sigil v0.4.1 DATE_TBA
     - Fix issue #877: Invalid xml error prevents Find/Replace window from opening.
     - Fix issue where switching between code and book view causes the code view to load old data
       from book view.
-    - Fix issue 364: Go to line #.
-    - Fix issue 742: Shortcut/menu action to close all tabs except the current one.
+    - Implement issue 364: Go to line #.
+    - Implement issue 742: Shortcut/menu action to close all tabs except the current one.
     - Fix issue 959: Original creator's name is mangled in About dialog.
     - Fix for chapter splitting issue involving filenames with spaces.
     - Makes sure the cursor is properly displayed on entering Code View.
