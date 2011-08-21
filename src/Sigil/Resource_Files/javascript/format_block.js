@@ -2,7 +2,7 @@ function format_block( startNode, element_name ) {
     var nodeContent = startNode.innerHTML;
 
     // Because people will moan like hell if these are left in
-    nodeContent = nodeContent.replace( /xmlns=\"http:\/\/www.w3.org\/1999\/xhtml\"/g, "" );
+    nodeContent = nodeContent.replace( /xmlns=\"http:\/\/www\.w3\.org\/1999\/xhtml\"/g, "" );
 
     // Create a new tag with the desired name.
     var newBlock = document.createElement( element_name, "http://www.w3.org/1999/xhtml" );
