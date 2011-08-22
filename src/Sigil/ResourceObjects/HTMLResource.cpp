@@ -345,7 +345,7 @@ QString HTMLResource::GetWebPageHTML()
     // Set the xml tag here rather than let Tidy do it.
     // This prevents false mismatches with the cache later on.
     QString html_from_Qt = m_WebPage->mainFrame()->toHtml();
-    return ConvertToEntities( CleanSource::Clean( XML_TAG % html_from_Qt ) );
+    return ConvertToEntities( CleanSource::PrettyPrint( CleanSource::Clean( XML_TAG % html_from_Qt ) ) );
 }
 
 
