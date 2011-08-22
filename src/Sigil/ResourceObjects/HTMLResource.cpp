@@ -367,6 +367,8 @@ void HTMLResource::SetWebPageHTML( const QString &source )
     // that asks the user if he wants to open this external link in a browser
     m_WebPage->setLinkDelegationPolicy( QWebPage::DelegateAllLinks );
 
+    // Track resources whose change will necessitate an update of the WebView.
+    // At present this only applies to css files and images.
     TrackNewResources( GetPathsToLinkedResources() );
 
     QWebSettings &settings = *m_WebPage->settings();

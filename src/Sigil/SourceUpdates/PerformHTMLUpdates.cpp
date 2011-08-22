@@ -65,5 +65,7 @@ shared_ptr< xc::DOMDocument > PerformHTMLUpdates::operator()()
 void PerformHTMLUpdates::InitPathTags()
 {
     // We look at a different set of tags
-    m_PathTags = QStringList() << "link" << "a" << "img" << "image";
+    // This is the list of tags whose contents will be scanned for file references
+    // that need to be updated.
+    m_PathTags = QStringList() << "link" << "a" << "img" << "image" << "script";
 }
