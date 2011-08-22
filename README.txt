@@ -8,10 +8,19 @@ It's website is located here: http://code.google.com/p/sigil/
 The src directory contains all of the source code. It has
 a few subdirectories:
     src/BoostParts - source code of various parts of the Boost C++ 
-                     Libraries that Sigil uses
-    src/Sigil - source code for the Sigil application
-    src/libTidy - source code for HTML Tidy, an HTML cleaner
-    src/ZipArchive - source code for ZipArchive, a zipping library
+                     Libraries that Sigil uses.
+    src/FlightCrew - source code for the FlightCrew EPUB validation
+                     Library.
+    src/Sigil - source code for the Sigil application.
+    src/tidyLib - source code for HTML Tidy, an HTML cleaner.
+    src/Xerces - source code for Xerces-C++, XML manipulation Library.
+    src/XercesExtensions - source code for helper classes that shuffle
+                     data between into and out of formats supported and
+                     required by Xerces.
+    src/ZipArchive - source code for ZipArchive, a zipping library.
+    src/zipios - source code for zipios-C++, a zipping library used by
+                     FlightCrew.
+    src/zlib - source code for the zlib compression library.
 
 The installer directory contains the files needed to produce
 a binary installer for Windows and Linux.

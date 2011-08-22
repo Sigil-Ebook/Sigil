@@ -144,6 +144,21 @@ QString OPFResource::GetMainIdentifierValue() const
 }
 
 
+void OPFResource::SaveToDisk( bool book_wide_save )
+{
+    InitialLoad();
+
+    QString text = GetText();
+
+    // Work around for covers appearing on the Nook. Issue 942.
+    QRegExp flip_meta_cover( "<meta content=\"([^\"]+)\" name=\"cover\"" );
+    text = text.replace(flip_meta_cover, "<meta name=\"cover\" content=\"\\1\"");
+
+    SetText( text );
+
+    TextResource::SaveToDisk( book_wide_save );
+}
+
 QString OPFResource::GetUUIDIdentifierValue()
 {
     EnsureUUIDIdentifierPresent();

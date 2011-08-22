@@ -63,6 +63,8 @@ public:
 
     QString GetMainIdentifierValue() const;
 
+    void SaveToDisk( bool book_wide_save = false );
+
     // Also creates such an ident if none was found
     QString GetUUIDIdentifierValue();
 

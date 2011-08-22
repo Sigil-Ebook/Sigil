@@ -33,8 +33,8 @@ static const int COLOR_FADE_AMOUNT       = 175;
 static const int TAB_SPACES_WIDTH        = 4;
 static const int BASE_FONT_SIZE          = 10;
 static const int LINE_NUMBER_MARGIN      = 5;
-static const QColor NUMBER_AREA_BGCOLOR  = QColor( 230, 230, 230 );
-static const QColor NUMBER_AREA_NUMCOLOR = QColor( 100, 100, 100 );
+static const QColor NUMBER_AREA_BGCOLOR  = QColor( 225, 225, 225 );
+static const QColor NUMBER_AREA_NUMCOLOR = QColor( 175, 175, 175 );
                   
 static const QString XML_OPENING_TAG        = "(<[^>/][^>]*[^>/]>|<[^>/]>)";
 static const QString NEXT_OPEN_TAG_LOCATION = "<\\s*(?!/)";
@@ -156,35 +156,32 @@ void CodeViewEditor::LineNumberAreaPaintEvent( QPaintEvent *event )
     // but we count lines of text from one
     int blockNumber  = block.blockNumber() + 1;
 
-    // Getting the Y coordinates for
-    // the top and bottom of a block
-    int topY    = (int) blockBoundingGeometry( block ).translated( contentOffset() ).top();
-    int bottomY = topY + (int) blockBoundingRect( block ).height();
-
     // We loop through all the visible and
     // unobscured blocks and paint line numbers for each
-    while ( block.isValid() && ( topY <= event->rect().bottom() ) )
+    while ( block.isValid() )
     {
-        if ( block.isVisible() && ( bottomY >= event->rect().top() ) )
+        // Getting the Y coordinates for the top of a block.
+        int topY = (int) blockBoundingGeometry( block ).translated( contentOffset() ).top();
+
+        // Ignore blocks that are not visible.
+        if ( !block.isVisible() || ( topY > event->rect().bottom() ) )
         {
-            QString number_to_paint = QString::number( blockNumber );
-
-            // Draw the line number
-            painter.setPen( NUMBER_AREA_NUMCOLOR );
-
-            painter.drawText( - LINE_NUMBER_MARGIN,
-                              topY,
-                              m_LineNumberArea->width(),
-                              fontMetrics().height(),
-                              Qt::AlignRight,
-                              number_to_paint
-                            );
+            break;
         }
 
-        block   = block.next();
-        topY    = bottomY;
-        bottomY = topY + (int) blockBoundingRect( block ).height();
+        // Draw the number in the line number area.
+        painter.setPen( NUMBER_AREA_NUMCOLOR );
+        QString number_to_paint = QString::number( blockNumber );
+        painter.drawText( - LINE_NUMBER_MARGIN,
+                          topY,
+                          m_LineNumberArea->width(),
+                          fontMetrics().height(),
+                          Qt::AlignRight,
+                          number_to_paint
+                          );
 
+        // Move to the next block and block number.
+        block = block.next();
         blockNumber++;
     }
 }

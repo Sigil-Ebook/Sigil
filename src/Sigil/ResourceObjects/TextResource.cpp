@@ -102,7 +102,7 @@ void TextResource::SaveToDisk( bool book_wide_save )
     {
         QWriteLocker locker( &GetLock() );
 
-        Utility::WriteUnicodeTextFile( m_TextDocument->toPlainText(), GetFullPath() );
+        Utility::WriteUnicodeTextFile( GetText(), GetFullPath() );
     }
 
     if ( !book_wide_save )
