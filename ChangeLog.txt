@@ -1,4 +1,5 @@
 Sigil v0.4.1 DATE_TBA
+    - Fix issue 770: Incorrect file permissions for some files in archive create on OS X.
     - Fix issue 890: Line number mismatch between Code View and Validation Results when
       style tag in head section contains CDATA. CDATA was being stripped from the Code View.
     - Fix issue 942: Work around for the Nook not being able to deal with cover meta element having
