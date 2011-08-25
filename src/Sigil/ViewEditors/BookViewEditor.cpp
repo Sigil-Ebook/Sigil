@@ -276,12 +276,14 @@ bool BookViewEditor::FindNext( SearchTools &search_tools,
     int selection_offset = -1;
 
     if ( ignore_selection_offset )
-
+    {
         selection_offset = search_direction == Searchable::Direction_Up ? search_tools.fulltext.count() - 1 : 0;
+    }
 
     else
-        
+    {
         selection_offset = GetSelectionOffset( *search_tools.document, search_tools.node_offsets, search_direction ); 
+    }
 
     QRegExp result_regex = search_regex;
     RunSearchRegex( result_regex, search_tools.fulltext, selection_offset, search_direction ); 
