@@ -259,7 +259,13 @@ private:
      */
     QString ConvertToEntities( const QString &source );
 
-
+    /**
+     * Removes the spans created by the replace mechanism in Book View.
+     *
+     * @param The source html from the web page.
+     * @return The html cleaned of spans with 'class="SigilReplace_..."'.
+     */
+    QString RemoveBookViewReplaceSpans( const QString &source );
 
     ///////////////////////////////
     // PRIVATE MEMBER VARIABLES
@@ -336,6 +342,11 @@ private:
      * ScrollTo extension library.
      */
     const QString c_jQueryScrollTo;
+
+    /**
+     * Javascript source for the wrap selection plugin.
+     */
+    const QString c_jQueryWrapSelection;
 
     /**
      * The resource list from FolderKeeper.

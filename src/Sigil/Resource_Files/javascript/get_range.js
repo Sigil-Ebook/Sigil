@@ -1,6 +1,6 @@
 var start_node = $START_NODE;
 var end_node = $END_NODE;
 
-var range = document.createRange();
-range.setStart(start_node, $START_OFFSET);
-range.setEnd(end_node, $END_OFFSET);
+var selectRange = document.createRange();
+selectRange.setStart(start_node, $START_OFFSET);
+selectRange.setEnd(end_node, $END_OFFSET);

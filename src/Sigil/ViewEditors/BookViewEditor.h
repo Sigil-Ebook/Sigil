@@ -29,6 +29,7 @@
 #include <QMap>
 #include <QMapIterator>
 #include <QWebElement>
+#include <QUndoCommand>
 #include <boost/shared_ptr.hpp>
 using boost::shared_ptr;
 
@@ -174,7 +175,7 @@ public:
     bool ReplaceSelected( const QRegExp &search_regex, const QString &replacement );
 
     int ReplaceAll( const QRegExp &search_regex, const QString &replacement );
-
+    
     QString GetSelectedText();
 
 signals:
@@ -270,7 +271,6 @@ private slots:
     void ScrollOneLineDown();
 
 private:
-
     /**
      * Evaluates the provided javascript source code  
      * and returns the result.
@@ -323,6 +323,24 @@ private:
          */
         shared_ptr< xc::DOMDocument > document;
     };
+
+    /**
+     * Private overload for FindNext that allows it to return (by reference) the SearchTools object
+     * it creates so that the DOM doesn't need to be parsed again when ReplaceSelected is called immediately
+     * after.
+     */
+    bool FindNext(  SearchTools &search_tools,
+                    const QRegExp &search_regex, 
+                    Searchable::Direction search_direction,
+                    bool ignore_selection_offset = false
+                 );
+
+    /**
+     * Overloaded private definition for ReplaceSelected that will take a SearchTools argument.
+     * This is to be used in ReplaceAll when ReplaceSelected is chained after FindNext and there's
+     * no need to re-parse the DOM.
+     */
+    bool ReplaceSelected( const QRegExp &search_regex, const QString &replacement, SearchTools search_tools );
 
     /**
      * Defines a matched string of text when searching.
@@ -418,6 +436,86 @@ private:
          * The char index inside the end node.
          */
         int end_node_index;
+    };
+
+    struct SelectRangeJS
+    {
+        SelectRangeJS()
+            :
+            start_node( "" ),
+            end_node( "" ),
+            start_node_index( -1 ),
+            end_node_index(-1 ) {}
+
+        /**
+         * The range start node.
+         */
+        QString start_node;
+
+        /**
+         *  The range end node.
+         */
+        QString end_node;
+
+        /**
+         * The char index inside the start node.
+         */
+        int start_node_index;
+
+        /**
+         * The char index inside the end node.
+         */
+        int end_node_index;
+
+    };
+
+
+    class BookViewReplaceCommand: public QUndoCommand
+    {
+    public:
+        BookViewReplaceCommand( BookViewEditor* editor, SelectRangeJS input, const QString &replacement_text )
+            :
+            QUndoCommand(),
+            m_editor( editor ),
+            m_input( input ),
+            m_replacement_text( replacement_text )
+            {}
+
+        /**
+         * The undo action.
+         */
+        virtual void undo();
+
+        /**
+         * The redo action, automatically called on pushing the object onto the UndoStack.
+         */
+        virtual void redo();
+
+    private:
+        /**
+         * A convenience pointer back to the enclosing class so we can use objects defined there
+         */
+        BookViewEditor* m_editor;
+
+        /**
+         * A copy of the original selection range
+         */
+        SelectRangeJS m_input;
+
+        /**
+         * The string that will replace the original text.
+         */
+        QString m_replacement_text;
+
+        /** 
+         * The string used to identify the span elements that were inserted by the replacement.
+         */
+        QString m_elem_identifier;
+
+        /**
+         * Constructs the javascript needed to select the range from the node and index data
+         */
+        QString GetRange( SelectRangeJS input );
     };
 
     /**
@@ -535,10 +633,15 @@ private:
 
     /**
      * The JavaScript source code that deletes the
-     * contents of the range in "range" and replaces
-     * them with a new text node whose text should be inputted.
+     * contents of the range specified by selectRange and replaces
+     * it with new text nodes which store the original text for undo.
      */
-    const QString c_ReplaceText;
+    const QString c_ReplaceWrapped;
+
+    /**
+     * Javascript code to undo a replacement
+     */
+    const QString c_ReplaceUndo;
 
     /**
      * The JavaScript source code that returns the XHTML source

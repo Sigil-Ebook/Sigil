@@ -28,6 +28,8 @@
 #include "BookManipulation/GuideSemantics.h"
 
 static const QString LOADED_CONTENT_MIMETYPE = "application/xhtml+xml";
+const QString XML_NAMESPACE_CRUFT = "xmlns=\"http://www.w3.org/1999/xhtml\"";
+const QString REPLACE_SPANS = "<span class=\"SigilReplace_\\d*\"( id=\"SigilReplace_\\d*\")*>";
 
 const QString XML_TAG = "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"no\"?>";
 
@@ -41,8 +43,9 @@ HTMLResource::HTMLResource( const QString &fullfilepath,
     m_WebPageModified( false ),
     m_WebPageIsOld( true ),
     m_TextDocumentIsOld( true ),
-    c_jQuery(         Utility::ReadUnicodeTextFile( ":/javascript/jquery-1.4.2.min.js"          ) ),
+    c_jQuery(         Utility::ReadUnicodeTextFile( ":/javascript/jquery-1.6.2.min.js"          ) ),
     c_jQueryScrollTo( Utility::ReadUnicodeTextFile( ":/javascript/jquery.scrollTo-1.4.2-min.js" ) ),
+    c_jQueryWrapSelection( Utility::ReadUnicodeTextFile( ":/javascript/jquery.wrapSelection.js" ) ),
     m_Resources( resources )
 {
 
@@ -275,6 +278,71 @@ void HTMLResource::RemoveWebkitCruft()
     }
 }
 
+QString HTMLResource::RemoveBookViewReplaceSpans( const QString &source )
+{
+    QRegExp replace_spans( REPLACE_SPANS );
+    replace_spans.setMinimal( true );
+    QRegExp span_open_or_close( "<\\s*(/)*\\s*span\\s*>");
+    span_open_or_close.setMinimal( true );
+
+    QString newsource = "";
+    int left_pos = 0;
+    int index = source.indexOf( replace_spans );
+    while( index != -1 )
+    {
+        // Append the text between the last capture and this one.
+        newsource.append( source.mid( left_pos, index - left_pos ) );
+
+        // Advance past the captured opening tag.
+        index += replace_spans.cap(0).length();
+        left_pos = index;
+
+        // Check for nested spans.
+        int nest_count = 1; // set to 1 as we already have an open span
+        int next_span_tag = index;
+        do 
+        {
+            next_span_tag = source.indexOf( span_open_or_close, index );
+            if( next_span_tag == -1 )
+            {
+                // Content is not well-formed, which should never happen here.
+                boost_throw( ErrorParsingXml()
+                             << errinfo_XML_parsing_error_string( "GetWebPageHTML() has returned invalid xhtml" ) );
+            }
+
+            if( !span_open_or_close.cap(0).contains( "/" ) )
+            {
+                // Opening tag, so increment the counter.
+                nest_count++;
+            }
+            else
+            {
+                // Closing tag, so decrement the counter
+                nest_count--;
+            }
+        } while( nest_count > 0 );
+
+        // next_span_tag now points to the start of the closing tag of the span we're removing.
+        // Append the source from the end of the span tag to the start of the closing tag
+        newsource.append( source.mid( index, next_span_tag - index ) );
+
+        // Move left_pos past the closing tag and search for another span to remove.
+        left_pos = next_span_tag + span_open_or_close.cap(0).length(); 
+        index = source.indexOf( replace_spans, left_pos );
+    }
+
+    // Append the rest of the source after all the spans have been removed.
+    newsource.append( source.mid( left_pos ) );
+
+    // It's possible that we might have replace spans nested within each other,
+    // so go back to the start and check again, and recurse if found.
+    if( newsource.indexOf( replace_spans ) != -1 )
+    {
+        newsource = RemoveBookViewReplaceSpans( newsource );
+    }
+
+    return newsource;
+}
 
 QStringList HTMLResource::SplitOnSGFChapterMarkers()
 {
@@ -304,6 +372,7 @@ void HTMLResource::WebPageJavascriptOnLoad()
 
     m_WebPage->mainFrame()->evaluateJavaScript( c_jQuery         );
     m_WebPage->mainFrame()->evaluateJavaScript( c_jQueryScrollTo );
+    m_WebPage->mainFrame()->evaluateJavaScript( c_jQueryWrapSelection );
 }
 
 
@@ -345,7 +414,9 @@ QString HTMLResource::GetWebPageHTML()
     // Set the xml tag here rather than let Tidy do it.
     // This prevents false mismatches with the cache later on.
     QString html_from_Qt = m_WebPage->mainFrame()->toHtml();
-    return ConvertToEntities( CleanSource::Clean( XML_TAG % html_from_Qt ) );
+
+    QString cleaned_html = RemoveBookViewReplaceSpans( html_from_Qt );
+    return ConvertToEntities( CleanSource::Clean( XML_TAG % cleaned_html.remove( XML_NAMESPACE_CRUFT ) ) );
 }
 
 

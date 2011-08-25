@@ -52,7 +52,8 @@ BookViewEditor::BookViewEditor( QWidget *parent )
     c_GetCaretLocation( Utility::ReadUnicodeTextFile( ":/javascript/book_view_current_location.js" ) ),
     c_NewSelection(     Utility::ReadUnicodeTextFile( ":/javascript/new_selection.js"              ) ),
     c_GetRange(         Utility::ReadUnicodeTextFile( ":/javascript/get_range.js"                  ) ),
-    c_ReplaceText(      Utility::ReadUnicodeTextFile( ":/javascript/replace_text.js"               ) ),
+    c_ReplaceWrapped(   Utility::ReadUnicodeTextFile( ":/javascript/replace_wrapped.js"            ) ),
+    c_ReplaceUndo(      Utility::ReadUnicodeTextFile( ":/javascript/replace_undo.js"               ) ),
     c_GetSegmentHTML(   Utility::ReadUnicodeTextFile( ":/javascript/get_segment_html.js"           ) ),
     c_GetBlock(         Utility::ReadUnicodeTextFile( ":/javascript/get_block.js"                  ) ),
     c_FormatBlock(      Utility::ReadUnicodeTextFile( ":/javascript/format_block.js"               ) ),
@@ -256,12 +257,22 @@ float BookViewEditor::GetZoomFactor() const
     return (float) zoomFactor();
 }
 
-
 bool BookViewEditor::FindNext( const QRegExp &search_regex, 
                                Searchable::Direction search_direction,
                                bool ignore_selection_offset )
+
 {
-    SearchTools search_tools = GetSearchTools();
+    SearchTools search_tools;
+    return FindNext( search_tools, search_regex, search_direction, ignore_selection_offset );
+}
+
+bool BookViewEditor::FindNext( SearchTools &search_tools,
+                               const QRegExp &search_regex, 
+                               Searchable::Direction search_direction,
+                               bool ignore_selection_offset 
+                             )
+{
+    search_tools = GetSearchTools();
     int selection_offset = -1;
 
     if ( ignore_selection_offset )
@@ -295,11 +306,14 @@ int BookViewEditor::Count( const QRegExp &search_regex )
     return search_tools.fulltext.count( search_regex );
 }
 
-
 bool BookViewEditor::ReplaceSelected( const QRegExp &search_regex, const QString &replacement )
 {
     SearchTools search_tools = GetSearchTools();
+    return ReplaceSelected( search_regex, replacement, search_tools );
+}
 
+bool BookViewEditor::ReplaceSelected( const QRegExp &search_regex, const QString &replacement, SearchTools search_tools )
+{
     // We ALWAYS say Direction_Up because we want
     // the "back" index of the selection range
     int selection_offset = GetSelectionOffset( *search_tools.document, search_tools.node_offsets, Searchable::Direction_Up ); 
@@ -315,10 +329,17 @@ bool BookViewEditor::ReplaceSelected( const QRegExp &search_regex, const QString
     if ( result_regex.pos() == selection_offset )
     {
         QString final_replacement = FillWithCapturedTexts( result_regex.capturedTexts(), replacement );
-        QString replacing_js      = QString( c_ReplaceText ).replace( "$ESCAPED_TEXT_HERE", EscapeJSString( final_replacement ) );
 
         SelectRangeInputs input   = GetRangeInputs( search_tools.node_offsets, selection_offset, GetSelectedText().length() );
-        EvaluateJavascript( GetRangeJS( input ) + replacing_js + c_NewSelection ); 
+
+        SelectRangeJS inputJS;
+        inputJS.start_node = GetElementSelectingJS_WithTextNode( XhtmlDoc::GetHierarchyFromNode( *input.start_node ) );
+        inputJS.end_node =   GetElementSelectingJS_WithTextNode( XhtmlDoc::GetHierarchyFromNode( *input.end_node   ) );
+        inputJS.start_node_index = input.start_node_index;
+        inputJS.end_node_index   = input.end_node_index;
+
+        BookViewReplaceCommand* replace_action = new BookViewReplaceCommand( this, inputJS, final_replacement );
+        page()->undoStack()->push( replace_action );
 
         // Tell anyone who's interested that the document has been updated.
         emit contentsChangedExtra();
@@ -332,69 +353,27 @@ bool BookViewEditor::ReplaceSelected( const QRegExp &search_regex, const QString
 
 int BookViewEditor::ReplaceAll( const QRegExp &search_regex, const QString &replacement )
 {
-    QRegExp result_regex = search_regex;
     int count = 0;
     
     QProgressDialog progress( tr( "Replacing search term..." ), QString(), 0, Count( search_regex ) );
     progress.setMinimumDuration( PROGRESS_BAR_MINIMUM_DURATION );
     
-    SearchTools search_tools = GetSearchTools();
+    SearchTools search_tools;
 
-    QMap< int, FoundItem > replace_items;
-    int search_index = -1;
-
-    do
+    // Start from the top of the document.
+    if( FindNext( search_tools, search_regex, Direction_Down, true ) )
     {
-        search_index++;
-        search_index = search_tools.fulltext.indexOf( result_regex, search_index );
+        ReplaceSelected( search_regex, replacement, search_tools );
+        count++;
 
-        if( search_index != -1 )
+        // Subsequent searches carry on down from the cursor location.
+        while( FindNext( search_tools, search_regex, Direction_Down, false ) )
         {
-            FoundItem search_result;
-
-            search_result.matchedLength = result_regex.matchedLength();
-            search_result.capturedText = result_regex.capturedTexts();
-
-            replace_items[ result_regex.pos() ] = search_result;
+            ReplaceSelected( search_regex, replacement, search_tools );
+            // Update the progress bar
+            progress.setValue( count++ );
         }
-    } while ( search_index != -1 );
-
-    xc::DOMNode* last_node = NULL;
-    int offset = 0;
-
-    QMapIterator< int, FoundItem > result_list( replace_items );
-    while( result_list.hasNext() )
-    {
-        result_list.next();
-        QString final_replacement = FillWithCapturedTexts( result_list.value().capturedText, replacement );
-        QString replacing_js      = QString( c_ReplaceText ).replace( "$ESCAPED_TEXT_HERE", EscapeJSString( final_replacement ) );
-
-        SelectRangeInputs input   = GetRangeInputs( search_tools.node_offsets, result_list.key(), result_list.value().matchedLength );
-
-        offset += final_replacement.length() - result_list.value().capturedText[0].length() ;
-
-        if( input.end_node == last_node )
-        {
-            // Adjust replacement position to account for a previous replacement within the same node.
-            // The current search mechanism does not allow a search result in Book View to span nodes,
-            // so this is safe.
-            input.start_node_index += offset;
-            input.end_node_index += offset;
-        }
-        else
-        {
-            // New node, so clear the offset.
-            offset = 0;
-        }
-
-        last_node = input.end_node;
-
-        EvaluateJavascript( GetRangeJS( input ) + replacing_js );
-
-        // Update the progress bar
-        progress.setValue( count++ );
     }
-
     // Tell anyone who's interested that the document has been updated.
     emit contentsChangedExtra();
 
@@ -574,6 +553,7 @@ BookViewEditor::SearchTools BookViewEditor::GetSearchTools() const
 {
     SearchTools search_tools;
     search_tools.fulltext = "";
+
     search_tools.document = XhtmlDoc::LoadTextIntoDocument( page()->mainFrame()->toHtml() );
 
     QList< xc::DOMNode* > text_nodes = XhtmlDoc::GetVisibleTextNodes( 
@@ -844,14 +824,29 @@ void BookViewEditor::ScrollByNumPixels( int pixel_number, bool down )
     page()->mainFrame()->setScrollBarValue( Qt::Vertical, new_scroll_Y );
 }
 
+QString BookViewEditor::BookViewReplaceCommand::GetRange( SelectRangeJS input )
+{
+    QString get_range_js = m_editor->c_GetRange;
 
+    get_range_js.replace( "$START_NODE",   input.start_node );
+    get_range_js.replace( "$END_NODE",     input.end_node      );
+    get_range_js.replace( "$START_OFFSET", QString::number( input.start_node_index ) );
+    get_range_js.replace( "$END_OFFSET",   QString::number( input.end_node_index )  );
 
+    return get_range_js;
+}
 
+void BookViewEditor::BookViewReplaceCommand::undo()
+{
+    // Load in the identifier that indicates which replacement spans need to be undone.
+    QString undoing_js = QString( m_editor->c_ReplaceUndo ).replace( "$ESCAPED_TEXT_HERE", m_elem_identifier );
 
+    m_editor->EvaluateJavascript(  undoing_js ); 
+}
 
+void BookViewEditor::BookViewReplaceCommand::redo()
+{
+    QString replacing_js = GetRange( m_input ) % QString( m_editor->c_ReplaceWrapped ).replace( "$ESCAPED_TEXT_HERE", m_editor->EscapeJSString( m_replacement_text ) );
 
-
-
-
-
-
+    m_elem_identifier = m_editor->EvaluateJavascript( replacing_js ).toString();
+}
