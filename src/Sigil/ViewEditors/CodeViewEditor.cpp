@@ -45,6 +45,7 @@ CodeViewEditor::CodeViewEditor( HighlighterType high_type, QWidget *parent )
     QPlainTextEdit( parent ),
     m_isUndoAvailable( false ),
     m_LastBlockCount( 0 ),
+    m_LineNumberAreaBlockNumber( -1 ),
     m_LineNumberArea( new LineNumberArea( this ) ),
     m_CurrentZoomFactor( 1.0 ),
     m_ScrollOneLineUp( *(   new QShortcut( QKeySequence( Qt::ControlModifier + Qt::Key_Up   ), this, 0, 0, Qt::WidgetShortcut ) ) ),
@@ -183,6 +184,59 @@ void CodeViewEditor::LineNumberAreaPaintEvent( QPaintEvent *event )
         // Move to the next block and block number.
         block = block.next();
         blockNumber++;
+    }
+}
+
+
+void CodeViewEditor::LineNumberAreaMouseEvent( QMouseEvent *event )
+{
+    QTextCursor cursor = cursorForPosition( QPoint( 0, event->pos().y() ) );
+
+    if ( event->type() == QEvent::MouseButtonPress || event->type() == QEvent::MouseButtonDblClick )
+    {
+        if ( event->button() == Qt::LeftButton )
+        {
+            QTextCursor selection = cursor;
+            selection.setVisualNavigation( true );
+            m_LineNumberAreaBlockNumber = selection.blockNumber();
+            selection.movePosition( QTextCursor::EndOfBlock, QTextCursor::KeepAnchor );
+            selection.movePosition( QTextCursor::Right, QTextCursor::KeepAnchor );
+            setTextCursor( selection );
+        }
+    }
+
+    else if ( m_LineNumberAreaBlockNumber >= 0 )
+    {
+        QTextCursor selection = cursor;
+        selection.setVisualNavigation( true );
+
+        if ( event->type() == QEvent::MouseMove )
+        {
+            QTextBlock anchorBlock = document()->findBlockByNumber( m_LineNumberAreaBlockNumber );
+            selection.setPosition( anchorBlock.position() );
+
+            if ( cursor.blockNumber() < m_LineNumberAreaBlockNumber )
+            {
+                selection.movePosition( QTextCursor::EndOfBlock );
+                selection.movePosition( QTextCursor::Right );
+            }
+
+            selection.setPosition( cursor.block().position(), QTextCursor::KeepAnchor );
+
+            if ( cursor.blockNumber() >= m_LineNumberAreaBlockNumber )
+            {
+                selection.movePosition( QTextCursor::EndOfBlock, QTextCursor::KeepAnchor );
+                selection.movePosition( QTextCursor::Right, QTextCursor::KeepAnchor );
+            }
+        }
+
+        else
+        {
+            m_LineNumberAreaBlockNumber = -1;
+            return;
+        }
+
+        setTextCursor( selection );
     }
 }
 

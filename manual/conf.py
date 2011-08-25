@@ -10,8 +10,8 @@ templates_path = ['_templates']
 exclude_patterns = ['_build']
 
 project = 'Sigil'
-copyright = u'2009-2010, Strahinja Marković'
-version = '0.2.0'
+copyright = u'2009-2011, Strahinja Marković'
+version = '0.4.1'
 release = version
 
 show_authors = True

@@ -105,6 +105,9 @@ void ExportEPUB::SaveFolderAsEpubToLocation( const QString &fullfolderpath, cons
 
     if ( mimetype_file.open() )
     {
+        // Otherwise the file will only have rw owner permissions on OS X.
+        mimetype_file.setPermissions( QFile::ReadOwner | QFile::WriteOwner | QFile::ReadGroup | QFile::ReadOther );
+
         QTextStream out( &mimetype_file );
 
         // We ALWAYS output in UTF-8

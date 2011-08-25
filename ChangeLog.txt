@@ -1,4 +1,9 @@
 Sigil v0.4.1 DATE_TBA
+    - Implement issue 80: Select lines when clicking on line number in line number area in
+      code view.
+    - Fix issue 770: Incorrect file permissions for some files in archive create on OS X.
+    - Fix issue 890: Line number mismatch between Code View and Validation Results when
+      style tag in head section contains CDATA. CDATA was being stripped from the Code View.
     - Fix issue 942: Work around for the Nook not being able to deal with cover meta element having
       attributes in alphabetic order.
     - Fix issue 976: Creation of new Code View tab fails to show all content if the web page's 

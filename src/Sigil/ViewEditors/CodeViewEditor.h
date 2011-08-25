@@ -108,6 +108,14 @@ public:
     void LineNumberAreaPaintEvent( QPaintEvent *event );
 
     /**
+     * Selects the line that was clicked on.
+     * Receives the event directly from the area's mouseEvent() handler.
+     *
+     * @param event The mouse event to process.
+     */
+    void LineNumberAreaMouseEvent( QMouseEvent *event );
+
+    /**
      * Returns the width the LinuNumberArea should take (in pixels).
      * 
      * @return The width in pixels.
@@ -404,6 +412,12 @@ private:
      * this back to 1 before updating it.
      */
     int m_LastBlockCount;
+
+    /**
+     * Keep tack of the currenlt selected line number when selected
+     * by by clicking on the LineNumberArea.
+     */
+    int m_LineNumberAreaBlockNumber;
 
     /**
      * The line number area widget of the code view.

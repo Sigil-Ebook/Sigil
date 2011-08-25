@@ -22,6 +22,7 @@
 #include <QFile>
 #include <stdafx.h>
 #include "About.h"
+#include "Misc/Utility.h"
 
 const QString VERSION_NUMBERS = "(\\d+)\\.(\\d+)\\.(\\d+)";
 const QString SIGIL_VERSION   = QString( SIGIL_FULL_VERSION );
@@ -45,11 +46,7 @@ About::About( QWidget *parent )
 
     ui.lbVersionDisplay->setText( version_text );
 
-    QFile creditsFile( ":/about/Credits.html" );
-    creditsFile.open( QIODevice::ReadOnly );
-    QString credits_text = QString::fromUtf8( creditsFile.readAll() );
-    creditsFile.close();
-    ui.creditsDisplay->setHtml( credits_text );
+    ui.creditsDisplay->setHtml( Utility::ReadUnicodeTextFile( ":/about/Credits.html" ) );
 }
 
 
