@@ -46,8 +46,18 @@ public:
 protected:
 
     // The line number area delegates its rendering
-    // to the CodeViewEditor that owns it
+    // to the CodeViewEditor that owns it.
     void paintEvent( QPaintEvent *event );
+
+    // The line number area delegates its mouse events
+    // to the CodeViewEditor that owns it.
+    void mousePressEvent( QMouseEvent *event );
+    void mouseMoveEvent( QMouseEvent *event );
+    void mouseReleaseEvent( QMouseEvent *event );
+
+    // Forward the wheel event to the CodeViewEditor that
+    // owns it so the view will scroll.
+    void wheelEvent( QWheelEvent *event );
 
 private:
 

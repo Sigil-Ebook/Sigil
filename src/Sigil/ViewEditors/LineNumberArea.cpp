@@ -55,3 +55,25 @@ void LineNumberArea::paintEvent( QPaintEvent *event )
 }
 
 
+void LineNumberArea::mousePressEvent( QMouseEvent *event )
+{
+    m_CodeEditor->LineNumberAreaMouseEvent( event );
+}
+
+
+void LineNumberArea::mouseMoveEvent( QMouseEvent *event )
+{
+    m_CodeEditor->LineNumberAreaMouseEvent( event );
+}
+
+
+void LineNumberArea::mouseReleaseEvent( QMouseEvent *event )
+{
+    m_CodeEditor->LineNumberAreaMouseEvent( event );
+}
+
+
+void LineNumberArea::wheelEvent( QWheelEvent *event )
+{
+    QCoreApplication::sendEvent( m_CodeEditor->viewport(), event );
+}
