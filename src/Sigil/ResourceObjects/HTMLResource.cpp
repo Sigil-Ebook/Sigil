@@ -529,7 +529,7 @@ QString HTMLResource::ConvertToEntities( const QString &source )
     newsource = newsource.replace( QString::fromRawData( shy, 1 ), "&shy;" );
     QChar mdash[] = { 0x2014 };
     newsource = newsource.replace( QString::fromRawData( mdash, 1 ), "&mdash;" );
-    QChar ndash[] = { 0x213 };
+    QChar ndash[] = { 0x2013 };
     newsource = newsource.replace( QString::fromRawData( ndash, 1 ), "&ndash;" );
 
     return newsource;
