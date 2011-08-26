@@ -1,4 +1,6 @@
-Sigil v0.4.1 DATE_TBA
+Sigil v0.4.1 2011.08.26
+    - Fix issue 615: implement undo for Find/Replace in Book View.
+    - Update Toc section of manual for 0.4 Toc panel.
     - Implement issue 80: Select lines when clicking on line number in line number area in
       code view.
     - Fix issue 770: Incorrect file permissions for some files in archive create on OS X.

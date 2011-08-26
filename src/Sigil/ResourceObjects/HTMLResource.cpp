@@ -415,8 +415,9 @@ QString HTMLResource::GetWebPageHTML()
     // This prevents false mismatches with the cache later on.
     QString html_from_Qt = m_WebPage->mainFrame()->toHtml();
 
-    QString cleaned_html = RemoveBookViewReplaceSpans( html_from_Qt );
-    return ConvertToEntities( CleanSource::Clean( XML_TAG % cleaned_html.remove( XML_NAMESPACE_CRUFT ) ) );
+    html_from_Qt = RemoveBookViewReplaceSpans( html_from_Qt );
+    html_from_Qt = html_from_Qt.remove( XML_NAMESPACE_CRUFT );
+    return ConvertToEntities( CleanSource::PrettyPrint( CleanSource::Clean( XML_TAG % html_from_Qt ) ) );
 }
 
 
