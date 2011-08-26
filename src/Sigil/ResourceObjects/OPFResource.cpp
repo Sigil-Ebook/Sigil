@@ -1313,7 +1313,7 @@ QStringList OPFResource::GetRelativePathsToAllFilesInOEPBS() const
     // The parent folder of the OPF will always be the OEBPS folder.
     QString path_to_oebps_folder = QFileInfo( GetFullPath() ).absolutePath();
     QStringList paths = Utility::GetAbsolutePathsToFolderDescendantFiles( path_to_oebps_folder );
-    paths.replaceInStrings( path_to_oebps_folder + "/", "" );
+    paths.replaceInStrings( Utility::URLEncodePath( path_to_oebps_folder ) + "/", "" );
 
     paths.sort();
     return paths;
