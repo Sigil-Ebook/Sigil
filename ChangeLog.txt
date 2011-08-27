@@ -1,3 +1,9 @@
+Sigil v0.4.2 TBA
+    - Fix for entities not being displayed when loading a file where they are saved as unicode
+      in the file itself.
+    - Fix for typo in code to preserve entities.
+    - Fix for path encoding issue on reconstructing the opf.
+
 Sigil v0.4.1 2011.08.26
     - Fix issue 615: implement undo for Find/Replace in Book View.
     - Update Toc section of manual for 0.4 Toc panel.
