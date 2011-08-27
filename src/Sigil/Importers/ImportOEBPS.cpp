@@ -357,7 +357,7 @@ QString ImportOEBPS::GetNCXId()
 
 void ImportOEBPS::LoadInfrastructureFiles()
 {
-    m_Book->GetOPF().SetText( Utility::ReadUnicodeTextFile( m_OPFFilePath ) );
+    m_Book->GetOPF().SetText( PrepareOPFForReading( Utility::ReadUnicodeTextFile( m_OPFFilePath ) ) );
     m_Book->GetNCX().SetText( Utility::ReadUnicodeTextFile( m_NCXFilePath ) );
 }
 
@@ -426,7 +426,16 @@ QString ImportOEBPS::PrepareOPFForReading( const QString &source )
     // this is only for people who specify
     // XML 1.1 when they actually only use XML 1.0
     source_copy.replace( version.pos(), version.matchedLength(), "version=\"1.0\"" );
-    
+
+    // MASSIVE hack for ensuring the dc and opf namespaces are set properly.
+    // InDesing 4 puts dc in the package element not in the metadata element
+    // and doesn't write opf unless necessary. We're going to remove them both
+    // copmletely (including from within elements) and put them in the metadata
+    // element.
+    source_copy.replace( "xmlns:dc=\"http://purl.org/dc/elements/1.1/\"", "" );
+    source_copy.replace( "xmlns:opf=\"http://www.idpf.org/2007/opf\"", "" );
+    source_copy.replace( "<metadata", "<metadata xmlns:dc=\"http://purl.org/dc/elements/1.1/\" xmlns:opf=\"http://www.idpf.org/2007/opf\"");
+
     return source_copy;
 }
 

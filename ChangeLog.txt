@@ -1,4 +1,7 @@
 Sigil v0.4.2 TBA
+    - Fix an issue where the opf namespace is being written in individual elements in the metadata
+      section in the OPF. We're now going to clean and write the dc and opf namespaces directly
+      to the metadata element when loading an OPF to ensure they're present and correct.
     - Fix for entities not being displayed when loading a file where they are saved as unicode
       in the file itself.
     - Fix for typo in code to preserve entities.
