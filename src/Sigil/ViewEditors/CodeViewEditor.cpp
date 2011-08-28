@@ -34,7 +34,7 @@ static const int TAB_SPACES_WIDTH        = 4;
 static const int BASE_FONT_SIZE          = 10;
 static const int LINE_NUMBER_MARGIN      = 5;
 static const QColor NUMBER_AREA_BGCOLOR  = QColor( 225, 225, 225 );
-static const QColor NUMBER_AREA_NUMCOLOR = QColor( 150, 150, 150 );
+static const QColor NUMBER_AREA_NUMCOLOR = QColor( 125, 125, 125 );
                   
 static const QString XML_OPENING_TAG        = "(<[^>/][^>]*[^>/]>|<[^>/]>)";
 static const QString NEXT_OPEN_TAG_LOCATION = "<\\s*(?!/)";
