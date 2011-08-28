@@ -128,7 +128,7 @@ void HTMLResource::UpdateDomDocumentFromTextDocument()
     Q_ASSERT( QThread::currentThread() == QApplication::instance()->thread() );
     Q_ASSERT( m_TextDocument );
 
-    m_DomDocument = XhtmlDoc::LoadTextIntoDocument( CleanSource::Clean( m_TextDocument->toPlainText() ) );
+    m_DomDocument = XhtmlDoc::LoadTextIntoDocument( ConvertToEntities( CleanSource::Clean( m_TextDocument->toPlainText() ) ) );
 
     m_WebPageIsOld = true;
     SetTextDocumentModified( false );
@@ -170,7 +170,7 @@ void HTMLResource::UpdateTextDocumentFromDomDocument()
         m_TextDocument->setDocumentLayout( new QPlainTextDocumentLayout( m_TextDocument ) );
     }
 
-    m_TextDocument->setPlainText( CleanSource::PrettyPrint( XhtmlDoc::GetDomDocumentAsString( *m_DomDocument ) ) );
+    m_TextDocument->setPlainText( ConvertToEntities( CleanSource::PrettyPrint( XhtmlDoc::GetDomDocumentAsString( *m_DomDocument ) ) ) );
 
     m_TextDocumentIsOld = false;
 }
@@ -236,7 +236,7 @@ void HTMLResource::SaveToDisk( bool book_wide_save )
     {
         QWriteLocker locker( &GetLock() );
 
-        Utility::WriteUnicodeTextFile( CleanSource::PrettyPrint( XhtmlDoc::GetDomDocumentAsString( *m_DomDocument ) ),
+        Utility::WriteUnicodeTextFile( ConvertToEntities( CleanSource::PrettyPrint( XhtmlDoc::GetDomDocumentAsString( *m_DomDocument ) ) ),
                                        GetFullPath() );
     }
 
@@ -525,12 +525,9 @@ QString HTMLResource::ConvertToEntities( const QString &source )
 {
     QString newsource = source;
 
-    QChar shy[] = { 0x00ad };
-    newsource = newsource.replace( QString::fromRawData( shy, 1 ), "&shy;" );
-    QChar mdash[] = { 0x2014 };
-    newsource = newsource.replace( QString::fromRawData( mdash, 1 ), "&mdash;" );
-    QChar ndash[] = { 0x2013 };
-    newsource = newsource.replace( QString::fromRawData( ndash, 1 ), "&ndash;" );
+    newsource = newsource.replace( QString::fromUtf8( "\u00ad" ), "&shy;" );
+    newsource = newsource.replace( QString::fromUtf8( "\u2014" ), "&mdash;" );
+    newsource = newsource.replace( QString::fromUtf8( "\u2013" ), "&ndash;" );
 
     return newsource;
 }
