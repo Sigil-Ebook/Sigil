@@ -1,4 +1,6 @@
 Sigil v0.4.2 TBA
+    - Added a safety check to LoadTabContent() to ensure that focus changes don't cause a
+      loss of non-well-formed data that has been entered but not saved.
     - Fix an issue where the opf namespace is being written in individual elements in the metadata
       section in the OPF. We're now going to clean and write the dc and opf namespaces directly
       to the metadata element when loading an OPF to ensure they're present and correct.
