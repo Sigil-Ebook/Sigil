@@ -1,4 +1,8 @@
 Sigil v0.4.2 TBA
+    - Don't read use tidy setting from disk each time it's checked. Store the setting and
+      save / load it upon edit and startup. This prevents Sigil from using the wrong value
+      when multiple instances are open.
+    - Use Pretty Print when auto fixing well formed errors.
     - Added a safety check to LoadTabContent() to ensure that focus changes don't cause a
       loss of non-well-formed data that has been entered but not saved.
     - Fix an issue where the opf namespace is being written in individual elements in the metadata
