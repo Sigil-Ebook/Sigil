@@ -50,7 +50,7 @@ void XMLTab::ScrollToLine( int line )
     
 void XMLTab::AutoFixWellFormedErrors()
 {
-    m_wCodeView.ReplaceDocumentText( CleanSource::ProcessXML( m_wCodeView.toPlainText() ) );
+    m_wCodeView.ReplaceDocumentText( CleanSource::PrettyPrint( CleanSource::ProcessXML( m_wCodeView.toPlainText() ) ) );
 }
 
 
