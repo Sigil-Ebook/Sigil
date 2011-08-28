@@ -357,15 +357,23 @@ QString FlowTab::GetFilename()
 bool FlowTab::IsDataWellFormed()
 {
     if ( m_IsLastViewBook )
-
+    {
+        m_safeToLoad = true;
         return true;
+    }
 
     XhtmlDoc::WellFormedError error = XhtmlDoc::WellFormedErrorForSource( m_wCodeView.toPlainText() );
     bool well_formed = error.line == -1;
 
     if ( !well_formed )
-
+    {
+        m_safeToLoad = false;
         m_WellFormedCheckComponent.DemandAttentionIfAllowed( error );
+    }
+    else
+    {
+        m_safeToLoad = true;
+    }
 
     return well_formed;
 }
@@ -805,18 +813,23 @@ void FlowTab::SaveTabContent()
     else
 
         m_HTMLResource.UpdateDomDocumentFromTextDocument();
+
+    m_safeToLoad = true;
 }
 
 
 void FlowTab::LoadTabContent()
 {
-    if ( m_IsLastViewBook )
+    if( m_safeToLoad )
+    {
+        if ( m_IsLastViewBook )
 
-        m_HTMLResource.UpdateWebPageFromDomDocument();
+            m_HTMLResource.UpdateWebPageFromDomDocument();
 
-    else
+        else
 
-        m_HTMLResource.UpdateTextDocumentFromDomDocument();
+            m_HTMLResource.UpdateTextDocumentFromDomDocument();
+    }
 }
 
 
@@ -909,6 +922,8 @@ void FlowTab::DelayedInitialization()
 
         m_wCodeView.ScrollToLine( m_LineToScrollTo );
     }
+
+    m_safeToLoad = true;
 
     DelayedConnectSignalsToSlots();
 

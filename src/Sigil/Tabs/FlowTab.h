@@ -472,6 +472,13 @@ private:
      * well-formedness errors.
      */
     WellFormedCheckComponent& m_WellFormedCheckComponent;
+
+    /**
+     * A flag to be used in conjunction with the check for well-formedness which
+     * indicates whether it's safe to reload the tab content.
+     */
+    bool m_safeToLoad;
+
 };
 
 #endif // FLOWTAB_H
