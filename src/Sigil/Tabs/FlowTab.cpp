@@ -934,6 +934,7 @@ void FlowTab::DelayedInitialization()
 
 void FlowTab::EmitContentChanged()
 {
+    m_safeToLoad = false;
     emit ContentChanged();
 }
 
