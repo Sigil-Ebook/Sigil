@@ -68,6 +68,7 @@ static const QStringList SUPPORTED_SAVE_TYPE = QStringList() << "epub";
 
 QStringList MainWindow::s_RecentFiles = QStringList();
 
+bool MainWindow::m_ShouldUseTidy = true;
 
 
 MainWindow::MainWindow( const QString &openfilepath, QWidget *parent, Qt::WFlags flags )
@@ -151,13 +152,7 @@ void MainWindow::ShowMessageOnCurrentStatusBar( const QString &message,
 
 bool MainWindow::ShouldUseTidyClean()
 {
-    QSettings settings;
-    settings.beginGroup( SETTINGS_GROUP );
-    QVariant tidyclean = settings.value( "tidyclean" );
-
-    // For the tidyclean option, we want to default to true
-    // if no value has been set. 
-    return tidyclean.isNull() ? true : tidyclean.toBool(); 
+    return m_ShouldUseTidy;
 }
 
 
@@ -711,10 +706,7 @@ void MainWindow::UpdateZoomLabel( int slider_value )
 
 void MainWindow::SetTidyCleanOption( bool new_state )
 {
-    QSettings settings;
-    settings.beginGroup( SETTINGS_GROUP );
-
-    settings.setValue( "tidyclean", new_state );
+    m_ShouldUseTidy = new_state;
 }
 
 
@@ -774,11 +766,10 @@ void MainWindow::ReadSettings()
         restoreState( toolbars );
 
     // For the tidyclean option, we want to default to true
-    // if no value has been set. We also don't store the current
-    // state of the action on exit since we save it every time
-    // it is changed in the UI.
+    // if no value has been set.
     QVariant tidyclean = settings.value( "tidyclean" );
-    ui.actionTidyClean->setChecked( tidyclean.isNull() ? true : tidyclean.toBool() );    
+    m_ShouldUseTidy = tidyclean.isNull() ? true : tidyclean.toBool();
+    ui.actionTidyClean->setChecked( m_ShouldUseTidy );
 
     // The position of the splitter handle in split view
     QByteArray splitter_position = settings.value( "splitview_splitter" ).toByteArray();
@@ -815,6 +806,9 @@ void MainWindow::WriteSettings()
 
     // The positions of all the toolbars and dock widgets
     settings.setValue( "toolbars", saveState() );
+
+    // Whether the user wants Tidy to be used.
+    settings.setValue( "tidyclean", m_ShouldUseTidy );
 
     // The position of the splitter handle in split view
     // FIXME: splitter positions

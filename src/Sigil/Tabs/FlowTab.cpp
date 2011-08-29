@@ -327,7 +327,7 @@ void FlowTab::AutoFixWellFormedErrors()
 
         return;
 
-    m_wCodeView.ReplaceDocumentText( CleanSource::Clean( m_wCodeView.toPlainText() ) );
+    m_wCodeView.ReplaceDocumentText( CleanSource::PrettyPrint( CleanSource::Clean( m_wCodeView.toPlainText() ) ) );
 }
 
 

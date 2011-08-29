@@ -628,6 +628,12 @@ private:
     QWeakPointer< FindReplace > m_FindReplace;
 
     /**
+     * Holds the state of whether the user wants tidy to be used
+     * when cleaning XHTML.
+     */
+    static bool m_ShouldUseTidy;
+
+    /**
      * Holds all the widgets Qt Designer created for us.
      */
     Ui::MainWindow ui;
