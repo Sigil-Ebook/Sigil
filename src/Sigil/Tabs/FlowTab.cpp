@@ -315,13 +315,9 @@ void FlowTab::ScrollToLine( int line )
 
 void FlowTab::ScrollToTop()
 {
-    if ( m_IsLastViewBook )
-    
-        m_wBookView.ScrollToTop();
-
-    else
-
-        m_wCodeView.ScrollToTop();
+   // Scroll *both* views to the top, as this may be called before DelayedInitialisation() fires.
+   m_wBookView.ScrollToTop();
+   m_wCodeView.ScrollToTop();
 }
 
 

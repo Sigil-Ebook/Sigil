@@ -517,7 +517,7 @@ void CodeViewEditor::mousePressEvent( QMouseEvent *event )
 // editor to loose focus. When it looses focus the code is checked
 // if it is well formed. If it is not a message box is shown asking
 // if the user would like to auto correct. This causes the context
-// menu to disappear and thus be inaccessable to the user.
+// menu to disappear and thus be inaccessible to the user.
 void CodeViewEditor::contextMenuEvent( QContextMenuEvent *event )
 {
     blockSignals( true );
