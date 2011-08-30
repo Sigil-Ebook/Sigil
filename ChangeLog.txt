@@ -1,5 +1,5 @@
 Sigil v0.4.2 TBA
-    - fix issue 988: fail to scroll properly after chapter split.
+    - Fix issue 988: fail to scroll properly after chapter split.
     - Don't read use tidy setting from disk each time it's checked. Store the setting and
       save / load it upon edit and startup. This prevents Sigil from using the wrong value
       when multiple instances are open.
