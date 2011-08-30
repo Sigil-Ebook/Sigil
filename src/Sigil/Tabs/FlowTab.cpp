@@ -331,9 +331,21 @@ void FlowTab::AutoFixWellFormedErrors()
 }
 
 
+bool FlowTab::GetCheckWellFormedErrors()
+{
+    return m_WellFormedCheckComponent.GetCheckWellFormedErrors();
+}
+
+
 void FlowTab::SetWellFormedDialogsEnabledState( bool enabled )
 {
     m_WellFormedCheckComponent.SetWellFormedDialogsEnabledState( enabled );
+}
+
+
+void FlowTab::SetCheckWellFormedErrorsState( bool enabled )
+{
+    m_WellFormedCheckComponent.SetCheckWellFormedErrorsState( enabled );
 }
 
 
@@ -352,7 +364,7 @@ QString FlowTab::GetFilename()
 
 bool FlowTab::IsDataWellFormed()
 {
-    if ( m_IsLastViewBook )
+    if ( m_IsLastViewBook || !GetCheckWellFormedErrors() )
     {
         m_safeToLoad = true;
         return true;

@@ -1,5 +1,7 @@
 Sigil v0.4.2 TBA
     - Fix issue 988: fail to scroll properly after chapter split.
+    - Allow users to disable Well-Formed checks or if they should be auto fixed as they
+      were in 0.3.x.
     - Don't read use tidy setting from disk each time it's checked. Store the setting and
       save / load it upon edit and startup. This prevents Sigil from using the wrong value
       when multiple instances are open.

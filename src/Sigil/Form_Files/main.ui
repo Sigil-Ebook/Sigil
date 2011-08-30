@@ -312,6 +312,7 @@
     <bool>false</bool>
    </attribute>
    <addaction name="actionTidyClean"/>
+   <addaction name="actionCheckWellFormedErrors"/>
    <addaction name="actionValidateEpub"/>
   </widget>
   <action name="actionNew">
@@ -1081,6 +1082,27 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+/</string>
+   </property>
+  </action>
+  <action name="actionCheckWellFormedErrors">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../Resource_Files/main/main.qrc">
+     <normaloff>:/main/document-well-formed_check_22px.png</normaloff>:/main/document-well-formed_check_22px.png</iconset>
+   </property>
+   <property name="text">
+    <string>Check For Well-Formed Errors</string>
+   </property>
+   <property name="toolTip">
+    <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Lucida Grande'; font-size:13pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Checking for well-formed errors&lt;/span&gt; &lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:8px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;If this option is checked, then your XML and HTML content documents will be checked for structural errors. When changing from the code view you will be presented with a dialog asking to either auto or manually fix the issue. If manual fix is selected the cursor in will be placed on the line where there is an error in the code view.&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:8px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;When the option is unchecked no error checking is preformed. This can lead to significant data loss as all errors will be auto fixed.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </action>
  </widget>
