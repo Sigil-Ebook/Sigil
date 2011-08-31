@@ -65,7 +65,14 @@ FlowTab::FlowTab( HTMLResource& resource,
     // We need to set this in the constructor too,
     // so that the ContentTab focus handlers don't 
     // get called when the tab is created.
-    setFocusProxy( &m_wBookView );
+    if (view_state == ContentTab::ViewState_BookView )
+    {
+        setFocusProxy( &m_wBookView );
+    }
+    else
+    {
+        setFocusProxy( &m_wCodeView );
+    }
 
     // We perform delayed initialization after the widget is on
     // the screen. This way, the user perceives less load time.
@@ -734,6 +741,11 @@ void FlowTab::BookView()
     m_wCodeView.hide();
     m_wBookView.show();
 
+    setFocusProxy( &m_wBookView );
+    m_wBookView.GrabFocus();
+
+    m_IsLastViewBook = true;
+
     emit ViewChanged();
 
     QApplication::restoreOverrideCursor();
@@ -788,11 +800,15 @@ void FlowTab::CodeView()
     m_wBookView.hide();
     m_wCodeView.show();       
 
+    setFocusProxy( &m_wCodeView );
+
     // Make sure the cursor is properly displayed
     if( !m_wCodeView.hasFocus() )
     {
         m_wCodeView.setFocus();
     }
+
+    m_IsLastViewBook = false; 
 
     emit ViewChanged();
 
@@ -823,66 +839,54 @@ void FlowTab::LoadTabContent()
             m_HTMLResource.UpdateWebPageFromDomDocument();
 
         else
-
+        {
             m_HTMLResource.UpdateTextDocumentFromDomDocument();
+        }
     }
 }
 
 
-void FlowTab::TabFocusChange( QWidget *old_widget, QWidget *new_widget )
+void FlowTab::LeaveEditor( QWidget* editor )
 {
-    // First check if the code view lost focus.
-    if ( old_widget == &m_wCodeView )
+    if( editor == &m_wBookView )
     {
-        //setFocusProxy( &m_wCodeView );
-        if ( !IsDataWellFormed() )
+        m_IsLastViewBook = true;
+        SaveTabContent();
+    }
+    else if( editor == &m_wCodeView )
+    {
+        if( IsDataWellFormed() )
         {
-            setFocus();
-            return;
+            m_IsLastViewBook = false;
+            SaveTabContent();
         }
     }
+}
 
-    // If were in split view then we are getting the changes between the
-    // book and code views.
-    if ( m_InSplitView )
+void FlowTab::EnterEditor( QWidget* editor )
+{
+    if( editor == &m_wBookView )
     {
-        // If we switched focus from the book view to the code view...
-        if ( ( old_widget == &m_wBookView ) && ( new_widget == &m_wCodeView ) )
-        {
-            QApplication::setOverrideCursor( Qt::WaitCursor );
-            EnterCodeView();
-            QApplication::restoreOverrideCursor();
-        }
+        m_IsLastViewBook = true;
+        LoadTabContent();
 
-        // If we switched focus from the code view to the book view...
-        else if ( ( old_widget == &m_wCodeView ) && ( new_widget == &m_wBookView ) )
+        if( m_InSplitView )
         {
             QApplication::setOverrideCursor( Qt::WaitCursor );
             EnterBookView();
             QApplication::restoreOverrideCursor();
         }
-
-        // else we don't care
     }
-    // the entire tab either gained or lost focus
-    else
+    else if( editor == &m_wCodeView )
     {
-        // Whole tab gains focus
-        if ( ( new_widget == &m_wBookView || new_widget == &m_wCodeView ) &&
-             old_widget != &m_wBookView &&
-             old_widget != &m_wCodeView
-           )
-        {
-            LoadTabContent();
-        }
+        m_IsLastViewBook = false;
+        LoadTabContent();
 
-        // Whole tab loses focus
-        else if ( ( old_widget == &m_wBookView || old_widget == &m_wCodeView ) &&
-                  new_widget != &m_wBookView &&
-                  new_widget != &m_wCodeView
-                )
+        if( m_InSplitView )
         {
-            SaveTabContent();
+            QApplication::setOverrideCursor( Qt::WaitCursor );
+            EnterCodeView();
+            QApplication::restoreOverrideCursor();
         }
     }
 }
@@ -901,14 +905,9 @@ void FlowTab::DelayedInitialization()
 
         m_wBookView.ScrollToFragmentAfterLoad( m_FragmentToScroll.toString() );
 
-        // Fix for missing blinking caret... even though
-        // the Book View already has focus... QtWebkit is really lovely, isn't it?
-        if ( hasFocus() )
-
-            m_wBookView.GrabFocus();
     }
 
-    else
+    else if( m_StartingViewState == ContentTab::ViewState_CodeView )
     {
         // Stop Code View attempting to read the content from the web page, since it already
         // has a valid copy of the content and the web page might not have finished loading yet.
@@ -917,6 +916,21 @@ void FlowTab::DelayedInitialization()
         CodeView();
 
         m_wCodeView.ScrollToLine( m_LineToScrollTo );
+    }
+
+    if( m_StartingViewState == ContentTab::ViewState_NoFocusBookView )
+    {
+        m_StartingViewState = ContentTab::ViewState_BookView;
+        m_wCodeView.hide();
+        m_wBookView.show();
+        m_IsLastViewBook = true;
+    }
+    else if( m_StartingViewState == ContentTab::ViewState_NoFocusCodeView )
+    {
+        m_StartingViewState = ContentTab::ViewState_CodeView;
+        m_wBookView.hide();
+        m_wCodeView.show();
+        m_IsLastViewBook = false;
     }
 
     m_safeToLoad = true;
@@ -942,11 +956,11 @@ void FlowTab::EnterBookView()
         return;
 
     m_wBookView.StoreCaretLocationUpdate( m_wCodeView.GetCaretLocation() );
-    m_HTMLResource.UpdateWebPageFromTextDocument();
-
-    m_IsLastViewBook = true;
-
-    m_wBookView.GrabFocus();
+    // All changes to the document are routed through the Dom Document via the Load and
+    // Save routines called by the focus handlers. The Dom Document is thus always the
+    // canonical version, rather than allowing edits to be routed directly between the Text
+    // Document and the Web page.
+    //m_HTMLResource.UpdateWebPageFromTextDocument();
 
     emit EnteringBookView();
 }
@@ -955,10 +969,8 @@ void FlowTab::EnterBookView()
 void FlowTab::EnterCodeView()
 {
     m_wCodeView.StoreCaretLocationUpdate( m_wBookView.GetCaretLocation() );
-    m_HTMLResource.UpdateTextDocumentFromWebPage(); 
-
-    m_IsLastViewBook = false; 
-    setFocusProxy( &m_wCodeView );
+    // See above note.
+    //m_HTMLResource.UpdateTextDocumentFromWebPage();
 
     emit EnteringCodeView();
 }
@@ -997,10 +1009,14 @@ void FlowTab::ConnectSignalsToSlots()
     connect( &m_wBookView, SIGNAL( ZoomFactorChanged( float ) ), this, SIGNAL( ZoomFactorChanged( float ) ) );
     connect( &m_wCodeView, SIGNAL( ZoomFactorChanged( float ) ), this, SIGNAL( ZoomFactorChanged( float ) ) );
 
-    connect( &m_wBookView, SIGNAL( selectionChanged() ), this, SIGNAL( SelectionChanged() ) );
-    connect( &m_wCodeView, SIGNAL( selectionChanged() ), this, SIGNAL( SelectionChanged() ) );
+    connect( &m_wBookView, SIGNAL( selectionChanged() ),         this, SIGNAL( SelectionChanged() ) );
+    connect( &m_wCodeView, SIGNAL( selectionChanged() ),         this, SIGNAL( SelectionChanged() ) );
 
-    connect( qApp, SIGNAL( focusChanged( QWidget*, QWidget* ) ), this, SLOT( TabFocusChange( QWidget*, QWidget* ) ) );
+    connect( &m_wCodeView, SIGNAL( FocusGained( QWidget* ) ),    this, SLOT( EnterEditor( QWidget* ) ) );
+    connect( &m_wCodeView, SIGNAL( FocusLost( QWidget* )   ),    this, SLOT( LeaveEditor( QWidget* ) ) );
+
+    connect( &m_wBookView, SIGNAL( FocusGained( QWidget* ) ),    this, SLOT( EnterEditor( QWidget* ) ) );
+    connect( &m_wBookView, SIGNAL( FocusLost( QWidget* )   ),    this, SLOT( LeaveEditor( QWidget* ) ) );
 }
 
 

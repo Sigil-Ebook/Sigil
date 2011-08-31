@@ -628,9 +628,9 @@ private:
     QWeakPointer< FindReplace > m_FindReplace;
 
     /**
-    * Holds the state of whether the user wants tidy to be used
-    * when cleaning XHTML.
-    */
+     * Holds the state of whether the user wants tidy to be used
+     * when cleaning XHTML.
+     */
     static bool m_ShouldUseTidy;
 
     /**

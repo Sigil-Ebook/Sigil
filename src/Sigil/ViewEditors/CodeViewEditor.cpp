@@ -74,6 +74,8 @@ CodeViewEditor::CodeViewEditor( HighlighterType high_type, QWidget *parent )
 void CodeViewEditor::CustomSetDocument( QTextDocument &document )
 {
     setDocument( &document );
+    document.setModified( false );
+
     m_Highlighter->setDocument( &document );
 
     ResetFont();
@@ -531,7 +533,7 @@ void CodeViewEditor::contextMenuEvent( QContextMenuEvent *event )
 // Overridden so we can emit the FocusGained() signal.
 void CodeViewEditor::focusInEvent( QFocusEvent *event )
 {
-    emit FocusGained();
+    emit FocusGained( this );
 
     QPlainTextEdit::focusInEvent( event );
 }
@@ -540,7 +542,7 @@ void CodeViewEditor::focusInEvent( QFocusEvent *event )
 // Overridden so we can emit the FocusLost() signal.
 void CodeViewEditor::focusOutEvent( QFocusEvent *event )
 {
-    emit FocusLost();
+    emit FocusLost( this );
 
     QPlainTextEdit::focusOutEvent( event );
 }
@@ -829,5 +831,3 @@ void CodeViewEditor::ConnectSignalsToSlots()
     connect( &m_ScrollOneLineUp,   SIGNAL( activated() ), this, SLOT( ScrollOneLineUp()   ) );
     connect( &m_ScrollOneLineDown, SIGNAL( activated() ), this, SLOT( ScrollOneLineDown() ) );
 }
-
-

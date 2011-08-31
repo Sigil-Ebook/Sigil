@@ -288,18 +288,16 @@ private:
     shared_ptr< xc::DOMDocument > m_DomDocument;
 
     /**
-     * This is here only for convenience so that
-     * the FlowTabs don't need to create and populate
-     * it every time, but just once. Improves performance.
-     * AKA the auxiliary, secondary cache of the rendered page.
+    * This is the editable web page associated with the Book View Editor.
+    * This page is directly edited by the user and on leaving
+    * Book View the DOM document is updated to reflect any changes made.
      */
     QWebPage *m_WebPage;
 
     /**
-     * This is here only for convenience so that
-     * the FlowTabs don't need to create and populate
-     * it every time, but just once. Improves performance.
-     * AKA the auxiliary, secondary cache of the colored source.
+     * This is the text document associated with the Code View Editor.
+     * This document is directly edited by the user and on leaving
+     * Code View the DOM document is updated to reflect any changes made.
      */
     QTextDocument *m_TextDocument;
 

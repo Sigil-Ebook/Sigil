@@ -216,6 +216,16 @@ signals:
      */
     void FilteredLinkClicked( const QUrl& url );
 
+    /**
+     * Emitted when the focus is lost.
+     */
+    void FocusLost( QWidget* editor );
+
+    /**
+     * Emitted when the focus is gained.
+     */
+    void FocusGained( QWidget* editor );
+
 protected:
 
     /**
@@ -224,6 +234,20 @@ protected:
      * @param event The event to process.
      */
     bool event( QEvent *event );
+ 
+    /**
+     * Handles the focus in event for the editor.
+     *
+     * @param event The event to process.
+     */
+    void focusInEvent( QFocusEvent *event );
+
+    /**
+     * Handles the focus out event for the editor.
+     *
+     * @param event The event to process.
+     */
+    void focusOutEvent( QFocusEvent *event );
 
 private slots:
 

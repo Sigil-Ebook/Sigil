@@ -289,6 +289,7 @@ public slots:
 
     void LoadTabContent();
 
+
 signals:
 
     /**
@@ -345,19 +346,6 @@ signals:
 private slots:
 
     /**
-     * A global focus switch filter used to catch tab enter and
-     * tab leave events. Also, catches focus switches inside the Split View.
-     * 
-     * @param old_widget The widget that just lost focus.
-     * @param new_widget The widget that just gained focus. 
-     * @note Since we use two child widgets (the View Editors) that cover 
-     *       the whole tab, we cannot just reimplement focusIn and focusOut
-     *       event handlers (they won't get called). So we use this function
-     *       to implement our own focusIn and focusOut handling. 
-     */
-    void TabFocusChange( QWidget *old_widget, QWidget *new_widget );
-
-    /**
      * Performs the delayed initialization of the tab.
      * We perform delayed initialization after the widget is on
      * the screen. This way, the user perceives less load time.
@@ -368,6 +356,22 @@ private slots:
      * Emits the ContentChanged signal.
      */
     void EmitContentChanged();  
+
+    /** 
+     * Receives the signal emitted when an editor gains focus. Ensures that
+     * the editor is displaying the correct content.
+     *
+     * @param A pointer to the editor.
+     */
+    void EnterEditor( QWidget* editor );
+
+    /** 
+     * Receives the signal emitted when an editor loses focus. Ensures that
+     * the editor's content is well-formed and then saves it.
+     *
+     * @param A pointer to the editor.
+     */
+    void LeaveEditor( QWidget* editor );
 
 private:
 

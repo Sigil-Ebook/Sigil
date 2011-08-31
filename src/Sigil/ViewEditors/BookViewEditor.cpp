@@ -149,6 +149,24 @@ void BookViewEditor::GrabFocus()
 }
 
 
+// Overridden so we can emit the FocusGained() signal.
+void BookViewEditor::focusInEvent( QFocusEvent *event )
+{
+    emit FocusGained( this );
+
+    QWebView::focusInEvent( event );
+}
+
+
+// Overridden so we can emit the FocusLost() signal.
+void BookViewEditor::focusOutEvent( QFocusEvent *event )
+{
+    emit FocusLost( this );
+
+    QWebView::focusOutEvent( event );
+}
+
+
 void BookViewEditor::ScrollToTop()
 {
     page()->currentFrame()->setScrollBarValue( Qt::Vertical, 0 );

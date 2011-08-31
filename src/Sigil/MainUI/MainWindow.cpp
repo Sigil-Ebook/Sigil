@@ -70,7 +70,6 @@ QStringList MainWindow::s_RecentFiles = QStringList();
 
 bool MainWindow::m_ShouldUseTidy = true;
 
-
 MainWindow::MainWindow( const QString &openfilepath, QWidget *parent, Qt::WFlags flags )
     : 
     QMainWindow( parent, flags ),
@@ -153,6 +152,7 @@ void MainWindow::ShowMessageOnCurrentStatusBar( const QString &message,
 bool MainWindow::ShouldUseTidyClean()
 {
     return m_ShouldUseTidy;
+ 
 }
 
 
@@ -723,9 +723,16 @@ void MainWindow::CreateChapterBreakOldTab( QString content, HTMLResource& origin
     HTMLResource& html_resource = m_Book->CreateChapterBreakOriginalResource( content, originating_resource );
 
     m_BookBrowser->Refresh();
-    m_TabManager.OpenResource( html_resource, true, QUrl() );
 
     FlowTab *flow_tab = qobject_cast< FlowTab* >( &GetCurrentContentTab() );
+
+    ContentTab::ViewState view_state = flow_tab->GetViewState();
+    if( view_state = ContentTab::ViewState_BookView )
+        view_state = ContentTab::ViewState_NoFocusBookView;
+    else
+        view_state = ContentTab::ViewState_NoFocusCodeView;
+
+    m_TabManager.OpenResource( html_resource, true, QUrl(), view_state );
 
     // We want the current tab to be scrolled to the top.
     if ( flow_tab )

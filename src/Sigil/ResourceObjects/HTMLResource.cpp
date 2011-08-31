@@ -151,6 +151,7 @@ void HTMLResource::UpdateWebPageFromDomDocument()
 
     SetWebPageHTML( XhtmlDoc::GetDomDocumentAsString( *m_DomDocument ) );
 
+    SetWebPageModified( false );
     m_WebPageIsOld = false;
     m_RefreshNeeded = false;
 }
@@ -172,6 +173,7 @@ void HTMLResource::UpdateTextDocumentFromDomDocument()
 
     m_TextDocument->setPlainText( ConvertToEntities( CleanSource::PrettyPrint( XhtmlDoc::GetDomDocumentAsString( *m_DomDocument ) ) ) );
 
+    m_TextDocument->setModified( false );
     m_TextDocumentIsOld = false;
 }
 

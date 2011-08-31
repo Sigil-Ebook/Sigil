@@ -185,12 +185,12 @@ signals:
     /**
      * Emitted when the focus is lost.
      */
-    void FocusLost();
+    void FocusLost( QWidget* editor );
 
     /**
      * Emitted when the focus is gained.
      */
-    void FocusGained();
+    void FocusGained( QWidget* editor );
 
     /**
      * A filtered version of the QPlainTextEdit::textChnaged signal.

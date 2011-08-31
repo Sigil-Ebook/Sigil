@@ -191,11 +191,13 @@ public:
      */
     enum ViewState
     {
-        ViewState_BookView,   /**< The WYSIWYG view. */
-        ViewState_CodeView,   /**< The XHTML code editing view. */
-        ViewState_RawView,    /**< The view for editing non-XHTML related resources. */
-        ViewState_StaticView, /**< The static view for non-editable content. */
-        ViewState_AnyView,    /**< Specifies that no state is preferred or set. */
+        ViewState_BookView,         /**< The WYSIWYG view. */
+        ViewState_CodeView,         /**< The XHTML code editing view. */
+        ViewState_RawView,          /**< The view for editing non-XHTML related resources. */
+        ViewState_StaticView,       /**< The static view for non-editable content. */
+        ViewState_AnyView,          /**< Specifies that no state is preferred or set. */
+        ViewState_NoFocusBookView,  /**< Specifies that the new tab should not be given at first, but should use BookView later. */
+        ViewState_NoFocusCodeView   /**< Specifies that the new tab should not be given at first, but should use CodeView later. */
     };
 
     /**
