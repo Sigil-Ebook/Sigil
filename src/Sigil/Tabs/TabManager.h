@@ -76,6 +76,15 @@ public slots:
     void WellFormedDialogsEnabled( bool enabled );
 
     /**
+     * Turns on/off checking for well-formed errors. The state
+     * will be used in IsDataWellFormed.
+     *
+     * @param enabled If \true, the content will be checked for
+     * well-formed errors.
+     */
+    void SetCheckWellFormedErrors( bool enabled );
+
+    /**
      * Saves any unsaved data in the all the open tabs.
      */
     void SaveTabData();
@@ -266,6 +275,8 @@ private:
      * Needed for the TabChanged signal.
      */
     QWeakPointer< ContentTab > m_LastContentTab;
+
+    bool m_CheckWellFormedErrors;
 };
 
 #endif // TABMANAGER_H

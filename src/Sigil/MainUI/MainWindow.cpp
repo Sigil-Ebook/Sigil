@@ -85,7 +85,8 @@ MainWindow::MainWindow( const QString &openfilepath, QWidget *parent, Qt::WFlags
     m_slZoomSlider( NULL ),
     m_lbZoomLabel( NULL ),
     c_SaveFilters( GetSaveFiltersMap() ),
-    c_LoadFilters( GetLoadFiltersMap() )
+    c_LoadFilters( GetLoadFiltersMap() ),
+    m_CheckWellFormedErrors( true )
 {
     ui.setupUi( this );
     
@@ -710,6 +711,13 @@ void MainWindow::SetTidyCleanOption( bool new_state )
 }
 
 
+void MainWindow::SetCheckWellFormedErrors( bool new_state )
+{
+    m_CheckWellFormedErrors = new_state;
+    m_TabManager.SetCheckWellFormedErrors( new_state );
+}
+
+
 void MainWindow::UpdateZoomLabel( float new_zoom_factor )
 {
     m_lbZoomLabel->setText( QString( "%1% " ).arg( qRound( new_zoom_factor * 100 ) ) );
@@ -778,6 +786,13 @@ void MainWindow::ReadSettings()
     m_ShouldUseTidy = tidyclean.isNull() ? true : tidyclean.toBool();
     ui.actionTidyClean->setChecked( m_ShouldUseTidy );
 
+    // For the checkwellformed option, we want to default to true
+    // if no value has been set.
+    QVariant checkwellformederrors = settings.value( "checkwellformederrors" );
+    m_CheckWellFormedErrors = checkwellformederrors.isNull() ? true : checkwellformederrors.toBool();
+    ui.actionCheckWellFormedErrors->setChecked( m_CheckWellFormedErrors );
+    SetCheckWellFormedErrors( m_CheckWellFormedErrors );
+
     // The position of the splitter handle in split view
     QByteArray splitter_position = settings.value( "splitview_splitter" ).toByteArray();
 
@@ -816,6 +831,9 @@ void MainWindow::WriteSettings()
 
     // Whether the user wants Tidy to be used.
     settings.setValue( "tidyclean", m_ShouldUseTidy );
+
+    // Whether the user wants to be informed about well-formed errors
+    settings.setValue( "checkwellformederrors", m_CheckWellFormedErrors );
 
     // The position of the splitter handle in split view
     // FIXME: splitter positions
@@ -1456,6 +1474,10 @@ void MainWindow::ExtendIconSizes()
     icon.addFile(QString::fromUtf8(":/main/edit-clear_16px.png"));
     ui.actionTidyClean->setIcon(icon);
 
+    icon = ui.actionCheckWellFormedErrors->icon();
+    icon.addFile(QString::fromUtf8(":/main/document-well-formed_check_16px.png"));
+    ui.actionCheckWellFormedErrors->setIcon(icon);
+
     icon = ui.actionAlignLeft->icon();
     icon.addFile(QString::fromUtf8(":/main/format-justify-left_16px.png"));
     ui.actionAlignLeft->setIcon(icon);
@@ -1619,7 +1641,8 @@ void MainWindow::ConnectSignalsToSlots()
     // the zoom value the slider will land on while it is being moved.
     connect( m_slZoomSlider,         SIGNAL( sliderMoved( int ) ),  this, SLOT( UpdateZoomLabel( int ) ) );
 
-    connect( ui.actionTidyClean,     SIGNAL( triggered( bool ) ),   this, SLOT( SetTidyCleanOption( bool ) ) );  
+    connect( ui.actionTidyClean,     SIGNAL( triggered( bool ) ),   this, SLOT( SetTidyCleanOption( bool ) ) );
+    connect( ui.actionCheckWellFormedErrors, SIGNAL( triggered( bool ) ), this, SLOT( SetCheckWellFormedErrors( bool ) ) );
 
     connect( &m_TabManager,          SIGNAL( TabChanged( ContentTab*, ContentTab* ) ), 
              this,                   SLOT( ChangeSignalsWhenTabChanges( ContentTab*, ContentTab* ) ) );

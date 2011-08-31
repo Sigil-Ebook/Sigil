@@ -67,14 +67,31 @@ QString XMLTab::GetFilename()
 }
 
 
+bool XMLTab::GetCheckWellFormedErrors()
+{
+    return m_WellFormedCheckComponent.GetCheckWellFormedErrors();
+}
+
+
 void XMLTab::SetWellFormedDialogsEnabledState( bool enabled )
 {
     m_WellFormedCheckComponent.SetWellFormedDialogsEnabledState( enabled );
 }
 
 
+void XMLTab::SetCheckWellFormedErrorsState( bool enabled )
+{
+    m_WellFormedCheckComponent.SetCheckWellFormedErrorsState( enabled );
+}
+
+
 bool XMLTab::IsDataWellFormed()
 {
+    if ( !GetCheckWellFormedErrors() )
+    {
+        return true;
+    }
+
     XhtmlDoc::WellFormedError error = m_XMLResource.WellFormedErrorLocation();
     bool well_formed = error.line == -1;
 

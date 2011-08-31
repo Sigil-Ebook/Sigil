@@ -35,7 +35,8 @@ WellFormedCheckComponent::WellFormedCheckComponent( WellFormedContent &content )
     m_ManualFixButton( NULL ),
     m_LastError(),
     m_DemandingAttention( false ),
-    m_WellFormedDialogsEnabled( true )
+    m_WellFormedDialogsEnabled( true ),
+    m_CheckWellFormedErrors( true )
 {
     m_Message = tr( 
         "<p>The operation you requested cannot be performed "
@@ -62,10 +63,22 @@ WellFormedCheckComponent::~WellFormedCheckComponent()
     m_MessageBox->deleteLater();
 }
 
+
+bool WellFormedCheckComponent::GetCheckWellFormedErrors()
+{
+    return m_CheckWellFormedErrors;
+}
+
     
 void WellFormedCheckComponent::SetWellFormedDialogsEnabledState( bool enabled )
 {
     m_WellFormedDialogsEnabled = enabled;
+}
+
+
+void WellFormedCheckComponent::SetCheckWellFormedErrorsState( bool enabled )
+{
+    m_CheckWellFormedErrors = enabled;
 }
 
 

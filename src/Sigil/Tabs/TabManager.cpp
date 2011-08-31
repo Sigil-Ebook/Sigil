@@ -88,6 +88,22 @@ void TabManager::WellFormedDialogsEnabled( bool enabled )
 }
 
 
+void TabManager::SetCheckWellFormedErrors( bool enabled )
+{
+    m_CheckWellFormedErrors = enabled;
+
+    for ( int i = 0; i < count(); ++i )
+    {
+        WellFormedContent *tab = dynamic_cast< WellFormedContent* >( widget( i ) );
+
+        if ( tab )
+        {
+            tab->SetCheckWellFormedErrorsState( enabled );
+        }
+    }
+}
+
+
 void TabManager::SaveTabData()
 {
     for ( int i = 0; i < count(); ++i )
@@ -389,6 +405,13 @@ ContentTab* TabManager::CreateTabForResource( Resource& resource,
     // In case of well-formed errors we want the tab to be focused.
     connect( tab,  SIGNAL( CentralTabRequest( ContentTab* ) ),
              this, SLOT( MakeCentralTab( ContentTab* ) ) );//, Qt::QueuedConnection );
+
+    // Wet whether to inform or auto correct well-formed errors.
+    WellFormedContent *wtab = dynamic_cast< WellFormedContent* >( tab );
+    if ( tab )
+    {
+        wtab->SetCheckWellFormedErrorsState( m_CheckWellFormedErrors );
+    }
 
     return tab;    
 }
