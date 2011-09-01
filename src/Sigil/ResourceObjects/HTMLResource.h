@@ -147,16 +147,6 @@ public:
      */
     void UpdateTextDocumentFromDomDocument();
 
-    /**
-     * Updates the QWebPage from the content of the QTextDocument.
-     */
-    void UpdateWebPageFromTextDocument();
-
-    /**
-     * Updates the QWebPage from the content of the DOM.
-     */
-    void UpdateTextDocumentFromWebPage();
-
     // inherited
     void SaveToDisk( bool book_wide_save = false );
     
@@ -300,14 +290,6 @@ private:
      * Code View the DOM document is updated to reflect any changes made.
      */
     QTextDocument *m_TextDocument;
-
-    /**
-     * This holds the state of the content of the secondary
-     * caches the last time they were updated. It's used
-     * to prevent syncing between them when no new changes
-     * have been made.
-     */
-    QString m_OldSourceCache;
 
     /**
      * \c true if the WebPage was modified by the user.

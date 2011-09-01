@@ -178,61 +178,6 @@ void HTMLResource::UpdateTextDocumentFromDomDocument()
 }
 
 
-void HTMLResource::UpdateWebPageFromTextDocument()
-{
-    Q_ASSERT( QThread::currentThread() == QApplication::instance()->thread() );
-    Q_ASSERT( m_TextDocument );
-    Q_ASSERT( m_WebPage );
-
-    const QString &source  = m_TextDocument->toPlainText();
-    const QString &cleaned = CleanSource::Clean( source );
-
-    // We can't just check for the modified state of the other
-    // cache since the other cache could have saved its changes
-    // back to the DOM and thus be set as unmodified.
-
-    if ( m_OldSourceCache != cleaned || m_RefreshNeeded )
-    {
-        SetWebPageHTML( cleaned );
-
-        // We store the original, "uncleaned" source
-        // in the source cache since that is what we
-        // want to compare against. If we didn't, the user
-        // would see the old source in the TextDocument even
-        // after we became committed to the cleaned source.
-        // See issue #286.
-        m_OldSourceCache = source;
-        m_RefreshNeeded  = false;
-    }
-
-    // We need to transfer the modified state to the other cache
-    SetWebPageModified( TextDocumentModified() );
-}
-
-
-void HTMLResource::UpdateTextDocumentFromWebPage()
-{
-    Q_ASSERT( QThread::currentThread() == QApplication::instance()->thread() );
-    Q_ASSERT( m_TextDocument );
-    Q_ASSERT( m_WebPage );
-
-    const QString &source = GetWebPageHTML();
-
-    // We can't just check for the modified state of the other
-    // cache since the other cache could have saved its changes
-    // back to the DOM and thus be set as unmodified.
-
-    if ( m_OldSourceCache != source )
-    {
-        m_TextDocument->setPlainText( source );
-        m_OldSourceCache = source;
-    }
-
-    // We need to transfer the modified state to the other cache
-    SetTextDocumentModified( WebPageModified() );
-}
-
-
 void HTMLResource::SaveToDisk( bool book_wide_save )
 {
     {
@@ -428,6 +373,7 @@ void HTMLResource::SetWebPageHTML( const QString &source )
     Q_ASSERT( m_WebPage );
 
     connect( m_WebPage, SIGNAL( loadFinished( bool ) ), this, SLOT( WebPageJavascriptOnLoad() ) );
+    connect( m_WebPage, SIGNAL( contentsChanged() ),    this, SLOT( SetWebPageModified() ) );
 
     // NOTE: content loading is asynchronous, and attempts to read the content back out immediately
     // with toHtml() *will* fail if the page contains external links, particularly if those cannot
