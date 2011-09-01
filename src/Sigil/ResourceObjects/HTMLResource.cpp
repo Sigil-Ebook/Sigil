@@ -373,7 +373,6 @@ void HTMLResource::SetWebPageHTML( const QString &source )
     Q_ASSERT( m_WebPage );
 
     connect( m_WebPage, SIGNAL( loadFinished( bool ) ), this, SLOT( WebPageJavascriptOnLoad() ) );
-    connect( m_WebPage, SIGNAL( contentsChanged() ),    this, SLOT( SetWebPageModified() ) );
 
     // NOTE: content loading is asynchronous, and attempts to read the content back out immediately
     // with toHtml() *will* fail if the page contains external links, particularly if those cannot
