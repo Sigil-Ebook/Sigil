@@ -361,9 +361,6 @@ bool BookViewEditor::ReplaceSelected( const QRegExp &search_regex, const QString
         BookViewReplaceCommand* replace_action = new BookViewReplaceCommand( this, inputJS, final_replacement );
         page()->undoStack()->push( replace_action );
 
-        // Tell anyone who's interested that the document has been updated.
-        emit contentsChangedExtra();
-
         return true;
     }
 
@@ -861,7 +858,11 @@ void BookViewEditor::BookViewReplaceCommand::undo()
     // Load in the identifier that indicates which replacement spans need to be undone.
     QString undoing_js = QString( m_editor->c_ReplaceUndo ).replace( "$ESCAPED_TEXT_HERE", m_elem_identifier );
 
-    m_editor->EvaluateJavascript(  undoing_js ); 
+    m_editor->EvaluateJavascript(  undoing_js );
+
+    // Need to emit this even if the undo stack is cleared back to empty as the user may have switched to Code
+    // View in between undos and the Text Document needs to be updated.
+    emit m_editor->contentsChangedExtra();
 }
 
 void BookViewEditor::BookViewReplaceCommand::redo()
@@ -869,4 +870,7 @@ void BookViewEditor::BookViewReplaceCommand::redo()
     QString replacing_js = GetRange( m_input ) % QString( m_editor->c_ReplaceWrapped ).replace( "$ESCAPED_TEXT_HERE", m_editor->EscapeJSString( m_replacement_text ) );
 
     m_elem_identifier = m_editor->EvaluateJavascript( replacing_js ).toString();
+
+    // Tell anyone who's interested that the document has been updated.
+    emit m_editor->contentsChangedExtra();
 }
