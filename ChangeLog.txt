@@ -1,4 +1,5 @@
-Sigil v0.4.2 TBA
+Sigil v0.4.2 2011.09.02
+    - Fix issue 993: Split then selection jumps back to top instead of selection point.
     - Fix issue 988: fail to scroll properly after chapter split.
     - Allow users to disable Well-Formed checks or if they should be auto fixed as they
       were in 0.3.x.

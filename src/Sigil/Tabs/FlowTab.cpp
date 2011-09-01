@@ -952,6 +952,13 @@ void FlowTab::DelayedInitialization()
             m_IsLastViewBook = false;
             break;
         }
+
+        // Don't care about these so ignore them.
+        case ContentTab::ViewState_AnyView:
+        case ContentTab::ViewState_RawView:
+        case ContentTab::ViewState_StaticView:
+        default:
+            break;
     }
 
     m_safeToLoad = true;
