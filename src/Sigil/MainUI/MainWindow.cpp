@@ -735,7 +735,7 @@ void MainWindow::CreateChapterBreakOldTab( QString content, HTMLResource& origin
     FlowTab *flow_tab = qobject_cast< FlowTab* >( &GetCurrentContentTab() );
 
     ContentTab::ViewState view_state = flow_tab->GetViewState();
-    if( view_state = ContentTab::ViewState_BookView )
+    if( view_state == ContentTab::ViewState_BookView )
         view_state = ContentTab::ViewState_NoFocusBookView;
     else
         view_state = ContentTab::ViewState_NoFocusCodeView;
