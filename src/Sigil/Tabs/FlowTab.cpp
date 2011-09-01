@@ -911,38 +911,47 @@ void FlowTab::DelayedInitialization()
     m_wBookView.CustomSetWebPage( m_HTMLResource.GetWebPage() );
     m_wCodeView.CustomSetDocument( m_HTMLResource.GetTextDocument() );
 
-    if ( m_StartingViewState == ContentTab::ViewState_BookView )
+    switch( m_StartingViewState )
     {
-        BookView();
+        case ContentTab::ViewState_BookView: 
+        {
+            m_IsLastViewBook = true;
 
-        m_wBookView.ScrollToFragmentAfterLoad( m_FragmentToScroll.toString() );
+            BookView();
 
-    }
+            m_wBookView.ScrollToFragmentAfterLoad( m_FragmentToScroll.toString() );
+            break;
+        }
 
-    else if( m_StartingViewState == ContentTab::ViewState_CodeView )
-    {
-        // Stop Code View attempting to read the content from the web page, since it already
-        // has a valid copy of the content and the web page might not have finished loading yet.
-        m_IsLastViewBook = false;
+        case ContentTab::ViewState_CodeView:
+        {
+            // Stop Code View attempting to read the content from the web page, since it already
+            // has a valid copy of the content and the web page might not have finished loading yet.
+            m_IsLastViewBook = false;
 
-        CodeView();
+            CodeView();
 
-        m_wCodeView.ScrollToLine( m_LineToScrollTo );
-    }
+            m_wCodeView.ScrollToLine( m_LineToScrollTo );
+            break;
+        }
 
-    if( m_StartingViewState == ContentTab::ViewState_NoFocusBookView )
-    {
-        m_StartingViewState = ContentTab::ViewState_BookView;
-        m_wCodeView.hide();
-        m_wBookView.show();
-        m_IsLastViewBook = true;
-    }
-    else if( m_StartingViewState == ContentTab::ViewState_NoFocusCodeView )
-    {
-        m_StartingViewState = ContentTab::ViewState_CodeView;
-        m_wBookView.hide();
-        m_wCodeView.show();
-        m_IsLastViewBook = false;
+        case ContentTab::ViewState_NoFocusBookView:
+        {
+            m_StartingViewState = ContentTab::ViewState_BookView;
+            m_wCodeView.hide();
+            m_wBookView.show();
+            m_IsLastViewBook = true;
+            break;
+        }
+
+        case ContentTab::ViewState_NoFocusCodeView:
+        {
+            m_StartingViewState = ContentTab::ViewState_CodeView;
+            m_wBookView.hide();
+            m_wCodeView.show();
+            m_IsLastViewBook = false;
+            break;
+        }
     }
 
     m_safeToLoad = true;
