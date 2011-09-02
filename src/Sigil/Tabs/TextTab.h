@@ -95,6 +95,12 @@ protected slots:
 
     void SaveTabContent();
 
+    void SaveTabContent( QWidget *editor );
+
+    void LoadTabContent();
+
+    void LoadTabContent( QWidget *editor );
+
 private slots:
 
     void DelayedInitialization();

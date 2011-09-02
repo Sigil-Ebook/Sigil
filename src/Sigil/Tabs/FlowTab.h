@@ -367,7 +367,7 @@ private slots:
      *
      * @param A pointer to the editor.
      */
-    void EnterEditor( QWidget* editor );
+    void EnterEditor( QWidget *editor );
 
     /** 
      * Receives the signal emitted when an editor loses focus. Ensures that
@@ -375,7 +375,7 @@ private slots:
      *
      * @param A pointer to the editor.
      */
-    void LeaveEditor( QWidget* editor );
+    void LeaveEditor( QWidget *editor );
 
 private:
 

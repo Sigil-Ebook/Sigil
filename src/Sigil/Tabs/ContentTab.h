@@ -205,7 +205,7 @@ public:
      *
      * @return The current view state.
      */
-    virtual ViewState GetViewState() { return ViewState_StaticView; };
+    virtual ViewState GetViewState() { return ViewState_StaticView; }
 
     virtual void SetViewState( ViewState new_view_state ) {}
 

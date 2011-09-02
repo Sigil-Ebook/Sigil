@@ -858,7 +858,7 @@ void FlowTab::LoadTabContent()
 }
 
 
-void FlowTab::LeaveEditor( QWidget* editor )
+void FlowTab::LeaveEditor( QWidget *editor )
 {
     if( editor == &m_wBookView )
     {
@@ -875,7 +875,7 @@ void FlowTab::LeaveEditor( QWidget* editor )
     }
 }
 
-void FlowTab::EnterEditor( QWidget* editor )
+void FlowTab::EnterEditor( QWidget *editor )
 {
     if( editor == &m_wBookView )
     {

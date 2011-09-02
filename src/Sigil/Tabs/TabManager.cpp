@@ -408,7 +408,7 @@ ContentTab* TabManager::CreateTabForResource( Resource& resource,
 
     // Wet whether to inform or auto correct well-formed errors.
     WellFormedContent *wtab = dynamic_cast< WellFormedContent* >( tab );
-    if ( tab )
+    if ( wtab )
     {
         wtab->SetCheckWellFormedErrorsState( m_CheckWellFormedErrors );
     }

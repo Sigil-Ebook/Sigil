@@ -162,6 +162,29 @@ void TextTab::SaveTabContent()
     ContentTab::SaveTabContent();
 }
 
+
+void TextTab::SaveTabContent( QWidget *editor )
+{
+    Q_UNUSED( editor );
+
+    SaveTabContent();
+}
+
+
+void TextTab::LoadTabContent()
+{
+
+}
+
+
+void TextTab::LoadTabContent( QWidget *editor )
+{
+    Q_UNUSED( editor );
+
+    LoadTabContent();
+}
+
+
 void TextTab::DelayedInitialization()
 {
     m_wCodeView.CustomSetDocument( m_TextResource.GetTextDocumentForWriting() );
@@ -174,8 +197,8 @@ void TextTab::ConnectSignalsToSlots()
 {
     // We set the Code View as the focus proxy for the tab,
     // so the ContentTab focusIn/Out handlers are not called.
-    connect( &m_wCodeView, SIGNAL( FocusGained() ),              this, SLOT( LoadTabContent() ) );
-    connect( &m_wCodeView, SIGNAL( FocusLost() ),                this, SLOT( SaveTabContent() ) );
+    connect( &m_wCodeView, SIGNAL( FocusGained( QWidget* ) ),    this, SLOT( LoadTabContent( QWidget* ) ) );
+    connect( &m_wCodeView, SIGNAL( FocusLost( QWidget* ) ),      this, SLOT( SaveTabContent( QWidget* ) ) );
 
     connect( &m_wCodeView, SIGNAL( FilteredTextChanged() ),      this, SIGNAL( ContentChanged() )           );
     connect( &m_wCodeView, SIGNAL( ZoomFactorChanged( float ) ), this, SIGNAL( ZoomFactorChanged( float ) ) );
