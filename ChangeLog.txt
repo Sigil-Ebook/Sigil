@@ -1,3 +1,6 @@
+Sigil vNEXT TBA
+    - Fix issue 1005: Regression from change to ensure metdata element has dc namespace.
+
 Sigil v0.4.2 2011.09.02
     - Fix issue 993: Split then selection jumps back to top instead of selection point.
     - Fix issue 988: fail to scroll properly after chapter split.

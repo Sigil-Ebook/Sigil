@@ -432,9 +432,9 @@ QString ImportOEBPS::PrepareOPFForReading( const QString &source )
     // and doesn't write opf unless necessary. We're going to remove them both
     // copmletely (including from within elements) and put them in the metadata
     // element.
-    source_copy.replace( "xmlns:dc=\"http://purl.org/dc/elements/1.1/\"", "" );
     source_copy.replace( "xmlns:opf=\"http://www.idpf.org/2007/opf\"", "" );
-    source_copy.replace( "<metadata", "<metadata xmlns:dc=\"http://purl.org/dc/elements/1.1/\" xmlns:opf=\"http://www.idpf.org/2007/opf\"");
+    source_copy.replace( "xmlns:dc=\"http://purl.org/dc/elements/1.1/\"", "" );
+    source_copy.replace( QRegExp( "<([^/:]+:)?metadata" ), "<\\1metadata xmlns:opf=\"http://www.idpf.org/2007/opf\" xmlns:dc=\"http://purl.org/dc/elements/1.1/\"" );
 
     return source_copy;
 }
