@@ -399,8 +399,6 @@ void FlowTab::Undo()
     if ( m_wBookView.hasFocus() )
     {
         m_wBookView.page()->triggerAction( QWebPage::Undo );
-
-        //m_HTMLResource.RemoveWebkitCruft();
     }
 
     else if ( m_wCodeView.hasFocus() )
@@ -415,8 +413,6 @@ void FlowTab::Redo()
     if ( m_wBookView.hasFocus() )
     {
         m_wBookView.page()->triggerAction( QWebPage::Redo );
-
-        //m_HTMLResource.RemoveWebkitCruft();
     }
 
     else if ( m_wCodeView.hasFocus() )
@@ -431,8 +427,6 @@ void FlowTab::Cut()
     if ( m_wBookView.hasFocus() )
     {
         m_wBookView.page()->triggerAction( QWebPage::Cut );
-
-        //m_HTMLResource.RemoveWebkitCruft();
     }
 
     else if ( m_wCodeView.hasFocus() )
@@ -447,8 +441,6 @@ void FlowTab::Copy()
     if ( m_wBookView.hasFocus() )
     {
         m_wBookView.page()->triggerAction( QWebPage::Copy );
-
-        //m_HTMLResource.RemoveWebkitCruft();
     }
 
     else if ( m_wCodeView.hasFocus() )
@@ -463,8 +455,6 @@ void FlowTab::Paste()
     if ( m_wBookView.hasFocus() )
     {
         m_wBookView.page()->triggerAction( QWebPage::Paste );
-
-        //m_HTMLResource.RemoveWebkitCruft();
     }
 
     else if ( m_wCodeView.hasFocus() )
@@ -479,8 +469,6 @@ void FlowTab::Bold()
     if ( m_wBookView.hasFocus() )
     {
         m_wBookView.page()->triggerAction( QWebPage::ToggleBold );
-
-        //m_HTMLResource.RemoveWebkitCruft();
     }    
 }
 
@@ -490,8 +478,6 @@ void FlowTab::Italic()
     if ( m_wBookView.hasFocus() )
     {
         m_wBookView.page()->triggerAction( QWebPage::ToggleItalic );
-
-        //m_HTMLResource.RemoveWebkitCruft();
     }    
 }
 
@@ -501,8 +487,6 @@ void FlowTab::Underline()
     if ( m_wBookView.hasFocus() )
     {
         m_wBookView.page()->triggerAction( QWebPage::ToggleUnderline );
-
-        //m_HTMLResource.RemoveWebkitCruft();
     }    
 }
 
@@ -512,8 +496,6 @@ void FlowTab::Strikethrough()
     if ( m_wBookView.hasFocus() )
     {
         m_wBookView.ExecCommand( "strikeThrough" );
-
-        //m_HTMLResource.RemoveWebkitCruft();
     }    
 }
 
@@ -523,8 +505,6 @@ void FlowTab::AlignLeft()
     if ( m_wBookView.hasFocus() )
     {
         m_wBookView.ExecCommand( "justifyLeft" );
-
-        //m_HTMLResource.RemoveWebkitCruft();
     }    
 }
 
@@ -534,8 +514,6 @@ void FlowTab::Center()
     if ( m_wBookView.hasFocus() )
     {
         m_wBookView.ExecCommand( "justifyCenter" );
-
-        //m_HTMLResource.RemoveWebkitCruft();
     }    
 }
 
@@ -545,8 +523,6 @@ void FlowTab::AlignRight()
     if ( m_wBookView.hasFocus() )
     {
         m_wBookView.ExecCommand( "justifyRight" );
-
-        //m_HTMLResource.RemoveWebkitCruft();
     }    
 }
 
@@ -556,8 +532,6 @@ void FlowTab::Justify()
     if ( m_wBookView.hasFocus() )
     {
         m_wBookView.ExecCommand( "justifyFull" );
-
-        //m_HTMLResource.RemoveWebkitCruft();
     }    
 }
 
@@ -612,24 +586,18 @@ void FlowTab::InsertImage( const QString &image_path )
     // otherwise they are not inserted
     m_wBookView.GrabFocus();
     m_wBookView.ExecCommand( "insertImage", image_path );
-
-    //m_HTMLResource.RemoveWebkitCruft();
 }
 
 
 void FlowTab::InsertBulletedList()
 {
     m_wBookView.ExecCommand( "insertUnorderedList" );
-
-    //m_HTMLResource.RemoveWebkitCruft();
 }
 
 
 void FlowTab::InsertNumberedList()
 {
     m_wBookView.ExecCommand( "insertOrderedList" );
-
-    //m_HTMLResource.RemoveWebkitCruft();
 }
 
 
@@ -988,8 +956,6 @@ void FlowTab::EnterBookView()
     // Save routines called by the focus handlers. The Dom Document is thus always the
     // canonical version, rather than allowing edits to be routed directly between the Text
     // Document and the Web page.
-    //m_HTMLResource.UpdateWebPageFromTextDocument();
-
     emit EnteringBookView();
 }
 
@@ -998,8 +964,6 @@ void FlowTab::EnterCodeView()
 {
     m_wCodeView.StoreCaretLocationUpdate( m_wBookView.GetCaretLocation() );
     // See above note.
-    //m_HTMLResource.UpdateTextDocumentFromWebPage();
-
     emit EnteringCodeView();
 }
 
