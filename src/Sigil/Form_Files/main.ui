@@ -73,7 +73,10 @@
     <addaction name="actionPaste"/>
     <addaction name="separator"/>
     <addaction name="actionFind"/>
-    <addaction name="actionReplace"/>
+    <addaction name="actionFindNext"/>
+    <addaction name="actionFindPrevious"/>
+    <addaction name="actionReplaceNext"/>
+    <addaction name="actionReplacePrevious"/>
     <addaction name="separator"/>
     <addaction name="actionGoToLine"/>
    </widget>
@@ -193,7 +196,6 @@
    <addaction name="actionPaste"/>
    <addaction name="separator"/>
    <addaction name="actionFind"/>
-   <addaction name="actionReplace"/>
   </widget>
   <widget class="QToolBar" name="toolBarViews">
    <property name="windowTitle">
@@ -872,32 +874,15 @@
      <normaloff>:/main/edit-find_22px.png</normaloff>:/main/edit-find_22px.png</iconset>
    </property>
    <property name="text">
-    <string>&amp;Find...</string>
+    <string>&amp;Find / Replace...</string>
    </property>
    <property name="toolTip">
-    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Find&lt;/b&gt;&lt;/p&gt;
+    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Find &amp;amp; Replace&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Find text in the document.&lt;/p&gt;</string>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Find and replace text in the document.&lt;/p&gt;</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+F</string>
-   </property>
-  </action>
-  <action name="actionReplace">
-   <property name="icon">
-    <iconset resource="../Resource_Files/main/main.qrc">
-     <normaloff>:/main/edit-find-replace_22px.png</normaloff>:/main/edit-find-replace_22px.png</iconset>
-   </property>
-   <property name="text">
-    <string>&amp;Replace...</string>
-   </property>
-   <property name="toolTip">
-    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Replace&lt;/b&gt;&lt;/p&gt;
-
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Replace text in the document.&lt;/p&gt;</string>
-   </property>
-   <property name="shortcut">
-    <string>Ctrl+H</string>
    </property>
   </action>
   <action name="actionIncreaseIndent">
@@ -1101,6 +1086,38 @@
 &lt;p style=&quot; padding-top: 0.5em;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Checking for well-formed errors&lt;/span&gt; &lt;/p&gt;
 &lt;p style=&quot; margin-left: 0.5em;&quot;&gt;If this option is checked, then your XML and HTML content documents will be checked for structural errors. When changing from the code view you will be presented with a dialog asking to either auto or manually fix the issue. If manual fix is selected the cursor in will be placed on the line where there is an error in the code view.&lt;/p&gt;
 &lt;p style=&quot; margin-left: 0.5em;&quot;&gt;When the option is unchecked no error checking is preformed. This can lead to significant data loss as all errors will be auto fixed.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+  </action>
+  <action name="actionFindNext">
+   <property name="text">
+    <string>Find Next</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+F</string>
+   </property>
+  </action>
+  <action name="actionFindPrevious">
+   <property name="text">
+    <string>Find Previous</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Alt+Shift+F</string>
+   </property>
+  </action>
+  <action name="actionReplaceNext">
+   <property name="text">
+    <string>Replace Next</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+G</string>
+   </property>
+  </action>
+  <action name="actionReplacePrevious">
+   <property name="text">
+    <string>Replace Previous</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Alt+Shift+G</string>
    </property>
   </action>
  </widget>

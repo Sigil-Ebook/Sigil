@@ -45,7 +45,7 @@ set( QOBJECT_HEADERS
     Dialogs/About.h
     Dialogs/HeadingSelector.h 
     Dialogs/MetaEditor.h
-    Dialogs/FindReplace.h
+    Dialogs/FindReplaceOptions.h
     Tabs/TabManager.h
     Tabs/ContentTab.h 
     Tabs/FlowTab.h
@@ -58,6 +58,7 @@ set( QOBJECT_HEADERS
     Tabs/WellFormedCheckComponent.h
     Tabs/XMLTab.h
     MainUI/MainWindow.h
+    MainUI/FindReplace.h
     MainUI/BookBrowser.h
     MainUI/TableOfContents.h
     MainUI/OPFModel.h
@@ -140,8 +141,8 @@ set( DIALOG_FILES
     Dialogs/MetaEditor.h
     Dialogs/HeadingSelector.cpp
     Dialogs/HeadingSelector.h
-    Dialogs/FindReplace.cpp
-    Dialogs/FindReplace.h
+    Dialogs/FindReplaceOptions.cpp
+    Dialogs/FindReplaceOptions.h
     )
 
 set( EXPORTER_FILES
@@ -214,6 +215,8 @@ set( VIEW_EDITOR_FILES
 set( MAINUI_FILES 
     MainUI/MainWindow.cpp
     MainUI/MainWindow.h
+    MainUI/FindReplace.cpp
+    MainUI/FindReplace.h
     MainUI/BookBrowser.cpp
     MainUI/BookBrowser.h
     MainUI/TableOfContents.cpp
@@ -259,6 +262,7 @@ set( UI_FILES
     Form_Files/About.ui 
     Form_Files/HeadingSelector.ui 
     Form_Files/FindReplace.ui 
+    Form_Files/FindReplaceOptions.ui
     )
     
 set( SOURCEUPDATE_FILES   

@@ -167,11 +167,6 @@ private slots:
     void Find();
 
     /**
-     * Implements Replace action functionality.
-     */
-    void Replace();
-
-    /**
      * Implements Go To Line action functionality.
      */
     void GoToLine();
@@ -598,6 +593,11 @@ private:
     BookBrowser *m_BookBrowser;
 
     /**
+     * The find / replace widget.
+     */
+    FindReplace *m_FindReplace;
+
+    /**
      * The Table of Contents pane that displays a rendered view of the NCX.
      */
     TableOfContents *m_TableOfContents;
@@ -628,12 +628,6 @@ private:
      * we can save, and the values being filters for use in file dialogs.
      */
     const QMap< QString, QString > c_LoadFilters;
-
-    /**
-     * A guarded pointer to the FindReplace dialog. 
-     * Used to make sure we always have one FindReplace dialog.
-     */
-    QWeakPointer< FindReplace > m_FindReplace;
 
     /**
      * Holds the state of whether the user wants tidy to be used

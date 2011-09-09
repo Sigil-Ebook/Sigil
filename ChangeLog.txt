@@ -1,4 +1,6 @@
 Sigil vNEXT TBA
+    - Refactor Find / Replace dialog into dock widget. Closes issues:
+      961, 579, 666.
     - Fix issue 1005: Regression from change to ensure metdata element has dc namespace.
 
 Sigil v0.4.2 2011.09.02

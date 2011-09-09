@@ -26,13 +26,13 @@
 #include "Exporters/ExportEPUB.h"
 #include "Dialogs/MetaEditor.h"
 #include "Dialogs/About.h"
-#include "Dialogs/FindReplace.h"
 #include "Importers/ImporterFactory.h"
 #include "Exporters/ExporterFactory.h"
 #include "BookManipulation/BookNormalization.h"
 #include "MainUI/BookBrowser.h"
 #include "MainUI/ValidationResultsView.h"
 #include "MainUI/TableOfContents.h"
+#include "MainUI/FindReplace.h"
 #include "Tabs/FlowTab.h"
 #include "Tabs/TabManager.h"
 #include "Tabs/OPFTab.h"
@@ -56,6 +56,7 @@ static const QString USER_MANUAL_URL        = "http://web.sigil.googlecode.com/g
 static const QString FAQ_WIKI_URL           = "http://code.google.com/p/sigil/wiki/FAQ";
 
 static const QString BOOK_BROWSER_NAME            = "bookbrowser";
+static const QString FIND_REPLACE_NAME            = "findreplace";
 static const QString VALIDATION_RESULTS_VIEW_NAME = "validationresultsname";
 static const QString TABLE_OF_CONTENTS_NAME       = "tableofcontents";
 static const QString FRAME_NAME                   = "managerframe";
@@ -80,6 +81,7 @@ MainWindow::MainWindow( const QString &openfilepath, QWidget *parent, Qt::WFlags
     m_cbHeadings( NULL ),
     m_TabManager( *new TabManager( this ) ),
     m_BookBrowser( NULL ),
+    m_FindReplace( NULL ),
     m_TableOfContents( NULL ),
     m_ValidationResultsView( NULL ),
     m_slZoomSlider( NULL ),
@@ -347,35 +349,8 @@ void MainWindow::Find()
 {
     m_TabManager.SaveTabData();
 
-    if ( m_FindReplace.isNull() )
-    {   
-        // Qt will delete this dialog from memory when it closes
-        m_FindReplace = new FindReplace( true, *this, this );
-        m_FindReplace.data()->show();
-    }
-
-    else
-    {
-        m_FindReplace.data()->activateWindow();
-    }
-}
-
-
-void MainWindow::Replace()
-{
-    m_TabManager.SaveTabData();
-
-    if ( m_FindReplace.isNull() )
-    {   
-        // Qt will delete this dialog from memory when it closes
-        m_FindReplace = new FindReplace( false, *this, this );
-        m_FindReplace.data()->show();
-    }
-
-    else
-    {
-        m_FindReplace.data()->activateWindow();
-    }
+    m_FindReplace->SetUpFindText();
+    m_FindReplace->show();
 }
 
 
@@ -574,7 +549,8 @@ void MainWindow::SetStateActionsBookView()
     ui.actionPaste->setEnabled( true ); 
 
     ui.actionFind   ->setEnabled( true );
-    ui.actionReplace->setEnabled( true );
+    ui.actionFindNext->setEnabled( true );
+    ui.actionFindPrevious->setEnabled( true );
 
     ui.actionBookView ->setEnabled( true );
     ui.actionSplitView->setEnabled( true );
@@ -666,7 +642,8 @@ void MainWindow::SetStateActionsStaticView()
     ui.actionPaste->setEnabled( false ); 
 
     ui.actionFind   ->setEnabled( false );
-    ui.actionReplace->setEnabled( false );
+    ui.actionFindNext->setEnabled( false );
+    ui.actionFindPrevious->setEnabled( false );
 }
 
 
@@ -1315,9 +1292,6 @@ void MainWindow::PlatformSpecificTweaks()
         toolbar->setIconSize( QSize( 32, 32 ) );
     }
 
-    // The Cmd/Ctrl+H shortcut is reserved for the OS on Macs,
-    // so we change it to Cmd/Ctrl+Shift+F
-    ui.actionReplace->setShortcut( QKeySequence( Qt::ControlModifier + Qt::ShiftModifier + Qt::Key_F ) );
     // The F11 shortcust is reserved for the OS on Macs,
     // so we change it to Cmd/Ctrl+F11
     ui.actionCodeView->setShortcut( QKeySequence( Qt::ControlModifier + Qt::Key_F11 ) );
@@ -1339,7 +1313,7 @@ void MainWindow::ExtendUI()
     frame->setObjectName( FRAME_NAME );
     frame->setStyleSheet( TAB_STYLE_SHEET );
 
-    setCentralWidget( frame );       
+    setCentralWidget( frame );
 
     m_BookBrowser = new BookBrowser( this );
     m_BookBrowser->setObjectName( BOOK_BROWSER_NAME );
@@ -1348,6 +1322,11 @@ void MainWindow::ExtendUI()
     m_TableOfContents = new TableOfContents( this );
     m_TableOfContents->setObjectName( TABLE_OF_CONTENTS_NAME );
     addDockWidget( Qt::RightDockWidgetArea, m_TableOfContents );
+
+    m_FindReplace = new FindReplace( *this );
+    m_FindReplace->setObjectName( FIND_REPLACE_NAME );
+    m_FindReplace->hide();
+    addDockWidget( Qt::RightDockWidgetArea, m_FindReplace );
 
     m_ValidationResultsView = new ValidationResultsView( this );
     m_ValidationResultsView->setObjectName( VALIDATION_RESULTS_VIEW_NAME );
@@ -1570,10 +1549,6 @@ void MainWindow::ExtendIconSizes()
     icon.addFile(QString::fromUtf8(":/main/edit-find_16px.png"));
     ui.actionFind->setIcon(icon);
 
-    icon = ui.actionReplace->icon();
-    icon.addFile(QString::fromUtf8(":/main/edit-find-replace_16px.png"));
-    ui.actionReplace->setIcon(icon);
-
     icon = ui.actionIncreaseIndent->icon();
     icon.addFile(QString::fromUtf8(":/main/format-indent-more_16px.png"));
     ui.actionIncreaseIndent->setIcon(icon);
@@ -1615,7 +1590,10 @@ void MainWindow::ConnectSignalsToSlots()
     connect( ui.actionSave,          SIGNAL( triggered() ), this, SLOT( Save()                     ) );
     connect( ui.actionSaveAs,        SIGNAL( triggered() ), this, SLOT( SaveAs()                   ) );
     connect( ui.actionFind,          SIGNAL( triggered() ), this, SLOT( Find()                     ) );
-    connect( ui.actionReplace,       SIGNAL( triggered() ), this, SLOT( Replace()                  ) );
+    connect( ui.actionFindNext,      SIGNAL( triggered() ), m_FindReplace, SLOT( FindNext()        ) );
+    connect( ui.actionFindPrevious,  SIGNAL( triggered() ), m_FindReplace, SLOT( FindPrevious()    ) );
+    connect( ui.actionReplaceNext,   SIGNAL( triggered() ), m_FindReplace, SLOT( ReplaceNext()     ) );
+    connect( ui.actionReplacePrevious,SIGNAL(triggered() ), m_FindReplace, SLOT( ReplacePrevious() ) );
     connect( ui.actionGoToLine,      SIGNAL( triggered() ), this, SLOT( GoToLine()                 ) );
     connect( ui.actionZoomIn,        SIGNAL( triggered() ), this, SLOT( ZoomIn()                   ) );
     connect( ui.actionZoomOut,       SIGNAL( triggered() ), this, SLOT( ZoomOut()                  ) );
