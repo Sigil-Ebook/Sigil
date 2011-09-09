@@ -159,7 +159,10 @@ void MetaEditor::AddAdvanced()
 
 void MetaEditor::Remove()
 {
-    m_MetaModel.removeRow( ui.tvMetaTable->currentIndex().row() );
+    while ( ui.tvMetaTable->selectionModel()->hasSelection() )
+    {
+        m_MetaModel.removeRow( ui.tvMetaTable->selectionModel()->selection().indexes().at( 0 ).row() );
+    }
 }
 
 

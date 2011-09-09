@@ -101,7 +101,7 @@ private slots:
 
     /**
      * Remove button functionality. 
-     * Removes the currently selected row
+     * Removes the currently selected rows
      * from the metadata table.
      */
     void Remove();
