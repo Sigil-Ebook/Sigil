@@ -1,4 +1,5 @@
 Sigil vNEXT TBA
+    - Implement issue 368: Pressing enter key on item in book browser should open item.
     - Refactor Find / Replace dialog into dock widget. Closes issues:
       961, 579, 666.
     - Fix issue 1005: Regression from change to ensure metdata element has dc namespace.

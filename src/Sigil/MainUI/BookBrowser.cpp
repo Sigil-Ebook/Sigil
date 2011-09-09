@@ -83,7 +83,7 @@ void BookBrowser::SetBook( QSharedPointer< Book > book )
         // Here we fake that the "first" HTML file has been double clicked
         // so that we have a default first tab opened.
         // An exception is thrown if there are no HTML files in the epub.
-        EmitResourceDoubleClicked( m_OPFModel.GetFirstHTMLModelIndex() );
+        EmitResourceActivated( m_OPFModel.GetFirstHTMLModelIndex() );
     }
     
     // No exception variable since we don't use it
@@ -123,7 +123,7 @@ void BookBrowser::OpenUrlResource( const QUrl &url )
 }
 
 
-void BookBrowser::EmitResourceDoubleClicked( const QModelIndex &index )
+void BookBrowser::EmitResourceActivated( const QModelIndex &index )
 {
     QString identifier( m_OPFModel.itemFromIndex( index )->data().toString() );  
 
@@ -133,7 +133,7 @@ void BookBrowser::EmitResourceDoubleClicked( const QModelIndex &index )
 
         if ( ShouldContinueOpeningResource( resource ) )
 
-            emit ResourceDoubleClicked( resource );
+            emit ResourceActivated( resource );
     }
 }
 
@@ -726,8 +726,8 @@ void BookBrowser::AddMergeWithPreviousAction( Resource *resource )
 
 void BookBrowser::ConnectSignalsToSlots()
 {
-    connect( &m_TreeView, SIGNAL( doubleClicked(             const QModelIndex& ) ), 
-             this,         SLOT(  EmitResourceDoubleClicked( const QModelIndex& ) ) );
+    connect( &m_TreeView, SIGNAL( activated(             const QModelIndex& ) ),
+             this,         SLOT(  EmitResourceActivated( const QModelIndex& ) ) );
 
     connect( &m_TreeView, SIGNAL( customContextMenuRequested( const QPoint& ) ),
              this,        SLOT(   OpenContextMenu(            const QPoint& ) ) );

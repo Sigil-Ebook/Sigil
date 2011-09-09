@@ -91,11 +91,11 @@ public slots:
 signals:
 
     /**
-     * Emitted when the user double-clicks a resource in the browser.
+     * Emitted when the user activates a resource in the browser.
      *
-     * @param resource The clicked resource.
+     * @param resource The selected resource.
      */
-    void ResourceDoubleClicked( Resource &resource );
+    void ResourceActivated( Resource &resource );
 
     /**
      * Emitted when the browser wants a resource to be opened.
@@ -133,11 +133,11 @@ signals:
 private slots:
 
     /**
-     * Emits the ResourceDoubleClicked signal.
+     * Emits the ResourceActivated signal.
      *
-     * @param The clicked model index in the Tree View.
+     * @param The selected model index in the Tree View.
      */
-    void EmitResourceDoubleClicked( const QModelIndex &index );
+    void EmitResourceActivated( const QModelIndex &index );
 
     /**
      * Opens the context menu at the requested point.

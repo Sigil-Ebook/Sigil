@@ -1634,7 +1634,7 @@ void MainWindow::ConnectSignalsToSlots()
     connect( m_TableOfContents, SIGNAL( TabDataSavedRequest() ),
              &m_TabManager,     SLOT(   SaveTabData() ) );
 
-    connect( m_BookBrowser, SIGNAL( ResourceDoubleClicked( Resource& ) ),
+    connect( m_BookBrowser, SIGNAL( ResourceActivated( Resource& ) ),
              &m_TabManager, SLOT(   OpenResource(          Resource& ) ) );
 
     connect( m_BookBrowser, SIGNAL( OpenResourceRequest( Resource&, bool, const QUrl& ) ),
