@@ -62,7 +62,7 @@ signals:
      * @param name The name of the metadata the user
      *             wants inserted into the table.
      */
-    void MetadataToAdd( QString name );
+    void MetadataToAdd( QStringList metadata );
 
 private slots:
      

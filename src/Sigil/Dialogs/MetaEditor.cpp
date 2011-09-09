@@ -109,19 +109,23 @@ void MetaEditor::ToggleMoreLess()
 }
 
 
-void MetaEditor::AddEmptyMetadataToTable( const QString &metaname )
+void MetaEditor::AddEmptyMetadataToTable( const QStringList &metanames )
 {
-    // If we are inserting a date, that needs special treatment;
-    // We need to insert it as a QDate object so the table interface
-    // can automatically impose input restrictions
-    if ( metaname.contains( tr( "Date" ) ) )
-
-        AddMetadataToTable( metaname, QDate::currentDate() );
-
-    // String-based metadata gets created normally
-    else
-
-        AddMetadataToTable( metaname, QString() );
+    foreach ( QString metaname, metanames )
+    {
+        // If we are inserting a date, that needs special treatment;
+        // We need to insert it as a QDate object so the table interface
+        // can automatically impose input restrictions
+        if ( metaname.contains( tr( "Date" ) ) )
+        {
+            AddMetadataToTable( metaname, QDate::currentDate() );
+        }
+        // String-based metadata gets created normally
+        else
+        {
+            AddMetadataToTable( metaname, QString() );
+        }
+    }
 }
 
 
@@ -141,7 +145,7 @@ void MetaEditor::AddBasic()
 {
     AddMetadata addmeta( Metadata::Instance().GetBasicMetaMap(), this );
 
-    connect( &addmeta, SIGNAL( MetadataToAdd( QString ) ), this, SLOT( AddEmptyMetadataToTable( QString ) ) );
+    connect( &addmeta, SIGNAL( MetadataToAdd( QStringList ) ), this, SLOT( AddEmptyMetadataToTable( QStringList ) ) );
 
     addmeta.exec();
 }
@@ -151,7 +155,7 @@ void MetaEditor::AddAdvanced()
 {
     AddMetadata addmeta( Metadata::Instance().GetRelatorMap(), this );
 
-    connect( &addmeta, SIGNAL( MetadataToAdd( QString ) ), this, SLOT( AddEmptyMetadataToTable( QString ) ) );
+    connect( &addmeta, SIGNAL( MetadataToAdd( QStringList ) ), this, SLOT( AddEmptyMetadataToTable( QStringList ) ) );
 
     addmeta.exec();
 }

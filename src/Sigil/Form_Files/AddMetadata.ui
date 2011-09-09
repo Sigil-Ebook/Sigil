@@ -26,6 +26,9 @@
       <bool>false</bool>
      </property>
      <widget class="QListWidget" name="lwProperties">
+      <property name="selectionMode">
+       <enum>QAbstractItemView::ExtendedSelection</enum>
+      </property>
       <property name="uniformItemSizes">
        <bool>true</bool>
       </property>

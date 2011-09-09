@@ -74,7 +74,7 @@ private slots:
      * 
      * @param metaname The name of the new metadata field.
      */
-    void AddEmptyMetadataToTable( const QString &metaname );
+    void AddEmptyMetadataToTable( const QStringList &metanames );
 
     /**
      * Inserts a metadata field with the provided name 

@@ -1,4 +1,5 @@
 Sigil vNEXT TBA
+    - Implement issue 168: Allow selection of multiple Meta Editor properties.
     - Allow for deleting multiple metadata items.
     - Implement issue 368: Pressing enter key on item in book browser should open item.
     - Refactor Find / Replace dialog into dock widget. Closes issues:

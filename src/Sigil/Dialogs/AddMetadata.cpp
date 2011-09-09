@@ -66,7 +66,14 @@ void AddMetadata::UpdateDescription( QListWidgetItem *current )
 
 void AddMetadata::EmitSelection()
 {
-    emit MetadataToAdd( ui.lwProperties->currentItem()->text() );
+    QStringList metadata;
+
+    foreach( QListWidgetItem *item, ui.lwProperties->selectedItems() )
+    {
+        metadata.append( item->text() );
+    }
+
+    emit MetadataToAdd( metadata );
 }
 
 
