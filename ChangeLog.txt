@@ -1,4 +1,6 @@
 Sigil vNEXT TBA
+    - Implement issue 183: Use a PCRE regular expression engine instead of QRegExp.
+      Also fixes issue 498: regex '^' (start of line) broken.
     - Implement issue 168: Allow selection of multiple Meta Editor properties.
     - Allow for deleting multiple metadata items.
     - Implement issue 368: Pressing enter key on item in book browser should open item.

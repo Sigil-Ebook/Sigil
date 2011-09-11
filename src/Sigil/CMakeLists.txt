@@ -329,7 +329,8 @@ set( ALL_INCLUDES ${BoostParts_SOURCE_DIR}
                   ${Xerces_SOURCE_DIR} 
                   ${XercesExtensions_SOURCE_DIR} 
                   ${ZipArchive_SOURCE_DIR}
-                  ${tidyLib_SOURCE_DIR} 
+                  ${tidyLib_SOURCE_DIR}
+                  ${pcre_SOURCE_DIR}
                   ${FlightCrew_SOURCE_DIR}
                   ${QT_INCLUDES} )
 
@@ -407,7 +408,8 @@ include_directories( ${CMAKE_CURRENT_BINARY_DIR}
                      ${Xerces_SOURCE_DIR} 
                      ${XercesExtensions_SOURCE_DIR} 
                      ${ZipArchive_SOURCE_DIR}
-                     ${tidyLib_SOURCE_DIR} 
+                     ${tidyLib_SOURCE_DIR}
+                     ${pcre_SOURCE_DIR}
                      ${FlightCrew_SOURCE_DIR} )
 
 #############################################################################
@@ -421,7 +423,7 @@ else()
     add_executable( ${PROJECT_NAME} WIN32 ${ALL_SOURCES} )
 endif()
 
-target_link_libraries( ${PROJECT_NAME} tidyLib ZipArchive BoostParts Xerces XercesExtensions FlightCrew ${QT_LIBRARIES} )
+target_link_libraries( ${PROJECT_NAME} pcre tidyLib ZipArchive BoostParts Xerces XercesExtensions FlightCrew ${QT_LIBRARIES} )
 
 #############################################################################
 

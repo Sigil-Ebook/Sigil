@@ -51,44 +51,44 @@ public:
      * @param search_regex The regex to match with.
      * @return The number of matching occurrences.
      */
-    static int CountInFiles( const QRegExp &search_regex,
+    static int CountInFiles( const QString &search_regex,
                              QList< Resource* > resources,
                              SearchType search_type );
 
-    static int ReplaceInAllFIles( const QRegExp &search_regex,
+    static int ReplaceInAllFIles( const QString &search_regex,
                                   const QString &replacement,
                                   QList< Resource* > resources,
                                   SearchType search_type );
 
 private:
 
-    static int CountInFile( const QRegExp &search_regex,
+    static int CountInFile( const QString &search_regex,
                             Resource* resource,
                             SearchType search_type );
 
-    static int CountInHTMLFile( const QRegExp &search_regex,
+    static int CountInHTMLFile( const QString &search_regex,
                                 HTMLResource* html_resource,
                                 SearchType search_type  );
 
-    static int CountInTextFile( const QRegExp &search_regex,
+    static int CountInTextFile( const QString &search_regex,
                                 TextResource* text_resource );
 
-    static int ReplaceInFile( const QRegExp &search_regex,
+    static int ReplaceInFile( const QString &search_regex,
                               const QString &replacement,
                               Resource* resource,
                               SearchType search_type );
 
-    static int ReplaceHTMLInFile( const QRegExp &search_regex,
+    static int ReplaceHTMLInFile( const QString &search_regex,
                                   const QString &replacement,
                                   HTMLResource* html_resource,
                                   SearchType search_type );
 
-    static int ReplaceTextInFile( const QRegExp &search_regex,
+    static int ReplaceTextInFile( const QString &search_regex,
                                   const QString &replacement,
                                   TextResource* text_resource );
 
     static tuple< QString, int > PerformGlobalReplace( const QString &text,
-                                         const QRegExp &search_regex,
+                                         const QString &search_regex,
                                          const QString &replacement );
 
     static void Accumulate( int &first, const int &second );

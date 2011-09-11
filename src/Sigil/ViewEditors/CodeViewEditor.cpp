@@ -356,21 +356,22 @@ float CodeViewEditor::GetZoomFactor() const
 }
 
 
-bool CodeViewEditor::FindNext( const QRegExp &search_regex, 
+bool CodeViewEditor::FindNext( const QString &search_regex,
                                Searchable::Direction search_direction,
                                bool ignore_selection_offset )
 {
     int selection_offset = GetSelectionOffset( search_direction, ignore_selection_offset );
 
-    QRegExp result_regex = search_regex;
-    RunSearchRegex( result_regex, toPlainText(), selection_offset, search_direction ); 
+    int start;
+    int end;
+    tie( start, end ) = RunSearchRegex( search_regex, toPlainText(), selection_offset, search_direction );
 
-    if ( result_regex.pos() != -1 )
+    if ( start != -1 )
     {
         QTextCursor cursor = textCursor();
 
-        cursor.setPosition( result_regex.pos() );
-        cursor.setPosition( result_regex.pos() + result_regex.matchedLength(), QTextCursor::KeepAnchor );
+        cursor.setPosition( start );
+        cursor.setPosition( end, QTextCursor::KeepAnchor );
 
         setTextCursor( cursor );
 
@@ -381,62 +382,66 @@ bool CodeViewEditor::FindNext( const QRegExp &search_regex,
 }
 
 
-int CodeViewEditor::Count( const QRegExp &search_regex )
+int CodeViewEditor::Count( const QString &search_regex )
 {
-    return toPlainText().count( search_regex );
+    return Searchable::Count( search_regex, toPlainText() );
 }
 
 
-bool CodeViewEditor::ReplaceSelected( const QRegExp &search_regex, const QString &replacement )
+bool CodeViewEditor::ReplaceSelected( const QString &search_regex, const QString &replacement )
 {
     int selection_start = textCursor().selectionStart();
+    int selection_end = textCursor().selectionEnd();
+    QString selected_text = textCursor().selectedText();
 
-    QRegExp result_regex = search_regex;
-    RunSearchRegex( result_regex, toPlainText(), selection_start, Searchable::Direction_Down ); 
+    int regex_start = -1;
+    int regex_end = -1;
+    tie( regex_start, regex_end ) = RunSearchRegex( search_regex, toPlainText(), selection_start, Searchable::Direction_Down );
 
-    // If we are currently sitting at the start 
-    // of a matching substring, we replace it.
-    if ( result_regex.pos() == selection_start )
+    // The selection matches our regex so we need to replace it.
+    if ( selection_start == regex_start && selection_end == regex_end )
     {
-        QString final_replacement = FillWithCapturedTexts( result_regex.capturedTexts(), replacement );
-        textCursor().insertText( final_replacement );
+        QString full_replacement;
+        bool made_replacement = FillWithCapturedTexts( search_regex, selected_text, replacement, full_replacement );
 
-        return true;
+        if ( made_replacement )
+        {
+            textCursor().insertText( full_replacement );
+            return true;
+        }
     }
 
     return false;
 }
 
 
-int CodeViewEditor::ReplaceAll( const QRegExp &search_regex, const QString &replacement )
+int CodeViewEditor::ReplaceAll( const QString &search_regex, const QString &replacement )
 {
-    QRegExp result_regex  = search_regex;
-    QTextCursor cursor    = textCursor();
-
-    int index = 0;
-    int count = 0;
-
-    QProgressDialog progress( tr( "Replacing search term..." ), QString(), 0, Count( search_regex ) );
-    progress.setMinimumDuration( PROGRESS_BAR_MINIMUM_DURATION );
-
-    // This is one edit operation, so all of it
-    // can be undone with undo.
+    QTextCursor cursor = textCursor();
+    // This is all one edit operation.
     cursor.beginEditBlock();
 
-    while ( toPlainText().indexOf( result_regex, index ) != -1 )
+    // Store the cursor position and set it to the beginning of the editor.
+    int offset = cursor.selectionStart();
+    cursor.setPosition( 1 );
+
+    // Keep track of the number of replacements we make.
+    int count = 0;
+
+    // Keep replacing until we can't find any matches.
+    while ( FindNext( search_regex, Searchable::Direction_All ) )
     {
-        // Update the progress bar
-        progress.setValue( count );
-
-        cursor.setPosition( result_regex.pos() );
-        cursor.setPosition( result_regex.pos() + result_regex.matchedLength(), QTextCursor::KeepAnchor );
-
-        QString final_replacement = FillWithCapturedTexts( result_regex.capturedTexts(), replacement );
-        cursor.insertText( final_replacement );
-
-        index = result_regex.pos() + final_replacement.length();
-        ++count;
+        ReplaceSelected( search_regex, replacement );
+        count++;
     }
+
+    // Set the offset to as close to where it was as we can without
+    // doing a whole lot of math.
+    if ( offset >= toPlainText().length() )
+    {
+        offset = toPlainText().length() - 1;
+    }
+    cursor.setPosition( offset );
 
     cursor.endEditBlock();
 

@@ -30,7 +30,6 @@
 #include "MainUI/MainWindow.h"
 #include "BookManipulation/FolderKeeper.h"
 
-class QRegExp;
 class Resource;
 class HTMLResource;
 
@@ -113,7 +112,7 @@ private:
 
     // Constructs a searching regex from the selected
     // options and fields and then returns it.
-    QRegExp GetSearchRegex();
+    QString GetSearchRegex();
 
     int CountInFiles();
 

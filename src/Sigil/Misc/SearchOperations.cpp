@@ -28,10 +28,11 @@
 #include "ViewEditors/Searchable.h"
 #include "BookManipulation/CleanSource.h"
 #include "BookManipulation/XercesCppUse.h"
+#include "Utility.h"
 
 
 
-int SearchOperations::CountInFiles( const QRegExp &search_regex,
+int SearchOperations::CountInFiles( const QString &search_regex,
                                     QList< Resource* > resources,
                                     SearchType search_type )
 {
@@ -49,7 +50,7 @@ int SearchOperations::CountInFiles( const QRegExp &search_regex,
 }
 
 
-int SearchOperations::ReplaceInAllFIles( const QRegExp &search_regex, 
+int SearchOperations::ReplaceInAllFIles( const QString &search_regex,
                                          const QString &replacement,
                                          QList< Resource* > resources, 
                                          SearchType search_type )
@@ -68,7 +69,7 @@ int SearchOperations::ReplaceInAllFIles( const QRegExp &search_regex,
 }
 
 
-int SearchOperations::CountInFile( const QRegExp &search_regex, 
+int SearchOperations::CountInFile( const QString &search_regex,
                                    Resource* resource, 
                                    SearchType search_type )
 {
@@ -89,21 +90,20 @@ int SearchOperations::CountInFile( const QRegExp &search_regex,
     }
 
     // We should never get here.
-    Q_ASSERT( false );
     return 0;
 }
 
 
-int SearchOperations::CountInHTMLFile( const QRegExp &search_regex, 
+int SearchOperations::CountInHTMLFile( const QString &search_regex,
                                        HTMLResource* html_resource, 
                                        SearchType search_type )
 {
     if ( search_type == SearchOperations::CodeViewSearch )
     {
         const xc::DOMDocument &document = html_resource->GetDomDocumentForReading();
-        const QString &text             = CleanSource::PrettyPrint( XhtmlDoc::GetDomDocumentAsString( document ) );
+        const QString &text = CleanSource::PrettyPrint( XhtmlDoc::GetDomDocumentAsString( document ) );
 
-        return text.count( search_regex );
+        return Searchable::Count( search_regex, text );
     }
 
     //TODO: BookViewSearch
@@ -111,14 +111,14 @@ int SearchOperations::CountInHTMLFile( const QRegExp &search_regex,
 }
 
 
-int SearchOperations::CountInTextFile( const QRegExp &search_regex, TextResource* text_resource )
+int SearchOperations::CountInTextFile( const QString &search_regex, TextResource* text_resource )
 {
     // TODO
     return 0;
 }
 
 
-int SearchOperations::ReplaceInFile( const QRegExp &search_regex, 
+int SearchOperations::ReplaceInFile( const QString &search_regex,
                                      const QString &replacement, 
                                      Resource* resource, 
                                      SearchType search_type )
@@ -140,12 +140,11 @@ int SearchOperations::ReplaceInFile( const QRegExp &search_regex,
     }
 
     // We should never get here.
-    Q_ASSERT( false );
     return 0;
 }
 
 
-int SearchOperations::ReplaceHTMLInFile( const QRegExp &search_regex, 
+int SearchOperations::ReplaceHTMLInFile( const QString &search_regex,
                                          const QString &replacement, 
                                          HTMLResource* html_resource, 
                                          SearchType search_type )
@@ -170,7 +169,7 @@ int SearchOperations::ReplaceHTMLInFile( const QRegExp &search_regex,
 }
 
 
-int SearchOperations::ReplaceTextInFile( const QRegExp &search_regex, 
+int SearchOperations::ReplaceTextInFile( const QString &search_regex,
                                          const QString &replacement, 
                                          TextResource* text_resource )
 {
@@ -185,21 +184,25 @@ int SearchOperations::ReplaceTextInFile( const QRegExp &search_regex,
 // 3. it would have to be replaced with this code either way
 //    when we integrate PCRE. 
 tuple< QString, int > SearchOperations::PerformGlobalReplace( const QString &text, 
-                                                              const QRegExp &search_regex,
+                                                              const QString &search_regex,
                                                               const QString &replacement )
 {
-    QRegExp result_regex = search_regex;
     QString new_text = text;
     int count = 0;
-    int index = 0;
+    int start = 0;
+    int end = 0;
 
-    while ( new_text.indexOf( result_regex, index ) != -1 )
+    tie( start, end ) = Searchable::RunSearchRegex( search_regex, text, start, Searchable::Direction_Down );
+    while ( start != end )
     {
-        QString final_replacement = Searchable::FillWithCapturedTexts( result_regex.capturedTexts(), replacement );        
-        new_text.replace( result_regex.pos(), result_regex.matchedLength(), final_replacement );
+        QString match_segement = Utility::Substring( start, end, new_text );
+        QString replaced_segement;
 
-        index = result_regex.pos() + final_replacement.length();
-        ++count;
+        Searchable::FillWithCapturedTexts( search_regex, match_segement, replacement, replaced_segement );
+        new_text = Utility::Substring( 0, start, new_text ) % replaced_segement % Utility::Substring( end, new_text.length(), new_text );
+
+        tie( start, end ) = Searchable::RunSearchRegex( search_regex, text, start + replaced_segement.length(), Searchable::Direction_Down );
+        count++;
     }
 
     return make_tuple( new_text, count );

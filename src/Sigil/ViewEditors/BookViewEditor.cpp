@@ -275,7 +275,7 @@ float BookViewEditor::GetZoomFactor() const
     return (float) zoomFactor();
 }
 
-bool BookViewEditor::FindNext( const QRegExp &search_regex, 
+bool BookViewEditor::FindNext( const QString &search_regex,
                                Searchable::Direction search_direction,
                                bool ignore_selection_offset )
 
@@ -285,9 +285,9 @@ bool BookViewEditor::FindNext( const QRegExp &search_regex,
 }
 
 bool BookViewEditor::FindNext( SearchTools &search_tools,
-                               const QRegExp &search_regex, 
+                               const QString &search_regex,
                                Searchable::Direction search_direction,
-                               bool ignore_selection_offset 
+                               bool ignore_selection_offset
                              )
 {
     search_tools = GetSearchTools();
@@ -295,20 +295,21 @@ bool BookViewEditor::FindNext( SearchTools &search_tools,
 
     if ( ignore_selection_offset )
     {
-        selection_offset = search_direction == Searchable::Direction_Up ? search_tools.fulltext.count() - 1 : 0;
+        selection_offset = 0;
     }
-
     else
     {
-        selection_offset = GetSelectionOffset( *search_tools.document, search_tools.node_offsets, search_direction ); 
+        selection_offset = GetSelectionOffset( *search_tools.document, search_tools.node_offsets, search_direction ) - 1;
     }
 
-    QRegExp result_regex = search_regex;
-    RunSearchRegex( result_regex, search_tools.fulltext, selection_offset, search_direction ); 
+    int start;
+    int end;
 
-    if ( result_regex.pos() != -1 )
+    tie( start, end ) = RunSearchRegex( search_regex, search_tools.fulltext, selection_offset, search_direction );
+
+    if ( start != -1 )
     {
-        SelectRangeInputs input = GetRangeInputs( search_tools.node_offsets, result_regex.pos(), result_regex.matchedLength() );
+        SelectRangeInputs input = GetRangeInputs( search_tools.node_offsets, start, end - start );
         SelectTextRange( input );
         ScrollToNodeText( *input.start_node, input.start_node_index );  
 
@@ -319,80 +320,75 @@ bool BookViewEditor::FindNext( SearchTools &search_tools,
 }
 
 
-int BookViewEditor::Count( const QRegExp &search_regex )
+int BookViewEditor::Count( const QString &search_regex )
 {
     SearchTools search_tools = GetSearchTools();
-
-    return search_tools.fulltext.count( search_regex );
+    return Searchable::Count( search_regex, search_tools.fulltext );
 }
 
-bool BookViewEditor::ReplaceSelected( const QRegExp &search_regex, const QString &replacement )
+bool BookViewEditor::ReplaceSelected( const QString &search_regex, const QString &replacement )
 {
     SearchTools search_tools = GetSearchTools();
     return ReplaceSelected( search_regex, replacement, search_tools );
 }
 
-bool BookViewEditor::ReplaceSelected( const QRegExp &search_regex, const QString &replacement, SearchTools search_tools )
+bool BookViewEditor::ReplaceSelected( const QString &search_regex, const QString &replacement, SearchTools search_tools )
 {
     // We ALWAYS say Direction_Up because we want
     // the "back" index of the selection range
-    int selection_offset = GetSelectionOffset( *search_tools.document, search_tools.node_offsets, Searchable::Direction_Up ); 
-
-    QRegExp result_regex = search_regex;
+    int selection_offset = GetSelectionOffset( *search_tools.document, search_tools.node_offsets, Searchable::Direction_Up );
 
     // We always say Direction_Down since we're comparing
     // with already selected text
-    RunSearchRegex( result_regex, search_tools.fulltext, selection_offset, Searchable::Direction_Down );
+    int start;
+    int end;
+    tie( start, end ) = RunSearchRegex( search_regex, search_tools.fulltext, selection_offset, Searchable::Direction_Down );
 
-    // If we are currently sitting at the start 
+    // If we are currently sitting at the start
     // of a matching substring, we replace it.
-    if ( result_regex.pos() == selection_offset )
+    if ( start == selection_offset )
     {
-        QString final_replacement = FillWithCapturedTexts( result_regex.capturedTexts(), replacement );
+        QString matched = Utility::Substring( start, end, search_tools.fulltext );
+        QString final_replacement;
+        bool replacement_made = FillWithCapturedTexts( search_regex, matched, replacement, final_replacement );
 
-        SelectRangeInputs input   = GetRangeInputs( search_tools.node_offsets, selection_offset, GetSelectedText().length() );
+        if ( replacement_made )
+        {
+            SelectRangeInputs input = GetRangeInputs( search_tools.node_offsets, selection_offset, GetSelectedText().length() );
 
-        SelectRangeJS inputJS;
-        inputJS.start_node = GetElementSelectingJS_WithTextNode( XhtmlDoc::GetHierarchyFromNode( *input.start_node ) );
-        inputJS.end_node =   GetElementSelectingJS_WithTextNode( XhtmlDoc::GetHierarchyFromNode( *input.end_node   ) );
-        inputJS.start_node_index = input.start_node_index;
-        inputJS.end_node_index   = input.end_node_index;
+            SelectRangeJS inputJS;
+            inputJS.start_node = GetElementSelectingJS_WithTextNode( XhtmlDoc::GetHierarchyFromNode( *input.start_node ) );
+            inputJS.end_node =   GetElementSelectingJS_WithTextNode( XhtmlDoc::GetHierarchyFromNode( *input.end_node   ) );
+            inputJS.start_node_index = input.start_node_index;
+            inputJS.end_node_index   = input.end_node_index;
 
-        BookViewReplaceCommand* replace_action = new BookViewReplaceCommand( this, inputJS, final_replacement );
-        page()->undoStack()->push( replace_action );
+            BookViewReplaceCommand* replace_action = new BookViewReplaceCommand( this, inputJS, final_replacement );
+            page()->undoStack()->push( replace_action );
 
-        return true;
+            return true;
+        }
     }
 
     return false;
 }
 
 
-int BookViewEditor::ReplaceAll( const QRegExp &search_regex, const QString &replacement )
+int BookViewEditor::ReplaceAll( const QString &search_regex, const QString &replacement )
 {
     int count = 0;
-    
-    QProgressDialog progress( tr( "Replacing search term..." ), QString(), 0, Count( search_regex ) );
-    progress.setMinimumDuration( PROGRESS_BAR_MINIMUM_DURATION );
-    
-    SearchTools search_tools;
+    SearchTools search_tools = GetSearchTools();
 
-    // Start from the top of the document.
-    if( FindNext( search_tools, search_regex, Direction_Down, true ) )
+    while ( FindNext( search_tools, search_regex, Searchable::Direction_All ) )
     {
         ReplaceSelected( search_regex, replacement, search_tools );
         count++;
-
-        // Subsequent searches carry on down from the cursor location.
-        while( FindNext( search_tools, search_regex, Direction_Down, false ) )
-        {
-            ReplaceSelected( search_regex, replacement, search_tools );
-            // Update the progress bar
-            progress.setValue( count++ );
-        }
     }
-    // Tell anyone who's interested that the document has been updated.
-    emit contentsChangedExtra();
+
+    if ( count != 0 )
+    {
+        // Tell anyone who's interested that the document has been updated.
+        emit contentsChangedExtra();
+    }
 
     return count;
 }

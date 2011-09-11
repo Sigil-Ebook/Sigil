@@ -23,7 +23,9 @@
 #ifndef SEARCHABLE_H
 #define SEARCHABLE_H
 
-class QRegExp;
+#include "boost/tuple/tuple.hpp"
+using boost::tuple;
+
 class QString;
 class QStringList;
 
@@ -45,7 +47,7 @@ public:
     {
         Direction_Up,   /**< Search from the caret point upwards. */
         Direction_Down, /**< Search from the caret point downwards. */
-        Direction_All,  /**< Search from the caret point down, then wrap around. */
+        Direction_All  /**< Search from the caret point down, then wrap around. */
     };
 
     /**
@@ -61,7 +63,7 @@ public:
      * @param search_direction The direction of the search.
      * @return \c true if the term is found.
      */
-    virtual bool FindNext( const QRegExp &search_regex, 
+    virtual bool FindNext( const QString &search_regex,
                            Direction search_direction, 
                            bool ignore_selection_offset = false ) = 0;
 
@@ -71,7 +73,7 @@ public:
      * @param search_regex The regex to match with.
      * @return The number of matching occurrences.
      */
-    virtual int Count( const QRegExp &search_regex ) = 0;
+    virtual int Count( const QString &search_regex ) = 0;
 
     /**
      * If the currently selected text matches the specified regex, 
@@ -81,7 +83,7 @@ public:
      * @param replacement The text with which to replace the matched string.
      * @return \c true if the searched term was successfully replaced.
      */
-    virtual bool ReplaceSelected( const QRegExp &search_regex, const QString &replacement ) = 0;
+    virtual bool ReplaceSelected( const QString &search_regex, const QString &replacement ) = 0;
 
     /**
      * Replaces all occurrences of the specified regex.
@@ -90,7 +92,7 @@ public:
      * @param replacement The text with which to replace the matched string.
      * @return The number of performed replacements.
      */
-    virtual int ReplaceAll( const QRegExp &search_regex, const QString &replacement ) = 0;
+    virtual int ReplaceAll( const QString &search_regex, const QString &replacement ) = 0;
 
     /**
      * Returns the currently selected text string.
@@ -100,14 +102,27 @@ public:
     virtual QString GetSelectedText() = 0;
 
     /**
+     * Returns the number of matching occurrences.
+     *
+     * @param search_regex The regex to match with.
+     * @param full_text The text through which the search regex will be run.
+     *
+     * @return The number of matching occurrences.
+     */
+    static int Count( const QString &search_regex,
+                      const QString &full_text );
+
+    /**
      * Runs the regex through the text.
      *
-     * @param[in,out] search_regex The regex to match with. IT IS MODIFIED IN PLACE!
+     * @param search_regex The regex to match with.
      * @param full_text The text through which the search regex will be run.
      * @param selection_offset The offset from which the search starts.
      * @param search_direction The direction of the search.
+     *
+     * @return The start and end offsets of the matched text within full_text.
      */
-    static void RunSearchRegex( QRegExp &search_regex, 
+    static tuple< int, int > RunSearchRegex( const QString &search_regex,
                                 const QString &full_text, 
                                 int selection_offset, 
                                 Searchable::Direction search_direction );
@@ -124,8 +139,10 @@ public:
      * @return The replacement string with the capture group references replaced
      *         with their actual values.
      */
-    static QString FillWithCapturedTexts( const QStringList &captured_texts, 
-                                          const QString &replacement );
+    static bool FillWithCapturedTexts( const QString &search_regex,
+                                       const QString &selected_text,
+                                       const QString &replacement_pattern,
+                                       QString &full_replacement );
 
 };
 

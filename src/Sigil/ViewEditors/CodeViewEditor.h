@@ -161,15 +161,15 @@ public:
 
     float GetZoomFactor() const;
 
-    bool FindNext( const QRegExp &search_regex, 
+    bool FindNext( const QString &search_regex,
                    Searchable::Direction search_direction,
                    bool ignore_selection_offset = false );
 
-    int Count( const QRegExp &search_regex );
+    int Count( const QString &search_regex );
 
-    bool ReplaceSelected( const QRegExp &search_regex, const QString &replacement );
+    bool ReplaceSelected( const QString &search_regex, const QString &replacement );
 
-    int ReplaceAll( const QRegExp &search_regex, const QString &replacement );
+    int ReplaceAll( const QString &search_regex, const QString &replacement );
 
     QString GetSelectedText();
 

@@ -21,6 +21,7 @@
 *************************************************************************/
 
 #include <stdafx.h>
+#include "pcre.h"
 #include "FindReplace.h"
 #include "Dialogs/FindReplaceOptions.h"
 #include "Misc/SleepFunctions.h"
@@ -123,7 +124,7 @@ void FindReplace::Count()
     }
     else
     {
-        CountInFiles();
+        count = CountInFiles();
     }
 
     QString message = ( count < 1 || count > 1 )     ?
@@ -242,6 +243,7 @@ void FindReplace::FindText( Searchable::Direction direction )
     }
     else if ( CheckBookWideSearchingAllowed() )
     {
+        qDebug() << "in all";
         FindInAllFiles( searchable );
     }
     else
@@ -276,16 +278,19 @@ void FindReplace::ReplaceText( Searchable::Direction direction )
     }
 
     // If we have the matching text selected, replace it
-    searchable->ReplaceSelected( GetSearchRegex(), ui.cbReplace->lineEdit()->text() );
+    if ( !searchable->ReplaceSelected( GetSearchRegex(), ui.cbReplace->lineEdit()->text() ) )
+    {
+        // Go find the next match
+        if ( direction == Searchable::Direction_Down )
+        {
+            FindNext();
+        }
+        else if ( direction == Searchable::Direction_Up )
+        {
+            FindPrevious();
+        }
 
-    // Go find the next match
-    if ( direction == Searchable::Direction_Down )
-    {
-        FindNext();
-    }
-    else if ( direction == Searchable::Direction_Up )
-    {
-        FindPrevious();
+        searchable->ReplaceSelected( GetSearchRegex(), ui.cbReplace->lineEdit()->text() );
     }
 
     UpdatePreviousFindStrings();
@@ -315,55 +320,14 @@ void FindReplace::CannotFindSearchTerm()
 
 // Constructs a searching regex from the selected
 // options and fields and then returns it.
-QRegExp FindReplace::GetSearchRegex()
+QString FindReplace::GetSearchRegex()
 {
-    QRegExp search( ui.cbFind->lineEdit()->text() );
+    QString search( ui.cbFind->lineEdit()->text() );
 
     // Search type
-    if ( m_SearchMode == SearchMode_Wildcard )
+    if ( m_SearchMode == SearchMode_Normal )
     {
-        search.setPatternSyntax( QRegExp::Wildcard );
-    }
-    else
-    {
-        // We need the regex syntax for normal searching
-        // too because of the "whole words only" option
-        search.setPatternSyntax( QRegExp::RegExp2 );
-
-        if (m_SearchMode == SearchMode_Normal )
-        {
-            search.setPattern( QRegExp::escape( ui.cbFind->lineEdit()->text() ) );
-        }
-    }
-
-    // Whole word searching. The user can select
-    // this option only if the "normal" search type
-    // is also selected
-    if ( m_MatchWholeWord )
-    {
-        search.setPattern( "\\b" + QRegExp::escape( ui.cbFind->lineEdit()->text() ) + "\\b" );
-    }
-
-    // Case sensitivity
-    if ( m_MatchCase )
-    {
-        search.setCaseSensitivity( Qt::CaseSensitive );
-    }
-    else
-    {
-        search.setCaseSensitivity( Qt::CaseInsensitive );
-    }
-
-    // Regex minimality. The user can select
-    // this option only if the "normal" search type
-    // is NOT selected
-    if ( m_MatchMinimal )
-    {
-        search.setMinimal( true );
-    }
-    else
-    {
-        search.setMinimal( false );
+        search = QRegExp::escape(search);
     }
 
     return search;
@@ -383,17 +347,21 @@ int FindReplace::CountInFiles()
 }
 
 
-
 int FindReplace::ReplaceInAllFiles()
 {
     // For now, this must hold
     Q_ASSERT( m_LookWhere == LookWhere_AllHTMLFiles );
 
-    return SearchOperations::ReplaceInAllFIles(
+    int count = SearchOperations::ReplaceInAllFIles(
             GetSearchRegex(),
             ui.cbReplace->lineEdit()->text(),
             m_MainWindow.GetCurrentBook()->GetFolderKeeper().GetResourceTypeAsGenericList< HTMLResource >(),
             SearchOperations::CodeViewSearch );
+
+    // Update the content displayed in the current tab.
+    m_MainWindow.GetCurrentContentTab().LoadTabContent();
+
+    return count;
 }
 
 

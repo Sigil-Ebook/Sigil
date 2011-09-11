@@ -60,7 +60,6 @@ add_subdirectory( src/Xerces )
 add_subdirectory( src/XercesExtensions )
 add_subdirectory( src/zlib )
 add_subdirectory( src/zipios )
+add_subdirectory( src/pcre )
 add_subdirectory( src/FlightCrew )
 add_subdirectory( src/Sigil )
-
-
