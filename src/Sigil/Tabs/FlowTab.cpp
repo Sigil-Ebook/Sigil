@@ -584,7 +584,6 @@ void FlowTab::InsertImage( const QString &image_path )
 {
     // Make sure the Book View has focus before inserting images,
     // otherwise they are not inserted
-    m_wBookView.GrabFocus();
     m_wBookView.ExecCommand( "insertImage", image_path );
 }
 
@@ -745,14 +744,21 @@ void FlowTab::SplitView()
 
     QApplication::setOverrideCursor( Qt::WaitCursor );
 
-    // Update the required view
-    if ( !m_IsLastViewBook )
-
-        EnterBookView();
-
-    else
-           
-        EnterCodeView();
+    // Update whichever view is newly displayed. This needs to be done explicitly
+    // as that view will not be given focus.
+    if( m_safeToLoad )
+    {
+        if ( m_IsLastViewBook )
+        {
+            m_HTMLResource.UpdateTextDocumentFromDomDocument();
+            m_wCodeView.StoreCaretLocationUpdate( m_wBookView.GetCaretLocation() );
+        }
+        else
+        {
+            m_HTMLResource.UpdateWebPageFromDomDocument();
+            m_wBookView.StoreCaretLocationUpdate( m_wCodeView.GetCaretLocation() );
+        }
+    }
 
     m_InSplitView = true;
 
@@ -819,9 +825,9 @@ void FlowTab::LoadTabContent()
             m_HTMLResource.UpdateWebPageFromDomDocument();
 
         else
-        {
+        
             m_HTMLResource.UpdateTextDocumentFromDomDocument();
-        }
+        
     }
 }
 
@@ -845,7 +851,7 @@ void FlowTab::LeaveEditor( QWidget *editor )
 
 void FlowTab::EnterEditor( QWidget *editor )
 {
-    if( editor == &m_wBookView )
+    if( editor == &m_wBookView && !m_IsLastViewBook )
     {
         m_IsLastViewBook = true;
         LoadTabContent();
@@ -857,7 +863,7 @@ void FlowTab::EnterEditor( QWidget *editor )
             QApplication::restoreOverrideCursor();
         }
     }
-    else if( editor == &m_wCodeView )
+    else if( editor == &m_wCodeView && m_IsLastViewBook )
     {
         m_IsLastViewBook = false;
         LoadTabContent();

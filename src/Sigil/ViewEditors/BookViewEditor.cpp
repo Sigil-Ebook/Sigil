@@ -109,10 +109,13 @@ QString BookViewEditor::SplitChapter()
 
 
 void BookViewEditor::ExecCommand( const QString &command )
-{       
-    QString javascript = QString( "document.execCommand( '%1', false, null)" ).arg( EscapeJSString( command ) );
+{
+    if( m_isLoadFinished )
+    {
+        QString javascript = QString( "document.execCommand( '%1', false, null)" ).arg( EscapeJSString( command ) );
 
-    EvaluateJavascript( javascript );
+        EvaluateJavascript( javascript );
+    }
 }
 
 
