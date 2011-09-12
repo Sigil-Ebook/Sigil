@@ -1,4 +1,5 @@
 Sigil vNEXT TBA
+    - Fix issue 1015 Fix issues with cursor positioning in Split View.
     - Fix issue 1022. Added support for Adobe's page-map.xml pagination extension. (Must
       use this exact filename).
     - Implement issue 183: Use a PCRE regular expression engine instead of QRegExp.
