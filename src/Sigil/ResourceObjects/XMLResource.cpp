@@ -78,7 +78,7 @@ QString XMLResource::GetValidID( const QString &value )
     {
         if ( !IsValidIDCharacter( new_value.at( i ) ) )
         
-            new_value.remove( i, 1 );
+            new_value.replace( i, 1, "_" );
         
         else
         
@@ -113,8 +113,7 @@ bool XMLResource::IsValidIDCharacter( const QChar &character )
            character == QChar( '=' )    ||
            character == QChar( '-' )    ||
            character == QChar( '_' )    ||
-           character == QChar( '.' )    ||
-           character == QChar( ':' )
+           character == QChar( '.' )    
            ;
 }
 
