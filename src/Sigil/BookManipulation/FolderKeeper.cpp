@@ -36,7 +36,7 @@ const QStringList TIFF_EXTENSIONS = QStringList()  << "tif"  << "tiff";
 // container.xml and encryption.xml will be rewritten
 // on export. Other files in this directory are passed
 // through untouched.
-const QRegExp FILE_EXCEPTIONS ( "META-INF" );
+const QRegExp FILE_EXCEPTIONS ( "META-INF|page-map" );
 
 const QStringList FONT_EXTENSIONS         = QStringList() << "ttf"   << "ttc"   << "otf";
 const QStringList TEXT_EXTENSIONS         = QStringList() << "xhtml" << "html"  << "htm" << "xml";
@@ -88,6 +88,8 @@ FolderKeeper::~FolderKeeper()
 }
 
 
+// TODO: This code really needs to be rewritten so that the file-type is determined from the mimetype
+// given in the OPF file, rather than relying on the file's extension.
 Resource& FolderKeeper::AddContentFileToFolder( const QString &fullfilepath, 
                                                 bool update_opf )
 {
@@ -120,13 +122,22 @@ Resource& FolderKeeper::AddContentFileToFolder( const QString &fullfilepath,
 
         if ( fullfilepath.contains( FILE_EXCEPTIONS ) )
         {
-            // This is a big hack that assumes the new and old filepaths use root paths
-            // of the same length. I can't see how to fix this without refactoring
-            // a lot of the code to provide a more generalised interface.
-            relative_path = fullfilepath.right( fullfilepath.size() - m_FullPathToMainFolder.size() );
-            new_file_path = m_FullPathToMainFolder % relative_path;
+            if( filename == "page-map.xml" )
+            {
+                new_file_path = m_FullPathToMiscFolder + "/" + filename;
 
-            resource = new Resource( new_file_path );
+                resource = new XMLResource( new_file_path );
+            }
+            else 
+            {
+                // This is a big hack that assumes the new and old filepaths use root paths
+                // of the same length. I can't see how to fix this without refactoring
+                // a lot of the code to provide a more generalised interface.
+                relative_path = fullfilepath.right( fullfilepath.size() - m_FullPathToMainFolder.size() );
+                new_file_path = m_FullPathToMainFolder % relative_path;
+
+                resource = new Resource( new_file_path );
+            }
         }
 
         else if ( IMAGE_EXTENSIONS.contains( extension ) )

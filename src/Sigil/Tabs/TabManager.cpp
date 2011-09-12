@@ -362,44 +362,67 @@ ContentTab* TabManager::CreateTabForResource( Resource& resource,
 {
     ContentTab *tab = NULL;
 
-    if ( resource.Type() == Resource::HTMLResourceType )
+    switch( resource.Type() )
     {
-        tab = new FlowTab( *( qobject_cast< HTMLResource* >( &resource ) ), 
-                           fragment, 
-                           view_state, 
-                           line_to_scroll_to, 
-                           this );
+    case Resource::HTMLResourceType:
+        {
+            tab = new FlowTab( *( qobject_cast< HTMLResource* >( &resource ) ), 
+                fragment, 
+                view_state, 
+                line_to_scroll_to, 
+                this );
 
-        connect( tab,  SIGNAL( LinkClicked( const QUrl& ) ), this, SIGNAL( OpenUrlRequest( const QUrl& ) ) );
-        connect( tab,  SIGNAL( OldTabRequest( QString, HTMLResource& ) ), 
-                 this, SIGNAL( OldTabRequest( QString, HTMLResource& ) ) );
-        connect( tab,  SIGNAL( NewChaptersRequest( QStringList, HTMLResource& ) ),
-                 this, SIGNAL( NewChaptersRequest( QStringList, HTMLResource& ) ) );
-    }
+            connect( tab,  SIGNAL( LinkClicked( const QUrl& ) ), this, SIGNAL( OpenUrlRequest( const QUrl& ) ) );
+            connect( tab,  SIGNAL( OldTabRequest( QString, HTMLResource& ) ), 
+                this, SIGNAL( OldTabRequest( QString, HTMLResource& ) ) );
+            connect( tab,  SIGNAL( NewChaptersRequest( QStringList, HTMLResource& ) ),
+                this, SIGNAL( NewChaptersRequest( QStringList, HTMLResource& ) ) );
+            break;
+        }
 
-    else if ( resource.Type() == Resource::CSSResourceType )
-    {
-        tab = new CSSTab( *( qobject_cast< CSSResource* >( &resource ) ), line_to_scroll_to, this );
-    }
+    case Resource::CSSResourceType:
+        {
+            tab = new CSSTab( *( qobject_cast< CSSResource* >( &resource ) ), line_to_scroll_to, this );
+            break;
+        }
 
-    else if ( resource.Type() == Resource::XPGTResourceType )
-    {
-        tab = new XPGTTab( *( qobject_cast< XPGTResource* >( &resource ) ), line_to_scroll_to, this );
-    }
+    case Resource::XPGTResourceType:
+        {
+            tab = new XPGTTab( *( qobject_cast< XPGTResource* >( &resource ) ), line_to_scroll_to, this );
+            break;
+        }
 
-    else if ( resource.Type() == Resource::ImageResourceType )
-    {
-        tab = new ImageTab( *( qobject_cast< ImageResource* >( &resource ) ), this );
-    }
+    case Resource::ImageResourceType:
+        {
+            tab = new ImageTab( *( qobject_cast< ImageResource* >( &resource ) ), this );
+            break;
+        }
 
-    else if ( resource.Type() == Resource::OPFResourceType )
-    {
-        tab = new OPFTab( *( qobject_cast< OPFResource* >( &resource ) ), line_to_scroll_to, this );
-    }
+    case Resource::OPFResourceType:
+        {
+            tab = new OPFTab( *( qobject_cast< OPFResource* >( &resource ) ), line_to_scroll_to, this );
+            break;
+        }
 
-    else if ( resource.Type() == Resource::NCXResourceType )
-    {
-        tab = new NCXTab( *( qobject_cast< NCXResource* >( &resource ) ), line_to_scroll_to, this );
+    case Resource::NCXResourceType:
+        {
+            tab = new NCXTab( *( qobject_cast< NCXResource* >( &resource ) ), line_to_scroll_to, this );
+            break;
+        }
+
+    case Resource::XMLResourceType:
+        {
+            tab = new XMLTab( *( qobject_cast< XMLResource* >( &resource ) ), line_to_scroll_to, this );
+            break;
+        }
+
+    case Resource::TextResourceType:
+        {
+            tab = new TextTab( *( qobject_cast< TextResource* >( &resource ) ), CodeViewEditor::Highlight_XHTML, line_to_scroll_to, this );
+            break;
+        }
+    default:
+        break;
     }
 
     // In case of well-formed errors we want the tab to be focused.

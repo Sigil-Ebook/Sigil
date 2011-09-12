@@ -1,4 +1,6 @@
 Sigil vNEXT TBA
+    - Fix issue 1022. Added support for Adobe's page-map.xml pagination extension. (Must
+      use this exact filename).
     - Implement issue 183: Use a PCRE regular expression engine instead of QRegExp.
       Also fixes issue 498: regex '^' (start of line) broken.
     - Implement issue 168: Allow selection of multiple Meta Editor properties.
