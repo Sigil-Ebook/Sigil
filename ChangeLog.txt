@@ -1,6 +1,10 @@
 Sigil vNEXT TBA
-    - Fix issue 1015 Fix issues with cursor positioning in Split View.
-    - Fix issue 1022. Added support for Adobe's page-map.xml pagination extension. (Must
+    - Fix issue 1014: Sigil was erroneously assuming that fragment ids would be unique
+      across the entire book, whereas they're only required to be unique within a
+      particular xhtml document. New code implemented to cover those situations where
+      this assumption is wrong.
+    - Fix issue 1015: Fix issues with cursor positioning in Split View.
+    - Fix issue 1022: Added support for Adobe's page-map.xml pagination extension. (Must
       use this exact filename).
     - Implement issue 183: Use a PCRE regular expression engine instead of QRegExp.
       Also fixes issue 498: regex '^' (start of line) broken.
@@ -8,7 +12,7 @@ Sigil vNEXT TBA
     - Allow for deleting multiple metadata items.
     - Implement issue 368: Pressing enter key on item in book browser should open item.
     - Refactor Find / Replace dialog into dock widget. Closes issues:
-      961, 579, 666.
+      961, 579.
     - Fix issue 1005: Regression from change to ensure metdata element has dc namespace.
 
 Sigil v0.4.2 2011.09.02
