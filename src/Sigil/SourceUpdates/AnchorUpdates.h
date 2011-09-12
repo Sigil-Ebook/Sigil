@@ -32,6 +32,16 @@ public:
 
     static void UpdateAllAnchorsWithIDs( const QList< HTMLResource* > &html_resources );
 
+    /**
+     * Updates the anchors in html_resources that point to ids that were originally located in originating_filename
+     * but are now distributed over the files referenced by new_files.
+     *
+     * @param html_resources A list of xhtml files that need to be scanned for references to originating_filename.
+     * @param originating_filename The name of the original file for which references need to be reconciled.
+     * @param new_files A list of the new files created by splitting the originating_filename.
+     */
+    static void UpdateExternalAnchors( const QList< HTMLResource* > &html_resources, const QString &originating_filename, const QList< HTMLResource* > new_files );
+
 private:
 
     static QHash< QString, QString > GetIDLocations( const QList< HTMLResource* > &html_resources );
@@ -39,7 +49,9 @@ private:
     static tuple< QString, QList< QString > > GetOneFileIDs( HTMLResource* html_resource );
 
     static void UpdateAnchorsInOneFile( HTMLResource *html_resource, 
-                                        const QHash< QString, QString > ID_locations );  
+                                        const QHash< QString, QString > ID_locations );
+
+    static void UpdateExternalAnchorsInOneFile( HTMLResource *html_resource, const QString &originating_filename, const QHash< QString, QString > id_locations );
 };
 
 #endif // ANCHORUPDATES_H

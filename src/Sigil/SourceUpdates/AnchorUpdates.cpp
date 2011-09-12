@@ -35,6 +35,14 @@ void AnchorUpdates::UpdateAllAnchorsWithIDs( const QList< HTMLResource* > &html_
 }
 
 
+void AnchorUpdates::UpdateExternalAnchors( const QList< HTMLResource* > &html_resources, const QString &originating_filename, const QList< HTMLResource* > new_files )
+{
+    const QHash< QString, QString > &ID_locations = GetIDLocations( new_files );
+
+    QtConcurrent::blockingMap( html_resources, boost::bind( UpdateExternalAnchorsInOneFile, _1, originating_filename, ID_locations ) );
+}
+
+
 QHash< QString, QString > AnchorUpdates::GetIDLocations( const QList< HTMLResource* > &html_resources )
 {
     const QList< tuple< QString, QList< QString > > > &IDs_in_files = QtConcurrent::blockingMapped( html_resources, GetOneFileIDs );
@@ -64,8 +72,9 @@ tuple< QString, QList< QString > > AnchorUpdates::GetOneFileIDs( HTMLResource* h
 
     QReadLocker locker( &html_resource->GetLock() );
 
-    return make_tuple( html_resource->Filename(),
-        XhtmlDoc::GetAllDescendantIDs( *html_resource->GetDomDocumentForReading().getDocumentElement() ) );
+    QList< QString >ids = XhtmlDoc::GetAllDescendantIDs( *html_resource->GetDomDocumentForReading().getDocumentElement() );
+
+    return make_tuple( html_resource->Filename(), ids );
 }
 
 
@@ -95,13 +104,14 @@ void AnchorUpdates::UpdateAnchorsInOneFile( HTMLResource *html_resource,
             QString href = XtoQ( element.getAttribute( QtoX( "href" ) ) );
             QString id   = href.right( href.size() - ( href.indexOf( QChar( '#' ) ) + 1 ) );
 
+            QString file_id = ID_locations.value( id );
             // If the ID is in a different file, update the link
-            if ( ID_locations.value( id ) != resource_filename )
+            if ( file_id != resource_filename && !file_id.isEmpty() )
             {
                 QString attribute_value = QString( "../" )
                                           .append( TEXT_FOLDER_NAME )
                                           .append( "/" )
-                                          .append( Utility::URLEncodePath( ID_locations.value( id ) ) )
+                                          .append( Utility::URLEncodePath( file_id ) )
                                           .append( "#" )
                                           .append( id );
 
@@ -112,3 +122,50 @@ void AnchorUpdates::UpdateAnchorsInOneFile( HTMLResource *html_resource,
     }
 }
 
+
+void AnchorUpdates::UpdateExternalAnchorsInOneFile( HTMLResource *html_resource, const QString &originating_filename, const QHash< QString, QString > ID_locations )
+{
+    Q_ASSERT( html_resource );
+
+    QWriteLocker locker( &html_resource->GetLock() );
+
+    xc::DOMDocument &document = html_resource->GetDomDocumentForWriting();
+    xc::DOMNodeList *anchors  = document.getElementsByTagName( QtoX( "a" ) );
+
+    QString original_filename_with_relative_path = "../" % TEXT_FOLDER_NAME % "/" % originating_filename;
+
+    // const QString &resource_filename = html_resource->Filename();
+
+    for ( uint i = 0; i < anchors->getLength(); ++i )
+    {
+        xc::DOMElement &element = *static_cast< xc::DOMElement* >( anchors->item( i ) ); 
+
+        Q_ASSERT( &element );
+
+        // We're only interested in hrefs of the form "originating_filename#fragment_id".
+        // First, we find the hrefs that are relative and contain a fragment id.
+        if ( element.hasAttribute( QtoX( "href" ) ) &&
+            QUrl( XtoQ( element.getAttribute( QtoX(  "href" ) ) ) ).isRelative() &&
+            XtoQ( element.getAttribute( QtoX(  "href" ) ) ).contains( "#" )
+            )
+        {
+            QString href = XtoQ( element.getAttribute( QtoX( "href" ) ) );
+            QString file_id       = href.left(  href.indexOf( QChar( '#' ) ) );
+            QString fragment_id   = href.right( href.size() - ( href.indexOf( QChar( '#' ) ) + 1 ) );
+
+            // If the href pointed to the original file then update the file_id.
+            if ( file_id == original_filename_with_relative_path )
+            {
+                QString attribute_value = QString( "../" )
+                                          .append( TEXT_FOLDER_NAME )
+                                          .append( "/" )
+                                          .append( Utility::URLEncodePath( ID_locations.value( fragment_id ) ) )
+                                          .append( "#" )
+                                          .append( fragment_id );
+
+                element.setAttribute( QtoX( "href" ), QtoX( attribute_value ) ); 
+                html_resource->MarkSecondaryCachesAsOld();
+            }
+        }
+    }
+}

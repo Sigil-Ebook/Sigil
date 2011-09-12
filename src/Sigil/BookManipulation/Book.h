@@ -166,19 +166,6 @@ public:
                             HTMLResource& originalResource );
 
     /**
-     * Creates new chapters/XHTML documents.
-     *
-     * @param new_chapters The contents of the new chapters.
-     * @param html_updates The new chapters are updated with these updates.
-     * @param original_position The position in the chapter list we are starting from.
-     * @param new_file_prefix Prefix to add to the new chapter's filename.
-     */
-    void CreateNewChapters( const QStringList& new_chapters,
-                            const QHash< QString, QString > &html_updates,
-                            int original_position,
-                            const QString &new_file_pefix);
-
-    /**
      * Merges the provided HTML resource with the previous one
      * in the reading order.
      *

@@ -725,7 +725,7 @@ void MainWindow::CreateChapterBreakOldTab( QString content, HTMLResource& origin
         flow_tab->ScrollToTop();
     }
 
-    statusBar()->showMessage( tr( "Chapter split" ), STATUSBAR_MSG_DISPLAY_TIME );
+    statusBar()->showMessage( tr( "Chapter split. You may need to update the Table of Contents." ), STATUSBAR_MSG_DISPLAY_TIME );
 }
 
 
@@ -734,7 +734,7 @@ void MainWindow::CreateNewChapters( QStringList new_chapters, HTMLResource &orig
     m_Book->CreateNewChapters( new_chapters, originalResource );
     m_BookBrowser->Refresh();
 
-    statusBar()->showMessage( tr( "Chapters split" ), STATUSBAR_MSG_DISPLAY_TIME );
+    statusBar()->showMessage( tr( "Chapters split. You may need to update the Table of Contents." ), STATUSBAR_MSG_DISPLAY_TIME );
 }
 
 

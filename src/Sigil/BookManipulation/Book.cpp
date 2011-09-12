@@ -158,7 +158,7 @@ void Book::CreateEmptyCSSFile()
 
 HTMLResource& Book::CreateChapterBreakOriginalResource( const QString &content, HTMLResource& originating_resource )
 {
-    const QString &originating_filename = originating_resource.Filename();
+    const QString originating_filename = originating_resource.Filename();
 
     int reading_order = GetOPF().GetReadingOrder( originating_resource );
     Q_ASSERT( reading_order >= 0 );
@@ -167,39 +167,44 @@ HTMLResource& Book::CreateChapterBreakOriginalResource( const QString &content, 
 
     originating_resource.RenameTo( m_Mainfolder.GetUniqueFilenameVersion( FIRST_CHAPTER_NAME ) );
 
-    HTMLResource &html_resource = CreateNewHTMLFile();
-    html_resource.RenameTo( originating_filename );
+    HTMLResource &new_resource = CreateNewHTMLFile();
+    new_resource.RenameTo( originating_filename );
 
-    html_resource.SetDomDocument( 
+    new_resource.SetDomDocument( 
         XhtmlDoc::LoadTextIntoDocument( CleanSource::Clean( content ) ) );
 
-    html_resources.insert( reading_order, &html_resource );
+    html_resources.insert( reading_order, &new_resource );
 
-    GetOPF().UpdateSpineOrder( html_resources );    
-    AnchorUpdates::UpdateAllAnchorsWithIDs( html_resources );
+    GetOPF().UpdateSpineOrder( html_resources );
+
+    // Update references between the two new files. Since they used to be one single file we can
+    // assume that each id is unique (if they aren't then the references were broken anyway).
+    QList< HTMLResource* > new_files;
+    new_files.append( &originating_resource );
+    new_files.append( &new_resource );
+    AnchorUpdates::UpdateAllAnchorsWithIDs( new_files );
+
+    // Remove the original and new files from the list of html resources as we want to scan all
+    // the other files for external references to the original file.
+    html_resources.removeOne( &originating_resource );
+    html_resources.removeOne( &new_resource );
+
+    // Now, update references to the original file that are made in other files.
+    // We can't assume that ids are unique in this case, and so need to use a different mechanism.
+    AnchorUpdates::UpdateExternalAnchors( html_resources, Utility::URLEncodePath( originating_filename ), new_files );
 
     SetModified( true );
-    return html_resource;
+    return new_resource;
 }
 
 
 void Book::CreateNewChapters( const QStringList &new_chapters, HTMLResource &original_resource )
 {
-    int originalPosition = GetOPF().GetReadingOrder( original_resource );
-    Q_ASSERT( originalPosition >= 0 );
+    int original_position = GetOPF().GetReadingOrder( original_resource );
+    Q_ASSERT( original_position >= 0 );
 
-    QString newFilePrefix = QFileInfo( original_resource.Filename() ).baseName();
+    QString new_file_prefix = QFileInfo( original_resource.Filename() ).baseName();
 
-    CreateNewChapters( new_chapters, QHash< QString, QString >(), originalPosition, newFilePrefix );
-    SetModified( true );
-}
-
-
-void Book::CreateNewChapters( const QStringList &new_chapters,
-                             const QHash<QString, QString> &html_updates,
-                             int original_position,
-                             const QString &new_file_pefix )
-{
     if ( new_chapters.isEmpty() )
 
         return;
@@ -208,6 +213,11 @@ void Book::CreateNewChapters( const QStringList &new_chapters,
 
     QFutureSynchronizer< NewChapterResult > sync;
     QList< HTMLResource* > html_resources = m_Mainfolder.GetResourceTypeList< HTMLResource >( true );
+
+    // A list of all the files that have not been involved in the split.
+    // This will be used later when anchors are updated.
+    QList< HTMLResource* > other_files = html_resources;
+    other_files.removeOne( &original_resource );
 
     int next_reading_order;
     if ( original_position == -1 )
@@ -226,18 +236,20 @@ void Book::CreateNewChapters( const QStringList &new_chapters,
         chapterInfo.source = new_chapters.at( i );
         chapterInfo.reading_order = reading_order;
         chapterInfo.temp_folder_path = tempfolder.GetPath();
-        chapterInfo.new_file_prefix = new_file_pefix;
+        chapterInfo.new_file_prefix = new_file_prefix;
         chapterInfo.file_suffix = i + 1;
 
         sync.addFuture( 
             QtConcurrent::run( 
                 this, 
                 &Book::CreateOneNewChapter, 
-                chapterInfo,
-                html_updates ) );
+                chapterInfo ) );
     }	
 
     sync.waitForFinished();
+
+    QList< HTMLResource* > new_files;
+    new_files.append( &original_resource );
 
     QList< QFuture< NewChapterResult > > futures = sync.futures();
     if ( original_position == -1 )
@@ -246,6 +258,7 @@ void Book::CreateNewChapters( const QStringList &new_chapters,
         for ( int i = 0; i < futures.count(); ++i )
         {
             html_resources.append( futures.at( i ).result().created_chapter );
+            new_files.append( futures.at( i ).result().created_chapter );
         }
     }
     else
@@ -258,6 +271,7 @@ void Book::CreateNewChapters( const QStringList &new_chapters,
             if( futures.at(i).result().reading_order == reading_order )
             {
                 html_resources.insert( reading_order , futures.at( i ).result().created_chapter );
+                new_files.append( futures.at( i ).result().created_chapter );
             }
             else
             {
@@ -267,6 +281,7 @@ void Book::CreateNewChapters( const QStringList &new_chapters,
                     if( futures.at(j).result().reading_order == reading_order )
                     {
                         html_resources.insert( reading_order , futures.at( j ).result().created_chapter );
+                        new_files.append( futures.at( j ).result().created_chapter );
                         break;
                     }
                 }
@@ -274,7 +289,14 @@ void Book::CreateNewChapters( const QStringList &new_chapters,
         }
     }
 
-    AnchorUpdates::UpdateAllAnchorsWithIDs( html_resources );
+    // Update anchor references between fragment ids in the new files. Since these all came from one single
+    // file it's safe to assume that the fragment ids are all unique (since otherwise the references would be broken).
+    AnchorUpdates::UpdateAllAnchorsWithIDs( new_files );
+
+    // Now, update references to the original file that are made in other files.
+    // We can't assume that ids are unique in this case, and so need to use a different mechanism.
+    AnchorUpdates::UpdateExternalAnchors( other_files, Utility::URLEncodePath( original_resource.Filename() ), new_files );
+
     GetOPF().UpdateSpineOrder( html_resources ); 
 
     SetModified( true );
@@ -282,7 +304,8 @@ void Book::CreateNewChapters( const QStringList &new_chapters,
 
 
 void Book::MergeWithPrevious( HTMLResource& html_resource )
-{    
+{
+    const QString defunct_filename = html_resource.Filename();
     QList< HTMLResource* > html_resources = m_Mainfolder.GetResourceTypeList< HTMLResource >( true );
     int previous_file_reading_order = html_resources.indexOf( &html_resource ) - 1;
     Q_ASSERT( previous_file_reading_order >= 0 );
@@ -321,11 +344,19 @@ void Book::MergeWithPrevious( HTMLResource& html_resource )
         html_resource.Delete();
     }
 
-    // The html_resources list is now old after we deleted one,
-    // and PerformUniversalUpdates accepts generic Resources
-    QList< Resource* > resources = m_Mainfolder.GetResourceTypeAsGenericList< HTMLResource >();
-    AnchorUpdates::UpdateAllAnchorsWithIDs( html_resources );
+    // Reconcile internal references in the merged file. It is the user's responsibility to ensure that 
+    // all ids used across the two merged files are unique.
+    QList< HTMLResource* > new_file;
+    new_file.append( &previous_html );
+    AnchorUpdates::UpdateAllAnchorsWithIDs( new_file );
 
+    // Reconcile external references to the file that was merged.
+    html_resources = m_Mainfolder.GetResourceTypeList< HTMLResource >( true );
+    html_resources.removeOne( &previous_html );
+    AnchorUpdates::UpdateExternalAnchors( html_resources, Utility::URLEncodePath( defunct_filename ), new_file );
+
+    // PerformUniversalUpdates accepts generic Resources
+    QList< Resource* > resources = m_Mainfolder.GetResourceTypeAsGenericList< HTMLResource >();
     QHash< QString, QString > updates;
     updates[ html_resource_fullpath ] = "../" + previous_html.GetRelativePathToOEBPS();
 
