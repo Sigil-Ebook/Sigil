@@ -1,4 +1,6 @@
 Sigil vNEXT TBA
+    - Fix issue 1001: Valid IDs are now formed by replacing invalid characters with
+      underscores. Colon removed from the list of valid characters.
     - Fix issue 1014: Sigil was erroneously assuming that fragment ids would be unique
       across the entire book, whereas they're only required to be unique within a
       particular xhtml document. New code implemented to cover those situations where
