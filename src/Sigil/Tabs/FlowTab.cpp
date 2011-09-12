@@ -582,8 +582,6 @@ void FlowTab::SplitOnSGFChapterMarkers()
 
 void FlowTab::InsertImage( const QString &image_path )
 {
-    // Make sure the Book View has focus before inserting images,
-    // otherwise they are not inserted
     m_wBookView.ExecCommand( "insertImage", image_path );
 }
 
@@ -709,8 +707,7 @@ void FlowTab::BookView()
 
     QApplication::setOverrideCursor( Qt::WaitCursor );
 
-    // Update the book view if we just edited
-    // in the code view
+    // Update the book view cursor and toolbar button states.
     if ( !m_IsLastViewBook )
 
         EnterBookView();
@@ -744,8 +741,9 @@ void FlowTab::SplitView()
 
     QApplication::setOverrideCursor( Qt::WaitCursor );
 
-    // Update whichever view is newly displayed. This needs to be done explicitly
-    // as that view will not be given focus.
+    // Update whichever view is newly displayed.
+    // This needs to be done explicitly as that view will not be given focus.
+    // All other updates happen solely through the focus event handlers.
     if( m_safeToLoad )
     {
         if ( m_IsLastViewBook )
@@ -775,8 +773,7 @@ void FlowTab::CodeView()
 {    
     QApplication::setOverrideCursor( Qt::WaitCursor );
 
-    // Update the code view if we just edited
-    // in the book view
+    // Update the code view cursor and the toolbar button states.
     if ( m_IsLastViewBook )
     
         EnterCodeView();
