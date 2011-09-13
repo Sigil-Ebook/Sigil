@@ -188,6 +188,8 @@ set( MISC_FILES
     Misc/CSSHighlighter.h
     Misc/HTMLEncodingResolver.cpp
     Misc/HTMLEncodingResolver.h
+    Misc/PCREReplaceTextBuilder.cpp
+    Misc/PCREReplaceTextBuilder.h
     Misc/RasterizeImageResource.cpp
     Misc/RasterizeImageResource.h
     Misc/SearchOperations.cpp

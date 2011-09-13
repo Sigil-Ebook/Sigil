@@ -423,13 +423,14 @@ int CodeViewEditor::ReplaceAll( const QString &search_regex, const QString &repl
 
     // Store the cursor position and set it to the beginning of the editor.
     int offset = cursor.selectionStart();
-    cursor.setPosition( 1 );
+    cursor.setPosition(1);
+    setTextCursor(cursor);
 
     // Keep track of the number of replacements we make.
     int count = 0;
 
     // Keep replacing until we can't find any matches.
-    while ( FindNext( search_regex, Searchable::Direction_All ) )
+    while ( FindNext( search_regex, Searchable::Direction_Down ) )
     {
         ReplaceSelected( search_regex, replacement );
         count++;
@@ -441,9 +442,10 @@ int CodeViewEditor::ReplaceAll( const QString &search_regex, const QString &repl
     {
         offset = toPlainText().length() - 1;
     }
-    cursor.setPosition( offset );
 
+    cursor.setPosition( offset );
     cursor.endEditBlock();
+    setTextCursor(cursor);
 
     return count;
 }

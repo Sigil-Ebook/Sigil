@@ -381,10 +381,19 @@ int BookViewEditor::ReplaceAll( const QString &search_regex, const QString &repl
     int count = 0;
     SearchTools search_tools = GetSearchTools();
 
-    while ( FindNext( search_tools, search_regex, Searchable::Direction_All ) )
+    // We replace from top to bottom. Direction_All will cause an infinate loop.
+    // So start with down ignoring the offset so it starts at the top.
+    if ( FindNext( search_tools, search_regex, Searchable::Direction_Down, true ) )
     {
         ReplaceSelected( search_regex, replacement, search_tools );
         count++;
+
+        // Continue replacing until we run out of matches at the end of the document.
+        while ( FindNext( search_tools, search_regex, Searchable::Direction_Down ) )
+        {
+            ReplaceSelected( search_regex, replacement, search_tools );
+            count++;
+        }
     }
 
     if ( count != 0 )

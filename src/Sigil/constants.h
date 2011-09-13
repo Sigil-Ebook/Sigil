@@ -64,6 +64,9 @@ extern const QString NCX_MIMETYPE;
 
 extern const char*         XHTML_ENTITIES_DTD_ID; 
 extern const unsigned int  XHTML_ENTITIES_DTD_LEN;
-extern const unsigned char XHTML_ENTITIES_DTD[];  
+extern const unsigned char XHTML_ENTITIES_DTD[];
+
+extern const int PCRE_MAX_GROUPS;
+extern const int PCRE_OVECTOR_SIZE;
 
 #endif // SG_CONSTANTS_H
