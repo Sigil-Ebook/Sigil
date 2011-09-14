@@ -297,6 +297,7 @@ void PCREReplaceTextBuilder::processTextSegement(const QString &text)
     case CaseChange_LowerNext:
         m_finalText += text.at(0).toLower();
         m_finalText += text.mid(1);
+        m_caseChangeState = CaseChange_None;
         break;
     case CaseChange_Lower:
         m_finalText += text.toLower();
@@ -304,6 +305,7 @@ void PCREReplaceTextBuilder::processTextSegement(const QString &text)
     case CaseChange_UpperNext:
         m_finalText += text.at(0).toUpper();
         m_finalText += text.mid(1);
+        m_caseChangeState = CaseChange_None;
         break;
     case CaseChange_Upper:
         m_finalText += text.toUpper();

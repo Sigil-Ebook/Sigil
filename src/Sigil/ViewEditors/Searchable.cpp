@@ -54,7 +54,7 @@ int Searchable::Count( const QString &search_regex,
 
     // Run until no matches are found.
     rc = pcre_exec( re, NULL, utf_str.data(), utf_str.length(), last_end, 0, ovector, 3 );
-    while ( rc >= 0 )
+    while ( rc >= 0 && ovector[0] != ovector[1])
     {
         count++;
         last_end = ovector[1];
@@ -135,7 +135,7 @@ tuple< int, int > Searchable::RunSearchRegex( const QString &search_regex,
             last_ovector[0] = ovector[0];
             last_ovector[1] = ovector[1];
             rc = pcre_exec( re, NULL, utf_str.data(), selection_offset, last_ovector[1], 0, ovector, 3 );
-        } while( rc >= 0 );
+        } while( rc >= 0  && ovector[0] != ovector[1] );
 
         start = last_ovector[0];
         end = last_ovector[1];
