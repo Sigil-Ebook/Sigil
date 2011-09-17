@@ -1,5 +1,6 @@
 /************************************************************************
 **
+**  Copyright (C) 2011  John Schember <john@nachtimwald.com>
 **  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -22,9 +23,6 @@
 #pragma once
 #ifndef SEARCHABLE_H
 #define SEARCHABLE_H
-
-#include "boost/tuple/tuple.hpp"
-using boost::tuple;
 
 class QString;
 class QStringList;
@@ -101,49 +99,20 @@ public:
      */
     virtual QString GetSelectedText() = 0;
 
-    /**
-     * Returns the number of matching occurrences.
-     *
-     * @param search_regex The regex to match with.
-     * @param full_text The text through which the search regex will be run.
-     *
-     * @return The number of matching occurrences.
-     */
-    static int Count( const QString &search_regex,
-                      const QString &full_text );
 
-    /**
-     * Runs the regex through the text.
-     *
-     * @param search_regex The regex to match with.
-     * @param full_text The text through which the search regex will be run.
-     * @param selection_offset The offset from which the search starts.
-     * @param search_direction The direction of the search.
-     *
-     * @return The start and end offsets of the matched text within full_text.
-     */
-    static tuple< int, int > RunSearchRegex( const QString &search_regex,
-                                const QString &full_text, 
-                                int selection_offset, 
-                                Searchable::Direction search_direction );
+    void UpdateSearchCache( const QString &search_regex, const QString &text );
 
-    /**
-     * Fills the replacement text with the captured groups.
-     * Accepts a list of text capture groups and a replacement string,
-     * and returns a new replacement string with capture group references
-     * replaced with capture group contents.
-     * 
-     * @param captured_texts The list of captured texts.
-     * @param replacement The replacement string that potentially 
-     *                    has capture group references.
-     * @return The replacement string with the capture group references replaced
-     *         with their actual values.
-     */
-    static bool FillWithCapturedTexts( const QString &search_regex,
-                                       const QString &selected_text,
-                                       const QString &replacement_pattern,
-                                       QString &full_replacement );
+    static std::pair<int, int> NearestMatch( const QList<std::pair<int, int> > &matches,
+                                   int position,
+                                   Searchable::Direction search_direction );
 
+    static bool IsMatchSelected( const QList<std::pair<int, int> > &matches,
+                               int start,
+                               int end );
+
+protected:
+    QList<std::pair<int, int> > m_MatchOffsets;
+    QString m_FindPattern;
 };
 
 #endif // SEARCHABLE_H

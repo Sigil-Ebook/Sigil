@@ -28,6 +28,7 @@
 #include "ViewEditors/Searchable.h"
 #include "BookManipulation/CleanSource.h"
 #include "BookManipulation/XercesCppUse.h"
+#include "PCRE/PCRECache.h"
 #include "Utility.h"
 
 
@@ -103,7 +104,8 @@ int SearchOperations::CountInHTMLFile( const QString &search_regex,
         const xc::DOMDocument &document = html_resource->GetDomDocumentForReading();
         const QString &text = CleanSource::PrettyPrint( XhtmlDoc::GetDomDocumentAsString( document ) );
 
-        return Searchable::Count( search_regex, text );
+        //return Searchable::Count( search_regex, text );
+        return PCRECache::instance()->getObject( search_regex )->getMatchOffsets( text ).count();
     }
 
     //TODO: BookViewSearch
@@ -189,6 +191,8 @@ tuple< QString, int > SearchOperations::PerformGlobalReplace( const QString &tex
 {
     QString new_text = text;
     int count = 0;
+
+    /*
     int start = 0;
     int end = 0;
 
@@ -204,7 +208,7 @@ tuple< QString, int > SearchOperations::PerformGlobalReplace( const QString &tex
         tie( start, end ) = Searchable::RunSearchRegex( search_regex, text, start + replaced_segement.length(), Searchable::Direction_Down );
         count++;
     }
-
+*/
     return make_tuple( new_text, count );
 }
 

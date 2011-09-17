@@ -118,11 +118,11 @@ private:
 
     int ReplaceInAllFiles();
 
-    void FindInAllFiles( Searchable *searchable );
+    void FindInAllFiles( Searchable *searchable, Searchable::Direction direction );
 
-    HTMLResource* GetNextContainingHTMLResource();
+    HTMLResource* GetNextContainingHTMLResource( Searchable::Direction direction );
 
-    HTMLResource* GetNextHTMLResource( HTMLResource *current_resource );
+    HTMLResource* GetNextHTMLResource( HTMLResource *current_resource, Searchable::Direction direction );
 
     template< class T >
     T* GetStartingResource();

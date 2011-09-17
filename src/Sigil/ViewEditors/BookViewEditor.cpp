@@ -293,6 +293,7 @@ bool BookViewEditor::FindNext( SearchTools &search_tools,
                                bool ignore_selection_offset
                              )
 {
+    /*
     search_tools = GetSearchTools();
     int selection_offset = -1;
 
@@ -318,15 +319,16 @@ bool BookViewEditor::FindNext( SearchTools &search_tools,
 
         return true;
     } 
-
+*/
     return false;
 }
 
 
 int BookViewEditor::Count( const QString &search_regex )
 {
-    SearchTools search_tools = GetSearchTools();
-    return Searchable::Count( search_regex, search_tools.fulltext );
+    //SearchTools search_tools = GetSearchTools();
+    //return Searchable::Count( search_regex, search_tools.fulltext );
+    return 0;
 }
 
 bool BookViewEditor::ReplaceSelected( const QString &search_regex, const QString &replacement )
@@ -337,6 +339,7 @@ bool BookViewEditor::ReplaceSelected( const QString &search_regex, const QString
 
 bool BookViewEditor::ReplaceSelected( const QString &search_regex, const QString &replacement, SearchTools search_tools )
 {
+    /*
     // We ALWAYS say Direction_Up because we want
     // the "back" index of the selection range
     int selection_offset = GetSelectionOffset( *search_tools.document, search_tools.node_offsets, Searchable::Direction_Up );
@@ -371,7 +374,7 @@ bool BookViewEditor::ReplaceSelected( const QString &search_regex, const QString
             return true;
         }
     }
-
+*/
     return false;
 }
 
@@ -379,6 +382,7 @@ bool BookViewEditor::ReplaceSelected( const QString &search_regex, const QString
 int BookViewEditor::ReplaceAll( const QString &search_regex, const QString &replacement )
 {
     int count = 0;
+    /*
     SearchTools search_tools = GetSearchTools();
 
     // We replace from top to bottom. Direction_All will cause an infinate loop.
@@ -401,7 +405,7 @@ int BookViewEditor::ReplaceAll( const QString &search_regex, const QString &repl
         // Tell anyone who's interested that the document has been updated.
         emit contentsChangedExtra();
     }
-
+*/
     return count;
 }
 

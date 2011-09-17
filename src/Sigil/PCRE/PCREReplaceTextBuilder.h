@@ -25,6 +25,7 @@
 #define PCREREPLACETEXTBUILDER_H
 
 #include <QString>
+#include "SPCRE.h"
 
 class QChar;
 
@@ -33,10 +34,10 @@ class PCREReplaceTextBuilder
 public:
     PCREReplaceTextBuilder();
 
-    bool BuildReplacementText(const QString &search_regex,
-                              const QString &matched_text,
+    bool BuildReplacementText(SPCRE &sre,
+                              const QString &text,
                               const QString &replacement_pattern,
-                              QString &replacement_text);
+                              QString &out);
 
 private:
     enum CaseChange {
@@ -52,18 +53,14 @@ private:
     void accumulateReplcementText(const QChar &ch);
     void accumulateReplcementText(const QString &text);
 
-    void processTextSegement(const QChar &ch);
-    void processTextSegement(const QString &text);
+    QString processTextSegement(const QChar &ch);
+    QString processTextSegement(const QString &text);
 
     void trySetCaseChange(CaseChange state);
 
     // Vairables
-    QString m_finalText;
-
-    bool m_inControl;
-    bool m_inBackref;
-
     CaseChange m_caseChangeState;
+    QString m_finalText;
 };
 
 #endif // PCREREPLACETEXTBUILDER_H

@@ -21,55 +21,66 @@
 
 #include "stdafx.h"
 #include "PCREReplaceTextBuilder.h"
-
-#include <QRegExp>
 #include "pcre.h"
+#include "Misc/Utility.h"
 
-#include "Utility.h"
-
-const int PCRE_OVECTOR_SIZE = ( 1 + PCRE_MAX_GROUPS ) * 3;
+const int PCRE_MAX_CAPTURE_GROUPS = 30;
 
 PCREReplaceTextBuilder::PCREReplaceTextBuilder()
 {
     resetState();
 }
 
-bool PCREReplaceTextBuilder::BuildReplacementText(const QString &search_regex,
-                                             const QString &matched_text,
-                                             const QString &replacement_pattern,
-                                             QString &replacement_text)
+bool PCREReplaceTextBuilder::BuildReplacementText(SPCRE &sre,
+                                                  const QString &text,
+                                                  const QString &replacement_pattern,
+                                                  QString &out)
 {
     resetState();
-    bool replacement_made = false;
 
-    pcre *re;
-    const char *error;
-    int erroroffset;
-
-    re = pcre_compile( search_regex.toUtf8().data(), PCRE_UTF8 | PCRE_MULTILINE, &error, &erroroffset, NULL );
-    // compile faliure
-    if ( re == NULL )
-    {
-        return replacement_made;
+    if (!sre.isValid()) {
+        return false;
     }
 
-    int rc = 0;
-    // The vector needs to be a multiple of 3.
-    // N match items * 3 = our total size.
-    // We only want the first match which is the entire string.
-    int ovector[PCRE_OVECTOR_SIZE];
-    QByteArray utf_str = matched_text.toUtf8();
+    // Check if the \ start control is in the string.
+    // If it's not we don't need to run though the replacment code and we
+    // can just return the pattern as the replaced text.
+    // This is a simple and quick way that will catch a large number of
+    // cases but not all.
+    if (!replacement_pattern.contains("\\")) {
+        out = replacement_pattern;
+        return true;
+    }
 
-    rc = pcre_exec( re, NULL, utf_str.data(), utf_str.length(), 0, 0, ovector, PCRE_OVECTOR_SIZE );
+    bool replacement_made = false;
+    int rc = 0;
+
+    // Set the size of the array based on the number of capture subpatterns
+    // if it does not exceed our maximum size.
+    int ovector_count = sre.getCaptureSubpatternCount();
+    if (ovector_count > PCRE_MAX_CAPTURE_GROUPS) {
+        ovector_count = PCRE_MAX_CAPTURE_GROUPS;
+    }
+    // The vector needs to be a multiple of 3.
+    int ovector_size = (1 + ovector_count) * 3;
+    int ovector[ovector_size];
+
+    QByteArray utf_str = text.toUtf8();
+
+    // Even though we already know the text matches we have to run it again to
+    // get the subpatterns matches for replacing in replacement_pattern.
+    rc = pcre_exec(sre.getCompiledPattern(), sre.getStudy(), utf_str.data(), utf_str.length(), 0, 0, ovector, ovector_size);
 
     // Match succeeded. Go forward with replacing the matched text with
     // the replacement pattern.
-    if ( rc >= 0 )
+    if (rc >= 0)
     {
-        // If rc is 0 then we have more groups then our maximum allowed number.
-        if ( rc == 0 )
+        // The number of matched subpatterns exceeds the size of ovector so we
+        // are going to lose a few. We set rc to the max number of matchd groups
+        // because we set ovector to this size earlier.
+        if (rc == 0)
         {
-            rc = PCRE_MAX_GROUPS;
+            rc = PCRE_MAX_CAPTURE_GROUPS;
         }
 
         // Tempory character used as we loop though all characters so we can
@@ -88,7 +99,8 @@ bool PCREReplaceTextBuilder::BuildReplacementText(const QString &search_regex,
 
         // We are going to parse the replacment pattern one character at a time
         // to build the final replacement string. We need to replace subpatterns
-        // numbered and named with the text matched by the regex.
+        // numbered and named with the text matched by the regex. As well as
+        // do any required case chagnes.
         //
         // We do a linear replacement one character at a time instead of using
         // a regex because we don't want false positives or replacments
@@ -98,90 +110,89 @@ bool PCREReplaceTextBuilder::BuildReplacementText(const QString &search_regex,
         //
         // Back references can be:
         // \# where # is 1 to 9.
-        // \g# where # is 1 to 9.
-        // \g{#s} where #s can be 1 to PCRE_MAX_GROUPS.
-        // \g<#s>  where #s can be 1 to PCRE_MAX_GROUPS.
+        // \g{#s} where #s can be 1 to PCRE_MAX_CAPTURE_GROUPS.
+        // \g<#s>  where #s can be 1 to PCRE_MAX_CAPTURE_GROUPS.
         // \g{text} where text can be any string.
         // \g<text> where text can be any string.
-        for ( int i = 0; i < replacement_pattern.length(); i++ )
+        //
+        // Case changes can be:
+        // \l Lower case next character.
+        // \u Upper case next character.
+        // \L Lower case until \E.
+        // \U Upper case until \E.
+        // \E End case modification.
+        // * Note: case changes cannot stop within a segment. Meaning
+        // a \L within a \U will be ignored and the \U will be honored until
+        // \E is encountered.
+        for (int i = 0; i < replacement_pattern.length(); i++)
         {
-            c = replacement_pattern.at( i );
+            c = replacement_pattern.at(i);
 
-            if ( in_control )
+            if (in_control)
             {
-                // Accumulate characters incase this is an invalid control.
+                // Store characters incase this is an invalid control and we
+                // need to put it in the final text.
                 invalid_contol += c;
 
                 // This is the first character after the \\ start of control.
-                if ( control_char.isNull() )
-                {
-                    // Store the control character so we know we've already
-                    // processed it.
+                if (control_char.isNull()) {
+                    // Store the control character so we know we what it is.
                     control_char = c;
 
                     // Process the control character.
                     // # is special because it's a numbered back reference.
                     // We processed it here.
-                    if ( c.isDigit() )
-                    {
+                    if (c.isDigit()) {
                         int backref_number = c.digitValue();
 
                         // Check if this number is a back reference we can
                         // actually get.
-                        if ( backref_number > 0 && backref_number <= rc )
-                        {
-                            accumulateReplcementText(Utility::Substring( ovector[2 * backref_number], ovector[2 * backref_number + 1], matched_text ));
+                        if (backref_number > 0 && backref_number <= rc) {
+                            accumulateReplcementText(Utility::Substring( ovector[2 * backref_number], ovector[2 * backref_number + 1], text ));
                         }
-                        else
-                        {
+                        else {
                             accumulateReplcementText(invalid_contol);
                         }
 
                         in_control = false;
                     }
-                    // Quit the control.
-                    else if ( c == 'E' )
-                    {
+                    // End case change.
+                    else if (c == 'E') {
                         m_caseChangeState = CaseChange_None;
                         in_control = false;
                     }
                     // Backreference.
-                    else if ( c == 'g' )
-                    {
+                    else if (c == 'g') {
                         backref_bracket_start_char = QChar();
                     }
                     // Lower case next character.
-                    else if ( c == 'l' )
-                    {
+                    else if (c == 'l') {
                         trySetCaseChange(CaseChange_LowerNext);
                         in_control = false;
                     }
                     // Lower case until \E.
-                    else if ( c == 'L' )
-                    {
+                    else if (c == 'L') {
                         trySetCaseChange(CaseChange_Lower);
                         in_control = false;
                     }
                     // Upper case next character.
-                    else if ( c == 'u' )
-                    {
+                    else if (c == 'u') {
                         trySetCaseChange(CaseChange_UpperNext);
                         in_control = false;
                     }
                     // Upper case until \E.
-                    else if ( c == 'U' )
-                    {
+                    else if (c == 'U') {
                         trySetCaseChange(CaseChange_Upper);
                         in_control = false;
                     }
                 }
-                else
-                {
-                    if ( control_char == 'g' )
-                    {
-                        if ( backref_bracket_start_char.isNull() )
-                        {
-                            if ( c == '{' || c == '<' ) {
+                // We know the control character.
+                else {
+                    if (control_char == 'g') {
+                        if ( backref_bracket_start_char.isNull() ) {
+                            // We only support named references within
+                            // {} and <>.
+                            if (c == '{' || c == '<') {
                                 backref_bracket_start_char = c;
                                 backref_name.clear();
                             }
@@ -190,11 +201,9 @@ bool PCREReplaceTextBuilder::BuildReplacementText(const QString &search_regex,
                                 accumulateReplcementText(invalid_contol);
                             }
                         }
-                        else
-                        {
-                            if ( ( c == '}' && backref_bracket_start_char == '{' ) ||
-                                 ( c == '>' && backref_bracket_start_char == '<' )
-                               )
+                        else {
+                            if ((c == '}' && backref_bracket_start_char == '{') ||
+                                 (c == '>' && backref_bracket_start_char == '<'))
                             {
                                 // Either we have a back reference number in the bracket
                                 // or we have a name which we will convert to a number.
@@ -203,44 +212,38 @@ bool PCREReplaceTextBuilder::BuildReplacementText(const QString &search_regex,
                                 // Try to convert the backref name to a number.
                                 backref_number = backref_name.toInt();
                                 // The backref wasn't a number so get the number for the name.
-                                if ( backref_number == 0 )
-                                {
-                                    backref_number = pcre_get_stringnumber( re, backref_name.toUtf8().data() );
+                                if (backref_number == 0) {
+                                    backref_number = pcre_get_stringnumber(sre.getCompiledPattern(), backref_name.toUtf8().data() );
                                 }
 
                                 // Check if there is we have a back reference we can
                                 // actually get.
-                                if ( backref_number > 0 && backref_number <= rc )
-                                {
-                                    accumulateReplcementText(Utility::Substring( ovector[2 * backref_number], ovector[2 * backref_number + 1], matched_text ));
+                                if (backref_number > 0 && backref_number <= rc) {
+                                    accumulateReplcementText(Utility::Substring( ovector[2 * backref_number], ovector[2 * backref_number + 1], text ));
                                 }
-                                else
-                                {
+                                else {
                                    accumulateReplcementText(invalid_contol);
                                 }
 
                                 in_control = false;
                             }
-                            else
-                            {
+                            else {
                                 backref_name += c;
                             }
                         }
                     }
                     // Invalid or unsupported control.
-                    else
-                    {
+                    else {
                         accumulateReplcementText(invalid_contol);
                         in_control = false;
                     }
                 }
             }
-            // We're not in a back reference.
+            // We're not in a control.
             else
             {
                 // Start a control character.
-                if ( c == '\\' )
-                {
+                if (c == '\\') {
                     // Reset our invalid control accumulator.
                     invalid_contol = c;
                     // Reset the control character that is after this
@@ -249,8 +252,7 @@ bool PCREReplaceTextBuilder::BuildReplacementText(const QString &search_regex,
                     in_control = true;
                 }
                 // Normal text.
-                else
-                {
+                else {
                     accumulateReplcementText(c);
                 }
             }
@@ -258,68 +260,68 @@ bool PCREReplaceTextBuilder::BuildReplacementText(const QString &search_regex,
         // If we ended reading the replacement string and we're still in
         // a back reference then we have an invalid back reference because
         // it never ended. Put the invalid reference into the replacment string.
-        if ( in_control )
-        {
+        if (in_control) {
             accumulateReplcementText(invalid_contol);
         }
 
         replacement_made = true;
     }
 
-    pcre_free( re );
-
-    replacement_text = m_finalText;
+    out = m_finalText;
     return replacement_made;
 }
 
 void PCREReplaceTextBuilder::accumulateReplcementText(const QChar &ch)
 {
-    accumulateReplcementText( QString(ch));
+    m_finalText += processTextSegement(ch);
 }
 
 void PCREReplaceTextBuilder::accumulateReplcementText(const QString &text)
 {
-    processTextSegement(text);
+    m_finalText += processTextSegement(text);
 }
 
-void PCREReplaceTextBuilder::processTextSegement(const QChar &ch)
+QString PCREReplaceTextBuilder::processTextSegement(const QChar &ch)
 {
-    processTextSegement(QString(ch));
+    return processTextSegement(QString(ch));
 }
 
-void PCREReplaceTextBuilder::processTextSegement(const QString &text)
+QString PCREReplaceTextBuilder::processTextSegement(const QString &text)
 {
+    QString processedText;
+
     if (text.length() == 0) {
-        return;
+        return processedText;
     }
 
     switch (m_caseChangeState) {
     case CaseChange_LowerNext:
-        m_finalText += text.at(0).toLower();
-        m_finalText += text.mid(1);
+        processedText += text.at(0).toLower();
+        processedText += text.mid(1);
         m_caseChangeState = CaseChange_None;
         break;
     case CaseChange_Lower:
-        m_finalText += text.toLower();
+        processedText += text.toLower();
         break;
     case CaseChange_UpperNext:
-        m_finalText += text.at(0).toUpper();
-        m_finalText += text.mid(1);
+        processedText += text.at(0).toUpper();
+        processedText += text.mid(1);
         m_caseChangeState = CaseChange_None;
         break;
     case CaseChange_Upper:
-        m_finalText += text.toUpper();
+        processedText += text.toUpper();
         break;
     default:
-        m_finalText += text;
+        processedText += text;
         break;
     }
+
+    return processedText;
 }
 
 void PCREReplaceTextBuilder::trySetCaseChange(CaseChange state)
 {
-    if (m_caseChangeState == CaseChange_None)
-    {
+    if (m_caseChangeState == CaseChange_None) {
         m_caseChangeState = state;
     }
 }
@@ -327,8 +329,5 @@ void PCREReplaceTextBuilder::trySetCaseChange(CaseChange state)
 void PCREReplaceTextBuilder::resetState()
 {
     m_finalText.clear();
-
-    m_inControl = false;
-    m_inBackref = false;
     m_caseChangeState = CaseChange_None;
 }

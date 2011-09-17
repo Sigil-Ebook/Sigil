@@ -243,8 +243,7 @@ void FindReplace::FindText( Searchable::Direction direction )
     }
     else if ( CheckBookWideSearchingAllowed() )
     {
-        qDebug() << "in all";
-        FindInAllFiles( searchable );
+        FindInAllFiles( searchable, direction );
     }
     else
     {
@@ -264,11 +263,6 @@ void FindReplace::ReplaceText( Searchable::Direction direction )
     {
         return;
     }
-
-    /*if ( !CheckBookWideSearchingAllowed() )
-    {
-        return;
-    }*/
 
     Searchable *searchable = GetAvailableSearchable();
 
@@ -365,16 +359,16 @@ int FindReplace::ReplaceInAllFiles()
 }
 
 
-void FindReplace::FindInAllFiles( Searchable *searchable )
+void FindReplace::FindInAllFiles( Searchable *searchable, Searchable::Direction direction )
 {
     Q_ASSERT( searchable );
 
-    bool found = searchable->FindNext( GetSearchRegex(), Searchable::Direction_Down, true );
+    bool found = searchable->FindNext( GetSearchRegex(), direction );
 
     if ( !found )
     {
         // TODO: make this handle all types of files
-        Resource *containing_resource = GetNextContainingHTMLResource();
+        Resource *containing_resource = GetNextContainingHTMLResource( direction );
 
         if ( containing_resource )
         {
@@ -387,7 +381,7 @@ void FindReplace::FindInAllFiles( Searchable *searchable )
                 SleepFunctions::msleep( 100 );
             }
 
-            FindNext();
+            searchable->FindNext( GetSearchRegex(), direction );
         }
         else
         {
@@ -397,14 +391,14 @@ void FindReplace::FindInAllFiles( Searchable *searchable )
 }
 
 
-HTMLResource* FindReplace::GetNextContainingHTMLResource()
+HTMLResource* FindReplace::GetNextContainingHTMLResource( Searchable::Direction direction )
 {
     HTMLResource *starting_html_resource = GetStartingResource< HTMLResource >();
-    HTMLResource *next_html_resource     = starting_html_resource;
+    HTMLResource *next_html_resource = starting_html_resource;
 
     while ( true )
     {
-        next_html_resource = GetNextHTMLResource( next_html_resource );
+        next_html_resource = GetNextHTMLResource( next_html_resource, direction );
 
         if ( next_html_resource )
         {
@@ -429,7 +423,7 @@ HTMLResource* FindReplace::GetNextContainingHTMLResource()
 }
 
 
-HTMLResource* FindReplace::GetNextHTMLResource( HTMLResource *current_resource )
+HTMLResource* FindReplace::GetNextHTMLResource( HTMLResource *current_resource, Searchable::Direction direction )
 {
     QSharedPointer< Book > book = m_MainWindow.GetCurrentBook();
     int max_reading_order       = book->GetFolderKeeper().GetHighestReadingOrder();
@@ -437,7 +431,16 @@ HTMLResource* FindReplace::GetNextHTMLResource( HTMLResource *current_resource )
     int next_reading_order      = 0;
 
     // We wrap back (if needed) for Direction_All
-    next_reading_order = current_reading_order + 1 <= max_reading_order ? current_reading_order + 1 : 0;
+    // Direction_Down: find in next file.
+    if ( direction == Searchable::Direction_Down )
+    {
+        next_reading_order = current_reading_order + 1 <= max_reading_order ? current_reading_order + 1 : 0;
+    }
+    // Direction Up: find in previous file.
+    else
+    {
+        next_reading_order = current_reading_order - 1 >= 0 ? current_reading_order - 1 : max_reading_order;
+    }
 
     if ( next_reading_order > max_reading_order || next_reading_order < 0 )
     {

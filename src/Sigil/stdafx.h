@@ -31,6 +31,7 @@
 
 // We will be using these everywhere,
 // so let's make life a bit easier.
+using std::pair;
 using boost::tuple;
 using boost::make_tuple;
 using boost::tie;

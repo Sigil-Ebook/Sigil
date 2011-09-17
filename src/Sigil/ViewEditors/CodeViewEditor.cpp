@@ -28,6 +28,7 @@
 #include "Misc/XHTMLHighlighter.h"
 #include "Misc/CSSHighlighter.h"
 #include "Misc/Utility.h"
+#include "PCRE/PCRECache.h"
 
 static const int COLOR_FADE_AMOUNT       = 175;
 static const int TAB_SPACES_WIDTH        = 4;
@@ -360,23 +361,21 @@ bool CodeViewEditor::FindNext( const QString &search_regex,
                                Searchable::Direction search_direction,
                                bool ignore_selection_offset )
 {
+    UpdateSearchCache( search_regex, toPlainText() );
+
     int selection_offset = GetSelectionOffset( search_direction, ignore_selection_offset );
+    std::pair<int, int> offset = NearestMatch( m_MatchOffsets, selection_offset, search_direction );
 
-    int start;
-    int end;
-    tie( start, end ) = RunSearchRegex( search_regex, toPlainText(), selection_offset, search_direction );
-
-    if ( start != -1 )
+    if ( offset.first != -1 )
     {
         QTextCursor cursor = textCursor();
-
-        cursor.setPosition( start );
-        cursor.setPosition( end, QTextCursor::KeepAnchor );
+        cursor.setPosition( offset.first );
+        cursor.setPosition( offset.second, QTextCursor::KeepAnchor );
 
         setTextCursor( cursor );
 
         return true;
-    } 
+    }
 
     return false;
 }
@@ -384,29 +383,29 @@ bool CodeViewEditor::FindNext( const QString &search_regex,
 
 int CodeViewEditor::Count( const QString &search_regex )
 {
-    return Searchable::Count( search_regex, toPlainText() );
+    UpdateSearchCache( search_regex, toPlainText() );
+    return m_MatchOffsets.count();
 }
 
 
 bool CodeViewEditor::ReplaceSelected( const QString &search_regex, const QString &replacement )
 {
+    UpdateSearchCache( search_regex, toPlainText() );
+    SPCRE *spcre = PCRECache::instance()->getObject( search_regex );
+
     int selection_start = textCursor().selectionStart();
     int selection_end = textCursor().selectionEnd();
     QString selected_text = textCursor().selectedText();
 
-    int regex_start = -1;
-    int regex_end = -1;
-    tie( regex_start, regex_end ) = RunSearchRegex( search_regex, toPlainText(), selection_start, Searchable::Direction_Down );
-
-    // The selection matches our regex so we need to replace it.
-    if ( selection_start == regex_start && selection_end == regex_end )
+    // Check if the currently selected text is a match.
+    if ( IsMatchSelected(m_MatchOffsets, selection_start, selection_end ) )
     {
-        QString full_replacement;
-        bool made_replacement = FillWithCapturedTexts( search_regex, selected_text, replacement, full_replacement );
+        QString replaced_text;
+        bool replacement_made = spcre->replaceText( selected_text, replacement, replaced_text );
 
-        if ( made_replacement )
+        if ( replacement_made )
         {
-            textCursor().insertText( full_replacement );
+            textCursor().insertText( replaced_text );
             return true;
         }
     }
@@ -417,35 +416,50 @@ bool CodeViewEditor::ReplaceSelected( const QString &search_regex, const QString
 
 int CodeViewEditor::ReplaceAll( const QString &search_regex, const QString &replacement )
 {
+    UpdateSearchCache( search_regex, toPlainText() );
+
+    QList<std::pair<int, int> > offsets = m_MatchOffsets;
+    SPCRE *spcre = PCRECache::instance()->getObject( search_regex );
+
+    int count = 0;
     QTextCursor cursor = textCursor();
+    // Store the cursor position and set it to the beginning of the editor.
+    int cursor_position = cursor.selectionStart();
+
     // This is all one edit operation.
     cursor.beginEditBlock();
-
-    // Store the cursor position and set it to the beginning of the editor.
-    int offset = cursor.selectionStart();
-    cursor.setPosition(1);
-    setTextCursor(cursor);
-
-    // Keep track of the number of replacements we make.
-    int count = 0;
-
-    // Keep replacing until we can't find any matches.
-    while ( FindNext( search_regex, Searchable::Direction_Down ) )
-    {
-        ReplaceSelected( search_regex, replacement );
-        count++;
-    }
-
-    // Set the offset to as close to where it was as we can without
-    // doing a whole lot of math.
-    if ( offset >= toPlainText().length() )
-    {
-        offset = toPlainText().length() - 1;
-    }
-
-    cursor.setPosition( offset );
     cursor.endEditBlock();
-    setTextCursor(cursor);
+    setTextCursor( cursor );
+
+    // Run though all match offsets making the replacment in reverse order.
+    // This way changes in text lengh won't change the offsets as we make
+    // our changes.
+    for ( int i = offsets.count() - 1; i >= 0; i-- )
+    {
+        cursor = textCursor();
+        // Add this replacment to the previous edit operation.
+        cursor.joinPreviousEditBlock();
+        // Select the text we watn to replace.
+        cursor.setPosition( offsets.at( i ).first );
+        cursor.setPosition( offsets.at( i ).second, QTextCursor::KeepAnchor );
+
+        QString replaced_text;
+        bool replacement_made = spcre->replaceText( cursor.selectedText(), replacement, replaced_text );
+
+        if ( replacement_made )
+        {
+            // Replace the text.
+            cursor.insertText( replaced_text );
+            count++;
+        }
+
+        setTextCursor( cursor );
+        cursor.endEditBlock();
+    }
+
+    cursor = textCursor();
+    cursor.setPosition( cursor_position );
+    setTextCursor( cursor );
 
     return count;
 }
@@ -557,6 +571,8 @@ void CodeViewEditor::focusOutEvent( QFocusEvent *event )
 
 void CodeViewEditor::TextChangedFilter()
 {
+    m_MatchOffsets.clear();
+
     if ( m_isUndoAvailable )
 
         emit FilteredTextChanged();

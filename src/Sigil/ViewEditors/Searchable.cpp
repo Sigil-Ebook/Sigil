@@ -21,143 +21,92 @@
 *************************************************************************/
 
 #include <stdafx.h>
-#include "pcre.h"
 #include "Searchable.h"
-#include "Misc/PCREReplaceTextBuilder.h"
-#include "Misc/Utility.h"
+#include "PCRE/PCRECache.h"
 
-const int PCRE_MAX_GROUPS = 16;
-
-int Searchable::Count( const QString &search_regex,
-                       const QString &full_text)
+void Searchable::UpdateSearchCache( const QString &search_regex, const QString &text )
 {
-    pcre *re;
-    const char *error;
-    int erroroffset;
-
-    re = pcre_compile( search_regex.toUtf8().data(), PCRE_UTF8 | PCRE_MULTILINE, &error, &erroroffset, NULL );
-    // compile faliure
-    if ( re == NULL )
+    if ( search_regex != m_FindPattern || m_MatchOffsets.isEmpty() )
     {
-        return 0;
+        m_FindPattern = search_regex;
+        m_MatchOffsets = PCRECache::instance()->getObject(m_FindPattern)->getMatchOffsets( text );
     }
-
-    int rc = 0;
-    int last_end = 0;
-    int count = 0;
-    QByteArray utf_str = full_text.toUtf8();
-
-    // The vector needs to be a multiple of 3.
-    // N match items * 3 = our total size.
-    // We only want the first match which is the entire string.
-    int ovector[3] = { 0, 0, 0 };
-
-    // Run until no matches are found.
-    rc = pcre_exec( re, NULL, utf_str.data(), utf_str.length(), last_end, 0, ovector, 3 );
-    while ( rc >= 0 && ovector[0] != ovector[1])
-    {
-        count++;
-        last_end = ovector[1];
-        rc = pcre_exec( re, NULL, utf_str.data(), utf_str.length(), last_end, 0, ovector, 3 );
-    }
-
-    pcre_free( re );
-
-    return count;
 }
 
-tuple< int, int > Searchable::RunSearchRegex( const QString &search_regex,
-                                 const QString &full_text, 
-                                 int selection_offset, 
-                                 Direction search_direction )
-{
-    pcre *re;
-    const char *error;
-    int erroroffset;
 
-    re = pcre_compile( search_regex.toUtf8().data(), PCRE_UTF8 | PCRE_MULTILINE, &error, &erroroffset, NULL );
-    // compile faliure
-    if ( re == NULL )
+std::pair<int, int> Searchable::NearestMatch( const QList<std::pair<int, int> > &matches,
+                                    int position,
+                                    Searchable::Direction search_direction )
+{
+    std::pair<int, int> nearest_match(-1, -1);
+
+    if ( matches.isEmpty() )
     {
-        return make_tuple( -1, -1 );
+        return nearest_match;
     }
 
-    int rc = 0;
-    // The vector needs to be a multiple of 3.
-    // N match items * 3 = our total size.
-    // We only want the first match which is the entire string.
-    int ovector[3] = { 0, 0, 0 };
-    int start = -1;
-    int end = -1;
-    QByteArray utf_str = full_text.toUtf8();
-
-    if ( search_direction == Searchable::Direction_Down || 
-         search_direction == Searchable::Direction_All 
-        )
+    int first_after = -1;
+    for ( int i = 0; i < matches.count(); i++ )
     {
-        rc = pcre_exec( re, NULL, utf_str.data(), utf_str.length(), selection_offset, 0, ovector, 3 );
-
-        // Match succeeded.
-        if ( rc >= 0 )
+        if ( matches.at( i ).first >= position )
         {
-            start = ovector[0];
-            end = ovector[1];
+            first_after = i;
+            break;
         }
+    }
 
-        // If we need to search through the whole doc,
-        // then we also wrap around and search from the 
-        // beginning to the old search start point.
-        if ( search_direction == Searchable::Direction_All &&
-            start == -1
-            )
+    if ( search_direction == Searchable::Direction_Down )
+    {
+        if ( first_after != -1 )
         {
-            QByteArray upper_half = Utility::Substring( 0, selection_offset, full_text ).toUtf8();
-
-            rc = pcre_exec( re, NULL, upper_half.data(), upper_half.length(), 0, 0, ovector, 3 );
-
-            // Success
-            if ( rc >= 0 )
+            nearest_match = matches.at( first_after );
+        }
+    }
+    else if ( search_direction == Searchable::Direction_Up )
+    {
+        // No maths after our position so we are at the end.
+        if ( first_after == -1 )
+        {
+            nearest_match = matches.at( matches.count() -1 );
+        }
+        // There is a match after we're somewhere in the middle
+        else
+        {
+            int first_before = first_after - 1;
+            // We have matches before.
+            if ( first_before >= 0 )
             {
-                start = ovector[0];
-                end = ovector[1];
+                nearest_match = matches.at( first_before );
             }
         }
     }
-    else // search_direction == Searchable::Direction_Up 
+    else if ( search_direction == Searchable::Direction_All )
     {
-        // Only holds first and second positions of ovector
-        // so we know if the last iteration was a real match.
-        int last_ovector[2] = { 0, 0 };
-
-        // Run until no matches are found.
-        do
+        if ( first_after != -1 )
         {
-            last_ovector[0] = ovector[0];
-            last_ovector[1] = ovector[1];
-            rc = pcre_exec( re, NULL, utf_str.data(), selection_offset, last_ovector[1], 0, ovector, 3 );
-        } while( rc >= 0  && ovector[0] != ovector[1] );
-
-        start = last_ovector[0];
-        end = last_ovector[1];
+            nearest_match = matches.at( first_after );
+        }
+        else
+        {
+            nearest_match = matches.at( 0 );
+        }
     }
 
-    pcre_free( re );
-
-    // 0 lengh strings are not a match.
-    if ( start == end )
-    {
-        start = end = -1;
-    }
-
-    return make_tuple( start, end );
+    return nearest_match;
 }
 
 
-bool Searchable::FillWithCapturedTexts( const QString &search_regex,
-                                        const QString &selected_text,
-                                        const QString &replacement_pattern,
-                                        QString &full_replacement )
+bool Searchable::IsMatchSelected( const QList<std::pair<int, int> > &matches,
+                                int start,
+                                int end)
 {
-    PCREReplaceTextBuilder builder;
-    return builder.BuildReplacementText(search_regex, selected_text, replacement_pattern, full_replacement);
+    for ( int i = 0; i < matches.count(); i++ )
+    {
+        if ( matches.at( i ).first == start && matches.at( i ).second == end )
+        {
+            return true;
+        }
+    }
+
+    return false;
 }

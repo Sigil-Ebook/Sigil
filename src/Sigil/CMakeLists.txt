@@ -188,8 +188,6 @@ set( MISC_FILES
     Misc/CSSHighlighter.h
     Misc/HTMLEncodingResolver.cpp
     Misc/HTMLEncodingResolver.h
-    Misc/PCREReplaceTextBuilder.cpp
-    Misc/PCREReplaceTextBuilder.h
     Misc/RasterizeImageResource.cpp
     Misc/RasterizeImageResource.h
     Misc/SearchOperations.cpp
@@ -199,6 +197,15 @@ set( MISC_FILES
     Misc/FontObfuscation.h
     Misc/TempFolder.cpp
     Misc/TempFolder.h
+    )
+
+set( SPCRE_FILES
+    PCRE/SPCRE.cpp
+    PCRE/SPCRE.h
+    PCRE/PCRECache.cpp
+    PCRE/PCRECache.h
+    PCRE/PCREReplaceTextBuilder.cpp
+    PCRE/PCREReplaceTextBuilder.h
     )
 
 set( VIEW_EDITOR_FILES
@@ -306,7 +313,7 @@ set( LINUX_DESKTOP_ICON_FILE
     Resource_Files/icon/app_icon_48.png
     )
     
-set( RAW_SOURCES ${MAIN_FILES} ${TAB_FILES} ${SOURCEUPDATE_FILES} ${BOOK_MANIPULATION_FILES} ${RESOURCE_OBJECT_FILES} ${DIALOG_FILES} ${EXPORTER_FILES} ${IMPORTER_FILES} ${MISC_FILES} ${VIEW_EDITOR_FILES} ${MAINUI_FILES} ${QXT_FILES} )
+set( RAW_SOURCES ${MAIN_FILES} ${TAB_FILES} ${SOURCEUPDATE_FILES} ${BOOK_MANIPULATION_FILES} ${RESOURCE_OBJECT_FILES} ${DIALOG_FILES} ${EXPORTER_FILES} ${IMPORTER_FILES} ${MISC_FILES} ${SPCRE_FILES} ${VIEW_EDITOR_FILES} ${MAINUI_FILES} ${QXT_FILES} )
 
 #############################################################################
 
