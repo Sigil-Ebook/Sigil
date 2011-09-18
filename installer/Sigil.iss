@@ -20,6 +20,7 @@ LicenseFile=${LICENSE_LOCATION}
 MinVersion=0,5.1
 PrivilegesRequired=admin
 OutputBaseFilename=Sigil-${SIGIL_FULL_VERSION}-Windows${ISS_SETUP_FILENAME_PLATFORM}-Setup
+ChangesAssociations=yes
 
 ; "ArchitecturesAllowed=x64" specifies that Setup cannot run on
 ; anything but x64.
@@ -44,10 +45,15 @@ Name: dicon\user; Description: "For the current user only"; Flags: exclusive
 ; File associations
 Name: afiles; Description: "Associate ebook files with Sigil"; Types: full
 Name: afiles\epub; Description: "EPUB"; Types: full
-Name: afiles\html; Description: "HTML"; Types: full
-Name: afiles\txt; Description: "TXT"; Types: full
+Name: afiles\html; Description: "HTML"
+Name: afiles\txt; Description: "TXT"
 
 [Registry]
+; Add Sigil as a global file handler for EPUB and HTML.
+Root: HKLM; Subkey: "Software\Classes\.epub\OpenWithList\Sigil.exe"; Flags: uninsdeletekey
+Root: HKLM; Subkey: "Software\Classes\.htm\OpenWithList\Sigil.exe"; Flags: uninsdeletekey
+Root: HKLM; Subkey: "Software\Classes\.html\OpenWithList\Sigil.exe"; Flags: uninsdeletekey
+Root: HKLM; Subkey: "Software\Classes\.xhtml\OpenWithList\Sigil.exe"; Flags: uninsdeletekey
 ; Associate EPUB files if requested.
 Components: afiles\epub; Root: HKCR; Subkey: ".epub"; ValueType: string; ValueName: ""; ValueData: "SigilEPUB"; Flags: uninsdeletevalue uninsdeletekeyifempty
 Components: afiles\epub; Root: HKCR; Subkey: "SigilEPUB"; ValueType: string; ValueName: ""; ValueData: "EPUB"; Flags: uninsdeletekey
