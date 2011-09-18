@@ -32,7 +32,6 @@
 #include "Utility.h"
 
 
-
 int SearchOperations::CountInFiles( const QString &search_regex,
                                     QList< Resource* > resources,
                                     SearchType search_type )
@@ -180,11 +179,6 @@ int SearchOperations::ReplaceTextInFile( const QString &search_regex,
 }
 
 
-// We don't use QString.replace(QRegExp, QString) because
-// 1. we want the same behavior across all search algos;
-// 2. it doesn't return replace count;
-// 3. it would have to be replaced with this code either way
-//    when we integrate PCRE. 
 tuple< QString, int > SearchOperations::PerformGlobalReplace( const QString &text, 
                                                               const QString &search_regex,
                                                               const QString &replacement )
@@ -192,23 +186,21 @@ tuple< QString, int > SearchOperations::PerformGlobalReplace( const QString &tex
     QString new_text = text;
     int count = 0;
 
-    /*
-    int start = 0;
-    int end = 0;
+    SPCRE *spcre = PCRECache::instance()->getObject( search_regex );
+    QList<std::pair<int, int> > match_offsets = spcre->getMatchOffsets( text );
 
-    tie( start, end ) = Searchable::RunSearchRegex( search_regex, text, start, Searchable::Direction_Down );
-    while ( start != end )
+    for ( int i =  match_offsets.count() - 1; i >= 0; i-- )
     {
-        QString match_segement = Utility::Substring( start, end, new_text );
-        QString replaced_segement;
+        QString match_segement = Utility::Substring( match_offsets.at( i ).first, match_offsets.at( i ).second, new_text );
+        QString replacement_text;
 
-        Searchable::FillWithCapturedTexts( search_regex, match_segement, replacement, replaced_segement );
-        new_text = Utility::Substring( 0, start, new_text ) % replaced_segement % Utility::Substring( end, new_text.length(), new_text );
-
-        tie( start, end ) = Searchable::RunSearchRegex( search_regex, text, start + replaced_segement.length(), Searchable::Direction_Down );
-        count++;
+        if ( spcre->replaceText( match_segement, replacement, replacement_text ) )
+        {
+            new_text.replace( match_offsets.at( i ).first, match_offsets.at( i ).second - match_offsets.at( i ).first, replacement_text );
+            count++;
+        }
     }
-*/
+
     return make_tuple( new_text, count );
 }
 
