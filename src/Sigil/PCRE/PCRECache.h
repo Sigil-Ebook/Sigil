@@ -26,6 +26,7 @@
 
 #include "SPCRE.h"
 #include <QCache>
+#include <QString>
 
 class PCRECache
 {
