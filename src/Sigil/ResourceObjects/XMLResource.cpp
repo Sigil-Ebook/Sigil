@@ -110,7 +110,6 @@ QString XMLResource::GetValidID( const QString &value )
 bool XMLResource::IsValidIDCharacter( const QChar &character )
 {
     return character.isLetterOrNumber() ||
-           character == QChar( '=' )    ||
            character == QChar( '-' )    ||
            character == QChar( '_' )    ||
            character == QChar( '.' )    
