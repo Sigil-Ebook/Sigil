@@ -251,6 +251,8 @@ protected:
 
 private slots:
 
+    void ContentChanged();
+
     /**
      * Executes javascript that needs to be run when 
      * the document has finished loading.

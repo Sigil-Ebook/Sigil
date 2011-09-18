@@ -24,6 +24,8 @@
 #ifndef SEARCHABLE_H
 #define SEARCHABLE_H
 
+#include "stdafx.h"
+
 class QString;
 class QStringList;
 
@@ -35,7 +37,6 @@ class QStringList;
  */
 class Searchable
 {
-
 public:
 
     /**
@@ -99,9 +100,6 @@ public:
      */
     virtual QString GetSelectedText() = 0;
 
-
-    void UpdateSearchCache( const QString &search_regex, const QString &text );
-
     static std::pair<int, int> NearestMatch( const QList<std::pair<int, int> > &matches,
                                    int position,
                                    Searchable::Direction search_direction );
@@ -111,6 +109,11 @@ public:
                                int end );
 
 protected:
+
+    void UpdateSearchCache( const QString &search_regex, const QString &text );
+
+    void ClearSearchCache();
+
     QList<std::pair<int, int> > m_MatchOffsets;
     QString m_FindPattern;
 };

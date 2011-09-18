@@ -253,6 +253,8 @@ protected:
 
 private slots:
 
+    void ContentChanged();
+
     /**
      * Filters the textChanged signal.
      * It does this based on the availability of undo.

@@ -569,10 +569,14 @@ void CodeViewEditor::focusOutEvent( QFocusEvent *event )
 }
 
 
+void CodeViewEditor::ContentChanged()
+{
+    ClearSearchCache();
+}
+
+
 void CodeViewEditor::TextChangedFilter()
 {
-    m_MatchOffsets.clear();
-
     if ( m_isUndoAvailable )
 
         emit FilteredTextChanged();
@@ -849,6 +853,7 @@ void CodeViewEditor::ConnectSignalsToSlots()
     connect( this, SIGNAL( updateRequest( const QRect&, int ) ), this, SLOT( UpdateLineNumberArea( const QRect&, int ) ) );
     connect( this, SIGNAL( cursorPositionChanged()            ), this, SLOT( HighlightCurrentLine()                    ) );
     connect( this, SIGNAL( textChanged()                      ), this, SLOT( TextChangedFilter()                       ) );
+    connect( this, SIGNAL( textChanged()                      ), this, SLOT( ContentChanged()                          ) );
     connect( this, SIGNAL( undoAvailable( bool )              ), this, SLOT( UpdateUndoAvailable( bool )               ) );
 
     connect( &m_ScrollOneLineUp,   SIGNAL( activated() ), this, SLOT( ScrollOneLineUp()   ) );

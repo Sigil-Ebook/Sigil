@@ -25,6 +25,7 @@
 #include "BookManipulation/XhtmlDoc.h"
 #include "BookManipulation/CleanSource.h"
 #include "Misc/Utility.h"
+#include "PCRE/PCRECache.h"
 #include "BookManipulation/XercesCppUse.h"
 
 
@@ -72,7 +73,9 @@ void BookViewEditor::CustomSetWebPage( QWebPage &webpage )
     m_isLoadFinished = true;
 
     connect( this,     SIGNAL( contentsChangedExtra() ), &webpage, SIGNAL( contentsChanged()        ) );
+    connect( this,     SIGNAL( contentsChangedExtra() ), this,     SLOT  ( ContentChanged()         ) );
     connect( &webpage, SIGNAL( contentsChanged()      ), this,     SIGNAL( textChanged()            ) );
+    connect( &webpage, SIGNAL( contentsChanged()      ), this,     SLOT  ( ContentChanged()         ) );
     connect( &webpage, SIGNAL( selectionChanged()     ), this,     SIGNAL( selectionChanged()       ) );
     connect( &webpage, SIGNAL( loadFinished( bool )   ), this,     SLOT( JavascriptOnDocumentLoad() ) );
     connect( &webpage, SIGNAL( loadProgress( int )    ), this,     SLOT( UpdateFinishedState( int ) ) );
@@ -283,7 +286,7 @@ bool BookViewEditor::FindNext( const QString &search_regex,
                                bool ignore_selection_offset )
 
 {
-    SearchTools search_tools;
+    SearchTools search_tools = GetSearchTools();
     return FindNext( search_tools, search_regex, search_direction, ignore_selection_offset );
 }
 
@@ -293,10 +296,9 @@ bool BookViewEditor::FindNext( SearchTools &search_tools,
                                bool ignore_selection_offset
                              )
 {
-    /*
-    search_tools = GetSearchTools();
-    int selection_offset = -1;
+    UpdateSearchCache( search_regex, search_tools.fulltext );
 
+    int selection_offset = -1;
     if ( ignore_selection_offset )
     {
         selection_offset = 0;
@@ -306,29 +308,25 @@ bool BookViewEditor::FindNext( SearchTools &search_tools,
         selection_offset = GetSelectionOffset( *search_tools.document, search_tools.node_offsets, search_direction ) - 1;
     }
 
-    int start;
-    int end;
+    std::pair<int, int> offset = NearestMatch( m_MatchOffsets, selection_offset, search_direction );
 
-    tie( start, end ) = RunSearchRegex( search_regex, search_tools.fulltext, selection_offset, search_direction );
-
-    if ( start != -1 )
+    if ( offset.first != -1 )
     {
-        SelectRangeInputs input = GetRangeInputs( search_tools.node_offsets, start, end - start );
+        SelectRangeInputs input = GetRangeInputs( search_tools.node_offsets, offset.first, offset.second - offset.first );
         SelectTextRange( input );
-        ScrollToNodeText( *input.start_node, input.start_node_index );  
+        ScrollToNodeText( *input.start_node, input.start_node_index );
 
         return true;
-    } 
-*/
+    }
+
     return false;
 }
 
 
 int BookViewEditor::Count( const QString &search_regex )
 {
-    //SearchTools search_tools = GetSearchTools();
-    //return Searchable::Count( search_regex, search_tools.fulltext );
-    return 0;
+    UpdateSearchCache( search_regex, GetSearchTools().fulltext );
+    return m_MatchOffsets.count();
 }
 
 bool BookViewEditor::ReplaceSelected( const QString &search_regex, const QString &replacement )
@@ -339,24 +337,16 @@ bool BookViewEditor::ReplaceSelected( const QString &search_regex, const QString
 
 bool BookViewEditor::ReplaceSelected( const QString &search_regex, const QString &replacement, SearchTools search_tools )
 {
-    /*
-    // We ALWAYS say Direction_Up because we want
-    // the "back" index of the selection range
+    UpdateSearchCache( search_regex, search_tools.fulltext );
+    SPCRE *spcre = PCRECache::instance()->getObject( search_regex );
+
     int selection_offset = GetSelectionOffset( *search_tools.document, search_tools.node_offsets, Searchable::Direction_Up );
+    int selection_length = GetSelectedText().length();
 
-    // We always say Direction_Down since we're comparing
-    // with already selected text
-    int start;
-    int end;
-    tie( start, end ) = RunSearchRegex( search_regex, search_tools.fulltext, selection_offset, Searchable::Direction_Down );
-
-    // If we are currently sitting at the start
-    // of a matching substring, we replace it.
-    if ( start == selection_offset )
+    if ( IsMatchSelected(m_MatchOffsets, selection_offset, selection_offset + selection_length ) )
     {
-        QString matched = Utility::Substring( start, end, search_tools.fulltext );
-        QString final_replacement;
-        bool replacement_made = FillWithCapturedTexts( search_regex, matched, replacement, final_replacement );
+        QString replaced_text;
+        bool replacement_made = spcre->replaceText( GetSelectedText(), replacement, replaced_text );
 
         if ( replacement_made )
         {
@@ -368,44 +358,64 @@ bool BookViewEditor::ReplaceSelected( const QString &search_regex, const QString
             inputJS.start_node_index = input.start_node_index;
             inputJS.end_node_index   = input.end_node_index;
 
-            BookViewReplaceCommand* replace_action = new BookViewReplaceCommand( this, inputJS, final_replacement );
+            BookViewReplaceCommand* replace_action = new BookViewReplaceCommand( this, inputJS, replaced_text );
             page()->undoStack()->push( replace_action );
 
             return true;
         }
     }
-*/
+
     return false;
 }
 
 
 int BookViewEditor::ReplaceAll( const QString &search_regex, const QString &replacement )
 {
-    int count = 0;
-    /*
     SearchTools search_tools = GetSearchTools();
+    UpdateSearchCache( search_regex, search_tools.fulltext );
 
-    // We replace from top to bottom. Direction_All will cause an infinate loop.
-    // So start with down ignoring the offset so it starts at the top.
-    if ( FindNext( search_tools, search_regex, Searchable::Direction_Down, true ) )
+    QList<std::pair<int, int> > offsets = m_MatchOffsets;
+    SPCRE *spcre = PCRECache::instance()->getObject( search_regex );
+
+    int count = 0;
+    // We want this to be all one edit operation.
+    page()->undoStack()->beginMacro("ReplaceAll");
+
+    // Run though all match offsets making the replacment in reverse order.
+    // This way changes in text lengh won't change the offsets as we make
+    // our changes.
+    for ( int i = offsets.count() - 1; i >= 0; i-- )
     {
-        ReplaceSelected( search_regex, replacement, search_tools );
-        count++;
+        QString replaced_text;
+        QString matched_text = Utility::Substring( offsets.at( i ).first, offsets.at( i ).second, search_tools.fulltext );
+        bool replacement_made = spcre->replaceText( matched_text, replacement, replaced_text );
 
-        // Continue replacing until we run out of matches at the end of the document.
-        while ( FindNext( search_tools, search_regex, Searchable::Direction_Down ) )
+        if ( replacement_made )
         {
-            ReplaceSelected( search_regex, replacement, search_tools );
+            SelectRangeInputs input = GetRangeInputs( search_tools.node_offsets, offsets.at( i ).first, offsets.at( i ).second - offsets.at( i ).first );
+
+            SelectRangeJS inputJS;
+            inputJS.start_node = GetElementSelectingJS_WithTextNode( XhtmlDoc::GetHierarchyFromNode( *input.start_node ) );
+            inputJS.end_node =   GetElementSelectingJS_WithTextNode( XhtmlDoc::GetHierarchyFromNode( *input.end_node   ) );
+            inputJS.start_node_index = input.start_node_index;
+            inputJS.end_node_index   = input.end_node_index;
+
+            BookViewReplaceCommand* replace_action = new BookViewReplaceCommand( this, inputJS, replaced_text );
+            page()->undoStack()->push( replace_action );
+
             count++;
         }
     }
+
+    // End the edit operation.
+    page()->undoStack()->endMacro();
 
     if ( count != 0 )
     {
         // Tell anyone who's interested that the document has been updated.
         emit contentsChangedExtra();
     }
-*/
+
     return count;
 }
 
@@ -437,6 +447,12 @@ bool BookViewEditor::event( QEvent *event )
     }
 
     return real_return;
+}
+
+
+void BookViewEditor::ContentChanged()
+{
+    ClearSearchCache();
 }
 
 

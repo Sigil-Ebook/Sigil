@@ -110,3 +110,10 @@ bool Searchable::IsMatchSelected( const QList<std::pair<int, int> > &matches,
 
     return false;
 }
+
+
+void Searchable::ClearSearchCache()
+{
+    m_MatchOffsets.clear();
+    m_FindPattern.clear();
+}
