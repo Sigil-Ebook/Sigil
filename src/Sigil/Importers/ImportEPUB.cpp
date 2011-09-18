@@ -19,10 +19,8 @@
 **
 *************************************************************************/
 
-#include <QFile>
-
 #include <stdafx.h>
-
+#include <QFile>
 #include "ImportEPUB.h"
 #include "Misc/Utility.h"
 #include "SourceUpdates/UniversalUpdates.h"

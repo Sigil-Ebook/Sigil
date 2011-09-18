@@ -19,8 +19,8 @@
 **
 *************************************************************************/
 
-#include <QFile>
 #include <stdafx.h>
+#include <QFile>
 #include "About.h"
 #include "Misc/Utility.h"
 
