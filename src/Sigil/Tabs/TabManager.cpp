@@ -337,7 +337,8 @@ bool TabManager::SwitchedToExistingTab( Resource& resource,
             // Depending on the state of the current view and 
             // the given parameters, only one of these is going to work.
             flow_tab->ScrollToFragment( fragment.toString() );
-            flow_tab->ScrollToLine( line_to_scroll_to );
+            if ( line_to_scroll_to > 0 )
+                flow_tab->ScrollToLine( line_to_scroll_to );
 
             return true;
         }

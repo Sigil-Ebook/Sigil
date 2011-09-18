@@ -229,7 +229,7 @@ private:
     bool SwitchedToExistingTab( Resource& resource, 
                                 const QUrl &fragment, 
                                 ContentTab::ViewState view_state,
-                                int line_to_scroll_to );
+                                int line_to_scroll_to = -1 );
 
     /**
      * Creates a tab for the specified resource.

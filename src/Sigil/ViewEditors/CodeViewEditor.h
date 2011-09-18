@@ -142,6 +142,8 @@ public:
      */
     void ScrollToLine( int line );
 
+    void ScrollToFragment( const QString &fragment );
+
     // inherited
     QList< ViewEditor::ElementIndex > GetCaretLocation(); 
 

@@ -29,6 +29,8 @@
 #include "constants.h"
 #include "exception.h"
 
+#define QT_USE_FAST_CONCATENATION
+
 // We will be using these everywhere,
 // so let's make life a bit easier.
 using std::pair;

@@ -175,13 +175,30 @@ void BookViewEditor::focusOutEvent( QFocusEvent *event )
 
 void BookViewEditor::ScrollToTop()
 {
-    page()->currentFrame()->setScrollBarValue( Qt::Vertical, 0 );
+    QString caret_location = "var elementList = document.getElementsByTagName(\"body\");"
+                             "var element = elementList[0];";
+
+    QString scroll = "var from_top = window.innerHeight / 2;"
+        "$.scrollTo( element, 0, {offset: {top:-from_top, left:0 } } );";
+
+    EvaluateJavascript( caret_location % scroll % c_SetCursor );
 }
 
 
 void BookViewEditor::ScrollToFragment( const QString &fragment )
 {
-    page()->currentFrame()->scrollToAnchor( fragment );
+    if( fragment.isEmpty() )
+    {
+        ScrollToTop();
+        return;
+    }
+
+    QString caret_location = "var element = document.getElementById(\"" % fragment % "\");";
+
+    QString scroll = "var from_top = window.innerHeight / 2;"
+        "$.scrollTo( element, 0, {offset: {top:-from_top, left:0 } } );";
+
+    EvaluateJavascript( caret_location % scroll % c_SetCursor );
 }
 
 
@@ -191,8 +208,13 @@ void BookViewEditor::ScrollToFragmentAfterLoad( const QString &fragment )
 
         return;
 
+    QString caret_location = "var element = document.getElementById(\"" % fragment % "\");";
+
+    QString scroll = "var from_top = window.innerHeight / 2;"
+        "$.scrollTo( element, 0, {offset: {top:-from_top, left:0 } } );";
+
     QString javascript = "window.addEventListener('load', GoToFragment, false);"
-                         "function GoToFragment() { window.location.hash = \""  + fragment + "\"; }";
+                         "function GoToFragment() { " % caret_location % scroll % c_SetCursor % "}";
 
     EvaluateJavascript( javascript );
 }

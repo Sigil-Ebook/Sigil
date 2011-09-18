@@ -309,6 +309,10 @@ void FlowTab::ScrollToFragment( const QString &fragment )
     if ( m_wBookView.isVisible() )
 
         m_wBookView.ScrollToFragment( fragment );
+    
+    if ( m_wCodeView.isVisible() )
+
+        m_wCodeView.ScrollToFragment( fragment );
 }
 
 
@@ -902,7 +906,11 @@ void FlowTab::DelayedInitialization()
 
             CodeView();
 
-            m_wCodeView.ScrollToLine( m_LineToScrollTo );
+            if( m_LineToScrollTo > 0 )
+                m_wCodeView.ScrollToLine( m_LineToScrollTo );
+            else
+                m_wCodeView.ScrollToFragment( m_FragmentToScroll.toString() );
+
             break;
         }
 
