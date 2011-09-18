@@ -1,4 +1,9 @@
 Sigil vNEXT TBA
+    - Windows Installer: Add Sigil as a handler for EPUB and HTML files so that jump lists
+      will work and it will always show up on the 'Open With...' menu.
+    - Fix issue 1033, 1034: Implement scroll to fragment for Code View and fix scrolling for
+      book view.
+    - Fix issue 1032: Remove '=' from the list of valid characters for ids.
     - Fix issue 1001: Valid IDs are now formed by replacing invalid characters with
       underscores. Colon removed from the list of valid characters.
     - Fix issue 1014: Sigil was erroneously assuming that fragment ids would be unique
