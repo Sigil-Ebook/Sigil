@@ -381,7 +381,9 @@ void FindReplace::FindInAllFiles( Searchable *searchable, Searchable::Direction 
                 SleepFunctions::msleep( 100 );
             }
 
-            searchable->FindNext( GetSearchRegex(), direction );
+            searchable = GetAvailableSearchable();
+            searchable->ClearSearchCache();
+            searchable->FindNext( GetSearchRegex(), direction, true );
         }
         else
         {

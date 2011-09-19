@@ -108,11 +108,14 @@ public:
                                int start,
                                int end );
 
+    // This really should be protected but it's necessary to clear the cache
+    // when searching though HTML text tabs.
+    void ClearSearchCache();
+
 protected:
 
     void UpdateSearchCache( const QString &search_regex, const QString &text );
 
-    void ClearSearchCache();
 
     QList<std::pair<int, int> > m_MatchOffsets;
     QString m_FindPattern;

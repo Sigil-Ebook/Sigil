@@ -294,13 +294,7 @@ void FlowTab::SetViewState( ViewState new_view_state )
 
 bool FlowTab::IsLoadingFinished()
 {
-    if ( m_IsLastViewBook )
-
-        return m_wBookView.IsLoadingFinished();
-
-    else
-
-        return m_wCodeView.IsLoadingFinished();
+    return m_wBookView.IsLoadingFinished() && m_wCodeView.IsLoadingFinished();
 }
 
 
