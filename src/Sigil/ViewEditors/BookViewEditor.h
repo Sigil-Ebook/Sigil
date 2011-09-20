@@ -54,6 +54,8 @@ public:
      */
     BookViewEditor( QWidget *parent = 0 );
 
+    QSize sizeHint() const;
+
     /**
      * Sets a custom webpage for the editor.
      */

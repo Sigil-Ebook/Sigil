@@ -81,7 +81,7 @@ MainWindow::MainWindow( const QString &openfilepath, QWidget *parent, Qt::WFlags
     m_cbHeadings( NULL ),
     m_TabManager( *new TabManager( this ) ),
     m_BookBrowser( NULL ),
-    m_FindReplace( NULL ),
+    m_FindReplace( new FindReplace( *this ) ),
     m_TableOfContents( NULL ),
     m_ValidationResultsView( NULL ),
     m_slZoomSlider( NULL ),
@@ -1303,12 +1303,15 @@ void MainWindow::ExtendUI()
 {
     // Creating the tabs and the book browser 
 
+    m_FindReplace->hide();
     // We want a nice frame around the tab manager
     QFrame *frame = new QFrame( this );
     QLayout *layout = new QVBoxLayout( frame );
     frame->setLayout( layout );
     layout->addWidget( &m_TabManager );
+    layout->addWidget( m_FindReplace );
     layout->setContentsMargins( 0, 0, 0, 0 );
+    layout->setSpacing( 1 );
 
     frame->setObjectName( FRAME_NAME );
     frame->setStyleSheet( TAB_STYLE_SHEET );
@@ -1323,10 +1326,10 @@ void MainWindow::ExtendUI()
     m_TableOfContents->setObjectName( TABLE_OF_CONTENTS_NAME );
     addDockWidget( Qt::RightDockWidgetArea, m_TableOfContents );
 
-    m_FindReplace = new FindReplace( *this );
+    /*m_FindReplace = new FindReplace( *this );
     m_FindReplace->setObjectName( FIND_REPLACE_NAME );
     m_FindReplace->hide();
-    addDockWidget( Qt::RightDockWidgetArea, m_FindReplace );
+    addDockWidget( Qt::RightDockWidgetArea, m_FindReplace );*/
 
     m_ValidationResultsView = new ValidationResultsView( this );
     m_ValidationResultsView->setObjectName( VALIDATION_RESULTS_VIEW_NAME );

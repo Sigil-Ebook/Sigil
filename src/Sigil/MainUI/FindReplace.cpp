@@ -23,20 +23,18 @@
 #include <stdafx.h>
 #include "pcre.h"
 #include "FindReplace.h"
-#include "Dialogs/FindReplaceOptions.h"
 #include "Misc/SleepFunctions.h"
 
 static const QString SETTINGS_GROUP = "find_replace";
 static const int MAXIMUM_SELECTED_TEXT_LIMIT = 100;
 
 FindReplace::FindReplace( MainWindow &main_window )
-    : QDockWidget( &main_window ),
-      m_MainWindow( main_window ),
-      m_LookWhere( LookWhere_CurrentFile ),
-      m_SearchMode( SearchMode_Normal )
+    : QWidget( &main_window ),
+      m_MainWindow( main_window )
 {
     ui.setupUi( this );
 
+    ExtendUI();
     ConnectSignalsToSlots();
 
     ReadSettings();
@@ -70,15 +68,6 @@ void FindReplace::SetUpFindText()
     // Find text should be selected by default
     ui.cbFind->lineEdit()->selectAll();
     ui.cbFind->lineEdit()->setFocus( Qt::ShortcutFocusReason );
-}
-
-
-void FindReplace::AdjustSize( bool toplevel )
-{
-    if ( toplevel )
-    {
-        adjustSize();
-    }
 }
 
 
@@ -118,7 +107,7 @@ void FindReplace::Count()
 
     int count = 0;
 
-    if ( m_LookWhere == LookWhere_CurrentFile || !CheckBookWideSearchingAllowed() )
+    if ( GetLookWhere() == LookWhere_CurrentFile || !CheckBookWideSearchingAllowed() )
     {
         count = searchable->Count( GetSearchRegex() );
     }
@@ -167,7 +156,7 @@ void FindReplace::ReplaceAll()
     }
     int count = 0;
 
-    if ( m_LookWhere == LookWhere_CurrentFile || !CheckBookWideSearchingAllowed() )
+    if ( GetLookWhere() == LookWhere_CurrentFile || !CheckBookWideSearchingAllowed() )
     {
         count = searchable->ReplaceAll( GetSearchRegex(), ui.cbReplace->lineEdit()->text() );
     }
@@ -194,29 +183,6 @@ void FindReplace::ReplaceAll()
 }
 
 
-void FindReplace::ShowAdvancedOptions()
-{
-    FindReplaceOptions options_dialog( this );
-
-    // Load the settings.
-    options_dialog.SetLookWhere( m_LookWhere );
-    options_dialog.SetSearchMode( m_SearchMode );
-    options_dialog.SetMatchWholeWord( m_MatchWholeWord );
-    options_dialog.SetMatchCase( m_MatchCase );
-    options_dialog.SetMatchMinimal( m_MatchMinimal );
-
-    // Show the dialog.
-    options_dialog.exec();
-
-    // The dialog has no cancel so store the settings in case they changed.
-    m_LookWhere = options_dialog.GetLookWhere();
-    m_SearchMode = options_dialog.GetSearchMode();
-    m_MatchWholeWord = options_dialog.GetMatchWholeWord();
-    m_MatchCase = options_dialog.GetMatchCase();
-    m_MatchMinimal = options_dialog.GetMatchMinimal();
-}
-
-
 // Starts the search for the user's term.
 void FindReplace::FindText( Searchable::Direction direction )
 {
@@ -232,7 +198,7 @@ void FindReplace::FindText( Searchable::Direction direction )
         return;
     }
 
-    if ( m_LookWhere == LookWhere_CurrentFile || !CheckBookWideSearchingAllowed() )
+    if ( GetLookWhere() == LookWhere_CurrentFile || !CheckBookWideSearchingAllowed() )
     {
         bool found = searchable->FindNext( GetSearchRegex(), direction );
 
@@ -294,7 +260,7 @@ void FindReplace::ReplaceText( Searchable::Direction direction )
 
 bool FindReplace::CheckBookWideSearchingAllowed()
 {
-    if ( m_LookWhere == FindReplace::LookWhere_AllHTMLFiles &&
+    if ( GetLookWhere() == FindReplace::LookWhere_AllHTMLFiles &&
          m_MainWindow.GetCurrentContentTab().GetViewState() == ContentTab::ViewState_BookView )
     {
         return false;
@@ -319,7 +285,7 @@ QString FindReplace::GetSearchRegex()
     QString search( ui.cbFind->lineEdit()->text() );
 
     // Search type
-    if ( m_SearchMode == SearchMode_Normal )
+    if ( GetSearchMode() == SearchMode_Normal )
     {
         search = QRegExp::escape(search);
     }
@@ -332,7 +298,7 @@ QString FindReplace::GetSearchRegex()
 int FindReplace::CountInFiles()
 {
     // For now, this must hold
-    Q_ASSERT( m_LookWhere == LookWhere_AllHTMLFiles );
+    Q_ASSERT( GetLookWhere() == LookWhere_AllHTMLFiles );
 
     return SearchOperations::CountInFiles(
             GetSearchRegex(),
@@ -344,7 +310,7 @@ int FindReplace::CountInFiles()
 int FindReplace::ReplaceInAllFiles()
 {
     // For now, this must hold
-    Q_ASSERT( m_LookWhere == LookWhere_AllHTMLFiles );
+    Q_ASSERT( GetLookWhere() == LookWhere_AllHTMLFiles );
 
     int count = SearchOperations::ReplaceInAllFIles(
             GetSearchRegex(),
@@ -521,6 +487,34 @@ void FindReplace::UpdatePreviousReplaceStrings()
 }
 
 
+FindReplace::LookWhere FindReplace::GetLookWhere()
+{
+    int look = ui.cbLookWhere->itemData( ui.cbLookWhere->currentIndex() ).toInt();
+    switch ( look )
+    {
+    case FindReplace::LookWhere_AllHTMLFiles:
+        return static_cast<FindReplace::LookWhere>( look );
+        break;
+    default:
+        return FindReplace::LookWhere_CurrentFile;
+    }
+}
+
+
+FindReplace::SearchMode FindReplace::GetSearchMode()
+{
+    int mode = ui.cbSearchMode->itemData( ui.cbSearchMode->currentIndex() ).toInt();
+    switch ( mode )
+    {
+    case FindReplace::SearchMode_Regex:
+        return static_cast<FindReplace::SearchMode>( mode );
+        break;
+    default:
+        return FindReplace::SearchMode_Normal;
+    }
+}
+
+
 // Reads all the stored dialog settings like
 // window position, geometry etc.
 void FindReplace::ReadSettings()
@@ -528,18 +522,12 @@ void FindReplace::ReadSettings()
     QSettings settings;
     settings.beginGroup( SETTINGS_GROUP );
 
-    QVariant match_whole_word = settings.value( "match_whole_word" );
-    m_MatchWholeWord = match_whole_word.isNull() ? false : match_whole_word.toBool();
-
-    QVariant match_case = settings.value( "match_case" );
-    m_MatchCase = match_case.isNull() ? false : match_case.toBool();
-
-    QVariant match_minimal = settings.value( "match_minimal" );
-    m_MatchMinimal = match_minimal.isNull() ? false : match_minimal.toBool();
-
     // Input fields
     ui.cbFind->addItems( settings.value( "find_strings" ).toStringList() );
     ui.cbReplace->addItems( settings.value( "replace_strings" ).toStringList() );
+
+    ui.cbSearchMode->setCurrentIndex( settings.value( "search_mode", 0 ).toInt() );
+    ui.cbLookWhere->setCurrentIndex( settings.value( "look_where", 0 ).toInt() );
 }
 
 
@@ -550,12 +538,11 @@ void FindReplace::WriteSettings()
     QSettings settings;
     settings.beginGroup( SETTINGS_GROUP );
 
-    settings.setValue( "match_whole_word", m_MatchWholeWord );
-    settings.setValue( "match_case", m_MatchCase );
-    settings.setValue( "match_minimal", m_MatchMinimal );
-
     settings.setValue( "find_strings", GetPreviousFindStrings() );
     settings.setValue( "replace_strings", GetPreviousReplaceStrings() );
+
+    settings.setValue( "search_mode", GetSearchMode() );
+    settings.setValue( "look_where", GetLookWhere() );
 }
 
 
@@ -572,16 +559,25 @@ Searchable* FindReplace::GetAvailableSearchable()
 }
 
 
+void FindReplace::ExtendUI()
+{
+    ui.cbSearchMode->addItem( tr( "Normal" ), FindReplace::SearchMode_Normal );
+    ui.cbSearchMode->addItem( tr( "Regex" ), FindReplace::SearchMode_Regex );
+
+    ui.cbLookWhere->addItem( tr( "Current File" ), FindReplace::LookWhere_CurrentFile );
+    ui.cbLookWhere->addItem( tr( "All HTML Files" ), FindReplace::LookWhere_AllHTMLFiles );
+}
+
+
 void FindReplace::ConnectSignalsToSlots()
 {
     connect( ui.findNext, SIGNAL( clicked() ), this, SLOT( FindNext() ) );
     connect( ui.cbFind->lineEdit(), SIGNAL( returnPressed() ), this, SLOT( FindNext() ) );
     connect( ui.findPrevious, SIGNAL( clicked() ), this, SLOT( FindPrevious() ) );
     connect( ui.count, SIGNAL( clicked() ), this, SLOT( Count() ) );
-    connect( ui.advanced, SIGNAL( clicked() ), this, SLOT( ShowAdvancedOptions() ) );
     connect( ui.replaceNext, SIGNAL( clicked() ), this, SLOT( ReplaceNext() ) );
     connect( ui.replacePrevious, SIGNAL( clicked() ), this, SLOT( ReplacePrevious() ) );
     connect( ui.cbReplace->lineEdit(), SIGNAL( returnPressed() ), this, SLOT( ReplaceNext() ));
     connect( ui.replaceAll, SIGNAL( clicked() ), this, SLOT( ReplaceAll() ) );
-    connect( this, SIGNAL( topLevelChanged( bool ) ), this, SLOT( AdjustSize( bool ) ) );
+    connect( ui.close, SIGNAL( clicked() ), this, SLOT( hide() ) );
 }

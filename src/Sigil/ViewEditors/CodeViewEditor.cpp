@@ -72,6 +72,12 @@ CodeViewEditor::CodeViewEditor( HighlighterType high_type, QWidget *parent )
 }
 
 
+QSize CodeViewEditor::sizeHint() const
+{
+    return QSize( 16777215, 16777215 );
+}
+
+
 void CodeViewEditor::CustomSetDocument( QTextDocument &document )
 {
     setDocument( &document );

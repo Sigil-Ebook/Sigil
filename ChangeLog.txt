@@ -1,4 +1,6 @@
 Sigil vNEXT TBA
+    - Refactor Find & Replace into a widget that appears below the editor. Closes issues:
+      961, 579.
     - Windows Installer: Add Sigil as a handler for EPUB and HTML files so that jump lists
       will work and it will always show up on the 'Open With...' menu.
     - Fix issue 1033, 1034: Implement scroll to fragment for Code View and fix scrolling for
@@ -18,8 +20,6 @@ Sigil vNEXT TBA
     - Implement issue 168: Allow selection of multiple Meta Editor properties.
     - Allow for deleting multiple metadata items.
     - Implement issue 368: Pressing enter key on item in book browser should open item.
-    - Refactor Find / Replace dialog into dock widget. Closes issues:
-      961, 579.
     - Fix issue 1005: Regression from change to ensure metdata element has dc namespace.
 
 Sigil v0.4.2 2011.09.02

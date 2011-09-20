@@ -45,7 +45,6 @@ set( QOBJECT_HEADERS
     Dialogs/About.h
     Dialogs/HeadingSelector.h 
     Dialogs/MetaEditor.h
-    Dialogs/FindReplaceOptions.h
     Tabs/TabManager.h
     Tabs/ContentTab.h 
     Tabs/FlowTab.h
@@ -141,8 +140,6 @@ set( DIALOG_FILES
     Dialogs/MetaEditor.h
     Dialogs/HeadingSelector.cpp
     Dialogs/HeadingSelector.h
-    Dialogs/FindReplaceOptions.cpp
-    Dialogs/FindReplaceOptions.h
     )
 
 set( EXPORTER_FILES
@@ -270,8 +267,7 @@ set( UI_FILES
     Form_Files/AddMetadata.ui 
     Form_Files/About.ui 
     Form_Files/HeadingSelector.ui 
-    Form_Files/FindReplace.ui 
-    Form_Files/FindReplaceOptions.ui
+    Form_Files/FindReplace.ui
     )
     
 set( SOURCEUPDATE_FILES   

@@ -33,7 +33,7 @@
 class Resource;
 class HTMLResource;
 
-class FindReplace : public QDockWidget
+class FindReplace : public QWidget
 {
     Q_OBJECT
 
@@ -59,13 +59,10 @@ public:
     enum SearchMode
     {
         SearchMode_Normal,
-        SearchMode_Wildcard,
         SearchMode_Regex
     };
 
 private slots:
-
-    void AdjustSize( bool toplevel );
 
     // Shows a message in the main window.
     void ShowMessage( const QString &message );
@@ -89,8 +86,6 @@ private slots:
     // replacement text in the entire document. Shows a
     // dialog telling how many occurrences were replaced.
     void ReplaceAll();
-
-    void ShowAdvancedOptions();
 
 private:
 
@@ -160,6 +155,9 @@ private:
      */
     void UpdatePreviousReplaceStrings();
 
+    LookWhere GetLookWhere();
+    SearchMode GetSearchMode();
+
     // Reads all the stored dialog settings like
     // window position, geometry etc.
     void ReadSettings();
@@ -167,6 +165,8 @@ private:
     // Writes all the stored dialog settings like
     // window position, geometry etc.
     void WriteSettings();
+
+    void ExtendUI();
 
     /**
      * Connects all the required signals to their respective slots.
@@ -183,9 +183,6 @@ private:
 
     LookWhere m_LookWhere;
     SearchMode m_SearchMode;
-    bool m_MatchWholeWord;
-    bool m_MatchCase;
-    bool m_MatchMinimal;
 
     Ui::FindReplace ui;
 };

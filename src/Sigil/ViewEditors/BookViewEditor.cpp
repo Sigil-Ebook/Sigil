@@ -68,6 +68,12 @@ BookViewEditor::BookViewEditor( QWidget *parent )
 }
 
 
+QSize BookViewEditor::sizeHint() const
+{
+    return QSize( 16777215, 16777215 );
+}
+
+
 void BookViewEditor::CustomSetWebPage( QWebPage &webpage )
 {
     m_isLoadFinished = true;

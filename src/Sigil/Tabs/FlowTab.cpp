@@ -59,7 +59,6 @@ FlowTab::FlowTab( HTMLResource& resource,
     m_Splitter.setOrientation( Qt::Vertical );
     m_Splitter.addWidget( &m_wBookView );
     m_Splitter.addWidget( &m_wCodeView );
-
     ConnectSignalsToSlots();
 
     // We need to set this in the constructor too,

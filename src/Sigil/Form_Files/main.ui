@@ -1093,7 +1093,7 @@
     <string>Find Next</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+Shift+F</string>
+    <string>Ctrl+G</string>
    </property>
   </action>
   <action name="actionFindPrevious">
@@ -1101,7 +1101,7 @@
     <string>Find Previous</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+Alt+Shift+F</string>
+    <string>Ctrl+Shift+G</string>
    </property>
   </action>
   <action name="actionReplaceNext">
@@ -1109,7 +1109,7 @@
     <string>Replace Next</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+Shift+G</string>
+    <string>Ctrl+]</string>
    </property>
   </action>
   <action name="actionReplacePrevious">
@@ -1117,7 +1117,7 @@
     <string>Replace Previous</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+Alt+Shift+G</string>
+    <string>Ctrl+[</string>
    </property>
   </action>
  </widget>

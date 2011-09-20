@@ -67,6 +67,8 @@ public:
      */
     CodeViewEditor( HighlighterType highlighter_type, QWidget *parent = 0 );
 
+    QSize sizeHint() const;
+
     /**
      * A custom implementation of QPlainTextEdit::setDocument()
      * since that doesn't do everything we want it to.
