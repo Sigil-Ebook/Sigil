@@ -104,12 +104,11 @@ QList<SPCRE::MatchInfo> SPCRE::getMatchOffsets(const QString &text)
     if (ovector_count > PCRE_MAX_CAPTURE_GROUPS) {
         ovector_count = PCRE_MAX_CAPTURE_GROUPS;
     }
-    // The vector needs to be a multiple of 3.
-    //int ovector_size = (1 + ovector_count) * 3;
-    //int ovector[ovector_size] = {0};
-    ovector_count = 30;
-    int ovector_size = 31 * 3;
-    int ovector[93] = {0};
+    // The vector needs to be a multiple of 3 and have at least one location
+    // for the full matched string.
+    int ovector_size = (1 + ovector_count) * 3;
+    int ovector[ovector_size];
+    memset(ovector, 0, sizeof(ovector));
     // We keep track of the last offsets as we move though the string matching
     // sub strings.
     int last_offset[2] = {0};
