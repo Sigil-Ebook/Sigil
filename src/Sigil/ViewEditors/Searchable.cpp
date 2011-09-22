@@ -34,7 +34,7 @@ void Searchable::UpdateSearchCache( const QString &search_regex, const QString &
 }
 
 
-std::pair<int, int> Searchable::NearestMatch( const QList<std::pair<int, int> > &matches,
+std::pair<int, int> Searchable::NearestMatch( const QList<SPCRE::MatchInfo> &matches,
                                     int position,
                                     Searchable::Direction search_direction )
 {
@@ -48,7 +48,7 @@ std::pair<int, int> Searchable::NearestMatch( const QList<std::pair<int, int> > 
     int first_after = -1;
     for ( int i = 0; i < matches.count(); i++ )
     {
-        if ( matches.at( i ).first >= position )
+        if ( matches.at( i ).offset.first >= position )
         {
             first_after = i;
             break;
@@ -59,7 +59,7 @@ std::pair<int, int> Searchable::NearestMatch( const QList<std::pair<int, int> > 
     {
         if ( first_after != -1 )
         {
-            nearest_match = matches.at( first_after );
+            nearest_match = matches.at( first_after ).offset;
         }
     }
     else if ( search_direction == Searchable::Direction_Up )
@@ -67,7 +67,7 @@ std::pair<int, int> Searchable::NearestMatch( const QList<std::pair<int, int> > 
         // No maths after our position so we are at the end.
         if ( first_after == -1 )
         {
-            nearest_match = matches.at( matches.count() -1 );
+            nearest_match = matches.at( matches.count() -1 ).offset;
         }
         // There is a match after we're somewhere in the middle
         else
@@ -76,7 +76,7 @@ std::pair<int, int> Searchable::NearestMatch( const QList<std::pair<int, int> > 
             // We have matches before.
             if ( first_before >= 0 )
             {
-                nearest_match = matches.at( first_before );
+                nearest_match = matches.at( first_before ).offset;
             }
         }
     }
@@ -84,11 +84,11 @@ std::pair<int, int> Searchable::NearestMatch( const QList<std::pair<int, int> > 
     {
         if ( first_after != -1 )
         {
-            nearest_match = matches.at( first_after );
+            nearest_match = matches.at( first_after ).offset;
         }
         else
         {
-            nearest_match = matches.at( 0 );
+            nearest_match = matches.at( 0 ).offset;
         }
     }
 
@@ -96,13 +96,29 @@ std::pair<int, int> Searchable::NearestMatch( const QList<std::pair<int, int> > 
 }
 
 
-bool Searchable::IsMatchSelected( const QList<std::pair<int, int> > &matches,
+QList<std::pair<int, int> > Searchable::CaptureOffsets( const QList<SPCRE::MatchInfo> &matches,
+                                                        int start,
+                                                        int end)
+{
+    for ( int i = 0; i < matches.count(); i++ )
+    {
+        if ( matches.at( i ).offset.first == start && matches.at( i ).offset.second == end )
+        {
+            return matches.at( i ).capture_groups_offsets;
+        }
+    }
+
+    return QList<std::pair<int, int> >();
+}
+
+
+bool Searchable::IsMatchSelected( const QList<SPCRE::MatchInfo> &matches,
                                 int start,
                                 int end)
 {
     for ( int i = 0; i < matches.count(); i++ )
     {
-        if ( matches.at( i ).first == start && matches.at( i ).second == end )
+        if ( matches.at( i ).offset.first == start && matches.at( i ).offset.second == end )
         {
             return true;
         }

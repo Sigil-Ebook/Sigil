@@ -428,7 +428,7 @@ bool CodeViewEditor::ReplaceSelected( const QString &search_regex, const QString
     if ( IsMatchSelected(m_MatchOffsets, selection_start, selection_end ) )
     {
         QString replaced_text;
-        bool replacement_made = spcre->replaceText( selected_text, replacement, replaced_text );
+        bool replacement_made = spcre->replaceText( selected_text, CaptureOffsets(m_MatchOffsets, selection_start, selection_end), replacement, replaced_text );
 
         if ( replacement_made )
         {
@@ -445,7 +445,7 @@ int CodeViewEditor::ReplaceAll( const QString &search_regex, const QString &repl
 {
     UpdateSearchCache( search_regex, toPlainText() );
 
-    QList<std::pair<int, int> > offsets = m_MatchOffsets;
+    QList<SPCRE::MatchInfo> offsets = m_MatchOffsets;
     SPCRE *spcre = PCRECache::instance()->getObject( search_regex );
 
     int count = 0;
@@ -467,11 +467,11 @@ int CodeViewEditor::ReplaceAll( const QString &search_regex, const QString &repl
         // Add this replacment to the previous edit operation.
         cursor.joinPreviousEditBlock();
         // Select the text we watn to replace.
-        cursor.setPosition( offsets.at( i ).first );
-        cursor.setPosition( offsets.at( i ).second, QTextCursor::KeepAnchor );
+        cursor.setPosition( offsets.at( i ).offset.first );
+        cursor.setPosition( offsets.at( i ).offset.second, QTextCursor::KeepAnchor );
 
         QString replaced_text;
-        bool replacement_made = spcre->replaceText( cursor.selectedText(), replacement, replaced_text );
+        bool replacement_made = spcre->replaceText( cursor.selectedText(), offsets.at( i ).capture_groups_offsets, replacement, replaced_text );
 
         if ( replacement_made )
         {

@@ -37,15 +37,25 @@ public:
     SPCRE(const QString &patten);
     ~SPCRE();
 
+    struct MatchInfo {
+        // Offset within the full text where this match occurs.
+        std::pair<int, int> offset;
+        // Each offset representes the porition of text that the capture
+        // represents inside of the matched string. This is normalized so that
+        // 0 represents the start of the string represented by offset.
+        QList<std::pair<int, int> > capture_groups_offsets;
+    };
+
     bool isValid();
 
     QString getPattern();
     pcre *getCompiledPattern();
     pcre_extra *getStudy();
     int getCaptureSubpatternCount();
+    int getCaptureStringNumber(const QString &name);
 
-    QList<std::pair<int, int> > getMatchOffsets(const QString &text);
-    bool replaceText(const QString &text, const QString &replacement_pattern, QString &out);
+    QList<MatchInfo> getMatchOffsets(const QString &text);
+    bool replaceText(const QString &text, const QList<std::pair<int, int> > &capture_groups_offsets, const QString &replacement_pattern, QString &out);
 
 private:
     bool m_valid;

@@ -374,7 +374,7 @@ bool BookViewEditor::ReplaceSelected( const QString &search_regex, const QString
     if ( IsMatchSelected(m_MatchOffsets, selection_offset, selection_offset + selection_length ) )
     {
         QString replaced_text;
-        bool replacement_made = spcre->replaceText( GetSelectedText(), replacement, replaced_text );
+        bool replacement_made = spcre->replaceText( GetSelectedText(), CaptureOffsets( m_MatchOffsets, selection_offset, selection_offset + selection_length ), replacement, replaced_text );
 
         if ( replacement_made )
         {
@@ -402,7 +402,7 @@ int BookViewEditor::ReplaceAll( const QString &search_regex, const QString &repl
     SearchTools search_tools = GetSearchTools();
     UpdateSearchCache( search_regex, search_tools.fulltext );
 
-    QList<std::pair<int, int> > offsets = m_MatchOffsets;
+    QList<SPCRE::MatchInfo> offsets = m_MatchOffsets;
     SPCRE *spcre = PCRECache::instance()->getObject( search_regex );
 
     int count = 0;
@@ -415,12 +415,12 @@ int BookViewEditor::ReplaceAll( const QString &search_regex, const QString &repl
     for ( int i = offsets.count() - 1; i >= 0; i-- )
     {
         QString replaced_text;
-        QString matched_text = Utility::Substring( offsets.at( i ).first, offsets.at( i ).second, search_tools.fulltext );
-        bool replacement_made = spcre->replaceText( matched_text, replacement, replaced_text );
+        QString matched_text = Utility::Substring( offsets.at( i ).offset.first, offsets.at( i ).offset.second, search_tools.fulltext );
+        bool replacement_made = spcre->replaceText( matched_text, offsets.at(i).capture_groups_offsets, replacement, replaced_text );
 
         if ( replacement_made )
         {
-            SelectRangeInputs input = GetRangeInputs( search_tools.node_offsets, offsets.at( i ).first, offsets.at( i ).second - offsets.at( i ).first );
+            SelectRangeInputs input = GetRangeInputs( search_tools.node_offsets, offsets.at( i ).offset.first, offsets.at( i ).offset.second - offsets.at( i ).offset.first );
 
             SelectRangeJS inputJS;
             inputJS.start_node = GetElementSelectingJS_WithTextNode( XhtmlDoc::GetHierarchyFromNode( *input.start_node ) );

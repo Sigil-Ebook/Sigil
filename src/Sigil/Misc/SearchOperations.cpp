@@ -187,16 +187,16 @@ tuple< QString, int > SearchOperations::PerformGlobalReplace( const QString &tex
     int count = 0;
 
     SPCRE *spcre = PCRECache::instance()->getObject( search_regex );
-    QList<std::pair<int, int> > match_offsets = spcre->getMatchOffsets( text );
+    QList<SPCRE::MatchInfo> match_offsets = spcre->getMatchOffsets( text );
 
     for ( int i =  match_offsets.count() - 1; i >= 0; i-- )
     {
-        QString match_segement = Utility::Substring( match_offsets.at( i ).first, match_offsets.at( i ).second, new_text );
+        QString match_segement = Utility::Substring( match_offsets.at( i ).offset.first, match_offsets.at( i ).offset.second, new_text );
         QString replacement_text;
 
-        if ( spcre->replaceText( match_segement, replacement, replacement_text ) )
+        if ( spcre->replaceText( match_segement, match_offsets.at( i ).capture_groups_offsets, replacement, replacement_text ) )
         {
-            new_text.replace( match_offsets.at( i ).first, match_offsets.at( i ).second - match_offsets.at( i ).first, replacement_text );
+            new_text.replace( match_offsets.at( i ).offset.first, match_offsets.at( i ).offset.second - match_offsets.at( i ).offset.first, replacement_text );
             count++;
         }
     }

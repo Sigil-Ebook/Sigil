@@ -25,6 +25,7 @@
 #define SEARCHABLE_H
 
 #include "stdafx.h"
+#include "PCRE/SPCRE.h"
 
 class QString;
 class QStringList;
@@ -100,11 +101,15 @@ public:
      */
     virtual QString GetSelectedText() = 0;
 
-    static std::pair<int, int> NearestMatch( const QList<std::pair<int, int> > &matches,
+    static std::pair<int, int> NearestMatch( const QList<SPCRE::MatchInfo> &matches,
                                    int position,
                                    Searchable::Direction search_direction );
 
-    static bool IsMatchSelected( const QList<std::pair<int, int> > &matches,
+    static QList<std::pair<int, int> > CaptureOffsets( const QList<SPCRE::MatchInfo> &matches,
+                                                       int start,
+                                                       int end );
+
+    static bool IsMatchSelected( const QList<SPCRE::MatchInfo> &matches,
                                int start,
                                int end );
 
@@ -117,7 +122,7 @@ protected:
     void UpdateSearchCache( const QString &search_regex, const QString &text );
 
 
-    QList<std::pair<int, int> > m_MatchOffsets;
+    QList<SPCRE::MatchInfo> m_MatchOffsets;
     QString m_FindPattern;
 };
 
