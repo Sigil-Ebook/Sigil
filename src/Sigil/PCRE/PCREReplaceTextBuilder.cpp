@@ -19,7 +19,7 @@
 **
 *************************************************************************/
 
-#include "stdafx.h"
+#include <stdafx.h>
 #include "PCREReplaceTextBuilder.h"
 #include "Misc/Utility.h"
 

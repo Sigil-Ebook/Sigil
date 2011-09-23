@@ -19,7 +19,7 @@
 **
 *************************************************************************/
 
-
+#include <stdafx.h>
 #include "PCRECache.h"
 
 PCRECache *PCRECache::m_instance = 0;

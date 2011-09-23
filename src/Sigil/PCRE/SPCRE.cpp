@@ -19,7 +19,7 @@
 **
 *************************************************************************/
 
-#include <QDebug>
+#include <stdafx.h>
 #include "SPCRE.h"
 #include "PCREReplaceTextBuilder.h"
 #include "constants.h"
@@ -107,7 +107,9 @@ QList<SPCRE::MatchInfo> SPCRE::getMatchOffsets(const QString &text)
     // The vector needs to be a multiple of 3 and have at least one location
     // for the full matched string.
     int ovector_size = (1 + ovector_count) * 3;
-    int ovector[ovector_size];
+    // Allocate only the amount of memory we need for the search pattern and
+    // the number of capture patterns it contains.
+    int *ovector = new int[ovector_size];
     memset(ovector, 0, sizeof(ovector));
     // We keep track of the last offsets as we move though the string matching
     // sub strings.
@@ -200,6 +202,7 @@ QList<SPCRE::MatchInfo> SPCRE::getMatchOffsets(const QString &text)
         rc = pcre_exec(m_re, m_study, text.toUtf8().data(), strlen(text.toUtf8().data()), last_offset[1], 0, ovector, ovector_size);
     } while(rc >= 0  && ovector[0] != ovector[1] && ovector[1] != last_offset[1]);
 
+    free(ovector);
     return info;
 }
 
