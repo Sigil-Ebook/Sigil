@@ -30,6 +30,7 @@
 #include "exception.h"
 
 #define QT_USE_FAST_CONCATENATION
+#define PCRE_STATIC
 
 // We will be using these everywhere,
 // so let's make life a bit easier.
