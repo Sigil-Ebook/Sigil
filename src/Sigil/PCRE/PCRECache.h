@@ -28,19 +28,49 @@
 #include <QCache>
 #include <QString>
 
+/**
+ * A cache of SPCRE regular expression objects.
+ *
+ * The SPCRE's are cached to improve performance.
+ */
 class PCRECache
 {
 public:
+    /**
+     * The accessor function to access the cache.
+     */
     static PCRECache *instance();
     ~PCRECache();
 
+    /**
+     * Insert an SPCRE into the cache. The key is the regular expression
+     * pattern by the SPCRE as a string.
+     *
+     * @param key The key associated with the SPCRE.
+     * @param object The SPCRE to store.
+     *
+     * @return True if the object was successfully inserted.
+     */
     bool insert(const QString &key, SPCRE *object);
+    /**
+     * Retrieve the SPCRE object from the cache.
+     *
+     * If the object does not exist it is created and inserted into te cache
+     * then returned.
+     *
+     * @param key The key associated with the SPCRE.
+     */
     SPCRE *getObject(const QString &key);
 
 private:
+    /**
+     * Private constructor.
+     */
     PCRECache();
 
+    // The cache that we store the SPCRE's.
     QCache<QString, SPCRE> m_cache;
+    // The single instance of the cache.
     static PCRECache *m_instance;
 };
 

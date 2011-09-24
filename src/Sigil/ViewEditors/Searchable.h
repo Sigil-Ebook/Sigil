@@ -101,28 +101,68 @@ public:
      */
     virtual QString GetSelectedText() = 0;
 
+    /**
+     * Get the nearest match within a list of MatchInfo.
+     *
+     * @param matches The matches to look though.
+     * @param position The posision to use for finding the closest match.
+     * @param search_direction The direction to search. Should we find the
+     * match before or after position.
+     *
+     * @return The closest match or (-1, -1) if there is no acceptable match.
+     */
     static std::pair<int, int> NearestMatch( const QList<SPCRE::MatchInfo> &matches,
                                    int position,
                                    Searchable::Direction search_direction );
 
+    /**
+     * Check if the offset is within the list of matches.
+     *
+     * @param matches The list of matches to look in.
+     * @param start The start of the offset we are matching.
+     * @param end The end of the offset we are matching.
+     *
+     * @return True if the offset is a match.
+     */
     static bool IsMatchSelected( const QList<SPCRE::MatchInfo> &matches,
                                int start,
                                int end );
 
+    /**
+     * The capture offsets associated with a given match offset.
+     *
+     * @param matches The list of matches to look in.
+     * @param start The start of the offset we are looking at.
+     * @param end The end of the offset we are looking at.
+     *
+     * @return The list of capture offsets for the match given by a specific
+     * offset.
+     */
     static QList<std::pair<int, int> > CaptureOffsets( const QList<SPCRE::MatchInfo> &matches,
                                                        int start,
                                                        int end );
 
     // This really should be protected but it's necessary to clear the cache
     // when searching though HTML text tabs.
+    /**
+     * Clear the search cache.
+     */
     void ClearSearchCache();
 
 protected:
 
+    /**
+     * Update the search cache if necessary.
+     *
+     * @param search_regex The regular expression the user has specified.
+     * @param text The text to match against.
+     */
     void UpdateSearchCache( const QString &search_regex, const QString &text );
 
-
+    // A list of MatchInfo that represents matches of the user supplied regular
+    // expression against the text.
     QList<SPCRE::MatchInfo> m_MatchInfo;
+    // The regular expression the user specified.
     QString m_FindPattern;
 };
 
