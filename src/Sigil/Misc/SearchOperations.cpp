@@ -104,7 +104,7 @@ int SearchOperations::CountInHTMLFile( const QString &search_regex,
         const QString &text = CleanSource::PrettyPrint( XhtmlDoc::GetDomDocumentAsString( document ) );
 
         //return Searchable::Count( search_regex, text );
-        return PCRECache::instance()->getObject( search_regex )->getMatchOffsets( text ).count();
+        return PCRECache::instance()->getObject( search_regex )->getMatchInfo( text ).count();
     }
 
     //TODO: BookViewSearch
@@ -187,16 +187,16 @@ tuple< QString, int > SearchOperations::PerformGlobalReplace( const QString &tex
     int count = 0;
 
     SPCRE *spcre = PCRECache::instance()->getObject( search_regex );
-    QList<SPCRE::MatchInfo> match_offsets = spcre->getMatchOffsets( text );
+    QList<SPCRE::MatchInfo> match_info = spcre->getMatchInfo( text );
 
-    for ( int i =  match_offsets.count() - 1; i >= 0; i-- )
+    for ( int i =  match_info.count() - 1; i >= 0; i-- )
     {
-        QString match_segement = Utility::Substring( match_offsets.at( i ).offset.first, match_offsets.at( i ).offset.second, new_text );
+        QString match_segement = Utility::Substring( match_info.at( i ).offset.first, match_info.at( i ).offset.second, new_text );
         QString replacement_text;
 
-        if ( spcre->replaceText( match_segement, match_offsets.at( i ).capture_groups_offsets, replacement, replacement_text ) )
+        if ( spcre->replaceText( match_segement, match_info.at( i ).capture_groups_offsets, replacement, replacement_text ) )
         {
-            new_text.replace( match_offsets.at( i ).offset.first, match_offsets.at( i ).offset.second - match_offsets.at( i ).offset.first, replacement_text );
+            new_text.replace( match_info.at( i ).offset.first, match_info.at( i ).offset.second - match_info.at( i ).offset.first, replacement_text );
             count++;
         }
     }

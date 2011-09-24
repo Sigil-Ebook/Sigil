@@ -89,7 +89,7 @@ int SPCRE::getCaptureStringNumber(const QString &name)
     return number;
 }
 
-QList<SPCRE::MatchInfo> SPCRE::getMatchOffsets(const QString &text)
+QList<SPCRE::MatchInfo> SPCRE::getMatchInfo(const QString &text)
 {
     QList<SPCRE::MatchInfo> info;
 

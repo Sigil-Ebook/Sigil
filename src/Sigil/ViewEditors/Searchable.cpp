@@ -24,16 +24,6 @@
 #include "Searchable.h"
 #include "PCRE/PCRECache.h"
 
-void Searchable::UpdateSearchCache( const QString &search_regex, const QString &text )
-{
-    if ( search_regex != m_FindPattern || m_MatchOffsets.isEmpty() )
-    {
-        m_FindPattern = search_regex;
-        m_MatchOffsets = PCRECache::instance()->getObject(m_FindPattern)->getMatchOffsets( text );
-    }
-}
-
-
 std::pair<int, int> Searchable::NearestMatch( const QList<SPCRE::MatchInfo> &matches,
                                     int position,
                                     Searchable::Direction search_direction )
@@ -96,22 +86,6 @@ std::pair<int, int> Searchable::NearestMatch( const QList<SPCRE::MatchInfo> &mat
 }
 
 
-QList<std::pair<int, int> > Searchable::CaptureOffsets( const QList<SPCRE::MatchInfo> &matches,
-                                                        int start,
-                                                        int end)
-{
-    for ( int i = 0; i < matches.count(); i++ )
-    {
-        if ( matches.at( i ).offset.first == start && matches.at( i ).offset.second == end )
-        {
-            return matches.at( i ).capture_groups_offsets;
-        }
-    }
-
-    return QList<std::pair<int, int> >();
-}
-
-
 bool Searchable::IsMatchSelected( const QList<SPCRE::MatchInfo> &matches,
                                 int start,
                                 int end)
@@ -128,8 +102,34 @@ bool Searchable::IsMatchSelected( const QList<SPCRE::MatchInfo> &matches,
 }
 
 
+QList<std::pair<int, int> > Searchable::CaptureOffsets( const QList<SPCRE::MatchInfo> &matches,
+                                                        int start,
+                                                        int end)
+{
+    for ( int i = 0; i < matches.count(); i++ )
+    {
+        if ( matches.at( i ).offset.first == start && matches.at( i ).offset.second == end )
+        {
+            return matches.at( i ).capture_groups_offsets;
+        }
+    }
+
+    return QList<std::pair<int, int> >();
+}
+
+
 void Searchable::ClearSearchCache()
 {
-    m_MatchOffsets.clear();
+    m_MatchInfo.clear();
     m_FindPattern.clear();
+}
+
+
+void Searchable::UpdateSearchCache( const QString &search_regex, const QString &text )
+{
+    if ( search_regex != m_FindPattern || m_MatchInfo.isEmpty() )
+    {
+        m_FindPattern = search_regex;
+        m_MatchInfo = PCRECache::instance()->getObject(m_FindPattern)->getMatchInfo( text );
+    }
 }

@@ -54,7 +54,7 @@ public:
     int getCaptureSubpatternCount();
     int getCaptureStringNumber(const QString &name);
 
-    QList<MatchInfo> getMatchOffsets(const QString &text);
+    QList<MatchInfo> getMatchInfo(const QString &text);
     bool replaceText(const QString &text, const QList<std::pair<int, int> > &capture_groups_offsets, const QString &replacement_pattern, QString &out);
 
 private:

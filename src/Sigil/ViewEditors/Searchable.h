@@ -105,13 +105,13 @@ public:
                                    int position,
                                    Searchable::Direction search_direction );
 
-    static QList<std::pair<int, int> > CaptureOffsets( const QList<SPCRE::MatchInfo> &matches,
-                                                       int start,
-                                                       int end );
-
     static bool IsMatchSelected( const QList<SPCRE::MatchInfo> &matches,
                                int start,
                                int end );
+
+    static QList<std::pair<int, int> > CaptureOffsets( const QList<SPCRE::MatchInfo> &matches,
+                                                       int start,
+                                                       int end );
 
     // This really should be protected but it's necessary to clear the cache
     // when searching though HTML text tabs.
@@ -122,7 +122,7 @@ protected:
     void UpdateSearchCache( const QString &search_regex, const QString &text );
 
 
-    QList<SPCRE::MatchInfo> m_MatchOffsets;
+    QList<SPCRE::MatchInfo> m_MatchInfo;
     QString m_FindPattern;
 };
 
