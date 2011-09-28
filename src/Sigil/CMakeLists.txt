@@ -45,6 +45,8 @@ set( QOBJECT_HEADERS
     Dialogs/About.h
     Dialogs/HeadingSelector.h 
     Dialogs/MetaEditor.h
+    Dialogs/Preferences.h
+    Dialogs/PreferenceWidgets/PreferencesWidget.h
     Tabs/TabManager.h
     Tabs/ContentTab.h 
     Tabs/FlowTab.h
@@ -64,6 +66,7 @@ set( QOBJECT_HEADERS
     MainUI/NCXModel.h
     MainUI/ValidationResultsView.h
     Misc/AppEventFilter.h
+    Misc/SettingsStore.h
     Misc/UpdateChecker.h 
     Misc/RasterizeImageResource.h
     ResourceObjects/Resource.h
@@ -140,6 +143,10 @@ set( DIALOG_FILES
     Dialogs/MetaEditor.h
     Dialogs/HeadingSelector.cpp
     Dialogs/HeadingSelector.h
+    Dialogs/Preferences.cpp
+    Dialogs/Preferences.h
+    Dialogs/PreferenceWidgets/LanguageWidget.cpp
+    Dialogs/PreferenceWidgets/LanguageWidget.h
     )
 
 set( EXPORTER_FILES
@@ -189,6 +196,8 @@ set( MISC_FILES
     Misc/RasterizeImageResource.h
     Misc/SearchOperations.cpp
     Misc/SearchOperations.h
+    Misc/SettingsStore.cpp
+    Misc/SettingsStore.h
     Misc/XhtmlEntitiesDtd.cpp
     Misc/FontObfuscation.cpp
     Misc/FontObfuscation.h
@@ -268,6 +277,8 @@ set( UI_FILES
     Form_Files/About.ui 
     Form_Files/HeadingSelector.ui 
     Form_Files/FindReplace.ui
+    Form_Files/Preferences.ui
+    Form_Files/PLanguageWidget.ui
     )
     
 set( SOURCEUPDATE_FILES   
@@ -358,6 +369,7 @@ source_group( "Dialogs"           FILES ${DIALOG_FILES} )
 source_group( "Exporters"         FILES ${EXPORTER_FILES} )
 source_group( "Importers"         FILES ${IMPORTER_FILES} )
 source_group( "Misc"              FILES ${MISC_FILES} )
+source_group( "SPCRE"             FILES ${SPCRE_FILES} )
 source_group( "View Editors"      FILES ${VIEW_EDITOR_FILES} )
 source_group( "Tabs"              FILES ${TAB_FILES} )
 source_group( "MainUI"            FILES ${MAINUI_FILES} )

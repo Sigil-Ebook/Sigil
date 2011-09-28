@@ -29,7 +29,7 @@
 #include <QString>
 
 /**
- * A cache of SPCRE regular expression objects.
+ * Singleton. A cache of SPCRE regular expression objects.
  *
  * The SPCRE's are cached to improve performance.
  */

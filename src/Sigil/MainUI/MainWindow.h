@@ -222,6 +222,11 @@ private slots:
     void AboutDialog();
 
     /**
+     * Implementes Preferences action functionality.
+     */
+    void PreferencesDialog();
+
+    /**
      * Implements Validate Epub action functionality.
      */
     void ValidateEpub();

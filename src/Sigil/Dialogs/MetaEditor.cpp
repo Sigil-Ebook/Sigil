@@ -23,6 +23,7 @@
 #include "MetaEditor.h"
 #include "AddMetadata.h"
 #include "ResourceObjects/OPFResource.h"
+#include "Misc/SettingsStore.h"
 
 static const int DEFAULT_EXPANDED_HEIGHT = 304;
 static const QString SETTINGS_GROUP      = "meta_editor";
@@ -54,10 +55,20 @@ MetaEditor::MetaEditor( OPFResource &opf, QWidget *parent )
     FillLanguageComboBox();
     ReadMetadataFromBook();
 
-    // Set the default language to English
+    // Set the default language to the users preference if possible.
     if ( m_Metadata[ "Language" ].isEmpty() )
-        
-        ui.cbLanguages->setCurrentIndex( ui.cbLanguages->findText( tr( "English" ) ) );	     
+    {
+        int index = ui.cbLanguages->findText( SettingsStore::instance()->defaultMetadataLang() );
+        if ( index == -1 )
+        {
+            index = ui.cbLanguages->findText( tr( "English" ) );
+            if ( index == -1 )
+            {
+                index = 0;
+            }
+        }
+        ui.cbLanguages->setCurrentIndex( index );
+    }
 }
 
 

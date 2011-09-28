@@ -91,6 +91,7 @@
     <addaction name="actionReportAnIssue"/>
     <addaction name="actionSigilDevBlog"/>
     <addaction name="actionAbout"/>
+    <addaction name="actionPreferences"/>
    </widget>
    <widget class="QMenu" name="menuFormat">
     <property name="title">
@@ -1118,6 +1119,11 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+[</string>
+   </property>
+  </action>
+  <action name="actionPreferences">
+   <property name="text">
+    <string>Preferences</string>
    </property>
   </action>
  </widget>

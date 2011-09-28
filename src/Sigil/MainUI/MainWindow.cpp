@@ -26,6 +26,7 @@
 #include "Exporters/ExportEPUB.h"
 #include "Dialogs/MetaEditor.h"
 #include "Dialogs/About.h"
+#include "Dialogs/Preferences.h"
 #include "Importers/ImporterFactory.h"
 #include "Exporters/ExporterFactory.h"
 #include "BookManipulation/BookNormalization.h"
@@ -462,6 +463,16 @@ void MainWindow::AboutDialog()
     About about( this );
 
     about.exec();
+}
+
+
+void MainWindow::PreferencesDialog()
+{
+    Preferences preferences( this );
+    preferences.exec();
+
+    // TODO: preferences needs to write it's settings upon close.
+    // TODO: Main window needs to reload any settings that have changed.
 }
 
 
@@ -1608,6 +1619,7 @@ void MainWindow::ConnectSignalsToSlots()
     connect( ui.actionReportAnIssue, SIGNAL( triggered() ), this, SLOT( ReportAnIssue()            ) );
     connect( ui.actionSigilDevBlog,  SIGNAL( triggered() ), this, SLOT( SigilDevBlog()             ) );
     connect( ui.actionAbout,         SIGNAL( triggered() ), this, SLOT( AboutDialog()              ) );
+    connect( ui.actionPreferences,   SIGNAL( triggered() ), this, SLOT( PreferencesDialog()        ) );
     connect( ui.actionValidateEpub,  SIGNAL( triggered() ), this, SLOT( ValidateEpub()             ) );
 
     
