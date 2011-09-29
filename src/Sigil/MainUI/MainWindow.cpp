@@ -39,6 +39,7 @@
 #include "Tabs/OPFTab.h"
 #include "ResourceObjects/HTMLResource.h"
 #include "ResourceObjects/OPFResource.h"
+#include "Misc/SettingsStore.h"
 
 static const int TEXT_ELIDE_WIDTH           = 300;
 static const QString SETTINGS_GROUP         = "mainwindow";
@@ -471,8 +472,8 @@ void MainWindow::PreferencesDialog()
     Preferences preferences( this );
     preferences.exec();
 
-    // TODO: preferences needs to write it's settings upon close.
-    // TODO: Main window needs to reload any settings that have changed.
+    // Let everyone interested know the settings have changed.
+    SettingsStore::instance()->triggerSettingsChanged();
 }
 
 
