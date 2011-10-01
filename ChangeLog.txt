@@ -1,4 +1,6 @@
 Sigil vNEXT TBA
+    - Add keyboard shortcut manager so user can change the keyboard shortcuts. Fixes 966.
+    - Add preference dialog. Closes 206, 718.
     - Refactor Find & Replace into a widget that appears below the editor. Closes issues:
       961, 579.
     - Windows Installer: Add Sigil as a handler for EPUB and HTML files so that jump lists
