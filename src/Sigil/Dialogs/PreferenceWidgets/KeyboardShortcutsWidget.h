@@ -1,7 +1,7 @@
 /************************************************************************
 **
 **  Copyright (C) 2011  John Schember <john@nachtimwald.com>
-**  Copyright (C) 2011 Gary Jonston  <gary.jonston@gmail.com>
+**  Copyright (C) 2011 Grzegorz Wolszczak <grzechu81@gmail.com>
 **
 **  This file is part of Sigil.
 **
