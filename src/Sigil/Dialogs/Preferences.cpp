@@ -23,6 +23,7 @@
 #include <QScrollArea>
 #include "Preferences.h"
 #include "PreferenceWidgets/LanguageWidget.h"
+#include "PreferenceWidgets/AppearanceWidget.h"
 
 static const QString SETTINGS_GROUP = "preferences_dialog";
 
@@ -32,6 +33,7 @@ Preferences::Preferences(QWidget *parent) :
     ui.setupUi(this);
 
     // Create and load all of our preference widgets.;
+    m_pWidgets.append(new AppearanceWidget);
     m_pWidgets.append(new LanguageWidget);
 
     // Populate the list of avaliable preference groups with the names
@@ -60,9 +62,11 @@ Preferences::~Preferences()
     }
 }
 
-void Preferences::selectPWidget(QListWidgetItem *item)
+void Preferences::selectPWidget(QListWidgetItem *current, QListWidgetItem *previous)
 {
-    int index = ui.availableWidgets->row(item);
+    Q_UNUSED(previous)
+
+    int index = ui.availableWidgets->row(current);
 
     // Ensure the selected index exists in our list of widgets.
     if (index >= 0 && index < m_pWidgets.length()) {
@@ -106,6 +110,6 @@ void Preferences::readSettings()
 
 void Preferences::connectSignalsSlots()
 {
-    connect(ui.availableWidgets, SIGNAL(itemChanged(QListWidgetItem*)), this, SLOT(selectPWidget(QListWidgetItem*)));
+    connect(ui.availableWidgets, SIGNAL(currentItemChanged(QListWidgetItem*, QListWidgetItem*)), this, SLOT(selectPWidget(QListWidgetItem*, QListWidgetItem*)));
     connect(this, SIGNAL(finished(int)), this, SLOT(saveSettings()));
 }

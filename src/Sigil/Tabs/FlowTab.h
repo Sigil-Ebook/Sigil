@@ -377,6 +377,11 @@ private slots:
      */
     void LeaveEditor( QWidget *editor );
 
+    /**
+     * Receives the signal emitted when user settings have changed.
+     */
+    void LoadSettings();
+
 private:
 
     /**

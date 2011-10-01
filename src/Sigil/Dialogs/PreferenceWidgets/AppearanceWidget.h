@@ -20,28 +20,28 @@
 *************************************************************************/
 
 #pragma once
-#ifndef LANGUAGEWIDGET_H
-#define LANGUAGEWIDGET_H
+#ifndef APPEARANCEWIDGET_H
+#define APPEARANCEWIDGET_H
 
 #include <QWidget>
 #include "PreferencesWidget.h"
-#include "ui_PLanguageWidget.h"
+#include "ui_PAppearanceWidget.h"
 
 class QString;
 
 /**
- * Preferences widget for language related preferences.
+ * Preferences widget for appearance related preferences.
  */
-class LanguageWidget : public PreferencesWidget
+class AppearanceWidget : public PreferencesWidget
 {
 public:
-    LanguageWidget();
+    AppearanceWidget();
     void saveSettings();
 
 private:
     void readSettings();
 
-    Ui::LanguageWidget ui;
+    Ui::AppearanceWidget ui;
 };
 
-#endif // LANGUAGEWIDGET_H
+#endif // APPEARANCEWIDGET_H

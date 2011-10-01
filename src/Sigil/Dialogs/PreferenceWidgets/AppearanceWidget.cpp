@@ -19,29 +19,36 @@
 **
 *************************************************************************/
 
-#pragma once
-#ifndef LANGUAGEWIDGET_H
-#define LANGUAGEWIDGET_H
+#include <stdafx.h>
+#include "AppearanceWidget.h"
+#include "Misc/SettingsStore.h"
 
-#include <QWidget>
-#include "PreferencesWidget.h"
-#include "ui_PLanguageWidget.h"
+static const QString SETTINGS_GROUP = "user_preferences";
 
-class QString;
-
-/**
- * Preferences widget for language related preferences.
- */
-class LanguageWidget : public PreferencesWidget
+AppearanceWidget::AppearanceWidget()
 {
-public:
-    LanguageWidget();
-    void saveSettings();
+    ui.setupUi(this);
 
-private:
-    void readSettings();
+    readSettings();
+}
 
-    Ui::LanguageWidget ui;
-};
+void AppearanceWidget::saveSettings()
+{
+    SettingsStore *store = SettingsStore::instance();
 
-#endif // LANGUAGEWIDGET_H
+    Qt::Orientation orientation = Qt::Vertical;
+    if (ui.svHorizontal->isChecked()) {
+        orientation = Qt::Horizontal;
+    }
+    store->setSplitViewOrientation(orientation);
+}
+
+void AppearanceWidget::readSettings()
+{
+    SettingsStore *store = SettingsStore::instance();
+
+    Qt::Orientation orientation = store->splitViewOrientation();
+    if (orientation == Qt::Horizontal) {
+        ui.svHorizontal->setChecked(true);
+    }
+}

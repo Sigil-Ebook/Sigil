@@ -20,7 +20,6 @@
 *************************************************************************/
 
 #include <stdafx.h>
-#include <QSettings>
 #include "LanguageWidget.h"
 #include "BookManipulation/Metadata.h"
 #include "Misc/SettingsStore.h"

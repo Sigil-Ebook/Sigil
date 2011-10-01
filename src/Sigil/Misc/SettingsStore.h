@@ -47,6 +47,12 @@ public:
      * @return The language as a string.
      */
     QString defaultMetadataLang();
+    /**
+     * The orientation to use for the split view.
+     *
+     * @return The orientation.
+     */
+    Qt::Orientation splitViewOrientation();
 
     /**
      * Set the default language to use when creating new books.
@@ -54,6 +60,12 @@ public:
      * @param lang The language to set.
      */
     void setDefaultMetadataLang(const QString &lang);
+    /**
+     * Set the orientation of the split view.
+     *
+     * @param orientation The orientation to set.
+     */
+    void setSplitViewOrientation(Qt::Orientation orientation);
 
     /**
      * Causes the store to emit its settingsChanged signal.
@@ -92,6 +104,7 @@ private:
 
     // Cached settings.
     QString m_defaultMetadataLang;
+    Qt::Orientation m_splitViewOrientation;
 };
 
 #endif // SETTINGSSTORE_H

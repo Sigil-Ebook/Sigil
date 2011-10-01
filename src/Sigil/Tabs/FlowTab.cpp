@@ -27,6 +27,7 @@
 #include "ResourceObjects/HTMLResource.h"
 #include "WellFormedCheckComponent.h"
 #include "BookManipulation/CleanSource.h"
+#include "Misc/SettingsStore.h"
 #include <QUrl>
 
 static const QString SETTINGS_GROUP = "flowtab";
@@ -72,6 +73,8 @@ FlowTab::FlowTab( HTMLResource& resource,
     {
         setFocusProxy( &m_wCodeView );
     }
+
+    LoadSettings();
 
     // We perform delayed initialization after the widget is on
     // the screen. This way, the user perceives less load time.
@@ -843,6 +846,15 @@ void FlowTab::LeaveEditor( QWidget *editor )
     }
 }
 
+
+void FlowTab::LoadSettings()
+{
+    SettingsStore *store = SettingsStore::instance();
+
+    m_Splitter.setOrientation(store->splitViewOrientation());
+}
+
+
 void FlowTab::EnterEditor( QWidget *editor )
 {
     if( editor == &m_wBookView && !m_IsLastViewBook )
@@ -1013,6 +1025,9 @@ void FlowTab::ConnectSignalsToSlots()
 
     connect( &m_wBookView, SIGNAL( FocusGained( QWidget* ) ),    this, SLOT( EnterEditor( QWidget* ) ) );
     connect( &m_wBookView, SIGNAL( FocusLost( QWidget* )   ),    this, SLOT( LeaveEditor( QWidget* ) ) );
+
+    SettingsStore *store = SettingsStore::instance();
+    connect( store, SIGNAL( settingsChanged() ), this, SLOT( LoadSettings() ) );
 }
 
 
