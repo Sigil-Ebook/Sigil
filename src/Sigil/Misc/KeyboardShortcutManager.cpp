@@ -63,10 +63,7 @@ void KeyboardShortcutManager::registerAction(QAction *action, const QString &id,
         desc = action->toolTip();
         desc.remove(QRegExp("<[^>]*>"));
     }
-    desc = desc.simplified();
-    // We cut off the excess because we don't want the description to be
-    // longer than necessary.
-    s.setDescription(desc.left(30));
+    s.setDescription(desc.simplified());
     s.setAction(action);
 
     // If we are registering with a KeyboardShortcut that was previously created
@@ -99,10 +96,7 @@ void KeyboardShortcutManager::registerShortcut(QShortcut *shortcut, const QStrin
     // was given.
     if (!desc.isEmpty()) {
         desc.remove(QRegExp("<[^>]*>"));
-        desc = desc.simplified();
-        // We cut off the excess because we don't want the description to be
-        // longer than necessary.
-        s.setDescription(desc.left(30));
+        s.setDescription(desc.simplified());
     }
     s.setShortcut(shortcut);
 

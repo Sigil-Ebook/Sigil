@@ -82,10 +82,10 @@ void KeyboardShortcutsWidget::showEvent(QShowEvent *event)
 {
     //fill out the tree view
     readSettings();
-    ui.commandList->resizeColumnToContents(0);
-    ui.commandList->resizeColumnToContents(1);
-    ui.commandList->resizeColumnToContents(2);
-    ui.commandList->resizeColumnToContents(3);
+    ui.commandList->setColumnWidth(0, ui.commandList->width() * .30);
+    ui.commandList->setColumnWidth(1, ui.commandList->width() * .40);
+    ui.commandList->setColumnWidth(2, ui.commandList->width() * .15);
+    ui.commandList->setColumnWidth(3, ui.commandList->width() * .15);
     QWidget::showEvent(event);
 }
 
