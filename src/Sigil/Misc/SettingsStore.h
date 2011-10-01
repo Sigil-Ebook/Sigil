@@ -62,6 +62,10 @@ public:
      * they use from the cache.
      */
     void triggerSettingsChanged();
+    /**
+     * Write the stored settings to disk.
+     */
+    void writeSettings();
 
 signals:
     /**
@@ -83,10 +87,6 @@ private:
      * Reads settings from disk into the store.
      */
     void readSettings();
-    /**
-     * Write the stored settings to disk.
-     */
-    void writeSettings();
 
     static SettingsStore *m_instance;
 

@@ -198,6 +198,11 @@ set( MISC_FILES
     Misc/SearchOperations.h
     Misc/SettingsStore.cpp
     Misc/SettingsStore.h
+    Misc/KeyboardShortcut.cpp
+    Misc/KeyboardShortcut.h
+    Misc/KeyboardShortcut_p.h
+    Misc/KeyboardShortcutManager.cpp
+    Misc/KeyboardShortcutManager.h
     Misc/XhtmlEntitiesDtd.cpp
     Misc/FontObfuscation.cpp
     Misc/FontObfuscation.h

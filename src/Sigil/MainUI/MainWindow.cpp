@@ -40,6 +40,7 @@
 #include "ResourceObjects/HTMLResource.h"
 #include "ResourceObjects/OPFResource.h"
 #include "Misc/SettingsStore.h"
+#include "Misc/KeyboardShortcutManager.h"
 
 static const int TEXT_ELIDE_WIDTH           = 300;
 static const QString SETTINGS_GROUP         = "mainwindow";
@@ -839,6 +840,9 @@ void MainWindow::WriteSettings()
     // View Editor zoom factors
     //settings.setValue( "bookviewzoom", m_wBookView->GetZoomFactor() );
     //settings.setValue( "codeviewzoom", m_wCodeView->GetZoomFactor() );
+
+    SettingsStore::instance()->writeSettings();
+    KeyboardShortcutManager::instance()->writeSettings();
 }
 
 
@@ -1420,6 +1424,9 @@ void MainWindow::ExtendUI()
     palette.setColor( QPalette::Inactive, QPalette::Highlight, Qt::darkGreen );
     palette.setColor( QPalette::Inactive, QPalette::HighlightedText, Qt::white );
     qApp->setPalette( palette );
+
+    // Setup userdefined keyboard shortcuts for actions.
+    KeyboardShortcutManager *shortcutManager = KeyboardShortcutManager::instance();
 
     ExtendIconSizes();
 }

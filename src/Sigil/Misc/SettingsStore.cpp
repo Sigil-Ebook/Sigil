@@ -57,6 +57,14 @@ void SettingsStore::triggerSettingsChanged()
     emit settingsChanged();
 }
 
+void SettingsStore::writeSettings()
+{
+    QSettings settings;
+    settings.beginGroup( SETTINGS_GROUP );
+
+    settings.setValue(KEY_DEFAULT_METADATA_LANGUAGE, m_defaultMetadataLang);
+}
+
 SettingsStore::SettingsStore()
 {
     readSettings();
@@ -68,12 +76,4 @@ void SettingsStore::readSettings()
     settings.beginGroup( SETTINGS_GROUP );
 
     m_defaultMetadataLang = settings.value(KEY_DEFAULT_METADATA_LANGUAGE, tr("English")).toString();
-}
-
-void SettingsStore::writeSettings()
-{
-    QSettings settings;
-    settings.beginGroup( SETTINGS_GROUP );
-
-    settings.setValue(KEY_DEFAULT_METADATA_LANGUAGE, m_defaultMetadataLang);
 }
