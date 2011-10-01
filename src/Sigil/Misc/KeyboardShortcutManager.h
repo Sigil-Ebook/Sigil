@@ -30,6 +30,7 @@
 
 class QAction;
 class QShortcut;
+class QStringlist;
 
 /**
  * Managers keyboard short cuts for the application.
@@ -146,6 +147,20 @@ public:
     void unregisterAll();
 
     /**
+     * Get the KeyboardShortcut associated with a given id.
+     *
+     * @return The shortcut associated with id. If there is no shortcut
+     * for id an empty shortcut is created.
+     */
+    KeyboardShortcut keyboardShortcut(const QString &id);
+    /**
+     * Get a list of all ids managed by the manager.
+     *
+     * @return A list of ids.
+     */
+    QStringList ids();
+
+    /**
      * Check if a given key sequence is already in use.
      *
      * @param keySequence The key sequence to check.
@@ -176,7 +191,7 @@ private:
     /**
      * Create a generic KeyboardShortcut.
      */
-    KeyboardShortcut createShortcut(const QKeySequence &keySequence, const QKeySequence &defaultKeySequence, const QString &description=QString());
+    KeyboardShortcut createShortcut(const QKeySequence &keySequence, const QKeySequence &defaultKeySequence=QKeySequence(), const QString &description=QString());
 
     /**
      * Loads settings form persistant storage for use.

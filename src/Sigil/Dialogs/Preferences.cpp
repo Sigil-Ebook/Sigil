@@ -23,6 +23,7 @@
 #include <QScrollArea>
 #include "Preferences.h"
 #include "PreferenceWidgets/LanguageWidget.h"
+#include "PreferenceWidgets/KeyboardShortcutsWidget.h"
 #include "PreferenceWidgets/AppearanceWidget.h"
 
 static const QString SETTINGS_GROUP = "preferences_dialog";
@@ -34,6 +35,7 @@ Preferences::Preferences(QWidget *parent) :
 
     // Create and load all of our preference widgets.;
     m_pWidgets.append(new AppearanceWidget);
+    m_pWidgets.append(new KeyboardShortcutsWidget);
     m_pWidgets.append(new LanguageWidget);
 
     // Populate the list of avaliable preference groups with the names

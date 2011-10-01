@@ -23,7 +23,6 @@
 #ifndef LANGUAGEWIDGET_H
 #define LANGUAGEWIDGET_H
 
-#include <QWidget>
 #include "PreferencesWidget.h"
 #include "ui_PLanguageWidget.h"
 

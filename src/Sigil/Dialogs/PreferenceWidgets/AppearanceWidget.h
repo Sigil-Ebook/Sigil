@@ -23,7 +23,6 @@
 #ifndef APPEARANCEWIDGET_H
 #define APPEARANCEWIDGET_H
 
-#include <QWidget>
 #include "PreferencesWidget.h"
 #include "ui_PAppearanceWidget.h"
 

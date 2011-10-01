@@ -22,6 +22,7 @@
 #include <stdafx.h>
 #include <QAction>
 #include <QHashIterator>
+#include <QRegExp>
 #include <QShortcut>
 #include <QSettings>
 #include "KeyboardShortcutManager.h"
@@ -47,14 +48,25 @@ void KeyboardShortcutManager::registerAction(QAction *action, const QString &id,
 {
     KeyboardShortcut s;
     QKeySequence keySequence = action->shortcut();
+    QString desc = description;
 
     if (m_shortcuts.contains(id)) {
         s = m_shortcuts.value(id);
     }
     else {
-        s = createShortcut(keySequence, keySequence, description);
+        s = createShortcut(keySequence);
         m_shortcuts.insert(id, s);
     }
+    // Use the actions tool tip (falls back to text) if no description
+    // was given.
+    if (desc.isEmpty()) {
+        desc = action->toolTip();
+        desc.remove(QRegExp("<[^>]*>"));
+    }
+    desc = desc.simplified();
+    // We cut off the excess because we don't want the description to be
+    // longer than necessary.
+    s.setDescription(desc.left(30));
     s.setAction(action);
 
     // If we are registering with a KeyboardShortcut that was previously created
@@ -65,19 +77,32 @@ void KeyboardShortcutManager::registerAction(QAction *action, const QString &id,
     if (s.defaultKeySequence().isEmpty() && !defaultKeySequenceInUse(keySequence)) {
         s.setDefaultKeySequence(keySequence);
     }
+
+    // Set the keyboard shortcut that is associated with this id.
+    s.action()->setShortcut(s.keySequence());
 }
 
 void KeyboardShortcutManager::registerShortcut(QShortcut *shortcut, const QString &id, const QString &description)
 {
     KeyboardShortcut s;
     QKeySequence keySequence = shortcut->key();
+    QString desc = description;
 
     if (m_shortcuts.contains(id)) {
         s = m_shortcuts.value(id);
     }
     else {
-        s = createShortcut(keySequence, keySequence, description);
+        s = createShortcut(keySequence);
         m_shortcuts.insert(id, s);
+    }
+    // Use the actions tool tip (falls back to text) if no description
+    // was given.
+    if (!desc.isEmpty()) {
+        desc.remove(QRegExp("<[^>]*>"));
+        desc = desc.simplified();
+        // We cut off the excess because we don't want the description to be
+        // longer than necessary.
+        s.setDescription(desc.left(30));
     }
     s.setShortcut(shortcut);
 
@@ -89,6 +114,9 @@ void KeyboardShortcutManager::registerShortcut(QShortcut *shortcut, const QStrin
     if (s.defaultKeySequence().isEmpty() && !defaultKeySequenceInUse(keySequence)) {
         s.setDefaultKeySequence(keySequence);
     }
+
+    // Set the keyboard shortcut that is associated with this id.
+    s.shortcut()->setKey(s.keySequence());
 }
 
 bool KeyboardShortcutManager::setKeySequence(const QString &id, const QKeySequence &keySequence, bool isDefault)
@@ -220,6 +248,20 @@ void KeyboardShortcutManager::unregisterAll()
     m_shortcuts.clear();
 }
 
+KeyboardShortcut KeyboardShortcutManager::keyboardShortcut(const QString &id)
+{
+    if (!m_shortcuts.contains(id)) {
+        KeyboardShortcut s = createShortcut(QKeySequence(), QKeySequence());
+        m_shortcuts.insert(id, s);
+    }
+    return m_shortcuts.value(id);
+}
+
+QStringList KeyboardShortcutManager::ids()
+{
+    return m_shortcuts.keys();
+}
+
 bool KeyboardShortcutManager::keySequenceInUse(const QKeySequence &keySequence)
 {
     foreach (KeyboardShortcut s, m_shortcuts) {
@@ -256,8 +298,8 @@ void KeyboardShortcutManager::writeSettings()
         }
         settings.setArrayIndex(i);
         settings.setValue("id", it.key());
-        settings.setValue("description", s.description());
-        settings.setValue("defaultKeySequence", s.defaultKeySequence().toString());
+        //settings.setValue("description", s.description());
+        //settings.setValue("defaultKeySequence", s.defaultKeySequence().toString());
         settings.setValue("keySequence", s.keySequence().toString());
 
         i++;
@@ -290,11 +332,12 @@ void KeyboardShortcutManager::readSettings()
     for (int i = 0; i < size; ++i) {
         settings.setArrayIndex(i);
         const QString id = settings.value("id").toString();
-        const QString description = settings.value("description").toString();
-        const QKeySequence defaultKeySequence(settings.value("defaultKeySequence").toString());
+        //const QString description = settings.value("description").toString();
+        //const QKeySequence defaultKeySequence(settings.value("defaultKeySequence").toString());
         const QKeySequence keySequence(settings.value("keySequence").toString());
 
-        KeyboardShortcut s = createShortcut(keySequence, defaultKeySequence, description);
+        //KeyboardShortcut s = createShortcut(keySequence, defaultKeySequence, description);
+        KeyboardShortcut s = createShortcut(keySequence);
         m_shortcuts.insert(id, s);
     }
 }

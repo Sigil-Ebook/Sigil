@@ -1426,7 +1426,65 @@ void MainWindow::ExtendUI()
     qApp->setPalette( palette );
 
     // Setup userdefined keyboard shortcuts for actions.
-    KeyboardShortcutManager *shortcutManager = KeyboardShortcutManager::instance();
+    KeyboardShortcutManager *sm = KeyboardShortcutManager::instance();
+    sm->registerAction(ui.actionNew, "Main.New");
+    sm->registerAction(ui.actionSave, "Main.Save");
+    sm->registerAction(ui.actionSaveAs, "Main.SaveAs");
+    sm->registerAction(ui.actionCut, "Main.Cut");
+    sm->registerAction(ui.actionPaste, "Main.Paste");
+    sm->registerAction(ui.actionUndo, "Main.Undo");
+    sm->registerAction(ui.actionRedo, "Main.Redo");
+    sm->registerAction(ui.actionCopy, "Main.Copy");
+    sm->registerAction(ui.actionAlignLeft, "Main.AlignLeft");
+    sm->registerAction(ui.actionAlignRight, "Main.AlignRight");
+    sm->registerAction(ui.actionCenter, "Main.Center");
+    sm->registerAction(ui.actionJustify, "Main.Justify");
+    sm->registerAction(ui.actionBold, "Main.Bold");
+    sm->registerAction(ui.actionItalic, "Main.Italic");
+    sm->registerAction(ui.actionOpen, "Main.Open");
+    sm->registerAction(ui.actionUnderline, "Main.Underline");
+    sm->registerAction(ui.actionExit, "Main.Exit");
+    sm->registerAction(ui.actionAbout, "Main.About");
+    sm->registerAction(ui.actionMetaEditor, "Main.MetaEditor");
+    sm->registerAction(ui.actionBookView, "Main.BookView");
+    sm->registerAction(ui.actionSplitView, "Main.SplitView");
+    sm->registerAction(ui.actionCodeView, "Main.CodeView");
+    sm->registerAction(ui.actionSplitChapter, "Main.SplitChapter");
+    sm->registerAction(ui.actionInsertImage, "Main.InsertImage");
+    sm->registerAction(ui.actionInsertNumberedList, "Main.InsertNumberedList");
+    sm->registerAction(ui.actionInsertBulletedList, "Main.InsertBulletedList");
+    sm->registerAction(ui.actionStrikethrough, "Main.Strikethrough");
+#ifndef Q_WS_MAC
+    sm->registerAction(ui.actionClose, "Main.Close");
+#endif
+    sm->registerAction(ui.actionZoomIn, "Main.ZoomIn");
+    sm->registerAction(ui.actionZoomOut, "Main.ZoomOut");
+    sm->registerAction(ui.actionFind, "Main.Find");
+    sm->registerAction(ui.actionIncreaseIndent, "Main.IncreaseIndent");
+    sm->registerAction(ui.actionDecreaseIndent, "Main.DecreaseIndent");
+    sm->registerAction(ui.actionRemoveFormatting, "Main.RemoveFormatting");
+    sm->registerAction(ui.actionReportAnIssue, "Main.ReportAnIssue");
+    sm->registerAction(ui.actionSigilDevBlog, "Main.SigilDevBlog");
+    sm->registerAction(ui.actionNextTab, "Main.NextTag");
+    sm->registerAction(ui.actionPreviousTab, "Main.PreviousTab");
+    sm->registerAction(ui.actionCloseTab, "Main.CloseTab");
+    sm->registerAction(ui.actionSplitOnSGFChapterMarkers, "Main.SplitOnSGFChapterMarkers");
+    sm->registerAction(ui.actionInsertSGFChapterMarker, "Main.InsertSGFChapterMarker");
+    sm->registerAction(ui.actionUserManual, "Main.UserManual");
+    sm->registerAction(ui.actionFAQ, "Main.FAQ");
+    sm->registerAction(ui.actionTidyClean, "Main.TidyClean");
+    sm->registerAction(ui.actionValidateEpub, "Main.ValidateEpub");
+    sm->registerAction(ui.actionDonate, "Main.Donate");
+    sm->registerAction(ui.actionCloseOtherTabs, "Main.CloseOtherTabs");
+    sm->registerAction(ui.actionGoToLine, "Main.GoToLine");
+    sm->registerAction(ui.actionCheckWellFormedErrors, "Main.CheckWellFormedErrors");
+    sm->registerAction(ui.actionFindNext, "Main.FindNext");
+    sm->registerAction(ui.actionFindPrevious, "Main.FindPrevious");
+    sm->registerAction(ui.actionReplaceNext, "Main.ReplaceNext");
+    sm->registerAction(ui.actionReplacePrevious, "Main.ReplacePrevious");
+#ifndef Q_WS_MAC
+    sm->registerAction(ui.actionPreferences, "Main.Preferences");
+#endif
 
     ExtendIconSizes();
 }
