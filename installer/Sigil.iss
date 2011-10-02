@@ -44,7 +44,7 @@ Name: dicon\common; Description: "For all users"; Types: full custom; Flags: exc
 Name: dicon\user; Description: "For the current user only"; Flags: exclusive
 ; File associations
 Name: afiles; Description: "Associate ebook files with Sigil"; Types: full
-Name: afiles\epub; Description: "EPUB"; Types: full
+Name: afiles\epub; Description: "EPUB"
 Name: afiles\html; Description: "HTML"
 Name: afiles\txt; Description: "TXT"
 
