@@ -317,7 +317,9 @@ set( QRC_FILES
     Resource_Files/javascript/javascript.qrc
     Resource_Files/icon/icon.qrc  
     )
-    
+
+file( GLOB TS_FILES Resource_Files/ts/*.ts )
+
 set( QXT_FILES
     Qxt/qxtconfirmationmessage.h
     Qxt/qxtconfirmationmessage.cpp
@@ -344,6 +346,9 @@ qt4_wrap_ui( UI_FILES_H ${UI_FILES} )
 
 # Runs RCC on specified files
 qt4_add_resources( QRC_FILES_CPP ${QRC_FILES} )
+
+# Runs lrelease on the specified files
+qt4_add_translation( QM_FILES ${TS_FILES} )
 
 # Define the Sigil version string for use in source files
 set_source_files_properties( Dialogs/About.cpp PROPERTIES COMPILE_DEFINITIONS SIGIL_FULL_VERSION="${SIGIL_FULL_VERSION}" )
@@ -392,7 +397,7 @@ source_group( "Qxt"               FILES ${QXT_FILES} )
 
 #############################################################################
 
-set( ALL_SOURCES ${RAW_SOURCES} ${MOC_FILES_CPP} ${UI_FILES_H} ${QRC_FILES_CPP} )
+set( ALL_SOURCES ${RAW_SOURCES} ${MOC_FILES_CPP} ${UI_FILES_H} ${QRC_FILES_CPP} ${QM_FILES} )
 
 # Adding resource (RC) files for Windows
 if ( MSVC )
@@ -413,11 +418,17 @@ if( APPLE )
         exec_program( "cp ${PROJECT_SOURCE_DIR}/Resource_Files/icon/Sigil.icns ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Release/Sigil.app/Contents/Resources")
         exec_program( "cp ${PROJECT_SOURCE_DIR}/Resource_Files/icon/sgf.icns ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Release/Sigil.app/Contents/Resources")
         exec_program( "cp ${PROJECT_SOURCE_DIR}/Resource_Files/icon/epub.icns ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Release/Sigil.app/Contents/Resources")
+        # Copy translation files.
+        exec_program( "mkdir -p ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Release/Sigil.app/Contents/translations")
+        exec_program( "cp ${PROJECT_BINARY_DIR}/*.qm ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Release/Sigil.app/Contents/translations")
     else()
         exec_program( "mkdir -p ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Sigil.app/Contents/Resources")
         exec_program( "cp ${PROJECT_SOURCE_DIR}/Resource_Files/icon/Sigil.icns ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Sigil.app/Contents/Resources")
         exec_program( "cp ${PROJECT_SOURCE_DIR}/Resource_Files/icon/sgf.icns ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Sigil.app/Contents/Resources")
         exec_program( "cp ${PROJECT_SOURCE_DIR}/Resource_Files/icon/epub.icns ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Sigil.app/Contents/Resources")
+        # Copy translation files.
+        exec_program( "mkdir -p ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Sigil.app/Contents/translations")
+        exec_program( "cp ${PROJECT_BINARY_DIR}/*.qm ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Sigil.app/Contents/translations")
     endif()
 
     # Copy the PLIST file...
@@ -649,6 +660,12 @@ else()
         find_file( location ${lib} NAMES ${lib}4.dll lib${lib}.so PATHS ${QT_PLUGINS_DIR}/imageformats/ )
         add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E copy ${location} ${MAIN_PACKAGE_DIR}/imageformats/ )
     endforeach( lib )
+
+    # Copy the translation qm files
+    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E make_directory ${MAIN_PACKAGE_DIR}/translations/ )
+    foreach( QM ${QM_FILES} )
+        add_custom_commmand( TARGET ${TARGET_FOR_COPY} POST_BUILD COMMAND cmake -E copy ${QM} ${MAIN_PACKAGE_DIR}/translations/ )
+    endforeach( QM )
 
     # Set the path of the application executable
     if( MSVC_IDE )

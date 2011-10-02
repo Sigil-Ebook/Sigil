@@ -24,6 +24,8 @@
 #include "Misc/TempFolder.h"
 #include "MainUI/MainWindow.h"
 #include <QtGui/QApplication>
+#include <QTranslator>
+#include <QDir>
 #include "Misc/UpdateChecker.h"
 #include "Misc/AppEventFilter.h"
 #include "BookManipulation/Book.h"
@@ -183,6 +185,32 @@ int main( int argc, char *argv[] )
         // easier use of QSettings classes
         QCoreApplication::setOrganizationName( "Strahinja Markovic" );
         QCoreApplication::setApplicationName( "Sigil" );
+
+        // Setup the translator and load the translation for the current
+        // local the user's OS is using.
+        QTextCodec::setCodecForTr(QTextCodec::codecForName("utf8"));
+        QTranslator translator;
+        const QString qm_name = QString("sigil_%1").arg(QLocale::system().name());
+        // There are a few different places translations can be stored depending
+        // on the platform and where they were installed.
+        QStringList possible_qm_locaiton;
+        // The user can specify an env variable that points to the translation.
+        const QString env_qm_location = QString(getenv("SIGIL_TRANSLATIONS"));
+        if (!env_qm_location.isEmpty()) {
+            possible_qm_locaiton.append(env_qm_location);
+        }
+        possible_qm_locaiton.append(QLibraryInfo::location(QLibraryInfo::TranslationsPath));
+        possible_qm_locaiton.append(QCoreApplication::applicationDirPath() + "/translations");
+        // Run though all locations and stop once we find and are able to load
+        // an appropriate translation.
+        foreach (QString path, possible_qm_locaiton) {
+            if (QDir(path).exists()) {
+                if (translator.load(qm_name, path)) {
+                    break;
+                }
+            }
+        }
+        app.installTranslator(&translator);
 
         // We set the window icon explicitly on Linux.
         // On Windows this is handled by the RC file,
