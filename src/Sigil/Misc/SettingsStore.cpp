@@ -87,6 +87,6 @@ void SettingsStore::readSettings()
     QSettings settings;
     settings.beginGroup( SETTINGS_GROUP );
 
-    m_defaultMetadataLang = settings.value(KEY_DEFAULT_METADATA_LANGUAGE, tr("English")).toString();
+    m_defaultMetadataLang = settings.value(KEY_DEFAULT_METADATA_LANGUAGE, "English").toString();
     m_splitViewOrientation = static_cast<Qt::Orientation>(settings.value(KEY_SPLIT_VIEW_ORIENTATION, Qt::Vertical).toInt());
 }

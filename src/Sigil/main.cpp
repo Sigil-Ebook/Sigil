@@ -194,8 +194,8 @@ int main( int argc, char *argv[] )
         // There are a few different places translations can be stored depending
         // on the platform and where they were installed.
         QStringList possible_qm_locaiton;
-        // The user can specify an env variable that points to the translation.
 #ifdef Q_WS_X11
+        // The user can specify an env variable that points to the translation.
         const QString env_qm_location = QString(getenv("SIGIL_TRANSLATIONS"));
         if (!env_qm_location.isEmpty()) {
             possible_qm_locaiton.append(env_qm_location);

@@ -50,7 +50,7 @@ void LanguageWidget::readSettings()
 
     int index = ui.metadataLang->findText(store->defaultMetadataLang());
     if (index == -1) {
-        index = ui.metadataLang->findText(tr("English"));
+        index = ui.metadataLang->findText("English");
         if (index == -1) {
             index = 0;
         }

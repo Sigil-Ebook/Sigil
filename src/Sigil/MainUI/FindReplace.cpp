@@ -116,10 +116,7 @@ void FindReplace::Count()
         count = CountInFiles();
     }
 
-    QString message = ( count < 1 || count > 1 )     ?
-                      tr( "%1 matches were found." ) :
-                      tr( "%1 match was found."    );
-
+    QString message = tr( "%n matche(s) were found.", "", count );
     ShowMessage( message.arg( count ) );
 
     UpdatePreviousFindStrings();
