@@ -60,6 +60,7 @@ Preferences::~Preferences()
     foreach(PreferencesWidget *pw, m_pWidgets) {
         if (pw != 0) {
             delete pw;
+            pw = 0;
         }
     }
 }

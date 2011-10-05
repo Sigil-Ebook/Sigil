@@ -292,8 +292,6 @@ void KeyboardShortcutManager::writeSettings()
         }
         settings.setArrayIndex(i);
         settings.setValue("id", it.key());
-        //settings.setValue("description", s.description());
-        //settings.setValue("defaultKeySequence", s.defaultKeySequence().toString());
         settings.setValue("keySequence", s.keySequence().toString());
 
         i++;
@@ -326,8 +324,6 @@ void KeyboardShortcutManager::readSettings()
     for (int i = 0; i < size; ++i) {
         settings.setArrayIndex(i);
         const QString id = settings.value("id").toString();
-        //const QString description = settings.value("description").toString();
-        //const QKeySequence defaultKeySequence(settings.value("defaultKeySequence").toString());
         const QKeySequence keySequence(settings.value("keySequence").toString());
 
         //KeyboardShortcut s = createShortcut(keySequence, defaultKeySequence, description);
