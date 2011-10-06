@@ -24,7 +24,6 @@
 #ifndef SEARCHABLE_H
 #define SEARCHABLE_H
 
-#include "stdafx.h"
 #include "PCRE/SPCRE.h"
 
 class QString;
