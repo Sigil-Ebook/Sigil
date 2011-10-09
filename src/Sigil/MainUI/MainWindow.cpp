@@ -1422,6 +1422,8 @@ void MainWindow::ExtendUI()
     sm->registerAction(ui.actionNew, "Main.New");
     sm->registerAction(ui.actionSave, "Main.Save");
     sm->registerAction(ui.actionSaveAs, "Main.SaveAs");
+    sm->registerAction(ui.actionPrintPreview, "Main.PrintPreview");
+    sm->registerAction(ui.actionPrint, "Main.Print");
     sm->registerAction(ui.actionCut, "Main.Cut");
     sm->registerAction(ui.actionPaste, "Main.Paste");
     sm->registerAction(ui.actionUndo, "Main.Undo");
