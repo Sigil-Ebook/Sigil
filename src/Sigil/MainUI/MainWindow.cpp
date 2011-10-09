@@ -499,6 +499,9 @@ void MainWindow::UpdateUIOnTabChanges()
 
         return;
 
+    ui.actionPrintPreview->setEnabled( tab.PrintEnabled() );
+    ui.actionPrint->setEnabled( tab.PrintEnabled() );
+
     ui.actionCut  ->setEnabled( tab.CutEnabled() );
     ui.actionCopy ->setEnabled( tab.CopyEnabled() );
     ui.actionPaste->setEnabled( tab.PasteEnabled() );

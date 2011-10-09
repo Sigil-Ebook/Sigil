@@ -94,6 +94,12 @@ bool FlowTab::IsModified()
 }
 
 
+bool FlowTab::PrintEnabled()
+{
+    return true;
+}
+
+
 bool FlowTab::CutEnabled()
 {
     if ( m_IsLastViewBook )
@@ -686,18 +692,20 @@ void FlowTab::Print()
 
     QPrinter printer;
 
-    QPrintDialog *print_dialog = new QPrintDialog( &printer, this );
-    print_dialog->setWindowTitle( tr( "Print Document" ) );
+    QPrintDialog print_dialog( &printer, this );
+    print_dialog.setWindowTitle( tr( "Print %1" ).arg( GetFilename() ) );
 
-    if ( m_IsLastViewBook )
-
-        m_wBookView.print( &printer );
-
-    else
-
-        m_wCodeView.print( &printer );
-
-    print_dialog->deleteLater();
+    if ( print_dialog.exec() == QDialog::Accepted )
+    {
+        if ( m_IsLastViewBook )
+        {
+            m_wBookView.print( &printer );
+        }
+        else
+        {
+            m_wCodeView.print( &printer );
+        }
+    }
 }
 
 

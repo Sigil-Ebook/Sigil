@@ -1,4 +1,5 @@
 Sigil vNEXT TBA
+    - Fix issue 803: Print prints immediately, no dialog box.
     - Implement 245: Unify zoom levels (book, text, image) and store the levels.
     - i18n capability. Build and load translation files.
     - Add keyboard shortcut manager so user can change the keyboard shortcuts. Fixes 966.

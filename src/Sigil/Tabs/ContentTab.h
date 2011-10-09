@@ -83,6 +83,13 @@ public:
     virtual bool IsModified()           { return false; }
 
     /**
+     * Can the user print the content of the tab.
+     *
+     * @return \c true if the user can print.
+     */
+    virtual bool PrintEnabled()         { return false; }
+
+    /**
      * Can the user perform the Cut clipboard operation.
      *
      * @return \c true if the user can Cut.
@@ -176,6 +183,11 @@ public:
     virtual float GetZoomFactor() const { return 1.0;   }
     virtual void SetZoomFactor( float new_zoom_factor ) { }
 
+    /**
+     * Update content displayed in the tab.
+     *
+     * For example after a zoom operation.
+     */
     virtual void UpdateDisplay() {}
 
     /**
