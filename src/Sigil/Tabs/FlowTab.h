@@ -98,6 +98,8 @@ public:
 
     void SetZoomFactor( float new_zoom_factor );
 
+    void UpdateDisplay();
+
     Searchable* GetSearchableContent();
 
     ViewState GetViewState();

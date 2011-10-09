@@ -168,6 +168,10 @@ public:
 
     float GetZoomFactor() const;
 
+    void Zoom();
+
+    void UpdateDisplay();
+
     bool FindNext( const QString &search_regex,
                    Searchable::Direction search_direction,
                    bool ignore_selection_offset = false );
@@ -605,6 +609,11 @@ private:
     ///////////////////////////////
     // PRIVATE MEMBER VARIABLES
     ///////////////////////////////
+
+    /**
+     * The view's current zoom factor.
+     */
+    float m_CurrentZoomFactor;
 
     /**
      * Stores the JavaScript source code for the 

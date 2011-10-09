@@ -165,6 +165,10 @@ public:
 
     float GetZoomFactor() const;
 
+    void Zoom();
+
+    void UpdateDisplay();
+
     bool FindNext( const QString &search_regex,
                    Searchable::Direction search_direction,
                    bool ignore_selection_offset = false );

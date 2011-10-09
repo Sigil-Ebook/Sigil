@@ -24,6 +24,7 @@
 #include "BookManipulation/Book.h"
 #include "BookManipulation/XhtmlDoc.h"
 #include "BookManipulation/CleanSource.h"
+#include "Misc/SettingsStore.h"
 #include "Misc/Utility.h"
 #include "PCRE/PCRECache.h"
 #include "BookManipulation/XercesCppUse.h"
@@ -65,6 +66,11 @@ BookViewEditor::BookViewEditor( QWidget *parent )
     connect( &m_PageDown,          SIGNAL( activated() ), this, SLOT( PageDown()          ) );
     connect( &m_ScrollOneLineUp,   SIGNAL( activated() ), this, SLOT( ScrollOneLineUp()   ) );
     connect( &m_ScrollOneLineDown, SIGNAL( activated() ), this, SLOT( ScrollOneLineDown() ) );
+
+    // Set the Zoom factor but be sure no signals are set because of this.
+    SettingsStore *ss = SettingsStore::instance();
+    m_CurrentZoomFactor = ss->zoomWeb();
+    Zoom();
 }
 
 
@@ -298,16 +304,38 @@ bool BookViewEditor::IsLoadingFinished()
 
 void BookViewEditor::SetZoomFactor( float factor )
 {
-    setZoomFactor( factor );
-
+    SettingsStore *ss = SettingsStore::instance();
+    ss->setZoomWeb( factor );
+    m_CurrentZoomFactor = factor;
+    Zoom();
     emit ZoomFactorChanged( factor );
 }
 
 
 float BookViewEditor::GetZoomFactor() const
 {
-    return (float) zoomFactor();
+    SettingsStore *ss = SettingsStore::instance();
+    return ss->zoomWeb();
 }
+
+
+void BookViewEditor::Zoom()
+{
+    setZoomFactor( m_CurrentZoomFactor );
+}
+
+
+void BookViewEditor::UpdateDisplay()
+{
+    SettingsStore *ss = SettingsStore::instance();
+    float stored_factor = ss->zoomWeb();
+    if ( stored_factor != m_CurrentZoomFactor )
+    {
+        m_CurrentZoomFactor = stored_factor;
+        Zoom();
+    }
+}
+
 
 bool BookViewEditor::FindNext( const QString &search_regex,
                                Searchable::Direction search_direction,

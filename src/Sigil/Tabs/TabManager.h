@@ -265,6 +265,8 @@ private:
      */
     ContentTab::ViewState GetNewViewState();
 
+    void UpdateTabDisplay( ContentTab *tab );
+
 
     ///////////////////////////////
     // PRIVATE MEMBER VARIABLES

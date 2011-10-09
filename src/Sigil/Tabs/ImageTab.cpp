@@ -23,6 +23,7 @@
 #include "ImageTab.h"
 #include "ResourceObjects/ImageResource.h"
 #include "Misc/RasterizeImageResource.h"
+#include "Misc/SettingsStore.h"
 
 
 ImageTab::ImageTab( ImageResource& resource, QWidget *parent )
@@ -30,8 +31,7 @@ ImageTab::ImageTab( ImageResource& resource, QWidget *parent )
     ContentTab( resource, parent ),
     m_ImageResource( resource ),
     m_ImageLabel( *new QLabel( this ) ),
-    m_ScrollArea( *new QScrollArea( this ) ),
-    m_CurrentZoomFactor( 1.0 )
+    m_ScrollArea( *new QScrollArea( this ) )
 {
     // There are two pairs of parentheses: one calls the constructor,
     // the other calls operator()
@@ -48,20 +48,48 @@ ImageTab::ImageTab( ImageResource& resource, QWidget *parent )
     m_ScrollArea.setWidget( &m_ImageLabel );
     
     m_Layout.addWidget( &m_ScrollArea );
+
+    // Set the Zoom factor but be sure no signals are set because of this.
+    SettingsStore *ss = SettingsStore::instance();
+    m_CurrentZoomFactor = ss->zoomImage();
+    Zoom();
 }
 
 float ImageTab::GetZoomFactor() const
 {
-    return m_CurrentZoomFactor;
+    SettingsStore *ss = SettingsStore::instance();
+    return ss->zoomImage();
 }
 
 void ImageTab::SetZoomFactor( float new_zoom_factor )
 {
+    // Save the zoom for this type.
+    SettingsStore *ss = SettingsStore::instance();
+    ss->setZoomImage( new_zoom_factor );
     m_CurrentZoomFactor = new_zoom_factor;
 
+    Zoom();
+    emit ZoomFactorChanged( m_CurrentZoomFactor );
+}
+
+
+void ImageTab::UpdateDisplay()
+{
+    // Update zoom.
+    SettingsStore *ss = SettingsStore::instance();
+    float stored_factor = ss->zoomImage();
+    if ( stored_factor != m_CurrentZoomFactor )
+    {
+        m_CurrentZoomFactor = stored_factor;
+        Zoom();
+        //emit ZoomFactorChanged( m_CurrentZoomFactor );
+    }
+}
+
+
+void ImageTab::Zoom()
+{
     QPixmap pixmap = RasterizeImageResource()( m_ImageResource, m_CurrentZoomFactor );
     m_ImageLabel.setPixmap( pixmap );
     m_ImageLabel.resize( pixmap.size() );
-
-    emit ZoomFactorChanged( m_CurrentZoomFactor );
 }

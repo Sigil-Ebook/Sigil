@@ -68,4 +68,9 @@ extern const unsigned char XHTML_ENTITIES_DTD[];
 
 extern const int PCRE_MAX_CAPTURE_GROUPS;
 
+extern const float ZOOM_STEP;
+extern const float ZOOM_MIN;
+extern const float ZOOM_MAX;
+extern const float ZOOM_NORMAL;
+
 #endif // SG_CONSTANTS_H

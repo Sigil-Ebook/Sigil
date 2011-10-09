@@ -256,6 +256,13 @@ void FlowTab::SetZoomFactor( float new_zoom_factor )
 }
 
 
+void FlowTab::UpdateDisplay()
+{
+    m_wBookView.UpdateDisplay();
+    m_wCodeView.UpdateDisplay();
+}
+
+
 Searchable* FlowTab::GetSearchableContent()
 {
     if ( m_IsLastViewBook )
@@ -944,6 +951,9 @@ void FlowTab::DelayedInitialization()
         default:
             break;
     }
+
+    m_wBookView.Zoom();
+    m_wCodeView.Zoom();
 
     m_safeToLoad = true;
 

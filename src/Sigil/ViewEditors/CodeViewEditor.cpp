@@ -27,6 +27,7 @@
 #include "BookManipulation/XhtmlDoc.h"
 #include "Misc/XHTMLHighlighter.h"
 #include "Misc/CSSHighlighter.h"
+#include "Misc/SettingsStore.h"
 #include "Misc/Utility.h"
 #include "PCRE/PCRECache.h"
 
@@ -48,7 +49,6 @@ CodeViewEditor::CodeViewEditor( HighlighterType high_type, QWidget *parent )
     m_LastBlockCount( 0 ),
     m_LineNumberAreaBlockNumber( -1 ),
     m_LineNumberArea( new LineNumberArea( this ) ),
-    m_CurrentZoomFactor( 1.0 ),
     m_ScrollOneLineUp( *(   new QShortcut( QKeySequence( Qt::ControlModifier + Qt::Key_Up   ), this, 0, 0, Qt::WidgetShortcut ) ) ),
     m_ScrollOneLineDown( *( new QShortcut( QKeySequence( Qt::ControlModifier + Qt::Key_Down ), this, 0, 0, Qt::WidgetShortcut ) ) ),
     m_isLoadFinished( false ),
@@ -69,6 +69,11 @@ CodeViewEditor::CodeViewEditor( HighlighterType high_type, QWidget *parent )
     HighlightCurrentLine();
 
     setFrameStyle( QFrame::NoFrame );
+
+    // Set the Zoom factor but be sure no signals are set because of this.
+    SettingsStore *ss = SettingsStore::instance();
+    m_CurrentZoomFactor = ss->zoomText();
+    Zoom();
 }
 
 
@@ -366,21 +371,40 @@ bool CodeViewEditor::IsLoadingFinished()
 
 void CodeViewEditor::SetZoomFactor( float factor )
 {
+    SettingsStore *ss = SettingsStore::instance();
+    ss->setZoomText( factor );
     m_CurrentZoomFactor = factor;
-
-    QFont current_font = font();
-    current_font.setPointSizeF( BASE_FONT_SIZE * m_CurrentZoomFactor );
-    setFont( current_font );
-    
-    UpdateLineNumberAreaFont( current_font );
-
+    Zoom();
     emit ZoomFactorChanged( factor );
 }
 
 
 float CodeViewEditor::GetZoomFactor() const
 {
-    return m_CurrentZoomFactor;
+    SettingsStore *ss = SettingsStore::instance();
+    return ss->zoomText();
+}
+
+
+void CodeViewEditor::Zoom()
+{
+    QFont current_font = font();
+    current_font.setPointSizeF( BASE_FONT_SIZE * m_CurrentZoomFactor );
+    setFont( current_font );
+
+    UpdateLineNumberAreaFont( current_font );
+}
+
+
+void CodeViewEditor::UpdateDisplay()
+{
+    SettingsStore *ss = SettingsStore::instance();
+    float stored_factor = ss->zoomText();
+    if ( stored_factor != m_CurrentZoomFactor )
+    {
+        m_CurrentZoomFactor = stored_factor;
+        Zoom();
+    }
 }
 
 

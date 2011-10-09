@@ -176,6 +176,8 @@ public:
     virtual float GetZoomFactor() const { return 1.0;   }
     virtual void SetZoomFactor( float new_zoom_factor ) { }
 
+    virtual void UpdateDisplay() {}
+
     /**
      * Returns a pointer to searchable content in the tab.
      * Returns pointer instead of reference because we need
@@ -209,7 +211,7 @@ public:
 
     virtual void SetViewState( ViewState new_view_state ) {}
 
-    virtual bool IsLoadingFinished() { return true; } 
+    virtual bool IsLoadingFinished() { return true; }
 
 public slots:
 

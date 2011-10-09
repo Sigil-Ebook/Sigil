@@ -55,6 +55,15 @@ public:
     Qt::Orientation splitViewOrientation();
 
     /**
+     * The zoom factor used by the component.
+     *
+     * @return The zoom factor.
+     */
+    float zoomImage();
+    float zoomText();
+    float zoomWeb();
+
+    /**
      * Set the default language to use when creating new books.
      *
      * @param lang The language to set.
@@ -66,6 +75,15 @@ public:
      * @param orientation The orientation to set.
      */
     void setSplitViewOrientation(Qt::Orientation orientation);
+
+    /**
+     * Set the zoom factor used by the component.
+     *
+     * @param zoom The zoom factor.
+     */
+    void setZoomImage(float zoom);
+    void setZoomText(float zoom);
+    void setZoomWeb(float zoom);
 
     /**
      * Causes the store to emit its settingsChanged signal.
@@ -105,6 +123,9 @@ private:
     // Cached settings.
     QString m_defaultMetadataLang;
     Qt::Orientation m_splitViewOrientation;
+    float m_zoomImage;
+    float m_zoomText;
+    float m_zoomWeb;
 };
 
 #endif // SETTINGSSTORE_H

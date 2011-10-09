@@ -44,7 +44,11 @@ public:
 
     void SetZoomFactor( float new_zoom_factor );
 
+    void UpdateDisplay();
+
 private:
+
+    void Zoom();
 
     ///////////////////////////////
     // PRIVATE MEMBER VARIABLES

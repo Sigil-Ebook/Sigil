@@ -89,6 +89,12 @@ void TextTab::SetZoomFactor( float new_zoom_factor )
 }
 
 
+void TextTab::UpdateDisplay()
+{
+    m_wCodeView.UpdateDisplay();
+}
+
+
 Searchable* TextTab::GetSearchableContent()
 {
     return &m_wCodeView;
@@ -188,6 +194,8 @@ void TextTab::LoadTabContent( QWidget *editor )
 void TextTab::DelayedInitialization()
 {
     m_wCodeView.CustomSetDocument( m_TextResource.GetTextDocumentForWriting() );
+
+    m_wCodeView.Zoom();
 
     m_wCodeView.ScrollToLine( m_LineToScrollTo );
 }

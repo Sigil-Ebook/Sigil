@@ -44,10 +44,10 @@
 
 static const int TEXT_ELIDE_WIDTH           = 300;
 static const QString SETTINGS_GROUP         = "mainwindow";
-static const float ZOOM_STEP                = 0.1f;
-static const float ZOOM_MIN                 = 0.09f;
-static const float ZOOM_MAX                 = 5.0f;
-static const float ZOOM_NORMAL              = 1.0f;
+const float ZOOM_STEP                = 0.1f;
+const float ZOOM_MIN                 = 0.09f;
+const float ZOOM_MAX                 = 5.0f;
+const float ZOOM_NORMAL              = 1.0f;
 static const int ZOOM_SLIDER_MIN            = 0;
 static const int ZOOM_SLIDER_MAX            = 1000;
 static const int ZOOM_SLIDER_MIDDLE         = 500;
@@ -370,7 +370,7 @@ void MainWindow::GoToLine()
 
 void MainWindow::ZoomIn()
 {
-    ZoomByStep( true );  
+    ZoomByStep( true );
 }
 
 
@@ -798,13 +798,6 @@ void MainWindow::ReadSettings()
 
     // The list of recent files
     s_RecentFiles    = settings.value( "recentfiles" ).toStringList();
-
-    // View Editor zoom factors
-    //float zoom_factor = (float) settings.value( "codeviewzoom" ).toDouble();
-    //m_wCodeView->SetZoomFactor( zoom_factor >= ZOOM_MIN ? zoom_factor : ZOOM_NORMAL );
-
-    //zoom_factor = (float) settings.value( "bookviewzoom" ).toDouble();
-    //m_wBookView->SetZoomFactor( zoom_factor >= ZOOM_MIN ? zoom_factor : ZOOM_NORMAL );
 }
 
 
@@ -836,10 +829,6 @@ void MainWindow::WriteSettings()
 
     // The list of recent files
     settings.setValue( "recentfiles", s_RecentFiles );
-
-    // View Editor zoom factors
-    //settings.setValue( "bookviewzoom", m_wBookView->GetZoomFactor() );
-    //settings.setValue( "codeviewzoom", m_wCodeView->GetZoomFactor() );
 
     SettingsStore::instance()->writeSettings();
     KeyboardShortcutManager::instance()->writeSettings();

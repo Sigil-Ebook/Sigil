@@ -20,6 +20,7 @@
 *************************************************************************/
 
 #include <stdafx.h>
+#include "constants.h"
 #include <QSettings>
 #include "SettingsStore.h"
 
@@ -28,6 +29,9 @@ SettingsStore *SettingsStore::m_instance = 0;
 static const QString SETTINGS_GROUP = "user_preferences";
 static const QString KEY_DEFAULT_METADATA_LANGUAGE = "default_metadata_lang";
 static const QString KEY_SPLIT_VIEW_ORIENTATION = "split_view_orientation";
+static const QString KEY_ZOOM_IMAGE = "zoom_image";
+static const QString KEY_ZOOM_TEXT = "zoom_text";
+static const QString KEY_ZOOM_WEB = "zoom_web";
 
 SettingsStore *SettingsStore::instance()
 {
@@ -53,6 +57,21 @@ Qt::Orientation SettingsStore::splitViewOrientation()
     return m_splitViewOrientation;
 }
 
+float SettingsStore::zoomImage()
+{
+    return m_zoomImage;
+}
+
+float SettingsStore::zoomText()
+{
+    return m_zoomText;
+}
+
+float SettingsStore::zoomWeb()
+{
+    return m_zoomWeb;
+}
+
 void SettingsStore::setDefaultMetadataLang(const QString &lang)
 {
     m_defaultMetadataLang = lang;
@@ -61,6 +80,21 @@ void SettingsStore::setDefaultMetadataLang(const QString &lang)
 void SettingsStore::setSplitViewOrientation(Qt::Orientation orientation)
 {
     m_splitViewOrientation = orientation;
+}
+
+void SettingsStore::setZoomImage(float zoom)
+{
+    m_zoomImage = zoom;
+}
+
+void SettingsStore::setZoomText(float zoom)
+{
+    m_zoomText = zoom;
+}
+
+void SettingsStore::setZoomWeb(float zoom)
+{
+    m_zoomWeb = zoom;
 }
 
 void SettingsStore::triggerSettingsChanged()
@@ -75,6 +109,9 @@ void SettingsStore::writeSettings()
 
     settings.setValue(KEY_DEFAULT_METADATA_LANGUAGE, m_defaultMetadataLang);
     settings.setValue(KEY_SPLIT_VIEW_ORIENTATION, m_splitViewOrientation);
+    settings.setValue(KEY_ZOOM_IMAGE, m_zoomImage);
+    settings.setValue(KEY_ZOOM_TEXT, m_zoomText);
+    settings.setValue(KEY_ZOOM_WEB, m_zoomWeb);
 }
 
 SettingsStore::SettingsStore()
@@ -89,4 +126,7 @@ void SettingsStore::readSettings()
 
     m_defaultMetadataLang = settings.value(KEY_DEFAULT_METADATA_LANGUAGE, "English").toString();
     m_splitViewOrientation = static_cast<Qt::Orientation>(settings.value(KEY_SPLIT_VIEW_ORIENTATION, Qt::Vertical).toInt());
+    m_zoomImage = settings.value(KEY_ZOOM_IMAGE, ZOOM_NORMAL).toFloat();
+    m_zoomText = settings.value(KEY_ZOOM_TEXT, ZOOM_NORMAL).toFloat();
+    m_zoomWeb = settings.value(KEY_ZOOM_WEB, ZOOM_NORMAL).toFloat();
 }

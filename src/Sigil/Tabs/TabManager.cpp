@@ -235,8 +235,10 @@ void TabManager::UpdateTabStatesOnSwitch( ContentTab* old_tab, ContentTab* new_t
         old_tab->SaveTabContent();
 
     if ( new_tab )
-        
+    {
         new_tab->LoadTabContent();
+        UpdateTabDisplay( new_tab );
+    }
 }
 
 
@@ -477,4 +479,9 @@ ContentTab::ViewState TabManager::GetNewViewState()
         return ContentTab::ViewState_BookView;
 
     return current_tab.GetViewState();
+}
+
+void TabManager::UpdateTabDisplay( ContentTab *tab )
+{
+    tab->UpdateDisplay();
 }
