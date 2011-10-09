@@ -125,6 +125,7 @@
     <addaction name="separator"/>
     <addaction name="actionZoomIn"/>
     <addaction name="actionZoomOut"/>
+    <addaction name="actionZoomReset"/>
    </widget>
    <widget class="QMenu" name="menuTools">
     <property name="title">
@@ -134,6 +135,7 @@
     <addaction name="actionSplitOnSGFChapterMarkers"/>
     <addaction name="separator"/>
     <addaction name="actionTidyClean"/>
+    <addaction name="actionCheckWellFormedErrors"/>
     <addaction name="actionValidateEpub"/>
    </widget>
    <widget class="QMenu" name="menuInsert">
@@ -1124,6 +1126,17 @@
   <action name="actionPreferences">
    <property name="text">
     <string>Preferences</string>
+   </property>
+  </action>
+  <action name="actionZoomReset">
+   <property name="text">
+    <string>Zoom Reset</string>
+   </property>
+   <property name="toolTip">
+    <string>Zoom Reset</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+0</string>
    </property>
   </action>
  </widget>

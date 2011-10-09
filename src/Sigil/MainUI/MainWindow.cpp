@@ -177,7 +177,7 @@ void MainWindow::closeEvent( QCloseEvent *event )
     {
         event->ignore();
         m_TabManager.WellFormedDialogsEnabled( true );
-    }    
+    }
 }
 
 
@@ -377,6 +377,12 @@ void MainWindow::ZoomIn()
 void MainWindow::ZoomOut()
 {
     ZoomByStep( false );  
+}
+
+
+void MainWindow::ZoomReset()
+{
+    ZoomByFactor( ZOOM_NORMAL );
 }
 
 
@@ -1419,65 +1425,66 @@ void MainWindow::ExtendUI()
 
     // Setup userdefined keyboard shortcuts for actions.
     KeyboardShortcutManager *sm = KeyboardShortcutManager::instance();
-    sm->registerAction(ui.actionNew, "Main.New");
-    sm->registerAction(ui.actionSave, "Main.Save");
-    sm->registerAction(ui.actionSaveAs, "Main.SaveAs");
-    sm->registerAction(ui.actionPrintPreview, "Main.PrintPreview");
-    sm->registerAction(ui.actionPrint, "Main.Print");
-    sm->registerAction(ui.actionCut, "Main.Cut");
-    sm->registerAction(ui.actionPaste, "Main.Paste");
-    sm->registerAction(ui.actionUndo, "Main.Undo");
-    sm->registerAction(ui.actionRedo, "Main.Redo");
-    sm->registerAction(ui.actionCopy, "Main.Copy");
-    sm->registerAction(ui.actionAlignLeft, "Main.AlignLeft");
-    sm->registerAction(ui.actionAlignRight, "Main.AlignRight");
-    sm->registerAction(ui.actionCenter, "Main.Center");
-    sm->registerAction(ui.actionJustify, "Main.Justify");
-    sm->registerAction(ui.actionBold, "Main.Bold");
-    sm->registerAction(ui.actionItalic, "Main.Italic");
-    sm->registerAction(ui.actionOpen, "Main.Open");
-    sm->registerAction(ui.actionUnderline, "Main.Underline");
-    sm->registerAction(ui.actionExit, "Main.Exit");
-    sm->registerAction(ui.actionAbout, "Main.About");
-    sm->registerAction(ui.actionMetaEditor, "Main.MetaEditor");
-    sm->registerAction(ui.actionBookView, "Main.BookView");
-    sm->registerAction(ui.actionSplitView, "Main.SplitView");
-    sm->registerAction(ui.actionCodeView, "Main.CodeView");
-    sm->registerAction(ui.actionSplitChapter, "Main.SplitChapter");
-    sm->registerAction(ui.actionInsertImage, "Main.InsertImage");
-    sm->registerAction(ui.actionInsertNumberedList, "Main.InsertNumberedList");
-    sm->registerAction(ui.actionInsertBulletedList, "Main.InsertBulletedList");
-    sm->registerAction(ui.actionStrikethrough, "Main.Strikethrough");
+    sm->registerAction(ui.actionNew, "File.New");
+    sm->registerAction(ui.actionSave, "File.Save");
+    sm->registerAction(ui.actionSaveAs, "File.SaveAs");
+    sm->registerAction(ui.actionPrintPreview, "File.PrintPreview");
+    sm->registerAction(ui.actionPrint, "File.Print");
+    sm->registerAction(ui.actionCut, "Edit.Cut");
+    sm->registerAction(ui.actionPaste, "Edit.Paste");
+    sm->registerAction(ui.actionUndo, "Edit.Undo");
+    sm->registerAction(ui.actionRedo, "Edit.Redo");
+    sm->registerAction(ui.actionCopy, "Edit.Copy");
+    sm->registerAction(ui.actionAlignLeft, "Format.AlignLeft");
+    sm->registerAction(ui.actionAlignRight, "Format.AlignRight");
+    sm->registerAction(ui.actionCenter, "Format.Center");
+    sm->registerAction(ui.actionJustify, "Format.Justify");
+    sm->registerAction(ui.actionBold, "Format.Bold");
+    sm->registerAction(ui.actionItalic, "Format.Italic");
+    sm->registerAction(ui.actionOpen, "File.Open");
+    sm->registerAction(ui.actionUnderline, "Format.Underline");
+    sm->registerAction(ui.actionExit, "File.Exit");
+    sm->registerAction(ui.actionAbout, "Help.About");
+    sm->registerAction(ui.actionMetaEditor, "Tools.MetaEditor");
+    sm->registerAction(ui.actionBookView, "View.BookView");
+    sm->registerAction(ui.actionSplitView, "View.SplitView");
+    sm->registerAction(ui.actionCodeView, "View.CodeView");
+    sm->registerAction(ui.actionSplitChapter, "Insert.SplitChapter");
+    sm->registerAction(ui.actionInsertImage, "Insert.InsertImage");
+    sm->registerAction(ui.actionInsertNumberedList, "Format.InsertNumberedList");
+    sm->registerAction(ui.actionInsertBulletedList, "Format.InsertBulletedList");
+    sm->registerAction(ui.actionStrikethrough, "Format.Strikethrough");
 #ifndef Q_WS_MAC
-    sm->registerAction(ui.actionClose, "Main.Close");
+    sm->registerAction(ui.actionClose, "File.Close");
 #endif
-    sm->registerAction(ui.actionZoomIn, "Main.ZoomIn");
-    sm->registerAction(ui.actionZoomOut, "Main.ZoomOut");
-    sm->registerAction(ui.actionFind, "Main.Find");
-    sm->registerAction(ui.actionIncreaseIndent, "Main.IncreaseIndent");
-    sm->registerAction(ui.actionDecreaseIndent, "Main.DecreaseIndent");
-    sm->registerAction(ui.actionRemoveFormatting, "Main.RemoveFormatting");
+    sm->registerAction(ui.actionZoomIn, "View.ZoomIn");
+    sm->registerAction(ui.actionZoomOut, "View.ZoomOut");
+    sm->registerAction(ui.actionZoomReset, "View.ZoomReset");
+    sm->registerAction(ui.actionFind, "Edit.Find");
+    sm->registerAction(ui.actionIncreaseIndent, "Format.IncreaseIndent");
+    sm->registerAction(ui.actionDecreaseIndent, "Format.DecreaseIndent");
+    sm->registerAction(ui.actionRemoveFormatting, "Format.RemoveFormatting");
     sm->registerAction(ui.actionReportAnIssue, "Main.ReportAnIssue");
-    sm->registerAction(ui.actionSigilDevBlog, "Main.SigilDevBlog");
-    sm->registerAction(ui.actionNextTab, "Main.NextTag");
-    sm->registerAction(ui.actionPreviousTab, "Main.PreviousTab");
-    sm->registerAction(ui.actionCloseTab, "Main.CloseTab");
-    sm->registerAction(ui.actionSplitOnSGFChapterMarkers, "Main.SplitOnSGFChapterMarkers");
-    sm->registerAction(ui.actionInsertSGFChapterMarker, "Main.InsertSGFChapterMarker");
-    sm->registerAction(ui.actionUserManual, "Main.UserManual");
-    sm->registerAction(ui.actionFAQ, "Main.FAQ");
-    sm->registerAction(ui.actionTidyClean, "Main.TidyClean");
-    sm->registerAction(ui.actionValidateEpub, "Main.ValidateEpub");
-    sm->registerAction(ui.actionDonate, "Main.Donate");
-    sm->registerAction(ui.actionCloseOtherTabs, "Main.CloseOtherTabs");
-    sm->registerAction(ui.actionGoToLine, "Main.GoToLine");
-    sm->registerAction(ui.actionCheckWellFormedErrors, "Main.CheckWellFormedErrors");
-    sm->registerAction(ui.actionFindNext, "Main.FindNext");
-    sm->registerAction(ui.actionFindPrevious, "Main.FindPrevious");
-    sm->registerAction(ui.actionReplaceNext, "Main.ReplaceNext");
-    sm->registerAction(ui.actionReplacePrevious, "Main.ReplacePrevious");
+    sm->registerAction(ui.actionSigilDevBlog, "Help.SigilDevBlog");
+    sm->registerAction(ui.actionNextTab, "Window.NextTag");
+    sm->registerAction(ui.actionPreviousTab, "Window.PreviousTab");
+    sm->registerAction(ui.actionCloseTab, "Window.CloseTab");
+    sm->registerAction(ui.actionSplitOnSGFChapterMarkers, "Tools.SplitOnSGFChapterMarkers");
+    sm->registerAction(ui.actionInsertSGFChapterMarker, "Insert.InsertSGFChapterMarker");
+    sm->registerAction(ui.actionUserManual, "Help.UserManual");
+    sm->registerAction(ui.actionFAQ, "Help.FAQ");
+    sm->registerAction(ui.actionTidyClean, "Tools.TidyClean");
+    sm->registerAction(ui.actionValidateEpub, "Tools.ValidateEpub");
+    sm->registerAction(ui.actionDonate, "Help.Donate");
+    sm->registerAction(ui.actionCloseOtherTabs, "Window.CloseOtherTabs");
+    sm->registerAction(ui.actionGoToLine, "Edit.GoToLine");
+    sm->registerAction(ui.actionCheckWellFormedErrors, "Tools.CheckWellFormedErrors");
+    sm->registerAction(ui.actionFindNext, "Edit.FindNext");
+    sm->registerAction(ui.actionFindPrevious, "Edit.FindPrevious");
+    sm->registerAction(ui.actionReplaceNext, "Edit.ReplaceNext");
+    sm->registerAction(ui.actionReplacePrevious, "Edit.ReplacePrevious");
 #ifndef Q_WS_MAC
-    sm->registerAction(ui.actionPreferences, "Main.Preferences");
+    sm->registerAction(ui.actionPreferences, "Help.Preferences");
 #endif
 
     ExtendIconSizes();
@@ -1671,6 +1678,7 @@ void MainWindow::ConnectSignalsToSlots()
     connect( ui.actionGoToLine,      SIGNAL( triggered() ), this, SLOT( GoToLine()                 ) );
     connect( ui.actionZoomIn,        SIGNAL( triggered() ), this, SLOT( ZoomIn()                   ) );
     connect( ui.actionZoomOut,       SIGNAL( triggered() ), this, SLOT( ZoomOut()                  ) );
+    connect( ui.actionZoomReset,     SIGNAL( triggered() ), this, SLOT( ZoomReset()                ) );
     connect( ui.actionInsertImage,   SIGNAL( triggered() ), this, SLOT( InsertImage()              ) );
     connect( ui.actionMetaEditor,    SIGNAL( triggered() ), this, SLOT( MetaEditorDialog()         ) );
     connect( ui.actionUserManual,    SIGNAL( triggered() ), this, SLOT( UserManual()               ) );

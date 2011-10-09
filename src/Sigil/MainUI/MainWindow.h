@@ -182,6 +182,11 @@ private slots:
     void ZoomOut();
 
     /**
+     * Implements Zoom Reset action functionality.
+     */
+    void ZoomReset();
+
+    /**
      * Implements Insert image action functionality.
      */
     void InsertImage();
