@@ -146,7 +146,7 @@ void KeyboardShortcutsWidget::resetButtonClickedSlot()
         KeyboardShortcutManager *sm = KeyboardShortcutManager::instance();
 
         //get 'current' sequence value from CommandManger
-        QKeySequence seq = sm->keyboardShortcut(ui.commandList->currentItem()->text(SEQ_NAME_INDEX)).keySequence();
+        QKeySequence seq = sm->keyboardShortcut(ui.commandList->currentItem()->text(SEQ_NAME_INDEX)).defaultKeySequence();
         //assign sequence value from CommandManager to the currentItem
         ui.commandList->currentItem()->setText(SEQ_SEQUENCE_INDEX, seq);
         ui.targetEdit->setText(seq);
@@ -162,7 +162,7 @@ void KeyboardShortcutsWidget::resetAllButtonClickedSlot()
     //Go through all items
     for (int i = 0; i < ui.commandList->topLevelItemCount(); i++) {
         QTreeWidgetItem *item = ui.commandList->topLevelItem(i);
-        QKeySequence seq = sm->keyboardShortcut(item->text(SEQ_NAME_INDEX)).keySequence();
+        QKeySequence seq = sm->keyboardShortcut(item->text(SEQ_NAME_INDEX)).defaultKeySequence();
         item->setText(SEQ_SEQUENCE_INDEX, seq);
         updateItemView(item);
     }
