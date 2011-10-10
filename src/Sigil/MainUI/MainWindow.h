@@ -35,13 +35,13 @@ const int STATUSBAR_MSG_DISPLAY_TIME = 20000;
 
 class QComboBox;
 class QLabel;
+class QSignalMapper;
 class QSlider;
 class FindReplace;
 class TabManager;
 class BookBrowser;
 class TableOfContents;
 class ValidationResultsView;
-
 
 
 /**
@@ -623,9 +623,14 @@ private:
     QSlider *m_slZoomSlider;
 
     /**
-     *  The label that displays the current zoom factor.
+     * The label that displays the current zoom factor.
      */
     QLabel *m_lbZoomLabel;
+
+    /**
+     * Collects signals and sends specific paramerts to the connected slots.
+     */
+    QSignalMapper *m_headingMapper;
 
     /**
      * A map with keys being extensions of file types 

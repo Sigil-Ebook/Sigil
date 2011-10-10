@@ -89,6 +89,7 @@ MainWindow::MainWindow( const QString &openfilepath, QWidget *parent, Qt::WFlags
     m_ValidationResultsView( NULL ),
     m_slZoomSlider( NULL ),
     m_lbZoomLabel( NULL ),
+    m_headingMapper( new QSignalMapper( this ) ),
     c_SaveFilters( GetSaveFiltersMap() ),
     c_LoadFilters( GetLoadFiltersMap() ),
     m_CheckWellFormedErrors( true )
@@ -598,6 +599,13 @@ void MainWindow::SetStateActionsBookView()
     ui.actionIncreaseIndent->setEnabled( true );
 
     m_cbHeadings->setEnabled( true );
+    ui.actionHeading1->setEnabled( true );
+    ui.actionHeading2->setEnabled( true );
+    ui.actionHeading3->setEnabled( true );
+    ui.actionHeading4->setEnabled( true );
+    ui.actionHeading5->setEnabled( true );
+    ui.actionHeading6->setEnabled( true );
+    ui.actionHeadingNormal->setEnabled( true );
 }
 
 
@@ -629,6 +637,13 @@ void MainWindow::SetStateActionsCodeView()
     ui.actionIncreaseIndent->setEnabled( false );
 
     m_cbHeadings->setEnabled( false );
+    ui.actionHeading1->setEnabled( false );
+    ui.actionHeading2->setEnabled( false );
+    ui.actionHeading3->setEnabled( false );
+    ui.actionHeading4->setEnabled( false );
+    ui.actionHeading5->setEnabled( false );
+    ui.actionHeading6->setEnabled( false );
+    ui.actionHeadingNormal->setEnabled( false );
 
     ui.actionBold     ->setChecked( false );
     ui.actionItalic   ->setChecked( false );
@@ -1425,67 +1440,84 @@ void MainWindow::ExtendUI()
 
     // Setup userdefined keyboard shortcuts for actions.
     KeyboardShortcutManager *sm = KeyboardShortcutManager::instance();
+    // File
     sm->registerAction(ui.actionNew, "File.New");
+    sm->registerAction(ui.actionOpen, "File.Open");
+#ifndef Q_WS_MAC
+    sm->registerAction(ui.actionClose, "File.Close");
+#endif
     sm->registerAction(ui.actionSave, "File.Save");
     sm->registerAction(ui.actionSaveAs, "File.SaveAs");
     sm->registerAction(ui.actionPrintPreview, "File.PrintPreview");
     sm->registerAction(ui.actionPrint, "File.Print");
-    sm->registerAction(ui.actionCut, "Edit.Cut");
-    sm->registerAction(ui.actionPaste, "Edit.Paste");
+    sm->registerAction(ui.actionValidateEpub, "File.ValidateEpub");
+    sm->registerAction(ui.actionExit, "File.Exit");
+    // Edit
     sm->registerAction(ui.actionUndo, "Edit.Undo");
     sm->registerAction(ui.actionRedo, "Edit.Redo");
+    sm->registerAction(ui.actionCut, "Edit.Cut");
     sm->registerAction(ui.actionCopy, "Edit.Copy");
-    sm->registerAction(ui.actionAlignLeft, "Format.AlignLeft");
-    sm->registerAction(ui.actionAlignRight, "Format.AlignRight");
-    sm->registerAction(ui.actionCenter, "Format.Center");
-    sm->registerAction(ui.actionJustify, "Format.Justify");
-    sm->registerAction(ui.actionBold, "Format.Bold");
-    sm->registerAction(ui.actionItalic, "Format.Italic");
-    sm->registerAction(ui.actionOpen, "File.Open");
-    sm->registerAction(ui.actionUnderline, "Format.Underline");
-    sm->registerAction(ui.actionExit, "File.Exit");
-    sm->registerAction(ui.actionAbout, "Help.About");
-    sm->registerAction(ui.actionMetaEditor, "Tools.MetaEditor");
-    sm->registerAction(ui.actionBookView, "View.BookView");
-    sm->registerAction(ui.actionSplitView, "View.SplitView");
-    sm->registerAction(ui.actionCodeView, "View.CodeView");
-    sm->registerAction(ui.actionSplitChapter, "Insert.SplitChapter");
-    sm->registerAction(ui.actionInsertImage, "Insert.InsertImage");
-    sm->registerAction(ui.actionInsertNumberedList, "Format.InsertNumberedList");
-    sm->registerAction(ui.actionInsertBulletedList, "Format.InsertBulletedList");
-    sm->registerAction(ui.actionStrikethrough, "Format.Strikethrough");
-#ifndef Q_WS_MAC
-    sm->registerAction(ui.actionClose, "File.Close");
-#endif
-    sm->registerAction(ui.actionZoomIn, "View.ZoomIn");
-    sm->registerAction(ui.actionZoomOut, "View.ZoomOut");
-    sm->registerAction(ui.actionZoomReset, "View.ZoomReset");
+    sm->registerAction(ui.actionPaste, "Edit.Paste");
     sm->registerAction(ui.actionFind, "Edit.Find");
-    sm->registerAction(ui.actionIncreaseIndent, "Format.IncreaseIndent");
-    sm->registerAction(ui.actionDecreaseIndent, "Format.DecreaseIndent");
-    sm->registerAction(ui.actionRemoveFormatting, "Format.RemoveFormatting");
-    sm->registerAction(ui.actionReportAnIssue, "Main.ReportAnIssue");
-    sm->registerAction(ui.actionSigilDevBlog, "Help.SigilDevBlog");
-    sm->registerAction(ui.actionNextTab, "Window.NextTag");
-    sm->registerAction(ui.actionPreviousTab, "Window.PreviousTab");
-    sm->registerAction(ui.actionCloseTab, "Window.CloseTab");
-    sm->registerAction(ui.actionSplitOnSGFChapterMarkers, "Tools.SplitOnSGFChapterMarkers");
-    sm->registerAction(ui.actionInsertSGFChapterMarker, "Insert.InsertSGFChapterMarker");
-    sm->registerAction(ui.actionUserManual, "Help.UserManual");
-    sm->registerAction(ui.actionFAQ, "Help.FAQ");
-    sm->registerAction(ui.actionTidyClean, "Tools.TidyClean");
-    sm->registerAction(ui.actionValidateEpub, "Tools.ValidateEpub");
-    sm->registerAction(ui.actionDonate, "Help.Donate");
-    sm->registerAction(ui.actionCloseOtherTabs, "Window.CloseOtherTabs");
-    sm->registerAction(ui.actionGoToLine, "Edit.GoToLine");
-    sm->registerAction(ui.actionCheckWellFormedErrors, "Tools.CheckWellFormedErrors");
     sm->registerAction(ui.actionFindNext, "Edit.FindNext");
     sm->registerAction(ui.actionFindPrevious, "Edit.FindPrevious");
     sm->registerAction(ui.actionReplaceNext, "Edit.ReplaceNext");
     sm->registerAction(ui.actionReplacePrevious, "Edit.ReplacePrevious");
+    sm->registerAction(ui.actionGoToLine, "Edit.GoToLine");
+    sm->registerAction(ui.actionMetaEditor, "Edit.MetaEditor");
+    sm->registerAction(ui.actionInsertImage, "Edit.InsertImage");
+    sm->registerAction(ui.actionSplitChapter, "Edit.SplitChapter");
+    sm->registerAction(ui.actionInsertSGFChapterMarker, "Edit.InsertSGFChapterMarker");
+    sm->registerAction(ui.actionSplitOnSGFChapterMarkers, "Edit.SplitOnSGFChapterMarkers");
 #ifndef Q_WS_MAC
-    sm->registerAction(ui.actionPreferences, "Help.Preferences");
+    sm->registerAction(ui.actionPreferences, "Edit.Preferences");
 #endif
+    // Format
+    sm->registerAction(ui.actionBold, "Format.Bold");
+    sm->registerAction(ui.actionItalic, "Format.Italic");
+    sm->registerAction(ui.actionUnderline, "Format.Underline");
+    sm->registerAction(ui.actionStrikethrough, "Format.Strikethrough");
+    sm->registerAction(ui.actionHeadingNormal, "Format.HeadingNormal");
+    sm->registerAction(ui.actionAlignLeft, "Format.AlignLeft");
+    sm->registerAction(ui.actionCenter, "Format.Center");
+    sm->registerAction(ui.actionAlignRight, "Format.AlignRight");
+    sm->registerAction(ui.actionJustify, "Format.Justify");
+    sm->registerAction(ui.actionInsertNumberedList, "Format.InsertNumberedList");
+    sm->registerAction(ui.actionInsertBulletedList, "Format.InsertBulletedList");
+    sm->registerAction(ui.actionIncreaseIndent, "Format.IncreaseIndent");
+    sm->registerAction(ui.actionDecreaseIndent, "Format.DecreaseIndent");
+    sm->registerAction(ui.actionHeading1, "Format.Heading1");
+    sm->registerAction(ui.actionHeading2, "Format.Heading2");
+    sm->registerAction(ui.actionHeading3, "Format.Heading3");
+    sm->registerAction(ui.actionHeading4, "Format.Heading4");
+    sm->registerAction(ui.actionHeading5, "Format.Heading5");
+    sm->registerAction(ui.actionHeading6, "Format.Heading6");
+    sm->registerAction(ui.actionRemoveFormatting, "Format.RemoveFormatting");
+    // View
+    sm->registerAction(ui.actionBookView, "View.BookView");
+    sm->registerAction(ui.actionSplitView, "View.SplitView");
+    sm->registerAction(ui.actionCodeView, "View.CodeView");
+    sm->registerAction(ui.actionZoomIn, "View.ZoomIn");
+    sm->registerAction(ui.actionZoomOut, "View.ZoomOut");
+    sm->registerAction(ui.actionZoomReset, "View.ZoomReset");
+    sm->registerAction(m_BookBrowser->toggleViewAction(), "View.BookBrowser");
+    sm->registerAction(m_ValidationResultsView->toggleViewAction(), "View.ValidationResults");
+    sm->registerAction(m_TableOfContents->toggleViewAction(), "View.TableOfContents");
+    // Tools
+    sm->registerAction(ui.actionTidyClean, "Tools.TidyClean");
+    sm->registerAction(ui.actionCheckWellFormedErrors, "Tools.CheckWellFormedErrors");
+    // Window
+    sm->registerAction(ui.actionNextTab, "Window.NextTag");
+    sm->registerAction(ui.actionPreviousTab, "Window.PreviousTab");
+    sm->registerAction(ui.actionCloseTab, "Window.CloseTab");
+    sm->registerAction(ui.actionCloseOtherTabs, "Window.CloseOtherTabs");
+    // Help
+    sm->registerAction(ui.actionUserManual, "Help.UserManual");
+    sm->registerAction(ui.actionFAQ, "Help.FAQ");
+    sm->registerAction(ui.actionDonate, "Help.Donate");
+    sm->registerAction(ui.actionReportAnIssue, "Help.ReportAnIssue");
+    sm->registerAction(ui.actionSigilDevBlog, "Help.SigilDevBlog");
+    sm->registerAction(ui.actionAbout, "Help.About");
 
     ExtendIconSizes();
 }
@@ -1664,6 +1696,22 @@ void MainWindow::LoadInitialFile( const QString &openfilepath )
 
 void MainWindow::ConnectSignalsToSlots()
 {
+    // Setup signal mapping for heading actions.
+    connect( ui.actionHeading1, SIGNAL( triggered() ), m_headingMapper, SLOT( map() ) );
+    m_headingMapper->setMapping( ui.actionHeading1, "1" );
+    connect( ui.actionHeading2, SIGNAL( triggered() ), m_headingMapper, SLOT( map() ) );
+    m_headingMapper->setMapping( ui.actionHeading2, "2" );
+    connect( ui.actionHeading3, SIGNAL( triggered() ), m_headingMapper, SLOT( map() ) );
+    m_headingMapper->setMapping( ui.actionHeading3, "3" );
+    connect( ui.actionHeading4, SIGNAL( triggered() ), m_headingMapper, SLOT( map() ) );
+    m_headingMapper->setMapping( ui.actionHeading4, "4" );
+    connect( ui.actionHeading5, SIGNAL( triggered() ), m_headingMapper, SLOT( map() ) );
+    m_headingMapper->setMapping( ui.actionHeading5, "5" );
+    connect( ui.actionHeading6, SIGNAL( triggered() ), m_headingMapper, SLOT( map() ) );
+    m_headingMapper->setMapping( ui.actionHeading6, "6" );
+    connect( ui.actionHeadingNormal, SIGNAL( triggered() ), m_headingMapper, SLOT( map() ) );
+    m_headingMapper->setMapping( ui.actionHeadingNormal, "Normal" );
+
     connect( ui.actionExit,          SIGNAL( triggered() ), qApp, SLOT( closeAllWindows()          ) );
     connect( ui.actionClose,         SIGNAL( triggered() ), this, SLOT( close()                    ) );
     connect( ui.actionNew,           SIGNAL( triggered() ), this, SLOT( New()                      ) );
@@ -1779,6 +1827,7 @@ void MainWindow::MakeTabConnections( ContentTab *tab )
     connect( ui.actionCodeView,                 SIGNAL( triggered() ),  tab,   SLOT( CodeView()                 ) ); 
 
     connect( m_cbHeadings, SIGNAL( activated( const QString& ) ),  tab,   SLOT( HeadingStyle( const QString& ) ) );
+    connect( m_headingMapper, SIGNAL( mapped( const QString& ) ),  tab,   SLOT( HeadingStyle( const QString& ) ) );
 
     connect( tab,   SIGNAL( ViewButtonsStateChanged() ),    this,          SLOT( UpdateUIOnTabChanges()    ) );
     connect( tab,   SIGNAL( ViewChanged() ),                this,          SLOT( UpdateUIOnTabChanges()    ) );
@@ -1829,6 +1878,7 @@ void MainWindow::BreakTabConnections( ContentTab *tab )
     disconnect( ui.actionCodeView,                  0, tab, 0 );   
 
     disconnect( m_cbHeadings,                       0, tab, 0 );
+    disconnect( m_headingMapper,                    0, tab, 0 );
 
     disconnect( tab,                                0, this, 0 );
     disconnect( tab,                                0, m_Book.data(), 0 );

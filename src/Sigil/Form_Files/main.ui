@@ -58,6 +58,8 @@
     <addaction name="actionPrintPreview"/>
     <addaction name="actionPrint"/>
     <addaction name="separator"/>
+    <addaction name="actionValidateEpub"/>
+    <addaction name="separator"/>
     <addaction name="separator"/>
     <addaction name="actionExit"/>
    </widget>
@@ -65,6 +67,24 @@
     <property name="title">
      <string>&amp;Edit</string>
     </property>
+    <widget class="QMenu" name="menuFindReplace">
+     <property name="title">
+      <string>Find / Replace</string>
+     </property>
+     <addaction name="actionFind"/>
+     <addaction name="separator"/>
+     <addaction name="actionFindNext"/>
+     <addaction name="actionFindPrevious"/>
+     <addaction name="separator"/>
+     <addaction name="actionReplaceNext"/>
+     <addaction name="actionReplacePrevious"/>
+    </widget>
+    <widget class="QMenu" name="menuInsert">
+     <property name="title">
+      <string>Images</string>
+     </property>
+     <addaction name="actionInsertImage"/>
+    </widget>
     <addaction name="actionUndo"/>
     <addaction name="actionRedo"/>
     <addaction name="separator"/>
@@ -72,13 +92,17 @@
     <addaction name="actionCopy"/>
     <addaction name="actionPaste"/>
     <addaction name="separator"/>
-    <addaction name="actionFind"/>
-    <addaction name="actionFindNext"/>
-    <addaction name="actionFindPrevious"/>
-    <addaction name="actionReplaceNext"/>
-    <addaction name="actionReplacePrevious"/>
-    <addaction name="separator"/>
+    <addaction name="menuFindReplace"/>
     <addaction name="actionGoToLine"/>
+    <addaction name="separator"/>
+    <addaction name="actionMetaEditor"/>
+    <addaction name="menuInsert"/>
+    <addaction name="separator"/>
+    <addaction name="actionSplitChapter"/>
+    <addaction name="actionInsertSGFChapterMarker"/>
+    <addaction name="actionSplitOnSGFChapterMarkers"/>
+    <addaction name="separator"/>
+    <addaction name="actionPreferences"/>
    </widget>
    <widget class="QMenu" name="menuHelp">
     <property name="title">
@@ -91,12 +115,23 @@
     <addaction name="actionReportAnIssue"/>
     <addaction name="actionSigilDevBlog"/>
     <addaction name="actionAbout"/>
-    <addaction name="actionPreferences"/>
    </widget>
    <widget class="QMenu" name="menuFormat">
     <property name="title">
      <string>For&amp;mat</string>
     </property>
+    <widget class="QMenu" name="menuHeadings">
+     <property name="title">
+      <string>Heading</string>
+     </property>
+     <addaction name="actionHeadingNormal"/>
+     <addaction name="actionHeading1"/>
+     <addaction name="actionHeading2"/>
+     <addaction name="actionHeading3"/>
+     <addaction name="actionHeading4"/>
+     <addaction name="actionHeading5"/>
+     <addaction name="actionHeading6"/>
+    </widget>
     <addaction name="actionBold"/>
     <addaction name="actionItalic"/>
     <addaction name="actionUnderline"/>
@@ -112,6 +147,8 @@
     <addaction name="separator"/>
     <addaction name="actionDecreaseIndent"/>
     <addaction name="actionIncreaseIndent"/>
+    <addaction name="separator"/>
+    <addaction name="menuHeadings"/>
     <addaction name="separator"/>
     <addaction name="actionRemoveFormatting"/>
    </widget>
@@ -131,20 +168,8 @@
     <property name="title">
      <string>&amp;Tools</string>
     </property>
-    <addaction name="actionMetaEditor"/>
-    <addaction name="actionSplitOnSGFChapterMarkers"/>
-    <addaction name="separator"/>
     <addaction name="actionTidyClean"/>
     <addaction name="actionCheckWellFormedErrors"/>
-    <addaction name="actionValidateEpub"/>
-   </widget>
-   <widget class="QMenu" name="menuInsert">
-    <property name="title">
-     <string>&amp;Insert</string>
-    </property>
-    <addaction name="actionSplitChapter"/>
-    <addaction name="actionInsertImage"/>
-    <addaction name="actionInsertSGFChapterMarker"/>
    </widget>
    <widget class="QMenu" name="menu_Window">
     <property name="title">
@@ -159,7 +184,6 @@
    <addaction name="menuFile"/>
    <addaction name="menuEdit"/>
    <addaction name="menuFormat"/>
-   <addaction name="menuInsert"/>
    <addaction name="menuView"/>
    <addaction name="menuTools"/>
    <addaction name="menu_Window"/>
@@ -709,7 +733,7 @@
      <normaloff>:/main/insert-chapter-break_22px.png</normaloff>:/main/insert-chapter-break_22px.png</iconset>
    </property>
    <property name="text">
-    <string>&amp;Chapter Break</string>
+    <string>Create Chapter Break</string>
    </property>
    <property name="toolTip">
     <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Chapter Break&lt;/b&gt;&lt;/p&gt;
@@ -728,7 +752,7 @@
      <normaloff>:/main/insert-image_22px.png</normaloff>:/main/insert-image_22px.png</iconset>
    </property>
    <property name="text">
-    <string>&amp;Image...</string>
+    <string>Insert Image from Disk...</string>
    </property>
    <property name="toolTip">
     <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert Image&lt;/b&gt;&lt;/p&gt;
@@ -966,10 +990,10 @@
   </action>
   <action name="actionSplitOnSGFChapterMarkers">
    <property name="text">
-    <string>&amp;Split On SGF Chapter Markers</string>
+    <string>Create Chapter Breaks at Sigil Chapter Markers</string>
    </property>
    <property name="toolTip">
-    <string>Split On SGF Chapter Markers</string>
+    <string>Split On Sigil Chapter Markers</string>
    </property>
    <property name="shortcut">
     <string>F6</string>
@@ -977,10 +1001,10 @@
   </action>
   <action name="actionInsertSGFChapterMarker">
    <property name="text">
-    <string>&amp;SGF Chapter Marker</string>
+    <string>Insert Sigil Chapter Marker</string>
    </property>
    <property name="toolTip">
-    <string>Insert SGF Chapter Marker</string>
+    <string>Insert Sigil Chapter Marker</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+Shift+Return</string>
@@ -1137,6 +1161,83 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+0</string>
+   </property>
+  </action>
+  <action name="actionHeading1">
+   <property name="text">
+    <string>Heading 1</string>
+   </property>
+   <property name="toolTip">
+    <string>Style with heading 1</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+1</string>
+   </property>
+  </action>
+  <action name="actionHeading2">
+   <property name="text">
+    <string>Heading 2</string>
+   </property>
+   <property name="toolTip">
+    <string>Style with heading 2</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+2</string>
+   </property>
+  </action>
+  <action name="actionHeading3">
+   <property name="text">
+    <string>Heading 3</string>
+   </property>
+   <property name="toolTip">
+    <string>Style with heading 3</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+3</string>
+   </property>
+  </action>
+  <action name="actionHeading4">
+   <property name="text">
+    <string>Heading 4</string>
+   </property>
+   <property name="toolTip">
+    <string>Style with heading 4</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+4</string>
+   </property>
+  </action>
+  <action name="actionHeading5">
+   <property name="text">
+    <string>Heading 5</string>
+   </property>
+   <property name="toolTip">
+    <string>Style with heading 5</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+5</string>
+   </property>
+  </action>
+  <action name="actionHeading6">
+   <property name="text">
+    <string>Heading 6</string>
+   </property>
+   <property name="toolTip">
+    <string>Style with heading 6</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+6</string>
+   </property>
+  </action>
+  <action name="actionHeadingNormal">
+   <property name="text">
+    <string>Normal</string>
+   </property>
+   <property name="toolTip">
+    <string>Style as normal text</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+7</string>
    </property>
   </action>
  </widget>
