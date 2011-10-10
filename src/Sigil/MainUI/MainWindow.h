@@ -567,7 +567,7 @@ private:
     /**
      * The last folder to which the user imported an image.
      */
-    QString m_LastFolderImage;
+    QString m_LastFolderAdd;
 
     /**
      * The list of full filepaths 

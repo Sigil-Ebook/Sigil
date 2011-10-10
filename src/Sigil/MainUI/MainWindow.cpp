@@ -24,11 +24,13 @@
 #include "MainWindow.h"
 #include "BookManipulation/FolderKeeper.h"
 #include "Exporters/ExportEPUB.h"
+#include "Dialogs/ImageList.h"
 #include "Dialogs/MetaEditor.h"
 #include "Dialogs/About.h"
 #include "Dialogs/Preferences.h"
 #include "Importers/ImporterFactory.h"
 #include "Exporters/ExporterFactory.h"
+#include "Importers/ImportHTML.h"
 #include "BookManipulation/BookNormalization.h"
 #include "MainUI/BookBrowser.h"
 #include "MainUI/ValidationResultsView.h"
@@ -389,35 +391,40 @@ void MainWindow::ZoomReset()
 
 void MainWindow::InsertImage()
 {
-    if ( !m_TabManager.TabDataIsWellFormed() )
+    QStringList image_filepaths;
 
+    QStringList all_filepaths = m_Book->GetFolderKeeper().GetAllFilenames();
+    foreach (QString filepath, all_filepaths) {
+        if (IMAGE_EXTENSIONS.contains(QFileInfo(filepath).suffix().toLower())) {
+            image_filepaths.append(QFileInfo(filepath).fileName());
+        }
+    }
+
+    if (image_filepaths.isEmpty()) {
+        QMessageBox::warning( this,
+                              tr( "Sigil"),
+                              tr( "There are no images to add.")
+                            );
         return;
+    }
 
-    QStringList filenames = QFileDialog::getOpenFileNames( this, 
-                                                           tr( "Insert Image(s)" ), 
-                                                           m_LastFolderImage, 
-                                                           tr( "Images (*.png *.jpg *.jpeg *.gif *.svg)")
-                                                         );
+    ImageList image_list(this);
+    image_list.setBasepath(m_Book->GetFolderKeeper().GetFullPathToImageFolder());
+    image_list.setImages(image_filepaths);
 
-    if ( filenames.isEmpty() )
+    if (image_list.exec() == QDialog::Accepted) {
+        QString selected_image = image_list.selectedImage();
 
-        return;
+        if (!selected_image.isEmpty()) {
+            FlowTab &flow_tab = *qobject_cast<FlowTab*>(&m_TabManager.GetCurrentContentTab());
+            Q_ASSERT(&flow_tab);
 
-    // Store the folder the user inserted the image from
-    m_LastFolderImage = QFileInfo( filenames.first() ).absolutePath();
+            const Resource &resource = m_Book->GetFolderKeeper().GetResourceByFilename(selected_image);
+            const QString &relative_path = "../" + resource.GetRelativePathToOEBPS();
 
-    FlowTab &flow_tab = *qobject_cast< FlowTab* >( &m_TabManager.GetCurrentContentTab() );
-    Q_ASSERT( &flow_tab );
-
-    foreach( QString filename, filenames )
-    {
-        Resource &resource = m_Book->GetFolderKeeper().AddContentFileToFolder( filename );
-        const QString &relative_path = "../" + resource.GetRelativePathToOEBPS();
-        
-        flow_tab.InsertImage( relative_path );
-    }  
-
-    m_BookBrowser->Refresh();
+            flow_tab.InsertImage(relative_path);
+        }
+    }
 }
 
 
@@ -627,9 +634,6 @@ void MainWindow::SetStateActionsCodeView()
     ui.actionAlignRight->setEnabled( false );
     ui.actionJustify   ->setEnabled( false );
 
-    ui.actionInsertImage       ->setEnabled( false );
-    // Chapter break is TRUE!
-    
     ui.actionInsertBulletedList->setEnabled( false );
     ui.actionInsertNumberedList->setEnabled( false );
 
@@ -661,8 +665,9 @@ void MainWindow::SetStateActionsRawView()
 
     ui.actionBookView ->setEnabled( false );
     ui.actionSplitView->setEnabled( false );
-    ui.actionCodeView ->setEnabled( false );  
+    ui.actionCodeView->setEnabled( false );
 
+    ui.actionInsertImage->setEnabled( false );
     ui.actionSplitChapter->setEnabled( false );
 }
 
@@ -818,7 +823,7 @@ void MainWindow::ReadSettings()
     // The last folders used for saving and opening files
     m_LastFolderSave  = settings.value( "lastfoldersave"  ).toString();
     m_LastFolderOpen  = settings.value( "lastfolderopen"  ).toString();
-    m_LastFolderImage = settings.value( "lastfolderimage" ).toString();
+    m_LastFolderAdd = settings.value( "lastfolderadd" ).toString();
 
     // The list of recent files
     s_RecentFiles    = settings.value( "recentfiles" ).toStringList();
@@ -849,7 +854,7 @@ void MainWindow::WriteSettings()
     // The last folders used for saving and opening files
     settings.setValue( "lastfoldersave",  m_LastFolderSave  );
     settings.setValue( "lastfolderopen",  m_LastFolderOpen  );
-    settings.setValue( "lastfolderimage", m_LastFolderImage );
+    settings.setValue( "lastfolderadd", m_LastFolderAdd );
 
     // The list of recent files
     settings.setValue( "recentfiles", s_RecentFiles );
@@ -1456,6 +1461,9 @@ void MainWindow::ExtendUI()
     // File
     sm->registerAction(ui.actionNew, "File.New");
     sm->registerAction(ui.actionOpen, "File.Open");
+    sm->registerAction(ui.actionNewHTMLFile, "File.Add.HTML");
+    sm->registerAction(ui.actionNewCSSFile, "File.Add.CSS");
+    sm->registerAction(ui.actionAddExistingFile, "File.Add.Existing");
 #ifndef Q_WS_MAC
     sm->registerAction(ui.actionClose, "File.Close");
 #endif
@@ -1729,6 +1737,9 @@ void MainWindow::ConnectSignalsToSlots()
     connect( ui.actionClose,         SIGNAL( triggered() ), this, SLOT( close()                    ) );
     connect( ui.actionNew,           SIGNAL( triggered() ), this, SLOT( New()                      ) );
     connect( ui.actionOpen,          SIGNAL( triggered() ), this, SLOT( Open()                     ) );
+    connect( ui.actionNewHTMLFile,   SIGNAL( triggered() ), m_BookBrowser, SLOT( AddNewHTML()      ) );
+    connect( ui.actionNewCSSFile,    SIGNAL( triggered() ), m_BookBrowser, SLOT( AddNewCSS()       ) );
+    connect( ui.actionAddExistingFile,SIGNAL(triggered() ), m_BookBrowser, SLOT( AddExisting()     ) );
     connect( ui.actionSave,          SIGNAL( triggered() ), this, SLOT( Save()                     ) );
     connect( ui.actionSaveAs,        SIGNAL( triggered() ), this, SLOT( SaveAs()                   ) );
     connect( ui.actionFind,          SIGNAL( triggered() ), this, SLOT( Find()                     ) );

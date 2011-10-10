@@ -595,7 +595,12 @@ void FlowTab::SplitOnSGFChapterMarkers()
 
 void FlowTab::InsertImage( const QString &image_path )
 {
-    m_wBookView.ExecCommand( "insertImage", image_path );
+    if (m_IsLastViewBook) {
+        m_wBookView.ExecCommand( "insertImage", image_path );
+    }
+    else {
+        m_wCodeView.insertPlainText(QString("<img src=\"%1\"/>").arg(image_path));
+    }
 }
 
 

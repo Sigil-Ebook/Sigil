@@ -196,6 +196,13 @@ public:
     QString GetFullPathToTextFolder() const;
 
     /**
+     * Returns the full path to the Image folder of the publication.
+     *
+     * @return The full path.
+     */
+    QString GetFullPathToImageFolder() const;
+
+    /**
      * Returns a list of all the resource filenames in the book. 
      *
      * @return The filename list.

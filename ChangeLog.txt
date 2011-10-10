@@ -1,4 +1,8 @@
 Sigil vNEXT TBA
+    - Implement issue 375: Add image selection dialog for inserting existing
+      images into book and code views.
+    - Add menu items for setting heading, adding new items, show / hide toolbars.
+    - Organize menu.
     - Fix issue 803: Print prints immediately, no dialog box.
     - Implement 245: Unify zoom levels (book, text, image) and store the levels.
     - i18n capability. Build and load translation files.

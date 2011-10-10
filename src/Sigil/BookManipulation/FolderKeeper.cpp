@@ -351,6 +351,12 @@ QString FolderKeeper::GetFullPathToTextFolder() const
 }
 
 
+QString FolderKeeper::GetFullPathToImageFolder() const
+{
+    return m_FullPathToImagesFolder;
+}
+
+
 QStringList FolderKeeper::GetAllFilenames() const
 {
     QStringList filelist;

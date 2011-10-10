@@ -44,6 +44,7 @@ set( QOBJECT_HEADERS
     Dialogs/AddMetadata.h 
     Dialogs/About.h
     Dialogs/HeadingSelector.h 
+    Dialogs/ImageList.h
     Dialogs/MetaEditor.h
     Dialogs/Preferences.h
     Dialogs/PreferenceWidgets/PreferencesWidget.h
@@ -140,6 +141,8 @@ set( DIALOG_FILES
     Dialogs/About.h
     Dialogs/AddMetadata.cpp
     Dialogs/AddMetadata.h
+    Dialogs/ImageList.cpp
+    Dialogs/ImageList.h
     Dialogs/MetaEditor.cpp
     Dialogs/MetaEditor.h
     Dialogs/HeadingSelector.cpp
@@ -282,6 +285,7 @@ set( TAB_FILES
             
 set( UI_FILES   
     Form_Files/main.ui 
+    Form_Files/ImageList.ui
     Form_Files/MetaEditor.ui 
     Form_Files/AddMetadata.ui 
     Form_Files/About.ui 

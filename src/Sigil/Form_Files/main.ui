@@ -48,8 +48,19 @@
     <property name="title">
      <string>&amp;File</string>
     </property>
+    <widget class="QMenu" name="menuAdd">
+     <property name="title">
+      <string>Add</string>
+     </property>
+     <addaction name="actionNewHTMLFile"/>
+     <addaction name="actionNewCSSFile"/>
+     <addaction name="separator"/>
+     <addaction name="actionAddExistingFile"/>
+    </widget>
     <addaction name="actionNew"/>
     <addaction name="actionOpen"/>
+    <addaction name="separator"/>
+    <addaction name="menuAdd"/>
     <addaction name="separator"/>
     <addaction name="actionClose"/>
     <addaction name="actionSave"/>
@@ -79,12 +90,6 @@
      <addaction name="actionReplaceNext"/>
      <addaction name="actionReplacePrevious"/>
     </widget>
-    <widget class="QMenu" name="menuInsert">
-     <property name="title">
-      <string>Images</string>
-     </property>
-     <addaction name="actionInsertImage"/>
-    </widget>
     <addaction name="actionUndo"/>
     <addaction name="actionRedo"/>
     <addaction name="separator"/>
@@ -96,7 +101,7 @@
     <addaction name="actionGoToLine"/>
     <addaction name="separator"/>
     <addaction name="actionMetaEditor"/>
-    <addaction name="menuInsert"/>
+    <addaction name="actionInsertImage"/>
     <addaction name="separator"/>
     <addaction name="actionSplitChapter"/>
     <addaction name="actionInsertSGFChapterMarker"/>
@@ -759,7 +764,7 @@
      <normaloff>:/main/insert-image_22px.png</normaloff>:/main/insert-image_22px.png</iconset>
    </property>
    <property name="text">
-    <string>Insert Image from Disk...</string>
+    <string>Insert Image...</string>
    </property>
    <property name="toolTip">
     <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert Image&lt;/b&gt;&lt;/p&gt;
@@ -1247,9 +1252,19 @@
     <string>Ctrl+7</string>
    </property>
   </action>
-  <action name="actionJ">
+  <action name="actionNewHTMLFile">
    <property name="text">
-    <string>j</string>
+    <string>New HTML File</string>
+   </property>
+  </action>
+  <action name="actionAddExistingFile">
+   <property name="text">
+    <string>Existing File...</string>
+   </property>
+  </action>
+  <action name="actionNewCSSFile">
+   <property name="text">
+    <string>New CSS File</string>
    </property>
   </action>
  </widget>

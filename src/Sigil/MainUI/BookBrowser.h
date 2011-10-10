@@ -88,6 +88,13 @@ public slots:
      */
     void OpenUrlResource( const QUrl &url );
 
+    void AddNewHTML();
+    void AddNewCSS();
+    /**
+     * Implements the Add Existing context menu action functionality.
+     */
+    void AddExisting();
+
 signals:
 
     /**
@@ -150,11 +157,6 @@ private slots:
      * Implements the Add New context menu action functionality.
      */
     void AddNew();
-
-    /**
-     * Implements the Add Existing context menu action functionality.
-     */
-    void AddExisting();
 
     /**
      * Implements the Rename context menu action functionality.

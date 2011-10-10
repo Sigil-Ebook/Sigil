@@ -154,16 +154,27 @@ void BookBrowser::AddNew()
 {
     if ( m_LastContextMenuType == Resource::HTMLResourceType )
     {
-        m_Book->CreateEmptyHTMLFile();
+        AddNewHTML();
     }
-
     else if ( m_LastContextMenuType == Resource::CSSResourceType )
     {
-        m_Book->CreateEmptyCSSFile();
+        AddNewCSS();
     }
+}
 
+
+void BookBrowser::AddNewHTML()
+{
+    m_Book->CreateEmptyHTMLFile();
     Refresh();
+    emit BookContentModified();
+}
 
+
+void BookBrowser::AddNewCSS()
+{
+    m_Book->CreateEmptyCSSFile();
+    Refresh();
     emit BookContentModified();
 }
 
@@ -216,7 +227,7 @@ void BookBrowser::AddExisting()
             // TODO: adding a CSS file should add the referenced fonts too
             m_Book->GetFolderKeeper().AddContentFileToFolder( filepath );
         }
-    }    
+    }
 
     m_Book->SetMetadata( old_metadata );
 
