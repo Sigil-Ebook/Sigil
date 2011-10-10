@@ -1381,6 +1381,19 @@ void MainWindow::ExtendUI()
     ui.menuView->addAction( m_TableOfContents->toggleViewAction() );
     m_TableOfContents->toggleViewAction()->setShortcut( QKeySequence( Qt::ALT + Qt::Key_F3 ) );
 
+    // Create the view menu to hide and show toolbars.
+    ui.menuToolbars->addAction(ui.toolBarDonate->toggleViewAction());
+    ui.menuToolbars->addAction(ui.toolBarFileActions->toggleViewAction());
+    ui.menuToolbars->addAction(ui.toolBarHeadings->toggleViewAction());
+    ui.menuToolbars->addAction(ui.toolBarIndents->toggleViewAction());
+    ui.menuToolbars->addAction(ui.toolBarInsertions->toggleViewAction());
+    ui.menuToolbars->addAction(ui.toolBarLists->toggleViewAction());
+    ui.menuToolbars->addAction(ui.toolBarTextAlign->toggleViewAction());
+    ui.menuToolbars->addAction(ui.toolBarTextFormats->toggleViewAction());
+    ui.menuToolbars->addAction(ui.toolBarTextManip->toggleViewAction());
+    ui.menuToolbars->addAction(ui.toolBarTools->toggleViewAction());
+    ui.menuToolbars->addAction(ui.toolBarViews->toggleViewAction());
+
     // Creating the Heading combo box
 
     m_cbHeadings = new QComboBox();

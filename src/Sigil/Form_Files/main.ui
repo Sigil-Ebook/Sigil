@@ -156,6 +156,11 @@
     <property name="title">
      <string>&amp;View</string>
     </property>
+    <widget class="QMenu" name="menuToolbars">
+     <property name="title">
+      <string>Toolbars</string>
+     </property>
+    </widget>
     <addaction name="actionBookView"/>
     <addaction name="actionSplitView"/>
     <addaction name="actionCodeView"/>
@@ -163,6 +168,8 @@
     <addaction name="actionZoomIn"/>
     <addaction name="actionZoomOut"/>
     <addaction name="actionZoomReset"/>
+    <addaction name="separator"/>
+    <addaction name="menuToolbars"/>
    </widget>
    <widget class="QMenu" name="menuTools">
     <property name="title">
@@ -253,7 +260,7 @@
   </widget>
   <widget class="QToolBar" name="toolBarDonate">
    <property name="windowTitle">
-    <string>toolBar</string>
+    <string>Donate</string>
    </property>
    <attribute name="toolBarArea">
     <enum>TopToolBarArea</enum>
@@ -332,7 +339,7 @@
   </widget>
   <widget class="QToolBar" name="toolBarTools">
    <property name="windowTitle">
-    <string>toolBar</string>
+    <string>Quick Settings</string>
    </property>
    <attribute name="toolBarArea">
     <enum>TopToolBarArea</enum>
@@ -1238,6 +1245,11 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+7</string>
+   </property>
+  </action>
+  <action name="actionJ">
+   <property name="text">
+    <string>j</string>
    </property>
   </action>
  </widget>
