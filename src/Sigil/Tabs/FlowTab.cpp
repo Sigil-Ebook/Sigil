@@ -881,25 +881,11 @@ void FlowTab::EnterEditor( QWidget *editor )
     {
         m_IsLastViewBook = true;
         LoadTabContent();
-
-        if( m_InSplitView )
-        {
-            QApplication::setOverrideCursor( Qt::WaitCursor );
-            EnterBookView();
-            QApplication::restoreOverrideCursor();
-        }
     }
     else if( editor == &m_wCodeView && m_IsLastViewBook )
     {
         m_IsLastViewBook = false;
         LoadTabContent();
-
-        if( m_InSplitView )
-        {
-            QApplication::setOverrideCursor( Qt::WaitCursor );
-            EnterCodeView();
-            QApplication::restoreOverrideCursor();
-        }
     }
 }
 

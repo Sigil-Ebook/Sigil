@@ -1,4 +1,6 @@
 Sigil vNEXT TBA
+    - Fix issue 1055, 1038, 1006: Focus switching causes unwanted cursor jumping
+      in split view. Don't auto sync cursor position between views.
     - Implement issue 375: Add image selection dialog for inserting existing
       images into book and code views.
     - Add menu items for setting heading, adding new items, show / hide toolbars.
