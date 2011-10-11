@@ -745,7 +745,7 @@
      <normaloff>:/main/insert-chapter-break_22px.png</normaloff>:/main/insert-chapter-break_22px.png</iconset>
    </property>
    <property name="text">
-    <string>Create Chapter Break</string>
+    <string>Split Chapter</string>
    </property>
    <property name="toolTip">
     <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Chapter Break&lt;/b&gt;&lt;/p&gt;
@@ -1002,7 +1002,7 @@
   </action>
   <action name="actionSplitOnSGFChapterMarkers">
    <property name="text">
-    <string>Create Chapter Breaks at Sigil Chapter Markers</string>
+    <string>Split at Chapter Markers</string>
    </property>
    <property name="toolTip">
     <string>Split On Sigil Chapter Markers</string>
@@ -1013,7 +1013,7 @@
   </action>
   <action name="actionInsertSGFChapterMarker">
    <property name="text">
-    <string>Insert Sigil Chapter Marker</string>
+    <string>Insert Chapter Marker</string>
    </property>
    <property name="toolTip">
     <string>Insert Sigil Chapter Marker</string>
@@ -1254,7 +1254,7 @@
   </action>
   <action name="actionNewHTMLFile">
    <property name="text">
-    <string>New HTML File</string>
+    <string>Blank HTML File</string>
    </property>
   </action>
   <action name="actionAddExistingFile">
@@ -1264,7 +1264,7 @@
   </action>
   <action name="actionNewCSSFile">
    <property name="text">
-    <string>New CSS File</string>
+    <string>Blank CSS File</string>
    </property>
   </action>
  </widget>
