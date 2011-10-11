@@ -368,8 +368,9 @@ private:
 
     // The context menu actions.
 
+    QAction *m_AddNewHTML;
+    QAction *m_AddNewCSS;
     QAction *m_AddExisting;
-    QAction *m_AddNew;
     QAction *m_Rename;
     QAction *m_Remove;
     QAction *m_CoverImage;

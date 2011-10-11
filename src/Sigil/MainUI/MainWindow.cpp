@@ -1360,11 +1360,6 @@ void MainWindow::ExtendUI()
     m_TableOfContents->setObjectName( TABLE_OF_CONTENTS_NAME );
     addDockWidget( Qt::RightDockWidgetArea, m_TableOfContents );
 
-    /*m_FindReplace = new FindReplace( *this );
-    m_FindReplace->setObjectName( FIND_REPLACE_NAME );
-    m_FindReplace->hide();
-    addDockWidget( Qt::RightDockWidgetArea, m_FindReplace );*/
-
     m_ValidationResultsView = new ValidationResultsView( this );
     m_ValidationResultsView->setObjectName( VALIDATION_RESULTS_VIEW_NAME );
     addDockWidget( Qt::BottomDockWidgetArea, m_ValidationResultsView );

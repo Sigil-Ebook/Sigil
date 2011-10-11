@@ -206,7 +206,7 @@ void BookBrowser::AddExisting()
         {
             QMessageBox::warning( this,
                                   tr( "Sigil" ),
-                                  tr( "A file with the name \"%1\" already exists in the epub." )
+                                  tr( "A file with the name \"%1\" already exists in the book." )
                                   .arg( filename )
                                 );
             continue;
@@ -438,8 +438,9 @@ void BookBrowser::SetupTreeView()
 
 void BookBrowser::CreateContextMenuActions()
 {
-    m_AddNew                  = new QAction( tr( "Add Blank Item" ),        this );
-    m_AddExisting             = new QAction( tr( "Add Existing Items..." ), this );
+    m_AddNewHTML                  = new QAction( tr( "Add Blank Section" ),        this );
+    m_AddNewCSS                  = new QAction( tr( "Add Blank Stylesheet" ),        this );
+    m_AddExisting             = new QAction( tr( "Add Existing Files..." ), this );
     m_Rename                  = new QAction( tr( "Rename" ),                this );
     m_Remove                  = new QAction( tr( "Remove" ),                this );
     m_CoverImage              = new QAction( tr( "Cover Image" ),           this );
@@ -572,10 +573,13 @@ bool BookBrowser::SuccessfullySetupContextMenu( const QPoint &point )
 
     m_LastContextMenuType = m_OPFModel.GetResourceType( item );
 
-    if ( m_LastContextMenuType == Resource::HTMLResourceType ||
-         m_LastContextMenuType == Resource::CSSResourceType )
+    if ( m_LastContextMenuType == Resource::HTMLResourceType )
     {
-        m_ContextMenu.addAction( m_AddNew );
+        m_ContextMenu.addAction( m_AddNewHTML );
+    }
+    else if ( m_LastContextMenuType == Resource::CSSResourceType )
+    {
+        m_ContextMenu.addAction( m_AddNewCSS );
     }
 
     Resource *resource = GetCurrentResource();
@@ -743,7 +747,8 @@ void BookBrowser::ConnectSignalsToSlots()
     connect( &m_TreeView, SIGNAL( customContextMenuRequested( const QPoint& ) ),
              this,        SLOT(   OpenContextMenu(            const QPoint& ) ) );
 
-    connect( m_AddNew,                  SIGNAL( triggered() ), this, SLOT( AddNew()                  ) );
+    connect( m_AddNewHTML,              SIGNAL( triggered() ), this, SLOT( AddNewHTML()              ) );
+    connect( m_AddNewCSS,               SIGNAL( triggered() ), this, SLOT( AddNewCSS()               ) );
     connect( m_AddExisting,             SIGNAL( triggered() ), this, SLOT( AddExisting()             ) );
     connect( m_Rename,                  SIGNAL( triggered() ), this, SLOT( Rename()                  ) );
     connect( m_Remove,                  SIGNAL( triggered() ), this, SLOT( Remove()                  ) );
