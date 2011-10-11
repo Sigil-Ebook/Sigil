@@ -48,21 +48,18 @@
     <property name="title">
      <string>&amp;File</string>
     </property>
-    <widget class="QMenu" name="menuAdd">
+    <widget class="QMenu" name="menuNew">
      <property name="title">
-      <string>Add</string>
+      <string>New</string>
      </property>
+     <addaction name="actionNew"/>
+     <addaction name="separator"/>
      <addaction name="actionNewHTMLFile"/>
      <addaction name="actionNewCSSFile"/>
-     <addaction name="separator"/>
-     <addaction name="actionAddExistingFile"/>
     </widget>
-    <addaction name="actionNew"/>
+    <addaction name="menuNew"/>
     <addaction name="actionOpen"/>
     <addaction name="separator"/>
-    <addaction name="menuAdd"/>
-    <addaction name="separator"/>
-    <addaction name="actionClose"/>
     <addaction name="actionSave"/>
     <addaction name="actionSaveAs"/>
     <addaction name="separator"/>
@@ -72,6 +69,7 @@
     <addaction name="actionValidateEpub"/>
     <addaction name="separator"/>
     <addaction name="separator"/>
+    <addaction name="actionClose"/>
     <addaction name="actionExit"/>
    </widget>
    <widget class="QMenu" name="menuEdit">
@@ -102,6 +100,7 @@
     <addaction name="separator"/>
     <addaction name="actionMetaEditor"/>
     <addaction name="actionInsertImage"/>
+    <addaction name="actionAddExistingFile"/>
     <addaction name="separator"/>
     <addaction name="actionSplitChapter"/>
     <addaction name="actionInsertSGFChapterMarker"/>
@@ -137,6 +136,8 @@
      <addaction name="actionHeading5"/>
      <addaction name="actionHeading6"/>
     </widget>
+    <addaction name="menuHeadings"/>
+    <addaction name="separator"/>
     <addaction name="actionBold"/>
     <addaction name="actionItalic"/>
     <addaction name="actionUnderline"/>
@@ -153,8 +154,6 @@
     <addaction name="actionDecreaseIndent"/>
     <addaction name="actionIncreaseIndent"/>
     <addaction name="separator"/>
-    <addaction name="menuHeadings"/>
-    <addaction name="separator"/>
     <addaction name="actionRemoveFormatting"/>
    </widget>
    <widget class="QMenu" name="menuView">
@@ -166,6 +165,8 @@
       <string>Toolbars</string>
      </property>
     </widget>
+    <addaction name="menuToolbars"/>
+    <addaction name="separator"/>
     <addaction name="actionBookView"/>
     <addaction name="actionSplitView"/>
     <addaction name="actionCodeView"/>
@@ -173,8 +174,6 @@
     <addaction name="actionZoomIn"/>
     <addaction name="actionZoomOut"/>
     <addaction name="actionZoomReset"/>
-    <addaction name="separator"/>
-    <addaction name="menuToolbars"/>
    </widget>
    <widget class="QMenu" name="menuTools">
     <property name="title">
@@ -195,8 +194,8 @@
    </widget>
    <addaction name="menuFile"/>
    <addaction name="menuEdit"/>
-   <addaction name="menuFormat"/>
    <addaction name="menuView"/>
+   <addaction name="menuFormat"/>
    <addaction name="menuTools"/>
    <addaction name="menu_Window"/>
    <addaction name="menuHelp"/>
@@ -362,7 +361,7 @@
      <normaloff>:/main/document-new_22px.png</normaloff>:/main/document-new_22px.png</iconset>
    </property>
    <property name="text">
-    <string>&amp;New</string>
+    <string>&amp;New EPUB</string>
    </property>
    <property name="toolTip">
     <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;New&lt;/b&gt;&lt;/p&gt;
@@ -643,7 +642,7 @@
      <normaloff>:/main/process-stop_22px.png</normaloff>:/main/process-stop_22px.png</iconset>
    </property>
    <property name="text">
-    <string>&amp;Exit</string>
+    <string>Quit</string>
    </property>
    <property name="toolTip">
     <string>Exit</string>
@@ -1259,7 +1258,7 @@
   </action>
   <action name="actionAddExistingFile">
    <property name="text">
-    <string>Existing File...</string>
+    <string>Insert Existing File...</string>
    </property>
   </action>
   <action name="actionNewCSSFile">

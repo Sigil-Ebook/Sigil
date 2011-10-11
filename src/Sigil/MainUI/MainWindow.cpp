@@ -1268,8 +1268,8 @@ void MainWindow::CreateRecentFilesActions()
         QList<QAction *> actlist = ui.menuFile->actions();
 
         // Add the new action just below the Quit action
-        // and the separator behind it 
-        ui.menuFile->insertAction( actlist[ actlist.size() - 2 ], m_RecentFileActions[ i ] );
+        // and the separator behind it
+        ui.menuFile->insertAction( actlist[ actlist.size() - 3 ], m_RecentFileActions[ i ] );
 
         connect( m_RecentFileActions[ i ], SIGNAL( triggered() ), this, SLOT( OpenRecentFile() ) );
     }
@@ -1296,7 +1296,7 @@ void MainWindow::UpdateRecentFileActions()
         m_RecentFileActions[ j ]->setVisible( false );
     }
 
-    QAction *separator = ui.menuFile->actions()[ ui.menuFile->actions().size() - 2 ];
+    QAction *separator = ui.menuFile->actions()[ ui.menuFile->actions().size() - 3 ];
 
     // If we have any actions with files shown,
     // display the separator; otherwise, don't
@@ -1306,7 +1306,7 @@ void MainWindow::UpdateRecentFileActions()
 
     else
 
-        separator->setVisible( false );	
+        separator->setVisible( false );
 }
 
 
