@@ -1454,11 +1454,10 @@ void MainWindow::ExtendUI()
     // Setup userdefined keyboard shortcuts for actions.
     KeyboardShortcutManager *sm = KeyboardShortcutManager::instance();
     // File
-    sm->registerAction(ui.actionNew, "File.New");
+    sm->registerAction(ui.actionNew, "File.New.Book");
+    sm->registerAction(ui.actionNewHTMLFile, "File.New.Section");
+    sm->registerAction(ui.actionNewCSSFile, "File.New.Stylesheet");
     sm->registerAction(ui.actionOpen, "File.Open");
-    sm->registerAction(ui.actionNewHTMLFile, "File.Add.HTML");
-    sm->registerAction(ui.actionNewCSSFile, "File.Add.CSS");
-    sm->registerAction(ui.actionAddExistingFile, "File.Add.Existing");
 #ifndef Q_WS_MAC
     sm->registerAction(ui.actionClose, "File.Close");
 #endif
@@ -1482,6 +1481,7 @@ void MainWindow::ExtendUI()
     sm->registerAction(ui.actionGoToLine, "Edit.GoToLine");
     sm->registerAction(ui.actionMetaEditor, "Edit.MetaEditor");
     sm->registerAction(ui.actionInsertImage, "Edit.InsertImage");
+    sm->registerAction(ui.actionAddExistingFile, "Edit.InsertExisting");
     sm->registerAction(ui.actionSplitChapter, "Edit.SplitChapter");
     sm->registerAction(ui.actionInsertSGFChapterMarker, "Edit.InsertSGFChapterMarker");
     sm->registerAction(ui.actionSplitOnSGFChapterMarkers, "Edit.SplitOnSGFChapterMarkers");
