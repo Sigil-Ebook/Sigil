@@ -56,7 +56,7 @@
       </font>
      </property>
      <property name="text">
-      <string>the ePub editor</string>
+      <string>The EPUB Editor</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignHCenter|Qt::AlignTop</set>
@@ -98,7 +98,7 @@
             </font>
            </property>
            <property name="text">
-            <string>&lt;a href=&quot;http://code.google.com/p/sigil/&quot;&gt;http://code.google.com/p/sigil/&lt;/a&gt;</string>
+            <string notr="true">&lt;a href=&quot;http://code.google.com/p/sigil/&quot;&gt;http://code.google.com/p/sigil/&lt;/a&gt;</string>
            </property>
            <property name="textFormat">
             <enum>Qt::AutoText</enum>
@@ -134,7 +134,7 @@
             </font>
            </property>
            <property name="text">
-            <string>VERSION HERE</string>
+            <string notr="true">VERSION HERE</string>
            </property>
            <property name="indent">
             <number>5</number>
@@ -164,7 +164,7 @@
             <cursorShape>ArrowCursor</cursorShape>
            </property>
            <property name="text">
-            <string>LOADED QT VERSION HERE</string>
+            <string notr="true">LOADED QT VERSION HERE</string>
            </property>
            <property name="indent">
             <number>5</number>
@@ -221,7 +221,7 @@
             </font>
            </property>
            <property name="text">
-            <string>BUILD TIME HERE</string>
+            <string notr="true">BUILD TIME HERE</string>
            </property>
            <property name="indent">
             <number>5</number>

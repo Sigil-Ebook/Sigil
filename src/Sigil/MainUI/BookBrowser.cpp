@@ -258,7 +258,7 @@ void BookBrowser::Remove()
          m_Book->GetFolderKeeper().GetResourceTypeList< HTMLResource >().count() == 1 )
     {
         Utility::DisplayStdErrorDialog( 
-            tr( "The last HTML file cannot be removed.\n" 
+            tr( "The last section cannot be removed.\n"
                 "There always has to be at least one." )
             );
 
@@ -438,8 +438,8 @@ void BookBrowser::SetupTreeView()
 
 void BookBrowser::CreateContextMenuActions()
 {
-    m_AddNewHTML                  = new QAction( tr( "Add Blank Section" ),        this );
-    m_AddNewCSS                  = new QAction( tr( "Add Blank Stylesheet" ),        this );
+    m_AddNewHTML              = new QAction( tr( "Add Blank Section" ),     this );
+    m_AddNewCSS               = new QAction( tr( "Add Blank Stylesheet" ),  this );
     m_AddExisting             = new QAction( tr( "Add Existing Files..." ), this );
     m_Rename                  = new QAction( tr( "Rename" ),                this );
     m_Remove                  = new QAction( tr( "Remove" ),                this );
@@ -781,13 +781,3 @@ Resource* BookBrowser::GetCurrentResource()
     const QString &identifier = item->data().toString(); 
     return &m_Book->GetFolderKeeper().GetResourceByIdentifier( identifier );
 }   
-
-
-
-
-
-
-
-
-
-
