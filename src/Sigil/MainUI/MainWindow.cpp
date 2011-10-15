@@ -562,6 +562,8 @@ void MainWindow::UpdateUiWhenTabsSwitch()
 
         SetStateActionsStaticView();
 
+    UpdateCursorPositionLabel(tab.GetCursorLine(), tab.GetCursorColumn());
+
     // State of zoom controls depends on current tab/view
     float zoom_factor = tab.GetZoomFactor();
     UpdateZoomLabel( zoom_factor );
@@ -686,6 +688,15 @@ void MainWindow::SetStateActionsStaticView()
     ui.actionFind   ->setEnabled( false );
     ui.actionFindNext->setEnabled( false );
     ui.actionFindPrevious->setEnabled( false );
+}
+
+
+void MainWindow::UpdateCursorPositionLabel(int line, int column)
+{
+    const QString l = QString::number(line);
+    const QString c = QString::number(column);
+
+    m_lbCursorPosition->setText(tr("Line: %1, Col: %2").arg(l).arg(c));
 }
 
 
@@ -1418,8 +1429,11 @@ void MainWindow::ExtendUI()
 
     ui.toolBarHeadings->addWidget( m_cbHeadings );
 
-    // Creating the zoom controls in the status bar
+    m_lbCursorPosition = new QLabel( QString (""), statusBar() );
+    statusBar()->addPermanentWidget( m_lbCursorPosition );
+    UpdateCursorPositionLabel(0, 0);
 
+    // Creating the zoom controls in the status bar
     m_slZoomSlider = new QSlider( Qt::Horizontal, statusBar() );
     m_slZoomSlider->setTracking( false ); 
     m_slZoomSlider->setTickInterval( ZOOM_SLIDER_MIDDLE );
@@ -1856,6 +1870,7 @@ void MainWindow::MakeTabConnections( ContentTab *tab )
     connect( tab,   SIGNAL( EnteringBookView() ),           this,          SLOT( UpdateZoomControls()      ) );
     connect( tab,   SIGNAL( EnteringCodeView() ),           this,          SLOT( UpdateZoomControls()      ) );
     connect( tab,   SIGNAL( ContentChanged() ),             m_Book.data(), SLOT( SetModified()             ) );
+    connect(tab, SIGNAL(UpdateCursorPosition(int,int)), this, SLOT(UpdateCursorPositionLabel(int,int)));
     connect( tab,   SIGNAL( ZoomFactorChanged( float ) ),   this,          SLOT( UpdateZoomLabel( float )  ) );
     connect( tab,   SIGNAL( ZoomFactorChanged( float ) ),   this,          SLOT( UpdateZoomSlider( float ) ) );
 }

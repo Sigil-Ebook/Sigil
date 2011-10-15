@@ -180,6 +180,9 @@ public:
      */
     virtual QString GetCaretElementName() { return "";  }
 
+    virtual int GetCursorLine() const { return 0; }
+    virtual int GetCursorColumn() const { return 0; }
+
     virtual float GetZoomFactor() const { return 1.0;   }
     virtual void SetZoomFactor( float new_zoom_factor ) { }
 
@@ -288,6 +291,17 @@ signals:
      * @param tab The tab that wants to become central.
      */
     void CentralTabRequest( ContentTab *tab );
+
+    /**
+     * Emitted when the cursor position changes.
+     *
+     * Not all tabs have a cursor so this won't be emitted by
+     * all tabs.
+     *
+     * @param line The line the cursor is at.
+     * @param column The column the cursor is at.
+     */
+    void UpdateCursorPosition(int line, int column);
 
 protected slots:
 

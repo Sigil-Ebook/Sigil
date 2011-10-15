@@ -52,6 +52,9 @@ public:
 
     bool PasteEnabled();
 
+    int GetCursorLine() const;
+    int GetCursorColumn() const;
+
     float GetZoomFactor() const;
 
     void SetZoomFactor( float new_zoom_factor );
@@ -104,6 +107,8 @@ protected slots:
     void LoadTabContent( QWidget *editor );
 
 private slots:
+
+    void EmitUpdateCursorPosition();
 
     void DelayedInitialization();
 

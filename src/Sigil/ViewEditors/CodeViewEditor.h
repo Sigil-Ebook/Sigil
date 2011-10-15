@@ -161,6 +161,9 @@ public:
 
     bool IsLoadingFinished();
 
+    int GetCursorLine() const;
+    int GetCursorColumn() const;
+
     void SetZoomFactor( float factor );
 
     float GetZoomFactor() const;

@@ -77,6 +77,18 @@ bool TextTab::PasteEnabled()
 }
 
 
+int TextTab::GetCursorLine() const
+{
+    return m_wCodeView.GetCursorLine();
+}
+
+
+int TextTab::GetCursorColumn() const
+{
+    return m_wCodeView.GetCursorColumn();
+}
+
+
 float TextTab::GetZoomFactor() const
 {
     return m_wCodeView.GetZoomFactor();
@@ -191,6 +203,12 @@ void TextTab::LoadTabContent( QWidget *editor )
 }
 
 
+void TextTab::EmitUpdateCursorPosition()
+{
+    emit UpdateCursorPosition(GetCursorLine(), GetCursorColumn());
+}
+
+
 void TextTab::DelayedInitialization()
 {
     m_wCodeView.CustomSetDocument( m_TextResource.GetTextDocumentForWriting() );
@@ -209,6 +227,7 @@ void TextTab::ConnectSignalsToSlots()
     connect( &m_wCodeView, SIGNAL( FocusLost( QWidget* ) ),      this, SLOT( SaveTabContent( QWidget* ) ) );
 
     connect( &m_wCodeView, SIGNAL( FilteredTextChanged() ),      this, SIGNAL( ContentChanged() )           );
+    connect(&m_wCodeView, SIGNAL(cursorPositionChanged()), this, SLOT(EmitUpdateCursorPosition()));
     connect( &m_wCodeView, SIGNAL( ZoomFactorChanged( float ) ), this, SIGNAL( ZoomFactorChanged( float ) ) );
     connect( &m_wCodeView, SIGNAL( selectionChanged() ),         this, SIGNAL( SelectionChanged() )         );
 }

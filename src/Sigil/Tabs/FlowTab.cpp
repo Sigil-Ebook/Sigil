@@ -238,6 +238,18 @@ QString FlowTab::GetCaretElementName()
 }
 
 
+int FlowTab::GetCursorLine() const
+{
+    return GetActiveViewEditor().GetCursorLine();
+}
+
+
+int FlowTab::GetCursorColumn() const
+{
+    return GetActiveViewEditor().GetCursorColumn();
+}
+
+
 float FlowTab::GetZoomFactor() const
 {
     return GetActiveViewEditor().GetZoomFactor();
@@ -887,6 +899,7 @@ void FlowTab::EnterEditor( QWidget *editor )
         m_IsLastViewBook = false;
         LoadTabContent();
     }
+    EmitUpdateCursorPosition();
 }
 
 
@@ -970,6 +983,11 @@ void FlowTab::EmitContentChanged()
 }
 
 
+void FlowTab::EmitUpdateCursorPosition()
+{
+    emit UpdateCursorPosition(GetCursorLine(), GetCursorColumn());
+}
+
 void FlowTab::EnterBookView()
 {
     if ( !IsDataWellFormed() )
@@ -1023,6 +1041,8 @@ ViewEditor& FlowTab::GetActiveViewEditor() const
 
 void FlowTab::ConnectSignalsToSlots()
 {
+    connect(&m_wCodeView, SIGNAL(cursorPositionChanged()), this, SLOT(EmitUpdateCursorPosition()));
+
     connect( &m_wBookView, SIGNAL( ZoomFactorChanged( float ) ), this, SIGNAL( ZoomFactorChanged( float ) ) );
     connect( &m_wCodeView, SIGNAL( ZoomFactorChanged( float ) ), this, SIGNAL( ZoomFactorChanged( float ) ) );
 

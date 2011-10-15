@@ -283,6 +283,17 @@ private slots:
     void SetStateActionsStaticView();
 
     /**
+     * Updates the cursor postion label to refelect the position of the
+     * cursor within the text.
+     *
+     * Use a negative value to to denote an unknown or invalid value.
+     *
+     * @param line The line the currsor is currently at.
+     * @param column The column within the line that the cursor is currently at.
+     */
+    void UpdateCursorPositionLabel( int line, int column );
+
+    /**
      * Zooms the current view with the new zoom slider value.
      * 
      * @param slider_value The new value from the zoom slider.
@@ -616,6 +627,12 @@ private:
      * The Validation Results pane that lists all the validation problems.
      */
     ValidationResultsView *m_ValidationResultsView;
+
+    /**
+     * The lable that displays the cursor position.
+     * Line and column.
+     */
+    QLabel *m_lbCursorPosition;
 
     /**
      * The slider which the user can use to zoom.

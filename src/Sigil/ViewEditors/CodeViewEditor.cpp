@@ -369,6 +369,24 @@ bool CodeViewEditor::IsLoadingFinished()
 }
 
 
+int CodeViewEditor::GetCursorLine() const
+{
+    const QTextCursor cursor = textCursor();
+    const QTextBlock block = cursor.block();
+    const int line = block.blockNumber() + 1;
+    return line;
+}
+
+
+int CodeViewEditor::GetCursorColumn() const
+{
+    const QTextCursor cursor = textCursor();
+    const QTextBlock block = cursor.block();
+    const int column = cursor.position() - block.position() + 1;
+    return column;
+}
+
+
 void CodeViewEditor::SetZoomFactor( float factor )
 {
     SettingsStore *ss = SettingsStore::instance();

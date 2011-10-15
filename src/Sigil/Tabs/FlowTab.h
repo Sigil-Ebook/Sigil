@@ -96,6 +96,9 @@ public:
 
     QString GetCaretElementName();
 
+    int GetCursorLine() const;
+    int GetCursorColumn() const;
+
     float GetZoomFactor() const;
 
     void SetZoomFactor( float new_zoom_factor );
@@ -364,6 +367,8 @@ private slots:
      * Emits the ContentChanged signal.
      */
     void EmitContentChanged();  
+
+    void EmitUpdateCursorPosition();
 
     /** 
      * Receives the signal emitted when an editor gains focus. Ensures that
