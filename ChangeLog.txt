@@ -1,4 +1,7 @@
 Sigil vNEXT TBA
+    - Fix issue 1064: Issues with editing epubs with differing html extensions.
+      Take mimetype into account when opening the file to help determine how to
+      deal with the file.
     - Fix issue 1055, 1038, 1006: Focus switching causes unwanted cursor jumping
       in split view. Don't auto sync cursor position between views.
     - Implement issue 375: Add image selection dialog for inserting existing

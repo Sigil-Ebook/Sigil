@@ -72,16 +72,18 @@ public:
     /**
      * Adds a content file to the book folder and returns the
      * corresponding Resource object. The file type is recognized
-     * according to the extension.
+     * according to the extension or mimetype if present.
      * 
      * @param fullfilepath The full path to the file to add.
      * @param update_opf If set to \c true, then the OPF will be notified
      *                   that a file was added. This will add entries in the
      *                   OPF manifest and potentially the spine as well.
+     * @param mimetype The mimetype for the associated file.
      * @return The newly created resource.
      */
     Resource& AddContentFileToFolder( const QString &fullfilepath, 
-                                      bool update_opf = true );
+                                      bool update_opf = true,
+                                      const QString &mimetype = QString() );
 
     /**
      * Returns the highest reading order number present in the book.

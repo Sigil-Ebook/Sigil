@@ -48,6 +48,12 @@ const QString TEXT_FOLDER_NAME  = "Sections";
 const QString STYLE_FOLDER_NAME = "Stylesheets";
 const QString MISC_FOLDER_NAME  = "Misc";
 
+const QStringList IMAGE_MIMEYPES = QStringList() << "image/gif" << "image/jpeg"
+                                                 << "image/png" << "image/svg+xml";
+const QStringList TEXT_MIMETYPES = QStringList() << "application/xhtml+xml"
+                                                 << "application/x-dtbook+xml"
+                                                 << "application/xml";
+const QStringList STYLE_MIMETYPES = QStringList() << "text/css";
 
 static const QString CONTAINER_XML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
                                      "<container version=\"1.0\" xmlns=\"urn:oasis:names:tc:opendocument:xmlns:container\">\n"
@@ -91,8 +97,10 @@ FolderKeeper::~FolderKeeper()
 // TODO: This code really needs to be rewritten so that the file-type is determined from the mimetype
 // given in the OPF file, rather than relying on the file's extension.
 Resource& FolderKeeper::AddContentFileToFolder( const QString &fullfilepath, 
-                                                bool update_opf )
+                                                bool update_opf,
+                                                const QString &mimetype )
 {
+    qDebug() << mimetype;
     if ( !QFileInfo( fullfilepath ).exists() )
 
         boost_throw( FileDoesNotExist() << errinfo_file_name( fullfilepath.toStdString() ) );
@@ -140,7 +148,7 @@ Resource& FolderKeeper::AddContentFileToFolder( const QString &fullfilepath,
             }
         }
 
-        else if ( IMAGE_EXTENSIONS.contains( extension ) )
+        else if ( IMAGE_EXTENSIONS.contains( extension ) || IMAGE_MIMEYPES.contains( mimetype ) )
         {
             new_file_path = m_FullPathToImagesFolder + "/" + filename;
             relative_path = IMAGE_FOLDER_NAME + "/" + filename;
@@ -156,7 +164,7 @@ Resource& FolderKeeper::AddContentFileToFolder( const QString &fullfilepath,
             resource = new FontResource( new_file_path );
         }
 
-        else if ( TEXT_EXTENSIONS.contains( extension ) )
+        else if ( TEXT_EXTENSIONS.contains( extension ) || TEXT_MIMETYPES.contains( mimetype ) )
         {
             new_file_path = m_FullPathToTextFolder + "/" + filename;
             relative_path = TEXT_FOLDER_NAME + "/" + filename;
@@ -164,7 +172,7 @@ Resource& FolderKeeper::AddContentFileToFolder( const QString &fullfilepath,
             resource = new HTMLResource( new_file_path, m_Resources );
         }
 
-        else if ( STYLE_EXTENSIONS.contains( extension ) )
+        else if ( STYLE_EXTENSIONS.contains( extension ) || STYLE_MIMETYPES.contains( mimetype ) )
         {
             new_file_path = m_FullPathToStylesFolder + "/" + filename;
             relative_path = STYLE_FOLDER_NAME + "/" + filename;

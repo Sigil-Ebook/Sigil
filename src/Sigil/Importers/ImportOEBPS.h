@@ -118,10 +118,12 @@ protected:
      * Loads a single file.
      * 
      * @param path A full path to the file to load.
+     * @param mimetype The mimetype of the file to load.
      * @return A tuple where the first member is the old path to the file,
      *         and the new member is the new, OEBPS-relative path to it.
      */
-    tuple< QString, QString > LoadOneFile( const QString &path );
+    tuple< QString, QString > LoadOneFile( const QString &path,
+                                           const QString &mimetype = QString() );
 
     /**
      * Performs the necessary modifications to the OPF
@@ -166,6 +168,13 @@ protected:
      * the values are stored paths to the files.
      */ 
     QMap< QString, QString > m_Files;
+
+    /**
+     * The map of all files in the publication's manifest;
+     * The keys are the element ID's, the vaules are the
+     * mimetype of the file.
+     */
+    QMap< QString, QString > m_FileMimetypes;
 
     /**
      * InDesign likes listing several files multiple times in the manifest, 

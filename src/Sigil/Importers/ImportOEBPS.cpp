@@ -233,6 +233,7 @@ void ImportOEBPS::ReadManifestItemElement( QXmlStreamReader &opf_reader )
         if ( !m_MainfestFilePaths.contains( href ) )
         {
             m_Files[ id ] = href;
+            m_FileMimetypes[ id ] = type;
             m_MainfestFilePaths << href;
         }
     }
@@ -270,8 +271,8 @@ void ImportOEBPS::ReadSpineElement( QXmlStreamReader &opf_reader )
                 QMessageBox msgBox;
                 msgBox.setIcon( QMessageBox::Warning );
                 msgBox.setTextFormat(Qt::RichText);
-                msgBox.setText( "<center><b>The OPF file is badly formed.</b></center>" );
-                msgBox.setInformativeText( Qt::convertFromPlainText( "Sigil will attempt to use the following file as the NCX:\n\n" % m_NcxCandidates[ ncx_id ] ) );
+                msgBox.setText( QT_TR_NOOP( "<center><b>The OPF file is badly formed.</b></center>" ) );
+                msgBox.setInformativeText( Qt::convertFromPlainText( QT_TR_NOOP( "Sigil will attempt to use the following file as the NCX:\n\n" % m_NcxCandidates[ ncx_id ] ) ) );
                 msgBox.exec();
 
                 ncx_href = m_NcxCandidates[ ncx_id ];
@@ -290,8 +291,8 @@ void ImportOEBPS::ReadSpineElement( QXmlStreamReader &opf_reader )
             QMessageBox msgBox;
             msgBox.setIcon( QMessageBox::Warning );
             msgBox.setTextFormat(Qt::RichText);
-            msgBox.setText( "<center><b>The OPF file is badly formed.</b></center>" );
-            msgBox.setInformativeText( "Sigil could not find an NCX file and will create a new one." );
+            msgBox.setText( QT_TR_NOOP( "<center><b>The OPF file is badly formed.</b></center>" ) );
+            msgBox.setInformativeText( QT_TR_NOOP( "Sigil could not find an NCX file and will create a new one." ) );
             msgBox.exec();
 
             ncx_href = NCX_FILE_NAME;
@@ -375,7 +376,8 @@ QHash< QString, QString > ImportOEBPS::LoadFolderStructure()
         sync.addFuture( QtConcurrent::run( 
                 this, 
                 &ImportOEBPS::LoadOneFile, 
-                m_Files.value( id ) ) );   
+                m_Files.value( id ),
+                m_FileMimetypes.value( id ) ) );
     }
 
     sync.waitForFinished();
@@ -396,13 +398,14 @@ QHash< QString, QString > ImportOEBPS::LoadFolderStructure()
 }
 
 
-tuple< QString, QString > ImportOEBPS::LoadOneFile( const QString &path )
+tuple< QString, QString > ImportOEBPS::LoadOneFile( const QString &path,
+                                                    const QString &mimetype )
 {
     QString fullfilepath = QFileInfo( m_OPFFilePath ).absolutePath() + "/" + path;
 
     try
     {
-        Resource &resource = m_Book->GetFolderKeeper().AddContentFileToFolder( fullfilepath, false );
+        Resource &resource = m_Book->GetFolderKeeper().AddContentFileToFolder( fullfilepath, false, mimetype );
         QString newpath = "../" + resource.GetRelativePathToOEBPS(); 
 
         return make_tuple( fullfilepath, newpath );
