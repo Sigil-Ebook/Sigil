@@ -100,7 +100,6 @@ Resource& FolderKeeper::AddContentFileToFolder( const QString &fullfilepath,
                                                 bool update_opf,
                                                 const QString &mimetype )
 {
-    qDebug() << mimetype;
     if ( !QFileInfo( fullfilepath ).exists() )
 
         boost_throw( FileDoesNotExist() << errinfo_file_name( fullfilepath.toStdString() ) );
