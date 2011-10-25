@@ -24,8 +24,6 @@
 #include "BookManipulation/Metadata.h"
 #include "Misc/SettingsStore.h"
 
-static const QString SETTINGS_GROUP = "user_preferences";
-
 LanguageWidget::LanguageWidget()
 {
     ui.setupUi(this);

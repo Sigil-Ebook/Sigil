@@ -31,6 +31,9 @@ SPCRE::SPCRE(const QString &patten)
 {
     m_pattern = patten;
 
+    m_re = NULL;
+    m_study = NULL;
+
     const char *error;
     int erroroffset;
     m_re = pcre_compile(m_pattern.toUtf8().data(), PCRE_UTF8 | PCRE_MULTILINE, &error, &erroroffset, NULL);
@@ -52,8 +55,12 @@ SPCRE::SPCRE(const QString &patten)
 
 SPCRE::~SPCRE()
 {
-    pcre_free(m_re);
-    pcre_free(m_study);
+    if (m_re != NULL) {
+        pcre_free(m_re);
+    }
+    if (m_study != NULL) {
+        pcre_free(m_study);
+    }
 }
 
 bool SPCRE::isValid()

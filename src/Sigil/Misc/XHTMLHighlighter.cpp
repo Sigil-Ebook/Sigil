@@ -21,8 +21,12 @@
 
 #include <stdafx.h>
 #include "XHTMLHighlighter.h"
+#include "SpellCheck.h"
+#include "Utility.h"
+#include "PCRE/SPCRE.h"
 
 // All of our regular expressions
+static const QString DOCTYPE_BEGIN          = "<!(?!--)";
 static const QString HTML_ELEMENT_BEGIN     = "<(/\\?|/|\\?)?(?!!)";
 
 // "(?=[^\\w:-])" emulates a boundary ("\\b") that counts ":" and "-" as word characters
@@ -45,6 +49,7 @@ static const QString ENTITY_BEGIN           = "&";
 static const QString ENTITY_END             = ";";
 
 // TODO: These should probably be user-selectable in some options menu
+static const QColor DOCTYPE_COLOR           = Qt::darkBlue;
 static const QColor HTML_COLOR              = Qt::blue;
 static const QColor HTML_COMMENT_COLOR      = Qt::darkGreen;
 static const QColor CSS_COLOR               = Qt::darkYellow;
@@ -55,10 +60,13 @@ static const QColor ENTITY_COLOR            = Qt::darkMagenta;
 
 
 // Constructor
-XHTMLHighlighter::XHTMLHighlighter( QObject *parent )
-     : QSyntaxHighlighter( parent )
+XHTMLHighlighter::XHTMLHighlighter( bool checkSpelling, QObject *parent )
+    : QSyntaxHighlighter( parent ),
+      m_checkSpelling(checkSpelling)
+
 {
     QTextCharFormat html_format;
+    QTextCharFormat doctype_format;
     QTextCharFormat html_comment_format;
     QTextCharFormat css_format;
     QTextCharFormat css_comment_format;
@@ -66,6 +74,7 @@ XHTMLHighlighter::XHTMLHighlighter( QObject *parent )
     QTextCharFormat attribute_value_format;
     QTextCharFormat entity_format;
 
+    doctype_format        .setForeground( DOCTYPE_COLOR    );
     html_format           .setForeground( HTML_COLOR            );
     html_comment_format   .setForeground( HTML_COMMENT_COLOR    );
     css_format            .setForeground( CSS_COLOR             );
@@ -75,6 +84,11 @@ XHTMLHighlighter::XHTMLHighlighter( QObject *parent )
     entity_format         .setForeground( ENTITY_COLOR          );
 
     HighlightingRule rule;
+
+    rule.pattern = QRegExp( DOCTYPE_BEGIN );
+    rule.format  = doctype_format;
+
+    m_Rules[ "DOCTYPE_BEGIN" ] = rule;
 
     rule.pattern = QRegExp( HTML_ELEMENT_BEGIN );
     rule.format  = html_format;
@@ -155,14 +169,20 @@ void XHTMLHighlighter::highlightBlock( const QString& text )
     {
         setCurrentBlockState( previousBlockState() );
     }
-        
+
+    // Run spell check over the text.
+    if (m_checkSpelling) {
+        CheckSpelling( text );
+    }
+
     // The order of these operations is important
     // because some states format text over previous states!
     HighlightLine( text, State_Entity      );
     HighlightLine( text, State_CSS         );
     HighlightLine( text, State_HTML        );
     HighlightLine( text, State_CSSComment  );
-    HighlightLine( text, State_HTMLComment );	
+    HighlightLine( text, State_HTMLComment );
+    HighlightLine( text, State_DOCTYPE     );
 }
 
 
@@ -188,6 +208,9 @@ QRegExp XHTMLHighlighter::GetLeftBracketRegEx( int state ) const
         case State_CSSComment:
             return m_Rules.value( "CSS_COMMENT_BEGIN"  ).pattern;
 
+        case State_DOCTYPE:
+            return m_Rules.value( "DOCTYPE_BEGIN" ).pattern;
+
         default:
             return empty;
     }
@@ -204,6 +227,7 @@ QRegExp XHTMLHighlighter::GetRightBracketRegEx( int state ) const
         case State_Entity:
             return m_Rules.value( "ENTITY_END"       ).pattern;
 
+        case State_DOCTYPE:
         case State_HTML:
             return m_Rules.value( "HTML_ELEMENT_END" ).pattern;
 
@@ -349,6 +373,10 @@ void XHTMLHighlighter::FormatBody( const QString& text, int state, int index, in
     {
         setFormat( index, length, m_Rules.value( "ENTITY_BEGIN" ).format );
     }
+
+    else if (state == State_DOCTYPE) {
+        setFormat(index, length, m_Rules.value( "DOCTYPE_BEGIN" ).format);
+    }
 }
 
 
@@ -369,8 +397,12 @@ void XHTMLHighlighter::HighlightLine( const QString& text, int state )
     // because we could have several nodes on it
     while( main_index < text.length() )
     {
-        left_bracket_index  = text.indexOf( left_bracket_regex, main_index );
-        right_bracket_index = text.indexOf( right_bracket_regex, main_index );
+        if (!left_bracket_regex.isEmpty()) {
+            left_bracket_index  = text.indexOf( left_bracket_regex, main_index );
+        }
+        if (!right_bracket_regex.isEmpty()) {
+            right_bracket_index = text.indexOf( right_bracket_regex, main_index );
+        }
 
         // If we are not starting our state and our state is
         // not already set, we don't format; see the four cases explanation below
@@ -441,6 +473,45 @@ void XHTMLHighlighter::HighlightLine( const QString& text, int state )
                 FormatBody( text, state, 0, length );
 
                 main_index += length;
+            }
+        }
+    }
+}
+
+
+void XHTMLHighlighter::CheckSpelling(const QString &text)
+{
+    SpellCheck *sc = SpellCheck::instance();
+
+    QTextCharFormat format;
+    format.setUnderlineColor(Qt::red);
+    format.setUnderlineStyle(QTextCharFormat::SpellCheckUnderline);
+
+    // Math all individual words.
+    SPCRE pcre("(?<=^|\\s|>|;)[^><&;]+?(?=\\s|<|&|$)");
+    QList<SPCRE::MatchInfo> matches = pcre.getMatchInfo(text);
+
+    // Run though all matches and check if they are spelled correctly when necessary.
+    foreach (SPCRE::MatchInfo m, matches) {
+        int start = m.offset.first;
+        int end = m.offset.second;
+        QString word = Utility::Substring(start, end, text);
+
+        // Remove all punucation from the beginning and end of the word. E.G. "this." becomes this .
+        while (!word.isEmpty() && (!word.at(0).isLetter() || !word.at(word.length() - 1).isLetter())) {
+            if (!word.isEmpty() && !word.at(0).isLetter()) {
+                word.remove(0, 1);
+                start++;
+            }
+            if (!word.isEmpty() && !word.at(word.length() - 1).isLetter()) {
+                word.chop(1);
+                end--;
+            }
+        }
+
+        if (!word.isEmpty()) {
+            if (!sc->spell(word)) {
+                setFormat(start, end - start, format);
             }
         }
     }

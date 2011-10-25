@@ -42,7 +42,7 @@ static const QString XML_OPENING_TAG        = "(<[^>/][^>]*[^>/]>|<[^>/]>)";
 static const QString NEXT_OPEN_TAG_LOCATION = "<\\s*(?!/)";
 
 
-CodeViewEditor::CodeViewEditor( HighlighterType high_type, QWidget *parent )
+CodeViewEditor::CodeViewEditor( HighlighterType high_type, bool check_spelling, QWidget *parent )
     :
     QPlainTextEdit( parent ),
     m_isUndoAvailable( false ),
@@ -56,7 +56,7 @@ CodeViewEditor::CodeViewEditor( HighlighterType high_type, QWidget *parent )
 {
     if ( high_type == CodeViewEditor::Highlight_XHTML )
 
-        m_Highlighter = new XHTMLHighlighter( this );
+        m_Highlighter = new XHTMLHighlighter( check_spelling, this );
 
     else
 

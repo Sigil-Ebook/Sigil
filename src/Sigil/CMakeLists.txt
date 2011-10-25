@@ -49,6 +49,7 @@ set( QOBJECT_HEADERS
     Dialogs/Preferences.h
     Dialogs/PreferenceWidgets/PreferencesWidget.h
     Dialogs/PreferenceWidgets/KeyboardShortcutsWidget.h
+    Dialogs/PreferenceWidgets/SpellCheckWidget.h
     Tabs/TabManager.h
     Tabs/ContentTab.h 
     Tabs/FlowTab.h
@@ -155,6 +156,8 @@ set( DIALOG_FILES
     Dialogs/PreferenceWidgets/KeyboardShortcutsWidget.h
     Dialogs/PreferenceWidgets/LanguageWidget.cpp
     Dialogs/PreferenceWidgets/LanguageWidget.h
+    Dialogs/PreferenceWidgets/SpellCheckWidget.cpp
+    Dialogs/PreferenceWidgets/SpellCheckWidget.h
     )
 
 set( EXPORTER_FILES
@@ -206,6 +209,8 @@ set( MISC_FILES
     Misc/SearchOperations.h
     Misc/SettingsStore.cpp
     Misc/SettingsStore.h
+    Misc/SpellCheck.cpp
+    Misc/SpellCheck.h
     Misc/KeyboardShortcut.cpp
     Misc/KeyboardShortcut.h
     Misc/KeyboardShortcut_p.h
@@ -295,6 +300,7 @@ set( UI_FILES
     Form_Files/PAppearanceWidget.ui
     Form_Files/PKeyboardShortcutsWidget.ui
     Form_Files/PLanguageWidget.ui
+    Form_Files/PSpellCheckWidget.ui
     )
     
 set( SOURCEUPDATE_FILES   
@@ -318,6 +324,7 @@ set( QRC_FILES
     Resource_Files/main/main.qrc
     Resource_Files/About/About.qrc
     Resource_Files/data/data.qrc
+    Resource_Files/dictionaries/dictionaries.qrc
     Resource_Files/javascript/javascript.qrc
     Resource_Files/icon/icon.qrc  
     )

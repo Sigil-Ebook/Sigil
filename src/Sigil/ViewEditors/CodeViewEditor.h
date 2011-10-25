@@ -65,7 +65,7 @@ public:
      * @param highlighter_type Which syntax highlighter to use.
      * @param parent The object's parent.
      */
-    CodeViewEditor( HighlighterType highlighter_type, QWidget *parent = 0 );
+    CodeViewEditor( HighlighterType highlighter_type, bool check_spelling = false, QWidget *parent = 0 );
 
     QSize sizeHint() const;
 

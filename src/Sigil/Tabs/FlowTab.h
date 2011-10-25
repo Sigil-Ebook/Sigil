@@ -300,7 +300,6 @@ public slots:
 
     void LoadTabContent();
 
-
 signals:
 
     /**
@@ -370,6 +369,14 @@ private slots:
 
     void EmitUpdateCursorPosition();
 
+    /**
+     * Receives the signal emitted when an editor loses focus. Ensures that
+     * the editor's content is well-formed and then saves it.
+     *
+     * @param A pointer to the editor.
+     */
+    void LeaveEditor( QWidget *editor );
+
     /** 
      * Receives the signal emitted when an editor gains focus. Ensures that
      * the editor is displaying the correct content.
@@ -377,14 +384,6 @@ private slots:
      * @param A pointer to the editor.
      */
     void EnterEditor( QWidget *editor );
-
-    /** 
-     * Receives the signal emitted when an editor loses focus. Ensures that
-     * the editor's content is well-formed and then saves it.
-     *
-     * @param A pointer to the editor.
-     */
-    void LeaveEditor( QWidget *editor );
 
     /**
      * Receives the signal emitted when user settings have changed.
@@ -472,7 +471,7 @@ private:
 
     /**
      * Specifies which view was used last.
-     * \c True if the last view the user edited in was Book View. 
+     * \c True if the last view the user edited in was Book View.
      */
     bool m_IsLastViewBook; 
 

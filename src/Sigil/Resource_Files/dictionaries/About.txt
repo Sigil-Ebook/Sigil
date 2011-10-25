@@ -1,0 +1,16 @@
+de_DE-frami
+ - Version 2011.06.03
+ - http://extensions.services.openoffice.org/project/dict-de_DE_frami
+
+en_US
+ - Version 7.1
+ - http://wordlist.sourceforge.net/
+
+es_MX
+ - Version 2005-05-05
+ - http://wiki.services.openoffice.org/wiki/Dictionaries
+
+fr-moderne
+ - Version 4.3
+ - http://www.dicollecte.org/
+ 

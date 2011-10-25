@@ -45,7 +45,7 @@ FlowTab::FlowTab( HTMLResource& resource,
     m_HTMLResource( resource ),
     m_Splitter( *new QSplitter( this ) ),
     m_wBookView( *new BookViewEditor( this ) ),
-    m_wCodeView( *new CodeViewEditor( CodeViewEditor::Highlight_XHTML, this ) ),
+    m_wCodeView( *new CodeViewEditor( CodeViewEditor::Highlight_XHTML, true, this ) ),
     m_IsLastViewBook( true ),
     m_InSplitView( false ),
     m_StartingViewState( view_state ),
@@ -60,6 +60,7 @@ FlowTab::FlowTab( HTMLResource& resource,
     m_Splitter.setOrientation( Qt::Vertical );
     m_Splitter.addWidget( &m_wBookView );
     m_Splitter.addWidget( &m_wCodeView );
+
     ConnectSignalsToSlots();
 
     // We need to set this in the constructor too,
@@ -326,14 +327,13 @@ bool FlowTab::IsLoadingFinished()
 
 
 void FlowTab::ScrollToFragment( const QString &fragment )
-{   
-    if ( m_wBookView.isVisible() )
-
-        m_wBookView.ScrollToFragment( fragment );
-    
-    if ( m_wCodeView.isVisible() )
-
-        m_wCodeView.ScrollToFragment( fragment );
+{
+    if (m_IsLastViewBook) {
+        m_wBookView.ScrollToFragment(fragment);
+    }
+    else {
+        m_wCodeView.ScrollToFragment(fragment);
+    }
 }
 
 
@@ -709,17 +709,14 @@ void FlowTab::Print()
 
     QPrinter printer;
 
-    QPrintDialog print_dialog( &printer, this );
-    print_dialog.setWindowTitle( tr( "Print %1" ).arg( GetFilename() ) );
+    QPrintDialog print_dialog(&printer, this);
+    print_dialog.setWindowTitle(tr("Print %1").arg(GetFilename()));
 
-    if ( print_dialog.exec() == QDialog::Accepted )
-    {
-        if ( m_IsLastViewBook )
-        {
+    if (print_dialog.exec() == QDialog::Accepted) {
+        if (m_IsLastViewBook) {
             m_wBookView.print( &printer );
         }
-        else
-        {
+        else {
             m_wCodeView.print( &printer );
         }
     }
@@ -776,18 +773,12 @@ void FlowTab::SplitView()
     // Update whichever view is newly displayed.
     // This needs to be done explicitly as that view will not be given focus.
     // All other updates happen solely through the focus event handlers.
-    if( m_safeToLoad )
-    {
-        if ( m_IsLastViewBook )
-        {
-            m_HTMLResource.UpdateTextDocumentFromDomDocument();
-            m_wCodeView.StoreCaretLocationUpdate( m_wBookView.GetCaretLocation() );
-        }
-        else
-        {
-            m_HTMLResource.UpdateWebPageFromDomDocument();
-            m_wBookView.StoreCaretLocationUpdate( m_wCodeView.GetCaretLocation() );
-        }
+    LoadTabContent();
+    if (m_IsLastViewBook) {
+        EnterBookView();
+    }
+    else {
+        EnterBookView();
     }
 
     m_InSplitView = true;
@@ -850,14 +841,21 @@ void FlowTab::LoadTabContent()
     if( m_safeToLoad )
     {
         if ( m_IsLastViewBook )
-
+        {
             m_HTMLResource.UpdateWebPageFromDomDocument();
-
+        }
         else
-        
+        {
             m_HTMLResource.UpdateTextDocumentFromDomDocument();
-        
+        }
     }
+}
+
+
+void FlowTab::LoadSettings()
+{
+    SettingsStore *store = SettingsStore::instance();
+    m_Splitter.setOrientation(store->splitViewOrientation());
 }
 
 
@@ -875,17 +873,11 @@ void FlowTab::LeaveEditor( QWidget *editor )
             m_IsLastViewBook = false;
             SaveTabContent();
         }
+        else {
+            m_wCodeView.setFocus();
+        }
     }
 }
-
-
-void FlowTab::LoadSettings()
-{
-    SettingsStore *store = SettingsStore::instance();
-
-    m_Splitter.setOrientation(store->splitViewOrientation());
-}
-
 
 void FlowTab::EnterEditor( QWidget *editor )
 {
@@ -893,13 +885,26 @@ void FlowTab::EnterEditor( QWidget *editor )
     {
         m_IsLastViewBook = true;
         LoadTabContent();
+
+        if( m_InSplitView )
+        {
+            QApplication::setOverrideCursor( Qt::WaitCursor );
+            EnterBookView();
+            QApplication::restoreOverrideCursor();
+        }
     }
     else if( editor == &m_wCodeView && m_IsLastViewBook )
     {
         m_IsLastViewBook = false;
         LoadTabContent();
+
+        if( m_InSplitView )
+        {
+            QApplication::setOverrideCursor( Qt::WaitCursor );
+            EnterCodeView();
+            QApplication::restoreOverrideCursor();
+        }
     }
-    EmitUpdateCursorPosition();
 }
 
 
@@ -931,9 +936,13 @@ void FlowTab::DelayedInitialization()
             CodeView();
 
             if( m_LineToScrollTo > 0 )
+            {
                 m_wCodeView.ScrollToLine( m_LineToScrollTo );
+            }
             else
+            {
                 m_wCodeView.ScrollToFragment( m_FragmentToScroll.toString() );
+            }
 
             break;
         }
@@ -988,6 +997,7 @@ void FlowTab::EmitUpdateCursorPosition()
     emit UpdateCursorPosition(GetCursorLine(), GetCursorColumn());
 }
 
+
 void FlowTab::EnterBookView()
 {
     if ( !IsDataWellFormed() )
@@ -999,6 +1009,7 @@ void FlowTab::EnterBookView()
     // Save routines called by the focus handlers. The Dom Document is thus always the
     // canonical version, rather than allowing edits to be routed directly between the Text
     // Document and the Web page.
+
     emit EnteringBookView();
 }
 
@@ -1007,6 +1018,7 @@ void FlowTab::EnterCodeView()
 {
     m_wCodeView.StoreCaretLocationUpdate( m_wBookView.GetCaretLocation() );
     // See above note.
+
     emit EnteringCodeView();
 }
 

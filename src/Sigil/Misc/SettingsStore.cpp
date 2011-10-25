@@ -32,6 +32,7 @@ static const QString KEY_SPLIT_VIEW_ORIENTATION = "split_view_orientation";
 static const QString KEY_ZOOM_IMAGE = "zoom_image";
 static const QString KEY_ZOOM_TEXT = "zoom_text";
 static const QString KEY_ZOOM_WEB = "zoom_web";
+static const QString KEY_DICTIONARY_NAME = "dictionary_name";
 
 SettingsStore *SettingsStore::instance()
 {
@@ -72,6 +73,11 @@ float SettingsStore::zoomWeb()
     return m_zoomWeb;
 }
 
+QString SettingsStore::dictionary()
+{
+    return m_dictionary;
+}
+
 void SettingsStore::setDefaultMetadataLang(const QString &lang)
 {
     m_defaultMetadataLang = lang;
@@ -97,6 +103,11 @@ void SettingsStore::setZoomWeb(float zoom)
     m_zoomWeb = zoom;
 }
 
+void SettingsStore::setDictionary(const QString &name)
+{
+    m_dictionary = name;
+}
+
 void SettingsStore::triggerSettingsChanged()
 {
     emit settingsChanged();
@@ -112,6 +123,7 @@ void SettingsStore::writeSettings()
     settings.setValue(KEY_ZOOM_IMAGE, m_zoomImage);
     settings.setValue(KEY_ZOOM_TEXT, m_zoomText);
     settings.setValue(KEY_ZOOM_WEB, m_zoomWeb);
+    settings.setValue(KEY_DICTIONARY_NAME, m_dictionary);
 }
 
 SettingsStore::SettingsStore()
@@ -129,4 +141,5 @@ void SettingsStore::readSettings()
     m_zoomImage = settings.value(KEY_ZOOM_IMAGE, ZOOM_NORMAL).toFloat();
     m_zoomText = settings.value(KEY_ZOOM_TEXT, ZOOM_NORMAL).toFloat();
     m_zoomWeb = settings.value(KEY_ZOOM_WEB, ZOOM_NORMAL).toFloat();
+    m_dictionary = settings.value(KEY_DICTIONARY_NAME, "en_US").toString();
 }

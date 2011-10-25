@@ -64,6 +64,13 @@ public:
     float zoomWeb();
 
     /**
+     * The name of the dictionary to use for spell check.
+     *
+     * @return The dictionary name.
+     */
+    QString dictionary();
+
+    /**
      * Set the default language to use when creating new books.
      *
      * @param lang The language to set.
@@ -84,6 +91,13 @@ public:
     void setZoomImage(float zoom);
     void setZoomText(float zoom);
     void setZoomWeb(float zoom);
+
+    /**
+     * Set the name of the dictionary the user has selected.
+     *
+     * @param name The name of the dictionary.
+     */
+    void setDictionary(const QString &name);
 
     /**
      * Causes the store to emit its settingsChanged signal.
@@ -126,6 +140,7 @@ private:
     float m_zoomImage;
     float m_zoomText;
     float m_zoomWeb;
+    QString m_dictionary;
 };
 
 #endif // SETTINGSSTORE_H

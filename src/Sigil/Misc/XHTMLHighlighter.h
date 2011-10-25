@@ -32,7 +32,7 @@ class XHTMLHighlighter : public QSyntaxHighlighter
 public:
 
     // Constructor
-    XHTMLHighlighter( QObject *parent = 0 );
+    XHTMLHighlighter( bool checkSpelling, QObject *parent = 0 );
 
 protected:
 
@@ -71,6 +71,8 @@ private:
     // if it is, the node is formatted
     void HighlightLine( const QString& text, int state );
 
+    void CheckSpelling( const QString &text );
+
 
     ///////////////////////////////
     // PRIVATE MEMBER VARIABLES
@@ -80,11 +82,12 @@ private:
     enum BlockState
     {
         State_Text          = 1 << 0,
-        State_Entity        = 1 << 1,	
-        State_HTML          = 1 << 2,		
+        State_Entity        = 1 << 1,
+        State_HTML          = 1 << 2,
         State_CSS           = 1 << 3,
-        State_CSSComment    = 1 << 4,	
+        State_CSSComment    = 1 << 4,
         State_HTMLComment   = 1 << 5,
+        State_DOCTYPE       = 1 << 6
     };
 
     struct HighlightingRule
@@ -95,7 +98,10 @@ private:
 
     // Stores all of our highlighting rules
     // and the text formats used
-    QHash<QString, HighlightingRule> m_Rules;	
+    QHash<QString, HighlightingRule> m_Rules;
+
+    // Determine if spell check should be used on the document.
+    bool m_checkSpelling;
 };
 
 #endif // XHTMLHIGHLIGHTER_H

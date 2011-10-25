@@ -43,6 +43,7 @@
 #include "ResourceObjects/OPFResource.h"
 #include "Misc/SettingsStore.h"
 #include "Misc/KeyboardShortcutManager.h"
+#include "Misc/SpellCheck.h"
 
 static const int TEXT_ELIDE_WIDTH           = 300;
 static const QString SETTINGS_GROUP         = "mainwindow";
@@ -1837,6 +1838,7 @@ void MainWindow::MakeTabConnections( ContentTab *tab )
     connect( ui.actionBold,                     SIGNAL( triggered() ),  tab,   SLOT( Bold()                     ) );
     connect( ui.actionItalic,                   SIGNAL( triggered() ),  tab,   SLOT( Italic()                   ) );
     connect( ui.actionUnderline,                SIGNAL( triggered() ),  tab,   SLOT( Underline()                ) );
+
     connect( ui.actionStrikethrough,            SIGNAL( triggered() ),  tab,   SLOT( Strikethrough()            ) );
     connect( ui.actionAlignLeft,                SIGNAL( triggered() ),  tab,   SLOT( AlignLeft()                ) );
     connect( ui.actionCenter,                   SIGNAL( triggered() ),  tab,   SLOT( Center()                   ) );
