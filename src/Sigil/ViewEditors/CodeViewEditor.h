@@ -37,6 +37,7 @@ class QShortcut;
 class LineNumberArea;
 class QSyntaxHighlighter;
 class QContextMenuEvent;
+class QSignalMapper;
 
 
 /**
@@ -309,6 +310,13 @@ private slots:
      */
     void ScrollOneLineDown();
 
+    /**
+     * Replace the selected text with the the given text.
+     *
+     * @param text The string to replace the selected text with.
+     */
+    void ReplaceSelected(const QString &text);
+
 private:
 
     /**
@@ -473,6 +481,18 @@ private:
      * once after the View is repainted.
      */
     bool m_DelayedCursorScreenCenteringRequired;
+
+    /**
+     * Whether spell checking is enabled on this view.
+     * Misspellings are marked by the QSyntaxHighlighter used.
+     */
+    bool m_checkSpelling;
+
+    /**
+     * Map spelling suggestion actions from the context menu to the
+     * ReplaceSelected slot.
+     */
+    QSignalMapper *m_spellingMapper;
 };
 
 #endif // CODEVIEWEDITOR_H

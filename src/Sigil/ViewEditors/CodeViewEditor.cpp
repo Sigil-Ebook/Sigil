@@ -28,6 +28,7 @@
 #include "Misc/XHTMLHighlighter.h"
 #include "Misc/CSSHighlighter.h"
 #include "Misc/SettingsStore.h"
+#include "Misc/SpellCheck.h"
 #include "Misc/Utility.h"
 #include "PCRE/PCRECache.h"
 
@@ -41,6 +42,8 @@ static const QColor NUMBER_AREA_NUMCOLOR = QColor( 125, 125, 125 );
 static const QString XML_OPENING_TAG        = "(<[^>/][^>]*[^>/]>|<[^>/]>)";
 static const QString NEXT_OPEN_TAG_LOCATION = "<\\s*(?!/)";
 
+static const int MAX_SPELLING_SUGGESTIONS = 10;
+
 
 CodeViewEditor::CodeViewEditor( HighlighterType high_type, bool check_spelling, QWidget *parent )
     :
@@ -52,7 +55,9 @@ CodeViewEditor::CodeViewEditor( HighlighterType high_type, bool check_spelling, 
     m_ScrollOneLineUp( *(   new QShortcut( QKeySequence( Qt::ControlModifier + Qt::Key_Up   ), this, 0, 0, Qt::WidgetShortcut ) ) ),
     m_ScrollOneLineDown( *( new QShortcut( QKeySequence( Qt::ControlModifier + Qt::Key_Down ), this, 0, 0, Qt::WidgetShortcut ) ) ),
     m_isLoadFinished( false ),
-    m_DelayedCursorScreenCenteringRequired( false )
+    m_DelayedCursorScreenCenteringRequired( false ),
+    m_checkSpelling( check_spelling ),
+    m_spellingMapper( new QSignalMapper( this ) )
 {
     if ( high_type == CodeViewEditor::Highlight_XHTML )
 
@@ -597,6 +602,12 @@ void CodeViewEditor::resizeEvent( QResizeEvent *event )
 // So in those conditions, this handler takes over.
 void CodeViewEditor::mousePressEvent( QMouseEvent *event )
 {
+    // Rewrite the mouse event to a left button event so the cursor is
+    // moved to the location of the pointer.
+    if (event->button() == Qt::RightButton) {
+        event = new QMouseEvent(QEvent::MouseButtonPress, event->pos(), Qt::LeftButton, Qt::LeftButton, Qt::NoModifier);
+    }
+
     // Propagate to base class
     QPlainTextEdit::mousePressEvent( event );   
 
@@ -612,9 +623,105 @@ void CodeViewEditor::mousePressEvent( QMouseEvent *event )
 // menu to disappear and thus be inaccessible to the user.
 void CodeViewEditor::contextMenuEvent( QContextMenuEvent *event )
 {
+    // We block signals whle the menu is executed because we don't want the
+    // well formed check to be triggered.
     blockSignals( true );
+
     QMenu *menu = createStandardContextMenu();
+    QTextCursor c = textCursor();
+    // We check if offering spelling suggestions is necessary.
+    //
+    // If no text is selected we check the position of the cursor and see if it
+    // is within a misspelled word position range. If so we select it and
+    // offer spelling suggestions.
+    //
+    // If text is already selected we check if it matches a misspelled word
+    // position range. If so we need to offer spelling suggestions.
+    bool offerSpelling = false;
+
+    // Ignore spell check if spelling is disabled.
+    //
+    // Check for misspelled words by looking at the formatting set by the SyntaxHighlighter.
+    // By checking the formatting we can get a precalculated list of which words are
+    // misspelled. This keeps us from having to run the spell check twice. This ensures
+    // the same words shown on screen (by the SyntaxHighlighter) are the only words
+    // that act as spell check. Also, this reduces code duplication because we don't
+    // have the same word detection code in two places (here and the SyntaxHighlighter).
+    // Plus, we don't have to worry about the detection here detecting differently in
+    // the situation where the SyntaxHighlighter detection code is changed but the
+    // code here is not or vice versa.
+    if (m_checkSpelling) {
+        // See if we are close to or inside of a misspelled word. If so select it.
+         if (!c.hasSelection()) {
+             // We cannot use QTextCursor::charFormat because the format is not set directly in
+             // the document. The QSyntaxHighlighter sets the format in the block layout's
+             // additionalFormats property. Thus we have to check if the cursor is within
+             // an additionalFormat for the block and if that format is for a misspelled word.
+             int pos = c.positionInBlock();
+             foreach (QTextLayout::FormatRange r, textCursor().block().layout()->additionalFormats()) {
+                 if (pos >= r.start && pos <= r.start + r.length && r.format.underlineStyle() == QTextCharFormat::SpellCheckUnderline) {
+                     c.setPosition(c.block().position() + r.start);
+                     c.movePosition(QTextCursor::Right, QTextCursor::KeepAnchor, r.length);
+                     setTextCursor(c);
+                     offerSpelling = true;
+                     break;
+                 }
+             }
+         }
+         // Check if our selection is a misspelled word.
+         else {
+             int selStart = c.selectionStart() - c.block().position();
+             int selLen = c.selectionEnd() - c.block().position() - selStart;
+             foreach (QTextLayout::FormatRange r, textCursor().block().layout()->additionalFormats()) {
+                 if (r.start == selStart && selLen == r.length && r.format.underlineStyle() == QTextCharFormat::SpellCheckUnderline) {
+                     offerSpelling = true;
+                     break;
+                 }
+             }
+         }
+
+         // If a misspelled word is selected try to offer spelling suggestions.
+         if (offerSpelling && c.hasSelection()) {
+             QString text = c.selectedText();
+
+             SpellCheck *sc = SpellCheck::instance();
+             QStringList suggestions;
+             // The first action in the menu.
+             QAction *topAction = 0;
+             if (!menu->actions().isEmpty()) {
+                 topAction = menu->actions().at(0);
+             }
+             if (!sc->spell(text)) {
+                suggestions = sc->suggest(text);
+                QAction *suggestAction = 0;
+
+                // We want to limit the number of suggestions so we don't
+                // get a huge context menu.
+                for (int i = 0; i < std::min(suggestions.length(), MAX_SPELLING_SUGGESTIONS); ++i) {
+                    suggestAction = new QAction(suggestions.at(i), menu);
+                    connect(suggestAction, SIGNAL(triggered()), m_spellingMapper, SLOT(map()));
+                    m_spellingMapper->setMapping(suggestAction, suggestions.at(i));
+
+                    // If the menu is empty we need to append rather than insert our actions.
+                    if (!topAction) {
+                        menu->addAction(suggestAction);
+                    }
+                    else {
+                        menu->insertAction(topAction, suggestAction);
+                    }
+                }
+             }
+
+             // Add a separator to keep our spelling actions differentiated from
+             // the default menu actions.
+             if (!suggestions.isEmpty() && topAction) {
+                 menu->insertSeparator(topAction);
+             }
+         }
+    }
+
     menu->exec( event->globalPos() );
+
     delete menu;
     blockSignals( false );
 }
@@ -714,6 +821,14 @@ void CodeViewEditor::ScrollOneLineUp()
 void CodeViewEditor::ScrollOneLineDown()
 {
     ScrollByLine( true );
+}
+
+
+void CodeViewEditor::ReplaceSelected(const QString &text)
+{
+    QTextCursor c = textCursor();
+    c.insertText(text);
+    setTextCursor(c);
 }
 
 
@@ -927,4 +1042,6 @@ void CodeViewEditor::ConnectSignalsToSlots()
 
     connect( &m_ScrollOneLineUp,   SIGNAL( activated() ), this, SLOT( ScrollOneLineUp()   ) );
     connect( &m_ScrollOneLineDown, SIGNAL( activated() ), this, SLOT( ScrollOneLineDown() ) );
+
+    connect(m_spellingMapper, SIGNAL(mapped(const QString&)), this, SLOT(ReplaceSelected(const QString&)));
 }
