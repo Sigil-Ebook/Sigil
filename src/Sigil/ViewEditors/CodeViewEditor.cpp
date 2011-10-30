@@ -1044,4 +1044,7 @@ void CodeViewEditor::ConnectSignalsToSlots()
     connect( &m_ScrollOneLineDown, SIGNAL( activated() ), this, SLOT( ScrollOneLineDown() ) );
 
     connect(m_spellingMapper, SIGNAL(mapped(const QString&)), this, SLOT(ReplaceSelected(const QString&)));
+
+    SettingsStore *ss = SettingsStore::instance();
+    connect(ss, SIGNAL(settingsChanged()), m_Highlighter, SLOT(rehighlight()));
 }
