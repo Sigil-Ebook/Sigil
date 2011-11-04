@@ -1,4 +1,5 @@
 Sigil vNEXT TBA
+    - Inline spell check with right click replace in Code View.
     - Fix issue 1064: Issues with editing epubs with differing html extensions.
       Take mimetype into account when opening the file to help determine how to
       deal with the file.
