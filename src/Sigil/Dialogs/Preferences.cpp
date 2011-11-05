@@ -35,36 +35,17 @@ Preferences::Preferences(QWidget *parent) :
     ui.setupUi(this);
 
     // Create and load all of our preference widgets.;
-    m_pWidgets.append(new AppearanceWidget);
-    m_pWidgets.append(new KeyboardShortcutsWidget);
-    m_pWidgets.append(new LanguageWidget);
-    m_pWidgets.append(new SpellCheckWidget);
+    appendPreferenceWidget(new AppearanceWidget);
+    appendPreferenceWidget(new KeyboardShortcutsWidget);
+    appendPreferenceWidget(new LanguageWidget);
+    appendPreferenceWidget(new SpellCheckWidget);
 
-    // Populate the list of avaliable preference groups with the names
-    // of each widgets.
-    foreach (PreferencesWidget *w, m_pWidgets) {
-        ui.availableWidgets->addItem(w->windowTitle());
-    }
-
-    // Select the first item in the preferences list.
-    if (m_pWidgets.length() > 0) {
-        ui.availableWidgets->item(0)->setSelected(true);
-        selectPWidget(ui.availableWidgets->item(0));
-    }
+    // Ensure the first item in the avaliable preferences widgets list
+    // is highlighted.
+    ui.availableWidgets->item(0)->setSelected(true);
 
     readSettings();
     connectSignalsSlots();
-}
-
-Preferences::~Preferences()
-{
-    // Clean up all of the preference widgets we created earlier.
-    foreach(PreferencesWidget *pw, m_pWidgets) {
-        if (pw != 0) {
-            delete pw;
-            pw = 0;
-        }
-    }
 }
 
 void Preferences::selectPWidget(QListWidgetItem *current, QListWidgetItem *previous)
@@ -72,22 +53,7 @@ void Preferences::selectPWidget(QListWidgetItem *current, QListWidgetItem *previ
     Q_UNUSED(previous)
 
     int index = ui.availableWidgets->row(current);
-
-    // Ensure the selected index exists in our list of widgets.
-    if (index >= 0 && index < m_pWidgets.length()) {
-        PreferencesWidget *pw = m_pWidgets.at(index);
-
-        // Remove the current widget from the scroll area so it's not deleted
-        // when we display the new widget.
-        PreferencesWidget *old_pw = qobject_cast<PreferencesWidget*>(ui.pWidget->takeWidget());
-        if (old_pw != 0) {
-            old_pw->hide();
-        }
-
-        // Add the preference widget to the dialog and show it.
-        ui.pWidget->setWidget(pw);
-        pw->show();
-    }
+    ui.pWidget->setCurrentIndex(index);
 }
 
 void Preferences::saveSettings()
@@ -97,8 +63,11 @@ void Preferences::saveSettings()
 
     settings.setValue("geometry", saveGeometry());
 
-    foreach (PreferencesWidget *pw, m_pWidgets) {
-        pw->saveSettings();
+    for (int i = 0; i < ui.pWidget->count(); ++i) {
+        PreferencesWidget *pw = qobject_cast<PreferencesWidget*>(ui.pWidget->widget(i));
+        if (pw != 0) {
+            pw->saveSettings();
+        }
     }
 }
 
@@ -111,6 +80,15 @@ void Preferences::readSettings()
     if (!geometry.isNull()) {
         restoreGeometry(geometry);
     }
+}
+
+void Preferences::appendPreferenceWidget(PreferencesWidget *widget)
+{
+    // Add the PreferencesWidget to the stack view area.
+    ui.pWidget->addWidget(widget);
+
+    // Add an entry to the list of avaliable preference widgets.
+    ui.availableWidgets->addItem(widget->windowTitle());
 }
 
 void Preferences::connectSignalsSlots()

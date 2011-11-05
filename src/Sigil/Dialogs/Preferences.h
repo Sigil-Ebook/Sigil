@@ -39,7 +39,6 @@ class Preferences : public QDialog
 
 public:
     Preferences(QWidget *parent = 0);
-    ~Preferences();
 
 private slots:
     /**
@@ -62,12 +61,20 @@ private:
      */
     void readSettings();
     /**
+     * Adds the given preferences with to the dialog.
+     *
+     * The widget is added to the list of avaliable widgets and when the
+     * entry in the list is selected the widget it shown in the widget display
+     * area to the right of the avaliable widget list.
+     *
+     * @param widget The PreferencesWidget to add to the dialog.
+     */
+    void appendPreferenceWidget(PreferencesWidget *widget);
+    /**
      * Connect signals to slots used by this dialog.
      */
     void connectSignalsSlots();
 
-    // List of PreferencesWidgets used in the dialog.
-    QList<PreferencesWidget*> m_pWidgets;
     Ui::Preferences ui;
 
 };
