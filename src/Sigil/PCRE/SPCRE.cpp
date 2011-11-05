@@ -90,7 +90,11 @@ int SPCRE::getCaptureSubpatternCount()
 
 int SPCRE::getCaptureStringNumber(const QString &name)
 {
-    int number = pcre_get_stringnumber( m_re, name.toUtf8().data() );
+    if (m_re == NULL) {
+        return -1;
+    }
+
+    int number = pcre_get_stringnumber(m_re, name.toUtf8().data());
     if (number == 0) {
         number = -1;
     }
@@ -101,7 +105,7 @@ QList<SPCRE::MatchInfo> SPCRE::getMatchInfo(const QString &text)
 {
     QList<SPCRE::MatchInfo> info;
 
-    if (text.isEmpty()) {
+    if (m_re == NULL || text.isEmpty()) {
         return info;
     }
 
