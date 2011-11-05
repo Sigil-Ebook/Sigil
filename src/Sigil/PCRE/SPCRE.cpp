@@ -33,6 +33,7 @@ SPCRE::SPCRE(const QString &patten)
 
     m_re = NULL;
     m_study = NULL;
+    m_captureSubpatternCount = 0;
 
     const char *error;
     int erroroffset;
@@ -121,8 +122,10 @@ QList<SPCRE::MatchInfo> SPCRE::getMatchInfo(const QString &text)
     int ovector_size = (1 + ovector_count) * 3;
     // Allocate only the amount of memory we need for the search pattern and
     // the number of capture patterns it contains.
+    // Can't use dynamic array alloction (int ovector[ovector_size]) because
+    // MSVC doesn't support it.
     int *ovector = new int[ovector_size];
-    memset(ovector, 0, sizeof(ovector));
+    memset(ovector, 0, sizeof(int)*ovector_size);
     // We keep track of the last offsets as we move though the string matching
     // sub strings.
     int last_offset[2] = {0};
@@ -212,7 +215,7 @@ QList<SPCRE::MatchInfo> SPCRE::getMatchInfo(const QString &text)
         }
 
         rc = pcre_exec(m_re, m_study, text.toUtf8().data(), strlen(text.toUtf8().data()), last_offset[1], 0, ovector, ovector_size);
-    } while(rc >= 0  && ovector[0] != ovector[1] && ovector[1] != last_offset[1]);
+    } while(rc >= 0 && ovector[0] != ovector[1] && ovector[1] != last_offset[1] && ovector[0] < ovector[1]);
 
     free(ovector);
     return info;
