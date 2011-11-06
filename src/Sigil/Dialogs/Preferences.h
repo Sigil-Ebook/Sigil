@@ -76,7 +76,6 @@ private:
     void connectSignalsSlots();
 
     Ui::Preferences ui;
-
 };
 
 #endif // PREFERENCES_H
