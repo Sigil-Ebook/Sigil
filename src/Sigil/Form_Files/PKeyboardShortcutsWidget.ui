@@ -43,12 +43,12 @@
         </property>
         <column>
          <property name="text">
-          <string>Command</string>
+          <string>Name</string>
          </property>
         </column>
         <column>
          <property name="text">
-          <string>Label</string>
+          <string>Description</string>
          </property>
         </column>
         <column>

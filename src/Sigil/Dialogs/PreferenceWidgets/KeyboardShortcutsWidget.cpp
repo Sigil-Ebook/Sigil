@@ -24,19 +24,23 @@
 #include "KeyboardShortcutsWidget.h"
 #include "Misc/KeyboardShortcutManager.h"
 
-const int SEQ_NAME_INDEX = 0;
-const int SEQ_DESCRIPTION_INDEX = 1;
-const int SEQ_SEQUENCE_INDEX = 2;
-const int SEQ_DEFAULT_SEQUENCE_INDEX = 3;
+const int COL_NAME = 0;
+const int COL_DESCRIPTION = 1;
+const int COL_SHORTCUT = 2;
+const int COL_DEFAULT_SHORTCUT = 3;
+// This column is not displayed but we still need it so we can reference
+// The short cut in the shortcut manager.
+const int COL_ID = 4;
 
 KeyboardShortcutsWidget::KeyboardShortcutsWidget()
 {
     m_keyNum = m_key[0] = m_key[1] = m_key[2] = m_key[3] = 0;
 
     ui.setupUi(this);
-    connectSignalsSlots();
 
     readSettings();
+
+    connectSignalsSlots();
 }
 
 void KeyboardShortcutsWidget::saveSettings()
@@ -46,8 +50,8 @@ void KeyboardShortcutsWidget::saveSettings()
      for (int i = 0; i < ui.commandList->topLevelItemCount(); i++) {
          QTreeWidgetItem * item = ui.commandList->topLevelItem(i);
 
-         const QString id = item->text(SEQ_NAME_INDEX);
-         const QKeySequence keySequence = item->text(SEQ_SEQUENCE_INDEX);
+         const QString id = item->text(COL_ID);
+         const QKeySequence keySequence = item->text(COL_SHORTCUT);
 
          sm->setKeySequence(id, keySequence);
 
@@ -82,24 +86,24 @@ void KeyboardShortcutsWidget::showEvent(QShowEvent *event)
 {
     //fill out the tree view
     readSettings();
-    ui.commandList->setColumnWidth(0, ui.commandList->width() * .30);
-    ui.commandList->setColumnWidth(1, ui.commandList->width() * .40);
-    ui.commandList->setColumnWidth(2, ui.commandList->width() * .15);
-    ui.commandList->setColumnWidth(3, ui.commandList->width() * .15);
+    ui.commandList->setColumnWidth(COL_NAME, ui.commandList->width() * .30);
+    ui.commandList->setColumnWidth(COL_DESCRIPTION, ui.commandList->width() * .40);
+    ui.commandList->setColumnWidth(COL_SHORTCUT, ui.commandList->width() * .15);
+    ui.commandList->setColumnWidth(COL_DEFAULT_SHORTCUT, ui.commandList->width() * .15);
     QWidget::showEvent(event);
 }
 
 void KeyboardShortcutsWidget::treeWidgetItemActivatedSlot(QTreeWidgetItem *item, int column)
 {
     m_keyNum = m_key[0] = m_key[1] = m_key[2] = m_key[3] = 0;
-    ui.targetEdit->setText(ui.commandList->currentItem()->text(SEQ_SEQUENCE_INDEX));
+    ui.targetEdit->setText(ui.commandList->currentItem()->text(COL_SHORTCUT));
 }
 
 void KeyboardShortcutsWidget::clearButtonClicked()
 {
     m_keyNum = m_key[0] = m_key[1] = m_key[2] = m_key[3] = 0;
     ui.targetEdit->setText("");
-    ui.commandList->currentItem()->setText(SEQ_SEQUENCE_INDEX, "");
+    ui.commandList->currentItem()->setText(COL_SHORTCUT, "");
     ui.targetEdit->setFocus();
 }
 
@@ -114,10 +118,10 @@ void KeyboardShortcutsWidget::filterEditTextChangedSlot(const QString &text)
     }
     else {
         for (int i = 0; i < ui.commandList->topLevelItemCount(); i++) {
-            const QString name = ui.commandList->topLevelItem(i)->text(SEQ_NAME_INDEX).toUpper();
-            const QString description = ui.commandList->topLevelItem(i)->text(SEQ_DESCRIPTION_INDEX).toUpper();
-            const QString sequence = ui.commandList->topLevelItem(i)->text(SEQ_SEQUENCE_INDEX).toUpper();
-            const QString defaultSequence = ui.commandList->topLevelItem(i)->text(SEQ_DEFAULT_SEQUENCE_INDEX).toUpper();
+            const QString name = ui.commandList->topLevelItem(i)->text(COL_NAME).toUpper();
+            const QString description = ui.commandList->topLevelItem(i)->text(COL_DESCRIPTION).toUpper();
+            const QString sequence = ui.commandList->topLevelItem(i)->text(COL_SHORTCUT).toUpper();
+            const QString defaultSequence = ui.commandList->topLevelItem(i)->text(COL_DEFAULT_SHORTCUT).toUpper();
 
             if (name.contains(newText) ||
                 description.contains(newText) ||
@@ -146,9 +150,9 @@ void KeyboardShortcutsWidget::resetButtonClickedSlot()
         KeyboardShortcutManager *sm = KeyboardShortcutManager::instance();
 
         //get 'current' sequence value from CommandManger
-        QKeySequence seq = sm->keyboardShortcut(ui.commandList->currentItem()->text(SEQ_NAME_INDEX)).defaultKeySequence();
+        QKeySequence seq = sm->keyboardShortcut(ui.commandList->currentItem()->text(COL_ID)).defaultKeySequence();
         //assign sequence value from CommandManager to the currentItem
-        ui.commandList->currentItem()->setText(SEQ_SEQUENCE_INDEX, seq);
+        ui.commandList->currentItem()->setText(COL_SHORTCUT, seq);
         ui.targetEdit->setText(seq);
         ui.targetEdit->setFocus();
         updateItemView(ui.commandList->currentItem());
@@ -162,8 +166,8 @@ void KeyboardShortcutsWidget::resetAllButtonClickedSlot()
     //Go through all items
     for (int i = 0; i < ui.commandList->topLevelItemCount(); i++) {
         QTreeWidgetItem *item = ui.commandList->topLevelItem(i);
-        QKeySequence seq = sm->keyboardShortcut(item->text(SEQ_NAME_INDEX)).defaultKeySequence();
-        item->setText(SEQ_SEQUENCE_INDEX, seq);
+        QKeySequence seq = sm->keyboardShortcut(item->text(COL_ID)).defaultKeySequence();
+        item->setText(COL_SHORTCUT, seq);
         updateItemView(item);
     }
 
@@ -180,12 +184,15 @@ void KeyboardShortcutsWidget::readSettings()
     foreach (QString id, ids)
     {
         KeyboardShortcut shortcut = sm->keyboardShortcut(id);
-        QTreeWidgetItem *item = new QTreeWidgetItem();
-        item->setText(SEQ_NAME_INDEX, id);
-        item->setText(SEQ_DESCRIPTION_INDEX, shortcut.description());
-        item->setText(SEQ_SEQUENCE_INDEX, shortcut.keySequence());
-        item->setText(SEQ_DEFAULT_SEQUENCE_INDEX, shortcut.defaultKeySequence());
-        ui.commandList->addTopLevelItem(item);
+        if (!shortcut.isEmpty()) {
+            QTreeWidgetItem *item = new QTreeWidgetItem();
+            item->setText(COL_NAME, shortcut.name());
+            item->setText(COL_DESCRIPTION, shortcut.description());
+            item->setText(COL_SHORTCUT, shortcut.keySequence());
+            item->setText(COL_DEFAULT_SHORTCUT, shortcut.defaultKeySequence());
+            item->setText(COL_ID, id);
+            ui.commandList->addTopLevelItem(item);
+        }
     }
 
     markSequencesAsDuplicatedIfNeeded();
@@ -291,12 +298,12 @@ void KeyboardShortcutsWidget::updateItemView(QTreeWidgetItem *item)
     if (item == 0) {
         return;
     }
-    const QString seqName = item->text(SEQ_NAME_INDEX);
-    const QKeySequence seqValue = item->text(SEQ_SEQUENCE_INDEX);
+    const QString seqName = item->text(COL_ID);
+    const QKeySequence seqValue = item->text(COL_SHORTCUT);
     KeyboardShortcutManager *sm = KeyboardShortcutManager::instance();
 
     QKeySequence seq = sm->keyboardShortcut(seqName).keySequence();
-    QFont font = item->font(SEQ_SEQUENCE_INDEX);
+    QFont font = item->font(COL_SHORTCUT);
     //If item is 'modified' show it in 'italics'
     if ( seq != seqValue ) {
         font.setItalic( true );
@@ -304,13 +311,13 @@ void KeyboardShortcutsWidget::updateItemView(QTreeWidgetItem *item)
     else {
         font.setItalic( false );
     }
-    item->setFont(SEQ_SEQUENCE_INDEX, font);
+    item->setFont(COL_SHORTCUT, font);
 }
 
 void KeyboardShortcutsWidget::updateCurrentItemShortcut()
 {
     if (ui.commandList->currentItem() != 0) {
-        ui.commandList->currentItem()->setText(SEQ_SEQUENCE_INDEX, ui.targetEdit->text());
+        ui.commandList->currentItem()->setText(COL_SHORTCUT, ui.targetEdit->text());
         updateItemView(ui.commandList->currentItem());
     }
 }
@@ -326,7 +333,7 @@ void KeyboardShortcutsWidget::markSequencesAsDuplicatedIfNeeded()
     for (int i = 0; i < ui.commandList->topLevelItemCount(); i++) {
         QTreeWidgetItem *item = ui.commandList->topLevelItem(i);
 
-        const QKeySequence keySequence = item->text(SEQ_SEQUENCE_INDEX);
+        const QKeySequence keySequence = item->text(COL_SHORTCUT);
         seqMap[keySequence].insert(item);
     }
 
@@ -336,20 +343,20 @@ void KeyboardShortcutsWidget::markSequencesAsDuplicatedIfNeeded()
         if (itemSet.size() > 1) {
             //mark items as conflicted items
             foreach(QTreeWidgetItem *item, itemSet.values()) {
-                QFont font = item->font(SEQ_SEQUENCE_INDEX);
+                QFont font = item->font(COL_SHORTCUT);
                 font.setBold(true);
-                item->setForeground(SEQ_SEQUENCE_INDEX, QColor(Qt::red));
-                item->setFont(SEQ_SEQUENCE_INDEX, font);
+                item->setForeground(COL_SHORTCUT, QColor(Qt::red));
+                item->setFont(COL_SHORTCUT, font);
             }
         }
         else {
             //mark as non-confilicted
             foreach(QTreeWidgetItem *item, itemSet.values())
             {
-                QFont font = item->font(SEQ_SEQUENCE_INDEX);
+                QFont font = item->font(COL_SHORTCUT);
                 font.setBold(false);
-                item->setForeground(SEQ_SEQUENCE_INDEX, QColor(Qt::black));
-                item->setFont(SEQ_SEQUENCE_INDEX, font);
+                item->setForeground(COL_SHORTCUT, QColor(Qt::black));
+                item->setFont(COL_SHORTCUT, font);
             }
         }
     }

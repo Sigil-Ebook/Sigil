@@ -57,6 +57,7 @@ void KeyboardShortcutManager::registerAction(QAction *action, const QString &id,
         s = createShortcut(keySequence);
         m_shortcuts.insert(id, s);
     }
+    s.setName(action->iconText());
     // Use the actions tool tip (falls back to text) if no description
     // was given.
     if (desc.isEmpty()) {
@@ -287,7 +288,7 @@ void KeyboardShortcutManager::writeSettings()
         it.next();
         KeyboardShortcut s = it.value();
 
-        if (s.action() == 0 && s.shortcut() == 0) {
+        if (s.isEmpty()) {
             continue;
         }
         settings.setArrayIndex(i);

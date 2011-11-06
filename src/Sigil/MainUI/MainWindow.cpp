@@ -1469,86 +1469,86 @@ void MainWindow::ExtendUI()
     // Setup userdefined keyboard shortcuts for actions.
     KeyboardShortcutManager *sm = KeyboardShortcutManager::instance();
     // File
-    sm->registerAction(ui.actionNew, "File.New.Book");
-    sm->registerAction(ui.actionNewHTMLFile, "File.New.Section");
-    sm->registerAction(ui.actionNewCSSFile, "File.New.Stylesheet");
-    sm->registerAction(ui.actionOpen, "File.Open");
+    sm->registerAction(ui.actionNew, "MainWindow.New");
+    sm->registerAction(ui.actionNewHTMLFile, "MainWindow.NewHTMLFile");
+    sm->registerAction(ui.actionNewCSSFile, "MainWindow.NewCSSFile");
+    sm->registerAction(ui.actionOpen, "MainWindow.Open");
 #ifndef Q_WS_MAC
-    sm->registerAction(ui.actionClose, "File.Close");
+    sm->registerAction(ui.actionClose, "MainWindow.Close");
 #endif
-    sm->registerAction(ui.actionSave, "File.Save");
-    sm->registerAction(ui.actionSaveAs, "File.SaveAs");
-    sm->registerAction(ui.actionPrintPreview, "File.PrintPreview");
-    sm->registerAction(ui.actionPrint, "File.Print");
-    sm->registerAction(ui.actionValidateEpub, "File.ValidateEpub");
-    sm->registerAction(ui.actionExit, "File.Exit");
+    sm->registerAction(ui.actionSave, "MainWindow.Save");
+    sm->registerAction(ui.actionSaveAs, "MainWindow.SaveAs");
+    sm->registerAction(ui.actionPrintPreview, "MainWindow.PrintPreview");
+    sm->registerAction(ui.actionPrint, "MainWindow.Print");
+    sm->registerAction(ui.actionValidateEpub, "MainWindow.ValidateEpub");
+    sm->registerAction(ui.actionExit, "MainWindow.Exit");
     // Edit
-    sm->registerAction(ui.actionUndo, "Edit.Undo");
-    sm->registerAction(ui.actionRedo, "Edit.Redo");
-    sm->registerAction(ui.actionCut, "Edit.Cut");
-    sm->registerAction(ui.actionCopy, "Edit.Copy");
-    sm->registerAction(ui.actionPaste, "Edit.Paste");
-    sm->registerAction(ui.actionFind, "Edit.Find");
-    sm->registerAction(ui.actionFindNext, "Edit.FindNext");
-    sm->registerAction(ui.actionFindPrevious, "Edit.FindPrevious");
-    sm->registerAction(ui.actionReplaceNext, "Edit.ReplaceNext");
-    sm->registerAction(ui.actionReplacePrevious, "Edit.ReplacePrevious");
-    sm->registerAction(ui.actionGoToLine, "Edit.GoToLine");
-    sm->registerAction(ui.actionMetaEditor, "Edit.MetaEditor");
-    sm->registerAction(ui.actionInsertImage, "Edit.InsertImage");
-    sm->registerAction(ui.actionAddExistingFile, "Edit.InsertExisting");
-    sm->registerAction(ui.actionSplitChapter, "Edit.SplitChapter");
-    sm->registerAction(ui.actionInsertSGFChapterMarker, "Edit.InsertSGFChapterMarker");
-    sm->registerAction(ui.actionSplitOnSGFChapterMarkers, "Edit.SplitOnSGFChapterMarkers");
+    sm->registerAction(ui.actionUndo, "MainWindow.Undo");
+    sm->registerAction(ui.actionRedo, "MainWindow.Redo");
+    sm->registerAction(ui.actionCut, "MainWindow.Cut");
+    sm->registerAction(ui.actionCopy, "MainWindow.Copy");
+    sm->registerAction(ui.actionPaste, "MainWindow.Paste");
+    sm->registerAction(ui.actionFind, "MainWindow.Find");
+    sm->registerAction(ui.actionFindNext, "MainWindow.FindNext");
+    sm->registerAction(ui.actionFindPrevious, "MainWindow.FindPrevious");
+    sm->registerAction(ui.actionReplaceNext, "MainWindow.ReplaceNext");
+    sm->registerAction(ui.actionReplacePrevious, "MainWindow.ReplacePrevious");
+    sm->registerAction(ui.actionGoToLine, "MainWindow.GoToLine");
+    sm->registerAction(ui.actionMetaEditor, "MainWindow.MetaEditor");
+    sm->registerAction(ui.actionInsertImage, "MainWindow.InsertImage");
+    sm->registerAction(ui.actionAddExistingFile, "MainWindow.AddExistingFile");
+    sm->registerAction(ui.actionSplitChapter, "MainWindow.SplitChapter");
+    sm->registerAction(ui.actionInsertSGFChapterMarker, "MainWindow.InsertSGFChapterMarker");
+    sm->registerAction(ui.actionSplitOnSGFChapterMarkers, "MainWindow.SplitOnSGFChapterMarkers");
 #ifndef Q_WS_MAC
-    sm->registerAction(ui.actionPreferences, "Edit.Preferences");
+    sm->registerAction(ui.actionPreferences, "MainWindow.Preferences");
 #endif
     // Format
-    sm->registerAction(ui.actionBold, "Format.Bold");
-    sm->registerAction(ui.actionItalic, "Format.Italic");
-    sm->registerAction(ui.actionUnderline, "Format.Underline");
-    sm->registerAction(ui.actionStrikethrough, "Format.Strikethrough");
-    sm->registerAction(ui.actionHeadingNormal, "Format.HeadingNormal");
-    sm->registerAction(ui.actionAlignLeft, "Format.AlignLeft");
-    sm->registerAction(ui.actionCenter, "Format.Center");
-    sm->registerAction(ui.actionAlignRight, "Format.AlignRight");
-    sm->registerAction(ui.actionJustify, "Format.Justify");
-    sm->registerAction(ui.actionInsertNumberedList, "Format.InsertNumberedList");
-    sm->registerAction(ui.actionInsertBulletedList, "Format.InsertBulletedList");
-    sm->registerAction(ui.actionIncreaseIndent, "Format.IncreaseIndent");
-    sm->registerAction(ui.actionDecreaseIndent, "Format.DecreaseIndent");
-    sm->registerAction(ui.actionHeading1, "Format.Heading1");
-    sm->registerAction(ui.actionHeading2, "Format.Heading2");
-    sm->registerAction(ui.actionHeading3, "Format.Heading3");
-    sm->registerAction(ui.actionHeading4, "Format.Heading4");
-    sm->registerAction(ui.actionHeading5, "Format.Heading5");
-    sm->registerAction(ui.actionHeading6, "Format.Heading6");
-    sm->registerAction(ui.actionRemoveFormatting, "Format.RemoveFormatting");
+    sm->registerAction(ui.actionBold, "MainWindow.Bold");
+    sm->registerAction(ui.actionItalic, "MainWindow.Italic");
+    sm->registerAction(ui.actionUnderline, "MainWindow.Underline");
+    sm->registerAction(ui.actionStrikethrough, "MainWindow.Strikethrough");
+    sm->registerAction(ui.actionHeadingNormal, "MainWindow.HeadingNormal");
+    sm->registerAction(ui.actionAlignLeft, "MainWindow.AlignLeft");
+    sm->registerAction(ui.actionCenter, "MainWindow.Center");
+    sm->registerAction(ui.actionAlignRight, "MainWindow.AlignRight");
+    sm->registerAction(ui.actionJustify, "MainWindow.Justify");
+    sm->registerAction(ui.actionInsertNumberedList, "MainWindow.InsertNumberedList");
+    sm->registerAction(ui.actionInsertBulletedList, "MainWindow.InsertBulletedList");
+    sm->registerAction(ui.actionIncreaseIndent, "MainWindow.IncreaseIndent");
+    sm->registerAction(ui.actionDecreaseIndent, "MainWindow.DecreaseIndent");
+    sm->registerAction(ui.actionHeading1, "MainWindow.Heading1");
+    sm->registerAction(ui.actionHeading2, "MainWindow.Heading2");
+    sm->registerAction(ui.actionHeading3, "MainWindow.Heading3");
+    sm->registerAction(ui.actionHeading4, "MainWindow.Heading4");
+    sm->registerAction(ui.actionHeading5, "MainWindow.Heading5");
+    sm->registerAction(ui.actionHeading6, "MainWindow.Heading6");
+    sm->registerAction(ui.actionRemoveFormatting, "MainWindow.RemoveFormatting");
     // View
-    sm->registerAction(ui.actionBookView, "View.BookView");
-    sm->registerAction(ui.actionSplitView, "View.SplitView");
-    sm->registerAction(ui.actionCodeView, "View.CodeView");
-    sm->registerAction(ui.actionZoomIn, "View.ZoomIn");
-    sm->registerAction(ui.actionZoomOut, "View.ZoomOut");
-    sm->registerAction(ui.actionZoomReset, "View.ZoomReset");
-    sm->registerAction(m_BookBrowser->toggleViewAction(), "View.BookBrowser");
-    sm->registerAction(m_ValidationResultsView->toggleViewAction(), "View.ValidationResults");
-    sm->registerAction(m_TableOfContents->toggleViewAction(), "View.TableOfContents");
+    sm->registerAction(ui.actionBookView, "MainWindow.BookView");
+    sm->registerAction(ui.actionSplitView, "MainWindow.SplitView");
+    sm->registerAction(ui.actionCodeView, "MainWindow.CodeView");
+    sm->registerAction(ui.actionZoomIn, "MainWindow.ZoomIn");
+    sm->registerAction(ui.actionZoomOut, "MainWindow.ZoomOut");
+    sm->registerAction(ui.actionZoomReset, "MainWindow.ZoomReset");
+    sm->registerAction(m_BookBrowser->toggleViewAction(), "MainWindow.BookBrowser");
+    sm->registerAction(m_ValidationResultsView->toggleViewAction(), "MainWindow.ValidationResults");
+    sm->registerAction(m_TableOfContents->toggleViewAction(), "MainWindow.TableOfContents");
     // Tools
-    sm->registerAction(ui.actionTidyClean, "Tools.TidyClean");
-    sm->registerAction(ui.actionCheckWellFormedErrors, "Tools.CheckWellFormedErrors");
+    sm->registerAction(ui.actionTidyClean, "MainWindow.TidyClean");
+    sm->registerAction(ui.actionCheckWellFormedErrors, "MainWindow.CheckWellFormedErrors");
     // Window
-    sm->registerAction(ui.actionNextTab, "Window.NextTag");
-    sm->registerAction(ui.actionPreviousTab, "Window.PreviousTab");
-    sm->registerAction(ui.actionCloseTab, "Window.CloseTab");
-    sm->registerAction(ui.actionCloseOtherTabs, "Window.CloseOtherTabs");
+    sm->registerAction(ui.actionNextTab, "MainWindow.NextTab");
+    sm->registerAction(ui.actionPreviousTab, "MainWindow.PreviousTab");
+    sm->registerAction(ui.actionCloseTab, "MainWindow.CloseTab");
+    sm->registerAction(ui.actionCloseOtherTabs, "MainWindow.CloseOtherTabs");
     // Help
-    sm->registerAction(ui.actionUserManual, "Help.UserManual");
-    sm->registerAction(ui.actionFAQ, "Help.FAQ");
-    sm->registerAction(ui.actionDonate, "Help.Donate");
-    sm->registerAction(ui.actionReportAnIssue, "Help.ReportAnIssue");
-    sm->registerAction(ui.actionSigilDevBlog, "Help.SigilDevBlog");
-    sm->registerAction(ui.actionAbout, "Help.About");
+    sm->registerAction(ui.actionUserManual, "MainWindow.UserManual");
+    sm->registerAction(ui.actionFAQ, "MainWindow.FAQ");
+    sm->registerAction(ui.actionDonate, "MainWindow.Donate");
+    sm->registerAction(ui.actionReportAnIssue, "MainWindow.ReportAnIssue");
+    sm->registerAction(ui.actionSigilDevBlog, "MainWindow.SigilDevBlog");
+    sm->registerAction(ui.actionAbout, "MainWindow.About");
 
     ExtendIconSizes();
 }

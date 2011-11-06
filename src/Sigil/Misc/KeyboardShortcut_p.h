@@ -39,6 +39,9 @@ public:
     // The shortcut that that is associated with the data below.
     QAction *action;
     QShortcut *shortcut;
+    // If this is an action this is the text that will display when the
+    // action is part of a menu.
+    QString name;
     // Short text desciription what command 'does'.
     QString description;
     // KeySequnce that is assigned.

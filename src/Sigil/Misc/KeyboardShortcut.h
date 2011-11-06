@@ -37,14 +37,18 @@ public:
     KeyboardShortcut();
     KeyboardShortcut(const KeyboardShortcut &other);
 
+    bool isEmpty();
+
     void setAction(QAction *action);
     void setShortcut(QShortcut *shortcut);
+    void setName(const QString &name);
     void setDescription(const QString &description);
     void setKeySequence(const QKeySequence &keySequence);
     void setDefaultKeySequence(const QKeySequence &defaultKeySequence);
 
     QAction *action();
     QShortcut *shortcut();
+    QString name();
     QString description();
     QKeySequence keySequence();
     QKeySequence defaultKeySequence();

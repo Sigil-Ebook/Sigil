@@ -52,6 +52,14 @@ KeyboardShortcut::KeyboardShortcut(const KeyboardShortcut &other) :
 {
 }
 
+bool KeyboardShortcut::isEmpty()
+{
+    if (d->action == 0 && d->shortcut == 0) {
+        return true;
+    }
+    return false;
+}
+
 void KeyboardShortcut::setAction(QAction *action)
 {
     d->action = action;
@@ -60,6 +68,11 @@ void KeyboardShortcut::setAction(QAction *action)
 void KeyboardShortcut::setShortcut(QShortcut *shortcut)
 {
     d->shortcut = shortcut;
+}
+
+void KeyboardShortcut::setName(const QString &name)
+{
+    d->name = name;
 }
 
 void KeyboardShortcut::setDescription(const QString &description)
@@ -85,6 +98,11 @@ QAction *KeyboardShortcut::action()
 QShortcut *KeyboardShortcut::shortcut()
 {
     return d->shortcut;
+}
+
+QString KeyboardShortcut::name()
+{
+    return d->name;
 }
 
 QString KeyboardShortcut::description()
