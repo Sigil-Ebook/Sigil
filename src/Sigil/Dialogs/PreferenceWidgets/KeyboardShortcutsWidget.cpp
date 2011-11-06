@@ -37,10 +37,8 @@ KeyboardShortcutsWidget::KeyboardShortcutsWidget()
     m_keyNum = m_key[0] = m_key[1] = m_key[2] = m_key[3] = 0;
 
     ui.setupUi(this);
-
-    readSettings();
-
     connectSignalsSlots();
+    readSettings();
 }
 
 void KeyboardShortcutsWidget::saveSettings()
@@ -48,7 +46,7 @@ void KeyboardShortcutsWidget::saveSettings()
      KeyboardShortcutManager *sm = KeyboardShortcutManager::instance();
 
      for (int i = 0; i < ui.commandList->topLevelItemCount(); i++) {
-         QTreeWidgetItem * item = ui.commandList->topLevelItem(i);
+         QTreeWidgetItem *item = ui.commandList->topLevelItem(i);
 
          const QString id = item->text(COL_ID);
          const QKeySequence keySequence = item->text(COL_SHORTCUT);
@@ -74,7 +72,7 @@ bool KeyboardShortcutsWidget::eventFilter(QObject *object, QEvent *event)
     }
 
     if (event->type() == QEvent::ShortcutOverride) {
-        // for shortcut overrides, we need to accept as well
+        // For shortcut overrides, we need to accept as well
         event->accept();
         return true;
     }
@@ -84,7 +82,7 @@ bool KeyboardShortcutsWidget::eventFilter(QObject *object, QEvent *event)
 
 void KeyboardShortcutsWidget::showEvent(QShowEvent *event)
 {
-    //fill out the tree view
+    // Fill out the tree view
     readSettings();
     ui.commandList->setColumnWidth(COL_NAME, ui.commandList->width() * .30);
     ui.commandList->setColumnWidth(COL_DESCRIPTION, ui.commandList->width() * .40);
@@ -110,7 +108,7 @@ void KeyboardShortcutsWidget::clearButtonClicked()
 void KeyboardShortcutsWidget::filterEditTextChangedSlot(const QString &text)
 {
     const QString newText = text.toUpper();
-    //if text is empty - show all items.
+    // If text is empty - show all items.
     if (text.isEmpty()) {
         for(int i = 0; i < ui.commandList->topLevelItemCount(); i++) {
              ui.commandList->topLevelItem(i)->setHidden(false);
@@ -149,9 +147,9 @@ void KeyboardShortcutsWidget::resetButtonClickedSlot()
     if(ui.commandList->currentItem() != 0) {
         KeyboardShortcutManager *sm = KeyboardShortcutManager::instance();
 
-        //get 'current' sequence value from CommandManger
+        // Get 'current' shortcut value from KeyboardShortcutManager
         QKeySequence seq = sm->keyboardShortcut(ui.commandList->currentItem()->text(COL_ID)).defaultKeySequence();
-        //assign sequence value from CommandManager to the currentItem
+        // Assign shortcut value from KeyboardShortcutManager to the currentItem
         ui.commandList->currentItem()->setText(COL_SHORTCUT, seq);
         ui.targetEdit->setText(seq);
         ui.targetEdit->setFocus();
@@ -163,7 +161,7 @@ void KeyboardShortcutsWidget::resetAllButtonClickedSlot()
 {
     KeyboardShortcutManager *sm = KeyboardShortcutManager::instance();
 
-    //Go through all items
+    // Go through all items
     for (int i = 0; i < ui.commandList->topLevelItemCount(); i++) {
         QTreeWidgetItem *item = ui.commandList->topLevelItem(i);
         QKeySequence seq = sm->keyboardShortcut(item->text(COL_ID)).defaultKeySequence();
@@ -219,11 +217,11 @@ void KeyboardShortcutsWidget::handleKeyEvent(QKeyEvent *event)
          nextKey == Qt::Key_Shift   ||
          nextKey == Qt::Key_Meta    ||
          nextKey == Qt::Key_Alt     ||
-         nextKey == Qt::Key_Backspace || //this button cannot be assigned, because we want to 'clear' shortcut after backspace push
-         ui.commandList->currentItem() == 0 //do not allow writting in shortcut line edit if no item is selected
+         nextKey == Qt::Key_Backspace || // This button cannot be assigned, because we want to 'clear' shortcut after backspace push
+         ui.commandList->currentItem() == 0 // Do not allow writting in shortcut line edit if no item is selected
         )
     {
-        //if key was Qt::Key_Backspace additionaly clear sequence dialog
+        // If key was Qt::Key_Backspace additionaly clear sequence dialog
         if(nextKey == Qt::Key_Backspace) {
             clearButtonClicked();
         }
@@ -304,7 +302,7 @@ void KeyboardShortcutsWidget::updateItemView(QTreeWidgetItem *item)
 
     QKeySequence seq = sm->keyboardShortcut(seqName).keySequence();
     QFont font = item->font(COL_SHORTCUT);
-    //If item is 'modified' show it in 'italics'
+    // If item is 'modified' show it in 'italics'
     if ( seq != seqValue ) {
         font.setItalic( true );
     }
@@ -324,12 +322,12 @@ void KeyboardShortcutsWidget::updateCurrentItemShortcut()
 
 void KeyboardShortcutsWidget::markSequencesAsDuplicatedIfNeeded()
 {
-    //this is not optized , but since this will be called rather seldom
-    //effort for optimization may not be worth it
+    // This is not optized , but since this will be called rather seldom
+    // effort for optimization may not be worth it
 
     QMap<QKeySequence, QSet<QTreeWidgetItem*> > seqMap;
 
-    //Got through all items
+    // Go through all items
     for (int i = 0; i < ui.commandList->topLevelItemCount(); i++) {
         QTreeWidgetItem *item = ui.commandList->topLevelItem(i);
 
@@ -337,7 +335,7 @@ void KeyboardShortcutsWidget::markSequencesAsDuplicatedIfNeeded()
         seqMap[keySequence].insert(item);
     }
 
-    //now, mark all conflicting sequences
+    // Now, mark all conflicting sequences
     foreach (QKeySequence sequence, seqMap.keys()) {
         QSet<QTreeWidgetItem *> itemSet = seqMap[sequence];
         if (itemSet.size() > 1) {
@@ -350,7 +348,7 @@ void KeyboardShortcutsWidget::markSequencesAsDuplicatedIfNeeded()
             }
         }
         else {
-            //mark as non-confilicted
+            // Mark as non-confilicted
             foreach(QTreeWidgetItem *item, itemSet.values())
             {
                 QFont font = item->font(COL_SHORTCUT);

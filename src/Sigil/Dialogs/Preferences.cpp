@@ -48,6 +48,12 @@ Preferences::Preferences(QWidget *parent) :
     connectSignalsSlots();
 }
 
+void Preferences::closeEvent(QCloseEvent *event)
+{
+    saveSettings();
+    event->accept();
+}
+
 void Preferences::selectPWidget(QListWidgetItem *current, QListWidgetItem *previous)
 {
     Q_UNUSED(previous)
@@ -94,5 +100,4 @@ void Preferences::appendPreferenceWidget(PreferencesWidget *widget)
 void Preferences::connectSignalsSlots()
 {
     connect(ui.availableWidgets, SIGNAL(currentItemChanged(QListWidgetItem*, QListWidgetItem*)), this, SLOT(selectPWidget(QListWidgetItem*, QListWidgetItem*)));
-    connect(this, SIGNAL(finished(int)), this, SLOT(saveSettings()));
 }
