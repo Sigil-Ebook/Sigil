@@ -27,12 +27,6 @@
 #include "PreferencesWidget.h"
 #include "ui_PKeyboardShortcutsWidget.h"
 
-// For now QShortcut can only have 1 key (+modifier) e.g. (ALT+F), although code supports up to 4.
-// It would be strange if user wanted to define shortcuts like (ALT+F,ALT+D) to do some action,
-// but if for some reason it would be needed in code to extend key values to more than key in shortcuts
-// ...just change below define
-#define MAX_KEYS_IN_SHORTCUT 1
-
 class QString;
 
 /**
@@ -132,8 +126,6 @@ private:
     void markSequencesAsDuplicatedIfNeeded();
 
     Ui::KeyboardShortcutsWidget ui;
-    int m_key[MAX_KEYS_IN_SHORTCUT];
-    int m_keyNum;
 };
 
 #endif // KEYBOARDSHORTCUTSWIDGET_H

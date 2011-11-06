@@ -34,8 +34,6 @@ const int COL_ID = 4;
 
 KeyboardShortcutsWidget::KeyboardShortcutsWidget()
 {
-    m_keyNum = m_key[0] = m_key[1] = m_key[2] = m_key[3] = 0;
-
     ui.setupUi(this);
     connectSignalsSlots();
     readSettings();
@@ -93,13 +91,11 @@ void KeyboardShortcutsWidget::showEvent(QShowEvent *event)
 
 void KeyboardShortcutsWidget::treeWidgetItemActivatedSlot(QTreeWidgetItem *item, int column)
 {
-    m_keyNum = m_key[0] = m_key[1] = m_key[2] = m_key[3] = 0;
     ui.targetEdit->setText(ui.commandList->currentItem()->text(COL_SHORTCUT));
 }
 
 void KeyboardShortcutsWidget::clearButtonClicked()
 {
-    m_keyNum = m_key[0] = m_key[1] = m_key[2] = m_key[3] = 0;
     ui.targetEdit->setText("");
     ui.commandList->currentItem()->setText(COL_SHORTCUT, "");
     ui.targetEdit->setFocus();
@@ -212,8 +208,7 @@ void KeyboardShortcutsWidget::connectSignalsSlots()
 void KeyboardShortcutsWidget::handleKeyEvent(QKeyEvent *event)
 {
     int nextKey = event->key();
-    if (m_keyNum > MAX_KEYS_IN_SHORTCUT - 1 ||
-         nextKey == Qt::Key_Control ||
+    if (nextKey == Qt::Key_Control ||
          nextKey == Qt::Key_Shift   ||
          nextKey == Qt::Key_Meta    ||
          nextKey == Qt::Key_Alt     ||
@@ -229,38 +224,7 @@ void KeyboardShortcutsWidget::handleKeyEvent(QKeyEvent *event)
     }
 
     nextKey |= translateModifiers(event->modifiers(), event->text());
-    switch (m_keyNum) {
-    case 0:
-        m_key[0] = nextKey;
-        break;
-    case 1:
-        m_key[1] = nextKey;
-        break;
-    case 2:
-        m_key[2] = nextKey;
-        break;
-    case 3:
-        m_key[3] = nextKey;
-        break;
-    default:
-        break;
-    }
-    m_keyNum++;
-    QKeySequence ks;
-    if(MAX_KEYS_IN_SHORTCUT == 1) {
-        ks = QKeySequence(m_key[0]);
-    }
-    else if (MAX_KEYS_IN_SHORTCUT == 2) {
-        ks = QKeySequence(m_key[0], m_key[1]);
-    }
-    else if (MAX_KEYS_IN_SHORTCUT == 3) {
-        ks = QKeySequence(m_key[0], m_key[1], m_key[2]);
-    }
-    else if (MAX_KEYS_IN_SHORTCUT == 4) {
-        ks = QKeySequence(m_key[0], m_key[1], m_key[2], m_key[3]);
-    }
-
-    ui.targetEdit->setText(ks);
+    ui.targetEdit->setText(QKeySequence(nextKey));
     event->accept();
 }
 
