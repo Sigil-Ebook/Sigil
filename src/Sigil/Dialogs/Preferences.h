@@ -41,7 +41,7 @@ public:
     Preferences(QWidget *parent = 0);
 
 protected:
-    closeEvent(QCloseEvent *event);
+    void closeEvent(QCloseEvent *event);
 
 private slots:
     /**
