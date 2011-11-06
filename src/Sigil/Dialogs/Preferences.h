@@ -40,16 +40,11 @@ class Preferences : public QDialog
 public:
     Preferences(QWidget *parent = 0);
 
-protected:
-    void closeEvent(QCloseEvent *event);
-
 private slots:
     /**
      * Load the PreferencesWidget that the user has selected.
      */
     void selectPWidget(QListWidgetItem *current, QListWidgetItem *previous=0);
-
-private:
     /**
      * Saves settings the user has selected.
      *
@@ -57,6 +52,8 @@ private:
      * Also, calls saveSettings for each loaded PreferencesWidget.
      */
     void saveSettings();
+
+private:
     /**
      * Read settings for the dialog.
      *
