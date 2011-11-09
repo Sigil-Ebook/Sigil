@@ -44,8 +44,8 @@ static const QStringList STYLE_EXTENSIONS = QStringList() << "css"   << "xpgt";
 
 const QString IMAGE_FOLDER_NAME = "Images";
 const QString FONT_FOLDER_NAME  = "Fonts";
-const QString TEXT_FOLDER_NAME  = "Sections";
-const QString STYLE_FOLDER_NAME = "Stylesheets";
+const QString TEXT_FOLDER_NAME  = "Text";
+const QString STYLE_FOLDER_NAME = "Styles";
 const QString MISC_FOLDER_NAME  = "Misc";
 
 const QStringList IMAGE_MIMEYPES = QStringList() << "image/gif" << "image/jpeg"

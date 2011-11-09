@@ -1176,7 +1176,7 @@
   </action>
   <action name="actionHeading1">
    <property name="text">
-    <string>Heading 1</string>
+    <string notr="true">Heading 1</string>
    </property>
    <property name="toolTip">
     <string>Style with heading 1</string>
@@ -1187,7 +1187,7 @@
   </action>
   <action name="actionHeading2">
    <property name="text">
-    <string>Heading 2</string>
+    <string notr="true">Heading 2</string>
    </property>
    <property name="toolTip">
     <string>Style with heading 2</string>
@@ -1198,7 +1198,7 @@
   </action>
   <action name="actionHeading3">
    <property name="text">
-    <string>Heading 3</string>
+    <string notr="true">Heading 3</string>
    </property>
    <property name="toolTip">
     <string>Style with heading 3</string>
@@ -1209,7 +1209,7 @@
   </action>
   <action name="actionHeading4">
    <property name="text">
-    <string>Heading 4</string>
+    <string notr="true">Heading 4</string>
    </property>
    <property name="toolTip">
     <string>Style with heading 4</string>
@@ -1220,7 +1220,7 @@
   </action>
   <action name="actionHeading5">
    <property name="text">
-    <string>Heading 5</string>
+    <string notr="true">Heading 5</string>
    </property>
    <property name="toolTip">
     <string>Style with heading 5</string>
@@ -1231,7 +1231,7 @@
   </action>
   <action name="actionHeading6">
    <property name="text">
-    <string>Heading 6</string>
+    <string notr="true">Heading 6</string>
    </property>
    <property name="toolTip">
     <string>Style with heading 6</string>
@@ -1242,7 +1242,7 @@
   </action>
   <action name="actionHeadingNormal">
    <property name="text">
-    <string>Normal</string>
+    <string notr="true">Normal</string>
    </property>
    <property name="toolTip">
     <string>Style as normal text</string>

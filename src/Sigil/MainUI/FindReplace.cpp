@@ -162,9 +162,7 @@ void FindReplace::ReplaceAll()
         count = ReplaceInAllFiles();
     }
 
-    QString message = ( count < 1 || count > 1 )                     ?
-                      tr( "The search term was replaced %1 times." ) :
-                      tr( "The search term was replaced %1 time."  );
+    QString message = tr( "The search term was replaced %n time(s).", "", count );
 
     if ( count > 0 )
     {

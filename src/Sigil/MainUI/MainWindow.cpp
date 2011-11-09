@@ -363,7 +363,7 @@ void MainWindow::Find()
 
 void MainWindow::GoToLine()
 {
-    int line = QInputDialog::getInt( this, "Go To Line", "Line #", -1, 1 );
+    int line = QInputDialog::getInt( this, tr("Go To Line"), tr("Line #"), -1, 1 );
 
     if ( line >= 1 )
     {
@@ -981,7 +981,7 @@ void MainWindow::LoadFile( const QString &fullfilepath )
     {
         QApplication::restoreOverrideCursor();
 
-        Utility::DisplayExceptionErrorDialog( "Cannot load file " + fullfilepath + ": " + Utility::GetExceptionInfo( exception ) );        
+        Utility::DisplayExceptionErrorDialog( tr("Cannot load file %1: %2").arg(fullfilepath).arg(Utility::GetExceptionInfo( exception ) ));
     }
 }
 
@@ -1054,8 +1054,7 @@ bool MainWindow::SaveFile( const QString &fullfilepath )
     {
         QApplication::restoreOverrideCursor();
 
-        Utility::DisplayExceptionErrorDialog( 
-            "Cannot save file " + fullfilepath + ": " + Utility::GetExceptionInfo( exception ) );
+        Utility::DisplayExceptionErrorDialog(tr("Cannot save file %1: %2").arg(fullfilepath).arg(Utility::GetExceptionInfo( exception ) ));
     }
 
     return true;
@@ -1412,6 +1411,8 @@ void MainWindow::ExtendUI()
 
     QStringList headings;
     
+    // Currently cannot be translated because recieving function looks for the
+    // h to determine if it's normal or not.
     headings << "<Select heading>"
              << "Normal"
              << "Heading 1"
@@ -1468,6 +1469,7 @@ void MainWindow::ExtendUI()
 
     // Setup userdefined keyboard shortcuts for actions.
     KeyboardShortcutManager *sm = KeyboardShortcutManager::instance();
+    // Note: shortcut action Ids should not be translated.
     // File
     sm->registerAction(ui.actionNew, "MainWindow.New");
     sm->registerAction(ui.actionNewHTMLFile, "MainWindow.NewHTMLFile");
