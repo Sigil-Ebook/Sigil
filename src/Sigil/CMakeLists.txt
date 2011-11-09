@@ -329,7 +329,7 @@ set( QRC_FILES
     Resource_Files/icon/icon.qrc  
     )
 
-file( GLOB TS_FILES Resource_Files/ts/*.ts )
+file( GLOB TS_FILES Resource_Files/ts/sigil_*.ts )
 
 set( QXT_FILES
     Qxt/qxtconfirmationmessage.h
