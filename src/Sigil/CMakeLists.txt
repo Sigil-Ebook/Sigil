@@ -680,6 +680,14 @@ else()
         add_custom_command( TARGET ${TARGET_FOR_COPY} POST_BUILD COMMAND cmake -E copy ${QM} ${MAIN_PACKAGE_DIR}/translations/ )
     endforeach( QM )
 
+    # Add libstdc++ to the package.
+    if(UNIX)
+        file(GLOB STDCPP /usr/lib/*-linux-gnu/libstdc++*)
+        foreach(SF ${STDCPP})
+            add_custom_command(TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E copy ${SF} ${MAIN_PACKAGE_DIR}/)
+        endforeach(SF)
+    endif()
+
     # Set the path of the application executable
     if( MSVC_IDE )
         set( EXE_PATH ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Release/${PROJECT_NAME}${CMAKE_EXECUTABLE_SUFFIX} )
