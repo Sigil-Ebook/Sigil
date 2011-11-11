@@ -200,6 +200,10 @@ int main( int argc, char *argv[] )
         if (!env_qm_location.isEmpty()) {
             possible_qm_locaiton.append(env_qm_location);
         }
+        // Possible location if the user installed from source.
+        // This really should be changed to be passed the install prefix given to
+        // cmake instead of guessing based upon the executable path.
+        possible_qm_locaiton.append(QCoreApplication::applicationDirPath() + "/../share/" + QCoreApplication::applicationName().toLower() + "/translations/");
     #endif
         possible_qm_locaiton.append(QLibraryInfo::location(QLibraryInfo::TranslationsPath));
         possible_qm_locaiton.append(QCoreApplication::applicationDirPath() + "/translations");
