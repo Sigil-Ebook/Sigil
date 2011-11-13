@@ -29,6 +29,7 @@
 #include "SourceUpdates/UniversalUpdates.h"
 #include "BookManipulation/FolderKeeper.h"
 #include "Misc/Utility.h"
+#include <QMimeData>
 #include <limits>
 
 static const int NO_READING_ORDER   = std::numeric_limits< int >::max();
@@ -258,6 +259,7 @@ void OPFModel::InitializeModel()
                   resource->Type() == Resource::XPGTResourceType 
                 )
         {
+            item->setDragEnabled(false);
             m_StylesFolderItem.appendRow( item );
         }
 
@@ -268,6 +270,7 @@ void OPFModel::InitializeModel()
 
         else if ( resource->Type() == Resource::FontResourceType )
         {
+            item->setDragEnabled(false);
             m_FontsFolderItem.appendRow( item );
         }
 
@@ -275,6 +278,7 @@ void OPFModel::InitializeModel()
                   resource->Type() == Resource::NCXResourceType )
         {
             item->setEditable( false );
+            item->setDragEnabled(false);
             appendRow( item );
         }
 
