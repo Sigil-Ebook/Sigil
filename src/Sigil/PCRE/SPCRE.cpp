@@ -200,7 +200,7 @@ QList<SPCRE::MatchInfo> SPCRE::getMatchInfo(const QString &text)
                 // Load the string from the start of the matched text to the capture pattern.
                 // We want to find out how far into the matched text the capture pattern starts.
                 tmp_str = QString::fromUtf8(text.toUtf8().data() + last_offset[0], ovector[2 * i] - last_offset[0]);
-                subpattern_start = ovector[2 * i] - last_offset[0] - tmp_str.length();
+                subpattern_start = tmp_str.length();
 
                 // Load the temp string with the string represented by the matched capture pattern.
                 // We want to get the lengh of the capture so we know its ending offset.

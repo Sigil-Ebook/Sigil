@@ -115,7 +115,7 @@ bool PCREReplaceTextBuilder::BuildReplacementText(SPCRE &sre,
                     // Check if this number is a back reference we can
                     // actually get.
                     if (backref_number >= 0 && backref_number < capture_groups_offsets.count()) {
-                        accumulateReplcementText(Utility::Substring(capture_groups_offsets.at(backref_number).first, capture_groups_offsets.at(i).second, text));
+                        accumulateReplcementText(Utility::Substring(capture_groups_offsets.at(backref_number).first, capture_groups_offsets.at(backref_number).second, text));
                     }
                     else {
                         accumulateReplcementText(invalid_contol);
