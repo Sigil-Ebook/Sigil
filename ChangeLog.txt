@@ -1,4 +1,5 @@
-Sigil vNEXT TBA
+Sigil 0.5 TBA
+    - Implement issue 205: Drag and drop for images to book and code views.
     - Fix issue 1019: issues with opf-namespace declaration.
     - Inline spell check with right click replace in Code View.
     - Fix issue 1064: Issues with editing epubs with differing html extensions.
