@@ -154,9 +154,43 @@ void OPFModel::sort( int column, Qt::SortOrder order )
 }
 
 
+QMimeData *OPFModel::mimeData(const QModelIndexList &indexes) const
+{
+    QMimeData *data = QStandardItemModel::mimeData(indexes);
+
+    if (data == 0) {
+        return 0;
+    }
+
+    foreach (QModelIndex index, indexes) {
+        QStandardItem *item = itemFromIndex(index);
+        if (item != 0) {
+            QString html;
+            const QString &identifier = item->data().toString();
+            Resource *resource = &m_Book->GetFolderKeeper().GetResourceByIdentifier(identifier);
+
+            if (resource->Type() == Resource::HTMLResourceType) {
+                html = QString("<a href=\"%1\">%2</a>").arg(resource->Filename()).arg(item->text());
+            }
+            else if (resource->Type() == Resource::ImageResourceType) {
+                html = QString("<img src=\"%1\" />").arg("../" + resource->GetRelativePathToOEBPS());
+            }
+
+            if (!html.isEmpty()) {
+                data->setHtml(html);
+                data->setText(html);
+            }
+        }
+    }
+
+    return data;
+}
+
+
 Qt::DropActions OPFModel::supportedDropActions() const
 {
-    return Qt::MoveAction;
+    return Qt::CopyAction;
+    //return Qt::MoveAction;
 }
 
 
