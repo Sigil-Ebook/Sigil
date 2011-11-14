@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="pl_PL">
+<TS version="2.0" language="pl">
 <context>
     <name>About</name>
     <message>
@@ -9,8 +9,9 @@
         <translation>O programie</translation>
     </message>
     <message>
-        <source>the ePub editor</source>
-        <translation type="obsolete">Edytor ePub</translation>
+        <location filename="../../Form_Files/About.ui" line="59"/>
+        <source>The EPUB Editor</source>
+        <translation>Edytor Książek EPUB</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="73"/>
@@ -33,11 +34,6 @@
         <translation>Załadowana wersja Qt:</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/About.ui" line="59"/>
-        <source>The EPUB Editor</source>
-        <translation>Edytor EPUB</translation>
-    </message>
-    <message>
         <location filename="../../Form_Files/About.ui" line="182"/>
         <source>License:</source>
         <translation>Licencja:</translation>
@@ -45,7 +41,7 @@
     <message>
         <location filename="../../Form_Files/About.ui" line="194"/>
         <source>&lt;a href=&quot;http://www.gnu.org/licenses/gpl-3.0-standalone.html&quot;&gt;GNU General Public License v3&lt;/a&gt;</source>
-        <translation></translation>
+        <translation>&lt;a href=&quot;http://www.gnu.org/licenses/gpl-3.0-standalone.html&quot;&gt;GNU General Public License v3&lt;/a&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="212"/>
@@ -126,17 +122,19 @@
         <location filename="../../MainUI/BookBrowser.cpp" line="280"/>
         <location filename="../../MainUI/BookBrowser.cpp" line="377"/>
         <source>Sigil</source>
-        <translation></translation>
+        <translation>Sigil</translation>
     </message>
     <message>
-        <source>A file with the name &quot;%1&quot; already exists in the epub.</source>
-        <translation type="obsolete">Plik o nazwie &quot;%1&quot; już istnieje w pliku epub.</translation>
+        <location filename="../../MainUI/BookBrowser.cpp" line="209"/>
+        <source>A file with the name &quot;%1&quot; already exists in the book.</source>
+        <translation>Plik o nazwie &quot;%1&quot; już istnieje w książce.</translation>
     </message>
     <message>
-        <source>The last HTML file cannot be removed.
+        <location filename="../../MainUI/BookBrowser.cpp" line="261"/>
+        <source>The last section cannot be removed.
 There always has to be at least one.</source>
-        <translation type="obsolete">Ostatni plik HTML nie może być usunięty.
-Musi istnieć przynajmniej jeden.</translation>
+        <translation>Ostatnia sekcja nie może być usunięta.
+Zawsze musi zostać przynajmniej jedna.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="272"/>
@@ -165,38 +163,19 @@ Czy chcesz kontynuować?</translation>
         <translation>Nie pokazuj więcej.</translation>
     </message>
     <message>
-        <source>Add New Item</source>
-        <translation type="obsolete">Dodaj nowy element</translation>
-    </message>
-    <message>
-        <source>Add Existing Items...</source>
-        <translation type="obsolete">Dodaj istniejące elementy...</translation>
-    </message>
-    <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="209"/>
-        <source>A file with the name &quot;%1&quot; already exists in the book.</source>
-        <translation>Plik o nazwie &quot;%1 już istnieje w książce.</translation>
-    </message>
-    <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="261"/>
-        <source>The last section cannot be removed.
-There always has to be at least one.</source>
-        <translation>Ostatnia sekcja nie może zostać usunięta. Zawsze musi istnieć przynajmniej jedna.</translation>
-    </message>
-    <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="441"/>
         <source>Add Blank Section</source>
-        <translation>Dodaj pustą sekcję</translation>
+        <translation>Dodaj Pustą Sekcję</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="442"/>
         <source>Add Blank Stylesheet</source>
-        <translation>Dodaj pusty arkusz stylów</translation>
+        <translation>Dodaj Pusty Arkusz Stylów</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="443"/>
         <source>Add Existing Files...</source>
-        <translation>Dodaj istniejące pliki...</translation>
+        <translation>Dodaj istniejące plik(i)...</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="444"/>
@@ -333,7 +312,7 @@ There always has to be at least one.</source>
         <location filename="../../Form_Files/FindReplace.ui" line="120"/>
         <location filename="../../Form_Files/FindReplace.ui" line="191"/>
         <source>...</source>
-        <translation></translation>
+        <translation>...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="86"/>
@@ -360,31 +339,11 @@ There always has to be at least one.</source>
         <source>Look:</source>
         <translation>Szukaj w:</translation>
     </message>
-    <message>
-        <source>%1 matches were found.</source>
-        <translation type="obsolete">Znaleziono %1 dopasowań.</translation>
-    </message>
-    <message>
-        <source>%1 match was found.</source>
-        <translation type="obsolete">Znaleziono &quot;%1&quot; dopasowanie.</translation>
-    </message>
-    <message>
-        <source>The search term was replaced %1 time(s).</source>
-        <translation type="obsolete">Szukana fraza została zastąpiona &quot;%1&quot; raz(y).</translation>
-    </message>
-    <message>
-        <source>The search term was replaced %1 times.</source>
-        <translation type="obsolete">Szukana fraza została zastąpiona &quot;%1&quot; razy.</translation>
-    </message>
-    <message>
-        <source>The search term was replaced %1 time.</source>
-        <translation type="obsolete">Szukana fraza została zastąpiona &quot;%1&quot; raz(y).</translation>
-    </message>
     <message numerus="yes">
         <location filename="../../MainUI/FindReplace.cpp" line="119"/>
         <source>%n matche(s) were found.</source>
         <translation>
-            <numerusform>Znaleziono dopasowań %n.</numerusform>
+            <numerusform>%n znaleziono.</numerusform>
             <numerusform></numerusform>
             <numerusform></numerusform>
         </translation>
@@ -393,7 +352,7 @@ There always has to be at least one.</source>
         <location filename="../../MainUI/FindReplace.cpp" line="165"/>
         <source>The search term was replaced %n time(s).</source>
         <translation>
-            <numerusform>Szukana fraza została zastąpiona %n razy(y).</numerusform>
+            <numerusform>Szukane wyrażenie zostało zastąpione %n raz(y).</numerusform>
             <numerusform></numerusform>
             <numerusform></numerusform>
         </translation>
@@ -406,7 +365,7 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="550"/>
         <source>This tab cannot be searched.</source>
-        <translation>Ten tab nie może być przeszukiwany.</translation>
+        <translation>Ta zakładka  nie może być przeszukiwana.</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="559"/>
@@ -416,7 +375,7 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="560"/>
         <source>Regex</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="562"/>
@@ -432,13 +391,9 @@ There always has to be at least one.</source>
 <context>
     <name>FlowTab</name>
     <message>
-        <source>Print Document</source>
-        <translation type="obsolete">Drukuj Dokument</translation>
-    </message>
-    <message>
         <location filename="../../Tabs/FlowTab.cpp" line="713"/>
         <source>Print %1</source>
-        <translation>Drukuj %1</translation>
+        <translation>Drukowanie %1</translation>
     </message>
 </context>
 <context>
@@ -461,12 +416,12 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="198"/>
         <source>TOC Entry</source>
-        <translation></translation>
+        <translation>Wprowadź TOC</translation>
     </message>
     <message>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="199"/>
         <source>Include</source>
-        <translation></translation>
+        <translation>Zawiera</translation>
     </message>
 </context>
 <context>
@@ -474,7 +429,7 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Form_Files/ImageList.ui" line="14"/>
         <source>Images</source>
-        <translation>Obrazki</translation>
+        <translation>Obraz</translation>
     </message>
 </context>
 <context>
@@ -483,19 +438,19 @@ There always has to be at least one.</source>
         <location filename="../../Importers/ImportOEBPS.cpp" line="274"/>
         <location filename="../../Importers/ImportOEBPS.cpp" line="294"/>
         <source>&lt;center&gt;&lt;b&gt;The OPF file is badly formed.&lt;/b&gt;&lt;/center&gt;</source>
-        <translation>&lt;center&gt;&lt;b&gt;Plik OPF ma niepoprawną strukturę.&lt;/b&gt;&lt;/center&gt;</translation>
+        <translation>&lt;center&gt;&lt;b&gt;Plik OPF jest źle zbudowany.&lt;/b&gt;&lt;/center&gt;</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportOEBPS.cpp" line="275"/>
         <source>Sigil will attempt to use the following file as the NCX:
 
 </source>
-        <translation>Sigil spróbuje użyć następującego pliku jako NCX:</translation>
+        <translation>Sigil będzie próbował użyć następującego pliku jako NCX:</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportOEBPS.cpp" line="295"/>
         <source>Sigil could not find an NCX file and will create a new one.</source>
-        <translation>Sigil nie mógł znaleźć pliku NCX i stworzy nowy.</translation>
+        <translation>Sigil nie mógł znaleźć pliku NCX dlategoi utworzy nowy.</translation>
     </message>
 </context>
 <context>
@@ -509,14 +464,6 @@ There always has to be at least one.</source>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="20"/>
         <source>Filter</source>
         <translation>Filtr</translation>
-    </message>
-    <message>
-        <source>Command</source>
-        <translation type="obsolete">Komenda</translation>
-    </message>
-    <message>
-        <source>Label</source>
-        <translation type="obsolete">Etykieta</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="46"/>
@@ -607,7 +554,7 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Form_Files/main.ui" line="81"/>
         <source>Find / Replace</source>
-        <translation>Znajdź / Zastąp</translation>
+        <translation>Znajdź / Zamień</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="113"/>
@@ -620,6 +567,12 @@ There always has to be at least one.</source>
         <translation>For&amp;matuj</translation>
     </message>
     <message>
+        <location filename="../../Form_Files/main.ui" line="129"/>
+        <location filename="../../Form_Files/main.ui" line="279"/>
+        <source>Heading</source>
+        <translation>Nagłówek</translation>
+    </message>
+    <message>
         <location filename="../../Form_Files/main.ui" line="161"/>
         <source>&amp;View</source>
         <translation>W&amp;idok</translation>
@@ -627,16 +580,12 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Form_Files/main.ui" line="165"/>
         <source>Toolbars</source>
-        <translation>Paski narzędzi</translation>
+        <translation>Belka Narzędziowa</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="180"/>
         <source>&amp;Tools</source>
         <translation>&amp;Narzędzia</translation>
-    </message>
-    <message>
-        <source>&amp;Insert</source>
-        <translation type="obsolete">&amp;Wstaw</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="187"/>
@@ -664,19 +613,9 @@ There always has to be at least one.</source>
         <translation>Wstaw</translation>
     </message>
     <message>
-        <source>toolBar</source>
-        <translation type="obsolete">pasekNarzędzi</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/main.ui" line="129"/>
-        <location filename="../../Form_Files/main.ui" line="279"/>
-        <source>Heading</source>
-        <translation>Nagłówek</translation>
-    </message>
-    <message>
         <location filename="../../Form_Files/main.ui" line="267"/>
         <source>Donate</source>
-        <translation>Dotacja</translation>
+        <translation>Wspomórz</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="290"/>
@@ -699,18 +638,14 @@ There always has to be at least one.</source>
         <translation>Wcięcie</translation>
     </message>
     <message>
-        <source>&amp;New</source>
-        <translation type="obsolete">&amp;Nowy</translation>
-    </message>
-    <message>
         <location filename="../../Form_Files/main.ui" line="346"/>
         <source>Quick Settings</source>
-        <translation>Szybkie ustawienia</translation>
+        <translation>Szybkie Ustawienia</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="364"/>
         <source>&amp;New Book</source>
-        <translation>&amp;Nowa książka</translation>
+        <translation>&amp;Nowa Książka</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="367"/>
@@ -724,7 +659,7 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Form_Files/main.ui" line="372"/>
         <source>Ctrl+N</source>
-        <translation></translation>
+        <translation>Ctrl+N</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="381"/>
@@ -743,12 +678,12 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Form_Files/main.ui" line="389"/>
         <source>Ctrl+S</source>
-        <translation></translation>
+        <translation>Ctrl+S</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="398"/>
         <source>Save &amp;As...</source>
-        <translation>Zapisz j&amp;ako...</translation>
+        <translation>Zapisz J&amp;ako...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="401"/>
@@ -762,7 +697,7 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Form_Files/main.ui" line="406"/>
         <source>Ctrl+Shift+S</source>
-        <translation></translation>
+        <translation>Ctrl+Shift+S</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="415"/>
@@ -781,7 +716,7 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Form_Files/main.ui" line="423"/>
         <source>Ctrl+X</source>
-        <translation></translation>
+        <translation>Ctrl+X</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="432"/>
@@ -800,12 +735,12 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Form_Files/main.ui" line="440"/>
         <source>Ctrl+V</source>
-        <translation></translation>
+        <translation>Ctrl+V</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="449"/>
         <source>&amp;Undo</source>
-        <translation>Cofnij</translation>
+        <translation>Cofn&amp;ij</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="452"/>
@@ -819,12 +754,12 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Form_Files/main.ui" line="457"/>
         <source>Ctrl+Z</source>
-        <translation></translation>
+        <translation>Ctrl+Z</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="466"/>
         <source>&amp;Redo</source>
-        <translation>Ponów</translation>
+        <translation>Ponó&amp;w</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="469"/>
@@ -838,12 +773,12 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Form_Files/main.ui" line="474"/>
         <source>Ctrl+Y</source>
-        <translation></translation>
+        <translation>Ctrl+Y</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="483"/>
         <source>&amp;Copy</source>
-        <translation>Kopiuj</translation>
+        <translation>K&amp;opiuj</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="486"/>
@@ -857,12 +792,12 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Form_Files/main.ui" line="491"/>
         <source>Ctrl+C</source>
-        <translation></translation>
+        <translation>Ctrl+C</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="500"/>
         <source>Align &amp;Left</source>
-        <translation>Wyrównaj do &amp;lewej</translation>
+        <translation>Wyrównaj do &amp;Lewej</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="503"/>
@@ -876,12 +811,12 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Form_Files/main.ui" line="508"/>
         <source>Ctrl+L</source>
-        <translation></translation>
+        <translation>Ctrl+L</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="517"/>
         <source>Align &amp;Right</source>
-        <translation>Wyrównaj do prawej</translation>
+        <translation>Wyrównaj Do P&amp;rawej</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="520"/>
@@ -895,12 +830,12 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Form_Files/main.ui" line="525"/>
         <source>Ctrl+R</source>
-        <translation></translation>
+        <translation>Ctrl+R</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="534"/>
         <source>&amp;Center</source>
-        <translation>Wypośrodkuj</translation>
+        <translation>&amp;Centruj</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="537"/>
@@ -914,12 +849,12 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Form_Files/main.ui" line="542"/>
         <source>Ctrl+E</source>
-        <translation></translation>
+        <translation>Ctrl+E</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="551"/>
         <source>&amp;Justify</source>
-        <translation>Wyjustuj</translation>
+        <translation>Wy&amp;justuj</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="554"/>
@@ -933,12 +868,12 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Form_Files/main.ui" line="559"/>
         <source>Ctrl+J</source>
-        <translation></translation>
+        <translation>Ctrl+J</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="571"/>
         <source>&amp;Bold</source>
-        <translation>Pogrubienie</translation>
+        <translation>Pogru&amp;bienie</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="574"/>
@@ -952,12 +887,12 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Form_Files/main.ui" line="579"/>
         <source>Ctrl+B</source>
-        <translation></translation>
+        <translation>Ctrl+B</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="591"/>
         <source>&amp;Italic</source>
-        <translation>Pochylenie</translation>
+        <translation>Pochylen&amp;ie</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="594"/>
@@ -971,7 +906,7 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Form_Files/main.ui" line="599"/>
         <source>Ctrl+I</source>
-        <translation></translation>
+        <translation>Ctrl+I</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="608"/>
@@ -990,12 +925,12 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Form_Files/main.ui" line="616"/>
         <source>Ctrl+O</source>
-        <translation></translation>
+        <translation>Ctrl+O</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="628"/>
         <source>&amp;Underline</source>
-        <translation>Podkreślenie</translation>
+        <translation>Podkreś&amp;lenie</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="631"/>
@@ -1009,142 +944,12 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Form_Files/main.ui" line="636"/>
         <source>Ctrl+U</source>
-        <translation></translation>
+        <translation>Ctrl+U</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="645"/>
         <source>Quit</source>
         <translation>Wyjście</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/main.ui" line="747"/>
-        <source>Split Chapter</source>
-        <translation>Podział rozdziału</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/main.ui" line="766"/>
-        <source>Insert Image...</source>
-        <translation>Wstaw obrazek...</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/main.ui" line="1004"/>
-        <source>Split at Chapter Markers</source>
-        <translation>Podziel wedlug znaczników rozdziałów</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/main.ui" line="1007"/>
-        <source>Split On Sigil Chapter Markers</source>
-        <translation>Podziel wedlug znaczników rozdziałów Sigila</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/main.ui" line="1015"/>
-        <source>Insert Chapter Marker</source>
-        <translation>Wstaw znacznik rozdziału</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/main.ui" line="1018"/>
-        <source>Insert Sigil Chapter Marker</source>
-        <translation>Wstaw znaczników rozdziału Sigila</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/main.ui" line="1168"/>
-        <location filename="../../Form_Files/main.ui" line="1171"/>
-        <source>Zoom Reset</source>
-        <translation>Zresetuj powiększenie</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/main.ui" line="1174"/>
-        <source>Ctrl+0</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/main.ui" line="1182"/>
-        <source>Style with heading 1</source>
-        <translation>Zmień styl według nagłówka 1</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/main.ui" line="1185"/>
-        <source>Ctrl+1</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/main.ui" line="1193"/>
-        <source>Style with heading 2</source>
-        <translation>Zmień styl według nagłówka 2</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/main.ui" line="1196"/>
-        <source>Ctrl+2</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/main.ui" line="1204"/>
-        <source>Style with heading 3</source>
-        <translation>Zmień styl według nagłówka 3</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/main.ui" line="1207"/>
-        <source>Ctrl+3</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/main.ui" line="1215"/>
-        <source>Style with heading 4</source>
-        <translation>Zmień styl według nagłówka 4</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/main.ui" line="1218"/>
-        <source>Ctrl+4</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/main.ui" line="1226"/>
-        <source>Style with heading 5</source>
-        <translation>Zmień styl według nagłówka 5</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/main.ui" line="1229"/>
-        <source>Ctrl+5</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/main.ui" line="1237"/>
-        <source>Style with heading 6</source>
-        <translation>Zmień styl według nagłówka 6</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/main.ui" line="1240"/>
-        <source>Ctrl+6</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/main.ui" line="1248"/>
-        <source>Style as normal text</source>
-        <translation>Zmień styl jako normalny text</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/main.ui" line="1251"/>
-        <source>Ctrl+7</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/main.ui" line="1256"/>
-        <source>Blank Section</source>
-        <translation>Pusta sekcja</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/main.ui" line="1261"/>
-        <source>Insert Existing File...</source>
-        <translation>Wstaw istniejący plik...</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/main.ui" line="1266"/>
-        <source>Blank Stylesheet</source>
-        <translation>Pusty arkusz stylów</translation>
-    </message>
-    <message>
-        <source>&amp;Exit</source>
-        <translation type="obsolete">Wyjście</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="648"/>
@@ -1154,12 +959,12 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Form_Files/main.ui" line="651"/>
         <source>Ctrl+Q</source>
-        <translation></translation>
+        <translation>Ctrl+Q</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="660"/>
         <source>&amp;About...</source>
-        <translation>O...</translation>
+        <translation>&amp;O...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="663"/>
@@ -1169,7 +974,7 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Form_Files/main.ui" line="668"/>
         <source>&amp;Meta Editor...</source>
-        <translation>Edytor Metadanych</translation>
+        <translation>Edytor &amp;Metadanych...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="671"/>
@@ -1179,12 +984,12 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Form_Files/main.ui" line="674"/>
         <source>F8</source>
-        <translation></translation>
+        <translation>F8</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="686"/>
         <source>&amp;Book View</source>
-        <translation>Widok książki</translation>
+        <translation>&amp;Widok książki</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="689"/>
@@ -1198,12 +1003,12 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Form_Files/main.ui" line="694"/>
         <source>F9</source>
-        <translation></translation>
+        <translation>F9</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="706"/>
         <source>&amp;Split View</source>
-        <translation>Widok z podziałem</translation>
+        <translation>Widok z podział&amp;em</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="709"/>
@@ -1221,12 +1026,12 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Form_Files/main.ui" line="716"/>
         <source>F10</source>
-        <translation></translation>
+        <translation>F10</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="728"/>
         <source>&amp;Code View</source>
-        <translation>Widok kodu</translation>
+        <translation>Widok &amp;Kodu</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="731"/>
@@ -1244,11 +1049,12 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Form_Files/main.ui" line="738"/>
         <source>F11</source>
-        <translation></translation>
+        <translation>F11</translation>
     </message>
     <message>
-        <source>&amp;Chapter Break</source>
-        <translation type="obsolete">Wydziel nowy rozdział</translation>
+        <location filename="../../Form_Files/main.ui" line="747"/>
+        <source>Split Chapter</source>
+        <translation>Podziel Części</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="750"/>
@@ -1264,11 +1070,12 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Form_Files/main.ui" line="757"/>
         <source>Ctrl+Return</source>
-        <translation></translation>
+        <translation>Ctrl+Enter</translation>
     </message>
     <message>
-        <source>&amp;Image...</source>
-        <translation type="obsolete">Obrazek...</translation>
+        <location filename="../../Form_Files/main.ui" line="766"/>
+        <source>Insert Image...</source>
+        <translation>Wstaw Obraz...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="769"/>
@@ -1284,12 +1091,12 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Form_Files/main.ui" line="775"/>
         <source>Ctrl+Shift+I</source>
-        <translation></translation>
+        <translation>Ctrl+Shift+I</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="787"/>
         <source>&amp;Numbered List</source>
-        <translation>Lista numerowana</translation>
+        <translation>Lista &amp;Numerowana</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="790"/>
@@ -1303,12 +1110,12 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Form_Files/main.ui" line="795"/>
         <source>Ctrl+Alt+L</source>
-        <translation></translation>
+        <translation>Ctrl+Alt+L</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="807"/>
         <source>Bulle&amp;ted List</source>
-        <translation>Lista wypunktowana</translation>
+        <translation>Lista Wypunk&amp;towana</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="810"/>
@@ -1322,12 +1129,12 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Form_Files/main.ui" line="815"/>
         <source>Ctrl+Shift+L</source>
-        <translation></translation>
+        <translation>Ctrl+Shift+L</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="827"/>
         <source>Strike&amp;through</source>
-        <translation>Przekreślenie</translation>
+        <translation>P&amp;rzekreślenie</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="830"/>
@@ -1341,12 +1148,12 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Form_Files/main.ui" line="835"/>
         <source>Ctrl+T</source>
-        <translation></translation>
+        <translation>Ctrl+T</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="844"/>
         <source>&amp;Print...</source>
-        <translation>Drukuj...</translation>
+        <translation>Dr&amp;ukuj...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="847"/>
@@ -1356,12 +1163,12 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Form_Files/main.ui" line="850"/>
         <source>Ctrl+P</source>
-        <translation></translation>
+        <translation>Ctrl+P</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="859"/>
         <source>Print Pre&amp;view...</source>
-        <translation>Podgląd wydruku...</translation>
+        <translation>Podgląd &amp;wydruku...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="862"/>
@@ -1371,7 +1178,7 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Form_Files/main.ui" line="865"/>
         <source>Ctrl+F2</source>
-        <translation></translation>
+        <translation>Ctrl+F2</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="870"/>
@@ -1382,12 +1189,12 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Form_Files/main.ui" line="876"/>
         <source>Ctrl+Shift+W</source>
-        <translation></translation>
+        <translation>Ctrl+Shift+W</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="885"/>
         <source>Zoom &amp;In</source>
-        <translation>Powiększenie</translation>
+        <translation>Pow&amp;iększenie</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="888"/>
@@ -1397,12 +1204,12 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Form_Files/main.ui" line="891"/>
         <source>Ctrl++</source>
-        <translation></translation>
+        <translation>Ctrl++</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="900"/>
         <source>Zoom &amp;Out</source>
-        <translation>Pomniejszenie</translation>
+        <translation>P&amp;omniejszenie</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="903"/>
@@ -1412,12 +1219,12 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Form_Files/main.ui" line="906"/>
         <source>Ctrl+-</source>
-        <translation></translation>
+        <translation>Ctrl+-</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="915"/>
         <source>&amp;Find / Replace...</source>
-        <translation>Znajdź / Zamień...</translation>
+        <translation>Znaj&amp;dź / Zamień...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="918"/>
@@ -1431,7 +1238,7 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Form_Files/main.ui" line="923"/>
         <source>Ctrl+F</source>
-        <translation></translation>
+        <translation>Ctrl+F</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="932"/>
@@ -1450,7 +1257,7 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Form_Files/main.ui" line="940"/>
         <source>Ctrl+M</source>
-        <translation></translation>
+        <translation>Ctrl+M</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="949"/>
@@ -1469,7 +1276,7 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Form_Files/main.ui" line="957"/>
         <source>Ctrl+Shift+M</source>
-        <translation></translation>
+        <translation>Ctrl+Shift+M</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="962"/>
@@ -1479,78 +1286,82 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Form_Files/main.ui" line="965"/>
         <source>Ctrl+Space</source>
-        <translation></translation>
+        <translation>Ctrl+Spacja</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="970"/>
         <source>&amp;Report An Issue...</source>
-        <translation>Zgłoś problem...</translation>
+        <translation>Zgłoś p&amp;roblem...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="975"/>
         <source>Sigil Dev &amp;Blog...</source>
-        <translation></translation>
+        <translation>&amp;Blog Twórcy Sigil&apos;a...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="980"/>
         <source>&amp;Next Tab</source>
-        <translation>Następny tab</translation>
+        <translation>&amp;Następna Zakładka</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="983"/>
         <source>Ctrl+PgUp</source>
-        <translation></translation>
+        <translation>Ctrl+PgUp</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="988"/>
         <source>&amp;Previous Tab</source>
-        <translation>Poprzedni tab</translation>
+        <translation>&amp;Poprzednia Zakładka</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="991"/>
         <source>Ctrl+PgDown</source>
-        <translation></translation>
+        <translation>Ctrl+PgDown</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="996"/>
         <source>&amp;Close Tab</source>
-        <translation>Zamknij tab&apos;a</translation>
+        <translation>&amp;Zamknij Zakładkę</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="999"/>
         <source>Ctrl+W</source>
-        <translation></translation>
+        <translation>Ctrl+W</translation>
     </message>
     <message>
-        <source>&amp;Split On SGF Chapter Markers</source>
-        <translation type="obsolete">Rozdziel markery rozdziałów SGF</translation>
+        <location filename="../../Form_Files/main.ui" line="1004"/>
+        <source>Split at Chapter Markers</source>
+        <translation>Podziel na Znacznikach Rozdziałów</translation>
     </message>
     <message>
-        <source>Split On SGF Chapter Markers</source>
-        <translation type="obsolete">Rozdziel markery rozdziałów SGF</translation>
+        <location filename="../../Form_Files/main.ui" line="1007"/>
+        <source>Split On Sigil Chapter Markers</source>
+        <translation>Podziel na Znacznikach Rozdziałów Sigil&apos;a</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1010"/>
         <source>F6</source>
-        <translation></translation>
+        <translation>F6</translation>
     </message>
     <message>
-        <source>&amp;SGF Chapter Marker</source>
-        <translation type="obsolete">Marker rozdziału SGF</translation>
+        <location filename="../../Form_Files/main.ui" line="1015"/>
+        <source>Insert Chapter Marker</source>
+        <translation>Wstaw Znacznik Rozdziału</translation>
     </message>
     <message>
-        <source>Insert SGF Chapter Marker</source>
-        <translation type="obsolete">Wstaw marker rozdziałów SGF</translation>
+        <location filename="../../Form_Files/main.ui" line="1018"/>
+        <source>Insert Sigil Chapter Marker</source>
+        <translation>Wstaw Znacznik Rozdziału Sigil&apos;a</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1021"/>
         <source>Ctrl+Shift+Return</source>
-        <translation></translation>
+        <translation>Ctrl+Shift+Enter</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1026"/>
         <source>User &amp;Manual...</source>
-        <translation>Przewodnik użytkownika...</translation>
+        <translation>Przewod&amp;nik Użytkownika...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1029"/>
@@ -1560,7 +1371,7 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Form_Files/main.ui" line="1034"/>
         <source>&amp;Frequently Asked Questions...</source>
-        <translation>Najczęściej zadawane pytania...</translation>
+        <translation>Najczęściej Zadawan&amp;e Pytania...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1037"/>
@@ -1570,7 +1381,7 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Form_Files/main.ui" line="1049"/>
         <source>&amp;Cleaning With HTML Tidy</source>
-        <translation>Wyczyść używajać HTML Tidy</translation>
+        <translation>Wy&amp;czyść używajać HTML Tidy</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1052"/>
@@ -1588,31 +1399,31 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Form_Files/main.ui" line="1059"/>
         <source>Ctrl+D</source>
-        <translation></translation>
+        <translation>Ctrl+D</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1068"/>
         <source>&amp;Validate Epub</source>
-        <translation>Zwaliduj plik Epub</translation>
+        <translation>Spra&amp;wdź plik Epub</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1071"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Validate Epub&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Performs epub validation using the FlightCrew validator.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Zwaliduj plik Epub&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Sprawdź plik Epub&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Wykonuje walidację pliku epub wykorzystując walidator FlightCrew.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1076"/>
         <source>Ctrl+Shift+V</source>
-        <translation></translation>
+        <translation>Ctrl+Shift+V</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1085"/>
         <source>&amp;Donate...</source>
-        <translation>Ofiaruj Dotację...</translation>
+        <translation>Wspo&amp;mórz...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1088"/>
@@ -1627,12 +1438,12 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Form_Files/main.ui" line="1096"/>
         <source>Close Other Tabs</source>
-        <translation>Zamknij pozostałe taby</translation>
+        <translation>Zamknij Inne Zakładki</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1099"/>
         <source>Ctrl+Alt+W</source>
-        <translation></translation>
+        <translation>Ctrl+Alt+W</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1104"/>
@@ -1642,7 +1453,7 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Form_Files/main.ui" line="1107"/>
         <source>Ctrl+/</source>
-        <translation></translation>
+        <translation>Ctrl+/</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1119"/>
@@ -1680,7 +1491,7 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Form_Files/main.ui" line="1142"/>
         <source>Ctrl+Shift+G</source>
-        <translation></translation>
+        <translation>Ctrl+Shift+G</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1147"/>
@@ -1690,7 +1501,7 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Form_Files/main.ui" line="1150"/>
         <source>Ctrl+]</source>
-        <translation></translation>
+        <translation>Ctrl+]</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1155"/>
@@ -1700,12 +1511,108 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Form_Files/main.ui" line="1158"/>
         <source>Ctrl+[</source>
-        <translation></translation>
+        <translation>Ctrl+[</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1163"/>
         <source>Preferences</source>
         <translation>Preferencje</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="1168"/>
+        <location filename="../../Form_Files/main.ui" line="1171"/>
+        <source>Zoom Reset</source>
+        <translation>Resetuj Powiększenie</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="1174"/>
+        <source>Ctrl+0</source>
+        <translation>Ctrl+0</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="1182"/>
+        <source>Style with heading 1</source>
+        <translation>Styl z nagłówkiem 1</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="1185"/>
+        <source>Ctrl+1</source>
+        <translation>Ctrl+1</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="1193"/>
+        <source>Style with heading 2</source>
+        <translation>Styl z nagłówkiem 2</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="1196"/>
+        <source>Ctrl+2</source>
+        <translation>Ctrl+2</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="1204"/>
+        <source>Style with heading 3</source>
+        <translation>Styl z nagłówkiem 3</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="1207"/>
+        <source>Ctrl+3</source>
+        <translation>Ctrl+3</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="1215"/>
+        <source>Style with heading 4</source>
+        <translation>Styl z nagłówkiem 4</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="1218"/>
+        <source>Ctrl+4</source>
+        <translation>Ctrl+4</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="1226"/>
+        <source>Style with heading 5</source>
+        <translation>Styl z nagłówkiem 5</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="1229"/>
+        <source>Ctrl+5</source>
+        <translation>Ctrl+5</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="1237"/>
+        <source>Style with heading 6</source>
+        <translation>Styl z nagłówkiem 6</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="1240"/>
+        <source>Ctrl+6</source>
+        <translation>Ctrl+6</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="1248"/>
+        <source>Style as normal text</source>
+        <translation>Styl jako normalny tekst</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="1251"/>
+        <source>Ctrl+7</source>
+        <translation>Ctrl+7</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="1256"/>
+        <source>Blank Section</source>
+        <translation>Pusta Sekcja</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="1261"/>
+        <source>Insert Existing File...</source>
+        <translation>Wstaw Istniejący Plik...</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="1266"/>
+        <source>Blank Stylesheet</source>
+        <translation>Pusty Arkusz Stylów</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="236"/>
@@ -1720,7 +1627,7 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="366"/>
         <source>Go To Line</source>
-        <translation>Idź do lini</translation>
+        <translation>Idź Do Linii</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="366"/>
@@ -1728,12 +1635,21 @@ There always has to be at least one.</source>
         <translation>Linia #</translation>
     </message>
     <message>
-        <source>Insert Image(s)</source>
-        <translation type="obsolete">Wstaw obraz(y)</translation>
+        <location filename="../../MainUI/MainWindow.cpp" line="406"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="886"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1220"/>
+        <source>Sigil</source>
+        <translation>Sigil</translation>
     </message>
     <message>
-        <source>Images (*.png *.jpg *.jpeg *.gif *.svg)</source>
-        <translation type="obsolete">Obrazki (*.png *.jpg *.jpeg *.gif *.svg)</translation>
+        <location filename="../../MainUI/MainWindow.cpp" line="407"/>
+        <source>There are no images to add.</source>
+        <translation>Nie ma obrazu do dodania.</translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="700"/>
+        <source>Line: %1, Col: %2</source>
+        <translation>Linia: %1 Kolumna:%2</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="782"/>
@@ -1744,23 +1660,6 @@ There always has to be at least one.</source>
         <location filename="../../MainUI/MainWindow.cpp" line="791"/>
         <source>Chapters split. You may need to update the Table of Contents.</source>
         <translation>Wydzielenie rozdziałów. Może być potrzebne zaktualizowanie spisu treści.</translation>
-    </message>
-    <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="406"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="886"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1220"/>
-        <source>Sigil</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="407"/>
-        <source>There are no images to add.</source>
-        <translation>Nie ma obrazków do dodania.</translation>
-    </message>
-    <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="700"/>
-        <source>Line: %1, Col: %2</source>
-        <translation>Linia: %1, Kolumna: %2</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="887"/>
@@ -1790,20 +1689,6 @@ Czy chcesz zapisać swoje zmiany?</translation>
         <translation>Nie można załadować pliku %1: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1057"/>
-        <source>Cannot save file %1: %2</source>
-        <translation>Nie można zapisać pliku %1: %2</translation>
-    </message>
-    <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1220"/>
-        <source>%1[*] - %2</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>Cannot load file </source>
-        <translation type="obsolete">Nie można załadować pliku </translation>
-    </message>
-    <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1002"/>
         <source>Sigil currently cannot save files of type &quot;%1&quot;.
 Please choose a different format.</source>
@@ -1828,8 +1713,9 @@ Plik jest obecnie używany przez inną aplikację.</translation>
         <translation>Sigil nie mógł zapisać twojego pliku.</translation>
     </message>
     <message>
-        <source>Cannot save file </source>
-        <translation type="obsolete">Nie można zapisać pliku </translation>
+        <location filename="../../MainUI/MainWindow.cpp" line="1057"/>
+        <source>Cannot save file %1: %2</source>
+        <translation>Nie można zapisać pliku %1: %2</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1165"/>
@@ -1859,17 +1745,14 @@ Plik jest obecnie używany przez inną aplikację.</translation>
         <translation>Plik EPUB (*.epub)</translation>
     </message>
     <message>
-        <source>untitled.epub</source>
-        <translation type="obsolete">beznazwy.epub</translation>
+        <location filename="../../MainUI/MainWindow.cpp" line="1220"/>
+        <source>%1[*] - %2</source>
+        <translation>%1[*] - %2</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1297"/>
         <source>&amp;%1 %2</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>&lt;p style=&apos;padding-top: 0.5em;&apos;&gt;&lt;b&gt;Style with heading&lt;/b&gt;&lt;/p&gt;&lt;p style=&apos;margin-left: 0.5em;&apos;&gt;Style the selected text with a heading.&lt;/p&gt;&lt;p style=&apos;margin-left: 0.5em;&apos;&gt;It is recommended to use H1 for Titles, H2 for Authors, H3 for Chapters and H4-H6 for Subsections.&lt;/p&gt;</source>
-        <translation type="obsolete">&lt;p style=&apos;padding-top: 0.5em;&apos;&gt;&lt;b&gt;Styl z nagłówkami&lt;/b&gt;&lt;/p&gt;&lt;p style=&apos;margin-left: 0.5em;&apos;&gt;Zmień styl zaznaczonego tekstu na nagłówek.&lt;/p&gt;&lt;p style=&apos;margin-left: 0.5em;&apos;&gt;Zaleca się użycie H1 dla Tytułów, H2 dla Autorów, H3 dla Rozdziałów oraz H4-H6 dla Podsekcji.&lt;/p&gt;</translation>
+        <translation>&amp;%1 %2</translation>
     </message>
 </context>
 <context>
@@ -1918,7 +1801,7 @@ Plik jest obecnie używany przez inną aplikację.</translation>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="64"/>
         <source>English</source>
-        <translation></translation>
+        <translation>Angielski</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="116"/>
@@ -1956,7 +1839,7 @@ Plik jest obecnie używany przez inną aplikację.</translation>
     <message>
         <location filename="../../MainUI/OPFModel.cpp" line="47"/>
         <source>Images</source>
-        <translation>Obrazki</translation>
+        <translation>Obrazy</translation>
     </message>
     <message>
         <location filename="../../MainUI/OPFModel.cpp" line="48"/>
@@ -2007,130 +1890,6 @@ You used &quot;%1&quot;, and the old extension was &quot;%2&quot;.</source>
 <context>
     <name>QObject</name>
     <message>
-        <source>Images</source>
-        <translation type="obsolete">Obrazki</translation>
-    </message>
-    <message>
-        <source>Fonts</source>
-        <translation type="obsolete">Czcionka</translation>
-    </message>
-    <message>
-        <source>Text</source>
-        <translation type="obsolete">Tekst</translation>
-    </message>
-    <message>
-        <source>Styles</source>
-        <translation type="obsolete">Style</translation>
-    </message>
-    <message>
-        <source>Misc</source>
-        <translation type="obsolete">Różne</translation>
-    </message>
-    <message>
-        <source>Cover</source>
-        <translation type="obsolete">Okładka</translation>
-    </message>
-    <message>
-        <source>Title Page</source>
-        <translation type="obsolete">Strona tytułowa</translation>
-    </message>
-    <message>
-        <source>Table Of Contents</source>
-        <translation type="obsolete">Spis treści</translation>
-    </message>
-    <message>
-        <source>Index</source>
-        <translation type="obsolete">Indeks</translation>
-    </message>
-    <message>
-        <source>Glossary</source>
-        <translation type="obsolete">Glosariusz</translation>
-    </message>
-    <message>
-        <source>Acknowledgements</source>
-        <translation type="obsolete">Podziękowania</translation>
-    </message>
-    <message>
-        <source>Bibliography</source>
-        <translation type="obsolete">Bibliografia</translation>
-    </message>
-    <message>
-        <source>Colophon</source>
-        <translation type="obsolete">Kolofon</translation>
-    </message>
-    <message>
-        <source>Copyright Page</source>
-        <translation type="obsolete">Strona praw autorskich</translation>
-    </message>
-    <message>
-        <source>Dedication</source>
-        <translation type="obsolete">Dedykacja</translation>
-    </message>
-    <message>
-        <source>Epigraph</source>
-        <translation type="obsolete">Epigraf</translation>
-    </message>
-    <message>
-        <source>Foreword</source>
-        <translation type="obsolete">Przedmowa</translation>
-    </message>
-    <message>
-        <source>List Of Illustrations</source>
-        <translation type="obsolete">Lista ilustracji</translation>
-    </message>
-    <message>
-        <source>List Of Tables</source>
-        <translation type="obsolete">Lista tabel</translation>
-    </message>
-    <message>
-        <source>Notes</source>
-        <translation type="obsolete">Notatki</translation>
-    </message>
-    <message>
-        <source>Preface</source>
-        <translation type="obsolete">Wstęp</translation>
-    </message>
-    <message>
-        <source>Date of publication</source>
-        <translation type="obsolete">Data publikacji</translation>
-    </message>
-    <message>
-        <location filename="../../ResourceObjects/OPFResource.cpp" line="1105"/>
-        <source>Author</source>
-        <translation>Autor</translation>
-    </message>
-    <message>
-        <source>Title</source>
-        <translation type="obsolete">Tytuł</translation>
-    </message>
-    <message>
-        <location filename="../../ResourceObjects/OPFResource.cpp" line="1070"/>
-        <source>Language</source>
-        <translation>Język</translation>
-    </message>
-    <message>
-        <source>The OPF file is badly formed</source>
-        <translation type="obsolete">Plik OPF ma nieprawidłową strukturę</translation>
-    </message>
-    <message>
-        <source>Sigil will attempt to use the following file as the NCX:
-
-</source>
-        <translation type="obsolete">Sigil spróbuje użyć następującego pliku jako NCX:</translation>
-    </message>
-    <message>
-        <source>The OPF file is badly formed.</source>
-        <translation type="obsolete">Plik OPF ma nieprawidłową strukturę.</translation>
-    </message>
-    <message>
-        <source>Sigil could not find an NCX file and will create a new one.</source>
-        <translation type="obsolete">Sigil nie mógł znaleźć pliku NCX i stworzy nowy.</translation>
-    </message>
-    <message>
-        <source>Section</source>
-        <translation type="obsolete">Sekcja</translation>
-    </message>
-    <message>
         <location filename="../../Misc/SearchOperations.cpp" line="39"/>
         <source>Counting occurrences..</source>
         <translation>Zliczanie wystąpień..</translation>
@@ -2143,7 +1902,7 @@ You used &quot;%1&quot;, and the old extension was &quot;%2&quot;.</source>
     <message>
         <location filename="../../Misc/UpdateChecker.cpp" line="87"/>
         <source>Sigil</source>
-        <translation></translation>
+        <translation>Sigil</translation>
     </message>
     <message>
         <location filename="../../Misc/UpdateChecker.cpp" line="88"/>
@@ -2173,19 +1932,24 @@ You used &quot;%1&quot;, and the old extension was &quot;%2&quot;.</source>
         <translation>Wydawca</translation>
     </message>
     <message>
+        <location filename="../../ResourceObjects/OPFResource.cpp" line="1070"/>
+        <source>Language</source>
+        <translation>Język</translation>
+    </message>
+    <message>
         <location filename="../../ResourceObjects/OPFResource.cpp" line="1077"/>
         <source>ISBN</source>
-        <translation></translation>
+        <translation>ISBN</translation>
     </message>
     <message>
         <location filename="../../ResourceObjects/OPFResource.cpp" line="1078"/>
         <source>ISSN</source>
-        <translation></translation>
+        <translation>ISSN</translation>
     </message>
     <message>
         <location filename="../../ResourceObjects/OPFResource.cpp" line="1079"/>
         <source>DOI</source>
-        <translation></translation>
+        <translation>DOI</translation>
     </message>
     <message>
         <location filename="../../ResourceObjects/OPFResource.cpp" line="1085"/>
@@ -2193,12 +1957,9 @@ You used &quot;%1&quot;, and the old extension was &quot;%2&quot;.</source>
         <translation>Data</translation>
     </message>
     <message>
-        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;&lt;html&gt;&lt;head&gt;    &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8&quot;/&gt; &lt;/head&gt;&lt;body&gt;    &lt;h3&gt;Maintainer / Project Lead&lt;/h3&gt;    &lt;p&gt;John Schember&lt;/p&gt;    &lt;h3&gt;Original Creator&lt;/h3&gt;    &lt;p&gt;Strahinja Markovi� (retired)&lt;/p&gt;    &lt;h3&gt;Contributors&lt;/h3&gt;    &lt;ul&gt;        &lt;li&gt;Charles King&lt;/li&gt;    &lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="obsolete">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;&lt;html&gt;&lt;head&gt;    &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8&quot;/&gt; &lt;/head&gt;&lt;body&gt;    &lt;h3&gt;Utrzymujący Projekt / Opiekun Projektu&lt;/h3&gt;    &lt;p&gt;John Schember&lt;/p&gt;    &lt;h3&gt;Pierwotny Twórca&lt;/h3&gt;    &lt;p&gt;Strahinja Markovi� ( obecnie nie rozwija projektu  )&lt;/p&gt;    &lt;h3&gt;Inni uczestnicy projektu&lt;/h3&gt;    &lt;ul&gt;        &lt;li&gt;Charles King&lt;/li&gt;    &lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;&lt;html&gt;&lt;head&gt;    &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8&quot;/&gt; &lt;/head&gt;&lt;body&gt;    &lt;h3&gt;Maintainer / Project Lead&lt;/h3&gt;    &lt;p&gt;John Schember&lt;/p&gt;    &lt;h3&gt;Original Creator&lt;/h3&gt;    &lt;p&gt;Strahinja Markovi� (retired)&lt;/p&gt;    &lt;h3&gt;Contributors&lt;/h3&gt;    &lt;ul&gt;        &lt;li&gt;Charles King&lt;/li&gt;    &lt;/ul&gt;    &lt;h3&gt;Translators&lt;/h3&gt;    &lt;ul&gt;        &lt;li&gt;Polish - Grzegorz Wolszczak&lt;/li&gt;    &lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="obsolete">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;&lt;html&gt;&lt;head&gt;    &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8&quot;/&gt; &lt;/head&gt;&lt;body&gt;    &lt;h3&gt;Utrzymujący Projekt / Opiekun Projektu&lt;/h3&gt;    &lt;p&gt;John Schember&lt;/p&gt;    &lt;h3&gt;Pierwotny twórca&lt;/h3&gt;    &lt;p&gt;Strahinja Markovi� ( obecnie nie rozwija projektu )&lt;/p&gt;    &lt;h3&gt;Pozostali uczestnicy projektu&lt;/h3&gt;    &lt;ul&gt;        &lt;li&gt;Charles King&lt;/li&gt;    &lt;/ul&gt;    &lt;h3&gt;Tłumacze&lt;/h3&gt;    &lt;ul&gt;        &lt;li&gt;Polski - Grzegorz Wolszczak&lt;/li&gt;    &lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <location filename="../../ResourceObjects/OPFResource.cpp" line="1105"/>
+        <source>Author</source>
+        <translation>Autor</translation>
     </message>
 </context>
 <context>
@@ -2214,7 +1975,7 @@ You used &quot;%1&quot;, and the old extension was &quot;%2&quot;.</source>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="14"/>
         <source>Spell Check</source>
-        <translation>Sprawdzanie pisowni</translation>
+        <translation>Sprawdź Pisownię</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="22"/>
@@ -2224,7 +1985,7 @@ You used &quot;%1&quot;, and the old extension was &quot;%2&quot;.</source>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="34"/>
         <source>User Word List</source>
-        <translation>Lista słów użytkownika</translation>
+        <translation>Lista Słów Użytkownika</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="49"/>
@@ -2244,17 +2005,17 @@ You used &quot;%1&quot;, and the old extension was &quot;%2&quot;.</source>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="70"/>
         <source>Remove All</source>
-        <translation>Usuń wszystkie</translation>
+        <translation>Usuń Wszystkie</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="97"/>
         <source>Open User Dictionary Location</source>
-        <translation>Otwórz słownik z lokalizacji użytkownika</translation>
+        <translation>Otwórz Lokalizację Słownika Użytkownika</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="91"/>
         <source>None</source>
-        <translation>Żaden</translation>
+        <translation>Brak</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="127"/>
@@ -2264,7 +2025,7 @@ You used &quot;%1&quot;, and the old extension was &quot;%2&quot;.</source>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="127"/>
         <source>Could not open user dictionary location %1</source>
-        <translation>Nie można otworzyć słownika z lokalizacji uzytkownika %1</translation>
+        <translation>Nie można otworzyć słownika w podanej lokalizacji %1</translation>
     </message>
 </context>
 <context>
