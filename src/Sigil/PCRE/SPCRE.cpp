@@ -217,7 +217,7 @@ QList<SPCRE::MatchInfo> SPCRE::getMatchInfo(const QString &text)
         rc = pcre_exec(m_re, m_study, text.toUtf8().data(), strlen(text.toUtf8().data()), last_offset[1], 0, ovector, ovector_size);
     } while(rc >= 0 && ovector[0] != ovector[1] && ovector[1] != last_offset[1] && ovector[0] < ovector[1]);
 
-    free(ovector);
+    delete[] ovector;
     return info;
 }
 
