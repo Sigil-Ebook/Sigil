@@ -197,6 +197,8 @@ set( MISC_FILES
     Misc/Utility.cpp
     Misc/Utility.h
     Misc/SleepFunctions.h
+    Misc/FilenameDelegate.cpp
+    Misc/FilenameDelegate.h
     Misc/XHTMLHighlighter.cpp
     Misc/XHTMLHighlighter.h
     Misc/CSSHighlighter.cpp

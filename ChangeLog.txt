@@ -1,4 +1,5 @@
 Sigil 0.5 TBA
+    - Fix issue 998: Don't select file extension on rename in book browser.
     - Fix issue 1111: Failure to rename to same name with case change.
     - Implement issue 205: Drag and drop for images to book and code views.
     - Fix issue 1019: issues with opf-namespace declaration.

@@ -23,6 +23,7 @@
 #include "BookBrowser.h"
 #include "OPFModel.h"
 #include "BookManipulation/Book.h"
+#include "Misc/FilenameDelegate.h"
 #include "Misc/Utility.h"
 #include "ResourceObjects/HTMLResource.h"
 #include "ResourceObjects/OPFResource.h"
@@ -423,6 +424,7 @@ void BookBrowser::SetupTreeView()
     m_TreeView.setDropIndicatorShown( true );
     m_TreeView.setDragDropMode( QAbstractItemView::InternalMove );
     m_TreeView.setContextMenuPolicy( Qt::CustomContextMenu );
+    m_TreeView.setItemDelegate(new FileNameDelegate);
 
     m_TreeView.setModel( &m_OPFModel ); 
 
