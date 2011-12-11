@@ -19,7 +19,7 @@
     <message>
         <location filename="../../Form_Files/About.ui" line="89"/>
         <source>Homepage:</source>
-        <translation>Accueil</translation>
+        <translation>Accueil:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="125"/>
@@ -29,12 +29,12 @@
     <message>
         <location filename="../../Form_Files/About.ui" line="152"/>
         <source>Loaded Qt:</source>
-        <translation>Télécharger Qt:</translation>
+        <translation>Version Qt:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="182"/>
         <source>License:</source>
-        <translation>Licence</translation>
+        <translation>Licence:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="194"/>
@@ -44,7 +44,7 @@
     <message>
         <location filename="../../Form_Files/About.ui" line="212"/>
         <source>Build time:</source>
-        <translation>Temps de construction:</translation>
+        <translation>Date de version:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="237"/>
@@ -57,7 +57,7 @@
     <message>
         <location filename="../../Form_Files/AddMetadata.ui" line="14"/>
         <source>Add metadata property</source>
-        <translation>Ajouter un champ de métadonnées</translation>
+        <translation>Ajouter un champ</translation>
     </message>
     <message>
         <location filename="../../Form_Files/AddMetadata.ui" line="44"/>
@@ -80,12 +80,12 @@
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="26"/>
         <source>Vertical</source>
-        <translation>Vertical</translation>
+        <translation>Verticale</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="36"/>
         <source>Horizontal</source>
-        <translation>Horizontal</translation>
+        <translation>Horizontale</translation>
     </message>
 </context>
 <context>
@@ -93,7 +93,7 @@
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="42"/>
         <source>Book Browser</source>
-        <translation>Navigateur de livre</translation>
+        <translation>Navigateur du livre</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="52"/>
@@ -131,7 +131,8 @@
         <location filename="../../MainUI/BookBrowser.cpp" line="261"/>
         <source>The last section cannot be removed.
 There always has to be at least one.</source>
-        <translation>La dernière section ne peut être supprimée. Il doit toujours en avoir au moins une.</translation>
+        <translation>La dernière section ne peut être supprimée. 
+Il doit toujours en avoir au moins une.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="272"/>
@@ -150,12 +151,14 @@ Cette action est irréversible.</translation>
         <source>Editing the OPF and NCX files is for experts only!
 
 Continue?</source>
-        <translation>Éditer des fichiers OPF et NCX est réservé aux experts ! Continuer ?</translation>
+        <translation>Éditer des fichiers OPF et NCX est réservé aux experts ! 
+
+Continuer ?</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="379"/>
         <source>Don&apos;t show again.</source>
-        <translation>Ne plus montrer</translation>
+        <translation>Ne plus montrer.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="441"/>
@@ -293,7 +296,7 @@ Continue?</source>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="20"/>
         <source>Find &amp; Replace</source>
-        <translation>Rechercher et Remplacer</translation>
+        <translation>Trouver et Remplacer</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="49"/>
@@ -332,17 +335,17 @@ Continue?</source>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="159"/>
         <source>Look:</source>
-        <translation>Regardez:</translation>
+        <translation>dans:</translation>
     </message>
     <message numerus="yes">
         <location filename="../../MainUI/FindReplace.cpp" line="119"/>
         <source>%n matche(s) were found.</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n correspondance a été trouvé</numerusform><numerusform>%n correspondances ont été trouvées</numerusform></translation>
     </message>
     <message numerus="yes">
         <location filename="../../MainUI/FindReplace.cpp" line="165"/>
         <source>The search term was replaced %n time(s).</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Le terme de recherche a été remplacé %n fois</numerusform><numerusform>Le terme de recherche a été remplacé %n fois</numerusform></translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="272"/>
@@ -352,7 +355,7 @@ Continue?</source>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="550"/>
         <source>This tab cannot be searched.</source>
-        <translation>Cet onglet ne peut pas être recherché.</translation>
+        <translation>Cet onglet ne peut pas être exploré.</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="559"/>
@@ -393,17 +396,17 @@ Continue?</source>
     <message>
         <location filename="../../Form_Files/HeadingSelector.ui" line="48"/>
         <source>If this is checked, only the items that will end up in the Table Of Contents are displayed in the list</source>
-        <translation>Si cette case est cochée, seuls les éléments présents dans la table des matières seront affichées dans la liste</translation>
+        <translation>Si cette case est cochée, seuls les éléments présents dans la table des matières -TDM- seront affichées dans la liste</translation>
     </message>
     <message>
         <location filename="../../Form_Files/HeadingSelector.ui" line="51"/>
         <source>TOC items only</source>
-        <translation>TOC articles ne</translation>
+        <translation>Éléments de la TDM seulement</translation>
     </message>
     <message>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="198"/>
         <source>TOC Entry</source>
-        <translation>Entrée de la Table des matières</translation>
+        <translation>Entrée de la TDM</translation>
     </message>
     <message>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="199"/>
@@ -491,7 +494,7 @@ Continue?</source>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="123"/>
         <source>Reset to default</source>
-        <translation>Réinitialiser</translation>
+        <translation>Réinitialiser par défaut</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="126"/>
@@ -514,7 +517,7 @@ Continue?</source>
     <message>
         <location filename="../../Form_Files/PLanguageWidget.ui" line="22"/>
         <source>Default meta editor language</source>
-        <translation>Langue par défaut du Méta éditeur</translation>
+        <translation>Langue par défaut du méta éditeur</translation>
     </message>
 </context>
 <context>
@@ -522,7 +525,7 @@ Continue?</source>
     <message>
         <location filename="../../Form_Files/main.ui" line="14"/>
         <source>untitled.epub[*] - Sigil</source>
-        <translation>untitled.epub [*] - Sigil</translation>
+        <translation>sanstitre.epub [*] - Sigil</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="49"/>
@@ -537,7 +540,7 @@ Continue?</source>
     <message>
         <location filename="../../Form_Files/main.ui" line="77"/>
         <source>&amp;Edit</source>
-        <translation>&amp;Edition</translation>
+        <translation>&amp;Édition</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="81"/>
@@ -588,7 +591,7 @@ Continue?</source>
     <message>
         <location filename="../../Form_Files/main.ui" line="221"/>
         <source>Edit</source>
-        <translation>Modifier</translation>
+        <translation>Édition</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="240"/>
@@ -628,7 +631,7 @@ Continue?</source>
     <message>
         <location filename="../../Form_Files/main.ui" line="346"/>
         <source>Quick Settings</source>
-        <translation>Quick Settings</translation>
+        <translation>Paramétrage rapide</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="364"/>
@@ -671,7 +674,7 @@ Continue?</source>
     <message>
         <location filename="../../Form_Files/main.ui" line="398"/>
         <source>Save &amp;As...</source>
-        <translation>Enregistrer &amp;amp; sous ...</translation>
+        <translation>Enregistrer &amp;sous ...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="401"/>
@@ -728,7 +731,7 @@ Continue?</source>
     <message>
         <location filename="../../Form_Files/main.ui" line="449"/>
         <source>&amp;Undo</source>
-        <translation>&amp;amp; Annuler</translation>
+        <translation>&amp;Annuler</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="452"/>
@@ -737,7 +740,7 @@ Continue?</source>
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Reverts the changes of the previous operation.&lt;/p&gt;</source>
         <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Annuler&lt;/b&gt; &lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt; Restaure les changements de l&apos;opération précédente. &lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt; Annule les changements de l&apos;opération précédente. &lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="457"/>
@@ -780,7 +783,7 @@ Continue?</source>
     <message>
         <location filename="../../Form_Files/main.ui" line="491"/>
         <source>Ctrl+C</source>
-        <translation>Ctrl + C</translation>
+        <translation>Ctrl+C</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="500"/>
@@ -799,7 +802,7 @@ Continue?</source>
     <message>
         <location filename="../../Form_Files/main.ui" line="508"/>
         <source>Ctrl+L</source>
-        <translation>Ctrl + L</translation>
+        <translation>Ctrl+L</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="517"/>
@@ -837,7 +840,7 @@ Continue?</source>
     <message>
         <location filename="../../Form_Files/main.ui" line="542"/>
         <source>Ctrl+E</source>
-        <translation>Ctrl + E</translation>
+        <translation>Ctrl+E</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="551"/>
@@ -856,7 +859,7 @@ Continue?</source>
     <message>
         <location filename="../../Form_Files/main.ui" line="559"/>
         <source>Ctrl+J</source>
-        <translation>Ctrl + J</translation>
+        <translation>Ctrl+J</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="571"/>
@@ -873,7 +876,7 @@ Continue?</source>
     <message>
         <location filename="../../Form_Files/main.ui" line="579"/>
         <source>Ctrl+B</source>
-        <translation>Ctrl + B</translation>
+        <translation>Ctrl+B</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="591"/>
@@ -892,7 +895,7 @@ Continue?</source>
     <message>
         <location filename="../../Form_Files/main.ui" line="599"/>
         <source>Ctrl+I</source>
-        <translation>Ctrl + I</translation>
+        <translation>Ctrl+I</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="608"/>
@@ -911,19 +914,19 @@ Continue?</source>
     <message>
         <location filename="../../Form_Files/main.ui" line="616"/>
         <source>Ctrl+O</source>
-        <translation>Ctrl + O</translation>
+        <translation>Ctrl+O</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="628"/>
         <source>&amp;Underline</source>
-        <translation>&amp;Souligner</translation>
+        <translation>&amp;Souligné</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="631"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Underline&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Underlines the selected text.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt; &lt;b&gt;Souligner&lt;/b&gt; &lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt; &lt;b&gt;Souligné&lt;/b&gt; &lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt; Souligne le texte sélectionné.&lt;/p&gt;</translation>
     </message>
@@ -950,7 +953,7 @@ Continue?</source>
     <message>
         <location filename="../../Form_Files/main.ui" line="660"/>
         <source>&amp;About...</source>
-        <translation>&amp;À propos</translation>
+        <translation>&amp;À propos...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="663"/>
@@ -960,7 +963,7 @@ Continue?</source>
     <message>
         <location filename="../../Form_Files/main.ui" line="668"/>
         <source>&amp;Meta Editor...</source>
-        <translation>&amp;Méta Editeur...</translation>
+        <translation>&amp;Éditeur de métadonnées...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="671"/>
@@ -1040,7 +1043,7 @@ Continue?</source>
     <message>
         <location filename="../../Form_Files/main.ui" line="747"/>
         <source>Split Chapter</source>
-        <translation>Partager le chapitre</translation>
+        <translation>Saut de chapitre</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="750"/>
@@ -1049,9 +1052,9 @@ Continue?</source>
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Splits the current chapter in two.&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Do this often and where appropriate.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt; &lt;b&gt;Division de chapitre&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt; &lt;b&gt;Saut de chapitre&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Partage le chapitre actuel en deux. &lt;/p&gt;
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Partage le chapitre en cours en deux. &lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt; Faites-le régulièrement lorsque cela est nécessaire. &lt;/p&gt;</translation>
     </message>
@@ -1063,7 +1066,7 @@ Continue?</source>
     <message>
         <location filename="../../Form_Files/main.ui" line="766"/>
         <source>Insert Image...</source>
-        <translation>Insérer une image ...</translation>
+        <translation>Insérer une image...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="769"/>
@@ -1098,7 +1101,7 @@ Continue?</source>
     <message>
         <location filename="../../Form_Files/main.ui" line="795"/>
         <source>Ctrl+Alt+L</source>
-        <translation>Ctrl + Alt + L</translation>
+        <translation>Ctrl+Alt+L</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="807"/>
@@ -1166,7 +1169,7 @@ Continue?</source>
     <message>
         <location filename="../../Form_Files/main.ui" line="865"/>
         <source>Ctrl+F2</source>
-        <translation>Ctrl + F2</translation>
+        <translation>Ctrl+F2</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="870"/>
@@ -1212,7 +1215,7 @@ Continue?</source>
     <message>
         <location filename="../../Form_Files/main.ui" line="915"/>
         <source>&amp;Find / Replace...</source>
-        <translation>&amp;Rechercher / Remplacer ...</translation>
+        <translation>&amp;Rechercher / Remplacer...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="918"/>
@@ -1226,7 +1229,7 @@ Continue?</source>
     <message>
         <location filename="../../Form_Files/main.ui" line="923"/>
         <source>Ctrl+F</source>
-        <translation>Ctrl + F</translation>
+        <translation>Ctrl+F</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="932"/>
@@ -1238,14 +1241,14 @@ Continue?</source>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Increase Indent&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Increase the indent level of the paragraph.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt; &lt;b&gt;Augmenter le retrait&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt; &lt;b&gt;Augmenter Retrait&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt; Augmente le retrait du paragraphe. &lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="940"/>
         <source>Ctrl+M</source>
-        <translation>Ctrl + M</translation>
+        <translation>Ctrl+M</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="949"/>
@@ -1277,12 +1280,12 @@ Continue?</source>
     <message>
         <location filename="../../Form_Files/main.ui" line="970"/>
         <source>&amp;Report An Issue...</source>
-        <translation>&amp;Signaler un problème ...</translation>
+        <translation>&amp;Signaler un problème...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="975"/>
         <source>Sigil Dev &amp;Blog...</source>
-        <translation>&amp;Blog du développement de Sigil ...</translation>
+        <translation>&amp;Blog de développement de Sigil...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="980"/>
@@ -1292,7 +1295,7 @@ Continue?</source>
     <message>
         <location filename="../../Form_Files/main.ui" line="983"/>
         <source>Ctrl+PgUp</source>
-        <translation>Ctrl +PgUp</translation>
+        <translation>Ctrl+PgPréc</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="988"/>
@@ -1302,7 +1305,7 @@ Continue?</source>
     <message>
         <location filename="../../Form_Files/main.ui" line="991"/>
         <source>Ctrl+PgDown</source>
-        <translation>Ctrl+PgDown</translation>
+        <translation>Ctrl+PgSuiv</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="996"/>
@@ -1317,12 +1320,12 @@ Continue?</source>
     <message>
         <location filename="../../Form_Files/main.ui" line="1004"/>
         <source>Split at Chapter Markers</source>
-        <translation>Diviser en marqueurs de chapitre</translation>
+        <translation>Diviser d&apos;après les marqueurs de chapitre</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1007"/>
         <source>Split On Sigil Chapter Markers</source>
-        <translation>Diviser à partir des marqueurs de chapitre Sigil</translation>
+        <translation>Diviser en marqueurs de chapitre Sigil</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1010"/>
@@ -1347,17 +1350,17 @@ Continue?</source>
     <message>
         <location filename="../../Form_Files/main.ui" line="1026"/>
         <source>User &amp;Manual...</source>
-        <translation>&amp;Manuel de l&apos;utilisateur ...</translation>
+        <translation>&amp;Manuel de l&apos;utilisateur...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1029"/>
         <source>User Manual</source>
-        <translation>Guide de l&apos;utilisateur</translation>
+        <translation>Manuel de l&apos;utilisateur</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1034"/>
         <source>&amp;Frequently Asked Questions...</source>
-        <translation>&amp;Foire aux questions ...</translation>
+        <translation>&amp;Foire aux questions...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1037"/>
@@ -1380,12 +1383,12 @@ Continue?</source>
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt; Si cette option est cochée, vos documents HTML seront nettoyés avec l'option &quot;nettoyer&quot; de Tidy lors de la première ouverture (dans le cadre d'une epub ou individuellement) et lors de l'enregistrement. Le document en cours sera également nettoyé lors du passage entre les différentes vues.&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt; Lorsque l&apos;option est décochée, seule la correction des erreurs de base sont effectuées pour s&apos;assurer que vos documents sont XHTML valide. &lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt; Lorsque l&apos;option est décochée, seule la correction des erreurs de base est effectuée pour s&apos;assurer que vos documents sont XHTML valide. &lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1059"/>
         <source>Ctrl+D</source>
-        <translation>Ctrl + D</translation>
+        <translation>Ctrl+D</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1068"/>
@@ -1419,28 +1422,28 @@ Continue?</source>
 </source>
         <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Faire un don pour le développement de Sigil&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt; Vos dons permettent de poursuivre le projet!&lt;/p&gt;
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt; Vos dons permettent de poursuivre le projet !&lt;/p&gt;
 </translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1096"/>
         <source>Close Other Tabs</source>
-        <translation>Fermer les autres onglets</translation>
+        <translation>Fermer autres onglets</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1099"/>
         <source>Ctrl+Alt+W</source>
-        <translation>Ctrl + Alt + W</translation>
+        <translation>Ctrl+Alt+W</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1104"/>
         <source>Go To Line...</source>
-        <translation>Aller à la ligne ...</translation>
+        <translation>Aller à la ligne...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1107"/>
         <source>Ctrl+/</source>
-        <translation>Ctrl + /</translation>
+        <translation>Ctrl+/</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1119"/>
@@ -1456,7 +1459,9 @@ Continue?</source>
 &lt;p style=&quot; margin-left: 0.5em;&quot;&gt;When the option is unchecked no error checking is preformed. This can lead to significant data loss as all errors will be auto fixed.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;/head&gt;&lt;body&gt;
-&lt;p style=&quot; padding-top: 0.5em;&quot;&gt; &lt;span style=&quot; font-weight:600;&quot;&gt;Vérification des erreurs de structure&lt;/span&gt; &lt;/p&gt;&lt;p style=&quot; margin-left: 0.5em;&quot;&gt; Si cette option est cochée, la structure de vos documents XML et HTML sera vérifiée. Lors du changement de l&apos;affichage en vue code, une boîte de dialogue vous demandera de résoudre les problèmes automatiquement ou manuellement. Si régler manuellement est sélectionné, le curseur sera placé à la ligne présentant une erreur d&apos;affichage du code. &lt;/p&gt;&lt;p style=&quot; margin-left: 0.5em;&quot;&gt; Lorsque l&apos;option est décochée, aucune vérification d&apos;erreur n&apos;est effectuée. Cela peut conduire à la perte de données importantes, toutes les erreurs étant réparées automatiquement. &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+&lt;p style=&quot; padding-top: 0.5em;&quot;&gt; &lt;span style=&quot; font-weight:600;&quot;&gt;Vérification des erreurs de structure&lt;/span&gt; &lt;/p&gt;
+&lt;p style=&quot; margin-left: 0.5em;&quot;&gt; Si cette option est cochée, la structure de vos documents XML et HTML sera vérifiée. Lors du changement de l'affichage en vue code, une boîte de dialogue vous demandera de résoudre les problèmes automatiquement ou manuellement. Si Régler manuellement est sélectionné, le curseur sera placé à la ligne présentant une erreur d'affichage du code. 
+&lt;/p&gt;&lt;p style=&quot; margin-left: 0.5em;&quot;&gt; Lorsque l&apos;option est décochée, aucune vérification n&apos;est effectuée. Cela peut conduire à la perte de données importantes, toutes les erreurs étant réparées automatiquement. &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1131"/>
@@ -1466,7 +1471,7 @@ Continue?</source>
     <message>
         <location filename="../../Form_Files/main.ui" line="1134"/>
         <source>Ctrl+G</source>
-        <translation>Ctrl + G</translation>
+        <translation>Ctrl+G</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1139"/>
@@ -1496,7 +1501,7 @@ Continue?</source>
     <message>
         <location filename="../../Form_Files/main.ui" line="1158"/>
         <source>Ctrl+[</source>
-        <translation>Ctrl + [</translation>
+        <translation>Ctrl+[</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1163"/>
@@ -1512,7 +1517,7 @@ Continue?</source>
     <message>
         <location filename="../../Form_Files/main.ui" line="1174"/>
         <source>Ctrl+0</source>
-        <translation>Ctrl +0</translation>
+        <translation>Ctrl+0</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1182"/>
@@ -1522,7 +1527,7 @@ Continue?</source>
     <message>
         <location filename="../../Form_Files/main.ui" line="1185"/>
         <source>Ctrl+1</source>
-        <translation>Ctrl +1</translation>
+        <translation>Ctrl+1</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1193"/>
@@ -1532,7 +1537,7 @@ Continue?</source>
     <message>
         <location filename="../../Form_Files/main.ui" line="1196"/>
         <source>Ctrl+2</source>
-        <translation>Ctrl +2</translation>
+        <translation>Ctrl+2</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1204"/>
@@ -1542,7 +1547,7 @@ Continue?</source>
     <message>
         <location filename="../../Form_Files/main.ui" line="1207"/>
         <source>Ctrl+3</source>
-        <translation>Ctrl +3</translation>
+        <translation>Ctrl+3</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1215"/>
@@ -1552,7 +1557,7 @@ Continue?</source>
     <message>
         <location filename="../../Form_Files/main.ui" line="1218"/>
         <source>Ctrl+4</source>
-        <translation>Ctrl +4</translation>
+        <translation>Ctrl+4</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1226"/>
@@ -1562,7 +1567,7 @@ Continue?</source>
     <message>
         <location filename="../../Form_Files/main.ui" line="1229"/>
         <source>Ctrl+5</source>
-        <translation>Ctrl +5</translation>
+        <translation>Ctrl+5</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1237"/>
@@ -1650,7 +1655,8 @@ Continue?</source>
         <location filename="../../MainUI/MainWindow.cpp" line="887"/>
         <source>The document has been modified.
 Do you want to save your changes?</source>
-        <translation>Le document a été modifié. Voulez-vous enregistrer vos modifications?</translation>
+        <translation>Le document a été modifié. 
+Voulez-vous enregistrer vos modifications?</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="959"/>
@@ -1687,7 +1693,8 @@ Please choose a different format.</source>
         <location filename="../../MainUI/MainWindow.cpp" line="1039"/>
         <source>Sigil cannot save file: &quot;%1&quot;
 It is currently in use in a different application.</source>
-        <translation>Sigil ne peut pas enregistrer le fichier: &quot;%1&quot; Il est déjà utilisé dans une autre application.</translation>
+        <translation>Sigil ne peut pas enregistrer le fichier: &quot;%1&quot; 
+Il est déjà utilisé dans une autre application.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1048"/>
@@ -1742,7 +1749,7 @@ It is currently in use in a different application.</source>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="20"/>
         <source>Meta Editor</source>
-        <translation>Méta Editeur</translation>
+        <translation>Méta éditeur</translation>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="36"/>
@@ -1773,7 +1780,7 @@ It is currently in use in a different application.</source>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="187"/>
         <source>Add Adv.</source>
-        <translation>Ajouter Avancé</translation>
+        <translation>Ajouter Avancé.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="194"/>
@@ -1852,7 +1859,8 @@ It is currently in use in a different application.</source>
         <location filename="../../MainUI/OPFModel.cpp" line="423"/>
         <source>This file's extension cannot be changed in that way.
 You used &quot;%1&quot;, and the old extension was &quot;%2&quot;.</source>
-        <translation>L&apos;extension de fichier ne peut pas être changé de cette manière. Vous avez utilisé &quot;%1&quot;, et l&apos;extension initiale était &quot;%2&quot;.</translation>
+        <translation>L'extension de fichier ne peut pas être changé de cette manière. 
+Vous avez utilisé &quot;%1&quot;, et l&apos;extension initiale était &quot;%2&quot;.</translation>
     </message>
     <message>
         <location filename="../../MainUI/OPFModel.cpp" line="435"/>
@@ -1879,7 +1887,7 @@ You used &quot;%1&quot;, and the old extension was &quot;%2&quot;.</source>
     <message>
         <location filename="../../Misc/SearchOperations.cpp" line="58"/>
         <source>Replacing search term...</source>
-        <translation>Remplacer le terme recherché ...</translation>
+        <translation>Remplacer le terme recherché...</translation>
     </message>
     <message>
         <location filename="../../Misc/UpdateChecker.cpp" line="87"/>
@@ -1906,7 +1914,7 @@ You used &quot;%1&quot;, and the old extension was &quot;%2&quot;.</source>
     <message>
         <location filename="../../Misc/Utility.cpp" line="312"/>
         <source>Please &lt;a href=&quot;http://code.google.com/p/sigil/wiki/ReportingIssues&quot;&gt;report it&lt;/a&gt; on the issue tracker, including the details from this dialog.</source>
-        <translation>S&apos;il vous plaît &lt;a href=&quot;http://code.google.com/p/sigil/wiki/ReportingIssues&quot;&gt;signalez ce problème&lt;/a&gt; sur le serveur, y compris les détails de cette boîte de dialogue.</translation>
+        <translation>S&apos;il vous plaît &lt;a href=&quot;http://code.google.com/p/sigil/wiki/ReportingIssues&quot;&gt;signalez ce problème&lt;/a&gt; sur le site de suivi, y compris les détails de cette boîte de dialogue.</translation>
     </message>
     <message>
         <location filename="../../ResourceObjects/OPFResource.cpp" line="1064"/>
@@ -1949,7 +1957,7 @@ You used &quot;%1&quot;, and the old extension was &quot;%2&quot;.</source>
     <message>
         <location filename="../../Qxt/qxtconfirmationmessage.cpp" line="67"/>
         <source>Do not show again.</source>
-        <translation>Ne pas montrer de nouveau.</translation>
+        <translation>Ne plus montrer.</translation>
     </message>
 </context>
 <context>
@@ -2020,7 +2028,7 @@ You used &quot;%1&quot;, and the old extension was &quot;%2&quot;.</source>
     <message>
         <location filename="../../MainUI/TableOfContents.cpp" line="45"/>
         <source>Generate TOC from headings</source>
-        <translation>Générer la table des matières à partir des titres</translation>
+        <translation>Générer TDM depuis les titres</translation>
     </message>
     <message>
         <location filename="../../MainUI/TableOfContents.cpp" line="126"/>
@@ -2072,17 +2080,17 @@ You used &quot;%1&quot;, and the old extension was &quot;%2&quot;.</source>
     <message>
         <location filename="../../Tabs/WellFormedCheckComponent.cpp" line="41"/>
         <source>&lt;p&gt;The operation you requested cannot be performed because &lt;b&gt;%1&lt;/b&gt; is not a well-formed XML document.&lt;/p&gt;&lt;p&gt;An error was found on &lt;b&gt;line %2, column %3: %4.&lt;/b&gt;&lt;/p&gt;&lt;p&gt;The &lt;i&gt;Fix Manually&lt;/i&gt; option will let you fix the problem by hand.&lt;/p&gt;&lt;p&gt;The &lt;i&gt;Fix Automatically&lt;/i&gt; option will instruct Sigil to try to repair the document. &lt;b&gt;This option may lead to loss of data!&lt;/b&gt;&lt;/p&gt;</source>
-        <translation>&lt;p&gt; L&apos;opération que vous avez demandé ne peut pas être effectuée car &lt;b&gt;%1&lt;/b&gt; n&apos;est pas un document XML bien formé. &lt;/p&gt;&lt;p&gt; Une erreur a été trouvée sur la&lt;b&gt;ligne %2, colonne %3: %4.&lt;/b&gt; &lt;/p&gt;&lt;p&gt; &lt;i&gt;corriger manuellement&lt;/i&gt; l&apos;option vous permettra de régler le problème manuellement. &lt;/p&gt;&lt;p&gt;&lt;i&gt;corriger automatiquement&lt;/i&gt; Cette option demandera à Sigil de tenter de réparer le document. &lt;b&gt;Attention, cette option peut conduire à des pertes de données!&lt;/b&gt; &lt;/p&gt;</translation>
+        <translation>&lt;p&gt; L&apos;opération que vous avez demandé ne peut pas être effectuée car &lt;b&gt;%1&lt;/b&gt; n&apos;est pas un document XML bien formé. &lt;/p&gt;&lt;p&gt; Une erreur a été trouvée sur la&lt;b&gt;ligne %2, colonne %3: %4.&lt;/b&gt; &lt;/p&gt;&lt;p&gt; &lt;i&gt;L&apos;option Corriger Manuellement&lt;/i&gt; vous permettra de régler le problème manuellement. &lt;/p&gt;&lt;p&gt;&lt;i&gt;L&apos;option Corriger Automatiquement&lt;/i&gt; demandera à Sigil de tenter de réparer le document. &lt;b&gt;Attention, cette option peut conduire à des pertes de données!&lt;/b&gt; &lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Tabs/WellFormedCheckComponent.cpp" line="53"/>
         <source>Fix &amp;Automatically</source>
-        <translation>Régler &amp;Automatiquement</translation>
+        <translation>Corriger &amp;Automatiquement</translation>
     </message>
     <message>
         <location filename="../../Tabs/WellFormedCheckComponent.cpp" line="55"/>
         <source>Fix &amp;Manually</source>
-        <translation>Régler &amp;Manuellement</translation>
+        <translation>Corriger &amp;Manuellement</translation>
     </message>
 </context>
 </TS>

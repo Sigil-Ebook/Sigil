@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.0" language="cs_CZ">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="cs" version="2.0">
 <context>
     <name>About</name>
     <message>
@@ -342,20 +340,12 @@ Chcete pokračovat?</translation>
     <message numerus="yes">
         <location filename="../../MainUI/FindReplace.cpp" line="119"/>
         <source>%n matche(s) were found.</source>
-        <translation>
-            <numerusform>Byla nalezena %n  shoda.</numerusform>
-            <numerusform>Byly nalezeny %n  shody.</numerusform>
-            <numerusform>Bylo nalezeno %n  shod.</numerusform>
-        </translation>
+        <translation><numerusform>Byla nalezena %n  shoda.</numerusform><numerusform>Byly nalezeny %n  shody.</numerusform><numerusform>Bylo nalezeno %n  shod.</numerusform></translation>
     </message>
     <message numerus="yes">
         <location filename="../../MainUI/FindReplace.cpp" line="165"/>
         <source>The search term was replaced %n time(s).</source>
-        <translation>
-            <numerusform>Hledaný výraz byl nahrazen %nkrát.</numerusform>
-            <numerusform>Hledaný výraz byl nahrazen %nkrát.</numerusform>
-            <numerusform>Hledaný výraz byl nahrazen %nkrát.</numerusform>
-        </translation>
+        <translation><numerusform>Hledaný výraz byl nahrazen %nkrát.</numerusform><numerusform>Hledaný výraz byl nahrazen %nkrát.</numerusform><numerusform>Hledaný výraz byl nahrazen %nkrát.</numerusform></translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="272"/>
@@ -1389,7 +1379,7 @@ Chcete pokračovat?</translation>
         <location filename="../../Form_Files/main.ui" line="1052"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Cleaning With HTML Tidy&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;If this option is checked, then your HTML content documents will be cleaned with Tidy&apos;s &quot;clean&quot; option when first opened (as part of an epub or individually) and when saved. The current document will also be cleaned when going between different Views. &lt;/p&gt;
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;If this option is checked, then your HTML content documents will be cleaned with Tidy's &quot;clean&quot; option when first opened (as part of an epub or individually) and when saved. The current document will also be cleaned when going between different Views. &lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;When the option is unchecked, only the most basic error-correcting passes are performed to ensure that your documents are valid XHTML.&lt;/p&gt;</source>
         <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Vyčistit s HTML Tidy&lt;/b&gt;&lt;/p&gt;
@@ -1429,7 +1419,7 @@ Chcete pokračovat?</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1088"/>
-        <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Donate to Sigil&apos;s development&lt;/b&gt;&lt;/p&gt;
+        <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Donate to Sigil's development&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Your donations keep the project going!&lt;/p&gt;
 </source>
@@ -1871,7 +1861,7 @@ V současnosti jej používá jiný program.</translation>
     </message>
     <message>
         <location filename="../../MainUI/OPFModel.cpp" line="423"/>
-        <source>This file&apos;s extension cannot be changed in that way.
+        <source>This file's extension cannot be changed in that way.
 You used &quot;%1&quot;, and the old extension was &quot;%2&quot;.</source>
         <translation>Tuto souborovou příponu tímto způsobem nelze změnit.
 Použil jste &quot;%1&quot;, a stará přípona byla &quot;%2&quot;.</translation>

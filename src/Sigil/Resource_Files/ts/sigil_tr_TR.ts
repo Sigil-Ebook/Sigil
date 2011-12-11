@@ -1,55 +1,55 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="pl" version="2.0">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="tr_TR" version="2.0">
 <context>
     <name>About</name>
     <message>
         <location filename="../../Form_Files/About.ui" line="14"/>
         <source>About</source>
-        <translation>O programie</translation>
+        <translation>Hakkında</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="59"/>
         <source>The EPUB Editor</source>
-        <translation>Edytor Książek EPUB</translation>
+        <translation>EPUB Düzenleyici</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="73"/>
         <source>General</source>
-        <translation>Ogólne</translation>
+        <translation>Genel</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="89"/>
         <source>Homepage:</source>
-        <translation>Strona domowa:</translation>
+        <translation>Web Sitesi:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="125"/>
         <source>Version:</source>
-        <translation>Wersja:</translation>
+        <translation>Sürüm:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="152"/>
         <source>Loaded Qt:</source>
-        <translation>Załadowana wersja Qt:</translation>
+        <translation>Kullanılan Qt:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="182"/>
         <source>License:</source>
-        <translation>Licencja:</translation>
+        <translation>Lisans:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="194"/>
         <source>&lt;a href=&quot;http://www.gnu.org/licenses/gpl-3.0-standalone.html&quot;&gt;GNU General Public License v3&lt;/a&gt;</source>
-        <translation>&lt;a href=&quot;http://www.gnu.org/licenses/gpl-3.0-standalone.html&quot;&gt;GNU General Public License v3&lt;/a&gt;</translation>
+        <translation>&lt;a href=&quot;http://www.gnu.org/licenses/gpl-3.0-standalone.html&quot;&gt;GNU Genel Kamu Lisansı v3&lt;/a&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="212"/>
         <source>Build time:</source>
-        <translation>Czas kompilacji:</translation>
+        <translation>İnşa zamanı:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="237"/>
         <source>Authors</source>
-        <translation>Autorzy</translation>
+        <translation>Yazarlar</translation>
     </message>
 </context>
 <context>
@@ -57,12 +57,12 @@
     <message>
         <location filename="../../Form_Files/AddMetadata.ui" line="14"/>
         <source>Add metadata property</source>
-        <translation>Dodaj właściwość metadanych</translation>
+        <translation>Meta veri özellik ekle</translation>
     </message>
     <message>
         <location filename="../../Form_Files/AddMetadata.ui" line="44"/>
         <source>Metadata description</source>
-        <translation>Opis metadanych</translation>
+        <translation>Meta veri tanımı</translation>
     </message>
 </context>
 <context>
@@ -70,22 +70,22 @@
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="14"/>
         <source>Appearance</source>
-        <translation>Wygląd</translation>
+        <translation>Görünüm</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="20"/>
         <source>Split view orientation</source>
-        <translation>Orientacja widoku z podziałem</translation>
+        <translation>Bölünmüş görünüm alışkanlığı</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="26"/>
         <source>Vertical</source>
-        <translation>Pionowo</translation>
+        <translation>Dikey</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="36"/>
         <source>Horizontal</source>
-        <translation>Poziomo</translation>
+        <translation>Yatay</translation>
     </message>
 </context>
 <context>
@@ -93,27 +93,27 @@
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="42"/>
         <source>Book Browser</source>
-        <translation>Zawartość książki</translation>
+        <translation>Kitap gezgini</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="52"/>
         <source>Add Semantics</source>
-        <translation>Dodaj semantykę</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="53"/>
         <source>Font Obfuscation</source>
-        <translation>Nadpisanie czcionki</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="119"/>
         <source>The file &quot;%1&quot; does not exist.</source>
-        <translation>Plik &quot;%1&quot; nie istnieje.</translation>
+        <translation>&quot;%1&quot; dosyası bulunamadı.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="185"/>
         <source>Add existing file(s)</source>
-        <translation>Dodaj istniejące pliki</translation>
+        <translation>Dosya seç ve ekle</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="208"/>
@@ -125,135 +125,132 @@
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="209"/>
         <source>A file with the name &quot;%1&quot; already exists in the book.</source>
-        <translation>Plik o nazwie &quot;%1&quot; już istnieje w książce.</translation>
+        <translation>&quot;%1&quot; isimli bir dosya kitapta zaten var.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="261"/>
         <source>The last section cannot be removed.
 There always has to be at least one.</source>
-        <translation>Ostatnia sekcja nie może być usunięta.
-Zawsze musi zostać przynajmniej jedna.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="272"/>
         <source>Neither the NCX nor the OPF can be removed.</source>
-        <translation>Plik NCX oraz OPF nie mogą być usunięte.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="281"/>
         <source>Are you sure you want to delete the file &quot;%1&quot;?
 This action cannot be reversed.</source>
-        <translation>Czy na pewno chcesz skasować plik &quot;%1&quot;? 
-Tej akcji nie można będzie cofnąć.</translation>
+        <translation>&quot;%1&quot; dosyasını silmek istediğinize emin misiniz?
+Bu eylemin geri dönüşü yok.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="378"/>
         <source>Editing the OPF and NCX files is for experts only!
 
 Continue?</source>
-        <translation>Edytowanie plików OPF oraz NCX jest zalecane tylko dla ekspertów!
-
-Czy chcesz kontynuować?</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="379"/>
         <source>Don&apos;t show again.</source>
-        <translation>Nie pokazuj więcej.</translation>
+        <translation>Bir daha gösterme.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="441"/>
         <source>Add Blank Section</source>
-        <translation>Dodaj Pustą Sekcję</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="442"/>
         <source>Add Blank Stylesheet</source>
-        <translation>Dodaj Pusty Arkusz Stylów</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="443"/>
         <source>Add Existing Files...</source>
-        <translation>Dodaj istniejące plik(i)...</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="444"/>
         <source>Rename</source>
-        <translation>Zmień nazwę</translation>
+        <translation>Yeniden adlandır</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="445"/>
         <source>Remove</source>
-        <translation>Usuń</translation>
+        <translation>Kaldır</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="446"/>
         <source>Cover Image</source>
-        <translation>Obrazek okładki</translation>
+        <translation>Kapak Resmi</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="447"/>
         <source>Merge With Previous</source>
-        <translation>Połącz z poprzedzającym</translation>
+        <translation>Öncekiyle birleştir</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="448"/>
         <source>Use Adobe&apos;s Method</source>
-        <translation>Użyj metod Adobe</translation>
+        <translation>Adobe yöntemini kullan</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="449"/>
         <source>Use IDPF&apos;s Method</source>
-        <translation>Użyj metody IDPF</translation>
+        <translation>IDPF yöntemini kullan</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="469"/>
         <source>Cover</source>
-        <translation>Okładka</translation>
+        <translation>Kapak</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="474"/>
         <source>Title Page</source>
-        <translation>Strona tytułowa</translation>
+        <translation>Baş sayfa</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="479"/>
         <source>Table Of Contents</source>
-        <translation>Spis treści</translation>
+        <translation>İçindekiler</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="484"/>
         <source>Index</source>
-        <translation>Indeks</translation>
+        <translation>Dizin</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="489"/>
         <source>Glossary</source>
-        <translation>Glosariusz</translation>
+        <translation>Sözlük</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="494"/>
         <source>Acknowledgements</source>
-        <translation>Podziękowania</translation>
+        <translation>Teşekkürler</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="499"/>
         <source>Bibliography</source>
-        <translation>Bibliografia</translation>
+        <translation>Bibliyografya</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="504"/>
         <source>Colophon</source>
-        <translation>Kolofon</translation>
+        <translation>Yayın bilgisi</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="509"/>
         <source>CopyrightPage</source>
-        <translation>Strona praw autorskich</translation>
+        <translation>Telif Sayfası</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="514"/>
         <source>Dedication</source>
-        <translation>Dedykacja</translation>
+        <translation>Ithaf</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="519"/>
@@ -263,32 +260,32 @@ Czy chcesz kontynuować?</translation>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="524"/>
         <source>Foreword</source>
-        <translation>Przedmowa</translation>
+        <translation>Önsöz</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="529"/>
         <source>List Of Illustrations</source>
-        <translation>Lista ilustracji</translation>
+        <translation>Çizim Listesi</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="534"/>
         <source>List Of Tables</source>
-        <translation>Lista tabel</translation>
+        <translation>Tablo Listesi</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="539"/>
         <source>Notes</source>
-        <translation>Notatki</translation>
+        <translation>Notlar</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="544"/>
         <source>Preface</source>
-        <translation>Wstęp</translation>
+        <translation>Önsöz</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="549"/>
         <source>Text</source>
-        <translation>Tekst</translation>
+        <translation>Metin</translation>
     </message>
 </context>
 <context>
@@ -296,12 +293,12 @@ Czy chcesz kontynuować?</translation>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="20"/>
         <source>Find &amp; Replace</source>
-        <translation>Znajdź &amp; Zamień</translation>
+        <translation>Bul &amp; Değiştir</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="49"/>
         <source>Find:</source>
-        <translation>Znajdź:</translation>
+        <translation>Bul:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="66"/>
@@ -315,52 +312,52 @@ Czy chcesz kontynuować?</translation>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="86"/>
         <source>Count</source>
-        <translation>Zlicz wystąpienia</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="93"/>
         <source>Replace:</source>
-        <translation>Zastąp:</translation>
+        <translation>Değiştir:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="130"/>
         <source>All</source>
-        <translation>Wszystkie</translation>
+        <translation>Hepsi</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="144"/>
         <source>Mode:</source>
-        <translation>Tryb:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="159"/>
         <source>Look:</source>
-        <translation>Szukaj w:</translation>
+        <translation type="unfinished"/>
     </message>
     <message numerus="yes">
         <location filename="../../MainUI/FindReplace.cpp" line="119"/>
         <source>%n matche(s) were found.</source>
-        <translation type="unfinished"><numerusform>%n znaleziono.</numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation type="unfinished"><numerusform></numerusform></translation>
     </message>
     <message numerus="yes">
         <location filename="../../MainUI/FindReplace.cpp" line="165"/>
         <source>The search term was replaced %n time(s).</source>
-        <translation type="unfinished"><numerusform>Szukane wyrażenie zostało zastąpione %n raz(y).</numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation type="unfinished"><numerusform></numerusform></translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="272"/>
         <source>The search term cannot be found.</source>
-        <translation>Szukane wyrażenie nie zostało znalezione.</translation>
+        <translation>Aranan terim bulunamadı.</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="550"/>
         <source>This tab cannot be searched.</source>
-        <translation>Ta zakładka  nie może być przeszukiwana.</translation>
+        <translation>Bu sekmede arama yapılamıyor.</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="559"/>
         <source>Normal</source>
-        <translation>Normalny</translation>
+        <translation>Normal</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="560"/>
@@ -370,12 +367,12 @@ Czy chcesz kontynuować?</translation>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="562"/>
         <source>Current File</source>
-        <translation>Bieżący Plik</translation>
+        <translation>Çalışılan Dosya</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="563"/>
         <source>All HTML Files</source>
-        <translation>Wszystkie pliki HTML</translation>
+        <translation>Tüm HTML Dosyaları</translation>
     </message>
 </context>
 <context>
@@ -383,7 +380,7 @@ Czy chcesz kontynuować?</translation>
     <message>
         <location filename="../../Tabs/FlowTab.cpp" line="713"/>
         <source>Print %1</source>
-        <translation>Drukowanie %1</translation>
+        <translation>%1 Yazdır</translation>
     </message>
 </context>
 <context>
@@ -391,27 +388,27 @@ Czy chcesz kontynuować?</translation>
     <message>
         <location filename="../../Form_Files/HeadingSelector.ui" line="14"/>
         <source>Heading Selector</source>
-        <translation>Selektor nagłówka</translation>
+        <translation>Başlık Seçici</translation>
     </message>
     <message>
         <location filename="../../Form_Files/HeadingSelector.ui" line="48"/>
         <source>If this is checked, only the items that will end up in the Table Of Contents are displayed in the list</source>
-        <translation>Jeżeli to pole jest zaznaczone, tylko elementy które występują w spisie treści będą widoczne na liście</translation>
+        <translation>Bu seçenek aktifse, İçindekiler listesinde görünecek öğeler burada sıralanır </translation>
     </message>
     <message>
         <location filename="../../Form_Files/HeadingSelector.ui" line="51"/>
         <source>TOC items only</source>
-        <translation>Tylko elementu spisu treści</translation>
+        <translation>İçindekiler listesine girecekler</translation>
     </message>
     <message>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="198"/>
         <source>TOC Entry</source>
-        <translation>Wprowadź TOC</translation>
+        <translation>İçindekiler öğesi</translation>
     </message>
     <message>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="199"/>
         <source>Include</source>
-        <translation>Zawiera</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -419,7 +416,7 @@ Czy chcesz kontynuować?</translation>
     <message>
         <location filename="../../Form_Files/ImageList.ui" line="14"/>
         <source>Images</source>
-        <translation>Obraz</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -428,19 +425,21 @@ Czy chcesz kontynuować?</translation>
         <location filename="../../Importers/ImportOEBPS.cpp" line="274"/>
         <location filename="../../Importers/ImportOEBPS.cpp" line="294"/>
         <source>&lt;center&gt;&lt;b&gt;The OPF file is badly formed.&lt;/b&gt;&lt;/center&gt;</source>
-        <translation>&lt;center&gt;&lt;b&gt;Plik OPF jest źle zbudowany.&lt;/b&gt;&lt;/center&gt;</translation>
+        <translation>&lt;center&gt;&lt;b&gt;OPF dosyası kötü şekillenmiş.&lt;/b&gt;&lt;/center&gt;</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportOEBPS.cpp" line="275"/>
         <source>Sigil will attempt to use the following file as the NCX:
 
 </source>
-        <translation>Sigil będzie próbował użyć następującego pliku jako NCX:</translation>
+        <translation>Sigil aşağıdaki NCX dosyasını kullanmayı deneyecek:
+
+</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportOEBPS.cpp" line="295"/>
         <source>Sigil could not find an NCX file and will create a new one.</source>
-        <translation>Sigil nie mógł znaleźć pliku NCX dlategoi utworzy nowy.</translation>
+        <translation>Sigil NCX dosyasını bulamadı, yeni birini yaratmayı deneyecek.</translation>
     </message>
 </context>
 <context>
@@ -448,62 +447,62 @@ Czy chcesz kontynuować?</translation>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="14"/>
         <source>Keyboard Shortcuts</source>
-        <translation>Skróty klawiaturowe</translation>
+        <translation>Klavye Kısa Yolları</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="20"/>
         <source>Filter</source>
-        <translation>Filtr</translation>
+        <translation>Süzgeç</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="46"/>
         <source>Name</source>
-        <translation>Nazwa</translation>
+        <translation>İsim</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="51"/>
         <source>Description</source>
-        <translation>Opis</translation>
+        <translation>Tanım</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="56"/>
         <source>Shortcut</source>
-        <translation>Skrót</translation>
+        <translation>Kısa Yol</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="61"/>
         <source>Default Shortcut</source>
-        <translation>Domyślny skrót</translation>
+        <translation>Öntanımlı Kısa Yol</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="71"/>
         <source>Reset all to default</source>
-        <translation>Zresetuj wszystko do wartości domyślych</translation>
+        <translation>Hepsini öntanımlı hallerine çevir</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="74"/>
         <source>Reset All</source>
-        <translation>Zresetuj wszystko</translation>
+        <translation>Hepsini Sıfırla</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="107"/>
         <source>Shortuct</source>
-        <translation>Skrót</translation>
+        <translation>Kısa Yol</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="123"/>
         <source>Reset to default</source>
-        <translation>Resetuj do wartości domyślnej</translation>
+        <translation>Öntanımlı değerlere çevir</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="126"/>
         <source>Reset</source>
-        <translation>Zresetuj</translation>
+        <translation>Sıfırla</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="139"/>
         <source>Clear</source>
-        <translation>Wyczyść</translation>
+        <translation>Temizle</translation>
     </message>
 </context>
 <context>
@@ -511,12 +510,12 @@ Czy chcesz kontynuować?</translation>
     <message>
         <location filename="../../Form_Files/PLanguageWidget.ui" line="14"/>
         <source>Language</source>
-        <translation>Język</translation>
+        <translation>Dil</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PLanguageWidget.ui" line="22"/>
         <source>Default meta editor language</source>
-        <translation>Domyślny język meta edytora</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -524,127 +523,127 @@ Czy chcesz kontynuować?</translation>
     <message>
         <location filename="../../Form_Files/main.ui" line="14"/>
         <source>untitled.epub[*] - Sigil</source>
-        <translation>beztytułu.epub[*] - Sigil</translation>
+        <translation>isimsiz.epub[*] - Sigil</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="49"/>
         <source>&amp;File</source>
-        <translation>&amp;Plik</translation>
+        <translation>&amp;Dosya</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="53"/>
         <source>New</source>
-        <translation>Nowy</translation>
+        <translation>Yeni</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="77"/>
         <source>&amp;Edit</source>
-        <translation>&amp;Edytuj</translation>
+        <translation>D&amp;üzenle</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="81"/>
         <source>Find / Replace</source>
-        <translation>Znajdź / Zamień</translation>
+        <translation>Bul / Değiştir</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="113"/>
         <source>&amp;Help</source>
-        <translation>Pomo&amp;c</translation>
+        <translation>&amp;Yardım</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="125"/>
         <source>For&amp;mat</source>
-        <translation>For&amp;matuj</translation>
+        <translation>&amp;Biçim</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="129"/>
         <location filename="../../Form_Files/main.ui" line="279"/>
         <source>Heading</source>
-        <translation>Nagłówek</translation>
+        <translation>Başlık</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="161"/>
         <source>&amp;View</source>
-        <translation>W&amp;idok</translation>
+        <translation>&amp;Görünüm</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="165"/>
         <source>Toolbars</source>
-        <translation>Belka Narzędziowa</translation>
+        <translation>Araç çubuğu</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="180"/>
         <source>&amp;Tools</source>
-        <translation>&amp;Narzędzia</translation>
+        <translation>&amp;Araçlar</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="187"/>
         <source>&amp;Window</source>
-        <translation>&amp;Okno</translation>
+        <translation>&amp;Pencere</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="206"/>
         <source>File</source>
-        <translation>Plik</translation>
+        <translation>Dosya</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="221"/>
         <source>Edit</source>
-        <translation>Edytuj</translation>
+        <translation>Düzenle</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="240"/>
         <source>View</source>
-        <translation>Widok</translation>
+        <translation>Görünüm</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="254"/>
         <source>Insert</source>
-        <translation>Wstaw</translation>
+        <translation>Ekle</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="267"/>
         <source>Donate</source>
-        <translation>Wspomórz</translation>
+        <translation>Bağış yap</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="290"/>
         <source>Format</source>
-        <translation>Formatuj</translation>
+        <translation>Biçimlendirme</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="305"/>
         <source>Align</source>
-        <translation>Ustawienie</translation>
+        <translation>Yerleşim</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="320"/>
         <source>List</source>
-        <translation>Lista</translation>
+        <translation>Liste</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="333"/>
         <source>Indent</source>
-        <translation>Wcięcie</translation>
+        <translation>Girinti</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="346"/>
         <source>Quick Settings</source>
-        <translation>Szybkie Ustawienia</translation>
+        <translation>Basit Ayarlar</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="364"/>
         <source>&amp;New Book</source>
-        <translation>&amp;Nowa Książka</translation>
+        <translation>Y&amp;eni Kitap</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="367"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;New&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Create a new book.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Nowa&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt; &lt;b&gt;Yeni&lt;/b&gt; &lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Stwórz nową książkę.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt; Yeni kitap oluşturun. &lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="372"/>
@@ -654,16 +653,16 @@ Czy chcesz kontynuować?</translation>
     <message>
         <location filename="../../Form_Files/main.ui" line="381"/>
         <source>&amp;Save</source>
-        <translation>Zapi&amp;sz</translation>
+        <translation>&amp;Kaydet</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="384"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Save&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Save the current book.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Zapisz&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt; &lt;b&gt;Kaydet&lt;/b&gt; &lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Zapisz bieżącą książkę.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt; Açık kitabı kaydedin.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="389"/>
@@ -673,16 +672,16 @@ Czy chcesz kontynuować?</translation>
     <message>
         <location filename="../../Form_Files/main.ui" line="398"/>
         <source>Save &amp;As...</source>
-        <translation>Zapisz J&amp;ako...</translation>
+        <translation>&amp;Farklı Kaydet</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="401"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Save As&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Save the current book with a different filename.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Zapisz jako&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt; &lt;b&gt;Farklı Kaydet&lt;/b&gt; &lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Zapisz bieżącą książkę pod inną nazwą.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Açık kitabı farklı bir dosya adı ile kaydedin.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="406"/>
@@ -692,16 +691,15 @@ Czy chcesz kontynuować?</translation>
     <message>
         <location filename="../../Form_Files/main.ui" line="415"/>
         <source>Cu&amp;t</source>
-        <translation>Wy&amp;tnij</translation>
+        <translation>Ke&amp;s</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="418"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Cut&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Cuts the selection from the text and puts it on the clipboard.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Wytnij&lt;/b&gt;&lt;/p&gt;
-
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Wycina zaznaczony fragment tekstu i umieszcza go w schowku.&lt;/p&gt;</translation>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt; &lt;b&gt;Kes&lt;/b&gt; &lt;/p&gt;
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt; Seçili metni keser ve belleğe saklar.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="423"/>
@@ -711,16 +709,16 @@ Czy chcesz kontynuować?</translation>
     <message>
         <location filename="../../Form_Files/main.ui" line="432"/>
         <source>&amp;Paste</source>
-        <translation>Wkle&amp;j</translation>
+        <translation>Ya&amp;pıştır</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="435"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Paste&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Pastes the content from the clipboard into the book.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Wklej&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt; &lt;b&gt;Yapıştır&lt;/b&gt; &lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Wkleja zawartość ze schowka do książki.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt; Bellekteki içeriği kitaba yapıştırır.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="440"/>
@@ -730,16 +728,16 @@ Czy chcesz kontynuować?</translation>
     <message>
         <location filename="../../Form_Files/main.ui" line="449"/>
         <source>&amp;Undo</source>
-        <translation>Cofn&amp;ij</translation>
+        <translation>&amp;Geri Al</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="452"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Undo&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Reverts the changes of the previous operation.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Cofnij&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Geri al&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Wycofuje zmiany wykonane przez poprzednią operację.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Son gerçekleştirilen işlemle yapılan değişiklikleri önceki haline getirir.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="457"/>
@@ -749,16 +747,16 @@ Czy chcesz kontynuować?</translation>
     <message>
         <location filename="../../Form_Files/main.ui" line="466"/>
         <source>&amp;Redo</source>
-        <translation>Ponó&amp;w</translation>
+        <translation>Y&amp;enile</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="469"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Redo&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Restores the changes reverted by the previous Undo action.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Ponów&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Yinele&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Ponawia zmiany wycofane akcją Cofnij&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Geri alma işlemiyle etkisiz hale getirilen değişiklikleri yeniden uygular.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="474"/>
@@ -768,16 +766,16 @@ Czy chcesz kontynuować?</translation>
     <message>
         <location filename="../../Form_Files/main.ui" line="483"/>
         <source>&amp;Copy</source>
-        <translation>K&amp;opiuj</translation>
+        <translation>&amp;Kopyala</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="486"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Copy&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Copies the selection and puts it on the clipboard.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Kopiuj&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Kopyala&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Kopiuje zaznaczony tekst do schowka.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Seçili içeriği pano aracına (belleğe) kopyalar.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="491"/>
@@ -787,16 +785,16 @@ Czy chcesz kontynuować?</translation>
     <message>
         <location filename="../../Form_Files/main.ui" line="500"/>
         <source>Align &amp;Left</source>
-        <translation>Wyrównaj do &amp;Lewej</translation>
+        <translation>So&amp;la Hizala</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="503"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Align Text Left&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Align text to the left.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Wyrównanie do lewej&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Sola Hizala&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Wyrównuje tekst do lewej krawędzi.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Metni alanın sol yanına hizalar.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="508"/>
@@ -806,16 +804,16 @@ Czy chcesz kontynuować?</translation>
     <message>
         <location filename="../../Form_Files/main.ui" line="517"/>
         <source>Align &amp;Right</source>
-        <translation>Wyrównaj Do P&amp;rawej</translation>
+        <translation>S&amp;ağa Hizala</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="520"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Align Text Right&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Align text to the right.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Wyrównaj do prawej&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Sağa Hizala&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Wyrównuje tekst do prawej krawędzi.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Metni alanın sağ yanına hizalar.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="525"/>
@@ -825,16 +823,16 @@ Czy chcesz kontynuować?</translation>
     <message>
         <location filename="../../Form_Files/main.ui" line="534"/>
         <source>&amp;Center</source>
-        <translation>&amp;Centruj</translation>
+        <translation>&amp;Ortala</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="537"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Center&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Center text.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Wypośrodkuj&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Ortala&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Wypośrodkowuje tekst.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Metni alanda ortalar.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="542"/>
@@ -844,16 +842,16 @@ Czy chcesz kontynuować?</translation>
     <message>
         <location filename="../../Form_Files/main.ui" line="551"/>
         <source>&amp;Justify</source>
-        <translation>Wy&amp;justuj</translation>
+        <translation>İki yana &amp;hizala</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="554"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Justify&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Align the text to both the left and right margins.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Wyjustuj&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;İki yana hizala&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Wyrównaj tekst do prawego i lewego marginesu.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Metnin her iki kenarını alana göre blok olarak hizalar.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="559"/>
@@ -863,16 +861,16 @@ Czy chcesz kontynuować?</translation>
     <message>
         <location filename="../../Form_Files/main.ui" line="571"/>
         <source>&amp;Bold</source>
-        <translation>Pogru&amp;bienie</translation>
+        <translation>&amp;Kalın</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="574"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Bold&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Makes the selected text bold.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Pogrubienie&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Kalın&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Pogrubia zaznaczony tekst.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Seçili metnin harflerini kalınlaştırır.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="579"/>
@@ -882,16 +880,16 @@ Czy chcesz kontynuować?</translation>
     <message>
         <location filename="../../Form_Files/main.ui" line="591"/>
         <source>&amp;Italic</source>
-        <translation>Pochylen&amp;ie</translation>
+        <translation>&amp;Yatık</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="594"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Italic&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Makes the selected text italic.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Pochylenie&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Yatık&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Pochyla zaznaczony tekst.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Seçili metni yatık harflerle yazar.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="599"/>
@@ -901,16 +899,16 @@ Czy chcesz kontynuować?</translation>
     <message>
         <location filename="../../Form_Files/main.ui" line="608"/>
         <source>&amp;Open...</source>
-        <translation>&amp;Otwórz...</translation>
+        <translation>&amp;Aç...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="611"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Open&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Open a book from disk.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Otwórz&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Aç&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Otwiera plik z dysku.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Diskten seçilen kitabı açar.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="616"/>
@@ -920,16 +918,16 @@ Czy chcesz kontynuować?</translation>
     <message>
         <location filename="../../Form_Files/main.ui" line="628"/>
         <source>&amp;Underline</source>
-        <translation>Podkreś&amp;lenie</translation>
+        <translation>Altı &amp;Çizili</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="631"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Underline&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Underlines the selected text.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Podkreślenie&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Altı çizili&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Podkreśla zaznaczony tekst.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Seçilen metnin altını çizer.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="636"/>
@@ -939,12 +937,12 @@ Czy chcesz kontynuować?</translation>
     <message>
         <location filename="../../Form_Files/main.ui" line="645"/>
         <source>Quit</source>
-        <translation>Wyjście</translation>
+        <translation>Çık</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="648"/>
         <source>Exit</source>
-        <translation>Wyjście</translation>
+        <translation>Çıkış</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="651"/>
@@ -954,22 +952,22 @@ Czy chcesz kontynuować?</translation>
     <message>
         <location filename="../../Form_Files/main.ui" line="660"/>
         <source>&amp;About...</source>
-        <translation>&amp;O...</translation>
+        <translation>&amp;Hakkında...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="663"/>
         <source>About</source>
-        <translation>O programie</translation>
+        <translation>Hakkında</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="668"/>
         <source>&amp;Meta Editor...</source>
-        <translation>Edytor &amp;Metadanych...</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="671"/>
         <source>Meta information editor</source>
-        <translation>Informacje edytora metadanych</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="674"/>
@@ -979,16 +977,16 @@ Czy chcesz kontynuować?</translation>
     <message>
         <location filename="../../Form_Files/main.ui" line="686"/>
         <source>&amp;Book View</source>
-        <translation>&amp;Widok książki</translation>
+        <translation>&amp;Kitap Görünümü</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="689"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Book View&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Book View displays your book the way it would appear on different Reading Systems.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Widok książki&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Kitap Görünümü&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Widok książki pokazuję twoją książkę w sposób w jaki jest ona widoczna w innych edytorach/czytnikach.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Kitap Görünümü, hazırladığınız kitabın okuyucularda görüneceği şekilde izlenmesini sağlar.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="694"/>
@@ -998,7 +996,7 @@ Czy chcesz kontynuować?</translation>
     <message>
         <location filename="../../Form_Files/main.ui" line="706"/>
         <source>&amp;Split View</source>
-        <translation>Widok z podział&amp;em</translation>
+        <translation>&amp;Bölünmüş Görünüm</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="709"/>
@@ -1007,11 +1005,11 @@ Czy chcesz kontynuować?</translation>
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Split View displays your book in two different ways: the Book View way in the top pane, and the Code View way in the bottom one. &lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;The bar dividing the two panes can be moved.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Widok z podziałem&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Bölünmüş Görünüm&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Widok z podziałem wyświetla twoją książkę na dwa różne spsoby:.Widok książki w górnej części oraz Widok kodu w dolnej &lt;/p&gt;
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Bölünmüş Görünüm kitabınızı iki ayrı şekilde görmeyi sağlar. Üst bölmede Kitap Görünümü, alt bölmede Kod Görünümü ile çalışabilirsiniz.&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Krawędź podziału dwóch widoków można przesuwać.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;İki bölmeyi ayıran çizgi taşınarak bölme büyüklükleri değiştirilebilir.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="716"/>
@@ -1021,7 +1019,7 @@ Czy chcesz kontynuować?</translation>
     <message>
         <location filename="../../Form_Files/main.ui" line="728"/>
         <source>&amp;Code View</source>
-        <translation>Widok &amp;Kodu</translation>
+        <translation>K&amp;od Görünümü</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="731"/>
@@ -1030,11 +1028,11 @@ Czy chcesz kontynuować?</translation>
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Code View displays the XHTML and CSS source code that define the way your book looks like.&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Reading Systems will use this code to display it the way Book View does.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Widok kodu&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Kod Görünümü&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Widok kodu wyświetla pliki źródłowe XHTML oraz CSS które definiują sposób wyświetlania książki.&lt;/p&gt;
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Kod Görünümü kitabınızın görünümünü şekillendiren XHTML ve CSS kaynak kodu görüntüler.&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Inne edytory/czytniki książkę użyją tego kodu by wyświetlić go tak jak to robi Widok książki.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Okuyucular bu kodu kullanarak içeriğin Kitap Görünümünde karşılaştığınız şekilde sunulmasını sağlar.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="738"/>
@@ -1044,7 +1042,7 @@ Czy chcesz kontynuować?</translation>
     <message>
         <location filename="../../Form_Files/main.ui" line="747"/>
         <source>Split Chapter</source>
-        <translation>Podziel Części</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="750"/>
@@ -1053,19 +1051,17 @@ Czy chcesz kontynuować?</translation>
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Splits the current chapter in two.&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Do this often and where appropriate.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Wydziel nowy rozdział&lt;/b&gt;&lt;/p&gt;
-
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Dzieli bieżący rozdział na dwa.&lt;/p&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="757"/>
         <source>Ctrl+Return</source>
-        <translation>Ctrl+Enter</translation>
+        <translation>Ctrl+Return</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="766"/>
         <source>Insert Image...</source>
-        <translation>Wstaw Obraz...</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="769"/>
@@ -1073,10 +1069,7 @@ Czy chcesz kontynuować?</translation>
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Choose an image from the disk and insert it into the text.&lt;/p&gt;
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;You can select and thus insert multiple images at once.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Wstaw obrazek&lt;/b&gt;&lt;/p&gt;
-
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Wybierz obrazek z dysku i wstaw go w tekst.&lt;/p&gt;
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Można zaznaczać i wstawiać wiele obrazków na raz.&lt;/p&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="775"/>
@@ -1086,16 +1079,16 @@ Czy chcesz kontynuować?</translation>
     <message>
         <location filename="../../Form_Files/main.ui" line="787"/>
         <source>&amp;Numbered List</source>
-        <translation>Lista &amp;Numerowana</translation>
+        <translation>&amp;Numaralandırılmış Liste</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="790"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Numbering&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Create a numbered list.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Lista numerowana&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Numaralama&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Stwórz liste numerowaną.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Numaralandırılmış liste yarat.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="795"/>
@@ -1105,16 +1098,16 @@ Czy chcesz kontynuować?</translation>
     <message>
         <location filename="../../Form_Files/main.ui" line="807"/>
         <source>Bulle&amp;ted List</source>
-        <translation>Lista Wypunk&amp;towana</translation>
+        <translation>&amp;Maddelenmiş Liste</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="810"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Bullets&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Create a bulleted list.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Wypunktowanie&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Maddeleme&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Stwórz listę wypunktowaną.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Maddeler halinde liste yarat.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="815"/>
@@ -1124,16 +1117,16 @@ Czy chcesz kontynuować?</translation>
     <message>
         <location filename="../../Form_Files/main.ui" line="827"/>
         <source>Strike&amp;through</source>
-        <translation>P&amp;rzekreślenie</translation>
+        <translation>Üstü &amp;çizili</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="830"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Strikethrough&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Draws a line through the selected text.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Przekreślenie&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Üstü çizili&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Przekreśla zaznaczony tekst.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Seçilen metnin üzerini çizer.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="835"/>
@@ -1143,12 +1136,12 @@ Czy chcesz kontynuować?</translation>
     <message>
         <location filename="../../Form_Files/main.ui" line="844"/>
         <source>&amp;Print...</source>
-        <translation>Dr&amp;ukuj...</translation>
+        <translation>&amp;Yazdır...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="847"/>
         <source>Print</source>
-        <translation>Drukuj</translation>
+        <translation>Yazdır</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="850"/>
@@ -1158,12 +1151,12 @@ Czy chcesz kontynuować?</translation>
     <message>
         <location filename="../../Form_Files/main.ui" line="859"/>
         <source>Print Pre&amp;view...</source>
-        <translation>Podgląd &amp;wydruku...</translation>
+        <translation>Yazdı&amp;rma Önizleme...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="862"/>
         <source>Print Preview</source>
-        <translation>Podgląd wydruku</translation>
+        <translation>Yazdırma Önizleme</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="865"/>
@@ -1174,7 +1167,7 @@ Czy chcesz kontynuować?</translation>
         <location filename="../../Form_Files/main.ui" line="870"/>
         <location filename="../../Form_Files/main.ui" line="873"/>
         <source>Close</source>
-        <translation>Zamknij</translation>
+        <translation>Kapat</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="876"/>
@@ -1184,12 +1177,12 @@ Czy chcesz kontynuować?</translation>
     <message>
         <location filename="../../Form_Files/main.ui" line="885"/>
         <source>Zoom &amp;In</source>
-        <translation>Pow&amp;iększenie</translation>
+        <translation>&amp;Yakınlaş</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="888"/>
         <source>Zoom In</source>
-        <translation>Powiększenie</translation>
+        <translation>Yakınlaş</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="891"/>
@@ -1199,12 +1192,12 @@ Czy chcesz kontynuować?</translation>
     <message>
         <location filename="../../Form_Files/main.ui" line="900"/>
         <source>Zoom &amp;Out</source>
-        <translation>P&amp;omniejszenie</translation>
+        <translation>&amp;Uzaklaş</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="903"/>
         <source>Zoom Out</source>
-        <translation>Pomniejszenie</translation>
+        <translation>Uzaklaş</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="906"/>
@@ -1214,16 +1207,16 @@ Czy chcesz kontynuować?</translation>
     <message>
         <location filename="../../Form_Files/main.ui" line="915"/>
         <source>&amp;Find / Replace...</source>
-        <translation>Znaj&amp;dź / Zamień...</translation>
+        <translation>&amp;Bul / Değiştir...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="918"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Find &amp;amp; Replace&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Find and replace text in the document.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Znajdź &amp;amp; Zamień&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Bul &amp;amp; Değiştir&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Szuka i zamienia tekst w dokumencie.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Belge içinde bir metni bulup değiştirmeye yarar.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="923"/>
@@ -1233,16 +1226,16 @@ Czy chcesz kontynuować?</translation>
     <message>
         <location filename="../../Form_Files/main.ui" line="932"/>
         <source>Increase Indent</source>
-        <translation>Zwiększ wcięcie</translation>
+        <translation>Girintiyi Artır</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="935"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Increase Indent&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Increase the indent level of the paragraph.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Zwiększ wcięcie&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Girintiyi Artır&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Zwiększ poziom wcięcia paragrafu.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Paragrafların girinti oranını artırır.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="940"/>
@@ -1252,16 +1245,16 @@ Czy chcesz kontynuować?</translation>
     <message>
         <location filename="../../Form_Files/main.ui" line="949"/>
         <source>Decrease Indent</source>
-        <translation>Zmniejsz wcięcie</translation>
+        <translation>Girintiyi azalt</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="952"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Decrease Indent&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Decrease the indent level of the paragraph.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Zmniejsz wcięcie&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Girintiyi Azalt&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Zmniejsz wcięcie paragrafu.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Paragrafların girinti oranını azaltır.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="957"/>
@@ -1271,27 +1264,27 @@ Czy chcesz kontynuować?</translation>
     <message>
         <location filename="../../Form_Files/main.ui" line="962"/>
         <source>Remove Formatting</source>
-        <translation>Usuń formatowanie</translation>
+        <translation>Biçimlendirmeyi Kaldır</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="965"/>
         <source>Ctrl+Space</source>
-        <translation>Ctrl+Spacja</translation>
+        <translation>Ctrl+Space</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="970"/>
         <source>&amp;Report An Issue...</source>
-        <translation>Zgłoś p&amp;roblem...</translation>
+        <translation>&amp;Sorun Bildir...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="975"/>
         <source>Sigil Dev &amp;Blog...</source>
-        <translation>&amp;Blog Twórcy Sigil&apos;a...</translation>
+        <translation>Sigil Geliştirici &amp;Blogu...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="980"/>
         <source>&amp;Next Tab</source>
-        <translation>&amp;Następna Zakładka</translation>
+        <translation>Son&amp;raki Sekme</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="983"/>
@@ -1301,7 +1294,7 @@ Czy chcesz kontynuować?</translation>
     <message>
         <location filename="../../Form_Files/main.ui" line="988"/>
         <source>&amp;Previous Tab</source>
-        <translation>&amp;Poprzednia Zakładka</translation>
+        <translation>&amp;Önceki Sekme</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="991"/>
@@ -1311,7 +1304,7 @@ Czy chcesz kontynuować?</translation>
     <message>
         <location filename="../../Form_Files/main.ui" line="996"/>
         <source>&amp;Close Tab</source>
-        <translation>&amp;Zamknij Zakładkę</translation>
+        <translation>&amp;Sekmeyi Kapat</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="999"/>
@@ -1321,12 +1314,12 @@ Czy chcesz kontynuować?</translation>
     <message>
         <location filename="../../Form_Files/main.ui" line="1004"/>
         <source>Split at Chapter Markers</source>
-        <translation>Podziel na Znacznikach Rozdziałów</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1007"/>
         <source>Split On Sigil Chapter Markers</source>
-        <translation>Podziel na Znacznikach Rozdziałów Sigil&apos;a</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1010"/>
@@ -1336,42 +1329,42 @@ Czy chcesz kontynuować?</translation>
     <message>
         <location filename="../../Form_Files/main.ui" line="1015"/>
         <source>Insert Chapter Marker</source>
-        <translation>Wstaw Znacznik Rozdziału</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1018"/>
         <source>Insert Sigil Chapter Marker</source>
-        <translation>Wstaw Znacznik Rozdziału Sigil&apos;a</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1021"/>
         <source>Ctrl+Shift+Return</source>
-        <translation>Ctrl+Shift+Enter</translation>
+        <translation>Ctrl+Shift+Return</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1026"/>
         <source>User &amp;Manual...</source>
-        <translation>Przewod&amp;nik Użytkownika...</translation>
+        <translation>&amp;Kullanım Kılavuzu</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1029"/>
         <source>User Manual</source>
-        <translation>Przewodnik użytkownika</translation>
+        <translation>Kullanım Kılavuzu</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1034"/>
         <source>&amp;Frequently Asked Questions...</source>
-        <translation>Najczęściej Zadawan&amp;e Pytania...</translation>
+        <translation>S&amp;ık Sorulan Sorular...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1037"/>
         <source>Frequently Asked Questions</source>
-        <translation>Najczęściej zadawane pytania</translation>
+        <translation>Sık Sorulan Sorular</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1049"/>
         <source>&amp;Cleaning With HTML Tidy</source>
-        <translation>Wy&amp;czyść używajać HTML Tidy</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1052"/>
@@ -1380,11 +1373,7 @@ Czy chcesz kontynuować?</translation>
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;If this option is checked, then your HTML content documents will be cleaned with Tidy's &quot;clean&quot; option when first opened (as part of an epub or individually) and when saved. The current document will also be cleaned when going between different Views. &lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;When the option is unchecked, only the most basic error-correcting passes are performed to ensure that your documents are valid XHTML.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Wyczyść używając HTML Tidy&lt;/b&gt;&lt;/p&gt;
-
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Jeżeli ta opcja jest zaznaczona, treść twojego pliku HTML będzie czyszczona przy pomocy Tidy gdy plik zostanie otwarty, zapisany lub gdy będziesz przłączał się miedzy widokami. &lt;/p&gt;
-
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Gdy ta opcja jest wyłączona, tylko podstawowe sprawdzenie błędów będzie wykonane by upewnić się że dokument jest prawidłowym plikiem XHTML.&lt;/p&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1059"/>
@@ -1394,16 +1383,16 @@ Czy chcesz kontynuować?</translation>
     <message>
         <location filename="../../Form_Files/main.ui" line="1068"/>
         <source>&amp;Validate Epub</source>
-        <translation>Spra&amp;wdź plik Epub</translation>
+        <translation>Epub &amp;Doğrulama</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1071"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Validate Epub&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Performs epub validation using the FlightCrew validator.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Sprawdź plik Epub&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Epub Doğrulama&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Wykonuje walidację pliku epub wykorzystując walidator FlightCrew.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;FlightCrew doğrulayıcıdan yararlanarak epub standartlarına uygunluk denetimi yapar.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1076"/>
@@ -1413,7 +1402,7 @@ Czy chcesz kontynuować?</translation>
     <message>
         <location filename="../../Form_Files/main.ui" line="1085"/>
         <source>&amp;Donate...</source>
-        <translation>Wspo&amp;mórz...</translation>
+        <translation>&amp;Bağış Yap</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1088"/>
@@ -1421,14 +1410,15 @@ Czy chcesz kontynuować?</translation>
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Your donations keep the project going!&lt;/p&gt;
 </source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Ofiaruj dotację na rozwój Sigila&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Sigil projesine bağış yapın&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Your donations keep the project going!&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Bağışlarınız projenin aktif olarak sürdürülmesini sağlıyor!&lt;/p&gt;
+</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1096"/>
         <source>Close Other Tabs</source>
-        <translation>Zamknij Inne Zakładki</translation>
+        <translation>Diğer Sekmeleri Kapat</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1099"/>
@@ -1438,7 +1428,7 @@ Czy chcesz kontynuować?</translation>
     <message>
         <location filename="../../Form_Files/main.ui" line="1104"/>
         <source>Go To Line...</source>
-        <translation>Idź do lini...</translation>
+        <translation>Satıra Git...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1107"/>
@@ -1448,7 +1438,7 @@ Czy chcesz kontynuować?</translation>
     <message>
         <location filename="../../Form_Files/main.ui" line="1119"/>
         <source>Check For Well-Formed Errors</source>
-        <translation>Sprawdź pod kątem błędów niepoprawnego formatowania</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1122"/>
@@ -1457,26 +1447,22 @@ Czy chcesz kontynuować?</translation>
 &lt;p style=&quot; padding-top: 0.5em;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Checking for well-formed errors&lt;/span&gt; &lt;/p&gt;
 &lt;p style=&quot; margin-left: 0.5em;&quot;&gt;If this option is checked, then your XML and HTML content documents will be checked for structural errors. When changing from the code view you will be presented with a dialog asking to either auto or manually fix the issue. If manual fix is selected the cursor in will be placed on the line where there is an error in the code view.&lt;/p&gt;
 &lt;p style=&quot; margin-left: 0.5em;&quot;&gt;When the option is unchecked no error checking is preformed. This can lead to significant data loss as all errors will be auto fixed.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;/head&gt;&lt;body&gt;
-&lt;p style=&quot; padding-top: 0.5em;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Sprawdź pod kątem błędów niepoprawnego formatowania&lt;/span&gt; &lt;/p&gt;
-&lt;p style=&quot; margin-left: 0.5em;&quot;&gt;Jeżei ta opcja jest zaznaczona, pliki XML oraz HTML zostaną sprawdzone pod kątem poprawności strukturalnej. Podczas zmiany widoku (z widoku kodu) pokaże się okno dialogowe z pytaniem o wybór korekty dokumentu - automatycznie bądź ręcznie. Jeżeli zostanie wybrana opcja 'ręczna', w widoku kodu kursor zostanie ustawiony w miejscu gdzie znaleziono błąd.&lt;/p&gt;
-&lt;p style=&quot; margin-left: 0.5em;&quot;&gt;Jeżeli ta opcja nie jest zaznaczona, nie zostanie wykonane sprawdzanie poprawności. To może sprawić poważną utratę danych, ponieważ wszystkie błędy będą usunięte automatycznie.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1131"/>
         <source>Find Next</source>
-        <translation>Znajdź następne</translation>
+        <translation>Sonrakini Bul</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1134"/>
         <source>Ctrl+G</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+G</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1139"/>
         <source>Find Previous</source>
-        <translation>Znajdź poprzednie</translation>
+        <translation>Öncekini Bul</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1142"/>
@@ -1486,7 +1472,7 @@ Czy chcesz kontynuować?</translation>
     <message>
         <location filename="../../Form_Files/main.ui" line="1147"/>
         <source>Replace Next</source>
-        <translation>Zastąp Następne</translation>
+        <translation>Sonrakini Değiştir</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1150"/>
@@ -1496,7 +1482,7 @@ Czy chcesz kontynuować?</translation>
     <message>
         <location filename="../../Form_Files/main.ui" line="1155"/>
         <source>Replace Previous</source>
-        <translation>Zastąp Poprzednie</translation>
+        <translation>Öncekini Değiştir</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1158"/>
@@ -1506,13 +1492,13 @@ Czy chcesz kontynuować?</translation>
     <message>
         <location filename="../../Form_Files/main.ui" line="1163"/>
         <source>Preferences</source>
-        <translation>Preferencje</translation>
+        <translation>Tercihler</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1168"/>
         <location filename="../../Form_Files/main.ui" line="1171"/>
         <source>Zoom Reset</source>
-        <translation>Resetuj Powiększenie</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1174"/>
@@ -1522,7 +1508,7 @@ Czy chcesz kontynuować?</translation>
     <message>
         <location filename="../../Form_Files/main.ui" line="1182"/>
         <source>Style with heading 1</source>
-        <translation>Styl z nagłówkiem 1</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1185"/>
@@ -1532,7 +1518,7 @@ Czy chcesz kontynuować?</translation>
     <message>
         <location filename="../../Form_Files/main.ui" line="1193"/>
         <source>Style with heading 2</source>
-        <translation>Styl z nagłówkiem 2</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1196"/>
@@ -1542,7 +1528,7 @@ Czy chcesz kontynuować?</translation>
     <message>
         <location filename="../../Form_Files/main.ui" line="1204"/>
         <source>Style with heading 3</source>
-        <translation>Styl z nagłówkiem 3</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1207"/>
@@ -1552,7 +1538,7 @@ Czy chcesz kontynuować?</translation>
     <message>
         <location filename="../../Form_Files/main.ui" line="1215"/>
         <source>Style with heading 4</source>
-        <translation>Styl z nagłówkiem 4</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1218"/>
@@ -1562,7 +1548,7 @@ Czy chcesz kontynuować?</translation>
     <message>
         <location filename="../../Form_Files/main.ui" line="1226"/>
         <source>Style with heading 5</source>
-        <translation>Styl z nagłówkiem 5</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1229"/>
@@ -1572,7 +1558,7 @@ Czy chcesz kontynuować?</translation>
     <message>
         <location filename="../../Form_Files/main.ui" line="1237"/>
         <source>Style with heading 6</source>
-        <translation>Styl z nagłówkiem 6</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1240"/>
@@ -1582,7 +1568,7 @@ Czy chcesz kontynuować?</translation>
     <message>
         <location filename="../../Form_Files/main.ui" line="1248"/>
         <source>Style as normal text</source>
-        <translation>Styl jako normalny tekst</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1251"/>
@@ -1592,37 +1578,37 @@ Czy chcesz kontynuować?</translation>
     <message>
         <location filename="../../Form_Files/main.ui" line="1256"/>
         <source>Blank Section</source>
-        <translation>Pusta Sekcja</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1261"/>
         <source>Insert Existing File...</source>
-        <translation>Wstaw Istniejący Plik...</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1266"/>
         <source>Blank Stylesheet</source>
-        <translation>Pusty Arkusz Stylów</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="236"/>
         <source>Open File</source>
-        <translation>Otwórz Plik</translation>
+        <translation>Dosya Aç</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="338"/>
         <source>Save File</source>
-        <translation>Zapisz Plik</translation>
+        <translation>Dosyayı Kaydet</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="366"/>
         <source>Go To Line</source>
-        <translation>Idź Do Linii</translation>
+        <translation>Satıra Git</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="366"/>
         <source>Line #</source>
-        <translation>Linia #</translation>
+        <translation>Satır #</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="406"/>
@@ -1634,105 +1620,104 @@ Czy chcesz kontynuować?</translation>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="407"/>
         <source>There are no images to add.</source>
-        <translation>Nie ma obrazu do dodania.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="700"/>
         <source>Line: %1, Col: %2</source>
-        <translation>Linia: %1 Kolumna:%2</translation>
+        <translation>Satır: %1, Sütun: %2</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="782"/>
         <source>Chapter split. You may need to update the Table of Contents.</source>
-        <translation>Wydzielenie rozdziałów. Może być potrzebne zaktualizowanie spisu treści.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="791"/>
         <source>Chapters split. You may need to update the Table of Contents.</source>
-        <translation>Wydzielenie rozdziałów. Może być potrzebne zaktualizowanie spisu treści.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="887"/>
         <source>The document has been modified.
 Do you want to save your changes?</source>
-        <translation>Dokument został zmieniony.
-Czy chcesz zapisać swoje zmiany?</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="959"/>
         <source>File loaded</source>
-        <translation>Plik załadowny</translation>
+        <translation>Dosya yüklendi</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="967"/>
         <source>The creator of this file has encrypted it with DRM. Sigil cannot open such files.</source>
-        <translation>Twórca tego pliku zaszyfrował go przy pomocy technologi DRM. Sigil nie może odczytać takich plików.</translation>
+        <translation>Dosyanın yaratıcısı DRM koruması kullanmış. Sigil bu tür dosyaları açamaz.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="976"/>
         <source>Sigil was unable to load your file.</source>
-        <translation>Sigil nie móg załadować pliku.</translation>
+        <translation>Sigil seçtiğiniz dosyayı yükleyemedi.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="984"/>
         <source>Cannot load file %1: %2</source>
-        <translation>Nie można załadować pliku %1: %2</translation>
+        <translation>%1 dosyası yüklenemedi: %2</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1002"/>
         <source>Sigil currently cannot save files of type &quot;%1&quot;.
 Please choose a different format.</source>
-        <translation>Obecnie Sigil nie może zapisywać plików typu &quot;%1&quot;.
-Proszę wybrać inny format.</translation>
+        <translation>Sigil &quot;%1&quot; biçimli dosya kaydedemiyor.
+Lütfen başka bir biçim seçin.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1026"/>
         <source>File saved</source>
-        <translation>Plik zapisany</translation>
+        <translation>Dosya kaydedildi</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1039"/>
         <source>Sigil cannot save file: &quot;%1&quot;
 It is currently in use in a different application.</source>
-        <translation>Sigil nie może zapisać pliku: &quot;%1&quot;
-Plik jest obecnie używany przez inną aplikację.</translation>
+        <translation>Sigil &quot;%1&quot; dosyasını kaydedemedi
+Bu dosya başka bir uygulama tarafından kullanılıyor.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1048"/>
         <source>Sigil was unable to save your file.</source>
-        <translation>Sigil nie mógł zapisać twojego pliku.</translation>
+        <translation>Sigil dosyanızı kaydedemedi.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1057"/>
         <source>Cannot save file %1: %2</source>
-        <translation>Nie można zapisać pliku %1: %2</translation>
+        <translation>%1 dosyası kaydedilemedi: %2</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1165"/>
         <source>EPUB files (*.epub)</source>
-        <translation>Pliki EPUB (*.epub)</translation>
+        <translation>EPUB dosyaları (*.epub)</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1166"/>
         <location filename="../../MainUI/MainWindow.cpp" line="1167"/>
         <location filename="../../MainUI/MainWindow.cpp" line="1168"/>
         <source>HTML files (*.htm *.html *.xhtml)</source>
-        <translation>Pliki HTML (*.htm *.html *.xhtml)</translation>
+        <translation>HTML dosyaları (*.htm *.html *.xhtml)</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1169"/>
         <source>Text files (*.txt)</source>
-        <translation>Pliki tekstowe (*.txt)</translation>
+        <translation>Metin dosyaları (*.txt)</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1170"/>
         <source>All files (*.*)</source>
-        <translation>Wszystkie pliki (*.*)</translation>
+        <translation>Tüm dosyalar (*.*)</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1180"/>
         <source>EPUB file (*.epub)</source>
-        <translation>Plik EPUB (*.epub)</translation>
+        <translation>EPUB dosyası (*.epub)</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1220"/>
@@ -1750,68 +1735,68 @@ Plik jest obecnie używany przez inną aplikację.</translation>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="20"/>
         <source>Meta Editor</source>
-        <translation>Edytor Metadanych</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="36"/>
         <source>Title:</source>
-        <translation>Tytuł:</translation>
+        <translation>Başlık:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="53"/>
         <source>Author:</source>
-        <translation>Autor:</translation>
+        <translation>Yazar:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="70"/>
         <source>Language:</source>
-        <translation>Język:</translation>
+        <translation>Dil:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="137"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="99"/>
         <source>More</source>
-        <translation>Więcej</translation>
+        <translation>Devamı</translation>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="180"/>
         <source>Add Basic</source>
-        <translation>Dodaj podstawowe</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="187"/>
         <source>Add Adv.</source>
-        <translation>Dodaj zaawans.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="194"/>
         <source>Remove</source>
-        <translation>Usuń</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="64"/>
         <source>English</source>
-        <translation>Angielski</translation>
+        <translation>İngilizce</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="116"/>
         <source>Less</source>
-        <translation>Mniej</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="130"/>
         <source>Date</source>
-        <translation>Data</translation>
+        <translation>Tarih</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="321"/>
         <source>Name</source>
-        <translation>Nazwa</translation>
+        <translation>İsim</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="322"/>
         <source>Value</source>
-        <translation>Wartość</translation>
+        <translation>Değer</translation>
     </message>
 </context>
 <context>
@@ -1819,54 +1804,56 @@ Plik jest obecnie używany przez inną aplikację.</translation>
     <message>
         <location filename="../../MainUI/OPFModel.cpp" line="45"/>
         <source>Text</source>
-        <translation>Tekst</translation>
+        <translation>Metin</translation>
     </message>
     <message>
         <location filename="../../MainUI/OPFModel.cpp" line="46"/>
         <source>Styles</source>
-        <translation>Style</translation>
+        <translation>Stiller</translation>
     </message>
     <message>
         <location filename="../../MainUI/OPFModel.cpp" line="47"/>
         <source>Images</source>
-        <translation>Obrazy</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/OPFModel.cpp" line="48"/>
         <source>Fonts</source>
-        <translation>Czcionki</translation>
+        <translation>Yazı tipleri</translation>
     </message>
     <message>
         <location filename="../../MainUI/OPFModel.cpp" line="49"/>
         <source>Misc</source>
-        <translation>Różne</translation>
+        <translation>Diğer</translation>
     </message>
     <message>
         <location filename="../../MainUI/OPFModel.cpp" line="212"/>
         <source>The file could not be renamed.</source>
-        <translation>Nie można zmienić nazwy pliku.</translation>
+        <translation>Dosya ismi değiştirilemedi.</translation>
     </message>
     <message>
         <location filename="../../MainUI/OPFModel.cpp" line="387"/>
         <source>The filename cannot be empty.</source>
-        <translation>Nazwa pliku nie może być pusta.</translation>
+        <translation>Dosya ismi boş bırakılamaz.</translation>
     </message>
     <message>
         <location filename="../../MainUI/OPFModel.cpp" line="398"/>
         <source>A filename cannot contains the character &quot;%1&quot;.</source>
-        <translation>Nazwa pliku nie może zawierać znaku &quot;%1&quot;.</translation>
+        <translation>Dosya isminde &quot;%1&quot; karakteri kullanılamaz.</translation>
     </message>
     <message>
         <location filename="../../MainUI/OPFModel.cpp" line="423"/>
         <source>This file's extension cannot be changed in that way.
 You used &quot;%1&quot;, and the old extension was &quot;%2&quot;.</source>
-        <translation>Rozszerzenie pliku nie może być zmienione w ten sposób. Użyłeś &quot;%1&quot;, podczas gdy stare rozszerzenie to &quot;%2&quot;.</translation>
+        <translation>Bu dosyanın uzantısı istenen şekilde değiştirilemez.
+Belirlenen &quot;%1&quot;, eski uzantı ise &quot;%2&quot;.</translation>
     </message>
     <message>
         <location filename="../../MainUI/OPFModel.cpp" line="435"/>
         <source>The filename &quot;%1&quot; is already in use.
 </source>
-        <translation>Nazwa pliku &quot;%1&quot; jest już w użyciu.</translation>
+        <translation>&quot;%1&quot; isminde bir dosya daha var.
+</translation>
     </message>
 </context>
 <context>
@@ -1874,7 +1861,7 @@ You used &quot;%1&quot;, and the old extension was &quot;%2&quot;.</source>
     <message>
         <location filename="../../Form_Files/Preferences.ui" line="14"/>
         <source>Preferences</source>
-        <translation>Preferencje</translation>
+        <translation>Tercihler</translation>
     </message>
 </context>
 <context>
@@ -1882,12 +1869,12 @@ You used &quot;%1&quot;, and the old extension was &quot;%2&quot;.</source>
     <message>
         <location filename="../../Misc/SearchOperations.cpp" line="39"/>
         <source>Counting occurrences..</source>
-        <translation>Zliczanie wystąpień..</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/SearchOperations.cpp" line="58"/>
         <source>Replacing search term...</source>
-        <translation>Zastępowanie frazy...</translation>
+        <translation>Arama terimi değiştiriliyor...</translation>
     </message>
     <message>
         <location filename="../../Misc/UpdateChecker.cpp" line="87"/>
@@ -1897,34 +1884,34 @@ You used &quot;%1&quot;, and the old extension was &quot;%2&quot;.</source>
     <message>
         <location filename="../../Misc/UpdateChecker.cpp" line="88"/>
         <source>&lt;p&gt;A newer version of Sigil is available, version &lt;b&gt;%1&lt;/b&gt;.&lt;br/&gt;The ChangeLog can be seen &lt;a href=&apos;http://sigil.googlecode.com/git/ChangeLog.txt&apos;&gt;here&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Would you like to go to the download page?&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Dostępna jest nowsza wersja ( &lt;b&gt;%1&lt;/b&gt;) programu Sigil.&lt;br/&gt;Listę zmian można zobaczyć &lt;a href=&apos;http://sigil.googlecode.com/git/ChangeLog.txt&apos;&gt;tutaj&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Czy chcesz przejść do strony pobierania  nowej wersji programu?&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;Sigil&apos;in yeni sürümü &lt;b&gt;%1&lt;/b&gt; yayınlandı.&lt;br/&gt;Değişiklikler &lt;a href=&apos;http://sigil.googlecode.com/git/ChangeLog.txt&apos;&gt;bu adreste&lt;/a&gt; bulunabilir.&lt;/p&gt;&lt;p&gt;İndirme sayfasına gitmek ister misiniz?&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Misc/Utility.cpp" line="211"/>
         <source>Cannot read file %1:
 %2.</source>
-        <translation>Nie można przeczytać pliku %1:
+        <translation>%1 dosyası okunamadı:
 %2.</translation>
     </message>
     <message>
         <location filename="../../Misc/Utility.cpp" line="311"/>
         <source>Sigil has encountered a problem.               </source>
-        <translation>Sigil napotkał problem.              </translation>
+        <translation>Sigil bir sorunla karşılaştı.               </translation>
     </message>
     <message>
         <location filename="../../Misc/Utility.cpp" line="312"/>
         <source>Please &lt;a href=&quot;http://code.google.com/p/sigil/wiki/ReportingIssues&quot;&gt;report it&lt;/a&gt; on the issue tracker, including the details from this dialog.</source>
-        <translation>Proszę &lt;a href=&quot;http://code.google.com/p/sigil/wiki/ReportingIssues&quot;&gt;zgłosić problem&lt;/a&gt; w tropicielu problemów (issue tracker), dodając szczegóły z tego okna.</translation>
+        <translation>Lütfen sorunu, bu diyalogdaki ayrıntılarla birlikte takip aracını kullanarak &lt;a href=&quot;http://code.google.com/p/sigil/wiki/ReportingIssues&quot;&gt;bize bildirin&lt;/a&gt;.</translation>
     </message>
     <message>
         <location filename="../../ResourceObjects/OPFResource.cpp" line="1064"/>
         <source>Publisher</source>
-        <translation>Wydawca</translation>
+        <translation>Yayıncı</translation>
     </message>
     <message>
         <location filename="../../ResourceObjects/OPFResource.cpp" line="1070"/>
         <source>Language</source>
-        <translation>Język</translation>
+        <translation>Dil</translation>
     </message>
     <message>
         <location filename="../../ResourceObjects/OPFResource.cpp" line="1077"/>
@@ -1944,12 +1931,12 @@ You used &quot;%1&quot;, and the old extension was &quot;%2&quot;.</source>
     <message>
         <location filename="../../ResourceObjects/OPFResource.cpp" line="1085"/>
         <source>Date</source>
-        <translation>Data</translation>
+        <translation>Tarih</translation>
     </message>
     <message>
         <location filename="../../ResourceObjects/OPFResource.cpp" line="1105"/>
         <source>Author</source>
-        <translation>Autor</translation>
+        <translation>Yazar</translation>
     </message>
 </context>
 <context>
@@ -1957,7 +1944,7 @@ You used &quot;%1&quot;, and the old extension was &quot;%2&quot;.</source>
     <message>
         <location filename="../../Qxt/qxtconfirmationmessage.cpp" line="67"/>
         <source>Do not show again.</source>
-        <translation>Nie pokazuj ponownie.</translation>
+        <translation>Bir daha gösterme.</translation>
     </message>
 </context>
 <context>
@@ -1965,57 +1952,57 @@ You used &quot;%1&quot;, and the old extension was &quot;%2&quot;.</source>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="14"/>
         <source>Spell Check</source>
-        <translation>Sprawdź Pisownię</translation>
+        <translation>İmlâ Denetimi</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="22"/>
         <source>Dictionary:</source>
-        <translation>Słownik:</translation>
+        <translation>Sözlük:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="34"/>
         <source>User Word List</source>
-        <translation>Lista Słów Użytkownika</translation>
+        <translation>Kullanıcı Sözcük Listesi</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="49"/>
         <source>Add</source>
-        <translation>Dodaj</translation>
+        <translation>Ekle</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="56"/>
         <source>Edit</source>
-        <translation>Edytuj</translation>
+        <translation>Düzenle</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="63"/>
         <source>Remove</source>
-        <translation>Usuń</translation>
+        <translation>Çıkar</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="70"/>
         <source>Remove All</source>
-        <translation>Usuń Wszystkie</translation>
+        <translation>Hepsini Çıkar</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="97"/>
         <source>Open User Dictionary Location</source>
-        <translation>Otwórz Lokalizację Słownika Użytkownika</translation>
+        <translation>Kullanıcı Sözlüğünü Aç</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="91"/>
         <source>None</source>
-        <translation>Brak</translation>
+        <translation>Hiçbiri</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="127"/>
         <source>Error</source>
-        <translation>Błąd</translation>
+        <translation>Hata</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="127"/>
         <source>Could not open user dictionary location %1</source>
-        <translation>Nie można otworzyć słownika w podanej lokalizacji %1</translation>
+        <translation>%1 konumundaki kullanıcı sözlüğü açılamadı</translation>
     </message>
 </context>
 <context>
@@ -2023,17 +2010,17 @@ You used &quot;%1&quot;, and the old extension was &quot;%2&quot;.</source>
     <message>
         <location filename="../../MainUI/TableOfContents.cpp" line="39"/>
         <source>Table of Contents</source>
-        <translation>Spis treści</translation>
+        <translation>İçindekiler</translation>
     </message>
     <message>
         <location filename="../../MainUI/TableOfContents.cpp" line="45"/>
         <source>Generate TOC from headings</source>
-        <translation>Wygeneruj spis treści z nagłówków</translation>
+        <translation>Başlıklardan İçindekiler Oluştur</translation>
     </message>
     <message>
         <location filename="../../MainUI/TableOfContents.cpp" line="126"/>
         <source>The file &quot;%1&quot; does not exist.</source>
-        <translation>Plik &quot;%1&quot; nie istnieje.</translation>
+        <translation>&quot;%1&quot; dosyası yok.</translation>
     </message>
 </context>
 <context>
@@ -2041,38 +2028,38 @@ You used &quot;%1&quot;, and the old extension was &quot;%2&quot;.</source>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="35"/>
         <source>Validation Results</source>
-        <translation>Rezultaty walidacji</translation>
+        <translation>Doğrulama Sonucu</translation>
     </message>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="67"/>
         <source>An exception occurred during validation: %1.</source>
-        <translation>Podczas walidacji wystąpił wyjątek: %1.</translation>
+        <translation>Doğrulama sırasında istisnai bir durum oluştu: %1</translation>
     </message>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="168"/>
         <source>N/A</source>
-        <translation>N/A</translation>
+        <translation>yok</translation>
     </message>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="192"/>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="211"/>
         <source>Message</source>
-        <translation>Wiadomość</translation>
+        <translation>Mesaj</translation>
     </message>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="194"/>
         <source>No problems found!</source>
-        <translation>Nie znaleziono problemów!</translation>
+        <translation>Sorun yok!</translation>
     </message>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="211"/>
         <source>File</source>
-        <translation>Plik</translation>
+        <translation>Dosya</translation>
     </message>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="211"/>
         <source>Line</source>
-        <translation>Linia</translation>
+        <translation>Satır</translation>
     </message>
 </context>
 <context>
@@ -2080,17 +2067,17 @@ You used &quot;%1&quot;, and the old extension was &quot;%2&quot;.</source>
     <message>
         <location filename="../../Tabs/WellFormedCheckComponent.cpp" line="41"/>
         <source>&lt;p&gt;The operation you requested cannot be performed because &lt;b&gt;%1&lt;/b&gt; is not a well-formed XML document.&lt;/p&gt;&lt;p&gt;An error was found on &lt;b&gt;line %2, column %3: %4.&lt;/b&gt;&lt;/p&gt;&lt;p&gt;The &lt;i&gt;Fix Manually&lt;/i&gt; option will let you fix the problem by hand.&lt;/p&gt;&lt;p&gt;The &lt;i&gt;Fix Automatically&lt;/i&gt; option will instruct Sigil to try to repair the document. &lt;b&gt;This option may lead to loss of data!&lt;/b&gt;&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Operacja nie może być wykonana ponieważ &lt;b&gt;%1&lt;/b&gt; nie jest poprawnie zbudowanym plikiem XML.&lt;/p&gt;&lt;p&gt;Błąd został znalezione w &lt;b&gt;linia %2, kolumna %3: %4.&lt;/b&gt;&lt;/p&gt;&lt;p&gt;Opcja &lt;i&gt;Napraw Ręcznie&lt;/i&gt; da ci sposobność naprawienia błędu ręcznie .&lt;/p&gt;&lt;p&gt;Opcja &lt;i&gt;Napraw Automatycznie&lt;/i&gt; poinstruje program Sigil by sam spróbował naprawić dokument. &lt;b&gt;Ta opcja może prowadzić do utraty danych!&lt;/b&gt;&lt;/p&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Tabs/WellFormedCheckComponent.cpp" line="53"/>
         <source>Fix &amp;Automatically</source>
-        <translation>Napraw &amp;Automatycznie</translation>
+        <translation>&amp;Otomatik Onar</translation>
     </message>
     <message>
         <location filename="../../Tabs/WellFormedCheckComponent.cpp" line="55"/>
         <source>Fix &amp;Manually</source>
-        <translation>Napraw &amp;Ręcznie</translation>
+        <translation>&amp;Elle Onar</translation>
     </message>
 </context>
 </TS>
