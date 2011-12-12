@@ -424,7 +424,7 @@ void BookBrowser::SetupTreeView()
     m_TreeView.setDropIndicatorShown( true );
     m_TreeView.setDragDropMode( QAbstractItemView::InternalMove );
     m_TreeView.setContextMenuPolicy( Qt::CustomContextMenu );
-    m_TreeView.setItemDelegate(new FileNameDelegate);
+    m_TreeView.setItemDelegate(new FilenameDelegate);
 
     m_TreeView.setModel( &m_OPFModel ); 
 

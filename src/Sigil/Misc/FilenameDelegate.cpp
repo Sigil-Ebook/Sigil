@@ -21,6 +21,7 @@
 
 #include "FileNameDelegate.h"
 #include <QEvent>
+#include <QLineEdit>
 
 FilenameDelegate::FilenameDelegate(QWidget *parent)
     : QStyledItemDelegate(parent)
