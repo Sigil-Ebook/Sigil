@@ -58,6 +58,9 @@
           <property name="editable">
            <bool>true</bool>
           </property>
+          <property name="sizeAdjustPolicy">
+           <enum>QComboBox::AdjustToMinimumContentsLengthWithIcon</enum>
+          </property>
          </widget>
         </item>
         <item row="0" column="2">
@@ -101,6 +104,9 @@
          <widget class="QComboBox" name="cbReplace">
           <property name="editable">
            <bool>true</bool>
+          </property>
+          <property name="sizeAdjustPolicy">
+           <enum>QComboBox::AdjustToMinimumContentsLengthWithIcon</enum>
           </property>
          </widget>
         </item>
