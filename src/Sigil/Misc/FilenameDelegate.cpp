@@ -20,7 +20,7 @@
 *************************************************************************/
 
 #include <stdafx.h>
-#include "FileNameDelegate.h"
+#include "FilenameDelegate.h"
 #include <QEvent>
 #include <QLineEdit>
 
