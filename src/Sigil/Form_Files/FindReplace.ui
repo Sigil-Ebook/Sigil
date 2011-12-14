@@ -65,6 +65,9 @@
         </item>
         <item row="0" column="2">
          <widget class="QToolButton" name="findPrevious">
+          <property name="toolTip">
+           <string>Find previous</string>
+          </property>
           <property name="text">
            <string>...</string>
           </property>
@@ -75,6 +78,9 @@
         </item>
         <item row="0" column="3">
          <widget class="QToolButton" name="findNext">
+          <property name="toolTip">
+           <string>Find next</string>
+          </property>
           <property name="text">
            <string>...</string>
           </property>
@@ -85,6 +91,9 @@
         </item>
         <item row="0" column="4">
          <widget class="QToolButton" name="count">
+          <property name="toolTip">
+           <string>Count all matches</string>
+          </property>
           <property name="text">
            <string>Count</string>
           </property>
@@ -112,6 +121,9 @@
         </item>
         <item row="1" column="2">
          <widget class="QToolButton" name="replacePrevious">
+          <property name="toolTip">
+           <string>Replace previous</string>
+          </property>
           <property name="text">
            <string>...</string>
           </property>
@@ -122,6 +134,9 @@
         </item>
         <item row="1" column="3">
          <widget class="QToolButton" name="replaceNext">
+          <property name="toolTip">
+           <string>Replace next</string>
+          </property>
           <property name="text">
            <string>...</string>
           </property>
@@ -132,6 +147,9 @@
         </item>
         <item row="1" column="4">
          <widget class="QToolButton" name="replaceAll">
+          <property name="toolTip">
+           <string>Replace all</string>
+          </property>
           <property name="text">
            <string>All</string>
           </property>
@@ -193,6 +211,9 @@
        <layout class="QVBoxLayout" name="verticalLayout">
         <item>
          <widget class="QToolButton" name="close">
+          <property name="toolTip">
+           <string>Hide Find and Replace</string>
+          </property>
           <property name="text">
            <string>...</string>
           </property>
