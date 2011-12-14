@@ -1041,7 +1041,19 @@ bool MainWindow::SaveFile( const QString &fullfilepath )
                 .arg( fullfilepath )
                 );
         }
+        // some directory in the file's path does not exist
+        if ( *error_id == ENOENT )
+        {
+            QApplication::restoreOverrideCursor();
 
+            Utility::DisplayStdErrorDialog(
+                        tr( "Sigil cannot save file: \"%1\"\n"
+                            "The path was not found." )
+                        .arg( fullfilepath )
+                        );
+
+            return SaveAs();
+        }
         else
         {
             Utility::DisplayStdErrorDialog( 
