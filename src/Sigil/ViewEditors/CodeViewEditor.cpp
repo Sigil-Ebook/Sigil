@@ -57,7 +57,8 @@ CodeViewEditor::CodeViewEditor( HighlighterType high_type, bool check_spelling, 
     m_isLoadFinished( false ),
     m_DelayedCursorScreenCenteringRequired( false ),
     m_checkSpelling( check_spelling ),
-    m_spellingMapper( new QSignalMapper( this ) )
+    m_spellingMapper( new QSignalMapper( this ) ),
+    m_addSpellingMapper( new QSignalMapper( this ) )
 {
     if ( high_type == CodeViewEditor::Highlight_XHTML )
 
@@ -652,47 +653,46 @@ void CodeViewEditor::contextMenuEvent( QContextMenuEvent *event )
     // code here is not or vice versa.
     if (m_checkSpelling) {
         // See if we are close to or inside of a misspelled word. If so select it.
-         if (!c.hasSelection()) {
-             // We cannot use QTextCursor::charFormat because the format is not set directly in
-             // the document. The QSyntaxHighlighter sets the format in the block layout's
-             // additionalFormats property. Thus we have to check if the cursor is within
-             // an additionalFormat for the block and if that format is for a misspelled word.
-             int pos = c.positionInBlock();
-             foreach (QTextLayout::FormatRange r, textCursor().block().layout()->additionalFormats()) {
-                 if (pos >= r.start && pos <= r.start + r.length && r.format.underlineStyle() == QTextCharFormat::SpellCheckUnderline) {
-                     c.setPosition(c.block().position() + r.start);
-                     c.movePosition(QTextCursor::Right, QTextCursor::KeepAnchor, r.length);
-                     setTextCursor(c);
-                     offerSpelling = true;
-                     break;
-                 }
-             }
-         }
-         // Check if our selection is a misspelled word.
-         else {
-             int selStart = c.selectionStart() - c.block().position();
-             int selLen = c.selectionEnd() - c.block().position() - selStart;
-             foreach (QTextLayout::FormatRange r, textCursor().block().layout()->additionalFormats()) {
-                 if (r.start == selStart && selLen == r.length && r.format.underlineStyle() == QTextCharFormat::SpellCheckUnderline) {
-                     offerSpelling = true;
-                     break;
-                 }
-             }
-         }
+        if (!c.hasSelection()) {
+            // We cannot use QTextCursor::charFormat because the format is not set directly in
+            // the document. The QSyntaxHighlighter sets the format in the block layout's
+            // additionalFormats property. Thus we have to check if the cursor is within
+            // an additionalFormat for the block and if that format is for a misspelled word.
+            int pos = c.positionInBlock();
+            foreach (QTextLayout::FormatRange r, textCursor().block().layout()->additionalFormats()) {
+                if (pos >= r.start && pos <= r.start + r.length && r.format.underlineStyle() == QTextCharFormat::SpellCheckUnderline) {
+                    c.setPosition(c.block().position() + r.start);
+                    c.movePosition(QTextCursor::Right, QTextCursor::KeepAnchor, r.length);
+                    setTextCursor(c);
+                    offerSpelling = true;
+                    break;
+                }
+            }
+        }
+        // Check if our selection is a misspelled word.
+        else {
+            int selStart = c.selectionStart() - c.block().position();
+            int selLen = c.selectionEnd() - c.block().position() - selStart;
+            foreach (QTextLayout::FormatRange r, textCursor().block().layout()->additionalFormats()) {
+                if (r.start == selStart && selLen == r.length && r.format.underlineStyle() == QTextCharFormat::SpellCheckUnderline) {
+                    offerSpelling = true;
+                    break;
+                }
+            }
+        }
 
-         // If a misspelled word is selected try to offer spelling suggestions.
-         if (offerSpelling && c.hasSelection()) {
-             QString text = c.selectedText();
+        // If a misspelled word is selected try to offer spelling suggestions.
+        if (offerSpelling && c.hasSelection()) {
+            SpellCheck *sc = SpellCheck::instance();
+            QString text = c.selectedText();
 
-             SpellCheck *sc = SpellCheck::instance();
-             QStringList suggestions;
-             // The first action in the menu.
-             QAction *topAction = 0;
-             if (!menu->actions().isEmpty()) {
-                 topAction = menu->actions().at(0);
-             }
-             if (!sc->spell(text)) {
-                suggestions = sc->suggest(text);
+            if (!sc->spell(text)) {
+                QStringList suggestions = sc->suggest(text);
+                // The first action in the menu.
+                QAction *topAction = 0;
+                if (!menu->actions().isEmpty()) {
+                    topAction = menu->actions().at(0);
+                }
                 QAction *suggestAction = 0;
 
                 // We want to limit the number of suggestions so we don't
@@ -710,14 +710,26 @@ void CodeViewEditor::contextMenuEvent( QContextMenuEvent *event )
                         menu->insertAction(topAction, suggestAction);
                     }
                 }
-             }
 
-             // Add a separator to keep our spelling actions differentiated from
-             // the default menu actions.
-             if (!suggestions.isEmpty() && topAction) {
-                 menu->insertSeparator(topAction);
-             }
-         }
+                // Add a separator to keep our spelling actions differentiated from
+                // the default menu actions.
+                if (!suggestions.isEmpty() && topAction) {
+                    menu->insertSeparator(topAction);
+                }
+
+                // Allow the user to add the misspelled word to their user dictionary.
+                QAction *addToDictAction = new QAction(tr("Add to diciontary"), menu);
+                connect(addToDictAction, SIGNAL(triggered()), m_addSpellingMapper, SLOT(map()));
+                m_addSpellingMapper->setMapping(addToDictAction, text);
+                if (topAction) {
+                    menu->insertAction(topAction, addToDictAction);
+                    menu->insertSeparator(topAction);
+                }
+                else {
+                    menu->addAction(addToDictAction);
+                }
+            }
+        }
     }
 
     menu->exec( event->globalPos() );
@@ -829,6 +841,14 @@ void CodeViewEditor::ReplaceSelected(const QString &text)
     QTextCursor c = textCursor();
     c.insertText(text);
     setTextCursor(c);
+}
+
+
+void CodeViewEditor::addToUserDictionary(const QString &text)
+{
+    SpellCheck *sc = SpellCheck::instance();
+    sc->addToUserDictionary(text);
+    m_Highlighter->rehighlight();
 }
 
 
@@ -1044,6 +1064,7 @@ void CodeViewEditor::ConnectSignalsToSlots()
     connect( &m_ScrollOneLineDown, SIGNAL( activated() ), this, SLOT( ScrollOneLineDown() ) );
 
     connect(m_spellingMapper, SIGNAL(mapped(const QString&)), this, SLOT(ReplaceSelected(const QString&)));
+    connect(m_addSpellingMapper, SIGNAL(mapped(const QString&)), this, SLOT(addToUserDictionary(const QString&)));
 
     SettingsStore *ss = SettingsStore::instance();
     connect(ss, SIGNAL(settingsChanged()), m_Highlighter, SLOT(rehighlight()));

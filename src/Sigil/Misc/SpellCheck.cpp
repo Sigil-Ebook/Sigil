@@ -125,7 +125,7 @@ void SpellCheck::setDictionary(const QString &name, bool forceReplace)
     m_dictionaryName = name;
 
     // If we don't have a dictionary we cannot continue.
-    if (!m_dictionaries.contains(name)) {
+    if (name.isEmpty() || !m_dictionaries.contains(name)) {
         return;
     }
 

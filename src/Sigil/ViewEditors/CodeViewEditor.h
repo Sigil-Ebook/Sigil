@@ -317,6 +317,8 @@ private slots:
      */
     void ReplaceSelected(const QString &text);
 
+    void addToUserDictionary(const QString &text);
+
 private:
 
     /**
@@ -493,6 +495,7 @@ private:
      * ReplaceSelected slot.
      */
     QSignalMapper *m_spellingMapper;
+    QSignalMapper *m_addSpellingMapper;
 };
 
 #endif // CODEVIEWEDITOR_H
