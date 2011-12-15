@@ -686,48 +686,46 @@ void CodeViewEditor::contextMenuEvent( QContextMenuEvent *event )
             SpellCheck *sc = SpellCheck::instance();
             QString text = c.selectedText();
 
-            if (!sc->spell(text)) {
-                QStringList suggestions = sc->suggest(text);
-                // The first action in the menu.
-                QAction *topAction = 0;
-                if (!menu->actions().isEmpty()) {
-                    topAction = menu->actions().at(0);
-                }
-                QAction *suggestAction = 0;
+            QStringList suggestions = sc->suggest(text);
+            // The first action in the menu.
+            QAction *topAction = 0;
+            if (!menu->actions().isEmpty()) {
+                topAction = menu->actions().at(0);
+            }
+            QAction *suggestAction = 0;
 
-                // We want to limit the number of suggestions so we don't
-                // get a huge context menu.
-                for (int i = 0; i < std::min(suggestions.length(), MAX_SPELLING_SUGGESTIONS); ++i) {
-                    suggestAction = new QAction(suggestions.at(i), menu);
-                    connect(suggestAction, SIGNAL(triggered()), m_spellingMapper, SLOT(map()));
-                    m_spellingMapper->setMapping(suggestAction, suggestions.at(i));
+            // We want to limit the number of suggestions so we don't
+            // get a huge context menu.
+            for (int i = 0; i < std::min(suggestions.length(), MAX_SPELLING_SUGGESTIONS); ++i) {
+                suggestAction = new QAction(suggestions.at(i), menu);
+                connect(suggestAction, SIGNAL(triggered()), m_spellingMapper, SLOT(map()));
+                m_spellingMapper->setMapping(suggestAction, suggestions.at(i));
 
-                    // If the menu is empty we need to append rather than insert our actions.
-                    if (!topAction) {
-                        menu->addAction(suggestAction);
-                    }
-                    else {
-                        menu->insertAction(topAction, suggestAction);
-                    }
-                }
-
-                // Add a separator to keep our spelling actions differentiated from
-                // the default menu actions.
-                if (!suggestions.isEmpty() && topAction) {
-                    menu->insertSeparator(topAction);
-                }
-
-                // Allow the user to add the misspelled word to their user dictionary.
-                QAction *addToDictAction = new QAction(tr("Add to diciontary"), menu);
-                connect(addToDictAction, SIGNAL(triggered()), m_addSpellingMapper, SLOT(map()));
-                m_addSpellingMapper->setMapping(addToDictAction, text);
-                if (topAction) {
-                    menu->insertAction(topAction, addToDictAction);
-                    menu->insertSeparator(topAction);
+                // If the menu is empty we need to append rather than insert our actions.
+                if (!topAction) {
+                    menu->addAction(suggestAction);
                 }
                 else {
-                    menu->addAction(addToDictAction);
+                    menu->insertAction(topAction, suggestAction);
                 }
+            }
+
+            // Add a separator to keep our spelling actions differentiated from
+            // the default menu actions.
+            if (!suggestions.isEmpty() && topAction) {
+                menu->insertSeparator(topAction);
+            }
+
+            // Allow the user to add the misspelled word to their user dictionary.
+            QAction *addToDictAction = new QAction(tr("Add to diciontary"), menu);
+            connect(addToDictAction, SIGNAL(triggered()), m_addSpellingMapper, SLOT(map()));
+            m_addSpellingMapper->setMapping(addToDictAction, text);
+            if (topAction) {
+                menu->insertAction(topAction, addToDictAction);
+                menu->insertSeparator(topAction);
+            }
+            else {
+                menu->addAction(addToDictAction);
             }
         }
     }
