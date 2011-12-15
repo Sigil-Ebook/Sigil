@@ -98,15 +98,6 @@ public:
     virtual void sort( int column, Qt::SortOrder order = Qt::AscendingOrder );
 
     /**
-     * Seralized data corresponding to the indexes specified.
-     *
-     * Used with drag and drop to determine what to drop.
-     *
-     * @param indexes The indexes to serialize.
-     */
-    virtual QMimeData *mimeData(const QModelIndexList &indexes) const;
-
-    /**
      * Specifies the supported drop actions in the model.
      *
      * @return The drop actions supported.
