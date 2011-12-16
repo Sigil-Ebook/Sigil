@@ -73,7 +73,8 @@ void FindReplace::SetUpFindText()
 
 void FindReplace::ShowMessage( const QString &message )
 {
-    m_MainWindow.ShowMessageOnCurrentStatusBar( message );
+    ui.message->setText(message);
+    m_timer.start(5000);
 }
 
 
@@ -177,6 +178,12 @@ void FindReplace::ReplaceAll()
     UpdatePreviousReplaceStrings();
 }
 
+
+void FindReplace::clearMessage()
+{
+    m_timer.stop();
+    ui.message->clear();
+}
 
 // Starts the search for the user's term.
 void FindReplace::FindText( Searchable::Direction direction )
@@ -566,6 +573,7 @@ void FindReplace::ExtendUI()
 
 void FindReplace::ConnectSignalsToSlots()
 {
+    connect(&m_timer, SIGNAL(timeout()), this, SLOT(clearMessage()));
     connect( ui.findNext, SIGNAL( clicked() ), this, SLOT( FindNext() ) );
     connect( ui.cbFind->lineEdit(), SIGNAL( returnPressed() ), this, SLOT( FindNext() ) );
     connect( ui.findPrevious, SIGNAL( clicked() ), this, SLOT( FindPrevious() ) );

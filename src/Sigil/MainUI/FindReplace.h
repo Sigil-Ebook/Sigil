@@ -24,6 +24,8 @@
 #ifndef FINDREPLACE_H
 #define FINDREPLACE_H
 
+#include <QTimer>
+
 #include "ui_FindReplace.h"
 #include "ViewEditors/Searchable.h"
 #include "Misc/SearchOperations.h"
@@ -86,6 +88,8 @@ private slots:
     // replacement text in the entire document. Shows a
     // dialog telling how many occurrences were replaced.
     void ReplaceAll();
+
+    void clearMessage();
 
 private:
 
@@ -180,6 +184,8 @@ private:
     // A const reference to the mainwindow that
     // spawned this widget. Needed for searching.
     MainWindow &m_MainWindow;
+
+    QTimer m_timer;
 
     LookWhere m_LookWhere;
     SearchMode m_SearchMode;
