@@ -66,6 +66,9 @@ public:
         SearchMode_Regex = 100
     };
 
+protected:
+    void keyPressEvent(QKeyEvent *event);
+
 private slots:
 
     // Shows a message in the main window.

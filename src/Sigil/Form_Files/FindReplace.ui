@@ -95,6 +95,15 @@
       </item>
       <item>
        <layout class="QGridLayout" name="gridLayout" columnstretch="0,1,0,0,0">
+        <property name="leftMargin">
+         <number>0</number>
+        </property>
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <property name="rightMargin">
+         <number>3</number>
+        </property>
         <property name="spacing">
          <number>3</number>
         </property>

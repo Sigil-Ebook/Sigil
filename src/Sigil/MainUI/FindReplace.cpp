@@ -72,6 +72,14 @@ void FindReplace::SetUpFindText()
 }
 
 
+void FindReplace::keyPressEvent(QKeyEvent *event)
+{
+    if (event->key() == Qt::Key_Escape) {
+        hide();
+    }
+}
+
+
 void FindReplace::ShowMessage( const QString &message )
 {
     ui.message->setText(message);
@@ -596,7 +604,7 @@ void FindReplace::ExtendUI()
 
 void FindReplace::ConnectSignalsToSlots()
 {
-    connect(&m_timer, SIGNAL(timeout()), this, SLOT(clearMessage()));
+    connect( &m_timer, SIGNAL( timeout() ), this, SLOT( clearMessage() ) );
     connect( ui.findNext, SIGNAL( clicked() ), this, SLOT( FindNext() ) );
     connect( ui.cbFind->lineEdit(), SIGNAL( returnPressed() ), this, SLOT( FindNext() ) );
     connect( ui.findPrevious, SIGNAL( clicked() ), this, SLOT( FindPrevious() ) );
