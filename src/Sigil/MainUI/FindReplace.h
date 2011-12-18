@@ -105,8 +105,6 @@ private:
      */
     bool CheckBookWideSearchingAllowed();
 
-    void FoundSearchTerm();
-
     // Displays a message to the user informing him
     // that his last search term could not be found.
     void CannotFindSearchTerm();

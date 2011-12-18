@@ -62,6 +62,7 @@ void FindReplace::SetUpFindText()
              selected_text.length() < MAXIMUM_SELECTED_TEXT_LIMIT )
         {
             ui.cbFind->lineEdit()->setText( selected_text );
+            ui.cbFind->insertItem( 0, selected_text );
         }
     }
 
@@ -206,7 +207,7 @@ void FindReplace::FindText( Searchable::Direction direction )
 
         if ( found )
         {
-            FoundSearchTerm();
+            clearMessage();
         }
         else
         {
@@ -283,12 +284,6 @@ bool FindReplace::CheckBookWideSearchingAllowed()
     }
 
     return true;
-}
-
-
-void FindReplace::FoundSearchTerm()
-{
-    ShowMessage("");
 }
 
 
