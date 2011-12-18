@@ -116,6 +116,9 @@
           <property name="sizeAdjustPolicy">
            <enum>QComboBox::AdjustToMinimumContentsLengthWithIcon</enum>
           </property>
+          <property name="duplicatesEnabled">
+           <bool>true</bool>
+          </property>
          </widget>
         </item>
         <item row="0" column="2">
@@ -180,6 +183,9 @@
           </property>
           <property name="sizeAdjustPolicy">
            <enum>QComboBox::AdjustToMinimumContentsLengthWithIcon</enum>
+          </property>
+          <property name="duplicatesEnabled">
+           <bool>true</bool>
           </property>
          </widget>
         </item>
