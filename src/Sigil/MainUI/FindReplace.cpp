@@ -204,7 +204,11 @@ void FindReplace::FindText( Searchable::Direction direction )
     {
         bool found = searchable->FindNext( GetSearchRegex(), direction );
 
-        if ( !found )
+        if ( found )
+        {
+            FoundSearchTerm();
+        }
+        else
         {
             CannotFindSearchTerm();
         }
@@ -255,6 +259,16 @@ void FindReplace::ReplaceText( Searchable::Direction direction )
         searchable->ReplaceSelected( GetSearchRegex(), ui.cbReplace->lineEdit()->text() );
     }
 
+    // Go find the next match
+    if ( direction == Searchable::Direction_Down )
+    {
+        FindNext();
+    }
+    else if ( direction == Searchable::Direction_Up )
+    {
+        FindPrevious();
+    }
+
     UpdatePreviousFindStrings();
     UpdatePreviousReplaceStrings();
 }
@@ -269,6 +283,12 @@ bool FindReplace::CheckBookWideSearchingAllowed()
     }
 
     return true;
+}
+
+
+void FindReplace::FoundSearchTerm()
+{
+    ShowMessage("");
 }
 
 
@@ -287,9 +307,13 @@ QString FindReplace::GetSearchRegex()
     QString search( ui.cbFind->lineEdit()->text() );
 
     // Search type
-    if ( GetSearchMode() == SearchMode_Normal )
+    if ( GetSearchMode() == SearchMode_Normal || GetSearchMode() == SearchMode_Case_Sensitive )
     {
         search = QRegExp::escape(search);
+
+        if ( GetSearchMode() == SearchMode_Normal ) {
+            search = "(?i)" + search;
+        }
     }
 
     return search;
@@ -511,6 +535,9 @@ FindReplace::SearchMode FindReplace::GetSearchMode()
     case FindReplace::SearchMode_Regex:
         return static_cast<FindReplace::SearchMode>( mode );
         break;
+    case FindReplace::SearchMode_Case_Sensitive:
+        return static_cast<FindReplace::SearchMode>( mode );
+        break;
     default:
         return FindReplace::SearchMode_Normal;
     }
@@ -564,6 +591,7 @@ Searchable* FindReplace::GetAvailableSearchable()
 void FindReplace::ExtendUI()
 {
     ui.cbSearchMode->addItem( tr( "Normal" ), FindReplace::SearchMode_Normal );
+    ui.cbSearchMode->addItem( tr( "Case Sensitive" ), FindReplace::SearchMode_Case_Sensitive );
     ui.cbSearchMode->addItem( tr( "Regex" ), FindReplace::SearchMode_Regex );
 
     ui.cbLookWhere->addItem( tr( "Current File" ), FindReplace::LookWhere_CurrentFile );

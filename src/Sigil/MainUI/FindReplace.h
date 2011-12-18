@@ -60,8 +60,10 @@ public:
 
     enum SearchMode
     {
-        SearchMode_Normal,
-        SearchMode_Regex
+        // Case insensitive
+        SearchMode_Normal = 0,
+        SearchMode_Case_Sensitive = 50,
+        SearchMode_Regex = 100
     };
 
 private slots:
@@ -102,6 +104,8 @@ private:
      * @return \c true if book-wide searching is allowed.
      */
     bool CheckBookWideSearchingAllowed();
+
+    void FoundSearchTerm();
 
     // Displays a message to the user informing him
     // that his last search term could not be found.
