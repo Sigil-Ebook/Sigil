@@ -18,7 +18,7 @@ set( PACKAGE_DIRECTORY ${PROJECT_BINARY_DIR}/package )
 
 set( SIGIL_MAJOR_VERSION 0 )
 set( SIGIL_MINOR_VERSION 4 )
-set( SIGIL_REVISION_VERSION 902 )
+set( SIGIL_REVISION_VERSION 903 )
 set( SIGIL_FULL_VERSION ${SIGIL_MAJOR_VERSION}.${SIGIL_MINOR_VERSION}.${SIGIL_REVISION_VERSION} )
 
 # Check if platform is 64 bit
@@ -48,7 +48,7 @@ set( CMAKE_OSX_DEPLOYMENT_TARGET "10.6" )
 set( CMAKE_OSX_SYSROOT "/Developer/SDKs/MacOSX10.6.sdk" )
 
 # Universal builds for mac
-set( CMAKE_OSX_ARCHITECTURES "i386;x86_64" )
+set( CMAKE_OSX_ARCHITECTURES "x86_64" )
 
 # This disables the building of the test runner app for FlightCrew
 set( NO_TEST_EXE 1 )
