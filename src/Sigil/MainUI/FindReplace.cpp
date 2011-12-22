@@ -253,20 +253,8 @@ void FindReplace::ReplaceText( Searchable::Direction direction )
     }
 
     // If we have the matching text selected, replace it
-    if ( !searchable->ReplaceSelected( GetSearchRegex(), ui.cbReplace->lineEdit()->text() ) )
-    {
-        // Go find the next match
-        if ( direction == Searchable::Direction_Down )
-        {
-            FindNext();
-        }
-        else if ( direction == Searchable::Direction_Up )
-        {
-            FindPrevious();
-        }
-
-        searchable->ReplaceSelected( GetSearchRegex(), ui.cbReplace->lineEdit()->text() );
-    }
+    // This will not do anything if matching text is not selected.
+    searchable->ReplaceSelected( GetSearchRegex(), ui.cbReplace->lineEdit()->text() );
 
     // Go find the next match
     if ( direction == Searchable::Direction_Down )

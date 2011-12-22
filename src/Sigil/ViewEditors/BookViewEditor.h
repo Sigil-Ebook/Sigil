@@ -178,7 +178,7 @@ public:
 
     int Count( const QString &search_regex );
 
-    bool ReplaceSelected( const QString &search_regex, const QString &replacement );
+    bool ReplaceSelected( const QString &search_regex, const QString &replacement, Searchable::Direction direction=Searchable::Direction_Down );
 
     int ReplaceAll( const QString &search_regex, const QString &replacement );
     
@@ -372,7 +372,7 @@ private:
      * This is to be used in ReplaceAll when ReplaceSelected is chained after FindNext and there's
      * no need to re-parse the DOM.
      */
-    bool ReplaceSelected( const QString &search_regex, const QString &replacement, SearchTools search_tools );
+    bool ReplaceSelected( const QString &search_regex, const QString &replacement, SearchTools search_tools, Searchable::Direction direction=Searchable::Direction_Down );
 
     /**
      * Defines a matched string of text when searching.

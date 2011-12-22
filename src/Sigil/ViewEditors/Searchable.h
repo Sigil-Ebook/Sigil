@@ -82,7 +82,7 @@ public:
      * @param replacement The text with which to replace the matched string.
      * @return \c true if the searched term was successfully replaced.
      */
-    virtual bool ReplaceSelected( const QString &search_regex, const QString &replacement ) = 0;
+    virtual bool ReplaceSelected( const QString &search_regex, const QString &replacement, Searchable::Direction direction=Searchable::Direction_Down ) = 0;
 
     /**
      * Replaces all occurrences of the specified regex.

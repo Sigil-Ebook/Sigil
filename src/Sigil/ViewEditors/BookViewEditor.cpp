@@ -385,13 +385,13 @@ int BookViewEditor::Count( const QString &search_regex )
     return m_MatchInfo.count();
 }
 
-bool BookViewEditor::ReplaceSelected( const QString &search_regex, const QString &replacement )
+bool BookViewEditor::ReplaceSelected( const QString &search_regex, const QString &replacement, Searchable::Direction direction )
 {
     SearchTools search_tools = GetSearchTools();
-    return ReplaceSelected( search_regex, replacement, search_tools );
+    return ReplaceSelected( search_regex, replacement, search_tools, direction );
 }
 
-bool BookViewEditor::ReplaceSelected( const QString &search_regex, const QString &replacement, SearchTools search_tools )
+bool BookViewEditor::ReplaceSelected( const QString &search_regex, const QString &replacement, SearchTools search_tools, Searchable::Direction direction )
 {
     UpdateSearchCache( search_regex, search_tools.fulltext );
     SPCRE *spcre = PCRECache::instance()->getObject( search_regex );

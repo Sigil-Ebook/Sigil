@@ -179,7 +179,7 @@ public:
 
     int Count( const QString &search_regex );
 
-    bool ReplaceSelected( const QString &search_regex, const QString &replacement );
+    bool ReplaceSelected( const QString &search_regex, const QString &replacement, Searchable::Direction direction=Searchable::Direction_Down );
 
     int ReplaceAll( const QString &search_regex, const QString &replacement );
 

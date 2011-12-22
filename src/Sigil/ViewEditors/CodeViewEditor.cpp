@@ -444,8 +444,16 @@ bool CodeViewEditor::FindNext( const QString &search_regex,
     if ( offset.first != -1 )
     {
         QTextCursor cursor = textCursor();
-        cursor.setPosition( offset.first );
-        cursor.setPosition( offset.second, QTextCursor::KeepAnchor );
+        if ( search_direction == Searchable::Direction_Up )
+        {
+            cursor.setPosition( offset.second );
+            cursor.setPosition( offset.first, QTextCursor::KeepAnchor );
+        }
+        else
+        {
+            cursor.setPosition( offset.first );
+            cursor.setPosition( offset.second, QTextCursor::KeepAnchor );
+        }
 
         setTextCursor( cursor );
 
@@ -463,7 +471,7 @@ int CodeViewEditor::Count( const QString &search_regex )
 }
 
 
-bool CodeViewEditor::ReplaceSelected( const QString &search_regex, const QString &replacement )
+bool CodeViewEditor::ReplaceSelected( const QString &search_regex, const QString &replacement, Searchable::Direction direction )
 {
     UpdateSearchCache( search_regex, toPlainText() );
     SPCRE *spcre = PCRECache::instance()->getObject( search_regex );
@@ -481,6 +489,12 @@ bool CodeViewEditor::ReplaceSelected( const QString &search_regex, const QString
         if ( replacement_made )
         {
             textCursor().insertText( replaced_text );
+            if ( direction == Searchable::Direction_Up )
+            {
+                QTextCursor c = textCursor();
+                c.setPosition(selection_start);
+                setTextCursor(c);
+            }
             return true;
         }
     }

@@ -56,6 +56,8 @@
      <addaction name="separator"/>
      <addaction name="actionNewHTMLFile"/>
      <addaction name="actionNewCSSFile"/>
+     <addaction name="separator"/>
+     <addaction name="actionAddExistingFile"/>
     </widget>
     <addaction name="menuNew"/>
     <addaction name="actionOpen"/>
@@ -100,7 +102,6 @@
     <addaction name="separator"/>
     <addaction name="actionMetaEditor"/>
     <addaction name="actionInsertImage"/>
-    <addaction name="actionAddExistingFile"/>
     <addaction name="separator"/>
     <addaction name="actionSplitChapter"/>
     <addaction name="actionInsertSGFChapterMarker"/>
@@ -766,10 +767,13 @@
     <string>Insert Image...</string>
    </property>
    <property name="toolTip">
-    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert Image&lt;/b&gt;&lt;/p&gt;
-
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Choose an image from the disk and insert it into the text.&lt;/p&gt;
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;You can select and thus insert multiple images at once.&lt;/p&gt;</string>
+    <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Lucida Grande'; font-size:13pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Insert Image&lt;/span&gt; &lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:8px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Choose an image from the book browser and insert it into the text.&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:8px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;You can select and thus insert multiple images at once.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+Shift+I</string>
@@ -1258,7 +1262,7 @@
   </action>
   <action name="actionAddExistingFile">
    <property name="text">
-    <string>Insert Existing File...</string>
+    <string>Add Existing File(s)...</string>
    </property>
   </action>
   <action name="actionNewCSSFile">
