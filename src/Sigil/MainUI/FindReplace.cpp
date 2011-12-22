@@ -61,7 +61,7 @@ void FindReplace::SetUpFindText()
         if ( !selected_text.isEmpty() &&
              selected_text.length() < MAXIMUM_SELECTED_TEXT_LIMIT )
         {
-            ui.cbFind->lineEdit()->setText( selected_text );
+            ui.cbFind->setEditText( selected_text );
             ui.cbFind->insertItem( 0, selected_text );
         }
     }
@@ -295,7 +295,7 @@ void FindReplace::CannotFindSearchTerm()
 // options and fields and then returns it.
 QString FindReplace::GetSearchRegex()
 {
-    QString search( ui.cbFind->lineEdit()->text() );
+    QString search( ui.cbFind->currentText() );
 
     // Search type
     if ( GetSearchMode() == SearchMode_Normal || GetSearchMode() == SearchMode_Case_Sensitive )
