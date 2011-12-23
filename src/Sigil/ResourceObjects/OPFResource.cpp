@@ -1061,28 +1061,28 @@ void OPFResource::MetadataDispatcher(
     // There is a relator for the publisher, but there is
     // also a special publisher element that we would rather use
     if (  Metadata::Instance().GetRelatorMap().contains( metaname ) &&
-          metaname != QObject::tr( "Publisher" )
+          metaname != "Publisher"
        )
     {
         WriteCreatorOrContributor( metaname, metavalue.toString(), document );
     }
 
-    else if ( metaname == QObject::tr( "Language" ) )
+    else if ( metaname == "Language" )
     {
         WriteSimpleMetadata( metaname.toLower(), 
                              Metadata::Instance().GetLanguageMap()[ metavalue.toString() ],
                              document );
     }
 
-    else if ( ( metaname == QObject::tr( "ISBN" ) ) || 
-              ( metaname == QObject::tr( "ISSN" ) ) ||
-              ( metaname == QObject::tr( "DOI" ) )
+    else if ( ( metaname == "ISBN" ) ||
+              ( metaname == "ISSN" ) ||
+              ( metaname == "DOI" )
             )
     {
         WriteIdentifier( metaname, metavalue.toString(), document );
     }
 
-    else if ( metaname.contains( QObject::tr( "Date" ) ) )
+    else if ( metaname.contains( "Date" ) )
     {
         WriteDate( metaname, metavalue, document );		
     }
@@ -1102,7 +1102,7 @@ void OPFResource::WriteCreatorOrContributor(
 {
     // Authors get written as creators, all other relators
     // are written as contributors
-    QString element_name = metaname == QObject::tr( "Author" ) ? "creator" : "contributor";
+    QString element_name = metaname == "Author" ? "creator" : "contributor";
     QString role = Metadata::Instance().GetRelatorMap()[ metaname ].relator_code;
     QString value;
     QString file_as;

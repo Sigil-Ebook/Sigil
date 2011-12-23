@@ -127,7 +127,7 @@ void MetaEditor::AddEmptyMetadataToTable( const QStringList &metanames )
         // If we are inserting a date, that needs special treatment;
         // We need to insert it as a QDate object so the table interface
         // can automatically impose input restrictions
-        if ( metaname.contains( tr( "Date" ) ) )
+        if ( metaname.contains( "Date" ) )
         {
             AddMetadataToTable( metaname, QDate::currentDate() );
         }
