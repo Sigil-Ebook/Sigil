@@ -63,6 +63,9 @@ private slots:
     // values and Sigil inclusion class
     void UpdateHeadingElements();
 
+    // Selects headings to be included/excluded from TOC
+    void SelectHeadingLevelInclusion( const QString& heading_level );
+
 private:
 
     // We need this to be able to use a forward
@@ -117,6 +120,19 @@ private:
     QStandardItem* GetActualItemParent( const QStandardItem *item );
 
     Headings::Heading* GetItemHeading( const QStandardItem *item );    
+
+
+    // Get the maximum heading level for all headings
+    int GetMaxHeadingLevel( QList< Headings::Heading > flat_headings );
+
+    // Add the selectable entries to the Select Heading combo box
+    void PopulateSelectHeadingCombo( int max_heading_level );
+
+    // Sets all headings to be included in or excluded from the TOC
+    void SetAllHeadingInclusion( int upToLevel );
+
+    // Sets one heading to be included in or excluded from the TOC
+    void SetOneHeadingInclusion( Headings::Heading &heading, int upToLevel );
 
     // Reads all the stored dialog settings like
     // window position, geometry etc.

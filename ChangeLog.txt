@@ -1,4 +1,5 @@
 Sigil 0.5 TBA
+    - Implement issue 533 and 1079: allow user to select which level(s) of <h> to include.
     - Fix issue 788: Error saving when the folder the file was in was renamed
       outside Sigil.
     - Fix issue 998: Don't select file extension on rename in book browser.

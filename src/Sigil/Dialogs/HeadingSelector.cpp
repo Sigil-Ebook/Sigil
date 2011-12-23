@@ -46,9 +46,11 @@ HeadingSelector::HeadingSelector( QSharedPointer< Book > book, QWidget *parent )
 
     LockHTMLResources();
 
-    m_Headings = Headings::GetHeadingList(
+    QList< Headings::Heading > flat_headings = Headings::GetHeadingList(
         m_Book->GetFolderKeeper().GetResourceTypeList< HTMLResource >( true ), true );
-    m_Headings = Headings::MakeHeadingHeirarchy( m_Headings );
+    m_Headings = Headings::MakeHeadingHeirarchy( flat_headings );
+
+    PopulateSelectHeadingCombo( GetMaxHeadingLevel( flat_headings ) );
 
     CreateTOCModel();
 
@@ -409,6 +411,108 @@ Headings::Heading* HeadingSelector::GetItemHeading( const QStandardItem *item )
 }
 
 
+// Get the maximum heading level for all headings
+int HeadingSelector::GetMaxHeadingLevel( QList< Headings::Heading > flat_headings )
+{
+    int maxLevel = 0;
+
+    foreach ( Headings::Heading heading, flat_headings )
+    {
+        if ( heading.level > maxLevel )
+        {
+            maxLevel = heading.level;
+        }
+    }
+    return maxLevel;
+}
+
+
+// Add the selectable entries to the Select Heading combo box
+void HeadingSelector::PopulateSelectHeadingCombo( int max_heading_level )
+{
+    QString entry = tr( "Up to level" );
+
+    ui.cbTOCSetHeadingLevel->addItem( tr( "<Select headings to include>" ) );
+    if ( max_heading_level > 0 )
+    {
+        ui.cbTOCSetHeadingLevel->addItem( tr( "None" ) );
+        for ( int i = 1; i < max_heading_level; ++i )
+        {
+            ui.cbTOCSetHeadingLevel->addItem( entry + QString::number( i ) );
+        }
+        ui.cbTOCSetHeadingLevel->addItem( tr( "All" ) );
+    }
+}
+
+
+// Set all headings to be in or not in the TOC
+void HeadingSelector::SetAllHeadingInclusion( int upToLevel )
+{
+    // Recursively sets all headings
+    for ( int i = 0; i < m_Headings.count(); ++i )
+    {
+        SetOneHeadingInclusion( m_Headings[ i ], upToLevel );
+    }
+
+    // Recreate model and display selected headings
+    CreateTOCModel();
+    if ( ui.cbTOCItemsOnly->checkState() == Qt::Checked ) 
+    {
+        RemoveExcludedItems( m_TableOfContents.invisibleRootItem() );
+    }
+    UpdateTreeViewDisplay();       
+}
+
+
+// Set one heading to be included/excluded from TOC
+void HeadingSelector::SetOneHeadingInclusion( Headings::Heading &heading, int upToLevel )
+{
+    // Include if level is within range or All levels selected
+    if ( heading.level <= upToLevel || upToLevel < 0 )
+    {
+        heading.include_in_toc = true;
+    } 
+    else
+    {
+        heading.include_in_toc = false;
+    }
+
+    if ( !heading.children.isEmpty() )
+    {
+        for ( int i = 0; i < heading.children.count(); ++i )
+        {
+            SetOneHeadingInclusion( heading.children[ i ], upToLevel );
+        }
+    }
+}
+
+
+// Invoked when Select Heading is selected
+void HeadingSelector::SelectHeadingLevelInclusion( const QString& heading_level )
+{
+    QChar last_char = heading_level[ heading_level.count() - 1 ];
+
+    // For heading type == "Up to level #"
+    if ( last_char.isDigit() )
+    {
+        SetAllHeadingInclusion( last_char.digitValue() );
+    }
+    else if ( heading_level == tr( "All" ) )
+    {
+        SetAllHeadingInclusion( -1 );
+    }
+    else if ( heading_level == tr( "None" ) )
+    {
+        SetAllHeadingInclusion( 0 );
+    }
+    // else is "<Select heading level>" which does nothing
+
+    // Reset selection to description
+    QString select = tr( "<Select headings to include>" );
+    ui.cbTOCSetHeadingLevel->setCurrentIndex( ui.cbTOCSetHeadingLevel->findText( select ) );
+}
+
+
 // Reads all the stored dialog settings like
 // window position, geometry etc.
 void HeadingSelector::ReadSettings()
@@ -471,6 +575,11 @@ void HeadingSelector::ConnectSignalsToSlots()
 
     connect( this,               SIGNAL( accepted() ),
              m_Book.data(),      SLOT(   SetModified() ) 
+             );
+
+    connect( ui.cbTOCSetHeadingLevel, 
+                                 SIGNAL( activated( const QString& ) ),  
+             this,               SLOT( SelectHeadingLevelInclusion( const QString& ) )
              );
 }
 
