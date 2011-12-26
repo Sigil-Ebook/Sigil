@@ -470,7 +470,7 @@ int CodeViewEditor::Count( const QString &search_regex )
     return m_MatchInfo.count();
 }
 
-
+#include <QtDebug>
 bool CodeViewEditor::ReplaceSelected( const QString &search_regex, const QString &replacement, Searchable::Direction direction )
 {
     UpdateSearchCache( search_regex, toPlainText() );
@@ -488,13 +488,103 @@ bool CodeViewEditor::ReplaceSelected( const QString &search_regex, const QString
 
         if ( replacement_made )
         {
+            // Prevent the search cache from being cleared because we're going to update
+            // it manually.
+            disconnect( this, SIGNAL( textChanged() ), this, SLOT( ContentChanged() ) );
+            // Replace the selected text with our replacemnt text.
             textCursor().insertText( replaced_text );
+            // Reconnect the signal because we want to have the search cache cleared
+            // if the user changes the text.
+            connect( this, SIGNAL( textChanged() ), this, SLOT( ContentChanged() ) );
+
+            // Set the cursor to the beginning of the replaced text if the user
+            // is searching backward through the text.
             if ( direction == Searchable::Direction_Up )
             {
                 QTextCursor c = textCursor();
                 c.setPosition(selection_start);
                 setTextCursor(c);
             }
+
+            // Update the search cache. We are going to look for matches between
+            // one before and one after the current match.
+            int insertion_point = -1;
+            int match_count = 1;
+            for ( int i = 0; i < m_MatchInfo.count(); i++ )
+            {
+                if ( m_MatchInfo.at( i ).offset.first == selection_start && m_MatchInfo.at( i ).offset.second == selection_end )
+                {
+                    insertion_point = i;
+                    break;
+                }
+            }
+            // Find out where we are in relation to the start and end. We need
+            // to remove the current match as well as the one before and after
+            // if that is possible.
+            if ( insertion_point + 1 < m_MatchInfo.count() )
+            {
+                match_count++;
+            }
+            if ( insertion_point > 0 )
+            {
+                match_count++;
+                insertion_point--;
+            }
+            for ( int i = 0; i < match_count; ++i )
+            {
+                m_MatchInfo.removeAt( insertion_point );
+            }
+
+            if ( !m_MatchInfo.isEmpty() )
+            {
+                int orig_len = selection_end - selection_start;
+                int replace_len = replaced_text.length();
+                int replace_diff = orig_len - replace_len;
+
+                // Translate everything after the insertion point to account for
+                // the difference in length betweent the replaced text and the old
+                // text.
+                for ( int i = insertion_point; i < m_MatchInfo.count(); ++i )
+                {
+                    SPCRE::MatchInfo mi = m_MatchInfo.at(i);
+                    mi.offset.first = mi.offset.first - replace_diff;
+                    mi.offset.second = mi.offset.second - replace_diff;
+                    m_MatchInfo.replace( i, mi );
+                }
+
+                // Get the search start.
+                if ( insertion_point == 0 )
+                {
+                    selection_start = 0;
+                }
+                else
+                {
+                    selection_start = m_MatchInfo.at( insertion_point - 1 ).offset.second;
+                }
+                // Get the search end.
+                if ( insertion_point == m_MatchInfo.count() - 1 )
+                {
+                    selection_end = toPlainText().length() - 1;
+                }
+                else
+                {
+                    selection_end = m_MatchInfo.at( insertion_point + 1 ).offset.first;
+                }
+
+                // Get our new matches.
+                QList<SPCRE::MatchInfo> new_matches = PCRECache::instance()->getObject( m_FindPattern )->getMatchInfo( Utility::Substring( selection_start, selection_end, toPlainText() ) );
+                // Translate the new matches so their offsets match the text.
+                // Also insert them into the match list.
+                for (int i = 0; i < new_matches.count(); ++i )
+                {
+                    SPCRE::MatchInfo mi = new_matches.at(i);
+                    mi.offset.first = mi.offset.first + selection_start;
+                    mi.offset.second = mi.offset.second + selection_start;
+                    m_MatchInfo.insert( insertion_point, mi );
+                    insertion_point++;
+                }
+            }
+
             return true;
         }
     }
