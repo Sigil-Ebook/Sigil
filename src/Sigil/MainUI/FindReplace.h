@@ -97,7 +97,6 @@ private slots:
     void clearMessage();
 
 private:
-
     void FindText( Searchable::Direction direction );
     void ReplaceText( Searchable::Direction direction );
 

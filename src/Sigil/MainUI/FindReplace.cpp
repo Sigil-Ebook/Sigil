@@ -21,6 +21,7 @@
 *************************************************************************/
 
 #include <stdafx.h>
+#include <QMessageBox>
 #include "pcre.h"
 #include "FindReplace.h"
 #include "Misc/SleepFunctions.h"
@@ -276,6 +277,11 @@ bool FindReplace::CheckBookWideSearchingAllowed()
     if ( GetLookWhere() == FindReplace::LookWhere_AllHTMLFiles &&
          m_MainWindow.GetCurrentContentTab().GetViewState() == ContentTab::ViewState_BookView )
     {
+        QMessageBox::critical( this,
+                               tr( "Sigil" ),
+                               tr( "It is not currently possible to search all the files in Book View mode. "
+                                   "Switch to Code View to perform such searches.")
+                              );
         return false;
     }
 
