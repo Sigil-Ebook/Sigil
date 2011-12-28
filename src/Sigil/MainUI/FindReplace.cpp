@@ -456,7 +456,10 @@ QStringList FindReplace::GetPreviousFindStrings()
 
     for ( int i = 0; i < ui.cbFind->count(); ++i )
     {
-        find_strings.append( ui.cbFind->itemText( i ) );
+        if ( !find_strings.contains( ui.cbFind->itemText( i ) ) )
+        {
+            find_strings.append( ui.cbFind->itemText( i ) );
+        }
     }
 
     return find_strings;
@@ -469,7 +472,10 @@ QStringList FindReplace::GetPreviousReplaceStrings()
 
     for ( int i = 0; i < ui.cbReplace->count(); ++i )
     {
-        replace_strings.append( ui.cbReplace->itemText( i ) );
+        if ( !replace_strings.contains( ui.cbReplace->itemText( i ) ) )
+        {
+            replace_strings.append( ui.cbReplace->itemText( i ) );
+        }
     }
 
     return replace_strings;
@@ -549,8 +555,13 @@ void FindReplace::ReadSettings()
     settings.beginGroup( SETTINGS_GROUP );
 
     // Input fields
-    ui.cbFind->addItems( settings.value( "find_strings" ).toStringList() );
-    ui.cbReplace->addItems( settings.value( "replace_strings" ).toStringList() );
+    QStringList find_strings = settings.value( "find_strings" ).toStringList();
+    find_strings.removeDuplicates();
+    ui.cbFind->addItems( find_strings );
+
+    find_strings = settings.value( "replace_strings" ).toStringList();
+    find_strings.removeDuplicates();
+    ui.cbReplace->addItems( find_strings );
 
     ui.cbSearchMode->setCurrentIndex( settings.value( "search_mode", 0 ).toInt() );
     ui.cbLookWhere->setCurrentIndex( settings.value( "look_where", 0 ).toInt() );
@@ -587,6 +598,9 @@ Searchable* FindReplace::GetAvailableSearchable()
 
 void FindReplace::ExtendUI()
 {
+    ui.cbFind->setCompleter( 0 );
+    ui.cbReplace->setCompleter( 0 );
+
     ui.cbSearchMode->addItem( tr( "Normal" ), FindReplace::SearchMode_Normal );
     ui.cbSearchMode->addItem( tr( "Case Sensitive" ), FindReplace::SearchMode_Case_Sensitive );
     ui.cbSearchMode->addItem( tr( "Regex" ), FindReplace::SearchMode_Regex );

@@ -122,11 +122,14 @@
           <property name="editable">
            <bool>true</bool>
           </property>
+          <property name="maxCount">
+           <number>15</number>
+          </property>
           <property name="sizeAdjustPolicy">
            <enum>QComboBox::AdjustToMinimumContentsLengthWithIcon</enum>
           </property>
           <property name="duplicatesEnabled">
-           <bool>true</bool>
+           <bool>false</bool>
           </property>
          </widget>
         </item>
@@ -190,11 +193,14 @@
           <property name="editable">
            <bool>true</bool>
           </property>
+          <property name="maxCount">
+           <number>15</number>
+          </property>
           <property name="sizeAdjustPolicy">
            <enum>QComboBox::AdjustToMinimumContentsLengthWithIcon</enum>
           </property>
           <property name="duplicatesEnabled">
-           <bool>true</bool>
+           <bool>false</bool>
           </property>
          </widget>
         </item>
