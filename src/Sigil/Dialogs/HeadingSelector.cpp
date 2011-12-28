@@ -438,7 +438,7 @@ void HeadingSelector::PopulateSelectHeadingCombo( int max_heading_level )
         ui.cbTOCSetHeadingLevel->addItem( tr( "None" ) );
         for ( int i = 1; i < max_heading_level; ++i )
         {
-            ui.cbTOCSetHeadingLevel->addItem( entry + QString::number( i ) );
+            ui.cbTOCSetHeadingLevel->addItem( entry + " " + QString::number( i ) );
         }
         ui.cbTOCSetHeadingLevel->addItem( tr( "All" ) );
     }
