@@ -28,6 +28,7 @@
 
 static const QString SETTINGS_GROUP = "find_replace";
 static const int MAXIMUM_SELECTED_TEXT_LIMIT = 100;
+static const int MAX_HISTORY_COUNT = 15;
 
 FindReplace::FindReplace( MainWindow &main_window )
     : QWidget( &main_window ),
@@ -454,7 +455,7 @@ QStringList FindReplace::GetPreviousFindStrings()
 {
     QStringList find_strings;
 
-    for ( int i = 0; i < ui.cbFind->count(); ++i )
+    for ( int i = 0; i < qMin( ui.cbFind->count(), MAX_HISTORY_COUNT ); ++i )
     {
         if ( !find_strings.contains( ui.cbFind->itemText( i ) ) )
         {
@@ -470,7 +471,7 @@ QStringList FindReplace::GetPreviousReplaceStrings()
 {
     QStringList replace_strings;
 
-    for ( int i = 0; i < ui.cbReplace->count(); ++i )
+    for ( int i = 0; i < qMin( ui.cbReplace->count(), MAX_HISTORY_COUNT ); ++i )
     {
         if ( !replace_strings.contains( ui.cbReplace->itemText( i ) ) )
         {
