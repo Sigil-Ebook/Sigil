@@ -326,7 +326,6 @@ set( QRC_FILES
     Resource_Files/main/main.qrc
     Resource_Files/About/About.qrc
     Resource_Files/data/data.qrc
-    Resource_Files/dictionaries/dictionaries.qrc
     Resource_Files/javascript/javascript.qrc
     Resource_Files/icon/icon.qrc  
     )
@@ -485,8 +484,13 @@ xcode_pch( ${PCH_NAME} )
 
 #############################################################################
 
-# needed for correct Xerces header inclusion
+# needed for correct static header inclusion
 add_definitions( -DXERCES_STATIC_LIBRARY )
+add_definitions( -DPCRE_STATIC )
+add_definitions( -DHUNSPELL_STATIC )
+
+# Speed up stirng building
+add_defintions( -DQT_USE_FAST_CONCATENATION )
 
 #############################################################################
 
