@@ -51,6 +51,9 @@ public:
     QStringList userDictionaryWords();
     void replaceUserDictionaryWords(QStringList words);
 
+    /**
+     * The location of the user dictionary directory.
+     */
     static QString dictionaryDirectory();
 
 private:

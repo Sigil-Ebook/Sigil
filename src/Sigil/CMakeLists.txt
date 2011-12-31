@@ -332,6 +332,8 @@ set( QRC_FILES
 
 file( GLOB TS_FILES Resource_Files/ts/sigil_*.ts )
 
+file( GLOB DIC_FILES Resource_Files/dictionaries/* )
+
 set( QXT_FILES
     Qxt/qxtconfirmationmessage.h
     Qxt/qxtconfirmationmessage.cpp
@@ -432,7 +434,8 @@ if( APPLE )
         exec_program( "cp ${PROJECT_SOURCE_DIR}/Resource_Files/icon/sgf.icns ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Release/Sigil.app/Contents/Resources")
         exec_program( "cp ${PROJECT_SOURCE_DIR}/Resource_Files/icon/epub.icns ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Release/Sigil.app/Contents/Resources")
         # Create translation directory.
-        exec_program( "mkdir -p ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Release/Sigil.app/Contents/translations")
+        exec_program( "mkdir -p ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Release/Sigil.app/Contents/translations" )
+        exec_program( "mkdir -p ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Release/Sigil.app/Contents/dictionaries" )
     else()
         exec_program( "mkdir -p ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Sigil.app/Contents/Resources")
         exec_program( "cp ${PROJECT_SOURCE_DIR}/Resource_Files/icon/Sigil.icns ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Sigil.app/Contents/Resources")
@@ -440,6 +443,7 @@ if( APPLE )
         exec_program( "cp ${PROJECT_SOURCE_DIR}/Resource_Files/icon/epub.icns ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Sigil.app/Contents/Resources")
         # Create translation directory.
         exec_program( "mkdir -p ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Sigil.app/Contents/translations")
+        exec_program( "mkdir -p ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Sigil.app/Contents/dictionaries" )
     endif()
 
     # Copy the PLIST file...
@@ -490,7 +494,7 @@ add_definitions( -DPCRE_STATIC )
 add_definitions( -DHUNSPELL_STATIC )
 
 # Speed up stirng building
-add_defintions( -DQT_USE_FAST_CONCATENATION )
+add_definitions( -DQT_USE_FAST_CONCATENATION )
 
 #############################################################################
 
@@ -533,6 +537,7 @@ if( APPLE )
                         DEPENDS addframeworks )
 
     add_custom_command( TARGET addframeworks POST_BUILD COMMAND cp ${PROJECT_BINARY_DIR}/*.qm ${WORK_DIR}/Sigil.app/Contents/translations/ )
+    add_custom_command( TARGET addframeworks POST_BUILD COMMAND cp ${CMAKE_SOURCE_DIR}/src/Sigil/Resource_Files/dictionaries/* ${WORK_DIR}/Sigil.app/Contents/dictionaries )
                 
 # For Linux and Windows, provide binary installers.
 # For this to work on Linux, InstallJammer needs to be installed and on the system path.
@@ -686,6 +691,12 @@ else()
         add_custom_command( TARGET ${TARGET_FOR_COPY} POST_BUILD COMMAND cmake -E copy ${QM} ${MAIN_PACKAGE_DIR}/translations/ )
     endforeach( QM )
 
+    # Copy the dictionary files
+    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E make_directory ${MAIN_PACKAGE_DIR}/dictionaries/ )
+    foreach( DIC ${DIC_FILES} )
+        add_custom_command( TARGET ${TARGET_FOR_COPY} POST_BUILD COMMAND cmake -E copy ${DIC} ${MAIN_PACKAGE_DIR}/dictionaries/ )
+    endforeach( DIC )
+
     # Add libstdc++ to the package.
     if(UNIX)
         file(GLOB STDCPP /usr/lib/*-linux-gnu/libstdc++*)
@@ -770,5 +781,6 @@ if( UNIX AND NOT APPLE )
     install( FILES ${LINUX_DESKTOP_FILE} DESTINATION ${CMAKE_INSTALL_PREFIX}/share/applications )
     install( FILES ${LINUX_DESKTOP_ICON_FILE} DESTINATION ${CMAKE_INSTALL_PREFIX}/share/pixmaps RENAME sigil.png )
     install( FILES ${QM_FILES} DESTINATION ${CMAKE_INSTALL_PREFIX}/share/sigil/translations )
+    install( FILES ${DIC_FILES} DESTINATION ${CMAKE_INSTALL_PREFIX}/share/sigil/dictionaries )
 endif()
 

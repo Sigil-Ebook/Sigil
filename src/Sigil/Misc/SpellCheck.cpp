@@ -226,52 +226,57 @@ SpellCheck::SpellCheck() :
     m_hunspell(0),
     m_codec(0)
 {
-    QStringList defaultDicts;
-    defaultDicts << "de_DE-frami"
-                 << "en_US"
-                 << "es_MX"
-                 << "fr-moderne";
     QStringList dictExts;
     dictExts << ".aff"
              << ".dic";
 
-    const QString path = dictionaryDirectory();
-    QDir dictDir(path);
-
-    // Create the dictionary directory if it does not exist.
-    if (!dictDir.exists()) {
-        dictDir.mkpath(path);
+    const QString user_directory = dictionaryDirectory();
+    QDir userDir(user_directory);
+    // Create the user dictionary directory if it does not exist.
+    if (!userDir.exists()) {
+        userDir.mkpath(user_directory);
     }
 
-    // Write the default dictionaries to disk if they do not already exist.
-    foreach (QString d, defaultDicts) {
-        foreach (QString ext, dictExts) {
-            QFile dFile(path + "/" + d + ext);
-            if (!dFile.exists()) {
-                if (dFile.open(QIODevice::WriteOnly)) {
-                    QFile oFile(":/dict/" + d + ext);
-                    if (oFile.open(QIODevice::ReadOnly)) {
-                        dFile.write(oFile.readAll());
-                    }
+    // Paths for each dictionary location.
+    QStringList paths;
+#ifdef Q_WS_MAC
+    paths << QCoreApplication::applicationDirPath() + "/../dictionaries";
+#endif
+#ifdef Q_WS_WIN || Q_WS_X11
+    paths << QCoreApplication::applicationDirPath() + "/dictionaries";
+#endif
+#ifdef Q_WS_X11
+    // The user can specify an env variable that points to the dictionaries.
+    const QString env_dic_location = QString(getenv("SIGIL_DICTIONARIES"));
+    if (!env_dic_location.isEmpty()) {
+        paths << env_dic_location;
+    }
+    // Possible location if the user installed from source.
+    // This really should be changed to be passed the install prefix given to
+    // cmake instead of guessing based upon the executable path.
+    paths >> QCoreApplication::applicationDirPath() + "/../share/" + QCoreApplication::applicationName().toLower() + "/dictionaries/";
+#endif
+    // Add the user dictionary directory last because anything in here
+    // will override installation supplied dictionaries.
+    paths << user_directory;
+
+    foreach (QString path, paths) {
+        // Find all dictionaries and add them to the avaliable list.
+        QDir dictDir(path);
+        if (dictDir.exists()) {
+            QStringList filters;
+            // Look for all .dic files.
+            filters << "*.dic";
+            dictDir.setNameFilters(filters);
+            QStringList otherDicts = dictDir.entryList();
+            foreach (QString ud, otherDicts) {
+                const QFileInfo fileInfo(ud);
+                const QString basename = fileInfo.baseName();
+                const QString udPath = path + "/" + basename;
+                // We only include the dictionary if it has a corresponding .aff.
+                if (QFile(udPath + ".aff").exists()) {
+                    m_dictionaries.insert(basename, udPath);
                 }
-            }
-        }
-    }
-
-    // Find all dictionaries and add them to the avaliable list.
-    if (dictDir.exists()) {
-        QStringList filters;
-        // Look for all .dic files.
-        filters << "*.dic";
-        dictDir.setNameFilters(filters);
-        QStringList otherDicts = dictDir.entryList();
-        foreach (QString ud, otherDicts) {
-            const QFileInfo fileInfo(ud);
-            const QString basename = fileInfo.baseName();
-            const QString udPath = path + "/" + basename;
-            // We only include the dictionary if it has a corresponding .aff.
-            if (QFile(udPath + ".aff").exists()) {
-                m_dictionaries.insert(basename, udPath);
             }
         }
     }
