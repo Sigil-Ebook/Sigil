@@ -139,10 +139,15 @@ void SpellCheck::setDictionary(const QString &name, bool forceReplace)
     QFile affFile(aff);
     if (affFile.open(QIODevice::ReadOnly)) {
         QTextStream affStream(&affFile);
-        QRegExp encDetector("^\\s*SET\\s+([A-Z0-9\\-]+)\\s*", Qt::CaseInsensitive);
-        for (QString line = affStream.readLine(); !line.isEmpty(); line = affStream.readLine()) {
-            if (encDetector.indexIn(line) > -1) {
-                encoding = encDetector.cap(1);
+        QRegExp encDetector("SET\\s+(.+)", Qt::CaseInsensitive);
+        int count = 0;
+        for (QString line = affStream.readLine(); !line.isNull(); line = affStream.readLine()) {
+            if (line.contains(encDetector)) {
+                encoding = encDetector.cap(1).trimmed();
+                break;
+            }
+            // Only look at the first 50 lines of the file.
+            if (count++ >= 50) {
                 break;
             }
         }
