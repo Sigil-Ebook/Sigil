@@ -44,7 +44,7 @@ endif()
 # create exes that can run on 10.7+
 set( CMAKE_OSX_DEPLOYMENT_TARGET "10.7" )
 
-# 10.6 is the required minimum OS X version.
+# 10.7 is the required minimum OS X version.
 set( CMAKE_OSX_SYSROOT "/Developer/SDKs/MacOSX10.7.sdk" )
 
 # Universal builds for mac
