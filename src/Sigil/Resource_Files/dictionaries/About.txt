@@ -3,8 +3,8 @@ de_DE-frami
  - http://extensions.services.openoffice.org/project/dict-de_DE_frami
 
 en_US
- - Version 7.1
- - http://wordlist.sourceforge.net/
+ - Version 20100316
+ - http://extensions.services.openoffice.org/node/3785
 
 es_MX
  - Version 2005-05-05
