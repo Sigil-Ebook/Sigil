@@ -123,6 +123,39 @@ bool PCREReplaceTextBuilder::BuildReplacementText(SPCRE &sre,
 
                     in_control = false;
                 }
+                // Metacharacters
+                else if (c == 'a') {
+                    accumulateReplcementText("\a");
+                    in_control = false;
+                }
+                else if (c == 'b') {
+                    accumulateReplcementText("\b");
+                    in_control = false;
+                }
+                else if (c == 'f') {
+                    accumulateReplcementText("\f");
+                    in_control = false;
+                }
+                else if (c == 'n') {
+                    accumulateReplcementText("\n");
+                    in_control = false;
+                }
+                else if (c == 'r') {
+                    accumulateReplcementText("\r");
+                    in_control = false;
+                }
+                else if (c == 't') {
+                    accumulateReplcementText("\t");
+                    in_control = false;
+                }
+                else if (c == 'v') {
+                    accumulateReplcementText("\v");
+                    in_control = false;
+                }
+                else if (c == '\\') {
+                    accumulateReplcementText("\\");
+                    in_control = false;
+                }
                 // End case change.
                 else if (c == 'E') {
                     m_caseChangeState = CaseChange_None;
