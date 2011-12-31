@@ -41,11 +41,11 @@ if( CMAKE_COMPILER_IS_GNUCXX  )
 endif()
 
 # We need this to make sure g++ and the linker
-# create exes that can run on 10.6+
-set( CMAKE_OSX_DEPLOYMENT_TARGET "10.6" )
+# create exes that can run on 10.7+
+set( CMAKE_OSX_DEPLOYMENT_TARGET "10.7" )
 
 # 10.6 is the required minimum OS X version.
-set( CMAKE_OSX_SYSROOT "/Developer/SDKs/MacOSX10.6.sdk" )
+set( CMAKE_OSX_SYSROOT "/Developer/SDKs/MacOSX10.7.sdk" )
 
 # Universal builds for mac
 set( CMAKE_OSX_ARCHITECTURES "x86_64" )
