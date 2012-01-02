@@ -495,6 +495,7 @@ add_definitions( -DHUNSPELL_STATIC )
 
 # Speed up stirng building
 add_definitions( -DQT_USE_FAST_CONCATENATION )
+add_definitions( -DQT_USE_FAST_OPERATOR_PLUS )
 
 #############################################################################
 
