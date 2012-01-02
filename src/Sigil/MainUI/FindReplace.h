@@ -191,9 +191,6 @@ private:
 
     QTimer m_timer;
 
-    LookWhere m_LookWhere;
-    SearchMode m_SearchMode;
-
     Ui::FindReplace ui;
 };
 
@@ -202,7 +199,7 @@ template< class T >
 bool FindReplace::ResourceContainsCurrentRegex( T *resource )
 {
     // For now, this must hold
-    Q_ASSERT( m_LookWhere == LookWhere_AllHTMLFiles );
+    Q_ASSERT( GetLookWhere() == FindReplace::LookWhere_AllHTMLFiles );
 
     Resource *generic_resource = resource;
 
