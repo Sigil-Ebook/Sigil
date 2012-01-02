@@ -242,7 +242,7 @@ SpellCheck::SpellCheck() :
 #ifdef Q_WS_MAC
     paths << QCoreApplication::applicationDirPath() + "/../dictionaries";
 #endif
-#ifdef Q_WS_WIN || Q_WS_X11
+#if defined( Q_WS_WIN ) || defined( Q_WS_X11 )
     paths << QCoreApplication::applicationDirPath() + "/dictionaries";
 #endif
 #ifdef Q_WS_X11
