@@ -127,7 +127,7 @@ public:
 	void RemoveAt(int index)
 	{
 		delete (GetAt(index));
-		m_aData.RemoveAt(index);
+        this->m_aData.RemoveAt(index);
 	}
 
 	/**

@@ -88,10 +88,10 @@ public:
 	TYPE& GetAt(size_t uIndex) {return this->at(uIndex);}
 	const TYPE& GetAt(size_t uIndex) const {return this->at(uIndex);} 
 	void SetAt(size_t uIndex, TYPE value) {inherited::operator[](uIndex) = value; }
-	size_t Add(const TYPE& x) {push_back(x);return GetUpperBound();}
+    size_t Add(const TYPE& x) {this->push_back(x);return GetUpperBound();}
 	void RemoveAll() {this->clear();}
-	void RemoveAt(size_t uIndex) { erase(GetIterFromIndex(uIndex));}
-	void InsertAt(size_t uIndex, const TYPE& x){insert(GetIterFromIndex(uIndex), x);}
+    void RemoveAt(size_t uIndex) { this->erase(GetIterFromIndex(uIndex));}
+    void InsertAt(size_t uIndex, const TYPE& x){this->insert(GetIterFromIndex(uIndex), x);}
 	TYPE& operator[](size_t uIndex)
 	{
 		return inherited::operator[](uIndex);
@@ -115,8 +115,8 @@ public:
 	typedef typename std::list<TYPE>::iterator iterator;
 	typedef typename std::list<TYPE>::const_iterator const_iterator;
 	size_t GetCount() const {return this->size();}
-	void AddTail(const TYPE& x){push_back(x);}
-	void AddHead(const TYPE& x){push_front(x);}
+    void AddTail(const TYPE& x){this->push_back(x);}
+    void AddHead(const TYPE& x){this->push_front(x);}
 	void RemoveHead() {this->pop_front();}
 	void RemoveTail() {this->pop_back();}
 	void RemoveAll() {this->clear();}
@@ -132,7 +132,7 @@ public:
 	TYPE& GetPrev(iterator& pos) { return *pos--;}
 	TYPE GetPrev(iterator& pos) const{ return *pos--;}
 	iterator Find(TYPE& x) { return std::find(this->begin(), this->end(), x);}
-	void RemoveAt(iterator& pos) { erase(pos);}
+    void RemoveAt(iterator& pos) { this->erase(pos);}
 	bool IteratorValid(const_iterator &iter) const
 	{
 		return iter != this->end();
@@ -168,11 +168,11 @@ public:
 	typedef typename  std::map<KEY,VALUE, std::less<KEY>, std::allocator<std::pair<const KEY, VALUE> > >::value_type v_type;
 	void SetAt( KEY key, VALUE newValue)
 	{
-		insert(v_type(key, newValue));
+        this->insert(v_type(key, newValue));
 	}
 	ZBOOL RemoveKey( KEY key )
 	{
-		return erase(key) != 0;
+        return this->erase(key) != 0;
 	}
 	ZBOOL Lookup( KEY key, VALUE& rValue ) const
 	{
