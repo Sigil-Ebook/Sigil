@@ -339,11 +339,26 @@ Metadata::MetaElement Metadata::FreeFormMetadata( const Metadata::MetaElement &m
     QString name = meta.name.toLower();
 
     // Remap commonly used meta values to match internal names
-    name =  name == "copyright" ? "Rights"   :
-            name == "eisbn"     ? "ISBN"     :
-            name == "issn"      ? "ISSN"     :
-            name == "doi"       ? "DOI"      :
-            name[ 0 ].toUpper() + name.mid( 1 );
+    if ( name == "copyright")
+    {
+        name = "Rights";
+    }
+    else if ( name == "eisbn" )
+    {
+        name = "ISBN";
+    }
+    else if ( name == "issn" )
+    {
+        name = "ISSN";
+    }
+    else if ( name == "doi" )
+    {
+        name = "DOI";
+    }
+    else
+    {
+        name.at( 0 ).toUpper() + name.mid( 1 );
+    }
     
     MetaElement book_meta;
 

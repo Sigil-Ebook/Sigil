@@ -95,12 +95,12 @@ void MessageHandler( QtMsgType type, const char *message )
 
         case QtCriticalMsg:
 
-            Utility::DisplayExceptionErrorDialog( "Critical: " + QString( message ) );
+            Utility::DisplayExceptionErrorDialog( QString( "Critical: %1" ).arg( QString( message ) ) );
             break;
 
         case QtFatalMsg:
 
-            Utility::DisplayExceptionErrorDialog( "Fatal: " + QString( message ) );
+            Utility::DisplayExceptionErrorDialog( QString( "Fatal: %1" ).arg( QString( message ) ) );
             abort();
     }
 }
