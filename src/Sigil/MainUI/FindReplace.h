@@ -54,16 +54,16 @@ public:
      */
     enum LookWhere
     {
-        LookWhere_CurrentFile,
-        LookWhere_AllHTMLFiles
+        LookWhere_CurrentFile = 0,
+        LookWhere_AllHTMLFiles = 10
     };
 
     enum SearchMode
     {
         // Case insensitive
         SearchMode_Normal = 0,
-        SearchMode_Case_Sensitive = 50,
-        SearchMode_Regex = 100
+        SearchMode_Case_Sensitive = 10,
+        SearchMode_Regex = 20
     };
 
 protected:

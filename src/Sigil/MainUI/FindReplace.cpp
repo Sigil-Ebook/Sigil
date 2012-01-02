@@ -119,7 +119,7 @@ void FindReplace::Count()
 
     int count = 0;
 
-    if ( GetLookWhere() == LookWhere_CurrentFile || !CheckBookWideSearchingAllowed() )
+    if ( GetLookWhere() == LookWhere_CurrentFile )
     {
         count = searchable->Count( GetSearchRegex() );
     }
@@ -165,7 +165,7 @@ void FindReplace::ReplaceAll()
     }
     int count = 0;
 
-    if ( GetLookWhere() == LookWhere_CurrentFile || !CheckBookWideSearchingAllowed() )
+    if ( GetLookWhere() == LookWhere_CurrentFile )
     {
         count = searchable->ReplaceAll( GetSearchRegex(), ui.cbReplace->lineEdit()->text() );
     }
@@ -211,7 +211,7 @@ void FindReplace::FindText( Searchable::Direction direction )
         return;
     }
 
-    if ( GetLookWhere() == LookWhere_CurrentFile || !CheckBookWideSearchingAllowed() )
+    if ( GetLookWhere() == LookWhere_CurrentFile )
     {
         bool found = searchable->FindNext( GetSearchRegex(), direction );
 
@@ -564,8 +564,27 @@ void FindReplace::ReadSettings()
     find_strings.removeDuplicates();
     ui.cbReplace->addItems( find_strings );
 
-    ui.cbSearchMode->setCurrentIndex( settings.value( "search_mode", 0 ).toInt() );
-    ui.cbLookWhere->setCurrentIndex( settings.value( "look_where", 0 ).toInt() );
+    ui.cbSearchMode->setCurrentIndex( 0 );
+    int search_mode = settings.value( "search_mode", 0 ).toInt();
+    for ( int i = 0; i < ui.cbSearchMode->count(); ++i )
+    {
+        if ( ui.cbSearchMode->itemData( i ) == search_mode )
+        {
+            ui.cbSearchMode->setCurrentIndex( i );
+            break;
+        }
+    }
+
+    ui.cbLookWhere->setCurrentIndex( 0 );
+    int look_where = settings.value( "look_where", 0 ).toInt();
+    for ( int i = 0; i < ui.cbLookWhere->count(); ++i )
+    {
+        if ( ui.cbLookWhere->itemData( i )  == look_where )
+        {
+            ui.cbLookWhere->setCurrentIndex( i );
+            break;
+        }
+    }
 }
 
 
