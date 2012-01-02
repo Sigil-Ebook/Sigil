@@ -254,7 +254,7 @@ SpellCheck::SpellCheck() :
     // Possible location if the user installed from source.
     // This really should be changed to be passed the install prefix given to
     // cmake instead of guessing based upon the executable path.
-    paths >> QCoreApplication::applicationDirPath() + "/../share/" + QCoreApplication::applicationName().toLower() + "/dictionaries/";
+    paths << QCoreApplication::applicationDirPath() + "/../share/" + QCoreApplication::applicationName().toLower() + "/dictionaries/";
 #endif
     // Add the user dictionary directory last because anything in here
     // will override installation supplied dictionaries.
