@@ -352,6 +352,13 @@ bool TabManager::SwitchedToExistingTab( Resource& resource,
             text_tab->ScrollToLine( line_to_scroll_to );
             return true;
         }
+
+        ImageTab *image_tab = qobject_cast< ImageTab* >( tab );
+
+        if ( image_tab != NULL )
+        {
+            return true;
+        }
     }
 
     return false;
