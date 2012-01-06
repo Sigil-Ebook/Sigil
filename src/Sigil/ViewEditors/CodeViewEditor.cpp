@@ -470,7 +470,7 @@ int CodeViewEditor::Count( const QString &search_regex )
     return m_MatchInfo.count();
 }
 
-#include <QtDebug>
+
 bool CodeViewEditor::ReplaceSelected( const QString &search_regex, const QString &replacement, Searchable::Direction direction )
 {
     UpdateSearchCache( search_regex, toPlainText() );
@@ -488,11 +488,16 @@ bool CodeViewEditor::ReplaceSelected( const QString &search_regex, const QString
 
         if ( replacement_made )
         {
+            QTextCursor cursor = textCursor();
+
             // Prevent the search cache from being cleared because we're going to update
             // it manually.
             disconnect( this, SIGNAL( textChanged() ), this, SLOT( ContentChanged() ) );
             // Replace the selected text with our replacemnt text.
-            textCursor().insertText( replaced_text );
+            cursor.beginEditBlock();
+            cursor.removeSelectedText();
+            cursor.insertText( replaced_text );
+            cursor.endEditBlock();
             // Reconnect the signal because we want to have the search cache cleared
             // if the user changes the text.
             connect( this, SIGNAL( textChanged() ), this, SLOT( ContentChanged() ) );
@@ -501,9 +506,8 @@ bool CodeViewEditor::ReplaceSelected( const QString &search_regex, const QString
             // is searching backward through the text.
             if ( direction == Searchable::Direction_Up )
             {
-                QTextCursor c = textCursor();
-                c.setPosition(selection_start);
-                setTextCursor(c);
+                cursor.setPosition( selection_start );
+                setTextCursor(cursor);
             }
 
             // Update the search cache. We are going to look for matches between
