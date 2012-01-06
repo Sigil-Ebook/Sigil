@@ -881,6 +881,25 @@ void FlowTab::LeaveEditor( QWidget *editor )
 
 void FlowTab::EnterEditor( QWidget *editor )
 {
+    // Force a save before we do a load.
+    // What can happen is, if the user has cv open, does a find and replace
+    // then switches to bv the cv contents with the replacment are not saved.
+    // The flow is cv -> cv focus lost -> save cv contents -> f&r gains focus ->
+    // cv text changed -> bv focus -> bv loads saved data. The changes from
+    // f&r are never saved so we force them to be saved before loading the
+    // data into the new view to ensure the newest data is used.
+    if ( m_IsLastViewBook )
+    {
+        m_HTMLResource.UpdateDomDocumentFromWebPage();
+    }
+    else
+    {
+        if( IsDataWellFormed() )
+        {
+            m_HTMLResource.UpdateDomDocumentFromTextDocument();
+        }
+    }
+
     if( editor == &m_wBookView && !m_IsLastViewBook )
     {
         m_IsLastViewBook = true;
