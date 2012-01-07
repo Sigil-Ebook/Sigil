@@ -64,6 +64,13 @@ QString Utility::Substring( int start_index, int end_index, const QString &strin
     return string.mid( start_index, end_index - start_index);
 }
 
+// Returns a substring of a specified string;
+// the characters included are in the interval:
+// [ start_index, end_index >
+QStringRef Utility::SubstringRef( int start_index, int end_index, const QString &string )
+{
+    return string.midRef( start_index, end_index - start_index);
+}
 // Replace the first occurrence of string "before"
 // with string "after" in string "string"
 QString Utility::ReplaceFirst( const QString &before, const QString &after, const QString &string )

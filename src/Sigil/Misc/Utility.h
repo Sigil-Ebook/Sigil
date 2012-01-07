@@ -44,6 +44,11 @@ public:
     // [ start_index, end_index >
     static QString Substring( int start_index, int end_index, const QString &string );
 
+    // Returns a substring of a specified string;
+    // the characters included are in the interval:
+    // [ start_index, end_index >
+    static QStringRef SubstringRef( int start_index, int end_index, const QString &string );
+
     // Replace the first occurrence of string "before"
     // with string "after" in string "string"
     static QString ReplaceFirst( const QString &before, const QString &after, const QString &string );

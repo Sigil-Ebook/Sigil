@@ -372,7 +372,6 @@ void FindReplace::FindInAllFiles( Searchable *searchable, Searchable::Direction 
             }
 
             searchable = GetAvailableSearchable();
-            searchable->ClearSearchCache();
             searchable->FindNext( GetSearchRegex(), direction, true );
         }
         else

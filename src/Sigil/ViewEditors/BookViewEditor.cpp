@@ -85,9 +85,7 @@ void BookViewEditor::CustomSetWebPage( QWebPage &webpage )
     m_isLoadFinished = true;
 
     connect( this,     SIGNAL( contentsChangedExtra() ), &webpage, SIGNAL( contentsChanged()        ) );
-    connect( this,     SIGNAL( contentsChangedExtra() ), this,     SLOT  ( ContentChanged()         ) );
     connect( &webpage, SIGNAL( contentsChanged()      ), this,     SIGNAL( textChanged()            ) );
-    connect( &webpage, SIGNAL( contentsChanged()      ), this,     SLOT  ( ContentChanged()         ) );
     connect( &webpage, SIGNAL( selectionChanged()     ), this,     SIGNAL( selectionChanged()       ) );
     connect( &webpage, SIGNAL( loadFinished( bool )   ), this,     SLOT( JavascriptOnDocumentLoad() ) );
     connect( &webpage, SIGNAL( loadProgress( int )    ), this,     SLOT( UpdateFinishedState( int ) ) );
@@ -352,9 +350,11 @@ bool BookViewEditor::FindNext( SearchTools &search_tools,
                                bool ignore_selection_offset
                              )
 {
-    UpdateSearchCache( search_regex, search_tools.fulltext );
-
+    SPCRE *spcre = PCRECache::instance()->getObject(search_regex);
+    SPCRE::MatchInfo match_info;
+    int start_offset = 0;
     int selection_offset = -1;
+
     if ( ignore_selection_offset )
     {
         selection_offset = 0;
@@ -364,11 +364,20 @@ bool BookViewEditor::FindNext( SearchTools &search_tools,
         selection_offset = GetSelectionOffset( *search_tools.document, search_tools.node_offsets, search_direction ) - 1;
     }
 
-    std::pair<int, int> offset = NearestMatch( m_MatchInfo, selection_offset, search_direction );
-
-    if ( offset.first != -1 )
+    // Get the match info for the direction.
+    if ( search_direction == Searchable::Direction_Up )
     {
-        SelectRangeInputs input = GetRangeInputs( search_tools.node_offsets, offset.first, offset.second - offset.first );
+        match_info = spcre->getLastMatchInfo( Utility::Substring( 0, selection_offset, search_tools.fulltext ) );
+    }
+    else
+    {
+        match_info = spcre->getFirstMatchInfo( Utility::Substring( selection_offset, search_tools.fulltext.count(), search_tools.fulltext ) );
+        start_offset = selection_offset;
+    }
+
+    if ( match_info.offset.first != -1 )
+    {
+        SelectRangeInputs input = GetRangeInputs( search_tools.node_offsets, match_info.offset.first + start_offset, match_info.offset.second - match_info.offset.first );
         SelectTextRange( input );
         ScrollToNodeText( *input.start_node, input.start_node_index );
 
@@ -381,8 +390,8 @@ bool BookViewEditor::FindNext( SearchTools &search_tools,
 
 int BookViewEditor::Count( const QString &search_regex )
 {
-    UpdateSearchCache( search_regex, GetSearchTools().fulltext );
-    return m_MatchInfo.count();
+    SPCRE *spcre = PCRECache::instance()->getObject( search_regex );
+    return spcre->getEveryMatchInfo( GetSearchTools().fulltext ).count();
 }
 
 bool BookViewEditor::ReplaceSelected( const QString &search_regex, const QString &replacement, Searchable::Direction direction )
@@ -393,20 +402,19 @@ bool BookViewEditor::ReplaceSelected( const QString &search_regex, const QString
 
 bool BookViewEditor::ReplaceSelected( const QString &search_regex, const QString &replacement, SearchTools search_tools, Searchable::Direction direction )
 {
-    UpdateSearchCache( search_regex, search_tools.fulltext );
     SPCRE *spcre = PCRECache::instance()->getObject( search_regex );
 
     int selection_offset = GetSelectionOffset( *search_tools.document, search_tools.node_offsets, Searchable::Direction_Up );
-    int selection_length = GetSelectedText().length();
 
-    if ( IsMatchSelected(m_MatchInfo, selection_offset, selection_offset + selection_length ) )
+    SPCRE::MatchInfo match_info = spcre->getFirstMatchInfo( Utility::Substring(selection_offset, search_tools.fulltext.count(), search_tools.fulltext ) );
+    if ( match_info.offset.first == 0 )
     {
         QString replaced_text;
-        bool replacement_made = spcre->replaceText( GetSelectedText(), CaptureOffsets( m_MatchInfo, selection_offset, selection_offset + selection_length ), replacement, replaced_text );
+        bool replacement_made = spcre->replaceText( GetSelectedText(), match_info.capture_groups_offsets, replacement, replaced_text );
 
         if ( replacement_made )
         {
-            SelectRangeInputs input = GetRangeInputs( search_tools.node_offsets, selection_offset, GetSelectedText().length() );
+            SelectRangeInputs input = GetRangeInputs( search_tools.node_offsets, selection_offset, match_info.offset.second );
 
             SelectRangeJS inputJS;
             inputJS.start_node = GetElementSelectingJS_WithTextNode( XhtmlDoc::GetHierarchyFromNode( *input.start_node ) );
@@ -428,10 +436,8 @@ bool BookViewEditor::ReplaceSelected( const QString &search_regex, const QString
 int BookViewEditor::ReplaceAll( const QString &search_regex, const QString &replacement )
 {
     SearchTools search_tools = GetSearchTools();
-    UpdateSearchCache( search_regex, search_tools.fulltext );
-
-    QList<SPCRE::MatchInfo> match_info = m_MatchInfo;
     SPCRE *spcre = PCRECache::instance()->getObject( search_regex );
+    QList<SPCRE::MatchInfo> match_info = spcre->getEveryMatchInfo( search_tools.fulltext );
 
     int count = 0;
     // We want this to be all one edit operation.
@@ -503,12 +509,6 @@ bool BookViewEditor::event( QEvent *event )
     }
 
     return real_return;
-}
-
-
-void BookViewEditor::ContentChanged()
-{
-    ClearSearchCache();
 }
 
 

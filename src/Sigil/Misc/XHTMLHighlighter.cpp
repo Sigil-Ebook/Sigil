@@ -23,6 +23,7 @@
 #include "XHTMLHighlighter.h"
 #include "SpellCheck.h"
 #include "Utility.h"
+#include "PCRE/PCRECache.h"
 #include "PCRE/SPCRE.h"
 
 // All of our regular expressions
@@ -488,8 +489,8 @@ void XHTMLHighlighter::CheckSpelling(const QString &text)
     format.setUnderlineStyle(QTextCharFormat::SpellCheckUnderline);
 
     // Math all individual words.
-    SPCRE pcre("(?<=^|\\s|>|;)[^><&;]+?(?=\\s|<|&|$)");
-    QList<SPCRE::MatchInfo> matches = pcre.getMatchInfo(text);
+    SPCRE *pcre = PCRECache::instance()->getObject("(?<=^|\\s|>|;)[^><&;]+?(?=\\s|<|&|$)");
+    QList<SPCRE::MatchInfo> matches = pcre->getEveryMatchInfo(text);
 
     // Run though all matches and check if they are spelled correctly when necessary.
     foreach (SPCRE::MatchInfo m, matches) {

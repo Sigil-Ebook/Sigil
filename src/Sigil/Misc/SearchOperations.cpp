@@ -104,7 +104,7 @@ int SearchOperations::CountInHTMLFile( const QString &search_regex,
         const QString &text = CleanSource::PrettyPrint( XhtmlDoc::GetDomDocumentAsString( document ) );
 
         //return Searchable::Count( search_regex, text );
-        return PCRECache::instance()->getObject( search_regex )->getMatchInfo( text ).count();
+        return PCRECache::instance()->getObject( search_regex )->getEveryMatchInfo( text ).count();
     }
 
     //TODO: BookViewSearch
@@ -187,7 +187,7 @@ tuple< QString, int > SearchOperations::PerformGlobalReplace( const QString &tex
     int count = 0;
 
     SPCRE *spcre = PCRECache::instance()->getObject( search_regex );
-    QList<SPCRE::MatchInfo> match_info = spcre->getMatchInfo( text );
+    QList<SPCRE::MatchInfo> match_info = spcre->getEveryMatchInfo( text );
 
     for ( int i =  match_info.count() - 1; i >= 0; i-- )
     {

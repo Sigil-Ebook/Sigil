@@ -64,6 +64,11 @@ public:
         // represents inside of the matched string. This is normalized so that
         // 0 represents the start of the string represented by offset.
         QList<std::pair<int, int> > capture_groups_offsets;
+
+        MatchInfo() {
+            offset.first = -1;
+            offset.second = -1;
+        }
     };
 
     /**
@@ -116,7 +121,10 @@ public:
      *
      * @return A list of MatchInfo objects.
      */
-    QList<MatchInfo> getMatchInfo(const QString &text);
+    QList<MatchInfo> getEveryMatchInfo(const QString &text);
+    MatchInfo getFirstMatchInfo(const QString &text);
+    MatchInfo getLastMatchInfo(const QString &text);
+
     /**
      * Replaces the given text using a replacement pattern. The matched text is
      * required because the replacement pattern can references the capture
@@ -134,6 +142,8 @@ public:
     bool replaceText(const QString &text, const QList<std::pair<int, int> > &capture_groups_offsets, const QString &replacement_pattern, QString &out);
 
 private:
+    MatchInfo generateMatchInfo(const QString &text, int ovector[], int ovector_count);
+
     // Store if the pattern is valid.
     bool m_valid;
     // The regular expression as a string.

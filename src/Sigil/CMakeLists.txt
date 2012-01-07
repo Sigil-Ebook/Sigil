@@ -240,8 +240,7 @@ set( VIEW_EDITOR_FILES
     ViewEditors/CodeViewEditor.cpp
     ViewEditors/CodeViewEditor.h
     ViewEditors/LineNumberArea.cpp
-    ViewEditors/LineNumberArea.h  
-    ViewEditors/Searchable.cpp    
+    ViewEditors/LineNumberArea.h
     ViewEditors/Searchable.h 
     ViewEditors/Zoomable.h 
     ViewEditors/ViewEditor.h     

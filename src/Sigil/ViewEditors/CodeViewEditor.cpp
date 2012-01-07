@@ -436,23 +436,34 @@ bool CodeViewEditor::FindNext( const QString &search_regex,
                                Searchable::Direction search_direction,
                                bool ignore_selection_offset )
 {
-    UpdateSearchCache( search_regex, toPlainText() );
+    SPCRE *spcre = PCRECache::instance()->getObject(search_regex);
 
     int selection_offset = GetSelectionOffset( search_direction, ignore_selection_offset );
-    std::pair<int, int> offset = NearestMatch( m_MatchInfo, selection_offset, search_direction );
+    SPCRE::MatchInfo match_info;
+    int start_offset = 0;
 
-    if ( offset.first != -1 )
+    if ( search_direction == Searchable::Direction_Up )
+    {
+        match_info = spcre->getLastMatchInfo(Utility::Substring(0, selection_offset, toPlainText()));
+    }
+    else
+    {
+        match_info = spcre->getFirstMatchInfo(Utility::Substring(selection_offset, toPlainText().count(), toPlainText()));
+        start_offset = selection_offset;
+    }
+
+    if ( match_info.offset.first != -1 )
     {
         QTextCursor cursor = textCursor();
         if ( search_direction == Searchable::Direction_Up )
         {
-            cursor.setPosition( offset.second );
-            cursor.setPosition( offset.first, QTextCursor::KeepAnchor );
+            cursor.setPosition( match_info.offset.second + start_offset );
+            cursor.setPosition( match_info.offset.first + start_offset, QTextCursor::KeepAnchor );
         }
         else
         {
-            cursor.setPosition( offset.first );
-            cursor.setPosition( offset.second, QTextCursor::KeepAnchor );
+            cursor.setPosition( match_info.offset.first + start_offset );
+            cursor.setPosition( match_info.offset.second + start_offset, QTextCursor::KeepAnchor );
         }
 
         setTextCursor( cursor );
@@ -466,41 +477,34 @@ bool CodeViewEditor::FindNext( const QString &search_regex,
 
 int CodeViewEditor::Count( const QString &search_regex )
 {
-    UpdateSearchCache( search_regex, toPlainText() );
-    return m_MatchInfo.count();
+    SPCRE *spcre = PCRECache::instance()->getObject( search_regex );
+    return spcre->getEveryMatchInfo( toPlainText() ).count();
 }
 
 
 bool CodeViewEditor::ReplaceSelected( const QString &search_regex, const QString &replacement, Searchable::Direction direction )
 {
-    UpdateSearchCache( search_regex, toPlainText() );
     SPCRE *spcre = PCRECache::instance()->getObject( search_regex );
 
     int selection_start = textCursor().selectionStart();
-    int selection_end = textCursor().selectionEnd();
     QString selected_text = textCursor().selectedText();
 
     // Check if the currently selected text is a match.
-    if ( IsMatchSelected(m_MatchInfo, selection_start, selection_end ) )
+    SPCRE::MatchInfo match_info = spcre->getFirstMatchInfo( selected_text );
+    if ( match_info.offset.first == 0 && match_info.offset.second == selected_text.length() )
     {
         QString replaced_text;
-        bool replacement_made = spcre->replaceText( selected_text, CaptureOffsets(m_MatchInfo, selection_start, selection_end), replacement, replaced_text );
+        bool replacement_made = spcre->replaceText( selected_text, match_info.capture_groups_offsets, replacement, replaced_text );
 
         if ( replacement_made )
         {
             QTextCursor cursor = textCursor();
 
-            // Prevent the search cache from being cleared because we're going to update
-            // it manually.
-            disconnect( this, SIGNAL( textChanged() ), this, SLOT( ContentChanged() ) );
             // Replace the selected text with our replacemnt text.
             cursor.beginEditBlock();
             cursor.removeSelectedText();
             cursor.insertText( replaced_text );
             cursor.endEditBlock();
-            // Reconnect the signal because we want to have the search cache cleared
-            // if the user changes the text.
-            connect( this, SIGNAL( textChanged() ), this, SLOT( ContentChanged() ) );
 
             // Set the cursor to the beginning of the replaced text if the user
             // is searching backward through the text.
@@ -508,85 +512,6 @@ bool CodeViewEditor::ReplaceSelected( const QString &search_regex, const QString
             {
                 cursor.setPosition( selection_start );
                 setTextCursor(cursor);
-            }
-
-            // Update the search cache. We are going to look for matches between
-            // one before and one after the current match.
-            int insertion_point = -1;
-            int match_count = 1;
-            for ( int i = 0; i < m_MatchInfo.count(); i++ )
-            {
-                if ( m_MatchInfo.at( i ).offset.first == selection_start && m_MatchInfo.at( i ).offset.second == selection_end )
-                {
-                    insertion_point = i;
-                    break;
-                }
-            }
-            // Find out where we are in relation to the start and end. We need
-            // to remove the current match as well as the one before and after
-            // if that is possible.
-            if ( insertion_point + 1 < m_MatchInfo.count() )
-            {
-                match_count++;
-            }
-            if ( insertion_point > 0 )
-            {
-                match_count++;
-                insertion_point--;
-            }
-            for ( int i = 0; i < match_count; ++i )
-            {
-                m_MatchInfo.removeAt( insertion_point );
-            }
-
-            if ( !m_MatchInfo.isEmpty() )
-            {
-                int orig_len = selection_end - selection_start;
-                int replace_len = replaced_text.length();
-                int replace_diff = orig_len - replace_len;
-
-                // Translate everything after the insertion point to account for
-                // the difference in length betweent the replaced text and the old
-                // text.
-                for ( int i = insertion_point; i < m_MatchInfo.count(); ++i )
-                {
-                    SPCRE::MatchInfo mi = m_MatchInfo.at(i);
-                    mi.offset.first = mi.offset.first - replace_diff;
-                    mi.offset.second = mi.offset.second - replace_diff;
-                    m_MatchInfo.replace( i, mi );
-                }
-
-                // Get the search start.
-                if ( insertion_point == 0 )
-                {
-                    selection_start = 0;
-                }
-                else
-                {
-                    selection_start = m_MatchInfo.at( insertion_point - 1 ).offset.second;
-                }
-                // Get the search end.
-                if ( insertion_point == m_MatchInfo.count() - 1 )
-                {
-                    selection_end = toPlainText().length() - 1;
-                }
-                else
-                {
-                    selection_end = m_MatchInfo.at( insertion_point + 1 ).offset.first;
-                }
-
-                // Get our new matches.
-                QList<SPCRE::MatchInfo> new_matches = PCRECache::instance()->getObject( m_FindPattern )->getMatchInfo( Utility::Substring( selection_start, selection_end, toPlainText() ) );
-                // Translate the new matches so their offsets match the text.
-                // Also insert them into the match list.
-                for (int i = 0; i < new_matches.count(); ++i )
-                {
-                    SPCRE::MatchInfo mi = new_matches.at(i);
-                    mi.offset.first = mi.offset.first + selection_start;
-                    mi.offset.second = mi.offset.second + selection_start;
-                    m_MatchInfo.insert( insertion_point, mi );
-                    insertion_point++;
-                }
             }
 
             return true;
@@ -599,10 +524,8 @@ bool CodeViewEditor::ReplaceSelected( const QString &search_regex, const QString
 
 int CodeViewEditor::ReplaceAll( const QString &search_regex, const QString &replacement )
 {
-    UpdateSearchCache( search_regex, toPlainText() );
-
-    QList<SPCRE::MatchInfo> match_info = m_MatchInfo;
     SPCRE *spcre = PCRECache::instance()->getObject( search_regex );
+    QList<SPCRE::MatchInfo> match_info = spcre->getEveryMatchInfo( toPlainText() );
 
     int count = 0;
     QTextCursor cursor = textCursor();
@@ -860,12 +783,6 @@ void CodeViewEditor::focusOutEvent( QFocusEvent *event )
     emit FocusLost( this );
 
     QPlainTextEdit::focusOutEvent( event );
-}
-
-
-void CodeViewEditor::ContentChanged()
-{
-    ClearSearchCache();
 }
 
 
@@ -1146,14 +1063,14 @@ void CodeViewEditor::ScrollByLine( bool down )
     if ( !contentsRect().contains( cursorRect() ) )
     {
         if ( move_delta > 0 )
-
+        {
             moveCursor( QTextCursor::Down );
-
+        }
         else
-
+        {
             moveCursor( QTextCursor::Up );
+        }
     }
-       
 }
 
 
@@ -1163,7 +1080,6 @@ void CodeViewEditor::ConnectSignalsToSlots()
     connect( this, SIGNAL( updateRequest( const QRect&, int ) ), this, SLOT( UpdateLineNumberArea( const QRect&, int ) ) );
     connect( this, SIGNAL( cursorPositionChanged()            ), this, SLOT( HighlightCurrentLine()                    ) );
     connect( this, SIGNAL( textChanged()                      ), this, SLOT( TextChangedFilter()                       ) );
-    connect( this, SIGNAL( textChanged()                      ), this, SLOT( ContentChanged()                          ) );
     connect( this, SIGNAL( undoAvailable( bool )              ), this, SLOT( UpdateUndoAvailable( bool )               ) );
 
     connect( &m_ScrollOneLineUp,   SIGNAL( activated() ), this, SLOT( ScrollOneLineUp()   ) );
