@@ -59,7 +59,6 @@ void TextResource::SetText( const QString& text )
     //   So we cache the text update into m_Cache and update the QTextDocument
     // when we return to the GUI thread. The single-shot timer makes sure
     // of that.
-
     if ( QThread::currentThread() == QApplication::instance()->thread() )
     {
         SetTextInternal( text );          

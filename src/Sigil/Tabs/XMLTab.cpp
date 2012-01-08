@@ -107,6 +107,6 @@ void XMLTab::ConnectSignalsToSlots()
 {
     // We set the Code View as the focus proxy for the tab,
     // so the ContentTab focusIn/Out handlers are not called.
-    connect( &m_wCodeView, SIGNAL( FocusLost() ), this, SLOT( IsDataWellFormed() ) );
+    connect( &m_wCodeView, SIGNAL( FocusLost( QWidget* ) ), this, SLOT( IsDataWellFormed() ) );
 }
 

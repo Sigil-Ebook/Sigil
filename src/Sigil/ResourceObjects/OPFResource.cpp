@@ -129,7 +129,7 @@ QString OPFResource::GetCoverPageOEBPSPath() const
         if ( current_type == GuideSemantics::Cover )
         {
             return Utility::URLDecodePath( XtoQ( reference->getAttribute( QtoX( "href" ) ) ) );              
-        }        
+        }
     }
 
     return QString();
