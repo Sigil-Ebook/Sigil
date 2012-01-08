@@ -1844,47 +1844,55 @@ void MainWindow::MakeTabConnections( ContentTab *tab )
 
         return;
 
-    connect( ui.actionUndo,                     SIGNAL( triggered() ),  tab,   SLOT( Undo()                     ) );
-    connect( ui.actionRedo,                     SIGNAL( triggered() ),  tab,   SLOT( Redo()                     ) );
-    connect( ui.actionCut,                      SIGNAL( triggered() ),  tab,   SLOT( Cut()                      ) );
-    connect( ui.actionCopy,                     SIGNAL( triggered() ),  tab,   SLOT( Copy()                     ) );
-    connect( ui.actionPaste,                    SIGNAL( triggered() ),  tab,   SLOT( Paste()                    ) );
-    connect( ui.actionBold,                     SIGNAL( triggered() ),  tab,   SLOT( Bold()                     ) );
-    connect( ui.actionItalic,                   SIGNAL( triggered() ),  tab,   SLOT( Italic()                   ) );
-    connect( ui.actionUnderline,                SIGNAL( triggered() ),  tab,   SLOT( Underline()                ) );
+    if (tab->GetLoadedResource().Type() != Resource::ImageResourceType)
+    {
+        connect( ui.actionUndo,                     SIGNAL( triggered() ),  tab,   SLOT( Undo()                     ) );
+        connect( ui.actionRedo,                     SIGNAL( triggered() ),  tab,   SLOT( Redo()                     ) );
+        connect( ui.actionCut,                      SIGNAL( triggered() ),  tab,   SLOT( Cut()                      ) );
+        connect( ui.actionCopy,                     SIGNAL( triggered() ),  tab,   SLOT( Copy()                     ) );
+        connect( ui.actionPaste,                    SIGNAL( triggered() ),  tab,   SLOT( Paste()                    ) );
+    }
 
-    connect( ui.actionStrikethrough,            SIGNAL( triggered() ),  tab,   SLOT( Strikethrough()            ) );
-    connect( ui.actionAlignLeft,                SIGNAL( triggered() ),  tab,   SLOT( AlignLeft()                ) );
-    connect( ui.actionCenter,                   SIGNAL( triggered() ),  tab,   SLOT( Center()                   ) );
-    connect( ui.actionAlignRight,               SIGNAL( triggered() ),  tab,   SLOT( AlignRight()               ) );
-    connect( ui.actionJustify,                  SIGNAL( triggered() ),  tab,   SLOT( Justify()                  ) );
-    connect( ui.actionSplitChapter,             SIGNAL( triggered() ),  tab,   SLOT( SplitChapter()             ) );
-    connect( ui.actionInsertSGFChapterMarker,   SIGNAL( triggered() ),  tab,   SLOT( InsertSGFChapterMarker()   ) );
-    connect( ui.actionSplitOnSGFChapterMarkers, SIGNAL( triggered() ),  tab,   SLOT( SplitOnSGFChapterMarkers() ) );
+    if (tab->GetLoadedResource().Type() == Resource::HTMLResourceType )
+    {
+        connect( ui.actionBold,                     SIGNAL( triggered() ),  tab,   SLOT( Bold()                     ) );
+        connect( ui.actionItalic,                   SIGNAL( triggered() ),  tab,   SLOT( Italic()                   ) );
+        connect( ui.actionUnderline,                SIGNAL( triggered() ),  tab,   SLOT( Underline()                ) );
     
-    connect( ui.actionInsertBulletedList,       SIGNAL( triggered() ),  tab,   SLOT( InsertBulletedList()       ) );
-    connect( ui.actionInsertNumberedList,       SIGNAL( triggered() ),  tab,   SLOT( InsertNumberedList()       ) );
-    connect( ui.actionDecreaseIndent,           SIGNAL( triggered() ),  tab,   SLOT( DecreaseIndent()           ) );
-    connect( ui.actionIncreaseIndent,           SIGNAL( triggered() ),  tab,   SLOT( IncreaseIndent()           ) );
-    connect( ui.actionRemoveFormatting,         SIGNAL( triggered() ),  tab,   SLOT( RemoveFormatting()         ) );
+        connect( ui.actionStrikethrough,            SIGNAL( triggered() ),  tab,   SLOT( Strikethrough()            ) );
+        connect( ui.actionAlignLeft,                SIGNAL( triggered() ),  tab,   SLOT( AlignLeft()                ) );
+        connect( ui.actionCenter,                   SIGNAL( triggered() ),  tab,   SLOT( Center()                   ) );
+        connect( ui.actionAlignRight,               SIGNAL( triggered() ),  tab,   SLOT( AlignRight()               ) );
+        connect( ui.actionJustify,                  SIGNAL( triggered() ),  tab,   SLOT( Justify()                  ) );
+        connect( ui.actionSplitChapter,             SIGNAL( triggered() ),  tab,   SLOT( SplitChapter()             ) );
+        connect( ui.actionInsertSGFChapterMarker,   SIGNAL( triggered() ),  tab,   SLOT( InsertSGFChapterMarker()   ) );
+        connect( ui.actionSplitOnSGFChapterMarkers, SIGNAL( triggered() ),  tab,   SLOT( SplitOnSGFChapterMarkers() ) );
+        
+        connect( ui.actionInsertBulletedList,       SIGNAL( triggered() ),  tab,   SLOT( InsertBulletedList()       ) );
+        connect( ui.actionInsertNumberedList,       SIGNAL( triggered() ),  tab,   SLOT( InsertNumberedList()       ) );
+        connect( ui.actionDecreaseIndent,           SIGNAL( triggered() ),  tab,   SLOT( DecreaseIndent()           ) );
+        connect( ui.actionIncreaseIndent,           SIGNAL( triggered() ),  tab,   SLOT( IncreaseIndent()           ) );
+        connect( ui.actionRemoveFormatting,         SIGNAL( triggered() ),  tab,   SLOT( RemoveFormatting()         ) );
+    
+        connect( ui.actionPrintPreview,             SIGNAL( triggered() ),  tab,   SLOT( PrintPreview()             ) );
+        connect( ui.actionPrint,                    SIGNAL( triggered() ),  tab,   SLOT( Print()                    ) );
+    
+        connect( ui.actionBookView,                 SIGNAL( triggered() ),  tab,   SLOT( BookView()                 ) );
+        connect( ui.actionSplitView,                SIGNAL( triggered() ),  tab,   SLOT( SplitView()                ) );
+        connect( ui.actionCodeView,                 SIGNAL( triggered() ),  tab,   SLOT( CodeView()                 ) ); 
+    
+        connect( m_cbHeadings, SIGNAL( activated( const QString& ) ),  tab,   SLOT( HeadingStyle( const QString& ) ) );
+        connect( m_headingMapper, SIGNAL( mapped( const QString& ) ),  tab,   SLOT( HeadingStyle( const QString& ) ) );
+    
+        connect( tab,   SIGNAL( ViewButtonsStateChanged() ),    this,          SLOT( UpdateUIOnTabChanges()    ) );
+        connect( tab,   SIGNAL( ViewChanged() ),                this,          SLOT( UpdateUIOnTabChanges()    ) );
+        connect( tab,   SIGNAL( SelectionChanged() ),           this,          SLOT( UpdateUIOnTabChanges()    ) );
+        connect( tab,   SIGNAL( EnteringBookView() ),           this,          SLOT( SetStateActionsBookView() ) );
+        connect( tab,   SIGNAL( EnteringCodeView() ),           this,          SLOT( SetStateActionsCodeView() ) );
+        connect( tab,   SIGNAL( EnteringBookView() ),           this,          SLOT( UpdateZoomControls()      ) );
+        connect( tab,   SIGNAL( EnteringCodeView() ),           this,          SLOT( UpdateZoomControls()      ) );
+    }
 
-    connect( ui.actionPrintPreview,             SIGNAL( triggered() ),  tab,   SLOT( PrintPreview()             ) );
-    connect( ui.actionPrint,                    SIGNAL( triggered() ),  tab,   SLOT( Print()                    ) );
-
-    connect( ui.actionBookView,                 SIGNAL( triggered() ),  tab,   SLOT( BookView()                 ) );
-    connect( ui.actionSplitView,                SIGNAL( triggered() ),  tab,   SLOT( SplitView()                ) );
-    connect( ui.actionCodeView,                 SIGNAL( triggered() ),  tab,   SLOT( CodeView()                 ) ); 
-
-    connect( m_cbHeadings, SIGNAL( activated( const QString& ) ),  tab,   SLOT( HeadingStyle( const QString& ) ) );
-    connect( m_headingMapper, SIGNAL( mapped( const QString& ) ),  tab,   SLOT( HeadingStyle( const QString& ) ) );
-
-    connect( tab,   SIGNAL( ViewButtonsStateChanged() ),    this,          SLOT( UpdateUIOnTabChanges()    ) );
-    connect( tab,   SIGNAL( ViewChanged() ),                this,          SLOT( UpdateUIOnTabChanges()    ) );
-    connect( tab,   SIGNAL( SelectionChanged() ),           this,          SLOT( UpdateUIOnTabChanges()    ) );
-    connect( tab,   SIGNAL( EnteringBookView() ),           this,          SLOT( SetStateActionsBookView() ) );
-    connect( tab,   SIGNAL( EnteringCodeView() ),           this,          SLOT( SetStateActionsCodeView() ) );
-    connect( tab,   SIGNAL( EnteringBookView() ),           this,          SLOT( UpdateZoomControls()      ) );
-    connect( tab,   SIGNAL( EnteringCodeView() ),           this,          SLOT( UpdateZoomControls()      ) );
     connect( tab,   SIGNAL( ContentChanged() ),             m_Book.data(), SLOT( SetModified()             ) );
     connect(tab, SIGNAL(UpdateCursorPosition(int,int)), this, SLOT(UpdateCursorPositionLabel(int,int)));
     connect( tab,   SIGNAL( ZoomFactorChanged( float ) ),   this,          SLOT( UpdateZoomLabel( float )  ) );
