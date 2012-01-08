@@ -292,7 +292,7 @@ Continue?</source>
 <context>
     <name>CodeViewEditor</name>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="824"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="751"/>
         <source>Add to dictionary</source>
         <translation type="unfinished"></translation>
     </message>
@@ -408,32 +408,32 @@ Continue?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="612"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="611"/>
         <source>This tab cannot be searched.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="624"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="623"/>
         <source>Normal</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="625"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="624"/>
         <source>Case Sensitive</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="626"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="625"/>
         <source>Regex</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="628"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="627"/>
         <source>Current File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="629"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="628"/>
         <source>All HTML Files</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1918,18 +1918,18 @@ You used &quot;%1&quot;, and the old extension was &quot;%2&quot;.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="223"/>
+        <location filename="../../Misc/Utility.cpp" line="236"/>
         <source>Cannot read file %1:
 %2.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="323"/>
+        <location filename="../../Misc/Utility.cpp" line="336"/>
         <source>Sigil has encountered a problem.               </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="324"/>
+        <location filename="../../Misc/Utility.cpp" line="337"/>
         <source>Please &lt;a href=&quot;http://code.google.com/p/sigil/wiki/ReportingIssues&quot;&gt;report it&lt;/a&gt; on the issue tracker, including the details from this dialog.</source>
         <translation type="unfinished"></translation>
     </message>
