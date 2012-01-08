@@ -22,10 +22,10 @@
 #include <stdafx.h>
 #include "Misc/Utility.h"
 
-#include <stdlib.h>
 #include <stdio.h>
 #include <time.h>
 
+#include <QtGlobal>
 
 // Uses QUuid to generate a random UUID but also removes
 // the curly braces that QUuid::createUuid() adds
@@ -182,7 +182,13 @@ bool Utility::RenameFile( const QString &oldfilepath, const QString &newfilepath
 
     // On case insensitive file systems, QFile::rename fails when the new name is the
     // same (case insensitive) to the old one. This is workaround for that issue.
-    if (rename(oldfilepath.toUtf8().data(), newfilepath.toUtf8().data()) == 0) {
+    int ret = -1;
+#if defined(Q_OS_WIN32)
+    ret = _wrename(oldfilepath.toStdWString().data(), newfilepath.toStdWString().data())
+#else
+    ret = rename(oldfilepath.toUtf8().data(), newfilepath.toUtf8().data());
+#endif
+    if (ret == 0) {
         return true;
     }
 
