@@ -184,7 +184,7 @@ bool Utility::RenameFile( const QString &oldfilepath, const QString &newfilepath
     // same (case insensitive) to the old one. This is workaround for that issue.
     int ret = -1;
 #if defined(Q_OS_WIN32)
-    ret = _wrename(oldfilepath.toStdWString().data(), newfilepath.toStdWString().data())
+    ret = _wrename(oldfilepath.toStdWString().data(), newfilepath.toStdWString().data());
 #else
     ret = rename(oldfilepath.toUtf8().data(), newfilepath.toUtf8().data());
 #endif
