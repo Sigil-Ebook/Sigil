@@ -39,6 +39,7 @@ class QSyntaxHighlighter;
 class QContextMenuEvent;
 class QSignalMapper;
 
+struct SPCRE::MatchInfo;
 
 /**
  * A text editor for source code.
@@ -486,6 +487,15 @@ private:
      * Misspellings are marked by the QSyntaxHighlighter used.
      */
     bool m_checkSpelling;
+
+    /**
+     * Store the last match when doing a find so we can determine if
+     * found text is selected for doing a replace. We also need to store the
+     * match because we can't run the selected text though the PCRE engine
+     * (we don't want to because it's slower than caching) because it will fail
+     * if a look ahead or behind expression is in use.
+     */
+    SPCRE::MatchInfo m_lastMatch;
 
     /**
      * Map spelling suggestion actions from the context menu to the

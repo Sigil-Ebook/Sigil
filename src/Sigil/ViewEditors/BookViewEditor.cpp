@@ -86,6 +86,10 @@ void BookViewEditor::CustomSetWebPage( QWebPage &webpage )
 
     connect( this,     SIGNAL( contentsChangedExtra() ), &webpage, SIGNAL( contentsChanged()        ) );
     connect( &webpage, SIGNAL( contentsChanged()      ), this,     SIGNAL( textChanged()            ) );
+
+    connect( this,     SIGNAL( contentsChangedExtra() ), this,     SLOT( TextChangedFilter()        ) );
+    connect( &webpage, SIGNAL( contentsChanged()      ), this,     SLOT( TextChangedFilter()        ) );
+
     connect( &webpage, SIGNAL( selectionChanged()     ), this,     SIGNAL( selectionChanged()       ) );
     connect( &webpage, SIGNAL( loadFinished( bool )   ), this,     SLOT( JavascriptOnDocumentLoad() ) );
     connect( &webpage, SIGNAL( loadProgress( int )    ), this,     SLOT( UpdateFinishedState( int ) ) );
@@ -375,8 +379,13 @@ bool BookViewEditor::FindNext( SearchTools &search_tools,
         start_offset = selection_offset;
     }
 
+    m_lastMatch = match_info;
+
     if ( match_info.offset.first != -1 )
     {
+        m_lastMatch.offset.first += selection_offset;
+        m_lastMatch.offset.second += selection_offset;
+
         SelectRangeInputs input = GetRangeInputs( search_tools.node_offsets, match_info.offset.first + start_offset, match_info.offset.second - match_info.offset.first );
         SelectTextRange( input );
         ScrollToNodeText( *input.start_node, input.start_node_index );
@@ -406,15 +415,14 @@ bool BookViewEditor::ReplaceSelected( const QString &search_regex, const QString
 
     int selection_offset = GetSelectionOffset( *search_tools.document, search_tools.node_offsets, Searchable::Direction_Up );
 
-    SPCRE::MatchInfo match_info = spcre->getFirstMatchInfo( Utility::Substring(selection_offset, search_tools.fulltext.count(), search_tools.fulltext ) );
-    if ( match_info.offset.first == 0 )
+    if ( m_lastMatch.offset.first == selection_offset )
     {
         QString replaced_text;
-        bool replacement_made = spcre->replaceText( GetSelectedText(), match_info.capture_groups_offsets, replacement, replaced_text );
+        bool replacement_made = spcre->replaceText( GetSelectedText(), m_lastMatch.capture_groups_offsets, replacement, replaced_text );
 
         if ( replacement_made )
         {
-            SelectRangeInputs input = GetRangeInputs( search_tools.node_offsets, selection_offset, match_info.offset.second );
+            SelectRangeInputs input = GetRangeInputs( search_tools.node_offsets, selection_offset, m_lastMatch.offset.second );
 
             SelectRangeJS inputJS;
             inputJS.start_node = GetElementSelectingJS_WithTextNode( XhtmlDoc::GetHierarchyFromNode( *input.start_node ) );
@@ -509,6 +517,12 @@ bool BookViewEditor::event( QEvent *event )
     }
 
     return real_return;
+}
+
+
+void BookViewEditor::TextChangedFilter()
+{
+    m_lastMatch = SPCRE::MatchInfo();
 }
 
 

@@ -452,8 +452,13 @@ bool CodeViewEditor::FindNext( const QString &search_regex,
         start_offset = selection_offset;
     }
 
+    m_lastMatch = match_info;
+
     if ( match_info.offset.first != -1 )
     {
+        m_lastMatch.offset.first += start_offset;
+        m_lastMatch.offset.second += start_offset;
+
         QTextCursor cursor = textCursor();
         if ( search_direction == Searchable::Direction_Up )
         {
@@ -490,11 +495,10 @@ bool CodeViewEditor::ReplaceSelected( const QString &search_regex, const QString
     QString selected_text = textCursor().selectedText();
 
     // Check if the currently selected text is a match.
-    SPCRE::MatchInfo match_info = spcre->getFirstMatchInfo( selected_text );
-    if ( match_info.offset.first == 0 && match_info.offset.second == selected_text.length() )
+    if ( m_lastMatch.offset.first == selection_start && m_lastMatch.offset.second == selection_start + selected_text.length() )
     {
         QString replaced_text;
-        bool replacement_made = spcre->replaceText( selected_text, match_info.capture_groups_offsets, replacement, replaced_text );
+        bool replacement_made = spcre->replaceText( selected_text, m_lastMatch.capture_groups_offsets, replacement, replaced_text );
 
         if ( replacement_made )
         {
@@ -788,6 +792,8 @@ void CodeViewEditor::focusOutEvent( QFocusEvent *event )
 
 void CodeViewEditor::TextChangedFilter()
 {
+    m_lastMatch = SPCRE::MatchInfo();
+
     if ( m_isUndoAvailable )
 
         emit FilteredTextChanged();

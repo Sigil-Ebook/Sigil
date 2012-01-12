@@ -35,6 +35,8 @@ using boost::shared_ptr;
 
 class QShortcut;
 
+struct SPCRE::MatchInfo;
+
 /**
  * A WYSIWYG editor for XHTML flows. 
  * Also called the "Book View", because it shows a
@@ -256,6 +258,11 @@ protected:
     void focusOutEvent( QFocusEvent *event );
 
 private slots:
+    /**
+     * Filters the text changed signals.
+     */
+    void TextChangedFilter();
+
     /**
      * Executes javascript that needs to be run when 
      * the document has finished loading.
@@ -643,6 +650,15 @@ private:
      * Keyboard shortcut for scrolling one line down.
      */
     QShortcut &m_ScrollOneLineDown;
+
+    /**
+     * Store the last match when doing a find so we can determine if
+     * found text is selected for doing a replace. We also need to store the
+     * match because we can't run the selected text though the PCRE engine
+     * (we don't want to because it's slower than caching) because it will fail
+     * if a look ahead or behind expression is in use.
+     */
+    SPCRE::MatchInfo m_lastMatch;
 
     /** 
      * The JavaScript source code used 
