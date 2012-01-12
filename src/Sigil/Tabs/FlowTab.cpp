@@ -894,7 +894,7 @@ void FlowTab::EnterEditor( QWidget *editor )
     }
     else
     {
-        if( IsDataWellFormed() )
+        if( !GetCheckWellFormedErrors() )
         {
             m_HTMLResource.UpdateDomDocumentFromTextDocument();
         }
