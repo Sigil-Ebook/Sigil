@@ -136,14 +136,16 @@ HTMLResource& Book::CreateNewHTMLFile()
 }
 
 
-void Book::CreateEmptyHTMLFile()
+HTMLResource& Book::CreateEmptyHTMLFile()
 {
-    CreateNewHTMLFile().SetDomDocument( XhtmlDoc::LoadTextIntoDocument( EMPTY_HTML_FILE ) );
+    HTMLResource &html_resource = CreateNewHTMLFile();
+    html_resource.SetDomDocument( XhtmlDoc::LoadTextIntoDocument( EMPTY_HTML_FILE ) );
     SetModified( true );
+    return html_resource;
 }
 
 
-void Book::CreateEmptyCSSFile()
+CSSResource& Book::CreateEmptyCSSFile()
 {
     TempFolder tempfolder;
 
@@ -151,8 +153,11 @@ void Book::CreateEmptyCSSFile()
 
     Utility::WriteUnicodeTextFile( "", fullfilepath );
 
-    m_Mainfolder.AddContentFileToFolder( fullfilepath );
+    CSSResource &css_resource = *qobject_cast< CSSResource* >(
+                                        &m_Mainfolder.AddContentFileToFolder( fullfilepath ) );
+
     SetModified( true );
+    return css_resource;
 }
 
 
@@ -303,7 +308,7 @@ void Book::CreateNewChapters( const QStringList &new_chapters, HTMLResource &ori
 }
 
 
-void Book::MergeWithPrevious( HTMLResource& html_resource )
+HTMLResource& Book::MergeWithPrevious( HTMLResource& html_resource )
 {
     const QString defunct_filename = html_resource.Filename();
     QList< HTMLResource* > html_resources = m_Mainfolder.GetResourceTypeList< HTMLResource >( true );
@@ -323,7 +328,7 @@ void Book::MergeWithPrevious( HTMLResource& html_resource )
 
             if ( source_body_nodes.getLength() != 1 )
 
-                return;
+                return html_resource;
 
             xc::DOMNode &source_body_node = *source_body_nodes.item( 0 );
             body_children_fragment        = XhtmlDoc::ConvertToDocumentFragment( *source_body_node.getChildNodes() ); 
@@ -335,7 +340,7 @@ void Book::MergeWithPrevious( HTMLResource& html_resource )
 
         if ( sink_body_nodes.getLength() != 1 )
 
-            return;
+            return html_resource;
 
         xc::DOMNode & sink_body_node = *sink_body_nodes.item( 0 );         
         sink_body_node.appendChild( sink_dom.importNode( body_children_fragment, true ) );
@@ -362,6 +367,8 @@ void Book::MergeWithPrevious( HTMLResource& html_resource )
 
     UniversalUpdates::PerformUniversalUpdates( true, resources, updates );
     SetModified( true );
+
+    return previous_html;
 }
 
 

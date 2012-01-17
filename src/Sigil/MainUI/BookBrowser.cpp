@@ -166,16 +166,18 @@ void BookBrowser::AddNew()
 
 void BookBrowser::AddNewHTML()
 {
-    m_Book->CreateEmptyHTMLFile();
+    HTMLResource &new_resource = m_Book->CreateEmptyHTMLFile();
     Refresh();
+    emit ResourceActivated( new_resource );
     emit BookContentModified();
 }
 
 
 void BookBrowser::AddNewCSS()
 {
-    m_Book->CreateEmptyCSSFile();
+    CSSResource &new_resource = m_Book->CreateEmptyCSSFile();
     Refresh();
+    emit ResourceActivated( new_resource );
     emit BookContentModified();
 }
 
@@ -324,8 +326,9 @@ void BookBrowser::MergeWithPrevious()
     HTMLResource *html_resource = qobject_cast< HTMLResource* >( GetCurrentResource() );
     Q_ASSERT( html_resource );
 
-    m_Book->MergeWithPrevious( *html_resource );
+    HTMLResource &new_resource = m_Book->MergeWithPrevious( *html_resource );
     Refresh();
+    emit ResourceActivated( new_resource );
 
     QApplication::restoreOverrideCursor();
 }
