@@ -74,6 +74,20 @@ void FindReplace::SetUpFindText()
 }
 
 
+void FindReplace::close()
+{
+    clearMessage();
+    QWidget::close();
+}
+
+
+void FindReplace::show()
+{
+    clearMessage();
+    QWidget::show();
+}
+
+
 void FindReplace::keyPressEvent(QKeyEvent *event)
 {
     if (event->key() == Qt::Key_Escape) {
@@ -84,6 +98,11 @@ void FindReplace::keyPressEvent(QKeyEvent *event)
 
 void FindReplace::ShowMessage( const QString &message )
 {
+    QPalette p;
+    QBrush b = p.brush(QPalette::WindowText);
+    p.setBrush(QPalette::WindowText, b);
+    ui.message->setPalette(p);
+
     ui.message->setText(message);
     m_timer.start(5000);
 }
@@ -192,8 +211,17 @@ void FindReplace::ReplaceAll()
 
 void FindReplace::clearMessage()
 {
-    m_timer.stop();
     ui.message->clear();
+}
+
+void FindReplace::expireMessage()
+{
+    QPalette p;
+    QBrush b = p.brush(QPalette::Mid);
+    p.setBrush(QPalette::WindowText, b);
+    ui.message->setPalette(p);
+
+    m_timer.stop();
 }
 
 // Starts the search for the user's term.
@@ -631,7 +659,7 @@ void FindReplace::ExtendUI()
 
 void FindReplace::ConnectSignalsToSlots()
 {
-    connect( &m_timer, SIGNAL( timeout() ), this, SLOT( clearMessage() ) );
+    connect( &m_timer, SIGNAL( timeout() ), this, SLOT( expireMessage() ) );
     connect( ui.findNext, SIGNAL( clicked() ), this, SLOT( FindNext() ) );
     connect( ui.cbFind->lineEdit(), SIGNAL( returnPressed() ), this, SLOT( FindNext() ) );
     connect( ui.findPrevious, SIGNAL( clicked() ), this, SLOT( FindPrevious() ) );

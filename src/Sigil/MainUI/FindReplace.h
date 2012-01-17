@@ -66,6 +66,10 @@ public:
         SearchMode_Regex = 20
     };
 
+public slots:
+    void close();
+    void show();
+
 protected:
     void keyPressEvent(QKeyEvent *event);
 
@@ -95,6 +99,8 @@ private slots:
     void ReplaceAll();
 
     void clearMessage();
+
+    void expireMessage();
 
 private:
     void FindText( Searchable::Direction direction );
