@@ -53,6 +53,12 @@ public:
      * @return The orientation.
      */
     Qt::Orientation splitViewOrientation();
+    /**
+     * The order to use for the split view (book view/code view).
+     *
+     * @return The order
+     */
+    bool splitViewOrder();
 
     /**
      * The zoom factor used by the component.
@@ -82,6 +88,12 @@ public:
      * @param orientation The orientation to set.
      */
     void setSplitViewOrientation(Qt::Orientation orientation);
+    /**
+     * Set the order of the split view.
+     *
+     * @param order The order of book view/code view to set.
+     */
+    void setSplitViewOrder(bool order);
 
     /**
      * Set the zoom factor used by the component.
@@ -137,6 +149,7 @@ private:
     // Cached settings.
     QString m_defaultMetadataLang;
     Qt::Orientation m_splitViewOrientation;
+    bool m_splitViewOrder;
     float m_zoomImage;
     float m_zoomText;
     float m_zoomWeb;
