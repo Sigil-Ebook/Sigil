@@ -1,8 +1,5 @@
-﻿  A. GNU General Public License v3
-  B. OpenCandy End User License Agreement
-
-  A. GNU GENERAL PUBLIC LICENSE
-     Version 3, 29 June 2007
+﻿                    GNU GENERAL PUBLIC LICENSE
+                       Version 3, 29 June 2007
 
  Copyright (C) 2007 Free Software Foundation, Inc. <http://fsf.org/>
  Everyone is permitted to copy and distribute verbatim copies
@@ -622,14 +619,3 @@ Program, unless a warranty or assumption of liability accompanies a
 copy of the Program in return for a fee.
 
                      END OF TERMS AND CONDITIONS
-
-  B. OPENCANDY END USER LICENSE AGREEMENT
-     January 26, 2010   
-
-This installer uses the OpenCandy network to recommend other software
-you may find valuable during the installation of this software. 
-OpenCandy collects *NON-personally identifiable* information about 
-this installation and the recommendation process. Collection of this
-information ONLY occurs during this installation and the 
-recommendation process; in accordance with OpenCandy's Privacy 
-Policy, available at www.opencandy.com/privacy-policy
