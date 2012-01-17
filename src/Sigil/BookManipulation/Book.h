@@ -166,6 +166,13 @@ public:
                             HTMLResource& originalResource );
 
     /**
+     * Merges the second HTML resource into the first one
+     *
+     * @param html_resource The resource being merged.
+     */
+    void Merge( HTMLResource& html_resource1, HTMLResource& html_resource2 );
+
+    /**
      * Merges the provided HTML resource with the previous one
      * in the reading order.
      *

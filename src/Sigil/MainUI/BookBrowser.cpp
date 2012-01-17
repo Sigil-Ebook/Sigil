@@ -151,6 +151,81 @@ void BookBrowser::OpenContextMenu( const QPoint &point )
 }
 
 
+QList <Resource *> BookBrowser::ValidSelectedResources()
+{
+    //SelectedRows appears to sort by index already, despite selectedindexes not being sorted
+    //If sorting is required, try qsort(list) but override < to sort by index number
+
+    QList <QModelIndex> list = m_TreeView.selectionModel()->selectedRows( 0 );
+    QList <Resource *> resources;
+
+    if ( ValidSelectedItemCount() > 0 )
+    {
+        foreach ( QModelIndex index, list )
+        {
+            QStandardItem *item = m_OPFModel.itemFromIndex( index );
+            if ( item != NULL )
+            {
+                const QString &identifier = item->data().toString();
+    
+                Resource *resource = &m_Book->GetFolderKeeper().GetResourceByIdentifier( identifier );
+                if ( resource != NULL )
+                {
+                    resources.append(resource);
+                }
+            }
+        }
+    }
+
+    return resources;
+}
+
+
+int BookBrowser::ValidSelectedItemCount()
+{
+    QList <QModelIndex> list = m_TreeView.selectionModel()->selectedRows( 0 );
+    int count = list.length();
+
+    if ( count <= 1 )
+    {
+        return count;
+    }
+
+    Resource::ResourceType resource_type = Resource::HTMLResourceType;
+
+    foreach ( QModelIndex index, list )
+    {
+        QStandardItem *item = m_OPFModel.itemFromIndex( index );
+        const QString &identifier = item->data().toString();
+
+        // If folder item included, multiple selection is invalid
+        if ( identifier == NULL )
+        {
+            return -1;
+        }
+
+        Resource *resource = &m_Book->GetFolderKeeper().GetResourceByIdentifier( identifier );
+
+        // If for some reason there is something with an identifier but no resource, fail
+        if ( resource == NULL )
+        {
+            return -1;
+        }
+
+        // Check that multiple selection only contains items of the same type
+        if ( index == list[0] )
+        {
+            resource_type = resource->Type();
+        }
+        else if ( resource_type != resource->Type() )
+        {
+            return -1;
+        }
+    }
+    return count;
+}
+
+
 void BookBrowser::AddNew()
 {
     if ( m_LastContextMenuType == Resource::HTMLResourceType )
@@ -240,31 +315,26 @@ void BookBrowser::AddExisting()
 
 void BookBrowser::Rename()
 {
-    // The actual renaming code is in OPFModel::ItemChangedHandler
-    m_TreeView.edit( m_TreeView.currentIndex() );
+    if ( ValidSelectedItemCount() == 1 )
+    { 
+        // The actual renaming code is in OPFModel::ItemChangedHandler
+        m_TreeView.edit( m_TreeView.currentIndex() );
+    }
 }
 
 
 void BookBrowser::Remove()
 {
-    Resource *resource = GetCurrentResource();
-    
-    if ( !resource )
+    QList <Resource *> resources = ValidSelectedResources();
+    int itemCount = ValidSelectedItemCount();
 
-        return;
-
-    Resource::ResourceType resource_type = resource->Type();
-
-    if ( resource_type == Resource::HTMLResourceType &&
-         m_Book->GetFolderKeeper().GetResourceTypeList< HTMLResource >().count() == 1 )
+    // Catches Delete key
+    if ( resources.isEmpty() )
     {
-        Utility::DisplayStdErrorDialog( 
-            tr( "The last section cannot be removed.\n"
-                "There always has to be at least one." )
-            );
-
         return;
     }
+
+    Resource::ResourceType resource_type = resources[0]->Type();
 
     if ( resource_type == Resource::OPFResourceType || 
          resource_type == Resource::NCXResourceType )
@@ -272,24 +342,41 @@ void BookBrowser::Remove()
         Utility::DisplayStdErrorDialog( 
             tr( "Neither the NCX nor the OPF can be removed." )
             );
-
         return;
     }
+    else if ( resource_type == Resource::HTMLResourceType && itemCount > 1 )
+    {
+        QMessageBox::StandardButton button_pressed;
+        QString msg = itemCount == 1 ? tr ( "Are you sure you want to delete the selected file?\n" ):
+                                       tr ( "Are you sure you want to delete all the selected files?\n" );
+        button_pressed = QMessageBox::warning(	this,
+                                                tr( "Sigil" ), msg % tr( "This action cannot be reversed." ),
+                                                QMessageBox::Ok | QMessageBox::Cancel
+                                             );
+    
+        if ( button_pressed != QMessageBox::Ok )
+        { 
+            return;
+        }
+    }
 
-    QMessageBox::StandardButton button_pressed;
-    button_pressed = QMessageBox::warning(	this,
-                                            tr( "Sigil" ),
-                                            tr( "Are you sure you want to delete the file \"%1\"?\n"
-                                                "This action cannot be reversed." )
-                                            .arg( resource->Filename() ),
-                                            QMessageBox::Ok | QMessageBox::Cancel
-                                         );
+    foreach ( Resource *resource, resources ) 
+    {
+        resource_type = resource->Type();
 
-    if ( button_pressed != QMessageBox::Ok )
-
-        return;
-
-    resource->Delete();
+        if ( resource_type == Resource::HTMLResourceType && 
+            m_Book->GetFolderKeeper().GetResourceTypeList< HTMLResource >().count() == 1 ) 
+        {
+            Utility::DisplayStdErrorDialog( 
+                tr( "The last section cannot be removed.\n"
+                    "There always has to be at least one." )
+                );
+        }
+        else
+        {
+            resource->Delete();
+        }
+    }
 
     emit BookContentModified();
 
@@ -309,22 +396,41 @@ void BookBrowser::SetCoverImage()
 
 void BookBrowser::AddGuideSemanticType( int type )
 {
-    HTMLResource *html_resource = qobject_cast< HTMLResource* >( GetCurrentResource() );
-    Q_ASSERT( html_resource );
+    QList <Resource *> resources = ValidSelectedResources();
 
-    emit GuideSemanticTypeAdded( *html_resource, (GuideSemantics::GuideSemanticType) type );
+    foreach ( Resource *resource, resources )
+    {
+        HTMLResource *html_resource = qobject_cast< HTMLResource* >( resource );
+        emit GuideSemanticTypeAdded( *html_resource, (GuideSemantics::GuideSemanticType) type );
+    }
     emit BookContentModified();
 }
 
 
-void BookBrowser::MergeWithPrevious()
+void BookBrowser::Merge()
 {
     QApplication::setOverrideCursor( Qt::WaitCursor );
 
-    HTMLResource *html_resource = qobject_cast< HTMLResource* >( GetCurrentResource() );
-    Q_ASSERT( html_resource );
+    QList <Resource *> resources = ValidSelectedResources();
 
-    m_Book->MergeWithPrevious( *html_resource );
+    HTMLResource *html_resource1 = qobject_cast< HTMLResource *>( resources.first() );
+    resources.removeFirst();
+    if ( resources.isEmpty() )
+    {
+        m_Book->MergeWithPrevious( *html_resource1 );
+    }
+    else
+    {
+        foreach ( Resource *resource, resources )
+        {
+            if ( resource != NULL )
+            {
+                HTMLResource *html_resource2 = qobject_cast< HTMLResource* >( resource );
+                m_Book->Merge( *html_resource1, *html_resource2 );
+            }
+        }
+    }
+
     Refresh();
 
     QApplication::restoreOverrideCursor();
@@ -425,6 +531,7 @@ void BookBrowser::SetupTreeView()
     m_TreeView.setDragDropMode( QAbstractItemView::InternalMove );
     m_TreeView.setContextMenuPolicy( Qt::CustomContextMenu );
     m_TreeView.setItemDelegate(new FilenameDelegate);
+    m_TreeView.setSelectionMode( QAbstractItemView::ExtendedSelection );
 
     m_TreeView.setModel( &m_OPFModel ); 
 
@@ -446,6 +553,7 @@ void BookBrowser::CreateContextMenuActions()
     m_Rename                  = new QAction( tr( "Rename" ),                this );
     m_Remove                  = new QAction( tr( "Remove" ),                this );
     m_CoverImage              = new QAction( tr( "Cover Image" ),           this );
+    m_Merge                   = new QAction( tr( "Merge Selected" ),        this );
     m_MergeWithPrevious       = new QAction( tr( "Merge With Previous" ),   this );
     m_AdobesObfuscationMethod = new QAction( tr( "Use Adobe's Method" ),    this );
     m_IdpfsObfuscationMethod  = new QAction( tr( "Use IDPF's Method" ),     this );
@@ -562,7 +670,6 @@ void BookBrowser::CreateGuideSemanticActions()
 
 bool BookBrowser::SuccessfullySetupContextMenu( const QPoint &point )
 {
-    m_ContextMenu.addAction( m_AddExisting );
 
     QModelIndex index = m_TreeView.indexAt( point );
 
@@ -570,12 +677,21 @@ bool BookBrowser::SuccessfullySetupContextMenu( const QPoint &point )
 
         return false;
 
+    int itemCount = ValidSelectedItemCount();
+
+    if ( itemCount < 1 )
+    {
+        return false;
+    }
+
+    m_ContextMenu.addAction( m_AddExisting );
+
     QStandardItem *item = m_OPFModel.itemFromIndex( index );
     Q_ASSERT( item );
 
     m_LastContextMenuType = m_OPFModel.GetResourceType( item );
 
-    if ( m_LastContextMenuType == Resource::HTMLResourceType )
+    if ( m_LastContextMenuType == Resource::HTMLResourceType  )
     {
         m_ContextMenu.addAction( m_AddNewHTML );
     }
@@ -598,7 +714,10 @@ bool BookBrowser::SuccessfullySetupContextMenu( const QPoint &point )
          m_LastContextMenuType != Resource::NCXResourceType )
     {
         m_ContextMenu.addAction( m_Remove );
-        m_ContextMenu.addAction( m_Rename );
+        if ( itemCount == 1 )
+        {
+            m_ContextMenu.addAction( m_Rename );
+        }
         m_ContextMenu.addSeparator();
     }
 
@@ -612,9 +731,9 @@ void BookBrowser::SetupResourceSpecificContextMenu( Resource *resource  )
 {
     if ( resource->Type() == Resource::HTMLResourceType )
     
-        AddMergeWithPreviousAction( resource ); 
+        AddMergeAction( resource ); 
 
-    if ( resource->Type() == Resource::FontResourceType )
+    if ( resource->Type() == Resource::FontResourceType && ValidSelectedItemCount() == 1 )
 
         SetupFontObfuscationMenu( resource );
 
@@ -631,24 +750,36 @@ void BookBrowser::SetupSemanticContextmenu( Resource *resource )
     }
     
     if ( resource->Type() == Resource::HTMLResourceType )
-
+    {
         SetupHTMLSemanticContextMenu( resource );
-
+        m_ContextMenu.addMenu( &m_SemanticsContextMenu );
+    }
     else // Resource::ImageResource
-
+    {
         SetupImageSemanticContextMenu( resource );
 
-    m_ContextMenu.addMenu( &m_SemanticsContextMenu );
+        if ( ValidSelectedItemCount() == 1 )
+        {
+            m_ContextMenu.addMenu( &m_SemanticsContextMenu );
+        }
+    }
 }
 
 
 void BookBrowser::SetupHTMLSemanticContextMenu( Resource *resource )
 {
+    int itemCount = ValidSelectedItemCount();
+    
     foreach( QAction* action, m_GuideSemanticActions )
     {
-        m_SemanticsContextMenu.addAction( action );
+        // Only 2 of the Semantic types can apply to multiple files in the Book
+        if ( itemCount == 1  || action->data() == GuideSemantics::Text  || action->data() == GuideSemantics::NoType )
+        {
+            m_SemanticsContextMenu.addAction( action );
+        }
     }
 
+    // Checkstate shown in menu won't be valid if items are of mixed states, but harmless
     SetHTMLSemanticActionCheckState( resource );    
 }
 
@@ -727,17 +858,23 @@ void BookBrowser::SetFontObfuscationActionCheckState( Resource *resource )
 }
 
 
-void BookBrowser::AddMergeWithPreviousAction( Resource *resource )
+void BookBrowser::AddMergeAction( Resource *resource )
 {
     HTMLResource *html_resource = qobject_cast< HTMLResource* >( resource );
     Q_ASSERT( html_resource );
 
-    // We can't add the action for the first file;
-    // what would be the "previous" file? Looping back
-    // doesn't make any sense.
-    if ( m_Book->GetOPF().GetReadingOrder( *html_resource ) > 0 )
-
-        m_ContextMenu.addAction( m_MergeWithPrevious );    
+    if ( ValidSelectedItemCount() == 1 )
+    {
+        // We can't add the action for the first file
+        if ( m_Book->GetOPF().GetReadingOrder( *html_resource ) > 0 )
+        {
+            m_ContextMenu.addAction( m_MergeWithPrevious );    
+        }
+    }
+    else
+    {
+        m_ContextMenu.addAction( m_Merge );
+    }
 }
 
 
@@ -755,7 +892,8 @@ void BookBrowser::ConnectSignalsToSlots()
     connect( m_Rename,                  SIGNAL( triggered() ), this, SLOT( Rename()                  ) );
     connect( m_Remove,                  SIGNAL( triggered() ), this, SLOT( Remove()                  ) );
     connect( m_CoverImage,              SIGNAL( triggered() ), this, SLOT( SetCoverImage()           ) );
-    connect( m_MergeWithPrevious,       SIGNAL( triggered() ), this, SLOT( MergeWithPrevious()       ) );
+    connect( m_Merge,                   SIGNAL( triggered() ), this, SLOT( Merge()                   ) );
+    connect( m_MergeWithPrevious,       SIGNAL( triggered() ), this, SLOT( Merge()                   ) );
 
     connect( m_AdobesObfuscationMethod, SIGNAL( triggered() ), this, SLOT( AdobesObfuscationMethod() ) );
     connect( m_IdpfsObfuscationMethod,  SIGNAL( triggered() ), this, SLOT( IdpfsObfuscationMethod()  ) );

@@ -183,9 +183,9 @@ private slots:
     void AddGuideSemanticType( int type );
 
     /**
-     * Implements the Merge With Previous context menu action functionality.
+     * Implements the Merge context menu action functionality.
      */
-    void MergeWithPrevious();
+    void Merge();
 
     /**
      * Sets the use of Adobe's obfuscation method for the current resource.
@@ -313,7 +313,7 @@ private:
      *
      * @param resource The resource on which the context menu was invoked.
      */
-    void AddMergeWithPreviousAction( Resource *resource );
+    void AddMergeAction( Resource *resource );
 
     /**
      * Returns the currently selected resource in the tree view.
@@ -327,6 +327,17 @@ private:
      * Connects all the required signals to their respective slots.
      */
     void ConnectSignalsToSlots();
+
+    /**
+     * List of selected resources after validating selection
+     */
+    QList <Resource *> ValidSelectedResources();
+
+    /**
+     * Number of valid items selected
+     */
+    int ValidSelectedItemCount();
+
     
 
 
@@ -374,6 +385,7 @@ private:
     QAction *m_Rename;
     QAction *m_Remove;
     QAction *m_CoverImage;
+    QAction *m_Merge;
     QAction *m_MergeWithPrevious;
     QAction *m_AdobesObfuscationMethod;
     QAction *m_IdpfsObfuscationMethod;

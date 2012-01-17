@@ -311,14 +311,22 @@ void Book::MergeWithPrevious( HTMLResource& html_resource )
     Q_ASSERT( previous_file_reading_order >= 0 );
     HTMLResource& previous_html = *html_resources[ previous_file_reading_order ];
 
-    QString html_resource_fullpath = html_resource.GetFullPath();
+    Merge( previous_html, html_resource );
+}
 
+
+// Merge selected html files into the first document
+void Book::Merge( HTMLResource& html_resource1, HTMLResource& html_resource2 )
+{
+    const QString defunct_filename = html_resource2.Filename();
+
+    QString html_resource2_fullpath = html_resource2.GetFullPath();
     {
         xc::DOMDocumentFragment *body_children_fragment = NULL;
 
         {
-            QWriteLocker source_locker( &html_resource.GetLock() );
-            const xc::DOMDocument &source_dom  = html_resource.GetDomDocumentForReading();
+            QWriteLocker source_locker( &html_resource2.GetLock() );
+            const xc::DOMDocument &source_dom  = html_resource2.GetDomDocumentForReading();
             xc::DOMNodeList &source_body_nodes = *source_dom.getElementsByTagName( QtoX( "body" ) );
 
             if ( source_body_nodes.getLength() != 1 )
@@ -329,8 +337,8 @@ void Book::MergeWithPrevious( HTMLResource& html_resource )
             body_children_fragment        = XhtmlDoc::ConvertToDocumentFragment( *source_body_node.getChildNodes() ); 
         }  
 
-        QWriteLocker sink_locker( &previous_html.GetLock() );
-        xc::DOMDocument &sink_dom        = previous_html.GetDomDocumentForWriting();
+        QWriteLocker sink_locker( &html_resource1.GetLock() );
+        xc::DOMDocument &sink_dom        = html_resource1.GetDomDocumentForWriting();
         xc::DOMNodeList &sink_body_nodes = *sink_dom.getElementsByTagName( QtoX( "body" ) );
 
         if ( sink_body_nodes.getLength() != 1 )
@@ -339,26 +347,26 @@ void Book::MergeWithPrevious( HTMLResource& html_resource )
 
         xc::DOMNode & sink_body_node = *sink_body_nodes.item( 0 );         
         sink_body_node.appendChild( sink_dom.importNode( body_children_fragment, true ) );
-        previous_html.MarkSecondaryCachesAsOld();
+        html_resource1.MarkSecondaryCachesAsOld();
 
-        html_resource.Delete();
+        html_resource2.Delete();
     }
 
     // Reconcile internal references in the merged file. It is the user's responsibility to ensure that 
     // all ids used across the two merged files are unique.
     QList< HTMLResource* > new_file;
-    new_file.append( &previous_html );
+    new_file.append( &html_resource1 );
     AnchorUpdates::UpdateAllAnchorsWithIDs( new_file );
 
     // Reconcile external references to the file that was merged.
-    html_resources = m_Mainfolder.GetResourceTypeList< HTMLResource >( true );
-    html_resources.removeOne( &previous_html );
+    QList< HTMLResource* > html_resources = m_Mainfolder.GetResourceTypeList< HTMLResource >( true );
+    html_resources.removeOne( &html_resource1 );
     AnchorUpdates::UpdateExternalAnchors( html_resources, Utility::URLEncodePath( defunct_filename ), new_file );
 
     // PerformUniversalUpdates accepts generic Resources
     QList< Resource* > resources = m_Mainfolder.GetResourceTypeAsGenericList< HTMLResource >();
     QHash< QString, QString > updates;
-    updates[ html_resource_fullpath ] = "../" + previous_html.GetRelativePathToOEBPS();
+    updates[ html_resource2_fullpath ] = "../" + html_resource1.GetRelativePathToOEBPS();
 
     UniversalUpdates::PerformUniversalUpdates( true, resources, updates );
     SetModified( true );
