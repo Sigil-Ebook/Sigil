@@ -60,6 +60,12 @@ public:
      */
     BookBrowser( QWidget *parent = 0 );
 
+    // Context menu actions visible to main
+
+    QAction *m_Merge;
+
+
+
     /**
      * Destructor.
      */
@@ -384,9 +390,8 @@ private:
     QAction *m_AddExisting;
     QAction *m_Rename;
     QAction *m_Remove;
-    QAction *m_CoverImage;
-    QAction *m_Merge;
     QAction *m_MergeWithPrevious;
+    QAction *m_CoverImage;
     QAction *m_AdobesObfuscationMethod;
     QAction *m_IdpfsObfuscationMethod;
 

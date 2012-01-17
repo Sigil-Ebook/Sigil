@@ -153,14 +153,14 @@ void BookBrowser::OpenContextMenu( const QPoint &point )
 
 QList <Resource *> BookBrowser::ValidSelectedResources()
 {
-    //SelectedRows appears to sort by index already, despite selectedindexes not being sorted
-    //If sorting is required, try qsort(list) but override < to sort by index number
-
-    QList <QModelIndex> list = m_TreeView.selectionModel()->selectedRows( 0 );
     QList <Resource *> resources;
 
     if ( ValidSelectedItemCount() > 0 )
     {
+        // selectedRows appears to sort by index already, despite selectedIndexes not being sorted
+        // If sorting is required, try qsort(list) but override < to sort by index number
+        QList <QModelIndex> list = m_TreeView.selectionModel()->selectedRows( 0 );
+
         foreach ( QModelIndex index, list )
         {
             QStandardItem *item = m_OPFModel.itemFromIndex( index );
@@ -315,7 +315,14 @@ void BookBrowser::AddExisting()
 
 void BookBrowser::Rename()
 {
-    if ( ValidSelectedItemCount() == 1 )
+    QList <Resource *> resources = ValidSelectedResources();
+
+    if ( resources.isEmpty() )
+    {
+        return;
+    }
+
+    if ( resources.count() == 1 )
     { 
         // The actual renaming code is in OPFModel::ItemChangedHandler
         m_TreeView.edit( m_TreeView.currentIndex() );
@@ -326,9 +333,7 @@ void BookBrowser::Rename()
 void BookBrowser::Remove()
 {
     QList <Resource *> resources = ValidSelectedResources();
-    int itemCount = ValidSelectedItemCount();
 
-    // Catches Delete key
     if ( resources.isEmpty() )
     {
         return;
@@ -344,10 +349,10 @@ void BookBrowser::Remove()
             );
         return;
     }
-    else if ( resource_type == Resource::HTMLResourceType && itemCount > 1 )
+    else if ( resource_type == Resource::HTMLResourceType && resources.count() > 1 )
     {
         QMessageBox::StandardButton button_pressed;
-        QString msg = itemCount == 1 ? tr ( "Are you sure you want to delete the selected file?\n" ):
+        QString msg = resources.count() == 1 ? tr ( "Are you sure you want to delete the selected file?\n" ):
                                        tr ( "Are you sure you want to delete all the selected files?\n" );
         button_pressed = QMessageBox::warning(	this,
                                                 tr( "Sigil" ), msg % tr( "This action cannot be reversed." ),
@@ -398,6 +403,11 @@ void BookBrowser::AddGuideSemanticType( int type )
 {
     QList <Resource *> resources = ValidSelectedResources();
 
+    if ( resources.isEmpty() )
+    {
+        return;
+    }
+
     foreach ( Resource *resource, resources )
     {
         HTMLResource *html_resource = qobject_cast< HTMLResource* >( resource );
@@ -409,15 +419,21 @@ void BookBrowser::AddGuideSemanticType( int type )
 
 void BookBrowser::Merge()
 {
-    QApplication::setOverrideCursor( Qt::WaitCursor );
-
     QList <Resource *> resources = ValidSelectedResources();
 
-    HTMLResource *html_resource1 = qobject_cast< HTMLResource *>( resources.first() );
+    if ( resources.isEmpty() )
+    {
+        return;
+    }
+
+    QApplication::setOverrideCursor( Qt::WaitCursor );
+
+    HTMLResource &html_resource1 = *qobject_cast< HTMLResource *>( resources.first() );
+
     resources.removeFirst();
     if ( resources.isEmpty() )
     {
-        m_Book->MergeWithPrevious( *html_resource1 );
+        m_Book->MergeWithPrevious( html_resource1 );
     }
     else
     {
@@ -425,11 +441,13 @@ void BookBrowser::Merge()
         {
             if ( resource != NULL )
             {
-                HTMLResource *html_resource2 = qobject_cast< HTMLResource* >( resource );
-                m_Book->Merge( *html_resource1, *html_resource2 );
+                HTMLResource &html_resource2 = *qobject_cast< HTMLResource* >( resource );
+                m_Book->Merge( html_resource1, html_resource2 );
+
             }
         }
     }
+
 
     Refresh();
 
@@ -564,9 +582,14 @@ void BookBrowser::CreateContextMenuActions()
 
     m_Remove->setShortcut( QKeySequence::Delete );
 
+    // Key handles merge with previous and merge selected
+    m_Merge->setShortcut( QKeySequence( Qt::CTRL + Qt::ALT + Qt::Key_M ) );
+    m_Merge->setToolTip( "Merges selected files in the book browser" );
+
     // Has to be added to the book browser itself as well
     // for the keyboard shortcut to work.
     addAction( m_Remove );    
+    addAction( m_Merge );    
 
     CreateGuideSemanticActions();
 }
@@ -677,9 +700,9 @@ bool BookBrowser::SuccessfullySetupContextMenu( const QPoint &point )
 
         return false;
 
-    int itemCount = ValidSelectedItemCount();
+    int item_count = ValidSelectedItemCount();
 
-    if ( itemCount < 1 )
+    if ( item_count < 1 )
     {
         return false;
     }
@@ -714,7 +737,7 @@ bool BookBrowser::SuccessfullySetupContextMenu( const QPoint &point )
          m_LastContextMenuType != Resource::NCXResourceType )
     {
         m_ContextMenu.addAction( m_Remove );
-        if ( itemCount == 1 )
+        if ( item_count == 1 )
         {
             m_ContextMenu.addAction( m_Rename );
         }
@@ -768,12 +791,12 @@ void BookBrowser::SetupSemanticContextmenu( Resource *resource )
 
 void BookBrowser::SetupHTMLSemanticContextMenu( Resource *resource )
 {
-    int itemCount = ValidSelectedItemCount();
+    int item_count = ValidSelectedItemCount();
     
     foreach( QAction* action, m_GuideSemanticActions )
     {
         // Only 2 of the Semantic types can apply to multiple files in the Book
-        if ( itemCount == 1  || action->data() == GuideSemantics::Text  || action->data() == GuideSemantics::NoType )
+        if ( item_count == 1  || action->data() == GuideSemantics::Text  || action->data() == GuideSemantics::NoType )
         {
             m_SemanticsContextMenu.addAction( action );
         }
