@@ -40,6 +40,8 @@ class QPoint;
 class QMenu;
 class QAction;
 class QSignalMapper;
+class QToolButton;
+class QVBoxLayout;
 
 
 /**
@@ -86,6 +88,22 @@ public slots:
      * and reloading the file list from the book.
      */
     void Refresh();
+
+    /**
+     * Updates the selection in the book display
+     */
+    void UpdateSelection( Resource &resource );
+
+    /**
+     * Returns the previous resource in the book display
+     */
+    void OpenPreviousResource();
+
+    /**
+     * Returns the next resource in the book display
+     */
+    void OpenNextResource();
+
 
     /**
      * Opens the HTML resource referenced by the specified URL.
@@ -149,6 +167,11 @@ signals:
      * @param image_resource The resource being set as the cover.
      */
     void CoverImageSet( const ImageResource &image_resource );
+
+    /**
+     * Wired to the current MainWindow::UpdateBrowserSelectionToTab signal.
+     */
+    void UpdateBrowserSelection();
 
 private slots:
 
@@ -337,6 +360,15 @@ private:
     Resource* GetCurrentResource();
 
     /**
+     * Returns the resource for the given index in the tree view.
+     *
+     * @return the resource for the given index in the tree view,
+     *         or NULL if no resource is selected. 
+     */
+    Resource* GetResourceByIndex( QModelIndex index );
+
+
+    /**
      * Connects all the required signals to their respective slots.
      */
     void ConnectSignalsToSlots();
@@ -363,10 +395,35 @@ private:
      */
     QSharedPointer< Book > m_Book;
 
+   /**
+     * A container widget for the UI widgets.
+     */
+    QWidget &m_MainWidget;
+
+    /**
+     * A container widget for the prev/next buttons
+     * Used to work around a visual glitch on Mac OS X.
+     * If we didn't use this, then we would have an ugly
+     * margin on the left and right side of the m_TreeView.
+     */
+    QWidget &m_ButtonHolderWidget;
+
+    /**
+     * The layout for the container widget.
+     */
+    QVBoxLayout &m_Layout;
+
     /**
      * The tree view used to represent the book's files.
      */
     QTreeView &m_TreeView;
+
+    /**
+     * The buttons that initiate previous/next file
+     */
+    QToolButton &m_PreviousButton;
+    QToolButton &m_NextButton;
+
     
     /**
      * The data model used to feed the tree view.

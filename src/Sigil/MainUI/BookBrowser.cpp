@@ -42,7 +42,12 @@ BookBrowser::BookBrowser( QWidget *parent )
     : 
     QDockWidget( tr( "Book Browser" ), parent ),
     m_Book( NULL ),
+    m_MainWidget( *new QWidget( this ) ),
+    m_ButtonHolderWidget( *new QWidget( &m_MainWidget ) ),
+    m_Layout( *new QVBoxLayout( &m_MainWidget ) ),
     m_TreeView( *new QTreeView( this ) ),
+    m_PreviousButton( *new QToolButton( &m_ButtonHolderWidget ) ),
+    m_NextButton( *new QToolButton( &m_ButtonHolderWidget ) ),
     m_OPFModel( *new OPFModel( this ) ),
     m_ContextMenu( *new QMenu( this ) ),
     m_SemanticsContextMenu( *new QMenu( this ) ),
@@ -54,6 +59,31 @@ BookBrowser::BookBrowser( QWidget *parent )
     m_FontObfuscationContextMenu.setTitle( tr( "Font Obfuscation" ) );
 
     setWidget( &m_TreeView );
+    m_Layout.setContentsMargins( 0, 0, 0, 0 );
+
+#ifdef Q_WS_MAC
+    m_Layout.setSpacing( 4 );
+#endif
+
+    m_PreviousButton.setArrowType( Qt::UpArrow );
+    m_PreviousButton.setToolTip( "Open previous file of same type" );
+    m_NextButton.setArrowType( Qt::DownArrow );
+    m_NextButton.setToolTip( "Open next file of same type" );
+
+    QHBoxLayout *layout = new QHBoxLayout( &m_ButtonHolderWidget );
+    layout->addWidget( &m_PreviousButton );
+    layout->addWidget( &m_NextButton );
+    layout->addStretch( 0 );
+
+    m_ButtonHolderWidget.setLayout( layout );
+
+    m_Layout.addWidget( &m_TreeView );
+    m_Layout.addWidget( &m_ButtonHolderWidget );
+
+    m_MainWidget.setLayout( &m_Layout );
+
+    setWidget( &m_MainWidget );
+
     setAllowedAreas( Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea );
 
     ReadSettings();
@@ -97,11 +127,47 @@ void BookBrowser::SetBook( QSharedPointer< Book > book )
 
 void BookBrowser::Refresh()
 {
-    int scroll_value = m_TreeView.verticalScrollBar()->value();
     m_OPFModel.Refresh();
-    m_TreeView.verticalScrollBar()->setValue( scroll_value );
+
+    emit UpdateBrowserSelection();
 }
 
+
+// Update selection to match resource
+void BookBrowser::UpdateSelection( Resource &resource )
+{
+    // Clear selections
+    m_TreeView.selectionModel()->setCurrentIndex( m_TreeView.model()->index( 0, 0 ), QItemSelectionModel::Clear );
+
+    QModelIndex index = m_OPFModel.GetModelItemIndex( resource, OPFModel::IndexChoice_Current );
+    m_TreeView.selectionModel()->setCurrentIndex( index, QItemSelectionModel::SelectCurrent );
+}
+
+void BookBrowser::OpenNextResource()
+{
+    Resource *resource = GetCurrentResource();
+    if ( resource != NULL )
+    {
+        QModelIndex index = m_OPFModel.GetModelItemIndex( *resource, OPFModel::IndexChoice_Next );
+        if ( index.isValid() )
+        {
+            emit ResourceActivated( *GetResourceByIndex( index ) );
+        }
+    }
+}
+
+void BookBrowser::OpenPreviousResource()
+{
+    Resource *resource = GetCurrentResource();
+    if ( resource != NULL )
+    {
+        QModelIndex index = m_OPFModel.GetModelItemIndex( *resource, OPFModel::IndexChoice_Previous );
+        if ( index.isValid() )
+        {
+            emit ResourceActivated( *GetResourceByIndex( index ) );
+        }
+   }
+}
 
 void BookBrowser::OpenUrlResource( const QUrl &url )
 {
@@ -954,6 +1020,9 @@ void BookBrowser::ConnectSignalsToSlots()
     connect( m_AdobesObfuscationMethod, SIGNAL( triggered() ), this, SLOT( AdobesObfuscationMethod() ) );
     connect( m_IdpfsObfuscationMethod,  SIGNAL( triggered() ), this, SLOT( IdpfsObfuscationMethod()  ) );
 
+    connect( &m_PreviousButton,          SIGNAL( clicked() ), this, SLOT( OpenPreviousResource()     ) );
+    connect( &m_NextButton,              SIGNAL( clicked() ), this, SLOT( OpenNextResource()         ) );
+
     foreach( QAction* action, m_GuideSemanticActions )
     {
         connect( action, SIGNAL( triggered() ), &m_GuideSemanticMapper, SLOT( map() ) );
@@ -965,8 +1034,12 @@ void BookBrowser::ConnectSignalsToSlots()
 
 Resource* BookBrowser::GetCurrentResource()
 {
-    QModelIndex index = m_TreeView.currentIndex();
+    return GetResourceByIndex( m_TreeView.currentIndex() );
+}   
 
+
+Resource* BookBrowser::GetResourceByIndex( QModelIndex index )
+{
     if ( !index.isValid() )
 
         return NULL;

@@ -192,6 +192,8 @@
     <addaction name="actionCloseTab"/>
     <addaction name="actionCloseOtherTabs"/>
     <addaction name="separator"/>
+    <addaction name="actionOpenPreviousResource"/>
+    <addaction name="actionOpenNextResource"/>
    </widget>
    <addaction name="menuFile"/>
    <addaction name="menuEdit"/>
@@ -1268,6 +1270,28 @@ p, li { white-space: pre-wrap; }
   <action name="actionNewCSSFile">
    <property name="text">
     <string>Blank Stylesheet</string>
+   </property>
+  </action>
+  <action name="actionOpenPreviousResource">
+   <property name="text">
+    <string>Open Previous File</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+PgUp</string>
+   </property>
+   <property name="toolTip">
+    <string>Open previous file of the same type</string>
+   </property>
+  </action>
+  <action name="actionOpenNextResource">
+   <property name="text">
+    <string>Open Next File</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+PgDown</string>
+   </property>
+   <property name="toolTip">
+    <string>Open next file of the same type</string>
    </property>
   </action>
  </widget>
