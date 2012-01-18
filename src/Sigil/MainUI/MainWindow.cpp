@@ -138,6 +138,24 @@ void MainWindow::OpenResource( Resource &resource, ContentTab::ViewState view_st
     m_TabManager.OpenResource( resource, false, QUrl(), view_state );
 }
 
+void MainWindow::Merge()
+{
+    m_TabManager.OpenResource( resource, false, QUrl(), view_state );
+    
+    if (m_TabManager.AllTabDataIsWellFormed())
+    {
+        m_BookBrowser->Merge();
+    }
+}
+
+void MainWindow::MergeWithPrevious()
+{
+    if (m_TabManager.AllTabDataIsWellFormed())
+    {
+        m_BookBrowser->MergeWithPrevious();
+    }
+}
+//meme
 
 QMutex& MainWindow::GetStatusBarMutex()
 {
@@ -280,6 +298,12 @@ void MainWindow::OpenRecentFile()
 #endif
         }
     }
+}
+
+
+bool MainWindow::TabDataIsWellFormed()
+{
+    return m_TabManager.TabDataIsWellFormed();
 }
 
 
@@ -1814,6 +1838,9 @@ void MainWindow::ConnectSignalsToSlots()
 
     connect( m_TableOfContents, SIGNAL( TabDataSavedRequest() ),
              &m_TabManager,     SLOT(   SaveTabData() ) );
+
+    connect( m_BookBrowser, SIGNAL( RemoveTabRequest() ),
+             &m_TabManager, SLOT(   RemoveTab() ) );
 
     connect( m_BookBrowser, SIGNAL( ResourceActivated( Resource& ) ),
              &m_TabManager, SLOT(   OpenResource(          Resource& ) ) );

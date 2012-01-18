@@ -118,6 +118,69 @@ QModelIndex OPFModel::GetTextFolderModelIndex()
 }
 
 
+// Get the index of the given resource regardless of folder
+QModelIndex OPFModel::GetModelItemIndex( Resource &resource, IndexChoice indexChoice )
+{
+    Resource::ResourceType resourceType = resource.Type();
+    QStandardItem *folder = NULL;
+
+    if (resourceType == Resource::OPFResourceType || resourceType == Resource::NCXResourceType )
+    {
+            folder = invisibleRootItem();
+    }
+    else
+    {
+        for ( int i = 0; i < invisibleRootItem()->rowCount() && folder == NULL; ++i )
+        {
+            QStandardItem *child = invisibleRootItem()->child( i );
+    
+            if ( (child == &m_TextFolderItem && resourceType == Resource::HTMLResourceType ) ||
+                 (child == &m_ImagesFolderItem && resourceType == Resource::ImageResourceType ) ||
+                 (child == &m_StylesFolderItem && 
+                    ( resourceType == Resource::CSSResourceType || resourceType == Resource::XPGTResourceType ) ) ||
+                 (child == &m_FontsFolderItem && resourceType == Resource::FontResourceType ) ||
+                 (child == &m_MiscFolderItem && resourceType == Resource::GenericResourceType ))
+            {
+                folder = child;
+            }
+        }
+    }
+    return GetModelFolderItemIndex( folder, resource, indexChoice );
+}
+
+
+// Get the index of the given resource in a specific folder 
+QModelIndex OPFModel::GetModelFolderItemIndex( QStandardItem const *folder, Resource &resource, IndexChoice indexChoice )
+{
+    if ( folder != NULL )
+    {
+        int rowCount = folder->rowCount();
+        for ( int i = 0; i < rowCount ; ++i )
+        {
+            QStandardItem *item = folder->child( i );
+            const QString &identifier = item->data().toString();
+    
+            if ( !identifier.isEmpty() && identifier == resource.GetIdentifier() )
+            {
+                if ( folder != invisibleRootItem() )
+                {
+                    if ( indexChoice == IndexChoice_Previous && i > 0 )
+                    {
+                        i--;
+                    }
+                    else if ( indexChoice == IndexChoice_Next && ( i + 1 < rowCount ) )
+                    {
+                        i++;
+                    }
+                }
+                return index( i, 0, folder->index() );
+            }
+        }
+    }
+    return index( 0, 0 );
+}
+
+
 Resource::ResourceType OPFModel::GetResourceType( QStandardItem const *item )
 {
     Q_ASSERT( item );

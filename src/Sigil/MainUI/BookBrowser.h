@@ -111,6 +111,13 @@ signals:
     void ResourceActivated( Resource &resource );
 
     /**
+     * Emitted when merging to force open tabs to close
+     *
+     * @param resource The resource whose tab needs to close.
+     */
+    void RemoveTabRequest();
+
+    /**
      * Emitted when the browser wants a resource to be opened.
      *
      * @param resource The resource that should be opened.

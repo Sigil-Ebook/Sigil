@@ -42,6 +42,14 @@ class OPFModel : public QStandardItemModel
 
 public:
 
+    enum IndexChoice
+    { 
+        IndexChoice_Current,    /** The current file browser list. */
+        IndexChoice_Next,       /** The next file in the browser list. */
+        IndexChoice_Previous,   /** The previous file in the browser list. */
+    };
+
+
     /**
      * Constructor.
      *
@@ -76,6 +84,21 @@ public:
      * @return The QModelIndex of the Text folder.
      */
     QModelIndex GetTextFolderModelIndex();
+
+    /**
+     * Returns the QModelIndex of the resource in any folder.
+     *
+     * @return The QModelIndex of the resource in any folder.
+     */
+    QModelIndex GetModelItemIndex( Resource &resource, IndexChoice indexChoice );
+
+
+    /**
+     * Returns the QModelIndex of the resource in the given folder.
+     *
+     * @return The QModelIndex of the folder in the given folder.
+     */
+    QModelIndex GetModelFolderItemIndex( QStandardItem const *folder, Resource &resource, IndexChoice indexChoice );
 
     /**
      * Gets an item's resource type.

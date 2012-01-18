@@ -244,6 +244,7 @@ void BookBrowser::AddNewHTML()
     m_Book->CreateEmptyHTMLFile();
     Refresh();
     emit BookContentModified();
+    
 }
 
 
@@ -428,31 +429,43 @@ void BookBrowser::Merge()
 
     QApplication::setOverrideCursor( Qt::WaitCursor );
 
-    HTMLResource &html_resource1 = *qobject_cast< HTMLResource *>( resources.first() );
+    Resource *resource1 = resources.first();
+    QModelIndex original_model_index = QModelIndex();
+
+    // Make resource active to make it easier to remove/update later
+    emit ResourceActivated( *resource1 );
+
+    HTMLResource &html_resource1 = *qobject_cast< HTMLResource *>( resource1 );
 
     resources.removeFirst();
     if ( resources.isEmpty() )
     {
+        original_model_index = m_OPFModel.GetModelItemIndex( *resource1, OPFModel::IndexChoice_Previous );
         m_Book->MergeWithPrevious( html_resource1 );
     }
     else
     {
+        original_model_index = m_OPFModel.GetModelItemIndex( *resource1, OPFModel::IndexChoice_Current );
         foreach ( Resource *resource, resources )
         {
             if ( resource != NULL )
             {
                 HTMLResource &html_resource2 = *qobject_cast< HTMLResource* >( resource );
                 m_Book->Merge( html_resource1, html_resource2 );
-
             }
         }
     }
 
+    // Remove the current tab (original resource) to force tab to reload data when opening the resource
+    emit RemoveTabRequest();
+    // Use the original index since the old resource seems to become invalid
+    EmitResourceActivated( original_model_index );
 
     Refresh();
 
     QApplication::restoreOverrideCursor();
 }
+
 
 
 void BookBrowser::AdobesObfuscationMethod()

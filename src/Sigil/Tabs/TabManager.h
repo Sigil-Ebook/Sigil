@@ -124,6 +124,11 @@ public slots:
     void CloseTab();
 
     /**
+     * Removes the current tab, may leave no tabs in windows
+     */
+    void RemoveTab();
+
+    /**
      * Closes all tabs except the curren tab.
      * If there is only one tab opened, the command is ignored.
      */
