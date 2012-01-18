@@ -169,6 +169,24 @@ void BookBrowser::OpenPreviousResource()
    }
 }
 
+void BookBrowser::SortHTML()
+{
+    QList <Resource *> resources = ValidSelectedResources();
+
+    if ( ValidSelectedItemCount() == 1 )
+    {
+        // Sort all items
+        m_OPFModel.SortHTML(); 
+    }
+    else
+    {
+        QList <QModelIndex> indexList = m_TreeView.selectionModel()->selectedRows( 0 );
+
+        m_OPFModel.SortHTML( indexList );
+    }
+}
+
+
 void BookBrowser::OpenUrlResource( const QUrl &url )
 {
     const QString &filename = QFileInfo( url.path() ).fileName();
@@ -674,6 +692,8 @@ void BookBrowser::CreateContextMenuActions()
     m_MergeWithPrevious       = new QAction( tr( "Merge With Previous" ),   this );
     m_AdobesObfuscationMethod = new QAction( tr( "Use Adobe's Method" ),    this );
     m_IdpfsObfuscationMethod  = new QAction( tr( "Use IDPF's Method" ),     this );
+    m_SortHTML                = new QAction( tr( "Sort All Alphanumerically" ), this );
+    m_SortHTMLSelected        = new QAction( tr( "Sort Selected Alphanumerically" ), this );
 
     m_CoverImage             ->setCheckable( true );  
     m_AdobesObfuscationMethod->setCheckable( true ); 
@@ -813,13 +833,21 @@ bool BookBrowser::SuccessfullySetupContextMenu( const QPoint &point )
 
     m_LastContextMenuType = m_OPFModel.GetResourceType( item );
 
-    if ( m_LastContextMenuType == Resource::HTMLResourceType  )
+    if ( m_LastContextMenuType == Resource::HTMLResourceType )
     {
         m_ContextMenu.addAction( m_AddNewHTML );
     }
     else if ( m_LastContextMenuType == Resource::CSSResourceType )
     {
         m_ContextMenu.addAction( m_AddNewCSS );
+    }
+    if ( ValidSelectedItemCount() == 1 )
+    {
+        m_ContextMenu.addAction( m_SortHTML );
+    }
+    else
+    {
+        m_ContextMenu.addAction( m_SortHTMLSelected );
     }
 
     Resource *resource = GetCurrentResource();
@@ -1009,6 +1037,8 @@ void BookBrowser::ConnectSignalsToSlots()
              this,        SLOT(   OpenContextMenu(            const QPoint& ) ) );
 
     connect( m_AddNewHTML,              SIGNAL( triggered() ), this, SLOT( AddNewHTML()              ) );
+    connect( m_SortHTML,                SIGNAL( triggered() ), this, SLOT( SortHTML()                ) );
+    connect( m_SortHTMLSelected,        SIGNAL( triggered() ), this, SLOT( SortHTML()                ) );
     connect( m_AddNewCSS,               SIGNAL( triggered() ), this, SLOT( AddNewCSS()               ) );
     connect( m_AddExisting,             SIGNAL( triggered() ), this, SLOT( AddExisting()             ) );
     connect( m_Rename,                  SIGNAL( triggered() ), this, SLOT( Rename()                  ) );

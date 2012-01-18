@@ -21,6 +21,7 @@
 
 #include <stdafx.h>
 #include "OPFModel.h"
+#include "OPFModelItem.h"
 #include "BookManipulation/Book.h"
 #include "ResourceObjects/Resource.h"
 #include "ResourceObjects/HTMLResource.h"
@@ -31,8 +32,6 @@
 #include "Misc/Utility.h"
 #include <limits>
 
-static const int NO_READING_ORDER   = std::numeric_limits< int >::max();
-static const int READING_ORDER_ROLE = Qt::UserRole + 2;
 static const QList< QChar > FORBIDDEN_FILENAME_CHARS = QList< QChar >() << '<' << '>' << ':' 
                                                                         << '"' << '/' << '\\'
                                                                         << '|' << '?' << '*';
@@ -97,6 +96,28 @@ void OPFModel::Refresh()
 
     SortFilesByFilenames();
     SortHTMLFilesByReadingOrder();
+
+    m_RefreshInProgress = false;
+}
+
+
+void OPFModel::SortHTML()
+{
+    m_RefreshInProgress = true;
+
+    SortHTMLFilesByAlphanumeric();
+    UpdateHTMLReadingOrders();
+
+    m_RefreshInProgress = false;
+}
+
+
+void OPFModel::SortHTML( QList <QModelIndex> index_list )
+{
+    m_RefreshInProgress = true;
+
+    SortHTMLFilesByAlphanumeric( index_list );
+    UpdateHTMLReadingOrders();
 
     m_RefreshInProgress = false;
 }
@@ -287,6 +308,8 @@ void OPFModel::ItemChangedHandler( QStandardItem *item )
     QApplication::restoreOverrideCursor();
 
     emit BookContentModified();
+
+    Refresh();
 }
 
 
@@ -300,7 +323,7 @@ void OPFModel::InitializeModel()
 
     foreach( Resource *resource, resources )
     {
-        QStandardItem *item = new QStandardItem( resource->Icon(), resource->Filename() );
+        AlphanumericItem *item = new AlphanumericItem ( resource->Icon(), resource->Filename() );
         item->setDropEnabled( false );
         item->setData( resource->GetIdentifier() );
         
@@ -314,6 +337,11 @@ void OPFModel::InitializeModel()
                 reading_order = NO_READING_ORDER;
 
             item->setData( reading_order, READING_ORDER_ROLE );
+
+            // Remove the extension for alphanumeric sorting
+            QString name = resource->Filename().left( resource->Filename().lastIndexOf( '.' ) );
+            item->setData( name, ALPHANUMERIC_ORDER_ROLE );
+
             m_TextFolderItem.appendRow( item );
         }
 
@@ -438,6 +466,70 @@ void OPFModel::SortHTMLFilesByReadingOrder()
 {
     int old_sort_role = sortRole();
     setSortRole( READING_ORDER_ROLE );
+
+    m_TextFolderItem.sortChildren( 0 );
+
+    setSortRole( old_sort_role );
+}
+
+void OPFModel::SortHTMLFilesByAlphanumeric( QList <QModelIndex> index_list )
+{
+    // Get items for all selected indexes
+    QList <QStandardItem *> item_list;
+
+    foreach ( QModelIndex index, index_list )
+    {
+        QStandardItem *qitem = itemFromIndex( index );
+        item_list.append( qitem );
+    }
+
+    // Create new model for selected items to allow temporary sorting
+    QStandardItemModel &sort_model = * new QStandardItemModel();
+    sort_model.setSortRole( ALPHANUMERIC_ORDER_ROLE );
+    QStandardItem &items = *new QStandardItem();
+    sort_model.setItem( 0, &items );
+
+    int first_item_position = -1;
+    foreach ( QStandardItem *item, item_list )
+    {
+        int i = 0;
+        while ( i < m_TextFolderItem.rowCount() ) 
+        {
+            if ( m_TextFolderItem.child( i ) == item )
+            {
+                if ( first_item_position < 0 )
+                {
+                    first_item_position = i;
+                }
+
+                QList <QStandardItem *> removed_items = m_TextFolderItem.takeRow( i-- );
+                foreach ( QStandardItem *one_item, removed_items )
+                {
+                    items.appendRow( one_item );
+                }
+                break;
+            }
+            i++;
+        }
+    
+    }
+
+    items.sortChildren( 0 );
+
+    for ( int i = 0; i < items.rowCount(); ++i )
+    {
+        QList <QStandardItem *> removed_items = items.takeRow( i-- );
+        foreach ( QStandardItem *one_item, removed_items )
+        {
+            m_TextFolderItem.insertRow( first_item_position++, one_item );
+        }
+    }
+}
+
+void OPFModel::SortHTMLFilesByAlphanumeric()
+{
+    int old_sort_role = sortRole();
+    setSortRole( ALPHANUMERIC_ORDER_ROLE );
 
     m_TextFolderItem.sortChildren( 0 );
 

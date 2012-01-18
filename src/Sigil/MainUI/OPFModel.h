@@ -30,6 +30,7 @@
 
 class QModelIndex;
 class QStandardItem;
+class AlphanumericItem;
 
 
 /**
@@ -69,6 +70,16 @@ public:
      * from the information in the stored book.
      */
     void Refresh();
+
+    /**
+     * Re-sorts all HTML entires in alphanumeric order
+     */
+    void SortHTML();
+
+    /**
+     * Re-sorts the selected HTML entires in alphanumeric order
+     */
+    void SortHTML( QList <QModelIndex> index_list );
 
     /**
      * Returns the QModelIndex of the first HTML file.
@@ -177,6 +188,16 @@ private:
      * Sorts the HTML files by their reading orders.
      */
     void SortHTMLFilesByReadingOrder();
+
+    /**
+     * Sorts all HTML files by alphanumeric order of filename
+     */
+    void SortHTMLFilesByAlphanumeric();
+
+    /**
+     * Sorts the selected HTML files by alphanumeric order of filename
+     */
+    void SortHTMLFilesByAlphanumeric( QList <QModelIndex> index_list );
 
     /**
      * Removes all data from the model.

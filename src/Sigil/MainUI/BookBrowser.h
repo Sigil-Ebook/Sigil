@@ -119,6 +119,11 @@ public slots:
      */
     void AddExisting();
 
+    /*
+     * Sorts the HTML book entries alphanumerically
+     */
+    void SortHTML();
+
 signals:
 
     /**
@@ -458,6 +463,8 @@ private:
     QAction *m_CoverImage;
     QAction *m_AdobesObfuscationMethod;
     QAction *m_IdpfsObfuscationMethod;
+    QAction *m_SortHTML;
+    QAction *m_SortHTMLSelected;
 
     /**
      * All the semantic actions for the <guide>

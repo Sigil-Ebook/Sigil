@@ -257,6 +257,8 @@ set( MAINUI_FILES
     MainUI/TableOfContents.h
     MainUI/OPFModel.cpp
     MainUI/OPFModel.h
+    MainUI/OPFModelItem.cpp
+    MainUI/OPFModelItem.h
     MainUI/NCXModel.cpp
     MainUI/NCXModel.h
     MainUI/ValidationResultsView.cpp
