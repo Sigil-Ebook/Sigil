@@ -29,6 +29,7 @@ SettingsStore *SettingsStore::m_instance = 0;
 static const QString SETTINGS_GROUP = "user_preferences";
 static const QString KEY_DEFAULT_METADATA_LANGUAGE = "default_metadata_lang";
 static const QString KEY_SPLIT_VIEW_ORIENTATION = "split_view_orientation";
+static const QString KEY_SPLIT_VIEW_ORDER = "split_view_order";
 static const QString KEY_ZOOM_IMAGE = "zoom_image";
 static const QString KEY_ZOOM_TEXT = "zoom_text";
 static const QString KEY_ZOOM_WEB = "zoom_web";
@@ -56,6 +57,11 @@ QString SettingsStore::defaultMetadataLang()
 Qt::Orientation SettingsStore::splitViewOrientation()
 {
     return m_splitViewOrientation;
+}
+
+bool SettingsStore::splitViewOrder()
+{
+    return m_splitViewOrder;
 }
 
 float SettingsStore::zoomImage()
@@ -87,6 +93,12 @@ void SettingsStore::setSplitViewOrientation(Qt::Orientation orientation)
 {
     m_splitViewOrientation = orientation;
 }
+
+void SettingsStore::setSplitViewOrder(bool order )
+{
+    m_splitViewOrder = order;
+}
+
 
 void SettingsStore::setZoomImage(float zoom)
 {
@@ -120,6 +132,7 @@ void SettingsStore::writeSettings()
 
     settings.setValue(KEY_DEFAULT_METADATA_LANGUAGE, m_defaultMetadataLang);
     settings.setValue(KEY_SPLIT_VIEW_ORIENTATION, m_splitViewOrientation);
+    settings.setValue(KEY_SPLIT_VIEW_ORDER, m_splitViewOrder);
     settings.setValue(KEY_ZOOM_IMAGE, m_zoomImage);
     settings.setValue(KEY_ZOOM_TEXT, m_zoomText);
     settings.setValue(KEY_ZOOM_WEB, m_zoomWeb);
@@ -138,6 +151,7 @@ void SettingsStore::readSettings()
 
     m_defaultMetadataLang = settings.value(KEY_DEFAULT_METADATA_LANGUAGE, "English").toString();
     m_splitViewOrientation = static_cast<Qt::Orientation>(settings.value(KEY_SPLIT_VIEW_ORIENTATION, Qt::Vertical).toInt());
+    m_splitViewOrder= static_cast<bool>(settings.value(KEY_SPLIT_VIEW_ORDER, true).toBool());
     m_zoomImage = settings.value(KEY_ZOOM_IMAGE, ZOOM_NORMAL).toFloat();
     m_zoomText = settings.value(KEY_ZOOM_TEXT, ZOOM_NORMAL).toFloat();
     m_zoomWeb = settings.value(KEY_ZOOM_WEB, ZOOM_NORMAL).toFloat();

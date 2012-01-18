@@ -57,9 +57,7 @@ FlowTab::FlowTab( HTMLResource& resource,
 
     m_Layout.addWidget( &m_Splitter );
 
-    m_Splitter.setOrientation( Qt::Vertical );
-    m_Splitter.addWidget( &m_wBookView );
-    m_Splitter.addWidget( &m_wCodeView );
+    LoadSettings();
 
     ConnectSignalsToSlots();
 
@@ -74,8 +72,6 @@ FlowTab::FlowTab( HTMLResource& resource,
     {
         setFocusProxy( &m_wCodeView );
     }
-
-    LoadSettings();
 
     // We perform delayed initialization after the widget is on
     // the screen. This way, the user perceives less load time.
@@ -856,6 +852,18 @@ void FlowTab::LoadSettings()
 {
     SettingsStore *store = SettingsStore::instance();
     m_Splitter.setOrientation(store->splitViewOrientation());
+
+    // If widgets already exist, splitter will rearrange them
+    if ( store->splitViewOrder() ) 
+    {
+        m_Splitter.addWidget( &m_wBookView );
+        m_Splitter.addWidget( &m_wCodeView );
+    }
+    else
+    {
+        m_Splitter.addWidget( &m_wCodeView );
+        m_Splitter.addWidget( &m_wBookView );
+    }
 }
 
 
