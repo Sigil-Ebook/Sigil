@@ -30,6 +30,7 @@
 
 class FolderKeeper;
 class HTMLResource;
+class CSSResource;
 class Resource;
 class OPFResource;
 class NCXResource;
@@ -130,13 +131,13 @@ public:
      * Creates a new HTMLResource file with a basic XHTML structure. 
      * The file on disk has only placeholder text.
      */
-    void CreateEmptyHTMLFile();
+    HTMLResource& CreateEmptyHTMLFile();
 
     /**
      * Creates a new CSSResource file with no stored data. 
      * The file on disk is empty.
      */
-    void CreateEmptyCSSFile();
+    CSSResource& CreateEmptyCSSFile();
 
     /**
      * Creates an "old" resource from a chapter breaking operation. 

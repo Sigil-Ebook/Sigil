@@ -136,14 +136,16 @@ HTMLResource& Book::CreateNewHTMLFile()
 }
 
 
-void Book::CreateEmptyHTMLFile()
+HTMLResource& Book::CreateEmptyHTMLFile()
 {
-    CreateNewHTMLFile().SetDomDocument( XhtmlDoc::LoadTextIntoDocument( EMPTY_HTML_FILE ) );
+    HTMLResource &html_resource = CreateNewHTMLFile();
+    html_resource.SetDomDocument( XhtmlDoc::LoadTextIntoDocument( EMPTY_HTML_FILE ) );
     SetModified( true );
+    return html_resource;
 }
 
 
-void Book::CreateEmptyCSSFile()
+CSSResource& Book::CreateEmptyCSSFile()
 {
     TempFolder tempfolder;
 
@@ -151,8 +153,11 @@ void Book::CreateEmptyCSSFile()
 
     Utility::WriteUnicodeTextFile( "", fullfilepath );
 
-    m_Mainfolder.AddContentFileToFolder( fullfilepath );
+    CSSResource &css_resource = *qobject_cast< CSSResource* >(
+                                        &m_Mainfolder.AddContentFileToFolder( fullfilepath ) );
+
     SetModified( true );
+    return css_resource;
 }
 
 
@@ -370,6 +375,8 @@ void Book::Merge( HTMLResource& html_resource1, HTMLResource& html_resource2 )
 
     UniversalUpdates::PerformUniversalUpdates( true, resources, updates );
     SetModified( true );
+
+    return;
 }
 
 

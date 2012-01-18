@@ -241,8 +241,9 @@ void BookBrowser::AddNew()
 
 void BookBrowser::AddNewHTML()
 {
-    m_Book->CreateEmptyHTMLFile();
+    HTMLResource &new_resource = m_Book->CreateEmptyHTMLFile();
     Refresh();
+    emit ResourceActivated( new_resource );
     emit BookContentModified();
     
 }
@@ -250,8 +251,9 @@ void BookBrowser::AddNewHTML()
 
 void BookBrowser::AddNewCSS()
 {
-    m_Book->CreateEmptyCSSFile();
+    CSSResource &new_resource = m_Book->CreateEmptyCSSFile();
     Refresh();
+    emit ResourceActivated( new_resource );
     emit BookContentModified();
 }
 
@@ -465,7 +467,6 @@ void BookBrowser::Merge()
 
     QApplication::restoreOverrideCursor();
 }
-
 
 
 void BookBrowser::AdobesObfuscationMethod()
