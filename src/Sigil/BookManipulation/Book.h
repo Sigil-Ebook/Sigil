@@ -128,10 +128,22 @@ public:
     HTMLResource& CreateNewHTMLFile();
 
     /**
+     * Moves the first resource to after the second resource
+     */
+    void MoveResourceAfter( HTMLResource& from_resource, HTMLResource& to_resource );
+
+    /**
      * Creates a new HTMLResource file with a basic XHTML structure. 
      * The file on disk has only placeholder text.
      */
     HTMLResource& CreateEmptyHTMLFile();
+
+    /**
+     * Creates a new HTMLResource file with a basic XHTML structure
+     * inserted after the given resource.
+     * The file on disk has only placeholder text.
+     */
+    HTMLResource& CreateEmptyHTMLFile( HTMLResource& resource );
 
     /**
      * Creates a new CSSResource file with no stored data. 

@@ -239,22 +239,32 @@ void BookBrowser::AddNew()
 }
 
 
+// Create a new HTML file and insert it after the currently selected file
 void BookBrowser::AddNewHTML()
 {
-    HTMLResource &new_resource = m_Book->CreateEmptyHTMLFile();
-    Refresh();
-    emit ResourceActivated( new_resource );
+    Resource *current_resource = GetCurrentResource();
+    HTMLResource &current_html_resource = *qobject_cast< HTMLResource* >( current_resource );
+    HTMLResource &new_html_resource = m_Book->CreateEmptyHTMLFile( current_html_resource );
+
+    if ( current_resource != NULL )
+    {
+        m_Book->MoveResourceAfter( new_html_resource, current_html_resource );
+    }
+
+    // Open the new file in a tab
+    emit ResourceActivated( new_html_resource );
     emit BookContentModified();
-    
+    Refresh();
 }
 
 
 void BookBrowser::AddNewCSS()
 {
     CSSResource &new_resource = m_Book->CreateEmptyCSSFile();
-    Refresh();
+    // Open the new file in a tab
     emit ResourceActivated( new_resource );
     emit BookContentModified();
+    Refresh();
 }
 
 
@@ -276,6 +286,8 @@ void BookBrowser::AddExisting()
     QHash< QString, QList< QVariant > > old_metadata = m_Book->GetMetadata();
 
     QStringList current_filenames = m_Book->GetFolderKeeper().GetAllFilenames();
+
+    HTMLResource *current_html_resource = qobject_cast< HTMLResource* >( GetCurrentResource() );
 
     foreach( QString filepath, filepaths )
     {
@@ -299,6 +311,13 @@ void BookBrowser::AddExisting()
             // Since we set the Book manually,
             // this call merely mutates our Book.
             html_import.GetBook();
+
+            Resource &added_resource = m_Book->GetFolderKeeper().GetResourceByFilename( filename );
+            HTMLResource *added_html_resource = qobject_cast< HTMLResource * >( &added_resource );
+
+            m_Book->MoveResourceAfter( *added_html_resource, *current_html_resource );
+
+            current_html_resource = added_html_resource;
         }
 
         else
@@ -310,8 +329,8 @@ void BookBrowser::AddExisting()
 
     m_Book->SetMetadata( old_metadata );
 
+    emit ResourceActivated( *current_html_resource );
     emit BookContentModified();
-    
     Refresh();
 }
 

@@ -145,6 +145,55 @@ HTMLResource& Book::CreateEmptyHTMLFile()
 }
 
 
+HTMLResource& Book::CreateEmptyHTMLFile( HTMLResource& resource )
+{
+    HTMLResource &new_resource = CreateNewHTMLFile();
+    if ( &resource == NULL )
+    {
+        new_resource.SetDomDocument( XhtmlDoc::LoadTextIntoDocument( EMPTY_HTML_FILE ) );
+    }
+    else
+    {
+        QList< HTMLResource* > html_resources = m_Mainfolder.GetResourceTypeList< HTMLResource >( true );
+        new_resource.SetDomDocument( XhtmlDoc::LoadTextIntoDocument( EMPTY_HTML_FILE ) );
+
+        int reading_order = GetOPF().GetReadingOrder( resource ) + 1;
+
+        if ( reading_order > 0 )
+        {
+            html_resources.insert( reading_order, &new_resource );
+            GetOPF().UpdateSpineOrder( html_resources );
+        }
+    }
+    SetModified( true );
+    return new_resource;
+}
+
+
+void Book::MoveResourceAfter( HTMLResource& from_resource, HTMLResource& to_resource )
+{
+    printf("hello\n");
+    if ( &from_resource == NULL || &to_resource == NULL )
+
+        return;
+    printf("hello0\n");
+
+    QList< HTMLResource* > html_resources = m_Mainfolder.GetResourceTypeList< HTMLResource >( true );
+    printf("hello1\n");
+    int to_after_reading_order = GetOPF().GetReadingOrder( to_resource ) + 1;
+    printf("hello2\n");
+    int from_reading_order = GetOPF().GetReadingOrder( from_resource ) ;
+    printf("hello3\n");
+
+    if ( to_after_reading_order > 0 )
+    {
+        html_resources.move( from_reading_order, to_after_reading_order );
+        GetOPF().UpdateSpineOrder( html_resources );
+    }
+    SetModified( true );
+}
+
+
 CSSResource& Book::CreateEmptyCSSFile()
 {
     TempFolder tempfolder;
