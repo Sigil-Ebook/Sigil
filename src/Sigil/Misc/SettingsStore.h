@@ -77,6 +77,13 @@ public:
     QString dictionary();
 
     /**
+     * The template name for renaming selections in book browser
+     *
+     * @return The template name.
+     */
+    QString renameTemplate();
+
+    /**
      * Set the default language to use when creating new books.
      *
      * @param lang The language to set.
@@ -110,6 +117,13 @@ public:
      * @param name The name of the dictionary.
      */
     void setDictionary(const QString &name);
+
+    /**
+     * Set the name of the dictionary the user has selected.
+     *
+     * @param name The name of the dictionary.
+     */
+    void setRenameTemplate(const QString &name);
 
     /**
      * Causes the store to emit its settingsChanged signal.
@@ -154,6 +168,7 @@ private:
     float m_zoomText;
     float m_zoomWeb;
     QString m_dictionary;
+    QString m_renameTemplate;
 };
 
 #endif // SETTINGSSTORE_H

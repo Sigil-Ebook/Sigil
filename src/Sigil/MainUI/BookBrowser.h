@@ -205,6 +205,11 @@ private slots:
     void Rename();
 
     /**
+     * Implements the Rename selected context menu action functionality.
+     */
+    void RenameSelected();
+
+    /**
      * Implements the Add New context menu action functionality.
      */
     void Remove();
@@ -458,6 +463,7 @@ private:
     QAction *m_AddNewCSS;
     QAction *m_AddExisting;
     QAction *m_Rename;
+    QAction *m_RenameSelected;
     QAction *m_Remove;
     QAction *m_MergeWithPrevious;
     QAction *m_CoverImage;

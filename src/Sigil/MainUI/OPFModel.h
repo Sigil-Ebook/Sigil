@@ -138,6 +138,13 @@ public:
      */
     virtual Qt::DropActions supportedDropActions() const;
 
+    /**
+     * Renames the selected resource
+     *
+     * @return Whether rename succeeded or not
+     */
+    bool RenameResource( Resource &resource, const QString &new_filename );
+
 signals:
 
     /**
@@ -164,6 +171,7 @@ private slots:
      * @param item The item that was changed.
      */
     void ItemChangedHandler( QStandardItem *item );
+
 
 private:
 

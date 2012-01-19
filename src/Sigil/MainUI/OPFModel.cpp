@@ -271,37 +271,62 @@ void OPFModel::ItemChangedHandler( QStandardItem *item )
     const QString &identifier = item->data().toString(); 
 
     if ( identifier.isEmpty() )
-
-        return;
-
-    Resource *resource = &m_Book->GetFolderKeeper().GetResourceByIdentifier( identifier );
-    Q_ASSERT( resource );
-
-    const QString &old_fullpath = resource->GetFullPath();
-    const QString &old_filename = resource->Filename();
-    const QString &new_filename = item->text();
-    
-    if ( old_filename == new_filename || 
-         !FilenameIsValid( old_filename, new_filename )   )
     {
-        item->setText( old_filename );
         return;
     }
 
-    bool rename_sucess = resource->RenameTo( new_filename );
+    const QString &new_filename = item->text();
 
-    if ( !rename_sucess )
+    Resource &resource = m_Book->GetFolderKeeper().GetResourceByIdentifier( identifier );
+
+    if ( new_filename == resource.Filename() )
+    {
+        return;
+    }
+
+    RenameResource( resource, new_filename );
+}
+
+
+bool OPFModel:: RenameResource( Resource &resource, const QString &new_filename )
+{
+    Q_ASSERT( resource );
+
+    const QString &old_fullpath = resource.GetFullPath();
+
+    QString old_filename = resource.Filename();
+    QString extension = old_filename.right( old_filename.length() - old_filename.lastIndexOf( '.' ) );
+
+    QString new_filename_with_extension = new_filename;
+
+    if ( !new_filename.endsWith( extension ) )
+    {
+        new_filename_with_extension.append( extension );
+    }
+
+    if ( old_filename == new_filename_with_extension || 
+         !FilenameIsValid( old_filename, new_filename_with_extension )   )
+    {
+        Refresh();
+
+        return false;
+    }
+
+    bool rename_success = resource.RenameTo( new_filename_with_extension );
+
+    if ( !rename_success )
     {
         Utility::DisplayStdErrorDialog( 
             tr( "The file could not be renamed." )
             );
 
-        item->setText( old_filename );
-        return;
+        Refresh();
+
+        return false;
     }
 
     QHash< QString, QString > update;
-    update[ old_fullpath ] = "../" + resource->GetRelativePathToOEBPS();
+    update[ old_fullpath ] = "../" + resource.GetRelativePathToOEBPS();
 
     QApplication::setOverrideCursor( Qt::WaitCursor );
     UniversalUpdates::PerformUniversalUpdates( true, m_Book->GetFolderKeeper().GetResourceList(), update );
@@ -310,6 +335,8 @@ void OPFModel::ItemChangedHandler( QStandardItem *item )
     emit BookContentModified();
 
     Refresh();
+
+    return true;
 }
 
 

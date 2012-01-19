@@ -23,8 +23,10 @@
 #include "BookBrowser.h"
 #include "OPFModel.h"
 #include "BookManipulation/Book.h"
+#include "Dialogs/RenameTemplate.h"
 #include "Misc/FilenameDelegate.h"
 #include "Misc/Utility.h"
+#include "Misc/SettingsStore.h"
 #include "ResourceObjects/HTMLResource.h"
 #include "ResourceObjects/OPFResource.h"
 #include "ResourceObjects/NCXResource.h"
@@ -436,7 +438,7 @@ void BookBrowser::Rename()
 }
 
 
-void BookBrowser::Remove()
+void BookBrowser::RenameSelected()
 {
     QList <Resource *> resources = ValidSelectedResources();
 
@@ -445,6 +447,59 @@ void BookBrowser::Remove()
         return;
     }
 
+    // Load initial value from stored preferences
+    SettingsStore *store = SettingsStore::instance();
+    QString templateName = store->renameTemplate();
+
+    RenameTemplate rename_template( templateName, this );
+
+    // Get the template from the user
+    if ( rename_template.exec() != QDialog::Accepted )
+    {
+        return;
+    }
+    templateName = rename_template.GetTemplateName();
+
+    // Save the template for later
+    store->setRenameTemplate( templateName );
+
+    // Get the base text and staring number
+    int pos = templateName.length() - 1;
+    QString templateNumber = "";
+    while ( pos > 0 && templateName[pos].isDigit() )
+    {
+        templateNumber.prepend(QString( "%1" ).arg( templateName[pos] ));
+        pos--;
+    }
+    QString templateBase = templateName.left( pos + 1 );
+
+    if ( templateNumber == "" )
+    {
+        templateNumber = "1";
+    }
+
+    // Rename each entry in turn
+    int i = templateNumber.toInt();
+    foreach ( Resource *resource, resources )
+    {
+        QString name = QString( "%1%2" ).arg( templateBase ).arg( i, templateNumber.length(), 10, QChar( '0' ) );
+        if ( !m_OPFModel.RenameResource( *resource, name ) )
+        {
+            break;
+        }
+        i++;
+    }
+}
+
+
+void BookBrowser::Remove()
+{
+    QList <Resource *> resources = ValidSelectedResources();
+
+    if ( resources.isEmpty() )
+    {
+        return;
+    }
     Resource::ResourceType resource_type = resources[0]->Type();
 
     if ( resource_type == Resource::OPFResourceType || 
@@ -686,14 +741,15 @@ void BookBrowser::CreateContextMenuActions()
     m_AddNewCSS               = new QAction( tr( "Add Blank Stylesheet" ),  this );
     m_AddExisting             = new QAction( tr( "Add Existing Files..." ), this );
     m_Rename                  = new QAction( tr( "Rename" ),                this );
+    m_RenameSelected          = new QAction( tr( "Rename" ),                this );
     m_Remove                  = new QAction( tr( "Remove" ),                this );
     m_CoverImage              = new QAction( tr( "Cover Image" ),           this );
-    m_Merge                   = new QAction( tr( "Merge Selected" ),        this );
+    m_Merge                   = new QAction( tr( "Merge" ),                 this );
     m_MergeWithPrevious       = new QAction( tr( "Merge With Previous" ),   this );
     m_AdobesObfuscationMethod = new QAction( tr( "Use Adobe's Method" ),    this );
     m_IdpfsObfuscationMethod  = new QAction( tr( "Use IDPF's Method" ),     this );
-    m_SortHTML                = new QAction( tr( "Sort All Alphanumerically" ), this );
-    m_SortHTMLSelected        = new QAction( tr( "Sort Selected Alphanumerically" ), this );
+    m_SortHTML                = new QAction( tr( "Sort All" ),              this );
+    m_SortHTMLSelected        = new QAction( tr( "Sort" ),                  this );
 
     m_CoverImage             ->setCheckable( true );  
     m_AdobesObfuscationMethod->setCheckable( true ); 
@@ -703,7 +759,7 @@ void BookBrowser::CreateContextMenuActions()
 
     // Key handles merge with previous and merge selected
     m_Merge->setShortcut( QKeySequence( Qt::CTRL + Qt::ALT + Qt::Key_M ) );
-    m_Merge->setToolTip( "Merges selected files in the book browser" );
+    m_Merge->setToolTip( "Merge files in the book browser" );
 
     // Has to be added to the book browser itself as well
     // for the keyboard shortcut to work.
@@ -841,14 +897,6 @@ bool BookBrowser::SuccessfullySetupContextMenu( const QPoint &point )
     {
         m_ContextMenu.addAction( m_AddNewCSS );
     }
-    if ( ValidSelectedItemCount() == 1 )
-    {
-        m_ContextMenu.addAction( m_SortHTML );
-    }
-    else
-    {
-        m_ContextMenu.addAction( m_SortHTMLSelected );
-    }
 
     Resource *resource = GetCurrentResource();
 
@@ -864,10 +912,15 @@ bool BookBrowser::SuccessfullySetupContextMenu( const QPoint &point )
          m_LastContextMenuType != Resource::NCXResourceType )
     {
         m_ContextMenu.addAction( m_Remove );
+
         if ( item_count == 1 )
         {
             m_ContextMenu.addAction( m_Rename );
         }
+        else {
+            m_ContextMenu.addAction( m_RenameSelected );
+        }
+
         m_ContextMenu.addSeparator();
     }
 
@@ -880,8 +933,20 @@ bool BookBrowser::SuccessfullySetupContextMenu( const QPoint &point )
 void BookBrowser::SetupResourceSpecificContextMenu( Resource *resource  )
 {
     if ( resource->Type() == Resource::HTMLResourceType )
-    
+    {
         AddMergeAction( resource ); 
+
+        if ( ValidSelectedItemCount() == 1 )
+        {
+            m_ContextMenu.addAction( m_SortHTML );
+        }
+        else
+        {
+            m_ContextMenu.addAction( m_SortHTMLSelected );
+        }
+        m_ContextMenu.addSeparator();
+
+    }
 
     if ( resource->Type() == Resource::FontResourceType && ValidSelectedItemCount() == 1 )
 
@@ -1042,6 +1107,7 @@ void BookBrowser::ConnectSignalsToSlots()
     connect( m_AddNewCSS,               SIGNAL( triggered() ), this, SLOT( AddNewCSS()               ) );
     connect( m_AddExisting,             SIGNAL( triggered() ), this, SLOT( AddExisting()             ) );
     connect( m_Rename,                  SIGNAL( triggered() ), this, SLOT( Rename()                  ) );
+    connect( m_RenameSelected,          SIGNAL( triggered() ), this, SLOT( RenameSelected()          ) );
     connect( m_Remove,                  SIGNAL( triggered() ), this, SLOT( Remove()                  ) );
     connect( m_CoverImage,              SIGNAL( triggered() ), this, SLOT( SetCoverImage()           ) );
     connect( m_Merge,                   SIGNAL( triggered() ), this, SLOT( Merge()                   ) );

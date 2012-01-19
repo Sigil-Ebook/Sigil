@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>RenameTemplate</class>
+ <widget class="QDialog" name="RenameTemplate">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>450</width>
+    <height>202</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="windowTitle">
+   <string>Rename Selected Files</string>
+  </property>
+  <layout class="QGridLayout">
+   <property name="sizeConstraint">
+    <enum>QLayout::SetMaximumSize</enum>
+   </property>
+   <item row="2" column="0">
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QLabel" name="label_2">
+       <property name="text">
+        <string>Rename to: </string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="renameTemplate">
+       <property name="text">
+        <string>Section0001</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item row="1" column="0">
+    <widget class="QLabel" name="label1">
+     <property name="toolTip">
+      <string> For example:
+
+&quot;Part1 - Chapter 003&quot; will rename the first file to &quot;Part1 - Chapter 003&quot; and the 10th file as &quot;Part1 - Chapter 012&quot;
+
+&quot;Section 1&quot; will rename the first file to &quot;Section 1&quot; and the 10th file as &quot;Section 10&quot;</string>
+     </property>
+     <property name="text">
+      <string>Enter the starting name to use for renaming all selected files.
+
+All numbers at the END of the text will be replaced sequentially starting at the number provided (default is 1 if no number is provided), with leading 0's added to match the number of digits used.
+</string>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="0">
+    <widget class="QDialogButtonBox" name="buttonBox">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>accepted()</signal>
+   <receiver>RenameTemplate</receiver>
+   <slot>accept()</slot>
+  </connection>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>rejected()</signal>
+   <receiver>RenameTemplate</receiver>
+   <slot>reject()</slot>
+  </connection>
+ </connections>
+</ui>

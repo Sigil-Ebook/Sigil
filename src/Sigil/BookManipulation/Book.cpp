@@ -172,18 +172,13 @@ HTMLResource& Book::CreateEmptyHTMLFile( HTMLResource& resource )
 
 void Book::MoveResourceAfter( HTMLResource& from_resource, HTMLResource& to_resource )
 {
-    printf("hello\n");
     if ( &from_resource == NULL || &to_resource == NULL )
 
         return;
-    printf("hello0\n");
 
     QList< HTMLResource* > html_resources = m_Mainfolder.GetResourceTypeList< HTMLResource >( true );
-    printf("hello1\n");
     int to_after_reading_order = GetOPF().GetReadingOrder( to_resource ) + 1;
-    printf("hello2\n");
     int from_reading_order = GetOPF().GetReadingOrder( from_resource ) ;
-    printf("hello3\n");
 
     if ( to_after_reading_order > 0 )
     {
