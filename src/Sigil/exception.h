@@ -49,11 +49,6 @@ struct ResourceDoesNotExist : virtual ExceptionBase {};
 typedef boost::error_info< struct resource_name, std::string > errinfo_resource_name;
 
 /**
- * Thrown when the book has no HTML files.
- */
-struct NoHTMLFiles : virtual ExceptionBase {};
-
-/**
  * Thrown for XML parsing errors.
  */
 struct ErrorParsingXml : virtual ExceptionBase {};

@@ -123,13 +123,52 @@ void OPFModel::SortHTML( QList <QModelIndex> index_list )
 }
 
 
-QModelIndex OPFModel::GetFirstHTMLModelIndex()
+QModelIndex OPFModel::GetFirstPageIndex( Resource::ResourceType resource_type )
 {
-    if ( !m_TextFolderItem.hasChildren() )
+    // Indicates None was selected as first page
+    if ( resource_type == Resource::GenericResourceType )
+    {
+        return QModelIndex();
+    }
 
-        boost_throw( NoHTMLFiles() );
+    QModelIndex index = GetFirstModelIndex( resource_type );
+    if ( index.isValid() )
+    {
+            return index;
+    }
 
-    return m_TextFolderItem.child( 0 )->index();
+    // Default to HTML file
+    return GetFirstModelIndex( Resource::HTMLResourceType );
+}
+
+QModelIndex OPFModel::GetFirstModelIndex( Resource::ResourceType resource_type )
+{
+    for ( int i = 0; i < invisibleRootItem()->rowCount(); i++ )
+    {
+        QStandardItem *child = invisibleRootItem()->child( i );
+        const QString &identifier = child->data().toString();
+
+        if (( child == &m_TextFolderItem && resource_type == Resource::HTMLResourceType ) ||
+        ( child == &m_StylesFolderItem && resource_type == Resource::CSSResourceType ) ||
+        ( child == &m_ImagesFolderItem && resource_type == Resource::ImageResourceType ) )
+        {
+            if ( child->hasChildren() )
+            {
+                return child->child( 0 )->index();
+            }
+        }
+        else if ( identifier != "" )
+            {
+                Resource::ResourceType type = m_Book->GetFolderKeeper().GetResourceByIdentifier( identifier ).Type();
+    
+                if ( type == resource_type )
+                {
+                    return child->index();
+                }
+            }
+    }
+
+    return QModelIndex();
 }
 
 

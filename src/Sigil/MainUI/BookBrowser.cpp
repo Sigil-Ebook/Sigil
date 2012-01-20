@@ -111,19 +111,16 @@ void BookBrowser::SetBook( QSharedPointer< Book > book )
 
     ExpandTextFolder();
 
-    try
+    // Load initial value from stored preferences
+    SettingsStore *store = SettingsStore::instance();
+    Resource::ResourceType first_page_type = store->firstPage();
+
+    // Open the first page of the selected type, if there is one
+    QModelIndex index = m_OPFModel.GetFirstPageIndex( first_page_type );
+    if ( index.isValid() )
     {
-        // Here we fake that the "first" HTML file has been double clicked
-        // so that we have a default first tab opened.
-        // An exception is thrown if there are no HTML files in the epub.
-        EmitResourceActivated( m_OPFModel.GetFirstHTMLModelIndex() );
+        EmitResourceActivated( index );
     }
-    
-    // No exception variable since we don't use it
-    catch ( NoHTMLFiles& )
-    {
-       // Do nothing. No HTML files, no first file opened.
-    }    
 }
 
 
@@ -917,7 +914,8 @@ bool BookBrowser::SuccessfullySetupContextMenu( const QPoint &point )
         {
             m_ContextMenu.addAction( m_Rename );
         }
-        else {
+        else 
+        {
             m_ContextMenu.addAction( m_RenameSelected );
         }
 

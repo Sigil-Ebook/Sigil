@@ -82,12 +82,18 @@ public:
     void SortHTML( QList <QModelIndex> index_list );
 
     /**
-     * Returns the QModelIndex of the first HTML file.
+     * Returns the QModelIndex of the first file of type, default html
      *
-     * @return The QModelIndex of the first HTML file.
-     * @throws NoHTMLFiles()
+     * @return The QModelIndex of the first file of type, defaul html
      */
-    QModelIndex GetFirstHTMLModelIndex();
+    QModelIndex GetFirstPageIndex( Resource::ResourceType resource_type );
+
+    /**
+     * Returns the QModelIndex of the first resource of type.
+     *
+     * @return The QModelIndex of the first resource of type.
+     */
+    QModelIndex GetFirstModelIndex( Resource::ResourceType resource_type );
 
     /**
      * Returns the QModelIndex of the Text folder.
@@ -102,7 +108,6 @@ public:
      * @return The QModelIndex of the resource in any folder.
      */
     QModelIndex GetModelItemIndex( Resource &resource, IndexChoice indexChoice );
-
 
     /**
      * Returns the QModelIndex of the resource in the given folder.

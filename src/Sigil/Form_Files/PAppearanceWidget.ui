@@ -25,7 +25,7 @@
         <property name="horizontalSpacing">
          <number>20</number>
         </property>
-        <item row="0" column="1">
+        <item row="0" column="0">
          <widget class="QRadioButton" name="svHorizontal">
           <property name="toolTip">
            <string>Horizontal window layout with Book View on the left</string>
@@ -38,7 +38,7 @@
           </property>
          </widget>
         </item>
-        <item row="0" column="0">
+        <item row="0" column="2">
          <widget class="QRadioButton" name="svVertical">
           <property name="cursor">
            <cursorShape>ArrowCursor</cursorShape>
@@ -55,7 +55,7 @@ Code View</string>
           </property>
          </widget>
         </item>
-        <item row="1" column="1">
+        <item row="0" column="1">
          <widget class="QRadioButton" name="svHorizontalCB">
           <property name="toolTip">
            <string>Horizontal window layout with Code View on the left</string>
@@ -65,7 +65,7 @@ Code View</string>
           </property>
          </widget>
         </item>
-        <item row="1" column="0">
+        <item row="0" column="3">
          <widget class="QRadioButton" name="svVerticalCB">
           <property name="minimumSize">
            <size>
@@ -104,6 +104,105 @@ Book View</string>
     </widget>
    </item>
    <item>
+    <widget class="Line" name="line">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="groupBox_2">
+     <property name="title">
+      <string>First Page</string>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <item>
+       <layout class="QGridLayout" name="gridLayout_2">
+        <property name="horizontalSpacing">
+         <number>20</number>
+        </property>
+        <item row="0" column="0">
+         <widget class="QRadioButton" name="fpHTML">
+          <property name="toolTip">
+           <string>Display the first HTML page when opening a book.</string>
+          </property>
+          <property name="text">
+           <string>HTML</string>
+          </property>
+          <property name="checked">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QRadioButton" name="fpCSS">
+          <property name="toolTip">
+           <string>Display the first CSS page when opening a book.  Opens the first HTML page if there are no CSS pages.</string>
+          </property>
+          <property name="text">
+           <string>CSS</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="2">
+         <widget class="QRadioButton" name="fpImage">
+          <property name="toolTip">
+           <string>Display the first image when opening a book.  Opens the first HTML page if there are no images.</string>
+          </property>
+          <property name="text">
+           <string>Image</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="3">
+         <widget class="QRadioButton" name="fpNCX">
+          <property name="toolTip">
+           <string>Display the Table of Contents NCX file when opening a book.  Opens the first HTML page if there is no TOC.</string>
+          </property>
+          <property name="text">
+           <string>TOC</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="4">
+         <widget class="QRadioButton" name="fpOPF">
+          <property name="toolTip">
+           <string>Display the OPF file when opening a book.  Opens the first HTML page if there is no OPF.</string>
+          </property>
+          <property name="text">
+           <string>OPF</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="5">
+         <widget class="QRadioButton" name="fpNone">
+          <property name="toolTip">
+           <string>Do not open any pages when first opening a book.</string>
+          </property>
+          <property name="text">
+           <string>None</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer_2">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
     <spacer name="verticalSpacer">
      <property name="orientation">
       <enum>Qt::Vertical</enum>
@@ -111,7 +210,7 @@ Book View</string>
      <property name="sizeHint" stdset="0">
       <size>
        <width>20</width>
-       <height>207</height>
+       <height>40</height>
       </size>
      </property>
     </spacer>
