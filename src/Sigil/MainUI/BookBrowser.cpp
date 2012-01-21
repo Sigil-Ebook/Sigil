@@ -233,6 +233,19 @@ void BookBrowser::OpenContextMenu( const QPoint &point )
     m_SemanticsContextMenu.clear();
 }
 
+QList <Resource *> BookBrowser::ValidSelectedResources( Resource::ResourceType resource_type )
+{
+    QList <Resource *> resources = ValidSelectedResources();
+    foreach ( Resource *resource, resources )
+    {
+        if ( resource->Type() != resource_type )
+        {
+            resources.clear();
+        }
+    }
+
+    return resources;
+}
 
 QList <Resource *> BookBrowser::ValidSelectedResources()
 {
@@ -577,46 +590,58 @@ void BookBrowser::AddGuideSemanticType( int type )
 
 void BookBrowser::Merge()
 {
-    QList <Resource *> resources = ValidSelectedResources();
+    QList <Resource *> resources = ValidSelectedResources( Resource::HTMLResourceType );
+    Resource *resource1 = resources.first();
 
+    // Skip merge if any non-html files selected - by keyboard shortcut or selection across folders
     if ( resources.isEmpty() )
     {
         return;
     }
 
+    // Convert merge previous to merge selected so all files can be checked for validity
+    if ( resources.count() == 1 )
+    {
+        resource1 = m_Book->PreviousResource( resource1 );
+        resources.prepend( resource1 );
+    }
+
+    if ( !m_Book->AreResourcesWellFormed( resources ) )
+    {
+        // Both dialog and well-formed error messages will be shown
+        Utility::DisplayStdErrorDialog( tr( "Merge aborted - one of the files was not well-formed." ) );
+        return;
+    }
+
     QApplication::setOverrideCursor( Qt::WaitCursor );
 
-    Resource *resource1 = resources.first();
-    QModelIndex original_model_index = QModelIndex();
+    resources.removeFirst();
 
     // Make resource active to make it easier to remove/update later
     emit ResourceActivated( *resource1 );
 
-    HTMLResource &html_resource1 = *qobject_cast< HTMLResource *>( resource1 );
+    // Save location of first file in folder since resource will be modified
+    QModelIndex original_model_index = m_OPFModel.GetModelItemIndex( *resource1, OPFModel::IndexChoice_Current );
 
-    resources.removeFirst();
-    if ( resources.isEmpty() )
+    HTMLResource &html_resource1 = *qobject_cast< HTMLResource *>( resource1 );
+    bool merge_okay = true;
+    foreach ( Resource *resource, resources )
     {
-        original_model_index = m_OPFModel.GetModelItemIndex( *resource1, OPFModel::IndexChoice_Previous );
-        m_Book->MergeWithPrevious( html_resource1 );
-    }
-    else
-    {
-        original_model_index = m_OPFModel.GetModelItemIndex( *resource1, OPFModel::IndexChoice_Current );
-        foreach ( Resource *resource, resources )
+        if ( resource != NULL && merge_okay )
         {
-            if ( resource != NULL )
-            {
-                HTMLResource &html_resource2 = *qobject_cast< HTMLResource* >( resource );
-                m_Book->Merge( html_resource1, html_resource2 );
-            }
+            HTMLResource &html_resource2 = *qobject_cast< HTMLResource* >( resource );
+            merge_okay = m_Book->Merge( html_resource1, html_resource2 );
         }
     }
 
-    // Remove the current tab (original resource) to force tab to reload data when opening the resource
-    emit RemoveTabRequest();
-    // Use the original index since the old resource seems to become invalid
-    EmitResourceActivated( original_model_index );
+    if ( merge_okay )
+    {
+        // Remove the current tab (original resource) to force tab to reload data when opening the resource
+        emit RemoveTabRequest();
+
+        // Use the original index since the old resource seems to become invalid
+        EmitResourceActivated( original_model_index );
+    }
 
     Refresh();
 

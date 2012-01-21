@@ -352,21 +352,64 @@ void Book::CreateNewChapters( const QStringList &new_chapters, HTMLResource &ori
 }
 
 
-void Book::MergeWithPrevious( HTMLResource& html_resource )
+bool Book::IsDataWellFormed( HTMLResource& html_resource )
 {
-    const QString defunct_filename = html_resource.Filename();
-    QList< HTMLResource* > html_resources = m_Mainfolder.GetResourceTypeList< HTMLResource >( true );
-    int previous_file_reading_order = html_resources.indexOf( &html_resource ) - 1;
-    Q_ASSERT( previous_file_reading_order >= 0 );
-    HTMLResource& previous_html = *html_resources[ previous_file_reading_order ];
+    QTextDocument& qtext = html_resource.GetTextDocument();
+    QString text = "";
 
-    Merge( previous_html, html_resource );
+    // If resource is loaded into tab get resource data else data from file
+    if ( &qtext != NULL )
+    {
+        text = qtext.toPlainText();
+    }
+    else
+    {
+        text = Utility::ReadUnicodeTextFile( html_resource.GetFullPath() );
+    }
+    XhtmlDoc::WellFormedError error = XhtmlDoc::WellFormedErrorForSource( text );
+
+    return error.line == -1;
 }
 
 
-// Merge selected html files into the first document
-void Book::Merge( HTMLResource& html_resource1, HTMLResource& html_resource2 )
+bool Book::AreResourcesWellFormed( QList<Resource *> resources )
 {
+    foreach( Resource *resource, resources )
+    {
+        HTMLResource &html_resource = *qobject_cast< HTMLResource *>( resource );
+        if ( !IsDataWellFormed( html_resource ) )
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
+Resource* Book::PreviousResource( Resource *resource )
+{
+    const QString defunct_filename = resource->Filename();
+    QList< HTMLResource* > html_resources = m_Mainfolder.GetResourceTypeList< HTMLResource >( true );
+
+    HTMLResource *html_resource = qobject_cast< HTMLResource* >(resource);
+
+    int previous_file_reading_order = html_resources.indexOf( html_resource ) - 1;
+    if ( previous_file_reading_order < 0 )
+    {
+        previous_file_reading_order = 0;
+    }
+    HTMLResource& previous_html = *html_resources[ previous_file_reading_order ];
+
+    return qobject_cast< Resource *>( &previous_html );
+}
+
+
+// Merge selected html files into the first document - already checked for well-formed data
+bool Book::Merge( HTMLResource& html_resource1, HTMLResource& html_resource2 )
+{
+    if ( &html_resource1 == &html_resource2 )
+    {
+        return false;
+    }
     const QString defunct_filename = html_resource2.Filename();
 
     QString html_resource2_fullpath = html_resource2.GetFullPath();
@@ -380,7 +423,7 @@ void Book::Merge( HTMLResource& html_resource1, HTMLResource& html_resource2 )
 
             if ( source_body_nodes.getLength() != 1 )
 
-                return;
+                return false;
 
             xc::DOMNode &source_body_node = *source_body_nodes.item( 0 );
             body_children_fragment        = XhtmlDoc::ConvertToDocumentFragment( *source_body_node.getChildNodes() ); 
@@ -392,7 +435,7 @@ void Book::Merge( HTMLResource& html_resource1, HTMLResource& html_resource2 )
 
         if ( sink_body_nodes.getLength() != 1 )
 
-            return;
+            return false;
 
         xc::DOMNode & sink_body_node = *sink_body_nodes.item( 0 );         
         sink_body_node.appendChild( sink_dom.importNode( body_children_fragment, true ) );
@@ -420,7 +463,7 @@ void Book::Merge( HTMLResource& html_resource1, HTMLResource& html_resource2 )
     UniversalUpdates::PerformUniversalUpdates( true, resources, updates );
     SetModified( true );
 
-    return;
+    return true;
 }
 
 

@@ -389,6 +389,12 @@ private:
     QList <Resource *> ValidSelectedResources();
 
     /**
+     * List of selected resources after validating selected resources are of the given type
+     */
+    QList <Resource *> ValidSelectedResources( Resource::ResourceType resource_type );
+
+
+    /**
      * Number of valid items selected
      */
     int ValidSelectedItemCount();
