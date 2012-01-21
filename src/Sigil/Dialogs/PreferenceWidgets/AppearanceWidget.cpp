@@ -49,35 +49,6 @@ void AppearanceWidget::saveSettings()
     }
     store->setSplitViewOrientation(orientation);
     store->setSplitViewOrder(order);
-
-    if ( ui.fpCSS->isChecked() )
-    {
-        store->setFirstPage( Resource::CSSResourceType );
-    }
-    else if ( ui.fpImage->isChecked() )
-    {
-        store->setFirstPage( Resource::ImageResourceType );
-    }
-    else if ( ui.fpImage->isChecked() )
-    {
-        store->setFirstPage( Resource::ImageResourceType );
-    }
-    else if ( ui.fpOPF->isChecked() )
-    {
-        store->setFirstPage( Resource::OPFResourceType );
-    }
-    else if ( ui.fpNCX->isChecked() )
-    {
-        store->setFirstPage( Resource::NCXResourceType );
-    }
-    else if ( ui.fpNone->isChecked() )
-    {
-        store->setFirstPage( Resource::GenericResourceType );
-    }
-    else
-    {
-        store->setFirstPage( Resource::HTMLResourceType );
-    }
 }
 
 void AppearanceWidget::readSettings()
@@ -99,30 +70,5 @@ void AppearanceWidget::readSettings()
         } else {
             ui.svVerticalCB->setChecked(true);
         }
-    }
-
-    if( store->firstPage() == Resource::CSSResourceType )
-    {
-        ui.fpCSS->setChecked(true);
-    }
-    else if( store->firstPage() == Resource::ImageResourceType )
-    {
-        ui.fpImage->setChecked(true);
-    }
-    else if( store->firstPage() == Resource::OPFResourceType )
-    {
-        ui.fpOPF->setChecked(true);
-    }
-    else if( store->firstPage() == Resource::NCXResourceType )
-    {
-        ui.fpNCX->setChecked(true);
-    }
-    else if( store->firstPage() == Resource::GenericResourceType )
-    {
-        ui.fpNone->setChecked(true);
-    }
-    else
-    {
-        ui.fpHTML->setChecked(true);
     }
 }

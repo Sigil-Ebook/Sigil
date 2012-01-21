@@ -111,15 +111,18 @@ void BookBrowser::SetBook( QSharedPointer< Book > book )
 
     ExpandTextFolder();
 
-    // Load initial value from stored preferences
-    SettingsStore *store = SettingsStore::instance();
-    Resource::ResourceType first_page_type = store->firstPage();
-
-    // Open the first page of the selected type, if there is one
-    QModelIndex index = m_OPFModel.GetFirstPageIndex( first_page_type );
-    if ( index.isValid() )
+    try
     {
-        EmitResourceActivated( index );
+        // Here we fake that the "first" HTML file has been double clicked
+        // so that we have a default first tab opened.
+        // An exception is thrown if there are no HTML files in the epub.
+        EmitResourceActivated( m_OPFModel.GetFirstHTMLModelIndex() );
+    }
+
+    // No exception variable since we don't use it
+    catch ( NoHTMLFiles& )
+    {
+       // Do nothing. No HTML files, no first file opened.
     }
 }
 
@@ -606,6 +609,9 @@ void BookBrowser::Merge()
         resources.prepend( resource1 );
     }
 
+    // Save location of first file in folder since resource will be modified
+    QModelIndex original_model_index = m_OPFModel.GetModelItemIndex( *resource1, OPFModel::IndexChoice_Current );
+
     if ( !m_Book->AreResourcesWellFormed( resources ) )
     {
         // Both dialog and well-formed error messages will be shown
@@ -619,9 +625,6 @@ void BookBrowser::Merge()
 
     // Make resource active to make it easier to remove/update later
     emit ResourceActivated( *resource1 );
-
-    // Save location of first file in folder since resource will be modified
-    QModelIndex original_model_index = m_OPFModel.GetModelItemIndex( *resource1, OPFModel::IndexChoice_Current );
 
     HTMLResource &html_resource1 = *qobject_cast< HTMLResource *>( resource1 );
     bool merge_okay = true;

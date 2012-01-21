@@ -31,7 +31,6 @@ static const QString KEY_DEFAULT_METADATA_LANGUAGE = "default_metadata_lang";
 static const QString KEY_SPLIT_VIEW_ORIENTATION = "split_view_orientation";
 static const QString KEY_SPLIT_VIEW_ORDER = "split_view_order";
 static const QString KEY_RENAME_TEMPLATE = "rename_template";
-static const QString KEY_FIRST_PAGE = "first_page";
 static const QString KEY_ZOOM_IMAGE = "zoom_image";
 static const QString KEY_ZOOM_TEXT = "zoom_text";
 static const QString KEY_ZOOM_WEB = "zoom_web";
@@ -91,11 +90,6 @@ QString SettingsStore::renameTemplate()
     return m_renameTemplate;
 }
 
-Resource::ResourceType SettingsStore::firstPage()
-{
-    return m_firstPage;
-}
-
 void SettingsStore::setDefaultMetadataLang(const QString &lang)
 {
     m_defaultMetadataLang = lang;
@@ -137,11 +131,6 @@ void SettingsStore::setRenameTemplate(const QString &name)
     m_renameTemplate = name;
 }
 
-void SettingsStore::setFirstPage( Resource::ResourceType name)
-{
-    m_firstPage = name;
-}
-
 void SettingsStore::triggerSettingsChanged()
 {
     emit settingsChanged();
@@ -155,7 +144,6 @@ void SettingsStore::writeSettings()
     settings.setValue(KEY_DEFAULT_METADATA_LANGUAGE, m_defaultMetadataLang);
     settings.setValue(KEY_SPLIT_VIEW_ORIENTATION, m_splitViewOrientation);
     settings.setValue(KEY_RENAME_TEMPLATE, m_renameTemplate);
-    settings.setValue(KEY_FIRST_PAGE, m_firstPage);
     settings.setValue(KEY_SPLIT_VIEW_ORDER, m_splitViewOrder);
     settings.setValue(KEY_ZOOM_IMAGE, m_zoomImage);
     settings.setValue(KEY_ZOOM_TEXT, m_zoomText);
@@ -175,7 +163,6 @@ void SettingsStore::readSettings()
 
     m_defaultMetadataLang = settings.value(KEY_DEFAULT_METADATA_LANGUAGE, "English").toString();
     m_renameTemplate = settings.value(KEY_RENAME_TEMPLATE, "Section001").toString();
-    m_firstPage = static_cast<Resource::ResourceType>(settings.value(KEY_FIRST_PAGE, Resource::HTMLResourceType).toInt());
     m_splitViewOrientation = static_cast<Qt::Orientation>(settings.value(KEY_SPLIT_VIEW_ORIENTATION, Qt::Vertical).toInt());
     m_splitViewOrder= static_cast<bool>(settings.value(KEY_SPLIT_VIEW_ORDER, true).toBool());
     m_zoomImage = settings.value(KEY_ZOOM_IMAGE, ZOOM_NORMAL).toFloat();

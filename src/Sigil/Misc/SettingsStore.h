@@ -25,7 +25,6 @@
 
 #include <QObject>
 #include <QString>
-#include "ResourceObjects/Resource.h"
 
 /**
  * Singleton. Provides access for reading and writing user configurable
@@ -85,13 +84,6 @@ public:
     QString renameTemplate();
 
     /**
-     * The type of page to open when the book is first opened
-     *
-     * @return The page type
-     */
-    Resource::ResourceType firstPage();
-
-    /**
      * Set the default language to use when creating new books.
      *
      * @param lang The language to set.
@@ -125,13 +117,6 @@ public:
      * @param name The name of the dictionary.
      */
     void setDictionary(const QString &name);
-
-    /**
-     * Set the name of the type of page to first open
-     *
-     * @param name The type of page to open
-     */
-    void setFirstPage( Resource::ResourceType );
 
     /**
      * Set the name of the dictionary the user has selected.
@@ -184,7 +169,6 @@ private:
     float m_zoomWeb;
     QString m_dictionary;
     QString m_renameTemplate;
-    Resource::ResourceType m_firstPage;
 };
 
 #endif // SETTINGSSTORE_H

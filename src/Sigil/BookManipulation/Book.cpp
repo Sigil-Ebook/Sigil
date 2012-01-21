@@ -410,6 +410,11 @@ bool Book::Merge( HTMLResource& html_resource1, HTMLResource& html_resource2 )
     {
         return false;
     }
+
+    if ( !IsDataWellFormed( html_resource1 ) || !IsDataWellFormed( html_resource2 ) )
+    {
+        return false;
+    }
     const QString defunct_filename = html_resource2.Filename();
 
     QString html_resource2_fullpath = html_resource2.GetFullPath();
