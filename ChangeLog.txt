@@ -1,4 +1,4 @@
-Sigil 0.5 TBA
+Sigil 0.5 2012.01.21
     - Implement issue 533 and 1079: allow user to select which level(s) of <h> to include.
     - Fix issue 788: Error saving when the folder the file was in was renamed
       outside Sigil.
