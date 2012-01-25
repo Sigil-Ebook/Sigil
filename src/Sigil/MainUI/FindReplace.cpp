@@ -98,13 +98,12 @@ void FindReplace::keyPressEvent(QKeyEvent *event)
 
 void FindReplace::ShowMessage( const QString &message )
 {
-    QPalette p;
-    QBrush b = p.brush(QPalette::WindowText);
-    p.setBrush(QPalette::WindowText, b);
-    ui.message->setPalette(p);
+    QFont f = ui.message->font();
+    f.setBold(true);
+    ui.message->setFont(f);
 
     ui.message->setText(message);
-    m_timer.start(5000);
+    m_timer.start(15000);
 }
 
 
@@ -216,10 +215,9 @@ void FindReplace::clearMessage()
 
 void FindReplace::expireMessage()
 {
-    QPalette p;
-    QBrush b = p.brush(QPalette::Mid);
-    p.setBrush(QPalette::WindowText, b);
-    ui.message->setPalette(p);
+    QFont f = ui.message->font();
+    f.setBold(false);
+    ui.message->setFont(f);
 
     m_timer.stop();
 }
