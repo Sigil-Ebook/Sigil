@@ -371,14 +371,14 @@ set_source_files_properties( Misc/Utility.cpp PROPERTIES COMPILE_DEFINITIONS SIG
 
 # creating PCH's for MSVC and GCC on Linux
 include( ${CMAKE_SOURCE_DIR}/cmake_extras/CustomPCH.cmake )
-set( ALL_INCLUDES ${BoostParts_SOURCE_DIR}
-                  ${Xerces_SOURCE_DIR} 
-                  ${XercesExtensions_SOURCE_DIR} 
-                  ${ZipArchive_SOURCE_DIR}
+set( ALL_INCLUDES ${BOOST_INCLUDE_DIRS}
+                  ${XERCES_INCLUDE_DIRS} 
+                  ${XERCESEXTENSIONS_INCLUDE_DIRS} 
+                  ${ZIPARCHIVE_INCLUDE_DIRS}
                   ${tidyLib_SOURCE_DIR}
-                  ${pcre_SOURCE_DIR}
-                  ${hunspell_SOURCE_DIR}
-                  ${FlightCrew_SOURCE_DIR}
+                  ${PCRE_INCLUDE_DIRS}
+                  ${HUNSPELL_INCLUDE_DIRS}
+                  ${FLIGHTCREW_INCLUDE_DIRS}
                   ${QT_INCLUDES} )
 
 set( PCH_NAME stdafx )
@@ -458,14 +458,14 @@ endif()
 # and the headers for the linked-to libraries
 include_directories( ${CMAKE_CURRENT_BINARY_DIR} 
                      ${CMAKE_CURRENT_SOURCE_DIR} 
-                     ${BoostParts_SOURCE_DIR}
-                     ${Xerces_SOURCE_DIR} 
-                     ${XercesExtensions_SOURCE_DIR} 
-                     ${ZipArchive_SOURCE_DIR}
+                     ${BOOST_INCLUDE_DIRS}
+                     ${XERCES_INCLUDE_DIRS} 
+                     ${XERCESEXTENSIONS_INCLUDE_DIRS} 
+                     ${ZIPARCHIVE_INCLUDE_DIRS}
                      ${tidyLib_SOURCE_DIR}
-                     ${pcre_SOURCE_DIR}
-                     ${hunspell_SOURCE_DIR}
-                     ${FlightCrew_SOURCE_DIR} )
+                     ${PCRE_INCLUDE_DIRS}
+                     ${HUNSPELL_INCLUDE_DIRS}
+                     ${FLIGHTCREW_INCLUDE_DIRS} )
 
 #############################################################################
 
@@ -478,7 +478,7 @@ else()
     add_executable( ${PROJECT_NAME} WIN32 ${ALL_SOURCES} )
 endif()
 
-target_link_libraries( ${PROJECT_NAME} hunspell pcre tidyLib ZipArchive BoostParts Xerces XercesExtensions FlightCrew ${QT_LIBRARIES} )
+target_link_libraries( ${PROJECT_NAME} ${HUNSPELL_LIBRARIES} ${PCRE_LIBRARIES} tidyLib ${ZIPARCHIVE_LIBRARIES} ${BOOST_LIBS} ${XERCES_LIBRARIES} ${XERCESEXTENSIONS_LIBRARIES} ${FLIGHTCREW_LIBRARIES} ${QT_LIBRARIES} )
 
 #############################################################################
 
@@ -488,9 +488,15 @@ xcode_pch( ${PCH_NAME} )
 #############################################################################
 
 # needed for correct static header inclusion
-add_definitions( -DXERCES_STATIC_LIBRARY )
-add_definitions( -DPCRE_STATIC )
-add_definitions( -DHUNSPELL_STATIC )
+if( FORCE_BUNDLED_COPIES OR NOT XERCES_FOUND )
+    add_definitions( -DXERCES_STATIC_LIBRARY )
+endif()
+if( FORCE_BUNDLED_COPIES OR NOT PCRE_FOUND )
+    add_definitions( -DPCRE_STATIC )
+endif()
+if( FORCE_BUNDLED_COPIES OR NOT HUNSPELL_FOUND )
+    add_definitions( -DHUNSPELL_STATIC )
+endif()
 
 # Speed up stirng building
 add_definitions( -DQT_USE_FAST_CONCATENATION )

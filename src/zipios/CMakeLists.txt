@@ -16,16 +16,25 @@ file( GLOB_RECURSE SOURCES *.cpp *.h )
 # We need to pick up the stdafx.h file
 # and the headers for the linked-to libraries
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}
-                     ${BoostParts_SOURCE_DIR}
-                     ${zlib_SOURCE_DIR}
-                     ${zlib_BINARY_DIR}
+                     ${BOOST_INCLUDE_DIRS}
                      )
+
+if( ZLIB_FOUND )
+    include_directories( ${ZLIB_INCLUDE_DIRS} )
+else()
+    include_directories( ${zlib_SOURCE_DIR} ${zlib_BINARY_DIR} )
+endif()
 
 link_directories ( ${PROJECT_BINARY_DIR}/lib )
 
 add_library( ${PROJECT_NAME} ${SOURCES} )
 
-target_link_libraries( ${PROJECT_NAME} zlib BoostParts )
+target_link_libraries( ${PROJECT_NAME} ${BOOST_LIBS} )
+if( FORCE_BUNDLED_COPIES OR NOT ZLIB_FOUND )
+    target_link_libraries( ${PROJECT_NAME} zlib )
+else()
+    target_link_libraries( ${PROJECT_NAME} ${ZLIB_LIBRARIES} )
+endif()
 
 #############################################################################
 

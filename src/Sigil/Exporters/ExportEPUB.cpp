@@ -157,7 +157,7 @@ void ExportEPUB::SaveFolderAsEpubToLocation( const QString &fullfolderpath, cons
 #ifdef Q_WS_WIN
         std::string error_description = QString::fromStdWString( exception.GetErrorDescription() ).toStdString();
 #else
-        std::string error_description = QString::fromAscii( exception.GetErrorDescription().c_str() ).toStdString();
+        std::string error_description = QString::fromAscii( exception.GetErrorDescription() ).toStdString();
 #endif
         boost_throw( CZipExceptionWrapper()
             << errinfo_zip_info_msg( error_description )

@@ -16,14 +16,14 @@ file( GLOB SOURCES *.cpp *.h )
 # We need to pick up the stdafx.h file
 # and the headers for the linked-to libraries
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}
-                     ../Xerces
-                     ../BoostParts )
+                     ${XERCES_INCLUDE_DIRS}
+                     ${BOOST_INCLUDE_DIRS} )
 
 link_directories ( ${PROJECT_BINARY_DIR}/lib ) 
 
 add_library( ${PROJECT_NAME} ${SOURCES} )
 
-target_link_libraries( ${PROJECT_NAME} Xerces )
+target_link_libraries( ${PROJECT_NAME} ${XERCES_LIBRARIES} )
 
 #############################################################################
 
@@ -49,5 +49,7 @@ elseif( CMAKE_COMPILER_IS_GNUCXX )
 endif()
 
 # needed for correct Xerces header inclusion
-add_definitions( -DXERCES_STATIC_LIBRARY )
+if( FORCE_BUNDLED_COPIES OR NOT XERCES_FOUND)
+    add_definitions( -DXERCES_STATIC_LIBRARY )
+endif()
 

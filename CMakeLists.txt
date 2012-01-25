@@ -46,21 +46,81 @@ set( CMAKE_OSX_DEPLOYMENT_TARGET "10.6" )
 
 # 10.7 is the required minimum OS X version.
 set( CMAKE_OSX_SYSROOT "/Developer/SDKs/MacOSX10.6.sdk" )
-
-# Universal builds for mac
 set( CMAKE_OSX_ARCHITECTURES "x86_64" )
 
 # This disables the building of the test runner app for FlightCrew
 set( NO_TEST_EXE 1 )
 
+if( NOT FORCE_BUNDLED_COPIES )
+    find_package( Boost COMPONENTS date_time filesystem program_options regex system thread )
+    find_package( ZLIB )
+    find_package( PkgConfig )
+    pkg_check_modules( ZIPARCHIVE ZipArchive>=4.1.1 )
+    pkg_check_modules( XERCES xerces-c>=3.1 )
+    pkg_check_modules( HUNSPELL hunspell )
+    if ( NOT APPLE )
+        pkg_check_modules( PCRE libpcre )
+    endif()
+endif()
+
+# We must use the bundled Tidy because there are Sigil
+# specific changes to it.
 add_subdirectory( src/tidyLib )
-add_subdirectory( src/ZipArchive )
-add_subdirectory( src/BoostParts )
-add_subdirectory( src/Xerces )
+
+if( FORCE_BUNDLED_COPIES OR NOT ZIPARCHIVE_FOUND )
+    add_subdirectory( src/ZipArchive )
+    set( ZIPARCHIVE_LIBRARIES ZipArchive )
+    set( ZIPARCHIVE_INCLUDE_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/src/ZipArchive )
+endif()
+
+if( FORCE_BUNDLED_COPIES OR NOT Boost_FOUND )
+    add_subdirectory( src/BoostParts )
+    # Set these so zipios doesn't complain.
+    set( Boost_DATE_TIME_LIBRARY 1 )
+    set( Boost_FILESYSTEM_LIBRARY 1 )
+    set( Boost_PROGRAM_OPTIONS_LIBRARY 1 )
+    set( Boost_REGEX_LIBRARY 1 )
+    set( Boost_SYSTEM_LIBRARY 1 )
+    set( Boost_THREAD_LIBRARY 1 )
+    set( BOOST_LIBS BoostParts )
+    set( BOOST_INCLUDE_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/src/BoostParts )
+else()
+    set( BOOST_LIBS ${Boost_DATE_TIME_LIBRARY} ${Boost_FILESYSTEM_LIBRARY} ${Boost_PROGRAM_OPTIONS_LIBRARY} ${Boost_REGEX_LIBRARY} ${Boost_SYSTEM_LIBRARY} ${Boost_THREAD_LIBRARY} )
+    set( BOOST_INCLUDE_DIRS ${Boost_INCLUDE_DIRS} )
+endif()
+
+if( FORCE_BUNDLED_COPIES OR NOT XERCES_FOUND )
+    add_subdirectory( src/Xerces )
+    set( XERCES_LIBRARIES Xerces )
+    set( XERCES_INCLUDE_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/src/Xerces )
+endif()
+
+# XercesExtensions is not an external project. It is part of FlightCrew
+# and Sigil and it is not distributed as a standalone library.
 add_subdirectory( src/XercesExtensions )
-add_subdirectory( src/zlib )
+set( XERCESEXTENSIONS_LIBRARIES XercesExtensions )
+set( XERCESEXTENSIONS_INCLUDE_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/src/XercesExtensions )
+
+if( FORCE_BUNDLED_COPIES OR NOT ZLIB_FOUND )
+    add_subdirectory( src/zlib )
+endif()
+
+if( FORCE_BUNDLED_COPIES OR NOT PCRE_FOUND OR APPLE )
+    add_subdirectory( src/pcre )
+    set( PCRE_LIBRARIES pcre )
+    set( PCRE_INCLUDE_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/src/pcre )
+endif()
+
+if( FORCE_BUNDLED_COPIES OR NOT HUNSPELL_FOUND )
+    add_subdirectory( src/hunspell )
+    set( HUNSPELL_LIBRARIES hunspell )
+    set( HUNSPELL_INCLUDE_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/src/hunspell )
+endif()
+
+# FlightCrew
 add_subdirectory( src/zipios )
-add_subdirectory( src/pcre )
-add_subdirectory( src/hunspell )
 add_subdirectory( src/FlightCrew )
+set( FLIGHTCREW_LIBRARIES FlightCrew )
+set( FLIGHTCREW_INCLUDE_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/src/FlightCrew )
+
 add_subdirectory( src/Sigil )

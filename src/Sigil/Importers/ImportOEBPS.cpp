@@ -81,7 +81,7 @@ void ImportOEBPS::ExtractContainer()
                 #ifdef Q_WS_WIN
                 std::string filename = QString::fromStdWString( file_header->GetFileName() ).toStdString();
                 #else
-                std::string filename = QString::fromAscii( file_header->GetFileName().c_str() ).toStdString();
+                std::string filename = QString::fromAscii( file_header->GetFileName() ).toStdString();
                 #endif
 
                 zip.Close(); 
@@ -105,7 +105,7 @@ void ImportOEBPS::ExtractContainer()
 #ifdef Q_WS_WIN
         std::string error_description = QString::fromStdWString( exception.GetErrorDescription() ).toStdString();
 #else
-        std::string error_description = QString::fromAscii( exception.GetErrorDescription().c_str() ).toStdString();
+        std::string error_description = QString::fromAscii( exception.GetErrorDescription() ).toStdString();
 #endif
         boost_throw( CZipExceptionWrapper()
             << errinfo_zip_info_msg( error_description )

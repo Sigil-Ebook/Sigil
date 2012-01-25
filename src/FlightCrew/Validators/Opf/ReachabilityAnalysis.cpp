@@ -26,7 +26,9 @@
 #include <XmlUtils.h>
 #include "Misc/DetermineMimetype.h"
 #include "Misc/Utilities.h"
+#include <boost/version.hpp>
 
+#if BOOST_VERSION < 104800
 namespace boost
 {
 
@@ -48,6 +50,7 @@ namespace filesystem3
 } // namespace filesystem3
 
 } // namespace boost
+#endif
 
 
 namespace FlightCrew
