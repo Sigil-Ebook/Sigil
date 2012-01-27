@@ -338,6 +338,14 @@ private slots:
      */
     void CreateChapterBreakOldTab( QString content, HTMLResource& originating_resource );
 
+
+    /**
+     * Updates the selection/highlight in the Book Browser to the resource in the current tab
+     *
+     * @see BookBrowser::UpdateSelection
+     */
+    void UpdateBrowserSelectionToTab();
+
     /**
      * Creates new chapters/XHTML documents.
      * 

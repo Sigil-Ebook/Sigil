@@ -30,6 +30,7 @@
 
 class FolderKeeper;
 class HTMLResource;
+class CSSResource;
 class Resource;
 class OPFResource;
 class NCXResource;
@@ -127,16 +128,28 @@ public:
     HTMLResource& CreateNewHTMLFile();
 
     /**
+     * Moves the first resource to after the second resource
+     */
+    void MoveResourceAfter( HTMLResource& from_resource, HTMLResource& to_resource );
+
+    /**
      * Creates a new HTMLResource file with a basic XHTML structure. 
      * The file on disk has only placeholder text.
      */
-    void CreateEmptyHTMLFile();
+    HTMLResource& CreateEmptyHTMLFile();
+
+    /**
+     * Creates a new HTMLResource file with a basic XHTML structure
+     * inserted after the given resource.
+     * The file on disk has only placeholder text.
+     */
+    HTMLResource& CreateEmptyHTMLFile( HTMLResource& resource );
 
     /**
      * Creates a new CSSResource file with no stored data. 
      * The file on disk is empty.
      */
-    void CreateEmptyCSSFile();
+    CSSResource& CreateEmptyCSSFile();
 
     /**
      * Creates an "old" resource from a chapter breaking operation. 
@@ -166,12 +179,18 @@ public:
                             HTMLResource& originalResource );
 
     /**
-     * Merges the provided HTML resource with the previous one
-     * in the reading order.
+     * Returns the previous resource, or the same resource if at top of folder
+     *
+     * @param resource The previous resource
+     */
+    Resource* PreviousResource( Resource *resource );
+
+    /**
+     * Merges the second HTML resource into the first one
      *
      * @param html_resource The resource being merged.
      */
-    void MergeWithPrevious( HTMLResource& html_resource );
+    bool Merge( HTMLResource& html_resource1, HTMLResource& html_resource2 );
 
     /**
      * Makes sure that all the resources have saved the state of 
@@ -186,6 +205,22 @@ public:
      * @return \c true if the book has been modified.
      */
     bool IsModified() const;
+
+    /**
+     * Returns whether or not a resource's data is well formed
+     * whether or not its open in a tab
+     *
+     * @return true if well formed
+     */
+    bool IsDataWellFormed( HTMLResource& html_resource );
+
+    /**
+     * Returns whether or not a list of resources are well-formed
+     * whether or not the resources are open in a tab
+     *
+     * @return true if well formed
+     */
+    bool AreResourcesWellFormed( QList <Resource *> resources );
 
     /**
      * Checks for the presence of obfuscated fonts in the book.

@@ -178,6 +178,13 @@ void TabManager::PreviousTab()
 }
 
 
+void TabManager::RemoveTab()
+{
+    // Can leave window with no tabs, so re-open a tab asap
+    removeTab( currentIndex() );
+}
+
+
 void TabManager::CloseTab()
 {
     CloseTab( currentIndex() );

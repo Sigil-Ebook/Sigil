@@ -22,6 +22,7 @@
 #include <stdafx.h>
 #include "AppearanceWidget.h"
 #include "Misc/SettingsStore.h"
+#include "ResourceObjects/Resource.h"
 
 static const QString SETTINGS_GROUP = "user_preferences";
 
@@ -37,10 +38,17 @@ void AppearanceWidget::saveSettings()
     SettingsStore *store = SettingsStore::instance();
 
     Qt::Orientation orientation = Qt::Vertical;
-    if (ui.svHorizontal->isChecked()) {
+    if (ui.svHorizontal->isChecked() || ui.svHorizontalCB->isChecked())
+    {
         orientation = Qt::Horizontal;
     }
+    bool order = true;
+    if (ui.svHorizontalCB->isChecked() || ui.svVerticalCB->isChecked())
+    {
+        order = false;
+    }
     store->setSplitViewOrientation(orientation);
+    store->setSplitViewOrder(order);
 }
 
 void AppearanceWidget::readSettings()
@@ -48,7 +56,19 @@ void AppearanceWidget::readSettings()
     SettingsStore *store = SettingsStore::instance();
 
     Qt::Orientation orientation = store->splitViewOrientation();
+    bool order = store->splitViewOrder();
+
     if (orientation == Qt::Horizontal) {
-        ui.svHorizontal->setChecked(true);
+        if (order) {
+            ui.svHorizontal->setChecked(true);
+        } else {
+            ui.svHorizontalCB->setChecked(true);
+        }
+    } else {
+        if (order) {
+            ui.svVertical->setChecked(true);
+        } else {
+            ui.svVerticalCB->setChecked(true);
+        }
     }
 }

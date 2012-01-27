@@ -53,6 +53,12 @@ public:
      * @return The orientation.
      */
     Qt::Orientation splitViewOrientation();
+    /**
+     * The order to use for the split view (book view/code view).
+     *
+     * @return The order
+     */
+    bool splitViewOrder();
 
     /**
      * The zoom factor used by the component.
@@ -71,6 +77,13 @@ public:
     QString dictionary();
 
     /**
+     * The template name for renaming selections in book browser
+     *
+     * @return The template name.
+     */
+    QString renameTemplate();
+
+    /**
      * Set the default language to use when creating new books.
      *
      * @param lang The language to set.
@@ -82,6 +95,12 @@ public:
      * @param orientation The orientation to set.
      */
     void setSplitViewOrientation(Qt::Orientation orientation);
+    /**
+     * Set the order of the split view.
+     *
+     * @param order The order of book view/code view to set.
+     */
+    void setSplitViewOrder(bool order);
 
     /**
      * Set the zoom factor used by the component.
@@ -98,6 +117,13 @@ public:
      * @param name The name of the dictionary.
      */
     void setDictionary(const QString &name);
+
+    /**
+     * Set the name of the dictionary the user has selected.
+     *
+     * @param name The name of the dictionary.
+     */
+    void setRenameTemplate(const QString &name);
 
     /**
      * Causes the store to emit its settingsChanged signal.
@@ -137,10 +163,12 @@ private:
     // Cached settings.
     QString m_defaultMetadataLang;
     Qt::Orientation m_splitViewOrientation;
+    bool m_splitViewOrder;
     float m_zoomImage;
     float m_zoomText;
     float m_zoomWeb;
     QString m_dictionary;
+    QString m_renameTemplate;
 };
 
 #endif // SETTINGSSTORE_H

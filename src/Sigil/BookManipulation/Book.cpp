@@ -136,14 +136,60 @@ HTMLResource& Book::CreateNewHTMLFile()
 }
 
 
-void Book::CreateEmptyHTMLFile()
+HTMLResource& Book::CreateEmptyHTMLFile()
 {
-    CreateNewHTMLFile().SetDomDocument( XhtmlDoc::LoadTextIntoDocument( EMPTY_HTML_FILE ) );
+    HTMLResource &html_resource = CreateNewHTMLFile();
+    html_resource.SetDomDocument( XhtmlDoc::LoadTextIntoDocument( EMPTY_HTML_FILE ) );
+    SetModified( true );
+    return html_resource;
+}
+
+
+HTMLResource& Book::CreateEmptyHTMLFile( HTMLResource& resource )
+{
+    HTMLResource &new_resource = CreateNewHTMLFile();
+    if ( &resource == NULL )
+    {
+        new_resource.SetDomDocument( XhtmlDoc::LoadTextIntoDocument( EMPTY_HTML_FILE ) );
+    }
+    else
+    {
+        QList< HTMLResource* > html_resources = m_Mainfolder.GetResourceTypeList< HTMLResource >( true );
+        new_resource.SetDomDocument( XhtmlDoc::LoadTextIntoDocument( EMPTY_HTML_FILE ) );
+
+        int reading_order = GetOPF().GetReadingOrder( resource ) + 1;
+
+        if ( reading_order > 0 )
+        {
+            html_resources.insert( reading_order, &new_resource );
+            GetOPF().UpdateSpineOrder( html_resources );
+        }
+    }
+    SetModified( true );
+    return new_resource;
+}
+
+
+void Book::MoveResourceAfter( HTMLResource& from_resource, HTMLResource& to_resource )
+{
+    if ( &from_resource == NULL || &to_resource == NULL )
+
+        return;
+
+    QList< HTMLResource* > html_resources = m_Mainfolder.GetResourceTypeList< HTMLResource >( true );
+    int to_after_reading_order = GetOPF().GetReadingOrder( to_resource ) + 1;
+    int from_reading_order = GetOPF().GetReadingOrder( from_resource ) ;
+
+    if ( to_after_reading_order > 0 )
+    {
+        html_resources.move( from_reading_order, to_after_reading_order );
+        GetOPF().UpdateSpineOrder( html_resources );
+    }
     SetModified( true );
 }
 
 
-void Book::CreateEmptyCSSFile()
+CSSResource& Book::CreateEmptyCSSFile()
 {
     TempFolder tempfolder;
 
@@ -151,8 +197,11 @@ void Book::CreateEmptyCSSFile()
 
     Utility::WriteUnicodeTextFile( "", fullfilepath );
 
-    m_Mainfolder.AddContentFileToFolder( fullfilepath );
+    CSSResource &css_resource = *qobject_cast< CSSResource* >(
+                                        &m_Mainfolder.AddContentFileToFolder( fullfilepath ) );
+
     SetModified( true );
+    return css_resource;
 }
 
 
@@ -303,65 +352,123 @@ void Book::CreateNewChapters( const QStringList &new_chapters, HTMLResource &ori
 }
 
 
-void Book::MergeWithPrevious( HTMLResource& html_resource )
+bool Book::IsDataWellFormed( HTMLResource& html_resource )
 {
-    const QString defunct_filename = html_resource.Filename();
+    QTextDocument& qtext = html_resource.GetTextDocument();
+    QString text = "";
+
+    // If resource is loaded into tab get resource data else data from file
+    if ( &qtext != NULL )
+    {
+        text = qtext.toPlainText();
+    }
+    else
+    {
+        text = Utility::ReadUnicodeTextFile( html_resource.GetFullPath() );
+    }
+    XhtmlDoc::WellFormedError error = XhtmlDoc::WellFormedErrorForSource( text );
+
+    return error.line == -1;
+}
+
+
+bool Book::AreResourcesWellFormed( QList<Resource *> resources )
+{
+    foreach( Resource *resource, resources )
+    {
+        HTMLResource &html_resource = *qobject_cast< HTMLResource *>( resource );
+        if ( !IsDataWellFormed( html_resource ) )
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
+Resource* Book::PreviousResource( Resource *resource )
+{
+    const QString defunct_filename = resource->Filename();
     QList< HTMLResource* > html_resources = m_Mainfolder.GetResourceTypeList< HTMLResource >( true );
-    int previous_file_reading_order = html_resources.indexOf( &html_resource ) - 1;
-    Q_ASSERT( previous_file_reading_order >= 0 );
+
+    HTMLResource *html_resource = qobject_cast< HTMLResource* >(resource);
+
+    int previous_file_reading_order = html_resources.indexOf( html_resource ) - 1;
+    if ( previous_file_reading_order < 0 )
+    {
+        previous_file_reading_order = 0;
+    }
     HTMLResource& previous_html = *html_resources[ previous_file_reading_order ];
 
-    QString html_resource_fullpath = html_resource.GetFullPath();
+    return qobject_cast< Resource *>( &previous_html );
+}
 
+
+// Merge selected html files into the first document - already checked for well-formed data
+bool Book::Merge( HTMLResource& html_resource1, HTMLResource& html_resource2 )
+{
+    if ( &html_resource1 == &html_resource2 )
+    {
+        return false;
+    }
+
+    if ( !IsDataWellFormed( html_resource1 ) || !IsDataWellFormed( html_resource2 ) )
+    {
+        return false;
+    }
+    const QString defunct_filename = html_resource2.Filename();
+
+    QString html_resource2_fullpath = html_resource2.GetFullPath();
     {
         xc::DOMDocumentFragment *body_children_fragment = NULL;
 
         {
-            QWriteLocker source_locker( &html_resource.GetLock() );
-            const xc::DOMDocument &source_dom  = html_resource.GetDomDocumentForReading();
+            QWriteLocker source_locker( &html_resource2.GetLock() );
+            const xc::DOMDocument &source_dom  = html_resource2.GetDomDocumentForReading();
             xc::DOMNodeList &source_body_nodes = *source_dom.getElementsByTagName( QtoX( "body" ) );
 
             if ( source_body_nodes.getLength() != 1 )
 
-                return;
+                return false;
 
             xc::DOMNode &source_body_node = *source_body_nodes.item( 0 );
             body_children_fragment        = XhtmlDoc::ConvertToDocumentFragment( *source_body_node.getChildNodes() ); 
         }  
 
-        QWriteLocker sink_locker( &previous_html.GetLock() );
-        xc::DOMDocument &sink_dom        = previous_html.GetDomDocumentForWriting();
+        QWriteLocker sink_locker( &html_resource1.GetLock() );
+        xc::DOMDocument &sink_dom        = html_resource1.GetDomDocumentForWriting();
         xc::DOMNodeList &sink_body_nodes = *sink_dom.getElementsByTagName( QtoX( "body" ) );
 
         if ( sink_body_nodes.getLength() != 1 )
 
-            return;
+            return false;
 
         xc::DOMNode & sink_body_node = *sink_body_nodes.item( 0 );         
         sink_body_node.appendChild( sink_dom.importNode( body_children_fragment, true ) );
-        previous_html.MarkSecondaryCachesAsOld();
+        html_resource1.MarkSecondaryCachesAsOld();
 
-        html_resource.Delete();
+        html_resource2.Delete();
     }
 
     // Reconcile internal references in the merged file. It is the user's responsibility to ensure that 
     // all ids used across the two merged files are unique.
     QList< HTMLResource* > new_file;
-    new_file.append( &previous_html );
+    new_file.append( &html_resource1 );
     AnchorUpdates::UpdateAllAnchorsWithIDs( new_file );
 
     // Reconcile external references to the file that was merged.
-    html_resources = m_Mainfolder.GetResourceTypeList< HTMLResource >( true );
-    html_resources.removeOne( &previous_html );
+    QList< HTMLResource* > html_resources = m_Mainfolder.GetResourceTypeList< HTMLResource >( true );
+    html_resources.removeOne( &html_resource1 );
     AnchorUpdates::UpdateExternalAnchors( html_resources, Utility::URLEncodePath( defunct_filename ), new_file );
 
     // PerformUniversalUpdates accepts generic Resources
     QList< Resource* > resources = m_Mainfolder.GetResourceTypeAsGenericList< HTMLResource >();
     QHash< QString, QString > updates;
-    updates[ html_resource_fullpath ] = "../" + previous_html.GetRelativePathToOEBPS();
+    updates[ html_resource2_fullpath ] = "../" + html_resource1.GetRelativePathToOEBPS();
 
     UniversalUpdates::PerformUniversalUpdates( true, resources, updates );
     SetModified( true );
+
+    return true;
 }
 
 

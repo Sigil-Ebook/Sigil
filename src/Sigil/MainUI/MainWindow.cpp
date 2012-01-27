@@ -792,6 +792,17 @@ void MainWindow::CreateNewChapters( QStringList new_chapters, HTMLResource &orig
 }
 
 
+// Change the selected/highlighted resource to match the current tab
+void MainWindow::UpdateBrowserSelectionToTab()
+{
+    ContentTab &tab = m_TabManager.GetCurrentContentTab();
+    if ( &tab != NULL )
+    {
+        m_BookBrowser->UpdateSelection( tab.GetLoadedResource() );
+    }
+}
+
+
 void MainWindow::ReadSettings()
 {
     QSettings settings;
@@ -1556,6 +1567,8 @@ void MainWindow::ExtendUI()
     sm->registerAction(ui.actionPreviousTab, "MainWindow.PreviousTab");
     sm->registerAction(ui.actionCloseTab, "MainWindow.CloseTab");
     sm->registerAction(ui.actionCloseOtherTabs, "MainWindow.CloseOtherTabs");
+    sm->registerAction(ui.actionOpenPreviousResource, "MainWindow.OpenPreviousResource");
+    sm->registerAction(ui.actionOpenNextResource, "MainWindow.OpenNextResource");
     // Help
     sm->registerAction(ui.actionUserManual, "MainWindow.UserManual");
     sm->registerAction(ui.actionFAQ, "MainWindow.FAQ");
@@ -1563,6 +1576,8 @@ void MainWindow::ExtendUI()
     sm->registerAction(ui.actionReportAnIssue, "MainWindow.ReportAnIssue");
     sm->registerAction(ui.actionSigilDevBlog, "MainWindow.SigilDevBlog");
     sm->registerAction(ui.actionAbout, "MainWindow.About");
+    // BookBrowser
+    sm->registerAction( m_BookBrowser->m_Merge, "MainWindow.BookBrowser.Merge" );
 
     ExtendIconSizes();
 }
@@ -1775,6 +1790,8 @@ void MainWindow::ConnectSignalsToSlots()
     connect( ui.actionZoomIn,        SIGNAL( triggered() ), this, SLOT( ZoomIn()                   ) );
     connect( ui.actionZoomOut,       SIGNAL( triggered() ), this, SLOT( ZoomOut()                  ) );
     connect( ui.actionZoomReset,     SIGNAL( triggered() ), this, SLOT( ZoomReset()                ) );
+    connect( ui.actionOpenPreviousResource, SIGNAL( triggered() ), m_BookBrowser, SLOT( OpenPreviousResource() ) );
+    connect( ui.actionOpenNextResource,     SIGNAL( triggered() ), m_BookBrowser, SLOT( OpenNextResource()     ) );
     connect( ui.actionInsertImage,   SIGNAL( triggered() ), this, SLOT( InsertImage()              ) );
     connect( ui.actionMetaEditor,    SIGNAL( triggered() ), this, SLOT( MetaEditorDialog()         ) );
     connect( ui.actionUserManual,    SIGNAL( triggered() ), this, SLOT( UserManual()               ) );
@@ -1810,8 +1827,17 @@ void MainWindow::ConnectSignalsToSlots()
     connect( &m_TabManager,          SIGNAL( TabChanged( ContentTab*, ContentTab* ) ),
              this,                   SLOT( UpdateUiWhenTabsSwitch() ) );
 
+    connect( &m_TabManager,          SIGNAL( TabChanged( ContentTab*, ContentTab* ) ),
+            this,                    SLOT(   UpdateBrowserSelectionToTab() ) );
+
+    connect( m_BookBrowser,          SIGNAL( UpdateBrowserSelection() ),
+            this,                    SLOT(   UpdateBrowserSelectionToTab() ) );
+
     connect( m_TableOfContents, SIGNAL( TabDataSavedRequest() ),
              &m_TabManager,     SLOT(   SaveTabData() ) );
+
+    connect( m_BookBrowser, SIGNAL( RemoveTabRequest() ),
+             &m_TabManager, SLOT(   RemoveTab() ) );
 
     connect( m_BookBrowser, SIGNAL( ResourceActivated( Resource& ) ),
              &m_TabManager, SLOT(   OpenResource(          Resource& ) ) );
@@ -1835,6 +1861,7 @@ void MainWindow::ConnectSignalsToSlots()
 
     connect( &m_TabManager, SIGNAL( NewChaptersRequest( QStringList, HTMLResource& ) ),
              this,          SLOT(   CreateNewChapters(  QStringList, HTMLResource& ) ) );
+
 }
 
 

@@ -40,6 +40,8 @@ class QPoint;
 class QMenu;
 class QAction;
 class QSignalMapper;
+class QToolButton;
+class QVBoxLayout;
 
 
 /**
@@ -59,6 +61,12 @@ public:
      * @param parent The QObject's parent.
      */
     BookBrowser( QWidget *parent = 0 );
+
+    // Context menu actions visible to main
+
+    QAction *m_Merge;
+
+
 
     /**
      * Destructor.
@@ -82,6 +90,22 @@ public slots:
     void Refresh();
 
     /**
+     * Updates the selection in the book display
+     */
+    void UpdateSelection( Resource &resource );
+
+    /**
+     * Returns the previous resource in the book display
+     */
+    void OpenPreviousResource();
+
+    /**
+     * Returns the next resource in the book display
+     */
+    void OpenNextResource();
+
+
+    /**
      * Opens the HTML resource referenced by the specified URL.
      *
      * @param url The URL to open.
@@ -95,6 +119,11 @@ public slots:
      */
     void AddExisting();
 
+    /*
+     * Sorts the HTML book entries alphanumerically
+     */
+    void SortHTML();
+
 signals:
 
     /**
@@ -103,6 +132,13 @@ signals:
      * @param resource The selected resource.
      */
     void ResourceActivated( Resource &resource );
+
+    /**
+     * Emitted when merging to force open tabs to close
+     *
+     * @param resource The resource whose tab needs to close.
+     */
+    void RemoveTabRequest();
 
     /**
      * Emitted when the browser wants a resource to be opened.
@@ -137,6 +173,11 @@ signals:
      */
     void CoverImageSet( const ImageResource &image_resource );
 
+    /**
+     * Wired to the current MainWindow::UpdateBrowserSelectionToTab signal.
+     */
+    void UpdateBrowserSelection();
+
 private slots:
 
     /**
@@ -164,6 +205,11 @@ private slots:
     void Rename();
 
     /**
+     * Implements the Rename selected context menu action functionality.
+     */
+    void RenameSelected();
+
+    /**
      * Implements the Add New context menu action functionality.
      */
     void Remove();
@@ -183,9 +229,9 @@ private slots:
     void AddGuideSemanticType( int type );
 
     /**
-     * Implements the Merge With Previous context menu action functionality.
+     * Implements the Merge context menu action functionality.
      */
-    void MergeWithPrevious();
+    void Merge();
 
     /**
      * Sets the use of Adobe's obfuscation method for the current resource.
@@ -313,7 +359,7 @@ private:
      *
      * @param resource The resource on which the context menu was invoked.
      */
-    void AddMergeWithPreviousAction( Resource *resource );
+    void AddMergeAction( Resource *resource );
 
     /**
      * Returns the currently selected resource in the tree view.
@@ -324,9 +370,35 @@ private:
     Resource* GetCurrentResource();
 
     /**
+     * Returns the resource for the given index in the tree view.
+     *
+     * @return the resource for the given index in the tree view,
+     *         or NULL if no resource is selected. 
+     */
+    Resource* GetResourceByIndex( QModelIndex index );
+
+
+    /**
      * Connects all the required signals to their respective slots.
      */
     void ConnectSignalsToSlots();
+
+    /**
+     * List of selected resources after validating selection
+     */
+    QList <Resource *> ValidSelectedResources();
+
+    /**
+     * List of selected resources after validating selected resources are of the given type
+     */
+    QList <Resource *> ValidSelectedResources( Resource::ResourceType resource_type );
+
+
+    /**
+     * Number of valid items selected
+     */
+    int ValidSelectedItemCount();
+
     
 
 
@@ -339,10 +411,35 @@ private:
      */
     QSharedPointer< Book > m_Book;
 
+   /**
+     * A container widget for the UI widgets.
+     */
+    QWidget &m_MainWidget;
+
+    /**
+     * A container widget for the prev/next buttons
+     * Used to work around a visual glitch on Mac OS X.
+     * If we didn't use this, then we would have an ugly
+     * margin on the left and right side of the m_TreeView.
+     */
+    QWidget &m_ButtonHolderWidget;
+
+    /**
+     * The layout for the container widget.
+     */
+    QVBoxLayout &m_Layout;
+
     /**
      * The tree view used to represent the book's files.
      */
     QTreeView &m_TreeView;
+
+    /**
+     * The buttons that initiate previous/next file
+     */
+    QToolButton &m_PreviousButton;
+    QToolButton &m_NextButton;
+
     
     /**
      * The data model used to feed the tree view.
@@ -372,11 +469,14 @@ private:
     QAction *m_AddNewCSS;
     QAction *m_AddExisting;
     QAction *m_Rename;
+    QAction *m_RenameSelected;
     QAction *m_Remove;
-    QAction *m_CoverImage;
     QAction *m_MergeWithPrevious;
+    QAction *m_CoverImage;
     QAction *m_AdobesObfuscationMethod;
     QAction *m_IdpfsObfuscationMethod;
+    QAction *m_SortHTML;
+    QAction *m_SortHTMLSelected;
 
     /**
      * All the semantic actions for the <guide>

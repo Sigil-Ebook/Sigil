@@ -21,6 +21,7 @@
 
 #include <stdafx.h>
 #include "OPFModel.h"
+#include "OPFModelItem.h"
 #include "BookManipulation/Book.h"
 #include "ResourceObjects/Resource.h"
 #include "ResourceObjects/HTMLResource.h"
@@ -31,8 +32,6 @@
 #include "Misc/Utility.h"
 #include <limits>
 
-static const int NO_READING_ORDER   = std::numeric_limits< int >::max();
-static const int READING_ORDER_ROLE = Qt::UserRole + 2;
 static const QList< QChar > FORBIDDEN_FILENAME_CHARS = QList< QChar >() << '<' << '>' << ':' 
                                                                         << '"' << '/' << '\\'
                                                                         << '|' << '?' << '*';
@@ -102,6 +101,28 @@ void OPFModel::Refresh()
 }
 
 
+void OPFModel::SortHTML()
+{
+    m_RefreshInProgress = true;
+
+    SortHTMLFilesByAlphanumeric();
+    UpdateHTMLReadingOrders();
+
+    m_RefreshInProgress = false;
+}
+
+
+void OPFModel::SortHTML( QList <QModelIndex> index_list )
+{
+    m_RefreshInProgress = true;
+
+    SortHTMLFilesByAlphanumeric( index_list );
+    UpdateHTMLReadingOrders();
+
+    m_RefreshInProgress = false;
+}
+
+
 QModelIndex OPFModel::GetFirstHTMLModelIndex()
 {
     if ( !m_TextFolderItem.hasChildren() )
@@ -115,6 +136,69 @@ QModelIndex OPFModel::GetFirstHTMLModelIndex()
 QModelIndex OPFModel::GetTextFolderModelIndex()
 {
     return m_TextFolderItem.index();
+}
+
+
+// Get the index of the given resource regardless of folder
+QModelIndex OPFModel::GetModelItemIndex( Resource &resource, IndexChoice indexChoice )
+{
+    Resource::ResourceType resourceType = resource.Type();
+    QStandardItem *folder = NULL;
+
+    if (resourceType == Resource::OPFResourceType || resourceType == Resource::NCXResourceType )
+    {
+            folder = invisibleRootItem();
+    }
+    else
+    {
+        for ( int i = 0; i < invisibleRootItem()->rowCount() && folder == NULL; ++i )
+        {
+            QStandardItem *child = invisibleRootItem()->child( i );
+    
+            if ( (child == &m_TextFolderItem && resourceType == Resource::HTMLResourceType ) ||
+                 (child == &m_ImagesFolderItem && resourceType == Resource::ImageResourceType ) ||
+                 (child == &m_StylesFolderItem && 
+                    ( resourceType == Resource::CSSResourceType || resourceType == Resource::XPGTResourceType ) ) ||
+                 (child == &m_FontsFolderItem && resourceType == Resource::FontResourceType ) ||
+                 (child == &m_MiscFolderItem && resourceType == Resource::GenericResourceType ))
+            {
+                folder = child;
+            }
+        }
+    }
+    return GetModelFolderItemIndex( folder, resource, indexChoice );
+}
+
+
+// Get the index of the given resource in a specific folder 
+QModelIndex OPFModel::GetModelFolderItemIndex( QStandardItem const *folder, Resource &resource, IndexChoice indexChoice )
+{
+    if ( folder != NULL )
+    {
+        int rowCount = folder->rowCount();
+        for ( int i = 0; i < rowCount ; ++i )
+        {
+            QStandardItem *item = folder->child( i );
+            const QString &identifier = item->data().toString();
+    
+            if ( !identifier.isEmpty() && identifier == resource.GetIdentifier() )
+            {
+                if ( folder != invisibleRootItem() )
+                {
+                    if ( indexChoice == IndexChoice_Previous && i > 0 )
+                    {
+                        i--;
+                    }
+                    else if ( indexChoice == IndexChoice_Next && ( i + 1 < rowCount ) )
+                    {
+                        i++;
+                    }
+                }
+                return index( i, 0, folder->index() );
+            }
+        }
+    }
+    return index( 0, 0 );
 }
 
 
@@ -187,43 +271,72 @@ void OPFModel::ItemChangedHandler( QStandardItem *item )
     const QString &identifier = item->data().toString(); 
 
     if ( identifier.isEmpty() )
-
-        return;
-
-    Resource *resource = &m_Book->GetFolderKeeper().GetResourceByIdentifier( identifier );
-    Q_ASSERT( resource );
-
-    const QString &old_fullpath = resource->GetFullPath();
-    const QString &old_filename = resource->Filename();
-    const QString &new_filename = item->text();
-    
-    if ( old_filename == new_filename || 
-         !FilenameIsValid( old_filename, new_filename )   )
     {
-        item->setText( old_filename );
         return;
     }
 
-    bool rename_sucess = resource->RenameTo( new_filename );
+    const QString &new_filename = item->text();
 
-    if ( !rename_sucess )
+    Resource &resource = m_Book->GetFolderKeeper().GetResourceByIdentifier( identifier );
+
+    if ( new_filename == resource.Filename() )
+    {
+        return;
+    }
+
+    RenameResource( resource, new_filename );
+}
+
+
+bool OPFModel:: RenameResource( Resource &resource, const QString &new_filename )
+{
+    Q_ASSERT( resource );
+
+    const QString &old_fullpath = resource.GetFullPath();
+
+    QString old_filename = resource.Filename();
+    QString extension = old_filename.right( old_filename.length() - old_filename.lastIndexOf( '.' ) );
+
+    QString new_filename_with_extension = new_filename;
+
+    if ( !new_filename.endsWith( extension ) )
+    {
+        new_filename_with_extension.append( extension );
+    }
+
+    if ( old_filename == new_filename_with_extension || 
+         !FilenameIsValid( old_filename, new_filename_with_extension )   )
+    {
+        Refresh();
+
+        return false;
+    }
+
+    bool rename_success = resource.RenameTo( new_filename_with_extension );
+
+    if ( !rename_success )
     {
         Utility::DisplayStdErrorDialog( 
             tr( "The file could not be renamed." )
             );
 
-        item->setText( old_filename );
-        return;
+        Refresh();
+
+        return false;
     }
 
     QHash< QString, QString > update;
-    update[ old_fullpath ] = "../" + resource->GetRelativePathToOEBPS();
+    update[ old_fullpath ] = "../" + resource.GetRelativePathToOEBPS();
 
     QApplication::setOverrideCursor( Qt::WaitCursor );
     UniversalUpdates::PerformUniversalUpdates( true, m_Book->GetFolderKeeper().GetResourceList(), update );
     QApplication::restoreOverrideCursor();
 
     emit BookContentModified();
+
+    Refresh();
+
+    return true;
 }
 
 
@@ -237,7 +350,7 @@ void OPFModel::InitializeModel()
 
     foreach( Resource *resource, resources )
     {
-        QStandardItem *item = new QStandardItem( resource->Icon(), resource->Filename() );
+        AlphanumericItem *item = new AlphanumericItem ( resource->Icon(), resource->Filename() );
         item->setDropEnabled( false );
         item->setData( resource->GetIdentifier() );
         
@@ -251,6 +364,11 @@ void OPFModel::InitializeModel()
                 reading_order = NO_READING_ORDER;
 
             item->setData( reading_order, READING_ORDER_ROLE );
+
+            // Remove the extension for alphanumeric sorting
+            QString name = resource->Filename().left( resource->Filename().lastIndexOf( '.' ) );
+            item->setData( name, ALPHANUMERIC_ORDER_ROLE );
+
             m_TextFolderItem.appendRow( item );
         }
 
@@ -375,6 +493,70 @@ void OPFModel::SortHTMLFilesByReadingOrder()
 {
     int old_sort_role = sortRole();
     setSortRole( READING_ORDER_ROLE );
+
+    m_TextFolderItem.sortChildren( 0 );
+
+    setSortRole( old_sort_role );
+}
+
+void OPFModel::SortHTMLFilesByAlphanumeric( QList <QModelIndex> index_list )
+{
+    // Get items for all selected indexes
+    QList <QStandardItem *> item_list;
+
+    foreach ( QModelIndex index, index_list )
+    {
+        QStandardItem *qitem = itemFromIndex( index );
+        item_list.append( qitem );
+    }
+
+    // Create new model for selected items to allow temporary sorting
+    QStandardItemModel &sort_model = * new QStandardItemModel();
+    sort_model.setSortRole( ALPHANUMERIC_ORDER_ROLE );
+    QStandardItem &items = *new QStandardItem();
+    sort_model.setItem( 0, &items );
+
+    int first_item_position = -1;
+    foreach ( QStandardItem *item, item_list )
+    {
+        int i = 0;
+        while ( i < m_TextFolderItem.rowCount() ) 
+        {
+            if ( m_TextFolderItem.child( i ) == item )
+            {
+                if ( first_item_position < 0 )
+                {
+                    first_item_position = i;
+                }
+
+                QList <QStandardItem *> removed_items = m_TextFolderItem.takeRow( i-- );
+                foreach ( QStandardItem *one_item, removed_items )
+                {
+                    items.appendRow( one_item );
+                }
+                break;
+            }
+            i++;
+        }
+    
+    }
+
+    items.sortChildren( 0 );
+
+    for ( int i = 0; i < items.rowCount(); ++i )
+    {
+        QList <QStandardItem *> removed_items = items.takeRow( i-- );
+        foreach ( QStandardItem *one_item, removed_items )
+        {
+            m_TextFolderItem.insertRow( first_item_position++, one_item );
+        }
+    }
+}
+
+void OPFModel::SortHTMLFilesByAlphanumeric()
+{
+    int old_sort_role = sortRole();
+    setSortRole( ALPHANUMERIC_ORDER_ROLE );
 
     m_TextFolderItem.sortChildren( 0 );
 

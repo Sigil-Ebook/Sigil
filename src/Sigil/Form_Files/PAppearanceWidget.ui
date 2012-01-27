@@ -17,25 +17,88 @@
    <item>
     <widget class="QGroupBox" name="groupBox">
      <property name="title">
-      <string>Split view orientation</string>
+      <string>Split View Layout</string>
      </property>
      <layout class="QHBoxLayout" name="horizontalLayout">
       <item>
-       <widget class="QRadioButton" name="svVertical">
-        <property name="text">
-         <string>Vertical</string>
+       <layout class="QGridLayout" name="gridLayout">
+        <property name="horizontalSpacing">
+         <number>20</number>
         </property>
-        <property name="checked">
-         <bool>true</bool>
-        </property>
-       </widget>
+        <item row="0" column="0">
+         <widget class="QRadioButton" name="svHorizontal">
+          <property name="toolTip">
+           <string>Horizontal window layout with Book View on the left</string>
+          </property>
+          <property name="text">
+           <string>Book View | Code View</string>
+          </property>
+          <property name="checked">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="2">
+         <widget class="QRadioButton" name="svVertical">
+          <property name="cursor">
+           <cursorShape>ArrowCursor</cursorShape>
+          </property>
+          <property name="toolTip">
+           <string>Vertical window layout with Book View on top</string>
+          </property>
+          <property name="text">
+           <string>Book View
+Code View</string>
+          </property>
+          <property name="checked">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QRadioButton" name="svHorizontalCB">
+          <property name="toolTip">
+           <string>Horizontal window layout with Code View on the left</string>
+          </property>
+          <property name="text">
+           <string>Code View | Book View</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="3">
+         <widget class="QRadioButton" name="svVerticalCB">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="toolTip">
+           <string>Vertical window layout with Code View on top</string>
+          </property>
+          <property name="text">
+           <string>Code View
+Book View</string>
+          </property>
+          <property name="checked">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </item>
       <item>
-       <widget class="QRadioButton" name="svHorizontal">
-        <property name="text">
-         <string>Horizontal</string>
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
         </property>
-       </widget>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
       </item>
      </layout>
     </widget>
@@ -48,7 +111,7 @@
      <property name="sizeHint" stdset="0">
       <size>
        <width>20</width>
-       <height>207</height>
+       <height>40</height>
       </size>
      </property>
     </spacer>

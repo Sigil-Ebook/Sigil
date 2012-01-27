@@ -50,6 +50,7 @@ set( QOBJECT_HEADERS
     Dialogs/PreferenceWidgets/PreferencesWidget.h
     Dialogs/PreferenceWidgets/KeyboardShortcutsWidget.h
     Dialogs/PreferenceWidgets/SpellCheckWidget.h
+    Dialogs/RenameTemplate.h
     Tabs/TabManager.h
     Tabs/ContentTab.h 
     Tabs/FlowTab.h
@@ -158,6 +159,8 @@ set( DIALOG_FILES
     Dialogs/PreferenceWidgets/LanguageWidget.h
     Dialogs/PreferenceWidgets/SpellCheckWidget.cpp
     Dialogs/PreferenceWidgets/SpellCheckWidget.h
+    Dialogs/RenameTemplate.cpp
+    Dialogs/RenameTemplate.h
     )
 
 set( EXPORTER_FILES
@@ -257,6 +260,8 @@ set( MAINUI_FILES
     MainUI/TableOfContents.h
     MainUI/OPFModel.cpp
     MainUI/OPFModel.h
+    MainUI/OPFModelItem.cpp
+    MainUI/OPFModelItem.h
     MainUI/NCXModel.cpp
     MainUI/NCXModel.h
     MainUI/ValidationResultsView.cpp
@@ -302,6 +307,7 @@ set( UI_FILES
     Form_Files/PKeyboardShortcutsWidget.ui
     Form_Files/PLanguageWidget.ui
     Form_Files/PSpellCheckWidget.ui
+    Form_Files/RenameTemplate.ui 
     )
     
 set( SOURCEUPDATE_FILES   

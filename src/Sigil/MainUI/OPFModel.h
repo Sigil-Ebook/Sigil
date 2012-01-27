@@ -30,6 +30,7 @@
 
 class QModelIndex;
 class QStandardItem;
+class AlphanumericItem;
 
 
 /**
@@ -41,6 +42,14 @@ class OPFModel : public QStandardItemModel
     Q_OBJECT
 
 public:
+
+    enum IndexChoice
+    { 
+        IndexChoice_Current,    /** The current file browser list. */
+        IndexChoice_Next,       /** The next file in the browser list. */
+        IndexChoice_Previous,   /** The previous file in the browser list. */
+    };
+
 
     /**
      * Constructor.
@@ -63,6 +72,17 @@ public:
     void Refresh();
 
     /**
+     * Re-sorts all HTML entires in alphanumeric order
+     */
+    void SortHTML();
+
+    /**
+     * Re-sorts the selected HTML entires in alphanumeric order
+     */
+    void SortHTML( QList <QModelIndex> index_list );
+
+
+    /**
      * Returns the QModelIndex of the first HTML file.
      *
      * @return The QModelIndex of the first HTML file.
@@ -70,12 +90,27 @@ public:
      */
     QModelIndex GetFirstHTMLModelIndex();
 
+
     /**
      * Returns the QModelIndex of the Text folder.
      *
      * @return The QModelIndex of the Text folder.
      */
     QModelIndex GetTextFolderModelIndex();
+
+    /**
+     * Returns the QModelIndex of the resource in any folder.
+     *
+     * @return The QModelIndex of the resource in any folder.
+     */
+    QModelIndex GetModelItemIndex( Resource &resource, IndexChoice indexChoice );
+
+    /**
+     * Returns the QModelIndex of the resource in the given folder.
+     *
+     * @return The QModelIndex of the folder in the given folder.
+     */
+    QModelIndex GetModelFolderItemIndex( QStandardItem const *folder, Resource &resource, IndexChoice indexChoice );
 
     /**
      * Gets an item's resource type.
@@ -104,6 +139,13 @@ public:
      */
     virtual Qt::DropActions supportedDropActions() const;
 
+    /**
+     * Renames the selected resource
+     *
+     * @return Whether rename succeeded or not
+     */
+    bool RenameResource( Resource &resource, const QString &new_filename );
+
 signals:
 
     /**
@@ -131,6 +173,7 @@ private slots:
      */
     void ItemChangedHandler( QStandardItem *item );
 
+
 private:
 
     /**
@@ -154,6 +197,16 @@ private:
      * Sorts the HTML files by their reading orders.
      */
     void SortHTMLFilesByReadingOrder();
+
+    /**
+     * Sorts all HTML files by alphanumeric order of filename
+     */
+    void SortHTMLFilesByAlphanumeric();
+
+    /**
+     * Sorts the selected HTML files by alphanumeric order of filename
+     */
+    void SortHTMLFilesByAlphanumeric( QList <QModelIndex> index_list );
 
     /**
      * Removes all data from the model.
