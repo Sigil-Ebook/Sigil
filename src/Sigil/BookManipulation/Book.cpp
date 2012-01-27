@@ -354,6 +354,7 @@ void Book::CreateNewChapters( const QStringList &new_chapters, HTMLResource &ori
 
 bool Book::IsDataWellFormed( HTMLResource& html_resource )
 {
+    /*
     QTextDocument& qtext = html_resource.GetTextDocument();
     QString text = "";
 
@@ -367,7 +368,9 @@ bool Book::IsDataWellFormed( HTMLResource& html_resource )
         text = Utility::ReadUnicodeTextFile( html_resource.GetFullPath() );
     }
     XhtmlDoc::WellFormedError error = XhtmlDoc::WellFormedErrorForSource( text );
+    */
 
+    XhtmlDoc::WellFormedError error = XhtmlDoc::WellFormedErrorForSource( Utility::ReadUnicodeTextFile( html_resource.GetFullPath() ) );
     return error.line == -1;
 }
 

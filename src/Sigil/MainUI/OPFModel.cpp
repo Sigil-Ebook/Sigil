@@ -290,8 +290,6 @@ void OPFModel::ItemChangedHandler( QStandardItem *item )
 
 bool OPFModel:: RenameResource( Resource &resource, const QString &new_filename )
 {
-    Q_ASSERT( resource );
-
     const QString &old_fullpath = resource.GetFullPath();
 
     QString old_filename = resource.Filename();
