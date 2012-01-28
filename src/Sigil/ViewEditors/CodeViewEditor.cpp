@@ -528,46 +528,29 @@ bool CodeViewEditor::ReplaceSelected( const QString &search_regex, const QString
 
 int CodeViewEditor::ReplaceAll( const QString &search_regex, const QString &replacement )
 {
-    SPCRE *spcre = PCRECache::instance()->getObject( search_regex );
-    QList<SPCRE::MatchInfo> match_info = spcre->getEveryMatchInfo( toPlainText() );
-
     int count = 0;
     QTextCursor cursor = textCursor();
-    // Store the cursor position and set it to the beginning of the editor.
     int cursor_position = cursor.selectionStart();
 
-    // This is all one edit operation.
-    cursor.beginEditBlock();
-    cursor.endEditBlock();
+    cursor.setPosition( 0 );
     setTextCursor( cursor );
 
-    // Run though all match offsets making the replacment in reverse order.
-    // This way changes in text lengh won't change the offsets as we make
-    // our changes.
-    for ( int i = match_info.count() - 1; i >= 0; i-- )
+    cursor.beginEditBlock();
+
+    while ( FindNext( search_regex, Searchable::Direction_Down ) )
     {
-        cursor = textCursor();
-        // Add this replacment to the previous edit operation.
-        cursor.joinPreviousEditBlock();
-        // Select the text we watn to replace.
-        cursor.setPosition( match_info.at( i ).offset.first );
-        cursor.setPosition( match_info.at( i ).offset.second, QTextCursor::KeepAnchor );
-
-        QString replaced_text;
-        bool replacement_made = spcre->replaceText( cursor.selectedText(), match_info.at( i ).capture_groups_offsets, replacement, replaced_text );
-
-        if ( replacement_made )
+        if ( ReplaceSelected( search_regex, replacement ) )
         {
-            // Replace the text.
-            cursor.insertText( replaced_text );
             count++;
         }
-
-        setTextCursor( cursor );
-        cursor.endEditBlock();
+        else
+        {
+            break;
+        }
     }
 
-    cursor = textCursor();
+    cursor.endEditBlock();
+
     cursor.setPosition( cursor_position );
     setTextCursor( cursor );
 
