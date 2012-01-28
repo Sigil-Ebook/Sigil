@@ -32,6 +32,7 @@
 #include "ResourceObjects/NCXResource.h"
 #include "Importers/ImportHTML.h"
 #include "BookManipulation/FolderKeeper.h"
+#include "Misc/KeyboardShortcutManager.h"
 #include "Qxt/qxtconfirmationmessage.h"
 #include <QTreeView>
 
@@ -732,6 +733,8 @@ void BookBrowser::SetupTreeView()
 
 void BookBrowser::CreateContextMenuActions()
 {
+    KeyboardShortcutManager *sm = KeyboardShortcutManager::instance();
+
     m_AddNewHTML              = new QAction( tr( "Add Blank Section" ),     this );
     m_AddNewCSS               = new QAction( tr( "Add Blank Stylesheet" ),  this );
     m_AddExisting             = new QAction( tr( "Add Existing Files..." ), this );
@@ -752,6 +755,8 @@ void BookBrowser::CreateContextMenuActions()
 
     m_Remove->setShortcut( QKeySequence::Delete );
     m_Merge->setShortcut( QKeySequence( Qt::CTRL + Qt::ALT + Qt::Key_M ) );
+    m_Merge->setToolTip( "Merge two or more files into one." );
+    sm->registerAction( m_Merge, "MainWindow.BookBrowser.Merge" );
 
     // Has to be added to the book browser itself as well
     // for the keyboard shortcut to work.
