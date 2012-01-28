@@ -62,12 +62,6 @@ public:
      */
     BookBrowser( QWidget *parent = 0 );
 
-    // Context menu actions visible to main
-
-    QAction *m_Merge;
-
-
-
     /**
      * Destructor.
      */
@@ -411,35 +405,10 @@ private:
      */
     QSharedPointer< Book > m_Book;
 
-   /**
-     * A container widget for the UI widgets.
-     */
-    QWidget &m_MainWidget;
-
-    /**
-     * A container widget for the prev/next buttons
-     * Used to work around a visual glitch on Mac OS X.
-     * If we didn't use this, then we would have an ugly
-     * margin on the left and right side of the m_TreeView.
-     */
-    QWidget &m_ButtonHolderWidget;
-
-    /**
-     * The layout for the container widget.
-     */
-    QVBoxLayout &m_Layout;
-
     /**
      * The tree view used to represent the book's files.
      */
     QTreeView &m_TreeView;
-
-    /**
-     * The buttons that initiate previous/next file
-     */
-    QToolButton &m_PreviousButton;
-    QToolButton &m_NextButton;
-
     
     /**
      * The data model used to feed the tree view.
@@ -471,6 +440,7 @@ private:
     QAction *m_Rename;
     QAction *m_RenameSelected;
     QAction *m_Remove;
+    QAction *m_Merge;
     QAction *m_MergeWithPrevious;
     QAction *m_CoverImage;
     QAction *m_AdobesObfuscationMethod;

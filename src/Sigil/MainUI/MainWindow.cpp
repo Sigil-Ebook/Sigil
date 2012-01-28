@@ -1576,8 +1576,6 @@ void MainWindow::ExtendUI()
     sm->registerAction(ui.actionReportAnIssue, "MainWindow.ReportAnIssue");
     sm->registerAction(ui.actionSigilDevBlog, "MainWindow.SigilDevBlog");
     sm->registerAction(ui.actionAbout, "MainWindow.About");
-    // BookBrowser
-    sm->registerAction( m_BookBrowser->m_Merge, "MainWindow.BookBrowser.Merge" );
 
     ExtendIconSizes();
 }

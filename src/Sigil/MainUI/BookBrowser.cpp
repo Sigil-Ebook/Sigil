@@ -44,12 +44,7 @@ BookBrowser::BookBrowser( QWidget *parent )
     : 
     QDockWidget( tr( "Book Browser" ), parent ),
     m_Book( NULL ),
-    m_MainWidget( *new QWidget( this ) ),
-    m_ButtonHolderWidget( *new QWidget( &m_MainWidget ) ),
-    m_Layout( *new QVBoxLayout( &m_MainWidget ) ),
     m_TreeView( *new QTreeView( this ) ),
-    m_PreviousButton( *new QToolButton( &m_ButtonHolderWidget ) ),
-    m_NextButton( *new QToolButton( &m_ButtonHolderWidget ) ),
     m_OPFModel( *new OPFModel( this ) ),
     m_ContextMenu( *new QMenu( this ) ),
     m_SemanticsContextMenu( *new QMenu( this ) ),
@@ -61,31 +56,6 @@ BookBrowser::BookBrowser( QWidget *parent )
     m_FontObfuscationContextMenu.setTitle( tr( "Font Obfuscation" ) );
 
     setWidget( &m_TreeView );
-    m_Layout.setContentsMargins( 0, 0, 0, 0 );
-
-#ifdef Q_WS_MAC
-    m_Layout.setSpacing( 4 );
-#endif
-
-    m_PreviousButton.setArrowType( Qt::UpArrow );
-    m_PreviousButton.setToolTip( "Open previous file of same type" );
-    m_NextButton.setArrowType( Qt::DownArrow );
-    m_NextButton.setToolTip( "Open next file of same type" );
-
-    QHBoxLayout *layout = new QHBoxLayout( &m_ButtonHolderWidget );
-    layout->addWidget( &m_PreviousButton );
-    layout->addWidget( &m_NextButton );
-    layout->addStretch( 0 );
-
-    m_ButtonHolderWidget.setLayout( layout );
-
-    m_Layout.addWidget( &m_TreeView );
-    m_Layout.addWidget( &m_ButtonHolderWidget );
-
-    m_MainWidget.setLayout( &m_Layout );
-
-    setWidget( &m_MainWidget );
-
     setAllowedAreas( Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea );
 
     ReadSettings();
@@ -781,15 +751,12 @@ void BookBrowser::CreateContextMenuActions()
     m_IdpfsObfuscationMethod ->setCheckable( true );
 
     m_Remove->setShortcut( QKeySequence::Delete );
-
-    // Key handles merge with previous and merge selected
     m_Merge->setShortcut( QKeySequence( Qt::CTRL + Qt::ALT + Qt::Key_M ) );
-    m_Merge->setToolTip( "Merge files in the book browser" );
 
     // Has to be added to the book browser itself as well
     // for the keyboard shortcut to work.
-    addAction( m_Remove );    
-    addAction( m_Merge );    
+    addAction( m_Remove );
+    addAction( m_Merge );
 
     CreateGuideSemanticActions();
 }
@@ -1141,9 +1108,6 @@ void BookBrowser::ConnectSignalsToSlots()
 
     connect( m_AdobesObfuscationMethod, SIGNAL( triggered() ), this, SLOT( AdobesObfuscationMethod() ) );
     connect( m_IdpfsObfuscationMethod,  SIGNAL( triggered() ), this, SLOT( IdpfsObfuscationMethod()  ) );
-
-    connect( &m_PreviousButton,          SIGNAL( clicked() ), this, SLOT( OpenPreviousResource()     ) );
-    connect( &m_NextButton,              SIGNAL( clicked() ), this, SLOT( OpenNextResource()         ) );
 
     foreach( QAction* action, m_GuideSemanticActions )
     {
