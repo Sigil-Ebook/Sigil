@@ -566,7 +566,6 @@ else()
     # We first create a CMake configured version of the ISS file,
     # and then we copy it to the temp folder every time we need to build the installer.
     set( ISS_MAIN_LOCATION ${CMAKE_SOURCE_DIR}/installer/Sigil.iss  )
-    Set( ISS_OC_LOCATION ${CMAKE_SOURCE_DIR}/OpenCandy/SigilOC.iss  )
     set( ISS_CONFIGURED_LOCATION ${CMAKE_BINARY_DIR}/Sigil_configured.iss )
     set( ISS_TEMP_LOCATION ${CMAKE_BINARY_DIR}/temp_folder/Sigil_configured.iss )
 
@@ -576,33 +575,16 @@ else()
         set( ISS_SETUP_FILENAME_PLATFORM "-x64" )
     endif()
     
-    # This is used to build OpenCandy installers. You can't build them
-    # from the source repo and you shouldn't want to either. By default,
-    # vanilla installers are built. You want the vanillas.
-    if ( EXISTS ${ISS_OC_LOCATION} )
-        set( OC_INSTALLERS TRUE )
-    endif()
-    
     # Creates a copy of the ISS file in ${ISS_CONFIGURED_LOCATION} and then configures it 
-    if ( OC_INSTALLERS )
-        # Used in the ISS CMake configuration
-        set( LICENSE_LOCATION ${CMAKE_SOURCE_DIR}/OpenCandy/win_installer_note.txt  )
-        configure_file( ${ISS_OC_LOCATION} ${ISS_CONFIGURED_LOCATION} ) 
-    else()
-        # Used in the ISS CMake configuration
-        set( LICENSE_LOCATION ${CMAKE_SOURCE_DIR}/installer/win_installer_note.txt  )
-        configure_file( ${ISS_MAIN_LOCATION} ${ISS_CONFIGURED_LOCATION} ) 
-    endif()
+    # Used in the ISS CMake configuration
+    set( LICENSE_LOCATION ${CMAKE_SOURCE_DIR}/installer/win_installer_note.txt  )
+    configure_file( ${ISS_MAIN_LOCATION} ${ISS_CONFIGURED_LOCATION} )
     
-    # Specify platform var for installjammer
-    if ( WIN32 )
-        set( PLATFORM "Windows" )
+    # Specify platform var for installjammer\
+    if ( 64_BIT_PLATFORM )
+        set( PLATFORM "Linux-x86_64" )
     else()
-        if ( 64_BIT_PLATFORM )
-            set( PLATFORM "Linux-x86_64" )
-        else()
-            set( PLATFORM "Linux-x86" )
-        endif()
+        set( PLATFORM "Linux-x86" )
     endif()
     
     # We use Inno for the Windows installers and InstallJammer for the Linux ones
