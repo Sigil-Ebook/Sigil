@@ -33,7 +33,7 @@ ArchitecturesAllowed="${ISS_ARCH}"
 ArchitecturesInstallIn64BitMode="${ISS_ARCH}"
 
 [Files]
-Source: "Sigil\*"; DestDir: "{app}"; Flags: createallsubdirs recursesubdirs
+Source: "Sigil\*"; DestDir: "{app}"; Flags: createallsubdirs recursesubdirs ignoreversion
 
 [Components]
 ; Main files cannot be unchecked. Doesn't do anything, just here for show
