@@ -430,15 +430,6 @@ QString ImportOEBPS::PrepareOPFForReading( const QString &source )
     // XML 1.1 when they actually only use XML 1.0
     source_copy.replace( version.pos(), version.matchedLength(), "version=\"1.0\"" );
 
-    // MASSIVE hack for ensuring the dc and opf namespaces are set properly.
-    // InDesing 4 puts dc in the package element not in the metadata element
-    // and doesn't write opf unless necessary. We're going to remove them both
-    // copmletely (including from within elements) and put them in the metadata
-    // element.
-    source_copy.replace( "xmlns:opf=\"http://www.idpf.org/2007/opf\"", "" );
-    source_copy.replace( "xmlns:dc=\"http://purl.org/dc/elements/1.1/\"", "" );
-    source_copy.replace( QRegExp( "<([^/:]+:)?metadata" ), "<\\1metadata xmlns:opf=\"http://www.idpf.org/2007/opf\" xmlns:dc=\"http://purl.org/dc/elements/1.1/\"" );
-
     return source_copy;
 }
 

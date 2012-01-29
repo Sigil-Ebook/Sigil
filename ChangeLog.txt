@@ -1,4 +1,6 @@
 Sigil 0.5.1 TBA
+    - Fix issue 1212: Remove opf namespace rewriting when opening a file because
+      it ended up being more trouble than it was wroth.
     - Fix issue 1188: New Sigil Regex engine crashes when pressing "replace all",
       works fine on pushing "replace" over and over and over again.
     - Implement issue 269: Select more than one item in the Book Browser Column.
