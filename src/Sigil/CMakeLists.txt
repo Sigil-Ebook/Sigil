@@ -421,8 +421,12 @@ set( ALL_SOURCES ${RAW_SOURCES} ${MOC_FILES_CPP} ${UI_FILES_H} ${QRC_FILES_CPP} 
 
 # Adding resource (RC) files for Windows
 if ( MSVC )
-    list( APPEND ALL_SOURCES Resource_Files/icon/icon.rc )
-    source_group( "Resources" FILES Resource_Files/icon/icon.rc )
+    set( WINDOWS_RC_FILES
+         Resource_Files/icon/icon.rc
+         Resource_Files/icon/icon.rc
+         )
+    list( APPEND ALL_SOURCES ${WINDOWS_RC_FILES} )
+    source_group( "Resources" FILES {$WINDOWS_RC_FILES} )
 endif()
 
 #############################################################################

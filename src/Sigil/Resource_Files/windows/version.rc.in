@@ -1,0 +1,30 @@
+#include <windows.h>
+#include "version.h"
+
+VS_VERSION_INFO VERSIONINFO
+FILEVERSION     ${PROJECT_BINARY_DIR},${SIGIL_MINOR_VERSION},${SIGIL_REVISION_VERSION},0
+PRODUCTVERSION  ${PROJECT_BINARY_DIR},${SIGIL_MINOR_VERSION},${SIGIL_REVISION_VERSION},0
+
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904E4"
+        BEGIN
+            VALUE "CompanyName",        "Sigil Project"
+            VALUE "FileDescription",    "Sigil is a multi-platform EPUB ebook editor"
+            VALUE "FileVersion",        "${SIGIL_FULL_VERSION}.0"
+            VALUE "InternalName",       "Sigil"
+            VALUE "LegalCopyright",     "Copyright © 2012 Sigil Authors"
+            VALUE "LegalTrademarks1",   "All Rights Reserved"
+            VALUE "LegalTrademarks2",   "All Rights Reserved"
+            VALUE "OriginalFilename",   "Sigil.exe"
+            VALUE "ProductName",        "Sigil"
+            VALUE "ProductVersion",     "${SIGIL_FULL_VERSION}.0"
+        END
+    END
+
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1252
+    END
+END
