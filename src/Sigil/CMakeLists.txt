@@ -421,9 +421,10 @@ set( ALL_SOURCES ${RAW_SOURCES} ${MOC_FILES_CPP} ${UI_FILES_H} ${QRC_FILES_CPP} 
 
 # Adding resource (RC) files for Windows
 if ( MSVC )
+    configure_file( Resource_files/windows/version.rc.in ${PROJECT_BINARY_DIR}/version.rc )
     set( WINDOWS_RC_FILES
          Resource_Files/icon/icon.rc
-         Resource_Files/icon/icon.rc
+         ${PROJECT_BINARY_DIR}/version.rc
          )
     list( APPEND ALL_SOURCES ${WINDOWS_RC_FILES} )
     source_group( "Resources" FILES {$WINDOWS_RC_FILES} )
@@ -573,24 +574,26 @@ else()
     set( ISS_CONFIGURED_LOCATION ${CMAKE_BINARY_DIR}/Sigil_configured.iss )
     set( ISS_TEMP_LOCATION ${CMAKE_BINARY_DIR}/temp_folder/Sigil_configured.iss )
 
-    if ( 64_BIT_PLATFORM )
-        # Used in the ISS CMake configuration
-        set( ISS_ARCH "x64" )
-        set( ISS_SETUP_FILENAME_PLATFORM "-x64" )
+    # Specify platform var for Inno and installjammer
+    if ( WIN32 )
+        if ( 64_BIT_PLATFORM )
+            # Used in the ISS CMake configuration
+            set( ISS_ARCH "x64" )
+            set( ISS_SETUP_FILENAME_PLATFORM "-x64" )
+        endif()
+    else()
+        if ( 64_BIT_PLATFORM )
+            set( PLATFORM "Linux-x86_64" )
+        else()
+            set( PLATFORM "Linux-x86" )
+        endif()
     endif()
     
     # Creates a copy of the ISS file in ${ISS_CONFIGURED_LOCATION} and then configures it 
     # Used in the ISS CMake configuration
     set( LICENSE_LOCATION ${CMAKE_SOURCE_DIR}/installer/win_installer_note.txt  )
     configure_file( ${ISS_MAIN_LOCATION} ${ISS_CONFIGURED_LOCATION} )
-    
-    # Specify platform var for installjammer\
-    if ( 64_BIT_PLATFORM )
-        set( PLATFORM "Linux-x86_64" )
-    else()
-        set( PLATFORM "Linux-x86" )
-    endif()
-    
+
     # We use Inno for the Windows installers and InstallJammer for the Linux ones
     if ( WIN32 )
         # Run Inno Setup's iscc compiler (*AFTER* all the PRE_BUILD custom commands execute)
