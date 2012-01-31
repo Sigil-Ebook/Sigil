@@ -321,6 +321,12 @@ bool FlowTab::IsLoadingFinished()
     return m_wBookView.IsLoadingFinished() && m_wCodeView.IsLoadingFinished();
 }
 
+void FlowTab::ExecuteCaretUpdate()
+{
+    if (m_IsLastViewBook) {
+        m_wBookView.ExecuteCaretUpdate();
+    }
+}
 
 void FlowTab::ScrollToFragment( const QString &fragment )
 {
@@ -821,12 +827,16 @@ void FlowTab::CodeView()
 void FlowTab::SaveTabContent()
 {
     if ( m_IsLastViewBook )
-
+    {
         m_HTMLResource.UpdateDomDocumentFromWebPage();
 
+        // Save the cursor location for when the tab is re-opened
+        m_wBookView.StoreCaretLocationUpdate( m_wBookView.GetCaretLocation() );
+    }
     else
-
+    {
         m_HTMLResource.UpdateDomDocumentFromTextDocument();
+    }
 
     m_safeToLoad = true;
 }

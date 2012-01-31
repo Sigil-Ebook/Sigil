@@ -113,6 +113,8 @@ public:
 
     bool IsLoadingFinished();
 
+    void ExecuteCaretUpdate();
+
     /**
      * Scrolls the tab to the specified fragment (if in Book View).
      *

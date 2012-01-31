@@ -343,11 +343,17 @@ bool TabManager::SwitchedToExistingTab( Resource& resource,
             
                 flow_tab->SetViewState( view_state );
             
-            // Depending on the state of the current view and 
-            // the given parameters, only one of these is going to work.
-            flow_tab->ScrollToFragment( fragment.toString() );
+            // Restore cursor position if there is one
+            flow_tab->ExecuteCaretUpdate();
+
+            if ( fragment.toString() != "" )
+            {
+                flow_tab->ScrollToFragment( fragment.toString() );
+            }
             if ( line_to_scroll_to > 0 )
+            {
                 flow_tab->ScrollToLine( line_to_scroll_to );
+            }
 
             return true;
         }

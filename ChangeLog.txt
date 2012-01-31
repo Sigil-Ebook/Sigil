@@ -1,4 +1,6 @@
 Sigil 0.5.1 TBA
+    - Fix issue 1216: Re-opening a document already in a tab resets the cursor
+      position back to the top.
     - Fix issue 1218: F&R cleanup.
     - Fix issue 1212: Remove opf namespace rewriting when opening a file because
       it ended up being more trouble than it was wroth.

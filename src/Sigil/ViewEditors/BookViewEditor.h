@@ -186,6 +186,14 @@ public:
     
     QString GetSelectedText();
 
+    /**
+     * Executes the caret updating code if an update is pending.
+     *
+     * @return \c true if the update was performed.
+     */
+    bool ExecuteCaretUpdate();
+
+
 signals:
 
     /**
@@ -433,13 +441,6 @@ private:
      * @return The escaped string.
      */
     QString EscapeJSString( const QString &string );
-
-    /**
-     * Executes the caret updating code if an update is pending.
-     *
-     * @return \c true if the update was performed.
-     */
-    bool ExecuteCaretUpdate();
 
     /**
      * The inputs for a new JavaScript \c range object.
