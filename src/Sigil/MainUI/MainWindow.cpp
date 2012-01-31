@@ -694,10 +694,15 @@ void MainWindow::SetStateActionsStaticView()
 
 void MainWindow::UpdateCursorPositionLabel(int line, int column)
 {
-    const QString l = QString::number(line);
-    const QString c = QString::number(column);
+    if (line >= 0 && column >=0) {
+        const QString l = QString::number(line);
+        const QString c = QString::number(column);
 
-    m_lbCursorPosition->setText(tr("Line: %1, Col: %2").arg(l).arg(c));
+        m_lbCursorPosition->setText(tr("Line: %1, Col: %2").arg(l).arg(c));
+    }
+    else {
+        m_lbCursorPosition->clear();
+    }
 }
 
 

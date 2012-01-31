@@ -107,8 +107,8 @@ public:
      */
     virtual bool IsLoadingFinished() = 0;
 
-    virtual int GetCursorLine() const { return 0; }
-    virtual int GetCursorColumn() const { return 0; }
+    virtual int GetCursorLine() const { return -1; }
+    virtual int GetCursorColumn() const { return -1; }
 };
 
 #endif // VIEWEDITOR_H

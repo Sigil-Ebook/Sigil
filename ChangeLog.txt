@@ -1,4 +1,5 @@
 Sigil 0.5.1 TBA
+    - Fix issue 1215: Book View line/column incorrect in status bar.
     - Fix issue 1216: Re-opening a document already in a tab resets the cursor
       position back to the top.
     - Fix issue 1218: F&R cleanup.

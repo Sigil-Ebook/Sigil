@@ -942,6 +942,8 @@ void FlowTab::EnterEditor( QWidget *editor )
             QApplication::restoreOverrideCursor();
         }
     }
+
+    EmitUpdateCursorPosition();
 }
 
 
