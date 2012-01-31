@@ -150,7 +150,7 @@ void FindReplace::Count()
         return;
     }
 
-    QString message = tr( "%1 match(es) were found.", 0, count );
+    QString message = tr( "%1 match(es) were found", 0, count );
     ShowMessage( message.arg( count ) );
 
     UpdatePreviousFindStrings();
@@ -199,7 +199,7 @@ void FindReplace::ReplaceAll()
         return;
     }
 
-    QString message = tr( "The search term was replaced %1 time(s).", 0, count );
+    QString message = tr( "The search term was replaced %1 time(s)", 0, count );
 
     if ( count > 0 )
     {
