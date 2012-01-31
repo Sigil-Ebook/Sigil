@@ -89,6 +89,9 @@
      <addaction name="separator"/>
      <addaction name="actionReplaceNext"/>
      <addaction name="actionReplacePrevious"/>
+     <addaction name="actionReplaceAll"/>
+     <addaction name="separator"/>
+     <addaction name="actionCount"/>
     </widget>
     <addaction name="actionUndo"/>
     <addaction name="actionRedo"/>
@@ -1162,6 +1165,22 @@ p, li { white-space: pre-wrap; }
    </property>
    <property name="shortcut">
     <string>Ctrl+[</string>
+   </property>
+  </action>
+  <action name="actionReplaceAll">
+   <property name="text">
+    <string>Replace All</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+A</string>
+   </property>
+  </action>
+  <action name="actionCount">
+   <property name="text">
+    <string>Count All</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+C</string>
    </property>
   </action>
   <action name="actionPreferences">

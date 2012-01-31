@@ -1518,6 +1518,8 @@ void MainWindow::ExtendUI()
     sm->registerAction(ui.actionFindPrevious, "MainWindow.FindPrevious");
     sm->registerAction(ui.actionReplaceNext, "MainWindow.ReplaceNext");
     sm->registerAction(ui.actionReplacePrevious, "MainWindow.ReplacePrevious");
+    sm->registerAction(ui.actionReplaceAll, "MainWindow.ReplaceAll");
+    sm->registerAction(ui.actionCount, "MainWindow.Count");
     sm->registerAction(ui.actionGoToLine, "MainWindow.GoToLine");
     sm->registerAction(ui.actionMetaEditor, "MainWindow.MetaEditor");
     sm->registerAction(ui.actionInsertImage, "MainWindow.InsertImage");
@@ -1784,6 +1786,8 @@ void MainWindow::ConnectSignalsToSlots()
     connect( ui.actionFindPrevious,  SIGNAL( triggered() ), m_FindReplace, SLOT( FindPrevious()    ) );
     connect( ui.actionReplaceNext,   SIGNAL( triggered() ), m_FindReplace, SLOT( ReplaceNext()     ) );
     connect( ui.actionReplacePrevious,SIGNAL(triggered() ), m_FindReplace, SLOT( ReplacePrevious() ) );
+    connect( ui.actionReplaceAll,    SIGNAL( triggered() ), m_FindReplace, SLOT( ReplaceAll()      ) );
+    connect( ui.actionCount,         SIGNAL( triggered() ), m_FindReplace, SLOT( Count()           ) );
     connect( ui.actionGoToLine,      SIGNAL( triggered() ), this, SLOT( GoToLine()                 ) );
     connect( ui.actionZoomIn,        SIGNAL( triggered() ), this, SLOT( ZoomIn()                   ) );
     connect( ui.actionZoomOut,       SIGNAL( triggered() ), this, SLOT( ZoomOut()                  ) );

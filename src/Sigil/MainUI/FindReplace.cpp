@@ -141,9 +141,13 @@ void FindReplace::Count()
     {
         count = searchable->Count( GetSearchRegex() );
     }
-    else
+    else if ( CheckBookWideSearchingAllowed() )
     {
         count = CountInFiles();
+    }
+    else
+    {
+        return;
     }
 
     QString message = tr( "%1 match(es) were found.", 0, count );
@@ -187,9 +191,12 @@ void FindReplace::ReplaceAll()
     {
         count = searchable->ReplaceAll( GetSearchRegex(), ui.cbReplace->lineEdit()->text() );
     }
-    else
+    else if ( CheckBookWideSearchingAllowed() )
     {
         count = ReplaceInAllFiles();
+    }
+    else {
+        return;
     }
 
     QString message = tr( "The search term was replaced %1 time(s).", 0, count );
@@ -304,12 +311,8 @@ bool FindReplace::CheckBookWideSearchingAllowed()
     if ( GetLookWhere() == FindReplace::LookWhere_AllHTMLFiles &&
          m_MainWindow.GetCurrentContentTab().GetViewState() == ContentTab::ViewState_BookView )
     {
-        QMessageBox::critical( this,
-                               tr( "Sigil" ),
-                               tr( "It is not currently possible to search all the files in Book View mode. "
-                                   "Switch to Code View to perform such searches.")
-                              );
-        return false;
+        // Force change to Code View
+        m_MainWindow.GetCurrentContentTab().SetViewState( ContentTab::ViewState_CodeView );
     }
 
     return true;
@@ -320,7 +323,7 @@ bool FindReplace::CheckBookWideSearchingAllowed()
 // that his last search term could not be found.
 void FindReplace::CannotFindSearchTerm()
 {
-    ShowMessage( tr( "The search term cannot be found." ) );
+    ShowMessage( tr( "The search term cannot be found" ) );
 }
 
 
@@ -634,7 +637,7 @@ Searchable* FindReplace::GetAvailableSearchable()
 
     if ( !searchable )
     {
-        ShowMessage( tr( "This tab cannot be searched." ) );
+        ShowMessage( tr( "This tab cannot be searched" ) );
     }
 
     return searchable;
@@ -651,7 +654,7 @@ void FindReplace::ExtendUI()
     ui.cbSearchMode->addItem( tr( "Regex" ), FindReplace::SearchMode_Regex );
 
     ui.cbLookWhere->addItem( tr( "Current File" ), FindReplace::LookWhere_CurrentFile );
-    ui.cbLookWhere->addItem( tr( "All HTML Files" ), FindReplace::LookWhere_AllHTMLFiles );
+    ui.cbLookWhere->addItem( tr( "All HTML Files in Code View" ), FindReplace::LookWhere_AllHTMLFiles );
 }
 
 

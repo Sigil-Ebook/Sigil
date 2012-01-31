@@ -174,7 +174,7 @@
            <string notr="true"/>
           </property>
           <property name="text">
-           <string>Count</string>
+           <string>Count All</string>
           </property>
          </widget>
         </item>
@@ -245,7 +245,7 @@
            <string notr="true"/>
           </property>
           <property name="text">
-           <string>All</string>
+           <string>Replace All</string>
           </property>
          </widget>
         </item>
@@ -319,6 +319,19 @@
    </item>
   </layout>
  </widget>
+ <tabstops>
+  <tabstop>cbFind</tabstop>
+  <tabstop>cbReplace</tabstop>
+  <tabstop>cbSearchMode</tabstop>
+  <tabstop>cbLookWhere</tabstop>
+  <tabstop>findPrevious</tabstop>
+  <tabstop>findNext</tabstop>
+  <tabstop>count</tabstop>
+  <tabstop>replacePrevious</tabstop>
+  <tabstop>replaceNext</tabstop>
+  <tabstop>replaceAll</tabstop>
+  <tabstop>close</tabstop>
+ </tabstops>
  <resources>
   <include location="../Resource_Files/main/main.qrc"/>
  </resources>

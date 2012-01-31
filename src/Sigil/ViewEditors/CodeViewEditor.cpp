@@ -462,11 +462,27 @@ bool CodeViewEditor::FindNext( const QString &search_regex,
         QTextCursor cursor = textCursor();
         if ( search_direction == Searchable::Direction_Up )
         {
+            // Make sure there are 10 lines above/below if possible
+            cursor.setPosition( match_info.offset.second + start_offset );
+            setTextCursor( cursor );
+            cursor.movePosition( QTextCursor::Down, QTextCursor::KeepAnchor, 10 );
+            setTextCursor( cursor );
+            cursor.movePosition( QTextCursor::Up, QTextCursor::KeepAnchor, 20 );
+            setTextCursor( cursor );
+
             cursor.setPosition( match_info.offset.second + start_offset );
             cursor.setPosition( match_info.offset.first + start_offset, QTextCursor::KeepAnchor );
         }
         else
         {
+            // Make sure there are 10 lines above/below if possible
+            cursor.setPosition( match_info.offset.first + start_offset );
+            setTextCursor( cursor );
+            cursor.movePosition( QTextCursor::Up, QTextCursor::KeepAnchor, 10 );
+            setTextCursor( cursor );
+            cursor.movePosition( QTextCursor::Down, QTextCursor::KeepAnchor, 20 );
+            setTextCursor( cursor );
+
             cursor.setPosition( match_info.offset.first + start_offset );
             cursor.setPosition( match_info.offset.second + start_offset, QTextCursor::KeepAnchor );
         }
