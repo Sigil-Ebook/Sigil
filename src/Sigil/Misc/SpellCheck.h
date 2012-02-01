@@ -64,6 +64,7 @@ private:
     Hunspell *m_hunspell;
     QTextCodec *m_codec;
     QString m_dictionaryName;
+    //
     QHash<QString, QString> m_dictionaries;
 
     static SpellCheck *m_instance;

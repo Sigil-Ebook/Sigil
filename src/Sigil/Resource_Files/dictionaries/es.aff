@@ -1,8 +1,6 @@
 SET ISO8859-1
-
 TRY aeroinsctldumpbgfvhzóíjáqéñxyúükwAEROINSCTLDUMPBGFVHZÓÍJÁQÉÑXYÚÜKW
-
-REP 95
+REP 20
 REP ás az
 REP az ás
 REP cc x
@@ -23,82 +21,6 @@ REP seci cesi
 REP x cc
 REP y ll
 REP vámonos vayámonos
-REP enchisteis inchieron
-REP erguisteis irguieron
-REP eguisteis iguieron
-REP endisteis indieron
-REP ertisteis irtieron
-REP ervisteis irvieron
-REP estisteis istieron
-REP ormisteis urmieron
-REP ebisteis ibieron
-REP edisteis idieron
-REP egisteis igieron
-REP emisteis imieron
-REP eñisteis iñeron
-REP eristeis irieron
-REP etisteis itieron
-REP eísteis ieron
-REP ñisteis ñeron
-REP oísteis oyeron
-REP üisteis uyeron
-REP habéis han
-REP isteis eron
-REP isteis yeron
-REP ísteis yeron
-REP steis eron
-REP steis ron
-REP enéis ienen
-REP eráis ieran
-REP eréis ieren
-REP ntáis entan
-REP obáis ueban
-REP odáis uedan
-REP odéis ueden
-REP oláis huelan
-REP oláis uelan
-REP rmáis erman
-REP rtáis ertan
-REP rváis ervan
-REP sois son
-REP iáis ían
-REP ráis eran
-REP veis ven
-REP ais an
-REP áis an
-REP eis en
-REP éis án
-REP éis en
-REP éis én
-REP decid digan
-REP erguid irgan
-REP haced hagan
-REP jugad jueguen
-REP oíd oigan
-REP oled huelan
-REP cad quen
-REP gad guen
-REP zad cen
-REP ad en
-REP ad én
-REP ed an
-REP id an
-REP id vayan
-REP vosotras ustedes
-REP vosotros ustedes
-REP vuestra su
-REP vuestra suya
-REP vuestro su
-REP vuestro suyo
-REP vuestras sus
-REP vuestras suyas
-REP vuestros sus
-REP vuestros suyos
-REP os las
-REP os les
-REP os los
-REP os se
-
 MAP 5
 MAP aáAÁ
 MAP eéEÉ
@@ -108,22 +30,17 @@ MAP uúüUÚÜ
 PFX a Y 2
 PFX a 0 a [^aeiou]
 PFX a 0 an [aeiou]
-
 PFX b Y 1
 PFX b 0 ante .
-
 PFX c Y 2
 PFX c 0 anti [^r]
 PFX c 0 antir r
-
 PFX d Y 2
 PFX d 0 auto [^r]
 PFX d 0 autor r
-
 PFX e Y 2
 PFX e 0 bi [^r]
 PFX e 0 bir r
-
 PFX f Y 6
 PFX f 0 con [^abehilopru]
 PFX f 0 con ll
@@ -131,66 +48,51 @@ PFX f 0 com pb
 PFX f 0 co [aehiou]
 PFX f 0 co l[^l]
 PFX f 0 cor r
-
 PFX g Y 3
 PFX g 0 de [^er]
 PFX g 0 d e
 PFX g 0 der r
-
 PFX h Y 2
 PFX h 0 des [^s]
 PFX h 0 de s
-
 PFX i Y 2
 PFX i 0 em [bp]
 PFX i 0 en [^bp]
-
 PFX j Y 2
 PFX j 0 entre [^r]
 PFX j 0 entrer r
-
 PFX k Y 4
 PFX k 0 i l
 PFX k 0 im [bp]
 PFX k 0 in [^blpr]
 PFX k 0 ir r
-
 PFX l Y 1
 PFX l 0 inter .
-
 PFX m Y 2
 PFX m 0 micro [^r]
 PFX m 0 micror r
-
 PFX n Y 3
 PFX n 0 pr e
 PFX n 0 pre [^er]
 PFX n 0 prer r
-
 PFX o Y 2
 PFX o 0 pro [^r]
 PFX o 0 pror r
-
 PFX p Y 2
 PFX p 0 r e
 PFX p 0 re .
-
 PFX q Y 3
 PFX q 0 sem i
 PFX q 0 semi [^ir]
 PFX q 0 semir r
-
 PFX r Y 3
 PFX r 0 sobr e
 PFX r 0 sobre [^r]
 PFX r 0 sobrer r
-
 PFX s Y 1
 PFX s 0 sub .
-
 PFX t Y 1
 PFX t 0 super .
-
 PFX u Y 8
 PFX u e tran es
 PFX u 0 tran s
@@ -200,223 +102,114 @@ PFX u e tra es
 PFX u 0 tra s
 PFX u 0 tras [^es]
 PFX u e tras e[^s]
-
-SFX A Y 18
-SFX A r ción ar
-SFX A r ciones ar
-SFX A er ición [^cn]er
-SFX A er iciones [^cn]er
-SFX A er ición [^e]cer
-SFX A er iciones [^e]cer
-SFX A ecer ición ecer
-SFX A ecer iciones ecer
-SFX A er ición [^o]ner
-SFX A er iciones [^o]ner
-SFX A ner sición oner
-SFX A ner siciones oner
-SFX A r ción [^c]ir
-SFX A r ciones [^c]ir
-SFX A r ción [^u]cir
-SFX A r ciones [^u]cir
-SFX A ir ción ucir
-SFX A ir ciones ucir
-
-SFX B Y 6
-SFX B r dura [aií]r
-SFX B r duras [aií]r
-SFX B r dura [^s]er
-SFX B r duras [^s]er
-SFX B er idura ser
-SFX B er iduras ser
-
-SFX C Y 14
-SFX C r je ar
-SFX C r jes ar
-SFX C 0 je a
-SFX C 0 jes a
-SFX C 0 aje [^aei]r
-SFX C 0 ajes [^aei]r
-SFX C 0 aje l
-SFX C 0 ajes l
-SFX C e aje e
-SFX C e ajes e
-SFX C ón onaje ón
-SFX C ón onajes ón
-SFX C o aje o
-SFX C o ajes o
-
-SFX F Y 6
-SFX F te cia ante
-SFX F te cias ante
-SFX F te cia [^i]ente
-SFX F te cias [^i]ente
-SFX F iente encia iente
-SFX F iente encias iente
-
-SFX H Y 14
-SFX H 0 zo a
-SFX H 0 zos a
-SFX H e azo [^u]e
-SFX H e azos [^u]e
-SFX H que cazo que
-SFX H que cazos que
-SFX H o azo o
-SFX H o azos o
-SFX H 0 azo [lr]
-SFX H 0 azos [lr]
-SFX H ín inazo ín
-SFX H ín inazos ín
-SFX H ón onazo ón
-SFX H ón onazos ón
-
-SFX J Y 2
-SFX J le ilidad ble
-SFX J le ilidades ble
-
-SFX K Y 26
-SFX K o idad [bdmnruvx]o
-SFX K o idades [bdmnruvx]o
-SFX K zo cedad [^ei]zo
-SFX K zo cedades [^ei]zo
-SFX K z cidad z
-SFX K z cidades z
-SFX K zo cidad [ei]zo
-SFX K zo cidades [ei]zo
-SFX K e icidad le
-SFX K e icidades le
-SFX K o edad [fhij]o
-SFX K o edades [fhij]o
-SFX K ío iedad ío
-SFX K ío iedades ío
-SFX K 0 idad [lr]
-SFX K 0 idades [lr]
-SFX K e idad [mnru]e
-SFX K e idades [mnru]e
-SFX K 0 dad [pv]e
-SFX K 0 dades [pv]e
-SFX K o edad lso
-SFX K o edades lso
-SFX K o idad [^l]so
-SFX K o idades [^l]so
-SFX K co quedad co
-SFX K co quedades co
-
-SFX L Y 34
-SFX L o ía ero
-SFX L o ías ero
-SFX L o ería [bdhjlnñpst]o
-SFX L o erías [bdhjlnñpst]o
-SFX L o ería [^e]ro
-SFX L o erías [^e]ro
-SFX L za cería za
-SFX L za cerías za
-SFX L zo cería zo
-SFX L zo cerías zo
-SFX L z cería z
-SFX L z cerías z
-SFX L a ía era
-SFX L a ías era
-SFX L a ería [djlpsty]a
-SFX L a erías [djlpsty]a
-SFX L a ería [^e]ra
-SFX L a erías [^e]ra
-SFX L ío ería ío
-SFX L ío erías ío
-SFX L 0 ía er
-SFX L 0 ías er
-SFX L 0 ría [jr]e
-SFX L 0 rías [jr]e
-SFX L 0 ería l
-SFX L 0 erías l
-SFX L án anería án
-SFX L án anerías án
-SFX L ón onería ón
-SFX L ón onerías ón
-SFX L co quería co
-SFX L co querías co
-SFX L a uería ga
-SFX L a uerías ga
-
-SFX M Y 40
-SFX M zo cez zo
-SFX M zo ceces zo
-SFX M 0 za [cdlmpr]e
-SFX M 0 zas [cdlmpr]e
-SFX M o ez [anou]do
-SFX M o eces [anou]do
-SFX M io ez dio
-SFX M io eces dio
-SFX M a ez a
-SFX M a eces a
-SFX M o ez [hsvy]o
-SFX M o eces [hsvy]o
-SFX M o ez rio
-SFX M o eces rio
-SFX M o eza [bp]io
-SFX M o ezas [bp]io
-SFX M 0 z [jt]e
-SFX M 0 ces [jt]e
-SFX M o ez ojo
-SFX M o eces ojo
-SFX M o eza [ai]jo
-SFX M o ezas [ai]jo
-SFX M 0 eza l
-SFX M 0 ezas l
-SFX M o eza [npr]o
-SFX M o ezas [npr]o
-SFX M o ez año
-SFX M o eces año
-SFX M o eza [eio]ño
-SFX M o ezas [eio]ño
-SFX M o ez [ai]to
-SFX M o eces [ai]to
-SFX M o eza nto
-SFX M o ezas nto
-SFX M o eza [aie]sto
-SFX M o ezas [^u]sto
-SFX M o ez usto
-SFX M o eces usto
-SFX M o uez go
-SFX M o ueces go
-
-SFX N Y 36
-SFX N a illa [bdfhjlmnprstv]a
-SFX N a illas [bdfhjlmnprstv]a
-SFX N o illo [bdhjlmnprstv]o
-SFX N o illos [bdhjlmnprstv]o
-SFX N 0 cilla ve
-SFX N 0 cillas ve
-SFX N za cilla za
-SFX N za cillas za
-SFX N 0 ecilla d
-SFX N 0 ecillas d
-SFX N ón oncillo ón
-SFX N án ancillo án
-SFX N 0 cillo or
-SFX N 0 cillos or
-SFX N zo cillo zo
-SFX N zo cillos zo
-SFX N 0 cillo [djlnu]e
-SFX N 0 cillos [djlnu]e
-SFX N z cecillo z
-SFX N z cecillos z
-SFX N 0 ecillo ur
-SFX N 0 ecillos ur
-SFX N e illo [cpt]e
-SFX N e illos [cpt]e
-SFX N 0 illo [ls]
-SFX N 0 illos [ls]
-SFX N 0 illo [^ou]r
-SFX N 0 illos [^ou]r
-SFX N co quillo co
-SFX N co quillos co
-SFX N go guillo go
-SFX N go guillos go
-SFX N ca quilla ca
-SFX N ca quillas ca
-SFX N ga guilla ga
-SFX N ga guillas ga
-
+SFX A Y 9
+SFX A r ción/S ar
+SFX A er ición/S [^cn]er
+SFX A er ición/S [^e]cer
+SFX A ecer ición/S ecer
+SFX A er ición/S [^o]ner
+SFX A ner sición/S oner
+SFX A r ción/S [^c]ir
+SFX A r ción/S [^u]cir
+SFX A ir ción/S ucir
+SFX B Y 3
+SFX B r dura/S [aií]r
+SFX B r dura/S [^s]er
+SFX B er idura/S ser
+SFX C Y 7
+SFX C r je/S ar
+SFX C 0 je/S a
+SFX C 0 aje/S [^aei]r
+SFX C 0 aje/S l
+SFX C e aje/S e
+SFX C ón onaje/S ón
+SFX C o aje/S o
+SFX F Y 3
+SFX F te cia/S ante
+SFX F te cia/S [^i]ente
+SFX F iente encia/S iente
+SFX H Y 7
+SFX H 0 zo/S a
+SFX H e azo/S [^u]e
+SFX H que cazo/S que
+SFX H o azo/S o
+SFX H 0 azo/S [lr]
+SFX H ín inazo/S ín
+SFX H ón onazo/S ón
+SFX J Y 1
+SFX J le ilidad/S ble
+SFX K Y 13
+SFX K o idad/S [bdmnruvx]o
+SFX K zo cedad/S [^ei]zo
+SFX K z cidad/S z
+SFX K zo cidad/S [ei]zo
+SFX K e icidad/S le
+SFX K o edad/S [fhij]o
+SFX K ío iedad/S ío
+SFX K 0 idad/S [lr]
+SFX K e idad/S [mnru]e
+SFX K 0 dad/S [pv]e
+SFX K o edad/S lso
+SFX K o idad/S [^l]so
+SFX K co quedad/S co
+SFX L Y 17
+SFX L o ía/S ero
+SFX L o ería/S [bdhjlnñpst]o
+SFX L o ería/S [^e]ro
+SFX L za cería/S za
+SFX L zo cería/S zo
+SFX L z cería/S z
+SFX L a ía/S era
+SFX L a ería/S [djlpsty]a
+SFX L a ería/S [^e]ra
+SFX L ío ería/S ío
+SFX L 0 ía/S er
+SFX L 0 ría/S [jr]e
+SFX L 0 ería/S l
+SFX L án anería/S án
+SFX L ón onería/S ón
+SFX L co quería/S co
+SFX L a uería/S ga
+SFX M Y 20
+SFX M zo cez/S zo
+SFX M 0 za/S [cdlmpr]e
+SFX M o ez/S [anou]do
+SFX M io ez/S dio
+SFX M a ez/S a
+SFX M o ez/S [hsvy]o
+SFX M o ez/S rio
+SFX M o eza/S [bp]io
+SFX M 0 z/S [jt]e
+SFX M o ez/S ojo
+SFX M o eza/S [ai]jo
+SFX M 0 eza/S l
+SFX M o eza/S [npr]o
+SFX M o ez/S año
+SFX M o eza/S [eio]ño
+SFX M o ez/S [ai]to
+SFX M o eza/S nto
+SFX M o eza/S [aie]sto
+SFX M o ez/S usto
+SFX M o uez/S go
+SFX N Y 18
+SFX N a illa/S [bdfhjlmnprstv]a
+SFX N o illo/S [bdhjlmnprstv]o
+SFX N 0 cilla/S ve
+SFX N za cilla/S za
+SFX N 0 ecilla/S d
+SFX N ón oncillo/S ón
+SFX N 0 cillo/S or
+SFX N zo cillo/S zo
+SFX N 0 cillo/S [djlnu]e
+SFX N z cecillo/S z
+SFX N 0 ecillo/S ur
+SFX N e illo/S [cpt]e
+SFX N 0 illo/S [ls]
+SFX N 0 illo/S [^ou]r
+SFX N co quillo/S co
+SFX N go guillo/S go
+SFX N ca quilla/S ca
+SFX N ga guilla/S ga
 SFX O Y 18
 SFX O ta mo ta
 SFX O 0 ismo [dflnr]
@@ -436,60 +229,43 @@ SFX O a smo ia
 SFX O és esismo és
 SFX O 0 mo is
 SFX O o uismo go
-
-SFX P Y 4
-SFX P r miento [ai]r
-SFX P r mientos [ai]r
-SFX P er imiento er
-SFX P er imientos er
-
-SFX Q Y 40
-SFX Q ar ión [lnsx]ar
-SFX Q ar iones [lnsx]ar
-SFX Q r ión [np]ir
-SFX Q r iones [np]ir
-SFX Q ar ón iar
-SFX Q ar ones iar
-SFX Q der sión der
-SFX Q der siones der
-SFX Q tir sión tir
-SFX Q tir siones tir
-SFX Q dir sión dir
-SFX Q dir siones dir
-SFX Q jar sión rjar
-SFX Q jar siones rjar
-SFX Q dar sión dar
-SFX Q dar siones dar
-SFX Q onar ón onar
-SFX Q ar es onar
-SFX Q decer sión decer
-SFX Q decer siones decer
-SFX Q ir sión uir
-SFX Q ir siones uir
-SFX Q ndir sión ndir
-SFX Q ndir siones ndir
-SFX Q er sión [eo]er
-SFX Q er siones [eo]er
-SFX Q tar sión otar
-SFX Q tar siones otar
-SFX Q gir sión gir
-SFX Q gir siones gir
-SFX Q cer sión rcer
-SFX Q cer siones rcer
-SFX Q rir stión rir
-SFX Q rir stiones rir
-SFX Q ctar xión ctar
-SFX Q ctar xiones ctar
-SFX Q car xión car
-SFX Q car xiones car
-SFX Q jar xión ejar
-SFX Q jar xiones ejar
-
-SFX R Y 157
+SFX P Y 2
+SFX P r miento/S [ai]r
+SFX P er imiento/S er
+SFX Q Y 20
+SFX Q ar ión/S [lnsx]ar
+SFX Q r ión/S [np]ir
+SFX Q ar ón/S iar
+SFX Q der sión/S der
+SFX Q tir sión/S tir
+SFX Q dir sión/S dir
+SFX Q jar sión/S rjar
+SFX Q dar sión/S dar
+SFX Q onar ón/S onar
+SFX Q decer sión/S decer
+SFX Q ir sión/S uir
+SFX Q ndir sión/S ndir
+SFX Q er sión/S [eo]er
+SFX Q tar sión/S otar
+SFX Q gir sión/S gir
+SFX Q cer sión/S rcer
+SFX Q rir stión/S rir
+SFX Q ctar xión/S ctar
+SFX Q car xión/S car
+SFX Q jar xión/S ejar
+SFX T Y 4
+SFX T r ble/S ar
+SFX T er ible/S [^aeo]er
+SFX T er íble/S [aeo]er
+SFX T r ible/S ir
+SFX R Y 240
+SFX R ar ás ar
 SFX R r mos [aei]r
+SFX R ar áis ar
 SFX R r ba ar
 SFX R r bas ar
 SFX R ar ábamos ar
+SFX R ar abais ar
 SFX R r ban ar
 SFX R ar é [^cguz]ar
 SFX R car qué car
@@ -499,15 +275,18 @@ SFX R uar üé guar
 SFX R zar cé zar
 SFX R r ste ar
 SFX R ar ó ar
+SFX R r steis ar
 SFX R r ron ar
 SFX R 0 é [aei]r
 SFX R 0 ás [aei]r
 SFX R 0 á [aei]r
 SFX R 0 emos [aei]r
+SFX R 0 éis [aei]r
 SFX R 0 án [aei]r
 SFX R 0 ía [aei]r
 SFX R 0 ías [aei]r
 SFX R 0 íamos [aei]r
+SFX R 0 íais [aei]r
 SFX R 0 ían [aei]r
 SFX R ar emos [^cguz]ar
 SFX R car quemos car
@@ -515,24 +294,38 @@ SFX R ar uemos gar
 SFX R ar emos [^g]uar
 SFX R uar üemos guar
 SFX R zar cemos zar
+SFX R ar éis [^cguz]ar
+SFX R car quéis car
+SFX R ar uéis gar
+SFX R ar éis [^g]uar
+SFX R uar üéis guar
+SFX R zar céis zar
 SFX R 0 a ar
 SFX R r se ar
 SFX R 0 as ar
 SFX R r ses ar
 SFX R ar áramos ar
 SFX R ar ásemos ar
+SFX R 0 ais ar
+SFX R r seis ar
 SFX R 0 an ar
 SFX R r sen ar
 SFX R 0 e ar
 SFX R 0 es ar
 SFX R ar áremos ar
+SFX R 0 eis ar
 SFX R 0 en ar
+SFX R ar á ar
+SFX R r d [aei]r
 SFX R r ndo ar
 SFX R ar ándose ar
 SFX R 0 se [aeií]r
+SFX R er és er
+SFX R er éis er
 SFX R er ía er
 SFX R er ías er
 SFX R er íamos er
+SFX R er íais er
 SFX R er ían er
 SFX R er í er
 SFX R er iste [^aeo]er
@@ -541,6 +334,8 @@ SFX R er ió [^aeo]er
 SFX R er yó [aeo]er
 SFX R er imos [^aeo]er
 SFX R er ímos [aeo]er
+SFX R er isteis [^aeo]er
+SFX R er ísteis [aeo]er
 SFX R er ieron [^aeo]er
 SFX R er yeron [aeo]er
 SFX R er iera [^aeo]er
@@ -555,6 +350,10 @@ SFX R er iéramos [^aeo]er
 SFX R er yéramos [aeo]er
 SFX R er iésemos [^aeo]er
 SFX R er yésemos [aeo]er
+SFX R er ierais [^aeo]er
+SFX R er yerais [aeo]er
+SFX R er ieseis [^aeo]er
+SFX R er yeseis [aeo]er
 SFX R er ieran [^aeo]er
 SFX R er yeran [aeo]er
 SFX R er iesen [^aeo]er
@@ -565,6 +364,8 @@ SFX R er ieres [^aeo]er
 SFX R er yeres [aeo]er
 SFX R er iéremos [^aeo]er
 SFX R er yéremos [aeo]er
+SFX R er iereis [^aeo]er
+SFX R er yereis [aeo]er
 SFX R er ieren [^aeo]er
 SFX R er yeren [aeo]er
 SFX R er iendo [^aeoñ]er
@@ -573,78 +374,132 @@ SFX R er yendo [aeo]er
 SFX R er yéndose [aeo]er
 SFX R r ndo ñer
 SFX R er éndose ñer
+SFX R er é er
+SFX R ir ís ir
 SFX R ir ía ir
 SFX R ir ías ir
 SFX R ir íamos ir
+SFX R ir íais ir
 SFX R ir ían ir
 SFX R ir í ir
 SFX R r ste ir
-SFX R r ó [^lñ]ir
+SFX R r ó [^lñu]ir
 SFX R r ó [^l]lir
 SFX R ir ó llir
 SFX R ir ó ñir
-SFX R r eron [^lñ]ir
+SFX R r ó [gq]uir
+SFX R ir yó [^gq]uir
+SFX R r steis ir
+SFX R r eron [^lñu]ir
 SFX R r eron [^l]lir
 SFX R ir eron llir
 SFX R ir eron ñir
-SFX R r era [^lñ]ir
+SFX R r eron [gq]uir
+SFX R ir yeron [^gq]uir
+SFX R r era [^lñu]ir
 SFX R r era [^l]lir
 SFX R ir era llir
 SFX R ir era ñir
-SFX R r ese [^lñ]ir
+SFX R r era [gq]uir
+SFX R ir yera [^gq]uir
+SFX R r ese [^lñu]ir
 SFX R r ese [^l]lir
 SFX R ir ese llir
 SFX R ir ese ñir
-SFX R r eras [^lñ]ir
+SFX R r ese [gq]uir
+SFX R ir yese [^gq]uir
+SFX R r eras [^lñu]ir
 SFX R r eras [^l]lir
 SFX R ir eras llir
 SFX R ir eras ñir
-SFX R r eses [^lñ]ir
+SFX R r eras [gq]uir
+SFX R ir yeras [^gq]uir
+SFX R r eses [^lñu]ir
 SFX R r eses [^l]lir
 SFX R ir eses llir
 SFX R ir eses ñir
-SFX R r éramos [^lñ]ir
+SFX R r eses [gq]uir
+SFX R ir yeses [^gq]uir
+SFX R r éramos [^lñu]ir
 SFX R r éramos [^l]lir
 SFX R ir éramos llir
 SFX R ir éramos ñir
-SFX R r ésemos [^lñ]ir
+SFX R r éramos [gq]uir
+SFX R ir yéramos [^gq]uir
+SFX R r ésemos [^lñu]ir
 SFX R r ésemos [^l]lir
 SFX R ir ésemos llir
 SFX R ir ésemos ñir
-SFX R r eran [^lñ]ir
+SFX R r ésemos [gq]uir
+SFX R ir yésemos [^gq]uir
+SFX R r erais [^lñu]ir
+SFX R r erais [^l]lir
+SFX R ir erais llir
+SFX R ir erais ñir
+SFX R r erais [gq]uir
+SFX R ir yerais [^gq]uir
+SFX R r eseis [^lñu]ir
+SFX R r eseis [^l]lir
+SFX R ir eseis llir
+SFX R ir eseis ñir
+SFX R r eseis [gq]uir
+SFX R ir yeseis [^gq]uir
+SFX R r eran [^lñu]ir
 SFX R r eran [^l]lir
 SFX R ir eran llir
 SFX R ir eran ñir
-SFX R r esen [^lñ]ir
+SFX R r eran [gq]uir
+SFX R ir yeran [^gq]uir
+SFX R r esen [^lñu]ir
 SFX R r esen [^l]lir
 SFX R ir esen llir
 SFX R ir esen ñir
-SFX R r ere [^lñ]ir
+SFX R r esen [gq]uir
+SFX R ir yesen [^gq]uir
+SFX R r ere [^lñu]ir
 SFX R r ere [^l]lir
 SFX R ir ere llir
 SFX R ir ere ñir
-SFX R r eres [^lñ]ir
+SFX R r ere [gq]uir
+SFX R ir yere [^gq]uir
+SFX R r eres [^lñu]ir
 SFX R r eres [^l]lir
 SFX R ir eres llir
 SFX R ir eres ñir
-SFX R r éremos [^lñ]ir
+SFX R r eres [gq]uir
+SFX R ir yeres [^gq]uir
+SFX R r éremos [^lñu]ir
 SFX R r éremos [^l]lir
 SFX R ir éremos llir
 SFX R ir éremos ñir
-SFX R r eren [^lñ]ir
+SFX R r éremos [gq]uir
+SFX R ir yéremos [^gq]uir
+SFX R r ereis [^lñu]ir
+SFX R r ereis [^l]lir
+SFX R ir ereis llir
+SFX R ir ereis ñir
+SFX R r ereis [gq]uir
+SFX R ir yereis [^gq]uir
+SFX R r eren [^lñu]ir
 SFX R r eren [^l]lir
 SFX R ir eren llir
 SFX R ir eren ñir
-SFX R r endo [^lñ]ir
-SFX R r éndose [^lñ]ir
+SFX R r eren [gq]uir
+SFX R ir yeren [^gq]uir
+SFX R r endo [^lñu]ir
+SFX R r éndose [^lñu]ir
 SFX R r endo [^l]lir
 SFX R r éndose [^l]lir
 SFX R ir endo llir
 SFX R ir éndose llir
 SFX R ir endo ñir
 SFX R ir éndose ñir
-
-SFX E Y 65
+SFX R r endo [gq]uir
+SFX R r éndose [gq]uir
+SFX R ir yendo [^gq]uir
+SFX R ir yéndose [^gq]uir
+SFX R ir í ir
+SFX E Y 73
 SFX E ar o ar
 SFX E r s [ae]r
 SFX E r 0 [ae]r
@@ -679,6 +534,9 @@ SFX E ger jas ger
 SFX E er amos [^cg]er
 SFX E cer zamos cer
 SFX E ger jamos ger
+SFX E er áis [^cg]er
+SFX E cer záis cer
+SFX E ger jáis ger
 SFX E er an [^cg]er
 SFX E cer zan cer
 SFX E ger jan ger
@@ -705,15 +563,20 @@ SFX E cir zamos cir
 SFX E gir jamos gir
 SFX E uir amos guir
 SFX E quir camos quir
+SFX E ir áis [^cgu]ir
+SFX E cir záis cir
+SFX E gir jáis gir
+SFX E uir áis guir
+SFX E quir cáis quir
 SFX E ir an [^cgu]ir
 SFX E cir zan cir
 SFX E gir jan gir
 SFX E uir an guir
 SFX E quir can quir
-
-SFX I Y 716
+SFX I Y 741
 SFX I ertar ierto ertar
 SFX I ertar iertas ertar
+SFX I ar ás ar
 SFX I ertar ierta ertar
 SFX I ertar iertan ertar
 SFX I ertar ierte ertar
@@ -1253,11 +1116,13 @@ SFX I usar úses usar
 SFX I usar úsen usar
 SFX I cer zco [ae]cer
 SFX I r s [ae]cer
+SFX I er és er
 SFX I r 0 [ae]cer
 SFX I r n [ae]cer
 SFX I cer zca [ae]cer
 SFX I cer zcas [ae]cer
 SFX I cer zcamos [ae]cer
+SFX I cer zcáis [ae]cer
 SFX I cer zcan [ae]cer
 SFX I cer zco nocer
 SFX I r s nocer
@@ -1266,6 +1131,7 @@ SFX I r n nocer
 SFX I cer zca nocer
 SFX I cer zcas nocer
 SFX I cer zcamos nocer
+SFX I cer zcáis nocer
 SFX I cer zcan nocer
 SFX I olver uelvo olver
 SFX I olver uelves olver
@@ -1274,6 +1140,7 @@ SFX I olver uelven olver
 SFX I olver uelva olver
 SFX I olver uelvas olver
 SFX I er amos [^aoc]er
+SFX I er áis [^aoc]er
 SFX I olver uelvan olver
 SFX I over uevo over
 SFX I over ueves over
@@ -1289,6 +1156,7 @@ SFX I ocer uecen cocer
 SFX I ocer ueza cocer
 SFX I ocer uezas cocer
 SFX I cer zamos cocer
+SFX I cer záis cocer
 SFX I ocer uezan cocer
 SFX I oler uelo oler
 SFX I oler ueles oler
@@ -1304,6 +1172,7 @@ SFX I orcer uercen orcer
 SFX I orcer uerza orcer
 SFX I orcer uerzas orcer
 SFX I cer zamos orcer
+SFX I cer záis orcer
 SFX I orcer uerzan orcer
 SFX I order uerdo order
 SFX I order uerdes order
@@ -1354,6 +1223,8 @@ SFX I cer ga yacer
 SFX I cer zgas yacer
 SFX I cer gas yacer
 SFX I cer zgamos yacer
+SFX I cer zgáis yacer
+SFX I cer gáis yacer
 SFX I cer zgan yacer
 SFX I cer gan yacer
 SFX I er igo aer
@@ -1363,6 +1234,7 @@ SFX I r n aer
 SFX I er iga aer
 SFX I er igas aer
 SFX I er igamos aer
+SFX I er igáis aer
 SFX I er igan aer
 SFX I er igo oer
 SFX I er yo oer
@@ -1374,15 +1246,19 @@ SFX I er ya oer
 SFX I er igas oer
 SFX I er yas oer
 SFX I er igamos oer
+SFX I er igáis oer
+SFX I er yáis oer
 SFX I er igan oer
 SFX I er yan oer
 SFX I ir go sir
 SFX I ir es sir
+SFX I ir ís ir
 SFX I ir e sir
 SFX I ir en sir
 SFX I ir ga sir
 SFX I ir gas sir
 SFX I ir gamos sir
+SFX I ir gáis sir
 SFX I ir gan sir
 SFX I ernir ierno ernir
 SFX I ernir iernes ernir
@@ -1390,7 +1266,8 @@ SFX I ernir ierne ernir
 SFX I ernir iernen ernir
 SFX I ernir ierna ernir
 SFX I ernir iernas ernir
-SFX I ir amos [^cs]ir
+SFX I ir amos [^csu]ir
+SFX I ir áis [^csu]ir
 SFX I ernir iernan ernir
 SFX I endir iendo endir
 SFX I endir iendes endir
@@ -1413,6 +1290,7 @@ SFX I ir en cir
 SFX I cir zca cir
 SFX I cir zcas cir
 SFX I cir zcamos cir
+SFX I cir zcáis cir
 SFX I cir zcan cir
 SFX I undir úndo undir
 SFX I undir úndes undir
@@ -1428,12 +1306,23 @@ SFX I unir únen unir
 SFX I unir úna unir
 SFX I unir únas unir
 SFX I unir únan unir
-
-SFX X Y 987
+SFX I ir yo uir
+SFX I ir yes uir
+SFX I ir ye uir
+SFX I ir yen uir
+SFX I ir ya uir
+SFX I ir yas uir
+SFX I ir yamos uir
+SFX I ir yáis uir
+SFX I ir yan uir
+SFX X Y 1141
 SFX X er go oner
 SFX X r s oner
 SFX X r 0 oner
 SFX X r mos [ei]r
+SFX X er éis [^v]er
+SFX X er éis [es]ver
+SFX X er és [^v]er
 SFX X r n oner
 SFX X erer iero erer
 SFX X erer ieres erer
@@ -1470,6 +1359,7 @@ SFX X er én [es]ver
 SFX X erir iero erir
 SFX X erir ieres erir
 SFX X erir iere erir
+SFX X ir ís ir
 SFX X erir ieren erir
 SFX X ertir ierto ertir
 SFX X ertir iertes ertir
@@ -1503,10 +1393,6 @@ SFX X ir go enir
 SFX X enir ienes enir
 SFX X enir iene enir
 SFX X enir ienen enir
-SFX X ir yo [^g]uir
-SFX X ir yes [^g]uir
-SFX X ir ye [^g]uir
-SFX X ir yen [^g]uir
 SFX X üir uyo üir
 SFX X üir uyes üir
 SFX X üir uye üir
@@ -1575,6 +1461,8 @@ SFX X er ías [^v]er
 SFX X r ías ver
 SFX X er íamos [^v]er
 SFX X r íamos ver
+SFX X er íais [^v]er
+SFX X r íais ver
 SFX X er ían [^v]er
 SFX X r ían ver
 SFX X ir ía ir
@@ -1591,21 +1479,25 @@ SFX X oner use oner
 SFX X oner usiste oner
 SFX X oner uso oner
 SFX X oner usimos oner
+SFX X oner usisteis oner
 SFX X oner usieron oner
 SFX X erer ise erer
 SFX X erer isiste erer
 SFX X erer iso erer
 SFX X erer isimos erer
+SFX X erer isisteis erer
 SFX X erer isieron erer
 SFX X ener uve ener
 SFX X ener uviste ener
 SFX X ener uvo ener
 SFX X ener uvimos ener
+SFX X ener uvisteis ener
 SFX X ener uvieron ener
 SFX X er je raer
 SFX X er jiste raer
 SFX X er jo raer
 SFX X er jimos raer
+SFX X er jisteis raer
 SFX X er jeron raer
 SFX X acer ice [^ae]hacer
 SFX X acer íce [ae]hacer
@@ -1615,16 +1507,19 @@ SFX X acer izo [^ae]hacer
 SFX X acer ízo [ae]hacer
 SFX X acer izo facer
 SFX X acer icimos acer
+SFX X acer icisteis acer
 SFX X acer icieron acer
 SFX X aber upe aber
 SFX X aber upiste aber
 SFX X aber upo aber
 SFX X aber upimos aber
+SFX X aber upisteis aber
 SFX X aber upieron aber
 SFX X er í ñer
 SFX X er iste ñer
 SFX X er ó ñer
 SFX X er imos ñer
+SFX X er isteis ñer
 SFX X 0 on ñer
 SFX X er í ler
 SFX X er í [es]ver
@@ -1632,10 +1527,12 @@ SFX X er iste [lv]er
 SFX X er ió ler
 SFX X er ió [es]ver
 SFX X er imos [lv]er
+SFX X er isteis [lv]er
 SFX X er ieron [lv]er
 SFX X ir í [^cn]ir
 SFX X r ste [^cn]ir
 SFX X erir irió erir
+SFX X r steis [^cn]ir
 SFX X erir irieron erir
 SFX X ertir irtió ertir
 SFX X ertir irtieron ertir
@@ -1653,14 +1550,14 @@ SFX X cir je ucir
 SFX X cir jiste ucir
 SFX X cir jo ucir
 SFX X cir jimos ucir
+SFX X cir jisteis ucir
 SFX X cir jeron ucir
 SFX X enir ine enir
 SFX X enir iniste enir
 SFX X enir ino enir
 SFX X enir inimos enir
+SFX X enir inisteis enir
 SFX X enir inieron enir
-SFX X ir yó [^g]uir
-SFX X ir yeron [^g]uir
 SFX X üir uyó üir
 SFX X üir uyeron üir
 SFX X eñir iñó eñir
@@ -1687,11 +1584,13 @@ SFX X ecir ije ecir
 SFX X ecir ijiste ecir
 SFX X ecir ijo ecir
 SFX X ecir ijimos ecir
+SFX X ecir ijisteis ecir
 SFX X ecir ijeron ecir
 SFX X r 0 ír
 SFX X r ste ír
 SFX X eír ió eír
 SFX X r mos ír
+SFX X r steis ír
 SFX X eír ieron eír
 SFX X ír yó oír
 SFX X ír yeron oír
@@ -1699,281 +1598,342 @@ SFX X er dré ner
 SFX X er drás ner
 SFX X er drá ner
 SFX X er dremos ner
+SFX X er dréis ner
 SFX X er drán ner
 SFX X er ré [br]er
 SFX X er rás [br]er
 SFX X er rá [br]er
 SFX X er remos [br]er
+SFX X er réis [br]er
 SFX X er rán [br]er
 SFX X 0 é [añv]er
 SFX X 0 ás [añv]er
 SFX X 0 á [añv]er
 SFX X 0 emos [añv]er
+SFX X 0 éis [añv]er
 SFX X 0 án [añv]er
 SFX X cer ré acer
 SFX X cer rás acer
 SFX X cer rá acer
 SFX X cer remos acer
+SFX X cer réis acer
 SFX X cer rán acer
 SFX X er dré aler
 SFX X er drás aler
 SFX X er drá aler
 SFX X er dremos aler
+SFX X er dréis aler
 SFX X er drán aler
 SFX X 0 é oler
 SFX X 0 ás oler
 SFX X 0 á oler
 SFX X 0 emos oler
+SFX X 0 éis oler
 SFX X 0 án oler
 SFX X 0 é [^cln]ir
 SFX X 0 ás [^cln]ir
 SFX X 0 á [^cln]ir
 SFX X 0 emos [^cln]ir
+SFX X 0 éis [^cln]ir
 SFX X 0 án [^cln]ir
 SFX X 0 é [^e]nir
 SFX X 0 ás [^e]nir
 SFX X 0 á [^e]nir
 SFX X 0 emos [^e]nir
+SFX X 0 éis [^e]nir
 SFX X 0 án [^e]nir
 SFX X ir dré enir
 SFX X ir drás enir
 SFX X ir drá enir
 SFX X ir dremos enir
+SFX X ir dréis enir
 SFX X ir drán enir
 SFX X ir dré lir
 SFX X ir drás lir
 SFX X ir drá lir
 SFX X ir dremos lir
+SFX X ir dréis lir
 SFX X ir drán lir
 SFX X ecir iré [^ln]decir
 SFX X ecir irás [^ln]decir
 SFX X ecir irá [^ln]decir
 SFX X ecir iremos [^ln]decir
+SFX X ecir iréis [^ln]decir
 SFX X ecir irán [^ln]decir
 SFX X ecir iré ondecir
 SFX X ecir irás ondecir
 SFX X ecir irá ondecir
 SFX X ecir iremos ondecir
+SFX X ecir iréis ondecir
 SFX X ecir irán ondecir
 SFX X 0 é endecir
 SFX X 0 ás endecir
 SFX X 0 á endecir
 SFX X 0 emos endecir
+SFX X 0 éis endecir
 SFX X 0 án endecir
 SFX X 0 é ldecir
 SFX X 0 ás ldecir
 SFX X 0 á ldecir
 SFX X 0 emos ldecir
+SFX X 0 éis ldecir
 SFX X 0 án ldecir
 SFX X 0 é ucir
 SFX X 0 ás ucir
 SFX X 0 á ucir
 SFX X 0 emos ucir
+SFX X 0 éis ucir
 SFX X 0 án ucir
 SFX X ír iré ír
 SFX X ír irás ír
 SFX X ír irá ír
 SFX X ír iremos ír
+SFX X ír iréis ír
 SFX X ír irán ír
 SFX X er dría ner
 SFX X er drías ner
 SFX X er dríamos ner
+SFX X er dríais ner
 SFX X er drían ner
 SFX X er ría [br]er
 SFX X er rías [br]er
 SFX X er ríamos [br]er
+SFX X er ríais [br]er
 SFX X er rían [br]er
 SFX X 0 ía [añv]er
 SFX X 0 ías [añv]er
 SFX X 0 íamos [añv]er
+SFX X 0 íais [añv]er
 SFX X 0 ían [añv]er
 SFX X cer ría acer
 SFX X cer rías acer
 SFX X cer ríamos acer
+SFX X cer ríais acer
 SFX X cer rían acer
 SFX X er dría aler
 SFX X er drías aler
 SFX X er dríamos aler
+SFX X er dríais aler
 SFX X er drían aler
 SFX X 0 ía oler
 SFX X 0 ías oler
 SFX X 0 íamos oler
+SFX X 0 íais oler
 SFX X 0 ían oler
 SFX X 0 ía [^cln]ir
 SFX X 0 ías [^cln]ir
 SFX X 0 íamos [^cln]ir
+SFX X 0 íais [^cln]ir
 SFX X 0 ían [^cln]ir
 SFX X 0 ía [^e]nir
 SFX X 0 ías [^e]nir
 SFX X 0 íamos [^e]nir
+SFX X 0 íais [^e]nir
 SFX X 0 ían [^e]nir
 SFX X ir dría enir
 SFX X ir drías enir
 SFX X ir dríamos enir
+SFX X ir dríais enir
 SFX X ir drían enir
 SFX X ir dría lir
 SFX X ir drías lir
 SFX X ir dríamos lir
+SFX X ir dríais lir
 SFX X ir drían lir
 SFX X ecir iría [^ln]decir
 SFX X ecir irías [^ln]decir
 SFX X ecir iríamos [^ln]decir
+SFX X ecir iríais [^ln]decir
 SFX X ecir irían [^ln]decir
 SFX X ecir iría ondecir
 SFX X ecir irías ondecir
 SFX X ecir iríamos ondecir
+SFX X ecir iríais ondecir
 SFX X ecir irían ondecir
 SFX X 0 ía endecir
 SFX X 0 ías endecir
 SFX X 0 íamos endecir
+SFX X 0 íais endecir
 SFX X 0 ían endecir
 SFX X 0 ía ldecir
 SFX X 0 ías ldecir
 SFX X 0 íamos ldecir
+SFX X 0 íais ldecir
 SFX X 0 ían ldecir
 SFX X ír iría ír
 SFX X ír irías ír
 SFX X ír iríamos ír
+SFX X ír iríais ír
 SFX X ír irían ír
 SFX X 0 ía ucir
 SFX X 0 ías ucir
 SFX X 0 íamos ucir
+SFX X 0 íais ucir
 SFX X 0 ían ucir
 SFX X er ga ner
 SFX X er gas ner
 SFX X er gamos ner
+SFX X er gáis ner
 SFX X er gan ner
 SFX X erer iera erer
 SFX X erer ieras erer
 SFX X erer iera erer
 SFX X er amos erer
+SFX X er áis erer
 SFX X erer ieran erer
 SFX X er iga aer
 SFX X er igas aer
 SFX X er igamos aer
+SFX X er igáis aer
 SFX X er igan aer
 SFX X cer ga acer
 SFX X cer gas acer
 SFX X cer gamos acer
+SFX X cer gáis acer
 SFX X cer gan acer
 SFX X aber epa saber
 SFX X aber epas saber
 SFX X aber epamos saber
+SFX X aber epáis saber
 SFX X aber epan saber
 SFX X er a ñer
 SFX X er as ñer
 SFX X er a ñer
 SFX X er amos ñer
+SFX X er áis ñer
 SFX X er an ñer
 SFX X r a ver
 SFX X r as ver
 SFX X r a ver
 SFX X r amos ver
+SFX X r áis ver
 SFX X r an ver
 SFX X er ga aler
 SFX X er gas aler
 SFX X er gamos aler
+SFX X er gáis aler
 SFX X er gan aler
 SFX X er amos oler
+SFX X er áis oler
 SFX X erir iera erir
 SFX X erir ieras erir
 SFX X erir iramos erir
+SFX X erir iráis erir
 SFX X erir ieran erir
 SFX X ertir ierta ertir
 SFX X ertir iertas ertir
 SFX X ertir irtamos ertir
+SFX X ertir irtáis ertir
 SFX X ertir iertan ertir
 SFX X entir ienta entir
 SFX X entir ientas entir
 SFX X entir intamos entir
+SFX X entir intáis entir
 SFX X entir ientan entir
 SFX X ervir ierva hervir
 SFX X ervir iervas hervir
 SFX X ervir irvamos hervir
+SFX X ervir irváis hervir
 SFX X ervir iervan hervir
 SFX X ormir uerma ormir
 SFX X ormir uermas ormir
 SFX X ormir urmamos ormir
+SFX X ormir urmáis ormir
 SFX X ormir uerman ormir
 SFX X orir uera orir
 SFX X orir ueras orir
 SFX X orir uramos orir
+SFX X orir uráis orir
 SFX X orir ueran orir
 SFX X irir iera irir
 SFX X irir ieras irir
 SFX X irir iramos irir
+SFX X irir iráis irir
 SFX X irir ieran irir
 SFX X cir zca ucir
 SFX X cir zcas ucir
 SFX X cir zcamos ucir
+SFX X cir zcáis ucir
 SFX X cir zcan ucir
 SFX X ir ga enir
 SFX X ir gas enir
 SFX X ir gamos enir
+SFX X ir gáis enir
 SFX X ir gan enir
-SFX X ir ya [^g]uir
-SFX X ir yas [^g]uir
-SFX X ir yamos [^g]uir
-SFX X ir yan [^g]uir
 SFX X üir uya üir
 SFX X üir uyas üir
 SFX X üir uyamos üir
+SFX X üir uyáis üir
 SFX X üir uyan üir
 SFX X eñir iña eñir
 SFX X eñir iñas eñir
 SFX X eñir iñamos eñir
+SFX X eñir iñáis eñir
 SFX X eñir iñan eñir
 SFX X egir ija egir
 SFX X egir ijas egir
 SFX X egir ijamos egir
+SFX X egir ijáis egir
 SFX X egir ijan egir
 SFX X edir ida edir
 SFX X edir idas edir
 SFX X edir idamos edir
+SFX X edir idáis edir
 SFX X edir idan edir
 SFX X etir ita etir
 SFX X etir itas etir
 SFX X etir itamos etir
+SFX X etir itáis etir
 SFX X etir itan etir
 SFX X ebir iba ebir
 SFX X ebir ibas ebir
 SFX X ebir ibamos ebir
+SFX X ebir ibáis ebir
 SFX X ebir iban ebir
 SFX X emir ima emir
 SFX X emir imas emir
 SFX X emir imamos emir
+SFX X emir imáis emir
 SFX X emir iman emir
 SFX X eguir iga eguir
 SFX X eguir igas eguir
 SFX X eguir igamos eguir
+SFX X eguir igáis eguir
 SFX X eguir igan eguir
 SFX X estir ista estir
 SFX X estir istas estir
 SFX X estir istamos estir
+SFX X estir istáis estir
 SFX X estir istan estir
 SFX X ervir irva servir
 SFX X ervir irvas servir
 SFX X ervir irvamos servir
+SFX X ervir irváis servir
 SFX X ervir irvan servir
 SFX X endir inda endir
 SFX X endir indas endir
 SFX X endir indamos endir
+SFX X endir indáis endir
 SFX X endir indan endir
 SFX X ir ga lir
 SFX X ir gas lir
 SFX X ir gamos lir
+SFX X ir gáis lir
 SFX X ir gan lir
 SFX X ecir iga ecir
 SFX X ecir igas ecir
 SFX X ecir igamos ecir
+SFX X ecir igáis ecir
 SFX X ecir igan ecir
 SFX X eír ía eír
 SFX X eír ías eír
 SFX X eír iamos eír
+SFX X eír iáis eír
 SFX X eír ían eír
 SFX X ír iga oír
 SFX X ír igas oír
 SFX X ír igamos oír
+SFX X ír igáis oír
 SFX X ír igan oír
 SFX X oner usiera oner
 SFX X oner usiese oner
@@ -1981,6 +1941,8 @@ SFX X oner usieras oner
 SFX X oner usieses oner
 SFX X oner usiéramos oner
 SFX X oner usiésemos oner
+SFX X oner usierais oner
+SFX X oner usieseis oner
 SFX X oner usieran oner
 SFX X oner usiesen oner
 SFX X erer isiera erer
@@ -1989,6 +1951,8 @@ SFX X erer isieras erer
 SFX X erer isieses erer
 SFX X erer isiéramos erer
 SFX X erer isiésemos erer
+SFX X erer isierais erer
+SFX X erer isieseis erer
 SFX X erer isieran erer
 SFX X erer isiesen erer
 SFX X ener uviera ener
@@ -1997,6 +1961,8 @@ SFX X ener uvieras ener
 SFX X ener uvieses ener
 SFX X ener uviéramos ener
 SFX X ener uviésemos ener
+SFX X ener uvierais ener
+SFX X ener uvieseis ener
 SFX X ener uvieran ener
 SFX X ener uviesen ener
 SFX X er jera raer
@@ -2005,6 +1971,8 @@ SFX X er jeras raer
 SFX X er jeses raer
 SFX X er jéramos raer
 SFX X er jésemos raer
+SFX X er jerais raer
+SFX X er jeseis raer
 SFX X er jeran raer
 SFX X er jesen raer
 SFX X acer iciera acer
@@ -2013,6 +1981,8 @@ SFX X acer icieras acer
 SFX X acer icieses acer
 SFX X acer iciéramos acer
 SFX X acer iciésemos acer
+SFX X acer icierais acer
+SFX X acer icieseis acer
 SFX X acer icieran acer
 SFX X acer iciesen acer
 SFX X aber upiera aber
@@ -2021,6 +1991,8 @@ SFX X aber upieras aber
 SFX X aber upieses aber
 SFX X aber upiéramos aber
 SFX X aber upiésemos aber
+SFX X aber upierais aber
+SFX X aber upieseis aber
 SFX X aber upieran aber
 SFX X aber upiesen aber
 SFX X r ra ñer 
@@ -2029,6 +2001,8 @@ SFX X r ras ñer
 SFX X r ses ñer 
 SFX X er éramos ñer 
 SFX X er ésemos ñer 
+SFX X r rais ñer 
+SFX X r seis ñer 
 SFX X r ran ñer 
 SFX X r sen ñer 
 SFX X er iera [lv]er 
@@ -2037,6 +2011,8 @@ SFX X er ieras [lv]er
 SFX X er ieses [lv]er 
 SFX X er iéramos [lv]er 
 SFX X er iésemos [lv]er 
+SFX X er ierais [lv]er 
+SFX X er ieseis [lv]er 
 SFX X er ieran [lv]er 
 SFX X er iesen [lv]er 
 SFX X erir iriera erir
@@ -2045,6 +2021,8 @@ SFX X erir irieras erir
 SFX X erir irieses erir
 SFX X erir iriéramos erir
 SFX X erir iriésemos erir
+SFX X erir irierais erir
+SFX X erir irieseis erir
 SFX X erir irieran erir
 SFX X erir iriesen erir
 SFX X ertir irtiera ertir
@@ -2053,6 +2031,8 @@ SFX X ertir irtieras ertir
 SFX X ertir irtieses ertir
 SFX X ertir irtiéramos ertir
 SFX X ertir irtiésemos ertir
+SFX X ertir irtierais ertir
+SFX X ertir irtieseis ertir
 SFX X ertir irtieran ertir
 SFX X ertir irtiesen ertir
 SFX X entir intiera entir
@@ -2061,6 +2041,8 @@ SFX X entir intieras entir
 SFX X entir intieses entir
 SFX X entir intiéramos entir
 SFX X entir intiésemos entir
+SFX X entir intierais entir
+SFX X entir intieseis entir
 SFX X entir intieran entir
 SFX X entir intiesen entir
 SFX X ervir irviera ervir
@@ -2069,6 +2051,8 @@ SFX X ervir irvieras ervir
 SFX X ervir irvieses ervir
 SFX X ervir irviéramos ervir
 SFX X ervir irviésemos ervir
+SFX X ervir irvierais ervir
+SFX X ervir irvieseis ervir
 SFX X ervir irvieran ervir
 SFX X ervir irviesen ervir
 SFX X ormir urmiera ormir
@@ -2077,6 +2061,8 @@ SFX X ormir urmieras ormir
 SFX X ormir urmieses ormir
 SFX X ormir urmiéramos ormir
 SFX X ormir urmiésemos ormir
+SFX X ormir urmierais ormir
+SFX X ormir urmieseis ormir
 SFX X ormir urmieran ormir
 SFX X ormir urmiesen ormir
 SFX X orir uriera orir
@@ -2085,6 +2071,8 @@ SFX X orir urieras orir
 SFX X orir urieses orir
 SFX X orir uriéramos orir
 SFX X orir uriésemos orir
+SFX X orir urierais orir
+SFX X orir urieseis orir
 SFX X orir urieran orir
 SFX X orir uriesen orir
 SFX X irir iriera irir
@@ -2093,6 +2081,8 @@ SFX X irir irieras irir
 SFX X irir irieses irir
 SFX X irir iriéramos irir
 SFX X irir iriésemos irir
+SFX X irir irierais irir
+SFX X irir irieseis irir
 SFX X irir irieran irir
 SFX X irir iriesen irir
 SFX X cir jera ucir
@@ -2101,6 +2091,8 @@ SFX X cir jeras ucir
 SFX X cir jeses ucir
 SFX X cir jéramos ucir
 SFX X cir jésemos ucir
+SFX X cir jerais ucir
+SFX X cir jeseis ucir
 SFX X cir jeran ucir
 SFX X cir jesen ucir
 SFX X enir iniera enir
@@ -2109,22 +2101,18 @@ SFX X enir inieras enir
 SFX X enir inieses enir
 SFX X enir iniéramos enir
 SFX X enir iniésemos enir
+SFX X enir inierais enir
+SFX X enir inieseis enir
 SFX X enir inieran enir
 SFX X enir iniesen enir
-SFX X ir yera [^g]uir
-SFX X ir yese [^g]uir
-SFX X ir yeras [^g]uir
-SFX X ir yeses [^g]uir
-SFX X ir yéramos [^g]uir
-SFX X ir yésemos [^g]uir
-SFX X ir yeran [^g]uir
-SFX X ir yesen [^g]uir
 SFX X üir uyera üir
 SFX X üir uyese üir
 SFX X üir uyeras üir
 SFX X üir uyeses üir
 SFX X üir uyéramos üir
 SFX X üir uyésemos üir
+SFX X üir uyerais üir
+SFX X üir uyeseis üir
 SFX X üir uyeran üir
 SFX X üir uyesen üir
 SFX X eñir iñera eñir
@@ -2133,6 +2121,8 @@ SFX X eñir iñeras eñir
 SFX X eñir iñeses eñir
 SFX X eñir iñéramos eñir
 SFX X eñir iñésemos eñir
+SFX X eñir iñerais eñir
+SFX X eñir iñeseis eñir
 SFX X eñir iñeran eñir
 SFX X eñir iñesen eñir
 SFX X egir igiera egir
@@ -2141,6 +2131,8 @@ SFX X egir igieras egir
 SFX X egir igieses egir
 SFX X egir igiéramos egir
 SFX X egir igiésemos egir
+SFX X egir igierais egir
+SFX X egir igieseis egir
 SFX X egir igieran egir
 SFX X egir igiesen egir
 SFX X edir idiera edir
@@ -2149,6 +2141,8 @@ SFX X edir idieras edir
 SFX X edir idieses edir
 SFX X edir idiéramos edir
 SFX X edir idiésemos edir
+SFX X edir idierais edir
+SFX X edir idieseis edir
 SFX X edir idieran edir
 SFX X edir idiesen edir
 SFX X etir itiera etir
@@ -2157,6 +2151,8 @@ SFX X etir itieras etir
 SFX X etir itieses etir
 SFX X etir itiéramos etir
 SFX X etir itiésemos etir
+SFX X etir itierais etir
+SFX X etir itieseis etir
 SFX X etir itieran etir
 SFX X etir itiesen etir
 SFX X ebir ibiera ebir
@@ -2165,6 +2161,8 @@ SFX X ebir ibieras ebir
 SFX X ebir ibieses ebir
 SFX X ebir ibiéramos ebir
 SFX X ebir ibiésemos ebir
+SFX X ebir ibierais ebir
+SFX X ebir ibieseis ebir
 SFX X ebir ibieran ebir
 SFX X ebir ibiesen ebir
 SFX X emir imiera emir
@@ -2173,6 +2171,8 @@ SFX X emir imieras emir
 SFX X emir imieses emir
 SFX X emir imiéramos emir
 SFX X emir imiésemos emir
+SFX X emir imierais emir
+SFX X emir imieseis emir
 SFX X emir imieran emir
 SFX X emir imiesen emir
 SFX X eguir iguiera eguir
@@ -2181,6 +2181,8 @@ SFX X eguir iguieras eguir
 SFX X eguir iguieses eguir
 SFX X eguir iguiéramos eguir
 SFX X eguir iguiésemos eguir
+SFX X eguir iguierais eguir
+SFX X eguir iguieseis eguir
 SFX X eguir iguieran eguir
 SFX X eguir iguiesen eguir
 SFX X estir istiera estir
@@ -2189,6 +2191,8 @@ SFX X estir istieras estir
 SFX X estir istieses estir
 SFX X estir istiéramos estir
 SFX X estir istiésemos estir
+SFX X estir istierais estir
+SFX X estir istieseis estir
 SFX X estir istieran estir
 SFX X estir istiesen estir
 SFX X endir indiera endir
@@ -2197,6 +2201,8 @@ SFX X endir indieras endir
 SFX X endir indieses endir
 SFX X endir indiéramos endir
 SFX X endir indiésemos endir
+SFX X endir indierais endir
+SFX X endir indieseis endir
 SFX X endir indieran endir
 SFX X endir indiesen endir
 SFX X r era lir
@@ -2205,6 +2211,8 @@ SFX X r eras lir
 SFX X r eses lir
 SFX X r éramos lir
 SFX X r ésemos lir
+SFX X r erais lir
+SFX X r eseis lir
 SFX X r eran lir
 SFX X r esen lir
 SFX X ecir ijera ecir
@@ -2213,6 +2221,8 @@ SFX X ecir ijeras ecir
 SFX X ecir ijeses ecir
 SFX X ecir ijéramos ecir
 SFX X ecir ijésemos ecir
+SFX X ecir ijerais ecir
+SFX X ecir ijeseis ecir
 SFX X ecir ijeran ecir
 SFX X ecir ijesen ecir
 SFX X eír iera eír
@@ -2221,6 +2231,8 @@ SFX X eír ieras eír
 SFX X eír ieses eír
 SFX X eír iéramos eír
 SFX X eír iésemos eír
+SFX X eír ierais eír
+SFX X eír ieseis eír
 SFX X eír ieran eír
 SFX X eír iesen eír
 SFX X ír yera oír
@@ -2229,136 +2241,166 @@ SFX X ír yeras oír
 SFX X ír yeses oír
 SFX X ír yéramos oír
 SFX X ír yésemos oír
+SFX X ír yerais oír
+SFX X ír yeseis oír
 SFX X ír yeran oír
 SFX X ír yesen oír
 SFX X oner usiere oner
 SFX X oner usieres oner
 SFX X oner usiéremos oner
+SFX X oner usiereis oner
 SFX X oner usieren oner
 SFX X erer isiere erer
 SFX X erer isieres erer
 SFX X erer isiéremos erer
+SFX X erer isiereis erer
 SFX X erer isieren erer
 SFX X ener uviere ener
 SFX X ener uvieres ener
 SFX X ener uviéremos ener
+SFX X ener uviereis ener
 SFX X ener uvieren ener
 SFX X er jere raer
 SFX X er jeres raer
 SFX X er jéremos raer
+SFX X er jereis raer
 SFX X er jeren raer
 SFX X acer iciere acer
 SFX X acer icieres acer
 SFX X acer iciéremos acer
+SFX X acer iciereis acer
 SFX X acer icieren acer
 SFX X aber upiere aber
 SFX X aber upieres aber
 SFX X aber upiéremos aber
+SFX X aber upiereis aber
 SFX X aber upieren aber
 SFX X r re ñer 
 SFX X r res ñer 
 SFX X er éremos ñer 
+SFX X r reis ñer 
 SFX X r ren ñer 
 SFX X er iere [lv]er 
 SFX X er ieres [lv]er 
 SFX X er iéremos [lv]er 
+SFX X er iereis [lv]er 
 SFX X er ieren [lv]er 
 SFX X erir iriere erir
 SFX X erir irieres erir
 SFX X erir iriéremos erir
+SFX X erir iriéreis erir
 SFX X erir irieren erir
 SFX X ertir irtiere ertir
 SFX X ertir irtieres ertir
 SFX X ertir irtiéremos ertir
+SFX X ertir irtiéreis ertir
 SFX X ertir irtieren ertir
 SFX X entir intiere entir
 SFX X entir intieres entir
 SFX X entir intiéremos entir
+SFX X entir intiéreis entir
 SFX X entir intieren entir
 SFX X ervir irviere ervir
 SFX X ervir irvieres ervir
 SFX X ervir irviéremos ervir
+SFX X ervir irviéreis ervir
 SFX X ervir irvieren ervir
 SFX X ormir urmiere ormir
 SFX X ormir urmieres ormir
 SFX X ormir urmiéremos ormir
+SFX X ormir urmiéreis ormir
 SFX X ormir urmieren ormir
 SFX X orir uriere orir
 SFX X orir urieres orir
 SFX X orir uriéremos orir
+SFX X orir uriéreis orir
 SFX X orir urieren orir
 SFX X irir iriere irir
 SFX X irir irieres irir
 SFX X irir iriéremos irir
+SFX X irir iriéreis irir
 SFX X irir irieren irir
 SFX X cir jere ucir
 SFX X cir jeres ucir
 SFX X cir jéremos ucir
+SFX X cir jereis ucir
 SFX X cir jeren ucir
 SFX X enir iniere enir
 SFX X enir inieres enir
 SFX X enir iniéremos enir
+SFX X enir iniereis enir
 SFX X enir inieren enir
-SFX X ir yere [^g]uir
-SFX X ir yeres [^g]uir
-SFX X ir yéremos [^g]uir
-SFX X ir yeren [^g]uir
 SFX X üir uyere üir
 SFX X üir uyeres üir
 SFX X üir uyéremos üir
+SFX X üir uyereis üir
 SFX X üir uyeren üir
 SFX X eñir iñere eñir
 SFX X eñir iñeses eñir
 SFX X eñir iñéremos eñir
+SFX X eñir iñereis eñir
 SFX X eñir iñeren eñir
 SFX X egir igiere egir
 SFX X egir igieres egir
 SFX X egir igiéremos egir
+SFX X egir igiereis egir
 SFX X egir igieren egir
 SFX X edir idiere edir
 SFX X edir idieres edir
 SFX X edir idiéremos edir
+SFX X edir idiereis edir
 SFX X edir idieren edir
 SFX X etir itiere etir
 SFX X etir itieres etir
 SFX X etir itiéremos etir
+SFX X etir itiereis etir
 SFX X etir itieren etir
 SFX X ebir ibiere ebir
 SFX X ebir ibieres ebir
 SFX X ebir ibiéremos ebir
+SFX X ebir ibiereis ebir
 SFX X ebir ibieren ebir
 SFX X emir imiere emir
 SFX X emir imieres emir
 SFX X emir imiéremos emir
+SFX X emir imiereis emir
 SFX X emir imieren emir
 SFX X eguir iguiere eguir
 SFX X eguir iguieres eguir
 SFX X eguir iguiéremos eguir
+SFX X eguir iguiereis eguir
 SFX X eguir iguieren eguir
 SFX X estir istiere estir
 SFX X estir istieres estir
 SFX X estir istiéremos estir
+SFX X estir istiereis estir
 SFX X estir istieren estir
 SFX X endir indiere endir
 SFX X endir indieres endir
 SFX X endir indiéremos endir
+SFX X endir indiereis endir
 SFX X endir indieren endir
 SFX X r ere lir
 SFX X r eres lir
 SFX X r éremos lir
+SFX X r ereis lir
 SFX X r eren lir
 SFX X ecir ijere ecir
 SFX X ecir ijeres ecir
 SFX X ecir ijéremos ecir
+SFX X ecir ijereis ecir
 SFX X ecir ijeren ecir
 SFX X eír iere eír
 SFX X eír ieres eír
 SFX X eír iéremos eír
+SFX X eír iereis eír
 SFX X eír ieren eír
 SFX X ír yere oír
 SFX X ír yeres oír
 SFX X ír yéremos oír
+SFX X ír yereis oír
 SFX X ír yeren oír
+SFX X r d [ei]r
 SFX X er é er
 SFX X ir í ir
 SFX X r 0 ír
@@ -2386,8 +2428,6 @@ SFX X orir uriendo orir
 SFX X orir uriéndose orir
 SFX X enir iniendo enir
 SFX X enir iniéndose enir
-SFX X ir yendo [^g]uir
-SFX X ir yéndose [^g]uir
 SFX X üir uyendo üir
 SFX X üir uyéndose üir
 SFX X eñir iñendo eñir
@@ -2417,7 +2457,6 @@ SFX X r éndose ucir
 SFX X r endo irir
 SFX X r éndose irir
 SFX X 0 se [eií]r
-
 SFX D Y 12
 SFX D r do [aií]r
 SFX D r dos [aií]r
@@ -2431,7 +2470,6 @@ SFX D er ida [^aeo]er
 SFX D er ída [aeo]er
 SFX D er idas [^aeo]er
 SFX D er ídas [aeo]er
-
 SFX G Y 18
 SFX G e a [^u]e
 SFX G que ca que
@@ -2451,7 +2489,6 @@ SFX G ín inas ín
 SFX G ón onas ón
 SFX G és esas és
 SFX G ós osas ós
-
 SFX S Y 32
 SFX S 0 s [aceéfgiíkoóptuúw]
 SFX S 0 es [bdhíjlmrúy]
@@ -2485,23 +2522,20 @@ SFX S umen úmenes umen
 SFX S ulmen úlmenes ulmen
 SFX S oven óvenes oven
 SFX S z ces z
-
 SFX À Y 4
 SFX À 0 la r
 SFX À 0 lo r
 SFX À 0 las r
 SFX À 0 los r
-
-SFX Á Y 3
+SFX Á Y 4
 SFX Á 0 me r
 SFX Á 0 te r
 SFX Á 0 nos r
-
+SFX Á 0 os r
 SFX Â Y 2
 SFX Â 0 le r
 SFX Â 0 les r
-
-SFX Ã Y 64
+SFX Ã Y 80
 SFX Ã ar ármela ar
 SFX Ã ar ármelo ar
 SFX Ã ar ármelas ar
@@ -2518,6 +2552,10 @@ SFX Ã ar árnosla ar
 SFX Ã ar árnoslo ar
 SFX Ã ar árnoslas ar
 SFX Ã ar árnoslos ar
+SFX Ã ar árosla ar
+SFX Ã ar ároslo ar
+SFX Ã ar ároslas ar
+SFX Ã ar ároslos ar
 SFX Ã er érmela er
 SFX Ã er érmelo er
 SFX Ã er érmelas er
@@ -2534,6 +2572,10 @@ SFX Ã er érnosla er
 SFX Ã er érnoslo er
 SFX Ã er érnoslas er
 SFX Ã er érnoslos er
+SFX Ã er érosla er
+SFX Ã er éroslo er
+SFX Ã er éroslas er
+SFX Ã er éroslos er
 SFX Ã ir írmela ir
 SFX Ã ir írmelo ir
 SFX Ã ir írmelas ir
@@ -2550,6 +2592,10 @@ SFX Ã ir írnosla ir
 SFX Ã ir írnoslo ir
 SFX Ã ir írnoslas ir
 SFX Ã ir írnoslos ir
+SFX Ã ir írosla ir
+SFX Ã ir íroslo ir
+SFX Ã ir íroslas ir
+SFX Ã ir íroslos ir
 SFX Ã 0 mela ír
 SFX Ã 0 melo ír
 SFX Ã 0 melas ír
@@ -2566,7 +2612,10 @@ SFX Ã 0 nosla ír
 SFX Ã 0 noslo ír
 SFX Ã 0 noslas ír
 SFX Ã 0 noslos ír
-
+SFX Ã 0 osla ír
+SFX Ã 0 oslo ír
+SFX Ã 0 oslas ír
+SFX Ã 0 oslos ír
 SFX Ä Y 16
 SFX Ä ar ándola ar
 SFX Ä ar ándolo ar
@@ -2584,21 +2633,23 @@ SFX Ä r éndola ir
 SFX Ä r éndolo ir
 SFX Ä r éndolas ir
 SFX Ä r éndolos ir
-
-SFX Å Y 12
+SFX Å Y 16
 SFX Å ar ándome ar
 SFX Å ar ándote ar
 SFX Å ar ándonos ar
+SFX Å ar ándoos ar
 SFX Å er iéndome [^aeo]er
 SFX Å er iéndote [^aeo]er
 SFX Å er iéndonos [^aeo]er
+SFX Å er iéndoos [^aeo]er
 SFX Å er yéndome [aeo]er
 SFX Å er yéndote [aeo]er
 SFX Å er yéndonos [aeo]er
+SFX Å er yéndoos [aeo]er
 SFX Å r éndome ir
 SFX Å r éndote ir
 SFX Å r éndonos ir
-
+SFX Å r éndoos ir
 SFX Æ Y 8
 SFX Æ ar ándole ar
 SFX Æ ar ándoles ar
@@ -2608,8 +2659,7 @@ SFX Æ er yéndole [aeo]er
 SFX Æ er yéndoles [aeo]er
 SFX Æ r éndole ir
 SFX Æ r éndoles ir
-
-SFX Ç Y 48
+SFX Ç Y 60
 SFX Ç ar ándomela ar
 SFX Ç ar ándomelo ar
 SFX Ç ar ándomelas ar
@@ -2626,6 +2676,10 @@ SFX Ç ar ándonosla ar
 SFX Ç ar ándonoslo ar
 SFX Ç ar ándonoslas ar
 SFX Ç ar ándonoslos ar
+SFX Ç ar ándoosla ar
+SFX Ç ar ándooslo ar
+SFX Ç ar ándooslas ar
+SFX Ç ar ándooslos ar
 SFX Ç er iéndomela er
 SFX Ç er iéndomelo er
 SFX Ç er iéndomelas er
@@ -2642,6 +2696,10 @@ SFX Ç er iéndonosla er
 SFX Ç er iéndonoslo er
 SFX Ç er iéndonoslas er
 SFX Ç er iéndonoslos er
+SFX Ç er iéndoosla er
+SFX Ç er iéndooslo er
+SFX Ç er iéndooslas er
+SFX Ç er iéndooslos er
 SFX Ç r éndomela ir
 SFX Ç r éndomelo ir
 SFX Ç r éndomelas ir
@@ -2658,7 +2716,10 @@ SFX Ç r éndonosla ir
 SFX Ç r éndonoslo ir
 SFX Ç r éndonoslas ir
 SFX Ç r éndonoslos ir
-
+SFX Ç r éndoosla ir
+SFX Ç r éndooslo ir
+SFX Ç r éndooslas ir
+SFX Ç r éndooslos ir
 SFX È Y 76
 SFX È er iéndola er
 SFX È er iéndolo er
@@ -2736,54 +2797,67 @@ SFX È r éndola ucir
 SFX È r éndolo ucir
 SFX È r éndolas ucir
 SFX È r éndolos ucir
-
-SFX É Y 45
+SFX É Y 60
 SFX É er iéndome [^a]er
 SFX É er iéndote [^a]er
 SFX É er iéndonos [^a]er
+SFX É er iéndoos [^a]er
 SFX É er yéndome aer
 SFX É er yéndote aer
 SFX É er yéndonos aer
+SFX É er yéndoos aer
 SFX É erir iriéndome erir
 SFX É erir iriéndote erir
 SFX É erir iriéndonos erir
+SFX É erir iriéndoos erir
 SFX É ertir irtiéndome ertir
 SFX É ertir irtiéndote ertir
 SFX É ertir irtiéndonos ertir
+SFX É ertir irtiéndoos ertir
 SFX É ervir irviéndome ervir
 SFX É ervir irviéndote ervir
 SFX É ervir irviéndonos ervir
+SFX É ervir irviéndoos ervir
 SFX É ormir urmiéndome ormir
 SFX É ormir urmiéndote ormir
 SFX É ormir urmiéndonos ormir
+SFX É ormir urmiéndoos ormir
 SFX É ir yéndome [^g]uir
 SFX É ir yéndote [^g]uir
 SFX É ir yéndonos [^g]uir
+SFX É ir yéndoos [^g]uir
 SFX É edir idiéndome edir
 SFX É edir idiéndote edir
 SFX É edir idiéndonos edir
+SFX É edir idiéndoos edir
 SFX É etir itiéndome etir
 SFX É etir itiéndote etir
 SFX É etir itiéndonos etir
+SFX É etir itiéndoos etir
 SFX É eguir iguiéndome eguir
 SFX É eguir iguiéndote eguir
 SFX É eguir iguiéndonos eguir
+SFX É eguir iguiéndoos eguir
 SFX É estir istiéndome estir
 SFX É estir istiéndote estir
 SFX É estir istiéndonos estir
+SFX É estir istiéndoos estir
 SFX É ecir iciéndome ecir
 SFX É ecir iciéndote ecir
 SFX É ecir iciéndonos ecir
+SFX É ecir iciéndoos ecir
 SFX É eír iéndome eír
 SFX É eír iéndote eír
 SFX É eír iéndonos eír
+SFX É eír iéndoos eír
 SFX É ír yéndome oír
 SFX É ír yéndote oír
 SFX É ír yéndonos oír
+SFX É ír yéndoos oír
 SFX É r éndome ucir
 SFX É r éndote ucir
 SFX É r éndonos ucir
-
+SFX É r éndoos ucir
 SFX Ê Y 38
 SFX Ê er iéndole [^a]er
 SFX Ê er iéndoles [^a]er
@@ -2823,8 +2897,7 @@ SFX Ê r éndole ucir
 SFX Ê r éndoles ucir
 SFX Ê r éndole irir
 SFX Ê r éndoles irir
-
-SFX Ë Y 112
+SFX Ë Y 140
 SFX Ë er iéndomela er
 SFX Ë er iéndomelo er
 SFX Ë er iéndomelas er
@@ -2833,6 +2906,10 @@ SFX Ë er iéndonosla er
 SFX Ë er iéndonoslo er
 SFX Ë er iéndonoslas er
 SFX Ë er iéndonoslos er
+SFX Ë er iéndoosla er
+SFX Ë er iéndooslo er
+SFX Ë er iéndooslas er
+SFX Ë er iéndooslos er
 SFX Ë er iéndosela er
 SFX Ë er iéndoselo er
 SFX Ë er iéndoselas er
@@ -2857,6 +2934,10 @@ SFX Ë ertir irtiéndonosla ertir
 SFX Ë ertir irtiéndonoslo ertir
 SFX Ë ertir irtiéndonoslas ertir
 SFX Ë ertir irtiéndonoslos ertir
+SFX Ë ertir irtiéndoosla ertir
+SFX Ë ertir irtiéndooslo ertir
+SFX Ë ertir irtiéndooslas ertir
+SFX Ë ertir irtiéndooslos ertir
 SFX Ë endir indiéndomela endir
 SFX Ë endir indiéndomelas endir
 SFX Ë endir indiéndomelo endir
@@ -2865,6 +2946,10 @@ SFX Ë endir indiéndonosla endir
 SFX Ë endir indiéndonoslas endir
 SFX Ë endir indiéndonoslo endir
 SFX Ë endir indiéndonoslos endir
+SFX Ë endir indiéndoosla endir
+SFX Ë endir indiéndooslas endir
+SFX Ë endir indiéndooslo endir
+SFX Ë endir indiéndooslos endir
 SFX Ë endir indiéndosela endir
 SFX Ë endir indiéndoselas endir
 SFX Ë endir indiéndoselo endir
@@ -2889,6 +2974,10 @@ SFX Ë ir yéndonosla [^g]uir
 SFX Ë ir yéndonoslo [^g]uir
 SFX Ë ir yéndonoslas [^g]uir
 SFX Ë ir yéndonoslos [^g]uir
+SFX Ë ir yéndoosla [^g]uir
+SFX Ë ir yéndooslo [^g]uir
+SFX Ë ir yéndooslas [^g]uir
+SFX Ë ir yéndooslos [^g]uir
 SFX Ë edir idiéndomela edir
 SFX Ë edir idiéndomelo edir
 SFX Ë edir idiéndomelas edir
@@ -2905,6 +2994,10 @@ SFX Ë edir idiéndonosla edir
 SFX Ë edir idiéndonoslo edir
 SFX Ë edir idiéndonoslas edir
 SFX Ë edir idiéndonoslos edir
+SFX Ë edir idiéndoosla edir
+SFX Ë edir idiéndooslo edir
+SFX Ë edir idiéndooslas edir
+SFX Ë edir idiéndooslos edir
 SFX Ë ecir iciéndomela ecir
 SFX Ë ecir iciéndomelo ecir
 SFX Ë ecir iciéndomelas ecir
@@ -2921,6 +3014,10 @@ SFX Ë ecir iciéndonosla ecir
 SFX Ë ecir iciéndonoslo ecir
 SFX Ë ecir iciéndonoslas ecir
 SFX Ë ecir iciéndonoslos ecir
+SFX Ë ecir iciéndoosla ecir
+SFX Ë ecir iciéndooslo ecir
+SFX Ë ecir iciéndooslas ecir
+SFX Ë ecir iciéndooslos ecir
 SFX Ë ír yéndomela oír
 SFX Ë ír yéndomelo oír
 SFX Ë ír yéndomelas oír
@@ -2937,12 +3034,23 @@ SFX Ë ír yéndonosla oír
 SFX Ë ír yéndonoslo oír
 SFX Ë ír yéndonoslas oír
 SFX Ë ír yéndonoslos oír
-
-SFX Ì Y 376
+SFX Ë ír yéndoosla oír
+SFX Ë ír yéndooslo oír
+SFX Ë ír yéndooslas oír
+SFX Ë ír yéndooslos oír
+SFX Ì Y 384
 SFX Ì abar ábala abar
 SFX Ì abar ábalas abar
 SFX Ì abar ábalo abar
 SFX Ì abar ábalos abar
+SFX Ì r la r
+SFX Ì r las r
+SFX Ì r lo r
+SFX Ì r los r
+SFX Ì r dla r
+SFX Ì r dlas r
+SFX Ì r dlo r
+SFX Ì r dlos r
 SFX Ì acar ácala acar
 SFX Ì acar ácalas acar
 SFX Ì acar ácalo acar
@@ -3315,10 +3423,13 @@ SFX Ì utar útalas utar
 SFX Ì utar útala utar
 SFX Ì utar útalos utar
 SFX Ì utar útalo utar
-
-SFX Í Y 160
+SFX Í Y 164
 SFX Í abar ábame abar
 SFX Í abar ábanos abar
+SFX Í r me r
+SFX Í r nos r
+SFX Í r dme r
+SFX Í r dnos r
 SFX Í ablar áblame ablar
 SFX Í ablar áblanos ablar
 SFX Í acar ácame acar
@@ -3477,10 +3588,13 @@ SFX Í usar úsame usar
 SFX Í usar úsanos usar
 SFX Í uscar úscame uscar
 SFX Í uscar úscanos uscar
-
-SFX Î Y 82
+SFX Î Y 86
 SFX Î abar ábale abar
 SFX Î abar ábales abar
+SFX Î r le r
+SFX Î r les r
+SFX Î r dle r
+SFX Î r dles r
 SFX Î ablar áblale ablar
 SFX Î ablar áblales ablar
 SFX Î acar ácale acar
@@ -3561,8 +3675,7 @@ SFX Î untar úntales untar
 SFX Î untar úntale untar
 SFX Î uscar úscales uscar
 SFX Î uscar úscale uscar
-
-SFX Ï Y 228
+SFX Ï Y 300
 SFX Ï adir ádemela adir
 SFX Ï adir ádemelas adir
 SFX Ï adir ádemelo adir
@@ -3575,6 +3688,30 @@ SFX Ï adir ádesela adir
 SFX Ï adir ádeselas adir
 SFX Ï adir ádeselo adir
 SFX Ï adir ádeselos adir
+SFX Ï ir ímela ir
+SFX Ï ir ímelas ir
+SFX Ï ir ímelo ir
+SFX Ï ir ímelos ir
+SFX Ï ir ínosla ir
+SFX Ï ir ínoslas ir
+SFX Ï ir ínoslo ir
+SFX Ï ir ínoslos ir
+SFX Ï ir ísela ir
+SFX Ï ir íselas ir
+SFX Ï ir íselo ir
+SFX Ï ir íselos ir
+SFX Ï ir ídmela ir
+SFX Ï ir ídmelas ir
+SFX Ï ir ídmelo ir
+SFX Ï ir ídmelos ir
+SFX Ï ir ídnosla ir
+SFX Ï ir ídnoslas ir
+SFX Ï ir ídnoslo ir
+SFX Ï ir ídnoslos ir
+SFX Ï ir ídsela ir
+SFX Ï ir ídselas ir
+SFX Ï ir ídselo ir
+SFX Ï ir ídselos ir
 SFX Ï ambiar ámbiamela ambiar
 SFX Ï ambiar ámbiamelas ambiar
 SFX Ï ambiar ámbiamelo ambiar
@@ -3587,6 +3724,30 @@ SFX Ï ambiar ámbiasela ambiar
 SFX Ï ambiar ámbiaselas ambiar
 SFX Ï ambiar ámbiaselo ambiar
 SFX Ï ambiar ámbiaselos ambiar
+SFX Ï ar ámela ar
+SFX Ï ar ámelas ar
+SFX Ï ar ámelo ar
+SFX Ï ar ámelos ar
+SFX Ï ar ánosla ar
+SFX Ï ar ánoslas ar
+SFX Ï ar ánoslo ar
+SFX Ï ar ánoslos ar
+SFX Ï ar ásela ar
+SFX Ï ar áselas ar
+SFX Ï ar áselo ar
+SFX Ï ar áselos ar
+SFX Ï ar ádmela ar
+SFX Ï ar ádmelas ar
+SFX Ï ar ádmelo ar
+SFX Ï ar ádmelos ar
+SFX Ï ar ádnosla ar
+SFX Ï ar ádnoslas ar
+SFX Ï ar ádnoslo ar
+SFX Ï ar ádnoslos ar
+SFX Ï ar ádsela ar
+SFX Ï ar ádselas ar
+SFX Ï ar ádselo ar
+SFX Ï ar ádselos ar
 SFX Ï ancar áncamela ancar
 SFX Ï ancar áncamelas ancar
 SFX Ï ancar áncamelo ancar
@@ -3659,6 +3820,30 @@ SFX Ï eder édesela eder
 SFX Ï eder édeselas eder
 SFX Ï eder édeselo eder
 SFX Ï eder édeselos eder
+SFX Ï er émela er
+SFX Ï er émelas er
+SFX Ï er émelo er
+SFX Ï er émelos er
+SFX Ï er énosla er
+SFX Ï er énoslas er
+SFX Ï er énoslo er
+SFX Ï er énoslos er
+SFX Ï er ésela er
+SFX Ï er éselas er
+SFX Ï er éselo er
+SFX Ï er éselos er
+SFX Ï er édmela er
+SFX Ï er édmelas er
+SFX Ï er édmelo er
+SFX Ï er édmelos er
+SFX Ï er édnosla er
+SFX Ï er édnoslas er
+SFX Ï er édnoslo er
+SFX Ï er édnoslos er
+SFX Ï er édsela er
+SFX Ï er édselas er
+SFX Ï er édselo er
+SFX Ï er édselos er
 SFX Ï eer éemela eer
 SFX Ï eer éemelas eer
 SFX Ï eer éemelo eer
@@ -3791,12 +3976,19 @@ SFX Ï urar úraselas urar
 SFX Ï urar úrasela urar
 SFX Ï urar úraselos urar
 SFX Ï urar úraselo urar
-
-SFX Ð Y 52
+SFX Ð Y 60
 SFX Ð egar iégala egar
 SFX Ð egar iégalas egar
 SFX Ð egar iégalo egar
 SFX Ð egar iégalos egar
+SFX Ð r la r
+SFX Ð r las r
+SFX Ð r lo r
+SFX Ð r los r
+SFX Ð r dla r
+SFX Ð r dlas r
+SFX Ð r dlo r
+SFX Ð r dlos r
 SFX Ð ender iéndela ender
 SFX Ð ender iéndelas ender
 SFX Ð ender iéndelo ender
@@ -3845,10 +4037,13 @@ SFX Ð ostrar uéstrala ostrar
 SFX Ð ostrar uéstralas ostrar
 SFX Ð ostrar uéstralo ostrar
 SFX Ð ostrar uéstralos ostrar
-
-SFX Ñ Y 22
+SFX Ñ Y 26
 SFX Ñ ecer éceme ecer
 SFX Ñ ecer écenos ecer
+SFX Ñ r me r
+SFX Ñ r nos r
+SFX Ñ r dme r
+SFX Ñ r dnos r
 SFX Ñ ender iéndeme ender
 SFX Ñ ender iéndenos ender
 SFX Ñ entar iéntame entar
@@ -3869,10 +4064,13 @@ SFX Ñ order uérdeme order
 SFX Ñ order uérdenos order
 SFX Ñ ostrar uéstrame ostrar
 SFX Ñ ostrar uéstranos ostrar
-
-SFX Ò Y 18
+SFX Ò Y 22
 SFX Ò ecer écele ecer
 SFX Ò ecer éceles ecer
+SFX Ò r le r
+SFX Ò r les r
+SFX Ò r dle r
+SFX Ò r dles r
 SFX Ò egar iégale egar
 SFX Ò egar iégales egar
 SFX Ò ender iéndele ender
@@ -3889,8 +4087,7 @@ SFX Ò order uérdele order
 SFX Ò order uérdeles order
 SFX Ò ostrar uéstrale ostrar
 SFX Ò ostrar uéstrales ostrar
-
-SFX Ó Y 72
+SFX Ó Y 120
 SFX Ó ecer écemela ecer
 SFX Ó ecer écemelas ecer
 SFX Ó ecer écemelo ecer
@@ -3903,6 +4100,30 @@ SFX Ó ecer écesela ecer
 SFX Ó ecer éceselas ecer
 SFX Ó ecer éceselo ecer
 SFX Ó ecer éceselos ecer
+SFX Ó er émela er
+SFX Ó er émelas er
+SFX Ó er émelo er
+SFX Ó er émelos er
+SFX Ó er énosla er
+SFX Ó er énoslas er
+SFX Ó er énoslo er
+SFX Ó er énoslos er
+SFX Ó er ésela er
+SFX Ó er éselas er
+SFX Ó er éselo er
+SFX Ó er éselos er
+SFX Ó er édmela er
+SFX Ó er édmelas er
+SFX Ó er édmelo er
+SFX Ó er édmelos er
+SFX Ó er édnosla er
+SFX Ó er édnoslas er
+SFX Ó er édnoslo er
+SFX Ó er édnoslos er
+SFX Ó er édsela er
+SFX Ó er édselas er
+SFX Ó er édselo er
+SFX Ó er édselos er
 SFX Ó iar íamela iar
 SFX Ó iar íamelas iar
 SFX Ó iar íamelo iar
@@ -3915,6 +4136,30 @@ SFX Ó iar íasela iar
 SFX Ó iar íaselas iar
 SFX Ó iar íaselo iar
 SFX Ó iar íaselos iar
+SFX Ó ar ámela ar
+SFX Ó ar ámelas ar
+SFX Ó ar ámelo ar
+SFX Ó ar ámelos ar
+SFX Ó ar ánosla ar
+SFX Ó ar ánoslas ar
+SFX Ó ar ánoslo ar
+SFX Ó ar ánoslos ar
+SFX Ó ar ásela ar
+SFX Ó ar áselas ar
+SFX Ó ar áselo ar
+SFX Ó ar áselos ar
+SFX Ó ar ádmela ar
+SFX Ó ar ádmelas ar
+SFX Ó ar ádmelo ar
+SFX Ó ar ádmelos ar
+SFX Ó ar ádnosla ar
+SFX Ó ar ádnoslas ar
+SFX Ó ar ádnoslo ar
+SFX Ó ar ádnoslos ar
+SFX Ó ar ádsela ar
+SFX Ó ar ádselas ar
+SFX Ó ar ádselo ar
+SFX Ó ar ádselos ar
 SFX Ó olver uélvemela olver
 SFX Ó olver uélvemelas olver
 SFX Ó olver uélvemelo olver
@@ -3963,12 +4208,19 @@ SFX Ó ostrar uéstrasela ostrar
 SFX Ó ostrar uéstraselas ostrar
 SFX Ó ostrar uéstraselo ostrar
 SFX Ó ostrar uéstraselos ostrar
-
-SFX Ô Y 48
+SFX Ô Y 60
 SFX Ô aer áela aer
 SFX Ô aer áelas aer
 SFX Ô aer áelo aer
 SFX Ô aer áelos aer
+SFX Ô r la r
+SFX Ô r las r
+SFX Ô r lo r
+SFX Ô r los r
+SFX Ô r dla r
+SFX Ô r dlas r
+SFX Ô r dlo r
+SFX Ô r dlos r
 SFX Ô cer zla cer
 SFX Ô cer zlas cer
 SFX Ô cer zlo cer
@@ -4009,14 +4261,21 @@ SFX Ô ervir írvela ervir
 SFX Ô ervir írvelas ervir
 SFX Ô ervir írvelo ervir
 SFX Ô ervir írvelos ervir
+SFX Ô r la ver
+SFX Ô r las ver
+SFX Ô r lo ver
+SFX Ô r los ver
 SFX Ô uir úyelas uir
 SFX Ô uir úyela uir
 SFX Ô uir úyelos uir
 SFX Ô uir úyelo uir
-
-SFX Õ Y 22
+SFX Õ Y 28
 SFX Õ aber ábeme aber
 SFX Õ aber ábenos aber
+SFX Õ r me r
+SFX Õ r nos r
+SFX Õ r dme r
+SFX Õ r dnos r
 SFX Õ aer áeme aer
 SFX Õ aer áenos aer
 SFX Õ ecir íceme ecir
@@ -4035,12 +4294,17 @@ SFX Õ er me ner
 SFX Õ er nos ner
 SFX Õ estir ísteme estir
 SFX Õ estir ístenos estir
+SFX Õ r me ver
+SFX Õ r nos ver
 SFX Õ ucir úceme ucir
 SFX Õ ucir úcenos ucir
-
-SFX Ö Y 10
+SFX Ö Y 16
 SFX Ö aber ábele aber
 SFX Ö aber ábeles aber
+SFX Ö r le r
+SFX Ö r les r
+SFX Ö r dle r
+SFX Ö r dles r
 SFX Ö aer áele aer
 SFX Ö aer áeles aer
 SFX Ö cer zle cer
@@ -4049,8 +4313,9 @@ SFX Ö edir ídele edir
 SFX Ö edir ídeles edir
 SFX Ö er le ner
 SFX Ö er les ner
-
-SFX Ø Y 36
+SFX Ö r le ver
+SFX Ö r les ver
+SFX Ø Y 84
 SFX Ø aer áemela aer
 SFX Ø aer áemelas aer
 SFX Ø aer áemelo aer
@@ -4063,6 +4328,30 @@ SFX Ø aer áesela aer
 SFX Ø aer áeselas aer
 SFX Ø aer áeselo aer
 SFX Ø aer áeselos aer
+SFX Ø er émela er
+SFX Ø er émelas er
+SFX Ø er émelo er
+SFX Ø er émelos er
+SFX Ø er énosla er
+SFX Ø er énoslas er
+SFX Ø er énoslo er
+SFX Ø er énoslos er
+SFX Ø er ésela er
+SFX Ø er éselas er
+SFX Ø er éselo er
+SFX Ø er éselos er
+SFX Ø er édmela er
+SFX Ø er édmelas er
+SFX Ø er édmelo er
+SFX Ø er édmelos er
+SFX Ø er édnosla er
+SFX Ø er édnoslas er
+SFX Ø er édnoslo er
+SFX Ø er édnoslos er
+SFX Ø er édsela er
+SFX Ø er édselas er
+SFX Ø er édselo er
+SFX Ø er édselos er
 SFX Ø edir ídemela edir
 SFX Ø edir ídemelas edir
 SFX Ø edir ídemelo edir
@@ -4075,6 +4364,30 @@ SFX Ø edir ídesela edir
 SFX Ø edir ídeselas edir
 SFX Ø edir ídeselo edir
 SFX Ø edir ídeselos edir
+SFX Ø ir ímela ir
+SFX Ø ir ímelas ir
+SFX Ø ir ímelo ir
+SFX Ø ir ímelos ir
+SFX Ø ir ínosla ir
+SFX Ø ir ínoslas ir
+SFX Ø ir ínoslo ir
+SFX Ø ir ínoslos ir
+SFX Ø ir ísela ir
+SFX Ø ir íselas ir
+SFX Ø ir íselo ir
+SFX Ø ir íselos ir
+SFX Ø ir ídmela ir
+SFX Ø ir ídmelas ir
+SFX Ø ir ídmelo ir
+SFX Ø ir ídmelos ir
+SFX Ø ir ídnosla ir
+SFX Ø ir ídnoslas ir
+SFX Ø ir ídnoslo ir
+SFX Ø ir ídnoslos ir
+SFX Ø ir ídsela ir
+SFX Ø ir ídselas ir
+SFX Ø ir ídselo ir
+SFX Ø ir ídselos ir
 SFX Ø oner ónmela oner
 SFX Ø oner ónmelas oner
 SFX Ø oner ónmelo oner
@@ -4087,7 +4400,6 @@ SFX Ø oner ónsela oner
 SFX Ø oner ónselas oner
 SFX Ø oner ónselo oner
 SFX Ø oner ónselos oner
-
 SFX Ù Y 664
 SFX Ù acar áquela acar
 SFX Ù acar áquelas acar
@@ -4753,7 +5065,6 @@ SFX Ù uzgar úzguenlas uzgar
 SFX Ù uzgar úzguenla uzgar
 SFX Ù uzgar úzguenlos uzgar
 SFX Ù uzgar úzguenlo uzgar
-
 SFX Ú Y 184
 SFX Ú acar áqueme acar
 SFX Ú acar áquenme acar
@@ -4939,7 +5250,6 @@ SFX Ú ustar ústeme ustar
 SFX Ú ustar ústenme ustar
 SFX Ú ustar ústennos ustar
 SFX Ú ustar ústenos ustar
-
 SFX Û Y 144
 SFX Û acar áquele acar
 SFX Û acar áqueles acar
@@ -5085,7 +5395,6 @@ SFX Û ustar ústeles ustar
 SFX Û ustar ústele ustar
 SFX Û ustar ústenles ustar
 SFX Û ustar ústenle ustar
-
 SFX Ü Y 264
 SFX Ü amar ámemela amar
 SFX Ü amar ámemelas amar
@@ -5351,7 +5660,6 @@ SFX Ü itar ítesela itar
 SFX Ü itar íteselas itar
 SFX Ü itar íteselo itar
 SFX Ü itar íteselos itar
-
 SFX Ý Y 120
 SFX Ý egar iéguela egar
 SFX Ý egar iéguelas egar
@@ -5473,7 +5781,6 @@ SFX Ý uar úenlas uar
 SFX Ý uar úenla uar
 SFX Ý uar úenlos uar
 SFX Ý uar úenlo uar
-
 SFX Þ Y 36
 SFX Þ ender iéndame ender
 SFX Þ ender iéndanme ender
@@ -5511,7 +5818,6 @@ SFX Þ ostrar uéstreme ostrar
 SFX Þ ostrar uéstrenme ostrar
 SFX Þ ostrar uéstrennos ostrar
 SFX Þ ostrar uéstrenos ostrar
-
 SFX ß Y 24
 SFX ß ecer ézcale ecer
 SFX ß ecer ézcales ecer
@@ -5537,7 +5843,6 @@ SFX ß ostrar uéstrele ostrar
 SFX ß ostrar uéstreles ostrar
 SFX ß ostrar uéstrenle ostrar
 SFX ß ostrar uéstrenles ostrar
-
 SFX à Y 72
 SFX à iar íemela iar
 SFX à iar íemelas iar
@@ -5611,7 +5916,6 @@ SFX à ostrar uéstresela ostrar
 SFX à ostrar uéstreselas ostrar
 SFX à ostrar uéstreselo ostrar
 SFX à ostrar uéstreselos ostrar
-
 SFX á Y 128
 SFX á aber épala aber
 SFX á aber épalas aber
@@ -5741,7 +6045,6 @@ SFX á uir úyanlas uir
 SFX á uir úyanla uir
 SFX á uir úyanlos uir
 SFX á uir úyanlo uir
-
 SFX â Y 28
 SFX â acer ágame acer
 SFX â acer áganme acer
@@ -5771,7 +6074,6 @@ SFX â ervir írvame ervir
 SFX â ervir írvanme ervir
 SFX â ervir írvannos ervir
 SFX â ervir írvanos ervir
-
 SFX ã Y 20
 SFX ã acer ágale acer
 SFX ã acer ágales acer
@@ -5793,7 +6095,6 @@ SFX ã oner óngale oner
 SFX ã oner óngales oner
 SFX ã oner ónganle oner
 SFX ã oner ónganles oner
-
 SFX ä Y 72
 SFX ä aer áigamela aer
 SFX ä aer áigamelas aer
@@ -5867,84 +6168,105 @@ SFX ä ertir iértasela ertir
 SFX ä ertir iértaselas ertir
 SFX ä ertir iértaselo ertir
 SFX ä ertir iértaselos ertir
-
-SFX ñ Y 3
+SFX ñ Y 4
 SFX ñ 0 me r
 SFX ñ 0 te r
 SFX ñ 0 nos r
-
-SFX ò Y 12
+SFX ñ 0 os r
+SFX ò Y 16
 SFX ò ar ándome ar
 SFX ò ar ándonos ar
+SFX ò ar ándoos ar
 SFX ò ar ándote ar
 SFX ò er iéndome [^ae]er
 SFX ò er iéndonos [^ae]er
+SFX ò er iéndoos [^ae]er
 SFX ò er iéndote [^ae]er
 SFX ò er yéndome [ae]er
 SFX ò er yéndonos [ae]er
+SFX ò er yéndoos [ae]er
 SFX ò er yéndote [ae]er
 SFX ò r éndome ir
 SFX ò r éndonos ir
+SFX ò r éndoos ir
 SFX ò r éndote ir
-
-SFX ó Y 54
+SFX ó Y 72
 SFX ó ecir iciéndome ecir
 SFX ó ecir iciéndonos ecir
+SFX ó ecir iciéndoos ecir
 SFX ó ecir iciéndote ecir
 SFX ó edir idiéndome edir
 SFX ó edir idiéndonos edir
+SFX ó edir idiéndoos edir
 SFX ó edir idiéndote edir
 SFX ó eguir iguiéndome eguir
 SFX ó eguir iguiéndonos eguir
+SFX ó eguir iguiéndoos eguir
 SFX ó eguir iguiéndote eguir
 SFX ó eír iéndome eír
 SFX ó eír iéndonos eír
+SFX ó eír iéndoos eír
 SFX ó eír iéndote eír
 SFX ó enir iniéndome enir
 SFX ó enir iniéndonos enir
+SFX ó enir iniéndoos enir
 SFX ó enir iniéndote enir
 SFX ó entir intiéndome entir
 SFX ó entir intiéndonos entir
+SFX ó entir intiéndoos entir
 SFX ó entir intiéndote entir
 SFX ó eñir iñéndome eñir
 SFX ó eñir iñéndonos eñir
+SFX ó eñir iñéndoos eñir
 SFX ó eñir iñéndote eñir
 SFX ó er iéndome ver
 SFX ó er iéndonos ver
+SFX ó er iéndoos ver
 SFX ó er iéndote ver
 SFX ó erir iriéndome erir
 SFX ó erir iriéndonos erir
+SFX ó erir iriéndoos erir
 SFX ó erir iriéndote erir
 SFX ó ertir irtiéndome ertir
 SFX ó ertir irtiéndonos ertir
+SFX ó ertir irtiéndoos ertir
 SFX ó ertir irtiéndote ertir
 SFX ó ervir irviéndome ervir
 SFX ó ervir irviéndonos ervir
+SFX ó ervir irviéndoos ervir
 SFX ó ervir irviéndote ervir
 SFX ó er yéndome aer
 SFX ó er yéndonos aer
+SFX ó er yéndoos aer
 SFX ó er yéndote aer
 SFX ó estir istiéndome estir
 SFX ó estir istiéndonos estir
+SFX ó estir istiéndoos estir
 SFX ó estir istiéndote estir
 SFX ó etir itiéndome etir
 SFX ó etir itiéndonos etir
+SFX ó etir itiéndoos etir
 SFX ó etir itiéndote etir
 SFX ó ir yéndome uir
 SFX ó ir yéndonos uir
+SFX ó ir yéndoos uir
 SFX ó ir yéndote uir
 SFX ó orir uriéndome orir
 SFX ó orir uriéndonos orir
+SFX ó orir uriéndoos orir
 SFX ó orir uriéndote orir
 SFX ó ormir urmiéndome ormir
 SFX ó ormir urmiéndonos ormir
+SFX ó ormir urmiéndoos ormir
 SFX ó ormir urmiéndote ormir
 SFX ó r éndome ucir
 SFX ó r éndonos ucir
+SFX ó r éndoos ucir
 SFX ó r éndote ucir
-
-SFX ô Y 134
+SFX ô Y 136
 SFX ô abar ábate abar
+SFX ô r te [aei]r
+SFX ô r os r
 SFX ô acar ácate acar
 SFX ô achar áchate achar
 SFX ô aciar áciate aciar
@@ -6047,7 +6369,7 @@ SFX ô omar ómate omar
 SFX ô omer ómete omer
 SFX ô omprar ómprate omprar
 SFX ô onar ónate onar
-SFX ô oncharse ónchate onchar
+SFX ô onchar ónchate onchar
 SFX ô onder óndete onder
 SFX ô ontar óntate ontar
 SFX ô orar órate orar
@@ -6059,7 +6381,7 @@ SFX ô ortar órtate ortar
 SFX ô oyar óyate oyar
 SFX ô ubir úbete ubir
 SFX ô ubrir úbrete ubrir
-SFX ô ucarse úcate ucar
+SFX ô ucar úcate ucar
 SFX ô uchar úchate uchar
 SFX ô udar údate udar
 SFX ô udir údete udir
@@ -6078,9 +6400,10 @@ SFX ô urlar úrlate urlar
 SFX ô uscar úscate uscar
 SFX ô ustar ústate ustar
 SFX ô ustrar ústrate ustrar
-
-SFX õ Y 28
+SFX õ Y 31
 SFX õ aer áete aer
+SFX õ r te [aei]r
+SFX õ r os [^i]r
 SFX õ ecer écete ecer
 SFX õ egar iégate egar
 SFX õ ender iéndete ender
@@ -6108,12 +6431,15 @@ SFX õ ostrar uéstrate ostrar
 SFX õ over uévete over
 SFX õ uar úate uar
 SFX õ unir únete unir
-
-SFX ö Y 15
+SFX õ ir íos ir
+SFX ö Y 18
 SFX ö aer áete aer
+SFX ö r te [eií]r
+SFX ö r os [^i]r
 SFX ö aler álete aler
 SFX ö cer zte cer
 SFX ö edir ídete edir
+SFX ö ir íos ir
 SFX ö eguir íguete eguir
 SFX ö eír íete eír
 SFX ö entir iéntete entir
@@ -6125,7 +6451,6 @@ SFX ö ir te enir
 SFX ö orir uérete orir
 SFX ö ormir uérmete ormir
 SFX ö r te ver
-
 SFX ø Y 253
 SFX ø abar ábense abar
 SFX ø abar ábese abar
@@ -6380,7 +6705,6 @@ SFX ø urnar úrnense urnar
 SFX ø urnar úrnese urnar
 SFX ø uscar úsquense uscar
 SFX ø uscar úsquese uscar
-
 SFX ù Y 55
 SFX ù aer áiganse aer
 SFX ù aer áigase aer
@@ -6437,7 +6761,6 @@ SFX ù uar úese uar
 SFX ù unir únanse unir
 SFX ù unir únase unir
 SFX ù ir ámonos ir
-
 SFX ú Y 66
 SFX ú cer gámonos acer
 SFX ú acer áganse acer

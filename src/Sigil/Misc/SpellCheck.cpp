@@ -129,10 +129,16 @@ void SpellCheck::setDictionary(const QString &name, bool forceReplace)
         return;
     }
 
+    // Dictionary files to use.
+    QString aff = QString("%1%2.aff").arg(m_dictionaries.value(name)).arg(name);
+    QString dic = QString("%1%2.dic").arg(m_dictionaries.value(name)).arg(name);
+    QString hyph_dic = QString("%1hyph_%2.dic").arg(m_dictionaries.value(name)).arg(name);
     // Create a new hunspell object.
-    QString aff = m_dictionaries.value(name) + ".aff";
-    QString dic = m_dictionaries.value(name) + ".dic";
     m_hunspell = new Hunspell(aff.toLocal8Bit().constData(), dic.toLocal8Bit().constData());
+    // Load the hyphenation dictionary if it exists.
+    if (QFile::exists(hyph_dic)) {
+        m_hunspell->add_dic(hyph_dic.toLocal8Bit().constData());
+    }
 
     // Get the encoding for the text in the dictionary.
     QString encoding = "ISO8859-1";
@@ -272,9 +278,9 @@ SpellCheck::SpellCheck() :
             foreach (QString ud, otherDicts) {
                 const QFileInfo fileInfo(ud);
                 const QString basename = fileInfo.baseName();
-                const QString udPath = path + "/" + basename;
+                const QString udPath = path + "/";
                 // We only include the dictionary if it has a corresponding .aff.
-                if (QFile(udPath + ".aff").exists()) {
+                if (QFile(udPath + basename + ".aff").exists()) {
                     m_dictionaries.insert(basename, udPath);
                 }
             }
