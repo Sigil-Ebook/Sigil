@@ -39,8 +39,6 @@ class QSyntaxHighlighter;
 class QContextMenuEvent;
 class QSignalMapper;
 
-struct SPCRE::MatchInfo;
-
 /**
  * A text editor for source code.
  * Also called the "Code View" because it shows

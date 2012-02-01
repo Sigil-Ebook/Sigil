@@ -141,20 +141,7 @@ void SpellCheck::setDictionary(const QString &name, bool forceReplace)
     }
 
     // Get the encoding for the text in the dictionary.
-    QString encoding = "ISO8859-1";
-    QFile affFile(aff);
-    if (affFile.open(QIODevice::ReadOnly)) {
-        QTextStream affStream(&affFile);
-        QRegExp encDetector("^\\s*SET\\s+(.+)", Qt::CaseInsensitive);
-        for (QString line = affStream.readLine(); !line.isNull(); line = affStream.readLine()) {
-            if (line.contains(encDetector)) {
-                encoding = encDetector.cap(1).trimmed();
-                break;
-            }
-        }
-        affFile.close();
-    }
-    m_codec = QTextCodec::codecForName(encoding.toLatin1());
+    m_codec = QTextCodec::codecForName(m_hunspell->get_dic_encoding());
     if (m_codec == 0) {
         m_codec = QTextCodec::codecForName("UTF-8");
     }
