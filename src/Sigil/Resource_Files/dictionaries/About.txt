@@ -11,7 +11,7 @@ en_GB
 en_US
  - Version 1.0 - 98,000 word list
  - http://extensions.libreoffice.org/extension-center/american-british-canadian-spelling-hyphen-thesaurus-dictionaries
- - License:
+ - License: GPL
 
 es_ANY
  - Version 1.0
