@@ -353,6 +353,8 @@ int FindReplace::CountInFiles()
     // For now, this must hold
     Q_ASSERT( GetLookWhere() == LookWhere_AllHTMLFiles );
 
+    m_MainWindow.GetCurrentContentTab().SaveTabContent();
+
     return SearchOperations::CountInFiles(
             GetSearchRegex(),
             m_MainWindow.GetCurrentBook()->GetFolderKeeper().GetResourceTypeAsGenericList< HTMLResource >(),
@@ -364,6 +366,8 @@ int FindReplace::ReplaceInAllFiles()
 {
     // For now, this must hold
     Q_ASSERT( GetLookWhere() == LookWhere_AllHTMLFiles );
+
+    m_MainWindow.GetCurrentContentTab().SaveTabContent();
 
     int count = SearchOperations::ReplaceInAllFIles(
             GetSearchRegex(),
@@ -381,6 +385,8 @@ int FindReplace::ReplaceInAllFiles()
 void FindReplace::FindInAllFiles( Searchable *searchable, Searchable::Direction direction )
 {
     Q_ASSERT( searchable );
+
+    m_MainWindow.GetCurrentContentTab().SaveTabContent();
 
     bool found = searchable->FindNext( GetSearchRegex(), direction );
 

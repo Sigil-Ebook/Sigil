@@ -1,4 +1,6 @@
 Sigil 0.5.1 TBA
+    - Fix issue 1213: Find and Replace does not save file when F&R is already
+      open and searching all HTML files.
     - Remove the ability to use F&R to replace text in BV as it is unfixable in
       its current state.
     - Fix issue 1215: Book View line/column incorrect in status bar.
