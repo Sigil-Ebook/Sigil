@@ -1,4 +1,6 @@
 Sigil 0.5.1 TBA
+    - Remove the ability to use F&R to replace text in BV as it is unfixable in
+      its current state.
     - Fix issue 1215: Book View line/column incorrect in status bar.
     - Fix issue 1216: Re-opening a document already in a tab resets the cursor
       position back to the top.
@@ -8,8 +10,7 @@ Sigil 0.5.1 TBA
     - Fix issue 1188: New Sigil Regex engine crashes when pressing "replace all",
       works fine on pushing "replace" over and over and over again.
     - Implement issue 269: Select more than one item in the Book Browser Column.
-    - Implement issue 792: "open next/previuos HTML section" buttons (next/prev with regard
-      to reading order).
+    - Implement issue 792: Sync selection in book browser to open tab.
     - Implement issue 1135: New blank section must be automatically selected on book browser.
     - Implement issue 1148: Allow user to change the order of split view so book view or code
       view is first.

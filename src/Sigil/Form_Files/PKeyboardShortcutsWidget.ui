@@ -104,7 +104,7 @@
         <item>
          <widget class="QLabel" name="targetEditLabel">
           <property name="text">
-           <string>Shortuct</string>
+           <string>Shortcut</string>
           </property>
          </widget>
         </item>

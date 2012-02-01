@@ -20,6 +20,7 @@
 *************************************************************************/
 
 #include <stdafx.h>
+#include <QMessageBox>
 #include "BookViewEditor.h"
 #include "BookManipulation/Book.h"
 #include "BookManipulation/XhtmlDoc.h"
@@ -405,12 +406,21 @@ int BookViewEditor::Count( const QString &search_regex )
 
 bool BookViewEditor::ReplaceSelected( const QString &search_regex, const QString &replacement, Searchable::Direction direction )
 {
+    QMessageBox::critical( this, tr( "Unsupported" ), tr( "Replace is not supported in Book View" ) );
+
+    return false;
+
+#if 0
     SearchTools search_tools = GetSearchTools();
     return ReplaceSelected( search_regex, replacement, search_tools, direction );
+#endif
 }
 
 bool BookViewEditor::ReplaceSelected( const QString &search_regex, const QString &replacement, SearchTools search_tools, Searchable::Direction direction )
 {
+    return false;
+
+#if 0
     SPCRE *spcre = PCRECache::instance()->getObject( search_regex );
 
     int selection_offset = GetSelectionOffset( *search_tools.document, search_tools.node_offsets, Searchable::Direction_Up );
@@ -438,11 +448,17 @@ bool BookViewEditor::ReplaceSelected( const QString &search_regex, const QString
     }
 
     return false;
+#endif
 }
 
 
 int BookViewEditor::ReplaceAll( const QString &search_regex, const QString &replacement )
 {
+    QMessageBox::critical( this, tr( "Unsupported" ), tr( "Replace is not supported in Book View" ) );
+
+    return 0;
+
+#if 0
     SearchTools search_tools = GetSearchTools();
     SPCRE *spcre = PCRECache::instance()->getObject( search_regex );
     QList<SPCRE::MatchInfo> match_info = spcre->getEveryMatchInfo( search_tools.fulltext );
@@ -487,6 +503,7 @@ int BookViewEditor::ReplaceAll( const QString &search_regex, const QString &repl
     }
 
     return count;
+#endif
 }
 
 
