@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>514</width>
+    <width>566</width>
     <height>93</height>
    </rect>
   </property>
@@ -94,7 +94,7 @@
        </layout>
       </item>
       <item>
-       <layout class="QGridLayout" name="gridLayout" columnstretch="0,1,0,0,0">
+       <layout class="QGridLayout" name="gridLayout" columnstretch="0,1,0,0">
         <property name="leftMargin">
          <number>0</number>
         </property>
@@ -134,23 +134,13 @@
          </widget>
         </item>
         <item row="0" column="2">
-         <widget class="QToolButton" name="findPrevious">
-          <property name="toolTip">
-           <string>Find previous</string>
-          </property>
-          <property name="styleSheet">
-           <string notr="true"/>
-          </property>
-          <property name="text">
-           <string>...</string>
-          </property>
-          <property name="arrowType">
-           <enum>Qt::LeftArrow</enum>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="3">
          <widget class="QToolButton" name="findNext">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
           <property name="toolTip">
            <string>Find next</string>
           </property>
@@ -158,15 +148,18 @@
            <string notr="true"/>
           </property>
           <property name="text">
-           <string>...</string>
-          </property>
-          <property name="arrowType">
-           <enum>Qt::RightArrow</enum>
+           <string>Find</string>
           </property>
          </widget>
         </item>
-        <item row="0" column="4">
+        <item row="0" column="3">
          <widget class="QToolButton" name="count">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
           <property name="toolTip">
            <string>Count all matches</string>
           </property>
@@ -205,22 +198,6 @@
          </widget>
         </item>
         <item row="1" column="2">
-         <widget class="QToolButton" name="replacePrevious">
-          <property name="toolTip">
-           <string>Replace previous</string>
-          </property>
-          <property name="styleSheet">
-           <string notr="true"/>
-          </property>
-          <property name="text">
-           <string>...</string>
-          </property>
-          <property name="arrowType">
-           <enum>Qt::LeftArrow</enum>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="3">
          <widget class="QToolButton" name="replaceNext">
           <property name="toolTip">
            <string>Replace next</string>
@@ -229,14 +206,11 @@
            <string notr="true"/>
           </property>
           <property name="text">
-           <string>...</string>
-          </property>
-          <property name="arrowType">
-           <enum>Qt::RightArrow</enum>
+           <string>Replace</string>
           </property>
          </widget>
         </item>
-        <item row="1" column="4">
+        <item row="1" column="3">
          <widget class="QToolButton" name="replaceAll">
           <property name="toolTip">
            <string>Replace all</string>
@@ -249,7 +223,7 @@
           </property>
          </widget>
         </item>
-        <item row="2" column="0" colspan="5">
+        <item row="2" column="0" colspan="4">
          <widget class="Line" name="line">
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
@@ -266,8 +240,8 @@
           </property>
          </widget>
         </item>
-        <item row="3" column="1" colspan="4">
-         <layout class="QHBoxLayout" name="horizontalLayout" stretch="0,0,0,0,0">
+        <item row="3" column="1" colspan="3">
+         <layout class="QHBoxLayout" name="horizontalLayout" stretch="0,0,0,0,0,0,0">
           <item>
            <widget class="QComboBox" name="cbSearchMode"/>
           </item>
@@ -283,6 +257,16 @@
           </item>
           <item>
            <widget class="QComboBox" name="cbLookWhere"/>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_5">
+            <property name="text">
+             <string>Direction:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QComboBox" name="cbSearchDirection"/>
           </item>
           <item>
            <spacer name="horizontalSpacer">
@@ -322,14 +306,13 @@
  <tabstops>
   <tabstop>cbFind</tabstop>
   <tabstop>cbReplace</tabstop>
+  <tabstop>findNext</tabstop>
+  <tabstop>replaceNext</tabstop>
+  <tabstop>count</tabstop>
+  <tabstop>replaceAll</tabstop>
   <tabstop>cbSearchMode</tabstop>
   <tabstop>cbLookWhere</tabstop>
-  <tabstop>findPrevious</tabstop>
-  <tabstop>findNext</tabstop>
-  <tabstop>count</tabstop>
-  <tabstop>replacePrevious</tabstop>
-  <tabstop>replaceNext</tabstop>
-  <tabstop>replaceAll</tabstop>
+  <tabstop>cbSearchDirection</tabstop>
   <tabstop>close</tabstop>
  </tabstops>
  <resources>

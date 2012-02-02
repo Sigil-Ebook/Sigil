@@ -63,7 +63,14 @@ public:
         // Case insensitive
         SearchMode_Normal = 0,
         SearchMode_Case_Sensitive = 10,
-        SearchMode_Regex = 20
+        SearchMode_Regex = 20,
+        SearchMode_RegexMultiline = 30
+    };
+
+    enum SearchDirection
+    {
+        SearchDirection_Down = 0,
+        SearchDirection_Up = 10
     };
 
 public slots:
@@ -78,6 +85,10 @@ private slots:
     // Shows a message in the main window.
     void ShowMessage( const QString &message );
 
+    // Uses the find direction to determine if we should find next
+    // or previous.
+    void Find();
+
     void FindNext();
 
     void FindPrevious();
@@ -85,6 +96,10 @@ private slots:
     // Counts the number of occurrences of the user's
     // term in the document.
     void Count();
+
+    // Uses the find direction to determine if we should replace next
+    // or previous.
+    void Replace();
 
     // Replaces the user's search term with the user's
     // replacement text if a match is selected. If it's not,
@@ -171,6 +186,7 @@ private:
 
     LookWhere GetLookWhere();
     SearchMode GetSearchMode();
+    SearchDirection GetSearchDirection();
 
     // Reads all the stored dialog settings like
     // window position, geometry etc.

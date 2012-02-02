@@ -107,6 +107,19 @@ void FindReplace::ShowMessage( const QString &message )
 }
 
 
+void FindReplace::Find()
+{
+    if ( GetSearchDirection() == SearchDirection_Up )
+    {
+        FindPrevious();
+    }
+    else
+    {
+        FindNext();
+    }
+}
+
+
 void FindReplace::FindNext()
 {
     FindText( Searchable::Direction_Down );
@@ -123,6 +136,8 @@ void FindReplace::FindPrevious()
 // term in the document.
 void FindReplace::Count()
 {
+    clearMessage();
+
     if ( ui.cbFind->lineEdit()->text().isEmpty() )
     {
         return;
@@ -150,12 +165,31 @@ void FindReplace::Count()
         return;
     }
 
-    QString message = tr( "%1 match(es) were found", 0, count );
-    ShowMessage( message.arg( count ) );
+    if ( count == 0 )
+    {
+        CannotFindSearchTerm();
+    }
+    else
+    {
+        QString message = tr( "%1 matches found", 0, count );
+        ShowMessage( message.arg( count ) );
+    }
 
     UpdatePreviousFindStrings();
 }
 
+
+void FindReplace::Replace()
+{
+    if ( GetSearchDirection() == SearchDirection_Up )
+    {
+        ReplacePrevious();
+    }
+    else
+    {
+        ReplaceNext();
+    }
+}
 
 void FindReplace::ReplaceNext()
 {
@@ -174,6 +208,8 @@ void FindReplace::ReplacePrevious()
 // dialog telling how many occurrences were replaced.
 void FindReplace::ReplaceAll()
 {
+    clearMessage();
+
     if ( ui.cbFind->lineEdit()->text().isEmpty() )
     {
         return;
@@ -199,7 +235,11 @@ void FindReplace::ReplaceAll()
         return;
     }
 
-    QString message = tr( "The search term was replaced %1 time(s)", 0, count );
+    QString message = tr( "%1 replacements made", 0, count );
+    if ( count == 0 )
+    {
+        message = tr( "No replacements made" );
+    }
 
     if ( count > 0 )
     {
@@ -232,6 +272,8 @@ void FindReplace::expireMessage()
 // Starts the search for the user's term.
 void FindReplace::FindText( Searchable::Direction direction )
 {
+    clearMessage();
+
     if ( ui.cbFind->lineEdit()->text().isEmpty() )
     {
         return;
@@ -275,10 +317,14 @@ void FindReplace::FindText( Searchable::Direction direction )
 // calls Find in the direction specified so it becomes selected.
 void FindReplace::ReplaceText( Searchable::Direction direction )
 {
+    clearMessage();
+
     if ( ui.cbFind->lineEdit()->text().isEmpty() )
     {
         return;
     }
+
+    CheckBookWideSearchingAllowed();
 
     Searchable *searchable = GetAvailableSearchable();
 
@@ -289,16 +335,24 @@ void FindReplace::ReplaceText( Searchable::Direction direction )
 
     // If we have the matching text selected, replace it
     // This will not do anything if matching text is not selected.
-    searchable->ReplaceSelected( GetSearchRegex(), ui.cbReplace->lineEdit()->text(), direction );
-
-    // Go find the next match
-    if ( direction == Searchable::Direction_Down )
+    // Avoid continuing find if in Book View since Replace is not allowed, but always let CV continue
+    if ( searchable->ReplaceSelected( GetSearchRegex(), ui.cbReplace->lineEdit()->text(), direction ) || 
+         m_MainWindow.GetCurrentContentTab().GetViewState() == ContentTab::ViewState_CodeView )
+    
     {
-        FindNext();
+        // Go find the next match
+        if ( direction == Searchable::Direction_Down )
+        {
+            FindNext();
+        }
+        else if ( direction == Searchable::Direction_Up )
+        {
+            FindPrevious();
+        }
     }
-    else if ( direction == Searchable::Direction_Up )
+    else
     {
-        FindPrevious();
+        CannotFindSearchTerm();
     }
 
     UpdatePreviousFindStrings();
@@ -311,8 +365,9 @@ bool FindReplace::CheckBookWideSearchingAllowed()
     if ( GetLookWhere() == FindReplace::LookWhere_AllHTMLFiles &&
          m_MainWindow.GetCurrentContentTab().GetViewState() == ContentTab::ViewState_BookView )
     {
-        // Force change to Code View
+        // Force change to Code View and update cursor position immediately
         m_MainWindow.GetCurrentContentTab().SetViewState( ContentTab::ViewState_CodeView );
+        m_MainWindow.GetCurrentContentTab().ExecuteCaretUpdate();
     }
 
     return true;
@@ -323,7 +378,7 @@ bool FindReplace::CheckBookWideSearchingAllowed()
 // that his last search term could not be found.
 void FindReplace::CannotFindSearchTerm()
 {
-    ShowMessage( tr( "The search term cannot be found" ) );
+    ShowMessage( tr( "No matches found" ) );
 }
 
 
@@ -341,6 +396,10 @@ QString FindReplace::GetSearchRegex()
         if ( GetSearchMode() == SearchMode_Normal ) {
             search = "(?i)" + search;
         }
+    }
+    else if ( GetSearchMode() == SearchMode_RegexMultiline )
+    {
+            search = "(?s)" + search;
     }
 
     return search;
@@ -576,8 +635,25 @@ FindReplace::SearchMode FindReplace::GetSearchMode()
     case FindReplace::SearchMode_Case_Sensitive:
         return static_cast<FindReplace::SearchMode>( mode );
         break;
+    case FindReplace::SearchMode_RegexMultiline:
+        return static_cast<FindReplace::SearchMode>( mode );
+        break;
     default:
         return FindReplace::SearchMode_Normal;
+    }
+}
+
+
+FindReplace::SearchDirection FindReplace::GetSearchDirection()
+{
+    int direction = ui.cbSearchDirection->itemData( ui.cbSearchDirection->currentIndex() ).toInt();
+    switch ( direction )
+    {
+    case FindReplace::SearchDirection_Up:
+        return static_cast<FindReplace::SearchDirection>( direction );
+        break;
+    default:
+        return FindReplace::SearchDirection_Down;
     }
 }
 
@@ -619,6 +695,17 @@ void FindReplace::ReadSettings()
             break;
         }
     }
+
+    ui.cbSearchDirection->setCurrentIndex( 0 );
+    int search_direction= settings.value( "search_direction", 0 ).toInt();
+    for ( int i = 0; i < ui.cbSearchDirection->count(); ++i )
+    {
+        if ( ui.cbSearchDirection->itemData( i ) == search_direction )
+        {
+            ui.cbSearchDirection->setCurrentIndex( i );
+            break;
+        }
+    }
 }
 
 
@@ -634,6 +721,7 @@ void FindReplace::WriteSettings()
 
     settings.setValue( "search_mode", GetSearchMode() );
     settings.setValue( "look_where", GetLookWhere() );
+    settings.setValue( "search_direction", GetSearchDirection() );
 }
 
 
@@ -658,9 +746,13 @@ void FindReplace::ExtendUI()
     ui.cbSearchMode->addItem( tr( "Normal" ), FindReplace::SearchMode_Normal );
     ui.cbSearchMode->addItem( tr( "Case Sensitive" ), FindReplace::SearchMode_Case_Sensitive );
     ui.cbSearchMode->addItem( tr( "Regex" ), FindReplace::SearchMode_Regex );
+    ui.cbSearchMode->addItem( tr( "Regex Multiline" ), FindReplace::SearchMode_RegexMultiline );
 
     ui.cbLookWhere->addItem( tr( "Current File" ), FindReplace::LookWhere_CurrentFile );
-    ui.cbLookWhere->addItem( tr( "All HTML Files in Code View" ), FindReplace::LookWhere_AllHTMLFiles );
+    ui.cbLookWhere->addItem( tr( "All HTML Files" ), FindReplace::LookWhere_AllHTMLFiles );
+
+    ui.cbSearchDirection->addItem( tr( "Up" ), FindReplace::FindReplace::SearchDirection_Up );
+    ui.cbSearchDirection->addItem( tr( "Down" ), FindReplace::FindReplace::SearchDirection_Down );
 }
 
 
@@ -668,12 +760,10 @@ void FindReplace::ConnectSignalsToSlots()
 {
     connect( &m_timer, SIGNAL( timeout() ), this, SLOT( expireMessage() ) );
     connect( ui.findNext, SIGNAL( clicked() ), this, SLOT( FindNext() ) );
-    connect( ui.cbFind->lineEdit(), SIGNAL( returnPressed() ), this, SLOT( FindNext() ) );
-    connect( ui.findPrevious, SIGNAL( clicked() ), this, SLOT( FindPrevious() ) );
+    connect( ui.cbFind->lineEdit(), SIGNAL( returnPressed() ), this, SLOT( Find() ) );
     connect( ui.count, SIGNAL( clicked() ), this, SLOT( Count() ) );
     connect( ui.replaceNext, SIGNAL( clicked() ), this, SLOT( ReplaceNext() ) );
-    connect( ui.replacePrevious, SIGNAL( clicked() ), this, SLOT( ReplacePrevious() ) );
-    connect( ui.cbReplace->lineEdit(), SIGNAL( returnPressed() ), this, SLOT( ReplaceNext() ));
+    connect( ui.cbReplace->lineEdit(), SIGNAL( returnPressed() ), this, SLOT( Replace() ));
     connect( ui.replaceAll, SIGNAL( clicked() ), this, SLOT( ReplaceAll() ) );
     connect( ui.close, SIGNAL( clicked() ), this, SLOT( hide() ) );
 }

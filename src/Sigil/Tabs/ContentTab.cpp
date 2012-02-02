@@ -83,6 +83,10 @@ void ContentTab::LoadTabContent()
 
 }
 
+void ContentTab::ExecuteCaretUpdate()
+{
+
+}
 
 void ContentTab::EmitCentralTabRequest()
 {

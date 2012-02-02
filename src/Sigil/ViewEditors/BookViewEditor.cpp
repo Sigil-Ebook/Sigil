@@ -406,7 +406,7 @@ int BookViewEditor::Count( const QString &search_regex )
 
 bool BookViewEditor::ReplaceSelected( const QString &search_regex, const QString &replacement, Searchable::Direction direction )
 {
-    QMessageBox::critical( this, tr( "Unsupported" ), tr( "Replace is not supported in Book View" ) );
+    QMessageBox::critical( this, tr( "Unsupported" ), tr( "Replace is not supported in Book View.  Switch to Code View." ) );
 
     return false;
 

@@ -442,24 +442,27 @@ Continue?</source>
         <source>Look:</source>
         <translation type="unfinished"></translation>
     </message>
-    <message numerus="yes">
-        <location filename="../../MainUI/FindReplace.cpp" line="153"/>
-        <source>%1 match(es) were found</source>
+    <message>
+        <location filename="../../MainUI/FindReplace.cpp" line="340"/>
+        <source>No matches found</source>
         <translation type="unfinished">
-            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../../MainUI/FindReplace.cpp" line="160"/>
+        <source>%1 matches found</source>
+        <translation type="unfinished">
+            <numerusform>%1 match found</numerusform>
+            <numerusform>%1 matches found</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <location filename="../../MainUI/FindReplace.cpp" line="202"/>
-        <source>The search term was replaced %1 time(s)</source>
+        <source>%1 replacements made</source>
         <translation type="unfinished">
-            <numerusform></numerusform>
+            <numerusform>%1 replacement made</numerusform>
+            <numerusform>%1 replacements made</numerusform>
         </translation>
-    </message>
-    <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="326"/>
-        <source>The search term cannot be found</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="640"/>
@@ -488,7 +491,7 @@ Continue?</source>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="657"/>
-        <source>All HTML Files in Code View</source>
+        <source>All Files in Code View</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -228,6 +228,8 @@ public:
 
     virtual bool IsLoadingFinished() { return true; }
 
+    virtual void ExecuteCaretUpdate();
+
 public slots:
 
     /**

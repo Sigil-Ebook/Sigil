@@ -184,6 +184,15 @@ public:
 
     QString GetSelectedText();
 
+    /**
+     * Executes the caret updating code 
+     * if such an update is pending.
+     *
+     * @return \c true if the update was performed.
+     */
+    bool ExecuteCaretUpdate();
+
+
 signals:
     
     /**
@@ -376,14 +385,6 @@ private:
      * @return The info needed to move the caret to the new location.
      */
     boost::tuple< int, int > ConvertHierarchyToCaretMove( const QList< ViewEditor::ElementIndex > &hierarchy ) const;
-
-    /**
-     * Executes the caret updating code 
-     * if such an update is pending.
-     *
-     * @return \c true if the update was performed.
-     */
-    bool ExecuteCaretUpdate();
 
     /**
      * Executes a centerCursor() call if requested

@@ -326,6 +326,10 @@ void FlowTab::ExecuteCaretUpdate()
     if (m_IsLastViewBook) {
         m_wBookView.ExecuteCaretUpdate();
     }
+    else
+    {
+        m_wCodeView.ExecuteCaretUpdate();
+    }
 }
 
 void FlowTab::ScrollToFragment( const QString &fragment )

@@ -1,4 +1,5 @@
 Sigil 0.5.1 TBA
+    - Implement issue 1224: F&R modifications to update layout and add Regex Multiline.
     - Fix issue 1214: Dictionary files do not include hypen files or GB files.
     - Fix issue 1213: Find and Replace does not save file when F&R is already
       open and searching all HTML files.
