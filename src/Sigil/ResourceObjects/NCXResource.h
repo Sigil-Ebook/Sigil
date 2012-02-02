@@ -23,6 +23,7 @@
 #ifndef NCXRESOURCE_H
 #define NCXRESOURCE_H
 
+#include "MainUI/NCXModel.h"
 #include "XMLResource.h"
 
 class Book;
@@ -51,6 +52,9 @@ public:
     void SetMainID( const QString &main_id );
 
     void GenerateNCXFromBookContents( const Book &book );
+
+    void GenerateNCXFromTOCContents( const Book &book, NCXModel &ncx_model );
+
 
 private:
 

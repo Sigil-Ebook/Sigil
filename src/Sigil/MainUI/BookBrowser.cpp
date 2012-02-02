@@ -159,6 +159,10 @@ void BookBrowser::SortHTML()
     }
 }
 
+void BookBrowser::RefreshTOC()
+{
+    emit RefreshTOCContentsRequest();
+}
 
 void BookBrowser::OpenUrlResource( const QUrl &url )
 {
@@ -748,6 +752,7 @@ void BookBrowser::CreateContextMenuActions()
     m_IdpfsObfuscationMethod  = new QAction( tr( "Use IDPF's Method" ),     this );
     m_SortHTML                = new QAction( tr( "Sort All" ),              this );
     m_SortHTMLSelected        = new QAction( tr( "Sort" ),                  this );
+    m_RefreshTOC              = new QAction( tr( "Renumber TOC Entries" ),   this );
 
     m_CoverImage             ->setCheckable( true );  
     m_AdobesObfuscationMethod->setCheckable( true ); 
@@ -950,6 +955,11 @@ void BookBrowser::SetupResourceSpecificContextMenu( Resource *resource  )
 
         SetupFontObfuscationMenu( resource );
 
+    if ( resource->Type() == Resource::NCXResourceType && ValidSelectedItemCount() == 1 )
+    {
+        m_ContextMenu.addAction( m_RefreshTOC );
+    }
+
     SetupSemanticContextmenu( resource );
 }
 
@@ -1101,6 +1111,7 @@ void BookBrowser::ConnectSignalsToSlots()
 
     connect( m_AddNewHTML,              SIGNAL( triggered() ), this, SLOT( AddNewHTML()              ) );
     connect( m_SortHTML,                SIGNAL( triggered() ), this, SLOT( SortHTML()                ) );
+    connect( m_RefreshTOC,              SIGNAL( triggered() ), this, SLOT( RefreshTOC()              ) );
     connect( m_SortHTMLSelected,        SIGNAL( triggered() ), this, SLOT( SortHTML()                ) );
     connect( m_AddNewCSS,               SIGNAL( triggered() ), this, SLOT( AddNewCSS()               ) );
     connect( m_AddExisting,             SIGNAL( triggered() ), this, SLOT( AddExisting()             ) );

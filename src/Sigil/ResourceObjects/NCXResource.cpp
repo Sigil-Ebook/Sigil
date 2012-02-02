@@ -88,6 +88,20 @@ void NCXResource::GenerateNCXFromBookContents( const Book &book )
 
     buffer.open( QIODevice::WriteOnly );    
     NCXWriter ncx( book, buffer );
+    ncx.WriteXMLFromHeadings();
+    buffer.close();
+
+    SetText( CleanSource::ProcessXML( QString::fromUtf8( raw_ncx.constData(), raw_ncx.size() ) ) );
+}
+
+
+void NCXResource::GenerateNCXFromTOCContents( const Book &book, NCXModel &ncx_model )
+{
+    QByteArray raw_ncx;
+    QBuffer buffer( &raw_ncx );
+
+    buffer.open( QIODevice::WriteOnly );    
+    NCXWriter ncx( book, buffer, ncx_model.GetRootNCXEntry() );
     ncx.WriteXML();
     buffer.close();
 

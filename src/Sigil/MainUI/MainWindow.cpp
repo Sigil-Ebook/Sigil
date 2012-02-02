@@ -1840,6 +1840,9 @@ void MainWindow::ConnectSignalsToSlots()
     connect( m_BookBrowser,          SIGNAL( UpdateBrowserSelection() ),
             this,                    SLOT(   UpdateBrowserSelectionToTab() ) );
 
+    connect( m_BookBrowser, SIGNAL( RefreshTOCContentsRequest() ),
+             m_TableOfContents,     SLOT(   RefreshTOCContents() ) );
+
     connect( m_TableOfContents, SIGNAL( TabDataSavedRequest() ),
              &m_TabManager,     SLOT(   SaveTabData() ) );
 

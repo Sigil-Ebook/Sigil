@@ -73,6 +73,11 @@ public slots:
      */
     void StartRefreshDelay();
 
+    /**
+     * Refresh the TOC file contents to renumber entries
+     */
+    void RefreshTOCContents();
+
 private slots:
 
     /**

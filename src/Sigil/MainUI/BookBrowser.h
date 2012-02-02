@@ -83,6 +83,11 @@ public slots:
      */
     void Refresh();
 
+   /**
+     * Refreshes the TOC file to renumber entries
+     */
+    void RefreshTOC();
+
     /**
      * Updates the selection in the book display
      */
@@ -133,6 +138,12 @@ signals:
      * @param resource The resource whose tab needs to close.
      */
     void RemoveTabRequest();
+
+    /**
+     * Emitted when requested to update the TOC numbers
+     *
+     */
+    void RefreshTOCContentsRequest();
 
     /**
      * Emitted when the browser wants a resource to be opened.
@@ -447,6 +458,7 @@ private:
     QAction *m_IdpfsObfuscationMethod;
     QAction *m_SortHTML;
     QAction *m_SortHTMLSelected;
+    QAction *m_RefreshTOC;
 
     /**
      * All the semantic actions for the <guide>

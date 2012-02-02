@@ -80,8 +80,6 @@ public:
      */
     void Refresh();    
 
-private:
-
     /**
      * Represents a single entry in the NCX TOC.
      */
@@ -112,6 +110,15 @@ private:
         NCXEntry() { is_root = false; }
     };
 
+    /**
+     * Reads the NCX file, parses it and returns the root NCX
+     * entry (that entry is the tree start). It's basically 
+     * just a function composition of ParseNCX and GetNCXText. 
+     *
+     * @return The root NCX entry.
+     */
+    NCXEntry GetRootNCXEntry();
+
 private slots:
 
     /**
@@ -122,15 +129,6 @@ private slots:
     void RefreshEnd();
 
 private:
-
-    /**
-     * Reads the NCX file, parses it and returns the root NCX
-     * entry (that entry is the tree start). It's basically 
-     * just a function composition of ParseNCX and GetNCXText. 
-     *
-     * @return The root NCX entry.
-     */
-    NCXEntry GetRootNCXEntry();
 
     /**
      * Reads the NCX file and returns the text in it.

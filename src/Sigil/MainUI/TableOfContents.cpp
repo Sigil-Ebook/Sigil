@@ -108,6 +108,12 @@ void TableOfContents::StartRefreshDelay()
 }
 
 
+void TableOfContents::RefreshTOCContents()
+{
+    m_Book->GetNCX().GenerateNCXFromTOCContents( *m_Book, m_NCXModel );
+}
+
+
 void TableOfContents::ItemClickedHandler( const QModelIndex &index )
 {
     QUrl url         = m_NCXModel.GetUrlForIndex( index );

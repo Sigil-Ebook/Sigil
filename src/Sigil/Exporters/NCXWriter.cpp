@@ -31,9 +31,27 @@ NCXWriter::NCXWriter( const Book &book, QIODevice &device )
     : 
     XMLWriter( book, device ),
     m_Headings( Headings::MakeHeadingHeirarchy( 
-                Headings::GetHeadingList( book.GetFolderKeeper().GetResourceTypeList< HTMLResource >( true ) ) ) )
+                Headings::GetHeadingList( book.GetFolderKeeper().GetResourceTypeList< HTMLResource >( true ) ) ) ),
+    m_NCXRootEntry( NCXModel::NCXEntry() )
 {
 
+}
+
+
+NCXWriter::NCXWriter( const Book &book, QIODevice &device, NCXModel::NCXEntry ncx_root_entry )
+:
+    XMLWriter( book, device ),
+    m_NCXRootEntry( ncx_root_entry )
+{
+
+}
+
+
+void NCXWriter::WriteXMLFromHeadings()
+{
+    m_NCXRootEntry = ConvertHeadingsToNCX();
+
+    WriteXML();
 }
 
 
@@ -67,11 +85,9 @@ void NCXWriter::WriteHead()
 
         m_Writer->writeAttribute( "content", m_Book.GetPublicationIdentifier() );
 
-        // The heading depth should be exactly the same as the depth
-        // of the NavMap element (since they are used to write it)
         m_Writer->writeEmptyElement( "meta" );
         m_Writer->writeAttribute( "name", "dtb:depth" );
-        m_Writer->writeAttribute( "content", QString::number( GetHeadingsDepth() ) );
+        m_Writer->writeAttribute( "content", QString::number( GetTOCDepth() ) );
 
         m_Writer->writeEmptyElement( "meta" );
         m_Writer->writeAttribute( "name", "dtb:totalPageCount" );
@@ -111,13 +127,13 @@ void NCXWriter::WriteNavMap()
 
     m_Writer->writeStartElement( "navMap" );
 
-    if ( !m_Headings.isEmpty() )
+    if ( !m_NCXRootEntry.children.isEmpty() )
     {
         // The NavMap is written recursively; 
-        // WriteNavPoint is called for each heading in the tree
-        foreach( Headings::Heading heading, m_Headings )
+        // WriteNavPoint is called for each entry in the tree
+        foreach( NCXModel::NCXEntry entry, m_NCXRootEntry.children )
         {
-            WriteNavPoint( heading, play_order );
+            WriteNavPoint( entry, play_order );
         }
     }
 
@@ -154,87 +170,105 @@ void NCXWriter::WriteFallbackNavPoint()
 }
 
 
-void NCXWriter::WriteNavPoint( const Headings::Heading &heading, int &play_order )
+NCXModel::NCXEntry NCXWriter::ConvertHeadingsToNCX()
 {
-    // Headings that shouldn't be included in the TOC
-    // are naturally not written to it
+    NCXModel::NCXEntry ncx_root;
+    foreach ( Headings::Heading heading, m_Headings )
+    {
+        ncx_root.children.append( ConvertHeadingWalker( heading ));
+    }
+
+    return ncx_root;
+}
+
+NCXModel::NCXEntry NCXWriter::ConvertHeadingWalker( Headings::Heading &heading )
+{
+    NCXModel::NCXEntry ncx_child;
+
     if ( heading.include_in_toc )
     {
-        m_Writer->writeStartElement( "navPoint" );
-
-        m_Writer->writeAttribute( "id", QString( "navPoint-%1" ).arg( play_order ) );
-        m_Writer->writeAttribute( "playOrder", QString( "%1" ).arg( play_order ) );
-
-        play_order++;
-
-        m_Writer->writeStartElement( "navLabel" );
-        m_Writer->writeTextElement( "text", heading.text );
-        m_Writer->writeEndElement();
-
+        ncx_child.text = heading.text;
         QString heading_file = heading.resource_file->GetRelativePathToOEBPS();       
-
-        m_Writer->writeEmptyElement( "content" );
 
         // If this heading appears right after a chapter break,
         // then it "represents" and links to its file; otherwise,
         // we link to the heading element directly
         if ( heading.at_file_start )
         {
-            m_Writer->writeAttribute( "src", Utility::URLEncodePath( heading_file ) );
+           ncx_child.target = Utility::URLEncodePath( heading_file );
         }
-
         else
         { 
             QString path = heading_file + "#" + XtoQ( heading.element->getAttribute( QtoX( "id" ) ) );
-            m_Writer->writeAttribute( "src", Utility::URLEncodePath( path ) );
+            ncx_child.target = Utility::URLEncodePath( path );
         }
     }
 
-    foreach( Headings::Heading child, heading.children )
+    foreach( Headings::Heading child_heading, heading.children )
+    {
+
+        ncx_child.children.append( ConvertHeadingWalker( child_heading ) );
+    }
+
+    return ncx_child;
+}
+
+
+
+void NCXWriter::WriteNavPoint( const NCXModel::NCXEntry &entry, int &play_order )
+{
+    m_Writer->writeStartElement( "navPoint" );
+
+    m_Writer->writeAttribute( "id", QString( "navPoint-%1" ).arg( play_order ) );
+    m_Writer->writeAttribute( "playOrder", QString( "%1" ).arg( play_order ) );
+
+    play_order++;
+
+    m_Writer->writeStartElement( "navLabel" );
+    m_Writer->writeTextElement( "text", entry.text );
+    m_Writer->writeEndElement();
+
+    m_Writer->writeEmptyElement( "content" );
+
+    m_Writer->writeAttribute( "src", entry.target );
+
+    foreach( NCXModel::NCXEntry child, entry.children )
     {
         WriteNavPoint( child, play_order );
     }
 
-    if ( heading.include_in_toc )
-
-        m_Writer->writeEndElement();
+    m_Writer->writeEndElement();
 }
 
 
-int NCXWriter::GetHeadingsDepth() const
+int NCXWriter::GetTOCDepth() const
 {
     int max_depth = 0;
 
-    // The first heading level can already have 
-    // several headings.
-    foreach ( Headings::Heading heading, m_Headings )
+    foreach ( NCXModel::NCXEntry entry, m_NCXRootEntry.children )
     {
         int current_depth = 0;
 
-        DepthWalker( heading, current_depth, max_depth );
+        TOCDepthWalker( entry , current_depth, max_depth );
     }
 
     return max_depth;
 }
 
 
-void NCXWriter::DepthWalker( const Headings::Heading &heading, int &current_depth, int &max_depth ) const
+void NCXWriter::TOCDepthWalker( const NCXModel::NCXEntry &entry , int &current_depth, int &max_depth ) const
 {
-   if ( heading.include_in_toc )
-   {
-        current_depth++;
+    current_depth++;
 
-        if ( current_depth > max_depth )
-
-            max_depth = current_depth;
+    if ( current_depth > max_depth )
+    { 
+        max_depth = current_depth;
     }
 
-    foreach( Headings::Heading child_heading, heading.children )
+    foreach( NCXModel::NCXEntry child_entry , entry.children )
     {
         int new_current_depth = current_depth;
         
-        DepthWalker( child_heading, new_current_depth, max_depth );                            
+        TOCDepthWalker( child_entry, new_current_depth, max_depth );                            
     }
  }
-
-

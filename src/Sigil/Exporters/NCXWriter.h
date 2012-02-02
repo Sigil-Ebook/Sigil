@@ -24,6 +24,7 @@
 #define NCXWRITER_H
 
 #include "XMLWriter.h"
+#include "MainUI/NCXModel.h"
 #include "BookManipulation/Headings.h"
 
 /**
@@ -42,7 +43,11 @@ public:
      */
     NCXWriter( const Book &book, QIODevice &device );
 
+    NCXWriter( const Book &book, QIODevice &device, NCXModel::NCXEntry ncx_root_entry );
+
     void WriteXML();
+
+    void WriteXMLFromHeadings();
     
 private:
 
@@ -72,15 +77,14 @@ private:
      * @param heading The heading being written.
      * @param play_order A reference to the general <navPoints> playorder. 
      */
-    void WriteNavPoint( const Headings::Heading &heading, int &play_order );
+    void WriteNavPoint( const NCXModel::NCXEntry &entry , int &play_order );
 
     /**
-     * Returns the depth of the headings tree 
-     * specified in m_Headings.
+     * Returns the depth of the TOC tree 
      *
-     * @return The heading hierarchy depth.
+     * @return The TOC hierarchy depth
      */
-    int GetHeadingsDepth() const;
+    int GetTOCDepth() const;
 
     /**
      * Used to walk through the headings tree and
@@ -90,7 +94,12 @@ private:
      * @param current_depth A reference to the depth of the current sub-tree.
      * @param max_depth A reference to the current maximum depth.
      */
-    void DepthWalker( const Headings::Heading &heading, int &current_depth, int &max_depth ) const;
+    void TOCDepthWalker( const NCXModel::NCXEntry &entry, int &current_depth, int &max_depth ) const;
+
+    NCXModel::NCXEntry ConvertHeadingsToNCX();
+
+    NCXModel::NCXEntry ConvertHeadingWalker( Headings::Heading &heading );
+
 
 
     ///////////////////////////////
@@ -101,6 +110,8 @@ private:
      * A hierarchical tree of all the headings in the book.
      */
     const QList< Headings::Heading > m_Headings;
+
+    NCXModel::NCXEntry m_NCXRootEntry;
 };
 
 #endif // NCXWRITER_H
