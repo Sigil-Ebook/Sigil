@@ -35,8 +35,6 @@ using boost::shared_ptr;
 
 class QShortcut;
 
-struct SPCRE::MatchInfo;
-
 /**
  * A WYSIWYG editor for XHTML flows. 
  * Also called the "Book View", because it shows a

@@ -13,7 +13,8 @@ Sigil 0.5.1 TBA
     - Fix issue 1188: New Sigil Regex engine crashes when pressing "replace all",
       works fine on pushing "replace" over and over and over again.
     - Implement issue 269: Select more than one item in the Book Browser Column.
-    - Implement issue 792: Sync selection in book browser to open tab.
+    - Implement issues 792: Add Shortcuts for next/previous HTML file with regard
+      to reading order, and sync selection in book browser to open tab.
     - Implement issue 1135: New blank section must be automatically selected on book browser.
     - Implement issue 1148: Allow user to change the order of split view so book view or code
       view is first.
