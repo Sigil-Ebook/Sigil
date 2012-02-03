@@ -29,6 +29,7 @@ class CZipAutoBuffer;
 
 #include "ZipString.h"
 #include "ZipPathComponent.h"
+#include <stdint.h>
 #include <sys/types.h>
 #include "ZipExport.h"
 

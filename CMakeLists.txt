@@ -15,6 +15,7 @@ set( CMAKE_DEBUG_POSTFIX "d" )
 set( CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/bin )
 set( CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/lib )
 set( PACKAGE_DIRECTORY ${PROJECT_BINARY_DIR}/package )
+set( CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_SOURCE_DIR}/cmake_extras" )
 
 set( SIGIL_MAJOR_VERSION 0 )
 set( SIGIL_MINOR_VERSION 5 )
@@ -61,6 +62,8 @@ if( NOT FORCE_BUNDLED_COPIES )
     if ( NOT APPLE )
         pkg_check_modules( PCRE libpcre )
     endif()
+    find_package( XercesExtensions )
+    find_package( FlightCrew )
 endif()
 
 # We must use the bundled Tidy because there are Sigil
@@ -95,11 +98,11 @@ if( FORCE_BUNDLED_COPIES OR NOT XERCES_FOUND )
     set( XERCES_INCLUDE_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/src/Xerces )
 endif()
 
-# XercesExtensions is not an external project. It is part of FlightCrew
-# and Sigil and it is not distributed as a standalone library.
-add_subdirectory( src/XercesExtensions )
-set( XERCESEXTENSIONS_LIBRARIES XercesExtensions )
-set( XERCESEXTENSIONS_INCLUDE_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/src/XercesExtensions )
+if( NOT XERCESEXTENSIONS_FOUND )
+    add_subdirectory( src/XercesExtensions )
+    set( XERCESEXTENSIONS_LIBRARIES XercesExtensions )
+    set( XERCESEXTENSIONS_INCLUDE_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/src/XercesExtensions )
+endif()
 
 if( FORCE_BUNDLED_COPIES OR NOT ZLIB_FOUND )
     add_subdirectory( src/zlib )
@@ -117,10 +120,11 @@ if( FORCE_BUNDLED_COPIES OR NOT HUNSPELL_FOUND )
     set( HUNSPELL_INCLUDE_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/src/hunspell )
 endif()
 
-# FlightCrew
-add_subdirectory( src/zipios )
-add_subdirectory( src/FlightCrew )
-set( FLIGHTCREW_LIBRARIES FlightCrew )
-set( FLIGHTCREW_INCLUDE_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/src/FlightCrew )
+if( NOT FLIGHTCREW_FOUND )
+    add_subdirectory( src/zipios )
+    add_subdirectory( src/FlightCrew )
+    set( FLIGHTCREW_LIBRARIES FlightCrew )
+    set( FLIGHTCREW_INCLUDE_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/src/FlightCrew )
+endif()
 
 add_subdirectory( src/Sigil )
