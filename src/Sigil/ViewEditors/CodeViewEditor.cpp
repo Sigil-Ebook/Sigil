@@ -547,6 +547,7 @@ bool CodeViewEditor::ReplaceSelected( const QString &search_regex, const QString
             cursor.beginEditBlock();
             cursor.removeSelectedText();
             cursor.insertText( replaced_text );
+            cursor.clearSelection();
             cursor.endEditBlock();
 
             // Set the cursor to the beginning of the replaced text if the user
@@ -554,8 +555,9 @@ bool CodeViewEditor::ReplaceSelected( const QString &search_regex, const QString
             if ( direction == Searchable::Direction_Up )
             {
                 cursor.setPosition( selection_start );
-                setTextCursor(cursor);
             }
+
+            setTextCursor( cursor );
 
             return true;
         }
