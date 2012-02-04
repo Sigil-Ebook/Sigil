@@ -302,7 +302,7 @@ void FindReplace::FindText( Searchable::Direction direction )
 
     if ( found )
     {
-        expireMessage();
+        clearMessage();
     }
     else
     {
@@ -457,6 +457,7 @@ int FindReplace::ReplaceInAllFiles()
             SearchOperations::CodeViewSearch );
 
     // Update the content displayed in the current tab.
+    m_MainWindow.GetCurrentContentTab().LoadTabContent();
 
     return count;
 }
@@ -505,9 +506,6 @@ bool FindReplace::FindInAllFiles( Searchable *searchable, Searchable::Direction 
             found = searchable->FindNext( GetSearchRegex(), direction, false, false );
         }
     }
-
-    // Update the content displayed in the current tab.
-    m_MainWindow.GetCurrentContentTab().LoadTabContent();
 
     return found;
 }
@@ -827,10 +825,11 @@ void FindReplace::ExtendUI()
 
 void FindReplace::ConnectSignalsToSlots()
 {
+    connect( &m_timer, SIGNAL( timeout() ), this, SLOT( expireMessage() ) );
     connect( ui.findNext, SIGNAL( clicked() ), this, SLOT( Find() ) );
     connect( ui.cbFind->lineEdit(), SIGNAL( returnPressed() ), this, SLOT( Find() ) );
     connect( ui.count, SIGNAL( clicked() ), this, SLOT( Count() ) );
-    connect( ui.replaceNext, SIGNAL( clicked() ), this, SLOT( ReplaceNext() ) );
+    connect( ui.replaceNext, SIGNAL( clicked() ), this, SLOT( Replace() ) );
     connect( ui.cbReplace->lineEdit(), SIGNAL( returnPressed() ), this, SLOT( Replace() ));
     connect( ui.replaceAll, SIGNAL( clicked() ), this, SLOT( ReplaceAll() ) );
     connect( ui.close, SIGNAL( clicked() ), this, SLOT( hide() ) );

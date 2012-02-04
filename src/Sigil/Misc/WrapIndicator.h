@@ -76,7 +76,7 @@ private slots:
     void runInternal()
     {
         QPropertyAnimation *anim = new QPropertyAnimation(this, "opacity", this);
-        anim->setDuration(200);
+        anim->setDuration(250);
         anim->setEndValue(0.);
         connect(anim, SIGNAL(finished()), this, SLOT(deleteLater()));
         anim->start(QAbstractAnimation::DeleteWhenStopped);
