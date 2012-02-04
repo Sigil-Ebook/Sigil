@@ -91,6 +91,25 @@ public:
     ContentTab& GetCurrentContentTab(); 
 
     /**
+     * Returns a list of valid selected HTML resources
+     *
+     * @return List of valid selected HTML resources
+     */
+    QList <Resource *> GetValidSelectedHTMLResources();
+
+    /**
+     * Saves the current Book Browser selected entries
+     *
+     */
+    void SaveBrowserSelection();
+
+    /**
+     * Restores the Book Browser selected entries
+     *
+     */
+    void RestoreBrowserSelection();
+
+    /**
      * Opens the specified resource in the specified view state.
      * 
      * @param resource The resource to open.

@@ -67,6 +67,15 @@ public:
      */
     ~BookBrowser();
 
+    /**
+     * Valid resources selected in the Book Browser
+     */
+    QList <Resource *> ValidSelectedHTMLResources();
+
+    void SaveSelection();
+
+    void RestoreSelection();
+
 public slots:
 
     /**
@@ -484,6 +493,8 @@ private:
      * added an existing file.
      */
     QString m_LastFolderOpen;
+
+    QList <QModelIndex> m_SavedSelection;
 };
 
 #endif // BOOKBROWSER_H

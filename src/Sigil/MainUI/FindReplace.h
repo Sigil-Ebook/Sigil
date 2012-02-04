@@ -55,7 +55,8 @@ public:
     enum LookWhere
     {
         LookWhere_CurrentFile = 0,
-        LookWhere_AllHTMLFiles = 10
+        LookWhere_AllHTMLFiles = 10,
+        LookWhere_SelectedHTMLFiles = 20
     };
 
     enum SearchMode
@@ -64,7 +65,7 @@ public:
         SearchMode_Normal = 0,
         SearchMode_Case_Sensitive = 10,
         SearchMode_Regex = 20,
-        SearchMode_RegexMultiline = 30
+        SearchMode_RegexDotall = 30
     };
 
     enum SearchDirection
@@ -126,7 +127,7 @@ private:
      *
      * @return \c true if book-wide searching is allowed.
      */
-    bool CheckBookWideSearchingAllowed();
+    void SetCodeViewIfNeeded( bool replace = false );
 
     // Displays a message to the user informing him
     // that his last search term could not be found.
@@ -138,11 +139,15 @@ private:
     // options and fields and then returns it.
     QString GetSearchRegex();
 
+    QList <Resource *> GetHTMLFiles();
+
+    bool IsCurrentFileInSelection();
+
     int CountInFiles();
 
     int ReplaceInAllFiles();
 
-    void FindInAllFiles( Searchable *searchable, Searchable::Direction direction );
+    bool FindInAllFiles( Searchable *searchable, Searchable::Direction direction );
 
     HTMLResource* GetNextContainingHTMLResource( Searchable::Direction direction );
 
@@ -214,6 +219,7 @@ private:
     QTimer m_timer;
 
     Ui::FindReplace ui;
+
 };
 
 
@@ -221,7 +227,7 @@ template< class T >
 bool FindReplace::ResourceContainsCurrentRegex( T *resource )
 {
     // For now, this must hold
-    Q_ASSERT( GetLookWhere() == FindReplace::LookWhere_AllHTMLFiles );
+    Q_ASSERT( GetLookWhere() == FindReplace::LookWhere_AllHTMLFiles || GetLookWhere() == FindReplace::LookWhere_SelectedHTMLFiles );
 
     Resource *generic_resource = resource;
 
@@ -239,16 +245,18 @@ T* FindReplace::GetStartingResource()
     T* typed_resource  = qobject_cast< T* >( resource );
 
     if ( typed_resource )
-
+    {
         return typed_resource;
+    }
 
     // If the current one is not the correct type,
-    // we return the first resource of that type from the book.
-    QList< T* > resources = m_MainWindow.GetCurrentBook()->GetFolderKeeper().GetResourceTypeList< T >( true );
+    // we return the first resource of type HTML from the Book
+    // Should probably adapt to other resources, but we only search HTML 
+    QList<Resource *> resources = GetHTMLFiles();
 
     if ( resources.count() > 0 )
 
-        return resources[ 0 ];
+        return qobject_cast<HTMLResource*>(resources[ 0 ]);
 
     else
 

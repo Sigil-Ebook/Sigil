@@ -38,7 +38,7 @@ find_package( Qt4 4.7.0 COMPONENTS QtCore QtGui QtMain QtNetwork QtWebkit QtSvg 
 include( ${QT_USE_FILE} )
 
 # These headers need to go through Qt's MOC compiler
-set( QOBJECT_HEADERS 
+set( QOBJECT_HEADERS
     ViewEditors/BookViewEditor.h
     ViewEditors/CodeViewEditor.h 
     Dialogs/AddMetadata.h 
@@ -73,6 +73,7 @@ set( QOBJECT_HEADERS
     Misc/SettingsStore.h
     Misc/UpdateChecker.h 
     Misc/RasterizeImageResource.h
+    Misc/WrapIndicator.h
     ResourceObjects/Resource.h
     ResourceObjects/TextResource.h
     ResourceObjects/HTMLResource.h
@@ -226,6 +227,7 @@ set( MISC_FILES
     Misc/FontObfuscation.h
     Misc/TempFolder.cpp
     Misc/TempFolder.h
+    Misc/WrapIndicator.h
     )
 
 set( SPCRE_FILES
@@ -244,7 +246,8 @@ set( VIEW_EDITOR_FILES
     ViewEditors/CodeViewEditor.h
     ViewEditors/LineNumberArea.cpp
     ViewEditors/LineNumberArea.h
-    ViewEditors/Searchable.h 
+    ViewEditors/Searchable.cpp
+    ViewEditors/Searchable.h
     ViewEditors/Zoomable.h 
     ViewEditors/ViewEditor.h     
     )

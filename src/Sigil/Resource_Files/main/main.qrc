@@ -79,5 +79,6 @@
         <file>document-well-formed_check_22px.png</file>
         <file>widget-close-16.png</file>
         <file>widget-close-22.png</file>
+        <file>wrapindicator.png</file>
     </qresource>
 </RCC>

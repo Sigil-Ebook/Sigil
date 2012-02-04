@@ -110,7 +110,7 @@ void BookBrowser::Refresh()
 void BookBrowser::UpdateSelection( Resource &resource )
 {
     // Clear selections
-    m_TreeView.selectionModel()->setCurrentIndex( m_TreeView.model()->index( 0, 0 ), QItemSelectionModel::Clear );
+    m_TreeView.selectionModel()->clearSelection();
 
     QModelIndex index = m_OPFModel.GetModelItemIndex( resource, OPFModel::IndexChoice_Current );
     m_TreeView.selectionModel()->setCurrentIndex( index, QItemSelectionModel::SelectCurrent );
@@ -211,6 +211,12 @@ void BookBrowser::OpenContextMenu( const QPoint &point )
     m_SemanticsContextMenu.clear();
 }
 
+QList <Resource *> BookBrowser::ValidSelectedHTMLResources()
+{
+    return ValidSelectedResources( Resource::HTMLResourceType );
+}
+
+
 QList <Resource *> BookBrowser::ValidSelectedResources( Resource::ResourceType resource_type )
 {
     QList <Resource *> resources = ValidSelectedResources();
@@ -299,6 +305,21 @@ int BookBrowser::ValidSelectedItemCount()
     return count;
 }
 
+void BookBrowser::SaveSelection()
+{
+    m_SavedSelection = m_TreeView.selectionModel()->selectedRows( 0 );
+}
+
+void BookBrowser::RestoreSelection()
+{
+    m_TreeView.selectionModel()->clearSelection();
+
+    // Set the saved selectins
+    foreach ( QModelIndex index, m_SavedSelection )
+    {
+        m_TreeView.selectionModel()->select( index, QItemSelectionModel::Select );
+    }
+}
 
 void BookBrowser::AddNew()
 {

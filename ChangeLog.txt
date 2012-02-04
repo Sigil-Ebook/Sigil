@@ -1,4 +1,13 @@
 Sigil 0.5.1 TBA
+    - Issue 1225:
+      * Add searching selected files.
+      * Add search wrapping.
+      * Replace in BV automatically goes to CV.
+      * Fixed bug where in CV if you do a replace of a word and then replace
+        all when there are the same words on the page, the page view wouldn't
+        be refreshed.
+      * Various fixes.
+    - Add English translation file used for plural strings.
     - Implement issue 986: Automatically renumber playorder in TOC NCX.
     - Implement issue 1224: F&R modifications to update layout and add Regex Multiline.
     - Fix issue 1214: Dictionary files do not include hypen files or GB files.

@@ -121,6 +121,24 @@ MainWindow::MainWindow( const QString &openfilepath, QWidget *parent, Qt::WFlags
 }
 
 
+void MainWindow::SaveBrowserSelection()
+{
+    return m_BookBrowser->SaveSelection();
+}
+
+
+void MainWindow::RestoreBrowserSelection()
+{
+    return m_BookBrowser->RestoreSelection();
+}
+
+
+QList <Resource *> MainWindow::GetValidSelectedHTMLResources()
+{
+    return m_BookBrowser->ValidSelectedHTMLResources();
+}
+
+
 QSharedPointer< Book > MainWindow::GetCurrentBook()
 {
     return m_Book;
@@ -1871,7 +1889,6 @@ void MainWindow::ConnectSignalsToSlots()
 
     connect( &m_TabManager, SIGNAL( NewChaptersRequest( QStringList, HTMLResource& ) ),
              this,          SLOT(   CreateNewChapters(  QStringList, HTMLResource& ) ) );
-
 }
 
 

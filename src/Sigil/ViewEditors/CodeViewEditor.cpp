@@ -434,7 +434,8 @@ void CodeViewEditor::UpdateDisplay()
 
 bool CodeViewEditor::FindNext( const QString &search_regex,
                                Searchable::Direction search_direction,
-                               bool ignore_selection_offset )
+                               bool ignore_selection_offset,
+                               bool wrap )
 {
     SPCRE *spcre = PCRECache::instance()->getObject(search_regex);
 
@@ -491,6 +492,14 @@ bool CodeViewEditor::FindNext( const QString &search_regex,
 
         return true;
     }
+    else if ( wrap )
+    {
+        if ( FindNext( search_regex, search_direction, true, false ) )
+        {
+            ShowWrapIndicator(this);
+            return true;
+        }
+    }
 
     return false;
 }
@@ -509,6 +518,20 @@ bool CodeViewEditor::ReplaceSelected( const QString &search_regex, const QString
 
     int selection_start = textCursor().selectionStart();
     QString selected_text = textCursor().selectedText();
+
+    // Check if current selection is a match as well to handle 
+    // highlighted text that is a match and new files when replacing in all HTML
+    if ( !( m_lastMatch.offset.first == selection_start && m_lastMatch.offset.second == selection_start + selected_text.length() ) )
+    {
+        SPCRE::MatchInfo match_info;
+        match_info = spcre->getFirstMatchInfo( selected_text );
+        if ( match_info.offset.first != -1 )
+        {
+            m_lastMatch.offset.first = selection_start + match_info.offset.first;
+            m_lastMatch.offset.second = selection_start + match_info.offset.second;
+            selected_text = selected_text.mid( match_info.offset.first, match_info.offset.second - match_info.offset.first + 1 );
+        }
+    }
 
     // Check if the currently selected text is a match.
     if ( m_lastMatch.offset.first == selection_start && m_lastMatch.offset.second == selection_start + selected_text.length() )
@@ -553,7 +576,7 @@ int CodeViewEditor::ReplaceAll( const QString &search_regex, const QString &repl
 
     cursor.beginEditBlock();
 
-    while ( FindNext( search_regex, Searchable::Direction_Down ) )
+    while ( FindNext( search_regex, Searchable::Direction_Down, false, false ) )
     {
         if ( ReplaceSelected( search_regex, replacement ) )
         {
@@ -1044,9 +1067,7 @@ void CodeViewEditor::DelayedCursorScreenCentering()
 
 int CodeViewEditor::GetSelectionOffset( Searchable::Direction search_direction, bool ignore_selection_offset ) const
 {
-    if ( search_direction == Searchable::Direction_Down ||
-         search_direction == Searchable::Direction_All
-       )
+    if ( search_direction == Searchable::Direction_Down )
     {
         return !ignore_selection_offset ? textCursor().selectionEnd() : 0;
     }

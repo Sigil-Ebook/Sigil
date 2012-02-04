@@ -142,7 +142,7 @@
            </sizepolicy>
           </property>
           <property name="toolTip">
-           <string>Find next</string>
+           <string>Find next match</string>
           </property>
           <property name="styleSheet">
            <string notr="true"/>
@@ -161,7 +161,7 @@
            </sizepolicy>
           </property>
           <property name="toolTip">
-           <string>Count all matches</string>
+           <string>Count all matches in Code View</string>
           </property>
           <property name="styleSheet">
            <string notr="true"/>
@@ -200,7 +200,7 @@
         <item row="1" column="2">
          <widget class="QToolButton" name="replaceNext">
           <property name="toolTip">
-           <string>Replace next</string>
+           <string>Replace then find next match in Code View</string>
           </property>
           <property name="styleSheet">
            <string notr="true"/>
@@ -213,7 +213,7 @@
         <item row="1" column="3">
          <widget class="QToolButton" name="replaceAll">
           <property name="toolTip">
-           <string>Replace all</string>
+           <string>Replace all matches in Code View</string>
           </property>
           <property name="styleSheet">
            <string notr="true"/>
@@ -240,8 +240,8 @@
           </property>
          </widget>
         </item>
-        <item row="3" column="1" colspan="3">
-         <layout class="QHBoxLayout" name="horizontalLayout" stretch="0,0,0,0,0,0,0">
+        <item row="3" column="1" colspan="4">
+         <layout class="QHBoxLayout" name="horizontalLayout" stretch="0,0,0,0,0">
           <item>
            <widget class="QComboBox" name="cbSearchMode"/>
           </item>
@@ -262,6 +262,9 @@
            <widget class="QLabel" name="label_5">
             <property name="text">
              <string>Direction:</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
             </property>
            </widget>
           </item>
@@ -285,7 +288,7 @@
            <widget class="QLabel" name="message">
             <property name="font">
              <font>
-              <weight>75</weight>
+              <weight>50</weight>
               <bold>true</bold>
              </font>
             </property>

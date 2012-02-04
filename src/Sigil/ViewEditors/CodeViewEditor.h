@@ -174,7 +174,8 @@ public:
 
     bool FindNext( const QString &search_regex,
                    Searchable::Direction search_direction,
-                   bool ignore_selection_offset = false );
+                   bool ignore_selection_offset = false,
+                   bool wrap = true );
 
     int Count( const QString &search_regex );
 

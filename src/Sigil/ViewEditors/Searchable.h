@@ -28,6 +28,7 @@
 
 class QString;
 class QStringList;
+class QWidget;
 
 
 /**
@@ -64,7 +65,8 @@ public:
      */
     virtual bool FindNext( const QString &search_regex,
                            Direction search_direction, 
-                           bool ignore_selection_offset = false ) = 0;
+                           bool ignore_selection_offset = false,
+                           bool wrap = true ) = 0;
 
     /**
      * Returns the number of matching occurrences.
@@ -99,6 +101,8 @@ public:
      * @return The currently selected text string.
      */
     virtual QString GetSelectedText() = 0;
+
+    static void ShowWrapIndicator( QWidget *parent );
 };
 
 #endif // SEARCHABLE_H

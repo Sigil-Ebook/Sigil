@@ -342,17 +342,21 @@ void BookViewEditor::UpdateDisplay()
 
 bool BookViewEditor::FindNext( const QString &search_regex,
                                Searchable::Direction search_direction,
-                               bool ignore_selection_offset )
+                               bool ignore_selection_offset,
+                               bool wrap
+                             )
+                              
 
 {
     SearchTools search_tools = GetSearchTools();
-    return FindNext( search_tools, search_regex, search_direction, ignore_selection_offset );
+    return FindNext( search_tools, search_regex, search_direction, ignore_selection_offset, wrap );
 }
 
 bool BookViewEditor::FindNext( SearchTools &search_tools,
                                const QString &search_regex,
                                Searchable::Direction search_direction,
-                               bool ignore_selection_offset
+                               bool ignore_selection_offset,
+                               bool wrap
                              )
 {
     SPCRE *spcre = PCRECache::instance()->getObject(search_regex);
@@ -393,6 +397,14 @@ bool BookViewEditor::FindNext( SearchTools &search_tools,
 
         return true;
     }
+    else if ( wrap )
+    {
+        if ( FindNext( search_regex, search_direction, true, false ) )
+        {
+            ShowWrapIndicator(this);
+            return true;
+        }
+    }
 
     return false;
 }
@@ -406,7 +418,7 @@ int BookViewEditor::Count( const QString &search_regex )
 
 bool BookViewEditor::ReplaceSelected( const QString &search_regex, const QString &replacement, Searchable::Direction direction )
 {
-    QMessageBox::critical( this, tr( "Unsupported" ), tr( "Replace is not supported in Book View.  Switch to Code View." ) );
+    QMessageBox::critical( this, tr( "Unsupported" ), tr( "Replace is not supported in Book View at this time.  Switch to Code View." ) );
 
     return false;
 
@@ -454,7 +466,7 @@ bool BookViewEditor::ReplaceSelected( const QString &search_regex, const QString
 
 int BookViewEditor::ReplaceAll( const QString &search_regex, const QString &replacement )
 {
-    QMessageBox::critical( this, tr( "Unsupported" ), tr( "Replace is not supported in Book View" ) );
+    QMessageBox::critical( this, tr( "Unsupported" ), tr( "Replace All for the current file is not supported in Book View at this time.  Switch to Code View." ) );
 
     return 0;
 
@@ -671,8 +683,7 @@ int BookViewEditor::GetSelectionOffset( const xc::DOMDocument &document,
 {
     xc::DOMNode *caret_node = XhtmlDoc::GetNodeFromHierarchy( document, GetCaretLocation() );
 
-    bool searching_down = search_direction == Searchable::Direction_Down || 
-                          search_direction == Searchable::Direction_All ? true : false;
+    bool searching_down = search_direction == Searchable::Direction_Down ? true : false;
 
     int local_offset    = GetLocalSelectionOffset( !searching_down );
     int search_start    = node_offsets.key( caret_node ) + local_offset;
