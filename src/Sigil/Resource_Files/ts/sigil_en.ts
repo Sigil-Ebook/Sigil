@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0">
+<TS version="2.0" language="en">
 <context>
     <name>About</name>
     <message>
@@ -470,24 +470,14 @@ Continue?</source>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="369"/>
         <source>No matches found</source>
-        <translation type="unfinished">
-        </translation>
-    </message>
-    <message>
-        <source>Search wrapped around</source>
-        <translation type="obsolete">
-        </translation>
-    </message>
-    <message>
-        <source>No replacement found</source>
-        <translation type="obsolete">
-        </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message numerus="yes">
         <location filename="../../MainUI/FindReplace.cpp" line="172"/>
         <source>%1 matches found</source>
-        <translation type="unfinished">
+        <translation>
             <numerusform>%1 match found</numerusform>
+            <numerusform>%1 matches found</numerusform>
         </translation>
     </message>
     <message>
@@ -498,8 +488,9 @@ Continue?</source>
     <message numerus="yes">
         <location filename="../../MainUI/FindReplace.cpp" line="242"/>
         <source>%1 replacements made</source>
-        <translation type="unfinished">
+        <translation>
             <numerusform>%1 replacement made</numerusform>
+            <numerusform>%1 replacements made</numerusform>
         </translation>
     </message>
     <message>
