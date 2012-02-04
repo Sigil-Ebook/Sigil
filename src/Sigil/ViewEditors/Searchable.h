@@ -46,8 +46,7 @@ public:
     enum Direction
     {
         Direction_Up,   /**< Search from the caret point upwards. */
-        Direction_Down, /**< Search from the caret point downwards. */
-        Direction_All  /**< Search from the caret point down, then wrap around. */
+        Direction_Down /**< Search from the caret point downwards. */
     };
 
     /**
