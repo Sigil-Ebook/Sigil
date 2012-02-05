@@ -213,7 +213,24 @@ void BookBrowser::OpenContextMenu( const QPoint &point )
 
 QList <Resource *> BookBrowser::ValidSelectedHTMLResources()
 {
-    return ValidSelectedResources( Resource::HTMLResourceType );
+    QList <Resource *> sorted_html_resources;
+    QList <Resource *> selected_html_resources = ValidSelectedResources();
+    QList <Resource *> all_html_resources = m_Book->GetFolderKeeper().GetResourceTypeAsGenericList< HTMLResource >( true );
+
+    // Sort according to book order
+    foreach ( Resource *all_html_resource, all_html_resources )
+    {
+        foreach ( Resource *selected_html_resource, selected_html_resources )
+        {
+            if ( all_html_resource->Filename() == selected_html_resource->Filename() )
+            {
+                sorted_html_resources.append( selected_html_resource );
+                break;
+            }
+        }
+    }
+
+    return sorted_html_resources;
 }
 
 
@@ -237,8 +254,6 @@ QList <Resource *> BookBrowser::ValidSelectedResources()
 
     if ( ValidSelectedItemCount() > 0 )
     {
-        // selectedRows appears to sort by index already, despite selectedIndexes not being sorted
-        // If sorting is required, try qsort(list) but override < to sort by index number
         QList <QModelIndex> list = m_TreeView.selectionModel()->selectedRows( 0 );
 
         foreach ( QModelIndex index, list )
