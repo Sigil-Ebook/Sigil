@@ -48,7 +48,8 @@ ADD_LIBRARY(${PROJECT_NAME} ${HUNSPELL_HEADERS} ${HUNSPELL_SOURCES})
 
 # Special compiler and linker flags for MSVC
 if( MSVC )
-        add_definitions( /DHUNSPELL_STATIC /D_CRT_SECURE_NO_WARNINGS /DUNICODE /D_UNICODE /Zc:wchar_t-  )
+    add_definitions( /DHUNSPELL_STATIC /D_CRT_SECURE_NO_WARNINGS /DUNICODE /D_UNICODE /Zc:wchar_t-  )
+    set( CMAKE_C_FLAGS "${CMAKE_C_FLAGS} /MP")
 	set( CMAKE_C_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} /Oi /GL" ) 
-        set_target_properties( ${PROJECT_NAME} PROPERTIES STATIC_LIBRARY_FLAGS "/LTCG" )
+    set_target_properties( ${PROJECT_NAME} PROPERTIES STATIC_LIBRARY_FLAGS "/LTCG" )
 endif()

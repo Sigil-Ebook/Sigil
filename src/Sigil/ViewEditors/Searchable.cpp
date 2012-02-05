@@ -28,6 +28,7 @@
 **
 **************************************************************************/
 
+#include <stdafx.h>
 #include "Searchable.h"
 #include "Misc/WrapIndicator.h"
 

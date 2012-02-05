@@ -820,8 +820,8 @@ void FindReplace::ExtendUI()
         "<dt><b>Selected HTML Files</b><dd>Restrict the find or replace to the HTML files selected in the Book Browser - always done in Code View</dd>"
         "</dl>" ) );
 
-    ui.cbSearchDirection->addItem( tr( "Up" ), FindReplace::FindReplace::SearchDirection_Up );
-    ui.cbSearchDirection->addItem( tr( "Down" ), FindReplace::FindReplace::SearchDirection_Down );
+    ui.cbSearchDirection->addItem( tr( "Up" ), FindReplace::SearchDirection_Up );
+    ui.cbSearchDirection->addItem( tr( "Down" ), FindReplace::SearchDirection_Down );
     ui.cbSearchDirection->setToolTip( tr( "<p>Direction:</p>"
         "<dl>"
         "<dt><b>Up</b><dd>Search for the previous match from your current position</dd>"
