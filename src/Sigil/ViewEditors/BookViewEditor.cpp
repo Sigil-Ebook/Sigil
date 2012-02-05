@@ -364,22 +364,28 @@ bool BookViewEditor::FindNext( SearchTools &search_tools,
     int start_offset = 0;
     int selection_offset = -1;
 
-    if ( ignore_selection_offset )
-    {
-        selection_offset = 0;
-    }
-    else
-    {
-        selection_offset = GetSelectionOffset( *search_tools.document, search_tools.node_offsets, search_direction ) - 1;
-    }
-
     // Get the match info for the direction.
     if ( search_direction == Searchable::Direction_Up )
     {
+        if ( ignore_selection_offset )
+        {
+            selection_offset = search_tools.fulltext.count();
+        }
+        else {
+            selection_offset = GetSelectionOffset( *search_tools.document, search_tools.node_offsets, search_direction );
+        }
         match_info = spcre->getLastMatchInfo( Utility::Substring( 0, selection_offset, search_tools.fulltext ) );
     }
     else
     {
+        if ( ignore_selection_offset )
+        {
+            selection_offset = 0;
+        }
+        else
+        {
+            selection_offset = GetSelectionOffset( *search_tools.document, search_tools.node_offsets, search_direction ) - 1;
+        }
         match_info = spcre->getFirstMatchInfo( Utility::Substring( selection_offset, search_tools.fulltext.count(), search_tools.fulltext ) );
         start_offset = selection_offset;
     }
