@@ -1,4 +1,4 @@
-Sigil 0.5.1 TBA
+Sigil 0.5.1 2012.02.05
     - Issue 1225:
       * Add searching selected files.
       * Add search wrapping.
