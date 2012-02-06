@@ -425,9 +425,12 @@ void BookBrowser::AddExisting()
             Resource &added_resource = m_Book->GetFolderKeeper().GetResourceByFilename( filename );
             HTMLResource *added_html_resource = qobject_cast< HTMLResource * >( &added_resource );
 
-            m_Book->MoveResourceAfter( *added_html_resource, *current_html_resource );
+            if ( current_html_resource && added_html_resource )
+            {
+                m_Book->MoveResourceAfter( *added_html_resource, *current_html_resource );
+            }
 
-            current_html_resource = added_html_resource;
+            emit ResourceActivated( added_resource );
         }
 
         else
@@ -439,7 +442,6 @@ void BookBrowser::AddExisting()
 
     m_Book->SetMetadata( old_metadata );
 
-    emit ResourceActivated( *current_html_resource );
     emit BookContentModified();
     Refresh();
 }

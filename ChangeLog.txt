@@ -1,3 +1,6 @@
+Sigil 0.5.2 TBA
+    - Fix issue 1129: Crash when importing existing image.
+
 Sigil 0.5.1 2012.02.05
     - Issue 1225:
       * Add searching selected files.
