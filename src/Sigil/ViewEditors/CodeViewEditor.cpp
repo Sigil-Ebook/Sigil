@@ -594,6 +594,7 @@ int CodeViewEditor::ReplaceAll( const QString &search_regex, const QString &repl
 
     cursor.setPosition( cursor_position );
     setTextCursor( cursor );
+    SetDelayedCursorScreenCenteringRequired();
 
     return count;
 }
