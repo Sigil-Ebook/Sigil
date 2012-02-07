@@ -193,6 +193,11 @@ public:
      */
     bool ExecuteCaretUpdate();
 
+    /**
+     * Sets flag to execute a centerCursor() call later
+     * with m_DelayedCursorScreenCenteringRequired.
+     */
+    void SetDelayedCursorScreenCenteringRequired();
 
 signals:
     

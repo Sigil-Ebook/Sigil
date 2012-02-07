@@ -791,6 +791,7 @@ void FlowTab::SplitView()
 
     m_wBookView.show();
     m_wCodeView.show();
+    m_wCodeView.SetDelayedCursorScreenCenteringRequired();
 
     emit ViewChanged();
 
@@ -811,6 +812,7 @@ void FlowTab::CodeView()
 
     m_wBookView.hide();
     m_wCodeView.show();       
+    m_wCodeView.SetDelayedCursorScreenCenteringRequired();
 
     setFocusProxy( &m_wCodeView );
 

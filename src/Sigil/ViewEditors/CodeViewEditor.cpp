@@ -1067,6 +1067,12 @@ void CodeViewEditor::DelayedCursorScreenCentering()
 }
 
 
+void CodeViewEditor::SetDelayedCursorScreenCenteringRequired()
+{
+    m_DelayedCursorScreenCenteringRequired = true;
+}
+
+
 int CodeViewEditor::GetSelectionOffset( Searchable::Direction search_direction, bool ignore_selection_offset ) const
 {
     if ( search_direction == Searchable::Direction_Down )
