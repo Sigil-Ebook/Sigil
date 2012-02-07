@@ -536,7 +536,7 @@ void BookBrowser::Remove()
             );
         return;
     }
-    else if ( resource_type == Resource::HTMLResourceType && resources.count() > 1 )
+    else if ( resource_type == Resource::HTMLResourceType && resources.count() >= 1 )
     {
         QMessageBox::StandardButton button_pressed;
         QString msg = resources.count() == 1 ? tr ( "Are you sure you want to delete the selected file?\n" ):
