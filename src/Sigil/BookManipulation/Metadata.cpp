@@ -357,7 +357,7 @@ Metadata::MetaElement Metadata::FreeFormMetadata( const Metadata::MetaElement &m
     }
     else
     {
-        name.at( 0 ).toUpper() + name.mid( 1 );
+        name = name.at( 0 ).toUpper() + name.mid( 1 );
     }
     
     MetaElement book_meta;
