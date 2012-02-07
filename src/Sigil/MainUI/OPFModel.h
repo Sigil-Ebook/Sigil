@@ -153,6 +153,12 @@ signals:
      */
     void BookContentModified();
 
+    /**
+     * Emitted when renaming to update the selection to the renamed entry
+     */
+    void UpdateSelection( Resource& );
+
+
 private slots:
 
     /**

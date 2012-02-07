@@ -334,6 +334,8 @@ bool OPFModel:: RenameResource( Resource &resource, const QString &new_filename 
 
     Refresh();
 
+    emit UpdateSelection ( resource );
+
     return true;
 }
 

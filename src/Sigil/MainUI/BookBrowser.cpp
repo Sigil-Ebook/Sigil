@@ -1147,6 +1147,9 @@ void BookBrowser::ConnectSignalsToSlots()
     connect( &m_TreeView, SIGNAL( customContextMenuRequested( const QPoint& ) ),
              this,        SLOT(   OpenContextMenu(            const QPoint& ) ) );
 
+    connect( &m_OPFModel, SIGNAL( UpdateSelection(                Resource& ) ),
+             this,        SLOT(   UpdateSelection(                Resource& ) ) );
+
     connect( m_AddNewHTML,              SIGNAL( triggered() ), this, SLOT( AddNewHTML()              ) );
     connect( m_SortHTML,                SIGNAL( triggered() ), this, SLOT( SortHTML()                ) );
     connect( m_RefreshTOC,              SIGNAL( triggered() ), this, SLOT( RefreshTOC()              ) );
