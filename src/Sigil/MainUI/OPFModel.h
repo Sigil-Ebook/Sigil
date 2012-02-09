@@ -113,6 +113,22 @@ public:
     QModelIndex GetModelFolderItemIndex( QStandardItem const *folder, Resource &resource, IndexChoice indexChoice );
 
     /**
+     * Gets a sorted list of the resources in the folder containing the given resource name
+     *
+     * @param item The resource in the folder whose list we want
+     * @return The list of resources in the same folder as the given resource
+     */
+    QList <Resource* > GetResourceListInFolder( Resource *resource );
+
+    /**
+     * Gets a sorted list of the resources in the folder containing the given resource type
+     *
+     * @param item The resource type in the folder whose list we want
+     * @return The list of resources in the same folder as the given resource
+     */
+    QList <Resource* > GetResourceListInFolder( Resource::ResourceType resource_type );
+
+    /**
      * Gets an item's resource type.
      *
      * @param item THe item whose resource type we want.

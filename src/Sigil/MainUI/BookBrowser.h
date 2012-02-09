@@ -229,6 +229,11 @@ private slots:
     void Remove();
 
     /**
+     * Returns the resource to select after removal
+     */
+    Resource* ResourceToSelectAfterRemove();
+
+    /**
      * Implements the Cover Image semantic context menu action functionality.
      */
     void SetCoverImage();

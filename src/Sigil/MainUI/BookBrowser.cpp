@@ -213,24 +213,7 @@ void BookBrowser::OpenContextMenu( const QPoint &point )
 
 QList <Resource *> BookBrowser::ValidSelectedHTMLResources()
 {
-    QList <Resource *> sorted_html_resources;
-    QList <Resource *> selected_html_resources = ValidSelectedResources();
-    QList <Resource *> all_html_resources = m_Book->GetFolderKeeper().GetResourceTypeAsGenericList< HTMLResource >( true );
-
-    // Sort according to book order
-    foreach ( Resource *all_html_resource, all_html_resources )
-    {
-        foreach ( Resource *selected_html_resource, selected_html_resources )
-        {
-            if ( all_html_resource->Filename() == selected_html_resource->Filename() )
-            {
-                sorted_html_resources.append( selected_html_resource );
-                break;
-            }
-        }
-    }
-
-    return sorted_html_resources;
+    return ValidSelectedResources( Resource::HTMLResourceType );
 }
 
 
@@ -251,28 +234,48 @@ QList <Resource *> BookBrowser::ValidSelectedResources( Resource::ResourceType r
 QList <Resource *> BookBrowser::ValidSelectedResources()
 {
     QList <Resource *> resources;
+    Resource::ResourceType resource_type;
 
-    if ( ValidSelectedItemCount() > 0 )
+    if ( ValidSelectedItemCount() < 1 )
     {
-        QList <QModelIndex> list = m_TreeView.selectionModel()->selectedRows( 0 );
+        return resources;
+    }
 
-        foreach ( QModelIndex index, list )
+    QList <QModelIndex> list = m_TreeView.selectionModel()->selectedRows( 0 );
+
+    foreach ( QModelIndex index, list )
+    {
+        QStandardItem *item = m_OPFModel.itemFromIndex( index );
+        if ( item != NULL )
         {
-            QStandardItem *item = m_OPFModel.itemFromIndex( index );
-            if ( item != NULL )
+            const QString &identifier = item->data().toString();
+
+            Resource *resource = &m_Book->GetFolderKeeper().GetResourceByIdentifier( identifier );
+            if ( resource != NULL )
             {
-                const QString &identifier = item->data().toString();
-    
-                Resource *resource = &m_Book->GetFolderKeeper().GetResourceByIdentifier( identifier );
-                if ( resource != NULL )
-                {
-                    resources.append(resource);
-                }
+                resources.append(resource);
+                resource_type = resource->Type();
             }
         }
     }
 
-    return resources;
+    // Sort according to treeview order
+    QList <Resource *> sorted_resources;
+    QList <Resource *> all_resources = m_OPFModel.GetResourceListInFolder( resource_type );
+
+    foreach ( Resource *all_resource, all_resources )
+    {
+        foreach ( Resource *resource, resources )
+        {
+            if ( all_resource->Filename() == resource->Filename() )
+            {
+                sorted_resources.append( all_resource );
+                break;
+            }
+        }
+    }
+
+    return sorted_resources;
 }
 
 
@@ -526,6 +529,7 @@ void BookBrowser::Remove()
     {
         return;
     }
+
     Resource::ResourceType resource_type = resources[0]->Type();
 
     if ( resource_type == Resource::OPFResourceType || 
@@ -536,43 +540,111 @@ void BookBrowser::Remove()
             );
         return;
     }
-    else if ( resource_type == Resource::HTMLResourceType && resources.count() >= 1 )
+    else if ( resource_type == Resource::HTMLResourceType &&
+        resources.count() == m_Book->GetFolderKeeper().GetResourceTypeList< HTMLResource >().count() ) 
     {
-        QMessageBox::StandardButton button_pressed;
-        QString msg = resources.count() == 1 ? tr ( "Are you sure you want to delete the selected file?\n" ):
-                                       tr ( "Are you sure you want to delete all the selected files?\n" );
-        button_pressed = QMessageBox::warning(	this,
-                                                tr( "Sigil" ), msg % tr( "This action cannot be reversed." ),
+            {
+                Utility::DisplayStdErrorDialog( 
+                    tr( "You cannot remove all html files.\n"
+                        "There always has to be at least one." )
+                    );
+                return;
+            }
+    }
+
+    QMessageBox::StandardButton button_pressed;
+    QString msg = resources.count() == 1 ? tr( "Are you sure you want to delete the selected file?\n" ):
+                                           tr( "Are you sure you want to delete all the selected files?\n" );
+    button_pressed = QMessageBox::warning(	this,
+                      tr( "Sigil" ), msg % tr( "This action cannot be reversed." ),
                                                 QMessageBox::Ok | QMessageBox::Cancel
-                                             );
-    
-        if ( button_pressed != QMessageBox::Ok )
-        { 
-            return;
-        }
+                                         );
+    if ( button_pressed != QMessageBox::Ok )
+    { 
+        return;
+    }
+
+    Resource *next_resource = ResourceToSelectAfterRemove();
+    Resource::ResourceType type = next_resource->Type();
+    if ( next_resource && 
+        ( type == Resource::HTMLResourceType ||
+          type == Resource::ImageResourceType ||
+          type == Resource::CSSResourceType ) )
+
+    {
+        emit ResourceActivated( *next_resource );
     }
 
     foreach ( Resource *resource, resources ) 
     {
-        resource_type = resource->Type();
-
-        if ( resource_type == Resource::HTMLResourceType && 
-            m_Book->GetFolderKeeper().GetResourceTypeList< HTMLResource >().count() == 1 ) 
-        {
-            Utility::DisplayStdErrorDialog( 
-                tr( "The last section cannot be removed.\n"
-                    "There always has to be at least one." )
-                );
-        }
-        else
-        {
-            resource->Delete();
-        }
+        resource->Delete();
     }
 
     emit BookContentModified();
 
-    Refresh();
+    // Avoid full refresh so selection stays for non-openable resources
+    m_OPFModel.Refresh();
+    UpdateSelection( *next_resource );
+}
+
+
+Resource* BookBrowser::ResourceToSelectAfterRemove()
+{
+    QList <Resource *> selected_resources = ValidSelectedResources();
+
+    if ( selected_resources.isEmpty() )
+    {
+        return NULL;
+    }
+
+    QList <Resource *> all_resources = m_OPFModel.GetResourceListInFolder( selected_resources.at(0) );
+
+    if ( all_resources.isEmpty() )
+    {
+        return NULL;
+    }
+
+    Resource *top_resource = NULL;
+    Resource *bottom_resource = NULL;
+    bool in_delete = false;
+
+    foreach ( Resource *all_resource, all_resources )
+    {
+        bool found = false;
+        foreach ( Resource *selected_resource, selected_resources )
+        {
+            if ( all_resource->Filename() == selected_resource->Filename() )
+            {
+                in_delete = true;
+                found = true;
+                break;
+            }
+        }
+        if ( !in_delete && !found )
+        {
+            top_resource = all_resource;
+        }
+        if ( in_delete && !found && !bottom_resource )
+        {
+            bottom_resource = all_resource;
+        }
+    }
+
+
+    if ( bottom_resource )
+    {
+        top_resource = bottom_resource;
+    }
+    else if ( !top_resource )
+    {
+        all_resources = m_OPFModel.GetResourceListInFolder( Resource::HTMLResourceType );
+        if ( !all_resources.isEmpty() )
+        {
+            top_resource = all_resources.at(0);
+        }
+    }
+
+    return top_resource;
 }
 
 

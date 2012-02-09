@@ -1,4 +1,6 @@
 Sigil 0.5.2 TBA
+    - Fix issue 1238: Deleting a file does not go to the next closest entry
+      in book browser.
     - Fix issue 1236: Replace All in Current file does not center cursor.
     - Fix issue 1234: Switching from Code View to Split View and SplitCV to
       CV does not vertically center the cursor.

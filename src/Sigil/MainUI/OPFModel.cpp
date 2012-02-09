@@ -139,6 +139,53 @@ QModelIndex OPFModel::GetTextFolderModelIndex()
 }
 
 
+QList <Resource* > OPFModel::GetResourceListInFolder( Resource *resource )
+{
+    return GetResourceListInFolder( resource->Type() );
+}
+
+
+QList <Resource* > OPFModel::GetResourceListInFolder( Resource::ResourceType resource_type )
+{
+    QList <Resource *> resources;
+    QStandardItem *folder = NULL;
+
+    if ( resource_type == Resource::HTMLResourceType )
+    {
+        folder = &m_TextFolderItem;
+    }
+    else if ( resource_type == Resource::CSSResourceType  || resource_type == Resource::XPGTResourceType )
+    {
+        folder = &m_StylesFolderItem;
+    }
+    else if ( resource_type == Resource::ImageResourceType )
+    {
+        folder = &m_ImagesFolderItem;
+    }
+    else if ( resource_type == Resource::FontResourceType )
+    {
+        folder = &m_FontsFolderItem;
+    }
+    else if ( resource_type != Resource::OPFResourceType && resource_type != Resource::NCXResourceType )
+    {
+        folder = &m_MiscFolderItem;
+    }
+
+    if ( folder )
+    {
+        for ( int i = 0; i < folder->rowCount(); ++i )
+        {
+            QStandardItem *item = folder->child( i );
+            QString identifier = item->data().toString();
+            Resource *resource = &m_Book->GetFolderKeeper().GetResourceByIdentifier( identifier );
+            resources.append ( resource );
+        }
+    }
+
+    return resources;
+}
+
+
 // Get the index of the given resource regardless of folder
 QModelIndex OPFModel::GetModelItemIndex( Resource &resource, IndexChoice indexChoice )
 {
