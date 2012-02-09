@@ -344,7 +344,7 @@ bool OPFModel:: RenameResource( Resource &resource, const QString &new_filename 
 
     QString new_filename_with_extension = new_filename;
 
-    if ( !new_filename.endsWith( extension ) )
+    if ( !new_filename.contains( '.')  )
     {
         new_filename_with_extension.append( extension );
     }
@@ -613,15 +613,6 @@ void OPFModel::SortHTMLFilesByAlphanumeric()
 
 bool OPFModel::FilenameIsValid( const QString &old_filename, const QString &new_filename )
 {
-    if ( new_filename.isEmpty() )
-    {
-        Utility::DisplayStdErrorDialog( 
-            tr( "The filename cannot be empty." )
-            );
-
-        return false;
-    }
-
     foreach( QChar character, new_filename )
     {
         if ( FORBIDDEN_FILENAME_CHARS.contains( character ) )
@@ -637,6 +628,18 @@ bool OPFModel::FilenameIsValid( const QString &old_filename, const QString &new_
 
     const QString &old_extension = QFileInfo( old_filename ).suffix();
     const QString &new_extension = QFileInfo( new_filename ).suffix();
+
+    QString new_filename_without_extension = new_filename.left( new_filename.length() - new_extension.length() - 1 );
+
+    if ( new_filename.isEmpty() || new_filename_without_extension.isEmpty() )
+    {
+        Utility::DisplayStdErrorDialog( 
+            tr( "The filename cannot be empty." )
+            );
+
+        return false;
+    }
+
 
     // We normally don't allow an extension change, but we
     // allow it for changes within the following sets:

@@ -492,7 +492,7 @@ void BookBrowser::RenameSelected()
     // Save the template for later
     store->setRenameTemplate( templateName );
 
-    // Get the base text and staring number
+    // Get the base text and starting number
     int pos = templateName.length() - 1;
     QString templateNumber = "";
     while ( pos > 0 && templateName[pos].isDigit() )
@@ -507,11 +507,18 @@ void BookBrowser::RenameSelected()
         templateNumber = "1";
     }
 
+    QString first_filename = resources.at(0)->Filename();
+    QString extension = "";
+    if ( first_filename.contains( '.' ) )
+    {
+        extension = first_filename.right( first_filename.length() - first_filename.lastIndexOf( '.' ) );
+    }
+
     // Rename each entry in turn
     int i = templateNumber.toInt();
     foreach ( Resource *resource, resources )
     {
-        QString name = QString( "%1%2" ).arg( templateBase ).arg( i, templateNumber.length(), 10, QChar( '0' ) );
+        QString name = QString( "%1%2" ).arg( templateBase ).arg( i, templateNumber.length(), 10, QChar( '0' ) ).append( extension );
         if ( !m_OPFModel.RenameResource( *resource, name ) )
         {
             break;
