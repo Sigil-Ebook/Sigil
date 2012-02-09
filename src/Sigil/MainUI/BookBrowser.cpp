@@ -537,7 +537,7 @@ void BookBrowser::Remove()
         return;
     }
 
-    Resource::ResourceType resource_type = resources[0]->Type();
+    Resource::ResourceType resource_type = resources.first()->Type();
 
     if ( resource_type == Resource::OPFResourceType || 
          resource_type == Resource::NCXResourceType )
@@ -572,14 +572,17 @@ void BookBrowser::Remove()
     }
 
     Resource *next_resource = ResourceToSelectAfterRemove();
-    Resource::ResourceType type = next_resource->Type();
-    if ( next_resource && 
-        ( type == Resource::HTMLResourceType ||
-          type == Resource::ImageResourceType ||
-          type == Resource::CSSResourceType ) )
-
+    if ( next_resource )
     {
-        emit ResourceActivated( *next_resource );
+        Resource::ResourceType type = next_resource->Type();
+        if ( next_resource &&
+            ( type == Resource::HTMLResourceType ||
+              type == Resource::ImageResourceType ||
+              type == Resource::CSSResourceType ) )
+
+        {
+            emit ResourceActivated( *next_resource );
+        }
     }
 
     foreach ( Resource *resource, resources ) 
@@ -591,7 +594,10 @@ void BookBrowser::Remove()
 
     // Avoid full refresh so selection stays for non-openable resources
     m_OPFModel.Refresh();
-    UpdateSelection( *next_resource );
+    if ( next_resource )
+    {
+        UpdateSelection( *next_resource );
+    }
 }
 
 
@@ -604,7 +610,7 @@ Resource* BookBrowser::ResourceToSelectAfterRemove()
         return NULL;
     }
 
-    QList <Resource *> all_resources = m_OPFModel.GetResourceListInFolder( selected_resources.at(0) );
+    QList <Resource *> all_resources = m_OPFModel.GetResourceListInFolder( selected_resources.first() );
 
     if ( all_resources.isEmpty() )
     {
@@ -647,7 +653,7 @@ Resource* BookBrowser::ResourceToSelectAfterRemove()
         all_resources = m_OPFModel.GetResourceListInFolder( Resource::HTMLResourceType );
         if ( !all_resources.isEmpty() )
         {
-            top_resource = all_resources.at(0);
+            top_resource = all_resources.first();
         }
     }
 
@@ -685,7 +691,7 @@ void BookBrowser::AddGuideSemanticType( int type )
 
 void BookBrowser::Merge()
 {
-    QList <Resource *> resources = ValidSelectedResources( Resource::HTMLResourceType );
+    QList<Resource *> resources = ValidSelectedResources( Resource::HTMLResourceType );
     Resource *resource1 = resources.first();
 
     // Skip merge if any non-html files selected - by keyboard shortcut or selection across folders
