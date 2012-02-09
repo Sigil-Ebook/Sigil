@@ -1,4 +1,4 @@
-Sigil 0.5.2 TBA
+Sigil 0.5.2 2012.02.09
     - Fix issue 1253: Replace All in All HTML files adds extra blank lines in
       style section.
     - Fix issue 1251: Merge does not work if you previously used split chapter.
