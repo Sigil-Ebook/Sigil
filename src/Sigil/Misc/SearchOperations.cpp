@@ -160,7 +160,7 @@ int SearchOperations::ReplaceHTMLInFile( const QString &search_regex,
         tie( new_text, count ) = PerformGlobalReplace( text, search_regex, replacement );
 
         html_resource->SetDomDocument( 
-            XhtmlDoc::LoadTextIntoDocument( CleanSource::ToValidXHTML( new_text ) ) );
+            XhtmlDoc::LoadTextIntoDocument( CleanSource::Rinse( new_text ) ) );
 
         return count;
     }

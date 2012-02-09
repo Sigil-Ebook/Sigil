@@ -36,6 +36,9 @@ public:
     // of provided book XHTML source code
     static QString Clean( const QString &source );
 
+    // Convert to valid XHTML with mild cleaning
+    static QString Rinse( const QString &source );
+
     // No cleaning, just convert the source to valid XHTML
     static QString ToValidXHTML( const QString &source );
 
@@ -73,6 +76,9 @@ private:
 
     // Merges smaller styles into bigger ones
     static QStringList MergeSmallerStyles(  const QStringList &css_style_tags );
+
+    // Removes blank lines at the top of style tag added by Tidy
+    static QString RemoveBlankStyleLines( const QString &source );
     
     // Returns the largest index of all the Sigil CSS classes
     static int MaxSigilCSSClassIndex(       const QStringList &css_style_tags );

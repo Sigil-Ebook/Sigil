@@ -84,6 +84,32 @@ QString CleanSource::Clean( const QString &source )
 }
 
 
+// Convert to valid XHTML with mild cleaning
+QString CleanSource::Rinse( const QString &source )
+{
+    QString newsource = ToValidXHTML( source );
+    newsource = RemoveBlankStyleLines( newsource );
+
+    return newsource;
+}
+
+
+// Remove blank lines at the top of style tag added by Tidy
+QString CleanSource::RemoveBlankStyleLines( const QString &source )
+{
+    // Remove the extra blank lines in the style section
+    QStringList css_style_tags  = CSSStyleTags( source );
+    css_style_tags = RemoveEmptyComments( css_style_tags );
+
+    for ( int i = 0; i < css_style_tags.count(); ++i )
+    {
+        css_style_tags[ i ].replace( "^\n\n", "\n" );
+    }
+
+    return WriteNewCSSStyleTags( source, css_style_tags );
+} 
+
+
 // No cleaning, just convert the source to valid XHTML
 QString CleanSource::ToValidXHTML( const QString &source )
 {
