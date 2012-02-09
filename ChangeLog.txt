@@ -1,4 +1,6 @@
 Sigil 0.5.2 TBA
+    - Fix issue 1249: Replace All in All HTML Files does leaves cursor at the
+      bottom.
     - Fix issue 1247: Cannot rename file extension in book browser and rename
       selected should default to first extension name.
     - Fix issue 1238: Deleting a file does not go to the next closest entry

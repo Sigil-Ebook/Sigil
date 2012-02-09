@@ -842,6 +842,9 @@ void FlowTab::SaveTabContent()
     else
     {
         m_HTMLResource.UpdateDomDocumentFromTextDocument();
+
+        // Save the cursor location for when the tab is re-opened
+        m_wCodeView.StoreCaretLocationUpdate( m_wCodeView.GetCaretLocation() );
     }
 
     m_safeToLoad = true;
