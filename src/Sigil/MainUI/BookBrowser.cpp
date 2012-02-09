@@ -799,7 +799,7 @@ bool BookBrowser::ShouldContinueOpeningResource( const Resource &resource )
         tr( "Don't show again." ),
         QMessageBox::Ok | QMessageBox::Cancel, 
         this
-        );
+    );
 
     message.setOverrideSettingsKey( OPF_NCX_EDIT_WARNING_KEY );
     message.setDefaultButton( QMessageBox::Cancel );
