@@ -780,8 +780,6 @@ void MainWindow::UpdateZoomLabel( float new_zoom_factor )
 
 void MainWindow::CreateChapterBreakOldTab( QString content, HTMLResource& originating_resource )
 {
-    m_TabManager.SaveTabData();
-
     HTMLResource& html_resource = m_Book->CreateChapterBreakOriginalResource( content, originating_resource );
 
     m_BookBrowser->Refresh();

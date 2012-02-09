@@ -222,6 +222,8 @@ HTMLResource& Book::CreateChapterBreakOriginalResource( const QString &content, 
     new_resource.SetDomDocument( 
         XhtmlDoc::LoadTextIntoDocument( CleanSource::Clean( content ) ) );
 
+    new_resource.SaveToDisk();
+
     html_resources.insert( reading_order, &new_resource );
 
     GetOPF().UpdateSpineOrder( html_resources );
