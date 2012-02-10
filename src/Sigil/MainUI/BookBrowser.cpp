@@ -234,7 +234,7 @@ QList <Resource *> BookBrowser::ValidSelectedResources( Resource::ResourceType r
 QList <Resource *> BookBrowser::ValidSelectedResources()
 {
     QList <Resource *> resources;
-    Resource::ResourceType resource_type;
+    Resource::ResourceType resource_type = Resource::HTMLResourceType;
 
     if ( ValidSelectedItemCount() < 1 )
     {
@@ -253,7 +253,7 @@ QList <Resource *> BookBrowser::ValidSelectedResources()
             Resource *resource = &m_Book->GetFolderKeeper().GetResourceByIdentifier( identifier );
             if ( resource != NULL )
             {
-                resources.append(resource);
+                resources.append( resource );
                 resource_type = resource->Type();
             }
         }
