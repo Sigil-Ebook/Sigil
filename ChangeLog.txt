@@ -1,3 +1,6 @@
+Sigil 0.5.3 TBA
+    - Fix issue 1258: Find/Replace step by step in All HTML files is broken.
+
 Sigil 0.5.2 2012.02.09
     - Fix issue 1253: Replace All in All HTML files adds extra blank lines in
       style section.

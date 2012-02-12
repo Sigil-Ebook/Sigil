@@ -474,8 +474,6 @@ bool FindReplace::FindInAllFiles( Searchable *searchable, Searchable::Direction 
 {
     Q_ASSERT( searchable );
 
-    m_MainWindow.GetCurrentContentTab().SaveTabContent();
-
     bool found = false;
     if ( IsCurrentFileInSelection() )
     {
