@@ -188,6 +188,7 @@ void KeyboardShortcutsWidget::readSettings()
             ui.commandList->addTopLevelItem(item);
         }
     }
+    ui.commandList->sortItems( 0, Qt::AscendingOrder );
 
     markSequencesAsDuplicatedIfNeeded();
 }

@@ -422,7 +422,7 @@ void MainWindow::InsertImage()
     if (image_filepaths.isEmpty()) {
         QMessageBox::warning( this,
                               tr( "Sigil"),
-                              tr( "There are no images to add.")
+                              tr( "<p>There are no images available in your book to insert.</p><p>Use the menu option <b>File->New->Add Existing</b> to add images to your book before trying to insert an image.</p>")
                             );
         return;
     }

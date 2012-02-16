@@ -1125,7 +1125,6 @@ void BookBrowser::SetupHTMLSemanticContextMenu( Resource *resource )
         }
     }
 
-    // Checkstate shown in menu won't be valid if items are of mixed states, but harmless
     SetHTMLSemanticActionCheckState( resource );    
 }
 
@@ -1165,6 +1164,20 @@ void BookBrowser::SetHTMLSemanticActionCheckState( Resource *resource )
     if ( semantic_type == GuideSemantics::NoType )
 
         return;
+
+    foreach ( Resource *valid_resource, ValidSelectedResources() )
+    {
+        HTMLResource *valid_html_resource = qobject_cast< HTMLResource* >( valid_resource );
+        Q_ASSERT( html_resource );
+
+        GuideSemantics::GuideSemanticType valid_semantic_type = 
+            m_Book->GetOPF().GetGuideSemanticTypeForResource( *valid_html_resource );
+
+        if ( valid_semantic_type != semantic_type )
+        {
+            return;
+        }
+    }
 
     foreach( QAction* action, m_GuideSemanticActions )
     {

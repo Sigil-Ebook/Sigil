@@ -1,4 +1,6 @@
 Sigil 0.5.3 TBA
+    - Ensure the checkmarks in add semantic are set correctly when selecting
+      multiple files.
     - Fix issue 1030: Don't close if canceling out of a failed save.
     - Fix issue 1258: Find/Replace step by step in All HTML files is broken.
 

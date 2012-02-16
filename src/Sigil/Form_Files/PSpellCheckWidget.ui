@@ -96,6 +96,9 @@
        <property name="text">
         <string>Open User Dictionary Location</string>
        </property>
+       <property name="toolTip">
+        <string>Show the directory containing the dictionary file user_dict.txt which contains your User Word List</string>
+       </property>
       </widget>
      </item>
      <item>
