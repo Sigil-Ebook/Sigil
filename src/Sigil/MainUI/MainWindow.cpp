@@ -1072,6 +1072,8 @@ bool MainWindow::SaveFile( const QString &fullfilepath )
                     "It is currently in use in a different application." )
                 .arg( fullfilepath )
                 );
+
+            return false;
         }
         // some directory in the file's path does not exist
         if ( *error_id == ENOENT )
@@ -1091,6 +1093,8 @@ bool MainWindow::SaveFile( const QString &fullfilepath )
             Utility::DisplayStdErrorDialog( 
                 tr( "Sigil was unable to save your file." ),
                 Utility::GetExceptionInfo( exception ) );
+
+            return false;
         }
     }
 
@@ -1099,6 +1103,8 @@ bool MainWindow::SaveFile( const QString &fullfilepath )
         QApplication::restoreOverrideCursor();
 
         Utility::DisplayExceptionErrorDialog(tr("Cannot save file %1: %2").arg(fullfilepath).arg(Utility::GetExceptionInfo( exception ) ));
+
+            return false;
     }
 
     return true;
