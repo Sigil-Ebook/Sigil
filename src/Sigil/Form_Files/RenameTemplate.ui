@@ -17,7 +17,7 @@
    </sizepolicy>
   </property>
   <property name="windowTitle">
-   <string>Rename Selected Files</string>
+   <string>Rename Files</string>
   </property>
   <layout class="QGridLayout">
    <property name="sizeConstraint">

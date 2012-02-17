@@ -1,4 +1,6 @@
 Sigil 0.5.3 TBA
+    - Fix issue 1254: Bulk rename will stop if one name matches, context menu
+      needs cleanup and warnings.
     - Fix issue 1268: Find/Replace all files does not search in book order,
       and other issues.
     - Fix issue 1266: Store user dictionary as UTF-8.

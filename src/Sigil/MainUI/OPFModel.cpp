@@ -349,8 +349,12 @@ bool OPFModel:: RenameResource( Resource &resource, const QString &new_filename 
         new_filename_with_extension.append( extension );
     }
 
-    if ( old_filename == new_filename_with_extension || 
-         !FilenameIsValid( old_filename, new_filename_with_extension )   )
+    if ( old_filename == new_filename_with_extension )
+    {
+        return true;
+    }
+
+    if ( !FilenameIsValid( old_filename, new_filename_with_extension )   )
     {
         Refresh();
 

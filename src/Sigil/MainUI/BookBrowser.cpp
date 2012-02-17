@@ -146,7 +146,21 @@ void BookBrowser::SortHTML()
 {
     QList <Resource *> resources = ValidSelectedResources();
 
-    if ( ValidSelectedItemCount() == 1 )
+    QList <Resource *> all_files = m_OPFModel.GetResourceListInFolder( m_LastContextMenuType );
+    QString msg = ( all_files.count() == resources.count() || resources.count() == 1 ) ?  tr( "Are you sure you want to sort ALL files alphanumerically?  You can also select just some of the files to sort.\n" ):
+                                           tr( "Are you sure you want to sort the selected files alphanumerically?\n" );
+
+    QMessageBox::StandardButton button_pressed;
+    button_pressed = QMessageBox::warning(	this,
+                  tr( "Sigil" ), msg % tr( "This action cannot be reversed." ),
+                                            QMessageBox::Ok | QMessageBox::Cancel
+                                         );
+    if ( button_pressed != QMessageBox::Ok )
+    { 
+        return;
+    }
+
+    if ( resources.count() == 1 )
     {
         // Sort all items
         m_OPFModel.SortHTML(); 
@@ -468,13 +482,27 @@ void BookBrowser::Rename()
         // The actual renaming code is in OPFModel::ItemChangedHandler
         m_TreeView.edit( m_TreeView.currentIndex() );
     }
+    else
+    {
+        RenameSelected();
+    }
+}
+
+
+void BookBrowser::RenameAll()
+{
+    RenameList( m_OPFModel.GetResourceListInFolder( Resource::HTMLResourceType ) );
 }
 
 
 void BookBrowser::RenameSelected()
 {
-    QList <Resource *> resources = ValidSelectedResources();
+    RenameList( ValidSelectedResources() );
+}
 
+
+void BookBrowser::RenameList( QList <Resource *> resources )
+{
     if ( resources.isEmpty() )
     {
         return;
@@ -692,10 +720,18 @@ void BookBrowser::AddGuideSemanticType( int type )
     emit BookContentModified();
 }
 
+void BookBrowser::MergeAll()
+{
+    MergeList( m_OPFModel.GetResourceListInFolder( Resource::HTMLResourceType ) );
+}
 
 void BookBrowser::Merge()
 {
-    QList<Resource *> resources = ValidSelectedResources( Resource::HTMLResourceType );
+    MergeList( ValidSelectedResources( Resource::HTMLResourceType ) );
+}
+
+void BookBrowser::MergeList( QList <Resource *> resources )
+{
     Resource *resource1 = resources.first();
 
     // Skip merge if any non-html files selected - by keyboard shortcut or selection across folders
@@ -710,6 +746,22 @@ void BookBrowser::Merge()
         resource1 = m_Book->PreviousResource( resource1 );
         resources.prepend( resource1 );
     }
+    else
+    {
+        QList <Resource *> all_files = m_OPFModel.GetResourceListInFolder( m_LastContextMenuType );
+        QString msg = all_files.count() == resources.count() ? tr( "Are you sure you want to merge ALL files?  You can also select just some of the files to merge.\n" ):
+                                           tr( "Are you sure you want to merge the selected files?\n" );
+
+        QMessageBox::StandardButton button_pressed;
+        button_pressed = QMessageBox::warning(	this,
+                      tr( "Sigil" ), msg % tr( "This action cannot be reversed." ),
+                                                QMessageBox::Ok | QMessageBox::Cancel
+                                             );
+        if ( button_pressed != QMessageBox::Ok )
+        { 
+            return;
+        }
+    }
 
     // Save location of first file in folder since resource will be modified
     QModelIndex original_model_index = m_OPFModel.GetModelItemIndex( *resource1, OPFModel::IndexChoice_Current );
@@ -717,7 +769,8 @@ void BookBrowser::Merge()
     if ( !m_Book->AreResourcesWellFormed( resources ) )
     {
         // Both dialog and well-formed error messages will be shown
-        Utility::DisplayStdErrorDialog( tr( "Merge aborted - one of the files was not well-formed." ) );
+        // Newly added blank sections will generate an error if the book is not saved
+        Utility::DisplayStdErrorDialog( tr( "Merge aborted.\n\nOne of the files may have an error or has not been saved.\n\nTry saving your book or correcting any errors before merging." ) );
         return;
     }
 
@@ -870,24 +923,25 @@ void BookBrowser::CreateContextMenuActions()
     m_AddNewCSS               = new QAction( tr( "Add Blank Stylesheet" ),  this );
     m_AddExisting             = new QAction( tr( "Add Existing Files..." ), this );
     m_Rename                  = new QAction( tr( "Rename" ),                this );
-    m_RenameSelected          = new QAction( tr( "Rename" ),                this );
+    m_RenameAll               = new QAction( tr( "Rename All" ),            this );
     m_Remove                  = new QAction( tr( "Remove" ),                this );
     m_CoverImage              = new QAction( tr( "Cover Image" ),           this );
     m_Merge                   = new QAction( tr( "Merge" ),                 this );
+    m_MergeAll                = new QAction( tr( "Merge All" ),             this );
     m_MergeWithPrevious       = new QAction( tr( "Merge With Previous" ),   this );
     m_AdobesObfuscationMethod = new QAction( tr( "Use Adobe's Method" ),    this );
     m_IdpfsObfuscationMethod  = new QAction( tr( "Use IDPF's Method" ),     this );
     m_SortHTML                = new QAction( tr( "Sort All" ),              this );
     m_SortHTMLSelected        = new QAction( tr( "Sort" ),                  this );
-    m_RefreshTOC              = new QAction( tr( "Renumber TOC Entries" ),   this );
+    m_RefreshTOC              = new QAction( tr( "Renumber TOC Entries" ),  this );
 
     m_CoverImage             ->setCheckable( true );  
     m_AdobesObfuscationMethod->setCheckable( true ); 
     m_IdpfsObfuscationMethod ->setCheckable( true );
 
     m_Remove->setShortcut( QKeySequence::Delete );
-    m_Merge->setShortcut( QKeySequence( Qt::CTRL + Qt::ALT + Qt::Key_M ) );
-    m_Merge->setToolTip( "Merge two or more files into one." );
+    m_MergeWithPrevious->setShortcut( QKeySequence( Qt::CTRL + Qt::ALT + Qt::Key_M ) );
+    m_Merge->setToolTip( "Merge with previous file, or merge multiple files into one." );
     sm->registerAction( m_Merge, "MainWindow.BookBrowser.Merge" );
 
     // Has to be added to the book browser itself as well
@@ -1042,16 +1096,15 @@ bool BookBrowser::SuccessfullySetupContextMenu( const QPoint &point )
     {
         m_ContextMenu.addAction( m_Remove );
 
-        if ( item_count == 1 )
-        {
-            m_ContextMenu.addAction( m_Rename );
-        }
-        else 
-        {
-            m_ContextMenu.addAction( m_RenameSelected );
-        }
-
         m_ContextMenu.addSeparator();
+
+        m_ContextMenu.addAction( m_Rename );
+
+        QList <Resource *> all_files = m_OPFModel.GetResourceListInFolder( m_LastContextMenuType );
+        if ( ValidSelectedItemCount() == 1  && all_files.count() > 1 )
+        {
+            m_ContextMenu.addAction( m_RenameAll );
+        }
     }
 
     SetupResourceSpecificContextMenu( resource );    
@@ -1064,16 +1117,18 @@ void BookBrowser::SetupResourceSpecificContextMenu( Resource *resource  )
 {
     if ( resource->Type() == Resource::HTMLResourceType )
     {
-        AddMergeAction( resource ); 
-
-        if ( ValidSelectedItemCount() == 1 )
+        QList <Resource *> all_files = m_OPFModel.GetResourceListInFolder( Resource::HTMLResourceType );
+        if ( ValidSelectedItemCount() == 1  && all_files.count() > 1 )
         {
             m_ContextMenu.addAction( m_SortHTML );
         }
-        else
+        else if ( ValidSelectedItemCount() > 1 )
         {
             m_ContextMenu.addAction( m_SortHTMLSelected );
         }
+
+        AddMergeAction( resource ); 
+
         m_ContextMenu.addSeparator();
 
     }
@@ -1228,14 +1283,28 @@ void BookBrowser::AddMergeAction( Resource *resource )
 
     if ( ValidSelectedItemCount() == 1 )
     {
+        QList <Resource *> all_files = m_OPFModel.GetResourceListInFolder( Resource::HTMLResourceType );
+        int reading_order = m_Book->GetOPF().GetReadingOrder( *html_resource );
+
         // We can't add the action for the first file
-        if ( m_Book->GetOPF().GetReadingOrder( *html_resource ) > 0 )
+        if ( reading_order > 0 )
         {
+            m_ContextMenu.addSeparator();
             m_ContextMenu.addAction( m_MergeWithPrevious );    
+        }
+        // And shouldn't add Merge All in some cases
+        if ( all_files.count() > 2  || ( all_files.count() > 1 &&  reading_order == 0 ) )
+        {
+            if ( reading_order == 0 )
+            {
+                m_ContextMenu.addSeparator();
+            }
+            m_ContextMenu.addAction( m_MergeAll );
         }
     }
     else
     {
+        m_ContextMenu.addSeparator();
         m_ContextMenu.addAction( m_Merge );
     }
 }
@@ -1259,11 +1328,12 @@ void BookBrowser::ConnectSignalsToSlots()
     connect( m_AddNewCSS,               SIGNAL( triggered() ), this, SLOT( AddNewCSS()               ) );
     connect( m_AddExisting,             SIGNAL( triggered() ), this, SLOT( AddExisting()             ) );
     connect( m_Rename,                  SIGNAL( triggered() ), this, SLOT( Rename()                  ) );
-    connect( m_RenameSelected,          SIGNAL( triggered() ), this, SLOT( RenameSelected()          ) );
+    connect( m_RenameAll,               SIGNAL( triggered() ), this, SLOT( RenameAll()               ) );
     connect( m_Remove,                  SIGNAL( triggered() ), this, SLOT( Remove()                  ) );
     connect( m_CoverImage,              SIGNAL( triggered() ), this, SLOT( SetCoverImage()           ) );
     connect( m_Merge,                   SIGNAL( triggered() ), this, SLOT( Merge()                   ) );
     connect( m_MergeWithPrevious,       SIGNAL( triggered() ), this, SLOT( Merge()                   ) );
+    connect( m_MergeAll,                SIGNAL( triggered() ), this, SLOT( MergeAll()                ) );
 
     connect( m_AdobesObfuscationMethod, SIGNAL( triggered() ), this, SLOT( AdobesObfuscationMethod() ) );
     connect( m_IdpfsObfuscationMethod,  SIGNAL( triggered() ), this, SLOT( IdpfsObfuscationMethod()  ) );

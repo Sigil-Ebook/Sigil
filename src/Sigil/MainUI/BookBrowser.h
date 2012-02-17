@@ -224,6 +224,11 @@ private slots:
     void Rename();
 
     /**
+     * Implements the Rename All context menu action functionality.
+     */
+    void RenameAll();
+
+    /**
      * Implements the Rename selected context menu action functionality.
      */
     void RenameSelected();
@@ -256,6 +261,11 @@ private slots:
      * Implements the Merge context menu action functionality.
      */
     void Merge();
+
+    /**
+     * Implements the Merge All context menu action functionality.
+     */
+    void MergeAll();
 
     /**
      * Sets the use of Adobe's obfuscation method for the current resource.
@@ -423,6 +433,17 @@ private:
      */
     int ValidSelectedItemCount();
 
+    /**
+     * Implements the actual rename code for Rename All and Rename Selected
+     */
+    void RenameList( QList <Resource *> );
+
+    /**
+     * Implements the actual merge code for Merge All and Merge Selected
+     */
+    void MergeList( QList <Resource *> );
+
+
     
 
 
@@ -468,10 +489,11 @@ private:
     QAction *m_AddNewCSS;
     QAction *m_AddExisting;
     QAction *m_Rename;
-    QAction *m_RenameSelected;
+    QAction *m_RenameAll;
     QAction *m_Remove;
     QAction *m_Merge;
     QAction *m_MergeWithPrevious;
+    QAction *m_MergeAll;
     QAction *m_CoverImage;
     QAction *m_AdobesObfuscationMethod;
     QAction *m_IdpfsObfuscationMethod;
