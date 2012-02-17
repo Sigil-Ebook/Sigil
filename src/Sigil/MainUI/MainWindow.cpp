@@ -139,6 +139,12 @@ QList <Resource *> MainWindow::GetValidSelectedHTMLResources()
 }
 
 
+QList <Resource *> MainWindow::GetAllHTMLResources()
+{
+    return m_BookBrowser->AllHTMLResources();
+}
+
+
 QSharedPointer< Book > MainWindow::GetCurrentBook()
 {
     return m_Book;
@@ -599,10 +605,6 @@ void MainWindow::SetStateActionsBookView()
     ui.actionCopy ->setEnabled( true ); 
     ui.actionPaste->setEnabled( true ); 
 
-    ui.actionFind   ->setEnabled( true );
-    ui.actionFindNext->setEnabled( true );
-    ui.actionFindPrevious->setEnabled( true );
-
     ui.actionBookView ->setEnabled( true );
     ui.actionSplitView->setEnabled( true );
     ui.actionCodeView ->setEnabled( true );  
@@ -703,10 +705,6 @@ void MainWindow::SetStateActionsStaticView()
     ui.actionCut  ->setEnabled( false );  
     ui.actionCopy ->setEnabled( false ); 
     ui.actionPaste->setEnabled( false ); 
-
-    ui.actionFind   ->setEnabled( false );
-    ui.actionFindNext->setEnabled( false );
-    ui.actionFindPrevious->setEnabled( false );
 }
 
 

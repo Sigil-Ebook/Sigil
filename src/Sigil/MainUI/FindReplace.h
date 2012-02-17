@@ -141,20 +141,17 @@ private:
 
     QList <Resource *> GetHTMLFiles();
 
-    bool IsCurrentFileInSelection();
+    bool IsCurrentFileInHTMLSelection();
 
     int CountInFiles();
 
     int ReplaceInAllFiles();
 
-    bool FindInAllFiles( Searchable *searchable, Searchable::Direction direction );
+    bool FindInAllFiles( Searchable::Direction direction );
 
     HTMLResource* GetNextContainingHTMLResource( Searchable::Direction direction );
 
     HTMLResource* GetNextHTMLResource( HTMLResource *current_resource, Searchable::Direction direction );
-
-    template< class T >
-    T* GetStartingResource();
 
     Resource* GetCurrentResource();
 
@@ -235,32 +232,6 @@ bool FindReplace::ResourceContainsCurrentRegex( T *resource )
             GetSearchRegex(),
             QList< Resource* >() << generic_resource,
             SearchOperations::CodeViewSearch ) > 0;
-}
-
-
-template< class T >
-T* FindReplace::GetStartingResource()
-{
-    Resource* resource = GetCurrentResource();
-    T* typed_resource  = qobject_cast< T* >( resource );
-
-    if ( typed_resource )
-    {
-        return typed_resource;
-    }
-
-    // If the current one is not the correct type,
-    // we return the first resource of type HTML from the Book
-    // Should probably adapt to other resources, but we only search HTML 
-    QList<Resource *> resources = GetHTMLFiles();
-
-    if ( resources.count() > 0 )
-
-        return qobject_cast<HTMLResource*>(resources[ 0 ]);
-
-    else
-
-        return NULL;
 }
 
 #endif // FINDREPLACE_H

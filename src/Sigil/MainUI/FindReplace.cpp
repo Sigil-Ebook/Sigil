@@ -145,17 +145,17 @@ void FindReplace::Count()
 
     SetCodeViewIfNeeded();
 
-    Searchable *searchable = GetAvailableSearchable();
-
-    if ( !searchable )
-    {
-        return;
-    }
-
     int count = 0;
 
     if ( GetLookWhere() == LookWhere_CurrentFile )
     {
+        Searchable *searchable = GetAvailableSearchable();
+
+        if ( !searchable )
+        {
+            return;
+        }
+
         count = searchable->Count( GetSearchRegex() );
     }
     else
@@ -216,16 +216,16 @@ void FindReplace::ReplaceAll()
 
     SetCodeViewIfNeeded( true );
 
-    Searchable *searchable = GetAvailableSearchable();
-
-    if ( !searchable )
-    {
-        return;
-    }
     int count = 0;
 
     if ( GetLookWhere() == LookWhere_CurrentFile )
     {
+        Searchable *searchable = GetAvailableSearchable();
+
+        if ( !searchable )
+        {
+            return;
+        }
         count = searchable->ReplaceAll( GetSearchRegex(), ui.cbReplace->lineEdit()->text() );
     }
     else 
@@ -282,22 +282,23 @@ void FindReplace::FindText( Searchable::Direction direction )
 
     SetCodeViewIfNeeded();
 
-    Searchable *searchable = GetAvailableSearchable();
-
-    if ( !searchable )
-    {
-        return;
-    }
-
     bool found = false;
+
     if ( GetLookWhere() == LookWhere_CurrentFile )
     {
+        Searchable *searchable = GetAvailableSearchable();
+
+        if ( !searchable )
+        {
+            return;
+        }
+
         found = searchable->FindNext( GetSearchRegex(), direction );
 
     }
     else 
     {
-        found = FindInAllFiles( searchable, direction );
+        found = FindInAllFiles( direction );
     }
 
     if ( found )
@@ -329,25 +330,20 @@ void FindReplace::ReplaceText( Searchable::Direction direction )
 
     Searchable *searchable = GetAvailableSearchable();
 
-    if ( !searchable )
+    if ( searchable )
     {
-        return;
+        // If we have the matching text selected, replace it
+        // This will not do anything if matching text is not selected.
+        searchable->ReplaceSelected( GetSearchRegex(), ui.cbReplace->lineEdit()->text(), direction );
     }
 
-    // If we have the matching text selected, replace it
-    // This will not do anything if matching text is not selected.
-    if ( searchable->ReplaceSelected( GetSearchRegex(), ui.cbReplace->lineEdit()->text(), direction ) ||
-         m_MainWindow.GetCurrentContentTab().GetViewState() == ContentTab::ViewState_CodeView )
-    
+    if ( direction == Searchable::Direction_Up)
     {
-        if ( direction == Searchable::Direction_Up)
-        {
-            FindPrevious();
-        }
-        else
-        {
-            FindNext();
-        }
+        FindPrevious();
+    }
+    else
+    {
+        FindNext();
     }
 
     UpdatePreviousFindStrings();
@@ -400,18 +396,23 @@ QString FindReplace::GetSearchRegex()
     return search;
 }
 
-bool FindReplace::IsCurrentFileInSelection()
+bool FindReplace::IsCurrentFileInHTMLSelection()
 {
-    QList <Resource *> resources = GetHTMLFiles();
-    HTMLResource *current_html_resource = GetStartingResource< HTMLResource >();
-
     bool found = false;
-    foreach ( Resource *resource, resources )
+
+    QList <Resource *> resources = GetHTMLFiles();
+    Resource *current_resource = GetCurrentResource();
+    HTMLResource *current_html_resource = qobject_cast< HTMLResource *>( current_resource );
+
+    if ( current_html_resource )
     {
-        if ( resource->Filename() == current_html_resource->Filename() )
+        foreach ( Resource *resource, resources )
         {
-            found = true;
-            break;
+            if ( resource->Filename() == current_html_resource->Filename() )
+            {
+                found = true;
+                break;
+            }
         }
     }
     return found;
@@ -426,7 +427,7 @@ QList <Resource *> FindReplace::GetHTMLFiles()
 
     if ( GetLookWhere() == LookWhere_AllHTMLFiles )
     {
-        resources = m_MainWindow.GetCurrentBook()->GetFolderKeeper().GetResourceTypeAsGenericList< HTMLResource >( true );
+        resources = m_MainWindow.GetAllHTMLResources();
     }
     else 
     {
@@ -470,14 +471,18 @@ int FindReplace::ReplaceInAllFiles()
 }
 
 
-bool FindReplace::FindInAllFiles( Searchable *searchable, Searchable::Direction direction )
+bool FindReplace::FindInAllFiles( Searchable::Direction direction )
 {
-    Q_ASSERT( searchable );
+    Searchable *searchable;
 
     bool found = false;
-    if ( IsCurrentFileInSelection() )
+    if ( IsCurrentFileInHTMLSelection() )
     {
-        found = searchable->FindNext( GetSearchRegex(), direction, false, false );
+        searchable = GetAvailableSearchable();
+        if ( searchable )
+        {
+            found = searchable->FindNext( GetSearchRegex(), direction, false, false );
+        }
     }
 
     if ( !found )
@@ -487,9 +492,11 @@ bool FindReplace::FindInAllFiles( Searchable *searchable, Searchable::Direction 
 
         if ( containing_resource )
         {
-            // Save then restore browser selection since Find/Replace 
-            // open tabs which change the selection
-            m_MainWindow.SaveBrowserSelection();
+            // Save/restore selection since opening tabs changes selection 
+            if ( GetLookWhere() == LookWhere_SelectedHTMLFiles )
+            {
+                m_MainWindow.SaveBrowserSelection();
+            }
 
             m_MainWindow.OpenResource( *containing_resource, ContentTab::ViewState_CodeView );
 
@@ -500,15 +507,24 @@ bool FindReplace::FindInAllFiles( Searchable *searchable, Searchable::Direction 
                 SleepFunctions::msleep( 100 );
             }
 
-            m_MainWindow.RestoreBrowserSelection();
+            if ( GetLookWhere() == LookWhere_SelectedHTMLFiles )
+            {
+                m_MainWindow.RestoreBrowserSelection();
+            }
 
             searchable = GetAvailableSearchable();
-            found = searchable->FindNext( GetSearchRegex(), direction, true, false );
+            if ( searchable )
+            {
+                found = searchable->FindNext( GetSearchRegex(), direction, true, false );
+            }
         }
         else
         {
-            // Check the part of the original file above the cursor
-            found = searchable->FindNext( GetSearchRegex(), direction, false, false );
+            if ( searchable )
+            {
+                // Check the part of the original file above the cursor
+                found = searchable->FindNext( GetSearchRegex(), direction, false, false );
+            }
         }
     }
 
@@ -517,7 +533,25 @@ bool FindReplace::FindInAllFiles( Searchable *searchable, Searchable::Direction 
 
 HTMLResource* FindReplace::GetNextContainingHTMLResource( Searchable::Direction direction )
 {
-    HTMLResource *starting_html_resource = GetStartingResource< HTMLResource >();
+    Resource* current_resource = GetCurrentResource();
+    HTMLResource *starting_html_resource = qobject_cast< HTMLResource *> ( current_resource );
+
+    if ( !starting_html_resource )
+    {
+        QList<Resource *> resources = GetHTMLFiles();
+        if ( resources.isEmpty() )
+        {
+            return NULL;
+        }
+        if ( direction == Searchable::Direction_Up )
+        {
+            starting_html_resource = qobject_cast< HTMLResource *>( resources.first() );
+        }
+        else
+        {
+            starting_html_resource = qobject_cast< HTMLResource *>( resources.last() );
+        }
+    }
 
     HTMLResource *next_html_resource = starting_html_resource;
 

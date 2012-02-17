@@ -72,6 +72,11 @@ public:
      */
     QList <Resource *> ValidSelectedHTMLResources();
 
+    /**
+     * All HTML resources in the Book Browser in order
+     */
+    QList <Resource *> AllHTMLResources();
+
     void SaveSelection();
 
     void RestoreSelection();

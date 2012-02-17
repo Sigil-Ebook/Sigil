@@ -98,6 +98,14 @@ public:
     QList <Resource *> GetValidSelectedHTMLResources();
 
     /**
+     * Returns a list of all HTML resources in book browser order
+     *
+     * @return List of all HTML resources in book browser order
+     */
+    QList <Resource *> GetAllHTMLResources();
+
+
+    /**
      * Saves the current Book Browser selected entries
      *
      */

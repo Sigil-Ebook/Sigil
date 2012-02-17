@@ -216,6 +216,10 @@ QList <Resource *> BookBrowser::ValidSelectedHTMLResources()
     return ValidSelectedResources( Resource::HTMLResourceType );
 }
 
+QList <Resource *> BookBrowser::AllHTMLResources()
+{
+    return m_OPFModel.GetResourceListInFolder( Resource::HTMLResourceType );
+}
 
 QList <Resource *> BookBrowser::ValidSelectedResources( Resource::ResourceType resource_type )
 {
@@ -650,7 +654,7 @@ Resource* BookBrowser::ResourceToSelectAfterRemove()
     }
     else if ( !top_resource )
     {
-        all_resources = m_OPFModel.GetResourceListInFolder( Resource::HTMLResourceType );
+        all_resources = AllHTMLResources();
         if ( !all_resources.isEmpty() )
         {
             top_resource = all_resources.first();
