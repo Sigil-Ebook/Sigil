@@ -97,7 +97,11 @@
         <string>Open User Dictionary Location</string>
        </property>
        <property name="toolTip">
-        <string>Show the directory containing the dictionary file user_dict.txt which contains your User Word List</string>
+        <string>&lt;p&gt;Show the directory that is used for your personal Dictionary files.&lt;/p&gt;
+
+&lt;p&gt;Your User Word List is stored here (in the file &lt;b&gt;user_dict.txt&lt;/b&gt;).&lt;/p&gt;
+
+&lt;p&gt;You can also store your own dictionary files in this location to add new dictionaries or to override the built-in dictionaries.&lt;/p&gt;</string>
        </property>
       </widget>
      </item>
