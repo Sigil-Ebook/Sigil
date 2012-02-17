@@ -1,4 +1,5 @@
 Sigil 0.5.3 TBA
+    - Fix issue 1266: Store user dictionary as UTF-8.
     - Ensure the checkmarks in add semantic are set correctly when selecting
       multiple files.
     - Fix issue 1030: Don't close if canceling out of a failed save.

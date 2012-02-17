@@ -167,6 +167,7 @@ void SpellCheck::addToUserDictionary(const QString &word)
         // Try to open the file to add the word.
         if (userDictFile.open(QIODevice::Append)) {
             QTextStream userDictStream(&userDictFile);
+            userDictStream.setCodec("UTF-8");
             userDictStream << word << "\n";
             userDictFile.close();
         }
