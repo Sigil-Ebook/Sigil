@@ -1,4 +1,4 @@
-Sigil 0.5.3 TBA
+Sigil 0.5.3 2012.25.02
     - Fix issue 1254: Bulk rename will stop if one name matches, context menu
       needs cleanup and warnings.
     - Fix issue 1268: Find/Replace all files does not search in book order,
