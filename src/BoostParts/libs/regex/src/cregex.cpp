@@ -361,11 +361,24 @@ void BuildFileList(std::list<std::string>* pl, const char* files, bool recurse)
 
       while(dstart != dend)
       {
+         // Verify that sprintf will not overflow:
+         if(std::strlen(dstart.path()) + std::strlen(directory_iterator::separator()) + std::strlen(ptr) >= MAX_PATH)
+         {
+            // Oops overflow, skip this item:
+            ++dstart;
+            continue;
+         }
 #if BOOST_WORKAROUND(BOOST_MSVC, >= 1400) && !defined(_WIN32_WCE) && !defined(UNDER_CE)
-         (::sprintf_s)(buf, sizeof(buf), "%s%s%s", dstart.path(), directory_iterator::separator(), ptr);
+         int r = (::sprintf_s)(buf, sizeof(buf), "%s%s%s", dstart.path(), directory_iterator::separator(), ptr);
 #else
-         (std::sprintf)(buf, "%s%s%s", dstart.path(), directory_iterator::separator(), ptr);
+         int r = (std::sprintf)(buf, "%s%s%s", dstart.path(), directory_iterator::separator(), ptr);
 #endif
+         if(r < 0)
+         {
+            // sprintf failed, skip this item:
+            ++dstart;
+            continue;
+         }
          BuildFileList(pl, buf, recurse);
          ++dstart;
       }

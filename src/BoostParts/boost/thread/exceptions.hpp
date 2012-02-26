@@ -24,10 +24,10 @@
 namespace boost
 {
 
-    class thread_interrupted
+    class BOOST_SYMBOL_VISIBLE thread_interrupted
     {};
 
-    class thread_exception:
+    class BOOST_SYMBOL_VISIBLE thread_exception:
         public std::exception
     {
     protected:
@@ -55,7 +55,7 @@ namespace boost
         int m_sys_err;
     };
 
-    class condition_error:
+    class BOOST_SYMBOL_VISIBLE condition_error:
         public std::exception
     {
     public:
@@ -66,7 +66,7 @@ namespace boost
     };
     
 
-    class lock_error:
+    class BOOST_SYMBOL_VISIBLE lock_error:
         public thread_exception
     {
     public:
@@ -87,7 +87,7 @@ namespace boost
         }
     };
 
-    class thread_resource_error:
+    class BOOST_SYMBOL_VISIBLE thread_resource_error:
         public thread_exception
     {
     public:
@@ -109,7 +109,7 @@ namespace boost
     
     };
 
-    class unsupported_thread_option:
+    class BOOST_SYMBOL_VISIBLE unsupported_thread_option:
         public thread_exception
     {
     public:
@@ -131,7 +131,7 @@ namespace boost
     
     };
 
-    class invalid_thread_argument:
+    class BOOST_SYMBOL_VISIBLE invalid_thread_argument:
         public thread_exception
     {
     public:
@@ -153,7 +153,7 @@ namespace boost
     
     };
 
-    class thread_permission_error:
+    class BOOST_SYMBOL_VISIBLE thread_permission_error:
         public thread_exception
     {
     public:

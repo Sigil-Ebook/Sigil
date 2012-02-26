@@ -341,12 +341,29 @@
 #if defined(BOOST_NO_0X_HDR_INITIALIZER_LIST) && !defined(BOOST_NO_INITIALIZER_LISTS)
 #  define BOOST_NO_INITIALIZER_LISTS
 #endif
+#if defined(BOOST_NO_INITIALIZER_LISTS) && !defined(BOOST_NO_0X_HDR_INITIALIZER_LIST)
+#  define BOOST_NO_0X_HDR_INITIALIZER_LIST
+#endif
 
 //
 // Set BOOST_HAS_RVALUE_REFS when BOOST_NO_RVALUE_REFERENCES is not defined
 //
 #if !defined(BOOST_NO_RVALUE_REFERENCES) && !defined(BOOST_HAS_RVALUE_REFS)
 #define BOOST_HAS_RVALUE_REFS
+#endif
+
+//
+// Set BOOST_HAS_VARIADIC_TMPL when BOOST_NO_VARIADIC_TEMPLATES is not defined
+//
+#if !defined(BOOST_NO_VARIADIC_TEMPLATES) && !defined(BOOST_HAS_VARIADIC_TMPL)
+#define BOOST_HAS_VARIADIC_TMPL
+#endif
+
+//
+// Set BOOST_NO_DECLTYPE_N3276 when BOOST_NO_DECLTYPE is defined
+//
+#if !defined(BOOST_NO_DECLTYPE_N3276) && defined(BOOST_NO_DECLTYPE)
+#define BOOST_NO_DECLTYPE_N3276
 #endif
 
 //  BOOST_HAS_ABI_HEADERS
@@ -369,7 +386,7 @@
 //  works as expected with standard conforming compilers.  The resulting
 //  double inclusion of <cstddef> is harmless.
 
-# ifdef BOOST_NO_STDC_NAMESPACE
+# if defined(BOOST_NO_STDC_NAMESPACE) && defined(__cplusplus)
 #   include <cstddef>
     namespace std { using ::ptrdiff_t; using ::size_t; }
 # endif
@@ -388,7 +405,7 @@
 
 //  BOOST_NO_STD_MIN_MAX workaround  -----------------------------------------//
 
-#  ifdef BOOST_NO_STD_MIN_MAX
+#  if defined(BOOST_NO_STD_MIN_MAX) && defined(__cplusplus)
 
 namespace std {
   template <class _Tp>
@@ -499,7 +516,7 @@ namespace std {
 // but it's use may generate either warnings (with -ansi), or errors
 // (with -pedantic -ansi) unless it's use is prefixed by __extension__
 //
-#if defined(BOOST_HAS_LONG_LONG)
+#if defined(BOOST_HAS_LONG_LONG) && defined(__cplusplus)
 namespace boost{
 #  ifdef __GNUC__
    __extension__ typedef long long long_long_type;
@@ -553,7 +570,7 @@ namespace boost{
 //
 
 
-#if defined BOOST_NO_EXPLICIT_FUNCTION_TEMPLATE_ARGUMENTS
+#if defined(BOOST_NO_EXPLICIT_FUNCTION_TEMPLATE_ARGUMENTS) && defined(__cplusplus)
 
 #  include "boost/type.hpp"
 #  include "boost/non_type.hpp"
@@ -591,9 +608,9 @@ namespace boost{
 
 // When BOOST_NO_STD_TYPEINFO is defined, we can just import
 // the global definition into std namespace:
-#ifdef BOOST_NO_STD_TYPEINFO
+#if defined(BOOST_NO_STD_TYPEINFO) && defined(__cplusplus)
 #include <typeinfo>
-namespace std{ using ::typeinfo; }
+namespace std{ using ::type_info; }
 #endif
 
 // ---------------------------------------------------------------------------//
@@ -617,6 +634,20 @@ namespace std{ using ::typeinfo; }
 #define BOOST_JOIN( X, Y ) BOOST_DO_JOIN( X, Y )
 #define BOOST_DO_JOIN( X, Y ) BOOST_DO_JOIN2(X,Y)
 #define BOOST_DO_JOIN2( X, Y ) X##Y
+
+//
+// Helper macros BOOST_NOEXCEPT, BOOST_NOEXCEPT_IF, BOOST_NOEXCEPT_EXPR
+// These aid the transition to C++11 while still supporting C++03 compilers
+//
+#ifdef BOOST_NO_NOEXCEPT
+#  define BOOST_NOEXCEPT
+#  define BOOST_NOEXCEPT_IF(Predicate)
+#  define BOOST_NOEXCEPT_EXPR(Expression) false
+#else
+#  define BOOST_NOEXCEPT noexcept
+#  define BOOST_NOEXCEPT_IF(Predicate) noexcept((Predicate))
+#  define BOOST_NOEXCEPT_EXPR(Expression) noexcept((Expression))
+#endif
 
 //
 // Set some default values for compiler/library/platform names.
@@ -643,5 +674,31 @@ namespace std{ using ::typeinfo; }
 #  ifndef BOOST_GPU_ENABLED
 #  define BOOST_GPU_ENABLED 
 #  endif
+
+//
+// constexpr workarounds
+// 
+#if defined(BOOST_NO_CONSTEXPR)
+#define BOOST_CONSTEXPR
+#define BOOST_CONSTEXPR_OR_CONST const
+#else
+#define BOOST_CONSTEXPR constexpr
+#define BOOST_CONSTEXPR_OR_CONST constexpr
+#endif
+
+#define BOOST_STATIC_CONSTEXPR  static BOOST_CONSTEXPR_OR_CONST
+
+// BOOST_FORCEINLINE ---------------------------------------------//
+// Macro to use in place of 'inline' to force a function to be inline
+#if !defined(BOOST_FORCEINLINE)
+#  if defined(_MSC_VER)
+#    define BOOST_FORCEINLINE __forceinline
+#  elif defined(__GNUC__) && __GNUC__ > 3
+#    define BOOST_FORCEINLINE inline __attribute__ ((always_inline))
+#  else
+#    define BOOST_FORCEINLINE inline
+#  endif
+#endif
+
 #endif
 

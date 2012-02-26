@@ -59,16 +59,16 @@ template <class T>
 struct is_const_rvalue_filter
 {
 #if BOOST_WORKAROUND(BOOST_MSVC, < 1400)
-	BOOST_STATIC_CONSTANT(bool, value = ::boost::detail::cv_traits_imp<typename boost::remove_bounds<T>::type*>::is_const);
+   BOOST_STATIC_CONSTANT(bool, value = ::boost::detail::cv_traits_imp<typename boost::remove_bounds<T>::type*>::is_const);
 #else
-	BOOST_STATIC_CONSTANT(bool, value = ::boost::detail::cv_traits_imp<T*>::is_const);
+   BOOST_STATIC_CONSTANT(bool, value = ::boost::detail::cv_traits_imp<T*>::is_const);
 #endif
 };
 #ifndef BOOST_NO_RVALUE_REFERENCES
 template <class T>
 struct is_const_rvalue_filter<T&&>
 {
-	BOOST_STATIC_CONSTANT(bool, value = false);
+   BOOST_STATIC_CONSTANT(bool, value = false);
 };
 #endif
 }
@@ -106,7 +106,7 @@ no_type is_const_tester(volatile void *);
 
 template <bool is_ref, bool array>
 struct is_const_helper
-    : ::boost::type_traits::false_result
+    : public ::boost::type_traits::false_result
 {
 };
 
@@ -136,7 +136,7 @@ struct is_const_helper<false,true>
 
 template <typename T>
 struct is_const_impl
-    : is_const_helper<
+    : public is_const_helper<
           is_reference<T>::value
         , is_array<T>::value
         >::template result_<T>

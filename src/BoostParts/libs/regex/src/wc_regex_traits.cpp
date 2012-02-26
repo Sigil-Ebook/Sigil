@@ -22,6 +22,7 @@
 #include <boost/detail/workaround.hpp>
 #include <memory>
 #include <string>
+#include "internals.hpp"
 
 #if defined(_DLL_CPPLIB) && !defined(_M_CEE_PURE) && defined(_NATIVE_WCHAR_T_DEFINED) \
    && !(defined(__SGI_STL_PORT) || defined(_STLPORT_VERSION) || defined(__STD_RWCOMPILER_H__) || defined(_RWSTD_VER))\
@@ -146,26 +147,6 @@ c_regex_traits<wchar_t>::string_type BOOST_REGEX_CALL c_regex_traits<wchar_t>::t
       result = std::wstring(1, char(0));
    return result;
 }
-
-enum
-{
-   char_class_space=1<<0, 
-   char_class_print=1<<1, 
-   char_class_cntrl=1<<2, 
-   char_class_upper=1<<3, 
-   char_class_lower=1<<4,
-   char_class_alpha=1<<5, 
-   char_class_digit=1<<6, 
-   char_class_punct=1<<7, 
-   char_class_xdigit=1<<8,
-   char_class_alnum=char_class_alpha|char_class_digit, 
-   char_class_graph=char_class_alnum|char_class_punct,
-   char_class_blank=1<<9,
-   char_class_word=1<<10,
-   char_class_unicode=1<<11,
-   char_class_horizontal=1<<12,
-   char_class_vertical=1<<13
-};
 
 c_regex_traits<wchar_t>::char_class_type BOOST_REGEX_CALL c_regex_traits<wchar_t>::lookup_classname(const wchar_t* p1, const wchar_t* p2) 
 {

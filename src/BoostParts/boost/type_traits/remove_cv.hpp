@@ -27,12 +27,14 @@
 
 namespace boost {
 
+#ifndef BOOST_NO_TEMPLATE_PARTIAL_SPECIALIZATION
+
 namespace detail{
 
 template <class T>
 struct rvalue_ref_filter_rem_cv
 {
-	typedef typename boost::detail::cv_traits_imp<T*>::unqualified_type type;
+   typedef typename boost::detail::cv_traits_imp<T*>::unqualified_type type;
 };
 
 #ifndef BOOST_NO_RVALUE_REFERENCES
@@ -43,13 +45,12 @@ struct rvalue_ref_filter_rem_cv
 template <class T>
 struct rvalue_ref_filter_rem_cv<T&&>
 {
-	typedef T&& type;
+   typedef T&& type;
 };
 #endif
 
 }
 
-#ifndef BOOST_NO_TEMPLATE_PARTIAL_SPECIALIZATION
 
 //  convert a type T to a non-cv-qualified type - remove_cv<T>
 BOOST_TT_AUX_TYPE_TRAIT_DEF1(remove_cv,T,typename boost::detail::rvalue_ref_filter_rem_cv<T>::type)

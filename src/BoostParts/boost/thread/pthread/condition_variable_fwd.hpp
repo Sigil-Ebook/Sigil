@@ -22,7 +22,7 @@ namespace boost
     private:
         pthread_mutex_t internal_mutex;
         pthread_cond_t cond;
-        
+
         condition_variable(condition_variable&);
         condition_variable& operator=(condition_variable&);
 
@@ -44,7 +44,11 @@ namespace boost
         ~condition_variable()
         {
             BOOST_VERIFY(!pthread_mutex_destroy(&internal_mutex));
-            BOOST_VERIFY(!pthread_cond_destroy(&cond));
+            int ret;
+            do {
+              ret = pthread_cond_destroy(&cond);
+            } while (ret == EINTR);
+            BOOST_VERIFY(!ret);
         }
 
         void wait(unique_lock<mutex>& m);

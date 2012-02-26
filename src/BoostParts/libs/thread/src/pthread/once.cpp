@@ -22,16 +22,18 @@ namespace boost
             pthread_key_t epoch_tss_key;
             pthread_once_t epoch_tss_key_flag=PTHREAD_ONCE_INIT;
             
-            extern "C" void delete_epoch_tss_data(void* data)
+            extern "C"
             {
-                free(data);
-            }
+                static void delete_epoch_tss_data(void* data)
+                {
+                    free(data);
+                }
 
-            extern "C" void create_epoch_tss_key()
-            {
-                BOOST_VERIFY(!pthread_key_create(&epoch_tss_key,delete_epoch_tss_data));
+                static void create_epoch_tss_key()
+                {
+                    BOOST_VERIFY(!pthread_key_create(&epoch_tss_key,delete_epoch_tss_data));
+                }
             }
-            
         }
         
         boost::uintmax_t& get_once_per_thread_epoch()

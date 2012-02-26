@@ -17,8 +17,8 @@
 #endif
 #include <boost/date_time/posix_time/conversion.hpp>
 #include <errno.h>
-#include "timespec.hpp"
-#include "pthread_mutex_scoped_lock.hpp"
+#include <boost/thread/pthread/timespec.hpp>
+#include <boost/thread/pthread/pthread_mutex_scoped_lock.hpp>
 
 #ifdef _POSIX_TIMEOUTS
 #if _POSIX_TIMEOUTS >= 0
@@ -26,7 +26,7 @@
 #endif
 #endif
 
-#if defined(BOOST_PTHREAD_HAS_MUTEXATTR_SETTYPE) && defined(BOOST_PTHREAD_HAS_TIMEDLOCK)
+#if defined(BOOST_HAS_PTHREAD_MUTEXATTR_SETTYPE) && defined(BOOST_PTHREAD_HAS_TIMEDLOCK)
 #define BOOST_USE_PTHREAD_RECURSIVE_TIMEDLOCK
 #endif
 
@@ -38,9 +38,9 @@ namespace boost
     {
     private:
         recursive_mutex(recursive_mutex const&);
-        recursive_mutex& operator=(recursive_mutex const&);        
+        recursive_mutex& operator=(recursive_mutex const&);
         pthread_mutex_t m;
-#ifndef BOOST_PTHREAD_HAS_MUTEXATTR_SETTYPE
+#ifndef BOOST_HAS_PTHREAD_MUTEXATTR_SETTYPE
         pthread_cond_t cond;
         bool is_locked;
         pthread_t owner;
@@ -49,9 +49,9 @@ namespace boost
     public:
         recursive_mutex()
         {
-#ifdef BOOST_PTHREAD_HAS_MUTEXATTR_SETTYPE
+#ifdef BOOST_HAS_PTHREAD_MUTEXATTR_SETTYPE
             pthread_mutexattr_t attr;
-            
+
             int const init_attr_res=pthread_mutexattr_init(&attr);
             if(init_attr_res)
             {
@@ -63,7 +63,7 @@ namespace boost
                 BOOST_VERIFY(!pthread_mutexattr_destroy(&attr));
                 boost::throw_exception(thread_resource_error());
             }
-            
+
             int const res=pthread_mutex_init(&m,&attr);
             if(res)
             {
@@ -90,12 +90,12 @@ namespace boost
         ~recursive_mutex()
         {
             BOOST_VERIFY(!pthread_mutex_destroy(&m));
-#ifndef BOOST_PTHREAD_HAS_MUTEXATTR_SETTYPE
+#ifndef BOOST_HAS_PTHREAD_MUTEXATTR_SETTYPE
             BOOST_VERIFY(!pthread_cond_destroy(&cond));
 #endif
         }
 
-#ifdef BOOST_PTHREAD_HAS_MUTEXATTR_SETTYPE
+#ifdef BOOST_HAS_PTHREAD_MUTEXATTR_SETTYPE
         void lock()
         {
             BOOST_VERIFY(!pthread_mutex_lock(&m));
@@ -105,7 +105,7 @@ namespace boost
         {
             BOOST_VERIFY(!pthread_mutex_unlock(&m));
         }
-        
+
         bool try_lock()
         {
             int const res=pthread_mutex_trylock(&m);
@@ -127,7 +127,7 @@ namespace boost
                 ++count;
                 return;
             }
-            
+
             while(is_locked)
             {
                 BOOST_VERIFY(!pthread_cond_wait(&cond,&m));
@@ -146,7 +146,7 @@ namespace boost
             }
             BOOST_VERIFY(!pthread_cond_signal(&cond));
         }
-        
+
         bool try_lock()
         {
             boost::pthread::pthread_mutex_scoped_lock const local_lock(&m);
@@ -172,7 +172,7 @@ namespace boost
     {
     private:
         recursive_timed_mutex(recursive_timed_mutex const&);
-        recursive_timed_mutex& operator=(recursive_timed_mutex const&);        
+        recursive_timed_mutex& operator=(recursive_timed_mutex const&);
     private:
         pthread_mutex_t m;
 #ifndef BOOST_USE_PTHREAD_RECURSIVE_TIMEDLOCK
@@ -186,7 +186,7 @@ namespace boost
         {
 #ifdef BOOST_USE_PTHREAD_RECURSIVE_TIMEDLOCK
             pthread_mutexattr_t attr;
-            
+
             int const init_attr_res=pthread_mutexattr_init(&attr);
             if(init_attr_res)
             {
@@ -197,7 +197,7 @@ namespace boost
             {
                 boost::throw_exception(thread_resource_error());
             }
-            
+
             int const res=pthread_mutex_init(&m,&attr);
             if(res)
             {
@@ -245,7 +245,7 @@ namespace boost
         {
             BOOST_VERIFY(!pthread_mutex_unlock(&m));
         }
-        
+
         bool try_lock()
         {
             int const res=pthread_mutex_trylock(&m);
@@ -275,7 +275,7 @@ namespace boost
                 ++count;
                 return;
             }
-            
+
             while(is_locked)
             {
                 BOOST_VERIFY(!pthread_cond_wait(&cond,&m));
@@ -294,7 +294,7 @@ namespace boost
             }
             BOOST_VERIFY(!pthread_cond_signal(&cond));
         }
-        
+
         bool try_lock()
         {
             boost::pthread::pthread_mutex_scoped_lock const local_lock(&m);

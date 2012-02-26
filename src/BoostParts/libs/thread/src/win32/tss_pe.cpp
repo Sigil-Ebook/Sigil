@@ -1,4 +1,4 @@
-// $Id: tss_pe.cpp 66259 2010-10-29 23:27:00Z anthonyw $
+// $Id: tss_pe.cpp 72431 2011-06-06 08:28:31Z anthonyw $
 // (C) Copyright Aaron W. LaFramboise, Roland Schwarz, Michael Glassford 2004.
 // (C) Copyright 2007 Roland Schwarz
 // (C) Copyright 2007 Anthony Williams
@@ -11,7 +11,7 @@
 
 #if defined(BOOST_HAS_WINTHREADS) && defined(BOOST_THREAD_BUILD_LIB) 
 
-#if defined(__MINGW32__) && !defined(_WIN64)
+#if (defined(__MINGW32__) && !defined(_WIN64)) || defined(__MINGW64__)
 
 #include <boost/thread/detail/tss_hooks.hpp>
 
@@ -38,7 +38,8 @@ namespace {
     }
 }
 
-#if (__MINGW32_MAJOR_VERSION >3) || ((__MINGW32_MAJOR_VERSION==3) && (__MINGW32_MINOR_VERSION>=18))
+#if defined(__MINGW64__) || (__MINGW32_MAJOR_VERSION >3) ||             \
+    ((__MINGW32_MAJOR_VERSION==3) && (__MINGW32_MINOR_VERSION>=18))
 extern "C"
 {
     PIMAGE_TLS_CALLBACK __crt_xl_tls_callback__ __attribute__ ((section(".CRT$XLB"))) = on_tls_callback;

@@ -20,7 +20,7 @@
 //  are available.
 //
 
-#if defined(__GNUC__) && ( __GNUC__ * 100 + __GNUC_MINOR__ >= 401 )
+#if defined( __GNUC__ ) && ( __GNUC__ * 100 + __GNUC_MINOR__ >= 401 ) && !defined( BOOST_SP_NO_SYNC )
 
 #define BOOST_SP_HAS_SYNC
 
@@ -33,6 +33,10 @@
 #endif
 
 #if defined( __m68k__ )
+#undef BOOST_SP_HAS_SYNC
+#endif
+
+#if defined( __sh__ )
 #undef BOOST_SP_HAS_SYNC
 #endif
 

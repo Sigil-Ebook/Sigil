@@ -847,10 +847,16 @@ bool iswild(const char* mask, const char* name)
 unsigned _fi_attributes(const char* root, const char* name)
 {
    char buf[MAX_PATH];
+   // verify that we can not overflow:
+   if(std::strlen(root) + std::strlen(_fi_sep) + std::strlen(name) >= MAX_PATH)
+      return 0;
+   int r;
    if( ( (root[0] == *_fi_sep) || (root[0] == *_fi_sep_alt) ) && (root[1] == '\0') )
-      (std::sprintf)(buf, "%s%s", root, name);
+      r = (std::sprintf)(buf, "%s%s", root, name);
    else
-      (std::sprintf)(buf, "%s%s%s", root, _fi_sep, name);
+      r = (std::sprintf)(buf, "%s%s%s", root, _fi_sep, name);
+   if(r < 0)
+      return 0; // sprintf failed
    DIR* d = opendir(buf);
    if(d)
    {

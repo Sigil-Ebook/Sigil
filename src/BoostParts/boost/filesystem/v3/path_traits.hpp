@@ -164,7 +164,7 @@ namespace path_traits {
     to += from;
   }
 
-  //  Source dispatch
+  //  Source dispatch  -----------------------------------------------------------------//
 
   //  contiguous containers
   template <class U> inline

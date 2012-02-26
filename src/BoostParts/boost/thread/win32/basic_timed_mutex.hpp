@@ -3,15 +3,15 @@
 
 //  basic_timed_mutex_win32.hpp
 //
-//  (C) Copyright 2006-8 Anthony Williams 
+//  (C) Copyright 2006-8 Anthony Williams
 //
 //  Distributed under the Boost Software License, Version 1.0. (See
 //  accompanying file LICENSE_1_0.txt or copy at
 //  http://www.boost.org/LICENSE_1_0.txt)
 
 #include <boost/assert.hpp>
-#include "thread_primitives.hpp"
-#include "interlocked_read.hpp"
+#include <boost/thread/win32/thread_primitives.hpp>
+#include <boost/thread/win32/interlocked_read.hpp>
 #include <boost/thread/thread_time.hpp>
 #include <boost/thread/xtime.hpp>
 #include <boost/detail/interlocked.hpp>
@@ -52,13 +52,13 @@ namespace boost
                     win32::CloseHandle(old_event);
                 }
             }
-            
-          
+
+
             bool try_lock()
             {
                 return !win32::interlocked_bit_test_and_set(&active_count,lock_flag_bit);
             }
-            
+
             void lock()
             {
                 if(try_lock())
@@ -112,8 +112,8 @@ namespace boost
                     old_count=current;
                 }
             }
-            
-            
+
+
             bool timed_lock(::boost::system_time const& wait_until)
             {
                 if(try_lock())
@@ -171,7 +171,7 @@ namespace boost
             void* get_event()
             {
                 void* current_event=::boost::detail::interlocked_read_acquire(&event);
-                
+
                 if(!current_event)
                 {
                     void* const new_event=win32::create_anonymous_event(win32::auto_reset_event,win32::event_initially_reset);
@@ -196,9 +196,9 @@ namespace boost
                 }
                 return current_event;
             }
-            
+
         };
-        
+
     }
 }
 

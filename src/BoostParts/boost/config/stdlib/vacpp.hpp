@@ -12,19 +12,25 @@
 #define BOOST_HAS_MACRO_USE_FACET
 #define BOOST_NO_STD_MESSAGES
 
+// Apple doesn't seem to reliably defined a *unix* macro
+#if !defined(CYGWIN) && (  defined(__unix__)  \
+                        || defined(__unix)    \
+                        || defined(unix)      \
+                        || defined(__APPLE__) \
+                        || defined(__APPLE)   \
+                        || defined(APPLE))
+#  include <unistd.h>
+#endif
+
 //  C++0x headers not yet implemented
 //
 #  define BOOST_NO_0X_HDR_ARRAY
 #  define BOOST_NO_0X_HDR_CHRONO
 #  define BOOST_NO_0X_HDR_CODECVT
-#  define BOOST_NO_0X_HDR_CONCEPTS
 #  define BOOST_NO_0X_HDR_CONDITION_VARIABLE
-#  define BOOST_NO_0X_HDR_CONTAINER_CONCEPTS
 #  define BOOST_NO_0X_HDR_FORWARD_LIST
 #  define BOOST_NO_0X_HDR_FUTURE
 #  define BOOST_NO_0X_HDR_INITIALIZER_LIST
-#  define BOOST_NO_0X_HDR_ITERATOR_CONCEPTS
-#  define BOOST_NO_0X_HDR_MEMORY_CONCEPTS
 #  define BOOST_NO_0X_HDR_MUTEX
 #  define BOOST_NO_0X_HDR_RANDOM
 #  define BOOST_NO_0X_HDR_RATIO

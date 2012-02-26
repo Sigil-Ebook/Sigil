@@ -1,4 +1,5 @@
 Sigil 0.5.4 TBA
+    - Update Boost to Boost 1.49.0.
     - Fix issue 1272: Tabs should always use the Book/Code/Split View state
       set by the View buttons.
     - Implement issue 1283: Spell check should have an ignore option.

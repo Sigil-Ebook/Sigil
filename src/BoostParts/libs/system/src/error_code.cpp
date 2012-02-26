@@ -39,6 +39,9 @@ using namespace boost::system::errc;
 
 namespace
 {
+#if defined(__PGI)
+  using boost::system::errc::invalid_argument;
+#endif
   //  standard error categories  ---------------------------------------------//
 
   class generic_error_category : public error_category

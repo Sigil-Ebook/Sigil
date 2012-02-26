@@ -241,6 +241,7 @@ protected:
    unsigned                      m_backrefs;           // bitmask of permitted backrefs
    boost::uintmax_t              m_bad_repeats;        // bitmask of repeats we can't deduce a startmap for;
    bool                          m_has_recursions;     // set when we have recursive expresisons to fixup
+   std::vector<bool>             m_recursion_checks;   // notes which recursions we've followed while analysing this expression
    typename traits::char_class_type m_word_mask;       // mask used to determine if a character is a word character
    typename traits::char_class_type m_mask_space;      // mask used to determine if a character is a word character
    typename traits::char_class_type m_lower_mask;       // mask used to determine if a character is a lowercase character
@@ -712,6 +713,8 @@ void basic_regex_creator<charT, traits>::finalize(const charT* p1, const charT* 
    m_pdata->m_can_be_null = 0;
 
    m_bad_repeats = 0;
+   if(m_has_recursions)
+      m_recursion_checks.assign(1 + m_pdata->m_mark_count, false);
    create_startmap(m_pdata->m_first_state, m_pdata->m_startmap, &(m_pdata->m_can_be_null), mask_all);
    // get the restart type:
    m_pdata->m_restart_type = get_restart_type(m_pdata->m_first_state);
@@ -948,9 +951,14 @@ void basic_regex_creator<charT, traits>::create_startmaps(re_syntax_base* state)
          state = state->next.p;
       }
    }
+
    // now work through our list, building all the maps as we go:
    while(v.size())
    {
+      // Initialize m_recursion_checks if we need it:
+      if(m_has_recursions)
+         m_recursion_checks.assign(1 + m_pdata->m_mark_count, false);
+
       const std::pair<bool, re_syntax_base*>& p = v.back();
       m_icase = p.first;
       state = p.second;
@@ -960,6 +968,9 @@ void basic_regex_creator<charT, traits>::create_startmaps(re_syntax_base* state)
       m_bad_repeats = 0;
       create_startmap(state->next.p, static_cast<re_alt*>(state)->_map, &static_cast<re_alt*>(state)->can_be_null, mask_take);
       m_bad_repeats = 0;
+
+      if(m_has_recursions)
+         m_recursion_checks.assign(1 + m_pdata->m_mark_count, false);
       create_startmap(static_cast<re_alt*>(state)->alt.p, static_cast<re_alt*>(state)->_map, &static_cast<re_alt*>(state)->can_be_null, mask_skip);
       // adjust the type of the state to allow for faster matching:
       state->type = this->get_repeat_type(state);
@@ -1114,7 +1125,11 @@ void basic_regex_creator<charT, traits>::create_startmap(re_syntax_base* state, 
       }
       case syntax_element_recurse:
          {
-            if(recursion_start == state)
+            if(state->type == syntax_element_startmark)
+               recursion_sub = static_cast<re_brace*>(state)->index;
+            else
+               recursion_sub = 0;
+            if(m_recursion_checks[recursion_sub])
             {
                // Infinite recursion!!
                if(0 == this->m_pdata->m_status) // update the error code if not already set
@@ -1139,12 +1154,10 @@ void basic_regex_creator<charT, traits>::create_startmap(re_syntax_base* state, 
                recursion_start = state;
                recursion_restart = state->next.p;
                state = static_cast<re_jump*>(state)->alt.p;
-               if(state->type == syntax_element_startmark)
-                  recursion_sub = static_cast<re_brace*>(state)->index;
-               else
-                  recursion_sub = 0;
+               m_recursion_checks[recursion_sub] = true;
                break;
             }
+            m_recursion_checks[recursion_sub] = true;
             // fall through, can't handle nested recursion here...
          }
       case syntax_element_backref:
@@ -1213,7 +1226,7 @@ void basic_regex_creator<charT, traits>::create_startmap(re_syntax_base* state, 
                for(unsigned int i = 0; i < (1u << CHAR_BIT); ++i)
                {
                   charT c = static_cast<charT>(i);
-                  if(&c != re_is_set_member(&c, &c + 1, static_cast<re_set_long<mask_type>*>(state), *m_pdata, m_icase))
+                  if(&c != re_is_set_member(&c, &c + 1, static_cast<re_set_long<mask_type>*>(state), *m_pdata, l_icase))
                      l_map[i] |= mask;
                }
             }

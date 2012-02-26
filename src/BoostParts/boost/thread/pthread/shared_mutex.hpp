@@ -27,7 +27,7 @@ namespace boost
             bool upgrade;
             bool exclusive_waiting_blocked;
         };
-        
+
 
 
         state_data state;
@@ -41,7 +41,7 @@ namespace boost
             exclusive_cond.notify_one();
             shared_cond.notify_all();
         }
-        
+
 
     public:
         shared_mutex()
@@ -58,7 +58,7 @@ namespace boost
         {
             boost::this_thread::disable_interruption do_not_disturb;
             boost::mutex::scoped_lock lk(state_change);
-                
+
             while(state.exclusive || state.exclusive_waiting_blocked)
             {
                 shared_cond.wait(lk);
@@ -69,7 +69,7 @@ namespace boost
         bool try_lock_shared()
         {
             boost::mutex::scoped_lock lk(state_change);
-                
+
             if(state.exclusive || state.exclusive_waiting_blocked)
             {
                 return false;
@@ -85,7 +85,7 @@ namespace boost
         {
             boost::this_thread::disable_interruption do_not_disturb;
             boost::mutex::scoped_lock lk(state_change);
-                
+
             while(state.exclusive || state.exclusive_waiting_blocked)
             {
                 if(!shared_cond.timed_wait(lk,timeout))
@@ -107,7 +107,7 @@ namespace boost
         {
             boost::mutex::scoped_lock lk(state_change);
             bool const last_reader=!--state.shared_count;
-                
+
             if(last_reader)
             {
                 if(state.upgrade)
@@ -128,7 +128,7 @@ namespace boost
         {
             boost::this_thread::disable_interruption do_not_disturb;
             boost::mutex::scoped_lock lk(state_change);
-                
+
             while(state.shared_count || state.exclusive)
             {
                 state.exclusive_waiting_blocked=true;
@@ -150,7 +150,7 @@ namespace boost
                     if(state.shared_count || state.exclusive)
                     {
                         state.exclusive_waiting_blocked=false;
-                        exclusive_cond.notify_one();
+                        release_waiters();
                         return false;
                     }
                     break;
@@ -169,7 +169,7 @@ namespace boost
         bool try_lock()
         {
             boost::mutex::scoped_lock lk(state_change);
-                
+
             if(state.shared_count || state.exclusive)
             {
                 return false;
@@ -179,7 +179,7 @@ namespace boost
                 state.exclusive=true;
                 return true;
             }
-                
+
         }
 
         void unlock()
@@ -248,7 +248,7 @@ namespace boost
             boost::mutex::scoped_lock lk(state_change);
             state.upgrade=false;
             bool const last_reader=!--state.shared_count;
-                
+
             if(last_reader)
             {
                 state.exclusive_waiting_blocked=false;
@@ -278,7 +278,7 @@ namespace boost
             state.exclusive_waiting_blocked=false;
             release_waiters();
         }
-        
+
         void unlock_and_lock_shared()
         {
             boost::mutex::scoped_lock lk(state_change);
@@ -287,7 +287,7 @@ namespace boost
             state.exclusive_waiting_blocked=false;
             release_waiters();
         }
-        
+
         void unlock_upgrade_and_lock_shared()
         {
             boost::mutex::scoped_lock lk(state_change);

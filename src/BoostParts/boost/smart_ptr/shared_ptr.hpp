@@ -41,6 +41,7 @@
 #include <algorithm>            // for std::swap
 #include <functional>           // for std::less
 #include <typeinfo>             // for std::bad_cast
+#include <cstddef>              // for std::size_t
 
 #if !defined(BOOST_NO_IOSTREAM)
 #if !defined(BOOST_NO_IOSFWD)
@@ -48,11 +49,6 @@
 #else
 #include <ostream>
 #endif
-#endif
-
-#ifdef BOOST_MSVC  // moved here to work around VC++ compiler crash
-# pragma warning(push)
-# pragma warning(disable:4284) // odd return type for operator->
 #endif
 
 namespace boost
@@ -207,7 +203,17 @@ public:
         boost::detail::sp_enable_shared_from_this( this, p, p );
     }
 
-//  generated copy constructor, destructor are fine
+//  generated copy constructor, destructor are fine...
+
+#if defined( BOOST_HAS_RVALUE_REFS )
+
+// ... except in C++0x, move disables the implicit copy
+
+    shared_ptr( shared_ptr const & r ): px( r.px ), pn( r.pn ) // never throws
+    {
+    }
+
+#endif
 
     template<class Y>
     explicit shared_ptr(weak_ptr<Y> const & r): pn(r.pn) // may throw
@@ -443,7 +449,12 @@ public:
         pn.swap(other.pn);
     }
 
-    template<class Y> bool _internal_less(shared_ptr<Y> const & rhs) const
+    template<class Y> bool owner_before( shared_ptr<Y> const & rhs ) const
+    {
+        return pn < rhs.pn;
+    }
+
+    template<class Y> bool owner_before( weak_ptr<Y> const & rhs ) const
     {
         return pn < rhs.pn;
     }
@@ -499,7 +510,7 @@ template<class T> inline bool operator!=(shared_ptr<T> const & a, shared_ptr<T> 
 
 template<class T, class U> inline bool operator<(shared_ptr<T> const & a, shared_ptr<U> const & b)
 {
-    return a._internal_less(b);
+    return a.owner_before( b );
 }
 
 template<class T> inline void swap(shared_ptr<T> & a, shared_ptr<T> & b)
@@ -688,13 +699,18 @@ template<class T> inline bool atomic_compare_exchange_explicit( shared_ptr<T> * 
     return atomic_compare_exchange( p, v, w ); // std::move( w )
 }
 
-#endif
+#endif // !defined(BOOST_SP_NO_ATOMIC_ACCESS)
+
+// hash_value
+
+template< class T > struct hash;
+
+template< class T > std::size_t hash_value( boost::shared_ptr<T> const & p )
+{
+    return boost::hash< T* >()( p.get() );
+}
 
 } // namespace boost
-
-#ifdef BOOST_MSVC
-# pragma warning(pop)
-#endif
 
 #endif  // #if defined(BOOST_NO_MEMBER_TEMPLATES) && !defined(BOOST_MSVC6_MEMBER_TEMPLATES)
 

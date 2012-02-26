@@ -224,19 +224,3 @@ int WINAPI DllEntryPoint(HINSTANCE , unsigned long , void*)
 }
 #endif
 
-#if defined(__IBMCPP__) && defined(BOOST_REGEX_DYN_LINK)
-//
-// Is this correct - linker complains without it ?
-//
-int main()
-{ 
-   return 0; 
-}
-
-#endif
-
-
-
-
-
-

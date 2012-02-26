@@ -9,7 +9,6 @@
 
 #include <boost/thread/thread.hpp>
 #include <algorithm>
-#include <windows.h>
 #ifndef UNDER_CE
 #include <process.h>
 #endif
@@ -20,6 +19,8 @@
 #include <boost/throw_exception.hpp>
 #include <boost/thread/detail/tss_hooks.hpp>
 #include <boost/date_time/posix_time/conversion.hpp>
+#include <windows.h>
+#include <memory>
 
 namespace boost
 {
@@ -32,7 +33,12 @@ namespace boost
         {
             tss_cleanup_implemented(); // if anyone uses TSS, we need the cleanup linked in
             current_thread_tls_key=TlsAlloc();
-            BOOST_ASSERT(current_thread_tls_key!=TLS_OUT_OF_INDEXES);
+			#if defined(UNDER_CE)
+				// Windows CE does not define the TLS_OUT_OF_INDEXES constant.
+				BOOST_ASSERT(current_thread_tls_key!=0xFFFFFFFF);
+			#else
+				BOOST_ASSERT(current_thread_tls_key!=TLS_OUT_OF_INDEXES);
+			#endif
         }
 
         void cleanup_tls_key()
@@ -62,7 +68,7 @@ namespace boost
                 boost::throw_exception(thread_resource_error());
         }
 
-#ifdef BOOST_NO_THREADEX
+#ifndef BOOST_HAS_THREADEX
 // Windows CE doesn't define _beginthreadex
 
         struct ThreadProxyData
@@ -75,22 +81,25 @@ namespace boost
 
         DWORD WINAPI ThreadProxy(LPVOID args)
         {
-            ThreadProxyData* data=reinterpret_cast<ThreadProxyData*>(args);
+            std::auto_ptr<ThreadProxyData> data(reinterpret_cast<ThreadProxyData*>(args));
             DWORD ret=data->start_address_(data->arglist_);
-            delete data;
             return ret;
         }
-        
+
         typedef void* uintptr_t;
 
         inline uintptr_t const _beginthreadex(void* security, unsigned stack_size, unsigned (__stdcall* start_address)(void*),
                                               void* arglist, unsigned initflag, unsigned* thrdaddr)
         {
             DWORD threadID;
+            ThreadProxyData* data = new ThreadProxyData(start_address,arglist);
             HANDLE hthread=CreateThread(static_cast<LPSECURITY_ATTRIBUTES>(security),stack_size,ThreadProxy,
-                                        new ThreadProxyData(start_address,arglist),initflag,&threadID);
-            if (hthread!=0)
-                *thrdaddr=threadID;
+                                        data,initflag,&threadID);
+            if (hthread==0) {
+              delete data;
+              return 0;
+            }
+            *thrdaddr=threadID;
             return reinterpret_cast<uintptr_t const>(hthread);
         }
 
@@ -157,11 +166,11 @@ namespace boost
                         boost::detail::heap_delete(current_node);
                     }
                 }
-                
+
                 set_current_thread_data(0);
             }
         }
-        
+
         unsigned __stdcall thread_start_function(void* param)
         {
             detail::thread_data_base* const thread_info(reinterpret_cast<detail::thread_data_base*>(param));
@@ -213,7 +222,7 @@ namespace boost
                 ++count;
                 interruption_enabled=false;
             }
-            
+
             void run()
             {}
         private:
@@ -245,14 +254,14 @@ namespace boost
             }
             return current_thread_data;
         }
-        
+
     }
 
     thread::~thread()
     {
         detach();
     }
-    
+
     thread::id thread::get_id() const
     {
         return thread::id((get_thread_info)());
@@ -286,7 +295,7 @@ namespace boost
         }
         return true;
     }
-    
+
     void thread::detach()
     {
         release_handle();
@@ -296,7 +305,7 @@ namespace boost
     {
         thread_info=0;
     }
-    
+
     void thread::interrupt()
     {
         detail::thread_data_ptr local_thread_info=(get_thread_info)();
@@ -305,20 +314,20 @@ namespace boost
             local_thread_info->interrupt();
         }
     }
-    
+
     bool thread::interruption_requested() const
     {
         detail::thread_data_ptr local_thread_info=(get_thread_info)();
         return local_thread_info.get() && (detail::win32::WaitForSingleObject(local_thread_info->interruption_handle,0)==0);
     }
-    
+
     unsigned thread::hardware_concurrency()
     {
         SYSTEM_INFO info={{0}};
         GetSystemInfo(&info);
         return info.dwNumberOfProcessors;
     }
-    
+
     thread::native_handle_type thread::native_handle()
     {
         detail::thread_data_ptr local_thread_info=(get_thread_info)();
@@ -369,7 +378,7 @@ namespace boost
                             target_time.abs_time.time_of_day().ticks_per_second();
                         if(ticks_per_second>hundred_nanoseconds_in_one_second)
                         {
-                            posix_time::time_duration::tick_type const 
+                            posix_time::time_duration::tick_type const
                                 ticks_per_hundred_nanoseconds=
                                 ticks_per_second/hundred_nanoseconds_in_one_second;
                             due_time.QuadPart+=
@@ -387,7 +396,7 @@ namespace boost
                 return due_time;
             }
         }
-        
+
 
         bool interruptible_wait(detail::win32::handle handle_to_wait_for,detail::timeout target_time)
         {
@@ -408,10 +417,10 @@ namespace boost
             }
 
             detail::win32::handle_manager timer_handle;
-            
+
 #ifndef UNDER_CE
             unsigned const min_timer_wait_period=20;
-            
+
             if(!target_time.is_sentinel())
             {
                 detail::timeout::remaining_time const time_left=target_time.remaining_milliseconds();
@@ -422,7 +431,7 @@ namespace boost
                     if(timer_handle!=0)
                     {
                         LARGE_INTEGER due_time=get_due_time(target_time);
-                        
+
                         bool const set_time_succeeded=SetWaitableTimer(timer_handle,&due_time,0,0,0,false)!=0;
                         if(set_time_succeeded)
                         {
@@ -438,17 +447,17 @@ namespace boost
                 }
             }
 #endif
-        
+
             bool const using_timer=timeout_index!=~0u;
             detail::timeout::remaining_time time_left(0);
-            
+
             do
             {
                 if(!using_timer)
                 {
                     time_left=target_time.remaining_milliseconds();
                 }
-                
+
                 if(handle_count)
                 {
                     unsigned long const notified_index=detail::win32::WaitForMultipleObjects(handle_count,handles,false,using_timer?INFINITE:time_left.milliseconds);
@@ -495,12 +504,12 @@ namespace boost
                 throw thread_interrupted();
             }
         }
-        
+
         bool interruption_enabled()
         {
             return get_current_thread_data() && get_current_thread_data()->interruption_enabled;
         }
-        
+
         bool interruption_requested()
         {
             return get_current_thread_data() && (detail::win32::WaitForSingleObject(get_current_thread_data()->interruption_handle,0)==0);
@@ -510,7 +519,7 @@ namespace boost
         {
             detail::win32::Sleep(0);
         }
-        
+
         disable_interruption::disable_interruption():
             interruption_was_enabled(interruption_enabled())
         {
@@ -519,7 +528,7 @@ namespace boost
                 get_current_thread_data()->interruption_enabled=false;
             }
         }
-        
+
         disable_interruption::~disable_interruption()
         {
             if(get_current_thread_data())
@@ -535,7 +544,7 @@ namespace boost
                 get_current_thread_data()->interruption_enabled=true;
             }
         }
-        
+
         restore_interruption::~restore_interruption()
         {
             if(get_current_thread_data())
@@ -582,7 +591,7 @@ namespace boost
             }
             return NULL;
         }
-        
+
         void set_tss_data(void const* key,boost::shared_ptr<tss_cleanup_function> func,void* tss_data,bool cleanup_existing)
         {
             if(tss_data_node* const current_node=find_tss_data(key))

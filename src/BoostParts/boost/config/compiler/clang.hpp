@@ -13,8 +13,7 @@
 #  define BOOST_NO_EXCEPTIONS
 #endif
 
-#if __has_feature(cxx_rtti)
-#else
+#if !__has_feature(cxx_rtti)
 #  define BOOST_NO_RTTI
 #endif
 
@@ -24,35 +23,94 @@
 
 #define BOOST_HAS_NRVO
 
-// NOTE: Clang's C++0x support is not worth detecting. However, it
-// supports both extern templates and "long long" even in C++98/03
-// mode.
-#define BOOST_NO_AUTO_DECLARATIONS
-#define BOOST_NO_AUTO_MULTIDECLARATIONS
-#define BOOST_NO_CHAR16_T
-#define BOOST_NO_CHAR32_T
-#define BOOST_NO_CONCEPTS
-#define BOOST_NO_CONSTEXPR
-#define BOOST_NO_DECLTYPE
-#define BOOST_NO_DEFAULTED_FUNCTIONS
-#define BOOST_NO_DELETED_FUNCTIONS
-#define BOOST_NO_EXPLICIT_CONVERSION_OPERATORS
-#define BOOST_NO_FUNCTION_TEMPLATE_DEFAULT_ARGS
-#define BOOST_NO_INITIALIZER_LISTS
-#define BOOST_NO_LAMBDAS
-#define BOOST_NO_NULLPTR
-#define BOOST_NO_RAW_LITERALS
-#define BOOST_NO_RVALUE_REFERENCES
-#define BOOST_NO_SCOPED_ENUMS
-#define BOOST_NO_STATIC_ASSERT
-#define BOOST_NO_TEMPLATE_ALIASES
-#define BOOST_NO_UNICODE_LITERALS
-#define BOOST_NO_VARIADIC_TEMPLATES
-#define BOOST_NO_VARIADIC_MACROS
+// Clang supports "long long" in all compilation modes.
 
-// HACK: Clang does support extern templates, but Boost's test for
-// them is wrong.
-#define BOOST_NO_EXTERN_TEMPLATE
+#if !__has_feature(cxx_auto_type)
+#  define BOOST_NO_AUTO_DECLARATIONS
+#  define BOOST_NO_AUTO_MULTIDECLARATIONS
+#endif
+
+#if !(defined(__GXX_EXPERIMENTAL_CXX0X__) || __cplusplus >= 201103L)
+#  define BOOST_NO_CHAR16_T
+#  define BOOST_NO_CHAR32_T
+#endif
+
+#if !__has_feature(cxx_constexpr)
+#  define BOOST_NO_CONSTEXPR
+#endif
+
+#if !__has_feature(cxx_decltype)
+#  define BOOST_NO_DECLTYPE
+#endif
+
+#define BOOST_NO_DECLTYPE_N3276
+
+#if !__has_feature(cxx_defaulted_functions)
+#  define BOOST_NO_DEFAULTED_FUNCTIONS
+#endif
+
+#if !__has_feature(cxx_deleted_functions)
+#  define BOOST_NO_DELETED_FUNCTIONS
+#endif
+
+#if !__has_feature(cxx_explicit_conversions)
+#  define BOOST_NO_EXPLICIT_CONVERSION_OPERATORS
+#endif
+
+#if !__has_feature(cxx_default_function_template_args)
+#  define BOOST_NO_FUNCTION_TEMPLATE_DEFAULT_ARGS
+#endif
+
+#if !__has_feature(cxx_generalized_initializers)
+#  define BOOST_NO_INITIALIZER_LISTS
+#endif
+
+#if !__has_feature(cxx_lambdas)
+#  define BOOST_NO_LAMBDAS
+#endif
+
+#if !__has_feature(cxx_noexcept)
+#  define BOOST_NO_NOEXCEPT
+#endif
+
+#if !__has_feature(cxx_nullptr)
+#  define BOOST_NO_NULLPTR
+#endif
+
+#if !__has_feature(cxx_raw_string_literals)
+#  define BOOST_NO_RAW_LITERALS
+#endif
+
+#if !__has_feature(cxx_generalized_initializers)
+#  define BOOST_NO_UNIFIED_INITIALIZATION_SYNTAX
+#endif
+
+#if !__has_feature(cxx_rvalue_references)
+#  define BOOST_NO_RVALUE_REFERENCES
+#endif
+
+#if !__has_feature(cxx_strong_enums)
+#  define BOOST_NO_SCOPED_ENUMS
+#endif
+
+#if !__has_feature(cxx_static_assert)
+#  define BOOST_NO_STATIC_ASSERT
+#endif
+
+#if !__has_feature(cxx_alias_templates)
+#  define BOOST_NO_TEMPLATE_ALIASES
+#endif
+
+#if !__has_feature(cxx_unicode_literals)
+#  define BOOST_NO_UNICODE_LITERALS
+#endif
+
+#if !__has_feature(cxx_variadic_templates)
+#  define BOOST_NO_VARIADIC_TEMPLATES
+#endif
+
+// Clang always supports variadic macros
+// Clang always supports extern templates
 
 #ifndef BOOST_COMPILER
 #  define BOOST_COMPILER "Clang version " __clang_version__

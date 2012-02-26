@@ -59,6 +59,9 @@
 #elif defined( WIN32 ) || defined( _WIN32 ) || defined( __WIN32__ ) || defined(__CYGWIN__)
 # include <boost/smart_ptr/detail/sp_counted_base_w32.hpp>
 
+#elif defined( _AIX )
+# include <boost/smart_ptr/detail/sp_counted_base_aix.hpp>
+
 #elif !defined( BOOST_HAS_THREADS )
 # include <boost/smart_ptr/detail/sp_counted_base_nt.hpp>
 

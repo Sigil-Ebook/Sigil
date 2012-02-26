@@ -23,7 +23,7 @@ namespace boost
     {
     private:
         shared_mutex(shared_mutex const&);
-        shared_mutex& operator=(shared_mutex const&);        
+        shared_mutex& operator=(shared_mutex const&);
     private:
         struct state_data
         {
@@ -39,7 +39,7 @@ namespace boost
                 return *reinterpret_cast<unsigned const*>(&lhs)==*reinterpret_cast<unsigned const*>(&rhs);
             }
         };
-        
+
 
         template<typename T>
         T interlocked_compare_exchange(T* target,T new_value,T comparand)
@@ -67,20 +67,31 @@ namespace boost
             {
                 BOOST_VERIFY(detail::win32::ReleaseSemaphore(semaphores[exclusive_sem],1,0)!=0);
             }
-                        
+
             if(old_state.shared_waiting || old_state.exclusive_waiting)
             {
                 BOOST_VERIFY(detail::win32::ReleaseSemaphore(semaphores[unlock_sem],old_state.shared_waiting + (old_state.exclusive_waiting?1:0),0)!=0);
             }
         }
-        
+
 
     public:
         shared_mutex()
         {
             semaphores[unlock_sem]=detail::win32::create_anonymous_semaphore(0,LONG_MAX);
-            semaphores[exclusive_sem]=detail::win32::create_anonymous_semaphore(0,LONG_MAX);
-            upgrade_sem=detail::win32::create_anonymous_semaphore(0,LONG_MAX);
+            semaphores[exclusive_sem]=detail::win32::create_anonymous_semaphore_nothrow(0,LONG_MAX);
+            if (!semaphores[exclusive_sem])
+            {
+              detail::win32::release_semaphore(semaphores[unlock_sem],LONG_MAX);
+              boost::throw_exception(thread_resource_error());
+            }
+            upgrade_sem=detail::win32::create_anonymous_semaphore_nothrow(0,LONG_MAX);
+            if (!upgrade_sem)
+            {
+              detail::win32::release_semaphore(semaphores[unlock_sem],LONG_MAX);
+              detail::win32::release_semaphore(semaphores[exclusive_sem],LONG_MAX);
+              boost::throw_exception(thread_resource_error());
+            }
             state_data state_={0};
             state=state_;
         }
@@ -106,7 +117,7 @@ namespace boost
                         return false;
                     }
                 }
-                
+
                 state_data const current_state=interlocked_compare_exchange(&state,new_state,old_state);
                 if(current_state==old_state)
                 {
@@ -165,7 +176,7 @@ namespace boost
                 {
                     return true;
                 }
-                    
+
                 unsigned long const res=detail::win32::WaitForSingleObject(semaphores[unlock_sem],::boost::detail::get_milliseconds_until(wait_until));
                 if(res==detail::win32::timeout)
                 {
@@ -202,7 +213,7 @@ namespace boost
                     }
                     return false;
                 }
-                
+
                 BOOST_ASSERT(res==0);
             }
         }
@@ -214,7 +225,7 @@ namespace boost
             {
                 state_data new_state=old_state;
                 bool const last_reader=!--new_state.shared_count;
-                
+
                 if(last_reader)
                 {
                     if(new_state.upgrade)
@@ -232,7 +243,7 @@ namespace boost
                         new_state.shared_waiting=0;
                     }
                 }
-                
+
                 state_data const current_state=interlocked_compare_exchange(&state,new_state,old_state);
                 if(current_state==old_state)
                 {
@@ -278,7 +289,7 @@ namespace boost
                 {
                     new_state.exclusive=true;
                 }
-                
+
                 state_data const current_state=interlocked_compare_exchange(&state,new_state,old_state);
                 if(current_state==old_state)
                 {
@@ -306,7 +317,7 @@ namespace boost
                         {
                             boost::throw_exception(boost::lock_error());
                         }
-                        
+
                         new_state.exclusive_waiting_blocked=true;
                     }
                     else
@@ -326,7 +337,12 @@ namespace boost
                 {
                     return true;
                 }
-                unsigned long const wait_res=detail::win32::WaitForMultipleObjects(2,semaphores,true,::boost::detail::get_milliseconds_until(wait_until));
+                #ifndef UNDER_CE
+                const bool wait_all = true;
+                #else
+                const bool wait_all = false;
+                #endif
+                unsigned long const wait_res=detail::win32::WaitForMultipleObjects(2,semaphores,wait_all,::boost::detail::get_milliseconds_until(wait_until));
                 if(wait_res==detail::win32::timeout)
                 {
                     for(;;)
@@ -426,7 +442,7 @@ namespace boost
                 {
                     return;
                 }
-                    
+
                 BOOST_VERIFY(!detail::win32::WaitForSingleObject(semaphores[unlock_sem],detail::win32::infinite));
             }
         }
@@ -450,7 +466,7 @@ namespace boost
                     }
                     new_state.upgrade=true;
                 }
-                
+
                 state_data const current_state=interlocked_compare_exchange(&state,new_state,old_state);
                 if(current_state==old_state)
                 {
@@ -469,7 +485,7 @@ namespace boost
                 state_data new_state=old_state;
                 new_state.upgrade=false;
                 bool const last_reader=!--new_state.shared_count;
-                
+
                 if(last_reader)
                 {
                     if(new_state.exclusive_waiting)
@@ -479,7 +495,7 @@ namespace boost
                     }
                     new_state.shared_waiting=0;
                 }
-                
+
                 state_data const current_state=interlocked_compare_exchange(&state,new_state,old_state);
                 if(current_state==old_state)
                 {
@@ -500,13 +516,13 @@ namespace boost
             {
                 state_data new_state=old_state;
                 bool const last_reader=!--new_state.shared_count;
-                
+
                 if(last_reader)
                 {
                     new_state.upgrade=false;
                     new_state.exclusive=true;
                 }
-                
+
                 state_data const current_state=interlocked_compare_exchange(&state,new_state,old_state);
                 if(current_state==old_state)
                 {
@@ -545,7 +561,7 @@ namespace boost
             }
             release_waiters(old_state);
         }
-        
+
         void unlock_and_lock_shared()
         {
             state_data old_state=state;
@@ -570,7 +586,7 @@ namespace boost
             }
             release_waiters(old_state);
         }
-        
+
         void unlock_upgrade_and_lock_shared()
         {
             state_data old_state=state;
@@ -594,7 +610,7 @@ namespace boost
             }
             release_waiters(old_state);
         }
-        
+
     };
 }
 

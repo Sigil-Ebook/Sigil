@@ -8,8 +8,8 @@
 #include <boost/thread/detail/config.hpp>
 #include <boost/intrusive_ptr.hpp>
 #include <boost/thread/thread_time.hpp>
-#include "thread_primitives.hpp"
-#include "thread_heap_alloc.hpp"
+#include <boost/thread/win32/thread_primitives.hpp>
+#include <boost/thread/win32/thread_heap_alloc.hpp>
 
 #include <boost/config/abi_prefix.hpp>
 
@@ -23,8 +23,8 @@ namespace boost
         struct thread_data_base;
         void intrusive_ptr_add_ref(thread_data_base * p);
         void intrusive_ptr_release(thread_data_base * p);
-        
-        struct thread_data_base
+
+        struct BOOST_SYMBOL_VISIBLE thread_data_base
         {
             long count;
             detail::win32::handle_manager thread_handle;
@@ -48,7 +48,7 @@ namespace boost
             {
                 BOOST_INTERLOCKED_INCREMENT(&p->count);
             }
-            
+
             friend void intrusive_ptr_release(thread_data_base * p)
             {
                 if(!BOOST_INTERLOCKED_DECREMENT(&p->count))
@@ -61,7 +61,7 @@ namespace boost
             {
                 BOOST_VERIFY(detail::win32::SetEvent(interruption_handle)!=0);
             }
-            
+
             typedef detail::win32::handle native_handle_type;
 
             virtual void run()=0;
@@ -69,7 +69,7 @@ namespace boost
 
         typedef boost::intrusive_ptr<detail::thread_data_base> thread_data_ptr;
 
-        struct timeout
+        struct BOOST_SYMBOL_VISIBLE timeout
         {
             unsigned long start;
             uintmax_t milliseconds;
@@ -92,7 +92,7 @@ namespace boost
                 abs_time(abs_time_)
             {}
 
-            struct remaining_time
+            struct BOOST_SYMBOL_VISIBLE remaining_time
             {
                 bool more;
                 unsigned long milliseconds;
@@ -130,7 +130,7 @@ namespace boost
             {
                 return milliseconds==~uintmax_t(0);
             }
-            
+
 
             static timeout sentinel()
             {
@@ -139,15 +139,15 @@ namespace boost
         private:
             struct sentinel_type
             {};
-                
+
             explicit timeout(sentinel_type):
                 start(0),milliseconds(~uintmax_t(0)),relative(true)
             {}
         };
 
-        inline unsigned long pin_to_zero(long value)
+        inline uintmax_t pin_to_zero(intmax_t value)
         {
-            return (value<0)?0u:(unsigned long)value;
+            return (value<0)?0u:(uintmax_t)value;
         }
     }
 
@@ -156,26 +156,26 @@ namespace boost
         void BOOST_THREAD_DECL yield();
 
         bool BOOST_THREAD_DECL interruptible_wait(detail::win32::handle handle_to_wait_for,detail::timeout target_time);
-        inline void interruptible_wait(unsigned long milliseconds)
+        inline void interruptible_wait(uintmax_t milliseconds)
         {
             interruptible_wait(detail::win32::invalid_handle_value,milliseconds);
         }
-        inline void interruptible_wait(system_time const& abs_time)
+        inline BOOST_SYMBOL_VISIBLE void interruptible_wait(system_time const& abs_time)
         {
             interruptible_wait(detail::win32::invalid_handle_value,abs_time);
         }
 
         template<typename TimeDuration>
-        inline void sleep(TimeDuration const& rel_time)
+        inline BOOST_SYMBOL_VISIBLE void sleep(TimeDuration const& rel_time)
         {
             interruptible_wait(detail::pin_to_zero(rel_time.total_milliseconds()));
         }
-        inline void sleep(system_time const& abs_time)
+        inline BOOST_SYMBOL_VISIBLE void sleep(system_time const& abs_time)
         {
             interruptible_wait(abs_time);
         }
     }
-    
+
 }
 
 #include <boost/config/abi_suffix.hpp>

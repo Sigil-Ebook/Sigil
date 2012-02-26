@@ -14,7 +14,11 @@
 // First include <cstddef> to determine if some version of STLport is in use as the std lib
 // (do not rely on this header being included since users can short-circuit this header 
 //  if they know whose std lib they are using.)
-#include <cstddef>
+#ifdef __cplusplus
+#  include <cstddef>
+#else
+#  include <stddef.h>
+#endif
 
 #if defined(__SGI_STL_PORT) || defined(_STLPORT_VERSION)
 // STLPort library; this _must_ come first, otherwise since
@@ -39,6 +43,10 @@
 #elif defined(__STD_RWCOMPILER_H__) || defined(_RWSTD_VER)
 // Rogue Wave library:
 #  define BOOST_STDLIB_CONFIG "boost/config/stdlib/roguewave.hpp"
+
+#elif defined(_LIBCPP_VERSION)
+// libc++
+#  define BOOST_STDLIB_CONFIG "boost/config/stdlib/libcpp.hpp"
 
 #elif defined(__GLIBCPP__) || defined(__GLIBCXX__)
 // GNU libstdc++ 3

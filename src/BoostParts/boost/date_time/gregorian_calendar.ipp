@@ -3,7 +3,7 @@
  * Boost Software License, Version 1.0. (See accompanying
  * file LICENSE_1_0.txt or http://www.boost.org/LICENSE_1_0.txt)
  * Author: Jeff Garland, Bart Garst
- * $Date: 2010-01-10 14:17:23 -0500 (Sun, 10 Jan 2010) $
+ * $Date: 2012-01-30 21:30:03 -0500 (Mon, 30 Jan 2012) $
  */
 
 #ifndef NO_BOOST_DATE_TIME_INLINE
@@ -47,7 +47,7 @@ namespace date_time {
       return week;
     }
 
-    if ((week == 53)) {
+    if (week == 53) {
       if((day==6) ||(day == 5 && is_leap_year(ymd.year))) {
         return week; //under these circumstances week == 53.
       } else {

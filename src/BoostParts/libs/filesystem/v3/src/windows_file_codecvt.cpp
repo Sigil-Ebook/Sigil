@@ -31,7 +31,11 @@
 
 #include "windows_file_codecvt.hpp"
 
-#define WINVER 0x0500  // MinGW for GCC 4.4 requires this
+// Versions of MinGW prior to GCC 4.6 requires this
+#ifndef WINVER
+# define WINVER 0x0500
+#endif
+
 #include <windows.h>
 
   std::codecvt_base::result windows_file_codecvt::do_in(
@@ -39,7 +43,7 @@
     const char* from, const char* from_end, const char*& from_next,
     wchar_t* to, wchar_t* to_end, wchar_t*& to_next) const
   {
-    UINT codepage = AreFileApisANSI() ? CP_THREAD_ACP : CP_OEMCP;
+    UINT codepage = AreFileApisANSI() ? CP_ACP : CP_OEMCP;
 
     int count;
     if ((count = ::MultiByteToWideChar(codepage, MB_PRECOMPOSED, from,
@@ -59,7 +63,7 @@
     const wchar_t* from, const wchar_t* from_end, const wchar_t*  & from_next,
     char* to, char* to_end, char* & to_next) const
   {
-    UINT codepage = AreFileApisANSI() ? CP_THREAD_ACP : CP_OEMCP;
+    UINT codepage = AreFileApisANSI() ? CP_ACP : CP_OEMCP;
 
     int count;
     if ((count = ::WideCharToMultiByte(codepage, WC_NO_BEST_FIT_CHARS, from,
