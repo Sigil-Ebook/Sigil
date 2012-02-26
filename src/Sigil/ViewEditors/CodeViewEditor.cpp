@@ -58,7 +58,8 @@ CodeViewEditor::CodeViewEditor( HighlighterType high_type, bool check_spelling, 
     m_DelayedCursorScreenCenteringRequired( false ),
     m_checkSpelling( check_spelling ),
     m_spellingMapper( new QSignalMapper( this ) ),
-    m_addSpellingMapper( new QSignalMapper( this ) )
+    m_addSpellingMapper( new QSignalMapper( this ) ),
+    m_ignoreSpellingMapper( new QSignalMapper( this ) )
 {
     if ( high_type == CodeViewEditor::Highlight_XHTML )
 
@@ -787,6 +788,18 @@ void CodeViewEditor::contextMenuEvent( QContextMenuEvent *event )
             else {
                 menu->addAction(addToDictAction);
             }
+
+            // Allow the user to ignore misspelled words until the program exits
+            QAction *ignoreWordAction = new QAction(tr("Ignore"), menu);
+            connect(ignoreWordAction, SIGNAL(triggered()), m_ignoreSpellingMapper, SLOT(map()));
+            m_ignoreSpellingMapper->setMapping(ignoreWordAction, text);
+            if (topAction) {
+                menu->insertAction(topAction, ignoreWordAction);
+                menu->insertSeparator(topAction);
+            }
+            else {
+                menu->addAction(ignoreWordAction);
+            }
         }
     }
 
@@ -905,6 +918,12 @@ void CodeViewEditor::addToUserDictionary(const QString &text)
     m_Highlighter->rehighlight();
 }
 
+void CodeViewEditor::ignoreWordInDictionary(const QString &text)
+{
+    SpellCheck *sc = SpellCheck::instance();
+    sc->ignoreWord(text);
+    m_Highlighter->rehighlight();
+}
 
 void CodeViewEditor::ResetFont()
 {
@@ -1122,6 +1141,7 @@ void CodeViewEditor::ConnectSignalsToSlots()
 
     connect(m_spellingMapper, SIGNAL(mapped(const QString&)), this, SLOT(ReplaceSelected(const QString&)));
     connect(m_addSpellingMapper, SIGNAL(mapped(const QString&)), this, SLOT(addToUserDictionary(const QString&)));
+    connect(m_ignoreSpellingMapper, SIGNAL(mapped(const QString&)), this, SLOT(ignoreWordInDictionary(const QString&)));
 
     SettingsStore *ss = SettingsStore::instance();
     connect(ss, SIGNAL(settingsChanged()), m_Highlighter, SLOT(rehighlight()));

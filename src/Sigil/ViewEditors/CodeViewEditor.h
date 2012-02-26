@@ -330,6 +330,8 @@ private slots:
 
     void addToUserDictionary(const QString &text);
 
+    void ignoreWordInDictionary(const QString &text);
+
 private:
 
     /**
@@ -508,6 +510,7 @@ private:
      */
     QSignalMapper *m_spellingMapper;
     QSignalMapper *m_addSpellingMapper;
+    QSignalMapper *m_ignoreSpellingMapper;
 };
 
 #endif // CODEVIEWEDITOR_H

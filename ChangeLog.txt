@@ -1,3 +1,6 @@
+Sigil 0.5.4 TBA
+    - Implement issue 1283: Spell check should have an ignore option.
+
 Sigil 0.5.3 2012.25.02
     - Fix issue 1254: Bulk rename will stop if one name matches, context menu
       needs cleanup and warnings.
