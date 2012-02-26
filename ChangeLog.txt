@@ -1,4 +1,10 @@
 Sigil 0.5.4 TBA
+    - Update PCRE to 8.30.
+      - Make PCRE 8.30 with UTF-16 support the minimum required version.
+      - Bundled PCRE uses PCRE's JIT for faster searching.
+      - Modify Regex search code to use UTF-16 instead of UTF-8 for all
+        searches. This brings search in line with the view components being
+        able to display UTF-16 characters.
     - Update Hunspell to 1.3.2.
     - Update Boost to Boost 1.49.0.
     - Fix issue 1272: Tabs should always use the Book/Code/Split View state

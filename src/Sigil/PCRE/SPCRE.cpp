@@ -37,16 +37,16 @@ SPCRE::SPCRE(const QString &patten)
 
     const char *error;
     int erroroffset;
-    m_re = pcre_compile(m_pattern.toUtf8().data(), PCRE_UTF8 | PCRE_MULTILINE, &error, &erroroffset, NULL);
+    m_re = pcre16_compile(m_pattern.utf16(), PCRE_UTF16 | PCRE_MULTILINE, &error, &erroroffset, NULL);
 
     // Pattern is valid.
     if (m_re != NULL) {
         m_valid = true;
         // Study the pattern and save the results of the study.
-        m_study = pcre_study(m_re, 0, &error);
+        m_study = pcre16_study(m_re, 0, &error);
 
         // Store the number of capture subpatterns.
-        pcre_fullinfo(m_re, m_study, PCRE_INFO_CAPTURECOUNT, &m_captureSubpatternCount);
+        pcre16_fullinfo(m_re, m_study, PCRE_INFO_CAPTURECOUNT, &m_captureSubpatternCount);
     }
     // Pattern is not valid.
     else {
@@ -57,10 +57,10 @@ SPCRE::SPCRE(const QString &patten)
 SPCRE::~SPCRE()
 {
     if (m_re != NULL) {
-        pcre_free(m_re);
+        pcre16_free(m_re);
     }
     if (m_study != NULL) {
-        pcre_free(m_study);
+        pcre16_free(m_study);
     }
 }
 
@@ -74,12 +74,12 @@ QString SPCRE::getPattern()
     return m_pattern;
 }
 
-pcre *SPCRE::getCompiledPattern()
+pcre16 *SPCRE::getCompiledPattern()
 {
     return m_re;
 }
 
-pcre_extra *SPCRE::getStudy()
+pcre16_extra *SPCRE::getStudy()
 {
     return m_study;
 }
@@ -95,7 +95,7 @@ int SPCRE::getCaptureStringNumber(const QString &name)
         return -1;
     }
 
-    int number = pcre_get_stringnumber(m_re, name.toUtf8().data());
+    int number = pcre16_get_stringnumber(m_re, name.utf16());
     if (number == 0) {
         number = -1;
     }
@@ -144,10 +144,10 @@ QList<SPCRE::MatchInfo> SPCRE::getEveryMatchInfo(const QString &text)
         // We only care about matches that have text in it.
         if (last_offset[0] != last_offset[1]) {
             // Add the matched information to the list.
-            info.append(generateMatchInfo(text, ovector, ovector_count));
+            info.append(generateMatchInfo(ovector, ovector_count));
         }
 
-        rc = pcre_exec(m_re, m_study, text.toUtf8().data(), strlen(text.toUtf8().data()), last_offset[1], 0, ovector, ovector_size);
+        rc = pcre16_exec(m_re, m_study, text.utf16(), text.length(), last_offset[1], 0, ovector, ovector_size);
     } while(rc >= 0 && ovector[0] != ovector[1] && ovector[1] != last_offset[1] && ovector[0] < ovector[1]);
 
     delete[] ovector;
@@ -179,10 +179,10 @@ SPCRE::MatchInfo SPCRE::getFirstMatchInfo(const QString &text)
     int *ovector = new int[ovector_size];
     memset(ovector, 0, sizeof(int)*ovector_size);
 
-    rc = pcre_exec(m_re, m_study, text.toUtf8().data(), strlen(text.toUtf8().data()), 0, 0, ovector, ovector_size);
+    rc = pcre16_exec(m_re, m_study, text.utf16(), text.length(), 0, 0, ovector, ovector_size);
 
     if (rc >= 0 && ovector[0] != ovector[1]) {
-        match_info = generateMatchInfo(text, ovector, ovector_count);
+        match_info = generateMatchInfo(ovector, ovector_count);
     }
 
     delete[] ovector;
@@ -208,53 +208,15 @@ bool SPCRE::replaceText(const QString &text, const QList<std::pair<int, int> > &
     return builder.BuildReplacementText(*this, text, capture_groups_offsets, replacement_pattern, out);
 }
 
-SPCRE::MatchInfo SPCRE::generateMatchInfo(const QString &text, int ovector[], int ovector_count)
+SPCRE::MatchInfo SPCRE::generateMatchInfo(int ovector[], int ovector_count)
 {
     MatchInfo match_info;
 
-    // pcre works on char*'s and holds UTF-8 data as a sequence of
-    // chars. Meaning a UTF-8 character like ’ will be stored across
-    // multiple chars. ’ for instance is 3 chars. pcre understands these
-    // sequences as a single character but the offsets within the
-    // sequence as returned by pcre_exec are the span of all chars that
-    // represent the single UTF-8 character. For example ’ starts at 10
-    // and the ending offset is 13.
-    //
-    // QString is a UTF-16 capable data store. It represents a single
-    // UTF-8 character as 1. This is unlike pcre with can represent
-    // a singe character as a variable amount of chars.
-    //
-    // Due to the difference in offsets between a char* and QString
-    // we need translate the offsets.
-
-    // Temporary QString. We load the char* data into it to figure out
-    // how many characters are represented by the data.
-    QString tmp_str;
-    // The difference up until ovector[0] between the char* and
-    // tmp_str.
-    int offset_diff = 0;
-    // The differece in length between the matched text and it's length
-    // as a QString.
-    int len_diff = 0;
-    int match_start = 0;
-    int match_end = 0;
-
-    // Load the data into a QString and find out what the difference
-    // between the offset and the character count is.
-    tmp_str = QString::fromUtf8(text.toUtf8().data(), ovector[0]);
-    offset_diff = ovector[0] - tmp_str.length();
-
-    // Load the matched into the QString and find out how many
-    // characters it is.
-    tmp_str = QString::fromUtf8(text.toUtf8().data() + ovector[0], ovector[1] - ovector[0]);
-    len_diff = ovector[1] - ovector[0] - tmp_str.length();
-
-    // Figure out the translated start and end offsets.
-    match_start = ovector[0] - offset_diff;
-    match_end = ovector[1] - offset_diff - len_diff;
-
     // Store the offsets in the QString text that we ar matching
     // against.
+    int match_start = ovector[0];
+    int match_end = ovector[1];
+
     match_info.offset = std::pair<int, int>(match_start, match_end);
 
     // We keep a list of the substrings within the matched string that
@@ -265,18 +227,8 @@ SPCRE::MatchInfo SPCRE::generateMatchInfo(const QString &text, int ovector[], in
     // Translate the subpattern offsets into locations within the
     // matched substring.
     for (int i = 1; i <= ovector_count; i++) {
-        int subpattern_start = 0;
-        int subpattern_end = 0;
-
-        // Load the string from the start of the matched text to the capture pattern.
-        // We want to find out how far into the matched text the capture pattern starts.
-        tmp_str = QString::fromUtf8(text.toUtf8().data() + ovector[0], ovector[2 * i] - ovector[0]);
-        subpattern_start = tmp_str.length();
-
-        // Load the temp string with the string represented by the matched capture pattern.
-        // We want to get the lengh of the capture so we know its ending offset.
-        tmp_str = QString::fromUtf8(text.toUtf8().data() + ovector[2 * i], ovector[2 * i + 1] - ovector[2 * i]);
-        subpattern_end = subpattern_start + tmp_str.length();
+        int subpattern_start = ovector[2 * i] - match_start;
+        int subpattern_end = subpattern_start - ovector[2 * i + 1];
 
         match_info.capture_groups_offsets.append(std::pair<int, int>(subpattern_start, subpattern_end));
     }

@@ -90,13 +90,13 @@ public:
      *
      * @return The compiled pattern.
      */
-    pcre *getCompiledPattern();
+    pcre16 *getCompiledPattern();
     /**
      * The result of the study of the compiled pattern.
      *
      * @return The study result.
      */
-    pcre_extra *getStudy();
+    pcre16_extra *getStudy();
     /**
      * The total number of capture subpatterns within the pattern.
      *
@@ -142,16 +142,16 @@ public:
     bool replaceText(const QString &text, const QList<std::pair<int, int> > &capture_groups_offsets, const QString &replacement_pattern, QString &out);
 
 private:
-    MatchInfo generateMatchInfo(const QString &text, int ovector[], int ovector_count);
+    MatchInfo generateMatchInfo(int ovector[], int ovector_count);
 
     // Store if the pattern is valid.
     bool m_valid;
     // The regular expression as a string.
     QString m_pattern;
     // The compiled regular expression.
-    pcre *m_re;
+    pcre16 *m_re;
     // The result of a study of the pcre.
-    pcre_extra *m_study;
+    pcre16_extra *m_study;
     // The number of capture subpatterns with the expression.
     int m_captureSubpatternCount;
 };

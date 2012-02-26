@@ -111,7 +111,7 @@ endif()
 if( FORCE_BUNDLED_COPIES OR NOT PCRE_FOUND OR APPLE )
     add_subdirectory( src/pcre )
     set( PCRE_LIBRARIES pcre )
-    set( PCRE_INCLUDE_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/src/pcre )
+    set( PCRE_INCLUDE_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/src/pcre ${CMAKE_BINARY_DIR}/src/pcre )
 endif()
 
 if( FORCE_BUNDLED_COPIES OR NOT HUNSPELL_FOUND )

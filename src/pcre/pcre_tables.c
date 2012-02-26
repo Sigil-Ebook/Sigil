@@ -6,7 +6,7 @@
 and semantics are as close as possible to those of the Perl 5 language.
 
                        Written by Philip Hazel
-           Copyright (c) 1997-2009 University of Cambridge
+           Copyright (c) 1997-2012 University of Cambridge
 
 -----------------------------------------------------------------------------
 Redistribution and use in source and binary forms, with or without
@@ -37,6 +37,7 @@ POSSIBILITY OF SUCH DAMAGE.
 -----------------------------------------------------------------------------
 */
 
+#ifndef PCRE_INCLUDED
 
 /* This module contains some fixed tables that are used by more than one of the
 PCRE code modules. The tables are also #included by the pcretest program, which
@@ -50,11 +51,12 @@ clashes with the library. */
 
 #include "pcre_internal.h"
 
+#endif /* PCRE_INCLUDED */
 
 /* Table of sizes for the fixed-length opcodes. It's defined in a macro so that
 the definition is next to the definition of the opcodes in pcre_internal.h. */
 
-const uschar _pcre_OP_lengths[] = { OP_LENGTHS };
+const pcre_uint8 PRIV(OP_lengths)[] = { OP_LENGTHS };
 
 
 
@@ -65,31 +67,38 @@ const uschar _pcre_OP_lengths[] = { OP_LENGTHS };
 /* These are the breakpoints for different numbers of bytes in a UTF-8
 character. */
 
-#ifdef SUPPORT_UTF8
+#if (defined SUPPORT_UTF && defined COMPILE_PCRE8) \
+  || (defined PCRE_INCLUDED && defined SUPPORT_PCRE16)
 
-const int _pcre_utf8_table1[] =
+/* These tables are also required by pcretest in 16 bit mode. */
+
+const int PRIV(utf8_table1)[] =
   { 0x7f, 0x7ff, 0xffff, 0x1fffff, 0x3ffffff, 0x7fffffff};
 
-const int _pcre_utf8_table1_size = sizeof(_pcre_utf8_table1)/sizeof(int);
+const int PRIV(utf8_table1_size) = sizeof(PRIV(utf8_table1)) / sizeof(int);
 
 /* These are the indicator bits and the mask for the data bits to set in the
 first byte of a character, indexed by the number of additional bytes. */
 
-const int _pcre_utf8_table2[] = { 0,    0xc0, 0xe0, 0xf0, 0xf8, 0xfc};
-const int _pcre_utf8_table3[] = { 0xff, 0x1f, 0x0f, 0x07, 0x03, 0x01};
+const int PRIV(utf8_table2)[] = { 0,    0xc0, 0xe0, 0xf0, 0xf8, 0xfc};
+const int PRIV(utf8_table3)[] = { 0xff, 0x1f, 0x0f, 0x07, 0x03, 0x01};
 
 /* Table of the number of extra bytes, indexed by the first byte masked with
 0x3f. The highest number for a valid UTF-8 first byte is in fact 0x3d. */
 
-const uschar _pcre_utf8_table4[] = {
+const pcre_uint8 PRIV(utf8_table4)[] = {
   1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
   1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
   2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,
   3,3,3,3,3,3,3,3,4,4,4,4,5,5,5,5 };
 
+#endif /* (SUPPORT_UTF && COMPILE_PCRE8) || (PCRE_INCLUDED && SUPPORT_PCRE16)*/
+
+#ifdef SUPPORT_UTF
+
 /* Table to translate from particular type value to the general value. */
 
-const int _pcre_ucp_gentype[] = {
+const int PRIV(ucp_gentype)[] = {
   ucp_C, ucp_C, ucp_C, ucp_C, ucp_C,  /* Cc, Cf, Cn, Co, Cs */
   ucp_L, ucp_L, ucp_L, ucp_L, ucp_L,  /* Ll, Lu, Lm, Lo, Lt */
   ucp_M, ucp_M, ucp_M,                /* Mc, Me, Mn */
@@ -99,6 +108,21 @@ const int _pcre_ucp_gentype[] = {
   ucp_S, ucp_S, ucp_S, ucp_S,         /* Sc, Sk, Sm, So */
   ucp_Z, ucp_Z, ucp_Z                 /* Zl, Zp, Zs */
 };
+
+#ifdef SUPPORT_JIT
+/* This table reverses PRIV(ucp_gentype). We can save the cost
+of a memory load. */
+
+const int PRIV(ucp_typerange)[] = {
+  ucp_Cc, ucp_Cs,
+  ucp_Ll, ucp_Lu,
+  ucp_Mc, ucp_Mn,
+  ucp_Nd, ucp_No,
+  ucp_Pc, ucp_Ps,
+  ucp_Sc, ucp_So,
+  ucp_Zl, ucp_Zs,
+};
+#endif /* SUPPORT_JIT */
 
 /* The pcre_utt[] table below translates Unicode property names into type and
 code values. It is searched by binary chop, so must be in collating sequence of
@@ -256,7 +280,7 @@ strings to make sure that UTF-8 support works on EBCDIC platforms. */
 #define STRING_Zp0 STR_Z STR_p "\0"
 #define STRING_Zs0 STR_Z STR_s "\0"
 
-const char _pcre_utt_names[] =
+const char PRIV(utt_names)[] =
   STRING_Any0
   STRING_Arabic0
   STRING_Armenian0
@@ -396,7 +420,7 @@ const char _pcre_utt_names[] =
   STRING_Zp0
   STRING_Zs0;
 
-const ucp_type_table _pcre_utt[] = {
+const ucp_type_table PRIV(utt)[] = {
   {   0, PT_ANY, 0 },
   {   4, PT_SC, ucp_Arabic },
   {  11, PT_SC, ucp_Armenian },
@@ -537,8 +561,8 @@ const ucp_type_table _pcre_utt[] = {
   { 961, PT_PC, ucp_Zs }
 };
 
-const int _pcre_utt_size = sizeof(_pcre_utt)/sizeof(ucp_type_table);
+const int PRIV(utt_size) = sizeof(PRIV(utt)) / sizeof(ucp_type_table);
 
-#endif  /* SUPPORT_UTF8 */
+#endif /* SUPPORT_UTF */
 
 /* End of pcre_tables.c */
