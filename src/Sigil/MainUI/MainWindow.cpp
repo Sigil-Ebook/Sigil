@@ -95,7 +95,8 @@ MainWindow::MainWindow( const QString &openfilepath, QWidget *parent, Qt::WFlags
     m_headingMapper( new QSignalMapper( this ) ),
     c_SaveFilters( GetSaveFiltersMap() ),
     c_LoadFilters( GetLoadFiltersMap() ),
-    m_CheckWellFormedErrors( true )
+    m_CheckWellFormedErrors( true ),
+    m_ViewState( ContentTab::ViewState_BookView )
 {
     ui.setupUi( this );
     
@@ -450,6 +451,44 @@ void MainWindow::InsertImage()
             flow_tab.InsertImage(relative_path);
         }
     }
+}
+
+
+void MainWindow::SetViewState( ContentTab::ViewState view_state )
+{
+    ContentTab &tab = GetCurrentContentTab();
+    m_ViewState = view_state;
+    tab.SetViewState( view_state );
+}
+
+
+void MainWindow::SetTabViewState()
+{
+    SetViewState( m_ViewState );
+}
+
+
+void MainWindow::BookView()
+{
+    SetViewState( ContentTab::ViewState_BookView );
+}
+
+
+void MainWindow::SplitView()
+{
+    SetViewState( ContentTab::ViewState_SplitView );
+}
+
+
+void MainWindow::CodeView()
+{
+    SetViewState( ContentTab::ViewState_CodeView );
+}
+
+
+void MainWindow::AnyCodeView()
+{
+    SetViewState( ContentTab::ViewState_AnyCodeView );
 }
 
 
@@ -1842,6 +1881,10 @@ void MainWindow::ConnectSignalsToSlots()
 
     connect( ui.actionTidyClean,     SIGNAL( triggered( bool ) ),   this, SLOT( SetTidyCleanOption( bool ) ) );
     connect( ui.actionCheckWellFormedErrors, SIGNAL( triggered( bool ) ), this, SLOT( SetCheckWellFormedErrors( bool ) ) );
+    
+    connect( ui.actionBookView,      SIGNAL( triggered() ),  this,   SLOT( BookView()  ) );
+    connect( ui.actionSplitView,     SIGNAL( triggered() ),  this,   SLOT( SplitView() ) );
+    connect( ui.actionCodeView,      SIGNAL( triggered() ),  this,   SLOT( CodeView()  ) ); 
 
     connect( &m_TabManager,          SIGNAL( TabChanged( ContentTab*, ContentTab* ) ), 
              this,                   SLOT( ChangeSignalsWhenTabChanges( ContentTab*, ContentTab* ) ) );
@@ -1854,6 +1897,9 @@ void MainWindow::ConnectSignalsToSlots()
 
     connect( &m_TabManager,          SIGNAL( TabChanged( ContentTab*, ContentTab* ) ),
             this,                    SLOT(   UpdateBrowserSelectionToTab() ) );
+
+    connect( &m_TabManager,          SIGNAL( TabChanged( ContentTab*, ContentTab* ) ), 
+             this,                   SLOT(   SetTabViewState() ) );
 
     connect( m_BookBrowser,          SIGNAL( UpdateBrowserSelection() ),
             this,                    SLOT(   UpdateBrowserSelectionToTab() ) );
@@ -1930,10 +1976,6 @@ void MainWindow::MakeTabConnections( ContentTab *tab )
     
         connect( ui.actionPrintPreview,             SIGNAL( triggered() ),  tab,   SLOT( PrintPreview()             ) );
         connect( ui.actionPrint,                    SIGNAL( triggered() ),  tab,   SLOT( Print()                    ) );
-    
-        connect( ui.actionBookView,                 SIGNAL( triggered() ),  tab,   SLOT( BookView()                 ) );
-        connect( ui.actionSplitView,                SIGNAL( triggered() ),  tab,   SLOT( SplitView()                ) );
-        connect( ui.actionCodeView,                 SIGNAL( triggered() ),  tab,   SLOT( CodeView()                 ) ); 
     
         connect( m_cbHeadings, SIGNAL( activated( const QString& ) ),  tab,   SLOT( HeadingStyle( const QString& ) ) );
         connect( m_headingMapper, SIGNAL( mapped( const QString& ) ),  tab,   SLOT( HeadingStyle( const QString& ) ) );

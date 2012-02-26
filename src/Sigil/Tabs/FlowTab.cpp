@@ -304,15 +304,27 @@ ContentTab::ViewState FlowTab::GetViewState()
 
 void FlowTab::SetViewState( ViewState new_view_state )
 {
-    if ( new_view_state == ContentTab::ViewState_BookView )
-    
-        BookView();
-
+    if ( new_view_state == ContentTab::ViewState_SplitView )
+    {
+        SplitView();
+    }
     else if ( new_view_state == ContentTab::ViewState_CodeView )
-
+    {
         CodeView();
-
-    // otherwise ignore it
+    }
+    else if ( new_view_state == ContentTab::ViewState_BookView )
+    {
+       BookView();
+    }
+    else if ( new_view_state == ContentTab::ViewState_AnyCodeView )
+    {
+        CodeView();
+        ExecuteCaretUpdate();
+        if ( m_InSplitView )
+        {
+            SplitView();
+        }
+    }
 }
 
 
@@ -969,7 +981,15 @@ void FlowTab::DelayedInitialization()
         {
             m_IsLastViewBook = true;
 
-            BookView();
+            if ( m_InSplitView )
+            {
+                BookView();
+                SplitView();
+            }
+            else
+            {
+                BookView();
+            }
 
             m_wBookView.ScrollToFragmentAfterLoad( m_FragmentToScroll.toString() );
             break;
@@ -981,7 +1001,14 @@ void FlowTab::DelayedInitialization()
             // has a valid copy of the content and the web page might not have finished loading yet.
             m_IsLastViewBook = false;
 
-            CodeView();
+            if ( m_InSplitView )
+            {
+                SplitView();
+            }
+            else
+            {
+                CodeView();
+            }
 
             if( m_LineToScrollTo > 0 )
             {

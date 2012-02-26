@@ -348,7 +348,11 @@ void HTMLResource::SetTextDocumentModified( bool modified )
 
 bool HTMLResource::TextDocumentModified()
 {
-    return m_TextDocument->isModified();
+    if ( m_TextDocument )
+    {
+        return m_TextDocument->isModified();
+    }
+    return false;
 }
 
 

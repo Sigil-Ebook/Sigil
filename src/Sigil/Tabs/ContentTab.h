@@ -213,6 +213,8 @@ public:
         ViewState_RawView,          /**< The view for editing non-XHTML related resources. */
         ViewState_StaticView,       /**< The static view for non-editable content. */
         ViewState_AnyView,          /**< Specifies that no state is preferred or set. */
+        ViewState_SplitView,        /**< Specifies split view. */
+        ViewState_AnyCodeView,      /**< Specifies any code view. */
         ViewState_NoFocusBookView,  /**< Specifies that the new tab should not be given at first, but should use BookView later. */
         ViewState_NoFocusCodeView   /**< Specifies that the new tab should not be given at first, but should use CodeView later. */
     };
@@ -229,6 +231,12 @@ public:
     virtual bool IsLoadingFinished() { return true; }
 
     virtual void ExecuteCaretUpdate();
+
+    virtual void CodeView();
+
+    virtual void BookView();
+
+    virtual void SplitView();
 
 public slots:
 

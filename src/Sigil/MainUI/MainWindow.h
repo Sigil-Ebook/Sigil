@@ -151,6 +151,12 @@ public:
      */
     static bool ShouldUseTidyClean();
 
+    /**
+     * Sets the current state to CodeView or SplitView CodeView
+     * depending on whether view was split view already
+     */
+    void AnyCodeView();
+
 protected:
 
     /**
@@ -217,6 +223,21 @@ private slots:
      * Implements Insert image action functionality.
      */
     void InsertImage();
+
+    /**
+     * Implements the set BookView functionality.
+     */
+    void BookView();
+
+    /**
+     * Implements the set SplitView functionality.
+     */
+    void SplitView();
+
+    /**
+     * Implements the set CodeView functionality.
+     */
+    void CodeView();
 
     /**
      * Implements Meta Editor action functionality.
@@ -398,6 +419,11 @@ private slots:
      * @param new_state The new state of the option.
      */
     void SetCheckWellFormedErrors( bool new_state );
+
+    /**
+     * Sets the view state of the current tab to the saved state
+     */
+    void SetTabViewState();
 
 private:
 
@@ -585,6 +611,12 @@ private:
      */
     void BreakTabConnections( ContentTab *tab );
 
+    /**
+     * Sets the view state of the current tab to view_state
+     *
+     * @param view_state - The view state to set.
+     */
+    void SetViewState( ContentTab::ViewState view_state );
 
     ///////////////////////////////
     // PRIVATE MEMBER VARIABLES
@@ -707,6 +739,11 @@ private:
      * about well-formed errors or if they should be auto fixed.
      */
     bool m_CheckWellFormedErrors;
+
+    /**
+     * Holds the view state for new/switched tabs
+     */
+    ContentTab::ViewState m_ViewState;
 
     /**
      * Holds all the widgets Qt Designer created for us.

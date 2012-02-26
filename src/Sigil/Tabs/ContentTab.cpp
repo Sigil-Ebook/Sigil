@@ -88,6 +88,21 @@ void ContentTab::ExecuteCaretUpdate()
 
 }
 
+void ContentTab::BookView()
+{
+
+}
+
+void ContentTab::CodeView()
+{
+
+}
+
+void ContentTab::SplitView()
+{
+
+}
+
 void ContentTab::EmitCentralTabRequest()
 {
     emit CentralTabRequest( this );

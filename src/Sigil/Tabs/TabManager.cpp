@@ -337,12 +337,6 @@ bool TabManager::SwitchedToExistingTab( Resource& resource,
 
         if ( flow_tab != NULL )
         {
-            // If the caller doesn't care what the view is, then we stay
-            // in the current view. Otherwise, we switch.
-            if ( view_state != ContentTab::ViewState_AnyView )
-            
-                flow_tab->SetViewState( view_state );
-            
             // Restore cursor position if there is one
             flow_tab->ExecuteCaretUpdate();
 

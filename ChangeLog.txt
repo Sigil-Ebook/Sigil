@@ -1,4 +1,6 @@
 Sigil 0.5.4 TBA
+    - Fix issue 1272: Tabs should always use the Book/Code/Split View state
+      set by the View buttons.
     - Implement issue 1283: Spell check should have an ignore option.
 
 Sigil 0.5.3 2012.25.02

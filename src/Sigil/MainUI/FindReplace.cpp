@@ -358,9 +358,8 @@ void FindReplace::SetCodeViewIfNeeded( bool replace )
                     GetLookWhere() == FindReplace::LookWhere_SelectedHTMLFiles ) &&
                 m_MainWindow.GetCurrentContentTab().GetViewState() == ContentTab::ViewState_BookView ) ) 
     {
-        // Force change to Code View and update cursor position immediately
-        m_MainWindow.GetCurrentContentTab().SetViewState( ContentTab::ViewState_CodeView );
-        m_MainWindow.GetCurrentContentTab().ExecuteCaretUpdate();
+        // Force change to Code View
+        m_MainWindow.AnyCodeView();
     }
 }
 
