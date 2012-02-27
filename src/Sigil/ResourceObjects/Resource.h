@@ -23,10 +23,10 @@
 #ifndef RESOURCE_H
 #define RESOURCE_H
 
-#include <QObject>
-#include <QReadWriteLock>
-#include <QIcon>
-#include <QUrl>
+#include <QtCore/QObject>
+#include <QtCore/QReadWriteLock>
+#include <QtCore/QUrl>
+#include <QtGui/QIcon>
 
 /**
  * Represents a resource file on disk.

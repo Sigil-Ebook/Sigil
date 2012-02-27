@@ -19,9 +19,8 @@
 **
 *************************************************************************/
 
-#include <stdafx.h>
-#include "FontResource.h"
 #include "Misc/Utility.h"
+#include "ResourceObjects/FontResource.h"
 
 FontResource::FontResource( const QString &fullfilepath, QObject *parent )
     : Resource( fullfilepath, parent )

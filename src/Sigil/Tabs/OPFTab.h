@@ -23,7 +23,7 @@
 #ifndef OPFTAB_H
 #define OPFTAB_H
 
-#include "XMLTab.h"
+#include "Tabs/XMLTab.h"
 
 class OPFResource;
 

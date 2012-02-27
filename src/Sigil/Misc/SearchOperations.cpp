@@ -19,18 +19,27 @@
 **
 *************************************************************************/
 
-#include <stdafx.h>
-#include "SearchOperations.h"
-#include "ResourceObjects/TextResource.h"
-#include "ResourceObjects/HTMLResource.h"
-#include "BookManipulation/XhtmlDoc.h"
-#include "BookManipulation/CleanSource.h"
-#include "ViewEditors/Searchable.h"
+#include <boost/bind/bind.hpp>
+#include <boost/tuple/tuple.hpp>
+#include <signal.h>
+
+#include <QtCore/QtCore>
+#include <QtGui/QProgressDialog>
+
 #include "BookManipulation/CleanSource.h"
 #include "BookManipulation/XercesCppUse.h"
+#include "BookManipulation/XhtmlDoc.h"
+#include "Misc/SearchOperations.h"
+#include "Misc/Utility.h"
 #include "PCRE/PCRECache.h"
-#include "Utility.h"
+#include "ResourceObjects/HTMLResource.h"
+#include "ResourceObjects/TextResource.h"
+#include "ViewEditors/Searchable.h"
+#include "sigil_constants.h"
 
+using boost::make_tuple;
+using boost::tie;
+using boost::tuple;
 
 int SearchOperations::CountInFiles( const QString &search_regex,
                                     QList< Resource* > resources,

@@ -24,10 +24,11 @@
 #ifndef SPCRE_H
 #define SPCRE_H
 
-#include <QList>
-#include <QString>
-#include "pcre.h"
+#include <pcre.h>
 #include <utility>
+
+#include <QtCore/QList>
+#include <QtCore/QString>
 
 using std::pair;
 

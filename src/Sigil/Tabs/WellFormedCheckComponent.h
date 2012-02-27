@@ -23,7 +23,8 @@
 #ifndef WELLFORMEDCHECKCOMPONENT_H
 #define WELLFORMEDCHECKCOMPONENT_H
 
-#include <QObject>
+#include <QtCore/QObject>
+
 #include "BookManipulation/XhtmlDoc.h"
 
 class WellFormedContent;

@@ -19,19 +19,36 @@
 **
 *************************************************************************/
 
-#include <stdafx.h>
-#include "XhtmlDoc.h"
-#include "Misc/Utility.h"
-#include "BookManipulation/CleanSource.h"
-#include "XercesCppUse.h"
-#include <Misc/ErrorResultCollector.h>
+#include <boost/bind/bind.hpp>
+#include <boost/scoped_ptr.hpp>
+#include <boost/shared_ptr.hpp>
+#include <xercesc/framework/MemBufInputSource.hpp>
 #include <xercesc/sax2/SAX2XMLReader.hpp>
 #include <xercesc/sax2/XMLReaderFactory.hpp>
-#include <XmlUtils.h>
+//FlightCrew
+#include <Misc/ErrorResultCollector.h>
+// XercesExtensions
 #include <LocationAwareDOMParser.h>
-#include <xercesc/framework/MemBufInputSource.hpp>
-#include <QXmlInputSource>
-#include <QXmlSimpleReader>
+#include <NodeLocationInfo.h>
+#include <XmlUtils.h>
+
+#include <QtCore/QHash>
+#include <QtCore/QList>
+#include <QtCore/QString>
+#include <QtWebKit/QWebFrame>
+#include <QtWebKit/QWebPage>
+#include <QtXml/QXmlInputSource>
+#include <QtXml/QXmlSimpleReader>
+#include <QtXml/QXmlStreamReader>
+
+#include "BookManipulation/CleanSource.h"
+#include "BookManipulation/XercesCppUse.h"
+#include "BookManipulation/XhtmlDoc.h"
+#include "Misc/Utility.h"
+#include "sigil_constants.h"
+#include "sigil_exception.h"
+
+using boost::shared_ptr;
 
 static const QStringList BLOCK_LEVEL_TAGS = QStringList() << "address" << "blockquote" << "center" << "dir" << "div" << 
                                                             "dl" << "fieldset" << "form" << "h1" << "h2" << "h3" << 

@@ -24,6 +24,7 @@
 #define SG_CONSTANTS_H
 
 class QString;
+class QStringList;
 
 // These enable us to use constants defined
 // in one CPP file to be used in another

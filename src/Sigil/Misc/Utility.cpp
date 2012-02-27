@@ -19,13 +19,23 @@
 **
 *************************************************************************/
 
-#include <stdafx.h>
-#include "Misc/Utility.h"
-
 #include <stdio.h>
 #include <time.h>
 
-#include <QtGlobal>
+#include <QtCore/QDir>
+#include <QtCore/QFile>
+#include <QtCore/QFileInfo>
+#include <QtCore/QProcess>
+#include <QtCore/QStringList>
+#include <QtCore/QStringRef>
+#include <QtCore/QTextStream>
+#include <QtCore/QtGlobal>
+#include <QtCore/QUrl>
+#include <QtCore/QUuid>
+#include <QtGui/QMessageBox>
+
+#include "sigil_exception.h"
+#include "Misc/Utility.h"
 
 // Uses QUuid to generate a random UUID but also removes
 // the curly braces that QUuid::createUuid() adds

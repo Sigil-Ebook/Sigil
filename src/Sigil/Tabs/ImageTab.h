@@ -23,7 +23,7 @@
 #ifndef IMAGETAB_H
 #define IMAGETAB_H
 
-#include "ContentTab.h"
+#include "Tabs/ContentTab.h"
 
 class ImageResource;
 class QWebView;

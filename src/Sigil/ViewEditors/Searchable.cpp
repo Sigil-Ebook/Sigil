@@ -28,9 +28,8 @@
 **
 **************************************************************************/
 
-#include <stdafx.h>
-#include "Searchable.h"
 #include "Misc/WrapIndicator.h"
+#include "ViewEditors/Searchable.h"
 
 void Searchable::ShowWrapIndicator(QWidget *parent)
 {

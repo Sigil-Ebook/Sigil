@@ -23,7 +23,7 @@
 #ifndef PERFORMHTMLUPDATES_H
 #define PERFORMHTMLUPDATES_H
 
-#include "PerformXMLUpdates.h"
+#include "SourceUpdates/PerformXMLUpdates.h"
 
 class PerformHTMLUpdates : public PerformXMLUpdates
 {

@@ -25,6 +25,7 @@
 
 #include <QWidget>
 #include <QString>
+
 #include "ViewEditors/Zoomable.h"
 
 class QLayout;

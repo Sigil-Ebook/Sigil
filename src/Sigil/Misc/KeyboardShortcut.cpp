@@ -19,10 +19,13 @@
 **
 *************************************************************************/
 
-#include <stdafx.h>
-#include "KeyboardShortcut.h"
-#include "KeyboardShortcut_p.h"
+#include <QtCore/QString>
+#include <QtGui/QAction>
+#include <QtGui/QKeySequence>
+#include <QtGui/QShortcut>
 
+#include "Misc/KeyboardShortcut.h"
+#include "Misc/KeyboardShortcut_p.h"
 
 KeyboardShortcutPrivate::KeyboardShortcutPrivate()
     : action(0),

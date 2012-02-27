@@ -23,7 +23,7 @@
 #ifndef IMAGERESOURCE_H
 #define IMAGERESOURCE_H
 
-#include "Resource.h"
+#include "ResourceObjects/Resource.h"
 
 class ImageResource : public Resource 
 {

@@ -24,7 +24,6 @@
 
 #include <QtGui/QSyntaxHighlighter>
 
-
 class CSSHighlighter : public QSyntaxHighlighter
 {
 

@@ -19,9 +19,8 @@
 **
 *************************************************************************/
 
-#include <stdafx.h>
-#include "NCXTab.h"
 #include "ResourceObjects/NCXResource.h"
+#include "Tabs/NCXTab.h"
 
 NCXTab::NCXTab( NCXResource& resource, int line_to_scroll_to, QWidget *parent )
     :

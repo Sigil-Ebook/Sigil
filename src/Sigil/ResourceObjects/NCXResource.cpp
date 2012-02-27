@@ -19,11 +19,17 @@
 **
 *************************************************************************/
 
-#include <stdafx.h>
-#include "NCXResource.h"
-#include "Exporters/NCXWriter.h"
-#include "BookManipulation/CleanSource.h"
+#include <boost/tuple/tuple.hpp>
 
+#include <QtCore/QBuffer>
+#include <QtCore/QFileInfo>
+
+#include "BookManipulation/CleanSource.h"
+#include "Exporters/NCXWriter.h"
+#include "ResourceObjects/NCXResource.h"
+#include "sigil_constants.h"
+
+using boost::tie;
 
 static const QString TEMPLATE_TEXT = 
     "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"

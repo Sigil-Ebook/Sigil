@@ -19,18 +19,20 @@
 **
 *************************************************************************/
 
-#include <stdafx.h>
-#include "Misc/Utility.h"
+#include <QtCore/QtCore>
+#include <QtCore/QFileInfo>
+
 #include "BookManipulation/Book.h"
-#include "BookNormalization.h"
+#include "BookManipulation/BookNormalization.h"
 #include "BookManipulation/CleanSource.h"
+#include "BookManipulation/FolderKeeper.h"
 #include "BookManipulation/Headings.h"
-#include "BookManipulation/XhtmlDoc.h"
 #include "BookManipulation/GuideSemantics.h"
-#include "BookManipulation/XercesCppUse.h"
 #include "ResourceObjects/HTMLResource.h"
 #include "ResourceObjects/OPFResource.h"
-#include "BookManipulation/FolderKeeper.h"
+#include "BookManipulation/XercesCppUse.h"
+#include "BookManipulation/XhtmlDoc.h"
+#include "Misc/Utility.h"
 
 static const QString SIGIL_HEADING_ID_PREFIX = "heading_id_";
 static const QString SIGIL_HEADING_ID_REG    = SIGIL_HEADING_ID_PREFIX + "(\\d+)";

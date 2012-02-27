@@ -23,9 +23,12 @@
 #ifndef CLEANSOURCE_H
 #define CLEANSOURCE_H
 
-#include <QStringList>
+#include <boost/tuple/tuple.hpp>
 #include <tidy.h>
 
+#include <QtCore/QStringList>
+
+using boost::tuple;
 
 class CleanSource
 {

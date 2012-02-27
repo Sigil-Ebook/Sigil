@@ -19,10 +19,11 @@
 **
 *************************************************************************/
 
-#include <stdafx.h>
-#include "XMLWriter.h"
-#include "BookManipulation/Book.h"
+#include <QtCore/QIODevice>
+#include <QtXml/QXmlStreamWriter>
 
+#include "BookManipulation/Book.h"
+#include "Exporters/XMLWriter.h"
 
 XMLWriter::XMLWriter( const Book &book, QIODevice &device )
     : 

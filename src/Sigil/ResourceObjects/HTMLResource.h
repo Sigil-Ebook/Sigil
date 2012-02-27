@@ -23,11 +23,14 @@
 #ifndef HTMLRESOURCE_H
 #define HTMLRESOURCE_H
 
-#include <QHash>
-#include "BookManipulation/XercesHUse.h"
-#include "Resource.h"
-#include "BookManipulation/GuideSemantics.h"
 #include <boost/shared_ptr.hpp>
+
+#include <QtCore/QHash>
+
+#include "BookManipulation/GuideSemantics.h"
+#include "BookManipulation/XercesHUse.h"
+#include "ResourceObjects/Resource.h"
+
 using boost::shared_ptr;
 
 class QWebPage;

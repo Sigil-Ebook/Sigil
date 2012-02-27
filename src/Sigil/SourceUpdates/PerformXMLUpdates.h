@@ -23,11 +23,17 @@
 #ifndef PERFORMXMLUPDATES_H
 #define PERFORMXMLUPDATES_H
 
+#include <boost/shared_ptr.hpp>
+
+#include <Qtcore/QHash>
+#include <QtCore/QStringList>
+
 #include "BookManipulation/XercesHUse.h"
-#include <QHash>
+
 class QString;
 class QStringList;
 
+using boost::shared_ptr;
 
 /**
  * Performs path updates on XML documents.

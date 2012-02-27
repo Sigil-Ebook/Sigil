@@ -19,10 +19,10 @@
 **
 *************************************************************************/
 
-#include <stdafx.h>
-#include "ExporterFactory.h"
-#include "ExportEPUB.h"
+#include <QtCore/QFileInfo>
 
+#include "Exporters/ExportEPUB.h"
+#include "Exporters/ExporterFactory.h"
 
 // Constructor
 ExporterFactory::ExporterFactory()

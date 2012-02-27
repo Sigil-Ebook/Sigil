@@ -24,7 +24,7 @@
 #define NCXRESOURCE_H
 
 #include "MainUI/NCXModel.h"
-#include "XMLResource.h"
+#include "ResourceObjects/XMLResource.h"
 
 class Book;
 

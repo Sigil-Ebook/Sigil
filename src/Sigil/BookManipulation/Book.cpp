@@ -19,21 +19,24 @@
 **
 *************************************************************************/
 
-#include <stdafx.h>
+#include <QtCore/QtCore>
+#include <QtCore/QFileInfo>
+#include <QtCore/QFutureSynchronizer>
+
 #include "BookManipulation/Book.h"
-#include "BookManipulation/XhtmlDoc.h"
-#include "Misc/Utility.h"
-#include "Misc/TempFolder.h"
-#include "ResourceObjects/HTMLResource.h"
-#include "ResourceObjects/OPFResource.h"
-#include "ResourceObjects/NCXResource.h"
 #include "BookManipulation/CleanSource.h"
+#include "BookManipulation/FolderKeeper.h"
+#include "BookManipulation/XercesCppUse.h"
+#include "BookManipulation/XhtmlDoc.h"
+#include "Misc/TempFolder.h"
+#include "Misc/Utility.h"
+#include "ResourceObjects/HTMLResource.h"
+#include "ResourceObjects/NCXResource.h"
+#include "ResourceObjects/OPFResource.h"
+#include "sigil_constants.h"
 #include "SourceUpdates/AnchorUpdates.h"
 #include "SourceUpdates/PerformHTMLUpdates.h"
-#include "SourceUpdates/AnchorUpdates.h"
 #include "SourceUpdates/UniversalUpdates.h"
-#include "BookManipulation/FolderKeeper.h"
-#include "XercesCppUse.h"
 
 static const QString FIRST_CSS_NAME   = "Style0001.css";
 static const QString PLACEHOLDER_TEXT = "PLACEHOLDER";

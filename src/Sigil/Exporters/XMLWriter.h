@@ -27,6 +27,7 @@
 
 class Book;
 class QIODevice;
+class QXmlStreamWriter;
 
 /**
  * An abstract base class for XML writers like 

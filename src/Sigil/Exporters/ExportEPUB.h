@@ -23,11 +23,9 @@
 #ifndef EXPORTEPUB_H
 #define EXPORTEPUB_H
 
-#include "Exporter.h"
 #include "BookManipulation/FolderKeeper.h"
 #include "BookManipulation/Book.h"
-
-
+#include "Exporters/Exporter.h"
 
 class ExportEPUB : public Exporter
 {

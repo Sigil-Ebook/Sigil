@@ -23,14 +23,15 @@
 #ifndef OPFMODEL_H
 #define OPFMODEL_H
 
-#include <QStandardItemModel>
-#include <QSharedPointer>
-#include "ResourceObjects/Resource.h"
-#include "BookManipulation/Book.h"
+#include <QtCore/QSharedPointer>
+#include <QtGui/QStandardItemModel>
 
+#include "BookManipulation/Book.h"
+#include "ResourceObjects/Resource.h"
+
+class AlphanumericItem;
 class QModelIndex;
 class QStandardItem;
-class AlphanumericItem;
 
 
 /**
@@ -47,7 +48,7 @@ public:
     { 
         IndexChoice_Current,    /** The current file browser list. */
         IndexChoice_Next,       /** The next file in the browser list. */
-        IndexChoice_Previous,   /** The previous file in the browser list. */
+        IndexChoice_Previous   /** The previous file in the browser list. */
     };
 
 
@@ -56,7 +57,7 @@ public:
      *
      * @param parent The model's parent.
      */
-    OPFModel( QWidget *parent = 0 );
+    OPFModel( QObject *parent = 0 );
 
     /**
      * Sets the model's book.

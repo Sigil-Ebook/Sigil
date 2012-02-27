@@ -19,10 +19,9 @@
 **
 *************************************************************************/
 
-#include <stdafx.h>
-#include "XHTMLHighlighter.h"
-#include "SpellCheck.h"
-#include "Utility.h"
+#include "Misc/SpellCheck.h"
+#include "Misc/Utility.h"
+#include "Misc/XHTMLHighlighter.h"
 #include "PCRE/PCRECache.h"
 #include "PCRE/SPCRE.h"
 

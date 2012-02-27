@@ -19,12 +19,21 @@
 **
 *************************************************************************/
 
-#include <stdafx.h>
+#include <boost/bind/bind.hpp>
+#include <boost/tuple/tuple.hpp>
+
+#include <QtCore/QtCore>
+#include <QtCore/QString>
+#include <QtCore/QStringList>
+
 #include "BookManipulation/Headings.h"
-#include "BookManipulation/XhtmlDoc.h"
 #include "BookManipulation/XercesCppUse.h"
+#include "BookManipulation/XhtmlDoc.h"
 #include "Misc/Utility.h"
 #include "ResourceObjects/HTMLResource.h"
+#include "sigil_constants.h"
+
+using boost::make_tuple;
 
 // The maximum allowed distance (in lines) that a heading
 // can be located from a body tag and still

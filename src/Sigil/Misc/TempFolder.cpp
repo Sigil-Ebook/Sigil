@@ -19,12 +19,14 @@
 **
 *************************************************************************/
 
-#include <stdafx.h>
-#include "TempFolder.h"
+#include <QtCore/QtCore>
+#include <QtCore/QDir>
+#include <QtCore/QFileInfo>
+
+#include "Misc/TempFolder.h"
 #include "Misc/Utility.h"
 
 const QString PATH_SUFFIX = "/Sigil";
-
 
 TempFolder::TempFolder()
     : m_PathToFolder( GetNewTempFolderPath() )

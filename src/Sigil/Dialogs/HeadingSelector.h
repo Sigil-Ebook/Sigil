@@ -23,14 +23,16 @@
 #ifndef HEADINGSELECTOR_H
 #define HEADINGSELECTOR_H
 
+#include <QtCore/QList>
+#include <QtCore/QSharedPointer>
 #include <QtGui/QDialog>
-#include <QStandardItemModel>
-#include <QSharedPointer>
+#include <QtGui/QStandardItemModel>
 
 #include "ui_HeadingSelector.h"
 #include "BookManipulation/Headings.h"
 
 class Book;
+class QStandardItem;
 
 class HeadingSelector : public QDialog
 {
@@ -70,7 +72,7 @@ private:
 
     // We need this to be able to use a forward
     // declaration of Book in the QSharedPointer
-    Q_DISABLE_COPY( HeadingSelector );
+    Q_DISABLE_COPY( HeadingSelector )
 
     void UpdateOneHeadingElement( QStandardItem *item );
 

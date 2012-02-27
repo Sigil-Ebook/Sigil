@@ -23,9 +23,10 @@
 #ifndef PREFERENCES_H
 #define PREFERENCES_H
 
-#include <QDialog>
-#include "PreferenceWidgets/PreferencesWidget.h"
+#include <QtGui/QDialog>
+
 #include "ui_Preferences.h"
+#include "PreferenceWidgets/PreferencesWidget.h"
 
 /**
  * Allows the user to change settings related to how the application functions.

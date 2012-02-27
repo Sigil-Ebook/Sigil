@@ -23,22 +23,22 @@
 #ifndef FOLDERKEEPER_H
 #define FOLDERKEEPER_H
 
-#include <QObject>
-#include <QString>
-#include <QHash>
-#include <QList>
-#include <QMutex>
-
-#include "Misc/TempFolder.h"
+#include <QtCore/QObject>
+#include <QtCore/QString>
+#include <QtCore/QHash>
+#include <QtCore/QList>
+#include <QtCore/QMutex>
 
 // These have to be included directly because
 // of the template functions.
-#include "ResourceObjects/HTMLResource.h"
-#include "ResourceObjects/OPFResource.h"
-#include "ResourceObjects/ImageResource.h"
 #include "ResourceObjects/CSSResource.h"
-#include "ResourceObjects/XPGTResource.h"
 #include "ResourceObjects/FontResource.h"
+#include "ResourceObjects/HTMLResource.h"
+#include "ResourceObjects/ImageResource.h"
+#include "ResourceObjects/OPFResource.h"
+#include "ResourceObjects/XPGTResource.h"
+
+#include "Misc/TempFolder.h"
 
 class NCXResource;
 

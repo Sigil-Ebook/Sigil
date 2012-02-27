@@ -19,9 +19,8 @@
 **
 *************************************************************************/
 
-#include <stdafx.h>
-#include "ImageResource.h"
 #include "Misc/Utility.h"
+#include "ResourceObjects/ImageResource.h"
 
 ImageResource::ImageResource( const QString &fullfilepath,
                               QObject *parent )

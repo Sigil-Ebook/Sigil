@@ -19,11 +19,10 @@
 **
 *************************************************************************/
 
-#include <stdafx.h>
-#include "XMLTab.h"
-#include "ResourceObjects/XMLResource.h"
-#include "WellFormedCheckComponent.h"
 #include "BookManipulation/CleanSource.h"
+#include "ResourceObjects/XMLResource.h"
+#include "Tabs/WellFormedCheckComponent.h"
+#include "Tabs/XMLTab.h"
 
 
 XMLTab::XMLTab( XMLResource& resource, int line_to_scroll_to, QWidget *parent )

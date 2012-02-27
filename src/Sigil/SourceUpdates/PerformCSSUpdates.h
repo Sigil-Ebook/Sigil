@@ -23,6 +23,8 @@
 #ifndef PERFORMCSSUPDATES_H
 #define PERFORMCSSUPDATES_H
 
+#include <QtCore/QHash>
+
 class QString;
 
 class PerformCSSUpdates

@@ -19,9 +19,11 @@
 **
 *************************************************************************/
 
-#include <stdafx.h>
-#include "AddMetadata.h"
+#include <QtCore/QDate>
+#include <QtCore/QSettings>
+
 #include "BookManipulation/Metadata.h"
+#include "Dialogs/AddMetadata.h"
 
 static const QString SETTINGS_GROUP = "add_metadata";
 

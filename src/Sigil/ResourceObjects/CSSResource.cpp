@@ -19,9 +19,8 @@
 **
 *************************************************************************/
 
-#include <stdafx.h>
-#include "CSSResource.h"
 #include "Misc/Utility.h"
+#include "ResourceObjects/CSSResource.h"
 
 CSSResource::CSSResource( const QString &fullfilepath, QObject *parent )
     : TextResource( fullfilepath, parent )

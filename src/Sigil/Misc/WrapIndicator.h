@@ -38,7 +38,6 @@
 #include <QtGui/QPaintEvent>
 #include <QtGui/QPainter>
 
-
 class WrapIndicator : public QWidget
 {
     Q_OBJECT

@@ -19,10 +19,12 @@
 **
 *************************************************************************/
 
-#include <stdafx.h>
-#include "FlowTab.h"
-#include "ViewEditors/Searchable.h"
+#include <QtGui/QLayout>
+#include <QtGui/QVBoxLayout>
+
 #include "ResourceObjects/Resource.h"
+#include "Tabs/FlowTab.h"
+#include "ViewEditors/Searchable.h"
 
 
 ContentTab::ContentTab( Resource& resource, QWidget *parent )

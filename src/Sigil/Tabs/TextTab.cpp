@@ -19,10 +19,11 @@
 **
 *************************************************************************/
 
-#include <stdafx.h>
-#include "TextTab.h"
-#include "ResourceObjects/TextResource.h"
+#include <QtCore/QTimer>
+#include <QtGui/QLayout>
 
+#include "ResourceObjects/TextResource.h"
+#include "Tabs/TextTab.h"
 
 TextTab::TextTab( TextResource& resource,
                   CodeViewEditor::HighlighterType type,  

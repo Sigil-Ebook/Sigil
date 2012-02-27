@@ -23,7 +23,7 @@
 #ifndef TEXTTAB_H
 #define TEXTTAB_H
 
-#include "ContentTab.h"
+#include "Tabs/ContentTab.h"
 #include "ViewEditors/CodeViewEditor.h"
 
 class TextResource;

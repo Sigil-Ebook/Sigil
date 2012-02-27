@@ -19,9 +19,8 @@
 **
 *************************************************************************/
 
-#include <stdafx.h>
-#include "XPGTTab.h"
 #include "ResourceObjects/XPGTResource.h"
+#include "Tabs/XPGTTab.h"
 
 
 XPGTTab::XPGTTab( XPGTResource& resource, int line_to_scroll_to, QWidget *parent )

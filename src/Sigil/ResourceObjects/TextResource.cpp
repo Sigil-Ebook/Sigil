@@ -19,9 +19,16 @@
 **
 *************************************************************************/
 
-#include <stdafx.h>
-#include "TextResource.h"
+#include <QtCore/QFile>
+#include <QtCore/QString>
+#include <QtCore/QThread>
+#include <QtCore/QTimer>
+#include <QtGui/QApplication>
+#include <QtGui/QPlainTextDocumentLayout>
+#include <QtGui/QTextDocument>
+
 #include "Misc/Utility.h"
+#include "ResourceObjects/TextResource.h"
 
 TextResource::TextResource( const QString &fullfilepath, QObject *parent )
     : 

@@ -24,6 +24,7 @@
 #define XERCEHSUSE_H
 
 #include <xercesc/util/XercesDefs.hpp>
+
 namespace XERCES_CPP_NAMESPACE 
 {
     class DOMNode;

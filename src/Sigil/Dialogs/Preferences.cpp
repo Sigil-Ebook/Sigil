@@ -19,9 +19,10 @@
 **
 *************************************************************************/
 
-#include <stdafx.h>
-#include <QScrollArea>
-#include "Preferences.h"
+#include <QtCore/QSettings>
+#include <QtGui/QScrollArea>
+
+#include "Dialogs/Preferences.h"
 #include "PreferenceWidgets/AppearanceWidget.h"
 #include "PreferenceWidgets/KeyboardShortcutsWidget.h"
 #include "PreferenceWidgets/LanguageWidget.h"

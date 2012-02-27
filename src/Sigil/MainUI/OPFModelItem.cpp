@@ -19,8 +19,7 @@
 **
 *************************************************************************/
 
-#include <stdafx.h>
-#include "OPFModelItem.h"
+#include "MainUI/OPFModelItem.h"
 
 // Reimplementation of QStandardItem to support sorting alphanumerically
 AlphanumericItem::AlphanumericItem() : QStandardItem()

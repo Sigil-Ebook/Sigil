@@ -23,16 +23,13 @@
 #ifndef SEARCHOPERATIONS_H
 #define SEARCHOPERATIONS_H
 
+#include <boost/tuple/tuple.hpp>
+
 class Resource;
 class TextResource;
 class HTMLResource;
 
-// This needs to be here even though it's in stdafx.h
-// because this file is included in FindReplace.h, and
-// that file gets a moc_*.cpp file that does not use stdafx.h
-#include <boost/tuple/tuple.hpp>
 using boost::tuple;
-
 
 class SearchOperations
 {

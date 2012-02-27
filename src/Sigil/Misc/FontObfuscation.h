@@ -23,6 +23,8 @@
 #ifndef FONTOBFUSCATION_H
 #define FONTOBFUSCATION_H
 
+class QString;
+
 namespace FontObfuscation
 {
     void ObfuscateFile( const QString &filepath, 

@@ -23,15 +23,12 @@
 #ifndef GUIDESEMANTICS_H
 #define GUIDESEMANTICS_H
 
-#include <QMutex>
-#include <QHash>
-
-// This needs to be here even though it's in stdafx.h
-// because this file is included in HTMLResource.h, and
-// that file gets a moc_*.cpp file that does not use stdafx.h
 #include <boost/tuple/tuple.hpp>
-using boost::tuple;
 
+#include <QtCore/QMutex>
+#include <QtCore/QHash>
+
+using boost::tuple;
 
 /**
  * Singleton storing information about <guide> semantic information.

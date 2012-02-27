@@ -19,18 +19,27 @@
 **
 *************************************************************************/
 
-#include <stdafx.h>
-#include "OPFResource.h"
-#include "NCXResource.h"
-#include "HTMLResource.h"
-#include "ImageResource.h"
-#include "BookManipulation/XhtmlDoc.h"
-#include "BookManipulation/XercesCppUse.h"
-#include "BookManipulation/Metadata.h"
-#include "Misc/Utility.h"
-#include "BookManipulation/CleanSource.h"
+#include <boost/tuple/tuple.hpp>
+// XercesExtensions
 #include <XmlUtils.h>
 
+#include <QtCore/QBuffer>
+#include <QtCore/QDate>
+#include <QtCore/QFileInfo>
+#include <QtCore/QUuid>
+
+#include "BookManipulation/CleanSource.h"
+#include "BookManipulation/Metadata.h"
+#include "BookManipulation/XercesCppUse.h"
+#include "BookManipulation/XhtmlDoc.h"
+#include "Misc/Utility.h"
+#include "ResourceObjects/HTMLResource.h"
+#include "ResourceObjects/ImageResource.h"
+#include "ResourceObjects/NCXResource.h"
+#include "ResourceObjects/OPFResource.h"
+#include "sigil_constants.h"
+
+using boost::tie;
 namespace xe = XercesExt;
 
 static const QString SIGIL_VERSION_META_NAME  = "Sigil version";

@@ -19,7 +19,6 @@
 **
 *************************************************************************/
 
-#include <stdafx.h>
 #include "AppearanceWidget.h"
 #include "Misc/SettingsStore.h"
 #include "ResourceObjects/Resource.h"

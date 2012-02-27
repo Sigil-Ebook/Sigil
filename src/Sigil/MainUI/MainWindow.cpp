@@ -19,31 +19,40 @@
 **
 *************************************************************************/
 
-#include <stdafx.h>
-#include "Misc/Utility.h"
-#include "MainWindow.h"
+#include <QtCore/QFileInfo>
+#include <QtCore/QSettings>
+#include <QtCore/QSignalMapper>
+#include <QtGui/QDesktopServices>
+#include <QtGui/QFileDialog>
+#include <QtGui/QInputDialog>
+#include <QtGui/QMessageBox>
+
+#include "BookManipulation/BookNormalization.h"
 #include "BookManipulation/FolderKeeper.h"
-#include "Exporters/ExportEPUB.h"
 #include "Dialogs/ImageList.h"
 #include "Dialogs/MetaEditor.h"
 #include "Dialogs/About.h"
 #include "Dialogs/Preferences.h"
-#include "Importers/ImporterFactory.h"
+#include "Exporters/ExportEPUB.h"
 #include "Exporters/ExporterFactory.h"
+#include "Importers/ImporterFactory.h"
 #include "Importers/ImportHTML.h"
-#include "BookManipulation/BookNormalization.h"
 #include "MainUI/BookBrowser.h"
-#include "MainUI/ValidationResultsView.h"
-#include "MainUI/TableOfContents.h"
+#include "MainUI/MainWindow.h"
 #include "MainUI/FindReplace.h"
-#include "Tabs/FlowTab.h"
-#include "Tabs/TabManager.h"
-#include "Tabs/OPFTab.h"
+#include "MainUI/TableOfContents.h"
+#include "MainUI/ValidationResultsView.h"
+#include "Misc/KeyboardShortcutManager.h"
+#include "Misc/SettingsStore.h"
+#include "Misc/SpellCheck.h"
+#include "Misc/Utility.h"
 #include "ResourceObjects/HTMLResource.h"
 #include "ResourceObjects/OPFResource.h"
-#include "Misc/SettingsStore.h"
-#include "Misc/KeyboardShortcutManager.h"
-#include "Misc/SpellCheck.h"
+#include "sigil_constants.h"
+#include "sigil_exception.h"
+#include "Tabs/FlowTab.h"
+#include "Tabs/OPFTab.h"
+#include "Tabs/TabManager.h"
 
 static const int TEXT_ELIDE_WIDTH           = 300;
 static const QString SETTINGS_GROUP         = "mainwindow";

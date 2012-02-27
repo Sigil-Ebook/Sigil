@@ -19,13 +19,23 @@
 **
 *************************************************************************/
 
-#include <stdafx.h>
-#include "AnchorUpdates.h"
-#include "ResourceObjects/HTMLResource.h"
+#include <boost/bind/bind.hpp>
+#include <boost/tuple/tuple.hpp>
+
+#include <QtCore/QtCore>
+#include <QtCore/QString>
+#include <QtCore/QHash>
+
+#include "BookManipulation/XercesCppUse.h"
 #include "BookManipulation/XhtmlDoc.h"
 #include "Misc/Utility.h"
-#include "BookManipulation/XercesCppUse.h"
+#include "ResourceObjects/HTMLResource.h"
+#include "sigil_constants.h"
+#include "SourceUpdates/AnchorUpdates.h"
 
+using boost::make_tuple;
+using boost::tie;
+using boost::tuple;
 
 void AnchorUpdates::UpdateAllAnchorsWithIDs( const QList< HTMLResource* > &html_resources )
 {

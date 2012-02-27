@@ -23,8 +23,7 @@
 #ifndef XHTMLHIGHLIGHTER_H
 #define XHTMLHIGHLIGHTER_H
 
-#include <QSyntaxHighlighter>
-
+#include <QtGui/QSyntaxHighlighter>
 
 class XHTMLHighlighter : public QSyntaxHighlighter
 {

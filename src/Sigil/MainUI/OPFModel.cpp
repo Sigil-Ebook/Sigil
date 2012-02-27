@@ -19,24 +19,29 @@
 **
 *************************************************************************/
 
-#include <stdafx.h>
-#include "OPFModel.h"
-#include "OPFModelItem.h"
+#include <limits>
+
+#include <QtGui/QApplication>
+#include <QtGui/QFileIconProvider>
+
 #include "BookManipulation/Book.h"
+#include "BookManipulation/FolderKeeper.h"
+#include "MainUI/OPFModel.h"
+#include "MainUI/OPFModelItem.h"
+#include "Misc/Utility.h"
 #include "ResourceObjects/Resource.h"
 #include "ResourceObjects/HTMLResource.h"
 #include "ResourceObjects/OPFResource.h"
 #include "ResourceObjects/NCXResource.h"
+#include "sigil_constants.h"
+#include "sigil_exception.h"
 #include "SourceUpdates/UniversalUpdates.h"
-#include "BookManipulation/FolderKeeper.h"
-#include "Misc/Utility.h"
-#include <limits>
 
 static const QList< QChar > FORBIDDEN_FILENAME_CHARS = QList< QChar >() << '<' << '>' << ':' 
                                                                         << '"' << '/' << '\\'
                                                                         << '|' << '?' << '*';
 
-OPFModel::OPFModel( QWidget *parent )
+OPFModel::OPFModel( QObject *parent )
     : 
     QStandardItemModel( parent ),
     m_RefreshInProgress( false ),

@@ -23,8 +23,9 @@
 #ifndef KEYBOARDSHORTCUT_H
 #define KEYBOARDSHORTCUT_H
 
-#include <QExplicitlySharedDataPointer>
-#include "KeyboardShortcut_p.h"
+#include <QtCore/QExplicitlySharedDataPointer>
+
+#include "Misc/KeyboardShortcut_p.h"
 
 class QAction;
 class QKeySequence;

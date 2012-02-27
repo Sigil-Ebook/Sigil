@@ -19,9 +19,8 @@
 **
 *************************************************************************/
 
-#include <stdafx.h>
-#include "OPFTab.h"
 #include "ResourceObjects/OPFResource.h"
+#include "Tabs/OPFTab.h"
 
 OPFTab::OPFTab( OPFResource& resource, int line_to_scroll_to, QWidget *parent )
     :

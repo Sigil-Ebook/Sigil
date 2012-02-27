@@ -23,7 +23,7 @@
 #ifndef CSSTAB_H
 #define CSSTAB_H
 
-#include "TextTab.h"
+#include "Tabs/TextTab.h"
 
 class CSSResource;
 

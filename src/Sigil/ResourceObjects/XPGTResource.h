@@ -23,7 +23,7 @@
 #ifndef XPGTRESOURCE_H
 #define XPGTRESOURCE_H
 
-#include "XMLResource.h"
+#include "ResourceObjects/XMLResource.h"
 
 /**
  * Represents an XPGT stylesheet on disk. 

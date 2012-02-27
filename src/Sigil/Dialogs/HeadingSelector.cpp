@@ -19,14 +19,17 @@
 **
 *************************************************************************/
 
-#include <stdafx.h>
-#include "HeadingSelector.h"
+#include <QtCore/QSettings>
+#include <QtGui/QStandardItem>
+
 #include "BookManipulation/Book.h"
+#include "BookManipulation/FolderKeeper.h"
+#include "BookManipulation/XercesCppUse.h"
+#include "BookManipulation/XhtmlDoc.h"
+#include "Dialogs/HeadingSelector.h"
 #include "Misc/Utility.h"
 #include "ResourceObjects/HTMLResource.h"
-#include "BookManipulation/XhtmlDoc.h"
-#include "BookManipulation/XercesCppUse.h"
-#include "BookManipulation/FolderKeeper.h"
+#include "sigil_constants.h"
 
 static const QString SETTINGS_GROUP   = "heading_selector";
 static const int FIRST_COLUMN_PADDING = 30;

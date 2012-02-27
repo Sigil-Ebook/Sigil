@@ -23,8 +23,9 @@
 #ifndef TEXTRESOURCE_H
 #define TEXTRESOURCE_H
 
-#include "Resource.h"
-#include <QMutex>
+#include <QtCore/QMutex>
+
+#include "ResourceObjects/Resource.h"
 
 class QTextDocument;
 

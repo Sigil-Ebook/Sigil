@@ -23,10 +23,10 @@
 #ifndef UNIVERSALUPDATES_H
 #define UNIVERSALUPDATES_H
 
-class HTMLResource;
 class CSSResource;
-class OPFResource;
+class HTMLResource;
 class NCXResource;
+class OPFResource;
 class Resource;
 
 

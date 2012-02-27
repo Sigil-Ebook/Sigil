@@ -19,17 +19,20 @@
 **
 *************************************************************************/
 
-#include <stdafx.h>
-#include <QMessageBox>
-#include "BookViewEditor.h"
+#include <QtCore/QEvent>
+#include <QtGui/QMessageBox>
+#include <QtGui/QShortcut>
+#include <QtWebKit/QWebFrame>
+
 #include "BookManipulation/Book.h"
-#include "BookManipulation/XhtmlDoc.h"
 #include "BookManipulation/CleanSource.h"
+#include "BookManipulation/XercesCppUse.h"
+#include "BookManipulation/XhtmlDoc.h"
 #include "Misc/SettingsStore.h"
 #include "Misc/Utility.h"
 #include "PCRE/PCRECache.h"
-#include "BookManipulation/XercesCppUse.h"
-
+#include "sigil_constants.h"
+#include "ViewEditors/BookViewEditor.h"
 
 const int PROGRESS_BAR_MINIMUM_DURATION = 1500;
 

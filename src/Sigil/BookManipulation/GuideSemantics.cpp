@@ -19,8 +19,12 @@
 **
 *************************************************************************/
 
-#include <stdafx.h>
+#include <QtCore/QMutexLocker>
+#include <QtCore/QString>
+
 #include "GuideSemantics.h"
+
+using boost::make_tuple;
 
 QMutex GuideSemantics::s_AccessMutex;
 GuideSemantics* GuideSemantics::m_Instance = NULL;

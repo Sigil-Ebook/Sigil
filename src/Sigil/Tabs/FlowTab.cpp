@@ -20,15 +20,28 @@
 *************************************************************************/
 
 #include <stdafx.h>
-#include "FlowTab.h"
-#include "Misc/Utility.h"
-#include "ViewEditors/CodeViewEditor.h"
-#include "ViewEditors/BookViewEditor.h"
-#include "ResourceObjects/HTMLResource.h"
-#include "WellFormedCheckComponent.h"
+
+#include <QtCore/QSettings>
+#include <QtCore/QTimer>
+#include <QtCore/QUrl>
+#include <QtGui/QApplication>
+#include <QtGui/QAction>
+#include <QtGui/QDialog>
+#include <QtGui/QLayout>
+#include <QtGui/QPrinter>
+#include <QtGui/QPrintDialog>
+#include <QtGui/QPrintPreviewDialog>
+#include <QtGui/QSplitter>
+
 #include "BookManipulation/CleanSource.h"
 #include "Misc/SettingsStore.h"
-#include <QUrl>
+#include "Misc/Utility.h"
+#include "ResourceObjects/HTMLResource.h"
+#include "sigil_constants.h"
+#include "Tabs/FlowTab.h"
+#include "Tabs/WellFormedCheckComponent.h"
+#include "ViewEditors/CodeViewEditor.h"
+#include "ViewEditors/BookViewEditor.h"
 
 static const QString SETTINGS_GROUP = "flowtab";
 

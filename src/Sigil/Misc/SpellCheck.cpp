@@ -19,8 +19,9 @@
 **
 *************************************************************************/
 
-#include <stdafx.h>
-#include "SpellCheck.h"
+#include <hunspell.hxx>
+
+#include <QtCore/QCoreApplication>
 #include <QtCore/QDir>
 #include <QtCore/QFile>
 #include <QtCore/QFileInfo>
@@ -30,7 +31,8 @@
 #include <QtCore/QTextStream>
 #include <QtCore/QUrl>
 #include <QtGui/QDesktopServices>
-#include "hunspell.hxx"
+
+#include "Misc/SpellCheck.h"
 #include "Misc/SettingsStore.h"
 
 static const QString USER_DICT = "user_dict.txt";

@@ -19,13 +19,22 @@
 **
 *************************************************************************/
 
-#include <stdafx.h>
-#include "HTMLResource.h"
-#include "BookManipulation/XercesCppUse.h"
-#include "Misc/Utility.h"
+#include <QtCore/QFileInfo>
+#include <QtCore/QString>
+#include <QtCore/QThread>
+#include <QtGui/QApplication>
+#include <QtGui/QPlainTextDocumentLayout>
+#include <QtGui/QTextDocument>
+#include <QtWebKit/QWebFrame>
+#include <QtWebKit/QWebPage>
+
 #include "BookManipulation/CleanSource.h"
-#include "BookManipulation/XhtmlDoc.h"
 #include "BookManipulation/GuideSemantics.h"
+#include "BookManipulation/XercesCppUse.h"
+#include "BookManipulation/XhtmlDoc.h"
+#include "Misc/Utility.h"
+#include "ResourceObjects/HTMLResource.h"
+#include "sigil_exception.h"
 
 static const QString LOADED_CONTENT_MIMETYPE = "application/xhtml+xml";
 const QString XML_NAMESPACE_CRUFT = "xmlns=\"http://www.w3.org/1999/xhtml\"";

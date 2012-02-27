@@ -19,11 +19,11 @@
 **
 *************************************************************************/
 
-#include <stdafx.h>
 #include <QtCore/QDir>
 #include <QtCore/QUrl>
 #include <QtGui/QDesktopServices>
 #include <QtGui/QMessageBox>
+
 #include "SpellCheckWidget.h"
 #include "Misc/SettingsStore.h"
 #include "Misc/SpellCheck.h"

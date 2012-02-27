@@ -19,12 +19,15 @@
 **
 *************************************************************************/
 
-#include <stdafx.h>
-#include "NCXModel.h"
-#include "ResourceObjects/NCXResource.h"
-#include "Misc/Utility.h"
+#include <QtCore/QtCore>
+#include <QtCore/QThread>
+#include <QtGui/QApplication>
 
-NCXModel::NCXModel( QWidget *parent )
+#include "MainUI/NCXModel.h"
+#include "Misc/Utility.h"
+#include "ResourceObjects/NCXResource.h"
+
+NCXModel::NCXModel( QObject *parent )
     : 
     QStandardItemModel( parent ),
     m_Book( NULL ),

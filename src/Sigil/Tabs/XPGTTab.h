@@ -23,7 +23,7 @@
 #ifndef XPGTTAB_H
 #define XPGTTAB_H
 
-#include "XMLTab.h"
+#include "Tabs/XMLTab.h"
 
 class XPGTResource;
 

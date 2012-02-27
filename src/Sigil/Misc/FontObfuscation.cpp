@@ -19,8 +19,14 @@
 **
 *************************************************************************/
 
-#include <stdafx.h>
-#include "FontObfuscation.h"
+#include <QtCore/QByteArray>
+#include <QtCore/QCryptographicHash>
+#include <QtCore/QFile>
+#include <QtCore/QFileInfo>
+
+#include "Misc/FontObfuscation.h"
+#include "sigil_constants.h"
+#include "sigil_exception.h"
 
 static int ADOBE_METHOD_NUM_BYTES = 1024;
 static int IDPF_METHOD_NUM_BYTES  = 1040;

@@ -23,8 +23,8 @@
 #ifndef IMPORTHTML_H
 #define IMPORTHTML_H
 
-#include "Importer.h"
 #include "BookManipulation/XercesHUse.h"
+#include "Importers/Importer.h"
 
 class HTMLResource;
 class CSSResource;

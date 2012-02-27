@@ -19,10 +19,10 @@
 **
 *************************************************************************/
 
-#include <stdafx.h>
-#include "AppEventFilter.h"
-#include "MainUI/MainWindow.h"
+#include <QtGui/QFileOpenEvent>
 
+#include "MainUI/MainWindow.h"
+#include "Misc/AppEventFilter.h"
 
 // Constructor;
 // The argument is the object's parent.

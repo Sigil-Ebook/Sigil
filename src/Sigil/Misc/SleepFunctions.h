@@ -23,7 +23,7 @@
 #ifndef SLEEPFUNCTIONS_H
 #define SLEEPFUNCTIONS_H
 
-#include <QThread>
+#include <QtCore/QThread>
 
 // For unexplained reasons, the very nice cross-platform
 // sleep functions present in QThread are protected.

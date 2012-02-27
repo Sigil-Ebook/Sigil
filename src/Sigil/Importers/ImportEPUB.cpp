@@ -19,19 +19,23 @@
 **
 *************************************************************************/
 
-#include <stdafx.h>
-#include <QFile>
-#include "ImportEPUB.h"
+#include <QtCore/QDir>
+#include <QtCore/QFile>
+#include <QtCore/QFileInfo>
+#include <QtXml/QXmlStreamReader>
+
+#include "BookManipulation/FolderKeeper.h"
+#include "Importers/ImportEPUB.h"
+#include "Misc/FontObfuscation.h"
 #include "Misc/Utility.h"
-#include "SourceUpdates/UniversalUpdates.h"
 #include "ResourceObjects/HTMLResource.h"
 #include "ResourceObjects/CSSResource.h"
-#include "Misc/FontObfuscation.h"
-#include "BookManipulation/FolderKeeper.h"
+#include "SourceUpdates/UniversalUpdates.h"
+#include "sigil_constants.h"
+#include "sigil_exception.h"
 
 const QString ADOBE_FONT_ALGO_ID = "http://ns.adobe.com/pdf/enc#RC";
 const QString IDPF_FONT_ALGO_ID  = "http://www.idpf.org/2008/embedding";
-
 
 // Constructor;
 // The parameter is the file to be imported

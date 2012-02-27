@@ -23,8 +23,12 @@
 #ifndef UTILITY_H
 #define UTILITY_H
 
-#include <QString>
-#include <QDir>
+#include <QtCore/QString>
+
+class QStringList;
+class QStringRef;
+
+struct ExceptionBase;
 
 class Utility
 {	

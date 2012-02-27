@@ -23,17 +23,17 @@
 #ifndef BOOK_H
 #define BOOK_H
 
-#include <QHash>
-#include <QUrl>
-#include <QVariant>
-#include <QObject>
+#include <QtCore/QHash>
+#include <QtCore/QObject>
+#include <QtCore/QUrl>
+#include <QtCore/QVariant>
 
+class CSSResource;
 class FolderKeeper;
 class HTMLResource;
-class CSSResource;
-class Resource;
-class OPFResource;
 class NCXResource;
+class OPFResource;
+class Resource;
 
 /**
  * Represents the book loaded in the current MainWindow instance

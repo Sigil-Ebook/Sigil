@@ -26,9 +26,9 @@
 #include <QtCore/QHash>
 #include <QtCore/QString>
 
+class Hunspell;
 class QStringList;
 class QTextCodec;
-class Hunspell;
 
 /**
  * Singleton.

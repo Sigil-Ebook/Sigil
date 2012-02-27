@@ -23,10 +23,11 @@
 #ifndef KEYBOARDSHORTCUTMANAHER_H
 #define KEYBOARDSHORTCUTMANAHER_H
 
-#include <QHash>
-#include <QKeySequence>
-#include <QString>
-#include "KeyboardShortcut.h"
+#include <QtCore/QHash>
+#include <QtCore/QString>
+#include <QtGui/QKeySequence>
+
+#include "Misc/KeyboardShortcut.h"
 
 class QAction;
 class QShortcut;

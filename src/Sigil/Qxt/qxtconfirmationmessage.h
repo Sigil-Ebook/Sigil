@@ -25,8 +25,8 @@
 #ifndef QXTCONFIRMATIONMESSAGE_H
 #define QXTCONFIRMATIONMESSAGE_H
 
-#include <QSettings>
-#include <QMessageBox>
+#include <QtCore/QSettings>
+#include <QtGui/QMessageBox>
 
 #define QXT_STATIC
 

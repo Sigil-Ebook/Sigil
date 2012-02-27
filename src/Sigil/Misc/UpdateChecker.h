@@ -23,7 +23,7 @@
 #ifndef UPDATECHECKER_H
 #define UPDATECHECKER_H
 
-#include <QObject>
+#include <QtCore/QObject>
 
 class QNetworkAccessManager;
 class QNetworkReply;

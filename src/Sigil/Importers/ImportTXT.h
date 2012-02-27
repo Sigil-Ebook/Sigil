@@ -23,9 +23,10 @@
 #ifndef IMPORTTXT_H
 #define IMPORTTXT_H
 
-#include "Importer.h"
-#include <QUrl>
-#include <QSharedPointer>
+#include <QtCore/QSharedPointer>
+#include <QtCore/QUrl>
+
+#include "Importers/Importer.h"
 
 class ImportTXT : public Importer
 {

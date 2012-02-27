@@ -19,7 +19,7 @@
 **
 *************************************************************************/
 
-#include <stdafx.h>
+#include "sigil_constants.h"
 
 /*
    Xtml DTD with entities only.

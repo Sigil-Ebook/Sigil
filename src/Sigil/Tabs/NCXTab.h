@@ -23,7 +23,7 @@
 #ifndef NCXTAB_H
 #define NCXTAB_H
 
-#include "XMLTab.h"
+#include "Tabs/XMLTab.h"
 
 class NCXResource;
 

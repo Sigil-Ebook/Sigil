@@ -23,12 +23,13 @@
 #ifndef SIGIL_H
 #define SIGIL_H
 
+#include <QtCore/QMutex>
+#include <QtCore/QSharedPointer>
 #include <QtGui/QMainWindow>
+
 #include "ui_main.h"
 #include "BookManipulation/Book.h"
 #include "Tabs/ContentTab.h"
-#include <QSharedPointer>
-#include <QMutex>
 
 const int MAX_RECENT_FILES = 5;
 const int STATUSBAR_MSG_DISPLAY_TIME = 20000;

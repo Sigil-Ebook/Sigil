@@ -23,8 +23,8 @@
 #ifndef SETTINGSSTORE_H
 #define SETTINGSSTORE_H
 
-#include <QObject>
-#include <QString>
+#include <QtCore/QObject>
+#include <QtCore/QString>
 
 /**
  * Singleton. Provides access for reading and writing user configurable

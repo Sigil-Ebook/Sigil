@@ -23,7 +23,7 @@
 #ifndef ENCRYPTIONXMLWRITER_H
 #define ENCRYPTIONXMLWRITER_H
 
-#include "XMLWriter.h"
+#include "Exporters/XMLWriter.h"
 
 class EncryptionXmlWriter : private XMLWriter
 {

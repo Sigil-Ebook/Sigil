@@ -19,8 +19,7 @@
 **
 *************************************************************************/
 
-#include <stdafx.h>
-#include "CSSHighlighter.h"
+#include "Misc/CSSHighlighter.h"
 
 // TODO: This code was written by Nokia for Qt Designer, and it's horribly ugly.
 // I've tried to clean it up, but it's hopeless. Write a new CSS parser to replace this.

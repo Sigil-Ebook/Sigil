@@ -19,12 +19,20 @@
 **
 *************************************************************************/
 
-#include <stdafx.h>
 #include <flightcrew.h>
-namespace fc = FlightCrew;
-#include "ValidationResultsView.h"
+
+#include <QtCore/QFileInfo>
+#include <QtGui/QApplication>
+#include <QtGui/QDockWidget>
+#include <QtGui/QHeaderView>
+#include <QtGui/QTableWidget>
+
 #include "BookManipulation/FolderKeeper.h"
+#include "MainUI/ValidationResultsView.h"
 #include "Misc/Utility.h"
+#include "sigil_exception.h"
+
+namespace fc = FlightCrew;
 
 static const QBrush WARNING_BRUSH = QBrush( QColor( 255, 255, 230 ) );
 static const QBrush ERROR_BRUSH   = QBrush( QColor( 255, 230, 230 ) );

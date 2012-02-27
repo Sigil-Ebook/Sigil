@@ -23,7 +23,7 @@
 #ifndef HTMLEncodingResolver_H
 #define HTMLEncodingResolver_H
 
-#include <QString>
+class QString;
 
 class HTMLEncodingResolver
 {	

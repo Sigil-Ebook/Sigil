@@ -19,22 +19,31 @@
 **
 *************************************************************************/
 
-#include <stdafx.h>
-#include "ImportOEBPS.h"
+#include <ZipArchive.h>
+
+#include <QtCore/QtCore>
+#include <QtCore/QFileInfo>
+#include <QtCore/QFutureSynchronizer>
+#include <QtGui/QMessageBox>
+#include <QtGui/QTextDocument>
+#include <QtXml/QXmlStreamReader>
+
+#include "BookManipulation/FolderKeeper.h"
+#include "Importers/ImportOEBPS.h"
 #include "Misc/Utility.h"
-#include "ResourceObjects/Resource.h"
 #include "ResourceObjects/OPFResource.h"
 #include "ResourceObjects/NCXResource.h"
-#include "BookManipulation/FolderKeeper.h"
-#include <ZipArchive.h>
+#include "ResourceObjects/Resource.h"
+#include "sigil_constants.h"
+#include "sigil_exception.h"
+
+using boost::make_tuple;
 
 const QString DUBLIN_CORE_NS             = "http://purl.org/dc/elements/1.1/";
 static const QString OEBPS_MIMETYPE      = "application/oebps-package+xml";
 static const QString UPDATE_ERROR_STRING = "SG_ERROR";
 const QString NCX_MIMETYPE               = "application/x-dtbncx+xml";
 static const QString NCX_EXTENSION       = "ncx";
-
-
 
 ImportOEBPS::ImportOEBPS( const QString &fullfilepath )
     : 

@@ -23,8 +23,9 @@
 #ifndef BOOKNORMALIZATION_H
 #define BOOKNORMALIZATION_H
 
+#include <QtCore/QSharedPointer>
+
 #include "BookManipulation/Headings.h"
-#include <QSharedPointer>
 
 class Book;
 class HTMLResource;

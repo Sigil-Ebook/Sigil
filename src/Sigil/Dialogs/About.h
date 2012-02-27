@@ -23,8 +23,9 @@
 #ifndef ABOUT_H
 #define ABOUT_H
 
+#include <QtCore/QDateTime>
 #include <QtGui/QDialog>
-#include <QDateTime>
+
 #include "ui_About.h"
 
 /**

@@ -23,7 +23,7 @@
 #ifndef CSSRESOURCE_H
 #define CSSRESOURCE_H
 
-#include "TextResource.h"
+#include "ResourceObjects/TextResource.h"
 
 /**
  * Represents a CSS stylesheet on disk. 

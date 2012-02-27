@@ -19,11 +19,20 @@
 **
 *************************************************************************/
 
-#include <stdafx.h>
-#include <QContextMenuEvent>
-#include "CodeViewEditor.h"
-#include "LineNumberArea.h"
+#include <boost/shared_ptr.hpp>
+#include <boost/tuple/tuple.hpp>
+
+#include <QtGui/QContextMenuEvent>
+#include <QtCore/QSignalMapper>
+#include <QtGui/QAction>
+#include <QtGui/QMenu>
+#include <QtGui/QPainter>
+#include <QtGui/QScrollBar>
+#include <QtGui/QShortcut>
+#include <QtXml/QXmlStreamReader>
+
 #include "BookManipulation/Book.h"
+#include "BookManipulation/XercesCppUse.h"
 #include "BookManipulation/XhtmlDoc.h"
 #include "Misc/XHTMLHighlighter.h"
 #include "Misc/CSSHighlighter.h"
@@ -31,6 +40,14 @@
 #include "Misc/SpellCheck.h"
 #include "Misc/Utility.h"
 #include "PCRE/PCRECache.h"
+#include "ViewEditors/CodeViewEditor.h"
+#include "ViewEditors/LineNumberArea.h"
+#include "sigil_constants.h"
+
+using boost::make_tuple;
+using boost::shared_ptr;
+using boost::tie;
+using boost::tuple;
 
 static const int COLOR_FADE_AMOUNT       = 175;
 static const int TAB_SPACES_WIDTH        = 4;

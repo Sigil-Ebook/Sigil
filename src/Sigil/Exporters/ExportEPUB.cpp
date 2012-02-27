@@ -19,17 +19,25 @@
 **
 *************************************************************************/
 
-#include <stdafx.h>
-#include "ExportEPUB.h"
-#include "BookManipulation/FolderKeeper.h"
-#include "EncryptionXmlWriter.h"
 #include <ZipArchive.h>
+
+#include <QtCore/QDir>
+#include <QtCore/QFile>
+#include <QtCore/QFileInfo>
+#include <QtCore/QTemporaryFile>
+#include <QtCore/QTextStream>
+
 #include "BookManipulation/CleanSource.h"
+#include "BookManipulation/FolderKeeper.h"
+#include "BookManipulation/XhtmlDoc.h"
+#include "Exporters/EncryptionXmlWriter.h"
+#include "Exporters/ExportEPUB.h"
 #include "Misc/Utility.h"
 #include "Misc/TempFolder.h"
 #include "Misc/FontObfuscation.h"
-#include "BookManipulation/XhtmlDoc.h"
 #include "ResourceObjects/FontResource.h"
+#include "sigil_constants.h"
+#include "sigil_exception.h"
 
 const QString BODY_START = "<\\s*body[^>]*>";
 const QString BODY_END   = "</\\s*body\\s*>";

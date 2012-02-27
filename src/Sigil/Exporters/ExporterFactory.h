@@ -23,8 +23,8 @@
 #ifndef EXPORTERFACTORY_H
 #define EXPORTERFACTORY_H
 
-#include "Exporter.h"
 #include "BookManipulation/Book.h"
+#include "Exporters/Exporter.h"
 
 class ExporterFactory
 {

@@ -19,10 +19,13 @@
 **
 *************************************************************************/
 
-#include <stdafx.h>
-#include "Resource.h"
-#include "Misc/Utility.h"
+#include <QtCore/QDir>
+#include <QtCore/QFileInfo>
+#include <QtCore/QString>
+#include <QtGui/QFileIconProvider>
 
+#include "Misc/Utility.h"
+#include "ResourceObjects/Resource.h"
 
 Resource::Resource( const QString &fullfilepath, QObject *parent )
     : 

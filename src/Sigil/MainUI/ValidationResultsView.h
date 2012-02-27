@@ -23,13 +23,15 @@
 #ifndef VALIDATIONRESULTSVIEW_H
 #define VALIDATIONRESULTSVIEW_H
 
-#include <QDockWidget>
 #include <vector>
-#include <QSharedPointer>
+
+#include <QtCore/QSharedPointer>
+#include <QtGui/QDockWidget>
+
 #include "BookManipulation/Book.h"
 #include "Tabs/ContentTab.h"
 
-namespace FlightCrew { class Result; };
+namespace FlightCrew { class Result; }
 namespace fc = FlightCrew;
 
 class QTableWidget;

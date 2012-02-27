@@ -19,8 +19,9 @@
 **
 *************************************************************************/
 
-#include <stdafx.h>
-#include "PCREReplaceTextBuilder.h"
+#include <QtCore/QChar>
+
+#include "PCRE/PCREReplaceTextBuilder.h"
 #include "Misc/Utility.h"
 
 PCREReplaceTextBuilder::PCREReplaceTextBuilder()

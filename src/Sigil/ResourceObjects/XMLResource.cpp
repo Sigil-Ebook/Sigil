@@ -19,11 +19,10 @@
 **
 *************************************************************************/
 
-#include <stdafx.h>
-#include "XMLResource.h"
-#include "BookManipulation/XhtmlDoc.h"
 #include "BookManipulation/CleanSource.h"
+#include "BookManipulation/XhtmlDoc.h"
 #include "Misc/Utility.h"
+#include "ResourceObjects/XMLResource.h"
 
 
 XMLResource::XMLResource( const QString &fullfilepath, QObject *parent )

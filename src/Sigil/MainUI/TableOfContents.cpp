@@ -19,20 +19,23 @@
 **
 *************************************************************************/
 
-#include <stdafx.h>
-#include "TableOfContents.h"
-#include <QTreeView>
-#include "NCXModel.h"
-#include "BookManipulation/FolderKeeper.h"
+#include <QtCore/QFileInfo>
+#include <QtCore/QTimer>
+#include <QtGui/QPushButton>
+#include <QtGui/QTreeView>
+
 #include "BookManipulation/BookNormalization.h"
+#include "BookManipulation/FolderKeeper.h"
 #include "Dialogs/HeadingSelector.h"
-#include "ResourceObjects/NCXResource.h"
+#include "MainUI/NCXModel.h"
+#include "MainUI/TableOfContents.h"
 #include "Misc/Utility.h"
+#include "ResourceObjects/NCXResource.h"
+#include "sigil_constants.h"
+#include "sigil_exception.h"
 
 static const int COLUMN_INDENTATION = 10;
 static const int REFRESH_DELAY = 1000;
-
-
 
 TableOfContents::TableOfContents( QWidget *parent )
     : 

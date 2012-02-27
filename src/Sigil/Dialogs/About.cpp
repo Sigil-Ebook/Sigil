@@ -19,10 +19,11 @@
 **
 *************************************************************************/
 
-#include <stdafx.h>
-#include <QFile>
-#include "About.h"
+#include <QtCore/QFile>
+
+#include "Dialogs/About.h"
 #include "Misc/Utility.h"
+#include "sigil_constants.h"
 
 const QString VERSION_NUMBERS = "(\\d+)\\.(\\d+)\\.(\\d+)";
 const QString SIGIL_VERSION   = QString( SIGIL_FULL_VERSION );

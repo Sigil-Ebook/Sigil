@@ -19,12 +19,14 @@
 **
 *************************************************************************/
 
-#include <stdafx.h>
-#include "ImporterFactory.h"
-#include "ImportTXT.h"
-#include "ImportHTML.h"
-#include "ImportEPUB.h"
+#include <QtCore/QFileInfo>
 
+#include "Importers/ImporterFactory.h"
+#include "Importers/ImportEPUB.h"
+#include "Importers/ImportHTML.h"
+#include "Importers/ImportTXT.h"
+#include "sigil_constants.h"
+#include "sigil_exception.h"
 
 // Constructor
 ImporterFactory::ImporterFactory()

@@ -19,9 +19,15 @@
 **
 *************************************************************************/
 
-#include <stdafx.h>
-#include "HTMLEncodingResolver.h"
-#include "Utility.h"
+#include <QtCore/QFile>
+#include <QtCore/QRegExp>
+#include <QtCore/QString>
+#include <QtCore/QTextCodec>
+
+#include "Misc/HTMLEncodingResolver.h"
+#include "Misc/Utility.h"
+#include "sigil_constants.h"
+#include "sigil_exception.h"
 
 const QString HEAD_END = "</\\s*head\\s*>";
 const QString ENCODING_ATTRIBUTE   = "encoding\\s*=\\s*(?:\"|')([^\"']+)(?:\"|')";

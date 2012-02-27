@@ -24,16 +24,16 @@
 #ifndef FINDREPLACE_H
 #define FINDREPLACE_H
 
-#include <QTimer>
+#include <QtCore/QTimer>
 
 #include "ui_FindReplace.h"
-#include "ViewEditors/Searchable.h"
-#include "Misc/SearchOperations.h"
-#include "MainUI/MainWindow.h"
 #include "BookManipulation/FolderKeeper.h"
+#include "MainUI/MainWindow.h"
+#include "Misc/SearchOperations.h"
+#include "ViewEditors/Searchable.h"
 
-class Resource;
 class HTMLResource;
+class Resource;
 
 class FindReplace : public QWidget
 {

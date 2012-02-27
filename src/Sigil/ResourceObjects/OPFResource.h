@@ -23,11 +23,10 @@
 #ifndef OPFRESOURCE_H
 #define OPFRESOURCE_H
 
-#include "XMLResource.h"
-#include "BookManipulation/GuideSemantics.h"
-
-// Needed because the moc_* version of this file doesn't include stdafx.h
 #include <boost/shared_ptr.hpp>
+
+#include "BookManipulation/GuideSemantics.h"
+#include "ResourceObjects/XMLResource.h"
 
 class HTMLResource;
 class ImageResource;

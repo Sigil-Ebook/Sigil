@@ -23,11 +23,12 @@
 #ifndef XHTMLDOC_H
 #define XHTMLDOC_H
 
-#include <QWebElement>
 #include <boost/shared_ptr.hpp>
-#include "XercesHUse.h"
-#include "ViewEditors/ViewEditor.h"
 
+#include <QtWebKit/QWebElement>
+
+#include "BookManipulation/XercesHUse.h"
+#include "ViewEditors/ViewEditor.h"
 
 class QString;
 class QStringList;

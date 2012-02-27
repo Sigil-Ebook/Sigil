@@ -19,13 +19,13 @@
 **
 *************************************************************************/
 
-#include <stdafx.h>
-#include <QAction>
-#include <QHashIterator>
-#include <QRegExp>
-#include <QShortcut>
-#include <QSettings>
-#include "KeyboardShortcutManager.h"
+#include <QtCore/QHashIterator>
+#include <QtCore/QRegExp>
+#include <QtCore/QSettings>
+#include <QtGui/QAction>
+#include <QtGui/QShortcut>
+
+#include "Misc/KeyboardShortcutManager.h"
 
 static const QString SETTINGS_GROUP = "shortcuts";
 KeyboardShortcutManager *KeyboardShortcutManager::m_instance = 0;

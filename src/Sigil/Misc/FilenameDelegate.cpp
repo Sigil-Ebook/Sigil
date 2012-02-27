@@ -19,10 +19,10 @@
 **
 *************************************************************************/
 
-#include <stdafx.h>
-#include "FilenameDelegate.h"
-#include <QEvent>
-#include <QLineEdit>
+#include <QtCore/QEvent>
+#include <QtGui/QLineEdit>
+
+#include "Misc/FilenameDelegate.h"
 
 FilenameDelegate::FilenameDelegate(QWidget *parent)
     : QStyledItemDelegate(parent)

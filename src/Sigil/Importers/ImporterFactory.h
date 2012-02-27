@@ -23,7 +23,7 @@
 #ifndef IMPORTERFACTORY_H
 #define IMPORTERFACTORY_H
 
-#include "Importer.h"
+#include "Importers/Importer.h"
 
 class ImporterFactory
 {

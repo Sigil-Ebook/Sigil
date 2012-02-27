@@ -19,8 +19,7 @@
 **
 *************************************************************************/
 
-#include <stdafx.h>
-#include "CSSTab.h"
+#include "Tabs/CSSTab.h"
 #include "ResourceObjects/CSSResource.h"
 
 CSSTab::CSSTab( CSSResource& resource, int line_to_scroll_to, QWidget *parent )

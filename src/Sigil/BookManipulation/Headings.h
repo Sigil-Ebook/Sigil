@@ -23,10 +23,13 @@
 #ifndef HEADINGS_H
 #define HEADINGS_H
 
+#include <QtCore/QList>
+#include <QtCore/QMetaType>
+
 #include "BookManipulation/XercesHUse.h"
-#include <QString>
 
 class HTMLResource;
+class QString;
 
 class Headings
 {

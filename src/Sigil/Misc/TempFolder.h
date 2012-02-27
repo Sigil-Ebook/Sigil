@@ -23,7 +23,7 @@
 #ifndef TEMPFOLDER_H
 #define TEMPFOLDER_H
 
-#include <QString>
+#include <QtCore/QString>
 
 /**
  * A RAII wrapper around a temp folder. Creating an object of this

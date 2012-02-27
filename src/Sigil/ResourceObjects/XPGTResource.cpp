@@ -19,9 +19,8 @@
 **
 *************************************************************************/
 
-#include <stdafx.h>
-#include "XPGTResource.h"
 #include "Misc/Utility.h"
+#include "ResourceObjects/XPGTResource.h"
 
 XPGTResource::XPGTResource( const QString &fullfilepath, QObject *parent )
     : XMLResource( fullfilepath, parent )

@@ -23,26 +23,26 @@
 #ifndef BOOKBROWSER_H
 #define BOOKBROWSER_H
 
-#include <QDockWidget>
-#include <QSharedPointer>
-#include "BookManipulation/Book.h"
-#include "ResourceObjects/Resource.h"
-#include "BookManipulation/GuideSemantics.h"
+#include <QtCore/QSharedPointer>
+#include <QtGui/QDockWidget>
 
-class QTreeView;
-class OPFModel;
+#include "BookManipulation/Book.h"
+#include "BookManipulation/GuideSemantics.h"
+#include "ResourceObjects/Resource.h"
+
 class HTMLResource;
 class ImageResource;
+class OPFModel;
 class Resource;
-class QModelIndex;
-class QUrl;
-class QPoint;
-class QMenu;
 class QAction;
+class QMenu;
+class QModelIndex;
+class QPoint;
 class QSignalMapper;
 class QToolButton;
+class QTreeView;
 class QVBoxLayout;
-
+class QUrl;
 
 /**
  * Represents the pane with which the user can manipulate the book's files.

@@ -20,10 +20,14 @@
 **
 *************************************************************************/
 
-#include <stdafx.h>
-#include <QMessageBox>
-#include "pcre.h"
-#include "FindReplace.h"
+#include <pcre.h>
+
+#include <QtCore/QSettings>
+#include <QtGui/QKeyEvent>
+#include <QtGUi/QLineEdit>
+#include <QtGui/QMessageBox>
+
+#include "MainUI/FindReplace.h"
 #include "Misc/SleepFunctions.h"
 
 static const QString SETTINGS_GROUP = "find_replace";

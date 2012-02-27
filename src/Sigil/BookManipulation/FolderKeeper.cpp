@@ -19,12 +19,19 @@
 **
 *************************************************************************/
 
-#include <stdafx.h>
-#include "BookManipulation/FolderKeeper.h"
-#include "ResourceObjects/Resource.h"
-#include "ResourceObjects/NCXResource.h"
-#include "Misc/Utility.h"
+#include <QtCore/QDir>
+#include <QtCore/QFile>
+#include <QtCore/QFileInfo>
+#include <QtCore/QString>
+#include <QtCore/QThread>
+#include <QtGui/QApplication>
 
+#include "BookManipulation/FolderKeeper.h"
+#include "sigil_constants.h"
+#include "sigil_exception.h"
+#include "ResourceObjects/NCXResource.h"
+#include "ResourceObjects/Resource.h"
+#include "Misc/Utility.h"
 
 const QStringList IMAGE_EXTENSIONS = QStringList() << "jpg"   << "jpeg"  << "png"
                                                    << "gif"   << "tif"   << "tiff"

@@ -23,7 +23,7 @@
 #ifndef PERFORMNCXUPDATES_H
 #define PERFORMNCXUPDATES_H
 
-#include "PerformXMLUpdates.h"
+#include "SourceUpdates/PerformXMLUpdates.h"
 
 class PerformNCXUpdates : public PerformXMLUpdates
 {

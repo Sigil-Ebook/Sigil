@@ -19,11 +19,11 @@
 **
 *************************************************************************/
 
-#include <stdafx.h>
-#include "EncryptionXmlWriter.h"
-#include "BookManipulation/Book.h"
-#include "Misc/Utility.h"
+#include <QtXml/QXmlStreamWriter>
 
+#include "BookManipulation/Book.h"
+#include "Exporters/EncryptionXmlWriter.h"
+#include "Misc/Utility.h"
 
 EncryptionXmlWriter::EncryptionXmlWriter( const Book &book, QIODevice &device )
     : XMLWriter( book, device )

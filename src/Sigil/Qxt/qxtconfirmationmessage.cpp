@@ -22,8 +22,16 @@
  ** <http://libqxt.org>  <foundation@libqxt.org>
  **
  ****************************************************************************/
-#include <stdafx.h>
-#include "qxtconfirmationmessage.h"
+
+#include <QtCore/QCoreApplication>
+#include <QtGui/QDialogButtonBox>
+#include <QtGui/QCheckBox>
+#include <QtGui/QHeaderView>
+#include <QtGui/QGridLayout>
+#include <QtGui/QLayoutItem>
+#include <QtGui/QPushButton>
+
+#include "Qxt/qxtconfirmationmessage.h"
 
 static const QLatin1String DEFAULT_ORGANIZATION("QxtGui");
 static const QLatin1String DEFAULT_APPLICATION("QxtConfirmationMessage");

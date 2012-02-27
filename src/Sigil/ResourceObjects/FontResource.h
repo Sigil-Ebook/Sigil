@@ -23,7 +23,7 @@
 #ifndef FONTRESOURCE_H
 #define FONTRESOURCE_H
 
-#include "Resource.h"
+#include "ResourceObjects/Resource.h"
 
 /**
  * Represents a font file on disk (TTF or OTF). 

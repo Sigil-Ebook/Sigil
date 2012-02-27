@@ -19,15 +19,17 @@
 **
 *************************************************************************/
 
-#include <stdafx.h>
-#include "MetaEditor.h"
-#include "AddMetadata.h"
-#include "ResourceObjects/OPFResource.h"
+#include <QtCore/QDate>
+#include <QtCore/QSettings>
+#include <QtGui/QShowEvent>
+
+#include "Dialogs/MetaEditor.h"
+#include "Dialogs/AddMetadata.h"
 #include "Misc/SettingsStore.h"
+#include "ResourceObjects/OPFResource.h"
 
 static const int DEFAULT_EXPANDED_HEIGHT = 304;
 static const QString SETTINGS_GROUP      = "meta_editor";
-
 
 MetaEditor::MetaEditor( OPFResource &opf, QWidget *parent )
     :

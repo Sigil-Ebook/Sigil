@@ -23,9 +23,10 @@
 #ifndef FLOWTAB_H
 #define FLOWTAB_H
 
-#include "ContentTab.h"
-#include "WellFormedContent.h"
-#include <QUrl>
+#include <QtCore/QUrl>
+
+#include "Tabs/ContentTab.h"
+#include "Tabs/WellFormedContent.h"
 
 class QSplitter;
 class BookViewEditor;

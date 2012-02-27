@@ -23,10 +23,11 @@
 #ifndef TABMANAGER_H
 #define TABMANAGER_H
 
-#include "ContentTab.h"
-#include <QTabWidget>
-#include <QWeakPointer>
-#include <QUrl>
+#include <QtCore/QUrl>
+#include <QtCore/QWeakPointer>
+#include <QtGui/QTabWidget>
+
+#include "Tabs/ContentTab.h"
 
 class Resource;
 class HTMLResource;

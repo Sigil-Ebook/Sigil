@@ -19,8 +19,7 @@
 **
 *************************************************************************/
 
-#include <stdafx.h>
-#include "ImageList.h"
+#include "Dialogs/ImageList.h"
 #include "Misc/Utility.h"
 
 ImageList::ImageList(QWidget *parent) :

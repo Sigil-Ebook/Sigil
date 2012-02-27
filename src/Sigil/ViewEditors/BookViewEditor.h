@@ -23,14 +23,17 @@
 #ifndef BOOKVIEWEDITOR_H
 #define BOOKVIEWEDITOR_H
 
-#include "ViewEditor.h"
-#include "BookManipulation/XercesHUse.h"
-#include <QWebView>
-#include <QMap>
-#include <QMapIterator>
-#include <QWebElement>
-#include <QUndoCommand>
 #include <boost/shared_ptr.hpp>
+
+#include <QtCore/QMap>
+#include <QtCore/QMapIterator>
+#include <QtGui/QUndoCommand>
+#include <QtWebKit/QWebElement>
+#include <QtWebKit/QWebView>
+
+#include "BookManipulation/XercesHUse.h"
+#include "ViewEditors/ViewEditor.h"
+
 using boost::shared_ptr;
 
 class QShortcut;

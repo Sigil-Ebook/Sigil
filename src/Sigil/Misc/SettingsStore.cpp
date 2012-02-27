@@ -19,10 +19,10 @@
 **
 *************************************************************************/
 
-#include <stdafx.h>
-#include "constants.h"
-#include <QSettings>
-#include "SettingsStore.h"
+#include <QtCore/QSettings>
+
+#include "Misc/SettingsStore.h"
+#include "sigil_constants.h"
 
 SettingsStore *SettingsStore::m_instance = 0;
 

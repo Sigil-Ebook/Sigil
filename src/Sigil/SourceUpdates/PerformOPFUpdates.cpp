@@ -19,8 +19,9 @@
 **
 *************************************************************************/
 
-#include <stdafx.h>
-#include "PerformOPFUpdates.h"
+#include <QtCore/QStringList>
+
+#include "SourceUpdates/PerformOPFUpdates.h"
 
 PerformOPFUpdates::PerformOPFUpdates( const QString &source,
                                       const QHash< QString, QString > &xml_updates )

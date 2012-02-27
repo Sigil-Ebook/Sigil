@@ -19,7 +19,11 @@
 **
 *************************************************************************/
 
-#include <stdafx.h>
+#include <QtCore/QDate>
+#include <QtCore/QMutex>
+#include <QtCore/QString>
+#include <QtCore/QStringList>
+
 #include "BookManipulation/Metadata.h"
 #include "BookManipulation/XercesCppUse.h"
 #include "BookManipulation/XhtmlDoc.h"

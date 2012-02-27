@@ -19,12 +19,15 @@
 **
 *************************************************************************/
 
-#include <stdafx.h>
-#include "ImageTab.h"
-#include "ResourceObjects/ImageResource.h"
+#include <QtGui/QFrame>
+#include <QtGui/QLabel>
+#include <QtGui/QLayout>
+#include <QtGui/QScrollArea>
+
 #include "Misc/RasterizeImageResource.h"
 #include "Misc/SettingsStore.h"
-
+#include "ResourceObjects/ImageResource.h"
+#include "Tabs/ImageTab.h"
 
 ImageTab::ImageTab( ImageResource& resource, QWidget *parent )
     :

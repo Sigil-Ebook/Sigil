@@ -23,11 +23,15 @@
 #ifndef OPFMODELITEM_H
 #define OPFMODELITEM_H
 
+#include <limits>
+
+#include <QtCore/Qt>
+#include <QtCore/QString>
+#include <QtGui/QStandardItem>
+
 static const int NO_READING_ORDER        = std::numeric_limits< int >::max();
 static const int READING_ORDER_ROLE      = Qt::UserRole + 2;
 static const int ALPHANUMERIC_ORDER_ROLE = Qt::UserRole + 3;
-
-class QStandardItem;
 
 /**
  * A re-implementation of QStandardItem to

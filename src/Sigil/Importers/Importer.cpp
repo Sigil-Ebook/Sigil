@@ -19,8 +19,7 @@
 **
 *************************************************************************/
 
-#include <stdafx.h>
-#include "Importer.h"
+#include "Importers/Importer.h"
 
 Importer::Importer( const QString &fullfilepath )
     :

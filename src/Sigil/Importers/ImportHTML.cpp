@@ -19,23 +19,32 @@
 **
 *************************************************************************/
 
-#include <stdafx.h>
-#include "ImportHTML.h"
-#include "Misc/Utility.h"
-#include "Misc/TempFolder.h"
-#include "Misc/HTMLEncodingResolver.h"
-#include "BookManipulation/Metadata.h"
+#include <boost/bind/bind.hpp>
+#include <boost/tuple/tuple.hpp>
+
+#include <QtCore/QtCore>
+#include <QtCore/QDir>
+#include <QtCore/QFileInfo>
+#include <QtCore/QFutureSynchronizer>
+
 #include "BookManipulation/CleanSource.h"
+#include "BookManipulation/FolderKeeper.h"
+#include "BookManipulation/Metadata.h"
 #include "BookManipulation/XercesCppUse.h"
-#include "ResourceObjects/HTMLResource.h"
+#include "BookManipulation/XhtmlDoc.h"
+#include "Importers/ImportHTML.h"
+#include "Misc/HTMLEncodingResolver.h"
+#include "Misc/TempFolder.h"
+#include "Misc/Utility.h"
 #include "ResourceObjects/CSSResource.h"
+#include "ResourceObjects/HTMLResource.h"
 #include "ResourceObjects/NCXResource.h"
 #include "SourceUpdates/PerformHTMLUpdates.h"
 #include "SourceUpdates/UniversalUpdates.h"
-#include "BookManipulation/XhtmlDoc.h"
-#include "BookManipulation/FolderKeeper.h"
+#include "sigil_constants.h"
+#include "sigil_exception.h"
 
-
+using boost::tie;
 
 // Constructor;
 // The parameter is the file to be imported

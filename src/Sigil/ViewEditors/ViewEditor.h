@@ -23,10 +23,11 @@
 #ifndef VIEWEDITOR_H
 #define VIEWEDITOR_H
 
-#include <QList>
-#include <QString>
-#include "Searchable.h"
-#include "Zoomable.h"
+#include <QtCore/QList>
+#include <QtCore/QString>
+
+#include "ViewEditors/Searchable.h"
+#include "ViewEditors/Zoomable.h"
 
 class QUrl;
 

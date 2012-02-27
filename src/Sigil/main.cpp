@@ -19,22 +19,28 @@
 **
 *************************************************************************/
 
-#include "stdafx.h"
-#include "Misc/Utility.h"
-#include "Misc/TempFolder.h"
-#include "MainUI/MainWindow.h"
-#include <QtGui/QApplication>
-#include <QTranslator>
-#include <QDir>
-#include "Misc/UpdateChecker.h"
-#include "Misc/AppEventFilter.h"
-#include "BookManipulation/Book.h"
-#include "Importers/ImporterFactory.h"
-#include "Exporters/ExporterFactory.h"
-#include "BookManipulation/BookNormalization.h"
-#include <XercesInit.h>
 #include <iostream>
+#include <XercesInit.h>
 
+#include <QtCore/QCoreApplication>
+#include <QtCore/QDir>
+#include <QtCore/QLibraryInfo>
+#include <QtCore/QTextCodec>
+#include <QtCore/QThreadPool>
+#include <QtCore/QTranslator>
+#include <QtGui/QApplication>
+#include <QtGui/QMessageBox>
+
+#include "BookManipulation/Book.h"
+#include "BookManipulation/BookNormalization.h"
+#include "Exporters/ExporterFactory.h"
+#include "Importers/ImporterFactory.h"
+#include "MainUI/MainWindow.h"
+#include "Misc/AppEventFilter.h"
+#include "Misc/TempFolder.h"
+#include "Misc/UpdateChecker.h"
+#include "Misc/Utility.h"
+#include "sigil_exception.h"
 
 // Creates a MainWindow instance depending
 // on command line arguments

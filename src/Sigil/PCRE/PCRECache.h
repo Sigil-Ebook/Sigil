@@ -24,9 +24,10 @@
 #ifndef PCRECACHE_H
 #define PCRECACHE_H
 
-#include "SPCRE.h"
-#include <QCache>
-#include <QString>
+#include <QtCore/QCache>
+#include <QtCore/QString>
+
+#include "PCRE/SPCRE.h"
 
 /**
  * Singleton. A cache of SPCRE regular expression objects.

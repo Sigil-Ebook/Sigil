@@ -19,8 +19,11 @@
 **
 *************************************************************************/
 
-#include <stdafx.h>
-#include "PerformCSSUpdates.h"
+#include <QtCore/QFileInfo>
+#include <QtCore/QRegExp>
+#include <QtCore/QString>
+
+#include "SourceUpdates/PerformCSSUpdates.h"
 
 PerformCSSUpdates::PerformCSSUpdates( const QString &source, const QHash< QString, QString > &css_updates )
     : 

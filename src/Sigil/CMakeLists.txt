@@ -90,8 +90,8 @@ set( QOBJECT_HEADERS
     )
 
 set( MAIN_FILES
-    constants.h
-    exception.h
+    sigil_constants.h
+    sigil_exception.h
     main.cpp
     )
     
@@ -378,27 +378,6 @@ set_source_files_properties( Misc/Utility.cpp PROPERTIES COMPILE_DEFINITIONS SIG
 
 #############################################################################
 
-# creating PCH's for MSVC and GCC on Linux
-include( ${CMAKE_SOURCE_DIR}/cmake_extras/CustomPCH.cmake )
-set( ALL_INCLUDES ${BOOST_INCLUDE_DIRS}
-                  ${XERCES_INCLUDE_DIRS} 
-                  ${XERCESEXTENSIONS_INCLUDE_DIRS} 
-                  ${ZIPARCHIVE_INCLUDE_DIRS}
-                  ${tidyLib_SOURCE_DIR}
-                  ${PCRE_INCLUDE_DIRS}
-                  ${HUNSPELL_INCLUDE_DIRS}
-                  ${FLIGHTCREW_INCLUDE_DIRS}
-                  ${QT_INCLUDES} )
-
-set( PCH_NAME stdafx )
-set( GCC_PCH_TARGET gccPCH )
-precompiled_header( RAW_SOURCES ALL_INCLUDES ${GCC_PCH_TARGET} ${PCH_NAME} )
-
-list( APPEND MAIN_FILES ${PCH_NAME}.h )
-list( APPEND MAIN_FILES ${PCH_NAME}.cpp )
-
-#############################################################################
-
 # Adds folders for Visual Studio solution explorer (and for Xcode explorer)
 source_group( "Generated"         FILES ${MOC_FILES_CPP} ${UI_FILES_H} ${QRC_FILES_CPP} )
 source_group( "Forms"             FILES ${UI_FILES} )
@@ -468,18 +447,21 @@ endif()
 
 #############################################################################
 
-# We need to pick up the stdafx.h file, the ui*.h files,
-# and the headers for the linked-to libraries
-include_directories( ${CMAKE_CURRENT_BINARY_DIR} 
-                     ${CMAKE_CURRENT_SOURCE_DIR} 
-                     ${BOOST_INCLUDE_DIRS}
-                     ${XERCES_INCLUDE_DIRS} 
-                     ${XERCESEXTENSIONS_INCLUDE_DIRS} 
-                     ${ZIPARCHIVE_INCLUDE_DIRS}
-                     ${tidyLib_SOURCE_DIR}
-                     ${PCRE_INCLUDE_DIRS}
+# We need to pick up the ui*.h files,
+# and the headers for the linked-to libraries.
+# The directories are in reverse order because we're using before to
+# put our include dirs before any system ones.
+include_directories( BEFORE
+                     ${FLIGHTCREW_INCLUDE_DIRS}
                      ${HUNSPELL_INCLUDE_DIRS}
-                     ${FLIGHTCREW_INCLUDE_DIRS} )
+                     ${PCRE_INCLUDE_DIRS}
+                     ${tidyLib_SOURCE_DIR}
+                     ${ZIPARCHIVE_INCLUDE_DIRS}
+                     ${XERCESEXTENSIONS_INCLUDE_DIRS}
+                     ${XERCES_INCLUDE_DIRS}
+                     ${BOOST_INCLUDE_DIRS}
+                     ${CMAKE_CURRENT_SOURCE_DIR}
+                     ${CMAKE_CURRENT_BINARY_DIR} )
 
 #############################################################################
 
@@ -493,11 +475,6 @@ else()
 endif()
 
 target_link_libraries( ${PROJECT_NAME} ${HUNSPELL_LIBRARIES} ${PCRE_LIBRARIES} tidyLib ${ZIPARCHIVE_LIBRARIES} ${BOOST_LIBS} ${XERCES_LIBRARIES} ${XERCESEXTENSIONS_LIBRARIES} ${FLIGHTCREW_LIBRARIES} ${QT_LIBRARIES} )
-
-#############################################################################
-
-# Xcode PCH support. Has to come after the target is created.              
-xcode_pch( ${PCH_NAME} )
 
 #############################################################################
 
@@ -530,9 +507,6 @@ if( MSVC )
 # "Print all warnings" flag for GCC
 elseif( CMAKE_COMPILER_IS_GNUCXX )
     add_definitions( -Wall )
-
-    # Make sure the PCH is built for GCC
-    add_dependencies( ${PROJECT_NAME} gccPCH )
 endif()
 
 

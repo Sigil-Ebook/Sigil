@@ -19,11 +19,15 @@
 **
 *************************************************************************/
 
-#include <stdafx.h>
-#include "PerformXMLUpdates.h"
-#include "BookManipulation/XhtmlDoc.h"
+#include <QtCore/QDir>
+#include <QtCore/QFileInfo>
+#include <QtCore/QStringList>
+
 #include "BookManipulation/XercesCppUse.h"
+#include "BookManipulation/XhtmlDoc.h"
+#include "sigil_exception.h"
 #include "Misc/Utility.h"
+#include "SourceUpdates/PerformXMLUpdates.h"
 
 static const QChar POUND_SIGN    = QChar::fromAscii( '#' );
 static const QChar FORWARD_SLASH = QChar::fromAscii( '/' );

@@ -24,6 +24,7 @@
 #define RENAMETEMPLATE_H
 
 #include <QtGui/QDialog>
+
 #include "ui_RenameTemplate.h"
 
 /**

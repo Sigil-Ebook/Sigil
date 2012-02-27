@@ -20,7 +20,9 @@
 **
 *************************************************************************/
 
-#include <stdafx.h>
+#include <QtCore/QEvent>
+#include <QtGui/QKeyEvent>
+
 #include "KeyboardShortcutsWidget.h"
 #include "Misc/KeyboardShortcutManager.h"
 

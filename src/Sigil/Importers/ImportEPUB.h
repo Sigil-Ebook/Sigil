@@ -23,11 +23,10 @@
 #ifndef IMPORTEPUB_H
 #define IMPORTEPUB_H
 
-#include "ImportOEBPS.h"
+#include "Importers/ImportOEBPS.h"
 
 class HTMLResource;
 class CSSResource;
-
 
 class ImportEPUB : public ImportOEBPS
 {

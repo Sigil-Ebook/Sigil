@@ -19,8 +19,7 @@
 **
 *************************************************************************/
 
-#include <stdafx.h>
-#include "PerformNCXUpdates.h"
+#include "SourceUpdates/PerformNCXUpdates.h"
 
 PerformNCXUpdates::PerformNCXUpdates( const QString &source,
                                       const QHash< QString, QString > &xml_updates )

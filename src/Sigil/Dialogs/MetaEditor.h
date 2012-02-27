@@ -24,11 +24,11 @@
 #define METAEDITOR_H
 
 #include <QtGui/QDialog>
+#include <QtGui/QStandardItemModel>
+
 #include "ui_MetaEditor.h"
-#include <QStandardItemModel>
 
 class OPFResource;
-
 
 /**
  * The editor used to create and modify the book's metadata.

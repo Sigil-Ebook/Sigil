@@ -23,8 +23,8 @@
 #ifndef XMLTAB_H
 #define XMLTAB_H
 
-#include "TextTab.h"
-#include "WellFormedContent.h"
+#include "Tabs/TextTab.h"
+#include "Tabs/WellFormedContent.h"
 
 class XMLResource;
 class WellFormedCheckComponent;

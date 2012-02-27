@@ -23,18 +23,18 @@
 #ifndef TABLEOFCONTENTS_H
 #define TABLEOFCONTENTS_H
 
-#include <QDockWidget>
-#include <QSharedPointer>
+#include <QtCore/QSharedPointer>
+#include <QtGui/QDockWidget>
+
 #include "BookManipulation/Book.h"
 
 class NCXModel;
-class QTreeView;
 class QModelIndex;
-class QVBoxLayout;
-class QWidget;
 class QPushButton;
 class QTimer;
-
+class QTreeView;
+class QVBoxLayout;
+class QWidget;
 
 /**
  * Represents the pane in which the book's NCX TOC is rendered.

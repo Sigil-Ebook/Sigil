@@ -19,14 +19,17 @@
 **
 *************************************************************************/
 
-#include <stdafx.h>
-#include "ImportTXT.h"
+#include <QtGui/QTextDocument>
+
 #include "BookManipulation/CleanSource.h"
-#include "Misc/Utility.h"
-#include "Misc/TempFolder.h"
-#include "ResourceObjects/HTMLResource.h"
-#include "BookManipulation/XhtmlDoc.h"
 #include "BookManipulation/FolderKeeper.h"
+#include "BookManipulation/XhtmlDoc.h"
+#include "Importers/ImportTXT.h"
+#include "Misc/TempFolder.h"
+#include "Misc/Utility.h"
+#include "ResourceObjects/HTMLResource.h"
+#include "sigil_constants.h"
+#include "sigil_exception.h"
 
 const QString FIRST_CHAPTER_PREFIX = "Section";
 const QString FIRST_CHAPTER_NAME   = FIRST_CHAPTER_PREFIX + "0001.xhtml";

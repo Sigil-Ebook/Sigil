@@ -23,10 +23,16 @@
 #ifndef IMPORTOEBPS_H
 #define IMPORTOEBPS_H
 
-#include "Importer.h"
+#include <boost/tuple/tuple.hpp>
+
+#include <QtCore/QHash>
+#include <QtCore/QSet>
+#include <QtCore/QStringList>
+
+#include "Importers/Importer.h"
 #include "Misc/TempFolder.h"
-#include <QHash>
-#include <QStringList>
+
+using boost::tuple;
 
 class HTMLResource;
 class CSSResource;

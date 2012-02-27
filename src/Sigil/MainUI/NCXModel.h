@@ -23,16 +23,17 @@
 #ifndef NCXMODEL_H
 #define NCXMODEL_H
 
-#include <QStandardItemModel>
-#include <QSharedPointer>
-#include <QMutex>
-#include <QFutureWatcher>
+#include <QtCore/QFutureWatcher>
+#include <QtCore/QMutex>
+#include <Qtcore/QSharedPointer>
+#include <QtGui/QStandardItemModel>
+
 #include "BookManipulation/Book.h"
 
+class NCXResource;
 class QModelIndex;
 class QStandardItem;
 class QXmlStreamReader;
-class NCXResource;
 class QUrl;
 
 
@@ -51,7 +52,7 @@ public:
      *
      * @param parent The model's parent.
      */
-    NCXModel( QWidget *parent = 0 );
+    NCXModel( QObject *parent = 0 );
 
     /**
      * Sets the model's book.

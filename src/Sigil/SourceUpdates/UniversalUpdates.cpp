@@ -19,21 +19,32 @@
 **
 *************************************************************************/
 
-#include <stdafx.h>
-#include "UniversalUpdates.h"
-#include "PerformHTMLUpdates.h"
-#include "PerformCSSUpdates.h"
-#include "PerformNCXUpdates.h"
-#include "PerformOPFUpdates.h"
+#include <boost/bind/bind.hpp>
+#include <boost/tuple/tuple.hpp>
+
+#include <QtCore/QtCore>
+#include <QtCore/QFutureSynchronizer>
+
+#include "BookManipulation/CleanSource.h"
+#include "BookManipulation/XercesCppUse.h"
+#include "BookManipulation/XhtmlDoc.h"
+#include "Misc/HTMLEncodingResolver.h"
+#include "Misc/Utility.h"
 #include "ResourceObjects/OPFResource.h"
 #include "ResourceObjects/NCXResource.h"
 #include "ResourceObjects/HTMLResource.h"
 #include "ResourceObjects/CSSResource.h"
-#include "Misc/HTMLEncodingResolver.h"
-#include "BookManipulation/CleanSource.h"
-#include "BookManipulation/XercesCppUse.h"
-#include "BookManipulation/XhtmlDoc.h"
-#include "Misc/Utility.h"
+#include "sigil_constants.h"
+#include "sigil_exception.h"
+#include "SourceUpdates/PerformHTMLUpdates.h"
+#include "SourceUpdates/PerformCSSUpdates.h"
+#include "SourceUpdates/PerformNCXUpdates.h"
+#include "SourceUpdates/PerformOPFUpdates.h"
+#include "SourceUpdates/UniversalUpdates.h"
+
+using boost::make_tuple;
+using boost::tie;
+using boost::tuple;
 
 void UniversalUpdates::PerformUniversalUpdates( bool resources_already_loaded,
                                                 const QList< Resource* > &resources,

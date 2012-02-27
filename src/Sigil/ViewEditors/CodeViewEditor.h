@@ -23,11 +23,13 @@
 #ifndef CODEVIEWEDITOR_H
 #define CODEVIEWEDITOR_H
 
-#include <QPlainTextEdit>
-#include "ViewEditor.h"
-#include <QStack>
-#include <QList>
 #include <boost/tuple/tuple.hpp>
+
+#include <QtCore/QList>
+#include <QtCore/QStack>
+#include <QtGui/QPlainTextEdit>
+
+#include "ViewEditors/ViewEditor.h"
 
 class QResizeEvent;
 class QSize;

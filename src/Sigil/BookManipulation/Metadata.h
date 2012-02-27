@@ -23,9 +23,14 @@
 #ifndef METADATA_H
 #define METADATA_Hc
 
-#include <QMutex>
+#include <QtCore/QHash>
+#include <QtCore/QMap>
+#include <QtCore/QVariant>
+
 #include "BookManipulation/XercesHUse.h"
 
+class QMutex;
+class QString;
 
 class Metadata
 {	

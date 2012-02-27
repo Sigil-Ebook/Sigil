@@ -19,27 +19,32 @@
 **
 *************************************************************************/
 
-#include <stdafx.h>
-#include "BookBrowser.h"
-#include "OPFModel.h"
+#include <QtCore/QFileInfo>
+#include <QtCore/QSignalMapper>
+#include <QtGui/QFileDialog>
+#include <QtGui/QMenu>
+#include <QtGui/QTreeView>
+
 #include "BookManipulation/Book.h"
-#include "Dialogs/RenameTemplate.h"
-#include "Misc/FilenameDelegate.h"
-#include "Misc/Utility.h"
-#include "Misc/SettingsStore.h"
-#include "ResourceObjects/HTMLResource.h"
-#include "ResourceObjects/OPFResource.h"
-#include "ResourceObjects/NCXResource.h"
-#include "Importers/ImportHTML.h"
 #include "BookManipulation/FolderKeeper.h"
+#include "Dialogs/RenameTemplate.h"
+#include "Importers/ImportHTML.h"
+#include "MainUI/BookBrowser.h"
+#include "MainUI/OPFModel.h"
+#include "Misc/FilenameDelegate.h"
 #include "Misc/KeyboardShortcutManager.h"
+#include "Misc/SettingsStore.h"
+#include "Misc/Utility.h"
 #include "Qxt/qxtconfirmationmessage.h"
-#include <QTreeView>
+#include "ResourceObjects/HTMLResource.h"
+#include "ResourceObjects/NCXResource.h"
+#include "ResourceObjects/OPFResource.h"
+#include "sigil_constants.h"
+#include "sigil_exception.h"
 
 static const QString SETTINGS_GROUP = "bookbrowser";
 static const QString OPF_NCX_EDIT_WARNING_KEY = SETTINGS_GROUP + "-opfncx-warning";
 static const int COLUMN_INDENTATION = 10;
-
 
 BookBrowser::BookBrowser( QWidget *parent )
     : 

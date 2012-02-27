@@ -19,15 +19,6 @@
 **
 *************************************************************************/
 
-#include <stdafx.h>
-#include "TabManager.h"
-#include "FlowTab.h"
-#include "CSSTab.h"
-#include "OPFTab.h"
-#include "NCXTab.h"
-#include "ImageTab.h"
-#include "XPGTTab.h"
-#include "WellFormedContent.h"
 #include "ResourceObjects/Resource.h"
 #include "ResourceObjects/CSSResource.h"
 #include "ResourceObjects/OPFResource.h"
@@ -35,7 +26,14 @@
 #include "ResourceObjects/XPGTResource.h"
 #include "ResourceObjects/HTMLResource.h"
 #include "ResourceObjects/ImageResource.h"
-
+#include "Tabs/CSSTab.h"
+#include "Tabs/FlowTab.h"
+#include "Tabs/ImageTab.h"
+#include "Tabs/NCXTab.h"
+#include "Tabs/OPFTab.h"
+#include "Tabs/TabManager.h"
+#include "Tabs/WellFormedContent.h"
+#include "Tabs/XPGTTab.h"
 
 TabManager::TabManager( QWidget *parent )
     : 

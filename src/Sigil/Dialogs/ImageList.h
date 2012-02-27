@@ -23,7 +23,8 @@
 #ifndef IMAGELIST_H
 #define IMAGELIST_H
 
-#include <QDialog>
+#include <QtGui/QDialog>
+
 #include "ui_ImageList.h"
 
 class QString;

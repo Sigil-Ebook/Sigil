@@ -19,13 +19,22 @@
 **
 *************************************************************************/
 
-#include <stdafx.h>
-#include "Misc/Utility.h"
-#include "BookManipulation/CleanSource.h"
-
+#include <boost/tuple/tuple.hpp>
 #include <buffio.h>
+
+#include <QtCore/QString>
+#include <QtCore/QStringList>
+
+#include "BookManipulation/CleanSource.h"
 #include "BookManipulation/XhtmlDoc.h"
+#include "sigil_constants.h"
+#include "sigil_exception.h"
 #include "MainUI/MainWindow.h"
+#include "Misc/Utility.h"
+
+using boost::make_tuple;
+using boost::tie;
+using boost::tuple;
 
 static const QString SIGIL_CLASS_NAME     = "sgc";
 static const QString SIGIL_CLASS_NAME_REG = SIGIL_CLASS_NAME + "-(\\d+)";
@@ -178,7 +187,7 @@ QStringList CleanSource::CSSStyleTags( const QString &source )
     	// Nothing really. If we can't get the CSS style tags,
         // than that's it. No CSS returned.
         // TODO: log this error.
-        qDebug() << Utility::GetExceptionInfo( exception );
+        //qDebug() << Utility::GetExceptionInfo( exception );
     }
 
     QStringList css_style_tags;

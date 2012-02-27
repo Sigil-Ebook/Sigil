@@ -19,7 +19,6 @@
 **
 *************************************************************************/
 
-#include <stdafx.h>
 #include "LanguageWidget.h"
 #include "BookManipulation/Metadata.h"
 #include "Misc/SettingsStore.h"

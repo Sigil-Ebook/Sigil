@@ -19,11 +19,10 @@
 **
 *************************************************************************/
 
-#include <stdafx.h>
-#include "PerformHTMLUpdates.h"
-#include "PerformCSSUpdates.h"
-#include "BookManipulation/XhtmlDoc.h"
 #include "BookManipulation/XercesCppUse.h"
+#include "BookManipulation/XhtmlDoc.h"
+#include "SourceUpdates/PerformCSSUpdates.h"
+#include "SourceUpdates/PerformHTMLUpdates.h"
 
 
 PerformHTMLUpdates::PerformHTMLUpdates( const QString &source,

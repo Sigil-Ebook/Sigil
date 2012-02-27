@@ -19,11 +19,13 @@
 **
 *************************************************************************/
 
-#include <stdafx.h>
-#include "ContentTab.h"
-#include "WellFormedCheckComponent.h"
-#include "WellFormedContent.h"
+#include <QtCore/QTimer>
+#include <QtGui/QPushButton>
+#include <QtGui/QMessageBox>
 
+#include "Tabs/ContentTab.h"
+#include "Tabs/WellFormedCheckComponent.h"
+#include "Tabs/WellFormedContent.h"
 
 WellFormedCheckComponent::WellFormedCheckComponent( WellFormedContent &content )
     :

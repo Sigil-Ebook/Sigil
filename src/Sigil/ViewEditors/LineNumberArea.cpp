@@ -19,9 +19,10 @@
 **
 *************************************************************************/
 
-#include <stdafx.h>
-#include "LineNumberArea.h"
-#include "CodeViewEditor.h"
+#include <QtCore/QCoreApplication>
+
+#include "ViewEditors/CodeViewEditor.h"
+#include "ViewEditors/LineNumberArea.h"
 
 // Constructor;
 // The parameter is the CodeViewEditor to

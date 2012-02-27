@@ -19,9 +19,7 @@
 **
 *************************************************************************/
 
-#include <stdafx.h>
-#include "RenameTemplate.h"
-
+#include "Dialogs/RenameTemplate.h"
 
 RenameTemplate::RenameTemplate( QString &startingName, QWidget *parent )
     : QDialog( parent )

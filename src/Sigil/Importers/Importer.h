@@ -23,7 +23,8 @@
 #ifndef IMPORTER_H
 #define IMPORTER_H
 
-#include <QSharedPointer>
+#include <QtCore/QSharedPointer>
+
 #include "BookManipulation/Book.h"
 
 /**

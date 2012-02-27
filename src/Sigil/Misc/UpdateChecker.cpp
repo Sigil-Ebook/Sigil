@@ -19,8 +19,19 @@
 **
 *************************************************************************/
 
-#include <stdafx.h>
-#include "UpdateChecker.h"
+#include <QtCore/QDateTime>
+#include <QtCore/QDir>
+#include <QtCore/QRegExp>
+#include <QtCore/QSettings>
+#include <QtCore/QTextStream>
+#include <QtGui/QDesktopServices>
+#include <QtGui/QMessageBox>
+#include <QtNetwork/QNetworkAccessManager>
+#include <QtNetwork/QNetworkReply>
+#include <QtXml/QXmlStreamReader>
+
+#include "Misc/UpdateChecker.h"
+#include "sigil_constants.h"
 
 static const QString DOWNLOAD_PAGE_LOCATION  = "http://code.google.com/p/sigil/downloads/list";
 static const QString UPDATE_XML_LOCATION     = "http://sigil.googlecode.com/git/version.xml";
