@@ -1,4 +1,5 @@
 Sigil 0.5.4 TBA
+    - Update zlib to 1.2.6.
     - Remove the use of a precompiled header.
     - Update PCRE to 8.30.
       - Make PCRE 8.30 with UTF-16 support the minimum required version.

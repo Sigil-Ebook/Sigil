@@ -106,7 +106,6 @@ set(ZLIB_SRCS
     trees.c
     uncompr.c
     zutil.c
-    #win32/zlib1.rc
 )
 
 # parse the full version number from zlib.h and include in ZLIB_FULL_VERSION
