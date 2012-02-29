@@ -25,7 +25,7 @@
 
 #include <boost/shared_ptr.hpp>
 
-#include <Qtcore/QHash>
+#include <QtCore/QHash>
 #include <QtCore/QStringList>
 
 #include "BookManipulation/XercesHUse.h"

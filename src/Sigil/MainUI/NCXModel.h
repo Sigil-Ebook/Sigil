@@ -25,7 +25,7 @@
 
 #include <QtCore/QFutureWatcher>
 #include <QtCore/QMutex>
-#include <Qtcore/QSharedPointer>
+#include <QtCore/QSharedPointer>
 #include <QtGui/QStandardItemModel>
 
 #include "BookManipulation/Book.h"

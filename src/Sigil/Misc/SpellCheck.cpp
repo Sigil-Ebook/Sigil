@@ -35,6 +35,10 @@
 #include "Misc/SpellCheck.h"
 #include "Misc/SettingsStore.h"
 
+#ifdef Q_WS_X11
+#include <stdlib.h>
+#endif
+
 static const QString USER_DICT = "user_dict.txt";
 
 SpellCheck *SpellCheck::m_instance = 0;
