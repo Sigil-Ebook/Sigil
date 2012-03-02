@@ -19,9 +19,10 @@
 **
 *************************************************************************/
 
-#include <ZipArchive.h>
+#include <zip.h>
 
 #include <QtCore/QDir>
+#include <QtCore/QDirIterator>
 #include <QtCore/QFile>
 #include <QtCore/QFileInfo>
 #include <QtCore/QTemporaryFile>
@@ -38,6 +39,8 @@
 #include "ResourceObjects/FontResource.h"
 #include "sigil_constants.h"
 #include "sigil_exception.h"
+
+#define BUFF_SIZE 8192
 
 const QString BODY_START = "<\\s*body[^>]*>";
 const QString BODY_END   = "</\\s*body\\s*>";
@@ -109,68 +112,71 @@ void ExportEPUB::CreatePublication( const QString &fullfolderpath )
 
 void ExportEPUB::SaveFolderAsEpubToLocation( const QString &fullfolderpath, const QString &fullfilepath )
 {
-    QTemporaryFile mimetype_file;
+    zipFile zfile = zipOpen(QDir::toNativeSeparators(fullfilepath).toUtf8().constData(), APPEND_STATUS_CREATE);
 
-    if ( mimetype_file.open() )
-    {
-        // Otherwise the file will only have rw owner permissions on OS X.
-        mimetype_file.setPermissions( QFile::ReadOwner | QFile::WriteOwner | QFile::ReadGroup | QFile::ReadOther );
-
-        QTextStream out( &mimetype_file );
-
-        // We ALWAYS output in UTF-8
-        out.setCodec( "UTF-8" );
-
-        out << EPUB_MIME_TYPE;
-
-        // Write to disk immediately
-        out.flush();
-        mimetype_file.flush();		
+    if (zfile == NULL) {
+        boost_throw(CannotOpenFile() << errinfo_file_fullpath(fullfilepath.toStdString()));
     }
 
-    CZipArchive zip;
+    // Write the mimetype. This must be uncompressed and the first entry in the archive.
+    if (zipOpenNewFileInZip(zfile, "mimetype", NULL, NULL, 0, NULL, 0, NULL, Z_NO_COMPRESSION, 0) != Z_OK) {
+        zipClose(zfile, NULL);
+        boost_throw(CannotStoreFile() << errinfo_file_fullpath("mimetype"));
+    }
+    const char *mime_data = EPUB_MIME_TYPE.toUtf8().constData();
+    if (zipWriteInFileInZip(zfile, mime_data, strlen(mime_data)) != Z_OK) {
+        zipCloseFileInZip(zfile);
+        zipClose(zfile, NULL);
+        boost_throw(CannotStoreFile() << errinfo_file_fullpath("mimetype"));
+    }
+    zipCloseFileInZip(zfile);
 
-    try
-    {
-    #ifdef Q_WS_WIN
-        // The location where the epub file will be written to
-        zip.Open( fullfilepath.utf16(), CZipArchive::zipCreate );  
+    // Write all the files in our directory path to the archive.
+    QDirIterator it(fullfolderpath, QDir::Files|QDir::NoDotAndDotDot|QDir::Readable|QDir::Hidden, QDirIterator::Subdirectories);
+    while (it.hasNext()) {
+        it.next();
+        QString relpath = it.filePath().remove(fullfolderpath);
 
-        // Add the uncompressed mimetype file as per OPF spec
-        zip.AddNewFile( mimetype_file.fileName().utf16(), QString( "mimetype" ).utf16(), 0 );
+        // Add the file entry to the archive.
+        if (zipOpenNewFileInZip(zfile, relpath.toUtf8().constData(), NULL, NULL, 0, NULL, 0, NULL, Z_DEFLATED, Z_BEST_COMPRESSION) != Z_OK) {
+            zipClose(zfile, NULL);
+            boost_throw(CannotStoreFile() << errinfo_file_fullpath(relpath.toStdString()));
+        }
 
-        // Add all the files and folders in the publication structure
-        zip.AddNewFiles( QDir::toNativeSeparators( fullfolderpath ).utf16(), QString( "*" ).utf16() );
+        // Open the file on disk. We will read this and write what we read into
+        // the archive.
+        QFile dfile(it.filePath());
+        if (!dfile.open(QIODevice::ReadOnly)) {
+            zipCloseFileInZip(zfile);
+            zipClose(zfile, NULL);
+            boost_throw(CannotOpenFile() << errinfo_file_fullpath(it.fileName().toStdString()));
+        }
+        // Write the data from the file on disk into the archive.
+        char buff[BUFF_SIZE] = {0};
+        unsigned int read = 0;
+        while ((read = dfile.read(buff, BUFF_SIZE)) > 0) {
+            if (zipWriteInFileInZip(zfile, buff, read) != Z_OK) {
+                dfile.close();
+                zipCloseFileInZip(zfile);
+                zipClose(zfile, NULL);
+                boost_throw(CannotStoreFile() << errinfo_file_fullpath(relpath.toStdString()));
+            }
+        }
+        dfile.close();
+        // There was an error reading the file on disk.
+        if (read < 0) {
+            zipCloseFileInZip(zfile);
+            zipClose(zfile, NULL);
+            boost_throw(CannotStoreFile() << errinfo_file_fullpath(relpath.toStdString()));
+        }
 
-    #else
-        // The location where the epub file will be written to
-        zip.Open( fullfilepath.toUtf8().data(), CZipArchive::zipCreate );  
-
-        // Add the uncompressed mimetype file as per OPF spec
-        zip.AddNewFile( mimetype_file.fileName().toUtf8().data(), QString( "mimetype" ).toUtf8().data(), 0 );
-
-        // Add all the files and folders in the publication structure
-        zip.AddNewFiles( QDir::toNativeSeparators( fullfolderpath ).toUtf8().data(), QString( "*" ).toUtf8().data() );
-    #endif
-
-        zip.Close();
+        if (zipCloseFileInZip(zfile) != Z_OK) {
+            zipClose(zfile, NULL);
+            boost_throw(CannotStoreFile() << errinfo_file_fullpath(relpath.toStdString()));
+        }
     }
 
-    // We have to to do this here: if we don't wraps
-    // this exception and try to catch "raw" in MainWindow,
-    // we get some dumb header name clash from ZipArchive
-    catch ( CZipException &exception )
-    {
-        // The error description is always ASCII
-#ifdef Q_WS_WIN
-        std::string error_description = QString::fromStdWString( exception.GetErrorDescription() ).toStdString();
-#else
-        std::string error_description = QString::fromAscii( exception.GetErrorDescription() ).toStdString();
-#endif
-        boost_throw( CZipExceptionWrapper()
-            << errinfo_zip_info_msg( error_description )
-            << errinfo_zip_error_id( exception.m_iCause ) );
-    }
+    zipClose(zfile, NULL);
 }
 
 

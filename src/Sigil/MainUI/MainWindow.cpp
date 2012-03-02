@@ -1045,16 +1045,6 @@ void MainWindow::LoadFile( const QString &fullfilepath )
             tr( "The creator of this file has encrypted it with DRM. "
                 "Sigil cannot open such files." ) );        
     }
-
-    catch ( const CZipExceptionWrapper &exception )
-    {
-        QApplication::restoreOverrideCursor();
-
-        Utility::DisplayStdErrorDialog( 
-            tr( "Sigil was unable to load your file." ),
-            Utility::GetExceptionInfo( exception ) );
-    }
-    
     catch ( const ExceptionBase &exception )
     {
         QApplication::restoreOverrideCursor();
@@ -1103,47 +1093,6 @@ bool MainWindow::SaveFile( const QString &fullfilepath )
         UpdateUiWithCurrentFile( fullfilepath );
         statusBar()->showMessage( tr( "File saved" ), STATUSBAR_MSG_DISPLAY_TIME );        
     }
-
-    catch ( const CZipExceptionWrapper &exception )
-    {        
-        const int *error_id = boost::get_error_info< errinfo_zip_error_id >( exception );
-
-        // EACCES basically means "permission denied"
-        if ( *error_id == EACCES )
-        {
-            QApplication::restoreOverrideCursor();
-
-            Utility::DisplayStdErrorDialog( 
-                tr( "Sigil cannot save file: \"%1\"\n"
-                    "It is currently in use in a different application." )
-                .arg( fullfilepath )
-                );
-
-            return false;
-        }
-        // some directory in the file's path does not exist
-        if ( *error_id == ENOENT )
-        {
-            QApplication::restoreOverrideCursor();
-
-            Utility::DisplayStdErrorDialog(
-                        tr( "Sigil cannot save file: \"%1\"\n"
-                            "The path was not found." )
-                        .arg( fullfilepath )
-                        );
-
-            return SaveAs();
-        }
-        else
-        {
-            Utility::DisplayStdErrorDialog( 
-                tr( "Sigil was unable to save your file." ),
-                Utility::GetExceptionInfo( exception ) );
-
-            return false;
-        }
-    }
-
     catch ( const ExceptionBase &exception )
     {
         QApplication::restoreOverrideCursor();

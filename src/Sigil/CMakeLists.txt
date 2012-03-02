@@ -456,7 +456,7 @@ include_directories( BEFORE
                      ${HUNSPELL_INCLUDE_DIRS}
                      ${PCRE_INCLUDE_DIRS}
                      ${tidyLib_SOURCE_DIR}
-                     ${ZIPARCHIVE_INCLUDE_DIRS}
+                     ${MINIZIP_INCLUDE_DIRS}
                      ${XERCESEXTENSIONS_INCLUDE_DIRS}
                      ${XERCES_INCLUDE_DIRS}
                      ${BOOST_INCLUDE_DIRS}
@@ -474,7 +474,7 @@ else()
     add_executable( ${PROJECT_NAME} WIN32 ${ALL_SOURCES} )
 endif()
 
-target_link_libraries( ${PROJECT_NAME} ${HUNSPELL_LIBRARIES} ${PCRE_LIBRARIES} tidyLib ${ZIPARCHIVE_LIBRARIES} ${BOOST_LIBS} ${XERCES_LIBRARIES} ${XERCESEXTENSIONS_LIBRARIES} ${FLIGHTCREW_LIBRARIES} ${QT_LIBRARIES} )
+target_link_libraries( ${PROJECT_NAME} ${HUNSPELL_LIBRARIES} ${PCRE_LIBRARIES} tidyLib ${MINIZIP_LIBRARIES} ${BOOST_LIBS} ${XERCES_LIBRARIES} ${XERCESEXTENSIONS_LIBRARIES} ${FLIGHTCREW_LIBRARIES} ${QT_LIBRARIES} )
 
 #############################################################################
 

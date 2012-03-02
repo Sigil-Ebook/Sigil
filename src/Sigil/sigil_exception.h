@@ -98,6 +98,11 @@ typedef boost::error_info< struct file_errorstring, std::string > errinfo_file_e
 struct CannotExtractFile : virtual ExceptionBase {};
 
 /**
+ * Thrown when a file cannot be put into an archive.
+ */
+struct CannotStoreFile : virtual ExceptionBase {};
+
+/**
  * Thrown when a file cannot be copied.
  */
 struct CannotCopyFile : virtual ExceptionBase {};

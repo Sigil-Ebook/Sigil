@@ -19,7 +19,7 @@
 **
 *************************************************************************/
 
-#include <ZipArchive.h>
+#include <unzip.h>
 
 #include <QtCore/QtCore>
 #include <QtCore/QFileInfo>
@@ -36,6 +36,11 @@
 #include "ResourceObjects/Resource.h"
 #include "sigil_constants.h"
 #include "sigil_exception.h"
+
+// Set Max length to 256 because that's the max path size on many systems.
+#define MAX_PATH 256
+// This is the same read buffer size used by Java and Perl.
+#define BUFF_SIZE 8192
 
 using boost::make_tuple;
 
@@ -54,72 +59,82 @@ ImportOEBPS::ImportOEBPS( const QString &fullfilepath )
 }
 
 
-
-// TODO: create a wrapper lib for this CZipArchive POS
 void ImportOEBPS::ExtractContainer()
 {
-    CZipArchive zip;
+    int res = 0;
+    unzFile zfile = unzOpen(QDir::toNativeSeparators(m_FullFilePath).toLocal8Bit().constData());
 
-    try
-    {
-#ifdef Q_WS_WIN
-        zip.Open( m_FullFilePath.utf16(), CZipArchive::zipOpenReadOnly );
-#else
-        zip.Open( m_FullFilePath.toUtf8().data(), CZipArchive::zipOpenReadOnly );
-#endif
+    if (zfile == NULL) {
+        boost_throw(CannotOpenFile() << errinfo_file_fullpath(m_FullFilePath.toStdString()));
+    }
 
-        int file_count = (int) zip.GetCount();
-        QString folder_path = m_ExtractedFolderPath;
+    while ((res = unzGoToNextFile(zfile)) == UNZ_OK) {
+        // Get the name of the file in the archive.
+        char file_name[MAX_PATH] = {0};
+        unz_file_info file_info;
+        unzGetCurrentFileInfo(zfile, &file_info, file_name, MAX_PATH, NULL, 0, NULL, 0);
+        QString qfile_name = QString(file_name);
 
-#ifdef Q_WS_WIN
-        const ushort *win_path = folder_path.utf16();
-#else
-        QByteArray utf8_path( folder_path.toUtf8() );
-        char *nix_path = utf8_path.data();
-#endif
-        for ( int i = 0; i < file_count; ++i )
-        {
-#ifdef Q_WS_WIN
-            bool success = zip.ExtractFile( i, win_path );
-#else
-            bool success = zip.ExtractFile( i, nix_path );
-#endif
-            if ( !success )
-            {
-                CZipFileHeader* file_header = zip.GetFileInfo( i );
-                #ifdef Q_WS_WIN
-                std::string filename = QString::fromStdWString( file_header->GetFileName() ).toStdString();
-                #else
-                std::string filename = QString::fromAscii( file_header->GetFileName() ).toStdString();
-                #endif
+        // If there is no file name then we can't do anything with it.
+        if (!qfile_name.isEmpty()) {
+            // We use the dir object to create the path in the temporary directory.
+            // Unfortunately, we need a dir ojbect do to this as it's not a static function.
+            QDir dir(m_ExtractedFolderPath);
+            // Full file path in the temporary directory.
+            QString file_path = m_ExtractedFolderPath + "/" + qfile_name;
+            QFileInfo qfile_info(file_path);
 
-                zip.Close(); 
+            // Is this entry a directory?
+            if (file_info.uncompressed_size == 0) {
+                dir.mkpath(qfile_name);
+                continue;
+            } else {
+                dir.mkpath(qfile_info.path());
+            }
 
-                boost_throw( CannotExtractFile() << errinfo_file_fullpath( filename ) );
+            // Open the file entry in the archive for reading.
+            if (unzOpenCurrentFile(zfile) != UNZ_OK) {
+                unzClose(zfile);
+                boost_throw(CannotExtractFile() << errinfo_file_fullpath(qfile_name.toStdString()));
+            }
+
+            // Open the file on disk to write the entry in the archive to.
+            QFile entry(file_path);
+            if (!entry.open(QIODevice::WriteOnly|QIODevice::Truncate)) {
+                unzCloseCurrentFile(zfile);
+                unzClose(zfile);
+                boost_throw(CannotExtractFile() << errinfo_file_fullpath(qfile_name.toStdString()));
+            }
+
+            // Buffered reading and writing.
+            char buff[BUFF_SIZE] = {0};
+            int read = 0;
+            while ((read = unzReadCurrentFile(zfile, buff, BUFF_SIZE)) > 0) {
+                entry.write(buff, read);
+            }
+            entry.close();
+            // Read errors are marked by a negative read amount.
+            if (read < 0) {
+                unzCloseCurrentFile(zfile);
+                unzClose(zfile);
+                boost_throw(CannotExtractFile() << errinfo_file_fullpath(qfile_name.toStdString()));
+            }
+
+            // The file was read but the CRC did not match.
+            // We don't check the read file size vs the uncompressed file size
+            // because if they're different there should be a CRC error.
+            if (unzCloseCurrentFile(zfile) == UNZ_CRCERROR) {
+                unzClose(zfile);
+                boost_throw(CannotExtractFile() << errinfo_file_fullpath(qfile_name.toStdString()));
             }
         }
-
-        zip.Close(); 
+    }
+    if (res != UNZ_END_OF_LIST_OF_FILE) {
+        unzClose(zfile);
+        boost_throw(CannotReadFile() << errinfo_file_fullpath(m_FullFilePath.toStdString()));
     }
 
-    // We have to to do this here: if we don't wrap
-    // this exception and try to catch it "raw" in MainWindow,
-    // we get a header name clash from ZipArchive. 
-    // The headers are Windows-specific so we can't just rename them.
-    catch ( CZipException &exception )
-    {
-        zip.Close( CZipArchive::afAfterException ); 
-
-        // The error description is always ASCII
-#ifdef Q_WS_WIN
-        std::string error_description = QString::fromStdWString( exception.GetErrorDescription() ).toStdString();
-#else
-        std::string error_description = QString::fromAscii( exception.GetErrorDescription() ).toStdString();
-#endif
-        boost_throw( CZipExceptionWrapper()
-            << errinfo_zip_info_msg( error_description )
-            << errinfo_zip_error_id( exception.m_iCause ) );
-    }
+    unzClose(zfile);
 }
 
 

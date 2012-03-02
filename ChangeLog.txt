@@ -1,4 +1,6 @@
 Sigil 0.5.4 TBA
+    - Switch to using Minizip for 1.1 for ZIP support. 
+      - Remove ZipArchive and Zipios++.
     - Update zlib to 1.2.6.
     - Remove the use of a precompiled header.
     - Update PCRE to 8.30.

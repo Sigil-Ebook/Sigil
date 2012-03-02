@@ -1,2 +1,0 @@
-The complete functionality of the ZipArchive Library (with Zip64, AES and BZIP2) is available in the commercial version.
-To evaluate the full version, please visit http://www.artpol-software.com/DownloadTrial.aspx

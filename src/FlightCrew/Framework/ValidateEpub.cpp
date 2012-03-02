@@ -22,7 +22,6 @@
 #include <stdafx.h>
 #include <vector>
 #include "Result.h"
-#include <zipios++/zipextraction.h>
 #include "Misc/TempFolder.h"
 #include "Misc/Utilities.h"
 #include "Validators/Xml/WellFormedXml.h"
@@ -309,7 +308,7 @@ std::vector< Result > ValidateEpub( const fs::path &filepath )
 
     try
     {
-        zipios::ExtractZipToFolder( filepath, temp_folder.GetPath() );
+        throw(std::exception());
     }
     
     catch ( std::exception& exception )

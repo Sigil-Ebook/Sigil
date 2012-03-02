@@ -1,1 +1,0 @@
-This has been modified beyond recognition. 64 bit support, Mac OS X support, use of more modern parts of boost, functions added etc.
