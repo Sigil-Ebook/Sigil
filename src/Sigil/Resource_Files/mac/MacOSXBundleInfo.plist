@@ -11,7 +11,7 @@
 	<key>CFBundleGetInfoString</key>
 	<string>SGVERSION Sigil Open Source ePub Editor. See http://code.google.com/p/sigil/</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.valloric.Sigil.app</string>
+	<string>com.sigil-ebook.Sigil.app</string>
 	<key>CFBundleDocumentTypes</key>
 	<array>
 		<dict>
