@@ -1,6 +1,9 @@
 Sigil 0.5.4 TBA
+    - Fix crash when doing a search in all HTML files when an HTML file does
+      not have focus.
     - Use ini format for settings on all platforms except OS X.
       - Change organization name to Sigil Project.
+      - See issue #1277 for an explanation.
     - Switch to using Minizip for 1.1 for ZIP support. 
       - Remove ZipArchive and Zipios++.
     - Update zlib to 1.2.6.

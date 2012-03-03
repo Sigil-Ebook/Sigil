@@ -476,7 +476,7 @@ int FindReplace::ReplaceInAllFiles()
 
 bool FindReplace::FindInAllFiles( Searchable::Direction direction )
 {
-    Searchable *searchable;
+    Searchable *searchable = 0;
 
     bool found = false;
     if ( IsCurrentFileInHTMLSelection() )
