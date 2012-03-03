@@ -19,22 +19,22 @@
 **
 *************************************************************************/
 
-#include <QtCore/QSettings>
+#include <QtCore/QCoreApplication>
 
 #include "Misc/SettingsStore.h"
 #include "sigil_constants.h"
 
 SettingsStore *SettingsStore::m_instance = 0;
 
-static const QString SETTINGS_GROUP = "user_preferences";
-static const QString KEY_DEFAULT_METADATA_LANGUAGE = "default_metadata_lang";
-static const QString KEY_SPLIT_VIEW_ORIENTATION = "split_view_orientation";
-static const QString KEY_SPLIT_VIEW_ORDER = "split_view_order";
-static const QString KEY_RENAME_TEMPLATE = "rename_template";
-static const QString KEY_ZOOM_IMAGE = "zoom_image";
-static const QString KEY_ZOOM_TEXT = "zoom_text";
-static const QString KEY_ZOOM_WEB = "zoom_web";
-static const QString KEY_DICTIONARY_NAME = "dictionary_name";
+static QString SETTINGS_GROUP = "user_preferences";
+static QString KEY_DEFAULT_METADATA_LANGUAGE = "default_metadata_lang";
+static QString KEY_SPLIT_VIEW_ORIENTATION = "split_view_orientation";
+static QString KEY_SPLIT_VIEW_ORDER = "split_view_order";
+static QString KEY_ZOOM_IMAGE = "zoom_image";
+static QString KEY_ZOOM_TEXT = "zoom_text";
+static QString KEY_ZOOM_WEB = "zoom_web";
+static QString KEY_DICTIONARY_NAME = "dictionary_name";
+static QString KEY_RENAME_TEMPLATE = "rename_template";
 
 SettingsStore *SettingsStore::instance()
 {
@@ -45,128 +45,113 @@ SettingsStore *SettingsStore::instance()
     return m_instance;
 }
 
-SettingsStore::~SettingsStore()
-{
-    writeSettings();
-}
-
 QString SettingsStore::defaultMetadataLang()
 {
-    return m_defaultMetadataLang;
+    clearSettingsGroup();
+    return value(SETTINGS_GROUP + "/" + KEY_DEFAULT_METADATA_LANGUAGE, "English").toString();
 }
 
 Qt::Orientation SettingsStore::splitViewOrientation()
 {
-    return m_splitViewOrientation;
+    clearSettingsGroup();
+    return static_cast<Qt::Orientation>(value(SETTINGS_GROUP + "/" + KEY_SPLIT_VIEW_ORIENTATION, Qt::Vertical).toInt());;
 }
 
 bool SettingsStore::splitViewOrder()
 {
-    return m_splitViewOrder;
+    clearSettingsGroup();
+    return static_cast<bool>(value(SETTINGS_GROUP + "/" + KEY_SPLIT_VIEW_ORDER, true).toBool());
 }
 
 float SettingsStore::zoomImage()
 {
-    return m_zoomImage;
+    clearSettingsGroup();
+    return value(SETTINGS_GROUP + "/" + KEY_ZOOM_IMAGE, ZOOM_NORMAL).toFloat();;
 }
 
 float SettingsStore::zoomText()
 {
-    return m_zoomText;
+    clearSettingsGroup();
+    return value(SETTINGS_GROUP + "/" + KEY_ZOOM_TEXT, ZOOM_NORMAL).toFloat();
 }
 
 float SettingsStore::zoomWeb()
 {
-    return m_zoomWeb;
+    clearSettingsGroup();
+    return value(SETTINGS_GROUP + "/" + KEY_ZOOM_WEB, ZOOM_NORMAL).toFloat();
 }
 
 QString SettingsStore::dictionary()
 {
-    return m_dictionary;
+    clearSettingsGroup();
+    return value(SETTINGS_GROUP + "/" + KEY_DICTIONARY_NAME, "en_US").toString();
 }
 
 QString SettingsStore::renameTemplate()
 {
-    return m_renameTemplate;
+    clearSettingsGroup();
+    return value(SETTINGS_GROUP + "/" + KEY_RENAME_TEMPLATE, "Section001").toString();
 }
 
 void SettingsStore::setDefaultMetadataLang(const QString &lang)
 {
-    m_defaultMetadataLang = lang;
+    clearSettingsGroup();
+    setValue(SETTINGS_GROUP + "/" + KEY_DEFAULT_METADATA_LANGUAGE, lang);
 }
 
 void SettingsStore::setSplitViewOrientation(Qt::Orientation orientation)
 {
-    m_splitViewOrientation = orientation;
+    clearSettingsGroup();
+    setValue(SETTINGS_GROUP + "/" + KEY_SPLIT_VIEW_ORIENTATION, orientation);
 }
 
 void SettingsStore::setSplitViewOrder(bool order )
 {
-    m_splitViewOrder = order;
+    clearSettingsGroup();
+    setValue(SETTINGS_GROUP + "/" + KEY_SPLIT_VIEW_ORDER, order);
 }
 
 
 void SettingsStore::setZoomImage(float zoom)
 {
-    m_zoomImage = zoom;
+    clearSettingsGroup();
+    setValue(SETTINGS_GROUP + "/" + KEY_ZOOM_IMAGE, zoom);
 }
 
 void SettingsStore::setZoomText(float zoom)
 {
-    m_zoomText = zoom;
+    clearSettingsGroup();
+    setValue(SETTINGS_GROUP + "/" + KEY_ZOOM_TEXT, zoom);
 }
 
 void SettingsStore::setZoomWeb(float zoom)
 {
-    m_zoomWeb = zoom;
+    clearSettingsGroup();
+    setValue(SETTINGS_GROUP + "/" + KEY_ZOOM_WEB, zoom);
 }
 
 void SettingsStore::setDictionary(const QString &name)
 {
-    m_dictionary = name;
+    clearSettingsGroup();
+    setValue(SETTINGS_GROUP + "/" + KEY_DICTIONARY_NAME, name);
 }
 
 void SettingsStore::setRenameTemplate(const QString &name)
 {
-    m_renameTemplate = name;
-}
-
-void SettingsStore::triggerSettingsChanged()
-{
-    emit settingsChanged();
-}
-
-void SettingsStore::writeSettings()
-{
-    QSettings settings;
-    settings.beginGroup( SETTINGS_GROUP );
-
-    settings.setValue(KEY_DEFAULT_METADATA_LANGUAGE, m_defaultMetadataLang);
-    settings.setValue(KEY_SPLIT_VIEW_ORIENTATION, m_splitViewOrientation);
-    settings.setValue(KEY_RENAME_TEMPLATE, m_renameTemplate);
-    settings.setValue(KEY_SPLIT_VIEW_ORDER, m_splitViewOrder);
-    settings.setValue(KEY_ZOOM_IMAGE, m_zoomImage);
-    settings.setValue(KEY_ZOOM_TEXT, m_zoomText);
-    settings.setValue(KEY_ZOOM_WEB, m_zoomWeb);
-    settings.setValue(KEY_DICTIONARY_NAME, m_dictionary);
+    clearSettingsGroup();
+    setValue(SETTINGS_GROUP + "/" + KEY_RENAME_TEMPLATE, name);
 }
 
 SettingsStore::SettingsStore()
+#ifndef Q_WS_MAC
+    : QSettings(QSettings::IniFormat, QSettings::UserScope, QCoreApplication::organizationName(), QCoreApplication::applicationName())
+#endif
 {
-    readSettings();
 }
 
-void SettingsStore::readSettings()
+void SettingsStore::clearSettingsGroup()
 {
-    QSettings settings;
-    settings.beginGroup( SETTINGS_GROUP );
-
-    m_defaultMetadataLang = settings.value(KEY_DEFAULT_METADATA_LANGUAGE, "English").toString();
-    m_renameTemplate = settings.value(KEY_RENAME_TEMPLATE, "Section001").toString();
-    m_splitViewOrientation = static_cast<Qt::Orientation>(settings.value(KEY_SPLIT_VIEW_ORIENTATION, Qt::Vertical).toInt());
-    m_splitViewOrder= static_cast<bool>(settings.value(KEY_SPLIT_VIEW_ORDER, true).toBool());
-    m_zoomImage = settings.value(KEY_ZOOM_IMAGE, ZOOM_NORMAL).toFloat();
-    m_zoomText = settings.value(KEY_ZOOM_TEXT, ZOOM_NORMAL).toFloat();
-    m_zoomWeb = settings.value(KEY_ZOOM_WEB, ZOOM_NORMAL).toFloat();
-    m_dictionary = settings.value(KEY_DICTIONARY_NAME, "en_US").toString();
+    while (!group().isEmpty()) {
+        endGroup();
+    }
 }

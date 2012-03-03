@@ -20,7 +20,6 @@
 *************************************************************************/
 
 #include <QtCore/QDate>
-#include <QtCore/QSettings>
 #include <QtGui/QShowEvent>
 
 #include "Dialogs/MetaEditor.h"
@@ -339,45 +338,51 @@ void MetaEditor::SetUpMetaTable()
 
 void MetaEditor::ReadSettings()
 {
-    QSettings settings;
-    settings.beginGroup( SETTINGS_GROUP );
+    SettingsStore *settings = SettingsStore::instance();
+    settings->beginGroup( SETTINGS_GROUP );
 
     // We flip the stored isMore state because we have to pass through
     // the ToggleMoreLess function to actually set the widgets
     // (and the isMore variable) to the stored state
-    m_isMore = !settings.value( "is_more" ).toBool();		
+    m_isMore = !settings->value( "is_more" ).toBool();
 
     // Window width and the height after expansion
-    int width        = settings.value( "width" ).toInt();
-    m_ExpandedHeight = settings.value( "expanded_height" ).toInt();		
+    int width        = settings->value( "width" ).toInt();
+    m_ExpandedHeight = settings->value( "expanded_height" ).toInt();
 
     if ( ( width != 0 ) && ( m_ExpandedHeight != 0 ) )
-
+    {
         resize( width, m_ExpandedHeight );
+    }
 
     // The window's position on the screen
-    QPoint position = settings.value( "position" ).toPoint();
+    QPoint position = settings->value( "position" ).toPoint();
 
     if ( !position.isNull() )
-
+    {
         move( position );
+    }
+
+    settings->endGroup();
 }
 
 
 void MetaEditor::WriteSettings()
 {
-    QSettings settings;
-    settings.beginGroup( SETTINGS_GROUP );
+    SettingsStore *settings = SettingsStore::instance();
+    settings->beginGroup( SETTINGS_GROUP );
 
     // The window expansion state ("more" or "less")
-    settings.setValue( "is_more", m_isMore );
+    settings->setValue( "is_more", m_isMore );
 
     // Window width and the height after expansion
-    settings.setValue( "width", size().width() );
-    settings.setValue( "expanded_height", m_ExpandedHeight );	
+    settings->setValue( "width", size().width() );
+    settings->setValue( "expanded_height", m_ExpandedHeight );
 
     // The window's position on the screen
-    settings.setValue( "position", pos() );	
+    settings->setValue( "position", pos() );
+
+    settings->endGroup();
 }
 
 

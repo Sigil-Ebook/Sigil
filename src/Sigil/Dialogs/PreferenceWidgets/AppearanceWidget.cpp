@@ -23,8 +23,6 @@
 #include "Misc/SettingsStore.h"
 #include "ResourceObjects/Resource.h"
 
-static const QString SETTINGS_GROUP = "user_preferences";
-
 AppearanceWidget::AppearanceWidget()
 {
     ui.setupUi(this);

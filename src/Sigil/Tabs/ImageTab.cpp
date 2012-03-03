@@ -68,7 +68,7 @@ void ImageTab::SetZoomFactor( float new_zoom_factor )
 {
     // Save the zoom for this type.
     SettingsStore *ss = SettingsStore::instance();
-    ss->setZoomImage( new_zoom_factor );
+    ss->setZoomImage(new_zoom_factor);
     m_CurrentZoomFactor = new_zoom_factor;
 
     Zoom();

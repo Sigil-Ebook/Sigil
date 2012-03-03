@@ -22,12 +22,12 @@
 
 #include <pcre.h>
 
-#include <QtCore/QSettings>
 #include <QtGui/QKeyEvent>
 #include <QtGui/QLineEdit>
 #include <QtGui/QMessageBox>
 
 #include "MainUI/FindReplace.h"
+#include "Misc/SettingsStore.h"
 #include "Misc/SleepFunctions.h"
 
 static const QString SETTINGS_GROUP = "find_replace";
@@ -752,20 +752,20 @@ FindReplace::SearchDirection FindReplace::GetSearchDirection()
 // window position, geometry etc.
 void FindReplace::ReadSettings()
 {
-    QSettings settings;
-    settings.beginGroup( SETTINGS_GROUP );
+    SettingsStore *settings = SettingsStore::instance();
+    settings->beginGroup( SETTINGS_GROUP );
 
     // Input fields
-    QStringList find_strings = settings.value( "find_strings" ).toStringList();
+    QStringList find_strings = settings->value( "find_strings" ).toStringList();
     find_strings.removeDuplicates();
     ui.cbFind->addItems( find_strings );
 
-    find_strings = settings.value( "replace_strings" ).toStringList();
+    find_strings = settings->value( "replace_strings" ).toStringList();
     find_strings.removeDuplicates();
     ui.cbReplace->addItems( find_strings );
 
     ui.cbSearchMode->setCurrentIndex( 0 );
-    int search_mode = settings.value( "search_mode", 0 ).toInt();
+    int search_mode = settings->value( "search_mode", 0 ).toInt();
     for ( int i = 0; i < ui.cbSearchMode->count(); ++i )
     {
         if ( ui.cbSearchMode->itemData( i ) == search_mode )
@@ -776,7 +776,7 @@ void FindReplace::ReadSettings()
     }
 
     ui.cbLookWhere->setCurrentIndex( 0 );
-    int look_where = settings.value( "look_where", 0 ).toInt();
+    int look_where = settings->value( "look_where", 0 ).toInt();
     for ( int i = 0; i < ui.cbLookWhere->count(); ++i )
     {
         if ( ui.cbLookWhere->itemData( i )  == look_where )
@@ -787,7 +787,7 @@ void FindReplace::ReadSettings()
     }
 
     ui.cbSearchDirection->setCurrentIndex( 0 );
-    int search_direction= settings.value( "search_direction", 0 ).toInt();
+    int search_direction= settings->value( "search_direction", 0 ).toInt();
     for ( int i = 0; i < ui.cbSearchDirection->count(); ++i )
     {
         if ( ui.cbSearchDirection->itemData( i ) == search_direction )
@@ -796,6 +796,8 @@ void FindReplace::ReadSettings()
             break;
         }
     }
+
+    settings->endGroup();
 }
 
 
@@ -803,15 +805,17 @@ void FindReplace::ReadSettings()
 // window position, geometry etc.
 void FindReplace::WriteSettings()
 {
-    QSettings settings;
-    settings.beginGroup( SETTINGS_GROUP );
+    SettingsStore *settings = SettingsStore::instance();
+    settings->beginGroup( SETTINGS_GROUP );
 
-    settings.setValue( "find_strings", GetPreviousFindStrings() );
-    settings.setValue( "replace_strings", GetPreviousReplaceStrings() );
+    settings->setValue( "find_strings", GetPreviousFindStrings() );
+    settings->setValue( "replace_strings", GetPreviousReplaceStrings() );
 
-    settings.setValue( "search_mode", GetSearchMode() );
-    settings.setValue( "look_where", GetLookWhere() );
-    settings.setValue( "search_direction", GetSearchDirection() );
+    settings->setValue( "search_mode", GetSearchMode() );
+    settings->setValue( "look_where", GetLookWhere() );
+    settings->setValue( "search_direction", GetSearchDirection() );
+
+    settings->endGroup();
 }
 
 

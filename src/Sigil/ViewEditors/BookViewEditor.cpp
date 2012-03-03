@@ -311,7 +311,7 @@ bool BookViewEditor::IsLoadingFinished()
 void BookViewEditor::SetZoomFactor( float factor )
 {
     SettingsStore *ss = SettingsStore::instance();
-    ss->setZoomWeb( factor );
+    ss->setZoomWeb(factor);
     m_CurrentZoomFactor = factor;
     Zoom();
     emit ZoomFactorChanged( factor );

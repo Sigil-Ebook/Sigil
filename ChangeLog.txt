@@ -1,4 +1,6 @@
 Sigil 0.5.4 TBA
+    - Use ini format for settings on all platforms except OS X.
+      - Change organization name to Sigil Project.
     - Switch to using Minizip for 1.1 for ZIP support. 
       - Remove ZipArchive and Zipios++.
     - Update zlib to 1.2.6.

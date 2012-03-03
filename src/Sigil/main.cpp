@@ -40,6 +40,7 @@
 #include "Misc/TempFolder.h"
 #include "Misc/UpdateChecker.h"
 #include "Misc/Utility.h"
+#include "sigil_constants.h"
 #include "sigil_exception.h"
 
 // Creates a MainWindow instance depending
@@ -189,8 +190,10 @@ int main( int argc, char *argv[] )
 
         // Set application information for
         // easier use of QSettings classes
-        QCoreApplication::setOrganizationName( "Strahinja Markovic" );
+        QCoreApplication::setOrganizationName( "Sigil Project" );
+        QCoreApplication::setOrganizationDomain("sigil-ebook.com");
         QCoreApplication::setApplicationName( "Sigil" );
+        QCoreApplication::setApplicationVersion(SIGIL_VERSION);
 
         // Setup the translator and load the translation for the current
         // local the user's OS is using.

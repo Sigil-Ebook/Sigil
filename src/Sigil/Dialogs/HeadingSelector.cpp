@@ -19,7 +19,6 @@
 **
 *************************************************************************/
 
-#include <QtCore/QSettings>
 #include <QtGui/QStandardItem>
 
 #include "BookManipulation/Book.h"
@@ -27,6 +26,7 @@
 #include "BookManipulation/XercesCppUse.h"
 #include "BookManipulation/XhtmlDoc.h"
 #include "Dialogs/HeadingSelector.h"
+#include "Misc/SettingsStore.h"
 #include "Misc/Utility.h"
 #include "ResourceObjects/HTMLResource.h"
 #include "sigil_constants.h"
@@ -520,15 +520,18 @@ void HeadingSelector::SelectHeadingLevelInclusion( const QString& heading_level 
 // window position, geometry etc.
 void HeadingSelector::ReadSettings()
 {
-    QSettings settings;
-    settings.beginGroup( SETTINGS_GROUP );
+    SettingsStore *settings = SettingsStore::instance();
+    settings->beginGroup( SETTINGS_GROUP );
 
     // The size of the window and it's full screen status
-    QByteArray geometry = settings.value( "geometry" ).toByteArray();
+    QByteArray geometry = settings->value( "geometry" ).toByteArray();
 
     if ( !geometry.isNull() )
-    
+    {
         restoreGeometry( geometry );
+    }
+
+    settings->endGroup();
 }
 
 
@@ -536,11 +539,13 @@ void HeadingSelector::ReadSettings()
 // window position, geometry etc.
 void HeadingSelector::WriteSettings()
 {
-    QSettings settings;
-    settings.beginGroup( SETTINGS_GROUP );
+    SettingsStore *settings = SettingsStore::instance();
+    settings->beginGroup( SETTINGS_GROUP );
 
     // The size of the window and it's full screen status
-    settings.setValue( "geometry", saveGeometry() );
+    settings->setValue( "geometry", saveGeometry() );
+
+    settings->endGroup();
 }
 
 

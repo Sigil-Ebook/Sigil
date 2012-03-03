@@ -23,23 +23,31 @@
 #ifndef SETTINGSSTORE_H
 #define SETTINGSSTORE_H
 
-#include <QtCore/QObject>
+#include <QtCore/QSettings>
 #include <QtCore/QString>
 
 /**
  * Singleton. Provides access for reading and writing user configurable
  * settings.
  */
-class SettingsStore : public QObject
+class SettingsStore : public QSettings
 {
     Q_OBJECT
+
+    Q_PROPERTY(QString defaultMetadataLang READ defaultMetadataLang WRITE setDefaultMetadataLang NOTIFY settingsChanged)
+    Q_PROPERTY(Qt::Orientation splitViewOrientation READ splitViewOrientation WRITE setSplitViewOrientation NOTIFY settingsChanged)
+    Q_PROPERTY(bool splitViewOrder READ splitViewOrder WRITE setSplitViewOrder NOTIFY settingsChanged)
+    Q_PROPERTY(float zoomImage READ zoomImage WRITE setZoomImage NOTIFY settingsChanged)
+    Q_PROPERTY(float zoomText READ zoomText WRITE setZoomText NOTIFY settingsChanged)
+    Q_PROPERTY(float zoomWeb READ zoomWeb WRITE setZoomWeb NOTIFY settingsChanged)
+    Q_PROPERTY(QString dictionary READ dictionary WRITE setDictionary NOTIFY settingsChanged)
+    Q_PROPERTY(QString renameTemplate READ renameTemplate WRITE setRenameTemplate NOTIFY settingsChanged)
 
 public:
     /**
      * The accessor function to access the store.
      */
     static SettingsStore *instance();
-    ~SettingsStore();
 
     /**
      * The default langauge to use when creating new books.
@@ -83,6 +91,8 @@ public:
      */
     QString renameTemplate();
 
+public slots:
+
     /**
      * Set the default language to use when creating new books.
      *
@@ -125,18 +135,6 @@ public:
      */
     void setRenameTemplate(const QString &name);
 
-    /**
-     * Causes the store to emit its settingsChanged signal.
-     *
-     * This is to be used to cause listening objects to reread the settings
-     * they use from the cache.
-     */
-    void triggerSettingsChanged();
-    /**
-     * Write the stored settings to disk.
-     */
-    void writeSettings();
-
 signals:
     /**
      * Signals that settings have changed.
@@ -150,25 +148,17 @@ signals:
 
 private:
     /**
-     * Private constructor.
+     * Privateructor.
      */
     SettingsStore();
+
     /**
-     * Reads settings from disk into the store.
+     * Ensures there is not open setting group which will cause the settings
+     * This class implements in the wrong place.
      */
-    void readSettings();
+    void clearSettingsGroup();
 
     static SettingsStore *m_instance;
-
-    // Cached settings.
-    QString m_defaultMetadataLang;
-    Qt::Orientation m_splitViewOrientation;
-    bool m_splitViewOrder;
-    float m_zoomImage;
-    float m_zoomText;
-    float m_zoomWeb;
-    QString m_dictionary;
-    QString m_renameTemplate;
 };
 
 #endif // SETTINGSSTORE_H

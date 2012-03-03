@@ -31,6 +31,7 @@
 #include <QtGui/QLayoutItem>
 #include <QtGui/QPushButton>
 
+#include "Misc/SettingsStore.h"
 #include "Qxt/qxtconfirmationmessage.h"
 
 static const QLatin1String DEFAULT_ORGANIZATION("QxtGui");
@@ -55,15 +56,7 @@ public:
     QString overrideApp;
     QString overrideKey;
     QString overrideOrg;
-
-    static QString path;
-    static QSettings::Scope scope;
-    static QSettings::Format format;
 };
-
-QString QxtConfirmationMessagePrivate::path;
-QSettings::Scope QxtConfirmationMessagePrivate::scope = QSettings::UserScope;
-QSettings::Format QxtConfirmationMessagePrivate::format = QSettings::NativeFormat;
 
 void QxtConfirmationMessagePrivate::init(const QString& message)
 {
@@ -121,26 +114,17 @@ QString QxtConfirmationMessagePrivate::organizationName() const
 
 int QxtConfirmationMessagePrivate::showAgain()
 {
-    QSettings settings(format, scope, organizationName(), applicationName());
-    if (!path.isEmpty())
-        settings.beginGroup(path);
-    return settings.value(key(), -1).toInt();
+    return SettingsStore::instance()->value(key(), -1).toInt();
 }
 
 void QxtConfirmationMessagePrivate::doNotShowAgain(int result)
 {
-    QSettings settings(format, scope, organizationName(), applicationName());
-    if (!path.isEmpty())
-        settings.beginGroup(path);
-    settings.setValue(key(), result);
+    SettingsStore::instance()->setValue(key(), result);
 }
 
 void QxtConfirmationMessagePrivate::reset()
 {
-    QSettings settings(format, scope, organizationName(), applicationName());
-    if (!path.isEmpty())
-        settings.beginGroup(path);
-    settings.remove(key());
+    return SettingsStore::instance()->remove(key());
 }
 
 /*!
@@ -328,60 +312,6 @@ bool QxtConfirmationMessage::rememberOnReject() const
 void QxtConfirmationMessage::setRememberOnReject(bool remember)
 {
     qxt_d().remember = remember;
-}
-
-/*!
-    Returns The format used for storing settings.
-
-    The default value is QSettings::NativeFormat.
- */
-QSettings::Format QxtConfirmationMessage::settingsFormat()
-{
-    return QxtConfirmationMessagePrivate::format;
-}
-
-/*!
-    Sets the \a format used for storing settings.
- */
-void QxtConfirmationMessage::setSettingsFormat(QSettings::Format format)
-{
-    QxtConfirmationMessagePrivate::format = format;
-}
-
-/*!
-    Returns The scope used for storing settings.
-
-    The default value is QSettings::UserScope.
- */
-QSettings::Scope QxtConfirmationMessage::settingsScope()
-{
-    return QxtConfirmationMessagePrivate::scope;
-}
-
-/*!
-    Sets the \a scope used for storing settings.
- */
-void QxtConfirmationMessage::setSettingsScope(QSettings::Scope scope)
-{
-    QxtConfirmationMessagePrivate::scope = scope;
-}
-
-/*!
-    Returns the path used for storing settings.
-
-    The default value is an empty string.
- */
-QString QxtConfirmationMessage::settingsPath()
-{
-    return QxtConfirmationMessagePrivate::path;
-}
-
-/*!
-    Sets the \a path used for storing settings.
- */
-void QxtConfirmationMessage::setSettingsPath(const QString& path)
-{
-    QxtConfirmationMessagePrivate::path = path;
 }
 
 /*!

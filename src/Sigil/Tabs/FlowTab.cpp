@@ -21,7 +21,6 @@
 
 #include <stdafx.h>
 
-#include <QtCore/QSettings>
 #include <QtCore/QTimer>
 #include <QtCore/QUrl>
 #include <QtGui/QApplication>
@@ -898,7 +897,7 @@ void FlowTab::LoadSettings()
     m_Splitter.setOrientation(store->splitViewOrientation());
 
     // If widgets already exist, splitter will rearrange them
-    if ( store->splitViewOrder() ) 
+    if ( store->splitViewOrder() )
     {
         m_Splitter.addWidget( &m_wBookView );
         m_Splitter.addWidget( &m_wCodeView );
@@ -1113,17 +1112,13 @@ void FlowTab::EnterCodeView()
 
 void FlowTab::ReadSettings()
 {
-    QSettings settings;
-    settings.beginGroup( SETTINGS_GROUP );
-
     // TODO: fill this... with what?
 }
 
 
 void FlowTab::WriteSettings()
 {
-    QSettings settings;
-    settings.beginGroup( SETTINGS_GROUP );    
+    // TODO: fill this... with what?
 }
 
 

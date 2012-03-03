@@ -19,10 +19,10 @@
 **
 *************************************************************************/
 
-#include <QtCore/QSettings>
 #include <QtGui/QScrollArea>
 
 #include "Dialogs/Preferences.h"
+#include "Misc/SettingsStore.h"
 #include "PreferenceWidgets/AppearanceWidget.h"
 #include "PreferenceWidgets/KeyboardShortcutsWidget.h"
 #include "PreferenceWidgets/LanguageWidget.h"
@@ -59,10 +59,10 @@ void Preferences::selectPWidget(QListWidgetItem *current, QListWidgetItem *previ
 
 void Preferences::saveSettings()
 {
-    QSettings settings;
-    settings.beginGroup( SETTINGS_GROUP );
+    SettingsStore *settings = SettingsStore::instance();
+    settings->beginGroup( SETTINGS_GROUP );
 
-    settings.setValue("geometry", saveGeometry());
+    settings->setValue("geometry", saveGeometry());
 
     for (int i = 0; i < ui.pWidget->count(); ++i) {
         PreferencesWidget *pw = qobject_cast<PreferencesWidget*>(ui.pWidget->widget(i));
@@ -70,17 +70,21 @@ void Preferences::saveSettings()
             pw->saveSettings();
         }
     }
+
+    settings->endGroup();
 }
 
 void Preferences::readSettings()
 {
-    QSettings settings;
-    settings.beginGroup( SETTINGS_GROUP );
+    SettingsStore *settings = SettingsStore::instance();
+    settings->beginGroup( SETTINGS_GROUP );
 
-    QByteArray geometry = settings.value("geometry").toByteArray();
+    QByteArray geometry = settings->value("geometry").toByteArray();
     if (!geometry.isNull()) {
         restoreGeometry(geometry);
     }
+
+    settings->endGroup();
 }
 
 void Preferences::appendPreferenceWidget(PreferencesWidget *widget)

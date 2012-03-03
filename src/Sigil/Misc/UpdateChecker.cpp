@@ -22,7 +22,6 @@
 #include <QtCore/QDateTime>
 #include <QtCore/QDir>
 #include <QtCore/QRegExp>
-#include <QtCore/QSettings>
 #include <QtCore/QTextStream>
 #include <QtGui/QDesktopServices>
 #include <QtGui/QMessageBox>
@@ -30,6 +29,7 @@
 #include <QtNetwork/QNetworkReply>
 #include <QtXml/QXmlStreamReader>
 
+#include "Misc/SettingsStore.h"
 #include "Misc/UpdateChecker.h"
 #include "sigil_constants.h"
 
@@ -57,21 +57,23 @@ UpdateChecker::UpdateChecker( QObject *parent )
 
 void UpdateChecker::CheckForUpdate()
 {
-    QSettings settings;
-    settings.beginGroup( SETTINGS_GROUP );
+    SettingsStore *settings = SettingsStore::instance();
+    settings->beginGroup( SETTINGS_GROUP );
 
     // The default time is one always longer than the check interval
     QDateTime default_time    = QDateTime::currentDateTime().addSecs( - SECONDS_BETWEEN_CHECKS - 1 );
-    QDateTime last_check_time = settings.value( LAST_CHECK_TIME_KEY, default_time ).toDateTime();
+    QDateTime last_check_time = settings->value( LAST_CHECK_TIME_KEY, default_time ).toDateTime();
 
     // We want to check for a new version
     // no sooner than every six hours
     if ( last_check_time.secsTo( QDateTime::currentDateTime() ) > SECONDS_BETWEEN_CHECKS )
     {
-        settings.setValue( LAST_CHECK_TIME_KEY, QDateTime::currentDateTime() );
+        settings->setValue( LAST_CHECK_TIME_KEY, QDateTime::currentDateTime() );
 
         m_NetworkManager->get( QNetworkRequest( QUrl( UPDATE_XML_LOCATION ) ) );        
     }
+
+    settings->endGroup();
 }
 
 
@@ -79,10 +81,10 @@ void UpdateChecker::ReplyRecieved( QNetworkReply* reply )
 {
     Q_ASSERT( reply );
 
-    QSettings settings;
-    settings.beginGroup( SETTINGS_GROUP );
+    SettingsStore *settings = SettingsStore::instance();
+    settings->beginGroup( SETTINGS_GROUP );
 
-    QString last_online_version    = settings.value( LAST_ONLINE_VERSION_KEY, QString() ).toString();
+    QString last_online_version    = settings->value( LAST_ONLINE_VERSION_KEY, QString() ).toString();
     QString current_online_version = ReadOnlineVersion( TextInReply( reply ) );
 
     bool is_newer = IsOnlineVersionNewer( SIGIL_VERSION, current_online_version );
@@ -109,7 +111,9 @@ void UpdateChecker::ReplyRecieved( QNetworkReply* reply )
     }
 
     // Store the current online version as the last one checked
-    settings.setValue( LAST_ONLINE_VERSION_KEY, current_online_version );
+    settings->setValue( LAST_ONLINE_VERSION_KEY, current_online_version );
+
+    settings->endGroup();
 
     // Schedule this object for deletion.
     // There is no point for its existence

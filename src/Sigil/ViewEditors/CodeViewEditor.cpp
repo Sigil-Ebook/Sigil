@@ -414,7 +414,7 @@ int CodeViewEditor::GetCursorColumn() const
 void CodeViewEditor::SetZoomFactor( float factor )
 {
     SettingsStore *ss = SettingsStore::instance();
-    ss->setZoomText( factor );
+    ss->setZoomText(factor);
     m_CurrentZoomFactor = factor;
     Zoom();
     emit ZoomFactorChanged( factor );

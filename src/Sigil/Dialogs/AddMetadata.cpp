@@ -20,10 +20,10 @@
 *************************************************************************/
 
 #include <QtCore/QDate>
-#include <QtCore/QSettings>
 
 #include "BookManipulation/Metadata.h"
 #include "Dialogs/AddMetadata.h"
+#include "Misc/SettingsStore.h"
 
 static const QString SETTINGS_GROUP = "add_metadata";
 
@@ -81,33 +81,38 @@ void AddMetadata::EmitSelection()
 
 void AddMetadata::ReadSettings()
 {
-    QSettings settings;
-    settings.beginGroup( SETTINGS_GROUP );
+    SettingsStore *settings = SettingsStore::instance();
+    settings->beginGroup( SETTINGS_GROUP );
 
     // The size of the window and it's full screen status
-    QByteArray geometry = settings.value( "geometry" ).toByteArray();
+    QByteArray geometry = settings->value( "geometry" ).toByteArray();
 
     if ( !geometry.isNull() )
     {
         restoreGeometry( geometry );
     }
 
-    QByteArray splitter_position = settings.value( "splitter" ).toByteArray();
+    QByteArray splitter_position = settings->value( "splitter" ).toByteArray();
 
     if ( !splitter_position.isNull() )
-
+    {
         ui.splitter->restoreState( splitter_position );
+    }
+
+    settings->endGroup();
 }
 
 
 void AddMetadata::WriteSettings()
 {
-    QSettings settings;
-    settings.beginGroup( SETTINGS_GROUP );
+    SettingsStore *settings = SettingsStore::instance();
+    settings->beginGroup( SETTINGS_GROUP );
 
     // The size of the window and it's full screen status
-    settings.setValue( "geometry", saveGeometry() );
+    settings->setValue( "geometry", saveGeometry() );
 
     // The position of the splitter handle
-    settings.setValue( "splitter", ui.splitter->saveState() );
+    settings->setValue( "splitter", ui.splitter->saveState() );
+
+    settings->endGroup();
 }

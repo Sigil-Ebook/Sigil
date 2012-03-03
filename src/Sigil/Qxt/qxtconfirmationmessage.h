@@ -25,7 +25,6 @@
 #ifndef QXTCONFIRMATIONMESSAGE_H
 #define QXTCONFIRMATIONMESSAGE_H
 
-#include <QtCore/QSettings>
 #include <QtGui/QMessageBox>
 
 #define QXT_STATIC
@@ -72,15 +71,6 @@ public:
 
     bool rememberOnReject() const;
     void setRememberOnReject(bool remember);
-
-    static QSettings::Format settingsFormat();
-    static void setSettingsFormat(QSettings::Format format);
-
-    static QSettings::Scope settingsScope();
-    static void setSettingsScope(QSettings::Scope scope);
-
-    static QString settingsPath();
-    static void setSettingsPath(const QString& path);
 
 public Q_SLOTS:
     int exec();
