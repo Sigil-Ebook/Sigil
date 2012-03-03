@@ -138,7 +138,7 @@ void ExportEPUB::SaveFolderAsEpubToLocation( const QString &fullfolderpath, cons
         QString relpath = it.filePath().remove(fullfolderpath);
 
         // Add the file entry to the archive.
-        if (zipOpenNewFileInZip(zfile, relpath.toUtf8().constData(), NULL, NULL, 0, NULL, 0, NULL, Z_DEFLATED, Z_BEST_COMPRESSION) != Z_OK) {
+        if (zipOpenNewFileInZip(zfile, relpath.toUtf8().constData(), NULL, NULL, 0, NULL, 0, NULL, Z_DEFLATED, 8) != Z_OK) {
             zipClose(zfile, NULL);
             boost_throw(CannotStoreFile() << errinfo_file_fullpath(relpath.toStdString()));
         }
