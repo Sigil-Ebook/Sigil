@@ -27,7 +27,6 @@
 
 static const QString SETTINGS_GROUP = "add_metadata";
 
-
 AddMetadata::AddMetadata( const QMap< QString, Metadata::MetaInfo > &metadata, QWidget *parent )
     : 
     QDialog( parent ),
@@ -81,38 +80,38 @@ void AddMetadata::EmitSelection()
 
 void AddMetadata::ReadSettings()
 {
-    SettingsStore *settings = SettingsStore::instance();
-    settings->beginGroup( SETTINGS_GROUP );
+    SettingsStore settings;
+    settings.beginGroup( SETTINGS_GROUP );
 
     // The size of the window and it's full screen status
-    QByteArray geometry = settings->value( "geometry" ).toByteArray();
+    QByteArray geometry = settings.value( "geometry" ).toByteArray();
 
     if ( !geometry.isNull() )
     {
         restoreGeometry( geometry );
     }
 
-    QByteArray splitter_position = settings->value( "splitter" ).toByteArray();
+    QByteArray splitter_position = settings.value( "splitter" ).toByteArray();
 
     if ( !splitter_position.isNull() )
     {
         ui.splitter->restoreState( splitter_position );
     }
 
-    settings->endGroup();
+    settings.endGroup();
 }
 
 
 void AddMetadata::WriteSettings()
 {
-    SettingsStore *settings = SettingsStore::instance();
-    settings->beginGroup( SETTINGS_GROUP );
+    SettingsStore settings;
+    settings.beginGroup( SETTINGS_GROUP );
 
     // The size of the window and it's full screen status
-    settings->setValue( "geometry", saveGeometry() );
+    settings.setValue( "geometry", saveGeometry() );
 
     // The position of the splitter handle
-    settings->setValue( "splitter", ui.splitter->saveState() );
+    settings.setValue( "splitter", ui.splitter->saveState() );
 
-    settings->endGroup();
+    settings.endGroup();
 }

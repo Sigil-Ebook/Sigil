@@ -169,6 +169,7 @@ ContentTab& MainWindow::GetCurrentContentTab()
 void MainWindow::OpenResource( Resource &resource, ContentTab::ViewState view_state )
 {
     m_TabManager.OpenResource( resource, false, QUrl(), view_state );
+    SetViewState(view_state);
 }
 
 
@@ -558,6 +559,8 @@ void MainWindow::PreferencesDialog()
 {
     Preferences preferences( this );
     preferences.exec();
+
+    emit SettingsChanged();
 }
 
 
@@ -602,6 +605,11 @@ void MainWindow::UpdateUIOnTabChanges()
     ui.actionCodeView ->setChecked( tab.CodeViewChecked()  );  
 
     SelectEntryInHeadingCombo( tab.GetCaretElementName() );    
+
+    // State of zoom controls depends on current tab/view
+    float zoom_factor = tab.GetZoomFactor();
+    UpdateZoomLabel( zoom_factor );
+    UpdateZoomSlider( zoom_factor );
 }
 
 
@@ -868,18 +876,18 @@ void MainWindow::UpdateBrowserSelectionToTab()
 
 void MainWindow::ReadSettings()
 {
-    SettingsStore *settings = SettingsStore::instance();
-    settings->beginGroup( SETTINGS_GROUP );
+    SettingsStore settings;
+    settings.beginGroup( SETTINGS_GROUP );
 
     // The size of the window and its full screen status
-    QByteArray geometry = settings->value( "geometry" ).toByteArray();
+    QByteArray geometry = settings.value( "geometry" ).toByteArray();
 
     if ( !geometry.isNull() )
 
         restoreGeometry( geometry );
 
     // The positions of all the toolbars and dock widgets
-    QByteArray toolbars = settings->value( "toolbars" ).toByteArray();
+    QByteArray toolbars = settings.value( "toolbars" ).toByteArray();
 
     if ( !toolbars.isNull() )
 
@@ -887,19 +895,19 @@ void MainWindow::ReadSettings()
 
     // For the tidyclean option, we want to default to true
     // if no value has been set.
-    QVariant tidyclean = settings->value( "tidyclean" );
+    QVariant tidyclean = settings.value( "tidyclean" );
     m_ShouldUseTidy = tidyclean.isNull() ? true : tidyclean.toBool();
     ui.actionTidyClean->setChecked( m_ShouldUseTidy );
 
     // For the checkwellformed option, we want to default to true
     // if no value has been set.
-    QVariant checkwellformederrors = settings->value( "checkwellformederrors" );
+    QVariant checkwellformederrors = settings.value( "checkwellformederrors" );
     m_CheckWellFormedErrors = checkwellformederrors.isNull() ? true : checkwellformederrors.toBool();
     ui.actionCheckWellFormedErrors->setChecked( m_CheckWellFormedErrors );
     SetCheckWellFormedErrors( m_CheckWellFormedErrors );
 
     // The position of the splitter handle in split view
-    QByteArray splitter_position = settings->value( "splitview_splitter" ).toByteArray();
+    //QByteArray splitter_position = settings.value( "splitview_splitter" ).toByteArray();
 
     // FIXME: store splitter position... multiples?
     //if ( !splitter_position.isNull() )
@@ -907,49 +915,49 @@ void MainWindow::ReadSettings()
     //    ui.splitter->restoreState( splitter_position );
 
     // The last folders used for saving and opening files
-    m_LastFolderSave  = settings->value( "lastfoldersave"  ).toString();
-    m_LastFolderOpen  = settings->value( "lastfolderopen"  ).toString();
-    m_LastFolderAdd = settings->value( "lastfolderadd" ).toString();
+    m_LastFolderSave  = settings.value( "lastfoldersave"  ).toString();
+    m_LastFolderOpen  = settings.value( "lastfolderopen"  ).toString();
+    m_LastFolderAdd   = settings.value( "lastfolderadd" ).toString();
 
     // The list of recent files
-    s_RecentFiles    = settings->value( "recentfiles" ).toStringList();
+    s_RecentFiles    = settings.value( "recentfiles" ).toStringList();
 
-    settings->endGroup();
+    settings.endGroup();
 }
 
 
 void MainWindow::WriteSettings()
 {
-    SettingsStore *settings = SettingsStore::instance();
-    settings->beginGroup( SETTINGS_GROUP );
+    SettingsStore settings;
+    settings.beginGroup( SETTINGS_GROUP );
 
     // The size of the window and it's full screen status
-    settings->setValue( "geometry", saveGeometry() );
+    settings.setValue( "geometry", saveGeometry() );
 
     // The positions of all the toolbars and dock widgets
-    settings->setValue( "toolbars", saveState() );
+    settings.setValue( "toolbars", saveState() );
 
     // Whether the user wants Tidy to be used.
-    settings->setValue( "tidyclean", m_ShouldUseTidy );
+    settings.setValue( "tidyclean", m_ShouldUseTidy );
 
     // Whether the user wants to be informed about well-formed errors
-    settings->setValue( "checkwellformederrors", m_CheckWellFormedErrors );
+    settings.setValue( "checkwellformederrors", m_CheckWellFormedErrors );
 
     // The position of the splitter handle in split view
     // FIXME: splitter positions
     //settings.setValue( "splitview_splitter", ui.splitter->saveState() );
 
     // The last folders used for saving and opening files
-    settings->setValue( "lastfoldersave",  m_LastFolderSave  );
-    settings->setValue( "lastfolderopen",  m_LastFolderOpen  );
-    settings->setValue( "lastfolderadd", m_LastFolderAdd );
+    settings.setValue( "lastfoldersave",  m_LastFolderSave  );
+    settings.setValue( "lastfolderopen",  m_LastFolderOpen  );
+    settings.setValue( "lastfolderadd", m_LastFolderAdd );
 
     // The list of recent files
-    settings->setValue( "recentfiles", s_RecentFiles );
+    settings.setValue( "recentfiles", s_RecentFiles );
 
     KeyboardShortcutManager::instance()->writeSettings();
 
-    settings->endGroup();
+    settings.endGroup();
 }
 
 
@@ -1933,6 +1941,7 @@ void MainWindow::MakeTabConnections( ContentTab *tab )
     
         connect( ui.actionPrintPreview,             SIGNAL( triggered() ),  tab,   SLOT( PrintPreview()             ) );
         connect( ui.actionPrint,                    SIGNAL( triggered() ),  tab,   SLOT( Print()                    ) );
+        connect( this,                              SIGNAL( SettingsChanged()), tab, SLOT( LoadSettings()           ) );
     
         connect( m_cbHeadings, SIGNAL( activated( const QString& ) ),  tab,   SLOT( HeadingStyle( const QString& ) ) );
         connect( m_headingMapper, SIGNAL( mapped( const QString& ) ),  tab,   SLOT( HeadingStyle( const QString& ) ) );

@@ -355,9 +355,9 @@ void FindReplace::ReplaceText( Searchable::Direction direction )
 }
 
 
-void FindReplace::SetCodeViewIfNeeded( bool replace )
+void FindReplace::SetCodeViewIfNeeded( bool force )
 {
-    if ( replace || 
+    if ( force ||
             ( ( GetLookWhere() == FindReplace::LookWhere_AllHTMLFiles || 
                     GetLookWhere() == FindReplace::LookWhere_SelectedHTMLFiles ) &&
                 m_MainWindow.GetCurrentContentTab().GetViewState() == ContentTab::ViewState_BookView ) ) 
@@ -752,20 +752,20 @@ FindReplace::SearchDirection FindReplace::GetSearchDirection()
 // window position, geometry etc.
 void FindReplace::ReadSettings()
 {
-    SettingsStore *settings = SettingsStore::instance();
-    settings->beginGroup( SETTINGS_GROUP );
+    SettingsStore settings;
+    settings.beginGroup( SETTINGS_GROUP );
 
     // Input fields
-    QStringList find_strings = settings->value( "find_strings" ).toStringList();
+    QStringList find_strings = settings.value( "find_strings" ).toStringList();
     find_strings.removeDuplicates();
     ui.cbFind->addItems( find_strings );
 
-    find_strings = settings->value( "replace_strings" ).toStringList();
+    find_strings = settings.value( "replace_strings" ).toStringList();
     find_strings.removeDuplicates();
     ui.cbReplace->addItems( find_strings );
 
     ui.cbSearchMode->setCurrentIndex( 0 );
-    int search_mode = settings->value( "search_mode", 0 ).toInt();
+    int search_mode = settings.value( "search_mode", 0 ).toInt();
     for ( int i = 0; i < ui.cbSearchMode->count(); ++i )
     {
         if ( ui.cbSearchMode->itemData( i ) == search_mode )
@@ -776,7 +776,7 @@ void FindReplace::ReadSettings()
     }
 
     ui.cbLookWhere->setCurrentIndex( 0 );
-    int look_where = settings->value( "look_where", 0 ).toInt();
+    int look_where = settings.value( "look_where", 0 ).toInt();
     for ( int i = 0; i < ui.cbLookWhere->count(); ++i )
     {
         if ( ui.cbLookWhere->itemData( i )  == look_where )
@@ -787,7 +787,7 @@ void FindReplace::ReadSettings()
     }
 
     ui.cbSearchDirection->setCurrentIndex( 0 );
-    int search_direction= settings->value( "search_direction", 0 ).toInt();
+    int search_direction= settings.value( "search_direction", 0 ).toInt();
     for ( int i = 0; i < ui.cbSearchDirection->count(); ++i )
     {
         if ( ui.cbSearchDirection->itemData( i ) == search_direction )
@@ -797,7 +797,7 @@ void FindReplace::ReadSettings()
         }
     }
 
-    settings->endGroup();
+    settings.endGroup();
 }
 
 
@@ -805,17 +805,17 @@ void FindReplace::ReadSettings()
 // window position, geometry etc.
 void FindReplace::WriteSettings()
 {
-    SettingsStore *settings = SettingsStore::instance();
-    settings->beginGroup( SETTINGS_GROUP );
+    SettingsStore settings;
+    settings.beginGroup( SETTINGS_GROUP );
 
-    settings->setValue( "find_strings", GetPreviousFindStrings() );
-    settings->setValue( "replace_strings", GetPreviousReplaceStrings() );
+    settings.setValue( "find_strings", GetPreviousFindStrings() );
+    settings.setValue( "replace_strings", GetPreviousReplaceStrings() );
 
-    settings->setValue( "search_mode", GetSearchMode() );
-    settings->setValue( "look_where", GetLookWhere() );
-    settings->setValue( "search_direction", GetSearchDirection() );
+    settings.setValue( "search_mode", GetSearchMode() );
+    settings.setValue( "look_where", GetLookWhere() );
+    settings.setValue( "search_direction", GetSearchDirection() );
 
-    settings->endGroup();
+    settings.endGroup();
 }
 
 

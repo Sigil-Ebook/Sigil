@@ -282,8 +282,8 @@ SpellCheck::SpellCheck() :
     }
 
     // Load the dictionary the user has selected if one was saved.
-    SettingsStore *store = SettingsStore::instance();
-    setDictionary(store->dictionary());
+    SettingsStore settings;
+    setDictionary(settings.dictionary());
 }
 
 QString SpellCheck::userDictionaryName() const

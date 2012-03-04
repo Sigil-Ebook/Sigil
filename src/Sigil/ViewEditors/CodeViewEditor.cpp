@@ -95,8 +95,8 @@ CodeViewEditor::CodeViewEditor( HighlighterType high_type, bool check_spelling, 
     setFrameStyle( QFrame::NoFrame );
 
     // Set the Zoom factor but be sure no signals are set because of this.
-    SettingsStore *ss = SettingsStore::instance();
-    m_CurrentZoomFactor = ss->zoomText();
+    SettingsStore settings;
+    m_CurrentZoomFactor = settings.zoomText();
     Zoom();
 }
 
@@ -413,8 +413,8 @@ int CodeViewEditor::GetCursorColumn() const
 
 void CodeViewEditor::SetZoomFactor( float factor )
 {
-    SettingsStore *ss = SettingsStore::instance();
-    ss->setZoomText(factor);
+    SettingsStore settings;
+    settings.setZoomText(factor);
     m_CurrentZoomFactor = factor;
     Zoom();
     emit ZoomFactorChanged( factor );
@@ -423,8 +423,8 @@ void CodeViewEditor::SetZoomFactor( float factor )
 
 float CodeViewEditor::GetZoomFactor() const
 {
-    SettingsStore *ss = SettingsStore::instance();
-    return ss->zoomText();
+    SettingsStore settings;
+    return settings.zoomText();
 }
 
 
@@ -440,8 +440,8 @@ void CodeViewEditor::Zoom()
 
 void CodeViewEditor::UpdateDisplay()
 {
-    SettingsStore *ss = SettingsStore::instance();
-    float stored_factor = ss->zoomText();
+    SettingsStore settings;
+    float stored_factor = settings.zoomText();
     if ( stored_factor != m_CurrentZoomFactor )
     {
         m_CurrentZoomFactor = stored_factor;
@@ -633,6 +633,10 @@ void CodeViewEditor::print( QPrinter* printer )
     QPlainTextEdit::print( printer );
 }
 
+void CodeViewEditor::LoadSettings()
+{
+    m_Highlighter->rehighlight();
+}
 
 // Overridden because we need to update the cursor
 // location if a cursor update (from BookView) 
@@ -1159,7 +1163,4 @@ void CodeViewEditor::ConnectSignalsToSlots()
     connect(m_spellingMapper, SIGNAL(mapped(const QString&)), this, SLOT(ReplaceSelected(const QString&)));
     connect(m_addSpellingMapper, SIGNAL(mapped(const QString&)), this, SLOT(addToUserDictionary(const QString&)));
     connect(m_ignoreSpellingMapper, SIGNAL(mapped(const QString&)), this, SLOT(ignoreWordInDictionary(const QString&)));
-
-    SettingsStore *ss = SettingsStore::instance();
-    connect(ss, SIGNAL(settingsChanged()), m_Highlighter, SLOT(rehighlight()));
 }

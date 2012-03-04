@@ -279,8 +279,8 @@ bool KeyboardShortcutManager::defaultKeySequenceInUse(const QKeySequence &keySeq
 
 void KeyboardShortcutManager::writeSettings()
 {
-    SettingsStore *settings = SettingsStore::instance();
-    settings->beginWriteArray(SETTINGS_GROUP);
+    SettingsStore settings;
+    settings.beginWriteArray(SETTINGS_GROUP);
     int i = 0;
 
     QHashIterator<QString, KeyboardShortcut> it(m_shortcuts);
@@ -291,14 +291,14 @@ void KeyboardShortcutManager::writeSettings()
         if (s.isEmpty()) {
             continue;
         }
-        settings->setArrayIndex(i);
-        settings->setValue("id", it.key());
-        settings->setValue("keySequence", s.keySequence().toString());
+        settings.setArrayIndex(i);
+        settings.setValue("id", it.key());
+        settings.setValue("keySequence", s.keySequence().toString());
 
         i++;
     }
 
-    settings->endArray();
+    settings.endArray();
 }
 
 KeyboardShortcutManager::KeyboardShortcutManager()
@@ -319,18 +319,18 @@ KeyboardShortcut KeyboardShortcutManager::createShortcut(const QKeySequence &key
 
 void KeyboardShortcutManager::readSettings()
 {
-    SettingsStore *settings = SettingsStore::instance();
-    int size = settings->beginReadArray(SETTINGS_GROUP);
+    SettingsStore settings;
+    int size = settings.beginReadArray(SETTINGS_GROUP);
 
     for (int i = 0; i < size; ++i) {
-        settings->setArrayIndex(i);
-        const QString id = settings->value("id").toString();
-        const QKeySequence keySequence(settings->value("keySequence").toString());
+        settings.setArrayIndex(i);
+        const QString id = settings.value("id").toString();
+        const QKeySequence keySequence(settings.value("keySequence").toString());
 
         //KeyboardShortcut s = createShortcut(keySequence, defaultKeySequence, description);
         KeyboardShortcut s = createShortcut(keySequence);
         m_shortcuts.insert(id, s);
     }
 
-    settings->endArray();
+    settings.endArray();
 }

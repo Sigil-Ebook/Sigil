@@ -32,7 +32,7 @@ AppearanceWidget::AppearanceWidget()
 
 void AppearanceWidget::saveSettings()
 {
-    SettingsStore *store = SettingsStore::instance();
+    SettingsStore settings;
 
     Qt::Orientation orientation = Qt::Vertical;
     if (ui.svHorizontal->isChecked() || ui.svHorizontalCB->isChecked())
@@ -44,16 +44,16 @@ void AppearanceWidget::saveSettings()
     {
         order = false;
     }
-    store->setSplitViewOrientation(orientation);
-    store->setSplitViewOrder(order);
+    settings.setSplitViewOrientation(orientation);
+    settings.setSplitViewOrder(order);
 }
 
 void AppearanceWidget::readSettings()
 {
-    SettingsStore *store = SettingsStore::instance();
+    SettingsStore settings;
 
-    Qt::Orientation orientation = store->splitViewOrientation();
-    bool order = store->splitViewOrder();
+    Qt::Orientation orientation = settings.splitViewOrientation();
+    bool order = settings.splitViewOrder();
 
     if (orientation == Qt::Horizontal) {
         if (order) {

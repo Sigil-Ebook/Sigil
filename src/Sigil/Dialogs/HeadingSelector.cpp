@@ -520,18 +520,18 @@ void HeadingSelector::SelectHeadingLevelInclusion( const QString& heading_level 
 // window position, geometry etc.
 void HeadingSelector::ReadSettings()
 {
-    SettingsStore *settings = SettingsStore::instance();
-    settings->beginGroup( SETTINGS_GROUP );
+    SettingsStore settings;
+    settings.beginGroup( SETTINGS_GROUP );
 
     // The size of the window and it's full screen status
-    QByteArray geometry = settings->value( "geometry" ).toByteArray();
+    QByteArray geometry = settings.value( "geometry" ).toByteArray();
 
     if ( !geometry.isNull() )
     {
         restoreGeometry( geometry );
     }
 
-    settings->endGroup();
+    settings.endGroup();
 }
 
 
@@ -539,13 +539,13 @@ void HeadingSelector::ReadSettings()
 // window position, geometry etc.
 void HeadingSelector::WriteSettings()
 {
-    SettingsStore *settings = SettingsStore::instance();
-    settings->beginGroup( SETTINGS_GROUP );
+    SettingsStore settings;
+    settings.beginGroup( SETTINGS_GROUP );
 
     // The size of the window and it's full screen status
-    settings->setValue( "geometry", saveGeometry() );
+    settings.setValue( "geometry", saveGeometry() );
 
-    settings->endGroup();
+    settings.endGroup();
 }
 
 

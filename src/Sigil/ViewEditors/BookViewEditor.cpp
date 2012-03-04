@@ -72,8 +72,8 @@ BookViewEditor::BookViewEditor( QWidget *parent )
     connect( &m_ScrollOneLineDown, SIGNAL( activated() ), this, SLOT( ScrollOneLineDown() ) );
 
     // Set the Zoom factor but be sure no signals are set because of this.
-    SettingsStore *ss = SettingsStore::instance();
-    m_CurrentZoomFactor = ss->zoomWeb();
+    SettingsStore settings;
+    m_CurrentZoomFactor = settings.zoomWeb();
     Zoom();
 }
 
@@ -310,8 +310,8 @@ bool BookViewEditor::IsLoadingFinished()
 
 void BookViewEditor::SetZoomFactor( float factor )
 {
-    SettingsStore *ss = SettingsStore::instance();
-    ss->setZoomWeb(factor);
+    SettingsStore settings;
+    settings.setZoomWeb(factor);
     m_CurrentZoomFactor = factor;
     Zoom();
     emit ZoomFactorChanged( factor );
@@ -320,8 +320,8 @@ void BookViewEditor::SetZoomFactor( float factor )
 
 float BookViewEditor::GetZoomFactor() const
 {
-    SettingsStore *ss = SettingsStore::instance();
-    return ss->zoomWeb();
+    SettingsStore settings;
+    return settings.zoomWeb();
 }
 
 
@@ -333,8 +333,8 @@ void BookViewEditor::Zoom()
 
 void BookViewEditor::UpdateDisplay()
 {
-    SettingsStore *ss = SettingsStore::instance();
-    float stored_factor = ss->zoomWeb();
+    SettingsStore settings;
+    float stored_factor = settings.zoomWeb();
     if ( stored_factor != m_CurrentZoomFactor )
     {
         m_CurrentZoomFactor = stored_factor;

@@ -893,11 +893,11 @@ void FlowTab::LoadTabContent()
 
 void FlowTab::LoadSettings()
 {
-    SettingsStore *store = SettingsStore::instance();
-    m_Splitter.setOrientation(store->splitViewOrientation());
+    SettingsStore settings;
+    m_Splitter.setOrientation(settings.splitViewOrientation());
 
     // If widgets already exist, splitter will rearrange them
-    if ( store->splitViewOrder() )
+    if ( settings.splitViewOrder() )
     {
         m_Splitter.addWidget( &m_wBookView );
         m_Splitter.addWidget( &m_wCodeView );
@@ -907,6 +907,8 @@ void FlowTab::LoadSettings()
         m_Splitter.addWidget( &m_wCodeView );
         m_Splitter.addWidget( &m_wBookView );
     }
+
+    m_wCodeView.LoadSettings();
 }
 
 
@@ -1149,9 +1151,6 @@ void FlowTab::ConnectSignalsToSlots()
 
     connect( &m_wBookView, SIGNAL( FocusGained( QWidget* ) ),    this, SLOT( EnterEditor( QWidget* ) ) );
     connect( &m_wBookView, SIGNAL( FocusLost( QWidget* )   ),    this, SLOT( LeaveEditor( QWidget* ) ) );
-
-    SettingsStore *store = SettingsStore::instance();
-    connect( store, SIGNAL( settingsChanged() ), this, SLOT( LoadSettings() ) );
 }
 
 

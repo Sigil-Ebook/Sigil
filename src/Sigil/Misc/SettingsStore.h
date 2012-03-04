@@ -27,27 +27,18 @@
 #include <QtCore/QString>
 
 /**
- * Singleton. Provides access for reading and writing user configurable
- * settings.
+ * Provides access for reading and writing user configurable
+ * settings. This should be used instead of QSettings because it
+ * sets up the settings to use INI format on all platforms except
+ * OS X. Also, it implements a variety of settings that are used in
+ * a large number of places throughout the application.
  */
 class SettingsStore : public QSettings
 {
     Q_OBJECT
 
-    Q_PROPERTY(QString defaultMetadataLang READ defaultMetadataLang WRITE setDefaultMetadataLang NOTIFY settingsChanged)
-    Q_PROPERTY(Qt::Orientation splitViewOrientation READ splitViewOrientation WRITE setSplitViewOrientation NOTIFY settingsChanged)
-    Q_PROPERTY(bool splitViewOrder READ splitViewOrder WRITE setSplitViewOrder NOTIFY settingsChanged)
-    Q_PROPERTY(float zoomImage READ zoomImage WRITE setZoomImage NOTIFY settingsChanged)
-    Q_PROPERTY(float zoomText READ zoomText WRITE setZoomText NOTIFY settingsChanged)
-    Q_PROPERTY(float zoomWeb READ zoomWeb WRITE setZoomWeb NOTIFY settingsChanged)
-    Q_PROPERTY(QString dictionary READ dictionary WRITE setDictionary NOTIFY settingsChanged)
-    Q_PROPERTY(QString renameTemplate READ renameTemplate WRITE setRenameTemplate NOTIFY settingsChanged)
-
 public:
-    /**
-     * The accessor function to access the store.
-     */
-    static SettingsStore *instance();
+    SettingsStore();
 
     /**
      * The default langauge to use when creating new books.
@@ -135,30 +126,12 @@ public slots:
      */
     void setRenameTemplate(const QString &name);
 
-signals:
-    /**
-     * Signals that settings have changed.
-     *
-     * This is not emitted after a set* function call. This is only emitted
-     * by a call from triggerSettingsChanged. This is because we do not want
-     * this signal to emit multiple times when a varity of settings are changed
-     * via the preferences dialog.
-     */
-    void settingsChanged();
-
 private:
-    /**
-     * Privateructor.
-     */
-    SettingsStore();
-
     /**
      * Ensures there is not open setting group which will cause the settings
      * This class implements in the wrong place.
      */
     void clearSettingsGroup();
-
-    static SettingsStore *m_instance;
 };
 
 #endif // SETTINGSSTORE_H

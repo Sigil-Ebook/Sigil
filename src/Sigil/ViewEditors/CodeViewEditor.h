@@ -235,6 +235,8 @@ public slots:
      */
     void print( QPrinter* printer );
 
+    void LoadSettings();
+
 protected:
     
     /**

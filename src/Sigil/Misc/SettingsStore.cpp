@@ -24,8 +24,6 @@
 #include "Misc/SettingsStore.h"
 #include "sigil_constants.h"
 
-SettingsStore *SettingsStore::m_instance = 0;
-
 static QString SETTINGS_GROUP = "user_preferences";
 static QString KEY_DEFAULT_METADATA_LANGUAGE = "default_metadata_lang";
 static QString KEY_SPLIT_VIEW_ORIENTATION = "split_view_orientation";
@@ -36,13 +34,11 @@ static QString KEY_ZOOM_WEB = "zoom_web";
 static QString KEY_DICTIONARY_NAME = "dictionary_name";
 static QString KEY_RENAME_TEMPLATE = "rename_template";
 
-SettingsStore *SettingsStore::instance()
+SettingsStore::SettingsStore()
+#ifndef Q_WS_MAC
+    : QSettings(QSettings::IniFormat, QSettings::UserScope, QCoreApplication::organizationName(), QCoreApplication::applicationName())
+#endif
 {
-    if (m_instance == 0) {
-        m_instance = new SettingsStore();
-    }
-
-    return m_instance;
 }
 
 QString SettingsStore::defaultMetadataLang()
@@ -140,13 +136,6 @@ void SettingsStore::setRenameTemplate(const QString &name)
 {
     clearSettingsGroup();
     setValue(SETTINGS_GROUP + "/" + KEY_RENAME_TEMPLATE, name);
-}
-
-SettingsStore::SettingsStore()
-#ifndef Q_WS_MAC
-    : QSettings(QSettings::IniFormat, QSettings::UserScope, QCoreApplication::organizationName(), QCoreApplication::applicationName())
-#endif
-{
 }
 
 void SettingsStore::clearSettingsGroup()

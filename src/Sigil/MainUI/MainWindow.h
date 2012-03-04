@@ -158,6 +158,9 @@ public:
      */
     void AnyCodeView();
 
+signals:
+    void SettingsChanged();
+
 protected:
 
     /**

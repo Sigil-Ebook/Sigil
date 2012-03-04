@@ -53,22 +53,22 @@ ImageTab::ImageTab( ImageResource& resource, QWidget *parent )
     m_Layout.addWidget( &m_ScrollArea );
 
     // Set the Zoom factor but be sure no signals are set because of this.
-    SettingsStore *ss = SettingsStore::instance();
-    m_CurrentZoomFactor = ss->zoomImage();
+    SettingsStore settings;
+    m_CurrentZoomFactor = settings.zoomImage();
     Zoom();
 }
 
 float ImageTab::GetZoomFactor() const
 {
-    SettingsStore *ss = SettingsStore::instance();
-    return ss->zoomImage();
+    SettingsStore settings;
+    return settings.zoomImage();
 }
 
 void ImageTab::SetZoomFactor( float new_zoom_factor )
 {
     // Save the zoom for this type.
-    SettingsStore *ss = SettingsStore::instance();
-    ss->setZoomImage(new_zoom_factor);
+    SettingsStore settings;
+    settings.setZoomImage(new_zoom_factor);
     m_CurrentZoomFactor = new_zoom_factor;
 
     Zoom();
@@ -79,8 +79,8 @@ void ImageTab::SetZoomFactor( float new_zoom_factor )
 void ImageTab::UpdateDisplay()
 {
     // Update zoom.
-    SettingsStore *ss = SettingsStore::instance();
-    float stored_factor = ss->zoomImage();
+    SettingsStore settings;
+    float stored_factor = settings.zoomImage();
     if ( stored_factor != m_CurrentZoomFactor )
     {
         m_CurrentZoomFactor = stored_factor;

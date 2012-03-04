@@ -514,8 +514,8 @@ void BookBrowser::RenameList( QList <Resource *> resources )
     }
 
     // Load initial value from stored preferences
-    SettingsStore *store = SettingsStore::instance();
-    QString templateName = store->renameTemplate();
+    SettingsStore settings;
+    QString templateName = settings.renameTemplate();
 
     RenameTemplate rename_template( templateName, this );
 
@@ -527,7 +527,7 @@ void BookBrowser::RenameList( QList <Resource *> resources )
     templateName = rename_template.GetTemplateName();
 
     // Save the template for later
-    store->setRenameTemplate(templateName);
+    settings.setRenameTemplate(templateName);
 
     // Get the base text and starting number
     int pos = templateName.length() - 1;
@@ -878,23 +878,23 @@ void BookBrowser::ExpandTextFolder()
 
 void BookBrowser::ReadSettings()
 {
-    SettingsStore *settings = SettingsStore::instance();
-    settings->beginGroup( SETTINGS_GROUP );
+    SettingsStore settings;
+    settings.beginGroup( SETTINGS_GROUP );
 
-    m_LastFolderOpen = settings->value( "lastfolderopen" ).toString();
+    m_LastFolderOpen = settings.value( "lastfolderopen" ).toString();
 
-    settings->endGroup();
+    settings.endGroup();
 }
 
 
 void BookBrowser::WriteSettings()
 {
-    SettingsStore *settings = SettingsStore::instance();
-    settings->beginGroup( SETTINGS_GROUP );
+    SettingsStore settings;
+    settings.beginGroup( SETTINGS_GROUP );
 
-    settings->setValue( "lastfolderopen", m_LastFolderOpen );
+    settings.setValue( "lastfolderopen", m_LastFolderOpen );
 
-    settings->endGroup();
+    settings.endGroup();
 }
 
 

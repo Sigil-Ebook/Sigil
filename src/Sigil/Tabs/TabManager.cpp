@@ -392,6 +392,7 @@ ContentTab* TabManager::CreateTabForResource( Resource& resource,
                 this, SIGNAL( OldTabRequest( QString, HTMLResource& ) ) );
             connect( tab,  SIGNAL( NewChaptersRequest( QStringList, HTMLResource& ) ),
                 this, SIGNAL( NewChaptersRequest( QStringList, HTMLResource& ) ) );
+            connect( this, SIGNAL( SettingsChagned() ), tab, SLOT( LoadSettings() ) );
             break;
         }
 

@@ -127,7 +127,7 @@ private:
      *
      * @return \c true if book-wide searching is allowed.
      */
-    void SetCodeViewIfNeeded( bool replace = false );
+    void SetCodeViewIfNeeded( bool force = false );
 
     // Displays a message to the user informing him
     // that his last search term could not be found.

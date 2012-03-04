@@ -48,8 +48,8 @@ void SpellCheckWidget::saveSettings()
 
     sc->replaceUserDictionaryWords(words);
 
-    SettingsStore *store = SettingsStore::instance();
-    store->setDictionary(ui.dictionaries->currentText());
+    SettingsStore settings;
+    settings.setDictionary(ui.dictionaries->currentText());
 }
 
 void SpellCheckWidget::addWord()

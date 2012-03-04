@@ -114,17 +114,20 @@ QString QxtConfirmationMessagePrivate::organizationName() const
 
 int QxtConfirmationMessagePrivate::showAgain()
 {
-    return SettingsStore::instance()->value(key(), -1).toInt();
+    SettingsStore settings;
+    return settings.value(key(), -1).toInt();
 }
 
 void QxtConfirmationMessagePrivate::doNotShowAgain(int result)
 {
-    SettingsStore::instance()->setValue(key(), result);
+    SettingsStore settings;
+    settings.setValue(key(), result);
 }
 
 void QxtConfirmationMessagePrivate::reset()
 {
-    return SettingsStore::instance()->remove(key());
+    SettingsStore settings;
+    settings.remove(key());
 }
 
 /*!

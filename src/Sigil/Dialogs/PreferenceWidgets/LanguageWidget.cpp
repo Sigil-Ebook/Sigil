@@ -36,16 +36,16 @@ LanguageWidget::LanguageWidget()
 
 void LanguageWidget::saveSettings()
 {
-    SettingsStore *store = SettingsStore::instance();
+    SettingsStore settings;
 
-    store->setDefaultMetadataLang(ui.metadataLang->currentText());
+    settings.setDefaultMetadataLang(ui.metadataLang->currentText());
 }
 
 void LanguageWidget::readSettings()
 {
-    SettingsStore *store = SettingsStore::instance();
+    SettingsStore settings;
 
-    int index = ui.metadataLang->findText(store->defaultMetadataLang());
+    int index = ui.metadataLang->findText(settings.defaultMetadataLang());
     if (index == -1) {
         index = ui.metadataLang->findText("English");
         if (index == -1) {
