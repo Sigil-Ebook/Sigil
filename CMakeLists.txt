@@ -70,12 +70,6 @@ endif()
 # specific changes to it.
 add_subdirectory( src/tidyLib )
 
-if( FORCE_BUNDLED_COPIES OR NOT MINIZIP_FOUND )
-    add_subdirectory( src/minizip )
-    set( MINIZIP_LIBRARIES minizip )
-    set( MINIZIP_INCLUDE_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/src/minizip )
-endif()
-
 if( FORCE_BUNDLED_COPIES OR NOT Boost_FOUND )
     add_subdirectory( src/BoostParts )
     # Set these so zipios doesn't complain.
@@ -92,20 +86,26 @@ else()
     set( BOOST_INCLUDE_DIRS ${Boost_INCLUDE_DIRS} )
 endif()
 
+if( FORCE_BUNDLED_COPIES OR NOT ZLIB_FOUND )
+    add_subdirectory( src/zlib )
+endif()
+
+if( FORCE_BUNDLED_COPIES OR NOT MINIZIP_FOUND )
+    add_subdirectory( src/minizip )
+    set( MINIZIP_LIBRARIES minizip )
+    set( MINIZIP_INCLUDE_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/src/minizip )
+endif()
+
 if( FORCE_BUNDLED_COPIES OR NOT XERCES_FOUND )
     add_subdirectory( src/Xerces )
     set( XERCES_LIBRARIES Xerces )
     set( XERCES_INCLUDE_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/src/Xerces )
 endif()
 
-if( NOT XERCESEXTENSIONS_FOUND )
-    add_subdirectory( src/XercesExtensions )
-    set( XERCESEXTENSIONS_LIBRARIES XercesExtensions )
-    set( XERCESEXTENSIONS_INCLUDE_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/src/XercesExtensions )
-endif()
-
-if( FORCE_BUNDLED_COPIES OR NOT ZLIB_FOUND )
-    add_subdirectory( src/zlib )
+if( FORCE_BUNDLED_COPIES OR NOT HUNSPELL_FOUND )
+    add_subdirectory( src/hunspell )
+    set( HUNSPELL_LIBRARIES hunspell )
+    set( HUNSPELL_INCLUDE_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/src/hunspell )
 endif()
 
 if( FORCE_BUNDLED_COPIES OR NOT PCRE_FOUND OR APPLE )
@@ -114,10 +114,10 @@ if( FORCE_BUNDLED_COPIES OR NOT PCRE_FOUND OR APPLE )
     set( PCRE_INCLUDE_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/src/pcre ${CMAKE_BINARY_DIR}/src/pcre )
 endif()
 
-if( FORCE_BUNDLED_COPIES OR NOT HUNSPELL_FOUND )
-    add_subdirectory( src/hunspell )
-    set( HUNSPELL_LIBRARIES hunspell )
-    set( HUNSPELL_INCLUDE_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/src/hunspell )
+if( NOT XERCESEXTENSIONS_FOUND )
+    add_subdirectory( src/XercesExtensions )
+    set( XERCESEXTENSIONS_LIBRARIES XercesExtensions )
+    set( XERCESEXTENSIONS_INCLUDE_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/src/XercesExtensions )
 endif()
 
 if( NOT FLIGHTCREW_FOUND )
