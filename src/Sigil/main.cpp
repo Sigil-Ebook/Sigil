@@ -190,9 +190,9 @@ int main( int argc, char *argv[] )
 
         // Set application information for
         // easier use of QSettings classes
-        QCoreApplication::setOrganizationName( "Sigil Project" );
+        QCoreApplication::setOrganizationName( "sigil-ebook" );
         QCoreApplication::setOrganizationDomain("sigil-ebook.com");
-        QCoreApplication::setApplicationName( "Sigil" );
+        QCoreApplication::setApplicationName( "sigil" );
         QCoreApplication::setApplicationVersion(SIGIL_VERSION);
 
         // Setup the translator and load the translation for the current
