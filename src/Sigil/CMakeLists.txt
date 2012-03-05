@@ -457,6 +457,7 @@ include_directories( BEFORE
                      ${PCRE_INCLUDE_DIRS}
                      ${tidyLib_SOURCE_DIR}
                      ${MINIZIP_INCLUDE_DIRS}
+                     ${ZLIB_INCLUDE_DIRS}
                      ${XERCESEXTENSIONS_INCLUDE_DIRS}
                      ${XERCES_INCLUDE_DIRS}
                      ${BOOST_INCLUDE_DIRS}

@@ -88,6 +88,8 @@ endif()
 
 if( FORCE_BUNDLED_COPIES OR NOT ZLIB_FOUND )
     add_subdirectory( src/zlib )
+    set( ZLIB_LIBRARIES zlib )
+    set( ZLIB_INCLUDE_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/src/zlib ${CMAKE_BINARY_DIR}/src/zlib )
 endif()
 
 if( FORCE_BUNDLED_COPIES OR NOT MINIZIP_FOUND )
