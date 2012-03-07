@@ -1,13 +1,18 @@
 Sigil 0.5.4 TBA
-    - Allow Find next misspelled word
-        - Adds Spell Check mode to Find&Replace
-        - Supports searching for all misspelled words or just misspelled words matching a regex
-        - Supports Count All, replace, replace all, up, down, one or more files
-        - Allows use of standard F&R key shortcuts
-    - Enable/disable highlighting in code view but still allow Find misspelled words
-    - New misspelled search code, shared by F&R, highlighting, etc.
-    - Allow user dictionary file location to be set (preferred place, one per book/genre, etc)
-    - Allow additional dictionary directory to be set
+    - Implement issue 1180:
+        - Allow Find next misspelled word
+            - Adds Spell Check mode to Find&Replace
+            - Supports searching for all misspelled words or just misspelled
+              words matching a regex
+            - Supports Count All, replace, replace all, up, down, one or more
+              files
+            - Allows use of standard F&R key shortcuts
+        - Enable/disable highlighting in code view but still allow Find
+          misspelled words
+        - New misspelled search code, shared by F&R, highlighting, etc.
+        - Allow user dictionary file location to be set (preferred place, one
+          per book/genre, etc)
+        - Allow additional dictionary directory to be set
     - Fix crash when doing a search in all HTML files when an HTML file does
       not have focus.
     - Use ini format for settings on all platforms except OS X.
