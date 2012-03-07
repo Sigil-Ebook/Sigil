@@ -23,6 +23,7 @@
 #include <QtCore/QUrl>
 #include <QtGui/QDesktopServices>
 #include <QtGui/QMessageBox>
+#include <QtGui/QFileDialog>
 
 #include "SpellCheckWidget.h"
 #include "Misc/SettingsStore.h"
@@ -50,6 +51,7 @@ void SpellCheckWidget::saveSettings()
 
     SettingsStore settings;
     settings.setDictionary(ui.dictionaries->currentText());
+    settings.setSpellCheck(ui.enableSpellCheck->isChecked());
 }
 
 void SpellCheckWidget::addWord()
@@ -84,15 +86,18 @@ void SpellCheckWidget::removeAll()
 
 void SpellCheckWidget::readSettings()
 {
+    // Load the available dictionary names.
     SpellCheck *sc = SpellCheck::instance();
-
-    // Load the avaliable dictionary names.
     QStringList dicts = sc->dictionaries();
-    dicts.prepend(tr("None"));
+    ui.dictionaries->clear();
     ui.dictionaries->addItems(dicts);
 
     // Select the current dictionary.
     QString currentDict = sc->currentDictionary();
+
+    SettingsStore settings;
+	ui.enableSpellCheck->setChecked(settings.spellCheck());
+
     if (!currentDict.isEmpty()) {
         int index = ui.dictionaries->findText(currentDict);
         if (index > -1) {
@@ -101,31 +106,94 @@ void SpellCheckWidget::readSettings()
     }
 
     // Load the words in the user dictionary word list.
+    ui.userWordList->clear();
     QStringList words = sc->userDictionaryWords();
     foreach (QString word, words) {
         QListWidgetItem *item = new QListWidgetItem(word, ui.userWordList);
         item->setFlags(item->flags() | Qt::ItemIsEditable);
         ui.userWordList->addItem(item);
     }
+
+    // Update the description of the user dictionary file
+    QString tooltip_file = tr ( "Choose the file that contains your word list.<P>Current location: " ) %
+                           settings.userDictionaryFile();
+                         
+    ui.pbUserDictionaryFile->setToolTip( tooltip_file );
+
+
+    // Update the description of the directory location
+    QString tooltip_directory = tr  ( "Choose the directory where Sigil should look for additional dictionaries."
+                                      "<P>Dictionaries in this location will be added to the list of dictionaries you can choose from "
+                                      "and will override default dictionaries that have the same names.<P>Current location: " ) %
+                                settings.userDictionaryFile();
+
+    ui.pbDictionaryDirectory->setToolTip( tooltip_directory );
 }
 
-void SpellCheckWidget::openUserDictionaryLocation()
+void SpellCheckWidget::selectDictionaryDirectory()
+{
+    SettingsStore settings;
+
+    QString directory = QFileDialog::getExistingDirectory(  this,
+                                                            tr( "Select Additional Dictionaries Directory" ),
+                                                            settings.dictionaryDirectory()
+                                                         );
+
+    if ( !directory.isEmpty() )
+    {
+        settings.setDictionaryDirectory(directory);
+        readSettings();
+    }
+}
+
+void SpellCheckWidget::selectUserDictionaryFile()
+{
+    if ( isWordListModified() )
+    {
+        QMessageBox::critical( this, tr( "Unable to change User Dictionary File" ), 
+                                     tr( "The User Word List has been edited but not saved.<P>"
+                                         "You must save your current word list before changing the User Dictionary File." ) );
+        return;
+    }
+
+    SettingsStore settings;
+    QString filter_string = "";
+    QString default_filter = "";
+    QString filepath = QFileDialog::getSaveFileName(    this,
+                                                        tr( "Select User Dictionary File" ),
+                                                        settings.userDictionaryFile(),
+                                                        filter_string,
+                                                        &default_filter,
+                                                        QFileDialog::DontConfirmOverwrite
+                                                   );
+
+    if ( !filepath.isEmpty() )
+    {
+        settings.setUserDictionaryFile(filepath);
+        readSettings();
+    }
+}
+
+bool SpellCheckWidget::isWordListModified()
 {
     SpellCheck *sc = SpellCheck::instance();
-    QString dictDir = sc->dictionaryDirectory();
+    QStringList saved_words = sc->userDictionaryWords();
 
-    // Check if the directory exists and create it if necessary.
-    QDir loc(dictDir);
-    if (!loc.exists()) {
-        loc.mkpath(dictDir);
+    bool word_list_modified = saved_words.count() != ui.userWordList->count();
+    int i = 0;
+    if ( !word_list_modified )
+    {
+        foreach( QString word, saved_words )
+        {
+            if ( ui.userWordList->item(i++)->text() != word )
+            {
+                word_list_modified = true;
+                break;
+            }
+        }
     }
 
-    // Try to open the users file manager to the location and show
-    // and error message if this is not possible.
-    QUrl locUrl("file:///" + dictDir);
-    if (!QDesktopServices::openUrl(locUrl)) {
-        QMessageBox::warning(this, tr("Error"), tr("Could not open user dictionary location %1").arg(dictDir));
-    }
+    return word_list_modified;
 }
 
 void SpellCheckWidget::connectSignalsSlots()
@@ -134,5 +202,6 @@ void SpellCheckWidget::connectSignalsSlots()
     connect(ui.editWord, SIGNAL(clicked()), this, SLOT(editWord()));
     connect(ui.removeWord, SIGNAL(clicked()), this, SLOT(removeWord()));
     connect(ui.removeAll, SIGNAL(clicked()), this, SLOT(removeAll()));
-    connect(ui.openUserDictionaryLocation, SIGNAL(clicked()), this, SLOT(openUserDictionaryLocation()));
+    connect(ui.pbDictionaryDirectory, SIGNAL(clicked()), this, SLOT(selectDictionaryDirectory()));
+    connect(ui.pbUserDictionaryFile, SIGNAL(clicked()), this, SLOT(selectUserDictionaryFile()));
 }

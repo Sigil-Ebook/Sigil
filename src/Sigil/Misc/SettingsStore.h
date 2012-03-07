@@ -76,6 +76,27 @@ public:
     QString dictionary();
 
     /**
+     * Whether automatic Spell Check is enabled or not
+     *
+     * @return if spell check is enabled
+     */
+    bool spellCheck();
+
+    /**
+     * The full path of the file containing user words
+     *
+     * @return The dictionary name.
+     */
+    QString userDictionaryFile();
+
+    /**
+     * The full path of the directory holding user dictionaries
+     *
+     * @return The dictionary name.
+     */
+    QString dictionaryDirectory();
+
+    /**
      * The template name for renaming selections in book browser
      *
      * @return The template name.
@@ -120,6 +141,27 @@ public slots:
     void setDictionary(const QString &name);
 
     /**
+     * Set whether automatic Spell Check is enabled
+     *
+     * @param name The name of the dictionary.
+     */
+    void setSpellCheck(bool enabled);
+
+    /**
+     * Set the name of the dictionary file to store user words.
+     *
+     * @param name The full path of the dictionary file.
+     */
+    void setUserDictionaryFile(const QString &name);
+
+    /**
+     * Set the name of the directory holding user dictionaries
+     *
+     * @param name The name of the dictionary.
+     */
+    void setDictionaryDirectory(const QString &name);
+
+    /**
      * Set the name of the dictionary the user has selected.
      *
      * @param name The name of the dictionary.
@@ -128,10 +170,15 @@ public slots:
 
 private:
     /**
-     * Ensures there is not open setting group which will cause the settings
-     * This class implements in the wrong place.
+     * Ensures there is not an open settings group which will cause the settings
+     * this class implements to be set in the wrong place.
      */
     void clearSettingsGroup();
+
+    /**
+     * Return the default directory used to store dictionary files
+     */
+    QString defaultDictionaryDirectory();
 };
 
 #endif // SETTINGSSTORE_H

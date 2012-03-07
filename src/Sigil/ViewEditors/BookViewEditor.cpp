@@ -345,6 +345,7 @@ void BookViewEditor::UpdateDisplay()
 
 bool BookViewEditor::FindNext( const QString &search_regex,
                                Searchable::Direction search_direction,
+                               bool check_spelling,
                                bool ignore_selection_offset,
                                bool wrap
                              )
@@ -352,16 +353,23 @@ bool BookViewEditor::FindNext( const QString &search_regex,
 
 {
     SearchTools search_tools = GetSearchTools();
-    return FindNext( search_tools, search_regex, search_direction, ignore_selection_offset, wrap );
+    return FindNext( search_tools, search_regex, search_direction, check_spelling, ignore_selection_offset, wrap );
 }
 
 bool BookViewEditor::FindNext( SearchTools &search_tools,
                                const QString &search_regex,
                                Searchable::Direction search_direction,
+                               bool check_spelling,
                                bool ignore_selection_offset,
                                bool wrap
                              )
 {
+    if ( check_spelling )
+	{
+		QMessageBox::critical( this, tr( "Unsupported" ), tr( "Spell Check mode is not supported in Book View at this time.  Switch to Code View." ) );
+	    return false;
+	}
+
     SPCRE *spcre = PCRECache::instance()->getObject(search_regex);
     SPCRE::MatchInfo match_info;
     int start_offset = 0;
@@ -408,7 +416,7 @@ bool BookViewEditor::FindNext( SearchTools &search_tools,
     }
     else if ( wrap )
     {
-        if ( FindNext( search_regex, search_direction, true, false ) )
+        if ( FindNext( search_regex, search_direction, check_spelling, true, false ) )
         {
             ShowWrapIndicator(this);
             return true;
@@ -419,13 +427,14 @@ bool BookViewEditor::FindNext( SearchTools &search_tools,
 }
 
 
-int BookViewEditor::Count( const QString &search_regex )
+int BookViewEditor::Count( const QString &search_regex, bool check_spelling )
 {
+    // Spell check not actually used
     SPCRE *spcre = PCRECache::instance()->getObject( search_regex );
     return spcre->getEveryMatchInfo( GetSearchTools().fulltext ).count();
 }
 
-bool BookViewEditor::ReplaceSelected( const QString &search_regex, const QString &replacement, Searchable::Direction direction )
+bool BookViewEditor::ReplaceSelected( const QString &search_regex, const QString &replacement, Searchable::Direction direction, bool check_spelling )
 {
     QMessageBox::critical( this, tr( "Unsupported" ), tr( "Replace is not supported in Book View at this time.  Switch to Code View." ) );
 
@@ -473,7 +482,7 @@ bool BookViewEditor::ReplaceSelected( const QString &search_regex, const QString
 }
 
 
-int BookViewEditor::ReplaceAll( const QString &search_regex, const QString &replacement )
+int BookViewEditor::ReplaceAll( const QString &search_regex, const QString &replacement, bool check_spelling )
 {
     QMessageBox::critical( this, tr( "Unsupported" ), tr( "Replace All for the current file is not supported in Book View at this time.  Switch to Code View." ) );
 

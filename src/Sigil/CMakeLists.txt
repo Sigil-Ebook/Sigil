@@ -209,6 +209,8 @@ set( MISC_FILES
     Misc/CSSHighlighter.h
     Misc/HTMLEncodingResolver.cpp
     Misc/HTMLEncodingResolver.h
+    Misc/HTMLSpellCheck.cpp
+    Misc/HTMLSpellCheck.h
     Misc/RasterizeImageResource.cpp
     Misc/RasterizeImageResource.h
     Misc/SearchOperations.cpp

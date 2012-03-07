@@ -39,7 +39,9 @@ private slots:
     void editWord();
     void removeWord();
     void removeAll();
-    void openUserDictionaryLocation();
+    void selectDictionaryDirectory();
+    void selectUserDictionaryFile();
+    bool isWordListModified();
 
 private:
     void readSettings();

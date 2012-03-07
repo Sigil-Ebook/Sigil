@@ -65,7 +65,8 @@ public:
         SearchMode_Normal = 0,
         SearchMode_Case_Sensitive = 10,
         SearchMode_Regex = 20,
-        SearchMode_RegexDotall = 30
+        SearchMode_RegexDotall = 30,
+        SearchMode_SpellCheck = 40
     };
 
     enum SearchDirection
@@ -190,6 +191,9 @@ private:
     SearchMode GetSearchMode();
     SearchDirection GetSearchDirection();
 
+    // Checks if Find is empty when not checking spelling
+    bool IsValidFindText();
+
     // Reads all the stored dialog settings like
     // window position, geometry etc.
     void ReadSettings();
@@ -231,7 +235,8 @@ bool FindReplace::ResourceContainsCurrentRegex( T *resource )
     return SearchOperations::CountInFiles(
             GetSearchRegex(),
             QList< Resource* >() << generic_resource,
-            SearchOperations::CodeViewSearch ) > 0;
+            SearchOperations::CodeViewSearch,
+            GetSearchMode() == FindReplace::SearchMode_SpellCheck ) > 0;
 }
 
 #endif // FINDREPLACE_H

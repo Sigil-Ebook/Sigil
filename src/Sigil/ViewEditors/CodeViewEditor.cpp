@@ -38,6 +38,7 @@
 #include "Misc/CSSHighlighter.h"
 #include "Misc/SettingsStore.h"
 #include "Misc/SpellCheck.h"
+#include "Misc/HTMLSpellCheck.h"
 #include "Misc/Utility.h"
 #include "PCRE/PCRECache.h"
 #include "ViewEditors/CodeViewEditor.h"
@@ -449,9 +450,36 @@ void CodeViewEditor::UpdateDisplay()
     }
 }
 
+SPCRE::MatchInfo CodeViewEditor::GetMisspelledWord( const QString &text, int start_offset, int end_offset, const QString &search_regex, Searchable::Direction search_direction )
+{
+    SPCRE::MatchInfo match_info;
+
+    HTMLSpellCheck::MisspelledWord misspelled_word;
+    if ( search_direction == Searchable::Direction_Up )
+    {
+        if ( end_offset > 0 )
+        {
+            end_offset -= 1;
+        }
+        misspelled_word =  HTMLSpellCheck::GetLastMisspelledWord( text, start_offset, end_offset, search_regex );
+    }
+    else
+    {
+        misspelled_word =  HTMLSpellCheck::GetFirstMisspelledWord( text, start_offset, end_offset, search_regex );
+    }
+    if ( !misspelled_word.text.isEmpty() ) 
+    {
+        match_info.offset.first = misspelled_word.offset - start_offset;
+        match_info.offset.second = match_info.offset.first + misspelled_word.length;
+    }
+
+    return match_info;
+}
+
 
 bool CodeViewEditor::FindNext( const QString &search_regex,
                                Searchable::Direction search_direction,
+                               bool check_spelling,
                                bool ignore_selection_offset,
                                bool wrap )
 {
@@ -463,11 +491,25 @@ bool CodeViewEditor::FindNext( const QString &search_regex,
 
     if ( search_direction == Searchable::Direction_Up )
     {
-        match_info = spcre->getLastMatchInfo(Utility::Substring(0, selection_offset, toPlainText()));
+        if ( check_spelling )
+        {
+            match_info = GetMisspelledWord( toPlainText(), 0, selection_offset, search_regex, search_direction );
+        }
+        else
+        {
+            match_info = spcre->getLastMatchInfo(Utility::Substring(0, selection_offset, toPlainText()));
+        }
     }
     else
     {
-        match_info = spcre->getFirstMatchInfo(Utility::Substring(selection_offset, toPlainText().count(), toPlainText()));
+        if ( check_spelling )
+        {
+            match_info = GetMisspelledWord( toPlainText(), selection_offset, toPlainText().count(), search_regex, search_direction );
+        }
+        else
+        {
+            match_info = spcre->getFirstMatchInfo( Utility::Substring(selection_offset, toPlainText().count(), toPlainText() ));
+        }
         start_offset = selection_offset;
     }
 
@@ -512,7 +554,7 @@ bool CodeViewEditor::FindNext( const QString &search_regex,
     }
     else if ( wrap )
     {
-        if ( FindNext( search_regex, search_direction, true, false ) )
+        if ( FindNext( search_regex, search_direction, check_spelling, true, false ) )
         {
             ShowWrapIndicator(this);
             return true;
@@ -523,31 +565,41 @@ bool CodeViewEditor::FindNext( const QString &search_regex,
 }
 
 
-int CodeViewEditor::Count( const QString &search_regex )
+int CodeViewEditor::Count( const QString &search_regex, bool check_spelling )
 {
-    SPCRE *spcre = PCRECache::instance()->getObject( search_regex );
-    return spcre->getEveryMatchInfo( toPlainText() ).count();
+    int count = 0;
+    if ( check_spelling )
+    {
+        count =  HTMLSpellCheck::CountMisspelledWords( toPlainText(), 0, toPlainText().count(), search_regex );
+    }
+    else
+    {
+        SPCRE *spcre = PCRECache::instance()->getObject( search_regex );
+        count = spcre->getEveryMatchInfo( toPlainText() ).count();
+    }
+    return count;
 }
 
 
-bool CodeViewEditor::ReplaceSelected( const QString &search_regex, const QString &replacement, Searchable::Direction direction )
+bool CodeViewEditor::ReplaceSelected( const QString &search_regex, const QString &replacement, Searchable::Direction direction, bool check_spelling )
 {
     SPCRE *spcre = PCRECache::instance()->getObject( search_regex );
 
     int selection_start = textCursor().selectionStart();
     QString selected_text = textCursor().selectedText();
+    SPCRE::MatchInfo match_info;
 
-    // Check if current selection is a match as well to handle 
-    // highlighted text that is a match and new files when replacing in all HTML
-    if ( !( m_lastMatch.offset.first == selection_start && m_lastMatch.offset.second == selection_start + selected_text.length() ) )
+    // Check if current selection is a match as well to handle highlighted text that is a
+    // match, new files when replacing in all HTML, and misspelled words
+    if ( check_spelling || !( m_lastMatch.offset.first == selection_start && m_lastMatch.offset.second == selection_start + selected_text.length() ) )
     {
-        SPCRE::MatchInfo match_info;
         match_info = spcre->getFirstMatchInfo( selected_text );
         if ( match_info.offset.first != -1 )
         {
+            m_lastMatch = match_info;
             m_lastMatch.offset.first = selection_start + match_info.offset.first;
             m_lastMatch.offset.second = selection_start + match_info.offset.second;
-            selected_text = selected_text.mid( match_info.offset.first, match_info.offset.second - match_info.offset.first + 1 );
+            selected_text = selected_text.mid( match_info.offset.first, match_info.offset.second - match_info.offset.first );
         }
     }
 
@@ -555,7 +607,9 @@ bool CodeViewEditor::ReplaceSelected( const QString &search_regex, const QString
     if ( m_lastMatch.offset.first == selection_start && m_lastMatch.offset.second == selection_start + selected_text.length() )
     {
         QString replaced_text;
-        bool replacement_made = spcre->replaceText( selected_text, m_lastMatch.capture_groups_offsets, replacement, replaced_text );
+        bool replacement_made = false;
+
+        replacement_made = spcre->replaceText( selected_text, m_lastMatch.capture_groups_offsets, replacement, replaced_text );
 
         if ( replacement_made )
         {
@@ -585,7 +639,9 @@ bool CodeViewEditor::ReplaceSelected( const QString &search_regex, const QString
 }
 
 
-int CodeViewEditor::ReplaceAll( const QString &search_regex, const QString &replacement )
+int CodeViewEditor::ReplaceAll( const QString &search_regex, 
+                                const QString &replacement, 
+                                bool check_spelling )
 {
     int count = 0;
     QTextCursor cursor = textCursor();
@@ -596,7 +652,7 @@ int CodeViewEditor::ReplaceAll( const QString &search_regex, const QString &repl
 
     cursor.beginEditBlock();
 
-    while ( FindNext( search_regex, Searchable::Direction_Down, false, false ) )
+    while ( FindNext( search_regex, Searchable::Direction_Down, check_spelling, false, false ) )
     {
         if ( ReplaceSelected( search_regex, replacement ) )
         {

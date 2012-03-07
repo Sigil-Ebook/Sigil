@@ -101,6 +101,9 @@ private:
 
     // Determine if spell check should be used on the document.
     bool m_checkSpelling;
+
+    // Determine if automatic spell check is enabled
+    bool m_enableSpellCheck;
 };
 
 #endif // XHTMLHIGHLIGHTER_H

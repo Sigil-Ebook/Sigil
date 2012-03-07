@@ -50,22 +50,29 @@ public:
      */
     static int CountInFiles( const QString &search_regex,
                              QList< Resource* > resources,
-                             SearchType search_type );
+                             SearchType search_type, 
+                             bool check_spelling );
+
 
     static int ReplaceInAllFIles( const QString &search_regex,
                                   const QString &replacement,
                                   QList< Resource* > resources,
-                                  SearchType search_type );
+                                  SearchType search_type,
+                                  bool check_spelling );
 
 private:
 
     static int CountInFile( const QString &search_regex,
                             Resource* resource,
-                            SearchType search_type );
+                            SearchType search_type, 
+                            bool check_spelling );
+
 
     static int CountInHTMLFile( const QString &search_regex,
                                 HTMLResource* html_resource,
-                                SearchType search_type  );
+                                SearchType search_type,
+                                bool check_spelling );
+
 
     static int CountInTextFile( const QString &search_regex,
                                 TextResource* text_resource );
@@ -73,12 +80,14 @@ private:
     static int ReplaceInFile( const QString &search_regex,
                               const QString &replacement,
                               Resource* resource,
-                              SearchType search_type );
+                              SearchType search_type,
+                              bool check_spelling );
 
     static int ReplaceHTMLInFile( const QString &search_regex,
                                   const QString &replacement,
                                   HTMLResource* html_resource,
-                                  SearchType search_type );
+                                  SearchType search_type,
+                                  bool check_spelling );
 
     static int ReplaceTextInFile( const QString &search_regex,
                                   const QString &replacement,
@@ -87,6 +96,10 @@ private:
     static tuple< QString, int > PerformGlobalReplace( const QString &text,
                                          const QString &search_regex,
                                          const QString &replacement );
+
+    static tuple< QString, int > PerformHTMLSpellCheckReplace( const QString &text,
+                                                               const QString &search_regex,
+                                                               const QString &replacement );
 
     static void Accumulate( int &first, const int &second );
 };

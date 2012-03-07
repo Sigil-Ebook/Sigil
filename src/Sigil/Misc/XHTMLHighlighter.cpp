@@ -22,8 +22,8 @@
 #include "Misc/SpellCheck.h"
 #include "Misc/Utility.h"
 #include "Misc/XHTMLHighlighter.h"
-#include "PCRE/PCRECache.h"
-#include "PCRE/SPCRE.h"
+#include "Misc/HTMLSpellCheck.h"
+#include "Misc/SettingsStore.h"
 
 // All of our regular expressions
 static const QString DOCTYPE_BEGIN          = "<!(?!--)";
@@ -170,8 +170,11 @@ void XHTMLHighlighter::highlightBlock( const QString& text )
         setCurrentBlockState( previousBlockState() );
     }
 
+    SettingsStore settings;
+    m_enableSpellCheck = settings.spellCheck();
+
     // Run spell check over the text.
-    if (m_checkSpelling) {
+    if (m_enableSpellCheck && m_checkSpelling) {
         CheckSpelling( text );
     }
 
@@ -481,39 +484,15 @@ void XHTMLHighlighter::HighlightLine( const QString& text, int state )
 
 void XHTMLHighlighter::CheckSpelling(const QString &text)
 {
-    SpellCheck *sc = SpellCheck::instance();
-
     QTextCharFormat format;
     format.setUnderlineColor(Qt::red);
     format.setUnderlineStyle(QTextCharFormat::SpellCheckUnderline);
 
-    // Math all individual words.
-    SPCRE *pcre = PCRECache::instance()->getObject("(?<=^|\\s|>|;)[^><&;]+?(?=\\s|<|&|$)");
-    QList<SPCRE::MatchInfo> matches = pcre->getEveryMatchInfo(text);
+    QList< HTMLSpellCheck::MisspelledWord > misspelled_words = HTMLSpellCheck::GetMisspelledWords( text );
 
-    // Run though all matches and check if they are spelled correctly when necessary.
-    foreach (SPCRE::MatchInfo m, matches) {
-        int start = m.offset.first;
-        int end = m.offset.second;
-        QString word = Utility::Substring(start, end, text);
-
-        // Remove all punucation from the beginning and end of the word. E.G. "this." becomes this .
-        while (!word.isEmpty() && (!word.at(0).isLetter() || !word.at(word.length() - 1).isLetter())) {
-            if (!word.isEmpty() && !word.at(0).isLetter()) {
-                word.remove(0, 1);
-                start++;
-            }
-            if (!word.isEmpty() && !word.at(word.length() - 1).isLetter()) {
-                word.chop(1);
-                end--;
-            }
-        }
-
-        if (!word.isEmpty()) {
-            if (!sc->spell(word)) {
-                setFormat(start, end - start, format);
-            }
-        }
+    foreach ( HTMLSpellCheck::MisspelledWord misspelled_word, misspelled_words )
+    {
+        setFormat( misspelled_word.offset, misspelled_word.length, format);
     }
 }
 

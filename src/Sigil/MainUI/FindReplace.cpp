@@ -142,7 +142,7 @@ void FindReplace::Count()
 {
     clearMessage();
 
-    if ( ui.cbFind->lineEdit()->text().isEmpty() )
+    if ( !IsValidFindText() )
     {
         return;
     }
@@ -160,7 +160,7 @@ void FindReplace::Count()
             return;
         }
 
-        count = searchable->Count( GetSearchRegex() );
+        count = searchable->Count( GetSearchRegex(), GetSearchMode() == SearchMode_SpellCheck );
     }
     else
     {
@@ -213,7 +213,7 @@ void FindReplace::ReplaceAll()
 
     clearMessage();
 
-    if ( ui.cbFind->lineEdit()->text().isEmpty() )
+    if ( !IsValidFindText() )
     {
         return;
     }
@@ -230,7 +230,7 @@ void FindReplace::ReplaceAll()
         {
             return;
         }
-        count = searchable->ReplaceAll( GetSearchRegex(), ui.cbReplace->lineEdit()->text() );
+        count = searchable->ReplaceAll( GetSearchRegex(), ui.cbReplace->lineEdit()->text(), GetSearchMode() == SearchMode_SpellCheck );
     }
     else 
     {
@@ -279,7 +279,7 @@ void FindReplace::FindText( Searchable::Direction direction )
 {
     clearMessage();
 
-    if ( ui.cbFind->lineEdit()->text().isEmpty() )
+    if ( !IsValidFindText() )
     {
         return;
     }
@@ -297,7 +297,7 @@ void FindReplace::FindText( Searchable::Direction direction )
             return;
         }
 
-        found = searchable->FindNext( GetSearchRegex(), direction );
+        found = searchable->FindNext( GetSearchRegex(), direction, GetSearchMode() == SearchMode_SpellCheck );
 
     }
     else 
@@ -325,7 +325,7 @@ void FindReplace::ReplaceText( Searchable::Direction direction )
 {
     clearMessage();
 
-    if ( ui.cbFind->lineEdit()->text().isEmpty() )
+    if ( !IsValidFindText() )
     {
         return;
     }
@@ -338,7 +338,7 @@ void FindReplace::ReplaceText( Searchable::Direction direction )
     {
         // If we have the matching text selected, replace it
         // This will not do anything if matching text is not selected.
-        searchable->ReplaceSelected( GetSearchRegex(), ui.cbReplace->lineEdit()->text(), direction );
+        searchable->ReplaceSelected( GetSearchRegex(), ui.cbReplace->lineEdit()->text(), direction, GetSearchMode() == SearchMode_SpellCheck );
     }
 
     if ( direction == Searchable::Direction_Up)
@@ -359,6 +359,7 @@ void FindReplace::SetCodeViewIfNeeded( bool force )
 {
     if ( force ||
             ( ( GetLookWhere() == FindReplace::LookWhere_AllHTMLFiles || 
+                    GetSearchMode() == FindReplace::SearchMode_SpellCheck ||
                     GetLookWhere() == FindReplace::LookWhere_SelectedHTMLFiles ) &&
                 m_MainWindow.GetCurrentContentTab().GetViewState() == ContentTab::ViewState_BookView ) ) 
     {
@@ -394,6 +395,10 @@ QString FindReplace::GetSearchRegex()
     else if ( GetSearchMode() == SearchMode_RegexDotall )
     {
             search = "(?s)" + search;
+    }
+	else if ( GetSearchMode() == SearchMode_SpellCheck && ui.cbFind->currentText().isEmpty() )
+    {
+        search = ".*";
     }
 
     return search;
@@ -450,7 +455,8 @@ int FindReplace::CountInFiles()
     return SearchOperations::CountInFiles(
             GetSearchRegex(),
             GetHTMLFiles(),
-            SearchOperations::CodeViewSearch );
+            SearchOperations::CodeViewSearch, 
+            GetSearchMode() == SearchMode_SpellCheck );
 }
 
 
@@ -465,7 +471,8 @@ int FindReplace::ReplaceInAllFiles()
             GetSearchRegex(),
             ui.cbReplace->lineEdit()->text(),
             GetHTMLFiles(),
-            SearchOperations::CodeViewSearch );
+            SearchOperations::CodeViewSearch,
+            GetSearchMode() == SearchMode_SpellCheck );
 
     // Update the content displayed in the current tab.
     m_MainWindow.GetCurrentContentTab().LoadTabContent();
@@ -484,7 +491,7 @@ bool FindReplace::FindInAllFiles( Searchable::Direction direction )
         searchable = GetAvailableSearchable();
         if ( searchable )
         {
-            found = searchable->FindNext( GetSearchRegex(), direction, false, false );
+            found = searchable->FindNext( GetSearchRegex(), direction, GetSearchMode() == SearchMode_SpellCheck, false, false);
         }
     }
 
@@ -518,7 +525,7 @@ bool FindReplace::FindInAllFiles( Searchable::Direction direction )
             searchable = GetAvailableSearchable();
             if ( searchable )
             {
-                found = searchable->FindNext( GetSearchRegex(), direction, true, false );
+                found = searchable->FindNext( GetSearchRegex(), direction, GetSearchMode() == SearchMode_SpellCheck, true, false );
             }
         }
         else
@@ -526,7 +533,7 @@ bool FindReplace::FindInAllFiles( Searchable::Direction direction )
             if ( searchable )
             {
                 // Check the part of the original file above the cursor
-                found = searchable->FindNext( GetSearchRegex(), direction, false, false );
+                found = searchable->FindNext( GetSearchRegex(), direction, GetSearchMode() == SearchMode_SpellCheck, false, false );
             }
         }
     }
@@ -728,6 +735,9 @@ FindReplace::SearchMode FindReplace::GetSearchMode()
     case FindReplace::SearchMode_RegexDotall:
         return static_cast<FindReplace::SearchMode>( mode );
         break;
+    case FindReplace::SearchMode_SpellCheck:
+        return static_cast<FindReplace::SearchMode>( mode );
+        break;
     default:
         return FindReplace::SearchMode_Normal;
     }
@@ -745,6 +755,12 @@ FindReplace::SearchDirection FindReplace::GetSearchDirection()
     default:
         return FindReplace::SearchDirection_Down;
     }
+}
+
+
+bool FindReplace::IsValidFindText()
+{
+    return  !ui.cbFind->lineEdit()->text().isEmpty() || GetSearchMode() == SearchMode_SpellCheck;
 }
 
 
@@ -841,12 +857,14 @@ void FindReplace::ExtendUI()
     ui.cbSearchMode->addItem( tr( "Case Sensitive" ), FindReplace::SearchMode_Case_Sensitive );
     ui.cbSearchMode->addItem( tr( "Regex" ), FindReplace::SearchMode_Regex );
     ui.cbSearchMode->addItem( tr( "Regex Dotall" ), FindReplace::SearchMode_RegexDotall );
+    ui.cbSearchMode->addItem( tr( "Spell Check" ), FindReplace::SearchMode_SpellCheck );
     ui.cbSearchMode->setToolTip( tr( "<p>Mode:</p>"
         "<dl>"
         "<dt><b>Normal</b><dd>Case in-sensitive search of exactly what you type</dd>"
         "<dt><b>Case Sensitive</b><dd>Case sensitive search of exactly what you type</dd>"
         "<dt><b>Regex</b><dd>Search for a pattern using Regular Expression syntax</dd>"
-        "<dt><b>Regex Dotall</b><dd>Search using Regular Expression syntax but automatically allow .* to match new lines</dd>"
+        "<dt><b>Regex Dotall</b><dd>Search using Regular Expression syntax but automatically allow <b>.*</b> to match new lines</dd>"
+        "<dt><b>Spell Check</b><dd>Search only misspelled words using Regular Expression syntax, or clear the Find text box to find all misspelled words</dd>"
         "</dl>" ) );
 
     ui.cbLookWhere->addItem( tr( "Current File" ), FindReplace::LookWhere_CurrentFile );

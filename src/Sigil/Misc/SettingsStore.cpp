@@ -20,6 +20,7 @@
 *************************************************************************/
 
 #include <QtCore/QCoreApplication>
+#include <QtGui/QDesktopServices>
 
 #include "Misc/SettingsStore.h"
 #include "sigil_constants.h"
@@ -31,8 +32,11 @@ static QString KEY_SPLIT_VIEW_ORDER = SETTINGS_GROUP + "/" + "split_view_order";
 static QString KEY_ZOOM_IMAGE = SETTINGS_GROUP + "/" + "zoom_image";
 static QString KEY_ZOOM_TEXT = SETTINGS_GROUP + "/" + "zoom_text";
 static QString KEY_ZOOM_WEB = SETTINGS_GROUP + "/" + "zoom_web";
-static QString KEY_DICTIONARY_NAME = SETTINGS_GROUP + "/" + "dictionary_name";
 static QString KEY_RENAME_TEMPLATE = SETTINGS_GROUP + "/" + "rename_template";
+static QString KEY_DICTIONARY_NAME = SETTINGS_GROUP + "/" + "dictionary_name";
+static QString KEY_SPELL_CHECK = SETTINGS_GROUP + "/" + "spell_check";
+static QString KEY_USER_DICTIONARY_FILE = SETTINGS_GROUP + "/" + "user_dictionary_file";
+static QString KEY_DICTIONARY_DIRECTORY = SETTINGS_GROUP + "/" + "dictionary_directory";
 
 SettingsStore::SettingsStore()
 #ifndef Q_WS_MAC
@@ -81,6 +85,25 @@ QString SettingsStore::dictionary()
 {
     clearSettingsGroup();
     return value(KEY_DICTIONARY_NAME, "en_US").toString();
+}
+
+bool SettingsStore::spellCheck()
+{
+    clearSettingsGroup();
+    return static_cast<bool>(value(KEY_SPELL_CHECK, true).toBool());
+}
+
+QString SettingsStore::userDictionaryFile()
+{
+    clearSettingsGroup();
+    QString file = defaultDictionaryDirectory() % "/user_dict.txt";
+    return value(KEY_USER_DICTIONARY_FILE, file).toString();
+}
+
+QString SettingsStore::dictionaryDirectory()
+{
+    clearSettingsGroup();
+    return value(KEY_DICTIONARY_DIRECTORY, defaultDictionaryDirectory()).toString();
 }
 
 QString SettingsStore::renameTemplate()
@@ -132,6 +155,24 @@ void SettingsStore::setDictionary(const QString &name)
     setValue(KEY_DICTIONARY_NAME, name);
 }
 
+void SettingsStore::setSpellCheck(bool enabled)
+{
+    clearSettingsGroup();
+    setValue(KEY_SPELL_CHECK, enabled);
+}
+
+void SettingsStore::setUserDictionaryFile(const QString &name)
+{
+    clearSettingsGroup();
+    setValue(KEY_USER_DICTIONARY_FILE, name);
+}
+
+void SettingsStore::setDictionaryDirectory(const QString &name)
+{
+    clearSettingsGroup();
+    setValue(KEY_DICTIONARY_DIRECTORY, name);
+}
+
 void SettingsStore::setRenameTemplate(const QString &name)
 {
     clearSettingsGroup();
@@ -143,4 +184,9 @@ void SettingsStore::clearSettingsGroup()
     while (!group().isEmpty()) {
         endGroup();
     }
+}
+
+QString SettingsStore::defaultDictionaryDirectory()
+{
+    return QDesktopServices::storageLocation(QDesktopServices::DataLocation) + "/dictionaries";
 }

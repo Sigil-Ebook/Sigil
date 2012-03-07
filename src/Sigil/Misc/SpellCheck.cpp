@@ -39,8 +39,6 @@
 #include <stdlib.h>
 #endif
 
-static const QString USER_DICT = "user_dict.txt";
-
 SpellCheck *SpellCheck::m_instance = 0;
 
 SpellCheck *SpellCheck::instance()
@@ -67,6 +65,7 @@ SpellCheck::~SpellCheck()
 
 QStringList SpellCheck::dictionaries()
 {
+    loadDictionaryNames();
     QStringList dicts;
     dicts = m_dictionaries.keys();
     dicts.sort();
@@ -217,18 +216,26 @@ void SpellCheck::replaceUserDictionaryWords(QStringList words)
     setDictionary(m_dictionaryName, true);
 }
 
-QString SpellCheck::dictionaryDirectory()
-{
-    return QDesktopServices::storageLocation(QDesktopServices::DataLocation) + "/dictionaries";
-}
-
 SpellCheck::SpellCheck() :
     m_hunspell(0),
     m_codec(0)
 {
+
+    loadDictionaryNames();
+
+    // Load the dictionary the user has selected if one was saved.
+    SettingsStore settings;
+    setDictionary(settings.dictionary());
+}
+
+
+void SpellCheck::loadDictionaryNames()
+{
     QStringList dictExts;
     dictExts << ".aff"
              << ".dic";
+
+    m_dictionaries.clear();
 
     const QString user_directory = dictionaryDirectory();
     QDir userDir(user_directory);
@@ -280,13 +287,16 @@ SpellCheck::SpellCheck() :
             }
         }
     }
+}
 
-    // Load the dictionary the user has selected if one was saved.
+QString SpellCheck::dictionaryDirectory()
+{
     SettingsStore settings;
-    setDictionary(settings.dictionary());
+    return settings.dictionaryDirectory();
 }
 
 QString SpellCheck::userDictionaryName() const
 {
-    return dictionaryDirectory() + "/" + USER_DICT;
+    SettingsStore settings;
+    return settings.userDictionaryFile();
 }

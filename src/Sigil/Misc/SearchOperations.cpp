@@ -32,6 +32,7 @@
 #include "Misc/SearchOperations.h"
 #include "Misc/Utility.h"
 #include "PCRE/PCRECache.h"
+#include "Misc/HTMLSpellCheck.h"
 #include "ResourceObjects/HTMLResource.h"
 #include "ResourceObjects/TextResource.h"
 #include "ViewEditors/Searchable.h"
@@ -43,7 +44,8 @@ using boost::tuple;
 
 int SearchOperations::CountInFiles( const QString &search_regex,
                                     QList< Resource* > resources,
-                                    SearchType search_type )
+                                    SearchType search_type,
+                                    bool check_spelling )
 {
     QProgressDialog progress( QObject::tr( "Counting occurrences.." ), QString(), 0, resources.count() );
     progress.setMinimumDuration( PROGRESS_BAR_MINIMUM_DURATION );
@@ -52,7 +54,7 @@ int SearchOperations::CountInFiles( const QString &search_regex,
     QObject::connect( &watcher, SIGNAL( progressValueChanged( int ) ), &progress, SLOT( setValue( int ) ) );
 
     watcher.setFuture( QtConcurrent::mappedReduced( resources, 
-                                                    boost::bind( CountInFile, search_regex, _1, search_type ),
+                                                    boost::bind( CountInFile, search_regex, _1, search_type, check_spelling ),
                                                     Accumulate ) );
 
     return watcher.result();
@@ -62,7 +64,8 @@ int SearchOperations::CountInFiles( const QString &search_regex,
 int SearchOperations::ReplaceInAllFIles( const QString &search_regex,
                                          const QString &replacement,
                                          QList< Resource* > resources, 
-                                         SearchType search_type )
+                                         SearchType search_type,
+                                         bool check_spelling )
 {
     QProgressDialog progress( QObject::tr( "Replacing search term..." ), QString(), 0, resources.count() );
     progress.setMinimumDuration( PROGRESS_BAR_MINIMUM_DURATION );
@@ -71,7 +74,7 @@ int SearchOperations::ReplaceInAllFIles( const QString &search_regex,
     QObject::connect( &watcher, SIGNAL( progressValueChanged( int ) ), &progress, SLOT( setValue( int ) ) );
 
     watcher.setFuture( QtConcurrent::mappedReduced( resources, 
-                                                    boost::bind( ReplaceInFile, search_regex, replacement, _1, search_type ),
+                                                    boost::bind( ReplaceInFile, search_regex, replacement, _1, search_type, check_spelling ),
                                                     Accumulate ) );
 
     return watcher.result();
@@ -80,7 +83,8 @@ int SearchOperations::ReplaceInAllFIles( const QString &search_regex,
 
 int SearchOperations::CountInFile( const QString &search_regex,
                                    Resource* resource, 
-                                   SearchType search_type )
+                                   SearchType search_type,
+                                   bool check_spelling )
 {
     QReadLocker locker( &resource->GetLock() );
 
@@ -88,7 +92,7 @@ int SearchOperations::CountInFile( const QString &search_regex,
 
     if ( html_resource )
     {
-        return CountInHTMLFile( search_regex, html_resource, search_type );
+        return CountInHTMLFile( search_regex, html_resource, search_type, check_spelling );
     }
 
     TextResource *text_resource = qobject_cast< TextResource* >( resource );
@@ -103,23 +107,30 @@ int SearchOperations::CountInFile( const QString &search_regex,
 }
 
 
+
 int SearchOperations::CountInHTMLFile( const QString &search_regex,
                                        HTMLResource* html_resource, 
-                                       SearchType search_type )
+                                       SearchType search_type, 
+                                       bool check_spelling )
 {
     if ( search_type == SearchOperations::CodeViewSearch )
     {
         const xc::DOMDocument &document = html_resource->GetDomDocumentForReading();
         const QString &text = CleanSource::PrettyPrint( XhtmlDoc::GetDomDocumentAsString( document ) );
 
-        //return Searchable::Count( search_regex, text );
-        return PCRECache::instance()->getObject( search_regex )->getEveryMatchInfo( text ).count();
+        if ( check_spelling )
+        {
+            return HTMLSpellCheck::CountMisspelledWords( text, 0, text.count(), search_regex );
+        }
+        else
+        {
+            return PCRECache::instance()->getObject( search_regex )->getEveryMatchInfo( text ).count();
+        }
     }
 
     //TODO: BookViewSearch
     return 0;
 }
-
 
 int SearchOperations::CountInTextFile( const QString &search_regex, TextResource* text_resource )
 {
@@ -131,7 +142,8 @@ int SearchOperations::CountInTextFile( const QString &search_regex, TextResource
 int SearchOperations::ReplaceInFile( const QString &search_regex,
                                      const QString &replacement, 
                                      Resource* resource, 
-                                     SearchType search_type )
+                                     SearchType search_type,
+                                     bool check_spelling )
 {
     QWriteLocker locker( &resource->GetLock() );
 
@@ -139,7 +151,7 @@ int SearchOperations::ReplaceInFile( const QString &search_regex,
 
     if ( html_resource )
     {
-        return ReplaceHTMLInFile( search_regex, replacement, html_resource, search_type );
+        return ReplaceHTMLInFile( search_regex, replacement, html_resource, search_type, check_spelling );
     }
 
     TextResource *text_resource = qobject_cast< TextResource* >( resource );
@@ -157,16 +169,26 @@ int SearchOperations::ReplaceInFile( const QString &search_regex,
 int SearchOperations::ReplaceHTMLInFile( const QString &search_regex,
                                          const QString &replacement, 
                                          HTMLResource* html_resource, 
-                                         SearchType search_type )
+                                         SearchType search_type,
+                                         bool check_spelling )
 {
     if ( search_type == SearchOperations::CodeViewSearch )
     {
         const QString &text = CleanSource::PrettyPrint( 
             XhtmlDoc::GetDomDocumentAsString( html_resource->GetDomDocumentForReading() ) );
     
+
         QString new_text;
         int count;
-        tie( new_text, count ) = PerformGlobalReplace( text, search_regex, replacement );
+
+        if ( check_spelling )
+        {
+            tie( new_text, count ) = PerformHTMLSpellCheckReplace( text, search_regex, replacement );
+        }
+        else
+        {
+            tie( new_text, count ) = PerformGlobalReplace( text, search_regex, replacement );
+        }
 
         html_resource->SetDomDocument( 
             XhtmlDoc::LoadTextIntoDocument( CleanSource::Rinse( new_text ) ) );
@@ -207,6 +229,39 @@ tuple< QString, int > SearchOperations::PerformGlobalReplace( const QString &tex
         {
             new_text.replace( match_info.at( i ).offset.first, match_info.at( i ).offset.second - match_info.at( i ).offset.first, replacement_text );
             count++;
+        }
+    }
+
+    return make_tuple( new_text, count );
+}
+
+
+tuple< QString, int > SearchOperations::PerformHTMLSpellCheckReplace( const QString &text, 
+                                                                      const QString &search_regex,
+                                                                      const QString &replacement )
+{
+    QString new_text = text;
+    int count = 0;
+    int offset = 0;
+
+    SPCRE *spcre = PCRECache::instance()->getObject( search_regex );
+
+    QList< HTMLSpellCheck::MisspelledWord > misspelled_words = HTMLSpellCheck::GetMisspelledWords( text, 0, text.count(), search_regex );
+
+    foreach ( HTMLSpellCheck::MisspelledWord misspelled_word, misspelled_words )
+    {
+        SPCRE::MatchInfo match_info = spcre->getFirstMatchInfo( misspelled_word.text );
+
+        if ( match_info.offset.first != -1 )
+        {
+            QString replacement_text;
+
+            if ( spcre->replaceText( Utility::Substring( match_info.offset.first, match_info.offset.second, misspelled_word.text), match_info.capture_groups_offsets, replacement, replacement_text ) )
+            {
+                new_text.replace( offset + misspelled_word.offset + match_info.offset.first, match_info.offset.second - match_info.offset.first, replacement_text );
+                offset += replacement_text.length() - ( match_info.offset.second - match_info.offset.first );
+                count++;
+            }
         }
     }
 

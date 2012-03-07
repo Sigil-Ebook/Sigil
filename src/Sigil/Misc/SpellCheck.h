@@ -56,6 +56,8 @@ public:
      */
     static QString dictionaryDirectory();
 
+    void loadDictionaryNames();
+
 private:
     SpellCheck();
 

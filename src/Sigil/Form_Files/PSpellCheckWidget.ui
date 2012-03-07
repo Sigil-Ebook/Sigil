@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>371</width>
-    <height>297</height>
+    <width>574</width>
+    <height>331</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -15,7 +15,7 @@
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_2">
    <item>
-    <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="0,1">
+    <layout class="QHBoxLayout" name="horizontalLayout_1" stretch="0,0,0">
      <item>
       <widget class="QLabel" name="label">
        <property name="text">
@@ -24,14 +24,34 @@
       </widget>
      </item>
      <item>
-      <widget class="QComboBox" name="dictionaries"/>
+      <widget class="QComboBox" name="dictionaries">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer1">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
      </item>
     </layout>
    </item>
    <item>
     <widget class="QGroupBox" name="groupBox">
      <property name="title">
-      <string>User Word List</string>
+      <string>User Dictionary Word List</string>
      </property>
      <layout class="QHBoxLayout" name="horizontalLayout">
       <item>
@@ -90,18 +110,64 @@
     </widget>
    </item>
    <item>
-    <layout class="QHBoxLayout" name="horizontalLayout_3">
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
      <item>
-      <widget class="QPushButton" name="openUserDictionaryLocation">
-       <property name="text">
-        <string>Open User Dictionary Location</string>
-       </property>
+      <widget class="QCheckBox" name="enableSpellCheck">
        <property name="toolTip">
-        <string>&lt;p&gt;Show the directory that is used for your personal Dictionary files.&lt;/p&gt;
+        <string>Highlight misspelled words in Code View. 
 
-&lt;p&gt;Your User Word List is stored here (in the file &lt;b&gt;user_dict.txt&lt;/b&gt;).&lt;/p&gt;
-
-&lt;p&gt;You can also store your own dictionary files in this location to add new dictionaries or to override the built-in dictionaries.&lt;/p&gt;</string>
+You can always search for misspelled words using Find &amp;amp; Replace by setting the mode to &amp;quot;Spell Check&amp;quot;.</string>
+       </property>
+       <property name="text">
+        <string>Enable automatic spell checking</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer2">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_4">
+     <item>
+      <widget class="QPushButton" name="pbUserDictionaryFile">
+       <property name="text">
+        <string>Set User Dictionary File</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer_2">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_5">
+     <item>
+      <widget class="QPushButton" name="pbDictionaryDirectory">
+       <property name="text">
+        <string>Set Additional Dictionaries Directory</string>
        </property>
       </widget>
      </item>

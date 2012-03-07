@@ -174,16 +174,29 @@ public:
 
     void UpdateDisplay();
 
+    SPCRE::MatchInfo GetMisspelledWord( const QString &text,
+                                        int start_offset,
+                                        int end_offset,
+                                        const QString &search_regex,
+                                        Searchable::Direction search_direction );
+
     bool FindNext( const QString &search_regex,
                    Searchable::Direction search_direction,
+                   bool check_spelling = false,
                    bool ignore_selection_offset = false,
                    bool wrap = true );
 
-    int Count( const QString &search_regex );
+    int Count( const QString &search_regex, 
+               bool check_spelling );
 
-    bool ReplaceSelected( const QString &search_regex, const QString &replacement, Searchable::Direction direction=Searchable::Direction_Down );
+    bool ReplaceSelected( const QString &search_regex, 
+                          const QString &replacement, 
+                          Searchable::Direction direction = Searchable::Direction_Down,
+                          bool check_spelling = false );
 
-    int ReplaceAll( const QString &search_regex, const QString &replacement );
+    int ReplaceAll( const QString &search_regex, 
+                    const QString &replacement, 
+                    bool check_spelling = false );
 
     QString GetSelectedText();
 
