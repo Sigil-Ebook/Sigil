@@ -49,7 +49,7 @@ static const QString TEMPLATE_TEXT =
     "<navMap>\n"
     "<navPoint id=\"navPoint-1\" playOrder=\"1\">\n"
     "  <navLabel>\n"
-    "    <text>" + QObject::tr( "Start" ) + "</text>\n"
+    "    <text>Start</text>\n"
     "  </navLabel>\n"
     "  <content src=\"Text/%1\" />\n"
     "</navPoint>\n"
