@@ -20,28 +20,22 @@
 *************************************************************************/
 
 #pragma once
-#ifndef LANGUAGEWIDGET_H
-#define LANGUAGEWIDGET_H
+#ifndef UILANGUAGE_H
+#define UILANGUAGE_H
 
-#include "PreferencesWidget.h"
-#include "ui_PLanguageWidget.h"
-
+class QStringList;
 
 /**
- * Preferences widget for language related preferences.
+ * UI Language routines
  */
-class LanguageWidget : public PreferencesWidget
+class UILanguage 
 {
+
 public:
-    LanguageWidget();
-    void saveSettings();
 
-private:
-    void readSettings();
+    static QStringList GetPossibleTranslationPaths();
 
-    QString m_UILanguage;
-
-    Ui::LanguageWidget ui;
+    static QStringList GetUILanguages();
 };
 
-#endif // LANGUAGEWIDGET_H
+#endif // UILANGUAGE_H

@@ -19,6 +19,7 @@
 **
 *************************************************************************/
 
+#include <QtCore/QLocale>
 #include <QtCore/QCoreApplication>
 #include <QtGui/QDesktopServices>
 
@@ -27,6 +28,7 @@
 
 static QString SETTINGS_GROUP = "user_preferences";
 static QString KEY_DEFAULT_METADATA_LANGUAGE = SETTINGS_GROUP + "/" + "default_metadata_lang";
+static QString KEY_UI_LANGUAGE = SETTINGS_GROUP + "/" + "ui_language";
 static QString KEY_SPLIT_VIEW_ORIENTATION = SETTINGS_GROUP + "/" + "split_view_orientation";
 static QString KEY_SPLIT_VIEW_ORDER = SETTINGS_GROUP + "/" + "split_view_order";
 static QString KEY_ZOOM_IMAGE = SETTINGS_GROUP + "/" + "zoom_image";
@@ -45,10 +47,16 @@ SettingsStore::SettingsStore()
 {
 }
 
+QString SettingsStore::uiLanguage()
+{
+    clearSettingsGroup();
+    return value(KEY_UI_LANGUAGE, "en" ).toString();
+}
+
 QString SettingsStore::defaultMetadataLang()
 {
     clearSettingsGroup();
-    return value(KEY_DEFAULT_METADATA_LANGUAGE, "English").toString();
+    return value(KEY_DEFAULT_METADATA_LANGUAGE, "en").toString();
 }
 
 Qt::Orientation SettingsStore::splitViewOrientation()
@@ -118,6 +126,12 @@ void SettingsStore::setDefaultMetadataLang(const QString &lang)
     setValue(KEY_DEFAULT_METADATA_LANGUAGE, lang);
 }
 
+void SettingsStore::setUILanguage(const QString &language_code)
+{
+    clearSettingsGroup();
+    setValue(KEY_UI_LANGUAGE, language_code);
+}
+
 void SettingsStore::setSplitViewOrientation(Qt::Orientation orientation)
 {
     clearSettingsGroup();
@@ -129,7 +143,6 @@ void SettingsStore::setSplitViewOrder(bool order )
     clearSettingsGroup();
     setValue(KEY_SPLIT_VIEW_ORDER, order);
 }
-
 
 void SettingsStore::setZoomImage(float zoom)
 {

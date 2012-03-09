@@ -33,6 +33,8 @@
 
 #include "BookManipulation/Book.h"
 #include "BookManipulation/BookNormalization.h"
+#include "Misc/SettingsStore.h"
+#include "Misc/UILanguage.h"
 #include "Exporters/ExporterFactory.h"
 #include "Importers/ImporterFactory.h"
 #include "MainUI/MainWindow.h"
@@ -195,30 +197,16 @@ int main( int argc, char *argv[] )
         QCoreApplication::setApplicationName( "sigil" );
         QCoreApplication::setApplicationVersion(SIGIL_VERSION);
 
-        // Setup the translator and load the translation for the current
-        // local the user's OS is using.
+        // Setup the translator and load the translation for the selected language
         QTextCodec::setCodecForTr(QTextCodec::codecForName("utf8"));
         QTranslator translator;
-        const QString qm_name = QString("sigil_%1").arg(QLocale::system().name());
-        // There are a few different places translations can be stored depending
-        // on the platform and where they were installed.
-        QStringList possible_qm_locaiton;
-    #ifdef Q_WS_X11
-        // The user can specify an env variable that points to the translation.
-        const QString env_qm_location = QString(getenv("SIGIL_TRANSLATIONS"));
-        if (!env_qm_location.isEmpty()) {
-            possible_qm_locaiton.append(env_qm_location);
-        }
-        // Possible location if the user installed from source.
-        // This really should be changed to be passed the install prefix given to
-        // cmake instead of guessing based upon the executable path.
-        possible_qm_locaiton.append(QCoreApplication::applicationDirPath() + "/../share/" + QCoreApplication::applicationName().toLower() + "/translations/");
-    #endif
-        possible_qm_locaiton.append(QLibraryInfo::location(QLibraryInfo::TranslationsPath));
-        possible_qm_locaiton.append(QCoreApplication::applicationDirPath() + "/translations");
+
+        SettingsStore settings;
+        const QString qm_name = QString("sigil_%1").arg(settings.uiLanguage());
+
         // Run though all locations and stop once we find and are able to load
         // an appropriate translation.
-        foreach (QString path, possible_qm_locaiton) {
+        foreach (QString path, UILanguage::GetPossibleTranslationPaths()) {
             if (QDir(path).exists()) {
                 if (translator.load(qm_name, path)) {
                     break;

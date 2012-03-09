@@ -23,6 +23,7 @@
 
 #include <QtCore/QBuffer>
 #include <QtCore/QFileInfo>
+#include <QtCore/QObject>
 
 #include "BookManipulation/CleanSource.h"
 #include "Exporters/NCXWriter.h"
@@ -48,7 +49,7 @@ static const QString TEMPLATE_TEXT =
     "<navMap>\n"
     "<navPoint id=\"navPoint-1\" playOrder=\"1\">\n"
     "  <navLabel>\n"
-    "    <text>Start</text>\n"
+    "    <text>" + QObject::tr( "Start" ) + "</text>\n"
     "  </navLabel>\n"
     "  <content src=\"Text/%1\" />\n"
     "</navPoint>\n"

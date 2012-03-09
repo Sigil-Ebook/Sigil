@@ -71,6 +71,8 @@ set( QOBJECT_HEADERS
     MainUI/ValidationResultsView.h
     Misc/AppEventFilter.h
     Misc/SettingsStore.h
+    Misc/Language.h
+    Misc/UILanguage.h
     Misc/UpdateChecker.h 
     Misc/RasterizeImageResource.h
     Misc/WrapIndicator.h
@@ -86,6 +88,7 @@ set( QOBJECT_HEADERS
     ResourceObjects/XMLResource.h
     BookManipulation/Book.h
     BookManipulation/FolderKeeper.h
+    BookManipulation/Metadata.h 
     Qxt/qxtconfirmationmessage.h
     )
 
@@ -215,6 +218,8 @@ set( MISC_FILES
     Misc/RasterizeImageResource.h
     Misc/SearchOperations.cpp
     Misc/SearchOperations.h
+    Misc/Language.cpp
+    Misc/UILanguage.cpp
     Misc/SettingsStore.cpp
     Misc/SettingsStore.h
     Misc/SpellCheck.cpp
@@ -335,7 +340,6 @@ set( SOURCEUPDATE_FILES
 set( QRC_FILES  
     Resource_Files/main/main.qrc
     Resource_Files/About/About.qrc
-    Resource_Files/data/data.qrc
     Resource_Files/javascript/javascript.qrc
     Resource_Files/icon/icon.qrc  
     )

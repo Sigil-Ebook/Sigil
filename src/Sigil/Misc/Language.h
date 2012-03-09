@@ -20,28 +20,43 @@
 *************************************************************************/
 
 #pragma once
-#ifndef LANGUAGEWIDGET_H
-#define LANGUAGEWIDGET_H
+#ifndef LANGUAGE_H
+#define LANGUAGE_H
 
-#include "PreferencesWidget.h"
-#include "ui_PLanguageWidget.h"
-
+#include <QtCore/QString>
+#include <QtCore/QStringList>
+#include <QtCore/QHash>
+#include <QtCore/QObject>
 
 /**
- * Preferences widget for language related preferences.
+ * Language routines
  */
-class LanguageWidget : public PreferencesWidget
+class Language : public QObject
 {
+    Q_OBJECT
+
 public:
-    LanguageWidget();
-    void saveSettings();
+    Language();
+
+    QString GetLanguageName( QString language_code );
+
+    QString GetLanguageCode( QString language_name );
+
+    QStringList GetSortedPrimaryLanguageNames();
+
+
+    static Language *instance();
 
 private:
-    void readSettings();
+    void SetLanguageMap();
 
-    QString m_UILanguage;
+    // Use hash since order is not important (sort later)
+    QHash<QString, QString> m_languageCodeMap;
+    QHash<QString, QString> m_languageNameMap;
 
-    Ui::LanguageWidget ui;
+    QStringList m_sortedPrimaryLanguageNames;
+
+    static Language *m_instance;
 };
 
-#endif // LANGUAGEWIDGET_H
+#endif // LANGUAGE_H

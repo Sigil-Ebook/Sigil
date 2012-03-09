@@ -24,25 +24,26 @@
 #define METADATA_Hc
 
 #include <QtCore/QHash>
-#include <QtCore/QMap>
 #include <QtCore/QVariant>
+#include <QtCore/QObject>
 
 #include "BookManipulation/XercesHUse.h"
 
 class QMutex;
 class QString;
 
-class Metadata
+class Metadata : public QObject
 {	
+    Q_OBJECT
 
 public:
 
     struct MetaInfo
     {
-        // The code for the relator (e.g "aut")
-        QString relator_code;
+        // The user-friendly name of the entry
+        QString name;
 
-        // The description of the relator
+        // The description of the entry
         QString description;
     };
 
@@ -62,11 +63,13 @@ public:
 
     static Metadata& Instance();
 
-    const QMap< QString, QString >&  GetLanguageMap();
-    const QMap< QString, MetaInfo >& GetRelatorMap();
-    const QMap< QString, MetaInfo >& GetBasicMetaMap();
-    const QHash< QString, QString >& GetFullRelatorNameHash();
-    const QHash< QString, QString >& GetFullLanguageNameHash();
+    const QHash< QString, MetaInfo >& GetRelatorMap();
+    const QHash< QString, MetaInfo >& GetBasicMetaMap();
+
+    bool IsRelator( QString code );
+
+    QString GetName( QString code );
+    QString GetCode( QString name );
 
     /**
      * Maps DC and <meta> metadata elements to "internal" MetaElements.
@@ -86,9 +89,6 @@ private:
     // Constructor is private because
     // this is a singleton class
     Metadata();
-
-    // Loads the languages and their codes from disk
-    void LoadLanguages();
 
     // Loads the basic metadata and their descriptions from disk
     void LoadBasicMetadata();
@@ -121,30 +121,24 @@ private:
 
     static Metadata *m_Instance;
 
-    // The keys are the full English language names
-    // and the values are the ISO 639-1 language codes
-    // (see http://www.loc.gov/standards/iso639-2/php/English_list.php );
-    QMap< QString, QString > m_Languages;
-
-    // The keys are the ISO 639-1 language codes
-    // and the values are the full English language names
-    // (see http://www.loc.gov/standards/iso639-2/php/English_list.php );
-    QHash< QString, QString > m_FullLanguages;
-
-    // The keys are the Dublin Core element names
+    // The keys are the untranslated Dublin Core element types
     // and the values are the MetaInfo structures
     // (see http://www.idpf.org/2007/opf/OPF_2.0_final_spec.html#Section2.2 );
-    QMap< QString, MetaInfo > m_Basic;
+    QHash< QString, MetaInfo > m_Basic;
 
-    // The keys are the full names of relators
+    // The keys are the Dublin Core element user-friendly names
+    // the values are the element types for those names
+    QHash< QString, QString > m_BasicFullNames;
+
+    // The keys are the MARC relator codes
     // and the values are the MetaInfo structures
     // (see http://www.loc.gov/marc/relators/relaterm.html );
-    QMap< QString, MetaInfo > m_Relators;
+    QHash< QString, MetaInfo > m_Relators;
 
-    // The keys are the MARC relator codes and
-    // the values are the full names of those relators
+    // The keys are the full relator names
+    // the values are the MARC relator codes
     // (e.g. aut -> Author )
-    QHash< QString, QString > m_FullRelators;
+    QHash< QString, QString > m_RelatorFullNames;
 
 };
 

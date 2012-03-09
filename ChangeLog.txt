@@ -1,4 +1,7 @@
 Sigil 0.5.4 TBA
+    - Implement issue 1265: Option to manually set UI language.
+    - Implement issue 1295: Meta Editor should support translations of descriptions/names
+    - Implement issue 77: Allow multiple <language> metadata elements in a book
     - Implement issue 1180:
         - Allow Find next misspelled word
             - Adds Spell Check mode to Find&Replace

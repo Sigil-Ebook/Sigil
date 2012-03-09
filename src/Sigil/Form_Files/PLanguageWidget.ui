@@ -15,16 +15,53 @@
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
-    <layout class="QHBoxLayout" name="horizontalLayout" stretch="0,1">
+    <layout class="QHBoxLayout" name="horizontalLayout" stretch="0,0">
      <item>
-      <widget class="QLabel" name="label">
-       <property name="text">
-        <string>Default meta editor language</string>
-       </property>
-      </widget>
+      <layout class="QGridLayout" name="gridLayout">
+       <item row="0" column="0">
+        <widget class="QLabel" name="label_ui">
+         <property name="toolTip">
+          <string>You must restart Sigil after changing the User Interface language.
+
+If a translation for specific word or phrase is not available it will be displayed in English.
+
+Use Preferences-&gt;Spell Check to set the Spell Check language.</string>
+         </property>
+         <property name="text">
+          <string>User Interface Language</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QComboBox" name="cbUILanguage"/>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="label_metaeditor">
+         <property name="toolTip">
+          <string>Set the default language used by the Meta Editor for new books.</string>
+         </property>
+         <property name="text">
+          <string>Default Language For Meta Editor:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QComboBox" name="cbMetadataLanguage"/>
+       </item>
+      </layout>
      </item>
      <item>
-      <widget class="QComboBox" name="metadataLang"/>
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
      </item>
     </layout>
    </item>
@@ -36,7 +73,7 @@
      <property name="sizeHint" stdset="0">
       <size>
        <width>20</width>
-       <height>237</height>
+       <height>100</height>
       </size>
      </property>
     </spacer>

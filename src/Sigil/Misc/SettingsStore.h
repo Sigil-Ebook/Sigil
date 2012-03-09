@@ -41,6 +41,13 @@ public:
     SettingsStore();
 
     /**
+     * The langauge to use for the user interface
+     *
+     * @return The language as a string.
+     */
+    QString uiLanguage();
+
+    /**
      * The default langauge to use when creating new books.
      *
      * @return The language as a string.
@@ -106,11 +113,19 @@ public:
 public slots:
 
     /**
+     * Set the language to use for the user interface
+     *
+     * @param lang The language to set.
+     */
+    void setUILanguage(const QString &language_code);
+
+    /**
      * Set the default language to use when creating new books.
      *
      * @param lang The language to set.
      */
     void setDefaultMetadataLang(const QString &lang);
+
     /**
      * Set the orientation of the split view.
      *

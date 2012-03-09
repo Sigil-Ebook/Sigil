@@ -32,6 +32,7 @@
 #include "BookManipulation/Metadata.h"
 #include "BookManipulation/XercesCppUse.h"
 #include "BookManipulation/XhtmlDoc.h"
+#include "Misc/Language.h"
 #include "Misc/Utility.h"
 #include "ResourceObjects/HTMLResource.h"
 #include "ResourceObjects/ImageResource.h"
@@ -410,6 +411,7 @@ QHash< QString, QList< QVariant > > OPFResource::GetDCMetadata() const
 
     foreach( xc::DOMElement *dc_element, dc_elements )
     {
+        // Map the names in the OPF file to internal names
         Metadata::MetaElement book_meta = Metadata::Instance().MapToBookMetadata( *dc_element );
 
         if ( !book_meta.name.isEmpty() && !book_meta.value.toString().isEmpty() )
@@ -1067,31 +1069,40 @@ void OPFResource::MetadataDispatcher(
 
         return;
 
+    // Write Relator codes
+    // The Author is always written as a Relator Code even when basic
+    // Though all author codes should have already been converted to relator
+    if ( metaname == "author" )
+    {
+        WriteCreatorOrContributor( "aut", metavalue.toString(), document );
+    }
     // There is a relator for the publisher, but there is
     // also a special publisher element that we would rather use
-    if (  Metadata::Instance().GetRelatorMap().contains( metaname ) &&
-          metaname != "Publisher"
-       )
+	else if (  Metadata::Instance().IsRelator( metaname ) &&
+		  metaname != "pub" )
     {
         WriteCreatorOrContributor( metaname, metavalue.toString(), document );
     }
-
-    else if ( metaname == "Language" )
+    else if ( metaname == "pub" )
     {
-        WriteSimpleMetadata( metaname.toLower(), 
-                             Metadata::Instance().GetLanguageMap()[ metavalue.toString() ],
+        WriteSimpleMetadata( "publisher", metavalue.toString(), document );
+    }
+    else if ( metaname == "language" )
+    {
+        WriteSimpleMetadata( metaname,
+                             Language::instance()->GetLanguageCode( metavalue.toString() ),
                              document );
     }
 
-    else if ( ( metaname == "ISBN" ) ||
-              ( metaname == "ISSN" ) ||
-              ( metaname == "DOI" )
+    else if ( metaname == "ISBN" ||
+              metaname == "ISSN" ||
+              metaname == "DOI" 
             )
     {
         WriteIdentifier( metaname, metavalue.toString(), document );
     }
 
-    else if ( metaname.contains( "Date" ) )
+    else if ( metaname == "publication" || metaname == "creation" || metaname == "modification" )
     {
         WriteDate( metaname, metavalue, document );		
     }
@@ -1099,20 +1110,20 @@ void OPFResource::MetadataDispatcher(
     // Everything else should be simple
     else
     {
-        WriteSimpleMetadata( metaname.toLower(), metavalue.toString(), document );
+        WriteSimpleMetadata( metaname, metavalue.toString(), document );
     }
 }
 
 
 void OPFResource::WriteCreatorOrContributor( 
-    const QString &metaname, 
+    const QString &role, 
     const QString &metavalue, 
     xc::DOMDocument &document )
 {
     // Authors get written as creators, all other relators
     // are written as contributors
-    QString element_name = metaname == "Author" ? "creator" : "contributor";
-    QString role = Metadata::Instance().GetRelatorMap()[ metaname ].relator_code;
+    QString element_name = role == "aut" ? "creator" : "contributor";
+
     QString value;
     QString file_as;
 
@@ -1202,16 +1213,9 @@ void OPFResource::WriteDate(
 {
     QString date = metavalue.toDate().toString( "yyyy-MM-dd" );
     
-    // The metaname should be "Date of X", where X is
-    // "publication", "creation" etc.
-    QStringList metaname_words = metaname.split( " " );
-    QString event_type = metaname_words.count() == 3          ? 
-                         metaname.split( " " )[ 2 ].toLower() :
-                         "publication";
-
     // This assumes that the "dc" prefix has been declared for the DC namespace
     xc::DOMElement *element = document.createElementNS( QtoX( DUBLIN_CORE_NS ), QtoX( "dc:date" ) );
-    element->setAttributeNS( QtoX( OPF_XML_NAMESPACE ), QtoX( "opf:event" ), QtoX( event_type ) );
+    element->setAttributeNS( QtoX( OPF_XML_NAMESPACE ), QtoX( "opf:event" ), QtoX( metaname) );
     element->setTextContent( QtoX( date ) );
 
     xc::DOMElement &metadata = GetMetadataElement( document );
@@ -1396,17 +1400,3 @@ void OPFResource::CreateMimetypes()
     m_Mimetypes[ "ttf"   ] = "application/x-font-ttf";
     m_Mimetypes[ "ttc"   ] = "application/x-font-truetype-collection";
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-

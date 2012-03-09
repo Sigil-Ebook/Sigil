@@ -17,7 +17,7 @@
    </sizepolicy>
   </property>
   <property name="windowTitle">
-   <string>Meta Editor</string>
+   <string>Meta Editor - Edit Book Details</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <property name="sizeConstraint">
@@ -34,6 +34,9 @@
         <widget class="QLabel" name="lbTitle">
          <property name="text">
           <string>Title:</string>
+         </property>
+         <property name="toolTip">
+          <string>The title of the book.  Required.</string>
          </property>
         </widget>
        </item>
@@ -52,6 +55,9 @@
          <property name="text">
           <string>Author:</string>
          </property>
+         <property name="toolTip">
+          <string>The author of the book.  Required.&lt;P&gt;Use a &lt;b&gt;;&lt;/b&gt; to separate multiple authors or use Add Advanced to add an additional Author or Contributor entry.&lt;/P&gt;</string>
+         </property>
         </widget>
        </item>
        <item row="1" column="1">
@@ -68,6 +74,9 @@
         <widget class="QLabel" name="lbLanguage">
          <property name="text">
           <string>Language:</string>
+         </property>
+         <property name="toolTip">
+          <string>The language of the book.  Required.&lt;P&gt;Use Add Basic to add additional optional languages.&lt;P&gt;Change the default language for new books in Preferences-&gt;Language.&lt;/P&gt;</string>
          </property>
         </widget>
        </item>

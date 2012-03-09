@@ -48,7 +48,7 @@ public:
      * @param metadata The metadata list that this dialog displays. \see Metadata
      * @param parent The dialog's parent.
      */
-    AddMetadata( const QMap< QString, Metadata::MetaInfo > &metadata, QWidget *parent = 0 );
+    AddMetadata( const QHash< QString, Metadata::MetaInfo > &metadata, QWidget *parent = 0 );
 
     /**
      * Destructor.
@@ -101,7 +101,7 @@ private:
      * Represents the metadata list that this dialog displays.
      * @see Metadata 
      */
-    const QMap< QString, Metadata::MetaInfo > &m_Metadata;
+    const QHash< QString, Metadata::MetaInfo > &m_Metadata;
 
     /**
      * Holds all the widgets Qt Designer created for us.

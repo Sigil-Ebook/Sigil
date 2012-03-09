@@ -24,6 +24,7 @@
 
 #include "Dialogs/MetaEditor.h"
 #include "Dialogs/AddMetadata.h"
+#include "Misc/Language.h"
 #include "Misc/SettingsStore.h"
 #include "ResourceObjects/OPFResource.h"
 
@@ -57,13 +58,13 @@ MetaEditor::MetaEditor( OPFResource &opf, QWidget *parent )
     ReadMetadataFromBook();
 
     // Set the default language to the users preference if possible.
-    if ( m_Metadata[ "Language" ].isEmpty() )
+    if ( m_Metadata[ "language" ].isEmpty() )
     {
         SettingsStore settings;
-        int index = ui.cbLanguages->findText( settings.defaultMetadataLang() );
+        int index = ui.cbLanguages->findText( Language::instance()->GetLanguageName( settings.defaultMetadataLang() ) );
         if ( index == -1 )
         {
-            index = ui.cbLanguages->findText( tr( "English" ) );
+            index = ui.cbLanguages->findText( Language::instance()->GetLanguageName( "en" ) );
             if ( index == -1 )
             {
                 index = 0;
@@ -129,7 +130,7 @@ void MetaEditor::AddEmptyMetadataToTable( const QStringList &metanames )
         // If we are inserting a date, that needs special treatment;
         // We need to insert it as a QDate object so the table interface
         // can automatically impose input restrictions
-        if ( metaname.contains( "Date" ) )
+        if ( metaname == "creation" || metaname == "modification" || metaname == "publication"  )
         {
             AddMetadataToTable( metaname, QDate::currentDate() );
         }
@@ -139,17 +140,21 @@ void MetaEditor::AddEmptyMetadataToTable( const QStringList &metanames )
             AddMetadataToTable( metaname, QString() );
         }
     }
+    m_MetaModel.sort( 0 );
 }
 
 
 void MetaEditor::AddMetadataToTable( const QString &metaname, const QVariant &metavalue )
 {
     m_MetaModel.insertRow( m_MetaModel.rowCount() );
-    m_MetaModel.setData( m_MetaModel.index( m_MetaModel.rowCount() - 1, 0 ), metaname );
 
-    // The user should not be able to edit
-    // the field with the metadata's name
+    // Add name - all translations done in Metadata for consistency
+    QString fullname = Metadata::Instance().GetName( metaname );
+    m_MetaModel.setData( m_MetaModel.index( m_MetaModel.rowCount() - 1, 0 ), fullname);
+    // Make sure name is not editable
     m_MetaModel.item( m_MetaModel.rowCount() - 1, 0 )->setEditable( false );
+
+    // Add value
     m_MetaModel.setData( m_MetaModel.index( m_MetaModel.rowCount() - 1, 1 ), metavalue );
 }
 
@@ -205,26 +210,30 @@ void MetaEditor::FillMetadataFromDialog()
     // Nothing should be lost as everything was loaded into the dialog
     ClearBookMetadata();
 
-    // For string-based metadata, create multiple entries
-    // if the typed in value contains semicolons
-    m_Metadata[ "Title"    ].append( InputsInField( ui.leTitle->text()            ) );
-    m_Metadata[ "Author"   ].append( InputsInField( ui.leAuthor->text()           ) );
-    m_Metadata[ "Language" ].append( InputsInField( ui.cbLanguages->currentText() ) );
 
+    // Save the required fields
+    // Author is stored using relator
+    m_Metadata[ "title"    ].append( InputsInField( ui.leTitle->text()            ) );
+    m_Metadata[ "aut"      ].append( InputsInField( ui.leAuthor->text()           ) );
+    m_Metadata[ "language" ].append( InputsInField( ui.cbLanguages->currentText() ) );
+
+    // Save the table
     for ( int row = 0; row < m_MetaModel.rowCount(); row++ )
     {
         QString name   = m_MetaModel.data( m_MetaModel.index( row, 0 ) ).toString();
         QVariant value = m_MetaModel.data( m_MetaModel.index( row, 1 ) );
 
+        // Mapping of translations to code done in Metadata for consistency
+        QString code = Metadata::Instance().GetCode( name );
         // For string-based metadata, create multiple entries
         // if the typed in value contains semicolons
-        if ( value.type() == QVariant::String && OkToSplitInput( name ) )
-        
-            m_Metadata[ name ].append( InputsInField( value.toString() ) );
+        if ( value.type() == QVariant::String && OkToSplitInput( code ) )
+
+            m_Metadata[ code ].append( InputsInField( value.toString() ) );
 
         else
             
-            m_Metadata[ name ].append( value );
+            m_Metadata[ code ].append( value );
     }
 
     m_OPF.SetDCMetadata( m_Metadata );
@@ -233,27 +242,34 @@ void MetaEditor::FillMetadataFromDialog()
 
 void MetaEditor::ReadMetadataFromBook()
 {
+    bool have_language = false;
     foreach ( QString name, m_Metadata.keys() )
     {
+        // Load data into one of the main fields or into the table
+        // The title and author fields can hold multiple semicolon 
+        // separated values but language is a single dropdown
         foreach ( QVariant single_value, m_Metadata[ name ] )
         {
-            if ( name == "Title" )
-
+            if ( name == "title" )
+            {
                 ui.leTitle->setText( AddValueToField( ui.leTitle->text(), single_value.toString() ) );
-
-            else if ( name == "Author" )
-
+            }
+            // Convert basic and relator authors to main Author field
+            else if ( name == "author" || name == "aut" )
+            {
                 ui.leAuthor->setText( AddValueToField( ui.leAuthor->text(), single_value.toString() ) );
-
-            else if ( name == "Language" )
-
+            }
+            else if ( name == "language" && !have_language)
+            {
                 ui.cbLanguages->setCurrentIndex( ui.cbLanguages->findText( single_value.toString() ) );
-
+                have_language = true;
+            }
             else
             
                 AddMetadataToTable( name, single_value );				
         }
     }
+    m_MetaModel.sort( 0);
 }
 
 
@@ -271,9 +287,7 @@ bool MetaEditor::OkToSplitInput( const QString &metaname )
     // The "description" and "rights" fields could have a semicolon
     // in the text and there's also little point in providing multiple
     // entries for these so we don't split them.
-    if ( metaname == "Description" ||
-         metaname == "Rights"
-        )
+    if ( metaname == "description" || metaname == "rights" )
     {
         return false;
     }		
@@ -309,7 +323,7 @@ QString MetaEditor::AddValueToField( const QString &field_value, const QString &
 
 void MetaEditor::FillLanguageComboBox()
 {
-    foreach ( QString lang, Metadata::Instance().GetLanguageMap().keys() )
+    foreach ( QString lang, Language::instance()->GetSortedPrimaryLanguageNames() )
     {
         ui.cbLanguages->addItem( lang );
     }	
@@ -396,12 +410,3 @@ void MetaEditor::PlatformSpecificTweaks()
     ui.formLayout->setVerticalSpacing( 13 );
 #endif
 }
-
-
-
-
-
-
-
-
-

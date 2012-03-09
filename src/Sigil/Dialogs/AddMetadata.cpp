@@ -27,7 +27,7 @@
 
 static const QString SETTINGS_GROUP = "add_metadata";
 
-AddMetadata::AddMetadata( const QMap< QString, Metadata::MetaInfo > &metadata, QWidget *parent )
+AddMetadata::AddMetadata( const QHash< QString, Metadata::MetaInfo > &metadata, QWidget *parent )
     : 
     QDialog( parent ),
     m_Metadata( metadata )
@@ -39,8 +39,15 @@ AddMetadata::AddMetadata( const QMap< QString, Metadata::MetaInfo > &metadata, Q
 
     connect( this, SIGNAL( accepted() ), this, SLOT( EmitSelection() ) );
 
-    // Filling the dialog with metadata names
-    foreach( QString name, m_Metadata.keys() )
+    // Fill the dialog with sorted translated metadata names
+    QStringList names;
+    foreach( QString code, m_Metadata.keys() )
+    {
+        names.append( Metadata::Instance().GetName(code));
+    }
+    names.sort();
+
+    foreach( QString name, names )
     {
         ui.lwProperties->addItem( name );
     }
@@ -57,7 +64,7 @@ AddMetadata::~AddMetadata()
 
 void AddMetadata::UpdateDescription( QListWidgetItem *current )
 {
-    QString text = m_Metadata.value( current->text() ).description;
+    QString text = m_Metadata.value( Metadata::Instance().GetCode( current->text() ) ).description;
 
     if ( !text.isEmpty() )
     
@@ -71,7 +78,7 @@ void AddMetadata::EmitSelection()
 
     foreach( QListWidgetItem *item, ui.lwProperties->selectedItems() )
     {
-        metadata.append( item->text() );
+        metadata.append( Metadata::Instance().GetCode( item->text() ) );
     }
 
     emit MetadataToAdd( metadata );
