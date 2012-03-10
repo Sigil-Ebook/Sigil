@@ -32,7 +32,7 @@
 
 using boost::tie;
 
-static const QString TEMPLATE_TEXT = 
+static const QString TEMPLATE_TEXT =
     "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
     "<!DOCTYPE ncx PUBLIC \"-//NISO//DTD ncx 2005-1//EN\"\n"
     "   \"http://www.daisy.org/z3986/2005/ncx-2005-1.dtd\">\n"
@@ -49,9 +49,9 @@ static const QString TEMPLATE_TEXT =
     "<navMap>\n"
     "<navPoint id=\"navPoint-1\" playOrder=\"1\">\n"
     "  <navLabel>\n"
-    "    <text>Start</text>\n"
+    "    <text>%1</text>\n"
     "  </navLabel>\n"
-    "  <content src=\"Text/%1\" />\n"
+    "  <content src=\"Text/%2\" />\n"
     "</navPoint>\n"
     "</navMap>\n"
     "</ncx>";
@@ -118,5 +118,5 @@ void NCXResource::GenerateNCXFromTOCContents( const Book &book, NCXModel &ncx_mo
 
 void NCXResource::FillWithDefaultText()
 {
-    SetText( TEMPLATE_TEXT.arg( FIRST_CHAPTER_NAME ) );
+    SetText( TEMPLATE_TEXT.arg( tr( "Start" ) ).arg( FIRST_CHAPTER_NAME ) );
 }
