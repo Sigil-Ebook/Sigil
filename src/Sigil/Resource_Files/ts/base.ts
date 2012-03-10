@@ -5734,6 +5734,14 @@ Please choose a different format.</source>
     </message>
 </context>
 <context>
+    <name>NCXResource</name>
+    <message>
+        <location filename="../../ResourceObjects/NCXResource.cpp" line="121"/>
+        <source>Start</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>OPFModel</name>
     <message>
         <location filename="../../MainUI/OPFModel.cpp" line="49"/>
