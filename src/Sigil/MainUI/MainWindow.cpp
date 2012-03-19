@@ -123,9 +123,11 @@ MainWindow::MainWindow( const QString &openfilepath, QWidget *parent, Qt::WFlags
     CreateRecentFilesActions();
     UpdateRecentFileActions();
 
-    ChangeSignalsWhenTabChanges( NULL, &m_TabManager.GetCurrentContentTab() );
+    ChangeSignalsWhenTabChanges(NULL, &m_TabManager.GetCurrentContentTab());
 
-    LoadInitialFile( openfilepath );
+    LoadInitialFile(openfilepath);
+    // Ensure the UI is setup properly for the default view state.
+    SetViewState(m_ViewState);
 }
 
 
@@ -1623,13 +1625,10 @@ void MainWindow::ExtendIconSizes()
 
 void MainWindow::LoadInitialFile( const QString &openfilepath )
 {
-    if ( !openfilepath.isEmpty() )
-    {
-        LoadFile( openfilepath );
+    if (!openfilepath.isEmpty()) {
+        LoadFile( openfilepath);
     }
-
-    else
-    {
+    else {
         CreateNewBook();
     }
 }

@@ -686,7 +686,7 @@ else()
     endforeach( DIC )
 
     # Copy CKE
-    add_custom_command( Target ${TARGET_FOR_COPY} POST_BUILD COMMAND cmake -E copy Resource_Files/javascript/cke ${MAIN_PACKAGE_DIR} )
+    add_custom_command( TARGET ${TARGET_FOR_COPY} POST_BUILD COMMAND cmake -E copy Resource_Files/javascript/cke ${MAIN_PACKAGE_DIR} )
 
     # Add libstdc++ to the package.
     if(UNIX)
@@ -773,6 +773,6 @@ if( UNIX AND NOT APPLE )
     install( FILES ${LINUX_DESKTOP_ICON_FILE} DESTINATION ${CMAKE_INSTALL_PREFIX}/share/pixmaps RENAME sigil.png )
     install( FILES ${QM_FILES} DESTINATION ${CMAKE_INSTALL_PREFIX}/share/sigil/translations )
     install( FILES ${DIC_FILES} DESTINATION ${CMAKE_INSTALL_PREFIX}/share/sigil/dictionaries )
-    install( FILES Resource_Files/javascript/ckdeditor DESTINATION ${CMAKE_INSTALL_PREFIX}/share/sigil )
+    install( DIRECTORY Resource_Files/javascript/ckdeditor DESTINATION ${CMAKE_INSTALL_PREFIX}/share/sigil )
 endif()
 

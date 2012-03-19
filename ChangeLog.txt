@@ -1,6 +1,6 @@
 Sigil 0.6.0 TBA
     - Replace Book View Editor with editor based on CKEditor.
-    - Split View is not Code View with a preview pane.
+    - Split View is now Code View with a preview pane.
     - Implement issue 1265: Option to manually set UI language.
     - Implement issue 1295: Meta Editor should support translations of descriptions/names
     - Implement issue 77: Allow multiple <language> metadata elements in a book
