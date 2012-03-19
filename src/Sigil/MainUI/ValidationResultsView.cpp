@@ -123,7 +123,7 @@ void ValidationResultsView::ResultDoubleClicked( QTableWidgetItem *item )
     {
         Resource &resource = m_Book->GetFolderKeeper().GetResourceByFilename( filename );
 
-        emit OpenResourceRequest( resource, false, QUrl(), ContentTab::ViewState_CodeView, line );
+        emit OpenResourceRequest( resource, false, QUrl(), MainWindow::ViewState_CodeView, line );
     }
 
     catch ( ResourceDoesNotExist& )

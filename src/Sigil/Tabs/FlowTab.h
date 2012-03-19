@@ -1,6 +1,7 @@
 /************************************************************************
 **
 **  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
+**  Copyright (C) 2012 John Schember <john@nachtimwald.com>
 **
 **  This file is part of Sigil.
 **
@@ -25,11 +26,13 @@
 
 #include <QtCore/QUrl>
 
+#include "MainUI/MainWindow.h"
 #include "Tabs/ContentTab.h"
 #include "Tabs/WellFormedContent.h"
 
 class QSplitter;
 class BookViewEditor;
+class BookViewPreview;
 class CodeViewEditor;
 class ViewEditor;
 class Resource;
@@ -59,11 +62,13 @@ public:
      */
     FlowTab( HTMLResource& resource, 
              const QUrl &fragment, 
-             ContentTab::ViewState view_state, 
+             MainWindow::ViewState view_state,
              int line_to_scroll_to = -1,
              QWidget *parent = 0 );
 
     ~FlowTab();
+
+    void RestoreCaret();
 
     // Overrides inherited from ContentTabs
 
@@ -77,26 +82,6 @@ public:
 
     bool PasteEnabled();
 
-    bool BoldChecked();
-
-    bool ItalicChecked();
-
-    bool UnderlineChecked();
-
-    bool StrikethroughChecked();
-
-    bool BulletListChecked();
-
-    bool NumberListChecked();
-
-    bool BookViewChecked();
-
-    bool SplitViewChecked();
-
-    bool CodeViewChecked();
-
-    QString GetCaretElementName();
-
     int GetCursorLine() const;
     int GetCursorColumn() const;
 
@@ -108,13 +93,9 @@ public:
 
     Searchable* GetSearchableContent();
 
-    ViewState GetViewState();
-
-    void SetViewState( ViewState new_view_state );
+    void SetViewState( MainWindow::ViewState new_view_state );
 
     bool IsLoadingFinished();
-
-    void ExecuteCaretUpdate();
 
     /**
      * Scrolls the tab to the specified fragment (if in Book View).
@@ -179,46 +160,6 @@ public slots:
     void Paste();
 
     /**
-     * Implements Bold action functionality.
-     */
-    void Bold();
-
-    /**
-     * Implements Italic action functionality.
-     */
-    void Italic();
-
-    /**
-     * Implements Underline action functionality.
-     */
-    void Underline();
-
-    /**
-     * Implements Strikethrough action functionality.
-     */
-    void Strikethrough();
-
-    /**
-     * Implements Align Left action functionality.
-     */
-    void AlignLeft();
-
-    /**
-     * Implements Center action functionality.
-     */
-    void Center();
-
-    /**
-     * Implements Align Right action functionality.
-     */
-    void AlignRight();
-
-    /**
-     * Implements Justify action functionality.
-     */
-    void Justify();
-
-    /**
      * Implements Split chapter action functionality.
      */
     void SplitChapter();
@@ -241,36 +182,6 @@ public slots:
      * @param image_path The full path to the image that should be inserted.
      */
     void InsertImage( const QString &image_path );
-
-    /**
-     * Implements Insert bulleted list action functionality.
-     */
-    void InsertBulletedList();
-
-    /**
-     * Implements Insert numbered list action functionality.
-     */
-    void InsertNumberedList();
-
-    /**
-     * Implements Decrease indent action functionality.
-     */
-    void DecreaseIndent();
-
-    /**
-     * Implements Increase indent action functionality.
-     */
-    void IncreaseIndent();
-
-    /**
-     * Implements Remove Formatting action functionality.
-     */
-    void RemoveFormatting();
-
-    /**
-     * Implements the heading combo box functionality.
-     */
-    void HeadingStyle( const QString& heading_type );
 
     /**
      * Implements Print Preview action functionality.
@@ -309,6 +220,8 @@ signals:
      * Emitted when the tab enters the Book View.
      */
     void EnteringBookView();
+
+    void EnteringBookPreview();
 
     /**
      * Emitted when the tab enters the Code View.
@@ -400,6 +313,8 @@ private:
      */
     void EnterBookView();
 
+    void EnterBookPreview();
+
     /**
      * Makes the Code View the current View.
      */
@@ -428,12 +343,6 @@ private:
      * Connects all the required signals to their respective slots.
      */
     void ConnectSignalsToSlots();
-
-    /**
-     * Connects all the required signals to their respective slots,
-     * after some initial setup work has been done.
-     */
-    void DelayedConnectSignalsToSlots();
 
 
     ///////////////////////////////
@@ -466,6 +375,8 @@ private:
      */
     BookViewEditor &m_wBookView;
 
+    BookViewPreview &m_wBookPreview;
+
     /**
      * The Code View Editor.
      * Displays and edits the raw code.
@@ -473,23 +384,15 @@ private:
     CodeViewEditor &m_wCodeView;
 
     /**
-     * Specifies which view was used last.
-     * \c True if the last view the user edited in was Book View.
-     */
-    bool m_IsLastViewBook; 
-
-    /**
-     * \c True when the user is using the Split View.
+     * This is used in a few different ways.
      *
-     * @note We need this variable because for some reason, 
-     *       checking for isVisible on both views doesn't work.
+     * 1) We store the requested view state for loading the document.
+     * 2) We store the current view state.
+     * 3) We compare the state of the view when entering to this in order
+     *    to determine if we have changed the view (BV, CV) in order to
+     *    load the latest content into the view.
      */
-    bool m_InSplitView;
-
-    /**
-     * The starting View state of the FlowTab.
-     */
-    ContentTab::ViewState m_StartingViewState;
+    MainWindow::ViewState m_ViewState;
 
     /**
      * The component used to display a dialog about 
@@ -502,6 +405,8 @@ private:
      * indicates whether it's safe to reload the tab content.
      */
     bool m_safeToLoad;
+
+    bool m_initialLoad;
 
 };
 

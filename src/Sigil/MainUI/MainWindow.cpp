@@ -1,6 +1,7 @@
 /************************************************************************
 **
 **  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
+**  Copyright (C) 2012  John Schember <john@nachtimwald.com>
 **
 **  This file is part of Sigil.
 **
@@ -92,7 +93,6 @@ MainWindow::MainWindow( const QString &openfilepath, QWidget *parent, Qt::WFlags
     m_Book( new Book() ),
     m_LastFolderOpen( QString() ),
     m_LastFolderSave( QString() ),
-    m_cbHeadings( NULL ),
     m_TabManager( *new TabManager( this ) ),
     m_BookBrowser( NULL ),
     m_FindReplace( new FindReplace( *this ) ),
@@ -100,11 +100,10 @@ MainWindow::MainWindow( const QString &openfilepath, QWidget *parent, Qt::WFlags
     m_ValidationResultsView( NULL ),
     m_slZoomSlider( NULL ),
     m_lbZoomLabel( NULL ),
-    m_headingMapper( new QSignalMapper( this ) ),
     c_SaveFilters( GetSaveFiltersMap() ),
     c_LoadFilters( GetLoadFiltersMap() ),
     m_CheckWellFormedErrors( true ),
-    m_ViewState( ContentTab::ViewState_BookView )
+    m_ViewState( MainWindow::ViewState_BookView )
 {
     ui.setupUi( this );
     
@@ -166,10 +165,22 @@ ContentTab& MainWindow::GetCurrentContentTab()
 }
 
 
-void MainWindow::OpenResource( Resource &resource, ContentTab::ViewState view_state )
+void MainWindow::OpenResource( Resource& resource,
+                               bool precede_current_tab,
+                               const QUrl &fragment,
+                               MainWindow::ViewState view_state,
+                               int line_to_scroll_to)
 {
-    m_TabManager.OpenResource( resource, false, QUrl(), view_state );
-    SetViewState(view_state);
+    MainWindow::ViewState vs = m_ViewState;
+    if (view_state != MainWindow::ViewState_Unknown) {
+        vs = view_state;
+    }
+
+    m_TabManager.OpenResource( resource, precede_current_tab, fragment, vs, line_to_scroll_to );
+
+    if (vs != m_ViewState) {
+        SetViewState(vs);
+    }
 }
 
 
@@ -401,7 +412,8 @@ void MainWindow::GoToLine()
 
     if ( line >= 1 )
     {
-        m_TabManager.OpenResource( m_TabManager.GetCurrentContentTab().GetLoadedResource(), false, QUrl(), ContentTab::ViewState_CodeView, line );
+        m_TabManager.OpenResource( m_TabManager.GetCurrentContentTab().GetLoadedResource(), false, QUrl(), MainWindow::ViewState_CodeView, line );
+        SetViewState(MainWindow::ViewState_CodeView);
     }
 }
 
@@ -463,41 +475,49 @@ void MainWindow::InsertImage()
 }
 
 
-void MainWindow::SetViewState( ContentTab::ViewState view_state )
+void MainWindow::SetViewState(MainWindow::ViewState view_state)
 {
-    ContentTab &tab = GetCurrentContentTab();
+    if (view_state == MainWindow::ViewState_Unknown) {
+        view_state = ViewState_BookView;
+    }
+
     m_ViewState = view_state;
-    tab.SetViewState( view_state );
+    UpdateViewState();
 }
 
 
 void MainWindow::SetTabViewState()
 {
-    SetViewState( m_ViewState );
+    SetViewState(m_ViewState);
 }
 
 
 void MainWindow::BookView()
 {
-    SetViewState( ContentTab::ViewState_BookView );
+    SetViewState( MainWindow::ViewState_BookView );
 }
 
 
 void MainWindow::SplitView()
 {
-    SetViewState( ContentTab::ViewState_SplitView );
+    SetViewState( MainWindow::ViewState_SplitView );
 }
 
 
 void MainWindow::CodeView()
 {
-    SetViewState( ContentTab::ViewState_CodeView );
+    SetViewState( MainWindow::ViewState_CodeView );
 }
 
 
+MainWindow::ViewState MainWindow::GetViewState()
+{
+    return m_ViewState;
+}
+
 void MainWindow::AnyCodeView()
 {
-    SetViewState( ContentTab::ViewState_AnyCodeView );
+    SetViewState( MainWindow::ViewState_CodeView );
 }
 
 
@@ -577,6 +597,45 @@ void MainWindow::ChangeSignalsWhenTabChanges( ContentTab* old_tab, ContentTab* n
 }
 
 
+void MainWindow::UpdateViewState()
+{
+    ContentTab &tab = GetCurrentContentTab();
+    Resource::ResourceType type = tab.GetLoadedResource().Type();
+
+    if (type == Resource::HTMLResourceType) {
+        if (m_ViewState == MainWindow::ViewState_CodeView) {
+            SetStateActionsCodeView();
+        }
+        else if (m_ViewState == MainWindow::ViewState_SplitView) {
+            SetStateActionsSplitView();
+        }
+        else {
+            if (m_ViewState != MainWindow::ViewState_BookView) {
+                m_ViewState = MainWindow::ViewState_BookView;
+            }
+            SetStateActionsBookView();
+        }
+
+        FlowTab *ftab = dynamic_cast<FlowTab *>(&tab);
+        if (ftab) {
+            ftab->SetViewState(m_ViewState);
+        }
+    }
+    else if (type == Resource::XMLResourceType ||
+             type == Resource::XPGTResourceType ||
+             type == Resource::OPFResourceType ||
+             type == Resource::NCXResourceType ||
+             type == Resource::TextResourceType ||
+             type == Resource::CSSResourceType)
+    {
+        SetStateActionsRawView();
+    }
+    else {
+        SetStateActionsStaticView();
+    }
+}
+
+
 void MainWindow::UpdateUIOnTabChanges()
 {
     ContentTab &tab = m_TabManager.GetCurrentContentTab();
@@ -592,20 +651,6 @@ void MainWindow::UpdateUIOnTabChanges()
     ui.actionCopy ->setEnabled( tab.CopyEnabled() );
     ui.actionPaste->setEnabled( tab.PasteEnabled() );
 
-    ui.actionBold     ->setChecked( tab.BoldChecked() );
-    ui.actionItalic   ->setChecked( tab.ItalicChecked() );
-    ui.actionUnderline->setChecked( tab.UnderlineChecked() );
-
-    ui.actionStrikethrough     ->setChecked( tab.StrikethroughChecked() );
-    ui.actionInsertBulletedList->setChecked( tab.BulletListChecked() );
-    ui.actionInsertNumberedList->setChecked( tab.NumberListChecked() );
-
-    ui.actionBookView ->setChecked( tab.BookViewChecked()  );
-    ui.actionSplitView->setChecked( tab.SplitViewChecked() );
-    ui.actionCodeView ->setChecked( tab.CodeViewChecked()  );  
-
-    SelectEntryInHeadingCombo( tab.GetCaretElementName() );    
-
     // State of zoom controls depends on current tab/view
     float zoom_factor = tab.GetZoomFactor();
     UpdateZoomLabel( zoom_factor );
@@ -613,31 +658,11 @@ void MainWindow::UpdateUIOnTabChanges()
 }
 
 
-// We need to enable/disable the WYSIWYG actions depending
-// on the new tab's "view state".  
 void MainWindow::UpdateUiWhenTabsSwitch()
 {
-    ContentTab &tab = m_TabManager.GetCurrentContentTab();
+    UpdateViewState();
 
-    if ( &tab == NULL )
-
-        return;
-
-    if ( tab.GetViewState() == ContentTab::ViewState_BookView )
-
-        SetStateActionsBookView();
-
-    else if ( tab.GetViewState() == ContentTab::ViewState_CodeView )
-
-        SetStateActionsCodeView();
-
-    else if ( tab.GetViewState() == ContentTab::ViewState_RawView )
-    
-        SetStateActionsRawView();
-
-    else 
-
-        SetStateActionsStaticView();
+    ContentTab &tab = GetCurrentContentTab();
 
     UpdateCursorPositionLabel(tab.GetCursorLine(), tab.GetCursorColumn());
 
@@ -650,87 +675,41 @@ void MainWindow::UpdateUiWhenTabsSwitch()
 
 void MainWindow::SetStateActionsBookView()
 {
-    ui.actionUndo->setEnabled( true );
-    ui.actionRedo->setEnabled( true );
+    ui.actionUndo->setEnabled(true);
+    ui.actionRedo->setEnabled(true);
 
-    ui.actionCut  ->setEnabled( true );  
-    ui.actionCopy ->setEnabled( true ); 
-    ui.actionPaste->setEnabled( true ); 
+    ui.actionCut->setEnabled(true);
+    ui.actionCopy->setEnabled(true);
+    ui.actionPaste->setEnabled(true);
 
-    ui.actionBookView ->setEnabled( true );
-    ui.actionSplitView->setEnabled( true );
-    ui.actionCodeView ->setEnabled( true );  
+    ui.actionBookView->setEnabled(true);
+    ui.actionSplitView->setEnabled(true);
+    ui.actionCodeView->setEnabled(true);
 
-    ui.actionBold         ->setEnabled( true );
-    ui.actionItalic       ->setEnabled( true );
-    ui.actionUnderline    ->setEnabled( true );
-    ui.actionStrikethrough->setEnabled( true );
+    ui.actionBookView->setChecked(true);
+    ui.actionSplitView->setChecked(false);
+    ui.actionCodeView->setChecked(false);
 
-    ui.actionAlignLeft ->setEnabled( true );
-    ui.actionCenter    ->setEnabled( true );
-    ui.actionAlignRight->setEnabled( true );
-    ui.actionJustify   ->setEnabled( true );
-
-    ui.actionInsertImage ->setEnabled( true );
-    ui.actionSplitChapter->setEnabled( true );
-
-    ui.actionInsertBulletedList->setEnabled( true );
-    ui.actionInsertNumberedList->setEnabled( true );
-
-    ui.actionDecreaseIndent->setEnabled( true );
-    ui.actionIncreaseIndent->setEnabled( true );
-
-    m_cbHeadings->setEnabled( true );
-    ui.actionHeading1->setEnabled( true );
-    ui.actionHeading2->setEnabled( true );
-    ui.actionHeading3->setEnabled( true );
-    ui.actionHeading4->setEnabled( true );
-    ui.actionHeading5->setEnabled( true );
-    ui.actionHeading6->setEnabled( true );
-    ui.actionHeadingNormal->setEnabled( true );
+    ui.actionInsertImage->setEnabled(true);
+    ui.actionSplitChapter->setEnabled(true);
 }
 
+void MainWindow::SetStateActionsSplitView()
+{
+    SetStateActionsBookView();
+
+    ui.actionBookView ->setChecked(false);
+    ui.actionSplitView->setChecked(true);
+    ui.actionCodeView ->setChecked(false);
+}
 
 void MainWindow::SetStateActionsCodeView()
 {
     SetStateActionsBookView();
 
-    // TODO: We shouldn't really disable these.
-    // The Code View should insert correct HTML
-    // when these are triggered
-
-    ui.actionBold         ->setEnabled( false );
-    ui.actionItalic       ->setEnabled( false );
-    ui.actionUnderline    ->setEnabled( false );
-    ui.actionStrikethrough->setEnabled( false );
-
-    ui.actionAlignLeft ->setEnabled( false );
-    ui.actionCenter    ->setEnabled( false );
-    ui.actionAlignRight->setEnabled( false );
-    ui.actionJustify   ->setEnabled( false );
-
-    ui.actionInsertBulletedList->setEnabled( false );
-    ui.actionInsertNumberedList->setEnabled( false );
-
-    ui.actionDecreaseIndent->setEnabled( false );
-    ui.actionIncreaseIndent->setEnabled( false );
-
-    m_cbHeadings->setEnabled( false );
-    ui.actionHeading1->setEnabled( false );
-    ui.actionHeading2->setEnabled( false );
-    ui.actionHeading3->setEnabled( false );
-    ui.actionHeading4->setEnabled( false );
-    ui.actionHeading5->setEnabled( false );
-    ui.actionHeading6->setEnabled( false );
-    ui.actionHeadingNormal->setEnabled( false );
-
-    ui.actionBold     ->setChecked( false );
-    ui.actionItalic   ->setChecked( false );
-    ui.actionUnderline->setChecked( false );
-
-    ui.actionStrikethrough     ->setChecked( false );
-    ui.actionInsertBulletedList->setChecked( false );
-    ui.actionInsertNumberedList->setChecked( false );
+    ui.actionBookView ->setChecked(false);
+    ui.actionSplitView->setChecked(false);
+    ui.actionCodeView ->setChecked(true);
 }
 
 
@@ -738,12 +717,16 @@ void MainWindow::SetStateActionsRawView()
 {
     SetStateActionsCodeView();
 
-    ui.actionBookView ->setEnabled( false );
-    ui.actionSplitView->setEnabled( false );
-    ui.actionCodeView->setEnabled( false );
+    ui.actionBookView->setEnabled(false);
+    ui.actionSplitView->setEnabled(false);
+    ui.actionCodeView->setEnabled(false);
 
-    ui.actionInsertImage->setEnabled( false );
-    ui.actionSplitChapter->setEnabled( false );
+    ui.actionBookView->setChecked(false);
+    ui.actionSplitView->setChecked(false);
+    ui.actionCodeView->setChecked(false);
+
+    ui.actionInsertImage->setEnabled(false);
+    ui.actionSplitChapter->setEnabled(false);
 }
 
 
@@ -751,12 +734,12 @@ void MainWindow::SetStateActionsStaticView()
 {
     SetStateActionsRawView();
 
-    ui.actionUndo->setEnabled( false );
-    ui.actionRedo->setEnabled( false );
+    ui.actionUndo->setEnabled(false);
+    ui.actionRedo->setEnabled(false);
 
-    ui.actionCut  ->setEnabled( false );  
-    ui.actionCopy ->setEnabled( false ); 
-    ui.actionPaste->setEnabled( false ); 
+    ui.actionCut->setEnabled(false);
+    ui.actionCopy->setEnabled(false);
+    ui.actionPaste->setEnabled(false);
 }
 
 
@@ -834,17 +817,10 @@ void MainWindow::CreateChapterBreakOldTab( QString content, HTMLResource& origin
 
     m_BookBrowser->Refresh();
 
-    FlowTab *flow_tab = qobject_cast< FlowTab* >( &GetCurrentContentTab() );
-
-    ContentTab::ViewState view_state = flow_tab->GetViewState();
-    if( view_state == ContentTab::ViewState_BookView )
-        view_state = ContentTab::ViewState_NoFocusBookView;
-    else
-        view_state = ContentTab::ViewState_NoFocusCodeView;
-
-    m_TabManager.OpenResource( html_resource, true, QUrl(), view_state );
+    OpenResource( html_resource, true, QUrl() );
 
     // We want the current tab to be scrolled to the top.
+    FlowTab *flow_tab = qobject_cast< FlowTab* >( &GetCurrentContentTab() );
     if ( flow_tab )
     {
         flow_tab->ScrollToTop();
@@ -963,7 +939,7 @@ void MainWindow::WriteSettings()
 
 bool MainWindow::MaybeSaveDialogSaysProceed()
 {
-    if ( isWindowModified() ) 
+    if ( isWindowModified() )
     {
         QMessageBox::StandardButton button_pressed;
 
@@ -1295,30 +1271,6 @@ void MainWindow::UpdateUiWithCurrentFile( const QString &fullfilepath )
 }
 
 
-void MainWindow::SelectEntryInHeadingCombo( const QString &element_name )
-{
-    QString select = "";
-
-    if ( !element_name.isEmpty() )
-    {
-        if ( ( element_name[ 0 ].toLower() == QChar( 'h' ) ) && ( element_name[ 1 ].isDigit() ) )
-
-            select = "Heading " + QString( element_name[ 1 ] );
-
-        else
-
-            select = "Normal";
-    }
-
-    else
-    {
-        select = "<Select heading>";
-    }
-
-    m_cbHeadings->setCurrentIndex( m_cbHeadings->findText( select ) );
-}
-
-
 void MainWindow::CreateRecentFilesActions()
 {
     for ( int i = 0; i < MAX_RECENT_FILES; ++i ) 
@@ -1447,39 +1399,10 @@ void MainWindow::ExtendUI()
     // Create the view menu to hide and show toolbars.
     ui.menuToolbars->addAction(ui.toolBarDonate->toggleViewAction());
     ui.menuToolbars->addAction(ui.toolBarFileActions->toggleViewAction());
-    ui.menuToolbars->addAction(ui.toolBarHeadings->toggleViewAction());
-    ui.menuToolbars->addAction(ui.toolBarIndents->toggleViewAction());
     ui.menuToolbars->addAction(ui.toolBarInsertions->toggleViewAction());
-    ui.menuToolbars->addAction(ui.toolBarLists->toggleViewAction());
-    ui.menuToolbars->addAction(ui.toolBarTextAlign->toggleViewAction());
-    ui.menuToolbars->addAction(ui.toolBarTextFormats->toggleViewAction());
     ui.menuToolbars->addAction(ui.toolBarTextManip->toggleViewAction());
     ui.menuToolbars->addAction(ui.toolBarTools->toggleViewAction());
     ui.menuToolbars->addAction(ui.toolBarViews->toggleViewAction());
-
-    // Creating the Heading combo box
-
-    m_cbHeadings = new QComboBox();
-
-    QStringList headings;
-    
-    // Currently cannot be translated because recieving function looks for the
-    // h to determine if it's normal or not.
-    headings << "<Select heading>"
-             << "Normal"
-             << "Heading 1"
-             << "Heading 2"
-             << "Heading 3"
-             << "Heading 4"
-             << "Heading 5"
-             << "Heading 6";
-
-    m_cbHeadings->addItems( headings );
-    m_cbHeadings->setToolTip(   "<p style='padding-top: 0.5em;'><b>Style with heading</b></p>"
-                                "<p style='margin-left: 0.5em;'>Style the selected text with a heading.</p>"
-                            );
-
-    ui.toolBarHeadings->addWidget( m_cbHeadings );
 
     m_lbCursorPosition = new QLabel( QString (""), statusBar() );
     statusBar()->addPermanentWidget( m_lbCursorPosition );
@@ -1557,27 +1480,6 @@ void MainWindow::ExtendUI()
 #ifndef Q_WS_MAC
     sm->registerAction(ui.actionPreferences, "MainWindow.Preferences");
 #endif
-    // Format
-    sm->registerAction(ui.actionBold, "MainWindow.Bold");
-    sm->registerAction(ui.actionItalic, "MainWindow.Italic");
-    sm->registerAction(ui.actionUnderline, "MainWindow.Underline");
-    sm->registerAction(ui.actionStrikethrough, "MainWindow.Strikethrough");
-    sm->registerAction(ui.actionHeadingNormal, "MainWindow.HeadingNormal");
-    sm->registerAction(ui.actionAlignLeft, "MainWindow.AlignLeft");
-    sm->registerAction(ui.actionCenter, "MainWindow.Center");
-    sm->registerAction(ui.actionAlignRight, "MainWindow.AlignRight");
-    sm->registerAction(ui.actionJustify, "MainWindow.Justify");
-    sm->registerAction(ui.actionInsertNumberedList, "MainWindow.InsertNumberedList");
-    sm->registerAction(ui.actionInsertBulletedList, "MainWindow.InsertBulletedList");
-    sm->registerAction(ui.actionIncreaseIndent, "MainWindow.IncreaseIndent");
-    sm->registerAction(ui.actionDecreaseIndent, "MainWindow.DecreaseIndent");
-    sm->registerAction(ui.actionHeading1, "MainWindow.Heading1");
-    sm->registerAction(ui.actionHeading2, "MainWindow.Heading2");
-    sm->registerAction(ui.actionHeading3, "MainWindow.Heading3");
-    sm->registerAction(ui.actionHeading4, "MainWindow.Heading4");
-    sm->registerAction(ui.actionHeading5, "MainWindow.Heading5");
-    sm->registerAction(ui.actionHeading6, "MainWindow.Heading6");
-    sm->registerAction(ui.actionRemoveFormatting, "MainWindow.RemoveFormatting");
     // View
     sm->registerAction(ui.actionBookView, "MainWindow.BookView");
     sm->registerAction(ui.actionSplitView, "MainWindow.SplitView");
@@ -1657,37 +1559,9 @@ void MainWindow::ExtendIconSizes()
     icon.addFile(QString::fromUtf8(":/main/document-well-formed_check_16px.png"));
     ui.actionCheckWellFormedErrors->setIcon(icon);
 
-    icon = ui.actionAlignLeft->icon();
-    icon.addFile(QString::fromUtf8(":/main/format-justify-left_16px.png"));
-    ui.actionAlignLeft->setIcon(icon);
-
-    icon = ui.actionAlignRight->icon();
-    icon.addFile(QString::fromUtf8(":/main/format-justify-right_16px.png"));
-    ui.actionAlignRight->setIcon(icon);
-
-    icon = ui.actionCenter->icon();
-    icon.addFile(QString::fromUtf8(":/main/format-justify-center_16px.png"));
-    ui.actionCenter->setIcon(icon);
-
-    icon = ui.actionJustify->icon();
-    icon.addFile(QString::fromUtf8(":/main/format-justify-fill_16px.png"));
-    ui.actionJustify->setIcon(icon);
-
-    icon = ui.actionBold->icon();
-    icon.addFile(QString::fromUtf8(":/main/format-text-bold_16px.png"));
-    ui.actionBold->setIcon(icon);
-
-    icon = ui.actionItalic->icon();
-    icon.addFile(QString::fromUtf8(":/main/format-text-italic_16px.png"));
-    ui.actionItalic->setIcon(icon);
-
     icon = ui.actionOpen->icon();
     icon.addFile(QString::fromUtf8(":/main/document-open_16px.png"));
     ui.actionOpen->setIcon(icon);
-
-    icon = ui.actionUnderline->icon();
-    icon.addFile(QString::fromUtf8(":/main/format-text-underline_16px.png"));
-    ui.actionUnderline->setIcon(icon);
 
     icon = ui.actionExit->icon();
     icon.addFile(QString::fromUtf8(":/main/process-stop_16px.png"));
@@ -1717,18 +1591,6 @@ void MainWindow::ExtendIconSizes()
     icon.addFile(QString::fromUtf8(":/main/insert-image_16px.png"));
     ui.actionInsertImage->setIcon(icon);
 
-    icon = ui.actionInsertNumberedList->icon();
-    icon.addFile(QString::fromUtf8(":/main/insert-numbered-list_16px.png"));
-    ui.actionInsertNumberedList->setIcon(icon);
-
-    icon = ui.actionInsertBulletedList->icon();
-    icon.addFile(QString::fromUtf8(":/main/insert-bullet-list_16px.png"));
-    ui.actionInsertBulletedList->setIcon(icon);
-
-    icon = ui.actionStrikethrough->icon();
-    icon.addFile(QString::fromUtf8(":/main/format-text-strikethrough_16px.png"));
-    ui.actionStrikethrough->setIcon(icon);
-
     icon = ui.actionPrint->icon();
     icon.addFile(QString::fromUtf8(":/main/document-print_16px.png"));
     ui.actionPrint->setIcon(icon);
@@ -1748,14 +1610,6 @@ void MainWindow::ExtendIconSizes()
     icon = ui.actionFind->icon();
     icon.addFile(QString::fromUtf8(":/main/edit-find_16px.png"));
     ui.actionFind->setIcon(icon);
-
-    icon = ui.actionIncreaseIndent->icon();
-    icon.addFile(QString::fromUtf8(":/main/format-indent-more_16px.png"));
-    ui.actionIncreaseIndent->setIcon(icon);
-
-    icon = ui.actionDecreaseIndent->icon();
-    icon.addFile(QString::fromUtf8(":/main/format-indent-less_16px.png"));
-    ui.actionDecreaseIndent->setIcon(icon);
 
     icon = ui.actionTidyClean->icon();
     icon.addFile(QString::fromUtf8(":/main/edit-clear_16px.png"));
@@ -1783,22 +1637,6 @@ void MainWindow::LoadInitialFile( const QString &openfilepath )
 
 void MainWindow::ConnectSignalsToSlots()
 {
-    // Setup signal mapping for heading actions.
-    connect( ui.actionHeading1, SIGNAL( triggered() ), m_headingMapper, SLOT( map() ) );
-    m_headingMapper->setMapping( ui.actionHeading1, "1" );
-    connect( ui.actionHeading2, SIGNAL( triggered() ), m_headingMapper, SLOT( map() ) );
-    m_headingMapper->setMapping( ui.actionHeading2, "2" );
-    connect( ui.actionHeading3, SIGNAL( triggered() ), m_headingMapper, SLOT( map() ) );
-    m_headingMapper->setMapping( ui.actionHeading3, "3" );
-    connect( ui.actionHeading4, SIGNAL( triggered() ), m_headingMapper, SLOT( map() ) );
-    m_headingMapper->setMapping( ui.actionHeading4, "4" );
-    connect( ui.actionHeading5, SIGNAL( triggered() ), m_headingMapper, SLOT( map() ) );
-    m_headingMapper->setMapping( ui.actionHeading5, "5" );
-    connect( ui.actionHeading6, SIGNAL( triggered() ), m_headingMapper, SLOT( map() ) );
-    m_headingMapper->setMapping( ui.actionHeading6, "6" );
-    connect( ui.actionHeadingNormal, SIGNAL( triggered() ), m_headingMapper, SLOT( map() ) );
-    m_headingMapper->setMapping( ui.actionHeadingNormal, "Normal" );
-
     connect( ui.actionExit,          SIGNAL( triggered() ), qApp, SLOT( closeAllWindows()          ) );
     connect( ui.actionClose,         SIGNAL( triggered() ), this, SLOT( close()                    ) );
     connect( ui.actionNew,           SIGNAL( triggered() ), this, SLOT( New()                      ) );
@@ -1832,7 +1670,6 @@ void MainWindow::ConnectSignalsToSlots()
     connect( ui.actionPreferences,   SIGNAL( triggered() ), this, SLOT( PreferencesDialog()        ) );
     connect( ui.actionValidateEpub,  SIGNAL( triggered() ), this, SLOT( ValidateEpub()             ) );
 
-    
     connect( ui.actionNextTab,       SIGNAL( triggered() ), &m_TabManager, SLOT( NextTab()     ) );
     connect( ui.actionPreviousTab,   SIGNAL( triggered() ), &m_TabManager, SLOT( PreviousTab() ) );
     connect( ui.actionCloseTab,      SIGNAL( triggered() ), &m_TabManager, SLOT( CloseTab()    ) );
@@ -1879,18 +1716,18 @@ void MainWindow::ConnectSignalsToSlots()
              &m_TabManager, SLOT(   RemoveTab() ) );
 
     connect( m_BookBrowser, SIGNAL( ResourceActivated( Resource& ) ),
-             &m_TabManager, SLOT(   OpenResource(          Resource& ) ) );
+             this, SLOT(   OpenResource(          Resource& ) ) );
 
     connect( m_BookBrowser, SIGNAL( OpenResourceRequest( Resource&, bool, const QUrl& ) ),
-             &m_TabManager, SLOT(   OpenResource(        Resource&, bool, const QUrl& ) ) );
+             this, SLOT(   OpenResource(        Resource&, bool, const QUrl& ) ) );
 
     connect( m_TableOfContents, SIGNAL( OpenResourceRequest( Resource&, bool, const QUrl& ) ),
-             &m_TabManager,     SLOT(   OpenResource(        Resource&, bool, const QUrl& ) ) );
+             this,     SLOT(   OpenResource(        Resource&, bool, const QUrl& ) ) );
 
     connect( m_ValidationResultsView, 
-                SIGNAL( OpenResourceRequest( Resource&, bool, const QUrl&, ContentTab::ViewState, int ) ),
-             &m_TabManager,          
-                SLOT(   OpenResource(        Resource&, bool, const QUrl&, ContentTab::ViewState, int ) ) );
+                SIGNAL( OpenResourceRequest( Resource&, bool, const QUrl&, MainWindow::ViewState, int ) ),
+             this,
+                SLOT(   OpenResource(        Resource&, bool, const QUrl&, MainWindow::ViewState, int ) ) );
     
     connect( &m_TabManager, SIGNAL( OpenUrlRequest(  const QUrl& ) ),
              m_BookBrowser, SLOT(   OpenUrlResource( const QUrl& ) ) );
@@ -1920,38 +1757,22 @@ void MainWindow::MakeTabConnections( ContentTab *tab )
 
     if (tab->GetLoadedResource().Type() == Resource::HTMLResourceType )
     {
-        connect( ui.actionBold,                     SIGNAL( triggered() ),  tab,   SLOT( Bold()                     ) );
-        connect( ui.actionItalic,                   SIGNAL( triggered() ),  tab,   SLOT( Italic()                   ) );
-        connect( ui.actionUnderline,                SIGNAL( triggered() ),  tab,   SLOT( Underline()                ) );
-    
-        connect( ui.actionStrikethrough,            SIGNAL( triggered() ),  tab,   SLOT( Strikethrough()            ) );
-        connect( ui.actionAlignLeft,                SIGNAL( triggered() ),  tab,   SLOT( AlignLeft()                ) );
-        connect( ui.actionCenter,                   SIGNAL( triggered() ),  tab,   SLOT( Center()                   ) );
-        connect( ui.actionAlignRight,               SIGNAL( triggered() ),  tab,   SLOT( AlignRight()               ) );
-        connect( ui.actionJustify,                  SIGNAL( triggered() ),  tab,   SLOT( Justify()                  ) );
         connect( ui.actionSplitChapter,             SIGNAL( triggered() ),  tab,   SLOT( SplitChapter()             ) );
         connect( ui.actionInsertSGFChapterMarker,   SIGNAL( triggered() ),  tab,   SLOT( InsertSGFChapterMarker()   ) );
         connect( ui.actionSplitOnSGFChapterMarkers, SIGNAL( triggered() ),  tab,   SLOT( SplitOnSGFChapterMarkers() ) );
-        
-        connect( ui.actionInsertBulletedList,       SIGNAL( triggered() ),  tab,   SLOT( InsertBulletedList()       ) );
-        connect( ui.actionInsertNumberedList,       SIGNAL( triggered() ),  tab,   SLOT( InsertNumberedList()       ) );
-        connect( ui.actionDecreaseIndent,           SIGNAL( triggered() ),  tab,   SLOT( DecreaseIndent()           ) );
-        connect( ui.actionIncreaseIndent,           SIGNAL( triggered() ),  tab,   SLOT( IncreaseIndent()           ) );
-        connect( ui.actionRemoveFormatting,         SIGNAL( triggered() ),  tab,   SLOT( RemoveFormatting()         ) );
-    
+
         connect( ui.actionPrintPreview,             SIGNAL( triggered() ),  tab,   SLOT( PrintPreview()             ) );
         connect( ui.actionPrint,                    SIGNAL( triggered() ),  tab,   SLOT( Print()                    ) );
         connect( this,                              SIGNAL( SettingsChanged()), tab, SLOT( LoadSettings()           ) );
-    
-        connect( m_cbHeadings, SIGNAL( activated( const QString& ) ),  tab,   SLOT( HeadingStyle( const QString& ) ) );
-        connect( m_headingMapper, SIGNAL( mapped( const QString& ) ),  tab,   SLOT( HeadingStyle( const QString& ) ) );
     
         connect( tab,   SIGNAL( ViewButtonsStateChanged() ),    this,          SLOT( UpdateUIOnTabChanges()    ) );
         connect( tab,   SIGNAL( ViewChanged() ),                this,          SLOT( UpdateUIOnTabChanges()    ) );
         connect( tab,   SIGNAL( SelectionChanged() ),           this,          SLOT( UpdateUIOnTabChanges()    ) );
         connect( tab,   SIGNAL( EnteringBookView() ),           this,          SLOT( SetStateActionsBookView() ) );
+        connect( tab,   SIGNAL( EnteringBookPreview() ),        this,          SLOT( SetStateActionsSplitView() ) );
         connect( tab,   SIGNAL( EnteringCodeView() ),           this,          SLOT( SetStateActionsCodeView() ) );
         connect( tab,   SIGNAL( EnteringBookView() ),           this,          SLOT( UpdateZoomControls()      ) );
+        connect( tab,   SIGNAL( EnteringBookPreview() ),        this,          SLOT( UpdateZoomControls() ) );
         connect( tab,   SIGNAL( EnteringCodeView() ),           this,          SLOT( UpdateZoomControls()      ) );
     }
 
@@ -1973,32 +1794,12 @@ void MainWindow::BreakTabConnections( ContentTab *tab )
     disconnect( ui.actionCut,                       0, tab, 0 );
     disconnect( ui.actionCopy,                      0, tab, 0 );
     disconnect( ui.actionPaste,                     0, tab, 0 );
-    disconnect( ui.actionBold,                      0, tab, 0 );
-    disconnect( ui.actionItalic,                    0, tab, 0 );
-    disconnect( ui.actionUnderline,                 0, tab, 0 );
-    disconnect( ui.actionStrikethrough,             0, tab, 0 );
-    disconnect( ui.actionAlignLeft,                 0, tab, 0 );
-    disconnect( ui.actionCenter,                    0, tab, 0 );
-    disconnect( ui.actionAlignRight,                0, tab, 0 );
-    disconnect( ui.actionJustify,                   0, tab, 0 );
     disconnect( ui.actionSplitChapter,              0, tab, 0 );
     disconnect( ui.actionInsertSGFChapterMarker,    0, tab, 0 );
     disconnect( ui.actionSplitOnSGFChapterMarkers,  0, tab, 0 );
-    disconnect( ui.actionInsertBulletedList,        0, tab, 0 );
-    disconnect( ui.actionInsertNumberedList,        0, tab, 0 );
-    disconnect( ui.actionDecreaseIndent,            0, tab, 0 );
-    disconnect( ui.actionIncreaseIndent,            0, tab, 0 );
-    disconnect( ui.actionRemoveFormatting,          0, tab, 0 );
 
     disconnect( ui.actionPrintPreview,              0, tab, 0 );
     disconnect( ui.actionPrint,                     0, tab, 0 );
-
-    disconnect( ui.actionBookView,                  0, tab, 0 );
-    disconnect( ui.actionSplitView,                 0, tab, 0 );
-    disconnect( ui.actionCodeView,                  0, tab, 0 );   
-
-    disconnect( m_cbHeadings,                       0, tab, 0 );
-    disconnect( m_headingMapper,                    0, tab, 0 );
 
     disconnect( tab,                                0, this, 0 );
     disconnect( tab,                                0, m_Book.data(), 0 );

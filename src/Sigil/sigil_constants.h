@@ -77,4 +77,6 @@ extern const float ZOOM_MIN;
 extern const float ZOOM_MAX;
 extern const float ZOOM_NORMAL;
 
+extern const QString SET_CURSOR_JS;
+
 #endif // SG_CONSTANTS_H

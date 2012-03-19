@@ -23,18 +23,11 @@
 #ifndef HTMLRESOURCE_H
 #define HTMLRESOURCE_H
 
-#include <boost/shared_ptr.hpp>
-
 #include <QtCore/QHash>
 
 #include "BookManipulation/GuideSemantics.h"
-#include "BookManipulation/XercesHUse.h"
-#include "ResourceObjects/Resource.h"
+#include "ResourceObjects/XMLResource.h"
 
-using boost::shared_ptr;
-
-class QWebPage;
-class QTextDocument;
 class QString;
 
 
@@ -42,15 +35,15 @@ class QString;
  * Represents an HTML file of the book.
  * Stores several caches of the content for faster access.
  * There's a QWebPage cache that stores the rendered form of
- * the HTML and a QTextDocument cache that stores the syntax 
+ * the HTML and a QTextDocument cache that stores the syntax
  * colored version.
  */
-class HTMLResource : public Resource 
+class HTMLResource : public XMLResource
 {
     Q_OBJECT
 
 public:
-    
+
     /**
      * Constructor.
      *
@@ -73,92 +66,9 @@ public:
     // inherited
     virtual ResourceType Type() const;
 
-    /**
-     * The QWebPage instance for rendering this HTML resource.
-     *
-     * @return A reference to the QWebPage instance.
-     */
-    QWebPage& GetWebPage();
+    void SetText(const QString &text);
 
-    /**
-     * The text document for editing the HTML source code.
-     * 
-     * @return An reference to the QTextDocument instance.
-     */
-    QTextDocument& GetTextDocument();
-
-    /**
-     * Sets the DOM document that is *the* representaion of the 
-     * resource's content.
-     *
-     * @param document The new Dom instance.
-     */
-    void SetDomDocument( shared_ptr< xc::DOMDocument > document );
-
-    /**
-     * Returns a const reference to the DOM document that can be read
-     * in consumers. If you need write access, use GetDomDocumentForWriting().
-     *
-     * @warning Make sure to get a read lock externally before calling this function!
-     *
-     * @return A const reference to the Dom.
-     */
-    const xc::DOMDocument& GetDomDocumentForReading();
-
-    /**
-     * Returns a reference to the DOM document that can be read and written to
-     * in consumers. If you need just read access, use GetDomDocumentForReading().
-     *
-     * @warning Make sure to get a write lock externally before calling this function!
-     * @warning Call MarkSecondaryCachesAsOld() if you updated the document!
-     *
-     * @return A const reference to the Dom.
-     */
-    xc::DOMDocument& GetDomDocumentForWriting();
-
-    /**
-     * Marks the QTextDocument and QWebPage as needing a update/refresh.
-     */
-    void MarkSecondaryCachesAsOld();
-
-    // All of these Update* functions may look silly and complex,
-    // but updating only the parts that are needed improves
-    // performance *considerably*.
-    // They are always called only from the GUI thread.
-
-    /**
-     * Updates the DOM document from the content of the QWebPage.
-     *
-     * @warning Only ever call this from the GUI thread.
-     */ 
-    void UpdateDomDocumentFromWebPage();
-
-    /**
-     * Updates the DOM document from the content of the QTextDocument.
-     */ 
-    void UpdateDomDocumentFromTextDocument();
-
-    /**
-     * Updates the QWebPage from the content of the DOM.
-     *
-     * @warning Only ever call this from the GUI thread.
-     */ 
-    void UpdateWebPageFromDomDocument();
-
-    /**
-     * Updates the QTextDocument from the content of the DOM.
-     */
-    void UpdateTextDocumentFromDomDocument();
-
-    // inherited
-    void SaveToDisk( bool book_wide_save = false );
-    
-    /**
-     * Removes all the cruft with which WebKit litters our source code.
-     * The cruft is removed from the QWebPage cache, and includes
-     * superfluous CSS styles and classes. 
-     */
-    void RemoveWebkitCruft();
+    void SaveToDisk(bool book_wide_save=false);
 
     /**
      * Splits the content of the resource into multiple chapters.
@@ -170,64 +80,7 @@ public:
      */
     QStringList SplitOnSGFChapterMarkers();
 
-
-private slots:
-
-    /**
-     * Called whenever a linked resource is updated.
-     * A linked resource is for example a CSS file.
-     */
-    void LinkedResourceUpdated();
-
-    /**
-     * Loads the required JavaScript on web page loads.
-     */
-    void WebPageJavascriptOnLoad();
-
-    /**
-     * Sets the web page modified state.
-     *
-     * @param modified The new modified state.
-     */
-    void SetWebPageModified( bool modified = true );
-
 private:
-
-    /**
-     * Returns the modified state of the web page. 
-     *
-     * @return The modified state.
-     */
-    bool WebPageModified();
-
-    /**
-     * Sets the text document modified state.
-     *
-     * @param modified The new modified state.
-     */
-    void SetTextDocumentModified( bool modified = true );
-
-    /**
-     * Returns the modified state of the text document.
-     *
-     * @return The modified state.
-     */
-    bool TextDocumentModified();
-
-    /**
-     * Returns the HTML content of the QWebPage.
-     *
-     * @return The HTML content.
-     */
-    QString GetWebPageHTML();
-
-    /**
-     * Sets the HTML content of the QWebPage
-     * 
-     * @param source The new HTML source.
-     */
-    void SetWebPageHTML( const QString &source );
-
     /**
      * Returns the paths to all the linked resources
      * like images and stylesheets.
@@ -252,14 +105,6 @@ private:
      */
     QString ConvertToEntities( const QString &source );
 
-    /**
-     * Removes the spans created by the replace mechanism in Book View.
-     *
-     * @param The source html from the web page.
-     * @return The html cleaned of spans with 'class="SigilReplace_..."'.
-     */
-    QString RemoveBookViewReplaceSpans( const QString &source );
-
     ///////////////////////////////
     // PRIVATE MEMBER VARIABLES
     ///////////////////////////////
@@ -272,64 +117,6 @@ private:
      * to avoid problems with dangling pointers.
      */
     QStringList m_LinkedResourceIDs;
-
-    /**
-     * This is the actual HTML resource backing store.
-     * The final arbiter of the content in the HTMLResource.
-     * AKA the main, primary cache.
-     */
-    shared_ptr< xc::DOMDocument > m_DomDocument;
-
-    /**
-    * This is the editable web page associated with the Book View Editor.
-    * This page is directly edited by the user and on leaving
-    * Book View the DOM document is updated to reflect any changes made.
-     */
-    QWebPage *m_WebPage;
-
-    /**
-     * This is the text document associated with the Code View Editor.
-     * This document is directly edited by the user and on leaving
-     * Code View the DOM document is updated to reflect any changes made.
-     */
-    QTextDocument *m_TextDocument;
-
-    /**
-     * \c true if the WebPage was modified by the user.
-     */
-    bool m_WebPageModified;
-
-    /**
-     * True when the QWebPage cache needs to be updated.
-     */
-    bool m_WebPageIsOld;
-
-    /**
-     * True when the QTextDocument cache needs to be updated.
-     */
-    bool m_TextDocumentIsOld;
-
-    /**
-     * True when the QWebPage cache is good, but a page refresh is necessary.
-     * This happens when for instance a linked stylesheet is updated on disk.
-     */
-    bool m_RefreshNeeded;
-
-    /**
-     * The javascript source code of the jQuery library.
-     */
-    const QString c_jQuery;
-    
-    /**
-     * The javascript source code of the jQuery 
-     * ScrollTo extension library.
-     */
-    const QString c_jQueryScrollTo;
-
-    /**
-     * Javascript source for the wrap selection plugin.
-     */
-    const QString c_jQueryWrapSelection;
 
     /**
      * The resource list from FolderKeeper.

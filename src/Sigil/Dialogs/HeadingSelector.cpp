@@ -142,8 +142,7 @@ void HeadingSelector::UpdateOneHeadingElement( QStandardItem *item )
         else
             
             heading->element->removeAttribute( QtoX( "class" ) );
-        
-        heading->resource_file->MarkSecondaryCachesAsOld();
+
     }
 
     if ( item->hasChildren() )

@@ -28,6 +28,8 @@
 #include "BookManipulation/GuideSemantics.h"
 #include "ResourceObjects/XMLResource.h"
 
+using boost::shared_ptr;
+
 class HTMLResource;
 class ImageResource;
 class NCXResource;

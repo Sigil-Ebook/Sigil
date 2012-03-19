@@ -149,18 +149,6 @@ public:
     void ScrollToFragment( const QString &fragment );
 
     // inherited
-    QList< ViewEditor::ElementIndex > GetCaretLocation(); 
-
-    /**
-     * @copydoc ViewEditor::StoreCaretLocationUpdate
-     *
-     * The CodeView implementation initiates the update in
-     * the main event handler.
-     */
-    void StoreCaretLocationUpdate( const QList< ViewEditor::ElementIndex > &hierarchy );
-
-    // inherited
-
     bool IsLoadingFinished();
 
     int GetCursorLine() const;
@@ -200,13 +188,8 @@ public:
 
     QString GetSelectedText();
 
-    /**
-     * Executes the caret updating code 
-     * if such an update is pending.
-     *
-     * @return \c true if the update was performed.
-     */
-    bool ExecuteCaretUpdate();
+    void SaveCaret();
+    void RestoreCaret();
 
     /**
      * Sets flag to execute a centerCursor() call later
@@ -365,53 +348,6 @@ private:
     void UpdateLineNumberAreaFont( const QFont &font );
 
     /**
-     * An element on the stack when searching for 
-     * the current caret location. 
-     */
-    struct StackElement
-    {
-        /**
-         * The tag name.
-         */        
-        QString name;
-
-        /**
-         * The number of child elements 
-         * detected for the element, so far.
-         */
-        int num_children;
-    };
-
-    /**
-     * Returns a stack of elements representing the
-     * current location of the caret in the document.
-     * 
-     * @param offset The number of characters from document start to the end of
-     *               the start tag of the element the caret is residing in.
-     * @return The element location stack.
-     */
-    QStack< StackElement > GetCaretLocationStack( int offset ) const;
-
-    /**
-     * Takes the stack provided by GetCaretLocationStack() 
-     * and converts it into the element location hierarchy 
-     * used by other ViewEditors.
-     *
-     * @param stack The StackElement stack.
-     * @return The converted ElementIndex hierarchy.
-     */
-    QList< ElementIndex > ConvertStackToHierarchy( const QStack< StackElement > stack ) const;
-
-    /**
-     * Converts a ViewEditor element hierarchy to a tuple describing necessary caret moves. 
-     * The tuple contains the vertical lines and horizontal chars move deltas
-     *
-     * @param hierarchy The caret location as ElementIndex hierarchy.
-     * @return The info needed to move the caret to the new location.
-     */
-    boost::tuple< int, int > ConvertHierarchyToCaretMove( const QList< ViewEditor::ElementIndex > &hierarchy ) const;
-
-    /**
      * Executes a centerCursor() call if requested
      * with m_DelayedCursorScreenCenteringRequired.
      */
@@ -480,12 +416,6 @@ private:
     float m_CurrentZoomFactor;
 
     /**
-     * Stores the update for the caret location 
-     * when switching from BookView to CodeView.
-     */
-    QList< ViewEditor::ElementIndex > m_CaretUpdate;
-
-    /**
      * Catches when the user wants to scroll the view by one line up.
      */
     QShortcut &m_ScrollOneLineUp;
@@ -499,6 +429,8 @@ private:
      * Set to \c false whenever the page is loading content.
      */
     bool m_isLoadFinished;
+
+    int m_caretPos;
 
     /**
      * When \c true, a centerCursor() call will be executed

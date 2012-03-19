@@ -119,12 +119,18 @@ public:
     void RestoreBrowserSelection();
 
     /**
-     * Opens the specified resource in the specified view state.
-     * 
-     * @param resource The resource to open.
-     * @param view_state The state the resource should be opened in.
+     * Describes the type of the View mode
+     * currently used in the tab.
      */
-    void OpenResource( Resource &resource, ContentTab::ViewState view_state );
+    enum ViewState
+    {
+        ViewState_Unknown,          /**< Default non view that we don't know what it is */
+        ViewState_BookView,         /**< The WYSIWYG view. */
+        ViewState_CodeView,         /**< The XHTML code editing view. */
+        ViewState_SplitView,        /**< We have a split view type (HTML resources support this) */
+        ViewState_RawView,          /**< The view for editing non-XHTML related resources. */
+        ViewState_StaticView       /**< The static view for non-editable content. */
+    };
 
     /**
      * Returns the status bar mutex used to protect 
@@ -153,10 +159,30 @@ public:
     static bool ShouldUseTidyClean();
 
     /**
+     * Returns the current view state.
+     *
+     * @return The current view state.
+     */
+    MainWindow::ViewState GetViewState();
+
+    /**
      * Sets the current state to CodeView or SplitView CodeView
      * depending on whether view was split view already
      */
     void AnyCodeView();
+
+public slots:
+    /**
+     * Opens the specified resource in the specified view state.
+     *
+     * @param resource The resource to open.
+     * @param view_state The state the resource should be opened in.
+     */
+    void OpenResource( Resource& resource,
+                       bool precede_current_tab = false,
+                       const QUrl &fragment = QUrl(),
+                       MainWindow::ViewState view_state = MainWindow::ViewState_Unknown,
+                       int line_to_scroll_to = -1);
 
 signals:
     void SettingsChanged();
@@ -298,6 +324,8 @@ private slots:
      */
     void ChangeSignalsWhenTabChanges( ContentTab* old_tab, ContentTab* new_tab ); 
 
+    void UpdateViewState();
+
     /**
      * Updates the toolbars based on current tab state and changes.
      */
@@ -313,6 +341,8 @@ private slots:
      * (enable the actions the Code View disabled).
      */
     void SetStateActionsBookView();
+
+    void SetStateActionsSplitView();
 
     /**
      * Set initial state for actions in Code View 
@@ -547,14 +577,6 @@ private:
     void UpdateUiWithCurrentFile( const QString &fullfilepath );
 
     /**
-     * Selects the appropriate entry in the heading combo box 
-     * based on the provided name of the element.
-     *
-     * @param element_name The name of the currently selected element.
-     */
-    void SelectEntryInHeadingCombo( const QString &element_name );
-
-    /**
      * Creates and adds the recent files actions 
      * to the File menu.
      */
@@ -620,7 +642,7 @@ private:
      *
      * @param view_state - The view state to set.
      */
-    void SetViewState( ContentTab::ViewState view_state );
+    void SetViewState( MainWindow::ViewState view_state );
 
     ///////////////////////////////
     // PRIVATE MEMBER VARIABLES
@@ -670,11 +692,6 @@ private:
     QAction *m_RecentFileActions[ MAX_RECENT_FILES ];
 
     /**
-     * The headings drop-down combo box.
-     */
-    QComboBox *m_cbHeadings;
-
-    /**
      * The tab managing object.
      */
     TabManager &m_TabManager;
@@ -716,11 +733,6 @@ private:
     QLabel *m_lbZoomLabel;
 
     /**
-     * Collects signals and sends specific paramerts to the connected slots.
-     */
-    QSignalMapper *m_headingMapper;
-
-    /**
      * A map with keys being extensions of file types 
      * we can load, and the values being filters for use in file dialogs.
      */
@@ -747,7 +759,7 @@ private:
     /**
      * Holds the view state for new/switched tabs
      */
-    ContentTab::ViewState m_ViewState;
+    MainWindow::ViewState m_ViewState;
 
     /**
      * Holds all the widgets Qt Designer created for us.

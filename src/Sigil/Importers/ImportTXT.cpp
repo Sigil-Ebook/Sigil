@@ -83,7 +83,7 @@ HTMLResource* ImportTXT::CreateHTMLResource( const QString &source )
 
 void ImportTXT::InitializeHTMLResource( const QString &source, HTMLResource *resource )
 {
-    resource->SetDomDocument( XhtmlDoc::LoadTextIntoDocument( source ) );
+    resource->SetText(source);
 }
 
 

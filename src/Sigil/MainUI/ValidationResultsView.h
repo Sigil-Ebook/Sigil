@@ -29,6 +29,7 @@
 #include <QtGui/QDockWidget>
 
 #include "BookManipulation/Book.h"
+#include "MainUI/MainWindow.h"
 #include "Tabs/ContentTab.h"
 
 namespace FlightCrew { class Result; }
@@ -87,7 +88,7 @@ signals:
     void OpenResourceRequest( Resource &resource, 
                               bool precede_current_tab, 
                               const QUrl &fragment,
-                              ContentTab::ViewState view_state,
+                              MainWindow::ViewState view_state,
                               int line_to_scroll_to );
 
 private slots:

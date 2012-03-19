@@ -63,8 +63,6 @@ public:
 
     Searchable* GetSearchableContent();
 
-    ViewState GetViewState();
-
 public slots:
 
     /**

@@ -83,7 +83,7 @@ void TextResource::SetText( const QString& text )
             m_CacheInUse = true;        
             QTimer::singleShot( 0, this, SLOT( DelayedUpdateToTextDocument() ) );  
         }
-    }    
+    }
 }
 
 

@@ -162,8 +162,8 @@ void UniversalUpdates::UpdateOneHTMLFile( HTMLResource* html_resource,
         return;
 
     QWriteLocker locker( &html_resource->GetLock() );
-    const xc::DOMDocument &document = html_resource->GetDomDocumentForWriting();
-    html_resource->SetDomDocument( PerformHTMLUpdates( document, html_updates, css_updates )() );
+    const xc::DOMDocument &document = *XhtmlDoc::LoadTextIntoDocument(html_resource->GetText()).get();
+    html_resource->SetText( XhtmlDoc::GetDomDocumentAsString(*PerformHTMLUpdates( document, html_updates, css_updates )().get()) );
 }
 
 
@@ -185,15 +185,18 @@ void UniversalUpdates::LoadAndUpdateOneHTMLFile( HTMLResource* html_resource,
                                                  const QHash< QString, QString > &css_updates )
 {
     if ( !html_resource )
-
+    {
         return;
+    }
 
     const QString &source = 
         CleanSource::Clean( 
             XhtmlDoc::ResolveCustomEntities( 
                 HTMLEncodingResolver::ReadHTMLFile( html_resource->GetFullPath() ) ) );
 
-    html_resource->SetDomDocument( PerformHTMLUpdates( source, html_updates, css_updates )() );
+    //html_resource->SetDomDocument( PerformHTMLUpdates( source, html_updates, css_updates )() );
+
+    html_resource->SetText( XhtmlDoc::GetDomDocumentAsString(*PerformHTMLUpdates( source, html_updates, css_updates )().get() ) );
 }
 
 

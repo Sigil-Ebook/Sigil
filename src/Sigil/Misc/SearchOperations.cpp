@@ -115,8 +115,7 @@ int SearchOperations::CountInHTMLFile( const QString &search_regex,
 {
     if ( search_type == SearchOperations::CodeViewSearch )
     {
-        const xc::DOMDocument &document = html_resource->GetDomDocumentForReading();
-        const QString &text = CleanSource::PrettyPrint( XhtmlDoc::GetDomDocumentAsString( document ) );
+        const QString &text = CleanSource::PrettyPrint( html_resource->GetText() );
 
         if ( check_spelling )
         {
@@ -174,9 +173,7 @@ int SearchOperations::ReplaceHTMLInFile( const QString &search_regex,
 {
     if ( search_type == SearchOperations::CodeViewSearch )
     {
-        const QString &text = CleanSource::PrettyPrint( 
-            XhtmlDoc::GetDomDocumentAsString( html_resource->GetDomDocumentForReading() ) );
-    
+        const QString &text = CleanSource::PrettyPrint(  html_resource->GetText() );
 
         QString new_text;
         int count;
@@ -190,8 +187,7 @@ int SearchOperations::ReplaceHTMLInFile( const QString &search_regex,
             tie( new_text, count ) = PerformGlobalReplace( text, search_regex, replacement );
         }
 
-        html_resource->SetDomDocument( 
-            XhtmlDoc::LoadTextIntoDocument( CleanSource::Rinse( new_text ) ) );
+        html_resource->SetText(CleanSource::Rinse( new_text ));
 
         return count;
     }

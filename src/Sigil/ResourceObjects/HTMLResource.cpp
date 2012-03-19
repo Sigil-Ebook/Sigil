@@ -21,10 +21,6 @@
 
 #include <QtCore/QFileInfo>
 #include <QtCore/QString>
-#include <QtCore/QThread>
-#include <QtGui/QApplication>
-#include <QtGui/QPlainTextDocumentLayout>
-#include <QtGui/QTextDocument>
 #include <QtWebKit/QWebFrame>
 #include <QtWebKit/QWebPage>
 
@@ -46,15 +42,7 @@ HTMLResource::HTMLResource( const QString &fullfilepath,
                             const QHash< QString, Resource* > &resources,
                             QObject *parent )
     : 
-    Resource( fullfilepath, parent ),
-    m_WebPage( NULL ),
-    m_TextDocument( NULL ),
-    m_WebPageModified( false ),
-    m_WebPageIsOld( true ),
-    m_TextDocumentIsOld( true ),
-    c_jQuery(         Utility::ReadUnicodeTextFile( ":/javascript/jquery-1.6.2.min.js"          ) ),
-    c_jQueryScrollTo( Utility::ReadUnicodeTextFile( ":/javascript/jquery.scrollTo-1.4.2-min.js" ) ),
-    c_jQueryWrapSelection( Utility::ReadUnicodeTextFile( ":/javascript/jquery.wrapSelection.js" ) ),
+    XMLResource( fullfilepath, parent ),
     m_Resources( resources )
 {
 
@@ -66,374 +54,79 @@ Resource::ResourceType HTMLResource::Type() const
     return Resource::HTMLResourceType;
 }
 
-
-QWebPage& HTMLResource::GetWebPage()
+void HTMLResource::SetText(const QString &text)
 {
-    Q_ASSERT( m_WebPage );
+    // We need to move the xml deceleration to the top
+    // of the file because CKEditor will write the HTML doc type
+    // above it.
 
-    return *m_WebPage;
-}
+    QString new_text = text;
+    QString xmldec;
+    QRegExp re_xmldec("(<\\?xml.+\\?>)");
+    re_xmldec.setMinimal(true);
 
-
-QTextDocument& HTMLResource::GetTextDocument()
-{
-    Q_ASSERT( m_TextDocument );
-
-    return *m_TextDocument;
-}
-
-
-void HTMLResource::SetDomDocument( shared_ptr< xc::DOMDocument > document )
-{
-    QWriteLocker locker( &GetLock() );
-
-    m_DomDocument = document;
-    MarkSecondaryCachesAsOld();
-}
-
-
-const xc::DOMDocument& HTMLResource::GetDomDocumentForReading()
-{
-    return *m_DomDocument;
-}
-
-
-xc::DOMDocument& HTMLResource::GetDomDocumentForWriting()
-{
-    // We can't just mark the caches as old right here since
-    // some consumers need write access but don't end up writing anything.
-
-    return *m_DomDocument;
-}
-
-
-void HTMLResource::MarkSecondaryCachesAsOld()
-{
-    m_WebPageIsOld      = true;
-    m_TextDocumentIsOld = true;
-}
-
-void HTMLResource::UpdateDomDocumentFromWebPage()
-{
-    if ( !WebPageModified() )
-
-        return;
-
-    Q_ASSERT( QThread::currentThread() == QApplication::instance()->thread() );
-
-    m_DomDocument = XhtmlDoc::LoadTextIntoDocument( GetWebPageHTML() );
-
-    m_TextDocumentIsOld = true;
-    SetWebPageModified( false );
-}
-
-
-void HTMLResource::UpdateDomDocumentFromTextDocument()
-{
-    if ( !TextDocumentModified() )
-
-        return;
-
-    Q_ASSERT( QThread::currentThread() == QApplication::instance()->thread() );
-    Q_ASSERT( m_TextDocument );
-
-    m_DomDocument = XhtmlDoc::LoadTextIntoDocument( ConvertToEntities( CleanSource::Clean( m_TextDocument->toPlainText() ) ) );
-
-    m_WebPageIsOld = true;
-    SetTextDocumentModified( false );
-}
-
-
-void HTMLResource::UpdateWebPageFromDomDocument()
-{
-    Q_ASSERT( QThread::currentThread() == QApplication::instance()->thread() );
-
-    if ( !m_WebPageIsOld && !m_RefreshNeeded )
-
-        return;
-
-    if ( m_WebPage == NULL )
-    {
-        m_WebPage = new QWebPage( this );
-        connect( m_WebPage, SIGNAL( contentsChanged() ), this, SLOT( SetWebPageModified() ) );
+    // Pull out xml deceleration from the text.
+    if (re_xmldec.indexIn(new_text) != -1) {
+        xmldec = re_xmldec.cap(1) + "\n";
     }
 
-    SetWebPageHTML( XhtmlDoc::GetDomDocumentAsString( *m_DomDocument ) );
+    // Remove the matched xml deceleration.
+    new_text.remove(re_xmldec);
 
-    SetWebPageModified( false );
-    m_WebPageIsOld = false;
-    m_RefreshNeeded = false;
+    // Put the xml deceleration at the top.
+    new_text = xmldec + new_text;
+
+    XMLResource::SetText( ConvertToEntities( CleanSource::Clean( new_text) ) );
 }
 
 
-void HTMLResource::UpdateTextDocumentFromDomDocument()
+void HTMLResource::SaveToDisk(bool book_wide_save)
 {
-    Q_ASSERT( QThread::currentThread() == QApplication::instance()->thread() );
+    // Just in case there was no initial load until now.
+    InitialLoad();
 
-    if ( !m_TextDocumentIsOld )
+    SetText(ConvertToEntities(CleanSource::PrettyPrint(GetText())));
 
-        return;
-
-    if ( m_TextDocument == NULL )
-    {
-        m_TextDocument = new QTextDocument( this );
-        m_TextDocument->setDocumentLayout( new QPlainTextDocumentLayout( m_TextDocument ) );
-    }
-
-    m_TextDocument->setPlainText( ConvertToEntities( CleanSource::PrettyPrint( XhtmlDoc::GetDomDocumentAsString( *m_DomDocument ) ) ) );
-
-    m_TextDocument->setModified( false );
-    m_TextDocumentIsOld = false;
+    XMLResource::SaveToDisk(book_wide_save);
 }
 
-
-void HTMLResource::SaveToDisk( bool book_wide_save )
-{
-    {
-        QWriteLocker locker( &GetLock() );
-
-        Utility::WriteUnicodeTextFile( ConvertToEntities( CleanSource::PrettyPrint( XhtmlDoc::GetDomDocumentAsString( *m_DomDocument ) ) ),
-                                       GetFullPath() );
-    }
-
-    if ( !book_wide_save )
-
-        emit ResourceUpdatedOnDisk();
-}
-
-
-void HTMLResource::RemoveWebkitCruft()
-{
-    Q_ASSERT( m_WebPage );
-
-    QWebElementCollection collection = m_WebPage->mainFrame()->findAllElements( ".Apple-style-span" );
-
-    foreach( QWebElement element, collection )
-    {
-        element.toggleClass( "Apple-style-span" );
-    }
-
-    collection = m_WebPage->mainFrame()->findAllElements( ".webkit-indent-blockquote" );
-
-    foreach( QWebElement element, collection )
-    {
-        element.toggleClass( "webkit-indent-blockquote" );
-    }
-
-    QWebElement body_tag =  m_WebPage->mainFrame()->findFirstElement( "body" );
-
-    // Removing junk webkit styles
-    body_tag.setStyleProperty( "word-wrap", "" );
-    body_tag.setStyleProperty( "-webkit-nbsp-mode", "" );
-    body_tag.setStyleProperty( "-webkit-line-break", "" );
-
-    // Banish the irritating <body style=""> tags
-    if( body_tag.attribute( "style", "none" ) == "" )
-    {
-        body_tag.removeAttribute( "style" );
-    }
-}
-
-QString HTMLResource::RemoveBookViewReplaceSpans( const QString &source )
-{
-    QRegExp replace_spans( REPLACE_SPANS );
-    replace_spans.setMinimal( true );
-    QRegExp span_open_or_close( "<\\s*(/)*\\s*span\\s*>");
-    span_open_or_close.setMinimal( true );
-
-    QString newsource = "";
-    int left_pos = 0;
-    int index = source.indexOf( replace_spans );
-    while( index != -1 )
-    {
-        // Append the text between the last capture and this one.
-        newsource.append( source.mid( left_pos, index - left_pos ) );
-
-        // Advance past the captured opening tag.
-        index += replace_spans.cap(0).length();
-        left_pos = index;
-
-        // Check for nested spans.
-        int nest_count = 1; // set to 1 as we already have an open span
-        int next_span_tag = index;
-        do 
-        {
-            next_span_tag = source.indexOf( span_open_or_close, index );
-            if( next_span_tag == -1 )
-            {
-                // Content is not well-formed, which should never happen here.
-                boost_throw( ErrorParsingXml()
-                             << errinfo_XML_parsing_error_string( "GetWebPageHTML() has returned invalid xhtml" ) );
-            }
-
-            if( !span_open_or_close.cap(0).contains( "/" ) )
-            {
-                // Opening tag, so increment the counter.
-                nest_count++;
-            }
-            else
-            {
-                // Closing tag, so decrement the counter
-                nest_count--;
-            }
-        } while( nest_count > 0 );
-
-        // next_span_tag now points to the start of the closing tag of the span we're removing.
-        // Append the source from the end of the span tag to the start of the closing tag
-        newsource.append( source.mid( index, next_span_tag - index ) );
-
-        // Move left_pos past the closing tag and search for another span to remove.
-        left_pos = next_span_tag + span_open_or_close.cap(0).length(); 
-        index = source.indexOf( replace_spans, left_pos );
-    }
-
-    // Append the rest of the source after all the spans have been removed.
-    newsource.append( source.mid( left_pos ) );
-
-    // It's possible that we might have replace spans nested within each other,
-    // so go back to the start and check again, and recurse if found.
-    if( newsource.indexOf( replace_spans ) != -1 )
-    {
-        newsource = RemoveBookViewReplaceSpans( newsource );
-    }
-
-    return newsource;
-}
 
 QStringList HTMLResource::SplitOnSGFChapterMarkers()
 {
-    QStringList chapters = XhtmlDoc::GetSGFChapterSplits( XhtmlDoc::GetDomDocumentAsString( *m_DomDocument ) );
+    QStringList chapters = XhtmlDoc::GetSGFChapterSplits(GetText());
 
-    m_DomDocument = XhtmlDoc::LoadTextIntoDocument( CleanSource::Clean( chapters.takeFirst() ) );
-    MarkSecondaryCachesAsOld();
+    SetText(CleanSource::Clean(chapters.takeFirst()));
 
     return chapters;
 }
 
 
-void HTMLResource::LinkedResourceUpdated()
-{
-    m_RefreshNeeded = true;
-
-    QWebSettings::clearMemoryCaches();
-}
-
-
-// We need to load the jQuery libs here since
-// we sometimes need to use them outside of
-// BookViewEditor.
-void HTMLResource::WebPageJavascriptOnLoad()
-{
-    Q_ASSERT( m_WebPage );
-
-    m_WebPage->mainFrame()->evaluateJavaScript( c_jQuery         );
-    m_WebPage->mainFrame()->evaluateJavaScript( c_jQueryScrollTo );
-    m_WebPage->mainFrame()->evaluateJavaScript( c_jQueryWrapSelection );
-}
-
-
-void HTMLResource::SetWebPageModified( bool modified )
-{
-    m_WebPageModified = modified;
-}
-
-
-// QWebPage::isModified() only looks at form data,
-// which makes it absolutely useless.
-bool HTMLResource::WebPageModified()
-{
-    return m_WebPageModified;
-}
-
-
-// We have a "modified" getter and setter for
-// the TextDocument even when it has its own
-// because QWebPage does not and we want a unified interface.
-void HTMLResource::SetTextDocumentModified( bool modified )
-{
-    m_TextDocument->setModified( modified );
-}
-
-
-bool HTMLResource::TextDocumentModified()
-{
-    if ( m_TextDocument )
-    {
-        return m_TextDocument->isModified();
-    }
-    return false;
-}
-
-
-QString HTMLResource::GetWebPageHTML()
-{
-    Q_ASSERT( m_WebPage );
-
-    RemoveWebkitCruft();
-
-    // Set the xml tag here rather than let Tidy do it.
-    // This prevents false mismatches with the cache later on.
-    QString html_from_Qt = m_WebPage->mainFrame()->toHtml();
-
-    html_from_Qt = RemoveBookViewReplaceSpans( html_from_Qt );
-    html_from_Qt = html_from_Qt.remove( XML_NAMESPACE_CRUFT );
-    return ConvertToEntities( CleanSource::PrettyPrint( CleanSource::Clean( XML_TAG % html_from_Qt ) ) );
-}
-
-
-void HTMLResource::SetWebPageHTML( const QString &source )
-{
-    Q_ASSERT( m_WebPage );
-
-    connect( m_WebPage, SIGNAL( loadFinished( bool ) ), this, SLOT( WebPageJavascriptOnLoad() ) );
-
-    // NOTE: content loading is asynchronous, and attempts to read the content back out immediately
-    // with toHtml() *will* fail if the page contains external links, particularly if those cannot
-    // be resolved and it ends up waiting for a timeout. The web page content is only readable
-    // once it issues the loadFinished() signal.
-    m_WebPage->mainFrame()->setContent( source.toUtf8(), LOADED_CONTENT_MIMETYPE, GetBaseUrl() );
-
-    m_WebPage->setContentEditable( true );
-
-    // TODO: we kill external links; a dialog should be used
-    // that asks the user if he wants to open this external link in a browser
-    m_WebPage->setLinkDelegationPolicy( QWebPage::DelegateAllLinks );
-
-    // Track resources whose change will necessitate an update of the WebView.
-    // At present this only applies to css files and images.
-    TrackNewResources( GetPathsToLinkedResources() );
-
-    QWebSettings &settings = *m_WebPage->settings();
-    settings.setAttribute( QWebSettings::LocalContentCanAccessRemoteUrls, false );
-    settings.setAttribute( QWebSettings::JavascriptCanAccessClipboard, true );
-    settings.setAttribute( QWebSettings::ZoomTextOnly, true );
-}
-
-
 QStringList HTMLResource::GetPathsToLinkedResources()
 {
-    Q_ASSERT( m_WebPage );
-
-    QWebElementCollection elements = m_WebPage->mainFrame()->findAllElements( "link, img" );
-
     QStringList linked_resources;
 
-    foreach( QWebElement element, elements )
-    {
-        // We skip the link elements that are not stylesheets
-        if ( element.tagName().toLower() == "link" && 
-             element.attribute( "rel" ).toLower() != "stylesheet" )
-        {
-            continue;
+    xc::DOMDocument &document = *XhtmlDoc::LoadTextIntoDocument(GetText()).get();
+    QStringList tags = QStringList() << "link" << "img";
+    Q_FOREACH(QString tag, tags) {
+        xc::DOMNodeList *elems = document.getElementsByTagName( QtoX( tag ) );
+        for (uint i = 0; i < elems->getLength(); ++i) {
+            xc::DOMElement &element = *static_cast< xc::DOMElement *>(elems->item(i));
+
+            Q_ASSERT(&element);
+
+            // We skip the link elements that are not stylesheets
+            if (tag == "link" && element.hasAttribute(QtoX("rel")) &&
+                XtoQ(element.getAttribute(QtoX("rel"))).toLower() != "stylesheet")
+            {
+                continue;
+            }
+
+            if (element.hasAttribute(QtoX("href"))) {
+                linked_resources.append(XtoQ(element.getAttribute(QtoX("href"))));
+            } else if (element.hasAttribute(QtoX("src"))) {
+                linked_resources.append(XtoQ(element.getAttribute(QtoX("src"))));
+            }
         }
-
-        if ( element.hasAttribute( "href" ) )
-        
-            linked_resources.append( element.attribute( "href" ) );        
-
-        else if ( element.hasAttribute( "src" ) )
-        
-            linked_resources.append( element.attribute( "src" ) );
     }
 
     return linked_resources;
@@ -464,7 +157,7 @@ void HTMLResource::TrackNewResources( const QStringList &filepaths )
     foreach( Resource *resource, m_Resources.values() )
     {
         if ( filenames.contains( resource->Filename() ) )
-            
+
             m_LinkedResourceIDs.append( resource->GetIdentifier() );
     }
 

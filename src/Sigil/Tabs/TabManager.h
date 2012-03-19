@@ -27,6 +27,7 @@
 #include <QtCore/QWeakPointer>
 #include <QtGui/QTabWidget>
 
+#include "MainUI/MainWindow.h"
 #include "Tabs/ContentTab.h"
 
 class Resource;
@@ -103,7 +104,7 @@ public slots:
     void OpenResource( Resource& resource, 
                        bool precede_current_tab = false,
                        const QUrl &fragment = QUrl(),
-                       ContentTab::ViewState view_state = ContentTab::ViewState_AnyView,
+                       MainWindow::ViewState view_state = MainWindow::ViewState_BookView,
                        int line_to_scroll_to = -1);
 
     /**
@@ -234,7 +235,7 @@ private:
      */
     bool SwitchedToExistingTab( Resource& resource, 
                                 const QUrl &fragment, 
-                                ContentTab::ViewState view_state,
+                                MainWindow::ViewState view_state,
                                 int line_to_scroll_to = -1 );
 
     /**
@@ -248,7 +249,7 @@ private:
      */
     ContentTab* CreateTabForResource( Resource& resource, 
                                       const QUrl &fragment, 
-                                      ContentTab::ViewState view_state,
+                                      MainWindow::ViewState view_state,
                                       int line_to_scroll_to );
 
     /**
@@ -262,14 +263,6 @@ private:
      * @return \c true if the tab was successfully added.
      */
     bool AddNewContentTab( ContentTab *new_tab, bool precede_current_tab );
-
-    /**
-     * Returns the view state that a new tab should take when being created.
-     * We want to use the view state of the current tab for the new tab.
-     *
-     * @return The new view state.
-     */
-    ContentTab::ViewState GetNewViewState();
 
     void UpdateTabDisplay( ContentTab *tab );
 

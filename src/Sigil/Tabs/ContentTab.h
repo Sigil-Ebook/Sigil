@@ -112,48 +112,6 @@ public:
     virtual bool PasteEnabled()         { return false; }
 
     /**
-     * Checked state of the Bold action.
-     *
-     * @return \c true if the Bold action should be checked.
-     */
-    virtual bool BoldChecked()          { return false; }
-
-    /**
-     * Checked state of the Italic action.
-     *
-     * @return \c true if the Italic action should be checked.
-     */
-    virtual bool ItalicChecked()        { return false; }
-    
-    /**
-     * Checked state of the Underline action.
-     *
-     * @return \c true if the Underline action should be checked.
-     */
-    virtual bool UnderlineChecked()     { return false; }
-    
-    /**
-     * Checked state of the Strikethrough action.
-     *
-     * @return \c true if the Strikethrough action should be checked.
-     */
-    virtual bool StrikethroughChecked() { return false; }
-    
-    /**
-     * Checked state of the BulletList action.
-     *
-     * @return \c true if the BulletList action should be checked.
-     */
-    virtual bool BulletListChecked()    { return false; }
-   
-    /**
-     * Checked state of the NumberList action.
-     *
-     * @return \c true if the NumberList action should be checked.
-     */
-    virtual bool NumberListChecked()    { return false; }
-
-    /**
      * Checked state of the BookView action.
      *
      * @return \c true if the BookView action should be checked.
@@ -173,13 +131,6 @@ public:
      * @return \c true if the CodeView action should be checked.
      */
     virtual bool CodeViewChecked()      { return false; }
-
-    /**
-     * Returns the name of the element the caret is located in.
-     *
-     * @return The name of the element the caret is located in.
-     */
-    virtual QString GetCaretElementName() { return "";  }
 
     virtual int GetCursorLine() const { return 0; }
     virtual int GetCursorColumn() const { return 0; }
@@ -203,35 +154,7 @@ public:
      */
     virtual Searchable* GetSearchableContent();
 
-    /**
-     * Describes the type of the View mode
-     * currently used in the tab.
-     */
-    enum ViewState
-    {
-        ViewState_BookView,         /**< The WYSIWYG view. */
-        ViewState_CodeView,         /**< The XHTML code editing view. */
-        ViewState_RawView,          /**< The view for editing non-XHTML related resources. */
-        ViewState_StaticView,       /**< The static view for non-editable content. */
-        ViewState_AnyView,          /**< Specifies that no state is preferred or set. */
-        ViewState_SplitView,        /**< Specifies split view. */
-        ViewState_AnyCodeView,      /**< Specifies any code view. */
-        ViewState_NoFocusBookView,  /**< Specifies that the new tab should not be given at first, but should use BookView later. */
-        ViewState_NoFocusCodeView   /**< Specifies that the new tab should not be given at first, but should use CodeView later. */
-    };
-
-    /**
-     * Returns the current view state.
-     *
-     * @return The current view state.
-     */
-    virtual ViewState GetViewState() { return ViewState_StaticView; }
-
-    virtual void SetViewState( ViewState new_view_state ) {}
-
     virtual bool IsLoadingFinished() { return true; }
-
-    virtual void ExecuteCaretUpdate();
 
     virtual void CodeView();
 

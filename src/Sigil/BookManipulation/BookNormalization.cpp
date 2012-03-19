@@ -159,11 +159,11 @@ void BookNormalization::TryToSetCoverImage( const QList< HTMLResource* > &html_r
     {
         QReadLocker locker( &cover_page->GetLock() );
 
-        image_paths = XhtmlDoc::GetImagePathsFromImageChildren( cover_page->GetDomDocumentForReading() );
+        image_paths = XhtmlDoc::GetImagePathsFromImageChildren( *XhtmlDoc::LoadTextIntoDocument(cover_page->GetText()).get() );
     }
 
     if ( image_paths.count() == 0 )
-         
+
         return;
 
     QString first_image_name = QFileInfo( image_paths[ 0 ] ).fileName();
@@ -183,13 +183,13 @@ bool BookNormalization::IsFlowUnderThreshold( HTMLResource *html_resource, int t
 {
     QReadLocker locker( &html_resource->GetLock() );
 
-    xc::DOMElement &doc_element = *html_resource->GetDomDocumentForReading().getDocumentElement();
+    xc::DOMElement &doc_element = *XhtmlDoc::LoadTextIntoDocument(html_resource->GetText()).get()->getDocumentElement();
     return XtoQ( doc_element.getTextContent() ).count() < threshold;
 }
 
 bool BookNormalization::FlowHasOnlyOneImage( HTMLResource* html_resource )
 {
-    return XhtmlDoc::GetImagePathsFromImageChildren( html_resource->GetDomDocumentForReading() ).count() == 1;
+    return XhtmlDoc::GetImagePathsFromImageChildren( *XhtmlDoc::LoadTextIntoDocument(html_resource->GetText() ).get() ).count() == 1;
 }
 
 

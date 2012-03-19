@@ -114,22 +114,17 @@ void TabManager::SaveTabData()
     }
 }
 
-
 void TabManager::OpenResource( Resource& resource, 
                                bool precede_current_tab,
                                const QUrl &fragment,
-                               ContentTab::ViewState view_state,
+                               MainWindow::ViewState view_state,
                                int line_to_scroll_to )
 {
     if ( SwitchedToExistingTab( resource, fragment, view_state, line_to_scroll_to ) )
 
         return;
 
-    ContentTab::ViewState new_view_state = view_state != ContentTab::ViewState_AnyView ?
-                                           view_state                                  :
-                                           GetNewViewState();
-
-    AddNewContentTab( CreateTabForResource( resource, fragment, new_view_state, line_to_scroll_to ), 
+    AddNewContentTab( CreateTabForResource( resource, fragment, view_state, line_to_scroll_to ),
                       precede_current_tab );
 
     // TODO: loading bar update    
@@ -317,9 +312,11 @@ int TabManager::ResourceTabIndex( const Resource& resource ) const
 
 bool TabManager::SwitchedToExistingTab( Resource& resource, 
                                         const QUrl &fragment, 
-                                        ContentTab::ViewState view_state,
+                                        MainWindow::ViewState view_state,
                                         int line_to_scroll_to )
 {
+    Q_UNUSED(view_state)
+
     int resource_index = ResourceTabIndex( resource );
 
     // If the resource is already opened in
@@ -336,7 +333,7 @@ bool TabManager::SwitchedToExistingTab( Resource& resource,
         if ( flow_tab != NULL )
         {
             // Restore cursor position if there is one
-            flow_tab->ExecuteCaretUpdate();
+            flow_tab->RestoreCaret();
 
             if ( fragment.toString() != "" )
             {
@@ -372,7 +369,7 @@ bool TabManager::SwitchedToExistingTab( Resource& resource,
 
 ContentTab* TabManager::CreateTabForResource( Resource& resource, 
                                               const QUrl &fragment, 
-                                              ContentTab::ViewState view_state,
+                                              MainWindow::ViewState view_state,
                                               int line_to_scroll_to )
 {
     ContentTab *tab = NULL;
@@ -479,19 +476,6 @@ bool TabManager::AddNewContentTab( ContentTab *new_tab, bool precede_current_tab
     return true;
 }   
 
-
-ContentTab::ViewState TabManager::GetNewViewState()
-{
-    ContentTab &current_tab = GetCurrentContentTab();
-
-    // TODO: remove this we we can guarantee that GetCurrentContentTab
-    // always returns a valid reference
-    if ( &current_tab == NULL )
-
-        return ContentTab::ViewState_BookView;
-
-    return current_tab.GetViewState();
-}
 
 void TabManager::UpdateTabDisplay( ContentTab *tab )
 {

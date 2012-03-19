@@ -1,6 +1,7 @@
 /************************************************************************
 **
 **  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>, Nokia Corporation
+**  Copyright (C) 2012 John Schember <john@nachtimwald.com>
 **
 **  This file is part of Sigil.
 **
@@ -73,6 +74,7 @@ CodeViewEditor::CodeViewEditor( HighlighterType high_type, bool check_spelling, 
     m_ScrollOneLineUp( *(   new QShortcut( QKeySequence( Qt::ControlModifier + Qt::Key_Up   ), this, 0, 0, Qt::WidgetShortcut ) ) ),
     m_ScrollOneLineDown( *( new QShortcut( QKeySequence( Qt::ControlModifier + Qt::Key_Down ), this, 0, 0, Qt::WidgetShortcut ) ) ),
     m_isLoadFinished( false ),
+    m_caretPos(0),
     m_DelayedCursorScreenCenteringRequired( false ),
     m_checkSpelling( check_spelling ),
     m_spellingMapper( new QSignalMapper( this ) ),
@@ -319,35 +321,30 @@ void CodeViewEditor::ReplaceDocumentText( const QString &new_text )
 
 void CodeViewEditor::ScrollToTop()
 {
-    verticalScrollBar()->setValue( 0 );
+    verticalScrollBar()->setValue(0);
 }
 
 
 void CodeViewEditor::ScrollToLine( int line )
 {
-    if ( line <= 0 )
-
+    if (line <= 0) {
         return;
+    }
 
-    // A pending caret update will overrule us, 
-    // and we don't want that.
-    m_CaretUpdate.clear();
-
-    QTextCursor cursor( document() );
-    cursor.movePosition( QTextCursor::NextBlock, QTextCursor::MoveAnchor, line - 1 );
+    QTextCursor cursor(document());
+    cursor.movePosition(QTextCursor::NextBlock, QTextCursor::MoveAnchor, line - 1);
     // Make sure the cursor ends up within a tag so that it stays in position on switching to Book View.
-    cursor.movePosition( QTextCursor::NextWord );
-    setTextCursor( cursor );
+    cursor.movePosition(QTextCursor::NextWord);
+    setTextCursor(cursor);
 
     // If height is 0, then the widget is still collapsed
     // and centering the screen will do squat.
-    if ( height() > 0 )
-    
+    if (height() > 0) {
         centerCursor();
-
-    else
-
+    }
+    else {
         m_DelayedCursorScreenCenteringRequired = true;
+    }
 }
 
 
@@ -367,24 +364,6 @@ void CodeViewEditor::ScrollToFragment( const QString &fragment )
     int line = toPlainText().left( index ).count( '\n' ) + 1;
 
     ScrollToLine( line );
-}
-
-
-QList< ViewEditor::ElementIndex > CodeViewEditor::GetCaretLocation()
-{
-    QRegExp tag( XML_OPENING_TAG );
-
-    // We search for the first opening tag *behind* the caret.
-    // This specifies the element the caret is located in.
-    int offset = toPlainText().lastIndexOf( tag, textCursor().position() );
-
-    return ConvertStackToHierarchy( GetCaretLocationStack( offset + tag.matchedLength() ) );
-}
-
-
-void CodeViewEditor::StoreCaretLocationUpdate( const QList< ViewEditor::ElementIndex > &hierarchy )
-{
-    m_CaretUpdate = hierarchy;
 }
 
 
@@ -679,6 +658,17 @@ QString CodeViewEditor::GetSelectedText()
     return textCursor().selectedText();
 }
 
+void CodeViewEditor::SaveCaret()
+{
+    m_caretPos = textCursor().position();
+}
+
+void CodeViewEditor::RestoreCaret()
+{
+    QTextCursor t = textCursor();
+    t.setPosition(m_caretPos);
+    setTextCursor(t);
+}
 
 // The base class implementation of the print()
 // method is not a slot, and we need it as a slot
@@ -707,7 +697,6 @@ bool CodeViewEditor::event( QEvent *event )
     // the event is processed and accepted.
     if ( event->type() == QEvent::Paint )
     {
-        ExecuteCaretUpdate();
         DelayedCursorScreenCentering();
     }
     
@@ -734,11 +723,6 @@ void CodeViewEditor::resizeEvent( QResizeEvent *event )
 }
 
 
-// Overridden because we want the ExecuteCaretUpdate()
-// to be called from here when the user clicks inside
-// this widget in SplitView. Leaving it up to our event()
-// override causes graphical artifacts for SplitView.
-// So in those conditions, this handler takes over.
 void CodeViewEditor::mousePressEvent( QMouseEvent *event )
 {
     // Rewrite the mouse event to a left button event so the cursor is
@@ -749,9 +733,6 @@ void CodeViewEditor::mousePressEvent( QMouseEvent *event )
 
     // Propagate to base class
     QPlainTextEdit::mousePressEvent( event );   
-
-    // Run the caret update if it's pending
-    ExecuteCaretUpdate();
 }
 
 // Overridden so we can block the focus out signal.
@@ -1024,130 +1005,6 @@ void CodeViewEditor::UpdateLineNumberAreaFont( const QFont &font )
     UpdateLineNumberAreaMargin();
 }
 
-
-QStack< CodeViewEditor::StackElement > CodeViewEditor::GetCaretLocationStack( int offset ) const
-{
-    QString source = toPlainText();
-    QXmlStreamReader reader( source );
-
-    QStack< StackElement > stack; 
-
-    while ( !reader.atEnd() ) 
-    {
-        reader.readNext();
-
-        if ( reader.isStartElement() ) 
-        {
-            // If we detected the start of a new element, then
-            // the element currently on the top of the stack
-            // has one more child element
-            if ( !stack.isEmpty() )
-
-                stack.top().num_children++;
-            
-            StackElement new_element;
-            new_element.name         = reader.name().toString();
-            new_element.num_children = 0;
-
-            stack.push( new_element );
-
-            // Check if this is the element start tag
-            // we are looking for
-            if ( reader.characterOffset() == offset  )
-
-                break;
-        }
-
-        // If we detect the end tag of an element,
-        // we remove it from the top of the stack
-        else if ( reader.isEndElement() )
-        {
-            stack.pop();
-        }
-    }
-
-    if ( reader.hasError() )
-    {
-        // Just return an empty location.
-        // Maybe we could return the stack we currently have?
-        return QStack< StackElement >();
-    }
-
-    return stack;
-}
-
-
-QList< ViewEditor::ElementIndex > CodeViewEditor::ConvertStackToHierarchy( const QStack< StackElement > stack ) const
-{
-    QList< ViewEditor::ElementIndex > hierarchy;
-
-    foreach( StackElement stack_element, stack )
-    {
-        ViewEditor::ElementIndex new_element;
-
-        new_element.name  = stack_element.name;
-        new_element.index = stack_element.num_children - 1;
-
-        hierarchy.append( new_element );
-    }
-
-    return hierarchy;
-}
-
-
-tuple< int, int > CodeViewEditor::ConvertHierarchyToCaretMove( const QList< ViewEditor::ElementIndex > &hierarchy ) const
-{
-    shared_ptr< xc::DOMDocument > dom = XhtmlDoc::LoadTextIntoDocument( toPlainText() );
-
-    xc::DOMNode *end_node = XhtmlDoc::GetNodeFromHierarchy( *dom, hierarchy );
-    QTextCursor cursor( document() );
-
-    if ( end_node )
-    
-        return make_tuple( XhtmlDoc::NodeLineNumber( *end_node ) - cursor.blockNumber(), 
-                           XhtmlDoc::NodeColumnNumber( *end_node ) ); 
-    
-    else
-    
-        return make_tuple( 0, 0 );
-}
-
-
-bool CodeViewEditor::ExecuteCaretUpdate()
-{
-    // If there's a cursor/caret update waiting (from BookView),
-    // we update the caret location and reset the update variable
-    if ( m_CaretUpdate.count() == 0 )
-    {
-        return false;
-    }
-
-    QTextCursor cursor( document() );
-
-    int vertical_lines_move = 0;
-    int horizontal_chars_move = 0;
-
-    // We *have* to do the conversion on-demand since the 
-    // conversion uses toPlainText(), and the text needs to up-to-date.
-    tie( vertical_lines_move, horizontal_chars_move ) = ConvertHierarchyToCaretMove( m_CaretUpdate );
-
-    cursor.movePosition( QTextCursor::NextBlock, QTextCursor::MoveAnchor, vertical_lines_move - 1 );
-
-    for( int i = 1 ; i < horizontal_chars_move ; i++ )
-    {
-        cursor.movePosition( QTextCursor::NextCharacter , QTextCursor::MoveAnchor );
-        // TODO: cursor.movePosition( QTextCursor::Left, ...) is badly bugged in Qt 4.7.
-        // Test whether it's fixed when the next version of Qt comes out.
-        // cursor.movePosition( QTextCursor::Left, QTextCursor::MoveAnchor, horizontal_chars_move );
-    }
-
-    m_CaretUpdate.clear();
-    setTextCursor( cursor );
-
-    m_DelayedCursorScreenCenteringRequired = true;
-
-    return true;
-}
 
 // Center the screen on the cursor/caret location.
 // Centering requires fresh information about the

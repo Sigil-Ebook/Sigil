@@ -40,6 +40,7 @@ include( ${QT_USE_FILE} )
 # These headers need to go through Qt's MOC compiler
 set( QOBJECT_HEADERS
     ViewEditors/BookViewEditor.h
+    ViewEditors/BookViewPreview.h
     ViewEditors/CodeViewEditor.h 
     Dialogs/AddMetadata.h 
     Dialogs/About.h
@@ -249,6 +250,8 @@ set( SPCRE_FILES
 set( VIEW_EDITOR_FILES
     ViewEditors/BookViewEditor.cpp
     ViewEditors/BookViewEditor.h
+    ViewEditors/BookViewPreview.cpp
+    ViewEditors/BookViewPreview.h
     ViewEditors/CodeViewEditor.cpp
     ViewEditors/CodeViewEditor.h
     ViewEditors/LineNumberArea.cpp
@@ -340,7 +343,6 @@ set( SOURCEUPDATE_FILES
 set( QRC_FILES  
     Resource_Files/main/main.qrc
     Resource_Files/About/About.qrc
-    Resource_Files/javascript/javascript.qrc
     Resource_Files/icon/icon.qrc  
     )
 
@@ -539,6 +541,7 @@ if( APPLE )
 
     add_custom_command( TARGET addframeworks POST_BUILD COMMAND cp ${PROJECT_BINARY_DIR}/*.qm ${WORK_DIR}/Sigil.app/Contents/translations/ )
     add_custom_command( TARGET addframeworks POST_BUILD COMMAND cp ${CMAKE_SOURCE_DIR}/src/Sigil/Resource_Files/dictionaries/* ${WORK_DIR}/Sigil.app/Contents/dictionaries )
+    add_custom_command( TARGET addframeworks POST_BUILD COMMAND cp -r ${CMAKE_SOURCE_DIR}/src/Sigil/Resource_Files/javascript/ckeditor ${WORK_DIR}/Sigil.app/Contents )
                 
 # For Linux and Windows, provide binary installers.
 # For this to work on Linux, InstallJammer needs to be installed and on the system path.
@@ -682,6 +685,9 @@ else()
         add_custom_command( TARGET ${TARGET_FOR_COPY} POST_BUILD COMMAND cmake -E copy ${DIC} ${MAIN_PACKAGE_DIR}/dictionaries/ )
     endforeach( DIC )
 
+    # Copy CKE
+    add_custom_command( Target ${TARGET_FOR_COPY} POST_BUILD COMMAND cmake -E copy Resource_Files/javascript/cke ${MAIN_PACKAGE_DIR} )
+
     # Add libstdc++ to the package.
     if(UNIX)
         file(GLOB STDCPP /usr/lib/*-linux-gnu/libstdc++*)
@@ -767,5 +773,6 @@ if( UNIX AND NOT APPLE )
     install( FILES ${LINUX_DESKTOP_ICON_FILE} DESTINATION ${CMAKE_INSTALL_PREFIX}/share/pixmaps RENAME sigil.png )
     install( FILES ${QM_FILES} DESTINATION ${CMAKE_INSTALL_PREFIX}/share/sigil/translations )
     install( FILES ${DIC_FILES} DESTINATION ${CMAKE_INSTALL_PREFIX}/share/sigil/dictionaries )
+    install( FILES Resource_Files/javascript/ckdeditor DESTINATION ${CMAKE_INSTALL_PREFIX}/share/sigil )
 endif()
 

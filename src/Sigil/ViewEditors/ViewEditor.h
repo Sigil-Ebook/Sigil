@@ -42,64 +42,10 @@ class ViewEditor : public Searchable, public Zoomable
 {
 
 public:
-
-    
-    /**
-     *   Represents an element in the XHTML document tree
-     * and the index of its child that selects the
-     * next element in the chain.
-     *   
-     *   By constructing a list of these items, one can
-     * navigate the tree by selecting the element,
-     * its child with the specified index, its child
-     * with its index and so on until reaching
-     * the element ultimately identified by this chain.
-     *   
-     *   Because of WebKit limitations, this hierarchy
-     * does not really look at all child nodes, but only
-     * at element child nodes. The text nodes are considered
-     * children only for the last element... and even then,
-     * it depends on the specific ViewEditor... BookViewEditor 
-     * does this, CodeViewEditor doesn't.
-     */
-    struct ElementIndex
-    {
-        /**
-         * The name of the element.
-         */
-        QString name;
-
-        /**
-         * The index of this element in its parent's list of children. 
-         */
-        int index;
-    };
-
     /**
      * Destructor.
      */ 
     virtual ~ViewEditor() {}
-
-    /**
-     * Returns an "encoded" location of the caret element.
-     * The returned list of elements represents a "chain"
-     * or "walk" through the XHTML document with which one
-     * can identify a single element in the document.
-     * This list identifies the element in which the 
-     * keyboard caret is currently located.
-     * 
-     * @return The element selecting list.
-     */
-    virtual QList< ElementIndex > GetCaretLocation() = 0;
-
-    /**
-     * Accepts a list returned by a view's GetCaretLocation()
-     * and creates and stores an update that sends the caret
-     * in this view to the specified element.
-     *
-     * @param hierarchy The element selecting list.
-     */
-    virtual void StoreCaretLocationUpdate( const QList< ElementIndex > &hierarchy ) = 0;
 
     /**
      * Returns the state of the loading procedure.

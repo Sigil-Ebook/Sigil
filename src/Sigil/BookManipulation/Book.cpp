@@ -142,7 +142,8 @@ HTMLResource& Book::CreateNewHTMLFile()
 HTMLResource& Book::CreateEmptyHTMLFile()
 {
     HTMLResource &html_resource = CreateNewHTMLFile();
-    html_resource.SetDomDocument( XhtmlDoc::LoadTextIntoDocument( EMPTY_HTML_FILE ) );
+    //html_resource.SetDomDocument( XhtmlDoc::LoadTextIntoDocument( EMPTY_HTML_FILE ) );
+    html_resource.SetText(EMPTY_HTML_FILE);
     SetModified( true );
     return html_resource;
 }
@@ -153,12 +154,14 @@ HTMLResource& Book::CreateEmptyHTMLFile( HTMLResource& resource )
     HTMLResource &new_resource = CreateNewHTMLFile();
     if ( &resource == NULL )
     {
-        new_resource.SetDomDocument( XhtmlDoc::LoadTextIntoDocument( EMPTY_HTML_FILE ) );
+        //new_resource.SetDomDocument( XhtmlDoc::LoadTextIntoDocument( EMPTY_HTML_FILE ) );
+        new_resource.SetText(EMPTY_HTML_FILE);
     }
     else
     {
         QList< HTMLResource* > html_resources = m_Mainfolder.GetResourceTypeList< HTMLResource >( true );
-        new_resource.SetDomDocument( XhtmlDoc::LoadTextIntoDocument( EMPTY_HTML_FILE ) );
+        //new_resource.SetDomDocument( XhtmlDoc::LoadTextIntoDocument( EMPTY_HTML_FILE ) );
+        new_resource.SetText( EMPTY_HTML_FILE );
 
         int reading_order = GetOPF().GetReadingOrder( resource ) + 1;
 
@@ -222,8 +225,10 @@ HTMLResource& Book::CreateChapterBreakOriginalResource( const QString &content, 
     HTMLResource &new_resource = CreateNewHTMLFile();
     new_resource.RenameTo( originating_filename );
 
-    new_resource.SetDomDocument( 
-        XhtmlDoc::LoadTextIntoDocument( CleanSource::Clean( content ) ) );
+    //new_resource.SetDomDocument(
+    //    XhtmlDoc::LoadTextIntoDocument( CleanSource::Clean( content ) ) );
+    new_resource.SetText( CleanSource::Clean( content ) );
+
 
     new_resource.SaveToDisk();
 
@@ -415,33 +420,35 @@ bool Book::Merge( HTMLResource& html_resource1, HTMLResource& html_resource2 )
 
         {
             QWriteLocker source_locker( &html_resource2.GetLock() );
-            const xc::DOMDocument &source_dom  = html_resource2.GetDomDocumentForReading();
+            const xc::DOMDocument &source_dom  = *XhtmlDoc::LoadTextIntoDocument(html_resource2.GetText()).get();
             xc::DOMNodeList &source_body_nodes = *source_dom.getElementsByTagName( QtoX( "body" ) );
 
             if ( source_body_nodes.getLength() != 1 )
-
+            {
                 return false;
+            }
 
             xc::DOMNode &source_body_node = *source_body_nodes.item( 0 );
-            body_children_fragment        = XhtmlDoc::ConvertToDocumentFragment( *source_body_node.getChildNodes() ); 
-        }  
+            body_children_fragment        = XhtmlDoc::ConvertToDocumentFragment( *source_body_node.getChildNodes() );
+        }
 
         QWriteLocker sink_locker( &html_resource1.GetLock() );
-        xc::DOMDocument &sink_dom        = html_resource1.GetDomDocumentForWriting();
+        xc::DOMDocument &sink_dom        = *XhtmlDoc::LoadTextIntoDocument(html_resource1.GetText()).get();
         xc::DOMNodeList &sink_body_nodes = *sink_dom.getElementsByTagName( QtoX( "body" ) );
 
         if ( sink_body_nodes.getLength() != 1 )
-
+        {
             return false;
+        }
 
-        xc::DOMNode & sink_body_node = *sink_body_nodes.item( 0 );         
+        xc::DOMNode & sink_body_node = *sink_body_nodes.item( 0 );
         sink_body_node.appendChild( sink_dom.importNode( body_children_fragment, true ) );
-        html_resource1.MarkSecondaryCachesAsOld();
+        html_resource1.SetText(XhtmlDoc::GetDomDocumentAsString(sink_dom));
 
         html_resource2.Delete();
     }
 
-    // Reconcile internal references in the merged file. It is the user's responsibility to ensure that 
+    // Reconcile internal references in the merged file. It is the user's responsibility to ensure that
     // all ids used across the two merged files are unique.
     QList< HTMLResource* > new_file;
     new_file.append( &html_resource1 );
@@ -528,24 +535,23 @@ Book::NewChapterResult Book::CreateOneNewChapter( NewChapter chapter_info,
 
     Utility::WriteUnicodeTextFile( "PLACEHOLDER", fullfilepath );
 
-    HTMLResource *html_resource = qobject_cast< HTMLResource* >( 
+    HTMLResource *html_resource = qobject_cast< HTMLResource* >(
         &m_Mainfolder.AddContentFileToFolder( fullfilepath ) );
 
     Q_ASSERT( html_resource );
 
     if ( html_updates.isEmpty() )
     {
-        html_resource->SetDomDocument( 
-            XhtmlDoc::LoadTextIntoDocument( CleanSource::Clean( chapter_info.source ) ) );
+        html_resource->SetText( CleanSource::Clean( chapter_info.source ) );
     }
 
     else
     {
-        html_resource->SetDomDocument( 
-            PerformHTMLUpdates( CleanSource::Clean( chapter_info.source ),
-                                html_updates, 
-                                QHash< QString, QString >() 
-                              )() );
+        html_resource->SetText(
+            XhtmlDoc::GetDomDocumentAsString( *PerformHTMLUpdates( CleanSource::Clean( chapter_info.source ),
+                                html_updates,
+                                QHash< QString, QString >()
+                              )().get() ) );
     }
 
     NewChapterResult chapter;

@@ -82,8 +82,7 @@ tuple< QString, QList< QString > > AnchorUpdates::GetOneFileIDs( HTMLResource* h
 
     QReadLocker locker( &html_resource->GetLock() );
 
-    QList< QString >ids = XhtmlDoc::GetAllDescendantIDs( *html_resource->GetDomDocumentForReading().getDocumentElement() );
-
+    QList< QString > ids = XhtmlDoc::GetAllDescendantIDs(*XhtmlDoc::LoadTextIntoDocument(html_resource->GetText()).get());
     return make_tuple( html_resource->Filename(), ids );
 }
 
@@ -95,14 +94,14 @@ void AnchorUpdates::UpdateAnchorsInOneFile( HTMLResource *html_resource,
 
     QWriteLocker locker( &html_resource->GetLock() );
 
-    xc::DOMDocument &document = html_resource->GetDomDocumentForWriting();
+    xc::DOMDocument &document = *XhtmlDoc::LoadTextIntoDocument(html_resource->GetText()).get();
     xc::DOMNodeList *anchors  = document.getElementsByTagName( QtoX( "a" ) );
 
     const QString &resource_filename = html_resource->Filename();
 
     for ( uint i = 0; i < anchors->getLength(); ++i )
     {
-        xc::DOMElement &element = *static_cast< xc::DOMElement* >( anchors->item( i ) ); 
+        xc::DOMElement &element = *static_cast< xc::DOMElement* >( anchors->item( i ) );
 
         Q_ASSERT( &element );
 
@@ -125,11 +124,11 @@ void AnchorUpdates::UpdateAnchorsInOneFile( HTMLResource *html_resource,
                                           .append( "#" )
                                           .append( id );
 
-                element.setAttribute( QtoX( "href" ), QtoX( attribute_value ) ); 
-                html_resource->MarkSecondaryCachesAsOld();
+                element.setAttribute( QtoX( "href" ), QtoX( attribute_value ) );
             }
-        } 
+        }
     }
+    html_resource->SetText(XhtmlDoc::GetDomDocumentAsString(document));
 }
 
 
@@ -139,7 +138,7 @@ void AnchorUpdates::UpdateExternalAnchorsInOneFile( HTMLResource *html_resource,
 
     QWriteLocker locker( &html_resource->GetLock() );
 
-    xc::DOMDocument &document = html_resource->GetDomDocumentForWriting();
+    xc::DOMDocument &document = *XhtmlDoc::LoadTextIntoDocument(html_resource->GetText()).get();
     xc::DOMNodeList *anchors  = document.getElementsByTagName( QtoX( "a" ) );
 
     QString original_filename_with_relative_path = "../" % TEXT_FOLDER_NAME % "/" % originating_filename;
@@ -148,7 +147,7 @@ void AnchorUpdates::UpdateExternalAnchorsInOneFile( HTMLResource *html_resource,
 
     for ( uint i = 0; i < anchors->getLength(); ++i )
     {
-        xc::DOMElement &element = *static_cast< xc::DOMElement* >( anchors->item( i ) ); 
+        xc::DOMElement &element = *static_cast< xc::DOMElement* >( anchors->item( i ) );
 
         Q_ASSERT( &element );
 
@@ -173,9 +172,9 @@ void AnchorUpdates::UpdateExternalAnchorsInOneFile( HTMLResource *html_resource,
                                           .append( "#" )
                                           .append( fragment_id );
 
-                element.setAttribute( QtoX( "href" ), QtoX( attribute_value ) ); 
-                html_resource->MarkSecondaryCachesAsOld();
+                element.setAttribute( QtoX( "href" ), QtoX( attribute_value ) );
             }
         }
     }
+    html_resource->SetText(XhtmlDoc::GetDomDocumentAsString(document));
 }

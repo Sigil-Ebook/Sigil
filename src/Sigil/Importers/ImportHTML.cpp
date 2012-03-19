@@ -166,7 +166,7 @@ void ImportHTML::UpdateFiles( HTMLResource &html_resource,
 
     QHash< QString, QString > html_updates;
     QHash< QString, QString > css_updates;
-    tie( html_updates, css_updates, boost::tuples::ignore ) = 
+    tie( html_updates, css_updates, boost::tuples::ignore ) =
         UniversalUpdates::SeparateHtmlCssXmlUpdates( updates );
 
     QList< Resource* > all_files = m_Book->GetFolderKeeper().GetResourceList();
@@ -187,7 +187,7 @@ void ImportHTML::UpdateFiles( HTMLResource &html_resource,
     sync.addFuture( QtConcurrent::map( css_resources, 
         boost::bind( UniversalUpdates::LoadAndUpdateOneCSSFile, _1, css_updates ) ) );
 
-    html_resource.SetDomDocument( PerformHTMLUpdates( document, html_updates, css_updates )() );
+    html_resource.SetText(XhtmlDoc::GetDomDocumentAsString(*PerformHTMLUpdates( document, html_updates, css_updates )().get()));
 
     sync.waitForFinished();
 }

@@ -207,14 +207,6 @@ public:
     // Returns the first block element ancestor of the specified node
     static xc::DOMNode& GetAncestorBlockElement( const xc::DOMNode &node );
 
-    // Returns the node identified by the specified ViewEditor element hierarchy
-    static xc::DOMNode* GetNodeFromHierarchy( const xc::DOMDocument &document, 
-                                              const QList< ViewEditor::ElementIndex > &hierarchy );
-
-
-    // Creates a ViewEditor element hierarchy from the specified node
-    static QList< ViewEditor::ElementIndex > GetHierarchyFromNode( const xc::DOMNode &node ); 
-
     static QStringList GetImagePathsFromImageChildren( const xc::DOMNode &node );
 
 private:

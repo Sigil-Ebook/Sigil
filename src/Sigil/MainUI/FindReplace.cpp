@@ -1,7 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2011  John Schember <john@nachtimwald.com>
 **  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
+**  Copyright (C) 2011  John Schember <john@nachtimwald.com>
 **
 **  This file is part of Sigil.
 **
@@ -361,7 +361,7 @@ void FindReplace::SetCodeViewIfNeeded( bool force )
             ( ( GetLookWhere() == FindReplace::LookWhere_AllHTMLFiles || 
                     GetSearchMode() == FindReplace::SearchMode_SpellCheck ||
                     GetLookWhere() == FindReplace::LookWhere_SelectedHTMLFiles ) &&
-                m_MainWindow.GetCurrentContentTab().GetViewState() == ContentTab::ViewState_BookView ) ) 
+                m_MainWindow.GetViewState() == MainWindow::ViewState_BookView ) )
     {
         // Force change to Code View
         m_MainWindow.AnyCodeView();
@@ -508,7 +508,7 @@ bool FindReplace::FindInAllFiles( Searchable::Direction direction )
                 m_MainWindow.SaveBrowserSelection();
             }
 
-            m_MainWindow.OpenResource( *containing_resource, ContentTab::ViewState_CodeView );
+            m_MainWindow.OpenResource( *containing_resource, MainWindow::ViewState_CodeView );
 
             while ( !m_MainWindow.GetCurrentContentTab().IsLoadingFinished() )
             {

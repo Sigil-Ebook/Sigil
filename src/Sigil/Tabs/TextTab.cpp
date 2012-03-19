@@ -114,12 +114,6 @@ Searchable* TextTab::GetSearchableContent()
 }
 
 
-ContentTab::ViewState TextTab::GetViewState()
-{
-    return ContentTab::ViewState_RawView;
-}
-
-
 void TextTab::Undo()
 {
     if( m_wCodeView.hasFocus() )

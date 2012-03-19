@@ -20,6 +20,7 @@
 *************************************************************************/
 
 #include <boost/bind/bind.hpp>
+#include <boost/shared_ptr.hpp>
 #include <boost/tuple/tuple.hpp>
 
 #include <QtCore/QtCore>
@@ -34,6 +35,8 @@
 #include "sigil_constants.h"
 
 using boost::make_tuple;
+using boost::shared_ptr;
+
 
 // The maximum allowed distance (in lines) that a heading
 // can be located from a body tag and still
@@ -70,10 +73,19 @@ QList< Headings::Heading > Headings::GetHeadingListForOneFile( HTMLResource* htm
 {
     Q_ASSERT( html_resource );
 
-    const xc::DOMDocument &document = html_resource->GetDomDocumentForReading();
-    xc::DOMElement &body_element    = *XhtmlDoc::GetTagMatchingDescendants( document, "body" ).at( 0 );
-
-    QList< xc::DOMElement* > heading_nodes = XhtmlDoc::GetTagMatchingDescendants( document, HEADING_TAGS );
+    // We have to store the shared pointer and then reference it otherwise it will
+    // not a have reference and the DOMDocument will be destroyed.
+    shared_ptr<xc::DOMDocument> d = XhtmlDoc::LoadTextIntoDocument(html_resource->GetText());
+    const xc::DOMDocument &document = *d.get();
+    QList< xc::DOMElement *> dom_elements = XhtmlDoc::GetTagMatchingDescendants( document, "body" );
+    // We want to ensure we don't try to get an element out of an empty list.
+    // This could happen if there is no body but there should never be an HTMLResource
+    // without a body.
+    if (dom_elements.isEmpty()) {
+        return QList<Headings::Heading>();
+    }
+    xc::DOMElement &body_element = *dom_elements.at( 0 );
+    QList<xc::DOMElement *> heading_nodes = XhtmlDoc::GetTagMatchingDescendants( document, HEADING_TAGS );
     int num_heading_nodes = heading_nodes.count();
 
     QList< Headings::Heading > headings;
@@ -86,7 +98,7 @@ QList< Headings::Heading > Headings::GetHeadingListForOneFile( HTMLResource* htm
         Heading heading;
         heading.resource_file  = html_resource;
         heading.element        = &element;
-        heading.text           = ( element.hasAttribute( QtoX( "title" ) )          ? 
+        heading.text           = ( element.hasAttribute( QtoX( "title" ) )          ?
                                    XtoQ( element.getAttribute( QtoX( "title" ) ) )  :
                                    XtoQ( element.getTextContent() )
                                  ).simplified();
@@ -94,10 +106,10 @@ QList< Headings::Heading > Headings::GetHeadingListForOneFile( HTMLResource* htm
         heading.level          = QString( XtoQ( element.getTagName() ).at( 1 ) ).toInt();
         heading.include_in_toc = !XtoQ( element.getAttribute( QtoX( "class" ) ) )
                                  .contains( NOT_IN_TOC_CLASS );
-        heading.at_file_start  = 
-            i == 0 && 
-            XhtmlDoc::NodeLineNumber( element ) - 
-            XhtmlDoc::NodeLineNumber( body_element ) < ALLOWED_HEADING_DISTANCE;     
+        heading.at_file_start  =
+            i == 0 &&
+            XhtmlDoc::NodeLineNumber( element ) -
+            XhtmlDoc::NodeLineNumber( body_element ) < ALLOWED_HEADING_DISTANCE;
 
         if ( heading.include_in_toc || include_unwanted_headings )
 
