@@ -50,7 +50,7 @@ SettingsStore::SettingsStore()
 QString SettingsStore::uiLanguage()
 {
     clearSettingsGroup();
-    return value(KEY_UI_LANGUAGE, "en" ).toString();
+    return value(KEY_UI_LANGUAGE, QLocale::system().name()).toString();
 }
 
 QString SettingsStore::defaultMetadataLang()
