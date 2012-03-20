@@ -85,7 +85,7 @@ void BookViewEditor::CustomSetDocument(const QString &path, const QString &html)
 #endif
 // On *nix we have an installation path we need to check too.
 #ifdef Q_WS_X11
-    if (cke_path.isEmpty() || QDir(cke_path).exists()) {
+    if (cke_path.isEmpty() || !QDir(cke_path).exists()) {
         cke_path = QCoreApplication::applicationDirPath() + "/../share/" + QCoreApplication::applicationName().toLower() + "/ckeditor";
     }
 #endif
