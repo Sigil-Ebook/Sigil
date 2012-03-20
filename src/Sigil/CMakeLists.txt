@@ -773,6 +773,6 @@ if( UNIX AND NOT APPLE )
     install( FILES ${LINUX_DESKTOP_ICON_FILE} DESTINATION ${CMAKE_INSTALL_PREFIX}/share/pixmaps RENAME sigil.png )
     install( FILES ${QM_FILES} DESTINATION ${CMAKE_INSTALL_PREFIX}/share/sigil/translations )
     install( FILES ${DIC_FILES} DESTINATION ${CMAKE_INSTALL_PREFIX}/share/sigil/dictionaries )
-    install( DIRECTORY Resource_Files/javascript/ckdeditor DESTINATION ${CMAKE_INSTALL_PREFIX}/share/sigil )
+    install( DIRECTORY Resource_Files/javascript/ckeditor DESTINATION ${CMAKE_INSTALL_PREFIX}/share/sigil )
 endif()
 
