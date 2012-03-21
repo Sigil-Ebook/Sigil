@@ -40,14 +40,25 @@ class FindReplace : public QWidget
     Q_OBJECT
 
 public:
-
     FindReplace( MainWindow &main_window );
     ~FindReplace();
 
-    /**
-     * Sets up the default Find text during dialog creation.
-     */
-    void SetUpFindText();
+    // Capabilities for the F&R.
+    enum CAPABILITY {
+        CAPABILITY_NONE =                      0,
+        CAPABILITY_ALL =                 (1 << 0),
+        CAPABILITY_FIND =                (1 << 1),
+        CAPABILITY_REPLACE =             (1 << 2),
+        CAPABILITY_MODE_NORMAL =         (1 << 3),
+        CAPABILITY_MODE_CASE_SENSITIVE = (1 << 4),
+        CAPABILITY_MODE_REGEX =          (1 << 5),
+        CAPABILITY_MODE_REGEX_DOT_ALL =  (1 << 6),
+        CAPABILITY_MODE_SPELL_CHECK =    (1 << 7),
+        CAPABILITY_LOOK_CURRENT =        (1 << 8),
+        CAPABILITY_LOOK_ALL_HTML =       (1 << 9),
+        CAPABILITY_LOOK_SELECTED_HTML =  (1 << 10)
+    };
+    typedef unsigned int FR_Capabilities;
 
     /**
      * Defines possible areas where the search can be performed.
@@ -74,6 +85,13 @@ public:
         SearchDirection_Down = 0,
         SearchDirection_Up = 10
     };
+
+    /**
+     * Sets up the default Find text during dialog creation.
+     */
+    void SetUpFindText();
+
+    void SetCapabilities(FR_Capabilities caps);
 
 public slots:
     void close();
@@ -217,6 +235,7 @@ private:
     // spawned this widget. Needed for searching.
     MainWindow &m_MainWindow;
 
+    FR_Capabilities m_capabilites;
     QTimer m_timer;
 
     Ui::FindReplace ui;

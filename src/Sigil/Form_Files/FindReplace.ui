@@ -94,7 +94,7 @@
        </layout>
       </item>
       <item>
-       <layout class="QGridLayout" name="gridLayout" columnstretch="0,1,0,0">
+       <layout class="QGridLayout" name="gridLayout" columnstretch="0,1,0,0,0">
         <property name="leftMargin">
          <number>0</number>
         </property>
@@ -108,7 +108,7 @@
          <number>3</number>
         </property>
         <item row="0" column="0">
-         <widget class="QLabel" name="label">
+         <widget class="QLabel" name="findl">
           <property name="text">
            <string>Find:</string>
           </property>
@@ -172,7 +172,7 @@
          </widget>
         </item>
         <item row="1" column="0">
-         <widget class="QLabel" name="label_2">
+         <widget class="QLabel" name="replacel">
           <property name="text">
            <string>Replace:</string>
           </property>
@@ -231,7 +231,7 @@
          </widget>
         </item>
         <item row="3" column="0">
-         <widget class="QLabel" name="label_4">
+         <widget class="QLabel" name="model">
           <property name="text">
            <string>Mode:</string>
           </property>
@@ -241,12 +241,12 @@
          </widget>
         </item>
         <item row="3" column="1" colspan="4">
-         <layout class="QHBoxLayout" name="horizontalLayout" stretch="0,0,0,0,0">
+         <layout class="QHBoxLayout" name="horizontalLayout" stretch="0,0,0,0,0,0,0">
           <item>
            <widget class="QComboBox" name="cbSearchMode"/>
           </item>
           <item>
-           <widget class="QLabel" name="label_3">
+           <widget class="QLabel" name="lookl">
             <property name="text">
              <string>Look:</string>
             </property>
@@ -259,7 +259,7 @@
            <widget class="QComboBox" name="cbLookWhere"/>
           </item>
           <item>
-           <widget class="QLabel" name="label_5">
+           <widget class="QLabel" name="directionl">
             <property name="text">
              <string>Direction:</string>
             </property>
@@ -288,7 +288,7 @@
            <widget class="QLabel" name="message">
             <property name="font">
              <font>
-              <weight>50</weight>
+              <weight>75</weight>
               <bold>true</bold>
              </font>
             </property>
