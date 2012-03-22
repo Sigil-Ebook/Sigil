@@ -694,6 +694,8 @@ void MainWindow::SetStateActionsBookView()
 
     ui.actionInsertImage->setEnabled(true);
     ui.actionSplitChapter->setEnabled(true);
+
+    m_FindReplace->SetCapabilities(FindReplace::CAPABILITY_FIND);
 }
 
 void MainWindow::SetStateActionsSplitView()
@@ -703,6 +705,8 @@ void MainWindow::SetStateActionsSplitView()
     ui.actionBookView ->setChecked(false);
     ui.actionSplitView->setChecked(true);
     ui.actionCodeView ->setChecked(false);
+
+    m_FindReplace->SetCapabilities(FindReplace::CAPABILITY_ALL);
 }
 
 void MainWindow::SetStateActionsCodeView()
@@ -712,6 +716,8 @@ void MainWindow::SetStateActionsCodeView()
     ui.actionBookView ->setChecked(false);
     ui.actionSplitView->setChecked(false);
     ui.actionCodeView ->setChecked(true);
+
+    m_FindReplace->SetCapabilities(FindReplace::CAPABILITY_ALL);
 }
 
 
@@ -729,6 +735,14 @@ void MainWindow::SetStateActionsRawView()
 
     ui.actionInsertImage->setEnabled(false);
     ui.actionSplitChapter->setEnabled(false);
+
+    m_FindReplace->SetCapabilities(FindReplace::CAPABILITY_FIND |
+        FindReplace::CAPABILITY_LOOK_CURRENT |
+        FindReplace::CAPABILITY_REPLACE |
+        FindReplace::CAPABILITY_MODE_NORMAL |
+        FindReplace::CAPABILITY_MODE_CASE_SENSITIVE |
+        FindReplace::CAPABILITY_MODE_REGEX |
+        FindReplace::CAPABILITY_MODE_REGEX_DOT_ALL);
 }
 
 
@@ -742,6 +756,8 @@ void MainWindow::SetStateActionsStaticView()
     ui.actionCut->setEnabled(false);
     ui.actionCopy->setEnabled(false);
     ui.actionPaste->setEnabled(false);
+
+    m_FindReplace->SetCapabilities(FindReplace::CAPABILITY_NONE);
 }
 
 

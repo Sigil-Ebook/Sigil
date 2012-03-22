@@ -230,18 +230,18 @@
           </property>
          </widget>
         </item>
-        <item row="3" column="0">
-         <widget class="QLabel" name="model">
-          <property name="text">
-           <string>Mode:</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-          </property>
-         </widget>
-        </item>
-        <item row="3" column="1" colspan="4">
-         <layout class="QHBoxLayout" name="horizontalLayout" stretch="0,0,0,0,0,0,0">
+        <item row="3" column="0" colspan="5">
+         <layout class="QHBoxLayout" name="modeLayout" stretch="0,0,0,0,0,0,0,0">
+          <item>
+           <widget class="QLabel" name="model">
+            <property name="text">
+             <string>Mode:</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+           </widget>
+          </item>
           <item>
            <widget class="QComboBox" name="cbSearchMode"/>
           </item>

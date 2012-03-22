@@ -1014,6 +1014,9 @@ void FindReplace::ExtendUI()
         // Message
         ui.message->hide();
     }
+
+    ui.modeLayout->invalidate();
+    ui.gridLayout->invalidate();
 }
 
 
