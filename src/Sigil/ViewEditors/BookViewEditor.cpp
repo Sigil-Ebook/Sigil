@@ -48,11 +48,11 @@ const QString CKE_BASE =
     "</head>"
     "<body>"
     "    <form action=\"sample_posteddata.php\" method=\"post\">"
-    "        <textarea id=\"editor1\" name=\"editor1\">%2</textarea>"
+    "        <textarea id=\"editor\" name=\"editor\">%2</textarea>"
     "        <script type=\"text/javascript\">"
-    "            CKEDITOR.replace('editor1', { fullPage: true, startupFocus: true, extraPlugins: 'onchange,docprops', language: '%3', %4 });"
+    "            CKEDITOR.replace('editor', { fullPage: true, startupFocus: true, extraPlugins: 'onchange,docprops', language: '%3', %4 });"
     "            CKEDITOR.on('instanceReady', function(e) { e.editor.execCommand('maximize'); });"
-    "            CKEDITOR.instances[\"editor1\"].on('change', function() { BookViewEditor.TextChangedFilter(); });"
+    "            CKEDITOR.instances.editor.on('change', function() { BookViewEditor.TextChangedFilter(); });"
     "        </script>"
     "    </form>"
     "</body>"
@@ -108,12 +108,9 @@ void BookViewEditor::ScrollToFragment(const QString &fragment)
         return;
     }
 
-    QString scroll = "var documentWrapper = document.getElementById(\"editor1\").document;"
-        "var documentNode = documentWrapper['$'];"
-        "var element = documentNode.getElementById(\"" % fragment % "\");"
-        "var from_top = window.innerHeight / 2;"
-        "documentNode.scrollTo(element, 0, {offset: {top:-from_top, left:0 } });";
-
+    QString scroll = "var documentWrapper = CKEDITOR.instances.editor.dom.document;"
+        "var element = documentWrapper.getById(\"" % fragment % "\");"
+        "element.scrollIntoView()";
     EvaluateJavascript(scroll % SET_CURSOR_JS);
 }
 
@@ -123,11 +120,9 @@ void BookViewEditor::ScrollToFragmentAfterLoad(const QString &fragment)
         return;
     }
 
-    QString scroll = "var documentWrapper = document.getElementById(\"editor1\").document;"
-        "var documentNode = documentWrapper['$'];"
-        "var element = documentNode.getElementById(\"" % fragment % "\");"
-        "var from_top = window.innerHeight / 2;"
-        "documentNode.scrollTo(element, 0, {offset: {top:-from_top, left:0 } });";
+    QString scroll = "var documentWrapper = CKEDITOR.instances.editor.dom.document;"
+        "var element = documentWrapper.getById(\"" % fragment % "\");"
+        "element.scrollIntoView()";
     QString javascript = "window.addEventListener('load', GoToFragment, false);"
         "function GoToFragment() { " % scroll % SET_CURSOR_JS % "}";
 
@@ -136,7 +131,7 @@ void BookViewEditor::ScrollToFragmentAfterLoad(const QString &fragment)
 
 QString BookViewEditor::GetHtml()
 {
-    QString command = "var objEditor = CKEDITOR.instances[\"editor1\"]; objEditor.getData();";
+    QString command = "var objEditor = CKEDITOR.instances.editor; objEditor.getData();";
     return EvaluateJavascript(command).toString();
 }
 
@@ -148,6 +143,12 @@ QString BookViewEditor::GetXHtml11()
 QString BookViewEditor::GetHtml5()
 {
     return GetHtml();
+}
+
+void BookViewEditor::InsertHtml(const QString &html)
+{
+    QString javascript = "CKEDITOR.instances.editor.insertHtml('" + html + "');";
+    EvaluateJavascript(javascript);
 }
 
 QString BookViewEditor::SplitChapter()
@@ -206,19 +207,19 @@ int BookViewEditor::ReplaceAll(const QString &search_regex, const QString &repla
 
 QString BookViewEditor::GetSelectedText()
 {
-    QString javascript = "CKEDITOR.instances[\"editor1\"].getSelection().getSelectedText();";
+    QString javascript = "CKEDITOR.instances.editor.getSelection().getSelectedText();";
     return EvaluateJavascript(javascript).toString();
 }
 
 void BookViewEditor::SaveCaret()
 {
-    QString javascript = "CKEDITOR.instances[\"editor1\"].getSelection().getRanges();";
+    QString javascript = "CKEDITOR.instances.editor.getSelection().getRanges();";
     m_caret = EvaluateJavascript(javascript);
 }
 
 void BookViewEditor::RestoreCaret()
 {
-    QString javascript = QString("CKEDITOR.instances[\"editor1\"].getSelection().selectRanges(%1)").arg(m_caret.toString());
+    QString javascript = QString("CKEDITOR.instances.editor.getSelection().selectRanges(%1)").arg(m_caret.toString());
     EvaluateJavascript(javascript);
 }
 

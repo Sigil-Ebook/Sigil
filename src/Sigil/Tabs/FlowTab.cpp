@@ -44,7 +44,6 @@
 
 static const QString SETTINGS_GROUP = "flowtab";
 
-
 FlowTab::FlowTab(HTMLResource& resource,
                   const QUrl &fragment, 
                   MainWindow::ViewState view_state,
@@ -438,7 +437,7 @@ void FlowTab::InsertSGFChapterMarker()
     }
 
     if (m_ViewState == MainWindow::ViewState_BookView) {
-        //m_wBookView.ExecCommand( "insertHTML", BREAK_TAG_INSERT );
+        m_wBookView.InsertHtml(BREAK_TAG_INSERT);
     }
     else {
         m_wCodeView.InsertSGFChapterMarker();
@@ -460,11 +459,13 @@ void FlowTab::SplitOnSGFChapterMarkers()
 
 void FlowTab::InsertImage( const QString &image_path )
 {
+    QString html = QString("<img src=\"%1\"/>").arg(image_path);
+
     if (m_ViewState == MainWindow::ViewState_BookView) {
-        //m_wBookView.ExecCommand( "insertImage", image_path );
+        m_wBookView.InsertHtml(html);
     }
     else {
-        m_wCodeView.insertPlainText(QString("<img src=\"%1\"/>").arg(image_path));
+        m_wCodeView.insertPlainText(html);
     }
 }
 

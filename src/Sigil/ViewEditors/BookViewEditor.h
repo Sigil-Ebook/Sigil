@@ -61,6 +61,8 @@ public:
     QString GetXHtml11();
     QString GetHtml5();
 
+    void InsertHtml(const QString &html);
+
     /**
      * Splits the chapter and returns the "upper" content.
      * The current flow is split at the caret point.
