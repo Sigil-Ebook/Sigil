@@ -504,8 +504,10 @@ void OPFResource::RemoveResource( const Resource &resource )
     }
 
     if ( resource.Type() == Resource::HTMLResourceType )
-
+    {
         RemoveFromSpine( item_id, *document );
+        RemoveGuideReferenceForResource( resource, *document );
+    }
 
     UpdateTextFromDom( *document );
 }

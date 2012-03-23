@@ -1,4 +1,5 @@
 Sigil 0.6.0 TBA
+    - Fix issue 1281: Semantics information retained for deleted files.
     - Implement issue 32: Adding custom "date" metadata.
     - Implement issue 33: Options for creators and contributors.
     - Replace Book View Editor with editor based on CKEditor.
