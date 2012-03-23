@@ -169,6 +169,12 @@ void BookViewEditor::GrabFocus()
     QWebView::setFocus();
 }
 
+bool BookViewEditor::IsModified()
+{
+    QString javascript = "CKEDITOR.instances.editor.checkDirty();";
+    return EvaluateJavascript(javascript).toBool();
+}
+
 // Overridden so we can emit the FocusLost() signal.
 void BookViewEditor::focusOutEvent(QFocusEvent *event)
 {
