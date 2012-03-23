@@ -91,6 +91,14 @@ QString Metadata::GetCode( QString name )
     return code;
 }
 
+QString Metadata::GetText( QString text )
+{
+    if ( m_Text.contains( text ) )
+    {
+        return m_Text.value(text);
+    }
+    return text;
+}
 
 bool Metadata::IsRelator( QString code )
 {
@@ -119,6 +127,7 @@ Metadata::MetaElement Metadata::MapToBookMetadata( const xc::DOMElement &element
         meta.name  = XtoQ( element.getAttribute( QtoX( "name" ) ) );
         meta.value = XtoQ( element.getAttribute( QtoX( "content" ) ) );
         meta.attributes[ "scheme" ] = XtoQ( element.getAttribute( QtoX( "scheme" ) ) );
+        meta.attributes[ "id" ] = XtoQ( element.getAttribute( QtoX( "id" ) ) );
 
         if ( ( !meta.name.isEmpty() ) && ( !meta.value.toString().isEmpty() ) ) 
         
@@ -199,6 +208,15 @@ Metadata::Metadata()
 {
     LoadBasicMetadata();
     LoadRelatorCodes();
+    LoadText();
+}
+
+void Metadata::LoadText()
+{
+    m_Text[ "creator" ] = tr( "Creator" );
+    m_Text[ "contributor" ] = tr( "Contributor" );
+    m_Text[ "date" ] = tr( "Date" );
+    m_Text[ "identifier" ] = tr( "Identifier" );
 }
 
 
@@ -220,9 +238,10 @@ void Metadata::LoadBasicMetadata()
         tr ( "Subject" ) << "subject" << tr( "An arbitrary phrase or keyword describing the subject in question. Use multiple 'subject' elements if needed." ) <<
         tr ( "Description" ) << "description" << tr( "Description of the publication's content." ) <<
         tr ( "Publisher" ) << "publisher" << tr( "An entity responsible for making the publication available." ) <<
-        tr ( "Date of publication" ) << "publication" << tr( "The date of publication." ) <<
-        tr ( "Date of creation" ) << "creation" << tr( "The date of creation." ) <<
-        tr ( "Date of modification" ) << "modification" << tr( "The date of modification." ) <<
+        tr ( "Date: Publication" ) << "publication" << tr( "The date of publication." ) <<
+        tr ( "Date: Creation" ) << "creation" << tr( "The date of creation." ) <<
+        tr ( "Date: Modification" ) << "modification" << tr( "The date of modification." ) <<
+        tr ( "Date (custom)" ) << "customdate" << tr( "Enter your own event name in the File As column, e.g. updated." ) <<
         tr ( "Type" ) << "type" << tr( "The nature or genre of the content of the resource." ) <<
         tr ( "Format" ) << "format" << tr( "The media type or dimensions of the publication. Best practice is to use a value from a controlled vocabulary (e.g. MIME media types)." ) <<
         tr ( "Source" ) << "source" << tr( "A reference to a resource from which the present publication is derived." ) <<
@@ -231,9 +250,10 @@ void Metadata::LoadBasicMetadata()
         tr ( "Coverage" ) << "coverage" << tr( "The extent or scope of the content of the publication's content." ) <<
         tr ( "Rights" ) << "rights" << tr( "Information about rights held in and over the publication. Rights information often encompasses Intellectual Property Rights (IPR), Copyright, and various Property Rights. If the Rights element is absent, no assumptions may be made about any rights held in or over the publication." ) <<
         tr ( "Title" ) << "title" << tr( "An optional extra title of the publication in addition to the main title already entered." ) <<
-        "DOI"   << "DOI" << tr( "Digital Object Identifier" ) <<
-        "ISBN"  << "ISBN" << tr( "International Standard Book Number" ) <<
-        "ISSN"  << "ISSN" << tr( "International Standard Serial Number" );
+        tr( "Identifier") + ": DOI"   << "DOI" << tr( "Digital Object Identifier" ) <<
+        tr( "Identifier") + ": ISBN"  << "ISBN" << tr( "International Standard Book Number" ) <<
+        tr( "Identifier") + ": ISSN"  << "ISSN" << tr( "International Standard Serial Number" ) <<
+        tr( "Identifier (custom)") << "customidentifier" << tr( "Enter your own custom identifier name in the File As column, e.g. stocknumber" );
 
     for ( int i = 0; i < data.count(); i++ )
     {
@@ -607,18 +627,12 @@ Metadata::MetaElement Metadata::CreateContribMetadata( const Metadata::MetaEleme
         role = "aut";
     }
 
-    // If a "file-as" attribute is provided, we use that as the value
-    QString file_as = meta.attributes.value( "file-as" );
-
-    QString value   = meta.value.toString();
-
-    if ( !file_as.isEmpty() )
-
-        value = file_as;
-
     MetaElement book_meta;
     book_meta.name  = role;
-    book_meta.value = value;
+    book_meta.value = meta.value.toString();
+    book_meta.file_as = meta.attributes.value( "file-as" );
+    // Save contributor or creator
+    book_meta.role_type= meta.name.toLower();
 
     return book_meta;
 }
@@ -628,14 +642,6 @@ Metadata::MetaElement Metadata::CreateContribMetadata( const Metadata::MetaEleme
 Metadata::MetaElement Metadata::DateMetadata( const Metadata::MetaElement &meta )
 {
     QString dc_event = meta.attributes.value( "event" );
-
-    // This is the default
-    QString name = "publication";  
-
-    if ( EVENT_LIST.contains( dc_event ) )
-    {
-        name = dc_event;
-    }
 
     // Dates are in YYYY[-MM[-DD]] format
     QStringList date_parts = meta.value.toString().split( "-", QString::SkipEmptyParts );
@@ -657,8 +663,9 @@ Metadata::MetaElement Metadata::DateMetadata( const Metadata::MetaElement &meta 
                             date_parts[ 2 ].toInt() );
 
     MetaElement book_meta;
-    book_meta.name  = name;
+    book_meta.name  = meta.name;
     book_meta.value = value;
+    book_meta.file_as = dc_event;
 
     return book_meta;
 }
@@ -668,13 +675,17 @@ Metadata::MetaElement Metadata::DateMetadata( const Metadata::MetaElement &meta 
 Metadata::MetaElement Metadata::IdentifierMetadata( const Metadata::MetaElement &meta )
 {
     QString scheme = meta.attributes.value( "scheme" );
+    QString id = meta.attributes.value( "id" );
 
     MetaElement book_meta;
 
-    if ( SCHEME_LIST.contains( scheme, Qt::CaseInsensitive ) )
+    // Ignore any identifiers with an id as id can't be edited in dialog
+    // And skip the uuid identifier in case it made it through without an id
+    if ( id.isEmpty() && scheme.toLower() != "uuid" )
     {
-        book_meta.name = scheme;
+        book_meta.name = meta.name;
         book_meta.value = meta.value;
+        book_meta.file_as = scheme;
     }
 
     return book_meta;

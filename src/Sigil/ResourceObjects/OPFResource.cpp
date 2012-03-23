@@ -29,7 +29,6 @@
 #include <QtCore/QUuid>
 
 #include "BookManipulation/CleanSource.h"
-#include "BookManipulation/Metadata.h"
 #include "BookManipulation/XercesCppUse.h"
 #include "BookManipulation/XhtmlDoc.h"
 #include "Misc/Language.h"
@@ -400,14 +399,14 @@ void OPFResource::SetSpineOrderFromFilenames( const QStringList spineOrder )
 }
 
 
-QHash< QString, QList< QVariant > > OPFResource::GetDCMetadata() const
+QList< Metadata::MetaElement > OPFResource::GetDCMetadata() const
 {
     QReadLocker locker( &GetLock() );
     shared_ptr< xc::DOMDocument > document = GetDocument();
     QList< xc::DOMElement* > dc_elements = 
         XhtmlDoc::GetTagMatchingDescendants( *document, "*", DUBLIN_CORE_NS );
 
-    QHash< QString, QList< QVariant > > metadata;
+    QList< Metadata::MetaElement > metadata;
 
     foreach( xc::DOMElement *dc_element, dc_elements )
     {
@@ -416,7 +415,7 @@ QHash< QString, QList< QVariant > > OPFResource::GetDCMetadata() const
 
         if ( !book_meta.name.isEmpty() && !book_meta.value.toString().isEmpty() )
         {
-            metadata[ book_meta.name ].append( book_meta.value );
+            metadata.append( book_meta );
         }
     }
 
@@ -424,19 +423,31 @@ QHash< QString, QList< QVariant > > OPFResource::GetDCMetadata() const
 }
 
 
-void OPFResource::SetDCMetadata( const QHash< QString, QList< QVariant > > &metadata )
+QList< QVariant > OPFResource::GetDCMetadataValues( QString text ) const
+{
+    QList< QVariant > values;
+    foreach ( Metadata::MetaElement meta, GetDCMetadata() )
+    {
+        if ( meta.name == text )
+        {
+            values.append( meta.value );
+        }
+    }
+
+    return values;
+}
+
+
+void OPFResource::SetDCMetadata( const QList< Metadata::MetaElement > &metadata )
 {
     QWriteLocker locker( &GetLock() );
     shared_ptr< xc::DOMDocument > document = GetDocument();
 
     RemoveDCElements( *document );
 
-    foreach ( QString name, metadata.keys() )
+    foreach ( Metadata::MetaElement book_meta, metadata )
     {
-        foreach ( QVariant single_value, metadata[ name ] )
-        {
-            MetadataDispatcher( name, single_value, *document );
-        }
+        MetadataDispatcher( book_meta, *document );
     }
 
     SetMetaElementsLast( *document );
@@ -1059,94 +1070,83 @@ void OPFResource::RemoveDCElements( xc::DOMDocument &document )
 }
 
 
-void OPFResource::MetadataDispatcher(
-    const QString &metaname, 
-    const QVariant &metavalue,
-    xc::DOMDocument &document )
+void OPFResource::MetadataDispatcher( const Metadata::MetaElement &book_meta, xc::DOMDocument &document )
 {
     // We ignore badly formed meta elements.
-    if ( metaname.isEmpty() || metavalue.isNull() )
+    if ( book_meta.name.isEmpty() || book_meta.value.isNull() )
 
         return;
 
-    // Write Relator codes
-    // The Author is always written as a Relator Code even when basic
-    // Though all author codes should have already been converted to relator
-    if ( metaname == "author" )
+    // Write Relator codes (always write author as relator code)
+	if (  Metadata::Instance().IsRelator( book_meta.name  ) || book_meta.name == "author" )
     {
-        WriteCreatorOrContributor( "aut", metavalue.toString(), document );
+        WriteCreatorOrContributor( book_meta, document );
     }
+
     // There is a relator for the publisher, but there is
     // also a special publisher element that we would rather use
-	else if (  Metadata::Instance().IsRelator( metaname ) &&
-		  metaname != "pub" )
+    else if ( book_meta.name == "pub" )
     {
-        WriteCreatorOrContributor( metaname, metavalue.toString(), document );
+        WriteSimpleMetadata( "publisher", book_meta.value.toString(), document );
     }
-    else if ( metaname == "pub" )
+
+    else if ( book_meta.name  == "language" )
     {
-        WriteSimpleMetadata( "publisher", metavalue.toString(), document );
-    }
-    else if ( metaname == "language" )
-    {
-        WriteSimpleMetadata( metaname,
-                             Language::instance()->GetLanguageCode( metavalue.toString() ),
+        WriteSimpleMetadata( book_meta.name,
+                             Language::instance()->GetLanguageCode( book_meta.value.toString() ),
                              document );
     }
 
-    else if ( metaname == "ISBN" ||
-              metaname == "ISSN" ||
-              metaname == "DOI" 
-            )
+    else if ( book_meta.name  == "identifier" )
     {
-        WriteIdentifier( metaname, metavalue.toString(), document );
+        WriteIdentifier( book_meta.file_as, book_meta.value.toString(), document );
     }
 
-    else if ( metaname == "publication" || metaname == "creation" || metaname == "modification" )
+    else if ( book_meta.name == "date" )
     {
-        WriteDate( metaname, metavalue, document );		
+        WriteDate( book_meta.file_as, book_meta.value, document );		
     }
     
-    // Everything else should be simple
     else
     {
-        WriteSimpleMetadata( metaname, metavalue.toString(), document );
+        WriteSimpleMetadata( book_meta.name, book_meta.value.toString(), document );
     }
 }
 
 
-void OPFResource::WriteCreatorOrContributor( 
-    const QString &role, 
-    const QString &metavalue, 
-    xc::DOMDocument &document )
+void OPFResource::WriteCreatorOrContributor( const Metadata::MetaElement book_meta, xc::DOMDocument &document )
 {
-    // Authors get written as creators, all other relators
-    // are written as contributors
-    QString element_name = role == "aut" ? "creator" : "contributor";
+    QString value = book_meta.value.toString();
+    QString file_as = book_meta.file_as;
+    QString role_type = book_meta.role_type;
+    QString name = book_meta.name;
 
-    QString value;
-    QString file_as;
+    if ( name == "author" )
+    {
+        name = "aut";
+    }
+
+    // Must have a role type
+    if ( role_type.isEmpty() )
+    {
+        role_type = "contributor";
+    }
 
     // if the name is written in standard form 
     // ("John Doe"), just write it out
-    if ( GetNormalName( metavalue ) == metavalue )
-    {
-        value = metavalue;
-    }
-
     // Otherwise it is written in reversed form
     // ("Doe, John") and we write the reversed form
     // to the "file-as" attribute and the normal form as the value
-    else
+    if ( !(GetNormalName( value ) == value) && file_as.isEmpty() )
     {
-        file_as = metavalue;
-        value = GetNormalName( metavalue );
+        file_as = book_meta.value.toString();
+        value = GetNormalName( book_meta.value.toString() );
     }   
 
     // This assumes that the "dc" prefix has been declared for the DC namespace
-    xc::DOMElement *element = document.createElementNS( QtoX( DUBLIN_CORE_NS ), QtoX( "dc:" + element_name ) );
+    xc::DOMElement *element = document.createElementNS( QtoX( DUBLIN_CORE_NS ), QtoX( "dc:" + role_type ) );
 
-    element->setAttributeNS( QtoX( OPF_XML_NAMESPACE ), QtoX( "opf:role" ), QtoX( role ) );
+    element->setAttributeNS( QtoX( OPF_XML_NAMESPACE ), QtoX( "opf:role" ), QtoX( name ) );
 
     if ( !file_as.isEmpty() )
 

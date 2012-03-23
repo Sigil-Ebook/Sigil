@@ -37,7 +37,7 @@ AddMetadata::AddMetadata( const QHash< QString, Metadata::MetaInfo > &metadata, 
     connect( ui.lwProperties, SIGNAL( currentItemChanged( QListWidgetItem*, QListWidgetItem* ) ),
              this,	          SLOT(   UpdateDescription(  QListWidgetItem* ) ) );
 
-    connect( this, SIGNAL( accepted() ), this, SLOT( EmitSelection() ) );
+    connect( this, SIGNAL( accepted() ), this, SLOT( SaveSelection() ) );
 
     // Fill the dialog with sorted translated metadata names
     QStringList names;
@@ -71,17 +71,19 @@ void AddMetadata::UpdateDescription( QListWidgetItem *current )
         ui.lbDescription->setText( text );
 }
 
-
-void AddMetadata::EmitSelection()
+QStringList AddMetadata::GetSelectedEntries()
 {
-    QStringList metadata;
+    return m_SelectedEntries;
+}
+
+void AddMetadata::SaveSelection()
+{
+    m_SelectedEntries.clear();
 
     foreach( QListWidgetItem *item, ui.lwProperties->selectedItems() )
     {
-        metadata.append( Metadata::Instance().GetCode( item->text() ) );
+        m_SelectedEntries.append( Metadata::Instance().GetCode( item->text() ) );
     }
-
-    emit MetadataToAdd( metadata );
 }
 
 

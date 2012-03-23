@@ -105,7 +105,7 @@ void NCXWriter::WriteDocTitle()
 {
     QString document_title;
     
-    QList< QVariant > titles = m_Book.GetMetadata().value( "Title" );
+    QList< QVariant > titles = m_Book.GetMetadataValues( "title" );
 
     if ( titles.isEmpty() )
     

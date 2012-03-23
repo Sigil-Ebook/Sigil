@@ -1,4 +1,6 @@
 Sigil 0.6.0 TBA
+    - Implement issue 32: Adding custom "date" metadata.
+    - Implement issue 33: Options for creators and contributors.
     - Replace Book View Editor with editor based on CKEditor.
     - Split View is now Code View with a preview pane.
     - Implement issue 1265: Option to manually set UI language.

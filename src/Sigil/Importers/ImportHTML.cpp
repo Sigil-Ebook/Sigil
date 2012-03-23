@@ -126,7 +126,7 @@ void ImportHTML::LoadMetadata( const xc::DOMDocument &document )
 {
     QList< xc::DOMElement* > metatags = XhtmlDoc::GetTagMatchingDescendants( document, "meta" );
 
-    QHash< QString, QList< QVariant > > metadata;
+    QList< Metadata::MetaElement > metadata;
 
     for ( int i = 0; i < metatags.count(); ++i )
     {
@@ -136,7 +136,7 @@ void ImportHTML::LoadMetadata( const xc::DOMDocument &document )
 
         if ( !book_meta.name.isEmpty() && !book_meta.value.toString().isEmpty() )
         {
-            metadata[ book_meta.name ].append( book_meta.value );
+            metadata.append( book_meta );
         }        
     }
 

@@ -439,10 +439,10 @@
   </action>
   <action name="actionMetaEditor">
    <property name="text">
-    <string>&amp;Meta Editor...</string>
+    <string>&amp;Metadata Editor...</string>
    </property>
    <property name="toolTip">
-    <string>Meta information editor</string>
+    <string>Metadata information editor</string>
    </property>
    <property name="shortcut">
     <string>F8</string>

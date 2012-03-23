@@ -27,6 +27,7 @@
 
 #include "BookManipulation/GuideSemantics.h"
 #include "ResourceObjects/XMLResource.h"
+#include "BookManipulation/Metadata.h"
 
 using boost::shared_ptr;
 
@@ -98,23 +99,27 @@ public:
     void SetSpineOrderFromFilenames( const QStringList spineOrder );
 
     /**
-     * Returns the book's Dublin Core metadata. Note that metadata from
-     * <meta> elements is not included.
+     * Returns the book's Dublin Core metadata. 
      *
      * @return The DC metadata, in the same format as the SetDCMetadata metadata parameter.
      */
-    QHash< QString, QList< QVariant > > GetDCMetadata() const;
+    QList< Metadata::MetaElement > GetDCMetadata() const;
+
+    /**
+     * Returns the values for a specific metadata name.
+     *
+     * @return A list of values
+     */
+    QList< QVariant > GetDCMetadataValues( QString text ) const;
 
 public slots:
 
     /**
      * Writes metadata to the OPF <metadata> element.
      *
-     * @param metadata A hash with meta information about the book.
-     *                 The keys are the metadata names, and the values
-     *                 are the lists of metadata values for that metadata name.
+     * @param metadata A list with meta information about the book.
      */
-    void SetDCMetadata( const QHash< QString, QList< QVariant > > &metadata );
+    void SetDCMetadata( const QList< Metadata::MetaElement >  &metadata );
 
     void AddResource( const Resource &resource );
 
@@ -199,7 +204,7 @@ private:
      * @param metavalue The value of the metadata to be written. 
      * @param document The OPF DOM document.
      */
-    static void MetadataDispatcher( const QString &metaname, const QVariant &metavalue, xc::DOMDocument &document );
+    static void MetadataDispatcher( const Metadata::MetaElement &book_meta, xc::DOMDocument &document );
 
     /**
      * Writes <creator> and <contributor> metadata elements.
@@ -208,7 +213,7 @@ private:
      * @param metavalue The value of the metadata to be written. 
      * @param document The OPF DOM document.
      */
-    static void WriteCreatorOrContributor( const QString &metaname, const QString &metavalue, xc::DOMDocument &document );
+    static void WriteCreatorOrContributor( const Metadata::MetaElement book_meta, xc::DOMDocument &document );
 
     /**
      * Writes simple metadata. 

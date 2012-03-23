@@ -47,6 +47,7 @@ set( QOBJECT_HEADERS
     Dialogs/HeadingSelector.h 
     Dialogs/ImageList.h
     Dialogs/MetaEditor.h
+    Dialogs/MetaEditorItemDelegate.h
     Dialogs/Preferences.h
     Dialogs/PreferenceWidgets/PreferencesWidget.h
     Dialogs/PreferenceWidgets/KeyboardShortcutsWidget.h
@@ -152,6 +153,8 @@ set( DIALOG_FILES
     Dialogs/ImageList.h
     Dialogs/MetaEditor.cpp
     Dialogs/MetaEditor.h
+    Dialogs/MetaEditorItemDelegate.cpp
+    Dialogs/MetaEditorItemDelegate.h
     Dialogs/HeadingSelector.cpp
     Dialogs/HeadingSelector.h
     Dialogs/Preferences.cpp

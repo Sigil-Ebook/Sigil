@@ -55,6 +55,11 @@ public:
      */
     ~AddMetadata();
 
+    /**
+     * Returns the list of names selected by user.
+     */
+    QStringList GetSelectedEntries();
+
 signals:
 
     /**
@@ -76,12 +81,9 @@ private slots:
     void UpdateDescription( QListWidgetItem *current );
 
     /**
-     * Emits the name of the metadata that
-     * should be added to the metadata table.
-     *
-     * @note Should be called on accept signal.
+     * Saves the selected names for later retrieval
      */
-    void EmitSelection();
+    void SaveSelection();
 
 private:
 
@@ -102,6 +104,11 @@ private:
      * @see Metadata 
      */
     const QHash< QString, Metadata::MetaInfo > &m_Metadata;
+
+    /**
+     * Holds the names of the selected entries
+     */
+    QStringList m_SelectedEntries;
 
     /**
      * Holds all the widgets Qt Designer created for us.

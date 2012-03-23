@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>450</width>
-    <height>304</height>
+    <width>600</width>
+    <height>440</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -17,7 +17,7 @@
    </sizepolicy>
   </property>
   <property name="windowTitle">
-   <string>Meta Editor - Edit Book Details</string>
+   <string>Metadata Editor</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <property name="sizeConstraint">
@@ -32,11 +32,11 @@
        </property>
        <item row="0" column="0">
         <widget class="QLabel" name="lbTitle">
+         <property name="toolTip">
+          <string>The main title of the book.  At least one title is required.</string>
+         </property>
          <property name="text">
           <string>Title:</string>
-         </property>
-         <property name="toolTip">
-          <string>The title of the book.  Required.</string>
          </property>
         </widget>
        </item>
@@ -52,11 +52,13 @@
        </item>
        <item row="1" column="0">
         <widget class="QLabel" name="lbAuthor">
+         <property name="toolTip">
+          <string>The primary author and creator of the book.  At least one author is required.
+
+Click 'Add Role' to add more authors, creators, or contributors.</string>
+         </property>
          <property name="text">
           <string>Author:</string>
-         </property>
-         <property name="toolTip">
-          <string>The author of the book.  Required.&lt;P&gt;Use a &lt;b&gt;;&lt;/b&gt; to separate multiple authors or use Add Advanced to add an additional Author or Contributor entry.&lt;/P&gt;</string>
          </property>
         </widget>
        </item>
@@ -72,11 +74,11 @@
        </item>
        <item row="2" column="0">
         <widget class="QLabel" name="lbLanguage">
+         <property name="toolTip">
+          <string>The primary language of the book.  Required.&lt;P&gt;Use Add Basic to add additional optional languages.&lt;P&gt;Change the default language for new books in Preferences-&gt;Language.&lt;/P&gt;</string>
+         </property>
          <property name="text">
           <string>Language:</string>
-         </property>
-         <property name="toolTip">
-          <string>The language of the book.  Required.&lt;P&gt;Use Add Basic to add additional optional languages.&lt;P&gt;Change the default language for new books in Preferences-&gt;Language.&lt;/P&gt;</string>
          </property>
         </widget>
        </item>
@@ -184,25 +186,125 @@
         <item>
          <layout class="QVBoxLayout" name="verticalLayout_2">
           <item>
+           <spacer name="verticalSpacer_4">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeType">
+             <enum>QSizePolicy::Fixed</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>30</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
            <widget class="QPushButton" name="btAddBasic">
+            <property name="toolTip">
+             <string>Add basic metadata like Subject, Dates, etc.</string>
+            </property>
             <property name="text">
              <string>Add Basic</string>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="btAddAdvanced">
+           <widget class="QPushButton" name="btAddRole">
+            <property name="toolTip">
+             <string>Add the name of a Creator or Contributor.</string>
+            </property>
             <property name="text">
-             <string>Add Adv.</string>
+             <string>Add Role</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="verticalSpacer_2">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeType">
+             <enum>QSizePolicy::Fixed</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btCopy">
+            <property name="toolTip">
+             <string>Copy the first selected row and create a new duplicate entry.
+
+You can also use a ';' between values to quickly create multiple entries of the same type.
+</string>
+            </property>
+            <property name="text">
+             <string>Copy</string>
             </property>
            </widget>
           </item>
           <item>
            <widget class="QPushButton" name="btRemove">
+            <property name="toolTip">
+             <string>Remove all selected rows.</string>
+            </property>
             <property name="text">
              <string>Remove</string>
             </property>
            </widget>
+          </item>
+          <item>
+           <spacer name="verticalSpacer_3">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeType">
+             <enum>QSizePolicy::Fixed</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_3">
+            <item>
+             <widget class="QToolButton" name="tbMoveUp">
+              <property name="toolTip">
+               <string>Move the first selected row up.</string>
+              </property>
+              <property name="text">
+               <string>...</string>
+              </property>
+              <property name="arrowType">
+               <enum>Qt::UpArrow</enum>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QToolButton" name="tbMoveDown">
+              <property name="toolTip">
+               <string>Move the first selected row down.</string>
+              </property>
+              <property name="text">
+               <string>...</string>
+              </property>
+              <property name="arrowType">
+               <enum>Qt::DownArrow</enum>
+              </property>
+             </widget>
+            </item>
+           </layout>
           </item>
          </layout>
         </item>
@@ -229,13 +331,14 @@
  <tabstops>
   <tabstop>leTitle</tabstop>
   <tabstop>leAuthor</tabstop>
+  <tabstop>cbLanguages</tabstop>
   <tabstop>buttonBox</tabstop>
   <tabstop>btMore</tabstop>
   <tabstop>btAddBasic</tabstop>
-  <tabstop>btAddAdvanced</tabstop>
+  <tabstop>btAddRole</tabstop>
+  <tabstop>btCopy</tabstop>
   <tabstop>btRemove</tabstop>
   <tabstop>tvMetaTable</tabstop>
-  <tabstop>cbLanguages</tabstop>
  </tabstops>
  <resources/>
  <connections>

@@ -27,6 +27,7 @@
 #include <QtCore/QObject>
 #include <QtCore/QUrl>
 #include <QtCore/QVariant>
+#include "BookManipulation/Metadata.h"
 
 class CSSResource;
 class FolderKeeper;
@@ -104,11 +105,16 @@ public:
     /**
      * Returns the book's metadata.
      *
-     * @return A hash representing the book's metadata. The keys are
-     *         are the metadata names, and the values are the lists of
-     *         metadata values for that metadata name.
+     * @return A list of the book's metadata.
      */
-    QHash< QString, QList< QVariant > > GetMetadata() const;
+    QList< Metadata::MetaElement > GetMetadata() const;
+
+    /**
+     * Returns the values for a specific metadata name.
+     *
+     * @return A list of values
+     */
+    QList< QVariant > GetMetadataValues( QString text ) const;
 
     /**
      * Replaces the book's current meta information with the received metadata.
@@ -117,7 +123,7 @@ public:
      *                 are the metadata names, and the values are the lists of
      *                 metadata values for that metadata name.
      */
-    void SetMetadata( const QHash< QString, QList< QVariant > > metadata );
+    void SetMetadata( const QList< Metadata::MetaElement > metadata );
 
     /**
      * Creates a new HTMLResource file with no stored data. 

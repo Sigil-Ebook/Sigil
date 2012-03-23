@@ -24,6 +24,7 @@
 #include <QtCore/QFileInfo>
 #include <QtXml/QXmlStreamReader>
 
+#include "BookManipulation/Metadata.h"
 #include "BookManipulation/FolderKeeper.h"
 #include "Importers/ImportEPUB.h"
 #include "Misc/FontObfuscation.h"
@@ -90,7 +91,7 @@ QSharedPointer< Book > ImportEPUB::GetBook()
     m_Book->SetModified( false );
     if( ncx_id.isEmpty() )
     {
-        QHash< QString, QList< QVariant > > originalMetadata = m_Book->GetOPF().GetDCMetadata();
+        QList< Metadata::MetaElement > originalMetadata = m_Book->GetOPF().GetDCMetadata();
         QStringList spineOrder = m_Book->GetOPF().GetSpineOrderFilenames();
 
         m_Book->GetOPF().AutoFixWellFormedErrors();

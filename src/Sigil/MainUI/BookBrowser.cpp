@@ -27,6 +27,7 @@
 
 #include "BookManipulation/Book.h"
 #include "BookManipulation/FolderKeeper.h"
+#include "BookManipulation/Metadata.h"
 #include "Dialogs/RenameTemplate.h"
 #include "Importers/ImportHTML.h"
 #include "MainUI/BookBrowser.h"
@@ -419,7 +420,7 @@ void BookBrowser::AddExisting()
 
     // We need to store the current metadata since the 
     // GetBook call will clear it.
-    QHash< QString, QList< QVariant > > old_metadata = m_Book->GetMetadata();
+    QList< Metadata::MetaElement > old_metadata = m_Book->GetMetadata();
 
     QStringList current_filenames = m_Book->GetFolderKeeper().GetAllFilenames();
 

@@ -23,6 +23,8 @@
 #include <QtGui/QShowEvent>
 
 #include "Dialogs/MetaEditor.h"
+#include "Dialogs/MetaEditorItemDelegate.h"
+#include "BookManipulation/Metadata.h"
 #include "Dialogs/AddMetadata.h"
 #include "Misc/Language.h"
 #include "Misc/SettingsStore.h"
@@ -41,24 +43,43 @@ MetaEditor::MetaEditor( OPFResource &opf, QWidget *parent )
 
     PlatformSpecificTweaks();
 
-    connect( ui.btMore,        SIGNAL( clicked()  ), this, SLOT( ToggleMoreLess()         ) );
-    connect( ui.btAddBasic,    SIGNAL( clicked()  ), this, SLOT( AddBasic()	              ) );
-    connect( ui.btAddAdvanced, SIGNAL( clicked()  ), this, SLOT( AddAdvanced()            ) );
-    connect( ui.btRemove,      SIGNAL( clicked()  ), this, SLOT( Remove()                 ) );
-    connect( this,             SIGNAL( accepted() ), this, SLOT( FillMetadataFromDialog() ) );
+    ConnectSignals();
 
-    connect( ui.tvMetaTable->horizontalHeader(),  SIGNAL( sectionClicked( int ) ),
-             this,                                SLOT( RefreshVerticalHeader() ) );
-
+    SetUpMetaTable();
     ReadSettings();
     ToggleMoreLess();
-    SetUpMetaTable();
 
     FillLanguageComboBox();
     ReadMetadataFromBook();
 
-    // Set the default language to the users preference if possible.
-    if ( m_Metadata[ "language" ].isEmpty() )
+    SetLanguage();
+}
+
+
+MetaEditor::~MetaEditor()
+{
+    if ( m_isMore )
+
+        m_ExpandedHeight = size().height();
+
+    WriteSettings();
+}
+
+
+void MetaEditor::SetLanguage()
+{
+    QString metadata_language;
+    foreach ( Metadata::MetaElement meta, m_Metadata )
+    {
+        if ( meta.name == "language" )
+        {
+            metadata_language = meta.value.toString();
+            break;
+        }
+    }
+
+    // Set language from preferences if none in book
+    if ( metadata_language.isEmpty() )
     {
         SettingsStore settings;
         int index = ui.cbLanguages->findText( Language::instance()->GetLanguageName( settings.defaultMetadataLang() ) );
@@ -72,16 +93,6 @@ MetaEditor::MetaEditor( OPFResource &opf, QWidget *parent )
         }
         ui.cbLanguages->setCurrentIndex( index );
     }
-}
-
-
-MetaEditor::~MetaEditor()
-{
-    if ( m_isMore )
-
-        m_ExpandedHeight = size().height();
-
-    WriteSettings();
 }
 
 
@@ -127,35 +138,110 @@ void MetaEditor::AddEmptyMetadataToTable( const QStringList &metanames )
 {
     foreach ( QString metaname, metanames )
     {
+
+        Metadata::MetaElement book_meta;
+        book_meta.name = metaname;
+        if ( Metadata::Instance().IsRelator( book_meta.name ) )
+        {
+            book_meta.role_type = "contributor";
+        }
+
+		// Map dates and identifiers from user-friendly version to standard entries
+
         // If we are inserting a date, that needs special treatment;
         // We need to insert it as a QDate object so the table interface
         // can automatically impose input restrictions
-        if ( metaname == "creation" || metaname == "modification" || metaname == "publication"  )
+        if ( metaname == "creation" || metaname == "modification" || metaname == "publication"  || metaname == "customdate" )
         {
-            AddMetadataToTable( metaname, QDate::currentDate() );
+            book_meta.name = "date";
+            book_meta.value = QDate::currentDate();
+            book_meta.file_as = metaname;
+        }
+        else if ( metaname == "DOI" || metaname == "ISBN" || metaname == "ISSN"  || metaname == "customidentifier" )
+        {
+            book_meta.name = "identifier";
+            book_meta.value = QString();
+            book_meta.file_as = metaname;
         }
         // String-based metadata gets created normally
         else
         {
-            AddMetadataToTable( metaname, QString() );
+            book_meta.value = QString();
         }
+        AddMetadataToTable( book_meta );
     }
-    m_MetaModel.sort( 0 );
 }
 
 
-void MetaEditor::AddMetadataToTable( const QString &metaname, const QVariant &metavalue )
+void MetaEditor::AddMetadataToTable( Metadata::MetaElement book_meta, int row )
 {
-    m_MetaModel.insertRow( m_MetaModel.rowCount() );
+    if ( row < 0 )
+    {
+        row = m_MetaModel.rowCount();
+    }
 
-    // Add name - all translations done in Metadata for consistency
-    QString fullname = Metadata::Instance().GetName( metaname );
-    m_MetaModel.setData( m_MetaModel.index( m_MetaModel.rowCount() - 1, 0 ), fullname);
-    // Make sure name is not editable
-    m_MetaModel.item( m_MetaModel.rowCount() - 1, 0 )->setEditable( false );
+    m_MetaModel.insertRow( row );
+
+    // The table's role_type column uses a combobox for editing its values
+    ComboBoxItemDelegate *cb = new ComboBoxItemDelegate( ui.tvMetaTable );
+    ui.tvMetaTable->setItemDelegate( cb );
+
+    // Set the display name
+    // All translations done in Metadata for consistency
+    QString fullname;
+    if ( book_meta.name == "date" )
+    {
+        fullname = Metadata::Instance().GetText( "date" );
+    }
+    else if ( book_meta.name == "identifier" )
+    {
+        fullname = Metadata::Instance().GetText( "identifier" );
+    }
+    else
+    {
+        fullname = Metadata::Instance().GetName( book_meta.name );
+	}
+
+    // Add name, making sure its not editable
+    m_MetaModel.setData( m_MetaModel.index( row, 0 ), fullname);
+    m_MetaModel.item( row, 0 )->setEditable( false );
 
     // Add value
-    m_MetaModel.setData( m_MetaModel.index( m_MetaModel.rowCount() - 1, 1 ), metavalue );
+    m_MetaModel.setData( m_MetaModel.index( row, 1 ), book_meta.value );
+
+    // Add file_as and role_type and set editable based on type of entry
+    if ( Metadata::Instance().IsRelator( book_meta.name ) )
+    {
+        // File As
+        m_MetaModel.setData( m_MetaModel.index( row, 2 ), book_meta.file_as );
+
+        // Role Type - always ensure a default value
+        QString role = book_meta.role_type;
+        if ( role.isEmpty() )
+        {
+            role = "contributor";
+        }
+        m_MetaModel.setData( m_MetaModel.index( row, 3 ), Metadata::Instance().GetText( role ) );
+    }
+    else if ( book_meta.name == "date" || book_meta.name == "identifier" )
+    {
+        // File As or Event description
+        m_MetaModel.setData( m_MetaModel.index( row, 2 ), book_meta.file_as );
+
+        // Role Type not used
+        m_MetaModel.setData( m_MetaModel.index( row, 3 ), "");
+        m_MetaModel.item( row, 3 )->setEditable( false );
+    }
+    else
+    {
+        // File As not used
+        m_MetaModel.setData( m_MetaModel.index( row, 3 ), "" );
+        m_MetaModel.item( m_MetaModel.rowCount() - 1, 3 )->setEditable( false );
+
+        // Role Type not used
+        m_MetaModel.setData( m_MetaModel.index( row, 2 ), "");
+        m_MetaModel.item( row, 2 )->setEditable( false );
+    }
 }
 
 
@@ -163,21 +249,59 @@ void MetaEditor::AddBasic()
 {
     AddMetadata addmeta( Metadata::Instance().GetBasicMetaMap(), this );
 
-    connect( &addmeta, SIGNAL( MetadataToAdd( QStringList ) ), this, SLOT( AddEmptyMetadataToTable( QStringList ) ) );
-
-    addmeta.exec();
+    if ( addmeta.exec() == QDialog::Accepted )
+    {
+        AddEmptyMetadataToTable( addmeta.GetSelectedEntries() );
+    }
 }
 
 
-void MetaEditor::AddAdvanced()
+void MetaEditor::AddRole()
 {
     AddMetadata addmeta( Metadata::Instance().GetRelatorMap(), this );
 
-    connect( &addmeta, SIGNAL( MetadataToAdd( QStringList ) ), this, SLOT( AddEmptyMetadataToTable( QStringList ) ) );
-
-    addmeta.exec();
+    if ( addmeta.exec() == QDialog::Accepted )
+    {
+        AddEmptyMetadataToTable( addmeta.GetSelectedEntries() );
+    }
 }
 
+void MetaEditor::Copy()
+{
+    if ( ui.tvMetaTable->selectionModel()->selectedIndexes().isEmpty() )
+    {
+        return;
+    }
+
+    Metadata::MetaElement book_meta;
+
+    // Copy only the first selected row
+    int row = ui.tvMetaTable->selectionModel()->selectedIndexes().first().row();
+
+    QString code = m_MetaModel.data( m_MetaModel.index( row, 0 ) ).toString();
+
+    if ( code == Metadata::Instance().GetText( "date" ) )
+    {
+        code = "date";
+    }
+    else if ( code == Metadata::Instance().GetText( "identifier" ) )
+    {
+        code = "identifier";
+    }
+    else
+    {
+        code = Metadata::Instance().GetCode( code );
+    }
+
+    book_meta.name = code;
+    book_meta.value = m_MetaModel.data( m_MetaModel.index( row, 1 ) );
+    book_meta.file_as = m_MetaModel.data( m_MetaModel.index( row, 2 ) ).toString();
+    book_meta.role_type = m_MetaModel.data( m_MetaModel.index( row, 3 ) ).toString();
+
+    AddMetadataToTable( book_meta, row + 1 );
+
+    ui.tvMetaTable->selectRow( row + 1 );
+}
 
 void MetaEditor::Remove()
 {
@@ -203,37 +327,81 @@ void MetaEditor::RefreshVerticalHeader()
     ui.tvMetaTable->verticalHeader()->resizeSections( QHeaderView::ResizeToContents );
 }
 
+void MetaEditor::AddMetaElements( QString name, QList<QVariant> values, QString role_type, QString file_as )
+{
+    foreach ( QVariant value, values )
+    {
+        AddMetaElement( name, value, role_type, file_as );
+    }
+}
+
+void MetaEditor::AddMetaElement( QString name, QVariant value, QString role_type, QString file_as )
+{
+    Metadata::MetaElement book_meta;
+    book_meta.name = name;
+    book_meta.value = value;
+
+    if ( role_type == Metadata::Instance().GetText( "creator" ) )
+    {
+        book_meta.role_type = "creator";
+    }
+    else if ( role_type == Metadata::Instance().GetText( "contributor" ) )
+    {
+        book_meta.role_type = "contributor";
+    }
+
+    book_meta.file_as = file_as;
+
+    m_Metadata.append( book_meta );
+}
 
 void MetaEditor::FillMetadataFromDialog()
 {
     // Clear the book metadata so we don't duplicate something...
     // Nothing should be lost as everything was loaded into the dialog
-    ClearBookMetadata();
-
+    m_Metadata.clear();
 
     // Save the required fields
     // Author is stored using relator
-    m_Metadata[ "title"    ].append( InputsInField( ui.leTitle->text()            ) );
-    m_Metadata[ "aut"      ].append( InputsInField( ui.leAuthor->text()           ) );
-    m_Metadata[ "language" ].append( InputsInField( ui.cbLanguages->currentText() ) );
+
+    AddMetaElements( "title", InputsInField( ui.leTitle->text() ) );
+    AddMetaElements( "aut", InputsInField( ui.leAuthor->text() ), Metadata::Instance().GetText( "creator" ) );
+    AddMetaElements( "language", InputsInField( ui.cbLanguages->currentText() ) );
 
     // Save the table
     for ( int row = 0; row < m_MetaModel.rowCount(); row++ )
     {
         QString name   = m_MetaModel.data( m_MetaModel.index( row, 0 ) ).toString();
         QVariant value = m_MetaModel.data( m_MetaModel.index( row, 1 ) );
+        QString file_as = m_MetaModel.data( m_MetaModel.index( row, 2 ) ).toString();
+        QString role_type = m_MetaModel.data( m_MetaModel.index( row, 3 ) ).toString();
 
         // Mapping of translations to code done in Metadata for consistency
-        QString code = Metadata::Instance().GetCode( name );
+        QString code;
+        // Handle date differently due to event name stored in file_as
+        if ( name == Metadata::Instance().GetText( "date" ) )
+        {
+            code = "date";
+        }
+        // Handle identifier differently due to scheme name stored in file_as
+        else if ( name == Metadata::Instance().GetText( "identifier" ) )
+        {
+            code = "identifier";
+        }
+        else
+        {
+            code = Metadata::Instance().GetCode( name );
+        }
+
         // For string-based metadata, create multiple entries
         // if the typed in value contains semicolons
         if ( value.type() == QVariant::String && OkToSplitInput( code ) )
 
-            m_Metadata[ code ].append( InputsInField( value.toString() ) );
+            AddMetaElements( code, InputsInField( value.toString() ), role_type, file_as);
 
         else
-            
-            m_Metadata[ code ].append( value );
+
+            AddMetaElement( code, value, role_type, file_as );
     }
 
     m_OPF.SetDCMetadata( m_Metadata );
@@ -242,44 +410,37 @@ void MetaEditor::FillMetadataFromDialog()
 
 void MetaEditor::ReadMetadataFromBook()
 {
+    bool have_title = false;
+    bool have_author = false;
     bool have_language = false;
-    foreach ( QString name, m_Metadata.keys() )
+
+    foreach ( Metadata::MetaElement book_meta, m_Metadata )
     {
         // Load data into one of the main fields or into the table
-        // The title and author fields can hold multiple semicolon 
-        // separated values but language is a single dropdown
-        foreach ( QVariant single_value, m_Metadata[ name ] )
+        // Only load the first of each type
+        if ( !have_title && book_meta.name == "title" )
         {
-            if ( name == "title" )
-            {
-                ui.leTitle->setText( AddValueToField( ui.leTitle->text(), single_value.toString() ) );
-            }
-            // Convert basic and relator authors to main Author field
-            else if ( name == "author" || name == "aut" )
-            {
-                ui.leAuthor->setText( AddValueToField( ui.leAuthor->text(), single_value.toString() ) );
-            }
-            else if ( name == "language" && !have_language)
-            {
-                ui.cbLanguages->setCurrentIndex( ui.cbLanguages->findText( single_value.toString() ) );
-                have_language = true;
-            }
-            else
-            
-                AddMetadataToTable( name, single_value );				
+            ui.leTitle->setText( AddValueToField( ui.leTitle->text(), book_meta.value.toString() ) );
+            have_title = true;
+        }
+        // Convert basic and relator authors to main Author field - but only first creator Author
+        else if ( !have_author && ( book_meta.name == "author" || ( book_meta.name == "aut" && book_meta.role_type == "creator" ) ) )
+        {
+            ui.leAuthor->setText( AddValueToField( ui.leAuthor->text(), book_meta.value.toString() ) );
+            have_author = true;
+        }
+        else if ( !have_language &&  book_meta.name == "language" )
+        {
+            ui.cbLanguages->setCurrentIndex( ui.cbLanguages->findText( book_meta.value.toString() ) );
+            have_language = true;
+        }
+        else
+        {
+            AddMetadataToTable( book_meta );				
         }
     }
-    m_MetaModel.sort( 0);
 }
 
-
-void MetaEditor::ClearBookMetadata()
-{
-    foreach ( QString name, m_Metadata.keys() )
-    {
-        m_Metadata[ name ].clear();
-    }
-}
 
 
 bool MetaEditor::OkToSplitInput( const QString &metaname )
@@ -336,16 +497,18 @@ void MetaEditor::SetUpMetaTable()
     
     header.append( tr( "Name" ) );
     header.append( tr( "Value" ) );
+    header.append( tr( "File As" ) );
+    header.append( tr( "Role Type" ) );
 
     m_MetaModel.setHorizontalHeaderLabels( header );
 
     ui.tvMetaTable->setModel( &m_MetaModel );
 
     // Make the header fill all the available space
-    ui.tvMetaTable->horizontalHeader()->setStretchLastSection( true );
+    ui.tvMetaTable->horizontalHeader()->setStretchLastSection( false );
     ui.tvMetaTable->verticalHeader()->setResizeMode( QHeaderView::ResizeToContents );
 
-    ui.tvMetaTable->setSortingEnabled( true );
+    ui.tvMetaTable->setSortingEnabled( false );
     ui.tvMetaTable->setWordWrap( true );
     ui.tvMetaTable->setAlternatingRowColors( true );    
 }
@@ -378,6 +541,19 @@ void MetaEditor::ReadSettings()
         move( position );
     }
 
+    // Column widths
+    int size = settings.beginReadArray( "column_data" );
+    for ( int i = 0; i < size && i < ui.tvMetaTable->horizontalHeader()->count(); i++ )
+    {
+        settings.setArrayIndex(i);
+        int column_width = settings.value( "width" ).toInt();
+        if ( column_width )
+        {
+            ui.tvMetaTable->setColumnWidth( i, column_width );
+        }
+    }
+    settings.endArray();
+
     settings.endGroup();
 }
 
@@ -397,6 +573,16 @@ void MetaEditor::WriteSettings()
     // The window's position on the screen
     settings.setValue( "position", pos() );
 
+    // Column widths
+    settings.beginWriteArray( "column_data" );
+    for ( int i = 0; i < ui.tvMetaTable->horizontalHeader()->count(); i++ )
+    {
+        settings.setArrayIndex( i );
+        settings.setValue( "width", ui.tvMetaTable->columnWidth( i ) );
+    }
+    settings.endArray();
+
+
     settings.endGroup();
 }
 
@@ -409,4 +595,66 @@ void MetaEditor::PlatformSpecificTweaks()
     // this for other platforms has the opposite effect.
     ui.formLayout->setVerticalSpacing( 13 );
 #endif
+}
+
+void MetaEditor::MoveUp()
+{
+    QModelIndexList selected_indexes = ui.tvMetaTable->selectionModel()->selectedIndexes();
+
+    if ( selected_indexes.isEmpty() )
+    {
+        return;
+    }
+
+    QModelIndex index = selected_indexes.first();
+    int row = index.row();
+    if ( row == 0 )
+    {
+        return;
+    }
+
+    QList< QStandardItem* > items =  m_MetaModel.invisibleRootItem()->takeRow( row - 1 );       
+    
+    m_MetaModel.invisibleRootItem()->insertRow( row, items );
+
+    ui.tvMetaTable->selectRow( row - 1 );
+}
+
+void MetaEditor::MoveDown()
+{
+    QModelIndexList selected_indexes = ui.tvMetaTable->selectionModel()->selectedIndexes();
+
+    if ( selected_indexes.isEmpty() )
+    {
+        return;
+    }
+
+    QModelIndex index = selected_indexes.first();
+    int row = index.row();
+    if ( row == m_MetaModel.invisibleRootItem()->rowCount() - 1 )
+    {
+        return;
+    }
+
+    QList< QStandardItem* > items =  m_MetaModel.invisibleRootItem()->takeRow( row + 1 );       
+    
+    m_MetaModel.invisibleRootItem()->insertRow( row, items );
+
+    ui.tvMetaTable->selectRow( row + 1 );
+}
+
+void MetaEditor::ConnectSignals()
+{
+    connect( ui.btMore,        SIGNAL( clicked()  ), this, SLOT( ToggleMoreLess()         ) );
+    connect( ui.btAddBasic,    SIGNAL( clicked()  ), this, SLOT( AddBasic()	              ) );
+    connect( ui.btAddRole,     SIGNAL( clicked()  ), this, SLOT( AddRole()                ) );
+    connect( ui.btCopy,        SIGNAL( clicked()  ), this, SLOT( Copy()                   ) );
+    connect( ui.btRemove,      SIGNAL( clicked()  ), this, SLOT( Remove()                 ) );
+    connect( ui.tbMoveUp,      SIGNAL( clicked()  ), this, SLOT( MoveUp()                 ) );
+    connect( ui.tbMoveDown,    SIGNAL( clicked()  ), this, SLOT( MoveDown()               ) );
+    connect( this,             SIGNAL( accepted() ), this, SLOT( FillMetadataFromDialog() ) );
+
+    connect( ui.tvMetaTable->horizontalHeader(),  SIGNAL( sectionClicked( int ) ),
+             this,                                SLOT( RefreshVerticalHeader() ) );
+
 }

@@ -25,6 +25,7 @@
 
 #include <QtGui/QDialog>
 #include <QtGui/QStandardItemModel>
+#include <BookManipulation/Metadata.h>
 
 #include "ui_MetaEditor.h"
 
@@ -77,15 +78,6 @@ private slots:
     void AddEmptyMetadataToTable( const QStringList &metanames );
 
     /**
-     * Inserts a metadata field with the provided name 
-     * and value into the table.
-     *
-     * @param metaname The name of the new metadata field.
-     * @param metavalue The value of the new metadata field.
-     */
-    void AddMetadataToTable( const QString &metaname, const QVariant &metavalue );
-
-    /**
      * Add Basic button functionality. 
      * Shows the window for selecting the new basic
      * metadata type which creates the new type upon return.
@@ -93,11 +85,18 @@ private slots:
     void AddBasic();
 
     /**
-     * Add Advanced button functionality. 
+     * Add Role button functionality. 
      * Shows the window for selecting the new advanced
      * metadata type which creates the new type upon return.
      */
-    void AddAdvanced();
+    void AddRole();
+
+    /**
+     * Copy button functionality. 
+     * Copies the first selected entry and creates a new
+     * entry with the same contents.
+     */
+    void Copy();
 
     /**
      * Remove button functionality. 
@@ -107,9 +106,31 @@ private slots:
     void Remove();
 
     /**
+     * Move up button functionality. 
+     * Moves the first selected entry up one row
+     */
+    void MoveUp();
+
+    /**
+     * Move down button functionality. 
+     * Moves the first selected entry down one row
+     */
+    void MoveDown();
+
+    /**
      * Refreshes the vertical header of the table view widget.
      */
     void RefreshVerticalHeader();
+
+    /**
+     * Adds a list of elements from the dialog to the saved metadata one at a time
+     */
+    void AddMetaElements( QString name, QList<QVariant> values, QString role_type = "", QString file_as = "" );
+
+    /**
+     * Adds one element from the dialog to the saved metadata
+     */
+    void AddMetaElement( QString name, QVariant value, QString role_type = "", QString file_as = "" );
 
     /**
      * Reads the metadata from the metadata table and transfers it  
@@ -123,16 +144,23 @@ private:
     // declaration of Book in the QSharedPointer
     Q_DISABLE_COPY( MetaEditor ) 
 
+    // Set the language choice from book or preferences
+    void SetLanguage();
+
+    /**
+     * Inserts a metadata field with the provided name 
+     * and value into the table.
+     *
+     * @param metaname The name of the new metadata field.
+     * @param metavalue The value of the new metadata field.
+     */
+    void AddMetadataToTable( Metadata::MetaElement book_meta, int row = -1 );
+
     /**
      * Reads the metadata from the Book and fills 
      * the metadata table with it.
      */
     void ReadMetadataFromBook();
-
-    /**
-     * Clears all the metadata stored in the book.
-     */
-    void ClearBookMetadata();
 
     /**
      * Checks if it's ok to split this metadata field.
@@ -191,6 +219,8 @@ private:
      */
     void PlatformSpecificTweaks();
 
+	// Setup signal connections
+    void ConnectSignals();
 
     ///////////////////////////////
     // PRIVATE MEMBER VARIABLES
@@ -218,7 +248,7 @@ private:
      *
      * @see Book::m_Metadata
      */
-    QHash< QString, QList< QVariant > > m_Metadata;
+    QList< Metadata::MetaElement > m_Metadata;
 
     /**
      * The window height after expansion.

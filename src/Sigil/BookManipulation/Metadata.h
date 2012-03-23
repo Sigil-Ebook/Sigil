@@ -55,6 +55,12 @@ public:
         // The value of the element
         QVariant value;
 
+        // The value of a role's file-as, or the event or identifier name
+        QString file_as;
+
+        // If entry is a role, value is contributor or creator
+        QString role_type;
+
         // The attributes of the element;
         // the keys are the attribute names,
         // the values are the attribute values
@@ -68,6 +74,7 @@ public:
 
     bool IsRelator( QString code );
 
+    QString GetText( QString text );
     QString GetName( QString code );
     QString GetCode( QString name );
 
@@ -89,6 +96,9 @@ private:
     // Constructor is private because
     // this is a singleton class
     Metadata();
+
+    // Loads miscellaneous field names/values for translation
+    void LoadText();
 
     // Loads the basic metadata and their descriptions from disk
     void LoadBasicMetadata();
@@ -139,6 +149,11 @@ private:
     // the values are the MARC relator codes
     // (e.g. aut -> Author )
     QHash< QString, QString > m_RelatorFullNames;
+
+    // The keys are special field names
+    // the values are the text to display
+    // (e.g. date -> Date )
+    QHash< QString, QString > m_Text;
 
 };
 
