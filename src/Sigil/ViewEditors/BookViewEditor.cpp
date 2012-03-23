@@ -185,7 +185,25 @@ bool BookViewEditor::FindNext(const QString &search_regex,
                               
 
 {
-    return false;
+    Q_UNUSED(check_spelling)
+    Q_UNUSED(ignore_selection_offset)
+
+    // We can't handle a regex so remove the regex code.
+    QString search_text = search_regex;
+    // Remove the case insensitive parameter.
+    search_text = search_text.remove(0, 4);
+    search_text = search_text.replace(QRegExp("\\([^\\])"), "\1");
+    search_text = search_text.replace("\\\\", "\\");
+
+    QWebPage::FindFlags flags;
+    if (search_direction == Searchable::Direction_Up) {
+        flags  |= QWebPage::FindBackward;
+    }
+    if (wrap) {
+        flags |= QWebPage::FindWrapsAroundDocument;
+    }
+
+    return findText(search_text, flags);
 }
 
 int BookViewEditor::Count(const QString &search_regex, bool check_spelling)
