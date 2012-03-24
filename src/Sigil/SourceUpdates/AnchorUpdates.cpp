@@ -20,6 +20,7 @@
 *************************************************************************/
 
 #include <boost/bind/bind.hpp>
+#include <boost/shared_ptr.hpp>
 #include <boost/tuple/tuple.hpp>
 
 #include <QtCore/QtCore>
@@ -34,6 +35,7 @@
 #include "SourceUpdates/AnchorUpdates.h"
 
 using boost::make_tuple;
+using boost::shared_ptr;
 using boost::tie;
 using boost::tuple;
 
@@ -78,12 +80,13 @@ QHash< QString, QString > AnchorUpdates::GetIDLocations( const QList< HTMLResour
 
 tuple< QString, QList< QString > > AnchorUpdates::GetOneFileIDs( HTMLResource* html_resource )
 {
-    Q_ASSERT( html_resource );
+    Q_ASSERT(html_resource);
 
-    QReadLocker locker( &html_resource->GetLock() );
+    QReadLocker locker(&html_resource->GetLock());
 
-    QList< QString > ids = XhtmlDoc::GetAllDescendantIDs(*XhtmlDoc::LoadTextIntoDocument(html_resource->GetText()).get());
-    return make_tuple( html_resource->Filename(), ids );
+    shared_ptr<xc::DOMDocument> d = XhtmlDoc::LoadTextIntoDocument(html_resource->GetText());
+    QList<QString> ids = XhtmlDoc::GetAllDescendantIDs(*d.get());
+    return make_tuple(html_resource->Filename(), ids);
 }
 
 
@@ -94,7 +97,8 @@ void AnchorUpdates::UpdateAnchorsInOneFile( HTMLResource *html_resource,
 
     QWriteLocker locker( &html_resource->GetLock() );
 
-    xc::DOMDocument &document = *XhtmlDoc::LoadTextIntoDocument(html_resource->GetText()).get();
+    shared_ptr<xc::DOMDocument> d = XhtmlDoc::LoadTextIntoDocument(html_resource->GetText());
+    xc::DOMDocument &document = *d.get();
     xc::DOMNodeList *anchors  = document.getElementsByTagName( QtoX( "a" ) );
 
     const QString &resource_filename = html_resource->Filename();
@@ -138,7 +142,8 @@ void AnchorUpdates::UpdateExternalAnchorsInOneFile( HTMLResource *html_resource,
 
     QWriteLocker locker( &html_resource->GetLock() );
 
-    xc::DOMDocument &document = *XhtmlDoc::LoadTextIntoDocument(html_resource->GetText()).get();
+    shared_ptr<xc::DOMDocument> d = XhtmlDoc::LoadTextIntoDocument(html_resource->GetText());
+    xc::DOMDocument &document = *d.get();
     xc::DOMNodeList *anchors  = document.getElementsByTagName( QtoX( "a" ) );
 
     QString original_filename_with_relative_path = "../" % TEXT_FOLDER_NAME % "/" % originating_filename;

@@ -20,6 +20,7 @@
 *************************************************************************/
 
 #include <boost/bind/bind.hpp>
+#include <boost/shared_ptr.hpp>
 #include <boost/tuple/tuple.hpp>
 
 #include <QtCore/QtCore>
@@ -43,6 +44,7 @@
 #include "SourceUpdates/UniversalUpdates.h"
 
 using boost::make_tuple;
+using boost::shared_ptr;
 using boost::tie;
 using boost::tuple;
 
@@ -157,13 +159,14 @@ void UniversalUpdates::UpdateOneHTMLFile( HTMLResource* html_resource,
                                           const QHash< QString, QString > &html_updates, 
                                           const QHash< QString, QString > &css_updates )
 {
-    if ( !html_resource )
-
+    if (!html_resource) {
         return;
+    }
 
-    QWriteLocker locker( &html_resource->GetLock() );
-    const xc::DOMDocument &document = *XhtmlDoc::LoadTextIntoDocument(html_resource->GetText()).get();
-    html_resource->SetText( XhtmlDoc::GetDomDocumentAsString(*PerformHTMLUpdates( document, html_updates, css_updates )().get()) );
+    QWriteLocker locker(&html_resource->GetLock());
+    shared_ptr<xc::DOMDocument> d = XhtmlDoc::LoadTextIntoDocument(html_resource->GetText());
+    shared_ptr<xc::DOMDocument> u = PerformHTMLUpdates(*d.get(), html_updates, css_updates)();
+    html_resource->SetText(XhtmlDoc::GetDomDocumentAsString(*u.get()));
 }
 
 

@@ -19,6 +19,8 @@
 **
 *************************************************************************/
 
+#include <boost/shared_ptr.hpp>
+
 #include <QtCore/QtCore>
 #include <QtCore/QFileInfo>
 
@@ -33,6 +35,8 @@
 #include "BookManipulation/XercesCppUse.h"
 #include "BookManipulation/XhtmlDoc.h"
 #include "Misc/Utility.h"
+
+using boost::shared_ptr;
 
 static const QString SIGIL_HEADING_ID_PREFIX = "heading_id_";
 static const QString SIGIL_HEADING_ID_REG    = SIGIL_HEADING_ID_PREFIX + "(\\d+)";
@@ -159,7 +163,8 @@ void BookNormalization::TryToSetCoverImage( const QList< HTMLResource* > &html_r
     {
         QReadLocker locker( &cover_page->GetLock() );
 
-        image_paths = XhtmlDoc::GetImagePathsFromImageChildren( *XhtmlDoc::LoadTextIntoDocument(cover_page->GetText()).get() );
+        shared_ptr<xc::DOMDocument> d = XhtmlDoc::LoadTextIntoDocument(cover_page->GetText());
+        image_paths = XhtmlDoc::GetImagePathsFromImageChildren( *d.get() );
     }
 
     if ( image_paths.count() == 0 )
@@ -181,15 +186,15 @@ void BookNormalization::TryToSetCoverImage( const QList< HTMLResource* > &html_r
 
 bool BookNormalization::IsFlowUnderThreshold( HTMLResource *html_resource, int threshold )
 {
-    QReadLocker locker( &html_resource->GetLock() );
+    QReadLocker locker(&html_resource->GetLock());
 
-    xc::DOMElement &doc_element = *XhtmlDoc::LoadTextIntoDocument(html_resource->GetText()).get()->getDocumentElement();
-    return XtoQ( doc_element.getTextContent() ).count() < threshold;
+    shared_ptr<xc::DOMDocument> d = XhtmlDoc::LoadTextIntoDocument(html_resource->GetText());
+    xc::DOMElement &doc_element = *d.get()->getDocumentElement();
+    return XtoQ(doc_element.getTextContent()).count() < threshold;
 }
 
 bool BookNormalization::FlowHasOnlyOneImage( HTMLResource* html_resource )
 {
-    return XhtmlDoc::GetImagePathsFromImageChildren( *XhtmlDoc::LoadTextIntoDocument(html_resource->GetText() ).get() ).count() == 1;
+    shared_ptr<xc::DOMDocument> d = XhtmlDoc::LoadTextIntoDocument(html_resource->GetText());
+    return XhtmlDoc::GetImagePathsFromImageChildren(*d.get()).count() == 1;
 }
-
-

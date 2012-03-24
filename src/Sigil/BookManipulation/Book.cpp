@@ -19,6 +19,8 @@
 **
 *************************************************************************/
 
+#include <boost/shared_ptr.hpp>
+
 #include <QtCore/QtCore>
 #include <QtCore/QFileInfo>
 #include <QtCore/QFutureSynchronizer>
@@ -37,6 +39,8 @@
 #include "SourceUpdates/AnchorUpdates.h"
 #include "SourceUpdates/PerformHTMLUpdates.h"
 #include "SourceUpdates/UniversalUpdates.h"
+
+using boost::shared_ptr;
 
 static const QString FIRST_CSS_NAME   = "Style0001.css";
 static const QString PLACEHOLDER_TEXT = "PLACEHOLDER";
@@ -424,7 +428,8 @@ bool Book::Merge( HTMLResource& html_resource1, HTMLResource& html_resource2 )
 
         {
             QWriteLocker source_locker( &html_resource2.GetLock() );
-            const xc::DOMDocument &source_dom  = *XhtmlDoc::LoadTextIntoDocument(html_resource2.GetText()).get();
+            shared_ptr<xc::DOMDocument> sd = XhtmlDoc::LoadTextIntoDocument(html_resource2.GetText());
+            const xc::DOMDocument &source_dom  = *sd.get();
             xc::DOMNodeList &source_body_nodes = *source_dom.getElementsByTagName( QtoX( "body" ) );
 
             if ( source_body_nodes.getLength() != 1 )
@@ -437,7 +442,8 @@ bool Book::Merge( HTMLResource& html_resource1, HTMLResource& html_resource2 )
         }
 
         QWriteLocker sink_locker( &html_resource1.GetLock() );
-        xc::DOMDocument &sink_dom        = *XhtmlDoc::LoadTextIntoDocument(html_resource1.GetText()).get();
+        shared_ptr<xc::DOMDocument> sink_d = XhtmlDoc::LoadTextIntoDocument(html_resource1.GetText());
+        xc::DOMDocument &sink_dom        = *sink_d.get();
         xc::DOMNodeList &sink_body_nodes = *sink_dom.getElementsByTagName( QtoX( "body" ) );
 
         if ( sink_body_nodes.getLength() != 1 )
