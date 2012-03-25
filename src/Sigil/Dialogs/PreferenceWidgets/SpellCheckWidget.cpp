@@ -30,6 +30,7 @@
 #include "SpellCheckWidget.h"
 #include "Misc/SettingsStore.h"
 #include "Misc/SpellCheck.h"
+#include "Misc/Utility.h"
 
 SpellCheckWidget::SpellCheckWidget()
 {
@@ -80,7 +81,10 @@ void SpellCheckWidget::addUserDict()
     }
 
     QListWidgetItem *item = new QListWidgetItem(ui.userDictList);
+    item->setText(name);
+    item->setSelected(true);
     ui.userDictList->addItem(item);
+    ui.userDictList->setCurrentItem(item);
 }
 
 void SpellCheckWidget::renameUserDict()
@@ -95,7 +99,7 @@ void SpellCheckWidget::renameUserDict()
 
     QString new_name = QInputDialog::getText(this, tr("Rename"), tr("Name:"), QLineEdit::Normal, orig_name);
 
-    if (new_name == orig_name) {
+    if (new_name == orig_name || new_name.isEmpty()) {
         return;
     }
 
@@ -105,14 +109,14 @@ void SpellCheckWidget::renameUserDict()
         currentDicts << item->text();
     }
 
-    if (currentDicts.contains(new_name, Qt::CaseInsensitive)) {
+    if (currentDicts.contains(new_name)) {
         QMessageBox::critical(this, tr("Error"), tr("A user dictionary already exists with this name!"));
         return;
     }
 
     QString orig_path = SpellCheck::userDictionaryDirectory() + "/" + orig_name;
     QString new_path = SpellCheck::userDictionaryDirectory() + "/" + new_name;
-    if (!QFile::rename(orig_path, new_path)) {
+    if (!Utility::RenameFile(orig_path, new_path)) {
         QMessageBox::critical(this, tr("Error"), tr("Could not rename file!"));
         return;
     }
@@ -131,10 +135,26 @@ void SpellCheckWidget::removeUserDict()
     dict_item = items.at(0);
 
     // Delete the dictionary and remove it from the list.
-    QFile::remove(SpellCheck::userDictionaryDirectory() + "/" + dict_item->text());
+    Utility::DeleteFile(SpellCheck::userDictionaryDirectory() + "/" + dict_item->text());
+
     if (dict_item) {
         delete dict_item;
         dict_item = 0;
+    }
+
+    // We have to have at least one user dict.
+    if (ui.userDictList->count() < 1) {
+        QFile defaultFile(SpellCheck::userDictionaryDirectory() + "/default");
+        if (defaultFile.open(QIODevice::WriteOnly)) {
+            defaultFile.close();
+
+            QListWidgetItem *item = new QListWidgetItem(ui.userDictList);
+            item->setText("default");
+            item->setSelected(true);
+            ui.userDictList->addItem(item);
+            ui.userDictList->setCurrentItem(item);
+            loadUserDictionaryWordList(item);
+        }
     }
 }
 
