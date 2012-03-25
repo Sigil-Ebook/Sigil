@@ -40,7 +40,7 @@ public:
     ~SpellCheck();
 
     QStringList dictionaries();
-    QString currentDictionary();
+    QString currentDictionary() const;
     bool spell(const QString &word);
     QStringList suggest(const QString &word);
     void ignoreWord(const QString &word);
@@ -52,16 +52,16 @@ public:
     void replaceUserDictionaryWords(QStringList words);
 
     /**
-     * The location of the user dictionary directory.
+     * The location of the user dictionary directories.
      */
     static QString dictionaryDirectory();
+    static QString userDictionaryDirectory();
+    static QString currentUserDictionaryFile();
 
     void loadDictionaryNames();
 
 private:
     SpellCheck();
-
-    QString userDictionaryName() const;
 
     Hunspell *m_hunspell;
     QTextCodec *m_codec;

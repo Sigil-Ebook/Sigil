@@ -90,18 +90,11 @@ public:
     bool spellCheck();
 
     /**
-     * The full path of the file containing user words
+     * The name of the file containing user words
      *
      * @return The dictionary name.
      */
-    QString userDictionaryFile();
-
-    /**
-     * The full path of the directory holding user dictionaries
-     *
-     * @return The dictionary name.
-     */
-    QString dictionaryDirectory();
+    QString userDictionaryName();
 
     /**
      * The template name for renaming selections in book browser
@@ -165,16 +158,9 @@ public slots:
     /**
      * Set the name of the dictionary file to store user words.
      *
-     * @param name The full path of the dictionary file.
+     * @param name The name of the dictionary file.
      */
-    void setUserDictionaryFile(const QString &name);
-
-    /**
-     * Set the name of the directory holding user dictionaries
-     *
-     * @param name The name of the dictionary.
-     */
-    void setDictionaryDirectory(const QString &name);
+    void setUserDictionaryName(const QString &name);
 
     /**
      * Set the name of the dictionary the user has selected.

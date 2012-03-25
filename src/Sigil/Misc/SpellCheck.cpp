@@ -72,7 +72,7 @@ QStringList SpellCheck::dictionaries()
     return dicts;
 }
 
-QString SpellCheck::currentDictionary()
+QString SpellCheck::currentDictionary() const
 {
     return m_dictionaryName;
 }
@@ -163,7 +163,7 @@ void SpellCheck::addToUserDictionary(const QString &word)
     ignoreWord(word);
 
     if (!userDictionaryWords().contains(word)) {
-        const QString userDict = userDictionaryName();
+        const QString userDict = currentUserDictionaryFile();
         QFile userDictFile(userDict);
         if (!userDictFile.exists()) {
             // Try to create the path in case it does not exist.
@@ -184,7 +184,7 @@ QStringList SpellCheck::userDictionaryWords()
     QStringList userWords;
 
     // Read each word from the user dictionary.
-    QFile userDictFile(userDictionaryName());
+    QFile userDictFile(currentUserDictionaryFile());
     if (userDictFile.open(QIODevice::ReadOnly)) {
         QTextStream userDictStream(&userDictFile);
         for (QString line = userDictStream.readLine(); !line.isEmpty(); line = userDictStream.readLine()) {
@@ -202,7 +202,7 @@ void SpellCheck::replaceUserDictionaryWords(QStringList words)
     words.sort();
 
     // Delete everything from the user dictionary file.
-    QFile userDictFile(userDictionaryName());
+    QFile userDictFile(currentUserDictionaryFile());
     if (userDictFile.open(QFile::WriteOnly | QFile::Truncate)) {
         userDictFile.close();
     }
@@ -222,6 +222,20 @@ SpellCheck::SpellCheck() :
 {
 
     loadDictionaryNames();
+
+    // Create the user dictionary word list directiory if neccessary and
+    // create the configured file if necessary.
+    const QString user_directory = userDictionaryDirectory();
+    QDir userDir(user_directory);
+    if (!userDir.exists()) {
+        userDir.mkpath(user_directory);
+    }
+    QFile userFile(currentUserDictionaryFile());
+    if (!userFile.exists()) {
+        if (userFile.open(QIODevice::WriteOnly)) {
+            userFile.close();
+        }
+    }
 
     // Load the dictionary the user has selected if one was saved.
     SettingsStore settings;
@@ -247,10 +261,10 @@ void SpellCheck::loadDictionaryNames()
     // Paths for each dictionary location.
     QStringList paths;
 #ifdef Q_WS_MAC
-    paths << QCoreApplication::applicationDirPath() + "/../dictionaries";
+    paths << QCoreApplication::applicationDirPath() + "/../hunspell_dictionaries";
 #endif
 #if defined( Q_WS_WIN ) || defined( Q_WS_X11 )
-    paths << QCoreApplication::applicationDirPath() + "/dictionaries";
+    paths << QCoreApplication::applicationDirPath() + "/hunspell_dictionaries";
 #endif
 #ifdef Q_WS_X11
     // The user can specify an env variable that points to the dictionaries.
@@ -261,7 +275,7 @@ void SpellCheck::loadDictionaryNames()
     // Possible location if the user installed from source.
     // This really should be changed to be passed the install prefix given to
     // cmake instead of guessing based upon the executable path.
-    paths << QCoreApplication::applicationDirPath() + "/../share/" + QCoreApplication::applicationName().toLower() + "/dictionaries/";
+    paths << QCoreApplication::applicationDirPath() + "/../share/" + QCoreApplication::applicationName().toLower() + "/hunspell_dictionaries/";
 #endif
     // Add the user dictionary directory last because anything in here
     // will override installation supplied dictionaries.
@@ -291,12 +305,16 @@ void SpellCheck::loadDictionaryNames()
 
 QString SpellCheck::dictionaryDirectory()
 {
-    SettingsStore settings;
-    return settings.dictionaryDirectory();
+    return QDesktopServices::storageLocation(QDesktopServices::DataLocation) + "/hunspell_dictionaries";
 }
 
-QString SpellCheck::userDictionaryName() const
+QString SpellCheck::userDictionaryDirectory()
+{
+    return QDesktopServices::storageLocation(QDesktopServices::DataLocation) + "/user_dictionaries";
+}
+
+QString SpellCheck::currentUserDictionaryFile()
 {
     SettingsStore settings;
-    return settings.userDictionaryFile();
+    return userDictionaryDirectory() + "/" + settings.userDictionaryName();
 }

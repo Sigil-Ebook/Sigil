@@ -37,8 +37,7 @@ static QString KEY_ZOOM_WEB = SETTINGS_GROUP + "/" + "zoom_web";
 static QString KEY_RENAME_TEMPLATE = SETTINGS_GROUP + "/" + "rename_template";
 static QString KEY_DICTIONARY_NAME = SETTINGS_GROUP + "/" + "dictionary_name";
 static QString KEY_SPELL_CHECK = SETTINGS_GROUP + "/" + "spell_check";
-static QString KEY_USER_DICTIONARY_FILE = SETTINGS_GROUP + "/" + "user_dictionary_file";
-static QString KEY_DICTIONARY_DIRECTORY = SETTINGS_GROUP + "/" + "dictionary_directory";
+static QString KEY_USER_DICTIONARY_NAME = SETTINGS_GROUP + "/" + "user_dictionary_name";
 
 SettingsStore::SettingsStore()
 #ifndef Q_WS_MAC
@@ -101,17 +100,10 @@ bool SettingsStore::spellCheck()
     return static_cast<bool>(value(KEY_SPELL_CHECK, true).toBool());
 }
 
-QString SettingsStore::userDictionaryFile()
+QString SettingsStore::userDictionaryName()
 {
     clearSettingsGroup();
-    QString file = defaultDictionaryDirectory() % "/user_dict.txt";
-    return value(KEY_USER_DICTIONARY_FILE, file).toString();
-}
-
-QString SettingsStore::dictionaryDirectory()
-{
-    clearSettingsGroup();
-    return value(KEY_DICTIONARY_DIRECTORY, defaultDictionaryDirectory()).toString();
+    return value(KEY_USER_DICTIONARY_NAME, "default").toString();
 }
 
 QString SettingsStore::renameTemplate()
@@ -174,16 +166,10 @@ void SettingsStore::setSpellCheck(bool enabled)
     setValue(KEY_SPELL_CHECK, enabled);
 }
 
-void SettingsStore::setUserDictionaryFile(const QString &name)
+void SettingsStore::setUserDictionaryName(const QString &name)
 {
     clearSettingsGroup();
-    setValue(KEY_USER_DICTIONARY_FILE, name);
-}
-
-void SettingsStore::setDictionaryDirectory(const QString &name)
-{
-    clearSettingsGroup();
-    setValue(KEY_DICTIONARY_DIRECTORY, name);
+    setValue(KEY_USER_DICTIONARY_NAME, name);
 }
 
 void SettingsStore::setRenameTemplate(const QString &name)

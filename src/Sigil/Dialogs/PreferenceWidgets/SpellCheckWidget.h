@@ -35,13 +35,21 @@ public:
     void saveSettings();
 
 private slots:
+    void addUserDict();
+    void renameUserDict();
+    void removeUserDict();
+
     void addWord();
     void editWord();
     void removeWord();
     void removeAll();
-    void selectDictionaryDirectory();
-    void selectUserDictionaryFile();
-    bool isWordListModified();
+
+    void openDictionaryDirectory();
+
+    void loadUserDictionaryWordList(QListWidgetItem *item=0);
+    void saveUserDictionaryWordList(QListWidgetItem *item=0);
+
+    void userDictionaryChanged(QListWidgetItem *current, QListWidgetItem *previous);
 
 private:
     void readSettings();
