@@ -230,14 +230,13 @@ void TabManager::UpdateTabStatesOnSwitch( ContentTab* old_tab, ContentTab* new_t
     // These Save and Load operations are probably unneeded as they will be handled by the focus change.
     // But the modification checks ensure that they don't entail much of a performance penalty, so they
     // are worth retaining as a safety mechanism.
-    if ( old_tab )
- 
+    if (old_tab) {
         old_tab->SaveTabContent();
+    }
 
-    if ( new_tab )
-    {
+    if (new_tab) {
         new_tab->LoadTabContent();
-        UpdateTabDisplay( new_tab );
+        UpdateTabDisplay(new_tab);
     }
 }
 

@@ -88,6 +88,7 @@ public:
     void GrabFocus();
 
     bool IsModified();
+    void ResetModified();
 
     // Even though the BookViewPreview implements these they are pure virtual
     // in ViewEditor so they have to be implemented here.

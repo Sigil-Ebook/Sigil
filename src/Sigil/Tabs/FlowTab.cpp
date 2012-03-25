@@ -578,6 +578,7 @@ void FlowTab::SaveTabContent()
 {
     if (m_ViewState == MainWindow::ViewState_BookView) {
         m_HTMLResource.SetText(m_wBookView.GetHtml());
+        m_wBookView.ResetModified();
         m_wBookView.SaveCaret();
     }
     else {
@@ -591,13 +592,17 @@ void FlowTab::SaveTabContent()
 
 void FlowTab::LoadTabContent()
 {
-    if (m_safeToLoad) {
-        if (m_ViewState == MainWindow::ViewState_BookView) {
-            m_wBookView.CustomSetDocument(m_HTMLResource.GetFullPath(), m_HTMLResource.GetText());
-        } else if (m_ViewState == MainWindow::ViewState_SplitView) {
-            m_wBookPreview.CustomSetDocument(m_HTMLResource.GetFullPath(), m_HTMLResource.GetText());
-        }
+    if (!m_safeToLoad) {
+        return;
     }
+
+    if (m_ViewState == MainWindow::ViewState_BookView) {
+        m_wBookView.CustomSetDocument(m_HTMLResource.GetFullPath(), m_HTMLResource.GetText());
+    } else if (m_ViewState == MainWindow::ViewState_SplitView) {
+        m_wBookPreview.CustomSetDocument(m_HTMLResource.GetFullPath(), m_HTMLResource.GetText());
+    }
+
+    RestoreCaret();
 }
 
 

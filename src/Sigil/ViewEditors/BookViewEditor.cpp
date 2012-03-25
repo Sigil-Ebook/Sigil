@@ -175,6 +175,12 @@ bool BookViewEditor::IsModified()
     return EvaluateJavascript(javascript).toBool();
 }
 
+void BookViewEditor::ResetModified()
+{
+    QString javascript = "CKEDITOR.instances.editor.resetDirty();";
+    EvaluateJavascript(javascript);
+}
+
 // Overridden so we can emit the FocusLost() signal.
 void BookViewEditor::focusOutEvent(QFocusEvent *event)
 {
@@ -237,13 +243,17 @@ QString BookViewEditor::GetSelectedText()
 
 void BookViewEditor::SaveCaret()
 {
-    QString javascript = "CKEDITOR.instances.editor.getSelection().getRanges();";
+    QString javascript =
+        "var element = CKEDITOR.instances.editor.getSelection().getStartElement();"
+        "element.getId()";
     m_caret = EvaluateJavascript(javascript);
 }
 
 void BookViewEditor::RestoreCaret()
 {
-    QString javascript = QString("CKEDITOR.instances.editor.getSelection().selectRanges(%1)").arg(m_caret.toString());
+    QString javascript = "var element = CKEDITOR.instances.editor.document.getById('" + m_caret.toString() + "');"
+        "CKEDITOR.instances.editor.getSelection().selectElement(element);"
+        "CKEDITOR.instances.editor.getSelection().scrollIntoView();";
     EvaluateJavascript(javascript);
 }
 
