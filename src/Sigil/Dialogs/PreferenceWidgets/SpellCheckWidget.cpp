@@ -28,6 +28,7 @@
 #include <QtGui/QMessageBox>
 
 #include "SpellCheckWidget.h"
+#include "Misc/Language.h"
 #include "Misc/SettingsStore.h"
 #include "Misc/SpellCheck.h"
 #include "Misc/Utility.h"
@@ -45,7 +46,7 @@ void SpellCheckWidget::saveSettings()
     saveUserDictionaryWordList(ui.userDictList->currentItem());
 
     SettingsStore settings;
-    settings.setDictionary(ui.dictionaries->currentText());
+    settings.setDictionary(ui.dictionaries->itemData(ui.dictionaries->currentIndex()).toString());
     settings.setSpellCheck(ui.enableSpellCheck->isChecked());
 
     SpellCheck *sc = SpellCheck::instance();
@@ -191,10 +192,13 @@ void SpellCheckWidget::removeAll()
 void SpellCheckWidget::readSettings()
 {
     // Load the available dictionary names.
+    Language *lang = Language::instance();
     SpellCheck *sc = SpellCheck::instance();
     QStringList dicts = sc->dictionaries();
     ui.dictionaries->clear();
-    ui.dictionaries->addItems(dicts);
+    foreach (QString dict, dicts) {
+        ui.dictionaries->addItem(lang->GetLanguageName(dict), dict);
+    }
 
     // Select the current dictionary.
     QString currentDict = sc->currentDictionary();
@@ -203,7 +207,7 @@ void SpellCheckWidget::readSettings()
 	ui.enableSpellCheck->setChecked(settings.spellCheck());
 
     if (!currentDict.isEmpty()) {
-        int index = ui.dictionaries->findText(currentDict);
+        int index = ui.dictionaries->findData(currentDict);
         if (index > -1) {
             ui.dictionaries->setCurrentIndex(index);
         }
