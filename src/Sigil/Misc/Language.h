@@ -23,31 +23,31 @@
 #ifndef LANGUAGE_H
 #define LANGUAGE_H
 
-#include <QtCore/QString>
-#include <QtCore/QStringList>
+#include <QtCore/QCoreApplication>
 #include <QtCore/QHash>
-#include <QtCore/QObject>
+
+class QString;
+class QStringList;
 
 /**
+ * Singleton.
+ *
  * Language routines
  */
-class Language : public QObject
+class Language
 {
-    Q_OBJECT
+    Q_DECLARE_TR_FUNCTIONS(Language)
 
 public:
-    Language();
-
-    QString GetLanguageName( QString language_code );
-
-    QString GetLanguageCode( QString language_name );
-
-    QStringList GetSortedPrimaryLanguageNames();
-
-
     static Language *instance();
 
+    QString GetLanguageName(QString language_code);
+    QString GetLanguageCode(QString language_name);
+    QStringList GetSortedPrimaryLanguageNames();
+
 private:
+    Language();
+
     void SetLanguageMap();
 
     // Use hash since order is not important (sort later)
