@@ -180,7 +180,7 @@ You can always search for misspelled words using Find &amp;amp; Replace by setti
      <item>
       <widget class="QPushButton" name="pbDictionaryDirectory">
        <property name="text">
-        <string>Open Dictionaries Directory</string>
+        <string>Open Dictionary Directory</string>
        </property>
       </widget>
      </item>
