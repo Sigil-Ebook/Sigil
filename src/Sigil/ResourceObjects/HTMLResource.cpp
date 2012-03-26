@@ -139,18 +139,7 @@ QStringList HTMLResource::GetPathsToLinkedResources()
 
 
 void HTMLResource::TrackNewResources( const QStringList &filepaths )
-{    
-    foreach( QString resource_id, m_LinkedResourceIDs )
-    {
-        Resource *resource = m_Resources.value( resource_id );
-
-        if ( resource )
-        {
-            disconnect( resource, SIGNAL( ResourceUpdatedOnDisk() ),    this, SLOT( LinkedResourceUpdated() ) );
-            disconnect( resource, SIGNAL( Deleted( const Resource& ) ), this, SLOT( LinkedResourceUpdated() ) );
-        }
-    }
-
+{
     m_LinkedResourceIDs.clear();
     QStringList filenames;
 
@@ -164,17 +153,6 @@ void HTMLResource::TrackNewResources( const QStringList &filepaths )
         if ( filenames.contains( resource->Filename() ) )
 
             m_LinkedResourceIDs.append( resource->GetIdentifier() );
-    }
-
-    foreach( QString resource_id, m_LinkedResourceIDs )
-    {
-        Resource *resource = m_Resources.value( resource_id );
-
-        if ( resource )
-        {
-            connect( resource, SIGNAL( ResourceUpdatedOnDisk() ),    this, SLOT( LinkedResourceUpdated() ) );
-            connect( resource, SIGNAL( Deleted( const Resource& ) ), this, SLOT( LinkedResourceUpdated() ) );
-        }
     }
 }
 
