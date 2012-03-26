@@ -197,7 +197,11 @@ void SpellCheckWidget::readSettings()
     QStringList dicts = sc->dictionaries();
     ui.dictionaries->clear();
     foreach (QString dict, dicts) {
-        ui.dictionaries->addItem(lang->GetLanguageName(dict), dict);
+        QString name = lang->GetLanguageName(dict);
+        if (name.isEmpty()) {
+            name = dict;
+        }
+        ui.dictionaries->addItem(name, dict);
     }
 
     // Select the current dictionary.
