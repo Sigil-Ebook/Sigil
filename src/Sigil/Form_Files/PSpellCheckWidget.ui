@@ -179,6 +179,9 @@ You can always search for misspelled words using Find &amp;amp; Replace by setti
     <layout class="QHBoxLayout" name="horizontalLayout_5">
      <item>
       <widget class="QPushButton" name="pbDictionaryDirectory">
+       <property name="toolTip">
+        <string>The directory where Sigil should look for additional hunspell dictionaries.</string>
+       </property>
        <property name="text">
         <string>Open Dictionary Directory</string>
        </property>
