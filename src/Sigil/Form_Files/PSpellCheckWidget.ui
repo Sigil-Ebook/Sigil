@@ -21,7 +21,7 @@
        <property name="toolTip">
         <string>Highlight misspelled words in Code View. 
 
-You can always search for misspelled words using Find &amp;amp; Replace by setting the mode to &amp;quot;Spell Check&amp;quot;.</string>
+You can also search for misspelled words using Find by setting the mode to &quot;Spell Check&quot;.</string>
        </property>
        <property name="text">
         <string>Enable automatic spell checking</string>
@@ -41,6 +41,10 @@ You can always search for misspelled words using Find &amp;amp; Replace by setti
        </property>
       </spacer>
      </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_5">
      <item>
       <widget class="QLabel" name="label">
        <property name="text">
@@ -58,12 +62,78 @@ You can always search for misspelled words using Find &amp;amp; Replace by setti
        </property>
       </widget>
      </item>
+     <item>
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pbDictionaryDirectory">
+       <property name="toolTip">
+        <string>&lt;p&gt;Open the directory where Sigil looks for additional hunspell dictionaries.&lt;/p&gt;
+&lt;p&gt;Dictionaries in this location will be added to the list you can choose from and will override default dictionaries that have the same name.&lt;/p&gt;</string>
+       </property>
+       <property name="text">
+        <string>Open Dictionary Directory</string>
+       </property>
+      </widget>
+     </item>
     </layout>
+   </item>
+   <item>
+    <spacer name="verticalSpacer_4">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeType">
+      <enum>QSizePolicy::Maximum</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>10</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item>
+    <widget class="Line" name="line">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <spacer name="verticalSpacer_3">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeType">
+      <enum>QSizePolicy::Maximum</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>10</height>
+      </size>
+     </property>
+    </spacer>
    </item>
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout_3">
      <item>
       <widget class="QGroupBox" name="groupBox_2">
+       <property name="toolTip">
+        <string/>
+       </property>
        <property name="title">
         <string>User Dictionary</string>
        </property>
@@ -172,33 +242,6 @@ You can always search for misspelled words using Find &amp;amp; Replace by setti
         </item>
        </layout>
       </widget>
-     </item>
-    </layout>
-   </item>
-   <item>
-    <layout class="QHBoxLayout" name="horizontalLayout_5">
-     <item>
-      <widget class="QPushButton" name="pbDictionaryDirectory">
-       <property name="toolTip">
-        <string>The directory where Sigil should look for additional hunspell dictionaries.</string>
-       </property>
-       <property name="text">
-        <string>Open Dictionary Directory</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <spacer name="horizontalSpacer">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>40</width>
-         <height>20</height>
-        </size>
-       </property>
-      </spacer>
      </item>
     </layout>
    </item>
