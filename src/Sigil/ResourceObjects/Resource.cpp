@@ -130,7 +130,7 @@ bool Resource::Delete()
     }
 
     if ( successful )
-    {        
+    {
         emit Deleted( *this );
 
         deleteLater();

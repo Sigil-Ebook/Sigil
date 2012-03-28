@@ -426,21 +426,21 @@ bool Book::Merge( HTMLResource& html_resource1, HTMLResource& html_resource2 )
     {
         xc::DOMDocumentFragment *body_children_fragment = NULL;
 
+        // Get the html out of resource 2.
+        QWriteLocker source_locker( &html_resource2.GetLock() );
+        shared_ptr<xc::DOMDocument> sd = XhtmlDoc::LoadTextIntoDocument(html_resource2.GetText());
+        const xc::DOMDocument &source_dom  = *sd.get();
+        xc::DOMNodeList &source_body_nodes = *source_dom.getElementsByTagName( QtoX( "body" ) );
+
+        if ( source_body_nodes.getLength() != 1 )
         {
-            QWriteLocker source_locker( &html_resource2.GetLock() );
-            shared_ptr<xc::DOMDocument> sd = XhtmlDoc::LoadTextIntoDocument(html_resource2.GetText());
-            const xc::DOMDocument &source_dom  = *sd.get();
-            xc::DOMNodeList &source_body_nodes = *source_dom.getElementsByTagName( QtoX( "body" ) );
-
-            if ( source_body_nodes.getLength() != 1 )
-            {
-                return false;
-            }
-
-            xc::DOMNode &source_body_node = *source_body_nodes.item( 0 );
-            body_children_fragment        = XhtmlDoc::ConvertToDocumentFragment( *source_body_node.getChildNodes() );
+            return false;
         }
 
+        xc::DOMNode &source_body_node = *source_body_nodes.item( 0 );
+        body_children_fragment        = XhtmlDoc::ConvertToDocumentFragment( *source_body_node.getChildNodes() );
+
+        // Append the html from resource 2 into resource 1.
         QWriteLocker sink_locker( &html_resource1.GetLock() );
         shared_ptr<xc::DOMDocument> sink_d = XhtmlDoc::LoadTextIntoDocument(html_resource1.GetText());
         xc::DOMDocument &sink_dom        = *sink_d.get();
@@ -451,7 +451,7 @@ bool Book::Merge( HTMLResource& html_resource1, HTMLResource& html_resource2 )
             return false;
         }
 
-        xc::DOMNode & sink_body_node = *sink_body_nodes.item( 0 );
+        xc::DOMNode &sink_body_node = *sink_body_nodes.item( 0 );
         sink_body_node.appendChild( sink_dom.importNode( body_children_fragment, true ) );
         html_resource1.SetText(XhtmlDoc::GetDomDocumentAsString(sink_dom));
 

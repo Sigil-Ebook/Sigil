@@ -785,7 +785,10 @@ xc::DOMElement* OPFResource::GetGuideReferenceForResource( const Resource &resou
 void OPFResource::RemoveGuideReferenceForResource( const Resource &resource, xc::DOMDocument &document )
 {
     xc::DOMElement &guide = GetGuideElement( document );
-    guide.removeChild( GetGuideReferenceForResource( resource, document ) );
+    xc::DOMElement *elem = GetGuideReferenceForResource( resource, document );
+    if (elem) {
+        guide.removeChild( elem );
+    }
 }
 
 
