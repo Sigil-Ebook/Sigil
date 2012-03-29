@@ -20,7 +20,6 @@
 *************************************************************************/
 
 #include <boost/bind/bind.hpp>
-#include <boost/shared_ptr.hpp>
 #include <boost/tuple/tuple.hpp>
 
 #include <QtCore/QtCore>
@@ -35,7 +34,6 @@
 #include "sigil_constants.h"
 
 using boost::make_tuple;
-using boost::shared_ptr;
 
 
 // The maximum allowed distance (in lines) that a heading
@@ -97,6 +95,7 @@ QList< Headings::Heading > Headings::GetHeadingListForOneFile( HTMLResource* htm
 
         Heading heading;
         heading.resource_file  = html_resource;
+        heading.document       = d;
         heading.element        = &element;
         heading.text           = ( element.hasAttribute( QtoX( "title" ) )          ?
                                    XtoQ( element.getAttribute( QtoX( "title" ) ) )  :

@@ -23,10 +23,14 @@
 #ifndef HEADINGS_H
 #define HEADINGS_H
 
+#include <boost/shared_ptr.hpp>
+
 #include <QtCore/QList>
 #include <QtCore/QMetaType>
 
 #include "BookManipulation/XercesHUse.h"
+
+using boost::shared_ptr;
 
 class HTMLResource;
 class QString;
@@ -42,6 +46,8 @@ public:
     {
         // The HTMLResource file the heading belongs to
         HTMLResource *resource_file;
+
+        shared_ptr<xc::DOMDocument> document;
 
         // The DomElement of the heading in the file's DomDocument
         xc::DOMElement *element;

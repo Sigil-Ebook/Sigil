@@ -132,7 +132,7 @@ void HeadingSelector::UpdateOneHeadingElement( QStandardItem *item )
                                   .simplified();
 
         if ( !heading->include_in_toc )
-       
+
             class_attribute = class_attribute.append( " " + NOT_IN_TOC_CLASS ).simplified();
 
         if ( !class_attribute.isEmpty() )
@@ -140,7 +140,7 @@ void HeadingSelector::UpdateOneHeadingElement( QStandardItem *item )
             heading->element->setAttribute( QtoX( "class" ), QtoX( class_attribute ) );
 
         else
-            
+
             heading->element->removeAttribute( QtoX( "class" ) );
 
     }
