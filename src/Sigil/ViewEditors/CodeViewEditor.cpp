@@ -622,32 +622,43 @@ int CodeViewEditor::ReplaceAll( const QString &search_regex,
                                 const QString &replacement, 
                                 bool check_spelling )
 {
+    Q_UNUSED (check_spelling);
+
     int count = 0;
-    QTextCursor cursor = textCursor();
-    int cursor_position = cursor.selectionStart();
 
-    cursor.setPosition( 0 );
-    setTextCursor( cursor );
+    QString text = toPlainText();
+    SPCRE *spcre = PCRECache::instance()->getObject(search_regex);
+    QList<SPCRE::MatchInfo> match_info = spcre->getEveryMatchInfo(text);
 
-    cursor.beginEditBlock();
+    // Run though all match offsets making the replacment in reverse order.
+    // This way changes in text lengh won't change the offsets as we make
+    // our changes.
+    for (int i = match_info.count() - 1; i >= 0; i--) {
+        QString replaced_text;
+        bool replacement_made = spcre->replaceText(Utility::Substring(match_info.at(i).offset.first, match_info.at(i).offset.first, text), match_info.at(i).capture_groups_offsets, replacement, replaced_text);
 
-    while ( FindNext( search_regex, Searchable::Direction_Down, check_spelling, false, false ) )
-    {
-        if ( ReplaceSelected( search_regex, replacement ) )
-        {
+        if (replacement_made) {
+            // Replace the text.
+            text = text.replace(match_info.at(i).offset.first, match_info.at(i).offset.second - match_info.at(i).offset.first, replaced_text);
             count++;
-        }
-        else
-        {
-            break;
         }
     }
 
+    QTextCursor cursor = textCursor();
+    // Store the cursor position
+    int cursor_position = cursor.selectionStart();
+
+    cursor.beginEditBlock();
+
+    // Replace all text in the document with the new text.
+    cursor.select(QTextCursor::Document);
+    cursor.insertText(text);
+
     cursor.endEditBlock();
 
-    cursor.setPosition( cursor_position );
-    setTextCursor( cursor );
-    SetDelayedCursorScreenCenteringRequired();
+    // Restore the cursor position
+    cursor.setPosition(cursor_position);
+    setTextCursor(cursor);
 
     return count;
 }
