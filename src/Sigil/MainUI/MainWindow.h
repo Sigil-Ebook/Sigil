@@ -89,7 +89,7 @@ public:
      *
      * @return A reference to the current content tab.
      */
-    ContentTab& GetCurrentContentTab(); 
+    ContentTab &GetCurrentContentTab();
 
     /**
      * Returns a list of valid selected HTML resources
@@ -170,6 +170,10 @@ public:
      * depending on whether view was split view already
      */
     void AnyCodeView();
+
+    bool CloseAllTabs();
+
+    void SaveTabData();
 
 public slots:
     /**

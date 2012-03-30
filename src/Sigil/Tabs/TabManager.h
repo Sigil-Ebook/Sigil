@@ -56,7 +56,10 @@ public:
      *
      * @return A reference to the current content tab.
      */
-    ContentTab& GetCurrentContentTab();    
+    ContentTab& GetCurrentContentTab();
+
+    bool TryCloseAllTabs();
+    bool TryCloseTab(int tab_index);
 
     /**
      * Returns \c true if tab data is well-formed. Also,

@@ -64,6 +64,36 @@ ContentTab& TabManager::GetCurrentContentTab()
 }
 
 
+bool TabManager::TryCloseAllTabs()
+{
+    bool status;
+    while (count() > 0) {
+        status = TryCloseTab(0);
+        if (!status) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+
+bool TabManager::TryCloseTab(int tab_index)
+{
+    Q_ASSERT(tab_index >= 0);
+
+    WellFormedContent *content = GetWellFormedContent();
+    if (content && !content->IsDataWellFormed()) {
+        return false;
+    }
+
+    ContentTab *tab = qobject_cast< ContentTab* >(widget(tab_index));
+    tab->Close();
+
+    return true;
+}
+
+
 bool TabManager::TabDataIsWellFormed()
 {
     WellFormedContent *content = GetWellFormedContent();
@@ -251,24 +281,13 @@ void TabManager::DeleteTab( ContentTab *tab_to_delete )
 }
 
 
-void TabManager::CloseTab( int tab_index )
+void TabManager::CloseTab(int tab_index)
 {   
-    if ( count() <= 1 )
-
-        return;    
-
-    Q_ASSERT( tab_index >= 0 );      
-
-    WellFormedContent *content = GetWellFormedContent();
-
-    // We don't let the user leave the tab
-    // if the tab data is not well-formed.
-    if ( content && !content->IsDataWellFormed() )
-        
+    if (count() <= 1) {
         return;
+    }
 
-    ContentTab *tab = qobject_cast< ContentTab* >( widget( tab_index ) );
-    tab->Close();
+    TryCloseTab(tab_index);
 }
 
 

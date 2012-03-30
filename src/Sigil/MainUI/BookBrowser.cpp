@@ -31,6 +31,7 @@
 #include "Dialogs/RenameTemplate.h"
 #include "Importers/ImportHTML.h"
 #include "MainUI/BookBrowser.h"
+#include "MainUI/MainWindow.h"
 #include "MainUI/OPFModel.h"
 #include "Misc/FilenameDelegate.h"
 #include "Misc/KeyboardShortcutManager.h"
@@ -57,7 +58,8 @@ BookBrowser::BookBrowser( QWidget *parent )
     m_SemanticsContextMenu( *new QMenu( this ) ),
     m_FontObfuscationContextMenu( *new QMenu( this ) ),
     m_GuideSemanticMapper( *new QSignalMapper( this ) ),
-    m_LastContextMenuType( Resource::GenericResourceType )
+    m_LastContextMenuType( Resource::GenericResourceType ),
+    m_MainWindow(qobject_cast<MainWindow *>(parent))
 { 
     m_SemanticsContextMenu      .setTitle( tr( "Add Semantics"    ) );
     m_FontObfuscationContextMenu.setTitle( tr( "Font Obfuscation" ) );
@@ -738,8 +740,6 @@ void BookBrowser::Merge()
 
 void BookBrowser::MergeList( QList <Resource *> resources )
 {
-    Resource *resource1 = resources.first();
-
     // Skip merge if any non-html files selected - by keyboard shortcut or selection across folders
     if ( resources.isEmpty() )
     {
@@ -749,8 +749,12 @@ void BookBrowser::MergeList( QList <Resource *> resources )
     // Convert merge previous to merge selected so all files can be checked for validity
     if ( resources.count() == 1 )
     {
-        resource1 = m_Book->PreviousResource( resource1 );
-        resources.prepend( resource1 );
+        Resource *resource = m_Book->PreviousResource(resources.first());
+        if (!resource) {
+            QMessageBox::warning(this, tr("Sigil"), tr("One resource selected and there is no previous resource to merge into."));
+            return;
+        }
+        resources.prepend(resource);
     }
     else
     {
@@ -769,9 +773,6 @@ void BookBrowser::MergeList( QList <Resource *> resources )
         }
     }
 
-    // Save location of first file in folder since resource will be modified
-    QModelIndex original_model_index = m_OPFModel.GetModelItemIndex( *resource1, OPFModel::IndexChoice_Current );
-
     if ( !m_Book->AreResourcesWellFormed( resources ) )
     {
         // Both dialog and well-formed error messages will be shown
@@ -782,32 +783,26 @@ void BookBrowser::MergeList( QList <Resource *> resources )
 
     QApplication::setOverrideCursor( Qt::WaitCursor );
 
-    resources.removeFirst();
+    m_MainWindow->SaveTabData();
+    if (!m_MainWindow->CloseAllTabs()) {
+        return;
+    }
+    Resource *resource1 = resources.takeFirst();
 
-    // Make resource active to make it easier to remove/update later
-    emit ResourceActivated( *resource1 );
-
-    HTMLResource &html_resource1 = *qobject_cast< HTMLResource *>( resource1 );
+    HTMLResource &html_resource1 = *qobject_cast< HTMLResource *>(resource1);
     bool merge_okay = true;
     foreach ( Resource *resource, resources )
     {
         if ( resource != NULL && merge_okay )
         {
             HTMLResource &html_resource2 = *qobject_cast< HTMLResource* >( resource );
-            merge_okay = m_Book->Merge( html_resource1, html_resource2 );
+            merge_okay = m_Book->Merge(html_resource1, html_resource2);
         }
     }
 
-    if ( merge_okay )
-    {
-        // Remove the current tab (original resource) to force tab to reload data when opening the resource
-        emit RemoveTabRequest();
-
-        // Use the original index since the old resource seems to become invalid
-        EmitResourceActivated( original_model_index );
-    }
-
     Refresh();
+
+    EmitResourceActivated(m_OPFModel.GetFirstHTMLModelIndex());
 
     QApplication::restoreOverrideCursor();
 }

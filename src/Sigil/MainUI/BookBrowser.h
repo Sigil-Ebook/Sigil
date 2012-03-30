@@ -30,6 +30,7 @@
 #include "BookManipulation/GuideSemantics.h"
 #include "ResourceObjects/Resource.h"
 
+class MainWindow;
 class HTMLResource;
 class ImageResource;
 class OPFModel;
@@ -527,6 +528,8 @@ private:
     QString m_LastFolderOpen;
 
     QList <QModelIndex> m_SavedSelection;
+
+    MainWindow *m_MainWindow;
 };
 
 #endif // BOOKBROWSER_H

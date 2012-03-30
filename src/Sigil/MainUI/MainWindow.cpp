@@ -410,11 +410,15 @@ void MainWindow::Find()
 
 void MainWindow::GoToLine()
 {
-    int line = QInputDialog::getInt( this, tr("Go To Line"), tr("Line #"), -1, 1 );
+    ContentTab &tab = m_TabManager.GetCurrentContentTab();
+    if (&tab == NULL) {
+        return;
+    }
 
+    int line = QInputDialog::getInt( this, tr("Go To Line"), tr("Line #"), -1, 1 );
     if ( line >= 1 )
     {
-        m_TabManager.OpenResource( m_TabManager.GetCurrentContentTab().GetLoadedResource(), false, QUrl(), MainWindow::ViewState_CodeView, line );
+        m_TabManager.OpenResource( tab.GetLoadedResource(), false, QUrl(), MainWindow::ViewState_CodeView, line );
         SetViewState(MainWindow::ViewState_CodeView);
     }
 }
@@ -479,6 +483,9 @@ void MainWindow::InsertImage()
 
 void MainWindow::SetViewState(MainWindow::ViewState view_state)
 {
+    if (view_state == m_ViewState) {
+        return;
+    }
     if (view_state == MainWindow::ViewState_Unknown) {
         view_state = ViewState_BookView;
     }
@@ -522,6 +529,15 @@ void MainWindow::AnyCodeView()
     SetViewState( MainWindow::ViewState_CodeView );
 }
 
+bool MainWindow::CloseAllTabs()
+{
+    return m_TabManager.TryCloseAllTabs();
+}
+
+void MainWindow::SaveTabData()
+{
+    m_TabManager.SaveTabData();
+}
 
 void MainWindow::MetaEditorDialog()
 {
@@ -602,6 +618,9 @@ void MainWindow::ChangeSignalsWhenTabChanges( ContentTab* old_tab, ContentTab* n
 void MainWindow::UpdateViewState()
 {
     ContentTab &tab = GetCurrentContentTab();
+    if (&tab == NULL) {
+        return;
+    }
     Resource::ResourceType type = tab.GetLoadedResource().Type();
 
     if (type == Resource::HTMLResourceType) {
@@ -661,10 +680,13 @@ void MainWindow::UpdateUIOnTabChanges()
 
 
 void MainWindow::UpdateUiWhenTabsSwitch()
-{
-    UpdateViewState();
-
+{    
     ContentTab &tab = GetCurrentContentTab();
+    if (&tab == NULL) {
+        return;
+    }
+
+    UpdateViewState();
 
     UpdateCursorPositionLabel(tab.GetCursorLine(), tab.GetCursorColumn());
 
@@ -777,8 +799,13 @@ void MainWindow::UpdateCursorPositionLabel(int line, int column)
 
 void MainWindow::SliderZoom( int slider_value )
 {
+    ContentTab &tab = m_TabManager.GetCurrentContentTab();
+    if (&tab == NULL) {
+        return;
+    }
+
     float new_zoom_factor     = SliderRangeToZoomFactor( slider_value );
-    float current_zoom_factor = m_TabManager.GetCurrentContentTab().GetZoomFactor();
+    float current_zoom_factor = tab.GetZoomFactor();
 
     // We try to prevent infinite loops...
     if ( !qFuzzyCompare( new_zoom_factor, current_zoom_factor ) )
@@ -789,7 +816,12 @@ void MainWindow::SliderZoom( int slider_value )
 
 void MainWindow::UpdateZoomControls()
 {
-    float zoom_factor = m_TabManager.GetCurrentContentTab().GetZoomFactor(); 
+    ContentTab &tab = m_TabManager.GetCurrentContentTab();
+    if (&tab == NULL) {
+        return;
+    }
+
+    float zoom_factor = tab.GetZoomFactor();
 
     UpdateZoomSlider( zoom_factor );
     UpdateZoomLabel( zoom_factor );
@@ -1109,6 +1141,11 @@ bool MainWindow::SaveFile( const QString &fullfilepath )
 
 void MainWindow::ZoomByStep( bool zoom_in )
 {
+    ContentTab &tab = m_TabManager.GetCurrentContentTab();
+    if (&tab == NULL) {
+        return;
+    }
+
     // We use a negative zoom stepping if we are zooming *out*
     float zoom_stepping       = zoom_in ? ZOOM_STEP : - ZOOM_STEP;
 
@@ -1116,7 +1153,7 @@ void MainWindow::ZoomByStep( bool zoom_in )
     // on zoom out, we round DOWN.
     float rounding_helper     = zoom_in ? 0.05f : - 0.05f;
 
-    float current_zoom_factor = m_TabManager.GetCurrentContentTab().GetZoomFactor();
+    float current_zoom_factor = tab.GetZoomFactor();
     float rounded_zoom_factor = Utility::RoundToOneDecimal( current_zoom_factor + rounding_helper );
 
     // If the rounded value is nearly the same as the original value,
@@ -1135,11 +1172,16 @@ void MainWindow::ZoomByStep( bool zoom_in )
 
 void MainWindow::ZoomByFactor( float new_zoom_factor )
 {
+    ContentTab &tab = m_TabManager.GetCurrentContentTab();
+    if (&tab == NULL) {
+        return;
+    }
+
     if ( new_zoom_factor > ZOOM_MAX || new_zoom_factor < ZOOM_MIN )
 
         return;
 
-    m_TabManager.GetCurrentContentTab().SetZoomFactor( new_zoom_factor );
+    tab.SetZoomFactor( new_zoom_factor );
 }
 
 
