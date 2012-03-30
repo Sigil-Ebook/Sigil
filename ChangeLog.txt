@@ -42,7 +42,7 @@ Sigil 0.6.0 TBA
       set by the View buttons.
     - Implement issue 1283: Spell check should have an ignore option.
 
-Sigil 0.5.3 2012.25.02
+Sigil 0.5.3 2012.02.25
     - Fix issue 1254: Bulk rename will stop if one name matches, context menu
       needs cleanup and warnings.
     - Fix issue 1268: Find/Replace all files does not search in book order,
