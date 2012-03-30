@@ -75,6 +75,7 @@ void BookNormalization::GiveIDsToHeadingsInResource( HTMLResource *html_resource
 
     int heading_id_index = MaxSigilHeadingIDIndex( headings ) + 1;
 
+    bool resource_updated = false;
     for ( int index = 0; index < headings.count(); index++ )
     {
         xc::DOMElement &element = *headings.at( index ).element;
@@ -86,8 +87,12 @@ void BookNormalization::GiveIDsToHeadingsInResource( HTMLResource *html_resource
                 QtoX( SIGIL_HEADING_ID_PREFIX + QString::number( heading_id_index ) ) );
             
             heading_id_index++;
+            resource_updated = true;
         }
     }    
+    if (resource_updated) {
+        html_resource->SetText(XhtmlDoc::GetDomDocumentAsString(*headings.at(0).document));
+    }
 }
 
 
