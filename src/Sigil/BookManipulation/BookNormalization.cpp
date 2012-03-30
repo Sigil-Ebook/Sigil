@@ -89,7 +89,7 @@ void BookNormalization::GiveIDsToHeadingsInResource( HTMLResource *html_resource
             heading_id_index++;
             resource_updated = true;
         }
-    }    
+    }
     if (resource_updated) {
         html_resource->SetText(XhtmlDoc::GetDomDocumentAsString(*headings.at(0).document));
     }
