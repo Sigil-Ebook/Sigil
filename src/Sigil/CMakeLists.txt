@@ -73,7 +73,6 @@ set( QOBJECT_HEADERS
     MainUI/ValidationResultsView.h
     Misc/AppEventFilter.h
     Misc/SettingsStore.h
-    Misc/Language.h
     Misc/UILanguage.h
     Misc/UpdateChecker.h 
     Misc/RasterizeImageResource.h
