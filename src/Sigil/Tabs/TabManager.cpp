@@ -87,9 +87,21 @@ bool TabManager::TryCloseTab(int tab_index)
         return false;
     }
 
-    ContentTab *tab = qobject_cast< ContentTab* >(widget(tab_index));
+    ContentTab *tab = qobject_cast<ContentTab *>(widget(tab_index));
     tab->Close();
 
+    return true;
+}
+
+bool TabManager::CloseTabForResource(const Resource &resouce)
+{
+    int index = ResourceTabIndex(resouce);
+
+    if (index != -1) {
+        return TryCloseTab(index);
+    }
+
+    // Tab for resource so it's not open.
     return true;
 }
 
@@ -105,6 +117,18 @@ bool TabManager::TabDataIsWellFormed()
     return true;
 }
 
+bool TabManager::TabDataIsWellFormed(const Resource &resouce)
+{
+    int index = ResourceTabIndex(resouce);
+    if (index != -1) {
+        WellFormedContent *content = dynamic_cast<WellFormedContent *>(widget(index));
+        if (content) {
+            return content->IsDataWellFormed();
+        }
+    }
+
+    return true;
+}
 
 void TabManager::WellFormedDialogsEnabled( bool enabled )
 {

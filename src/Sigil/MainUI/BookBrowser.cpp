@@ -58,8 +58,7 @@ BookBrowser::BookBrowser( QWidget *parent )
     m_SemanticsContextMenu( *new QMenu( this ) ),
     m_FontObfuscationContextMenu( *new QMenu( this ) ),
     m_GuideSemanticMapper( *new QSignalMapper( this ) ),
-    m_LastContextMenuType( Resource::GenericResourceType ),
-    m_MainWindow(qobject_cast<MainWindow *>(parent))
+    m_LastContextMenuType( Resource::GenericResourceType )
 { 
     m_SemanticsContextMenu      .setTitle( tr( "Add Semantics"    ) );
     m_FontObfuscationContextMenu.setTitle( tr( "Font Obfuscation" ) );
@@ -730,81 +729,12 @@ void BookBrowser::AddGuideSemanticType( int type )
 
 void BookBrowser::MergeAll()
 {
-    MergeList( m_OPFModel.GetResourceListInFolder( Resource::HTMLResourceType ) );
+    emit NeedMergeResources(m_OPFModel.GetResourceListInFolder(Resource::HTMLResourceType));
 }
 
 void BookBrowser::Merge()
 {
-    MergeList( ValidSelectedResources( Resource::HTMLResourceType ) );
-}
-
-void BookBrowser::MergeList( QList <Resource *> resources )
-{
-    // Skip merge if any non-html files selected - by keyboard shortcut or selection across folders
-    if ( resources.isEmpty() )
-    {
-        return;
-    }
-
-    // Convert merge previous to merge selected so all files can be checked for validity
-    if ( resources.count() == 1 )
-    {
-        Resource *resource = m_Book->PreviousResource(resources.first());
-        if (!resource) {
-            QMessageBox::warning(this, tr("Sigil"), tr("One resource selected and there is no previous resource to merge into."));
-            return;
-        }
-        resources.prepend(resource);
-    }
-    else
-    {
-        QList <Resource *> all_files = m_OPFModel.GetResourceListInFolder( m_LastContextMenuType );
-        QString msg = all_files.count() == resources.count() ? tr( "Are you sure you want to merge ALL files?  You can also select just some of the files to merge.\n" ):
-                                           tr( "Are you sure you want to merge the selected files?\n" );
-
-        QMessageBox::StandardButton button_pressed;
-        button_pressed = QMessageBox::warning(	this,
-                      tr( "Sigil" ), msg % tr( "This action cannot be reversed." ),
-                                                QMessageBox::Ok | QMessageBox::Cancel
-                                             );
-        if ( button_pressed != QMessageBox::Ok )
-        { 
-            return;
-        }
-    }
-
-    if ( !m_Book->AreResourcesWellFormed( resources ) )
-    {
-        // Both dialog and well-formed error messages will be shown
-        // Newly added blank sections will generate an error if the book is not saved
-        Utility::DisplayStdErrorDialog( tr( "Merge aborted.\n\nOne of the files may have an error or has not been saved.\n\nTry saving your book or correcting any errors before merging." ) );
-        return;
-    }
-
-    QApplication::setOverrideCursor( Qt::WaitCursor );
-
-    m_MainWindow->SaveTabData();
-    if (!m_MainWindow->CloseAllTabs()) {
-        return;
-    }
-    Resource *resource1 = resources.takeFirst();
-
-    HTMLResource &html_resource1 = *qobject_cast< HTMLResource *>(resource1);
-    bool merge_okay = true;
-    foreach ( Resource *resource, resources )
-    {
-        if ( resource != NULL && merge_okay )
-        {
-            HTMLResource &html_resource2 = *qobject_cast< HTMLResource* >( resource );
-            merge_okay = m_Book->Merge(html_resource1, html_resource2);
-        }
-    }
-
-    Refresh();
-
-    EmitResourceActivated(m_OPFModel.GetFirstHTMLModelIndex());
-
-    QApplication::restoreOverrideCursor();
+    emit NeedMergeResources(ValidSelectedResources( Resource::HTMLResourceType));
 }
 
 

@@ -500,6 +500,72 @@ void MainWindow::SetTabViewState()
     SetViewState(m_ViewState);
 }
 
+void MainWindow::MergeResources(QList <Resource *> resources)
+{
+    if (resources.isEmpty()) {
+        return;
+    }
+
+    // Convert merge previous to merge selected so all files can be checked for validity
+    if (resources.count() == 1) {
+        Resource *resource = m_Book->PreviousResource(resources.first());
+        if (!resource) {
+            QMessageBox::warning(this, tr("Sigil"), tr("One resource selected and there is no previous resource to merge into."));
+            return;
+        }
+        resources.prepend(resource);
+    }
+    else {
+        QMessageBox::StandardButton button_pressed;
+        button_pressed = QMessageBox::warning(this, tr("Sigil"), tr("Are you sure you want to merge the selected files?\nThis action cannot be reversed."), QMessageBox::Ok | QMessageBox::Cancel);
+        if (button_pressed != QMessageBox::Ok) {
+            return;
+        }
+    }
+
+    if (!m_Book->AreResourcesWellFormed(resources)) {
+        // Both dialog and well-formed error messages will be shown
+        // Newly added blank sections will generate an error if the book is not saved
+        Utility::DisplayStdErrorDialog(tr("Merge aborted.\n\nOne of the files may have an error or has not been saved.\n\nTry saving your book or correcting any errors before merging."));
+        return;
+    }
+
+    QApplication::setOverrideCursor(Qt::WaitCursor);
+
+    SaveTabData();
+
+    foreach (Resource *resource, resources) {
+        if (!m_TabManager.TabDataIsWellFormed(*resource)) {
+            QMessageBox::critical(this, tr("Sigil"), tr("Cannot merge: %1 data is not well formed.").arg(resource->Filename()));
+            return;
+        }
+    }
+
+    foreach (Resource *resource, resources) {
+        if (!m_TabManager.CloseTabForResource(*resource)) {
+            QMessageBox::critical(this, tr("Sigil"), tr("Cannot merge\n\nCannot close tab: %1").arg(resource->Filename()));
+            return;
+        }
+    }
+
+    Resource *resource1 = resources.takeFirst();
+    HTMLResource &html_resource1 = *qobject_cast<HTMLResource *>(resource1);
+
+    bool merge_okay = true;
+    foreach (Resource *resource, resources) {
+        if (resource != NULL && merge_okay) {
+            HTMLResource &html_resource2 = *qobject_cast<HTMLResource *>(resource);
+            merge_okay = m_Book->Merge(html_resource1, html_resource2);
+        }
+    }
+
+    m_BookBrowser->Refresh();
+
+    OpenResource(*resource1);
+    UpdateBrowserSelectionToTab();
+
+    QApplication::restoreOverrideCursor();
+}
 
 void MainWindow::BookView()
 {
@@ -1777,6 +1843,8 @@ void MainWindow::ConnectSignalsToSlots()
 
     connect( m_BookBrowser, SIGNAL( OpenResourceRequest( Resource&, bool, const QUrl& ) ),
              this, SLOT(   OpenResource(        Resource&, bool, const QUrl& ) ) );
+
+    connect(m_BookBrowser, SIGNAL(NeedMergeResources(QList<Resource *>)), this, SLOT(MergeResources(QList<Resource *>)));
 
     connect( m_TableOfContents, SIGNAL( OpenResourceRequest( Resource&, bool, const QUrl& ) ),
              this,     SLOT(   OpenResource(        Resource&, bool, const QUrl& ) ) );

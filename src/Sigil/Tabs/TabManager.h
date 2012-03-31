@@ -60,6 +60,7 @@ public:
 
     bool TryCloseAllTabs();
     bool TryCloseTab(int tab_index);
+    bool CloseTabForResource(const Resource &resouce);
 
     /**
      * Returns \c true if tab data is well-formed. Also,
@@ -69,6 +70,7 @@ public:
      * @return \c true if the tab data is well-formed.
      */
     bool TabDataIsWellFormed();
+    bool TabDataIsWellFormed(const Resource &resouce);
 
 public slots:
 

@@ -198,6 +198,8 @@ signals:
      */
     void UpdateBrowserSelection();
 
+    void NeedMergeResources(QList<Resource *> resources);
+
 private slots:
 
     /**
@@ -439,15 +441,6 @@ private:
      */
     void RenameList( QList <Resource *> );
 
-    /**
-     * Implements the actual merge code for Merge All and Merge Selected
-     */
-    void MergeList( QList <Resource *> );
-
-
-    
-
-
     ///////////////////////////////
     // PRIVATE MEMBER VARIABLES
     ///////////////////////////////
@@ -528,8 +521,6 @@ private:
     QString m_LastFolderOpen;
 
     QList <QModelIndex> m_SavedSelection;
-
-    MainWindow *m_MainWindow;
 };
 
 #endif // BOOKBROWSER_H
