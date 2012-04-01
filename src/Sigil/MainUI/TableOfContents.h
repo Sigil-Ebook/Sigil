@@ -104,11 +104,7 @@ signals:
      */
     void OpenResourceRequest( Resource &resource, bool precede_current_tab, const QUrl &fragment );
 
-    /**
-     * Emitted when the TOC wants all tab data to be stored
-     * in the internal caches.
-     */
-    void TabDataSavedRequest();
+    void GenerateTocRequest();
 
 private:
 

@@ -729,12 +729,12 @@ void BookBrowser::AddGuideSemanticType( int type )
 
 void BookBrowser::MergeAll()
 {
-    emit NeedMergeResources(m_OPFModel.GetResourceListInFolder(Resource::HTMLResourceType));
+    emit MergeResourcesRequest(m_OPFModel.GetResourceListInFolder(Resource::HTMLResourceType));
 }
 
 void BookBrowser::Merge()
 {
-    emit NeedMergeResources(ValidSelectedResources( Resource::HTMLResourceType));
+    emit MergeResourcesRequest(ValidSelectedResources( Resource::HTMLResourceType));
 }
 
 

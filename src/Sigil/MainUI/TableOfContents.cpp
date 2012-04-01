@@ -23,10 +23,10 @@
 #include <QtCore/QTimer>
 #include <QtGui/QPushButton>
 #include <QtGui/QTreeView>
+#include <QtGui/QVBoxLayout>
 
 #include "BookManipulation/BookNormalization.h"
 #include "BookManipulation/FolderKeeper.h"
-#include "Dialogs/HeadingSelector.h"
 #include "MainUI/NCXModel.h"
 #include "MainUI/TableOfContents.h"
 #include "Misc/Utility.h"
@@ -141,20 +141,7 @@ void TableOfContents::ItemClickedHandler( const QModelIndex &index )
 
 void TableOfContents::GenerateTocFromHeadings()
 {
-    emit TabDataSavedRequest();
-
-    {
-        HeadingSelector toc( m_Book, this );
-
-        if ( toc.exec() != QDialog::Accepted )
-
-            return;
-    }
-
-    // Ensure that all headings have an id attribute
-    BookNormalization::Normalize( m_Book );
-
-    m_Book->GetNCX().GenerateNCXFromBookContents( *m_Book );
+    emit GenerateTocRequest();
 }
 
 

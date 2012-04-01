@@ -19,6 +19,7 @@
 **
 *************************************************************************/
 
+#include <QtCore/QStringList>
 #include <QtGui/QStandardItem>
 
 #include "BookManipulation/Book.h"
@@ -116,40 +117,43 @@ void HeadingSelector::UpdateHeadingElements()
     // headings marked as "don't include" are in the model.
     CreateTOCModel();
 
-    UpdateOneHeadingElement( m_TableOfContents.invisibleRootItem() );
+    UpdateOneHeadingElement(m_TableOfContents.invisibleRootItem());
+
+    QStringList ids;
+    foreach (Headings::Heading heading, m_Headings) {
+        if (!ids.contains(heading.resource_file->GetIdentifier())) {
+            heading.resource_file->SetText(XhtmlDoc::GetDomDocumentAsString(*heading.document.get()));
+            ids << heading.resource_file->GetIdentifier();
+        }
+    }
 }
 
-void HeadingSelector::UpdateOneHeadingElement( QStandardItem *item )
+void HeadingSelector::UpdateOneHeadingElement(QStandardItem *item)
 {
-    Headings::Heading *heading = GetItemHeading( item );
+    Headings::Heading *heading = GetItemHeading(item);
 
-    if ( heading != NULL )
-    {
+    if (heading != NULL) {
         // Update heading inclusion: if a heading element
         // has the NOT_IN_TOC_CLASS class, then it's not in the TOC
-        QString class_attribute = XtoQ( heading->element->getAttribute( QtoX( "class" ) ) )
-                                  .remove( NOT_IN_TOC_CLASS )
+        QString class_attribute = XtoQ(heading->element->getAttribute(QtoX("class")))
+                                  .remove(NOT_IN_TOC_CLASS)
                                   .simplified();
 
-        if ( !heading->include_in_toc )
+        if (!heading->include_in_toc) {
+            class_attribute = class_attribute.append(" " + NOT_IN_TOC_CLASS).simplified();
+        }
 
-            class_attribute = class_attribute.append( " " + NOT_IN_TOC_CLASS ).simplified();
-
-        if ( !class_attribute.isEmpty() )
-
-            heading->element->setAttribute( QtoX( "class" ), QtoX( class_attribute ) );
-
-        else
-
-            heading->element->removeAttribute( QtoX( "class" ) );
-
+        if (!class_attribute.isEmpty()) {
+            heading->element->setAttribute(QtoX("class"), QtoX(class_attribute));
+        }
+        else {
+            heading->element->removeAttribute(QtoX("class"));
+        }
     }
 
-    if ( item->hasChildren() )
-    {
-        for ( int i = 0; i < item->rowCount(); ++i )
-        {
-            UpdateOneHeadingElement( item->child( i ) );                
+    if (item->hasChildren()) {
+        for (int i = 0; i < item->rowCount(); ++i) {
+            UpdateOneHeadingElement(item->child(i));
         }
     }
 }

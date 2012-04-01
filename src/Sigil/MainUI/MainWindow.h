@@ -464,6 +464,7 @@ private slots:
     void SetTabViewState();
 
     void MergeResources(QList <Resource *> resources);
+    void GenerateToc();
 
 private:
 

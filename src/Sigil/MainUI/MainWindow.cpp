@@ -29,9 +29,10 @@
 
 #include "BookManipulation/BookNormalization.h"
 #include "BookManipulation/FolderKeeper.h"
+#include "Dialogs/About.h"
+#include "Dialogs/HeadingSelector.h"
 #include "Dialogs/ImageList.h"
 #include "Dialogs/MetaEditor.h"
-#include "Dialogs/About.h"
 #include "Dialogs/Preferences.h"
 #include "Exporters/ExportEPUB.h"
 #include "Exporters/ExporterFactory.h"
@@ -47,6 +48,7 @@
 #include "Misc/SpellCheck.h"
 #include "Misc/Utility.h"
 #include "ResourceObjects/HTMLResource.h"
+#include "ResourceObjects/NCXResource.h"
 #include "ResourceObjects/OPFResource.h"
 #include "sigil_constants.h"
 #include "sigil_exception.h"
@@ -563,6 +565,51 @@ void MainWindow::MergeResources(QList <Resource *> resources)
 
     OpenResource(*resource1);
     UpdateBrowserSelectionToTab();
+
+    QApplication::restoreOverrideCursor();
+}
+
+void MainWindow::GenerateToc()
+{
+    SaveTabData();
+
+    QList<Resource *> resources = m_BookBrowser->AllHTMLResources();
+    if (resources.isEmpty()) {
+        return;
+    }
+    foreach (Resource *resource, resources) {
+        if (!m_TabManager.TabDataIsWellFormed(*resource)) {
+            QMessageBox::critical(this, tr("Sigil"), tr("Cannot generate TOC: %1 data is not well formed.").arg(resource->Filename()));
+            return;
+        }
+    }
+    foreach (Resource *resource, resources) {
+        if (!m_TabManager.CloseTabForResource(*resource)) {
+            QMessageBox::critical(this, tr("Sigil"), tr("Cannot generate TOC.\n\nCannot close tab: %1").arg(resource->Filename()));
+            return;
+        }
+    }
+
+    {
+        HeadingSelector toc(m_Book, this);
+        if (toc.exec() != QDialog::Accepted) {
+            if (m_TabManager.count() == 0) {
+                m_TabManager.OpenResource(*resources.first());
+            }
+            return;
+        }
+    }
+
+    QApplication::setOverrideCursor(Qt::WaitCursor);
+
+    // Ensure that all headings have an id attribute
+    BookNormalization::Normalize(m_Book);
+
+    m_Book->GetNCX().GenerateNCXFromBookContents(*m_Book);
+
+    if (m_TabManager.count() == 0) {
+        m_TabManager.OpenResource(*resources.first());
+    }
 
     QApplication::restoreOverrideCursor();
 }
@@ -1832,8 +1879,8 @@ void MainWindow::ConnectSignalsToSlots()
     connect( m_BookBrowser, SIGNAL( RefreshTOCContentsRequest() ),
              m_TableOfContents,     SLOT(   RefreshTOCContents() ) );
 
-    connect( m_TableOfContents, SIGNAL( TabDataSavedRequest() ),
-             &m_TabManager,     SLOT(   SaveTabData() ) );
+    connect( m_TableOfContents, SIGNAL( GenerateTocRequest() ),
+             this,     SLOT(   GenerateToc() ) );
 
     connect( m_BookBrowser, SIGNAL( RemoveTabRequest() ),
              &m_TabManager, SLOT(   RemoveTab() ) );
@@ -1844,7 +1891,7 @@ void MainWindow::ConnectSignalsToSlots()
     connect( m_BookBrowser, SIGNAL( OpenResourceRequest( Resource&, bool, const QUrl& ) ),
              this, SLOT(   OpenResource(        Resource&, bool, const QUrl& ) ) );
 
-    connect(m_BookBrowser, SIGNAL(NeedMergeResources(QList<Resource *>)), this, SLOT(MergeResources(QList<Resource *>)));
+    connect(m_BookBrowser, SIGNAL(MergeResourcesRequest(QList<Resource *>)), this, SLOT(MergeResources(QList<Resource *>)));
 
     connect( m_TableOfContents, SIGNAL( OpenResourceRequest( Resource&, bool, const QUrl& ) ),
              this,     SLOT(   OpenResource(        Resource&, bool, const QUrl& ) ) );

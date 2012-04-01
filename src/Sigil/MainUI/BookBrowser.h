@@ -198,7 +198,7 @@ signals:
      */
     void UpdateBrowserSelection();
 
-    void NeedMergeResources(QList<Resource *> resources);
+    void MergeResourcesRequest(QList<Resource *> resources);
 
 private slots:
 
