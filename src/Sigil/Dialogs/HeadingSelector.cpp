@@ -124,7 +124,7 @@ void HeadingSelector::UpdateOneHeadingElement( QStandardItem *item )
     Headings::Heading *heading = GetItemHeading( item );
 
     if ( heading != NULL )
-    {       
+    {
         // Update heading inclusion: if a heading element
         // has the NOT_IN_TOC_CLASS class, then it's not in the TOC
         QString class_attribute = XtoQ( heading->element->getAttribute( QtoX( "class" ) ) )

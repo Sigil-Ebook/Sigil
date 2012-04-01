@@ -85,7 +85,7 @@ tuple< QString, QList< QString > > AnchorUpdates::GetOneFileIDs( HTMLResource* h
     QReadLocker locker(&html_resource->GetLock());
 
     shared_ptr<xc::DOMDocument> d = XhtmlDoc::LoadTextIntoDocument(html_resource->GetText());
-    QList<QString> ids = XhtmlDoc::GetAllDescendantIDs(*d.get());
+    QList<QString> ids = XhtmlDoc::GetAllDescendantIDs(*d.get()->getDocumentElement());
     return make_tuple(html_resource->Filename(), ids);
 }
 
