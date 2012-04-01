@@ -583,19 +583,10 @@ void MainWindow::GenerateToc()
             return;
         }
     }
-    foreach (Resource *resource, resources) {
-        if (!m_TabManager.CloseTabForResource(*resource)) {
-            QMessageBox::critical(this, tr("Sigil"), tr("Cannot generate TOC.\n\nCannot close tab: %1").arg(resource->Filename()));
-            return;
-        }
-    }
 
     {
         HeadingSelector toc(m_Book, this);
         if (toc.exec() != QDialog::Accepted) {
-            if (m_TabManager.count() == 0) {
-                m_TabManager.OpenResource(*resources.first());
-            }
             return;
         }
     }
@@ -606,10 +597,7 @@ void MainWindow::GenerateToc()
     BookNormalization::Normalize(m_Book);
 
     m_Book->GetNCX().GenerateNCXFromBookContents(*m_Book);
-
-    if (m_TabManager.count() == 0) {
-        m_TabManager.OpenResource(*resources.first());
-    }
+    m_TabManager.ReloadTabData();
 
     QApplication::restoreOverrideCursor();
 }

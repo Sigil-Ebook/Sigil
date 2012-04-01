@@ -72,6 +72,8 @@ public:
     bool TabDataIsWellFormed();
     bool TabDataIsWellFormed(const Resource &resouce);
 
+    void ReloadTabData();
+
 public slots:
 
     /**

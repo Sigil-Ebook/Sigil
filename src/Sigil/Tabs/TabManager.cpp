@@ -130,6 +130,16 @@ bool TabManager::TabDataIsWellFormed(const Resource &resouce)
     return true;
 }
 
+void TabManager::ReloadTabData()
+{
+    for (int i = count() - 1; i >= 0; --i) {
+        FlowTab *flow_tab = qobject_cast<FlowTab *>(widget(i));
+        if (flow_tab) {
+            flow_tab->LoadTabContent();
+        }
+    }
+}
+
 void TabManager::WellFormedDialogsEnabled( bool enabled )
 {
     WellFormedContent *content = GetWellFormedContent();
