@@ -29,6 +29,7 @@
 
 #include "ui_main.h"
 #include "BookManipulation/Book.h"
+#include "MainUI/NCXModel.h"
 #include "Tabs/ContentTab.h"
 
 const int MAX_RECENT_FILES = 5;
@@ -465,6 +466,7 @@ private slots:
 
     void MergeResources(QList <Resource *> resources);
     void GenerateToc();
+    void GenerateInlineToc(NCXModel::NCXEntry ncx_root_entry);
 
 private:
 

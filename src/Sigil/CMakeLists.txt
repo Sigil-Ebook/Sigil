@@ -237,6 +237,8 @@ set( MISC_FILES
     Misc/FontObfuscation.h
     Misc/TempFolder.cpp
     Misc/TempFolder.h
+    Misc/TOCHTMLWriter.cpp
+    Misc/TOCHTMLWriter.h
     Misc/WrapIndicator.h
     )
 

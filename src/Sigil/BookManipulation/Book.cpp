@@ -150,7 +150,6 @@ HTMLResource& Book::CreateNewHTMLFile()
 HTMLResource& Book::CreateEmptyHTMLFile()
 {
     HTMLResource &html_resource = CreateNewHTMLFile();
-    //html_resource.SetDomDocument( XhtmlDoc::LoadTextIntoDocument( EMPTY_HTML_FILE ) );
     html_resource.SetText(EMPTY_HTML_FILE);
     SetModified( true );
     return html_resource;
@@ -160,16 +159,10 @@ HTMLResource& Book::CreateEmptyHTMLFile()
 HTMLResource& Book::CreateEmptyHTMLFile( HTMLResource& resource )
 {
     HTMLResource &new_resource = CreateNewHTMLFile();
-    if ( &resource == NULL )
-    {
-        //new_resource.SetDomDocument( XhtmlDoc::LoadTextIntoDocument( EMPTY_HTML_FILE ) );
-        new_resource.SetText(EMPTY_HTML_FILE);
-    }
-    else
+    new_resource.SetText(EMPTY_HTML_FILE);
+    if ( &resource != NULL )
     {
         QList< HTMLResource* > html_resources = m_Mainfolder.GetResourceTypeList< HTMLResource >( true );
-        //new_resource.SetDomDocument( XhtmlDoc::LoadTextIntoDocument( EMPTY_HTML_FILE ) );
-        new_resource.SetText( EMPTY_HTML_FILE );
 
         int reading_order = GetOPF().GetReadingOrder( resource ) + 1;
 
@@ -233,8 +226,6 @@ HTMLResource& Book::CreateChapterBreakOriginalResource( const QString &content, 
     HTMLResource &new_resource = CreateNewHTMLFile();
     new_resource.RenameTo( originating_filename );
 
-    //new_resource.SetDomDocument(
-    //    XhtmlDoc::LoadTextIntoDocument( CleanSource::Clean( content ) ) );
     new_resource.SetText( CleanSource::Clean( content ) );
 
 

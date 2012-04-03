@@ -34,14 +34,9 @@ XMLWriter::XMLWriter( const Book &book, QIODevice &device )
     m_Writer->setAutoFormatting( true );
 }
 
-    
+
 XMLWriter::~XMLWriter( )
 {
     // TODO: Why is this on the heap?
     delete m_Writer;
 }
-
-
-
-
-

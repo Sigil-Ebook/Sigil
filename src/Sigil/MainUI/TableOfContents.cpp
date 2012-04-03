@@ -27,7 +27,6 @@
 
 #include "BookManipulation/BookNormalization.h"
 #include "BookManipulation/FolderKeeper.h"
-#include "MainUI/NCXModel.h"
 #include "MainUI/TableOfContents.h"
 #include "Misc/Utility.h"
 #include "ResourceObjects/NCXResource.h"
@@ -46,6 +45,7 @@ TableOfContents::TableOfContents( QWidget *parent )
     m_Layout( *new QVBoxLayout( &m_MainWidget ) ),
     m_TreeView( *new QTreeView( &m_MainWidget ) ),
     m_GenerateTocButton( *new QPushButton( tr( "Generate TOC from headings" ), &m_ButtonHolderWidget ) ),
+    m_GenerateInlineTocButton(*new QPushButton(tr("Generate Inline HTML TOC"), &m_ButtonHolderWidget)),
     m_RefreshTimer( *new QTimer( this ) ),
     m_NCXModel( *new NCXModel( this ) )
 {
@@ -58,6 +58,7 @@ TableOfContents::TableOfContents( QWidget *parent )
     QVBoxLayout *layout = new QVBoxLayout( &m_ButtonHolderWidget );
     layout->setContentsMargins( 0, 0, 0, 0 );
     layout->addWidget( &m_GenerateTocButton );
+    layout->addWidget(&m_GenerateInlineTocButton);
     m_ButtonHolderWidget.setLayout( layout );
     
     m_Layout.addWidget( &m_TreeView );
@@ -77,6 +78,8 @@ TableOfContents::TableOfContents( QWidget *parent )
 
     connect( &m_GenerateTocButton, SIGNAL( clicked() ), 
              this,                 SLOT( GenerateTocFromHeadings() ) );
+
+    connect(&m_GenerateInlineTocButton, SIGNAL(clicked()), this, SLOT(GenerateInlineToc()));
 
     connect( &m_RefreshTimer, SIGNAL( timeout() ), 
              this,            SLOT( Refresh() ) );
@@ -142,6 +145,11 @@ void TableOfContents::ItemClickedHandler( const QModelIndex &index )
 void TableOfContents::GenerateTocFromHeadings()
 {
     emit GenerateTocRequest();
+}
+
+void TableOfContents::GenerateInlineToc()
+{
+    emit GenerateInlineTocRequest(m_NCXModel.GetRootNCXEntry());
 }
 
 

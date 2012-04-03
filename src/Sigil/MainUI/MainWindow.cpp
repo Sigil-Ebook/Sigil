@@ -46,6 +46,7 @@
 #include "Misc/KeyboardShortcutManager.h"
 #include "Misc/SettingsStore.h"
 #include "Misc/SpellCheck.h"
+#include "Misc/TOCHTMLWriter.h"
 #include "Misc/Utility.h"
 #include "ResourceObjects/HTMLResource.h"
 #include "ResourceObjects/NCXResource.h"
@@ -81,6 +82,7 @@ static const QString TAB_STYLE_SHEET              = "#managerframe {border-top: 
                                                     "border-left: 1px solid grey;"
                                                     "border-right: 1px solid grey;"
                                                     "border-bottom: 1px solid grey;} ";
+static const QString HTML_TOC_FILE = "toc.html";
 
 static const QStringList SUPPORTED_SAVE_TYPE = QStringList() << "epub"; 
 
@@ -598,6 +600,47 @@ void MainWindow::GenerateToc()
 
     m_Book->GetNCX().GenerateNCXFromBookContents(*m_Book);
     m_TabManager.ReloadTabData();
+
+    QApplication::restoreOverrideCursor();
+}
+
+void MainWindow::GenerateInlineToc(NCXModel::NCXEntry ncx_root_entry)
+{
+    QApplication::setOverrideCursor(Qt::WaitCursor);
+
+    HTMLResource *tocResource = NULL;
+    QList<HTMLResource *> htmlResources;
+
+    // Turn the list of Resources that are really HTMLResources to a real list
+    // of HTMLResources.
+    QList<Resource *> resources = m_BookBrowser->AllHTMLResources();
+    foreach (Resource *resource, resources) {
+        HTMLResource *htmlResource = qobject_cast<HTMLResource *>(resource);
+        if (htmlResource) {
+            htmlResources.append(htmlResource);
+
+            // Check if this is an existing toc file.
+            if (resource->Filename() == HTML_TOC_FILE) {
+                tocResource = htmlResource;
+                m_TabManager.CloseTabForResource(*tocResource);
+            }
+        }
+    }
+
+    // Create the an HTMLResource for the TOC if it doesn't exit.
+    if (tocResource == NULL) {
+        tocResource = &m_Book->CreateEmptyHTMLFile();
+        tocResource->RenameTo(HTML_TOC_FILE);
+        htmlResources.insert(0, tocResource);
+        m_Book->GetOPF().UpdateSpineOrder(htmlResources);
+    }
+
+    TOCHTMLWriter toc(ncx_root_entry);
+    tocResource->SetText(toc.WriteXML());
+    m_Book->GetOPF().AddGuideSemanticType(*tocResource, GuideSemantics::TableOfContents);
+
+    m_BookBrowser->Refresh();
+    OpenResource(*tocResource);
 
     QApplication::restoreOverrideCursor();
 }
@@ -1869,6 +1912,7 @@ void MainWindow::ConnectSignalsToSlots()
 
     connect( m_TableOfContents, SIGNAL( GenerateTocRequest() ),
              this,     SLOT(   GenerateToc() ) );
+    connect(m_TableOfContents, SIGNAL(GenerateInlineTocRequest(NCXModel::NCXEntry)), this, SLOT(GenerateInlineToc(NCXModel::NCXEntry)));
 
     connect( m_BookBrowser, SIGNAL( RemoveTabRequest() ),
              &m_TabManager, SLOT(   RemoveTab() ) );
