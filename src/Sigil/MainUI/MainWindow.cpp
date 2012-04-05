@@ -527,16 +527,19 @@ void MainWindow::MergeResources(QList <Resource *> resources)
         }
     }
 
-    if (!m_Book->AreResourcesWellFormed(resources)) {
-        // Both dialog and well-formed error messages will be shown
-        // Newly added blank sections will generate an error if the book is not saved
-        Utility::DisplayStdErrorDialog(tr("Merge aborted.\n\nOne of the files may have an error or has not been saved.\n\nTry saving your book or correcting any errors before merging."));
-        return;
+    foreach (Resource *resource, resources) {
+        if (!m_TabManager.TabDataIsWellFormed(*resource)) {
+            Utility::DisplayStdErrorDialog(tr("Merge aborted.\n\nOne of the files may have an error or has not been saved.\n\nTry saving your book or correcting any errors before merging."));
+            return;
+        }
     }
 
     QApplication::setOverrideCursor(Qt::WaitCursor);
 
+    // Save the tab data then dave it to disk.
+    // Merging work based off of the data on disk.
     SaveTabData();
+    m_Book->SaveAllResourcesToDisk();
 
     foreach (Resource *resource, resources) {
         if (!m_TabManager.TabDataIsWellFormed(*resource)) {
