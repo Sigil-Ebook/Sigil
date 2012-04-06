@@ -577,6 +577,7 @@ void MainWindow::MergeResources(QList <Resource *> resources)
 void MainWindow::GenerateToc()
 {
     SaveTabData();
+    m_Book->SaveAllResourcesToDisk();
 
     QList<Resource *> resources = m_BookBrowser->AllHTMLResources();
     if (resources.isEmpty()) {
