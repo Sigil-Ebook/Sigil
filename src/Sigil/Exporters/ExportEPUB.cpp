@@ -109,7 +109,7 @@ void ExportEPUB::CreatePublication( const QString &fullfolderpath )
         CreateEncryptionXML( fullfolderpath + METAINF_FOLDER_SUFFIX );
 }
 
-
+#include <QtDebug>
 void ExportEPUB::SaveFolderAsEpubToLocation( const QString &fullfolderpath, const QString &fullfilepath )
 {
     zipFile zfile = zipOpen(QDir::toNativeSeparators(fullfilepath).toUtf8().constData(), APPEND_STATUS_CREATE);
@@ -136,8 +136,12 @@ void ExportEPUB::SaveFolderAsEpubToLocation( const QString &fullfolderpath, cons
     while (it.hasNext()) {
         it.next();
         QString relpath = it.filePath().remove(fullfolderpath);
+        while (relpath.startsWith("/")) {
+            relpath = relpath.remove(0, 1);
+        }
 
         // Add the file entry to the archive.
+        qDebug() << relpath.toUtf8().constData();
         if (zipOpenNewFileInZip(zfile, relpath.toUtf8().constData(), NULL, NULL, 0, NULL, 0, NULL, Z_DEFLATED, 8) != Z_OK) {
             zipClose(zfile, NULL);
             boost_throw(CannotStoreFile() << errinfo_file_fullpath(relpath.toStdString()));
