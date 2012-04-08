@@ -35,6 +35,8 @@
 #include "ViewEditors/BookViewEditor.h"
 
 const int PROGRESS_BAR_MINIMUM_DURATION = 1500;
+const QString BV_BREAK_TAG_INSERT = "<hr class=\"sigilBVTmpChapterBreak\" />";
+const QString BV_BREAK_TAG_SEARCH  = "(<div>\\s*)?<hr\\s*class\\s*=\\s*\"[^\"]*sigilBVTmpChapterBreak\[^\"]*\"\\s*/>(\\s*</div>)?";
 
 const QString BREAK_TAG_INSERT    = "<hr class=\"sigilChapterBreak\" />";
 // %1 = CKE path.
@@ -67,6 +69,7 @@ BookViewEditor::BookViewEditor(QWidget *parent)
 void BookViewEditor::CustomSetDocument(const QString &path, const QString &html)
 {
     m_isLoadFinished = true;
+    m_path = path;
 
     // Enable our link filter.
     page()->setLinkDelegationPolicy(QWebPage::DelegateAllLinks);
@@ -153,7 +156,31 @@ void BookViewEditor::InsertHtml(const QString &html)
 
 QString BookViewEditor::SplitChapter()
 {
-    return QString();
+    // Add a temporary break marker so we know where the user has requested
+    // the text to be split.
+    InsertHtml(BV_BREAK_TAG_INSERT);
+
+    QString new_text;
+    QString text = GetHtml();
+
+    QRegExp body_search(BODY_START);
+    int body_tag_start = text.indexOf(body_search);
+
+    QString head = text.left(body_tag_start);
+
+    QRegExp break_tag(BV_BREAK_TAG_SEARCH);
+    int break_index = text.indexOf(break_tag, body_tag_start + body_search.matchedLength());
+    if (break_index != -1) {
+        // Create a new HTML string with the text that is being split.
+        new_text = Utility::Substring(0, break_index, text) + "</body></html>";
+
+        // Remove the the split text from this document and set it
+        // as the text in the editor.
+        text = head + Utility::Substring(break_index + break_tag.matchedLength(), text.length(), text);
+        CustomSetDocument(m_path, text);
+    }
+
+    return new_text;
 }
 
 //   We need to make sure that the Book View has focus,

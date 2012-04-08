@@ -172,6 +172,7 @@ private:
     SPCRE::MatchInfo m_lastMatch;
 
     QVariant m_caret;
+    QString m_path;
 };
 
 
