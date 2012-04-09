@@ -624,11 +624,18 @@ void MainWindow::GenerateInlineToc(NCXModel::NCXEntry ncx_root_entry)
             htmlResources.append(htmlResource);
 
             // Check if this is an existing toc file.
-            if (resource->Filename() == HTML_TOC_FILE) {
+            if (m_Book->GetOPF().GetGuideSemanticTypeForResource(*htmlResource) == GuideSemantics::TableOfContents) {
                 tocResource = htmlResource;
-                m_TabManager.CloseTabForResource(*tocResource);
+            } else if (resource->Filename() == HTML_TOC_FILE && tocResource == NULL) {
+                tocResource = htmlResource;
             }
         }
+    }
+
+    // Close the tab so the focus saving doesn't overwrite the text were
+    // replacing in the resource.
+    if (tocResource != NULL) {
+        m_TabManager.CloseTabForResource(*tocResource);
     }
 
     // Create the an HTMLResource for the TOC if it doesn't exit.
@@ -641,7 +648,11 @@ void MainWindow::GenerateInlineToc(NCXModel::NCXEntry ncx_root_entry)
 
     TOCHTMLWriter toc(ncx_root_entry);
     tocResource->SetText(toc.WriteXML());
-    m_Book->GetOPF().AddGuideSemanticType(*tocResource, GuideSemantics::TableOfContents);
+
+    // Setting a semantic on a resource that already has it set will remove the semantic.
+    if (m_Book->GetOPF().GetGuideSemanticTypeForResource(*tocResource) != GuideSemantics::TableOfContents) {
+        m_Book->GetOPF().AddGuideSemanticType(*tocResource, GuideSemantics::TableOfContents);
+    }
 
     m_BookBrowser->Refresh();
     OpenResource(*tocResource);
