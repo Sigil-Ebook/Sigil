@@ -347,6 +347,12 @@ bool MainWindow::Save()
 
     else
     {
+        QString extension = QFileInfo( m_CurrentFilePath ).suffix().toLower();
+        if ( !SUPPORTED_SAVE_TYPE.contains( extension ) )
+        {
+            return SaveAs();
+        }
+
         return SaveFile( m_CurrentFilePath );
     }
 }
