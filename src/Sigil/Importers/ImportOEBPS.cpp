@@ -78,7 +78,7 @@ void ImportOEBPS::ExtractContainer()
         // If there is no file name then we can't do anything with it.
         if (!qfile_name.isEmpty()) {
             // We use the dir object to create the path in the temporary directory.
-            // Unfortunately, we need a dir ojbect do to this as it's not a static function.
+            // Unfortunately, we need a dir ojbect to do this as it's not a static function.
             QDir dir(m_ExtractedFolderPath);
             // Full file path in the temporary directory.
             QString file_path = m_ExtractedFolderPath + "/" + qfile_name;
