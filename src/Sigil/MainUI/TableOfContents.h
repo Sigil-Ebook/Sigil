@@ -95,6 +95,14 @@ private slots:
 
     void GenerateInlineToc();
 
+    void CollapseAll();
+
+    void ExpandAll();
+
+protected:
+
+    void contextMenuEvent(QContextMenuEvent *event);
+
 signals:
 
     /**

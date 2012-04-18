@@ -24,6 +24,9 @@
 #include <QtGui/QPushButton>
 #include <QtGui/QTreeView>
 #include <QtGui/QVBoxLayout>
+#include <QtGui/QContextMenuEvent>
+#include <QtGui/QAction>
+#include <QtGui/QMenu>
 
 #include "BookManipulation/BookNormalization.h"
 #include "BookManipulation/FolderKeeper.h"
@@ -169,6 +172,33 @@ void TableOfContents::SetupTreeView()
 
     m_TreeView.setIndentation( COLUMN_INDENTATION );
     m_TreeView.setHeaderHidden( true );
+}
+
+void TableOfContents::CollapseAll()
+{      
+    m_TreeView.collapseAll();
+}
+
+void TableOfContents::ExpandAll()
+{      
+    m_TreeView.expandAll();
+}
+
+void TableOfContents::contextMenuEvent(QContextMenuEvent *event)
+{
+    QMenu *menu = new QMenu(this);
+
+    // Add menu options
+    QAction *collapseAction = new QAction(tr("Collapse All"), menu);
+    QAction *expandAction = new QAction(tr("Expand All"), menu);
+
+    menu->addAction(collapseAction);
+    connect(collapseAction, SIGNAL(triggered()), this, SLOT(CollapseAll()));
+
+    menu->addAction(expandAction);
+    connect(expandAction, SIGNAL(triggered()), this, SLOT(ExpandAll()));
+
+    menu->exec(mapToGlobal(event->pos()));
 }
 
 
