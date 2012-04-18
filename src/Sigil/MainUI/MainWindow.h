@@ -668,19 +668,9 @@ private:
     QSharedPointer< Book > m_Book;
 
     /**
-     * The last folder from which the user opened a file.
+     * The last folder from which the user opened or saved a file.
      */
     QString m_LastFolderOpen;
-
-    /**
-     * The last folder to which the user saved a file.
-     */
-    QString m_LastFolderSave;
-
-    /**
-     * The last folder to which the user imported an image.
-     */
-    QString m_LastFolderAdd;
 
     /**
      * The list of full filepaths 

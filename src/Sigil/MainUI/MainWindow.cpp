@@ -96,7 +96,6 @@ MainWindow::MainWindow( const QString &openfilepath, QWidget *parent, Qt::WFlags
     m_CurrentFilePath( QString() ),
     m_Book( new Book() ),
     m_LastFolderOpen( QString() ),
-    m_LastFolderSave( QString() ),
     m_TabManager( *new TabManager( this ) ),
     m_BookBrowser( NULL ),
     m_FindReplace( new FindReplace( *this ) ),
@@ -321,8 +320,7 @@ void MainWindow::OpenRecentFile()
 #ifndef Q_WS_MAC
         if ( MaybeSaveDialogSaysProceed() )
 #endif
-        {   
-
+        {
 #ifdef Q_WS_MAC
             MainWindow *new_window = new MainWindow( action->data().toString() );
             new_window->show();
@@ -380,14 +378,14 @@ bool MainWindow::SaveAs()
     // If we can save this file type, then we use the current filename
     if ( c_SaveFilters.contains( QFileInfo( m_CurrentFilePath ).suffix().toLower() ) )
     {
-        save_path       = m_LastFolderSave + "/" + QFileInfo( m_CurrentFilePath ).fileName();
+        save_path       = m_LastFolderOpen + "/" + QFileInfo( m_CurrentFilePath ).fileName();
         default_filter  = c_SaveFilters.value( QFileInfo( m_CurrentFilePath ).suffix().toLower() );
     }
 
     // If not, we change the extension to EPUB
     else
     {
-        save_path       = m_LastFolderSave + "/" + QFileInfo( m_CurrentFilePath ).completeBaseName() + ".epub";
+        save_path       = m_LastFolderOpen + "/" + QFileInfo( m_CurrentFilePath ).completeBaseName() + ".epub";
         default_filter  = c_SaveFilters.value( "epub" );
     }
 
@@ -403,7 +401,7 @@ bool MainWindow::SaveAs()
         return false;
 
     // Store the folder the user saved to
-    m_LastFolderSave = QFileInfo( filename ).absolutePath();
+    m_LastFolderOpen = QFileInfo( filename ).absolutePath();
 
     return SaveFile( filename );
 }
@@ -1105,10 +1103,8 @@ void MainWindow::ReadSettings()
 
     //    ui.splitter->restoreState( splitter_position );
 
-    // The last folders used for saving and opening files
-    m_LastFolderSave  = settings.value( "lastfoldersave"  ).toString();
+    // The last folder used for saving and opening files
     m_LastFolderOpen  = settings.value( "lastfolderopen"  ).toString();
-    m_LastFolderAdd   = settings.value( "lastfolderadd" ).toString();
 
     // The list of recent files
     s_RecentFiles    = settings.value( "recentfiles" ).toStringList();
@@ -1139,9 +1135,7 @@ void MainWindow::WriteSettings()
     //settings.setValue( "splitview_splitter", ui.splitter->saveState() );
 
     // The last folders used for saving and opening files
-    settings.setValue( "lastfoldersave",  m_LastFolderSave  );
     settings.setValue( "lastfolderopen",  m_LastFolderOpen  );
-    settings.setValue( "lastfolderadd", m_LastFolderAdd );
 
     // The list of recent files
     settings.setValue( "recentfiles", s_RecentFiles );
@@ -1209,6 +1203,9 @@ void MainWindow::LoadFile( const QString &fullfilepath )
     if ( !Utility::IsFileReadable( fullfilepath ) )
 
         return;
+
+    // Store the folder the user opened from
+    m_LastFolderOpen = QFileInfo(fullfilepath).absolutePath();
 
     try
     {

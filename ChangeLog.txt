@@ -1,4 +1,5 @@
 Sigil 0.6.0 TBA
+    - Implement issue 1363: Open and Save file directory inconsistent.
     - Implement issue 759: Auto generate inline TOC HTML file.
     - Fix issue 1281: Semantics information retained for deleted files.
     - Implement issue 32: Adding custom "date" metadata.
