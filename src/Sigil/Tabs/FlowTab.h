@@ -306,6 +306,12 @@ private slots:
      */
     void LoadSettings();
 
+    // Called when the underlying resource is modified. It is only connected
+    // when the view state is BV and used to know if BV should be reloaded
+    // when the user enters the view. CV is linked to the resource in such a
+    // way that this is unnecessary. The CV linking is not possible in BV.
+    void ResourceModified();
+
 private:
 
     /**
@@ -408,6 +414,7 @@ private:
 
     bool m_initialLoad;
 
+    bool m_BookViewNeedReload;
 };
 
 #endif // FLOWTAB_H

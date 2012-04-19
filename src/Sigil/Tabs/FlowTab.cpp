@@ -61,7 +61,8 @@ FlowTab::FlowTab(HTMLResource& resource,
     m_ViewState(view_state),
     m_WellFormedCheckComponent(*new WellFormedCheckComponent(*this)),
     m_safeToLoad(false),
-    m_initialLoad(true)
+    m_initialLoad(true),
+    m_BookViewNeedReload(false)
 {
     // Loading a flow tab can take a while. We set the wait
     // cursor and clear it at the end of the delayed initialization.
@@ -230,6 +231,8 @@ Searchable* FlowTab::GetSearchableContent()
 
 void FlowTab::SetViewState(MainWindow::ViewState new_view_state)
 {
+    disconnect(&m_HTMLResource, SIGNAL(Modified()), this, SLOT(ResourceModified()));
+
     // Do we really need to do anything?
     // Ignore this function if we are in the middle of doing an initial load
     // of the content. We don't want it to save over the content with nothing
@@ -257,7 +260,8 @@ void FlowTab::SetViewState(MainWindow::ViewState new_view_state)
         CodeView();
     }
     else {
-       BookView();
+        connect(&m_HTMLResource, SIGNAL(Modified()), this, SLOT(ResourceModified()));
+        BookView();
     }
 }
 
@@ -577,7 +581,9 @@ void FlowTab::CodeView()
 void FlowTab::SaveTabContent()
 {
     if (m_ViewState == MainWindow::ViewState_BookView) {
+        disconnect(&m_HTMLResource, SIGNAL(Modified()), this, SLOT(ResourceModified()));
         m_HTMLResource.SetText(m_wBookView.GetHtml());
+        connect(&m_HTMLResource, SIGNAL(Modified()), this, SLOT(ResourceModified()));
         m_wBookView.ResetModified();
         m_wBookView.SaveCaret();
     }
@@ -629,6 +635,12 @@ void FlowTab::LoadSettings()
 }
 
 
+void FlowTab::ResourceModified()
+{
+    m_BookViewNeedReload = true;
+}
+
+
 void FlowTab::LeaveEditor(QWidget *editor)
 {
     SaveTabContent();
@@ -642,6 +654,12 @@ void FlowTab::EnterEditor(QWidget *editor)
     if (!m_safeToLoad) {
         return;
     }
+
+    // Reload BV if the resource was marked as changed outside of the editor.
+    if (m_BookViewNeedReload && m_ViewState == MainWindow::ViewState_BookView) {
+        LoadTabContent();
+    }
+    m_BookViewNeedReload = false;
 
     // BookPreview is left out of this because we always want to reload with any current changes
     // from CodeView.
@@ -716,6 +734,7 @@ void FlowTab::DelayedInitialization()
         case MainWindow::ViewState_RawView:
         case MainWindow::ViewState_StaticView:
         default:
+            connect(&m_HTMLResource, SIGNAL(Modified()), this, SLOT(ResourceModified()));
             BookView();
             m_wBookView.ScrollToFragmentAfterLoad(m_FragmentToScroll.toString());
             break;
@@ -745,7 +764,6 @@ void FlowTab::EmitUpdateCursorPosition()
 {
     emit UpdateCursorPosition(GetCursorLine(), GetCursorColumn());
 }
-
 
 void FlowTab::EnterBookView()
 {
