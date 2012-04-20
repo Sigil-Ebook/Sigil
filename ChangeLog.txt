@@ -1,4 +1,6 @@
 Sigil 0.6.0 TBA
+    - Fix issue 1354: Chapter Split breaks links in second half of document
+      referencing ids in first half of document.
     - Implement issue 1311: Implement all RfC639-2 language codes in
       language map.
     - Fix issue 999: Split does not update file references in TOC.
