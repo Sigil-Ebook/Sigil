@@ -1031,18 +1031,18 @@ void MainWindow::UpdateZoomLabel( float new_zoom_factor )
 
 void MainWindow::CreateChapterBreakOldTab( QString content, HTMLResource& originating_resource )
 {
+    // Close the tab so the focus saving doesn't overwrite the text we're
+    // replacing in the resource.
+    m_TabManager.CloseTabForResource(originating_resource); 
+
     HTMLResource& html_resource = m_Book->CreateChapterBreakOriginalResource( content, originating_resource );
 
     m_BookBrowser->Refresh();
 
-    OpenResource( html_resource, true, QUrl() );
-
-    // We want the current tab to be scrolled to the top.
-    FlowTab *flow_tab = qobject_cast< FlowTab* >( &GetCurrentContentTab() );
-    if ( flow_tab )
-    {
-        flow_tab->ScrollToTop();
-    }
+    // Open tab with part 1 of old document as the current tab
+    // Open tab with part 2 of old document as unfocused preceding tab
+    OpenResource( originating_resource );
+    OpenResource( html_resource, true );
 
     statusBar()->showMessage( tr( "Chapter split. You may need to update the Table of Contents." ), STATUSBAR_MSG_DISPLAY_TIME );
 }
