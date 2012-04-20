@@ -113,10 +113,25 @@ void BookBrowser::Refresh()
 }
 
 
-// Update selection to match resource
+void BookBrowser::SelectAll()
+{
+    QList<Resource *> resources = m_OPFModel.GetResourceListInFolder(m_LastContextMenuType);
+    SelectResources(resources);
+}
+
+
+void BookBrowser::SelectResources(QList<Resource *> resources)
+{
+    m_TreeView.selectionModel()->clearSelection();
+
+    foreach (Resource *resource, resources) {
+        QModelIndex index = m_OPFModel.GetModelItemIndex( *resource, OPFModel::IndexChoice_Current );
+        m_TreeView.selectionModel()->select(index, QItemSelectionModel::Select);
+    }
+}
+
 void BookBrowser::UpdateSelection( Resource &resource )
 {
-    // Clear selections
     m_TreeView.selectionModel()->clearSelection();
 
     QModelIndex index = m_OPFModel.GetModelItemIndex( resource, OPFModel::IndexChoice_Current );
@@ -153,13 +168,9 @@ void BookBrowser::SortHTML()
 {
     QList <Resource *> resources = ValidSelectedResources();
 
-    QList <Resource *> all_files = m_OPFModel.GetResourceListInFolder( m_LastContextMenuType );
-    QString msg = ( all_files.count() == resources.count() || resources.count() == 1 ) ?  tr( "Are you sure you want to sort ALL files alphanumerically?  You can also select just some of the files to sort.\n" ):
-                                           tr( "Are you sure you want to sort the selected files alphanumerically?\n" );
-
     QMessageBox::StandardButton button_pressed;
     button_pressed = QMessageBox::warning(	this,
-                  tr( "Sigil" ), msg % tr( "This action cannot be reversed." ),
+                  tr( "Sigil" ), tr( "Are you sure you want to sort the selected files alphanumerically?")% "\n" % tr( "This action cannot be reversed." ),
                                             QMessageBox::Ok | QMessageBox::Cancel
                                          );
     if ( button_pressed != QMessageBox::Ok )
@@ -167,17 +178,11 @@ void BookBrowser::SortHTML()
         return;
     }
 
-    if ( resources.count() == 1 )
-    {
-        // Sort all items
-        m_OPFModel.SortHTML(); 
-    }
-    else
-    {
-        QList <QModelIndex> indexList = m_TreeView.selectionModel()->selectedRows( 0 );
+    QList <QModelIndex> indexList = m_TreeView.selectionModel()->selectedRows( 0 );
 
-        m_OPFModel.SortHTML( indexList );
-    }
+    m_OPFModel.SortHTML( indexList );
+
+    SelectResources(resources);
 }
 
 void BookBrowser::RefreshTOC()
@@ -240,6 +245,11 @@ QList <Resource *> BookBrowser::ValidSelectedHTMLResources()
 QList <Resource *> BookBrowser::AllHTMLResources()
 {
     return m_OPFModel.GetResourceListInFolder( Resource::HTMLResourceType );
+}
+
+QList <Resource *> BookBrowser::AllCSSResources()
+{
+    return m_OPFModel.GetResourceListInFolder( Resource::CSSResourceType );
 }
 
 QList <Resource *> BookBrowser::ValidSelectedResources( Resource::ResourceType resource_type )
@@ -348,21 +358,6 @@ int BookBrowser::ValidSelectedItemCount()
     return count;
 }
 
-void BookBrowser::SaveSelection()
-{
-    m_SavedSelection = m_TreeView.selectionModel()->selectedRows( 0 );
-}
-
-void BookBrowser::RestoreSelection()
-{
-    m_TreeView.selectionModel()->clearSelection();
-
-    // Set the saved selectins
-    foreach ( QModelIndex index, m_SavedSelection )
-    {
-        m_TreeView.selectionModel()->select( index, QItemSelectionModel::Select );
-    }
-}
 
 void BookBrowser::AddNew()
 {
@@ -496,20 +491,10 @@ void BookBrowser::Rename()
 }
 
 
-void BookBrowser::RenameAll()
-{
-    RenameList( m_OPFModel.GetResourceListInFolder( Resource::HTMLResourceType ) );
-}
-
-
 void BookBrowser::RenameSelected()
 {
-    RenameList( ValidSelectedResources() );
-}
+    QList <Resource *> resources = ValidSelectedResources();
 
-
-void BookBrowser::RenameList( QList <Resource *> resources )
-{
     if ( resources.isEmpty() )
     {
         return;
@@ -564,6 +549,8 @@ void BookBrowser::RenameList( QList <Resource *> resources )
         }
         i++;
     }
+
+    SelectResources(resources);
 }
 
 
@@ -727,14 +714,15 @@ void BookBrowser::AddGuideSemanticType( int type )
     emit BookContentModified();
 }
 
-void BookBrowser::MergeAll()
-{
-    emit MergeResourcesRequest(m_OPFModel.GetResourceListInFolder(Resource::HTMLResourceType));
-}
-
 void BookBrowser::Merge()
 {
-    emit MergeResourcesRequest(ValidSelectedResources( Resource::HTMLResourceType));
+    emit MergeResourcesRequest(ValidSelectedResources(Resource::HTMLResourceType));
+}
+
+
+void BookBrowser::LinkStylesheets()
+{
+    emit LinkStylesheetsToResourcesRequest(ValidSelectedResources(Resource::HTMLResourceType));
 }
 
 
@@ -854,21 +842,20 @@ void BookBrowser::CreateContextMenuActions()
 {
     KeyboardShortcutManager *sm = KeyboardShortcutManager::instance();
 
+    m_SelectAll               = new QAction( tr( "Select All" ),            this );
     m_AddNewHTML              = new QAction( tr( "Add Blank Section" ),     this );
     m_AddNewCSS               = new QAction( tr( "Add Blank Stylesheet" ),  this );
     m_AddExisting             = new QAction( tr( "Add Existing Files..." ), this );
     m_Rename                  = new QAction( tr( "Rename" ),                this );
-    m_RenameAll               = new QAction( tr( "Rename All" ),            this );
     m_Remove                  = new QAction( tr( "Remove" ),                this );
     m_CoverImage              = new QAction( tr( "Cover Image" ),           this );
     m_Merge                   = new QAction( tr( "Merge" ),                 this );
-    m_MergeAll                = new QAction( tr( "Merge All" ),             this );
     m_MergeWithPrevious       = new QAction( tr( "Merge With Previous" ),   this );
     m_AdobesObfuscationMethod = new QAction( tr( "Use Adobe's Method" ),    this );
     m_IdpfsObfuscationMethod  = new QAction( tr( "Use IDPF's Method" ),     this );
-    m_SortHTML                = new QAction( tr( "Sort All" ),              this );
-    m_SortHTMLSelected        = new QAction( tr( "Sort" ),                  this );
+    m_SortHTML                = new QAction( tr( "Sort" ),                  this );
     m_RefreshTOC              = new QAction( tr( "Renumber TOC Entries" ),  this );
+    m_LinkStylesheets         = new QAction( tr( "Link Stylesheets" ),      this );
 
     m_CoverImage             ->setCheckable( true );  
     m_AdobesObfuscationMethod->setCheckable( true ); 
@@ -1020,29 +1007,30 @@ bool BookBrowser::SuccessfullySetupContextMenu( const QPoint &point )
 
     // We just don't add the remove and rename
     // actions, but we do pop up the context menu.
-    if ( !resource )
-
-        return true; 
-
-    m_ContextMenu.addSeparator();
-
-    if ( m_LastContextMenuType != Resource::OPFResourceType &&
-         m_LastContextMenuType != Resource::NCXResourceType )
-    {
-        m_ContextMenu.addAction( m_Remove );
+    if ( resource ) {
 
         m_ContextMenu.addSeparator();
 
-        m_ContextMenu.addAction( m_Rename );
-
-        QList <Resource *> all_files = m_OPFModel.GetResourceListInFolder( m_LastContextMenuType );
-        if ( ValidSelectedItemCount() == 1  && all_files.count() > 1 )
+        if ( m_LastContextMenuType != Resource::OPFResourceType &&
+             m_LastContextMenuType != Resource::NCXResourceType )
         {
-            m_ContextMenu.addAction( m_RenameAll );
+            m_ContextMenu.addAction( m_Remove );
+
+            m_ContextMenu.addSeparator();
+
+            m_ContextMenu.addAction( m_Rename );
         }
+
+        SetupResourceSpecificContextMenu( resource );    
     }
 
-    SetupResourceSpecificContextMenu( resource );    
+    // Add Select All
+    if ( m_OPFModel.GetResourceListInFolder(m_LastContextMenuType).count() > 1 && 
+            m_LastContextMenuType != Resource::OPFResourceType &&
+            m_LastContextMenuType != Resource::NCXResourceType ) {
+        m_ContextMenu.addSeparator();
+        m_ContextMenu.addAction(m_SelectAll);
+    }
 
     return true;
 }
@@ -1052,25 +1040,23 @@ void BookBrowser::SetupResourceSpecificContextMenu( Resource *resource  )
 {
     if ( resource->Type() == Resource::HTMLResourceType )
     {
-        QList <Resource *> all_files = m_OPFModel.GetResourceListInFolder( Resource::HTMLResourceType );
-        if ( ValidSelectedItemCount() == 1  && all_files.count() > 1 )
+        if ( ValidSelectedItemCount() > 1 )
         {
             m_ContextMenu.addAction( m_SortHTML );
-        }
-        else if ( ValidSelectedItemCount() > 1 )
-        {
-            m_ContextMenu.addAction( m_SortHTMLSelected );
         }
 
         AddMergeAction( resource ); 
 
-        m_ContextMenu.addSeparator();
-
+        if ( AllCSSResources().count() > 0 )
+        {
+            m_ContextMenu.addAction( m_LinkStylesheets );
+        }
     }
 
     if ( resource->Type() == Resource::FontResourceType && ValidSelectedItemCount() == 1 )
-
+    {
         SetupFontObfuscationMenu( resource );
+    }
 
     if ( resource->Type() == Resource::NCXResourceType && ValidSelectedItemCount() == 1 )
     {
@@ -1218,28 +1204,14 @@ void BookBrowser::AddMergeAction( Resource *resource )
 
     if ( ValidSelectedItemCount() == 1 )
     {
-        QList <Resource *> all_files = m_OPFModel.GetResourceListInFolder( Resource::HTMLResourceType );
-        int reading_order = m_Book->GetOPF().GetReadingOrder( *html_resource );
-
-        // We can't add the action for the first file
-        if ( reading_order > 0 )
+        // Don't add the action for the first file
+        if ( m_Book->GetOPF().GetReadingOrder( *html_resource ) > 0 )
         {
-            m_ContextMenu.addSeparator();
             m_ContextMenu.addAction( m_MergeWithPrevious );    
-        }
-        // And shouldn't add Merge All in some cases
-        if ( all_files.count() > 2  || ( all_files.count() > 1 &&  reading_order == 0 ) )
-        {
-            if ( reading_order == 0 )
-            {
-                m_ContextMenu.addSeparator();
-            }
-            m_ContextMenu.addAction( m_MergeAll );
         }
     }
     else
     {
-        m_ContextMenu.addSeparator();
         m_ContextMenu.addAction( m_Merge );
     }
 }
@@ -1256,19 +1228,18 @@ void BookBrowser::ConnectSignalsToSlots()
     connect( &m_OPFModel, SIGNAL( UpdateSelection(                Resource& ) ),
              this,        SLOT(   UpdateSelection(                Resource& ) ) );
 
+    connect( m_SelectAll,               SIGNAL( triggered() ), this, SLOT( SelectAll()               ) );
     connect( m_AddNewHTML,              SIGNAL( triggered() ), this, SLOT( AddNewHTML()              ) );
-    connect( m_SortHTML,                SIGNAL( triggered() ), this, SLOT( SortHTML()                ) );
     connect( m_RefreshTOC,              SIGNAL( triggered() ), this, SLOT( RefreshTOC()              ) );
-    connect( m_SortHTMLSelected,        SIGNAL( triggered() ), this, SLOT( SortHTML()                ) );
+    connect( m_SortHTML,                SIGNAL( triggered() ), this, SLOT( SortHTML()                ) );
     connect( m_AddNewCSS,               SIGNAL( triggered() ), this, SLOT( AddNewCSS()               ) );
     connect( m_AddExisting,             SIGNAL( triggered() ), this, SLOT( AddExisting()             ) );
     connect( m_Rename,                  SIGNAL( triggered() ), this, SLOT( Rename()                  ) );
-    connect( m_RenameAll,               SIGNAL( triggered() ), this, SLOT( RenameAll()               ) );
     connect( m_Remove,                  SIGNAL( triggered() ), this, SLOT( Remove()                  ) );
     connect( m_CoverImage,              SIGNAL( triggered() ), this, SLOT( SetCoverImage()           ) );
     connect( m_Merge,                   SIGNAL( triggered() ), this, SLOT( Merge()                   ) );
     connect( m_MergeWithPrevious,       SIGNAL( triggered() ), this, SLOT( Merge()                   ) );
-    connect( m_MergeAll,                SIGNAL( triggered() ), this, SLOT( MergeAll()                ) );
+    connect( m_LinkStylesheets,         SIGNAL( triggered() ), this, SLOT( LinkStylesheets()         ) );
 
     connect( m_AdobesObfuscationMethod, SIGNAL( triggered() ), this, SLOT( AdobesObfuscationMethod() ) );
     connect( m_IdpfsObfuscationMethod,  SIGNAL( triggered() ), this, SLOT( IdpfsObfuscationMethod()  ) );

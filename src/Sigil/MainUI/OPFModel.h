@@ -73,11 +73,6 @@ public:
     void Refresh();
 
     /**
-     * Re-sorts all HTML entires in alphanumeric order
-     */
-    void SortHTML();
-
-    /**
      * Re-sorts the selected HTML entires in alphanumeric order
      */
     void SortHTML( QList <QModelIndex> index_list );
@@ -220,11 +215,6 @@ private:
      * Sorts the HTML files by their reading orders.
      */
     void SortHTMLFilesByReadingOrder();
-
-    /**
-     * Sorts all HTML files by alphanumeric order of filename
-     */
-    void SortHTMLFilesByAlphanumeric();
 
     /**
      * Sorts the selected HTML files by alphanumeric order of filename

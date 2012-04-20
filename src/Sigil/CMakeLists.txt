@@ -53,6 +53,7 @@ set( QOBJECT_HEADERS
     Dialogs/PreferenceWidgets/KeyboardShortcutsWidget.h
     Dialogs/PreferenceWidgets/SpellCheckWidget.h
     Dialogs/RenameTemplate.h
+    Dialogs/LinkStylesheets.h
     Tabs/TabManager.h
     Tabs/ContentTab.h 
     Tabs/FlowTab.h
@@ -168,6 +169,8 @@ set( DIALOG_FILES
     Dialogs/PreferenceWidgets/SpellCheckWidget.h
     Dialogs/RenameTemplate.cpp
     Dialogs/RenameTemplate.h
+    Dialogs/LinkStylesheets.cpp
+    Dialogs/LinkStylesheets.h
     )
 
 set( EXPORTER_FILES
@@ -325,6 +328,7 @@ set( UI_FILES
     Form_Files/PLanguageWidget.ui
     Form_Files/PSpellCheckWidget.ui
     Form_Files/RenameTemplate.ui 
+    Form_Files/LinkStylesheets.ui 
     )
     
 set( SOURCEUPDATE_FILES   
@@ -340,6 +344,8 @@ set( SOURCEUPDATE_FILES
     SourceUpdates/PerformCSSUpdates.h
     SourceUpdates/AnchorUpdates.cpp
     SourceUpdates/AnchorUpdates.h
+    SourceUpdates/LinkUpdates.cpp
+    SourceUpdates/LinkUpdates.h
     SourceUpdates/UniversalUpdates.cpp
     SourceUpdates/UniversalUpdates.h
     )

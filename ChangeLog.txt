@@ -1,4 +1,5 @@
 Sigil 0.6.0 TBA
+    - Implement issue 534: Add Link to Stylesheets option for HTML files.
     - Fix issue 1354: Chapter Split breaks links in second half of document
       referencing ids in first half of document.
     - Implement issue 1311: Implement all RfC639-2 language codes in

@@ -80,7 +80,6 @@ public:
      */
     QStringList SplitOnSGFChapterMarkers();
 
-private:
     /**
      * Returns the paths to all the linked resources
      * like images and stylesheets.
@@ -89,6 +88,14 @@ private:
      */
     QStringList GetPathsToLinkedResources();
 
+    /**
+     * Returns the paths to all the linked stylesheets
+     *
+     * @return The paths to the linked stylesheets.
+     */
+    QStringList GetLinkedStylesheets();
+
+private:
     /**
      * Makes sure the given paths are watched for updates.
      * 

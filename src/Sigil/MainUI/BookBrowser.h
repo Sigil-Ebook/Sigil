@@ -78,9 +78,12 @@ public:
      */
     QList <Resource *> AllHTMLResources();
 
-    void SaveSelection();
+    /**
+     * All CSS resources in the Book Browser in order
+     */
+    QList <Resource *> AllCSSResources();
 
-    void RestoreSelection();
+    void SelectResources(QList<Resource *> resources);
 
 public slots:
 
@@ -137,6 +140,8 @@ public slots:
      * Sorts the HTML book entries alphanumerically
      */
     void SortHTML();
+
+    void SelectAll();
 
 signals:
 
@@ -200,6 +205,8 @@ signals:
 
     void MergeResourcesRequest(QList<Resource *> resources);
 
+    void LinkStylesheetsToResourcesRequest(QList<Resource *> resources);
+
 private slots:
 
     /**
@@ -225,11 +232,6 @@ private slots:
      * Implements the Rename context menu action functionality.
      */
     void Rename();
-
-    /**
-     * Implements the Rename All context menu action functionality.
-     */
-    void RenameAll();
 
     /**
      * Implements the Rename selected context menu action functionality.
@@ -265,10 +267,7 @@ private slots:
      */
     void Merge();
 
-    /**
-     * Implements the Merge All context menu action functionality.
-     */
-    void MergeAll();
+    void LinkStylesheets();
 
     /**
      * Sets the use of Adobe's obfuscation method for the current resource.
@@ -436,10 +435,9 @@ private:
      */
     int ValidSelectedItemCount();
 
-    /**
-     * Implements the actual rename code for Rename All and Rename Selected
-     */
-    void RenameList( QList <Resource *> );
+
+    
+
 
     ///////////////////////////////
     // PRIVATE MEMBER VARIABLES
@@ -479,21 +477,20 @@ private:
 
     // The context menu actions.
 
+    QAction *m_SelectAll;
     QAction *m_AddNewHTML;
     QAction *m_AddNewCSS;
     QAction *m_AddExisting;
     QAction *m_Rename;
-    QAction *m_RenameAll;
     QAction *m_Remove;
     QAction *m_Merge;
     QAction *m_MergeWithPrevious;
-    QAction *m_MergeAll;
     QAction *m_CoverImage;
     QAction *m_AdobesObfuscationMethod;
     QAction *m_IdpfsObfuscationMethod;
     QAction *m_SortHTML;
-    QAction *m_SortHTMLSelected;
     QAction *m_RefreshTOC;
+    QAction *m_LinkStylesheets;
 
     /**
      * All the semantic actions for the <guide>

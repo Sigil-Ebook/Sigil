@@ -34,6 +34,7 @@
 #include "Dialogs/ImageList.h"
 #include "Dialogs/MetaEditor.h"
 #include "Dialogs/Preferences.h"
+#include "Dialogs/LinkStylesheets.h"
 #include "Exporters/ExportEPUB.h"
 #include "Exporters/ExporterFactory.h"
 #include "Importers/ImporterFactory.h"
@@ -53,6 +54,7 @@
 #include "ResourceObjects/OPFResource.h"
 #include "sigil_constants.h"
 #include "sigil_exception.h"
+#include "SourceUpdates/LinkUpdates.h"
 #include "Tabs/FlowTab.h"
 #include "Tabs/OPFTab.h"
 #include "Tabs/TabManager.h"
@@ -134,15 +136,9 @@ MainWindow::MainWindow( const QString &openfilepath, QWidget *parent, Qt::WFlags
 }
 
 
-void MainWindow::SaveBrowserSelection()
+void MainWindow::SelectResources(QList<Resource *> resources)
 {
-    return m_BookBrowser->SaveSelection();
-}
-
-
-void MainWindow::RestoreBrowserSelection()
-{
-    return m_BookBrowser->RestoreSelection();
+    return m_BookBrowser->SelectResources(resources);
 }
 
 
@@ -531,8 +527,8 @@ void MainWindow::MergeResources(QList <Resource *> resources)
         }
     }
 
-    foreach (Resource *resource, resources) {
-        if (!m_TabManager.TabDataIsWellFormed(*resource)) {
+    // Check if data is well formed before saving
+    foreach (Resource *resource, resources) { if (!m_TabManager.TabDataIsWellFormed(*resource)) {
             Utility::DisplayStdErrorDialog(tr("Merge aborted.\n\nOne of the files may have an error or has not been saved.\n\nTry saving your book or correcting any errors before merging."));
             return;
         }
@@ -540,7 +536,7 @@ void MainWindow::MergeResources(QList <Resource *> resources)
 
     QApplication::setOverrideCursor(Qt::WaitCursor);
 
-    // Save the tab data then dave it to disk.
+    // Save the tab data then save it to disk, and recheck if data is still well formed
     // Merging work based off of the data on disk.
     SaveTabData();
     m_Book->SaveAllResourcesToDisk();
@@ -552,6 +548,7 @@ void MainWindow::MergeResources(QList <Resource *> resources)
         }
     }
 
+    // Close all tabs being updated to prevent BV overwriting the new data
     foreach (Resource *resource, resources) {
         if (!m_TabManager.CloseTabForResource(*resource)) {
             QMessageBox::critical(this, tr("Sigil"), tr("Cannot merge\n\nCannot close tab: %1").arg(resource->Filename()));
@@ -577,6 +574,125 @@ void MainWindow::MergeResources(QList <Resource *> resources)
 
     QApplication::restoreOverrideCursor();
 }
+
+void MainWindow::LinkStylesheetsToResources(QList <Resource *> resources)
+{
+    if (resources.isEmpty()) {
+        return;
+    }
+
+    // Check if data is well formed before saving
+    foreach (Resource *resource, resources) {
+        if (!m_TabManager.TabDataIsWellFormed(*resource)) {
+            Utility::DisplayStdErrorDialog(tr("Link aborted.") % "\n\n" % tr("One of the files may have an error or has not been saved.") % "\n\n" % tr("Try saving your book or correcting any errors before linking stylesheets."));
+            return;
+        }
+    }
+
+    // Save the tab data and recheck if data is still well formed
+    SaveTabData();
+    foreach (Resource *resource, resources) {
+        if (!m_TabManager.TabDataIsWellFormed(*resource)) {
+            QMessageBox::critical(this, tr("Sigil"), tr("Cannot link stylesheets: %1 data is not well formed.").arg(resource->Filename()));
+            return;
+        }
+    }
+
+    // Choose which stylesheets to link
+    LinkStylesheets link( GetStylesheetsMap( resources ), this );
+
+    if ( link.exec() != QDialog::Accepted )
+    {
+        return;
+    }
+
+    QStringList stylesheets = link.GetStylesheets();
+
+    QApplication::setOverrideCursor(Qt::WaitCursor);
+
+    // Convert HTML resources into HTMLResource types
+    QList<HTMLResource *>html_resources;
+    foreach( Resource *resource, resources )
+    {
+            html_resources.append( qobject_cast<HTMLResource*>(resource));
+    }
+
+    LinkUpdates::UpdateLinksInAllFiles( html_resources, stylesheets );
+
+    // Since content was changed open the first modified file
+    OpenResource(*resources.first());
+
+    SelectResources(resources);
+
+    QApplication::restoreOverrideCursor();
+}
+
+QList<std::pair< QString, bool> > MainWindow::GetStylesheetsMap( QList<Resource *> resources )
+{
+    QList< std::pair< QString, bool> > stylesheet_map;
+    QList<Resource *> css_resources = m_BookBrowser->AllCSSResources();
+ 
+    // Use the first resource to get a list of known linked stylesheets in order.
+    QStringList checked_linked_paths = GetStylesheetsAlreadyLinked( resources.at( 0 ) );
+
+    // Then only consider them included if every selected resource includes
+    // the same stylesheets in the same order.
+    foreach ( Resource *valid_resource, resources )
+    {
+        QStringList linked_paths = GetStylesheetsAlreadyLinked( valid_resource );
+
+        foreach ( QString path, checked_linked_paths )
+        {
+            if ( !linked_paths.contains( path ) )
+            {
+                checked_linked_paths.removeOne( path );
+            }
+        }
+    }
+
+    // Save the paths included in all resources in order
+    foreach ( QString path, checked_linked_paths )
+    {
+        stylesheet_map.append( std::make_pair( path, true ) );
+    }
+    // Save all the remaining paths and mark them not included
+    foreach ( Resource *resource, css_resources )
+    {
+        QString pathname = "../" + resource->GetRelativePathToOEBPS();
+        if ( !checked_linked_paths.contains( pathname ) )
+        {
+            stylesheet_map.append( std::make_pair( pathname, false ) );
+        }
+    }
+
+    return stylesheet_map;
+}
+
+
+QStringList MainWindow::GetStylesheetsAlreadyLinked( Resource *resource )
+{
+    HTMLResource *html_resource = qobject_cast< HTMLResource* >( resource );
+    QStringList linked_stylesheets;
+
+    QStringList existing_stylesheets;
+    foreach (Resource *css_resource, m_BookBrowser->AllCSSResources() )
+    {
+        //existing_stylesheets.append( css_resource->Filename() );
+        existing_stylesheets.append( "../" + css_resource->GetRelativePathToOEBPS() );
+    }
+
+    foreach( QString pathname, html_resource->GetLinkedStylesheets() )
+    {
+        // Only list the stylesheet if it exists in the book
+        if ( existing_stylesheets.contains( pathname ) )
+        {
+            linked_stylesheets.append( pathname );
+        }
+    }
+
+    return linked_stylesheets;
+}
+
 
 void MainWindow::GenerateToc()
 {
@@ -1947,6 +2063,8 @@ void MainWindow::ConnectSignalsToSlots()
              this, SLOT(   OpenResource(        Resource&, bool, const QUrl& ) ) );
 
     connect(m_BookBrowser, SIGNAL(MergeResourcesRequest(QList<Resource *>)), this, SLOT(MergeResources(QList<Resource *>)));
+
+    connect(m_BookBrowser, SIGNAL(LinkStylesheetsToResourcesRequest(QList<Resource *>)), this, SLOT(LinkStylesheetsToResources(QList<Resource *>)));
 
     connect( m_TableOfContents, SIGNAL( OpenResourceRequest( Resource&, bool, const QUrl& ) ),
              this,     SLOT(   OpenResource(        Resource&, bool, const QUrl& ) ) );

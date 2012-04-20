@@ -106,17 +106,6 @@ void OPFModel::Refresh()
 }
 
 
-void OPFModel::SortHTML()
-{
-    m_RefreshInProgress = true;
-
-    SortHTMLFilesByAlphanumeric();
-    UpdateHTMLReadingOrders();
-
-    m_RefreshInProgress = false;
-}
-
-
 void OPFModel::SortHTML( QList <QModelIndex> index_list )
 {
     m_RefreshInProgress = true;
@@ -607,16 +596,6 @@ void OPFModel::SortHTMLFilesByAlphanumeric( QList <QModelIndex> index_list )
             m_TextFolderItem.insertRow( first_item_position++, one_item );
         }
     }
-}
-
-void OPFModel::SortHTMLFilesByAlphanumeric()
-{
-    int old_sort_role = sortRole();
-    setSortRole( ALPHANUMERIC_ORDER_ROLE );
-
-    m_TextFolderItem.sortChildren( 0 );
-
-    setSortRole( old_sort_role );
 }
 
 

@@ -509,11 +509,8 @@ bool FindReplace::FindInAllFiles( Searchable::Direction direction )
 
         if ( containing_resource )
         {
-            // Save/restore selection since opening tabs changes selection 
-            if ( GetLookWhere() == LookWhere_SelectedHTMLFiles )
-            {
-                m_MainWindow.SaveBrowserSelection();
-            }
+            // Save selected resources since opening tabs changes selection 
+            QList<Resource *>selected_resources = GetHTMLFiles();
 
             m_MainWindow.OpenResource( *containing_resource, false, QUrl(), MainWindow::ViewState_CodeView );
 
@@ -524,9 +521,10 @@ bool FindReplace::FindInAllFiles( Searchable::Direction direction )
                 SleepFunctions::msleep( 100 );
             }
 
+            // Restore selection since opening tabs changes selection 
             if ( GetLookWhere() == LookWhere_SelectedHTMLFiles )
             {
-                m_MainWindow.RestoreBrowserSelection();
+                m_MainWindow.SelectResources(selected_resources);
             }
 
             searchable = GetAvailableSearchable();

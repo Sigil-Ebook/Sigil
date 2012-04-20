@@ -159,6 +159,9 @@ public:
     // Removes all the children of a node
     static void RemoveChildren( xc::DOMNode &node );
 
+    // Return a list of all linked CSS stylesheets
+    static QStringList GetLinkedStylesheets( const QString &source );
+
     // Returns the node's "real" name. We don't care
     // about namespace prefixes and whatnot.
     static QString GetNodeName( const xc::DOMNode &node );

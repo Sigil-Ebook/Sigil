@@ -95,6 +95,12 @@ void HTMLResource::SaveToDisk(bool book_wide_save)
 }
 
 
+QStringList HTMLResource::GetLinkedStylesheets()
+{
+    return XhtmlDoc::GetLinkedStylesheets( GetText() );
+}
+
+
 QStringList HTMLResource::SplitOnSGFChapterMarkers()
 {
     QStringList chapters = XhtmlDoc::GetSGFChapterSplits(GetText());

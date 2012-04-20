@@ -618,6 +618,39 @@ QStringList XhtmlDoc::GetSGFChapterSplits( const QString& source,
 }
 
 
+QStringList XhtmlDoc::GetLinkedStylesheets( const QString &source )
+{
+    QList< XhtmlDoc::XMLElement > link_tag_nodes;
+
+    try
+    {
+        link_tag_nodes = XhtmlDoc::GetTagsInHead( source, "link" );
+    }
+
+    catch ( ErrorParsingXml &exception )
+    {
+        // Nothing really. If we can't get the CSS style tags,
+        // than that's it. No CSS returned.
+    }
+
+    QStringList linked_css_paths;
+
+    foreach( XhtmlDoc::XMLElement element, link_tag_nodes )
+    {
+        if ( element.attributes.contains( "type" ) &&
+             ( element.attributes.value( "type" ) == "text/css" ) &&
+             element.attributes.contains( "rel" ) &&
+            ( element.attributes.value( "rel" ) == "stylesheet" ) &&
+             element.attributes.contains( "href" ) )
+        {
+            linked_css_paths.append( element.attributes.value( "href" ) );
+        }
+    }
+
+    return linked_css_paths;
+}
+
+
 void XhtmlDoc::RemoveChildren( xc::DOMNode &node )
 {
     while ( true )

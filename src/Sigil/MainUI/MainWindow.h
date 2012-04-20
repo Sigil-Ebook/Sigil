@@ -108,16 +108,10 @@ public:
 
 
     /**
-     * Saves the current Book Browser selected entries
+     * Select resources in the Book Browser
      *
      */
-    void SaveBrowserSelection();
-
-    /**
-     * Restores the Book Browser selected entries
-     *
-     */
-    void RestoreBrowserSelection();
+    void SelectResources(QList<Resource *> resources);
 
     /**
      * Describes the type of the View mode
@@ -467,6 +461,19 @@ private slots:
     void SetTabViewState();
 
     void MergeResources(QList <Resource *> resources);
+
+    void LinkStylesheetsToResources(QList <Resource *> resources);
+
+    /**
+     * Return a map of stylesheets included/excluded for all given resources
+     */
+    QList< std::pair<QString, bool> > GetStylesheetsMap( QList<Resource *> resources );
+
+    /**
+     * Return the list of stylesheets linked to the given resource
+     */
+    QStringList GetStylesheetsAlreadyLinked( Resource *resource );
+
     void GenerateToc();
     void GenerateInlineToc(NCXModel::NCXEntry ncx_root_entry);
 
