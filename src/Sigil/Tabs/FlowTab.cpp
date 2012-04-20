@@ -581,9 +581,11 @@ void FlowTab::CodeView()
 void FlowTab::SaveTabContent()
 {
     if (m_ViewState == MainWindow::ViewState_BookView) {
-        disconnect(&m_HTMLResource, SIGNAL(Modified()), this, SLOT(ResourceModified()));
-        m_HTMLResource.SetText(m_wBookView.GetHtml());
-        connect(&m_HTMLResource, SIGNAL(Modified()), this, SLOT(ResourceModified()));
+        if (!m_BookViewNeedReload) {
+            disconnect(&m_HTMLResource, SIGNAL(Modified()), this, SLOT(ResourceModified()));
+            m_HTMLResource.SetText(m_wBookView.GetHtml());
+            connect(&m_HTMLResource, SIGNAL(Modified()), this, SLOT(ResourceModified()));
+        }
         m_wBookView.ResetModified();
         m_wBookView.SaveCaret();
     }
