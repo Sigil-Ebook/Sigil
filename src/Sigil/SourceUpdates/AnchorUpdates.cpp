@@ -31,6 +31,7 @@
 #include "BookManipulation/XhtmlDoc.h"
 #include "Misc/Utility.h"
 #include "ResourceObjects/HTMLResource.h"
+#include "ResourceObjects/NCXResource.h"
 #include "sigil_constants.h"
 #include "SourceUpdates/AnchorUpdates.h"
 
@@ -183,3 +184,47 @@ void AnchorUpdates::UpdateExternalAnchorsInOneFile( HTMLResource *html_resource,
     }
     html_resource->SetText(XhtmlDoc::GetDomDocumentAsString(document));
 }
+
+void AnchorUpdates::UpdateTOCEntries(NCXResource *ncx_resource, const QString &originating_filename, const QList< HTMLResource* > new_files)
+{
+    Q_ASSERT( ncx_resource );
+
+    const QHash< QString, QString > &ID_locations = GetIDLocations(new_files);
+
+    QWriteLocker locker(&ncx_resource->GetLock());
+
+    shared_ptr<xc::DOMDocument> d = XhtmlDoc::LoadTextIntoDocument(ncx_resource->GetText());
+    xc::DOMDocument &document = *d.get();
+    xc::DOMNodeList *anchors  = document.getElementsByTagName(QtoX("content"));
+
+    QString original_filename_with_relative_path = TEXT_FOLDER_NAME % "/" % originating_filename;
+
+    for (uint i = 0; i < anchors->getLength(); ++i) {
+        xc::DOMElement &element = *static_cast< xc::DOMElement* >(anchors->item(i));
+
+        Q_ASSERT(&element);
+
+        // We're only interested in src links of the form "originating_filename#fragment_id".
+        // First, we find the hrefs that are relative and contain a fragment id.
+        if (element.hasAttribute(QtoX("src")) &&
+            QUrl(XtoQ( element.getAttribute(QtoX("src")))).isRelative() &&
+            XtoQ(element.getAttribute(QtoX("src"))).contains("#")) {
+            QString src = XtoQ(element.getAttribute(QtoX("src")));
+            QString file_id = src.left(src.indexOf(QChar( '#' )));
+            QString fragment_id = src.right(src.size() - (src.indexOf(QChar('#')) + 1));
+
+            // If the src pointed to the original file then update the file_id.
+            if (file_id == original_filename_with_relative_path) {
+                QString attribute_value = QString("%1").arg(TEXT_FOLDER_NAME)
+                                          .append("/")
+                                          .append(Utility::URLEncodePath(ID_locations.value(fragment_id)))
+                                          .append("#")
+                                          .append(fragment_id);
+
+                element.setAttribute(QtoX("src"), QtoX(attribute_value));
+            }
+        }
+    }
+    ncx_resource->SetText(XhtmlDoc::GetDomDocumentAsString(document));
+}
+

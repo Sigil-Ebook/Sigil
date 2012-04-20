@@ -24,6 +24,7 @@
 #define ANCHORUPDATES_H
 
 class HTMLResource;
+class NCXResource;
 
 class AnchorUpdates
 {
@@ -41,6 +42,17 @@ public:
      * @param new_files A list of the new files created by splitting the originating_filename.
      */
     static void UpdateExternalAnchors( const QList< HTMLResource* > &html_resources, const QString &originating_filename, const QList< HTMLResource* > new_files );
+
+    /**
+     * Updates the src attributes of the content tags in the toc.ncx file that point to 
+     * ids that were originally located in originating_filename
+     * but are now distributed over the files referenced by new_files.
+     *
+     * @param ncx_resource The TOC file
+     * @param originating_filename The name of the original file for which references need to be reconciled.
+     * @param new_files A list of the new files created by splitting the originating_filename.
+     */
+    static void UpdateTOCEntries(NCXResource* ncx_resource, const QString &originating_filename, const QList< HTMLResource* > new_files);
 
 private:
 

@@ -251,6 +251,9 @@ HTMLResource& Book::CreateChapterBreakOriginalResource( const QString &content, 
     // We can't assume that ids are unique in this case, and so need to use a different mechanism.
     AnchorUpdates::UpdateExternalAnchors( html_resources, Utility::URLEncodePath( originating_filename ), new_files );
 
+    // Update TOC entries as well
+    AnchorUpdates::UpdateTOCEntries(&GetNCX(), Utility::URLEncodePath(originating_filename), new_files);
+
     SetModified( true );
     return new_resource;
 }
@@ -354,6 +357,9 @@ void Book::CreateNewChapters( const QStringList &new_chapters, HTMLResource &ori
     // Now, update references to the original file that are made in other files.
     // We can't assume that ids are unique in this case, and so need to use a different mechanism.
     AnchorUpdates::UpdateExternalAnchors( other_files, Utility::URLEncodePath( original_resource.Filename() ), new_files );
+
+    // Update TOC entries as well
+    AnchorUpdates::UpdateTOCEntries(&GetNCX(), Utility::URLEncodePath(original_resource.Filename()), new_files);
 
     GetOPF().UpdateSpineOrder( html_resources ); 
 
