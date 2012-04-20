@@ -67,4 +67,5 @@ qrc_*
 *.bak
 *.rar
 OpenCandy
+src/tags
 
