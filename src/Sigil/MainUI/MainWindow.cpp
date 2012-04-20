@@ -860,7 +860,7 @@ void MainWindow::UpdateUiWhenTabsSwitch()
 }
 
 
-void MainWindow::SetStateActionsBookView()
+void MainWindow::SetStateActionsBookOrCodeView()
 {
     ui.actionUndo->setEnabled(true);
     ui.actionRedo->setEnabled(true);
@@ -879,13 +879,18 @@ void MainWindow::SetStateActionsBookView()
 
     ui.actionInsertImage->setEnabled(true);
     ui.actionSplitChapter->setEnabled(true);
+}
+
+void MainWindow::SetStateActionsBookView()
+{
+    SetStateActionsBookOrCodeView();
 
     m_FindReplace->SetCapabilities(FindReplace::CAPABILITY_FIND);
 }
 
 void MainWindow::SetStateActionsSplitView()
 {
-    SetStateActionsBookView();
+    SetStateActionsBookOrCodeView();
 
     ui.actionBookView ->setChecked(false);
     ui.actionSplitView->setChecked(true);
@@ -896,7 +901,7 @@ void MainWindow::SetStateActionsSplitView()
 
 void MainWindow::SetStateActionsCodeView()
 {
-    SetStateActionsBookView();
+    SetStateActionsBookOrCodeView();
 
     ui.actionBookView ->setChecked(false);
     ui.actionSplitView->setChecked(false);

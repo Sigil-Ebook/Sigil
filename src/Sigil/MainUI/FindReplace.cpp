@@ -858,6 +858,8 @@ Searchable* FindReplace::GetAvailableSearchable()
 // The UI is setup based on the capabilites.
 void FindReplace::ExtendUI()
 {
+    WriteSettings();
+
     FR_Capabilities caps = m_capabilites;
 
     // Clear these because we want to add their items based on the
@@ -1017,6 +1019,8 @@ void FindReplace::ExtendUI()
 
     ui.modeLayout->invalidate();
     ui.gridLayout->invalidate();
+
+    ReadSettings();
 }
 
 

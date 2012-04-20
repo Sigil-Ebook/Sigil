@@ -347,6 +347,8 @@ private slots:
      */
     void SetStateActionsBookView();
 
+    void SetStateActionsBookOrCodeView();
+
     void SetStateActionsSplitView();
 
     /**
