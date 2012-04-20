@@ -52,9 +52,7 @@ QStringList Language::GetSortedPrimaryLanguageNames()
     }
 
     foreach (QString code, m_languageCodeMap.keys()) {
-        if (code.length() == 2) {
-            m_sortedPrimaryLanguageNames.append(m_languageCodeMap.value(code));
-        }
+        m_sortedPrimaryLanguageNames.append(m_languageCodeMap.value(code));
     }
     m_sortedPrimaryLanguageNames.sort();
 
@@ -73,7 +71,8 @@ void Language::SetLanguageMap()
     }
 
     // Must be a 1 to 1 relationship between codes and names.
-    // The keys are the ISO 639-1 language codes
+    // The keys are the ISO 639-2 language codes
+    // If a code has 2 and 3 character versions, use 2 character version
     // and the values are the the full English language names.
     // See http://www.loc.gov/standards/iso639-2/php/English_list.php 
     QStringList data;
@@ -340,7 +339,309 @@ void Language::SetLanguageMap()
         "yi"    << tr("Yiddish") <<
         "yo"    << tr("Yoruba") <<
         "za"    << tr("Zhuang") <<
-        "zu"    << tr("Zulu");
+        "zu"    << tr("Zulu") <<
+        "ace"   << tr( "Achinese" ) <<
+        "ach"   << tr( "Acoli" ) <<
+        "ada"   << tr( "Adangme" ) <<
+        "ady"   << tr( "Adygei, Adyghe" ) <<
+        "afh"   << tr( "Afrihili" ) <<
+        "afa"   << tr( "Afro-Asiatic languages" ) <<
+        "ain"   << tr( "Ainu" ) <<
+        "akk"   << tr( "Akkadian" ) <<
+        "ale"   << tr( "Aleut" ) <<
+        "alg"   << tr( "Algonquian languages" ) <<
+        "tut"   << tr( "Altaic languages" ) <<
+        "anp"   << tr( "Angika" ) <<
+        "apa"   << tr( "Apache languages" ) <<
+        "arp"   << tr( "Arapaho" ) <<
+        "arw"   << tr( "Arawak" ) <<
+        "rup"   << tr( "Aromanian, Arumanian, Macedo-Romanian" ) <<
+        "art"   << tr( "Artificial languages" ) <<
+        "ast"   << tr( "Asturian, Asturleonese, Bable, Leonese" ) <<
+        "ath"   << tr( "Athapascan languages" ) <<
+        "aus"   << tr( "Australian languages" ) <<
+        "map"   << tr( "Austronesian languages" ) <<
+        "awa"   << tr( "Awadhi" ) <<
+        "ban"   << tr( "Balinese" ) <<
+        "bat"   << tr( "Baltic languages" ) <<
+        "bal"   << tr( "Baluchi" ) <<
+        "bai"   << tr( "Bamileke languages" ) <<
+        "bad"   << tr( "Banda languages" ) <<
+        "bnt"   << tr( "Bantu languages" ) <<
+        "bas"   << tr( "Basa" ) <<
+        "btk"   << tr( "Batak languages" ) <<
+        "bej"   << tr( "Bedawiyet, Beja" ) <<
+        "bem"   << tr( "Bemba" ) <<
+        "ber"   << tr( "Berber languages" ) <<
+        "bho"   << tr( "Bhojpuri" ) <<
+        "bik"   << tr( "Bikol" ) <<
+        "byn"   << tr( "Bilin, Blin" ) <<
+        "bin"   << tr( "Bini, Edo" ) <<
+        "zbl"   << tr( "Bliss, Blissymbols, Blissymbolics" ) <<
+        "bra"   << tr( "Braj" ) <<
+        "bug"   << tr( "Buginese" ) <<
+        "bua"   << tr( "Buriat" ) <<
+        "cad"   << tr( "Caddo" ) <<
+        "cau"   << tr( "Caucasian languages" ) <<
+        "ceb"   << tr( "Cebuano" ) <<
+        "cel"   << tr( "Celtic languages" ) <<
+        "cai"   << tr( "Central American Indian languages" ) <<
+        "chg"   << tr( "Chagatai" ) <<
+        "cmc"   << tr( "Chamic languages" ) <<
+        "chr"   << tr( "Cherokee" ) <<
+        "chy"   << tr( "Cheyenne" ) <<
+        "chb"   << tr( "Chibcha" ) <<
+        "chn"   << tr( "Chinook jargon" ) <<
+        "chp"   << tr( "Chipewyan, Dene Suline" ) <<
+        "cho"   << tr( "Choctaw" ) <<
+        "chk"   << tr( "Chuukese" ) <<
+        "nwc"   << tr( "Classical Nepal Bhasa/Newari, Old Newari" ) <<
+        "syc"   << tr( "Classical Syriac" ) <<
+        "cop"   << tr( "Coptic" ) <<
+        "mus"   << tr( "Creek" ) <<
+        "crp"   << tr( "Creoles and pidgins" ) <<
+        "cpe"   << tr( "Creoles and pidgins- English based" ) <<
+        "cpf"   << tr( "Creoles and pidgins- French-based" ) <<
+        "cpp"   << tr( "Creoles and pidgins- Portuguese-based" ) <<
+        "crh"   << tr( "Crimean Tatar/Turkish" ) <<
+        "cus"   << tr( "Cushitic languages" ) <<
+        "dak"   << tr( "Dakota" ) <<
+        "dar"   << tr( "Dargwa" ) <<
+        "del"   << tr( "Delaware" ) <<
+        "zza"   << tr( "Dimili, Dimli, Zaza, Zazaki, Kirdki, Kirmanjki" ) <<
+        "din"   << tr( "Dinka" ) <<
+        "doi"   << tr( "Dogri" ) <<
+        "dgr"   << tr( "Dogrib" ) <<
+        "dra"   << tr( "Dravidian languages" ) <<
+        "dua"   << tr( "Duala" ) <<
+        "dum"   << tr( "Dutch- Middle (ca.1050-1350)" ) <<
+        "dyu"   << tr( "Dyula" ) <<
+        "frs"   << tr( "Eastern Frisian" ) <<
+        "efi"   << tr( "Efik" ) <<
+        "egy"   << tr( "Egyptian (Ancient)" ) <<
+        "eka"   << tr( "Ekajuk" ) <<
+        "elx"   << tr( "Elamite" ) <<
+        "enm"   << tr( "English- Middle (1100-1500)" ) <<
+        "ang"   << tr( "English- Old (ca.450-1100)" ) <<
+        "myv"   << tr( "Erzya" ) <<
+        "ewo"   << tr( "Ewondo" ) <<
+        "fan"   << tr( "Fang" ) <<
+        "fat"   << tr( "Fanti" ) <<
+        "fil"   << tr( "Filipino, Pilipino" ) <<
+        "fiu"   << tr( "Finno-Ugrian languages" ) <<
+        "fon"   << tr( "Fon" ) <<
+        "frm"   << tr( "French- Middle (ca.1400-1600)" ) <<
+        "fro"   << tr( "French- Old (842-ca.1400)" ) <<
+        "fur"   << tr( "Friulian" ) <<
+        "gaa"   << tr( "Ga" ) <<
+        "car"   << tr( "Galibi Carib" ) <<
+        "gay"   << tr( "Gayo" ) <<
+        "gba"   << tr( "Gbaya" ) <<
+        "gez"   << tr( "Geez" ) <<
+        "gmh"   << tr( "German- Middle High (ca.1050-1500)" ) <<
+        "goh"   << tr( "German- Old High (ca.750-1050)" ) <<
+        "gem"   << tr( "Germanic languages" ) <<
+        "gil"   << tr( "Gilbertese" ) <<
+        "gon"   << tr( "Gondi" ) <<
+        "gor"   << tr( "Gorontalo" ) <<
+        "got"   << tr( "Gothic" ) <<
+        "grb"   << tr( "Grebo" ) <<
+        "grc"   << tr( "Greek- Ancient (to 1453)" ) <<
+        "gwi"   << tr( "Gwich'in" ) <<
+        "hai"   << tr( "Haida" ) <<
+        "haw"   << tr( "Hawaiian" ) <<
+        "hil"   << tr( "Hiligaynon" ) <<
+        "him"   << tr( "Himachali, Western Pahari languages" ) <<
+        "hit"   << tr( "Hittite" ) <<
+        "hmn"   << tr( "Hmong, Mong" ) <<
+        "hup"   << tr( "Hupa" ) <<
+        "iba"   << tr( "Iban" ) <<
+        "ijo"   << tr( "Ijo languages" ) <<
+        "ilo"   << tr( "Iloko" ) <<
+        "smn"   << tr( "Inari Sami" ) <<
+        "inc"   << tr( "Indic languages" ) <<
+        "ine"   << tr( "Indo-European languages" ) <<
+        "inh"   << tr( "Ingush" ) <<
+        "ira"   << tr( "Iranian languages" ) <<
+        "mga"   << tr( "Irish- Middle (900-1200)" ) <<
+        "sga"   << tr( "Irish- Old (to 900)" ) <<
+        "iro"   << tr( "Iroquoian languages" ) <<
+        "kac"   << tr( "Jingpho, Kachin" ) <<
+        "jrb"   << tr( "Judeo-Arabic" ) <<
+        "jpr"   << tr( "Judeo-Persian" ) <<
+        "kbd"   << tr( "Kabardian" ) <<
+        "kab"   << tr( "Kabyle" ) <<
+        "xal"   << tr( "Kalmyk, Oirat" ) <<
+        "kam"   << tr( "Kamba" ) <<
+        "pam"   << tr( "Kapampangan, Pampanga" ) <<
+        "kaa"   << tr( "Kara-Kalpak" ) <<
+        "krc"   << tr( "Karachay-Balkar" ) <<
+        "krl"   << tr( "Karelian" ) <<
+        "kar"   << tr( "Karen languages" ) <<
+        "csb"   << tr( "Kashubian" ) <<
+        "kaw"   << tr( "Kawi" ) <<
+        "kha"   << tr( "Khasi" ) <<
+        "khi"   << tr( "Khoisan languages" ) <<
+        "kho"   << tr( "Khotanese, Sakan" ) <<
+        "kmb"   << tr( "Kimbundu" ) <<
+        "tlh"   << tr( "Klingon, tlhIngan-Hol" ) <<
+        "kok"   << tr( "Konkani" ) <<
+        "kos"   << tr( "Kosraean" ) <<
+        "kpe"   << tr( "Kpelle" ) <<
+        "kro"   << tr( "Kru languages" ) <<
+        "kum"   << tr( "Kumyk" ) <<
+        "kru"   << tr( "Kurukh" ) <<
+        "kut"   << tr( "Kutenai" ) <<
+        "lad"   << tr( "Ladino" ) <<
+        "lah"   << tr( "Lahnda" ) <<
+        "lam"   << tr( "Lamba" ) <<
+        "day"   << tr( "Land Dayak languages" ) <<
+        "lez"   << tr( "Lezghian" ) <<
+        "jbo"   << tr( "Lojban" ) <<
+        "nds"   << tr( "German-Low, Low Saxon" ) <<
+        "dsb"   << tr( "Lower Sorbian" ) <<
+        "loz"   << tr( "Lozi" ) <<
+        "lua"   << tr( "Luba-Lulua" ) <<
+        "lui"   << tr( "Luiseno" ) <<
+        "smj"   << tr( "Lule Sami" ) <<
+        "lun"   << tr( "Lunda" ) <<
+        "luo"   << tr( "Luo (Kenya and Tanzania)" ) <<
+        "lus"   << tr( "Lushai" ) <<
+        "mad"   << tr( "Madurese" ) <<
+        "mag"   << tr( "Magahi" ) <<
+        "mai"   << tr( "Maithili" ) <<
+        "mak"   << tr( "Makasar" ) <<
+        "mnc"   << tr( "Manchu" ) <<
+        "mdr"   << tr( "Mandar" ) <<
+        "man"   << tr( "Mandingo" ) <<
+        "mni"   << tr( "Manipuri" ) <<
+        "mno"   << tr( "Manobo languages" ) <<
+        "arn"   << tr( "Mapuche/Mapudungun" ) <<
+        "chm"   << tr( "Mari" ) <<
+        "mwr"   << tr( "Marwari" ) <<
+        "mas"   << tr( "Masai" ) <<
+        "myn"   << tr( "Mayan languages" ) <<
+        "men"   << tr( "Mende" ) <<
+        "mic"   << tr( "Mi'kmaq, Micmac" ) <<
+        "min"   << tr( "Minangkabau" ) <<
+        "mwl"   << tr( "Mirandese" ) <<
+        "moh"   << tr( "Mohawk" ) <<
+        "mdf"   << tr( "Moksha" ) <<
+        "mkh"   << tr( "Mon-Khmer languages" ) <<
+        "lol"   << tr( "Mongo" ) <<
+        "mos"   << tr( "Mossi" ) <<
+        "mul"   << tr( "Multiple languages" ) <<
+        "mun"   << tr( "Munda languages" ) <<
+        "nqo"   << tr( "N'Ko" ) <<
+        "nah"   << tr( "Nahuatl languages" ) <<
+        "nap"   << tr( "Neapolitan" ) <<
+        "new"   << tr( "Nepal Bhasa" ) <<
+        "new"   << tr( "Newari" ) <<
+        "nia"   << tr( "Nias" ) <<
+        "nic"   << tr( "Niger-Kordofanian languages" ) <<
+        "ssa"   << tr( "Nilo-Saharan languages" ) <<
+        "niu"   << tr( "Niuean" ) <<
+        "zxx"   << tr( "No linguistic content/Not applicable" ) <<
+        "nog"   << tr( "Nogai" ) <<
+        "non"   << tr( "Norse- Old" ) <<
+        "nai"   << tr( "North American Indian languages" ) <<
+        "frr"   << tr( "Northern Frisian" ) <<
+        "nso"   << tr( "Northern Sotho, Sepedi, Pedi" ) <<
+        "nub"   << tr( "Nubian languages" ) <<
+        "nym"   << tr( "Nyamwezi" ) <<
+        "nyn"   << tr( "Nyankole" ) <<
+        "nyo"   << tr( "Nyoro" ) <<
+        "nzi"   << tr( "Nzima" ) <<
+        "pro"   << tr( "Occitan/Provençal- Old (to 1500)" ) <<
+        "arc"   << tr( "Official/Imperial Aramaic (700-300 BCE)" ) <<
+        "osa"   << tr( "Osage" ) <<
+        "oto"   << tr( "Otomian languages" ) <<
+        "pal"   << tr( "Pahlavi" ) <<
+        "pau"   << tr( "Palauan" ) <<
+        "pag"   << tr( "Pangasinan" ) <<
+        "pap"   << tr( "Papiamento" ) <<
+        "paa"   << tr( "Papuan languages" ) <<
+        "peo"   << tr( "Persian- Old (ca.600-400 B.C.)" ) <<
+        "phi"   << tr( "Philippine languages" ) <<
+        "phn"   << tr( "Phoenician" ) <<
+        "pon"   << tr( "Pohnpeian" ) <<
+        "pra"   << tr( "Prakrit languages" ) <<
+        "raj"   << tr( "Rajasthani" ) <<
+        "rap"   << tr( "Rapanui" ) <<
+        "rar"   << tr( "Rarotongan, Cook Islands Maori" ) <<
+        "qaa-qtz"   << tr( "Reserved for local use" ) <<
+        "roa"   << tr( "Romance languages" ) <<
+        "rom"   << tr( "Romany" ) <<
+        "sal"   << tr( "Salishan languages" ) <<
+        "sam"   << tr( "Samaritan Aramaic" ) <<
+        "smi"   << tr( "Sami languages" ) <<
+        "sad"   << tr( "Sandawe" ) <<
+        "sat"   << tr( "Santali" ) <<
+        "sas"   << tr( "Sasak" ) <<
+        "sco"   << tr( "Scots" ) <<
+        "sel"   << tr( "Selkup" ) <<
+        "sem"   << tr( "Semitic languages" ) <<
+        "srr"   << tr( "Serer" ) <<
+        "shn"   << tr( "Shan" ) <<
+        "scn"   << tr( "Sicilian" ) <<
+        "sid"   << tr( "Sidamo" ) <<
+        "sgn"   << tr( "Sign Languages" ) <<
+        "bla"   << tr( "Siksika" ) <<
+        "sit"   << tr( "Sino-Tibetan languages" ) <<
+        "sio"   << tr( "Siouan languages" ) <<
+        "sms"   << tr( "Skolt Sami" ) <<
+        "den"   << tr( "Slave (Athapascan)" ) <<
+        "sla"   << tr( "Slavic languages" ) <<
+        "sog"   << tr( "Sogdian" ) <<
+        "son"   << tr( "Songhai languages" ) <<
+        "snk"   << tr( "Soninke" ) <<
+        "wen"   << tr( "Sorbian languages" ) <<
+        "sai"   << tr( "South American Indian languages" ) <<
+        "alt"   << tr( "Southern Altai" ) <<
+        "sma"   << tr( "Southern Sami" ) <<
+        "srn"   << tr( "Sranan Tongo" ) <<
+        "suk"   << tr( "Sukuma" ) <<
+        "sux"   << tr( "Sumerian" ) <<
+        "sus"   << tr( "Susu" ) <<
+        "gsw"   << tr( "Alsatian, Swiss German, Alemannic" ) <<
+        "syr"   << tr( "Syriac" ) <<
+        "tai"   << tr( "Tai languages" ) <<
+        "tmh"   << tr( "Tamashek" ) <<
+        "ter"   << tr( "Tereno" ) <<
+        "tet"   << tr( "Tetum" ) <<
+        "tig"   << tr( "Tigre" ) <<
+        "tem"   << tr( "Timne" ) <<
+        "tiv"   << tr( "Tiv" ) <<
+        "tli"   << tr( "Tlingit" ) <<
+        "tpi"   << tr( "Tok Pisin" ) <<
+        "tkl"   << tr( "Tokelau" ) <<
+        "tog"   << tr( "Tonga (Nyasa)" ) <<
+        "tsi"   << tr( "Tsimshian" ) <<
+        "tum"   << tr( "Tumbuka" ) <<
+        "tup"   << tr( "Tupi languages" ) <<
+        "ota"   << tr( "Turkish- Ottoman (1500-1928)" ) <<
+        "tvl"   << tr( "Tuvalu" ) <<
+        "tyv"   << tr( "Tuvinian" ) <<
+        "udm"   << tr( "Udmurt" ) <<
+        "uga"   << tr( "Ugaritic" ) <<
+        "umb"   << tr( "Umbundu" ) <<
+        "mis"   << tr( "Uncoded languages" ) <<
+        "und"   << tr( "Undetermined" ) <<
+        "hsb"   << tr( "Upper Sorbian" ) <<
+        "vai"   << tr( "Vai" ) <<
+        "vot"   << tr( "Votic" ) <<
+        "wak"   << tr( "Wakashan languages" ) <<
+        "war"   << tr( "Waray" ) <<
+        "was"   << tr( "Washo" ) <<
+        "wal"   << tr( "Wolaitta, Wolaytta" ) <<
+        "sah"   << tr( "Yakut" ) <<
+        "yao"   << tr( "Yao" ) <<
+        "yap"   << tr( "Yapese" ) <<
+        "ypk"   << tr( "Yupik languages" ) <<
+        "znd"   << tr( "Zande languages" ) <<
+        "zap"   << tr( "Zapotec" ) <<
+        "zen"   << tr( "Zenaga" ) <<
+        "zun"   << tr( "Zuni" );
 
     for (int i = 0; i < data.count(); i++) {
         QString code = data.at(i++);
