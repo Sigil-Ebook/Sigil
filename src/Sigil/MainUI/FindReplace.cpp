@@ -515,7 +515,7 @@ bool FindReplace::FindInAllFiles( Searchable::Direction direction )
                 m_MainWindow.SaveBrowserSelection();
             }
 
-            m_MainWindow.OpenResource( *containing_resource, MainWindow::ViewState_CodeView );
+            m_MainWindow.OpenResource( *containing_resource, false, QUrl(), MainWindow::ViewState_CodeView );
 
             while ( !m_MainWindow.GetCurrentContentTab().IsLoadingFinished() )
             {
