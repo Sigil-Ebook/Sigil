@@ -185,12 +185,6 @@ private slots:
     void EmitTabChanged();
 
     /**
-     * Makes sure the old tab saves its state, and the new one loads its.
-     * This happens whenever the user switches from one tab to different one.
-     */
-    void UpdateTabStatesOnSwitch( ContentTab* old_tab, ContentTab* new_tab );
-
-    /**
      * Deletes the specified tab.
      *
      * @param tab_to_delete The tab to delete.

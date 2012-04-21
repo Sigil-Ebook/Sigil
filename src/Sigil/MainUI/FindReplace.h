@@ -52,11 +52,10 @@ public:
         CAPABILITY_MODE_NORMAL =         (1 << 3),
         CAPABILITY_MODE_CASE_SENSITIVE = (1 << 4),
         CAPABILITY_MODE_REGEX =          (1 << 5),
-        CAPABILITY_MODE_REGEX_DOT_ALL =  (1 << 6),
-        CAPABILITY_MODE_SPELL_CHECK =    (1 << 7),
-        CAPABILITY_LOOK_CURRENT =        (1 << 8),
-        CAPABILITY_LOOK_ALL_HTML =       (1 << 9),
-        CAPABILITY_LOOK_SELECTED_HTML =  (1 << 10)
+        CAPABILITY_MODE_SPELL_CHECK =    (1 << 6),
+        CAPABILITY_LOOK_CURRENT =        (1 << 7),
+        CAPABILITY_LOOK_ALL_HTML =       (1 << 8),
+        CAPABILITY_LOOK_SELECTED_HTML =  (1 << 9)
     };
     typedef unsigned int FR_Capabilities;
 
@@ -76,7 +75,6 @@ public:
         SearchMode_Normal = 0,
         SearchMode_Case_Sensitive = 10,
         SearchMode_Regex = 20,
-        SearchMode_RegexDotall = 30,
         SearchMode_SpellCheck = 40
     };
 

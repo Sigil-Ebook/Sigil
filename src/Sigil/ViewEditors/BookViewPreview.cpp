@@ -53,6 +53,7 @@ QSize BookViewPreview::sizeHint() const
 
 void BookViewPreview::CustomSetDocument(const QString &path, const QString &html)
 {
+    m_isLoadFinished = false;
     setHtml(html, QUrl::fromLocalFile(path));
 
     // Enable our link filter.

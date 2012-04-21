@@ -61,14 +61,14 @@ const QString CKE_BASE =
     "</html>";
 
 BookViewEditor::BookViewEditor(QWidget *parent)
-    : 
+    :
     BookViewPreview(parent)
 {
 }
 
 void BookViewEditor::CustomSetDocument(const QString &path, const QString &html)
 {
-    m_isLoadFinished = true;
+    m_isLoadFinished = false;
     m_path = path;
 
     // Enable our link filter.

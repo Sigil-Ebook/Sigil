@@ -116,7 +116,7 @@ protected:
 
     bool m_isLoadFinished;
 
-private slots:
+protected slots:
     /**
      * Tracks the loading progress.
      * Updates the state of the m_isLoadFinished variable

@@ -1047,8 +1047,7 @@ void MainWindow::SetStateActionsRawView()
         FindReplace::CAPABILITY_REPLACE |
         FindReplace::CAPABILITY_MODE_NORMAL |
         FindReplace::CAPABILITY_MODE_CASE_SENSITIVE |
-        FindReplace::CAPABILITY_MODE_REGEX |
-        FindReplace::CAPABILITY_MODE_REGEX_DOT_ALL);
+        FindReplace::CAPABILITY_MODE_REGEX);
 }
 
 

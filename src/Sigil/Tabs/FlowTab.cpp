@@ -636,7 +636,6 @@ void FlowTab::LoadSettings()
     m_wCodeView.LoadSettings();
 }
 
-
 void FlowTab::ResourceModified()
 {
     m_BookViewNeedReload = true;

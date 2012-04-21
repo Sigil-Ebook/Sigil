@@ -42,9 +42,6 @@ TabManager::TabManager( QWidget *parent )
     connect( this, SIGNAL( currentChanged( int ) ),    this, SLOT( EmitTabChanged() ) );
     connect( this, SIGNAL( tabCloseRequested( int ) ), this, SLOT( CloseTab( int ) ) );
 
-    connect( this, SIGNAL( TabChanged(              ContentTab*, ContentTab* ) ),
-             this, SLOT(   UpdateTabStatesOnSwitch( ContentTab*, ContentTab* ) ) );
-
     setDocumentMode( true );
     setMovable( true );
     setTabsClosable( true );
@@ -145,8 +142,8 @@ void TabManager::WellFormedDialogsEnabled( bool enabled )
     WellFormedContent *content = GetWellFormedContent();
 
     if ( content )
-        
-        content->SetWellFormedDialogsEnabledState( enabled );  
+
+        content->SetWellFormedDialogsEnabledState( enabled );
 }
 
 
@@ -286,22 +283,6 @@ void TabManager::EmitTabChanged()
     emit TabChanged( m_LastContentTab.data(), current_tab );
 
     m_LastContentTab = QWeakPointer< ContentTab >( current_tab );
-}
-
-
-void TabManager::UpdateTabStatesOnSwitch( ContentTab* old_tab, ContentTab* new_tab )
-{
-    // These Save and Load operations are probably unneeded as they will be handled by the focus change.
-    // But the modification checks ensure that they don't entail much of a performance penalty, so they
-    // are worth retaining as a safety mechanism.
-    if (old_tab) {
-        old_tab->SaveTabContent();
-    }
-
-    if (new_tab) {
-        new_tab->LoadTabContent();
-        UpdateTabDisplay(new_tab);
-    }
 }
 
 

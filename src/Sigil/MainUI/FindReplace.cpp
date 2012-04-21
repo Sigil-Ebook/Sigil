@@ -399,10 +399,6 @@ QString FindReplace::GetSearchRegex()
             search = "(?i)" + search;
         }
     }
-    else if ( GetSearchMode() == SearchMode_RegexDotall )
-    {
-            search = "(?s)" + search;
-    }
 	else if ( GetSearchMode() == SearchMode_SpellCheck && ui.cbFind->currentText().isEmpty() )
     {
         search = ".*";
@@ -480,9 +476,6 @@ int FindReplace::ReplaceInAllFiles()
             GetHTMLFiles(),
             SearchOperations::CodeViewSearch,
             GetSearchMode() == SearchMode_SpellCheck );
-
-    // Update the content displayed in the current tab.
-    m_MainWindow.GetCurrentContentTab().LoadTabContent();
 
     return count;
 }
@@ -737,9 +730,6 @@ FindReplace::SearchMode FindReplace::GetSearchMode()
     case FindReplace::SearchMode_Case_Sensitive:
         return static_cast<FindReplace::SearchMode>( mode );
         break;
-    case FindReplace::SearchMode_RegexDotall:
-        return static_cast<FindReplace::SearchMode>( mode );
-        break;
     case FindReplace::SearchMode_SpellCheck:
         return static_cast<FindReplace::SearchMode>( mode );
         break;
@@ -873,7 +863,6 @@ void FindReplace::ExtendUI()
         if (m_capabilites & FindReplace::CAPABILITY_MODE_NORMAL ||
             m_capabilites & FindReplace::CAPABILITY_MODE_CASE_SENSITIVE ||
             m_capabilites & FindReplace::CAPABILITY_MODE_REGEX ||
-            m_capabilites & FindReplace::CAPABILITY_MODE_REGEX_DOT_ALL ||
             m_capabilites & FindReplace::CAPABILITY_MODE_SPELL_CHECK)
         {
             caps |= FindReplace::CAPABILITY_MODE_NORMAL;
@@ -905,7 +894,6 @@ void FindReplace::ExtendUI()
         if (caps & FindReplace::CAPABILITY_MODE_NORMAL ||
             caps & FindReplace::CAPABILITY_MODE_CASE_SENSITIVE ||
             caps & FindReplace::CAPABILITY_MODE_REGEX ||
-            caps & FindReplace::CAPABILITY_MODE_REGEX_DOT_ALL ||
             caps & FindReplace::CAPABILITY_MODE_SPELL_CHECK ||
             caps & FindReplace::CAPABILITY_ALL)
         {
@@ -924,10 +912,6 @@ void FindReplace::ExtendUI()
             if (caps & FindReplace::CAPABILITY_MODE_REGEX || caps & FindReplace::CAPABILITY_ALL) {
                 ui.cbSearchMode->addItem(tr("Regex"), FindReplace::SearchMode_Regex);
                 mode_tooltip += "<dt><b>" + tr("Regex") + "</b><dd>" + tr("Search for a pattern using Regular Expression syntax") + "</dd>";
-            }
-            if (caps & FindReplace::CAPABILITY_MODE_REGEX_DOT_ALL || caps & FindReplace::CAPABILITY_ALL) {
-                ui.cbSearchMode->addItem(tr("Regex Dotall"), FindReplace::SearchMode_RegexDotall);
-                mode_tooltip += "<dt><b>" + tr("Regex Dotall") + "</b><dd>" + tr("Search using Regular Expression syntax but automatically allow <b>.*</b> to match new lines") + "</dd>";
             }
             if (caps & FindReplace::CAPABILITY_MODE_SPELL_CHECK || caps & FindReplace::CAPABILITY_ALL) {
                 ui.cbSearchMode->addItem(tr("Spell Check"), FindReplace::SearchMode_SpellCheck);
