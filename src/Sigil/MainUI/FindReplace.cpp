@@ -505,7 +505,7 @@ bool FindReplace::FindInAllFiles( Searchable::Direction direction )
             // Save selected resources since opening tabs changes selection 
             QList<Resource *>selected_resources = GetHTMLFiles();
 
-            m_MainWindow.OpenResource( *containing_resource, false, QUrl(), MainWindow::ViewState_CodeView );
+            m_MainWindow.OpenResource( *containing_resource);
 
             while ( !m_MainWindow.GetCurrentContentTab().IsLoadingFinished() )
             {
