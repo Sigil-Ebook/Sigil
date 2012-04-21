@@ -598,26 +598,26 @@ void MainWindow::LinkStylesheetsToResources(QList <Resource *> resources)
         }
     }
 
-    // Choose which stylesheets to link
-    LinkStylesheets link( GetStylesheetsMap( resources ), this );
-
-    if ( link.exec() != QDialog::Accepted )
-    {
-        return;
-    }
-
-    QStringList stylesheets = link.GetStylesheets();
+    // Choose which stylesheets to link
+    LinkStylesheets link( GetStylesheetsMap( resources ), this );
+
+    if ( link.exec() != QDialog::Accepted )
+    {
+        return;
+    }
+
+    QStringList stylesheets = link.GetStylesheets();
 
     QApplication::setOverrideCursor(Qt::WaitCursor);
-
+
     // Convert HTML resources into HTMLResource types
-    QList<HTMLResource *>html_resources;
-    foreach( Resource *resource, resources )
-    {
-            html_resources.append( qobject_cast<HTMLResource*>(resource));
-    }
-
-    LinkUpdates::UpdateLinksInAllFiles( html_resources, stylesheets );
+    QList<HTMLResource *>html_resources;
+    foreach( Resource *resource, resources )
+    {
+            html_resources.append( qobject_cast<HTMLResource*>(resource));
+    }
+
+    LinkUpdates::UpdateLinksInAllFiles( html_resources, stylesheets );
 
     // Since content was changed open the first modified file
     OpenResource(*resources.first());
@@ -626,72 +626,72 @@ void MainWindow::LinkStylesheetsToResources(QList <Resource *> resources)
 
     QApplication::restoreOverrideCursor();
 }
-
-QList<std::pair< QString, bool> > MainWindow::GetStylesheetsMap( QList<Resource *> resources )
-{
-    QList< std::pair< QString, bool> > stylesheet_map;
-    QList<Resource *> css_resources = m_BookBrowser->AllCSSResources();
- 
-    // Use the first resource to get a list of known linked stylesheets in order.
-    QStringList checked_linked_paths = GetStylesheetsAlreadyLinked( resources.at( 0 ) );
-
-    // Then only consider them included if every selected resource includes
-    // the same stylesheets in the same order.
-    foreach ( Resource *valid_resource, resources )
-    {
-        QStringList linked_paths = GetStylesheetsAlreadyLinked( valid_resource );
-
-        foreach ( QString path, checked_linked_paths )
-        {
-            if ( !linked_paths.contains( path ) )
-            {
-                checked_linked_paths.removeOne( path );
-            }
-        }
-    }
-
-    // Save the paths included in all resources in order
-    foreach ( QString path, checked_linked_paths )
-    {
-        stylesheet_map.append( std::make_pair( path, true ) );
-    }
-    // Save all the remaining paths and mark them not included
-    foreach ( Resource *resource, css_resources )
-    {
+
+QList<std::pair< QString, bool> > MainWindow::GetStylesheetsMap( QList<Resource *> resources )
+{
+    QList< std::pair< QString, bool> > stylesheet_map;
+    QList<Resource *> css_resources = m_BookBrowser->AllCSSResources();
+ 
+    // Use the first resource to get a list of known linked stylesheets in order.
+    QStringList checked_linked_paths = GetStylesheetsAlreadyLinked( resources.at( 0 ) );
+
+    // Then only consider them included if every selected resource includes
+    // the same stylesheets in the same order.
+    foreach ( Resource *valid_resource, resources )
+    {
+        QStringList linked_paths = GetStylesheetsAlreadyLinked( valid_resource );
+
+        foreach ( QString path, checked_linked_paths )
+        {
+            if ( !linked_paths.contains( path ) )
+            {
+                checked_linked_paths.removeOne( path );
+            }
+        }
+    }
+
+    // Save the paths included in all resources in order
+    foreach ( QString path, checked_linked_paths )
+    {
+        stylesheet_map.append( std::make_pair( path, true ) );
+    }
+    // Save all the remaining paths and mark them not included
+    foreach ( Resource *resource, css_resources )
+    {
         QString pathname = "../" + resource->GetRelativePathToOEBPS();
         if ( !checked_linked_paths.contains( pathname ) )
-        {
-            stylesheet_map.append( std::make_pair( pathname, false ) );
-        }
-    }
-
-    return stylesheet_map;
-}
-
-
-QStringList MainWindow::GetStylesheetsAlreadyLinked( Resource *resource )
-{
-    HTMLResource *html_resource = qobject_cast< HTMLResource* >( resource );
-    QStringList linked_stylesheets;
-
-    QStringList existing_stylesheets;
-    foreach (Resource *css_resource, m_BookBrowser->AllCSSResources() )
-    {
-        //existing_stylesheets.append( css_resource->Filename() );
-        existing_stylesheets.append( "../" + css_resource->GetRelativePathToOEBPS() );
-    }
-
-    foreach( QString pathname, html_resource->GetLinkedStylesheets() )
+        {
+            stylesheet_map.append( std::make_pair( pathname, false ) );
+        }
+    }
+
+    return stylesheet_map;
+}
+
+
+QStringList MainWindow::GetStylesheetsAlreadyLinked( Resource *resource )
+{
+    HTMLResource *html_resource = qobject_cast< HTMLResource* >( resource );
+    QStringList linked_stylesheets;
+
+    QStringList existing_stylesheets;
+    foreach (Resource *css_resource, m_BookBrowser->AllCSSResources() )
     {
-        // Only list the stylesheet if it exists in the book
-        if ( existing_stylesheets.contains( pathname ) )
-        {
-            linked_stylesheets.append( pathname );
-        }
-    }
-
-    return linked_stylesheets;
-}
+        //existing_stylesheets.append( css_resource->Filename() );
+        existing_stylesheets.append( "../" + css_resource->GetRelativePathToOEBPS() );
+    }
+
+    foreach( QString pathname, html_resource->GetLinkedStylesheets() )
+    {
+        // Only list the stylesheet if it exists in the book
+        if ( existing_stylesheets.contains( pathname ) )
+        {
+            linked_stylesheets.append( pathname );
+        }
+    }
+
+    return linked_stylesheets;
+}
 
 
 void MainWindow::GenerateToc()
