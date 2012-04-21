@@ -27,7 +27,7 @@
 
 #include "BookManipulation/GuideSemantics.h"
 #include "ResourceObjects/XMLResource.h"
-#include "BookManipulation/Metadata.h"
+#include "BookManipulation/Metadata.h"
 
 using boost::shared_ptr;
 
@@ -103,14 +103,14 @@ public:
      *
      * @return The DC metadata, in the same format as the SetDCMetadata metadata parameter.
      */
-    QList< Metadata::MetaElement > GetDCMetadata() const;
+    QList< Metadata::MetaElement > GetDCMetadata() const;
 
-    /**
-     * Returns the values for a specific metadata name.
-     *
-     * @return A list of values
-     */
-    QList< QVariant > GetDCMetadataValues( QString text ) const;
+    /**
+     * Returns the values for a specific metadata name.
+     *
+     * @return A list of values
+     */
+    QList< QVariant > GetDCMetadataValues( QString text ) const;
 
 public slots:
 
