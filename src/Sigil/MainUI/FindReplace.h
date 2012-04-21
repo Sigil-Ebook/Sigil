@@ -233,7 +233,7 @@ private:
     // spawned this widget. Needed for searching.
     MainWindow &m_MainWindow;
 
-    FR_Capabilities m_capabilites;
+    FR_Capabilities m_capabilities;
     QTimer m_timer;
 
     Ui::FindReplace ui;

@@ -90,9 +90,9 @@ bool TabManager::TryCloseTab(int tab_index)
     return true;
 }
 
-bool TabManager::CloseTabForResource(const Resource &resouce)
+bool TabManager::CloseTabForResource(const Resource &resource)
 {
-    int index = ResourceTabIndex(resouce);
+    int index = ResourceTabIndex(resource);
 
     if (index != -1) {
         return TryCloseTab(index);
@@ -114,9 +114,9 @@ bool TabManager::TabDataIsWellFormed()
     return true;
 }
 
-bool TabManager::TabDataIsWellFormed(const Resource &resouce)
+bool TabManager::TabDataIsWellFormed(const Resource &resource)
 {
-    int index = ResourceTabIndex(resouce);
+    int index = ResourceTabIndex(resource);
     if (index != -1) {
         WellFormedContent *content = dynamic_cast<WellFormedContent *>(widget(index));
         if (content) {

@@ -37,7 +37,7 @@ static const int MAX_HISTORY_COUNT = 15;
 FindReplace::FindReplace( MainWindow &main_window )
     : QWidget( &main_window ),
       m_MainWindow( main_window ),
-      m_capabilites(FindReplace::CAPABILITY_ALL)
+      m_capabilities(FindReplace::CAPABILITY_ALL)
 {
     ui.setupUi( this );
 
@@ -80,7 +80,7 @@ void FindReplace::SetUpFindText()
 
 void FindReplace::SetCapabilities(FR_Capabilities caps)
 {
-    m_capabilites = caps;
+    m_capabilities = caps;
     ExtendUI();
 }
 
@@ -848,7 +848,7 @@ void FindReplace::ExtendUI()
 {
     WriteSettings();
 
-    FR_Capabilities caps = m_capabilites;
+    FR_Capabilities caps = m_capabilities;
 
     // Clear these because we want to add their items based on the
     // capabilites.
@@ -860,10 +860,10 @@ void FindReplace::ExtendUI()
     if (caps & FindReplace::CAPABILITY_FIND || caps & FindReplace::CAPABILITY_ALL) {
         // We check if the user sepcified a Find Mode when they specify the Find
         // capability. If no mode is specified we default to using the normal mode.
-        if (m_capabilites & FindReplace::CAPABILITY_MODE_NORMAL ||
-            m_capabilites & FindReplace::CAPABILITY_MODE_CASE_SENSITIVE ||
-            m_capabilites & FindReplace::CAPABILITY_MODE_REGEX ||
-            m_capabilites & FindReplace::CAPABILITY_MODE_SPELL_CHECK)
+        if (m_capabilities & FindReplace::CAPABILITY_MODE_NORMAL ||
+            m_capabilities & FindReplace::CAPABILITY_MODE_CASE_SENSITIVE ||
+            m_capabilities & FindReplace::CAPABILITY_MODE_REGEX ||
+            m_capabilities & FindReplace::CAPABILITY_MODE_SPELL_CHECK)
         {
             caps |= FindReplace::CAPABILITY_MODE_NORMAL;
         }

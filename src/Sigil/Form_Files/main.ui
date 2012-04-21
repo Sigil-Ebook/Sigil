@@ -793,7 +793,7 @@
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;/head&gt;&lt;body&gt;
 &lt;p style=&quot; padding-top: 0.5em;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Checking for well-formed errors&lt;/span&gt; &lt;/p&gt;
 &lt;p style=&quot; margin-left: 0.5em;&quot;&gt;If this option is checked, then your XML and HTML content documents will be checked for structural errors. When changing from the code view you will be presented with a dialog asking to either auto or manually fix the issue. If manual fix is selected the cursor in will be placed on the line where there is an error in the code view.&lt;/p&gt;
-&lt;p style=&quot; margin-left: 0.5em;&quot;&gt;When the option is unchecked no error checking is preformed. This can lead to significant data loss as all errors will be auto fixed.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;p style=&quot; margin-left: 0.5em;&quot;&gt;When the option is unchecked no error checking is performed. This can lead to significant data loss as all errors will be auto fixed.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </action>
   <action name="actionFindNext">
