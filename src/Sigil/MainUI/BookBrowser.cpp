@@ -23,6 +23,7 @@
 #include <QtCore/QSignalMapper>
 #include <QtGui/QFileDialog>
 #include <QtGui/QMenu>
+#include <QtGui/QMessageBox>
 #include <QtGui/QTreeView>
 
 #include "BookManipulation/Book.h"
@@ -37,7 +38,6 @@
 #include "Misc/KeyboardShortcutManager.h"
 #include "Misc/SettingsStore.h"
 #include "Misc/Utility.h"
-#include "Qxt/qxtconfirmationmessage.h"
 #include "ResourceObjects/HTMLResource.h"
 #include "ResourceObjects/NCXResource.h"
 #include "ResourceObjects/OPFResource.h"
@@ -211,17 +211,13 @@ void BookBrowser::OpenUrlResource( const QUrl &url )
 }
 
 
-void BookBrowser::EmitResourceActivated( const QModelIndex &index )
+void BookBrowser::EmitResourceActivated(const QModelIndex &index)
 {
-    QString identifier( m_OPFModel.itemFromIndex( index )->data().toString() );  
+    QString identifier(m_OPFModel.itemFromIndex(index)->data().toString());
 
-    if ( !identifier.isEmpty() )
-    {
-        Resource &resource = m_Book->GetFolderKeeper().GetResourceByIdentifier( identifier );
-
-        if ( ShouldContinueOpeningResource( resource ) )
-
-            emit ResourceActivated( resource );
+    if (!identifier.isEmpty()) {
+        Resource &resource = m_Book->GetFolderKeeper().GetResourceByIdentifier(identifier);
+        emit ResourceActivated(resource);
     }
 }
 
@@ -757,30 +753,6 @@ void BookBrowser::IdpfsObfuscationMethod()
     else
 
         font_resource->SetObfuscationAlgorithm( "" );
-}
-
-
-bool BookBrowser::ShouldContinueOpeningResource( const Resource &resource )
-{
-    if ( resource.Type() != Resource::OPFResourceType &&
-         resource.Type() != Resource::NCXResourceType )
-    {
-        return true;
-    }
-
-    QxtConfirmationMessage message( 
-        QMessageBox::Information,
-        tr( "Sigil" ),
-        tr( "Editing the OPF and NCX files is for experts only!\n\nContinue?" ),
-        tr( "Don't show again." ),
-        QMessageBox::Ok | QMessageBox::Cancel, 
-        this
-    );
-
-    message.setOverrideSettingsKey( OPF_NCX_EDIT_WARNING_KEY );
-    message.setDefaultButton( QMessageBox::Cancel );
-
-    return message.exec() == QMessageBox::Ok;
 }
 
 

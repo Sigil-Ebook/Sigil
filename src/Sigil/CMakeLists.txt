@@ -90,8 +90,7 @@ set( QOBJECT_HEADERS
     ResourceObjects/XMLResource.h
     BookManipulation/Book.h
     BookManipulation/FolderKeeper.h
-    BookManipulation/Metadata.h 
-    Qxt/qxtconfirmationmessage.h
+    BookManipulation/Metadata.h
     )
 
 set( MAIN_FILES
@@ -357,12 +356,6 @@ file( GLOB TS_FILES Resource_Files/ts/sigil_*.ts )
 
 file( GLOB DIC_FILES Resource_Files/dictionaries/* )
 
-set( QXT_FILES
-    Qxt/qxtconfirmationmessage.h
-    Qxt/qxtconfirmationmessage.cpp
-    Qxt/qxtglobal.h
-    )
-
 set( LINUX_DESKTOP_FILE
     Resource_Files/freedesktop/sigil.desktop
     )
@@ -371,7 +364,7 @@ set( LINUX_DESKTOP_ICON_FILE
     Resource_Files/icon/app_icon_48.png
     )
     
-set( RAW_SOURCES ${MAIN_FILES} ${TAB_FILES} ${SOURCEUPDATE_FILES} ${BOOK_MANIPULATION_FILES} ${RESOURCE_OBJECT_FILES} ${DIALOG_FILES} ${EXPORTER_FILES} ${IMPORTER_FILES} ${MISC_FILES} ${SPCRE_FILES} ${VIEW_EDITOR_FILES} ${MAINUI_FILES} ${QXT_FILES} )
+set( RAW_SOURCES ${MAIN_FILES} ${TAB_FILES} ${SOURCEUPDATE_FILES} ${BOOK_MANIPULATION_FILES} ${RESOURCE_OBJECT_FILES} ${DIALOG_FILES} ${EXPORTER_FILES} ${IMPORTER_FILES} ${MISC_FILES} ${SPCRE_FILES} ${VIEW_EDITOR_FILES} ${MAINUI_FILES} )
 
 #############################################################################
 
@@ -409,7 +402,6 @@ source_group( "Tabs"              FILES ${TAB_FILES} )
 source_group( "MainUI"            FILES ${MAINUI_FILES} )
 source_group( "Main Files"        FILES ${MAIN_FILES} )
 source_group( "Source Updates"    FILES ${SOURCEUPDATE_FILES} )
-source_group( "Qxt"               FILES ${QXT_FILES} )
 
 
 #############################################################################
