@@ -38,9 +38,7 @@ static QString KEY_SPELL_CHECK = SETTINGS_GROUP + "/" + "spell_check";
 static QString KEY_USER_DICTIONARY_NAME = SETTINGS_GROUP + "/" + "user_dictionary_name";
 
 SettingsStore::SettingsStore()
-#ifndef Q_WS_MAC
     : QSettings(QSettings::IniFormat, QSettings::UserScope, QCoreApplication::organizationName(), QCoreApplication::applicationName())
-#endif
 {
 }
 
