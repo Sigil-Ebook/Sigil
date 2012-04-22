@@ -367,7 +367,7 @@ bool FlowTab::IsDataWellFormed()
 void FlowTab::Undo()
 {
     if (m_ViewState == MainWindow::ViewState_BookView) {
-        //m_wBookView.page()->triggerAction( QWebPage::Undo );
+        m_wBookView.Undo();
     }
     else {
         m_wCodeView.undo();
@@ -378,7 +378,7 @@ void FlowTab::Undo()
 void FlowTab::Redo()
 {
     if (m_ViewState == MainWindow::ViewState_BookView) {
-        //m_wBookView.page()->triggerAction( QWebPage::Redo );
+        m_wBookView.Redo();
     }
     else {
         m_wCodeView.redo();

@@ -134,7 +134,7 @@ void BookViewEditor::ScrollToFragmentAfterLoad(const QString &fragment)
 
 QString BookViewEditor::GetHtml()
 {
-    QString command = "var objEditor = CKEDITOR.instances.editor; objEditor.getData();";
+    QString command = "CKEDITOR.instances.editor.getData();";
     return EvaluateJavascript(command).toString();
 }
 
@@ -208,6 +208,18 @@ void BookViewEditor::ResetModified()
     EvaluateJavascript(javascript);
 }
 
+void BookViewEditor::Undo()
+{
+    QString javascript = "CKEDITOR.instances.editor.undo();";
+    EvaluateJavascript(javascript);
+}
+
+void BookViewEditor::Redo()
+{
+    QString javascript = "CKEDITOR.instances.editor.redo();";
+    EvaluateJavascript(javascript);
+}
+
 // Overridden so we can emit the FocusLost() signal.
 void BookViewEditor::focusOutEvent(QFocusEvent *event)
 {
@@ -221,8 +233,6 @@ bool BookViewEditor::FindNext(const QString &search_regex,
                               bool ignore_selection_offset,
                               bool wrap
                              )
-                              
-
 {
     Q_UNUSED(check_spelling)
     Q_UNUSED(ignore_selection_offset)
@@ -286,7 +296,6 @@ void BookViewEditor::RestoreCaret()
 
 void BookViewEditor::TextChangedFilter()
 {
-    //m_lastMatch = SPCRE::MatchInfo();
     emit textChanged();
 }
 

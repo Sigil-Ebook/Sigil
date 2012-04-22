@@ -44,7 +44,7 @@ public:
 
     /**
      * Constructor.
-     * 
+     *
      * @param resource The resource this tab will be displaying.
      * @param parent The parent of this QObject.
      */
@@ -117,14 +117,14 @@ public:
      * @return \c true if the BookView action should be checked.
      */
     virtual bool BookViewChecked()      { return false; }
-    
+
     /**
      * Checked state of the SplitView action.
      *
      * @return \c true if the SplitView action should be checked.
      */
     virtual bool SplitViewChecked()     { return false; }
-    
+
     /**
      * Checked state of the CodeView action.
      *

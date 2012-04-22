@@ -68,12 +68,12 @@ public:
      * The current flow is split at the caret point.
      *
      * @return The content of the chapter up to the chapter break point.
-     * 
+     *
      * @note What we actually do when the user wants to split the loaded chapter
      * is create a new tab with the XHTML content \em above the split point.
      * The new tab is actually the "old" chapter, and this tab becomes the
      * "new" chapter.
-     * \par 
+     * \par
      * Why? Because we can only avoid a tab render in the tab from which
      * we remove elements. Since the users move from the top of a large HTML
      * file down, the new chapter will be the one with the most content.
@@ -89,6 +89,9 @@ public:
 
     bool IsModified();
     void ResetModified();
+
+    void Undo();
+    void Redo();
 
     // Even though the BookViewPreview implements these they are pure virtual
     // in ViewEditor so they have to be implemented here.
@@ -142,7 +145,7 @@ signals:
      * The QWebPage contentsChanged signal is not emitted on every
      * occasion we want it to, so we emit this when necessary.
      * This signal is in turn wired to contentsChanged. Why?
-     * Because we want others connected to our QWebPage but not to 
+     * Because we want others connected to our QWebPage but not to
      * the Book View textChanged signal to be aware of these changes.
      * Thus, the wired extension.
      */
