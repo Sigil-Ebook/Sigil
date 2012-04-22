@@ -1016,7 +1016,7 @@ void BookBrowser::SetupResourceSpecificContextMenu( Resource *resource  )
             m_ContextMenu.addAction( m_SortHTML );
         }
 
-        if (ValidSelectedItemCount() > 1 || (AllHTMLResources().at(0) != ValidSelectedResources().at(0))) {
+        if (ValidSelectedItemCount() > 1 || (AllHTMLResources().count() > 1 && AllHTMLResources().at(0) != ValidSelectedResources().at(0))) {
             m_ContextMenu.addAction(m_Merge);
         }
 
