@@ -544,7 +544,7 @@ HTMLResource* FindReplace::GetNextContainingHTMLResource( Searchable::Direction 
     Resource* current_resource = GetCurrentResource();
     HTMLResource *starting_html_resource = qobject_cast< HTMLResource *> ( current_resource );
 
-    if ( !starting_html_resource )
+    if ( !starting_html_resource || ( GetLookWhere() == LookWhere_SelectedHTMLFiles && !IsCurrentFileInHTMLSelection() ) )
     {
         QList<Resource *> resources = GetHTMLFiles();
         if ( resources.isEmpty() )
