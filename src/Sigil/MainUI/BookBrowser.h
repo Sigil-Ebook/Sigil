@@ -377,14 +377,6 @@ private:
     void SetFontObfuscationActionCheckState( Resource *resource );
 
     /**
-     * Adds the MergeWithPrevious action to the context menu
-     * if conditions are met.
-     *
-     * @param resource The resource on which the context menu was invoked.
-     */
-    void AddMergeAction( Resource *resource );
-
-    /**
      * Returns the currently selected resource in the tree view.
      *
      * @return The currently selected resource in the tree view,

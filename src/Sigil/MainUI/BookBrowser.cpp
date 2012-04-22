@@ -822,7 +822,6 @@ void BookBrowser::CreateContextMenuActions()
     m_Remove                  = new QAction( tr( "Remove" ),                this );
     m_CoverImage              = new QAction( tr( "Cover Image" ),           this );
     m_Merge                   = new QAction( tr( "Merge" ),                 this );
-    m_MergeWithPrevious       = new QAction( tr( "Merge With Previous" ),   this );
     m_AdobesObfuscationMethod = new QAction( tr( "Use Adobe's Method" ),    this );
     m_IdpfsObfuscationMethod  = new QAction( tr( "Use IDPF's Method" ),     this );
     m_SortHTML                = new QAction( tr( "Sort" ),                  this );
@@ -834,7 +833,7 @@ void BookBrowser::CreateContextMenuActions()
     m_IdpfsObfuscationMethod ->setCheckable( true );
 
     m_Remove->setShortcut( QKeySequence::Delete );
-    m_MergeWithPrevious->setShortcut( QKeySequence( Qt::CTRL + Qt::ALT + Qt::Key_M ) );
+    m_Merge->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_M));
     m_Merge->setToolTip( "Merge with previous file, or merge multiple files into one." );
     sm->registerAction( m_Merge, "MainWindow.BookBrowser.Merge" );
 
@@ -1017,7 +1016,9 @@ void BookBrowser::SetupResourceSpecificContextMenu( Resource *resource  )
             m_ContextMenu.addAction( m_SortHTML );
         }
 
-        AddMergeAction( resource ); 
+        if (ValidSelectedItemCount() > 1 || (AllHTMLResources().at(0) != ValidSelectedResources().at(0))) {
+            m_ContextMenu.addAction(m_Merge);
+        }
 
         if ( AllCSSResources().count() > 0 )
         {
@@ -1169,26 +1170,6 @@ void BookBrowser::SetFontObfuscationActionCheckState( Resource *resource )
 }
 
 
-void BookBrowser::AddMergeAction( Resource *resource )
-{
-    HTMLResource *html_resource = qobject_cast< HTMLResource* >( resource );
-    Q_ASSERT( html_resource );
-
-    if ( ValidSelectedItemCount() == 1 )
-    {
-        // Don't add the action for the first file
-        if ( m_Book->GetOPF().GetReadingOrder( *html_resource ) > 0 )
-        {
-            m_ContextMenu.addAction( m_MergeWithPrevious );    
-        }
-    }
-    else
-    {
-        m_ContextMenu.addAction( m_Merge );
-    }
-}
-
-
 void BookBrowser::ConnectSignalsToSlots()
 {
     connect( &m_TreeView, SIGNAL( activated(             const QModelIndex& ) ),
@@ -1210,7 +1191,6 @@ void BookBrowser::ConnectSignalsToSlots()
     connect( m_Remove,                  SIGNAL( triggered() ), this, SLOT( Remove()                  ) );
     connect( m_CoverImage,              SIGNAL( triggered() ), this, SLOT( SetCoverImage()           ) );
     connect( m_Merge,                   SIGNAL( triggered() ), this, SLOT( Merge()                   ) );
-    connect( m_MergeWithPrevious,       SIGNAL( triggered() ), this, SLOT( Merge()                   ) );
     connect( m_LinkStylesheets,         SIGNAL( triggered() ), this, SLOT( LinkStylesheets()         ) );
 
     connect( m_AdobesObfuscationMethod, SIGNAL( triggered() ), this, SLOT( AdobesObfuscationMethod() ) );
