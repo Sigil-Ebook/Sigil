@@ -80,7 +80,11 @@ void HTMLResource::SetText(const QString &text)
     // Put the xml deceleration at the top.
     new_text = xmldec + new_text;
 
-    XMLResource::SetText( ConvertToEntities( CleanSource::Clean( new_text) ) );
+    XMLResource::SetText(ConvertToEntities(CleanSource::Clean( new_text)));
+
+    // Track resources whose change will necessitate an update of the BV and PV.
+    // At present this only applies to css files and images.
+    TrackNewResources(GetPathsToLinkedResources());
 }
 
 
@@ -144,21 +148,31 @@ QStringList HTMLResource::GetPathsToLinkedResources()
 }
 
 
-void HTMLResource::TrackNewResources( const QStringList &filepaths )
+void HTMLResource::TrackNewResources(const QStringList &filepaths)
 {
-    m_LinkedResourceIDs.clear();
-    QStringList filenames;
+    disconnect(this, SIGNAL(LinkedResourceUpdated()));
 
-    foreach( QString filepath, filepaths )
-    {
-        filenames.append( QFileInfo( filepath ).fileName() );
+    QStringList filenames;
+    QStringList linkedResourceIDs;
+
+    foreach(QString filepath, filepaths) {
+        filenames.append(QFileInfo(filepath).fileName());
     }
 
-    foreach( Resource *resource, m_Resources.values() )
+    foreach(Resource *resource, m_Resources.values())
     {
-        if ( filenames.contains( resource->Filename() ) )
+        if (filenames.contains(resource->Filename())) {
+            linkedResourceIDs.append(resource->GetIdentifier());
+        }
+    }
 
-            m_LinkedResourceIDs.append( resource->GetIdentifier() );
+    foreach(QString resource_id, linkedResourceIDs)
+    {
+        Resource *resource = m_Resources.value(resource_id);
+        if (resource) {
+            connect(resource, SIGNAL(ResourceUpdatedOnDisk()),    this, SIGNAL(LinkedResourceUpdated()));
+            connect(resource, SIGNAL(Deleted( const Resource &)), this, SIGNAL(LinkedResourceUpdated()));
+        }
     }
 }
 

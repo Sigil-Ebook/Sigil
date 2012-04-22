@@ -66,7 +66,7 @@ public:
     // inherited
     virtual ResourceType Type() const;
 
-    void SetText(const QString &text);
+    virtual void SetText(const QString &text);
 
     void SaveToDisk(bool book_wide_save=false);
 
@@ -95,6 +95,9 @@ public:
      */
     QStringList GetLinkedStylesheets();
 
+signals:
+    void LinkedResourceUpdated();
+
 private:
     /**
      * Makes sure the given paths are watched for updates.
@@ -115,15 +118,6 @@ private:
     ///////////////////////////////
     // PRIVATE MEMBER VARIABLES
     ///////////////////////////////
-
-    /**
-     * IDs of all the resources that are linked in this 
-     * HTML resource.
-     * 
-     * We use resource IDs and not resource pointers
-     * to avoid problems with dangling pointers.
-     */
-    QStringList m_LinkedResourceIDs;
 
     /**
      * The resource list from FolderKeeper.

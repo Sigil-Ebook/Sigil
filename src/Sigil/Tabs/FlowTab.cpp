@@ -777,4 +777,6 @@ void FlowTab::ConnectSignalsToSlots()
 
     connect(&m_wBookView, SIGNAL(textChanged()), this, SLOT(EmitContentChanged()));
     connect(&m_wCodeView, SIGNAL(FilteredTextChanged()), this, SLOT(EmitContentChanged()));
+
+    connect(&m_HTMLResource, SIGNAL(LinkedResourceUpdated()), this, SLOT(ResourceModified()));
 }
