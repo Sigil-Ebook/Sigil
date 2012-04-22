@@ -477,13 +477,13 @@
      <normaloff>:/main/view-split_22px.png</normaloff>:/main/view-split_22px.png</iconset>
    </property>
    <property name="text">
-    <string>&amp;Split View</string>
+    <string>&amp;Preview View</string>
    </property>
    <property name="toolTip">
-    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Split View&lt;/b&gt;&lt;/p&gt;
+    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Preview View&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Edit and display your files in both Book View and Code View windows at the same time.&lt;/p&gt;
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;You can change the layout of the views in Preferences, and resize the windows by dragging the bar dividing the windows.&lt;/p&gt;</string>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;See a preview of the final rendered document.&lt;/p&gt;
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;You can inspect the layout and arrangement of elements within the document.&lt;/p&gt;</string>
    </property>
    <property name="shortcut">
     <string>F10</string>

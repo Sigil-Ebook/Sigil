@@ -188,9 +188,6 @@ public:
 
     QString GetSelectedText();
 
-    void SaveCaret();
-    void RestoreCaret();
-
     /**
      * Sets flag to execute a centerCursor() call later
      * with m_DelayedCursorScreenCenteringRequired.

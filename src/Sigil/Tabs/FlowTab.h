@@ -31,13 +31,15 @@
 #include "Tabs/WellFormedContent.h"
 
 class QSplitter;
+class QStackedWidget;
+class QUrl;
+class QWebInspector;
 class BookViewEditor;
 class BookViewPreview;
 class CodeViewEditor;
-class ViewEditor;
-class Resource;
 class HTMLResource;
-class QUrl;
+class Resource;
+class ViewEditor;
 class WellFormedCheckComponent;
 
 /**
@@ -67,8 +69,6 @@ public:
              QWidget *parent = 0 );
 
     ~FlowTab();
-
-    void RestoreCaret();
 
     // Overrides inherited from ContentTabs
 
@@ -313,7 +313,6 @@ private slots:
     void ResourceModified();
 
 private:
-
     /**
      * Makes the Book View the current View.
      */
@@ -337,13 +336,6 @@ private:
      * window position, geometry etc.
      */
     void WriteSettings();
-
-    /**
-     * Returns the active View Editor.
-     *
-     * @return The active View Editor.
-     */
-    ViewEditor& GetActiveViewEditor() const;
 
     /**
      * Connects all the required signals to their respective slots.
@@ -373,7 +365,9 @@ private:
     /**
      * The splitter widget that separates the two Views.
      */
-    QSplitter &m_Splitter;
+    QStackedWidget &m_views;
+
+    QSplitter &m_pvVSplitter;
 
     /**
      * The Book View Editor.
@@ -388,6 +382,8 @@ private:
      * Displays and edits the raw code.
      */ 
     CodeViewEditor &m_wCodeView;
+
+    QWebInspector &m_inspector;
 
     /**
      * This is used in a few different ways.
@@ -415,6 +411,7 @@ private:
     bool m_initialLoad;
 
     bool m_BookViewNeedReload;
+    bool m_BookPreviewNeedReload;
 };
 
 #endif // FLOWTAB_H

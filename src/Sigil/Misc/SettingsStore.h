@@ -53,18 +53,6 @@ public:
      * @return The language as a string.
      */
     QString defaultMetadataLang();
-    /**
-     * The orientation to use for the split view.
-     *
-     * @return The orientation.
-     */
-    Qt::Orientation splitViewOrientation();
-    /**
-     * The order to use for the split view (book view/code view).
-     *
-     * @return The order
-     */
-    bool splitViewOrder();
 
     /**
      * The zoom factor used by the component.
@@ -118,19 +106,6 @@ public slots:
      * @param lang The language to set.
      */
     void setDefaultMetadataLang(const QString &lang);
-
-    /**
-     * Set the orientation of the split view.
-     *
-     * @param orientation The orientation to set.
-     */
-    void setSplitViewOrientation(Qt::Orientation orientation);
-    /**
-     * Set the order of the split view.
-     *
-     * @param order The order of book view/code view to set.
-     */
-    void setSplitViewOrder(bool order);
 
     /**
      * Set the zoom factor used by the component.

@@ -64,21 +64,15 @@ BookViewEditor::BookViewEditor(QWidget *parent)
     :
     BookViewPreview(parent)
 {
+    page()->mainFrame()->addToJavaScriptWindowObject("BookViewEditor", this);
+    page()->settings()->setAttribute(QWebSettings::DeveloperExtrasEnabled, false);
+    page()->settings()->setAttribute(QWebSettings::JavascriptCanAccessClipboard, true);
 }
 
 void BookViewEditor::CustomSetDocument(const QString &path, const QString &html)
 {
     m_isLoadFinished = false;
     m_path = path;
-
-    // Enable our link filter.
-    page()->setLinkDelegationPolicy(QWebPage::DelegateAllLinks);
-    page()->mainFrame()->addToJavaScriptWindowObject("BookViewEditor", this);
-    page()->settings()->setAttribute(QWebSettings::JavascriptCanAccessClipboard, true);
-
-    connect(page(), SIGNAL(loadProgress(int)), this, SLOT(UpdateFinishedState(int)));
-    connect(page(), SIGNAL(linkClicked(const QUrl&)), this, SLOT( LinkClickedFilter(const QUrl&)));
-    connect(this, SIGNAL(FilteredLinkClicked(const QUrl&)), this->parent()->parent(), SIGNAL(LinkClicked(const QUrl&)));
 
     QString cke_path;
 #ifdef Q_WS_MAC
@@ -276,22 +270,6 @@ QString BookViewEditor::GetSelectedText()
 {
     QString javascript = "CKEDITOR.instances.editor.getSelection().getSelectedText();";
     return EvaluateJavascript(javascript).toString();
-}
-
-void BookViewEditor::SaveCaret()
-{
-    QString javascript =
-        "var element = CKEDITOR.instances.editor.getSelection().getStartElement();"
-        "element.getId()";
-    m_caret = EvaluateJavascript(javascript);
-}
-
-void BookViewEditor::RestoreCaret()
-{
-    QString javascript = "var element = CKEDITOR.instances.editor.document.getById('" + m_caret.toString() + "');"
-        "CKEDITOR.instances.editor.getSelection().selectElement(element);"
-        "CKEDITOR.instances.editor.getSelection().scrollIntoView();";
-    EvaluateJavascript(javascript);
 }
 
 void BookViewEditor::TextChangedFilter()

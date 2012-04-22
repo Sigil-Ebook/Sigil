@@ -365,9 +365,6 @@ bool TabManager::SwitchedToExistingTab( Resource& resource,
 
         if ( flow_tab != NULL )
         {
-            // Restore cursor position if there is one
-            flow_tab->RestoreCaret();
-
             if ( fragment.toString() != "" )
             {
                 flow_tab->ScrollToFragment( fragment.toString() );

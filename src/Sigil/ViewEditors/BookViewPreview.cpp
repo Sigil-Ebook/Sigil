@@ -44,6 +44,13 @@ BookViewPreview::BookViewPreview(QWidget *parent)
     SettingsStore settings;
     m_CurrentZoomFactor = settings.zoomWeb();
     Zoom();
+
+    // Enable our link filter.
+    page()->setLinkDelegationPolicy(QWebPage::DelegateAllLinks);
+    page()->settings()->setAttribute(QWebSettings::DeveloperExtrasEnabled, true);
+
+    connect(page(), SIGNAL(loadProgress(int)), this, SLOT(UpdateFinishedState(int)));
+    connect(page(), SIGNAL(linkClicked(const QUrl&)), this, SLOT(LinkClickedFilter(const QUrl&)));
 }
 
 QSize BookViewPreview::sizeHint() const
@@ -55,13 +62,6 @@ void BookViewPreview::CustomSetDocument(const QString &path, const QString &html
 {
     m_isLoadFinished = false;
     setHtml(html, QUrl::fromLocalFile(path));
-
-    // Enable our link filter.
-    page()->setLinkDelegationPolicy(QWebPage::DelegateAllLinks);
-
-    connect(page(), SIGNAL(loadProgress(int)), this, SLOT(UpdateFinishedState(int)));
-    connect(page(), SIGNAL(linkClicked(const QUrl&)), this, SLOT( LinkClickedFilter(const QUrl&)));
-    connect(this, SIGNAL(FilteredLinkClicked(const QUrl&)), this->parent()->parent(), SIGNAL(LinkClicked(const QUrl&)));
 }
 
 bool BookViewPreview::IsLoadingFinished()

@@ -29,8 +29,6 @@
 static QString SETTINGS_GROUP = "user_preferences";
 static QString KEY_DEFAULT_METADATA_LANGUAGE = SETTINGS_GROUP + "/" + "default_metadata_lang";
 static QString KEY_UI_LANGUAGE = SETTINGS_GROUP + "/" + "ui_language";
-static QString KEY_SPLIT_VIEW_ORIENTATION = SETTINGS_GROUP + "/" + "split_view_orientation";
-static QString KEY_SPLIT_VIEW_ORDER = SETTINGS_GROUP + "/" + "split_view_order";
 static QString KEY_ZOOM_IMAGE = SETTINGS_GROUP + "/" + "zoom_image";
 static QString KEY_ZOOM_TEXT = SETTINGS_GROUP + "/" + "zoom_text";
 static QString KEY_ZOOM_WEB = SETTINGS_GROUP + "/" + "zoom_web";
@@ -56,18 +54,6 @@ QString SettingsStore::defaultMetadataLang()
 {
     clearSettingsGroup();
     return value(KEY_DEFAULT_METADATA_LANGUAGE, "en").toString();
-}
-
-Qt::Orientation SettingsStore::splitViewOrientation()
-{
-    clearSettingsGroup();
-    return static_cast<Qt::Orientation>(value(KEY_SPLIT_VIEW_ORIENTATION, Qt::Vertical).toInt());;
-}
-
-bool SettingsStore::splitViewOrder()
-{
-    clearSettingsGroup();
-    return static_cast<bool>(value(KEY_SPLIT_VIEW_ORDER, true).toBool());
 }
 
 float SettingsStore::zoomImage()
@@ -122,18 +108,6 @@ void SettingsStore::setUILanguage(const QString &language_code)
 {
     clearSettingsGroup();
     setValue(KEY_UI_LANGUAGE, language_code);
-}
-
-void SettingsStore::setSplitViewOrientation(Qt::Orientation orientation)
-{
-    clearSettingsGroup();
-    setValue(KEY_SPLIT_VIEW_ORIENTATION, orientation);
-}
-
-void SettingsStore::setSplitViewOrder(bool order )
-{
-    clearSettingsGroup();
-    setValue(KEY_SPLIT_VIEW_ORDER, order);
 }
 
 void SettingsStore::setZoomImage(float zoom)

@@ -113,9 +113,6 @@ public:
 
     QString GetSelectedText();
 
-    void SaveCaret();
-    void RestoreCaret();
-
 public slots:
     /**
      * Filters the text changed signals by the CKEditor inside of the page

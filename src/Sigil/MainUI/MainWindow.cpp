@@ -788,7 +788,7 @@ void MainWindow::BookView()
 
 void MainWindow::SplitView()
 {
-    SetViewState( MainWindow::ViewState_SplitView );
+    SetViewState( MainWindow::ViewState_PreviewView );
 }
 
 
@@ -906,7 +906,7 @@ void MainWindow::UpdateViewState()
         if (m_ViewState == MainWindow::ViewState_CodeView) {
             SetStateActionsCodeView();
         }
-        else if (m_ViewState == MainWindow::ViewState_SplitView) {
+        else if (m_ViewState == MainWindow::ViewState_PreviewView) {
             SetStateActionsSplitView();
         }
         else {

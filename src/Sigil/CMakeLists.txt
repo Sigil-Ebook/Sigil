@@ -159,8 +159,6 @@ set( DIALOG_FILES
     Dialogs/HeadingSelector.h
     Dialogs/Preferences.cpp
     Dialogs/Preferences.h
-    Dialogs/PreferenceWidgets/AppearanceWidget.cpp
-    Dialogs/PreferenceWidgets/AppearanceWidget.h
     Dialogs/PreferenceWidgets/KeyboardShortcutsWidget.cpp
     Dialogs/PreferenceWidgets/KeyboardShortcutsWidget.h
     Dialogs/PreferenceWidgets/LanguageWidget.cpp
@@ -323,7 +321,6 @@ set( UI_FILES
     Form_Files/HeadingSelector.ui 
     Form_Files/FindReplace.ui
     Form_Files/Preferences.ui
-    Form_Files/PAppearanceWidget.ui
     Form_Files/PKeyboardShortcutsWidget.ui
     Form_Files/PLanguageWidget.ui
     Form_Files/PSpellCheckWidget.ui

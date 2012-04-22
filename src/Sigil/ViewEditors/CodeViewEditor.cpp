@@ -669,18 +669,6 @@ QString CodeViewEditor::GetSelectedText()
     return textCursor().selectedText();
 }
 
-void CodeViewEditor::SaveCaret()
-{
-    m_caretPos = textCursor().position();
-}
-
-void CodeViewEditor::RestoreCaret()
-{
-    QTextCursor t = textCursor();
-    t.setPosition(m_caretPos);
-    setTextCursor(t);
-}
-
 // The base class implementation of the print()
 // method is not a slot, and we need it as a slot
 // for print preview support; so this is just

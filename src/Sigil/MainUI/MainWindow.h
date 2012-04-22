@@ -119,12 +119,12 @@ public:
      */
     enum ViewState
     {
-        ViewState_Unknown,          /**< Default non view that we don't know what it is */
-        ViewState_BookView,         /**< The WYSIWYG view. */
-        ViewState_CodeView,         /**< The XHTML code editing view. */
-        ViewState_SplitView,        /**< We have a split view type (HTML resources support this) */
-        ViewState_RawView,          /**< The view for editing non-XHTML related resources. */
-        ViewState_StaticView       /**< The static view for non-editable content. */
+        ViewState_Unknown,     /**< Default non view that we don't know what it is */
+        ViewState_BookView,    /**< The WYSIWYG view. */
+        ViewState_PreviewView, /**< Preview the rendered XHTML. */
+        ViewState_CodeView,    /**< The XHTML code editing view. */
+        ViewState_RawView,     /**< The view for editing non-XHTML related resources. */
+        ViewState_StaticView   /**< The static view for non-editable content. */
     };
 
     /**

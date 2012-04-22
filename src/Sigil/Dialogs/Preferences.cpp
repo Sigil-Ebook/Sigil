@@ -23,7 +23,6 @@
 
 #include "Dialogs/Preferences.h"
 #include "Misc/SettingsStore.h"
-#include "PreferenceWidgets/AppearanceWidget.h"
 #include "PreferenceWidgets/KeyboardShortcutsWidget.h"
 #include "PreferenceWidgets/LanguageWidget.h"
 #include "PreferenceWidgets/SpellCheckWidget.h"
@@ -36,7 +35,6 @@ Preferences::Preferences(QWidget *parent) :
     ui.setupUi(this);
 
     // Create and load all of our preference widgets.;
-    appendPreferenceWidget(new AppearanceWidget);
     appendPreferenceWidget(new KeyboardShortcutsWidget);
     appendPreferenceWidget(new LanguageWidget);
     appendPreferenceWidget(new SpellCheckWidget);
