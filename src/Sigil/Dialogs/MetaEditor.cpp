@@ -426,7 +426,11 @@ void MetaEditor::ReadMetadataFromBook()
         // Convert basic and relator authors to main Author field - but only first creator Author
         else if ( !have_author && ( book_meta.name == "author" || ( book_meta.name == "aut" && book_meta.role_type == "creator" ) ) )
         {
-            ui.leAuthor->setText( AddValueToField( ui.leAuthor->text(), book_meta.value.toString() ) );
+            QString author_name = book_meta.file_as;
+            if (author_name.isEmpty()) {
+                author_name = book_meta.value.toString();
+            }
+            ui.leAuthor->setText( AddValueToField( ui.leAuthor->text(), author_name ) );
             have_author = true;
         }
         else if ( !have_language &&  book_meta.name == "language" )
