@@ -56,7 +56,7 @@ WellFormedCheckComponent::WellFormedCheckComponent( WellFormedContent &content )
     m_ManualFixButton = 
         m_MessageBox->addButton( tr( "Fix &Manually" ),      QMessageBox::RejectRole      );
 
-    m_MessageBox->setDefaultButton( m_AutoFixButton );
+    m_MessageBox->setDefaultButton( m_ManualFixButton );
 }
 
 
