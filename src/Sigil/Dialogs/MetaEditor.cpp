@@ -47,24 +47,12 @@ MetaEditor::MetaEditor( OPFResource &opf, QWidget *parent )
 
     SetUpMetaTable();
     ReadSettings();
-    ToggleMoreLess();
 
     FillLanguageComboBox();
     ReadMetadataFromBook();
 
     SetLanguage();
 }
-
-
-MetaEditor::~MetaEditor()
-{
-    if ( m_isMore )
-
-        m_ExpandedHeight = size().height();
-
-    WriteSettings();
-}
-
 
 void MetaEditor::SetLanguage()
 {
@@ -101,36 +89,6 @@ void MetaEditor::showEvent( QShowEvent* event )
     RefreshVerticalHeader();
 
     event->accept();
-}
-
-
-void MetaEditor::ToggleMoreLess()
-{
-    if ( m_isMore )
-    {
-        m_ExpandedHeight = size().height();
-        ui.wgExtension->hide();
-        ui.btMore->setText( tr( "More" ) );
-
-        m_isMore = false;
-    }
-
-    else
-    {		
-        ui.wgExtension->show();
-
-        if ( m_ExpandedHeight == 0 )
-
-            resize( size().width(), DEFAULT_EXPANDED_HEIGHT );
-
-        else
-        
-            resize( size().width(), m_ExpandedHeight );
-
-        ui.btMore->setText( tr( "Less" ) );
-        
-        m_isMore = true;
-    }
 }
 
 
@@ -523,26 +481,12 @@ void MetaEditor::ReadSettings()
     SettingsStore settings;
     settings.beginGroup( SETTINGS_GROUP );
 
-    // We flip the stored isMore state because we have to pass through
-    // the ToggleMoreLess function to actually set the widgets
-    // (and the isMore variable) to the stored state
-    m_isMore = !settings.value( "is_more" ).toBool();
+    // The size of the window and it's full screen status
+    QByteArray geometry = settings.value( "geometry" ).toByteArray();
 
-    // Window width and the height after expansion
-    int width        = settings.value( "width" ).toInt();
-    m_ExpandedHeight = settings.value( "expanded_height" ).toInt();
-
-    if ( ( width != 0 ) && ( m_ExpandedHeight != 0 ) )
+    if ( !geometry.isNull() )
     {
-        resize( width, m_ExpandedHeight );
-    }
-
-    // The window's position on the screen
-    QPoint position = settings.value( "position" ).toPoint();
-
-    if ( !position.isNull() )
-    {
-        move( position );
+        restoreGeometry( geometry );
     }
 
     // Column widths
@@ -567,15 +511,8 @@ void MetaEditor::WriteSettings()
     SettingsStore settings;
     settings.beginGroup( SETTINGS_GROUP );
 
-    // The window expansion state ("more" or "less")
-    settings.setValue( "is_more", m_isMore );
-
-    // Window width and the height after expansion
-    settings.setValue( "width", size().width() );
-    settings.setValue( "expanded_height", m_ExpandedHeight );
-
-    // The window's position on the screen
-    settings.setValue( "position", pos() );
+    // The size of the window and it's full screen status
+    settings.setValue( "geometry", saveGeometry() );
 
     // Column widths
     settings.beginWriteArray( "column_data" );
@@ -589,7 +526,6 @@ void MetaEditor::WriteSettings()
 
     settings.endGroup();
 }
-
 
 void MetaEditor::PlatformSpecificTweaks()
 {
@@ -605,51 +541,62 @@ void MetaEditor::MoveUp()
 {
     QModelIndexList selected_indexes = ui.tvMetaTable->selectionModel()->selectedIndexes();
 
-    if ( selected_indexes.isEmpty() )
-    {
+    if (selected_indexes.isEmpty()) {
         return;
     }
 
-    QModelIndex index = selected_indexes.first();
-    int row = index.row();
-    if ( row == 0 )
-    {
-        return;
+    // Get just the row numbers to move
+    QList<int> rows;
+    foreach (QModelIndex index, selected_indexes) {
+        int row = index.row();
+        if (row == 0) {
+            return;
+        }
+        if (!rows.contains(row)) {
+            rows.append(row);
+        }
     }
+    qSort(rows);
 
-    QList< QStandardItem* > items =  m_MetaModel.invisibleRootItem()->takeRow( row - 1 );       
-    
-    m_MetaModel.invisibleRootItem()->insertRow( row, items );
-
-    ui.tvMetaTable->selectRow( row - 1 );
+    // Move the rows as a block starting from the top
+    foreach (int row, rows) {
+        QList< QStandardItem* > items =  m_MetaModel.invisibleRootItem()->takeRow(row - 1);
+        m_MetaModel.invisibleRootItem()->insertRow(row, items);
+    }
 }
 
 void MetaEditor::MoveDown()
 {
     QModelIndexList selected_indexes = ui.tvMetaTable->selectionModel()->selectedIndexes();
 
-    if ( selected_indexes.isEmpty() )
-    {
+    if ( selected_indexes.isEmpty() ) {
         return;
     }
 
-    QModelIndex index = selected_indexes.first();
-    int row = index.row();
-    if ( row == m_MetaModel.invisibleRootItem()->rowCount() - 1 )
-    {
-        return;
+    // Get just the row numbers to move
+    QList<int> rows;
+    foreach (QModelIndex index, selected_indexes) {
+        int row = index.row();
+        if (row == m_MetaModel.invisibleRootItem()->rowCount() - 1) {
+            return;
+        }
+        if (!rows.contains(row)) {
+            rows.append(row);
+        }
     }
+    qSort(rows);
 
-    QList< QStandardItem* > items =  m_MetaModel.invisibleRootItem()->takeRow( row + 1 );       
-    
-    m_MetaModel.invisibleRootItem()->insertRow( row, items );
-
-    ui.tvMetaTable->selectRow( row + 1 );
+    // Move the rows as a block starting from the bottom
+    for (int i = rows.count() - 1; i >= 0; i--) {
+        int row = rows.at(i);
+        QList< QStandardItem* > items =  m_MetaModel.invisibleRootItem()->takeRow(row + 1);
+        m_MetaModel.invisibleRootItem()->insertRow(row, items);
+    }
 }
+
 
 void MetaEditor::ConnectSignals()
 {
-    connect( ui.btMore,        SIGNAL( clicked()  ), this, SLOT( ToggleMoreLess()         ) );
     connect( ui.btAddBasic,    SIGNAL( clicked()  ), this, SLOT( AddBasic()	              ) );
     connect( ui.btAddRole,     SIGNAL( clicked()  ), this, SLOT( AddRole()                ) );
     connect( ui.btCopy,        SIGNAL( clicked()  ), this, SLOT( Copy()                   ) );
@@ -660,5 +607,6 @@ void MetaEditor::ConnectSignals()
 
     connect( ui.tvMetaTable->horizontalHeader(),  SIGNAL( sectionClicked( int ) ),
              this,                                SLOT( RefreshVerticalHeader() ) );
+    connect( this, SIGNAL( accepted() ), this, SLOT( WriteSettings() ) );
 
 }

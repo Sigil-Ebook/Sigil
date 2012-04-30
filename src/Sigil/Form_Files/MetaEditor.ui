@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>600</width>
-    <height>440</height>
+    <width>800</width>
+    <height>500</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -95,70 +95,7 @@ Click 'Add Role' to add more authors, creators, or contributors.</string>
       </layout>
      </item>
      <item>
-      <layout class="QVBoxLayout" name="verticalLayout">
-       <item>
-        <widget class="QDialogButtonBox" name="buttonBox">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Maximum" vsizetype="Expanding">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>16777215</width>
-           <height>56</height>
-          </size>
-         </property>
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="standardButtons">
-          <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="btMore">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Ignored" vsizetype="Fixed">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>16777215</width>
-           <height>25</height>
-          </size>
-         </property>
-         <property name="sizeIncrement">
-          <size>
-           <width>0</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="baseSize">
-          <size>
-           <width>0</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="text">
-          <string>More</string>
-         </property>
-         <property name="checkable">
-          <bool>false</bool>
-         </property>
-         <property name="default">
-          <bool>false</bool>
-         </property>
-         <property name="flat">
-          <bool>false</bool>
-         </property>
-        </widget>
-       </item>
-      </layout>
+      <layout class="QVBoxLayout" name="verticalLayout"/>
      </item>
     </layout>
    </item>
@@ -177,7 +114,10 @@ Click 'Add Role' to add more authors, creators, or contributors.</string>
          </size>
         </property>
         <property name="alternatingRowColors">
-         <bool>false</bool>
+         <bool>true</bool>
+        </property>
+        <property name="selectionBehavior">
+         <enum>QAbstractItemView::SelectRows</enum>
         </property>
        </widget>
       </item>
@@ -185,22 +125,6 @@ Click 'Add Role' to add more authors, creators, or contributors.</string>
        <layout class="QVBoxLayout" name="verticalLayout_5">
         <item>
          <layout class="QVBoxLayout" name="verticalLayout_2">
-          <item>
-           <spacer name="verticalSpacer_4">
-            <property name="orientation">
-             <enum>Qt::Vertical</enum>
-            </property>
-            <property name="sizeType">
-             <enum>QSizePolicy::Fixed</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>20</width>
-              <height>30</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
           <item>
            <widget class="QPushButton" name="btAddBasic">
             <property name="toolTip">
@@ -281,7 +205,7 @@ You can also use a ';' between values to quickly create multiple entries of the 
             <item>
              <widget class="QToolButton" name="tbMoveUp">
               <property name="toolTip">
-               <string>Move the first selected row up.</string>
+               <string>Move the selected rows up.  Readers may display entries in the order they are listed.</string>
               </property>
               <property name="text">
                <string>...</string>
@@ -294,7 +218,7 @@ You can also use a ';' between values to quickly create multiple entries of the 
             <item>
              <widget class="QToolButton" name="tbMoveDown">
               <property name="toolTip">
-               <string>Move the first selected row down.</string>
+               <string>Move the selected rows down.</string>
               </property>
               <property name="text">
                <string>...</string>
@@ -326,14 +250,19 @@ You can also use a ';' between values to quickly create multiple entries of the 
      </layout>
     </widget>
    </item>
+   <item row="2" column="0">
+    <widget class="QDialogButtonBox" name="buttonBox">
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+     </property>
+    </widget>
+   </item>
   </layout>
  </widget>
  <tabstops>
   <tabstop>leTitle</tabstop>
   <tabstop>leAuthor</tabstop>
   <tabstop>cbLanguages</tabstop>
-  <tabstop>buttonBox</tabstop>
-  <tabstop>btMore</tabstop>
   <tabstop>btAddBasic</tabstop>
   <tabstop>btAddRole</tabstop>
   <tabstop>btCopy</tabstop>
@@ -349,12 +278,12 @@ You can also use a ';' between values to quickly create multiple entries of the 
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>438</x>
-     <y>66</y>
+     <x>299</x>
+     <y>417</y>
     </hint>
     <hint type="destinationlabel">
-     <x>157</x>
-     <y>274</y>
+     <x>299</x>
+     <y>219</y>
     </hint>
    </hints>
   </connection>
@@ -365,12 +294,12 @@ You can also use a ';' between values to quickly create multiple entries of the 
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>438</x>
-     <y>66</y>
+     <x>299</x>
+     <y>417</y>
     </hint>
     <hint type="destinationlabel">
-     <x>286</x>
-     <y>274</y>
+     <x>299</x>
+     <y>219</y>
     </hint>
    </hints>
   </connection>

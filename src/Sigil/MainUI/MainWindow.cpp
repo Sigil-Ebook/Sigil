@@ -487,15 +487,13 @@ void MainWindow::InsertImage()
 
 void MainWindow::SetViewState(MainWindow::ViewState view_state)
 {
-    if (view_state == m_ViewState) {
-        return;
-    }
     if (view_state == MainWindow::ViewState_Unknown) {
         view_state = ViewState_BookView;
     }
 
+    bool set_tab_state = m_ViewState != view_state;
     m_ViewState = view_state;
-    UpdateViewState();
+    UpdateViewState(set_tab_state);
 }
 
 
@@ -894,7 +892,7 @@ void MainWindow::ChangeSignalsWhenTabChanges( ContentTab* old_tab, ContentTab* n
 }
 
 
-void MainWindow::UpdateViewState()
+void MainWindow::UpdateViewState(bool set_tab_state)
 {
     ContentTab &tab = GetCurrentContentTab();
     if (&tab == NULL) {
@@ -916,10 +914,12 @@ void MainWindow::UpdateViewState()
             SetStateActionsBookView();
         }
 
-        FlowTab *ftab = dynamic_cast<FlowTab *>(&tab);
-        if (ftab) {
-            ftab->SetViewState(m_ViewState);
-        }
+        if (set_tab_state) {
+            FlowTab *ftab = dynamic_cast<FlowTab *>(&tab);
+            if (ftab) {
+                ftab->SetViewState(m_ViewState);
+            }
+        } 
     }
     else if (type == Resource::XMLResourceType ||
              type == Resource::XPGTResourceType ||
@@ -989,7 +989,7 @@ void MainWindow::SetStateActionsBookOrCodeView()
     ui.actionSplitView->setEnabled(true);
     ui.actionCodeView->setEnabled(true);
 
-    ui.actionBookView->setChecked(true);
+    ui.actionBookView->setChecked(false);
     ui.actionSplitView->setChecked(false);
     ui.actionCodeView->setChecked(false);
 
@@ -1000,6 +1000,7 @@ void MainWindow::SetStateActionsBookOrCodeView()
 void MainWindow::SetStateActionsBookView()
 {
     SetStateActionsBookOrCodeView();
+    ui.actionBookView->setChecked(true);
 
     m_FindReplace->SetCapabilities(FindReplace::CAPABILITY_FIND);
 }
@@ -1007,10 +1008,7 @@ void MainWindow::SetStateActionsBookView()
 void MainWindow::SetStateActionsSplitView()
 {
     SetStateActionsBookOrCodeView();
-
-    ui.actionBookView ->setChecked(false);
     ui.actionSplitView->setChecked(true);
-    ui.actionCodeView ->setChecked(false);
 
     m_FindReplace->SetCapabilities(FindReplace::CAPABILITY_ALL);
 }
@@ -1018,10 +1016,7 @@ void MainWindow::SetStateActionsSplitView()
 void MainWindow::SetStateActionsCodeView()
 {
     SetStateActionsBookOrCodeView();
-
-    ui.actionBookView ->setChecked(false);
-    ui.actionSplitView->setChecked(false);
-    ui.actionCodeView ->setChecked(true);
+    ui.actionCodeView->setChecked(true);
 
     m_FindReplace->SetCapabilities(FindReplace::CAPABILITY_ALL);
 }

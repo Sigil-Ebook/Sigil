@@ -48,11 +48,6 @@ public:
      */
     MetaEditor( OPFResource &opf, QWidget *parent = 0 );
 
-    /**
-     * Destructor.
-     */
-    ~MetaEditor();	
-
 protected:
 
     /**
@@ -61,13 +56,6 @@ protected:
     void showEvent( QShowEvent * event );  
 
 private slots:
-
-    /**
-     * More/Less button functionality. 
-     * Switches the display between the "more" version with
-     * the metadata table and the "less" version without it.
-     */
-    void ToggleMoreLess();
 
     /**
      * Inserts a metadata field with the provided name 
@@ -230,12 +218,6 @@ private:
      * The item model that stores the meta information.
      */
     QStandardItemModel m_MetaModel;
-
-    /**
-     * Stores the current "more/less" display 
-     * state of the dialog.
-     */
-    bool m_isMore;
 
     /**
      * The OPF whose metadata is being edited.

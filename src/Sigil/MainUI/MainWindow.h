@@ -323,7 +323,11 @@ private slots:
      */
     void ChangeSignalsWhenTabChanges( ContentTab* old_tab, ContentTab* new_tab ); 
 
-    void UpdateViewState();
+    /**
+     * Updates the toolbars/menus based on current state 
+     * and updates the tab state if requested
+     */
+    void UpdateViewState(bool set_tab_state = true);
 
     /**
      * Updates the toolbars based on current tab state and changes.
