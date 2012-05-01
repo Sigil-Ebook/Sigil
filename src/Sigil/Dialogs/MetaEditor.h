@@ -126,6 +126,12 @@ private slots:
      */
     void FillMetadataFromDialog();
 
+    /**
+     * Writes all the stored dialog settings like
+     * window position, geometry etc.
+     */
+    void WriteSettings();
+
 private:
 
     // We need this to be able to use a forward
@@ -195,12 +201,6 @@ private:
      * window position, geometry etc.
      */
     void ReadSettings();
-
-    /**
-     * Writes all the stored dialog settings like 
-     * window position, geometry etc.
-     */
-    void WriteSettings();
 
     /**
      * Performs specific changes based on the OS platform.

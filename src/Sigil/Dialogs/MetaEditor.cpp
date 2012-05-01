@@ -30,7 +30,6 @@
 #include "Misc/SettingsStore.h"
 #include "ResourceObjects/OPFResource.h"
 
-static const int DEFAULT_EXPANDED_HEIGHT = 304;
 static const QString SETTINGS_GROUP      = "meta_editor";
 
 MetaEditor::MetaEditor( OPFResource &opf, QWidget *parent )
@@ -452,7 +451,6 @@ void MetaEditor::FillLanguageComboBox()
     }	
 }
 
-
 void MetaEditor::SetUpMetaTable()
 {
     QStringList header;
@@ -469,6 +467,12 @@ void MetaEditor::SetUpMetaTable()
     // Make the header fill all the available space
     ui.tvMetaTable->horizontalHeader()->setStretchLastSection( false );
     ui.tvMetaTable->verticalHeader()->setResizeMode( QHeaderView::ResizeToContents );
+
+    // Divide column widths roughly equally for default view
+    int columnCount = m_MetaModel.columnCount();
+    for (int i=0; i < columnCount; i++) {
+        ui.tvMetaTable->setColumnWidth(i, 160);
+    }
 
     ui.tvMetaTable->setSortingEnabled( false );
     ui.tvMetaTable->setWordWrap( true );
