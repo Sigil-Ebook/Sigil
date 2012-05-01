@@ -614,10 +614,9 @@ bool OPFModel::FilenameIsValid( const QString &old_filename, const QString &new_
         }
     }
 
-    const QString &old_extension = QFileInfo( old_filename ).suffix();
-    const QString &new_extension = QFileInfo( new_filename ).suffix();
+    const QString &extension = QFileInfo( new_filename ).suffix();
 
-    QString new_filename_without_extension = new_filename.left( new_filename.length() - new_extension.length() - 1 );
+    QString new_filename_without_extension = new_filename.left( new_filename.length() - extension.length() - 1 );
 
     if ( new_filename.isEmpty() || new_filename_without_extension.isEmpty() )
     {
@@ -628,30 +627,6 @@ bool OPFModel::FilenameIsValid( const QString &old_filename, const QString &new_
         return false;
     }
 
-
-    // We normally don't allow an extension change, but we
-    // allow it for changes within the following sets:
-    // HTML, HTM, XHTML and XML.
-    // JPG, JPEG.
-    // TIF, TIFF.
-    if ( old_extension != new_extension &&
-         !(
-             ( TEXT_EXTENSIONS.contains( old_extension ) && TEXT_EXTENSIONS.contains( new_extension ) ) ||
-             ( JPG_EXTENSIONS.contains( old_extension ) && JPG_EXTENSIONS.contains( new_extension ) ) ||
-             ( TIFF_EXTENSIONS.contains( old_extension ) && TIFF_EXTENSIONS.contains( new_extension ) )
-         )
-       )
-    {
-        Utility::DisplayStdErrorDialog( 
-            tr( "This file's extension cannot be changed in that way.\n"
-                "You used \"%1\", and the old extension was \"%2\"." )
-            .arg( new_extension )
-            .arg( old_extension )
-            );
-
-        return false;
-    }
-    
     if ( new_filename != m_Book->GetFolderKeeper().GetUniqueFilenameVersion( new_filename ) )
     {
         Utility::DisplayStdErrorDialog( 

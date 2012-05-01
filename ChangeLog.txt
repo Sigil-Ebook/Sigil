@@ -1,59 +1,58 @@
 Sigil 0.6.0 TBA
-    New Features:
+New Features:
+534: Link to Stylesheets option for HTML files.
+1311: Metadata support for all RfC 639-2 languages.
+1335: Run Save As automatically if saving new html file.
+1366: TOC window tree support for collapse/expand all.
+759: Auto generate inline TOC HTML file.
+32: Metadata custom "date" options.
+33: Metadata options for creators and contributors.
+71: Create a browser "back" option in Preview.
+1374: Split View is now Preview View with code inspector.
+1375: Replace Book View Editor with editor based on CKEditor.
+      - Implements a number of requested features and fixes
+      - Updated internal storage of text for easier management
+60: Book View buttons for text alignment.
+425: Book View Shift+PgUp/PgDn should highlight text.
+184: Book View Superscript/subscript buttons 
+443: Book View RTL languages support (right to left rtl tag).
+691: Book View table button/creation 
+1333: Book View basic Hyperlink button/creation
+504: Book View button for normal paragraph
+505: Book View support for more element types
+1265: Preference to manually set UI language.
+1295: Metadata Editor support for translating descriptions.
+77: Metadata support for multiple language elements.
+1180: Spell Check in Find&Replace to find misspelled words.
+1045: Better highlighting of misspelled words (use F&R)
+1031: Preferences for User and Additional Dictionary locations.
+1058: Use ini format for settings on all platforms (also see 1277)
+1376: Change organization name and location of settings to sigil-ebook.
+1381: Switch to using Minizip for 1.1 for ZIP support. 
+      - Remove ZipArchive and Zipios++.
+1380: Update zlib to 1.2.6.
+1383: Remove the use of a precompiled header.
+1377: Update PCRE to 8.30.
+      - Make PCRE 8.30 with UTF-16 support the minimum required version.
+      - Bundled PCRE uses PCRE's JIT for faster searching.
+      - Modify Regex search code to use UTF-16 instead of UTF-8 for all
+        searches. This brings search in line with the view components
+        being able to display UTF-16 characters.
+1378: Update Hunspell to 1.3.2.
+1379: Update Boost to Boost 1.49.0.
+1283: Spell check should have an ignore option.
 
-     534: Link to Stylesheets option for HTML files.
-    1311: Metadata support for all RfC 639-2 languages.
-    1335: Run Save As automatically if saving new html file.
-    1366: TOC window tree support for collapse/expand all.
-     759: Auto generate inline TOC HTML file.
-      32: Metadata custom "date" options.
-      33: Metadata options for creators and contributors.
-     471: Create a browser "back" option in Preview.
-    1374: Split View is now Preview View with code inspector.
-    1375: Replace Book View Editor with editor based on CKEditor.
-          - Implements a number of requested features and fixes
-          - Updated internal storage of text for easier management
-      60: Book View buttons for text alignment.
-     425: Book View Shift+PgUp/PgDn should highlight text.
-     184: Book View Superscript/subscript buttons 
-     443: Book View RTL languages support (right to left rtl tag).
-     691: Book View table button/creation 
-    1333: Book View basic Hyperlink button/creation
-     504: Book View button for normal paragraph
-     505: Book View support for more element types
-    1265: Preference to manually set UI language.
-    1295: Metadata Editor support for translating descriptions.
-      77: Metadata support for multiple language elements.
-    1180: Spell Check in Find&Replace to find misspelled words.
-    1045: Better highlighting of misspelled words (use F&R)
-    1031: Preferences for User and Additional Dictionary locations.
-    1058: Use ini format for settings on all platforms (also see 1277)
-    1376: Change organization name and location of settings to sigil-ebook.
-    1381: Switch to using Minizip for 1.1 for ZIP support. 
-          - Remove ZipArchive and Zipios++.
-    1380: Update zlib to 1.2.6.
-    1383: Remove the use of a precompiled header.
-    1377: Update PCRE to 8.30.
-          - Make PCRE 8.30 with UTF-16 support the minimum required version.
-          - Bundled PCRE uses PCRE's JIT for faster searching.
-          - Modify Regex search code to use UTF-16 instead of UTF-8 for all
-            searches. This brings search in line with the view components
-            being able to display UTF-16 characters.
-    1378: Update Hunspell to 1.3.2.
-    1379: Update Boost to Boost 1.49.0.
-    1283: Spell check should have an ignore option.
-
-    Bug Fixes:
-
-    1363: Open and Save file directory inconsistent.
-    1130: Content.opf edits overwritten by save.
-    1354: Chapter Split breaks links in second half of document
-     999: Split does not update file references in TOC.
-    1281: Semantics information retained for deleted files.
-    1138: F&R Replace All crashes using current file and large replaces
-    1296: F&R Search All crashes if HTML file doesn't have focus.
-    1382: Settings not saving to disk.
-    1272: Tabs should always use the View state set by the View buttons
+Bug Fixes:
+1308: Allow renaming file extensions.
+1363: Open and Save file directory inconsistent.
+1130: Content.opf edits overwritten by save.
+1354: Chapter Split breaks links in second half of document
+999: Split does not update file references in TOC.
+1281: Semantics information retained for deleted files.
+1138: F&R Replace All crashes using current file and large replaces
+1296: F&R Search All crashes if HTML file doesn't have focus.
+1382: Settings not saving to disk.
+1272: Tabs should always use the View state set by the View buttons
 
 Sigil 0.5.3 2012.02.25
     - Fix issue 1254: Bulk rename will stop if one name matches, context menu
