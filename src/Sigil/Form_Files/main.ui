@@ -867,7 +867,7 @@
   </action>
   <action name="actionAddExistingFile">
    <property name="text">
-    <string>Add Existing File(s)...</string>
+    <string>Add Existing Files...</string>
    </property>
   </action>
   <action name="actionNewCSSFile">
