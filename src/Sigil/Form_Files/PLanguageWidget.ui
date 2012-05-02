@@ -28,7 +28,7 @@ If a translation for specific word or phrase is not available it will be display
 Use Preferences-&gt;Spell Check to set the Spell Check language.</string>
          </property>
          <property name="text">
-          <string>User Interface Language</string>
+          <string>User Interface Language:</string>
          </property>
         </widget>
        </item>
@@ -38,10 +38,10 @@ Use Preferences-&gt;Spell Check to set the Spell Check language.</string>
        <item row="1" column="0">
         <widget class="QLabel" name="label_metaeditor">
          <property name="toolTip">
-          <string>Set the default language used by the Meta Editor for new books.</string>
+          <string>Set the default language used by the Metadata Editor for new books.</string>
          </property>
          <property name="text">
-          <string>Default Language For Meta Editor:</string>
+          <string>Default Language For Metadata:</string>
          </property>
         </widget>
        </item>
