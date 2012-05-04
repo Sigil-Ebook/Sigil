@@ -40,6 +40,8 @@ BookViewPreview::BookViewPreview(QWidget *parent)
     : QWebView(parent),
       m_isLoadFinished(false)
 {
+    setContextMenuPolicy(Qt::NoContextMenu);
+
     // Set the Zoom factor but be sure no signals are set because of this.
     SettingsStore settings;
     m_CurrentZoomFactor = settings.zoomWeb();
