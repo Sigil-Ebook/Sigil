@@ -67,6 +67,8 @@ ImageTab::ImageTab( ImageResource& resource, QWidget *parent )
     SettingsStore settings;
     m_CurrentZoomFactor = settings.zoomImage();
     Zoom();
+
+    ConnectSignalsToSlots();
 }
 
 float ImageTab::GetZoomFactor() const
@@ -97,6 +99,11 @@ void ImageTab::UpdateDisplay()
     }
 }
 
+void ImageTab::ConnectSignalsToSlots()
+{
+    connect(&m_Resource, SIGNAL(Modified()), &m_WebView, SLOT(reload()));
+    connect(&m_Resource, SIGNAL(Deleted(Resource)), this, SLOT(Close()));
+}
 
 void ImageTab::Zoom()
 {

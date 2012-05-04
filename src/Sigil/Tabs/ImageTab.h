@@ -45,6 +45,8 @@ public:
 
 private:
 
+    void ConnectSignalsToSlots();
+
     void Zoom();
 
     ///////////////////////////////
