@@ -74,6 +74,8 @@ public:
 
     void ReloadTabData();
 
+    void UpdateTabDisplay();
+
 public slots:
 
     /**
@@ -264,8 +266,6 @@ private:
      * @return \c true if the tab was successfully added.
      */
     bool AddNewContentTab( ContentTab *new_tab, bool precede_current_tab );
-
-    void UpdateTabDisplay( ContentTab *tab );
 
 
     ///////////////////////////////

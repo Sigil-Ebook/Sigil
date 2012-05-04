@@ -1459,6 +1459,7 @@ void MainWindow::ZoomByFactor( float new_zoom_factor )
         return;
 
     tab.SetZoomFactor( new_zoom_factor );
+    m_TabManager.UpdateTabDisplay();
 }
 
 

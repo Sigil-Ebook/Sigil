@@ -506,8 +506,13 @@ bool TabManager::AddNewContentTab( ContentTab *new_tab, bool precede_current_tab
     return true;
 }   
 
-
-void TabManager::UpdateTabDisplay( ContentTab *tab )
+void TabManager::UpdateTabDisplay()
 {
-    tab->UpdateDisplay();
+    for (int i = 0; i < count(); ++i) {
+        ContentTab *tab = dynamic_cast<ContentTab *>(widget(i));
+
+        if (tab) {
+            tab->UpdateDisplay();
+        }
+    }
 }
