@@ -27,9 +27,6 @@
 
 class ImageResource;
 class QWebView;
-class QLabel;
-class QScrollArea;
-class QPixmap;
 
 class ImageTab : public ContentTab
 {
@@ -56,9 +53,7 @@ private:
 
     ImageResource &m_ImageResource;
 
-    QLabel &m_ImageLabel;
-
-    QScrollArea &m_ScrollArea;
+    QWebView &m_WebView;
 
     float m_CurrentZoomFactor;
 };
