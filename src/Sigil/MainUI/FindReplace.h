@@ -211,12 +211,12 @@ private:
     bool IsValidFindText();
 
     // Reads all the stored dialog settings like
-    // window position, geometry etc.
     void ReadSettings();
+    void ReadUIMode();
 
     // Writes all the stored dialog settings like
-    // window position, geometry etc.
     void WriteSettings();
+    void WriteUIMode();
 
     void ExtendUI();
 

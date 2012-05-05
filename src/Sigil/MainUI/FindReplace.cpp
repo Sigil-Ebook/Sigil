@@ -80,6 +80,7 @@ void FindReplace::SetUpFindText()
 
 void FindReplace::SetCapabilities(FR_Capabilities caps)
 {
+    WriteUIMode();
     m_capabilities = caps;
     ExtendUI();
 }
@@ -775,37 +776,36 @@ void FindReplace::ReadSettings()
     find_strings.removeDuplicates();
     ui.cbReplace->addItems( find_strings );
 
-    ui.cbSearchMode->setCurrentIndex( 0 );
-    int search_mode = settings.value( "search_mode", 0 ).toInt();
-    for ( int i = 0; i < ui.cbSearchMode->count(); ++i )
-    {
-        if ( ui.cbSearchMode->itemData( i ) == search_mode )
-        {
-            ui.cbSearchMode->setCurrentIndex( i );
-            break;
-        }
+    settings.endGroup();
+}
+
+void FindReplace::ReadUIMode()
+{
+    int index = -1;
+    int mode = -1;
+
+    SettingsStore settings;
+    settings.beginGroup(SETTINGS_GROUP);
+
+    ui.cbSearchMode->setCurrentIndex(0);
+    mode = settings.value(QString("search_mode_cap%1").arg(m_capabilities), 0).toInt();
+    index = ui.cbSearchMode->findData(mode);
+    if (index != -1) {
+        ui.cbSearchMode->setCurrentIndex(index);
     }
 
-    ui.cbLookWhere->setCurrentIndex( 0 );
-    int look_where = settings.value( "look_where", 0 ).toInt();
-    for ( int i = 0; i < ui.cbLookWhere->count(); ++i )
-    {
-        if ( ui.cbLookWhere->itemData( i )  == look_where )
-        {
-            ui.cbLookWhere->setCurrentIndex( i );
-            break;
-        }
+    ui.cbLookWhere->setCurrentIndex(0);
+    mode = settings.value(QString("look_where_cap%1").arg(m_capabilities), 0).toInt();
+    index = ui.cbLookWhere->findData(mode);
+    if (index != -1) {
+        ui.cbLookWhere->setCurrentIndex(index);
     }
 
-    ui.cbSearchDirection->setCurrentIndex( 0 );
-    int search_direction= settings.value( "search_direction", 0 ).toInt();
-    for ( int i = 0; i < ui.cbSearchDirection->count(); ++i )
-    {
-        if ( ui.cbSearchDirection->itemData( i ) == search_direction )
-        {
-            ui.cbSearchDirection->setCurrentIndex( i );
-            break;
-        }
+    ui.cbSearchDirection->setCurrentIndex(0);
+    mode = settings.value(QString("search_direction_cap%1").arg(m_capabilities), 0).toInt();
+    index = ui.cbSearchDirection->findData(mode);
+    if (index != -1) {
+        ui.cbSearchDirection->setCurrentIndex(index);
     }
 
     settings.endGroup();
@@ -822,9 +822,17 @@ void FindReplace::WriteSettings()
     settings.setValue( "find_strings", GetPreviousFindStrings() );
     settings.setValue( "replace_strings", GetPreviousReplaceStrings() );
 
-    settings.setValue( "search_mode", GetSearchMode() );
-    settings.setValue( "look_where", GetLookWhere() );
-    settings.setValue( "search_direction", GetSearchDirection() );
+    settings.endGroup();
+}
+
+void FindReplace::WriteUIMode()
+{
+    SettingsStore settings;
+    settings.beginGroup(SETTINGS_GROUP);
+
+    settings.setValue(QString("search_mode_cap%1").arg(m_capabilities), GetSearchMode());
+    settings.setValue(QString("look_where_cap%1").arg(m_capabilities), GetLookWhere());
+    settings.setValue(QString("search_direction_cap%1").arg(m_capabilities), GetSearchDirection());
 
     settings.endGroup();
 }
@@ -997,6 +1005,8 @@ void FindReplace::ExtendUI()
 
     ui.modeLayout->invalidate();
     ui.gridLayout->invalidate();
+
+    ReadUIMode();
 }
 
 
