@@ -846,8 +846,6 @@ Searchable* FindReplace::GetAvailableSearchable()
 // The UI is setup based on the capabilites.
 void FindReplace::ExtendUI()
 {
-    WriteSettings();
-
     FR_Capabilities caps = m_capabilities;
 
     // Clear these because we want to add their items based on the
@@ -873,7 +871,6 @@ void FindReplace::ExtendUI()
         ui.cbFind->show();
         ui.findNext->show();
         ui.count->show();
-        ui.cbFind->setCompleter(0);
 
         // Replace
         if (caps & FindReplace::CAPABILITY_REPLACE || caps & FindReplace::CAPABILITY_ALL) {
@@ -881,7 +878,6 @@ void FindReplace::ExtendUI()
             ui.cbReplace->show();
             ui.replaceNext->show();
             ui.replaceAll->show();
-            ui.cbReplace->setCompleter(0);
         }
         else {
             ui.replacel->hide();
@@ -1001,8 +997,6 @@ void FindReplace::ExtendUI()
 
     ui.modeLayout->invalidate();
     ui.gridLayout->invalidate();
-
-    ReadSettings();
 }
 
 
