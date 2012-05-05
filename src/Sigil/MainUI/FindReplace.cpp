@@ -167,7 +167,7 @@ void FindReplace::Count()
             return;
         }
 
-        count = searchable->Count( GetSearchRegex(), GetSearchMode() == SearchMode_SpellCheck );
+        count = searchable->Count( GetSearchRegex(), GetSearchMode() == FindReplace::SearchMode_SpellCheck );
     }
     else
     {
@@ -237,7 +237,7 @@ void FindReplace::ReplaceAll()
         {
             return;
         }
-        count = searchable->ReplaceAll( GetSearchRegex(), ui.cbReplace->lineEdit()->text(), GetSearchMode() == SearchMode_SpellCheck );
+        count = searchable->ReplaceAll( GetSearchRegex(), ui.cbReplace->lineEdit()->text(), GetSearchMode() == FindReplace::SearchMode_SpellCheck );
     }
     else 
     {
@@ -304,7 +304,7 @@ void FindReplace::FindText( Searchable::Direction direction )
             return;
         }
 
-        found = searchable->FindNext( GetSearchRegex(), direction, GetSearchMode() == SearchMode_SpellCheck );
+        found = searchable->FindNext( GetSearchRegex(), direction, GetSearchMode() == FindReplace::SearchMode_SpellCheck );
 
     }
     else 
@@ -345,7 +345,7 @@ void FindReplace::ReplaceText( Searchable::Direction direction )
     {
         // If we have the matching text selected, replace it
         // This will not do anything if matching text is not selected.
-        searchable->ReplaceSelected( GetSearchRegex(), ui.cbReplace->lineEdit()->text(), direction, GetSearchMode() == SearchMode_SpellCheck );
+        searchable->ReplaceSelected( GetSearchRegex(), ui.cbReplace->lineEdit()->text(), direction, GetSearchMode() == FindReplace::SearchMode_SpellCheck );
     }
 
     if ( direction == Searchable::Direction_Up)
@@ -391,15 +391,15 @@ QString FindReplace::GetSearchRegex()
     QString search( ui.cbFind->currentText() );
 
     // Search type
-    if ( GetSearchMode() == SearchMode_Normal || GetSearchMode() == SearchMode_Case_Sensitive )
+    if ( GetSearchMode() == FindReplace::SearchMode_Normal || GetSearchMode() == FindReplace::SearchMode_Case_Sensitive )
     {
         search = QRegExp::escape(search);
 
-        if ( GetSearchMode() == SearchMode_Normal ) {
+        if ( GetSearchMode() == FindReplace::SearchMode_Normal ) {
             search = "(?i)" + search;
         }
     }
-	else if ( GetSearchMode() == SearchMode_SpellCheck && ui.cbFind->currentText().isEmpty() )
+    else if ( GetSearchMode() == FindReplace::SearchMode_SpellCheck && ui.cbFind->currentText().isEmpty() )
     {
         search = ".*";
     }
@@ -459,7 +459,7 @@ int FindReplace::CountInFiles()
             GetSearchRegex(),
             GetHTMLFiles(),
             SearchOperations::CodeViewSearch, 
-            GetSearchMode() == SearchMode_SpellCheck );
+            GetSearchMode() == FindReplace::SearchMode_SpellCheck );
 }
 
 
@@ -475,7 +475,7 @@ int FindReplace::ReplaceInAllFiles()
             ui.cbReplace->lineEdit()->text(),
             GetHTMLFiles(),
             SearchOperations::CodeViewSearch,
-            GetSearchMode() == SearchMode_SpellCheck );
+            GetSearchMode() == FindReplace::SearchMode_SpellCheck );
 
     return count;
 }
@@ -491,7 +491,7 @@ bool FindReplace::FindInAllFiles( Searchable::Direction direction )
         searchable = GetAvailableSearchable();
         if ( searchable )
         {
-            found = searchable->FindNext( GetSearchRegex(), direction, GetSearchMode() == SearchMode_SpellCheck, false, false);
+            found = searchable->FindNext( GetSearchRegex(), direction, GetSearchMode() == FindReplace::SearchMode_SpellCheck, false, false);
         }
     }
 
@@ -523,7 +523,7 @@ bool FindReplace::FindInAllFiles( Searchable::Direction direction )
             searchable = GetAvailableSearchable();
             if ( searchable )
             {
-                found = searchable->FindNext( GetSearchRegex(), direction, GetSearchMode() == SearchMode_SpellCheck, true, false );
+                found = searchable->FindNext( GetSearchRegex(), direction, GetSearchMode() == FindReplace::SearchMode_SpellCheck, true, false );
             }
         }
         else
@@ -531,7 +531,7 @@ bool FindReplace::FindInAllFiles( Searchable::Direction direction )
             if ( searchable )
             {
                 // Check the part of the original file above the cursor
-                found = searchable->FindNext( GetSearchRegex(), direction, GetSearchMode() == SearchMode_SpellCheck, false, false );
+                found = searchable->FindNext( GetSearchRegex(), direction, GetSearchMode() == FindReplace::SearchMode_SpellCheck, false, false );
             }
         }
     }
@@ -755,7 +755,7 @@ FindReplace::SearchDirection FindReplace::GetSearchDirection()
 
 bool FindReplace::IsValidFindText()
 {
-    return  !ui.cbFind->lineEdit()->text().isEmpty() || GetSearchMode() == SearchMode_SpellCheck;
+    return  !ui.cbFind->lineEdit()->text().isEmpty() || GetSearchMode() == FindReplace::SearchMode_SpellCheck;
 }
 
 
