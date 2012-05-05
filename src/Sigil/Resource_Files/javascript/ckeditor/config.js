@@ -13,5 +13,6 @@
         { name: 'insert', items : [ 'Table','HorizontalRule','SpecialChar','PageBreak' ] },
         { name: 'styles', items : [ 'Styles','Format','Font','FontSize' ] },
         { name: 'colors', items : [ 'TextColor','BGColor' ] },
-    ]
+    ];
+    config.entities = false;
 };
