@@ -1,5 +1,6 @@
 Sigil 0.6.0 TBA
 New Features:
+1369: Add support for \xDD as Regex replacement in F&R.
 1285: Display image properties.
 534: Link to Stylesheets option for HTML files.
 1311: Metadata support for all RfC 639-2 languages.
