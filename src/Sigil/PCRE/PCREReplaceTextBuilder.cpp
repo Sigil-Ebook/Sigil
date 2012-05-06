@@ -24,6 +24,8 @@
 #include "PCRE/PCREReplaceTextBuilder.h"
 #include "Misc/Utility.h"
 
+#define is_hex(a) (((a) >= '0' && (a) <= '9') || ((a) >= 'a' && (a) <= 'f') || ((a) >= 'A' && (a) <= 'F') ? true : false)
+
 PCREReplaceTextBuilder::PCREReplaceTextBuilder()
 {
     resetState();
@@ -62,6 +64,8 @@ bool PCREReplaceTextBuilder::BuildReplacementText(SPCRE &sre,
     // Stores a named back reference we build as we parse the string.
     QString backref_name;
     QString invalid_contol;
+    // \x hex code.
+    QString control_x_hex;
     // The state of our progress through the replacment string.
     bool in_control = false;
 
@@ -190,7 +194,7 @@ bool PCREReplaceTextBuilder::BuildReplacementText(SPCRE &sre,
             // We know the control character.
             else {
                 if (control_char == 'g') {
-                    if ( backref_bracket_start_char.isNull() ) {
+                    if (backref_bracket_start_char.isNull()) {
                         // We only support named references within
                         // {} and <>.
                         if (c == '{' || c == '<') {
@@ -233,6 +237,18 @@ bool PCREReplaceTextBuilder::BuildReplacementText(SPCRE &sre,
                         }
                     }
                 }
+                else if (control_char == 'x') {
+                    if (is_hex(c)) {
+                        control_x_hex += c;
+                        if (control_x_hex.count() == 2) {
+                            accumulateReplcementText(QChar(control_x_hex.toUInt(NULL, 16)));
+                            in_control = false;
+                        }
+                    } else {
+                        accumulateReplcementText(invalid_contol);
+                        in_control = false;
+                    }
+                }
                 // Invalid or unsupported control.
                 else {
                     accumulateReplcementText(invalid_contol);
@@ -249,6 +265,8 @@ bool PCREReplaceTextBuilder::BuildReplacementText(SPCRE &sre,
                 invalid_contol = c;
                 // Reset the control character that is after this
                 control_char = QChar();
+                // Reset the \x character.
+                control_x_hex = QString();
                 // We are now in a control.
                 in_control = true;
             }
