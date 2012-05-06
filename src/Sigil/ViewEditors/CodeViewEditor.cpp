@@ -57,7 +57,7 @@ static const int BASE_FONT_SIZE          = 10;
 static const int LINE_NUMBER_MARGIN      = 5;
 static const QColor NUMBER_AREA_BGCOLOR  = QColor( 225, 225, 225 );
 static const QColor NUMBER_AREA_NUMCOLOR = QColor( 125, 125, 125 );
-                  
+
 static const QString XML_OPENING_TAG        = "(<[^>/][^>]*[^>/]>|<[^>/]>)";
 static const QString NEXT_OPEN_TAG_LOCATION = "<\\s*(?!/)";
 
@@ -74,7 +74,6 @@ CodeViewEditor::CodeViewEditor( HighlighterType high_type, bool check_spelling, 
     m_ScrollOneLineUp( *(   new QShortcut( QKeySequence( Qt::ControlModifier + Qt::Key_Up   ), this, 0, 0, Qt::WidgetShortcut ) ) ),
     m_ScrollOneLineDown( *( new QShortcut( QKeySequence( Qt::ControlModifier + Qt::Key_Down ), this, 0, 0, Qt::WidgetShortcut ) ) ),
     m_isLoadFinished( false ),
-    m_caretPos(0),
     m_DelayedCursorScreenCenteringRequired( false ),
     m_checkSpelling( check_spelling ),
     m_spellingMapper( new QSignalMapper( this ) ),
@@ -902,7 +901,7 @@ void CodeViewEditor::UpdateUndoAvailable( bool available )
 
 
 void CodeViewEditor::UpdateLineNumberAreaMargin()
-{ 
+{
     // The left margin width depends on width of the line number area
     setViewportMargins( CalculateLineNumberAreaWidth(), 0, 0, 0 );
 }
@@ -916,7 +915,7 @@ void CodeViewEditor::UpdateLineNumberArea( const QRect &area_to_update, int vert
         m_LineNumberArea->scroll( 0, vertically_scrolled );
 
     else // otherwise update the required portion
-    
+
         m_LineNumberArea->update( 0, area_to_update.y(), m_LineNumberArea->width(), area_to_update.height() );
 
     if ( area_to_update.contains( viewport()->rect() ) )

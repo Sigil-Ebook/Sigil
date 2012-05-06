@@ -685,13 +685,6 @@ void FlowTab::DelayedInitialization()
         {
             SplitView();
 
-            if (m_LineToScrollTo > 0) {
-                m_wCodeView.ScrollToLine(m_LineToScrollTo);
-            }
-            else {
-                m_wCodeView.ScrollToFragment(m_FragmentToScroll.toString());
-            }
-
             m_wBookPreview.ScrollToFragmentAfterLoad(m_FragmentToScroll.toString());
             break;
         }

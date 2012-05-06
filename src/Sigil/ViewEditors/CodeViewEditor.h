@@ -427,8 +427,6 @@ private:
      */
     bool m_isLoadFinished;
 
-    int m_caretPos;
-
     /**
      * When \c true, a centerCursor() call will be executed
      * once after the View is repainted.
