@@ -55,15 +55,15 @@ public:
 
     /**
      * Constructor.
-     * 
+     *
      * @param resource The resource this tab will be displaying.
      * @param fragment The URL fragment ID to which the tab should scroll.
      * @param view_state In which View should the resource open or switch to.
      * @param line_to_scroll_to To which line should the resource scroll.
      * @param parent The parent of this QObject.
      */
-    FlowTab( HTMLResource& resource, 
-             const QUrl &fragment, 
+    FlowTab( HTMLResource& resource,
+             const QUrl &fragment,
              MainWindow::ViewState view_state,
              int line_to_scroll_to = -1,
              QWidget *parent = 0 );
@@ -93,7 +93,7 @@ public:
 
     Searchable* GetSearchableContent();
 
-    void SetViewState( MainWindow::ViewState new_view_state );
+    bool SetViewState( MainWindow::ViewState new_view_state );
 
     bool IsLoadingFinished();
 
@@ -114,7 +114,7 @@ public:
     /**
      * Scrolls the tab to the top.
      */
-    void ScrollToTop(); 
+    void ScrollToTop();
 
     // Overrides inherited from WellFormedContent
 
@@ -141,7 +141,7 @@ public slots:
 
     /**
      * Implements Redo action functionality.
-     */ 
+     */
     void Redo();
 
     /**
@@ -175,7 +175,7 @@ public slots:
     void SplitOnSGFChapterMarkers();
 
     /**
-     * Implements \em a \em part of Insert image action functionality. 
+     * Implements \em a \em part of Insert image action functionality.
      * The rest is in MainWindow. It has to be, FlowTabs don't
      * have a reference to the Book object.
      *
@@ -207,8 +207,8 @@ public slots:
      *  Implements Code View action functionality.
      */
     void CodeView();
-    
-    // inherited 
+
+    // inherited
 
     void SaveTabContent();
 
@@ -231,7 +231,7 @@ signals:
     /**
      * Emitted when the View changes.
      */
-    void ViewChanged();    
+    void ViewChanged();
 
     /**
      * Emitted when the selection in the view has changed.
@@ -281,7 +281,7 @@ private slots:
     /**
      * Emits the ContentChanged signal.
      */
-    void EmitContentChanged();  
+    void EmitContentChanged();
 
     void EmitUpdateCursorPosition();
 
@@ -293,7 +293,7 @@ private slots:
      */
     void LeaveEditor( QWidget *editor );
 
-    /** 
+    /**
      * Receives the signal emitted when an editor gains focus. Ensures that
      * the editor is displaying the correct content.
      *
@@ -330,7 +330,7 @@ private:
      * window position, geometry etc.
      */
     void ReadSettings();
-    
+
     /**
      * Writes all the stored application settings like
      * window position, geometry etc.
@@ -380,7 +380,7 @@ private:
     /**
      * The Code View Editor.
      * Displays and edits the raw code.
-     */ 
+     */
     CodeViewEditor &m_wCodeView;
 
     QWebInspector &m_inspector;
@@ -397,7 +397,7 @@ private:
     MainWindow::ViewState m_ViewState;
 
     /**
-     * The component used to display a dialog about 
+     * The component used to display a dialog about
      * well-formedness errors.
      */
     WellFormedCheckComponent& m_WellFormedCheckComponent;

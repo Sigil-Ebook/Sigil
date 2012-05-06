@@ -327,7 +327,7 @@ private slots:
      * Updates the toolbars/menus based on current state 
      * and updates the tab state if requested
      */
-    void UpdateViewState(bool set_tab_state = true);
+    bool UpdateViewState(bool set_tab_state = true);
 
     /**
      * Updates the toolbars based on current tab state and changes.

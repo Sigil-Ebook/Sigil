@@ -238,24 +238,26 @@ Searchable* FlowTab::GetSearchableContent()
 }
 
 
-void FlowTab::SetViewState(MainWindow::ViewState new_view_state)
+bool FlowTab::SetViewState(MainWindow::ViewState new_view_state)
 {
-    disconnect(&m_HTMLResource, SIGNAL(Modified()), this, SLOT(ResourceModified()));
-
     // Do we really need to do anything?
     // Ignore this function if we are in the middle of doing an initial load
     // of the content. We don't want it to save over the content with nothing
     // if this is called before the delayed initialization function is called.
     if (m_initialLoad) {
-        return;
+        return false;
     }
     if (new_view_state == m_ViewState) {
-        return;
+        return false;
     }
     if (new_view_state == MainWindow::ViewState_BookView && !m_wBookView.IsLoadingFinished()) {
-        return;
+        return false;
+    }
+    if (!IsDataWellFormed()) {
+        return false;
     }
 
+    disconnect(&m_HTMLResource, SIGNAL(Modified()), this, SLOT(ResourceModified()));
     // We do a save before changing to ensure we don't lose any unsaved data
     // in the previous view.
     SaveTabContent();
@@ -272,6 +274,8 @@ void FlowTab::SetViewState(MainWindow::ViewState new_view_state)
         connect(&m_HTMLResource, SIGNAL(Modified()), this, SLOT(ResourceModified()));
         BookView();
     }
+
+    return true;
 }
 
 bool FlowTab::IsLoadingFinished()
@@ -721,9 +725,6 @@ void FlowTab::EmitUpdateCursorPosition()
 
 void FlowTab::EnterBookView()
 {
-    if (!IsDataWellFormed()) {
-        return;
-    }
     emit EnteringBookView();
 }
 

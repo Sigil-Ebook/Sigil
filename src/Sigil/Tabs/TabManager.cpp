@@ -36,7 +36,7 @@
 #include "Tabs/XPGTTab.h"
 
 TabManager::TabManager( QWidget *parent )
-    : 
+    :
     QTabWidget( parent )
 {
     connect( this, SIGNAL( currentChanged( int ) ),    this, SLOT( EmitTabChanged() ) );
@@ -108,8 +108,8 @@ bool TabManager::TabDataIsWellFormed()
     WellFormedContent *content = GetWellFormedContent();
 
     if ( content )
-        
-        return content->IsDataWellFormed(); 
+
+        return content->IsDataWellFormed();
 
     return true;
 }
@@ -168,14 +168,14 @@ void TabManager::SaveTabData()
     for ( int i = 0; i < count(); ++i )
     {
         ContentTab *tab = qobject_cast< ContentTab* >( widget( i ) );
-        
+
         if ( tab )
 
             tab->SaveTabContent();
     }
 }
 
-void TabManager::OpenResource( Resource& resource, 
+void TabManager::OpenResource( Resource& resource,
                                bool precede_current_tab,
                                const QUrl &fragment,
                                MainWindow::ViewState view_state,
@@ -188,7 +188,7 @@ void TabManager::OpenResource( Resource& resource,
     AddNewContentTab( CreateTabForResource( resource, fragment, view_state, line_to_scroll_to ),
                       precede_current_tab );
 
-    // TODO: loading bar update    
+    // TODO: loading bar update
 }
 
 
@@ -204,7 +204,7 @@ void TabManager::NextTab()
     // Wrap around
     int next_index = current_index != count() - 1 ? current_index + 1 : 0;
 
-    if ( widget( next_index ) != 0 && 
+    if ( widget( next_index ) != 0 &&
          current_index != next_index )
     {
         setCurrentIndex( next_index );
@@ -297,7 +297,7 @@ void TabManager::DeleteTab( ContentTab *tab_to_delete )
 
 
 void TabManager::CloseTab(int tab_index)
-{   
+{
     if (count() <= 1) {
         return;
     }
@@ -343,8 +343,8 @@ int TabManager::ResourceTabIndex( const Resource& resource ) const
 }
 
 
-bool TabManager::SwitchedToExistingTab( Resource& resource, 
-                                        const QUrl &fragment, 
+bool TabManager::SwitchedToExistingTab( Resource& resource,
+                                        const QUrl &fragment,
                                         MainWindow::ViewState view_state,
                                         int line_to_scroll_to )
 {
@@ -397,8 +397,8 @@ bool TabManager::SwitchedToExistingTab( Resource& resource,
 }
 
 
-ContentTab* TabManager::CreateTabForResource( Resource& resource, 
-                                              const QUrl &fragment, 
+ContentTab* TabManager::CreateTabForResource( Resource& resource,
+                                              const QUrl &fragment,
                                               MainWindow::ViewState view_state,
                                               int line_to_scroll_to )
 {
@@ -408,14 +408,14 @@ ContentTab* TabManager::CreateTabForResource( Resource& resource,
     {
     case Resource::HTMLResourceType:
         {
-            tab = new FlowTab( *( qobject_cast< HTMLResource* >( &resource ) ), 
-                fragment, 
-                view_state, 
-                line_to_scroll_to, 
+            tab = new FlowTab( *( qobject_cast< HTMLResource* >( &resource ) ),
+                fragment,
+                view_state,
+                line_to_scroll_to,
                 this );
 
             connect( tab,  SIGNAL( LinkClicked( const QUrl& ) ), this, SIGNAL( OpenUrlRequest( const QUrl& ) ) );
-            connect( tab,  SIGNAL( OldTabRequest( QString, HTMLResource& ) ), 
+            connect( tab,  SIGNAL( OldTabRequest( QString, HTMLResource& ) ),
                 this, SIGNAL( OldTabRequest( QString, HTMLResource& ) ) );
             connect( tab,  SIGNAL( NewChaptersRequest( QStringList, HTMLResource& ) ),
                 this, SIGNAL( NewChaptersRequest( QStringList, HTMLResource& ) ) );
@@ -478,7 +478,7 @@ ContentTab* TabManager::CreateTabForResource( Resource& resource,
         wtab->SetCheckWellFormedErrorsState( m_CheckWellFormedErrors );
     }
 
-    return tab;    
+    return tab;
 }
 
 
@@ -504,7 +504,7 @@ bool TabManager::AddNewContentTab( ContentTab *new_tab, bool precede_current_tab
     connect( new_tab, SIGNAL( TabRenamed( ContentTab* ) ), this, SLOT( UpdateTabName( ContentTab* ) ) );
 
     return true;
-}   
+}
 
 void TabManager::UpdateTabDisplay()
 {

@@ -86,14 +86,14 @@ static const QString TAB_STYLE_SHEET              = "#managerframe {border-top: 
                                                     "border-bottom: 1px solid grey;} ";
 static const QString HTML_TOC_FILE = "toc.html";
 
-static const QStringList SUPPORTED_SAVE_TYPE = QStringList() << "epub"; 
+static const QStringList SUPPORTED_SAVE_TYPE = QStringList() << "epub";
 
 QStringList MainWindow::s_RecentFiles = QStringList();
 
 bool MainWindow::m_ShouldUseTidy = true;
 
 MainWindow::MainWindow( const QString &openfilepath, QWidget *parent, Qt::WFlags flags )
-    : 
+    :
     QMainWindow( parent, flags ),
     m_CurrentFilePath( QString() ),
     m_Book( new Book() ),
@@ -111,7 +111,7 @@ MainWindow::MainWindow( const QString &openfilepath, QWidget *parent, Qt::WFlags
     m_ViewState( MainWindow::ViewState_BookView )
 {
     ui.setupUi( this );
-    
+
     // Telling Qt to delete this window
     // from memory when it is closed
     setAttribute( Qt::WA_DeleteOnClose );
@@ -191,7 +191,7 @@ QMutex& MainWindow::GetStatusBarMutex()
 }
 
 
-void MainWindow::ShowMessageOnCurrentStatusBar( const QString &message, 
+void MainWindow::ShowMessageOnCurrentStatusBar( const QString &message,
                                                 int millisecond_duration )
 {
     MainWindow& main_window = GetCurrentMainWindow();
@@ -208,7 +208,7 @@ void MainWindow::ShowMessageOnCurrentStatusBar( const QString &message,
 bool MainWindow::ShouldUseTidyClean()
 {
     return m_ShouldUseTidy;
- 
+
 }
 
 
@@ -221,7 +221,7 @@ void MainWindow::closeEvent( QCloseEvent *event )
         WriteSettings();
 
         event->accept();
-    } 
+    }
 
     else
     {
@@ -289,7 +289,7 @@ void MainWindow::Open()
         {
             // Store the folder the user opened from
             m_LastFolderOpen = QFileInfo( filename ).absolutePath();
-            
+
 #ifdef Q_WS_MAC
             MainWindow *new_window = new MainWindow( filename );
             new_window->show();
@@ -308,9 +308,9 @@ void MainWindow::OpenRecentFile()
     // The nasty IFDEFs are here to enable the multi-document
     // interface on the Mac; Lin and Win just use multiple
     // instances of the Sigil application
-    
+
     QAction *action = qobject_cast< QAction *>( sender() );
-    
+
     if ( action != NULL )
     {
 #ifndef Q_WS_MAC
@@ -385,8 +385,8 @@ bool MainWindow::SaveAs()
         default_filter  = c_SaveFilters.value( "epub" );
     }
 
-    QString filename = QFileDialog::getSaveFileName( this, 
-                                                     tr( "Save File" ), 
+    QString filename = QFileDialog::getSaveFileName( this,
+                                                     tr( "Save File" ),
                                                      save_path,
                                                      filter_string,
                                                      &default_filter
@@ -436,7 +436,7 @@ void MainWindow::ZoomIn()
 
 void MainWindow::ZoomOut()
 {
-    ZoomByStep( false );  
+    ZoomByStep( false );
 }
 
 
@@ -491,9 +491,17 @@ void MainWindow::SetViewState(MainWindow::ViewState view_state)
         view_state = ViewState_BookView;
     }
 
+    MainWindow::ViewState old_view_state = m_ViewState;
     bool set_tab_state = m_ViewState != view_state;
     m_ViewState = view_state;
-    UpdateViewState(set_tab_state);
+    if (!UpdateViewState(set_tab_state)) {
+        m_ViewState = old_view_state;
+        ui.actionBookView->setChecked(false);
+        ui.actionSplitView->setChecked(false);
+        // Only CV in a Flow Tab would fail to allow the view to be changed due to
+        // the well formed check failing. Due to this we know that we're still in CV.
+        ui.actionCodeView->setChecked(true);
+    }
 }
 
 
@@ -629,7 +637,7 @@ QList<std::pair< QString, bool> > MainWindow::GetStylesheetsMap( QList<Resource 
 {
     QList< std::pair< QString, bool> > stylesheet_map;
     QList<Resource *> css_resources = m_BookBrowser->AllCSSResources();
- 
+
     // Use the first resource to get a list of known linked stylesheets in order.
     QStringList checked_linked_paths = GetStylesheetsAlreadyLinked( resources.at( 0 ) );
 
@@ -892,15 +900,24 @@ void MainWindow::ChangeSignalsWhenTabChanges( ContentTab* old_tab, ContentTab* n
 }
 
 
-void MainWindow::UpdateViewState(bool set_tab_state)
+bool MainWindow::UpdateViewState(bool set_tab_state)
 {
     ContentTab &tab = GetCurrentContentTab();
     if (&tab == NULL) {
-        return;
+        return false;
     }
     Resource::ResourceType type = tab.GetLoadedResource().Type();
 
     if (type == Resource::HTMLResourceType) {
+        if (set_tab_state) {
+            FlowTab *ftab = dynamic_cast<FlowTab *>(&tab);
+            if (ftab) {
+                if (!ftab->SetViewState(m_ViewState)) {
+                    return false;
+                }
+            }
+        }
+
         if (m_ViewState == MainWindow::ViewState_CodeView) {
             SetStateActionsCodeView();
         }
@@ -913,13 +930,6 @@ void MainWindow::UpdateViewState(bool set_tab_state)
             }
             SetStateActionsBookView();
         }
-
-        if (set_tab_state) {
-            FlowTab *ftab = dynamic_cast<FlowTab *>(&tab);
-            if (ftab) {
-                ftab->SetViewState(m_ViewState);
-            }
-        } 
     }
     else if (type == Resource::XMLResourceType ||
              type == Resource::XPGTResourceType ||
@@ -933,6 +943,8 @@ void MainWindow::UpdateViewState(bool set_tab_state)
     else {
         SetStateActionsStaticView();
     }
+
+    return true;
 }
 
 
@@ -959,7 +971,7 @@ void MainWindow::UpdateUIOnTabChanges()
 
 
 void MainWindow::UpdateUiWhenTabsSwitch()
-{    
+{
     ContentTab &tab = GetCurrentContentTab();
     if (&tab == NULL) {
         return;
@@ -1143,7 +1155,7 @@ void MainWindow::CreateChapterBreakOldTab( QString content, HTMLResource& origin
 {
     // Close the tab so the focus saving doesn't overwrite the text we're
     // replacing in the resource.
-    m_TabManager.CloseTabForResource(originating_resource); 
+    m_TabManager.CloseTabForResource(originating_resource);
 
     HTMLResource& html_resource = m_Book->CreateChapterBreakOriginalResource( content, originating_resource );
 
@@ -1159,7 +1171,7 @@ void MainWindow::CreateChapterBreakOldTab( QString content, HTMLResource& origin
 
 
 void MainWindow::CreateNewChapters( QStringList new_chapters, HTMLResource &originalResource )
-{   
+{
     m_Book->CreateNewChapters( new_chapters, originalResource );
     m_BookBrowser->Refresh();
 
@@ -1306,7 +1318,7 @@ void MainWindow::CreateNewBook()
 {
     QSharedPointer< Book > new_book = QSharedPointer< Book >( new Book() );
     new_book->CreateEmptyHTMLFile();
-    
+
     SetNewBook( new_book );
     new_book->SetModified( false );
     UpdateUiWithCurrentFile( "" );
@@ -1351,9 +1363,9 @@ void MainWindow::LoadFile( const QString &fullfilepath )
     {
         QApplication::restoreOverrideCursor();
 
-        Utility::DisplayStdErrorDialog( 
+        Utility::DisplayStdErrorDialog(
             tr( "The creator of this file has encrypted it with DRM. "
-                "Sigil cannot open such files." ) );        
+                "Sigil cannot open such files." ) );
     }
     catch ( const ExceptionBase &exception )
     {
@@ -1376,7 +1388,7 @@ bool MainWindow::SaveFile( const QString &fullfilepath )
         // when the user tries to save an unsupported type
         if ( !SUPPORTED_SAVE_TYPE.contains( extension ) )
         {
-            Utility::DisplayStdErrorDialog( 
+            Utility::DisplayStdErrorDialog(
                 tr( "Sigil currently cannot save files of type \"%1\".\n"
                     "Please choose a different format." )
                 .arg( extension )
@@ -1389,7 +1401,7 @@ bool MainWindow::SaveFile( const QString &fullfilepath )
 
         BookNormalization::Normalize( m_Book );
         ExporterFactory().GetExporter( fullfilepath, m_Book ).WriteBook();
-        
+
         QApplication::restoreOverrideCursor();
 
         // Return the focus back to the current tab
@@ -1401,7 +1413,7 @@ bool MainWindow::SaveFile( const QString &fullfilepath )
 
         m_Book->SetModified( false );
         UpdateUiWithCurrentFile( fullfilepath );
-        statusBar()->showMessage( tr( "File saved" ), STATUSBAR_MSG_DISPLAY_TIME );        
+        statusBar()->showMessage( tr( "File saved" ), STATUSBAR_MSG_DISPLAY_TIME );
     }
     catch ( const ExceptionBase &exception )
     {
@@ -1467,8 +1479,8 @@ int MainWindow::ZoomFactorToSliderRange( float zoom_factor )
 {
     // We want a precise value for the 100% zoom,
     // so we pick up all float values near it.
-    if ( qFuzzyCompare( zoom_factor, ZOOM_NORMAL ) ) 
-    
+    if ( qFuzzyCompare( zoom_factor, ZOOM_NORMAL ) )
+
         return ZOOM_SLIDER_MIDDLE;
 
     // We actually use two ranges: one for the below 100% zoom,
@@ -1479,7 +1491,7 @@ int MainWindow::ZoomFactorToSliderRange( float zoom_factor )
          double range            = ZOOM_NORMAL - ZOOM_MIN;
          double normalized_value = zoom_factor - ZOOM_MIN;
          double range_proportion = normalized_value / range;
- 
+
          return ZOOM_SLIDER_MIN + qRound( range_proportion * ( ZOOM_SLIDER_MIDDLE - ZOOM_SLIDER_MIN ) );
     }
 
@@ -1503,7 +1515,7 @@ float MainWindow::SliderRangeToZoomFactor( int slider_range_value )
 
     // We actually use two ranges: one for the below 100% zoom,
     // and one for the above 100%. This is so that the 100% mark
-    // rests in the middle of the slider. 
+    // rests in the middle of the slider.
     if ( slider_range_value < ZOOM_SLIDER_MIDDLE )
     {
         double range            = ZOOM_SLIDER_MIDDLE - ZOOM_SLIDER_MIN;
@@ -1597,13 +1609,13 @@ void MainWindow::UpdateUiWithCurrentFile( const QString &fullfilepath )
     {
         s_RecentFiles.removeLast();
     }
-    
+
     // Update the recent files actions on
     // ALL the main windows
-    foreach ( QWidget *window, QApplication::topLevelWidgets() ) 
+    foreach ( QWidget *window, QApplication::topLevelWidgets() )
     {
         if ( MainWindow *mainWin = qobject_cast< MainWindow * >( window ) )
-            
+
             mainWin->UpdateRecentFileActions();
     }
 }
@@ -1611,7 +1623,7 @@ void MainWindow::UpdateUiWithCurrentFile( const QString &fullfilepath )
 
 void MainWindow::CreateRecentFilesActions()
 {
-    for ( int i = 0; i < MAX_RECENT_FILES; ++i ) 
+    for ( int i = 0; i < MAX_RECENT_FILES; ++i )
     {
         m_RecentFileActions[ i ] = new QAction( this );
 
@@ -1634,7 +1646,7 @@ void MainWindow::UpdateRecentFileActions()
     int num_recent_files = qMin( s_RecentFiles.size(), MAX_RECENT_FILES );
 
     // Store the filenames to the actions and display those actions
-    for ( int i = 0; i < num_recent_files; ++i ) 
+    for ( int i = 0; i < num_recent_files; ++i )
     {
         QString text = tr( "&%1 %2" ).arg( i + 1 ).arg( QFileInfo( s_RecentFiles[ i ] ).fileName() );
 
@@ -1688,7 +1700,7 @@ void MainWindow::PlatformSpecificTweaks()
 
 void MainWindow::ExtendUI()
 {
-    // Creating the tabs and the book browser 
+    // Creating the tabs and the book browser
 
     m_FindReplace->hide();
     // We want a nice frame around the tab manager
@@ -1748,7 +1760,7 @@ void MainWindow::ExtendUI()
 
     // Creating the zoom controls in the status bar
     m_slZoomSlider = new QSlider( Qt::Horizontal, statusBar() );
-    m_slZoomSlider->setTracking( false ); 
+    m_slZoomSlider->setTracking( false );
     m_slZoomSlider->setTickInterval( ZOOM_SLIDER_MIDDLE );
     m_slZoomSlider->setTickPosition( QSlider::TicksBelow );
     m_slZoomSlider->setFixedWidth( ZOOM_SLIDER_WIDTH );
@@ -1763,7 +1775,7 @@ void MainWindow::ExtendUI()
     zoom_in->setDefaultAction( ui.actionZoomIn );
 
     m_lbZoomLabel = new QLabel( QString( "100% " ), statusBar() );
-    
+
     statusBar()->addPermanentWidget( m_lbZoomLabel  );
     statusBar()->addPermanentWidget( zoom_out       );
     statusBar()->addPermanentWidget( m_slZoomSlider );
@@ -2018,15 +2030,15 @@ void MainWindow::ConnectSignalsToSlots()
 
     connect( ui.actionTidyClean,     SIGNAL( triggered( bool ) ),   this, SLOT( SetTidyCleanOption( bool ) ) );
     connect( ui.actionCheckWellFormedErrors, SIGNAL( triggered( bool ) ), this, SLOT( SetCheckWellFormedErrors( bool ) ) );
-    
+
     connect( ui.actionBookView,      SIGNAL( triggered() ),  this,   SLOT( BookView()  ) );
     connect( ui.actionSplitView,     SIGNAL( triggered() ),  this,   SLOT( SplitView() ) );
-    connect( ui.actionCodeView,      SIGNAL( triggered() ),  this,   SLOT( CodeView()  ) ); 
+    connect( ui.actionCodeView,      SIGNAL( triggered() ),  this,   SLOT( CodeView()  ) );
 
-    connect( &m_TabManager,          SIGNAL( TabChanged( ContentTab*, ContentTab* ) ), 
+    connect( &m_TabManager,          SIGNAL( TabChanged( ContentTab*, ContentTab* ) ),
              this,                   SLOT( ChangeSignalsWhenTabChanges( ContentTab*, ContentTab* ) ) );
 
-    connect( &m_TabManager,          SIGNAL( TabChanged( ContentTab*, ContentTab* ) ), 
+    connect( &m_TabManager,          SIGNAL( TabChanged( ContentTab*, ContentTab* ) ),
              this,                   SLOT( UpdateUIOnTabChanges() ) );
 
     connect( &m_TabManager,          SIGNAL( TabChanged( ContentTab*, ContentTab* ) ),
@@ -2035,7 +2047,7 @@ void MainWindow::ConnectSignalsToSlots()
     connect( &m_TabManager,          SIGNAL( TabChanged( ContentTab*, ContentTab* ) ),
             this,                    SLOT(   UpdateBrowserSelectionToTab() ) );
 
-    connect( &m_TabManager,          SIGNAL( TabChanged( ContentTab*, ContentTab* ) ), 
+    connect( &m_TabManager,          SIGNAL( TabChanged( ContentTab*, ContentTab* ) ),
              this,                   SLOT(   SetTabViewState() ) );
 
     connect( m_BookBrowser,          SIGNAL( UpdateBrowserSelection() ),
@@ -2064,11 +2076,11 @@ void MainWindow::ConnectSignalsToSlots()
     connect( m_TableOfContents, SIGNAL( OpenResourceRequest( Resource&, bool, const QUrl& ) ),
              this,     SLOT(   OpenResource(        Resource&, bool, const QUrl& ) ) );
 
-    connect( m_ValidationResultsView, 
+    connect( m_ValidationResultsView,
                 SIGNAL( OpenResourceRequest( Resource&, bool, const QUrl&, MainWindow::ViewState, int ) ),
              this,
                 SLOT(   OpenResource(        Resource&, bool, const QUrl&, MainWindow::ViewState, int ) ) );
-    
+
     connect( &m_TabManager, SIGNAL( OpenUrlRequest(  const QUrl& ) ),
              m_BookBrowser, SLOT(   OpenUrlResource( const QUrl& ) ) );
 
@@ -2104,7 +2116,7 @@ void MainWindow::MakeTabConnections( ContentTab *tab )
         connect( ui.actionPrintPreview,             SIGNAL( triggered() ),  tab,   SLOT( PrintPreview()             ) );
         connect( ui.actionPrint,                    SIGNAL( triggered() ),  tab,   SLOT( Print()                    ) );
         connect( this,                              SIGNAL( SettingsChanged()), tab, SLOT( LoadSettings()           ) );
-    
+
         connect( tab,   SIGNAL( ViewButtonsStateChanged() ),    this,          SLOT( UpdateUIOnTabChanges()    ) );
         connect( tab,   SIGNAL( ViewChanged() ),                this,          SLOT( UpdateUIOnTabChanges()    ) );
         connect( tab,   SIGNAL( SelectionChanged() ),           this,          SLOT( UpdateUIOnTabChanges()    ) );
