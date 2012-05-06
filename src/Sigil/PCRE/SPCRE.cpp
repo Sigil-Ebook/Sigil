@@ -227,7 +227,7 @@ SPCRE::MatchInfo SPCRE::generateMatchInfo(int ovector[], int ovector_count)
     // matched substring.
     for (int i = 1; i <= ovector_count; i++) {
         int subpattern_start = ovector[2 * i] - match_start;
-        int subpattern_end = ovector[2 * i + 1] - subpattern_start;
+        int subpattern_end = ovector[2 * i + 1] - match_start; 
 
         match_info.capture_groups_offsets.append(std::pair<int, int>(subpattern_start, subpattern_end));
     }
