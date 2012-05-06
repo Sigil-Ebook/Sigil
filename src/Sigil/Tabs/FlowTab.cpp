@@ -52,11 +52,11 @@
 static const QString SETTINGS_GROUP = "flowtab";
 
 FlowTab::FlowTab(HTMLResource& resource,
-                  const QUrl &fragment, 
+                  const QUrl &fragment,
                   MainWindow::ViewState view_state,
                   int line_to_scroll_to,
                   QWidget *parent)
-    : 
+    :
     ContentTab(resource, parent),
     m_FragmentToScroll(fragment),
     m_LineToScrollTo(line_to_scroll_to),
@@ -94,7 +94,7 @@ FlowTab::FlowTab(HTMLResource& resource,
     LoadSettings();
 
     // We need to set this in the constructor too,
-    // so that the ContentTab focus handlers don't 
+    // so that the ContentTab focus handlers don't
     // get called when the tab is created.
     if (view_state == MainWindow::ViewState_BookView) {
         setFocusProxy(&m_wBookView);
@@ -215,7 +215,7 @@ void FlowTab::SetZoomFactor(float new_zoom_factor)
     }
     else if (m_ViewState == MainWindow::ViewState_CodeView) {
         m_wCodeView.SetZoomFactor(new_zoom_factor);
-    } 
+    }
 }
 
 void FlowTab::UpdateDisplay()
@@ -497,7 +497,7 @@ void FlowTab::Print()
     QPrinter printer;
 
     QPrintDialog print_dialog(&printer, this);
-    print_dialog.setWindowTitle(tr("Print %1").arg(GetFilename()));
+    print_dialog.setWindowTitle(tr("Print1").arg(GetFilename()));
 
     if (print_dialog.exec() == QDialog::Accepted) {
         if (m_ViewState == MainWindow::ViewState_BookView) {
@@ -545,7 +545,7 @@ void FlowTab::SplitView()
 }
 
 void FlowTab::CodeView()
-{    
+{
     QApplication::setOverrideCursor(Qt::WaitCursor);
 
     m_ViewState = MainWindow::ViewState_CodeView;
