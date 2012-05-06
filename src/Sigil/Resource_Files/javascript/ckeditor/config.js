@@ -10,8 +10,8 @@
         { name: 'align', items : ['JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock' ] },
         { name: 'direction', items : [ 'BidiLtr','BidiRtl' ] },
         { name: 'links', items : [ 'Link','Unlink','Anchor' ] },
-        { name: 'insert', items : [ 'Table','HorizontalRule','SpecialChar','PageBreak' ] },
-        { name: 'styles', items : [ 'Styles','Format','Font','FontSize' ] },
+        { name: 'insert', items : [ 'Table','HorizontalRule','SpecialChar' ] },
+        { name: 'styles', items : [ 'Format' ] },
         { name: 'colors', items : [ 'TextColor','BGColor' ] },
     ];
     config.entities = false;
