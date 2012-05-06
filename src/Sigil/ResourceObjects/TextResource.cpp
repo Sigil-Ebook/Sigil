@@ -31,13 +31,13 @@
 #include "ResourceObjects/TextResource.h"
 
 TextResource::TextResource( const QString &fullfilepath, QObject *parent )
-    : 
+    :
     Resource( fullfilepath, parent ),
     m_CacheInUse( false ),
     m_TextDocument( new QTextDocument( this ) )
 {
     m_TextDocument->setDocumentLayout( new QPlainTextDocumentLayout( m_TextDocument ) );
- 
+
     connect( m_TextDocument, SIGNAL( contentsChanged() ), this, SIGNAL( Modified() ) );
 }
 
@@ -48,7 +48,7 @@ QString TextResource::GetText() const
 
     if ( m_CacheInUse )
 
-        return m_Cache; 
+        return m_Cache;
 
     return m_TextDocument->toPlainText();
 }
@@ -59,7 +59,7 @@ void TextResource::SetText( const QString& text )
     //   We need to delay updating the QTextDocument if SetText has
     // been called from something other than the main GUI thread. Why?
     // Because a CodeView is probably connected to the text document,
-    // and if we update it from a non-GUI thread, it will notify the 
+    // and if we update it from a non-GUI thread, it will notify the
     // CodeView base class to update as well and that will crash us since
     // the base class derives from QWidget (and those can only be updated
     // in the GUI thread).
@@ -68,7 +68,7 @@ void TextResource::SetText( const QString& text )
     // of that.
     if ( QThread::currentThread() == QApplication::instance()->thread() )
     {
-        SetTextInternal( text );          
+        SetTextInternal( text );
     }
 
     else
@@ -80,8 +80,8 @@ void TextResource::SetText( const QString& text )
         // We want to make sure we schedule only one delayed update
         if ( !m_CacheInUse )
         {
-            m_CacheInUse = true;        
-            QTimer::singleShot( 0, this, SLOT( DelayedUpdateToTextDocument() ) );  
+            m_CacheInUse = true;
+            QTimer::singleShot( 0, this, SLOT( DelayedUpdateToTextDocument() ) );
         }
     }
 }
@@ -145,7 +145,7 @@ void TextResource::DelayedUpdateToTextDocument()
     if ( !m_CacheInUse )
 
         return;
-    
+
     SetTextInternal( m_Cache );
 }
 

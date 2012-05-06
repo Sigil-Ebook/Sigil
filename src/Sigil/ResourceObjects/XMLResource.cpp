@@ -76,12 +76,12 @@ QString XMLResource::GetValidID( const QString &value )
     while ( i < new_value.size() )
     {
         if ( !IsValidIDCharacter( new_value.at( i ) ) )
-        
+
             new_value.replace( i, 1, "_" );
-        
+
         else
-        
-            ++i;        
+
+            ++i;
     }
 
     if ( new_value.isEmpty() )
@@ -103,7 +103,7 @@ QString XMLResource::GetValidID( const QString &value )
 }
 
 
-// This is probably more rigorous 
+// This is probably more rigorous
 // than the XML spec, but it's simpler.
 // (spec ref: http://www.w3.org/TR/xml-id/#processing)
 bool XMLResource::IsValidIDCharacter( const QChar &character )
@@ -111,7 +111,7 @@ bool XMLResource::IsValidIDCharacter( const QChar &character )
     return character.isLetterOrNumber() ||
            character == QChar( '-' )    ||
            character == QChar( '_' )    ||
-           character == QChar( '.' )    
+           character == QChar( '.' )
            ;
 }
 
