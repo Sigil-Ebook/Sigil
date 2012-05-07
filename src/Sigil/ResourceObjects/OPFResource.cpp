@@ -846,10 +846,8 @@ void OPFResource::RemoveDuplicateGuideTypes(
 {
     // Industry best practice is to have only one 
     // <guide> reference type instance per book.
-    // The only exception is the Text type, of which  
-    // we customarily have more than one instance.
     // For NoType, there is nothing to remove.
-    if ( new_type == GuideSemantics::Text || new_type == GuideSemantics::NoType )
+    if ( new_type == GuideSemantics::NoType )
 
         return;
 

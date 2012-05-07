@@ -1042,40 +1042,22 @@ void BookBrowser::SetupResourceSpecificContextMenu( Resource *resource  )
 
 void BookBrowser::SetupSemanticContextmenu( Resource *resource )
 {
-    if ( resource->Type() != Resource::HTMLResourceType && 
-         resource->Type() != Resource::ImageResourceType )
-    {
-        return;
-    }
-    
-    if ( resource->Type() == Resource::HTMLResourceType )
-    {
+    if (resource->Type() == Resource::HTMLResourceType && ValidSelectedItemCount() == 1) {
         SetupHTMLSemanticContextMenu( resource );
         m_ContextMenu.addMenu( &m_SemanticsContextMenu );
     }
-    else // Resource::ImageResource
-    {
+    else if (resource->Type() == Resource::ImageResourceType && ValidSelectedItemCount() == 1) {
         SetupImageSemanticContextMenu( resource );
-
-        if ( ValidSelectedItemCount() == 1 )
-        {
-            m_ContextMenu.addMenu( &m_SemanticsContextMenu );
-        }
+        m_ContextMenu.addMenu( &m_SemanticsContextMenu );
     }
 }
 
 
 void BookBrowser::SetupHTMLSemanticContextMenu( Resource *resource )
 {
-    int item_count = ValidSelectedItemCount();
-    
     foreach( QAction* action, m_GuideSemanticActions )
     {
-        // Only 2 of the Semantic types can apply to multiple files in the Book
-        if ( item_count == 1  || action->data() == GuideSemantics::Text  || action->data() == GuideSemantics::NoType )
-        {
-            m_SemanticsContextMenu.addAction( action );
-        }
+        m_SemanticsContextMenu.addAction( action );
     }
 
     SetHTMLSemanticActionCheckState( resource );    

@@ -1,5 +1,6 @@
 Sigil 0.6.0 TBA
 New Features:
+1393: Add Semantics Text should only apply to one file.
 1369: Add support for \xDD as Regex replacement in F&R.
 1285: Display image properties.
 534: Link to Stylesheets option for HTML files.
