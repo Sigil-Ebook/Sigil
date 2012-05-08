@@ -365,25 +365,25 @@ private:
     /**
      * The splitter widget that separates the two Views.
      */
-    QStackedWidget &m_views;
+    QStackedWidget *m_views;
 
-    QSplitter &m_pvVSplitter;
+    QSplitter *m_pvVSplitter;
 
     /**
      * The Book View Editor.
      * Displays and edits the rendered state of the HTML.
      */
-    BookViewEditor &m_wBookView;
+    BookViewEditor *m_wBookView;
 
-    BookViewPreview &m_wBookPreview;
+    BookViewPreview *m_wBookPreview;
 
     /**
      * The Code View Editor.
      * Displays and edits the raw code.
      */
-    CodeViewEditor &m_wCodeView;
+    CodeViewEditor *m_wCodeView;
 
-    QWebInspector &m_inspector;
+    QWebInspector *m_inspector;
 
     /**
      * This is used in a few different ways.
