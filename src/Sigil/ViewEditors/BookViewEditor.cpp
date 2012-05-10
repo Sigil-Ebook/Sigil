@@ -71,7 +71,6 @@ BookViewEditor::BookViewEditor(QWidget *parent)
     :
     BookViewPreview(parent)
 {
-    page()->mainFrame()->addToJavaScriptWindowObject("BookViewEditor", this);
     page()->settings()->setAttribute(QWebSettings::DeveloperExtrasEnabled, false);
     page()->settings()->setAttribute(QWebSettings::JavascriptCanAccessClipboard, true);
 }
@@ -103,6 +102,7 @@ void BookViewEditor::CustomSetDocument(const QString &path, const QString &html)
     SettingsStore settings;
     QString base = CKE_BASE.arg(QDir::fromNativeSeparators(cke_path)).arg(Qt::escape(html)).arg(settings.uiLanguage()).arg(cke_settings);
     setHtml(base, QUrl::fromLocalFile(path));
+    page()->mainFrame()->addToJavaScriptWindowObject("BookViewEditor", this);
 }
 
 void BookViewEditor::ScrollToFragment(const QString &fragment)
