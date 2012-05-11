@@ -550,9 +550,6 @@ else()
     set( MAIN_PACKAGE_DIR ${TEMP_PACKAGE_DIR}/Sigil )
     set( OUTPUT_PACKAGE_DIR ${CMAKE_BINARY_DIR}/installer )
     
-    # MPI (InstallJammer) file will need to be copied to this location
-    set( MPI_LOCATION ${CMAKE_BINARY_DIR}/temp_folder/Sigil.mpi )
-    
     # ISS conf file for the Inno Setup compiler
     # We first create a CMake configured version of the ISS file,
     # and then we copy it to the temp folder every time we need to build the installer.
@@ -561,18 +558,10 @@ else()
     set( ISS_TEMP_LOCATION ${CMAKE_BINARY_DIR}/temp_folder/Sigil_configured.iss )
 
     # Specify platform var for Inno and installjammer
-    if ( WIN32 )
-        if ( 64_BIT_PLATFORM )
-            # Used in the ISS CMake configuration
-            set( ISS_ARCH "x64" )
-            set( ISS_SETUP_FILENAME_PLATFORM "-x64" )
-        endif()
-    else()
-        if ( 64_BIT_PLATFORM )
-            set( PLATFORM "Linux-x86_64" )
-        else()
-            set( PLATFORM "Linux-x86" )
-        endif()
+    if ( 64_BIT_PLATFORM )
+        # Used in the ISS CMake configuration
+        set( ISS_ARCH "x64" )
+        set( ISS_SETUP_FILENAME_PLATFORM "-x64" )
     endif()
     
     # Creates a copy of the ISS file in ${ISS_CONFIGURED_LOCATION} and then configures it 
@@ -580,26 +569,10 @@ else()
     set( LICENSE_LOCATION ${CMAKE_SOURCE_DIR}/installer/win_installer_note.txt  )
     configure_file( ${ISS_MAIN_LOCATION} ${ISS_CONFIGURED_LOCATION} )
 
-    # We use Inno for the Windows installers and InstallJammer for the Linux ones
-    if ( WIN32 )
-        # Run Inno Setup's iscc compiler (*AFTER* all the PRE_BUILD custom commands execute)
-        add_custom_target(  makeinstaller 
-                            COMMAND cmake -E echo "For this to work, Inno Setup's iscc compiler needs to be installed and on the system path."
-                            COMMAND iscc ${ISS_TEMP_LOCATION} )
-    else()
-        # Run InstallJammer (*AFTER* all the PRE_BUILD custom commands execute)
-        add_custom_target(  makeinstaller 
-                            COMMAND cmake -E echo "For this to work, InstallJammer needs to be installed and on the system path."
-                            COMMAND installjammer   -DBaseDir ${MAIN_PACKAGE_DIR}  
-                                                    -DSGMajorVersion ${SIGIL_MAJOR_VERSION}
-                                                    -DSGMinorVersion ${SIGIL_MINOR_VERSION}
-                                                    -DSGRevisionVersion ${SIGIL_REVISION_VERSION}
-                                                    --platform ${PLATFORM}
-                                                    --output-dir ${OUTPUT_PACKAGE_DIR}
-                                                    --build-for-release
-                                                    --verbose   
-                                                    --build ${MPI_LOCATION} )
-    endif()
+    # Run Inno Setup's iscc compiler (*AFTER* all the PRE_BUILD custom commands execute)
+    add_custom_target(  makeinstaller 
+        COMMAND cmake -E echo "For this to work, Inno Setup's iscc compiler needs to be installed and on the system path."
+        COMMAND iscc ${ISS_TEMP_LOCATION} )
 
     # We need to copy the files that will be used to make the installer to
     # a temporary directory. On the MSVC compiler the PRE_BUILD custom commands
@@ -621,11 +594,6 @@ else()
         add_dependencies( makeinstaller copyfiles )
     endif()
     
-    # Copy MPI file to temp folder location
-    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD 
-                        COMMAND cmake -E copy ${CMAKE_SOURCE_DIR}/installer/Sigil.mpi ${MPI_LOCATION} )     
-
-
     # Copy ISS file to temp folder location
     add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD 
                         COMMAND cmake -E copy ${ISS_CONFIGURED_LOCATION} ${ISS_TEMP_LOCATION} )     
@@ -633,11 +601,6 @@ else()
     # Copy Qt runtime libs
     set( QT_LIBS QtCore QtGui QtNetwork QtSvg QtWebKit QtXml QtXmlPatterns phonon )
     
-    if( UNIX )
-        # DBus is needed on Linux
-        list( APPEND QT_LIBS QtDBus )
-    endif()
-
     add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E make_directory ${MAIN_PACKAGE_DIR}/ )    
     foreach( lib ${QT_LIBS} )
         set( location location-NOTFOUND )
@@ -687,14 +650,6 @@ else()
     # Copy CKE
     add_custom_command( TARGET ${TARGET_FOR_COPY} POST_BUILD COMMAND cmake -E copy Resource_Files/javascript/cke ${MAIN_PACKAGE_DIR} )
 
-    # Add libstdc++ to the package.
-    if(UNIX)
-        file(GLOB STDCPP /usr/lib/*-linux-gnu/libstdc++*)
-        foreach(SF ${STDCPP})
-            add_custom_command(TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E copy ${SF} ${MAIN_PACKAGE_DIR}/)
-        endforeach(SF)
-    endif()
-
     # Set the path of the application executable
     if( MSVC_IDE )
         set( EXE_PATH ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Release/${PROJECT_NAME}${CMAKE_EXECUTABLE_SUFFIX} )
@@ -707,31 +662,23 @@ else()
                         COMMAND cmake -E copy ${EXE_PATH} ${MAIN_PACKAGE_DIR} )
                         
     # We need to copy the CRT dlls
-    if ( WIN32 )
-        # Add -DWIN_INSTALLER_USE_64BIT_CRT=1 to the cmake call if you want to build
-        # an installer for the x64 verison of Sigil. This will make sure that the
-        # correct CRT libs are included in the installer.
-        if ( WIN_INSTALLER_USE_64BIT_CRT )
-            message( STATUS "Using the 64 bit CRT in the Sigil Windows installer" )
-            add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD 
-                COMMAND cmake -E copy ${CMAKE_SOURCE_DIR}/installer/msvc_crt/x64/msvcp100.dll ${MAIN_PACKAGE_DIR} )
-            add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD 
-                COMMAND cmake -E copy ${CMAKE_SOURCE_DIR}/installer/msvc_crt/x64/msvcr100.dll ${MAIN_PACKAGE_DIR} )
-        else()
-            message( STATUS "Using the 32 bit CRT in the Sigil Windows installer" )
-            add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD 
-                COMMAND cmake -E copy ${CMAKE_SOURCE_DIR}/installer/msvc_crt/x86/msvcp100.dll ${MAIN_PACKAGE_DIR} )
-            add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD 
-                COMMAND cmake -E copy ${CMAKE_SOURCE_DIR}/installer/msvc_crt/x86/msvcr100.dll ${MAIN_PACKAGE_DIR} )            
-        endif()
+    # Add -DWIN_INSTALLER_USE_64BIT_CRT=1 to the cmake call if you want to build
+    # an installer for the x64 verison of Sigil. This will make sure that the
+    # correct CRT libs are included in the installer.
+    if ( WIN_INSTALLER_USE_64BIT_CRT )
+        message( STATUS "Using the 64 bit CRT in the Sigil Windows installer" )
+        add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD 
+            COMMAND cmake -E copy ${CMAKE_SOURCE_DIR}/installer/msvc_crt/x64/msvcp100.dll ${MAIN_PACKAGE_DIR} )
+        add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD 
+            COMMAND cmake -E copy ${CMAKE_SOURCE_DIR}/installer/msvc_crt/x64/msvcr100.dll ${MAIN_PACKAGE_DIR} )
+    else()
+        message( STATUS "Using the 32 bit CRT in the Sigil Windows installer" )
+        add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD 
+            COMMAND cmake -E copy ${CMAKE_SOURCE_DIR}/installer/msvc_crt/x86/msvcp100.dll ${MAIN_PACKAGE_DIR} )
+        add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD 
+            COMMAND cmake -E copy ${CMAKE_SOURCE_DIR}/installer/msvc_crt/x86/msvcr100.dll ${MAIN_PACKAGE_DIR} )            
     endif()
 
-    if( UNIX )
-        # Copy the Unix launcher that adds the working directory to the LD_LIBRARY_PATH
-        add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD 
-                            COMMAND cmake -E copy ${PROJECT_SOURCE_DIR}/Resource_Files/bash/sigil.sh ${MAIN_PACKAGE_DIR} )
-    endif()
-                        
     # Copy the Changelog
     add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD 
                         COMMAND cmake -E copy ${CMAKE_SOURCE_DIR}/ChangeLog.txt ${MAIN_PACKAGE_DIR} )
