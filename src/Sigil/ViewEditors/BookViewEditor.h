@@ -28,6 +28,7 @@
 #include "ViewEditors/BookViewPreview.h"
 #include "ViewEditors/ViewEditor.h"
 
+class QEvent;
 class QSize;
 
 /**
@@ -112,6 +113,8 @@ public:
     int ReplaceAll(const QString &search_regex, const QString &replacement, bool check_spelling);
 
     QString GetSelectedText();
+
+    bool event(QEvent *e);
 
 public slots:
     /**

@@ -23,6 +23,7 @@
 #include <QtCore/QDir>
 #include <QtCore/QEvent>
 #include <QtGui/QDesktopServices>
+#include <QtGui/QKeyEvent>
 #include <QtGui/QMessageBox>
 #include <QtGui/QTextDocument>
 #include <QtWebKit/QWebFrame>
@@ -275,6 +276,17 @@ QString BookViewEditor::GetSelectedText()
 {
     QString javascript = "CKEDITOR.instances.editor.getSelection().getSelectedText();";
     return EvaluateJavascript(javascript).toString();
+}
+
+bool BookViewEditor::event(QEvent *e)
+{
+    if (e->type() == QEvent::KeyPress) {
+        QKeyEvent *k = static_cast<QKeyEvent *>(e);
+        if (k->key() == Qt::Key_Escape) {
+            return true;
+        }
+    }
+    return BookViewPreview::event(e);
 }
 
 void BookViewEditor::TextChangedFilter()
