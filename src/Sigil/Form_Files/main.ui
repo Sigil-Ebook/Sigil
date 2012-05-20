@@ -78,20 +78,17 @@
     <property name="title">
      <string>&amp;Edit</string>
     </property>
-    <widget class="QMenu" name="menuFindReplace">
+    <widget class="QMenu" name="menuCleanLevel">
      <property name="title">
-      <string>Find / Replace</string>
+      <string>Clean Source</string>
      </property>
-     <addaction name="actionFind"/>
-     <addaction name="separator"/>
-     <addaction name="actionFindNext"/>
-     <addaction name="actionFindPrevious"/>
-     <addaction name="separator"/>
-     <addaction name="actionReplaceNext"/>
-     <addaction name="actionReplacePrevious"/>
-     <addaction name="actionReplaceAll"/>
-     <addaction name="separator"/>
-     <addaction name="actionCount"/>
+     <property name="icon">
+      <iconset resource="../Resource_Files/main/main.qrc">
+       <normaloff>:/main/edit-clear_22px.png</normaloff>:/main/edit-clear_22px.png</iconset>
+     </property>
+     <addaction name="actionCleanLevelOff"/>
+     <addaction name="actionCleanLevelPrettyPrint"/>
+     <addaction name="actionCleanLevelTidy"/>
     </widget>
     <addaction name="actionUndo"/>
     <addaction name="actionRedo"/>
@@ -100,9 +97,6 @@
     <addaction name="actionCopy"/>
     <addaction name="actionPaste"/>
     <addaction name="separator"/>
-    <addaction name="menuFindReplace"/>
-    <addaction name="actionGoToLine"/>
-    <addaction name="separator"/>
     <addaction name="actionMetaEditor"/>
     <addaction name="actionInsertImage"/>
     <addaction name="separator"/>
@@ -110,6 +104,7 @@
     <addaction name="actionInsertSGFChapterMarker"/>
     <addaction name="actionSplitOnSGFChapterMarkers"/>
     <addaction name="separator"/>
+    <addaction name="menuCleanLevel"/>
     <addaction name="actionPreferences"/>
    </widget>
    <widget class="QMenu" name="menuHelp">
@@ -143,12 +138,22 @@
     <addaction name="actionZoomOut"/>
     <addaction name="actionZoomReset"/>
    </widget>
-   <widget class="QMenu" name="menuTools">
+   <widget class="QMenu" name="menuFindReplace">
     <property name="title">
-     <string>Quick Se&amp;ttings</string>
+     <string>&amp;Find</string>
     </property>
-    <addaction name="actionTidyClean"/>
-    <addaction name="actionCheckWellFormedErrors"/>
+    <addaction name="actionFind"/>
+    <addaction name="separator"/>
+    <addaction name="actionFindNext"/>
+    <addaction name="actionFindPrevious"/>
+    <addaction name="separator"/>
+    <addaction name="actionReplaceNext"/>
+    <addaction name="actionReplacePrevious"/>
+    <addaction name="actionReplaceAll"/>
+    <addaction name="separator"/>
+    <addaction name="actionCount"/>
+    <addaction name="separator"/>
+    <addaction name="actionGoToLine"/>
    </widget>
    <widget class="QMenu" name="menu_Window">
     <property name="title">
@@ -165,7 +170,7 @@
    <addaction name="menuFile"/>
    <addaction name="menuEdit"/>
    <addaction name="menuView"/>
-   <addaction name="menuTools"/>
+   <addaction name="menuFindReplace"/>
    <addaction name="menu_Window"/>
    <addaction name="menuHelp"/>
   </widget>
@@ -253,7 +258,6 @@
    <attribute name="toolBarBreak">
     <bool>false</bool>
    </attribute>
-   <addaction name="actionTidyClean"/>
    <addaction name="actionCheckWellFormedErrors"/>
    <addaction name="actionValidateEpub"/>
   </widget>
@@ -707,28 +711,6 @@
     <string>Frequently Asked Questions</string>
    </property>
   </action>
-  <action name="actionTidyClean">
-   <property name="checkable">
-    <bool>true</bool>
-   </property>
-   <property name="icon">
-    <iconset resource="../Resource_Files/main/main.qrc">
-     <normaloff>:/main/edit-clear_22px.png</normaloff>:/main/edit-clear_22px.png</iconset>
-   </property>
-   <property name="text">
-    <string>&amp;Cleaning With HTML Tidy</string>
-   </property>
-   <property name="toolTip">
-    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Cleaning With HTML Tidy&lt;/b&gt;&lt;/p&gt;
-
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;If this option is checked, then your HTML content documents will be cleaned with Tidy's &quot;clean&quot; option when first opened (as part of an epub or individually) and when saved. The current document will also be cleaned when going between different Views. &lt;/p&gt;
-
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;When the option is unchecked, only the most basic error-correcting passes are performed to ensure that your documents are valid XHTML.&lt;/p&gt;</string>
-   </property>
-   <property name="shortcut">
-    <string>Ctrl+D</string>
-   </property>
-  </action>
   <action name="actionValidateEpub">
    <property name="icon">
     <iconset resource="../Resource_Files/main/main.qrc">
@@ -898,6 +880,30 @@
    </property>
    <property name="shortcut">
     <string>Alt+PgDown</string>
+   </property>
+  </action>
+  <action name="actionCleanLevelOff">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Off</string>
+   </property>
+  </action>
+  <action name="actionCleanLevelPrettyPrint">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Pretty Print</string>
+   </property>
+  </action>
+  <action name="actionCleanLevelTidy">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Tidy</string>
    </property>
   </action>
  </widget>

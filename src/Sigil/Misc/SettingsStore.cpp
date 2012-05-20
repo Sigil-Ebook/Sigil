@@ -36,6 +36,7 @@ static QString KEY_RENAME_TEMPLATE = SETTINGS_GROUP + "/" + "rename_template";
 static QString KEY_DICTIONARY_NAME = SETTINGS_GROUP + "/" + "dictionary_name";
 static QString KEY_SPELL_CHECK = SETTINGS_GROUP + "/" + "spell_check";
 static QString KEY_USER_DICTIONARY_NAME = SETTINGS_GROUP + "/" + "user_dictionary_name";
+static QString KEY_CLEAN_LEVEL = SETTINGS_GROUP + "/" + "clean_level";
 
 SettingsStore::SettingsStore()
     : QSettings(QSettings::IniFormat, QSettings::UserScope, QCoreApplication::organizationName(), QCoreApplication::applicationName())
@@ -96,6 +97,22 @@ QString SettingsStore::renameTemplate()
     return value(KEY_RENAME_TEMPLATE, "Section001").toString();
 }
 
+SettingsStore::CleanLevel SettingsStore::cleanLevel()
+{
+    clearSettingsGroup();
+
+    int level = value(KEY_CLEAN_LEVEL, SettingsStore::CleanLevel_Off).toInt();
+    switch (level) {
+        case SettingsStore::CleanLevel_Off:
+        case SettingsStore::CleanLevel_PrettyPrint:
+        case SettingsStore::CleanLevel_Tidy:
+            return static_cast<SettingsStore::CleanLevel>(level);
+            break;
+        default:
+            return SettingsStore::CleanLevel_Off;
+    }
+}
+
 void SettingsStore::setDefaultMetadataLang(const QString &lang)
 {
     clearSettingsGroup();
@@ -148,6 +165,12 @@ void SettingsStore::setRenameTemplate(const QString &name)
 {
     clearSettingsGroup();
     setValue(KEY_RENAME_TEMPLATE, name);
+}
+
+void SettingsStore::setCleanLevel(SettingsStore::CleanLevel level)
+{
+    clearSettingsGroup();
+    setValue(KEY_CLEAN_LEVEL, level);
 }
 
 void SettingsStore::clearSettingsGroup()

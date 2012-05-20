@@ -40,6 +40,12 @@ class SettingsStore : public QSettings
 public:
     SettingsStore();
 
+    enum CleanLevel {
+        CleanLevel_Off = 0,
+        CleanLevel_PrettyPrint = 100,
+        CleanLevel_Tidy = 200
+    };
+
     /**
      * The langauge to use for the user interface
      *
@@ -90,6 +96,8 @@ public:
      * @return The template name.
      */
     QString renameTemplate();
+
+    SettingsStore::CleanLevel cleanLevel();
 
 public slots:
 
@@ -143,6 +151,8 @@ public slots:
      * @param name The name of the dictionary.
      */
     void setRenameTemplate(const QString &name);
+
+    void setCleanLevel(SettingsStore::CleanLevel level);
 
 private:
     /**

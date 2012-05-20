@@ -30,6 +30,7 @@
 #include "ui_main.h"
 #include "BookManipulation/Book.h"
 #include "MainUI/NCXModel.h"
+#include "Misc/SettingsStore.h"
 #include "Tabs/ContentTab.h"
 
 const int MAX_RECENT_FILES = 5;
@@ -47,17 +48,17 @@ class ValidationResultsView;
 
 
 /**
- * @mainpage 
+ * @mainpage
  * The conversion of all source comments to Doxygen format
  * is in progress. Some files have been converted, others have not.
- * 
+ *
  * Be patient.
  */
 
 
 /**
- * The main window of the application. 
- * Presents the main user interface with menus, toolbars, editing panes 
+ * The main window of the application.
+ * Presents the main user interface with menus, toolbars, editing panes
  * and side panes like the Book Browser.
  *
  * This window is the main entry point to all functionality.
@@ -69,7 +70,7 @@ class MainWindow : public QMainWindow
 public:
 
     /**
-     * Constructor. 
+     * Constructor.
      *
      * @param openfilepath The path to the file that the window
      *                     should load (new file loaded if empty).
@@ -128,9 +129,9 @@ public:
     };
 
     /**
-     * Returns the status bar mutex used to protect 
+     * Returns the status bar mutex used to protect
      * write access to the MainWindow's status bar.
-     * 
+     *
      * @return The status bar mutex.
      */
     QMutex& GetStatusBarMutex();
@@ -144,14 +145,8 @@ public:
      *
      * @note This function is thread-safe.
      */
-    static void ShowMessageOnCurrentStatusBar( const QString &message, 
+    static void ShowMessageOnCurrentStatusBar( const QString &message,
                                                int millisecond_duration = STATUSBAR_MSG_DISPLAY_TIME );
-
-    /**
-     * Returns the current state of the Tidy clean option,
-     * as specified by the user.
-     */
-    static bool ShouldUseTidyClean();
 
     /**
      * Returns the current view state.
@@ -197,7 +192,7 @@ protected:
     void closeEvent( QCloseEvent *event );
 
 private slots:
-    
+
     /**
      * Implements New action functionality.
      */
@@ -232,7 +227,7 @@ private slots:
      * Implements Go To Line action functionality.
      */
     void GoToLine();
-   
+
     /**
      * Implements Zoom In action functionality.
      */
@@ -314,17 +309,17 @@ private slots:
     void ValidateEpub();
 
     /**
-     * Disconnects all signals to the old tab 
+     * Disconnects all signals to the old tab
      * and reconnects them to the new tab when the
      * current tab is changed.
      *
      * @old_tab The tab that was previously in use.
      * @new_tab The tab that is becoming current.
      */
-    void ChangeSignalsWhenTabChanges( ContentTab* old_tab, ContentTab* new_tab ); 
+    void ChangeSignalsWhenTabChanges( ContentTab* old_tab, ContentTab* new_tab );
 
     /**
-     * Updates the toolbars/menus based on current state 
+     * Updates the toolbars/menus based on current state
      * and updates the tab state if requested
      */
     bool UpdateViewState(bool set_tab_state = true);
@@ -340,7 +335,7 @@ private slots:
     void UpdateUiWhenTabsSwitch();
 
     /**
-     * Set initial state for actions in Book View 
+     * Set initial state for actions in Book View
      * (enable the actions the Code View disabled).
      */
     void SetStateActionsBookView();
@@ -350,7 +345,7 @@ private slots:
     void SetStateActionsSplitView();
 
     /**
-     * Set initial state for actions in Code View 
+     * Set initial state for actions in Code View
      * (disable the actions used in Book View that
      * are not appropriate here).
      */
@@ -382,13 +377,13 @@ private slots:
 
     /**
      * Zooms the current view with the new zoom slider value.
-     * 
+     *
      * @param slider_value The new value from the zoom slider.
      */
     void SliderZoom( int slider_value );
 
     /**
-     * Updates the zoom controls by reading the current 
+     * Updates the zoom controls by reading the current
      * zoom factor from the View. Needed on View changeover.
      */
     void UpdateZoomControls();
@@ -401,7 +396,7 @@ private slots:
     void UpdateZoomSlider( float new_zoom_factor );
 
     /**
-     * Updates the zoom label to reflect the state of the zoom slider. 
+     * Updates the zoom label to reflect the state of the zoom slider.
      * This is needed so the user can see to what zoom value the slider
      * is being dragged to.
      *
@@ -435,21 +430,13 @@ private slots:
 
     /**
      * Creates new chapters/XHTML documents.
-     * 
+     *
      * @param new_chapters The contents of the new chapters.
      * @param originating_resource The original HTML chapter that chapters
      * will be created after.
      * @see Book::CreateNewChapters
      */
     void CreateNewChapters( QStringList new_chapters, HTMLResource &originalResource );
-
-    /**
-     * Sets the new state of the option that controls 
-     * whether to clean with Tidy or not.
-     *
-     * @param new_state The new state of the option.
-     */
-    void SetTidyCleanOption( bool new_state );
 
     /**
      * Sets the new state of the option that controls
@@ -481,22 +468,24 @@ private slots:
     void GenerateToc();
     void GenerateInlineToc(NCXModel::NCXEntry ncx_root_entry);
 
+    void setCleanLevel(int level, bool store=true);
+
 private:
 
     /**
-     * Reads all the stored application settings like 
+     * Reads all the stored application settings like
      * window position, geometry etc.
      */
     void ReadSettings();
 
     /**
-     * Writes all the stored application settings like 
+     * Writes all the stored application settings like
      * window position, geometry etc.
      */
     void WriteSettings();
 
     /**
-     * Gets called on possible saves and asks the user 
+     * Gets called on possible saves and asks the user
      * does he want to save.
      * If the user chooses SAVE, we save and continue
      * If the user chooses DISCARD, we don't save and continue
@@ -512,9 +501,9 @@ private:
      * @param new_book The new book for editing.
      */
     void SetNewBook( QSharedPointer< Book > new_book );
-    
+
     /**
-     * Creates a new, empty book and replaces 
+     * Creates a new, empty book and replaces
      * the current one with it.
      */
     void CreateNewBook();
@@ -530,11 +519,11 @@ private:
      * Saves the current book to the file specified.
      *
      * @param fullfilepath The path to save to.
-     */    
+     */
     bool SaveFile( const QString &fullfilepath );
 
     /**
-     * Performs zoom operations in the views using the default 
+     * Performs zoom operations in the views using the default
      * zoom step. Setting zoom_in to \c true zooms the views *in*,
      * and a setting of \c false zooms them *out*. The zoom value
      * is first wrapped to the nearest zoom step (relative to the zoom direction).
@@ -544,7 +533,7 @@ private:
     void ZoomByStep( bool zoom_in );
 
     /**
-     * Sets the provided zoom factor on the active view editor. 
+     * Sets the provided zoom factor on the active view editor.
      * Valid values are between ZOOM_MAX and ZOOM_MIN, others are ignored.
      *
      * @param new_zoom_factor The new zoom factor for the view.
@@ -565,7 +554,7 @@ private:
      * @param slider_range_value The slider range value being converted.
      * @return The converted zoom factor value.
      */
-    static float SliderRangeToZoomFactor( int slider_range_value );    
+    static float SliderRangeToZoomFactor( int slider_range_value );
 
     /**
      * Returns a map with keys being extensions of file types
@@ -576,7 +565,7 @@ private:
     static const QMap< QString, QString > GetLoadFiltersMap();
 
     /**
-     * Returns a map with keys being extensions of file types 
+     * Returns a map with keys being extensions of file types
      * we can save, and the values being filters for use in file dialogs.
      *
      * @return The save dialog filters.
@@ -584,14 +573,14 @@ private:
     static const QMap< QString, QString > GetSaveFiltersMap();
 
     /**
-     * Returns the currently active MainWindow. 
+     * Returns the currently active MainWindow.
      *
      * @return The currently active MainWindow.
      */
     static MainWindow& GetCurrentMainWindow();
 
     /**
-     * Sets the current file in the window title and also 
+     * Sets the current file in the window title and also
      * updates the recent files list.
      *
      * @param fullfilepath The path to the currently edited file.
@@ -599,13 +588,13 @@ private:
     void UpdateUiWithCurrentFile( const QString &fullfilepath );
 
     /**
-     * Creates and adds the recent files actions 
+     * Creates and adds the recent files actions
      * to the File menu.
      */
     void CreateRecentFilesActions();
 
     /**
-     * Updates the recent files actions when the 
+     * Updates the recent files actions when the
      * list of files to be listed has changed.
      */
     void UpdateRecentFileActions();
@@ -617,7 +606,7 @@ private:
 
     /**
      * Extends the UI with extra widgets and tweaks.
-     * Qt Designer is not able to create all the widgets 
+     * Qt Designer is not able to create all the widgets
      * we want in the MainWindow, so we use this function
      * to extend the UI created by the Designer.
      */
@@ -633,7 +622,7 @@ private:
     /**
      * Loads the initial file provided to the MainWindow on creation.
      * If a file was provided to be loaded with this main window instance,
-     * that file is loaded; if not, or it can't be opened, an empty file 
+     * that file is loaded; if not, or it can't be opened, an empty file
      * is loaded.
      *
      * @param openfilepath The path to the file to load. Can be empty.
@@ -670,6 +659,8 @@ private:
     // PRIVATE MEMBER VARIABLES
     ///////////////////////////////
 
+    QSignalMapper *m_cleanMapper;
+
     /**
      * The path to the current file loaded.
      */
@@ -686,7 +677,7 @@ private:
     QString m_LastFolderOpen;
 
     /**
-     * The list of full filepaths 
+     * The list of full filepaths
      * for the last MAX_RECENT_FILES files.
      * \c static because on Mac we have many MainWindows
      */
@@ -745,22 +736,16 @@ private:
     QLabel *m_lbZoomLabel;
 
     /**
-     * A map with keys being extensions of file types 
+     * A map with keys being extensions of file types
      * we can load, and the values being filters for use in file dialogs.
      */
     const QMap< QString, QString > c_SaveFilters;
 
     /**
-     * A map with keys being extensions of file types 
+     * A map with keys being extensions of file types
      * we can save, and the values being filters for use in file dialogs.
      */
     const QMap< QString, QString > c_LoadFilters;
-
-    /**
-     * Holds the state of whether the user wants tidy to be used
-     * when cleaning XHTML.
-     */
-    static bool m_ShouldUseTidy;
 
     /**
      * Holds the state of wheter the user wants to be informed

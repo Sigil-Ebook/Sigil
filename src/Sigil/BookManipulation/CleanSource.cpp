@@ -27,9 +27,9 @@
 
 #include "BookManipulation/CleanSource.h"
 #include "BookManipulation/XhtmlDoc.h"
+#include "Misc/SettingsStore.h"
 #include "sigil_constants.h"
 #include "sigil_exception.h"
-#include "MainUI/MainWindow.h"
 #include "Misc/Utility.h"
 
 using boost::make_tuple;
@@ -70,26 +70,31 @@ static const QString SVG_ELEMENTS         = "a,altGlyph,altGlyphDef,altGlyphItem
 // of provided book XHTML source code
 QString CleanSource::Clean( const QString &source )
 {
+    SettingsStore settings;
     QString newsource = PreprocessSpecialCases( source );
 
-    if ( !MainWindow::ShouldUseTidyClean() )
-    {
-        newsource = PrettyPrint( newsource );
-        // Remove any empty comments left over from pretty printing.
-        QStringList css_style_tags  = CSSStyleTags( newsource );
-        css_style_tags = RemoveEmptyComments( css_style_tags );
-        return WriteNewCSSStyleTags( newsource, css_style_tags );
+    switch (settings.cleanLevel()) {
+        case SettingsStore::CleanLevel_PrettyPrint:
+        {
+            newsource = PrettyPrint( newsource );
+            // Remove any empty comments left over from pretty printing.
+            QStringList css_style_tags  = CSSStyleTags( newsource );
+            css_style_tags = RemoveEmptyComments( css_style_tags );
+            return WriteNewCSSStyleTags( newsource, css_style_tags );
+        }
+        case SettingsStore::CleanLevel_Tidy:
+        {
+            // We store the number of CSS style tags before
+            // running Tidy so CleanCSS can remove redundant classes
+            // if tidy added a new style tag
+            int old_num_styles = RobustCSSStyleTagCount( newsource );
+            newsource = HTMLTidy( newsource, Tidy_Clean );
+            newsource = CleanCSS( newsource, old_num_styles );
+            return newsource;
+        }
+        default:
+            return source;
     }
-
-    // We store the number of CSS style tags before
-    // running Tidy so CleanCSS can remove redundant classes
-    // if tidy added a new style tag
-    int old_num_styles = RobustCSSStyleTagCount( newsource );
-    
-    newsource = HTMLTidy( newsource, Tidy_Clean );
-    newsource = CleanCSS( newsource, old_num_styles );    
-
-    return newsource;
 }
 
 
@@ -116,7 +121,7 @@ QString CleanSource::RemoveBlankStyleLines( const QString &source )
     }
 
     return WriteNewCSSStyleTags( source, css_style_tags );
-} 
+}
 
 
 // No cleaning, just convert the source to valid XHTML
@@ -128,6 +133,12 @@ QString CleanSource::ToValidXHTML( const QString &source )
 
 QString CleanSource::PrettyPrint( const QString &source )
 {
+    SettingsStore settings;
+
+    if (settings.cleanLevel() == SettingsStore::CleanLevel_Off) {
+        return source;
+    }
+
     return HTMLTidy( source, Tidy_PrettyPrint );
 }
 
@@ -141,7 +152,7 @@ QString CleanSource::ProcessXML( const QString &source )
 int CleanSource::RobustCSSStyleTagCount( const QString &source )
 {
     int head_end_index = source.indexOf( QRegExp( HEAD_END ) );
-    
+
     return Utility::Substring( 0, head_end_index, source ).count( QRegExp( CSS_STYLE_TAG_START ) );
 }
 
@@ -174,17 +185,17 @@ QString CleanSource::CleanCSS( const QString &source, int old_num_styles )
 // where each element is a QString representing the content
 // of a single CSS style tag
 QStringList CleanSource::CSSStyleTags( const QString &source )
-{    
+{
     QList< XhtmlDoc::XMLElement > style_tag_nodes;
 
     try
     {
         style_tag_nodes = XhtmlDoc::GetTagsInHead( source, "style" );
     }
-    
+
     catch ( ErrorParsingXml &exception )
     {
-    	// Nothing really. If we can't get the CSS style tags,
+        // Nothing really. If we can't get the CSS style tags,
         // than that's it. No CSS returned.
         // TODO: log this error.
         //qDebug() << Utility::GetExceptionInfo( exception );
@@ -194,9 +205,9 @@ QStringList CleanSource::CSSStyleTags( const QString &source )
 
     foreach( XhtmlDoc::XMLElement element, style_tag_nodes )
     {
-        if ( element.attributes.contains( "type" ) && 
-             ( element.attributes.value( "type" ) == "text/css" ) 
-           )  
+        if ( element.attributes.contains( "type" ) &&
+             ( element.attributes.value( "type" ) == "text/css" )
+           )
         {
             css_style_tags.append( element.text );
         }
@@ -254,7 +265,7 @@ QStringList CleanSource::MergeSmallerStyles( const QStringList &css_style_tags )
 // Returns the largest index of all the Sigil CSS classes
 int CleanSource::MaxSigilCSSClassIndex( const QStringList &css_style_tags  )
 {
-    int max_class_index = 0;    
+    int max_class_index = 0;
 
     foreach( QString style_tag, css_style_tags )
     {
@@ -295,23 +306,23 @@ TidyDoc CleanSource::TidyOptions( TidyDoc tidy_document, TidyType type, int max_
         tidyOptSetBool( tidy_document, TidyXmlOut, yes );
 
         // "input-xml"
-        tidyOptSetBool( tidy_document, TidyXmlTags, yes );        
+        tidyOptSetBool( tidy_document, TidyXmlTags, yes );
     }
 
     else
     {
         // "output-xhtml"
         tidyOptSetBool( tidy_document, TidyXhtmlOut, yes );
-    }    
+    }
 
     // "add-xml-decl"
     tidyOptSetBool( tidy_document, TidyXmlDecl, yes );
 
     // "preserve-entities"
-    tidyOptSetBool( tidy_document, TidyPreserveEntities, yes );	
+    tidyOptSetBool( tidy_document, TidyPreserveEntities, yes );
 
     // "anchor-as-name"
-    tidyOptSetBool( tidy_document, TidyAnchorAsName, no );	
+    tidyOptSetBool( tidy_document, TidyAnchorAsName, no );
 
     // "alt-text"
     tidyOptSetValue( tidy_document, TidyAltText, "" );
@@ -319,7 +330,7 @@ TidyDoc CleanSource::TidyOptions( TidyDoc tidy_document, TidyType type, int max_
     if ( type != Tidy_Clean )
     {
         // Turning the two merge options on produces ugly markup
-        // for WYSIWYG actions... 
+        // for WYSIWYG actions...
 
         // "merge-divs"
         tidyOptSetInt( tidy_document, TidyMergeDivs, no );
@@ -337,22 +348,22 @@ TidyDoc CleanSource::TidyOptions( TidyDoc tidy_document, TidyType type, int max_
         tidyOptSetBool( tidy_document, TidyMakeClean, yes );
 
         // "css-prefix"
-        tidyOptSetValue( tidy_document, TidyCSSPrefix, SIGIL_CLASS_NAME.toUtf8().data() );	
+        tidyOptSetValue( tidy_document, TidyCSSPrefix, SIGIL_CLASS_NAME.toUtf8().data() );
 
         // This option doesn't exist in "normal" Tidy. It has been hacked on
         // and enables us to direct Tidy to start numbering new CSS classes
         // from an index we provide it, and not always from 1 (which causes clashes).
-        tidyOptSetInt( tidy_document, TidyClassStartID, max_class_index );	
+        tidyOptSetInt( tidy_document, TidyClassStartID, max_class_index );
     }
- 
+
     // "doctype"
     tidyOptSetValue( tidy_document, TidyDoctype, "strict" );
 
     // "enclose-text"
-    tidyOptSetBool( tidy_document, TidyEncloseBodyText, yes );	
+    tidyOptSetBool( tidy_document, TidyEncloseBodyText, yes );
 
     // "wrap"
-    tidyOptSetInt( tidy_document, TidyWrapLen, 0 );	
+    tidyOptSetInt( tidy_document, TidyWrapLen, 0 );
 
     // "newline"
     tidyOptSetValue( tidy_document, TidyNewline, "LF" );
@@ -364,13 +375,13 @@ TidyDoc CleanSource::TidyOptions( TidyDoc tidy_document, TidyType type, int max_
     if ( type != Tidy_Fast )
 
         // "indent"
-        tidyOptSetInt( tidy_document, TidyIndentContent, TidyAutoState );	
+        tidyOptSetInt( tidy_document, TidyIndentContent, TidyAutoState );
 
     // "tidy-mark"
-    tidyOptSetBool( tidy_document, TidyMark, no );	
+    tidyOptSetBool( tidy_document, TidyMark, no );
 
     // UTF-8 for input and output
-    tidySetCharEncoding( tidy_document, "utf8" );  	
+    tidySetCharEncoding( tidy_document, "utf8" );
 
     // Force output
     tidyOptSetBool( tidy_document, TidyForceOutput, yes);
@@ -397,7 +408,7 @@ QString CleanSource::HTMLTidy( const QString &source, TidyType type )
 
     else
 
-        tidy_document = TidyOptions( tidy_document, type );    
+        tidy_document = TidyOptions( tidy_document, type );
 
     // Write all errors to error buffer
     tidySetErrorBuffer( tidy_document, &errbuf );
@@ -452,7 +463,7 @@ QString CleanSource::WriteNewCSSStyleTags( const QString &source, const QStringL
         QString style_tag = "<style type=\"text/css\">\n" + styles + "\n</style>\n";
 
         header.insert( header.indexOf( "</head>" ), style_tag );
-    }    
+    }
 
     return header + Utility::Substring( body_begin, source.length(), source );
 }
@@ -462,7 +473,7 @@ tuple< QString, QStringList > CleanSource::RemoveRedundantClasses( const QString
 {
     QHash< QString, QString > redundant_classes = GetRedundantClasses( css_style_tags );
 
-    return make_tuple( RemoveRedundantClassesSource( source, redundant_classes ), 
+    return make_tuple( RemoveRedundantClassesSource( source, redundant_classes ),
                        RemoveRedundantClassesTags( css_style_tags, redundant_classes ) );
 }
 
@@ -526,7 +537,7 @@ QHash< QString, QString > CleanSource::GetRedundantClasses( const QStringList &c
     QString new_style_tag = css_style_tags.last();
     QStringList new_style_tag_lines = new_style_tag.split( QChar( '\n' ) );
 
-    // We search through all the tags that come before this new one 
+    // We search through all the tags that come before this new one
     for ( int i = 0; i < css_style_tags.count() - 1; ++i )
     {
         QStringList old_lines = css_style_tags[ i ].split( QChar( '\n' ) );
@@ -539,7 +550,7 @@ QHash< QString, QString > CleanSource::GetRedundantClasses( const QStringList &c
             class_definition.setMinimal( true );
 
             if ( line_in_new_styles.indexOf( class_definition ) != -1 )
-            {                
+            {
                 QRegExp matching_style( QRegExp::escape( class_definition.cap( 1 ) ) + "\\.[\\w-]+\\s*" +
                                         QRegExp::escape( class_definition.cap( 2 ) ) );
 
@@ -560,8 +571,8 @@ QHash< QString, QString > CleanSource::GetRedundantClasses( const QStringList &c
                 }
 
                 else
-                {   
-                    continue;                    
+                {
+                    continue;
                 }
             }
         }
@@ -578,17 +589,17 @@ QString CleanSource::RemoveMetaCharset( const QString &source )
     if ( head_end == -1 )
 
         return source;
-    
+
     QString head = Utility::Substring( 0, head_end, source );
 
     QRegExp metacharset( "<meta[^>]+charset[^>]+>" );
-    
+
     int meta_start = head.indexOf( metacharset );
 
     if ( meta_start == -1 )
 
         return source;
-    
+
     head.remove( meta_start, metacharset.matchedLength() );
 
     return head + Utility::Substring( head_end, source.length(), source );
