@@ -600,7 +600,7 @@ void FlowTab::CodeView()
 
 void FlowTab::SaveTabContent()
 {
-    if (m_ViewState == MainWindow::ViewState_BookView) {
+    if (m_ViewState == MainWindow::ViewState_BookView && m_wBookView->IsModified()) {
         if (!m_BookViewNeedReload) {
             disconnect(&m_HTMLResource, SIGNAL(Modified()), this, SLOT(ResourceModified()));
             m_HTMLResource.SetText(m_wBookView->GetHtml());

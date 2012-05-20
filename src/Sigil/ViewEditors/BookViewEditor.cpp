@@ -138,6 +138,7 @@ QString BookViewEditor::GetHtml()
     return EvaluateJavascript(command).toString();
 }
 
+#if 0
 QString BookViewEditor::GetXHtml11()
 {
     return GetHtml();
@@ -147,6 +148,7 @@ QString BookViewEditor::GetHtml5()
 {
     return GetHtml();
 }
+#endif
 
 void BookViewEditor::InsertHtml(const QString &html)
 {

@@ -32,7 +32,7 @@ class QEvent;
 class QSize;
 
 /**
- * A WYSIWYG editor for XHTML flows. 
+ * A WYSIWYG editor for XHTML flows.
  * Also called the "Book View", because it shows a
  * chapter of a book in its final, rendered state
  * (the way it will look like in epub Reading Systems).
@@ -59,8 +59,8 @@ public:
     void ScrollToFragmentAfterLoad(const QString &fragment);
 
     QString GetHtml();
-    QString GetXHtml11();
-    QString GetHtml5();
+    //QString GetXHtml11();
+    //QString GetHtml5();
 
     void InsertHtml(const QString &html);
 
