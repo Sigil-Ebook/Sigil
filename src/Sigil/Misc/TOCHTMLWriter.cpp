@@ -109,7 +109,7 @@ void TOCHTMLWriter::WriteHeading(const NCXModel::NCXEntry &entry , int level)
 
     m_Writer->writeStartElement("a");
     m_Writer->writeAttribute("class", QString("sgc-toc-heading-%1").arg(level));
-    m_Writer->writeAttribute("href", entry.target);
+    m_Writer->writeAttribute("href", "../" % entry.target);
     m_Writer->writeCharacters(entry.text);
     m_Writer->writeEndElement();
 

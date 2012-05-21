@@ -121,11 +121,25 @@ void HeadingSelector::UpdateHeadingElements()
 
     QStringList ids;
     foreach (Headings::Heading heading, m_Headings) {
-        if (!ids.contains(heading.resource_file->GetIdentifier())) {
-            heading.resource_file->SetText(XhtmlDoc::GetDomDocumentAsString(*heading.document.get()));
-            ids << heading.resource_file->GetIdentifier();
+        ids = UpdateOneFile(heading, ids);
+    }
+}
+
+QStringList HeadingSelector::UpdateOneFile( Headings::Heading &heading, QStringList ids )
+{
+    if (!ids.contains(heading.resource_file->GetIdentifier())) {
+        heading.resource_file->SetText(XhtmlDoc::GetDomDocumentAsString(*heading.document.get()));
+        ids << heading.resource_file->GetIdentifier();
+    }
+
+    if ( !heading.children.isEmpty() )
+    {
+        for ( int i = 0; i < heading.children.count(); ++i )
+        {
+            ids = UpdateOneFile( heading.children[ i ], ids);
         }
     }
+    return ids;
 }
 
 void HeadingSelector::UpdateOneHeadingElement(QStandardItem *item)

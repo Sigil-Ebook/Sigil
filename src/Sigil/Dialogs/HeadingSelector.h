@@ -65,6 +65,9 @@ private slots:
     // values and Sigil inclusion class
     void UpdateHeadingElements();
 
+    // Updates files with new heading elements
+    QStringList UpdateOneFile( Headings::Heading &heading, QStringList ids );
+
     // Selects headings to be included/excluded from TOC
     void SelectHeadingLevelInclusion( const QString& heading_level );
 
