@@ -46,11 +46,11 @@ OPFModel::OPFModel( QObject *parent )
     QStandardItemModel( parent ),
     m_RefreshInProgress( false ),
     m_Book( NULL ),
-      m_TextFolderItem(   *new QStandardItem( tr("Text")  ) ),
-      m_StylesFolderItem( *new QStandardItem( tr("Styles") ) ),
-      m_ImagesFolderItem( *new QStandardItem( tr("Images") ) ),
-      m_FontsFolderItem(  *new QStandardItem( tr("Fonts")  ) ),
-      m_MiscFolderItem(   *new QStandardItem( tr("Misc")  ) )
+      m_TextFolderItem(   *new QStandardItem( "Text"   ) ),
+      m_StylesFolderItem( *new QStandardItem( "Styles" ) ),
+      m_ImagesFolderItem( *new QStandardItem( "Images" ) ),
+      m_FontsFolderItem(  *new QStandardItem( "Fonts"  ) ),
+      m_MiscFolderItem(   *new QStandardItem( "Misc"   ) )
 {
     connect( this, SIGNAL( rowsRemoved(        const QModelIndex&, int, int ) ),
              this, SLOT(   RowsRemovedHandler( const QModelIndex&, int, int ) ) );  
