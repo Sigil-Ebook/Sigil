@@ -105,6 +105,8 @@
     <addaction name="actionSplitOnSGFChapterMarkers"/>
     <addaction name="separator"/>
     <addaction name="menuCleanLevel"/>
+    <addaction name="actionCheckWellFormedErrors"/>
+    <addaction name="separator"/>
     <addaction name="actionPreferences"/>
    </widget>
    <widget class="QMenu" name="menuHelp">
@@ -140,7 +142,7 @@
    </widget>
    <widget class="QMenu" name="menuFindReplace">
     <property name="title">
-     <string>&amp;Find</string>
+     <string>&amp;Search</string>
     </property>
     <addaction name="actionFind"/>
     <addaction name="separator"/>
@@ -169,8 +171,8 @@
    </widget>
    <addaction name="menuFile"/>
    <addaction name="menuEdit"/>
-   <addaction name="menuView"/>
    <addaction name="menuFindReplace"/>
+   <addaction name="menuView"/>
    <addaction name="menu_Window"/>
    <addaction name="menuHelp"/>
   </widget>
