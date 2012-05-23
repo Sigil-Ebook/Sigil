@@ -719,12 +719,12 @@
      <normaloff>:/main/document-validate_22px.png</normaloff>:/main/document-validate_22px.png</iconset>
    </property>
    <property name="text">
-    <string>&amp;Validate Epub</string>
+    <string>&amp;Validate EPUB</string>
    </property>
    <property name="toolTip">
-    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Validate Epub&lt;/b&gt;&lt;/p&gt;
+    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Validate EPUB&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Performs epub validation using the FlightCrew validator.&lt;/p&gt;</string>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Performs EPUB validation using the FlightCrew validator.&lt;/p&gt;</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+Shift+V</string>
