@@ -49,9 +49,11 @@ void KeyboardShortcutManager::registerAction(QAction *action, const QString &id,
     KeyboardShortcut s;
     QKeySequence keySequence = action->shortcut();
     QString desc = description;
+    bool defined = false;
 
     if (m_shortcuts.contains(id)) {
         s = m_shortcuts.value(id);
+        defined = true;
     }
     else {
         s = createShortcut(keySequence);
@@ -69,10 +71,10 @@ void KeyboardShortcutManager::registerAction(QAction *action, const QString &id,
 
     // If we are registering with a KeyboardShortcut that was previously created
     // we don't want to over write the key sequence.
-    if (s.keySequence().isEmpty() && !keySequenceInUse(keySequence)) {
+    if (!defined && !keySequenceInUse(keySequence)) {
         s.setKeySequence(keySequence);
     }
-    if (s.defaultKeySequence().isEmpty() && !defaultKeySequenceInUse(keySequence)) {
+    if (!defaultKeySequenceInUse(keySequence)) {
         s.setDefaultKeySequence(keySequence);
     }
 
@@ -85,9 +87,11 @@ void KeyboardShortcutManager::registerShortcut(QShortcut *shortcut, const QStrin
     KeyboardShortcut s;
     QKeySequence keySequence = shortcut->key();
     QString desc = description;
+    bool defined = false;
 
     if (m_shortcuts.contains(id)) {
         s = m_shortcuts.value(id);
+        defined = true;
     }
     else {
         s = createShortcut(keySequence);
@@ -103,10 +107,10 @@ void KeyboardShortcutManager::registerShortcut(QShortcut *shortcut, const QStrin
 
     // If we are registering with a KeyboardShortcut that was previously created
     // we don't want to over write the key sequence.
-    if (s.keySequence().isEmpty() && !keySequenceInUse(keySequence)) {
+    if (!defined && !keySequenceInUse(keySequence)) {
         s.setKeySequence(keySequence);
     }
-    if (s.defaultKeySequence().isEmpty() && !defaultKeySequenceInUse(keySequence)) {
+    if (!defaultKeySequenceInUse(keySequence)) {
         s.setDefaultKeySequence(keySequence);
     }
 
@@ -116,7 +120,7 @@ void KeyboardShortcutManager::registerShortcut(QShortcut *shortcut, const QStrin
 
 bool KeyboardShortcutManager::setKeySequence(const QString &id, const QKeySequence &keySequence, bool isDefault)
 {
-    if (!keySequence.isEmpty() && keySequenceInUse(keySequence)) {
+    if (keySequenceInUse(keySequence)) {
         // Resettings to a keysequence's default value will always succeed.
         if (isDefault) {
             // Find the shortcut that is using this default sequence.
@@ -259,6 +263,10 @@ QStringList KeyboardShortcutManager::ids()
 
 bool KeyboardShortcutManager::keySequenceInUse(const QKeySequence &keySequence)
 {
+    if (keySequence.isEmpty()) {
+        return false;
+    }
+
     foreach (KeyboardShortcut s, m_shortcuts) {
         if (s.keySequence() == keySequence) {
             return true;
@@ -269,6 +277,10 @@ bool KeyboardShortcutManager::keySequenceInUse(const QKeySequence &keySequence)
 
 bool KeyboardShortcutManager::defaultKeySequenceInUse(const QKeySequence &keySequence)
 {
+    if (keySequence.isEmpty()) {
+        return false;
+    }
+
     foreach (KeyboardShortcut s, m_shortcuts) {
         if (s.defaultKeySequence() == keySequence) {
             return true;
@@ -288,9 +300,6 @@ void KeyboardShortcutManager::writeSettings()
         it.next();
         KeyboardShortcut s = it.value();
 
-        if (s.isEmpty()) {
-            continue;
-        }
         settings.setArrayIndex(i);
         settings.setValue("id", it.key());
         settings.setValue("keySequence", s.keySequence().toString());
@@ -327,7 +336,6 @@ void KeyboardShortcutManager::readSettings()
         const QString id = settings.value("id").toString();
         const QKeySequence keySequence(settings.value("keySequence").toString());
 
-        //KeyboardShortcut s = createShortcut(keySequence, defaultKeySequence, description);
         KeyboardShortcut s = createShortcut(keySequence);
         m_shortcuts.insert(id, s);
     }

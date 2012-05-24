@@ -1,5 +1,6 @@
 Sigil 0.6.0 TBA
     New Features:
+	1405: Cleared shortcut reset to default after restart.
     1407: Tidy should allow more fine-grained control.
     1393: Add Semantics Text should only apply to one file.
     1369: Add support for \xDD as Regex replacement in F&R.
