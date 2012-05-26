@@ -48,16 +48,6 @@ void BookNormalization::Normalize( QSharedPointer< Book > book )
     QList< HTMLResource* > html_resources = book->GetFolderKeeper().GetResourceTypeList< HTMLResource >( true );
 
     GiveIDsToHeadings( html_resources );
-
-    if ( !CoverPageExists( *book ) )
-    
-        TryToSetCoverPage( html_resources, *book );
-
-    QList< ImageResource* > image_resources = book->GetFolderKeeper().GetResourceTypeList< ImageResource >();
-
-    if ( !book->GetOPF().CoverImageExists() )
-
-        TryToSetCoverImage( html_resources, image_resources, *book );
 }
 
 
@@ -137,55 +127,6 @@ HTMLResource* BookNormalization::GetCoverPage( const QList< HTMLResource* > &htm
 bool BookNormalization::CoverPageExists( Book &book )
 {
     return !book.GetOPF().GetCoverPageOEBPSPath().isEmpty();
-}
-
-
-void BookNormalization::TryToSetCoverPage( const QList< HTMLResource* > &html_resources, Book &book )
-{
-    HTMLResource *first_html = html_resources[ 0 ];
-
-    if ( IsFlowUnderThreshold( first_html, FLOW_SIZE_THRESHOLD ) &&
-         FlowHasOnlyOneImage( first_html )
-       )
-    {
-        book.GetOPF().AddGuideSemanticType( *first_html, GuideSemantics::Cover );
-    }
-}
-
-
-void BookNormalization::TryToSetCoverImage( const QList< HTMLResource* > &html_resources, 
-                                            const QList< ImageResource* > &image_resources,
-                                            Book &book )
-{
-    HTMLResource *cover_page = GetCoverPage( html_resources, book );
-
-    if ( !cover_page )
-
-        return;
-
-    QStringList image_paths;
-
-    {
-        QReadLocker locker( &cover_page->GetLock() );
-
-        shared_ptr<xc::DOMDocument> d = XhtmlDoc::LoadTextIntoDocument(cover_page->GetText());
-        image_paths = XhtmlDoc::GetImagePathsFromImageChildren( *d.get() );
-    }
-
-    if ( image_paths.count() == 0 )
-
-        return;
-
-    QString first_image_name = QFileInfo( image_paths[ 0 ] ).fileName();
-
-    foreach( ImageResource *image_resource, image_resources )
-    {
-        if ( image_resource->Filename() == first_image_name )
-        {
-            book.GetOPF().SetResourceAsCoverImage( *image_resource );
-            break;
-        }
-    }
 }
 
 

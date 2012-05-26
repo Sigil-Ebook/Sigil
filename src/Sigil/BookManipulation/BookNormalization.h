@@ -93,29 +93,6 @@ private:
     static bool CoverPageExists( Book &book );
 
     /**
-     * Uses heuristics to try and guess which of the
-     * HTML resources is a cover page. If it finds 
-     * a resource that matches, it sets it as the cover page.
-     *
-     * @param html_resource The book's HTML resources.
-     * @param book The book we're manipulating.
-     */
-    static void TryToSetCoverPage( const QList< HTMLResource* > &html_resources, Book &book );
-    
-    /**
-     * Uses heuristics to try and guess which of the 
-     * image resources is a cover image. If it finds 
-     * a resource that matches, it sets it as the cover page.
-     *
-     * @param html_resource The book's HTML resources.
-     * @param image_resources The book's image resources.
-     * @param book The book we're manipulating.
-     */
-    static void TryToSetCoverImage( const QList< HTMLResource* > &html_resources,
-                                    const QList< ImageResource* > &image_resources,
-                                    Book &book );
-
-    /**
      * Determines if a flow is under the specified threshold.
      * Used as a heuristic for finding the cover XHTML file.
      *
