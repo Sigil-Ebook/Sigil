@@ -1,5 +1,6 @@
 Sigil 0.6.0 TBA
     New Features:
+	1414: Cover semantic is added automatically if not already set
 	1405: Cleared shortcut reset to default after restart.
     1407: Tidy should allow more fine-grained control.
     1393: Add Semantics Text should only apply to one file.
