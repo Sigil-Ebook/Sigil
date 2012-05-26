@@ -99,7 +99,7 @@ void BookViewEditor::CustomSetDocument(const QString &path, const QString &html)
     }
 
     SettingsStore settings;
-    QString base = CKE_BASE.arg(QDir::fromNativeSeparators(cke_path)).arg(Qt::escape(html)).arg(settings.uiLanguage()).arg(cke_settings);
+    QString base = CKE_BASE.arg(QDir::fromNativeSeparators(cke_path)).arg(cleanHtml(html)).arg(settings.uiLanguage()).arg(cke_settings);
     setHtml(base, QUrl::fromLocalFile(path));
     page()->mainFrame()->addToJavaScriptWindowObject("BookViewEditor", this);
 }
@@ -294,5 +294,16 @@ bool BookViewEditor::event(QEvent *e)
 void BookViewEditor::TextChangedFilter()
 {
     emit textChanged();
+}
+
+QString BookViewEditor::cleanHtml(const QString &html)
+{
+    QString clean;
+
+    clean = Qt::escape(html);
+    clean = clean.replace("%2B", "+");
+    clean = clean.replace("%2b", "+");
+
+    return clean;
 }
 

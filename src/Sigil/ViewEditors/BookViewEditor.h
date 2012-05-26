@@ -165,6 +165,8 @@ protected:
     void focusOutEvent(QFocusEvent *event);
 
 private:
+    QString cleanHtml(const QString &html);
+
     /**
      * Store the last match when doing a find so we can determine if
      * found text is selected for doing a replace. We also need to store the
