@@ -467,14 +467,13 @@ ContentTab* TabManager::CreateTabForResource( Resource& resource,
         break;
     }
 
-    // In case of well-formed errors we want the tab to be focused.
-    connect( tab,  SIGNAL( CentralTabRequest( ContentTab* ) ),
-             this, SLOT( MakeCentralTab( ContentTab* ) ) );//, Qt::QueuedConnection );
-
     // Wet whether to inform or auto correct well-formed errors.
     WellFormedContent *wtab = dynamic_cast< WellFormedContent* >( tab );
     if ( wtab )
     {
+        // In case of well-formed errors we want the tab to be focused.
+        connect( tab,  SIGNAL( CentralTabRequest( ContentTab* ) ),
+                this, SLOT( MakeCentralTab( ContentTab* ) ) );//, Qt::QueuedConnection );
         wtab->SetCheckWellFormedErrorsState( m_CheckWellFormedErrors );
     }
 
