@@ -6,7 +6,7 @@
     [
         { name: 'clipboard', items : [ 'PasteText','PasteFromWord' ] },
         { name: 'basicstyles', items : [ 'Bold','Italic','Underline','Strike','Subscript','Superscript','-','RemoveFormat' ] },
-        { name: 'format', items : [ 'NumberedList','BulletedList','-','Outdent','Indent','-','Blockquote','CreateDiv', ] },
+        { name: 'format', items : [ 'NumberedList','BulletedList','-','Outdent','Indent','-','Blockquote' ] },
         { name: 'align', items : ['JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock' ] },
         { name: 'direction', items : [ 'BidiLtr','BidiRtl' ] },
         { name: 'links', items : [ 'Link','Unlink','Anchor' ] },
