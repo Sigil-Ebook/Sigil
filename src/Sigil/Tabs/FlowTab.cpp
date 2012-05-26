@@ -532,7 +532,7 @@ void FlowTab::Print()
     QPrinter printer;
 
     QPrintDialog print_dialog(&printer, this);
-    print_dialog.setWindowTitle(tr("Print1").arg(GetFilename()));
+    print_dialog.setWindowTitle(tr("Print %1").arg(GetFilename()));
 
     if (print_dialog.exec() == QDialog::Accepted) {
         if (m_ViewState == MainWindow::ViewState_BookView) {
