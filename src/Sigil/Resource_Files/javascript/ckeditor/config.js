@@ -15,5 +15,6 @@
         { name: 'colors', items : [ 'TextColor','BGColor' ] },
     ];
     config.entities = false;
+    config.format_tags = 'p;h1;h2;h3;h4;h5;h6';
     config.docType = '&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd"&gt;';
 };
