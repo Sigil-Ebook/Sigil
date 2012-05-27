@@ -186,6 +186,8 @@ private slots:
      */
     void EmitTabChanged();
 
+    void UpdateTab(int index);
+
     /**
      * Deletes the specified tab.
      *

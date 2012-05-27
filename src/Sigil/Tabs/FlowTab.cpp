@@ -251,6 +251,13 @@ void FlowTab::SetZoomFactor(float new_zoom_factor)
 
 void FlowTab::UpdateDisplay()
 {
+    SettingsStore settings;
+    settings.beginGroup(SETTINGS_GROUP);
+
+    m_pvVSplitter->restoreState(settings.value("pv_splitter").toByteArray());
+
+    settings.endGroup();
+
     m_wBookView->UpdateDisplay();
     m_wBookPreview->UpdateDisplay();
     m_wCodeView->UpdateDisplay();
@@ -591,9 +598,7 @@ void FlowTab::CodeView()
     setFocusProxy(m_wCodeView);
 
     // Make sure the cursor is properly displayed
-    if (!m_wCodeView->hasFocus()) {
-        m_wCodeView->setFocus();
-    }
+    m_wCodeView->setFocus();
 
     QApplication::restoreOverrideCursor();
 }
@@ -631,6 +636,7 @@ void FlowTab::LoadTabContent()
 
 void FlowTab::LoadSettings()
 {
+    UpdateDisplay();
     m_wCodeView->LoadSettings();
 }
 
@@ -638,6 +644,19 @@ void FlowTab::ResourceModified()
 {
     m_BookViewNeedReload = true;
     m_BookPreviewNeedReload = true;
+}
+
+void FlowTab::PVSplitterMoved(int pos, int index)
+{
+    Q_UNUSED(pos);
+    Q_UNUSED(index);
+
+    SettingsStore settings;
+    settings.beginGroup(SETTINGS_GROUP);
+
+    settings.setValue("pv_splitter", m_pvVSplitter->saveState());
+
+    settings.endGroup();
 }
 
 void FlowTab::LeaveEditor(QWidget *editor)
@@ -804,4 +823,6 @@ void FlowTab::ConnectSignalsToSlots()
     connect(m_wCodeView, SIGNAL(FilteredTextChanged()), this, SLOT(EmitContentChanged()));
 
     connect(&m_HTMLResource, SIGNAL(LinkedResourceUpdated()), this, SLOT(ResourceModified()));
+
+    connect(m_pvVSplitter, SIGNAL(splitterMoved(int, int)), this, SLOT(PVSplitterMoved(int, int)));
 }

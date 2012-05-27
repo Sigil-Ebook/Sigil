@@ -40,6 +40,7 @@ TabManager::TabManager( QWidget *parent )
     QTabWidget( parent )
 {
     connect( this, SIGNAL( currentChanged( int ) ),    this, SLOT( EmitTabChanged() ) );
+    connect( this, SIGNAL( currentChanged( int ) ),    this, SLOT( UpdateTab( int ) ) );
     connect( this, SIGNAL( tabCloseRequested( int ) ), this, SLOT( CloseTab( int ) ) );
 
     setDocumentMode( true );
@@ -285,6 +286,15 @@ void TabManager::EmitTabChanged()
     m_LastContentTab = QWeakPointer< ContentTab >( current_tab );
 }
 
+void TabManager::UpdateTab(int index)
+{
+    if (index == -1) {
+        return;
+    }
+
+    ContentTab *content_tab = qobject_cast<ContentTab *>(widget(index));
+    content_tab->UpdateDisplay();
+}
 
 void TabManager::DeleteTab( ContentTab *tab_to_delete )
 {

@@ -312,6 +312,8 @@ private slots:
     // way that this is unnecessary. The CV linking is not possible in BV.
     void ResourceModified();
 
+    void PVSplitterMoved(int pos, int index);
+
 private:
     /**
      * Makes the Book View the current View.
