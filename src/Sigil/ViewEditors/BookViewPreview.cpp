@@ -63,7 +63,7 @@ QSize BookViewPreview::sizeHint() const
 void BookViewPreview::CustomSetDocument(const QString &path, const QString &html)
 {
     m_isLoadFinished = false;
-    setHtml(html, QUrl::fromLocalFile(path));
+    setContent(html.toUtf8(), "application/xhtml+xml", QUrl::fromLocalFile(path));
 }
 
 bool BookViewPreview::IsLoadingFinished()
