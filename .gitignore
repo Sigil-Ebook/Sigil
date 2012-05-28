@@ -37,7 +37,7 @@ BuildLog.htm
 CMakeFiles
 CMakeScripts
 CMakeCache.txt
-*.cmake
+#*.cmake
 *.dir
 ALL_BUILD*
 
