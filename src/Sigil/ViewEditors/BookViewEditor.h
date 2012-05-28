@@ -26,7 +26,6 @@
 #include <QtCore/QVariant>
 
 #include "ViewEditors/BookViewPreview.h"
-#include "ViewEditors/ViewEditor.h"
 
 class QEvent;
 class QSize;
@@ -37,7 +36,7 @@ class QSize;
  * chapter of a book in its final, rendered state
  * (the way it will look like in epub Reading Systems).
  */
-class BookViewEditor : public BookViewPreview, public ViewEditor
+class BookViewEditor : public BookViewPreview
 {
     Q_OBJECT
 
@@ -104,13 +103,25 @@ public:
                   Searchable::Direction search_direction,
                   bool check_spelling=false,
                   bool ignore_selection_offset=false,
-                  bool wrap=true);
+                  bool wrap=true)
+    {
+        return BookViewPreview::FindNext(search_regex, search_direction, check_spelling, ignore_selection_offset, wrap);
+    }
 
-    int Count(const QString &search_regex, bool check_spelling);
+    int Count(const QString &search_regex, bool check_spelling)
+    {
+        return BookViewPreview::Count(search_regex, check_spelling);
+    }
 
-    bool ReplaceSelected(const QString &search_regex, const QString &replacement, Searchable::Direction direction=Searchable::Direction_Down, bool check_spelling=false);
+    bool ReplaceSelected(const QString &search_regex, const QString &replacement, Searchable::Direction direction=Searchable::Direction_Down, bool check_spelling=false)
+    {
+        return BookViewPreview::ReplaceSelected(search_regex, replacement, direction, check_spelling);
+    }
 
-    int ReplaceAll(const QString &search_regex, const QString &replacement, bool check_spelling);
+    int ReplaceAll(const QString &search_regex, const QString &replacement, bool check_spelling)
+    {
+        return BookViewPreview::ReplaceAll(search_regex, replacement, check_spelling);
+    }
 
     QString GetSelectedText();
 

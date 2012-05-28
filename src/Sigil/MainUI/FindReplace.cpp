@@ -214,7 +214,7 @@ void FindReplace::ReplacePrevious()
 
 
 // Replaces the user's search term with the user's
-// replacement text in the entire document. 
+// replacement text in the entire document.
 void FindReplace::ReplaceAll()
 {
     m_MainWindow.GetCurrentContentTab().SaveTabContent();
@@ -240,7 +240,7 @@ void FindReplace::ReplaceAll()
         }
         count = searchable->ReplaceAll( GetSearchRegex(), ui.cbReplace->lineEdit()->text(), GetSearchMode() == FindReplace::SearchMode_SpellCheck );
     }
-    else 
+    else
     {
         count = ReplaceInAllFiles();
     }
@@ -308,7 +308,7 @@ void FindReplace::FindText( Searchable::Direction direction )
         found = searchable->FindNext( GetSearchRegex(), direction, GetSearchMode() == FindReplace::SearchMode_SpellCheck );
 
     }
-    else 
+    else
     {
         found = FindInAllFiles( direction );
     }
@@ -366,7 +366,7 @@ void FindReplace::ReplaceText( Searchable::Direction direction )
 void FindReplace::SetCodeViewIfNeeded( bool force )
 {
     if ( force ||
-            ( ( GetLookWhere() == FindReplace::LookWhere_AllHTMLFiles || 
+            ( ( GetLookWhere() == FindReplace::LookWhere_AllHTMLFiles ||
                     GetSearchMode() == FindReplace::SearchMode_SpellCheck ||
                     GetLookWhere() == FindReplace::LookWhere_SelectedHTMLFiles ) &&
                 m_MainWindow.GetViewState() == MainWindow::ViewState_BookView ) )
@@ -441,7 +441,7 @@ QList <Resource *> FindReplace::GetHTMLFiles()
     {
         resources = m_MainWindow.GetAllHTMLResources();
     }
-    else 
+    else
     {
         resources = m_MainWindow.GetValidSelectedHTMLResources();
     }
@@ -459,7 +459,7 @@ int FindReplace::CountInFiles()
     return SearchOperations::CountInFiles(
             GetSearchRegex(),
             GetHTMLFiles(),
-            SearchOperations::CodeViewSearch, 
+            SearchOperations::CodeViewSearch,
             GetSearchMode() == FindReplace::SearchMode_SpellCheck );
 }
 
@@ -503,7 +503,7 @@ bool FindReplace::FindInAllFiles( Searchable::Direction direction )
 
         if ( containing_resource )
         {
-            // Save selected resources since opening tabs changes selection 
+            // Save selected resources since opening tabs changes selection
             QList<Resource *>selected_resources = GetHTMLFiles();
 
             m_MainWindow.OpenResource( *containing_resource);
@@ -515,7 +515,7 @@ bool FindReplace::FindInAllFiles( Searchable::Direction direction )
                 SleepFunctions::msleep( 100 );
             }
 
-            // Restore selection since opening tabs changes selection 
+            // Restore selection since opening tabs changes selection
             if ( GetLookWhere() == LookWhere_SelectedHTMLFiles )
             {
                 m_MainWindow.SelectResources(selected_resources);

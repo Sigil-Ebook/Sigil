@@ -33,7 +33,7 @@ class QWidget;
 
 /**
  * The interface for searchable content.
- * Provides methods for searching, replacing 
+ * Provides methods for searching, replacing
  * and counting search term occurrences.
  */
 class Searchable
@@ -56,14 +56,14 @@ public:
 
     /**
      * Finds the next occurrence of the search term in the document.
-     * The matched string is selected. 
+     * The matched string is selected.
      *
      * @param search_regex The regex to match with.
      * @param search_direction The direction of the search.
      * @return \c true if the term is found.
      */
     virtual bool FindNext( const QString &search_regex,
-                           Direction search_direction, 
+                           Direction search_direction,
                            bool check_spelling = false,
                            bool ignore_selection_offset = false,
                            bool wrap = true ) = 0;
@@ -77,10 +77,10 @@ public:
     virtual int Count( const QString &search_regex, bool check_spelling ) = 0;
 
     /**
-     * If the currently selected text matches the specified regex, 
+     * If the currently selected text matches the specified regex,
      * it is replaced by the specified replacement string.
      *
-     * @param search_regex The regex to match with. 
+     * @param search_regex The regex to match with.
      * @param replacement The text with which to replace the matched string.
      * @return \c true if the searched term was successfully replaced.
      */
@@ -89,7 +89,7 @@ public:
     /**
      * Replaces all occurrences of the specified regex.
      *
-     * @param search_regex The regex to match with. 
+     * @param search_regex The regex to match with.
      * @param replacement The text with which to replace the matched string.
      * @return The number of performed replacements.
      */
@@ -97,7 +97,7 @@ public:
 
     /**
      * Returns the currently selected text string.
-     * 
+     *
      * @return The currently selected text string.
      */
     virtual QString GetSelectedText() = 0;

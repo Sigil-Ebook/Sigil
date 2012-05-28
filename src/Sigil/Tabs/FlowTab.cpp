@@ -268,6 +268,9 @@ Searchable* FlowTab::GetSearchableContent()
     if (m_ViewState == MainWindow::ViewState_BookView) {
         return m_wBookView;
     }
+    else if (m_ViewState == MainWindow::ViewState_PreviewView) {
+        return m_wBookPreview;
+    }
     else if (m_ViewState == MainWindow::ViewState_CodeView) {
         return m_wCodeView;
     }

@@ -234,3 +234,4 @@ SPCRE::MatchInfo SPCRE::generateMatchInfo(int ovector[], int ovector_count)
 
     return match_info;
 }
+

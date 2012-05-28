@@ -1042,7 +1042,7 @@ void MainWindow::SetStateActionsSplitView()
     SetStateActionsBookOrCodeView();
     ui.actionSplitView->setChecked(true);
 
-    m_FindReplace->SetCapabilities(FindReplace::CAPABILITY_ALL);
+    m_FindReplace->SetCapabilities(FindReplace::CAPABILITY_FIND);
 }
 
 void MainWindow::SetStateActionsCodeView()

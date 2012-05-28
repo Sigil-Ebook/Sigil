@@ -24,11 +24,11 @@
 
 #include <QtWebKit/QWebView>
 
-#include <ViewEditors/Zoomable.h>
+#include "ViewEditors/ViewEditor.h"
 
 class QSize;
 
-class BookViewPreview : public QWebView, public Zoomable
+class BookViewPreview : public QWebView, public ViewEditor
 {
     Q_OBJECT
 
@@ -74,6 +74,20 @@ public:
      *                 It should have the "#" character as the first character.
      */
     void ScrollToFragmentAfterLoad(const QString &fragment);
+
+    bool FindNext(const QString &search_regex,
+                  Searchable::Direction search_direction,
+                  bool check_spelling=false,
+                  bool ignore_selection_offset=false,
+                  bool wrap=true);
+
+    int Count(const QString &search_regex, bool check_spelling);
+
+    bool ReplaceSelected(const QString &search_regex, const QString &replacement, Searchable::Direction direction=Searchable::Direction_Down, bool check_spelling=false);
+
+    int ReplaceAll(const QString &search_regex, const QString &replacement, bool check_spelling);
+
+    QString GetSelectedText();
 
 signals:
     /**

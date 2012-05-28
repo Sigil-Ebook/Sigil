@@ -445,7 +445,7 @@ SPCRE::MatchInfo CodeViewEditor::GetMisspelledWord( const QString &text, int sta
     {
         misspelled_word =  HTMLSpellCheck::GetFirstMisspelledWord( text, start_offset, end_offset, search_regex );
     }
-    if ( !misspelled_word.text.isEmpty() ) 
+    if ( !misspelled_word.text.isEmpty() )
     {
         match_info.offset.first = misspelled_word.offset - start_offset;
         match_info.offset.second = match_info.offset.first + misspelled_word.length;
@@ -453,7 +453,6 @@ SPCRE::MatchInfo CodeViewEditor::GetMisspelledWord( const QString &text, int sta
 
     return match_info;
 }
-
 
 bool CodeViewEditor::FindNext( const QString &search_regex,
                                Searchable::Direction search_direction,
@@ -1031,7 +1030,6 @@ int CodeViewEditor::GetSelectionOffset( Searchable::Direction search_direction, 
     {
         return !ignore_selection_offset ? textCursor().selectionEnd() : 0;
     }
-
     else
     {
         return !ignore_selection_offset ? textCursor().selectionStart() : toPlainText().count() - 1;

@@ -21,6 +21,7 @@
 
 #include <QtCore/QSize>
 #include <QtCore/QUrl>
+#include <QtGui/QMessageBox>
 #include <QtWebKit/QWebFrame>
 
 #include "Misc/SettingsStore.h"
@@ -137,6 +138,68 @@ void BookViewPreview::ScrollToFragmentAfterLoad(const QString &fragment)
         "function GoToFragment() { " % caret_location % scroll % SET_CURSOR_JS % "}";
 
     EvaluateJavascript(javascript);
+}
+
+bool BookViewPreview::FindNext(const QString &search_regex,
+                              Searchable::Direction search_direction,
+                              bool check_spelling,
+                              bool ignore_selection_offset,
+                              bool wrap
+                             )
+{
+    Q_UNUSED(check_spelling)
+    Q_UNUSED(ignore_selection_offset)
+
+    bool found = false;
+
+    // We can't handle a regex so remove the regex code.
+    QString search_text = search_regex;
+    // Remove the case insensitive parameter.
+    search_text = search_text.remove(0, 4);
+    search_text = search_text.replace(QRegExp("\\([^\\])"), "\1");
+    search_text = search_text.replace("\\\\", "\\");
+
+    QWebPage::FindFlags flags;
+    if (search_direction == Searchable::Direction_Up) {
+        flags  |= QWebPage::FindBackward;
+    }
+
+    found = findText(search_text, flags);
+
+    if (!found && wrap) {
+        flags |= QWebPage::FindWrapsAroundDocument;
+        found = findText(search_text, flags);
+
+        if (found) {
+            ShowWrapIndicator(this);
+        }
+    }
+
+    return found;
+}
+
+int BookViewPreview::Count(const QString &search_regex, bool check_spelling)
+{
+    return 0;
+}
+
+bool BookViewPreview::ReplaceSelected(const QString &search_regex, const QString &replacement, Searchable::Direction direction, bool check_spelling)
+{
+    QMessageBox::critical(this, tr("Unsupported"), tr("Replace is not supported in this view. Switch to Code View."));
+    return false;
+}
+
+int BookViewPreview::ReplaceAll(const QString &search_regex, const QString &replacement, bool check_spelling)
+{
+    QMessageBox::critical(this, tr("Unsupported"), tr("Replace All for the current file is not supported in this view. Switch to Code View."));
+    return 0;
+}
+
+
+QString BookViewPreview::GetSelectedText()
+{
+    QString javascript = "window.getSelection().toString();";
+    return EvaluateJavascript(javascript).toString();
 }
 
 void BookViewPreview::UpdateFinishedState(int progress)

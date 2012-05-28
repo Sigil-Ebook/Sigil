@@ -229,50 +229,6 @@ void BookViewEditor::focusOutEvent(QFocusEvent *event)
     QWebView::focusOutEvent(event);
 }
 
-bool BookViewEditor::FindNext(const QString &search_regex,
-                              Searchable::Direction search_direction,
-                              bool check_spelling,
-                              bool ignore_selection_offset,
-                              bool wrap
-                             )
-{
-    Q_UNUSED(check_spelling)
-    Q_UNUSED(ignore_selection_offset)
-
-    // We can't handle a regex so remove the regex code.
-    QString search_text = search_regex;
-    // Remove the case insensitive parameter.
-    search_text = search_text.remove(0, 4);
-    search_text = search_text.replace(QRegExp("\\([^\\])"), "\1");
-    search_text = search_text.replace("\\\\", "\\");
-
-    QWebPage::FindFlags flags;
-    if (search_direction == Searchable::Direction_Up) {
-        flags  |= QWebPage::FindBackward;
-    }
-    if (wrap) {
-        flags |= QWebPage::FindWrapsAroundDocument;
-    }
-
-    return findText(search_text, flags);
-}
-
-int BookViewEditor::Count(const QString &search_regex, bool check_spelling)
-{
-    return 0;
-}
-
-bool BookViewEditor::ReplaceSelected(const QString &search_regex, const QString &replacement, Searchable::Direction direction, bool check_spelling)
-{
-    QMessageBox::critical(this, tr("Unsupported"), tr("Replace is not supported in Book View at this time.  Switch to Code View."));
-    return false;
-}
-
-int BookViewEditor::ReplaceAll(const QString &search_regex, const QString &replacement, bool check_spelling)
-{
-    QMessageBox::critical(this, tr("Unsupported"), tr("Replace All for the current file is not supported in Book View at this time.  Switch to Code View."));
-    return 0;
-}
 
 QString BookViewEditor::GetSelectedText()
 {

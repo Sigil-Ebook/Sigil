@@ -44,7 +44,7 @@ class ViewEditor : public Searchable, public Zoomable
 public:
     /**
      * Destructor.
-     */ 
+     */
     virtual ~ViewEditor() {}
 
     /**
