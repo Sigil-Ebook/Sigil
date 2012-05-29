@@ -545,7 +545,7 @@ if( APPLE )
 # For Linux and Windows, provide binary installers.
 # For this to work on Linux, InstallJammer needs to be installed and on the system path.
 # For this to work on Windows, Inno Setup's iscc compiler needs to be installed and on the system path.
-else()
+elseif (MSVC)
     set( TEMP_PACKAGE_DIR ${CMAKE_BINARY_DIR}/temp_folder )
     set( MAIN_PACKAGE_DIR ${TEMP_PACKAGE_DIR}/Sigil )
     set( OUTPUT_PACKAGE_DIR ${CMAKE_BINARY_DIR}/installer )
