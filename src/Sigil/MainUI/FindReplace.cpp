@@ -31,7 +31,7 @@
 #include "Misc/SleepFunctions.h"
 
 static const QString SETTINGS_GROUP = "find_replace";
-static const int MAXIMUM_SELECTED_TEXT_LIMIT = 100;
+static const int MAXIMUM_SELECTED_TEXT_LIMIT = 500;
 static const int MAX_HISTORY_COUNT = 15;
 
 FindReplace::FindReplace( MainWindow &main_window )
@@ -69,7 +69,6 @@ void FindReplace::SetUpFindText()
              selected_text.length() < MAXIMUM_SELECTED_TEXT_LIMIT )
         {
             ui.cbFind->setEditText( selected_text );
-            ui.cbFind->insertItem( 0, selected_text );
         }
     }
 
