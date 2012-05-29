@@ -212,13 +212,13 @@ void BookViewEditor::ResetModified()
 
 void BookViewEditor::Undo()
 {
-    QString javascript = "CKEDITOR.instances.editor.undo();";
+    QString javascript = "CKEDITOR.instances.editor.execCommand('undo');";
     EvaluateJavascript(javascript);
 }
 
 void BookViewEditor::Redo()
 {
-    QString javascript = "CKEDITOR.instances.editor.redo();";
+    QString javascript = "CKEDITOR.instances.editor.execCommand('redo');";
     EvaluateJavascript(javascript);
 }
 
