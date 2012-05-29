@@ -1,5 +1,7 @@
 Sigil 0.6.0 TBA
     New Features:
+	1416: Don't add selected text to F&R history and increase selected
+	      text limit for being auto loaded into F&R.
 	1414: Cover semantic is added automatically if not already set
 	1405: Cleared shortcut reset to default after restart.
     1407: Tidy should allow more fine-grained control.
