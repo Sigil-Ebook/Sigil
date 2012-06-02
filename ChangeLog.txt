@@ -1,5 +1,5 @@
 Sigil 0.6.0 TBA
-    New Features:
+  New Features:
 	1416: Don't add selected text to F&R history and increase selected
 	      text limit for being auto loaded into F&R.
 	1414: Cover semantic is added automatically if not already set
@@ -49,8 +49,9 @@ Sigil 0.6.0 TBA
     1378: Update Hunspell to 1.3.2.
     1379: Update Boost to Boost 1.49.0.
     1283: Spell check should have an ignore option.
-    
-    Bug Fixes:
+  Bug Fixes:
+	1422: Delete file should not update tab if opened file is not deleted.
+	1417: OPF meta tags not updated if Cover image renamed or deleted.
     1408: Book Browser should not translate folder names.
     1308: Allow renaming file extensions.
     1363: Open and Save file directory inconsistent.
