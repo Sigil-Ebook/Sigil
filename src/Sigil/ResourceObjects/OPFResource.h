@@ -78,6 +78,10 @@ public:
 
     bool IsCoverImage( const ::ImageResource &image_resource ) const;
 
+    bool IsCoverImageCheck(const Resource &resource, xc::DOMDocument &document) const;
+
+    bool IsCoverImageCheck(QString resource_id, xc::DOMDocument &document) const;
+
     /**
      * Determines if a cover image exists.
      *
@@ -122,6 +126,10 @@ public slots:
     void SetDCMetadata( const QList< Metadata::MetaElement >  &metadata );
 
     void AddResource( const Resource &resource );
+
+    void RemoveCoverMetaForImage(const Resource &resource, xc::DOMDocument &document);
+
+    void AddCoverMetaForImage(const Resource &resource, xc::DOMDocument &document);
 
     void RemoveResource( const Resource &resource );
 

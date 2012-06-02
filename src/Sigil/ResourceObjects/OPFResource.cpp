@@ -282,13 +282,23 @@ bool OPFResource::IsCoverImage( const ::ImageResource &image_resource ) const
     QReadLocker locker( &GetLock() );
 
     shared_ptr< xc::DOMDocument > document = GetDocument();
-    xc::DOMElement* meta                   = GetCoverMeta( *document );    
-    
-    if ( meta )
-    {
-        QString resource_id = GetResourceManifestID( image_resource, *document );
 
-        return XtoQ( meta->getAttribute( QtoX( "content" ) ) ) == resource_id;
+    return IsCoverImageCheck( image_resource, *document );
+}
+
+bool OPFResource::IsCoverImageCheck(const Resource &resource, xc::DOMDocument &document) const
+{
+    QString resource_id = GetResourceManifestID(resource, document);
+
+    return IsCoverImageCheck(resource_id, document);
+}
+
+bool OPFResource::IsCoverImageCheck(QString resource_id, xc::DOMDocument &document) const
+{
+    xc::DOMElement* meta = GetCoverMeta(document);    
+    
+    if (meta) {
+        return XtoQ(meta->getAttribute(QtoX("content"))) == resource_id;
     }
 
     return false;
@@ -480,6 +490,38 @@ void OPFResource::AddResource( const Resource &resource )
     UpdateTextFromDom( *document );
 }
 
+void OPFResource::RemoveCoverMetaForImage(const Resource &resource, xc::DOMDocument &document)
+{
+    xc::DOMElement* meta = GetCoverMeta(document);
+    QString resource_id = GetResourceManifestID(resource, document);
+
+    // Remove entry if there is a cover in meta and if this file is marked as cover
+    if (meta && XtoQ(meta->getAttribute(QtoX("content"))) == resource_id) {
+        GetMetadataElement(document).removeChild(meta);
+    }
+}
+
+void OPFResource::AddCoverMetaForImage(const Resource &resource, xc::DOMDocument &document)
+{
+    xc::DOMElement* meta = GetCoverMeta(document);
+    QString resource_id = GetResourceManifestID(resource, document);
+
+    // If a cover entry exists, update its id, else create one
+    if (meta) {
+        meta->setAttribute(QtoX("content"), QtoX(resource_id));        
+    }
+    else {
+        QHash< QString, QString > attributes;
+        attributes[ "name"    ] = "cover";
+        attributes[ "content" ] = resource_id;
+
+        xc::DOMElement *new_meta = XhtmlDoc::CreateElementInDocument( 
+            "meta", OPF_XML_NAMESPACE, document, attributes);
+
+        xc::DOMElement &metadata = GetMetadataElement(document);
+        metadata.appendChild(new_meta);
+    }
+}
 
 void OPFResource::RemoveResource( const Resource &resource )
 {
@@ -490,6 +532,11 @@ void OPFResource::RemoveResource( const Resource &resource )
     std::vector< xc::DOMElement* > children = xe::GetElementChildren( manifest );
     QString resource_oebps_path             = Utility::URLEncodePath( resource.GetRelativePathToOEBPS() );
     QString item_id;
+
+    // Delete the meta tag for cover images before deleting the manifest entry
+    if (resource.Type() == Resource::ImageResourceType) {
+        RemoveCoverMetaForImage(resource, *document);
+    }
 
     foreach( xc::DOMElement *child, children )
     {
@@ -544,32 +591,12 @@ void OPFResource::SetResourceAsCoverImage( const ::ImageResource &image_resource
     QWriteLocker locker( &GetLock() );
 
     shared_ptr< xc::DOMDocument > document = GetDocument();
-    xc::DOMElement* meta = GetCoverMeta( *document );
-    QString resource_id = GetResourceManifestID( image_resource, *document );
-    
-    if ( meta )
-    {
-        // If the image is already set as the cover, then we toggle it off
-        if ( XtoQ( meta->getAttribute( QtoX( "content" ) ) ) == resource_id )
-        
-            GetMetadataElement( *document ).removeChild( meta );
-        
-        else
-        
-            meta->setAttribute( QtoX( "content" ), QtoX( resource_id ) );        
+
+    if (IsCoverImageCheck(image_resource, *document)) {
+        RemoveCoverMetaForImage(image_resource, *document);
     }
-
-    else
-    {
-        QHash< QString, QString > attributes;
-        attributes[ "name"    ] = "cover";
-        attributes[ "content" ] = resource_id;
-
-        xc::DOMElement *new_meta = XhtmlDoc::CreateElementInDocument( 
-            "meta", OPF_XML_NAMESPACE, *document, attributes );
-
-        xc::DOMElement &metadata = GetMetadataElement( *document );
-        metadata.appendChild( new_meta );
+    else {
+        AddCoverMetaForImage(image_resource, *document);
     }
 
     UpdateTextFromDom( *document );
@@ -631,6 +658,18 @@ void OPFResource::ResourceRenamed( const Resource& resource, QString old_full_pa
     }
 
     UpdateItemrefID( old_id, new_id, *document );
+
+    if (resource.Type() == Resource::ImageResourceType) {
+        // Change meta entry for cover if necessary
+        // Check using IDs since file is already renamed
+        if (IsCoverImageCheck(old_id, *document)) {
+            // Add will automatically replace an existing id
+            // Assumes only one cover but removing duplicates
+            // can cause timing issues
+            AddCoverMetaForImage(resource, *document);
+        }
+    }
+
     UpdateTextFromDom( *document );
 }
 
