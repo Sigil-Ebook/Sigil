@@ -552,7 +552,14 @@ void BookBrowser::RenameSelected()
 
 void BookBrowser::Remove()
 {
+    emit RemoveResourcesRequest();
+}
+
+
+void BookBrowser::RemoveSelection( Resource *tab_resource )
+{
     QList <Resource *> resources = ValidSelectedResources();
+    Resource *next_resource;
 
     if ( resources.isEmpty() )
     {
@@ -593,7 +600,14 @@ void BookBrowser::Remove()
         return;
     }
 
-    Resource *next_resource = ResourceToSelectAfterRemove();
+    // Only select a new resource if the current one will be deleted
+    if ( !tab_resource || resources.contains( tab_resource ) ) {
+        next_resource = ResourceToSelectAfterRemove();
+    }
+    else {
+        next_resource = tab_resource;
+    }
+
     if ( next_resource )
     {
         Resource::ResourceType type = next_resource->Type();

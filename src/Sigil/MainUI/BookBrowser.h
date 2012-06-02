@@ -85,6 +85,8 @@ public:
 
     void SelectResources(QList<Resource *> resources);
 
+    void RemoveSelection( Resource *tab_resource );
+
 public slots:
 
     /**
@@ -206,6 +208,8 @@ signals:
     void MergeResourcesRequest(QList<Resource *> resources);
 
     void LinkStylesheetsToResourcesRequest(QList<Resource *> resources);
+
+    void RemoveResourcesRequest();
 
 private slots:
 

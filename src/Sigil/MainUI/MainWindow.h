@@ -465,6 +465,8 @@ private slots:
      */
     QStringList GetStylesheetsAlreadyLinked( Resource *resource );
 
+    void RemoveResources();
+
     void GenerateToc();
     void GenerateInlineToc(NCXModel::NCXEntry ncx_root_entry);
 

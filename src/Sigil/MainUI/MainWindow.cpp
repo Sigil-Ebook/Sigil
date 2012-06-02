@@ -690,6 +690,14 @@ QStringList MainWindow::GetStylesheetsAlreadyLinked( Resource *resource )
     return linked_stylesheets;
 }
 
+void MainWindow::RemoveResources()
+{
+    ContentTab &tab = m_TabManager.GetCurrentContentTab();
+    if ( &tab != NULL )
+    {
+        m_BookBrowser->RemoveSelection( &tab.GetLoadedResource() );
+    }
+}
 
 void MainWindow::GenerateToc()
 {
@@ -2080,6 +2088,8 @@ void MainWindow::ConnectSignalsToSlots()
     connect(m_BookBrowser, SIGNAL(MergeResourcesRequest(QList<Resource *>)), this, SLOT(MergeResources(QList<Resource *>)));
 
     connect(m_BookBrowser, SIGNAL(LinkStylesheetsToResourcesRequest(QList<Resource *>)), this, SLOT(LinkStylesheetsToResources(QList<Resource *>)));
+
+    connect(m_BookBrowser, SIGNAL(RemoveResourcesRequest()), this, SLOT(RemoveResources()));
 
     connect( m_TableOfContents, SIGNAL( OpenResourceRequest( Resource&, bool, const QUrl& ) ),
              this,     SLOT(   OpenResource(        Resource&, bool, const QUrl& ) ) );
