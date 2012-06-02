@@ -903,7 +903,7 @@ void FindReplace::ExtendUI()
             ui.model->show();
             ui.cbSearchMode->show();
 
-            QString mode_tooltip = "<p>" + tr("Mode") + ":</p><dl>";
+            QString mode_tooltip = "<p>" + tr("What to search for") + ":</p><dl>";
             if (caps & FindReplace::CAPABILITY_MODE_NORMAL || caps & FindReplace::CAPABILITY_ALL) {
                 ui.cbSearchMode->addItem(tr("Normal"), FindReplace::SearchMode_Normal);
                 mode_tooltip += "<dt><b>" + tr("Normal") + "</b><dd>" + tr("Case in-sensitive search of exactly what you type") + "</dd>";
@@ -934,10 +934,9 @@ void FindReplace::ExtendUI()
             caps & FindReplace::CAPABILITY_LOOK_SELECTED_HTML ||
             caps & FindReplace::CAPABILITY_ALL)
         {
-            ui.lookl->show();
             ui.cbLookWhere->show();
 
-            QString look_tooltip = "<p>" + tr("Look") + "</p><dl>";
+            QString look_tooltip = "<p>" + tr("Where to search") + ":</p><dl>";
             if (caps & FindReplace::CAPABILITY_LOOK_CURRENT || caps & FindReplace::CAPABILITY_ALL) {
                 ui.cbLookWhere->addItem(tr("Current File"), FindReplace::LookWhere_CurrentFile);
                 look_tooltip += "<dt><b>" + tr("Current File") + "</b><dd>" + tr("Restrict the find or replace to the opened file") + "</dd>";
@@ -954,17 +953,15 @@ void FindReplace::ExtendUI()
             ui.cbLookWhere->setToolTip(look_tooltip);
         }
         else {
-            ui.lookl->hide();
             ui.cbLookWhere->hide();
         }
 
         // Direction
-        ui.directionl->show();
         ui.cbSearchDirection->show();
 
         ui.cbSearchDirection->addItem(tr("Up"), FindReplace::SearchDirection_Up);
         ui.cbSearchDirection->addItem(tr("Down"), FindReplace::SearchDirection_Down);
-        ui.cbSearchDirection->setToolTip("<p>" + tr("Direction") + ":</p>"
+        ui.cbSearchDirection->setToolTip("<p>" + tr("Direction to search") + ":</p>"
             "<dl>"
             "<dt><b>" + tr("Up") + "</b><dd>" + tr("Search for the previous match from your current position") + "</dd>"
             "<dt><b>" + tr("Down") + "</b><dd>" + tr("Search for the next match from your current position") + "</dd>"
@@ -991,11 +988,9 @@ void FindReplace::ExtendUI()
         ui.cbSearchMode->hide();
 
         // Look
-        ui.lookl->hide();
         ui.cbLookWhere->hide();
 
         // Direction
-        ui.directionl->hide();
         ui.cbSearchDirection->hide();
 
         // Message

@@ -246,27 +246,7 @@
            <widget class="QComboBox" name="cbSearchMode"/>
           </item>
           <item>
-           <widget class="QLabel" name="lookl">
-            <property name="text">
-             <string>Look:</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-            </property>
-           </widget>
-          </item>
-          <item>
            <widget class="QComboBox" name="cbLookWhere"/>
-          </item>
-          <item>
-           <widget class="QLabel" name="directionl">
-            <property name="text">
-             <string>Direction:</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-            </property>
-           </widget>
           </item>
           <item>
            <widget class="QComboBox" name="cbSearchDirection"/>
