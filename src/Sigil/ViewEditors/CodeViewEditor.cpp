@@ -776,7 +776,7 @@ void CodeViewEditor::contextMenuEvent( QContextMenuEvent *event )
             // an additionalFormat for the block and if that format is for a misspelled word.
             int pos = c.positionInBlock();
             foreach (QTextLayout::FormatRange r, textCursor().block().layout()->additionalFormats()) {
-                if (pos >= r.start && pos <= r.start + r.length && r.format.underlineStyle() == QTextCharFormat::SpellCheckUnderline) {
+                if (pos > r.start && pos < r.start + r.length && r.format.underlineStyle() == QTextCharFormat::SpellCheckUnderline) {
                     c.setPosition(c.block().position() + r.start);
                     c.movePosition(QTextCursor::Right, QTextCursor::KeepAnchor, r.length);
                     setTextCursor(c);

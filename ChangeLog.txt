@@ -50,6 +50,7 @@ Sigil 0.6.0 TBA
     1379: Update Boost to Boost 1.49.0.
     1283: Spell check should have an ignore option.
   Bug Fixes:
+    1424: Spell check does not allow paste next to misspelled word.
     1422: Delete file should not update tab if opened file is not deleted.
     1417: OPF meta tags not updated if Cover image renamed or deleted.
     1408: Book Browser should not translate folder names.
