@@ -90,9 +90,6 @@ void HTMLResource::SetText(const QString &text)
 
 void HTMLResource::SaveToDisk(bool book_wide_save)
 {
-    // Just in case there was no initial load until now.
-    InitialLoad();
-
     SetText(ConvertToEntities(CleanSource::PrettyPrint(GetText())));
 
     XMLResource::SaveToDisk(book_wide_save);

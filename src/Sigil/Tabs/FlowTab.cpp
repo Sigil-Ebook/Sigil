@@ -70,6 +70,7 @@ FlowTab::FlowTab(HTMLResource& resource,
     m_ViewState(view_state),
     m_WellFormedCheckComponent(*new WellFormedCheckComponent(*this)),
     m_safeToLoad(false),
+    m_firstModified(true),
     m_initialLoad(true),
     m_BookViewNeedReload(false),
     m_BookPreviewNeedReload(false)
@@ -112,6 +113,11 @@ FlowTab::FlowTab(HTMLResource& resource,
 
 FlowTab::~FlowTab()
 {
+    // Explicitly disconnect this signal because it's causing the ResourceModified
+    // function to be called after we delete BV and PV later in this destructor.
+    // No idea how that's possible but this prevents a segfault...
+    disconnect(&m_HTMLResource, SIGNAL(Modified()), this, SLOT(ResourceModified()));
+
     m_WellFormedCheckComponent.deleteLater();
     if (m_wBookView) {
         delete m_wBookView;
@@ -312,9 +318,9 @@ bool FlowTab::SetViewState(MainWindow::ViewState new_view_state)
         CodeView();
     }
     else {
-        connect(&m_HTMLResource, SIGNAL(Modified()), this, SLOT(ResourceModified()));
         BookView();
     }
+    connect(&m_HTMLResource, SIGNAL(Modified()), this, SLOT(ResourceModified()));
 
     return true;
 }
@@ -645,6 +651,13 @@ void FlowTab::LoadSettings()
 
 void FlowTab::ResourceModified()
 {
+    if (m_firstModified || m_initialLoad || !IsLoadingFinished()) {
+        if (m_firstModified) {
+            m_firstModified = false;
+        }
+        return;
+    }
+
     m_BookViewNeedReload = true;
     m_BookPreviewNeedReload = true;
 }
@@ -713,11 +726,6 @@ void FlowTab::EnterEditor(QWidget *editor)
 
 void FlowTab::DelayedInitialization()
 {
-    // TextResource loads on demand. We want to ensure the document is loaded
-    // before we start using it. Without this BV will sometimes load with
-    // an empty documnet.
-    m_HTMLResource.InitialLoad();
-
     m_wBookView->CustomSetDocument(m_HTMLResource.GetFullPath(), m_HTMLResource.GetText());
     m_wBookPreview->CustomSetDocument(m_HTMLResource.GetFullPath(), m_HTMLResource.GetText());
     m_wCodeView->CustomSetDocument(m_HTMLResource.GetTextDocumentForWriting());
@@ -741,7 +749,6 @@ void FlowTab::DelayedInitialization()
         case MainWindow::ViewState_PreviewView:
         {
             SplitView();
-
             m_wBookPreview->ScrollToFragmentAfterLoad(m_FragmentToScroll.toString());
             break;
         }
@@ -749,7 +756,6 @@ void FlowTab::DelayedInitialization()
         case MainWindow::ViewState_RawView:
         case MainWindow::ViewState_StaticView:
         default:
-            connect(&m_HTMLResource, SIGNAL(Modified()), this, SLOT(ResourceModified()));
             BookView();
             m_wBookView->ScrollToFragmentAfterLoad(m_FragmentToScroll.toString());
             break;
@@ -825,6 +831,7 @@ void FlowTab::ConnectSignalsToSlots()
     connect(m_wBookView, SIGNAL(textChanged()), this, SLOT(EmitContentChanged()));
     connect(m_wCodeView, SIGNAL(FilteredTextChanged()), this, SLOT(EmitContentChanged()));
 
+    connect(&m_HTMLResource, SIGNAL(Modified()), this, SLOT(ResourceModified()));
     connect(&m_HTMLResource, SIGNAL(LinkedResourceUpdated()), this, SLOT(ResourceModified()));
 
     connect(m_pvVSplitter, SIGNAL(splitterMoved(int, int)), this, SLOT(PVSplitterMoved(int, int)));

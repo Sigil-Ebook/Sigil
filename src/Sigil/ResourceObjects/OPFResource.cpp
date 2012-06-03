@@ -155,8 +155,6 @@ QString OPFResource::GetMainIdentifierValue() const
 
 void OPFResource::SaveToDisk( bool book_wide_save )
 {
-    InitialLoad();
-
     QString text = GetText();
 
     // Work around for covers appearing on the Nook. Issue 942.

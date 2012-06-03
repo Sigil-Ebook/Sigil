@@ -36,8 +36,8 @@ TextResource::TextResource( const QString &fullfilepath, QObject *parent )
     m_CacheInUse( false ),
     m_TextDocument( new QTextDocument( this ) )
 {
+    InitialLoad();
     m_TextDocument->setDocumentLayout( new QPlainTextDocumentLayout( m_TextDocument ) );
-
     connect( m_TextDocument, SIGNAL( contentsChanged() ), this, SIGNAL( Modified() ) );
 }
 
@@ -101,9 +101,6 @@ void TextResource::SaveToDisk( bool book_wide_save )
     // here because that causes problems with epub export
     // when the user has not changed the text file.
     // (some text files have placeholder text on disk)
-
-    // Just in case there was no initial load until now.
-    InitialLoad();
 
     {
         QWriteLocker locker( &GetLock() );

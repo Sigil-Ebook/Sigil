@@ -26,7 +26,7 @@
 #include "Tabs/TextTab.h"
 
 TextTab::TextTab( TextResource& resource,
-                  CodeViewEditor::HighlighterType type,  
+                  CodeViewEditor::HighlighterType type,
                   int line_to_scroll_to,
                   QWidget *parent )
     :
@@ -40,12 +40,10 @@ TextTab::TextTab( TextResource& resource,
 
     ConnectSignalsToSlots();
 
-    m_TextResource.InitialLoad();
-
     // We perform delayed initialization after the widget is on
     // the screen. This way, the user perceives less load time.
-    QTimer::singleShot( 0, this, SLOT( DelayedInitialization() ) );    
-}   
+    QTimer::singleShot( 0, this, SLOT( DelayedInitialization() ) );
+}
 
 
 void TextTab::ScrollToLine( int line )

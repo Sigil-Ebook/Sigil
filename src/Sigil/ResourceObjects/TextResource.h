@@ -33,12 +33,12 @@ class QTextDocument;
  * A parent class for textual resources like CSS and XPGT stylesheets.
  * Takes care of loading and caching content etc.
  */
-class TextResource : public Resource 
+class TextResource : public Resource
 {
     Q_OBJECT
 
 public:
-    
+
     /**
      * Constructor.
      *
@@ -79,7 +79,7 @@ public:
      * because we want to do loading on demand (for performance reasons).
      */
     virtual void InitialLoad();
-    
+
     // inherited
     virtual ResourceType Type() const;
 
@@ -95,7 +95,7 @@ private:
 
     /**
      * Actually sets the text to m_TextDocument.
-     * 
+     *
      * @param text The text to set.
      */
     void SetTextInternal( const QString &text );
@@ -127,3 +127,4 @@ private:
 };
 
 #endif // TEXTRESOURCE_H
+

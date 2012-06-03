@@ -410,6 +410,20 @@ private:
      */
     bool m_safeToLoad;
 
+    /**
+     * For some reason the resources modified signal is being fired when we first
+     * load the resource data. Nothing should be modifing the resource so why this
+     * is happening is a mystery. When the tab is initially loaded the signal is
+     * fired so our hander to prevent BV from overwriting changes made outside
+     * of the tab is called. This causes text entered into BV to be lost in some
+     * cases upon first loading. This is used to determine if this handler should
+     * be ignored because it is the tab was just opened and content just loaded.
+     *
+     * This is really a hack around the problem of the resource's modified signal
+     * being fired for some unknown reason when it hasn't actually been modified.
+     */
+    bool m_firstModified;
+
     bool m_initialLoad;
 
     bool m_BookViewNeedReload;
