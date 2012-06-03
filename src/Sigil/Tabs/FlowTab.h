@@ -421,6 +421,9 @@ private:
      *
      * This is really a hack around the problem of the resource's modified signal
      * being fired for some unknown reason when it hasn't actually been modified.
+     *
+     * We also use this when saving so prevent the resource modified signal from
+     * preveting BV from saving its changes.
      */
     bool m_firstModified;
 

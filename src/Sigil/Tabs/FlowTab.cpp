@@ -304,7 +304,7 @@ bool FlowTab::SetViewState(MainWindow::ViewState new_view_state)
         return false;
     }
 
-    disconnect(&m_HTMLResource, SIGNAL(Modified()), this, SLOT(ResourceModified()));
+    m_firstModified = true;
     // We do a save before changing to ensure we don't lose any unsaved data
     // in the previous view.
     SaveTabContent();
@@ -320,7 +320,6 @@ bool FlowTab::SetViewState(MainWindow::ViewState new_view_state)
     else {
         BookView();
     }
-    connect(&m_HTMLResource, SIGNAL(Modified()), this, SLOT(ResourceModified()));
 
     return true;
 }
@@ -616,10 +615,9 @@ void FlowTab::SaveTabContent()
 {
     if (m_ViewState == MainWindow::ViewState_BookView && m_wBookView->IsModified()) {
         if (!m_BookViewNeedReload) {
-            disconnect(&m_HTMLResource, SIGNAL(Modified()), this, SLOT(ResourceModified()));
+            m_firstModified = true;
             m_HTMLResource.SetText(m_wBookView->GetHtml());
             m_BookPreviewNeedReload = true;
-            connect(&m_HTMLResource, SIGNAL(Modified()), this, SLOT(ResourceModified()));
         }
         m_wBookView->ResetModified();
     }
