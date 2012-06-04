@@ -178,7 +178,7 @@ QString BookViewEditor::SplitChapter()
 
         // Remove the the split text from this document and set it
         // as the text in the editor.
-        text = head + Utility::Substring(break_index + break_tag.matchedLength(), text.length(), text);
+        text = head + "<body>" + Utility::Substring(break_index + break_tag.matchedLength(), text.length(), text);
         CustomSetDocument(m_path, text);
     }
 

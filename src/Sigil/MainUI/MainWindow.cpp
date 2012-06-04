@@ -1175,10 +1175,6 @@ void MainWindow::UpdateZoomLabel( float new_zoom_factor )
 
 void MainWindow::CreateChapterBreakOldTab( QString content, HTMLResource& originating_resource )
 {
-    // Close the tab so the focus saving doesn't overwrite the text we're
-    // replacing in the resource.
-    m_TabManager.CloseTabForResource(originating_resource);
-
     HTMLResource& html_resource = m_Book->CreateChapterBreakOriginalResource( content, originating_resource );
 
     m_BookBrowser->Refresh();

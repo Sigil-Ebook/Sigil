@@ -477,6 +477,7 @@ void FlowTab::SplitChapter()
     }
 
     if (m_ViewState == MainWindow::ViewState_BookView) {
+        m_firstModified = true;
         emit OldTabRequest( m_wBookView->SplitChapter(), m_HTMLResource );
     }
     else if (m_ViewState == MainWindow::ViewState_CodeView) {

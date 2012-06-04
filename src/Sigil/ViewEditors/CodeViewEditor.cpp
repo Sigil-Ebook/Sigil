@@ -127,7 +127,7 @@ QString CodeViewEditor::SplitChapter()
 {
     QString text = toPlainText();
 
-    QRegExp body_search( BODY_START ); 
+    QRegExp body_search( BODY_START );
     int body_tag_start = text.indexOf( body_search );
     int body_tag_end   = body_tag_start + body_search.matchedLength();
 
@@ -151,11 +151,11 @@ QString CodeViewEditor::SplitChapter()
         }
     }
 
-    const QString &text_segment = next_open_tag_index != body_tag_end                             ? 
+    const QString &text_segment = next_open_tag_index != body_tag_end                             ?
                                   Utility::Substring( body_tag_start, next_open_tag_index, text ) :
                                   QString( "<p>&nbsp;</p>" );
 
-    // Remove the text that will be in 
+    // Remove the text that will be in
     // the new chapter from the View.
     QTextCursor cursor = textCursor();
     cursor.beginEditBlock();
@@ -166,9 +166,9 @@ QString CodeViewEditor::SplitChapter()
     // We add a newline if the next tag
     // is sitting right next to the end of the body tag.
     if ( toPlainText().at( body_tag_end ) == QChar( '<' ) )
-        
+
         cursor.insertBlock();
-    
+
     cursor.endEditBlock();
 
     return QString()
