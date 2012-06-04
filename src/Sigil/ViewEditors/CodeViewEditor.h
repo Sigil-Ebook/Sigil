@@ -37,8 +37,7 @@ class QWidget;
 class QPrinter;
 class QShortcut;
 class LineNumberArea;
-class QSyntaxHighlighter;
-class QContextMenuEvent;
+class QSyntaxHighlighter; class QContextMenuEvent;
 class QSignalMapper;
 
 /**
@@ -50,7 +49,7 @@ class CodeViewEditor : public QPlainTextEdit, public ViewEditor
 {
     Q_OBJECT
 
-public: 
+public:
 
     /**
      * What type of syntax highlighting to use.
@@ -84,12 +83,12 @@ public:
     * The current flow is split at the caret point.
     *
     * @return The content of the chapter up to the chapter break point.
-    * 
+    *
     * @note What we actually do when the user wants to split the loaded chapter
     * is create a new tab with the XHTML content \em above the split point.
     * The new tab is actually the "old" chapter, and this tab becomes the
     * "new" chapter.
-    * \par 
+    * \par
     * Why? Because we can only avoid a tab render in the tab from which
     * we remove elements. Since the users move from the top of a large HTML
     * file down, the new chapter will be the one with the most content.
@@ -104,7 +103,7 @@ public:
     void InsertSGFChapterMarker();
 
     /**
-     * Paints the line number area. 
+     * Paints the line number area.
      * Receives the event directly from the area's paintEvent() handler.
      *
      * @param event The paint event to process.
@@ -121,7 +120,7 @@ public:
 
     /**
      * Returns the width the LinuNumberArea should take (in pixels).
-     * 
+     *
      * @return The width in pixels.
      */
     int CalculateLineNumberAreaWidth();
@@ -129,7 +128,7 @@ public:
     /**
      * Replaces the text of the entire document with the new text.
      * Records the replacement as one action for the undo stack.
-     * 
+     *
      * @param new_text The new text of the document.
      */
     void ReplaceDocumentText( const QString &new_text );
@@ -174,16 +173,16 @@ public:
                    bool ignore_selection_offset = false,
                    bool wrap = true );
 
-    int Count( const QString &search_regex, 
+    int Count( const QString &search_regex,
                bool check_spelling );
 
-    bool ReplaceSelected( const QString &search_regex, 
-                          const QString &replacement, 
+    bool ReplaceSelected( const QString &search_regex,
+                          const QString &replacement,
                           Searchable::Direction direction = Searchable::Direction_Down,
                           bool check_spelling = false );
 
-    int ReplaceAll( const QString &search_regex, 
-                    const QString &replacement, 
+    int ReplaceAll( const QString &search_regex,
+                    const QString &replacement,
                     bool check_spelling = false );
 
     QString GetSelectedText();
@@ -194,8 +193,10 @@ public:
      */
     void SetDelayedCursorScreenCenteringRequired();
 
+    void RestoreCaretLocation();
+
 signals:
-    
+
     /**
      * Emitted whenever the zoom factor changes.
      *
@@ -231,7 +232,7 @@ public slots:
     void LoadSettings();
 
 protected:
-    
+
     /**
      * The global event processing function.
      *
@@ -296,7 +297,7 @@ private slots:
     void UpdateLineNumberAreaMargin();
 
     /**
-     * Repaints a part of the line number area as needed. 
+     * Repaints a part of the line number area as needed.
      *
      * @param rectangle Represents the area that the editor needs an update of.
      * @param vertical_delta The amount of pixels the viewport has been vertically scrolled.
@@ -306,7 +307,7 @@ private slots:
     /**
      * Highlights the line the user is editing.
      */
-    void HighlightCurrentLine(); 
+    void HighlightCurrentLine();
 
     /**
      * Wrapper slot for the Scroll One Line Up shortcut.
@@ -350,8 +351,10 @@ private:
      */
     void DelayedCursorScreenCentering();
 
+    void StoreCaretLocation();
+
     /**
-     * Returns the selection offset from the start of the  
+     * Returns the selection offset from the start of the
      * document depending on the search direction specified
      *
      * @param search_direction Depending on this, the anchor or the focus position is returned.
@@ -360,7 +363,7 @@ private:
     int GetSelectionOffset( Searchable::Direction search_direction, bool ignore_selection_offset ) const;
 
     /**
-     * Scrolls the whole screen by one line. 
+     * Scrolls the whole screen by one line.
      * Used for ScrollOneLineUp and ScrollOneLineDown shortcuts.
      * It will also move the cursor position if the
      * scroll would make it "fall of the screen".
@@ -368,7 +371,7 @@ private:
      * @param down If \c true, we scroll down. Otherwise, we scroll up.
      */
     void ScrollByLine( bool down );
-    
+
     /**
      * Connects all the required signals to their respective slots.
      */
@@ -432,6 +435,8 @@ private:
      * once after the View is repainted.
      */
     bool m_DelayedCursorScreenCenteringRequired;
+
+    int m_caretLocation;
 
     /**
      * Whether spell checking is enabled on this view.

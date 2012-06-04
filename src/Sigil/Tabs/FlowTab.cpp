@@ -607,6 +607,7 @@ void FlowTab::CodeView()
 
     // Make sure the cursor is properly displayed
     m_wCodeView->setFocus();
+    m_wCodeView->RestoreCaretLocation();
 
     QApplication::restoreOverrideCursor();
 }

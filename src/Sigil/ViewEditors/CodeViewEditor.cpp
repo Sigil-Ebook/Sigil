@@ -75,6 +75,7 @@ CodeViewEditor::CodeViewEditor( HighlighterType high_type, bool check_spelling, 
     m_ScrollOneLineDown( *( new QShortcut( QKeySequence( Qt::ControlModifier + Qt::Key_Down ), this, 0, 0, Qt::WidgetShortcut ) ) ),
     m_isLoadFinished( false ),
     m_DelayedCursorScreenCenteringRequired( false ),
+    m_caretLocation(0),
     m_checkSpelling( check_spelling ),
     m_spellingMapper( new QSignalMapper( this ) ),
     m_addSpellingMapper( new QSignalMapper( this ) ),
@@ -688,7 +689,7 @@ bool CodeViewEditor::event( QEvent *event )
 {
     // We just return whatever the "real" event handler returns
     bool real_return = QPlainTextEdit::event( event );
-    
+
     // Executing the caret update inside the paint event
     // handler causes artifacts on mac. So we do it after
     // the event is processed and accepted.
@@ -696,8 +697,14 @@ bool CodeViewEditor::event( QEvent *event )
     {
         DelayedCursorScreenCentering();
     }
-    
+
     return real_return;
+}
+
+
+void CodeViewEditor::StoreCaretLocation()
+{
+    m_caretLocation = textCursor().position();
 }
 
 
@@ -879,6 +886,8 @@ void CodeViewEditor::focusOutEvent( QFocusEvent *event )
 {
     emit FocusLost( this );
 
+    StoreCaretLocation();
+
     QPlainTextEdit::focusOutEvent( event );
 }
 
@@ -1018,11 +1027,18 @@ void CodeViewEditor::DelayedCursorScreenCentering()
 }
 
 
+void CodeViewEditor::RestoreCaretLocation()
+{
+    QTextCursor c = textCursor();
+    c.setPosition(m_caretLocation);
+    setTextCursor(c);
+}
+
+
 void CodeViewEditor::SetDelayedCursorScreenCenteringRequired()
 {
     m_DelayedCursorScreenCenteringRequired = true;
 }
-
 
 int CodeViewEditor::GetSelectionOffset( Searchable::Direction search_direction, bool ignore_selection_offset ) const
 {
