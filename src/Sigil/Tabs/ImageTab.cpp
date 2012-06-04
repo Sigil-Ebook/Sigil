@@ -41,7 +41,7 @@ const QString IMAGE_HTML_BASE =
         "<body>"
         "<p><img src=\"%1\" /></p>"
         "<hr />"
-        "<div>%2x%3px | %4 Kb | %5</div>"
+        "<div>%2x%3px | %4 KB | %5</div>"
         "</body>"
         "</html>";
 
