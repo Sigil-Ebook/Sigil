@@ -70,9 +70,7 @@ FlowTab::FlowTab(HTMLResource& resource,
     m_ViewState(view_state),
     m_WellFormedCheckComponent(*new WellFormedCheckComponent(*this)),
     m_safeToLoad(false),
-    m_firstModified(true),
     m_initialLoad(true),
-    m_BookViewNeedReload(false),
     m_BookPreviewNeedReload(false)
 {
     // Loading a flow tab can take a while. We set the wait
@@ -304,7 +302,6 @@ bool FlowTab::SetViewState(MainWindow::ViewState new_view_state)
         return false;
     }
 
-    m_firstModified = true;
     // We do a save before changing to ensure we don't lose any unsaved data
     // in the previous view.
     SaveTabContent();
@@ -477,7 +474,6 @@ void FlowTab::SplitChapter()
     }
 
     if (m_ViewState == MainWindow::ViewState_BookView) {
-        m_firstModified = true;
         emit OldTabRequest( m_wBookView->SplitChapter(), m_HTMLResource );
     }
     else if (m_ViewState == MainWindow::ViewState_CodeView) {
@@ -616,11 +612,8 @@ void FlowTab::CodeView()
 void FlowTab::SaveTabContent()
 {
     if (m_ViewState == MainWindow::ViewState_BookView && m_wBookView->IsModified()) {
-        if (!m_BookViewNeedReload) {
-            m_firstModified = true;
-            m_HTMLResource.SetText(m_wBookView->GetHtml());
-            m_BookPreviewNeedReload = true;
-        }
+        m_HTMLResource.SetText(m_wBookView->GetHtml());
+        m_BookPreviewNeedReload = true;
         m_wBookView->ResetModified();
     }
 
@@ -651,14 +644,6 @@ void FlowTab::LoadSettings()
 
 void FlowTab::ResourceModified()
 {
-    if (m_firstModified || m_initialLoad || !IsLoadingFinished()) {
-        if (m_firstModified) {
-            m_firstModified = false;
-        }
-        return;
-    }
-
-    m_BookViewNeedReload = true;
     m_BookPreviewNeedReload = true;
 }
 
@@ -690,11 +675,8 @@ void FlowTab::EnterEditor(QWidget *editor)
     }
 
     // Reload BV if the resource was marked as changed outside of the editor.
-    if ((m_BookViewNeedReload && m_ViewState == MainWindow::ViewState_BookView) || (m_BookPreviewNeedReload && m_ViewState == MainWindow::ViewState_PreviewView)) {
+    if (m_BookPreviewNeedReload && m_ViewState == MainWindow::ViewState_PreviewView) {
         LoadTabContent();
-    }
-    if (m_BookViewNeedReload) {
-        m_BookViewNeedReload = false;
     }
     if (m_BookPreviewNeedReload) {
         m_BookPreviewNeedReload = false;
