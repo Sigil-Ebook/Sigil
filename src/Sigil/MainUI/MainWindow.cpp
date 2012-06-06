@@ -603,21 +603,6 @@ void MainWindow::LinkStylesheetsToResources(QList <Resource *> resources)
         return;
     }
 
-    Resource *current_resource = NULL;
-    ContentTab &tab = m_TabManager.GetCurrentContentTab();
-    if ( &tab != NULL )
-    {
-        current_resource = &tab.GetLoadedResource();
-    }
-
-    // Close all tabs being updated to prevent BV overwriting the new data
-    foreach (Resource *resource, resources) {
-        if (!m_TabManager.CloseTabForResource(*resource)) {
-            QMessageBox::critical(this, tr("Sigil"), tr("Cannot link stylesheets\n\nCannot close tab: %1").arg(resource->Filename()));
-            return;
-        }
-    }
-
     QStringList stylesheets = link.GetStylesheets();
 
     QApplication::setOverrideCursor(Qt::WaitCursor);
@@ -631,9 +616,9 @@ void MainWindow::LinkStylesheetsToResources(QList <Resource *> resources)
 
     LinkUpdates::UpdateLinksInAllFiles( html_resources, stylesheets );
 
-    if (current_resource && resources.contains(current_resource)) {
-        OpenResource(*current_resource);
-    }
+    // Since content was changed open the first modified file
+    OpenResource(*resources.first());
+
     SelectResources(resources);
 
     QApplication::restoreOverrideCursor();
@@ -1187,13 +1172,8 @@ void MainWindow::UpdateZoomLabel( float new_zoom_factor )
     m_lbZoomLabel->setText( QString( "%1% " ).arg( qRound( new_zoom_factor * 100 ) ) );
 }
 
-
 void MainWindow::CreateChapterBreakOldTab( QString content, HTMLResource& originating_resource )
 {
-    // Close the tab so the focus saving doesn't overwrite the text we're
-    // replacing in the resource.
-    m_TabManager.CloseTabForResource(originating_resource);
-
     HTMLResource& html_resource = m_Book->CreateChapterBreakOriginalResource( content, originating_resource );
 
     m_BookBrowser->Refresh();
