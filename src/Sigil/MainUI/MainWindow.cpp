@@ -603,6 +603,21 @@ void MainWindow::LinkStylesheetsToResources(QList <Resource *> resources)
         return;
     }
 
+    Resource *current_resource = NULL;
+    ContentTab &tab = m_TabManager.GetCurrentContentTab();
+    if ( &tab != NULL )
+    {
+        current_resource = &tab.GetLoadedResource();
+    }
+
+    // Close all tabs being updated to prevent BV overwriting the new data
+    foreach (Resource *resource, resources) {
+        if (!m_TabManager.CloseTabForResource(*resource)) {
+            QMessageBox::critical(this, tr("Sigil"), tr("Cannot link stylesheets\n\nCannot close tab: %1").arg(resource->Filename()));
+            return;
+        }
+    }
+
     QStringList stylesheets = link.GetStylesheets();
 
     QApplication::setOverrideCursor(Qt::WaitCursor);
@@ -616,9 +631,9 @@ void MainWindow::LinkStylesheetsToResources(QList <Resource *> resources)
 
     LinkUpdates::UpdateLinksInAllFiles( html_resources, stylesheets );
 
-    // Since content was changed open the first modified file
-    OpenResource(*resources.first());
-
+    if (current_resource && resources.contains(current_resource)) {
+        OpenResource(*current_resource);
+    }
     SelectResources(resources);
 
     QApplication::restoreOverrideCursor();
