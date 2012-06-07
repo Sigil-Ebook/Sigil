@@ -17,9 +17,7 @@ a few subdirectories:
     src/XercesExtensions - source code for helper classes that shuffle
                      data between into and out of formats supported and
                      required by Xerces.
-    src/ZipArchive - source code for ZipArchive, a zipping library.
-    src/zipios - source code for zipios-C++, a zipping library used by
-                     FlightCrew.
+    src/minizip - source code for minizip, a zipping library.
     src/zlib - source code for the zlib compression library.
 
 The installer directory contains the files needed to produce
