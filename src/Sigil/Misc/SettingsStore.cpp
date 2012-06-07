@@ -39,7 +39,7 @@ static QString KEY_USER_DICTIONARY_NAME = SETTINGS_GROUP + "/" + "user_dictionar
 static QString KEY_CLEAN_LEVEL = SETTINGS_GROUP + "/" + "clean_level";
 
 SettingsStore::SettingsStore()
-    : QSettings(QSettings::IniFormat, QSettings::UserScope, QCoreApplication::organizationName(), QCoreApplication::applicationName())
+    : QSettings(QDesktopServices::storageLocation(QDesktopServices::DataLocation) + "/sigil.ini", QSettings::IniFormat)
 {
 }
 
