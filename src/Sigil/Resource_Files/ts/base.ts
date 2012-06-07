@@ -97,7 +97,7 @@
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="173"/>
         <location filename="../../MainUI/BookBrowser.cpp" line="428"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="588"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="595"/>
         <source>Sigil</source>
         <translation type="unfinished"></translation>
     </message>
@@ -112,181 +112,181 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="585"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="592"/>
         <source>Are you sure you want to delete the selected file?
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="586"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="593"/>
         <source>Are you sure you want to delete all the selected files?
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="173"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="588"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="595"/>
         <source>This action cannot be reversed.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="568"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="575"/>
         <source>Neither the NCX nor the OPF can be removed.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="577"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="584"/>
         <source>You cannot remove all html files.
 There always has to be at least one.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="818"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="832"/>
         <source>Add Blank Section</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="819"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="833"/>
         <source>Add Blank Stylesheet</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="820"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="834"/>
         <source>Add Existing Files...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="821"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="835"/>
         <source>Rename</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="822"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="836"/>
         <source>Remove</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="823"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="837"/>
         <source>Cover Image</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="824"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="838"/>
         <source>Merge</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="825"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="839"/>
         <source>Use Adobe&apos;s Method</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="826"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="840"/>
         <source>Use IDPF&apos;s Method</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="817"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="831"/>
         <source>Select All</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="827"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="841"/>
         <source>Sort</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="828"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="842"/>
         <source>Renumber TOC Entries</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="829"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="843"/>
         <source>Link Stylesheets</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="853"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="867"/>
         <source>Cover</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="858"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="872"/>
         <source>Title Page</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="863"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="877"/>
         <source>Table Of Contents</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="868"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="882"/>
         <source>Index</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="873"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="887"/>
         <source>Glossary</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="878"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="892"/>
         <source>Acknowledgements</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="883"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="897"/>
         <source>Bibliography</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="888"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="902"/>
         <source>Colophon</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="893"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="907"/>
         <source>CopyrightPage</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="898"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="912"/>
         <source>Dedication</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="903"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="917"/>
         <source>Epigraph</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="908"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="922"/>
         <source>Foreword</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="913"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="927"/>
         <source>List Of Illustrations</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="918"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="932"/>
         <source>List Of Tables</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="923"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="937"/>
         <source>Notes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="928"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="942"/>
         <source>Preface</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="933"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="947"/>
         <source>Text</source>
         <translation type="unfinished"></translation>
     </message>
@@ -313,12 +313,12 @@ There always has to be at least one.</source>
 <context>
     <name>CodeViewEditor</name>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="836"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="843"/>
         <source>Add to dictionary</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="848"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="855"/>
         <source>Ignore</source>
         <translation type="unfinished"></translation>
     </message>
@@ -343,11 +343,6 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="151"/>
         <source>Find</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/FindReplace.ui" line="264"/>
-        <source>Direction:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -401,11 +396,6 @@ There always has to be at least one.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/FindReplace.ui" line="251"/>
-        <source>Look:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../../MainUI/FindReplace.cpp" line="384"/>
         <source>No matches found</source>
         <translation type="unfinished">
@@ -446,124 +436,124 @@ There always has to be at least one.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="907"/>
-        <source>Mode</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="909"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="910"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="919"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="920"/>
         <source>Normal</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="910"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="920"/>
         <source>Case in-sensitive search of exactly what you type</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="913"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="914"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="923"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="924"/>
         <source>Case Sensitive</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="914"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="924"/>
         <source>Case sensitive search of exactly what you type</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="917"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="918"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="927"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="928"/>
         <source>Regex</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="918"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="928"/>
         <source>Search for a pattern using Regular Expression syntax</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="922"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="932"/>
         <source>Search only misspelled words using Regular Expression syntax, or clear the Find text box to find all misspelled words</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="941"/>
-        <source>Look</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="952"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="961"/>
         <source>Restrict the find or replace to the HTML files selected in the Book Browser - always done in Code View</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="968"/>
-        <source>Direction</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="970"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="977"/>
         <source>Search for the previous match from your current position</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="971"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="978"/>
         <source>Search for the next match from your current position</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="921"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="922"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="931"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="932"/>
         <source>Spell Check</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="943"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="944"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="917"/>
+        <source>What to search for</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/FindReplace.cpp" line="950"/>
+        <source>Where to search</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/FindReplace.cpp" line="952"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="953"/>
         <source>Current File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="944"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="953"/>
         <source>Restrict the find or replace to the opened file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="947"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="948"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="956"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="957"/>
         <source>All HTML Files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="948"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="957"/>
         <source>Find or replace in all HTML files - always done in Code View</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="951"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="952"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="960"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="961"/>
         <source>Selected HTML Files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="966"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="970"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="973"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="977"/>
         <source>Up</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="967"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="971"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="974"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="978"/>
         <source>Down</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/FindReplace.cpp" line="975"/>
+        <source>Direction to search</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>FlowTab</name>
     <message>
-        <location filename="../../Tabs/FlowTab.cpp" line="545"/>
+        <location filename="../../Tabs/FlowTab.cpp" line="547"/>
         <source>Print %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4470,9 +4460,10 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
         <location filename="../../MainUI/MainWindow.cpp" line="543"/>
         <location filename="../../MainUI/MainWindow.cpp" line="551"/>
         <location filename="../../MainUI/MainWindow.cpp" line="593"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="705"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1293"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1607"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="616"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="728"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1358"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1672"/>
         <source>Sigil</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4534,96 +4525,103 @@ Cannot close tab: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="705"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="616"/>
+        <source>Cannot link stylesheets
+
+Cannot close tab: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="728"/>
         <source>Cannot generate TOC: %1 data is not well formed.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1102"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1172"/>
         <source>Line: %1, Col: %2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1183"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1248"/>
         <source>Chapter split. You may need to update the Table of Contents.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1192"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1257"/>
         <source>Chapters split. You may need to update the Table of Contents.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1294"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1359"/>
         <source>The document has been modified.
 Do you want to save your changes?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1369"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1434"/>
         <source>File loaded</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1377"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1442"/>
         <source>The creator of this file has encrypted it with DRM. Sigil cannot open such files.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1384"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1449"/>
         <source>Cannot load file %1: %2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1402"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1467"/>
         <source>Sigil currently cannot save files of type &quot;%1&quot;.
 Please choose a different format.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1426"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1491"/>
         <source>File saved</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1432"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1497"/>
         <source>Cannot save file %1: %2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1552"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1617"/>
         <source>EPUB files (*.epub)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1553"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1554"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1555"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1618"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1619"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1620"/>
         <source>HTML files (*.htm *.html *.xhtml)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1556"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1621"/>
         <source>Text files (*.txt)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1557"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1622"/>
         <source>All files (*.*)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1567"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1632"/>
         <source>EPUB file (*.epub)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1607"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1672"/>
         <source>%1[*] - %2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1660"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1725"/>
         <source>&amp;%1 %2</source>
         <translation type="unfinished"></translation>
     </message>
