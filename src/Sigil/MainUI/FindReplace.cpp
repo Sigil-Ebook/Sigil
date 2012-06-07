@@ -52,6 +52,7 @@ FindReplace::FindReplace( MainWindow &main_window )
 FindReplace::~FindReplace()
 {
     WriteSettings();
+    WriteUIMode();
 }
 
 
@@ -862,13 +863,13 @@ void FindReplace::ExtendUI()
     ui.cbSearchDirection->clear();
 
     // It doens't make sense to have anything else showing unless Find is enabled.
-    if (caps & FindReplace::CAPABILITY_FIND || caps & FindReplace::CAPABILITY_ALL) {
+    if (caps & (FindReplace::CAPABILITY_FIND|FindReplace::CAPABILITY_ALL)) {
         // We check if the user sepcified a Find Mode when they specify the Find
         // capability. If no mode is specified we default to using the normal mode.
-        if (m_capabilities & FindReplace::CAPABILITY_MODE_NORMAL ||
-            m_capabilities & FindReplace::CAPABILITY_MODE_CASE_SENSITIVE ||
-            m_capabilities & FindReplace::CAPABILITY_MODE_REGEX ||
-            m_capabilities & FindReplace::CAPABILITY_MODE_SPELL_CHECK)
+        if (m_capabilities & (FindReplace::CAPABILITY_MODE_NORMAL |
+            FindReplace::CAPABILITY_MODE_CASE_SENSITIVE |
+            FindReplace::CAPABILITY_MODE_REGEX |
+            FindReplace::CAPABILITY_MODE_SPELL_CHECK))
         {
             caps |= FindReplace::CAPABILITY_MODE_NORMAL;
         }
@@ -877,14 +878,24 @@ void FindReplace::ExtendUI()
         ui.findl->show();
         ui.cbFind->show();
         ui.findNext->show();
-        ui.count->show();
+        if (caps & (FindReplace::CAPABILITY_FIND_COUNT|FindReplace::CAPABILITY_ALL)) {
+            ui.count->show();
+        }
+        else {
+            ui.count->hide();
+        }
 
         // Replace
-        if (caps & FindReplace::CAPABILITY_REPLACE || caps & FindReplace::CAPABILITY_ALL) {
+        if (caps & (FindReplace::CAPABILITY_REPLACE|FindReplace::CAPABILITY_ALL)) {
             ui.replacel->show();
             ui.cbReplace->show();
             ui.replaceNext->show();
-            ui.replaceAll->show();
+            if (caps & (FindReplace::CAPABILITY_REPLACE_ALL|FindReplace::CAPABILITY_ALL)) {
+                ui.replaceAll->show();
+            }
+            else {
+                ui.replaceAll->hide();
+            }
         }
         else {
             ui.replacel->hide();
@@ -894,29 +905,29 @@ void FindReplace::ExtendUI()
         }
 
         // Mode
-        if (caps & FindReplace::CAPABILITY_MODE_NORMAL ||
-            caps & FindReplace::CAPABILITY_MODE_CASE_SENSITIVE ||
-            caps & FindReplace::CAPABILITY_MODE_REGEX ||
-            caps & FindReplace::CAPABILITY_MODE_SPELL_CHECK ||
-            caps & FindReplace::CAPABILITY_ALL)
+        if (caps & (FindReplace::CAPABILITY_MODE_NORMAL |
+            FindReplace::CAPABILITY_MODE_CASE_SENSITIVE |
+            FindReplace::CAPABILITY_MODE_REGEX |
+            FindReplace::CAPABILITY_MODE_SPELL_CHECK |
+            FindReplace::CAPABILITY_ALL))
         {
             ui.model->show();
             ui.cbSearchMode->show();
 
             QString mode_tooltip = "<p>" + tr("What to search for") + ":</p><dl>";
-            if (caps & FindReplace::CAPABILITY_MODE_NORMAL || caps & FindReplace::CAPABILITY_ALL) {
+            if (caps & (FindReplace::CAPABILITY_MODE_NORMAL|FindReplace::CAPABILITY_ALL)) {
                 ui.cbSearchMode->addItem(tr("Normal"), FindReplace::SearchMode_Normal);
                 mode_tooltip += "<dt><b>" + tr("Normal") + "</b><dd>" + tr("Case in-sensitive search of exactly what you type") + "</dd>";
             }
-            if (caps & FindReplace::CAPABILITY_MODE_CASE_SENSITIVE || caps & FindReplace::CAPABILITY_ALL) {
+            if (caps & (FindReplace::CAPABILITY_MODE_CASE_SENSITIVE|FindReplace::CAPABILITY_ALL)) {
                 ui.cbSearchMode->addItem(tr("Case Sensitive"), FindReplace::SearchMode_Case_Sensitive);
                 mode_tooltip += "<dt><b>" + tr("Case Sensitive") + "</b><dd>" + tr("Case sensitive search of exactly what you type") + "</dd>";
             }
-            if (caps & FindReplace::CAPABILITY_MODE_REGEX || caps & FindReplace::CAPABILITY_ALL) {
+            if (caps & (FindReplace::CAPABILITY_MODE_REGEX|FindReplace::CAPABILITY_ALL)) {
                 ui.cbSearchMode->addItem(tr("Regex"), FindReplace::SearchMode_Regex);
                 mode_tooltip += "<dt><b>" + tr("Regex") + "</b><dd>" + tr("Search for a pattern using Regular Expression syntax") + "</dd>";
             }
-            if (caps & FindReplace::CAPABILITY_MODE_SPELL_CHECK || caps & FindReplace::CAPABILITY_ALL) {
+            if (caps & (FindReplace::CAPABILITY_MODE_SPELL_CHECK|FindReplace::CAPABILITY_ALL)) {
                 ui.cbSearchMode->addItem(tr("Spell Check"), FindReplace::SearchMode_SpellCheck);
                 mode_tooltip += "<dt><b>" + tr("Spell Check") + "</b><dd>" + tr("Search only misspelled words using Regular Expression syntax, or clear the Find text box to find all misspelled words") + "</dd>";
             }
@@ -929,23 +940,23 @@ void FindReplace::ExtendUI()
         }
 
         // Look
-        if (caps & FindReplace::CAPABILITY_LOOK_CURRENT ||
-            caps & FindReplace::CAPABILITY_LOOK_ALL_HTML ||
-            caps & FindReplace::CAPABILITY_LOOK_SELECTED_HTML ||
-            caps & FindReplace::CAPABILITY_ALL)
+        if (caps & (FindReplace::CAPABILITY_LOOK_CURRENT |
+            FindReplace::CAPABILITY_LOOK_ALL_HTML |
+            FindReplace::CAPABILITY_LOOK_SELECTED_HTML |
+            FindReplace::CAPABILITY_ALL))
         {
             ui.cbLookWhere->show();
 
             QString look_tooltip = "<p>" + tr("Where to search") + ":</p><dl>";
-            if (caps & FindReplace::CAPABILITY_LOOK_CURRENT || caps & FindReplace::CAPABILITY_ALL) {
+            if (caps & (FindReplace::CAPABILITY_LOOK_CURRENT|FindReplace::CAPABILITY_ALL)) {
                 ui.cbLookWhere->addItem(tr("Current File"), FindReplace::LookWhere_CurrentFile);
                 look_tooltip += "<dt><b>" + tr("Current File") + "</b><dd>" + tr("Restrict the find or replace to the opened file") + "</dd>";
             }
-            if (caps & FindReplace::CAPABILITY_LOOK_ALL_HTML || caps & FindReplace::CAPABILITY_ALL) {
+            if (caps & (FindReplace::CAPABILITY_LOOK_ALL_HTML|FindReplace::CAPABILITY_ALL)) {
                 ui.cbLookWhere->addItem(tr("All HTML Files"), FindReplace::LookWhere_AllHTMLFiles);
                 look_tooltip += "<dt><b>" + tr("All HTML Files") + "</b><dd>" + tr("Find or replace in all HTML files - always done in Code View") + "</dd>";
             }
-            if (caps & FindReplace::CAPABILITY_LOOK_SELECTED_HTML || caps & FindReplace::CAPABILITY_ALL) {
+            if (caps & (FindReplace::CAPABILITY_LOOK_SELECTED_HTML|FindReplace::CAPABILITY_ALL)) {
                 ui.cbLookWhere->addItem(tr("Selected HTML Files"), FindReplace::LookWhere_SelectedHTMLFiles);
                 look_tooltip += "<dt><b>" + tr("Selected HTML Files") + "</b><dd>" + tr("Restrict the find or replace to the HTML files selected in the Book Browser - always done in Code View") + "</dd>";
             }

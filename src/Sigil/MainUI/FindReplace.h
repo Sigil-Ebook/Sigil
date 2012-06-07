@@ -48,14 +48,16 @@ public:
         CAPABILITY_NONE =                      0,
         CAPABILITY_ALL =                 (1 << 0),
         CAPABILITY_FIND =                (1 << 1),
-        CAPABILITY_REPLACE =             (1 << 2),
-        CAPABILITY_MODE_NORMAL =         (1 << 3),
-        CAPABILITY_MODE_CASE_SENSITIVE = (1 << 4),
-        CAPABILITY_MODE_REGEX =          (1 << 5),
-        CAPABILITY_MODE_SPELL_CHECK =    (1 << 6),
-        CAPABILITY_LOOK_CURRENT =        (1 << 7),
-        CAPABILITY_LOOK_ALL_HTML =       (1 << 8),
-        CAPABILITY_LOOK_SELECTED_HTML =  (1 << 9)
+        CAPABILITY_FIND_COUNT =          (1 << 2),
+        CAPABILITY_REPLACE =             (1 << 3),
+        CAPABILITY_REPLACE_ALL =         (1 << 4),
+        CAPABILITY_MODE_NORMAL =         (1 << 5),
+        CAPABILITY_MODE_CASE_SENSITIVE = (1 << 6),
+        CAPABILITY_MODE_REGEX =          (1 << 7),
+        CAPABILITY_MODE_SPELL_CHECK =    (1 << 8),
+        CAPABILITY_LOOK_CURRENT =        (1 << 9),
+        CAPABILITY_LOOK_ALL_HTML =       (1 << 10),
+        CAPABILITY_LOOK_SELECTED_HTML =  (1 << 11)
     };
     typedef unsigned int FR_Capabilities;
 

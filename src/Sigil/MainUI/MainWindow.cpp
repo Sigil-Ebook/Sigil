@@ -1057,6 +1057,15 @@ void MainWindow::SetStateActionsBookView()
     SetStateActionsBookOrCodeView();
     ui.actionBookView->setChecked(true);
 
+    ui.actionFind->setEnabled(true);
+    ui.actionFindNext->setEnabled(true);
+    ui.actionFindPrevious->setEnabled(true);
+    ui.actionReplaceNext->setEnabled(false);
+    ui.actionReplacePrevious->setEnabled(false);
+    ui.actionReplaceAll->setEnabled(false);
+    ui.actionCount->setEnabled(false);
+    ui.actionGoToLine->setEnabled(false);
+
     m_FindReplace->SetCapabilities(FindReplace::CAPABILITY_FIND);
 }
 
@@ -1065,6 +1074,15 @@ void MainWindow::SetStateActionsSplitView()
     SetStateActionsBookOrCodeView();
     ui.actionSplitView->setChecked(true);
 
+    ui.actionFind->setEnabled(true);
+    ui.actionFindNext->setEnabled(true);
+    ui.actionFindPrevious->setEnabled(true);
+    ui.actionReplaceNext->setEnabled(false);
+    ui.actionReplacePrevious->setEnabled(false);
+    ui.actionReplaceAll->setEnabled(false);
+    ui.actionCount->setEnabled(false);
+    ui.actionGoToLine->setEnabled(false);
+
     m_FindReplace->SetCapabilities(FindReplace::CAPABILITY_FIND);
 }
 
@@ -1072,6 +1090,15 @@ void MainWindow::SetStateActionsCodeView()
 {
     SetStateActionsBookOrCodeView();
     ui.actionCodeView->setChecked(true);
+
+    ui.actionFind->setEnabled(true);
+    ui.actionFindNext->setEnabled(true);
+    ui.actionFindPrevious->setEnabled(true);
+    ui.actionReplaceNext->setEnabled(true);
+    ui.actionReplacePrevious->setEnabled(true);
+    ui.actionReplaceAll->setEnabled(true);
+    ui.actionCount->setEnabled(true);
+    ui.actionGoToLine->setEnabled(true);
 
     m_FindReplace->SetCapabilities(FindReplace::CAPABILITY_ALL);
 }
@@ -1092,9 +1119,19 @@ void MainWindow::SetStateActionsRawView()
     ui.actionInsertImage->setEnabled(false);
     ui.actionSplitChapter->setEnabled(false);
 
+    ui.actionFind->setEnabled(true);
+    ui.actionFindNext->setEnabled(true);
+    ui.actionFindPrevious->setEnabled(true);
+    ui.actionReplaceNext->setEnabled(true);
+    ui.actionReplacePrevious->setEnabled(true);
+    ui.actionReplaceAll->setEnabled(true);
+    ui.actionCount->setEnabled(true);
+    ui.actionGoToLine->setEnabled(true);
+
     m_FindReplace->SetCapabilities(FindReplace::CAPABILITY_FIND |
-        FindReplace::CAPABILITY_LOOK_CURRENT |
+        FindReplace::CAPABILITY_FIND_COUNT |
         FindReplace::CAPABILITY_REPLACE |
+        FindReplace::CAPABILITY_REPLACE_ALL |
         FindReplace::CAPABILITY_MODE_NORMAL |
         FindReplace::CAPABILITY_MODE_CASE_SENSITIVE |
         FindReplace::CAPABILITY_MODE_REGEX);
@@ -1112,7 +1149,17 @@ void MainWindow::SetStateActionsStaticView()
     ui.actionCopy->setEnabled(false);
     ui.actionPaste->setEnabled(false);
 
+    ui.actionFind->setEnabled(false);
+    ui.actionFindNext->setEnabled(false);
+    ui.actionFindPrevious->setEnabled(false);
+    ui.actionReplaceNext->setEnabled(false);
+    ui.actionReplacePrevious->setEnabled(false);
+    ui.actionReplaceAll->setEnabled(false);
+    ui.actionCount->setEnabled(false);
+    ui.actionGoToLine->setEnabled(false);
+
     m_FindReplace->SetCapabilities(FindReplace::CAPABILITY_NONE);
+    m_FindReplace->hide();
 }
 
 
