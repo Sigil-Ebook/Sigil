@@ -648,7 +648,8 @@ elseif (MSVC)
     endforeach( DIC )
 
     # Copy CKE
-    add_custom_command( TARGET ${TARGET_FOR_COPY} POST_BUILD COMMAND cmake -E copy_directory Resource_Files/javascript/ckeditor ${MAIN_PACKAGE_DIR} )
+    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E make_directory ${MAIN_PACKAGE_DIR}/ckeditor/ )
+    add_custom_command( TARGET ${TARGET_FOR_COPY} POST_BUILD COMMAND cmake -E copy_directory Resource_Files/javascript/ckeditor ${MAIN_PACKAGE_DIR}/ckeditor/ )
 
     # Set the path of the application executable
     if( MSVC_IDE )
