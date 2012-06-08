@@ -259,6 +259,7 @@ QString BookViewEditor::cleanHtml(const QString &html)
     clean = Qt::escape(html);
     clean = clean.replace("%2B", "+");
     clean = clean.replace("%2b", "+");
+    clean = clean.replace("%", "&#37;");
 
     return clean;
 }
