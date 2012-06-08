@@ -634,7 +634,7 @@ int CodeViewEditor::ReplaceAll( const QString &search_regex,
     // our changes.
     for (int i = match_info.count() - 1; i >= 0; i--) {
         QString replaced_text;
-        bool replacement_made = spcre->replaceText(Utility::Substring(match_info.at(i).offset.first, match_info.at(i).offset.first, text), match_info.at(i).capture_groups_offsets, replacement, replaced_text);
+        bool replacement_made = spcre->replaceText(Utility::Substring(match_info.at(i).offset.first, match_info.at(i).offset.second, text), match_info.at(i).capture_groups_offsets, replacement, replaced_text);
 
         if (replacement_made) {
             // Replace the text.
