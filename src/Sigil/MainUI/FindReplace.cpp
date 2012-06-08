@@ -954,11 +954,11 @@ void FindReplace::ExtendUI()
             }
             if (caps & (FindReplace::CAPABILITY_LOOK_ALL_HTML|FindReplace::CAPABILITY_ALL)) {
                 ui.cbLookWhere->addItem(tr("All HTML Files"), FindReplace::LookWhere_AllHTMLFiles);
-                look_tooltip += "<dt><b>" + tr("All HTML Files") + "</b><dd>" + tr("Find or replace in all HTML files - always done in Code View") + "</dd>";
+                look_tooltip += "<dt><b>" + tr("All HTML Files") + "</b><dd>" + tr("Find or replace in all HTML files") + "</dd>";
             }
             if (caps & (FindReplace::CAPABILITY_LOOK_SELECTED_HTML|FindReplace::CAPABILITY_ALL)) {
                 ui.cbLookWhere->addItem(tr("Selected HTML Files"), FindReplace::LookWhere_SelectedHTMLFiles);
-                look_tooltip += "<dt><b>" + tr("Selected HTML Files") + "</b><dd>" + tr("Restrict the find or replace to the HTML files selected in the Book Browser - always done in Code View") + "</dd>";
+                look_tooltip += "<dt><b>" + tr("Selected HTML Files") + "</b><dd>" + tr("Restrict the find or replace to the HTML files selected in the Book Browser") + "</dd>";
             }
             look_tooltip += "</dl>";
             ui.cbLookWhere->setToolTip(look_tooltip);

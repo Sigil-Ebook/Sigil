@@ -161,7 +161,7 @@
            </sizepolicy>
           </property>
           <property name="toolTip">
-           <string>Count all matches (all/selected files uses Code View)</string>
+           <string>Count all matches</string>
           </property>
           <property name="styleSheet">
            <string notr="true"/>
@@ -200,7 +200,7 @@
         <item row="1" column="2">
          <widget class="QToolButton" name="replaceNext">
           <property name="toolTip">
-           <string>Replace then find next match in Code View</string>
+           <string>Replace highlighted match then find next match</string>
           </property>
           <property name="styleSheet">
            <string notr="true"/>
@@ -213,7 +213,7 @@
         <item row="1" column="3">
          <widget class="QToolButton" name="replaceAll">
           <property name="toolTip">
-           <string>Replace all matches in Code View</string>
+           <string>Replace all matches</string>
           </property>
           <property name="styleSheet">
            <string notr="true"/>
