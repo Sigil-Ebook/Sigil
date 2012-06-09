@@ -630,6 +630,7 @@ void MainWindow::LinkStylesheetsToResources(QList <Resource *> resources)
     }
 
     LinkUpdates::UpdateLinksInAllFiles( html_resources, stylesheets );
+    m_Book->SetModified();
 
     if (current_resource && resources.contains(current_resource)) {
         OpenResource(*current_resource);
@@ -794,6 +795,7 @@ void MainWindow::GenerateInlineToc(NCXModel::NCXEntry ncx_root_entry)
         m_Book->GetOPF().AddGuideSemanticType(*tocResource, GuideSemantics::TableOfContents);
     }
 
+    m_Book->SetModified();
     m_BookBrowser->Refresh();
     OpenResource(*tocResource);
 
