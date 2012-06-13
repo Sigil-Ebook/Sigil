@@ -53,6 +53,8 @@ public:
      */
     void CustomSetDocument(const QString &path, const QString &html);
 
+    void CustomUpdateDocument(const QString &html, bool saveSelection = true);
+
     void ScrollToFragment(const QString &fragment);
 
     void ScrollToFragmentAfterLoad(const QString &fragment);
@@ -176,8 +178,6 @@ protected:
     void focusOutEvent(QFocusEvent *event);
 
 private:
-    QString cleanHtml(const QString &html);
-
     /**
      * Store the last match when doing a find so we can determine if
      * found text is selected for doing a replace. We also need to store the

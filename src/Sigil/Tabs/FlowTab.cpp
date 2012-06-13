@@ -32,6 +32,7 @@
 #include <QtGui/QSplitter>
 #include <QtGui/QStackedWidget>
 #include <QtWebKit/QWebInspector>
+#include <QtWebKit/QWebSettings>
 
 #include "BookManipulation/CleanSource.h"
 #include "Misc/SettingsStore.h"
@@ -622,7 +623,14 @@ void FlowTab::LoadTabContent()
     }
 
     if (m_ViewState == MainWindow::ViewState_BookView) {
-        m_wBookView->CustomSetDocument(m_HTMLResource.GetFullPath(), m_HTMLResource.GetText());
+        if (m_initialLoad)
+        {
+            m_wBookView->CustomSetDocument(m_HTMLResource.GetFullPath(), m_HTMLResource.GetText());
+        }
+        else
+        {
+            m_wBookView->CustomUpdateDocument(m_HTMLResource.GetText());
+        }
     }
     else if (m_ViewState == MainWindow::ViewState_PreviewView) {
         m_wBookPreview->CustomSetDocument(m_HTMLResource.GetFullPath(), m_HTMLResource.GetText());
@@ -639,6 +647,7 @@ void FlowTab::LoadSettings()
 void FlowTab::ResourceModified()
 {
     m_BookPreviewNeedReload = true;
+    QWebSettings::clearMemoryCaches();
 }
 
 void FlowTab::PVSplitterMoved(int pos, int index)
@@ -669,7 +678,7 @@ void FlowTab::EnterEditor(QWidget *editor)
     }
 
     // Reload BV if the resource was marked as changed outside of the editor.
-    if (m_BookPreviewNeedReload && m_ViewState == MainWindow::ViewState_PreviewView) {
+    if (m_BookPreviewNeedReload && (m_ViewState == MainWindow::ViewState_PreviewView || m_ViewState == MainWindow::ViewState_BookView)) {
         LoadTabContent();
     }
     if (m_BookPreviewNeedReload) {

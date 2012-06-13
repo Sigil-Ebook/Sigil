@@ -50,21 +50,68 @@ const QString CKE_BASE =
     "    <script type=\"text/javascript\" src=\"%1/ckeditor.js\"></script>"
     "</head>"
     "<body>"
-    "    <textarea id=\"editor\" name=\"editor\">%2</textarea>"
+    "    <textarea id=\"editor\" name=\"editor\"></textarea>"
     "    <script type=\"text/javascript\">"
-    "        CKEDITOR.replace('editor', { fullPage: true, startupFocus: true, extraPlugins: 'onchange,docprops', language: '%3',"
+    "        CKEDITOR.replace('editor', { fullPage: true, startupFocus: true, extraPlugins: 'onchange,docprops', language: '%2',"
     "            coreStyles_bold: { element : 'span', attributes :  {'style': 'font-weight: bold;'} },"
     "            coreStyles_italic: { element : 'span', attributes : {'style': 'font-style: italic;'}},"
     "            coreStyles_underline: { element : 'span', attributes : {'style': 'text-decoration: underline;'}},"
     "            coreStyles_strike: { element : 'span', attributes : {'style': 'text-decoration: line-through;'}, onchangeverrides : 'strike' },"
     "            coreStyles_subscript : { element : 'span', attributes : {'style': 'vertical-align: sub; font-size: smaller;'}, overrides : 'sub' },"
     "            coreStyles_superscript : { elementent : 'span', attributes : {'style': 'vertical-align: super; font-size: smaller;'}, overrides : 'sup' },"
-    "        %4});"
+    "        %3});"
     "        CKEDITOR.on('instanceReady', function(e) { e.editor.execCommand('maximize'); });"
     "        CKEDITOR.instances.editor.on('change', function() { BookViewEditor.TextChangedFilter(); });"
+    "        CKEDITOR.editor.prototype.sigil_apply_selection = function(sel) {"
+    "            function _set(r, n, off, func1, func2) {"
+    "                if (n.nodeType == 3) {"
+    "                    if (off > n.nodeValue.length) { off = n.nodeValue.length; }"
+    "                    func1.call(r, n, off);"
+    "                } else { func2.call(r, n); }"
+    "            }"
+    "            function _traverse(el, addr) {"
+    "                if (addr.length == 0) { return el; }"
+    "                var index = addr.shift();"
+    "                if (index < el.childNodes.length) { return _traverse(el.childNodes[index], addr); }"
+    "                return el.lastChild ? el.lastChild : el;"
+    "            }"
+    "            var range = this.document.$.createRange();"
+    "            var start = _traverse(this.document.$.body, sel.start_address);"
+    "            _set(range, start, sel.start_offset, range.setStart, range.setStartAfter);"
+    "            if (sel.end_address) {"
+    "                var end = _traverse(this.document.$.body, sel.end_address);"
+    "                _set(range, end, sel.end_offset, range.setEnd, range.setEndAfter);"
+    "            } else { range.collapse(true); }"
+    //"            console.log(range.startContainer + ':' + range.startOffset + ' ' + range.endContainer + ':' + range.endOffset);"
+    "            this.document.$.getSelection().removeAllRanges();"
+    "            this.document.$.getSelection().addRange(range);"
+    "            this.getSelection().scrollIntoView();"
+    "        }"
     "    </script>"
     "</body>"
     "</html>";
+
+const QString GET_SELECTION =
+    "var ranges = CKEDITOR.instances.editor.getSelection().getRanges();"
+    "var range = ranges.length > 0 ? ranges[0] : null;"
+    "!range ? null :"
+    "        '{\"start_address\":[' + range.startContainer.getAddress().slice(1) + '],\"start_offset\":' + range.startOffset +"
+    "          ',\"end_address\":' + (range.collapsed ? 'null' : ('[' + range.endContainer.getAddress().slice(1) + ']')) +"
+    "           ',\"end_offset\":' + range.endOffset + '}';"
+    ;
+
+const QString SET_DATA_AND_SELECTION =
+    "function load_new_data(data) {"
+    "   try { var set_data = CKEDITOR.instances.editor.setData; }" // on the initial load, CKEDITOR may not have fully loaded yet
+    "   catch (ex) { setTimeout(function() { load_new_data(data); }, 25); return; }"
+    "   CKEDITOR.instances.editor.setData(data, function() {"
+    "       this.focus();"
+    "       var saved_selection = %1;"
+    "       if (saved_selection) { this.sigil_apply_selection(saved_selection); }"
+    "   });"
+    "}"
+    "var new_data = BookViewEditor.new_data;"
+    "load_new_data(new_data);";
 
 BookViewEditor::BookViewEditor(QWidget *parent)
     :
@@ -99,9 +146,30 @@ void BookViewEditor::CustomSetDocument(const QString &path, const QString &html)
     }
 
     SettingsStore settings;
-    QString base = CKE_BASE.arg(QDir::fromNativeSeparators(cke_path)).arg(cleanHtml(html)).arg(settings.uiLanguage()).arg(cke_settings);
+    QString base = CKE_BASE.arg(QDir::fromNativeSeparators(cke_path)).arg(settings.uiLanguage()).arg(cke_settings);
     setHtml(base, QUrl::fromLocalFile(path));
     page()->mainFrame()->addToJavaScriptWindowObject("BookViewEditor", this);
+    CustomUpdateDocument(html, false);
+}
+
+void BookViewEditor::CustomUpdateDocument(const QString &html, bool saveSelection)
+{
+    m_isLoadFinished = false;
+
+    QString selection = "null";
+    if (saveSelection)
+    {
+        const QVariant result = EvaluateJavascript(GET_SELECTION);
+        if (result.type() == QVariant::String)
+        {
+            selection = result.toString();
+        }
+    }
+
+    setProperty("new_data", html);
+    EvaluateJavascript(SET_DATA_AND_SELECTION.arg(selection));
+    // clean-up: by the time EvaluateJavascript returns, the value has been at least copied internally, even if not yet applied
+    setProperty("new_data", QVariant());
 }
 
 void BookViewEditor::ScrollToFragment(const QString &fragment)
@@ -251,16 +319,3 @@ void BookViewEditor::TextChangedFilter()
 {
     emit textChanged();
 }
-
-QString BookViewEditor::cleanHtml(const QString &html)
-{
-    QString clean;
-
-    clean = Qt::escape(html);
-    clean = clean.replace("%2B", "+");
-    clean = clean.replace("%2b", "+");
-    clean = clean.replace("%", "&#37;");
-
-    return clean;
-}
-
