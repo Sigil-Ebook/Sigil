@@ -165,9 +165,6 @@ bool FlowTab::CutEnabled()
     if (m_ViewState == MainWindow::ViewState_BookView) {
         return m_wBookView->pageAction(QWebPage::Cut)->isEnabled();
     }
-    else if (m_ViewState == MainWindow::ViewState_PreviewView) {
-        return m_wBookPreview->pageAction(QWebPage::Cut)->isEnabled();
-    }
     else if (m_ViewState == MainWindow::ViewState_CodeView) {
         return m_wCodeView->textCursor().hasSelection();
     }
@@ -180,7 +177,7 @@ bool FlowTab::CopyEnabled()
     if (m_ViewState == MainWindow::ViewState_BookView) {
         return m_wBookView->pageAction(QWebPage::Copy)->isEnabled();
     }
-    else if (m_ViewState == MainWindow::ViewState_BookView) {
+    else if (m_ViewState == MainWindow::ViewState_PreviewView) {
         return m_wBookPreview->pageAction(QWebPage::Copy)->isEnabled();
     }
     else if (m_ViewState == MainWindow::ViewState_CodeView) {
@@ -194,9 +191,6 @@ bool FlowTab::PasteEnabled()
 {
     if (m_ViewState == MainWindow::ViewState_BookView) {
         return m_wBookView->pageAction(QWebPage::Paste)->isEnabled();
-    }
-    else if (m_ViewState == MainWindow::ViewState_BookView) {
-        return m_wBookPreview->pageAction(QWebPage::Paste)->isEnabled();
     }
     else if (m_ViewState == MainWindow::ViewState_CodeView) {
         return m_wCodeView->canPaste();
@@ -798,6 +792,7 @@ void FlowTab::ConnectSignalsToSlots()
     connect(m_wCodeView, SIGNAL(ZoomFactorChanged(float)), this, SIGNAL(ZoomFactorChanged(float)));
 
     connect(m_wBookView, SIGNAL(selectionChanged()), this, SIGNAL(SelectionChanged()));
+    connect(m_wBookPreview, SIGNAL(selectionChanged()), this, SIGNAL(SelectionChanged()));
     connect(m_wCodeView, SIGNAL(selectionChanged()), this, SIGNAL(SelectionChanged()));
 
     connect(m_wBookView, SIGNAL(FocusGained(QWidget *)), this, SLOT(EnterEditor(QWidget *)));

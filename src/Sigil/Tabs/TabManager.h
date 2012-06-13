@@ -58,6 +58,8 @@ public:
      */
     ContentTab& GetCurrentContentTab();
 
+    int GetTabCount();
+
     bool TryCloseAllTabs();
     bool TryCloseTab(int tab_index);
     bool CloseTabForResource(const Resource &resource);
@@ -162,6 +164,8 @@ signals:
      */
     void TabChanged( ContentTab* old_tab, ContentTab* new_tab );
 
+    void TabCountChanged();
+
     /**
      * Emitted whenever one of the tabs wants to open an URL.
      *
@@ -178,6 +182,9 @@ signals:
      * Wired to the current FlowTab::NewChaptersRequest signal.
      */
     void NewChaptersRequest( QStringList chapters, HTMLResource &originating_resource );
+
+protected:
+    virtual void tabInserted(int index);
 
 private slots:
 

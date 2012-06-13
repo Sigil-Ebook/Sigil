@@ -165,6 +165,10 @@ public:
 
     void SaveTabData();
 
+    void FindReplaceHidden();
+
+    void WriteSettingsFindReplaceVisibility();
+
 public slots:
     /**
      * Opens the specified resource in the specified view state.
@@ -330,31 +334,32 @@ private slots:
     void UpdateUIOnTabChanges();
 
     /**
+     * Updates the menus based on the number of tabs open.
+     */
+    void UpdateUIOnTabCountChange();
+
+    /**
      * Performs needed changes when the user switches tabs.
      */
     void UpdateUiWhenTabsSwitch();
 
     /**
      * Set initial state for actions in Book View
-     * (enable the actions the Code View disabled).
      */
     void SetStateActionsBookView();
 
-    void SetStateActionsBookOrCodeView();
-
+    /**
+     * Set initial state for actions in Split View
+     */
     void SetStateActionsSplitView();
 
     /**
      * Set initial state for actions in Code View
-     * (disable the actions used in Book View that
-     * are not appropriate here).
      */
     void SetStateActionsCodeView();
 
     /**
      * Set initial state for actions in Raw View
-     * (same as Code View, but, the actions for switching
-     * views are off as well; Raw View is for CSS, XML ... editing).
      */
     void SetStateActionsRawView();
 
@@ -485,6 +490,8 @@ private:
      * window position, geometry etc.
      */
     void WriteSettings();
+
+    void ShowHideFindReplace();
 
     /**
      * Gets called on possible saves and asks the user

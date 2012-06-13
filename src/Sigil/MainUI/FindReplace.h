@@ -137,7 +137,11 @@ private slots:
 
     void expireMessage();
 
+    void HideFindReplace();
+
 private:
+    void FindReplaceHidden();
+
     void FindText( Searchable::Direction direction );
     void ReplaceText( Searchable::Direction direction );
 

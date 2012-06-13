@@ -61,6 +61,15 @@ ContentTab& TabManager::GetCurrentContentTab()
     return *qobject_cast< ContentTab* >( widget );
 }
 
+void TabManager::tabInserted(int index)
+{
+    emit TabCountChanged();
+}
+
+int TabManager::GetTabCount()
+{
+    return count();
+}
 
 bool TabManager::TryCloseAllTabs()
 {
@@ -87,6 +96,8 @@ bool TabManager::TryCloseTab(int tab_index)
 
     ContentTab *tab = qobject_cast<ContentTab *>(widget(tab_index));
     tab->Close();
+
+    emit TabCountChanged();
 
     return true;
 }

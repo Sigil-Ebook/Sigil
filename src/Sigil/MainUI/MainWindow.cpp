@@ -400,6 +400,7 @@ void MainWindow::Find()
 
     m_FindReplace->SetUpFindText();
     m_FindReplace->show();
+    WriteSettingsFindReplaceVisibility();
 }
 
 
@@ -1012,6 +1013,8 @@ void MainWindow::UpdateUIOnTabChanges()
     float zoom_factor = tab.GetZoomFactor();
     UpdateZoomLabel( zoom_factor );
     UpdateZoomSlider( zoom_factor );
+
+    UpdateCursorPositionLabel(tab.GetCursorLine(), tab.GetCursorColumn());
 }
 
 
@@ -1023,75 +1026,101 @@ void MainWindow::UpdateUiWhenTabsSwitch()
     }
 
     UpdateViewState();
-
-    UpdateCursorPositionLabel(tab.GetCursorLine(), tab.GetCursorColumn());
-
-    // State of zoom controls depends on current tab/view
-    float zoom_factor = tab.GetZoomFactor();
-    UpdateZoomLabel( zoom_factor );
-    UpdateZoomSlider( zoom_factor );
 }
 
 
-void MainWindow::SetStateActionsBookOrCodeView()
+void MainWindow::UpdateUIOnTabCountChange()
 {
+    ui.actionNextTab       ->setEnabled(m_TabManager.GetTabCount() > 1);
+    ui.actionPreviousTab   ->setEnabled(m_TabManager.GetTabCount() > 1);
+    ui.actionCloseTab      ->setEnabled(m_TabManager.GetTabCount() > 1);
+    ui.actionCloseOtherTabs->setEnabled(m_TabManager.GetTabCount() > 1);
+}
+
+
+void MainWindow::SetStateActionsBookView()
+{
+    ui.actionBookView->setEnabled(true);
+    ui.actionSplitView->setEnabled(true);
+    ui.actionCodeView->setEnabled(true);
+
+    ui.actionBookView->setChecked(true);
+    ui.actionSplitView->setChecked(false);
+    ui.actionCodeView->setChecked(false);
+
     ui.actionUndo->setEnabled(true);
     ui.actionRedo->setEnabled(true);
 
-    ui.actionCut->setEnabled(true);
-    ui.actionCopy->setEnabled(true);
-    ui.actionPaste->setEnabled(true);
+    ui.actionInsertImage->setEnabled(true);
+    ui.actionSplitChapter->setEnabled(true);
+    ui.actionInsertSGFChapterMarker->setEnabled(true);
+    ui.actionSplitOnSGFChapterMarkers->setEnabled(true);
 
+    ui.actionFind->setEnabled(true);
+    ui.actionFindNext->setEnabled(true);
+    ui.actionFindPrevious->setEnabled(true);
+    ui.actionReplaceNext->setEnabled(false);
+    ui.actionReplacePrevious->setEnabled(false);
+    ui.actionReplaceAll->setEnabled(false);
+    ui.actionCount->setEnabled(false);
+    ui.actionGoToLine->setEnabled(false);
+
+    UpdateUIOnTabChanges();
+
+    m_FindReplace->SetCapabilities(FindReplace::CAPABILITY_FIND);
+    ShowHideFindReplace();
+}
+
+void MainWindow::SetStateActionsSplitView()
+{
+    ui.actionBookView->setEnabled(true);
+    ui.actionSplitView->setEnabled(true);
+    ui.actionCodeView->setEnabled(true);
+
+    ui.actionBookView->setChecked(false);
+    ui.actionSplitView->setChecked(true);
+    ui.actionCodeView->setChecked(false);
+
+    ui.actionUndo->setEnabled(false);
+    ui.actionRedo->setEnabled(false);
+
+    ui.actionInsertImage->setEnabled(false);
+    ui.actionSplitChapter->setEnabled(false);
+    ui.actionInsertSGFChapterMarker->setEnabled(false);
+    ui.actionSplitOnSGFChapterMarkers->setEnabled(false);
+
+    ui.actionFind->setEnabled(true);
+    ui.actionFindNext->setEnabled(true);
+    ui.actionFindPrevious->setEnabled(true);
+    ui.actionReplaceNext->setEnabled(false);
+    ui.actionReplacePrevious->setEnabled(false);
+    ui.actionReplaceAll->setEnabled(false);
+    ui.actionCount->setEnabled(false);
+    ui.actionGoToLine->setEnabled(false);
+
+    UpdateUIOnTabChanges();
+
+    m_FindReplace->SetCapabilities(FindReplace::CAPABILITY_FIND);
+    ShowHideFindReplace();
+}
+
+void MainWindow::SetStateActionsCodeView()
+{
     ui.actionBookView->setEnabled(true);
     ui.actionSplitView->setEnabled(true);
     ui.actionCodeView->setEnabled(true);
 
     ui.actionBookView->setChecked(false);
     ui.actionSplitView->setChecked(false);
-    ui.actionCodeView->setChecked(false);
+    ui.actionCodeView->setChecked(true);
+
+    ui.actionUndo->setEnabled(true);
+    ui.actionRedo->setEnabled(true);
 
     ui.actionInsertImage->setEnabled(true);
     ui.actionSplitChapter->setEnabled(true);
-}
-
-void MainWindow::SetStateActionsBookView()
-{
-    SetStateActionsBookOrCodeView();
-    ui.actionBookView->setChecked(true);
-
-    ui.actionFind->setEnabled(true);
-    ui.actionFindNext->setEnabled(true);
-    ui.actionFindPrevious->setEnabled(true);
-    ui.actionReplaceNext->setEnabled(false);
-    ui.actionReplacePrevious->setEnabled(false);
-    ui.actionReplaceAll->setEnabled(false);
-    ui.actionCount->setEnabled(false);
-    ui.actionGoToLine->setEnabled(false);
-
-    m_FindReplace->SetCapabilities(FindReplace::CAPABILITY_FIND);
-}
-
-void MainWindow::SetStateActionsSplitView()
-{
-    SetStateActionsBookOrCodeView();
-    ui.actionSplitView->setChecked(true);
-
-    ui.actionFind->setEnabled(true);
-    ui.actionFindNext->setEnabled(true);
-    ui.actionFindPrevious->setEnabled(true);
-    ui.actionReplaceNext->setEnabled(false);
-    ui.actionReplacePrevious->setEnabled(false);
-    ui.actionReplaceAll->setEnabled(false);
-    ui.actionCount->setEnabled(false);
-    ui.actionGoToLine->setEnabled(false);
-
-    m_FindReplace->SetCapabilities(FindReplace::CAPABILITY_FIND);
-}
-
-void MainWindow::SetStateActionsCodeView()
-{
-    SetStateActionsBookOrCodeView();
-    ui.actionCodeView->setChecked(true);
+    ui.actionInsertSGFChapterMarker->setEnabled(true);
+    ui.actionSplitOnSGFChapterMarkers->setEnabled(true);
 
     ui.actionFind->setEnabled(true);
     ui.actionFindNext->setEnabled(true);
@@ -1102,14 +1131,15 @@ void MainWindow::SetStateActionsCodeView()
     ui.actionCount->setEnabled(true);
     ui.actionGoToLine->setEnabled(true);
 
+    UpdateUIOnTabChanges();
+
     m_FindReplace->SetCapabilities(FindReplace::CAPABILITY_ALL);
+    ShowHideFindReplace();
 }
 
 
 void MainWindow::SetStateActionsRawView()
 {
-    SetStateActionsCodeView();
-
     ui.actionBookView->setEnabled(false);
     ui.actionSplitView->setEnabled(false);
     ui.actionCodeView->setEnabled(false);
@@ -1118,8 +1148,13 @@ void MainWindow::SetStateActionsRawView()
     ui.actionSplitView->setChecked(false);
     ui.actionCodeView->setChecked(false);
 
+    ui.actionUndo->setEnabled(true);
+    ui.actionRedo->setEnabled(true);
+
     ui.actionInsertImage->setEnabled(false);
     ui.actionSplitChapter->setEnabled(false);
+    ui.actionInsertSGFChapterMarker->setEnabled(false);
+    ui.actionSplitOnSGFChapterMarkers->setEnabled(false);
 
     ui.actionFind->setEnabled(true);
     ui.actionFindNext->setEnabled(true);
@@ -1130,6 +1165,8 @@ void MainWindow::SetStateActionsRawView()
     ui.actionCount->setEnabled(true);
     ui.actionGoToLine->setEnabled(true);
 
+    UpdateUIOnTabChanges();
+
     m_FindReplace->SetCapabilities(FindReplace::CAPABILITY_FIND |
         FindReplace::CAPABILITY_FIND_COUNT |
         FindReplace::CAPABILITY_REPLACE |
@@ -1137,19 +1174,27 @@ void MainWindow::SetStateActionsRawView()
         FindReplace::CAPABILITY_MODE_NORMAL |
         FindReplace::CAPABILITY_MODE_CASE_SENSITIVE |
         FindReplace::CAPABILITY_MODE_REGEX);
+    ShowHideFindReplace();
 }
 
 
 void MainWindow::SetStateActionsStaticView()
 {
-    SetStateActionsRawView();
+    ui.actionBookView->setEnabled(false);
+    ui.actionSplitView->setEnabled(false);
+    ui.actionCodeView->setEnabled(false);
+
+    ui.actionBookView->setChecked(false);
+    ui.actionSplitView->setChecked(false);
+    ui.actionCodeView->setChecked(false);
 
     ui.actionUndo->setEnabled(false);
     ui.actionRedo->setEnabled(false);
 
-    ui.actionCut->setEnabled(false);
-    ui.actionCopy->setEnabled(false);
-    ui.actionPaste->setEnabled(false);
+    ui.actionInsertImage->setEnabled(false);
+    ui.actionSplitChapter->setEnabled(false);
+    ui.actionInsertSGFChapterMarker->setEnabled(false);
+    ui.actionSplitOnSGFChapterMarkers->setEnabled(false);
 
     ui.actionFind->setEnabled(false);
     ui.actionFindNext->setEnabled(false);
@@ -1160,6 +1205,8 @@ void MainWindow::SetStateActionsStaticView()
     ui.actionCount->setEnabled(false);
     ui.actionGoToLine->setEnabled(false);
 
+    UpdateUIOnTabChanges();
+
     m_FindReplace->SetCapabilities(FindReplace::CAPABILITY_NONE);
     m_FindReplace->hide();
 }
@@ -1167,7 +1214,7 @@ void MainWindow::SetStateActionsStaticView()
 
 void MainWindow::UpdateCursorPositionLabel(int line, int column)
 {
-    if (line >= 0 && column >=0) {
+    if (line > 0 && column > 0) {
         const QString l = QString::number(line);
         const QString c = QString::number(column);
 
@@ -1345,6 +1392,49 @@ void MainWindow::WriteSettings()
     settings.setValue( "recentfiles", s_RecentFiles );
 
     KeyboardShortcutManager::instance()->writeSettings();
+
+    settings.endGroup();
+
+    WriteSettingsFindReplaceVisibility();
+}
+
+void MainWindow::ShowHideFindReplace()
+{
+    SettingsStore settings;
+    settings.beginGroup( SETTINGS_GROUP );
+
+    // Find Replace is hidden by default
+    QVariant show_find_replace = settings.value( "find_replace_visible" );
+    if (show_find_replace.isNull() ? false : show_find_replace.toBool()) {
+        m_FindReplace->show();
+    }
+    else {
+        m_FindReplace->hide();
+    }
+
+    settings.endGroup();
+
+}
+
+
+void MainWindow::WriteSettingsFindReplaceVisibility()
+{
+    ContentTab &tab = m_TabManager.GetCurrentContentTab();
+    if (&tab == NULL) {
+        return;
+    }
+
+    Resource::ResourceType type = tab.GetLoadedResource().Type();
+
+    if (type == Resource::ImageResourceType) {
+        return;
+    }
+
+    SettingsStore settings;
+    settings.beginGroup( SETTINGS_GROUP );
+
+    // The open or closed status of the Find window
+    settings.setValue( "find_replace_visible", m_FindReplace->isVisible() );
 
     settings.endGroup();
 }
@@ -1778,7 +1868,6 @@ void MainWindow::ExtendUI()
 {
     // Creating the tabs and the book browser
 
-    m_FindReplace->hide();
     // We want a nice frame around the tab manager
     QFrame *frame = new QFrame( this );
     QLayout *layout = new QVBoxLayout( frame );
@@ -2110,6 +2199,9 @@ void MainWindow::ConnectSignalsToSlots()
     connect( ui.actionSplitView,     SIGNAL( triggered() ),  this,   SLOT( SplitView() ) );
     connect( ui.actionCodeView,      SIGNAL( triggered() ),  this,   SLOT( CodeView()  ) );
 
+    connect( &m_TabManager,          SIGNAL( TabCountChanged() ), 
+             this,                   SLOT( UpdateUIOnTabCountChange() ) );
+
     connect( &m_TabManager,          SIGNAL( TabChanged( ContentTab*, ContentTab* ) ),
              this,                   SLOT( ChangeSignalsWhenTabChanges( ContentTab*, ContentTab* ) ) );
 
@@ -2203,6 +2295,10 @@ void MainWindow::MakeTabConnections( ContentTab *tab )
         connect( tab,   SIGNAL( EnteringBookView() ),           this,          SLOT( UpdateZoomControls()      ) );
         connect( tab,   SIGNAL( EnteringBookPreview() ),        this,          SLOT( UpdateZoomControls() ) );
         connect( tab,   SIGNAL( EnteringCodeView() ),           this,          SLOT( UpdateZoomControls()      ) );
+    }
+    if (tab->GetLoadedResource().Type() == Resource::CSSResourceType )
+    {
+        connect( tab,   SIGNAL( SelectionChanged() ),           this,          SLOT( UpdateUIOnTabChanges()    ) );
     }
 
     connect( tab,   SIGNAL( ContentChanged() ),             m_Book.data(), SLOT( SetModified()             ) );

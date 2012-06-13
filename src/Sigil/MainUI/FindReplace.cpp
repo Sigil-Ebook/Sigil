@@ -53,6 +53,13 @@ FindReplace::~FindReplace()
 {
     WriteSettings();
     WriteUIMode();
+    FindReplaceHidden();
+}
+
+
+void FindReplace::FindReplaceHidden()
+{
+    m_MainWindow.WriteSettingsFindReplaceVisibility();
 }
 
 
@@ -90,6 +97,7 @@ void FindReplace::close()
 {
     clearMessage();
     QWidget::close();
+    FindReplaceHidden();
 }
 
 
@@ -100,10 +108,16 @@ void FindReplace::show()
 }
 
 
+void FindReplace::HideFindReplace()
+{
+    hide();
+    FindReplaceHidden();
+}
+
 void FindReplace::keyPressEvent(QKeyEvent *event)
 {
     if (event->key() == Qt::Key_Escape) {
-        hide();
+        HideFindReplace();
     }
 }
 
@@ -1024,5 +1038,5 @@ void FindReplace::ConnectSignalsToSlots()
     connect(ui.replaceNext, SIGNAL(clicked()), this, SLOT(Replace()));
     connect(ui.cbReplace->lineEdit(), SIGNAL(returnPressed()), this, SLOT(Replace()));
     connect(ui.replaceAll, SIGNAL(clicked()), this, SLOT(ReplaceAll()));
-    connect(ui.close, SIGNAL(clicked()), this, SLOT(hide()));
+    connect(ui.close, SIGNAL(clicked()), this, SLOT(HideFindReplace()));
 }
