@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>566</width>
-    <height>93</height>
+    <height>103</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -96,16 +96,19 @@
       <item>
        <layout class="QGridLayout" name="gridLayout" columnstretch="0,1,0,0,0">
         <property name="leftMargin">
-         <number>0</number>
+         <number>3</number>
         </property>
         <property name="topMargin">
-         <number>0</number>
+         <number>3</number>
         </property>
         <property name="rightMargin">
+         <number>1</number>
+        </property>
+        <property name="bottomMargin">
          <number>3</number>
         </property>
         <property name="spacing">
-         <number>3</number>
+         <number>2</number>
         </property>
         <item row="0" column="0">
          <widget class="QLabel" name="findl">
@@ -223,25 +226,18 @@
           </property>
          </widget>
         </item>
-        <item row="2" column="0" colspan="4">
-         <widget class="Line" name="line">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
+        <item row="2" column="0">
+         <widget class="QLabel" name="model">
+          <property name="text">
+           <string>Mode:</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
           </property>
          </widget>
         </item>
-        <item row="3" column="0" colspan="5">
-         <layout class="QHBoxLayout" name="modeLayout" stretch="0,0,0,0,0,0,0,0">
-          <item>
-           <widget class="QLabel" name="model">
-            <property name="text">
-             <string>Mode:</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-            </property>
-           </widget>
-          </item>
+        <item row="2" column="1" colspan="4">
+         <layout class="QHBoxLayout" name="modeLayout" stretch="0,0,0,0,0">
           <item>
            <widget class="QComboBox" name="cbSearchMode"/>
           </item>

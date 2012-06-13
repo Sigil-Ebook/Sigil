@@ -949,7 +949,6 @@ void FindReplace::ExtendUI()
             ui.cbSearchMode->setToolTip(mode_tooltip);
         }
         else {
-            ui.model->hide();
             ui.cbSearchMode->hide();
         }
 
