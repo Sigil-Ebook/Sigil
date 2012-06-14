@@ -400,7 +400,6 @@ void MainWindow::Find()
 
     m_FindReplace->SetUpFindText();
     m_FindReplace->show();
-    WriteSettingsFindReplaceVisibility();
 }
 
 
@@ -1068,7 +1067,6 @@ void MainWindow::SetStateActionsBookView()
     UpdateUIOnTabChanges();
 
     m_FindReplace->SetCapabilities(FindReplace::CAPABILITY_FIND);
-    ShowHideFindReplace();
 }
 
 void MainWindow::SetStateActionsSplitView()
@@ -1101,7 +1099,6 @@ void MainWindow::SetStateActionsSplitView()
     UpdateUIOnTabChanges();
 
     m_FindReplace->SetCapabilities(FindReplace::CAPABILITY_FIND);
-    ShowHideFindReplace();
 }
 
 void MainWindow::SetStateActionsCodeView()
@@ -1134,7 +1131,6 @@ void MainWindow::SetStateActionsCodeView()
     UpdateUIOnTabChanges();
 
     m_FindReplace->SetCapabilities(FindReplace::CAPABILITY_ALL);
-    ShowHideFindReplace();
 }
 
 
@@ -1174,7 +1170,6 @@ void MainWindow::SetStateActionsRawView()
         FindReplace::CAPABILITY_MODE_NORMAL |
         FindReplace::CAPABILITY_MODE_CASE_SENSITIVE |
         FindReplace::CAPABILITY_MODE_REGEX);
-    ShowHideFindReplace();
 }
 
 
@@ -1394,51 +1389,7 @@ void MainWindow::WriteSettings()
     KeyboardShortcutManager::instance()->writeSettings();
 
     settings.endGroup();
-
-    WriteSettingsFindReplaceVisibility();
 }
-
-void MainWindow::ShowHideFindReplace()
-{
-    SettingsStore settings;
-    settings.beginGroup( SETTINGS_GROUP );
-
-    // Find Replace is hidden by default
-    QVariant show_find_replace = settings.value( "find_replace_visible" );
-    if (show_find_replace.isNull() ? false : show_find_replace.toBool()) {
-        m_FindReplace->show();
-    }
-    else {
-        m_FindReplace->hide();
-    }
-
-    settings.endGroup();
-
-}
-
-
-void MainWindow::WriteSettingsFindReplaceVisibility()
-{
-    ContentTab &tab = m_TabManager.GetCurrentContentTab();
-    if (&tab == NULL) {
-        return;
-    }
-
-    Resource::ResourceType type = tab.GetLoadedResource().Type();
-
-    if (type == Resource::ImageResourceType) {
-        return;
-    }
-
-    SettingsStore settings;
-    settings.beginGroup( SETTINGS_GROUP );
-
-    // The open or closed status of the Find window
-    settings.setValue( "find_replace_visible", m_FindReplace->isVisible() );
-
-    settings.endGroup();
-}
-
 
 bool MainWindow::MaybeSaveDialogSaysProceed()
 {
@@ -1867,6 +1818,7 @@ void MainWindow::PlatformSpecificTweaks()
 void MainWindow::ExtendUI()
 {
     // Creating the tabs and the book browser
+    m_FindReplace->hide();
 
     // We want a nice frame around the tab manager
     QFrame *frame = new QFrame( this );

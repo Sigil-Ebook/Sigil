@@ -53,13 +53,6 @@ FindReplace::~FindReplace()
 {
     WriteSettings();
     WriteUIMode();
-    FindReplaceHidden();
-}
-
-
-void FindReplace::FindReplaceHidden()
-{
-    m_MainWindow.WriteSettingsFindReplaceVisibility();
 }
 
 
@@ -97,7 +90,6 @@ void FindReplace::close()
 {
     clearMessage();
     QWidget::close();
-    FindReplaceHidden();
 }
 
 
@@ -111,7 +103,6 @@ void FindReplace::show()
 void FindReplace::HideFindReplace()
 {
     hide();
-    FindReplaceHidden();
 }
 
 void FindReplace::keyPressEvent(QKeyEvent *event)

@@ -165,10 +165,6 @@ public:
 
     void SaveTabData();
 
-    void FindReplaceHidden();
-
-    void WriteSettingsFindReplaceVisibility();
-
 public slots:
     /**
      * Opens the specified resource in the specified view state.
@@ -490,8 +486,6 @@ private:
      * window position, geometry etc.
      */
     void WriteSettings();
-
-    void ShowHideFindReplace();
 
     /**
      * Gets called on possible saves and asks the user
