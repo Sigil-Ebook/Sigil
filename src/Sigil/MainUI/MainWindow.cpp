@@ -1517,7 +1517,6 @@ bool MainWindow::SaveFile( const QString &fullfilepath )
 
         QApplication::setOverrideCursor( Qt::WaitCursor );
 
-        BookNormalization::Normalize( m_Book );
         ExporterFactory().GetExporter( fullfilepath, m_Book ).WriteBook();
 
         QApplication::restoreOverrideCursor();
