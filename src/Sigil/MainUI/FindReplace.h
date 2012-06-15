@@ -93,6 +93,10 @@ public:
 
     void SetCapabilities(FR_Capabilities caps);
 
+    void WriteSettingsVisible(bool visible);
+
+    void ShowHide();
+
 public slots:
     void close();
     void show();

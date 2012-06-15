@@ -1,4 +1,6 @@
 Sigil 0.6.0 TBA
+    - Implement issue 1443: Find&Replace should save state on restart,
+      UI should enable/disable more items based on view
     - Implement issue 1416: Don't add selected text to F&R history and increase selected
       text limit for being auto loaded into F&R.
     - Implement issue 1414: Cover semantic should not be added automatically.

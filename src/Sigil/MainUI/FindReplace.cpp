@@ -88,13 +88,14 @@ void FindReplace::SetCapabilities(FR_Capabilities caps)
 
 void FindReplace::close()
 {
-    clearMessage();
+    WriteSettingsVisible(false);
     QWidget::close();
 }
 
 
 void FindReplace::show()
 {
+    WriteSettingsVisible(true);
     clearMessage();
     QWidget::show();
 }
@@ -102,6 +103,7 @@ void FindReplace::show()
 
 void FindReplace::HideFindReplace()
 {
+    WriteSettingsVisible(false);
     hide();
 }
 
@@ -816,9 +818,35 @@ void FindReplace::ReadUIMode()
     settings.endGroup();
 }
 
+void FindReplace::ShowHide()
+{
+    SettingsStore settings;
+    settings.beginGroup( SETTINGS_GROUP );
 
-// Writes all the stored dialog settings like
-// window position, geometry etc.
+    QVariant show_find_replace = settings.value( "visible" );
+
+    settings.endGroup();
+
+    // Hide the window by default
+    if (show_find_replace.isNull() ? false : show_find_replace.toBool()) {
+        show();
+    }
+    else {
+        hide();
+    }
+
+}
+
+void FindReplace::WriteSettingsVisible(bool visible)
+{
+    SettingsStore *settings = new SettingsStore();
+    settings->beginGroup( SETTINGS_GROUP );
+
+    settings->setValue( "visible", visible);
+
+    settings->endGroup();
+}
+
 void FindReplace::WriteSettings()
 {
     SettingsStore settings;
