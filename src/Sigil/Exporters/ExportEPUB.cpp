@@ -20,6 +20,9 @@
 *************************************************************************/
 
 #include <zip.h>
+#ifdef Q_OS_WIN32
+#include <iowin32.h>
+#endif
 
 #include <QtCore/QDir>
 #include <QtCore/QDirIterator>
@@ -109,17 +112,22 @@ void ExportEPUB::CreatePublication( const QString &fullfolderpath )
         CreateEncryptionXML( fullfolderpath + METAINF_FOLDER_SUFFIX );
 }
 
-#include <QtDebug>
 void ExportEPUB::SaveFolderAsEpubToLocation( const QString &fullfolderpath, const QString &fullfilepath )
 {
-    zipFile zfile = zipOpen(QDir::toNativeSeparators(fullfilepath).toUtf8().constData(), APPEND_STATUS_CREATE);
+#ifdef Q_OS_WIN32
+    zlib_filefunc64_def ffunc;
+    fill_win32_filefunc64W(&ffunc);
+    zipFile zfile = zipOpen2_64(QDir::toNativeSeparators(fullfilepath).toStdWString().c_str(), APPEND_STATUS_CREATE, NULL, &ffunc);
+#else
+    zipFile zfile = zipOpen64(QDir::toNativeSeparators(fullfilepath).toUtf8().constData(), APPEND_STATUS_CREATE);
+#endif
 
     if (zfile == NULL) {
         boost_throw(CannotOpenFile() << errinfo_file_fullpath(fullfilepath.toStdString()));
     }
 
     // Write the mimetype. This must be uncompressed and the first entry in the archive.
-    if (zipOpenNewFileInZip(zfile, "mimetype", NULL, NULL, 0, NULL, 0, NULL, Z_NO_COMPRESSION, 0) != Z_OK) {
+    if (zipOpenNewFileInZip64(zfile, "mimetype", NULL, NULL, 0, NULL, 0, NULL, Z_NO_COMPRESSION, 0, 0) != Z_OK) {
         zipClose(zfile, NULL);
         boost_throw(CannotStoreFile() << errinfo_file_fullpath("mimetype"));
     }
@@ -141,7 +149,8 @@ void ExportEPUB::SaveFolderAsEpubToLocation( const QString &fullfolderpath, cons
         }
 
         // Add the file entry to the archive.
-        if (zipOpenNewFileInZip(zfile, relpath.toUtf8().constData(), NULL, NULL, 0, NULL, 0, NULL, Z_DEFLATED, 8) != Z_OK) {
+        // We should check the uncompressed file size. If it's over >= 0xffffffff the last parameter (zip64) should be 1.
+        if (zipOpenNewFileInZip4_64(zfile, relpath.toUtf8().constData(), NULL, NULL, 0, NULL, 0, NULL, Z_DEFLATED, 8, 0, 15, 8, Z_DEFAULT_STRATEGY, NULL, 0, 0, 0x800, 0) != Z_OK) {
             zipClose(zfile, NULL);
             boost_throw(CannotStoreFile() << errinfo_file_fullpath(relpath.toStdString()));
         }

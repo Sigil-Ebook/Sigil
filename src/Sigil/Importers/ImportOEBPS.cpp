@@ -20,6 +20,9 @@
 *************************************************************************/
 
 #include <unzip.h>
+#ifdef Q_OS_WIN32
+#include <iowin32.h>
+#endif
 
 #include <QtCore/QtCore>
 #include <QtCore/QFileInfo>
@@ -37,8 +40,10 @@
 #include "sigil_constants.h"
 #include "sigil_exception.h"
 
+#ifndef MAX_PATH
 // Set Max length to 256 because that's the max path size on many systems.
 #define MAX_PATH 256
+#endif
 // This is the same read buffer size used by Java and Perl.
 #define BUFF_SIZE 8192
 
@@ -51,7 +56,7 @@ const QString NCX_MIMETYPE               = "application/x-dtbncx+xml";
 static const QString NCX_EXTENSION       = "ncx";
 
 ImportOEBPS::ImportOEBPS( const QString &fullfilepath )
-    : 
+    :
     Importer( fullfilepath ),
     m_ExtractedFolderPath( m_TempFolder.GetPath() )
 {
@@ -62,7 +67,13 @@ ImportOEBPS::ImportOEBPS( const QString &fullfilepath )
 void ImportOEBPS::ExtractContainer()
 {
     int res = 0;
-    unzFile zfile = unzOpen(QDir::toNativeSeparators(m_FullFilePath).toLocal8Bit().constData());
+#ifdef Q_OS_WIN32
+    zlib_filefunc64_def ffunc;
+    fill_win32_filefunc64W(&ffunc);
+    unzFile zfile = unzOpen2_64(QDir::toNativeSeparators(m_FullFilePath).toStdWString().c_str(), &ffunc);
+#else
+    unzFile zfile = unzOpen64(QDir::toNativeSeparators(m_FullFilePath).toUtf8().constData());
+#endif
 
     if (zfile == NULL) {
         boost_throw(CannotOpenFile() << errinfo_file_fullpath(m_FullFilePath.toStdString()));
@@ -71,9 +82,9 @@ void ImportOEBPS::ExtractContainer()
     while ((res = unzGoToNextFile(zfile)) == UNZ_OK) {
         // Get the name of the file in the archive.
         char file_name[MAX_PATH] = {0};
-        unz_file_info file_info;
-        unzGetCurrentFileInfo(zfile, &file_info, file_name, MAX_PATH, NULL, 0, NULL, 0);
-        QString qfile_name = QString(file_name);
+        unz_file_info64 file_info;
+        unzGetCurrentFileInfo64(zfile, &file_info, file_name, MAX_PATH, NULL, 0, NULL, 0);
+        QString qfile_name = QString::fromUtf8(file_name);
 
         // If there is no file name then we can't do anything with it.
         if (!qfile_name.isEmpty()) {
