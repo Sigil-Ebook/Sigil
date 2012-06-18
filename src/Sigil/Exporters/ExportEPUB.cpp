@@ -150,7 +150,7 @@ void ExportEPUB::SaveFolderAsEpubToLocation( const QString &fullfolderpath, cons
 
         // Add the file entry to the archive.
         // We should check the uncompressed file size. If it's over >= 0xffffffff the last parameter (zip64) should be 1.
-        if (zipOpenNewFileInZip4_64(zfile, relpath.toUtf8().constData(), NULL, NULL, 0, NULL, 0, NULL, Z_DEFLATED, 8, 0, 15, 8, Z_DEFAULT_STRATEGY, NULL, 0, 0, 0x800, 0) != Z_OK) {
+        if (zipOpenNewFileInZip4_64(zfile, relpath.toUtf8().constData(), NULL, NULL, 0, NULL, 0, NULL, Z_DEFLATED, 8, 0, 15, 8, Z_DEFAULT_STRATEGY, NULL, 0, 0x0b00, 0, 0) != Z_OK) {
             zipClose(zfile, NULL);
             boost_throw(CannotStoreFile() << errinfo_file_fullpath(relpath.toStdString()));
         }
