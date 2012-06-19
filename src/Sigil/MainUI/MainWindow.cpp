@@ -1051,7 +1051,7 @@ void MainWindow::SetStateActionsBookView()
     ui.actionRedo->setEnabled(true);
 
     ui.actionInsertImage->setEnabled(true);
-    ui.actionSplitChapter->setEnabled(true);
+    ui.actionSplitChapter->setEnabled(false);
     ui.actionInsertSGFChapterMarker->setEnabled(true);
     ui.actionSplitOnSGFChapterMarkers->setEnabled(true);
 
@@ -1349,14 +1349,6 @@ void MainWindow::ReadSettings()
     ui.actionCheckWellFormedErrors->setChecked( m_CheckWellFormedErrors );
     SetCheckWellFormedErrors( m_CheckWellFormedErrors );
 
-    // The position of the splitter handle in split view
-    //QByteArray splitter_position = settings.value( "splitview_splitter" ).toByteArray();
-
-    // FIXME: store splitter position... multiples?
-    //if ( !splitter_position.isNull() )
-
-    //    ui.splitter->restoreState( splitter_position );
-
     // The last folder used for saving and opening files
     m_LastFolderOpen  = settings.value( "lastfolderopen"  ).toString();
 
@@ -1380,10 +1372,6 @@ void MainWindow::WriteSettings()
 
     // Whether the user wants to be informed about well-formed errors
     settings.setValue( "checkwellformederrors", m_CheckWellFormedErrors );
-
-    // The position of the splitter handle in split view
-    // FIXME: splitter positions
-    //settings.setValue( "splitview_splitter", ui.splitter->saveState() );
 
     // The last folders used for saving and opening files
     settings.setValue( "lastfolderopen",  m_LastFolderOpen  );
