@@ -20,7 +20,7 @@
 *************************************************************************/
 
 #include <unzip.h>
-#ifdef Q_OS_WIN32
+#ifdef _WIN32
 #include <iowin32.h>
 #endif
 
