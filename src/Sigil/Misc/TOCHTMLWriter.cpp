@@ -71,7 +71,7 @@ void TOCHTMLWriter::WriteHead()
     m_Writer->writeAttribute("type", "text/css");
 
     m_Writer->writeCharacters("  p.sgc-toc-title { text-align:center; }\n");
-    m_Writer->writeCharacters("  ol { list-style-type: none; }\n");
+    m_Writer->writeCharacters("  ul { list-style-type: none; }\n");
     m_Writer->writeCharacters("  li { margin-top: 0em; }\n");
     m_Writer->writeCharacters("  a { font-weight: normal; }\n");
 
@@ -88,8 +88,8 @@ void TOCHTMLWriter::WriteHeadings()
 
     if (!m_NCXRootEntry.children.isEmpty())
     {
-        m_Writer->writeStartElement("ol");
-        m_Writer->writeAttribute("class", QString("sgc-toc-ol-%1").arg(1));
+        m_Writer->writeStartElement("ul");
+        m_Writer->writeAttribute("class", QString("sgc-toc-ul-%1").arg(1));
 
         // The TOC is written recursively;
         // WriteHeading is called for each entry in the tree
@@ -116,8 +116,8 @@ void TOCHTMLWriter::WriteHeading(const NCXModel::NCXEntry &entry , int level)
     m_Writer->writeEndElement();
 
     if (!entry.children.isEmpty()) {
-        m_Writer->writeStartElement("ol");
-        m_Writer->writeAttribute("class", QString("sgc-toc-ol-%1").arg(level + 1));
+        m_Writer->writeStartElement("ul");
+        m_Writer->writeAttribute("class", QString("sgc-toc-ul-%1").arg(level + 1));
 
         foreach (NCXModel::NCXEntry child, entry.children) {
             WriteHeading(child, level + 1);
