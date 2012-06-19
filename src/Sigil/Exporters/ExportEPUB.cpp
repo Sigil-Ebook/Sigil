@@ -132,7 +132,7 @@ void ExportEPUB::SaveFolderAsEpubToLocation( const QString &fullfolderpath, cons
         boost_throw(CannotStoreFile() << errinfo_file_fullpath("mimetype"));
     }
     const char *mime_data = EPUB_MIME_TYPE.toUtf8().constData();
-    if (zipWriteInFileInZip(zfile, mime_data, strlen(mime_data)) != Z_OK) {
+    if (zipWriteInFileInZip(zfile, mime_data, (unsigned int)strlen(mime_data)) != Z_OK) {
         zipCloseFileInZip(zfile);
         zipClose(zfile, NULL);
         boost_throw(CannotStoreFile() << errinfo_file_fullpath("mimetype"));
