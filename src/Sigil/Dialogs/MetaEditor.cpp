@@ -36,7 +36,8 @@ MetaEditor::MetaEditor( OPFResource &opf, QWidget *parent )
     :
     QDialog( parent ),
     m_OPF( opf ),
-    m_Metadata( m_OPF.GetDCMetadata() )
+    m_Metadata( m_OPF.GetDCMetadata() ),
+    m_cbDelegate(new ComboBoxItemDelegate())
 {
     ui.setupUi( this );	
 
@@ -51,6 +52,14 @@ MetaEditor::MetaEditor( OPFResource &opf, QWidget *parent )
     ReadMetadataFromBook();
 
     SetLanguage();
+}
+
+MetaEditor::~MetaEditor()
+{
+    if (m_cbDelegate) {
+        delete m_cbDelegate;
+        m_cbDelegate = 0;
+    }
 }
 
 void MetaEditor::SetLanguage()
@@ -138,10 +147,6 @@ void MetaEditor::AddMetadataToTable( Metadata::MetaElement book_meta, int row )
     }
 
     m_MetaModel.insertRow( row );
-
-    // The table's role_type column uses a combobox for editing its values
-    ComboBoxItemDelegate *cb = new ComboBoxItemDelegate( ui.tvMetaTable );
-    ui.tvMetaTable->setItemDelegate( cb );
 
     // Set the display name
     // All translations done in Metadata for consistency
@@ -477,6 +482,10 @@ void MetaEditor::SetUpMetaTable()
     ui.tvMetaTable->setSortingEnabled( false );
     ui.tvMetaTable->setWordWrap( true );
     ui.tvMetaTable->setAlternatingRowColors( true );    
+
+    // The table's role_type column uses a combobox for editing its values
+    ui.tvMetaTable->setItemDelegateForColumn(3, m_cbDelegate);
+
 }
 
 

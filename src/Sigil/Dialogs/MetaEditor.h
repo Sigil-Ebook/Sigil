@@ -30,6 +30,7 @@
 #include "ui_MetaEditor.h"
 
 class OPFResource;
+class ComboBoxItemDelegate;
 
 /**
  * The editor used to create and modify the book's metadata.
@@ -47,6 +48,7 @@ public:
      * @param parent The object's parent.
      */
     MetaEditor( OPFResource &opf, QWidget *parent = 0 );
+    ~MetaEditor();
 
 protected:
 
@@ -236,6 +238,8 @@ private:
      * The window height after expansion.
      */
     int m_ExpandedHeight;
+
+    ComboBoxItemDelegate *m_cbDelegate;
 
     /**
      * Holds all the widgets Qt Designer created for us.
