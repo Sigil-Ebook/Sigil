@@ -1204,12 +1204,16 @@ void OPFResource::WriteSimpleMetadata(
     const QString &metavalue, 
     xc::DOMDocument &document )
 {
-    // This assumes that the "dc" prefix has been declared for the DC namespace
-    xc::DOMElement *element = document.createElementNS( QtoX( DUBLIN_CORE_NS ), QtoX( "dc:" + metaname ) );
-    element->setTextContent( QtoX( metavalue ) );
+    try {
+        // This assumes that the "dc" prefix has been declared for the DC namespace
+        xc::DOMElement *element = document.createElementNS( QtoX( DUBLIN_CORE_NS ), QtoX( "dc:" + metaname ) );
+        element->setTextContent( QtoX( metavalue ) );
 
-    xc::DOMElement &metadata = GetMetadataElement( document );
-    metadata.appendChild( element );
+        xc::DOMElement &metadata = GetMetadataElement( document );
+        metadata.appendChild( element );
+    } catch (...) {
+        // "dc" prefix isn't always declared when importing HTML.
+    }
 }
 
 
