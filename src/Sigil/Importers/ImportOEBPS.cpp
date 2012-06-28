@@ -96,7 +96,7 @@ void ImportOEBPS::ExtractContainer()
             QFileInfo qfile_info(file_path);
 
             // Is this entry a directory?
-            if (file_info.uncompressed_size == 0) {
+            if (file_info.uncompressed_size == 0 && qfile_name.endsWith('/')) {
                 dir.mkpath(qfile_name);
                 continue;
             } else {
