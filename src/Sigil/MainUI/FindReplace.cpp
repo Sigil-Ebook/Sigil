@@ -25,6 +25,7 @@
 #include <QtGui/QKeyEvent>
 #include <QtGui/QLineEdit>
 #include <QtGui/QMessageBox>
+#include <QtGui/QCompleter>
 
 #include "MainUI/FindReplace.h"
 #include "Misc/SettingsStore.h"
@@ -40,6 +41,14 @@ FindReplace::FindReplace( MainWindow &main_window )
       m_capabilities(FindReplace::CAPABILITY_ALL)
 {
     ui.setupUi( this );
+
+    QCompleter *fqc = ui.cbFind->completer();
+    fqc->setCaseSensitivity(Qt::CaseSensitive);
+    ui.cbFind->setCompleter(fqc);
+
+    QCompleter *rqc = ui.cbReplace->completer();
+    rqc->setCaseSensitivity(Qt::CaseSensitive);
+    ui.cbReplace->setCompleter(rqc);
 
     ExtendUI();
     ConnectSignalsToSlots();
