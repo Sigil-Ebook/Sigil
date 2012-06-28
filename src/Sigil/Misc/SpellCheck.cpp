@@ -187,6 +187,7 @@ QStringList SpellCheck::userDictionaryWords()
     QFile userDictFile(currentUserDictionaryFile());
     if (userDictFile.open(QIODevice::ReadOnly)) {
         QTextStream userDictStream(&userDictFile);
+        userDictStream.setCodec("UTF-8");
         for (QString line = userDictStream.readLine(); !line.isEmpty(); line = userDictStream.readLine()) {
             userWords << line;
         }

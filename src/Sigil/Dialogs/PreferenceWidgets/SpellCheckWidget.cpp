@@ -290,6 +290,7 @@ void SpellCheckWidget::loadUserDictionaryWordList(QListWidgetItem *item)
     QFile userDictFile(SpellCheck::userDictionaryDirectory() + "/" + dict_name);
     if (userDictFile.open(QIODevice::ReadOnly)) {
         QTextStream userDictStream(&userDictFile);
+        userDictStream.setCodec("UTF-8");
         for (QString line = userDictStream.readLine(); !line.isEmpty(); line = userDictStream.readLine()) {
             words << line;
         }
