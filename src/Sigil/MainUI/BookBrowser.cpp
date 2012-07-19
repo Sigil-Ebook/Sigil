@@ -447,6 +447,7 @@ void BookBrowser::AddExisting()
             if ( current_html_resource && added_html_resource )
             {
                 m_Book->MoveResourceAfter( *added_html_resource, *current_html_resource );
+                current_html_resource = added_html_resource;
             }
 
             emit ResourceActivated( added_resource );
