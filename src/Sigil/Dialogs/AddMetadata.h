@@ -51,11 +51,6 @@ public:
     AddMetadata( const QHash< QString, Metadata::MetaInfo > &metadata, QWidget *parent = 0 );
 
     /**
-     * Destructor.
-     */
-    ~AddMetadata();
-
-    /**
      * Returns the list of names selected by user.
      */
     QStringList GetSelectedEntries();
@@ -85,6 +80,12 @@ private slots:
      */
     void SaveSelection();
 
+    /**
+     * Writes all the stored application settings like
+     * window position, geometry etc.
+     */
+    void WriteSettings();
+
 private:
 
     /**
@@ -92,12 +93,6 @@ private:
      * window position, geometry etc.
      */
     void ReadSettings();
-
-    /**
-     * Writes all the stored application settings like
-     * window position, geometry etc.
-     */
-    void WriteSettings();
 
     /**
      * Represents the metadata list that this dialog displays.

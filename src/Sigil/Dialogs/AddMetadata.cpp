@@ -20,6 +20,7 @@
 *************************************************************************/
 
 #include <QtCore/QDate>
+#include <QtCore/QModelIndex>
 
 #include "BookManipulation/Metadata.h"
 #include "Dialogs/AddMetadata.h"
@@ -37,7 +38,8 @@ AddMetadata::AddMetadata( const QHash< QString, Metadata::MetaInfo > &metadata, 
     connect( ui.lwProperties, SIGNAL( currentItemChanged( QListWidgetItem*, QListWidgetItem* ) ),
              this,	          SLOT(   UpdateDescription(  QListWidgetItem* ) ) );
 
-    connect( this, SIGNAL( accepted() ), this, SLOT( SaveSelection() ) );
+    connect( this, SIGNAL( accepted() ), this, SLOT( WriteSettings() ) );
+    connect( ui.lwProperties, SIGNAL( doubleClicked(const QModelIndex &) ), this, SLOT( accept() ) );
 
     // Fill the dialog with sorted translated metadata names
     QStringList names;
@@ -54,13 +56,6 @@ AddMetadata::AddMetadata( const QHash< QString, Metadata::MetaInfo > &metadata, 
 
     ReadSettings();
 }
-
-
-AddMetadata::~AddMetadata()
-{
-    WriteSettings();
-}
-
 
 void AddMetadata::UpdateDescription( QListWidgetItem *current )
 {
@@ -113,6 +108,9 @@ void AddMetadata::ReadSettings()
 
 void AddMetadata::WriteSettings()
 {
+
+    SaveSelection();
+
     SettingsStore settings;
     settings.beginGroup( SETTINGS_GROUP );
 
