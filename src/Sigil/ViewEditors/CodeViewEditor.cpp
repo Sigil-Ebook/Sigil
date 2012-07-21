@@ -184,6 +184,99 @@ void CodeViewEditor::InsertSGFChapterMarker()
 }
 
 
+void CodeViewEditor::InsertClosingTag()
+{
+    QString text = toPlainText();
+    int text_length = toPlainText().count();
+    QList<QString> tags;
+    QString tag;
+
+    int pos = textCursor().position() - 1;
+    int firstpos = pos;
+    if (firstpos < 0) {
+        return;
+    }
+
+    // Skip if we appear to be inside a tag
+    while (pos > 0 && text[pos] != QChar('<') && text[pos] != QChar('>')) {
+        pos--;
+    }
+
+    if (pos == 0 || text[pos] == QChar('<')) {
+        return;
+    }
+
+    // Reset to original position
+    pos = firstpos;
+
+    // Search backwards for first unclosed tag
+    while (true) {
+        while (pos > 0 && text[pos] != QChar('<')) {
+            pos--;
+        }
+
+        if (pos <= 0 || pos >= text_length - 2) {
+            return;
+        }
+
+        // Save position while we get the tag name
+        int lastpos = pos;
+        pos++;
+
+        // Found a tag, see if its an opening or closing tag
+        bool is_closing_tag = false;
+        if (text[pos] == QChar('/')) {
+            is_closing_tag = true;
+            pos++;
+        }
+
+        // Get the tag name
+        tag = "";
+        while (pos < text_length && text[pos] != QChar(' ') && text[pos] != QChar('/') && text[pos] != QChar('>')) {
+            tag.append(text[pos++]);
+        }
+        while (pos < text_length && text[pos] != QChar('/') && text[pos] != QChar('>')) {
+            pos++;
+        }
+
+        // If not a self closing tag check for matched open/close tag
+        if (text[pos] != QChar('/')) {
+            if (pos >= text_length) {
+                return;
+            }
+    
+            if (is_closing_tag) {
+                tags.append(tag);
+            }
+            else {
+                // If body tag, skip to avoid accidentally inserting
+                if (tag == "body") {
+                    return;
+                }
+
+                // If no closing tags left to check then we're done
+                if (tags.isEmpty()) {
+                    break;
+                }
+    
+                // If matching closing tag then remove it from list
+                if (tag == tags.last()) {
+                    tags.removeLast();   
+                }
+            }
+        }
+
+        pos = lastpos - 1;
+    }
+
+    if (!tag.isEmpty()) {
+        QString closing_tag = "</" + tag + ">";
+
+        textCursor().insertText(closing_tag);
+    }
+}
+
+
 void CodeViewEditor::LineNumberAreaPaintEvent( QPaintEvent *event )
 {
     QPainter painter( m_LineNumberArea );

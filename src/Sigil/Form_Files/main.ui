@@ -104,6 +104,8 @@
     <addaction name="actionInsertSGFChapterMarker"/>
     <addaction name="actionSplitOnSGFChapterMarkers"/>
     <addaction name="separator"/>
+    <addaction name="actionInsertClosingTag"/>
+    <addaction name="separator"/>
     <addaction name="menuCleanLevel"/>
     <addaction name="actionCheckWellFormedErrors"/>
     <addaction name="separator"/>
@@ -346,6 +348,14 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+V</string>
+   </property>
+  </action>
+  <action name="actionInsertClosingTag">
+   <property name="shortcut">
+    <string>Ctrl+.</string>
+   </property>
+   <property name="text">
+    <string>&amp;Insert Closing Tag</string>
    </property>
   </action>
   <action name="actionUndo">

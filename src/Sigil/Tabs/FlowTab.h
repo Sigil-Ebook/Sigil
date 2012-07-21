@@ -169,6 +169,8 @@ public slots:
      */
     void InsertSGFChapterMarker();
 
+    void InsertClosingTag();
+
     /**
      * Implements Split on SGF chapter markers action functionality.
      */

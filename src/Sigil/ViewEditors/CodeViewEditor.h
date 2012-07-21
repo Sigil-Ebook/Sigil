@@ -102,6 +102,8 @@ public:
      */
     void InsertSGFChapterMarker();
 
+    void InsertClosingTag();
+
     /**
      * Paints the line number area.
      * Receives the event directly from the area's paintEvent() handler.

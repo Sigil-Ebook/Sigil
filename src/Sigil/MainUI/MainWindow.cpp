@@ -1052,6 +1052,7 @@ void MainWindow::SetStateActionsBookView()
 
     ui.actionInsertImage->setEnabled(true);
     ui.actionSplitChapter->setEnabled(false);
+    ui.actionInsertClosingTag->setEnabled(false);
     ui.actionInsertSGFChapterMarker->setEnabled(true);
     ui.actionSplitOnSGFChapterMarkers->setEnabled(true);
 
@@ -1085,6 +1086,7 @@ void MainWindow::SetStateActionsSplitView()
 
     ui.actionInsertImage->setEnabled(false);
     ui.actionSplitChapter->setEnabled(false);
+    ui.actionInsertClosingTag->setEnabled(false);
     ui.actionInsertSGFChapterMarker->setEnabled(false);
     ui.actionSplitOnSGFChapterMarkers->setEnabled(false);
 
@@ -1119,6 +1121,7 @@ void MainWindow::SetStateActionsCodeView()
     ui.actionInsertImage->setEnabled(true);
     ui.actionSplitChapter->setEnabled(true);
     ui.actionInsertSGFChapterMarker->setEnabled(true);
+    ui.actionInsertClosingTag->setEnabled(true);
     ui.actionSplitOnSGFChapterMarkers->setEnabled(true);
 
     ui.actionFind->setEnabled(true);
@@ -1935,6 +1938,7 @@ void MainWindow::ExtendUI()
     sm->registerAction(ui.actionSplitChapter, "MainWindow.SplitChapter");
     sm->registerAction(ui.actionInsertSGFChapterMarker, "MainWindow.InsertSGFChapterMarker");
     sm->registerAction(ui.actionSplitOnSGFChapterMarkers, "MainWindow.SplitOnSGFChapterMarkers");
+    sm->registerAction(ui.actionInsertClosingTag, "MainWindow.InsertClosingTag");
 #ifndef Q_WS_MAC
     sm->registerAction(ui.actionPreferences, "MainWindow.Preferences");
 #endif
@@ -2224,6 +2228,7 @@ void MainWindow::MakeTabConnections( ContentTab *tab )
         connect( ui.actionSplitChapter,             SIGNAL( triggered() ),  tab,   SLOT( SplitChapter()             ) );
         connect( ui.actionInsertSGFChapterMarker,   SIGNAL( triggered() ),  tab,   SLOT( InsertSGFChapterMarker()   ) );
         connect( ui.actionSplitOnSGFChapterMarkers, SIGNAL( triggered() ),  tab,   SLOT( SplitOnSGFChapterMarkers() ) );
+        connect( ui.actionInsertClosingTag,         SIGNAL( triggered() ),  tab,   SLOT( InsertClosingTag()   ) );
 
         connect( ui.actionPrintPreview,             SIGNAL( triggered() ),  tab,   SLOT( PrintPreview()             ) );
         connect( ui.actionPrint,                    SIGNAL( triggered() ),  tab,   SLOT( Print()                    ) );

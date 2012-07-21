@@ -490,6 +490,13 @@ void FlowTab::InsertSGFChapterMarker()
     }
 }
 
+void FlowTab::InsertClosingTag()
+{
+    if (m_ViewState == MainWindow::ViewState_CodeView) {
+        m_wCodeView->InsertClosingTag();
+    }
+}
+
 void FlowTab::SplitOnSGFChapterMarkers()
 {
     if (!IsDataWellFormed()) {
