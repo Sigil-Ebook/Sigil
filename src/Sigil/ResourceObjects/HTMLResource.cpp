@@ -77,6 +77,9 @@ void HTMLResource::SetText(const QString &text)
     // Remove the matched xml deceleration.
     new_text.remove(re_xmldec);
 
+    // Remove just one return if there is one
+    new_text.replace(QRegExp("^\\n"), "");
+
     // Put the xml deceleration at the top.
     new_text = xmldec + new_text;
 
