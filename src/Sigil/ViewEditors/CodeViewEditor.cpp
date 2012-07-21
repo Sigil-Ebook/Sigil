@@ -582,7 +582,8 @@ bool CodeViewEditor::ReplaceSelected( const QString &search_regex, const QString
     }
 
     // Check if the currently selected text is a match.
-    if ( m_lastMatch.offset.first == selection_start && m_lastMatch.offset.second == selection_start + selected_text.length() )
+    match_info = spcre->getFirstMatchInfo( selected_text );
+    if ( m_lastMatch.offset.first == selection_start && m_lastMatch.offset.second == selection_start + selected_text.length() && match_info.offset.first != -1 )
     {
         QString replaced_text;
         bool replacement_made = false;
