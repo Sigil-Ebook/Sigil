@@ -456,6 +456,8 @@ private slots:
 
     void LinkStylesheetsToResources(QList <Resource *> resources);
 
+    void InsertImages(QStringList selected_images);
+
     /**
      * Return a map of stylesheets included/excluded for all given resources
      */
@@ -678,6 +680,11 @@ private:
      * The last folder from which the user opened or saved a file.
      */
     QString m_LastFolderOpen;
+
+    /**
+     * The last image selected from Insert Image, per book
+     */
+    QString m_LastInsertedImage;
 
     /**
      * The list of full filepaths

@@ -45,7 +45,7 @@ set( QOBJECT_HEADERS
     Dialogs/AddMetadata.h 
     Dialogs/About.h
     Dialogs/HeadingSelector.h 
-    Dialogs/ImageList.h
+    Dialogs/SelectImages.h
     Dialogs/MetaEditor.h
     Dialogs/MetaEditorItemDelegate.h
     Dialogs/Preferences.h
@@ -78,6 +78,7 @@ set( QOBJECT_HEADERS
     Misc/UpdateChecker.h 
     Misc/RasterizeImageResource.h
     Misc/WrapIndicator.h
+    Misc/SelectImagePreviewer.h
     ResourceObjects/Resource.h
     ResourceObjects/TextResource.h
     ResourceObjects/HTMLResource.h
@@ -148,8 +149,8 @@ set( DIALOG_FILES
     Dialogs/About.h
     Dialogs/AddMetadata.cpp
     Dialogs/AddMetadata.h
-    Dialogs/ImageList.cpp
-    Dialogs/ImageList.h
+    Dialogs/SelectImages.cpp
+    Dialogs/SelectImages.h
     Dialogs/MetaEditor.cpp
     Dialogs/MetaEditor.h
     Dialogs/MetaEditorItemDelegate.cpp
@@ -240,6 +241,7 @@ set( MISC_FILES
     Misc/TOCHTMLWriter.cpp
     Misc/TOCHTMLWriter.h
     Misc/WrapIndicator.h
+    Misc/SelectImagePreviewer.h
     )
 
 set( SPCRE_FILES
@@ -313,7 +315,7 @@ set( TAB_FILES
             
 set( UI_FILES   
     Form_Files/main.ui 
-    Form_Files/ImageList.ui
+    Form_Files/SelectImages.ui
     Form_Files/MetaEditor.ui 
     Form_Files/AddMetadata.ui 
     Form_Files/About.ui 

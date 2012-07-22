@@ -31,7 +31,7 @@
 #include "BookManipulation/FolderKeeper.h"
 #include "Dialogs/About.h"
 #include "Dialogs/HeadingSelector.h"
-#include "Dialogs/ImageList.h"
+#include "Dialogs/SelectImages.h"
 #include "Dialogs/MetaEditor.h"
 #include "Dialogs/Preferences.h"
 #include "Dialogs/LinkStylesheets.h"
@@ -96,6 +96,7 @@ MainWindow::MainWindow( const QString &openfilepath, QWidget *parent, Qt::WFlags
     m_CurrentFilePath( QString() ),
     m_Book( new Book() ),
     m_LastFolderOpen( QString() ),
+    m_LastInsertedImage( QString() ),
     m_TabManager( *new TabManager( this ) ),
     m_BookBrowser( NULL ),
     m_FindReplace( new FindReplace( *this ) ),
@@ -439,16 +440,12 @@ void MainWindow::ZoomReset()
 
 void MainWindow::InsertImage()
 {
-    QStringList image_filepaths;
+    m_TabManager.SaveTabData();
 
-    QStringList all_filepaths = m_Book->GetFolderKeeper().GetAllFilenames();
-    foreach (QString filepath, all_filepaths) {
-        if (IMAGE_EXTENSIONS.contains(QFileInfo(filepath).suffix().toLower())) {
-            image_filepaths.append(QFileInfo(filepath).fileName());
-        }
-    }
+    QStringList selected_images;
+    QList<Resource *> image_resources = m_BookBrowser->AllImageResources();
 
-    if (image_filepaths.isEmpty()) {
+    if (image_resources.isEmpty()) {
         QMessageBox::warning( this,
                               tr( "Sigil"),
                               tr( "<p>There are no images available in your book to insert.</p><p>Use the menu option <b>File->New->Add Existing</b> to add images to your book before trying to insert an image.</p>")
@@ -456,22 +453,37 @@ void MainWindow::InsertImage()
         return;
     }
 
-    ImageList image_list(this);
-    image_list.setBasepath(m_Book->GetFolderKeeper().GetFullPathToImageFolder());
-    image_list.setImages(image_filepaths);
+    QString basepath = m_Book->GetFolderKeeper().GetFullPathToImageFolder();
+    if (!basepath.endsWith("/")) {
+        basepath.append("/");
+    }
+    SelectImages select_images(basepath, image_resources, m_LastInsertedImage, this);
 
-    if (image_list.exec() == QDialog::Accepted) {
-        QString selected_image = image_list.selectedImage();
+    if (select_images.exec() == QDialog::Accepted) {
+        selected_images = select_images.SelectedImages();
+    }
 
-        if (!selected_image.isEmpty()) {
-            FlowTab &flow_tab = *qobject_cast<FlowTab*>(&m_TabManager.GetCurrentContentTab());
-            Q_ASSERT(&flow_tab);
+    InsertImages(selected_images);
+}
 
-            const Resource &resource = m_Book->GetFolderKeeper().GetResourceByFilename(selected_image);
-            const QString &relative_path = "../" + resource.GetRelativePathToOEBPS();
+void MainWindow::InsertImages(QStringList selected_images)
+{
+    FlowTab *flow_tab = qobject_cast<FlowTab*>(&GetCurrentContentTab());
 
-            flow_tab.InsertImage(relative_path);
-        }
+    if (!(flow_tab && (m_ViewState == MainWindow::ViewState_CodeView || m_ViewState == MainWindow::ViewState_BookView))) {
+        Utility::DisplayStdErrorDialog(tr("You cannot insert an image into the current tab.")); 
+        return;
+    }
+
+    foreach (QString selected_image, selected_images) {
+        const Resource &resource = m_Book->GetFolderKeeper().GetResourceByFilename(selected_image);
+        const QString &relative_path = "../" + resource.GetRelativePathToOEBPS();
+
+        flow_tab->InsertImage(relative_path);
+    }
+
+    if (!selected_images.isEmpty()) {
+        m_LastInsertedImage = selected_images.last();
     }
 }
 
@@ -1450,6 +1462,9 @@ void MainWindow::LoadFile( const QString &fullfilepath )
     // Store the folder the user opened from
     m_LastFolderOpen = QFileInfo(fullfilepath).absolutePath();
 
+    // Clear the last inserted image
+    m_LastInsertedImage = "";
+
     try
     {
         QApplication::setOverrideCursor( Qt::WaitCursor );
@@ -2189,6 +2204,8 @@ void MainWindow::ConnectSignalsToSlots()
     connect(m_BookBrowser, SIGNAL(MergeResourcesRequest(QList<Resource *>)), this, SLOT(MergeResources(QList<Resource *>)));
 
     connect(m_BookBrowser, SIGNAL(LinkStylesheetsToResourcesRequest(QList<Resource *>)), this, SLOT(LinkStylesheetsToResources(QList<Resource *>)));
+
+    connect(m_BookBrowser, SIGNAL(InsertImagesRequest(QStringList)), this, SLOT(InsertImages(QStringList)));
 
     connect(m_BookBrowser, SIGNAL(RemoveResourcesRequest()), this, SLOT(RemoveResources()));
 

@@ -243,6 +243,11 @@ QList <Resource *> BookBrowser::AllHTMLResources()
     return m_OPFModel.GetResourceListInFolder( Resource::HTMLResourceType );
 }
 
+QList <Resource *> BookBrowser::AllImageResources()
+{
+    return m_OPFModel.GetResourceListInFolder( Resource::ImageResourceType );
+}
+
 QList <Resource *> BookBrowser::AllCSSResources()
 {
     return m_OPFModel.GetResourceListInFolder( Resource::CSSResourceType );
@@ -614,6 +619,17 @@ void BookBrowser::RenameSelected()
     SelectResources(resources);
 }
 
+void BookBrowser::InsertImages()
+{
+    QStringList selected_images;
+
+    foreach (Resource *resource, ValidSelectedResources()) {
+        selected_images.append(resource->Filename());
+    }
+
+    emit InsertImagesRequest(selected_images);
+}
+
 
 void BookBrowser::Remove()
 {
@@ -909,6 +925,7 @@ void BookBrowser::CreateContextMenuActions()
     m_RefreshTOC              = new QAction( tr( "Renumber TOC Entries" ),  this );
     m_LinkStylesheets         = new QAction( tr( "Link Stylesheets" ),      this );
     m_Export                  = new QAction( tr( "Export" ),                this );
+    m_InsertImages            = new QAction( tr( "Insert" ),                this );
 
     m_CoverImage             ->setCheckable( true );  
     m_AdobesObfuscationMethod->setCheckable( true ); 
@@ -1121,6 +1138,10 @@ void BookBrowser::SetupResourceSpecificContextMenu( Resource *resource  )
         m_ContextMenu.addAction( m_RefreshTOC );
     }
 
+    if ( resource->Type() == Resource::ImageResourceType ) {
+        m_ContextMenu.addAction( m_InsertImages );
+    }
+
     SetupSemanticContextmenu( resource );
 }
 
@@ -1260,6 +1281,7 @@ void BookBrowser::ConnectSignalsToSlots()
     connect( m_Merge,                   SIGNAL( triggered() ), this, SLOT( Merge()                   ) );
     connect( m_LinkStylesheets,         SIGNAL( triggered() ), this, SLOT( LinkStylesheets()         ) );
     connect( m_Export,                  SIGNAL( triggered() ), this, SLOT( Export()                  ) );
+    connect( m_InsertImages,            SIGNAL( triggered() ), this, SLOT( InsertImages()            ) );
 
     connect( m_AdobesObfuscationMethod, SIGNAL( triggered() ), this, SLOT( AdobesObfuscationMethod() ) );
     connect( m_IdpfsObfuscationMethod,  SIGNAL( triggered() ), this, SLOT( IdpfsObfuscationMethod()  ) );
