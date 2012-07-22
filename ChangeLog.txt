@@ -1,4 +1,5 @@
 Sigil 0.6.0 TBA
+    - Implement issue 1508: Allow export/saving of individual files.
     - Implement issue 1367: Shortcut key to remove code tags from selected text.
     - Implement issue 761: Shortcut key to close last open tag (Code View).
     - Implement issue 1507: Metadata dialogs should allow double click to select.

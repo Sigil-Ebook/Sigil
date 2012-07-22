@@ -290,6 +290,11 @@ QList <Resource *> BookBrowser::ValidSelectedResources()
         }
     }
 
+    // TOC and contents are not in a folder and are always just one file
+    if (resource_type == Resource::OPFResourceType || resource_type == Resource::NCXResourceType) {
+        return resources;
+    }
+
     // Sort according to treeview order
     QList <Resource *> sorted_resources;
     QList <Resource *> all_resources = m_OPFModel.GetResourceListInFolder( resource_type );
@@ -466,6 +471,65 @@ void BookBrowser::AddExisting()
     Refresh();
 }
 
+void BookBrowser::Export()
+{
+    QList <Resource *> resources = ValidSelectedResources();
+
+    if (resources.isEmpty()) {
+        return;
+    }
+
+    QString dirname = QFileDialog::getExistingDirectory(this,
+                        tr("Choose the directory to export file(s) to"),
+                        m_LastFolderExport);
+
+    if (dirname.isEmpty()) {
+        return;
+    }
+
+    bool files_exist = false;
+    foreach (Resource *resource, resources) {
+        QString fullfilepath = dirname + "/" + resource->Filename(); 
+        if (QFileInfo( fullfilepath ).exists()) {
+            files_exist= true;
+            break;
+        }
+    }
+
+    QMessageBox::StandardButton button_pressed;
+    if (files_exist) {
+        button_pressed = QMessageBox::warning(this,
+                            tr("Sigil"), tr("One or more files already exists.  OK to overwrite?"),
+                            QMessageBox::Ok | QMessageBox::Cancel);
+        if (button_pressed != QMessageBox::Ok) { 
+            return;
+        }
+    }
+
+    m_LastFolderExport = dirname;
+
+    foreach (Resource *resource, resources) {
+        resource->SaveToDisk();
+
+        QString source = resource->GetFullPath(); 
+        QString destination = dirname + "/" + resource->Filename();
+
+        if (QFileInfo(destination).exists()) {
+            if (!QFileInfo(destination).isFile()) {
+                Utility::DisplayStdErrorDialog(tr( "Unable to export file(s).  Destination may be a directory."));
+                break;
+            }
+
+            QFile::remove(destination);
+        }
+
+        if (!QFile::copy(source, destination)) {
+            Utility::DisplayStdErrorDialog(tr( "Unable to export file(s)."));
+            break;
+        }
+    }
+
+}
 
 void BookBrowser::Rename()
 {
@@ -783,6 +847,7 @@ void BookBrowser::ReadSettings()
     settings.beginGroup( SETTINGS_GROUP );
 
     m_LastFolderOpen = settings.value( "lastfolderopen" ).toString();
+    m_LastFolderExport = settings.value( "lastfolderexport" ).toString();
 
     settings.endGroup();
 }
@@ -794,6 +859,7 @@ void BookBrowser::WriteSettings()
     settings.beginGroup( SETTINGS_GROUP );
 
     settings.setValue( "lastfolderopen", m_LastFolderOpen );
+    settings.setValue( "lastfolderexport", m_LastFolderExport);
 
     settings.endGroup();
 }
@@ -842,6 +908,7 @@ void BookBrowser::CreateContextMenuActions()
     m_SortHTML                = new QAction( tr( "Sort" ),                  this );
     m_RefreshTOC              = new QAction( tr( "Renumber TOC Entries" ),  this );
     m_LinkStylesheets         = new QAction( tr( "Link Stylesheets" ),      this );
+    m_Export                  = new QAction( tr( "Export" ),                this );
 
     m_CoverImage             ->setCheckable( true );  
     m_AdobesObfuscationMethod->setCheckable( true ); 
@@ -1009,6 +1076,9 @@ bool BookBrowser::SuccessfullySetupContextMenu( const QPoint &point )
 
         SetupResourceSpecificContextMenu( resource );    
     }
+
+    m_ContextMenu.addSeparator();
+    m_ContextMenu.addAction( m_Export );
 
     // Add Select All
     if ( m_OPFModel.GetResourceListInFolder(m_LastContextMenuType).count() > 1 && 
@@ -1189,6 +1259,7 @@ void BookBrowser::ConnectSignalsToSlots()
     connect( m_CoverImage,              SIGNAL( triggered() ), this, SLOT( SetCoverImage()           ) );
     connect( m_Merge,                   SIGNAL( triggered() ), this, SLOT( Merge()                   ) );
     connect( m_LinkStylesheets,         SIGNAL( triggered() ), this, SLOT( LinkStylesheets()         ) );
+    connect( m_Export,                  SIGNAL( triggered() ), this, SLOT( Export()                  ) );
 
     connect( m_AdobesObfuscationMethod, SIGNAL( triggered() ), this, SLOT( AdobesObfuscationMethod() ) );
     connect( m_IdpfsObfuscationMethod,  SIGNAL( triggered() ), this, SLOT( IdpfsObfuscationMethod()  ) );

@@ -232,6 +232,8 @@ private slots:
      */
     void AddNew();
 
+    void Export();
+
     /**
      * Implements the Rename context menu action functionality.
      */
@@ -474,6 +476,7 @@ private:
     QAction *m_SortHTML;
     QAction *m_RefreshTOC;
     QAction *m_LinkStylesheets;
+    QAction *m_Export;
 
     /**
      * All the semantic actions for the <guide>
@@ -499,6 +502,8 @@ private:
      * added an existing file.
      */
     QString m_LastFolderOpen;
+
+    QString m_LastFolderExport;
 
     QList <QModelIndex> m_SavedSelection;
 };
