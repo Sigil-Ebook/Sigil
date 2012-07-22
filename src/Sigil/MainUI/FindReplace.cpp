@@ -135,6 +135,51 @@ void FindReplace::ShowMessage( const QString &message )
 }
 
 
+void FindReplace::SetLookWhereFromModifier()
+{
+    // Only use with mouse click not menu/shortcuts to avoid modifying
+    bool isCtrl = QApplication::keyboardModifiers() & Qt::ControlModifier;
+    bool isShift= QApplication::keyboardModifiers() & Qt::ShiftModifier;
+    int index = -1;
+
+    if (isCtrl) {
+        index = ui.cbLookWhere->findData(LookWhere_CurrentFile);
+        if (index != -1) {
+            ui.cbLookWhere->setCurrentIndex(index);
+        }
+    }
+    else if (isShift) {
+        index = ui.cbLookWhere->findData(LookWhere_AllHTMLFiles);
+        if (index != -1) {
+            ui.cbLookWhere->setCurrentIndex(index);
+        }
+    }
+}
+
+void FindReplace::FindClicked()
+{
+    SetLookWhereFromModifier();
+    Find();
+}
+
+void FindReplace::ReplaceClicked()
+{
+    SetLookWhereFromModifier();
+    Replace();
+}
+
+void FindReplace::ReplaceAllClicked()
+{
+    SetLookWhereFromModifier();
+    ReplaceAll();
+}
+
+void FindReplace::CountClicked()
+{
+    SetLookWhereFromModifier();
+    Count();
+}
+
 void FindReplace::Find()
 {
     if ( GetSearchDirection() == SearchDirection_Up )
@@ -1059,11 +1104,11 @@ void FindReplace::ExtendUI()
 void FindReplace::ConnectSignalsToSlots()
 {
     connect(&m_timer, SIGNAL(timeout()), this, SLOT(expireMessage()));
-    connect(ui.findNext, SIGNAL(clicked()), this, SLOT(Find()));
+    connect(ui.findNext, SIGNAL(clicked()), this, SLOT(FindClicked()));
     connect(ui.cbFind->lineEdit(), SIGNAL(returnPressed()), this, SLOT(Find()));
-    connect(ui.count, SIGNAL(clicked()), this, SLOT(Count()));
-    connect(ui.replaceNext, SIGNAL(clicked()), this, SLOT(Replace()));
+    connect(ui.count, SIGNAL(clicked()), this, SLOT(CountClicked()));
+    connect(ui.replaceNext, SIGNAL(clicked()), this, SLOT(ReplaceClicked()));
     connect(ui.cbReplace->lineEdit(), SIGNAL(returnPressed()), this, SLOT(Replace()));
-    connect(ui.replaceAll, SIGNAL(clicked()), this, SLOT(ReplaceAll()));
+    connect(ui.replaceAll, SIGNAL(clicked()), this, SLOT(ReplaceAllClicked()));
     connect(ui.close, SIGNAL(clicked()), this, SLOT(HideFindReplace()));
 }

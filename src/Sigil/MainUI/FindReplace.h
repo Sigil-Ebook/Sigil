@@ -109,6 +109,11 @@ private slots:
     // Shows a message in the main window.
     void ShowMessage( const QString &message );
 
+    void FindClicked();
+    void CountClicked();
+    void ReplaceClicked();
+    void ReplaceAllClicked();
+
     // Uses the find direction to determine if we should find next
     // or previous.
     void Find();
@@ -167,6 +172,8 @@ private:
     QList <Resource *> GetHTMLFiles();
 
     bool IsCurrentFileInHTMLSelection();
+
+    void SetLookWhereFromModifier();
 
     int CountInFiles();
 
