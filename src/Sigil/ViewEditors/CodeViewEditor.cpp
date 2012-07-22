@@ -122,6 +122,77 @@ void CodeViewEditor::CustomSetDocument( QTextDocument &document )
     m_isLoadFinished = true;
 }
 
+void CodeViewEditor::CutCodeTags()
+{
+    // If selection starts or ends in the middle of a tag, then do nothing
+    if (!IsCutCodeTagsAllowed()) {
+        return;
+    }
+
+    QTextCursor cursor = textCursor();
+    int start = cursor.selectionStart();
+
+    QString selected_text = textCursor().selectedText();
+    QString new_text = StripCodeTags(selected_text);
+
+    cursor.beginEditBlock();
+    cursor.removeSelectedText();
+    cursor.insertText(new_text);
+    cursor.endEditBlock();
+
+    cursor.setPosition(start);
+    cursor.setPosition(start + new_text.count(), QTextCursor::KeepAnchor);
+    setTextCursor(cursor);
+
+}
+
+bool CodeViewEditor::IsCutCodeTagsAllowed()
+{
+    return textCursor().hasSelection() && !(IsPositionInTag(textCursor().selectionStart() - 1) || IsPositionInTag(textCursor().selectionEnd() - 1));
+}
+
+bool CodeViewEditor::IsInsertClosingTagAllowed()
+{
+    return !IsPositionInTag(textCursor().position() - 1);
+}
+
+bool CodeViewEditor::IsPositionInTag(int pos)
+{
+    QString text = toPlainText();
+
+    while (pos > 0 && text[pos] != QChar('<') && text[pos] != QChar('>')) {
+        pos--;
+    }
+
+    if (pos <= 0 || text[pos] == QChar('<')) {
+        return true;
+    }
+
+    return false;
+}
+
+QString CodeViewEditor::StripCodeTags(QString text)
+{
+    QString new_text;
+    bool in_tag = false;
+
+    // Remove anything between and including < and > 
+    for (int i = 0; i < text.count(); i++) {
+        QChar c = text.at(i);
+        if (!in_tag && c != QChar('<')) {
+            new_text.append(c);
+        }
+
+        if (c == QChar('<')) {
+            in_tag = true;
+        }
+        if (in_tag && c == QChar('>')) {
+            in_tag = false;
+        }
+    }
+
+    return new_text;
+}
 
 QString CodeViewEditor::SplitChapter()
 {
@@ -186,28 +257,17 @@ void CodeViewEditor::InsertSGFChapterMarker()
 
 void CodeViewEditor::InsertClosingTag()
 {
-    QString text = toPlainText();
-    int text_length = toPlainText().count();
-    QList<QString> tags;
-    QString tag;
+    if (!IsInsertClosingTagAllowed()) {
+        return;
+    }
 
     int pos = textCursor().position() - 1;
-    int firstpos = pos;
-    if (firstpos < 0) {
-        return;
-    }
 
-    // Skip if we appear to be inside a tag
-    while (pos > 0 && text[pos] != QChar('<') && text[pos] != QChar('>')) {
-        pos--;
-    }
+    QString text = toPlainText();
+    int text_length = toPlainText().count();
 
-    if (pos == 0 || text[pos] == QChar('<')) {
-        return;
-    }
-
-    // Reset to original position
-    pos = firstpos;
+    QList<QString> tags;
+    QString tag;
 
     // Search backwards for first unclosed tag
     while (true) {

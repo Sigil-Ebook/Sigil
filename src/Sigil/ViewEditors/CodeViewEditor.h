@@ -79,6 +79,17 @@ public:
     void CustomSetDocument( QTextDocument &document );
 
     /**
+     * Routines to handle cutting code tags from selected text
+     */
+    void CutCodeTags();
+    bool IsCutCodeTagsAllowed();
+    QString StripCodeTags(QString text);
+
+    bool IsPositionInTag(int pos);
+
+    bool IsInsertClosingTagAllowed();
+
+    /**
     * Splits the chapter and returns the "upper" content.
     * The current flow is split at the caret point.
     *

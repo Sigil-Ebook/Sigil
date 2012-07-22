@@ -111,6 +111,20 @@ public:
      */
     virtual bool PasteEnabled()         { return false; }
 
+    /*
+     * Can the user perform the Cut Code Tags operation.
+     *
+     * @return \c true if the user can Cut.
+     */
+    virtual bool CutCodeTagsEnabled()          { return false; }
+
+    /*
+     * Can the user perform the Cut Code Tags operation.
+     *
+     * @return \c true if the user can Cut.
+     */
+    virtual bool InsertClosingTagEnabled()   { return false; }
+
     /**
      * Checked state of the BookView action.
      *

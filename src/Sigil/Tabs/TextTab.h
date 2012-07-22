@@ -52,6 +52,8 @@ public:
 
     bool PasteEnabled();
 
+    bool CutCodeTagsEnabled();
+
     int GetCursorLine() const;
     int GetCursorColumn() const;
 
@@ -89,6 +91,8 @@ public slots:
      * Implements Paste action functionality.
      */
     void Paste();
+
+    void CutCodeTags();
 
 signals:
 

@@ -200,6 +200,24 @@ bool FlowTab::PasteEnabled()
     return false;
 }
 
+bool FlowTab::CutCodeTagsEnabled()
+{
+    if (m_ViewState == MainWindow::ViewState_CodeView) {
+        return m_wCodeView->IsCutCodeTagsAllowed();
+    }
+
+    return false;
+}
+
+bool FlowTab::InsertClosingTagEnabled()
+{
+    if (m_ViewState == MainWindow::ViewState_CodeView) {
+        return m_wCodeView->IsInsertClosingTagAllowed();
+    }
+
+    return false;
+}
+
 int FlowTab::GetCursorLine() const
 {
     if (m_ViewState == MainWindow::ViewState_CodeView) {
@@ -459,6 +477,13 @@ void FlowTab::Paste()
     }
     else if (m_ViewState == MainWindow::ViewState_CodeView) {
         m_wCodeView->paste();
+    }
+}
+
+void FlowTab::CutCodeTags()
+{
+    if (m_ViewState == MainWindow::ViewState_CodeView) {
+        m_wCodeView->CutCodeTags();
     }
 }
 

@@ -96,6 +96,7 @@
     <addaction name="actionCut"/>
     <addaction name="actionCopy"/>
     <addaction name="actionPaste"/>
+    <addaction name="actionCutCodeTags"/>
     <addaction name="separator"/>
     <addaction name="actionMetaEditor"/>
     <addaction name="actionInsertImage"/>
@@ -602,6 +603,17 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+Shift+W</string>
+   </property>
+  </action>
+  <action name="actionCutCodeTags">
+   <property name="text">
+    <string>Cut Codes Tags</string>
+   </property>
+   <property name="toolTip">
+    <string>Remove all code tags (text between left/right arrows) from the selection in Code View.</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Alt+X</string>
    </property>
   </action>
   <action name="actionZoomIn">

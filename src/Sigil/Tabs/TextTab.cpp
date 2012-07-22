@@ -75,6 +75,11 @@ bool TextTab::PasteEnabled()
     return m_wCodeView.canPaste();
 }
 
+bool TextTab::CutCodeTagsEnabled()
+{
+    return false;
+}
+
 
 int TextTab::GetCursorLine() const
 {
@@ -154,6 +159,11 @@ void TextTab::Paste()
     {
         m_wCodeView.paste();
     }
+}
+
+
+void TextTab::CutCodeTags()
+{
 }
 
 

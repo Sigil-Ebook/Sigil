@@ -1007,6 +1007,8 @@ void MainWindow::UpdateUIOnTabChanges()
     ui.actionCut  ->setEnabled( tab.CutEnabled() );
     ui.actionCopy ->setEnabled( tab.CopyEnabled() );
     ui.actionPaste->setEnabled( tab.PasteEnabled() );
+    ui.actionCutCodeTags->setEnabled( tab.CutCodeTagsEnabled() );
+    ui.actionInsertClosingTag->setEnabled( tab.InsertClosingTagEnabled() );
 
     // State of zoom controls depends on current tab/view
     float zoom_factor = tab.GetZoomFactor();
@@ -1924,6 +1926,7 @@ void MainWindow::ExtendUI()
     sm->registerAction(ui.actionCut, "MainWindow.Cut");
     sm->registerAction(ui.actionCopy, "MainWindow.Copy");
     sm->registerAction(ui.actionPaste, "MainWindow.Paste");
+    sm->registerAction(ui.actionCutCodeTags, "MainWindow.CutCodeTags");
     sm->registerAction(ui.actionFind, "MainWindow.Find");
     sm->registerAction(ui.actionFindNext, "MainWindow.FindNext");
     sm->registerAction(ui.actionFindPrevious, "MainWindow.FindPrevious");
@@ -2225,10 +2228,11 @@ void MainWindow::MakeTabConnections( ContentTab *tab )
 
     if (tab->GetLoadedResource().Type() == Resource::HTMLResourceType )
     {
+        connect( ui.actionCutCodeTags,              SIGNAL( triggered() ),  tab,   SLOT( CutCodeTags()              ) );
         connect( ui.actionSplitChapter,             SIGNAL( triggered() ),  tab,   SLOT( SplitChapter()             ) );
         connect( ui.actionInsertSGFChapterMarker,   SIGNAL( triggered() ),  tab,   SLOT( InsertSGFChapterMarker()   ) );
         connect( ui.actionSplitOnSGFChapterMarkers, SIGNAL( triggered() ),  tab,   SLOT( SplitOnSGFChapterMarkers() ) );
-        connect( ui.actionInsertClosingTag,         SIGNAL( triggered() ),  tab,   SLOT( InsertClosingTag()   ) );
+        connect( ui.actionInsertClosingTag,         SIGNAL( triggered() ),  tab,   SLOT( InsertClosingTag()         ) );
 
         connect( ui.actionPrintPreview,             SIGNAL( triggered() ),  tab,   SLOT( PrintPreview()             ) );
         connect( ui.actionPrint,                    SIGNAL( triggered() ),  tab,   SLOT( Print()                    ) );
@@ -2267,9 +2271,11 @@ void MainWindow::BreakTabConnections( ContentTab *tab )
     disconnect( ui.actionCut,                       0, tab, 0 );
     disconnect( ui.actionCopy,                      0, tab, 0 );
     disconnect( ui.actionPaste,                     0, tab, 0 );
+    disconnect( ui.actionCutCodeTags,               0, tab, 0 );
     disconnect( ui.actionSplitChapter,              0, tab, 0 );
     disconnect( ui.actionInsertSGFChapterMarker,    0, tab, 0 );
     disconnect( ui.actionSplitOnSGFChapterMarkers,  0, tab, 0 );
+    disconnect( ui.actionInsertClosingTag,          0, tab, 0 );
 
     disconnect( ui.actionPrintPreview,              0, tab, 0 );
     disconnect( ui.actionPrint,                     0, tab, 0 );
