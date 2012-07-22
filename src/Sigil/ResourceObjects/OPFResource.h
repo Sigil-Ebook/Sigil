@@ -74,6 +74,8 @@ public:
 
     void UpdateNCXLocationInManifest( const ::NCXResource &ncx );
 
+    void AddModificationDateMeta();
+
     void AddSigilVersionMeta();
 
     bool IsCoverImage( const ::ImageResource &image_resource ) const;

@@ -1249,6 +1249,37 @@ void OPFResource::WriteIdentifier(
     metadata.appendChild( element );
 }
 
+void OPFResource::AddModificationDateMeta()
+{
+    QString date = QDate::currentDate().toString( "yyyy-MM-dd" );
+
+    QWriteLocker locker( &GetLock() );
+    shared_ptr< xc::DOMDocument > document = GetDocument();
+
+    QList< xc::DOMElement* > metas =
+        XhtmlDoc::GetTagMatchingDescendants( *document, "date", DUBLIN_CORE_NS );
+
+    foreach( xc::DOMElement *meta, metas )
+    {
+        QString name = XtoQ( meta->getAttribute( QtoX( "opf:event" ) ) );
+
+        if ( name == "modification" )
+        {
+            meta->setTextContent( QtoX( date ) );
+            UpdateTextFromDom( *document );
+            return;
+        }
+    }
+
+    xc::DOMElement *element = document->createElementNS( QtoX( DUBLIN_CORE_NS ), QtoX( "dc:date" ) );
+    element->setAttributeNS( QtoX( OPF_XML_NAMESPACE ), QtoX( "opf:event" ), QtoX( "modification" ) );
+    element->setTextContent( QtoX( date ) );
+
+    xc::DOMElement &metadata = GetMetadataElement( *document );
+    metadata.appendChild( element );
+
+    UpdateTextFromDom( *document );
+}
 
 void OPFResource::WriteDate( 
     const QString &metaname, 
