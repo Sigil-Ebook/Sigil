@@ -33,41 +33,18 @@ class QXmlStreamWriter;
 class TOCHTMLWriter
 {
 public:
-    /**
-     * Constructor.
-     *
-     * @param book The book for which we're writing the TOC.
-     * @param device The IODevice into which we should write the XML.
-     */
     TOCHTMLWriter(NCXModel::NCXEntry ncx_root_entry);
     ~TOCHTMLWriter();
 
     QString WriteXML();
 
 private:
-    /**
-     *  Writes the <head> element.
-     */
     void WriteHead();
-
-    /**
-     * Writes the heading entries.
-     */
-    void WriteHeadings();
-
-    /**
-     * Writes single heading entry; called recursively to write the TOC tree.
-     *
-     * @param heading The heading being written.
-     * @param level   The current level of the heading
-     */
-    void WriteHeading(const NCXModel::NCXEntry &entry , int level);
-
-    ///////////////////////////////
-    // PRIVATE MEMBER VARIABLES
-    ///////////////////////////////
+    void WriteBody();
+    void WriteEntries(NCXModel::NCXEntry entry, int level = 1);
 
     QXmlStreamWriter *m_Writer;
+
     NCXModel::NCXEntry m_NCXRootEntry;
 };
 

@@ -24,12 +24,22 @@
 
 #include "TOCHTMLWriter.h"
 
+static const QString STYLES =
+"div.sgc-toc-title { font-size: 2em; font-face: bold; margin-bottom: 1em; text-align:center; }\n"
+"div.sgc-toc-level-1 { margin-left: 0em; }\n"
+"div.sgc-toc-level-2 { margin-left: 2em; }\n"
+"div.sgc-toc-level-3 { margin-left: 2em; }\n"
+"div.sgc-toc-level-4 { margin-left: 2em; }\n"
+"div.sgc-toc-level-5 { margin-left: 2em; }\n"
+"div.sgc-toc-level-6 { margin-left: 2em; }\n";
+    
 TOCHTMLWriter::TOCHTMLWriter(NCXModel::NCXEntry ncx_root_entry)
-    : m_Writer(0),
-      m_NCXRootEntry(ncx_root_entry)
+    :
+    m_Writer(0),
+    m_NCXRootEntry(ncx_root_entry)
 {
 }
-
+ 
 TOCHTMLWriter::~TOCHTMLWriter()
 {
     if (m_Writer) {
@@ -37,11 +47,12 @@ TOCHTMLWriter::~TOCHTMLWriter()
         m_Writer = 0;
     }
 }
-
+ 
 QString TOCHTMLWriter::WriteXML()
 {
     QString out;
 
+    // Use QXmlStreamWriter to ensure correct conversion of &, <, etc.
     if (m_Writer) {
         delete m_Writer;
         m_Writer = 0;
@@ -53,9 +64,12 @@ QString TOCHTMLWriter::WriteXML()
                         "   \"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd\">\n" );
     m_Writer->writeStartElement("html");
     m_Writer->writeAttribute("xmlns", "http://www.w3.org/1999/xhtml");
+    m_Writer->writeCharacters("\n");
+
     WriteHead();
-    m_Writer->writeStartElement("body");
-    WriteHeadings();
+
+    WriteBody();
+
     m_Writer->writeEndDocument();
 
     return out;
@@ -63,66 +77,59 @@ QString TOCHTMLWriter::WriteXML()
 
 void TOCHTMLWriter::WriteHead()
 {
+    // Title
     m_Writer->writeStartElement("head");
+    m_Writer->writeCharacters("\n");
     m_Writer->writeTextElement("title",  "Table of Contents");
-    // Add styles as an example of how to format entries
-    // Let tidy add CDATA since it must be in a special comment qxmlwriter can't do
+    m_Writer->writeCharacters("\n");
+
+    // Styles
     m_Writer->writeStartElement("style");
     m_Writer->writeAttribute("type", "text/css");
+    m_Writer->writeCharacters("\n");
 
-    m_Writer->writeCharacters("  p.sgc-toc-title { text-align:center; }\n");
-    m_Writer->writeCharacters("  ul { list-style-type: none; }\n");
-    m_Writer->writeCharacters("  li { margin-top: 0em; }\n");
-    m_Writer->writeCharacters("  a { font-weight: normal; }\n");
+    m_Writer->writeCharacters(STYLES);
+    m_Writer->writeEndElement();
+    m_Writer->writeCharacters("\n");
 
     m_Writer->writeEndElement();
-    m_Writer->writeEndElement();
+    m_Writer->writeCharacters("\n");
 }
 
-void TOCHTMLWriter::WriteHeadings()
+void TOCHTMLWriter::WriteBody()
 {
-    m_Writer->writeStartElement("p");
+    m_Writer->writeStartElement("body");
+    m_Writer->writeCharacters("\n");
+
+    // Page heading
+    m_Writer->writeStartElement("div");
     m_Writer->writeAttribute("class", "sgc-toc-title");
     m_Writer->writeCharacters("Table of Contents");
     m_Writer->writeEndElement();
+    m_Writer->writeCharacters("\n");
 
-    if (!m_NCXRootEntry.children.isEmpty())
-    {
-        m_Writer->writeStartElement("ul");
-        m_Writer->writeAttribute("class", QString("sgc-toc-ul-%1").arg(1));
-
-        // The TOC is written recursively;
-        // WriteHeading is called for each entry in the tree
-        foreach( NCXModel::NCXEntry entry, m_NCXRootEntry.children )
-        {
-            WriteHeading(entry, 1);
-        }
-
-        m_Writer->writeEndElement();
-    }
+    // Entries
+    WriteEntries(m_NCXRootEntry);
 }
 
-void TOCHTMLWriter::WriteHeading(const NCXModel::NCXEntry &entry , int level)
+void TOCHTMLWriter::WriteEntries(NCXModel::NCXEntry parent_entry, int level)
 {
-    m_Writer->writeStartElement("li");
-    m_Writer->writeAttribute("class", QString("sgc-toc-li-%1").arg(level));
+    foreach(NCXModel::NCXEntry entry, parent_entry.children) {
+        m_Writer->writeStartElement("div");
+        m_Writer->writeAttribute("class", "sgc-toc-level-" % QString::number(level));
+        m_Writer->writeCharacters("\n");
 
-    m_Writer->writeStartElement("a");
-    m_Writer->writeAttribute("class", QString("sgc-toc-heading-%1").arg(level));
-    m_Writer->writeAttribute("href", "../" % entry.target);
-    m_Writer->writeCharacters(entry.text);
-    m_Writer->writeEndElement();
+        m_Writer->writeCharacters("  ");
+        m_Writer->writeStartElement("a");
+        m_Writer->writeAttribute("href", entry.target);
+        m_Writer->writeCharacters(entry.text);
+        m_Writer->writeEndElement();
+        m_Writer->writeCharacters("\n");
 
-    m_Writer->writeEndElement();
-
-    if (!entry.children.isEmpty()) {
-        m_Writer->writeStartElement("ul");
-        m_Writer->writeAttribute("class", QString("sgc-toc-ul-%1").arg(level + 1));
-
-        foreach (NCXModel::NCXEntry child, entry.children) {
-            WriteHeading(child, level + 1);
-        }
+        // Recursively write out subheadings
+        WriteEntries(entry, level + 1);
 
         m_Writer->writeEndElement();
+        m_Writer->writeCharacters("\n");
     }
 }
