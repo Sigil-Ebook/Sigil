@@ -428,6 +428,8 @@ void BookBrowser::AddExisting()
 
     HTMLResource *current_html_resource = qobject_cast< HTMLResource* >( GetCurrentResource() );
 
+    Resource *open_resource = NULL;
+
     foreach( QString filepath, filepaths )
     {
         QString filename = QFileInfo( filepath ).fileName();
@@ -458,9 +460,8 @@ void BookBrowser::AddExisting()
             {
                 m_Book->MoveResourceAfter( *added_html_resource, *current_html_resource );
                 current_html_resource = added_html_resource;
+                open_resource = &added_resource;
             }
-
-            emit ResourceActivated( added_resource );
         }
 
         else
@@ -468,6 +469,10 @@ void BookBrowser::AddExisting()
             // TODO: adding a CSS file should add the referenced fonts too
             m_Book->GetFolderKeeper().AddContentFileToFolder( filepath );
         }
+    }
+
+    if (open_resource) {
+        emit ResourceActivated(*open_resource);
     }
 
     m_Book->SetMetadata( old_metadata );
