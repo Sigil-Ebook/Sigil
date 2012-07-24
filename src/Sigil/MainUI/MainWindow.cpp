@@ -569,11 +569,13 @@ void MainWindow::MergeResources(QList <Resource *> resources)
     Resource *resource1 = resources.takeFirst();
     HTMLResource &html_resource1 = *qobject_cast<HTMLResource *>(resource1);
 
-    bool merge_okay = true;
     foreach (Resource *resource, resources) {
-        if (resource != NULL && merge_okay) {
+        if (resource) {
             HTMLResource &html_resource2 = *qobject_cast<HTMLResource *>(resource);
-            merge_okay = m_Book->Merge(html_resource1, html_resource2);
+            if (!m_Book->Merge(html_resource1, html_resource2)) {
+                QMessageBox::critical(this, tr("Sigil"), tr("Cannot merge file %1").arg(resource->Filename()));
+                break;
+            }
         }
     }
 
