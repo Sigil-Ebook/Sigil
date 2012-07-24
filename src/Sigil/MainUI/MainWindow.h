@@ -269,9 +269,14 @@ private slots:
     void MetaEditorDialog();
 
     /**
-     * Implements User Manual action functionality.
+     * Implements Tutorials action functionality.
      */
-    void UserManual();
+    void Tutorials();
+
+    /**
+     * Implements User Guide action functionality.
+     */
+    void UserGuide();
 
     /**
      * Implements Frequently Asked Questions action functionality.

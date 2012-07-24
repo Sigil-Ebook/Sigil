@@ -116,8 +116,9 @@
     <property name="title">
      <string>&amp;Help</string>
     </property>
-    <addaction name="actionUserManual"/>
+    <addaction name="actionUserGuide"/>
     <addaction name="actionFAQ"/>
+    <addaction name="actionTutorials"/>
     <addaction name="separator"/>
     <addaction name="actionDonate"/>
     <addaction name="actionReportAnIssue"/>
@@ -719,12 +720,12 @@
     <string>Ctrl+Shift+Return</string>
    </property>
   </action>
-  <action name="actionUserManual">
+  <action name="actionUserGuide">
    <property name="text">
-    <string>User &amp;Manual...</string>
+    <string>User &amp;Guide...</string>
    </property>
    <property name="toolTip">
-    <string>User Manual</string>
+    <string>User Guide</string>
    </property>
   </action>
   <action name="actionFAQ">
@@ -733,6 +734,14 @@
    </property>
    <property name="toolTip">
     <string>Frequently Asked Questions</string>
+   </property>
+  </action>
+  <action name="actionTutorials">
+   <property name="text">
+    <string>&amp;Tutorials...</string>
+   </property>
+   <property name="toolTip">
+    <string>Tutorials</string>
    </property>
   </action>
   <action name="actionValidateEpub">

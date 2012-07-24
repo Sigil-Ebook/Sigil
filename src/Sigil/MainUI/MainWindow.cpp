@@ -71,8 +71,9 @@ static const int ZOOM_SLIDER_WIDTH          = 140;
 static const QString REPORTING_ISSUES_WIKI  = "http://code.google.com/p/sigil/wiki/ReportingIssues";
 static const QString DONATE_WIKI            = "http://code.google.com/p/sigil/wiki/Donate";
 static const QString SIGIL_DEV_BLOG         = "http://sigildev.blogspot.com/";
-static const QString USER_MANUAL_URL        = "http://web.sigil.googlecode.com/git/contents.html";
-static const QString FAQ_WIKI_URL           = "http://code.google.com/p/sigil/wiki/FAQ";
+static const QString USER_GUIDE_URL         = "http://web.sigil.googlecode.com/git/files/OEBPS/Text/introduction.xhtml";
+static const QString FAQ_URL                = "http://web.sigil.googlecode.com/git/files/OEBPS/Text/faq.xhtml";
+static const QString TUTORIALS_URL          = "http://web.sigil.googlecode.com/git/files/OEBPS/Text/tutorials.xhtml";
 
 static const QString BOOK_BROWSER_NAME            = "bookbrowser";
 static const QString FIND_REPLACE_NAME            = "findreplace";
@@ -897,15 +898,21 @@ void MainWindow::MetaEditorDialog()
 }
 
 
-void MainWindow::UserManual()
+void MainWindow::UserGuide()
 {
-    QDesktopServices::openUrl( QUrl( USER_MANUAL_URL ) );
+    QDesktopServices::openUrl( QUrl( USER_GUIDE_URL ) );
 }
 
 
 void MainWindow::FrequentlyAskedQuestions()
 {
-    QDesktopServices::openUrl( QUrl( FAQ_WIKI_URL ) );
+    QDesktopServices::openUrl( QUrl( FAQ_URL ) );
+}
+
+
+void MainWindow::Tutorials()
+{
+    QDesktopServices::openUrl( QUrl( TUTORIALS_URL ) );
 }
 
 
@@ -1980,8 +1987,9 @@ void MainWindow::ExtendUI()
     sm->registerAction(ui.actionOpenPreviousResource, "MainWindow.OpenPreviousResource");
     sm->registerAction(ui.actionOpenNextResource, "MainWindow.OpenNextResource");
     // Help
-    sm->registerAction(ui.actionUserManual, "MainWindow.UserManual");
+    sm->registerAction(ui.actionUserGuide, "MainWindow.UserGuide");
     sm->registerAction(ui.actionFAQ, "MainWindow.FAQ");
+    sm->registerAction(ui.actionTutorials, "MainWindow.FAQ");
     sm->registerAction(ui.actionDonate, "MainWindow.Donate");
     sm->registerAction(ui.actionReportAnIssue, "MainWindow.ReportAnIssue");
     sm->registerAction(ui.actionSigilDevBlog, "MainWindow.SigilDevBlog");
@@ -2129,8 +2137,9 @@ void MainWindow::ConnectSignalsToSlots()
     connect( ui.actionOpenNextResource,     SIGNAL( triggered() ), m_BookBrowser, SLOT( OpenNextResource()     ) );
     connect( ui.actionInsertImage,   SIGNAL( triggered() ), this, SLOT( InsertImage()              ) );
     connect( ui.actionMetaEditor,    SIGNAL( triggered() ), this, SLOT( MetaEditorDialog()         ) );
-    connect( ui.actionUserManual,    SIGNAL( triggered() ), this, SLOT( UserManual()               ) );
+    connect( ui.actionUserGuide,     SIGNAL( triggered() ), this, SLOT( UserGuide()                ) );
     connect( ui.actionFAQ,           SIGNAL( triggered() ), this, SLOT( FrequentlyAskedQuestions() ) );
+    connect( ui.actionTutorials,     SIGNAL( triggered() ), this, SLOT( Tutorials()                ) );
     connect( ui.actionDonate,        SIGNAL( triggered() ), this, SLOT( Donate()                   ) );
     connect( ui.actionReportAnIssue, SIGNAL( triggered() ), this, SLOT( ReportAnIssue()            ) );
     connect( ui.actionSigilDevBlog,  SIGNAL( triggered() ), this, SLOT( SigilDevBlog()             ) );
