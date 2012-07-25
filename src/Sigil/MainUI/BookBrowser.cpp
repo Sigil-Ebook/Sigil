@@ -25,6 +25,7 @@
 #include <QtGui/QMenu>
 #include <QtGui/QMessageBox>
 #include <QtGui/QTreeView>
+#include <QtGui/QProgressDialog>
 
 #include "BookManipulation/Book.h"
 #include "BookManipulation/FolderKeeper.h"
@@ -409,10 +410,15 @@ void BookBrowser::AddNewCSS()
 
 void BookBrowser::AddExisting()
 {
-    QStringList filepaths = QFileDialog::getOpenFileNames(  this, 
-                                                            tr( "Add existing file(s)" ),
-                                                            m_LastFolderOpen
-                                                         );
+    // The static getOpenFileNames dialog does not always immediately disappear when finished
+    QFileDialog file_dialog(this, tr("Add existing file(s)"), m_LastFolderOpen);
+    file_dialog.setViewMode(QFileDialog::List);
+    file_dialog.setFileMode(QFileDialog::ExistingFiles);
+
+    QStringList filepaths;
+    if (file_dialog.exec()) {
+        filepaths = file_dialog.selectedFiles();
+    }
 
     if ( filepaths.isEmpty() )
 
@@ -430,8 +436,17 @@ void BookBrowser::AddExisting()
 
     Resource *open_resource = NULL;
 
+    // Display progress dialog
+    QProgressDialog progress(QObject::tr( "Adding Existing Files.." ), QString(), 0, filepaths.count(), this );
+    progress.setMinimumDuration(PROGRESS_BAR_MINIMUM_DURATION);
+    int progress_value = 0;
+
     foreach( QString filepath, filepaths )
     {
+        // Set progress value and ensure dialog has time to display when doing extensive updates
+        progress.setValue(progress_value++);
+        QApplication::processEvents(QEventLoop::ExcludeUserInputEvents);
+
         QString filename = QFileInfo( filepath ).fileName();
 
         if ( current_filenames.contains( filename ) )
@@ -609,10 +624,19 @@ void BookBrowser::RenameSelected()
         extension = first_filename.right( first_filename.length() - first_filename.lastIndexOf( '.' ) );
     }
 
+    // Display progress dialog
+    QProgressDialog progress(QObject::tr( "Renaming Files.." ), QString(), 0, resources.count(), this);
+    progress.setMinimumDuration(PROGRESS_BAR_MINIMUM_DURATION);
+    int progress_value = 0;
+
     // Rename each entry in turn
     int i = templateNumber.toInt();
     foreach ( Resource *resource, resources )
     {
+        // Set progress value and ensure dialog has time to display when doing extensive updates
+        progress.setValue(progress_value++);
+        QApplication::processEvents(QEventLoop::ExcludeUserInputEvents);
+
         QString name = QString( "%1%2" ).arg( templateBase ).arg( i, templateNumber.length(), 10, QChar( '0' ) ).append( extension );
         if ( !m_OPFModel.RenameResource( *resource, name ) )
         {

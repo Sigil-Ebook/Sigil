@@ -1,4 +1,5 @@
 Sigil 0.6.0 TBA
+    - Implement issue 1513: Add progress indicators to various functions.
     - Implement issue 1510: Add Existing Files should only open last file not all files.
     - Implement issue 1428: Find&Replace should allow Ctrl/Shift key modifiers to set what to search.
     - Implement issue 1325: Insert Images support for multiple images, resizing, thumbnails.

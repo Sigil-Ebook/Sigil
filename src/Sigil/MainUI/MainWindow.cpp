@@ -26,6 +26,7 @@
 #include <QtGui/QFileDialog>
 #include <QtGui/QInputDialog>
 #include <QtGui/QMessageBox>
+#include <QtGui/QProgressDialog>
 
 #include "BookManipulation/BookNormalization.h"
 #include "BookManipulation/FolderKeeper.h"
@@ -569,7 +570,16 @@ void MainWindow::MergeResources(QList <Resource *> resources)
     Resource *resource1 = resources.takeFirst();
     HTMLResource &html_resource1 = *qobject_cast<HTMLResource *>(resource1);
 
+    // Display progress dialog
+    QProgressDialog progress(QObject::tr( "Merging Files.." ), QString(), 0, resources.count(), this);
+    progress.setMinimumDuration(PROGRESS_BAR_MINIMUM_DURATION);
+    int progress_value = 0;
+
     foreach (Resource *resource, resources) {
+        // Set progress value and ensure dialog has time to display when doing extensive updates
+        progress.setValue(progress_value++);
+        QApplication::processEvents(QEventLoop::ExcludeUserInputEvents);
+
         if (resource) {
             HTMLResource &html_resource2 = *qobject_cast<HTMLResource *>(resource);
             if (!m_Book->Merge(html_resource1, html_resource2)) {
