@@ -61,6 +61,18 @@ ContentTab& TabManager::GetCurrentContentTab()
     return *qobject_cast< ContentTab* >( widget );
 }
 
+QList<ContentTab*> TabManager::GetContentTabs()
+{
+    QList <ContentTab*> tabs;
+
+    for (int i = 0; i < count(); ++i) {
+        ContentTab *tab = qobject_cast<ContentTab*>(widget(i));
+        tabs.append(tab);
+    }
+
+    return tabs;
+}
+
 void TabManager::tabInserted(int index)
 {
     emit TabCountChanged();

@@ -731,13 +731,22 @@ QStringList MainWindow::GetStylesheetsAlreadyLinked( Resource *resource )
     return linked_stylesheets;
 }
 
+void MainWindow::GetTabResources()
+{
+    QList <ContentTab*> tabs = m_TabManager.GetContentTabs();
+    QList <Resource*> tab_resources;
+
+    foreach (ContentTab *tab, tabs) {
+        tab_resources.append(&tab->GetLoadedResource());
+    }
+
+    return tab_resources;
+}
+
 void MainWindow::RemoveResources()
 {
-    ContentTab &tab = m_TabManager.GetCurrentContentTab();
-    if ( &tab != NULL )
-    {
-        m_BookBrowser->RemoveSelection( &tab.GetLoadedResource() );
-    }
+    // Provide the open tab list to ensure one tab stays open
+    m_BookBrowser->RemoveSelection(GetTabResources());
 }
 
 void MainWindow::GenerateToc()

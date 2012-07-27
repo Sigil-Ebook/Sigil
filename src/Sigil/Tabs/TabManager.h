@@ -58,6 +58,8 @@ public:
      */
     ContentTab& GetCurrentContentTab();
 
+    QList<ContentTab*> GetContentTabs();
+
     int GetTabCount();
 
     bool TryCloseAllTabs();

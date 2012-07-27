@@ -473,6 +473,8 @@ private slots:
      */
     QStringList GetStylesheetsAlreadyLinked( Resource *resource );
 
+    void GetTabResources();
+
     void RemoveResources();
 
     void GenerateToc();

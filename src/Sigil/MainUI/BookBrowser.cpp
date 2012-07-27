@@ -666,7 +666,7 @@ void BookBrowser::Remove()
 }
 
 
-void BookBrowser::RemoveSelection( Resource *tab_resource )
+void BookBrowser::RemoveSelection( QList<Resource *> tab_resources )
 {
     QList <Resource *> resources = ValidSelectedResources();
     Resource *next_resource;
@@ -710,27 +710,25 @@ void BookBrowser::RemoveSelection( Resource *tab_resource )
         return;
     }
 
-    // Only select a new resource if the current one will be deleted
-    if ( !tab_resource || resources.contains( tab_resource ) ) {
-        next_resource = ResourceToSelectAfterRemove();
-    }
-    else {
-        next_resource = tab_resource;
-    }
+    // Find next resource to select
+    next_resource = ResourceToSelectAfterRemove();
 
-    if ( next_resource )
-    {
-        Resource::ResourceType type = next_resource->Type();
-        if ( next_resource &&
-            ( type == Resource::HTMLResourceType ||
-              type == Resource::ImageResourceType ||
-              type == Resource::CSSResourceType ) )
-
-        {
-            emit ResourceActivated( *next_resource );
+    // Check if any tabs will remain after deleting resources
+    bool tab_remaining = false;
+    foreach (Resource *tab_resource, tab_resources) {
+        if (!resources.contains(tab_resource)) {
+            tab_remaining = true;
         }
     }
 
+    // If no tabs will be left, make sure at least one tab is opened.
+    // next_resource will always be an openable type resource if no 
+    // tabs remain because at least one tab was open before deletion.
+    if (!tab_remaining) {
+        emit ResourceActivated(*next_resource);
+    }
+
+    // Delete the resources
     foreach ( Resource *resource, resources ) 
     {
         resource->Delete();

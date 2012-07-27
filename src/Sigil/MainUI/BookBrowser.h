@@ -90,7 +90,7 @@ public:
 
     void SelectResources(QList<Resource *> resources);
 
-    void RemoveSelection( Resource *tab_resource );
+    void RemoveSelection( QList<Resource *> tab_resources );
 
 public slots:
 
