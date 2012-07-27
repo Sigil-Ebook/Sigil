@@ -56,8 +56,6 @@ int SearchOperations::CountInFiles( const QString &search_regex,
     watcher.setFuture( QtConcurrent::mappedReduced( resources, 
                                                     boost::bind( CountInFile, search_regex, _1, search_type, check_spelling ),
                                                     Accumulate ) );
-    progress.exec();
-
     return watcher.result();
 }
 
@@ -77,8 +75,6 @@ int SearchOperations::ReplaceInAllFIles( const QString &search_regex,
     watcher.setFuture( QtConcurrent::mappedReduced( resources, 
                                                     boost::bind( ReplaceInFile, search_regex, replacement, _1, search_type, check_spelling ),
                                                     Accumulate ) );
-    progress.exec();
-
     return watcher.result();
 }
 
