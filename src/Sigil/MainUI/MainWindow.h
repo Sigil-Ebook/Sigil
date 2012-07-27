@@ -473,7 +473,7 @@ private slots:
      */
     QStringList GetStylesheetsAlreadyLinked( Resource *resource );
 
-    void GetTabResources();
+    QList<Resource*> GetTabResources();
 
     void RemoveResources();
 

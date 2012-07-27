@@ -731,7 +731,7 @@ QStringList MainWindow::GetStylesheetsAlreadyLinked( Resource *resource )
     return linked_stylesheets;
 }
 
-void MainWindow::GetTabResources()
+QList<Resource*> MainWindow::GetTabResources()
 {
     QList <ContentTab*> tabs = m_TabManager.GetContentTabs();
     QList <Resource*> tab_resources;
