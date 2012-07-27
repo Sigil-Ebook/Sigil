@@ -943,7 +943,7 @@ void BookBrowser::CreateContextMenuActions()
     m_AddNewCSS               = new QAction( tr( "Add Blank Stylesheet" ),  this );
     m_AddExisting             = new QAction( tr( "Add Existing Files..." ), this );
     m_Rename                  = new QAction( tr( "Rename" ),                this );
-    m_Remove                  = new QAction( tr( "Remove" ),                this );
+    m_Remove                  = new QAction( tr( "Delete" ),                this );
     m_CoverImage              = new QAction( tr( "Cover Image" ),           this );
     m_Merge                   = new QAction( tr( "Merge" ),                 this );
     m_AdobesObfuscationMethod = new QAction( tr( "Use Adobe's Method" ),    this );
@@ -1112,6 +1112,8 @@ bool BookBrowser::SuccessfullySetupContextMenu( const QPoint &point )
              m_LastContextMenuType != Resource::NCXResourceType )
         {
             m_ContextMenu.addAction( m_Remove );
+            m_Remove->setEnabled(m_LastContextMenuType != Resource::HTMLResourceType ||
+                                 AllHTMLResources().count() > 1);
 
             m_ContextMenu.addSeparator();
 
@@ -1140,19 +1142,16 @@ void BookBrowser::SetupResourceSpecificContextMenu( Resource *resource  )
 {
     if ( resource->Type() == Resource::HTMLResourceType )
     {
-        if ( ValidSelectedItemCount() > 1 )
-        {
-            m_ContextMenu.addAction( m_SortHTML );
-        }
+        m_ContextMenu.addAction( m_SortHTML );
+        m_SortHTML->setEnabled(ValidSelectedItemCount() > 1);
 
-        if (ValidSelectedItemCount() > 1 || (AllHTMLResources().count() > 1 && AllHTMLResources().at(0) != ValidSelectedResources().at(0))) {
-            m_ContextMenu.addAction(m_Merge);
-        }
+        m_ContextMenu.addAction(m_Merge);
+        m_Merge->setEnabled(ValidSelectedItemCount() > 1 || 
+                                  (AllHTMLResources().count() > 1 && 
+                                   AllHTMLResources().at(0) != ValidSelectedResources().at(0)));
 
-        if ( AllCSSResources().count() > 0 )
-        {
-            m_ContextMenu.addAction( m_LinkStylesheets );
-        }
+        m_ContextMenu.addAction( m_LinkStylesheets );
+        m_LinkStylesheets->setEnabled(AllCSSResources().count() > 0);
     }
 
     if ( resource->Type() == Resource::FontResourceType && ValidSelectedItemCount() == 1 )
