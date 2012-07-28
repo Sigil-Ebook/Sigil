@@ -245,6 +245,8 @@ private slots:
      */
     void ZoomReset();
 
+    void ViewClassesUsedInHTML();
+
     void ViewAllHTML();
 
     void ViewAllImages();

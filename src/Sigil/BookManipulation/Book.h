@@ -191,6 +191,9 @@ public:
      */
     Resource* PreviousResource( Resource *resource );
 
+    QHash<QString, QStringList> GetAllClassesUsedInHTML();
+    static QStringList GetAllClassesInHTML(HTMLResource *html_resource);
+
     /**
      * Returns a hash listing the filename and all stylesheet names in the file
      */

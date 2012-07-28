@@ -32,6 +32,7 @@
 #include "BookManipulation/FolderKeeper.h"
 #include "Dialogs/About.h"
 #include "Dialogs/HeadingSelector.h"
+#include "Dialogs/ViewClasses.h"
 #include "Dialogs/ViewHTML.h"
 #include "Dialogs/ViewImages.h"
 #include "Dialogs/SelectImages.h"
@@ -449,6 +450,15 @@ void MainWindow::ZoomOut()
 void MainWindow::ZoomReset()
 {
     ZoomByFactor( ZOOM_NORMAL );
+}
+
+void MainWindow::ViewClassesUsedInHTML()
+{
+    ViewClasses view_classes(m_Book, this);
+
+    if (view_classes.exec() == QDialog::Accepted) {
+        OpenFilename(view_classes.SelectedFile());
+    }
 }
 
 void MainWindow::ViewAllImages()
@@ -2008,6 +2018,7 @@ void MainWindow::ExtendUI()
     sm->registerAction(ui.actionSaveAs, "MainWindow.SaveAs");
     sm->registerAction(ui.actionPrintPreview, "MainWindow.PrintPreview");
     sm->registerAction(ui.actionPrint, "MainWindow.Print");
+    sm->registerAction(ui.actionViewClasses, "MainWindow.ViewClasses");
     sm->registerAction(ui.actionViewHTML, "MainWindow.ViewHTML");
     sm->registerAction(ui.actionViewImages, "MainWindow.ViewImages");
     sm->registerAction(ui.actionValidateEpub, "MainWindow.ValidateEpub");
@@ -2216,6 +2227,7 @@ void MainWindow::ConnectSignalsToSlots()
     connect( ui.actionAbout,         SIGNAL( triggered() ), this, SLOT( AboutDialog()              ) );
     connect( ui.actionPreferences,   SIGNAL( triggered() ), this, SLOT( PreferencesDialog()        ) );
     connect( ui.actionValidateEpub,  SIGNAL( triggered() ), this, SLOT( ValidateEpub()             ) );
+    connect( ui.actionViewClasses,      SIGNAL( triggered() ), this, SLOT( ViewClassesUsedInHTML() ) );
     connect( ui.actionViewHTML,      SIGNAL( triggered() ), this, SLOT( ViewAllHTML()              ) );
     connect( ui.actionViewImages,    SIGNAL( triggered() ), this, SLOT( ViewAllImages()            ) );
 

@@ -404,6 +404,37 @@ Resource* Book::PreviousResource( Resource *resource )
     return qobject_cast< Resource *>( &previous_html );
 }
 
+QHash<QString, QStringList> Book::GetAllClassesUsedInHTML()
+{
+    QHash<QString, QStringList> classes_in_html;
+
+    const QList<HTMLResource*> html_resources = m_Mainfolder.GetResourceTypeList< HTMLResource >(false);
+
+    QFuture<QStringList> future = QtConcurrent::mapped(html_resources, GetAllClassesInHTML);
+
+    for (int i = 0; i < future.results().count(); i++) {
+        QStringList result = future.resultAt(i);
+        QString filename = result.first();
+        result.removeFirst();
+
+        // Each class entry has a list of filenames that contain it
+        foreach (QString class_name, result) {
+            classes_in_html[class_name].append(filename);
+        }
+    }
+
+    return classes_in_html;
+}
+
+QStringList Book::GetAllClassesInHTML(HTMLResource *html_resource)
+{
+    QStringList data;
+    data.append(html_resource->Filename());
+    data.append(XhtmlDoc::GetAllDescendantClasses(*XhtmlDoc::LoadTextIntoDocument(html_resource->GetText()).get()->getDocumentElement()));
+
+    return data;
+}
+
 QHash<QString, QStringList> Book::GetAllImageNamesInHTML()
 {
     QHash<QString, QStringList> images_in_html;

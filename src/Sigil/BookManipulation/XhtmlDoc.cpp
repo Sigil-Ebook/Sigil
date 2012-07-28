@@ -303,6 +303,31 @@ QList< xc::DOMElement* > XhtmlDoc::GetTagMatchingDescendants(
     return qtchildren;
 }
 
+QList<QString> XhtmlDoc::GetAllDescendantClasses(const xc::DOMNode &node)
+{
+    if (node.getNodeType() != xc::DOMNode::ELEMENT_NODE) {
+        return QList< QString >();   
+    }
+
+    const xc::DOMElement* element = static_cast< const xc::DOMElement* >(&node); 
+
+    QList< QString > classes;
+
+    if (element->hasAttribute(QtoX( "class" ))) {
+        QString class_values = XtoQ( element->getAttribute(QtoX("class")));
+        classes.append(class_values.split(" "));
+    }
+    
+    if (node.hasChildNodes()) {
+        QList< xc::DOMNode* > children = GetNodeChildren(node);
+
+        for (int i = 0; i < children.count(); ++i) {
+            classes.append(GetAllDescendantClasses(*children.at(i)));
+        }
+    }    
+
+    return classes;
+}
 
 QList< QString > XhtmlDoc::GetAllDescendantIDs( const xc::DOMNode &node )
 {

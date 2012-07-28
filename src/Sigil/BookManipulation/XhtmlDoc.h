@@ -88,6 +88,7 @@ public:
         const QString &namespace_name );
 
     static QList< QString > GetAllDescendantIDs( const xc::DOMNode &node ); 
+    static QList<QString> GetAllDescendantClasses(const xc::DOMNode &node);
 
     static QString GetDomNodeAsString( const xc::DOMNode &node );
 

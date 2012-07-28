@@ -45,6 +45,7 @@ set( QOBJECT_HEADERS
     Dialogs/AddMetadata.h 
     Dialogs/About.h
     Dialogs/HeadingSelector.h 
+    Dialogs/ViewClasses.h
     Dialogs/ViewHTML.h
     Dialogs/ViewImages.h
     Dialogs/SelectImages.h
@@ -152,6 +153,8 @@ set( DIALOG_FILES
     Dialogs/About.h
     Dialogs/AddMetadata.cpp
     Dialogs/AddMetadata.h
+    Dialogs/ViewClasses.cpp
+    Dialogs/ViewClasses.h
     Dialogs/ViewHTML.cpp
     Dialogs/ViewHTML.h
     Dialogs/ViewImages.cpp
@@ -323,6 +326,7 @@ set( TAB_FILES
             
 set( UI_FILES   
     Form_Files/main.ui 
+    Form_Files/ViewClasses.ui
     Form_Files/ViewHTML.ui
     Form_Files/ViewImages.ui
     Form_Files/SelectImages.ui

@@ -65,6 +65,7 @@
      </property>
     <addaction name="actionViewHTML"/>
     <addaction name="actionViewImages"/>
+    <addaction name="actionViewClasses"/>
     </widget>
     <addaction name="menuNew"/>
     <addaction name="actionOpen"/>
@@ -776,6 +777,11 @@
   <action name="actionViewImages">
    <property name="text">
     <string>View Image Report</string>
+   </property>
+  </action>
+  <action name="actionViewClasses">
+   <property name="text">
+    <string>View Classes Used In HTML</string>
    </property>
   </action>
   <action name="actionDonate">
