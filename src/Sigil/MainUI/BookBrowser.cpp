@@ -950,7 +950,7 @@ void BookBrowser::CreateContextMenuActions()
     m_IdpfsObfuscationMethod  = new QAction( tr( "Use IDPF's Method" ),     this );
     m_SortHTML                = new QAction( tr( "Sort" ),                  this );
     m_RefreshTOC              = new QAction( tr( "Renumber TOC Entries" ),  this );
-    m_LinkStylesheets         = new QAction( tr( "Link Stylesheets" ),      this );
+    m_LinkStylesheets         = new QAction( tr( "Link Stylesheets..." ),   this );
     m_Export                  = new QAction( tr( "Export" ),                this );
     m_InsertImages            = new QAction( tr( "Insert" ),                this );
 
@@ -1102,6 +1102,12 @@ bool BookBrowser::SuccessfullySetupContextMenu( const QPoint &point )
 
     Resource *resource = GetCurrentResource();
 
+    if ( resource->Type() == Resource::ImageResourceType ) {
+            m_ContextMenu.addSeparator();
+            m_ContextMenu.addAction( m_InsertImages );
+            m_ContextMenu.addSeparator();
+    }
+
     // We just don't add the remove and rename
     // actions, but we do pop up the context menu.
     if ( resource ) {
@@ -1162,10 +1168,6 @@ void BookBrowser::SetupResourceSpecificContextMenu( Resource *resource  )
     if ( resource->Type() == Resource::NCXResourceType && ValidSelectedItemCount() == 1 )
     {
         m_ContextMenu.addAction( m_RefreshTOC );
-    }
-
-    if ( resource->Type() == Resource::ImageResourceType ) {
-        m_ContextMenu.addAction( m_InsertImages );
     }
 
     SetupSemanticContextmenu( resource );
