@@ -38,7 +38,8 @@ QList< HTMLSpellCheck::MisspelledWord > HTMLSpellCheck::GetMisspelledWords( cons
                                                      int start_offset,
                                                      int end_offset,
                                                      const QString &search_regex, 
-                                                     bool first_only )
+                                                     bool first_only,
+                                                     bool include_all_words)
 {
     SpellCheck *sc = SpellCheck::instance();
 
@@ -53,6 +54,15 @@ QList< HTMLSpellCheck::MisspelledWord > HTMLSpellCheck::GetMisspelledWords( cons
 
     // Make sure text has beginning/end boundary markers for easier parsing
     QString text = QChar(' ') + orig_text + QChar(' ');
+
+    // Ignore <style...</style> wherever it appears - change to spaces to keep text positions
+    SPCRE *pcre_style = PCRECache::instance()->getObject("<style[^<]*</style>");
+    QList<SPCRE::MatchInfo> match_info = pcre_style->getEveryMatchInfo(text);
+    for (int i = 0; i < match_info.count(); i++) {
+        for (int pos = match_info.at(i).offset.first; pos < match_info.at(i).offset.second; pos++) {
+            text[pos] = QChar(' ');
+        }
+    }
 
     for ( int i = 0; i < text.count(); i++ )
     {
@@ -75,25 +85,27 @@ QList< HTMLSpellCheck::MisspelledWord > HTMLSpellCheck::GetMisspelledWords( cons
                 {
                     QString word = Utility::Substring( word_start, i, text );
 
-                    if ( !word.isEmpty() && word_start >= start_offset && word_start <= end_offset && !sc->spell( word ) )
+                    if ( !word.isEmpty() && word_start >= start_offset && word_start <= end_offset)
                     {
-                        SPCRE::MatchInfo match;
-                        if ( !search_regex.isEmpty() )
-                        {
-                            match = pcre->getFirstMatchInfo( word );
-                        }
-                        if ( search_regex.isEmpty() || match.offset.first != -1 )
-                        {
-                            struct MisspelledWord misspelled_word;
-                            misspelled_word.text = word;
-                            // Make sure we account for the extra boundary added at the beginning
-                            misspelled_word.offset = word_start - 1;
-                            misspelled_word.length = i - word_start ;
-                            misspellings.append( misspelled_word );
-
-                            if ( first_only )
+                        if (include_all_words || !sc->spell( word )) {
+                            SPCRE::MatchInfo match;
+                            if ( !search_regex.isEmpty() )
                             {
-                                return misspellings;
+                                match = pcre->getFirstMatchInfo( word );
+                            }
+                            if ( search_regex.isEmpty() || match.offset.first != -1 )
+                            {
+                                struct MisspelledWord misspelled_word;
+                                misspelled_word.text = word;
+                                // Make sure we account for the extra boundary added at the beginning
+                                misspelled_word.offset = word_start - 1;
+                                misspelled_word.length = i - word_start ;
+                                misspellings.append( misspelled_word );
+    
+                                if ( first_only )
+                                {
+                                    return misspellings;
+                                }
                             }
                         }
                     }
@@ -186,9 +198,11 @@ HTMLSpellCheck::MisspelledWord HTMLSpellCheck::GetLastMisspelledWord( const QStr
 int HTMLSpellCheck::CountMisspelledWords( const QString &text, 
                                           int start_offset, 
                                           int end_offset, 
-                                          const QString &search_regex )
+                                          const QString &search_regex,
+                                          bool first_only,
+                                          bool include_all_words)
 {
-    return GetMisspelledWords( text, start_offset, end_offset, search_regex ).count();
+    return GetMisspelledWords( text, start_offset, end_offset, search_regex, first_only, include_all_words ).count();
 }
 
 
@@ -198,3 +212,7 @@ int HTMLSpellCheck::CountMisspelledWords( const QString &text )
 }
 
 
+int HTMLSpellCheck::CountAllWords( const QString &text )
+{
+    return CountMisspelledWords( text, 0, text.count(), "", false, true );
+}

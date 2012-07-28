@@ -63,6 +63,7 @@
      <property name="title">
       <string>View Reports</string>
      </property>
+    <addaction name="actionViewHTML"/>
     <addaction name="actionViewImages"/>
     </widget>
     <addaction name="menuNew"/>
@@ -72,7 +73,6 @@
     <addaction name="actionSaveAs"/>
     <addaction name="separator"/>
     <addaction name="actionPrintPreview"/>
-    <addaction name="actionPrint"/>
     <addaction name="separator"/>
     <addaction name="actionValidateEpub"/>
     <addaction name="menuViewReports"/>
@@ -766,6 +766,11 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+Shift+V</string>
+   </property>
+  </action>
+  <action name="actionViewHTML">
+   <property name="text">
+    <string>View HTML Report</string>
    </property>
   </action>
   <action name="actionViewImages">

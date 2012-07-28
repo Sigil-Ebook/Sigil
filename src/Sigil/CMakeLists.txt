@@ -45,6 +45,7 @@ set( QOBJECT_HEADERS
     Dialogs/AddMetadata.h 
     Dialogs/About.h
     Dialogs/HeadingSelector.h 
+    Dialogs/ViewHTML.h
     Dialogs/ViewImages.h
     Dialogs/SelectImages.h
     Dialogs/MetaEditor.h
@@ -79,6 +80,7 @@ set( QOBJECT_HEADERS
     Misc/UpdateChecker.h 
     Misc/RasterizeImageResource.h
     Misc/WrapIndicator.h
+    Misc/NumericItem.h
     Misc/SelectImagePreviewer.h
     ResourceObjects/Resource.h
     ResourceObjects/TextResource.h
@@ -150,6 +152,8 @@ set( DIALOG_FILES
     Dialogs/About.h
     Dialogs/AddMetadata.cpp
     Dialogs/AddMetadata.h
+    Dialogs/ViewHTML.cpp
+    Dialogs/ViewHTML.h
     Dialogs/ViewImages.cpp
     Dialogs/ViewImages.h
     Dialogs/SelectImages.cpp
@@ -319,6 +323,7 @@ set( TAB_FILES
             
 set( UI_FILES   
     Form_Files/main.ui 
+    Form_Files/ViewHTML.ui
     Form_Files/ViewImages.ui
     Form_Files/SelectImages.ui
     Form_Files/MetaEditor.ui 

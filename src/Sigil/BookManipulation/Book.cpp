@@ -404,13 +404,65 @@ Resource* Book::PreviousResource( Resource *resource )
     return qobject_cast< Resource *>( &previous_html );
 }
 
+QHash<QString, QStringList> Book::GetAllImageNamesInHTML()
+{
+    QHash<QString, QStringList> images_in_html;
+
+    const QList<HTMLResource*> html_resources = m_Mainfolder.GetResourceTypeList< HTMLResource >(false);
+
+    QFuture<QStringList> future = QtConcurrent::mapped(html_resources, GetAllImagePathsInHTMLFile);
+
+    for (int i = 0; i < future.results().count(); i++) {
+        QStringList result = future.resultAt(i);
+        QString filename = result.first();
+        result.removeFirst();
+        images_in_html[filename] = result;
+    }
+
+    return images_in_html;
+}
+
+QStringList Book::GetAllImagePathsInHTMLFile(HTMLResource *html_resource)
+{
+    QStringList data;
+    data.append(html_resource->Filename());
+    data.append(XhtmlDoc::GetAllImagePathsFromImageChildren(*XhtmlDoc::LoadTextIntoDocument(html_resource->GetText()).get()));
+    return data;
+}
+
+QHash<QString, QStringList> Book::GetAllStylesheetNamesInHTML()
+{
+    QHash<QString, QStringList> links_in_html;
+
+    const QList<HTMLResource*> html_resources = m_Mainfolder.GetResourceTypeList< HTMLResource >(false);
+
+    QFuture<QStringList> future = QtConcurrent::mapped(html_resources, GetAllLinkPathsInHTMLFile);
+
+    for (int i = 0; i < future.results().count(); i++) {
+        QStringList result = future.resultAt(i);
+        QString filename = result.first();
+        result.removeFirst();
+        links_in_html[filename] = result;
+    }
+
+    return links_in_html;
+}
+
+QStringList Book::GetAllLinkPathsInHTMLFile(HTMLResource *html_resource)
+{
+    QStringList data;
+    data.append(html_resource->Filename());
+    data.append(XhtmlDoc::GetLinkedStylesheets(html_resource->GetText()));
+    return data;
+}
+
 QHash<QString, QStringList> Book::GetAllImagesUsedByHTML()
 {
     QHash<QString, QStringList> image_html_files;
 
     const QList<HTMLResource*> html_resources = m_Mainfolder.GetResourceTypeList< HTMLResource >(false);
 
-    QFuture<QStringList> future = QtConcurrent::mapped(html_resources, GetAllImagePathsInOneFile);
+    QFuture<QStringList> future = QtConcurrent::mapped(html_resources, GetAllImagePathsInHTMLFile);
 
     for (int i = 0; i < future.results().count(); i++) {
         QStringList result = future.resultAt(i);
@@ -422,16 +474,6 @@ QHash<QString, QStringList> Book::GetAllImagesUsedByHTML()
     }
 
     return image_html_files;
-}
-
-
-QStringList Book::GetAllImagePathsInOneFile(HTMLResource *html_resource)
-{
-    QStringList data;
-    QString filepath = "../" + html_resource->GetRelativePathToOEBPS();
-    data.append(filepath);
-    data.append(XhtmlDoc::GetAllImagePathsFromImageChildren(*XhtmlDoc::LoadTextIntoDocument(html_resource->GetText()).get()));
-    return data;
 }
 
 // Merge selected html files into the first document - already checked for well-formed data

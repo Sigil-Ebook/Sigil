@@ -32,6 +32,7 @@
 #include "BookManipulation/FolderKeeper.h"
 #include "Dialogs/About.h"
 #include "Dialogs/HeadingSelector.h"
+#include "Dialogs/ViewHTML.h"
 #include "Dialogs/ViewImages.h"
 #include "Dialogs/SelectImages.h"
 #include "Dialogs/MetaEditor.h"
@@ -471,6 +472,18 @@ void MainWindow::ViewAllImages()
 
     if (view_images.exec() == QDialog::Accepted) {
         OpenFilename(view_images.SelectedFile());
+    }
+}
+
+void MainWindow::ViewAllHTML()
+{
+    QString basepath = m_Book->GetFolderKeeper().GetFullPathToTextFolder();
+    QList<Resource *> html_resources = m_BookBrowser->AllHTMLResources();
+
+    ViewHTML view_html(basepath, html_resources, m_Book, this);
+
+    if (view_html.exec() == QDialog::Accepted) {
+        OpenFilename(view_html.SelectedFile());
     }
 }
 
@@ -1995,6 +2008,7 @@ void MainWindow::ExtendUI()
     sm->registerAction(ui.actionSaveAs, "MainWindow.SaveAs");
     sm->registerAction(ui.actionPrintPreview, "MainWindow.PrintPreview");
     sm->registerAction(ui.actionPrint, "MainWindow.Print");
+    sm->registerAction(ui.actionViewHTML, "MainWindow.ViewHTML");
     sm->registerAction(ui.actionViewImages, "MainWindow.ViewImages");
     sm->registerAction(ui.actionValidateEpub, "MainWindow.ValidateEpub");
     sm->registerAction(ui.actionExit, "MainWindow.Exit");
@@ -2202,6 +2216,7 @@ void MainWindow::ConnectSignalsToSlots()
     connect( ui.actionAbout,         SIGNAL( triggered() ), this, SLOT( AboutDialog()              ) );
     connect( ui.actionPreferences,   SIGNAL( triggered() ), this, SLOT( PreferencesDialog()        ) );
     connect( ui.actionValidateEpub,  SIGNAL( triggered() ), this, SLOT( ValidateEpub()             ) );
+    connect( ui.actionViewHTML,      SIGNAL( triggered() ), this, SLOT( ViewAllHTML()              ) );
     connect( ui.actionViewImages,    SIGNAL( triggered() ), this, SLOT( ViewAllImages()            ) );
 
     connect( ui.actionNextTab,       SIGNAL( triggered() ), &m_TabManager, SLOT( NextTab()     ) );

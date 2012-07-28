@@ -192,6 +192,16 @@ public:
     Resource* PreviousResource( Resource *resource );
 
     /**
+     * Returns a hash listing the filename and all stylesheet names in the file
+     */
+    QHash<QString, QStringList> GetAllStylesheetNamesInHTML();
+
+    /**
+     * Returns a hash listing the filename and all image names in the file
+     */
+    QHash<QString, QStringList> GetAllImageNamesInHTML();
+
+    /**
      * Returns a hash listing every unique image name and the files that use it
      */
     QHash<QString, QStringList> GetAllImagesUsedByHTML();
@@ -199,7 +209,11 @@ public:
     /**
      * Returns a list of all the image paths used in an img tag in one file
      */
-    static QStringList GetAllImagePathsInOneFile(HTMLResource *html_resource);
+
+    static QStringList GetAllImagePathsInHTMLFile(HTMLResource *html_resource);
+
+    QHash<QString, int> CountAllLinksInHTML();
+    static QStringList GetAllLinkPathsInHTMLFile(HTMLResource *html_resource);
 
     /**
      * Merges the second HTML resource into the first one
