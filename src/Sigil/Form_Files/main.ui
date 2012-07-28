@@ -59,6 +59,12 @@
      <addaction name="separator"/>
      <addaction name="actionAddExistingFile"/>
     </widget>
+    <widget class="QMenu" name="menuViewReports">
+     <property name="title">
+      <string>View Reports</string>
+     </property>
+    <addaction name="actionViewImages"/>
+    </widget>
     <addaction name="menuNew"/>
     <addaction name="actionOpen"/>
     <addaction name="separator"/>
@@ -69,6 +75,7 @@
     <addaction name="actionPrint"/>
     <addaction name="separator"/>
     <addaction name="actionValidateEpub"/>
+    <addaction name="menuViewReports"/>
     <addaction name="separator"/>
     <addaction name="separator"/>
     <addaction name="actionClose"/>
@@ -759,6 +766,11 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+Shift+V</string>
+   </property>
+  </action>
+  <action name="actionViewImages">
+   <property name="text">
+    <string>View Image Report</string>
    </property>
   </action>
   <action name="actionDonate">

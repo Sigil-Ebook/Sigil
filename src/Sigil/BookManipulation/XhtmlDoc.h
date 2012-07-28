@@ -212,6 +212,8 @@ public:
 
     static QStringList GetImagePathsFromImageChildren( const xc::DOMNode &node );
 
+    static QStringList GetAllImagePathsFromImageChildren( const xc::DOMNode &node );
+
 private:
 
     // Accepts a reference to an XML stream reader positioned on an XML element.

@@ -32,6 +32,7 @@
 #include "BookManipulation/FolderKeeper.h"
 #include "Dialogs/About.h"
 #include "Dialogs/HeadingSelector.h"
+#include "Dialogs/ViewImages.h"
 #include "Dialogs/SelectImages.h"
 #include "Dialogs/MetaEditor.h"
 #include "Dialogs/Preferences.h"
@@ -166,6 +167,16 @@ ContentTab& MainWindow::GetCurrentContentTab()
     return m_TabManager.GetCurrentContentTab();
 }
 
+void MainWindow::OpenFilename( QString filename )
+{
+    QList<Resource *> resources = m_BookBrowser->AllImageResources() + m_BookBrowser->AllHTMLResources();
+    foreach (Resource *resource, resources) {
+        if (resource->Filename() == filename) {
+            OpenResource(*resource);
+            break;
+        }
+    }
+}
 
 void MainWindow::OpenResource( Resource& resource,
                                bool precede_current_tab,
@@ -439,6 +450,29 @@ void MainWindow::ZoomReset()
     ZoomByFactor( ZOOM_NORMAL );
 }
 
+void MainWindow::ViewAllImages()
+{
+    QList<Resource *> image_resources = m_BookBrowser->AllImageResources();
+
+    if (image_resources.isEmpty()) {
+        QMessageBox::warning( this,
+                              tr( "Sigil"),
+                              tr( "<p>There are no images available in your book to view.</p><p>Use the menu option <b>File->New->Add Existing</b> to add images to your book.</p>")
+                            );
+        return;
+    }
+
+    QString basepath = m_Book->GetFolderKeeper().GetFullPathToImageFolder();
+    if (!basepath.endsWith("/")) {
+        basepath.append("/");
+    }
+
+    ViewImages view_images(basepath, image_resources, m_Book, this);
+
+    if (view_images.exec() == QDialog::Accepted) {
+        OpenFilename(view_images.SelectedFile());
+    }
+}
 
 void MainWindow::InsertImage()
 {
@@ -1961,6 +1995,7 @@ void MainWindow::ExtendUI()
     sm->registerAction(ui.actionSaveAs, "MainWindow.SaveAs");
     sm->registerAction(ui.actionPrintPreview, "MainWindow.PrintPreview");
     sm->registerAction(ui.actionPrint, "MainWindow.Print");
+    sm->registerAction(ui.actionViewImages, "MainWindow.ViewImages");
     sm->registerAction(ui.actionValidateEpub, "MainWindow.ValidateEpub");
     sm->registerAction(ui.actionExit, "MainWindow.Exit");
     // Edit
@@ -2167,6 +2202,7 @@ void MainWindow::ConnectSignalsToSlots()
     connect( ui.actionAbout,         SIGNAL( triggered() ), this, SLOT( AboutDialog()              ) );
     connect( ui.actionPreferences,   SIGNAL( triggered() ), this, SLOT( PreferencesDialog()        ) );
     connect( ui.actionValidateEpub,  SIGNAL( triggered() ), this, SLOT( ValidateEpub()             ) );
+    connect( ui.actionViewImages,    SIGNAL( triggered() ), this, SLOT( ViewAllImages()            ) );
 
     connect( ui.actionNextTab,       SIGNAL( triggered() ), &m_TabManager, SLOT( NextTab()     ) );
     connect( ui.actionPreviousTab,   SIGNAL( triggered() ), &m_TabManager, SLOT( PreviousTab() ) );

@@ -166,6 +166,8 @@ public:
     void SaveTabData();
 
 public slots:
+    void OpenFilename( QString filename );
+
     /**
      * Opens the specified resource in the specified view state.
      *
@@ -242,6 +244,8 @@ private slots:
      * Implements Zoom Reset action functionality.
      */
     void ZoomReset();
+
+    void ViewAllImages();
 
     /**
      * Implements Insert image action functionality.

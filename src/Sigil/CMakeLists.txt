@@ -45,6 +45,7 @@ set( QOBJECT_HEADERS
     Dialogs/AddMetadata.h 
     Dialogs/About.h
     Dialogs/HeadingSelector.h 
+    Dialogs/ViewImages.h
     Dialogs/SelectImages.h
     Dialogs/MetaEditor.h
     Dialogs/MetaEditorItemDelegate.h
@@ -149,6 +150,8 @@ set( DIALOG_FILES
     Dialogs/About.h
     Dialogs/AddMetadata.cpp
     Dialogs/AddMetadata.h
+    Dialogs/ViewImages.cpp
+    Dialogs/ViewImages.h
     Dialogs/SelectImages.cpp
     Dialogs/SelectImages.h
     Dialogs/MetaEditor.cpp
@@ -240,6 +243,7 @@ set( MISC_FILES
     Misc/TempFolder.h
     Misc/TOCHTMLWriter.cpp
     Misc/TOCHTMLWriter.h
+    Misc/NumericItem.h
     Misc/WrapIndicator.h
     Misc/SelectImagePreviewer.h
     )
@@ -315,6 +319,7 @@ set( TAB_FILES
             
 set( UI_FILES   
     Form_Files/main.ui 
+    Form_Files/ViewImages.ui
     Form_Files/SelectImages.ui
     Form_Files/MetaEditor.ui 
     Form_Files/AddMetadata.ui 

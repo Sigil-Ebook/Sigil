@@ -404,6 +404,35 @@ Resource* Book::PreviousResource( Resource *resource )
     return qobject_cast< Resource *>( &previous_html );
 }
 
+QHash<QString, QStringList> Book::GetAllImagesUsedByHTML()
+{
+    QHash<QString, QStringList> image_html_files;
+
+    const QList<HTMLResource*> html_resources = m_Mainfolder.GetResourceTypeList< HTMLResource >(false);
+
+    QFuture<QStringList> future = QtConcurrent::mapped(html_resources, GetAllImagePathsInOneFile);
+
+    for (int i = 0; i < future.results().count(); i++) {
+        QStringList result = future.resultAt(i);
+        QString html_filename = result.first();
+        result.removeFirst();
+        foreach (QString image_path, result) {
+            image_html_files[image_path].append(html_filename);
+        }
+    }
+
+    return image_html_files;
+}
+
+
+QStringList Book::GetAllImagePathsInOneFile(HTMLResource *html_resource)
+{
+    QStringList data;
+    QString filepath = "../" + html_resource->GetRelativePathToOEBPS();
+    data.append(filepath);
+    data.append(XhtmlDoc::GetAllImagePathsFromImageChildren(*XhtmlDoc::LoadTextIntoDocument(html_resource->GetText()).get()));
+    return data;
+}
 
 // Merge selected html files into the first document - already checked for well-formed data
 bool Book::Merge( HTMLResource& html_resource1, HTMLResource& html_resource2 )

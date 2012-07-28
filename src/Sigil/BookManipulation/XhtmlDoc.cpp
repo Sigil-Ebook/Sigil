@@ -910,8 +910,17 @@ xc::DOMNode& XhtmlDoc::GetAncestorBlockElement( const xc::DOMNode &node )
         return *( node.getOwnerDocument()->getElementsByTagName( QtoX( "body" ) )->item( 0 ) );
 }
 
-
 QStringList XhtmlDoc::GetImagePathsFromImageChildren( const xc::DOMNode &node )
+{
+    QStringList image_links = GetAllImagePathsFromImageChildren( node );
+
+    // Remove duplicate references
+    image_links.removeDuplicates();
+
+    return image_links;
+}
+
+QStringList XhtmlDoc::GetAllImagePathsFromImageChildren( const xc::DOMNode &node )
 {
     // "Normal" HTML image elements
     QList< xc::DOMElement* > image_nodes = GetTagMatchingDescendants( node, IMAGE_TAGS );
@@ -936,9 +945,6 @@ QStringList XhtmlDoc::GetImagePathsFromImageChildren( const xc::DOMNode &node )
             image_links << url_reference;
     }
 
-    // Remove duplicate references
-    image_links.removeDuplicates();
-    
     return image_links;
 }
 

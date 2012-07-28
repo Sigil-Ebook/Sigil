@@ -192,6 +192,16 @@ public:
     Resource* PreviousResource( Resource *resource );
 
     /**
+     * Returns a hash listing every unique image name and the files that use it
+     */
+    QHash<QString, QStringList> GetAllImagesUsedByHTML();
+
+    /**
+     * Returns a list of all the image paths used in an img tag in one file
+     */
+    static QStringList GetAllImagePathsInOneFile(HTMLResource *html_resource);
+
+    /**
      * Merges the second HTML resource into the first one
      *
      * @param html_resource The resource being merged.
