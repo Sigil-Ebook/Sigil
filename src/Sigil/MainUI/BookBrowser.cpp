@@ -1102,18 +1102,16 @@ bool BookBrowser::SuccessfullySetupContextMenu( const QPoint &point )
 
     Resource *resource = GetCurrentResource();
 
-    if ( resource->Type() == Resource::ImageResourceType ) {
+    if ( resource ) {
+        if ( resource->Type() == Resource::ImageResourceType ) {
             m_ContextMenu.addSeparator();
             m_ContextMenu.addAction( m_InsertImages );
             m_ContextMenu.addSeparator();
-    }
-
-    // We just don't add the remove and rename
-    // actions, but we do pop up the context menu.
-    if ( resource ) {
+        }
 
         m_ContextMenu.addSeparator();
 
+        // Remove and rename not valid for OPF or NCX
         if ( m_LastContextMenuType != Resource::OPFResourceType &&
              m_LastContextMenuType != Resource::NCXResourceType )
         {
@@ -1127,10 +1125,11 @@ bool BookBrowser::SuccessfullySetupContextMenu( const QPoint &point )
         }
 
         SetupResourceSpecificContextMenu( resource );    
-    }
 
-    m_ContextMenu.addSeparator();
-    m_ContextMenu.addAction( m_Export );
+        m_ContextMenu.addSeparator();
+        m_ContextMenu.addAction( m_Export );
+
+    }
 
     // Add Select All
     if ( m_OPFModel.GetResourceListInFolder(m_LastContextMenuType).count() > 1 && 
