@@ -79,7 +79,8 @@ CodeViewEditor::CodeViewEditor( HighlighterType high_type, bool check_spelling, 
     m_checkSpelling( check_spelling ),
     m_spellingMapper( new QSignalMapper( this ) ),
     m_addSpellingMapper( new QSignalMapper( this ) ),
-    m_ignoreSpellingMapper( new QSignalMapper( this ) )
+    m_ignoreSpellingMapper( new QSignalMapper( this ) ),
+    m_BackToLinkAllowed(false)
 {
     if ( high_type == CodeViewEditor::Highlight_XHTML )
 
@@ -169,7 +170,7 @@ bool CodeViewEditor::IsPositionInTag(int pos)
         pos--;
     }
 
-    if (pos <= 0 || text[pos] == QChar('<')) {
+    if (text[pos] == QChar('<')) {
         return true;
     }
 
@@ -482,6 +483,25 @@ void CodeViewEditor::ScrollToTop()
     verticalScrollBar()->setValue(0);
 }
 
+void CodeViewEditor::ScrollToPosition(int cursor_position)
+{
+    if (cursor_position < 0) {
+        return;
+    }
+
+    QTextCursor cursor(document());
+    cursor.setPosition(cursor_position);
+    setTextCursor(cursor);
+
+    // If height is 0, then the widget is still collapsed
+    // and centering the screen will do squat.
+    if (height() > 0) {
+        centerCursor();
+    }
+    else {
+        m_DelayedCursorScreenCenteringRequired = true;
+    }
+}
 
 void CodeViewEditor::ScrollToLine( int line )
 {
@@ -530,6 +550,11 @@ bool CodeViewEditor::IsLoadingFinished()
     return m_isLoadFinished;
 }
 
+int CodeViewEditor::GetCursorPosition() const
+{
+    const int position = textCursor().position();
+    return position;
+}
 
 int CodeViewEditor::GetCursorLine() const
 {
@@ -909,6 +934,7 @@ void CodeViewEditor::contextMenuEvent( QContextMenuEvent *event )
     }
 
     if (!offered_spelling) {
+        AddOpenLinkContextMenu(menu);
         AddIndexContextMenu(menu);
     }
 
@@ -1035,6 +1061,38 @@ bool CodeViewEditor::AddSpellCheckContextMenu(QMenu *menu)
     return offer_spelling;
 }
 
+void CodeViewEditor::AddOpenLinkContextMenu(QMenu *menu)
+{
+    QAction *topAction = 0;
+    if (!menu->actions().isEmpty()) {
+        topAction = menu->actions().at(0);
+    }
+
+    QAction *openLinkAction = new QAction(tr("Open Link"), menu);
+    if (!topAction) {
+        menu->addAction(openLinkAction);
+    }
+    else {
+        menu->insertAction(topAction, openLinkAction);
+    }
+    connect(openLinkAction, SIGNAL(triggered()), this , SLOT(OpenLinkAction()));
+    openLinkAction->setEnabled(!GetInternalLinkInTag().isEmpty());
+
+    QAction *backToLinkAction = new QAction(tr("Back to Link"), menu);
+    if (!topAction) {
+        menu->addAction(backToLinkAction);
+    }
+    else {
+        menu->insertAction(topAction, backToLinkAction);
+    }
+    connect(backToLinkAction, SIGNAL(triggered()), this , SLOT(BackToLinkAction()));
+    backToLinkAction->setEnabled(m_BackToLinkAllowed);
+
+    if (topAction) {
+        menu->insertSeparator(topAction);
+    }
+}
+
 void CodeViewEditor::AddIndexContextMenu(QMenu *menu)
 {
     QTextCursor cursor = textCursor();
@@ -1070,6 +1128,104 @@ void CodeViewEditor::AddIndexContextMenu(QMenu *menu)
     if (topAction) {
         menu->insertSeparator(topAction);
     }
+}
+
+bool CodeViewEditor::IsOpenAllowed()
+{
+    if (!IsPositionInTag(textCursor().position())) {
+        return false;
+    }
+    return true;
+}
+
+QString CodeViewEditor::GetTagText()
+{
+    QString tag;
+    QString text = toPlainText();
+
+    int pos = textCursor().position();
+
+    // Find the start of the tag
+    while (pos > 0 && text[pos] != QChar('<') && text[pos] != QChar('>')) {
+        pos--;
+    }
+
+    // Ignore if not in a tag
+    if (pos <= 0 || text[pos] == QChar('>')) {
+        return tag;
+    }
+
+    pos++;
+    while (pos < text.length() && text[pos] != QChar('>')) {
+        tag.append(text[pos]);
+        pos++;
+    }
+
+    return tag;
+}
+
+QString CodeViewEditor::GetAttributeText(QString text, QString attribute)
+{
+    QString attribute_value;
+
+    QString attribute_pattern = attribute % "=\"([^\"]*)\"";
+    QRegExp attribute_search(attribute_pattern);
+
+    int pos = attribute_search.indexIn(text);
+    if (pos > -1) {
+        attribute_value = attribute_search.cap(1);
+    }
+
+    return attribute_value;
+}
+
+void CodeViewEditor::SetBackToLinkAllowed(bool allowed)
+{
+    m_BackToLinkAllowed = allowed;
+}
+
+void CodeViewEditor::BackToLinkAction()
+{
+    if (m_BackToLinkAllowed) {
+        emit OpenLastCodeLinkOpenedRequest();
+    }
+}
+
+void CodeViewEditor::OpenLinkAction()
+{
+    QUrl url = GetInternalLinkInTag();
+
+    if (!url.isEmpty()) {
+        if (url.toString().startsWith("#")) {
+            ScrollToFragment(url.fragment());
+        }
+        else if (url.scheme() == "file" || url.scheme().isEmpty()) {
+            emit OpenCodeLinkRequest(url);
+        }
+        else {
+            emit OpenExternalUrl(url);
+        }
+    }
+}
+
+QUrl CodeViewEditor::GetInternalLinkInTag()
+{
+    QUrl url;
+
+    // Get the text of the tag containing the cursor position
+    QString text = GetTagText();
+    if (text.isEmpty()) {
+        return url;
+    }
+
+    QString link = GetAttributeText(text, "href");
+    if (link.isEmpty()) {
+        link = GetAttributeText(text, "src");
+    }
+
+    url = QUrl(link);
+
+    return url;
 }
 
 void CodeViewEditor::SaveIndexAction()

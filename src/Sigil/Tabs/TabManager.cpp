@@ -37,7 +37,9 @@
 
 TabManager::TabManager( QWidget *parent )
     :
-    QTabWidget( parent )
+    QTabWidget( parent ),
+    m_LastLinkOpenedFilename(QString()),
+    m_LastLinkOpenedPosition(-1)
 {
     connect( this, SIGNAL( currentChanged( int ) ),    this, SLOT( EmitTabChanged() ) );
     connect( this, SIGNAL( currentChanged( int ) ),    this, SLOT( UpdateTab( int ) ) );
@@ -199,18 +201,59 @@ void TabManager::SaveTabData()
     }
 }
 
+void TabManager::SetBackToLinkAllowedForTabs()
+{
+    for (int i = 0; i < count(); ++i) {
+        ContentTab *tab = qobject_cast<ContentTab*>(widget(i));
+
+        if (tab) {
+            tab->SetBackToLinkAllowed(!m_LastLinkOpenedFilename.isEmpty());
+        }
+    }
+}
+
+void TabManager::ResetLastLinkOpened()
+{
+    m_LastLinkOpenedFilename = QString();
+    m_LastLinkOpenedPosition = -1;
+
+    SetBackToLinkAllowedForTabs();
+}
+
+void TabManager::OpenCodeLink(const QUrl &url)
+{
+    ContentTab &tab = GetCurrentContentTab();
+
+    m_LastLinkOpenedFilename = tab.GetFilename();
+    m_LastLinkOpenedPosition = tab.GetCursorPosition();
+
+    emit OpenUrlRequest(url);
+
+    SetBackToLinkAllowedForTabs();
+}
+
+void TabManager::OpenLastCodeLinkOpened()
+{
+    if (!m_LastLinkOpenedFilename.isEmpty()) {
+        emit OpenUrlRequest(m_LastLinkOpenedFilename, m_LastLinkOpenedPosition);
+    }
+    ResetLastLinkOpened();
+}
+
 void TabManager::OpenResource( Resource& resource,
                                bool precede_current_tab,
                                const QUrl &fragment,
                                MainWindow::ViewState view_state,
-                               int line_to_scroll_to )
+                               int line_to_scroll_to,
+                               int position_to_scroll_to )
 {
-    if ( SwitchedToExistingTab( resource, fragment, view_state, line_to_scroll_to ) )
+    if ( SwitchedToExistingTab( resource, fragment, view_state, line_to_scroll_to, position_to_scroll_to ) )
 
         return;
 
-    AddNewContentTab( CreateTabForResource( resource, fragment, view_state, line_to_scroll_to ),
+    AddNewContentTab( CreateTabForResource( resource, fragment, view_state, line_to_scroll_to, position_to_scroll_to ),
                       precede_current_tab );
+    SetBackToLinkAllowedForTabs();
 
     // TODO: loading bar update
 }
@@ -379,7 +422,8 @@ int TabManager::ResourceTabIndex( const Resource& resource ) const
 bool TabManager::SwitchedToExistingTab( Resource& resource,
                                         const QUrl &fragment,
                                         MainWindow::ViewState view_state,
-                                        int line_to_scroll_to )
+                                        int line_to_scroll_to,
+                                        int position_to_scroll_to )
 {
     Q_UNUSED(view_state)
 
@@ -398,11 +442,15 @@ bool TabManager::SwitchedToExistingTab( Resource& resource,
 
         if ( flow_tab != NULL )
         {
-            if ( fragment.toString() != "" )
+            if ( position_to_scroll_to > 0 )
+            {
+                flow_tab->ScrollToPosition( position_to_scroll_to );
+            }
+            else if ( fragment.toString() != "" )
             {
                 flow_tab->ScrollToFragment( fragment.toString() );
             }
-            if ( line_to_scroll_to > 0 )
+            else if ( line_to_scroll_to > 0 )
             {
                 flow_tab->ScrollToLine( line_to_scroll_to );
             }
@@ -433,7 +481,8 @@ bool TabManager::SwitchedToExistingTab( Resource& resource,
 ContentTab* TabManager::CreateTabForResource( Resource& resource,
                                               const QUrl &fragment,
                                               MainWindow::ViewState view_state,
-                                              int line_to_scroll_to )
+                                              int line_to_scroll_to,
+                                              int position_to_scroll_to )
 {
     ContentTab *tab = NULL;
 
@@ -445,8 +494,13 @@ ContentTab* TabManager::CreateTabForResource( Resource& resource,
                 fragment,
                 view_state,
                 line_to_scroll_to,
+                position_to_scroll_to,
                 this );
 
+            connect( tab,  SIGNAL( LinkClicked( const QUrl& ) ), this, SIGNAL( OpenUrlRequest( const QUrl& ) ) );
+            connect( tab,  SIGNAL( OpenCodeLink( const QUrl& ) ), this, SLOT( OpenCodeLink( const QUrl& ) ) );
+            connect( tab,  SIGNAL( OpenExternalUrl( const QUrl& ) ), this, SIGNAL( OpenExternalUrl( const QUrl& ) ) );
+            connect( tab,  SIGNAL( OpenLastCodeLinkOpened() ), this, SLOT(OpenLastCodeLinkOpened()) );
             connect( tab,  SIGNAL( LinkClicked( const QUrl& ) ), this, SIGNAL( OpenUrlRequest( const QUrl& ) ) );
             connect( tab,  SIGNAL( OldTabRequest( QString, HTMLResource& ) ),
                 this, SIGNAL( OldTabRequest( QString, HTMLResource& ) ) );
@@ -458,6 +512,7 @@ ContentTab* TabManager::CreateTabForResource( Resource& resource,
     case Resource::CSSResourceType:
         {
             tab = new CSSTab( *( qobject_cast< CSSResource* >( &resource ) ), line_to_scroll_to, this );
+            connect( tab,  SIGNAL( OpenLastCodeLinkOpened() ), this, SLOT(OpenLastCodeLinkOpened()) );
             break;
         }
 

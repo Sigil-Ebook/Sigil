@@ -180,9 +180,14 @@ public slots:
                        bool precede_current_tab = false,
                        const QUrl &fragment = QUrl(),
                        MainWindow::ViewState view_state = MainWindow::ViewState_Unknown,
-                       int line_to_scroll_to = -1);
+                       int line_to_scroll_to = -1,
+                       int position_to_scroll_to = -1);
+
+    void OpenCodeResource(Resource& resource, int position_to_scroll_to);
 
     void CreateIndex();
+
+    void OpenExternalUrl(const QUrl &url);
 
 signals:
     void SettingsChanged();

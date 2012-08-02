@@ -134,7 +134,7 @@ public slots:
      *
      * @param url The URL to open.
      */
-    void OpenUrlResource( const QUrl &url );
+    void OpenUrlResource( const QUrl &url, int cursor_position = -1 );
 
     void AddNewHTML();
     void AddNewCSS();
@@ -180,6 +180,7 @@ signals:
      * @param fragment The fragment ID to which the new tab should be scrolled.
      */
     void OpenResourceRequest( Resource &resource, bool precede_current_tab, const QUrl &fragment );
+    void OpenResourceRequest( Resource &resource, int cursor_position = -1 );
 
     /**
      * Emitted when the book's content is modified through the Book Browser.

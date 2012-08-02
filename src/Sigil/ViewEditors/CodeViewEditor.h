@@ -28,6 +28,7 @@
 #include <QtCore/QList>
 #include <QtCore/QStack>
 #include <QtGui/QPlainTextEdit>
+#include <QtCore/QUrl>
 
 #include "ViewEditors/ViewEditor.h"
 #include "MiscEditors/IndexEditorModel.h"
@@ -91,6 +92,8 @@ public:
 
     bool IsInsertClosingTagAllowed();
 
+    bool IsOpenAllowed();
+
     /**
     * Splits the chapter and returns the "upper" content.
     * The current flow is split at the caret point.
@@ -153,6 +156,8 @@ public:
      */
     void ScrollToTop();
 
+    void ScrollToPosition( int cursor_position );
+
     /**
      * Scrolls the view to the specified line.
      *
@@ -165,6 +170,7 @@ public:
     // inherited
     bool IsLoadingFinished();
 
+    int GetCursorPosition() const;
     int GetCursorLine() const;
     int GetCursorColumn() const;
 
@@ -210,6 +216,8 @@ public:
 
     void RestoreCaretLocation();
 
+    void SetBackToLinkAllowed(bool allowed);
+
 signals:
 
     /**
@@ -236,6 +244,12 @@ signals:
     void FilteredTextChanged();
 
     void OpenIndexEditorRequest(IndexEditorModel::indexEntry *);
+
+    void OpenCodeLinkRequest(const QUrl &url);
+
+    void OpenExternalUrl(const QUrl &url);
+
+    void OpenLastCodeLinkOpenedRequest();
 
 public slots:
 
@@ -351,7 +365,20 @@ private slots:
 
     void MarkIndexAction();
 
+    QUrl GetInternalLinkInTag();
+    
+    void OpenLinkAction();
+
+    void BackToLinkAction();
+
 private:
+
+    /**
+     * Returns the text inside < > if cursor is in < >
+     */
+    QString GetTagText();
+
+    QString GetAttributeText(QString text, QString attribute);
 
     /**
      * Resets the currently used font.
@@ -399,6 +426,8 @@ private:
     void ConnectSignalsToSlots();
 
     bool AddSpellCheckContextMenu(QMenu *menu);
+
+    void AddOpenLinkContextMenu(QMenu *menu);
 
     void AddIndexContextMenu(QMenu *menu);
 
@@ -485,6 +514,8 @@ private:
     QSignalMapper *m_spellingMapper;
     QSignalMapper *m_addSpellingMapper;
     QSignalMapper *m_ignoreSpellingMapper;
+
+    bool m_BackToLinkAllowed;
 };
 
 #endif // CODEVIEWEDITOR_H

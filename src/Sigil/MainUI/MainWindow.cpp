@@ -184,18 +184,24 @@ void MainWindow::OpenFilename( QString filename )
     }
 }
 
+void MainWindow::OpenCodeResource(Resource& resource, int position_to_scroll_to)
+{
+    OpenResource(resource, false, QUrl(), MainWindow::ViewState_CodeView, -1, position_to_scroll_to);
+}
+
 void MainWindow::OpenResource( Resource& resource,
                                bool precede_current_tab,
                                const QUrl &fragment,
                                MainWindow::ViewState view_state,
-                               int line_to_scroll_to)
+                               int line_to_scroll_to,
+                               int position_to_scroll_to)
 {
     MainWindow::ViewState vs = m_ViewState;
     if (view_state != MainWindow::ViewState_Unknown) {
         vs = view_state;
     }
 
-    m_TabManager.OpenResource( resource, precede_current_tab, fragment, vs, line_to_scroll_to );
+    m_TabManager.OpenResource( resource, precede_current_tab, fragment, vs, line_to_scroll_to, position_to_scroll_to );
 
     if (vs != m_ViewState) {
         SetViewState(vs);
@@ -1068,6 +1074,14 @@ void MainWindow::MetaEditorDialog()
     }
 }
 
+void MainWindow::OpenExternalUrl(const QUrl &url)
+{
+    QMessageBox::StandardButton button_pressed;
+    button_pressed = QMessageBox::warning(this, tr("Sigil"), tr("Are you sure you want to open this external link?\n\n%1").arg(url.toString()), QMessageBox::Ok | QMessageBox::Cancel);
+    if (button_pressed == QMessageBox::Ok) {
+        QDesktopServices::openUrl(url);
+    }
+}
 
 void MainWindow::UserGuide()
 {
@@ -1613,6 +1627,7 @@ void MainWindow::SetNewBook( QSharedPointer< Book > new_book )
     m_ValidationResultsView->SetBook( m_Book );
 
     m_IndexEditor->SetBook( m_Book );
+    m_TabManager.ResetLastLinkOpened();
 
     connect( m_Book.data(), SIGNAL( ModifiedStateChanged( bool ) ), this, SLOT( setWindowModified( bool ) ) );
     connect( m_BookBrowser,     SIGNAL( GuideSemanticTypeAdded( const HTMLResource&, GuideSemantics::GuideSemanticType ) ),
@@ -2391,6 +2406,9 @@ void MainWindow::ConnectSignalsToSlots()
     connect( m_BookBrowser, SIGNAL( OpenResourceRequest( Resource&, bool, const QUrl& ) ),
              this, SLOT(   OpenResource(        Resource&, bool, const QUrl& ) ) );
 
+    connect( m_BookBrowser, SIGNAL( OpenResourceRequest( Resource&, int ) ),
+             this, SLOT(   OpenCodeResource(             Resource&, int ) ) );
+
     connect(m_BookBrowser, SIGNAL(MergeResourcesRequest(QList<Resource *>)), this, SLOT(MergeResources(QList<Resource *>)));
 
     connect(m_BookBrowser, SIGNAL(LinkStylesheetsToResourcesRequest(QList<Resource *>)), this, SLOT(LinkStylesheetsToResources(QList<Resource *>)));
@@ -2407,8 +2425,11 @@ void MainWindow::ConnectSignalsToSlots()
              this,
                 SLOT(   OpenResource(        Resource&, bool, const QUrl&, MainWindow::ViewState, int ) ) );
 
-    connect( &m_TabManager, SIGNAL( OpenUrlRequest(  const QUrl& ) ),
-             m_BookBrowser, SLOT(   OpenUrlResource( const QUrl& ) ) );
+    connect( &m_TabManager, SIGNAL( OpenUrlRequest(  const QUrl&, int ) ),
+             m_BookBrowser, SLOT(   OpenUrlResource( const QUrl&, int ) ) );
+
+    connect( &m_TabManager, SIGNAL( OpenExternalUrl( const QUrl& ) ),
+             this, SLOT(   OpenExternalUrl( const QUrl& ) ) );
 
     connect( &m_TabManager, SIGNAL( OldTabRequest(            QString, HTMLResource& ) ),
              this,          SLOT(   CreateChapterBreakOldTab( QString, HTMLResource& ) ) );

@@ -56,11 +56,13 @@ FlowTab::FlowTab(HTMLResource& resource,
                   const QUrl &fragment,
                   MainWindow::ViewState view_state,
                   int line_to_scroll_to,
+                  int position_to_scroll_to,
                   QWidget *parent)
     :
     ContentTab(resource, parent),
     m_FragmentToScroll(fragment),
     m_LineToScrollTo(line_to_scroll_to),
+    m_PositionToScrollTo(position_to_scroll_to),
     m_HTMLResource(resource),
     m_views(new QStackedWidget(this)),
     m_pvVSplitter(new QSplitter(this)),
@@ -218,6 +220,20 @@ bool FlowTab::InsertClosingTagEnabled()
     return false;
 }
 
+void FlowTab::SetBackToLinkAllowed(bool allowed)
+{
+    m_wCodeView->SetBackToLinkAllowed(allowed);
+}
+
+int FlowTab::GetCursorPosition() const
+{
+    if (m_ViewState == MainWindow::ViewState_CodeView) {
+        return m_wCodeView->GetCursorPosition();
+    }
+
+    return -1;
+}
+
 int FlowTab::GetCursorLine() const
 {
     if (m_ViewState == MainWindow::ViewState_CodeView) {
@@ -356,6 +372,13 @@ void FlowTab::ScrollToLine(int line)
 {
     if (m_ViewState == MainWindow::ViewState_CodeView) {
         m_wCodeView->ScrollToLine(line);
+    }
+}
+
+void FlowTab::ScrollToPosition(int cursor_position)
+{
+    if (m_ViewState == MainWindow::ViewState_CodeView) {
+        m_wCodeView->ScrollToPosition(cursor_position);
     }
 }
 
@@ -754,7 +777,10 @@ void FlowTab::DelayedInitialization()
         {
             CodeView();
 
-            if (m_LineToScrollTo > 0) {
+            if (m_PositionToScrollTo > 0) {
+                m_wCodeView->ScrollToPosition(m_PositionToScrollTo);
+            }
+            else if (m_LineToScrollTo > 0) {
                 m_wCodeView->ScrollToLine(m_LineToScrollTo);
             }
             else {
@@ -840,6 +866,10 @@ void FlowTab::ConnectSignalsToSlots()
     connect(m_wBookView, SIGNAL(FocusLost(QWidget *)), this, SLOT(LeaveEditor(QWidget *)));
     connect(m_wBookView, SIGNAL(FilteredLinkClicked(const QUrl&)), this, SIGNAL(LinkClicked(const QUrl&)));
 
+    connect(m_wCodeView, SIGNAL(OpenCodeLinkRequest(const QUrl&)), this, SIGNAL(OpenCodeLink(const QUrl&)));
+    connect(m_wCodeView, SIGNAL(OpenExternalUrl(const QUrl&)), this, SIGNAL(OpenExternalUrl(const QUrl&)));
+    connect(m_wCodeView, SIGNAL(OpenLastCodeLinkOpenedRequest()), this, SIGNAL(OpenLastCodeLinkOpened()));
+
     connect(m_wBookPreview, SIGNAL(FocusGained(QWidget *)), this, SLOT(EnterEditor(QWidget *)));
     connect(m_wBookPreview, SIGNAL(FilteredLinkClicked(const QUrl&)), this, SIGNAL(LinkClicked(const QUrl&)));
 
@@ -855,5 +885,4 @@ void FlowTab::ConnectSignalsToSlots()
     connect(m_pvVSplitter, SIGNAL(splitterMoved(int, int)), this, SLOT(PVSplitterMoved(int, int)));
 
     connect(m_wCodeView, SIGNAL(OpenIndexEditorRequest(IndexEditorModel::indexEntry *)), this, SIGNAL(OpenIndexEditorRequest(IndexEditorModel::indexEntry *)));
-
 }

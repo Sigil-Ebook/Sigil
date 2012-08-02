@@ -146,6 +146,7 @@ public:
      */
     virtual bool CodeViewChecked()      { return false; }
 
+    virtual int GetCursorPosition() const { return 0; }
     virtual int GetCursorLine() const { return 0; }
     virtual int GetCursorColumn() const { return 0; }
 
@@ -175,6 +176,8 @@ public:
     virtual void BookView();
 
     virtual void SplitView();
+
+    virtual void SetBackToLinkAllowed(bool allowed) { };
 
 public slots:
 

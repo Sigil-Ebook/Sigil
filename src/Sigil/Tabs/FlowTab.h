@@ -67,6 +67,7 @@ public:
              const QUrl &fragment,
              MainWindow::ViewState view_state,
              int line_to_scroll_to = -1,
+             int position_to_scroll_to = -1,
              QWidget *parent = 0 );
 
     ~FlowTab();
@@ -87,6 +88,9 @@ public:
 
     bool InsertClosingTagEnabled();
 
+    void SetBackToLinkAllowed(bool allowed);
+
+    int GetCursorPosition() const;
     int GetCursorLine() const;
     int GetCursorColumn() const;
 
@@ -115,6 +119,8 @@ public:
      * @param line The line to scroll to.
      */
     void ScrollToLine( int line );
+
+    void ScrollToPosition( int cursor_position );
 
     /**
      * Scrolls the tab to the top.
@@ -280,6 +286,12 @@ signals:
 
     void OpenIndexEditorRequest(IndexEditorModel::indexEntry *index);
 
+    void OpenCodeLink(const QUrl &url);
+
+    void OpenExternalUrl(const QUrl &url);
+
+    void OpenLastCodeLinkOpened();
+
 private slots:
 
     /**
@@ -369,6 +381,8 @@ private:
      * The line to scroll to after the tab is initialized.
      */
     int m_LineToScrollTo;
+
+    int m_PositionToScrollTo;
 
     /**
      * The HTML resource the tab is currently displaying.

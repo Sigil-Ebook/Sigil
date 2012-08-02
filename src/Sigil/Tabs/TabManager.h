@@ -104,6 +104,8 @@ public slots:
      */
     void SaveTabData();
 
+    void SetBackToLinkAllowedForTabs();
+
     /**
      * Opens the specified resource in a new tab.
      * If the resource is already opened, it becomes the current one. 
@@ -118,7 +120,8 @@ public slots:
                        bool precede_current_tab = false,
                        const QUrl &fragment = QUrl(),
                        MainWindow::ViewState view_state = MainWindow::ViewState_BookView,
-                       int line_to_scroll_to = -1);
+                       int line_to_scroll_to = -1,
+                       int position_to_scroll_to = -1);
 
     /**
      * Makes the next (right) tab the current one.
@@ -156,6 +159,12 @@ public slots:
      */
     void MakeCentralTab( ContentTab *tab );
 
+    void ResetLastLinkOpened();
+
+    void OpenCodeLink(const QUrl &url);
+
+    void OpenLastCodeLinkOpened();
+
 signals:
 
     /**
@@ -173,7 +182,7 @@ signals:
      *
      * @param url The URL to open.
      */
-    void OpenUrlRequest( const QUrl &url );
+    void OpenUrlRequest( const QUrl &url, int cursor_position = -1 );
 
     /**
      * Wired to the current FlowTab::OldTabRequest signal.
@@ -184,6 +193,8 @@ signals:
      * Wired to the current FlowTab::NewChaptersRequest signal.
      */
     void NewChaptersRequest( QStringList chapters, HTMLResource &originating_resource );
+
+    void OpenExternalUrl(const QUrl &url);
 
 protected:
     virtual void tabInserted(int index);
@@ -250,7 +261,8 @@ private:
     bool SwitchedToExistingTab( Resource& resource, 
                                 const QUrl &fragment, 
                                 MainWindow::ViewState view_state,
-                                int line_to_scroll_to = -1 );
+                                int line_to_scroll_to = -1,
+                                int position_to_scroll_to = -1 );
 
     /**
      * Creates a tab for the specified resource.
@@ -264,7 +276,8 @@ private:
     ContentTab* CreateTabForResource( Resource& resource, 
                                       const QUrl &fragment, 
                                       MainWindow::ViewState view_state,
-                                      int line_to_scroll_to );
+                                      int line_to_scroll_to,
+                                      int position_to_scroll_to);
 
     /**
      * Adds a new content tab to the displayed tabs.
@@ -290,6 +303,9 @@ private:
     QWeakPointer< ContentTab > m_LastContentTab;
 
     bool m_CheckWellFormedErrors;
+
+    QString m_LastLinkOpenedFilename;
+    int m_LastLinkOpenedPosition; 
 };
 
 #endif // TABMANAGER_H
