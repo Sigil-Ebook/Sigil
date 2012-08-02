@@ -29,6 +29,7 @@
 #include "MainUI/MainWindow.h"
 #include "Tabs/ContentTab.h"
 #include "Tabs/WellFormedContent.h"
+#include "MiscEditors/IndexEditorModel.h"
 
 class QSplitter;
 class QStackedWidget;
@@ -276,6 +277,8 @@ signals:
      * Emitted when the state of the Book/Code/Split View buttons has changed.
      */
     void ViewButtonsStateChanged();
+
+    void OpenIndexEditorRequest(IndexEditorModel::indexEntry *index);
 
 private slots:
 

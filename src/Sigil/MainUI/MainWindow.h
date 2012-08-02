@@ -32,6 +32,8 @@
 #include "MainUI/NCXModel.h"
 #include "Misc/SettingsStore.h"
 #include "Tabs/ContentTab.h"
+#include "Dialogs/IndexEditor.h"
+#include "MiscEditors/IndexEditorModel.h"
 
 const int MAX_RECENT_FILES = 5;
 const int STATUSBAR_MSG_DISPLAY_TIME = 20000;
@@ -180,6 +182,8 @@ public slots:
                        MainWindow::ViewState view_state = MainWindow::ViewState_Unknown,
                        int line_to_scroll_to = -1);
 
+    void CreateIndex();
+
 signals:
     void SettingsChanged();
 
@@ -244,6 +248,8 @@ private slots:
      * Implements Zoom Reset action functionality.
      */
     void ZoomReset();
+
+    void IndexEditorDialog(IndexEditorModel::indexEntry* index_entry = NULL);
 
     void ViewClassesUsedInHTML();
 
@@ -782,6 +788,8 @@ private:
      * Holds the view state for new/switched tabs
      */
     MainWindow::ViewState m_ViewState;
+
+    IndexEditor *m_IndexEditor;
 
     /**
      * Holds all the widgets Qt Designer created for us.

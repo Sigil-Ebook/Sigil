@@ -1,5 +1,7 @@
 /************************************************************************
 **
+**  Copyright (C) 2012 John Schember <john@nachtimwald.com>
+**  Copyright (C) 2012 Dave Heiland
 **  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -57,6 +59,16 @@ static const QStringList BLOCK_LEVEL_TAGS = QStringList() << "address" << "block
                                                             "table" << "ul" << "body";
  
 static const QStringList IMAGE_TAGS = QStringList() << "img" << "image";
+
+static const QStringList INVALID_ID_TAGS = QStringList() << "base" << "head" << "meta" << "param" << "script" << "style" << "title";
+static const QStringList SKIP_ID_TAGS = QStringList() << "html" << "#document" << "body";
+static const QStringList ID_TAGS = QStringList() << BLOCK_LEVEL_TAGS << 
+                                                          "dd" << "dt" << "li" << "tbody" << "td" << "tfoot" << "th" <<
+                                                          "thead" << "tr" <<
+                                                          "a" << "abbr" << "acronym" << "address" << "b" << "big" << 
+                                                          "caption" << "center" << "cite" << "code" << "font" << "label" << 
+                                                          "pre" << "small" << "span" << "strike" << "strong" << "sub" << 
+                                                          "sup" << "u";
 
 const int XML_DECLARATION_SEARCH_PREFIX_SIZE = 150;
 static const int XML_CUSTOM_ENTITY_SEARCH_PREFIX_SIZE = 500;
@@ -880,6 +892,64 @@ QList< xc::DOMNode* > XhtmlDoc::GetVisibleTextNodes( const xc::DOMNode &node  )
 }
 
 
+// Returns a list of all nodes suitable for "id" element
+QList<xc::DOMNode*> XhtmlDoc::GetIDNodes(const xc::DOMNode &node)
+{
+    QList<xc::DOMNode*> text_nodes = QList<xc::DOMNode*>();
+
+    QString node_name = GetNodeName(node);
+
+    if (node.hasChildNodes() && node_name != "head") {
+        QList<xc::DOMNode*> children = GetNodeChildren(node);
+
+        if (!INVALID_ID_TAGS.contains(node_name)) {
+            if (ID_TAGS.contains(node_name)) {
+                text_nodes.append(const_cast <xc::DOMNode*>(&node));
+            }
+            else if (!SKIP_ID_TAGS.contains(node_name)) {
+                xc::DOMNode& ancestor_id_node = GetAncestorIDElement(node);
+                if (!text_nodes.contains(const_cast <xc::DOMNode*>(&ancestor_id_node))) {
+                    text_nodes.append(const_cast <xc::DOMNode*>(&ancestor_id_node));
+                }
+            }
+
+            // Parse children after parent to keep index numbers in order
+            for (int i = 0; i < children.count(); ++i) {
+                QList<xc::DOMNode*> children_text_nodes = GetIDNodes(*children.at(i));
+                foreach (xc::DOMNode* cnode, children_text_nodes) {
+                    if (!text_nodes.contains(const_cast <xc::DOMNode*>(cnode))) {
+                        text_nodes.append(cnode);
+                    }
+                }
+            }
+        }
+    }
+    return text_nodes;
+}
+
+QString XhtmlDoc::GetIDElementText(const xc::DOMNode &node)
+{
+    QString text;
+    QList< xc::DOMNode* > children = GetNodeChildren(node);
+
+    // Combine all text nodes for this node plus all text for non-ID element children
+    for (int i = 0; i < children.count(); ++i) {
+        xc::DOMNode* child_node = children.at(i);
+        QString child_node_name = GetNodeName(*child_node);
+        if ((*children.at(i)).getNodeType() == xc::DOMNode::TEXT_NODE) {
+            xc::DOMNode* text_node = children.at(i);
+            xc::DOMElement &text_element = static_cast<xc::DOMElement &>(*text_node);
+            text += XtoQ(text_element.getTextContent());
+        }
+        else if (!ID_TAGS.contains(child_node_name)) {
+            text += GetIDElementText(*child_node);
+        }
+    }
+
+    return text;
+}
+
+
 // Returns a list of ALL text nodes that are descendants
 // of the specified node.
 QList< xc::DOMNode* > XhtmlDoc::GetAllTextNodes( const xc::DOMNode &node  )
@@ -933,6 +1003,25 @@ xc::DOMNode& XhtmlDoc::GetAncestorBlockElement( const xc::DOMNode &node )
     else
 
         return *( node.getOwnerDocument()->getElementsByTagName( QtoX( "body" ) )->item( 0 ) );
+}
+
+xc::DOMNode& XhtmlDoc::GetAncestorIDElement( const xc::DOMNode &node )
+{
+    const xc::DOMNode *parent_node = &node;
+
+    while (true) {
+        parent_node = parent_node->getParentNode();
+        if (ID_TAGS.contains(GetNodeName(*parent_node))) {
+            break;
+        }
+    }
+    
+    if (parent_node) {
+        return const_cast<xc::DOMNode&>(*parent_node);
+    }
+    else {
+        return *(node.getOwnerDocument()->getElementsByTagName(QtoX("body"))->item(0));
+    }
 }
 
 QStringList XhtmlDoc::GetImagePathsFromImageChildren( const xc::DOMNode &node )

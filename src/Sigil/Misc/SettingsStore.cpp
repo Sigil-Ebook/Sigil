@@ -1,6 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2011  John Schember <john@nachtimwald.com>
+**  Copyright (C) 2011, 2012  John Schember <john@nachtimwald.com>
+**  Copyright (C) 2012  Dave Heiland
 **
 **  This file is part of Sigil.
 **
@@ -40,6 +41,11 @@ static QString KEY_CLEAN_LEVEL = SETTINGS_GROUP + "/" + "clean_level";
 
 SettingsStore::SettingsStore()
     : QSettings(QDesktopServices::storageLocation(QDesktopServices::DataLocation) + "/sigil.ini", QSettings::IniFormat)
+{
+}
+
+SettingsStore::SettingsStore(QString filename)
+    : QSettings(filename, QSettings::IniFormat)
 {
 }
 

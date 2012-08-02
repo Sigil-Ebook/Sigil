@@ -75,6 +75,8 @@
     <addaction name="separator"/>
     <addaction name="actionPrintPreview"/>
     <addaction name="separator"/>
+    <addaction name="actionIndexEditor"/>
+    <addaction name="separator"/>
     <addaction name="actionValidateEpub"/>
     <addaction name="menuViewReports"/>
     <addaction name="separator"/>
@@ -767,6 +769,14 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+Shift+V</string>
+   </property>
+  </action>
+  <action name="actionIndexEditor">
+   <property name="text">
+    <string>Index Editor</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Alt+I</string>
    </property>
   </action>
   <action name="actionViewHTML">

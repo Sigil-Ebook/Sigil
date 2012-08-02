@@ -57,6 +57,7 @@ set( QOBJECT_HEADERS
     Dialogs/PreferenceWidgets/SpellCheckWidget.h
     Dialogs/RenameTemplate.h
     Dialogs/LinkStylesheets.h
+    Dialogs/IndexEditor.h
     Tabs/TabManager.h
     Tabs/ContentTab.h 
     Tabs/FlowTab.h
@@ -81,6 +82,7 @@ set( QOBJECT_HEADERS
     Misc/UpdateChecker.h 
     Misc/RasterizeImageResource.h
     Misc/WrapIndicator.h
+    MiscEditors/IndexEditorModel.h
     Misc/NumericItem.h
     Misc/SelectImagePreviewer.h
     ResourceObjects/Resource.h
@@ -109,6 +111,8 @@ set( BOOK_MANIPULATION_FILES
     BookManipulation/Book.h
     BookManipulation/BookNormalization.cpp
     BookManipulation/BookNormalization.h
+    BookManipulation/Index.cpp
+    BookManipulation/Index.h
     BookManipulation/CleanSource.cpp
     BookManipulation/CleanSource.h
     BookManipulation/FolderKeeper.cpp
@@ -179,6 +183,8 @@ set( DIALOG_FILES
     Dialogs/RenameTemplate.h
     Dialogs/LinkStylesheets.cpp
     Dialogs/LinkStylesheets.h
+    Dialogs/IndexEditor.cpp
+    Dialogs/IndexEditor.h
     )
 
 set( EXPORTER_FILES
@@ -253,6 +259,17 @@ set( MISC_FILES
     Misc/NumericItem.h
     Misc/WrapIndicator.h
     Misc/SelectImagePreviewer.h
+    )
+
+set( MISC_EDITOR_FILES    
+    MiscEditors/IndexEditorModel.cpp
+    MiscEditors/IndexEditorModel.h
+    MiscEditors/IndexEditorTreeView.cpp
+    MiscEditors/IndexEditorTreeView.h
+    MiscEditors/IndexEntries.cpp
+    MiscEditors/IndexEntries.h
+    MiscEditors/IndexHTMLWriter.cpp
+    MiscEditors/IndexHTMLWriter.h
     )
 
 set( SPCRE_FILES
@@ -341,6 +358,7 @@ set( UI_FILES
     Form_Files/PSpellCheckWidget.ui
     Form_Files/RenameTemplate.ui 
     Form_Files/LinkStylesheets.ui 
+    Form_Files/IndexEditor.ui 
     )
     
 set( SOURCEUPDATE_FILES   
@@ -380,7 +398,7 @@ set( LINUX_DESKTOP_ICON_FILE
     Resource_Files/icon/app_icon_48.png
     )
     
-set( RAW_SOURCES ${MAIN_FILES} ${TAB_FILES} ${SOURCEUPDATE_FILES} ${BOOK_MANIPULATION_FILES} ${RESOURCE_OBJECT_FILES} ${DIALOG_FILES} ${EXPORTER_FILES} ${IMPORTER_FILES} ${MISC_FILES} ${SPCRE_FILES} ${VIEW_EDITOR_FILES} ${MAINUI_FILES} )
+set( RAW_SOURCES ${MAIN_FILES} ${TAB_FILES} ${SOURCEUPDATE_FILES} ${BOOK_MANIPULATION_FILES} ${RESOURCE_OBJECT_FILES} ${DIALOG_FILES} ${EXPORTER_FILES} ${IMPORTER_FILES} ${MISC_FILES} ${MISC_EDITOR_FILES} ${SPCRE_FILES} ${VIEW_EDITOR_FILES} ${MAINUI_FILES} )
 
 #############################################################################
 
@@ -412,6 +430,7 @@ source_group( "Dialogs"           FILES ${DIALOG_FILES} )
 source_group( "Exporters"         FILES ${EXPORTER_FILES} )
 source_group( "Importers"         FILES ${IMPORTER_FILES} )
 source_group( "Misc"              FILES ${MISC_FILES} )
+source_group( "MiscEditors"       FILES ${MISC_EDITOR_FILES} )
 source_group( "SPCRE"             FILES ${SPCRE_FILES} )
 source_group( "View Editors"      FILES ${VIEW_EDITOR_FILES} )
 source_group( "Tabs"              FILES ${TAB_FILES} )

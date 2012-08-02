@@ -32,6 +32,7 @@
 #include "BookManipulation/XhtmlDoc.h"
 #include "Misc/TempFolder.h"
 #include "Misc/Utility.h"
+#include "Misc/HTMLSpellCheck.h"
 #include "ResourceObjects/HTMLResource.h"
 #include "ResourceObjects/NCXResource.h"
 #include "ResourceObjects/OPFResource.h"
@@ -458,6 +459,29 @@ QStringList Book::GetAllImagePathsInHTMLFile(HTMLResource *html_resource)
     QStringList data;
     data.append(html_resource->Filename());
     data.append(XhtmlDoc::GetAllImagePathsFromImageChildren(*XhtmlDoc::LoadTextIntoDocument(html_resource->GetText()).get()));
+    return data;
+}
+
+QSet<QString> Book::GetUniqueWordsInAllHTML()
+{
+    QStringList all_words;
+
+    const QList<HTMLResource*> html_resources = m_Mainfolder.GetResourceTypeList< HTMLResource >(false);
+
+    QFuture<QStringList> future = QtConcurrent::mapped(html_resources, GetAllWordsInHTMLFile);
+
+    for (int i = 0; i < future.results().count(); i++) {
+        QStringList result = future.resultAt(i);
+        all_words.append(result);
+    }
+
+    return all_words.toSet();
+}
+
+QStringList Book::GetAllWordsInHTMLFile(HTMLResource *html_resource)
+{
+    QStringList data;
+    data.append(HTMLSpellCheck::GetAllWords(html_resource->GetText()));
     return data;
 }
 

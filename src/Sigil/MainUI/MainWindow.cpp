@@ -29,6 +29,7 @@
 #include <QtGui/QProgressDialog>
 
 #include "BookManipulation/BookNormalization.h"
+#include "BookManipulation/Index.h"
 #include "BookManipulation/FolderKeeper.h"
 #include "Dialogs/About.h"
 #include "Dialogs/HeadingSelector.h"
@@ -51,6 +52,7 @@
 #include "Misc/KeyboardShortcutManager.h"
 #include "Misc/SpellCheck.h"
 #include "Misc/TOCHTMLWriter.h"
+#include "MiscEditors/IndexHTMLWriter.h"
 #include "Misc/Utility.h"
 #include "ResourceObjects/HTMLResource.h"
 #include "ResourceObjects/NCXResource.h"
@@ -88,7 +90,8 @@ static const QString TAB_STYLE_SHEET              = "#managerframe {border-top: 
                                                     "border-left: 1px solid grey;"
                                                     "border-right: 1px solid grey;"
                                                     "border-bottom: 1px solid grey;} ";
-static const QString HTML_TOC_FILE = "toc.html";
+static const QString HTML_TOC_FILE = "TOC.html";
+static const QString HTML_INDEX_FILE = "Index.html";
 
 static const QStringList SUPPORTED_SAVE_TYPE = QStringList() << "epub";
 
@@ -112,7 +115,8 @@ MainWindow::MainWindow( const QString &openfilepath, QWidget *parent, Qt::WFlags
     c_SaveFilters( GetSaveFiltersMap() ),
     c_LoadFilters( GetLoadFiltersMap() ),
     m_CheckWellFormedErrors( true ),
-    m_ViewState( MainWindow::ViewState_BookView )
+    m_ViewState( MainWindow::ViewState_BookView ),
+    m_IndexEditor(new IndexEditor(this))
 {
     ui.setupUi( this );
 
@@ -452,6 +456,7 @@ void MainWindow::ZoomReset()
     ZoomByFactor( ZOOM_NORMAL );
 }
 
+
 void MainWindow::ViewClassesUsedInHTML()
 {
     ViewClasses view_classes(m_Book, this);
@@ -460,6 +465,94 @@ void MainWindow::ViewClassesUsedInHTML()
         OpenFilename(view_classes.SelectedFile());
     }
 }
+
+
+void MainWindow::IndexEditorDialog(IndexEditorModel::indexEntry* index_entry)
+{
+    if (!m_TabManager.TabDataIsWellFormed()) {
+        return;
+    }
+    m_TabManager.SaveTabData();
+
+    // non-modal dialog
+    m_IndexEditor->show();
+    m_IndexEditor->raise();
+    m_IndexEditor->activateWindow();
+
+    if (index_entry) {
+        m_IndexEditor->AddEntry(false, index_entry, false);
+    }
+}
+
+void MainWindow::CreateIndex()
+{
+    if (!m_TabManager.TabDataIsWellFormed()) {
+        return;
+    }
+    SaveTabData();
+
+    QApplication::setOverrideCursor(Qt::WaitCursor);
+
+    HTMLResource *index_resource = NULL;
+    QList<HTMLResource *> html_resources;
+
+    // Turn the list of Resources that are really HTMLResources to a real list
+    // of HTMLResources.
+    QList<Resource *> resources = m_BookBrowser->AllHTMLResources();
+    foreach (Resource *resource, resources) {
+        HTMLResource *html_resource = qobject_cast<HTMLResource *>(resource);
+        if (html_resource) {
+            html_resources.append(html_resource);
+
+            // Check if this is an existing index file.
+            if (m_Book->GetOPF().GetGuideSemanticTypeForResource(*html_resource) == GuideSemantics::Index) {
+                index_resource = html_resource;
+            }
+            else if (resource->Filename() == HTML_INDEX_FILE && html_resource == NULL) {
+                index_resource = html_resource;
+            }
+        }
+    }
+
+    // Close the tab so the focus saving doesn't overwrite the text were
+    // replacing in the resource.
+    if (index_resource != NULL) {
+        m_TabManager.CloseTabForResource(*index_resource);
+    }
+
+    // Create an HTMLResource for the INDEX if it doesn't exist.
+    if (index_resource == NULL) {
+        index_resource = &m_Book->CreateEmptyHTMLFile();
+        index_resource->RenameTo(HTML_INDEX_FILE);
+        html_resources.append(index_resource);
+        m_Book->GetOPF().UpdateSpineOrder(html_resources);
+    }
+
+    // Skip indexing the index page itself
+    html_resources.removeOne(index_resource);
+
+    // Scan the book, add ids for any tag containing at least one index entry and store the
+    // document index entry at the same time (including custom and from the index editor).
+    if (!Index::BuildIndex(html_resources)) {
+        return;
+    }
+
+    // Write out the HTML index file.
+    IndexHTMLWriter index;
+    index_resource->SetText(index.WriteXML());
+
+    // Setting a semantic on a resource that already has it set will remove the semantic.
+    if (m_Book->GetOPF().GetGuideSemanticTypeForResource(*index_resource) != GuideSemantics::Index) {
+        m_Book->GetOPF().AddGuideSemanticType(*index_resource, GuideSemantics::Index);
+    }
+
+    m_Book->SetModified();
+    m_BookBrowser->Refresh();
+    OpenResource(*index_resource);
+
+    QApplication::restoreOverrideCursor();
+}
+
 
 void MainWindow::ViewAllImages()
 {
@@ -1519,6 +1612,8 @@ void MainWindow::SetNewBook( QSharedPointer< Book > new_book )
     m_TableOfContents->SetBook( m_Book );
     m_ValidationResultsView->SetBook( m_Book );
 
+    m_IndexEditor->SetBook( m_Book );
+
     connect( m_Book.data(), SIGNAL( ModifiedStateChanged( bool ) ), this, SLOT( setWindowModified( bool ) ) );
     connect( m_BookBrowser,     SIGNAL( GuideSemanticTypeAdded( const HTMLResource&, GuideSemantics::GuideSemanticType ) ),
              &m_Book->GetOPF(), SLOT(   AddGuideSemanticType(   const HTMLResource&, GuideSemantics::GuideSemanticType ) ) );
@@ -2018,6 +2113,7 @@ void MainWindow::ExtendUI()
     sm->registerAction(ui.actionSaveAs, "MainWindow.SaveAs");
     sm->registerAction(ui.actionPrintPreview, "MainWindow.PrintPreview");
     sm->registerAction(ui.actionPrint, "MainWindow.Print");
+    sm->registerAction(ui.actionIndexEditor, "MainWindow.IndexEditor");
     sm->registerAction(ui.actionViewClasses, "MainWindow.ViewClasses");
     sm->registerAction(ui.actionViewHTML, "MainWindow.ViewHTML");
     sm->registerAction(ui.actionViewImages, "MainWindow.ViewImages");
@@ -2227,7 +2323,8 @@ void MainWindow::ConnectSignalsToSlots()
     connect( ui.actionAbout,         SIGNAL( triggered() ), this, SLOT( AboutDialog()              ) );
     connect( ui.actionPreferences,   SIGNAL( triggered() ), this, SLOT( PreferencesDialog()        ) );
     connect( ui.actionValidateEpub,  SIGNAL( triggered() ), this, SLOT( ValidateEpub()             ) );
-    connect( ui.actionViewClasses,      SIGNAL( triggered() ), this, SLOT( ViewClassesUsedInHTML() ) );
+    connect( ui.actionIndexEditor,   SIGNAL( triggered() ), this, SLOT( IndexEditorDialog()       ) );
+    connect( ui.actionViewClasses,   SIGNAL( triggered() ), this, SLOT( ViewClassesUsedInHTML() ) );
     connect( ui.actionViewHTML,      SIGNAL( triggered() ), this, SLOT( ViewAllHTML()              ) );
     connect( ui.actionViewImages,    SIGNAL( triggered() ), this, SLOT( ViewAllImages()            ) );
 
@@ -2318,6 +2415,9 @@ void MainWindow::ConnectSignalsToSlots()
 
     connect( &m_TabManager, SIGNAL( NewChaptersRequest( QStringList, HTMLResource& ) ),
              this,          SLOT(   CreateNewChapters(  QStringList, HTMLResource& ) ) );
+
+    connect( m_IndexEditor, SIGNAL( CreateIndexRequest() ),
+             this,            SLOT( CreateIndex() ) );
 }
 
 
@@ -2357,6 +2457,8 @@ void MainWindow::MakeTabConnections( ContentTab *tab )
         connect( tab,   SIGNAL( EnteringBookView() ),           this,          SLOT( UpdateZoomControls()      ) );
         connect( tab,   SIGNAL( EnteringBookPreview() ),        this,          SLOT( UpdateZoomControls() ) );
         connect( tab,   SIGNAL( EnteringCodeView() ),           this,          SLOT( UpdateZoomControls()      ) );
+        connect( tab,   SIGNAL( OpenIndexEditorRequest(IndexEditorModel::indexEntry *) ),
+                 this,  SLOT (  IndexEditorDialog( IndexEditorModel::indexEntry * ) ) );
     }
     if (tab->GetLoadedResource().Type() == Resource::CSSResourceType )
     {

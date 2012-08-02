@@ -194,6 +194,9 @@ public:
     QHash<QString, QStringList> GetAllClassesUsedInHTML();
     static QStringList GetAllClassesInHTML(HTMLResource *html_resource);
 
+    QSet<QString> GetUniqueWordsInAllHTML();
+    static QStringList GetAllWordsInHTMLFile(HTMLResource *html_resource);
+
     /**
      * Returns a hash listing the filename and all stylesheet names in the file
      */

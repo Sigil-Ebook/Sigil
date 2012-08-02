@@ -23,6 +23,8 @@
 #ifndef HTMLSPELLCHECK_H
 #define HTMLSPELLCHECK_H
 
+#include <QtCore/QStringList>
+
 class HTMLSpellCheck
 {
 
@@ -54,6 +56,8 @@ public:
     static int CountMisspelledWords( const QString &text );
 
     static int CountAllWords( const QString &text );
+
+    static QStringList GetAllWords( const QString &text );
 
     static MisspelledWord GetFirstMisspelledWord( const QString &text, 
                                                   int start_offset, 

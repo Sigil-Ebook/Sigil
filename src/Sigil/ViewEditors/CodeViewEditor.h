@@ -30,6 +30,7 @@
 #include <QtGui/QPlainTextEdit>
 
 #include "ViewEditors/ViewEditor.h"
+#include "MiscEditors/IndexEditorModel.h"
 
 class QResizeEvent;
 class QSize;
@@ -83,6 +84,7 @@ public:
      */
     void CutCodeTags();
     bool IsCutCodeTagsAllowed();
+    bool IsNotInTagTextSelected();
     QString StripCodeTags(QString text);
 
     bool IsPositionInTag(int pos);
@@ -233,6 +235,8 @@ signals:
      */
     void FilteredTextChanged();
 
+    void OpenIndexEditorRequest(IndexEditorModel::indexEntry *);
+
 public slots:
 
     /**
@@ -343,6 +347,10 @@ private slots:
 
     void ignoreWordInDictionary(const QString &text);
 
+    void SaveIndexAction();
+
+    void MarkIndexAction();
+
 private:
 
     /**
@@ -389,6 +397,10 @@ private:
      * Connects all the required signals to their respective slots.
      */
     void ConnectSignalsToSlots();
+
+    bool AddSpellCheckContextMenu(QMenu *menu);
+
+    void AddIndexContextMenu(QMenu *menu);
 
 
     ///////////////////////////////

@@ -1,6 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2011  John Schember <john@nachtimwald.com>
+**  Copyright (C) 2011, 2012  John Schember <john@nachtimwald.com>
+**  Copyright (C) 2012  Dave Heiland
 **
 **  This file is part of Sigil.
 **
@@ -39,6 +40,7 @@ class SettingsStore : public QSettings
 
 public:
     SettingsStore();
+    SettingsStore(QString filename);
 
     enum CleanLevel {
         CleanLevel_Off = 0,

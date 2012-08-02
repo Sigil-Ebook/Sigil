@@ -146,9 +146,14 @@ void CodeViewEditor::CutCodeTags()
 
 }
 
-bool CodeViewEditor::IsCutCodeTagsAllowed()
+bool CodeViewEditor::IsNotInTagTextSelected()
 {
     return textCursor().hasSelection() && !(IsPositionInTag(textCursor().selectionStart() - 1) || IsPositionInTag(textCursor().selectionEnd() - 1));
+}
+
+bool CodeViewEditor::IsCutCodeTagsAllowed()
+{
+    return IsNotInTagTextSelected();
 }
 
 bool CodeViewEditor::IsInsertClosingTagAllowed()
@@ -893,19 +898,32 @@ void CodeViewEditor::mousePressEvent( QMouseEvent *event )
     QPlainTextEdit::mousePressEvent( event );   
 }
 
-// Overridden so we can block the focus out signal.
-// Right clicking and calling the context menu will cause the
-// editor to loose focus. When it looses focus the code is checked
-// if it is well formed. If it is not a message box is shown asking
-// if the user would like to auto correct. This causes the context
-// menu to disappear and thus be inaccessible to the user.
+
 void CodeViewEditor::contextMenuEvent( QContextMenuEvent *event )
 {
-    // We block signals whle the menu is executed because we don't want the
-    // well formed check to be triggered.
-    blockSignals( true );
-
     QMenu *menu = createStandardContextMenu();
+
+    bool offered_spelling = false;
+    if (m_checkSpelling) {
+        offered_spelling = AddSpellCheckContextMenu(menu);
+    }
+
+    if (!offered_spelling) {
+        AddIndexContextMenu(menu);
+    }
+
+    menu->exec(event->globalPos());
+    delete menu;
+}
+
+bool CodeViewEditor::AddSpellCheckContextMenu(QMenu *menu)
+{
+    // The first action in the menu.
+    QAction *topAction = 0;
+    if (!menu->actions().isEmpty()) {
+        topAction = menu->actions().at(0);
+    }
+
     QTextCursor c = textCursor();
     // We check if offering spelling suggestions is necessary.
     //
@@ -915,7 +933,7 @@ void CodeViewEditor::contextMenuEvent( QContextMenuEvent *event )
     //
     // If text is already selected we check if it matches a misspelled word
     // position range. If so we need to offer spelling suggestions.
-    bool offerSpelling = false;
+    bool offer_spelling = false;
 
     // Ignore spell check if spelling is disabled.
     //
@@ -941,7 +959,7 @@ void CodeViewEditor::contextMenuEvent( QContextMenuEvent *event )
                     c.setPosition(c.block().position() + r.start);
                     c.movePosition(QTextCursor::Right, QTextCursor::KeepAnchor, r.length);
                     setTextCursor(c);
-                    offerSpelling = true;
+                    offer_spelling = true;
                     break;
                 }
             }
@@ -952,23 +970,18 @@ void CodeViewEditor::contextMenuEvent( QContextMenuEvent *event )
             int selLen = c.selectionEnd() - c.block().position() - selStart;
             foreach (QTextLayout::FormatRange r, textCursor().block().layout()->additionalFormats()) {
                 if (r.start == selStart && selLen == r.length && r.format.underlineStyle() == QTextCharFormat::SpellCheckUnderline) {
-                    offerSpelling = true;
+                    offer_spelling = true;
                     break;
                 }
             }
         }
 
         // If a misspelled word is selected try to offer spelling suggestions.
-        if (offerSpelling && c.hasSelection()) {
+        if (offer_spelling && c.hasSelection()) {
             SpellCheck *sc = SpellCheck::instance();
             QString text = c.selectedText();
 
             QStringList suggestions = sc->suggest(text);
-            // The first action in the menu.
-            QAction *topAction = 0;
-            if (!menu->actions().isEmpty()) {
-                topAction = menu->actions().at(0);
-            }
             QAction *suggestAction = 0;
 
             // We want to limit the number of suggestions so we don't
@@ -1019,12 +1032,74 @@ void CodeViewEditor::contextMenuEvent( QContextMenuEvent *event )
         }
     }
 
-    menu->exec( event->globalPos() );
-
-    delete menu;
-    blockSignals( false );
+    return offer_spelling;
 }
 
+void CodeViewEditor::AddIndexContextMenu(QMenu *menu)
+{
+    QTextCursor cursor = textCursor();
+    if (cursor.selectedText().isEmpty()) {
+        return;
+    }
+
+    QAction *topAction = 0;
+    if (!menu->actions().isEmpty()) {
+        topAction = menu->actions().at(0);
+    }
+
+    QAction *saveIndexAction = new QAction(tr("Add To Index"), menu);
+    if (!topAction) {
+        menu->addAction(saveIndexAction);
+    }
+    else {
+        menu->insertAction(topAction, saveIndexAction);
+    }
+    connect(saveIndexAction, SIGNAL(triggered()), this , SLOT(SaveIndexAction()));
+    saveIndexAction->setEnabled(IsNotInTagTextSelected());
+
+    QAction *markIndexAction = new QAction(tr("Mark For Index"), menu);
+    if (!topAction) {
+        menu->addAction(markIndexAction);
+    }
+    else {
+        menu->insertAction(topAction, markIndexAction);
+    }
+    connect(markIndexAction, SIGNAL(triggered()), this , SLOT(MarkIndexAction()));
+    markIndexAction->setEnabled(IsNotInTagTextSelected());
+
+    if (topAction) {
+        menu->insertSeparator(topAction);
+    }
+}
+
+void CodeViewEditor::SaveIndexAction()
+{
+    if (!IsNotInTagTextSelected()) {
+        return;
+    }
+
+    IndexEditorModel::indexEntry *index = new IndexEditorModel::indexEntry();
+
+    QTextCursor cursor = textCursor();
+    index->pattern = cursor.selectedText();
+
+    emit OpenIndexEditorRequest(index);
+}
+
+void CodeViewEditor::MarkIndexAction()
+{
+    if (!IsNotInTagTextSelected()) {
+        return;
+    }
+
+    QTextCursor cursor = textCursor();
+    QString selected_text = cursor.selectedText();
+
+    cursor.beginEditBlock();
+    QString new_text = "<span class=\"" % SIGIL_INDEX_CLASS % "\" title=\"" % selected_text % "\">" % selected_text % "</span>";
+    cursor.insertText(new_text);
+    cursor.endEditBlock();
+}
 
 // Overridden so we can emit the FocusGained() signal.
 void CodeViewEditor::focusInEvent( QFocusEvent *event )

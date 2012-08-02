@@ -28,6 +28,8 @@
 #include <QtWebKit/QWebElement>
 
 #include "BookManipulation/XercesHUse.h"
+#include "BookManipulation/XercesCppUse.h"
+
 #include "ViewEditors/ViewEditor.h"
 
 class QString;
@@ -204,12 +206,20 @@ public:
     // of the specified node. "Visible" means we ignore style tags, script tags etc...
     static QList< xc::DOMNode* > GetVisibleTextNodes( const xc::DOMNode &node );
 
+    // Returns a list of all the nodes that are suitable for use with "id" attributes
+    static QList<xc::DOMNode*> GetIDNodes(const xc::DOMNode &node);
+
+    // Returns the text for the node plus any children's text if they are not ID nodes
+    static QString GetIDElementText(const xc::DOMNode &node);
+
     // Returns a list of ALL text nodes that are descendants
     // of the specified node.
     static QList< xc::DOMNode* > GetAllTextNodes( const xc::DOMNode &node );
 
     // Returns the first block element ancestor of the specified node
     static xc::DOMNode& GetAncestorBlockElement( const xc::DOMNode &node );
+
+    static xc::DOMNode& GetAncestorIDElement( const xc::DOMNode &node );
 
     static QStringList GetImagePathsFromImageChildren( const xc::DOMNode &node );
 
