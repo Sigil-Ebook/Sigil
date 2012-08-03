@@ -1,4 +1,7 @@
 Sigil 0.6.0 TBA
+    - Implement issue 588: Clipboard Editor for saving and inserting text.
+    - Implement issue 1519: Navigate between links in Code View.
+    - Implement issue 167: Index Editor to create a book index.
     - Implement issue 1450: View classes used in HTML files.
     - Implement issue 102: View details of all HTML files
     - Implement issue 839: Word Count (in View HTML details)
