@@ -81,7 +81,7 @@ void IndexEditor::SetupIndexEditorTree()
         "</dl>");
 
     ui.IndexEditorTree->header()->setStretchLastSection(true);
-    for (int column; column < ui.IndexEditorTree->header()->count(); column++) {
+    for (int column = 0; column < ui.IndexEditorTree->header()->count(); column++) {
         ui.IndexEditorTree->resizeColumnToContents(column);
     }
 }
@@ -147,8 +147,6 @@ QList<QStandardItem*> IndexEditor::GetSelectedItems()
 
 QStandardItem* IndexEditor::AddEntry(bool is_group, IndexEditorModel::indexEntry *index_entry, bool insert_after)
 {
-    ResetEnabled();
-
     QStandardItem *parent_item = NULL;
     QStandardItem *new_item = NULL;
     int row = 0;
@@ -190,8 +188,6 @@ void IndexEditor::Cut()
 
 bool IndexEditor::Copy()
 {
-    ResetEnabled();
-
     if (SelectedRowsCount() < 1) {
         return false;
     }
@@ -212,8 +208,6 @@ bool IndexEditor::Copy()
 
 void IndexEditor::Paste()
 {
-    ResetEnabled();
-
     foreach (IndexEditorModel::indexEntry *entry, m_SavedIndexEntries) {
         AddEntry(false, entry);
     }
@@ -221,8 +215,6 @@ void IndexEditor::Paste()
 
 void IndexEditor::Delete()
 {
-    ResetEnabled();
-
     if (SelectedRowsCount() < 1) {
         return;
     }
@@ -268,8 +260,6 @@ void IndexEditor::Delete()
 
 void IndexEditor::AutoFill()
 {
-    ResetEnabled();
-
     if (SelectedRowsCount() > 1 || !m_Book) {
         return;
     }
@@ -312,8 +302,6 @@ void IndexEditor::AutoFill()
 
 void IndexEditor::Open()
 {
-    ResetEnabled();
-
     // Get the filename to open
     QString filter_string = "*." % FILE_EXTENSION;
 
@@ -334,15 +322,11 @@ void IndexEditor::Open()
 
 void IndexEditor::SelectAll()
 {
-    ResetEnabled();
-
     ui.IndexEditorTree->selectAll();
 }
 
 void IndexEditor::SaveAs()
 {
-    ResetEnabled();
-
     // Get the filename to use
     QString filter_string = "*." % FILE_EXTENSION;
     QString default_filter = "*";
@@ -465,10 +449,14 @@ void IndexEditor::CreateContextMenuActions()
 
 }
 
-void IndexEditor::ResetEnabled()
+void IndexEditor::OpenContextMenu(const QPoint &point)
 {
+    SetupContextMenu(point);
+
+    m_ContextMenu->exec(ui.IndexEditorTree->viewport()->mapToGlobal(point));
+    m_ContextMenu->clear();
+
     // Make sure every action is enabled - in case shortcut is used after context menu disables some.
-    // Every menu function must run this, and test if it is valid to run regardless of setEnabled.
     m_AddEntry->setEnabled(true);
     m_Copy->setEnabled(true);
     m_Paste->setEnabled(true);
@@ -477,14 +465,6 @@ void IndexEditor::ResetEnabled()
     m_Open->setEnabled(true);
     m_SaveAs->setEnabled(true);
     m_SelectAll->setEnabled(true);
-}
-
-void IndexEditor::OpenContextMenu(const QPoint &point)
-{
-    SetupContextMenu(point);
-
-    m_ContextMenu->exec(ui.IndexEditorTree->viewport()->mapToGlobal(point));
-    m_ContextMenu->clear();
 }
 
 void IndexEditor::SetupContextMenu(const QPoint &point)

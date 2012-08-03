@@ -170,7 +170,7 @@ bool CodeViewEditor::IsPositionInTag(int pos)
         pos--;
     }
 
-    if (text[pos] == QChar('<')) {
+    if (pos >= 0 && text[pos] == QChar('<')) {
         return true;
     }
 

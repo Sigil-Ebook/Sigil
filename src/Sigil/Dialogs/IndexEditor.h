@@ -95,8 +95,6 @@ private:
     void CreateContextMenuActions();
     void SetupContextMenu(const QPoint &point);
 
-    void ResetEnabled();
-
     void ConnectSignalsSlots();
 
     QAction *m_AddEntry;
