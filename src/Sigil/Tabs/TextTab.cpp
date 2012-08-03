@@ -162,6 +162,12 @@ void TextTab::Paste()
 }
 
 
+void TextTab::PasteClipboardEntries(QList<ClipboardEditorModel::clipEntry *> clips)
+{
+    // Insert text even if no focus to allow Paste
+    m_wCodeView.PasteClipboardEntries(clips);
+}
+
 void TextTab::CutCodeTags()
 {
 }

@@ -28,18 +28,18 @@
 
 static const int COL_COMBOBOX = 3;
 
-ComboBoxItemDelegate::ComboBoxItemDelegate( QObject *parent )
+MetaEditorItemDelegate::MetaEditorItemDelegate( QObject *parent )
     : QStyledItemDelegate( parent )
 {
 }
  
  
-ComboBoxItemDelegate::~ComboBoxItemDelegate()
+MetaEditorItemDelegate::~MetaEditorItemDelegate()
 {
 }
  
  
-QWidget* ComboBoxItemDelegate::createEditor( QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index ) const
+QWidget* MetaEditorItemDelegate::createEditor( QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index ) const
 {
     // ComboBox ony in designated column 
     if ( index.column() != COL_COMBOBOX )
@@ -56,7 +56,7 @@ QWidget* ComboBoxItemDelegate::createEditor( QWidget *parent, const QStyleOption
 }
  
  
-void ComboBoxItemDelegate::setEditorData ( QWidget *editor, const QModelIndex &index ) const
+void MetaEditorItemDelegate::setEditorData ( QWidget *editor, const QModelIndex &index ) const
 {
     if( QComboBox *cb = qobject_cast<QComboBox *>( editor ) )
     {
@@ -73,7 +73,7 @@ void ComboBoxItemDelegate::setEditorData ( QWidget *editor, const QModelIndex &i
 }
  
  
-void ComboBoxItemDelegate::setModelData ( QWidget *editor, QAbstractItemModel *model, const QModelIndex &index ) const
+void MetaEditorItemDelegate::setModelData ( QWidget *editor, QAbstractItemModel *model, const QModelIndex &index ) const
 {
     if ( QComboBox *cb = qobject_cast<QComboBox *>( editor ) )
     {

@@ -28,10 +28,12 @@
 #include <QtCore/QList>
 #include <QtCore/QStack>
 #include <QtGui/QPlainTextEdit>
+#include <QtGui/QStandardItem>
 #include <QtCore/QUrl>
 
 #include "ViewEditors/ViewEditor.h"
 #include "MiscEditors/IndexEditorModel.h"
+#include "MiscEditors/ClipboardEditorModel.h"
 
 class QResizeEvent;
 class QSize;
@@ -243,6 +245,8 @@ signals:
      */
     void FilteredTextChanged();
 
+    void OpenClipboardEditorRequest(ClipboardEditorModel::clipEntry *);
+
     void OpenIndexEditorRequest(IndexEditorModel::indexEntry *);
 
     void OpenCodeLinkRequest(const QUrl &url);
@@ -261,6 +265,10 @@ public slots:
     void print( QPrinter* printer );
 
     void LoadSettings();
+
+    void PasteClipboardEntryFromName(QString name);
+    void PasteClipboardEntries(QList<ClipboardEditorModel::clipEntry *> clips);
+    void PasteClipboardEntry(ClipboardEditorModel::clipEntry *clip);
 
 protected:
 
@@ -361,6 +369,10 @@ private slots:
 
     void ignoreWordInDictionary(const QString &text);
 
+    void OpenClipboardEditor();
+
+    void SaveClipboardAction();
+
     void SaveIndexAction();
 
     void MarkIndexAction();
@@ -425,7 +437,11 @@ private:
      */
     void ConnectSignalsToSlots();
 
+    void AddClipboardContextMenu(QMenu *menu);
+
     bool AddSpellCheckContextMenu(QMenu *menu);
+
+    bool CreateMenuEntries(QMenu *parent_menu, QAction *topAction, QStandardItem *item);
 
     void AddOpenLinkContextMenu(QMenu *menu);
 
@@ -514,6 +530,7 @@ private:
     QSignalMapper *m_spellingMapper;
     QSignalMapper *m_addSpellingMapper;
     QSignalMapper *m_ignoreSpellingMapper;
+    QSignalMapper *m_clipboardMapper;
 
     bool m_BackToLinkAllowed;
 };

@@ -1,6 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
+**  Copyright (C) 2012 John Schember <john@nachtimwald.com>
+**  Copyright (C) 2012 Dave Heiland
 **
 **  This file is part of Sigil.
 **
@@ -20,24 +21,25 @@
 *************************************************************************/
 
 #pragma once
-#ifndef METADATAITEMDELEGATE_H
-#define METADATAITEMDELEGATE_H
+#ifndef CLIPBOARDEDITORTREEVIEW_H
+#define CLIPBOARDEDITORTREEVIEW_H
 
-#include <QtGui/QStyledItemDelegate>
+#include <QtGui/QTreeView>
+#include <QDragEnterEvent>
+#include <QDragMoveEvent>
 
-class MetaEditorItemDelegate : public QStyledItemDelegate
+class ClipboardEditorTreeView : public QTreeView
 {
-    Q_OBJECT
- 
-public:
-    MetaEditorItemDelegate(QObject *parent = 0);
-    ~MetaEditorItemDelegate();
- 
-    virtual QWidget *createEditor( QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index ) const;
-    virtual void setEditorData ( QWidget *editor, const QModelIndex &index ) const;
-    virtual void setModelData ( QWidget *editor, QAbstractItemModel *model, const QModelIndex &index ) const;
- 
-};
- 
 
-#endif // METADATAITEMDELEGATE_H
+public:
+     ClipboardEditorTreeView(QWidget* parent = 0);
+     ~ClipboardEditorTreeView();
+
+protected:
+    void dragEnterEvent(QDragEnterEvent* event);
+    void dragMoveEvent(QDragMoveEvent* event);
+    QModelIndex moveCursor(CursorAction cursorAction, Qt::KeyboardModifiers modifiers);
+
+};
+
+#endif // CLIPBOARDEDITORTREEVIEW_H

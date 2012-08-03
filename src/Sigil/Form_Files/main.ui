@@ -75,6 +75,7 @@
     <addaction name="separator"/>
     <addaction name="actionPrintPreview"/>
     <addaction name="separator"/>
+    <addaction name="actionClipboardEditor"/>
     <addaction name="actionIndexEditor"/>
     <addaction name="separator"/>
     <addaction name="actionValidateEpub"/>
@@ -276,6 +277,17 @@
    </attribute>
    <addaction name="actionCheckWellFormedErrors"/>
    <addaction name="actionValidateEpub"/>
+  </widget>
+  <widget class="QToolBar" name="Clipboard">
+   <property name="windowTitle">
+    <string>Clipboard</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
   </widget>
   <action name="actionNew">
    <property name="icon">
@@ -890,6 +902,14 @@
    </property>
    <property name="shortcut">
     <string>Alt+C</string>
+   </property>
+  </action>
+  <action name="actionClipboardEditor">
+   <property name="text">
+    <string>Clipboard Editor</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Alt+C</string>
    </property>
   </action>
   <action name="actionPreferences">

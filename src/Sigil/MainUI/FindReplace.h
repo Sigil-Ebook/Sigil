@@ -34,6 +34,7 @@
 
 class HTMLResource;
 class Resource;
+class MainWindow;
 
 class FindReplace : public QWidget
 {

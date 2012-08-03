@@ -36,6 +36,7 @@
 #include "BookManipulation/XercesCppUse.h"
 #include "BookManipulation/XhtmlDoc.h"
 #include "Misc/XHTMLHighlighter.h"
+#include "Dialogs/ClipboardEditor.h"
 #include "Misc/CSSHighlighter.h"
 #include "Misc/SettingsStore.h"
 #include "Misc/SpellCheck.h"
@@ -80,6 +81,7 @@ CodeViewEditor::CodeViewEditor( HighlighterType high_type, bool check_spelling, 
     m_spellingMapper( new QSignalMapper( this ) ),
     m_addSpellingMapper( new QSignalMapper( this ) ),
     m_ignoreSpellingMapper( new QSignalMapper( this ) ),
+    m_clipboardMapper( new QSignalMapper( this ) ),
     m_BackToLinkAllowed(false)
 {
     if ( high_type == CodeViewEditor::Highlight_XHTML )
@@ -934,8 +936,9 @@ void CodeViewEditor::contextMenuEvent( QContextMenuEvent *event )
     }
 
     if (!offered_spelling) {
-        AddOpenLinkContextMenu(menu);
         AddIndexContextMenu(menu);
+        AddOpenLinkContextMenu(menu);
+        AddClipboardContextMenu(menu);
     }
 
     menu->exec(event->globalPos());
@@ -1061,6 +1064,37 @@ bool CodeViewEditor::AddSpellCheckContextMenu(QMenu *menu)
     return offer_spelling;
 }
 
+void CodeViewEditor::AddClipboardContextMenu(QMenu *menu)
+{
+    QAction *topAction = 0;
+    if (!menu->actions().isEmpty()) {
+        topAction = menu->actions().at(0);
+    }
+
+    if (CreateMenuEntries(menu, topAction, ClipboardEditorModel::instance()->invisibleRootItem())) {
+        if (topAction) {
+            menu->insertSeparator(topAction);
+        }
+        else {
+            menu->addSeparator();
+        }
+   }
+
+    QAction *saveClipboardAction = new QAction(tr("Add To Clipboard"), menu);
+    if (!topAction) {
+        menu->addAction(saveClipboardAction);
+    }
+    else {
+        menu->insertAction(topAction, saveClipboardAction);
+    }
+    connect(saveClipboardAction, SIGNAL(triggered()), this , SLOT(SaveClipboardAction()));
+    saveClipboardAction->setEnabled(textCursor().hasSelection());
+
+    if (topAction) {
+        menu->insertSeparator(topAction);
+    }
+}
+
 void CodeViewEditor::AddOpenLinkContextMenu(QMenu *menu)
 {
     QAction *topAction = 0;
@@ -1091,6 +1125,67 @@ void CodeViewEditor::AddOpenLinkContextMenu(QMenu *menu)
     if (topAction) {
         menu->insertSeparator(topAction);
     }
+}
+
+bool CodeViewEditor::CreateMenuEntries(QMenu *parent_menu, QAction *topAction, QStandardItem *item)
+{
+    QAction *clipboardAction = 0;
+    QMenu *group_menu = parent_menu;
+
+    if (!item) {
+        return false;
+    }
+
+    if (!item->text().isEmpty()) {
+        // If item has no children, add entry to the menu, else create menu
+        if (!item->data().toBool()) {
+            clipboardAction = new QAction(item->text(), this);
+            connect(clipboardAction, SIGNAL(triggered()), m_clipboardMapper, SLOT(map()));
+            m_clipboardMapper->setMapping(clipboardAction, ClipboardEditorModel::instance()->GetFullName(item));
+            if (!topAction) {
+                parent_menu->addAction(clipboardAction);
+            }
+            else {
+                parent_menu->insertAction(topAction, clipboardAction);
+            }
+        }
+        else {
+            group_menu = new QMenu(this);
+            group_menu->setTitle(item->text());
+
+            if (topAction) {
+                parent_menu->insertMenu(topAction, group_menu);
+            }
+            else {
+                parent_menu->addMenu(group_menu);
+            }
+            topAction = 0;
+        }
+    }
+
+    // Recursively add entries for children
+    for (int row = 0; row < item->rowCount(); row++) {
+        CreateMenuEntries(group_menu, topAction, item->child(row,0));
+    }
+    return item->rowCount() > 0;
+}
+
+void CodeViewEditor::OpenClipboardEditor()
+{
+    ClipboardEditorModel::clipEntry *clip = NULL;
+    emit OpenClipboardEditorRequest(clip);
+}
+
+void CodeViewEditor::SaveClipboardAction()
+{
+    ClipboardEditorModel::clipEntry *clip = new ClipboardEditorModel::clipEntry();
+    clip->name = "Unnamed Entry";
+    clip->is_group = false;
+
+    QTextCursor cursor = textCursor();
+    clip->text = cursor.selectedText();
+
+    emit OpenClipboardEditorRequest(clip);
 }
 
 void CodeViewEditor::AddIndexContextMenu(QMenu *menu)
@@ -1374,6 +1469,53 @@ void CodeViewEditor::ignoreWordInDictionary(const QString &text)
     m_Highlighter->rehighlight();
 }
 
+void CodeViewEditor::PasteClipboardEntryFromName(QString name)
+{
+    ClipboardEditorModel::clipEntry *clip = ClipboardEditorModel::instance()->GetEntryFromName(name);
+    PasteClipboardEntry(clip);
+}
+
+void CodeViewEditor::PasteClipboardEntries(QList<ClipboardEditorModel::clipEntry *> clips)
+{
+    foreach(ClipboardEditorModel::clipEntry *clip, clips) {
+        PasteClipboardEntry(clip);
+    }
+}
+
+void CodeViewEditor::PasteClipboardEntry(ClipboardEditorModel::clipEntry *clip)
+{
+    if (!clip || clip->text.isEmpty()) {
+        return;
+    }
+
+    // Remove any existing tags before adding in clip (save them if Shift not depressed)
+    bool isShift = QApplication::keyboardModifiers() & Qt::ControlModifier;
+    if (!isShift) {
+        CutCodeTags();
+    }
+
+    QTextCursor cursor = textCursor();
+    QString selected_text = cursor.selectedText();
+
+    if (selected_text.isEmpty()) {
+
+        // Allow users to use the same entry for insert/replace
+        // Will not handle complicated regex, but good for tags like <p>\0</p>
+        QString replacement_text = clip->text;
+        replacement_text.remove(QString("\\0"));
+
+        cursor.beginEditBlock();
+        cursor.removeSelectedText();
+        cursor.insertText(replacement_text);
+        cursor.endEditBlock();
+        setTextCursor( cursor );
+    }
+    else {
+        QString search_regex = "(?s).*";
+        ReplaceSelected(search_regex, clip->text, Searchable::Direction_Down, false);
+    }
+}
+
 void CodeViewEditor::ResetFont()
 {
     // Let's try to use Consolas as our font
@@ -1473,4 +1615,6 @@ void CodeViewEditor::ConnectSignalsToSlots()
     connect(m_spellingMapper, SIGNAL(mapped(const QString&)), this, SLOT(ReplaceSelected(const QString&)));
     connect(m_addSpellingMapper, SIGNAL(mapped(const QString&)), this, SLOT(addToUserDictionary(const QString&)));
     connect(m_ignoreSpellingMapper, SIGNAL(mapped(const QString&)), this, SLOT(ignoreWordInDictionary(const QString&)));
+
+    connect(m_clipboardMapper, SIGNAL(mapped(const QString&)), this, SLOT(PasteClipboardEntryFromName(const QString&)));
 }

@@ -57,6 +57,7 @@ set( QOBJECT_HEADERS
     Dialogs/PreferenceWidgets/SpellCheckWidget.h
     Dialogs/RenameTemplate.h
     Dialogs/LinkStylesheets.h
+    Dialogs/ClipboardEditor.h
     Dialogs/IndexEditor.h
     Tabs/TabManager.h
     Tabs/ContentTab.h 
@@ -82,6 +83,8 @@ set( QOBJECT_HEADERS
     Misc/UpdateChecker.h 
     Misc/RasterizeImageResource.h
     Misc/WrapIndicator.h
+    MiscEditors/ClipboardEditorTreeView.h
+    MiscEditors/ClipboardEditorModel.h
     MiscEditors/IndexEditorModel.h
     Misc/NumericItem.h
     Misc/SelectImagePreviewer.h
@@ -183,6 +186,8 @@ set( DIALOG_FILES
     Dialogs/RenameTemplate.h
     Dialogs/LinkStylesheets.cpp
     Dialogs/LinkStylesheets.h
+    Dialogs/ClipboardEditor.cpp
+    Dialogs/ClipboardEditor.h
     Dialogs/IndexEditor.cpp
     Dialogs/IndexEditor.h
     )
@@ -261,7 +266,7 @@ set( MISC_FILES
     Misc/SelectImagePreviewer.h
     )
 
-set( MISC_EDITOR_FILES    
+set( MISC_EDITORS_FILES    
     MiscEditors/IndexEditorModel.cpp
     MiscEditors/IndexEditorModel.h
     MiscEditors/IndexEditorTreeView.cpp
@@ -270,6 +275,10 @@ set( MISC_EDITOR_FILES
     MiscEditors/IndexEntries.h
     MiscEditors/IndexHTMLWriter.cpp
     MiscEditors/IndexHTMLWriter.h
+    MiscEditors/ClipboardEditorModel.cpp
+    MiscEditors/ClipboardEditorModel.h
+    MiscEditors/ClipboardEditorTreeView.cpp
+    MiscEditors/ClipboardEditorTreeView.h
     )
 
 set( SPCRE_FILES
@@ -358,6 +367,7 @@ set( UI_FILES
     Form_Files/PSpellCheckWidget.ui
     Form_Files/RenameTemplate.ui 
     Form_Files/LinkStylesheets.ui 
+    Form_Files/ClipboardEditor.ui
     Form_Files/IndexEditor.ui 
     )
     
@@ -390,6 +400,8 @@ file( GLOB TS_FILES Resource_Files/ts/sigil_*.ts )
 
 file( GLOB DIC_FILES Resource_Files/dictionaries/* )
 
+file( GLOB EXAMPLE_FILES Resource_Files/examples/* )
+
 set( LINUX_DESKTOP_FILE
     Resource_Files/freedesktop/sigil.desktop
     )
@@ -398,7 +410,7 @@ set( LINUX_DESKTOP_ICON_FILE
     Resource_Files/icon/app_icon_48.png
     )
     
-set( RAW_SOURCES ${MAIN_FILES} ${TAB_FILES} ${SOURCEUPDATE_FILES} ${BOOK_MANIPULATION_FILES} ${RESOURCE_OBJECT_FILES} ${DIALOG_FILES} ${EXPORTER_FILES} ${IMPORTER_FILES} ${MISC_FILES} ${MISC_EDITOR_FILES} ${SPCRE_FILES} ${VIEW_EDITOR_FILES} ${MAINUI_FILES} )
+set( RAW_SOURCES ${MAIN_FILES} ${TAB_FILES} ${SOURCEUPDATE_FILES} ${BOOK_MANIPULATION_FILES} ${RESOURCE_OBJECT_FILES} ${DIALOG_FILES} ${EXPORTER_FILES} ${IMPORTER_FILES} ${MISC_FILES} ${MISC_EDITORS_FILES} ${SPCRE_FILES} ${VIEW_EDITOR_FILES} ${MAINUI_FILES} )
 
 #############################################################################
 
@@ -430,7 +442,7 @@ source_group( "Dialogs"           FILES ${DIALOG_FILES} )
 source_group( "Exporters"         FILES ${EXPORTER_FILES} )
 source_group( "Importers"         FILES ${IMPORTER_FILES} )
 source_group( "Misc"              FILES ${MISC_FILES} )
-source_group( "MiscEditors"       FILES ${MISC_EDITOR_FILES} )
+source_group( "MiscEditors"       FILES ${MISC_EDITORS_FILES} )
 source_group( "SPCRE"             FILES ${SPCRE_FILES} )
 source_group( "View Editors"      FILES ${VIEW_EDITOR_FILES} )
 source_group( "Tabs"              FILES ${TAB_FILES} )
@@ -682,6 +694,12 @@ elseif (MSVC)
         add_custom_command( TARGET ${TARGET_FOR_COPY} POST_BUILD COMMAND cmake -E copy ${DIC} ${MAIN_PACKAGE_DIR}/hunspell_dictionaries/ )
     endforeach( DIC )
 
+    # Copy the example files
+    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E make_directory ${MAIN_PACKAGE_DIR}/examples/ )
+    foreach( EXAMPLE ${EXAMPLE_FILES} )
+        add_custom_command( TARGET ${TARGET_FOR_COPY} POST_BUILD COMMAND cmake -E copy ${EXAMPLE} ${MAIN_PACKAGE_DIR}/examples/ )
+    endforeach( EXAMPLE )
+
     # Copy CKE
     add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E make_directory ${MAIN_PACKAGE_DIR}/ckeditor/ )
     add_custom_command( TARGET ${TARGET_FOR_COPY} POST_BUILD COMMAND cmake -E copy_directory ${PROJECT_SOURCE_DIR}/Resource_Files/javascript/ckeditor ${MAIN_PACKAGE_DIR}/ckeditor/ )
@@ -755,6 +773,7 @@ if( UNIX AND NOT APPLE )
     install( FILES ${LINUX_DESKTOP_ICON_FILE} DESTINATION ${CMAKE_INSTALL_PREFIX}/share/pixmaps RENAME sigil.png )
     install( FILES ${QM_FILES} DESTINATION ${CMAKE_INSTALL_PREFIX}/share/sigil/translations )
     install( FILES ${DIC_FILES} DESTINATION ${CMAKE_INSTALL_PREFIX}/share/sigil/hunspell_dictionaries )
+    install( FILES ${EXAMPLE_FILES} DESTINATION ${CMAKE_INSTALL_PREFIX}/share/sigil/examples )
     install( DIRECTORY Resource_Files/javascript/ckeditor DESTINATION ${CMAKE_INSTALL_PREFIX}/share/sigil )
 endif()
 

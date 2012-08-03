@@ -25,6 +25,7 @@
 
 #include "Tabs/ContentTab.h"
 #include "ViewEditors/CodeViewEditor.h"
+#include "MiscEditors/ClipboardEditorModel.h"
 
 class TextResource;
 class QTextDocument;
@@ -93,6 +94,8 @@ public slots:
      * Implements Paste action functionality.
      */
     void Paste();
+
+    void PasteClipboardEntries(QList<ClipboardEditorModel::clipEntry *> clips);
 
     void CutCodeTags();
 

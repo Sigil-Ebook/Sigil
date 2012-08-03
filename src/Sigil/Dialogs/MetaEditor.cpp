@@ -1,5 +1,7 @@
 /************************************************************************
 **
+**  Copyright (C) 2011, 2012  John Schember <john@nachtimwald.com>
+**  Copyright (C) 2012 Dave Heiland
 **  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -23,9 +25,9 @@
 #include <QtGui/QShowEvent>
 
 #include "Dialogs/MetaEditor.h"
-#include "Dialogs/MetaEditorItemDelegate.h"
 #include "BookManipulation/Metadata.h"
 #include "Dialogs/AddMetadata.h"
+#include "Dialogs/MetaEditorItemDelegate.h"
 #include "Misc/Language.h"
 #include "Misc/SettingsStore.h"
 #include "ResourceObjects/OPFResource.h"
@@ -37,7 +39,7 @@ MetaEditor::MetaEditor( OPFResource &opf, QWidget *parent )
     QDialog( parent ),
     m_OPF( opf ),
     m_Metadata( m_OPF.GetDCMetadata() ),
-    m_cbDelegate(new ComboBoxItemDelegate())
+    m_cbDelegate(new MetaEditorItemDelegate())
 {
     ui.setupUi( this );	
 

@@ -1,5 +1,7 @@
 /************************************************************************
 **
+**  Copyright (C) 2011, 2012  John Schember <john@nachtimwald.com>
+**  Copyright (C) 2012 Dave Heiland
 **  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -30,7 +32,7 @@
 #include "ui_MetaEditor.h"
 
 class OPFResource;
-class ComboBoxItemDelegate;
+class MetaEditorItemDelegate;
 
 /**
  * The editor used to create and modify the book's metadata.
@@ -239,7 +241,7 @@ private:
      */
     int m_ExpandedHeight;
 
-    ComboBoxItemDelegate *m_cbDelegate;
+    MetaEditorItemDelegate *m_cbDelegate;
 
     /**
      * Holds all the widgets Qt Designer created for us.

@@ -458,6 +458,7 @@ void IndexEditor::OpenContextMenu(const QPoint &point)
 
     // Make sure every action is enabled - in case shortcut is used after context menu disables some.
     m_AddEntry->setEnabled(true);
+    m_Cut->setEnabled(true);
     m_Copy->setEnabled(true);
     m_Paste->setEnabled(true);
     m_Delete->setEnabled(true);

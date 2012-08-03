@@ -1,7 +1,8 @@
 /************************************************************************
 **
+**  Copyright (C) 2012 John Schember <john@nachtimwald.com>
+**  Copyright (C) 2012 Dave Heiland
 **  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
-**  Copyright (C) 2012  John Schember <john@nachtimwald.com>
 **
 **  This file is part of Sigil.
 **
@@ -26,6 +27,7 @@
 #include <QtGui/QFileDialog>
 #include <QtGui/QInputDialog>
 #include <QtGui/QMessageBox>
+#include <QtGui/QToolBar>
 #include <QtGui/QProgressDialog>
 
 #include "BookManipulation/BookNormalization.h"
@@ -39,6 +41,7 @@
 #include "Dialogs/SelectImages.h"
 #include "Dialogs/MetaEditor.h"
 #include "Dialogs/Preferences.h"
+#include "Dialogs/ClipboardEditor.h"
 #include "Dialogs/LinkStylesheets.h"
 #include "Exporters/ExportEPUB.h"
 #include "Exporters/ExporterFactory.h"
@@ -50,6 +53,7 @@
 #include "MainUI/TableOfContents.h"
 #include "MainUI/ValidationResultsView.h"
 #include "Misc/KeyboardShortcutManager.h"
+#include "Misc/SettingsStore.h"
 #include "Misc/SpellCheck.h"
 #include "Misc/TOCHTMLWriter.h"
 #include "MiscEditors/IndexHTMLWriter.h"
@@ -116,6 +120,7 @@ MainWindow::MainWindow( const QString &openfilepath, QWidget *parent, Qt::WFlags
     c_LoadFilters( GetLoadFiltersMap() ),
     m_CheckWellFormedErrors( true ),
     m_ViewState( MainWindow::ViewState_BookView ),
+    m_ClipboardEditor(new ClipboardEditor(this)),
     m_IndexEditor(new IndexEditor(this))
 {
     ui.setupUi( this );
@@ -1047,6 +1052,24 @@ MainWindow::ViewState MainWindow::GetViewState()
 void MainWindow::AnyCodeView()
 {
     SetViewState( MainWindow::ViewState_CodeView );
+}
+
+void MainWindow::ClipboardEditorDialog(ClipboardEditorModel::clipEntry* clip_entry)
+{
+    if ( !m_TabManager.TabDataIsWellFormed() )
+
+        return;
+
+    m_TabManager.SaveTabData();
+
+    // non-modal dialog
+    m_ClipboardEditor->show();
+    m_ClipboardEditor->raise();
+    m_ClipboardEditor->activateWindow();
+
+    if (clip_entry) {
+        m_ClipboardEditor->AddEntry(clip_entry->is_group, clip_entry, false);
+    }
 }
 
 bool MainWindow::CloseAllTabs()
@@ -2150,6 +2173,7 @@ void MainWindow::ExtendUI()
     sm->registerAction(ui.actionCount, "MainWindow.Count");
     sm->registerAction(ui.actionGoToLine, "MainWindow.GoToLine");
     sm->registerAction(ui.actionMetaEditor, "MainWindow.MetaEditor");
+    sm->registerAction(ui.actionClipboardEditor, "MainWindow.ClipboardEditor");
     sm->registerAction(ui.actionInsertImage, "MainWindow.InsertImage");
     sm->registerAction(ui.actionAddExistingFile, "MainWindow.AddExistingFile");
     sm->registerAction(ui.actionSplitChapter, "MainWindow.SplitChapter");
@@ -2188,6 +2212,8 @@ void MainWindow::ExtendUI()
     sm->registerAction(ui.actionAbout, "MainWindow.About");
 
     ExtendIconSizes();
+
+    ui.menuToolbars->addAction(ui.Clipboard->toggleViewAction());
 }
 
 
@@ -2328,6 +2354,7 @@ void MainWindow::ConnectSignalsToSlots()
     connect( ui.actionOpenPreviousResource, SIGNAL( triggered() ), m_BookBrowser, SLOT( OpenPreviousResource() ) );
     connect( ui.actionOpenNextResource,     SIGNAL( triggered() ), m_BookBrowser, SLOT( OpenNextResource()     ) );
     connect( ui.actionInsertImage,   SIGNAL( triggered() ), this, SLOT( InsertImage()              ) );
+    connect( ui.actionClipboardEditor, SIGNAL( triggered() ), this, SLOT( ClipboardEditorDialog()      ) );
     connect( ui.actionMetaEditor,    SIGNAL( triggered() ), this, SLOT( MetaEditorDialog()         ) );
     connect( ui.actionUserGuide,     SIGNAL( triggered() ), this, SLOT( UserGuide()                ) );
     connect( ui.actionFAQ,           SIGNAL( triggered() ), this, SLOT( FrequentlyAskedQuestions() ) );
@@ -2441,7 +2468,6 @@ void MainWindow::ConnectSignalsToSlots()
              this,            SLOT( CreateIndex() ) );
 }
 
-
 void MainWindow::MakeTabConnections( ContentTab *tab )
 {
     if ( tab == NULL )
@@ -2478,12 +2504,23 @@ void MainWindow::MakeTabConnections( ContentTab *tab )
         connect( tab,   SIGNAL( EnteringBookView() ),           this,          SLOT( UpdateZoomControls()      ) );
         connect( tab,   SIGNAL( EnteringBookPreview() ),        this,          SLOT( UpdateZoomControls() ) );
         connect( tab,   SIGNAL( EnteringCodeView() ),           this,          SLOT( UpdateZoomControls()      ) );
+
+        connect( tab,   SIGNAL( OpenClipboardEditorRequest(ClipboardEditorModel::clipEntry *) ),
+                 this,  SLOT (  ClipboardEditorDialog( ClipboardEditorModel::clipEntry * ) ) );
+
         connect( tab,   SIGNAL( OpenIndexEditorRequest(IndexEditorModel::indexEntry *) ),
                  this,  SLOT (  IndexEditorDialog( IndexEditorModel::indexEntry * ) ) );
     }
+
     if (tab->GetLoadedResource().Type() == Resource::CSSResourceType )
     {
         connect( tab,   SIGNAL( SelectionChanged() ),           this,          SLOT( UpdateUIOnTabChanges()    ) );
+    }
+
+    if (tab->GetLoadedResource().Type() == Resource::HTMLResourceType ||
+        tab->GetLoadedResource().Type() == Resource::CSSResourceType ) {
+        connect( m_ClipboardEditor, SIGNAL( PasteSelectedClipboardRequest(QList<ClipboardEditorModel::clipEntry *>) ),
+                 tab,                SLOT(   PasteClipboardEntries(QList<ClipboardEditorModel::clipEntry *>) ) );
     }
 
     connect( tab,   SIGNAL( ContentChanged() ),             m_Book.data(), SLOT( SetModified()             ) );
@@ -2512,6 +2549,8 @@ void MainWindow::BreakTabConnections( ContentTab *tab )
 
     disconnect( ui.actionPrintPreview,              0, tab, 0 );
     disconnect( ui.actionPrint,                     0, tab, 0 );
+
+    disconnect( m_ClipboardEditor,                 0, tab, 0 );
 
     disconnect( tab,                                0, this, 0 );
     disconnect( tab,                                0, m_Book.data(), 0 );

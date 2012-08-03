@@ -29,6 +29,7 @@
 #include "MainUI/MainWindow.h"
 #include "Tabs/ContentTab.h"
 #include "Tabs/WellFormedContent.h"
+#include "MiscEditors/ClipboardEditorModel.h"
 #include "MiscEditors/IndexEditorModel.h"
 
 class QSplitter;
@@ -213,6 +214,8 @@ public slots:
      */
     void BookView();
 
+    void PasteClipboardEntries(QList<ClipboardEditorModel::clipEntry *> clips);
+
     /**
      * Implements Split View action functionality.
      */
@@ -283,6 +286,8 @@ signals:
      * Emitted when the state of the Book/Code/Split View buttons has changed.
      */
     void ViewButtonsStateChanged();
+
+    void OpenClipboardEditorRequest(ClipboardEditorModel::clipEntry *clip);
 
     void OpenIndexEditorRequest(IndexEditorModel::indexEntry *index);
 

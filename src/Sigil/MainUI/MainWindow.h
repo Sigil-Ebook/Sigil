@@ -1,5 +1,7 @@
 /************************************************************************
 **
+**  Copyright (C) 2012 John Schember <john@nachtimwald.com>
+**  Copyright (C) 2012 Dave Heiland
 **  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -32,6 +34,8 @@
 #include "MainUI/NCXModel.h"
 #include "Misc/SettingsStore.h"
 #include "Tabs/ContentTab.h"
+#include "MiscEditors/ClipboardEditorModel.h"
+#include "MainUI/FindReplace.h"
 #include "Dialogs/IndexEditor.h"
 #include "MiscEditors/IndexEditorModel.h"
 
@@ -47,6 +51,7 @@ class TabManager;
 class BookBrowser;
 class TableOfContents;
 class ValidationResultsView;
+class ClipboardEditor;
 
 
 /**
@@ -167,6 +172,8 @@ public:
 
     void SaveTabData();
 
+    ClipboardEditorModel* GetClipboardEditorModel();
+
 public slots:
     void OpenFilename( QString filename );
 
@@ -286,6 +293,11 @@ private slots:
      * Implements Meta Editor action functionality.
      */
     void MetaEditorDialog();
+
+    /**
+     * Implements Saved Searches Dialog functionality.
+     */
+    void ClipboardEditorDialog(ClipboardEditorModel::clipEntry* clip_entry = NULL);
 
     /**
      * Implements Tutorials action functionality.
@@ -743,6 +755,7 @@ private:
     /**
      * The find / replace widget.
      */
+
     FindReplace *m_FindReplace;
 
     /**
@@ -793,6 +806,11 @@ private:
      * Holds the view state for new/switched tabs
      */
     MainWindow::ViewState m_ViewState;
+
+    /**
+     * The Search Manager dialog
+     */
+    ClipboardEditor *m_ClipboardEditor;
 
     IndexEditor *m_IndexEditor;
 
