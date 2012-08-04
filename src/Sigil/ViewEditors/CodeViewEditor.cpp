@@ -928,6 +928,10 @@ void CodeViewEditor::mousePressEvent( QMouseEvent *event )
 
 void CodeViewEditor::contextMenuEvent( QContextMenuEvent *event )
 {
+    // We block signals while the menu is executed because we don't want the LostFocus/GainedFocus
+    // events to be triggered which will cause the selection to be changed
+    blockSignals( true );
+
     QMenu *menu = createStandardContextMenu();
 
     bool offered_spelling = false;
@@ -943,6 +947,8 @@ void CodeViewEditor::contextMenuEvent( QContextMenuEvent *event )
 
     menu->exec(event->globalPos());
     delete menu;
+	
+    blockSignals(false);
 }
 
 bool CodeViewEditor::AddSpellCheckContextMenu(QMenu *menu)

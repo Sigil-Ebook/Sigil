@@ -247,11 +247,6 @@ signals:
     void EnteringCodeView();
 
     /**
-     * Emitted when the View changes.
-     */
-    void ViewChanged();
-
-    /**
      * Emitted when the selection in the view has changed.
      */
     void SelectionChanged();
@@ -281,11 +276,6 @@ signals:
      * will be created after.
      */
     void NewChaptersRequest( QStringList chapters, HTMLResource &originating_resource );
-
-    /**
-     * Emitted when the state of the Book/Code/Split View buttons has changed.
-     */
-    void ViewButtonsStateChanged();
 
     void OpenClipboardEditorRequest(ClipboardEditorModel::clipEntry *clip);
 
