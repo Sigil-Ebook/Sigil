@@ -1,8 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2011, 2012  John Schember <john@nachtimwald.com>
+**  Copyright (C) 2012 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012 Dave Heiland
-**  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
 **
@@ -22,24 +21,25 @@
 *************************************************************************/
 
 #pragma once
-#ifndef METADATAITEMDELEGATE_H
-#define METADATAITEMDELEGATE_H
+#ifndef SEARCHEDITORTREEVIEW_H
+#define SEARCHEDITORTREEVIEW_H
 
-#include <QtGui/QStyledItemDelegate>
+#include <QtGui/QTreeView>
+#include <QDragEnterEvent>
+#include <QDragMoveEvent>
 
-class MetaEditorItemDelegate : public QStyledItemDelegate
+class SearchEditorTreeView : public QTreeView
 {
-    Q_OBJECT
- 
-public:
-    MetaEditorItemDelegate(QObject *parent = 0);
-    ~MetaEditorItemDelegate();
- 
-    virtual QWidget *createEditor( QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index ) const;
-    virtual void setEditorData ( QWidget *editor, const QModelIndex &index ) const;
-    virtual void setModelData ( QWidget *editor, QAbstractItemModel *model, const QModelIndex &index ) const;
- 
-};
- 
 
-#endif // METADATAITEMDELEGATE_H
+public:
+     SearchEditorTreeView(QWidget* parent = 0);
+     ~SearchEditorTreeView();
+
+protected:
+    void dragEnterEvent(QDragEnterEvent* event);
+    void dragMoveEvent(QDragMoveEvent* event);
+    QModelIndex moveCursor(CursorAction cursorAction, Qt::KeyboardModifiers modifiers);
+
+};
+
+#endif // SEARCHEDITORTREEVIEW_H

@@ -1,8 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2011, 2012  John Schember <john@nachtimwald.com>
+**  Copyright (C) 2012 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012 Dave Heiland
-**  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
 **
@@ -22,24 +21,23 @@
 *************************************************************************/
 
 #pragma once
-#ifndef METADATAITEMDELEGATE_H
-#define METADATAITEMDELEGATE_H
+#ifndef SEARCHEDITORITEMDELEGATE_H
+#define SEARCHEDITORITEMDELEGATE_H
 
 #include <QtGui/QStyledItemDelegate>
 
-class MetaEditorItemDelegate : public QStyledItemDelegate
+class SearchEditorItemDelegate : public QStyledItemDelegate
 {
     Q_OBJECT
  
 public:
-    MetaEditorItemDelegate(QObject *parent = 0);
-    ~MetaEditorItemDelegate();
+    SearchEditorItemDelegate(QObject *parent = 0);
+    ~SearchEditorItemDelegate();
  
-    virtual QWidget *createEditor( QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index ) const;
-    virtual void setEditorData ( QWidget *editor, const QModelIndex &index ) const;
-    virtual void setModelData ( QWidget *editor, QAbstractItemModel *model, const QModelIndex &index ) const;
+    virtual QWidget *createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const;
+    virtual void setEditorData (QWidget *editor, const QModelIndex &index) const;
+    virtual void setModelData (QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) const;
  
 };
  
-
-#endif // METADATAITEMDELEGATE_H
+#endif // SEARCHEDITORITEMDELEGATE_H

@@ -34,6 +34,8 @@
 #include "MainUI/NCXModel.h"
 #include "Misc/SettingsStore.h"
 #include "Tabs/ContentTab.h"
+#include "MiscEditors/SearchEditorModel.h"
+#include "MainUI/FindReplace.h"
 #include "MiscEditors/ClipboardEditorModel.h"
 #include "MainUI/FindReplace.h"
 #include "Dialogs/IndexEditor.h"
@@ -51,6 +53,7 @@ class TabManager;
 class BookBrowser;
 class TableOfContents;
 class ValidationResultsView;
+class SearchEditor;
 class ClipboardEditor;
 
 
@@ -171,6 +174,8 @@ public:
     bool CloseAllTabs();
 
     void SaveTabData();
+
+    SearchEditorModel* GetSearchEditorModel();
 
     ClipboardEditorModel* GetClipboardEditorModel();
 
@@ -295,8 +300,10 @@ private slots:
     void MetaEditorDialog();
 
     /**
-     * Implements Saved Searches Dialog functionality.
+     * Implements Search Editor Dialog functionality.
      */
+    void SearchEditorDialog(SearchEditorModel::searchEntry* search_entry = NULL);
+
     void ClipboardEditorDialog(ClipboardEditorModel::clipEntry* clip_entry = NULL);
 
     /**
@@ -810,6 +817,13 @@ private:
     /**
      * The Search Manager dialog
      */
+    SearchEditor *m_SearchEditor;
+
+    /**
+     * The storage for SearchEditor
+     */
+    SearchEditorModel *m_SearchEditorModel;
+
     ClipboardEditor *m_ClipboardEditor;
 
     IndexEditor *m_IndexEditor;

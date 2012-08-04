@@ -1,8 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2011, 2012  John Schember <john@nachtimwald.com>
+**  Copyright (C) 2012 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012 Dave Heiland
-**  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
 **
@@ -22,24 +21,29 @@
 *************************************************************************/
 
 #pragma once
-#ifndef METADATAITEMDELEGATE_H
-#define METADATAITEMDELEGATE_H
+#ifndef FINDREPLACEQLINEEDIT_H
+#define FINDREPLACEQLINEEDIT_H
 
-#include <QtGui/QStyledItemDelegate>
+#include <QtGui/QLineEdit>
+#include <QtGui/QStandardItem>
 
-class MetaEditorItemDelegate : public QStyledItemDelegate
+class QContextMenuEvent;
+class QSignalMapper;
+
+class FindReplaceQLineEdit : public QLineEdit
 {
-    Q_OBJECT
  
 public:
-    MetaEditorItemDelegate(QObject *parent = 0);
-    ~MetaEditorItemDelegate();
+    FindReplaceQLineEdit(QWidget *parent = 0);
+    ~FindReplaceQLineEdit();
  
-    virtual QWidget *createEditor( QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index ) const;
-    virtual void setEditorData ( QWidget *editor, const QModelIndex &index ) const;
-    virtual void setModelData ( QWidget *editor, QAbstractItemModel *model, const QModelIndex &index ) const;
- 
-};
- 
+    virtual void contextMenuEvent(QContextMenuEvent *event);
 
-#endif // METADATAITEMDELEGATE_H
+private:
+    bool CreateMenuEntries(QMenu *parent_menu, QAction *topAction, QStandardItem *entry);
+
+    QWidget *m_FindReplace;
+    QSignalMapper *m_searchMapper;
+};
+
+#endif // FINDREPLACEQLINEEDIT_H

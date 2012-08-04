@@ -57,6 +57,7 @@ set( QOBJECT_HEADERS
     Dialogs/PreferenceWidgets/SpellCheckWidget.h
     Dialogs/RenameTemplate.h
     Dialogs/LinkStylesheets.h
+    Dialogs/SearchEditor.h
     Dialogs/ClipboardEditor.h
     Dialogs/IndexEditor.h
     Tabs/TabManager.h
@@ -78,11 +79,14 @@ set( QOBJECT_HEADERS
     MainUI/NCXModel.h
     MainUI/ValidationResultsView.h
     Misc/AppEventFilter.h
+    Misc/FindFields.h
     Misc/SettingsStore.h
     Misc/UILanguage.h
     Misc/UpdateChecker.h 
     Misc/RasterizeImageResource.h
     Misc/WrapIndicator.h
+    MiscEditors/SearchEditorItemDelegate.h
+    MiscEditors/SearchEditorModel.h
     MiscEditors/ClipboardEditorTreeView.h
     MiscEditors/ClipboardEditorModel.h
     MiscEditors/IndexEditorModel.h
@@ -186,6 +190,8 @@ set( DIALOG_FILES
     Dialogs/RenameTemplate.h
     Dialogs/LinkStylesheets.cpp
     Dialogs/LinkStylesheets.h
+    Dialogs/SearchEditor.cpp
+    Dialogs/SearchEditor.h
     Dialogs/ClipboardEditor.cpp
     Dialogs/ClipboardEditor.h
     Dialogs/IndexEditor.cpp
@@ -229,6 +235,10 @@ set( MISC_FILES
     Misc/Utility.cpp
     Misc/Utility.h
     Misc/SleepFunctions.h
+    Misc/FindFields.cpp
+    Misc/FindFields.h
+    Misc/FindReplaceQLineEdit.cpp
+    Misc/FindReplaceQLineEdit.h
     Misc/FilenameDelegate.cpp
     Misc/FilenameDelegate.h
     Misc/XHTMLHighlighter.cpp
@@ -267,6 +277,10 @@ set( MISC_FILES
     )
 
 set( MISC_EDITORS_FILES    
+    MiscEditors/ClipboardEditorModel.cpp
+    MiscEditors/ClipboardEditorModel.h
+    MiscEditors/ClipboardEditorTreeView.cpp
+    MiscEditors/ClipboardEditorTreeView.h
     MiscEditors/IndexEditorModel.cpp
     MiscEditors/IndexEditorModel.h
     MiscEditors/IndexEditorTreeView.cpp
@@ -275,10 +289,12 @@ set( MISC_EDITORS_FILES
     MiscEditors/IndexEntries.h
     MiscEditors/IndexHTMLWriter.cpp
     MiscEditors/IndexHTMLWriter.h
-    MiscEditors/ClipboardEditorModel.cpp
-    MiscEditors/ClipboardEditorModel.h
-    MiscEditors/ClipboardEditorTreeView.cpp
-    MiscEditors/ClipboardEditorTreeView.h
+    MiscEditors/SearchEditorTreeView.cpp
+    MiscEditors/SearchEditorTreeView.h
+    MiscEditors/SearchEditorItemDelegate.cpp
+    MiscEditors/SearchEditorItemDelegate.h
+    MiscEditors/SearchEditorModel.cpp
+    MiscEditors/SearchEditorModel.h
     )
 
 set( SPCRE_FILES
@@ -367,6 +383,7 @@ set( UI_FILES
     Form_Files/PSpellCheckWidget.ui
     Form_Files/RenameTemplate.ui 
     Form_Files/LinkStylesheets.ui 
+    Form_Files/SearchEditor.ui
     Form_Files/ClipboardEditor.ui
     Form_Files/IndexEditor.ui 
     )

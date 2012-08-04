@@ -1,4 +1,5 @@
 Sigil 0.6.0 TBA
+    - Implement issue 715: Search Editor for saving and executing Find & Replaces searches.
     - Implement issue 588: Clipboard Editor for saving and inserting text.
     - Implement issue 1519: Navigate between links in Code View.
     - Implement issue 167: Index Editor to create a book index.

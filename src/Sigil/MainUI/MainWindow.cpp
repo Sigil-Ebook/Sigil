@@ -41,6 +41,7 @@
 #include "Dialogs/SelectImages.h"
 #include "Dialogs/MetaEditor.h"
 #include "Dialogs/Preferences.h"
+#include "Dialogs/SearchEditor.h"
 #include "Dialogs/ClipboardEditor.h"
 #include "Dialogs/LinkStylesheets.h"
 #include "Exporters/ExportEPUB.h"
@@ -120,6 +121,7 @@ MainWindow::MainWindow( const QString &openfilepath, QWidget *parent, Qt::WFlags
     c_LoadFilters( GetLoadFiltersMap() ),
     m_CheckWellFormedErrors( true ),
     m_ViewState( MainWindow::ViewState_BookView ),
+    m_SearchEditor(new SearchEditor(this)),
     m_ClipboardEditor(new ClipboardEditor(this)),
     m_IndexEditor(new IndexEditor(this))
 {
@@ -1054,11 +1056,29 @@ void MainWindow::AnyCodeView()
     SetViewState( MainWindow::ViewState_CodeView );
 }
 
+void MainWindow::SearchEditorDialog(SearchEditorModel::searchEntry* search_entry)
+{
+    if ( !m_TabManager.TabDataIsWellFormed() ) {
+        return;
+    }
+
+    m_TabManager.SaveTabData();
+
+    // non-modal dialog
+    m_SearchEditor->show();
+    m_SearchEditor->raise();
+    m_SearchEditor->activateWindow();
+
+    if (search_entry) {
+        m_SearchEditor->AddEntry(search_entry->is_group, search_entry, false);
+    }
+}
+
 void MainWindow::ClipboardEditorDialog(ClipboardEditorModel::clipEntry* clip_entry)
 {
-    if ( !m_TabManager.TabDataIsWellFormed() )
-
+    if ( !m_TabManager.TabDataIsWellFormed() ) {
         return;
+    }
 
     m_TabManager.SaveTabData();
 
@@ -2173,6 +2193,7 @@ void MainWindow::ExtendUI()
     sm->registerAction(ui.actionCount, "MainWindow.Count");
     sm->registerAction(ui.actionGoToLine, "MainWindow.GoToLine");
     sm->registerAction(ui.actionMetaEditor, "MainWindow.MetaEditor");
+    sm->registerAction(ui.actionSearchEditor, "MainWindow.SearchEditor");
     sm->registerAction(ui.actionClipboardEditor, "MainWindow.ClipboardEditor");
     sm->registerAction(ui.actionInsertImage, "MainWindow.InsertImage");
     sm->registerAction(ui.actionAddExistingFile, "MainWindow.AddExistingFile");
@@ -2356,6 +2377,7 @@ void MainWindow::ConnectSignalsToSlots()
     connect( ui.actionInsertImage,   SIGNAL( triggered() ), this, SLOT( InsertImage()              ) );
     connect( ui.actionClipboardEditor, SIGNAL( triggered() ), this, SLOT( ClipboardEditorDialog()      ) );
     connect( ui.actionMetaEditor,    SIGNAL( triggered() ), this, SLOT( MetaEditorDialog()         ) );
+    connect( ui.actionSearchEditor, SIGNAL( triggered() ), this, SLOT( SearchEditorDialog()      ) );
     connect( ui.actionUserGuide,     SIGNAL( triggered() ), this, SLOT( UserGuide()                ) );
     connect( ui.actionFAQ,           SIGNAL( triggered() ), this, SLOT( FrequentlyAskedQuestions() ) );
     connect( ui.actionTutorials,     SIGNAL( triggered() ), this, SLOT( Tutorials()                ) );
@@ -2463,6 +2485,20 @@ void MainWindow::ConnectSignalsToSlots()
 
     connect( &m_TabManager, SIGNAL( NewChaptersRequest( QStringList, HTMLResource& ) ),
              this,          SLOT(   CreateNewChapters(  QStringList, HTMLResource& ) ) );
+
+    connect(m_FindReplace, SIGNAL( OpenSearchEditorRequest(SearchEditorModel::searchEntry *) ),
+            this,          SLOT( SearchEditorDialog(SearchEditorModel::searchEntry *)     ) );
+
+    connect(m_SearchEditor, SIGNAL(LoadSelectedSearchRequest(      SearchEditorModel::searchEntry *)),
+            m_FindReplace,   SLOT( LoadSearch(                     SearchEditorModel::searchEntry *)));
+    connect(m_SearchEditor, SIGNAL(FindSelectedSearchRequest(      QList<SearchEditorModel::searchEntry *>)),
+            m_FindReplace,   SLOT( FindSearch(                     QList<SearchEditorModel::searchEntry *>)));
+    connect(m_SearchEditor, SIGNAL(ReplaceSelectedSearchRequest(   QList<SearchEditorModel::searchEntry *>)),
+            m_FindReplace,   SLOT( ReplaceSearch(                  QList<SearchEditorModel::searchEntry *>)));
+    connect(m_SearchEditor, SIGNAL(CountAllSelectedSearchRequest(  QList<SearchEditorModel::searchEntry *>)),
+            m_FindReplace,   SLOT( CountAllSearch(                 QList<SearchEditorModel::searchEntry *>)));
+    connect(m_SearchEditor, SIGNAL(ReplaceAllSelectedSearchRequest(QList<SearchEditorModel::searchEntry *>)),
+            m_FindReplace,   SLOT( ReplaceAllSearch(               QList<SearchEditorModel::searchEntry *>)));
 
     connect( m_IndexEditor, SIGNAL( CreateIndexRequest() ),
              this,            SLOT( CreateIndex() ) );

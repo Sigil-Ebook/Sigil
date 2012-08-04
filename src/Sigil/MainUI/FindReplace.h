@@ -1,6 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2011  John Schember <john@nachtimwald.com>
+**  Copyright (C) 2011, 2012  John Schember <john@nachtimwald.com>
+**  Copyright (C) 2012 Dave Heiland
 **  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -27,9 +28,11 @@
 #include <QtCore/QTimer>
 
 #include "ui_FindReplace.h"
+#include "Misc/FindFields.h"
 #include "BookManipulation/FolderKeeper.h"
 #include "MainUI/MainWindow.h"
 #include "Misc/SearchOperations.h"
+#include "MiscEditors/SearchEditorModel.h"
 #include "ViewEditors/Searchable.h"
 
 class HTMLResource;
@@ -63,31 +66,6 @@ public:
     typedef unsigned int FR_Capabilities;
 
     /**
-     * Defines possible areas where the search can be performed.
-     */
-    enum LookWhere
-    {
-        LookWhere_CurrentFile = 0,
-        LookWhere_AllHTMLFiles = 10,
-        LookWhere_SelectedHTMLFiles = 20
-    };
-
-    enum SearchMode
-    {
-        // Case insensitive
-        SearchMode_Normal = 0,
-        SearchMode_Case_Sensitive = 10,
-        SearchMode_Regex = 20,
-        SearchMode_SpellCheck = 40
-    };
-
-    enum SearchDirection
-    {
-        SearchDirection_Down = 0,
-        SearchDirection_Up = 10
-    };
-
-    /**
      * Sets up the default Find text during dialog creation.
      */
     void SetUpFindText();
@@ -101,6 +79,21 @@ public:
 public slots:
     void close();
     void show();
+
+    void LoadSearchByName(QString name);
+
+    void LoadSearch(SearchEditorModel::searchEntry *search_entry);
+    void FindSearch(QList<SearchEditorModel::searchEntry *> search_entries);
+    void ReplaceSearch(QList<SearchEditorModel::searchEntry *> search_entries);
+    void CountAllSearch(QList<SearchEditorModel::searchEntry *> search_entries);
+    void ReplaceAllSearch(QList<SearchEditorModel::searchEntry *>search_entries);
+
+    void OpenSearchEditor();
+signals:
+
+    void OpenSearchEditorRequest(SearchEditorModel::searchEntry *search_entry = NULL);
+
+    void AddedSearchEntry();
 
 protected:
     void keyPressEvent(QKeyEvent *event);
@@ -117,41 +110,43 @@ private slots:
 
     // Uses the find direction to determine if we should find next
     // or previous.
-    void Find();
+    bool Find();
 
-    void FindNext();
+    bool FindNext();
 
-    void FindPrevious();
+    bool FindPrevious();
 
     // Counts the number of occurrences of the user's
     // term in the document.
-    void Count();
+    int Count();
 
     // Uses the find direction to determine if we should replace next
     // or previous.
-    void Replace();
+    bool Replace();
 
     // Replaces the user's search term with the user's
     // replacement text if a match is selected. If it's not,
     // calls FindNext() so it becomes selected.
-    void ReplaceNext();
+    bool ReplaceNext();
 
-    void ReplacePrevious();
+    bool ReplacePrevious();
 
     // Replaces the user's search term with the user's
     // replacement text in the entire document. Shows a
     // dialog telling how many occurrences were replaced.
-    void ReplaceAll();
+    int ReplaceAll();
 
     void clearMessage();
 
     void expireMessage();
 
+    void SaveSearchAction();
+
     void HideFindReplace();
 
 private:
-    void FindText( Searchable::Direction direction );
-    void ReplaceText( Searchable::Direction direction );
+    bool FindText( Searchable::Direction direction );
+    bool ReplaceText( Searchable::Direction direction );
 
     /**
      * Checks if book-wide searching is allowed for the current view.
@@ -211,26 +206,26 @@ private:
      * Updates the find combo box with the
      * currently typed-in string.
      */
-    void UpdatePreviousFindStrings();
+    void UpdatePreviousFindStrings(const QString &text = QString());
 
     /**
      * Updates the replace combo box with the
      * currently typed-in string.
      */
-    void UpdatePreviousReplaceStrings();
+    void UpdatePreviousReplaceStrings(const QString &text = QString());
 
-    LookWhere GetLookWhere();
-    SearchMode GetSearchMode();
-    SearchDirection GetSearchDirection();
+    FindFields::LookWhere GetLookWhere();
+    FindFields::SearchMode GetSearchMode();
+    FindFields::SearchDirection GetSearchDirection();
 
     // Checks if Find is empty when not checking spelling
     bool IsValidFindText();
 
-    // Reads all the stored dialog settings like
+    // Reads all the stored dialog settings
     void ReadSettings();
     void ReadUIMode();
 
-    // Writes all the stored dialog settings like
+    // Writes all the stored dialog settings
     void WriteSettings();
     void WriteUIMode();
 
@@ -261,7 +256,7 @@ template< class T >
 bool FindReplace::ResourceContainsCurrentRegex( T *resource )
 {
     // For now, this must hold
-    Q_ASSERT( GetLookWhere() == FindReplace::LookWhere_AllHTMLFiles || GetLookWhere() == FindReplace::LookWhere_SelectedHTMLFiles );
+    Q_ASSERT( GetLookWhere() == FindFields::LookWhere_AllHTMLFiles || GetLookWhere() == FindFields::LookWhere_SelectedHTMLFiles );
 
     Resource *generic_resource = resource;
 
@@ -269,7 +264,7 @@ bool FindReplace::ResourceContainsCurrentRegex( T *resource )
             GetSearchRegex(),
             QList< Resource* >() << generic_resource,
             SearchOperations::CodeViewSearch,
-            GetSearchMode() == FindReplace::SearchMode_SpellCheck ) > 0;
+            GetSearchMode() == FindFields::SearchMode_SpellCheck ) > 0;
 }
 
 #endif // FINDREPLACE_H

@@ -171,6 +171,8 @@
     <addaction name="actionCount"/>
     <addaction name="separator"/>
     <addaction name="actionGoToLine"/>
+     <addaction name="separator"/>
+     <addaction name="actionSearchEditor"/>
    </widget>
    <widget class="QMenu" name="menu_Window">
     <property name="title">
@@ -902,6 +904,14 @@
    </property>
    <property name="shortcut">
     <string>Alt+C</string>
+   </property>
+  </action>
+  <action name="actionSearchEditor">
+   <property name="text">
+    <string>Search Editor</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Alt+F</string>
    </property>
   </action>
   <action name="actionClipboardEditor">

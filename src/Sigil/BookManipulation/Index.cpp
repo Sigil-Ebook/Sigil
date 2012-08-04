@@ -25,13 +25,14 @@
 #include <QtCore/QtCore>
 #include <QtGui/QProgressDialog>
 
-#include "BookManipulation/Index.h"
 #include "ResourceObjects/HTMLResource.h"
 #include "BookManipulation/XercesCppUse.h"
 #include "BookManipulation/XhtmlDoc.h"
 #include "MiscEditors/IndexEditorModel.h"
+#include "BookManipulation/Index.h"
 #include "MiscEditors/IndexEntries.h"
 #include "sigil_constants.h"
+
 
 using boost::shared_ptr;
 
