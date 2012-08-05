@@ -73,7 +73,7 @@ void ClipboardEditor::SetupClipboardEditorTree()
         "</dl>");
 
     ui.ClipboardEditorTree->header()->setStretchLastSection(true);
-    for (int column; column < ui.ClipboardEditorTree->header()->count(); column++) {
+    for (int column = 0; column < ui.ClipboardEditorTree->header()->count(); column++) {
         ui.ClipboardEditorTree->resizeColumnToContents(column);
     }
 }

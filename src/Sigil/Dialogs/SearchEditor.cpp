@@ -82,7 +82,7 @@ void SearchEditor::SetupSearchEditorTree()
         "</dl>");
 
     ui.SearchEditorTree->header()->setStretchLastSection(false);
-    for (int column; column < ui.SearchEditorTree->header()->count(); column++) {
+    for (int column = 0; column < ui.SearchEditorTree->header()->count(); column++) {
         ui.SearchEditorTree->resizeColumnToContents(column);
     }
 

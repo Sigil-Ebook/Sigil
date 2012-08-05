@@ -926,8 +926,18 @@ void CodeViewEditor::mousePressEvent( QMouseEvent *event )
 }
 
 
+// Overridden so we can block the focus out signal for Windows.
+// Right clicking and calling the context menu will cause the
+// editor to loose focus. When it looses focus the code is checked
+// if it is well formed. If it is not a message box is shown asking
+// if the user would like to auto correct. This causes the context
+// menu to disappear and thus be inaccessible to the user.
 void CodeViewEditor::contextMenuEvent( QContextMenuEvent *event )
 {
+    // We block signals whle the menu is executed because we don't want the
+    // well formed check to be triggered.
+    blockSignals( true );
+
     QMenu *menu = createStandardContextMenu();
 
     bool offered_spelling = false;
@@ -943,6 +953,8 @@ void CodeViewEditor::contextMenuEvent( QContextMenuEvent *event )
 
     menu->exec(event->globalPos());
     delete menu;
+
+    blockSignals( false );
 }
 
 bool CodeViewEditor::AddSpellCheckContextMenu(QMenu *menu)
