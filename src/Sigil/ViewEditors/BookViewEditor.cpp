@@ -253,19 +253,6 @@ QString BookViewEditor::SplitChapter()
     return new_text;
 }
 
-//   We need to make sure that the Book View has focus,
-// but just calling setFocus isn't enough because Nokia
-// did a terrible job integrating Webkit. So we first
-// have to steal focus away, and then give it back.
-//   If we don't steal focus first, then the QWebView
-// can have focus (and its QWebFrame) and still not
-// really have it (no blinking cursor).
-void BookViewEditor::GrabFocus()
-{
-    qobject_cast<QWidget *>(parent())->setFocus();
-    QWebView::setFocus();
-}
-
 bool BookViewEditor::IsModified()
 {
     QString javascript = "CKEDITOR.instances.editor.checkDirty();";

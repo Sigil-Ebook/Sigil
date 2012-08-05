@@ -89,6 +89,11 @@ public:
 
     QString GetSelectedText();
 
+    /**
+     *  Workaround for a crappy setFocus implementation in QtWebKit.
+     */
+    void GrabFocus();
+
 signals:
     /**
      * Emitted whenever the zoom factor changes.

@@ -643,6 +643,7 @@ void FlowTab::SplitView()
     QApplication::setOverrideCursor(Qt::WaitCursor);
 
     m_views->setCurrentIndex(PV_INDEX);
+    m_wBookPreview->GrabFocus();
     m_wCodeView->SetDelayedCursorScreenCenteringRequired();
 
     QApplication::restoreOverrideCursor();

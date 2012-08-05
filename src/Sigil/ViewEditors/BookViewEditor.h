@@ -84,11 +84,6 @@ public:
      */
     QString SplitChapter();
 
-    /**
-     *  Workaround for a crappy setFocus implementation in QtWebKit.
-     */
-    void GrabFocus();
-
     bool IsModified();
     void ResetModified();
 

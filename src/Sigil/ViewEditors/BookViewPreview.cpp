@@ -239,3 +239,21 @@ QVariant BookViewPreview::EvaluateJavascript(const QString &javascript)
 {
     return page()->mainFrame()->evaluateJavaScript(javascript);
 }
+
+//   We need to make sure that the Book View has focus,
+// but just calling setFocus isn't enough because Nokia
+// did a terrible job integrating Webkit. So we first
+// have to steal focus away, and then give it back.
+//   If we don't steal focus first, then the QWebView
+// can have focus (and its QWebFrame) and still not
+// really have it (no blinking cursor).
+//   We also still need to attempt to GrabFocus even
+// when shown as a Preview page (even though no cursor
+// is shown) or else the QStackWidget will explode on
+// Windows when switching to another tab when it tries
+// to determine where the previous focus was.
+void BookViewPreview::GrabFocus()
+{
+    qobject_cast<QWidget *>(parent())->setFocus();
+    QWebView::setFocus();
+}
