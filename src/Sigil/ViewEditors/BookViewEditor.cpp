@@ -25,6 +25,7 @@
 #include <QtGui/QDesktopServices>
 #include <QtGui/QKeyEvent>
 #include <QtGui/QMessageBox>
+#include <QtGui/QShortcut>
 #include <QtGui/QTextDocument>
 #include <QtWebKit/QWebFrame>
 
@@ -33,92 +34,47 @@
 #include "Misc/Utility.h"
 #include "PCRE/PCRECache.h"
 #include "sigil_constants.h"
+#include "sigil_exception.h"
 #include "ViewEditors/BookViewEditor.h"
 
 const int PROGRESS_BAR_MINIMUM_DURATION = 1500;
-const QString BV_BREAK_TAG_INSERT = "<hr class=\"sigilBVTmpChapterBreak\" />";
-const QString BV_BREAK_TAG_SEARCH  = "(<div>\\s*)?<hr\\s*class\\s*=\\s*\"[^\"]*sigilBVTmpChapterBreak\[^\"]*\"\\s*/>(\\s*</div>)?";
 
 const QString BREAK_TAG_INSERT    = "<hr class=\"sigilChapterBreak\" />";
-// %1 = CKE path.
-// %2 = Text to load.
-// %3 = language
-// %4 = customConfig : '/custom/ckeditor_config.js'.
-const QString CKE_BASE =
-    "<html>"
-    "<head>"
-    "    <script type=\"text/javascript\" src=\"%1/ckeditor.js\"></script>"
-    "</head>"
-    "<body>"
-    "    <textarea id=\"editor\" name=\"editor\"></textarea>"
-    "    <script type=\"text/javascript\">"
-    "        CKEDITOR.replace('editor', { fullPage: true, startupFocus: true, extraPlugins: 'onchange,docprops', language: '%2',"
-    "            coreStyles_bold: { element : 'span', attributes :  {'style': 'font-weight: bold;'} },"
-    "            coreStyles_italic: { element : 'span', attributes : {'style': 'font-style: italic;'}},"
-    "            coreStyles_underline: { element : 'span', attributes : {'style': 'text-decoration: underline;'}},"
-    "            coreStyles_strike: { element : 'span', attributes : {'style': 'text-decoration: line-through;'}, onchangeverrides : 'strike' },"
-    "            coreStyles_subscript : { element : 'span', attributes : {'style': 'vertical-align: sub; font-size: smaller;'}, overrides : 'sub' },"
-    "            coreStyles_superscript : { elementent : 'span', attributes : {'style': 'vertical-align: super; font-size: smaller;'}, overrides : 'sup' },"
-    "        %3});"
-    "        CKEDITOR.on('instanceReady', function(e) { e.editor.execCommand('maximize'); });"
-    "        CKEDITOR.instances.editor.on('change', function() { BookViewEditor.TextChangedFilter(); });"
-    "        CKEDITOR.editor.prototype.sigil_apply_selection = function(sel) {"
-    "            function _set(r, n, off, func1, func2) {"
-    "                if (n.nodeType == 3) {"
-    "                    if (off > n.nodeValue.length) { off = n.nodeValue.length; }"
-    "                    func1.call(r, n, off);"
-    "                } else { func2.call(r, n); }"
-    "            }"
-    "            function _traverse(el, addr) {"
-    "                if (addr.length == 0) { return el; }"
-    "                var index = addr.shift();"
-    "                if (index < el.childNodes.length) { return _traverse(el.childNodes[index], addr); }"
-    "                return el.lastChild ? el.lastChild : el;"
-    "            }"
-    "            var range = this.document.$.createRange();"
-    "            var start = _traverse(this.document.$.body, sel.start_address);"
-    "            _set(range, start, sel.start_offset, range.setStart, range.setStartAfter);"
-    "            if (sel.end_address) {"
-    "                var end = _traverse(this.document.$.body, sel.end_address);"
-    "                _set(range, end, sel.end_offset, range.setEnd, range.setEndAfter);"
-    "            } else { range.collapse(true); }"
-    //"            console.log(range.startContainer + ':' + range.startOffset + ' ' + range.endContainer + ':' + range.endOffset);"
-    "            this.document.$.getSelection().removeAllRanges();"
-    "            this.document.$.getSelection().addRange(range);"
-    "            this.getSelection().scrollIntoView();"
-    "        }"
-    "    </script>"
-    "</body>"
-    "</html>";
+const QString XML_NAMESPACE_CRUFT = "xmlns=\"http://www.w3.org/1999/xhtml\"";
+const QString REPLACE_SPANS = "<span class=\"SigilReplace_\\d*\"( id=\"SigilReplace_\\d*\")*>";
 
-const QString GET_SELECTION =
-    "var ranges = CKEDITOR.instances.editor.getSelection().getRanges();"
-    "var range = ranges.length > 0 ? ranges[0] : null;"
-    "!range ? null :"
-    "        '{\"start_address\":[' + range.startContainer.getAddress().slice(1) + '],\"start_offset\":' + range.startOffset +"
-    "          ',\"end_address\":' + (range.collapsed ? 'null' : ('[' + range.endContainer.getAddress().slice(1) + ']')) +"
-    "           ',\"end_offset\":' + range.endOffset + '}';"
-    ;
+const QString XML_TAG = "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"no\"?>";
 
-const QString SET_DATA_AND_SELECTION =
-    "function load_new_data(data) {"
-    "   try { var set_data = CKEDITOR.instances.editor.setData; }" // on the initial load, CKEDITOR may not have fully loaded yet
-    "   catch (ex) { setTimeout(function() { load_new_data(data); }, 25); return; }"
-    "   CKEDITOR.instances.editor.setData(data, function() {"
-    "       this.focus();"
-    "       var saved_selection = %1;"
-    "       if (saved_selection) { this.sigil_apply_selection(saved_selection); }"
-    "   });"
-    "}"
-    "var new_data = BookViewEditor.new_data;"
-    "load_new_data(new_data);";
+/**
+ * The JavaScript source code for getting a string representation
+ * of the "body" tag (without the children).
+ */
+static const QString GET_BODY_TAG_HTML = "new XMLSerializer().serializeToString( document.body.cloneNode(false) );";
+
 
 BookViewEditor::BookViewEditor(QWidget *parent)
     :
-    BookViewPreview(parent)
+    BookViewPreview(parent),
+    m_WebPageModified( false ),
+    m_PageUp(   *( new QShortcut( QKeySequence( QKeySequence::MoveToPreviousPage ), this, 0, 0, Qt::WidgetShortcut ) ) ),
+    m_PageDown( *( new QShortcut( QKeySequence( QKeySequence::MoveToNextPage     ), this, 0, 0, Qt::WidgetShortcut ) ) ),
+    m_ScrollOneLineUp(   *( new QShortcut( QKeySequence( Qt::ControlModifier + Qt::Key_Up   ), this, 0, 0, Qt::WidgetShortcut ) ) ),
+    m_ScrollOneLineDown( *( new QShortcut( QKeySequence( Qt::ControlModifier + Qt::Key_Down ), this, 0, 0, Qt::WidgetShortcut ) ) ),
+    c_NewSelection(     Utility::ReadUnicodeTextFile( ":/javascript/new_selection.js"              ) ),
+    c_GetRange(         Utility::ReadUnicodeTextFile( ":/javascript/get_range.js"                  ) ),
+    c_ReplaceWrapped(   Utility::ReadUnicodeTextFile( ":/javascript/replace_wrapped.js"            ) ),
+    c_ReplaceUndo(      Utility::ReadUnicodeTextFile( ":/javascript/replace_undo.js"               ) ),
+    c_GetSegmentHTML(   Utility::ReadUnicodeTextFile( ":/javascript/get_segment_html.js"           ) ),
+    c_GetBlock(         Utility::ReadUnicodeTextFile( ":/javascript/get_block.js"                  ) ),
+    c_FormatBlock(      Utility::ReadUnicodeTextFile( ":/javascript/format_block.js"               ) )
 {
+    setContextMenuPolicy(Qt::DefaultContextMenu);
     page()->settings()->setAttribute(QWebSettings::DeveloperExtrasEnabled, false);
     page()->settings()->setAttribute(QWebSettings::JavascriptCanAccessClipboard, true);
+    page()->settings()->setAttribute( QWebSettings::LocalContentCanAccessRemoteUrls, false );
+    page()->settings()->setAttribute( QWebSettings::ZoomTextOnly, true );
+
+    ConnectSignalsToSlots();
 }
 
 void BookViewEditor::CustomSetDocument(const QString &path, const QString &html)
@@ -126,29 +82,6 @@ void BookViewEditor::CustomSetDocument(const QString &path, const QString &html)
     m_isLoadFinished = false;
     m_path = path;
 
-    QString cke_path;
-#ifdef Q_WS_MAC
-    cke_path = QCoreApplication::applicationDirPath() + "/../ckeditor";
-#else
-    cke_path = QCoreApplication::applicationDirPath() + "/ckeditor";
-#endif
-// On *nix we have an installation path we need to check too.
-#ifdef Q_WS_X11
-    if (cke_path.isEmpty() || !QDir(cke_path).exists()) {
-        cke_path = QCoreApplication::applicationDirPath() + "/../share/" + QCoreApplication::applicationName().toLower() + "/ckeditor";
-    }
-#endif
-
-    QString cke_settings;
-    QString cke_setting_path = QDesktopServices::storageLocation(QDesktopServices::DataLocation) + "/ckeditor_config.js";
-    if (QFile::exists(cke_setting_path)) {
-        cke_settings = QString("customConfig: '%1'").arg(cke_setting_path);
-    }
-
-    SettingsStore settings;
-    QString base = CKE_BASE.arg(QDir::fromNativeSeparators(cke_path)).arg(settings.uiLanguage()).arg(cke_settings);
-    setHtml(base, QUrl::fromLocalFile(path));
-    page()->mainFrame()->addToJavaScriptWindowObject("BookViewEditor", this);
     CustomUpdateDocument(html, false);
 }
 
@@ -156,20 +89,9 @@ void BookViewEditor::CustomUpdateDocument(const QString &html, bool saveSelectio
 {
     m_isLoadFinished = false;
 
-    QString selection = "null";
-    if (saveSelection)
-    {
-        const QVariant result = EvaluateJavascript(GET_SELECTION);
-        if (result.type() == QVariant::String)
-        {
-            selection = result.toString();
-        }
-    }
-
-    setProperty("new_data", html);
-    EvaluateJavascript(SET_DATA_AND_SELECTION.arg(selection));
-    // clean-up: by the time EvaluateJavascript returns, the value has been at least copied internally, even if not yet applied
-    setProperty("new_data", QVariant());
+    BookViewPreview::CustomSetDocument(m_path, html);
+    page()->setContentEditable(true);
+    SetWebPageModified( false );
 }
 
 void BookViewEditor::ScrollToFragment(const QString &fragment)
@@ -179,10 +101,12 @@ void BookViewEditor::ScrollToFragment(const QString &fragment)
         return;
     }
 
-    QString scroll = "var documentWrapper = CKEDITOR.instances.editor.dom.document;"
-        "var element = documentWrapper.getById(\"" % fragment % "\");"
-        "element.scrollIntoView()";
-    EvaluateJavascript(scroll % SET_CURSOR_JS);
+    QString caret_location = "var element = document.getElementById(\"" % fragment % "\");";
+
+    QString scroll = "var from_top = window.innerHeight / 2;"
+        "$.scrollTo( element, 0, {offset: {top:-from_top, left:0 } } );";
+
+    EvaluateJavascript(caret_location % scroll % SET_CURSOR_JS);
 }
 
 void BookViewEditor::ScrollToFragmentAfterLoad(const QString &fragment)
@@ -191,19 +115,28 @@ void BookViewEditor::ScrollToFragmentAfterLoad(const QString &fragment)
         return;
     }
 
-    QString scroll = "var documentWrapper = CKEDITOR.instances.editor.dom.document;"
-        "var element = documentWrapper.getById(\"" % fragment % "\");"
-        "element.scrollIntoView()";
+    QString caret_location = "var element = document.getElementById(\"" % fragment % "\");";
+
+    QString scroll = "var from_top = window.innerHeight / 2;"
+        "$.scrollTo( element, 0, {offset: {top:-from_top, left:0 } } );";
+
     QString javascript = "window.addEventListener('load', GoToFragment, false);"
-        "function GoToFragment() { " % scroll % SET_CURSOR_JS % "}";
+        "function GoToFragment() { " % caret_location % scroll % SET_CURSOR_JS % "}";
 
     EvaluateJavascript(javascript);
 }
 
 QString BookViewEditor::GetHtml()
 {
-    QString command = "CKEDITOR.instances.editor.getData();";
-    return EvaluateJavascript(command).toString();
+    RemoveWebkitCruft();
+
+    // Set the xml tag here rather than let Tidy do it.
+    // This prevents false mismatches with the cache later on.
+    QString html_from_Qt = page()->mainFrame()->toHtml();
+
+    html_from_Qt = RemoveBookViewReplaceSpans( html_from_Qt );
+    html_from_Qt = html_from_Qt.remove( XML_NAMESPACE_CRUFT );
+    return XML_TAG % html_from_Qt;
 }
 
 #if 0
@@ -220,61 +153,44 @@ QString BookViewEditor::GetHtml5()
 
 void BookViewEditor::InsertHtml(const QString &html)
 {
-    QString javascript = "CKEDITOR.instances.editor.insertHtml('" + html + "');";
-    EvaluateJavascript(javascript);
+    ExecCommand( "insertHTML", html );
 }
 
 QString BookViewEditor::SplitChapter()
 {
-    // Add a temporary break marker so we know where the user has requested
-    // the text to be split.
-    InsertHtml(BV_BREAK_TAG_INSERT);
+    QString head     = page()->mainFrame()->documentElement().findFirst( "head" ).toOuterXml();    
+    QString body_tag = EvaluateJavascript( GET_BODY_TAG_HTML ).toString();
+    QString segment  = EvaluateJavascript( c_GetBlock % c_GetSegmentHTML ).toString();
 
-    QString new_text;
-    QString text = GetHtml();
-
-    QRegExp body_search(BODY_START);
-    int body_tag_start = text.indexOf(body_search);
-
-    QString head = text.left(body_tag_start);
-
-    QRegExp break_tag(BV_BREAK_TAG_SEARCH);
-    int break_index = text.indexOf(break_tag, body_tag_start + body_search.matchedLength());
-    if (break_index != -1) {
-        // Create a new HTML string with the text that is being split.
-        new_text = Utility::Substring(0, break_index, text) + "</body></html>";
-
-        // Remove the the split text from this document and set it
-        // as the text in the editor.
-        text = head + "<body>" + Utility::Substring(break_index + break_tag.matchedLength(), text.length(), text);
-        CustomSetDocument(m_path, text);
-    }
-
-    return new_text;
+    return QString( "<html>" )
+           .append( head )
+           .append( body_tag )
+           .append( segment )
+           .append( "</body></html>" )
+           // Webkit adds this xmlns attribute to *every*
+           // element... for no reason. Tidy will add it back
+           // to the <head> so we just remove it globally.
+           .remove( XML_NAMESPACE_CRUFT );
 }
 
 bool BookViewEditor::IsModified()
 {
-    QString javascript = "CKEDITOR.instances.editor.checkDirty();";
-    return EvaluateJavascript(javascript).toBool();
+    return m_WebPageModified;
 }
 
 void BookViewEditor::ResetModified()
 {
-    QString javascript = "CKEDITOR.instances.editor.resetDirty();";
-    EvaluateJavascript(javascript);
+    SetWebPageModified(false);
 }
 
 void BookViewEditor::Undo()
 {
-    QString javascript = "CKEDITOR.instances.editor.execCommand('undo');";
-    EvaluateJavascript(javascript);
+    page()->triggerAction( QWebPage::Undo );
 }
 
 void BookViewEditor::Redo()
 {
-    QString javascript = "CKEDITOR.instances.editor.execCommand('redo');";
-    EvaluateJavascript(javascript);
+    page()->triggerAction( QWebPage::Redo );
 }
 
 // Overridden so we can emit the FocusLost() signal.
@@ -287,22 +203,232 @@ void BookViewEditor::focusOutEvent(QFocusEvent *event)
 
 QString BookViewEditor::GetSelectedText()
 {
-    QString javascript = "CKEDITOR.instances.editor.getSelection().getSelectedText();";
-    return EvaluateJavascript(javascript).toString();
-}
+    QString javascript = "window.getSelection().toString();";
 
-bool BookViewEditor::event(QEvent *e)
-{
-    if (e->type() == QEvent::KeyPress) {
-        QKeyEvent *k = static_cast<QKeyEvent *>(e);
-        if (k->key() == Qt::Key_Escape) {
-            return true;
-        }
-    }
-    return BookViewPreview::event(e);
+    return EvaluateJavascript( javascript ).toString();
 }
 
 void BookViewEditor::TextChangedFilter()
 {
     emit textChanged();
+}
+
+void BookViewEditor::ExecCommand( const QString &command )
+{
+    if( m_isLoadFinished ) {
+        QString javascript = QString( "document.execCommand( '%1', false, null)" ).arg( EscapeJSString( command ) );
+        EvaluateJavascript( javascript );
+    }
+}
+
+void BookViewEditor::ExecCommand( const QString &command, const QString &parameter )
+{       
+    QString javascript = QString( "document.execCommand( '%1', false, '%2' )" )
+                            .arg( EscapeJSString( command ) )
+                            .arg( EscapeJSString( parameter ) );
+
+    EvaluateJavascript( javascript );
+}
+
+bool BookViewEditor::QueryCommandState( const QString &command )
+{
+    QString javascript = QString( "document.queryCommandState( '%1', false, null)" ).arg( EscapeJSString( command ) );
+
+    return EvaluateJavascript( javascript ).toBool();
+}
+
+QString BookViewEditor::EscapeJSString( const QString &string )
+{
+    QString new_string( string );
+
+    /* \ -> \\ */ 
+    // " -> \"
+    // ' -> \'
+    return new_string.replace( "\\", "\\\\" ).replace( "\"", "\\\"" ).replace( "'", "\\'" );
+}
+
+void BookViewEditor::ScrollByLine( bool down )
+{
+    // This is an educated guess at best since QWebView is not
+    // using the widget font but whatever font QWebView feels like using.
+    int line_height = qRound( fontMetrics().height() * textSizeMultiplier() );
+
+    ScrollByNumPixels( line_height, down );
+}
+
+void BookViewEditor::ScrollByNumPixels( int pixel_number, bool down )
+{
+    Q_ASSERT( pixel_number != 0 );
+
+    int current_scroll_offset = page()->mainFrame()->scrollBarValue(   Qt::Vertical );
+    int scroll_maximum        = page()->mainFrame()->scrollBarMaximum( Qt::Vertical );
+
+    int new_scroll_Y = down ? current_scroll_offset + pixel_number : current_scroll_offset - pixel_number;    
+
+    // qBound(min, ours, max) limits the value to the range
+    new_scroll_Y     = qBound( 0, new_scroll_Y, scroll_maximum );
+
+    page()->mainFrame()->setScrollBarValue( Qt::Vertical, new_scroll_Y );
+}
+
+void BookViewEditor::PageUp()
+{
+    ScrollByNumPixels( height(), false );
+}
+
+void BookViewEditor::PageDown()
+{
+    ScrollByNumPixels( height(), true );
+}
+
+void BookViewEditor::ScrollOneLineUp()
+{
+    ScrollByLine( false );
+}
+
+void BookViewEditor::ScrollOneLineDown()
+{
+    ScrollByLine( true );
+}
+
+void BookViewEditor::RemoveWebkitCruft()
+{
+    QWebElementCollection collection = page()->mainFrame()->findAllElements( ".Apple-style-span" );
+
+    foreach( QWebElement element, collection )
+    {
+        element.toggleClass( "Apple-style-span" );
+    }
+
+    collection = page()->mainFrame()->findAllElements( ".webkit-indent-blockquote" );
+
+    foreach( QWebElement element, collection )
+    {
+        element.toggleClass( "webkit-indent-blockquote" );
+    }
+
+    QWebElement body_tag =  page()->mainFrame()->findFirstElement( "body" );
+
+    // Removing junk webkit styles
+    body_tag.setStyleProperty( "word-wrap", "" );
+    body_tag.setStyleProperty( "-webkit-nbsp-mode", "" );
+    body_tag.setStyleProperty( "-webkit-line-break", "" );
+
+    // Banish the irritating <body style=""> tags
+    if( body_tag.attribute( "style", "none" ) == "" )
+    {
+        body_tag.removeAttribute( "style" );
+    }
+}
+
+QString BookViewEditor::RemoveBookViewReplaceSpans( const QString &source )
+{
+    QRegExp replace_spans( REPLACE_SPANS );
+    replace_spans.setMinimal( true );
+    QRegExp span_open_or_close( "<\\s*(/)*\\s*span\\s*>");
+    span_open_or_close.setMinimal( true );
+
+    QString newsource = "";
+    int left_pos = 0;
+    int index = source.indexOf( replace_spans );
+    while( index != -1 )
+    {
+        // Append the text between the last capture and this one.
+        newsource.append( source.mid( left_pos, index - left_pos ) );
+
+        // Advance past the captured opening tag.
+        index += replace_spans.cap(0).length();
+        left_pos = index;
+
+        // Check for nested spans.
+        int nest_count = 1; // set to 1 as we already have an open span
+        int next_span_tag = index;
+        do 
+        {
+            next_span_tag = source.indexOf( span_open_or_close, index );
+            if( next_span_tag == -1 )
+            {
+                // Content is not well-formed, which should never happen here.
+                boost_throw( ErrorParsingXml()
+                             << errinfo_XML_parsing_error_string( "GetWebPageHTML() has returned invalid xhtml" ) );
+            }
+
+            if( !span_open_or_close.cap(0).contains( "/" ) )
+            {
+                // Opening tag, so increment the counter.
+                nest_count++;
+            }
+            else
+            {
+                // Closing tag, so decrement the counter
+                nest_count--;
+            }
+        } while( nest_count > 0 );
+
+        // next_span_tag now points to the start of the closing tag of the span we're removing.
+        // Append the source from the end of the span tag to the start of the closing tag
+        newsource.append( source.mid( index, next_span_tag - index ) );
+
+        // Move left_pos past the closing tag and search for another span to remove.
+        left_pos = next_span_tag + span_open_or_close.cap(0).length(); 
+        index = source.indexOf( replace_spans, left_pos );
+    }
+
+    // Append the rest of the source after all the spans have been removed.
+    newsource.append( source.mid( left_pos ) );
+
+    // It's possible that we might have replace spans nested within each other,
+    // so go back to the start and check again, and recurse if found.
+    if( newsource.indexOf( replace_spans ) != -1 )
+    {
+        newsource = RemoveBookViewReplaceSpans( newsource );
+    }
+
+    return newsource;
+}
+
+void BookViewEditor::SetWebPageModified( bool modified )
+{
+    m_WebPageModified = modified;
+}
+
+void BookViewEditor::FormatBlock( const QString &element_name )
+{
+    if ( element_name.isEmpty() ) {
+        return;
+    }
+
+    QString javascript =  c_GetBlock % c_FormatBlock %
+            "var node = document.getSelection().anchorNode;"
+            "var startNode = get_block( node );"
+            "var element = format_block( startNode, \""+element_name+"\" );"
+            "startNode.parentNode.replaceChild( element, startNode );"
+            % SET_CURSOR_JS;
+
+    EvaluateJavascript( javascript );
+    emit contentsChangedExtra();
+}
+
+
+QString BookViewEditor::GetCaretElementName()
+{
+    QString javascript =  "var node = document.getSelection().anchorNode;"
+                          "var startNode = get_block( node );"
+                          "startNode.nodeName;";
+
+    return EvaluateJavascript( c_GetBlock % javascript ).toString();
+}
+
+void BookViewEditor::ConnectSignalsToSlots()
+{
+    connect( &m_PageUp,            SIGNAL( activated() ), this, SLOT( PageUp()            ) );
+    connect( &m_PageDown,          SIGNAL( activated() ), this, SLOT( PageDown()          ) );
+    connect( &m_ScrollOneLineUp,   SIGNAL( activated() ), this, SLOT( ScrollOneLineUp()   ) );
+    connect( &m_ScrollOneLineDown, SIGNAL( activated() ), this, SLOT( ScrollOneLineDown() ) );
+
+    connect( this,   SIGNAL( contentsChangedExtra() ),  page(), SIGNAL( contentsChanged()        ) );
+    connect( page(), SIGNAL( contentsChanged()  ),      this,   SIGNAL( textChanged()            ) );
+    connect( page(), SIGNAL( selectionChanged() ),      this,   SIGNAL( selectionChanged()       ) );
+
+    connect( page(), SIGNAL( contentsChanged()  ),      this,   SLOT( SetWebPageModified()       ) );
 }

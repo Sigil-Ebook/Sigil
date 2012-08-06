@@ -410,6 +410,7 @@ set( SOURCEUPDATE_FILES
 set( QRC_FILES  
     Resource_Files/main/main.qrc
     Resource_Files/About/About.qrc
+    Resource_Files/javascript/javascript.qrc
     Resource_Files/icon/icon.qrc  
     )
 
@@ -604,7 +605,6 @@ if( APPLE )
 
     add_custom_command( TARGET addframeworks POST_BUILD COMMAND cp ${PROJECT_BINARY_DIR}/*.qm ${WORK_DIR}/Sigil.app/Contents/translations/ )
     add_custom_command( TARGET addframeworks POST_BUILD COMMAND cp ${CMAKE_SOURCE_DIR}/src/Sigil/Resource_Files/dictionaries/* ${WORK_DIR}/Sigil.app/Contents/hunspell_dictionaries )
-    add_custom_command( TARGET addframeworks POST_BUILD COMMAND cp -r ${CMAKE_SOURCE_DIR}/src/Sigil/Resource_Files/javascript/ckeditor ${WORK_DIR}/Sigil.app/Contents )
                 
 # For Linux and Windows, provide binary installers.
 # For this to work on Linux, InstallJammer needs to be installed and on the system path.
@@ -717,10 +717,6 @@ elseif (MSVC)
         add_custom_command( TARGET ${TARGET_FOR_COPY} POST_BUILD COMMAND cmake -E copy ${EXAMPLE} ${MAIN_PACKAGE_DIR}/examples/ )
     endforeach( EXAMPLE )
 
-    # Copy CKE
-    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E make_directory ${MAIN_PACKAGE_DIR}/ckeditor/ )
-    add_custom_command( TARGET ${TARGET_FOR_COPY} POST_BUILD COMMAND cmake -E copy_directory ${PROJECT_SOURCE_DIR}/Resource_Files/javascript/ckeditor ${MAIN_PACKAGE_DIR}/ckeditor/ )
-
     # Set the path of the application executable
     if( MSVC_IDE )
         set( EXE_PATH ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Release/${PROJECT_NAME}${CMAKE_EXECUTABLE_SUFFIX} )
@@ -791,6 +787,5 @@ if( UNIX AND NOT APPLE )
     install( FILES ${QM_FILES} DESTINATION ${CMAKE_INSTALL_PREFIX}/share/sigil/translations )
     install( FILES ${DIC_FILES} DESTINATION ${CMAKE_INSTALL_PREFIX}/share/sigil/hunspell_dictionaries )
     install( FILES ${EXAMPLE_FILES} DESTINATION ${CMAKE_INSTALL_PREFIX}/share/sigil/examples )
-    install( DIRECTORY Resource_Files/javascript/ckeditor DESTINATION ${CMAKE_INSTALL_PREFIX}/share/sigil )
 endif()
 

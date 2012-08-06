@@ -121,6 +121,8 @@ MainWindow::MainWindow( const QString &openfilepath, QWidget *parent, Qt::WFlags
     c_LoadFilters( GetLoadFiltersMap() ),
     m_CheckWellFormedErrors( true ),
     m_ViewState( MainWindow::ViewState_BookView ),
+    m_cbHeadings( NULL ),
+    m_headingMapper( new QSignalMapper( this ) ),
     m_SearchEditor(new SearchEditor(this)),
     m_ClipboardEditor(new ClipboardEditor(this)),
     m_IndexEditor(new IndexEditor(this))
@@ -1205,6 +1207,10 @@ bool MainWindow::UpdateViewState(bool set_tab_state)
             FlowTab *ftab = dynamic_cast<FlowTab *>(&tab);
             if (ftab) {
                 if (!ftab->SetViewState(m_ViewState)) {
+                    // Put focus into the tab when a user selects a tab, which
+                    // might not have been done if they were in book view and then moved
+                    // focus out of the tabs and then clicked to change a tab
+                    ftab->setFocus();
                     return false;
                 }
             }
@@ -1257,12 +1263,21 @@ void MainWindow::UpdateUIOnTabChanges()
     ui.actionCutCodeTags->setEnabled( tab.CutCodeTagsEnabled() );
     ui.actionInsertClosingTag->setEnabled( tab.InsertClosingTagEnabled() );
 
+    ui.actionBold     ->setChecked( tab.BoldChecked() );
+    ui.actionItalic   ->setChecked( tab.ItalicChecked() );
+    ui.actionUnderline->setChecked( tab.UnderlineChecked() );
+
+    ui.actionStrikethrough     ->setChecked( tab.StrikethroughChecked() );
+    ui.actionInsertBulletedList->setChecked( tab.BulletListChecked() );
+    ui.actionInsertNumberedList->setChecked( tab.NumberListChecked() );
+
     // State of zoom controls depends on current tab/view
     float zoom_factor = tab.GetZoomFactor();
     UpdateZoomLabel( zoom_factor );
     UpdateZoomSlider( zoom_factor );
 
     UpdateCursorPositionLabel(tab.GetCursorLine(), tab.GetCursorColumn());
+    SelectEntryInHeadingCombo( tab.GetCaretElementName() );    
 }
 
 
@@ -1298,6 +1313,35 @@ void MainWindow::SetStateActionsBookView()
 
     ui.actionUndo->setEnabled(true);
     ui.actionRedo->setEnabled(true);
+	
+    ui.actionCut  ->setEnabled(true);  
+    ui.actionCopy ->setEnabled(true); 
+    ui.actionPaste->setEnabled(true); 
+
+    ui.actionBold         ->setEnabled(true);
+    ui.actionItalic       ->setEnabled(true);
+    ui.actionUnderline    ->setEnabled(true);
+    ui.actionStrikethrough->setEnabled(true);
+
+    ui.actionAlignLeft ->setEnabled(true);
+    ui.actionCenter    ->setEnabled(true);
+    ui.actionAlignRight->setEnabled(true);
+    ui.actionJustify   ->setEnabled(true);
+	
+	ui.actionDecreaseIndent->setEnabled(true);
+    ui.actionIncreaseIndent->setEnabled(true);
+
+    ui.actionInsertBulletedList->setEnabled(true);
+    ui.actionInsertNumberedList->setEnabled(true);
+
+    m_cbHeadings->setEnabled(true);
+    ui.actionHeading1->setEnabled(true);
+    ui.actionHeading2->setEnabled(true);
+    ui.actionHeading3->setEnabled(true);
+    ui.actionHeading4->setEnabled(true);
+    ui.actionHeading5->setEnabled(true);
+    ui.actionHeading6->setEnabled(true);
+    ui.actionHeadingNormal->setEnabled(true);
 
     ui.actionInsertImage->setEnabled(true);
     ui.actionSplitChapter->setEnabled(false);
@@ -1332,6 +1376,35 @@ void MainWindow::SetStateActionsSplitView()
 
     ui.actionUndo->setEnabled(false);
     ui.actionRedo->setEnabled(false);
+	
+    ui.actionCut  ->setEnabled(false);  
+    ui.actionCopy ->setEnabled(false); 
+    ui.actionPaste->setEnabled(false); 
+
+    ui.actionBold         ->setEnabled(false);
+    ui.actionItalic       ->setEnabled(false);
+    ui.actionUnderline    ->setEnabled(false);
+    ui.actionStrikethrough->setEnabled(false);
+
+    ui.actionAlignLeft ->setEnabled(false);
+    ui.actionCenter    ->setEnabled(false);
+    ui.actionAlignRight->setEnabled(false);
+    ui.actionJustify   ->setEnabled(false);
+	
+	ui.actionDecreaseIndent->setEnabled(false);
+    ui.actionIncreaseIndent->setEnabled(false);
+
+    ui.actionInsertBulletedList->setEnabled(false);
+    ui.actionInsertNumberedList->setEnabled(false);
+
+    m_cbHeadings->setEnabled(false);
+    ui.actionHeading1->setEnabled(false);
+    ui.actionHeading2->setEnabled(false);
+    ui.actionHeading3->setEnabled(false);
+    ui.actionHeading4->setEnabled(false);
+    ui.actionHeading5->setEnabled(false);
+    ui.actionHeading6->setEnabled(false);
+    ui.actionHeadingNormal->setEnabled(false);
 
     ui.actionInsertImage->setEnabled(false);
     ui.actionSplitChapter->setEnabled(false);
@@ -1366,6 +1439,35 @@ void MainWindow::SetStateActionsCodeView()
 
     ui.actionUndo->setEnabled(true);
     ui.actionRedo->setEnabled(true);
+	
+    ui.actionCut  ->setEnabled(true);  
+    ui.actionCopy ->setEnabled(true); 
+    ui.actionPaste->setEnabled(true); 
+
+    ui.actionBold         ->setEnabled(false);
+    ui.actionItalic       ->setEnabled(false);
+    ui.actionUnderline    ->setEnabled(false);
+    ui.actionStrikethrough->setEnabled(false);
+
+    ui.actionAlignLeft ->setEnabled(false);
+    ui.actionCenter    ->setEnabled(false);
+    ui.actionAlignRight->setEnabled(false);
+    ui.actionJustify   ->setEnabled(false);
+	
+	ui.actionDecreaseIndent->setEnabled(false);
+    ui.actionIncreaseIndent->setEnabled(false);
+
+    ui.actionInsertBulletedList->setEnabled(false);
+    ui.actionInsertNumberedList->setEnabled(false);
+
+    m_cbHeadings->setEnabled(false);
+    ui.actionHeading1->setEnabled(false);
+    ui.actionHeading2->setEnabled(false);
+    ui.actionHeading3->setEnabled(false);
+    ui.actionHeading4->setEnabled(false);
+    ui.actionHeading5->setEnabled(false);
+    ui.actionHeading6->setEnabled(false);
+    ui.actionHeadingNormal->setEnabled(false);
 
     ui.actionInsertImage->setEnabled(true);
     ui.actionSplitChapter->setEnabled(true);
@@ -1401,6 +1503,35 @@ void MainWindow::SetStateActionsRawView()
 
     ui.actionUndo->setEnabled(true);
     ui.actionRedo->setEnabled(true);
+	
+    ui.actionCut  ->setEnabled(false);  
+    ui.actionCopy ->setEnabled(false); 
+    ui.actionPaste->setEnabled(false); 
+
+    ui.actionBold         ->setEnabled(false);
+    ui.actionItalic       ->setEnabled(false);
+    ui.actionUnderline    ->setEnabled(false);
+    ui.actionStrikethrough->setEnabled(false);
+
+    ui.actionAlignLeft ->setEnabled(false);
+    ui.actionCenter    ->setEnabled(false);
+    ui.actionAlignRight->setEnabled(false);
+    ui.actionJustify   ->setEnabled(false);
+	
+	ui.actionDecreaseIndent->setEnabled(false);
+    ui.actionIncreaseIndent->setEnabled(false);
+
+    ui.actionInsertBulletedList->setEnabled(false);
+    ui.actionInsertNumberedList->setEnabled(false);
+
+    m_cbHeadings->setEnabled(false);
+    ui.actionHeading1->setEnabled(false);
+    ui.actionHeading2->setEnabled(false);
+    ui.actionHeading3->setEnabled(false);
+    ui.actionHeading4->setEnabled(false);
+    ui.actionHeading5->setEnabled(false);
+    ui.actionHeading6->setEnabled(false);
+    ui.actionHeadingNormal->setEnabled(false);
 
     ui.actionInsertImage->setEnabled(false);
     ui.actionSplitChapter->setEnabled(false);
@@ -1441,6 +1572,35 @@ void MainWindow::SetStateActionsStaticView()
 
     ui.actionUndo->setEnabled(false);
     ui.actionRedo->setEnabled(false);
+	
+    ui.actionCut  ->setEnabled(false);  
+    ui.actionCopy ->setEnabled(false); 
+    ui.actionPaste->setEnabled(false); 
+
+    ui.actionBold         ->setEnabled(false);
+    ui.actionItalic       ->setEnabled(false);
+    ui.actionUnderline    ->setEnabled(false);
+    ui.actionStrikethrough->setEnabled(false);
+
+    ui.actionAlignLeft ->setEnabled(false);
+    ui.actionCenter    ->setEnabled(false);
+    ui.actionAlignRight->setEnabled(false);
+    ui.actionJustify   ->setEnabled(false);
+	
+	ui.actionDecreaseIndent->setEnabled(false);
+    ui.actionIncreaseIndent->setEnabled(false);
+
+    ui.actionInsertBulletedList->setEnabled(false);
+    ui.actionInsertNumberedList->setEnabled(false);
+
+    m_cbHeadings->setEnabled(false);
+    ui.actionHeading1->setEnabled(false);
+    ui.actionHeading2->setEnabled(false);
+    ui.actionHeading3->setEnabled(false);
+    ui.actionHeading4->setEnabled(false);
+    ui.actionHeading5->setEnabled(false);
+    ui.actionHeading6->setEnabled(false);
+    ui.actionHeadingNormal->setEnabled(false);
 
     ui.actionInsertImage->setEnabled(false);
     ui.actionSplitChapter->setEnabled(false);
@@ -1986,6 +2146,22 @@ void MainWindow::UpdateUiWithCurrentFile( const QString &fullfilepath )
             mainWin->UpdateRecentFileActions();
     }
 }
+void MainWindow::SelectEntryInHeadingCombo( const QString &element_name )
+{
+    QString select = "";
+    if ( !element_name.isEmpty() )
+    {
+        if ( ( element_name[ 0 ].toLower() == QChar( 'h' ) ) && ( element_name[ 1 ].isDigit() ) )
+            select = "Heading " + QString( element_name[ 1 ] );
+        else
+            select = "Normal";
+    }
+    else
+    {
+        select = "<Select heading>";
+    }
+    m_cbHeadings->setCurrentIndex( m_cbHeadings->findText( select ) );
+}
 
 
 void MainWindow::CreateRecentFilesActions()
@@ -2117,8 +2293,37 @@ void MainWindow::ExtendUI()
     ui.menuToolbars->addAction(ui.toolBarTextManip->toggleViewAction());
     ui.menuToolbars->addAction(ui.toolBarViews->toggleViewAction());
     ui.menuToolbars->addAction(ui.toolBarInsertions->toggleViewAction());
+    ui.menuToolbars->addAction(ui.toolBarHeadings->toggleViewAction());
+    ui.menuToolbars->addAction(ui.toolBarIndents->toggleViewAction());
+    ui.menuToolbars->addAction(ui.toolBarLists->toggleViewAction());
+    ui.menuToolbars->addAction(ui.toolBarTextFormats->toggleViewAction());
+    ui.menuToolbars->addAction(ui.toolBarTextAlign->toggleViewAction());
     ui.menuToolbars->addAction(ui.toolBarDonate->toggleViewAction());
     ui.menuToolbars->addAction(ui.toolBarTools->toggleViewAction());
+
+    // Creating the Heading combo box
+
+    m_cbHeadings = new QComboBox();
+
+    QStringList headings;
+    
+    // Currently cannot be translated because recieving function looks for the
+    // h to determine if it's normal or not.
+    headings << "<Select heading>"
+             << "Normal"
+             << "Heading 1"
+             << "Heading 2"
+             << "Heading 3"
+             << "Heading 4"
+             << "Heading 5"
+             << "Heading 6";
+
+    m_cbHeadings->addItems( headings );
+    m_cbHeadings->setToolTip(   "<p style='padding-top: 0.5em;'><b>Style with heading</b></p>"
+                                "<p style='margin-left: 0.5em;'>Style the selected text with a heading.</p>"
+                            );
+
+    ui.toolBarHeadings->addWidget( m_cbHeadings );
 
     m_lbCursorPosition = new QLabel( QString (""), statusBar() );
     statusBar()->addPermanentWidget( m_lbCursorPosition );
@@ -2204,6 +2409,27 @@ void MainWindow::ExtendUI()
 #ifndef Q_WS_MAC
     sm->registerAction(ui.actionPreferences, "MainWindow.Preferences");
 #endif
+    // Format
+    sm->registerAction(ui.actionBold, "MainWindow.Bold");
+    sm->registerAction(ui.actionItalic, "MainWindow.Italic");
+    sm->registerAction(ui.actionUnderline, "MainWindow.Underline");
+    sm->registerAction(ui.actionStrikethrough, "MainWindow.Strikethrough");
+    sm->registerAction(ui.actionHeadingNormal, "MainWindow.HeadingNormal");
+    sm->registerAction(ui.actionAlignLeft, "MainWindow.AlignLeft");
+    sm->registerAction(ui.actionCenter, "MainWindow.Center");
+    sm->registerAction(ui.actionAlignRight, "MainWindow.AlignRight");
+    sm->registerAction(ui.actionJustify, "MainWindow.Justify");
+    sm->registerAction(ui.actionInsertNumberedList, "MainWindow.InsertNumberedList");
+    sm->registerAction(ui.actionInsertBulletedList, "MainWindow.InsertBulletedList");
+    sm->registerAction(ui.actionIncreaseIndent, "MainWindow.IncreaseIndent");
+    sm->registerAction(ui.actionDecreaseIndent, "MainWindow.DecreaseIndent");
+    sm->registerAction(ui.actionHeading1, "MainWindow.Heading1");
+    sm->registerAction(ui.actionHeading2, "MainWindow.Heading2");
+    sm->registerAction(ui.actionHeading3, "MainWindow.Heading3");
+    sm->registerAction(ui.actionHeading4, "MainWindow.Heading4");
+    sm->registerAction(ui.actionHeading5, "MainWindow.Heading5");
+    sm->registerAction(ui.actionHeading6, "MainWindow.Heading6");
+    sm->registerAction(ui.actionRemoveFormatting, "MainWindow.RemoveFormatting");
     // View
     sm->registerAction(ui.actionBookView, "MainWindow.BookView");
     sm->registerAction(ui.actionSplitView, "MainWindow.SplitView");
@@ -2233,8 +2459,6 @@ void MainWindow::ExtendUI()
     sm->registerAction(ui.actionAbout, "MainWindow.About");
 
     ExtendIconSizes();
-
-    ui.menuToolbars->addAction(ui.Clipboard->toggleViewAction());
 }
 
 
@@ -2280,6 +2504,54 @@ void MainWindow::ExtendIconSizes()
     icon = ui.actionCheckWellFormedErrors->icon();
     icon.addFile(QString::fromUtf8(":/main/document-well-formed_check_16px.png"));
     ui.actionCheckWellFormedErrors->setIcon(icon);
+
+    icon = ui.actionAlignLeft->icon();
+    icon.addFile(QString::fromUtf8(":/main/format-justify-left_16px.png"));
+    ui.actionAlignLeft->setIcon(icon);
+
+    icon = ui.actionAlignRight->icon();
+    icon.addFile(QString::fromUtf8(":/main/format-justify-right_16px.png"));
+    ui.actionAlignRight->setIcon(icon);
+
+    icon = ui.actionCenter->icon();
+    icon.addFile(QString::fromUtf8(":/main/format-justify-center_16px.png"));
+    ui.actionCenter->setIcon(icon);
+
+    icon = ui.actionJustify->icon();
+    icon.addFile(QString::fromUtf8(":/main/format-justify-fill_16px.png"));
+    ui.actionJustify->setIcon(icon);
+
+    icon = ui.actionBold->icon();
+    icon.addFile(QString::fromUtf8(":/main/format-text-bold_16px.png"));
+    ui.actionBold->setIcon(icon);
+
+    icon = ui.actionItalic->icon();
+    icon.addFile(QString::fromUtf8(":/main/format-text-italic_16px.png"));
+    ui.actionItalic->setIcon(icon);
+
+    icon = ui.actionUnderline->icon();
+    icon.addFile(QString::fromUtf8(":/main/format-text-underline_16px.png"));
+    ui.actionUnderline->setIcon(icon);
+
+    icon = ui.actionInsertNumberedList->icon();
+    icon.addFile(QString::fromUtf8(":/main/insert-numbered-list_16px.png"));
+    ui.actionInsertNumberedList->setIcon(icon);
+
+    icon = ui.actionInsertBulletedList->icon();
+    icon.addFile(QString::fromUtf8(":/main/insert-bullet-list_16px.png"));
+    ui.actionInsertBulletedList->setIcon(icon);
+
+    icon = ui.actionStrikethrough->icon();
+    icon.addFile(QString::fromUtf8(":/main/format-text-strikethrough_16px.png"));
+    ui.actionStrikethrough->setIcon(icon);
+
+    icon = ui.actionIncreaseIndent->icon();
+    icon.addFile(QString::fromUtf8(":/main/format-indent-more_16px.png"));
+    ui.actionIncreaseIndent->setIcon(icon);
+
+    icon = ui.actionDecreaseIndent->icon();
+    icon.addFile(QString::fromUtf8(":/main/format-indent-less_16px.png"));
+    ui.actionDecreaseIndent->setIcon(icon);
 
     icon = ui.actionOpen->icon();
     icon.addFile(QString::fromUtf8(":/main/document-open_16px.png"));
@@ -2352,6 +2624,22 @@ void MainWindow::LoadInitialFile( const QString &openfilepath )
 
 void MainWindow::ConnectSignalsToSlots()
 {
+    // Setup signal mapping for heading actions.
+    connect( ui.actionHeading1, SIGNAL( triggered() ), m_headingMapper, SLOT( map() ) );
+    m_headingMapper->setMapping( ui.actionHeading1, "1" );
+    connect( ui.actionHeading2, SIGNAL( triggered() ), m_headingMapper, SLOT( map() ) );
+    m_headingMapper->setMapping( ui.actionHeading2, "2" );
+    connect( ui.actionHeading3, SIGNAL( triggered() ), m_headingMapper, SLOT( map() ) );
+    m_headingMapper->setMapping( ui.actionHeading3, "3" );
+    connect( ui.actionHeading4, SIGNAL( triggered() ), m_headingMapper, SLOT( map() ) );
+    m_headingMapper->setMapping( ui.actionHeading4, "4" );
+    connect( ui.actionHeading5, SIGNAL( triggered() ), m_headingMapper, SLOT( map() ) );
+    m_headingMapper->setMapping( ui.actionHeading5, "5" );
+    connect( ui.actionHeading6, SIGNAL( triggered() ), m_headingMapper, SLOT( map() ) );
+    m_headingMapper->setMapping( ui.actionHeading6, "6" );
+    connect( ui.actionHeadingNormal, SIGNAL( triggered() ), m_headingMapper, SLOT( map() ) );
+    m_headingMapper->setMapping( ui.actionHeadingNormal, "Normal" );
+
     connect( ui.actionExit,          SIGNAL( triggered() ), qApp, SLOT( closeAllWindows()          ) );
     connect( ui.actionClose,         SIGNAL( triggered() ), this, SLOT( close()                    ) );
     connect( ui.actionNew,           SIGNAL( triggered() ), this, SLOT( New()                      ) );
@@ -2521,6 +2809,22 @@ void MainWindow::MakeTabConnections( ContentTab *tab )
 
     if (tab->GetLoadedResource().Type() == Resource::HTMLResourceType )
     {
+        connect( ui.actionBold,                     SIGNAL( triggered() ),  tab,   SLOT( Bold()                     ) );
+        connect( ui.actionItalic,                   SIGNAL( triggered() ),  tab,   SLOT( Italic()                   ) );
+        connect( ui.actionUnderline,                SIGNAL( triggered() ),  tab,   SLOT( Underline()                ) );
+    
+        connect( ui.actionStrikethrough,            SIGNAL( triggered() ),  tab,   SLOT( Strikethrough()            ) );
+        connect( ui.actionAlignLeft,                SIGNAL( triggered() ),  tab,   SLOT( AlignLeft()                ) );
+        connect( ui.actionCenter,                   SIGNAL( triggered() ),  tab,   SLOT( Center()                   ) );
+        connect( ui.actionAlignRight,               SIGNAL( triggered() ),  tab,   SLOT( AlignRight()               ) );
+        connect( ui.actionJustify,                  SIGNAL( triggered() ),  tab,   SLOT( Justify()                  ) );
+        
+        connect( ui.actionInsertBulletedList,       SIGNAL( triggered() ),  tab,   SLOT( InsertBulletedList()       ) );
+        connect( ui.actionInsertNumberedList,       SIGNAL( triggered() ),  tab,   SLOT( InsertNumberedList()       ) );
+        connect( ui.actionDecreaseIndent,           SIGNAL( triggered() ),  tab,   SLOT( DecreaseIndent()           ) );
+        connect( ui.actionIncreaseIndent,           SIGNAL( triggered() ),  tab,   SLOT( IncreaseIndent()           ) );
+        connect( ui.actionRemoveFormatting,         SIGNAL( triggered() ),  tab,   SLOT( RemoveFormatting()         ) );
+
         connect( ui.actionCutCodeTags,              SIGNAL( triggered() ),  tab,   SLOT( CutCodeTags()              ) );
         connect( ui.actionSplitChapter,             SIGNAL( triggered() ),  tab,   SLOT( SplitChapter()             ) );
         connect( ui.actionInsertSGFChapterMarker,   SIGNAL( triggered() ),  tab,   SLOT( InsertSGFChapterMarker()   ) );
@@ -2531,6 +2835,9 @@ void MainWindow::MakeTabConnections( ContentTab *tab )
         connect( ui.actionPrint,                    SIGNAL( triggered() ),  tab,   SLOT( Print()                    ) );
         connect( this,                              SIGNAL( SettingsChanged()), tab, SLOT( LoadSettings()           ) );
 
+        connect( m_cbHeadings, SIGNAL( activated( const QString& ) ),  tab,   SLOT( HeadingStyle( const QString& ) ) );
+        connect( m_headingMapper, SIGNAL( mapped( const QString& ) ),  tab,   SLOT( HeadingStyle( const QString& ) ) );
+    
         connect( tab,   SIGNAL( SelectionChanged() ),           this,          SLOT( UpdateUIOnTabChanges()    ) );
         connect( tab,   SIGNAL( EnteringBookView() ),           this,          SLOT( SetStateActionsBookView() ) );
         connect( tab,   SIGNAL( EnteringBookPreview() ),        this,          SLOT( SetStateActionsSplitView() ) );
@@ -2575,6 +2882,23 @@ void MainWindow::BreakTabConnections( ContentTab *tab )
     disconnect( ui.actionCut,                       0, tab, 0 );
     disconnect( ui.actionCopy,                      0, tab, 0 );
     disconnect( ui.actionPaste,                     0, tab, 0 );
+    disconnect( ui.actionBold,                      0, tab, 0 );
+    disconnect( ui.actionItalic,                    0, tab, 0 );
+    disconnect( ui.actionUnderline,                 0, tab, 0 );
+    disconnect( ui.actionStrikethrough,             0, tab, 0 );
+    disconnect( ui.actionAlignLeft,                 0, tab, 0 );
+    disconnect( ui.actionCenter,                    0, tab, 0 );
+    disconnect( ui.actionAlignRight,                0, tab, 0 );
+    disconnect( ui.actionJustify,                   0, tab, 0 );
+    disconnect( ui.actionInsertBulletedList,        0, tab, 0 );
+    disconnect( ui.actionInsertNumberedList,        0, tab, 0 );
+    disconnect( ui.actionDecreaseIndent,            0, tab, 0 );
+    disconnect( ui.actionIncreaseIndent,            0, tab, 0 );
+    disconnect( ui.actionRemoveFormatting,          0, tab, 0 );
+
+    disconnect( m_cbHeadings,                       0, tab, 0 );
+    disconnect( m_headingMapper,                    0, tab, 0 );
+
     disconnect( ui.actionCutCodeTags,               0, tab, 0 );
     disconnect( ui.actionSplitChapter,              0, tab, 0 );
     disconnect( ui.actionInsertSGFChapterMarker,    0, tab, 0 );

@@ -19,12 +19,14 @@
 **
 *************************************************************************/
 
+#include <QtCore/QEvent>
 #include <QtCore/QSize>
 #include <QtCore/QUrl>
 #include <QtGui/QMessageBox>
 #include <QtWebKit/QWebFrame>
 
 #include "Misc/SettingsStore.h"
+#include "Misc/Utility.h"
 #include "sigil_constants.h"
 #include "ViewEditors/BookViewPreview.h"
 
@@ -39,6 +41,10 @@ const QString SET_CURSOR_JS =
 
 BookViewPreview::BookViewPreview(QWidget *parent)
     : QWebView(parent),
+      c_GetCaretLocation( Utility::ReadUnicodeTextFile( ":/javascript/book_view_current_location.js" ) ),
+      c_jQuery(           Utility::ReadUnicodeTextFile( ":/javascript/jquery-1.6.2.min.js"           ) ),
+      c_jQueryScrollTo(   Utility::ReadUnicodeTextFile( ":/javascript/jquery.scrollTo-1.4.2-min.js"  ) ),
+      c_jQueryWrapSelection( Utility::ReadUnicodeTextFile( ":/javascript/jquery.wrapSelection.js"    ) ),
       m_isLoadFinished(false)
 {
     setContextMenuPolicy(Qt::NoContextMenu);
@@ -54,6 +60,7 @@ BookViewPreview::BookViewPreview(QWidget *parent)
 
     connect(page(), SIGNAL(loadProgress(int)), this, SLOT(UpdateFinishedState(int)));
     connect(page(), SIGNAL(linkClicked(const QUrl&)), this, SLOT(LinkClickedFilter(const QUrl&)));
+    connect(page(), SIGNAL(loadFinished(bool)), this, SLOT(WebPageJavascriptOnLoad()));
 }
 
 QSize BookViewPreview::sizeHint() const
@@ -256,4 +263,11 @@ void BookViewPreview::GrabFocus()
 {
     qobject_cast<QWidget *>(parent())->setFocus();
     QWebView::setFocus();
+}
+
+void BookViewPreview::WebPageJavascriptOnLoad()
+{
+    page()->mainFrame()->evaluateJavaScript( c_jQuery         );
+    page()->mainFrame()->evaluateJavaScript( c_jQueryScrollTo );
+    page()->mainFrame()->evaluateJavaScript( c_jQueryWrapSelection );
 }

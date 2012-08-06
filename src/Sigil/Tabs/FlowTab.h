@@ -142,6 +142,20 @@ public:
 
     QString GetFilename();
 
+    bool BoldChecked();
+
+    bool ItalicChecked();
+
+    bool UnderlineChecked();
+
+    bool StrikethroughChecked();
+
+    bool BulletListChecked();
+
+    bool NumberListChecked();
+
+    QString GetCaretElementName();
+
 public slots:
 
     bool IsDataWellFormed();
@@ -231,6 +245,76 @@ public slots:
     void SaveTabContent();
 
     void LoadTabContent();
+
+    /**
+     * Implements Bold action functionality.
+     */
+    void Bold();
+
+    /**
+     * Implements Italic action functionality.
+     */
+    void Italic();
+
+    /**
+     * Implements Underline action functionality.
+     */
+    void Underline();
+
+    /**
+     * Implements Strikethrough action functionality.
+     */
+    void Strikethrough();
+
+    /**
+     * Implements Align Left action functionality.
+     */
+    void AlignLeft();
+
+    /**
+     * Implements Center action functionality.
+     */
+    void Center();
+
+    /**
+     * Implements Align Right action functionality.
+     */
+    void AlignRight();
+
+    /**
+     * Implements Justify action functionality.
+     */
+    void Justify();
+    
+    /**
+     * Implements Insert bulleted list action functionality.
+     */
+    void InsertBulletedList();
+
+    /**
+     * Implements Insert numbered list action functionality.
+     */
+    void InsertNumberedList();
+
+    /**
+     * Implements Decrease indent action functionality.
+     */
+    void DecreaseIndent();
+
+    /**
+     * Implements Increase indent action functionality.
+     */
+    void IncreaseIndent();
+
+    /**
+     * Implements Remove Formatting action functionality.
+     */
+    void RemoveFormatting();
+
+    /**
+     * Implements the heading combo box functionality.
+     */
+    void HeadingStyle( const QString& heading_type );
 
 signals:
 

@@ -136,6 +136,42 @@
     <addaction name="actionSigilDevBlog"/>
     <addaction name="actionAbout"/>
    </widget>
+   <widget class="QMenu" name="menuFormat">
+    <property name="title">
+     <string>For&amp;mat</string>
+    </property>
+    <widget class="QMenu" name="menuHeadings">
+     <property name="title">
+      <string>Heading</string>
+     </property>
+     <addaction name="actionHeadingNormal"/>
+     <addaction name="actionHeading1"/>
+     <addaction name="actionHeading2"/>
+     <addaction name="actionHeading3"/>
+     <addaction name="actionHeading4"/>
+     <addaction name="actionHeading5"/>
+     <addaction name="actionHeading6"/>
+    </widget>
+    <addaction name="menuHeadings"/>
+    <addaction name="separator"/>
+    <addaction name="actionBold"/>
+    <addaction name="actionItalic"/>
+    <addaction name="actionUnderline"/>
+    <addaction name="actionStrikethrough"/>
+    <addaction name="separator"/>
+    <addaction name="actionAlignLeft"/>
+    <addaction name="actionCenter"/>
+    <addaction name="actionAlignRight"/>
+    <addaction name="actionJustify"/>
+    <addaction name="separator"/>
+    <addaction name="actionInsertBulletedList"/>
+    <addaction name="actionInsertNumberedList"/>
+    <addaction name="separator"/>
+    <addaction name="actionDecreaseIndent"/>
+    <addaction name="actionIncreaseIndent"/>
+    <addaction name="separator"/>
+    <addaction name="actionRemoveFormatting"/>
+   </widget>
    <widget class="QMenu" name="menuView">
     <property name="title">
      <string>&amp;View</string>
@@ -190,6 +226,7 @@
    <addaction name="menuEdit"/>
    <addaction name="menuFindReplace"/>
    <addaction name="menuView"/>
+   <addaction name="menuFormat"/>
    <addaction name="menu_Window"/>
    <addaction name="menuHelp"/>
   </widget>
@@ -267,6 +304,73 @@
    </attribute>
    <addaction name="actionDonate"/>
   </widget>
+  <widget class="QToolBar" name="toolBarHeadings">
+   <property name="windowTitle">
+    <string>Heading</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>true</bool>
+   </attribute>
+  </widget>
+  <widget class="QToolBar" name="toolBarTextFormats">
+   <property name="windowTitle">
+    <string>Format</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionBold"/>
+   <addaction name="actionItalic"/>
+   <addaction name="actionUnderline"/>
+   <addaction name="actionStrikethrough"/>
+  </widget>
+  <widget class="QToolBar" name="toolBarTextAlign">
+   <property name="windowTitle">
+    <string>Align</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionAlignLeft"/>
+   <addaction name="actionCenter"/>
+   <addaction name="actionAlignRight"/>
+   <addaction name="actionJustify"/>
+  </widget>
+  <widget class="QToolBar" name="toolBarLists">
+   <property name="windowTitle">
+    <string>List</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionInsertBulletedList"/>
+   <addaction name="actionInsertNumberedList"/>
+  </widget>
+  <widget class="QToolBar" name="toolBarIndents">
+   <property name="windowTitle">
+    <string>Indent</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionDecreaseIndent"/>
+   <addaction name="actionIncreaseIndent"/>
+  </widget>
   <widget class="QToolBar" name="toolBarTools">
    <property name="windowTitle">
     <string>Quick Settings</string>
@@ -279,17 +383,6 @@
    </attribute>
    <addaction name="actionCheckWellFormedErrors"/>
    <addaction name="actionValidateEpub"/>
-  </widget>
-  <widget class="QToolBar" name="Clipboard">
-   <property name="windowTitle">
-    <string>Clipboard</string>
-   </property>
-   <attribute name="toolBarArea">
-    <enum>TopToolBarArea</enum>
-   </attribute>
-   <attribute name="toolBarBreak">
-    <bool>false</bool>
-   </attribute>
   </widget>
   <action name="actionNew">
    <property name="icon">
@@ -435,6 +528,114 @@
     <string>Ctrl+C</string>
    </property>
   </action>
+  <action name="actionAlignLeft">
+   <property name="icon">
+    <iconset resource="../Resource_Files/main/main.qrc">
+     <normaloff>:/main/format-justify-left_22px.png</normaloff>:/main/format-justify-left_22px.png</iconset>
+   </property>
+   <property name="text">
+    <string>Align &amp;Left</string>
+   </property>
+   <property name="toolTip">
+    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Align Text Left&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Align text to the left.&lt;/p&gt;</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+L</string>
+   </property>
+  </action>
+  <action name="actionAlignRight">
+   <property name="icon">
+    <iconset resource="../Resource_Files/main/main.qrc">
+     <normaloff>:/main/format-justify-right_22px.png</normaloff>:/main/format-justify-right_22px.png</iconset>
+   </property>
+   <property name="text">
+    <string>Align &amp;Right</string>
+   </property>
+   <property name="toolTip">
+    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Align Text Right&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Align text to the right.&lt;/p&gt;</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+R</string>
+   </property>
+  </action>
+  <action name="actionCenter">
+   <property name="icon">
+    <iconset resource="../Resource_Files/main/main.qrc">
+     <normaloff>:/main/format-justify-center_22px.png</normaloff>:/main/format-justify-center_22px.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Center</string>
+   </property>
+   <property name="toolTip">
+    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Center&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Center text.&lt;/p&gt;</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+E</string>
+   </property>
+  </action>
+  <action name="actionJustify">
+   <property name="icon">
+    <iconset resource="../Resource_Files/main/main.qrc">
+     <normaloff>:/main/format-justify-fill_22px.png</normaloff>:/main/format-justify-fill_22px.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Justify</string>
+   </property>
+   <property name="toolTip">
+    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Justify&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Align the text to both the left and right margins.&lt;/p&gt;</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+J</string>
+   </property>
+  </action>
+  <action name="actionBold">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../Resource_Files/main/main.qrc">
+     <normaloff>:/main/format-text-bold_22px.png</normaloff>:/main/format-text-bold_22px.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Bold</string>
+   </property>
+   <property name="toolTip">
+    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Bold&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Makes the selected text bold.&lt;/p&gt;</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+B</string>
+   </property>
+  </action>
+  <action name="actionItalic">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../Resource_Files/main/main.qrc">
+     <normaloff>:/main/format-text-italic_22px.png</normaloff>:/main/format-text-italic_22px.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Italic</string>
+   </property>
+   <property name="toolTip">
+    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Italic&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Makes the selected text italic.&lt;/p&gt;</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+I</string>
+   </property>
+  </action>
   <action name="actionOpen">
    <property name="icon">
     <iconset resource="../Resource_Files/main/main.qrc">
@@ -450,6 +651,26 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+O</string>
+   </property>
+  </action>
+  <action name="actionUnderline">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../Resource_Files/main/main.qrc">
+     <normaloff>:/main/format-text-underline_22px.png</normaloff>:/main/format-text-underline_22px.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Underline</string>
+   </property>
+   <property name="toolTip">
+    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Underline&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Underlines the selected text.&lt;/p&gt;</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+U</string>
    </property>
   </action>
   <action name="actionExit">
@@ -589,6 +810,66 @@
     <string>Ctrl+Shift+I</string>
    </property>
   </action>
+  <action name="actionInsertNumberedList">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../Resource_Files/main/main.qrc">
+     <normaloff>:/main/insert-numbered-list_22px.png</normaloff>:/main/insert-numbered-list_22px.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Numbered List</string>
+   </property>
+   <property name="toolTip">
+    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Numbering&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Create a numbered list.&lt;/p&gt;</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Alt+L</string>
+   </property>
+  </action>
+  <action name="actionInsertBulletedList">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../Resource_Files/main/main.qrc">
+     <normaloff>:/main/insert-bullet-list_22px.png</normaloff>:/main/insert-bullet-list_22px.png</iconset>
+   </property>
+   <property name="text">
+    <string>Bulle&amp;ted List</string>
+   </property>
+   <property name="toolTip">
+    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Bullets&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Create a bulleted list.&lt;/p&gt;</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+L</string>
+   </property>
+  </action>
+  <action name="actionStrikethrough">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../Resource_Files/main/main.qrc">
+     <normaloff>:/main/format-text-strikethrough_22px.png</normaloff>:/main/format-text-strikethrough_22px.png</iconset>
+   </property>
+   <property name="text">
+    <string>Strike&amp;through</string>
+   </property>
+   <property name="toolTip">
+    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Strikethrough&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Draws a line through the selected text.&lt;/p&gt;</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+T</string>
+   </property>
+  </action>
   <action name="actionPrint">
    <property name="icon">
     <iconset resource="../Resource_Files/main/main.qrc">
@@ -686,6 +967,48 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+F</string>
+   </property>
+  </action>
+  <action name="actionIncreaseIndent">
+   <property name="icon">
+    <iconset resource="../Resource_Files/main/main.qrc">
+     <normaloff>:/main/format-indent-more_22px.png</normaloff>:/main/format-indent-more_22px.png</iconset>
+   </property>
+   <property name="text">
+    <string>Increase Indent</string>
+   </property>
+   <property name="toolTip">
+    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Increase Indent&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Increase the indent level of the paragraph.&lt;/p&gt;</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+M</string>
+   </property>
+  </action>
+  <action name="actionDecreaseIndent">
+   <property name="icon">
+    <iconset resource="../Resource_Files/main/main.qrc">
+     <normaloff>:/main/format-indent-less_22px.png</normaloff>:/main/format-indent-less_22px.png</iconset>
+   </property>
+   <property name="text">
+    <string>Decrease Indent</string>
+   </property>
+   <property name="toolTip">
+    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Decrease Indent&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Decrease the indent level of the paragraph.&lt;/p&gt;</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+M</string>
+   </property>
+  </action>
+  <action name="actionRemoveFormatting">
+   <property name="text">
+    <string>Remove Formatting</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Space</string>
    </property>
   </action>
   <action name="actionReportAnIssue">
@@ -939,6 +1262,83 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+0</string>
+   </property>
+  </action>
+  <action name="actionHeading1">
+   <property name="text">
+    <string notr="true">Heading 1</string>
+   </property>
+   <property name="toolTip">
+    <string>Style with heading 1</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+1</string>
+   </property>
+  </action>
+  <action name="actionHeading2">
+   <property name="text">
+    <string notr="true">Heading 2</string>
+   </property>
+   <property name="toolTip">
+    <string>Style with heading 2</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+2</string>
+   </property>
+  </action>
+  <action name="actionHeading3">
+   <property name="text">
+    <string notr="true">Heading 3</string>
+   </property>
+   <property name="toolTip">
+    <string>Style with heading 3</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+3</string>
+   </property>
+  </action>
+  <action name="actionHeading4">
+   <property name="text">
+    <string notr="true">Heading 4</string>
+   </property>
+   <property name="toolTip">
+    <string>Style with heading 4</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+4</string>
+   </property>
+  </action>
+  <action name="actionHeading5">
+   <property name="text">
+    <string notr="true">Heading 5</string>
+   </property>
+   <property name="toolTip">
+    <string>Style with heading 5</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+5</string>
+   </property>
+  </action>
+  <action name="actionHeading6">
+   <property name="text">
+    <string notr="true">Heading 6</string>
+   </property>
+   <property name="toolTip">
+    <string>Style with heading 6</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+6</string>
+   </property>
+  </action>
+  <action name="actionHeadingNormal">
+   <property name="text">
+    <string notr="true">Normal</string>
+   </property>
+   <property name="toolTip">
+    <string>Style as normal text</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+7</string>
    </property>
   </action>
   <action name="actionNewHTMLFile">
