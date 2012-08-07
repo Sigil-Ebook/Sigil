@@ -825,11 +825,6 @@ private:
     MainWindow::ViewState m_ViewState;
 
     /**
-     * The headings drop-down combo box.
-     */
-    QComboBox *m_cbHeadings;
-
-    /**
      * Collects signals and sends specific paramerts to the connected slots.
      */
     QSignalMapper *m_headingMapper;
