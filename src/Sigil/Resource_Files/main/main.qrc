@@ -80,5 +80,12 @@
         <file>widget-close-16.png</file>
         <file>widget-close-22.png</file>
         <file>wrapindicator.png</file>
+        <file>heading-1_22px.png</file>
+        <file>heading-2_22px.png</file>
+        <file>heading-3_22px.png</file>
+        <file>heading-4_22px.png</file>
+        <file>heading-5_22px.png</file>
+        <file>heading-6_22px.png</file>
+        <file>heading-normal_22px.png</file>
     </qresource>
 </RCC>
