@@ -42,8 +42,8 @@ const QString SET_CURSOR_JS =
 
 BookViewPreview::BookViewPreview(QWidget *parent)
     : QWebView(parent),
-      m_CaretLocationUpdate( QString() ),
       c_GetCaretLocation( Utility::ReadUnicodeTextFile( ":/javascript/book_view_current_location.js" ) ),
+      m_CaretLocationUpdate( QString() ),
       c_jQuery(           Utility::ReadUnicodeTextFile( ":/javascript/jquery-1.6.2.min.js"           ) ),
       c_jQueryScrollTo(   Utility::ReadUnicodeTextFile( ":/javascript/jquery.scrollTo-1.4.2-min.js"  ) ),
       c_jQueryWrapSelection( Utility::ReadUnicodeTextFile( ":/javascript/jquery.wrapSelection.js"    ) ),

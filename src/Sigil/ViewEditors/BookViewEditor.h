@@ -31,6 +31,7 @@
 
 class QEvent;
 class QSize;
+class QShortcut;
 
 /**
  * A WYSIWYG editor for XHTML flows.
@@ -302,7 +303,12 @@ private:
 
     QVariant m_caret;
     QString m_path;
-    
+
+    /**
+     * \c true if the WebPage was modified by the user.
+     */
+    bool m_WebPageModified;
+
     /**
      * PageUp keyboard shortcut.
      */
@@ -367,11 +373,6 @@ private:
      * first block-level parent of a node in the source.
      */
     const QString c_FormatBlock;
-
-    /**
-     * \c true if the WebPage was modified by the user.
-     */
-    bool m_WebPageModified;
 };
 
 

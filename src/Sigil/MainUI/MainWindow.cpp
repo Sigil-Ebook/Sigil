@@ -1029,6 +1029,25 @@ void MainWindow::setCleanLevel(int level, bool store)
     }
 }
 
+void MainWindow::ToggleViewState()
+{
+    ContentTab &tab = GetCurrentContentTab();
+    if (&tab == NULL) {
+        return;
+    }
+
+    Resource::ResourceType type = tab.GetLoadedResource().Type();
+
+    if (type == Resource::HTMLResourceType) {
+        if (m_ViewState == MainWindow::ViewState_CodeView) {
+            SetViewState(MainWindow::ViewState_BookView);
+        }
+        else {
+            SetViewState(MainWindow::ViewState_CodeView);
+        }
+    }
+}
+
 void MainWindow::BookView()
 {
     SetViewState( MainWindow::ViewState_BookView );
@@ -2772,6 +2791,9 @@ void MainWindow::ConnectSignalsToSlots()
 
     connect( &m_TabManager, SIGNAL( NewChaptersRequest( QStringList, HTMLResource& ) ),
              this,          SLOT(   CreateNewChapters(  QStringList, HTMLResource& ) ) );
+
+    connect( &m_TabManager, SIGNAL( ToggleViewStateRequest() ),
+             this,          SLOT(   ToggleViewState() ) );
 
     connect(m_FindReplace, SIGNAL( OpenSearchEditorRequest(SearchEditorModel::searchEntry *) ),
             this,          SLOT( SearchEditorDialog(SearchEditorModel::searchEntry *)     ) );

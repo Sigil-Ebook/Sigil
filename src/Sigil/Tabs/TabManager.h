@@ -147,10 +147,12 @@ public slots:
     void RemoveTab();
 
     /**
-     * Closes all tabs except the curren tab.
+     * Closes all tabs except the current tab.
      * If there is only one tab opened, the command is ignored.
      */
     void CloseOtherTabs();
+
+    void CloseOtherTabs(int index);
 
     /**
      * Makes the tab the central (shown) tab of the UI.
@@ -166,6 +168,7 @@ public slots:
     void OpenLastCodeLinkOpened();
 
 signals:
+    void ToggleViewStateRequest();
 
     /**
      * Emitted whenever the user switches from one tab to the next.
@@ -306,6 +309,8 @@ private:
 
     QString m_LastLinkOpenedFilename;
     int m_LastLinkOpenedPosition; 
+
+    QTabBar *m_TabBar;
 };
 
 #endif // TABMANAGER_H

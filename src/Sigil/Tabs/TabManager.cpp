@@ -34,6 +34,7 @@
 #include "Tabs/TabManager.h"
 #include "Tabs/WellFormedContent.h"
 #include "Tabs/XPGTTab.h"
+#include "Tabs/TabBar.h"
 
 TabManager::TabManager( QWidget *parent )
     :
@@ -41,6 +42,11 @@ TabManager::TabManager( QWidget *parent )
     m_LastLinkOpenedFilename(QString()),
     m_LastLinkOpenedPosition(-1)
 {
+    QTabBar *tab_bar = new TabBar(this);
+    setTabBar(tab_bar);
+    connect( tab_bar, SIGNAL( TabBarClicked() ), this, SIGNAL( ToggleViewStateRequest() ) );
+    connect( tab_bar, SIGNAL( CloseOtherTabsRequest(int) ), this, SLOT( CloseOtherTabs(int) ) );
+
     connect( this, SIGNAL( currentChanged( int ) ),    this, SLOT( EmitTabChanged() ) );
     connect( this, SIGNAL( currentChanged( int ) ),    this, SLOT( UpdateTab( int ) ) );
     connect( this, SIGNAL( tabCloseRequested( int ) ), this, SLOT( CloseTab( int ) ) );
@@ -311,27 +317,27 @@ void TabManager::CloseTab()
     CloseTab( currentIndex() );
 }
 
-
 void TabManager::CloseOtherTabs()
 {
-    if ( count() <= 1 )
-    {
+    CloseOtherTabs(currentIndex());
+}
+
+void TabManager::CloseOtherTabs(int index)
+{
+    if (count() <= 1 || index < 0 || index >= count()) {
         return;
     }
 
-    int current_index = currentIndex();
     int max_index = count() - 1;
 
-    // Close all tabs after the current one.
-    for ( int i = current_index + 1; i <= max_index; i++ )
-    {
-        CloseTab( current_index + 1 );
+    // Close all tabs after the tab
+    for (int i = index + 1; i <= max_index; i++) {
+        CloseTab(index + 1);
     }
 
-    // Close all tabs before the current one.
-    for ( int i = 0; i < current_index; i++ )
-    {
-        CloseTab( 0 );
+    // Close all tabs before the tab
+    for (int i = 0; i < index; i++) {
+        CloseTab(0);
     }
 }
 

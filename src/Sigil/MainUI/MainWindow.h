@@ -520,6 +520,8 @@ private slots:
 
     void setCleanLevel(int level, bool store=true);
 
+    void ToggleViewState();
+
 private:
 
     /**
@@ -823,6 +825,16 @@ private:
     MainWindow::ViewState m_ViewState;
 
     /**
+     * The headings drop-down combo box.
+     */
+    QComboBox *m_cbHeadings;
+
+    /**
+     * Collects signals and sends specific paramerts to the connected slots.
+     */
+    QSignalMapper *m_headingMapper;
+
+    /**
      * The Search Manager dialog
      */
     SearchEditor *m_SearchEditor;
@@ -840,11 +852,6 @@ private:
      * Holds all the widgets Qt Designer created for us.
      */
     Ui::MainWindow ui;
-
-    /**
-     * Collects signals and sends specific paramerts to the connected slots.
-     */
-    QSignalMapper *m_headingMapper;
 };
 
 #endif // SIGIL_H
