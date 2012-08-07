@@ -1333,6 +1333,7 @@ void MainWindow::SetStateActionsBookView()
 
     ui.actionInsertBulletedList->setEnabled(true);
     ui.actionInsertNumberedList->setEnabled(true);
+    ui.actionRemoveFormatting->setEnabled(true);
 
     m_cbHeadings->setEnabled(true);
     ui.actionHeading1->setEnabled(true);
@@ -1396,6 +1397,7 @@ void MainWindow::SetStateActionsSplitView()
 
     ui.actionInsertBulletedList->setEnabled(false);
     ui.actionInsertNumberedList->setEnabled(false);
+    ui.actionRemoveFormatting->setEnabled(false);
 
     m_cbHeadings->setEnabled(false);
     ui.actionHeading1->setEnabled(false);
@@ -1459,6 +1461,7 @@ void MainWindow::SetStateActionsCodeView()
 
     ui.actionInsertBulletedList->setEnabled(false);
     ui.actionInsertNumberedList->setEnabled(false);
+    ui.actionRemoveFormatting->setEnabled(false);
 
     m_cbHeadings->setEnabled(false);
     ui.actionHeading1->setEnabled(false);
@@ -1523,6 +1526,7 @@ void MainWindow::SetStateActionsRawView()
 
     ui.actionInsertBulletedList->setEnabled(false);
     ui.actionInsertNumberedList->setEnabled(false);
+    ui.actionRemoveFormatting->setEnabled(false);
 
     m_cbHeadings->setEnabled(false);
     ui.actionHeading1->setEnabled(false);
@@ -1592,6 +1596,7 @@ void MainWindow::SetStateActionsStaticView()
 
     ui.actionInsertBulletedList->setEnabled(false);
     ui.actionInsertNumberedList->setEnabled(false);
+    ui.actionRemoveFormatting->setEnabled(false);
 
     m_cbHeadings->setEnabled(false);
     ui.actionHeading1->setEnabled(false);
