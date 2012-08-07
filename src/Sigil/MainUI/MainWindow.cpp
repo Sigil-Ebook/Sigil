@@ -121,7 +121,6 @@ MainWindow::MainWindow( const QString &openfilepath, QWidget *parent, Qt::WFlags
     c_LoadFilters( GetLoadFiltersMap() ),
     m_CheckWellFormedErrors( true ),
     m_ViewState( MainWindow::ViewState_BookView ),
-    m_cbHeadings( NULL ),
     m_headingMapper( new QSignalMapper( this ) ),
     m_SearchEditor(new SearchEditor(this)),
     m_ClipboardEditor(new ClipboardEditor(this)),
@@ -1277,7 +1276,7 @@ void MainWindow::UpdateUIOnTabChanges()
     UpdateZoomSlider( zoom_factor );
 
     UpdateCursorPositionLabel(tab.GetCursorLine(), tab.GetCursorColumn());
-    SelectEntryInHeadingCombo( tab.GetCaretElementName() );    
+    SelectEntryOnHeadingToolbar( tab.GetCaretElementName() );    
 }
 
 
@@ -1335,7 +1334,6 @@ void MainWindow::SetStateActionsBookView()
     ui.actionInsertNumberedList->setEnabled(true);
     ui.actionRemoveFormatting->setEnabled(true);
 
-    m_cbHeadings->setEnabled(true);
     ui.actionHeading1->setEnabled(true);
     ui.actionHeading2->setEnabled(true);
     ui.actionHeading3->setEnabled(true);
@@ -1399,7 +1397,6 @@ void MainWindow::SetStateActionsSplitView()
     ui.actionInsertNumberedList->setEnabled(false);
     ui.actionRemoveFormatting->setEnabled(false);
 
-    m_cbHeadings->setEnabled(false);
     ui.actionHeading1->setEnabled(false);
     ui.actionHeading2->setEnabled(false);
     ui.actionHeading3->setEnabled(false);
@@ -1463,7 +1460,6 @@ void MainWindow::SetStateActionsCodeView()
     ui.actionInsertNumberedList->setEnabled(false);
     ui.actionRemoveFormatting->setEnabled(false);
 
-    m_cbHeadings->setEnabled(false);
     ui.actionHeading1->setEnabled(false);
     ui.actionHeading2->setEnabled(false);
     ui.actionHeading3->setEnabled(false);
@@ -1528,7 +1524,6 @@ void MainWindow::SetStateActionsRawView()
     ui.actionInsertNumberedList->setEnabled(false);
     ui.actionRemoveFormatting->setEnabled(false);
 
-    m_cbHeadings->setEnabled(false);
     ui.actionHeading1->setEnabled(false);
     ui.actionHeading2->setEnabled(false);
     ui.actionHeading3->setEnabled(false);
@@ -1598,7 +1593,6 @@ void MainWindow::SetStateActionsStaticView()
     ui.actionInsertNumberedList->setEnabled(false);
     ui.actionRemoveFormatting->setEnabled(false);
 
-    m_cbHeadings->setEnabled(false);
     ui.actionHeading1->setEnabled(false);
     ui.actionHeading2->setEnabled(false);
     ui.actionHeading3->setEnabled(false);
@@ -2151,21 +2145,45 @@ void MainWindow::UpdateUiWithCurrentFile( const QString &fullfilepath )
             mainWin->UpdateRecentFileActions();
     }
 }
-void MainWindow::SelectEntryInHeadingCombo( const QString &element_name )
+
+
+void MainWindow::SelectEntryOnHeadingToolbar( const QString &element_name )
 {
-    QString select = "";
+    ui.actionHeading1->setChecked(false);
+    ui.actionHeading2->setChecked(false);
+    ui.actionHeading3->setChecked(false);
+    ui.actionHeading4->setChecked(false);
+    ui.actionHeading5->setChecked(false);
+    ui.actionHeading6->setChecked(false);
+    ui.actionHeadingNormal->setChecked(false);
+
     if ( !element_name.isEmpty() )
     {
         if ( ( element_name[ 0 ].toLower() == QChar( 'h' ) ) && ( element_name[ 1 ].isDigit() ) )
-            select = "Heading " + QString( element_name[ 1 ] );
+        {
+            QString heading_name = QString( element_name[ 1 ] );
+            if (heading_name == "1") {
+                ui.actionHeading1->setChecked(true);
+            }
+            else if (heading_name == "2") {
+                ui.actionHeading2->setChecked(true);
+            }
+            else if (heading_name == "3") {
+                ui.actionHeading3->setChecked(true);
+            }
+            else if (heading_name == "4") {
+                ui.actionHeading4->setChecked(true);
+            }
+            else if (heading_name == "5") {
+                ui.actionHeading5->setChecked(true);
+            }
+            else if (heading_name == "6") {
+                ui.actionHeading6->setChecked(true);
+            }
+        }
         else
-            select = "Normal";
+            ui.actionHeadingNormal->setChecked(true);
     }
-    else
-    {
-        select = "<Select heading>";
-    }
-    m_cbHeadings->setCurrentIndex( m_cbHeadings->findText( select ) );
 }
 
 
@@ -2305,30 +2323,6 @@ void MainWindow::ExtendUI()
     ui.menuToolbars->addAction(ui.toolBarTextAlign->toggleViewAction());
     ui.menuToolbars->addAction(ui.toolBarDonate->toggleViewAction());
     ui.menuToolbars->addAction(ui.toolBarTools->toggleViewAction());
-
-    // Creating the Heading combo box
-
-    m_cbHeadings = new QComboBox();
-
-    QStringList headings;
-    
-    // Currently cannot be translated because recieving function looks for the
-    // h to determine if it's normal or not.
-    headings << "<Select heading>"
-             << "Normal"
-             << "Heading 1"
-             << "Heading 2"
-             << "Heading 3"
-             << "Heading 4"
-             << "Heading 5"
-             << "Heading 6";
-
-    m_cbHeadings->addItems( headings );
-    m_cbHeadings->setToolTip(   "<p style='padding-top: 0.5em;'><b>Style with heading</b></p>"
-                                "<p style='margin-left: 0.5em;'>Style the selected text with a heading.</p>"
-                            );
-
-    ui.toolBarHeadings->addWidget( m_cbHeadings );
 
     m_lbCursorPosition = new QLabel( QString (""), statusBar() );
     statusBar()->addPermanentWidget( m_lbCursorPosition );
@@ -2840,7 +2834,6 @@ void MainWindow::MakeTabConnections( ContentTab *tab )
         connect( ui.actionPrint,                    SIGNAL( triggered() ),  tab,   SLOT( Print()                    ) );
         connect( this,                              SIGNAL( SettingsChanged()), tab, SLOT( LoadSettings()           ) );
 
-        connect( m_cbHeadings, SIGNAL( activated( const QString& ) ),  tab,   SLOT( HeadingStyle( const QString& ) ) );
         connect( m_headingMapper, SIGNAL( mapped( const QString& ) ),  tab,   SLOT( HeadingStyle( const QString& ) ) );
     
         connect( tab,   SIGNAL( SelectionChanged() ),           this,          SLOT( UpdateUIOnTabChanges()    ) );
@@ -2900,8 +2893,6 @@ void MainWindow::BreakTabConnections( ContentTab *tab )
     disconnect( ui.actionDecreaseIndent,            0, tab, 0 );
     disconnect( ui.actionIncreaseIndent,            0, tab, 0 );
     disconnect( ui.actionRemoveFormatting,          0, tab, 0 );
-
-    disconnect( m_cbHeadings,                       0, tab, 0 );
     disconnect( m_headingMapper,                    0, tab, 0 );
 
     disconnect( ui.actionCutCodeTags,               0, tab, 0 );

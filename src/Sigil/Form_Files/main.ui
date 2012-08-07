@@ -314,6 +314,13 @@
    <attribute name="toolBarBreak">
     <bool>true</bool>
    </attribute>
+   <addaction name="actionHeading1"/>
+   <addaction name="actionHeading2"/>
+   <addaction name="actionHeading3"/>
+   <addaction name="actionHeading4"/>
+   <addaction name="actionHeading5"/>
+   <addaction name="actionHeading6"/>
+   <addaction name="actionHeadingNormal"/>
   </widget>
   <widget class="QToolBar" name="toolBarTextFormats">
    <property name="windowTitle">
@@ -1265,6 +1272,9 @@
    </property>
   </action>
   <action name="actionHeading1">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string notr="true">Heading 1</string>
    </property>
@@ -1274,8 +1284,15 @@
    <property name="shortcut">
     <string>Ctrl+1</string>
    </property>
-  </action>
+   <property name="icon">
+    <iconset resource="../Resource_Files/main/main.qrc">
+     <normaloff>:/main/heading-1_22px.png</normaloff>:/main/heading-1_22px.png</iconset>
+   </property>
+ </action>
   <action name="actionHeading2">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string notr="true">Heading 2</string>
    </property>
@@ -1285,8 +1302,15 @@
    <property name="shortcut">
     <string>Ctrl+2</string>
    </property>
+   <property name="icon">
+    <iconset resource="../Resource_Files/main/main.qrc">
+     <normaloff>:/main/heading-2_22px.png</normaloff>:/main/heading-2_22px.png</iconset>
+   </property>
   </action>
   <action name="actionHeading3">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string notr="true">Heading 3</string>
    </property>
@@ -1296,8 +1320,15 @@
    <property name="shortcut">
     <string>Ctrl+3</string>
    </property>
+   <property name="icon">
+    <iconset resource="../Resource_Files/main/main.qrc">
+     <normaloff>:/main/heading-3_22px.png</normaloff>:/main/heading-3_22px.png</iconset>
+   </property>
   </action>
   <action name="actionHeading4">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string notr="true">Heading 4</string>
    </property>
@@ -1307,8 +1338,15 @@
    <property name="shortcut">
     <string>Ctrl+4</string>
    </property>
+   <property name="icon">
+    <iconset resource="../Resource_Files/main/main.qrc">
+     <normaloff>:/main/heading-4_22px.png</normaloff>:/main/heading-4_22px.png</iconset>
+   </property>
   </action>
   <action name="actionHeading5">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string notr="true">Heading 5</string>
    </property>
@@ -1318,8 +1356,15 @@
    <property name="shortcut">
     <string>Ctrl+5</string>
    </property>
+   <property name="icon">
+    <iconset resource="../Resource_Files/main/main.qrc">
+     <normaloff>:/main/heading-5_22px.png</normaloff>:/main/heading-5_22px.png</iconset>
+   </property>
   </action>
   <action name="actionHeading6">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string notr="true">Heading 6</string>
    </property>
@@ -1329,8 +1374,15 @@
    <property name="shortcut">
     <string>Ctrl+6</string>
    </property>
+   <property name="icon">
+    <iconset resource="../Resource_Files/main/main.qrc">
+     <normaloff>:/main/heading-6_22px.png</normaloff>:/main/heading-6_22px.png</iconset>
+   </property>
   </action>
   <action name="actionHeadingNormal">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string notr="true">Normal</string>
    </property>
@@ -1339,6 +1391,10 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+7</string>
+   </property>
+   <property name="icon">
+    <iconset resource="../Resource_Files/main/main.qrc">
+     <normaloff>:/main/heading-normal_22px.png</normaloff>:/main/heading-normal_22px.png</iconset>
    </property>
   </action>
   <action name="actionNewHTMLFile">

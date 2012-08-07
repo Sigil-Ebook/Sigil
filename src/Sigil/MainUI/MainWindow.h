@@ -643,7 +643,7 @@ private:
      *
      * @param element_name The name of the currently selected element.
      */
-    void SelectEntryInHeadingCombo( const QString &element_name );
+    void SelectEntryOnHeadingToolbar( const QString &element_name );
 
     /**
      * Creates and adds the recent files actions 
@@ -840,11 +840,6 @@ private:
      * Holds all the widgets Qt Designer created for us.
      */
     Ui::MainWindow ui;
-
-    /**
-     * The headings drop-down combo box.
-     */
-    QComboBox *m_cbHeadings;
 
     /**
      * Collects signals and sends specific paramerts to the connected slots.
