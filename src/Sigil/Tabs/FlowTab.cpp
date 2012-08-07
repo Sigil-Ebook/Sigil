@@ -71,6 +71,7 @@ FlowTab::FlowTab(HTMLResource& resource,
     m_wCodeView(new CodeViewEditor(CodeViewEditor::Highlight_XHTML, true, this)),
     m_inspector(new QWebInspector(this)),
     m_ViewState(view_state),
+    m_previousViewState(view_state),
     m_WellFormedCheckComponent(*new WellFormedCheckComponent(*this)),
     m_safeToLoad(false),
     m_initialLoad(true),
@@ -334,6 +335,7 @@ bool FlowTab::SetViewState(MainWindow::ViewState new_view_state)
     // We do a save before changing to ensure we don't lose any unsaved data
     // in the previous view.
     SaveTabContent();
+    m_previousViewState = m_ViewState;
     m_ViewState = new_view_state;
     LoadTabContent();
 
@@ -631,6 +633,14 @@ void FlowTab::BookView()
     setFocusProxy(m_wBookView);
     m_wBookView->GrabFocus();
 
+    if (m_previousViewState == MainWindow::ViewState_CodeView) {
+        m_wBookView->StoreCaretLocationUpdate( m_wCodeView->GetCaretLocation() );
+    }
+    else if (m_previousViewState == MainWindow::ViewState_PreviewView) {
+        m_wBookView->StoreCaretLocationUpdate( m_wBookPreview->GetCaretLocation() );
+    }
+    m_wBookView->ExecuteCaretUpdate();
+
     QApplication::restoreOverrideCursor();
 }
 
@@ -644,7 +654,13 @@ void FlowTab::SplitView()
 
     m_views->setCurrentIndex(PV_INDEX);
     m_wBookPreview->GrabFocus();
-    m_wCodeView->SetDelayedCursorScreenCenteringRequired();
+    if (m_previousViewState == MainWindow::ViewState_BookView) {
+        m_wBookPreview->StoreCaretLocationUpdate( m_wBookView->GetCaretLocation() );
+    }
+    else if (m_previousViewState == MainWindow::ViewState_CodeView) {
+        m_wBookPreview->StoreCaretLocationUpdate( m_wCodeView->GetCaretLocation() );
+    }
+    m_wBookPreview->ExecuteCaretUpdate();
 
     QApplication::restoreOverrideCursor();
 }
@@ -662,7 +678,14 @@ void FlowTab::CodeView()
 
     // Make sure the cursor is properly displayed
     m_wCodeView->setFocus();
-    m_wCodeView->RestoreCaretLocation();
+
+    if (m_previousViewState == MainWindow::ViewState_BookView) {
+        m_wCodeView->StoreCaretLocationUpdate( m_wBookView->GetCaretLocation() );
+    }
+    else if (m_previousViewState == MainWindow::ViewState_PreviewView) {
+        m_wCodeView->StoreCaretLocationUpdate( m_wBookPreview->GetCaretLocation() );
+    }
+    m_wCodeView->ExecuteCaretUpdate();
 
     QApplication::restoreOverrideCursor();
 }

@@ -216,10 +216,17 @@ public:
      */
     void SetDelayedCursorScreenCenteringRequired();
 
-    void RestoreCaretLocation();
-
     void SetBackToLinkAllowed(bool allowed);
 
+    // inherited
+    QList< ViewEditor::ElementIndex > GetCaretLocation(); 
+
+    // inherited
+    void StoreCaretLocationUpdate( const QList< ViewEditor::ElementIndex > &hierarchy );
+
+    // inherited
+    bool ExecuteCaretUpdate();
+    	
 signals:
 
     /**
@@ -411,8 +418,6 @@ private:
      */
     void DelayedCursorScreenCentering();
 
-    void StoreCaretLocation();
-
     /**
      * Returns the selection offset from the start of the
      * document depending on the search direction specified
@@ -446,6 +451,53 @@ private:
     void AddOpenLinkContextMenu(QMenu *menu);
 
     void AddIndexContextMenu(QMenu *menu);
+
+    /**
+     * An element on the stack when searching for 
+     * the current caret location. 
+     */
+    struct StackElement
+    {
+        /**
+         * The tag name.
+         */        
+        QString name;
+
+        /**
+         * The number of child elements 
+         * detected for the element, so far.
+         */
+        int num_children;
+    };
+
+    /**
+     * Returns a stack of elements representing the
+     * current location of the caret in the document.
+     * 
+     * @param offset The number of characters from document start to the end of
+     *               the start tag of the element the caret is residing in.
+     * @return The element location stack.
+     */
+    QStack< StackElement > GetCaretLocationStack( int offset ) const;
+
+    /**
+     * Takes the stack provided by GetCaretLocationStack() 
+     * and converts it into the element location hierarchy 
+     * used by other ViewEditors.
+     *
+     * @param stack The StackElement stack.
+     * @return The converted ElementIndex hierarchy.
+     */
+    QList< ElementIndex > ConvertStackToHierarchy( const QStack< StackElement > stack ) const;
+
+    /**
+     * Converts a ViewEditor element hierarchy to a tuple describing necessary caret moves. 
+     * The tuple contains the vertical lines and horizontal chars move deltas
+     *
+     * @param hierarchy The caret location as ElementIndex hierarchy.
+     * @return The info needed to move the caret to the new location.
+     */
+    boost::tuple< int, int > ConvertHierarchyToCaretMove( const QList< ViewEditor::ElementIndex > &hierarchy ) const;
 
 
     ///////////////////////////////
@@ -507,6 +559,12 @@ private:
     bool m_DelayedCursorScreenCenteringRequired;
 
     int m_caretLocation;
+
+    /**
+     * Stores the update for the caret location 
+     * when switching from BookView to CodeView.
+     */
+    QList< ViewEditor::ElementIndex > m_CaretUpdate;
 
     /**
      * Whether spell checking is enabled on this view.

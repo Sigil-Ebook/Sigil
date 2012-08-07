@@ -21,6 +21,7 @@
 
 #include <QtCore/QEvent>
 #include <QtCore/QSize>
+#include <QtCore/QTimer>
 #include <QtCore/QUrl>
 #include <QtGui/QMessageBox>
 #include <QtWebKit/QWebFrame>
@@ -41,11 +42,13 @@ const QString SET_CURSOR_JS =
 
 BookViewPreview::BookViewPreview(QWidget *parent)
     : QWebView(parent),
+      m_CaretLocationUpdate( QString() ),
       c_GetCaretLocation( Utility::ReadUnicodeTextFile( ":/javascript/book_view_current_location.js" ) ),
       c_jQuery(           Utility::ReadUnicodeTextFile( ":/javascript/jquery-1.6.2.min.js"           ) ),
       c_jQueryScrollTo(   Utility::ReadUnicodeTextFile( ":/javascript/jquery.scrollTo-1.4.2-min.js"  ) ),
       c_jQueryWrapSelection( Utility::ReadUnicodeTextFile( ":/javascript/jquery.wrapSelection.js"    ) ),
-      m_isLoadFinished(false)
+      m_isLoadFinished(false),
+      m_pendingLoadCount(0)
 {
     setContextMenuPolicy(Qt::NoContextMenu);
 
@@ -70,6 +73,7 @@ QSize BookViewPreview::sizeHint() const
 
 void BookViewPreview::CustomSetDocument(const QString &path, const QString &html)
 {
+    m_pendingLoadCount += 1;
     m_isLoadFinished = false;
     setContent(html.toUtf8(), "application/xhtml+xml", QUrl::fromLocalFile(path));
 }
@@ -155,9 +159,11 @@ bool BookViewPreview::FindNext(const QString &search_regex,
                              )
 {
     Q_UNUSED(check_spelling)
-    Q_UNUSED(ignore_selection_offset)
 
     bool found = false;
+    if (ignore_selection_offset) {
+        ScrollToTop();
+    }
 
     // We can't handle a regex so remove the regex code.
     QString search_text = search_regex;
@@ -270,4 +276,80 @@ void BookViewPreview::WebPageJavascriptOnLoad()
     page()->mainFrame()->evaluateJavaScript( c_jQuery         );
     page()->mainFrame()->evaluateJavaScript( c_jQueryScrollTo );
     page()->mainFrame()->evaluateJavaScript( c_jQueryWrapSelection );
+    
+    m_pendingLoadCount -= 1;
+    QTimer::singleShot(0, this, SLOT(executeCaretUpdateInternal()));
 }
+
+QString BookViewPreview::GetElementSelectingJS_NoTextNodes( const QList< ViewEditor::ElementIndex > &hierarchy ) const
+{
+    // TODO: see if replacing jQuery with pure JS will speed up
+    // caret location scrolling... note the children()/contents() difference:
+    // children() only considers element nodes, contents() considers text nodes too.
+
+    QString element_selector = "$('html')";
+
+    for ( int i = 0; i < hierarchy.count() - 1; ++i )
+    {
+        if ( hierarchy[ i ].index > 0 ) {
+            element_selector.append( QString( ".children().eq(%1)" ).arg( hierarchy[ i ].index ) );
+        }
+    }
+
+    element_selector.append( ".get(0)" );
+
+    return element_selector;
+}
+
+QList< ViewEditor::ElementIndex > BookViewPreview::GetCaretLocation()
+{
+    // The location element hierarchy encoded in a string
+    QString location_string = EvaluateJavascript( c_GetCaretLocation ).toString();
+    QStringList elements    = location_string.split( ",", QString::SkipEmptyParts );
+
+    QList< ElementIndex > caret_location;
+
+    foreach( QString element, elements )
+    {
+        ElementIndex new_element;
+
+        new_element.name  = element.split( " " )[ 0 ];
+        new_element.index = element.split( " " )[ 1 ].toInt();
+
+        caret_location.append( new_element );
+    }
+    return caret_location;
+}
+
+void BookViewPreview::StoreCaretLocationUpdate( const QList< ViewEditor::ElementIndex > &hierarchy )
+{
+    QString caret_location = "var element = " + GetElementSelectingJS_NoTextNodes( hierarchy ) + ";";
+
+    // We scroll to the element and center the screen on it
+    QString scroll = "var from_top = window.innerHeight / 2;"
+                     "$.scrollTo( element, 0, {offset: {top:-from_top, left:0 } } );";
+
+    m_CaretLocationUpdate = caret_location + scroll + SET_CURSOR_JS;
+}
+
+bool BookViewPreview::ExecuteCaretUpdate()
+{
+    // Currently certain actions in Sigil result in a document being loaded multiple times
+	// in response to the signals. Only proceed with moving the caret if all loads are finished. 
+    if ( m_pendingLoadCount > 0 ) {
+        return false;
+    }
+    // If there is no caret location update pending... 
+    if ( m_CaretLocationUpdate.length() == 0 ) {
+        return false;
+    }
+
+    // run it...
+    EvaluateJavascript( m_CaretLocationUpdate );
+
+    // ...and clear the update.
+    m_CaretLocationUpdate = ""; 
+
+    return true;
+}
+

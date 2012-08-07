@@ -225,6 +225,10 @@ public:
 
     static QStringList GetAllImagePathsFromImageChildren( const xc::DOMNode &node );
 
+    // Returns the node identified by the specified ViewEditor element hierarchy
+    static xc::DOMNode* GetNodeFromHierarchy( const xc::DOMDocument &document, 
+                                              const QList< ViewEditor::ElementIndex > &hierarchy );
+
 private:
 
     // Accepts a reference to an XML stream reader positioned on an XML element.

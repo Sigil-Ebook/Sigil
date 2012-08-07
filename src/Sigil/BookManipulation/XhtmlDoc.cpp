@@ -1100,15 +1100,48 @@ QString XhtmlDoc::PrepareSourceForXerces( const QString &source )
 }
 
 
+// Returns the node identified by the specified ViewEditor element hierarchy
+xc::DOMNode* XhtmlDoc::GetNodeFromHierarchy( const xc::DOMDocument &document,
+                                             const QList< ViewEditor::ElementIndex > &hierarchy )
+{
+    xc::DOMNode *node = document.getElementsByTagName( QtoX( "html" ) )->item( 0 );
+    xc::DOMNode *end_node = NULL;
 
+    for ( int i = 0; i < hierarchy.count() - 1; ++i )
+    {
+        QList< xc::DOMNode* > children; 
 
+        if ( hierarchy[ i + 1 ].name != "#text" )
+        
+            children = ExtractElements( *node->getChildNodes() );
 
+        else
+        
+            children = ConvertToRegularList( *node->getChildNodes() );
 
+        // If the index is within the range, descend
+        if ( hierarchy[ i ].index < children.count() )
+        {
+            node = children.at( hierarchy[ i ].index );
 
+            if ( node )
 
+                end_node = node;
 
+            else
 
+                break;
+        }
 
+        // Error handling. The asked-for node cannot be found,
+        // so we stop where we are.
+        else
+        {
+            end_node = node;  
+            break;
+        } 
+    }
 
-
+    return end_node;       
+}
 

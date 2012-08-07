@@ -94,6 +94,15 @@ public:
      */
     void GrabFocus();
 
+    // inherited
+    QList< ViewEditor::ElementIndex > GetCaretLocation(); 
+
+    // inherited
+    void StoreCaretLocationUpdate( const QList< ViewEditor::ElementIndex > &hierarchy );
+
+    // inherited
+    bool ExecuteCaretUpdate();
+
 signals:
     /**
      * Emitted whenever the zoom factor changes.
@@ -160,7 +169,20 @@ private slots:
      */
     void WebPageJavascriptOnLoad();
 
+    void executeCaretUpdateInternal()
+    {
+        ExecuteCaretUpdate();
+    }
+
 private:
+
+    /**
+     * Builds the element-selecting JavaScript code, ignoring the text nodes.
+     * Always just chains children() jQuery calls.
+     *
+     * @return The element-selecting JavaScript code.
+     */
+    QString GetElementSelectingJS_NoTextNodes( const QList< ViewEditor::ElementIndex > &hierarchy ) const;
 
     ///////////////////////////////
     // PRIVATE MEMBER VARIABLES
@@ -190,6 +212,15 @@ private:
      * the caret element to the top of the document.
      */
     const QString c_GetCaretLocation;
+    
+    /**
+     * Stores the JavaScript source code for the 
+     * caret location update. Used when switching from 
+     * CodeViewEditor to BookViewEditor.
+     */
+    QString m_CaretLocationUpdate;
+
+    int m_pendingLoadCount;
 };
 
 #endif // BOOKVIEWPREVIEW_H

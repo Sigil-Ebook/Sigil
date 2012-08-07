@@ -156,6 +156,8 @@ public:
 
     QString GetCaretElementName();
 
+    void ExecuteCaretUpdate();
+
 public slots:
 
     bool IsDataWellFormed();
@@ -501,6 +503,7 @@ private:
      *    load the latest content into the view.
      */
     MainWindow::ViewState m_ViewState;
+    MainWindow::ViewState m_previousViewState;
 
     /**
      * The component used to display a dialog about
