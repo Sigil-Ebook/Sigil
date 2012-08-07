@@ -934,8 +934,8 @@ void CodeViewEditor::mousePressEvent( QMouseEvent *event )
 // menu to disappear and thus be inaccessible to the user.
 void CodeViewEditor::contextMenuEvent( QContextMenuEvent *event )
 {
-    // We block signals whle the menu is executed because we don't want the
-    // well formed check to be triggered.
+    // We block signals while the menu is executed because we don't want the LostFocus/GainedFocus
+    // events to be triggered which will cause the selection to be changed
     blockSignals( true );
 
     QMenu *menu = createStandardContextMenu();
@@ -954,7 +954,7 @@ void CodeViewEditor::contextMenuEvent( QContextMenuEvent *event )
     menu->exec(event->globalPos());
     delete menu;
 
-    blockSignals( false );
+    blockSignals(false);
 }
 
 bool CodeViewEditor::AddSpellCheckContextMenu(QMenu *menu)

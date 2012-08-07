@@ -24,11 +24,14 @@
 #define BOOKVIEWEDITOR_H
 
 #include <QtCore/QVariant>
+#include <QtWebKit/QWebElement>
 
 #include "ViewEditors/BookViewPreview.h"
+#include "ViewEditors/ViewEditor.h"
 
 class QEvent;
 class QSize;
+class QShortcut;
 
 /**
  * A WYSIWYG editor for XHTML flows.
@@ -84,11 +87,6 @@ public:
      */
     QString SplitChapter();
 
-    /**
-     *  Workaround for a crappy setFocus implementation in QtWebKit.
-     */
-    void GrabFocus();
-
     bool IsModified();
     void ResetModified();
 
@@ -127,7 +125,47 @@ public:
 
     QString GetSelectedText();
 
-    bool event(QEvent *e);
+    /**
+     * Executes a contentEditable command.
+     * The command is executed through JavaScript.
+     *
+     * @param command The command to execute.
+     */
+    void ExecCommand( const QString &command );
+
+    /**
+     * Executes a contentEditable command.
+     * The command is executed through JavaScript.
+     *
+     * @param command The command to execute.
+     * @param parameter The parameter that should be passed to the command.
+     */
+    void ExecCommand( const QString &command, const QString &parameter );
+
+    /**
+     * Returns the state of the contentEditable command.
+     * The query is performed through JavaScript.
+     */
+    bool QueryCommandState( const QString &command );        
+    
+    /**
+     * Implements the "formatBlock" execCommand because
+     * WebKit's default one has bugs.
+     * It takes an element name as an argument (e.g. "p"),
+     * and replaces the element the cursor is located in with it.
+     *
+     * @param element_name The name of the element to format the block to.
+     */
+    void FormatBlock( const QString &element_name );
+
+    /**
+     * Returns the name of the element the caret is located in.
+     * If text is selected, returns the name of the element
+     * where the selection \em starts.
+     *
+     * @return The name of the caret element.
+     */
+    QString GetCaretElementName();
 
 public slots:
     /**
@@ -176,8 +214,84 @@ protected:
      * @param event The event to process.
      */
     void focusOutEvent(QFocusEvent *event);
+    
+private slots:
+
+    /**
+     * Wrapper slot for the Page Up shortcut.
+     */
+    void PageUp();
+
+    /**
+     * Wrapper slot for the Page Down shortcut.
+     */
+    void PageDown();
+    
+    /**
+     * Wrapper slot for the Scroll One Line Up shortcut.
+     */
+    void ScrollOneLineUp();
+
+    /**
+     * Wrapper slot for the Scroll One Line Down shortcut.
+     */
+    void ScrollOneLineDown();
+
+    /**
+     * Sets the web page modified state.
+     *
+     * @param modified The new modified state.
+     */
+    void SetWebPageModified( bool modified = true );
 
 private:
+    /**
+     * Escapes JavaScript string special characters.
+     *
+     * @return The escaped string.
+     */
+    QString EscapeJSString( const QString &string );
+    
+    /**
+     * Scrolls the whole screen by one line. 
+     * Used for ScrollOneLineUp and ScrollOneLineDown shortcuts.
+     * 
+     * @param down Specifies are we scrolling up or down.
+     */
+    void ScrollByLine( bool down );
+
+    /**
+     * Scrolls the whole screen a number of pixels.
+     *
+     * @param pixel_number The number of pixels to scroll
+     * @param down Specifies are we scrolling up or down.
+     */
+    void ScrollByNumPixels( int pixel_number, bool down );
+    
+    /**
+     * Removes all the cruft with which WebKit litters our source code.
+     * The cruft is removed from the QWebPage cache, and includes
+     * superfluous CSS styles and classes. 
+     */
+    void RemoveWebkitCruft();
+
+    /**
+     * Removes the spans created by the replace mechanism in Book View.
+     *
+     * @param The source html from the web page.
+     * @return The html cleaned of spans with 'class="SigilReplace_..."'.
+     */
+    QString RemoveBookViewReplaceSpans( const QString &source );
+
+    /**
+     * Connects all the required signals to their respective slots.
+     */
+    void ConnectSignalsToSlots();
+
+    ///////////////////////////////
+    // PRIVATE MEMBER VARIABLES
+    ///////////////////////////////
+
     /**
      * Store the last match when doing a find so we can determine if
      * found text is selected for doing a replace. We also need to store the
@@ -189,6 +303,76 @@ private:
 
     QVariant m_caret;
     QString m_path;
+    
+    /**
+     * \c true if the WebPage was modified by the user.
+     */
+    bool m_WebPageModified;
+
+    /**
+     * PageUp keyboard shortcut.
+     */
+    QShortcut &m_PageUp;
+
+    /**
+     * PageDown keyboard shortcut.
+     */
+    QShortcut &m_PageDown; 
+
+    /**
+     * Keyboard shortcut for scrolling one line up.
+     */
+    QShortcut &m_ScrollOneLineUp;
+
+    /**
+     * Keyboard shortcut for scrolling one line down.
+     */
+    QShortcut &m_ScrollOneLineDown;
+
+    /**
+     * The JavaScript source code that
+     * removes all of the current selections
+     * and adds the range in the "range"
+     * variable to the current selection.
+     */
+    const QString c_NewSelection;
+
+    /**
+     * The JavaScript source code
+     * for creating DOM ranges.
+     */
+    const QString c_GetRange;
+
+    /**
+     * The JavaScript source code that deletes the
+     * contents of the range specified by selectRange and replaces
+     * it with new text nodes which store the original text for undo.
+     */
+    const QString c_ReplaceWrapped;
+
+    /**
+     * Javascript code to undo a replacement
+     */
+    const QString c_ReplaceUndo;
+
+    /**
+     * The JavaScript source code that returns the XHTML source
+     * from the caret to the top of the file. This code is also
+     * removed from the current chapter.
+     */
+    const QString c_GetSegmentHTML;
+
+    /**
+     * Javascript source that implements a function to find the
+     * first block-level parent of a node in the source.
+     */
+    const QString c_GetBlock;
+
+    /**
+     * Javascript source that implements a function to format the
+     * first block-level parent of a node in the source.
+     */
+    const QString c_FormatBlock;
 };
 
 

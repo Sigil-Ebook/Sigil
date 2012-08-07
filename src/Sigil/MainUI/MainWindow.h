@@ -638,7 +638,15 @@ private:
     void UpdateUiWithCurrentFile( const QString &fullfilepath );
 
     /**
-     * Creates and adds the recent files actions
+     * Selects the appropriate entry in the heading combo box 
+     * based on the provided name of the element.
+     *
+     * @param element_name The name of the currently selected element.
+     */
+    void SelectEntryInHeadingCombo( const QString &element_name );
+
+    /**
+     * Creates and adds the recent files actions 
      * to the File menu.
      */
     void CreateRecentFilesActions();
@@ -813,6 +821,16 @@ private:
      * Holds the view state for new/switched tabs
      */
     MainWindow::ViewState m_ViewState;
+
+    /**
+     * The headings drop-down combo box.
+     */
+    QComboBox *m_cbHeadings;
+
+    /**
+     * Collects signals and sends specific paramerts to the connected slots.
+     */
+    QSignalMapper *m_headingMapper;
 
     /**
      * The Search Manager dialog

@@ -19,12 +19,14 @@
 **
 *************************************************************************/
 
+#include <QtCore/QEvent>
 #include <QtCore/QSize>
 #include <QtCore/QUrl>
 #include <QtGui/QMessageBox>
 #include <QtWebKit/QWebFrame>
 
 #include "Misc/SettingsStore.h"
+#include "Misc/Utility.h"
 #include "sigil_constants.h"
 #include "ViewEditors/BookViewPreview.h"
 
@@ -39,7 +41,11 @@ const QString SET_CURSOR_JS =
 
 BookViewPreview::BookViewPreview(QWidget *parent)
     : QWebView(parent),
-      m_isLoadFinished(false)
+      m_isLoadFinished(false),
+      c_jQuery(           Utility::ReadUnicodeTextFile( ":/javascript/jquery-1.6.2.min.js"           ) ),
+      c_jQueryScrollTo(   Utility::ReadUnicodeTextFile( ":/javascript/jquery.scrollTo-1.4.2-min.js"  ) ),
+      c_jQueryWrapSelection( Utility::ReadUnicodeTextFile( ":/javascript/jquery.wrapSelection.js"    ) ),
+      c_GetCaretLocation( Utility::ReadUnicodeTextFile( ":/javascript/book_view_current_location.js" ) )
 {
     setContextMenuPolicy(Qt::NoContextMenu);
 
@@ -54,6 +60,7 @@ BookViewPreview::BookViewPreview(QWidget *parent)
 
     connect(page(), SIGNAL(loadProgress(int)), this, SLOT(UpdateFinishedState(int)));
     connect(page(), SIGNAL(linkClicked(const QUrl&)), this, SLOT(LinkClickedFilter(const QUrl&)));
+    connect(page(), SIGNAL(loadFinished(bool)), this, SLOT(WebPageJavascriptOnLoad()));
 }
 
 QSize BookViewPreview::sizeHint() const
@@ -238,4 +245,29 @@ void BookViewPreview::focusInEvent( QFocusEvent *event )
 QVariant BookViewPreview::EvaluateJavascript(const QString &javascript)
 {
     return page()->mainFrame()->evaluateJavaScript(javascript);
+}
+
+//   We need to make sure that the Book View has focus,
+// but just calling setFocus isn't enough because Nokia
+// did a terrible job integrating Webkit. So we first
+// have to steal focus away, and then give it back.
+//   If we don't steal focus first, then the QWebView
+// can have focus (and its QWebFrame) and still not
+// really have it (no blinking cursor).
+//   We also still need to attempt to GrabFocus even
+// when shown as a Preview page (even though no cursor
+// is shown) or else the QStackWidget will explode on
+// Windows when switching to another tab when it tries
+// to determine where the previous focus was.
+void BookViewPreview::GrabFocus()
+{
+    qobject_cast<QWidget *>(parent())->setFocus();
+    QWebView::setFocus();
+}
+
+void BookViewPreview::WebPageJavascriptOnLoad()
+{
+    page()->mainFrame()->evaluateJavaScript( c_jQuery         );
+    page()->mainFrame()->evaluateJavaScript( c_jQueryScrollTo );
+    page()->mainFrame()->evaluateJavaScript( c_jQueryWrapSelection );
 }

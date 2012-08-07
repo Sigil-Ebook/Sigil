@@ -60,30 +60,7 @@ Resource::ResourceType HTMLResource::Type() const
 
 void HTMLResource::SetText(const QString &text)
 {
-    // We need to move the xml deceleration to the top
-    // of the file because CKEditor will write the HTML doc type
-    // above it.
-
-    QString new_text = text;
-    QString xmldec;
-    QRegExp re_xmldec("(<\\?xml.+\\?>)");
-    re_xmldec.setMinimal(true);
-
-    // Pull out xml deceleration from the text.
-    if (re_xmldec.indexIn(new_text) != -1) {
-        xmldec = re_xmldec.cap(1) + "\n";
-    }
-
-    // Remove the matched xml deceleration.
-    new_text.remove(re_xmldec);
-
-    // Remove just one return if there is one
-    new_text.replace(QRegExp("^\\n"), "");
-
-    // Put the xml deceleration at the top.
-    new_text = xmldec + new_text;
-
-    XMLResource::SetText(ConvertToEntities(CleanSource::Clean( new_text)));
+    XMLResource::SetText(ConvertToEntities(CleanSource::Clean(text)));
 
     // Track resources whose change will necessitate an update of the BV and PV.
     // At present this only applies to css files and images.

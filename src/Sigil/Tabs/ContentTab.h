@@ -178,6 +178,55 @@ public:
     virtual void SplitView();
 
     virtual void SetBackToLinkAllowed(bool allowed) { };
+    
+    /**
+     * Checked state of the Bold action.
+     *
+     * @return \c true if the Bold action should be checked.
+     */
+    virtual bool BoldChecked()          { return false; }
+
+    /**
+     * Checked state of the Italic action.
+     *
+     * @return \c true if the Italic action should be checked.
+     */
+    virtual bool ItalicChecked()        { return false; }
+    
+    /**
+     * Checked state of the Underline action.
+     *
+     * @return \c true if the Underline action should be checked.
+     */
+    virtual bool UnderlineChecked()     { return false; }
+    
+    /**
+     * Checked state of the Strikethrough action.
+     *
+     * @return \c true if the Strikethrough action should be checked.
+     */
+    virtual bool StrikethroughChecked() { return false; }
+    
+    /**
+     * Checked state of the BulletList action.
+     *
+     * @return \c true if the BulletList action should be checked.
+     */
+    virtual bool BulletListChecked()    { return false; }
+   
+    /**
+     * Checked state of the NumberList action.
+     *
+     * @return \c true if the NumberList action should be checked.
+     */
+    virtual bool NumberListChecked()    { return false; }
+
+    /**
+     * Returns the name of the element the caret is located in.
+     *
+     * @return The name of the element the caret is located in.
+     */
+    virtual QString GetCaretElementName() { return "";  }
 
 public slots:
 

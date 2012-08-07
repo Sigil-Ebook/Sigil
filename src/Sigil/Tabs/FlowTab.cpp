@@ -643,6 +643,7 @@ void FlowTab::SplitView()
     QApplication::setOverrideCursor(Qt::WaitCursor);
 
     m_views->setCurrentIndex(PV_INDEX);
+    m_wBookPreview->GrabFocus();
     m_wCodeView->SetDelayedCursorScreenCenteringRequired();
 
     QApplication::restoreOverrideCursor();
@@ -752,7 +753,7 @@ void FlowTab::EnterEditor(QWidget *editor)
     if ((m_ViewState == MainWindow::ViewState_BookView && editor == m_wBookView) ||
          ((m_ViewState == MainWindow::ViewState_PreviewView || m_ViewState == MainWindow::ViewState_CodeView) && editor == m_wCodeView))
     {
-        // Nothing to de because the view state matches the current view.
+        // Nothing to do because the view state matches the current view.
         return;
     }
 
@@ -761,7 +762,7 @@ void FlowTab::EnterEditor(QWidget *editor)
         EnterBookView();
     }
     else if (m_ViewState == MainWindow::ViewState_PreviewView) {
-        EnteringBookPreview();
+        EnterBookPreview();
     }
     else if (m_ViewState == MainWindow::ViewState_CodeView) {
         EnterCodeView();
@@ -778,7 +779,7 @@ void FlowTab::DelayedInitialization()
     m_wCodeView->CustomSetDocument(m_HTMLResource.GetTextDocumentForWriting());
 
     // m_lastViewState in this instance is actually used a the initial view
-    // state becuase there is no last view state.
+    // state because there is no last view state.
     switch(m_ViewState) {
         case MainWindow::ViewState_CodeView:
         {
@@ -855,6 +856,187 @@ void FlowTab::ReadSettings()
 void FlowTab::WriteSettings()
 {
     // TODO: fill this... with what?
+}
+
+void FlowTab::Bold()
+{
+    if (m_ViewState == MainWindow::ViewState_BookView) {
+        m_wBookView->page()->triggerAction( QWebPage::ToggleBold );
+    }
+}
+
+void FlowTab::Italic()
+{
+    if (m_ViewState == MainWindow::ViewState_BookView) {
+        m_wBookView->page()->triggerAction( QWebPage::ToggleItalic );
+    }    
+}
+
+void FlowTab::Underline()
+{
+    if (m_ViewState == MainWindow::ViewState_BookView) {
+        m_wBookView->page()->triggerAction( QWebPage::ToggleUnderline );
+    }    
+}
+
+void FlowTab::Strikethrough()
+{
+    if (m_ViewState == MainWindow::ViewState_BookView) {
+        m_wBookView->ExecCommand( "strikeThrough" );
+    }    
+}
+
+void FlowTab::AlignLeft()
+{
+    if (m_ViewState == MainWindow::ViewState_BookView) {
+        m_wBookView->ExecCommand( "justifyLeft" );
+    }
+}
+
+void FlowTab::Center()
+{
+    if (m_ViewState == MainWindow::ViewState_BookView) {
+        m_wBookView->ExecCommand( "justifyCenter" );
+    }    
+}
+
+void FlowTab::AlignRight()
+{
+    if (m_ViewState == MainWindow::ViewState_BookView) {
+        m_wBookView->ExecCommand( "justifyRight" );
+    }    
+}
+
+void FlowTab::Justify()
+{
+    if (m_ViewState == MainWindow::ViewState_BookView) {
+        m_wBookView->ExecCommand( "justifyFull" );
+    }    
+}
+
+void FlowTab::InsertBulletedList()
+{
+    if (m_ViewState == MainWindow::ViewState_BookView) {
+        m_wBookView->ExecCommand( "insertUnorderedList" );
+    }
+}
+
+
+void FlowTab::InsertNumberedList()
+{
+    if (m_ViewState == MainWindow::ViewState_BookView) {
+		m_wBookView->ExecCommand( "insertOrderedList" );
+    }
+}
+
+
+void FlowTab::DecreaseIndent()
+{
+    if (m_ViewState == MainWindow::ViewState_BookView) {
+		m_wBookView->page()->triggerAction( QWebPage::Outdent );
+    }
+}
+
+
+void FlowTab::IncreaseIndent()
+{
+    if (m_ViewState == MainWindow::ViewState_BookView) {
+		m_wBookView->page()->triggerAction( QWebPage::Indent );
+    }
+}
+
+
+void FlowTab::RemoveFormatting()
+{
+    m_wBookView->page()->triggerAction( QWebPage::RemoveFormat );
+}
+
+
+void FlowTab::HeadingStyle( const QString& heading_type )
+{
+    if (m_ViewState == MainWindow::ViewState_BookView)
+	{
+		QChar last_char = heading_type[ heading_type.count() - 1 ];
+
+		// For heading_type == "Heading #"
+		if ( last_char.isDigit() ) {
+			m_wBookView->FormatBlock( "h" + QString( last_char ) );
+        }
+		else if ( heading_type == "Normal" ) {
+			m_wBookView->FormatBlock( "p" );
+        }
+
+		// Focus will have switched to the tool button, so let BookView grab it back
+		m_wBookView->GrabFocus();
+	}
+}
+
+
+bool FlowTab::BoldChecked()
+{
+    if (m_ViewState == MainWindow::ViewState_BookView)
+        return m_wBookView->pageAction( QWebPage::ToggleBold )->isChecked();
+
+    else
+        return ContentTab::BoldChecked();
+}
+
+
+bool FlowTab::ItalicChecked()
+{
+    if (m_ViewState == MainWindow::ViewState_BookView)
+        return m_wBookView->pageAction( QWebPage::ToggleItalic )->isChecked();
+
+    else
+        return ContentTab::ItalicChecked();
+}
+
+
+bool FlowTab::UnderlineChecked()
+{
+    if (m_ViewState == MainWindow::ViewState_BookView)
+        return m_wBookView->pageAction( QWebPage::ToggleUnderline )->isChecked(); 
+
+    else
+        return ContentTab::UnderlineChecked();
+}
+
+
+bool FlowTab::StrikethroughChecked()
+{
+    if (m_ViewState == MainWindow::ViewState_BookView)
+        return m_wBookView->QueryCommandState( "strikeThrough" );
+
+    else
+        return ContentTab::StrikethroughChecked();
+}
+
+
+bool FlowTab::BulletListChecked()
+{
+    if (m_ViewState == MainWindow::ViewState_BookView)
+        return m_wBookView->QueryCommandState( "insertUnorderedList" );
+
+    else
+        return ContentTab::BulletListChecked();
+}
+
+
+bool FlowTab::NumberListChecked()
+{
+    if (m_ViewState == MainWindow::ViewState_BookView)
+        return m_wBookView->QueryCommandState( "insertOrderedList" );
+
+    else
+        return ContentTab::NumberListChecked();
+}
+
+QString FlowTab::GetCaretElementName()
+{
+    if (m_ViewState == MainWindow::ViewState_BookView)
+        return m_wBookView->GetCaretElementName();
+    else
+        return ContentTab::GetCaretElementName();
 }
 
 void FlowTab::ConnectSignalsToSlots()

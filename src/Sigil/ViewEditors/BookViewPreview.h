@@ -89,6 +89,11 @@ public:
 
     QString GetSelectedText();
 
+    /**
+     *  Workaround for a crappy setFocus implementation in QtWebKit.
+     */
+    void GrabFocus();
+
 signals:
     /**
      * Emitted whenever the zoom factor changes.
@@ -148,8 +153,43 @@ protected slots:
      */
     void LinkClickedFilter(const QUrl& url);
 
+private slots:
+    
+    /**
+     * Loads the required JavaScript on web page loads.
+     */
+    void WebPageJavascriptOnLoad();
+
 private:
+
+    ///////////////////////////////
+    // PRIVATE MEMBER VARIABLES
+    ///////////////////////////////
+
     float m_CurrentZoomFactor;
+    
+    /**
+     * The javascript source code of the jQuery library.
+     */
+    const QString c_jQuery;
+    
+    /**
+     * The javascript source code of the jQuery 
+     * ScrollTo extension library.
+     */
+    const QString c_jQueryScrollTo;
+
+    /**
+     * Javascript source for the wrap selection plugin.
+     */
+    const QString c_jQueryWrapSelection;
+
+    /** 
+     * The JavaScript source code used 
+     * to get a hierarchy of elements from
+     * the caret element to the top of the document.
+     */
+    const QString c_GetCaretLocation;
 };
 
 #endif // BOOKVIEWPREVIEW_H
