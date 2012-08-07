@@ -60,6 +60,7 @@ set( QOBJECT_HEADERS
     Dialogs/SearchEditor.h
     Dialogs/ClipboardEditor.h
     Dialogs/IndexEditor.h
+    Tabs/TabBar.h
     Tabs/TabManager.h
     Tabs/ContentTab.h 
     Tabs/FlowTab.h
@@ -341,6 +342,8 @@ set( MAINUI_FILES
     )
 
 set( TAB_FILES
+    Tabs/TabBar.cpp
+    Tabs/TabBar.h
     Tabs/TabManager.cpp
     Tabs/TabManager.h
     Tabs/FlowTab.cpp

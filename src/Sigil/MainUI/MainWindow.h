@@ -520,6 +520,8 @@ private slots:
 
     void setCleanLevel(int level, bool store=true);
 
+    void ToggleViewState();
+
 private:
 
     /**

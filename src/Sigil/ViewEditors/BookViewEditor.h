@@ -303,7 +303,7 @@ private:
 
     QVariant m_caret;
     QString m_path;
-    
+
     /**
      * \c true if the WebPage was modified by the user.
      */

@@ -167,7 +167,7 @@ private:
     ///////////////////////////////
 
     float m_CurrentZoomFactor;
-    
+
     /**
      * The javascript source code of the jQuery library.
      */
