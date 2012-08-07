@@ -132,10 +132,14 @@ void WellFormedCheckComponent::DisplayErrorMessage()
     if ( m_MessageBox->clickedButton() == m_AutoFixButton ) 
     
         m_Content.AutoFixWellFormedErrors();
-     
+    /* GRANT - The line number being returned is utter nonsense, and this just
+     * results in the document being scrolled to somewhere completely unrelated
+     * or all too frequently the very bottom. Chances are the error is where the
+     * user just did an edit anyway so leave caret alone.
     else // manual_fix_button
 
         m_Content.ScrollToLine( m_LastError.line );
+    */
 }
 
 
