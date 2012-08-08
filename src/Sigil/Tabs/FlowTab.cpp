@@ -340,6 +340,9 @@ bool FlowTab::SetViewState(MainWindow::ViewState new_view_state)
     LoadTabContent();
 
     if (new_view_state == MainWindow::ViewState_PreviewView) {
+        // Since we have just loaded the tab content, clear the reload flag to prevent
+        // the preview from being loaded again when EnterEditor() is called.
+        m_BookPreviewNeedReload = false;
         SplitView();
     }
     else if (new_view_state == MainWindow::ViewState_CodeView) {
@@ -763,11 +766,9 @@ void FlowTab::EnterEditor(QWidget *editor)
         return;
     }
 
-    // Reload BV if the resource was marked as changed outside of the editor.
-    if (m_BookPreviewNeedReload && (m_ViewState == MainWindow::ViewState_PreviewView || m_ViewState == MainWindow::ViewState_BookView)) {
+    // Reload PV if the resource was marked as changed outside of the editor.
+    if (m_BookPreviewNeedReload && m_ViewState == MainWindow::ViewState_PreviewView) {
         LoadTabContent();
-    }
-    if (m_BookPreviewNeedReload) {
         m_BookPreviewNeedReload = false;
     }
 

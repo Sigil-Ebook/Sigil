@@ -331,32 +331,6 @@ private:
     QShortcut &m_ScrollOneLineDown;
 
     /**
-     * The JavaScript source code that
-     * removes all of the current selections
-     * and adds the range in the "range"
-     * variable to the current selection.
-     */
-    const QString c_NewSelection;
-
-    /**
-     * The JavaScript source code
-     * for creating DOM ranges.
-     */
-    const QString c_GetRange;
-
-    /**
-     * The JavaScript source code that deletes the
-     * contents of the range specified by selectRange and replaces
-     * it with new text nodes which store the original text for undo.
-     */
-    const QString c_ReplaceWrapped;
-
-    /**
-     * Javascript code to undo a replacement
-     */
-    const QString c_ReplaceUndo;
-
-    /**
      * The JavaScript source code that returns the XHTML source
      * from the caret to the top of the file. This code is also
      * removed from the current chapter.

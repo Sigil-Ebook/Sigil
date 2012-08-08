@@ -306,6 +306,9 @@ QList< ViewEditor::ElementIndex > BookViewPreview::GetCaretLocation()
     // The location element hierarchy encoded in a string
     QString location_string = EvaluateJavascript( c_GetCaretLocation ).toString();
     QStringList elements    = location_string.split( ",", QString::SkipEmptyParts );
+    // We remove the very last element because this is a zero location that causes
+    // issues when switching to PV
+    elements.removeLast();
 
     QList< ElementIndex > caret_location;
 

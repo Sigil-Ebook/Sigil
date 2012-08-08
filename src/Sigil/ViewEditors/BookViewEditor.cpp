@@ -60,10 +60,6 @@ BookViewEditor::BookViewEditor(QWidget *parent)
     m_PageDown( *( new QShortcut( QKeySequence( QKeySequence::MoveToNextPage     ), this, 0, 0, Qt::WidgetShortcut ) ) ),
     m_ScrollOneLineUp(   *( new QShortcut( QKeySequence( Qt::ControlModifier + Qt::Key_Up   ), this, 0, 0, Qt::WidgetShortcut ) ) ),
     m_ScrollOneLineDown( *( new QShortcut( QKeySequence( Qt::ControlModifier + Qt::Key_Down ), this, 0, 0, Qt::WidgetShortcut ) ) ),
-    c_NewSelection(     Utility::ReadUnicodeTextFile( ":/javascript/new_selection.js"              ) ),
-    c_GetRange(         Utility::ReadUnicodeTextFile( ":/javascript/get_range.js"                  ) ),
-    c_ReplaceWrapped(   Utility::ReadUnicodeTextFile( ":/javascript/replace_wrapped.js"            ) ),
-    c_ReplaceUndo(      Utility::ReadUnicodeTextFile( ":/javascript/replace_undo.js"               ) ),
     c_GetSegmentHTML(   Utility::ReadUnicodeTextFile( ":/javascript/get_segment_html.js"           ) ),
     c_GetBlock(         Utility::ReadUnicodeTextFile( ":/javascript/get_block.js"                  ) ),
     c_FormatBlock(      Utility::ReadUnicodeTextFile( ":/javascript/format_block.js"               ) )
