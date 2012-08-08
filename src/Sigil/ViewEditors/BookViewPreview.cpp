@@ -42,12 +42,12 @@ const QString SET_CURSOR_JS =
 
 BookViewPreview::BookViewPreview(QWidget *parent)
     : QWebView(parent),
-      c_GetCaretLocation( Utility::ReadUnicodeTextFile( ":/javascript/book_view_current_location.js" ) ),
-      m_CaretLocationUpdate( QString() ),
+      m_isLoadFinished(false),
       c_jQuery(           Utility::ReadUnicodeTextFile( ":/javascript/jquery-1.6.2.min.js"           ) ),
       c_jQueryScrollTo(   Utility::ReadUnicodeTextFile( ":/javascript/jquery.scrollTo-1.4.2-min.js"  ) ),
       c_jQueryWrapSelection( Utility::ReadUnicodeTextFile( ":/javascript/jquery.wrapSelection.js"    ) ),
-      m_isLoadFinished(false),
+      c_GetCaretLocation( Utility::ReadUnicodeTextFile( ":/javascript/book_view_current_location.js" ) ),
+      m_CaretLocationUpdate( QString() ),
       m_pendingLoadCount(0)
 {
     setContextMenuPolicy(Qt::NoContextMenu);
@@ -273,7 +273,14 @@ QString BookViewPreview::GetElementSelectingJS_NoTextNodes( const QList< ViewEdi
 
     QString element_selector = "$('html')";
 
-    for ( int i = 0; i < hierarchy.count() - 1; ++i )
+    // When we use GetCaretLocation to restore a caret location using javascript, there seems
+    // to be a problem caused by there being an extra end element returned that then causes
+    // the ExecuteCaretUpdate code to choke since the changes made for 0.6. It returns
+    // an extra 0 child element in the javascript. This extra child is needed for the FindNext
+    // code which works with it fine, but the executed javascript built by this function will
+    // fail in BV and PV if it ends with the extra .children().eq(0) that is resulting.
+    // Hence we chop off the end element from the hierarchy when building this javascript text.
+    for ( int i = 0; i < hierarchy.count() - 2; ++i )
     {
         element_selector.append( QString( ".children().eq(%1)" ).arg( hierarchy[ i ].index ) );
     }
@@ -288,9 +295,6 @@ QList< ViewEditor::ElementIndex > BookViewPreview::GetCaretLocation()
     // The location element hierarchy encoded in a string
     QString location_string = EvaluateJavascript( c_GetCaretLocation ).toString();
     QStringList elements    = location_string.split( ",", QString::SkipEmptyParts );
-    // We remove the very last element because this is a zero location that causes
-    // issues when switching to PV
-    elements.removeLast();
 
     QList< ElementIndex > caret_location;
 
