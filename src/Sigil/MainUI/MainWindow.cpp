@@ -1503,7 +1503,7 @@ void MainWindow::SetStateActionsCodeView()
 
     ui.actionInsertBulletedList->setEnabled(false);
     ui.actionInsertNumberedList->setEnabled(false);
-    ui.actionRemoveFormatting->setEnabled(false);
+    ui.actionRemoveFormatting->setEnabled(true);
 
     ui.menuHeadings->setEnabled(false);
     ui.actionHeading1->setEnabled(false);
