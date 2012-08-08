@@ -116,7 +116,7 @@ public:
      *
      * @return \c true if the user can Cut.
      */
-    virtual bool CutCodeTagsEnabled()          { return false; }
+    virtual bool RemoveFormattingEnabled()          { return false; }
 
     /*
      * Can the user perform the Cut Code Tags operation.
@@ -124,6 +124,11 @@ public:
      * @return \c true if the user can Cut.
      */
     virtual bool InsertClosingTagEnabled()   { return false; }
+
+    virtual bool OpenLinkEnabled()     { return false; }
+    virtual bool BackToLinkEnabled()   { return false; }
+    virtual bool AddToIndexEnabled()   { return false; }
+    virtual bool MarkForIndexEnabled() { return false; }
 
     /**
      * Checked state of the BookView action.
@@ -176,8 +181,6 @@ public:
     virtual void BookView();
 
     virtual void SplitView();
-
-    virtual void SetBackToLinkAllowed(bool allowed) { };
     
     /**
      * Checked state of the Bold action.

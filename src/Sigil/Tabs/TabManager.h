@@ -80,6 +80,10 @@ public:
 
     void UpdateTabDisplay();
 
+    bool IsBackToLinkAllowed();
+
+    void ResetLastLinkOpened();
+
 public slots:
 
     /**
@@ -103,8 +107,6 @@ public slots:
      * Saves any unsaved data in the all the open tabs.
      */
     void SaveTabData();
-
-    void SetBackToLinkAllowedForTabs();
 
     /**
      * Opens the specified resource in a new tab.
@@ -161,11 +163,9 @@ public slots:
      */
     void MakeCentralTab( ContentTab *tab );
 
-    void ResetLastLinkOpened();
+    void LinkClicked(const QUrl &url);
 
-    void OpenCodeLink(const QUrl &url);
-
-    void OpenLastCodeLinkOpened();
+    void OpenLastLinkOpened();
 
 signals:
     void ToggleViewStateRequest();
@@ -196,8 +196,6 @@ signals:
      * Wired to the current FlowTab::NewChaptersRequest signal.
      */
     void NewChaptersRequest( QStringList chapters, HTMLResource &originating_resource );
-
-    void OpenExternalUrl(const QUrl &url);
 
 protected:
     virtual void tabInserted(int index);

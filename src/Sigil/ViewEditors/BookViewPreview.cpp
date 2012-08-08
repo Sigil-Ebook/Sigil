@@ -62,7 +62,7 @@ BookViewPreview::BookViewPreview(QWidget *parent)
     page()->settings()->setAttribute(QWebSettings::DeveloperExtrasEnabled, true);
 
     connect(page(), SIGNAL(loadProgress(int)), this, SLOT(UpdateFinishedState(int)));
-    connect(page(), SIGNAL(linkClicked(const QUrl&)), this, SLOT(LinkClickedFilter(const QUrl&)));
+    connect(page(), SIGNAL(linkClicked(const QUrl&)), SIGNAL(LinkClicked(const QUrl&)));
     connect(page(), SIGNAL(loadFinished(bool)), this, SLOT(WebPageJavascriptOnLoad()));
 }
 
@@ -223,22 +223,6 @@ void BookViewPreview::UpdateFinishedState(int progress)
     else {
         m_isLoadFinished = false;
     }
-}
-
-void BookViewPreview::LinkClickedFilter(const QUrl& url)
-{
-    // Urls in the document that have just "#fragmentID"
-    // and no path (that is, "file local" urls), are returned
-    // by QUrl.toString() as a path to the folder of this
-    // file with the fragment attached.
-    if (url.toString().contains("/#")) {
-        ScrollToFragment(url.fragment());
-    }
-    else if (url.scheme() == "file") {
-        emit FilteredLinkClicked(url);
-    }
-
-    // We kill all links to the internet
 }
 
 // Overridden so we can emit the FocusGained() signal.

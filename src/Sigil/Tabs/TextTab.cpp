@@ -217,11 +217,6 @@ void TextTab::EmitUpdateCursorPosition()
     emit UpdateCursorPosition(GetCursorLine(), GetCursorColumn());
 }
 
-void TextTab::SetBackToLinkAllowed(bool allowed)
-{
-    m_wCodeView.SetBackToLinkAllowed(allowed);
-}
-
 void TextTab::DelayedInitialization()
 {
     m_wCodeView.CustomSetDocument( m_TextResource.GetTextDocumentForWriting() );
@@ -238,8 +233,6 @@ void TextTab::ConnectSignalsToSlots()
     // so the ContentTab focusIn/Out handlers are not called.
     connect( &m_wCodeView, SIGNAL( FocusGained( QWidget* ) ),    this, SLOT( LoadTabContent( QWidget* ) ) );
     connect( &m_wCodeView, SIGNAL( FocusLost( QWidget* ) ),      this, SLOT( SaveTabContent( QWidget* ) ) );
-    connect( &m_wCodeView, SIGNAL(OpenLastCodeLinkOpenedRequest()), this, SIGNAL(OpenLastCodeLinkOpened()));
-
 
     connect( &m_wCodeView, SIGNAL( FilteredTextChanged() ),      this, SIGNAL( ContentChanged() )           );
     connect(&m_wCodeView, SIGNAL(cursorPositionChanged()), this, SLOT(EmitUpdateCursorPosition()));

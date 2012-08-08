@@ -59,27 +59,15 @@
      <addaction name="separator"/>
      <addaction name="actionAddExistingFile"/>
     </widget>
-    <widget class="QMenu" name="menuViewReports">
-     <property name="title">
-      <string>View Reports</string>
-     </property>
-    <addaction name="actionViewHTML"/>
-    <addaction name="actionViewImages"/>
-    <addaction name="actionViewClasses"/>
-    </widget>
     <addaction name="menuNew"/>
+    <addaction name="separator"/>
     <addaction name="actionOpen"/>
     <addaction name="separator"/>
     <addaction name="actionSave"/>
     <addaction name="actionSaveAs"/>
     <addaction name="separator"/>
     <addaction name="actionPrintPreview"/>
-    <addaction name="separator"/>
-    <addaction name="actionClipboardEditor"/>
-    <addaction name="actionIndexEditor"/>
-    <addaction name="separator"/>
-    <addaction name="actionValidateEpub"/>
-    <addaction name="menuViewReports"/>
+    <addaction name="actionPrint"/>
     <addaction name="separator"/>
     <addaction name="separator"/>
     <addaction name="actionClose"/>
@@ -107,9 +95,7 @@
     <addaction name="actionCut"/>
     <addaction name="actionCopy"/>
     <addaction name="actionPaste"/>
-    <addaction name="actionCutCodeTags"/>
     <addaction name="separator"/>
-    <addaction name="actionMetaEditor"/>
     <addaction name="actionInsertImage"/>
     <addaction name="separator"/>
     <addaction name="actionSplitChapter"/>
@@ -117,9 +103,6 @@
     <addaction name="actionSplitOnSGFChapterMarkers"/>
     <addaction name="separator"/>
     <addaction name="actionInsertClosingTag"/>
-    <addaction name="separator"/>
-    <addaction name="menuCleanLevel"/>
-    <addaction name="actionCheckWellFormedErrors"/>
     <addaction name="separator"/>
     <addaction name="actionPreferences"/>
    </widget>
@@ -211,8 +194,10 @@
     <addaction name="actionGoToLine"/>
     <addaction name="separator"/>
     <addaction name="actionSearchEditor"/>
+    <addaction name="separator"/>
+    <addaction name="actionSearchEditor"/>
    </widget>
-   <widget class="QMenu" name="menu_Window">
+   <widget class="QMenu" name="menuWindow">
     <property name="title">
      <string>&amp;Window</string>
     </property>
@@ -223,13 +208,55 @@
     <addaction name="separator"/>
     <addaction name="actionOpenPreviousResource"/>
     <addaction name="actionOpenNextResource"/>
+    <addaction name="separator"/>
+    <addaction name="actionOpenLink"/>
+    <addaction name="actionBackToLink"/>
+   </widget>
++   <widget class="QMenu" name="menuTools">
+    <property name="title">
+     <string>&amp;Tools</string>
+    </property>
+    <widget class="QMenu" name="menuViewReports">
+     <property name="title">
+      <string>View Reports</string>
+     </property>
+    <addaction name="actionViewHTML"/>
+    <addaction name="actionViewImages"/>
+    <addaction name="actionViewClasses"/>
+    </widget>
+    <widget class="QMenu" name="menuIndex">
+     <property name="title">
+      <string>Index</string>
+     </property>
+     <addaction name="actionIndexEditor"/>
+     <addaction name="separator"/>
+     <addaction name="actionAddToIndex"/>
+     <addaction name="actionMarkForIndex"/>
+     <addaction name="separator"/>
+     <addaction name="actionCreateIndex"/>
+    </widget>
+    <addaction name="actionMetaEditor"/>
+    <addaction name="separator"/>
+    <addaction name="actionGenerateTOC"/>
+    <addaction name="actionCreateInlineTOC"/>
+    <addaction name="separator"/>
+    <addaction name="actionValidateEpub"/>
+    <addaction name="menuViewReports"/>
+    <addaction name="separator"/>
+    <addaction name="actionClipboardEditor"/>
+    <addaction name="actionSearchEditor"/>
+    <addaction name="menuIndex"/>
+    <addaction name="separator"/>
+    <addaction name="menuCleanLevel"/>
+    <addaction name="actionCheckWellFormedErrors"/>
    </widget>
    <addaction name="menuFile"/>
    <addaction name="menuEdit"/>
-   <addaction name="menuFindReplace"/>
-   <addaction name="menuView"/>
    <addaction name="menuFormat"/>
-   <addaction name="menu_Window"/>
+   <addaction name="menuFindReplace"/>
+   <addaction name="menuTools"/>
+   <addaction name="menuView"/>
+   <addaction name="menuWindow"/>
    <addaction name="menuHelp"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
@@ -920,17 +947,6 @@
     <string>Ctrl+Shift+W</string>
    </property>
   </action>
-  <action name="actionCutCodeTags">
-   <property name="text">
-    <string>Cut Codes Tags</string>
-   </property>
-   <property name="toolTip">
-    <string>Remove all code tags (text between left/right arrows) from the selection in Code View.</string>
-   </property>
-   <property name="shortcut">
-    <string>Ctrl+Alt+X</string>
-   </property>
-  </action>
   <action name="actionZoomIn">
    <property name="icon">
     <iconset resource="../Resource_Files/main/main.qrc">
@@ -1119,7 +1135,7 @@
   </action>
   <action name="actionIndexEditor">
    <property name="text">
-    <string>Index Editor</string>
+    <string>Index Editor...</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+Alt+I</string>
@@ -1240,7 +1256,7 @@
   </action>
   <action name="actionSearchEditor">
    <property name="text">
-    <string>Search Editor</string>
+    <string>Search Editor...</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+Alt+F</string>
@@ -1248,7 +1264,7 @@
   </action>
   <action name="actionClipboardEditor">
    <property name="text">
-    <string>Clipboard Editor</string>
+    <string>Clipboard Editor...</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+Alt+C</string>
@@ -1256,7 +1272,7 @@
   </action>
   <action name="actionPreferences">
    <property name="text">
-    <string>Preferences</string>
+    <string>Preferences...</string>
    </property>
    <property name="shortcut">
     <string>F5</string>
@@ -1471,9 +1487,45 @@
     <string>Tidy</string>
    </property>
   </action>
+  <action name="actionAddToIndex">
+   <property name="text">
+    <string>Add to Index</string>
+   </property>
+  </action>
+  <action name="actionMarkForIndex">
+   <property name="text">
+    <string>Mark for Index</string>
+   </property>
+  </action>
+  <action name="actionCreateIndex">
+   <property name="text">
+    <string>Create Index</string>
+   </property>
+  </action>
+  <action name="actionOpenLink">
+   <property name="text">
+    <string>Open Link</string>
+   </property>
+  </action>
+  <action name="actionBackToLink">
+   <property name="text">
+    <string>Back To Link</string>
+   </property>
+  </action>
+  <action name="actionGenerateTOC">
+   <property name="text">
+    <string>Generate TOC From Headings...</string>
+   </property>
+  </action>
+  <action name="actionCreateInlineTOC">
+   <property name="text">
+    <string>Create Inline HTML TOC</string>
+   </property>
+  </action>
  </widget>
  <resources>
   <include location="../Resource_Files/main/main.qrc"/>
  </resources>
  <connections/>
 </ui>
+

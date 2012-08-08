@@ -81,8 +81,7 @@ CodeViewEditor::CodeViewEditor( HighlighterType high_type, bool check_spelling, 
     m_spellingMapper( new QSignalMapper( this ) ),
     m_addSpellingMapper( new QSignalMapper( this ) ),
     m_ignoreSpellingMapper( new QSignalMapper( this ) ),
-    m_clipboardMapper( new QSignalMapper( this ) ),
-    m_BackToLinkAllowed(false)
+    m_clipboardMapper( new QSignalMapper( this ) )
 {
     if ( high_type == CodeViewEditor::Highlight_XHTML )
 
@@ -917,6 +916,12 @@ void CodeViewEditor::mousePressEvent( QMouseEvent *event )
 
     // Propagate to base class
     QPlainTextEdit::mousePressEvent( event );   
+
+    // Allow open link with Ctrl-mouseclick - after propagation sets cursor position
+    bool isCtrl = QApplication::keyboardModifiers() & Qt::ControlModifier;
+    if (isCtrl) {
+        OpenLink();
+    }
 }
 
 
@@ -940,8 +945,6 @@ void CodeViewEditor::contextMenuEvent( QContextMenuEvent *event )
     }
 
     if (!offered_spelling) {
-        AddIndexContextMenu(menu);
-        AddOpenLinkContextMenu(menu);
         AddClipboardContextMenu(menu);
     }
 
@@ -1101,38 +1104,6 @@ void CodeViewEditor::AddClipboardContextMenu(QMenu *menu)
     }
 }
 
-void CodeViewEditor::AddOpenLinkContextMenu(QMenu *menu)
-{
-    QAction *topAction = 0;
-    if (!menu->actions().isEmpty()) {
-        topAction = menu->actions().at(0);
-    }
-
-    QAction *openLinkAction = new QAction(tr("Open Link"), menu);
-    if (!topAction) {
-        menu->addAction(openLinkAction);
-    }
-    else {
-        menu->insertAction(topAction, openLinkAction);
-    }
-    connect(openLinkAction, SIGNAL(triggered()), this , SLOT(OpenLinkAction()));
-    openLinkAction->setEnabled(!GetInternalLinkInTag().isEmpty());
-
-    QAction *backToLinkAction = new QAction(tr("Back to Link"), menu);
-    if (!topAction) {
-        menu->addAction(backToLinkAction);
-    }
-    else {
-        menu->insertAction(topAction, backToLinkAction);
-    }
-    connect(backToLinkAction, SIGNAL(triggered()), this , SLOT(BackToLinkAction()));
-    backToLinkAction->setEnabled(m_BackToLinkAllowed);
-
-    if (topAction) {
-        menu->insertSeparator(topAction);
-    }
-}
-
 bool CodeViewEditor::CreateMenuEntries(QMenu *parent_menu, QAction *topAction, QStandardItem *item)
 {
     QAction *clipboardAction = 0;
@@ -1194,51 +1165,6 @@ void CodeViewEditor::SaveClipboardAction()
     emit OpenClipboardEditorRequest(clip);
 }
 
-void CodeViewEditor::AddIndexContextMenu(QMenu *menu)
-{
-    QTextCursor cursor = textCursor();
-    if (cursor.selectedText().isEmpty()) {
-        return;
-    }
-
-    QAction *topAction = 0;
-    if (!menu->actions().isEmpty()) {
-        topAction = menu->actions().at(0);
-    }
-
-    QAction *saveIndexAction = new QAction(tr("Add To Index"), menu);
-    if (!topAction) {
-        menu->addAction(saveIndexAction);
-    }
-    else {
-        menu->insertAction(topAction, saveIndexAction);
-    }
-    connect(saveIndexAction, SIGNAL(triggered()), this , SLOT(SaveIndexAction()));
-    saveIndexAction->setEnabled(IsNotInTagTextSelected());
-
-    QAction *markIndexAction = new QAction(tr("Mark For Index"), menu);
-    if (!topAction) {
-        menu->addAction(markIndexAction);
-    }
-    else {
-        menu->insertAction(topAction, markIndexAction);
-    }
-    connect(markIndexAction, SIGNAL(triggered()), this , SLOT(MarkIndexAction()));
-    markIndexAction->setEnabled(IsNotInTagTextSelected());
-
-    if (topAction) {
-        menu->insertSeparator(topAction);
-    }
-}
-
-bool CodeViewEditor::IsOpenAllowed()
-{
-    if (!IsPositionInTag(textCursor().position())) {
-        return false;
-    }
-    return true;
-}
-
 QString CodeViewEditor::GetTagText()
 {
     QString tag;
@@ -1280,33 +1206,20 @@ QString CodeViewEditor::GetAttributeText(QString text, QString attribute)
     return attribute_value;
 }
 
-void CodeViewEditor::SetBackToLinkAllowed(bool allowed)
+bool CodeViewEditor::IsOpenLinkAllowed()
 {
-    m_BackToLinkAllowed = allowed;
+    return !GetInternalLinkInTag().isEmpty();
 }
 
-void CodeViewEditor::BackToLinkAction()
-{
-    if (m_BackToLinkAllowed) {
-        emit OpenLastCodeLinkOpenedRequest();
-    }
-}
-
-void CodeViewEditor::OpenLinkAction()
+void CodeViewEditor::OpenLink()
 {
     QUrl url = GetInternalLinkInTag();
 
     if (!url.isEmpty()) {
-        if (url.toString().startsWith("#")) {
-            ScrollToFragment(url.fragment());
-        }
-        else if (url.scheme() == "file" || url.scheme().isEmpty()) {
-            emit OpenCodeLinkRequest(url);
-        }
-        else {
-            emit OpenExternalUrl(url);
-        }
+        emit LinkClicked(url);
     }
+
+    return;
 }
 
 QUrl CodeViewEditor::GetInternalLinkInTag()
@@ -1329,7 +1242,7 @@ QUrl CodeViewEditor::GetInternalLinkInTag()
     return url;
 }
 
-void CodeViewEditor::SaveIndexAction()
+void CodeViewEditor::AddToIndex()
 {
     if (!IsNotInTagTextSelected()) {
         return;
@@ -1343,7 +1256,17 @@ void CodeViewEditor::SaveIndexAction()
     emit OpenIndexEditorRequest(index);
 }
 
-void CodeViewEditor::MarkIndexAction()
+bool CodeViewEditor::IsAddToIndexAllowed()
+{
+    return !IsNotInTagTextSelected();
+}
+
+bool CodeViewEditor::IsMarkForIndexAllowed()
+{
+    return !IsNotInTagTextSelected();
+}
+
+void CodeViewEditor::MarkForIndex()
 {
     if (!IsNotInTagTextSelected()) {
         return;

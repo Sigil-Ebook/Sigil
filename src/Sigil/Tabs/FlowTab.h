@@ -85,11 +85,14 @@ public:
 
     bool PasteEnabled();
 
-    bool CutCodeTagsEnabled();
+    bool RemoveFormattingEnabled();
 
     bool InsertClosingTagEnabled();
 
-    void SetBackToLinkAllowed(bool allowed);
+    bool OpenLinkEnabled();
+
+    bool AddToIndexEnabled();
+    bool MarkForIndexEnabled();
 
     int GetCursorPosition() const;
     int GetCursorLine() const;
@@ -184,8 +187,6 @@ public slots:
      * Implements Paste action functionality.
      */
     void Paste();
-
-    void CutCodeTags();
 
     /**
      * Implements Split chapter action functionality.
@@ -316,6 +317,11 @@ public slots:
      */
     void HeadingStyle( const QString& heading_type, bool preserve_attributes );
 
+    void OpenLink();
+
+    void AddToIndex();
+    void MarkForIndex();
+
 signals:
 
     /**
@@ -364,12 +370,6 @@ signals:
     void OpenClipboardEditorRequest(ClipboardEditorModel::clipEntry *clip);
 
     void OpenIndexEditorRequest(IndexEditorModel::indexEntry *index);
-
-    void OpenCodeLink(const QUrl &url);
-
-    void OpenExternalUrl(const QUrl &url);
-
-    void OpenLastCodeLinkOpened();
 
 private slots:
 

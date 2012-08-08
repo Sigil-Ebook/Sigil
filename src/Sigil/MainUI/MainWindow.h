@@ -182,6 +182,8 @@ public:
 public slots:
     void OpenFilename( QString filename );
 
+    void OpenUrl(const QUrl& url, int position = -1);
+
     /**
      * Opens the specified resource in the specified view state.
      *
@@ -198,8 +200,6 @@ public slots:
     void OpenCodeResource(Resource& resource, int position_to_scroll_to);
 
     void CreateIndex();
-
-    void OpenExternalUrl(const QUrl &url);
 
 signals:
     void SettingsChanged();
@@ -518,7 +518,7 @@ private slots:
     void GenerateToc();
     void GenerateInlineToc(NCXModel::NCXEntry ncx_root_entry);
 
-    void setCleanLevel(int level, bool store=true);
+    void setCleanLevel(int level, bool store=true, bool show_warning=true);
 
     void ToggleViewState();
 

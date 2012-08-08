@@ -66,8 +66,6 @@ public:
 
     Searchable* GetSearchableContent();
 
-    void SetBackToLinkAllowed(bool allowed);
-
 public slots:
 
     /**
@@ -102,8 +100,6 @@ public slots:
 signals:
 
     void SelectionChanged();
-
-    void OpenLastCodeLinkOpened();
 
 protected slots:
 
