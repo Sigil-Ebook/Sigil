@@ -1001,7 +1001,7 @@ void MainWindow::GenerateInlineToc(NCXModel::NCXEntry ncx_root_entry)
     QApplication::restoreOverrideCursor();
 }
 
-void MainWindow::setCleanLevel(int level, bool store)
+void MainWindow::setCleanLevel(int level, bool store, bool show_warning)
 {
     SettingsStore settings;
     SettingsStore::CleanLevel clean_level = SettingsStore::CleanLevel_Off;
@@ -1027,6 +1027,10 @@ void MainWindow::setCleanLevel(int level, bool store)
 
     if (store) {
         settings.setCleanLevel(clean_level);
+    }
+
+    if (show_warning) {
+        QMessageBox::critical(this, tr("Sigil"), tr("You must restart Sigil for any change to the Clean Source setting to be used."));
     }
 }
 
@@ -1771,7 +1775,7 @@ void MainWindow::ReadSettings()
 
         restoreState( toolbars );
 
-    setCleanLevel(clean_level, false);
+    setCleanLevel(clean_level, false, false);
 
     // For the checkwellformed option, we want to default to true
     // if no value has been set.

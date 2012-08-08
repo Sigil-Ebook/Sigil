@@ -518,7 +518,7 @@ private slots:
     void GenerateToc();
     void GenerateInlineToc(NCXModel::NCXEntry ncx_root_entry);
 
-    void setCleanLevel(int level, bool store=true);
+    void setCleanLevel(int level, bool store=true, bool show_warning=true);
 
     void ToggleViewState();
 
