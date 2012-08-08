@@ -87,5 +87,12 @@
         <file>heading-5_22px.png</file>
         <file>heading-6_22px.png</file>
         <file>heading-normal_22px.png</file>
+        <file>heading-1_16px.png</file>
+        <file>heading-2_16px.png</file>
+        <file>heading-3_16px.png</file>
+        <file>heading-4_16px.png</file>
+        <file>heading-5_16px.png</file>
+        <file>heading-6_16px.png</file>
+        <file>heading-normal_16px.png</file>
     </qresource>
 </RCC>

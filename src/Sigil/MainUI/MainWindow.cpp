@@ -2571,6 +2571,34 @@ void MainWindow::ExtendIconSizes()
     icon.addFile(QString::fromUtf8(":/main/format-indent-less_16px.png"));
     ui.actionDecreaseIndent->setIcon(icon);
 
+    icon = ui.actionHeading1->icon();
+    icon.addFile(QString::fromUtf8(":/main/heading-1_16px.png"));
+    ui.actionHeading1->setIcon(icon);
+
+    icon = ui.actionHeading2->icon();
+    icon.addFile(QString::fromUtf8(":/main/heading-2_16px.png"));
+    ui.actionHeading2->setIcon(icon);
+
+    icon = ui.actionHeading3->icon();
+    icon.addFile(QString::fromUtf8(":/main/heading-3_16px.png"));
+    ui.actionHeading3->setIcon(icon);
+
+    icon = ui.actionHeading4->icon();
+    icon.addFile(QString::fromUtf8(":/main/heading-4_16px.png"));
+    ui.actionHeading4->setIcon(icon);
+
+    icon = ui.actionHeading5->icon();
+    icon.addFile(QString::fromUtf8(":/main/heading-5_16px.png"));
+    ui.actionHeading5->setIcon(icon);
+
+    icon = ui.actionHeading6->icon();
+    icon.addFile(QString::fromUtf8(":/main/heading-6_16px.png"));
+    ui.actionHeading6->setIcon(icon);
+
+    icon = ui.actionHeadingNormal->icon();
+    icon.addFile(QString::fromUtf8(":/main/heading-normal_16px.png"));
+    ui.actionHeadingNormal->setIcon(icon);
+
     icon = ui.actionOpen->icon();
     icon.addFile(QString::fromUtf8(":/main/document-open_16px.png"));
     ui.actionOpen->setIcon(icon);
