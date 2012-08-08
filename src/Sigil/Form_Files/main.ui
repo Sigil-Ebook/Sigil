@@ -194,8 +194,6 @@
     <addaction name="actionGoToLine"/>
     <addaction name="separator"/>
     <addaction name="actionSearchEditor"/>
-    <addaction name="separator"/>
-    <addaction name="actionSearchEditor"/>
    </widget>
    <widget class="QMenu" name="menuWindow">
     <property name="title">
