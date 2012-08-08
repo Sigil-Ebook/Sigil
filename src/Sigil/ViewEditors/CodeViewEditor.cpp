@@ -923,6 +923,12 @@ void CodeViewEditor::mousePressEvent( QMouseEvent *event )
 
     // Propagate to base class
     QPlainTextEdit::mousePressEvent( event );   
+
+    // Allow open link with Ctrl-mouseclick - after propagation moves cursor
+    bool isCtrl = QApplication::keyboardModifiers() & Qt::ControlModifier;
+    if (isCtrl) {
+        OpenLinkAction();
+    }
 }
 
 
