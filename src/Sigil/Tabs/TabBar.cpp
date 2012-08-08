@@ -39,16 +39,8 @@ TabBar::~TabBar()
 
 void TabBar::mousePressEvent(QMouseEvent *event)
 {
-    if (event->button() == Qt::LeftButton) {
-        int tabCount = count();
-        for( int i = 0; i < tabCount; i++ ) {
-            if (tabRect(i).contains(event->pos())) {
-                if (currentIndex() == i) {
-                    emit TabBarClicked();
-                }
-                break;
-            }
-        }
+    if (event->type() == QEvent::MouseButtonDblClick) {
+        emit TabBarClicked();
     }
     else if (event->button() == Qt::RightButton) {
         int tabCount = count();
