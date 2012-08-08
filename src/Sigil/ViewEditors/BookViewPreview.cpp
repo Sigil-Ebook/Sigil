@@ -275,9 +275,7 @@ QString BookViewPreview::GetElementSelectingJS_NoTextNodes( const QList< ViewEdi
 
     for ( int i = 0; i < hierarchy.count() - 1; ++i )
     {
-        if ( hierarchy[ i ].index > 0 ) {
-            element_selector.append( QString( ".children().eq(%1)" ).arg( hierarchy[ i ].index ) );
-        }
+        element_selector.append( QString( ".children().eq(%1)" ).arg( hierarchy[ i ].index ) );
     }
 
     element_selector.append( ".get(0)" );
