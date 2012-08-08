@@ -392,16 +392,17 @@ void BookViewEditor::SetWebPageModified( bool modified )
     m_WebPageModified = modified;
 }
 
-void BookViewEditor::FormatBlock( const QString &element_name )
+void BookViewEditor::FormatBlock( const QString &element_name, bool preserve_attributes )
 {
     if ( element_name.isEmpty() ) {
         return;
     }
 
+    QString preserve = preserve_attributes ? "true" : "false";
     QString javascript =  c_GetBlock % c_FormatBlock %
             "var node = document.getSelection().anchorNode;"
             "var startNode = get_block( node );"
-            "var element = format_block( startNode, \""+element_name+"\" );"
+            "var element = format_block( startNode, \""+element_name+"\", "+preserve+" );"
             "startNode.parentNode.replaceChild( element, startNode );"
             % SET_CURSOR_JS;
 

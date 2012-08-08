@@ -975,20 +975,20 @@ void FlowTab::RemoveFormatting()
 }
 
 
-void FlowTab::HeadingStyle( const QString& heading_type )
+void FlowTab::HeadingStyle( const QString& heading_type, bool preserve_attributes )
 {
     if (m_ViewState == MainWindow::ViewState_BookView)
-    {
-        QChar last_char = heading_type[ heading_type.count() - 1 ];
+	{
+		QChar last_char = heading_type[ heading_type.count() - 1 ];
 
-        // For heading_type == "Heading #"
-        if ( last_char.isDigit() ) {
-            m_wBookView->FormatBlock( "h" + QString( last_char ) );
+		// For heading_type == "Heading #"
+		if ( last_char.isDigit() ) {
+			m_wBookView->FormatBlock( "h" + QString( last_char ), preserve_attributes );
         }
-        else if ( heading_type == "Normal" ) {
-            m_wBookView->FormatBlock( "p" );
+		else if ( heading_type == "Normal" ) {
+			m_wBookView->FormatBlock( "p", preserve_attributes );
         }
-    }
+	}
 }
 
 

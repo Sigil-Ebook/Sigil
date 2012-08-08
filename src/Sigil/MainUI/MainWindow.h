@@ -522,6 +522,9 @@ private slots:
 
     void ToggleViewState();
 
+    void ApplyHeadingStyleToTab( const QString &heading_type );
+    void SetPreserveHeadingAttributes( bool new_state );
+
 private:
 
     /**
@@ -842,6 +845,8 @@ private:
     ClipboardEditor *m_ClipboardEditor;
 
     IndexEditor *m_IndexEditor;
+
+    bool m_preserveHeadingAttributes;
 
     /**
      * Holds all the widgets Qt Designer created for us.

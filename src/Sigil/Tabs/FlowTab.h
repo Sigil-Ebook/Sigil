@@ -156,8 +156,6 @@ public:
 
     QString GetCaretElementName();
 
-    void ExecuteCaretUpdate();
-
 public slots:
 
     bool IsDataWellFormed();
@@ -316,7 +314,7 @@ public slots:
     /**
      * Implements the heading combo box functionality.
      */
-    void HeadingStyle( const QString& heading_type );
+    void HeadingStyle( const QString& heading_type, bool preserve_attributes );
 
 signals:
 

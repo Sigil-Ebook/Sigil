@@ -151,6 +151,8 @@
      <addaction name="actionHeading4"/>
      <addaction name="actionHeading5"/>
      <addaction name="actionHeading6"/>
+     <addaction name="separator"/>
+     <addaction name="actionHeadingPreserveAttributes"/>
     </widget>
     <addaction name="menuHeadings"/>
     <addaction name="separator"/>
@@ -207,8 +209,8 @@
     <addaction name="actionCount"/>
     <addaction name="separator"/>
     <addaction name="actionGoToLine"/>
-     <addaction name="separator"/>
-     <addaction name="actionSearchEditor"/>
+    <addaction name="separator"/>
+    <addaction name="actionSearchEditor"/>
    </widget>
    <widget class="QMenu" name="menu_Window">
     <property name="title">
@@ -1395,6 +1397,17 @@
    <property name="icon">
     <iconset resource="../Resource_Files/main/main.qrc">
      <normaloff>:/main/heading-normal_22px.png</normaloff>:/main/heading-normal_22px.png</iconset>
+   </property>
+  </action>
+  <action name="actionHeadingPreserveAttributes">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string notr="true">Preserve existing attributes</string>
+   </property>
+   <property name="toolTip">
+    <string>When applying this style, preserve any existing attributes on the tag</string>
    </property>
   </action>
   <action name="actionNewHTMLFile">

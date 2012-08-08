@@ -124,7 +124,8 @@ MainWindow::MainWindow( const QString &openfilepath, QWidget *parent, Qt::WFlags
     m_headingMapper( new QSignalMapper( this ) ),
     m_SearchEditor(new SearchEditor(this)),
     m_ClipboardEditor(new ClipboardEditor(this)),
-    m_IndexEditor(new IndexEditor(this))
+    m_IndexEditor(new IndexEditor(this)),
+    m_preserveHeadingAttributes( true )
 {
     ui.setupUi( this );
 
@@ -1785,6 +1786,10 @@ void MainWindow::ReadSettings()
     // The list of recent files
     s_RecentFiles    = settings.value( "recentfiles" ).toStringList();
 
+    QVariant preserveHeadingAttributes= settings.value( "preserveheadingattributes" );
+    m_preserveHeadingAttributes = preserveHeadingAttributes.isNull() ? true : preserveHeadingAttributes.toBool();
+    SetPreserveHeadingAttributes( m_preserveHeadingAttributes );
+
     settings.endGroup();
 }
 
@@ -1808,6 +1813,8 @@ void MainWindow::WriteSettings()
 
     // The list of recent files
     settings.setValue( "recentfiles", s_RecentFiles );
+
+    settings.setValue( "preserveheadingattributes", m_preserveHeadingAttributes );
 
     KeyboardShortcutManager::instance()->writeSettings();
 
@@ -2205,6 +2212,20 @@ void MainWindow::SelectEntryOnHeadingToolbar( const QString &element_name )
     }
 }
 
+void MainWindow::ApplyHeadingStyleToTab( const QString &heading_type )
+{
+    FlowTab *flow_tab = qobject_cast<FlowTab*>(&GetCurrentContentTab());
+    if (flow_tab) {
+        flow_tab->HeadingStyle(heading_type, m_preserveHeadingAttributes);
+    }
+}
+
+void MainWindow::SetPreserveHeadingAttributes( bool new_state )
+{
+    m_preserveHeadingAttributes = new_state;
+    ui.actionHeadingPreserveAttributes->setChecked( m_preserveHeadingAttributes );
+}
+
 
 void MainWindow::CreateRecentFilesActions()
 {
@@ -2432,7 +2453,6 @@ void MainWindow::ExtendUI()
     sm->registerAction(ui.actionItalic, "MainWindow.Italic");
     sm->registerAction(ui.actionUnderline, "MainWindow.Underline");
     sm->registerAction(ui.actionStrikethrough, "MainWindow.Strikethrough");
-    sm->registerAction(ui.actionHeadingNormal, "MainWindow.HeadingNormal");
     sm->registerAction(ui.actionAlignLeft, "MainWindow.AlignLeft");
     sm->registerAction(ui.actionCenter, "MainWindow.Center");
     sm->registerAction(ui.actionAlignRight, "MainWindow.AlignRight");
@@ -2441,13 +2461,15 @@ void MainWindow::ExtendUI()
     sm->registerAction(ui.actionInsertBulletedList, "MainWindow.InsertBulletedList");
     sm->registerAction(ui.actionIncreaseIndent, "MainWindow.IncreaseIndent");
     sm->registerAction(ui.actionDecreaseIndent, "MainWindow.DecreaseIndent");
+    sm->registerAction(ui.actionRemoveFormatting, "MainWindow.RemoveFormatting");
     sm->registerAction(ui.actionHeading1, "MainWindow.Heading1");
     sm->registerAction(ui.actionHeading2, "MainWindow.Heading2");
     sm->registerAction(ui.actionHeading3, "MainWindow.Heading3");
     sm->registerAction(ui.actionHeading4, "MainWindow.Heading4");
     sm->registerAction(ui.actionHeading5, "MainWindow.Heading5");
     sm->registerAction(ui.actionHeading6, "MainWindow.Heading6");
-    sm->registerAction(ui.actionRemoveFormatting, "MainWindow.RemoveFormatting");
+    sm->registerAction(ui.actionHeadingNormal, "MainWindow.HeadingNormal");
+    sm->registerAction(ui.actionHeadingPreserveAttributes, "MainWindow.HeadingPreserveAttributes");
     // View
     sm->registerAction(ui.actionBookView, "MainWindow.BookView");
     sm->registerAction(ui.actionSplitView, "MainWindow.SplitView");
@@ -2752,6 +2774,10 @@ void MainWindow::ConnectSignalsToSlots()
     connect( ui.actionSplitView,     SIGNAL( triggered() ),  this,   SLOT( SplitView() ) );
     connect( ui.actionCodeView,      SIGNAL( triggered() ),  this,   SLOT( CodeView()  ) );
 
+    connect( ui.actionHeadingPreserveAttributes, SIGNAL( triggered( bool ) ), this, SLOT( SetPreserveHeadingAttributes( bool ) ) );
+
+    connect( m_headingMapper,      SIGNAL( mapped( const QString& ) ),  this,   SLOT( ApplyHeadingStyleToTab( const QString& ) ) );
+
     connect( &m_TabManager,          SIGNAL( TabCountChanged() ), 
              this,                   SLOT( UpdateUIOnTabCountChange() ) );
 
@@ -2883,8 +2909,6 @@ void MainWindow::MakeTabConnections( ContentTab *tab )
         connect( ui.actionPrintPreview,             SIGNAL( triggered() ),  tab,   SLOT( PrintPreview()             ) );
         connect( ui.actionPrint,                    SIGNAL( triggered() ),  tab,   SLOT( Print()                    ) );
         connect( this,                              SIGNAL( SettingsChanged()), tab, SLOT( LoadSettings()           ) );
-
-        connect( m_headingMapper, SIGNAL( mapped( const QString& ) ),  tab,   SLOT( HeadingStyle( const QString& ) ) );
     
         connect( tab,   SIGNAL( SelectionChanged() ),           this,          SLOT( UpdateUIOnTabChanges()    ) );
         connect( tab,   SIGNAL( EnteringBookView() ),           this,          SLOT( SetStateActionsBookView() ) );
@@ -2943,7 +2967,6 @@ void MainWindow::BreakTabConnections( ContentTab *tab )
     disconnect( ui.actionDecreaseIndent,            0, tab, 0 );
     disconnect( ui.actionIncreaseIndent,            0, tab, 0 );
     disconnect( ui.actionRemoveFormatting,          0, tab, 0 );
-    disconnect( m_headingMapper,                    0, tab, 0 );
 
     disconnect( ui.actionCutCodeTags,               0, tab, 0 );
     disconnect( ui.actionSplitChapter,              0, tab, 0 );
