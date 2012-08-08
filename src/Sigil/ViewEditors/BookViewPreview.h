@@ -102,14 +102,7 @@ signals:
      */
     void ZoomFactorChanged(float new_zoom_factor);
 
-    /**
-     * A filtered version of the QWebPage::linkClicked signal.
-     * Should be used in place of that one, since this one
-     * performs custom logic on the QUrl.
-     *
-     * @param url The URL of the clicked link.
-     */
-    void FilteredLinkClicked(const QUrl& url);
+    void LinkClicked(const QUrl& url);
 
     /**
      * Emitted when the focus is gained.
@@ -145,13 +138,6 @@ protected slots:
      * @param progress The value of the loading progress (0-100).
      */
     void UpdateFinishedState(int progress);
-
-    /**
-     * Filters the linkCLicked signal.
-     *
-     * @param url The URL of the clicked link.
-     */
-    void LinkClickedFilter(const QUrl& url);
 
 private slots:
     

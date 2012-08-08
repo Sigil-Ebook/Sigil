@@ -207,43 +207,52 @@ void TabManager::SaveTabData()
     }
 }
 
-void TabManager::SetBackToLinkAllowedForTabs()
-{
-    for (int i = 0; i < count(); ++i) {
-        ContentTab *tab = qobject_cast<ContentTab*>(widget(i));
-
-        if (tab) {
-            tab->SetBackToLinkAllowed(!m_LastLinkOpenedFilename.isEmpty());
-        }
-    }
-}
-
 void TabManager::ResetLastLinkOpened()
 {
     m_LastLinkOpenedFilename = QString();
     m_LastLinkOpenedPosition = -1;
-
-    SetBackToLinkAllowedForTabs();
 }
 
-void TabManager::OpenCodeLink(const QUrl &url)
+void TabManager::LinkClicked(const QUrl &url)
 {
+    if (url.toString().isEmpty()) {
+        return;
+    }
+
     ContentTab &tab = GetCurrentContentTab();
 
-    m_LastLinkOpenedFilename = tab.GetFilename();
-    m_LastLinkOpenedPosition = tab.GetCursorPosition();
+    QString url_string = url.toString();
 
-    emit OpenUrlRequest(url);
+    if (url.scheme() == "file") {
+        if (url_string.contains("/#")) {
+            // Convert fragments to full filename/fragments
+            url_string.insert(url_string.indexOf( "/#") + 1, tab.GetFilename());
+        }
+    }
+    if (url.scheme().isEmpty() || url.scheme() == "file") {
+        // Save location of link for going back for internal links
+        m_LastLinkOpenedFilename = tab.GetFilename();
+        m_LastLinkOpenedPosition = tab.GetCursorPosition();
+    }
 
-    SetBackToLinkAllowedForTabs();
+    emit OpenUrlRequest(QUrl(url_string));
 }
 
-void TabManager::OpenLastCodeLinkOpened()
+bool TabManager::IsBackToLinkAllowed()
+{
+    return !m_LastLinkOpenedFilename.isEmpty();
+}
+
+void TabManager::OpenLastLinkOpened()
 {
     if (!m_LastLinkOpenedFilename.isEmpty()) {
-        emit OpenUrlRequest(m_LastLinkOpenedFilename, m_LastLinkOpenedPosition);
+        QString filename = m_LastLinkOpenedFilename;
+        int position = m_LastLinkOpenedPosition;
+
+        ResetLastLinkOpened();
+        
+        emit OpenUrlRequest(filename, position);
     }
-    ResetLastLinkOpened();
 }
 
 void TabManager::OpenResource( Resource& resource,
@@ -259,7 +268,6 @@ void TabManager::OpenResource( Resource& resource,
 
     AddNewContentTab( CreateTabForResource( resource, fragment, view_state, line_to_scroll_to, position_to_scroll_to ),
                       precede_current_tab );
-    SetBackToLinkAllowedForTabs();
 
     // TODO: loading bar update
 }
@@ -503,11 +511,7 @@ ContentTab* TabManager::CreateTabForResource( Resource& resource,
                 position_to_scroll_to,
                 this );
 
-            connect( tab,  SIGNAL( LinkClicked( const QUrl& ) ), this, SIGNAL( OpenUrlRequest( const QUrl& ) ) );
-            connect( tab,  SIGNAL( OpenCodeLink( const QUrl& ) ), this, SLOT( OpenCodeLink( const QUrl& ) ) );
-            connect( tab,  SIGNAL( OpenExternalUrl( const QUrl& ) ), this, SIGNAL( OpenExternalUrl( const QUrl& ) ) );
-            connect( tab,  SIGNAL( OpenLastCodeLinkOpened() ), this, SLOT(OpenLastCodeLinkOpened()) );
-            connect( tab,  SIGNAL( LinkClicked( const QUrl& ) ), this, SIGNAL( OpenUrlRequest( const QUrl& ) ) );
+            connect( tab,  SIGNAL( LinkClicked( const QUrl& ) ), this, SLOT( LinkClicked( const QUrl& ) ) );
             connect( tab,  SIGNAL( OldTabRequest( QString, HTMLResource& ) ),
                 this, SIGNAL( OldTabRequest( QString, HTMLResource& ) ) );
             connect( tab,  SIGNAL( NewChaptersRequest( QStringList, HTMLResource& ) ),
@@ -518,7 +522,6 @@ ContentTab* TabManager::CreateTabForResource( Resource& resource,
     case Resource::CSSResourceType:
         {
             tab = new CSSTab( *( qobject_cast< CSSResource* >( &resource ) ), line_to_scroll_to, this );
-            connect( tab,  SIGNAL( OpenLastCodeLinkOpened() ), this, SLOT(OpenLastCodeLinkOpened()) );
             break;
         }
 

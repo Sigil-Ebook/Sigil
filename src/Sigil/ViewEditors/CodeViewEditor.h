@@ -87,14 +87,23 @@ public:
      */
     void CutCodeTags();
     bool IsCutCodeTagsAllowed();
+
     bool IsNotInTagTextSelected();
     QString StripCodeTags(QString text);
 
     bool IsPositionInTag(int pos);
 
+    void InsertClosingTag();
     bool IsInsertClosingTagAllowed();
 
-    bool IsOpenAllowed();
+    void OpenLink();
+    bool IsOpenLinkAllowed();
+
+    void AddToIndex();
+    bool IsAddToIndexAllowed();
+
+    void MarkForIndex();
+    bool IsMarkForIndexAllowed();
 
     /**
     * Splits the chapter and returns the "upper" content.
@@ -119,8 +128,6 @@ public:
      * Inserts the SGF chapter marker code at the current caret location.
      */
     void InsertSGFChapterMarker();
-
-    void InsertClosingTag();
 
     /**
      * Paints the line number area.
@@ -218,8 +225,6 @@ public:
 
     void RestoreCaretLocation();
 
-    void SetBackToLinkAllowed(bool allowed);
-
 signals:
 
     /**
@@ -249,11 +254,8 @@ signals:
 
     void OpenIndexEditorRequest(IndexEditorModel::indexEntry *);
 
-    void OpenCodeLinkRequest(const QUrl &url);
+    void LinkClicked(const QUrl &url);
 
-    void OpenExternalUrl(const QUrl &url);
-
-    void OpenLastCodeLinkOpenedRequest();
 
 public slots:
 
@@ -373,16 +375,8 @@ private slots:
 
     void SaveClipboardAction();
 
-    void SaveIndexAction();
-
-    void MarkIndexAction();
-
     QUrl GetInternalLinkInTag();
     
-    void OpenLinkAction();
-
-    void BackToLinkAction();
-
 private:
 
     /**
@@ -442,10 +436,6 @@ private:
     bool AddSpellCheckContextMenu(QMenu *menu);
 
     bool CreateMenuEntries(QMenu *parent_menu, QAction *topAction, QStandardItem *item);
-
-    void AddOpenLinkContextMenu(QMenu *menu);
-
-    void AddIndexContextMenu(QMenu *menu);
 
 
     ///////////////////////////////
@@ -531,8 +521,6 @@ private:
     QSignalMapper *m_addSpellingMapper;
     QSignalMapper *m_ignoreSpellingMapper;
     QSignalMapper *m_clipboardMapper;
-
-    bool m_BackToLinkAllowed;
 };
 
 #endif // CODEVIEWEDITOR_H

@@ -150,6 +150,8 @@ MainWindow::MainWindow( const QString &openfilepath, QWidget *parent, Qt::WFlags
     LoadInitialFile(openfilepath);
     // Ensure the UI is setup properly for the default view state.
     SetViewState(m_ViewState);
+
+    ui.actionBackToLink->setEnabled(false);
 }
 
 
@@ -192,6 +194,27 @@ void MainWindow::OpenFilename( QString filename )
         }
     }
 }
+
+void MainWindow::OpenUrl(const QUrl& url, int position)
+{
+    if (url.isEmpty()) {
+        return;
+    }
+
+    if (url.scheme().isEmpty() || url.scheme() == "file") {
+        if (m_BookBrowser->OpenUrlResource(url, position)) {
+            ui.actionBackToLink->setEnabled(m_TabManager.IsBackToLinkAllowed());
+        }
+    } 
+    else {
+        QMessageBox::StandardButton button_pressed;
+        button_pressed = QMessageBox::warning(this, tr("Sigil"), tr("Are you sure you want to open this external link?\n\n%1").arg(url.toString()), QMessageBox::Ok | QMessageBox::Cancel);
+        if (button_pressed == QMessageBox::Ok) {
+            QDesktopServices::openUrl(url);
+        }
+    }
+}
+
 
 void MainWindow::OpenCodeResource(Resource& resource, int position_to_scroll_to)
 {
@@ -947,6 +970,7 @@ void MainWindow::GenerateToc()
 
     QApplication::restoreOverrideCursor();
 }
+    
 
 void MainWindow::GenerateInlineToc(NCXModel::NCXEntry ncx_root_entry)
 {
@@ -1142,14 +1166,6 @@ void MainWindow::MetaEditorDialog()
     }
 }
 
-void MainWindow::OpenExternalUrl(const QUrl &url)
-{
-    QMessageBox::StandardButton button_pressed;
-    button_pressed = QMessageBox::warning(this, tr("Sigil"), tr("Are you sure you want to open this external link?\n\n%1").arg(url.toString()), QMessageBox::Ok | QMessageBox::Cancel);
-    if (button_pressed == QMessageBox::Ok) {
-        QDesktopServices::openUrl(url);
-    }
-}
 
 void MainWindow::UserGuide()
 {
@@ -1283,8 +1299,10 @@ void MainWindow::UpdateUIOnTabChanges()
     ui.actionCut  ->setEnabled( tab.CutEnabled() );
     ui.actionCopy ->setEnabled( tab.CopyEnabled() );
     ui.actionPaste->setEnabled( tab.PasteEnabled() );
-    ui.actionCutCodeTags->setEnabled( tab.CutCodeTagsEnabled() );
     ui.actionInsertClosingTag->setEnabled( tab.InsertClosingTagEnabled() );
+    ui.actionOpenLink->setEnabled( tab.OpenLinkEnabled() );
+    ui.actionAddToIndex->setEnabled( tab.AddToIndexEnabled() );
+    ui.actionMarkForIndex->setEnabled( tab.MarkForIndexEnabled() );
 
     ui.actionBold     ->setChecked( tab.BoldChecked() );
     ui.actionItalic   ->setChecked( tab.ItalicChecked() );
@@ -1293,6 +1311,7 @@ void MainWindow::UpdateUIOnTabChanges()
     ui.actionStrikethrough     ->setChecked( tab.StrikethroughChecked() );
     ui.actionInsertBulletedList->setChecked( tab.BulletListChecked() );
     ui.actionInsertNumberedList->setChecked( tab.NumberListChecked() );
+    ui.actionRemoveFormatting->setEnabled( tab.RemoveFormattingEnabled() );
 
     // State of zoom controls depends on current tab/view
     float zoom_factor = tab.GetZoomFactor();
@@ -1356,8 +1375,10 @@ void MainWindow::SetStateActionsBookView()
 
     ui.actionInsertBulletedList->setEnabled(true);
     ui.actionInsertNumberedList->setEnabled(true);
+    ui.actionRemoveFormatting->setEnabled(true);
 
     m_cbHeadings->setEnabled(true);
+    ui.menuHeadings->setEnabled(true);
     ui.actionHeading1->setEnabled(true);
     ui.actionHeading2->setEnabled(true);
     ui.actionHeading3->setEnabled(true);
@@ -1419,8 +1440,10 @@ void MainWindow::SetStateActionsSplitView()
 
     ui.actionInsertBulletedList->setEnabled(false);
     ui.actionInsertNumberedList->setEnabled(false);
+    ui.actionRemoveFormatting->setEnabled(false);
 
     m_cbHeadings->setEnabled(false);
+    ui.menuHeadings->setEnabled(false);
     ui.actionHeading1->setEnabled(false);
     ui.actionHeading2->setEnabled(false);
     ui.actionHeading3->setEnabled(false);
@@ -1482,8 +1505,10 @@ void MainWindow::SetStateActionsCodeView()
 
     ui.actionInsertBulletedList->setEnabled(false);
     ui.actionInsertNumberedList->setEnabled(false);
+    ui.actionRemoveFormatting->setEnabled(true);
 
     m_cbHeadings->setEnabled(false);
+    ui.menuHeadings->setEnabled(false);
     ui.actionHeading1->setEnabled(false);
     ui.actionHeading2->setEnabled(false);
     ui.actionHeading3->setEnabled(false);
@@ -1546,8 +1571,10 @@ void MainWindow::SetStateActionsRawView()
 
     ui.actionInsertBulletedList->setEnabled(false);
     ui.actionInsertNumberedList->setEnabled(false);
+    ui.actionRemoveFormatting->setEnabled(false);
 
     m_cbHeadings->setEnabled(false);
+    ui.menuHeadings->setEnabled(false);
     ui.actionHeading1->setEnabled(false);
     ui.actionHeading2->setEnabled(false);
     ui.actionHeading3->setEnabled(false);
@@ -1615,8 +1642,10 @@ void MainWindow::SetStateActionsStaticView()
 
     ui.actionInsertBulletedList->setEnabled(false);
     ui.actionInsertNumberedList->setEnabled(false);
+    ui.actionRemoveFormatting->setEnabled(false);
 
     m_cbHeadings->setEnabled(false);
+    ui.menuHeadings->setEnabled(false);
     ui.actionHeading1->setEnabled(false);
     ui.actionHeading2->setEnabled(false);
     ui.actionHeading3->setEnabled(false);
@@ -2198,7 +2227,7 @@ void MainWindow::CreateRecentFilesActions()
 
         QList<QAction *> actlist = ui.menuFile->actions();
 
-        // Add the new action just below the Quit action
+        // Add the new action just above the Quit action
         // and the separator behind it
         ui.menuFile->insertAction( actlist[ actlist.size() - 3 ], m_RecentFileActions[ i ] );
 
@@ -2391,6 +2420,7 @@ void MainWindow::ExtendUI()
     sm->registerAction(ui.actionNew, "MainWindow.New");
     sm->registerAction(ui.actionNewHTMLFile, "MainWindow.NewHTMLFile");
     sm->registerAction(ui.actionNewCSSFile, "MainWindow.NewCSSFile");
+    sm->registerAction(ui.actionAddExistingFile, "MainWindow.AddExistingFile");
     sm->registerAction(ui.actionOpen, "MainWindow.Open");
 #ifndef Q_WS_MAC
     sm->registerAction(ui.actionClose, "MainWindow.Close");
@@ -2399,11 +2429,6 @@ void MainWindow::ExtendUI()
     sm->registerAction(ui.actionSaveAs, "MainWindow.SaveAs");
     sm->registerAction(ui.actionPrintPreview, "MainWindow.PrintPreview");
     sm->registerAction(ui.actionPrint, "MainWindow.Print");
-    sm->registerAction(ui.actionIndexEditor, "MainWindow.IndexEditor");
-    sm->registerAction(ui.actionViewClasses, "MainWindow.ViewClasses");
-    sm->registerAction(ui.actionViewHTML, "MainWindow.ViewHTML");
-    sm->registerAction(ui.actionViewImages, "MainWindow.ViewImages");
-    sm->registerAction(ui.actionValidateEpub, "MainWindow.ValidateEpub");
     sm->registerAction(ui.actionExit, "MainWindow.Exit");
     // Edit
     sm->registerAction(ui.actionUndo, "MainWindow.Undo");
@@ -2411,7 +2436,15 @@ void MainWindow::ExtendUI()
     sm->registerAction(ui.actionCut, "MainWindow.Cut");
     sm->registerAction(ui.actionCopy, "MainWindow.Copy");
     sm->registerAction(ui.actionPaste, "MainWindow.Paste");
-    sm->registerAction(ui.actionCutCodeTags, "MainWindow.CutCodeTags");
+    sm->registerAction(ui.actionInsertImage, "MainWindow.InsertImage");
+    sm->registerAction(ui.actionSplitChapter, "MainWindow.SplitChapter");
+    sm->registerAction(ui.actionInsertSGFChapterMarker, "MainWindow.InsertSGFChapterMarker");
+    sm->registerAction(ui.actionSplitOnSGFChapterMarkers, "MainWindow.SplitOnSGFChapterMarkers");
+    sm->registerAction(ui.actionInsertClosingTag, "MainWindow.InsertClosingTag");
+#ifndef Q_WS_MAC
+    sm->registerAction(ui.actionPreferences, "MainWindow.Preferences");
+#endif
+    //Search
     sm->registerAction(ui.actionFind, "MainWindow.Find");
     sm->registerAction(ui.actionFindNext, "MainWindow.FindNext");
     sm->registerAction(ui.actionFindPrevious, "MainWindow.FindPrevious");
@@ -2420,18 +2453,7 @@ void MainWindow::ExtendUI()
     sm->registerAction(ui.actionReplaceAll, "MainWindow.ReplaceAll");
     sm->registerAction(ui.actionCount, "MainWindow.Count");
     sm->registerAction(ui.actionGoToLine, "MainWindow.GoToLine");
-    sm->registerAction(ui.actionMetaEditor, "MainWindow.MetaEditor");
-    sm->registerAction(ui.actionSearchEditor, "MainWindow.SearchEditor");
-    sm->registerAction(ui.actionClipboardEditor, "MainWindow.ClipboardEditor");
-    sm->registerAction(ui.actionInsertImage, "MainWindow.InsertImage");
-    sm->registerAction(ui.actionAddExistingFile, "MainWindow.AddExistingFile");
-    sm->registerAction(ui.actionSplitChapter, "MainWindow.SplitChapter");
-    sm->registerAction(ui.actionInsertSGFChapterMarker, "MainWindow.InsertSGFChapterMarker");
-    sm->registerAction(ui.actionSplitOnSGFChapterMarkers, "MainWindow.SplitOnSGFChapterMarkers");
-    sm->registerAction(ui.actionInsertClosingTag, "MainWindow.InsertClosingTag");
-#ifndef Q_WS_MAC
-    sm->registerAction(ui.actionPreferences, "MainWindow.Preferences");
-#endif
+
     // Format
     sm->registerAction(ui.actionBold, "MainWindow.Bold");
     sm->registerAction(ui.actionItalic, "MainWindow.Italic");
@@ -2453,6 +2475,23 @@ void MainWindow::ExtendUI()
     sm->registerAction(ui.actionHeading5, "MainWindow.Heading5");
     sm->registerAction(ui.actionHeading6, "MainWindow.Heading6");
     sm->registerAction(ui.actionRemoveFormatting, "MainWindow.RemoveFormatting");
+
+    // Tools
+    sm->registerAction(ui.actionMetaEditor, "MainWindow.MetaEditor");
+    sm->registerAction(ui.actionGenerateTOC, "MainWindow.GenerateTOC");
+    sm->registerAction(ui.actionCreateInlineTOC, "MainWindow.GenerateInlineToc");
+    sm->registerAction(ui.actionValidateEpub, "MainWindow.ValidateEpub");
+    sm->registerAction(ui.actionViewClasses, "MainWindow.ViewClasses");
+    sm->registerAction(ui.actionViewHTML, "MainWindow.ViewHTML");
+    sm->registerAction(ui.actionViewImages, "MainWindow.ViewImages");
+    sm->registerAction(ui.actionSearchEditor, "MainWindow.SearchEditor");
+    sm->registerAction(ui.actionClipboardEditor, "MainWindow.ClipboardEditor");
+    sm->registerAction(ui.actionIndexEditor, "MainWindow.IndexEditor");
+    sm->registerAction(ui.actionAddToIndex, "MainWindow.AddToIndex");
+    sm->registerAction(ui.actionMarkForIndex, "MainWindow.MarkForIndex");
+    sm->registerAction(ui.actionCreateIndex, "MainWindow.CreateIndex");
+    sm->registerAction(ui.actionCheckWellFormedErrors, "MainWindow.CheckWellFormedErrors");
+
     // View
     sm->registerAction(ui.actionBookView, "MainWindow.BookView");
     sm->registerAction(ui.actionSplitView, "MainWindow.SplitView");
@@ -2463,8 +2502,7 @@ void MainWindow::ExtendUI()
     sm->registerAction(m_BookBrowser->toggleViewAction(), "MainWindow.BookBrowser");
     sm->registerAction(m_ValidationResultsView->toggleViewAction(), "MainWindow.ValidationResults");
     sm->registerAction(m_TableOfContents->toggleViewAction(), "MainWindow.TableOfContents");
-    // Tools
-    sm->registerAction(ui.actionCheckWellFormedErrors, "MainWindow.CheckWellFormedErrors");
+
     // Window
     sm->registerAction(ui.actionNextTab, "MainWindow.NextTab");
     sm->registerAction(ui.actionPreviousTab, "MainWindow.PreviousTab");
@@ -2472,6 +2510,9 @@ void MainWindow::ExtendUI()
     sm->registerAction(ui.actionCloseOtherTabs, "MainWindow.CloseOtherTabs");
     sm->registerAction(ui.actionOpenPreviousResource, "MainWindow.OpenPreviousResource");
     sm->registerAction(ui.actionOpenNextResource, "MainWindow.OpenNextResource");
+    sm->registerAction(ui.actionOpenLink, "MainWindow.OpenLink");
+    sm->registerAction(ui.actionBackToLink, "MainWindow.BackToLink");
+
     // Help
     sm->registerAction(ui.actionUserGuide, "MainWindow.UserGuide");
     sm->registerAction(ui.actionFAQ, "MainWindow.FAQ");
@@ -2663,8 +2704,7 @@ void MainWindow::ConnectSignalsToSlots()
     connect( ui.actionHeadingNormal, SIGNAL( triggered() ), m_headingMapper, SLOT( map() ) );
     m_headingMapper->setMapping( ui.actionHeadingNormal, "Normal" );
 
-    connect( ui.actionExit,          SIGNAL( triggered() ), qApp, SLOT( closeAllWindows()          ) );
-    connect( ui.actionClose,         SIGNAL( triggered() ), this, SLOT( close()                    ) );
+    // File
     connect( ui.actionNew,           SIGNAL( triggered() ), this, SLOT( New()                      ) );
     connect( ui.actionOpen,          SIGNAL( triggered() ), this, SLOT( Open()                     ) );
     connect( ui.actionNewHTMLFile,   SIGNAL( triggered() ), m_BookBrowser, SLOT( AddNewHTML()      ) );
@@ -2672,6 +2712,14 @@ void MainWindow::ConnectSignalsToSlots()
     connect( ui.actionAddExistingFile,SIGNAL(triggered() ), m_BookBrowser, SLOT( AddExisting()     ) );
     connect( ui.actionSave,          SIGNAL( triggered() ), this, SLOT( Save()                     ) );
     connect( ui.actionSaveAs,        SIGNAL( triggered() ), this, SLOT( SaveAs()                   ) );
+    connect( ui.actionClose,         SIGNAL( triggered() ), this, SLOT( close()                    ) );
+    connect( ui.actionExit,          SIGNAL( triggered() ), qApp, SLOT( closeAllWindows()          ) );
+
+    // Edit
+    connect( ui.actionInsertImage,   SIGNAL( triggered() ), this, SLOT( InsertImage()              ) );
+    connect( ui.actionPreferences,   SIGNAL( triggered() ), this, SLOT( PreferencesDialog()        ) );
+
+    // Search
     connect( ui.actionFind,          SIGNAL( triggered() ), this, SLOT( Find()                     ) );
     connect( ui.actionFindNext,      SIGNAL( triggered() ), m_FindReplace, SLOT( FindNext()        ) );
     connect( ui.actionFindPrevious,  SIGNAL( triggered() ), m_FindReplace, SLOT( FindPrevious()    ) );
@@ -2680,15 +2728,8 @@ void MainWindow::ConnectSignalsToSlots()
     connect( ui.actionReplaceAll,    SIGNAL( triggered() ), m_FindReplace, SLOT( ReplaceAll()      ) );
     connect( ui.actionCount,         SIGNAL( triggered() ), m_FindReplace, SLOT( Count()           ) );
     connect( ui.actionGoToLine,      SIGNAL( triggered() ), this, SLOT( GoToLine()                 ) );
-    connect( ui.actionZoomIn,        SIGNAL( triggered() ), this, SLOT( ZoomIn()                   ) );
-    connect( ui.actionZoomOut,       SIGNAL( triggered() ), this, SLOT( ZoomOut()                  ) );
-    connect( ui.actionZoomReset,     SIGNAL( triggered() ), this, SLOT( ZoomReset()                ) );
-    connect( ui.actionOpenPreviousResource, SIGNAL( triggered() ), m_BookBrowser, SLOT( OpenPreviousResource() ) );
-    connect( ui.actionOpenNextResource,     SIGNAL( triggered() ), m_BookBrowser, SLOT( OpenNextResource()     ) );
-    connect( ui.actionInsertImage,   SIGNAL( triggered() ), this, SLOT( InsertImage()              ) );
-    connect( ui.actionClipboardEditor, SIGNAL( triggered() ), this, SLOT( ClipboardEditorDialog()      ) );
-    connect( ui.actionMetaEditor,    SIGNAL( triggered() ), this, SLOT( MetaEditorDialog()         ) );
-    connect( ui.actionSearchEditor, SIGNAL( triggered() ), this, SLOT( SearchEditorDialog()      ) );
+
+    // About
     connect( ui.actionUserGuide,     SIGNAL( triggered() ), this, SLOT( UserGuide()                ) );
     connect( ui.actionFAQ,           SIGNAL( triggered() ), this, SLOT( FrequentlyAskedQuestions() ) );
     connect( ui.actionTutorials,     SIGNAL( triggered() ), this, SLOT( Tutorials()                ) );
@@ -2696,23 +2737,20 @@ void MainWindow::ConnectSignalsToSlots()
     connect( ui.actionReportAnIssue, SIGNAL( triggered() ), this, SLOT( ReportAnIssue()            ) );
     connect( ui.actionSigilDevBlog,  SIGNAL( triggered() ), this, SLOT( SigilDevBlog()             ) );
     connect( ui.actionAbout,         SIGNAL( triggered() ), this, SLOT( AboutDialog()              ) );
-    connect( ui.actionPreferences,   SIGNAL( triggered() ), this, SLOT( PreferencesDialog()        ) );
+
+    // Tools
+    connect( ui.actionMetaEditor,    SIGNAL( triggered() ), this, SLOT( MetaEditorDialog()         ) );
     connect( ui.actionValidateEpub,  SIGNAL( triggered() ), this, SLOT( ValidateEpub()             ) );
-    connect( ui.actionIndexEditor,   SIGNAL( triggered() ), this, SLOT( IndexEditorDialog()       ) );
-    connect( ui.actionViewClasses,   SIGNAL( triggered() ), this, SLOT( ViewClassesUsedInHTML() ) );
+    connect( ui.actionGenerateTOC,   SIGNAL( triggered() ), this, SLOT( GenerateToc()              ) );
+    connect( ui.actionCreateInlineTOC, SIGNAL( triggered() ), m_TableOfContents, SLOT( GenerateInlineToc()        ) );
+    connect( ui.actionViewClasses,   SIGNAL( triggered() ), this, SLOT( ViewClassesUsedInHTML()    ) );
     connect( ui.actionViewHTML,      SIGNAL( triggered() ), this, SLOT( ViewAllHTML()              ) );
     connect( ui.actionViewImages,    SIGNAL( triggered() ), this, SLOT( ViewAllImages()            ) );
-
-    connect( ui.actionNextTab,       SIGNAL( triggered() ), &m_TabManager, SLOT( NextTab()     ) );
-    connect( ui.actionPreviousTab,   SIGNAL( triggered() ), &m_TabManager, SLOT( PreviousTab() ) );
-    connect( ui.actionCloseTab,      SIGNAL( triggered() ), &m_TabManager, SLOT( CloseTab()    ) );
-    connect( ui.actionCloseOtherTabs,SIGNAL( triggered() ), &m_TabManager, SLOT( CloseOtherTabs() ) );
-
-    connect( m_slZoomSlider,         SIGNAL( valueChanged( int ) ), this, SLOT( SliderZoom( int ) ) );
-
-    // We also update the label when the slider moves... this is to show
-    // the zoom value the slider will land on while it is being moved.
-    connect( m_slZoomSlider,         SIGNAL( sliderMoved( int ) ),  this, SLOT( UpdateZoomLabel( int ) ) );
+    connect( ui.actionClipboardEditor, SIGNAL( triggered() ), this, SLOT( ClipboardEditorDialog()  ) );
+    connect( ui.actionSearchEditor,  SIGNAL( triggered() ), this, SLOT( SearchEditorDialog()       ) );
+    connect( ui.actionIndexEditor,   SIGNAL( triggered() ), this, SLOT( IndexEditorDialog()        ) );
+    connect( ui.actionCreateIndex,   SIGNAL( triggered() ), this, SLOT( CreateIndex()      ) );
+    connect( ui.actionCheckWellFormedErrors, SIGNAL( triggered( bool ) ), this, SLOT( SetCheckWellFormedErrors( bool ) ) );
 
     // Tidy clean
     connect(ui.actionCleanLevelOff, SIGNAL(triggered()), m_cleanMapper, SLOT(map()));
@@ -2723,11 +2761,29 @@ void MainWindow::ConnectSignalsToSlots()
     m_cleanMapper->setMapping(ui.actionCleanLevelTidy, SettingsStore::CleanLevel_Tidy);
     connect(m_cleanMapper, SIGNAL(mapped(int)), this, SLOT(setCleanLevel(int)));
 
-    connect( ui.actionCheckWellFormedErrors, SIGNAL( triggered( bool ) ), this, SLOT( SetCheckWellFormedErrors( bool ) ) );
-
+    // View
+    connect( ui.actionZoomIn,        SIGNAL( triggered() ), this, SLOT( ZoomIn()                   ) );
+    connect( ui.actionZoomOut,       SIGNAL( triggered() ), this, SLOT( ZoomOut()                  ) );
+    connect( ui.actionZoomReset,     SIGNAL( triggered() ), this, SLOT( ZoomReset()                ) );
     connect( ui.actionBookView,      SIGNAL( triggered() ),  this,   SLOT( BookView()  ) );
     connect( ui.actionSplitView,     SIGNAL( triggered() ),  this,   SLOT( SplitView() ) );
     connect( ui.actionCodeView,      SIGNAL( triggered() ),  this,   SLOT( CodeView()  ) );
+
+    // Window
+    connect( ui.actionNextTab,       SIGNAL( triggered() ), &m_TabManager, SLOT( NextTab()     ) );
+    connect( ui.actionPreviousTab,   SIGNAL( triggered() ), &m_TabManager, SLOT( PreviousTab() ) );
+    connect( ui.actionCloseTab,      SIGNAL( triggered() ), &m_TabManager, SLOT( CloseTab()    ) );
+    connect( ui.actionCloseOtherTabs,SIGNAL( triggered() ), &m_TabManager, SLOT( CloseOtherTabs() ) );
+    connect( ui.actionOpenPreviousResource, SIGNAL( triggered() ), m_BookBrowser, SLOT( OpenPreviousResource() ) );
+    connect( ui.actionOpenNextResource,     SIGNAL( triggered() ), m_BookBrowser, SLOT( OpenNextResource()     ) );
+    connect( ui.actionBackToLink,    SIGNAL( triggered() ),  &m_TabManager,   SLOT( OpenLastLinkOpened()                    ) );
+
+    // Slider
+    connect( m_slZoomSlider,         SIGNAL( valueChanged( int ) ), this, SLOT( SliderZoom( int ) ) );
+    // We also update the label when the slider moves... this is to show
+    // the zoom value the slider will land on while it is being moved.
+    connect( m_slZoomSlider,         SIGNAL( sliderMoved( int ) ),  this, SLOT( UpdateZoomLabel( int ) ) );
+
 
     connect( &m_TabManager,          SIGNAL( TabCountChanged() ), 
              this,                   SLOT( UpdateUIOnTabCountChange() ) );
@@ -2786,10 +2842,7 @@ void MainWindow::ConnectSignalsToSlots()
                 SLOT(   OpenResource(        Resource&, bool, const QUrl&, MainWindow::ViewState, int ) ) );
 
     connect( &m_TabManager, SIGNAL( OpenUrlRequest(  const QUrl&, int ) ),
-             m_BookBrowser, SLOT(   OpenUrlResource( const QUrl&, int ) ) );
-
-    connect( &m_TabManager, SIGNAL( OpenExternalUrl( const QUrl& ) ),
-             this, SLOT(   OpenExternalUrl( const QUrl& ) ) );
+             this, SLOT(   OpenUrl( const QUrl&, int ) ) );
 
     connect( &m_TabManager, SIGNAL( OldTabRequest(            QString, HTMLResource& ) ),
              this,          SLOT(   CreateChapterBreakOldTab( QString, HTMLResource& ) ) );
@@ -2824,6 +2877,7 @@ void MainWindow::MakeTabConnections( ContentTab *tab )
 
         return;
 
+    // Triggered connections should be disconnected in BreakTabConnections
     if (tab->GetLoadedResource().Type() != Resource::ImageResourceType)
     {
         connect( ui.actionUndo,                     SIGNAL( triggered() ),  tab,   SLOT( Undo()                     ) );
@@ -2851,7 +2905,6 @@ void MainWindow::MakeTabConnections( ContentTab *tab )
         connect( ui.actionIncreaseIndent,           SIGNAL( triggered() ),  tab,   SLOT( IncreaseIndent()           ) );
         connect( ui.actionRemoveFormatting,         SIGNAL( triggered() ),  tab,   SLOT( RemoveFormatting()         ) );
 
-        connect( ui.actionCutCodeTags,              SIGNAL( triggered() ),  tab,   SLOT( CutCodeTags()              ) );
         connect( ui.actionSplitChapter,             SIGNAL( triggered() ),  tab,   SLOT( SplitChapter()             ) );
         connect( ui.actionInsertSGFChapterMarker,   SIGNAL( triggered() ),  tab,   SLOT( InsertSGFChapterMarker()   ) );
         connect( ui.actionSplitOnSGFChapterMarkers, SIGNAL( triggered() ),  tab,   SLOT( SplitOnSGFChapterMarkers() ) );
@@ -2859,6 +2912,10 @@ void MainWindow::MakeTabConnections( ContentTab *tab )
 
         connect( ui.actionPrintPreview,             SIGNAL( triggered() ),  tab,   SLOT( PrintPreview()             ) );
         connect( ui.actionPrint,                    SIGNAL( triggered() ),  tab,   SLOT( Print()                    ) );
+        connect( ui.actionAddToIndex,               SIGNAL( triggered() ),  tab,   SLOT( AddToIndex()        ) );
+        connect( ui.actionMarkForIndex,             SIGNAL( triggered() ),  tab,   SLOT( MarkForIndex()      ) );
+        connect( ui.actionOpenLink,                 SIGNAL( triggered() ),  tab,   SLOT( OpenLink()    ) );
+
         connect( this,                              SIGNAL( SettingsChanged()), tab, SLOT( LoadSettings()           ) );
 
         connect( m_cbHeadings, SIGNAL( activated( const QString& ) ),  tab,   SLOT( HeadingStyle( const QString& ) ) );
@@ -2925,7 +2982,6 @@ void MainWindow::BreakTabConnections( ContentTab *tab )
     disconnect( m_cbHeadings,                       0, tab, 0 );
     disconnect( m_headingMapper,                    0, tab, 0 );
 
-    disconnect( ui.actionCutCodeTags,               0, tab, 0 );
     disconnect( ui.actionSplitChapter,              0, tab, 0 );
     disconnect( ui.actionInsertSGFChapterMarker,    0, tab, 0 );
     disconnect( ui.actionSplitOnSGFChapterMarkers,  0, tab, 0 );
@@ -2933,6 +2989,9 @@ void MainWindow::BreakTabConnections( ContentTab *tab )
 
     disconnect( ui.actionPrintPreview,              0, tab, 0 );
     disconnect( ui.actionPrint,                     0, tab, 0 );
+    disconnect( ui.actionAddToIndex,                0, tab, 0 );
+    disconnect( ui.actionMarkForIndex,              0, tab, 0 );
+    disconnect( ui.actionOpenLink,                  0, tab, 0 );
 
     disconnect( m_ClipboardEditor,                 0, tab, 0 );
 

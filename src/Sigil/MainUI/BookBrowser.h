@@ -134,7 +134,7 @@ public slots:
      *
      * @param url The URL to open.
      */
-    void OpenUrlResource( const QUrl &url, int cursor_position = -1 );
+    bool OpenUrlResource( const QUrl &url, int cursor_position = -1 );
 
     void AddNewHTML();
     void AddNewCSS();

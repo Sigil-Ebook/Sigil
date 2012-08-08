@@ -202,8 +202,11 @@ bool FlowTab::PasteEnabled()
     return false;
 }
 
-bool FlowTab::CutCodeTagsEnabled()
+bool FlowTab::RemoveFormattingEnabled()
 {
+    if (m_ViewState == MainWindow::ViewState_BookView) {
+        return m_wBookView->pageAction(QWebPage::RemoveFormat)->isEnabled();
+    }
     if (m_ViewState == MainWindow::ViewState_CodeView) {
         return m_wCodeView->IsCutCodeTagsAllowed();
     }
@@ -220,9 +223,31 @@ bool FlowTab::InsertClosingTagEnabled()
     return false;
 }
 
-void FlowTab::SetBackToLinkAllowed(bool allowed)
+bool FlowTab::OpenLinkEnabled()
 {
-    m_wCodeView->SetBackToLinkAllowed(allowed);
+    if (m_ViewState == MainWindow::ViewState_CodeView) {
+        return m_wCodeView->IsOpenLinkAllowed();
+    }
+
+    return false;
+}
+
+bool FlowTab::AddToIndexEnabled()
+{
+    if (m_ViewState == MainWindow::ViewState_CodeView) {
+        return m_wCodeView->IsAddToIndexAllowed();
+    }
+
+    return false;
+}
+
+bool FlowTab::MarkForIndexEnabled()
+{
+    if (m_ViewState == MainWindow::ViewState_CodeView) {
+        return m_wCodeView->IsMarkForIndexAllowed();
+    }
+
+    return false;
 }
 
 int FlowTab::GetCursorPosition() const
@@ -503,13 +528,6 @@ void FlowTab::Paste()
     }
 }
 
-void FlowTab::CutCodeTags()
-{
-    if (m_ViewState == MainWindow::ViewState_CodeView) {
-        m_wCodeView->CutCodeTags();
-    }
-}
-
 void FlowTab::SplitChapter()
 {
     if (!IsDataWellFormed()) {
@@ -542,6 +560,27 @@ void FlowTab::InsertClosingTag()
 {
     if (m_ViewState == MainWindow::ViewState_CodeView) {
         m_wCodeView->InsertClosingTag();
+    }
+}
+
+void FlowTab::OpenLink()
+{
+    if (m_ViewState == MainWindow::ViewState_CodeView) {
+        return m_wCodeView->OpenLink();
+    }
+}
+
+void FlowTab::AddToIndex()
+{
+    if (m_ViewState == MainWindow::ViewState_CodeView) {
+        m_wCodeView->AddToIndex();
+    }
+}
+
+void FlowTab::MarkForIndex()
+{
+    if (m_ViewState == MainWindow::ViewState_CodeView) {
+        m_wCodeView->MarkForIndex();
     }
 }
 
@@ -948,7 +987,12 @@ void FlowTab::IncreaseIndent()
 
 void FlowTab::RemoveFormatting()
 {
-    m_wBookView->page()->triggerAction( QWebPage::RemoveFormat );
+    if (m_ViewState == MainWindow::ViewState_BookView) {
+        m_wBookView->page()->triggerAction( QWebPage::RemoveFormat );
+    }
+    else if (m_ViewState == MainWindow::ViewState_CodeView) {
+        m_wCodeView->CutCodeTags();
+    }
 }
 
 
@@ -1053,17 +1097,15 @@ void FlowTab::ConnectSignalsToSlots()
 
     connect(m_wBookView, SIGNAL(FocusGained(QWidget *)), this, SLOT(EnterEditor(QWidget *)));
     connect(m_wBookView, SIGNAL(FocusLost(QWidget *)), this, SLOT(LeaveEditor(QWidget *)));
-    connect(m_wBookView, SIGNAL(FilteredLinkClicked(const QUrl&)), this, SIGNAL(LinkClicked(const QUrl&)));
-
-    connect(m_wCodeView, SIGNAL(OpenCodeLinkRequest(const QUrl&)), this, SIGNAL(OpenCodeLink(const QUrl&)));
-    connect(m_wCodeView, SIGNAL(OpenExternalUrl(const QUrl&)), this, SIGNAL(OpenExternalUrl(const QUrl&)));
-    connect(m_wCodeView, SIGNAL(OpenLastCodeLinkOpenedRequest()), this, SIGNAL(OpenLastCodeLinkOpened()));
 
     connect(m_wBookPreview, SIGNAL(FocusGained(QWidget *)), this, SLOT(EnterEditor(QWidget *)));
-    connect(m_wBookPreview, SIGNAL(FilteredLinkClicked(const QUrl&)), this, SIGNAL(LinkClicked(const QUrl&)));
 
     connect(m_wCodeView, SIGNAL(FocusGained(QWidget *)), this, SLOT(EnterEditor(QWidget *)));
     connect(m_wCodeView, SIGNAL(FocusLost(QWidget *)), this, SLOT(LeaveEditor(QWidget *)));
+
+    connect(m_wBookView, SIGNAL(LinkClicked(const QUrl&)), this, SIGNAL(LinkClicked(const QUrl&)));
+    connect(m_wCodeView, SIGNAL(LinkClicked(const QUrl&)), this, SIGNAL(LinkClicked(const QUrl&)));
+    connect(m_wBookPreview, SIGNAL(LinkClicked(const QUrl&)), this, SIGNAL(LinkClicked(const QUrl&)));
 
     connect(m_wBookView, SIGNAL(textChanged()), this, SLOT(EmitContentChanged()));
     connect(m_wCodeView, SIGNAL(FilteredTextChanged()), this, SLOT(EmitContentChanged()));

@@ -78,6 +78,13 @@ public slots:
      */
     void RefreshTOCContents();
 
+    /**
+     * Implements the "Generate TOC From headings" button functionality.
+     */
+    void GenerateTocFromHeadings();
+
+    void GenerateInlineToc();
+
 private slots:
 
     /**
@@ -87,13 +94,6 @@ private slots:
      * @param index The model index of the item clicked.
      */
     void ItemClickedHandler( const QModelIndex &index );
-
-    /**
-     * Implements the "Generate TOC From headings" button functionality.
-     */
-    void GenerateTocFromHeadings();
-
-    void GenerateInlineToc();
 
     void CollapseAll();
 
