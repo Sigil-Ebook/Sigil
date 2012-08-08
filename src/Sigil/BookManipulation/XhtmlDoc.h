@@ -229,6 +229,9 @@ public:
     static xc::DOMNode* GetNodeFromHierarchy( const xc::DOMDocument &document, 
                                               const QList< ViewEditor::ElementIndex > &hierarchy );
 
+    // Creates a ViewEditor element hierarchy from the specified node
+    static QList< ViewEditor::ElementIndex > GetHierarchyFromNode( const xc::DOMNode &node ); 
+
 private:
 
     // Accepts a reference to an XML stream reader positioned on an XML element.

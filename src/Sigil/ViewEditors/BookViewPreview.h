@@ -22,9 +22,15 @@
 #ifndef BOOKVIEWPREVIEW_H
 #define BOOKVIEWPREVIEW_H
 
+#include <boost/shared_ptr.hpp>
+
+#include <QtCore/QMap>
 #include <QtWebKit/QWebView>
 
+#include "BookManipulation/XercesHUse.h"
 #include "ViewEditors/ViewEditor.h"
+
+using boost::shared_ptr;
 
 class QSize;
 
@@ -169,6 +175,161 @@ private:
      * @return The element-selecting JavaScript code.
      */
     QString GetElementSelectingJS_NoTextNodes( const QList< ViewEditor::ElementIndex > &hierarchy ) const;
+    
+    /**
+     * Builds the element-selecting JavaScript code, ignoring all the
+     * text nodes except the last one.
+     * Chains children() jQuery calls, and then the contents() function
+     * for the last element (the text node, naturally).
+     *
+     * @return The element-selecting JavaScript code.
+     */
+    QString GetElementSelectingJS_WithTextNode( const QList< ViewEditor::ElementIndex > &hierarchy ) const;
+    
+    /**
+     * Converts a DomNode from a Dom of the current page
+     * into the QWebElement of that same element on tha page.
+     *
+     * @param node The node to covert.
+     */
+    QWebElement DomNodeToQWebElement( const xc::DOMNode &node );
+    
+    /**
+     * Returns the local character offset of the selection.
+     * The offset is calculated in the local text node.
+     *
+     * @param start_of_selection If \c true, then the offset is calculated from
+     *                           the start of the selection. Otherwise, from its end.
+     * @return The offset.
+     */
+    int GetLocalSelectionOffset( bool start_of_selection );
+
+    /**
+     * Returns the selection offset from the start of the document.
+     *
+     * @param document The loaded DOM document.
+     * @param node_offsets The text node offset map from SearchTools.
+     * @param search_direction The direction of the search.
+     * @return The offset.
+     */
+    int GetSelectionOffset( const xc::DOMDocument &document,
+                            const QMap< int, xc::DOMNode* > &node_offsets, 
+                            Searchable::Direction search_direction );
+
+    /**
+     * The necessary tools for searching.
+     */
+    struct SearchTools
+    {
+        /**
+         * The full text of the document.
+         */
+        QString fulltext;
+    
+        /**
+         * A map with text node starting offsets as keys,
+         * and those text nodes as values.
+         */
+        QMap< int, xc::DOMNode* > node_offsets;
+
+        /**
+         *  A DOM document with the loaded text.
+         */
+        shared_ptr< xc::DOMDocument > document;
+    };
+    
+    /**
+     * Private overload for FindNext that allows it to return (by reference) the SearchTools object
+     * it creates so that the DOM doesn't need to be parsed again when ReplaceSelected is called immediately
+     * after.
+     */
+    bool FindNext(  SearchTools &search_tools,
+                    const QString &search_regex,
+                    Searchable::Direction search_direction,
+                    bool check_spelling = false,
+                    bool ignore_selection_offset = false,
+                    bool wrap = true
+                 );
+
+    /**
+     * The inputs for a new JavaScript \c range object.
+     */
+    struct SelectRangeInputs
+    {
+        SelectRangeInputs() 
+            : 
+            start_node( NULL ), 
+            end_node( NULL ), 
+            start_node_index( -1 ), 
+            end_node_index( -1 ) {}
+
+        /**
+         * The range start node.
+         */
+        xc::DOMNode* start_node;
+
+        /**
+         *  The range end node.
+         */
+        xc::DOMNode* end_node;
+
+        /**
+         * The char index inside the start node.
+         */
+        int start_node_index;
+
+        /**
+         * The char index inside the end node.
+         */
+        int end_node_index;
+    };
+
+    /**
+     * Converts the parameters into JavaScript \c range object inputs.
+     * The \c range object can then be used to select this particular string.
+     *
+     * @param The node offset map
+     * @param string_start The index of the string in the full document text
+     * @param string_length The string's length
+     * @return The inputs for a \c range object.
+     * @see SearchTools
+     */
+    SelectRangeInputs GetRangeInputs( const QMap< int, xc::DOMNode* > &node_offsets, 
+                                      int string_start, 
+                                      int string_length ) const;
+    
+    /**
+     * Converts the \c range input struct into the \c range creating JavaScript code.
+     * 
+     * @param input The \c range object inputs.
+     * @return The \c range creating JavaScript code.
+     */
+    QString GetRangeJS( const SelectRangeInputs &input ) const;
+
+    /**
+     * Selects the string identified by the \c range inputs.
+     *
+     * @param input The \c range inputs.
+     */
+    void SelectTextRange( const SelectRangeInputs &input );
+
+    /**
+     * Scrolls the view to the specified node and text offset
+     * within that node. 
+     *
+     * @param node The node to scroll to.
+     * @param character_offset The specific offset we're interested
+     *                         in within the node.
+     */
+    void ScrollToNodeText( const xc::DOMNode &node, int character_offset );
+
+    /**
+     * Returns the all the necessary tools for searching.
+     * Reads from the QWebPage source.
+     *
+     * @return The necessary tools for searching.
+     */
+    SearchTools GetSearchTools() const;    
 
     ///////////////////////////////
     // PRIVATE MEMBER VARIABLES
@@ -199,6 +360,20 @@ private:
      */
     const QString c_GetCaretLocation;
     
+    /**
+     * The JavaScript source code
+     * for creating DOM ranges.
+     */
+    const QString c_GetRange;
+
+    /**
+     * The JavaScript source code that
+     * removes all of the current selections
+     * and adds the range in the "range"
+     * variable to the current selection.
+     */
+    const QString c_NewSelection;
+
     /**
      * Stores the JavaScript source code for the 
      * caret location update. Used when switching from 

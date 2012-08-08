@@ -1145,3 +1145,27 @@ xc::DOMNode* XhtmlDoc::GetNodeFromHierarchy( const xc::DOMDocument &document,
     return end_node;       
 }
 
+// Creates a ViewEditor element hierarchy from the specified node
+QList< ViewEditor::ElementIndex > XhtmlDoc::GetHierarchyFromNode( const xc::DOMNode &node )
+{
+    xc::DOMNode *html_node = node.getOwnerDocument()->getElementsByTagName( QtoX( "html" ) )->item( 0 );
+    const xc::DOMNode *current_node = &node;
+
+    QList< ViewEditor::ElementIndex > element_list;
+
+    while ( current_node != html_node )
+    {
+        xc::DOMNode *parent = current_node->getParentNode();
+
+        ViewEditor::ElementIndex element;
+        element.name  = GetNodeName( *parent );
+        element.index = GetCustomIndexInList( *current_node, *parent->getChildNodes() );
+    
+        element_list.prepend( element );
+
+        current_node = parent;
+    }
+
+    return element_list;
+}
+
