@@ -193,7 +193,7 @@ QStringList CleanSource::CSSStyleTags( const QString &source )
         style_tag_nodes = XhtmlDoc::GetTagsInHead( source, "style" );
     }
 
-    catch ( ErrorParsingXml &exception )
+    catch ( ErrorParsingXml )
     {
         // Nothing really. If we can't get the CSS style tags,
         // than that's it. No CSS returned.

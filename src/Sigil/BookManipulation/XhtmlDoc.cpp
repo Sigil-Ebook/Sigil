@@ -664,7 +664,7 @@ QStringList XhtmlDoc::GetLinkedStylesheets( const QString &source )
         link_tag_nodes = XhtmlDoc::GetTagsInHead( source, "link" );
     }
 
-    catch ( ErrorParsingXml &exception )
+    catch ( ErrorParsingXml )
     {
         // Nothing really. If we can't get the CSS style tags,
         // than that's it. No CSS returned.
