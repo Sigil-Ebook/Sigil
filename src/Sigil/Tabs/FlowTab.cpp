@@ -948,7 +948,7 @@ void FlowTab::InsertBulletedList()
 void FlowTab::InsertNumberedList()
 {
     if (m_ViewState == MainWindow::ViewState_BookView) {
-		m_wBookView->ExecCommand( "insertOrderedList" );
+        m_wBookView->ExecCommand( "insertOrderedList" );
     }
 }
 
@@ -956,7 +956,7 @@ void FlowTab::InsertNumberedList()
 void FlowTab::DecreaseIndent()
 {
     if (m_ViewState == MainWindow::ViewState_BookView) {
-		m_wBookView->page()->triggerAction( QWebPage::Outdent );
+        m_wBookView->page()->triggerAction( QWebPage::Outdent );
     }
 }
 
@@ -964,7 +964,7 @@ void FlowTab::DecreaseIndent()
 void FlowTab::IncreaseIndent()
 {
     if (m_ViewState == MainWindow::ViewState_BookView) {
-		m_wBookView->page()->triggerAction( QWebPage::Indent );
+        m_wBookView->page()->triggerAction( QWebPage::Indent );
     }
 }
 
@@ -978,20 +978,17 @@ void FlowTab::RemoveFormatting()
 void FlowTab::HeadingStyle( const QString& heading_type )
 {
     if (m_ViewState == MainWindow::ViewState_BookView)
-	{
-		QChar last_char = heading_type[ heading_type.count() - 1 ];
+    {
+        QChar last_char = heading_type[ heading_type.count() - 1 ];
 
-		// For heading_type == "Heading #"
-		if ( last_char.isDigit() ) {
-			m_wBookView->FormatBlock( "h" + QString( last_char ) );
+        // For heading_type == "Heading #"
+        if ( last_char.isDigit() ) {
+            m_wBookView->FormatBlock( "h" + QString( last_char ) );
         }
-		else if ( heading_type == "Normal" ) {
-			m_wBookView->FormatBlock( "p" );
+        else if ( heading_type == "Normal" ) {
+            m_wBookView->FormatBlock( "p" );
         }
-
-		// Focus will have switched to the tool button, so let BookView grab it back
-		m_wBookView->GrabFocus();
-	}
+    }
 }
 
 
