@@ -182,6 +182,8 @@
     </property>
     <addaction name="actionRegexDotAll"/>
     <addaction name="actionRegexMinimalMatch"/>
+    <addaction name="separator"/>
+    <addaction name="actionRegexAutoTokenise"/>
    </widget>
    <widget class="QMenu" name="menuFindReplace">
     <property name="title">
@@ -1543,6 +1545,14 @@
    </property>
    <property name="text">
     <string>Minimal Match (?U)</string>
+   </property>
+  </action>
+  <action name="actionRegexAutoTokenise">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Auto-tokenise Whitespace</string>
    </property>
   </action>
  </widget>

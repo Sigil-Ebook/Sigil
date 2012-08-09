@@ -41,7 +41,8 @@ FindReplace::FindReplace( MainWindow &main_window )
     : QWidget( &main_window ),
       m_MainWindow( main_window ),
       m_RegexOptionDotAll( false ),
-      m_RegexOptionMinimalMatch( false )
+      m_RegexOptionMinimalMatch( false ),
+      m_RegexOptionAutoTokenise( false )
 {
     ui.setupUi( this );
 
@@ -78,12 +79,16 @@ void FindReplace::SetUpFindText()
     {
         QString selected_text = searchable->GetSelectedText();
 
-        // We want to make the text selected in the editor
-        // as the default search text, but only if it's not "too long"
-        if ( !selected_text.isEmpty() &&
-             selected_text.length() < MAXIMUM_SELECTED_TEXT_LIMIT )
+        if ( !selected_text.isEmpty() ) 
         {
-            ui.cbFind->setEditText( selected_text );
+		    if ( m_RegexOptionAutoTokenise && GetSearchMode() == FindFields::SearchMode_Regex ) {
+			    selected_text = TokeniseSpacesForRegex( selected_text );
+		    }
+		    // We want to make the text selected in the editor
+		    // as the default search text, but only if it's not "too long"
+		    if ( selected_text.length() < MAXIMUM_SELECTED_TEXT_LIMIT ) {
+                ui.cbFind->setEditText( selected_text );
+            }
         }
     }
 
@@ -1173,6 +1178,11 @@ void FindReplace::SetRegexOptionDotAll(bool new_state)
 void FindReplace::SetRegexOptionMinimalMatch(bool new_state)
 {
     m_RegexOptionMinimalMatch = new_state;
+}
+
+void FindReplace::SetRegexOptionAutoTokenise(bool new_state)
+{
+    m_RegexOptionAutoTokenise = new_state;
 }
 
 void FindReplace::ConnectSignalsToSlots()

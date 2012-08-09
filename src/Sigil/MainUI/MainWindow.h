@@ -262,6 +262,11 @@ private slots:
     void SetRegexOptionMinimalMatch(bool new_state);
 
     /**
+     * Implements Regex Option Auto-Tokenise Whitespace functionality.
+     */
+    void SetRegexOptionAutoTokenise(bool new_state);
+
+    /**
      * Implements Zoom In action functionality.
      */
     void ZoomIn();

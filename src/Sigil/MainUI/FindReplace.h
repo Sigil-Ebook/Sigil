@@ -58,6 +58,7 @@ public:
     
     void SetRegexOptionDotAll(bool new_state);
     void SetRegexOptionMinimalMatch(bool new_state);
+    void SetRegexOptionAutoTokenise(bool new_state);
 
 public slots:
     void close();
@@ -240,6 +241,7 @@ private:
 
     bool m_RegexOptionDotAll;
     bool m_RegexOptionMinimalMatch;
+    bool m_RegexOptionAutoTokenise;
 };
 
 

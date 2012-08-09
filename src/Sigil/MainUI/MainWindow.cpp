@@ -491,6 +491,13 @@ void MainWindow::SetRegexOptionMinimalMatch( bool new_state )
 }
 
 
+void MainWindow::SetRegexOptionAutoTokenise( bool new_state )
+{
+    ui.actionRegexAutoTokenise->setChecked( new_state );
+    m_FindReplace->SetRegexOptionAutoTokenise( new_state );
+}
+
+
 void MainWindow::ZoomIn()
 {
     ZoomByStep( true );
@@ -1828,6 +1835,10 @@ void MainWindow::ReadSettings()
     QVariant regexOptionMinimalMatch = settings.value( "regexoptionminimalmatch" );
     bool apply_minimal_match = regexOptionMinimalMatch.isNull() ? false : regexOptionMinimalMatch.toBool();
     SetRegexOptionMinimalMatch( apply_minimal_match );
+    
+    QVariant regexOptionAutoTokenise = settings.value( "regexoptionautotokenise" );
+    bool apply_auto_tokenise = regexOptionAutoTokenise.isNull() ? false : regexOptionAutoTokenise.toBool();
+    SetRegexOptionAutoTokenise( apply_auto_tokenise );
 
     settings.endGroup();
 }
@@ -1857,6 +1868,7 @@ void MainWindow::WriteSettings()
 
     settings.setValue( "regexoptiondotall", ui.actionRegexDotAll->isChecked() );
     settings.setValue( "regexoptionminimalmatch", ui.actionRegexMinimalMatch->isChecked() );
+    settings.setValue( "regexoptionautotokenise", ui.actionRegexAutoTokenise->isChecked() );
 
     KeyboardShortcutManager::instance()->writeSettings();
 
@@ -2788,6 +2800,7 @@ void MainWindow::ConnectSignalsToSlots()
     connect( ui.actionGoToLine,      SIGNAL( triggered() ), this, SLOT( GoToLine()                 ) );
     connect( ui.actionRegexDotAll,   SIGNAL( triggered(bool) ), this, SLOT( SetRegexOptionDotAll(bool)        ) );
     connect( ui.actionRegexMinimalMatch, SIGNAL( triggered(bool) ), this, SLOT( SetRegexOptionMinimalMatch(bool) ) );
+    connect( ui.actionRegexAutoTokenise, SIGNAL( triggered(bool) ), this, SLOT( SetRegexOptionAutoTokenise(bool) ) );
 
     // About
     connect( ui.actionUserGuide,     SIGNAL( triggered() ), this, SLOT( UserGuide()                ) );
