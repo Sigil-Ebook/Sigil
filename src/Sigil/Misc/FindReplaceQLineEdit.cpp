@@ -50,25 +50,23 @@ void FindReplaceQLineEdit::contextMenuEvent(QContextMenuEvent *event)
         topAction = menu->actions().at(0);
     }
 
-    if (CreateMenuEntries(menu, topAction, SearchEditorModel::instance()->invisibleRootItem())) {
-        if (topAction) {
-            menu->insertSeparator(topAction);
-        }
-        else {
-            menu->addSeparator();
-        }
-    }
-
-    QAction *saveSearchAction = new QAction(tr("Add to Searches"), menu);
-    if (!topAction) {
-        menu->addAction(saveSearchAction);
+    QAction *tokeniseAction = new QAction(tr("Tokenise Selection"), menu);
+    connect(tokeniseAction, SIGNAL(triggered()), m_FindReplace, SLOT(TokeniseSelection()));
+    if (topAction) {
+        menu->insertAction(topAction, tokeniseAction);
+        menu->insertSeparator(topAction);
     }
     else {
-        menu->insertAction(topAction, saveSearchAction);
+        menu->addAction(tokeniseAction);
     }
-    connect(saveSearchAction, SIGNAL(triggered()), m_FindReplace, SLOT(SaveSearchAction()));
+    topAction = tokeniseAction;
 
-    if (topAction) {
+    QAction *saveSearchAction = new QAction(tr("Add to Searches"), menu);
+    connect(saveSearchAction, SIGNAL(triggered()), m_FindReplace, SLOT(SaveSearchAction()));
+    menu->insertAction(topAction, saveSearchAction);
+    menu->insertSeparator(topAction);
+
+    if (CreateMenuEntries(menu, topAction, SearchEditorModel::instance()->invisibleRootItem())) {
         menu->insertSeparator(topAction);
     }
 

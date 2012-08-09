@@ -122,6 +122,8 @@ private slots:
 
     void SaveSearchAction();
 
+    void TokeniseSelection();
+
     void HideFindReplace();
 
 private:
@@ -208,6 +210,13 @@ private:
     void WriteSettings();
 
     void ExtendUI();
+
+    /* 
+     * Tokenisation helper functions for automating replacement
+     * of elements of Find text in regular expressions
+     */
+    QString TokeniseSpacesForRegex(const QString &text);
+	QString TokeniseNumericsForRegex(const QString &text);
 
     /**
      * Connects all the required signals to their respective slots.

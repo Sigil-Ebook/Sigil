@@ -22,6 +22,7 @@
 *************************************************************************/
 #include <pcre.h>
 
+#include <QRegExp>
 #include <QtGui/QKeyEvent>
 #include <QtGui/QLineEdit>
 #include <QtGui/QMessageBox>
@@ -1105,6 +1106,52 @@ void FindReplace::ReplaceAllSearch(QList<SearchEditorModel::searchEntry *> searc
         QString message = tr("%1 replacements made", 0, count);
         ShowMessage(message.arg(count));
     }
+}
+
+void FindReplace::TokeniseSelection()
+{
+    if ( !IsValidFindText() )
+    {
+        return;
+    }
+    QString text;
+    if (ui.cbFind->lineEdit()->hasSelectedText()) {
+        // We want to tokenise only the selection
+        text = ui.cbFind->lineEdit()->selectedText();
+    }
+    else {
+        // We will tokenise the whole thing
+        text = ui.cbFind->lineEdit()->text();
+    }
+
+	QString new_text = TokeniseSpacesForRegex( text );
+	new_text = TokeniseNumericsForRegex( new_text );
+
+    if (ui.cbFind->lineEdit()->hasSelectedText()) {
+        int selectionStart = ui.cbFind->lineEdit()->selectionStart();
+        int selectionLength = ui.cbFind->lineEdit()->selectedText().length();
+        text = ui.cbFind->lineEdit()->text();
+        QString all_text = text.left(selectionStart) + new_text + text.right(text.length() - selectionLength - selectionStart);
+	    ui.cbFind->setEditText( all_text );
+        ui.cbFind->lineEdit()->setSelection(selectionStart, new_text.length());
+    }
+    else {
+	    ui.cbFind->setEditText( new_text );
+    }
+}
+
+QString FindReplace::TokeniseSpacesForRegex(const QString &text)
+{
+    QRegExp replace_spaces("([\\n\\s]{2,})");
+    QString new_text = text;
+    return new_text.replace(replace_spaces, "\\s+");
+}
+
+QString FindReplace::TokeniseNumericsForRegex(const QString &text)
+{
+    QRegExp replace_numerics("(\\d+)");
+    QString new_text = text;
+    return new_text.replace(replace_numerics, "\\d+");
 }
 
 void FindReplace::ConnectSignalsToSlots()
