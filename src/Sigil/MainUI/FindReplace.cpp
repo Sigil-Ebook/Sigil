@@ -38,8 +38,7 @@ static const int MAX_HISTORY_COUNT = 15;
 
 FindReplace::FindReplace( MainWindow &main_window )
     : QWidget( &main_window ),
-      m_MainWindow( main_window ),
-      m_capabilities(FindReplace::CAPABILITY_ALL)
+      m_MainWindow( main_window )
 {
     ui.setupUi( this );
 
@@ -65,7 +64,6 @@ FindReplace::FindReplace( MainWindow &main_window )
 FindReplace::~FindReplace()
 {
     WriteSettings();
-    WriteUIMode();
 }
 
 
@@ -89,13 +87,6 @@ void FindReplace::SetUpFindText()
     // Find text should be selected by default
     ui.cbFind->lineEdit()->selectAll();
     ui.cbFind->lineEdit()->setFocus( Qt::ShortcutFocusReason );
-}
-
-void FindReplace::SetCapabilities(FR_Capabilities caps)
-{
-    WriteUIMode();
-    m_capabilities = caps;
-    ExtendUI();
 }
 
 
@@ -456,7 +447,8 @@ void FindReplace::SetCodeViewIfNeeded( bool force )
             ( ( GetLookWhere() == FindFields::LookWhere_AllHTMLFiles || 
                     GetSearchMode() == FindFields::SearchMode_SpellCheck ||
                     GetLookWhere() == FindFields::LookWhere_SelectedHTMLFiles ) &&
-                m_MainWindow.GetViewState() == MainWindow::ViewState_BookView ) )
+              ( m_MainWindow.GetViewState() == MainWindow::ViewState_BookView ||
+                m_MainWindow.GetViewState() == MainWindow::ViewState_PreviewView ) ) )
     {
         // Force change to Code View
         m_MainWindow.AnyCodeView();
@@ -844,36 +836,37 @@ void FindReplace::ReadSettings()
     ui.cbReplace->clear();
     ui.cbReplace->addItems( replace_strings );
 
-    settings.endGroup();
-}
-
-void FindReplace::ReadUIMode()
-{
-    int index = -1;
-    int mode = -1;
-
-    SettingsStore settings;
-    settings.beginGroup(SETTINGS_GROUP);
-
-    ui.cbSearchMode->setCurrentIndex(0);
-    mode = settings.value(QString("search_mode_cap%1").arg(m_capabilities), 0).toInt();
-    index = ui.cbSearchMode->findData(mode);
-    if (index != -1) {
-        ui.cbSearchMode->setCurrentIndex(index);
+    ui.cbSearchMode->setCurrentIndex( 0 );
+    int search_mode = settings.value( "search_mode", 0 ).toInt();
+    for ( int i = 0; i < ui.cbSearchMode->count(); ++i )
+    {
+        if ( ui.cbSearchMode->itemData( i ) == search_mode )
+        {
+            ui.cbSearchMode->setCurrentIndex( i );
+            break;
+        }
     }
 
-    ui.cbLookWhere->setCurrentIndex(0);
-    mode = settings.value(QString("look_where_cap%1").arg(m_capabilities), 0).toInt();
-    index = ui.cbLookWhere->findData(mode);
-    if (index != -1) {
-        ui.cbLookWhere->setCurrentIndex(index);
+    ui.cbLookWhere->setCurrentIndex( 0 );
+    int look_where = settings.value( "look_where", 0 ).toInt();
+    for ( int i = 0; i < ui.cbLookWhere->count(); ++i )
+    {
+        if ( ui.cbLookWhere->itemData( i )  == look_where )
+        {
+            ui.cbLookWhere->setCurrentIndex( i );
+            break;
+        }
     }
 
-    ui.cbSearchDirection->setCurrentIndex(0);
-    mode = settings.value(QString("search_direction_cap%1").arg(m_capabilities), 0).toInt();
-    index = ui.cbSearchDirection->findData(mode);
-    if (index != -1) {
-        ui.cbSearchDirection->setCurrentIndex(index);
+    ui.cbSearchDirection->setCurrentIndex( 0 );
+    int search_direction= settings.value( "search_direction", 0 ).toInt();
+    for ( int i = 0; i < ui.cbSearchDirection->count(); ++i )
+    {
+        if ( ui.cbSearchDirection->itemData( i ) == search_direction )
+        {
+            ui.cbSearchDirection->setCurrentIndex( i );
+            break;
+        }
     }
 
     settings.endGroup();
@@ -916,18 +909,9 @@ void FindReplace::WriteSettings()
     settings.setValue( "find_strings", GetPreviousFindStrings() );
     settings.setValue( "replace_strings", GetPreviousReplaceStrings() );
 
-    settings.endGroup();
-}
-
-void FindReplace::WriteUIMode()
-{
-    SettingsStore settings;
-    settings.beginGroup(SETTINGS_GROUP);
-
-    settings.setValue(QString("search_mode_cap%1").arg(m_capabilities), GetSearchMode());
-    settings.setValue(QString("look_where_cap%1").arg(m_capabilities), GetLookWhere());
-    settings.setValue(QString("search_direction_cap%1").arg(m_capabilities), GetSearchDirection());
-
+    settings.setValue( "search_mode", GetSearchMode() );
+    settings.setValue( "look_where", GetLookWhere() );
+    settings.setValue( "search_direction", GetSearchDirection() );
     settings.endGroup();
 }
 
@@ -948,165 +932,42 @@ Searchable* FindReplace::GetAvailableSearchable()
 // The UI is setup based on the capabilities.
 void FindReplace::ExtendUI()
 {
-    FR_Capabilities caps = m_capabilities;
-
     // Clear these because we want to add their items based on the
     // capabilities.
     ui.cbSearchMode->clear();
     ui.cbLookWhere->clear();
     ui.cbSearchDirection->clear();
 
-    // It doens't make sense to have anything else showing unless Find is enabled.
-    if (caps & (FindReplace::CAPABILITY_FIND|FindReplace::CAPABILITY_ALL)) {
-        // We check if the user sepcified a Find Mode when they specify the Find
-        // capability. If no mode is specified we default to using the normal mode.
-        if (m_capabilities & (FindReplace::CAPABILITY_MODE_NORMAL |
-            FindReplace::CAPABILITY_MODE_CASE_SENSITIVE |
-            FindReplace::CAPABILITY_MODE_REGEX |
-            FindReplace::CAPABILITY_MODE_SPELL_CHECK))
-        {
-            caps |= FindReplace::CAPABILITY_MODE_NORMAL;
-        }
+    // All Combobox items are retrieved from FindFields for consistent translation
+    QString mode_tooltip = "<p>" + tr("What to search for") + ":</p><dl>";
+    ui.cbSearchMode->addItem(FindFields::instance()->GetSearchModeText(FindFields::SearchMode_Normal), FindFields::SearchMode_Normal);
+    mode_tooltip += "<dt><b>" + FindFields::instance()->GetSearchModeText( FindFields::SearchMode_Normal) + "</b><dd>" + tr("Case in-sensitive search of exactly what you type") + "</dd>";
+    ui.cbSearchMode->addItem(FindFields::instance()->GetSearchModeText(FindFields::SearchMode_Case_Sensitive), FindFields::SearchMode_Case_Sensitive);
+    mode_tooltip += "<dt><b>" + FindFields::instance()->GetSearchModeText( FindFields::SearchMode_Case_Sensitive) + "</b><dd>" + tr("Case sensitive search of exactly what you type") + "</dd>";
+    ui.cbSearchMode->addItem(FindFields::instance()->GetSearchModeText(FindFields::SearchMode_Regex), FindFields::SearchMode_Regex);
+    mode_tooltip += "<dt><b>" + FindFields::instance()->GetSearchModeText( FindFields::SearchMode_Regex) + "</b><dd>" + tr("Search for a pattern using Regular Expression syntax") + "</dd>";
+    ui.cbSearchMode->addItem( FindFields::instance()->GetSearchModeText(FindFields::SearchMode_SpellCheck), FindFields::SearchMode_SpellCheck);
+    mode_tooltip += "<dt><b>" + FindFields::instance()->GetSearchModeText( FindFields::SearchMode_SpellCheck) + "</b><dd>" + tr("Search only misspelled words using Regular Expression syntax, or clear the Find text box to find all misspelled words") + "</dd>";
+    mode_tooltip += "</dl>";
+    ui.cbSearchMode->setToolTip(mode_tooltip);
 
-        // Find
-        ui.findl->show();
-        ui.cbFind->show();
-        ui.findNext->show();
-        if (caps & (FindReplace::CAPABILITY_FIND_COUNT|FindReplace::CAPABILITY_ALL)) {
-            ui.count->show();
-        }
-        else {
-            ui.count->hide();
-        }
+    QString look_tooltip = "<p>" + tr("Where to search") + ":</p><dl>";
+    ui.cbLookWhere->addItem(FindFields::instance()->GetLookWhereText(FindFields::LookWhere_CurrentFile), FindFields::LookWhere_CurrentFile);
+    look_tooltip += "<dt><b>" + FindFields::instance()->GetLookWhereText(FindFields::LookWhere_CurrentFile) + "</b><dd>" + tr("Restrict the find or replace to the opened file") + "</dd>";
+    ui.cbLookWhere->addItem(FindFields::instance()->GetLookWhereText(FindFields::LookWhere_AllHTMLFiles), FindFields::LookWhere_AllHTMLFiles);
+    look_tooltip += "<dt><b>" + FindFields::instance()->GetLookWhereText(FindFields::LookWhere_AllHTMLFiles) + "</b><dd>" + tr("Find or replace in all HTML files") + "</dd>";
+    ui.cbLookWhere->addItem(FindFields::instance()->GetLookWhereText(FindFields::LookWhere_SelectedHTMLFiles), FindFields::LookWhere_SelectedHTMLFiles);
+    look_tooltip += "<dt><b>" + FindFields::instance()->GetLookWhereText(FindFields::LookWhere_SelectedHTMLFiles) + "</b><dd>" + tr("Restrict the find or replace to the HTML files selected in the Book Browser") + "</dd>";
+    look_tooltip += "</dl>";
+    ui.cbLookWhere->setToolTip(look_tooltip);
 
-        // Replace
-        if (caps & (FindReplace::CAPABILITY_REPLACE|FindReplace::CAPABILITY_ALL)) {
-            ui.replacel->show();
-            ui.cbReplace->show();
-            ui.replaceNext->show();
-            if (caps & (FindReplace::CAPABILITY_REPLACE_ALL|FindReplace::CAPABILITY_ALL)) {
-                ui.replaceAll->show();
-            }
-            else {
-                ui.replaceAll->hide();
-            }
-        }
-        else {
-            ui.replacel->hide();
-            ui.cbReplace->hide();
-            ui.replaceNext->hide();
-            ui.replaceAll->hide();
-        }
-
-
-        // Mode
-        if (caps & (FindReplace::CAPABILITY_MODE_NORMAL |
-            FindReplace::CAPABILITY_MODE_CASE_SENSITIVE |
-            FindReplace::CAPABILITY_MODE_REGEX |
-            FindReplace::CAPABILITY_MODE_SPELL_CHECK |
-            FindReplace::CAPABILITY_ALL))
-        {
-            ui.model->show();
-            ui.cbSearchMode->show();
-
-            // All Combobox items are retrieved from FindFields for consistent translation
-            QString mode_tooltip = "<p>" + tr("What to search for") + ":</p><dl>";
-            if (caps & (FindReplace::CAPABILITY_MODE_NORMAL|FindReplace::CAPABILITY_ALL)) {
-                ui.cbSearchMode->addItem(FindFields::instance()->GetSearchModeText(FindFields::SearchMode_Normal), FindFields::SearchMode_Normal);
-                mode_tooltip += "<dt><b>" + FindFields::instance()->GetSearchModeText( FindFields::SearchMode_Normal) + "</b><dd>" + tr("Case in-sensitive search of exactly what you type") + "</dd>";
-            }
-            if (caps & (FindReplace::CAPABILITY_MODE_CASE_SENSITIVE|FindReplace::CAPABILITY_ALL)) {
-                ui.cbSearchMode->addItem(FindFields::instance()->GetSearchModeText(FindFields::SearchMode_Case_Sensitive), FindFields::SearchMode_Case_Sensitive);
-                mode_tooltip += "<dt><b>" + FindFields::instance()->GetSearchModeText( FindFields::SearchMode_Case_Sensitive) + "</b><dd>" + tr("Case sensitive search of exactly what you type") + "</dd>";
-            }
-            if (caps & (FindReplace::CAPABILITY_MODE_REGEX|FindReplace::CAPABILITY_ALL)) {
-                ui.cbSearchMode->addItem(FindFields::instance()->GetSearchModeText(FindFields::SearchMode_Regex), FindFields::SearchMode_Regex);
-                mode_tooltip += "<dt><b>" + FindFields::instance()->GetSearchModeText( FindFields::SearchMode_Regex) + "</b><dd>" + tr("Search for a pattern using Regular Expression syntax") + "</dd>";
-            }
-            if (caps & (FindReplace::CAPABILITY_MODE_SPELL_CHECK|FindReplace::CAPABILITY_ALL)) {
-                ui.cbSearchMode->addItem( FindFields::instance()->GetSearchModeText(FindFields::SearchMode_SpellCheck), FindFields::SearchMode_SpellCheck);
-                mode_tooltip += "<dt><b>" + FindFields::instance()->GetSearchModeText( FindFields::SearchMode_SpellCheck) + "</b><dd>" + tr("Search only misspelled words using Regular Expression syntax, or clear the Find text box to find all misspelled words") + "</dd>";
-            }
-            mode_tooltip += "</dl>";
-            ui.cbSearchMode->setToolTip(mode_tooltip);
-        }
-        else {
-            ui.cbSearchMode->hide();
-        }
-
-        // Look
-        if (caps & (FindReplace::CAPABILITY_LOOK_CURRENT |
-            FindReplace::CAPABILITY_LOOK_ALL_HTML |
-            FindReplace::CAPABILITY_LOOK_SELECTED_HTML |
-            FindReplace::CAPABILITY_ALL))
-        {
-            ui.cbLookWhere->show();
-
-            QString look_tooltip = "<p>" + tr("Where to search") + ":</p><dl>";
-            if (caps & (FindReplace::CAPABILITY_LOOK_CURRENT|FindReplace::CAPABILITY_ALL)) {
-                ui.cbLookWhere->addItem(FindFields::instance()->GetLookWhereText(FindFields::LookWhere_CurrentFile), FindFields::LookWhere_CurrentFile);
-                look_tooltip += "<dt><b>" + FindFields::instance()->GetLookWhereText(FindFields::LookWhere_CurrentFile) + "</b><dd>" + tr("Restrict the find or replace to the opened file") + "</dd>";
-            }
-            if (caps & (FindReplace::CAPABILITY_LOOK_ALL_HTML|FindReplace::CAPABILITY_ALL)) {
-                ui.cbLookWhere->addItem(FindFields::instance()->GetLookWhereText(FindFields::LookWhere_AllHTMLFiles), FindFields::LookWhere_AllHTMLFiles);
-                look_tooltip += "<dt><b>" + FindFields::instance()->GetLookWhereText(FindFields::LookWhere_AllHTMLFiles) + "</b><dd>" + tr("Find or replace in all HTML files") + "</dd>";
-            }
-            if (caps & (FindReplace::CAPABILITY_LOOK_SELECTED_HTML|FindReplace::CAPABILITY_ALL)) {
-                ui.cbLookWhere->addItem(FindFields::instance()->GetLookWhereText(FindFields::LookWhere_SelectedHTMLFiles), FindFields::LookWhere_SelectedHTMLFiles);
-                look_tooltip += "<dt><b>" + FindFields::instance()->GetLookWhereText(FindFields::LookWhere_SelectedHTMLFiles) + "</b><dd>" + tr("Restrict the find or replace to the HTML files selected in the Book Browser") + "</dd>";
-            }
-            look_tooltip += "</dl>";
-            ui.cbLookWhere->setToolTip(look_tooltip);
-        }
-        else {
-            ui.cbLookWhere->hide();
-        }
-
-        // Direction
-        ui.cbSearchDirection->show();
-
-        ui.cbSearchDirection->addItem(FindFields::instance()->GetSearchDirectionText(FindFields::SearchDirection_Up), FindFields::SearchDirection_Up);
-        ui.cbSearchDirection->addItem(FindFields::instance()->GetSearchDirectionText(FindFields::SearchDirection_Down), FindFields::SearchDirection_Down);
-        ui.cbSearchDirection->setToolTip("<p>" + tr("Direction to search") + ":</p>"
-            "<dl>"
-            "<dt><b>" + FindFields::instance()->GetSearchDirectionText(FindFields::SearchDirection_Up) + "</b><dd>" + tr("Search for the previous match from your current position") + "</dd>"
-            "<dt><b>" + FindFields::instance()->GetSearchDirectionText(FindFields::SearchDirection_Down) + "</b><dd>" + tr("Search for the next match from your current position") + "</dd>"
-            "</dl>");
-
-        // Message
-        ui.message->show();
-    }
-    else {
-        // Find
-        ui.findl->hide();
-        ui.cbFind->hide();
-        ui.findNext->hide();
-        ui.count->hide();
-
-        // Replace
-        ui.replacel->hide();
-        ui.cbReplace->hide();
-        ui.replaceNext->hide();
-        ui.replaceAll->hide();
-
-        // Mode
-        ui.model->hide();
-        ui.cbSearchMode->hide();
-
-        // Look
-        ui.cbLookWhere->hide();
-
-        // Direction
-        ui.cbSearchDirection->hide();
-
-        // Message
-        ui.message->hide();
-    }
-
-    ui.modeLayout->invalidate();
-    ui.gridLayout->invalidate();
-
-    ReadUIMode();
+    ui.cbSearchDirection->addItem(FindFields::instance()->GetSearchDirectionText(FindFields::SearchDirection_Up), FindFields::SearchDirection_Up);
+    ui.cbSearchDirection->addItem(FindFields::instance()->GetSearchDirectionText(FindFields::SearchDirection_Down), FindFields::SearchDirection_Down);
+    ui.cbSearchDirection->setToolTip("<p>" + tr("Direction to search") + ":</p>"
+        "<dl>"
+        "<dt><b>" + FindFields::instance()->GetSearchDirectionText(FindFields::SearchDirection_Up) + "</b><dd>" + tr("Search for the previous match from your current position") + "</dd>"
+        "<dt><b>" + FindFields::instance()->GetSearchDirectionText(FindFields::SearchDirection_Down) + "</b><dd>" + tr("Search for the next match from your current position") + "</dd>"
+        "</dl>");
 }
 
 void FindReplace::OpenSearchEditor()

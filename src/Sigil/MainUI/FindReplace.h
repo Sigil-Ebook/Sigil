@@ -47,30 +47,10 @@ public:
     FindReplace( MainWindow &main_window );
     ~FindReplace();
 
-    // Capabilities for the F&R.
-    enum CAPABILITY {
-        CAPABILITY_NONE =                      0,
-        CAPABILITY_ALL =                 (1 << 0),
-        CAPABILITY_FIND =                (1 << 1),
-        CAPABILITY_FIND_COUNT =          (1 << 2),
-        CAPABILITY_REPLACE =             (1 << 3),
-        CAPABILITY_REPLACE_ALL =         (1 << 4),
-        CAPABILITY_MODE_NORMAL =         (1 << 5),
-        CAPABILITY_MODE_CASE_SENSITIVE = (1 << 6),
-        CAPABILITY_MODE_REGEX =          (1 << 7),
-        CAPABILITY_MODE_SPELL_CHECK =    (1 << 8),
-        CAPABILITY_LOOK_CURRENT =        (1 << 9),
-        CAPABILITY_LOOK_ALL_HTML =       (1 << 10),
-        CAPABILITY_LOOK_SELECTED_HTML =  (1 << 11)
-    };
-    typedef unsigned int FR_Capabilities;
-
     /**
      * Sets up the default Find text during dialog creation.
      */
     void SetUpFindText();
-
-    void SetCapabilities(FR_Capabilities caps);
 
     void WriteSettingsVisible(bool visible);
 
@@ -223,11 +203,9 @@ private:
 
     // Reads all the stored dialog settings
     void ReadSettings();
-    void ReadUIMode();
 
     // Writes all the stored dialog settings
     void WriteSettings();
-    void WriteUIMode();
 
     void ExtendUI();
 
@@ -244,7 +222,6 @@ private:
     // spawned this widget. Needed for searching.
     MainWindow &m_MainWindow;
 
-    FR_Capabilities m_capabilities;
     QTimer m_timer;
 
     Ui::FindReplace ui;

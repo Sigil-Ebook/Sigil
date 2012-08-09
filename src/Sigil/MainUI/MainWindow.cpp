@@ -1403,7 +1403,6 @@ void MainWindow::SetStateActionsBookView()
 
     UpdateUIOnTabChanges();
 
-    m_FindReplace->SetCapabilities(FindReplace::CAPABILITY_FIND);
     m_FindReplace->ShowHide();
 }
 
@@ -1467,7 +1466,6 @@ void MainWindow::SetStateActionsSplitView()
 
     UpdateUIOnTabChanges();
 
-    m_FindReplace->SetCapabilities(FindReplace::CAPABILITY_FIND);
     m_FindReplace->ShowHide();
 }
 
@@ -1531,7 +1529,6 @@ void MainWindow::SetStateActionsCodeView()
 
     UpdateUIOnTabChanges();
 
-    m_FindReplace->SetCapabilities(FindReplace::CAPABILITY_ALL);
     m_FindReplace->ShowHide();
 }
 
@@ -1595,13 +1592,6 @@ void MainWindow::SetStateActionsRawView()
 
     UpdateUIOnTabChanges();
 
-    m_FindReplace->SetCapabilities(FindReplace::CAPABILITY_FIND |
-        FindReplace::CAPABILITY_FIND_COUNT |
-        FindReplace::CAPABILITY_REPLACE |
-        FindReplace::CAPABILITY_REPLACE_ALL |
-        FindReplace::CAPABILITY_MODE_NORMAL |
-        FindReplace::CAPABILITY_MODE_CASE_SENSITIVE |
-        FindReplace::CAPABILITY_MODE_REGEX);
     m_FindReplace->ShowHide();
 }
 
@@ -1665,7 +1655,6 @@ void MainWindow::SetStateActionsStaticView()
 
     UpdateUIOnTabChanges();
 
-    m_FindReplace->SetCapabilities(FindReplace::CAPABILITY_NONE);
     // Only hide window, don't save closed state since its temporary
     m_FindReplace->hide();
 }
