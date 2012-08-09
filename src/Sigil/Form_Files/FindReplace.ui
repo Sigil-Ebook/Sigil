@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>566</width>
-    <height>103</height>
+    <height>93</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -139,7 +139,7 @@
         <item row="0" column="2">
          <widget class="QToolButton" name="findNext">
           <property name="sizePolicy">
-           <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
             <horstretch>0</horstretch>
             <verstretch>0</verstretch>
            </sizepolicy>
@@ -158,7 +158,7 @@
         <item row="0" column="3">
          <widget class="QToolButton" name="count">
           <property name="sizePolicy">
-           <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
             <horstretch>0</horstretch>
             <verstretch>0</verstretch>
            </sizepolicy>
@@ -202,6 +202,12 @@
         </item>
         <item row="1" column="2">
          <widget class="QToolButton" name="replaceNext">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
           <property name="toolTip">
            <string>Replace highlighted match then find next match</string>
           </property>
@@ -215,6 +221,12 @@
         </item>
         <item row="1" column="3">
          <widget class="QToolButton" name="replaceAll">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
           <property name="toolTip">
            <string>Replace all matches</string>
           </property>
