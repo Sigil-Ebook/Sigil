@@ -34,7 +34,7 @@
 
 static const QString SETTINGS_GROUP = "find_replace";
 static const int MAXIMUM_SELECTED_TEXT_LIMIT = 500;
-static const int MAX_HISTORY_COUNT = 15;
+static const int MAX_HISTORY_COUNT = 25;
 
 FindReplace::FindReplace( MainWindow &main_window )
     : QWidget( &main_window ),
