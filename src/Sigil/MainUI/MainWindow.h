@@ -252,6 +252,16 @@ private slots:
     void GoToLine();
 
     /**
+     * Implements Regex Option DotAll mode functionality.
+     */
+    void SetRegexOptionDotAll(bool new_state);
+
+    /**
+     * Implements Regex Option Minimal Match mode functionality.
+     */
+    void SetRegexOptionMinimalMatch(bool new_state);
+
+    /**
      * Implements Zoom In action functionality.
      */
     void ZoomIn();

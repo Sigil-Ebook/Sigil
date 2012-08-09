@@ -39,7 +39,9 @@ static const int MAX_HISTORY_COUNT = 25;
 
 FindReplace::FindReplace( MainWindow &main_window )
     : QWidget( &main_window ),
-      m_MainWindow( main_window )
+      m_MainWindow( main_window ),
+      m_RegexOptionDotAll( false ),
+      m_RegexOptionMinimalMatch( false )
 {
     ui.setupUi( this );
 
@@ -484,6 +486,15 @@ QString FindReplace::GetSearchRegex()
     {
         search = ".*";
     }
+    else 
+	{
+        if ( m_RegexOptionDotAll ) {
+			search = "(?s)" + search;
+		}
+        if ( m_RegexOptionMinimalMatch ) {
+			search = "(?U)" + search;
+		}
+	}
 
     return search;
 }
@@ -1152,6 +1163,16 @@ QString FindReplace::TokeniseNumericsForRegex(const QString &text)
     QRegExp replace_numerics("(\\d+)");
     QString new_text = text;
     return new_text.replace(replace_numerics, "\\d+");
+}
+
+void FindReplace::SetRegexOptionDotAll(bool new_state)
+{
+    m_RegexOptionDotAll = new_state;
+}
+
+void FindReplace::SetRegexOptionMinimalMatch(bool new_state)
+{
+    m_RegexOptionMinimalMatch = new_state;
 }
 
 void FindReplace::ConnectSignalsToSlots()

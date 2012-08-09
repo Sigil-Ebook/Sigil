@@ -176,6 +176,13 @@
     <addaction name="actionZoomOut"/>
     <addaction name="actionZoomReset"/>
    </widget>
+   <widget class="QMenu" name="menuRegexOptions">
+    <property name="title">
+     <string>Regex Options</string>
+    </property>
+    <addaction name="actionRegexDotAll"/>
+    <addaction name="actionRegexMinimalMatch"/>
+   </widget>
    <widget class="QMenu" name="menuFindReplace">
     <property name="title">
      <string>&amp;Search</string>
@@ -194,6 +201,8 @@
     <addaction name="actionGoToLine"/>
     <addaction name="separator"/>
     <addaction name="actionSearchEditor"/>
+    <addaction name="separator"/>
+    <addaction name="menuRegexOptions"/>
    </widget>
    <widget class="QMenu" name="menuWindow">
     <property name="title">
@@ -1518,6 +1527,22 @@
   <action name="actionCreateInlineTOC">
    <property name="text">
     <string>Create Inline HTML TOC</string>
+   </property>
+  </action>
+  <action name="actionRegexDotAll">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>DotAll (?s)</string>
+   </property>
+  </action>
+  <action name="actionRegexMinimalMatch">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Minimal Match (?U)</string>
    </property>
   </action>
  </widget>

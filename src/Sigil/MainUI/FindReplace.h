@@ -55,6 +55,9 @@ public:
     void WriteSettingsVisible(bool visible);
 
     void ShowHide();
+    
+    void SetRegexOptionDotAll(bool new_state);
+    void SetRegexOptionMinimalMatch(bool new_state);
 
 public slots:
     void close();
@@ -235,6 +238,8 @@ private:
 
     Ui::FindReplace ui;
 
+    bool m_RegexOptionDotAll;
+    bool m_RegexOptionMinimalMatch;
 };
 
 

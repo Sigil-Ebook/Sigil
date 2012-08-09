@@ -477,6 +477,20 @@ void MainWindow::GoToLine()
 }
 
 
+void MainWindow::SetRegexOptionDotAll( bool new_state )
+{
+    ui.actionRegexDotAll->setChecked( new_state );
+    m_FindReplace->SetRegexOptionDotAll( new_state );
+}
+
+
+void MainWindow::SetRegexOptionMinimalMatch( bool new_state )
+{
+    ui.actionRegexMinimalMatch->setChecked( new_state );
+    m_FindReplace->SetRegexOptionMinimalMatch( new_state );
+}
+
+
 void MainWindow::ZoomIn()
 {
     ZoomByStep( true );
@@ -1803,9 +1817,17 @@ void MainWindow::ReadSettings()
     // The list of recent files
     s_RecentFiles    = settings.value( "recentfiles" ).toStringList();
 
-    QVariant preserveHeadingAttributes= settings.value( "preserveheadingattributes" );
+    QVariant preserveHeadingAttributes = settings.value( "preserveheadingattributes" );
     m_preserveHeadingAttributes = preserveHeadingAttributes.isNull() ? true : preserveHeadingAttributes.toBool();
     SetPreserveHeadingAttributes( m_preserveHeadingAttributes );
+
+    QVariant regexOptionDotAll = settings.value( "regexoptiondotall" );
+    bool apply_dot_all = regexOptionDotAll.isNull() ? false : regexOptionDotAll.toBool();
+    SetRegexOptionDotAll( apply_dot_all );
+
+    QVariant regexOptionMinimalMatch = settings.value( "regexoptionminimalmatch" );
+    bool apply_minimal_match = regexOptionMinimalMatch.isNull() ? false : regexOptionMinimalMatch.toBool();
+    SetRegexOptionMinimalMatch( apply_minimal_match );
 
     settings.endGroup();
 }
@@ -1832,6 +1854,9 @@ void MainWindow::WriteSettings()
     settings.setValue( "recentfiles", s_RecentFiles );
 
     settings.setValue( "preserveheadingattributes", m_preserveHeadingAttributes );
+
+    settings.setValue( "regexoptiondotall", ui.actionRegexDotAll->isChecked() );
+    settings.setValue( "regexoptionminimalmatch", ui.actionRegexMinimalMatch->isChecked() );
 
     KeyboardShortcutManager::instance()->writeSettings();
 
@@ -2761,6 +2786,8 @@ void MainWindow::ConnectSignalsToSlots()
     connect( ui.actionReplaceAll,    SIGNAL( triggered() ), m_FindReplace, SLOT( ReplaceAll()      ) );
     connect( ui.actionCount,         SIGNAL( triggered() ), m_FindReplace, SLOT( Count()           ) );
     connect( ui.actionGoToLine,      SIGNAL( triggered() ), this, SLOT( GoToLine()                 ) );
+    connect( ui.actionRegexDotAll,   SIGNAL( triggered(bool) ), this, SLOT( SetRegexOptionDotAll(bool)        ) );
+    connect( ui.actionRegexMinimalMatch, SIGNAL( triggered(bool) ), this, SLOT( SetRegexOptionMinimalMatch(bool) ) );
 
     // About
     connect( ui.actionUserGuide,     SIGNAL( triggered() ), this, SLOT( UserGuide()                ) );
@@ -2803,8 +2830,8 @@ void MainWindow::ConnectSignalsToSlots()
     connect( ui.actionCodeView,      SIGNAL( triggered() ),  this,   SLOT( CodeView()  ) );
 
     connect( ui.actionHeadingPreserveAttributes, SIGNAL( triggered( bool ) ), this, SLOT( SetPreserveHeadingAttributes( bool ) ) );
-
     connect( m_headingMapper,      SIGNAL( mapped( const QString& ) ),  this,   SLOT( ApplyHeadingStyleToTab( const QString& ) ) );
+    
     // Window
     connect( ui.actionNextTab,       SIGNAL( triggered() ), &m_TabManager, SLOT( NextTab()     ) );
     connect( ui.actionPreviousTab,   SIGNAL( triggered() ), &m_TabManager, SLOT( PreviousTab() ) );
