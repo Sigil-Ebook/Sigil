@@ -73,6 +73,9 @@ public slots:
     void ReplaceAllSearch(QList<SearchEditorModel::searchEntry *>search_entries);
 
     void OpenSearchEditor();
+
+    bool FindMisspelledWord();
+
 signals:
 
     void OpenSearchEditorRequest(SearchEditorModel::searchEntry *search_entry = NULL);
@@ -242,6 +245,8 @@ private:
     bool m_RegexOptionDotAll;
     bool m_RegexOptionMinimalMatch;
     bool m_RegexOptionAutoTokenise;
+
+    bool m_SpellCheck;
 };
 
 
@@ -257,7 +262,7 @@ bool FindReplace::ResourceContainsCurrentRegex( T *resource )
             GetSearchRegex(),
             QList< Resource* >() << generic_resource,
             SearchOperations::CodeViewSearch,
-            GetSearchMode() == FindFields::SearchMode_SpellCheck ) > 0;
+            m_SpellCheck ) > 0;
 }
 
 #endif // FINDREPLACE_H

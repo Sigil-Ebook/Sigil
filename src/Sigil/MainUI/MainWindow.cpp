@@ -2586,6 +2586,10 @@ void MainWindow::ExtendIconSizes()
     icon.addFile(QString::fromUtf8(":/main/document-validate_16px.png"));
     ui.actionValidateEpub->setIcon(icon);
 
+    icon = ui.actionSpellCheck->icon();
+    icon.addFile(QString::fromUtf8(":/main/document-spellcheck_16px.png"));
+    ui.actionSpellCheck->setIcon(icon);
+
     icon = ui.actionCut->icon();
     icon.addFile(QString::fromUtf8(":/main/edit-cut_16px.png"));
     ui.actionCut->setIcon(icon);
@@ -2813,6 +2817,7 @@ void MainWindow::ConnectSignalsToSlots()
     // Tools
     connect( ui.actionMetaEditor,    SIGNAL( triggered() ), this, SLOT( MetaEditorDialog()         ) );
     connect( ui.actionValidateEpub,  SIGNAL( triggered() ), this, SLOT( ValidateEpub()             ) );
+    connect( ui.actionSpellCheck,    SIGNAL( triggered() ), m_FindReplace, SLOT( FindMisspelledWord()               ) );
     connect( ui.actionGenerateTOC,   SIGNAL( triggered() ), this, SLOT( GenerateToc()              ) );
     connect( ui.actionCreateHTMLTOC, SIGNAL( triggered() ), this, SLOT( CreateHTMLTOC()        ) );
     connect( ui.actionViewClasses,   SIGNAL( triggered() ), this, SLOT( ViewClassesUsedInHTML()    ) );

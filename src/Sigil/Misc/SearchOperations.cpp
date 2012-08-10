@@ -63,8 +63,7 @@ int SearchOperations::CountInFiles( const QString &search_regex,
 int SearchOperations::ReplaceInAllFIles( const QString &search_regex,
                                          const QString &replacement,
                                          QList< Resource* > resources, 
-                                         SearchType search_type,
-                                         bool check_spelling )
+                                         SearchType search_type )
 {
     QProgressDialog progress( QObject::tr( "Replacing search term..." ), QString(), 0, resources.count() );
     progress.setMinimumDuration( PROGRESS_BAR_MINIMUM_DURATION );
@@ -73,7 +72,7 @@ int SearchOperations::ReplaceInAllFIles( const QString &search_regex,
     QObject::connect( &watcher, SIGNAL( progressValueChanged( int ) ), &progress, SLOT( setValue( int ) ) );
 
     watcher.setFuture( QtConcurrent::mappedReduced( resources, 
-                                                    boost::bind( ReplaceInFile, search_regex, replacement, _1, search_type, check_spelling ),
+                                                    boost::bind( ReplaceInFile, search_regex, replacement, _1, search_type ),
                                                     Accumulate ) );
     return watcher.result();
 }
@@ -139,8 +138,7 @@ int SearchOperations::CountInTextFile( const QString &search_regex, TextResource
 int SearchOperations::ReplaceInFile( const QString &search_regex,
                                      const QString &replacement, 
                                      Resource* resource, 
-                                     SearchType search_type,
-                                     bool check_spelling )
+                                     SearchType search_type )
 {
     QWriteLocker locker( &resource->GetLock() );
 
@@ -148,7 +146,7 @@ int SearchOperations::ReplaceInFile( const QString &search_regex,
 
     if ( html_resource )
     {
-        return ReplaceHTMLInFile( search_regex, replacement, html_resource, search_type, check_spelling );
+        return ReplaceHTMLInFile( search_regex, replacement, html_resource, search_type );
     }
 
     TextResource *text_resource = qobject_cast< TextResource* >( resource );
@@ -166,8 +164,7 @@ int SearchOperations::ReplaceInFile( const QString &search_regex,
 int SearchOperations::ReplaceHTMLInFile( const QString &search_regex,
                                          const QString &replacement, 
                                          HTMLResource* html_resource, 
-                                         SearchType search_type,
-                                         bool check_spelling )
+                                         SearchType search_type )
 {
     if ( search_type == SearchOperations::CodeViewSearch )
     {
@@ -176,14 +173,7 @@ int SearchOperations::ReplaceHTMLInFile( const QString &search_regex,
         QString new_text;
         int count;
 
-        if ( check_spelling )
-        {
-            tie( new_text, count ) = PerformHTMLSpellCheckReplace( text, search_regex, replacement );
-        }
-        else
-        {
-            tie( new_text, count ) = PerformGlobalReplace( text, search_regex, replacement );
-        }
+        tie( new_text, count ) = PerformGlobalReplace( text, search_regex, replacement );
 
         html_resource->SetText(CleanSource::Rinse( new_text ));
 
@@ -240,9 +230,9 @@ tuple< QString, int > SearchOperations::PerformHTMLSpellCheckReplace( const QStr
 
     SPCRE *spcre = PCRECache::instance()->getObject( search_regex );
 
-    QList< HTMLSpellCheck::MisspelledWord > misspelled_words = HTMLSpellCheck::GetMisspelledWords( text, 0, text.count(), search_regex );
+    QList< HTMLSpellCheck::MisspelledWord > check_spelling = HTMLSpellCheck::GetMisspelledWords( text, 0, text.count(), search_regex );
 
-    foreach ( HTMLSpellCheck::MisspelledWord misspelled_word, misspelled_words )
+    foreach ( HTMLSpellCheck::MisspelledWord misspelled_word, check_spelling )
     {
         SPCRE::MatchInfo match_info = spcre->getFirstMatchInfo( misspelled_word.text );
 

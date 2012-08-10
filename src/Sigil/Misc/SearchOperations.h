@@ -51,14 +51,13 @@ public:
     static int CountInFiles( const QString &search_regex,
                              QList< Resource* > resources,
                              SearchType search_type, 
-                             bool check_spelling );
+                             bool check_spelling = false );
 
 
     static int ReplaceInAllFIles( const QString &search_regex,
                                   const QString &replacement,
                                   QList< Resource* > resources,
-                                  SearchType search_type,
-                                  bool check_spelling );
+                                  SearchType search_type);
 
 private:
 
@@ -80,14 +79,12 @@ private:
     static int ReplaceInFile( const QString &search_regex,
                               const QString &replacement,
                               Resource* resource,
-                              SearchType search_type,
-                              bool check_spelling );
+                              SearchType search_type );
 
     static int ReplaceHTMLInFile( const QString &search_regex,
                                   const QString &replacement,
                                   HTMLResource* html_resource,
-                                  SearchType search_type,
-                                  bool check_spelling );
+                                  SearchType search_type );
 
     static int ReplaceTextInFile( const QString &search_regex,
                                   const QString &replacement,

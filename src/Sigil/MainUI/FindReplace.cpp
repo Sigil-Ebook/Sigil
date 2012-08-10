@@ -42,7 +42,8 @@ FindReplace::FindReplace( MainWindow &main_window )
       m_MainWindow( main_window ),
       m_RegexOptionDotAll( false ),
       m_RegexOptionMinimalMatch( false ),
-      m_RegexOptionAutoTokenise( false )
+      m_RegexOptionAutoTokenise( false ),
+      m_SpellCheck(false)
 {
     ui.setupUi( this );
 
@@ -243,7 +244,7 @@ int FindReplace::Count()
             return 0;
         }
 
-        count = searchable->Count( GetSearchRegex(), GetSearchMode() == FindFields::SearchMode_SpellCheck );
+        count = searchable->Count( GetSearchRegex() );
     }
     else
     {
@@ -319,7 +320,7 @@ int FindReplace::ReplaceAll()
         {
             return 0;
         }
-        count = searchable->ReplaceAll( GetSearchRegex(), ui.cbReplace->lineEdit()->text(), GetSearchMode() == FindFields::SearchMode_SpellCheck );
+        count = searchable->ReplaceAll( GetSearchRegex(), ui.cbReplace->lineEdit()->text() );
     }
     else
     {
@@ -365,6 +366,29 @@ void FindReplace::expireMessage()
     m_timer.stop();
 }
 
+bool FindReplace::FindMisspelledWord()
+{
+    clearMessage();
+
+    SetCodeViewIfNeeded(true);
+
+    m_SpellCheck = true;
+
+    bool found = FindInAllFiles(Searchable::Direction_Down);
+
+    m_SpellCheck = false;
+
+    if (found) {
+        clearMessage();
+    }
+    else {
+        CannotFindSearchTerm();
+    }
+
+    return found;
+}
+
+
 // Starts the search for the user's term.
 bool FindReplace::FindText( Searchable::Direction direction )
 {
@@ -388,7 +412,7 @@ bool FindReplace::FindText( Searchable::Direction direction )
             return found;
         }
 
-        found = searchable->FindNext( GetSearchRegex(), direction, GetSearchMode() == FindFields::SearchMode_SpellCheck );
+        found = searchable->FindNext( GetSearchRegex(), direction );
 
     }
     else
@@ -433,7 +457,7 @@ bool FindReplace::ReplaceText( Searchable::Direction direction )
     {
         // If we have the matching text selected, replace it
         // This will not do anything if matching text is not selected.
-        found = searchable->ReplaceSelected( GetSearchRegex(), ui.cbReplace->lineEdit()->text(), direction, GetSearchMode() == FindFields::SearchMode_SpellCheck );
+        found = searchable->ReplaceSelected( GetSearchRegex(), ui.cbReplace->lineEdit()->text(), direction );
     }
 
     if ( direction == Searchable::Direction_Up)
@@ -460,7 +484,6 @@ void FindReplace::SetCodeViewIfNeeded( bool force )
 {
     if ( force ||
             ( ( GetLookWhere() == FindFields::LookWhere_AllHTMLFiles || 
-                    GetSearchMode() == FindFields::SearchMode_SpellCheck ||
                     GetLookWhere() == FindFields::LookWhere_SelectedHTMLFiles ) &&
               ( m_MainWindow.GetViewState() == MainWindow::ViewState_BookView ||
                 m_MainWindow.GetViewState() == MainWindow::ViewState_PreviewView ) ) )
@@ -483,6 +506,10 @@ void FindReplace::CannotFindSearchTerm()
 // options and fields and then returns it.
 QString FindReplace::GetSearchRegex()
 {
+    if (m_SpellCheck) {
+        return QString();
+    }
+
     QString search( ui.cbFind->currentText() );
 
     // Search type
@@ -493,10 +520,6 @@ QString FindReplace::GetSearchRegex()
         if ( GetSearchMode() == FindFields::SearchMode_Normal ) {
             search = "(?i)" + search;
         }
-    }
-	else if ( GetSearchMode() == FindFields::SearchMode_SpellCheck && ui.cbFind->currentText().isEmpty() )
-    {
-        search = ".*";
     }
     else 
 	{
@@ -562,8 +585,7 @@ int FindReplace::CountInFiles()
     return SearchOperations::CountInFiles(
             GetSearchRegex(),
             GetHTMLFiles(),
-            SearchOperations::CodeViewSearch, 
-            GetSearchMode() == FindFields::SearchMode_SpellCheck );
+            SearchOperations::CodeViewSearch );
 }
 
 
@@ -578,8 +600,7 @@ int FindReplace::ReplaceInAllFiles()
             GetSearchRegex(),
             ui.cbReplace->lineEdit()->text(),
             GetHTMLFiles(),
-            SearchOperations::CodeViewSearch,
-            GetSearchMode() == FindFields::SearchMode_SpellCheck );
+            SearchOperations::CodeViewSearch );
 
     return count;
 }
@@ -595,7 +616,7 @@ bool FindReplace::FindInAllFiles( Searchable::Direction direction )
         searchable = GetAvailableSearchable();
         if ( searchable )
         {
-            found = searchable->FindNext( GetSearchRegex(), direction, GetSearchMode() == FindFields::SearchMode_SpellCheck, false, false);
+            found = searchable->FindNext( GetSearchRegex(), direction, m_SpellCheck, false, false);
         }
     }
 
@@ -627,7 +648,7 @@ bool FindReplace::FindInAllFiles( Searchable::Direction direction )
             searchable = GetAvailableSearchable();
             if ( searchable )
             {
-                found = searchable->FindNext( GetSearchRegex(), direction, GetSearchMode() == FindFields::SearchMode_SpellCheck, true, false );
+                found = searchable->FindNext( GetSearchRegex(), direction, m_SpellCheck, true, false );
             }
         }
         else
@@ -635,7 +656,7 @@ bool FindReplace::FindInAllFiles( Searchable::Direction direction )
             if ( searchable )
             {
                 // Check the part of the original file above the cursor
-                found = searchable->FindNext( GetSearchRegex(), direction, GetSearchMode() == FindFields::SearchMode_SpellCheck, false, false );
+                found = searchable->FindNext( GetSearchRegex(), direction, m_SpellCheck, false, false );
             }
         }
     }
@@ -840,7 +861,7 @@ FindFields::SearchDirection FindReplace::GetSearchDirection()
 
 bool FindReplace::IsValidFindText()
 {
-    return  !ui.cbFind->lineEdit()->text().isEmpty() || GetSearchMode() == FindFields::SearchMode_SpellCheck;
+    return  !ui.cbFind->lineEdit()->text().isEmpty();
 }                                                     
 
 // Reads all the stored settings
@@ -970,10 +991,6 @@ void FindReplace::ExtendUI()
     mode_tooltip += "<dt><b>" + FindFields::instance()->GetSearchModeText( FindFields::SearchMode_Case_Sensitive) + "</b><dd>" + tr("Case sensitive search of exactly what you type") + "</dd>";
     ui.cbSearchMode->addItem(FindFields::instance()->GetSearchModeText(FindFields::SearchMode_Regex), FindFields::SearchMode_Regex);
     mode_tooltip += "<dt><b>" + FindFields::instance()->GetSearchModeText( FindFields::SearchMode_Regex) + "</b><dd>" + tr("Search for a pattern using Regular Expression syntax") + "</dd>";
-    ui.cbSearchMode->addItem( FindFields::instance()->GetSearchModeText(FindFields::SearchMode_SpellCheck), FindFields::SearchMode_SpellCheck);
-    mode_tooltip += "<dt><b>" + FindFields::instance()->GetSearchModeText( FindFields::SearchMode_SpellCheck) + "</b><dd>" + tr("Search only misspelled words using Regular Expression syntax, or clear the Find text box to find all misspelled words") + "</dd>";
-    mode_tooltip += "</dl>";
-    ui.cbSearchMode->setToolTip(mode_tooltip);
 
     QString look_tooltip = "<p>" + tr("Where to search") + ":</p><dl>";
     ui.cbLookWhere->addItem(FindFields::instance()->GetLookWhereText(FindFields::LookWhere_CurrentFile), FindFields::LookWhere_CurrentFile);

@@ -248,6 +248,7 @@
     <addaction name="actionCreateHTMLTOC"/>
     <addaction name="separator"/>
     <addaction name="actionValidateEpub"/>
+    <addaction name="actionSpellCheck"/>
     <addaction name="menuViewReports"/>
     <addaction name="separator"/>
     <addaction name="actionClipboardEditor"/>
@@ -424,6 +425,7 @@
    <attribute name="toolBarBreak">
     <bool>false</bool>
    </attribute>
+   <addaction name="actionSpellCheck"/>
    <addaction name="actionValidateEpub"/>
   </widget>
   <action name="actionNew">
@@ -1136,6 +1138,24 @@
     <string>Ctrl+Shift+V</string>
    </property>
   </action>
+  <action name="actionSpellCheck">
+   <property name="icon">
+    <iconset resource="../Resource_Files/main/main.qrc">
+     <normaloff>:/main/document-spellcheck_22px.png</normaloff>:/main/document-spellcheck_22px.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;SpellCheck</string>
+   </property>
+   <property name="toolTip">
+    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Spell Check&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Find the next misspelled word in Code View.&lt;/p&gt;</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+S</string>
+   </property>
+  </action>
+
   <action name="actionIndexEditor">
    <property name="text">
     <string>Index Editor...</string>

@@ -41,7 +41,6 @@ FindFields::FindFields()
     m_SearchModeList.append( qMakePair( tr( "Normal" ),         FindFields::SearchMode_Normal  ) );
     m_SearchModeList.append( qMakePair( tr( "Case Sensitive" ), FindFields::SearchMode_Case_Sensitive ) );
     m_SearchModeList.append( qMakePair( tr( "Regex" ),          FindFields::SearchMode_Regex ) );
-    m_SearchModeList.append( qMakePair( tr( "Spell Check" ),    FindFields::SearchMode_SpellCheck ) );
 
     foreach ( SearchModePair mode_pair, m_SearchModeList )
     {
@@ -122,9 +121,6 @@ FindFields::SearchMode FindFields::GetSearchMode( int mode )
         return static_cast<FindFields::SearchMode>( mode );
         break;
     case FindFields::SearchMode_Case_Sensitive:
-        return static_cast<FindFields::SearchMode>( mode );
-        break;
-    case FindFields::SearchMode_SpellCheck:
         return static_cast<FindFields::SearchMode>( mode );
         break;
     default:
