@@ -83,7 +83,7 @@ public slots:
      */
     void GenerateTocFromHeadings();
 
-    void GenerateInlineToc();
+    NCXModel::NCXEntry GetRootEntry();
 
 private slots:
 
@@ -115,8 +115,6 @@ signals:
     void OpenResourceRequest( Resource &resource, bool precede_current_tab, const QUrl &fragment );
 
     void GenerateTocRequest();
-
-    void GenerateInlineTocRequest(NCXModel::NCXEntry);
 
 private:
 
@@ -162,11 +160,6 @@ private:
      * The button that initiates the TOC-generation-from-headings process.
      */
     QPushButton &m_GenerateTocButton;
-
-    /**
-     * The button that initiates the inline HTML TOC file generation process.
-     */
-    QPushButton &m_GenerateInlineTocButton;
 
     /**
      * The timer that provides the delay for the refresh operation.

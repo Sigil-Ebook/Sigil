@@ -991,7 +991,7 @@ void MainWindow::GenerateToc()
 }
     
 
-void MainWindow::GenerateInlineToc(NCXModel::NCXEntry ncx_root_entry)
+void MainWindow::CreateHTMLTOC()
 {
     QApplication::setOverrideCursor(Qt::WaitCursor);
 
@@ -1029,7 +1029,7 @@ void MainWindow::GenerateInlineToc(NCXModel::NCXEntry ncx_root_entry)
         m_Book->GetOPF().UpdateSpineOrder(htmlResources);
     }
 
-    TOCHTMLWriter toc(ncx_root_entry);
+    TOCHTMLWriter toc(m_TableOfContents->GetRootEntry());
     tocResource->SetText(toc.WriteXML());
 
     // Setting a semantic on a resource that already has it set will remove the semantic.
@@ -2520,7 +2520,7 @@ void MainWindow::ExtendUI()
     // Tools
     sm->registerAction(ui.actionMetaEditor, "MainWindow.MetaEditor");
     sm->registerAction(ui.actionGenerateTOC, "MainWindow.GenerateTOC");
-    sm->registerAction(ui.actionCreateInlineTOC, "MainWindow.GenerateInlineToc");
+    sm->registerAction(ui.actionCreateHTMLTOC, "MainWindow.CreateHTMLTOC");
     sm->registerAction(ui.actionValidateEpub, "MainWindow.ValidateEpub");
     sm->registerAction(ui.actionViewClasses, "MainWindow.ViewClasses");
     sm->registerAction(ui.actionViewHTML, "MainWindow.ViewHTML");
@@ -2814,7 +2814,7 @@ void MainWindow::ConnectSignalsToSlots()
     connect( ui.actionMetaEditor,    SIGNAL( triggered() ), this, SLOT( MetaEditorDialog()         ) );
     connect( ui.actionValidateEpub,  SIGNAL( triggered() ), this, SLOT( ValidateEpub()             ) );
     connect( ui.actionGenerateTOC,   SIGNAL( triggered() ), this, SLOT( GenerateToc()              ) );
-    connect( ui.actionCreateInlineTOC, SIGNAL( triggered() ), m_TableOfContents, SLOT( GenerateInlineToc()        ) );
+    connect( ui.actionCreateHTMLTOC, SIGNAL( triggered() ), this, SLOT( CreateHTMLTOC()        ) );
     connect( ui.actionViewClasses,   SIGNAL( triggered() ), this, SLOT( ViewClassesUsedInHTML()    ) );
     connect( ui.actionViewHTML,      SIGNAL( triggered() ), this, SLOT( ViewAllHTML()              ) );
     connect( ui.actionViewImages,    SIGNAL( triggered() ), this, SLOT( ViewAllImages()            ) );
@@ -2886,7 +2886,6 @@ void MainWindow::ConnectSignalsToSlots()
 
     connect( m_TableOfContents, SIGNAL( GenerateTocRequest() ),
              this,     SLOT(   GenerateToc() ) );
-    connect(m_TableOfContents, SIGNAL(GenerateInlineTocRequest(NCXModel::NCXEntry)), this, SLOT(GenerateInlineToc(NCXModel::NCXEntry)));
 
     connect( m_BookBrowser, SIGNAL( RemoveTabRequest() ),
              &m_TabManager, SLOT(   RemoveTab() ) );

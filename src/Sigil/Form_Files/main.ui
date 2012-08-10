@@ -245,7 +245,7 @@
     <addaction name="actionMetaEditor"/>
     <addaction name="separator"/>
     <addaction name="actionGenerateTOC"/>
-    <addaction name="actionCreateInlineTOC"/>
+    <addaction name="actionCreateHTMLTOC"/>
     <addaction name="separator"/>
     <addaction name="actionValidateEpub"/>
     <addaction name="menuViewReports"/>
@@ -1521,12 +1521,12 @@
   </action>
   <action name="actionGenerateTOC">
    <property name="text">
-    <string>Generate TOC From Headings...</string>
+    <string>Generate Table of Contents...</string>
    </property>
   </action>
-  <action name="actionCreateInlineTOC">
+  <action name="actionCreateHTMLTOC">
    <property name="text">
-    <string>Create Inline HTML TOC</string>
+    <string>Create HTML Table of Contents</string>
    </property>
   </action>
   <action name="actionRegexDotAll">
