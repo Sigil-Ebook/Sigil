@@ -150,8 +150,6 @@ MainWindow::MainWindow( const QString &openfilepath, QWidget *parent, Qt::WFlags
     LoadInitialFile(openfilepath);
     // Ensure the UI is setup properly for the default view state.
     SetViewState(m_ViewState);
-
-    ui.actionBackToLink->setEnabled(false);
 }
 
 
@@ -1910,6 +1908,7 @@ void MainWindow::SetNewBook( QSharedPointer< Book > new_book )
 
     m_IndexEditor->SetBook( m_Book );
     m_TabManager.ResetLastLinkOpened();
+    ui.actionBackToLink->setEnabled(false);
 
     connect( m_Book.data(), SIGNAL( ModifiedStateChanged( bool ) ), this, SLOT( setWindowModified( bool ) ) );
     connect( m_BookBrowser,     SIGNAL( GuideSemanticTypeAdded( const HTMLResource&, GuideSemantics::GuideSemanticType ) ),
