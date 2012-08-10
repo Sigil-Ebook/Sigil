@@ -219,7 +219,7 @@
     <addaction name="actionOpenLink"/>
     <addaction name="actionBackToLink"/>
    </widget>
-+   <widget class="QMenu" name="menuTools">
+   <widget class="QMenu" name="menuTools">
     <property name="title">
      <string>&amp;Tools</string>
     </property>
@@ -551,7 +551,7 @@
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Restores the changes reverted by the previous Undo action.&lt;/p&gt;</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+Shift+Z</string>
+    <string>Ctrl+Y</string>
    </property>
   </action>
   <action name="actionCopy">
@@ -908,9 +908,6 @@
     <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Strikethrough&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Draws a line through the selected text.&lt;/p&gt;</string>
-   </property>
-   <property name="shortcut">
-    <string>Ctrl+T</string>
    </property>
   </action>
   <action name="actionPrint">
@@ -1517,6 +1514,9 @@
   <action name="actionBackToLink">
    <property name="text">
     <string>Back To Link</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+\</string>
    </property>
   </action>
   <action name="actionGenerateTOC">
