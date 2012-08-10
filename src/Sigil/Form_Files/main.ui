@@ -424,7 +424,6 @@
    <attribute name="toolBarBreak">
     <bool>false</bool>
    </attribute>
-   <addaction name="actionCheckWellFormedErrors"/>
    <addaction name="actionValidateEpub"/>
   </widget>
   <action name="actionNew">
