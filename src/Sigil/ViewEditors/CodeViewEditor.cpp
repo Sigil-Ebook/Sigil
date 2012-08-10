@@ -1522,7 +1522,6 @@ void CodeViewEditor::ScrollByLine( bool down )
 
 QList< ViewEditor::ElementIndex > CodeViewEditor::GetCaretLocation()
 {
-    //qDebug() << "CodeViewEditor GetCaretLocation";
     QRegExp tag( XML_OPENING_TAG );
 
     // We search for the first opening tag *behind* the caret.

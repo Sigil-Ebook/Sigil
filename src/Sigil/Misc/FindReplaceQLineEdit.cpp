@@ -65,6 +65,7 @@ void FindReplaceQLineEdit::contextMenuEvent(QContextMenuEvent *event)
     connect(saveSearchAction, SIGNAL(triggered()), m_FindReplace, SLOT(SaveSearchAction()));
     menu->insertAction(topAction, saveSearchAction);
     menu->insertSeparator(topAction);
+    topAction = saveSearchAction;
 
     if (CreateMenuEntries(menu, topAction, SearchEditorModel::instance()->invisibleRootItem())) {
         menu->insertSeparator(topAction);

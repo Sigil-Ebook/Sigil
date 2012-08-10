@@ -202,8 +202,6 @@
     <addaction name="separator"/>
     <addaction name="actionGoToLine"/>
     <addaction name="separator"/>
-    <addaction name="actionSearchEditor"/>
-    <addaction name="separator"/>
     <addaction name="menuRegexOptions"/>
    </widget>
    <widget class="QMenu" name="menuWindow">
@@ -1536,7 +1534,7 @@
     <bool>true</bool>
    </property>
    <property name="text">
-    <string>DotAll (?s)</string>
+    <string>Dot Includes Newlines (?s)</string>
    </property>
   </action>
   <action name="actionRegexMinimalMatch">
@@ -1552,7 +1550,7 @@
     <bool>true</bool>
    </property>
    <property name="text">
-    <string>Auto-tokenise Whitespace</string>
+    <string>Tokenise Spaces and Numbers</string>
    </property>
   </action>
  </widget>
