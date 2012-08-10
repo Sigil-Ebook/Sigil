@@ -1406,7 +1406,7 @@ void MainWindow::SetStateActionsBookView()
     ui.actionHeadingNormal->setEnabled(true);
 
     ui.actionInsertImage->setEnabled(true);
-    ui.actionSplitChapter->setEnabled(false);
+    ui.actionSplitChapter->setEnabled(true);
     ui.actionInsertClosingTag->setEnabled(false);
     ui.actionInsertSGFChapterMarker->setEnabled(true);
     ui.actionSplitOnSGFChapterMarkers->setEnabled(true);
