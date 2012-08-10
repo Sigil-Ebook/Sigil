@@ -198,7 +198,6 @@ QStringList CleanSource::CSSStyleTags( const QString &source )
         // Nothing really. If we can't get the CSS style tags,
         // than that's it. No CSS returned.
         // TODO: log this error.
-        //qDebug() << Utility::GetExceptionInfo( exception );
     }
 
     QStringList css_style_tags;

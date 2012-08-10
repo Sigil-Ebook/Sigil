@@ -641,7 +641,7 @@ SPCRE::MatchInfo CodeViewEditor::GetMisspelledWord( const QString &text, int sta
 
 bool CodeViewEditor::FindNext( const QString &search_regex,
                                Searchable::Direction search_direction,
-                               bool check_spelling,
+                               bool misspelled_words,
                                bool ignore_selection_offset,
                                bool wrap )
 {
@@ -653,7 +653,7 @@ bool CodeViewEditor::FindNext( const QString &search_regex,
 
     if ( search_direction == Searchable::Direction_Up )
     {
-        if ( check_spelling )
+        if ( misspelled_words )
         {
             match_info = GetMisspelledWord( toPlainText(), 0, selection_offset, search_regex, search_direction );
         }
@@ -664,7 +664,7 @@ bool CodeViewEditor::FindNext( const QString &search_regex,
     }
     else
     {
-        if ( check_spelling )
+        if ( misspelled_words )
         {
             match_info = GetMisspelledWord( toPlainText(), selection_offset, toPlainText().count(), search_regex, search_direction );
         }
@@ -716,7 +716,7 @@ bool CodeViewEditor::FindNext( const QString &search_regex,
     }
     else if ( wrap )
     {
-        if ( FindNext( search_regex, search_direction, check_spelling, true, false ) )
+        if ( FindNext( search_regex, search_direction, misspelled_words, true, false ) )
         {
             ShowWrapIndicator(this);
             return true;
@@ -727,23 +727,14 @@ bool CodeViewEditor::FindNext( const QString &search_regex,
 }
 
 
-int CodeViewEditor::Count( const QString &search_regex, bool check_spelling )
+int CodeViewEditor::Count( const QString &search_regex )
 {
-    int count = 0;
-    if ( check_spelling )
-    {
-        count =  HTMLSpellCheck::CountMisspelledWords( toPlainText(), 0, toPlainText().count(), search_regex );
-    }
-    else
-    {
-        SPCRE *spcre = PCRECache::instance()->getObject( search_regex );
-        count = spcre->getEveryMatchInfo( toPlainText() ).count();
-    }
-    return count;
+    SPCRE *spcre = PCRECache::instance()->getObject( search_regex );
+    return spcre->getEveryMatchInfo( toPlainText() ).count();
 }
 
 
-bool CodeViewEditor::ReplaceSelected( const QString &search_regex, const QString &replacement, Searchable::Direction direction, bool check_spelling )
+bool CodeViewEditor::ReplaceSelected( const QString &search_regex, const QString &replacement, Searchable::Direction direction )
 {
     SPCRE *spcre = PCRECache::instance()->getObject( search_regex );
 
@@ -753,7 +744,7 @@ bool CodeViewEditor::ReplaceSelected( const QString &search_regex, const QString
 
     // Check if current selection is a match as well to handle highlighted text that is a
     // match, new files when replacing in all HTML, and misspelled words
-    if ( check_spelling || !( m_lastMatch.offset.first == selection_start && m_lastMatch.offset.second == selection_start + selected_text.length() ) )
+    if ( !( m_lastMatch.offset.first == selection_start && m_lastMatch.offset.second == selection_start + selected_text.length() ) )
     {
         match_info = spcre->getFirstMatchInfo( selected_text );
         if ( match_info.offset.first != -1 )
@@ -803,11 +794,8 @@ bool CodeViewEditor::ReplaceSelected( const QString &search_regex, const QString
 
 
 int CodeViewEditor::ReplaceAll( const QString &search_regex, 
-                                const QString &replacement, 
-                                bool check_spelling )
+                                const QString &replacement )
 {
-    Q_UNUSED (check_spelling);
-
     int count = 0;
 
     QString text = toPlainText();
@@ -1439,7 +1427,7 @@ void CodeViewEditor::PasteClipboardEntry(ClipboardEditorModel::clipEntry *clip)
     }
     else {
         QString search_regex = "(?s).*";
-        ReplaceSelected(search_regex, clip->text, Searchable::Direction_Down, false);
+        ReplaceSelected(search_regex, clip->text, Searchable::Direction_Down );
     }
 }
 
@@ -1522,7 +1510,6 @@ void CodeViewEditor::ScrollByLine( bool down )
 
 QList< ViewEditor::ElementIndex > CodeViewEditor::GetCaretLocation()
 {
-    //qDebug() << "CodeViewEditor GetCaretLocation";
     QRegExp tag( XML_OPENING_TAG );
 
     // We search for the first opening tag *behind* the caret.

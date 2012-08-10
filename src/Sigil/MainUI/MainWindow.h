@@ -531,7 +531,7 @@ private slots:
     void RemoveResources();
 
     void GenerateToc();
-    void GenerateInlineToc(NCXModel::NCXEntry ncx_root_entry);
+    void CreateHTMLTOC();
 
     void setCleanLevel(int level, bool store=true, bool show_warning=true);
 

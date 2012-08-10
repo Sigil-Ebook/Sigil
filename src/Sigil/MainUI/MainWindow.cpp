@@ -150,8 +150,6 @@ MainWindow::MainWindow( const QString &openfilepath, QWidget *parent, Qt::WFlags
     LoadInitialFile(openfilepath);
     // Ensure the UI is setup properly for the default view state.
     SetViewState(m_ViewState);
-
-    ui.actionBackToLink->setEnabled(false);
 }
 
 
@@ -993,7 +991,7 @@ void MainWindow::GenerateToc()
 }
     
 
-void MainWindow::GenerateInlineToc(NCXModel::NCXEntry ncx_root_entry)
+void MainWindow::CreateHTMLTOC()
 {
     QApplication::setOverrideCursor(Qt::WaitCursor);
 
@@ -1031,7 +1029,7 @@ void MainWindow::GenerateInlineToc(NCXModel::NCXEntry ncx_root_entry)
         m_Book->GetOPF().UpdateSpineOrder(htmlResources);
     }
 
-    TOCHTMLWriter toc(ncx_root_entry);
+    TOCHTMLWriter toc(m_TableOfContents->GetRootEntry());
     tocResource->SetText(toc.WriteXML());
 
     // Setting a semantic on a resource that already has it set will remove the semantic.
@@ -1408,7 +1406,7 @@ void MainWindow::SetStateActionsBookView()
     ui.actionHeadingNormal->setEnabled(true);
 
     ui.actionInsertImage->setEnabled(true);
-    ui.actionSplitChapter->setEnabled(false);
+    ui.actionSplitChapter->setEnabled(true);
     ui.actionInsertClosingTag->setEnabled(false);
     ui.actionInsertSGFChapterMarker->setEnabled(true);
     ui.actionSplitOnSGFChapterMarkers->setEnabled(true);
@@ -1910,6 +1908,7 @@ void MainWindow::SetNewBook( QSharedPointer< Book > new_book )
 
     m_IndexEditor->SetBook( m_Book );
     m_TabManager.ResetLastLinkOpened();
+    ui.actionBackToLink->setEnabled(false);
 
     connect( m_Book.data(), SIGNAL( ModifiedStateChanged( bool ) ), this, SLOT( setWindowModified( bool ) ) );
     connect( m_BookBrowser,     SIGNAL( GuideSemanticTypeAdded( const HTMLResource&, GuideSemantics::GuideSemanticType ) ),
@@ -2521,7 +2520,7 @@ void MainWindow::ExtendUI()
     // Tools
     sm->registerAction(ui.actionMetaEditor, "MainWindow.MetaEditor");
     sm->registerAction(ui.actionGenerateTOC, "MainWindow.GenerateTOC");
-    sm->registerAction(ui.actionCreateInlineTOC, "MainWindow.GenerateInlineToc");
+    sm->registerAction(ui.actionCreateHTMLTOC, "MainWindow.CreateHTMLTOC");
     sm->registerAction(ui.actionValidateEpub, "MainWindow.ValidateEpub");
     sm->registerAction(ui.actionViewClasses, "MainWindow.ViewClasses");
     sm->registerAction(ui.actionViewHTML, "MainWindow.ViewHTML");
@@ -2586,6 +2585,10 @@ void MainWindow::ExtendIconSizes()
     icon = ui.actionValidateEpub->icon();
     icon.addFile(QString::fromUtf8(":/main/document-validate_16px.png"));
     ui.actionValidateEpub->setIcon(icon);
+
+    icon = ui.actionSpellCheck->icon();
+    icon.addFile(QString::fromUtf8(":/main/document-spellcheck_16px.png"));
+    ui.actionSpellCheck->setIcon(icon);
 
     icon = ui.actionCut->icon();
     icon.addFile(QString::fromUtf8(":/main/edit-cut_16px.png"));
@@ -2814,8 +2817,9 @@ void MainWindow::ConnectSignalsToSlots()
     // Tools
     connect( ui.actionMetaEditor,    SIGNAL( triggered() ), this, SLOT( MetaEditorDialog()         ) );
     connect( ui.actionValidateEpub,  SIGNAL( triggered() ), this, SLOT( ValidateEpub()             ) );
+    connect( ui.actionSpellCheck,    SIGNAL( triggered() ), m_FindReplace, SLOT( FindMisspelledWord()               ) );
     connect( ui.actionGenerateTOC,   SIGNAL( triggered() ), this, SLOT( GenerateToc()              ) );
-    connect( ui.actionCreateInlineTOC, SIGNAL( triggered() ), m_TableOfContents, SLOT( GenerateInlineToc()        ) );
+    connect( ui.actionCreateHTMLTOC, SIGNAL( triggered() ), this, SLOT( CreateHTMLTOC()        ) );
     connect( ui.actionViewClasses,   SIGNAL( triggered() ), this, SLOT( ViewClassesUsedInHTML()    ) );
     connect( ui.actionViewHTML,      SIGNAL( triggered() ), this, SLOT( ViewAllHTML()              ) );
     connect( ui.actionViewImages,    SIGNAL( triggered() ), this, SLOT( ViewAllImages()            ) );
@@ -2887,7 +2891,6 @@ void MainWindow::ConnectSignalsToSlots()
 
     connect( m_TableOfContents, SIGNAL( GenerateTocRequest() ),
              this,     SLOT(   GenerateToc() ) );
-    connect(m_TableOfContents, SIGNAL(GenerateInlineTocRequest(NCXModel::NCXEntry)), this, SLOT(GenerateInlineToc(NCXModel::NCXEntry)));
 
     connect( m_BookBrowser, SIGNAL( RemoveTabRequest() ),
              &m_TabManager, SLOT(   RemoveTab() ) );

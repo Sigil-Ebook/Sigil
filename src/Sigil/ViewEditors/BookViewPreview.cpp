@@ -235,20 +235,20 @@ bool BookViewPreview::FindNext( SearchTools &search_tools,
     return false;
 }
 
-int BookViewPreview::Count(const QString &search_regex, bool check_spelling)
+int BookViewPreview::Count(const QString &search_regex )
 {
     // Spell check not actually used
     SPCRE *spcre = PCRECache::instance()->getObject( search_regex );
     return spcre->getEveryMatchInfo( GetSearchTools().fulltext ).count();
 }
 
-bool BookViewPreview::ReplaceSelected(const QString &search_regex, const QString &replacement, Searchable::Direction direction, bool check_spelling)
+bool BookViewPreview::ReplaceSelected(const QString &search_regex, const QString &replacement, Searchable::Direction direction )
 {
     QMessageBox::critical(this, tr("Unsupported"), tr("Replace is not supported in this view. Switch to Code View."));
     return false;
 }
 
-int BookViewPreview::ReplaceAll(const QString &search_regex, const QString &replacement, bool check_spelling)
+int BookViewPreview::ReplaceAll(const QString &search_regex, const QString &replacement )
 {
     QMessageBox::critical(this, tr("Unsupported"), tr("Replace All for the current file is not supported in this view. Switch to Code View."));
     return 0;

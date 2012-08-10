@@ -51,8 +51,7 @@ public:
         // Normal is Case insensitive
         SearchMode_Normal = 0,
         SearchMode_Case_Sensitive = 10,
-        SearchMode_Regex = 20,
-        SearchMode_SpellCheck = 30
+        SearchMode_Regex = 20
     };
 
     enum SearchDirection

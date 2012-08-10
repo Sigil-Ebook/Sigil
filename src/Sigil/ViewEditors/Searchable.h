@@ -64,7 +64,7 @@ public:
      */
     virtual bool FindNext( const QString &search_regex,
                            Direction search_direction,
-                           bool check_spelling = false,
+                           bool misspelled_words = false,
                            bool ignore_selection_offset = false,
                            bool wrap = true ) = 0;
 
@@ -74,7 +74,7 @@ public:
      * @param search_regex The regex to match with.
      * @return The number of matching occurrences.
      */
-    virtual int Count( const QString &search_regex, bool check_spelling ) = 0;
+    virtual int Count( const QString &search_regex ) = 0;
 
     /**
      * If the currently selected text matches the specified regex,
@@ -84,7 +84,7 @@ public:
      * @param replacement The text with which to replace the matched string.
      * @return \c true if the searched term was successfully replaced.
      */
-    virtual bool ReplaceSelected( const QString &search_regex, const QString &replacement, Searchable::Direction direction=Searchable::Direction_Down, bool check_spelling = false ) = 0;
+    virtual bool ReplaceSelected( const QString &search_regex, const QString &replacement, Searchable::Direction direction=Searchable::Direction_Down ) = 0;
 
     /**
      * Replaces all occurrences of the specified regex.
@@ -93,7 +93,7 @@ public:
      * @param replacement The text with which to replace the matched string.
      * @return The number of performed replacements.
      */
-    virtual int ReplaceAll( const QString &search_regex, const QString &replacement, bool check_spelling ) = 0;
+    virtual int ReplaceAll( const QString &search_regex, const QString &replacement ) = 0;
 
     /**
      * Returns the currently selected text string.

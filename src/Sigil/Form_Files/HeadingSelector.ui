@@ -48,7 +48,7 @@
       <string>If this is checked, only the items that will end up in the Table Of Contents are displayed in the list</string>
      </property>
      <property name="text">
-      <string>TOC items only</string>
+      <string>Show TOC items only</string>
      </property>
      <property name="checked">
       <bool>true</bool>

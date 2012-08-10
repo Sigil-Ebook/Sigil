@@ -87,11 +87,11 @@ public:
                   bool ignore_selection_offset=false,
                   bool wrap=true);
 
-    int Count(const QString &search_regex, bool check_spelling);
+    int Count(const QString &search_regex);
 
-    bool ReplaceSelected(const QString &search_regex, const QString &replacement, Searchable::Direction direction=Searchable::Direction_Down, bool check_spelling=false);
+    bool ReplaceSelected(const QString &search_regex, const QString &replacement, Searchable::Direction direction=Searchable::Direction_Down);
 
-    int ReplaceAll(const QString &search_regex, const QString &replacement, bool check_spelling);
+    int ReplaceAll(const QString &search_regex, const QString &replacement);
 
     QString GetSelectedText();
 
