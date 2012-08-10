@@ -138,12 +138,19 @@ void FindReplace::ShowMessage( const QString &message )
 }
 
 
-void FindReplace::SetLookWhereFromModifier()
+void FindReplace::SetLookWhereFromModifier(int modifiers)
 {
     // Only use with mouse click not menu/shortcuts to avoid modifying
-    bool isCtrl = QApplication::keyboardModifiers() & Qt::ControlModifier;
-    bool isShift= QApplication::keyboardModifiers() & Qt::ShiftModifier;
+    bool isCtrl;
+    bool isShift;
     int index = -1;
+
+    if (modifiers == Qt::NoModifier) {
+        modifiers = QApplication::keyboardModifiers();
+    }
+
+    isCtrl = modifiers & Qt::ControlModifier;
+    isShift = modifiers & Qt::ShiftModifier;
 
     if (isCtrl) {
         index = ui.cbLookWhere->findData(FindFields::LookWhere_CurrentFile);
@@ -1057,8 +1064,12 @@ void FindReplace::FindSearch(QList<SearchEditorModel::searchEntry *> search_entr
         return;
     }
 
+    // Save the current key modifiers so user doesn't have to hold the key
+    int modifiers = QApplication::keyboardModifiers();
+
     foreach (SearchEditorModel::searchEntry* search_entry, search_entries) {
         LoadSearch(search_entry);
+        SetLookWhereFromModifier(modifiers);
         if (Find()) {
             return;
         };
@@ -1072,8 +1083,12 @@ void FindReplace::ReplaceSearch(QList<SearchEditorModel::searchEntry *> search_e
         return;
     }
 
+    // Save the current key modifiers so user doesn't have to hold the key
+    int modifiers = QApplication::keyboardModifiers();
+
     foreach (SearchEditorModel::searchEntry* search_entry, search_entries) {
         LoadSearch(search_entry);
+        SetLookWhereFromModifier(modifiers);
         if (Replace()) {
             return;
         }
@@ -1087,9 +1102,13 @@ void FindReplace::CountAllSearch(QList<SearchEditorModel::searchEntry *> search_
         return;
     }
 
+    // Save the current key modifiers so user doesn't have to hold the key
+    int modifiers = QApplication::keyboardModifiers();
+
     int count = 0;
     foreach (SearchEditorModel::searchEntry* search_entry, search_entries) {
         LoadSearch(search_entry);
+        SetLookWhereFromModifier(modifiers);
         count += Count();
     }
 
@@ -1109,9 +1128,13 @@ void FindReplace::ReplaceAllSearch(QList<SearchEditorModel::searchEntry *> searc
         return;
     }
 
+    // Save the current key modifiers so user doesn't have to hold the key
+    int modifiers = QApplication::keyboardModifiers();
+
     int count = 0;
     foreach (SearchEditorModel::searchEntry* search_entry, search_entries) {
         LoadSearch(search_entry);
+        SetLookWhereFromModifier(modifiers);
         count += ReplaceAll();
     }
 

@@ -155,7 +155,7 @@ private:
 
     bool IsCurrentFileInHTMLSelection();
 
-    void SetLookWhereFromModifier();
+    void SetLookWhereFromModifier(int modifiers = Qt::NoModifier);
 
     int CountInFiles();
 
