@@ -161,16 +161,15 @@ QString BookViewEditor::SplitChapter()
 
     emit contentsChangedExtra();
 
-    // Strip Webkit cruft out of the above text. Every element will have an 
-    // xmlns element on it which we want removed. However we do need it on the
-    // outer <html> tag, because otherwise if Tidy is turned completely off
-    // Webkit will explode.
-    // In addition the <body> tag returned from above will have a closing </body>
+    // The <body> tag returned from above will have a closing </body>
     // element. With Tidy turned on, the old code got away with this, but
-    // with Tidy turned off it goes horribly wrong.
+    // with Tidy turned off it goes horribly wrong. We also want to remove
+    // some other webkit cruft that isn't required.
     body_tag = body_tag.remove( WEBKIT_BODY_STYLE_CRUFT ).remove( "</body>" );
 
-    return QString( "<html xmlns=\"http://www.w3.org/1999/xhtml\">" )
+    // In addition we strip Webkit namespace cruft out of the above text. 
+    // Every element will have an xmlns element on it which we want removed. 
+    return QString( "<html>" )
            .append( head.remove( XML_NAMESPACE_CRUFT ) )
            .append( body_tag.remove( XML_NAMESPACE_CRUFT ) )
            .append( segment.remove( XML_NAMESPACE_CRUFT ) )
