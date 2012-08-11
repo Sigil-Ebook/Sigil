@@ -41,6 +41,7 @@ const int PROGRESS_BAR_MINIMUM_DURATION = 1500;
 
 const QString BREAK_TAG_INSERT    = "<hr class=\"sigilChapterBreak\" />";
 const QString XML_NAMESPACE_CRUFT = "xmlns=\"http://www.w3.org/1999/xhtml\"";
+const QString WEBKIT_BODY_STYLE_CRUFT = " style=\"word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space; \"";
 const QString REPLACE_SPANS = "<span class=\"SigilReplace_\\d*\"( id=\"SigilReplace_\\d*\")*>";
 
 const QString XML_TAG = "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"no\"?>";
@@ -154,21 +155,26 @@ void BookViewEditor::InsertHtml(const QString &html)
 
 QString BookViewEditor::SplitChapter()
 {
-    QString head     = page()->mainFrame()->documentElement().findFirst( "head" ).toOuterXml();    
+    QString head     = page()->mainFrame()->documentElement().findFirst( "head" ).toOuterXml();
     QString body_tag = EvaluateJavascript( GET_BODY_TAG_HTML ).toString();
     QString segment  = EvaluateJavascript( c_GetBlock % c_GetSegmentHTML ).toString();
 
     emit contentsChangedExtra();
 
-    return QString( "<html>" )
-           .append( head )
-           .append( body_tag )
-           .append( segment )
-           .append( "</body></html>" )
-           // Webkit adds this xmlns attribute to *every*
-           // element... for no reason. Tidy will add it back
-           // to the <head> so we just remove it globally.
-           .remove( XML_NAMESPACE_CRUFT );
+    // Strip Webkit cruft out of the above text. Every element will have an 
+    // xmlns element on it which we want removed. However we do need it on the
+    // outer <html> tag, because otherwise if Tidy is turned completely off
+    // Webkit will explode.
+    // In addition the <body> tag returned from above will have a closing </body>
+    // element. With Tidy turned on, the old code got away with this, but
+    // with Tidy turned off it goes horribly wrong.
+    body_tag = body_tag.remove( WEBKIT_BODY_STYLE_CRUFT ).remove( "</body>" );
+
+    return QString( "<html xmlns=\"http://www.w3.org/1999/xhtml\">" )
+           .append( head.remove( XML_NAMESPACE_CRUFT ) )
+           .append( body_tag.remove( XML_NAMESPACE_CRUFT ) )
+           .append( segment.remove( XML_NAMESPACE_CRUFT ) )
+           .append( "</body></html>" );
 }
 
 bool BookViewEditor::IsModified()
