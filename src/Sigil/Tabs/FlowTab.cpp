@@ -57,6 +57,7 @@ FlowTab::FlowTab(HTMLResource& resource,
                   MainWindow::ViewState view_state,
                   int line_to_scroll_to,
                   int position_to_scroll_to,
+                  bool grab_focus,
                   QWidget *parent)
     :
     ContentTab(resource, parent),
@@ -75,7 +76,8 @@ FlowTab::FlowTab(HTMLResource& resource,
     m_WellFormedCheckComponent(*new WellFormedCheckComponent(*this)),
     m_safeToLoad(false),
     m_initialLoad(true),
-    m_BookPreviewNeedReload(false)
+    m_BookPreviewNeedReload(false),
+    m_grabFocus(grab_focus)
 {
     // Loading a flow tab can take a while. We set the wait
     // cursor and clear it at the end of the delayed initialization.
@@ -543,7 +545,13 @@ void FlowTab::SplitChapter()
         emit OldTabRequest( m_wBookView->SplitChapter(), m_HTMLResource );
     }
     else if (m_ViewState == MainWindow::ViewState_CodeView) {
-        emit OldTabRequest( m_wCodeView->SplitChapter(), m_HTMLResource );
+	    // Ensure we get the caret location persisted as a result of cutting the
+		// text, because the underlying text document will get changed several
+		// times resulting in the cursor being moved to the end of the document.
+        const QString content = m_wCodeView->SplitChapter();
+        m_wCodeView->StoreCaretLocationUpdate(m_wCodeView->GetCaretLocation());
+        emit OldTabRequest( content, m_HTMLResource );
+        m_wCodeView->ExecuteCaretUpdate();
     }
 }
 
@@ -673,7 +681,12 @@ void FlowTab::BookView()
     m_views->setCurrentIndex(BV_INDEX);
 
     setFocusProxy(m_wBookView);
-    m_wBookView->GrabFocus();
+    // When opening this tab as a preceding tab such as when splitting a chapter
+    // we do not want focus grabbed from the currently selected tab.
+    if (m_grabFocus) {
+        m_wBookView->GrabFocus();
+    }
+    m_grabFocus = true;
 
     if (m_previousViewState == MainWindow::ViewState_CodeView) {
         m_wBookView->StoreCaretLocationUpdate( m_wCodeView->GetCaretLocation() );
@@ -695,7 +708,11 @@ void FlowTab::SplitView()
     QApplication::setOverrideCursor(Qt::WaitCursor);
 
     m_views->setCurrentIndex(PV_INDEX);
-    m_wBookPreview->GrabFocus();
+    if (m_grabFocus) {
+        m_wBookPreview->GrabFocus();
+    }
+    m_grabFocus = true;
+
     if (m_previousViewState == MainWindow::ViewState_BookView) {
         m_wBookPreview->StoreCaretLocationUpdate( m_wBookView->GetCaretLocation() );
     }
@@ -719,7 +736,10 @@ void FlowTab::CodeView()
     setFocusProxy(m_wCodeView);
 
     // Make sure the cursor is properly displayed
-    m_wCodeView->setFocus();
+    if (m_grabFocus) {
+        m_wCodeView->setFocus();
+    }
+    m_grabFocus = true;
 
     if (m_previousViewState == MainWindow::ViewState_BookView) {
         m_wCodeView->StoreCaretLocationUpdate( m_wBookView->GetCaretLocation() );

@@ -216,7 +216,7 @@ void MainWindow::OpenUrl(const QUrl& url, int position)
 
 void MainWindow::OpenCodeResource(Resource& resource, int position_to_scroll_to)
 {
-    OpenResource(resource, false, QUrl(), MainWindow::ViewState_CodeView, -1, position_to_scroll_to);
+    OpenResource(resource, false, QUrl(), MainWindow::ViewState_CodeView, -1, position_to_scroll_to, true);
 }
 
 void MainWindow::OpenResource( Resource& resource,
@@ -224,14 +224,15 @@ void MainWindow::OpenResource( Resource& resource,
                                const QUrl &fragment,
                                MainWindow::ViewState view_state,
                                int line_to_scroll_to,
-                               int position_to_scroll_to)
+                               int position_to_scroll_to,
+                               bool grab_focus)
 {
     MainWindow::ViewState vs = m_ViewState;
     if (view_state != MainWindow::ViewState_Unknown) {
         vs = view_state;
     }
 
-    m_TabManager.OpenResource( resource, precede_current_tab, fragment, vs, line_to_scroll_to, position_to_scroll_to );
+    m_TabManager.OpenResource( resource, precede_current_tab, fragment, vs, line_to_scroll_to, position_to_scroll_to, grab_focus );
 
     if (vs != m_ViewState) {
         SetViewState(vs);
@@ -1756,10 +1757,16 @@ void MainWindow::CreateChapterBreakOldTab( QString content, HTMLResource& origin
 
     m_BookBrowser->Refresh();
 
-    // Open tab with part 1 of old document as the current tab
-    // Open tab with part 2 of old document as unfocused preceding tab
-    OpenResource( originating_resource );
-    OpenResource( html_resource, true );
+    // Open the old shortened content in a new tab preceding the current one.
+    // without grabbing focus
+    OpenResource( html_resource, true, QUrl(), m_ViewState, -1, -1, false );
+
+    FlowTab *flow_tab = qobject_cast< FlowTab* >( &GetCurrentContentTab() );
+    // We want the current tab to be scrolled to the top.
+    if ( flow_tab )
+    {
+        flow_tab->ScrollToTop();
+    }
 
     statusBar()->showMessage( tr( "Chapter split. You may need to update the Table of Contents." ), STATUSBAR_MSG_DISPLAY_TIME );
 }

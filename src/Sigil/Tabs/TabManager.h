@@ -117,13 +117,15 @@ public slots:
      * @param fragment The fragment ID to which the new tab should be scrolled.
      * @param view_state In which View should the resource open or switch to.
      * @param line_to_scroll_to To which line should the resource scroll.
+     * @param grab_focus Whether this tab should grab focus after being opened.
      */
     void OpenResource( Resource& resource, 
                        bool precede_current_tab = false,
                        const QUrl &fragment = QUrl(),
                        MainWindow::ViewState view_state = MainWindow::ViewState_BookView,
                        int line_to_scroll_to = -1,
-                       int position_to_scroll_to = -1);
+                       int position_to_scroll_to = -1,
+                       bool grab_focus = true );
 
     /**
      * Makes the next (right) tab the current one.
@@ -278,7 +280,8 @@ private:
                                       const QUrl &fragment, 
                                       MainWindow::ViewState view_state,
                                       int line_to_scroll_to,
-                                      int position_to_scroll_to);
+                                      int position_to_scroll_to,
+                                      bool grab_focus );
 
     /**
      * Adds a new content tab to the displayed tabs.

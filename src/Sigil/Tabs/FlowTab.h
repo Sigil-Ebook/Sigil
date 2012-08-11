@@ -69,6 +69,7 @@ public:
              MainWindow::ViewState view_state,
              int line_to_scroll_to = -1,
              int position_to_scroll_to = -1,
+             bool grab_focus = true,
              QWidget *parent = 0 );
 
     ~FlowTab();
@@ -518,6 +519,8 @@ private:
     bool m_initialLoad;
 
     bool m_BookPreviewNeedReload;
+
+    bool m_grabFocus;
 };
 
 #endif // FLOWTAB_H

@@ -260,13 +260,14 @@ void TabManager::OpenResource( Resource& resource,
                                const QUrl &fragment,
                                MainWindow::ViewState view_state,
                                int line_to_scroll_to,
-                               int position_to_scroll_to )
+                               int position_to_scroll_to,
+                               bool grab_focus )
 {
     if ( SwitchedToExistingTab( resource, fragment, view_state, line_to_scroll_to, position_to_scroll_to ) )
 
         return;
 
-    AddNewContentTab( CreateTabForResource( resource, fragment, view_state, line_to_scroll_to, position_to_scroll_to ),
+    AddNewContentTab( CreateTabForResource( resource, fragment, view_state, line_to_scroll_to, position_to_scroll_to, grab_focus ),
                       precede_current_tab );
 
     // TODO: loading bar update
@@ -496,7 +497,8 @@ ContentTab* TabManager::CreateTabForResource( Resource& resource,
                                               const QUrl &fragment,
                                               MainWindow::ViewState view_state,
                                               int line_to_scroll_to,
-                                              int position_to_scroll_to )
+                                              int position_to_scroll_to,
+                                              bool grab_focus )
 {
     ContentTab *tab = NULL;
 
@@ -509,6 +511,7 @@ ContentTab* TabManager::CreateTabForResource( Resource& resource,
                 view_state,
                 line_to_scroll_to,
                 position_to_scroll_to,
+                grab_focus,
                 this );
 
             connect( tab,  SIGNAL( LinkClicked( const QUrl& ) ), this, SLOT( LinkClicked( const QUrl& ) ) );
