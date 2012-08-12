@@ -1819,7 +1819,12 @@ void CodeViewEditor::ToggleFormatSelection( const QString &element_name )
         // User is outside the body so not allowed to change or insert a style tag
         return;
     }
-
+    // We might have a selection that begins or ends in a tag < > itself
+    if ( IsPositionInTag( textCursor().selectionStart(), text ) || 
+         IsPositionInTag( textCursor().selectionEnd(), text ) ) {
+        // Not allowed to toggle style if caret placed on a tag
+        return;
+    }
     QString tag_name;
     QRegExp tag_search( NEXT_TAG_LOCATION );
     QRegExp tag_name_search( TAG_NAME_SEARCH );
@@ -1876,12 +1881,6 @@ void CodeViewEditor::ToggleFormatSelection( const QString &element_name )
         FormatSelectionWithinElement( element_name, previous_tag_index, text );
     }
     else {
-        // We might be clicked inside tag (that is not for the element of interest).
-        if ( IsPositionInTag( textCursor().selectionStart(), text ) || 
-             IsPositionInTag( textCursor().selectionEnd(), text ) ) {
-            // Invalid place to put a tag
-            return;
-        }
         // Otherwise assume we are in a safe place to add a wrapper tag.
         InsertHTMLTagAroundSelection( element_name, "/" + element_name );
     }
@@ -1893,9 +1892,6 @@ void CodeViewEditor::FormatSelectionWithinElement(const QString &element_name, c
     // e.g. "<b>selected text</b>" should result in "selected text" losing the tags.
     // but  "<b>XXXselected textYYY</b> should result in "<b>XXX</b>selected text<b>YYY</b>"
     // plus the variations where XXX or YYY may be non-existent to make tag adjacent.
-    // NOTE: The user could also have clicked inside the opening element tag itself.
-    //       Treat this as intent to remove the tag. If the user clicks in the closing
-    //       tag then would not have got here.
 
     int previous_tag_end_index = text.indexOf(">", previous_tag_index);
     QRegExp closing_tag_search("</\\s*" + element_name + "\\s*>", Qt::CaseInsensitive);
@@ -1909,13 +1905,6 @@ void CodeViewEditor::FormatSelectionWithinElement(const QString &element_name, c
     QTextCursor cursor = textCursor();
     int selection_start = cursor.selectionStart();
     int selection_end = cursor.selectionEnd();
-
-    // Test our case of user clicking directly inside the opening tag
-    if ( selection_start > previous_tag_index && selection_start <= previous_tag_end_index ) {
-        ReplaceTags( previous_tag_index, previous_tag_end_index + 1, "",
-                     closing_tag_index, closing_tag_end_index, "" );
-        return;
-    }
 
     bool adjacent_to_start = (previous_tag_end_index + 1) == selection_start;
     bool adjacent_to_end = closing_tag_index == selection_end;
