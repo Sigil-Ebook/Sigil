@@ -61,7 +61,7 @@ static const QColor NUMBER_AREA_NUMCOLOR = QColor( 125, 125, 125 );
 
 static const QString XML_OPENING_TAG        = "(<[^>/][^>]*[^>/]>|<[^>/]>)";
 static const QString NEXT_OPEN_TAG_LOCATION = "<\\s*(?!/)";
-static const QString NEXT_TAG_LOCATION      = "<\\s*";
+static const QString NEXT_TAG_LOCATION      = "<[^>]+>";
 static const QString TAG_NAME_SEARCH        = "<\\s*([^\\s>]+)";
 
 static const int MAX_SPELLING_SUGGESTIONS = 10;
@@ -1747,25 +1747,8 @@ void CodeViewEditor::FormatBlock( const QString &element_name, bool preserve_att
     }
     closing_tag_text = "</" + element_name + ">";
 
-    // Actually perform the tag replacement
-    QTextCursor cursor = textCursor();
-    cursor.beginEditBlock();
-
-    // Replace the end block tag first since that does not affect positions
-    cursor.setPosition( closing_tag_end );
-    cursor.setPosition( closing_tag_start, QTextCursor::KeepAnchor );
-    cursor.removeSelectedText();
-    cursor.insertText( closing_tag_text );
-
-    // Now replace the opening block tag
-    cursor.setPosition( opening_tag_end );
-    cursor.setPosition( opening_tag_start, QTextCursor::KeepAnchor );
-    cursor.removeSelectedText();
-    cursor.insertText( opening_tag_text );
-
-    cursor.endEditBlock();
-
-    setTextCursor(cursor);
+    ReplaceTags( opening_tag_start, opening_tag_end, opening_tag_text,
+                 closing_tag_start, closing_tag_end, closing_tag_text );
 }
 
 void CodeViewEditor::InsertHTMLTagAroundSelection( const QString &left_element_name, const QString &right_element_name )
@@ -1803,6 +1786,19 @@ bool CodeViewEditor::IsPositionInBody( const int &pos, const QString &text )
     return true;
 }
 
+bool CodeViewEditor::IsPositionInTag(int pos, QString &text)
+{
+    QRegExp tag_search( NEXT_TAG_LOCATION );
+
+    int tag_start = text.lastIndexOf( tag_search, pos - 1 );
+    int tag_end   = tag_start + tag_search.matchedLength();
+
+    if ( ( pos >= tag_start ) && ( pos < tag_end ) ) {
+        return true;
+    }
+    return false;
+}
+
 void CodeViewEditor::ToggleFormatSelection( const QString &element_name )
 {
     if ( element_name.isEmpty() ) {
@@ -1830,6 +1826,7 @@ void CodeViewEditor::ToggleFormatSelection( const QString &element_name )
 
     bool in_existing_tag_occurrence = false;
     int previous_tag_index = -1;
+    pos--;
 
     // Look backwards from the current selection to find whether we are in an open occurrence
     // of this tag already within this block.
@@ -1879,6 +1876,13 @@ void CodeViewEditor::ToggleFormatSelection( const QString &element_name )
         FormatSelectionWithinElement( element_name, previous_tag_index, text );
     }
     else {
+        // We might be clicked inside tag (that is not for the element of interest).
+        if ( IsPositionInTag( textCursor().selectionStart(), text ) || 
+             IsPositionInTag( textCursor().selectionEnd(), text ) ) {
+            // Invalid place to put a tag
+            return;
+        }
+        // Otherwise assume we are in a safe place to add a wrapper tag.
         InsertHTMLTagAroundSelection( element_name, "/" + element_name );
     }
 }
@@ -1889,25 +1893,41 @@ void CodeViewEditor::FormatSelectionWithinElement(const QString &element_name, c
     // e.g. "<b>selected text</b>" should result in "selected text" losing the tags.
     // but  "<b>XXXselected textYYY</b> should result in "<b>XXX</b>selected text<b>YYY</b>"
     // plus the variations where XXX or YYY may be non-existent to make tag adjacent.
+    // NOTE: The user could also have clicked inside the opening element tag itself.
+    //       Treat this as intent to remove the tag. If the user clicks in the closing
+    //       tag then would not have got here.
+
     int previous_tag_end_index = text.indexOf(">", previous_tag_index);
     QRegExp closing_tag_search("</\\s*" + element_name + "\\s*>", Qt::CaseInsensitive);
-    int closing_tag_index = text.indexOf(closing_tag_search, textCursor().selectionEnd());
+    int closing_tag_index = text.indexOf(closing_tag_search, previous_tag_end_index);
     if ( closing_tag_index < 0 ) {
         // There is no closing tag for this style (not well formed). Give up.
         return;
     }
+    int closing_tag_end_index = closing_tag_index + closing_tag_search.matchedLength();
 
     QTextCursor cursor = textCursor();
     int selection_start = cursor.selectionStart();
     int selection_end = cursor.selectionEnd();
 
+    // Test our case of user clicking directly inside the opening tag
+    if ( selection_start > previous_tag_index && selection_start <= previous_tag_end_index ) {
+        ReplaceTags( previous_tag_index, previous_tag_end_index + 1, "",
+                     closing_tag_index, closing_tag_end_index, "" );
+        return;
+    }
+
     bool adjacent_to_start = (previous_tag_end_index + 1) == selection_start;
     bool adjacent_to_end = closing_tag_index == selection_end;
 
-    if (!adjacent_to_start && !adjacent_to_end) {
+    if ( !adjacent_to_start && !adjacent_to_end ) {
         // We want to put a closing tag at the start and an opening tag after (copying attributes)
         QString opening_tag_text = text.mid(previous_tag_index + 1, previous_tag_end_index - previous_tag_index - 1).trimmed();
         InsertHTMLTagAroundSelection( "/" + element_name, opening_tag_text );
+    }
+    else if ( ( selection_end == selection_start) && ( adjacent_to_start || adjacent_to_end ) ) {
+        // User is just inside the opening or closing tag with no selection. Nothing to do
+        return;
     }
     else {
         QString opening_tag = text.mid( previous_tag_index, previous_tag_end_index - previous_tag_index + 1 );
@@ -1946,7 +1966,29 @@ void CodeViewEditor::FormatSelectionWithinElement(const QString &element_name, c
         cursor.endEditBlock();
         setTextCursor(cursor);
     }
+}
 
+void CodeViewEditor::ReplaceTags( const int &opening_tag_start, const int &opening_tag_end, const QString &opening_tag_text,
+                                  const int &closing_tag_start, const int &closing_tag_end, const QString &closing_tag_text )
+{
+    QTextCursor cursor = textCursor();
+    cursor.beginEditBlock();
+
+    // Replace the end block tag first since that does not affect positions
+    cursor.setPosition( closing_tag_end );
+    cursor.setPosition( closing_tag_start, QTextCursor::KeepAnchor );
+    cursor.removeSelectedText();
+    cursor.insertText( closing_tag_text );
+
+    // Now replace the opening block tag
+    cursor.setPosition( opening_tag_end );
+    cursor.setPosition( opening_tag_start, QTextCursor::KeepAnchor );
+    cursor.removeSelectedText();
+    cursor.insertText( opening_tag_text );
+
+    cursor.endEditBlock();
+
+    setTextCursor(cursor);
 }
 
 void CodeViewEditor::ConnectSignalsToSlots()

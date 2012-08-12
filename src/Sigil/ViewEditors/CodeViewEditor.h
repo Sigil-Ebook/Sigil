@@ -514,8 +514,12 @@ private:
      * Is this position within the <body> tag of this text.
      */
     bool IsPositionInBody( const int &pos, const QString &text );
+    bool IsPositionInTag(int pos, QString &text);
 
     void FormatSelectionWithinElement(const QString &element_name, const int &previous_tag_index, const QString &text);
+
+    void ReplaceTags( const int &opening_tag_start, const int &opening_tag_end, const QString &opening_tag_text,
+                      const int &closing_tag_start, const int &closing_tag_end, const QString &closing_tag_text );
 
     ///////////////////////////////
     // PRIVATE MEMBER VARIABLES
