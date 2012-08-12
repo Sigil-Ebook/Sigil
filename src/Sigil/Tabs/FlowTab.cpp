@@ -545,13 +545,7 @@ void FlowTab::SplitChapter()
         emit OldTabRequest( m_wBookView->SplitChapter(), m_HTMLResource );
     }
     else if (m_ViewState == MainWindow::ViewState_CodeView) {
-	    // Ensure we get the caret location persisted as a result of cutting the
-		// text, because the underlying text document will get changed several
-		// times resulting in the cursor being moved to the end of the document.
-        const QString content = m_wCodeView->SplitChapter();
-        m_wCodeView->StoreCaretLocationUpdate(m_wCodeView->GetCaretLocation());
-        emit OldTabRequest( content, m_HTMLResource );
-        m_wCodeView->ExecuteCaretUpdate();
+        emit OldTabRequest( m_wCodeView->SplitChapter(), m_HTMLResource );
     }
 }
 
@@ -796,6 +790,17 @@ void FlowTab::ResourceModified()
 {
     m_BookPreviewNeedReload = true;
     QWebSettings::clearMemoryCaches();
+    if ( m_ViewState == MainWindow::ViewState_CodeView ) {
+        m_wCodeView->ExecuteCaretUpdate();
+    }
+}
+
+void FlowTab::ResourceTextChanging()
+{
+    if ( m_ViewState == MainWindow::ViewState_CodeView ) {
+        // We need to store the caret location so it can be restored later
+        m_wCodeView->StoreCaretLocationUpdate( m_wCodeView->GetCaretLocation() );
+    }
 }
 
 void FlowTab::PVSplitterMoved(int pos, int index)
@@ -1177,6 +1182,7 @@ void FlowTab::ConnectSignalsToSlots()
 
     connect(&m_HTMLResource, SIGNAL(Modified()), this, SLOT(ResourceModified()));
     connect(&m_HTMLResource, SIGNAL(LinkedResourceUpdated()), this, SLOT(ResourceModified()));
+    connect(&m_HTMLResource, SIGNAL(TextChanging()), this, SLOT(ResourceTextChanging()));
 
     connect(m_pvVSplitter, SIGNAL(splitterMoved(int, int)), this, SLOT(PVSplitterMoved(int, int)));
 

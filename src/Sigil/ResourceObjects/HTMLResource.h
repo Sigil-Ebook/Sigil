@@ -97,6 +97,7 @@ public:
 
 signals:
     void LinkedResourceUpdated();
+    void TextChanging();
 
 private:
     /**

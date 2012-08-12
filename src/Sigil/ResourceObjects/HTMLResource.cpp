@@ -60,6 +60,7 @@ Resource::ResourceType HTMLResource::Type() const
 
 void HTMLResource::SetText(const QString &text)
 {
+    emit TextChanging();
     XMLResource::SetText(ConvertToEntities(CleanSource::Clean(text)));
 
     // Track resources whose change will necessitate an update of the BV and PV.

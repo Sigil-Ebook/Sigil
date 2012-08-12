@@ -415,6 +415,10 @@ private slots:
     // way that this is unnecessary. The CV linking is not possible in BV.
     void ResourceModified();
 
+    // Called when the underlying text inside the control is being replaced
+    // Store our caret location as required.
+    void ResourceTextChanging();
+
     void PVSplitterMoved(int pos, int index);
 
 private:
