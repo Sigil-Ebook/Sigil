@@ -228,6 +228,26 @@ public:
 
     // inherited
     bool ExecuteCaretUpdate();
+        
+    /**
+     * Find the containing block for the cursor location and apply a new
+     * element tag name to it.
+     *
+     * @param element_name The name of the element to format the block to.
+     * @param preserve_attributes Whether to keep any existing attributes on the previous block tag.
+     */
+    void FormatBlock( const QString &element_name, bool preserve_attributes );
+
+    /**
+     * Given the current cursor position/selection, look to toggle a format style tag
+     * around it. The rule on whether to insert a new tag or remove an existing one is
+     * attempting to emulate what would happen in BookView. If there is the same tag
+     * immediately adjacent to the selection (inside or outside it) then it is removed.
+     * Otherwise a new tag is inserted around the selection.
+     *
+     * @param element_name The name of the element to toggle the format of the selection.
+     */
+    void ToggleFormatSelection( const QString &element_name );
     	
 signals:
 
@@ -259,7 +279,6 @@ signals:
     void OpenIndexEditorRequest(IndexEditorModel::indexEntry *);
 
     void LinkClicked(const QUrl &url);
-
 
 public slots:
 
@@ -486,6 +505,17 @@ private:
      */
     boost::tuple< int, int > ConvertHierarchyToCaretMove( const QList< ViewEditor::ElementIndex > &hierarchy ) const;
 
+    /**
+     * Insert HTML tags around the current selection.
+     */
+    void InsertHTMLTagAroundSelection( const QString &left_element_name, const QString &right_element_name );
+
+    /**
+     * Is this position within the <body> tag of this text.
+     */
+    bool IsPositionInBody( const int &pos, const QString &text );
+
+    void FormatSelectionWithinElement(const QString &element_name, const int &previous_tag_index, const QString &text);
 
     ///////////////////////////////
     // PRIVATE MEMBER VARIABLES

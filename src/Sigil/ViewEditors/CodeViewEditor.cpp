@@ -61,6 +61,8 @@ static const QColor NUMBER_AREA_NUMCOLOR = QColor( 125, 125, 125 );
 
 static const QString XML_OPENING_TAG        = "(<[^>/][^>]*[^>/]>|<[^>/]>)";
 static const QString NEXT_OPEN_TAG_LOCATION = "<\\s*(?!/)";
+static const QString NEXT_TAG_LOCATION      = "<\\s*";
+static const QString TAG_NAME_SEARCH        = "<\\s*([^\\s>]+)";
 
 static const int MAX_SPELLING_SUGGESTIONS = 10;
 
@@ -1650,6 +1652,302 @@ bool CodeViewEditor::ExecuteCaretUpdate()
     return true;
 }
 
+
+void CodeViewEditor::FormatBlock( const QString &element_name, bool preserve_attributes )
+{
+    if ( element_name.isEmpty() ) {
+        return;
+    }
+
+    // Emit a selection changed event, so we can make sure the style buttons are updated
+    // to uncheck any heading buttons check states.
+    emit selectionChanged();
+
+    // Going to assume that the user is allowed to click anywhere within or just after the block 
+    // Also makes assumptions about being well formed, or else crazy things may happen...
+    int pos = textCursor().selectionStart();
+    QString text = toPlainText();
+    int text_length = text.count();
+
+    if ( !IsPositionInBody(pos, text) ) {
+        // User is outside the body so not allowed to change or insert a block tag
+        return;
+    }
+
+    QString tag_name;
+    QString opening_tag_text;
+    QString opening_tag_attributes;
+    QString closing_tag_text;
+    int opening_tag_start = -1;
+    int opening_tag_end = -1;
+    int closing_tag_start = -1;
+    int closing_tag_end = -1;
+
+    QRegExp tag_search( NEXT_TAG_LOCATION );
+    QRegExp tag_name_search( TAG_NAME_SEARCH );
+
+    // Search backwards for the next block tag
+    while (true) {
+        int previous_tag_index = text.lastIndexOf( tag_search, pos );
+        if (previous_tag_index < 0) {
+            return;
+        }
+        // We found a tag. It could be opening or closing.
+        int tag_name_index = tag_name_search.indexIn(text, previous_tag_index);
+        if (tag_name_index < 0) {
+            pos = previous_tag_index - 1;
+            continue;
+        }
+        tag_name = tag_name_search.cap(1).toLower();
+
+        // Isolate whether it was opening or closing tag.
+        bool is_closing_tag = false;
+        if ( tag_name.startsWith('/') ) {
+            is_closing_tag = true;
+            tag_name = tag_name.right(tag_name.length() - 1);
+        }
+
+        // Is this a block level tag? If not, keep searching...
+        if ( !BLOCK_LEVEL_TAGS.contains( tag_name) ) {
+            pos = previous_tag_index - 1;
+            continue;
+        }
+
+        // Special case for the body tag or a previous closing block tag
+        // In these situations we just insert html around our selection.
+        if ( tag_name == "body" || is_closing_tag ) {
+            InsertHTMLTagAroundSelection( element_name, "/" + element_name );
+            return;
+        }
+
+        // If we got to here we know we have an opening block tag we shall replace.
+        opening_tag_start = previous_tag_index;
+        // Grab any attributes applied to this opening tag
+        int attribute_start_index = tag_name_index + tag_name_search.matchedLength();
+        opening_tag_end = text.indexOf('>', attribute_start_index) + 1;
+        opening_tag_attributes = text.mid(attribute_start_index, opening_tag_end - attribute_start_index - 1).trimmed();
+
+        // Now find the closing tag for this block.
+        QRegExp closing_tag_search("</\\s*" + tag_name + "\\s*>", Qt::CaseInsensitive);
+        closing_tag_start = text.indexOf(closing_tag_search, opening_tag_end);
+        if (closing_tag_start < 0) {
+            // Could not find a closing tag for this block name. Invalid HTML.
+            return;
+        }
+        closing_tag_end = closing_tag_start + closing_tag_search.matchedLength();
+        // Success
+        break;
+    }
+
+    if ( preserve_attributes && opening_tag_attributes.length() > 0 ) {
+        opening_tag_text = "<" + element_name + " " + opening_tag_attributes + ">";
+    }
+    else {
+        opening_tag_text = "<" + element_name + ">";
+    }
+    closing_tag_text = "</" + element_name + ">";
+
+    // Actually perform the tag replacement
+    QTextCursor cursor = textCursor();
+    cursor.beginEditBlock();
+
+    // Replace the end block tag first since that does not affect positions
+    cursor.setPosition( closing_tag_end );
+    cursor.setPosition( closing_tag_start, QTextCursor::KeepAnchor );
+    cursor.removeSelectedText();
+    cursor.insertText( closing_tag_text );
+
+    // Now replace the opening block tag
+    cursor.setPosition( opening_tag_end );
+    cursor.setPosition( opening_tag_start, QTextCursor::KeepAnchor );
+    cursor.removeSelectedText();
+    cursor.insertText( opening_tag_text );
+
+    cursor.endEditBlock();
+
+    setTextCursor(cursor);
+}
+
+void CodeViewEditor::InsertHTMLTagAroundSelection( const QString &left_element_name, const QString &right_element_name )
+{
+    QTextCursor cursor = textCursor();
+
+    const QString selected_text = cursor.selectedText();
+    const QString replacement_text = "<" + left_element_name + ">" + selected_text + "<" + right_element_name + ">";
+    int selection_start = cursor.selectionStart() + left_element_name.length() + 2;
+
+    cursor.beginEditBlock();
+
+    cursor.removeSelectedText();
+    cursor.insertText( replacement_text );
+
+    cursor.endEditBlock();
+    cursor.setPosition( selection_start + selected_text.length() );
+	cursor.setPosition( selection_start, QTextCursor::KeepAnchor );
+
+    setTextCursor(cursor);
+}
+
+bool CodeViewEditor::IsPositionInBody( const int &pos, const QString &text )
+{
+    QRegExp body_search( BODY_START, Qt::CaseInsensitive );
+    QRegExp body_end_search( BODY_END, Qt::CaseInsensitive );
+
+    int body_tag_start = text.indexOf( body_search );
+    int body_tag_end   = body_tag_start + body_search.matchedLength();
+    int body_contents_end = text.indexOf( body_end_search );
+
+    if ( (pos < body_tag_end) || (pos > body_contents_end) ) {
+        return false;
+    }
+    return true;
+}
+
+void CodeViewEditor::ToggleFormatSelection( const QString &element_name )
+{
+    if ( element_name.isEmpty() ) {
+        return;
+    }
+
+    // Emit a selection changed event, so we can make sure the style buttons are updated
+    // to uncheck any style buttons check states.
+    emit selectionChanged();
+
+    // Going to assume that the user is allowed to click anywhere within or just after the block 
+    // Also makes assumptions about being well formed, or else crazy things may happen...
+    int pos = textCursor().selectionStart();
+    QString text = toPlainText();
+    int text_length = text.count();
+
+    if ( !IsPositionInBody(pos, text) ) {
+        // User is outside the body so not allowed to change or insert a style tag
+        return;
+    }
+
+    QString tag_name;
+    QRegExp tag_search( NEXT_TAG_LOCATION );
+    QRegExp tag_name_search( TAG_NAME_SEARCH );
+
+    bool in_existing_tag_occurrence = false;
+    int previous_tag_index = -1;
+
+    // Look backwards from the current selection to find whether we are in an open occurrence
+    // of this tag already within this block.
+    while (true) {
+        previous_tag_index = text.lastIndexOf( tag_search, pos );
+        if (previous_tag_index < 0) {
+            return;
+        }
+        // We found a tag. It could be opening or closing.
+        int tag_name_index = tag_name_search.indexIn(text, previous_tag_index);
+        if (tag_name_index < 0) {
+            pos = previous_tag_index - 1;
+            continue;
+        }
+        tag_name = tag_name_search.cap(1).toLower();
+
+        // Isolate whether it was opening or closing tag.
+        bool is_closing_tag = false;
+        if ( tag_name.startsWith('/') ) {
+            is_closing_tag = true;
+            tag_name = tag_name.right(tag_name.length() - 1);
+        }
+
+        // Is this tag the element we are looking for?
+        if ( element_name == tag_name ) {
+            if ( !is_closing_tag ) {
+                in_existing_tag_occurrence = true;
+            }
+            break;
+        }
+        else {
+            // Is this a block level tag?
+            if ( BLOCK_LEVEL_TAGS.contains( tag_name) ) {
+                // No point in searching any further - we reached the block parent
+                // without finding an open occurrence of this tag.
+                break;
+            }
+            else {
+                // Not a tag of interest - keep searching.
+                pos = previous_tag_index - 1;
+                continue;
+            }
+        }
+    }
+
+    if ( in_existing_tag_occurrence ) {
+        FormatSelectionWithinElement( element_name, previous_tag_index, text );
+    }
+    else {
+        InsertHTMLTagAroundSelection( element_name, "/" + element_name );
+    }
+}
+
+void CodeViewEditor::FormatSelectionWithinElement(const QString &element_name, const int &previous_tag_index, const QString &text)
+{
+    // We are inside an existing occurrence. Are we immediately adjacent to it?
+    // e.g. "<b>selected text</b>" should result in "selected text" losing the tags.
+    // but  "<b>XXXselected textYYY</b> should result in "<b>XXX</b>selected text<b>YYY</b>"
+    // plus the variations where XXX or YYY may be non-existent to make tag adjacent.
+    int previous_tag_end_index = text.indexOf(">", previous_tag_index);
+    QRegExp closing_tag_search("</\\s*" + element_name + "\\s*>", Qt::CaseInsensitive);
+    int closing_tag_index = text.indexOf(closing_tag_search, textCursor().selectionEnd());
+    if ( closing_tag_index < 0 ) {
+        // There is no closing tag for this style (not well formed). Give up.
+        return;
+    }
+
+    QTextCursor cursor = textCursor();
+    int selection_start = cursor.selectionStart();
+    int selection_end = cursor.selectionEnd();
+
+    bool adjacent_to_start = (previous_tag_end_index + 1) == selection_start;
+    bool adjacent_to_end = closing_tag_index == selection_end;
+
+    if (!adjacent_to_start && !adjacent_to_end) {
+        // We want to put a closing tag at the start and an opening tag after (copying attributes)
+        QString opening_tag_text = text.mid(previous_tag_index + 1, previous_tag_end_index - previous_tag_index - 1).trimmed();
+        InsertHTMLTagAroundSelection( "/" + element_name, opening_tag_text );
+    }
+    else {
+        QString opening_tag = text.mid( previous_tag_index, previous_tag_end_index - previous_tag_index + 1 );
+        QString closing_tag = text.mid( closing_tag_index, closing_tag_search.matchedLength() );
+
+        QString replacement_text = cursor.selectedText();
+        cursor.beginEditBlock();
+        int new_selection_end = selection_end;
+        int new_selection_start = selection_start;
+
+        if ( adjacent_to_start ) {
+            selection_start -= opening_tag.length();
+            new_selection_start -= opening_tag.length();
+            new_selection_end -= opening_tag.length();
+        }
+        else {
+            replacement_text = closing_tag + replacement_text;
+            new_selection_start += closing_tag.length();
+            new_selection_end += closing_tag.length();
+        }
+        if ( adjacent_to_end ) {
+            selection_end += closing_tag.length();
+        }
+        else {
+            replacement_text.append( opening_tag );
+        }
+
+        cursor.setPosition( selection_end );
+	    cursor.setPosition( selection_start, QTextCursor::KeepAnchor );
+        cursor.removeSelectedText();
+        cursor.insertText( replacement_text );
+
+        cursor.setPosition( new_selection_end );
+	    cursor.setPosition( new_selection_start, QTextCursor::KeepAnchor );
+
+        cursor.endEditBlock();
+        setTextCursor(cursor);
+    }
+
+}
 
 void CodeViewEditor::ConnectSignalsToSlots()
 {

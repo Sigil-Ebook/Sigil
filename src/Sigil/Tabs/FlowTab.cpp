@@ -946,6 +946,9 @@ void FlowTab::Bold()
     if (m_ViewState == MainWindow::ViewState_BookView) {
         m_wBookView->page()->triggerAction( QWebPage::ToggleBold );
     }
+    else if (m_ViewState == MainWindow::ViewState_CodeView) {
+        m_wCodeView->ToggleFormatSelection("b");
+    }
 }
 
 void FlowTab::Italic()
@@ -953,6 +956,9 @@ void FlowTab::Italic()
     if (m_ViewState == MainWindow::ViewState_BookView) {
         m_wBookView->page()->triggerAction( QWebPage::ToggleItalic );
     }    
+    else if (m_ViewState == MainWindow::ViewState_CodeView) {
+        m_wCodeView->ToggleFormatSelection("i");
+    }
 }
 
 void FlowTab::Underline()
@@ -960,6 +966,9 @@ void FlowTab::Underline()
     if (m_ViewState == MainWindow::ViewState_BookView) {
         m_wBookView->page()->triggerAction( QWebPage::ToggleUnderline );
     }    
+    else if (m_ViewState == MainWindow::ViewState_CodeView) {
+        m_wCodeView->ToggleFormatSelection("u");
+    }
 }
 
 void FlowTab::Strikethrough()
@@ -967,6 +976,9 @@ void FlowTab::Strikethrough()
     if (m_ViewState == MainWindow::ViewState_BookView) {
         m_wBookView->ExecCommand( "strikeThrough" );
     }    
+    else if (m_ViewState == MainWindow::ViewState_CodeView) {
+        m_wCodeView->ToggleFormatSelection("strike");
+    }
 }
 
 void FlowTab::AlignLeft()
@@ -1054,6 +1066,18 @@ void FlowTab::HeadingStyle( const QString& heading_type, bool preserve_attribute
 			m_wBookView->FormatBlock( "p", preserve_attributes );
         }
 	}
+    else if (m_ViewState == MainWindow::ViewState_CodeView)
+	{
+		QChar last_char = heading_type[ heading_type.count() - 1 ];
+
+		// For heading_type == "Heading #"
+		if ( last_char.isDigit() ) {
+			m_wCodeView->FormatBlock( "h" + QString( last_char ), preserve_attributes );
+        }
+		else if ( heading_type == "Normal" ) {
+			m_wCodeView->FormatBlock( "p", preserve_attributes );
+        }
+    }
 }
 
 

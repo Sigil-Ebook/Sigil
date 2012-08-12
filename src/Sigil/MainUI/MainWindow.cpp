@@ -1331,7 +1331,7 @@ void MainWindow::UpdateUIOnTabChanges()
     ui.actionStrikethrough     ->setChecked( tab.StrikethroughChecked() );
     ui.actionInsertBulletedList->setChecked( tab.BulletListChecked() );
     ui.actionInsertNumberedList->setChecked( tab.NumberListChecked() );
-    ui.actionRemoveFormatting->setEnabled( tab.RemoveFormattingEnabled() );
+    ui.actionRemoveFormatting  ->setEnabled( tab.RemoveFormattingEnabled() );
 
     // State of zoom controls depends on current tab/view
     float zoom_factor = tab.GetZoomFactor();
@@ -1506,10 +1506,10 @@ void MainWindow::SetStateActionsCodeView()
     ui.actionCopy ->setEnabled(true); 
     ui.actionPaste->setEnabled(true); 
 
-    ui.actionBold         ->setEnabled(false);
-    ui.actionItalic       ->setEnabled(false);
-    ui.actionUnderline    ->setEnabled(false);
-    ui.actionStrikethrough->setEnabled(false);
+    ui.actionBold         ->setEnabled(true);
+    ui.actionItalic       ->setEnabled(true);
+    ui.actionUnderline    ->setEnabled(true);
+    ui.actionStrikethrough->setEnabled(true);
 
     ui.actionAlignLeft ->setEnabled(false);
     ui.actionCenter    ->setEnabled(false);
@@ -1523,14 +1523,14 @@ void MainWindow::SetStateActionsCodeView()
     ui.actionInsertNumberedList->setEnabled(false);
     ui.actionRemoveFormatting->setEnabled(true);
 
-    ui.menuHeadings->setEnabled(false);
-    ui.actionHeading1->setEnabled(false);
-    ui.actionHeading2->setEnabled(false);
-    ui.actionHeading3->setEnabled(false);
-    ui.actionHeading4->setEnabled(false);
-    ui.actionHeading5->setEnabled(false);
-    ui.actionHeading6->setEnabled(false);
-    ui.actionHeadingNormal->setEnabled(false);
+    ui.menuHeadings->setEnabled(true);
+    ui.actionHeading1->setEnabled(true);
+    ui.actionHeading2->setEnabled(true);
+    ui.actionHeading3->setEnabled(true);
+    ui.actionHeading4->setEnabled(true);
+    ui.actionHeading5->setEnabled(true);
+    ui.actionHeading6->setEnabled(true);
+    ui.actionHeadingNormal->setEnabled(true);
 
     ui.actionInsertImage->setEnabled(true);
     ui.actionSplitChapter->setEnabled(true);
