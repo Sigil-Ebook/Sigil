@@ -17,18 +17,6 @@
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout_2">
      <item>
-      <widget class="QCheckBox" name="enableSpellCheck">
-       <property name="toolTip">
-        <string>Highlight misspelled words in Code View. 
-
-You can also search for misspelled words using Find by setting the mode to &quot;Spell Check&quot;.</string>
-       </property>
-       <property name="text">
-        <string>Enable automatic spell checking</string>
-       </property>
-      </widget>
-     </item>
-     <item>
       <spacer name="horizontalSpacer2">
        <property name="orientation">
         <enum>Qt::Horizontal</enum>

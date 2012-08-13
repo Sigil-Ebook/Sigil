@@ -506,6 +506,8 @@ private slots:
      */
     void SetCheckWellFormedErrors( bool new_state );
 
+    void SetAutoSpellCheck( bool new_state );
+
     /**
      * Sets the view state of the current tab to the saved state
      */

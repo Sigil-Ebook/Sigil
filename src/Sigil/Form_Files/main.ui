@@ -248,6 +248,7 @@
     <addaction name="actionCreateHTMLTOC"/>
     <addaction name="separator"/>
     <addaction name="actionValidateEpub"/>
+    <addaction name="actionAutoSpellCheck"/>
     <addaction name="actionSpellCheck"/>
     <addaction name="menuViewReports"/>
     <addaction name="separator"/>
@@ -425,6 +426,7 @@
    <attribute name="toolBarBreak">
     <bool>false</bool>
    </attribute>
+   <addaction name="actionAutoSpellCheck"/>
    <addaction name="actionSpellCheck"/>
    <addaction name="actionValidateEpub"/>
   </widget>
@@ -1136,6 +1138,23 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+Shift+V</string>
+   </property>
+  </action>
+  <action name="actionAutoSpellCheck">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../Resource_Files/main/main.qrc">
+     <normaloff>:/main/document-autospellcheck_22px.png</normaloff>:/main/document-autospellcheck_22px.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Auto SpellCheck</string>
+   </property>
+   <property name="toolTip">
+    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Auto Spell Check&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Toggle automatic spell checking in Code View.&lt;/p&gt;</string>
    </property>
   </action>
   <action name="actionSpellCheck">

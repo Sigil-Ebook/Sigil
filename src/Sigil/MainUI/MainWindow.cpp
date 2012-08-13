@@ -1235,8 +1235,6 @@ void MainWindow::PreferencesDialog()
 {
     Preferences preferences( this );
     preferences.exec();
-
-    emit SettingsChanged();
 }
 
 
@@ -1746,6 +1744,14 @@ void MainWindow::SetCheckWellFormedErrors( bool new_state )
 }
 
 
+void MainWindow::SetAutoSpellCheck( bool new_state )
+{
+    SettingsStore settings;
+    settings.setSpellCheck( new_state );
+    emit SettingsChanged();
+}
+
+
 void MainWindow::UpdateZoomLabel( float new_zoom_factor )
 {
     m_lbZoomLabel->setText( QString( "%1% " ).arg( qRound( new_zoom_factor * 100 ) ) );
@@ -1796,6 +1802,9 @@ void MainWindow::ReadSettings()
 {
     SettingsStore settings;
 
+    ui.actionAutoSpellCheck->setChecked(settings.spellCheck());
+    emit SettingsChanged();
+
     SettingsStore::CleanLevel clean_level = settings.cleanLevel();
 
     settings.beginGroup( SETTINGS_GROUP );
@@ -1822,6 +1831,7 @@ void MainWindow::ReadSettings()
     m_CheckWellFormedErrors = checkwellformederrors.isNull() ? true : checkwellformederrors.toBool();
     ui.actionCheckWellFormedErrors->setChecked( m_CheckWellFormedErrors );
     SetCheckWellFormedErrors( m_CheckWellFormedErrors );
+
 
     // The last folder used for saving and opening files
     m_LastFolderOpen  = settings.value( "lastfolderopen"  ).toString();
@@ -2529,6 +2539,8 @@ void MainWindow::ExtendUI()
     sm->registerAction(ui.actionGenerateTOC, "MainWindow.GenerateTOC");
     sm->registerAction(ui.actionCreateHTMLTOC, "MainWindow.CreateHTMLTOC");
     sm->registerAction(ui.actionValidateEpub, "MainWindow.ValidateEpub");
+    sm->registerAction(ui.actionValidateEpub, "MainWindow.AutoSpellCheck");
+    sm->registerAction(ui.actionValidateEpub, "MainWindow.SpellCheck");
     sm->registerAction(ui.actionViewClasses, "MainWindow.ViewClasses");
     sm->registerAction(ui.actionViewHTML, "MainWindow.ViewHTML");
     sm->registerAction(ui.actionViewImages, "MainWindow.ViewImages");
@@ -2595,6 +2607,10 @@ void MainWindow::ExtendIconSizes()
 
     icon = ui.actionSpellCheck->icon();
     icon.addFile(QString::fromUtf8(":/main/document-spellcheck_16px.png"));
+    ui.actionSpellCheck->setIcon(icon);
+
+    icon = ui.actionSpellCheck->icon();
+    icon.addFile(QString::fromUtf8(":/main/document-autospellcheck_16px.png"));
     ui.actionSpellCheck->setIcon(icon);
 
     icon = ui.actionCut->icon();
@@ -2824,7 +2840,8 @@ void MainWindow::ConnectSignalsToSlots()
     // Tools
     connect( ui.actionMetaEditor,    SIGNAL( triggered() ), this, SLOT( MetaEditorDialog()         ) );
     connect( ui.actionValidateEpub,  SIGNAL( triggered() ), this, SLOT( ValidateEpub()             ) );
-    connect( ui.actionSpellCheck,    SIGNAL( triggered() ), m_FindReplace, SLOT( FindMisspelledWord()               ) );
+    connect( ui.actionAutoSpellCheck, SIGNAL( triggered( bool ) ), this, SLOT( SetAutoSpellCheck( bool ) ) );
+    connect( ui.actionSpellCheck,    SIGNAL( triggered() ), m_FindReplace, SLOT( FindMisspelledWord() ) );
     connect( ui.actionGenerateTOC,   SIGNAL( triggered() ), this, SLOT( GenerateToc()              ) );
     connect( ui.actionCreateHTMLTOC, SIGNAL( triggered() ), this, SLOT( CreateHTMLTOC()        ) );
     connect( ui.actionViewClasses,   SIGNAL( triggered() ), this, SLOT( ViewClassesUsedInHTML()    ) );

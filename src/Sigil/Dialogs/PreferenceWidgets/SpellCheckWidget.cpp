@@ -47,7 +47,6 @@ void SpellCheckWidget::saveSettings()
 
     SettingsStore settings;
     settings.setDictionary(ui.dictionaries->itemData(ui.dictionaries->currentIndex()).toString());
-    settings.setSpellCheck(ui.enableSpellCheck->isChecked());
 
     SpellCheck *sc = SpellCheck::instance();
     sc->setDictionary(settings.dictionary(), true);
@@ -208,7 +207,6 @@ void SpellCheckWidget::readSettings()
     QString currentDict = sc->currentDictionary();
 
     SettingsStore settings;
-	ui.enableSpellCheck->setChecked(settings.spellCheck());
 
     if (!currentDict.isEmpty()) {
         int index = ui.dictionaries->findData(currentDict);
