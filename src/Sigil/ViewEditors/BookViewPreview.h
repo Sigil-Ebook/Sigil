@@ -107,7 +107,11 @@ public:
     void StoreCaretLocationUpdate( const QList< ViewEditor::ElementIndex > &hierarchy );
 
     // inherited
-    bool ExecuteCaretUpdate();
+    bool ExecuteCaretUpdate(QString caret_update = QString());
+
+    void ExecuteCaretUpdateAfterLoad(QString caret_location_update);
+
+    QString GetCaretLocationUpdate();
 
 signals:
     /**

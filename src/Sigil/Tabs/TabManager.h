@@ -80,10 +80,6 @@ public:
 
     void UpdateTabDisplay();
 
-    bool IsBackToLinkAllowed();
-
-    void ResetLastLinkOpened();
-
 public slots:
 
     /**
@@ -125,6 +121,7 @@ public slots:
                        MainWindow::ViewState view_state = MainWindow::ViewState_BookView,
                        int line_to_scroll_to = -1,
                        int position_to_scroll_to = -1,
+                       QString caret_location_to_scroll_to = QString(),
                        bool grab_focus = true );
 
     /**
@@ -167,8 +164,6 @@ public slots:
 
     void LinkClicked(const QUrl &url);
 
-    void OpenLastLinkOpened();
-
 signals:
     void ToggleViewStateRequest();
 
@@ -187,7 +182,7 @@ signals:
      *
      * @param url The URL to open.
      */
-    void OpenUrlRequest( const QUrl &url, int cursor_position = -1 );
+    void OpenUrlRequest( const QUrl &url );
 
     /**
      * Wired to the current FlowTab::OldTabRequest signal.
@@ -265,7 +260,8 @@ private:
                                 const QUrl &fragment, 
                                 MainWindow::ViewState view_state,
                                 int line_to_scroll_to = -1,
-                                int position_to_scroll_to = -1 );
+                                int position_to_scroll_to = -1,
+                                QString caret_location_to_scroll_to = QString() );
 
     /**
      * Creates a tab for the specified resource.
@@ -281,7 +277,8 @@ private:
                                       MainWindow::ViewState view_state,
                                       int line_to_scroll_to,
                                       int position_to_scroll_to,
-                                      bool grab_focus );
+                                      QString caret_location_to_scroll_to = QString(),
+                                      bool grab_focus = true);
 
     /**
      * Adds a new content tab to the displayed tabs.
@@ -307,9 +304,6 @@ private:
     QWeakPointer< ContentTab > m_LastContentTab;
 
     bool m_CheckWellFormedErrors;
-
-    QString m_LastLinkOpenedFilename;
-    int m_LastLinkOpenedPosition; 
 
     QTabBar *m_TabBar;
 };

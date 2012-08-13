@@ -69,12 +69,15 @@ public:
              MainWindow::ViewState view_state,
              int line_to_scroll_to = -1,
              int position_to_scroll_to = -1,
+             QString caret_location_to_scroll_to = QString(),
              bool grab_focus = true,
              QWidget *parent = 0 );
 
     ~FlowTab();
 
     // Overrides inherited from ContentTabs
+
+    MainWindow::ViewState GetViewState();
 
     bool IsModified();
 
@@ -94,6 +97,8 @@ public:
 
     bool AddToIndexEnabled();
     bool MarkForIndexEnabled();
+
+    QString GetCaretLocationUpdate() const;
 
     int GetCursorPosition() const;
     int GetCursorLine() const;
@@ -126,6 +131,8 @@ public:
     void ScrollToLine( int line );
 
     void ScrollToPosition( int cursor_position );
+
+    void ScrollToCaretLocation( QString caret_location_update );
 
     /**
      * Scrolls the tab to the top.
@@ -467,6 +474,8 @@ private:
     int m_LineToScrollTo;
 
     int m_PositionToScrollTo;
+
+    QString m_CaretLocationToScrollTo;
 
     /**
      * The HTML resource the tab is currently displaying.

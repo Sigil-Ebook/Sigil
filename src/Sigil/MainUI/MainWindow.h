@@ -138,6 +138,17 @@ public:
         ViewState_StaticView   /**< The static view for non-editable content. */
     };
 
+   /**
+     * The location of the last link opened.
+     */
+    struct LastLinkOpened
+    {
+        Resource *resource;
+        MainWindow::ViewState view_state;
+        QString bv_caret_location_update;
+        int cv_cursor_position;
+    };
+
     /**
      * Returns the status bar mutex used to protect
      * write access to the MainWindow's status bar.
@@ -182,7 +193,7 @@ public:
 public slots:
     void OpenFilename( QString filename );
 
-    void OpenUrl(const QUrl& url, int position = -1);
+    void OpenUrl(const QUrl& url);
 
     /**
      * Opens the specified resource in the specified view state.
@@ -196,9 +207,8 @@ public slots:
                        MainWindow::ViewState view_state = MainWindow::ViewState_Unknown,
                        int line_to_scroll_to = -1,
                        int position_to_scroll_to = -1,
+                       QString caret_location_to_scroll_to = QString(),
                        bool grab_focus = true );
-
-    void OpenCodeResource(Resource& resource, int position_to_scroll_to);
 
     void CreateIndex();
 
@@ -543,7 +553,11 @@ private slots:
     void ApplyHeadingStyleToTab( const QString &heading_type );
     void SetPreserveHeadingAttributes( bool new_state );
 
+    void OpenLastLinkOpened();
+
 private:
+
+    void ResetLastLinkOpened();
 
     /**
      * Reads all the stored application settings like
@@ -865,6 +879,8 @@ private:
     IndexEditor *m_IndexEditor;
 
     bool m_preserveHeadingAttributes;
+
+    LastLinkOpened *m_LastLinkOpened;
 
     /**
      * Holds all the widgets Qt Designer created for us.

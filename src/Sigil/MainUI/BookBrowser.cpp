@@ -191,7 +191,7 @@ void BookBrowser::RefreshTOC()
     emit RefreshTOCContentsRequest();
 }
 
-bool BookBrowser::OpenUrlResource( const QUrl &url, int cursor_position )
+Resource* BookBrowser::GetUrlResource( const QUrl &url )
 {
     const QString &filename = QFileInfo( url.path() ).fileName();
 
@@ -199,12 +199,7 @@ bool BookBrowser::OpenUrlResource( const QUrl &url, int cursor_position )
     {
         Resource &resource = m_Book->GetFolderKeeper().GetResourceByFilename( filename );
 
-        if (cursor_position > 0) {
-            emit OpenResourceRequest( resource, cursor_position );
-        } else {
-            emit OpenResourceRequest( resource, false, url.fragment() );
-        }
-        return true;
+        return &resource;
     }
 
     catch ( const ResourceDoesNotExist& )
@@ -215,7 +210,7 @@ bool BookBrowser::OpenUrlResource( const QUrl &url, int cursor_position )
             );
     }       
 
-    return false;
+    return NULL;
 }
 
 

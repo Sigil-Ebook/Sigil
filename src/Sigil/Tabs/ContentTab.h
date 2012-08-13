@@ -151,6 +151,8 @@ public:
      */
     virtual bool CodeViewChecked()      { return false; }
 
+    virtual QString GetCaretLocationUpdate() const { return QString(); }
+
     virtual int GetCursorPosition() const { return 0; }
     virtual int GetCursorLine() const { return 0; }
     virtual int GetCursorColumn() const { return 0; }

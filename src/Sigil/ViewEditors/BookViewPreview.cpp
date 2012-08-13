@@ -71,6 +71,12 @@ BookViewPreview::BookViewPreview(QWidget *parent)
     connect(page(), SIGNAL(loadFinished(bool)), this, SLOT(WebPageJavascriptOnLoad()));
 }
 
+QString BookViewPreview::GetCaretLocationUpdate()
+{
+    StoreCaretLocationUpdate(GetCaretLocation());
+    return m_CaretLocationUpdate;
+}
+
 QSize BookViewPreview::sizeHint() const
 {
     return QSize(16777215, 16777215);
@@ -507,8 +513,11 @@ QWebElement BookViewPreview::DomNodeToQWebElement( const xc::DOMNode &node )
 }
 
 
-bool BookViewPreview::ExecuteCaretUpdate()
+bool BookViewPreview::ExecuteCaretUpdate(QString caret_update)
 {
+    if (caret_update.isEmpty()) {
+        m_CaretLocationUpdate = "";
+    }
     // Currently certain actions in Sigil result in a document being loaded multiple times
 	// in response to the signals. Only proceed with moving the caret if all loads are finished. 
     if ( m_pendingLoadCount > 0 ) {
@@ -527,6 +536,18 @@ bool BookViewPreview::ExecuteCaretUpdate()
 
     return true;
 }
+
+
+void BookViewPreview::ExecuteCaretUpdateAfterLoad(QString caret_location_update)
+{
+    QString javascript = "window.addEventListener('load', GoToCaretLocation, false);"
+        "function GoToCaretLocation() { " % caret_location_update % "}";
+
+    EvaluateJavascript(caret_location_update);
+
+    m_CaretLocationUpdate = "";
+}
+
 
 BookViewPreview::SelectRangeInputs BookViewPreview::GetRangeInputs( const QMap< int, xc::DOMNode* > &node_offsets,
                                                                   int string_start, 

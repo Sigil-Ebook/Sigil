@@ -57,6 +57,7 @@ FlowTab::FlowTab(HTMLResource& resource,
                   MainWindow::ViewState view_state,
                   int line_to_scroll_to,
                   int position_to_scroll_to,
+                  QString caret_location_to_scroll_to,
                   bool grab_focus,
                   QWidget *parent)
     :
@@ -64,6 +65,7 @@ FlowTab::FlowTab(HTMLResource& resource,
     m_FragmentToScroll(fragment),
     m_LineToScrollTo(line_to_scroll_to),
     m_PositionToScrollTo(position_to_scroll_to),
+    m_CaretLocationToScrollTo(caret_location_to_scroll_to),
     m_HTMLResource(resource),
     m_views(new QStackedWidget(this)),
     m_pvVSplitter(new QSplitter(this)),
@@ -154,6 +156,11 @@ FlowTab::~FlowTab()
         delete(m_views);
         m_views = 0;
     }
+}
+
+MainWindow::ViewState FlowTab::GetViewState()
+{
+    return m_ViewState;
 }
 
 bool FlowTab::IsModified()
@@ -251,6 +258,18 @@ bool FlowTab::MarkForIndexEnabled()
     }
 
     return false;
+}
+
+QString FlowTab::GetCaretLocationUpdate() const
+{
+    if (m_ViewState == MainWindow::ViewState_BookView) {
+        return m_wBookView->GetCaretLocationUpdate();
+    }
+    else if (m_ViewState == MainWindow::ViewState_PreviewView) {
+        return m_wBookPreview->GetCaretLocationUpdate();
+    }
+
+    return QString();
 }
 
 int FlowTab::GetCursorPosition() const
@@ -411,6 +430,16 @@ void FlowTab::ScrollToPosition(int cursor_position)
 {
     if (m_ViewState == MainWindow::ViewState_CodeView) {
         m_wCodeView->ScrollToPosition(cursor_position);
+    }
+}
+
+void FlowTab::ScrollToCaretLocation( QString caret_location_update )
+{
+    if (m_ViewState == MainWindow::ViewState_BookView) {
+        m_wBookView->ExecuteCaretUpdate(caret_location_update);
+    }
+    else if (m_ViewState == MainWindow::ViewState_PreviewView) {
+        m_wBookPreview->ExecuteCaretUpdate(caret_location_update);
     }
 }
 
@@ -888,7 +917,12 @@ void FlowTab::DelayedInitialization()
         case MainWindow::ViewState_PreviewView:
         {
             SplitView();
-            m_wBookPreview->ScrollToFragmentAfterLoad(m_FragmentToScroll.toString());
+            if (!m_CaretLocationToScrollTo.isEmpty()) {
+                m_wBookPreview->ExecuteCaretUpdateAfterLoad(m_CaretLocationToScrollTo);
+            }
+            else {
+                m_wBookPreview->ScrollToFragmentAfterLoad(m_FragmentToScroll.toString());
+            }
             break;
         }
         // Don't care about these so ignore them.
@@ -896,7 +930,12 @@ void FlowTab::DelayedInitialization()
         case MainWindow::ViewState_StaticView:
         default:
             BookView();
-            m_wBookView->ScrollToFragmentAfterLoad(m_FragmentToScroll.toString());
+            if (!m_CaretLocationToScrollTo.isEmpty()) {
+                m_wBookView->ExecuteCaretUpdateAfterLoad(m_CaretLocationToScrollTo);
+            }
+            else {
+                m_wBookView->ScrollToFragmentAfterLoad(m_FragmentToScroll.toString());
+            }
             break;
     }
 

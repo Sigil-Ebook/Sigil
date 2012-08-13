@@ -130,11 +130,11 @@ public slots:
 
 
     /**
-     * Opens the HTML resource referenced by the specified URL.
+     * Returns the resource referenced by the specified URL.
      *
      * @param url The URL to open.
      */
-    bool OpenUrlResource( const QUrl &url, int cursor_position = -1 );
+    Resource* GetUrlResource( const QUrl &url );
 
     void AddNewHTML();
     void AddNewCSS();
@@ -171,16 +171,6 @@ signals:
      *
      */
     void RefreshTOCContentsRequest();
-
-    /**
-     * Emitted when the browser wants a resource to be opened.
-     *
-     * @param resource The resource that should be opened.
-     * @param precede_current_tab Should the new tab precede the currently opened one.
-     * @param fragment The fragment ID to which the new tab should be scrolled.
-     */
-    void OpenResourceRequest( Resource &resource, bool precede_current_tab, const QUrl &fragment );
-    void OpenResourceRequest( Resource &resource, int cursor_position = -1 );
 
     /**
      * Emitted when the book's content is modified through the Book Browser.

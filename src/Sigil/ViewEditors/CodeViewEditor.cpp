@@ -504,6 +504,8 @@ void CodeViewEditor::ScrollToPosition(int cursor_position)
     else {
         m_DelayedCursorScreenCenteringRequired = true;
     }
+
+    m_CaretUpdate.clear();
 }
 
 void CodeViewEditor::ScrollToLine( int line )
@@ -528,7 +530,6 @@ void CodeViewEditor::ScrollToLine( int line )
     }
 }
 
-
 void CodeViewEditor::ScrollToFragment( const QString &fragment )
 {
     if ( fragment.isEmpty() )
@@ -539,14 +540,8 @@ void CodeViewEditor::ScrollToFragment( const QString &fragment )
 
     QRegExp fragment_search( "id=\"" % fragment % "\"");
     int index = toPlainText().indexOf( fragment_search );
-
-    // Count the number of newlines between the start of the text and the location of the 
-    // desired fragment. This will be the line to scroll to.
-    int line = toPlainText().left( index ).count( '\n' ) + 1;
-
-    ScrollToLine( line );
+    ScrollToPosition(index);
 }
-
 
 bool CodeViewEditor::IsLoadingFinished()
 {

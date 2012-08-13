@@ -110,6 +110,8 @@ public:
      */
     virtual void StoreCaretLocationUpdate( const QList< ElementIndex > &hierarchy ) {}
 
+    virtual QString GetCaretLocationUpdate() { return QString(); }
+
     /**
      * Perform the relocating of the caret on screen to
      * the location state that has been persisted.
@@ -117,6 +119,7 @@ public:
      * @return \c true if the update was performed.
      */
     virtual bool ExecuteCaretUpdate() { return false; }
+    virtual bool ExecuteCaretUpdateAfterLoad() { return false; }
 };
 
 #endif // VIEWEDITOR_H

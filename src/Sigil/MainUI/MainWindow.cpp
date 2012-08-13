@@ -125,7 +125,8 @@ MainWindow::MainWindow( const QString &openfilepath, QWidget *parent, Qt::WFlags
     m_SearchEditor(new SearchEditor(this)),
     m_ClipboardEditor(new ClipboardEditor(this)),
     m_IndexEditor(new IndexEditor(this)),
-    m_preserveHeadingAttributes( true )
+    m_preserveHeadingAttributes( true ),
+    m_LastLinkOpened(new LastLinkOpened())
 {
     ui.setupUi( this );
 
@@ -193,16 +194,48 @@ void MainWindow::OpenFilename( QString filename )
     }
 }
 
-void MainWindow::OpenUrl(const QUrl& url, int position)
+void MainWindow::ResetLastLinkOpened()
+{
+    m_LastLinkOpened->resource = NULL;
+    m_LastLinkOpened->view_state = MainWindow::ViewState_Unknown;
+    m_LastLinkOpened->bv_caret_location_update = QString();
+    m_LastLinkOpened->cv_cursor_position = -1;
+
+    ui.actionBackToLink->setEnabled(false);
+}
+
+void MainWindow::OpenLastLinkOpened()
+{
+    if (m_LastLinkOpened->resource) {
+        SetViewState(m_LastLinkOpened->view_state);
+        OpenResource(*m_LastLinkOpened->resource, false, QUrl(), m_LastLinkOpened->view_state, -1, m_LastLinkOpened->cv_cursor_position, m_LastLinkOpened->bv_caret_location_update);
+    }
+    ResetLastLinkOpened();
+}
+
+void MainWindow::OpenUrl(const QUrl& url)
 {
     if (url.isEmpty()) {
         return;
     }
 
+    ResetLastLinkOpened();
+
+    ContentTab &tab = m_TabManager.GetCurrentContentTab();
+    if (&tab == NULL) {
+        return;
+    }
+    Resource *current_resource = &tab.GetLoadedResource();
+
+    // Save the current tab data for returning to the link location.
+    m_LastLinkOpened->view_state = m_ViewState;
+    m_LastLinkOpened->resource = current_resource;
+    m_LastLinkOpened->cv_cursor_position = tab.GetCursorPosition();
+    m_LastLinkOpened->bv_caret_location_update = tab.GetCaretLocationUpdate();
+
     if (url.scheme().isEmpty() || url.scheme() == "file") {
-        if (m_BookBrowser->OpenUrlResource(url, position)) {
-            ui.actionBackToLink->setEnabled(m_TabManager.IsBackToLinkAllowed());
-        }
+        Resource *resource = m_BookBrowser->GetUrlResource(url);
+        OpenResource(*resource, false, url.fragment());
     } 
     else {
         QMessageBox::StandardButton button_pressed;
@@ -211,12 +244,8 @@ void MainWindow::OpenUrl(const QUrl& url, int position)
             QDesktopServices::openUrl(url);
         }
     }
-}
 
-
-void MainWindow::OpenCodeResource(Resource& resource, int position_to_scroll_to)
-{
-    OpenResource(resource, false, QUrl(), MainWindow::ViewState_CodeView, -1, position_to_scroll_to, true);
+    ui.actionBackToLink->setEnabled(m_LastLinkOpened->resource);
 }
 
 void MainWindow::OpenResource( Resource& resource,
@@ -225,6 +254,7 @@ void MainWindow::OpenResource( Resource& resource,
                                MainWindow::ViewState view_state,
                                int line_to_scroll_to,
                                int position_to_scroll_to,
+                               QString caret_location_to_scroll_to,
                                bool grab_focus)
 {
     MainWindow::ViewState vs = m_ViewState;
@@ -232,7 +262,7 @@ void MainWindow::OpenResource( Resource& resource,
         vs = view_state;
     }
 
-    m_TabManager.OpenResource( resource, precede_current_tab, fragment, vs, line_to_scroll_to, position_to_scroll_to, grab_focus );
+    m_TabManager.OpenResource( resource, precede_current_tab, fragment, vs, line_to_scroll_to, position_to_scroll_to, caret_location_to_scroll_to, grab_focus );
 
     if (vs != m_ViewState) {
         SetViewState(vs);
@@ -1765,7 +1795,7 @@ void MainWindow::CreateChapterBreakOldTab( QString content, HTMLResource& origin
 
     // Open the old shortened content in a new tab preceding the current one.
     // without grabbing focus
-    OpenResource( html_resource, true, QUrl(), m_ViewState, -1, -1, false );
+    OpenResource( html_resource, true, QUrl(), m_ViewState, -1, -1, "", false );
 
     FlowTab *flow_tab = qobject_cast< FlowTab* >( &GetCurrentContentTab() );
     // We want the current tab to be scrolled to the top.
@@ -1924,8 +1954,7 @@ void MainWindow::SetNewBook( QSharedPointer< Book > new_book )
     m_ValidationResultsView->SetBook( m_Book );
 
     m_IndexEditor->SetBook( m_Book );
-    m_TabManager.ResetLastLinkOpened();
-    ui.actionBackToLink->setEnabled(false);
+    ResetLastLinkOpened();
 
     connect( m_Book.data(), SIGNAL( ModifiedStateChanged( bool ) ), this, SLOT( setWindowModified( bool ) ) );
     connect( m_BookBrowser,     SIGNAL( GuideSemanticTypeAdded( const HTMLResource&, GuideSemantics::GuideSemanticType ) ),
@@ -2880,7 +2909,7 @@ void MainWindow::ConnectSignalsToSlots()
     connect( ui.actionCloseOtherTabs,SIGNAL( triggered() ), &m_TabManager, SLOT( CloseOtherTabs() ) );
     connect( ui.actionOpenPreviousResource, SIGNAL( triggered() ), m_BookBrowser, SLOT( OpenPreviousResource() ) );
     connect( ui.actionOpenNextResource,     SIGNAL( triggered() ), m_BookBrowser, SLOT( OpenNextResource()     ) );
-    connect( ui.actionBackToLink,    SIGNAL( triggered() ),  &m_TabManager,   SLOT( OpenLastLinkOpened()                    ) );
+    connect( ui.actionBackToLink,    SIGNAL( triggered() ),  this,   SLOT( OpenLastLinkOpened()                    ) );
 
     // Slider
     connect( m_slZoomSlider,         SIGNAL( valueChanged( int ) ), this, SLOT( SliderZoom( int ) ) );
@@ -2922,12 +2951,6 @@ void MainWindow::ConnectSignalsToSlots()
     connect( m_BookBrowser, SIGNAL( ResourceActivated( Resource& ) ),
              this, SLOT(   OpenResource(          Resource& ) ) );
 
-    connect( m_BookBrowser, SIGNAL( OpenResourceRequest( Resource&, bool, const QUrl& ) ),
-             this, SLOT(   OpenResource(        Resource&, bool, const QUrl& ) ) );
-
-    connect( m_BookBrowser, SIGNAL( OpenResourceRequest( Resource&, int ) ),
-             this, SLOT(   OpenCodeResource(             Resource&, int ) ) );
-
     connect(m_BookBrowser, SIGNAL(MergeResourcesRequest(QList<Resource *>)), this, SLOT(MergeResources(QList<Resource *>)));
 
     connect(m_BookBrowser, SIGNAL(LinkStylesheetsToResourcesRequest(QList<Resource *>)), this, SLOT(LinkStylesheetsToResources(QList<Resource *>)));
@@ -2944,8 +2967,8 @@ void MainWindow::ConnectSignalsToSlots()
              this,
                 SLOT(   OpenResource(        Resource&, bool, const QUrl&, MainWindow::ViewState, int ) ) );
 
-    connect( &m_TabManager, SIGNAL( OpenUrlRequest(  const QUrl&, int ) ),
-             this, SLOT(   OpenUrl( const QUrl&, int ) ) );
+    connect( &m_TabManager, SIGNAL( OpenUrlRequest( const QUrl& ) ),
+             this, SLOT(   OpenUrl( const QUrl& ) ) );
 
     connect( &m_TabManager, SIGNAL( OldTabRequest(            QString, HTMLResource& ) ),
              this,          SLOT(   CreateChapterBreakOldTab( QString, HTMLResource& ) ) );
