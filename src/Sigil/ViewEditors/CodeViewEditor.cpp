@@ -1667,7 +1667,6 @@ void CodeViewEditor::FormatBlock( const QString &element_name, bool preserve_att
     // Also makes assumptions about being well formed, or else crazy things may happen...
     int pos = textCursor().selectionStart();
     QString text = toPlainText();
-    int text_length = text.count();
 
     if ( !IsPositionInBody(pos, text) ) {
         // User is outside the body so not allowed to change or insert a block tag
@@ -1813,7 +1812,6 @@ void CodeViewEditor::ToggleFormatSelection( const QString &element_name )
     // Also makes assumptions about being well formed, or else crazy things may happen...
     int pos = textCursor().selectionStart();
     QString text = toPlainText();
-    int text_length = text.count();
 
     if ( !IsPositionInBody(pos, text) ) {
         // User is outside the body so not allowed to change or insert a style tag
@@ -1900,7 +1898,6 @@ void CodeViewEditor::FormatSelectionWithinElement(const QString &element_name, c
         // There is no closing tag for this style (not well formed). Give up.
         return;
     }
-    int closing_tag_end_index = closing_tag_index + closing_tag_search.matchedLength();
 
     QTextCursor cursor = textCursor();
     int selection_start = cursor.selectionStart();
