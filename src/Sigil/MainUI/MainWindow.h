@@ -195,7 +195,8 @@ public slots:
                        const QUrl &fragment = QUrl(),
                        MainWindow::ViewState view_state = MainWindow::ViewState_Unknown,
                        int line_to_scroll_to = -1,
-                       int position_to_scroll_to = -1);
+                       int position_to_scroll_to = -1,
+                       bool grab_focus = true );
 
     void OpenCodeResource(Resource& resource, int position_to_scroll_to);
 

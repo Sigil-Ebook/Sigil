@@ -216,7 +216,7 @@ void MainWindow::OpenUrl(const QUrl& url, int position)
 
 void MainWindow::OpenCodeResource(Resource& resource, int position_to_scroll_to)
 {
-    OpenResource(resource, false, QUrl(), MainWindow::ViewState_CodeView, -1, position_to_scroll_to);
+    OpenResource(resource, false, QUrl(), MainWindow::ViewState_CodeView, -1, position_to_scroll_to, true);
 }
 
 void MainWindow::OpenResource( Resource& resource,
@@ -224,14 +224,15 @@ void MainWindow::OpenResource( Resource& resource,
                                const QUrl &fragment,
                                MainWindow::ViewState view_state,
                                int line_to_scroll_to,
-                               int position_to_scroll_to)
+                               int position_to_scroll_to,
+                               bool grab_focus)
 {
     MainWindow::ViewState vs = m_ViewState;
     if (view_state != MainWindow::ViewState_Unknown) {
         vs = view_state;
     }
 
-    m_TabManager.OpenResource( resource, precede_current_tab, fragment, vs, line_to_scroll_to, position_to_scroll_to );
+    m_TabManager.OpenResource( resource, precede_current_tab, fragment, vs, line_to_scroll_to, position_to_scroll_to, grab_focus );
 
     if (vs != m_ViewState) {
         SetViewState(vs);
@@ -1330,7 +1331,7 @@ void MainWindow::UpdateUIOnTabChanges()
     ui.actionStrikethrough     ->setChecked( tab.StrikethroughChecked() );
     ui.actionInsertBulletedList->setChecked( tab.BulletListChecked() );
     ui.actionInsertNumberedList->setChecked( tab.NumberListChecked() );
-    ui.actionRemoveFormatting->setEnabled( tab.RemoveFormattingEnabled() );
+    ui.actionRemoveFormatting  ->setEnabled( tab.RemoveFormattingEnabled() );
 
     // State of zoom controls depends on current tab/view
     float zoom_factor = tab.GetZoomFactor();
@@ -1505,10 +1506,10 @@ void MainWindow::SetStateActionsCodeView()
     ui.actionCopy ->setEnabled(true); 
     ui.actionPaste->setEnabled(true); 
 
-    ui.actionBold         ->setEnabled(false);
-    ui.actionItalic       ->setEnabled(false);
-    ui.actionUnderline    ->setEnabled(false);
-    ui.actionStrikethrough->setEnabled(false);
+    ui.actionBold         ->setEnabled(true);
+    ui.actionItalic       ->setEnabled(true);
+    ui.actionUnderline    ->setEnabled(true);
+    ui.actionStrikethrough->setEnabled(true);
 
     ui.actionAlignLeft ->setEnabled(false);
     ui.actionCenter    ->setEnabled(false);
@@ -1522,14 +1523,14 @@ void MainWindow::SetStateActionsCodeView()
     ui.actionInsertNumberedList->setEnabled(false);
     ui.actionRemoveFormatting->setEnabled(true);
 
-    ui.menuHeadings->setEnabled(false);
-    ui.actionHeading1->setEnabled(false);
-    ui.actionHeading2->setEnabled(false);
-    ui.actionHeading3->setEnabled(false);
-    ui.actionHeading4->setEnabled(false);
-    ui.actionHeading5->setEnabled(false);
-    ui.actionHeading6->setEnabled(false);
-    ui.actionHeadingNormal->setEnabled(false);
+    ui.menuHeadings->setEnabled(true);
+    ui.actionHeading1->setEnabled(true);
+    ui.actionHeading2->setEnabled(true);
+    ui.actionHeading3->setEnabled(true);
+    ui.actionHeading4->setEnabled(true);
+    ui.actionHeading5->setEnabled(true);
+    ui.actionHeading6->setEnabled(true);
+    ui.actionHeadingNormal->setEnabled(true);
 
     ui.actionInsertImage->setEnabled(true);
     ui.actionSplitChapter->setEnabled(true);
@@ -1756,10 +1757,16 @@ void MainWindow::CreateChapterBreakOldTab( QString content, HTMLResource& origin
 
     m_BookBrowser->Refresh();
 
-    // Open tab with part 1 of old document as the current tab
-    // Open tab with part 2 of old document as unfocused preceding tab
-    OpenResource( originating_resource );
-    OpenResource( html_resource, true );
+    // Open the old shortened content in a new tab preceding the current one.
+    // without grabbing focus
+    OpenResource( html_resource, true, QUrl(), m_ViewState, -1, -1, false );
+
+    FlowTab *flow_tab = qobject_cast< FlowTab* >( &GetCurrentContentTab() );
+    // We want the current tab to be scrolled to the top.
+    if ( flow_tab )
+    {
+        flow_tab->ScrollToTop();
+    }
 
     statusBar()->showMessage( tr( "Chapter split. You may need to update the Table of Contents." ), STATUSBAR_MSG_DISPLAY_TIME );
 }

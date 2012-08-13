@@ -43,7 +43,7 @@
       <bool>true</bool>
      </property>
      <property name="columnCount">
-      <number>4</number>
+      <number>3</number>
      </property>
      <column>
       <property name="text">
@@ -58,11 +58,6 @@
      <column>
       <property name="text">
        <string>Shortcut</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
-       <string>Default Shortcut</string>
       </property>
      </column>
     </widget>
@@ -113,7 +108,7 @@
          <widget class="QLineEdit" name="targetEdit"/>
         </item>
         <item>
-         <widget class="QPushButton" name="resetButton">
+         <widget class="QPushButton" name="assignButton">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
             <horstretch>0</horstretch>
@@ -121,10 +116,13 @@
            </sizepolicy>
           </property>
           <property name="toolTip">
-           <string>Reset to default</string>
+           <string>Assign this keyboard shortcut, overring any conflicting usages</string>
           </property>
           <property name="text">
-           <string>Reset</string>
+           <string>Assign</string>
+          </property>
+          <property name="enabled">
+           <bool>false</bool>
           </property>
           <property name="iconSize">
            <size>
@@ -135,9 +133,15 @@
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="clearButton">
+         <widget class="QPushButton" name="removeButton">
+          <property name="toolTip">
+           <string>Remove this keyboard shortcut</string>
+          </property>
           <property name="text">
-           <string>Clear</string>
+           <string>Remove</string>
+          </property>
+          <property name="enabled">
+            <bool>false</bool>
           </property>
          </widget>
         </item>

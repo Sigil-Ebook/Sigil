@@ -60,16 +60,16 @@ protected:
 
 private slots:
     /**
-     * Handles activation of an item in the treeview that lists the actions.
+     * Handles current item changing in the treeview that lists the actions.
      *
-     * @param item The item that was activated.
-     * @param column The column that was activated.
+     * @param current The item that is current.
+     * @param previous The previous item that was current.
      */
-    void treeWidgetItemActivatedSlot(QTreeWidgetItem *item, int column);
+    void treeWidgetItemChangedSlot(QTreeWidgetItem *current, QTreeWidgetItem *previous);
     /**
      * Clear the keysequence associated with the selected item.
      */
-    void clearButtonClicked();
+    void removeButtonClicked();
 
     /**
      * Displays item in the list that match the user's entered text.
@@ -85,9 +85,9 @@ private slots:
     void targetEditTextChangedSlot(const QString &text);
 
     /**
-     * Replace the keysequence for the selected item with its default.
+     * Assign the specified text as a keyboard shortcut for the selected item.
      */
-    void resetButtonClickedSlot();
+    void assignButtonClickedSlot();
     /**
      * Replace the keysequences for every selected item with its default.
      */
@@ -110,20 +110,14 @@ private:
      */
     int translateModifiers(Qt::KeyboardModifiers state, const QString &text);
     /**
-     * Changes how an item in the list is displayed. Modified items are shown
-     * as italic.
-     *
-     * @param item The item in the list.
-     */
-    void updateItemView(QTreeWidgetItem *item);
-    /**
-     * Store the shortcut for the currently selected item.
-     */
-    void updateCurrentItemShortcut();
-    /**
      * Displays all items that are in use by another item in red.
      */
     void markSequencesAsDuplicatedIfNeeded();
+
+    /**
+     * If the current shortcut being typed duplicates, display conflicts below.
+     */
+    void showDuplicatesTextIfNeeded();
 
     Ui::KeyboardShortcutsWidget ui;
 };

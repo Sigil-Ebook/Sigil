@@ -69,6 +69,7 @@ public:
              MainWindow::ViewState view_state,
              int line_to_scroll_to = -1,
              int position_to_scroll_to = -1,
+             bool grab_focus = true,
              QWidget *parent = 0 );
 
     ~FlowTab();
@@ -414,6 +415,10 @@ private slots:
     // way that this is unnecessary. The CV linking is not possible in BV.
     void ResourceModified();
 
+    // Called when the underlying text inside the control is being replaced
+    // Store our caret location as required.
+    void ResourceTextChanging();
+
     void PVSplitterMoved(int pos, int index);
 
 private:
@@ -518,6 +523,8 @@ private:
     bool m_initialLoad;
 
     bool m_BookPreviewNeedReload;
+
+    bool m_grabFocus;
 };
 
 #endif // FLOWTAB_H

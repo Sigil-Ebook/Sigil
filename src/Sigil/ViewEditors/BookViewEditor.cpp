@@ -41,9 +41,18 @@ const int PROGRESS_BAR_MINIMUM_DURATION = 1500;
 
 const QString BREAK_TAG_INSERT    = "<hr class=\"sigilChapterBreak\" />";
 const QString XML_NAMESPACE_CRUFT = "xmlns=\"http://www.w3.org/1999/xhtml\"";
-const QString REPLACE_SPANS = "<span class=\"SigilReplace_\\d*\"( id=\"SigilReplace_\\d*\")*>";
+const QString WEBKIT_BODY_STYLE_CRUFT = " style=\"word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space; \"";
 
-const QString XML_TAG = "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"no\"?>";
+const QString DOC_PREFIX = "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"no\"?>\n" 
+                           "<!DOCTYPE html PUBLIC \"W3C//DTD XHTML 1.1//EN\"\n"
+                           "  \"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd\">\n"
+                           "<html xmlns=\"http://www.w3.org/1999/xhtml\">";
+
+const QString REMOVE_XML_TAG = "<\\?xml.*>";
+const QString REMOVE_DOCTYPE_TAG = "<!DOCTYPE.*>";
+const QString REMOVE_HTML_TAG = "<html.*>";
+
+const QString REPLACE_SPANS = "<span class=\"SigilReplace_\\d*\"( id=\"SigilReplace_\\d*\")*>";
 
 /**
  * The JavaScript source code for getting a string representation
@@ -131,8 +140,21 @@ QString BookViewEditor::GetHtml()
     QString html_from_Qt = page()->mainFrame()->toHtml();
 
     html_from_Qt = RemoveBookViewReplaceSpans( html_from_Qt );
-    html_from_Qt = html_from_Qt.remove( XML_NAMESPACE_CRUFT );
-    return XML_TAG % html_from_Qt;
+
+    // Remove xml/doctype/html tags even if only some are present.
+    // Replace with standard tags that work whether tidy is on or off.
+    QRegExp remove_xml_tag( REMOVE_XML_TAG );
+    remove_xml_tag.setMinimal( true );
+    QRegExp remove_doctype_tag( REMOVE_DOCTYPE_TAG );
+    remove_doctype_tag.setMinimal( true );
+    QRegExp remove_html_tag( REMOVE_HTML_TAG );
+    remove_html_tag.setMinimal( true );
+    html_from_Qt.remove(remove_xml_tag);
+    html_from_Qt.remove(remove_doctype_tag);
+    html_from_Qt.remove(remove_html_tag);
+    html_from_Qt.prepend(DOC_PREFIX);
+
+    return html_from_Qt;
 }
 
 #if 0
@@ -154,19 +176,27 @@ void BookViewEditor::InsertHtml(const QString &html)
 
 QString BookViewEditor::SplitChapter()
 {
-    QString head     = page()->mainFrame()->documentElement().findFirst( "head" ).toOuterXml();    
+    QString head     = page()->mainFrame()->documentElement().findFirst( "head" ).toOuterXml();
     QString body_tag = EvaluateJavascript( GET_BODY_TAG_HTML ).toString();
     QString segment  = EvaluateJavascript( c_GetBlock % c_GetSegmentHTML ).toString();
 
-    return QString( "<html>" )
-           .append( head )
-           .append( body_tag )
-           .append( segment )
-           .append( "</body></html>" )
-           // Webkit adds this xmlns attribute to *every*
-           // element... for no reason. Tidy will add it back
-           // to the <head> so we just remove it globally.
-           .remove( XML_NAMESPACE_CRUFT );
+    emit contentsChangedExtra();
+
+    // The <body> tag returned from above will have a closing </body>
+    // element. With Tidy turned on, the old code got away with this, but
+    // with Tidy turned off it goes horribly wrong. We also want to remove
+    // some other webkit cruft that isn't required.
+    body_tag = body_tag.remove( WEBKIT_BODY_STYLE_CRUFT ).remove( "</body>" );
+
+    // In addition we strip Webkit namespace cruft out of the above text. 
+    // Every element will have an xmlns element on it which we want removed.
+    QString new_html = QString( DOC_PREFIX )
+           .append( head.remove( XML_NAMESPACE_CRUFT ) )
+           .append( body_tag.remove( XML_NAMESPACE_CRUFT ) )
+           .append( segment.remove( XML_NAMESPACE_CRUFT ) )
+           .append( "</body></html>" );
+
+    return new_html;
 }
 
 bool BookViewEditor::IsModified()

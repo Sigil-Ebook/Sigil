@@ -80,7 +80,13 @@ void BookViewPreview::CustomSetDocument(const QString &path, const QString &html
 {
     m_pendingLoadCount += 1;
     m_isLoadFinished = false;
-    setContent(html.toUtf8(), "application/xhtml+xml", QUrl::fromLocalFile(path));
+    // If Tidy is turned off, then Sigil will explode if there is no xmlns 
+    // on the <html> element. So we will silently add it if needed to ensure
+    // no errors occur, to allow loading of documents created outside of
+    // Sigil as well as catering for chapter splits etc.
+    QString replaced_html = html;
+    replaced_html = replaced_html.replace("<html>", "<html xmlns=\"http://www.w3.org/1999/xhtml\">");
+    setContent(replaced_html.toUtf8(), "application/xhtml+xml", QUrl::fromLocalFile(path));
 }
 
 bool BookViewPreview::IsLoadingFinished()
@@ -424,14 +430,13 @@ QString BookViewPreview::GetElementSelectingJS_NoTextNodes( const QList< ViewEdi
 
     QString element_selector = "$('html')";
 
-    // When we use GetCaretLocation to restore a caret location using javascript, there seems
-    // to be a problem caused by there being an extra end element returned that then causes
-    // the ExecuteCaretUpdate code to choke since the changes made for 0.6. It returns
-    // an extra 0 child element in the javascript. This extra child is needed for the FindNext
-    // code which works with it fine, but the executed javascript built by this function will
-    // fail in BV and PV if it ends with the extra .children().eq(0) that is resulting.
-    // Hence we chop off the end element from the hierarchy when building this javascript text.
-    for ( int i = 0; i < hierarchy.count() - 2; ++i )
+    // When we use GetCaretLocation to restore a caret location using javascript, the result returned
+    // will have a differing applicability depending on whether you setContentEditable() is true
+    // or false, as the html is subtly different. If we do not cater for this, then positioning
+    // the cursor fails in PreviewView due to one less child element and the caret is stuck
+    // at the top instead.
+    int nodes_to_remove = page()->isContentEditable() ? 1 : 2;
+    for ( int i = 0; i < hierarchy.count() - nodes_to_remove; ++i )
     {
         element_selector.append( QString( ".children().eq(%1)" ).arg( hierarchy[ i ].index ) );
     }

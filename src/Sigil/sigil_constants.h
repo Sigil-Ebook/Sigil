@@ -34,6 +34,7 @@ extern const QString HEAD_END;
 extern const QString BREAK_TAG_INSERT;
 extern const QString HEADING;
 extern const QString STYLE_TAG;
+extern const QStringList BLOCK_LEVEL_TAGS;
 extern const QString VERSION_NUMBERS;
 extern const QString SIGIL_VERSION;
 extern const int PROGRESS_BAR_MINIMUM_DURATION;
