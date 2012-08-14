@@ -231,6 +231,20 @@
     <addaction name="actionViewImages"/>
     <addaction name="actionViewClasses"/>
     </widget>
+    <widget class="QMenu" name="menuTOC">
+     <property name="title">
+      <string>Table of Contents</string>
+     </property>
+    <addaction name="actionGenerateTOC"/>
+    <addaction name="actionCreateHTMLTOC"/>
+    </widget>
+    <widget class="QMenu" name="menuSpellCheckMenu">
+     <property name="title">
+      <string>SpellCheck</string>
+     </property>
+    <addaction name="actionAutoSpellCheck"/>
+    <addaction name="actionSpellCheck"/>
+    </widget>
     <widget class="QMenu" name="menuIndex">
      <property name="title">
       <string>Index</string>
@@ -244,17 +258,15 @@
     </widget>
     <addaction name="actionMetaEditor"/>
     <addaction name="separator"/>
-    <addaction name="actionGenerateTOC"/>
-    <addaction name="actionCreateHTMLTOC"/>
+    <addaction name="menuTOC"/>
+    <addaction name="menuIndex"/>
     <addaction name="separator"/>
     <addaction name="actionValidateEpub"/>
-    <addaction name="actionAutoSpellCheck"/>
-    <addaction name="actionSpellCheck"/>
+    <addaction name="menuSpellCheckMenu"/>
     <addaction name="menuViewReports"/>
     <addaction name="separator"/>
     <addaction name="actionClipboardEditor"/>
     <addaction name="actionSearchEditor"/>
-    <addaction name="menuIndex"/>
     <addaction name="separator"/>
     <addaction name="menuCleanLevel"/>
     <addaction name="actionCheckWellFormedErrors"/>
