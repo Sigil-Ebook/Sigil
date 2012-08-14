@@ -143,7 +143,7 @@ public:
      */
     struct LastLinkOpened
     {
-        Resource *resource;
+        QString filename;
         MainWindow::ViewState view_state;
         QString bv_caret_location_update;
         int cv_cursor_position;

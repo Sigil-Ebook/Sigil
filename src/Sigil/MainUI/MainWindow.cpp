@@ -196,7 +196,7 @@ void MainWindow::OpenFilename( QString filename )
 
 void MainWindow::ResetLastLinkOpened()
 {
-    m_LastLinkOpened->resource = NULL;
+    m_LastLinkOpened->filename = QString();
     m_LastLinkOpened->view_state = MainWindow::ViewState_Unknown;
     m_LastLinkOpened->bv_caret_location_update = QString();
     m_LastLinkOpened->cv_cursor_position = -1;
@@ -206,10 +206,22 @@ void MainWindow::ResetLastLinkOpened()
 
 void MainWindow::OpenLastLinkOpened()
 {
-    if (m_LastLinkOpened->resource) {
-        SetViewState(m_LastLinkOpened->view_state);
-        OpenResource(*m_LastLinkOpened->resource, false, QUrl(), m_LastLinkOpened->view_state, -1, m_LastLinkOpened->cv_cursor_position, m_LastLinkOpened->bv_caret_location_update);
+    if (m_LastLinkOpened->filename.isEmpty()) {
+        return;
     }
+
+    try
+    {
+        Resource &resource = m_Book->GetFolderKeeper().GetResourceByFilename(m_LastLinkOpened->filename);
+
+        SetViewState(m_LastLinkOpened->view_state);
+        OpenResource(resource, false, QUrl(), m_LastLinkOpened->view_state, -1, m_LastLinkOpened->cv_cursor_position, m_LastLinkOpened->bv_caret_location_update);
+    }
+    catch (const ResourceDoesNotExist&)
+    {
+        // Nothing. Old file must have been deleted.
+    }
+
     ResetLastLinkOpened();
 }
 
@@ -229,12 +241,16 @@ void MainWindow::OpenUrl(const QUrl& url)
 
     // Save the current tab data for returning to the link location.
     m_LastLinkOpened->view_state = m_ViewState;
-    m_LastLinkOpened->resource = current_resource;
+    m_LastLinkOpened->filename = current_resource->Filename();
     m_LastLinkOpened->cv_cursor_position = tab.GetCursorPosition();
     m_LastLinkOpened->bv_caret_location_update = tab.GetCaretLocationUpdate();
 
     if (url.scheme().isEmpty() || url.scheme() == "file") {
         Resource *resource = m_BookBrowser->GetUrlResource(url);
+        if (!resource) {
+            ResetLastLinkOpened();
+            return;
+        }
         OpenResource(*resource, false, url.fragment());
     } 
     else {
@@ -245,7 +261,7 @@ void MainWindow::OpenUrl(const QUrl& url)
         }
     }
 
-    ui.actionBackToLink->setEnabled(m_LastLinkOpened->resource);
+    ui.actionBackToLink->setEnabled(!m_LastLinkOpened->filename.isEmpty());
 }
 
 void MainWindow::OpenResource( Resource& resource,
@@ -716,10 +732,16 @@ void MainWindow::InsertImages(QStringList selected_images)
     }
 
     foreach (QString selected_image, selected_images) {
-        const Resource &resource = m_Book->GetFolderKeeper().GetResourceByFilename(selected_image);
-        const QString &relative_path = "../" + resource.GetRelativePathToOEBPS();
-
-        flow_tab->InsertImage(relative_path);
+        try
+        {
+            const Resource &resource = m_Book->GetFolderKeeper().GetResourceByFilename(selected_image);
+            const QString &relative_path = "../" + resource.GetRelativePathToOEBPS();
+            flow_tab->InsertImage(relative_path);
+        }
+        catch (const ResourceDoesNotExist&)
+        {
+            Utility::DisplayStdErrorDialog(tr("The file \"%1\" does not exist.") .arg(selected_image));
+        }
     }
 
     if (!selected_images.isEmpty()) {
