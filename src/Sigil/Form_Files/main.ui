@@ -1306,7 +1306,7 @@
   </action>
   <action name="actionClipboardEditor">
    <property name="text">
-    <string>Clipboard Editor...</string>
+    <string>Clip Editor...</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+Alt+C</string>
