@@ -246,7 +246,7 @@ void SpellCheckWidget::readSettings()
 
 void SpellCheckWidget::openDictionaryDirectory()
 {
-    QString dictDir = SpellCheck::dictionaryDirectory();
+    QString dictDir = QDir::toNativeSeparators(SpellCheck::dictionaryDirectory());
 
     // Check if the directory exists and create it if necessary.
     QDir loc(dictDir);
