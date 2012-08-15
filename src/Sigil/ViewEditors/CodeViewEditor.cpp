@@ -735,8 +735,11 @@ bool CodeViewEditor::ReplaceSelected( const QString &search_regex, const QString
 {
     SPCRE *spcre = PCRECache::instance()->getObject( search_regex );
 
+    // Convert to plain text or \s won't get newlines
     int selection_start = textCursor().selectionStart();
-    QString selected_text = textCursor().selectedText();
+    int selection_end = textCursor().selectionEnd();
+    QString selected_text = Utility::Substring(selection_start, selection_end - selection_start, toPlainText() );
+
     SPCRE::MatchInfo match_info;
 
     // Check if current selection is a match as well to handle highlighted text that is a
