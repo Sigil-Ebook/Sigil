@@ -515,9 +515,6 @@ QWebElement BookViewPreview::DomNodeToQWebElement( const xc::DOMNode &node )
 
 bool BookViewPreview::ExecuteCaretUpdate(QString caret_update)
 {
-    if (caret_update.isEmpty()) {
-        m_CaretLocationUpdate = "";
-    }
     // Currently certain actions in Sigil result in a document being loaded multiple times
 	// in response to the signals. Only proceed with moving the caret if all loads are finished. 
     if ( m_pendingLoadCount > 0 ) {
