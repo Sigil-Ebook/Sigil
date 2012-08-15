@@ -1377,8 +1377,10 @@ void MainWindow::UpdateUIOnTabChanges()
     ui.actionBold     ->setChecked( tab.BoldChecked() );
     ui.actionItalic   ->setChecked( tab.ItalicChecked() );
     ui.actionUnderline->setChecked( tab.UnderlineChecked() );
+    ui.actionStrikethrough  ->setChecked( tab.StrikethroughChecked() );
+    ui.actionSubscript      ->setChecked( tab.SubscriptChecked() );
+    ui.actionSuperscript    ->setChecked( tab.SuperscriptChecked() );
 
-    ui.actionStrikethrough     ->setChecked( tab.StrikethroughChecked() );
     ui.actionInsertBulletedList->setChecked( tab.BulletListChecked() );
     ui.actionInsertNumberedList->setChecked( tab.NumberListChecked() );
     ui.actionRemoveFormatting  ->setEnabled( tab.RemoveFormattingEnabled() );
@@ -1434,6 +1436,8 @@ void MainWindow::SetStateActionsBookView()
     ui.actionItalic       ->setEnabled(true);
     ui.actionUnderline    ->setEnabled(true);
     ui.actionStrikethrough->setEnabled(true);
+    ui.actionSubscript    ->setEnabled(true);
+    ui.actionSuperscript  ->setEnabled(true);
 
     ui.actionAlignLeft ->setEnabled(true);
     ui.actionCenter    ->setEnabled(true);
@@ -1497,6 +1501,8 @@ void MainWindow::SetStateActionsSplitView()
     ui.actionItalic       ->setEnabled(false);
     ui.actionUnderline    ->setEnabled(false);
     ui.actionStrikethrough->setEnabled(false);
+    ui.actionSubscript    ->setEnabled(false);
+    ui.actionSuperscript  ->setEnabled(false);
 
     ui.actionAlignLeft ->setEnabled(false);
     ui.actionCenter    ->setEnabled(false);
@@ -1560,6 +1566,8 @@ void MainWindow::SetStateActionsCodeView()
     ui.actionItalic       ->setEnabled(true);
     ui.actionUnderline    ->setEnabled(true);
     ui.actionStrikethrough->setEnabled(true);
+    ui.actionSubscript    ->setEnabled(true);
+    ui.actionSuperscript  ->setEnabled(true);
 
     ui.actionAlignLeft ->setEnabled(false);
     ui.actionCenter    ->setEnabled(false);
@@ -1624,6 +1632,8 @@ void MainWindow::SetStateActionsRawView()
     ui.actionItalic       ->setEnabled(false);
     ui.actionUnderline    ->setEnabled(false);
     ui.actionStrikethrough->setEnabled(false);
+    ui.actionSubscript    ->setEnabled(false);
+    ui.actionSuperscript  ->setEnabled(false);
 
     ui.actionAlignLeft ->setEnabled(false);
     ui.actionCenter    ->setEnabled(false);
@@ -1687,6 +1697,8 @@ void MainWindow::SetStateActionsStaticView()
     ui.actionItalic       ->setEnabled(false);
     ui.actionUnderline    ->setEnabled(false);
     ui.actionStrikethrough->setEnabled(false);
+    ui.actionSubscript    ->setEnabled(false);
+    ui.actionSuperscript  ->setEnabled(false);
 
     ui.actionAlignLeft ->setEnabled(false);
     ui.actionCenter    ->setEnabled(false);
@@ -2567,6 +2579,8 @@ void MainWindow::ExtendUI()
     sm->registerAction(ui.actionItalic, "MainWindow.Italic");
     sm->registerAction(ui.actionUnderline, "MainWindow.Underline");
     sm->registerAction(ui.actionStrikethrough, "MainWindow.Strikethrough");
+    sm->registerAction(ui.actionSubscript, "MainWindow.Subscript");
+    sm->registerAction(ui.actionSuperscript, "MainWindow.Superscript");
     sm->registerAction(ui.actionAlignLeft, "MainWindow.AlignLeft");
     sm->registerAction(ui.actionCenter, "MainWindow.Center");
     sm->registerAction(ui.actionAlignRight, "MainWindow.AlignRight");
@@ -2715,6 +2729,18 @@ void MainWindow::ExtendIconSizes()
     icon = ui.actionUnderline->icon();
     icon.addFile(QString::fromUtf8(":/main/format-text-underline_16px.png"));
     ui.actionUnderline->setIcon(icon);
+    
+    icon = ui.actionStrikethrough->icon();
+    icon.addFile(QString::fromUtf8(":/main/format-text-strikethrough_16px.png"));
+    ui.actionStrikethrough->setIcon(icon);
+
+    icon = ui.actionSubscript->icon();
+    icon.addFile(QString::fromUtf8(":/main/format-text-subscript_16px.png"));
+    ui.actionSubscript->setIcon(icon);
+
+    icon = ui.actionSuperscript->icon();
+    icon.addFile(QString::fromUtf8(":/main/format-text-superscript_16px.png"));
+    ui.actionSuperscript->setIcon(icon);
 
     icon = ui.actionInsertNumberedList->icon();
     icon.addFile(QString::fromUtf8(":/main/insert-numbered-list_16px.png"));
@@ -2723,10 +2749,6 @@ void MainWindow::ExtendIconSizes()
     icon = ui.actionInsertBulletedList->icon();
     icon.addFile(QString::fromUtf8(":/main/insert-bullet-list_16px.png"));
     ui.actionInsertBulletedList->setIcon(icon);
-
-    icon = ui.actionStrikethrough->icon();
-    icon.addFile(QString::fromUtf8(":/main/format-text-strikethrough_16px.png"));
-    ui.actionStrikethrough->setIcon(icon);
 
     icon = ui.actionIncreaseIndent->icon();
     icon.addFile(QString::fromUtf8(":/main/format-indent-more_16px.png"));
@@ -3039,9 +3061,11 @@ void MainWindow::MakeTabConnections( ContentTab *tab )
     {
         connect( ui.actionBold,                     SIGNAL( triggered() ),  tab,   SLOT( Bold()                     ) );
         connect( ui.actionItalic,                   SIGNAL( triggered() ),  tab,   SLOT( Italic()                   ) );
-        connect( ui.actionUnderline,                SIGNAL( triggered() ),  tab,   SLOT( Underline()                ) );
-    
+        connect( ui.actionUnderline,                SIGNAL( triggered() ),  tab,   SLOT( Underline()                ) );    
         connect( ui.actionStrikethrough,            SIGNAL( triggered() ),  tab,   SLOT( Strikethrough()            ) );
+        connect( ui.actionSubscript,                SIGNAL( triggered() ),  tab,   SLOT( Subscript()                ) );
+        connect( ui.actionSuperscript,              SIGNAL( triggered() ),  tab,   SLOT( Superscript()              ) );
+
         connect( ui.actionAlignLeft,                SIGNAL( triggered() ),  tab,   SLOT( AlignLeft()                ) );
         connect( ui.actionCenter,                   SIGNAL( triggered() ),  tab,   SLOT( Center()                   ) );
         connect( ui.actionAlignRight,               SIGNAL( triggered() ),  tab,   SLOT( AlignRight()               ) );
@@ -3114,6 +3138,8 @@ void MainWindow::BreakTabConnections( ContentTab *tab )
     disconnect( ui.actionItalic,                    0, tab, 0 );
     disconnect( ui.actionUnderline,                 0, tab, 0 );
     disconnect( ui.actionStrikethrough,             0, tab, 0 );
+    disconnect( ui.actionSubscript,                 0, tab, 0 );
+    disconnect( ui.actionSuperscript,               0, tab, 0 );
     disconnect( ui.actionAlignLeft,                 0, tab, 0 );
     disconnect( ui.actionCenter,                    0, tab, 0 );
     disconnect( ui.actionAlignRight,                0, tab, 0 );

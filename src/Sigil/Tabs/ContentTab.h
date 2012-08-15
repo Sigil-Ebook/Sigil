@@ -211,7 +211,21 @@ public:
      * @return \c true if the Strikethrough action should be checked.
      */
     virtual bool StrikethroughChecked() { return false; }
+     
+    /**
+     * Checked state of the Subscrip action.
+     *
+     * @return \c true if the Subscrip action should be checked.
+     */
+    virtual bool SubscriptChecked() { return false; }
     
+    /**
+     * Checked state of the Superscript action.
+     *
+     * @return \c true if the Superscript action should be checked.
+     */
+    virtual bool SuperscriptChecked() { return false; }
+   
     /**
      * Checked state of the BulletList action.
      *

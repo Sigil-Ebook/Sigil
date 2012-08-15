@@ -143,6 +143,8 @@
     <addaction name="actionItalic"/>
     <addaction name="actionUnderline"/>
     <addaction name="actionStrikethrough"/>
+    <addaction name="actionSubscript"/>
+    <addaction name="actionSuperscript"/>
     <addaction name="separator"/>
     <addaction name="actionAlignLeft"/>
     <addaction name="actionCenter"/>
@@ -386,6 +388,8 @@
    <addaction name="actionItalic"/>
    <addaction name="actionUnderline"/>
    <addaction name="actionStrikethrough"/>
+   <addaction name="actionSubscript"/>
+   <addaction name="actionSuperscript"/>
   </widget>
   <widget class="QToolBar" name="toolBarTextAlign">
    <property name="windowTitle">
@@ -923,6 +927,40 @@
     <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Strikethrough&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Draws a line through the selected text.&lt;/p&gt;</string>
+   </property>
+  </action>
+  <action name="actionSubscript">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../Resource_Files/main/main.qrc">
+     <normaloff>:/main/format-text-subscript_22px.png</normaloff>:/main/format-text-subscript_22px.png</iconset>
+   </property>
+   <property name="text">
+    <string>Subsc&amp;ript</string>
+   </property>
+   <property name="toolTip">
+    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Subscript&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Sets the selected text slightly smaller and below the normal line.&lt;/p&gt;</string>
+   </property>
+  </action>
+  <action name="actionSuperscript">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../Resource_Files/main/main.qrc">
+     <normaloff>:/main/format-text-superscript_22px.png</normaloff>:/main/format-text-superscript_22px.png</iconset>
+   </property>
+   <property name="text">
+    <string>Su&amp;perscript</string>
+   </property>
+   <property name="toolTip">
+    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Superscript&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Sets the selected text slightly smaller and above the normal line.&lt;/p&gt;</string>
    </property>
   </action>
   <action name="actionPrint">

@@ -161,6 +161,10 @@ public:
 
     bool StrikethroughChecked();
 
+    bool SubscriptChecked();
+
+    bool SuperscriptChecked();
+
     bool BulletListChecked();
 
     bool NumberListChecked();
@@ -274,6 +278,16 @@ public slots:
      * Implements Strikethrough action functionality.
      */
     void Strikethrough();
+
+    /**
+     * Implements Subscript action functionality.
+     */
+    void Subscript();
+
+    /**
+     * Implements Superscript action functionality.
+     */
+    void Superscript();
 
     /**
      * Implements Align Left action functionality.

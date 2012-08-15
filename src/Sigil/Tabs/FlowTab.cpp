@@ -1025,6 +1025,26 @@ void FlowTab::Strikethrough()
     }
 }
 
+void FlowTab::Subscript()
+{
+    if (m_ViewState == MainWindow::ViewState_BookView) {
+        m_wBookView->page()->triggerAction( QWebPage::ToggleSubscript );
+    }
+    else if (m_ViewState == MainWindow::ViewState_CodeView) {
+        m_wCodeView->ToggleFormatSelection("sub");
+    }
+}
+
+void FlowTab::Superscript()
+{
+    if (m_ViewState == MainWindow::ViewState_BookView) {
+        m_wBookView->page()->triggerAction( QWebPage::ToggleSuperscript );
+    }
+    else if (m_ViewState == MainWindow::ViewState_CodeView) {
+        m_wCodeView->ToggleFormatSelection("sup");
+    }
+}
+
 void FlowTab::AlignLeft()
 {
     if (m_ViewState == MainWindow::ViewState_BookView) {
@@ -1162,6 +1182,26 @@ bool FlowTab::StrikethroughChecked()
 
     else
         return ContentTab::StrikethroughChecked();
+}
+
+
+bool FlowTab::SubscriptChecked()
+{
+    if (m_ViewState == MainWindow::ViewState_BookView)
+        return m_wBookView->QueryCommandState( "subscript" );
+
+    else
+        return ContentTab::SubscriptChecked();
+}
+
+
+bool FlowTab::SuperscriptChecked()
+{
+    if (m_ViewState == MainWindow::ViewState_BookView)
+        return m_wBookView->QueryCommandState( "superscript" );
+
+    else
+        return ContentTab::SuperscriptChecked();
 }
 
 
