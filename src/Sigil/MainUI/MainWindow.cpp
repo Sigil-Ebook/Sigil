@@ -2590,8 +2590,8 @@ void MainWindow::ExtendUI()
     sm->registerAction(ui.actionGenerateTOC, "MainWindow.GenerateTOC");
     sm->registerAction(ui.actionCreateHTMLTOC, "MainWindow.CreateHTMLTOC");
     sm->registerAction(ui.actionValidateEpub, "MainWindow.ValidateEpub");
-    sm->registerAction(ui.actionValidateEpub, "MainWindow.AutoSpellCheck");
-    sm->registerAction(ui.actionValidateEpub, "MainWindow.SpellCheck");
+    sm->registerAction(ui.actionAutoSpellCheck, "MainWindow.AutoSpellCheck");
+    sm->registerAction(ui.actionSpellCheck, "MainWindow.SpellCheck");
     sm->registerAction(ui.actionViewClasses, "MainWindow.ViewClasses");
     sm->registerAction(ui.actionViewHTML, "MainWindow.ViewHTML");
     sm->registerAction(ui.actionViewImages, "MainWindow.ViewImages");
