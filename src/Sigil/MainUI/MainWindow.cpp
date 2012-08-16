@@ -521,6 +521,71 @@ void MainWindow::GoToLine()
     }
 }
 
+void MainWindow::GoToLinkedStyleDefinition( const QString &element_name, const QString &style_class_name )
+{
+    // Invoked via a signal when the user has requested to navigate to a 
+    // style definition and none was found in the inline styles, so look
+    // at the linked resources for this tab instead.
+    ContentTab &tab = GetCurrentContentTab();
+    if (&tab == NULL) {
+        return;
+    }
+
+    Resource *current_resource = &tab.GetLoadedResource();
+    if (current_resource->Type() == Resource::HTMLResourceType) {
+        // Look in the linked stylesheets for a match
+        QList<Resource *> css_resources = m_BookBrowser->AllCSSResources();
+        QStringList stylesheets = GetStylesheetsAlreadyLinked( current_resource );
+
+        QRegExp style_search( "\\." + style_class_name + "\\s*\\{" );
+        foreach( QString pathname, stylesheets )
+        {
+            // Check whether the stylesheet contains this style
+            CSSResource *css_resource = NULL;
+            foreach ( Resource *resource, css_resources )
+            {
+                if ( pathname == QString( "../" + resource->GetRelativePathToOEBPS()) ) {
+                    // We have our resource matching this stylesheet.
+                    css_resource = dynamic_cast<CSSResource *>( resource );
+                    break;
+                }
+            }
+            // First look for "element.class {"
+            // Then look for just ".class {"
+            // Finally look for "element {"
+            QString text = " " + css_resource->GetText();
+            if ( !style_class_name.isEmpty() ) {
+                if ( OpenCSSResourceWithStyleDefinition( element_name + "\\." + style_class_name, text, css_resource ) ) { 
+                    break;
+                }
+                if ( OpenCSSResourceWithStyleDefinition( "\\." + style_class_name, text, css_resource ) ) { 
+                    break;
+                }
+            }
+            else if ( OpenCSSResourceWithStyleDefinition( element_name, text, css_resource ) ) { 
+                break;
+            }
+        }
+    }
+}
+
+bool MainWindow::OpenCSSResourceWithStyleDefinition( const QString &style_name, const QString &text, CSSResource *css_resource )
+{
+    QRegExp inline_style_search("[\\};\\s]" + style_name + "\\s*\\{");
+
+    int style_index = inline_style_search.indexIn(text);
+    if ( style_index >= 0 ) {
+        // Need to work out the line number to scroll to, as CSSTab takes lines not position.
+        QStringList lines = text.left( style_index + 1 ).split( QChar('\n') );
+        int scroll_to_line = lines.count();
+        m_TabManager.OpenResource( *css_resource, false, QUrl(), MainWindow::ViewState_RawView,
+                                    scroll_to_line, -1, QString(), true );
+        return true;
+    }
+
+    return false;
+}
+
 
 void MainWindow::SetRegexOptionDotAll( bool new_state )
 {
@@ -1384,6 +1449,7 @@ void MainWindow::UpdateUIOnTabChanges()
     ui.actionInsertBulletedList->setChecked( tab.BulletListChecked() );
     ui.actionInsertNumberedList->setChecked( tab.NumberListChecked() );
     ui.actionRemoveFormatting  ->setEnabled( tab.RemoveFormattingEnabled() );
+    ui.actionGoToStyleDefinition->setEnabled( tab.GoToStyleDefinitionEnabled() );
 
     // State of zoom controls depends on current tab/view
     float zoom_factor = tab.GetZoomFactor();
@@ -1474,6 +1540,7 @@ void MainWindow::SetStateActionsBookView()
     ui.actionReplaceAll->setEnabled(false);
     ui.actionCount->setEnabled(false);
     ui.actionGoToLine->setEnabled(false);
+    ui.actionGoToStyleDefinition->setEnabled(false);
 
     UpdateUIOnTabChanges();
 
@@ -1539,6 +1606,7 @@ void MainWindow::SetStateActionsSplitView()
     ui.actionReplaceAll->setEnabled(false);
     ui.actionCount->setEnabled(false);
     ui.actionGoToLine->setEnabled(false);
+    ui.actionGoToStyleDefinition->setEnabled(false);
 
     UpdateUIOnTabChanges();
 
@@ -1604,6 +1672,7 @@ void MainWindow::SetStateActionsCodeView()
     ui.actionReplaceAll->setEnabled(true);
     ui.actionCount->setEnabled(true);
     ui.actionGoToLine->setEnabled(true);
+    ui.actionGoToStyleDefinition->setEnabled(true);
 
     UpdateUIOnTabChanges();
 
@@ -1669,6 +1738,7 @@ void MainWindow::SetStateActionsRawView()
     ui.actionReplaceAll->setEnabled(true);
     ui.actionCount->setEnabled(true);
     ui.actionGoToLine->setEnabled(true);
+    ui.actionGoToStyleDefinition->setEnabled(false);
 
     UpdateUIOnTabChanges();
 
@@ -1734,6 +1804,7 @@ void MainWindow::SetStateActionsStaticView()
     ui.actionReplaceAll->setEnabled(false);
     ui.actionCount->setEnabled(false);
     ui.actionGoToLine->setEnabled(false);
+    ui.actionGoToStyleDefinition->setEnabled(false);
 
     UpdateUIOnTabChanges();
 
@@ -2087,7 +2158,7 @@ bool MainWindow::SaveFile( const QString &fullfilepath )
         QApplication::setOverrideCursor( Qt::WaitCursor );
 
         ExporterFactory().GetExporter( fullfilepath, m_Book ).WriteBook();
-
+        ;
         QApplication::restoreOverrideCursor();
 
         // Return the focus back to the current tab
@@ -2573,6 +2644,7 @@ void MainWindow::ExtendUI()
     sm->registerAction(ui.actionReplaceAll, "MainWindow.ReplaceAll");
     sm->registerAction(ui.actionCount, "MainWindow.Count");
     sm->registerAction(ui.actionGoToLine, "MainWindow.GoToLine");
+    sm->registerAction(ui.actionGoToStyleDefinition, "MainWindow.GoToStyleDefinition");
 
     // Format
     sm->registerAction(ui.actionBold, "MainWindow.Bold");
@@ -3081,6 +3153,7 @@ void MainWindow::MakeTabConnections( ContentTab *tab )
         connect( ui.actionInsertSGFChapterMarker,   SIGNAL( triggered() ),  tab,   SLOT( InsertSGFChapterMarker()   ) );
         connect( ui.actionSplitOnSGFChapterMarkers, SIGNAL( triggered() ),  tab,   SLOT( SplitOnSGFChapterMarkers() ) );
         connect( ui.actionInsertClosingTag,         SIGNAL( triggered() ),  tab,   SLOT( InsertClosingTag()         ) );
+        connect( ui.actionGoToStyleDefinition,      SIGNAL( triggered() ),  tab,   SLOT( GoToStyleDefinition()      ) );
 
         connect( ui.actionPrintPreview,             SIGNAL( triggered() ),  tab,   SLOT( PrintPreview()             ) );
         connect( ui.actionPrint,                    SIGNAL( triggered() ),  tab,   SLOT( Print()                    ) );
@@ -3103,6 +3176,9 @@ void MainWindow::MakeTabConnections( ContentTab *tab )
 
         connect( tab,   SIGNAL( OpenIndexEditorRequest(IndexEditorModel::indexEntry *) ),
                  this,  SLOT (  IndexEditorDialog( IndexEditorModel::indexEntry * ) ) );
+
+        connect( tab,   SIGNAL( GoToLinkedStyleDefinitionRequest( const QString&, const QString& ) ),
+                 this,  SLOT (  GoToLinkedStyleDefinition( const QString&, const QString& ) ) );
     }
 
     if (tab->GetLoadedResource().Type() == Resource::CSSResourceType )
@@ -3154,6 +3230,7 @@ void MainWindow::BreakTabConnections( ContentTab *tab )
     disconnect( ui.actionInsertSGFChapterMarker,    0, tab, 0 );
     disconnect( ui.actionSplitOnSGFChapterMarkers,  0, tab, 0 );
     disconnect( ui.actionInsertClosingTag,          0, tab, 0 );
+    disconnect( ui.actionGoToStyleDefinition,       0, tab, 0 );
 
     disconnect( ui.actionPrintPreview,              0, tab, 0 );
     disconnect( ui.actionPrint,                     0, tab, 0 );

@@ -233,6 +233,15 @@ bool FlowTab::InsertClosingTagEnabled()
     return false;
 }
 
+bool FlowTab::GoToStyleDefinitionEnabled()
+{
+    if (m_ViewState == MainWindow::ViewState_CodeView) {
+        return m_wCodeView->IsGoToStyleDefinitionAllowed();
+    }
+
+    return false;
+}
+
 bool FlowTab::OpenLinkEnabled()
 {
     if (m_ViewState == MainWindow::ViewState_CodeView) {
@@ -1144,6 +1153,12 @@ void FlowTab::HeadingStyle( const QString& heading_type, bool preserve_attribute
     }
 }
 
+void FlowTab::GoToStyleDefinition()
+{
+    if (m_ViewState == MainWindow::ViewState_CodeView)
+        m_wCodeView->GoToStyleDefinition();
+}
+
 
 bool FlowTab::BoldChecked()
 {
@@ -1268,4 +1283,6 @@ void FlowTab::ConnectSignalsToSlots()
     connect(m_wCodeView, SIGNAL(OpenClipboardEditorRequest(ClipboardEditorModel::clipEntry *)), this, SIGNAL(OpenClipboardEditorRequest(ClipboardEditorModel::clipEntry *)));
 
     connect(m_wCodeView, SIGNAL(OpenIndexEditorRequest(IndexEditorModel::indexEntry *)), this, SIGNAL(OpenIndexEditorRequest(IndexEditorModel::indexEntry *)));
+
+    connect(m_wCodeView, SIGNAL(GoToLinkedStyleDefinitionRequest(const QString&, const QString&)), this, SIGNAL(GoToLinkedStyleDefinitionRequest(const QString&, const QString&)));
 }

@@ -203,6 +203,7 @@
     <addaction name="actionCount"/>
     <addaction name="separator"/>
     <addaction name="actionGoToLine"/>
+    <addaction name="actionGoToStyleDefinition"/>
     <addaction name="separator"/>
     <addaction name="menuRegexOptions"/>
    </widget>
@@ -1639,6 +1640,14 @@
    </property>
    <property name="text">
     <string>Tokenise Spaces and Numbers</string>
+   </property>
+  </action>
+  <action name="actionGoToStyleDefinition">
+   <property name="text">
+    <string>Go To Style Definition</string>
+   </property>
+   <property name="shortcut">
+    <string>F2</string>
    </property>
   </action>
  </widget>

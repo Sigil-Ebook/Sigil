@@ -84,7 +84,8 @@ CodeViewEditor::CodeViewEditor( HighlighterType high_type, bool check_spelling, 
     m_addSpellingMapper( new QSignalMapper( this ) ),
     m_ignoreSpellingMapper( new QSignalMapper( this ) ),
     m_clipboardMapper( new QSignalMapper( this ) ),
-    m_pendingClipEntryRequest( NULL )
+    m_pendingClipEntryRequest( NULL ),
+    m_pendingGoToStyleDefinitionRequest( false )
 {
     if ( high_type == CodeViewEditor::Highlight_XHTML )
 
@@ -164,6 +165,11 @@ bool CodeViewEditor::IsCutCodeTagsAllowed()
 bool CodeViewEditor::IsInsertClosingTagAllowed()
 {
     return !IsPositionInTag(textCursor().position() - 1);
+}
+
+bool CodeViewEditor::IsGoToStyleDefinitionAllowed()
+{
+    return IsPositionInOpeningTag();
 }
 
 bool CodeViewEditor::IsPositionInTag(int pos)
@@ -937,6 +943,7 @@ void CodeViewEditor::contextMenuEvent( QContextMenuEvent *event )
     }
 
     if (!offered_spelling) {
+        AddGoToStyleContextMenu(menu);
         AddClipboardContextMenu(menu);
     }
 
@@ -944,10 +951,15 @@ void CodeViewEditor::contextMenuEvent( QContextMenuEvent *event )
     delete menu;
 
     blockSignals(false);
+
     // Now that we are no longer blocking signals we can execute any pending signal emits
     if (m_pendingClipEntryRequest) {
         emit OpenClipboardEditorRequest(m_pendingClipEntryRequest);
         m_pendingClipEntryRequest = NULL;
+    }
+    if (m_pendingGoToStyleDefinitionRequest) {
+        m_pendingGoToStyleDefinitionRequest = false;
+        GoToStyleDefinition();
     }
 }
 
@@ -1070,6 +1082,28 @@ bool CodeViewEditor::AddSpellCheckContextMenu(QMenu *menu)
     return offer_spelling;
 }
 
+void CodeViewEditor::AddGoToStyleContextMenu(QMenu *menu)
+{
+    QAction *topAction = 0;
+    if (!menu->actions().isEmpty()) {
+        topAction = menu->actions().at(0);
+    }
+
+    QAction *goToStyleDefinitionAction = new QAction(tr("Go To Style Definition"), menu);
+    if (!topAction) {
+        menu->addAction(goToStyleDefinitionAction);
+    }
+    else {
+        menu->insertAction(topAction, goToStyleDefinitionAction);
+    }
+    connect(goToStyleDefinitionAction, SIGNAL(triggered()), this, SLOT(GoToStyleDefinitionAction()));
+    goToStyleDefinitionAction->setEnabled( IsGoToStyleDefinitionAllowed() );
+
+    if (topAction) {
+        menu->insertSeparator(topAction);
+    }
+}
+
 void CodeViewEditor::AddClipboardContextMenu(QMenu *menu)
 {
     QAction *topAction = 0;
@@ -1084,7 +1118,7 @@ void CodeViewEditor::AddClipboardContextMenu(QMenu *menu)
         else {
             menu->addSeparator();
         }
-   }
+    }
 
     QAction *saveClipboardAction = new QAction(tr("Add To Clip Editor"), menu);
     if (!topAction) {
@@ -1153,6 +1187,69 @@ void CodeViewEditor::SaveClipboardAction()
     QTextCursor cursor = textCursor();
     m_pendingClipEntryRequest->text = cursor.selectedText();
 }
+
+void CodeViewEditor::GoToStyleDefinitionAction()
+{
+    // We don't do anything at this point - wait for the context menu
+    // to be closed and signals are no longer blocked.
+    m_pendingGoToStyleDefinitionRequest = true;
+}
+
+void CodeViewEditor::GoToStyleDefinition()
+{
+    // Begin by identifying the tag name and selected class style attribute if any
+    CodeViewEditor::StyleTagElement element = GetSelectedStyleTagElement();
+    if ( element.name.isEmpty() )
+        return;
+    
+    // Look to see whether we have an inline style matching this.
+    const QString text = toPlainText();
+
+    // First look to see whether there is a <style type="text/css"> block
+    QRegExp inline_styles_search("<\\s*style\\s[^>]+>", Qt::CaseInsensitive);
+    inline_styles_search.setMinimal(true);
+    int start = inline_styles_search.indexIn(text);
+    if ( start > 0 ) 
+    {
+        start += inline_styles_search.matchedLength() - 1;
+        int end = text.indexOf(QRegExp("<\\s*/\\s*style\\s*>"));
+        if ( end >= 0 )
+        {
+            // First look for "element.class {"
+            // Then look for just ".class {"
+            // Finally look for "element {"
+            if ( !element.classStyle.isEmpty() ) {
+                if ( ScrollToInlineStyleDefinition( element.name + "\\." + element.classStyle, text, start, end ) ) { 
+                    return;
+                }
+                if ( ScrollToInlineStyleDefinition( "\\." + element.classStyle, text, start, end ) ) { 
+                    return;
+                }
+            }
+            else if ( ScrollToInlineStyleDefinition( element.name, text, start, end ) ) { 
+                return;
+            }
+        }
+    }
+
+    // We didn't find the style - escalate as an event to look in linked stylesheets
+    emit GoToLinkedStyleDefinitionRequest( element.name, element.classStyle );
+}
+
+bool CodeViewEditor::ScrollToInlineStyleDefinition( const QString &style_name, const QString &text, const int &start_pos, const int &end_pos )
+{
+    QRegExp inline_style_search("[>\\};\\s]" + style_name + "\\s*\\{");
+
+    int inline_index = inline_style_search.indexIn(text, start_pos);
+    if ( inline_index > 0 && inline_index < end_pos ) {
+        QStringList lines = text.left( inline_index + 1 ).split( QChar('\n') );
+        ScrollToLine(lines.count());
+        return true;
+    }
+
+    return false;
+}
+
 
 QString CodeViewEditor::GetTagText()
 {
@@ -1784,7 +1881,7 @@ bool CodeViewEditor::IsPositionInBody( const int &pos, const QString &text )
     return true;
 }
 
-bool CodeViewEditor::IsPositionInTag(int pos, QString &text)
+bool CodeViewEditor::IsPositionInTag( const int &pos, QString &text)
 {
     QRegExp tag_search( NEXT_TAG_LOCATION );
 
@@ -1792,6 +1889,27 @@ bool CodeViewEditor::IsPositionInTag(int pos, QString &text)
     int tag_end   = tag_start + tag_search.matchedLength();
 
     if ( ( pos >= tag_start ) && ( pos < tag_end ) ) {
+        return true;
+    }
+    return false;
+}
+
+bool CodeViewEditor::IsPositionInOpeningTag( const int &pos, const QString &text)
+{
+    int search_pos = pos;
+    if (pos == -1) {
+        search_pos = textCursor().selectionStart();
+    }
+    QString search_text = text;
+    if ( text.isEmpty() ) {
+        search_text = toPlainText();
+    }
+
+    QRegExp tag_search( "<\\s*[^/][^>]*>" );
+    int tag_start = search_text.lastIndexOf( tag_search, search_pos - 1 );
+    int tag_end   = tag_start + tag_search.matchedLength();
+
+    if ( ( search_pos >= tag_start ) && ( search_pos < tag_end ) ) {
         return true;
     }
     return false;
@@ -1974,6 +2092,57 @@ void CodeViewEditor::ReplaceTags( const int &opening_tag_start, const int &openi
     cursor.endEditBlock();
 
     setTextCursor(cursor);
+}
+
+CodeViewEditor::StyleTagElement CodeViewEditor::GetSelectedStyleTagElement()
+{
+    // Look at the current cursor position, and return a struct representing the 
+    // name of the element, and the style class name if any under the caret.
+    // If caret not on a style name, returns the first style class name.
+    // If no style class specified, only the element tag name will be populated.
+    CodeViewEditor::StyleTagElement element;
+    QString text = toPlainText();
+    int pos = textCursor().selectionStart() - 1;
+
+    QRegExp tag_name_search(TAG_NAME_SEARCH);
+
+    int tag_name_index = tag_name_search.lastIndexIn(text, pos);
+    if ( tag_name_index >= 0 ) 
+    {
+        element.name = tag_name_search.cap(1);
+
+        int closing_tag_index = text.indexOf(QChar('>'), tag_name_index + tag_name_search.matchedLength());
+        text = text.left(closing_tag_index);
+        QRegExp style_names_search("\\s+class\\s*=\\s*\"([^\"]+)\"");
+        int style_names_index = style_names_search.indexIn( text, tag_name_index + tag_name_search.matchedLength() );
+        if ( style_names_index >= 0 )
+        {
+            // We have one or more styles. Figure out which one the cursor is in if any.
+            QString style_names_text = style_names_search.cap(1);
+            int styles_end_index = style_names_index + style_names_search.matchedLength() - 1;
+            int styles_start_index = text.indexOf( style_names_text, style_names_index );
+            if ( ( pos >= styles_start_index ) && ( pos < styles_end_index ) ) {
+                // Get the name under the cursor.
+                QString style_name = QString();
+                while (pos > 0 && text[pos] != QChar('"') && text[pos] != QChar(' ')) {
+                    pos--;
+                }
+                pos++;
+                while (text[pos] != QChar('"') && text[pos] != QChar(' ')) {
+                    style_name.append(text[pos]);
+                    pos++;
+                }
+                element.classStyle = style_name;
+            }
+            if ( element.classStyle.isEmpty() ) {
+                // User has clicked outside of the style class names or somewhere strange - default to the first name.
+                QStringList style_names = style_names_text.trimmed().split(' ');
+                element.classStyle = style_names[0];
+            }
+        }
+    }
+
+    return element;
 }
 
 void CodeViewEditor::ConnectSignalsToSlots()

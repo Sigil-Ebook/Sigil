@@ -119,6 +119,13 @@ public:
     virtual bool RemoveFormattingEnabled()          { return false; }
 
     /*
+     * Can the user navigate to a style definition.
+     *
+     * @return \c true if the user can navigate to a style definition.
+     */
+    virtual bool GoToStyleDefinitionEnabled() { return false; }
+
+    /*
      * Can the user perform the Cut Code Tags operation.
      *
      * @return \c true if the user can Cut.

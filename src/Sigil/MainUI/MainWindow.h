@@ -555,7 +555,11 @@ private slots:
 
     void OpenLastLinkOpened();
 
+    void GoToLinkedStyleDefinition( const QString &element_name, const QString &style_class_name );
+
 private:
+
+    bool OpenCSSResourceWithStyleDefinition( const QString &style_name, const QString &text, CSSResource *css_resource );
 
     void ResetLastLinkOpened();
 

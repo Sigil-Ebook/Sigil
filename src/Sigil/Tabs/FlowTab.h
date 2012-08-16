@@ -93,6 +93,8 @@ public:
 
     bool InsertClosingTagEnabled();
 
+    bool GoToStyleDefinitionEnabled();
+
     bool OpenLinkEnabled();
 
     bool AddToIndexEnabled();
@@ -343,6 +345,8 @@ public slots:
 
     void AddToIndex();
     void MarkForIndex();
+    
+    void GoToStyleDefinition();
 
 signals:
 
@@ -392,6 +396,8 @@ signals:
     void OpenClipboardEditorRequest(ClipboardEditorModel::clipEntry *clip);
 
     void OpenIndexEditorRequest(IndexEditorModel::indexEntry *index);
+
+    void GoToLinkedStyleDefinitionRequest( const QString &element_name, const QString &style_class_name );
 
 private slots:
 
