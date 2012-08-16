@@ -83,7 +83,8 @@ CodeViewEditor::CodeViewEditor( HighlighterType high_type, bool check_spelling, 
     m_spellingMapper( new QSignalMapper( this ) ),
     m_addSpellingMapper( new QSignalMapper( this ) ),
     m_ignoreSpellingMapper( new QSignalMapper( this ) ),
-    m_clipboardMapper( new QSignalMapper( this ) )
+    m_clipboardMapper( new QSignalMapper( this ) ),
+    m_pendingClipEntryRequest( NULL )
 {
     if ( high_type == CodeViewEditor::Highlight_XHTML )
 
@@ -940,6 +941,11 @@ void CodeViewEditor::contextMenuEvent( QContextMenuEvent *event )
     delete menu;
 
     blockSignals(false);
+    // Now that we are no longer blocking signals we can execute any pending signal emits
+    if (m_pendingClipEntryRequest) {
+        emit OpenClipboardEditorRequest(m_pendingClipEntryRequest);
+        m_pendingClipEntryRequest = NULL;
+    }
 }
 
 bool CodeViewEditor::AddSpellCheckContextMenu(QMenu *menu)
@@ -1077,7 +1083,7 @@ void CodeViewEditor::AddClipboardContextMenu(QMenu *menu)
         }
    }
 
-    QAction *saveClipboardAction = new QAction(tr("Add To Clipboard"), menu);
+    QAction *saveClipboardAction = new QAction(tr("Add To Clip Editor"), menu);
     if (!topAction) {
         menu->addAction(saveClipboardAction);
     }
@@ -1135,22 +1141,14 @@ bool CodeViewEditor::CreateMenuEntries(QMenu *parent_menu, QAction *topAction, Q
     return item->rowCount() > 0;
 }
 
-void CodeViewEditor::OpenClipboardEditor()
-{
-    ClipboardEditorModel::clipEntry *clip = NULL;
-    emit OpenClipboardEditorRequest(clip);
-}
-
 void CodeViewEditor::SaveClipboardAction()
 {
-    ClipboardEditorModel::clipEntry *clip = new ClipboardEditorModel::clipEntry();
-    clip->name = "Unnamed Entry";
-    clip->is_group = false;
+    m_pendingClipEntryRequest = new ClipboardEditorModel::clipEntry();
+    m_pendingClipEntryRequest->name = "Unnamed Entry";
+    m_pendingClipEntryRequest->is_group = false;
 
     QTextCursor cursor = textCursor();
-    clip->text = cursor.selectedText();
-
-    emit OpenClipboardEditorRequest(clip);
+    m_pendingClipEntryRequest->text = cursor.selectedText();
 }
 
 QString CodeViewEditor::GetTagText()

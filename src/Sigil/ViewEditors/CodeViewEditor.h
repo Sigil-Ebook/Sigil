@@ -394,8 +394,6 @@ private slots:
 
     void ignoreWordInDictionary(const QString &text);
 
-    void OpenClipboardEditor();
-
     void SaveClipboardAction();
 
     QUrl GetInternalLinkInTag();
@@ -610,6 +608,12 @@ private:
     QSignalMapper *m_addSpellingMapper;
     QSignalMapper *m_ignoreSpellingMapper;
     QSignalMapper *m_clipboardMapper;
+
+    /**
+     * We have to block signals while displaying a context menu to prevent focus issues.
+     * Use this to store state to emit the signal after the menu is closed.
+     */
+    ClipboardEditorModel::clipEntry *m_pendingClipEntryRequest;
 };
 
 #endif // CODEVIEWEDITOR_H
