@@ -897,10 +897,13 @@ void CodeViewEditor::resizeEvent( QResizeEvent *event )
 
 void CodeViewEditor::mousePressEvent( QMouseEvent *event )
 {
-    // Rewrite the mouse event to a left button event so the cursor is
-    // moved to the location of the pointer.
+    // When a right-click occurs, move the caret location if this is performed.
+    // outside the currently selected text.
     if (event->button() == Qt::RightButton) {
-        event = new QMouseEvent(QEvent::MouseButtonPress, event->pos(), Qt::LeftButton, Qt::LeftButton, Qt::NoModifier);
+        QTextCursor cursor = cursorForPosition(event->pos());
+        if (cursor.position() < textCursor().selectionStart() || cursor.position() > textCursor().selectionEnd()) {
+            setTextCursor(cursor);
+        }
     }
 
     // Propagate to base class
