@@ -77,18 +77,6 @@
     <property name="title">
      <string>&amp;Edit</string>
     </property>
-    <widget class="QMenu" name="menuCleanLevel">
-     <property name="title">
-      <string>Clean Source</string>
-     </property>
-     <property name="icon">
-      <iconset resource="../Resource_Files/main/main.qrc">
-       <normaloff>:/main/edit-clear_22px.png</normaloff>:/main/edit-clear_22px.png</iconset>
-     </property>
-     <addaction name="actionCleanLevelOff"/>
-     <addaction name="actionCleanLevelPrettyPrint"/>
-     <addaction name="actionCleanLevelTidy"/>
-    </widget>
     <addaction name="actionUndo"/>
     <addaction name="actionRedo"/>
     <addaction name="separator"/>
@@ -271,6 +259,18 @@
     <addaction name="actionClipboardEditor"/>
     <addaction name="actionSearchEditor"/>
     <addaction name="separator"/>
+    <widget class="QMenu" name="menuCleanLevel">
+     <property name="title">
+      <string>Clean Source</string>
+     </property>
+     <property name="icon">
+      <iconset resource="../Resource_Files/main/main.qrc">
+       <normaloff>:/main/edit-clear_22px.png</normaloff>:/main/edit-clear_22px.png</iconset>
+     </property>
+     <addaction name="actionCleanLevelOff"/>
+     <addaction name="actionCleanLevelPrettyPrint"/>
+     <addaction name="actionCleanLevelTidy"/>
+    </widget>
     <addaction name="menuCleanLevel"/>
     <addaction name="actionCheckWellFormedErrors"/>
    </widget>
