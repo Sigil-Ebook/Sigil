@@ -40,7 +40,10 @@ Preferences::Preferences(QWidget *parent) :
     appendPreferenceWidget(new SpellCheckWidget);
 
     connectSignalsSlots();
+
+    QApplication::setOverrideCursor(Qt::WaitCursor);
     readSettings();
+    QApplication::restoreOverrideCursor();
 }
 
 void Preferences::selectPWidget(QListWidgetItem *current, QListWidgetItem *previous)
@@ -56,6 +59,8 @@ void Preferences::saveSettings()
     SettingsStore settings;
     settings.beginGroup( SETTINGS_GROUP );
 
+    QApplication::setOverrideCursor(Qt::WaitCursor);
+
     settings.setValue("geometry", saveGeometry());
     settings.setValue("lastpreference", ui.availableWidgets->currentRow());
 
@@ -65,6 +70,8 @@ void Preferences::saveSettings()
             pw->saveSettings();
         }
     }
+
+    QApplication::restoreOverrideCursor();
 
     settings.endGroup();
 }

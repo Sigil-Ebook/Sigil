@@ -50,12 +50,14 @@ private slots:
     void saveUserDictionaryWordList(QListWidgetItem *item=0);
 
     void userDictionaryChanged(QListWidgetItem *current, QListWidgetItem *previous);
+    void dictionariesCurrentIndexChanged(int index);
 
 private:
     void readSettings();
     void connectSignalsSlots();
 
     Ui::SpellCheckWidget ui;
+    bool m_isDirty;
 };
 
 #endif // SPELLCHECKWIDGET_H
