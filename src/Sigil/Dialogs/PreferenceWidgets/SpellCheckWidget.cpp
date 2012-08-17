@@ -134,12 +134,12 @@ void SpellCheckWidget::removeUserDict()
     }
     dict_item = items.at(0);
 
-    // Delete the dictionary and remove it from the list.
-    Utility::DeleteFile(SpellCheck::userDictionaryDirectory() + "/" + dict_item->text());
-
     if (dict_item) {
+        // Delete the dictionary and remove it from the list.
+        QString dict_name = dict_item->text();
         delete dict_item;
         dict_item = 0;
+        Utility::DeleteFile(SpellCheck::userDictionaryDirectory() + "/" + dict_name);
     }
 
     // We have to have at least one user dict.
