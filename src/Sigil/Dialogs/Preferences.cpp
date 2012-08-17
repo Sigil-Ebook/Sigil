@@ -39,12 +39,8 @@ Preferences::Preferences(QWidget *parent) :
     appendPreferenceWidget(new LanguageWidget);
     appendPreferenceWidget(new SpellCheckWidget);
 
-    // Ensure the first item in the avaliable preferences widgets list
-    // is highlighted.
-    ui.availableWidgets->item(0)->setSelected(true);
-
-    readSettings();
     connectSignalsSlots();
+    readSettings();
 }
 
 void Preferences::selectPWidget(QListWidgetItem *current, QListWidgetItem *previous)
@@ -61,6 +57,7 @@ void Preferences::saveSettings()
     settings.beginGroup( SETTINGS_GROUP );
 
     settings.setValue("geometry", saveGeometry());
+    settings.setValue("lastpreference", ui.availableWidgets->currentRow());
 
     for (int i = 0; i < ui.pWidget->count(); ++i) {
         PreferencesWidget *pw = qobject_cast<PreferencesWidget*>(ui.pWidget->widget(i));
@@ -82,6 +79,15 @@ void Preferences::readSettings()
         restoreGeometry(geometry);
     }
 
+    // Ensure the previous item selected in the available preferences widgets list
+    // is highlighted.
+    QVariant last_preference_value = settings.value( "lastpreference" );
+    int last_preference_index = last_preference_value.isNull() ? 0 : last_preference_value.toInt();
+    if ( last_preference_index > ui.availableWidgets->count() - 1 ) {
+        last_preference_index = 0;
+    }
+    ui.availableWidgets->setCurrentRow(last_preference_index);
+
     settings.endGroup();
 }
 
@@ -90,7 +96,7 @@ void Preferences::appendPreferenceWidget(PreferencesWidget *widget)
     // Add the PreferencesWidget to the stack view area.
     ui.pWidget->addWidget(widget);
 
-    // Add an entry to the list of avaliable preference widgets.
+    // Add an entry to the list of available preference widgets.
     ui.availableWidgets->addItem(widget->windowTitle());
 }
 
