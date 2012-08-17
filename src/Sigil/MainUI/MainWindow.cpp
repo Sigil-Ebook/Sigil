@@ -1530,7 +1530,6 @@ void MainWindow::SetStateActionsBookView()
     ui.actionSplitChapter->setEnabled(true);
     ui.actionInsertClosingTag->setEnabled(false);
     ui.actionInsertSGFChapterMarker->setEnabled(true);
-    ui.actionSplitOnSGFChapterMarkers->setEnabled(true);
 
     ui.actionFind->setEnabled(true);
     ui.actionFindNext->setEnabled(true);
@@ -1596,7 +1595,6 @@ void MainWindow::SetStateActionsSplitView()
     ui.actionSplitChapter->setEnabled(false);
     ui.actionInsertClosingTag->setEnabled(false);
     ui.actionInsertSGFChapterMarker->setEnabled(false);
-    ui.actionSplitOnSGFChapterMarkers->setEnabled(false);
 
     ui.actionFind->setEnabled(true);
     ui.actionFindNext->setEnabled(true);
@@ -1662,7 +1660,6 @@ void MainWindow::SetStateActionsCodeView()
     ui.actionSplitChapter->setEnabled(true);
     ui.actionInsertSGFChapterMarker->setEnabled(true);
     ui.actionInsertClosingTag->setEnabled(true);
-    ui.actionSplitOnSGFChapterMarkers->setEnabled(true);
 
     ui.actionFind->setEnabled(true);
     ui.actionFindNext->setEnabled(true);
@@ -1728,7 +1725,6 @@ void MainWindow::SetStateActionsRawView()
     ui.actionInsertImage->setEnabled(false);
     ui.actionSplitChapter->setEnabled(false);
     ui.actionInsertSGFChapterMarker->setEnabled(false);
-    ui.actionSplitOnSGFChapterMarkers->setEnabled(false);
 
     ui.actionFind->setEnabled(true);
     ui.actionFindNext->setEnabled(true);
@@ -1794,7 +1790,6 @@ void MainWindow::SetStateActionsStaticView()
     ui.actionInsertImage->setEnabled(false);
     ui.actionSplitChapter->setEnabled(false);
     ui.actionInsertSGFChapterMarker->setEnabled(false);
-    ui.actionSplitOnSGFChapterMarkers->setEnabled(false);
 
     ui.actionFind->setEnabled(false);
     ui.actionFindNext->setEnabled(false);
@@ -1912,15 +1907,54 @@ void MainWindow::CreateChapterBreakOldTab( QString content, HTMLResource& origin
     statusBar()->showMessage( tr( "Chapter split. You may need to update the Table of Contents." ), STATUSBAR_MSG_DISPLAY_TIME );
 }
 
-
-void MainWindow::CreateNewChapters( QStringList new_chapters, HTMLResource &originalResource )
+void MainWindow::SplitOnSGFChapterMarkers()
 {
-    m_Book->CreateNewChapters( new_chapters, originalResource );
-    m_BookBrowser->Refresh();
+    QList<Resource *> html_resources = m_BookBrowser->AllHTMLResources();
+    
+    // Check if data is well formed before saving
+    foreach (Resource *resource, html_resources) { 
+        if (!m_TabManager.TabDataIsWellFormed(*resource)) {
+            Utility::DisplayStdErrorDialog(tr("Split aborted.\n\nOne of the files may have an error or has not been saved.\n\nTry saving your book or correcting any errors before splitting."));
+            return;
+        }
+    }
 
-    statusBar()->showMessage( tr( "Chapters split. You may need to update the Table of Contents." ), STATUSBAR_MSG_DISPLAY_TIME );
+    // If have the current tab is open in BV, make sure it has its content saved so it won't later overwrite a split.
+    FlowTab *flow_tab = qobject_cast<FlowTab*>(&GetCurrentContentTab());
+    if ( flow_tab && ( flow_tab->GetViewState() == MainWindow::ViewState_BookView) ) {
+        flow_tab->SaveTabContent();
+    }
+    
+    QApplication::setOverrideCursor(Qt::WaitCursor);
+
+    QList<Resource *> *changed_resources = new QList<Resource *>();
+    foreach (Resource *resource, html_resources) { 
+        HTMLResource *html_resource = qobject_cast<HTMLResource *>(resource);
+        QStringList new_chapters = html_resource->SplitOnSGFChapterMarkers();
+        if ( !new_chapters.isEmpty() ) {
+            m_Book->CreateNewChapters( new_chapters, *html_resource );
+            changed_resources->append(resource);
+        }
+    }
+
+    if ( changed_resources->count() > 0 ) {
+        m_TabManager.ReloadTabDataForResources( *changed_resources );
+        m_BookBrowser->Refresh();
+
+        statusBar()->showMessage( tr( "Chapters split. You may need to update the Table of Contents." ), STATUSBAR_MSG_DISPLAY_TIME );
+        if ( flow_tab && ( flow_tab->GetViewState() == MainWindow::ViewState_BookView) ) {
+            // Our focus will have been moved to the book browser. Set it there and back to do
+            // an equivalent of "GrabFocus()" to workaround Qt setFocus() not always working.
+            m_BookBrowser->setFocus();
+            flow_tab->setFocus();
+        }
+    }
+    else {
+        statusBar()->showMessage( tr( "No chapter split markers found." ), STATUSBAR_MSG_DISPLAY_TIME );
+    }
+
+    QApplication::restoreOverrideCursor();
 }
-
 
 // Change the selected/highlighted resource to match the current tab
 void MainWindow::UpdateBrowserSelectionToTab()
@@ -3026,6 +3060,8 @@ void MainWindow::ConnectSignalsToSlots()
     connect( ui.actionOpenPreviousResource, SIGNAL( triggered() ), m_BookBrowser, SLOT( OpenPreviousResource() ) );
     connect( ui.actionOpenNextResource,     SIGNAL( triggered() ), m_BookBrowser, SLOT( OpenNextResource()     ) );
     connect( ui.actionBackToLink,    SIGNAL( triggered() ),  this,   SLOT( OpenLastLinkOpened()                    ) );
+    
+    connect( ui.actionSplitOnSGFChapterMarkers, SIGNAL( triggered() ),  this,   SLOT( SplitOnSGFChapterMarkers() ) );
 
     // Slider
     connect( m_slZoomSlider,         SIGNAL( valueChanged( int ) ), this, SLOT( SliderZoom( int ) ) );
@@ -3089,9 +3125,6 @@ void MainWindow::ConnectSignalsToSlots()
     connect( &m_TabManager, SIGNAL( OldTabRequest(            QString, HTMLResource& ) ),
              this,          SLOT(   CreateChapterBreakOldTab( QString, HTMLResource& ) ) );
 
-    connect( &m_TabManager, SIGNAL( NewChaptersRequest( QStringList, HTMLResource& ) ),
-             this,          SLOT(   CreateNewChapters(  QStringList, HTMLResource& ) ) );
-
     connect( &m_TabManager, SIGNAL( ToggleViewStateRequest() ),
              this,          SLOT(   ToggleViewState() ) );
 
@@ -3151,7 +3184,6 @@ void MainWindow::MakeTabConnections( ContentTab *tab )
 
         connect( ui.actionSplitChapter,             SIGNAL( triggered() ),  tab,   SLOT( SplitChapter()             ) );
         connect( ui.actionInsertSGFChapterMarker,   SIGNAL( triggered() ),  tab,   SLOT( InsertSGFChapterMarker()   ) );
-        connect( ui.actionSplitOnSGFChapterMarkers, SIGNAL( triggered() ),  tab,   SLOT( SplitOnSGFChapterMarkers() ) );
         connect( ui.actionInsertClosingTag,         SIGNAL( triggered() ),  tab,   SLOT( InsertClosingTag()         ) );
         connect( ui.actionGoToStyleDefinition,      SIGNAL( triggered() ),  tab,   SLOT( GoToStyleDefinition()      ) );
 
@@ -3228,7 +3260,6 @@ void MainWindow::BreakTabConnections( ContentTab *tab )
 
     disconnect( ui.actionSplitChapter,              0, tab, 0 );
     disconnect( ui.actionInsertSGFChapterMarker,    0, tab, 0 );
-    disconnect( ui.actionSplitOnSGFChapterMarkers,  0, tab, 0 );
     disconnect( ui.actionInsertClosingTag,          0, tab, 0 );
     disconnect( ui.actionGoToStyleDefinition,       0, tab, 0 );
 

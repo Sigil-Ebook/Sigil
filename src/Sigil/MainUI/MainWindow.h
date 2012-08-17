@@ -500,13 +500,8 @@ private slots:
 
     /**
      * Creates new chapters/XHTML documents.
-     *
-     * @param new_chapters The contents of the new chapters.
-     * @param originating_resource The original HTML chapter that chapters
-     * will be created after.
-     * @see Book::CreateNewChapters
      */
-    void CreateNewChapters( QStringList new_chapters, HTMLResource &originalResource );
+    void SplitOnSGFChapterMarkers();
 
     /**
      * Sets the new state of the option that controls

@@ -215,11 +215,6 @@ public slots:
     void InsertClosingTag();
 
     /**
-     * Implements Split on SGF chapter markers action functionality.
-     */
-    void SplitOnSGFChapterMarkers();
-
-    /**
      * Implements \em a \em part of Insert image action functionality.
      * The rest is in MainWindow. It has to be, FlowTabs don't
      * have a reference to the Book object.
@@ -383,15 +378,6 @@ signals:
      *                              was extracted to create the "old" tab/resource.
      */
     void OldTabRequest( QString content, HTMLResource& originating_resource );
-
-    /**
-     * Emitted when the user wants to create several new chapters.
-     *
-     * @param chapters The content of the new chapters to be created.
-     * @param originating_resource The original HTML chapter that chapters
-     * will be created after.
-     */
-    void NewChaptersRequest( QStringList chapters, HTMLResource &originating_resource );
 
     void OpenClipboardEditorRequest(ClipboardEditorModel::clipEntry *clip);
 

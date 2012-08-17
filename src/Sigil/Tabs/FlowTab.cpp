@@ -629,17 +629,6 @@ void FlowTab::MarkForIndex()
     }
 }
 
-void FlowTab::SplitOnSGFChapterMarkers()
-{
-    if (!IsDataWellFormed()) {
-        return;
-    }
-
-    SaveTabContent();
-    emit NewChaptersRequest(m_HTMLResource.SplitOnSGFChapterMarkers(), m_HTMLResource);
-    LoadTabContent();
-}
-
 void FlowTab::InsertImage( const QString &image_path )
 {
     QString html = QString("<img src=\"%1\"/>").arg(image_path);
