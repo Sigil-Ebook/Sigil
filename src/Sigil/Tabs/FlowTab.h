@@ -334,7 +334,7 @@ public slots:
     void RemoveFormatting();
 
     /**
-     * Implements the heading combo box functionality.
+     * Implements the application of a heading style functionality.
      */
     void HeadingStyle( const QString& heading_type, bool preserve_attributes );
 

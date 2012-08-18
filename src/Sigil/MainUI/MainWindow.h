@@ -32,15 +32,14 @@
 #include "ui_main.h"
 #include "BookManipulation/Book.h"
 #include "Dialogs/ClipboardRingSelector.h"
+#include "Dialogs/IndexEditor.h"
+#include "MainUI/FindReplace.h"
 #include "MainUI/NCXModel.h"
 #include "Misc/SettingsStore.h"
-#include "Tabs/ContentTab.h"
-#include "MiscEditors/SearchEditorModel.h"
-#include "MainUI/FindReplace.h"
 #include "MiscEditors/ClipboardEditorModel.h"
-#include "MainUI/FindReplace.h"
-#include "Dialogs/IndexEditor.h"
 #include "MiscEditors/IndexEditorModel.h"
+#include "MiscEditors/SearchEditorModel.h"
+#include "Tabs/ContentTab.h"
 
 const int MAX_RECENT_FILES = 5;
 const int STATUSBAR_MSG_DISPLAY_TIME = 20000;
@@ -369,7 +368,7 @@ private slots:
     void AboutDialog();
 
     /**
-     * Implementes Preferences action functionality.
+     * Implements Preferences action functionality.
      */
     void PreferencesDialog();
 

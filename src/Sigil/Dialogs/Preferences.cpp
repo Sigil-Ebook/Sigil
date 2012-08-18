@@ -88,8 +88,7 @@ void Preferences::readSettings()
 
     // Ensure the previous item selected in the available preferences widgets list
     // is highlighted.
-    QVariant last_preference_value = settings.value( "lastpreference" );
-    int last_preference_index = last_preference_value.isNull() ? 0 : last_preference_value.toInt();
+    int last_preference_index = settings.value( "lastpreference", 0 ).toInt();
     if ( last_preference_index > ui.availableWidgets->count() - 1 ) {
         last_preference_index = 0;
     }

@@ -27,8 +27,8 @@
 #include <QtGui/QFileDialog>
 #include <QtGui/QInputDialog>
 #include <QtGui/QMessageBox>
-#include <QtGui/QToolBar>
 #include <QtGui/QProgressDialog>
+#include <QtGui/QToolBar>
 
 #include "BookManipulation/BookNormalization.h"
 #include "BookManipulation/Index.h"
@@ -37,15 +37,14 @@
 #include "Dialogs/ClipboardEditor.h"
 #include "Dialogs/ClipboardRingSelector.h"
 #include "Dialogs/HeadingSelector.h"
-#include "Dialogs/ViewClasses.h"
-#include "Dialogs/ViewHTML.h"
-#include "Dialogs/ViewImages.h"
-#include "Dialogs/SelectImages.h"
+#include "Dialogs/LinkStylesheets.h"
 #include "Dialogs/MetaEditor.h"
 #include "Dialogs/Preferences.h"
 #include "Dialogs/SearchEditor.h"
-#include "Dialogs/ClipboardEditor.h"
-#include "Dialogs/LinkStylesheets.h"
+#include "Dialogs/SelectImages.h"
+#include "Dialogs/ViewClasses.h"
+#include "Dialogs/ViewHTML.h"
+#include "Dialogs/ViewImages.h"
 #include "Exporters/ExportEPUB.h"
 #include "Exporters/ExporterFactory.h"
 #include "Importers/ImporterFactory.h"
@@ -59,8 +58,8 @@
 #include "Misc/SettingsStore.h"
 #include "Misc/SpellCheck.h"
 #include "Misc/TOCHTMLWriter.h"
-#include "MiscEditors/IndexHTMLWriter.h"
 #include "Misc/Utility.h"
+#include "MiscEditors/IndexHTMLWriter.h"
 #include "ResourceObjects/HTMLResource.h"
 #include "ResourceObjects/NCXResource.h"
 #include "ResourceObjects/OPFResource.h"
@@ -2021,21 +2020,17 @@ void MainWindow::ReadSettings()
     // The list of recent files
     s_RecentFiles    = settings.value( "recentfiles" ).toStringList();
 
-    QVariant preserveHeadingAttributes = settings.value( "preserveheadingattributes" );
-    m_preserveHeadingAttributes = preserveHeadingAttributes.isNull() ? true : preserveHeadingAttributes.toBool();
+    m_preserveHeadingAttributes = settings.value( "preserveheadingattributes", true ).toBool();
     SetPreserveHeadingAttributes( m_preserveHeadingAttributes );
 
-    QVariant regexOptionDotAll = settings.value( "regexoptiondotall" );
-    bool apply_dot_all = regexOptionDotAll.isNull() ? false : regexOptionDotAll.toBool();
-    SetRegexOptionDotAll( apply_dot_all );
+    QVariant regexOptionDotAll = settings.value( "regexoptiondotall", false );
+    SetRegexOptionDotAll( regexOptionDotAll.toBool() );
 
-    QVariant regexOptionMinimalMatch = settings.value( "regexoptionminimalmatch" );
-    bool apply_minimal_match = regexOptionMinimalMatch.isNull() ? false : regexOptionMinimalMatch.toBool();
-    SetRegexOptionMinimalMatch( apply_minimal_match );
+    QVariant regexOptionMinimalMatch = settings.value( "regexoptionminimalmatch", false );
+    SetRegexOptionMinimalMatch( regexOptionMinimalMatch.toBool() );
     
-    QVariant regexOptionAutoTokenise = settings.value( "regexoptionautotokenise" );
-    bool apply_auto_tokenise = regexOptionAutoTokenise.isNull() ? false : regexOptionAutoTokenise.toBool();
-    SetRegexOptionAutoTokenise( apply_auto_tokenise );
+    QVariant regexOptionAutoTokenise = settings.value( "regexoptionautotokenise", false );
+    SetRegexOptionAutoTokenise( regexOptionAutoTokenise.toBool() );
     
     const QStringList clipboardHistory = settings.value( "clipboardringhistory" ).toStringList();
     m_ClipboardRingSelector->LoadClipboardHistory(clipboardHistory);
