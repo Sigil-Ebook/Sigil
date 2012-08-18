@@ -1640,7 +1640,7 @@
     <bool>true</bool>
    </property>
    <property name="text">
-    <string>Tokenise Spaces and Numbers</string>
+    <string>Tokenise Spaces on Find</string>
    </property>
   </action>
   <action name="actionGoToStyleDefinition">
