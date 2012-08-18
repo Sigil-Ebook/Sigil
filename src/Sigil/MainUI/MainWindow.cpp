@@ -2725,6 +2725,7 @@ void MainWindow::ExtendUI()
     sm->registerAction(ui.actionCount, "MainWindow.Count");
     sm->registerAction(ui.actionGoToLine, "MainWindow.GoToLine");
     sm->registerAction(ui.actionGoToStyleDefinition, "MainWindow.GoToStyleDefinition");
+    sm->registerAction(ui.actionBackToLastStyleUsage, "MainWindow.BackToLastStyleUsage");
 
     // Format
     sm->registerAction(ui.actionBold, "MainWindow.Bold");
