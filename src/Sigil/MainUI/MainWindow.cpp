@@ -34,6 +34,8 @@
 #include "BookManipulation/Index.h"
 #include "BookManipulation/FolderKeeper.h"
 #include "Dialogs/About.h"
+#include "Dialogs/ClipboardEditor.h"
+#include "Dialogs/ClipboardRingSelector.h"
 #include "Dialogs/HeadingSelector.h"
 #include "Dialogs/ViewClasses.h"
 #include "Dialogs/ViewHTML.h"
@@ -126,7 +128,8 @@ MainWindow::MainWindow( const QString &openfilepath, QWidget *parent, Qt::WFlags
     m_ClipboardEditor(new ClipboardEditor(this)),
     m_IndexEditor(new IndexEditor(this)),
     m_preserveHeadingAttributes( true ),
-    m_LastLinkOpened(new LastLinkOpened())
+    m_LastLinkOpened(new LastLinkOpened()),
+    m_ClipboardRingSelector(new ClipboardRingSelector(this))
 {
     ui.setupUi( this );
 
@@ -1434,6 +1437,7 @@ void MainWindow::UpdateUIOnTabChanges()
     ui.actionCut  ->setEnabled( tab.CutEnabled() );
     ui.actionCopy ->setEnabled( tab.CopyEnabled() );
     ui.actionPaste->setEnabled( tab.PasteEnabled() );
+    ui.actionPasteClipboardRing->setEnabled( tab.PasteEnabled() );
     ui.actionInsertClosingTag->setEnabled( tab.InsertClosingTagEnabled() );
     ui.actionOpenLink->setEnabled( tab.OpenLinkEnabled() );
     ui.actionAddToIndex->setEnabled( tab.AddToIndexEnabled() );
@@ -1956,6 +1960,16 @@ void MainWindow::SplitOnSGFChapterMarkers()
     QApplication::restoreOverrideCursor();
 }
 
+void MainWindow::ShowPasteClipboardRingDialog()
+{
+    // We only want to show the dialog if focus is in a content tab.
+    ContentTab *contentTab = &GetCurrentContentTab();
+    if ( !contentTab || !contentTab->hasFocus() ) {
+        return;
+    }
+    m_ClipboardRingSelector->exec();
+}
+
 // Change the selected/highlighted resource to match the current tab
 void MainWindow::UpdateBrowserSelectionToTab()
 {
@@ -2001,7 +2015,6 @@ void MainWindow::ReadSettings()
     ui.actionCheckWellFormedErrors->setChecked( m_CheckWellFormedErrors );
     SetCheckWellFormedErrors( m_CheckWellFormedErrors );
 
-
     // The last folder used for saving and opening files
     m_LastFolderOpen  = settings.value( "lastfolderopen"  ).toString();
 
@@ -2023,6 +2036,9 @@ void MainWindow::ReadSettings()
     QVariant regexOptionAutoTokenise = settings.value( "regexoptionautotokenise" );
     bool apply_auto_tokenise = regexOptionAutoTokenise.isNull() ? false : regexOptionAutoTokenise.toBool();
     SetRegexOptionAutoTokenise( apply_auto_tokenise );
+    
+    const QStringList clipboardHistory = settings.value( "clipboardringhistory" ).toStringList();
+    m_ClipboardRingSelector->LoadClipboardHistory(clipboardHistory);
 
     settings.endGroup();
 }
@@ -2053,6 +2069,8 @@ void MainWindow::WriteSettings()
     settings.setValue( "regexoptiondotall", ui.actionRegexDotAll->isChecked() );
     settings.setValue( "regexoptionminimalmatch", ui.actionRegexMinimalMatch->isChecked() );
     settings.setValue( "regexoptionautotokenise", ui.actionRegexAutoTokenise->isChecked() );
+
+    settings.setValue( "clipboardringhistory", m_ClipboardRingSelector->GetClipboardHistory() );
 
     KeyboardShortcutManager::instance()->writeSettings();
 
@@ -2661,6 +2679,7 @@ void MainWindow::ExtendUI()
     sm->registerAction(ui.actionCut, "MainWindow.Cut");
     sm->registerAction(ui.actionCopy, "MainWindow.Copy");
     sm->registerAction(ui.actionPaste, "MainWindow.Paste");
+    sm->registerAction(ui.actionPasteClipboardRing, "MainWindow.PasteClipboardRing");
     sm->registerAction(ui.actionInsertImage, "MainWindow.InsertImage");
     sm->registerAction(ui.actionSplitChapter, "MainWindow.SplitChapter");
     sm->registerAction(ui.actionInsertSGFChapterMarker, "MainWindow.InsertSGFChapterMarker");
@@ -3063,6 +3082,8 @@ void MainWindow::ConnectSignalsToSlots()
     
     connect( ui.actionSplitOnSGFChapterMarkers, SIGNAL( triggered() ),  this,   SLOT( SplitOnSGFChapterMarkers() ) );
 
+    connect( ui.actionPasteClipboardRing,       SIGNAL( triggered() ),  this,   SLOT( ShowPasteClipboardRingDialog() ) );
+
     // Slider
     connect( m_slZoomSlider,         SIGNAL( valueChanged( int ) ), this, SLOT( SliderZoom( int ) ) );
     // We also update the label when the slider moves... this is to show
@@ -3160,6 +3181,7 @@ void MainWindow::MakeTabConnections( ContentTab *tab )
         connect( ui.actionCut,                      SIGNAL( triggered() ),  tab,   SLOT( Cut()                      ) );
         connect( ui.actionCopy,                     SIGNAL( triggered() ),  tab,   SLOT( Copy()                     ) );
         connect( ui.actionPaste,                    SIGNAL( triggered() ),  tab,   SLOT( Paste()                    ) );
+        connect( m_ClipboardRingSelector,           SIGNAL( PasteFromClipboardRequest() ), tab, SLOT( PasteFromClipboard() ) );
     }
 
     if (tab->GetLoadedResource().Type() == Resource::HTMLResourceType )
@@ -3269,7 +3291,8 @@ void MainWindow::BreakTabConnections( ContentTab *tab )
     disconnect( ui.actionMarkForIndex,              0, tab, 0 );
     disconnect( ui.actionOpenLink,                  0, tab, 0 );
 
-    disconnect( m_ClipboardEditor,                 0, tab, 0 );
+    disconnect( m_ClipboardEditor,                  0, tab, 0 );
+    disconnect( m_ClipboardRingSelector,            0, tab, 0 );
 
     disconnect( tab,                                0, this, 0 );
     disconnect( tab,                                0, m_Book.data(), 0 );

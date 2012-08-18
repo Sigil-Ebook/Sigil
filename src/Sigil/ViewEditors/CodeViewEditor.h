@@ -251,6 +251,8 @@ public:
      * @param element_name The name of the element to toggle the format of the selection.
      */
     void ToggleFormatSelection( const QString &element_name );
+
+    void PasteFromClipboard();
     	
 signals:
 

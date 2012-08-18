@@ -31,6 +31,7 @@
 
 #include "ui_main.h"
 #include "BookManipulation/Book.h"
+#include "Dialogs/ClipboardRingSelector.h"
 #include "MainUI/NCXModel.h"
 #include "Misc/SettingsStore.h"
 #include "Tabs/ContentTab.h"
@@ -551,6 +552,8 @@ private slots:
     void OpenLastLinkOpened();
 
     void GoToLinkedStyleDefinition( const QString &element_name, const QString &style_class_name );
+    
+    void ShowPasteClipboardRingDialog();
 
 private:
 
@@ -880,6 +883,8 @@ private:
     bool m_preserveHeadingAttributes;
 
     LastLinkOpened *m_LastLinkOpened;
+
+    ClipboardRingSelector *m_ClipboardRingSelector;
 
     /**
      * Holds all the widgets Qt Designer created for us.

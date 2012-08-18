@@ -83,6 +83,7 @@
     <addaction name="actionCut"/>
     <addaction name="actionCopy"/>
     <addaction name="actionPaste"/>
+    <addaction name="actionPasteClipboardRing"/>
     <addaction name="separator"/>
     <addaction name="actionInsertImage"/>
     <addaction name="separator"/>
@@ -1648,6 +1649,11 @@
    </property>
    <property name="shortcut">
     <string>F2</string>
+   </property>
+  </action>
+  <action name="actionPasteClipboardRing">
+   <property name="text">
+    <string>Paste Clipboard Ring...</string>
    </property>
   </action>
  </widget>

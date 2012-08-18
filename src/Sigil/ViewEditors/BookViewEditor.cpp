@@ -446,6 +446,11 @@ QString BookViewEditor::GetCaretElementName()
     return EvaluateJavascript( c_GetBlock % javascript ).toString();
 }
 
+void BookViewEditor::PasteFromClipboard()
+{
+    page()->triggerAction( QWebPage::Paste );
+}
+
 void BookViewEditor::ConnectSignalsToSlots()
 {
     connect( &m_PageUp,            SIGNAL( activated() ), this, SLOT( PageUp()            ) );

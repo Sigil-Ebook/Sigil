@@ -806,6 +806,14 @@ void FlowTab::LoadTabContent()
     }
 }
 
+void FlowTab::PasteFromClipboard()
+{
+    if (m_ViewState == MainWindow::ViewState_BookView)
+        m_wBookView->PasteFromClipboard();
+    else if (m_ViewState == MainWindow::ViewState_CodeView)
+        m_wCodeView->PasteFromClipboard();
+}
+
 
 void FlowTab::LoadSettings()
 {

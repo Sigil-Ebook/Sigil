@@ -168,6 +168,8 @@ public:
      */
     QString GetCaretElementName();
 
+    void PasteFromClipboard();
+
 public slots:
     /**
      * Filters the text changed signals by the CKEditor inside of the page

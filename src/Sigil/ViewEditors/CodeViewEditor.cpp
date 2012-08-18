@@ -2145,6 +2145,11 @@ CodeViewEditor::StyleTagElement CodeViewEditor::GetSelectedStyleTagElement()
     return element;
 }
 
+void CodeViewEditor::PasteFromClipboard()
+{
+    paste();
+}
+
 void CodeViewEditor::ConnectSignalsToSlots()
 {
     connect( this, SIGNAL( blockCountChanged( int )           ), this, SLOT( UpdateLineNumberAreaMargin()              ) );
