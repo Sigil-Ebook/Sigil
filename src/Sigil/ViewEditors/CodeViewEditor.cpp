@@ -1201,6 +1201,9 @@ void CodeViewEditor::GoToStyleDefinition()
     CodeViewEditor::StyleTagElement element = GetSelectedStyleTagElement();
     if ( element.name.isEmpty() )
         return;
+
+    // Emit a signal to bookmark our code location, enabling the "Back to" feature
+    emit BookmarkStyleUsageLocationRequest(GetCursorPosition());
     
     // Look to see whether we have an inline style matching this.
     const QString text = toPlainText();

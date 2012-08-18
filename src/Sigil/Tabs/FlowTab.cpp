@@ -851,6 +851,11 @@ void FlowTab::PVSplitterMoved(int pos, int index)
     settings.endGroup();
 }
 
+void FlowTab::EmitBookmarkStyleUsageLocationRequest(int cv_cursor_position)
+{
+    emit BookmarkStyleUsageLocationRequest(GetFilename(), cv_cursor_position);
+}
+
 void FlowTab::LeaveEditor(QWidget *editor)
 {
     SaveTabContent();
@@ -1282,4 +1287,6 @@ void FlowTab::ConnectSignalsToSlots()
     connect(m_wCodeView, SIGNAL(OpenIndexEditorRequest(IndexEditorModel::indexEntry *)), this, SIGNAL(OpenIndexEditorRequest(IndexEditorModel::indexEntry *)));
 
     connect(m_wCodeView, SIGNAL(GoToLinkedStyleDefinitionRequest(const QString&, const QString&)), this, SIGNAL(GoToLinkedStyleDefinitionRequest(const QString&, const QString&)));
+
+    connect(m_wCodeView, SIGNAL(BookmarkStyleUsageLocationRequest(int)), this, SLOT(EmitBookmarkStyleUsageLocationRequest(int)));
 }

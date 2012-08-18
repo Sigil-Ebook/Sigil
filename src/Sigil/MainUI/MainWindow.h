@@ -138,10 +138,10 @@ public:
         ViewState_StaticView   /**< The static view for non-editable content. */
     };
 
-   /**
+    /**
      * The location of the last link opened.
      */
-    struct LastLinkOpened
+    struct LocationBookmark
     {
         QString filename;
         MainWindow::ViewState view_state;
@@ -548,9 +548,12 @@ private slots:
     void ApplyHeadingStyleToTab( const QString &heading_type );
     void SetPreserveHeadingAttributes( bool new_state );
 
-    void OpenLastLinkOpened();
+    void OpenLastLinkOpenedBookmark();
+    void OpenLastStyleUsageBookmark();
 
-    void GoToLinkedStyleDefinition( const QString &element_name, const QString &style_class_name );
+    void GoToLinkedStyleDefinition(const QString &element_name, const QString &style_class_name);
+
+    void BookmarkStyleUsageLocation(const QString &file_name, int cv_cursor_position);
     
     void ShowPasteClipboardRingDialog();
 
@@ -558,7 +561,10 @@ private:
 
     bool OpenCSSResourceWithStyleDefinition( const QString &style_name, const QString &text, CSSResource *css_resource );
 
-    void ResetLastLinkOpened();
+    void ResetLastLinkOpenedBookmark();
+    void ResetLastStyleUsageBookmark();
+    void ResetLocationBookmark(LocationBookmark *locationBookmark);
+    void OpenLocationBookmark(LocationBookmark *locationBookmark);
 
     /**
      * Reads all the stored application settings like
@@ -881,7 +887,8 @@ private:
 
     bool m_preserveHeadingAttributes;
 
-    LastLinkOpened *m_LastLinkOpened;
+    LocationBookmark *m_LastLinkOpenedBookmark;
+    LocationBookmark *m_LastStyleUsageBookmark;
 
     ClipboardRingSelector *m_ClipboardRingSelector;
 

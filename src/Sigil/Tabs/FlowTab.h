@@ -385,7 +385,9 @@ signals:
 
     void OpenIndexEditorRequest(IndexEditorModel::indexEntry *index);
 
-    void GoToLinkedStyleDefinitionRequest( const QString &element_name, const QString &style_class_name );
+    void GoToLinkedStyleDefinitionRequest(const QString &element_name, const QString &style_class_name);
+
+    void BookmarkStyleUsageLocationRequest(const QString &file_name, int cv_cursor_position);
 
 private slots:
 
@@ -435,6 +437,8 @@ private slots:
     void ResourceTextChanging();
 
     void PVSplitterMoved(int pos, int index);
+
+    void EmitBookmarkStyleUsageLocationRequest(int cv_cursor_position);
 
 private:
     /**

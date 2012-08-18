@@ -127,7 +127,8 @@ MainWindow::MainWindow( const QString &openfilepath, QWidget *parent, Qt::WFlags
     m_ClipboardEditor(new ClipboardEditor(this)),
     m_IndexEditor(new IndexEditor(this)),
     m_preserveHeadingAttributes( true ),
-    m_LastLinkOpened(new LastLinkOpened()),
+    m_LastLinkOpenedBookmark(new LocationBookmark()),
+    m_LastStyleUsageBookmark(new LocationBookmark()),
     m_ClipboardRingSelector(new ClipboardRingSelector(this))
 {
     ui.setupUi( this );
@@ -196,35 +197,57 @@ void MainWindow::OpenFilename( QString filename )
     }
 }
 
-void MainWindow::ResetLastLinkOpened()
+void MainWindow::ResetLastLinkOpenedBookmark()
 {
-    m_LastLinkOpened->filename = QString();
-    m_LastLinkOpened->view_state = MainWindow::ViewState_Unknown;
-    m_LastLinkOpened->bv_caret_location_update = QString();
-    m_LastLinkOpened->cv_cursor_position = -1;
-
+    ResetLocationBookmark(m_LastLinkOpenedBookmark);
     ui.actionBackToLink->setEnabled(false);
 }
 
-void MainWindow::OpenLastLinkOpened()
+void MainWindow::ResetLastStyleUsageBookmark()
 {
-    if (m_LastLinkOpened->filename.isEmpty()) {
+    ResetLocationBookmark(m_LastStyleUsageBookmark);
+    ui.actionBackToLastStyleUsage->setEnabled(false);
+}
+
+void MainWindow::ResetLocationBookmark(MainWindow::LocationBookmark *locationBookmark)
+{
+    locationBookmark->filename = QString();
+    locationBookmark->view_state = MainWindow::ViewState_Unknown;
+    locationBookmark->bv_caret_location_update = QString();
+    locationBookmark->cv_cursor_position = -1;
+}
+
+void MainWindow::OpenLastLinkOpenedBookmark()
+{
+    OpenLocationBookmark(m_LastLinkOpenedBookmark);
+    ResetLocationBookmark(m_LastLinkOpenedBookmark);
+}
+
+void MainWindow::OpenLastStyleUsageBookmark()
+{
+    OpenLocationBookmark(m_LastStyleUsageBookmark);
+    // We won't reset it, allowing the user to keep coming back 
+    // as long as the resource exists in the ePub.
+}
+
+void MainWindow::OpenLocationBookmark(MainWindow::LocationBookmark *locationBookmark)
+{
+    if (locationBookmark->filename.isEmpty()) {
         return;
     }
 
     try
     {
-        Resource &resource = m_Book->GetFolderKeeper().GetResourceByFilename(m_LastLinkOpened->filename);
+        Resource &resource = m_Book->GetFolderKeeper().GetResourceByFilename(locationBookmark->filename);
 
-        SetViewState(m_LastLinkOpened->view_state);
-        OpenResource(resource, false, QUrl(), m_LastLinkOpened->view_state, -1, m_LastLinkOpened->cv_cursor_position, m_LastLinkOpened->bv_caret_location_update);
+        SetViewState(locationBookmark->view_state);
+        OpenResource(resource, false, QUrl(), locationBookmark->view_state, -1, locationBookmark->cv_cursor_position, locationBookmark->bv_caret_location_update);
     }
     catch (const ResourceDoesNotExist&)
     {
         // Nothing. Old file must have been deleted.
+        ResetLocationBookmark(locationBookmark);
     }
-
-    ResetLastLinkOpened();
 }
 
 void MainWindow::OpenUrl(const QUrl& url)
@@ -233,7 +256,7 @@ void MainWindow::OpenUrl(const QUrl& url)
         return;
     }
 
-    ResetLastLinkOpened();
+    ResetLastLinkOpenedBookmark();
 
     ContentTab &tab = m_TabManager.GetCurrentContentTab();
     if (&tab == NULL) {
@@ -242,15 +265,15 @@ void MainWindow::OpenUrl(const QUrl& url)
     Resource *current_resource = &tab.GetLoadedResource();
 
     // Save the current tab data for returning to the link location.
-    m_LastLinkOpened->view_state = m_ViewState;
-    m_LastLinkOpened->filename = current_resource->Filename();
-    m_LastLinkOpened->cv_cursor_position = tab.GetCursorPosition();
-    m_LastLinkOpened->bv_caret_location_update = tab.GetCaretLocationUpdate();
+    m_LastLinkOpenedBookmark->view_state = m_ViewState;
+    m_LastLinkOpenedBookmark->filename = current_resource->Filename();
+    m_LastLinkOpenedBookmark->cv_cursor_position = tab.GetCursorPosition();
+    m_LastLinkOpenedBookmark->bv_caret_location_update = tab.GetCaretLocationUpdate();
 
     if (url.scheme().isEmpty() || url.scheme() == "file") {
         Resource *resource = m_BookBrowser->GetUrlResource(url);
         if (!resource) {
-            ResetLastLinkOpened();
+            ResetLastLinkOpenedBookmark();
             return;
         }
         OpenResource(*resource, false, url.fragment());
@@ -263,7 +286,7 @@ void MainWindow::OpenUrl(const QUrl& url)
         }
     }
 
-    ui.actionBackToLink->setEnabled(!m_LastLinkOpened->filename.isEmpty());
+    ui.actionBackToLink->setEnabled(!m_LastLinkOpenedBookmark->filename.isEmpty());
 }
 
 void MainWindow::OpenResource( Resource& resource,
@@ -569,6 +592,14 @@ void MainWindow::GoToLinkedStyleDefinition( const QString &element_name, const Q
             }
         }
     }
+}
+
+void MainWindow::BookmarkStyleUsageLocation( const QString &file_name, int cv_cursor_position )
+{
+    m_LastStyleUsageBookmark->filename = file_name;
+    m_LastStyleUsageBookmark->cv_cursor_position = cv_cursor_position;
+    m_LastStyleUsageBookmark->view_state = MainWindow::ViewState_CodeView;
+    ui.actionBackToLastStyleUsage->setEnabled(!m_LastStyleUsageBookmark->filename.isEmpty());
 }
 
 bool MainWindow::OpenCSSResourceWithStyleDefinition( const QString &style_name, const QString &text, CSSResource *css_resource )
@@ -2106,7 +2137,8 @@ void MainWindow::SetNewBook( QSharedPointer< Book > new_book )
     m_ValidationResultsView->SetBook( m_Book );
 
     m_IndexEditor->SetBook( m_Book );
-    ResetLastLinkOpened();
+    ResetLastLinkOpenedBookmark();
+    ResetLastStyleUsageBookmark();
 
     connect( m_Book.data(), SIGNAL( ModifiedStateChanged( bool ) ), this, SLOT( setWindowModified( bool ) ) );
     connect( m_BookBrowser,     SIGNAL( GuideSemanticTypeAdded( const HTMLResource&, GuideSemantics::GuideSemanticType ) ),
@@ -3073,7 +3105,8 @@ void MainWindow::ConnectSignalsToSlots()
     connect( ui.actionCloseOtherTabs,SIGNAL( triggered() ), &m_TabManager, SLOT( CloseOtherTabs() ) );
     connect( ui.actionOpenPreviousResource, SIGNAL( triggered() ), m_BookBrowser, SLOT( OpenPreviousResource() ) );
     connect( ui.actionOpenNextResource,     SIGNAL( triggered() ), m_BookBrowser, SLOT( OpenNextResource()     ) );
-    connect( ui.actionBackToLink,    SIGNAL( triggered() ),  this,   SLOT( OpenLastLinkOpened()                    ) );
+    connect( ui.actionBackToLink,           SIGNAL( triggered() ), this,   SLOT( OpenLastLinkOpenedBookmark()  ) );
+    connect( ui.actionBackToLastStyleUsage, SIGNAL( triggered() ), this,   SLOT( OpenLastStyleUsageBookmark()  ) );
     
     connect( ui.actionSplitOnSGFChapterMarkers, SIGNAL( triggered() ),  this,   SLOT( SplitOnSGFChapterMarkers() ) );
 
@@ -3228,6 +3261,9 @@ void MainWindow::MakeTabConnections( ContentTab *tab )
 
         connect( tab,   SIGNAL( GoToLinkedStyleDefinitionRequest( const QString&, const QString& ) ),
                  this,  SLOT (  GoToLinkedStyleDefinition( const QString&, const QString& ) ) );
+
+        connect( tab,   SIGNAL( BookmarkStyleUsageLocationRequest( const QString&, int ) ),
+                 this,  SLOT (  BookmarkStyleUsageLocation( const QString&, int ) ) );
     }
 
     if (tab->GetLoadedResource().Type() == Resource::CSSResourceType )

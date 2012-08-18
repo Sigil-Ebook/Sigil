@@ -193,6 +193,7 @@
     <addaction name="separator"/>
     <addaction name="actionGoToLine"/>
     <addaction name="actionGoToStyleDefinition"/>
+    <addaction name="actionBackToLastStyleUsage"/>
     <addaction name="separator"/>
     <addaction name="menuRegexOptions"/>
    </widget>
@@ -1649,6 +1650,14 @@
    </property>
    <property name="shortcut">
     <string>F2</string>
+   </property>
+  </action>
+  <action name="actionBackToLastStyleUsage">
+   <property name="text">
+    <string>Go Back To Style Usage</string>
+   </property>
+   <property name="shortcut">
+    <string>Shift+F2</string>
    </property>
   </action>
   <action name="actionPasteClipboardRing">

@@ -285,7 +285,9 @@ signals:
 
     void LinkClicked(const QUrl &url);
 
-    void GoToLinkedStyleDefinitionRequest( const QString &element_name, const QString &style_class_name );
+    void GoToLinkedStyleDefinitionRequest(const QString &element_name, const QString &style_class_name);
+    
+    void BookmarkStyleUsageLocationRequest(int cv_cursor_position);
 
 public slots:
 
