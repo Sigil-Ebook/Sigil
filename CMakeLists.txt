@@ -22,6 +22,16 @@ set( SIGIL_MINOR_VERSION 5 )
 set( SIGIL_REVISION_VERSION 902 )
 set( SIGIL_FULL_VERSION ${SIGIL_MAJOR_VERSION}.${SIGIL_MINOR_VERSION}.${SIGIL_REVISION_VERSION} )
 
+# Apple users building with XCode notes:
+# If building with XCode you need to set the target and location
+# of the SDK. If you are building with the Command Line Tools
+# you do not need to specify the follwing options.
+# It is recommened to set them when running cmake using -D
+# rather than editing this file directly.
+# CMAKE_OSX_DEPLOYMENT_TARGET "10.8"
+# CMAKE_OSX_SYSROOT "/Developer/SDKs/MacOSX10.8.sdk"
+
+
 # Check if platform is 64 bit
 if( NOT APPLE )
    if( CMAKE_SIZEOF_VOID_P EQUAL 4 )
@@ -40,14 +50,6 @@ if( CMAKE_COMPILER_IS_GNUCXX  )
     # we clear the default back to empty
     set( CMAKE_BUILD_TYPE  )
 endif()
-
-# We need this to make sure g++ and the linker
-# create exes that can run on 10.6+
-set( CMAKE_OSX_DEPLOYMENT_TARGET "10.6" )
-
-# 10.7 is the required minimum OS X version.
-set( CMAKE_OSX_SYSROOT "/Developer/SDKs/MacOSX10.6.sdk" )
-set( CMAKE_OSX_ARCHITECTURES "x86_64" )
 
 # This disables the building of the test runner app for FlightCrew
 set( NO_TEST_EXE 1 )
