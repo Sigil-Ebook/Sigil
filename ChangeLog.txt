@@ -38,9 +38,6 @@ Sigil 0.6.0 TBA
     - Implement issue 32: Metadata custom "date" options.
     - Implement issue 33: Metadata options for creators and contributors.
     - Implement issue 1374: Split View is now Preview View with code inspector.
-    - Implement issue 1375: Replace Book View Editor with editor based on CKEditor.
-      - Implements a number of requested features and fixes.
-      - Updated internal storage of text for easier management.
     - Implement issue 60: Book View buttons for text alignment.
     - Implement issue 425: Book View Shift+PgUp/PgDn should highlight text.
     - Implement issue 184: Book View Superscript/subscript buttons.
