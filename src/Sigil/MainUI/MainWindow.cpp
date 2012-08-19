@@ -562,7 +562,6 @@ void MainWindow::GoToLinkedStyleDefinition( const QString &element_name, const Q
         QList<Resource *> css_resources = m_BookBrowser->AllCSSResources();
         QStringList stylesheets = GetStylesheetsAlreadyLinked( current_resource );
 
-        QRegExp style_search( "\\." + style_class_name + "\\s*\\{" );
         foreach( QString pathname, stylesheets )
         {
             // Check whether the stylesheet contains this style
@@ -2237,7 +2236,7 @@ bool MainWindow::SaveFile( const QString &fullfilepath )
         QApplication::setOverrideCursor( Qt::WaitCursor );
 
         ExporterFactory().GetExporter( fullfilepath, m_Book ).WriteBook();
-        ;
+
         QApplication::restoreOverrideCursor();
 
         // Return the focus back to the current tab
