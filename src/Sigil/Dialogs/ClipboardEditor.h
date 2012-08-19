@@ -119,3 +119,4 @@ private:
 };
 
 #endif // CLIPBOARDEDITOR_H
+

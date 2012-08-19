@@ -43,7 +43,7 @@ const QString BREAK_TAG_INSERT    = "<hr class=\"sigilChapterBreak\" />";
 const QString XML_NAMESPACE_CRUFT = "xmlns=\"http://www.w3.org/1999/xhtml\"";
 const QString WEBKIT_BODY_STYLE_CRUFT = " style=\"word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space; \"";
 
-const QString DOC_PREFIX = "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"no\"?>\n" 
+const QString DOC_PREFIX = "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"no\"?>\n"
                            "<!DOCTYPE html PUBLIC \"W3C//DTD XHTML 1.1//EN\"\n"
                            "  \"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd\">\n"
                            "<html xmlns=\"http://www.w3.org/1999/xhtml\">";
@@ -188,7 +188,7 @@ QString BookViewEditor::SplitChapter()
     // some other webkit cruft that isn't required.
     body_tag = body_tag.remove( WEBKIT_BODY_STYLE_CRUFT ).remove( "</body>" );
 
-    // In addition we strip Webkit namespace cruft out of the above text. 
+    // In addition we strip Webkit namespace cruft out of the above text.
     // Every element will have an xmlns element on it which we want removed.
     QString new_html = QString( DOC_PREFIX )
            .append( head.remove( XML_NAMESPACE_CRUFT ) )
@@ -248,7 +248,7 @@ void BookViewEditor::ExecCommand( const QString &command )
 }
 
 void BookViewEditor::ExecCommand( const QString &command, const QString &parameter )
-{       
+{
     QString javascript = QString( "document.execCommand( '%1', false, '%2' )" )
                             .arg( EscapeJSString( command ) )
                             .arg( EscapeJSString( parameter ) );
@@ -267,7 +267,7 @@ QString BookViewEditor::EscapeJSString( const QString &string )
 {
     QString new_string( string );
 
-    /* \ -> \\ */ 
+    /* \ -> \\ */
     // " -> \"
     // ' -> \'
     return new_string.replace( "\\", "\\\\" ).replace( "\"", "\\\"" ).replace( "'", "\\'" );
@@ -289,7 +289,7 @@ void BookViewEditor::ScrollByNumPixels( int pixel_number, bool down )
     int current_scroll_offset = page()->mainFrame()->scrollBarValue(   Qt::Vertical );
     int scroll_maximum        = page()->mainFrame()->scrollBarMaximum( Qt::Vertical );
 
-    int new_scroll_Y = down ? current_scroll_offset + pixel_number : current_scroll_offset - pixel_number;    
+    int new_scroll_Y = down ? current_scroll_offset + pixel_number : current_scroll_offset - pixel_number;
 
     // qBound(min, ours, max) limits the value to the range
     new_scroll_Y     = qBound( 0, new_scroll_Y, scroll_maximum );
@@ -369,7 +369,7 @@ QString BookViewEditor::RemoveBookViewReplaceSpans( const QString &source )
         // Check for nested spans.
         int nest_count = 1; // set to 1 as we already have an open span
         int next_span_tag = index;
-        do 
+        do
         {
             next_span_tag = source.indexOf( span_open_or_close, index );
             if( next_span_tag == -1 )
@@ -396,7 +396,7 @@ QString BookViewEditor::RemoveBookViewReplaceSpans( const QString &source )
         newsource.append( source.mid( index, next_span_tag - index ) );
 
         // Move left_pos past the closing tag and search for another span to remove.
-        left_pos = next_span_tag + span_open_or_close.cap(0).length(); 
+        left_pos = next_span_tag + span_open_or_close.cap(0).length();
         index = source.indexOf( replace_spans, left_pos );
     }
 

@@ -146,8 +146,8 @@ public:
      * Returns the state of the contentEditable command.
      * The query is performed through JavaScript.
      */
-    bool QueryCommandState( const QString &command );        
-    
+    bool QueryCommandState( const QString &command );
+
     /**
      * Implements the "formatBlock" execCommand because
      * WebKit's default one has bugs.
@@ -215,7 +215,7 @@ protected:
      * @param event The event to process.
      */
     void focusOutEvent(QFocusEvent *event);
-    
+
 private slots:
 
     /**
@@ -227,7 +227,7 @@ private slots:
      * Wrapper slot for the Page Down shortcut.
      */
     void PageDown();
-    
+
     /**
      * Wrapper slot for the Scroll One Line Up shortcut.
      */
@@ -252,11 +252,11 @@ private:
      * @return The escaped string.
      */
     QString EscapeJSString( const QString &string );
-    
+
     /**
-     * Scrolls the whole screen by one line. 
+     * Scrolls the whole screen by one line.
      * Used for ScrollOneLineUp and ScrollOneLineDown shortcuts.
-     * 
+     *
      * @param down Specifies are we scrolling up or down.
      */
     void ScrollByLine( bool down );
@@ -268,11 +268,11 @@ private:
      * @param down Specifies are we scrolling up or down.
      */
     void ScrollByNumPixels( int pixel_number, bool down );
-    
+
     /**
      * Removes all the cruft with which WebKit litters our source code.
      * The cruft is removed from the QWebPage cache, and includes
-     * superfluous CSS styles and classes. 
+     * superfluous CSS styles and classes.
      */
     void RemoveWebkitCruft();
 

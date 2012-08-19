@@ -33,19 +33,19 @@ static const QString SETTINGS_GROUP = "clipboard_editor";
 static const QString FILE_EXTENSION = "ini";
 
 ClipboardEditor::ClipboardEditor(QWidget *parent)
-    : 
+    :
     QDialog(parent),
     m_LastFolderOpen(QString()),
     m_ContextMenu(new QMenu(this))
 {
-    ui.setupUi(this);	
+    ui.setupUi(this);
 
     SetupClipboardEditorTree();
 
     CreateContextMenuActions();
 
     ConnectSignalsSlots();
-} 
+}
 
 ClipboardEditor::~ClipboardEditor()
 {
@@ -61,7 +61,7 @@ void ClipboardEditor::SetupClipboardEditorTree()
     ui.ClipboardEditorTree->setContextMenuPolicy(Qt::CustomContextMenu);
     ui.ClipboardEditorTree->setSortingEnabled(false);
     ui.ClipboardEditorTree->setWordWrap(true);
-    ui.ClipboardEditorTree->setAlternatingRowColors(true); 
+    ui.ClipboardEditorTree->setAlternatingRowColors(true);
 
     ui.ClipboardEditorTree->header()->setToolTip(
         "<p>" + tr("Right click on an entry to see a context menu of actions.") + "</p>" +
