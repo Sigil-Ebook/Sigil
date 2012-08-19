@@ -115,27 +115,31 @@ void ExportEPUB::CreatePublication( const QString &fullfolderpath )
 
 void ExportEPUB::SaveFolderAsEpubToLocation( const QString &fullfolderpath, const QString &fullfilepath )
 {
+    QString tempFile = fullfolderpath + "-tmp.epub";
+
 #ifdef Q_OS_WIN32
     zlib_filefunc64_def ffunc;
     fill_win32_filefunc64W(&ffunc);
-    zipFile zfile = zipOpen2_64(QDir::toNativeSeparators(fullfilepath).toStdWString().c_str(), APPEND_STATUS_CREATE, NULL, &ffunc);
+    zipFile zfile = zipOpen2_64(QDir::toNativeSeparators(tempFile).toStdWString().c_str(), APPEND_STATUS_CREATE, NULL, &ffunc);
 #else
-    zipFile zfile = zipOpen64(QDir::toNativeSeparators(fullfilepath).toUtf8().constData(), APPEND_STATUS_CREATE);
+    zipFile zfile = zipOpen64(QDir::toNativeSeparators(tempFile).toUtf8().constData(), APPEND_STATUS_CREATE);
 #endif
 
     if (zfile == NULL) {
-        boost_throw(CannotOpenFile() << errinfo_file_fullpath(fullfilepath.toStdString()));
+        boost_throw(CannotOpenFile() << errinfo_file_fullpath(tempFile.toStdString()));
     }
 
     // Write the mimetype. This must be uncompressed and the first entry in the archive.
     if (zipOpenNewFileInZip64(zfile, "mimetype", NULL, NULL, 0, NULL, 0, NULL, Z_NO_COMPRESSION, 0, 0) != Z_OK) {
         zipClose(zfile, NULL);
+        QFile::remove(tempFile);
         boost_throw(CannotStoreFile() << errinfo_file_fullpath("mimetype"));
     }
     const char *mime_data = EPUB_MIME_TYPE.toUtf8().constData();
     if (zipWriteInFileInZip(zfile, mime_data, (unsigned int)strlen(mime_data)) != Z_OK) {
         zipCloseFileInZip(zfile);
         zipClose(zfile, NULL);
+        QFile::remove(tempFile);
         boost_throw(CannotStoreFile() << errinfo_file_fullpath("mimetype"));
     }
     zipCloseFileInZip(zfile);
@@ -153,6 +157,7 @@ void ExportEPUB::SaveFolderAsEpubToLocation( const QString &fullfolderpath, cons
         // We should check the uncompressed file size. If it's over >= 0xffffffff the last parameter (zip64) should be 1.
         if (zipOpenNewFileInZip4_64(zfile, relpath.toUtf8().constData(), NULL, NULL, 0, NULL, 0, NULL, Z_DEFLATED, 8, 0, 15, 8, Z_DEFAULT_STRATEGY, NULL, 0, 0x0b00, 0, 0) != Z_OK) {
             zipClose(zfile, NULL);
+            QFile::remove(tempFile);
             boost_throw(CannotStoreFile() << errinfo_file_fullpath(relpath.toStdString()));
         }
 
@@ -162,16 +167,18 @@ void ExportEPUB::SaveFolderAsEpubToLocation( const QString &fullfolderpath, cons
         if (!dfile.open(QIODevice::ReadOnly)) {
             zipCloseFileInZip(zfile);
             zipClose(zfile, NULL);
+            QFile::remove(tempFile);
             boost_throw(CannotOpenFile() << errinfo_file_fullpath(it.fileName().toStdString()));
         }
         // Write the data from the file on disk into the archive.
         char buff[BUFF_SIZE] = {0};
-        unsigned int read = 0;
+        qint64 read = 0;
         while ((read = dfile.read(buff, BUFF_SIZE)) > 0) {
             if (zipWriteInFileInZip(zfile, buff, read) != Z_OK) {
                 dfile.close();
                 zipCloseFileInZip(zfile);
                 zipClose(zfile, NULL);
+                QFile::remove(tempFile);
                 boost_throw(CannotStoreFile() << errinfo_file_fullpath(relpath.toStdString()));
             }
         }
@@ -180,16 +187,25 @@ void ExportEPUB::SaveFolderAsEpubToLocation( const QString &fullfolderpath, cons
         if (read < 0) {
             zipCloseFileInZip(zfile);
             zipClose(zfile, NULL);
+            QFile::remove(tempFile);
             boost_throw(CannotStoreFile() << errinfo_file_fullpath(relpath.toStdString()));
         }
 
         if (zipCloseFileInZip(zfile) != Z_OK) {
             zipClose(zfile, NULL);
+            QFile::remove(tempFile);
             boost_throw(CannotStoreFile() << errinfo_file_fullpath(relpath.toStdString()));
         }
     }
 
     zipClose(zfile, NULL);
+    if (QFile::remove(fullfilepath)) {
+        if (!QFile::rename(tempFile, fullfilepath)) {
+            boost_throw(CannotCopyFile() << errinfo_file_fullpath(fullfilepath.toStdString()));
+        }
+    } else {
+        boost_throw(CannotDeleteFile() << errinfo_file_fullpath(fullfilepath.toStdString()));
+    }
 }
 
 

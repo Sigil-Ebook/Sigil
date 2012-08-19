@@ -109,6 +109,11 @@ struct CannotCopyFile : virtual ExceptionBase {};
 typedef boost::error_info< struct file_copypath, std::string > errinfo_file_copypath;
 
 /**
+ * Thrown when a file cannot be removed.
+ */
+struct CannotDeleteFile : virtual ExceptionBase {};
+
+/**
  * Thrown when the user tries to open a file encrypted with DRM.
  */
 struct FileEncryptedWithDrm : virtual ExceptionBase {};

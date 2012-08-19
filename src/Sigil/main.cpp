@@ -88,11 +88,11 @@ static QIcon GetApplicationIcon()
 // The message handler installed to handle Qt messages
 void MessageHandler( QtMsgType type, const char *message )
 {
-    switch (type) 
+    switch (type)
     {
         // TODO: should go to a log
         case QtDebugMsg:
- 
+
             fprintf( stderr, "Debug: %s\n", message );
             break;
 
@@ -173,7 +173,7 @@ int main( int argc, char *argv[] )
 #ifndef QT_DEBUG
     qInstallMsgHandler( MessageHandler );
 #endif
-    
+
     QApplication app( argc, argv );
     XercesExt::XercesInit init;
 
@@ -184,7 +184,7 @@ int main( int argc, char *argv[] )
         // that way, we always have a steady number of threads ready to do work.
         QThreadPool::globalInstance()->setExpiryTimeout( -1 );
 
-        // Specify the plugin folders 
+        // Specify the plugin folders
         // (language codecs and image loaders)
         app.addLibraryPath( "codecs" );
         app.addLibraryPath( "iconengines" );
@@ -233,7 +233,7 @@ int main( int argc, char *argv[] )
         // the reply has time to return.
         UpdateChecker *checker = new UpdateChecker( &app );
         checker->CheckForUpdate();
-        
+
         // Install an event filter for the application
         // so we can catch OS X's file open events
         AppEventFilter *filter = new AppEventFilter( &app );
@@ -241,23 +241,20 @@ int main( int argc, char *argv[] )
 
         const QStringList &arguments = QCoreApplication::arguments();
 
-        // Normal startup
-        if ( arguments.count() != 3 )
-        {
-            MainWindow *widget = GetMainWindow( arguments );    
+        if (arguments.contains("-t")) {
+            std::cout  << TempFolder::GetPathToSigilScratchpad().toStdString() << std::endl;
+            return 1;
+        //} else if (arguments.count() == 3) {
+            // Used for an undocumented, unsupported *-to-epub
+            // console conversion. USE AT YOUR OWN PERIL!
+            return QuickConvert( arguments );
+        } else {
+            // Normal startup
+            MainWindow *widget = GetMainWindow( arguments );
             widget->show();
-
             return app.exec();
         }
-
-        // Used for an undocumented, unsupported *-to-epub
-        // console conversion. USE AT YOUR OWN PERIL!
-        else
-        {
-            return QuickConvert( arguments );
-        }
     }
-    
     catch ( ExceptionBase &exception )
     {
         Utility::DisplayExceptionErrorDialog( Utility::GetExceptionInfo( exception ) );
