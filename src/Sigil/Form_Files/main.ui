@@ -171,6 +171,7 @@
     <addaction name="actionBookView"/>
     <addaction name="actionSplitView"/>
     <addaction name="actionCodeView"/>
+    <addaction name="actionToggleViewState"/>
     <addaction name="separator"/>
     <addaction name="actionZoomIn"/>
     <addaction name="actionZoomOut"/>
@@ -828,6 +829,17 @@
    </property>
    <property name="shortcut">
     <string>F11</string>
+   </property>
+  </action>
+  <action name="actionToggleViewState">
+   <property name="text">
+    <string>&amp;Toggle View State</string>
+   </property>
+   <property name="toolTip">
+    <string>Toggle Book View or Preview View to Code View or Code View to Book View</string>
+   </property>
+   <property name="shortcut">
+    <string>F2</string>
    </property>
   </action>
   <action name="actionSplitChapter">

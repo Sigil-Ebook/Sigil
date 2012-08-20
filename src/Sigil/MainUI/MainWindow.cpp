@@ -2607,6 +2607,7 @@ void MainWindow::ExtendUI()
     sm->registerAction(ui.actionBookView, "MainWindow.BookView");
     sm->registerAction(ui.actionSplitView, "MainWindow.SplitView");
     sm->registerAction(ui.actionCodeView, "MainWindow.CodeView");
+    sm->registerAction(ui.actionToggleViewState, "MainWindow.ToggleViewState");
     sm->registerAction(ui.actionZoomIn, "MainWindow.ZoomIn");
     sm->registerAction(ui.actionZoomOut, "MainWindow.ZoomOut");
     sm->registerAction(ui.actionZoomReset, "MainWindow.ZoomReset");
@@ -2920,6 +2921,7 @@ void MainWindow::ConnectSignalsToSlots()
     connect( ui.actionBookView,      SIGNAL( triggered() ),  this,   SLOT( BookView()  ) );
     connect( ui.actionSplitView,     SIGNAL( triggered() ),  this,   SLOT( SplitView() ) );
     connect( ui.actionCodeView,      SIGNAL( triggered() ),  this,   SLOT( CodeView()  ) );
+    connect( ui.actionToggleViewState, SIGNAL( triggered() ),  this,   SLOT( ToggleViewState()  ) );
 
     connect( ui.actionHeadingPreserveAttributes, SIGNAL( triggered( bool ) ), this, SLOT( SetPreserveHeadingAttributes( bool ) ) );
     connect( m_headingMapper,      SIGNAL( mapped( const QString& ) ),  this,   SLOT( ApplyHeadingStyleToTab( const QString& ) ) );
