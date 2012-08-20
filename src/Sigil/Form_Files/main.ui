@@ -1604,7 +1604,7 @@
   </action>
   <action name="actionBackToLink">
    <property name="text">
-    <string>Back To Link</string>
+    <string>Go Back To Opened Link</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+\</string>
@@ -1641,7 +1641,7 @@
     <bool>true</bool>
    </property>
    <property name="text">
-    <string>Tokenise Spaces on Find</string>
+    <string>Tokenise Spaces When Opening Find</string>
    </property>
   </action>
   <action name="actionGoToStyleDefinition">
@@ -1649,7 +1649,7 @@
     <string>Go To Style Definition</string>
    </property>
    <property name="shortcut">
-    <string>F2</string>
+    <string>F3</string>
    </property>
   </action>
   <action name="actionBackToLastStyleUsage">
@@ -1657,12 +1657,12 @@
     <string>Go Back To Style Usage</string>
    </property>
    <property name="shortcut">
-    <string>Shift+F2</string>
+    <string>Shift+F3</string>
    </property>
   </action>
   <action name="actionPasteClipboardRing">
    <property name="text">
-    <string>Paste Clipboard Ring...</string>
+    <string>Paste From Clipboard Ring...</string>
    </property>
   </action>
  </widget>
