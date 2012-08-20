@@ -44,6 +44,7 @@ set( QOBJECT_HEADERS
     ViewEditors/CodeViewEditor.h 
     Dialogs/AddMetadata.h 
     Dialogs/About.h
+    Dialogs/ClipboardRingSelector.h
     Dialogs/HeadingSelector.h 
     Dialogs/ViewClasses.h
     Dialogs/ViewHTML.h
@@ -165,6 +166,8 @@ set( DIALOG_FILES
     Dialogs/About.h
     Dialogs/AddMetadata.cpp
     Dialogs/AddMetadata.h
+    Dialogs/ClipboardRingSelector.h
+    Dialogs/ClipboardRingSelector.cpp
     Dialogs/ViewClasses.cpp
     Dialogs/ViewClasses.h
     Dialogs/ViewHTML.cpp
@@ -185,6 +188,7 @@ set( DIALOG_FILES
     Dialogs/PreferenceWidgets/KeyboardShortcutsWidget.h
     Dialogs/PreferenceWidgets/LanguageWidget.cpp
     Dialogs/PreferenceWidgets/LanguageWidget.h
+    Dialogs/PreferenceWidgets/PreferencesWidget.h
     Dialogs/PreferenceWidgets/SpellCheckWidget.cpp
     Dialogs/PreferenceWidgets/SpellCheckWidget.h
     Dialogs/RenameTemplate.cpp
@@ -371,6 +375,7 @@ set( TAB_FILES
             
 set( UI_FILES   
     Form_Files/main.ui 
+    Form_Files/ClipboardRingSelector.ui
     Form_Files/ViewClasses.ui
     Form_Files/ViewHTML.ui
     Form_Files/ViewImages.ui

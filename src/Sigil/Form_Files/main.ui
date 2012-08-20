@@ -77,24 +77,13 @@
     <property name="title">
      <string>&amp;Edit</string>
     </property>
-    <widget class="QMenu" name="menuCleanLevel">
-     <property name="title">
-      <string>Clean Source</string>
-     </property>
-     <property name="icon">
-      <iconset resource="../Resource_Files/main/main.qrc">
-       <normaloff>:/main/edit-clear_22px.png</normaloff>:/main/edit-clear_22px.png</iconset>
-     </property>
-     <addaction name="actionCleanLevelOff"/>
-     <addaction name="actionCleanLevelPrettyPrint"/>
-     <addaction name="actionCleanLevelTidy"/>
-    </widget>
     <addaction name="actionUndo"/>
     <addaction name="actionRedo"/>
     <addaction name="separator"/>
     <addaction name="actionCut"/>
     <addaction name="actionCopy"/>
     <addaction name="actionPaste"/>
+    <addaction name="actionPasteClipboardRing"/>
     <addaction name="separator"/>
     <addaction name="actionInsertImage"/>
     <addaction name="separator"/>
@@ -143,6 +132,8 @@
     <addaction name="actionItalic"/>
     <addaction name="actionUnderline"/>
     <addaction name="actionStrikethrough"/>
+    <addaction name="actionSubscript"/>
+    <addaction name="actionSuperscript"/>
     <addaction name="separator"/>
     <addaction name="actionAlignLeft"/>
     <addaction name="actionCenter"/>
@@ -201,6 +192,8 @@
     <addaction name="actionCount"/>
     <addaction name="separator"/>
     <addaction name="actionGoToLine"/>
+    <addaction name="actionGoToStyleDefinition"/>
+    <addaction name="actionBackToLastStyleUsage"/>
     <addaction name="separator"/>
     <addaction name="menuRegexOptions"/>
    </widget>
@@ -268,6 +261,18 @@
     <addaction name="actionClipboardEditor"/>
     <addaction name="actionSearchEditor"/>
     <addaction name="separator"/>
+    <widget class="QMenu" name="menuCleanLevel">
+     <property name="title">
+      <string>Clean Source</string>
+     </property>
+     <property name="icon">
+      <iconset resource="../Resource_Files/main/main.qrc">
+       <normaloff>:/main/edit-clear_22px.png</normaloff>:/main/edit-clear_22px.png</iconset>
+     </property>
+     <addaction name="actionCleanLevelOff"/>
+     <addaction name="actionCleanLevelPrettyPrint"/>
+     <addaction name="actionCleanLevelTidy"/>
+    </widget>
     <addaction name="menuCleanLevel"/>
     <addaction name="actionCheckWellFormedErrors"/>
    </widget>
@@ -386,6 +391,8 @@
    <addaction name="actionItalic"/>
    <addaction name="actionUnderline"/>
    <addaction name="actionStrikethrough"/>
+   <addaction name="actionSubscript"/>
+   <addaction name="actionSuperscript"/>
   </widget>
   <widget class="QToolBar" name="toolBarTextAlign">
    <property name="windowTitle">
@@ -923,6 +930,40 @@
     <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Strikethrough&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Draws a line through the selected text.&lt;/p&gt;</string>
+   </property>
+  </action>
+  <action name="actionSubscript">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../Resource_Files/main/main.qrc">
+     <normaloff>:/main/format-text-subscript_22px.png</normaloff>:/main/format-text-subscript_22px.png</iconset>
+   </property>
+   <property name="text">
+    <string>Subsc&amp;ript</string>
+   </property>
+   <property name="toolTip">
+    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Subscript&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Sets the selected text slightly smaller and below the normal line.&lt;/p&gt;</string>
+   </property>
+  </action>
+  <action name="actionSuperscript">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../Resource_Files/main/main.qrc">
+     <normaloff>:/main/format-text-superscript_22px.png</normaloff>:/main/format-text-superscript_22px.png</iconset>
+   </property>
+   <property name="text">
+    <string>Su&amp;perscript</string>
+   </property>
+   <property name="toolTip">
+    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Superscript&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Sets the selected text slightly smaller and above the normal line.&lt;/p&gt;</string>
    </property>
   </action>
   <action name="actionPrint">
@@ -1600,7 +1641,28 @@
     <bool>true</bool>
    </property>
    <property name="text">
-    <string>Tokenise Spaces and Numbers</string>
+    <string>Tokenise Spaces on Find</string>
+   </property>
+  </action>
+  <action name="actionGoToStyleDefinition">
+   <property name="text">
+    <string>Go To Style Definition</string>
+   </property>
+   <property name="shortcut">
+    <string>F2</string>
+   </property>
+  </action>
+  <action name="actionBackToLastStyleUsage">
+   <property name="text">
+    <string>Go Back To Style Usage</string>
+   </property>
+   <property name="shortcut">
+    <string>Shift+F2</string>
+   </property>
+  </action>
+  <action name="actionPasteClipboardRing">
+   <property name="text">
+    <string>Paste Clipboard Ring...</string>
    </property>
   </action>
  </widget>

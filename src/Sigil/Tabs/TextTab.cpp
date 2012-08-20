@@ -212,6 +212,12 @@ void TextTab::LoadTabContent( QWidget *editor )
 }
 
 
+void TextTab::PasteFromClipboard()
+{
+    m_wCodeView.paste();
+}
+
+
 void TextTab::EmitUpdateCursorPosition()
 {
     emit UpdateCursorPosition(GetCursorLine(), GetCursorColumn());

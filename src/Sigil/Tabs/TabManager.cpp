@@ -167,6 +167,19 @@ void TabManager::ReloadTabData()
     }
 }
 
+void TabManager::ReloadTabDataForResources( const QList<Resource*> &resources )
+{
+    foreach (Resource *resource, resources) {
+        int index = ResourceTabIndex(*resource);
+        if ( index != -1 ) {
+            FlowTab *flow_tab = qobject_cast<FlowTab *>(widget(index));
+            if (flow_tab) {
+                flow_tab->LoadTabContent();
+            }
+        }
+    }
+}
+
 void TabManager::WellFormedDialogsEnabled( bool enabled )
 {
     WellFormedContent *content = GetWellFormedContent();
@@ -500,8 +513,6 @@ ContentTab* TabManager::CreateTabForResource( Resource& resource,
             connect( tab,  SIGNAL( LinkClicked( const QUrl& ) ), this, SLOT( LinkClicked( const QUrl& ) ) );
             connect( tab,  SIGNAL( OldTabRequest( QString, HTMLResource& ) ),
                 this, SIGNAL( OldTabRequest( QString, HTMLResource& ) ) );
-            connect( tab,  SIGNAL( NewChaptersRequest( QStringList, HTMLResource& ) ),
-                this, SIGNAL( NewChaptersRequest( QStringList, HTMLResource& ) ) );
             break;
         }
 

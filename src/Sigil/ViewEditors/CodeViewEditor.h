@@ -96,6 +96,9 @@ public:
     void InsertClosingTag();
     bool IsInsertClosingTagAllowed();
 
+    void GoToStyleDefinition();
+    bool IsGoToStyleDefinitionAllowed();
+
     void OpenLink();
     bool IsOpenLinkAllowed();
 
@@ -248,6 +251,8 @@ public:
      * @param element_name The name of the element to toggle the format of the selection.
      */
     void ToggleFormatSelection( const QString &element_name );
+
+    void PasteFromClipboard();
     	
 signals:
 
@@ -279,6 +284,10 @@ signals:
     void OpenIndexEditorRequest(IndexEditorModel::indexEntry *);
 
     void LinkClicked(const QUrl &url);
+
+    void GoToLinkedStyleDefinitionRequest(const QString &element_name, const QString &style_class_name);
+    
+    void BookmarkStyleUsageLocationRequest(int cv_cursor_position);
 
 public slots:
 
@@ -394,13 +403,15 @@ private slots:
 
     void ignoreWordInDictionary(const QString &text);
 
-    void OpenClipboardEditor();
-
     void SaveClipboardAction();
 
     QUrl GetInternalLinkInTag();
+
+    void GoToStyleDefinitionAction();
     
 private:
+
+    bool ScrollToInlineStyleDefinition( const QString &style_name, const QString &text, const int &start_pos, const int &end_pos );
 
     /**
      * Returns the text inside < > if cursor is in < >
@@ -451,6 +462,8 @@ private:
      * Connects all the required signals to their respective slots.
      */
     void ConnectSignalsToSlots();
+
+    void AddGoToStyleContextMenu(QMenu *menu);
 
     void AddClipboardContextMenu(QMenu *menu);
 
@@ -514,12 +527,34 @@ private:
      * Is this position within the <body> tag of this text.
      */
     bool IsPositionInBody( const int &pos, const QString &text );
-    bool IsPositionInTag(int pos, QString &text);
+    bool IsPositionInTag( const int &pos, QString &text);
+    bool IsPositionInOpeningTag( const int &pos = -1, const QString &text = QString() );
 
     void FormatSelectionWithinElement(const QString &element_name, const int &previous_tag_index, const QString &text);
 
     void ReplaceTags( const int &opening_tag_start, const int &opening_tag_end, const QString &opening_tag_text,
                       const int &closing_tag_start, const int &closing_tag_end, const QString &closing_tag_text );
+    
+    /**
+     * An element on the stack when searching for 
+     * the current caret location. 
+     */
+    struct StyleTagElement
+    {
+        StyleTagElement() { name = QString(); classStyle = QString(); }
+        /**
+         * The tag name.
+         */        
+        QString name;
+
+        /**
+         * The class style under the caret location if cursor in the class section.
+         * If cursor is on the tag element, is the first style class of this element if any.
+         */
+        QString classStyle;
+    };
+
+    StyleTagElement GetSelectedStyleTagElement();
 
     ///////////////////////////////
     // PRIVATE MEMBER VARIABLES
@@ -610,6 +645,13 @@ private:
     QSignalMapper *m_addSpellingMapper;
     QSignalMapper *m_ignoreSpellingMapper;
     QSignalMapper *m_clipboardMapper;
+
+    /**
+     * We have to block signals while displaying a context menu to prevent focus issues.
+     * Use this to store state to emit the signal after the menu is closed.
+     */
+    ClipboardEditorModel::clipEntry *m_pendingClipEntryRequest;
+    bool m_pendingGoToStyleDefinitionRequest;
 };
 
 #endif // CODEVIEWEDITOR_H

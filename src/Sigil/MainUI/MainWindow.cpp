@@ -27,23 +27,24 @@
 #include <QtGui/QFileDialog>
 #include <QtGui/QInputDialog>
 #include <QtGui/QMessageBox>
-#include <QtGui/QToolBar>
 #include <QtGui/QProgressDialog>
+#include <QtGui/QToolBar>
 
 #include "BookManipulation/BookNormalization.h"
 #include "BookManipulation/Index.h"
 #include "BookManipulation/FolderKeeper.h"
 #include "Dialogs/About.h"
+#include "Dialogs/ClipboardEditor.h"
+#include "Dialogs/ClipboardRingSelector.h"
 #include "Dialogs/HeadingSelector.h"
-#include "Dialogs/ViewClasses.h"
-#include "Dialogs/ViewHTML.h"
-#include "Dialogs/ViewImages.h"
-#include "Dialogs/SelectImages.h"
+#include "Dialogs/LinkStylesheets.h"
 #include "Dialogs/MetaEditor.h"
 #include "Dialogs/Preferences.h"
 #include "Dialogs/SearchEditor.h"
-#include "Dialogs/ClipboardEditor.h"
-#include "Dialogs/LinkStylesheets.h"
+#include "Dialogs/SelectImages.h"
+#include "Dialogs/ViewClasses.h"
+#include "Dialogs/ViewHTML.h"
+#include "Dialogs/ViewImages.h"
 #include "Exporters/ExportEPUB.h"
 #include "Exporters/ExporterFactory.h"
 #include "Importers/ImporterFactory.h"
@@ -57,8 +58,8 @@
 #include "Misc/SettingsStore.h"
 #include "Misc/SpellCheck.h"
 #include "Misc/TOCHTMLWriter.h"
-#include "MiscEditors/IndexHTMLWriter.h"
 #include "Misc/Utility.h"
+#include "MiscEditors/IndexHTMLWriter.h"
 #include "ResourceObjects/HTMLResource.h"
 #include "ResourceObjects/NCXResource.h"
 #include "ResourceObjects/OPFResource.h"
@@ -126,7 +127,9 @@ MainWindow::MainWindow( const QString &openfilepath, QWidget *parent, Qt::WFlags
     m_ClipboardEditor(new ClipboardEditor(this)),
     m_IndexEditor(new IndexEditor(this)),
     m_preserveHeadingAttributes( true ),
-    m_LastLinkOpened(new LastLinkOpened())
+    m_LastLinkOpenedBookmark(new LocationBookmark()),
+    m_LastStyleUsageBookmark(new LocationBookmark()),
+    m_ClipboardRingSelector(new ClipboardRingSelector(this))
 {
     ui.setupUi( this );
 
@@ -194,35 +197,57 @@ void MainWindow::OpenFilename( QString filename )
     }
 }
 
-void MainWindow::ResetLastLinkOpened()
+void MainWindow::ResetLastLinkOpenedBookmark()
 {
-    m_LastLinkOpened->filename = QString();
-    m_LastLinkOpened->view_state = MainWindow::ViewState_Unknown;
-    m_LastLinkOpened->bv_caret_location_update = QString();
-    m_LastLinkOpened->cv_cursor_position = -1;
-
+    ResetLocationBookmark(m_LastLinkOpenedBookmark);
     ui.actionBackToLink->setEnabled(false);
 }
 
-void MainWindow::OpenLastLinkOpened()
+void MainWindow::ResetLastStyleUsageBookmark()
 {
-    if (m_LastLinkOpened->filename.isEmpty()) {
+    ResetLocationBookmark(m_LastStyleUsageBookmark);
+    ui.actionBackToLastStyleUsage->setEnabled(false);
+}
+
+void MainWindow::ResetLocationBookmark(MainWindow::LocationBookmark *locationBookmark)
+{
+    locationBookmark->filename = QString();
+    locationBookmark->view_state = MainWindow::ViewState_Unknown;
+    locationBookmark->bv_caret_location_update = QString();
+    locationBookmark->cv_cursor_position = -1;
+}
+
+void MainWindow::OpenLastLinkOpenedBookmark()
+{
+    OpenLocationBookmark(m_LastLinkOpenedBookmark);
+    ResetLocationBookmark(m_LastLinkOpenedBookmark);
+}
+
+void MainWindow::OpenLastStyleUsageBookmark()
+{
+    OpenLocationBookmark(m_LastStyleUsageBookmark);
+    // We won't reset it, allowing the user to keep coming back 
+    // as long as the resource exists in the ePub.
+}
+
+void MainWindow::OpenLocationBookmark(MainWindow::LocationBookmark *locationBookmark)
+{
+    if (locationBookmark->filename.isEmpty()) {
         return;
     }
 
     try
     {
-        Resource &resource = m_Book->GetFolderKeeper().GetResourceByFilename(m_LastLinkOpened->filename);
+        Resource &resource = m_Book->GetFolderKeeper().GetResourceByFilename(locationBookmark->filename);
 
-        SetViewState(m_LastLinkOpened->view_state);
-        OpenResource(resource, false, QUrl(), m_LastLinkOpened->view_state, -1, m_LastLinkOpened->cv_cursor_position, m_LastLinkOpened->bv_caret_location_update);
+        SetViewState(locationBookmark->view_state);
+        OpenResource(resource, false, QUrl(), locationBookmark->view_state, -1, locationBookmark->cv_cursor_position, locationBookmark->bv_caret_location_update);
     }
     catch (const ResourceDoesNotExist&)
     {
         // Nothing. Old file must have been deleted.
+        ResetLocationBookmark(locationBookmark);
     }
-
-    ResetLastLinkOpened();
 }
 
 void MainWindow::OpenUrl(const QUrl& url)
@@ -231,7 +256,7 @@ void MainWindow::OpenUrl(const QUrl& url)
         return;
     }
 
-    ResetLastLinkOpened();
+    ResetLastLinkOpenedBookmark();
 
     ContentTab &tab = m_TabManager.GetCurrentContentTab();
     if (&tab == NULL) {
@@ -240,15 +265,15 @@ void MainWindow::OpenUrl(const QUrl& url)
     Resource *current_resource = &tab.GetLoadedResource();
 
     // Save the current tab data for returning to the link location.
-    m_LastLinkOpened->view_state = m_ViewState;
-    m_LastLinkOpened->filename = current_resource->Filename();
-    m_LastLinkOpened->cv_cursor_position = tab.GetCursorPosition();
-    m_LastLinkOpened->bv_caret_location_update = tab.GetCaretLocationUpdate();
+    m_LastLinkOpenedBookmark->view_state = m_ViewState;
+    m_LastLinkOpenedBookmark->filename = current_resource->Filename();
+    m_LastLinkOpenedBookmark->cv_cursor_position = tab.GetCursorPosition();
+    m_LastLinkOpenedBookmark->bv_caret_location_update = tab.GetCaretLocationUpdate();
 
     if (url.scheme().isEmpty() || url.scheme() == "file") {
         Resource *resource = m_BookBrowser->GetUrlResource(url);
         if (!resource) {
-            ResetLastLinkOpened();
+            ResetLastLinkOpenedBookmark();
             return;
         }
         OpenResource(*resource, false, url.fragment());
@@ -261,7 +286,7 @@ void MainWindow::OpenUrl(const QUrl& url)
         }
     }
 
-    ui.actionBackToLink->setEnabled(!m_LastLinkOpened->filename.isEmpty());
+    ui.actionBackToLink->setEnabled(!m_LastLinkOpenedBookmark->filename.isEmpty());
 }
 
 void MainWindow::OpenResource( Resource& resource,
@@ -519,6 +544,78 @@ void MainWindow::GoToLine()
         m_TabManager.OpenResource( tab.GetLoadedResource(), false, QUrl(), MainWindow::ViewState_CodeView, line );
         SetViewState(MainWindow::ViewState_CodeView);
     }
+}
+
+void MainWindow::GoToLinkedStyleDefinition( const QString &element_name, const QString &style_class_name )
+{
+    // Invoked via a signal when the user has requested to navigate to a 
+    // style definition and none was found in the inline styles, so look
+    // at the linked resources for this tab instead.
+    ContentTab &tab = GetCurrentContentTab();
+    if (&tab == NULL) {
+        return;
+    }
+
+    Resource *current_resource = &tab.GetLoadedResource();
+    if (current_resource->Type() == Resource::HTMLResourceType) {
+        // Look in the linked stylesheets for a match
+        QList<Resource *> css_resources = m_BookBrowser->AllCSSResources();
+        QStringList stylesheets = GetStylesheetsAlreadyLinked( current_resource );
+
+        foreach( QString pathname, stylesheets )
+        {
+            // Check whether the stylesheet contains this style
+            CSSResource *css_resource = NULL;
+            foreach ( Resource *resource, css_resources )
+            {
+                if ( pathname == QString( "../" + resource->GetRelativePathToOEBPS()) ) {
+                    // We have our resource matching this stylesheet.
+                    css_resource = dynamic_cast<CSSResource *>( resource );
+                    break;
+                }
+            }
+            // First look for "element.class {"
+            // Then look for just ".class {"
+            // Finally look for "element {"
+            QString text = " " + css_resource->GetText();
+            if ( !style_class_name.isEmpty() ) {
+                if ( OpenCSSResourceWithStyleDefinition( element_name + "\\." + style_class_name, text, css_resource ) ) { 
+                    break;
+                }
+                if ( OpenCSSResourceWithStyleDefinition( "\\." + style_class_name, text, css_resource ) ) { 
+                    break;
+                }
+            }
+            else if ( OpenCSSResourceWithStyleDefinition( element_name, text, css_resource ) ) { 
+                break;
+            }
+        }
+    }
+}
+
+void MainWindow::BookmarkStyleUsageLocation( const QString &file_name, int cv_cursor_position )
+{
+    m_LastStyleUsageBookmark->filename = file_name;
+    m_LastStyleUsageBookmark->cv_cursor_position = cv_cursor_position;
+    m_LastStyleUsageBookmark->view_state = MainWindow::ViewState_CodeView;
+    ui.actionBackToLastStyleUsage->setEnabled(!m_LastStyleUsageBookmark->filename.isEmpty());
+}
+
+bool MainWindow::OpenCSSResourceWithStyleDefinition( const QString &style_name, const QString &text, CSSResource *css_resource )
+{
+    QRegExp inline_style_search("[\\};\\s]" + style_name + "\\s*\\{");
+
+    int style_index = inline_style_search.indexIn(text);
+    if ( style_index >= 0 ) {
+        // Need to work out the line number to scroll to, as CSSTab takes lines not position.
+        QStringList lines = text.left( style_index + 1 ).split( QChar('\n') );
+        int scroll_to_line = lines.count();
+        m_TabManager.OpenResource( *css_resource, false, QUrl(), MainWindow::ViewState_RawView,
+                                    scroll_to_line, -1, QString(), true );
+        return true;
+    }
+
+    return false;
 }
 
 
@@ -1369,6 +1466,7 @@ void MainWindow::UpdateUIOnTabChanges()
     ui.actionCut  ->setEnabled( tab.CutEnabled() );
     ui.actionCopy ->setEnabled( tab.CopyEnabled() );
     ui.actionPaste->setEnabled( tab.PasteEnabled() );
+    ui.actionPasteClipboardRing->setEnabled( tab.PasteEnabled() );
     ui.actionInsertClosingTag->setEnabled( tab.InsertClosingTagEnabled() );
     ui.actionOpenLink->setEnabled( tab.OpenLinkEnabled() );
     ui.actionAddToIndex->setEnabled( tab.AddToIndexEnabled() );
@@ -1377,11 +1475,14 @@ void MainWindow::UpdateUIOnTabChanges()
     ui.actionBold     ->setChecked( tab.BoldChecked() );
     ui.actionItalic   ->setChecked( tab.ItalicChecked() );
     ui.actionUnderline->setChecked( tab.UnderlineChecked() );
+    ui.actionStrikethrough  ->setChecked( tab.StrikethroughChecked() );
+    ui.actionSubscript      ->setChecked( tab.SubscriptChecked() );
+    ui.actionSuperscript    ->setChecked( tab.SuperscriptChecked() );
 
-    ui.actionStrikethrough     ->setChecked( tab.StrikethroughChecked() );
     ui.actionInsertBulletedList->setChecked( tab.BulletListChecked() );
     ui.actionInsertNumberedList->setChecked( tab.NumberListChecked() );
     ui.actionRemoveFormatting  ->setEnabled( tab.RemoveFormattingEnabled() );
+    ui.actionGoToStyleDefinition->setEnabled( tab.GoToStyleDefinitionEnabled() );
 
     // State of zoom controls depends on current tab/view
     float zoom_factor = tab.GetZoomFactor();
@@ -1434,6 +1535,8 @@ void MainWindow::SetStateActionsBookView()
     ui.actionItalic       ->setEnabled(true);
     ui.actionUnderline    ->setEnabled(true);
     ui.actionStrikethrough->setEnabled(true);
+    ui.actionSubscript    ->setEnabled(true);
+    ui.actionSuperscript  ->setEnabled(true);
 
     ui.actionAlignLeft ->setEnabled(true);
     ui.actionCenter    ->setEnabled(true);
@@ -1460,7 +1563,6 @@ void MainWindow::SetStateActionsBookView()
     ui.actionSplitChapter->setEnabled(true);
     ui.actionInsertClosingTag->setEnabled(false);
     ui.actionInsertSGFChapterMarker->setEnabled(true);
-    ui.actionSplitOnSGFChapterMarkers->setEnabled(true);
 
     ui.actionFind->setEnabled(true);
     ui.actionFindNext->setEnabled(true);
@@ -1470,6 +1572,7 @@ void MainWindow::SetStateActionsBookView()
     ui.actionReplaceAll->setEnabled(false);
     ui.actionCount->setEnabled(false);
     ui.actionGoToLine->setEnabled(false);
+    ui.actionGoToStyleDefinition->setEnabled(false);
 
     UpdateUIOnTabChanges();
 
@@ -1497,6 +1600,8 @@ void MainWindow::SetStateActionsSplitView()
     ui.actionItalic       ->setEnabled(false);
     ui.actionUnderline    ->setEnabled(false);
     ui.actionStrikethrough->setEnabled(false);
+    ui.actionSubscript    ->setEnabled(false);
+    ui.actionSuperscript  ->setEnabled(false);
 
     ui.actionAlignLeft ->setEnabled(false);
     ui.actionCenter    ->setEnabled(false);
@@ -1523,7 +1628,6 @@ void MainWindow::SetStateActionsSplitView()
     ui.actionSplitChapter->setEnabled(false);
     ui.actionInsertClosingTag->setEnabled(false);
     ui.actionInsertSGFChapterMarker->setEnabled(false);
-    ui.actionSplitOnSGFChapterMarkers->setEnabled(false);
 
     ui.actionFind->setEnabled(true);
     ui.actionFindNext->setEnabled(true);
@@ -1533,6 +1637,7 @@ void MainWindow::SetStateActionsSplitView()
     ui.actionReplaceAll->setEnabled(false);
     ui.actionCount->setEnabled(false);
     ui.actionGoToLine->setEnabled(false);
+    ui.actionGoToStyleDefinition->setEnabled(false);
 
     UpdateUIOnTabChanges();
 
@@ -1560,6 +1665,8 @@ void MainWindow::SetStateActionsCodeView()
     ui.actionItalic       ->setEnabled(true);
     ui.actionUnderline    ->setEnabled(true);
     ui.actionStrikethrough->setEnabled(true);
+    ui.actionSubscript    ->setEnabled(true);
+    ui.actionSuperscript  ->setEnabled(true);
 
     ui.actionAlignLeft ->setEnabled(false);
     ui.actionCenter    ->setEnabled(false);
@@ -1586,7 +1693,6 @@ void MainWindow::SetStateActionsCodeView()
     ui.actionSplitChapter->setEnabled(true);
     ui.actionInsertSGFChapterMarker->setEnabled(true);
     ui.actionInsertClosingTag->setEnabled(true);
-    ui.actionSplitOnSGFChapterMarkers->setEnabled(true);
 
     ui.actionFind->setEnabled(true);
     ui.actionFindNext->setEnabled(true);
@@ -1596,6 +1702,7 @@ void MainWindow::SetStateActionsCodeView()
     ui.actionReplaceAll->setEnabled(true);
     ui.actionCount->setEnabled(true);
     ui.actionGoToLine->setEnabled(true);
+    ui.actionGoToStyleDefinition->setEnabled(true);
 
     UpdateUIOnTabChanges();
 
@@ -1624,6 +1731,8 @@ void MainWindow::SetStateActionsRawView()
     ui.actionItalic       ->setEnabled(false);
     ui.actionUnderline    ->setEnabled(false);
     ui.actionStrikethrough->setEnabled(false);
+    ui.actionSubscript    ->setEnabled(false);
+    ui.actionSuperscript  ->setEnabled(false);
 
     ui.actionAlignLeft ->setEnabled(false);
     ui.actionCenter    ->setEnabled(false);
@@ -1649,7 +1758,6 @@ void MainWindow::SetStateActionsRawView()
     ui.actionInsertImage->setEnabled(false);
     ui.actionSplitChapter->setEnabled(false);
     ui.actionInsertSGFChapterMarker->setEnabled(false);
-    ui.actionSplitOnSGFChapterMarkers->setEnabled(false);
 
     ui.actionFind->setEnabled(true);
     ui.actionFindNext->setEnabled(true);
@@ -1659,6 +1767,7 @@ void MainWindow::SetStateActionsRawView()
     ui.actionReplaceAll->setEnabled(true);
     ui.actionCount->setEnabled(true);
     ui.actionGoToLine->setEnabled(true);
+    ui.actionGoToStyleDefinition->setEnabled(false);
 
     UpdateUIOnTabChanges();
 
@@ -1687,6 +1796,8 @@ void MainWindow::SetStateActionsStaticView()
     ui.actionItalic       ->setEnabled(false);
     ui.actionUnderline    ->setEnabled(false);
     ui.actionStrikethrough->setEnabled(false);
+    ui.actionSubscript    ->setEnabled(false);
+    ui.actionSuperscript  ->setEnabled(false);
 
     ui.actionAlignLeft ->setEnabled(false);
     ui.actionCenter    ->setEnabled(false);
@@ -1712,7 +1823,6 @@ void MainWindow::SetStateActionsStaticView()
     ui.actionInsertImage->setEnabled(false);
     ui.actionSplitChapter->setEnabled(false);
     ui.actionInsertSGFChapterMarker->setEnabled(false);
-    ui.actionSplitOnSGFChapterMarkers->setEnabled(false);
 
     ui.actionFind->setEnabled(false);
     ui.actionFindNext->setEnabled(false);
@@ -1722,6 +1832,7 @@ void MainWindow::SetStateActionsStaticView()
     ui.actionReplaceAll->setEnabled(false);
     ui.actionCount->setEnabled(false);
     ui.actionGoToLine->setEnabled(false);
+    ui.actionGoToStyleDefinition->setEnabled(false);
 
     UpdateUIOnTabChanges();
 
@@ -1829,15 +1940,64 @@ void MainWindow::CreateChapterBreakOldTab( QString content, HTMLResource& origin
     statusBar()->showMessage( tr( "Chapter split. You may need to update the Table of Contents." ), STATUSBAR_MSG_DISPLAY_TIME );
 }
 
-
-void MainWindow::CreateNewChapters( QStringList new_chapters, HTMLResource &originalResource )
+void MainWindow::SplitOnSGFChapterMarkers()
 {
-    m_Book->CreateNewChapters( new_chapters, originalResource );
-    m_BookBrowser->Refresh();
+    QList<Resource *> html_resources = m_BookBrowser->AllHTMLResources();
+    
+    // Check if data is well formed before saving
+    foreach (Resource *resource, html_resources) { 
+        if (!m_TabManager.TabDataIsWellFormed(*resource)) {
+            Utility::DisplayStdErrorDialog(tr("Split aborted.\n\nOne of the files may have an error or has not been saved.\n\nTry saving your book or correcting any errors before splitting."));
+            return;
+        }
+    }
 
-    statusBar()->showMessage( tr( "Chapters split. You may need to update the Table of Contents." ), STATUSBAR_MSG_DISPLAY_TIME );
+    // If have the current tab is open in BV, make sure it has its content saved so it won't later overwrite a split.
+    FlowTab *flow_tab = qobject_cast<FlowTab*>(&GetCurrentContentTab());
+    if ( flow_tab && ( flow_tab->GetViewState() == MainWindow::ViewState_BookView) ) {
+        flow_tab->SaveTabContent();
+    }
+    
+    QApplication::setOverrideCursor(Qt::WaitCursor);
+
+    QList<Resource *> *changed_resources = new QList<Resource *>();
+    foreach (Resource *resource, html_resources) { 
+        HTMLResource *html_resource = qobject_cast<HTMLResource *>(resource);
+        QStringList new_chapters = html_resource->SplitOnSGFChapterMarkers();
+        if ( !new_chapters.isEmpty() ) {
+            m_Book->CreateNewChapters( new_chapters, *html_resource );
+            changed_resources->append(resource);
+        }
+    }
+
+    if ( changed_resources->count() > 0 ) {
+        m_TabManager.ReloadTabDataForResources( *changed_resources );
+        m_BookBrowser->Refresh();
+
+        statusBar()->showMessage( tr( "Chapters split. You may need to update the Table of Contents." ), STATUSBAR_MSG_DISPLAY_TIME );
+        if ( flow_tab && ( flow_tab->GetViewState() == MainWindow::ViewState_BookView) ) {
+            // Our focus will have been moved to the book browser. Set it there and back to do
+            // an equivalent of "GrabFocus()" to workaround Qt setFocus() not always working.
+            m_BookBrowser->setFocus();
+            flow_tab->setFocus();
+        }
+    }
+    else {
+        statusBar()->showMessage( tr( "No chapter split markers found." ), STATUSBAR_MSG_DISPLAY_TIME );
+    }
+
+    QApplication::restoreOverrideCursor();
 }
 
+void MainWindow::ShowPasteClipboardRingDialog()
+{
+    // We only want to show the dialog if focus is in a content tab.
+    ContentTab *contentTab = &GetCurrentContentTab();
+    if ( !contentTab || !contentTab->hasFocus() ) {
+        return;
+    }
+    m_ClipboardRingSelector->exec();
+}
 
 // Change the selected/highlighted resource to match the current tab
 void MainWindow::UpdateBrowserSelectionToTab()
@@ -1884,28 +2044,26 @@ void MainWindow::ReadSettings()
     ui.actionCheckWellFormedErrors->setChecked( m_CheckWellFormedErrors );
     SetCheckWellFormedErrors( m_CheckWellFormedErrors );
 
-
     // The last folder used for saving and opening files
     m_LastFolderOpen  = settings.value( "lastfolderopen"  ).toString();
 
     // The list of recent files
     s_RecentFiles    = settings.value( "recentfiles" ).toStringList();
 
-    QVariant preserveHeadingAttributes = settings.value( "preserveheadingattributes" );
-    m_preserveHeadingAttributes = preserveHeadingAttributes.isNull() ? true : preserveHeadingAttributes.toBool();
+    m_preserveHeadingAttributes = settings.value( "preserveheadingattributes", true ).toBool();
     SetPreserveHeadingAttributes( m_preserveHeadingAttributes );
 
-    QVariant regexOptionDotAll = settings.value( "regexoptiondotall" );
-    bool apply_dot_all = regexOptionDotAll.isNull() ? false : regexOptionDotAll.toBool();
-    SetRegexOptionDotAll( apply_dot_all );
+    QVariant regexOptionDotAll = settings.value( "regexoptiondotall", false );
+    SetRegexOptionDotAll( regexOptionDotAll.toBool() );
 
-    QVariant regexOptionMinimalMatch = settings.value( "regexoptionminimalmatch" );
-    bool apply_minimal_match = regexOptionMinimalMatch.isNull() ? false : regexOptionMinimalMatch.toBool();
-    SetRegexOptionMinimalMatch( apply_minimal_match );
+    QVariant regexOptionMinimalMatch = settings.value( "regexoptionminimalmatch", false );
+    SetRegexOptionMinimalMatch( regexOptionMinimalMatch.toBool() );
     
-    QVariant regexOptionAutoTokenise = settings.value( "regexoptionautotokenise" );
-    bool apply_auto_tokenise = regexOptionAutoTokenise.isNull() ? false : regexOptionAutoTokenise.toBool();
-    SetRegexOptionAutoTokenise( apply_auto_tokenise );
+    QVariant regexOptionAutoTokenise = settings.value( "regexoptionautotokenise", false );
+    SetRegexOptionAutoTokenise( regexOptionAutoTokenise.toBool() );
+    
+    const QStringList clipboardHistory = settings.value( "clipboardringhistory" ).toStringList();
+    m_ClipboardRingSelector->LoadClipboardHistory(clipboardHistory);
 
     settings.endGroup();
 }
@@ -1936,6 +2094,8 @@ void MainWindow::WriteSettings()
     settings.setValue( "regexoptiondotall", ui.actionRegexDotAll->isChecked() );
     settings.setValue( "regexoptionminimalmatch", ui.actionRegexMinimalMatch->isChecked() );
     settings.setValue( "regexoptionautotokenise", ui.actionRegexAutoTokenise->isChecked() );
+
+    settings.setValue( "clipboardringhistory", m_ClipboardRingSelector->GetClipboardHistory() );
 
     KeyboardShortcutManager::instance()->writeSettings();
 
@@ -1976,7 +2136,8 @@ void MainWindow::SetNewBook( QSharedPointer< Book > new_book )
     m_ValidationResultsView->SetBook( m_Book );
 
     m_IndexEditor->SetBook( m_Book );
-    ResetLastLinkOpened();
+    ResetLastLinkOpenedBookmark();
+    ResetLastStyleUsageBookmark();
 
     connect( m_Book.data(), SIGNAL( ModifiedStateChanged( bool ) ), this, SLOT( setWindowModified( bool ) ) );
     connect( m_BookBrowser,     SIGNAL( GuideSemanticTypeAdded( const HTMLResource&, GuideSemantics::GuideSemanticType ) ),
@@ -2544,6 +2705,7 @@ void MainWindow::ExtendUI()
     sm->registerAction(ui.actionCut, "MainWindow.Cut");
     sm->registerAction(ui.actionCopy, "MainWindow.Copy");
     sm->registerAction(ui.actionPaste, "MainWindow.Paste");
+    sm->registerAction(ui.actionPasteClipboardRing, "MainWindow.PasteClipboardRing");
     sm->registerAction(ui.actionInsertImage, "MainWindow.InsertImage");
     sm->registerAction(ui.actionSplitChapter, "MainWindow.SplitChapter");
     sm->registerAction(ui.actionInsertSGFChapterMarker, "MainWindow.InsertSGFChapterMarker");
@@ -2561,12 +2723,16 @@ void MainWindow::ExtendUI()
     sm->registerAction(ui.actionReplaceAll, "MainWindow.ReplaceAll");
     sm->registerAction(ui.actionCount, "MainWindow.Count");
     sm->registerAction(ui.actionGoToLine, "MainWindow.GoToLine");
+    sm->registerAction(ui.actionGoToStyleDefinition, "MainWindow.GoToStyleDefinition");
+    sm->registerAction(ui.actionBackToLastStyleUsage, "MainWindow.BackToLastStyleUsage");
 
     // Format
     sm->registerAction(ui.actionBold, "MainWindow.Bold");
     sm->registerAction(ui.actionItalic, "MainWindow.Italic");
     sm->registerAction(ui.actionUnderline, "MainWindow.Underline");
     sm->registerAction(ui.actionStrikethrough, "MainWindow.Strikethrough");
+    sm->registerAction(ui.actionSubscript, "MainWindow.Subscript");
+    sm->registerAction(ui.actionSuperscript, "MainWindow.Superscript");
     sm->registerAction(ui.actionAlignLeft, "MainWindow.AlignLeft");
     sm->registerAction(ui.actionCenter, "MainWindow.Center");
     sm->registerAction(ui.actionAlignRight, "MainWindow.AlignRight");
@@ -2590,8 +2756,8 @@ void MainWindow::ExtendUI()
     sm->registerAction(ui.actionGenerateTOC, "MainWindow.GenerateTOC");
     sm->registerAction(ui.actionCreateHTMLTOC, "MainWindow.CreateHTMLTOC");
     sm->registerAction(ui.actionValidateEpub, "MainWindow.ValidateEpub");
-    sm->registerAction(ui.actionValidateEpub, "MainWindow.AutoSpellCheck");
-    sm->registerAction(ui.actionValidateEpub, "MainWindow.SpellCheck");
+    sm->registerAction(ui.actionAutoSpellCheck, "MainWindow.AutoSpellCheck");
+    sm->registerAction(ui.actionSpellCheck, "MainWindow.SpellCheck");
     sm->registerAction(ui.actionViewClasses, "MainWindow.ViewClasses");
     sm->registerAction(ui.actionViewHTML, "MainWindow.ViewHTML");
     sm->registerAction(ui.actionViewImages, "MainWindow.ViewImages");
@@ -2715,6 +2881,18 @@ void MainWindow::ExtendIconSizes()
     icon = ui.actionUnderline->icon();
     icon.addFile(QString::fromUtf8(":/main/format-text-underline_16px.png"));
     ui.actionUnderline->setIcon(icon);
+    
+    icon = ui.actionStrikethrough->icon();
+    icon.addFile(QString::fromUtf8(":/main/format-text-strikethrough_16px.png"));
+    ui.actionStrikethrough->setIcon(icon);
+
+    icon = ui.actionSubscript->icon();
+    icon.addFile(QString::fromUtf8(":/main/format-text-subscript_16px.png"));
+    ui.actionSubscript->setIcon(icon);
+
+    icon = ui.actionSuperscript->icon();
+    icon.addFile(QString::fromUtf8(":/main/format-text-superscript_16px.png"));
+    ui.actionSuperscript->setIcon(icon);
 
     icon = ui.actionInsertNumberedList->icon();
     icon.addFile(QString::fromUtf8(":/main/insert-numbered-list_16px.png"));
@@ -2723,10 +2901,6 @@ void MainWindow::ExtendIconSizes()
     icon = ui.actionInsertBulletedList->icon();
     icon.addFile(QString::fromUtf8(":/main/insert-bullet-list_16px.png"));
     ui.actionInsertBulletedList->setIcon(icon);
-
-    icon = ui.actionStrikethrough->icon();
-    icon.addFile(QString::fromUtf8(":/main/format-text-strikethrough_16px.png"));
-    ui.actionStrikethrough->setIcon(icon);
 
     icon = ui.actionIncreaseIndent->icon();
     icon.addFile(QString::fromUtf8(":/main/format-indent-more_16px.png"));
@@ -2931,7 +3105,12 @@ void MainWindow::ConnectSignalsToSlots()
     connect( ui.actionCloseOtherTabs,SIGNAL( triggered() ), &m_TabManager, SLOT( CloseOtherTabs() ) );
     connect( ui.actionOpenPreviousResource, SIGNAL( triggered() ), m_BookBrowser, SLOT( OpenPreviousResource() ) );
     connect( ui.actionOpenNextResource,     SIGNAL( triggered() ), m_BookBrowser, SLOT( OpenNextResource()     ) );
-    connect( ui.actionBackToLink,    SIGNAL( triggered() ),  this,   SLOT( OpenLastLinkOpened()                    ) );
+    connect( ui.actionBackToLink,           SIGNAL( triggered() ), this,   SLOT( OpenLastLinkOpenedBookmark()  ) );
+    connect( ui.actionBackToLastStyleUsage, SIGNAL( triggered() ), this,   SLOT( OpenLastStyleUsageBookmark()  ) );
+    
+    connect( ui.actionSplitOnSGFChapterMarkers, SIGNAL( triggered() ),  this,   SLOT( SplitOnSGFChapterMarkers() ) );
+
+    connect( ui.actionPasteClipboardRing,       SIGNAL( triggered() ),  this,   SLOT( ShowPasteClipboardRingDialog() ) );
 
     // Slider
     connect( m_slZoomSlider,         SIGNAL( valueChanged( int ) ), this, SLOT( SliderZoom( int ) ) );
@@ -2995,9 +3174,6 @@ void MainWindow::ConnectSignalsToSlots()
     connect( &m_TabManager, SIGNAL( OldTabRequest(            QString, HTMLResource& ) ),
              this,          SLOT(   CreateChapterBreakOldTab( QString, HTMLResource& ) ) );
 
-    connect( &m_TabManager, SIGNAL( NewChaptersRequest( QStringList, HTMLResource& ) ),
-             this,          SLOT(   CreateNewChapters(  QStringList, HTMLResource& ) ) );
-
     connect( &m_TabManager, SIGNAL( ToggleViewStateRequest() ),
              this,          SLOT(   ToggleViewState() ) );
 
@@ -3033,15 +3209,18 @@ void MainWindow::MakeTabConnections( ContentTab *tab )
         connect( ui.actionCut,                      SIGNAL( triggered() ),  tab,   SLOT( Cut()                      ) );
         connect( ui.actionCopy,                     SIGNAL( triggered() ),  tab,   SLOT( Copy()                     ) );
         connect( ui.actionPaste,                    SIGNAL( triggered() ),  tab,   SLOT( Paste()                    ) );
+        connect( m_ClipboardRingSelector,           SIGNAL( PasteFromClipboardRequest() ), tab, SLOT( PasteFromClipboard() ) );
     }
 
     if (tab->GetLoadedResource().Type() == Resource::HTMLResourceType )
     {
         connect( ui.actionBold,                     SIGNAL( triggered() ),  tab,   SLOT( Bold()                     ) );
         connect( ui.actionItalic,                   SIGNAL( triggered() ),  tab,   SLOT( Italic()                   ) );
-        connect( ui.actionUnderline,                SIGNAL( triggered() ),  tab,   SLOT( Underline()                ) );
-    
+        connect( ui.actionUnderline,                SIGNAL( triggered() ),  tab,   SLOT( Underline()                ) );    
         connect( ui.actionStrikethrough,            SIGNAL( triggered() ),  tab,   SLOT( Strikethrough()            ) );
+        connect( ui.actionSubscript,                SIGNAL( triggered() ),  tab,   SLOT( Subscript()                ) );
+        connect( ui.actionSuperscript,              SIGNAL( triggered() ),  tab,   SLOT( Superscript()              ) );
+
         connect( ui.actionAlignLeft,                SIGNAL( triggered() ),  tab,   SLOT( AlignLeft()                ) );
         connect( ui.actionCenter,                   SIGNAL( triggered() ),  tab,   SLOT( Center()                   ) );
         connect( ui.actionAlignRight,               SIGNAL( triggered() ),  tab,   SLOT( AlignRight()               ) );
@@ -3055,8 +3234,8 @@ void MainWindow::MakeTabConnections( ContentTab *tab )
 
         connect( ui.actionSplitChapter,             SIGNAL( triggered() ),  tab,   SLOT( SplitChapter()             ) );
         connect( ui.actionInsertSGFChapterMarker,   SIGNAL( triggered() ),  tab,   SLOT( InsertSGFChapterMarker()   ) );
-        connect( ui.actionSplitOnSGFChapterMarkers, SIGNAL( triggered() ),  tab,   SLOT( SplitOnSGFChapterMarkers() ) );
         connect( ui.actionInsertClosingTag,         SIGNAL( triggered() ),  tab,   SLOT( InsertClosingTag()         ) );
+        connect( ui.actionGoToStyleDefinition,      SIGNAL( triggered() ),  tab,   SLOT( GoToStyleDefinition()      ) );
 
         connect( ui.actionPrintPreview,             SIGNAL( triggered() ),  tab,   SLOT( PrintPreview()             ) );
         connect( ui.actionPrint,                    SIGNAL( triggered() ),  tab,   SLOT( Print()                    ) );
@@ -3079,6 +3258,12 @@ void MainWindow::MakeTabConnections( ContentTab *tab )
 
         connect( tab,   SIGNAL( OpenIndexEditorRequest(IndexEditorModel::indexEntry *) ),
                  this,  SLOT (  IndexEditorDialog( IndexEditorModel::indexEntry * ) ) );
+
+        connect( tab,   SIGNAL( GoToLinkedStyleDefinitionRequest( const QString&, const QString& ) ),
+                 this,  SLOT (  GoToLinkedStyleDefinition( const QString&, const QString& ) ) );
+
+        connect( tab,   SIGNAL( BookmarkStyleUsageLocationRequest( const QString&, int ) ),
+                 this,  SLOT (  BookmarkStyleUsageLocation( const QString&, int ) ) );
     }
 
     if (tab->GetLoadedResource().Type() == Resource::CSSResourceType )
@@ -3114,6 +3299,8 @@ void MainWindow::BreakTabConnections( ContentTab *tab )
     disconnect( ui.actionItalic,                    0, tab, 0 );
     disconnect( ui.actionUnderline,                 0, tab, 0 );
     disconnect( ui.actionStrikethrough,             0, tab, 0 );
+    disconnect( ui.actionSubscript,                 0, tab, 0 );
+    disconnect( ui.actionSuperscript,               0, tab, 0 );
     disconnect( ui.actionAlignLeft,                 0, tab, 0 );
     disconnect( ui.actionCenter,                    0, tab, 0 );
     disconnect( ui.actionAlignRight,                0, tab, 0 );
@@ -3126,8 +3313,8 @@ void MainWindow::BreakTabConnections( ContentTab *tab )
 
     disconnect( ui.actionSplitChapter,              0, tab, 0 );
     disconnect( ui.actionInsertSGFChapterMarker,    0, tab, 0 );
-    disconnect( ui.actionSplitOnSGFChapterMarkers,  0, tab, 0 );
     disconnect( ui.actionInsertClosingTag,          0, tab, 0 );
+    disconnect( ui.actionGoToStyleDefinition,       0, tab, 0 );
 
     disconnect( ui.actionPrintPreview,              0, tab, 0 );
     disconnect( ui.actionPrint,                     0, tab, 0 );
@@ -3135,7 +3322,8 @@ void MainWindow::BreakTabConnections( ContentTab *tab )
     disconnect( ui.actionMarkForIndex,              0, tab, 0 );
     disconnect( ui.actionOpenLink,                  0, tab, 0 );
 
-    disconnect( m_ClipboardEditor,                 0, tab, 0 );
+    disconnect( m_ClipboardEditor,                  0, tab, 0 );
+    disconnect( m_ClipboardRingSelector,            0, tab, 0 );
 
     disconnect( tab,                                0, this, 0 );
     disconnect( tab,                                0, m_Book.data(), 0 );

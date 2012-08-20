@@ -34,6 +34,8 @@
 #include "Misc/Utility.h"
 
 SpellCheckWidget::SpellCheckWidget()
+    :
+    m_isDirty(false)
 {
     ui.setupUi(this);
 
@@ -43,6 +45,9 @@ SpellCheckWidget::SpellCheckWidget()
 
 void SpellCheckWidget::saveSettings()
 {
+    if (!m_isDirty)
+        return;
+
     saveUserDictionaryWordList(ui.userDictList->currentItem());
 
     SettingsStore settings;
@@ -85,6 +90,7 @@ void SpellCheckWidget::addUserDict()
     item->setSelected(true);
     ui.userDictList->addItem(item);
     ui.userDictList->setCurrentItem(item);
+    m_isDirty = true;
 }
 
 void SpellCheckWidget::renameUserDict()
@@ -121,6 +127,7 @@ void SpellCheckWidget::renameUserDict()
         return;
     }
     item->setText(new_name);
+    m_isDirty = true;
 }
 
 void SpellCheckWidget::removeUserDict()
@@ -134,12 +141,12 @@ void SpellCheckWidget::removeUserDict()
     }
     dict_item = items.at(0);
 
-    // Delete the dictionary and remove it from the list.
-    Utility::DeleteFile(SpellCheck::userDictionaryDirectory() + "/" + dict_item->text());
-
     if (dict_item) {
+        // Delete the dictionary and remove it from the list.
+        QString dict_name = dict_item->text();
         delete dict_item;
         dict_item = 0;
+        Utility::DeleteFile(SpellCheck::userDictionaryDirectory() + "/" + dict_name);
     }
 
     // We have to have at least one user dict.
@@ -156,6 +163,7 @@ void SpellCheckWidget::removeUserDict()
             loadUserDictionaryWordList(item);
         }
     }
+    m_isDirty = true;
 }
 
 void SpellCheckWidget::addWord()
@@ -164,6 +172,7 @@ void SpellCheckWidget::addWord()
     item->setFlags(item->flags() | Qt::ItemIsEditable);
     ui.userWordList->addItem(item);
     ui.userWordList->editItem(item);
+    m_isDirty = true;
 }
 
 void SpellCheckWidget::editWord()
@@ -172,6 +181,7 @@ void SpellCheckWidget::editWord()
     if (!items.empty()) {
         ui.userWordList->editItem(items.at(0));
     }
+    m_isDirty = true;
 }
 
 void SpellCheckWidget::removeWord()
@@ -181,11 +191,13 @@ void SpellCheckWidget::removeWord()
         delete item;
         item = 0;
     }
+    m_isDirty = true;
 }
 
 void SpellCheckWidget::removeAll()
 {
     ui.userWordList->clear();
+    m_isDirty = true;
 }
 
 void SpellCheckWidget::readSettings()
@@ -242,11 +254,12 @@ void SpellCheckWidget::readSettings()
     }
 
     loadUserDictionaryWordList();
+    m_isDirty = false;
 }
 
 void SpellCheckWidget::openDictionaryDirectory()
 {
-    QString dictDir = SpellCheck::dictionaryDirectory();
+    QString dictDir = QDir::toNativeSeparators(SpellCheck::dictionaryDirectory());
 
     // Check if the directory exists and create it if necessary.
     QDir loc(dictDir);
@@ -352,6 +365,12 @@ void SpellCheckWidget::userDictionaryChanged(QListWidgetItem *current, QListWidg
     if (current) {
         loadUserDictionaryWordList(current);
     }
+    m_isDirty = true;
+}
+
+void SpellCheckWidget::dictionariesCurrentIndexChanged(int index)
+{
+    m_isDirty = true;
 }
 
 void SpellCheckWidget::connectSignalsSlots()
@@ -369,4 +388,5 @@ void SpellCheckWidget::connectSignalsSlots()
     connect(ui.removeAll, SIGNAL(clicked()), this, SLOT(removeAll()));
 
     connect(ui.pbDictionaryDirectory, SIGNAL(clicked()), this, SLOT(openDictionaryDirectory()));
+    connect(ui.dictionaries, SIGNAL(currentIndexChanged(int)), this, SLOT(dictionariesCurrentIndexChanged(int)));
 }

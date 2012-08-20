@@ -98,5 +98,9 @@
         <file>heading-5_16px.png</file>
         <file>heading-6_16px.png</file>
         <file>heading-normal_16px.png</file>
+        <file>format-text-subscript_22px.png</file>
+        <file>format-text-superscript_22px.png</file>
+        <file>format-text-subscript_16px.png</file>
+        <file>format-text-superscript_16px.png</file>
     </qresource>
 </RCC>

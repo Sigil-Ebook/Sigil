@@ -119,6 +119,13 @@ public:
     virtual bool RemoveFormattingEnabled()          { return false; }
 
     /*
+     * Can the user navigate to a style definition.
+     *
+     * @return \c true if the user can navigate to a style definition.
+     */
+    virtual bool GoToStyleDefinitionEnabled() { return false; }
+
+    /*
      * Can the user perform the Cut Code Tags operation.
      *
      * @return \c true if the user can Cut.
@@ -211,7 +218,21 @@ public:
      * @return \c true if the Strikethrough action should be checked.
      */
     virtual bool StrikethroughChecked() { return false; }
+     
+    /**
+     * Checked state of the Subscrip action.
+     *
+     * @return \c true if the Subscrip action should be checked.
+     */
+    virtual bool SubscriptChecked() { return false; }
     
+    /**
+     * Checked state of the Superscript action.
+     *
+     * @return \c true if the Superscript action should be checked.
+     */
+    virtual bool SuperscriptChecked() { return false; }
+   
     /**
      * Checked state of the BulletList action.
      *
@@ -249,6 +270,11 @@ public slots:
      * Loads the resource content when the user enters the tab.
      */
     virtual void LoadTabContent();
+
+    /**
+     * Executes a paste from the clipboard.
+     */
+    virtual void PasteFromClipboard();
 
     /**
      * Emits the CentralTabRequest signal.

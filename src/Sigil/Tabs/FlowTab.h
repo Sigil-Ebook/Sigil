@@ -93,6 +93,8 @@ public:
 
     bool InsertClosingTagEnabled();
 
+    bool GoToStyleDefinitionEnabled();
+
     bool OpenLinkEnabled();
 
     bool AddToIndexEnabled();
@@ -161,6 +163,10 @@ public:
 
     bool StrikethroughChecked();
 
+    bool SubscriptChecked();
+
+    bool SuperscriptChecked();
+
     bool BulletListChecked();
 
     bool NumberListChecked();
@@ -209,11 +215,6 @@ public slots:
     void InsertClosingTag();
 
     /**
-     * Implements Split on SGF chapter markers action functionality.
-     */
-    void SplitOnSGFChapterMarkers();
-
-    /**
      * Implements \em a \em part of Insert image action functionality.
      * The rest is in MainWindow. It has to be, FlowTabs don't
      * have a reference to the Book object.
@@ -255,6 +256,8 @@ public slots:
 
     void LoadTabContent();
 
+    void PasteFromClipboard();
+
     /**
      * Implements Bold action functionality.
      */
@@ -274,6 +277,16 @@ public slots:
      * Implements Strikethrough action functionality.
      */
     void Strikethrough();
+
+    /**
+     * Implements Subscript action functionality.
+     */
+    void Subscript();
+
+    /**
+     * Implements Superscript action functionality.
+     */
+    void Superscript();
 
     /**
      * Implements Align Left action functionality.
@@ -321,7 +334,7 @@ public slots:
     void RemoveFormatting();
 
     /**
-     * Implements the heading combo box functionality.
+     * Implements the application of a heading style functionality.
      */
     void HeadingStyle( const QString& heading_type, bool preserve_attributes );
 
@@ -329,6 +342,8 @@ public slots:
 
     void AddToIndex();
     void MarkForIndex();
+    
+    void GoToStyleDefinition();
 
 signals:
 
@@ -366,18 +381,13 @@ signals:
      */
     void OldTabRequest( QString content, HTMLResource& originating_resource );
 
-    /**
-     * Emitted when the user wants to create several new chapters.
-     *
-     * @param chapters The content of the new chapters to be created.
-     * @param originating_resource The original HTML chapter that chapters
-     * will be created after.
-     */
-    void NewChaptersRequest( QStringList chapters, HTMLResource &originating_resource );
-
     void OpenClipboardEditorRequest(ClipboardEditorModel::clipEntry *clip);
 
     void OpenIndexEditorRequest(IndexEditorModel::indexEntry *index);
+
+    void GoToLinkedStyleDefinitionRequest(const QString &element_name, const QString &style_class_name);
+
+    void BookmarkStyleUsageLocationRequest(const QString &file_name, int cv_cursor_position);
 
 private slots:
 
@@ -427,6 +437,8 @@ private slots:
     void ResourceTextChanging();
 
     void PVSplitterMoved(int pos, int index);
+
+    void EmitBookmarkStyleUsageLocationRequest(int cv_cursor_position);
 
 private:
     /**

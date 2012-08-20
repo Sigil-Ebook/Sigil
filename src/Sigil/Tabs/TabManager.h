@@ -78,6 +78,8 @@ public:
 
     void ReloadTabData();
 
+    void ReloadTabDataForResources( const QList<Resource*> &resources );
+
     void UpdateTabDisplay();
 
 public slots:
@@ -188,11 +190,6 @@ signals:
      * Wired to the current FlowTab::OldTabRequest signal.
      */
     void OldTabRequest( QString content, HTMLResource& originating_resource );
-
-    /**
-     * Wired to the current FlowTab::NewChaptersRequest signal.
-     */
-    void NewChaptersRequest( QStringList chapters, HTMLResource &originating_resource );
 
 protected:
     virtual void tabInserted(int index);

@@ -233,6 +233,15 @@ bool FlowTab::InsertClosingTagEnabled()
     return false;
 }
 
+bool FlowTab::GoToStyleDefinitionEnabled()
+{
+    if (m_ViewState == MainWindow::ViewState_CodeView) {
+        return m_wCodeView->IsGoToStyleDefinitionAllowed();
+    }
+
+    return false;
+}
+
 bool FlowTab::OpenLinkEnabled()
 {
     if (m_ViewState == MainWindow::ViewState_CodeView) {
@@ -620,17 +629,6 @@ void FlowTab::MarkForIndex()
     }
 }
 
-void FlowTab::SplitOnSGFChapterMarkers()
-{
-    if (!IsDataWellFormed()) {
-        return;
-    }
-
-    SaveTabContent();
-    emit NewChaptersRequest(m_HTMLResource.SplitOnSGFChapterMarkers(), m_HTMLResource);
-    LoadTabContent();
-}
-
 void FlowTab::InsertImage( const QString &image_path )
 {
     QString html = QString("<img src=\"%1\"/>").arg(image_path);
@@ -808,6 +806,14 @@ void FlowTab::LoadTabContent()
     }
 }
 
+void FlowTab::PasteFromClipboard()
+{
+    if (m_ViewState == MainWindow::ViewState_BookView)
+        m_wBookView->PasteFromClipboard();
+    else if (m_ViewState == MainWindow::ViewState_CodeView)
+        m_wCodeView->PasteFromClipboard();
+}
+
 
 void FlowTab::LoadSettings()
 {
@@ -843,6 +849,11 @@ void FlowTab::PVSplitterMoved(int pos, int index)
     settings.setValue("pv_splitter", m_pvVSplitter->saveState());
 
     settings.endGroup();
+}
+
+void FlowTab::EmitBookmarkStyleUsageLocationRequest(int cv_cursor_position)
+{
+    emit BookmarkStyleUsageLocationRequest(GetFilename(), cv_cursor_position);
 }
 
 void FlowTab::LeaveEditor(QWidget *editor)
@@ -1025,6 +1036,26 @@ void FlowTab::Strikethrough()
     }
 }
 
+void FlowTab::Subscript()
+{
+    if (m_ViewState == MainWindow::ViewState_BookView) {
+        m_wBookView->page()->triggerAction( QWebPage::ToggleSubscript );
+    }
+    else if (m_ViewState == MainWindow::ViewState_CodeView) {
+        m_wCodeView->ToggleFormatSelection("sub");
+    }
+}
+
+void FlowTab::Superscript()
+{
+    if (m_ViewState == MainWindow::ViewState_BookView) {
+        m_wBookView->page()->triggerAction( QWebPage::ToggleSuperscript );
+    }
+    else if (m_ViewState == MainWindow::ViewState_CodeView) {
+        m_wCodeView->ToggleFormatSelection("sup");
+    }
+}
+
 void FlowTab::AlignLeft()
 {
     if (m_ViewState == MainWindow::ViewState_BookView) {
@@ -1124,6 +1155,12 @@ void FlowTab::HeadingStyle( const QString& heading_type, bool preserve_attribute
     }
 }
 
+void FlowTab::GoToStyleDefinition()
+{
+    if (m_ViewState == MainWindow::ViewState_CodeView)
+        m_wCodeView->GoToStyleDefinition();
+}
+
 
 bool FlowTab::BoldChecked()
 {
@@ -1162,6 +1199,26 @@ bool FlowTab::StrikethroughChecked()
 
     else
         return ContentTab::StrikethroughChecked();
+}
+
+
+bool FlowTab::SubscriptChecked()
+{
+    if (m_ViewState == MainWindow::ViewState_BookView)
+        return m_wBookView->QueryCommandState( "subscript" );
+
+    else
+        return ContentTab::SubscriptChecked();
+}
+
+
+bool FlowTab::SuperscriptChecked()
+{
+    if (m_ViewState == MainWindow::ViewState_BookView)
+        return m_wBookView->QueryCommandState( "superscript" );
+
+    else
+        return ContentTab::SuperscriptChecked();
 }
 
 
@@ -1228,4 +1285,8 @@ void FlowTab::ConnectSignalsToSlots()
     connect(m_wCodeView, SIGNAL(OpenClipboardEditorRequest(ClipboardEditorModel::clipEntry *)), this, SIGNAL(OpenClipboardEditorRequest(ClipboardEditorModel::clipEntry *)));
 
     connect(m_wCodeView, SIGNAL(OpenIndexEditorRequest(IndexEditorModel::indexEntry *)), this, SIGNAL(OpenIndexEditorRequest(IndexEditorModel::indexEntry *)));
+
+    connect(m_wCodeView, SIGNAL(GoToLinkedStyleDefinitionRequest(const QString&, const QString&)), this, SIGNAL(GoToLinkedStyleDefinitionRequest(const QString&, const QString&)));
+
+    connect(m_wCodeView, SIGNAL(BookmarkStyleUsageLocationRequest(int)), this, SLOT(EmitBookmarkStyleUsageLocationRequest(int)));
 }

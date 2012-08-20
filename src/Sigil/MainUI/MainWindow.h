@@ -31,15 +31,15 @@
 
 #include "ui_main.h"
 #include "BookManipulation/Book.h"
+#include "Dialogs/ClipboardRingSelector.h"
+#include "Dialogs/IndexEditor.h"
+#include "MainUI/FindReplace.h"
 #include "MainUI/NCXModel.h"
 #include "Misc/SettingsStore.h"
-#include "Tabs/ContentTab.h"
-#include "MiscEditors/SearchEditorModel.h"
-#include "MainUI/FindReplace.h"
 #include "MiscEditors/ClipboardEditorModel.h"
-#include "MainUI/FindReplace.h"
-#include "Dialogs/IndexEditor.h"
 #include "MiscEditors/IndexEditorModel.h"
+#include "MiscEditors/SearchEditorModel.h"
+#include "Tabs/ContentTab.h"
 
 const int MAX_RECENT_FILES = 5;
 const int STATUSBAR_MSG_DISPLAY_TIME = 20000;
@@ -138,10 +138,10 @@ public:
         ViewState_StaticView   /**< The static view for non-editable content. */
     };
 
-   /**
+    /**
      * The location of the last link opened.
      */
-    struct LastLinkOpened
+    struct LocationBookmark
     {
         QString filename;
         MainWindow::ViewState view_state;
@@ -368,7 +368,7 @@ private slots:
     void AboutDialog();
 
     /**
-     * Implementes Preferences action functionality.
+     * Implements Preferences action functionality.
      */
     void PreferencesDialog();
 
@@ -500,13 +500,8 @@ private slots:
 
     /**
      * Creates new chapters/XHTML documents.
-     *
-     * @param new_chapters The contents of the new chapters.
-     * @param originating_resource The original HTML chapter that chapters
-     * will be created after.
-     * @see Book::CreateNewChapters
      */
-    void CreateNewChapters( QStringList new_chapters, HTMLResource &originalResource );
+    void SplitOnSGFChapterMarkers();
 
     /**
      * Sets the new state of the option that controls
@@ -553,11 +548,23 @@ private slots:
     void ApplyHeadingStyleToTab( const QString &heading_type );
     void SetPreserveHeadingAttributes( bool new_state );
 
-    void OpenLastLinkOpened();
+    void OpenLastLinkOpenedBookmark();
+    void OpenLastStyleUsageBookmark();
+
+    void GoToLinkedStyleDefinition(const QString &element_name, const QString &style_class_name);
+
+    void BookmarkStyleUsageLocation(const QString &file_name, int cv_cursor_position);
+    
+    void ShowPasteClipboardRingDialog();
 
 private:
 
-    void ResetLastLinkOpened();
+    bool OpenCSSResourceWithStyleDefinition( const QString &style_name, const QString &text, CSSResource *css_resource );
+
+    void ResetLastLinkOpenedBookmark();
+    void ResetLastStyleUsageBookmark();
+    void ResetLocationBookmark(LocationBookmark *locationBookmark);
+    void OpenLocationBookmark(LocationBookmark *locationBookmark);
 
     /**
      * Reads all the stored application settings like
@@ -880,7 +887,10 @@ private:
 
     bool m_preserveHeadingAttributes;
 
-    LastLinkOpened *m_LastLinkOpened;
+    LocationBookmark *m_LastLinkOpenedBookmark;
+    LocationBookmark *m_LastStyleUsageBookmark;
+
+    ClipboardRingSelector *m_ClipboardRingSelector;
 
     /**
      * Holds all the widgets Qt Designer created for us.

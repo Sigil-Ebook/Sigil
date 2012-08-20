@@ -85,6 +85,11 @@ void ContentTab::LoadTabContent()
 
 }
 
+void ContentTab::PasteFromClipboard()
+{
+
+}
+
 void ContentTab::BookView()
 {
 
@@ -142,4 +147,3 @@ void ContentTab::focusOutEvent( QFocusEvent *event )
 
     SaveTabContent();
 }
-
