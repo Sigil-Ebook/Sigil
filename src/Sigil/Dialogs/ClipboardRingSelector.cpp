@@ -77,12 +77,11 @@ void ClipboardRingSelector::SetupClipboardRingTable()
         ui.clipboardItemsTable->setItem(row, 0, selector);
 
         QString text = m_ClipboardRingHistory->at(row); 
-        QTableWidgetItem *clip = new QTableWidgetItem();
+        QString display_text(text);
         
         // Replace certain non-printable characters with spaces (to avoid
         // drawing boxes when using fonts that don't have glyphs for such
         // characters)
-        QString display_text(text);
         QChar *uc = display_text.data();
         for (int i = 0; i < (int)text.length(); ++i) {
             if ((uc[i] < 0x20 && uc[i] != 0x09)
@@ -91,10 +90,14 @@ void ClipboardRingSelector::SetupClipboardRingTable()
                 || uc[i] == QChar::ObjectReplacementCharacter)
                 uc[i] = QChar(0x0020);
         }
+        // Also replace any tab characters with an arrow glyph
+        display_text = display_text.replace(QChar('\t'), QChar(0x2192));
 
+        QTableWidgetItem *clip = new QTableWidgetItem();
         clip->setText(display_text);
         clip->setFlags(Qt::ItemIsSelectable|Qt::ItemIsEnabled);
         clip->setData(Qt::UserRole, QVariant(text));
+        clip->setToolTip(text);
         ui.clipboardItemsTable->setItem(row, 1, clip);
     }
     ui.clipboardItemsTable->setColumnWidth(0, 20);
@@ -156,7 +159,20 @@ bool ClipboardRingSelector::eventFilter(QObject *obj, QEvent *event)
             QKeyEvent *keyEvent = static_cast<QKeyEvent*>(event);
             int key = keyEvent->key();
             int row = -1;
-            if ((key >= Qt::Key_0) && (key <= Qt::Key_9)) {
+
+            if (key == Qt::Key_Delete) {
+                int current_row = ui.clipboardItemsTable->currentRow();
+                if (current_row >= 0) {
+                    m_ClipboardRingHistory->removeAt(current_row);
+                    SetupClipboardRingTable();
+                    if (current_row >= ui.clipboardItemsTable->rowCount()) {
+                        current_row--;
+                    }
+                    ui.clipboardItemsTable->selectRow(current_row);
+                    return true;
+                }
+            }
+            else if ((key >= Qt::Key_0) && (key <= Qt::Key_9)) {
                 row = key - Qt::Key_0;
             }
             else if ((key >= Qt::Key_A) && (key <= Qt::Key_J)) {
