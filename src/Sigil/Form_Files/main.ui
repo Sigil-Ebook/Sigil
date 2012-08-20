@@ -1171,6 +1171,9 @@
    <property name="toolTip">
     <string>User Guide</string>
    </property>
+   <property name="shortcut">
+    <string>F1</string>
+   </property>
   </action>
   <action name="actionFAQ">
    <property name="text">
@@ -1675,6 +1678,9 @@
   <action name="actionPasteClipboardRing">
    <property name="text">
     <string>Paste From Clipboard Ring...</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Alt+V</string>
    </property>
   </action>
  </widget>
