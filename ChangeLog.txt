@@ -1,26 +1,32 @@
 Sigil 0.6.0 TBA
-    - Implement issue 1521: Tab headers should allow right click to close other tabs, toggle view state.
+    - Implement issue 1535: Add Clipboard History to automatically saved recent cut or copied text.
+    - Implement issue 1534: Option to toggle Book View or Preview View to Code View and vice versa.
+    - Implement issue 1528: Shortcut preferences should be simplified.
+    - Implement issue 1536: Split at Chapter Markers should split all files.
+    - Implement issue 1530: The heading dropdown should be changed to buttons for quicker selection.
+    - Implement issue 1529: Code View should support heading/formatting buttons as used in Book View.
+    - Implement issue 73: External HTML links should be usable but evoke warning dialog.
+    - Implement issue 1521: Tab headers right click to close other tabs, toggle view state.
     - Implement issue 715: Search Editor for saving and executing Find & Replaces searches.
     - Implement issue 588: Clip Editor for saving and inserting text.
     - Implement issue 1519: Navigate between links in Code View.
     - Implement issue 167: Index Editor to create a book index.
     - Implement issue 1450: View classes used in HTML files.
-    - Implement issue 102: View details of all HTML files
-    - Implement issue 839: Word Count (in View HTML details)
-    - Implement issue 1392: View details of all images
+    - Implement issue 102: View details of all HTML files.
+    - Implement issue 839: Word Count (in View HTML details).
+    - Implement issue 1392: View details of all images.
     - Implement issue 1513: Add progress indicators to various functions.
     - Implement issue 1510: Add Existing Files should only open last file not all files.
     - Implement issue 1428: Find&Replace should allow Ctrl/Shift key modifiers to set what to search.
     - Implement issue 1325: Insert Images support for multiple images, resizing, thumbnails.
-    - Implement issue 31: Automatically set "date of modification" on save 
+    - Implement issue 31: Automatically set "date of modification" on save.
     - Implement issue 1508: Allow export/saving of individual files.
     - Implement issue 1367: Shortcut key to remove code tags from selected text.
     - Implement issue 761: Shortcut key to close last open tag (Code View).
     - Implement issue 1507: Metadata dialogs should allow double click to select.
     - Implement issue 1457: Save should not add heading ids - already done in Generate TOC.
     - Implement issue 1444: Sigil should not include .txt or .html in file associations during install.
-    - Implement issue 1443: Find&Replace should save state on restart,
-      UI should enable/disable more items based on view
+    - Implement issue 1443: Find&Replace should save state on restart.
     - Implement issue 1416: Don't add selected text to F&R history and increase selected
       text limit for being auto loaded into F&R.
     - Implement issue 1414: Cover semantic should not be added automatically.
@@ -38,21 +44,16 @@ Sigil 0.6.0 TBA
     - Implement issue 32: Metadata custom "date" options.
     - Implement issue 33: Metadata options for creators and contributors.
     - Implement issue 1374: Split View is now Preview View with code inspector.
-    - Implement issue 60: Book View buttons for text alignment.
-    - Implement issue 425: Book View Shift+PgUp/PgDn should highlight text.
-    - Implement issue 184: Book View Superscript/subscript buttons.
+    - Implement issue 184: Superscript/subscript buttons.
     - Implement issue 443: Book View RTL languages support (right to left rtl tag).
-    - Implement issue 691: Book View table button/creation.
-    - Implement issue 1333: Book View basic Hyperlink button/creation.
     - Implement issue 504: Book View button for normal paragraph.
-    - Implement issue 505: Book View support for more element types.
     - Implement issue 1265: Preference to manually set UI language.
     - Implement issue 1295: Metadata Editor support for translating descriptions.
     - Implement issue 77: Metadata support for multiple language elements.
-    - Implement issue 1180: Spell Check in Find&Replace to find misspelled words.
-    - Implement issue 1045: Better highlighting of misspelled words (use F&R).
+    - Implement issue 1180: Spell Check button/menu to find next misspelled word.
+    - Implement issue 1045: Better highlighting of misspelled words.
     - Implement issue 1301: Preferences for User and Additional Dictionary locations.
-    - Implement issue 1058: Use ini format for settings on all platforms
+    - Implement issue 1058: Use ini format for settings on all platforms.
     - Implement issue 1376: Change organization name and location of settings to sigil-ebook.
     - Implement issue 1381: Switch to using Minizip for 1.1 for ZIP support. 
       - Remove ZipArchive and Zipios++.
@@ -67,6 +68,9 @@ Sigil 0.6.0 TBA
     - Implement issue 1378: Update Hunspell to 1.3.2.
     - Implement issue 1379: Update Boost to Boost 1.49.0.
     - Implement issue 1283: Spell check should have an ignore option.
+    - Fix issue 1406: Typing spaces on a word highlighted by spelling crashes Sigil.
+    - Fix issue 1524: Replace \s does not always match newlines.
+    - Fix issue 1538: Sigil can save a corrupted epub file if zip fails.
     - Fix issue 1517: Delete selected file should not open another file unnecessarily.
     - Fix issue 1474: New lines added in every xhtml file after saving.
     - Fix issue 1486: Replace replaces even if text doesn't match if manually changed.
@@ -81,7 +85,7 @@ Sigil 0.6.0 TBA
     - Fix issue 1130: Content.opf edits overwritten by save.
     - Fix issue 1354: Chapter Split breaks links in second half of document.
     - Fix issue 999: Split does not update file references in TOC.
-    - Fix issue 1277: Meta-editor will not open
+    - Fix issue 1277: Meta-editor will not open.
     - Fix issue 1281: Semantics information retained for deleted files.
     - Fix issue 1338: F&R Replace All can crash using current file with large replaces.
     - Fix issue 1296: F&R Search All crashes if HTML file doesn't have focus.
