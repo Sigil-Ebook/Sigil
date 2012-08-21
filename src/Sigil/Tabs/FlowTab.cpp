@@ -404,6 +404,7 @@ bool FlowTab::SetViewState(MainWindow::ViewState new_view_state)
         CodeView();
     }
     else {
+        m_BookPreviewNeedReload = false;
         BookView();
     }
 
@@ -689,6 +690,16 @@ void FlowTab::PasteClipboardEntries(QList<ClipboardEditorModel::clipEntry *> cli
     }
 }
 
+void FlowTab::ReloadTabIfPending()
+{
+    setFocus();
+    // Reload BV/PV if the resource was marked as changed outside of the editor.
+    if (m_BookPreviewNeedReload && (m_ViewState == MainWindow::ViewState_PreviewView || m_ViewState == MainWindow::ViewState_BookView)) {
+        LoadTabContent();
+        m_BookPreviewNeedReload = false;
+    }
+}
+
 void FlowTab::BookView()
 {
     if (!IsDataWellFormed()) {
@@ -792,14 +803,7 @@ void FlowTab::LoadTabContent()
     }
 
     if (m_ViewState == MainWindow::ViewState_BookView) {
-        if (m_initialLoad)
-        {
-            m_wBookView->CustomSetDocument(m_HTMLResource.GetFullPath(), m_HTMLResource.GetText());
-        }
-        else
-        {
-            m_wBookView->CustomUpdateDocument(m_HTMLResource.GetText());
-        }
+        m_wBookView->CustomSetDocument(m_HTMLResource.GetFullPath(), m_HTMLResource.GetText());
     }
     else if (m_ViewState == MainWindow::ViewState_PreviewView) {
         m_wBookPreview->CustomSetDocument(m_HTMLResource.GetFullPath(), m_HTMLResource.GetText());
@@ -827,6 +831,12 @@ void FlowTab::ResourceModified()
     QWebSettings::clearMemoryCaches();
     if ( m_ViewState == MainWindow::ViewState_CodeView ) {
         m_wCodeView->ExecuteCaretUpdate();
+    }
+    else if ( m_ViewState == MainWindow::ViewState_BookView ) {
+        m_wBookView->StoreCaretLocationUpdate(m_wBookView->GetCaretLocation());
+    }
+    else if ( m_ViewState == MainWindow::ViewState_PreviewView ) {
+        m_wBookPreview->StoreCaretLocationUpdate(m_wBookPreview->GetCaretLocation());
     }
 }
 
@@ -868,12 +878,6 @@ void FlowTab::EnterEditor(QWidget *editor)
     // over a valid file.
     if (!m_safeToLoad) {
         return;
-    }
-
-    // Reload PV if the resource was marked as changed outside of the editor.
-    if (m_BookPreviewNeedReload && m_ViewState == MainWindow::ViewState_PreviewView) {
-        LoadTabContent();
-        m_BookPreviewNeedReload = false;
     }
 
     // BookPreview is left out of this because we always want to reload with any current changes

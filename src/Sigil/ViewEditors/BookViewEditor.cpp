@@ -87,13 +87,6 @@ void BookViewEditor::CustomSetDocument(const QString &path, const QString &html)
     m_isLoadFinished = false;
     m_path = path;
 
-    CustomUpdateDocument(html, false);
-}
-
-void BookViewEditor::CustomUpdateDocument(const QString &html, bool saveSelection)
-{
-    m_isLoadFinished = false;
-
     BookViewPreview::CustomSetDocument(m_path, html);
     page()->setContentEditable(true);
     SetWebPageModified( false );

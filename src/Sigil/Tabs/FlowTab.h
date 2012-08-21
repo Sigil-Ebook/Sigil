@@ -233,12 +233,19 @@ public slots:
      */
     void Print();
 
+    void PasteClipboardEntries(QList<ClipboardEditorModel::clipEntry *> clips);
+
+    /**
+     * Qt has some nasty inconsistencies on when to focus is fired. In the situation
+     * where we are switching tabs or switching views on a tab we want to ensure
+     * that we consistently force a reload of the tab if it is pending.
+     */
+    void ReloadTabIfPending();
+
     /**
      * Implements Book View action functionality.
      */
     void BookView();
-
-    void PasteClipboardEntries(QList<ClipboardEditorModel::clipEntry *> clips);
 
     /**
      * Implements Split View action functionality.

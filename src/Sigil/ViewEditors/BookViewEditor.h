@@ -56,8 +56,6 @@ public:
      */
     void CustomSetDocument(const QString &path, const QString &html);
 
-    void CustomUpdateDocument(const QString &html, bool saveSelection = true);
-
     void ScrollToFragment(const QString &fragment);
 
     void ScrollToFragmentAfterLoad(const QString &fragment);

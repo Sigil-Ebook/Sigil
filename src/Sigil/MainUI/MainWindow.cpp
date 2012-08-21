@@ -1412,11 +1412,11 @@ bool MainWindow::UpdateViewState(bool set_tab_state)
         if (set_tab_state) {
             FlowTab *ftab = dynamic_cast<FlowTab *>(&tab);
             if (ftab) {
-                if (!ftab->SetViewState(m_ViewState)) {
-                    // Put focus into the tab when a user selects a tab, which
-                    // might not have been done if they were in book view and then moved
-                    // focus out of the tabs and then clicked to change a tab
-                    ftab->setFocus();
+                bool view_state_changed = ftab->SetViewState(m_ViewState);
+                // We cannot reliably use Qt focus events to determine whether or
+                // not to reload the contents of a tab. 
+                ftab->ReloadTabIfPending();
+                if (!view_state_changed) {
                     return false;
                 }
             }
