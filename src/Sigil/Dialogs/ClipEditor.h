@@ -21,34 +21,34 @@
 *************************************************************************/
 
 #pragma once
-#ifndef CLIPBOARDEDITOR_H
-#define CLIPBOARDEDITOR_H
+#ifndef CLIPEDITOR_H
+#define CLIPEDITOR_H
 
 #include <QtGui/QDialog>
 #include <QtGui/QStandardItemModel>
 
 #include "Misc/SettingsStore.h"
-#include "MiscEditors/ClipboardEditorModel.h"
-#include "MiscEditors/ClipboardEditorTreeView.h"
+#include "MiscEditors/ClipEditorModel.h"
+#include "MiscEditors/ClipEditorTreeView.h"
 
-#include "ui_ClipboardEditor.h"
+#include "ui_ClipEditor.h"
 
 /**
  * The editor used to create and modify saved clip entries
  */
-class ClipboardEditor : public QDialog
+class ClipEditor : public QDialog
 {
     Q_OBJECT
 
 public:
-    ClipboardEditor(QWidget *parent);
-    ~ClipboardEditor();
+    ClipEditor(QWidget *parent);
+    ~ClipEditor();
 
 public slots:
-    QStandardItem* AddEntry(bool is_group = false, ClipboardEditorModel::clipEntry *clip_entry = NULL, bool insert_after = true);
+    QStandardItem* AddEntry(bool is_group = false, ClipEditorModel::clipEntry *clip_entry = NULL, bool insert_after = true);
 
 signals:
-    void PasteSelectedClipboardRequest(QList<ClipboardEditorModel::clipEntry *> clip_entries);
+    void PasteSelectedClipRequest(QList<ClipEditorModel::clipEntry *> clip_entries);
 
 protected slots:
     void accept();
@@ -73,16 +73,16 @@ private slots:
     void OpenContextMenu(const QPoint &point);
 
 private:
-    void SetupClipboardEditorTree();
+    void SetupClipEditorTree();
 
     int SelectedRowsCount();
-    QList<ClipboardEditorModel::clipEntry*> GetSelectedEntries();
+    QList<ClipEditorModel::clipEntry*> GetSelectedEntries();
 
     QList<QStandardItem*> GetSelectedItems();
 
     bool ItemsAreUnique(QList<QStandardItem*> items);
 
-    bool SaveData(QList<ClipboardEditorModel::clipEntry*> entries = QList<ClipboardEditorModel::clipEntry*>() , QString filename = QString());
+    bool SaveData(QList<ClipEditorModel::clipEntry*> entries = QList<ClipEditorModel::clipEntry*>() , QString filename = QString());
 
     bool FilterEntries(const QString &text, QStandardItem *item = NULL);
     bool SelectFirstVisibleNonGroup(QStandardItem *item);
@@ -107,16 +107,16 @@ private:
     QAction *m_CollapseAll;
     QAction *m_ExpandAll;
 
-    ClipboardEditorModel *m_ClipboardEditorModel;
+    ClipEditorModel *m_ClipEditorModel;
 
     QString m_LastFolderOpen;
 
     QMenu *m_ContextMenu;
 
-    QList<ClipboardEditorModel::clipEntry *> m_SavedClipboardEntries;
+    QList<ClipEditorModel::clipEntry *> m_SavedClipEntries;
 
-    Ui::ClipboardEditor ui;
+    Ui::ClipEditor ui;
 };
 
-#endif // CLIPBOARDEDITOR_H
+#endif // CLIPEDITOR_H
 

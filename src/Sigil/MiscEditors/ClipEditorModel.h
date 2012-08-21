@@ -21,23 +21,23 @@
 *************************************************************************/
 
 #pragma once
-#ifndef CLIPBOARDEDITORMODEL_H
-#define CLIPBOARDEDITORMODEL_H
+#ifndef CLIPEDITORMODEL_H
+#define CLIPEDITORMODEL_H
 
 #include <QtGui/QStandardItemModel>
 #include <QDropEvent>
 
 #include "Misc/SettingsStore.h"
 
-class ClipboardEditorModel : public QStandardItemModel
+class ClipEditorModel : public QStandardItemModel
 {
      Q_OBJECT
 
 public:
-     ClipboardEditorModel(QObject *parent = 0);
-     ~ClipboardEditorModel();
+     ClipEditorModel(QObject *parent = 0);
+     ~ClipEditorModel();
 
-    static ClipboardEditorModel* instance();
+    static ClipEditorModel* instance();
 
     struct clipEntry {
         bool is_group;
@@ -54,15 +54,15 @@ public:
     void LoadInitialData();
     void LoadData(QString filename = QString(), QStandardItem *parent_item = NULL);
 
-    void AddFullNameEntry(ClipboardEditorModel::clipEntry *entry = NULL, QStandardItem *parent_item = NULL, int row = -1);
+    void AddFullNameEntry(ClipEditorModel::clipEntry *entry = NULL, QStandardItem *parent_item = NULL, int row = -1);
 
-    QStandardItem* AddEntryToModel(ClipboardEditorModel::clipEntry *entry, bool is_group = false, QStandardItem *parent_item = NULL, int row = -1);
+    QStandardItem* AddEntryToModel(ClipEditorModel::clipEntry *entry, bool is_group = false, QStandardItem *parent_item = NULL, int row = -1);
 
-    QString SaveData(QList<ClipboardEditorModel::clipEntry*> entries = QList<ClipboardEditorModel::clipEntry*>(), QString filename = QString());
+    QString SaveData(QList<ClipEditorModel::clipEntry*> entries = QList<ClipEditorModel::clipEntry*>(), QString filename = QString());
 
-    QList<ClipboardEditorModel::clipEntry *> GetEntries(QList<QStandardItem*> items);
-    ClipboardEditorModel::clipEntry* GetEntry(QStandardItem* item);
-    ClipboardEditorModel::clipEntry* GetEntryFromName(QString name, QStandardItem *parent_item = NULL);
+    QList<ClipEditorModel::clipEntry *> GetEntries(QList<QStandardItem*> items);
+    ClipEditorModel::clipEntry* GetEntry(QStandardItem* item);
+    ClipEditorModel::clipEntry* GetEntryFromName(QString name, QStandardItem *parent_item = NULL);
 
 
     QStandardItem* GetItemFromName(QString name, QStandardItem *item = NULL);
@@ -91,7 +91,7 @@ private:
 
     void AddExampleEntries();
 
-    static ClipboardEditorModel *m_instance;
+    static ClipEditorModel *m_instance;
 };
 
-#endif // CLIPBOARDEDITORMODEL_H
+#endif // CLIPEDITORMODEL_H

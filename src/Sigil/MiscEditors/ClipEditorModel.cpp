@@ -24,9 +24,9 @@
 #include <QByteArray>
 #include <QDataStream>
 
-#include "MiscEditors/ClipboardEditorModel.h"
+#include "MiscEditors/ClipEditorModel.h"
 
-static const QString SETTINGS_GROUP         = "clipboard_entries";
+static const QString SETTINGS_GROUP         = "clip_entries";
 static const QString ENTRY_NAME             = "Name";
 static const QString ENTRY_DESCRIPTION      = "Description";
 static const QString ENTRY_TEXT             = "Text";
@@ -36,20 +36,20 @@ const int COLUMNS = 3;
 static const int IS_GROUP_ROLE = Qt::UserRole + 1;
 static const int FULLNAME_ROLE = Qt::UserRole + 2;
 
-static const QString CLIPBOARD_EXAMPLE_FILE = "clipboard_examples.ini";
+static const QString CLIP_EXAMPLE_FILE = "clip_examples.ini";
 
-ClipboardEditorModel *ClipboardEditorModel::m_instance = 0;
+ClipEditorModel *ClipEditorModel::m_instance = 0;
 
-ClipboardEditorModel *ClipboardEditorModel::instance()
+ClipEditorModel *ClipEditorModel::instance()
 {
     if (m_instance == 0) {
-        m_instance = new ClipboardEditorModel();
+        m_instance = new ClipEditorModel();
     }
 
     return m_instance;
 }
 
-ClipboardEditorModel::ClipboardEditorModel(QObject *parent)
+ClipEditorModel::ClipEditorModel(QObject *parent)
  : QStandardItemModel(parent)
 {
     LoadInitialData();
@@ -58,7 +58,7 @@ ClipboardEditorModel::ClipboardEditorModel(QObject *parent)
             this, SLOT(ItemChangedHandler(QStandardItem*)));
 }
 
-ClipboardEditorModel::~ClipboardEditorModel()
+ClipEditorModel::~ClipEditorModel()
 {
     if (m_instance) {
         delete m_instance;
@@ -66,12 +66,12 @@ ClipboardEditorModel::~ClipboardEditorModel()
     }
 }
  
-Qt::DropActions ClipboardEditorModel::supportedDropActions() const
+Qt::DropActions ClipEditorModel::supportedDropActions() const
 {
     return Qt::MoveAction;
 }
 
-QMimeData* ClipboardEditorModel::mimeData(const QModelIndexList &indexes) const 
+QMimeData* ClipEditorModel::mimeData(const QModelIndexList &indexes) const 
 {
     QMimeData *mimeData = new QMimeData();
     QByteArray encodedData;
@@ -91,7 +91,7 @@ QMimeData* ClipboardEditorModel::mimeData(const QModelIndexList &indexes) const
     return mimeData;
 }
 
-bool ClipboardEditorModel::dropMimeData(const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex & parent)
+bool ClipEditorModel::dropMimeData(const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex & parent)
 {
     if (action == Qt::IgnoreAction) {
         return true;
@@ -147,13 +147,13 @@ bool ClipboardEditorModel::dropMimeData(const QMimeData *data, Qt::DropAction ac
         QList<QStandardItem*> sub_items = GetNonParentItems(item);
 
         if (item->data(IS_GROUP_ROLE).toBool()) {
-            ClipboardEditorModel::clipEntry *top_group_entry = GetEntry(item);
+            ClipEditorModel::clipEntry *top_group_entry = GetEntry(item);
             parent_item = AddEntryToModel(top_group_entry, top_group_entry->is_group, parent_item, row);
             parent_path = item->data(FULLNAME_ROLE).toString();
         }
 
         foreach (QStandardItem* item, sub_items) {
-            ClipboardEditorModel::clipEntry *entry = GetEntry(item);
+            ClipEditorModel::clipEntry *entry = GetEntry(item);
 
             // Remove the top level paths
             entry->fullname.replace(QRegExp(parent_path), "");
@@ -169,7 +169,7 @@ bool ClipboardEditorModel::dropMimeData(const QMimeData *data, Qt::DropAction ac
     return true;
 }
 
-void ClipboardEditorModel::ItemChangedHandler(QStandardItem *item)
+void ClipEditorModel::ItemChangedHandler(QStandardItem *item)
 {
     Q_ASSERT(item);
 
@@ -191,7 +191,7 @@ void ClipboardEditorModel::ItemChangedHandler(QStandardItem *item)
     Rename(item);
 }
 
-void ClipboardEditorModel::Rename(QStandardItem *item, QString name)
+void ClipEditorModel::Rename(QStandardItem *item, QString name)
 {
     // Update the name and all its children
     // Disconnect change signal while changing the items
@@ -209,7 +209,7 @@ void ClipboardEditorModel::Rename(QStandardItem *item, QString name)
             this, SLOT(  ItemChangedHandler(QStandardItem*)));
 }
 
-void ClipboardEditorModel::UpdateFullName(QStandardItem *item)
+void ClipEditorModel::UpdateFullName(QStandardItem *item)
 {
     QStandardItem *parent_item = item->parent();
     if (!parent_item) {
@@ -229,22 +229,22 @@ void ClipboardEditorModel::UpdateFullName(QStandardItem *item)
     }
 }
 
-bool ClipboardEditorModel::ItemIsGroup(QStandardItem* item)
+bool ClipEditorModel::ItemIsGroup(QStandardItem* item)
 {
     return item->data(IS_GROUP_ROLE).toBool();
 }
 
-QString ClipboardEditorModel::GetFullName(QStandardItem* item)
+QString ClipEditorModel::GetFullName(QStandardItem* item)
 {
     return item->data(FULLNAME_ROLE).toString();
 }
 
-ClipboardEditorModel::clipEntry* ClipboardEditorModel::GetEntryFromName(QString name, QStandardItem *item)
+ClipEditorModel::clipEntry* ClipEditorModel::GetEntryFromName(QString name, QStandardItem *item)
 {
     return GetEntry(GetItemFromName(name, item));
 }
 
-QStandardItem* ClipboardEditorModel::GetItemFromName(QString name, QStandardItem *item)
+QStandardItem* ClipEditorModel::GetItemFromName(QString name, QStandardItem *item)
 {
     QStandardItem* found_item = NULL;
 
@@ -268,7 +268,7 @@ QStandardItem* ClipboardEditorModel::GetItemFromName(QString name, QStandardItem
     return found_item;
 }
 
-void ClipboardEditorModel::LoadInitialData()
+void ClipEditorModel::LoadInitialData()
 {
     clear();
 
@@ -286,7 +286,7 @@ void ClipboardEditorModel::LoadInitialData()
     }
 }
 
-void ClipboardEditorModel::LoadData(QString filename, QStandardItem *item)
+void ClipEditorModel::LoadData(QString filename, QStandardItem *item)
 {
     SettingsStore *settings;
     if (filename.isEmpty()) {
@@ -302,7 +302,7 @@ void ClipboardEditorModel::LoadData(QString filename, QStandardItem *item)
     for (int i = 0; i < size; ++i) {
         settings->setArrayIndex(i);
 
-        ClipboardEditorModel::clipEntry *entry = new ClipboardEditorModel::clipEntry();
+        ClipEditorModel::clipEntry *entry = new ClipEditorModel::clipEntry();
 
         QString fullname = settings->value(ENTRY_NAME).toString();
         fullname.replace(QRegExp("\\s*/+\\s*"), "/");
@@ -322,7 +322,7 @@ void ClipboardEditorModel::LoadData(QString filename, QStandardItem *item)
     settings->endArray();
 }
 
-void ClipboardEditorModel::AddFullNameEntry(ClipboardEditorModel::clipEntry *entry, QStandardItem *parent_item, int row)
+void ClipEditorModel::AddFullNameEntry(ClipEditorModel::clipEntry *entry, QStandardItem *parent_item, int row)
 {
     if (!parent_item) {
         parent_item = invisibleRootItem();
@@ -356,7 +356,7 @@ void ClipboardEditorModel::AddFullNameEntry(ClipboardEditorModel::clipEntry *ent
                 }
             }
             if (!found) {
-                ClipboardEditorModel::clipEntry *new_entry = new ClipboardEditorModel::clipEntry();
+                ClipEditorModel::clipEntry *new_entry = new ClipEditorModel::clipEntry();
                 new_entry->is_group = true;
                 new_entry->name = group_name;
                 parent_item = AddEntryToModel(new_entry, new_entry->is_group, parent_item, parent_item->rowCount());
@@ -371,7 +371,7 @@ void ClipboardEditorModel::AddFullNameEntry(ClipboardEditorModel::clipEntry *ent
     }
 }
 
-QStandardItem *ClipboardEditorModel::AddEntryToModel(ClipboardEditorModel::clipEntry *entry, bool is_group, QStandardItem *parent_item, int row)
+QStandardItem *ClipEditorModel::AddEntryToModel(ClipEditorModel::clipEntry *entry, bool is_group, QStandardItem *parent_item, int row)
 {
     // parent_item must be a group item
 
@@ -381,7 +381,7 @@ QStandardItem *ClipboardEditorModel::AddEntryToModel(ClipboardEditorModel::clipE
 
     // Create an empty entry if none supplied
     if (!entry) {
-        entry = new ClipboardEditorModel::clipEntry();
+        entry = new ClipEditorModel::clipEntry();
         entry->is_group = is_group;
         entry->description = "";
         if (!is_group) {
@@ -444,14 +444,14 @@ QStandardItem *ClipboardEditorModel::AddEntryToModel(ClipboardEditorModel::clipE
     return new_item;
 }
 
-void ClipboardEditorModel::AddExampleEntries()
+void ClipEditorModel::AddExampleEntries()
 {
-    QString example_file = QCoreApplication::applicationDirPath() + "/../share/" + QCoreApplication::applicationName().toLower() + "/examples/" + CLIPBOARD_EXAMPLE_FILE;
+    QString example_file = QCoreApplication::applicationDirPath() + "/../share/" + QCoreApplication::applicationName().toLower() + "/examples/" + CLIP_EXAMPLE_FILE;
 
     LoadData(example_file);
 }
 
-QList<QStandardItem*> ClipboardEditorModel::GetItemsForIndexes(QModelIndexList indexes)
+QList<QStandardItem*> ClipEditorModel::GetItemsForIndexes(QModelIndexList indexes)
 {
     QList<QStandardItem*> items;
 
@@ -464,7 +464,7 @@ QList<QStandardItem*> ClipboardEditorModel::GetItemsForIndexes(QModelIndexList i
     return items;
 }
 
-QList<QStandardItem *> ClipboardEditorModel::GetNonGroupItems(QList<QStandardItem *> items)
+QList<QStandardItem *> ClipEditorModel::GetNonGroupItems(QList<QStandardItem *> items)
 {
     QList<QStandardItem *> all_items;
 
@@ -475,7 +475,7 @@ QList<QStandardItem *> ClipboardEditorModel::GetNonGroupItems(QList<QStandardIte
     return all_items;
 }
 
-QList<QStandardItem *> ClipboardEditorModel::GetNonGroupItems(QStandardItem* item)
+QList<QStandardItem *> ClipEditorModel::GetNonGroupItems(QStandardItem* item)
 {
     QList<QStandardItem *> items;
 
@@ -489,7 +489,7 @@ QList<QStandardItem *> ClipboardEditorModel::GetNonGroupItems(QStandardItem* ite
     return items;
 }
 
-QList<QStandardItem *> ClipboardEditorModel::GetNonParentItems(QList<QStandardItem *> items)
+QList<QStandardItem *> ClipEditorModel::GetNonParentItems(QList<QStandardItem *> items)
 {
     QList<QStandardItem *> all_items;
 
@@ -500,7 +500,7 @@ QList<QStandardItem *> ClipboardEditorModel::GetNonParentItems(QList<QStandardIt
     return all_items;
 }
 
-QList<QStandardItem *> ClipboardEditorModel::GetNonParentItems(QStandardItem* item)
+QList<QStandardItem *> ClipEditorModel::GetNonParentItems(QStandardItem* item)
 {
     QList<QStandardItem *> items;
 
@@ -517,9 +517,9 @@ QList<QStandardItem *> ClipboardEditorModel::GetNonParentItems(QStandardItem* it
     return items;
 }
 
-QList<ClipboardEditorModel::clipEntry *> ClipboardEditorModel::GetEntries(QList<QStandardItem*> items)
+QList<ClipEditorModel::clipEntry *> ClipEditorModel::GetEntries(QList<QStandardItem*> items)
 {
-    QList<ClipboardEditorModel::clipEntry *> entries;
+    QList<ClipEditorModel::clipEntry *> entries;
 
     foreach (QStandardItem *item, items) {
         entries.append(GetEntry(item));
@@ -527,7 +527,7 @@ QList<ClipboardEditorModel::clipEntry *> ClipboardEditorModel::GetEntries(QList<
     return entries;
 }
 
-ClipboardEditorModel::clipEntry* ClipboardEditorModel::GetEntry(QStandardItem *item)
+ClipEditorModel::clipEntry* ClipEditorModel::GetEntry(QStandardItem *item)
 {
     QStandardItem *parent_item;
 
@@ -538,7 +538,7 @@ ClipboardEditorModel::clipEntry* ClipboardEditorModel::GetEntry(QStandardItem *i
         parent_item = invisibleRootItem();
     }
 
-    ClipboardEditorModel::clipEntry *entry = new ClipboardEditorModel::clipEntry();
+    ClipEditorModel::clipEntry *entry = new ClipEditorModel::clipEntry();
 
     entry->is_group =    parent_item->child(item->row(), 0)->data(IS_GROUP_ROLE).toBool();
     entry->fullname =    parent_item->child(item->row(), 0)->data(FULLNAME_ROLE).toString();
@@ -551,7 +551,7 @@ ClipboardEditorModel::clipEntry* ClipboardEditorModel::GetEntry(QStandardItem *i
     return entry;
 }
 
-QStandardItem* ClipboardEditorModel::GetItemFromId(qint64 id, int row, QStandardItem *item) const
+QStandardItem* ClipEditorModel::GetItemFromId(qint64 id, int row, QStandardItem *item) const
 {
     QStandardItem* found_item = NULL;
 
@@ -581,7 +581,7 @@ QStandardItem* ClipboardEditorModel::GetItemFromId(qint64 id, int row, QStandard
     return found_item;
 }
 
-QString ClipboardEditorModel::SaveData(QList<ClipboardEditorModel::clipEntry*> entries, QString filename)
+QString ClipEditorModel::SaveData(QList<ClipEditorModel::clipEntry*> entries, QString filename)
 {
     QString message = "";
 
@@ -614,7 +614,7 @@ QString ClipboardEditorModel::SaveData(QList<ClipboardEditorModel::clipEntry*> e
     settings->beginWriteArray(SETTINGS_GROUP);
 
     int i = 0;
-    foreach (ClipboardEditorModel::clipEntry *entry, entries) {
+    foreach (ClipEditorModel::clipEntry *entry, entries) {
         settings->setArrayIndex(i++);
         settings->setValue(ENTRY_NAME, entry->fullname);
         settings->setValue(ENTRY_DESCRIPTION, entry->description);

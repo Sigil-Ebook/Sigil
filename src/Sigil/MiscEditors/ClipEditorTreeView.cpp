@@ -22,9 +22,9 @@
 
 #include <QHeaderView>
 
-#include "MiscEditors/ClipboardEditorTreeView.h"
+#include "MiscEditors/ClipEditorTreeView.h"
 
-ClipboardEditorTreeView::ClipboardEditorTreeView(QWidget* parent)
+ClipEditorTreeView::ClipEditorTreeView(QWidget* parent)
  : QTreeView(parent)
 {
     setAcceptDrops(true);
@@ -37,11 +37,11 @@ ClipboardEditorTreeView::ClipboardEditorTreeView(QWidget* parent)
     setTabKeyNavigation(true);
 }
 
-ClipboardEditorTreeView::~ClipboardEditorTreeView()
+ClipEditorTreeView::~ClipEditorTreeView()
 {
 }
  
-void ClipboardEditorTreeView::dragEnterEvent(QDragEnterEvent *event)
+void ClipEditorTreeView::dragEnterEvent(QDragEnterEvent *event)
 {
     if (event->source() == this) {
         event->setDropAction(Qt::MoveAction);
@@ -52,7 +52,7 @@ void ClipboardEditorTreeView::dragEnterEvent(QDragEnterEvent *event)
     }
 }
 
-void ClipboardEditorTreeView::dragMoveEvent(QDragMoveEvent *event)
+void ClipEditorTreeView::dragMoveEvent(QDragMoveEvent *event)
 {
     // Allow scrolling to work
     QTreeView::dragMoveEvent(event);
@@ -60,7 +60,7 @@ void ClipboardEditorTreeView::dragMoveEvent(QDragMoveEvent *event)
     event->accept();
 }
 
-QModelIndex ClipboardEditorTreeView::moveCursor(CursorAction cursorAction, Qt::KeyboardModifiers modifiers)
+QModelIndex ClipEditorTreeView::moveCursor(CursorAction cursorAction, Qt::KeyboardModifiers modifiers)
 {
     if (cursorAction == QAbstractItemView::MoveNext) {
         QModelIndex index = currentIndex();

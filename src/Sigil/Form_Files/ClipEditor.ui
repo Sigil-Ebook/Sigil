@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>ClipboardEditor</class>
- <widget class="QDialog" name="ClipboardEditor">
+ <class>ClipEditor</class>
+ <widget class="QDialog" name="ClipEditor">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -42,7 +42,7 @@
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout_2">
      <item>
-      <widget class="ClipboardEditorTreeView" name="ClipboardEditorTree"/>
+      <widget class="ClipEditorTreeView" name="ClipEditorTree"/>
      </item>
      <item>
       <layout class="QVBoxLayout" name="verticalLayout">
@@ -92,9 +92,9 @@ If a group is selected, paste each entry in order.</string>
  </widget>
  <customwidgets>
   <customwidget>
-   <class>ClipboardEditorTreeView</class>
+   <class>ClipEditorTreeView</class>
    <extends>QTreeView</extends>
-   <header>MiscEditors/ClipboardEditorTreeView.h</header>
+   <header>MiscEditors/ClipEditorTreeView.h</header>
   </customwidget>
  </customwidgets>
  <resources/>
@@ -102,7 +102,7 @@ If a group is selected, paste each entry in order.</string>
   <connection>
    <sender>buttonBox</sender>
    <signal>rejected()</signal>
-   <receiver>ClipboardEditor</receiver>
+   <receiver>ClipEditor</receiver>
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -118,7 +118,7 @@ If a group is selected, paste each entry in order.</string>
   <connection>
    <sender>buttonBox</sender>
    <signal>accepted()</signal>
-   <receiver>ClipboardEditor</receiver>
+   <receiver>ClipEditor</receiver>
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">

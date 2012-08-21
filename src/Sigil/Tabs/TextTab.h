@@ -25,7 +25,7 @@
 
 #include "Tabs/ContentTab.h"
 #include "ViewEditors/CodeViewEditor.h"
-#include "MiscEditors/ClipboardEditorModel.h"
+#include "MiscEditors/ClipEditorModel.h"
 
 class TextResource;
 class QTextDocument;
@@ -93,7 +93,7 @@ public slots:
      */
     void Paste();
 
-    void PasteClipboardEntries(QList<ClipboardEditorModel::clipEntry *> clips);
+    void PasteClipEntries(QList<ClipEditorModel::clipEntry *> clips);
 
     void CutCodeTags();
 

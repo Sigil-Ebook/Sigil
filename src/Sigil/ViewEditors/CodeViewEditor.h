@@ -33,7 +33,7 @@
 
 #include "ViewEditors/ViewEditor.h"
 #include "MiscEditors/IndexEditorModel.h"
-#include "MiscEditors/ClipboardEditorModel.h"
+#include "MiscEditors/ClipEditorModel.h"
 
 class QResizeEvent;
 class QSize;
@@ -279,7 +279,7 @@ signals:
      */
     void FilteredTextChanged();
 
-    void OpenClipboardEditorRequest(ClipboardEditorModel::clipEntry *);
+    void OpenClipEditorRequest(ClipEditorModel::clipEntry *);
 
     void OpenIndexEditorRequest(IndexEditorModel::indexEntry *);
 
@@ -300,9 +300,9 @@ public slots:
 
     void LoadSettings();
 
-    void PasteClipboardEntryFromName(QString name);
-    void PasteClipboardEntries(QList<ClipboardEditorModel::clipEntry *> clips);
-    void PasteClipboardEntry(ClipboardEditorModel::clipEntry *clip);
+    void PasteClipEntryFromName(QString name);
+    void PasteClipEntries(QList<ClipEditorModel::clipEntry *> clips);
+    void PasteClipEntry(ClipEditorModel::clipEntry *clip);
 
 protected:
 
@@ -403,7 +403,7 @@ private slots:
 
     void ignoreWordInDictionary(const QString &text);
 
-    void SaveClipboardAction();
+    void SaveClipAction();
 
     QUrl GetInternalLinkInTag();
 
@@ -465,7 +465,7 @@ private:
 
     void AddGoToStyleContextMenu(QMenu *menu);
 
-    void AddClipboardContextMenu(QMenu *menu);
+    void AddClipContextMenu(QMenu *menu);
 
     bool AddSpellCheckContextMenu(QMenu *menu);
 
@@ -644,13 +644,13 @@ private:
     QSignalMapper *m_spellingMapper;
     QSignalMapper *m_addSpellingMapper;
     QSignalMapper *m_ignoreSpellingMapper;
-    QSignalMapper *m_clipboardMapper;
+    QSignalMapper *m_clipMapper;
 
     /**
      * We have to block signals while displaying a context menu to prevent focus issues.
      * Use this to store state to emit the signal after the menu is closed.
      */
-    ClipboardEditorModel::clipEntry *m_pendingClipEntryRequest;
+    ClipEditorModel::clipEntry *m_pendingClipEntryRequest;
     bool m_pendingGoToStyleDefinitionRequest;
 };
 

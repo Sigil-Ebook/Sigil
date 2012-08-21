@@ -29,7 +29,7 @@
 #include "MainUI/MainWindow.h"
 #include "Tabs/ContentTab.h"
 #include "Tabs/WellFormedContent.h"
-#include "MiscEditors/ClipboardEditorModel.h"
+#include "MiscEditors/ClipEditorModel.h"
 #include "MiscEditors/IndexEditorModel.h"
 
 class QSplitter;
@@ -238,7 +238,7 @@ public slots:
      */
     void BookView();
 
-    void PasteClipboardEntries(QList<ClipboardEditorModel::clipEntry *> clips);
+    void PasteClipEntries(QList<ClipEditorModel::clipEntry *> clips);
 
     /**
      * Implements Split View action functionality.
@@ -381,7 +381,7 @@ signals:
      */
     void OldTabRequest( QString content, HTMLResource& originating_resource );
 
-    void OpenClipboardEditorRequest(ClipboardEditorModel::clipEntry *clip);
+    void OpenClipEditorRequest(ClipEditorModel::clipEntry *clip);
 
     void OpenIndexEditorRequest(IndexEditorModel::indexEntry *index);
 
