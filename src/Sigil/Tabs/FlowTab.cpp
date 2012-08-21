@@ -683,10 +683,10 @@ void FlowTab::Print()
     }
 }
 
-void FlowTab::PasteClipboardEntries(QList<ClipboardEditorModel::clipEntry *> clips)
+void FlowTab::PasteClipEntries(QList<ClipEditorModel::clipEntry *> clips)
 {
     if (m_ViewState == MainWindow::ViewState_CodeView) {
-        m_wCodeView->PasteClipboardEntries(clips);
+        m_wCodeView->PasteClipEntries(clips);
     }
 }
 
@@ -1286,7 +1286,7 @@ void FlowTab::ConnectSignalsToSlots()
 
     connect(m_pvVSplitter, SIGNAL(splitterMoved(int, int)), this, SLOT(PVSplitterMoved(int, int)));
 
-    connect(m_wCodeView, SIGNAL(OpenClipboardEditorRequest(ClipboardEditorModel::clipEntry *)), this, SIGNAL(OpenClipboardEditorRequest(ClipboardEditorModel::clipEntry *)));
+    connect(m_wCodeView, SIGNAL(OpenClipEditorRequest(ClipEditorModel::clipEntry *)), this, SIGNAL(OpenClipEditorRequest(ClipEditorModel::clipEntry *)));
 
     connect(m_wCodeView, SIGNAL(OpenIndexEditorRequest(IndexEditorModel::indexEntry *)), this, SIGNAL(OpenIndexEditorRequest(IndexEditorModel::indexEntry *)));
 

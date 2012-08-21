@@ -21,19 +21,19 @@
 *************************************************************************/
 
 #pragma once
-#ifndef CLIPBOARDEDITORTREEVIEW_H
-#define CLIPBOARDEDITORTREEVIEW_H
+#ifndef CLIPEDITORTREEVIEW_H
+#define CLIPEDITORTREEVIEW_H
 
 #include <QtGui/QTreeView>
 #include <QDragEnterEvent>
 #include <QDragMoveEvent>
 
-class ClipboardEditorTreeView : public QTreeView
+class ClipEditorTreeView : public QTreeView
 {
 
 public:
-     ClipboardEditorTreeView(QWidget* parent = 0);
-     ~ClipboardEditorTreeView();
+     ClipEditorTreeView(QWidget* parent = 0);
+     ~ClipEditorTreeView();
 
 protected:
     void dragEnterEvent(QDragEnterEvent* event);
@@ -42,4 +42,4 @@ protected:
 
 };
 
-#endif // CLIPBOARDEDITORTREEVIEW_H
+#endif // CLIPEDITORTREEVIEW_H

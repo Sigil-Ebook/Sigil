@@ -59,7 +59,7 @@ set( QOBJECT_HEADERS
     Dialogs/RenameTemplate.h
     Dialogs/LinkStylesheets.h
     Dialogs/SearchEditor.h
-    Dialogs/ClipboardEditor.h
+    Dialogs/ClipEditor.h
     Dialogs/IndexEditor.h
     Tabs/TabBar.h
     Tabs/TabManager.h
@@ -89,8 +89,8 @@ set( QOBJECT_HEADERS
     Misc/WrapIndicator.h
     MiscEditors/SearchEditorItemDelegate.h
     MiscEditors/SearchEditorModel.h
-    MiscEditors/ClipboardEditorTreeView.h
-    MiscEditors/ClipboardEditorModel.h
+    MiscEditors/ClipEditorTreeView.h
+    MiscEditors/ClipEditorModel.h
     MiscEditors/IndexEditorModel.h
     Misc/NumericItem.h
     Misc/SelectImagePreviewer.h
@@ -197,8 +197,8 @@ set( DIALOG_FILES
     Dialogs/LinkStylesheets.h
     Dialogs/SearchEditor.cpp
     Dialogs/SearchEditor.h
-    Dialogs/ClipboardEditor.cpp
-    Dialogs/ClipboardEditor.h
+    Dialogs/ClipEditor.cpp
+    Dialogs/ClipEditor.h
     Dialogs/IndexEditor.cpp
     Dialogs/IndexEditor.h
     )
@@ -282,10 +282,10 @@ set( MISC_FILES
     )
 
 set( MISC_EDITORS_FILES    
-    MiscEditors/ClipboardEditorModel.cpp
-    MiscEditors/ClipboardEditorModel.h
-    MiscEditors/ClipboardEditorTreeView.cpp
-    MiscEditors/ClipboardEditorTreeView.h
+    MiscEditors/ClipEditorModel.cpp
+    MiscEditors/ClipEditorModel.h
+    MiscEditors/ClipEditorTreeView.cpp
+    MiscEditors/ClipEditorTreeView.h
     MiscEditors/IndexEditorModel.cpp
     MiscEditors/IndexEditorModel.h
     MiscEditors/IndexEditorTreeView.cpp
@@ -392,7 +392,7 @@ set( UI_FILES
     Form_Files/RenameTemplate.ui 
     Form_Files/LinkStylesheets.ui 
     Form_Files/SearchEditor.ui
-    Form_Files/ClipboardEditor.ui
+    Form_Files/ClipEditor.ui
     Form_Files/IndexEditor.ui 
     )
     

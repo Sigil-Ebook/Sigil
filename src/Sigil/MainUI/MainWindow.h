@@ -36,7 +36,7 @@
 #include "MainUI/FindReplace.h"
 #include "MainUI/NCXModel.h"
 #include "Misc/SettingsStore.h"
-#include "MiscEditors/ClipboardEditorModel.h"
+#include "MiscEditors/ClipEditorModel.h"
 #include "MiscEditors/IndexEditorModel.h"
 #include "MiscEditors/SearchEditorModel.h"
 #include "Tabs/ContentTab.h"
@@ -54,7 +54,7 @@ class BookBrowser;
 class TableOfContents;
 class ValidationResultsView;
 class SearchEditor;
-class ClipboardEditor;
+class ClipEditor;
 
 
 /**
@@ -188,7 +188,7 @@ public:
 
     SearchEditorModel* GetSearchEditorModel();
 
-    ClipboardEditorModel* GetClipboardEditorModel();
+    ClipEditorModel* GetClipEditorModel();
 
 public slots:
     void OpenFilename( QString filename );
@@ -330,7 +330,7 @@ private slots:
      */
     void SearchEditorDialog(SearchEditorModel::searchEntry* search_entry = NULL);
 
-    void ClipboardEditorDialog(ClipboardEditorModel::clipEntry* clip_entry = NULL);
+    void ClipEditorDialog(ClipEditorModel::clipEntry* clip_entry = NULL);
 
     /**
      * Implements Tutorials action functionality.
@@ -881,7 +881,7 @@ private:
      */
     SearchEditorModel *m_SearchEditorModel;
 
-    ClipboardEditor *m_ClipboardEditor;
+    ClipEditor *m_ClipEditor;
 
     IndexEditor *m_IndexEditor;
 

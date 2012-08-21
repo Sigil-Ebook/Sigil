@@ -26,13 +26,13 @@
 #include <QtGui/QAction>
 #include <QtGui/QMenu>
 
-#include "Dialogs/ClipboardEditor.h"
+#include "Dialogs/ClipEditor.h"
 #include "Misc/Utility.h"
 
-static const QString SETTINGS_GROUP = "clipboard_editor";
+static const QString SETTINGS_GROUP = "clip_editor";
 static const QString FILE_EXTENSION = "ini";
 
-ClipboardEditor::ClipboardEditor(QWidget *parent)
+ClipEditor::ClipEditor(QWidget *parent)
     :
     QDialog(parent),
     m_LastFolderOpen(QString()),
@@ -40,30 +40,30 @@ ClipboardEditor::ClipboardEditor(QWidget *parent)
 {
     ui.setupUi(this);
 
-    SetupClipboardEditorTree();
+    SetupClipEditorTree();
 
     CreateContextMenuActions();
 
     ConnectSignalsSlots();
 }
 
-ClipboardEditor::~ClipboardEditor()
+ClipEditor::~ClipEditor()
 {
     // Restore data from file since we aren't saving
-    m_ClipboardEditorModel->LoadInitialData();
+    m_ClipEditorModel->LoadInitialData();
 }
 
-void ClipboardEditor::SetupClipboardEditorTree()
+void ClipEditor::SetupClipEditorTree()
 {
-    m_ClipboardEditorModel = ClipboardEditorModel::instance();
+    m_ClipEditorModel = ClipEditorModel::instance();
 
-    ui.ClipboardEditorTree->setModel(m_ClipboardEditorModel);
-    ui.ClipboardEditorTree->setContextMenuPolicy(Qt::CustomContextMenu);
-    ui.ClipboardEditorTree->setSortingEnabled(false);
-    ui.ClipboardEditorTree->setWordWrap(true);
-    ui.ClipboardEditorTree->setAlternatingRowColors(true);
+    ui.ClipEditorTree->setModel(m_ClipEditorModel);
+    ui.ClipEditorTree->setContextMenuPolicy(Qt::CustomContextMenu);
+    ui.ClipEditorTree->setSortingEnabled(false);
+    ui.ClipEditorTree->setWordWrap(true);
+    ui.ClipEditorTree->setAlternatingRowColors(true);
 
-    ui.ClipboardEditorTree->header()->setToolTip(
+    ui.ClipEditorTree->header()->setToolTip(
         "<p>" + tr("Right click on an entry to see a context menu of actions.") + "</p>" +
         "<p>" + tr("You can also right click in Code View to select an entry.") + "</p>" +
         "<dl>" +
@@ -72,15 +72,15 @@ void ClipboardEditor::SetupClipboardEditorTree()
         "<dt><b>" + tr("Text") + "</b><dd>" + tr("The text to insert. Use \\0 to include selected text.") + "</dd>" +
         "</dl>");
 
-    ui.ClipboardEditorTree->header()->setStretchLastSection(true);
-    for (int column = 0; column < ui.ClipboardEditorTree->header()->count(); column++) {
-        ui.ClipboardEditorTree->resizeColumnToContents(column);
+    ui.ClipEditorTree->header()->setStretchLastSection(true);
+    for (int column = 0; column < ui.ClipEditorTree->header()->count(); column++) {
+        ui.ClipEditorTree->resizeColumnToContents(column);
     }
 }
 
-bool ClipboardEditor::SaveData(QList<ClipboardEditorModel::clipEntry*> entries, QString filename)
+bool ClipEditor::SaveData(QList<ClipEditorModel::clipEntry*> entries, QString filename)
 {
-    QString message = m_ClipboardEditorModel->SaveData(entries, filename);
+    QString message = m_ClipEditorModel->SaveData(entries, filename);
 
     if (!message.isEmpty()) {
         Utility::DisplayStdErrorDialog(tr("Cannot save entries.") + "\n\n" + message);
@@ -88,65 +88,65 @@ bool ClipboardEditor::SaveData(QList<ClipboardEditorModel::clipEntry*> entries, 
     return message.isEmpty();
 }
 
-void ClipboardEditor::PasteIntoDocument()
+void ClipEditor::PasteIntoDocument()
 {
-    emit PasteSelectedClipboardRequest(GetSelectedEntries());
+    emit PasteSelectedClipRequest(GetSelectedEntries());
 }
 
-void ClipboardEditor::showEvent(QShowEvent *event)
+void ClipEditor::showEvent(QShowEvent *event)
 {
     ReadSettings();
 
-    ui.ClipboardEditorTree->expandAll();
+    ui.ClipEditorTree->expandAll();
     ui.Filter->setCurrentIndex(0);
     ui.FilterText->clear();
     ui.FilterText->setFocus();
 }
 
-int ClipboardEditor::SelectedRowsCount()
+int ClipEditor::SelectedRowsCount()
 {
     int count = 0;
-    if (ui.ClipboardEditorTree->selectionModel()->hasSelection()) {
-        count = ui.ClipboardEditorTree->selectionModel()->selectedRows(0).count();
+    if (ui.ClipEditorTree->selectionModel()->hasSelection()) {
+        count = ui.ClipEditorTree->selectionModel()->selectedRows(0).count();
     }
 
     return count;
 }
 
-QList<ClipboardEditorModel::clipEntry*> ClipboardEditor::GetSelectedEntries()
+QList<ClipEditorModel::clipEntry*> ClipEditor::GetSelectedEntries()
 {
-    QList<ClipboardEditorModel::clipEntry *> selected_entries;
+    QList<ClipEditorModel::clipEntry *> selected_entries;
 
-    if (ui.ClipboardEditorTree->selectionModel()->hasSelection()) {
+    if (ui.ClipEditorTree->selectionModel()->hasSelection()) {
 
-        QList<QStandardItem*> items = m_ClipboardEditorModel->GetNonGroupItems(GetSelectedItems());
+        QList<QStandardItem*> items = m_ClipEditorModel->GetNonGroupItems(GetSelectedItems());
 
         if (!ItemsAreUnique(items)) {
             return selected_entries;
         }
 
-        selected_entries = m_ClipboardEditorModel->GetEntries(items);
+        selected_entries = m_ClipEditorModel->GetEntries(items);
     }
 
     return selected_entries;
 }
 
-QList<QStandardItem*> ClipboardEditor::GetSelectedItems()
+QList<QStandardItem*> ClipEditor::GetSelectedItems()
 {
     // Shift-click order is top to bottom regardless of starting position
     // Ctrl-click order is first clicked to last clicked (included shift-clicks stay ordered as is)
 
-    QModelIndexList selected_indexes = ui.ClipboardEditorTree->selectionModel()->selectedRows(0);
+    QModelIndexList selected_indexes = ui.ClipEditorTree->selectionModel()->selectedRows(0);
     QList<QStandardItem*> selected_items;
 
     foreach (QModelIndex index, selected_indexes) {
-        selected_items.append(m_ClipboardEditorModel->itemFromIndex(index));
+        selected_items.append(m_ClipEditorModel->itemFromIndex(index));
     }
 
     return selected_items;
 }
 
-bool ClipboardEditor::ItemsAreUnique(QList<QStandardItem*> items)
+bool ClipEditor::ItemsAreUnique(QList<QStandardItem*> items)
 {
     // Although saving a group and a sub item works, it could be confusing to users to
     // have and entry appear twice so its more predictable just to prevent it and warn the user
@@ -158,7 +158,7 @@ bool ClipboardEditor::ItemsAreUnique(QList<QStandardItem*> items)
     return true;
 }
 
-QStandardItem* ClipboardEditor::AddEntry(bool is_group, ClipboardEditorModel::clipEntry *clip_entry, bool insert_after)
+QStandardItem* ClipEditor::AddEntry(bool is_group, ClipEditorModel::clipEntry *clip_entry, bool insert_after)
 {
     QStandardItem *parent_item = NULL;
     QStandardItem *new_item = NULL;
@@ -166,15 +166,15 @@ QStandardItem* ClipboardEditor::AddEntry(bool is_group, ClipboardEditorModel::cl
 
     // If adding a new/blank entry add it after the selected entry.
     if (insert_after) {
-        if (ui.ClipboardEditorTree->selectionModel()->hasSelection()) {
-            QModelIndexList selected_indexes = ui.ClipboardEditorTree->selectionModel()->selectedRows(0);
+        if (ui.ClipEditorTree->selectionModel()->hasSelection()) {
+            QModelIndexList selected_indexes = ui.ClipEditorTree->selectionModel()->selectedRows(0);
             parent_item = GetSelectedItems().last();
 
             if (!parent_item) {
                 return parent_item;
             }
 
-            if (!m_ClipboardEditorModel->ItemIsGroup(parent_item)) {
+            if (!m_ClipEditorModel->ItemIsGroup(parent_item)) {
                     row = parent_item->row() + 1;
                     parent_item = parent_item->parent();
             }
@@ -183,76 +183,76 @@ QStandardItem* ClipboardEditor::AddEntry(bool is_group, ClipboardEditorModel::cl
 
     // Make sure the new entry can be seen
     if (parent_item) {
-        ui.ClipboardEditorTree->expand(parent_item->index());
+        ui.ClipEditorTree->expand(parent_item->index());
     }
 
-    new_item = m_ClipboardEditorModel->AddEntryToModel(clip_entry, is_group, parent_item, row);
+    new_item = m_ClipEditorModel->AddEntryToModel(clip_entry, is_group, parent_item, row);
     QModelIndex new_index = new_item->index();
 
     // Select the added item and set it for editing
-    ui.ClipboardEditorTree->selectionModel()->clear();
-    ui.ClipboardEditorTree->setCurrentIndex(new_index);
-    ui.ClipboardEditorTree->selectionModel()->select(new_index, QItemSelectionModel::SelectCurrent | QItemSelectionModel::Rows);
-    ui.ClipboardEditorTree->edit(new_index);
-    ui.ClipboardEditorTree->selectionModel()->select(new_index, QItemSelectionModel::SelectCurrent | QItemSelectionModel::Rows);
+    ui.ClipEditorTree->selectionModel()->clear();
+    ui.ClipEditorTree->setCurrentIndex(new_index);
+    ui.ClipEditorTree->selectionModel()->select(new_index, QItemSelectionModel::SelectCurrent | QItemSelectionModel::Rows);
+    ui.ClipEditorTree->edit(new_index);
+    ui.ClipEditorTree->selectionModel()->select(new_index, QItemSelectionModel::SelectCurrent | QItemSelectionModel::Rows);
 
     return new_item;
 }
 
-QStandardItem* ClipboardEditor::AddGroup()
+QStandardItem* ClipEditor::AddGroup()
 {
     return AddEntry(true);
 }
 
-void ClipboardEditor::Cut()
+void ClipEditor::Cut()
 {
     if (Copy()) {
         Delete();
     }
 }
 
-bool ClipboardEditor::Copy()
+bool ClipEditor::Copy()
 {
     if (SelectedRowsCount() < 1) {
         return false;
     }
 
-    while (m_SavedClipboardEntries.count()) {
-        m_SavedClipboardEntries.removeAt(0);
+    while (m_SavedClipEntries.count()) {
+        m_SavedClipEntries.removeAt(0);
     }
 
-    QList<ClipboardEditorModel::clipEntry *> entries = GetSelectedEntries();
+    QList<ClipEditorModel::clipEntry *> entries = GetSelectedEntries();
     if (!entries.count()) {
         return false;
     }
 
     foreach (QStandardItem *item, GetSelectedItems()) {
-        ClipboardEditorModel::clipEntry *entry = m_ClipboardEditorModel->GetEntry(item);
+        ClipEditorModel::clipEntry *entry = m_ClipEditorModel->GetEntry(item);
         if (entry->is_group) {
             Utility::DisplayStdErrorDialog(tr("You cannot Copy or Cut groups - use drag-and-drop.")) ;
             return false;
         }
     }
 
-    foreach (ClipboardEditorModel::clipEntry *entry, entries) {
-        ClipboardEditorModel::clipEntry *save_entry = new ClipboardEditorModel::clipEntry();
+    foreach (ClipEditorModel::clipEntry *entry, entries) {
+        ClipEditorModel::clipEntry *save_entry = new ClipEditorModel::clipEntry();
         save_entry->name = entry->name;
         save_entry->is_group = entry->is_group;
         save_entry->description = entry->description;
         save_entry->text = entry->text;
-        m_SavedClipboardEntries.append(save_entry);
+        m_SavedClipEntries.append(save_entry);
     }
     return true;
 }
 
-void ClipboardEditor::Paste()
+void ClipEditor::Paste()
 {
-    foreach (ClipboardEditorModel::clipEntry *entry, m_SavedClipboardEntries) {
+    foreach (ClipEditorModel::clipEntry *entry, m_SavedClipEntries) {
         AddEntry(entry->is_group, entry);
     }
 }
 
-void ClipboardEditor::Delete()
+void ClipEditor::Delete()
 {
     if (SelectedRowsCount() < 1) {
         return;
@@ -261,22 +261,22 @@ void ClipboardEditor::Delete()
     // Delete one at a time as selection may not be contiguous
     int row = -1;
     QModelIndex parent_index;
-    while (ui.ClipboardEditorTree->selectionModel()->hasSelection()) {
-        QModelIndex index = ui.ClipboardEditorTree->selectionModel()->selectedRows(0).first();
+    while (ui.ClipEditorTree->selectionModel()->hasSelection()) {
+        QModelIndex index = ui.ClipEditorTree->selectionModel()->selectedRows(0).first();
         if (index.isValid()) {
             row = index.row();
             parent_index = index.parent();
-            m_ClipboardEditorModel->removeRows(row, 1, parent_index);
+            m_ClipEditorModel->removeRows(row, 1, parent_index);
         }
     }
 
     // Select the nearest row in the group if there is one
     int parent_row_count;
     if (parent_index.isValid()) {
-        parent_row_count = m_ClipboardEditorModel->itemFromIndex(parent_index)->rowCount();
+        parent_row_count = m_ClipEditorModel->itemFromIndex(parent_index)->rowCount();
     }
     else {
-        parent_row_count = m_ClipboardEditorModel->invisibleRootItem()->rowCount();
+        parent_row_count = m_ClipEditorModel->invisibleRootItem()->rowCount();
     }
     
     if (parent_row_count && row >= 0) {
@@ -284,14 +284,14 @@ void ClipboardEditor::Delete()
             row = parent_row_count - 1;
         }
         if (row >= 0) {
-            QModelIndex select_index = m_ClipboardEditorModel->index(row, 0, parent_index);
-            ui.ClipboardEditorTree->setCurrentIndex(select_index);
-            ui.ClipboardEditorTree->selectionModel()->select(select_index, QItemSelectionModel::SelectCurrent | QItemSelectionModel::Rows);
+            QModelIndex select_index = m_ClipEditorModel->index(row, 0, parent_index);
+            ui.ClipEditorTree->setCurrentIndex(select_index);
+            ui.ClipEditorTree->selectionModel()->select(select_index, QItemSelectionModel::SelectCurrent | QItemSelectionModel::Rows);
         }
     }
 }
 
-void ClipboardEditor::Import()
+void ClipEditor::Import()
 {
     if (SelectedRowsCount() > 1) {
         return;
@@ -313,9 +313,9 @@ void ClipboardEditor::Import()
         QStandardItem *item = AddGroup();
 
         if (item) {
-            m_ClipboardEditorModel->Rename(item, "Imported");
+            m_ClipEditorModel->Rename(item, "Imported");
 
-            m_ClipboardEditorModel->LoadData(filename, item);
+            m_ClipEditorModel->LoadData(filename, item);
     
             m_LastFolderOpen = QFileInfo(filename).absolutePath();
             WriteSettings();
@@ -323,7 +323,7 @@ void ClipboardEditor::Import()
     }
 }
 
-void ClipboardEditor::Export()
+void ClipEditor::Export()
 {
     if (SelectedRowsCount() < 1) {
         return;
@@ -331,25 +331,25 @@ void ClipboardEditor::Export()
 
     QList<QStandardItem*> items = GetSelectedItems();
 
-    if (!ItemsAreUnique(m_ClipboardEditorModel->GetNonParentItems(items))) {
+    if (!ItemsAreUnique(m_ClipEditorModel->GetNonParentItems(items))) {
         return;
     }
 
-    QList<ClipboardEditorModel::clipEntry*> entries;
+    QList<ClipEditorModel::clipEntry*> entries;
 
     foreach (QStandardItem *item, items) {
 
         // Get all subitems of an item not just the item itself
-        QList<QStandardItem*> sub_items = m_ClipboardEditorModel->GetNonParentItems(item);
+        QList<QStandardItem*> sub_items = m_ClipEditorModel->GetNonParentItems(item);
 
         // Get the parent path of the item 
         QString parent_path = "";
         if (item->parent()) {
-            parent_path = m_ClipboardEditorModel->GetFullName(item->parent());
+            parent_path = m_ClipEditorModel->GetFullName(item->parent());
         }
 
         foreach (QStandardItem *item, sub_items) {
-            ClipboardEditorModel::clipEntry *entry = m_ClipboardEditorModel->GetEntry(item);
+            ClipEditorModel::clipEntry *entry = m_ClipEditorModel->GetEntry(item);
 
             // Remove the top level paths since we're exporting a subset
             entry->fullname.replace(QRegExp(parent_path), "");
@@ -385,17 +385,17 @@ void ClipboardEditor::Export()
     }
 }
 
-void ClipboardEditor::CollapseAll()
+void ClipEditor::CollapseAll()
 {
-    ui.ClipboardEditorTree->collapseAll();
+    ui.ClipEditorTree->collapseAll();
 }
 
-void ClipboardEditor::ExpandAll()
+void ClipEditor::ExpandAll()
 {
-    ui.ClipboardEditorTree->expandAll();
+    ui.ClipEditorTree->expandAll();
 }
 
-bool ClipboardEditor::FilterEntries(const QString &text, QStandardItem *item)
+bool ClipEditor::FilterEntries(const QString &text, QStandardItem *item)
 {
     const QString lowercaseText = text.toLower();
     bool hidden = false;
@@ -407,7 +407,7 @@ bool ClipboardEditor::FilterEntries(const QString &text, QStandardItem *item)
 
     if (item) {
         // Hide the entry if it doesn't contain the entered text, otherwise show it
-        ClipboardEditorModel::clipEntry *entry = m_ClipboardEditorModel->GetEntry(item);
+        ClipEditorModel::clipEntry *entry = m_ClipEditorModel->GetEntry(item);
         if (ui.Filter->currentIndex() == 0) {
             hidden = !(text.isEmpty() || entry->name.toLower().contains(lowercaseText));
         }
@@ -416,10 +416,10 @@ bool ClipboardEditor::FilterEntries(const QString &text, QStandardItem *item)
                        entry->description.toLower().contains(lowercaseText) ||
                        entry->text.toLower().contains(lowercaseText));
         }
-        ui.ClipboardEditorTree->setRowHidden(item->row(), parent_index, hidden);
+        ui.ClipEditorTree->setRowHidden(item->row(), parent_index, hidden);
     }
     else {
-        item = m_ClipboardEditorModel->invisibleRootItem();
+        item = m_ClipEditorModel->invisibleRootItem();
     }
 
     // Recursively set children
@@ -427,28 +427,28 @@ bool ClipboardEditor::FilterEntries(const QString &text, QStandardItem *item)
     for (int row = 0; row < item->rowCount(); row++) {
         if (!FilterEntries(text, item->child(row, 0))) {
             hidden = false;
-            ui.ClipboardEditorTree->setRowHidden(item->row(), parent_index, hidden);
+            ui.ClipEditorTree->setRowHidden(item->row(), parent_index, hidden);
         }
     }
     
     return hidden;
 }
 
-void ClipboardEditor::FilterEditTextChangedSlot(const QString &text)
+void ClipEditor::FilterEditTextChangedSlot(const QString &text)
 {
     FilterEntries(text);
 
-    ui.ClipboardEditorTree->expandAll();
-    ui.ClipboardEditorTree->selectionModel()->clear();
+    ui.ClipEditorTree->expandAll();
+    ui.ClipEditorTree->selectionModel()->clear();
 
     if (!text.isEmpty()) {
-        SelectFirstVisibleNonGroup(m_ClipboardEditorModel->invisibleRootItem());
+        SelectFirstVisibleNonGroup(m_ClipEditorModel->invisibleRootItem());
     }
 
     return;
 }
 
-bool ClipboardEditor::SelectFirstVisibleNonGroup(QStandardItem *item)
+bool ClipEditor::SelectFirstVisibleNonGroup(QStandardItem *item)
 {
     QModelIndex parent_index;
     if (item->parent()) {
@@ -456,10 +456,10 @@ bool ClipboardEditor::SelectFirstVisibleNonGroup(QStandardItem *item)
     }
 
     // If the item is not a group and its visible select it and finish
-    if (item != m_ClipboardEditorModel->invisibleRootItem() && !ui.ClipboardEditorTree->isRowHidden(item->row(), parent_index)) {
-        if (!m_ClipboardEditorModel->ItemIsGroup(item)) {
-            ui.ClipboardEditorTree->selectionModel()->select(m_ClipboardEditorModel->index(item->row(), 0, parent_index), QItemSelectionModel::Select | QItemSelectionModel::Rows);
-            ui.ClipboardEditorTree->setCurrentIndex(item->index());
+    if (item != m_ClipEditorModel->invisibleRootItem() && !ui.ClipEditorTree->isRowHidden(item->row(), parent_index)) {
+        if (!m_ClipEditorModel->ItemIsGroup(item)) {
+            ui.ClipEditorTree->selectionModel()->select(m_ClipEditorModel->index(item->row(), 0, parent_index), QItemSelectionModel::Select | QItemSelectionModel::Rows);
+            ui.ClipEditorTree->setCurrentIndex(item->index());
             return true;
         }
     }
@@ -474,7 +474,7 @@ bool ClipboardEditor::SelectFirstVisibleNonGroup(QStandardItem *item)
     return false;
 }
 
-void ClipboardEditor::ReadSettings()
+void ClipEditor::ReadSettings()
 {
     SettingsStore settings;
     settings.beginGroup(SETTINGS_GROUP);
@@ -488,11 +488,11 @@ void ClipboardEditor::ReadSettings()
 
     // Column widths
     int size = settings.beginReadArray("column_data");
-    for (int column = 0; column < size && column < ui.ClipboardEditorTree->header()->count(); column++) {
+    for (int column = 0; column < size && column < ui.ClipEditorTree->header()->count(); column++) {
         settings.setArrayIndex(column);
         int column_width = settings.value("width").toInt();
         if (column_width) {
-            ui.ClipboardEditorTree->setColumnWidth(column, column_width);
+            ui.ClipEditorTree->setColumnWidth(column, column_width);
         }
     }
     settings.endArray();
@@ -503,7 +503,7 @@ void ClipboardEditor::ReadSettings()
     settings.endGroup();
 }
 
-void ClipboardEditor::WriteSettings()
+void ClipEditor::WriteSettings()
 {
     SettingsStore settings;
     settings.beginGroup(SETTINGS_GROUP);
@@ -513,9 +513,9 @@ void ClipboardEditor::WriteSettings()
 
     // Column widths
     settings.beginWriteArray("column_data");
-    for (int column = 0; column < ui.ClipboardEditorTree->header()->count(); column++) {
+    for (int column = 0; column < ui.ClipEditorTree->header()->count(); column++) {
         settings.setArrayIndex(column);
-        settings.setValue("width", ui.ClipboardEditorTree->columnWidth(column));
+        settings.setValue("width", ui.ClipEditorTree->columnWidth(column));
     }
     settings.endArray();
 
@@ -525,7 +525,7 @@ void ClipboardEditor::WriteSettings()
     settings.endGroup();
 }
 
-void ClipboardEditor::CreateContextMenuActions()
+void ClipEditor::CreateContextMenuActions()
 {
     m_AddEntry  =   new QAction(tr( "Add Entry" ),  this );
     m_AddGroup  =   new QAction(tr( "Add Group" ),  this );
@@ -554,11 +554,11 @@ void ClipboardEditor::CreateContextMenuActions()
     addAction(m_Delete);
 }
 
-void ClipboardEditor::OpenContextMenu(const QPoint &point)
+void ClipEditor::OpenContextMenu(const QPoint &point)
 {
     SetupContextMenu(point);
 
-    m_ContextMenu->exec(ui.ClipboardEditorTree->viewport()->mapToGlobal(point));
+    m_ContextMenu->exec(ui.ClipEditorTree->viewport()->mapToGlobal(point));
     m_ContextMenu->clear();
 
     // Make sure every action is enabled - in case shortcut is used after context menu disables some.
@@ -574,7 +574,7 @@ void ClipboardEditor::OpenContextMenu(const QPoint &point)
     m_ExpandAll->setEnabled(true);
 }
 
-void ClipboardEditor::SetupContextMenu(const QPoint &point)
+void ClipEditor::SetupContextMenu(const QPoint &point)
 {
     int selected_row_count = SelectedRowsCount();
 
@@ -591,7 +591,7 @@ void ClipboardEditor::SetupContextMenu(const QPoint &point)
     m_Copy->setEnabled(selected_row_count > 0);
 
     m_ContextMenu->addAction(m_Paste);
-    m_Paste->setEnabled(m_SavedClipboardEntries.count());
+    m_Paste->setEnabled(m_SavedClipEntries.count());
 
     m_ContextMenu->addSeparator();
 
@@ -613,13 +613,13 @@ void ClipboardEditor::SetupContextMenu(const QPoint &point)
     m_ContextMenu->addAction(m_ExpandAll);
 }
 
-void ClipboardEditor::reject()
+void ClipEditor::reject()
 {
-    m_ClipboardEditorModel->LoadInitialData();
+    m_ClipEditorModel->LoadInitialData();
     QDialog::reject();
 }
 
-void ClipboardEditor::accept()
+void ClipEditor::accept()
 {
     if (SaveData()) {
         WriteSettings();
@@ -628,12 +628,12 @@ void ClipboardEditor::accept()
     }
 }
 
-void ClipboardEditor::ConnectSignalsSlots()
+void ClipEditor::ConnectSignalsSlots()
 {
     connect(ui.FilterText,          SIGNAL(textChanged(QString)), this, SLOT(FilterEditTextChangedSlot(QString)));
     connect(ui.PasteIntoDocument,   SIGNAL(clicked()),            this, SLOT(PasteIntoDocument()));
 
-    connect(ui.ClipboardEditorTree, SIGNAL(customContextMenuRequested(const QPoint&)),
+    connect(ui.ClipEditorTree, SIGNAL(customContextMenuRequested(const QPoint&)),
             this,                   SLOT(  OpenContextMenu(                  const QPoint&)));
 
     connect(m_AddEntry,    SIGNAL(triggered()), this, SLOT(AddEntry()));

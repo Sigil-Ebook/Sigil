@@ -259,7 +259,7 @@
     <addaction name="menuSpellCheckMenu"/>
     <addaction name="menuViewReports"/>
     <addaction name="separator"/>
-    <addaction name="actionClipboardEditor"/>
+    <addaction name="actionClipEditor"/>
     <addaction name="actionSearchEditor"/>
     <addaction name="separator"/>
     <widget class="QMenu" name="menuCleanLevel">
@@ -1372,7 +1372,7 @@
     <string>Ctrl+Alt+F</string>
    </property>
   </action>
-  <action name="actionClipboardEditor">
+  <action name="actionClipEditor">
    <property name="text">
     <string>Clip Editor...</string>
    </property>

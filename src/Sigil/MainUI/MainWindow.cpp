@@ -34,7 +34,7 @@
 #include "BookManipulation/Index.h"
 #include "BookManipulation/FolderKeeper.h"
 #include "Dialogs/About.h"
-#include "Dialogs/ClipboardEditor.h"
+#include "Dialogs/ClipEditor.h"
 #include "Dialogs/ClipboardRingSelector.h"
 #include "Dialogs/HeadingSelector.h"
 #include "Dialogs/LinkStylesheets.h"
@@ -124,7 +124,7 @@ MainWindow::MainWindow( const QString &openfilepath, QWidget *parent, Qt::WFlags
     m_ViewState( MainWindow::ViewState_BookView ),
     m_headingMapper( new QSignalMapper( this ) ),
     m_SearchEditor(new SearchEditor(this)),
-    m_ClipboardEditor(new ClipboardEditor(this)),
+    m_ClipEditor(new ClipEditor(this)),
     m_IndexEditor(new IndexEditor(this)),
     m_preserveHeadingAttributes( true ),
     m_LastLinkOpenedBookmark(new LocationBookmark()),
@@ -1292,7 +1292,7 @@ void MainWindow::SearchEditorDialog(SearchEditorModel::searchEntry* search_entry
     }
 }
 
-void MainWindow::ClipboardEditorDialog(ClipboardEditorModel::clipEntry* clip_entry)
+void MainWindow::ClipEditorDialog(ClipEditorModel::clipEntry* clip_entry)
 {
     if ( !m_TabManager.TabDataIsWellFormed() ) {
         return;
@@ -1301,12 +1301,12 @@ void MainWindow::ClipboardEditorDialog(ClipboardEditorModel::clipEntry* clip_ent
     m_TabManager.SaveTabData();
 
     // non-modal dialog
-    m_ClipboardEditor->show();
-    m_ClipboardEditor->raise();
-    m_ClipboardEditor->activateWindow();
+    m_ClipEditor->show();
+    m_ClipEditor->raise();
+    m_ClipEditor->activateWindow();
 
     if (clip_entry) {
-        m_ClipboardEditor->AddEntry(clip_entry->is_group, clip_entry, false);
+        m_ClipEditor->AddEntry(clip_entry->is_group, clip_entry, false);
     }
 }
 
@@ -2762,7 +2762,7 @@ void MainWindow::ExtendUI()
     sm->registerAction(ui.actionViewHTML, "MainWindow.ViewHTML");
     sm->registerAction(ui.actionViewImages, "MainWindow.ViewImages");
     sm->registerAction(ui.actionSearchEditor, "MainWindow.SearchEditor");
-    sm->registerAction(ui.actionClipboardEditor, "MainWindow.ClipboardEditor");
+    sm->registerAction(ui.actionClipEditor, "MainWindow.ClipEditor");
     sm->registerAction(ui.actionIndexEditor, "MainWindow.IndexEditor");
     sm->registerAction(ui.actionAddToIndex, "MainWindow.AddToIndex");
     sm->registerAction(ui.actionMarkForIndex, "MainWindow.MarkForIndex");
@@ -3073,7 +3073,7 @@ void MainWindow::ConnectSignalsToSlots()
     connect( ui.actionViewClasses,   SIGNAL( triggered() ), this, SLOT( ViewClassesUsedInHTML()    ) );
     connect( ui.actionViewHTML,      SIGNAL( triggered() ), this, SLOT( ViewAllHTML()              ) );
     connect( ui.actionViewImages,    SIGNAL( triggered() ), this, SLOT( ViewAllImages()            ) );
-    connect( ui.actionClipboardEditor, SIGNAL( triggered() ), this, SLOT( ClipboardEditorDialog()  ) );
+    connect( ui.actionClipEditor, SIGNAL( triggered() ), this, SLOT( ClipEditorDialog()  ) );
     connect( ui.actionSearchEditor,  SIGNAL( triggered() ), this, SLOT( SearchEditorDialog()       ) );
     connect( ui.actionIndexEditor,   SIGNAL( triggered() ), this, SLOT( IndexEditorDialog()        ) );
     connect( ui.actionCreateIndex,   SIGNAL( triggered() ), this, SLOT( CreateIndex()      ) );
@@ -3255,8 +3255,8 @@ void MainWindow::MakeTabConnections( ContentTab *tab )
         connect( tab,   SIGNAL( EnteringBookPreview() ),        this,          SLOT( UpdateZoomControls() ) );
         connect( tab,   SIGNAL( EnteringCodeView() ),           this,          SLOT( UpdateZoomControls()      ) );
 
-        connect( tab,   SIGNAL( OpenClipboardEditorRequest(ClipboardEditorModel::clipEntry *) ),
-                 this,  SLOT (  ClipboardEditorDialog( ClipboardEditorModel::clipEntry * ) ) );
+        connect( tab,   SIGNAL( OpenClipEditorRequest(ClipEditorModel::clipEntry *) ),
+                 this,  SLOT (  ClipEditorDialog( ClipEditorModel::clipEntry * ) ) );
 
         connect( tab,   SIGNAL( OpenIndexEditorRequest(IndexEditorModel::indexEntry *) ),
                  this,  SLOT (  IndexEditorDialog( IndexEditorModel::indexEntry * ) ) );
@@ -3275,8 +3275,8 @@ void MainWindow::MakeTabConnections( ContentTab *tab )
 
     if (tab->GetLoadedResource().Type() == Resource::HTMLResourceType ||
         tab->GetLoadedResource().Type() == Resource::CSSResourceType ) {
-        connect( m_ClipboardEditor, SIGNAL( PasteSelectedClipboardRequest(QList<ClipboardEditorModel::clipEntry *>) ),
-                 tab,                SLOT(   PasteClipboardEntries(QList<ClipboardEditorModel::clipEntry *>) ) );
+        connect( m_ClipEditor, SIGNAL( PasteSelectedClipRequest(QList<ClipEditorModel::clipEntry *>) ),
+                 tab,                SLOT(   PasteClipEntries(QList<ClipEditorModel::clipEntry *>) ) );
     }
 
     connect( tab,   SIGNAL( ContentChanged() ),             m_Book.data(), SLOT( SetModified()             ) );
@@ -3324,7 +3324,7 @@ void MainWindow::BreakTabConnections( ContentTab *tab )
     disconnect( ui.actionMarkForIndex,              0, tab, 0 );
     disconnect( ui.actionOpenLink,                  0, tab, 0 );
 
-    disconnect( m_ClipboardEditor,                  0, tab, 0 );
+    disconnect( m_ClipEditor,                       0, tab, 0 );
     disconnect( m_ClipboardRingSelector,            0, tab, 0 );
 
     disconnect( tab,                                0, this, 0 );
