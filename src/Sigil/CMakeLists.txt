@@ -44,7 +44,7 @@ set( QOBJECT_HEADERS
     ViewEditors/CodeViewEditor.h 
     Dialogs/AddMetadata.h 
     Dialogs/About.h
-    Dialogs/ClipboardRingSelector.h
+    Dialogs/ClipboardHistorySelector.h
     Dialogs/HeadingSelector.h 
     Dialogs/ViewClasses.h
     Dialogs/ViewHTML.h
@@ -166,8 +166,8 @@ set( DIALOG_FILES
     Dialogs/About.h
     Dialogs/AddMetadata.cpp
     Dialogs/AddMetadata.h
-    Dialogs/ClipboardRingSelector.h
-    Dialogs/ClipboardRingSelector.cpp
+    Dialogs/ClipboardHistorySelector.h
+    Dialogs/ClipboardHistorySelector.cpp
     Dialogs/ViewClasses.cpp
     Dialogs/ViewClasses.h
     Dialogs/ViewHTML.cpp
@@ -375,7 +375,7 @@ set( TAB_FILES
             
 set( UI_FILES   
     Form_Files/main.ui 
-    Form_Files/ClipboardRingSelector.ui
+    Form_Files/ClipboardHistorySelector.ui
     Form_Files/ViewClasses.ui
     Form_Files/ViewHTML.ui
     Form_Files/ViewImages.ui

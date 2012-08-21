@@ -83,7 +83,7 @@
     <addaction name="actionCut"/>
     <addaction name="actionCopy"/>
     <addaction name="actionPaste"/>
-    <addaction name="actionPasteClipboardRing"/>
+    <addaction name="actionPasteClipboardHistory"/>
     <addaction name="separator"/>
     <addaction name="actionInsertImage"/>
     <addaction name="separator"/>
@@ -1675,9 +1675,9 @@
     <string>Shift+F3</string>
    </property>
   </action>
-  <action name="actionPasteClipboardRing">
+  <action name="actionPasteClipboardHistory">
    <property name="text">
-    <string>Paste From Clipboard Ring...</string>
+    <string>Paste From Clipboard History...</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+Alt+V</string>

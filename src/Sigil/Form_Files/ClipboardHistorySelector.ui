@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>ClipboardRingSelector</class>
- <widget class="QDialog" name="ClipboardRingSelector">
+ <class>ClipboardHistorySelector</class>
+ <widget class="QDialog" name="ClipboardHistorySelector">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -65,7 +65,7 @@
   <connection>
    <sender>buttonBox</sender>
    <signal>accepted()</signal>
-   <receiver>ClipboardRingSelector</receiver>
+   <receiver>ClipboardHistorySelector</receiver>
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -81,7 +81,7 @@
   <connection>
    <sender>buttonBox</sender>
    <signal>rejected()</signal>
-   <receiver>ClipboardRingSelector</receiver>
+   <receiver>ClipboardHistorySelector</receiver>
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">

@@ -31,7 +31,7 @@
 
 #include "ui_main.h"
 #include "BookManipulation/Book.h"
-#include "Dialogs/ClipboardRingSelector.h"
+#include "Dialogs/ClipboardHistorySelector.h"
 #include "Dialogs/IndexEditor.h"
 #include "MainUI/FindReplace.h"
 #include "MainUI/NCXModel.h"
@@ -555,7 +555,7 @@ private slots:
 
     void BookmarkStyleUsageLocation(const QString &file_name, int cv_cursor_position);
     
-    void ShowPasteClipboardRingDialog();
+    void ShowPasteClipboardHistoryDialog();
 
 private:
 
@@ -890,7 +890,7 @@ private:
     LocationBookmark *m_LastLinkOpenedBookmark;
     LocationBookmark *m_LastStyleUsageBookmark;
 
-    ClipboardRingSelector *m_ClipboardRingSelector;
+    ClipboardHistorySelector *m_ClipboardHistorySelector;
 
     /**
      * Holds all the widgets Qt Designer created for us.

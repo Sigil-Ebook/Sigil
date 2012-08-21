@@ -22,25 +22,25 @@
 *************************************************************************/
 
 #pragma once
-#ifndef CLIPBOARDRINGSELECTOR_H
-#define CLIPBOARDRINGSELECTOR_H
+#ifndef CLIPBOARDHISTORYSELECTOR_H
+#define CLIPBOARDHISTORYSELECTOR_H
 
 #include <QClipboard>
 #include <QtGui/QDialog>
 
 #include "Misc/SettingsStore.h"
 
-#include "ui_ClipboardRingSelector.h"
+#include "ui_ClipboardHistorySelector.h"
 
 /**
- * The editor used to create and modify saved clip entries
+ * The clipboard history window used for selecing entries to paste.
  */
-class ClipboardRingSelector : public QDialog
+class ClipboardHistorySelector : public QDialog
 {
     Q_OBJECT
 
 public:
-    ClipboardRingSelector(QWidget *parent);
+    ClipboardHistorySelector(QWidget *parent);
 
     void LoadClipboardHistory(const QStringList &clipboardHistory);
     QStringList GetClipboardHistory() const;
@@ -61,7 +61,7 @@ private slots:
     void ClipboardChanged( QClipboard::Mode mode );
 
 private:
-    void SetupClipboardRingTable();
+    void SetupClipboardHistoryTable();
 
     void ReadSettings();
     void WriteSettings();
@@ -69,9 +69,9 @@ private:
     void ExtendUI();
     void ConnectSignalsToSlots();
 
-    QStringList *m_ClipboardRingHistory;
+    QStringList *m_ClipboardHistoryItems;
 
-    Ui::ClipboardRingSelector ui;
+    Ui::ClipboardHistorySelector ui;
 };
 
-#endif // CLIPBOARDRINGSELECTOR_H
+#endif // CLIPBOARDHISTORYSELECTOR_H

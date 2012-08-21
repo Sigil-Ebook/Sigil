@@ -35,7 +35,7 @@
 #include "BookManipulation/FolderKeeper.h"
 #include "Dialogs/About.h"
 #include "Dialogs/ClipEditor.h"
-#include "Dialogs/ClipboardRingSelector.h"
+#include "Dialogs/ClipboardHistorySelector.h"
 #include "Dialogs/HeadingSelector.h"
 #include "Dialogs/LinkStylesheets.h"
 #include "Dialogs/MetaEditor.h"
@@ -129,7 +129,7 @@ MainWindow::MainWindow( const QString &openfilepath, QWidget *parent, Qt::WFlags
     m_preserveHeadingAttributes( true ),
     m_LastLinkOpenedBookmark(new LocationBookmark()),
     m_LastStyleUsageBookmark(new LocationBookmark()),
-    m_ClipboardRingSelector(new ClipboardRingSelector(this))
+    m_ClipboardHistorySelector(new ClipboardHistorySelector(this))
 {
     ui.setupUi( this );
 
@@ -1466,7 +1466,7 @@ void MainWindow::UpdateUIOnTabChanges()
     ui.actionCut  ->setEnabled( tab.CutEnabled() );
     ui.actionCopy ->setEnabled( tab.CopyEnabled() );
     ui.actionPaste->setEnabled( tab.PasteEnabled() );
-    ui.actionPasteClipboardRing->setEnabled( tab.PasteEnabled() );
+    ui.actionPasteClipboardHistory->setEnabled( tab.PasteEnabled() );
     ui.actionInsertClosingTag->setEnabled( tab.InsertClosingTagEnabled() );
     ui.actionOpenLink->setEnabled( tab.OpenLinkEnabled() );
     ui.actionAddToIndex->setEnabled( tab.AddToIndexEnabled() );
@@ -1989,14 +1989,14 @@ void MainWindow::SplitOnSGFChapterMarkers()
     QApplication::restoreOverrideCursor();
 }
 
-void MainWindow::ShowPasteClipboardRingDialog()
+void MainWindow::ShowPasteClipboardHistoryDialog()
 {
     // We only want to show the dialog if focus is in a content tab.
     ContentTab *contentTab = &GetCurrentContentTab();
     if ( !contentTab || !contentTab->hasFocus() ) {
         return;
     }
-    m_ClipboardRingSelector->exec();
+    m_ClipboardHistorySelector->exec();
 }
 
 // Change the selected/highlighted resource to match the current tab
@@ -2063,7 +2063,7 @@ void MainWindow::ReadSettings()
     SetRegexOptionAutoTokenise( regexOptionAutoTokenise.toBool() );
     
     const QStringList clipboardHistory = settings.value( "clipboardringhistory" ).toStringList();
-    m_ClipboardRingSelector->LoadClipboardHistory(clipboardHistory);
+    m_ClipboardHistorySelector->LoadClipboardHistory(clipboardHistory);
 
     settings.endGroup();
 }
@@ -2095,7 +2095,7 @@ void MainWindow::WriteSettings()
     settings.setValue( "regexoptionminimalmatch", ui.actionRegexMinimalMatch->isChecked() );
     settings.setValue( "regexoptionautotokenise", ui.actionRegexAutoTokenise->isChecked() );
 
-    settings.setValue( "clipboardringhistory", m_ClipboardRingSelector->GetClipboardHistory() );
+    settings.setValue( "clipboardringhistory", m_ClipboardHistorySelector->GetClipboardHistory() );
 
     KeyboardShortcutManager::instance()->writeSettings();
 
@@ -2705,7 +2705,7 @@ void MainWindow::ExtendUI()
     sm->registerAction(ui.actionCut, "MainWindow.Cut");
     sm->registerAction(ui.actionCopy, "MainWindow.Copy");
     sm->registerAction(ui.actionPaste, "MainWindow.Paste");
-    sm->registerAction(ui.actionPasteClipboardRing, "MainWindow.PasteClipboardRing");
+    sm->registerAction(ui.actionPasteClipboardHistory, "MainWindow.PasteClipboardHistory");
     sm->registerAction(ui.actionInsertImage, "MainWindow.InsertImage");
     sm->registerAction(ui.actionSplitChapter, "MainWindow.SplitChapter");
     sm->registerAction(ui.actionInsertSGFChapterMarker, "MainWindow.InsertSGFChapterMarker");
@@ -3112,7 +3112,7 @@ void MainWindow::ConnectSignalsToSlots()
     
     connect( ui.actionSplitOnSGFChapterMarkers, SIGNAL( triggered() ),  this,   SLOT( SplitOnSGFChapterMarkers() ) );
 
-    connect( ui.actionPasteClipboardRing,       SIGNAL( triggered() ),  this,   SLOT( ShowPasteClipboardRingDialog() ) );
+    connect( ui.actionPasteClipboardHistory,    SIGNAL( triggered() ),  this,   SLOT( ShowPasteClipboardHistoryDialog() ) );
 
     // Slider
     connect( m_slZoomSlider,         SIGNAL( valueChanged( int ) ), this, SLOT( SliderZoom( int ) ) );
@@ -3211,7 +3211,7 @@ void MainWindow::MakeTabConnections( ContentTab *tab )
         connect( ui.actionCut,                      SIGNAL( triggered() ),  tab,   SLOT( Cut()                      ) );
         connect( ui.actionCopy,                     SIGNAL( triggered() ),  tab,   SLOT( Copy()                     ) );
         connect( ui.actionPaste,                    SIGNAL( triggered() ),  tab,   SLOT( Paste()                    ) );
-        connect( m_ClipboardRingSelector,           SIGNAL( PasteFromClipboardRequest() ), tab, SLOT( PasteFromClipboard() ) );
+        connect( m_ClipboardHistorySelector,        SIGNAL( PasteFromClipboardRequest() ), tab, SLOT( PasteFromClipboard() ) );
     }
 
     if (tab->GetLoadedResource().Type() == Resource::HTMLResourceType )
@@ -3325,7 +3325,7 @@ void MainWindow::BreakTabConnections( ContentTab *tab )
     disconnect( ui.actionOpenLink,                  0, tab, 0 );
 
     disconnect( m_ClipEditor,                       0, tab, 0 );
-    disconnect( m_ClipboardRingSelector,            0, tab, 0 );
+    disconnect( m_ClipboardHistorySelector,         0, tab, 0 );
 
     disconnect( tab,                                0, this, 0 );
     disconnect( tab,                                0, m_Book.data(), 0 );

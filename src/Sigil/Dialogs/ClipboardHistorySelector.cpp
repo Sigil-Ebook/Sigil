@@ -27,16 +27,16 @@
 #include <QtGui/QPushButton>
 #include <QtGui/QTableWidgetItem>
 
-#include "Dialogs/ClipboardRingSelector.h"
+#include "Dialogs/ClipboardHistorySelector.h"
 #include "Misc/Utility.h"
 
-static const QString SETTINGS_GROUP = "clipboard_ring";
+static const QString SETTINGS_GROUP = "clipboard_history";
 static const QString KEY_SELECTORS = "0123456789abcdefghij";
 
-ClipboardRingSelector::ClipboardRingSelector(QWidget *parent)
+ClipboardHistorySelector::ClipboardHistorySelector(QWidget *parent)
     : 
     QDialog(parent),
-    m_ClipboardRingHistory(new QStringList())
+    m_ClipboardHistoryItems(new QStringList())
 {
     ui.setupUi(this);
     ExtendUI();
@@ -46,29 +46,29 @@ ClipboardRingSelector::ClipboardRingSelector(QWidget *parent)
     ConnectSignalsToSlots();
 } 
 
-void ClipboardRingSelector::showEvent(QShowEvent *event)
+void ClipboardHistorySelector::showEvent(QShowEvent *event)
 {
-    SetupClipboardRingTable();
+    SetupClipboardHistoryTable();
 }
 
-void ClipboardRingSelector::LoadClipboardHistory(const QStringList &clipboardHistory)
+void ClipboardHistorySelector::LoadClipboardHistory(const QStringList &clipboardHistoryItems)
 {
-    m_ClipboardRingHistory->append(clipboardHistory);
+    m_ClipboardHistoryItems->append(clipboardHistoryItems);
 }
 
-QStringList ClipboardRingSelector::GetClipboardHistory() const
+QStringList ClipboardHistorySelector::GetClipboardHistory() const
 {
-    QStringList clipboardRingHistory;
-    clipboardRingHistory.append(*m_ClipboardRingHistory);
-    return clipboardRingHistory;
+    QStringList clipboardHistoryItems;
+    clipboardHistoryItems.append(*m_ClipboardHistoryItems);
+    return clipboardHistoryItems;
 }
 
-void ClipboardRingSelector::SetupClipboardRingTable()
+void ClipboardHistorySelector::SetupClipboardHistoryTable()
 {
     ui.clipboardItemsTable->setRowCount(0);
-    ui.clipboardItemsTable->setRowCount(m_ClipboardRingHistory->count());
+    ui.clipboardItemsTable->setRowCount(m_ClipboardHistoryItems->count());
 
-    for (int row = 0; row < m_ClipboardRingHistory->count(); row++)
+    for (int row = 0; row < m_ClipboardHistoryItems->count(); row++)
     {
         QTableWidgetItem *selector = new QTableWidgetItem();
         // Keyboard shortcuts are 1-9 then 0 then a-j
@@ -76,7 +76,7 @@ void ClipboardRingSelector::SetupClipboardRingTable()
         selector->setFlags(Qt::ItemIsSelectable|Qt::ItemIsEnabled);
         ui.clipboardItemsTable->setItem(row, 0, selector);
 
-        QString text = m_ClipboardRingHistory->at(row); 
+        QString text = m_ClipboardHistoryItems->at(row); 
         QString display_text(text);
         
         // Replace certain non-printable characters with spaces (to avoid
@@ -102,11 +102,11 @@ void ClipboardRingSelector::SetupClipboardRingTable()
     }
     ui.clipboardItemsTable->setColumnWidth(0, 20);
     ui.clipboardItemsTable->resizeRowsToContents();
-    if ( m_ClipboardRingHistory->count() > 0 )
+    if ( m_ClipboardHistoryItems->count() > 0 )
         ui.clipboardItemsTable->selectRow(0);
 }
 
-void ClipboardRingSelector::ClipboardChanged( QClipboard::Mode mode )
+void ClipboardHistorySelector::ClipboardChanged( QClipboard::Mode mode )
 {
     if ( mode != QClipboard::Clipboard )
         return;
@@ -114,19 +114,19 @@ void ClipboardRingSelector::ClipboardChanged( QClipboard::Mode mode )
     if ( text.isNull() || text.isEmpty() ) {
         return;
     }
-    int existing_index = m_ClipboardRingHistory->indexOf(text);
+    int existing_index = m_ClipboardHistoryItems->indexOf(text);
     if (existing_index > 0 ) {
-        m_ClipboardRingHistory->move(existing_index, 0);
+        m_ClipboardHistoryItems->move(existing_index, 0);
     }
     else if (existing_index < 0 ) {
-        m_ClipboardRingHistory->insert(0, text);
-        while (m_ClipboardRingHistory->size() > 20) {
-            m_ClipboardRingHistory->removeLast();
+        m_ClipboardHistoryItems->insert(0, text);
+        while (m_ClipboardHistoryItems->size() > 20) {
+            m_ClipboardHistoryItems->removeLast();
         }
     }
 }
 
-void ClipboardRingSelector::ReadSettings()
+void ClipboardHistorySelector::ReadSettings()
 {
     SettingsStore settings;
     settings.beginGroup(SETTINGS_GROUP);
@@ -141,7 +141,7 @@ void ClipboardRingSelector::ReadSettings()
     settings.endGroup();
 }
 
-void ClipboardRingSelector::WriteSettings()
+void ClipboardHistorySelector::WriteSettings()
 {
     SettingsStore settings;
     settings.beginGroup(SETTINGS_GROUP);
@@ -152,7 +152,7 @@ void ClipboardRingSelector::WriteSettings()
     settings.endGroup();
 }
 
-bool ClipboardRingSelector::eventFilter(QObject *obj, QEvent *event)
+bool ClipboardHistorySelector::eventFilter(QObject *obj, QEvent *event)
 {
     if (obj == ui.clipboardItemsTable) {
         if (event->type() == QEvent::KeyPress) {
@@ -163,8 +163,8 @@ bool ClipboardRingSelector::eventFilter(QObject *obj, QEvent *event)
             if (key == Qt::Key_Delete) {
                 int current_row = ui.clipboardItemsTable->currentRow();
                 if (current_row >= 0) {
-                    m_ClipboardRingHistory->removeAt(current_row);
-                    SetupClipboardRingTable();
+                    m_ClipboardHistoryItems->removeAt(current_row);
+                    SetupClipboardHistoryTable();
                     if (current_row >= ui.clipboardItemsTable->rowCount()) {
                         current_row--;
                     }
@@ -189,12 +189,12 @@ bool ClipboardRingSelector::eventFilter(QObject *obj, QEvent *event)
     return QDialog::eventFilter(obj, event);
 }
 
-void ClipboardRingSelector::ClipboardItemDoubleClicked(QTableWidgetItem *item)
+void ClipboardHistorySelector::ClipboardItemDoubleClicked(QTableWidgetItem *item)
 {
     accept();
 }
 
-void ClipboardRingSelector::accept()
+void ClipboardHistorySelector::accept()
 {
     if ( ui.clipboardItemsTable->rowCount() > 0 ) {
         int selected_row = ui.clipboardItemsTable->currentRow();
@@ -211,13 +211,13 @@ void ClipboardRingSelector::accept()
     QDialog::accept();
 }
 
-void ClipboardRingSelector::reject()
+void ClipboardHistorySelector::reject()
 {
     WriteSettings();
     QDialog::reject();
 }
 
-void ClipboardRingSelector::ExtendUI()
+void ClipboardHistorySelector::ExtendUI()
 {
     QPushButton *paste_button = ui.buttonBox->button(QDialogButtonBox::Ok);
     paste_button->setText( tr("Paste") );
@@ -227,7 +227,7 @@ void ClipboardRingSelector::ExtendUI()
     ui.clipboardItemsTable->horizontalHeader()->setStretchLastSection(true);
 }
 
-void ClipboardRingSelector::ConnectSignalsToSlots()
+void ClipboardHistorySelector::ConnectSignalsToSlots()
 {
     connect(ui.clipboardItemsTable,    SIGNAL( itemDoubleClicked(QTableWidgetItem*) ),  this, SLOT( ClipboardItemDoubleClicked(QTableWidgetItem*) ));
     connect(QApplication::clipboard(), SIGNAL( changed(QClipboard::Mode) ),             this, SLOT( ClipboardChanged(QClipboard::Mode) ));
