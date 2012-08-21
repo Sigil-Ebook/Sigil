@@ -1,4 +1,7 @@
 Sigil 0.6.0 TBA
+    - Implement issue 1541: Heading styles should optionally remove/keep attributes in tags.
+    - Implement issue 1540: Add option to tokenise spaces and numbers in F&R find text.
+    - Implement issue 1539: Regex should support options for minimal matching, dot includes newlines.
     - Implement issue 1535: Add Clipboard History to automatically saved recent cut or copied text.
     - Implement issue 1534: Option to toggle Book View or Preview View to Code View and vice versa.
     - Implement issue 1528: Shortcut preferences should be simplified.
