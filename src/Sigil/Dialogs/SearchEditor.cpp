@@ -92,6 +92,11 @@ void SearchEditor::SetupSearchEditorTree()
     ui.SearchEditorTree->setItemDelegateForColumn(6, m_cbDelegate);
 }
 
+void SearchEditor::ShowMessage(QString message)
+{
+    ui.Message->setText(message);
+}
+
 bool SearchEditor::SaveData(QList<SearchEditorModel::searchEntry*> entries, QString filename)
 {
     QString message = m_SearchEditorModel->SaveData(entries, filename);

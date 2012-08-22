@@ -126,6 +126,13 @@ then when no more matches replace the second entry in the list, etc.</string>
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout_3">
      <item>
+      <widget class="QLabel" name="Message">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item>
       <widget class="QDialogButtonBox" name="buttonBox">
        <property name="toolTip">
         <string/>

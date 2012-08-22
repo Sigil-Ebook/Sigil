@@ -145,7 +145,7 @@
            </sizepolicy>
           </property>
           <property name="toolTip">
-           <string>Find next match</string>
+           <string>Find next match.</string>
           </property>
           <property name="styleSheet">
            <string notr="true"/>
@@ -164,7 +164,7 @@
            </sizepolicy>
           </property>
           <property name="toolTip">
-           <string>Count all matches</string>
+           <string>Count all matches in Code View.</string>
           </property>
           <property name="styleSheet">
            <string notr="true"/>
@@ -209,7 +209,7 @@
            </sizepolicy>
           </property>
           <property name="toolTip">
-           <string>Replace highlighted match then find next match</string>
+           <string>Replace highlighted match then find next match in Code View.</string>
           </property>
           <property name="styleSheet">
            <string notr="true"/>
@@ -228,7 +228,7 @@
            </sizepolicy>
           </property>
           <property name="toolTip">
-           <string>Replace all matches</string>
+           <string>Replace all matches in Code View.</string>
           </property>
           <property name="styleSheet">
            <string notr="true"/>

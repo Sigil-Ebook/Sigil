@@ -3166,6 +3166,9 @@ void MainWindow::ConnectSignalsToSlots()
     connect(m_FindReplace, SIGNAL( OpenSearchEditorRequest(SearchEditorModel::searchEntry *) ),
             this,          SLOT( SearchEditorDialog(SearchEditorModel::searchEntry *)     ) );
 
+    connect(m_FindReplace, SIGNAL( ShowMessageRequest(QString) ),
+            m_SearchEditor, SLOT( ShowMessage(QString)  ) );
+
     connect(m_SearchEditor, SIGNAL(LoadSelectedSearchRequest(      SearchEditorModel::searchEntry *)),
             m_FindReplace,   SLOT( LoadSearch(                     SearchEditorModel::searchEntry *)));
     connect(m_SearchEditor, SIGNAL(FindSelectedSearchRequest(      QList<SearchEditorModel::searchEntry *>)),

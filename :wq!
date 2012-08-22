@@ -1,0 +1,838 @@
+Sigil 0.6.0 TBA
+    - Implement issue 1541: Heading styles should optionally remove/keep attributes in tags.
+    - Implement issue 1540: Add option to tokenise spaces and numbers in F&R find text.
+    - Implement issue 1539: Regex should support options for minimal matching, dot includes newlines.
+    - Implement issue 1535: Add Clipboard History to automatically saved recent cut or copied text.
+    - Implement issue 1534: Option to toggle Book View or Preview View to Code View and vice versa.
+    - Implement issue 1528: Shortcut preferences should be simplified.
+    - Implement issue 1536: Split at Chapter Markers should split all files.
+    - Implement issue 1530: The heading dropdown should be changed to buttons for quicker selection.
+    - Implement issue 1529: Code View should support heading/formatting buttons as used in Book View.
+    - Implement issue 73: External HTML links should be usable but evoke warning dialog.
+    - Implement issue 1521: Tab headers right click to close other tabs, toggle view state.
+    - Implement issue 715: Search Editor for saving and executing Find & Replaces searches.
+    - Implement issue 588: Clip Editor for saving and inserting text.
+    - Implement issue 1519: Navigate between links in Code View.
+    - Implement issue 167: Index Editor to create a book index.
+    - Implement issue 1450: View classes used in HTML files.
+    - Implement issue 102: View details of all HTML files.
+    - Implement issue 839: Word Count (in View HTML details).
+    - Implement issue 1392: View details of all images.
+    - Implement issue 1513: Add progress indicators to various functions.
+    - Implement issue 1510: Add Existing Files should only open last file not all files.
+    - Implement issue 1428: F&R should allow Ctrl key to set temporary search of Current File.
+    - Implement issue 1325: Insert Images support for multiple images, resizing, thumbnails.
+    - Implement issue 31: Automatically set "date of modification" on save.
+    - Implement issue 1508: Allow export/saving of individual files.
+    - Implement issue 1367: Shortcut key to remove code tags from selected text.
+    - Implement issue 761: Shortcut key to close last open tag (Code View).
+    - Implement issue 1507: Metadata dialogs should allow double click to select.
+    - Implement issue 1457: Save should not add heading ids - already done in Generate TOC.
+    - Implement issue 1444: Sigil should not include .txt or .html in file associations during install.
+    - Implement issue 1443: Find&Replace should save state on restart.
+    - Implement issue 1416: Don't add selected text to F&R history and increase selected
+      text limit for being auto loaded into F&R.
+    - Implement issue 1414: Cover semantic should not be added automatically.
+    - Implement issue 1405: Cleared shortcut reset to default after restart.
+    - Implement issue 1407: Tidy should allow more fine-grained control.
+    - Implement issue 1393: Add Semantics Text should only apply to one file.
+    - Implement issue 1369: Add support for \xDD as Regex replacement in F&R.
+    - Implement issue 1285: Display image properties.
+    - Implement issue 534: Link to Stylesheets option for HTML files.
+    - Implement issue 1385: Metadata editor should always display fields
+    - Implement issue 1311: Metadata support for all RfC 639-2 languages.
+    - Implement issue 1335: Run Save As automatically if saving new html file.
+    - Implement issue 1366: TOC window tree support for collapse/expand all.
+    - Implement issue 759: Auto generate inline TOC HTML file.
+    - Implement issue 32: Metadata custom "date" options.
+    - Implement issue 33: Metadata options for creators and contributors.
+    - Implement issue 1374: Split View is now Preview View with code inspector.
+    - Implement issue 184: Superscript/subscript buttons.
+    - Implement issue 443: Book View RTL languages support (right to left rtl tag).
+    - Implement issue 504: Book View button for normal paragraph.
+    - Implement issue 1265: Preference to manually set UI language.
+    - Implement issue 1295: Metadata Editor support for translating descriptions.
+    - Implement issue 77: Metadata support for multiple language elements.
+    - Implement issue 1180: Spell Check button/menu to find next misspelled word.
+    - Implement issue 1045: Better highlighting of misspelled words.
+    - Implement issue 1301: Preferences for User and Additional Dictionary locations.
+    - Implement issue 1058: Use ini format for settings on all platforms.
+    - Implement issue 1376: Change organization name and location of settings to sigil-ebook.
+    - Implement issue 1381: Switch to using Minizip for 1.1 for ZIP support. 
+      - Remove ZipArchive and Zipios++.
+    - Implement issue 1380: Update zlib to 1.2.6.
+    - Implement issue 1383: Remove the use of a precompiled header.
+    - Implement issue 1377: Update PCRE to 8.30.
+      - Make PCRE 8.30 with UTF-16 support the minimum required version.
+      - Bundled PCRE uses PCRE's JIT for faster searching.
+      - Modify Regex search code to use UTF-16 instead of UTF-8 for all
+        searches. This brings search in line with the view components
+        being able to display UTF-16 characters.
+    - Implement issue 1378: Update Hunspell to 1.3.2.
+    - Implement issue 1379: Update Boost to Boost 1.49.0.
+    - Implement issue 1283: Spell check should have an ignore option.
+    - Fix issue 1395: A type of hyphen, when pasted in code view, crashes Sigil.
+    - Fix issue 1429: Changes to stylesheets are not seen in book and preview views.
+    - Fix issue 1406: Typing spaces on a word highlighted by spelling crashes Sigil.
+    - Fix issue 1524: Replace \s does not always match newlines.
+    - Fix issue 1538: Sigil can save a corrupted epub file if zip fails.
+    - Fix issue 1517: Delete selected file should not open another file unnecessarily.
+    - Fix issue 1474: New lines added in every xhtml file after saving.
+    - Fix issue 1486: Replace replaces even if text doesn't match if manually changed.
+    - Fix issue 1483: Add Existing Files adds HTML files in reverse order.
+    - Fix issue 1479: F&R auto-completer preventing searching for same word different case.
+    - Fix issue 1424: Spell check does not allow paste next to misspelled word.
+    - Fix issue 1422: Delete file should not update tab if opened file is not deleted.
+    - Fix issue 1417: OPF meta tags not updated if Cover image renamed or deleted.
+    - Fix issue 1408: Book Browser should not translate folder names.
+    - Fix issue 1308: Allow renaming file extensions.
+    - Fix issue 1363: Open and Save file directory inconsistent.
+    - Fix issue 1130: Content.opf edits overwritten by save.
+    - Fix issue 1354: Chapter Split breaks links in second half of document.
+    - Fix issue 999: Split does not update file references in TOC.
+    - Fix issue 1277: Meta-editor will not open.
+    - Fix issue 1281: Semantics information retained for deleted files.
+    - Fix issue 1338: F&R Replace All can crash using current file with large replaces.
+    - Fix issue 1296: F&R Search All crashes if HTML file doesn't have focus.
+    - Fix issue 1382: Settings not saving to disk.
+    - Fix issue 1272: Tabs should always use the View state set by the View buttons.
+
+Sigil 0.5.3 2012.02.25
+    - Fix issue 1254: Bulk rename will stop if one name matches, context menu
+      needs cleanup and warnings.
+    - Fix issue 1268: Find/Replace all files does not search in book order,
+      and other issues.
+    - Fix issue 1266: Store user dictionary as UTF-8.
+    - Ensure the checkmarks in add semantic are set correctly when selecting
+      multiple files.
+    - Fix issue 1030: Don't close if canceling out of a failed save.
+    - Fix issue 1258: Find/Replace step by step in All HTML files is broken.
+
+Sigil 0.5.2 2012.02.09
+    - Fix issue 1253: Replace All in All HTML files adds extra blank lines in
+      style section.
+    - Fix issue 1251: Merge does not work if you previously used split chapter.
+    - Fix issue 1249: Replace All in All HTML Files leaves cursor at the
+      bottom.
+    - Fix issue 1247: Cannot rename file extension in book browser and rename
+      selected should default to first extension name.
+    - Fix issue 1238: Deleting a file does not go to the next closest entry
+      in book browser.
+    - Fix issue 1236: Replace All in Current file does not center cursor.
+    - Fix issue 1234: Switching from Code View to Split View and SplitCV to
+      CV does not vertically center the cursor.
+    - Fix issue 1237: Rename does not keep current selection in book browser.
+    - Fix issue 1242: Metadata::FreeFormMetadata missing assignment line 360.
+    - Fix issue 1235: Deleting one file does not give a warning dialog.
+    - Fix issue 1129: Crash when importing existing image.
+
+Sigil 0.5.1 2012.02.05
+    - Issue 1225:
+      * Add searching selected files.
+      * Add search wrapping.
+      * Replace in BV automatically goes to CV.
+      * Fixed bug where in CV if you do a replace of a word and then replace
+        all when there are the same words on the page, the page view wouldn't
+        be refreshed.
+      * Various fixes.
+    - Add English translation file used for plural strings.
+    - Implement issue 986: Automatically renumber playorder in TOC NCX.
+    - Implement issue 1224: F&R modifications to update layout and add Regex Multiline.
+    - Fix issue 1214: Dictionary files do not include hypen files or GB files.
+    - Fix issue 1213: Find and Replace does not save file when F&R is already
+      open and searching all HTML files.
+    - Remove the ability to use F&R to replace text in BV as it is unfixable in
+      its current state.
+    - Fix issue 1215: Book View line/column incorrect in status bar.
+    - Fix issue 1216: Re-opening a document already in a tab resets the cursor
+      position back to the top.
+    - Fix issue 1218: F&R cleanup.
+    - Fix issue 1212: Remove opf namespace rewriting when opening a file because
+      it ended up being more trouble than it was wroth.
+    - Fix issue 1188: New Sigil Regex engine crashes when pressing "replace all",
+      works fine on pushing "replace" over and over and over again.
+    - Implement issue 269: Select more than one item in the Book Browser Column.
+    - Implement issues 792: Add Shortcuts for next/previous HTML file with regard
+      to reading order, and sync selection in book browser to open tab.
+    - Implement issue 1135: New blank section must be automatically selected on book browser.
+    - Implement issue 1148: Allow user to change the order of split view so book view or code
+      view is first.
+    - Implement issue 1168: Add ability to sort HTML files alphanumerically.
+    - Implement issue 1174: Add new blank html section should insert section after selected file.
+    - Implement issue 1181: Merge Previous when previous file is open in current tab requires
+      refresh to see merged data.
+
+Sigil 0.5.0 2012.01.21
+    - Implement issue 533 and 1079: allow user to select which level(s) of <h> to include.
+    - Fix issue 788: Error saving when the folder the file was in was renamed
+      outside Sigil.
+    - Fix issue 998: Don't select file extension on rename in book browser.
+    - Fix issue 1111: Failure to rename to same name with case change.
+    - Implement issue 205: Drag and drop for images to book and code views.
+    - Fix issue 1019: issues with opf-namespace declaration.
+    - Inline spell check with right click replace in Code View.
+    - Fix issue 1064: Issues with editing epubs with differing html extensions.
+      Take mimetype into account when opening the file to help determine how to
+      deal with the file.
+    - Fix issue 1055, 1038, 1006: Focus switching causes unwanted cursor jumping
+      in split view. Don't auto sync cursor position between views.
+    - Implement issue 375: Add image selection dialog for inserting existing
+      images into book and code views.
+    - Add menu items for setting heading, adding new items, show / hide toolbars.
+    - Organize menu.
+    - Fix issue 803: Print prints immediately, no dialog box.
+    - Implement 245: Unify zoom levels (book, text, image) and store the levels.
+    - i18n capability. Build and load translation files.
+    - Add keyboard shortcut manager so user can change the keyboard shortcuts. Fixes 966.
+    - Add preference dialog. Closes 206, 718.
+    - Refactor Find & Replace into a widget that appears below the editor. Closes issues:
+      961, 579.
+    - Windows Installer: Add Sigil as a handler for EPUB and HTML files so that jump lists
+      will work and it will always show up on the 'Open With...' menu.
+    - Fix issue 1033, 1034: Implement scroll to fragment for Code View and fix scrolling for
+      book view.
+    - Fix issue 1032: Remove '=' from the list of valid characters for ids.
+    - Fix issue 1001: Valid IDs are now formed by replacing invalid characters with
+      underscores. Colon removed from the list of valid characters.
+    - Fix issue 1014: Sigil was erroneously assuming that fragment ids would be unique
+      across the entire book, whereas they're only required to be unique within a
+      particular xhtml document. New code implemented to cover those situations where
+      this assumption is wrong.
+    - Fix issue 1015: Fix issues with cursor positioning in Split View.
+    - Fix issue 1022: Added support for Adobe's page-map.xml pagination extension. (Must
+      use this exact filename).
+    - Implement issue 183: Use a PCRE regular expression engine instead of QRegExp.
+      Also fixes issue 498: regex '^' (start of line) broken.
+    - Implement issue 168: Allow selection of multiple Meta Editor properties.
+    - Allow for deleting multiple metadata items.
+    - Implement issue 368: Pressing enter key on item in book browser should open item.
+    - Fix issue 1005: Regression from change to ensure metdata element has dc namespace.
+
+Sigil v0.4.2 2011.09.02
+    - Fix issue 993: Split then selection jumps back to top instead of selection point.
+    - Fix issue 988: fail to scroll properly after chapter split.
+    - Allow users to disable Well-Formed checks or if they should be auto fixed as they
+      were in 0.3.x.
+    - Don't read use tidy setting from disk each time it's checked. Store the setting and
+      save / load it upon edit and startup. This prevents Sigil from using the wrong value
+      when multiple instances are open.
+    - Use Pretty Print when auto fixing well formed errors.
+    - Added a safety check to LoadTabContent() to ensure that focus changes don't cause a
+      loss of non-well-formed data that has been entered but not saved.
+    - Fix an issue where the opf namespace is being written in individual elements in the metadata
+      section in the OPF. We're now going to clean and write the dc and opf namespaces directly
+      to the metadata element when loading an OPF to ensure they're present and correct.
+    - Fix for entities not being displayed when loading a file where they are saved as unicode
+      in the file itself.
+    - Fix for typo in code to preserve entities.
+    - Fix for path encoding issue on reconstructing the opf.
+
+Sigil v0.4.1 2011.08.26
+    - Fix issue 615: implement undo for Find/Replace in Book View.
+    - Update Toc section of manual for 0.4 Toc panel.
+    - Implement issue 80: Select lines when clicking on line number in line number area in
+      code view.
+    - Fix issue 770: Incorrect file permissions for some files in archive create on OS X.
+    - Fix issue 890: Line number mismatch between Code View and Validation Results when
+      style tag in head section contains CDATA. CDATA was being stripped from the Code View.
+    - Fix issue 942: Work around for the Nook not being able to deal with cover meta element having
+      attributes in alphabetic order.
+    - Fix issue 976: Creation of new Code View tab fails to show all content if the web page's 
+      asynchronous loading is delayed.
+    - Fix an issue where the line numbers in code view were not aligned to the line they represent.
+    - Fix issue 871: Update heading combo when putting cursor on block with heading style.
+    - Fix the formation of an empty paragraph at the top of the new file on doing a chapter split
+      in Book View.
+    - Fix issue 967: toc.ncx file keeps erasing manual input.
+    - Fix issues 657, 661, 694 and 867: The Heading Selector in Book View will now function as
+      expected and find the correct block-level tag to change rather than attempting to change
+      inline tags. It will also retain the attributes (including class) of the old tag.
+    - Fix the entity display for shy, mdash and ndash.
+    - Set modified state on book when page order is changed.
+    - Fixed the cursor issues on moving from Book to Code View and vice-versa. The new view should
+      now always gain keyboard focus and show the cursor properly.
+    - Insert the xml tag explicitly so that Tidy doesn't insert one without encoding and standalone
+      attributes.
+    - Fix issue #877: Invalid xml error prevents Find/Replace window from opening.
+    - Fix issue where switching between code and book view causes the code view to load old data
+      from book view.
+    - Implement issue 364: Go to line #.
+    - Implement issue 742: Shortcut/menu action to close all tabs except the current one.
+    - Fix issue 959: Original creator's name is mangled in About dialog.
+    - Fix for chapter splitting issue involving filenames with spaces.
+    - Makes sure the cursor is properly displayed on entering Code View.
+
+Sigil v0.4.0 2011.08.15
+    - Fix issue 650: Convert SVG prefixes into a form that Tidy will tolerate.
+    - Fix issue 952: Allow compatible extension changes.
+    - Fix issue 835: File, Close shortcut does not work on OS X due to shortcut conflict.
+    - Fix issue 793: Don't delete com.apple.ibooks.display-options.xml.
+    - Fix issue 319: Adding chapter break in code view at end of current chapter creates new
+      chapter before the current one.
+    - Fix issue 947: Normalise headings before automatically generating the TOC.
+    - Build system changes to accomidate the Windows SDK.
+    - Remove empty styles on body tags when cleaning webkit junk.
+    - Fix  issue 549 : Split on SGF Chapter Markers puts new files (sections) at end of file list.
+    - Fix issue 869: Right-click in Code View with error in code shows error dialog.
+    - Fix issue 919 and issue 316: Replace potentially problematic characters with named or
+      numerical entities.
+    - Change About to include an authors section.
+    - Fixed and issue where chapter splitting loses some chapters, places others in wrong order
+      (issue 836).
+    - Fixed an issue where language was not being properly detected (issue 923).
+    - Fixed an issue where font mangling caused file duplication (issue 932).
+    - Fixed an issue where extra blank lines were left in the STYLE section (issue 937).
+    - Fixed an issue where FlightCrew was reporting erroneous Resource is reachable but not present
+      in OPF errors (issue 813).
+    - Fixed string format compile warnings (issue 892).
+    - Fixed GCC 4.6 compile failure (issue 864).
+    - Changed Save As shortcut key to Ctrl+Shift+S (issue 838).
+    - Fixed an issue where the shortcut keys were not working properly on OS X (issue 838).
+    - Fixed an issue where metadata changed in metadata editor unsaved if Sigil closed right after
+      (issue 930).
+    - OS X minimum version bumped to 10.6.
+    - on Linux machines, the installer now places a shortcut to Sigil in the Applications->Office
+    menu instead of in a special "Sigil" folder under the Gnome root menu (issue #162)
+
+Sigil v0.4.0 RC1 2011.04.22.
+    - fixed an issue with splitting on SGF chapter markers creating the new HTML files in the wrong
+    order (issue #828)
+    - fixed a rare crash/memory corruption issue with automatic OPF updates
+    - made the CSS resource path updates faster and more robust
+    - updated FlightCrew so that CSS resource use is now far more robustly detected (issue #822)
+    - fixed a rare hang when opening the Meta Editor on Win XP machines
+    - a more accurate error message is now displayed for problems with file loading/saving
+    (issue #772)
+    - fixed an issue with incorrect font filepath updates in the CSS (issue #736)
+    - fixed an issue with paths in the OPF not being URL-encoded (issue #823) 
+
+Sigil v0.4.0 ß3 2011.03.24
+    - added a workaround for loading broken epub files that use the incorrect mimetype for the 
+    NCX (issue #815)
+    - fixed a rare issue with loading epub files with OPF's that had the XML version set to 1.1,
+    but also had other attributes in the XML declaration (issue #812)
+    - fixed an issue with entries appearing at random in the TOC after a split on SGF markers
+    is followed up with "Generate TOC from headings" request (issue #804)
+    - fixed an issue with files not appearing in the Book Browser after a split on SGF markers
+    (issue #816)
+    - fixed a regression that caused the auto-cover-setting heuristics to unset covers when they
+    are already set (issue #806)
+    - opening an HTML file now automatically builds a TOC from the headings
+    - fixed a regression that caused the Add Semantics menu to stop working (issue #807)
+
+Sigil v0.4.0 ß2 2011.03.21.
+    - fixed an issue with the ID of the manifest item of a resource not being updated when the 
+    resource was renamed
+    - fixed an issue with chapter splits being created in the wrong reading order (issue #797)
+    - fixed an issue with some HTML files disappearing after a save/load cycle if chapter splitting
+    was performed before the save
+    - fixed an issue with renaming a file and then splitting it causing duplicate ID's in the OPF
+    manifest (issue #800)
+    - fixed a validation issue with the Meta Editor not adding the correct namespace prefix to some
+    Dublin Core metadata element attributes
+
+Sigil v0.4.0 ß1 2011.03.20
+    - fixed an issue with CSS @import rules in the '@import "something.css"' format not being 
+    recognized and thus not updated on import
+    - removed the "CustomID" basic metadata entry from the Meta Editor; those wishing to use
+    custom ID's can now add them directly to the OPF
+    - Sigil now preserves custom unique identifiers in the OPF (issue #552)
+    - removed support for the Sigil-proprietary SGF format
+    - the user can now edit the OPF file by hand (issue #281) 
+    - the user can now edit the NCX file by hand (issue #282)
+    - the OPF file is now preserved on import (issue #586)
+    - the NCX file is now preserved on import (issue #283)
+    - the Table Of Contents editor has been replaced with a new Table of Contents sidebar;
+    clicking on an item in this sidebar takes the user to the target location, enabling TOC
+    navigation (issue #100)
+    - a dialog now informs the user if his XHTML, NCX or OPF documents are not well-formed 
+    XML (with error location and description), thus allowing him to fix the potential problems
+    by hand instead of leaving them to Tidy to fix (issue #519)
+    - fixed a rare issue with no tab opened by default when loading epubs
+    - made the sigil.sh startup script more robust (courtesy of Craig Sanders) (issue #737) 
+
+Sigil v0.3.4 2011.01.12.
+    - fixed a regression ("Not a folder" error) with opening certain epub files on Mac and 
+    Linux systems (issue #731) 
+
+Sigil v0.3.3 2011.01.06.
+    - added a small "Donate" button to the toolbar and a related entry in the Help menu 
+    - added a .desktop file for the make install target (courtesy of Richard Gibert)
+    - this time *really* worked around a Tidy bug that added blank lines to the start of <pre> 
+    and <style> elements (issue #655)
+    - updated ZipArchive from 4.0.1 to 4.1.0
+    - fixed a regression crash bug with loading extremely rare HTML content documents that have
+    an internal DTD subset
+    - added a workaround for a crash bug caused by invalid epubs that use obfuscated fonts but 
+    with incorrect UUID URN key syntax (issue #709)
+    - integrated the FlightCrew epub validation library; a new toolbar icon triggers epub 
+    validation and displays the results (issue #28)
+    - fixed a rare input truncation problem when the input file contains a unicode nbsp and also
+    specifies standalone="yes" in the XML declaration (issue #677)
+
+Sigil v0.3.2 2010.11.24.
+    - added a new toolbar button for turning Tidy cleaning on/off; this option is also available
+    from the Tools menu (issue #553)
+    - added support for TrueType Collection fonts with extension TTC
+    - InDesign (as of CS5) refuses to list the fonts it embeds in the OPF manifest of the epub 
+    files it exports, even though the epub standard demands it. This causes Sigil to not pick up
+    these fonts when opening such epub files. A workaround has been added that will detect such
+    problematic epubs and then load the font files.
+    - fixed a rare crash issue when loading epub files
+
+Sigil v0.3.1 2010.11.07
+    - added a new "Font Obfuscation" context menu for font files in the Book Browser; the user can
+    now select (or de-select) the use of Adobe's or the IDPF's font obfuscation methods; this also
+    resolves the problem where Sigil refused to open epub files that use such obfuscated fonts with  
+    the message that the epub has DRM
+    - fixed a validation issue caused by Sigil using "application/x-font-opentype" as the OPF
+    mimetype instead of "application/vnd.ms-opentype"
+    - fixed a crash when opening the TOC editor for some epub files (issue #654)
+
+Sigil v0.3.0 2010.11.04
+    - root rights no longer needed to install on Linux
+    - fixed an issue with some child headings being attached to incorrect parent headings in the 
+    TOC if the parent was marked as "not in TOC" (issue #476)
+    - fixed an issue with some UTF-8 characters outside the BMP (usually CJK characters) not being
+    saved properly (issue #180)    
+    - fixed an issue with certain path types not being correctly updated as a result of the 
+    fix for issue #501 (issue #561)
+    - the Book Browser now prevents adding files that already exist in the epub
+    - previously, when adding external XHTML files through the Book Browser, any files (like CSS 
+    stylesheets or images) that were linked from that file were included in the epub under a 
+    different name if their original name was "taken"; this caused duplicates so this behavior 
+    has changed: files whose names are "taken" are now skipped over (issue #482)    
+    - fixed a rare issue that caused incorrect path updates for anchor links pointing to file names
+    that were suffixes of other chapter file names, and the anchor had a fragment ID (issue #598)  
+    - fixed an issue with the image paths in background-image CSS rules not being updated when
+    the path changes (issue #594)
+    - Sigil now informs the user that DRMed files cannot be opened, instead of just crashing
+    (issue #624)
+    - this time *really* fixed the "acknowledgments" error that was reported as fixed in RC1
+    - fixed a crash on load (with an error dialog) issue on Linux systems occurring when multiple
+    users on the same machine tried to use Sigil (issue #642)
+    - fixed a randomly occurring crash, usually triggered on Macs during loading (issue #643) 
+
+Sigil v0.3.0RC2 2010.10.08
+    - fixed a file-corruption-on-save issue caused by XHTML files being saved in UTF-8, but
+    declared as UTF-16 (issue #617)
+
+Sigil v0.3.0RC1 2010.10.08
+    - fixed a validation issue caused by using the American spelling for "acknowledgments" where
+    the OPF spec uses the British "acknowledgements" (issue #611)
+    - Sigil now uses "application/x-font-ttf" as the media type in the OPF for TrueType fonts
+    (issue #609)
+    - on Mac OS X, the universal build now includes an x64 version of Sigil, and builds now
+    use Cocoa instead of Carbon; support for Mac OS X 10.4 is dropped along with support for
+    PowerPC Macs
+    - fixed a problem with opening files from the Ubuntu "Open With" menu (issue #524)
+    - made Tidy handle common user errors like "&co." in the HTML source instead of "&amp;co."
+    - fixed a rare Tidy bug with disappearing spaces when the only whitespace in an element was 
+    the newline following a start tag (issue #387)
+    - changed the internal DOM engine from Qt's QDom to Xerces; this should also bring numerous
+    bug fixes and performance improvements plus a small (~10%) decrease in memory consumption
+    (issue #367)
+    - updated Qt to 4.7: this should bring a 400%+ performance increase in Book View rendering 
+    along with countless smaller performance improvements and bug fixes across the board
+    - switched to the MSVC 10 compiler for Windows releases; should bring ~5% general performance 
+    improvement 
+    - fixed several crash/error problems relating to opening, saving and modifying epub files which
+    have onerous file permissions set for internal content files (issue #574)
+    - added a workaround for broken epubs created by other epub-producing software which caused
+    a crash on certain searches with the Find dialog (issue #548)
+    - fixed a problem with Book Browser's "Merge with previous" action if a file was previously 
+    deleted from the Book Browser (issue #565)
+    - fixed a problem with chapter splits being placed in the wrong reading order if a file was
+    previously deleted from the Book Browser (issue #497)
+
+Sigil v0.2.4 2010.08.12.
+    - fixed a problem with updating image paths for images with the same filename but coming from
+    different parent directories (issue #501)
+    - added a new "Merge With Previous" context menu action for XHTML files in the Book Browser
+    (issue #265)
+    - changed Tidy to handle the common typing mistake of ending entities with a ':' instead
+    of a ';' (issue #535)
+    - fixed a bug where double-clicking a file in the Book Browser for a file that was already 
+    opened in a tab switched that tab back to Book View; the tab now retains whatever View
+    it was in previously
+    - newly opened tabs now default to the View of the current tab (issue #468)
+    - re-engineered the locations where Sigil stores its work files; the system-provided temp
+    folder is now used; this should alleviate some permissions issues on certain machines,
+    especially Macs (issue #404)
+    - Sigil now prevents the renaming of files in the Book Browser to filesystem invalid names
+    (issue #493)
+    - changed the keyboard shortcut that opens the Replace dialog from Cmd+H to Cmd+Shift+F
+    on Macs only; Cmd+H is used by Mac OS X for window hiding (issue #477)
+    - fixed an issue with Sigil using XHTML 1.0 for OPS doctypes, instead of XHTML 1.1
+    (issue #503)
+    - several files can now be marked as having the Text semantic type (issue #522)
+    - fixed an issue with Direction: All in book wide searching skipping last XHTML file 
+    (issue #520)
+    - fixed an issue with the declared XML encoding not being picked up if it was wrapped
+    in single quotes instead of the more standard double quotes
+    - fixed an issue where the user could avoid the warning dialog for book-wide searching in
+    Book View if he switched to this mode in Code View, and then switched back
+
+Sigil v0.2.3 2010.06.22.
+    - fixed an issue with the new data from one view sometimes not being saved in the final
+    epub when switching to the other view
+    - worked around a Qt focus issue causing current tab data to sometimes not be saved;
+    this was uncovered by fixing the hang-on-save issue, which was caused by the same 
+    underlying problem (issue #466)
+
+Sigil v0.2.2 2010.06.20.
+    - simplified the resource locking mechanism; should eliminate the hang-on-save issue
+    - fixed a problem with BookView chapter splitting sometimes not being registered on save,
+    causing duplicate content (issue #450)
+
+Sigil v0.2.1 2010.06.18.
+    - XHTML files that specify two different encodings are now fixed by removing the incorrect one
+    - Sigil now checks the XML encoding attribute for an encoding before the HTML metatag
+    and charset; should now be more compatible with Calibre created epub books
+    - created/used 16px version of all icons; icons in menus are not blurry anymore (issue #121)
+    - the Find&Replace dialog now uses the currently selected text (if any) as the default search
+    term (issue #370)
+    - fixed issues with unnecessary reloads of the code view (issue #412, issue #398)
+    - fixed an issue with the HTML file filter in the open file dialog not correctly filtering 
+    files (issue #416)
+    - fixed an issue with files without extensions not being saved in the final epub (issue #400)
+    - fixed an issue with XPGT resources sometimes being saved blank (issue #433)
+    - fixed a regression that made it impossible to add removed headings back into the TOC
+    (issue #439)
+    - fixed a problem with some file-wide replacements reverting
+    - fixed a problem with the opened tabs not being updated until the user gave them keyboard
+    focus when a file-wide replace was performed (issue 408)
+    - fixed a problem with Book View not reflecting changes done in Code View when the
+    Code View was used for editing, and then the tab closed
+    - use of custom synchronization primitives should resolve most infrequent hang bugs
+    - fixed a problem with the search not progressing in Book View find&replace when using
+    recursive replacements
+    - fixed an issue with inserting images that have apostrophes in the filename (issue #391) 
+    - TOC text now has leading and trailing whitespace trimmed, and inner whitespace condensed 
+    (issue #422)
+    - an empty ALT attribute is now added to <img> elements that don't have them (issue #406)
+    - added the build time to the About dialog, showing date and time in UTC
+
+Sigil v0.2.0 2010.05.11.
+    - added new entries to the help menu for the online manual and the FAQ
+
+Sigil v0.2.0 RC4 2010.05.08.
+    - fixed a regression that broke FindNext opening new tabs when searching across HTML files 
+    (issue #384)
+    - fixed an issue with autocompletion in Find dialog ignoring the case of search terms 
+    (issue #385)
+
+Sigil v0.2.0 RC3 2010.05.07.
+    - fixed a regression that messed up the tab order of the controls in the Find dialog
+    (issue #380)
+    - fixed an issue with cross-file FindNext causing a hang when the search term is not in
+    the book and "Direction: All" is used (issue #378)
+    - the Text folder in the Book Browser is now expanded by default after loading
+
+Sigil v0.2.0 RC2 2010.05.05.
+    - fixed an issue with ReplaceAll across files not using correct replacement lengths
+    - fixed an issue with code in Code View not being pretty-printed
+    - fixed an issue with the ReplaceAll across files not informing the opened tabs of the change
+
+Sigil v0.2.0 RC1 2010.05.03.
+    - changes in the Book Browser now update the modified state of the main window (issue #331)
+    - the Book Browser can now be opened/closed from the View menu (issue #335)
+    - all the toolbars now have UI-facing names
+    - by injecting a custom XML reader into QDom, the following issues were fixed:
+        - Book View search sometimes skipping over instances (issue #253)
+        - Book View ReplaceAll causing Sigil to hang on rare occasions (issue #293)
+        - spaces disappearing from some HTML constructs (issue #352)
+    - implemented component-wide search&replace for Code View searches (issue #372)
+    - the Find&Replace dialog now remembers up to 20 previously used search and replace strings
+    (issue #369)
+    - fixed an issue with positive regex lookaheads in normal Replace (not ReplaceAll) (issue #261) 
+    - fixed a rare off-by-one error in Book View searching when the caret was at the start of
+    the matched string; this made the search skip that instance of the match (issue #280)
+    - fixed an issue with the Find Dialog not correctly scrolling to the found text in
+    Book View (issue #195)
+    - fixed an issue with Tidy not fixing free ampersands into "&amp;", even when configured
+    to do so (issue #365)
+    - fixed an issue with the current tab unnecessarily reloading after book saves (issue #354)
+    - fixed issues with filename basenames being read only until the first dot; was causing
+    problems with OPF manifest ID generation (issue #351)
+    - hitting the keyboard shortcut for the Find&Replace window while the window is open
+    now switches focus to that window (issue #362)
+    - fixed an issue with the applied headings not "sticking" and not showing up in the TOC
+    editor (issue #300)
+    - the special iPad- and Calibre-friendly cover meta tag information is now preserved
+    after loading
+    - added a new "Cover Image" entry for image resources in the "Add Semantics" Book Browser menu  
+    - if an image is not set as a cover image manually, Sigil now uses heuristics on save
+    to determine if the epub has a cover image
+    - if an epub has an image set as a cover image, Sigil will now write a special meta tag
+    that identifies this image in the OPF; this tag is then used by the iPad (and Calibre)
+    for the book cover, for instance
+    - all OPF <guide> element information when loading epubs is now preserved
+    - added a new "Add Semantics" menu for XHTML documents; it can be used to mark XHTMLs as
+    "Dedication", "Colophon", "Glossary" etc. for the <guide> element of the OPF
+    - the status bar now shows a message after chapter split operations
+    - fixed an issue with filenames with characters that should not appear in valid XML IDs
+    having those characters added anyway (issue #344)
+    - fixed an issue with files with uppercase extensions not having a mimetype set in the OPF
+    (issue #349)
+    - fixed an issue with Sigil rewriting headings when the TOC was opened and no heading was 
+    edited (issue #327)
+    - fixed an issue where adding an existing HTML file through the Book Browser would clear
+    the current metadata in the book (issue #329)
+    - added a check that prevents Sigil from loading the same resource multiple times in 
+    invalid epubs (issue #339) 
+    - fixed a bug that made the direct XHTML references in the NCX file less likely (issue #333)
+    - fixed an issue with Sigil crashing when trying to save a loaded epub that had some badly
+    formed metadata elements (issue #325)
+
+Sigil v0.2.0 ß3 2010.03.23.
+    - added two new WYSIWYG actions that work for both Views: "Insert SGF Chapter Marker" which
+    inserts the old SGF horizontal rule chapter breaking marker and "Split On SGF Chapter Markers"
+    which splits the current chapter according to the placement of these markers (issue #262)
+    - chapter splitting now works in Code View
+    - fixed an issue with Sigil adding "xmlns='http://www.w3.org/1999/xhtml'" to every element
+    when performing a chapter break operation (issue #313)
+    - fixed a rare issue with false spaces being inserted into words during import (issue #139)
+    - added a confirmation dialog for removing items in the Book Browser (issue #306)
+    - fixed an issue with the line number area overlapping the text in the Code View 
+    - made Sigil remove the CSS cruft WebKit was adding to the "body" element
+    - fixed an issue with spaces in filenames causing bad anchor element path updates
+    - fixed an issue with spaces in filenames not being URL encoded in "href" and "src" attributes
+    in the OPF and NCX files
+    - fixed an issue with spaces in filenames causing invalid IDs (issue #301)
+    - fixed a regression causing Sigil to crash when importing HTML files that reference resources
+    that don't exist on disk
+    - Tidy now converts all uppercase attributes to lowercase; mixed-case attributes are left as is
+    - fixed an issue with Tidy choking on uppercase attribute names
+
+Sigil v0.2.0 ß2 2010.03.10.
+    - fixed an issue with exported HTML/CSS/etc. files inside EPUBs having superfluous newlines
+    - fixed an issue with the TOC editor adding empty "class" attributes to headings (issue #297)
+    - added a new "Window" menu item with new "Next Tab", "Previous Tab" and "Close Tab" actions 
+    (issue #273)
+    - fixed an issue with the font used in the line number area in the Code View being incorrect
+    when the Code View is first opened; the problem affected mostly Mac machines (issue #290)
+    - Sigil now handles corrupt epub files with an OPF referencing non-existent files (issue #289)
+    - the Book Browser now doesn't scroll back to the top when an item is deleted or added 
+    (issue #263)
+    - the Book Browser now allows a file's extension to change between HTM, HTML, XHTML and XML
+    (issue #264)
+    - OPF and NCX files don't rely anymore on UTF-8 XML default parsing, but specify their UTF-8
+    encoding directly in the declaration
+    - fixed an issue with changes in the TOC editor not being reflected in the book (issue #277)
+    - fixed an issue with the TOC editor not recognizing the "title" attribute on headings 
+    (issue #271)
+    - fixed an issue with the user seeing the old, unclean source in the Code View (issue #286)
+    - fixed an issue with the user being prompted to save when quitting even when no changes
+    have been performed on the new/loaded file (issue #276)
+    - fixed an issue with Book/Code View keyboard shortcuts firing in the wrong view (issue #266)
+    - tentatively fixed an issue with Sigil locking up when chapter breaking (issue #267)
+    - fixed an issue with Tidy adding a superfluous 'lang' attribute that is also not allowed
+    in XHTML 1.1
+    - making sure that ID attributes used in the manifest section of the OPF are always valid
+    - fixing export of epubs with XML files for OPS documents
+
+Sigil v0.2.0 ß1 2010.03.02.
+    - after *many* months of work, the complete redesign of the Sigil main interface and backend is 
+    finished, resulting in waaaay too many changes, fixes and modifications under the hood that are
+    too numerous to list here
+    - fixed an issue with anchor elements getting unnecessary "name" attributes (issue #226)
+
+Sigil v0.1.9 2010.02.08.
+    - fixed a regression that caused Sigil to demand that all XHTML streams in an epub file
+    be valid XML (issue #248)
+    - the "container.xml" reading subsystem now handles XML files with namespaces (issue #235)
+    - HTML encoding detection is now performed even on XHTML files in epub archives (per spec, 
+    they have to be UTF-8 or UTF-16, but Sigil will now handle those that aren't)
+    - fixed an issue with content file filenames using "%20" for spaces not being loaded 
+    (issue #232)
+    - the temp directory used on Windows is now <Profile>/Sigil instead of 
+    <Profile>/My Documents/Sigil (issue #222)
+    - added a "Sigil Dev Blog" Help menu entry
+
+Sigil v0.1.8 2009.12.30.
+    - fix for a regression causing all imported CSS code to be merged into one line
+    - fix for an issue with ignored linefeed characters (caused by same regression) (issue #217)
+
+Sigil v0.1.7 2009.12.28.
+    - minor aesthetic toolbar fixes for Mac
+    - fixed an issue with "&nbsp;" in headings not being converted to a space in the TOC 
+    (issue #215)
+    - minor aesthetic changes to the line number area in Code View
+    - fixed an issue with "Insert Image" not working if the Book View doesn't have focus 
+    (issue #204)
+    - the "Add metadata property" dialogs in the Meta Editor now remember their size, position
+    and splitter bar position
+    - Sigil now loads HTML metadata when importing if metadata conforms to Dublin Core;
+    code contribution from Kevin Hendricks (issue #160)
+    - fixed an issue with loading TXT files with unescaped character entity references (issue #202)
+    - fixed an issue with headings not being centered after View switches (issue #200)
+    - fixed an issue with files with uppercase extensions being loaded incorrectly
+    - fixed an issue with loading TXT files with Mac-style (CR) line endings (issue #170)
+    - fixed an issue with loading UTF-16 encoded files that used Windows style (CRLF) line endings
+    - Sigil should now detect UTF-8 encoded HTML files even when they don't specify that they   
+    are UTF-8 encoded, and HTML files that use the XML "encoding" attribute (for any encoding)
+    - the Views can now be scrolled by one line up/down by pressing CTRL+Up/Down (issue #72)
+    - the About dialog now links to the online version of the GPLv3
+    - made viewport switching more robust; the rare crashes should now become much rarer
+
+Sigil v0.1.6 2009.12.06.
+    - added a "Report An Issue" menu entry to the Help menu; opens a web browser and goes to the
+    "ReportingIssues" wiki page on Sigil's website
+    - fixed an issue with empty NavMap generation in the NCX if the file had no headings;
+    the epub specification forbids empty NavMaps (issue #174)
+    - fixed an issue with the document not being marked as modified in the GUI if the user only
+    changed the document's metadata (issue #189)
+    - fixed a rare bug with searching for a string that is at the very end of a document 
+    (issue #181)
+    - new "Remove Formatting" WYSIWYG action (issue #56)
+    - Sigil now preserves ALL HTML entity references (it used to convert most to Unicode 
+    equivalents); this change was necessary since soft hyphens were becoming "invisible" 
+    (issue #186)
+    - implemented "blockquote" support through new WYSIWYG actions: "Indent Less" and
+    "Indent More" (issue #41)
+    - updating Qt fixed an issue with images wrapped in SVG tags not being shown (issue #91)
+    - updated Qt from 4.5.2 to 4.6.0
+    - fixed an issue with regex matching in Code View when such regexes referenced line
+    endings with "\n" (issue #182)
+    - PageUp and PageDown keys now work in Book View (issue #130)
+    - fixed a crash invoked on switching views and searching in Book View when the caret 
+    element's parent has HTML comment children (issue #179)
+    - "Replace All" is now treated as a single undo/redo operation *in Code View*
+    - tentatively fixed a problem with bad TOC generation if the input file had multiple headings
+    with the same ID (across XHTML files) (issue #177)
+    - fixed a regression that was causing crashes when switching views
+
+Sigil v0.1.5 2009.11.25
+    - fixed a race condition with view syncing in Book View
+    - fixed an issue with loading text files that don't end with a newline (some text would end up 
+    missing)
+    - A NEW FIND & REPLACE DIALOG (issue #13)
+    - no more hard line breaks in Code View (courtesy of recent performance optimisations) 
+    (issue #61)
+    - TOC Editor now remembers its size across invocations and program launches
+    - the uninstaller now removes Sigil's temporary working directories 
+    - removed the "Start Sigil" checkbox in the last page of the installer; starting Sigil like 
+    this was causing problems because Sigil had admin privileges (issue #163)
+    - fixed an issue with chapter breaks not working after they are Left/Center/Right Aligned 
+    (issue #158)
+    - multiple images can now be inserted with the "Insert Image" dialog by selecting multiple 
+    images 
+    - fixed an issue with loading images from documents with uppercase tags and attributes 
+    (issue #156)
+    - tentatively fixed an issue with Sigil crashing on overwriting existing epubs (issue #146)
+    - fixed an issue with Sigil crashing on epubs with "date" OPF elements but no value set
+    for those elements (InDesign CS4 creates such invalid epubs) (issue #149)
+    - fixed an issue with words being merged on TXT import (issue #148)
+    - various performance improvements through code profiling and parallelization
+    - Linux and Mac builds should now be slightly faster because of new compiler optimizations
+    - fixed issue with Sigil incorrectly loading (and therefore subsequently saving) "date"
+    OPF elements with "event" attributes (issue 144)
+
+Sigil v0.1.4 2009.10.08.
+    - SGF files are now associated with Sigil on Windows (issue #135)
+    - SGF files are now associated with Sigil on Mac OS X (issue #10)
+    - fixed issue with "Open With" OS actions not working on Macs (issue #111)
+    - provided more informative tooltips by following Word 2007 tooltip style (issue #64) 
+    - the heading text can now be edited in the TOC Editor (issue #131)
+    - the Save As dialog now uses the current filename in the filename field (issue #18)
+    - views can now be zoomed (issue #44)
+    - Sigil no longer loads flow-specific CSS... this was causing more harm than good; loading 
+    flow-specific CSS will be back in 0.2.0.
+    - implemented a NEW workaround for a webkit bug causing the first character of a heading
+    created after a chapter break to be displayed incorrectly (issue #78) 
+    - fixed issue with TOC editor not resolving HTML entities (issue #125)
+    - fixed issue with Tidy changing case of attribute names (issue #120)
+    - Sigil will from now on check for a newer version on startup and present an informative
+    message if such a version is found (issue #67)
+    - made SGF importing MUCH faster (issue #119)
+    - provided a window icon on Linux
+    - providing binary installers for Windows AND LINUX (issue #6)
+    - further improved encoding detection for HTML import
+    - fixed graphical misalignment of controls in MetaEditor on Linux and Mac platforms
+    - fixed syntax highlighting for XPGT stylesheets
+    - fixed rare issue with SGF importing that displayed all body text underlined (issue #118)
+    - fixed display of the Sigil chapter break in Book View: the red double-line now
+    properly appears after all images (issue #117)
+    - added support for importing images referenced in SVG elements in HTML import
+    - HTML importing now defaults to a locale-aware codec if one is not detected in the HTML 
+    stream; previously the fallback codec was UTF-8; this change should improve importing of 
+    old HTML documents (issue #113)
+
+Sigil v0.1.3 2009.09.02.
+    - implemented a work-around for a bug in Qt causing documents with "us-ascii" encoding
+    specified in the XML declaration to crash Sigil (issue #109)
+    - resource path updating rewritten; should be more robust
+    - fixed an issue where EPUB files from Google Books could not be opened (issue #106)
+    - fixed regression for storing the folder from which the user last imported an image 
+    (issue #105)  
+    - refactored HTML file import resource loading: should be a lot more robust now
+    - fixed an issue with loading HTML files that reference the same images multiple times 
+    (issue #90)
+    - implemented non-live View position synchronization; the Views are now synced
+    by HTML element: moving the caret in one View will center the other View (upon switching)
+    to the same HTML element that held the caret in the first View (issue #8)
+    - newlines are now removed from TOC headings to avoid rendering problems in ADE (issue #96)
+    - Sigil now creates a unique book identifier (if one is not provided by the user)
+    using the UUID standard instead of a random sequence of characters and numbers;
+    the old "SigilGEN" scheme is replaced with "UUID"
+    - initial support for calibre interoperability (issue #94)
+    - book updates from TOC editor are now faster and have a much smaller memory overhead
+    - fixed issue with removing headings from TOC in TOC editor (issue #88, part 2 and issue #21);
+    also made TOC editor updates to headings MUCH more robust
+    - all headings are now by default included in TOC... heuristics for "guessing" which
+    headings the users wants have been removed (issue #88, part 1)
+    - fixed critical issue with Sigil hanging when loading certain SGF files (issue #87)
+    - fixed rare issue with duplicate image loading (issue #86)
+    - implemented a workaround for a webkit bug causing the first character of a heading
+    created after a chapter break to be displayed incorrectly (issue #78)
+    - the "makedmg" target for Macs is not build by default anymore and needs to be
+    invoked directly; this was done to speed rebuilds
+    - Macs now have a standard multiple document interface: opening a new file opens it
+    in a new window, not in the old one (issue #22)
+    - fixed a bug with warning dialog not informing the user of unsaved changes
+    if he tried to load from the recent files list
+
+Sigil v0.1.2 2009.08.12.
+    - added the ability to specify the main publication identifier directly,
+    through the "CustomID" basic metadata property (issue #3)
+    - fixed a bug with warning dialog not informing the user of unsaved changes
+    when editing in code view (issue #30)
+    - Sigil is now a universal Mac application (ppc and i386, in 32bit) (issue #5)
+    - implemented a workaround for a bug in QTextCodec causing bad HTML codec detection (issue #74)
+    - SVG elements are not removed anymore (issue #24)
+    - inter-document HTML links are now fully supported (issue #53)
+    - fixed rare issue where CSS style rules could get duplicated when changing views
+    - fixed issue with inline style tags in OPS documents not being loaded (issue #58)
+    - Sigil can now accept a file to load as the first command line argument; this also
+    provides support for "Open With..." operating system features (issue #63)
+    - fixed an issue where the reported build time in the About dialog was actually the execution
+    time (issue #65)
+    - loading of missing files in the recent files list is now improved (issue #57)
+    - fixed a rare issue where the wrong view could be sent to the printer on print actions
+    - Sigil now creates a guide element with a cover page in the OPF if the content of the first
+    OPS document is less than 1000 characters long (issue #48)
+    - support for importing UTF-16 encoded documents (not just UTF-8)
+    - provided install target for Linux; the binary is now also named "sigil"
+    (lower case 's') on Unix systems (except Mac) for the sake of convention (issue #46)
+    - removed dependency on "data" directory (issue #51)
+
+Sigil v0.1.1 2009.08.06.
+    - applied provided patch for NetBSD support
+    - fixed issue with loading images in HTML and EPUB docs that have regexp special characters
+    in filenames. (issue #39)
+    - if headings have the 'title' attribute set, it is now used as the TOC text entry. (issue #26)
+    - tags are now removed from headings before they are converted to TOC entries (issue #47)
+    - Sigil now remembers the last folder from which you loaded an image (issue #34)
+    - choosing 'cancel' in TOC editor now no longer forces the views to update
+    - fixed bug with new headings getting existing IDs. (issue #36)
+    - printing support! new file menu actions: "print" and "print preview"
+    - fixed an issue when sometimes switching between views didn't enable/disable appropriate 
+    actions
+    - fixed an issue with mixed-up CSS classes on Mac and Linux (issue #16)
+    - added line numbering for Code View (issue #9)
+    - added current line highlighting for Code View 
+    - fixed crashing bug with some calibre generated epubs (issue #16)
+
+Sigil v0.1.0 2009.08.01.
+    - initial release

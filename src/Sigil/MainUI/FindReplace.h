@@ -72,15 +72,13 @@ public slots:
     void CountAllSearch(QList<SearchEditorModel::searchEntry *> search_entries);
     void ReplaceAllSearch(QList<SearchEditorModel::searchEntry *>search_entries);
 
-    void OpenSearchEditor();
-
     bool FindMisspelledWord();
 
 signals:
 
     void OpenSearchEditorRequest(SearchEditorModel::searchEntry *search_entry = NULL);
 
-    void AddedSearchEntry();
+    void ShowMessageRequest(QString message);
 
 protected:
     void keyPressEvent(QKeyEvent *event);
@@ -158,7 +156,9 @@ private:
 
     bool IsCurrentFileInHTMLSelection();
 
-    void SetLookWhereFromModifier(int modifiers = Qt::NoModifier);
+    void SetLookWhereFromModifier();
+
+    void ResetLookWhereFromModifier();
 
     int CountInFiles();
 
@@ -247,6 +247,8 @@ private:
     bool m_RegexOptionAutoTokenise;
 
     bool m_SpellCheck;
+
+    bool m_LookWhereCurrentFile;
 };
 
 

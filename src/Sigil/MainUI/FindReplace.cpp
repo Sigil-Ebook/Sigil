@@ -43,7 +43,8 @@ FindReplace::FindReplace( MainWindow &main_window )
       m_RegexOptionDotAll( false ),
       m_RegexOptionMinimalMatch( false ),
       m_RegexOptionAutoTokenise( false ),
-      m_SpellCheck(false)
+      m_SpellCheck(false),
+      m_LookWhereCurrentFile(false)
 {
     ui.setupUi( this );
 
@@ -134,61 +135,54 @@ void FindReplace::ShowMessage( const QString &message )
     f.setBold(true);
     ui.message->setFont(f);
 
-    ui.message->setText(message);
+    QString new_message = message;
+    if (m_LookWhereCurrentFile && GetLookWhere() != FindFields::LookWhere_CurrentFile) {
+        new_message.append(tr(" (Current File)"));
+    }
+    ui.message->setText(new_message);
     m_timer.start(15000);
+
+    emit ShowMessageRequest(new_message);
 }
 
 
-void FindReplace::SetLookWhereFromModifier(int modifiers)
+void FindReplace::SetLookWhereFromModifier()
 {
-    // Only use with mouse click not menu/shortcuts to avoid modifying
-    bool isCtrl;
-    bool isShift;
-    int index = -1;
+    // Only use with mouse click not menu/shortcuts to avoid modifying actions
+    m_LookWhereCurrentFile = QApplication::keyboardModifiers() & Qt::ControlModifier;
+}
 
-    if (modifiers == Qt::NoModifier) {
-        modifiers = QApplication::keyboardModifiers();
-    }
-
-    isCtrl = modifiers & Qt::ControlModifier;
-    isShift = modifiers & Qt::ShiftModifier;
-
-    if (isCtrl) {
-        index = ui.cbLookWhere->findData(FindFields::LookWhere_CurrentFile);
-        if (index != -1) {
-            ui.cbLookWhere->setCurrentIndex(index);
-        }
-    }
-    else if (isShift) {
-        index = ui.cbLookWhere->findData(FindFields::LookWhere_AllHTMLFiles);
-        if (index != -1) {
-            ui.cbLookWhere->setCurrentIndex(index);
-        }
-    }
+void FindReplace::ResetLookWhereFromModifier()
+{
+    m_LookWhereCurrentFile = false;
 }
 
 void FindReplace::FindClicked()
 {
     SetLookWhereFromModifier();
     Find();
+    ResetLookWhereFromModifier();
 }
 
 void FindReplace::ReplaceClicked()
 {
     SetLookWhereFromModifier();
     Replace();
+    ResetLookWhereFromModifier();
 }
 
 void FindReplace::ReplaceAllClicked()
 {
     SetLookWhereFromModifier();
     ReplaceAll();
+    ResetLookWhereFromModifier();
 }
 
 void FindReplace::CountClicked()
 {
     SetLookWhereFromModifier();
     Count();
+    ResetLookWhereFromModifier();
 }
 
 bool FindReplace::Find()
@@ -235,7 +229,7 @@ int FindReplace::Count()
 
     int count = 0;
 
-    if ( GetLookWhere() == FindFields::LookWhere_CurrentFile )
+    if ( GetLookWhere() == FindFields::LookWhere_CurrentFile || m_LookWhereCurrentFile)
     {
         Searchable *searchable = GetAvailableSearchable();
 
@@ -312,7 +306,7 @@ int FindReplace::ReplaceAll()
 
     int count = 0;
 
-    if ( GetLookWhere() == FindFields::LookWhere_CurrentFile )
+    if ( GetLookWhere() == FindFields::LookWhere_CurrentFile || m_LookWhereCurrentFile)
     {
         Searchable *searchable = GetAvailableSearchable();
 
@@ -355,6 +349,7 @@ int FindReplace::ReplaceAll()
 void FindReplace::clearMessage()
 {
     ui.message->clear();
+    emit ShowMessageRequest("");
 }
 
 void FindReplace::expireMessage()
@@ -364,6 +359,7 @@ void FindReplace::expireMessage()
     ui.message->setFont(f);
 
     m_timer.stop();
+    emit ShowMessageRequest("");
 }
 
 bool FindReplace::FindMisspelledWord()
@@ -403,7 +399,7 @@ bool FindReplace::FindText( Searchable::Direction direction )
 
     SetCodeViewIfNeeded();
 
-    if ( GetLookWhere() == FindFields::LookWhere_CurrentFile )
+    if ( GetLookWhere() == FindFields::LookWhere_CurrentFile || m_LookWhereCurrentFile)
     {
         Searchable *searchable = GetAvailableSearchable();
 
@@ -986,19 +982,20 @@ void FindReplace::ExtendUI()
     // All Combobox items are retrieved from FindFields for consistent translation
     QString mode_tooltip = "<p>" + tr("What to search for") + ":</p><dl>";
     ui.cbSearchMode->addItem(FindFields::instance()->GetSearchModeText(FindFields::SearchMode_Normal), FindFields::SearchMode_Normal);
-    mode_tooltip += "<dt><b>" + FindFields::instance()->GetSearchModeText( FindFields::SearchMode_Normal) + "</b><dd>" + tr("Case in-sensitive search of exactly what you type") + "</dd>";
+    mode_tooltip += "<dt><b>" + FindFields::instance()->GetSearchModeText( FindFields::SearchMode_Normal) + "</b><dd>" + tr("Case in-sensitive search of exactly what you type.") + "</dd>";
     ui.cbSearchMode->addItem(FindFields::instance()->GetSearchModeText(FindFields::SearchMode_Case_Sensitive), FindFields::SearchMode_Case_Sensitive);
-    mode_tooltip += "<dt><b>" + FindFields::instance()->GetSearchModeText( FindFields::SearchMode_Case_Sensitive) + "</b><dd>" + tr("Case sensitive search of exactly what you type") + "</dd>";
+    mode_tooltip += "<dt><b>" + FindFields::instance()->GetSearchModeText( FindFields::SearchMode_Case_Sensitive) + "</b><dd>" + tr("Case sensitive search of exactly what you type.") + "</dd>";
     ui.cbSearchMode->addItem(FindFields::instance()->GetSearchModeText(FindFields::SearchMode_Regex), FindFields::SearchMode_Regex);
-    mode_tooltip += "<dt><b>" + FindFields::instance()->GetSearchModeText( FindFields::SearchMode_Regex) + "</b><dd>" + tr("Search for a pattern using Regular Expression syntax") + "</dd>";
+    mode_tooltip += "<dt><b>" + FindFields::instance()->GetSearchModeText( FindFields::SearchMode_Regex) + "</b><dd>" + tr("Search for a pattern using Regular Expression syntax.") + "</dd>";
+    ui.cbSearchMode->setToolTip(mode_tooltip);
 
     QString look_tooltip = "<p>" + tr("Where to search") + ":</p><dl>";
     ui.cbLookWhere->addItem(FindFields::instance()->GetLookWhereText(FindFields::LookWhere_CurrentFile), FindFields::LookWhere_CurrentFile);
-    look_tooltip += "<dt><b>" + FindFields::instance()->GetLookWhereText(FindFields::LookWhere_CurrentFile) + "</b><dd>" + tr("Restrict the find or replace to the opened file") + "</dd>";
+    look_tooltip += "<dt><b>" + FindFields::instance()->GetLookWhereText(FindFields::LookWhere_CurrentFile) + "</b><dd>" + tr("Restrict the find or replace to the opened file.  Hold the Ctrl key down while clicking any search buttons to temporarily restrict the search to the Current File.") + "</dd>";
     ui.cbLookWhere->addItem(FindFields::instance()->GetLookWhereText(FindFields::LookWhere_AllHTMLFiles), FindFields::LookWhere_AllHTMLFiles);
-    look_tooltip += "<dt><b>" + FindFields::instance()->GetLookWhereText(FindFields::LookWhere_AllHTMLFiles) + "</b><dd>" + tr("Find or replace in all HTML files") + "</dd>";
+    look_tooltip += "<dt><b>" + FindFields::instance()->GetLookWhereText(FindFields::LookWhere_AllHTMLFiles) + "</b><dd>" + tr("Find or replace in all HTML files in Code View.") + "</dd>";
     ui.cbLookWhere->addItem(FindFields::instance()->GetLookWhereText(FindFields::LookWhere_SelectedHTMLFiles), FindFields::LookWhere_SelectedHTMLFiles);
-    look_tooltip += "<dt><b>" + FindFields::instance()->GetLookWhereText(FindFields::LookWhere_SelectedHTMLFiles) + "</b><dd>" + tr("Restrict the find or replace to the HTML files selected in the Book Browser") + "</dd>";
+    look_tooltip += "<dt><b>" + FindFields::instance()->GetLookWhereText(FindFields::LookWhere_SelectedHTMLFiles) + "</b><dd>" + tr("Restrict the find or replace to the HTML files selected in the Book Browser in Code View.") + "</dd>";
     look_tooltip += "</dl>";
     ui.cbLookWhere->setToolTip(look_tooltip);
 
@@ -1006,14 +1003,9 @@ void FindReplace::ExtendUI()
     ui.cbSearchDirection->addItem(FindFields::instance()->GetSearchDirectionText(FindFields::SearchDirection_Down), FindFields::SearchDirection_Down);
     ui.cbSearchDirection->setToolTip("<p>" + tr("Direction to search") + ":</p>"
         "<dl>"
-        "<dt><b>" + FindFields::instance()->GetSearchDirectionText(FindFields::SearchDirection_Up) + "</b><dd>" + tr("Search for the previous match from your current position") + "</dd>"
-        "<dt><b>" + FindFields::instance()->GetSearchDirectionText(FindFields::SearchDirection_Down) + "</b><dd>" + tr("Search for the next match from your current position") + "</dd>"
+        "<dt><b>" + FindFields::instance()->GetSearchDirectionText(FindFields::SearchDirection_Up) + "</b><dd>" + tr("Search for the previous match from your current position.") + "</dd>"
+        "<dt><b>" + FindFields::instance()->GetSearchDirectionText(FindFields::SearchDirection_Down) + "</b><dd>" + tr("Search for the next match from your current position.") + "</dd>"
         "</dl>");
-}
-
-void FindReplace::OpenSearchEditor()
-{
-    emit OpenSearchEditorRequest();
 }
 
 void FindReplace::SaveSearchAction()
@@ -1081,16 +1073,16 @@ void FindReplace::FindSearch(QList<SearchEditorModel::searchEntry *> search_entr
         return;
     }
 
-    // Save the current key modifiers so user doesn't have to hold the key
-    int modifiers = QApplication::keyboardModifiers();
+    SetLookWhereFromModifier();
 
     foreach (SearchEditorModel::searchEntry* search_entry, search_entries) {
         LoadSearch(search_entry);
-        SetLookWhereFromModifier(modifiers);
         if (Find()) {
-            return;
+            break;
         };
     }
+
+    ResetLookWhereFromModifier();
 }
 
 void FindReplace::ReplaceSearch(QList<SearchEditorModel::searchEntry *> search_entries)
@@ -1100,16 +1092,16 @@ void FindReplace::ReplaceSearch(QList<SearchEditorModel::searchEntry *> search_e
         return;
     }
 
-    // Save the current key modifiers so user doesn't have to hold the key
-    int modifiers = QApplication::keyboardModifiers();
+    SetLookWhereFromModifier();
 
     foreach (SearchEditorModel::searchEntry* search_entry, search_entries) {
         LoadSearch(search_entry);
-        SetLookWhereFromModifier(modifiers);
         if (Replace()) {
-            return;
+            break;
         }
     }
+
+    ResetLookWhereFromModifier();
 }
 
 void FindReplace::CountAllSearch(QList<SearchEditorModel::searchEntry *> search_entries)
@@ -1119,13 +1111,11 @@ void FindReplace::CountAllSearch(QList<SearchEditorModel::searchEntry *> search_
         return;
     }
 
-    // Save the current key modifiers so user doesn't have to hold the key
-    int modifiers = QApplication::keyboardModifiers();
+    SetLookWhereFromModifier();
 
     int count = 0;
     foreach (SearchEditorModel::searchEntry* search_entry, search_entries) {
         LoadSearch(search_entry);
-        SetLookWhereFromModifier(modifiers);
         count += Count();
     }
 
@@ -1136,6 +1126,8 @@ void FindReplace::CountAllSearch(QList<SearchEditorModel::searchEntry *> search_
         QString message = tr( "%1 matches found", 0, count);
         ShowMessage(message.arg(count));
     }
+
+    ResetLookWhereFromModifier();
 }
 
 void FindReplace::ReplaceAllSearch(QList<SearchEditorModel::searchEntry *> search_entries)
@@ -1145,13 +1137,11 @@ void FindReplace::ReplaceAllSearch(QList<SearchEditorModel::searchEntry *> searc
         return;
     }
 
-    // Save the current key modifiers so user doesn't have to hold the key
-    int modifiers = QApplication::keyboardModifiers();
+    SetLookWhereFromModifier();
 
     int count = 0;
     foreach (SearchEditorModel::searchEntry* search_entry, search_entries) {
         LoadSearch(search_entry);
-        SetLookWhereFromModifier(modifiers);
         count += ReplaceAll();
     }
 
@@ -1162,6 +1152,8 @@ void FindReplace::ReplaceAllSearch(QList<SearchEditorModel::searchEntry *> searc
         QString message = tr("%1 replacements made", 0, count);
         ShowMessage(message.arg(count));
     }
+
+    ResetLookWhereFromModifier();
 }
 
 void FindReplace::TokeniseSelection()
