@@ -13,7 +13,7 @@ Sigil 0.6.0 TBA
     - Implement issue 1521: Tab headers right click to close other tabs, toggle view state.
     - Implement issue 715: Search Editor for saving and executing Find & Replaces searches.
     - Implement issue 588: Clip Editor for saving and inserting text.
-    - Implement issue 1519: Navigate between links in Code View.
+    - Implement issue 1519: Open and go back to links in Code View and Book View.
     - Implement issue 167: Index Editor to create a book index.
     - Implement issue 1450: View classes used in HTML files.
     - Implement issue 102: View details of all HTML files.
@@ -72,6 +72,7 @@ Sigil 0.6.0 TBA
     - Implement issue 1378: Update Hunspell to 1.3.2.
     - Implement issue 1379: Update Boost to Boost 1.49.0.
     - Implement issue 1283: Spell check should have an ignore option.
+    - Fix issue 1543: Tabs should only do updates when finished loading to improve performance.
     - Fix issue 1395: A type of hyphen, when pasted in code view, crashes Sigil.
     - Fix issue 1429: Changes to stylesheets are not seen in book and preview views.
     - Fix issue 1406: Typing spaces on a word highlighted by spelling crashes Sigil.
