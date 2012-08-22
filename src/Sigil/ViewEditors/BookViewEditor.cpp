@@ -110,6 +110,7 @@ void BookViewEditor::ScrollToFragment(const QString &fragment)
 void BookViewEditor::ScrollToFragmentAfterLoad(const QString &fragment)
 {
     if (fragment.isEmpty()) {
+        ScrollToTop();
         return;
     }
 

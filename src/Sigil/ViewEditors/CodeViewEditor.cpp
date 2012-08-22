@@ -85,7 +85,7 @@ CodeViewEditor::CodeViewEditor( HighlighterType high_type, bool check_spelling, 
     m_ignoreSpellingMapper( new QSignalMapper( this ) ),
     m_clipMapper( new QSignalMapper( this ) ),
     m_pendingClipEntryRequest( NULL ),
-    m_pendingGoToStyleDefinitionRequest( false )
+    m_pendingGoToLinkOrStyleRequest( false )
 {
     if ( high_type == CodeViewEditor::Highlight_XHTML )
 
@@ -154,9 +154,13 @@ void CodeViewEditor::CutCodeTags()
 
 bool CodeViewEditor::IsNotInTagTextSelected()
 {
-    return textCursor().hasSelection() && !(IsPositionInTag(textCursor().selectionStart() - 1) || IsPositionInTag(textCursor().selectionEnd() - 1));
+    return textCursor().hasSelection() && !(IsPositionInTag(textCursor().selectionStart()) || IsPositionInTag(textCursor().selectionEnd()));
 }
 
+bool CodeViewEditor::IsGoToLinkOrStyleAllowed()
+{
+    return IsPositionInOpeningTag();
+}
 bool CodeViewEditor::IsCutCodeTagsAllowed()
 {
     return IsNotInTagTextSelected();
@@ -164,27 +168,8 @@ bool CodeViewEditor::IsCutCodeTagsAllowed()
 
 bool CodeViewEditor::IsInsertClosingTagAllowed()
 {
-    return !IsPositionInTag(textCursor().position() - 1);
-}
-
-bool CodeViewEditor::IsGoToStyleDefinitionAllowed()
-{
-    return IsPositionInOpeningTag();
-}
-
-bool CodeViewEditor::IsPositionInTag(int pos)
-{
     QString text = toPlainText();
-
-    while (pos > 0 && text[pos] != QChar('<') && text[pos] != QChar('>')) {
-        pos--;
-    }
-
-    if (pos >= 0 && text[pos] == QChar('<')) {
-        return true;
-    }
-
-    return false;
+    return !IsPositionInTag();
 }
 
 QString CodeViewEditor::StripCodeTags(QString text)
@@ -918,7 +903,7 @@ void CodeViewEditor::mousePressEvent( QMouseEvent *event )
     // Allow open link with Ctrl-mouseclick - after propagation sets cursor position
     bool isCtrl = QApplication::keyboardModifiers() & Qt::ControlModifier;
     if (isCtrl) {
-        OpenLink();
+        GoToLinkOrStyle();
     }
 }
 
@@ -943,7 +928,7 @@ void CodeViewEditor::contextMenuEvent( QContextMenuEvent *event )
     }
 
     if (!offered_spelling) {
-        AddGoToStyleContextMenu(menu);
+        AddGoToLinkOrStyleContextMenu(menu);
         AddClipContextMenu(menu);
     }
 
@@ -957,9 +942,9 @@ void CodeViewEditor::contextMenuEvent( QContextMenuEvent *event )
         emit OpenClipEditorRequest(m_pendingClipEntryRequest);
         m_pendingClipEntryRequest = NULL;
     }
-    if (m_pendingGoToStyleDefinitionRequest) {
-        m_pendingGoToStyleDefinitionRequest = false;
-        GoToStyleDefinition();
+    if (m_pendingGoToLinkOrStyleRequest) {
+        m_pendingGoToLinkOrStyleRequest = false;
+        GoToLinkOrStyle();
     }
 }
 
@@ -1082,22 +1067,22 @@ bool CodeViewEditor::AddSpellCheckContextMenu(QMenu *menu)
     return offer_spelling;
 }
 
-void CodeViewEditor::AddGoToStyleContextMenu(QMenu *menu)
+void CodeViewEditor::AddGoToLinkOrStyleContextMenu(QMenu *menu)
 {
     QAction *topAction = 0;
     if (!menu->actions().isEmpty()) {
         topAction = menu->actions().at(0);
     }
 
-    QAction *goToStyleDefinitionAction = new QAction(tr("Go To Style Definition"), menu);
+    QAction *goToLinkOrStyleAction = new QAction(tr("Go To Link Or Style"), menu);
     if (!topAction) {
-        menu->addAction(goToStyleDefinitionAction);
+        menu->addAction(goToLinkOrStyleAction);
     }
     else {
-        menu->insertAction(topAction, goToStyleDefinitionAction);
+        menu->insertAction(topAction, goToLinkOrStyleAction);
     }
-    connect(goToStyleDefinitionAction, SIGNAL(triggered()), this, SLOT(GoToStyleDefinitionAction()));
-    goToStyleDefinitionAction->setEnabled( IsGoToStyleDefinitionAllowed() );
+    goToLinkOrStyleAction->setEnabled( IsGoToLinkOrStyleAllowed() );
+    connect(goToLinkOrStyleAction, SIGNAL(triggered()), this, SLOT(GoToLinkOrStyleAction()));
 
     if (topAction) {
         menu->insertSeparator(topAction);
@@ -1188,11 +1173,29 @@ void CodeViewEditor::SaveClipAction()
     m_pendingClipEntryRequest->text = cursor.selectedText();
 }
 
-void CodeViewEditor::GoToStyleDefinitionAction()
+void CodeViewEditor::GoToLinkOrStyleAction()
 {
     // We don't do anything at this point - wait for the context menu
     // to be closed and signals are no longer blocked.
-    m_pendingGoToStyleDefinitionRequest = true;
+    m_pendingGoToLinkOrStyleRequest = true;
+}
+
+void CodeViewEditor::GoToLinkOrStyle()
+{
+    QString text = toPlainText();
+    QString url_name = GetAttribute("href", text);
+
+    if (url_name.isEmpty()) {
+        url_name = GetAttribute("src", text);
+    }
+
+    if (!url_name.isEmpty()) {
+        emit LinkClicked(QUrl(url_name));
+    }
+    else {
+        GoToStyleDefinition();
+    }
+
 }
 
 void CodeViewEditor::GoToStyleDefinition()
@@ -1202,10 +1205,8 @@ void CodeViewEditor::GoToStyleDefinition()
     if ( element.name.isEmpty() )
         return;
 
-    // Emit a signal to bookmark our code location, enabling the "Back to" feature
-    emit BookmarkStyleUsageLocationRequest(GetCursorPosition());
-    
     // Look to see whether we have an inline style matching this.
+    bool found_inline_style = false;
     const QString text = toPlainText();
 
     // First look to see whether there is a <style type="text/css"> block
@@ -1223,20 +1224,26 @@ void CodeViewEditor::GoToStyleDefinition()
             // Finally look for "element {"
             if ( !element.classStyle.isEmpty() ) {
                 if ( ScrollToInlineStyleDefinition( element.name + "\\." + element.classStyle, text, start, end ) ) { 
-                    return;
+                    found_inline_style = true;
                 }
-                if ( ScrollToInlineStyleDefinition( "\\." + element.classStyle, text, start, end ) ) { 
-                    return;
+                else if ( ScrollToInlineStyleDefinition( "\\." + element.classStyle, text, start, end ) ) { 
+                    found_inline_style = true;
                 }
             }
             else if ( ScrollToInlineStyleDefinition( element.name, text, start, end ) ) { 
-                return;
+                found_inline_style = true;
             }
         }
     }
 
-    // We didn't find the style - escalate as an event to look in linked stylesheets
-    emit GoToLinkedStyleDefinitionRequest( element.name, element.classStyle );
+    if (found_inline_style) {
+        // Emit a signal to bookmark our code location, enabling the "Back to" feature
+        emit BookmarkLinkOrStyleLocationRequest();
+    }
+    else {
+        // We didn't find the style - escalate as an event to look in linked stylesheets
+        emit GoToLinkedStyleDefinitionRequest( element.name, element.classStyle );
+    }
 }
 
 bool CodeViewEditor::ScrollToInlineStyleDefinition( const QString &style_name, const QString &text, const int &start_pos, const int &end_pos )
@@ -1278,57 +1285,6 @@ QString CodeViewEditor::GetTagText()
     }
 
     return tag;
-}
-
-QString CodeViewEditor::GetAttributeText(QString text, QString attribute)
-{
-    QString attribute_value;
-
-    QString attribute_pattern = attribute % "=\"([^\"]*)\"";
-    QRegExp attribute_search(attribute_pattern);
-
-    int pos = attribute_search.indexIn(text);
-    if (pos > -1) {
-        attribute_value = attribute_search.cap(1);
-    }
-
-    return attribute_value;
-}
-
-bool CodeViewEditor::IsOpenLinkAllowed()
-{
-    return !GetInternalLinkInTag().isEmpty();
-}
-
-void CodeViewEditor::OpenLink()
-{
-    QUrl url = GetInternalLinkInTag();
-
-    if (!url.isEmpty()) {
-        emit LinkClicked(url);
-    }
-
-    return;
-}
-
-QUrl CodeViewEditor::GetInternalLinkInTag()
-{
-    QUrl url;
-
-    // Get the text of the tag containing the cursor position
-    QString text = GetTagText();
-    if (text.isEmpty()) {
-        return url;
-    }
-
-    QString link = GetAttributeText(text, "href");
-    if (link.isEmpty()) {
-        link = GetAttributeText(text, "src");
-    }
-
-    url = QUrl(link);
-
-    return url;
 }
 
 void CodeViewEditor::AddToIndex()
@@ -1884,14 +1840,23 @@ bool CodeViewEditor::IsPositionInBody( const int &pos, const QString &text )
     return true;
 }
 
-bool CodeViewEditor::IsPositionInTag( const int &pos, QString &text)
+bool CodeViewEditor::IsPositionInTag( const int &pos, const QString &text)
 {
+    int search_pos = pos;
+    if (pos == -1) {
+        search_pos = textCursor().selectionStart();
+    }
+    QString search_text = text;
+    if ( text.isEmpty() ) {
+        search_text = toPlainText();
+    }
+
     QRegExp tag_search( NEXT_TAG_LOCATION );
 
-    int tag_start = text.lastIndexOf( tag_search, pos - 1 );
+    int tag_start = search_text.lastIndexOf( tag_search, search_pos - 1 );
     int tag_end   = tag_start + tag_search.matchedLength();
 
-    if ( ( pos >= tag_start ) && ( pos < tag_end ) ) {
+    if ( ( search_pos >= tag_start ) && ( search_pos < tag_end ) ) {
         return true;
     }
     return false;
@@ -2110,7 +2075,7 @@ CodeViewEditor::StyleTagElement CodeViewEditor::GetSelectedStyleTagElement()
     QRegExp tag_name_search(TAG_NAME_SEARCH);
 
     int tag_name_index = tag_name_search.lastIndexIn(text, pos);
-    if ( tag_name_index >= 0 ) 
+    if ( tag_name_index >= 0 )
     {
         element.name = tag_name_search.cap(1);
 
@@ -2146,6 +2111,53 @@ CodeViewEditor::StyleTagElement CodeViewEditor::GetSelectedStyleTagElement()
     }
 
     return element;
+}
+
+QString CodeViewEditor::GetAttribute(QString attribute, const QString &text)
+{
+    QString attribute_value = QString();
+
+    int pos = textCursor().selectionStart() - 1;
+
+    QRegExp tag_name_search(TAG_NAME_SEARCH);
+
+    int tag_name_index = tag_name_search.lastIndexIn(text, pos);
+
+    // Must be in an opening tag
+    if ( tag_name_index >= 0 ) 
+    {
+        int closing_tag_index = text.indexOf(QChar('>'), tag_name_index + tag_name_search.matchedLength());
+        QString new_text = text.left(closing_tag_index);
+        QRegExp attribute_name_search("\\s+" % attribute % "\\s*=\\s*\"([^\"]+)\"");
+        int attribute_name_index = attribute_name_search.indexIn( new_text, tag_name_index + tag_name_search.matchedLength() );
+
+        // Tag contains the attribute name
+        if ( attribute_name_index >= 0 )
+        {
+            QString attribute_text = attribute_name_search.cap(1);
+            int attribute_end_index = attribute_name_index + attribute_name_search.matchedLength() - 1;
+            int attribute_start_index = text.indexOf( attribute_text, attribute_name_index );
+
+            // If cursor is on attribute name, reset it to inside the quotes
+            if ( pos >= attribute_name_index && pos < attribute_start_index) {
+                pos = attribute_start_index;
+            }
+
+            // Check cursor is in the attribute we are looking for then get its value
+            if ( ( pos >= attribute_start_index ) && ( pos < attribute_end_index ) ) {
+                while (pos > 0 && text[pos] != QChar('"') && text[pos] != QChar(' ')) {
+                    pos--;
+                }
+                pos++;
+                while (text[pos] != QChar('"') && text[pos] != QChar(' ')) {
+                    attribute_value.append(text[pos]);
+                    pos++;
+                }
+            }
+        }
+    }
+
+    return attribute_value;
 }
 
 void CodeViewEditor::PasteFromClipboard()

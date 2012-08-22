@@ -451,7 +451,7 @@ bool TabManager::SwitchedToExistingTab( Resource& resource,
             {
                 flow_tab->ScrollToCaretLocation( caret_location_to_scroll_to );
             }
-            if ( position_to_scroll_to > 0 )
+            else if ( position_to_scroll_to > 0 )
             {
                 flow_tab->ScrollToPosition( position_to_scroll_to );
             }

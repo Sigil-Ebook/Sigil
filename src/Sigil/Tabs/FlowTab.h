@@ -93,9 +93,7 @@ public:
 
     bool InsertClosingTagEnabled();
 
-    bool GoToStyleDefinitionEnabled();
-
-    bool OpenLinkEnabled();
+    bool GoToLinkOrStyleEnabled();
 
     bool AddToIndexEnabled();
     bool MarkForIndexEnabled();
@@ -345,12 +343,10 @@ public slots:
      */
     void HeadingStyle( const QString& heading_type, bool preserve_attributes );
 
-    void OpenLink();
-
     void AddToIndex();
     void MarkForIndex();
     
-    void GoToStyleDefinition();
+    void GoToLinkOrStyle();
 
 signals:
 
@@ -394,7 +390,7 @@ signals:
 
     void GoToLinkedStyleDefinitionRequest(const QString &element_name, const QString &style_class_name);
 
-    void BookmarkStyleUsageLocationRequest(const QString &file_name, int cv_cursor_position);
+    void BookmarkLinkOrStyleLocationRequest();
 
 private slots:
 
@@ -451,8 +447,6 @@ private slots:
     void ResourceTextChanging();
 
     void PVSplitterMoved(int pos, int index);
-
-    void EmitBookmarkStyleUsageLocationRequest(int cv_cursor_position);
 
 private:
     /**

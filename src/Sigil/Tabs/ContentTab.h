@@ -119,11 +119,11 @@ public:
     virtual bool RemoveFormattingEnabled()          { return false; }
 
     /*
-     * Can the user navigate to a style definition.
+     * Can the user navigate to a link or style definition.
      *
-     * @return \c true if the user can navigate to a style definition.
+     * @return \c true if the user can navigate to a link or style definition.
      */
-    virtual bool GoToStyleDefinitionEnabled() { return false; }
+    virtual bool GoToLinkOrStyleEnabled() { return false; }
 
     /*
      * Can the user perform the Cut Code Tags operation.
@@ -132,8 +132,6 @@ public:
      */
     virtual bool InsertClosingTagEnabled()   { return false; }
 
-    virtual bool OpenLinkEnabled()     { return false; }
-    virtual bool BackToLinkEnabled()   { return false; }
     virtual bool AddToIndexEnabled()   { return false; }
     virtual bool MarkForIndexEnabled() { return false; }
 

@@ -193,8 +193,9 @@
     <addaction name="actionCount"/>
     <addaction name="separator"/>
     <addaction name="actionGoToLine"/>
-    <addaction name="actionGoToStyleDefinition"/>
-    <addaction name="actionBackToLastStyleUsage"/>
+    <addaction name="separator"/>
+    <addaction name="actionGoToLinkOrStyle"/>
+    <addaction name="actionGoBackFromLinkOrStyle"/>
     <addaction name="separator"/>
     <addaction name="menuRegexOptions"/>
    </widget>
@@ -209,9 +210,6 @@
     <addaction name="separator"/>
     <addaction name="actionOpenPreviousResource"/>
     <addaction name="actionOpenNextResource"/>
-    <addaction name="separator"/>
-    <addaction name="actionOpenLink"/>
-    <addaction name="actionBackToLink"/>
    </widget>
    <widget class="QMenu" name="menuTools">
     <property name="title">
@@ -1612,19 +1610,6 @@
     <string>Create Index</string>
    </property>
   </action>
-  <action name="actionOpenLink">
-   <property name="text">
-    <string>Open Link</string>
-   </property>
-  </action>
-  <action name="actionBackToLink">
-   <property name="text">
-    <string>Go Back To Opened Link</string>
-   </property>
-   <property name="shortcut">
-    <string>Ctrl+\</string>
-   </property>
-  </action>
   <action name="actionGenerateTOC">
    <property name="text">
     <string>Generate Table of Contents...</string>
@@ -1659,20 +1644,20 @@
     <string>Tokenise Spaces When Opening Find</string>
    </property>
   </action>
-  <action name="actionGoToStyleDefinition">
+  <action name="actionGoToLinkOrStyle">
    <property name="text">
-    <string>Go To Style Definition</string>
+    <string>Go To Link or Style</string>
    </property>
    <property name="shortcut">
     <string>F3</string>
    </property>
   </action>
-  <action name="actionBackToLastStyleUsage">
+  <action name="actionGoBackFromLinkOrStyle">
    <property name="text">
-    <string>Go Back To Style Usage</string>
+    <string>Go Back From Link or Style</string>
    </property>
    <property name="shortcut">
-    <string>Shift+F3</string>
+    <string>Ctrl+\</string>
    </property>
   </action>
   <action name="actionPasteClipboardHistory">

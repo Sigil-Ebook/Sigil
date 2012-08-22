@@ -91,16 +91,12 @@ public:
     bool IsNotInTagTextSelected();
     QString StripCodeTags(QString text);
 
-    bool IsPositionInTag(int pos);
-
     void InsertClosingTag();
     bool IsInsertClosingTagAllowed();
 
+    void GoToLinkOrStyle();
+    bool IsGoToLinkOrStyleAllowed();
     void GoToStyleDefinition();
-    bool IsGoToStyleDefinitionAllowed();
-
-    void OpenLink();
-    bool IsOpenLinkAllowed();
 
     void AddToIndex();
     bool IsAddToIndexAllowed();
@@ -287,7 +283,7 @@ signals:
 
     void GoToLinkedStyleDefinitionRequest(const QString &element_name, const QString &style_class_name);
     
-    void BookmarkStyleUsageLocationRequest(int cv_cursor_position);
+    void BookmarkLinkOrStyleLocationRequest();
 
 public slots:
 
@@ -405,9 +401,9 @@ private slots:
 
     void SaveClipAction();
 
-    QUrl GetInternalLinkInTag();
+    QString GetAttribute(QString attribute, const QString &text);
 
-    void GoToStyleDefinitionAction();
+    void GoToLinkOrStyleAction();
     
 private:
 
@@ -417,8 +413,6 @@ private:
      * Returns the text inside < > if cursor is in < >
      */
     QString GetTagText();
-
-    QString GetAttributeText(QString text, QString attribute);
 
     /**
      * Resets the currently used font.
@@ -463,7 +457,7 @@ private:
      */
     void ConnectSignalsToSlots();
 
-    void AddGoToStyleContextMenu(QMenu *menu);
+    void AddGoToLinkOrStyleContextMenu(QMenu *menu);
 
     void AddClipContextMenu(QMenu *menu);
 
@@ -527,7 +521,7 @@ private:
      * Is this position within the <body> tag of this text.
      */
     bool IsPositionInBody( const int &pos, const QString &text );
-    bool IsPositionInTag( const int &pos, QString &text);
+    bool IsPositionInTag( const int &pos = -1, const QString &text = QString() );
     bool IsPositionInOpeningTag( const int &pos = -1, const QString &text = QString() );
 
     void FormatSelectionWithinElement(const QString &element_name, const int &previous_tag_index, const QString &text);
@@ -651,7 +645,7 @@ private:
      * Use this to store state to emit the signal after the menu is closed.
      */
     ClipEditorModel::clipEntry *m_pendingClipEntryRequest;
-    bool m_pendingGoToStyleDefinitionRequest;
+    bool m_pendingGoToLinkOrStyleRequest;
 };
 
 #endif // CODEVIEWEDITOR_H

@@ -233,19 +233,10 @@ bool FlowTab::InsertClosingTagEnabled()
     return false;
 }
 
-bool FlowTab::GoToStyleDefinitionEnabled()
+bool FlowTab::GoToLinkOrStyleEnabled()
 {
     if (m_ViewState == MainWindow::ViewState_CodeView) {
-        return m_wCodeView->IsGoToStyleDefinitionAllowed();
-    }
-
-    return false;
-}
-
-bool FlowTab::OpenLinkEnabled()
-{
-    if (m_ViewState == MainWindow::ViewState_CodeView) {
-        return m_wCodeView->IsOpenLinkAllowed();
+        return m_wCodeView->IsGoToLinkOrStyleAllowed();
     }
 
     return false;
@@ -445,6 +436,14 @@ void FlowTab::ScrollToLine(int line)
     if (m_ViewState == MainWindow::ViewState_CodeView) {
         m_wCodeView->ScrollToLine(line);
     }
+    // Scrolling to top if BV/CV requests a line allows
+    // view to be reset to top for links
+    else if (m_ViewState == MainWindow::ViewState_BookView) {
+        m_wBookView->ScrollToTop();
+    }
+    else if (m_ViewState == MainWindow::ViewState_PreviewView) {
+        m_wBookPreview->ScrollToTop();
+    }
 }
 
 void FlowTab::ScrollToPosition(int cursor_position)
@@ -617,13 +616,6 @@ void FlowTab::InsertClosingTag()
 {
     if (m_ViewState == MainWindow::ViewState_CodeView) {
         m_wCodeView->InsertClosingTag();
-    }
-}
-
-void FlowTab::OpenLink()
-{
-    if (m_ViewState == MainWindow::ViewState_CodeView) {
-        return m_wCodeView->OpenLink();
     }
 }
 
@@ -864,11 +856,6 @@ void FlowTab::PVSplitterMoved(int pos, int index)
     settings.setValue("pv_splitter", m_pvVSplitter->saveState());
 
     settings.endGroup();
-}
-
-void FlowTab::EmitBookmarkStyleUsageLocationRequest(int cv_cursor_position)
-{
-    emit BookmarkStyleUsageLocationRequest(GetFilename(), cv_cursor_position);
 }
 
 void FlowTab::LeaveEditor(QWidget *editor)
@@ -1168,10 +1155,10 @@ void FlowTab::HeadingStyle( const QString& heading_type, bool preserve_attribute
     }
 }
 
-void FlowTab::GoToStyleDefinition()
+void FlowTab::GoToLinkOrStyle()
 {
     if (m_ViewState == MainWindow::ViewState_CodeView)
-        m_wCodeView->GoToStyleDefinition();
+        m_wCodeView->GoToLinkOrStyle();
 }
 
 
@@ -1304,5 +1291,5 @@ void FlowTab::ConnectSignalsToSlots()
 
     connect(m_wCodeView, SIGNAL(GoToLinkedStyleDefinitionRequest(const QString&, const QString&)), this, SIGNAL(GoToLinkedStyleDefinitionRequest(const QString&, const QString&)));
 
-    connect(m_wCodeView, SIGNAL(BookmarkStyleUsageLocationRequest(int)), this, SLOT(EmitBookmarkStyleUsageLocationRequest(int)));
+    connect(m_wCodeView, SIGNAL(BookmarkLinkOrStyleLocationRequest()), this, SIGNAL(BookmarkLinkOrStyleLocationRequest()));
 }
