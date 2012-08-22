@@ -406,6 +406,13 @@ private slots:
     void DelayedInitialization();
 
     /**
+     * Any slots to do with changing of the underlying resource/content should
+     * only be connected after the resource has loaded. Otherwise we do a
+     * whole lot of unnecessary saving and loading.
+     */
+    void DelayedConnectSignalsToSlots();
+
+    /**
      * Emits the ContentChanged signal.
      */
     void EmitContentChanged();
