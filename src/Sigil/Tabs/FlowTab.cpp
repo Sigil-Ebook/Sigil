@@ -377,6 +377,17 @@ bool FlowTab::SetViewState(MainWindow::ViewState new_view_state)
     if (m_initialLoad) {
         return false;
     }
+    // MainWindow will call this function when switching tabs. If the underlying
+    // resource has been changed triggering a reload, we want to preserve our
+    // cursor position (this way only performed if user returns to this tab).
+    if ( m_BookPreviewNeedReload ) {
+        if ( m_ViewState == MainWindow::ViewState_BookView ) {
+            m_wBookView->StoreCaretLocationUpdate(m_wBookView->GetCaretLocation());
+        }
+        else if ( m_ViewState == MainWindow::ViewState_PreviewView ) {
+            m_wBookPreview->StoreCaretLocationUpdate(m_wBookPreview->GetCaretLocation());
+        }
+    }
     if (new_view_state == m_ViewState) {
         return false;
     }
@@ -832,12 +843,6 @@ void FlowTab::ResourceModified()
     if ( m_ViewState == MainWindow::ViewState_CodeView ) {
         m_wCodeView->ExecuteCaretUpdate();
     }
-    else if ( m_ViewState == MainWindow::ViewState_BookView ) {
-        m_wBookView->StoreCaretLocationUpdate(m_wBookView->GetCaretLocation());
-    }
-    else if ( m_ViewState == MainWindow::ViewState_PreviewView ) {
-        m_wBookPreview->StoreCaretLocationUpdate(m_wBookPreview->GetCaretLocation());
-    }
 }
 
 void FlowTab::ResourceTextChanging()
@@ -959,6 +964,10 @@ void FlowTab::DelayedInitialization()
 
     m_safeToLoad = true;
     m_initialLoad = false;
+
+    // Only now will we wire up monitoring of ResourceChanged, to prevent
+    // unnecessary saving and marking of the resource for reloading.
+    QTimer::singleShot(0, this, SLOT(DelayedConnectSignalsToSlots()));
 
     // Cursor set in constructor
     QApplication::restoreOverrideCursor();
@@ -1134,27 +1143,27 @@ void FlowTab::RemoveFormatting()
 void FlowTab::HeadingStyle( const QString& heading_type, bool preserve_attributes )
 {
     if (m_ViewState == MainWindow::ViewState_BookView)
-	{
-		QChar last_char = heading_type[ heading_type.count() - 1 ];
+    {
+        QChar last_char = heading_type[ heading_type.count() - 1 ];
 
-		// For heading_type == "Heading #"
-		if ( last_char.isDigit() ) {
-			m_wBookView->FormatBlock( "h" + QString( last_char ), preserve_attributes );
+        // For heading_type == "Heading #"
+        if ( last_char.isDigit() ) {
+            m_wBookView->FormatBlock( "h" + QString( last_char ), preserve_attributes );
         }
-		else if ( heading_type == "Normal" ) {
-			m_wBookView->FormatBlock( "p", preserve_attributes );
+        else if ( heading_type == "Normal" ) {
+            m_wBookView->FormatBlock( "p", preserve_attributes );
         }
-	}
+    }
     else if (m_ViewState == MainWindow::ViewState_CodeView)
-	{
-		QChar last_char = heading_type[ heading_type.count() - 1 ];
+    {
+        QChar last_char = heading_type[ heading_type.count() - 1 ];
 
-		// For heading_type == "Heading #"
-		if ( last_char.isDigit() ) {
-			m_wCodeView->FormatBlock( "h" + QString( last_char ), preserve_attributes );
+        // For heading_type == "Heading #"
+        if ( last_char.isDigit() ) {
+            m_wCodeView->FormatBlock( "h" + QString( last_char ), preserve_attributes );
         }
-		else if ( heading_type == "Normal" ) {
-			m_wCodeView->FormatBlock( "p", preserve_attributes );
+        else if ( heading_type == "Normal" ) {
+            m_wCodeView->FormatBlock( "p", preserve_attributes );
         }
     }
 }
@@ -1251,6 +1260,16 @@ QString FlowTab::GetCaretElementName()
         return m_wBookView->GetCaretElementName();
     else
         return ContentTab::GetCaretElementName();
+}
+
+void FlowTab::DelayedConnectSignalsToSlots()
+{
+    connect(m_wBookView, SIGNAL(textChanged()), this, SLOT(EmitContentChanged()));
+    connect(m_wCodeView, SIGNAL(FilteredTextChanged()), this, SLOT(EmitContentChanged()));
+
+    connect(&m_HTMLResource, SIGNAL(TextChanging()), this, SLOT(ResourceTextChanging()));
+    connect(&m_HTMLResource, SIGNAL(LinkedResourceUpdated()), this, SLOT(ResourceModified()));
+    connect(&m_HTMLResource, SIGNAL(Modified()), this, SLOT(ResourceModified()));
 }
 
 void FlowTab::ConnectSignalsToSlots()
