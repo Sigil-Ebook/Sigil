@@ -451,14 +451,37 @@ void BookBrowser::AddExisting()
 
         QString filename = QFileInfo( filepath ).fileName();
 
-        if ( current_filenames.contains( filename ) )
-        {
-            QMessageBox::warning( this,
-                                  tr( "Sigil" ),
-                                  tr( "A file with the name \"%1\" already exists in the book." )
-                                  .arg( filename )
-                                );
-            continue;
+        if ( current_filenames.contains( filename ) ) {
+            if (IMAGE_EXTENSIONS.contains(QFileInfo(filepath).suffix().toLower())) {
+                QMessageBox::StandardButton button_pressed;
+                button_pressed = QMessageBox::warning(this,
+                                    tr("Sigil"), tr("The image \"%1\" already exists in the book.\n\nOK to replace?").arg(filename),
+                                    QMessageBox::Ok | QMessageBox::Cancel);
+                if (button_pressed != QMessageBox::Ok) { 
+                    continue;
+                }
+
+                try {
+                    Resource &old_resource = m_Book->GetFolderKeeper().GetResourceByFilename(filename);
+
+                    old_resource.Delete();
+                }
+                catch (const ResourceDoesNotExist&) {
+                    Utility::DisplayStdErrorDialog( 
+                        tr( "Unable to delete or replace file \"%1\"." )
+                        .arg(filename) 
+                        );
+                    continue;
+                }
+            }
+            else {
+                QMessageBox::warning( this,
+                                      tr( "Sigil" ),
+                                      tr( "Unable to load \"%1\"\n\nA file with this name already exists in the book." )
+                                      .arg( filename )
+                                    );
+                continue;
+            }
         }
 
         if ( TEXT_EXTENSIONS.contains( QFileInfo( filepath ).suffix().toLower() ) )
@@ -485,6 +508,14 @@ void BookBrowser::AddExisting()
         {
             // TODO: adding a CSS file should add the referenced fonts too
             m_Book->GetFolderKeeper().AddContentFileToFolder( filepath );
+
+            try {
+                Resource &added_resource = m_Book->GetFolderKeeper().GetResourceByFilename( filename );
+                open_resource = &added_resource;
+            }
+            catch (const ResourceDoesNotExist&) {
+                // nothing
+            }
         }
     }
 
