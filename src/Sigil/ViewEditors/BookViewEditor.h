@@ -219,16 +219,6 @@ protected:
 private slots:
 
     /**
-     * Wrapper slot for the Page Up shortcut.
-     */
-    void PageUp();
-
-    /**
-     * Wrapper slot for the Page Down shortcut.
-     */
-    void PageDown();
-
-    /**
      * Wrapper slot for the Scroll One Line Up shortcut.
      */
     void ScrollOneLineUp();
@@ -309,16 +299,6 @@ private:
      * \c true if the WebPage was modified by the user.
      */
     bool m_WebPageModified;
-
-    /**
-     * PageUp keyboard shortcut.
-     */
-    QShortcut &m_PageUp;
-
-    /**
-     * PageDown keyboard shortcut.
-     */
-    QShortcut &m_PageDown; 
 
     /**
      * Keyboard shortcut for scrolling one line up.

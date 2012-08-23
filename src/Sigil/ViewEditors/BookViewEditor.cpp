@@ -65,8 +65,6 @@ BookViewEditor::BookViewEditor(QWidget *parent)
     :
     BookViewPreview(parent),
     m_WebPageModified( false ),
-    m_PageUp(   *( new QShortcut( QKeySequence( QKeySequence::MoveToPreviousPage ), this, 0, 0, Qt::WidgetShortcut ) ) ),
-    m_PageDown( *( new QShortcut( QKeySequence( QKeySequence::MoveToNextPage     ), this, 0, 0, Qt::WidgetShortcut ) ) ),
     m_ScrollOneLineUp(   *( new QShortcut( QKeySequence( Qt::ControlModifier + Qt::Key_Up   ), this, 0, 0, Qt::WidgetShortcut ) ) ),
     m_ScrollOneLineDown( *( new QShortcut( QKeySequence( Qt::ControlModifier + Qt::Key_Down ), this, 0, 0, Qt::WidgetShortcut ) ) ),
     c_GetSegmentHTML(   Utility::ReadUnicodeTextFile( ":/javascript/get_segment_html.js"           ) ),
@@ -291,16 +289,6 @@ void BookViewEditor::ScrollByNumPixels( int pixel_number, bool down )
     page()->mainFrame()->setScrollBarValue( Qt::Vertical, new_scroll_Y );
 }
 
-void BookViewEditor::PageUp()
-{
-    ScrollByNumPixels( height(), false );
-}
-
-void BookViewEditor::PageDown()
-{
-    ScrollByNumPixels( height(), true );
-}
-
 void BookViewEditor::ScrollOneLineUp()
 {
     ScrollByLine( false );
@@ -447,8 +435,6 @@ void BookViewEditor::PasteFromClipboard()
 
 void BookViewEditor::ConnectSignalsToSlots()
 {
-    connect( &m_PageUp,            SIGNAL( activated() ), this, SLOT( PageUp()            ) );
-    connect( &m_PageDown,          SIGNAL( activated() ), this, SLOT( PageDown()          ) );
     connect( &m_ScrollOneLineUp,   SIGNAL( activated() ), this, SLOT( ScrollOneLineUp()   ) );
     connect( &m_ScrollOneLineDown, SIGNAL( activated() ), this, SLOT( ScrollOneLineDown() ) );
 
