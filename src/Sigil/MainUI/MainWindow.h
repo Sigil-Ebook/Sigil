@@ -557,6 +557,8 @@ private slots:
     
     void ShowPasteClipboardHistoryDialog();
 
+    void ResourcesAddedOrDeleted();
+
 private:
 
     bool OpenCSSResourceWithStyleDefinition( const QString &style_name, const QString &text, CSSResource *css_resource );

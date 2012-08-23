@@ -177,6 +177,10 @@ signals:
      */
     void BookContentModified();
 
+    void ResourcesAdded();
+
+    void ResourcesDeleted();
+
     /**
      * Emitted when the user clicks on a guide semantic type
      * in the Add Semantics sub-menu. Note that this is also emitted

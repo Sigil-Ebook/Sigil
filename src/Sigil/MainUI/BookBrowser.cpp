@@ -488,6 +488,8 @@ void BookBrowser::AddExisting()
         }
     }
 
+    emit ResourcesAdded();
+
     if (open_resource) {
         emit ResourceActivated(*open_resource);
     }
@@ -735,6 +737,8 @@ void BookBrowser::RemoveSelection( QList<Resource *> tab_resources )
     {
         resource->Delete();
     }
+
+    emit ResourcesDeleted();
 
     emit BookContentModified();
 

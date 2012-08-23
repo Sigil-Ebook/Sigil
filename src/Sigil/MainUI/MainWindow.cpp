@@ -29,6 +29,8 @@
 #include <QtGui/QMessageBox>
 #include <QtGui/QProgressDialog>
 #include <QtGui/QToolBar>
+#include <QtWebKit/QWebSettings>
+
 
 #include "BookManipulation/BookNormalization.h"
 #include "BookManipulation/Index.h"
@@ -2131,6 +2133,24 @@ void MainWindow::SetNewBook( QSharedPointer< Book > new_book )
              &m_Book->GetOPF(), SLOT(   AddGuideSemanticType(   const HTMLResource&, GuideSemantics::GuideSemanticType ) ) );
     connect( m_BookBrowser,     SIGNAL( CoverImageSet(           const ImageResource& ) ),
              &m_Book->GetOPF(), SLOT(   SetResourceAsCoverImage( const ImageResource& ) ) );
+    connect( m_BookBrowser,     SIGNAL( ResourcesDeleted() ), this, SLOT( ResourcesAddedOrDeleted() ) );
+    connect( m_BookBrowser,     SIGNAL( ResourcesAdded() ), this, SLOT( ResourcesAddedOrDeleted() ) );
+}
+
+void MainWindow::ResourcesAddedOrDeleted()
+{
+
+    ContentTab &tab = GetCurrentContentTab();
+
+    QWebSettings::clearMemoryCaches();
+
+    // Make sure currently visible tab is updated immediately
+    if (&tab != NULL) {
+        FlowTab *flow_tab = dynamic_cast<FlowTab *>(&tab);
+        if (flow_tab) {
+            flow_tab->LoadTabContent();
+        }
+    }
 }
 
 
