@@ -40,6 +40,10 @@ TextTab::TextTab( TextResource& resource,
 
     ConnectSignalsToSlots();
 
+    // Make sure the resource is loaded as its file doesn't seem
+    // to exist when the resource tries to do an initial load.
+    m_TextResource.InitialLoad();
+
     // We perform delayed initialization after the widget is on
     // the screen. This way, the user perceives less load time.
     QTimer::singleShot( 0, this, SLOT( DelayedInitialization() ) );
