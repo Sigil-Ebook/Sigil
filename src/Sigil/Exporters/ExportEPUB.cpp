@@ -199,12 +199,13 @@ void ExportEPUB::SaveFolderAsEpubToLocation( const QString &fullfolderpath, cons
     }
 
     zipClose(zfile, NULL);
-    if (QFile::remove(fullfilepath)) {
-        if (!QFile::rename(tempFile, fullfilepath)) {
-            boost_throw(CannotCopyFile() << errinfo_file_fullpath(fullfilepath.toStdString()));
+    if (QFileInfo(fullfilepath).exists()) {
+        if (!QFile::remove(fullfilepath)) {
+            boost_throw(CannotDeleteFile() << errinfo_file_fullpath(fullfilepath.toStdString()));
         }
-    } else {
-        boost_throw(CannotDeleteFile() << errinfo_file_fullpath(fullfilepath.toStdString()));
+    }
+    if (!QFile::rename(tempFile, fullfilepath)) {
+        boost_throw(CannotCopyFile() << errinfo_file_fullpath(fullfilepath.toStdString()));
     }
 }
 
