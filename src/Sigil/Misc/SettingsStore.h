@@ -24,8 +24,11 @@
 #ifndef SETTINGSSTORE_H
 #define SETTINGSSTORE_H
 
+#include <QColor>
 #include <QtCore/QSettings>
 #include <QtCore/QString>
+
+class QColor;
 
 /**
  * Provides access for reading and writing user configurable
@@ -101,6 +104,68 @@ public:
 
     SettingsStore::CleanLevel cleanLevel();
 
+    /**
+     * All appearance settings related to BookView.
+     */
+    struct BookViewAppearance 
+    {
+        QString font_family_standard;
+        QString font_family_serif;
+        QString font_family_sans_serif;
+        int font_size;
+    };
+
+    /**
+     * All appearance settings related to CodeView.
+     */
+    struct CodeViewAppearance 
+    {
+        QString font_family;
+        int font_size;
+
+        QColor background_color;
+        QColor foreground_color;
+
+        QColor selection_background_color;
+        QColor selection_foreground_color;
+
+        QColor css_comment_color;
+        QColor css_property_color;
+        QColor css_quote_color;
+        QColor css_selector_color;
+        QColor css_value_color;
+
+        QColor line_highlight_color;
+        QColor line_number_background_color;
+        QColor line_number_foreground_color;
+
+        QColor spelling_underline_color;
+
+        QColor xhtml_attribute_name_color;
+        QColor xhtml_attribute_value_color;
+        QColor xhtml_css_color;
+        QColor xhtml_css_comment_color;
+        QColor xhtml_doctype_color;
+        QColor xhtml_entity_color;
+        QColor xhtml_html_color;
+        QColor xhtml_html_comment_color;
+    };
+
+    /**
+     * The default font to use for rendering Book View/Preview.
+     */
+    BookViewAppearance bookViewAppearance();
+
+    /**
+     * The appearance settings to use for editing in Code View.
+     */
+    CodeViewAppearance codeViewAppearance();
+
+    /**
+     * Clear all Book View and Code View settings back to their defaults.
+     */
+    void clearAppearanceSettings();
+
 public slots:
 
     /**
@@ -155,6 +220,15 @@ public slots:
     void setRenameTemplate(const QString &name);
 
     void setCleanLevel(SettingsStore::CleanLevel level);
+
+    /**
+     * Set the default font to use for rendering Book View/Preview
+     */
+    void setBookViewAppearance(const BookViewAppearance &book_view_appearance);
+    /**
+     * Set the appearance settings to use for editing in Code View
+     */
+    void setCodeViewAppearance(const CodeViewAppearance &code_view_appearance);
 
 private:
     /**

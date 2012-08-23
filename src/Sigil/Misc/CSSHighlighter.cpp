@@ -20,6 +20,7 @@
 *************************************************************************/
 
 #include "Misc/CSSHighlighter.h"
+#include "Misc/SettingsStore.h"
 
 // TODO: This code was written by Nokia for Qt Designer, and it's horribly ugly.
 // I've tried to clean it up, but it's hopeless. Write a new CSS parser to replace this.
@@ -70,6 +71,8 @@ static const int transitions[ 10 ][ 9 ] =
 CSSHighlighter::CSSHighlighter( QObject *parent )
     : QSyntaxHighlighter( parent )
 {
+    SettingsStore settings;
+    m_codeViewAppearance = settings.codeViewAppearance();
 }
 
 void CSSHighlighter::highlightBlock( const QString& text )
@@ -193,36 +196,45 @@ void CSSHighlighter::highlight( const QString &text, int start, int length, int 
         return;
 
     QTextCharFormat format;
+    if ( m_codeViewAppearance.background_color.isValid() ) {
+        format.setBackground( m_codeViewAppearance.background_color );
+    }
 
     switch ( state ) 
     {
         case Selector:
-            setFormat( start, length, Qt::darkRed );
+            format.setForeground( m_codeViewAppearance.css_selector_color );
+            setFormat( start, length, format );
             break;
 
         case Property:
-            setFormat( start, length, Qt::darkBlue );
+            format.setForeground( m_codeViewAppearance.css_property_color );
+            setFormat( start, length, format );
             break;
 
         case Value:
-            setFormat( start, length, Qt::black );
+            format.setForeground( m_codeViewAppearance.css_value_color );
+            setFormat( start, length, format );
             break;
 
         case Pseudo1:
-            setFormat( start, length, Qt::darkRed );
+            format.setForeground( m_codeViewAppearance.css_selector_color );
+            setFormat( start, length, format );
             break;
 
         case Pseudo2:
-            setFormat( start, length, Qt::darkRed );
+            format.setForeground( m_codeViewAppearance.css_selector_color );
+            setFormat( start, length, format );
             break;
 
         case Quote:
-            setFormat( start, length, Qt::darkMagenta );
+            format.setForeground( m_codeViewAppearance.css_quote_color );
+            setFormat( start, length, format );
             break;
 
         case Comment:
         case MaybeCommentEnd:
-            format.setForeground( Qt::darkGreen );
+            format.setForeground( m_codeViewAppearance.css_comment_color );
             setFormat( start, length, format );
             break;
 

@@ -52,12 +52,8 @@ using boost::shared_ptr;
 using boost::tie;
 using boost::tuple;
 
-static const int COLOR_FADE_AMOUNT       = 175;
 static const int TAB_SPACES_WIDTH        = 4;
-static const int BASE_FONT_SIZE          = 10;
 static const int LINE_NUMBER_MARGIN      = 5;
-static const QColor NUMBER_AREA_BGCOLOR  = QColor( 225, 225, 225 );
-static const QColor NUMBER_AREA_NUMCOLOR = QColor( 125, 125, 125 );
 
 static const QString XML_OPENING_TAG        = "(<[^>/][^>]*[^>/]>|<[^>/]>)";
 static const QString NEXT_OPEN_TAG_LOCATION = "<\\s*(?!/)";
@@ -87,24 +83,27 @@ CodeViewEditor::CodeViewEditor( HighlighterType high_type, bool check_spelling, 
     m_pendingClipEntryRequest( NULL ),
     m_pendingGoToLinkOrStyleRequest( false )
 {
-    if ( high_type == CodeViewEditor::Highlight_XHTML )
-
+    if ( high_type == CodeViewEditor::Highlight_XHTML ) {
         m_Highlighter = new XHTMLHighlighter( check_spelling, this );
-
-    else
-
+    }
+    else {
         m_Highlighter = new CSSHighlighter( this );
+    }
 
     setFocusPolicy( Qt::StrongFocus );
 
     ConnectSignalsToSlots();
+
+    SettingsStore settings;
+    m_codeViewAppearance = settings.codeViewAppearance();
+
+    SetAppearanceColors();
     UpdateLineNumberAreaMargin();
     HighlightCurrentLine();
 
     setFrameStyle( QFrame::NoFrame );
 
     // Set the Zoom factor but be sure no signals are set because of this.
-    SettingsStore settings;
     m_CurrentZoomFactor = settings.zoomText();
     Zoom();
 }
@@ -343,7 +342,7 @@ void CodeViewEditor::LineNumberAreaPaintEvent( QPaintEvent *event )
     QPainter painter( m_LineNumberArea );
 
     // Paint the background first
-    painter.fillRect( event->rect(), NUMBER_AREA_BGCOLOR );
+    painter.fillRect( event->rect(), m_codeViewAppearance.line_number_background_color );
 
     // A "block" represents a line of text
     QTextBlock block = firstVisibleBlock();
@@ -366,7 +365,7 @@ void CodeViewEditor::LineNumberAreaPaintEvent( QPaintEvent *event )
         }
 
         // Draw the number in the line number area.
-        painter.setPen( NUMBER_AREA_NUMCOLOR );
+        painter.setPen( m_codeViewAppearance.line_number_foreground_color );
         QString number_to_paint = QString::number( blockNumber );
         painter.drawText( - LINE_NUMBER_MARGIN,
                           topY,
@@ -584,7 +583,7 @@ float CodeViewEditor::GetZoomFactor() const
 void CodeViewEditor::Zoom()
 {
     QFont current_font = font();
-    current_font.setPointSizeF( BASE_FONT_SIZE * m_CurrentZoomFactor );
+    current_font.setPointSizeF( m_codeViewAppearance.font_size * m_CurrentZoomFactor );
     setFont( current_font );
 
     UpdateLineNumberAreaFont( current_font );
@@ -1390,9 +1389,7 @@ void CodeViewEditor::HighlightCurrentLine()
 
     QTextEdit::ExtraSelection selection;
 
-    QColor lineColor = QColor( Qt::yellow ).lighter( COLOR_FADE_AMOUNT );
-
-    selection.format.setBackground( lineColor );
+    selection.format.setBackground( m_codeViewAppearance.line_highlight_color );
     
     // Specifies that we want the whole line to be selected
     selection.format.setProperty( QTextFormat::FullWidthSelection, true );
@@ -1490,11 +1487,10 @@ void CodeViewEditor::PasteClipEntry(ClipEditorModel::clipEntry *clip)
 
 void CodeViewEditor::ResetFont()
 {
-    // Let's try to use Consolas as our font
-    QFont font( "Consolas", BASE_FONT_SIZE );
+    // Let's try to use our user specified value as our font (default Consolas)
+    QFont font( m_codeViewAppearance.font_family, m_codeViewAppearance.font_size );
 
-    // But just in case, say we want a fixed width font
-    // if Consolas is not on the system
+    // But just in case, say we want a fixed width font if font is not present
     font.setStyleHint( QFont::TypeWriter );
     setFont( font );
     setTabStopWidth( TAB_SPACES_WIDTH * QFontMetrics( font ).width( ' ' ) );
@@ -1508,6 +1504,29 @@ void CodeViewEditor::UpdateLineNumberAreaFont( const QFont &font )
     m_LineNumberArea->setFont( font );
     m_LineNumberArea->MyUpdateGeometry();
     UpdateLineNumberAreaMargin();
+}
+
+void CodeViewEditor::SetAppearanceColors()
+{
+    QPalette pal = palette();
+    if (m_codeViewAppearance.background_color.isValid()) {
+        pal.setColor(QPalette::Base, m_codeViewAppearance.background_color);
+        pal.setColor(QPalette::Window, m_codeViewAppearance.background_color);
+        setBackgroundVisible(true);
+    }
+    else {
+        setBackgroundVisible(false);
+    }
+    if (m_codeViewAppearance.foreground_color.isValid()) {
+        pal.setColor(QPalette::Text, m_codeViewAppearance.foreground_color);
+    }
+    if (m_codeViewAppearance.selection_background_color.isValid()) {
+        pal.setColor(QPalette::Highlight, m_codeViewAppearance.selection_background_color);
+    }
+    if (m_codeViewAppearance.selection_foreground_color.isValid()) {
+        pal.setColor(QPalette::HighlightedText, m_codeViewAppearance.selection_foreground_color);
+    }
+    setPalette(pal);
 }
 
 

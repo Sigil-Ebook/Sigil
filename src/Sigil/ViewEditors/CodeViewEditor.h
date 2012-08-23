@@ -32,6 +32,7 @@
 #include <QtCore/QUrl>
 
 #include "ViewEditors/ViewEditor.h"
+#include "Misc/SettingsStore.h"
 #include "MiscEditors/IndexEditorModel.h"
 #include "MiscEditors/ClipEditorModel.h"
 
@@ -427,6 +428,8 @@ private:
      */
     void UpdateLineNumberAreaFont( const QFont &font );
 
+    void SetAppearanceColors();
+
     /**
      * Executes a centerCursor() call if requested
      * with m_DelayedCursorScreenCenteringRequired.
@@ -646,6 +649,11 @@ private:
      */
     ClipEditorModel::clipEntry *m_pendingClipEntryRequest;
     bool m_pendingGoToLinkOrStyleRequest;
+
+    /**
+     * The fonts and colors for appearance of xhtml and text.
+     */
+    SettingsStore::CodeViewAppearance m_codeViewAppearance;
 };
 
 #endif // CODEVIEWEDITOR_H

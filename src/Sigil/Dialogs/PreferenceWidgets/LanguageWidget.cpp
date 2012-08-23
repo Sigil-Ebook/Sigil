@@ -65,7 +65,9 @@ void LanguageWidget::saveSettings()
 
     if ( ui.cbUILanguage->currentText() != m_UILanguage )
     {
+        QApplication::restoreOverrideCursor();
         QMessageBox::warning( this, tr( "Restart Required" ), tr( "You must restart Sigil to show the User Interface in a different language." ) );
+        QApplication::setOverrideCursor(Qt::WaitCursor);
     }
 }
 

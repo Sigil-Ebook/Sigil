@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>AppearanceWidget</class>
+ <widget class="QWidget" name="AppearanceWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>431</width>
+    <height>424</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Appearance</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QGroupBox" name="groupBoxBookView">
+     <property name="title">
+      <string>Book View/Preview:</string>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayoutBV">
+      <item>
+       <widget class="QLabel" name="labelWarning">
+        <property name="toolTip">
+         <string/>
+        </property>
+        <property name="text">
+         <string>If no font is specifed in the CSS for your page, the following font will be used to display within Sigil. These fonts will not be used in your actual ebook.</string>
+        </property>
+        <property name="wordWrap">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayoutBV" stretch="0,0">
+        <item>
+         <layout class="QGridLayout" name="gridLayoutBV">
+          <item row="1" column="0">
+           <widget class="QLabel" name="labelBookViewFontStandard">
+            <property name="toolTip">
+             <string>Default font family to be used for Book View/Preview View if no font-family specified in your CSS</string>
+            </property>
+            <property name="text">
+             <string>Standard Font:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1" colspan="2">
+           <widget class="QFontComboBox" name="cbBookViewFontStandard"/>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="labelBookViewFontSerif">
+            <property name="toolTip">
+             <string>Default font family to be used for Book View/Preview View if a serif font-family specified in your CSS</string>
+            </property>
+            <property name="text">
+             <string>Serif Font:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1" colspan="2">
+           <widget class="QFontComboBox" name="cbBookViewFontSerif"/>
+          </item>
+          <item row="3" column="0">
+           <widget class="QLabel" name="labelBookViewFontSansSerif">
+            <property name="toolTip">
+             <string>Default font family to be used for Book View/Preview View if a sans-serif font-family specified in your CSS</string>
+            </property>
+            <property name="text">
+             <string>Sans-Serif Font:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="1" colspan="2">
+           <widget class="QFontComboBox" name="cbBookViewFontSansSerif"/>
+          </item>
+          <item row="0" column="0">
+           <widget class="QLabel" name="labelBookViewFontSize">
+            <property name="minimumSize">
+             <size>
+              <width>80</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Font Size:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QComboBox" name="cbBookViewFontSize"/>
+          </item>
+          <item row="0" column="2">
+           <spacer name="horizontalSpacer_3">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <spacer name="horizontalSpacerBV">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <spacer name="verticalSpacerViews">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeType">
+      <enum>QSizePolicy::Fixed</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>20</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="groupBoxCodeView">
+     <property name="title">
+      <string>CSS / Code View:</string>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayoutCV">
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayoutCV" stretch="0,0">
+        <item>
+         <layout class="QGridLayout" name="gridLayoutCV">
+          <item row="1" column="0">
+           <widget class="QLabel" name="labelCodeViewFont">
+            <property name="toolTip">
+             <string>Font family to be used for text in Code View.</string>
+            </property>
+            <property name="text">
+             <string>Standard Font:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1" colspan="2">
+           <widget class="QFontComboBox" name="cbCodeViewFont">
+            <property name="fontFilters">
+             <set>QFontComboBox::MonospacedFonts</set>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QLabel" name="labelCodeViewFontSize">
+            <property name="minimumSize">
+             <size>
+              <width>80</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Font Size:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QComboBox" name="cbCodeViewFontSize"/>
+          </item>
+          <item row="0" column="2">
+           <spacer name="horizontalSpacer_4">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <spacer name="horizontalSpacerCV">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <spacer name="verticalSpacer_2">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeType">
+         <enum>QSizePolicy::Fixed</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>5</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <layout class="QGridLayout" name="gridLayoutCVColors">
+        <item row="0" column="0">
+         <widget class="QLabel" name="labelColors">
+          <property name="text">
+           <string>Display Item Colors:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0" rowspan="2">
+         <widget class="QListWidget" name="codeViewColorsList"/>
+        </item>
+        <item row="1" column="1">
+         <widget class="QLabel" name="swatchLabel">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="autoFillBackground">
+           <bool>true</bool>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::Box</enum>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="2" alignment="Qt::AlignTop">
+         <widget class="QPushButton" name="customColorButton">
+          <property name="text">
+           <string>Custom...</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="3">
+         <spacer name="horizontalSpacer">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayoutReset">
+     <item>
+      <widget class="QPushButton" name="resetAllButton">
+       <property name="toolTip">
+        <string>Reset all fonts and colors to the default values</string>
+       </property>
+       <property name="text">
+        <string>Reset All</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer_2">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>100</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

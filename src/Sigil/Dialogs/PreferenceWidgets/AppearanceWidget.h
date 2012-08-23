@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2009, 2010  Nokia Corporation, Strahinja Markovic
+**  Copyright (C) 2012  John Schember <john@nachtimwald.com>
 **
 **  This file is part of Sigil.
 **
@@ -19,28 +19,42 @@
 **
 *************************************************************************/
 
-#ifndef CSSHIGHLIGHTER_H
-#define CSSHIGHLIGHTER_H
-
-#include <QtGui/QSyntaxHighlighter>
+#pragma once
+#ifndef APPEARANCEWIDGET_H
+#define APPEARANCEWIDGET_H
 
 #include "Misc/SettingsStore.h"
+#include "PreferencesWidget.h"
+#include "ui_PAppearanceWidget.h"
 
-class CSSHighlighter : public QSyntaxHighlighter
+/**
+ * Preferences widget for font/appearance related preferences.
+ */
+class AppearanceWidget : public PreferencesWidget
 {
+    Q_OBJECT
 
 public:
+    AppearanceWidget();
+    void saveSettings();
 
-    explicit CSSHighlighter( QObject *parent );
-
-protected:
-
-    void highlightBlock( const QString& text );
-    void highlight( const QString&, int start, int length, int state );
+private slots:
+    void listWidgetItemChangedSlot(QListWidgetItem *current, QListWidgetItem *previous);
+    void customColorButtonClicked();
+    void resetAllButtonClicked();
 
 private:
+    void readSettings();
+    void loadCodeViewColorsList();
+    void addColorItem(const QString &text, const QColor &color);
+    QColor getListItemColor(const int &row = -1);
+    void displaySelectedColor();
+    void connectSignalsToSlots();
 
     SettingsStore::CodeViewAppearance m_codeViewAppearance;
+    QColor m_currentColor;
+
+    Ui::AppearanceWidget ui;
 };
 
-#endif // CSSHIGHLIGHTER_H
+#endif // APPEARANCEWIDGET_H

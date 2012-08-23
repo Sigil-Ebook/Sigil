@@ -48,16 +48,6 @@ static const QString ATTRIBUTE_NAME         = "[\\w:-]+";
 static const QString ENTITY_BEGIN           = "&";
 static const QString ENTITY_END             = ";";
 
-// TODO: These should probably be user-selectable in some options menu
-static const QColor DOCTYPE_COLOR           = Qt::darkBlue;
-static const QColor HTML_COLOR              = Qt::blue;
-static const QColor HTML_COMMENT_COLOR      = Qt::darkGreen;
-static const QColor CSS_COLOR               = Qt::darkYellow;
-static const QColor CSS_COMMENT_COLOR       = Qt::darkGreen;
-static const QColor ATTRIBUTE_NAME_COLOR    = Qt::darkRed;
-static const QColor ATTRIBUTE_VALUE_COLOR   = Qt::darkCyan;
-static const QColor ENTITY_COLOR            = Qt::darkMagenta;
-
 
 // Constructor
 XHTMLHighlighter::XHTMLHighlighter( bool checkSpelling, QObject *parent )
@@ -65,6 +55,9 @@ XHTMLHighlighter::XHTMLHighlighter( bool checkSpelling, QObject *parent )
       m_checkSpelling(checkSpelling)
 
 {
+    SettingsStore settings;
+    m_codeViewAppearance = settings.codeViewAppearance();
+
     QTextCharFormat html_format;
     QTextCharFormat doctype_format;
     QTextCharFormat html_comment_format;
@@ -74,14 +67,25 @@ XHTMLHighlighter::XHTMLHighlighter( bool checkSpelling, QObject *parent )
     QTextCharFormat attribute_value_format;
     QTextCharFormat entity_format;
 
-    doctype_format        .setForeground( DOCTYPE_COLOR    );
-    html_format           .setForeground( HTML_COLOR            );
-    html_comment_format   .setForeground( HTML_COMMENT_COLOR    );
-    css_format            .setForeground( CSS_COLOR             );
-    css_comment_format    .setForeground( CSS_COMMENT_COLOR     );
-    attribute_name_format .setForeground( ATTRIBUTE_NAME_COLOR  );
-    attribute_value_format.setForeground( ATTRIBUTE_VALUE_COLOR );
-    entity_format         .setForeground( ENTITY_COLOR          );
+    doctype_format        .setForeground( m_codeViewAppearance.xhtml_doctype_color         );
+    html_format           .setForeground( m_codeViewAppearance.xhtml_html_color            );
+    html_comment_format   .setForeground( m_codeViewAppearance.xhtml_html_color            );
+    css_format            .setForeground( m_codeViewAppearance.xhtml_css_color             );
+    css_comment_format    .setForeground( m_codeViewAppearance.xhtml_css_comment_color     );
+    attribute_name_format .setForeground( m_codeViewAppearance.xhtml_attribute_name_color  );
+    attribute_value_format.setForeground( m_codeViewAppearance.xhtml_attribute_value_color );
+    entity_format         .setForeground( m_codeViewAppearance.xhtml_entity_color          );
+
+    if ( m_codeViewAppearance.background_color.isValid() ) {
+        doctype_format        .setBackground( m_codeViewAppearance.background_color        );
+        html_format           .setBackground( m_codeViewAppearance.background_color        );
+        html_comment_format   .setBackground( m_codeViewAppearance.background_color        );
+        css_format            .setBackground( m_codeViewAppearance.background_color        );
+        css_comment_format    .setBackground( m_codeViewAppearance.background_color        );
+        attribute_name_format .setBackground( m_codeViewAppearance.background_color        );
+        attribute_value_format.setBackground( m_codeViewAppearance.background_color        );
+        entity_format         .setBackground( m_codeViewAppearance.background_color        );
+    }
 
     HighlightingRule rule;
 
@@ -485,7 +489,7 @@ void XHTMLHighlighter::HighlightLine( const QString& text, int state )
 void XHTMLHighlighter::CheckSpelling(const QString &text)
 {
     QTextCharFormat format;
-    format.setUnderlineColor(Qt::red);
+    format.setUnderlineColor(m_codeViewAppearance.spelling_underline_color);
     format.setUnderlineStyle(QTextCharFormat::SpellCheckUnderline);
 
     QList< HTMLSpellCheck::MisspelledWord > misspelled_words = HTMLSpellCheck::GetMisspelledWords( text );

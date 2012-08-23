@@ -25,6 +25,8 @@
 
 #include <QtGui/QSyntaxHighlighter>
 
+#include "Misc/SettingsStore.h"
+
 class XHTMLHighlighter : public QSyntaxHighlighter
 {
 
@@ -104,6 +106,8 @@ private:
 
     // Determine if automatic spell check is enabled
     bool m_enableSpellCheck;
+
+    SettingsStore::CodeViewAppearance m_codeViewAppearance;
 };
 
 #endif // XHTMLHIGHLIGHTER_H

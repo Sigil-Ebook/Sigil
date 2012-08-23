@@ -2056,6 +2056,14 @@ void MainWindow::ReadSettings()
     m_ClipboardHistorySelector->LoadClipboardHistory(clipboardHistory);
 
     settings.endGroup();
+
+    // Our default fonts for book view/web preview
+    SettingsStore::BookViewAppearance bookViewAppearance = settings.bookViewAppearance();
+    QWebSettings *web_settings = QWebSettings::globalSettings();
+    web_settings->setFontSize(QWebSettings::DefaultFontSize, bookViewAppearance.font_size);
+    web_settings->setFontFamily(QWebSettings::StandardFont, bookViewAppearance.font_family_standard);
+    web_settings->setFontFamily(QWebSettings::SerifFont, bookViewAppearance.font_family_serif);
+    web_settings->setFontFamily(QWebSettings::SansSerifFont, bookViewAppearance.font_family_sans_serif);
 }
 
 
