@@ -1,4 +1,7 @@
 Sigil 0.6.0 TBA
+    - Implement issue  985: Sigil fonts should be configurable in Preferences.
+    - Implement issue 1248: Code View/CSS should allow colors to be configurable in Preferences.
+    - Implement issue 1153: Highlighted Text in Code view Difficult/Impossible to see.
     - Implement issue 1511: Prompt to replace an image when adding an image that already exists in the book.
     - Implement issue 1542: Add a Go to Style option to jump to the CSS class used by a tag.
     - Implement issue 1541: Heading styles should optionally remove/keep attributes in tags.
