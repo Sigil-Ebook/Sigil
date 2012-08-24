@@ -87,6 +87,7 @@ set( QOBJECT_HEADERS
     Misc/UILanguage.h
     Misc/UpdateChecker.h 
     Misc/RasterizeImageResource.h
+    Misc/WinClipboardErrorHandler.h
     Misc/WrapIndicator.h
     MiscEditors/SearchEditorItemDelegate.h
     MiscEditors/SearchEditorModel.h
@@ -280,6 +281,8 @@ set( MISC_FILES
     Misc/TOCHTMLWriter.cpp
     Misc/TOCHTMLWriter.h
     Misc/NumericItem.h
+    Misc/WinClipboardErrorHandler.h
+    Misc/WinClipboardErrorHandler.cpp
     Misc/WrapIndicator.h
     Misc/SelectImagePreviewer.h
     )

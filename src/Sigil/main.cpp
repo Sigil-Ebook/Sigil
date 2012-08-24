@@ -45,6 +45,12 @@
 #include "sigil_constants.h"
 #include "sigil_exception.h"
 
+#ifdef Q_WS_WIN
+#include "Misc/WinClipboardErrorHandler.h"
+
+static const QString WIN_CLIPBOARD_ERROR = "QClipboard::setMimeData: Failed to set data on clipboard";
+#endif
+
 // Creates a MainWindow instance depending
 // on command line arguments
 static MainWindow* GetMainWindow( const QStringList &arguments )
@@ -88,6 +94,7 @@ static QIcon GetApplicationIcon()
 // The message handler installed to handle Qt messages
 void MessageHandler( QtMsgType type, const char *message )
 {
+    QString error_message;
     switch (type)
     {
         // TODO: should go to a log
@@ -104,7 +111,20 @@ void MessageHandler( QtMsgType type, const char *message )
 
         case QtCriticalMsg:
 
-            Utility::DisplayExceptionErrorDialog( QString( "Critical: %1" ).arg( QString( message ) ) );
+            error_message = QString(message);
+#ifdef Q_WS_WIN
+            // On Windows there is a known issue with the clipboard that results in some copy
+            // operations in control beings intermittently blocked. Rather than presenting
+            // the user with an error dialog, we should simply retry the operation. 
+            // Hopefully this will be fixed in a future Qt version (still broken as of 4.8.2).
+            if ( error_message.startsWith(WIN_CLIPBOARD_ERROR) ) {
+                WinClipboardErrorHandler *handler = new WinClipboardErrorHandler();
+                if (handler->HandleError()) {
+                    break;
+                }
+            }
+#endif
+            Utility::DisplayExceptionErrorDialog( QString( "Critical: %1" ).arg( error_message ) );
             break;
 
         case QtFatalMsg:
