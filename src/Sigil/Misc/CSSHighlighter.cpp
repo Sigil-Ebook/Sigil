@@ -196,40 +196,31 @@ void CSSHighlighter::highlight( const QString &text, int start, int length, int 
         return;
 
     QTextCharFormat format;
-    if ( m_codeViewAppearance.background_color.isValid() ) {
-        format.setBackground( m_codeViewAppearance.background_color );
-    }
 
     switch ( state ) 
     {
         case Selector:
-            format.setForeground( m_codeViewAppearance.css_selector_color );
-            setFormat( start, length, format );
+            setFormat( start, length, m_codeViewAppearance.css_selector_color );
             break;
 
         case Property:
-            format.setForeground( m_codeViewAppearance.css_property_color );
-            setFormat( start, length, format );
+            setFormat( start, length, m_codeViewAppearance.css_property_color );
             break;
 
         case Value:
-            format.setForeground( m_codeViewAppearance.css_value_color );
-            setFormat( start, length, format );
+            setFormat( start, length, m_codeViewAppearance.css_value_color );
             break;
 
         case Pseudo1:
-            format.setForeground( m_codeViewAppearance.css_selector_color );
-            setFormat( start, length, format );
+            setFormat( start, length, m_codeViewAppearance.css_selector_color );
             break;
 
         case Pseudo2:
-            format.setForeground( m_codeViewAppearance.css_selector_color );
-            setFormat( start, length, format );
+            setFormat( start, length, m_codeViewAppearance.css_selector_color );
             break;
 
         case Quote:
-            format.setForeground( m_codeViewAppearance.css_quote_color );
-            setFormat( start, length, format );
+            setFormat( start, length, m_codeViewAppearance.css_quote_color );
             break;
 
         case Comment:
