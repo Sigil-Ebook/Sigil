@@ -113,6 +113,14 @@ public:
 
     QString GetCaretLocationUpdate();
 
+public slots:
+
+    /**
+     * Exposed for the Windows clipboard error workaround to 
+     * retry a clipboard copy operation.
+     */
+    void copy();
+
 signals:
     /**
      * Emitted whenever the zoom factor changes.

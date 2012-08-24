@@ -77,6 +77,11 @@ QString BookViewPreview::GetCaretLocationUpdate()
     return m_CaretLocationUpdate;
 }
 
+void BookViewPreview::copy()
+{
+    page()->triggerAction(QWebPage::Copy);
+}
+
 QSize BookViewPreview::sizeHint() const
 {
     return QSize(16777215, 16777215);

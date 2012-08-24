@@ -46,9 +46,10 @@
 #include "sigil_exception.h"
 
 #ifdef Q_WS_WIN
-#include "Misc/WinClipboardErrorHandler.h"
-
+#include <QtGui/QPlainTextEdit>
+#include "ViewEditors/BookViewPreview.h"
 static const QString WIN_CLIPBOARD_ERROR = "QClipboard::setMimeData: Failed to set data on clipboard";
+static const int RETRY_DELAY_MS = 5;
 #endif
 
 // Creates a MainWindow instance depending
@@ -114,13 +115,24 @@ void MessageHandler( QtMsgType type, const char *message )
             error_message = QString(message);
 #ifdef Q_WS_WIN
             // On Windows there is a known issue with the clipboard that results in some copy
-            // operations in control beings intermittently blocked. Rather than presenting
+            // operations in controls being intermittently blocked. Rather than presenting
             // the user with an error dialog, we should simply retry the operation. 
             // Hopefully this will be fixed in a future Qt version (still broken as of 4.8.2).
             if ( error_message.startsWith(WIN_CLIPBOARD_ERROR) ) {
-                WinClipboardErrorHandler *handler = new WinClipboardErrorHandler();
-                if (handler->HandleError()) {
-                    break;
+                QWidget *widget = QApplication::focusWidget();
+                if (widget) {
+                    QPlainTextEdit *textEdit = dynamic_cast<QPlainTextEdit*>(widget);
+                    if (textEdit) {
+                        QTimer::singleShot(RETRY_DELAY_MS, textEdit, SLOT(copy()));
+                        break;
+                    }
+                    // BV/PV copying is a little different, in that the focus widget is set to
+                    // the parent editor (unlike CodeView's QPlainTextEdit).
+                    BookViewPreview *bookViewPreview = dynamic_cast<BookViewPreview*>(widget);
+                    if (bookViewPreview) {
+                        QTimer::singleShot(RETRY_DELAY_MS, bookViewPreview, SLOT(copy()));
+                        break;
+                    }
                 }
             }
 #endif
