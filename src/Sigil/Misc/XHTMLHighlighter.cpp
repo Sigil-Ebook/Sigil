@@ -76,17 +76,6 @@ XHTMLHighlighter::XHTMLHighlighter( bool checkSpelling, QObject *parent )
     attribute_value_format.setForeground( m_codeViewAppearance.xhtml_attribute_value_color );
     entity_format         .setForeground( m_codeViewAppearance.xhtml_entity_color          );
 
-    if ( m_codeViewAppearance.background_color.isValid() ) {
-        doctype_format        .setBackground( m_codeViewAppearance.background_color        );
-        html_format           .setBackground( m_codeViewAppearance.background_color        );
-        html_comment_format   .setBackground( m_codeViewAppearance.background_color        );
-        css_format            .setBackground( m_codeViewAppearance.background_color        );
-        css_comment_format    .setBackground( m_codeViewAppearance.background_color        );
-        attribute_name_format .setBackground( m_codeViewAppearance.background_color        );
-        attribute_value_format.setBackground( m_codeViewAppearance.background_color        );
-        entity_format         .setBackground( m_codeViewAppearance.background_color        );
-    }
-
     HighlightingRule rule;
 
     rule.pattern = QRegExp( DOCTYPE_BEGIN );
