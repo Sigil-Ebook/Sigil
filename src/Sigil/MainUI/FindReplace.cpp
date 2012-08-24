@@ -109,7 +109,7 @@ void FindReplace::SetFocus()
 
 bool FindReplace::HasFocus()
 {
-    ui.cbFind->lineEdit()->hasFocus();
+    return ui.cbFind->lineEdit()->hasFocus();
 }
 
 
