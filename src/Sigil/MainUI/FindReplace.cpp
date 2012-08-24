@@ -96,7 +96,20 @@ void FindReplace::SetUpFindText()
 
     // Find text should be selected by default
     ui.cbFind->lineEdit()->selectAll();
+
+    SetFocus();
+}
+
+
+void FindReplace::SetFocus()
+{
     ui.cbFind->lineEdit()->setFocus( Qt::ShortcutFocusReason );
+}
+
+
+bool FindReplace::HasFocus()
+{
+    ui.cbFind->lineEdit()->hasFocus();
 }
 
 
@@ -478,6 +491,8 @@ bool FindReplace::ReplaceText( Searchable::Direction direction )
 
 void FindReplace::SetCodeViewIfNeeded( bool force )
 {
+    bool has_focus = HasFocus();
+
     if ( force ||
             ( ( GetLookWhere() == FindFields::LookWhere_AllHTMLFiles || 
                     GetLookWhere() == FindFields::LookWhere_SelectedHTMLFiles ) &&
@@ -486,6 +501,9 @@ void FindReplace::SetCodeViewIfNeeded( bool force )
     {
         // Force change to Code View
         m_MainWindow.AnyCodeView();
+        if (has_focus) {
+            SetFocus();
+        }
     }
 }
 
@@ -623,6 +641,9 @@ bool FindReplace::FindInAllFiles( Searchable::Direction direction )
 
         if ( containing_resource )
         {
+            // Save if editor or F&R has focus
+            bool has_focus = HasFocus();
+
             // Save selected resources since opening tabs changes selection
             QList<Resource *>selected_resources = GetHTMLFiles();
 
@@ -639,6 +660,11 @@ bool FindReplace::FindInAllFiles( Searchable::Direction direction )
             if ( GetLookWhere() == FindFields::LookWhere_SelectedHTMLFiles )
             {
                 m_MainWindow.SelectResources(selected_resources);
+            }
+
+            // Reset focus to F&R if it had it
+            if (has_focus) {
+                SetFocus();
             }
 
             searchable = GetAvailableSearchable();

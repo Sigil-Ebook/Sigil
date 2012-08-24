@@ -230,6 +230,9 @@ private:
      */
     void ConnectSignalsToSlots();
 
+    void SetFocus();
+    bool HasFocus();
+
     ///////////////////////////////
     // PRIVATE MEMBER VARIABLES
     ///////////////////////////////
