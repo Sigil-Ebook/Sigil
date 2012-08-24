@@ -1,5 +1,5 @@
 Sigil 0.6.0 TBA
-    - Implement issue  985: Sigil fonts should be configurable in Preferences.
+    - Implement issue 985:  Sigil fonts should be configurable in Preferences.
     - Implement issue 1248: Code View/CSS should allow colors to be configurable in Preferences.
     - Implement issue 1153: Highlighted Text in Code view Difficult/Impossible to see.
     - Implement issue 1511: Prompt to replace an image when adding an image that already exists in the book.
@@ -76,6 +76,7 @@ Sigil 0.6.0 TBA
     - Implement issue 1378: Update Hunspell to 1.3.2.
     - Implement issue 1379: Update Boost to Boost 1.49.0.
     - Implement issue 1283: Spell check should have an ignore option.
+    - Fix issue 940: Copy/paste failure on Windows.
     - Fix issue 425: Shift+ PgUp/PgDn does not work in text editor.
     - Fix issue 1390: Image is not updated until restart if deleted and re-added.
     - Fix issue 1413: Crashes when opening a particular epub.
