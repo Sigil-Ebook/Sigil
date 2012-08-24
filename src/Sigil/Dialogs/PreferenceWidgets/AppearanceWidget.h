@@ -1,6 +1,7 @@
 /************************************************************************
 **
 **  Copyright (C) 2012  John Schember <john@nachtimwald.com>
+**  Copyright (C) 2012  Grant Drake
 **
 **  This file is part of Sigil.
 **
@@ -39,7 +40,6 @@ public:
     void saveSettings();
 
 private slots:
-    void listWidgetItemChangedSlot(QListWidgetItem *current, QListWidgetItem *previous);
     void customColorButtonClicked();
     void resetAllButtonClicked();
 
@@ -48,7 +48,6 @@ private:
     void loadCodeViewColorsList();
     void addColorItem(const QString &text, const QColor &color);
     QColor getListItemColor(const int &row = -1);
-    void displaySelectedColor();
     void connectSignalsToSlots();
 
     SettingsStore::CodeViewAppearance m_codeViewAppearance;
