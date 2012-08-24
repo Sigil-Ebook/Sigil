@@ -47,7 +47,7 @@ public:
         }
         
         QString text = index.data(Qt::DisplayRole).toString();
-        QRect r = option.rect.adjusted(20, 0, 0, 0);
+        QRect r = option.rect.adjusted(option.rect.height() + 4, 0, -4 - option.rect.height(), 0);
         painter->drawText(r.left(), r.top(), r.width(), r.height(), Qt::AlignVCenter|Qt::AlignLeft, text, &r);
 
         QColor swatch_color = index.data(Qt::UserRole).value<QColor>();
@@ -81,15 +81,6 @@ AppearanceWidget::AppearanceWidget()
 {
     ui.setupUi(this);
 
-    // Font size comboboxes
-    QList<int> fontSizes;
-    fontSizes << 6 << 7 << 8 << 9 << 10 << 11 << 12 << 13 << 14 << 15 << 16 << 
-                17 << 18 << 19 << 20 << 22 << 24 << 28 << 32 << 36 << 40;
-    foreach( int font_size, fontSizes )
-    {
-        ui.cbBookViewFontSize->addItem(QString::number(font_size));
-        ui.cbCodeViewFontSize->addItem(QString::number(font_size));
-    }
     // Custom delegate for painting the color swatches
     ui.codeViewColorsList->setItemDelegate(new ColorSwatchDelegate(ui.codeViewColorsList));
 
@@ -107,13 +98,13 @@ void AppearanceWidget::saveSettings()
     bookViewAppearance.font_family_standard     = ui.cbBookViewFontStandard->currentText();
     bookViewAppearance.font_family_serif        = ui.cbBookViewFontSerif->currentText();
     bookViewAppearance.font_family_sans_serif   = ui.cbBookViewFontSansSerif->currentText();
-    bookViewAppearance.font_size                = ui.cbBookViewFontSize->currentText().toInt();
+    bookViewAppearance.font_size                = ui.bookViewFontSizeSpin->value();
     settings.setBookViewAppearance( bookViewAppearance );
 
     SettingsStore::CodeViewAppearance codeViewAppearance;
 
     codeViewAppearance.font_family = ui.cbCodeViewFont->currentText();
-    codeViewAppearance.font_size = ui.cbCodeViewFontSize->currentText().toInt();
+    codeViewAppearance.font_size = ui.codeViewFontSizeSpin->value();
 
     int i = 0;
     codeViewAppearance.background_color             = getListItemColor(i++);
@@ -196,8 +187,7 @@ void AppearanceWidget::readSettings()
     }
     ui.cbBookViewFontStandard->setCurrentIndex( index );
 
-    index = ui.cbBookViewFontSize->findText( QString::number(bookViewAppearance.font_size) );
-    ui.cbBookViewFontSize->setCurrentIndex( index );
+    ui.bookViewFontSizeSpin->setValue( bookViewAppearance.font_size );
 
     index = ui.cbBookViewFontSerif->findText( bookViewAppearance.font_family_serif );
     if ( index == -1 ) {
@@ -228,8 +218,7 @@ void AppearanceWidget::readSettings()
     }
     ui.cbCodeViewFont->setCurrentIndex( index );
  
-    index = ui.cbCodeViewFontSize->findText( QString::number(m_codeViewAppearance.font_size) );
-    ui.cbCodeViewFontSize->setCurrentIndex( index );
+    ui.codeViewFontSizeSpin->setValue( m_codeViewAppearance.font_size );
 }
 
 void AppearanceWidget::loadCodeViewColorsList()
@@ -255,7 +244,7 @@ void AppearanceWidget::loadCodeViewColorsList()
     addColorItem( tr( "XHTML CSS Comment" ),     m_codeViewAppearance.xhtml_css_comment_color );
     addColorItem( tr( "XHTML DocType" ),         m_codeViewAppearance.xhtml_doctype_color );
     addColorItem( tr( "XHTML Entity" ),          m_codeViewAppearance.xhtml_entity_color );
-    addColorItem( tr( "XHTML HTML" ),            m_codeViewAppearance.xhtml_html_color );
+    addColorItem( tr( "XHTML HTML Tag" ),        m_codeViewAppearance.xhtml_html_color );
     addColorItem( tr( "XHTML HTML Comment" ),    m_codeViewAppearance.xhtml_html_comment_color );
 
     ui.codeViewColorsList->setCurrentRow(0);
