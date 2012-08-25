@@ -217,6 +217,7 @@ void AppearanceWidget::readSettings()
         }
     }
     ui.cbCodeViewFont->setCurrentIndex( index );
+    m_codeViewAppearance.font_family = ui.cbCodeViewFont->currentText();
  
     ui.codeViewFontSizeSpin->setValue( m_codeViewAppearance.font_size );
 }
