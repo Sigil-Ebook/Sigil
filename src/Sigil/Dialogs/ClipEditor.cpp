@@ -68,14 +68,10 @@ void ClipEditor::SetupClipEditorTree()
         "<p>" + tr("You can also right click in Code View to select an entry.") + "</p>" +
         "<dl>" +
         "<dt><b>" + tr("Name") + "</b><dd>" + tr("Name of your entry or group.") + "</dd>" +
-        "<dt><b>" + tr("Description") + "</b><dd>" + tr("Optional.") + "</dd>" +
-        "<dt><b>" + tr("Text") + "</b><dd>" + tr("The text to insert. Use \\0 to include selected text.") + "</dd>" +
+        "<dt><b>" + tr("Text") + "</b><dd>" + tr("The text to insert. The text is treated like a Regex replacement expression so \\1 can be used to insert the text selected in Code View when you paste the clip.") + "</dd>" +
         "</dl>");
 
     ui.ClipEditorTree->header()->setStretchLastSection(true);
-    for (int column = 0; column < ui.ClipEditorTree->header()->count(); column++) {
-        ui.ClipEditorTree->resizeColumnToContents(column);
-    }
 }
 
 bool ClipEditor::SaveData(QList<ClipEditorModel::clipEntry*> entries, QString filename)
@@ -101,6 +97,10 @@ void ClipEditor::showEvent(QShowEvent *event)
     ui.Filter->setCurrentIndex(0);
     ui.FilterText->clear();
     ui.FilterText->setFocus();
+
+    for (int column = 0; column < ui.ClipEditorTree->header()->count() - 1; column++) {
+        ui.ClipEditorTree->resizeColumnToContents(column);
+    }
 }
 
 int ClipEditor::SelectedRowsCount()
@@ -238,7 +238,6 @@ bool ClipEditor::Copy()
         ClipEditorModel::clipEntry *save_entry = new ClipEditorModel::clipEntry();
         save_entry->name = entry->name;
         save_entry->is_group = entry->is_group;
-        save_entry->description = entry->description;
         save_entry->text = entry->text;
         m_SavedClipEntries.append(save_entry);
     }
@@ -413,7 +412,6 @@ bool ClipEditor::FilterEntries(const QString &text, QStandardItem *item)
         }
         else {
             hidden = !(text.isEmpty() || entry->name.toLower().contains(lowercaseText) ||
-                       entry->description.toLower().contains(lowercaseText) ||
                        entry->text.toLower().contains(lowercaseText));
         }
         ui.ClipEditorTree->setRowHidden(item->row(), parent_index, hidden);
@@ -486,17 +484,6 @@ void ClipEditor::ReadSettings()
         restoreGeometry(geometry);
     }
 
-    // Column widths
-    int size = settings.beginReadArray("column_data");
-    for (int column = 0; column < size && column < ui.ClipEditorTree->header()->count(); column++) {
-        settings.setArrayIndex(column);
-        int column_width = settings.value("width").toInt();
-        if (column_width) {
-            ui.ClipEditorTree->setColumnWidth(column, column_width);
-        }
-    }
-    settings.endArray();
-
     // Last folder open
     m_LastFolderOpen = settings.value("last_folder_open").toString();
 
@@ -510,14 +497,6 @@ void ClipEditor::WriteSettings()
 
     // The size of the window and it's full screen status
     settings.setValue("geometry", saveGeometry());
-
-    // Column widths
-    settings.beginWriteArray("column_data");
-    for (int column = 0; column < ui.ClipEditorTree->header()->count(); column++) {
-        settings.setArrayIndex(column);
-        settings.setValue("width", ui.ClipEditorTree->columnWidth(column));
-    }
-    settings.endArray();
 
     // Last folder open
     settings.setValue( "last_folder_open", m_LastFolderOpen);

@@ -28,10 +28,9 @@
 
 static const QString SETTINGS_GROUP         = "clip_entries";
 static const QString ENTRY_NAME             = "Name";
-static const QString ENTRY_DESCRIPTION      = "Description";
 static const QString ENTRY_TEXT             = "Text";
 
-const int COLUMNS = 3;
+const int COLUMNS = 2;
 
 static const int IS_GROUP_ROLE = Qt::UserRole + 1;
 static const int FULLNAME_ROLE = Qt::UserRole + 2;
@@ -274,7 +273,6 @@ void ClipEditorModel::LoadInitialData()
 
     QStringList header;
     header.append(tr("Name"));
-    header.append(tr("Description"));
     header.append(tr("Text"));
 
     setHorizontalHeaderLabels(header);
@@ -313,7 +311,6 @@ void ClipEditorModel::LoadData(QString filename, QStandardItem *item)
         // Name is set to fullname only while looping through parent groups when adding
         entry->name = fullname;
         entry->fullname = fullname;
-        entry->description = settings->value(ENTRY_DESCRIPTION).toString();
         entry->text = settings->value(ENTRY_TEXT).toString();
 
         AddFullNameEntry(entry, item);
@@ -383,7 +380,6 @@ QStandardItem *ClipEditorModel::AddEntryToModel(ClipEditorModel::clipEntry *entr
     if (!entry) {
         entry = new ClipEditorModel::clipEntry();
         entry->is_group = is_group;
-        entry->description = "";
         if (!is_group) {
             entry->name = "Text";
             entry->text = "";
@@ -413,8 +409,7 @@ QStandardItem *ClipEditorModel::AddEntryToModel(ClipEditorModel::clipEntry *entr
         group_item->setFont(font);
 
         rowItems << group_item;
-        rowItems << new QStandardItem(entry->description);
-        for (int col = 2; col < COLUMNS ; col++) {
+        for (int col = 1; col < COLUMNS ; col++) {
             QStandardItem *item = new QStandardItem("");
             item->setEditable(false);
             rowItems << item;
@@ -422,7 +417,6 @@ QStandardItem *ClipEditorModel::AddEntryToModel(ClipEditorModel::clipEntry *entr
     }
     else {
         rowItems << new QStandardItem(entry->name);
-        rowItems << new QStandardItem(entry->description);
         rowItems << new QStandardItem(entry->text);
     }
 
@@ -543,8 +537,7 @@ ClipEditorModel::clipEntry* ClipEditorModel::GetEntry(QStandardItem *item)
     entry->is_group =    parent_item->child(item->row(), 0)->data(IS_GROUP_ROLE).toBool();
     entry->fullname =    parent_item->child(item->row(), 0)->data(FULLNAME_ROLE).toString();
     entry->name =        parent_item->child(item->row(), 0)->text();
-    entry->description = parent_item->child(item->row(), 1)->text();
-    entry->text =        parent_item->child(item->row(), 2)->text();
+    entry->text =        parent_item->child(item->row(), 1)->text();
 
     // Convert the mode values from translated text into enumerated modes
 
@@ -617,7 +610,6 @@ QString ClipEditorModel::SaveData(QList<ClipEditorModel::clipEntry*> entries, QS
     foreach (ClipEditorModel::clipEntry *entry, entries) {
         settings->setArrayIndex(i++);
         settings->setValue(ENTRY_NAME, entry->fullname);
-        settings->setValue(ENTRY_DESCRIPTION, entry->description);
 
         if (!entry->is_group) {
             settings->setValue(ENTRY_TEXT, entry->text);

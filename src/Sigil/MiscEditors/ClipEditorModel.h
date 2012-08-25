@@ -43,7 +43,6 @@ public:
         bool is_group;
         QString fullname;
         QString name;
-        QString description;
         QString text;
     };
 

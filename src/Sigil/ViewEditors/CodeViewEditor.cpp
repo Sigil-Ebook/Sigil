@@ -1469,9 +1469,9 @@ void CodeViewEditor::PasteClipEntry(ClipEditorModel::clipEntry *clip)
     if (selected_text.isEmpty()) {
 
         // Allow users to use the same entry for insert/replace
-        // Will not handle complicated regex, but good for tags like <p>\0</p>
+        // Will not handle complicated regex, but good for tags like <p>\1</p>
         QString replacement_text = clip->text;
-        replacement_text.remove(QString("\\0"));
+        replacement_text.remove(QString("\\1"));
 
         cursor.beginEditBlock();
         cursor.removeSelectedText();
@@ -1480,7 +1480,7 @@ void CodeViewEditor::PasteClipEntry(ClipEditorModel::clipEntry *clip)
         setTextCursor( cursor );
     }
     else {
-        QString search_regex = "(?s).*";
+        QString search_regex = "(?s)(.*)";
         ReplaceSelected(search_regex, clip->text, Searchable::Direction_Down );
     }
 }
