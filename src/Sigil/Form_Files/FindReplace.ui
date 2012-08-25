@@ -297,13 +297,13 @@
  <tabstops>
   <tabstop>cbFind</tabstop>
   <tabstop>cbReplace</tabstop>
+  <tabstop>cbSearchMode</tabstop>
+  <tabstop>cbLookWhere</tabstop>
+  <tabstop>cbSearchDirection</tabstop>
   <tabstop>findNext</tabstop>
   <tabstop>replaceNext</tabstop>
   <tabstop>count</tabstop>
   <tabstop>replaceAll</tabstop>
-  <tabstop>cbSearchMode</tabstop>
-  <tabstop>cbLookWhere</tabstop>
-  <tabstop>cbSearchDirection</tabstop>
   <tabstop>close</tabstop>
  </tabstops>
  <resources>
