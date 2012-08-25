@@ -358,6 +358,20 @@
    </attribute>
    <addaction name="actionDonate"/>
   </widget>
+  <widget class="QToolBar" name="toolBarTools">
+   <property name="windowTitle">
+    <string>Quick Settings</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionAutoSpellCheck"/>
+   <addaction name="actionSpellCheck"/>
+   <addaction name="actionValidateEpub"/>
+  </widget>
   <widget class="QToolBar" name="toolBarHeadings">
    <property name="windowTitle">
     <string>Heading</string>
@@ -433,20 +447,6 @@
    </attribute>
    <addaction name="actionDecreaseIndent"/>
    <addaction name="actionIncreaseIndent"/>
-  </widget>
-  <widget class="QToolBar" name="toolBarTools">
-   <property name="windowTitle">
-    <string>Quick Settings</string>
-   </property>
-   <attribute name="toolBarArea">
-    <enum>TopToolBarArea</enum>
-   </attribute>
-   <attribute name="toolBarBreak">
-    <bool>false</bool>
-   </attribute>
-   <addaction name="actionAutoSpellCheck"/>
-   <addaction name="actionSpellCheck"/>
-   <addaction name="actionValidateEpub"/>
   </widget>
   <action name="actionNew">
    <property name="icon">
@@ -1078,7 +1078,7 @@
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Increase the indent level of the paragraph.&lt;/p&gt;</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+M</string>
+    <string>Ctrl+Alt+M</string>
    </property>
   </action>
   <action name="actionDecreaseIndent">
@@ -1237,7 +1237,7 @@
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Find the next misspelled word in Code View.&lt;/p&gt;</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+Shift+S</string>
+    <string>Ctrl+Alt+S</string>
    </property>
   </action>
 
