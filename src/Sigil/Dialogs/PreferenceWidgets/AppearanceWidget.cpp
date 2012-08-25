@@ -48,7 +48,7 @@ public:
         
         QString text = index.data(Qt::DisplayRole).toString();
         QRect r = option.rect.adjusted(option.rect.height() + 4, 0, -4 - option.rect.height(), 0);
-        painter->drawText(r.left(), r.top(), r.width(), r.height(), Qt::AlignVCenter|Qt::AlignLeft, text, &r);
+        painter->drawText(r, Qt::AlignVCenter|Qt::AlignLeft, text, &r);
 
         QColor swatch_color = index.data(Qt::UserRole).value<QColor>();
         if (!swatch_color.isValid()) {
@@ -253,7 +253,7 @@ void AppearanceWidget::loadCodeViewColorsList()
 
 void AppearanceWidget::addColorItem(const QString &text, const QColor &color)
 {
-    QListWidgetItem *listItem = new QListWidgetItem(text);
+    QListWidgetItem *listItem = new QListWidgetItem(text, ui.codeViewColorsList);
     listItem->setData(Qt::UserRole, color);
     ui.codeViewColorsList->addItem(listItem); 
 }
@@ -272,9 +272,9 @@ QColor AppearanceWidget::getListItemColor(const int &row)
 
 void AppearanceWidget::customColorButtonClicked()
 {
-    QColorDialog *colorDlg = new QColorDialog(getListItemColor(), this);
-    if (colorDlg->exec() == QDialog::Accepted) {
-        ui.codeViewColorsList->currentItem()->setData(Qt::UserRole, colorDlg->selectedColor());
+    QColorDialog colorDlg(getListItemColor(), this);
+    if (colorDlg.exec() == QDialog::Accepted) {
+        ui.codeViewColorsList->currentItem()->setData(Qt::UserRole, colorDlg.selectedColor());
     }
 }
 
