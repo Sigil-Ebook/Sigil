@@ -42,9 +42,9 @@ public:
     // If this is an action this is the text that will display when the
     // action is part of a menu.
     QString name;
-    // Short text desciription what command 'does'.
+    // Short text description what command 'does'.
     QString description;
-    // KeySequnce that is assigned.
+    // KeySequence that is assigned.
     QKeySequence keySequence;
     // Default KeySequence used when "resetting" the shortcut.
     QKeySequence defaultKeySequence;

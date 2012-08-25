@@ -51,6 +51,7 @@ void KeyboardShortcutManager::registerAction(QAction *action, const QString &id,
     QString desc = description;
     bool defined = false;
 
+    restoreSavedShortcutForId(id);
     if (m_shortcuts.contains(id)) {
         s = m_shortcuts.value(id);
         defined = true;
@@ -89,6 +90,7 @@ void KeyboardShortcutManager::registerShortcut(QShortcut *shortcut, const QStrin
     QString desc = description;
     bool defined = false;
 
+    restoreSavedShortcutForId(id);
     if (m_shortcuts.contains(id)) {
         s = m_shortcuts.value(id);
         defined = true;
@@ -147,7 +149,7 @@ bool KeyboardShortcutManager::setKeySequence(const QString &id, const QKeySequen
         }
         else {
             // The keysequence for a shortcut will be in use if it was set from
-            // a saved state but we still need to regeister it. Only stop here
+            // a saved state but we still need to register it. Only stop here
             // if this keysequence doens't match the one for the shortcut we're
             // looking at.
             if (m_shortcuts[id].keySequence() != keySequence) {
@@ -204,6 +206,7 @@ void KeyboardShortcutManager::setDescription(const QString &id, const QString &d
 void KeyboardShortcutManager::unregisterId(const QString &id)
 {
     m_shortcuts.remove(id);
+    m_savedShortcuts.remove(id);
 }
 
 void KeyboardShortcutManager::unregisterAction(QAction *action)
@@ -245,6 +248,7 @@ void KeyboardShortcutManager::unregisterShortcut(QShortcut *shortcut)
 void KeyboardShortcutManager::unregisterAll()
 {
     m_shortcuts.clear();
+    m_savedShortcuts.clear();
 }
 
 KeyboardShortcut KeyboardShortcutManager::keyboardShortcut(const QString &id)
@@ -337,8 +341,16 @@ void KeyboardShortcutManager::readSettings()
         const QKeySequence keySequence(settings.value("keySequence").toString());
 
         KeyboardShortcut s = createShortcut(keySequence);
-        m_shortcuts.insert(id, s);
+        m_savedShortcuts.insert(id, s);
     }
 
     settings.endArray();
+}
+
+void KeyboardShortcutManager::restoreSavedShortcutForId(const QString &id)
+{
+    if (m_savedShortcuts.contains(id)) {
+        m_shortcuts.insert(id, m_savedShortcuts.value(id));
+        m_savedShortcuts.remove(id);
+    }
 }

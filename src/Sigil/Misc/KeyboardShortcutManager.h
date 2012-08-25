@@ -34,7 +34,7 @@ class QShortcut;
 class QStringlist;
 
 /**
- * Managers keyboard short cuts for the application.
+ * Manages keyboard shortcuts for the application.
  *
  * Example:
  * KeyboardShortcutManager *sm = KeyboardShortcutManager::instance();
@@ -195,12 +195,24 @@ private:
     KeyboardShortcut createShortcut(const QKeySequence &keySequence, const QKeySequence &defaultKeySequence=QKeySequence(), const QString &description=QString());
 
     /**
-     * Loads settings form persistant storage for use.
+     * Loads settings from persistent storage for use.
      */
     void readSettings();
 
+    /**
+     * If stored as a previously saved setting, copy to our current settings.
+     */
+    void restoreSavedShortcutForId(const QString &id);
+
     // Tracks the KeyboardShortcuts we are managing.
     QHash<QString, KeyboardShortcut> m_shortcuts;
+    
+    // Tracks the last saved shortcuts. The ini file may contain shortcuts from
+    // older versions of Sigil which we will want removed to avoid issues.
+    // A saved shortcut will be ignored until its id has been registered by Sigil
+    // application code.
+    QHash<QString, KeyboardShortcut> m_savedShortcuts;
+
     static KeyboardShortcutManager *m_instance;
 };
 
