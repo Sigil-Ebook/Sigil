@@ -120,7 +120,9 @@ public:
      */
     virtual bool ExecuteCaretUpdate() { return false; }
     virtual bool ExecuteCaretUpdateAfterLoad() { return false; }
-    
+
+public slots:
+
     virtual void PasteFromClipboard() {}
 };
 

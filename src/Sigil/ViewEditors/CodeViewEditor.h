@@ -248,8 +248,6 @@ public:
      * @param element_name The name of the element to toggle the format of the selection.
      */
     void ToggleFormatSelection( const QString &element_name );
-
-    void PasteFromClipboard();
     	
 signals:
 
@@ -300,6 +298,8 @@ public slots:
     void PasteClipEntryFromName(QString name);
     void PasteClipEntries(QList<ClipEditorModel::clipEntry *> clips);
     void PasteClipEntry(ClipEditorModel::clipEntry *clip);
+
+    void PasteFromClipboard();
 
 protected:
 

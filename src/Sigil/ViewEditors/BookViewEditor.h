@@ -29,7 +29,9 @@
 #include "ViewEditors/BookViewPreview.h"
 #include "ViewEditors/ViewEditor.h"
 
+class QAction;
 class QEvent;
+class QMenu;
 class QSize;
 class QShortcut;
 
@@ -166,8 +168,6 @@ public:
      */
     QString GetCaretElementName();
 
-    void PasteFromClipboard();
-
 public slots:
     /**
      * Filters the text changed signals by the CKEditor inside of the page
@@ -181,6 +181,10 @@ public slots:
      * Javascript inside of the web page.
      */
     void TextChangedFilter();
+
+    void cut();
+    void PasteFromClipboard();
+    void selectAll();
 
 signals:
     /**
@@ -235,6 +239,13 @@ private slots:
      */
     void SetWebPageModified( bool modified = true );
 
+    /**
+     * Opens the context menu at the requested point.
+     *
+     * @param point The point at which the menu should be opened.
+     */
+    void OpenContextMenu( const QPoint &point );
+
 private:
     /**
      * Escapes JavaScript string special characters.
@@ -275,6 +286,20 @@ private:
     QString RemoveBookViewReplaceSpans( const QString &source );
 
     /**
+     * Creates all the context menu actions.
+     */
+    void CreateContextMenuActions();
+
+    /**
+     * Tries to setup the context menu for the specified point,
+     * and returns true on success.
+     *
+     * @param point The point at which the menu should be opened.
+     * @return \c true if the menu could be set up.
+     */
+    bool SuccessfullySetupContextMenu( const QPoint &point );
+
+    /**
      * Connects all the required signals to their respective slots.
      */
     void ConnectSignalsToSlots();
@@ -299,6 +324,22 @@ private:
      * \c true if the WebPage was modified by the user.
      */
     bool m_WebPageModified;
+
+    /**
+     * The right-click context menu. Do not want to use the Qt default one
+     * because it has duplicate entries (in Qt 4.8), has context sensitive
+     * entries on links that make no sense in Sigil, and we may add custom
+     * entries to the menu anyway.
+     */
+    QMenu &m_ContextMenu;
+
+    /**
+     * The context menu actions.
+     */
+    QAction *m_Cut;
+    QAction *m_Copy;
+    QAction *m_Paste;
+    QAction *m_SelectAll;
 
     /**
      * Keyboard shortcut for scrolling one line up.

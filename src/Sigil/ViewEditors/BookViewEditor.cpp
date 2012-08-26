@@ -24,6 +24,7 @@
 #include <QtCore/QEvent>
 #include <QtGui/QDesktopServices>
 #include <QtGui/QKeyEvent>
+#include <QtGui/QMenu>
 #include <QtGui/QMessageBox>
 #include <QtGui/QShortcut>
 #include <QtGui/QTextDocument>
@@ -65,18 +66,20 @@ BookViewEditor::BookViewEditor(QWidget *parent)
     :
     BookViewPreview(parent),
     m_WebPageModified( false ),
+    m_ContextMenu( *new QMenu( this ) ),
     m_ScrollOneLineUp(   *( new QShortcut( QKeySequence( Qt::ControlModifier + Qt::Key_Up   ), this, 0, 0, Qt::WidgetShortcut ) ) ),
     m_ScrollOneLineDown( *( new QShortcut( QKeySequence( Qt::ControlModifier + Qt::Key_Down ), this, 0, 0, Qt::WidgetShortcut ) ) ),
     c_GetSegmentHTML(   Utility::ReadUnicodeTextFile( ":/javascript/get_segment_html.js"           ) ),
     c_GetBlock(         Utility::ReadUnicodeTextFile( ":/javascript/get_block.js"                  ) ),
     c_FormatBlock(      Utility::ReadUnicodeTextFile( ":/javascript/format_block.js"               ) )
 {
-    setContextMenuPolicy(Qt::DefaultContextMenu);
-    page()->settings()->setAttribute(QWebSettings::DeveloperExtrasEnabled, false);
-    page()->settings()->setAttribute(QWebSettings::JavascriptCanAccessClipboard, true);
+    setContextMenuPolicy( Qt::CustomContextMenu );
+    page()->settings()->setAttribute( QWebSettings::DeveloperExtrasEnabled, false );
+    page()->settings()->setAttribute (QWebSettings::JavascriptCanAccessClipboard, true );
     page()->settings()->setAttribute( QWebSettings::LocalContentCanAccessRemoteUrls, false );
     page()->settings()->setAttribute( QWebSettings::ZoomTextOnly, true );
 
+    CreateContextMenuActions();
     ConnectSignalsToSlots();
 }
 
@@ -428,9 +431,52 @@ QString BookViewEditor::GetCaretElementName()
     return EvaluateJavascript( c_GetBlock % javascript ).toString();
 }
 
+void BookViewEditor::cut()
+{
+    page()->triggerAction( QWebPage::Cut );
+}
+
 void BookViewEditor::PasteFromClipboard()
 {
     page()->triggerAction( QWebPage::Paste );
+}
+
+void BookViewEditor::selectAll()
+{
+    page()->triggerAction( QWebPage::SelectAll );
+}
+
+void BookViewEditor::OpenContextMenu( const QPoint &point )
+{
+    if ( !SuccessfullySetupContextMenu( point ) )
+
+        return;
+
+    m_ContextMenu.exec( mapToGlobal(point) );
+    m_ContextMenu.clear();
+}
+
+bool BookViewEditor::SuccessfullySetupContextMenu( const QPoint &point )
+{
+    m_ContextMenu.addAction( m_Cut );
+    m_ContextMenu.addAction( m_Copy );
+    m_ContextMenu.addAction( m_Paste );
+    m_ContextMenu.addSeparator();
+    m_ContextMenu.addAction( m_SelectAll );
+
+    bool has_selection = !selectedText().isEmpty();
+    m_Cut->setEnabled(has_selection);
+    m_Copy->setEnabled(has_selection);
+
+    return true;
+}
+
+void BookViewEditor::CreateContextMenuActions()
+{
+    m_Cut       = new QAction( tr( "Cut" ),         this );
+    m_Copy      = new QAction( tr( "Copy" ),        this );
+    m_Paste     = new QAction( tr( "Paste" ),       this );
+    m_SelectAll = new QAction( tr( "Select All" ),  this );
 }
 
 void BookViewEditor::ConnectSignalsToSlots()
@@ -443,4 +489,10 @@ void BookViewEditor::ConnectSignalsToSlots()
     connect( page(), SIGNAL( selectionChanged() ),      this,   SIGNAL( selectionChanged()       ) );
 
     connect( page(), SIGNAL( contentsChanged()  ),      this,   SLOT( SetWebPageModified()       ) );
+
+    connect( this,        SIGNAL( customContextMenuRequested(const QPoint&) ),  this, SLOT( OpenContextMenu(const QPoint&) ) );
+    connect( m_Cut,       SIGNAL( triggered() ),  this, SLOT( cut()                 ) );
+    connect( m_Copy,      SIGNAL( triggered() ),  this, SLOT( copy()                ) );
+    connect( m_Paste,     SIGNAL( triggered() ),  this, SLOT( PasteFromClipboard()  ) );
+    connect( m_SelectAll, SIGNAL( triggered() ),  this, SLOT( selectAll()           ) );
 }
