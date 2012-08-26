@@ -343,6 +343,8 @@ private:
      */
     SearchTools GetSearchTools() const;    
 
+    void StoreCurrentCaretLocation();
+
     ///////////////////////////////
     // PRIVATE MEMBER VARIABLES
     ///////////////////////////////

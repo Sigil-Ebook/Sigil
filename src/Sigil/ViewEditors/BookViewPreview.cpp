@@ -90,6 +90,7 @@ QSize BookViewPreview::sizeHint() const
 void BookViewPreview::CustomSetDocument(const QString &path, const QString &html)
 {
     m_pendingLoadCount += 1;
+    StoreCurrentCaretLocation();
     m_isLoadFinished = false;
     // If Tidy is turned off, then Sigil will explode if there is no xmlns 
     // on the <html> element. So we will silently add it if needed to ensure
@@ -482,6 +483,15 @@ QList< ViewEditor::ElementIndex > BookViewPreview::GetCaretLocation()
         caret_location.append( new_element );
     }
     return caret_location;
+}
+
+void BookViewPreview::StoreCurrentCaretLocation()
+{
+    // Only overwrite the current location stored if it is empty, in case we specifically
+    // want a new location when switching to a new view
+    if (m_CaretLocationUpdate.isEmpty()) {
+        StoreCaretLocationUpdate(GetCaretLocation());
+    }
 }
 
 void BookViewPreview::StoreCaretLocationUpdate( const QList< ViewEditor::ElementIndex > &hierarchy )

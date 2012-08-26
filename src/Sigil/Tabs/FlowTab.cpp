@@ -368,17 +368,6 @@ bool FlowTab::SetViewState(MainWindow::ViewState new_view_state)
     if (m_initialLoad) {
         return false;
     }
-    // MainWindow will call this function when switching tabs. If the underlying
-    // resource has been changed triggering a reload, we want to preserve our
-    // cursor position (this way only performed if user returns to this tab).
-    if ( m_BookPreviewNeedReload ) {
-        if ( m_ViewState == MainWindow::ViewState_BookView ) {
-            m_wBookView->StoreCaretLocationUpdate(m_wBookView->GetCaretLocation());
-        }
-        else if ( m_ViewState == MainWindow::ViewState_PreviewView ) {
-            m_wBookPreview->StoreCaretLocationUpdate(m_wBookPreview->GetCaretLocation());
-        }
-    }
     if (new_view_state == m_ViewState) {
         return false;
     }
