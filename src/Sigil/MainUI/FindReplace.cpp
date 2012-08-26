@@ -494,8 +494,9 @@ void FindReplace::SetCodeViewIfNeeded( bool force )
     bool has_focus = HasFocus();
 
     if ( force ||
-            ( ( GetLookWhere() == FindFields::LookWhere_AllHTMLFiles || 
-                    GetLookWhere() == FindFields::LookWhere_SelectedHTMLFiles ) &&
+            ( !m_LookWhereCurrentFile && 
+              ( GetLookWhere() == FindFields::LookWhere_AllHTMLFiles || 
+                GetLookWhere() == FindFields::LookWhere_SelectedHTMLFiles ) &&
               ( m_MainWindow.GetViewState() == MainWindow::ViewState_BookView ||
                 m_MainWindow.GetViewState() == MainWindow::ViewState_PreviewView ) ) )
     {
