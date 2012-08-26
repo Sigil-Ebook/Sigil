@@ -111,8 +111,6 @@ protected slots:
 
     void LoadTabContent( QWidget *editor );
 
-    void PasteFromClipboard();
-
 private slots:
 
     void EmitUpdateCursorPosition();

@@ -188,7 +188,7 @@ public slots:
     void TextChangedFilter();
 
     void cut();
-    void PasteFromClipboard();
+    void paste();
     void selectAll();
 
 signals:

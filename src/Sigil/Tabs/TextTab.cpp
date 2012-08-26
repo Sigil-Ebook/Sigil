@@ -159,10 +159,7 @@ void TextTab::Copy()
 
 void TextTab::Paste()
 {
-    if( m_wCodeView.hasFocus() )
-    {
-        m_wCodeView.paste();
-    }
+    m_wCodeView.paste();
 }
 
 
@@ -213,12 +210,6 @@ void TextTab::LoadTabContent( QWidget *editor )
     Q_UNUSED( editor );
 
     LoadTabContent();
-}
-
-
-void TextTab::PasteFromClipboard()
-{
-    m_wCodeView.paste();
 }
 
 

@@ -270,11 +270,6 @@ public slots:
     virtual void LoadTabContent();
 
     /**
-     * Executes a paste from the clipboard.
-     */
-    virtual void PasteFromClipboard();
-
-    /**
      * Emits the CentralTabRequest signal.
      */
     void EmitCentralTabRequest();

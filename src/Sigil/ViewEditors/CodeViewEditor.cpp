@@ -2179,11 +2179,6 @@ QString CodeViewEditor::GetAttribute(QString attribute, const QString &text)
     return attribute_value;
 }
 
-void CodeViewEditor::PasteFromClipboard()
-{
-    paste();
-}
-
 void CodeViewEditor::ConnectSignalsToSlots()
 {
     connect( this, SIGNAL( blockCountChanged( int )           ), this, SLOT( UpdateLineNumberAreaMargin()              ) );

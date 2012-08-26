@@ -457,7 +457,7 @@ void BookViewEditor::cut()
     page()->triggerAction( QWebPage::Cut );
 }
 
-void BookViewEditor::PasteFromClipboard()
+void BookViewEditor::paste()
 {
     page()->triggerAction( QWebPage::Paste );
 }
@@ -514,6 +514,6 @@ void BookViewEditor::ConnectSignalsToSlots()
     connect( this,        SIGNAL( customContextMenuRequested(const QPoint&) ),  this, SLOT( OpenContextMenu(const QPoint&) ) );
     connect( m_Cut,       SIGNAL( triggered() ),  this, SLOT( cut()                 ) );
     connect( m_Copy,      SIGNAL( triggered() ),  this, SLOT( copy()                ) );
-    connect( m_Paste,     SIGNAL( triggered() ),  this, SLOT( PasteFromClipboard()  ) );
+    connect( m_Paste,     SIGNAL( triggered() ),  this, SLOT( paste()               ) );
     connect( m_SelectAll, SIGNAL( triggered() ),  this, SLOT( selectAll()           ) );
 }

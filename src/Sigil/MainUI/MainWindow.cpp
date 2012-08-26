@@ -3262,7 +3262,7 @@ void MainWindow::MakeTabConnections( ContentTab *tab )
         connect( ui.actionCut,                      SIGNAL( triggered() ),  tab,   SLOT( Cut()                      ) );
         connect( ui.actionCopy,                     SIGNAL( triggered() ),  tab,   SLOT( Copy()                     ) );
         connect( ui.actionPaste,                    SIGNAL( triggered() ),  tab,   SLOT( Paste()                    ) );
-        connect( m_ClipboardHistorySelector,        SIGNAL( PasteFromClipboardRequest() ), tab, SLOT( PasteFromClipboard() ) );
+        connect( m_ClipboardHistorySelector,        SIGNAL( PasteFromClipboardRequest() ), tab, SLOT( Paste()       ) );
     }
 
     if (tab->GetLoadedResource().Type() == Resource::HTMLResourceType )

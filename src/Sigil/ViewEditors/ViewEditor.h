@@ -120,10 +120,6 @@ public:
      */
     virtual bool ExecuteCaretUpdate() { return false; }
     virtual bool ExecuteCaretUpdateAfterLoad() { return false; }
-
-public slots:
-
-    virtual void PasteFromClipboard() {}
 };
 
 #endif // VIEWEDITOR_H

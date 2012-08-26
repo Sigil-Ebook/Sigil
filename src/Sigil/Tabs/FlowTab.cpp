@@ -566,7 +566,7 @@ void FlowTab::Copy()
 void FlowTab::Paste()
 {
     if (m_ViewState == MainWindow::ViewState_BookView) {
-        m_wBookView->page()->triggerAction(QWebPage::Paste);
+        m_wBookView->paste();
     }
     else if (m_ViewState == MainWindow::ViewState_CodeView) {
         m_wCodeView->paste();
@@ -800,14 +800,6 @@ void FlowTab::LoadTabContent()
     else if (m_ViewState == MainWindow::ViewState_PreviewView) {
         m_wBookPreview->CustomSetDocument(m_HTMLResource.GetFullPath(), m_HTMLResource.GetText());
     }
-}
-
-void FlowTab::PasteFromClipboard()
-{
-    if (m_ViewState == MainWindow::ViewState_BookView)
-        m_wBookView->PasteFromClipboard();
-    else if (m_ViewState == MainWindow::ViewState_CodeView)
-        m_wCodeView->PasteFromClipboard();
 }
 
 

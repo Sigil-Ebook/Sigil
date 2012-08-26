@@ -261,8 +261,6 @@ public slots:
 
     void LoadTabContent();
 
-    void PasteFromClipboard();
-
     /**
      * Implements Bold action functionality.
      */

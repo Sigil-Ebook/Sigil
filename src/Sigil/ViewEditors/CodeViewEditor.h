@@ -299,8 +299,6 @@ public slots:
     void PasteClipEntries(QList<ClipEditorModel::clipEntry *> clips);
     void PasteClipEntry(ClipEditorModel::clipEntry *clip);
 
-    void PasteFromClipboard();
-
 protected:
 
     /**

@@ -85,11 +85,6 @@ void ContentTab::LoadTabContent()
 
 }
 
-void ContentTab::PasteFromClipboard()
-{
-
-}
-
 void ContentTab::BookView()
 {
 
