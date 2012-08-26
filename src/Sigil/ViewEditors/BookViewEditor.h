@@ -52,6 +52,11 @@ public:
      * @param parent The object's parent.
      */
     BookViewEditor(QWidget *parent=0);
+    
+    /**
+     * Destructor.
+     */
+    ~BookViewEditor();
 
     /**
      * Sets a custom webpage for the editor.

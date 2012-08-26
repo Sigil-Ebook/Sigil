@@ -83,6 +83,27 @@ BookViewEditor::BookViewEditor(QWidget *parent)
     ConnectSignalsToSlots();
 }
 
+BookViewEditor::~BookViewEditor()
+{
+    if (m_Cut) {
+        delete m_Cut;
+        m_Cut = 0;
+    }
+    if (m_Copy) {
+        delete m_Copy;
+        m_Copy = 0;
+    }
+    if (m_Paste) {
+        delete m_Paste;
+        m_Paste = 0;
+    }
+    if (m_SelectAll) {
+        delete m_SelectAll;
+        m_SelectAll = 0;
+    }
+}
+
+
 void BookViewEditor::CustomSetDocument(const QString &path, const QString &html)
 {
     m_isLoadFinished = false;
