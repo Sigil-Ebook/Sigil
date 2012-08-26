@@ -232,7 +232,7 @@
     </widget>
     <widget class="QMenu" name="menuSpellCheckMenu">
      <property name="title">
-      <string>SpellCheck</string>
+      <string>Spellcheck</string>
      </property>
     <addaction name="actionAutoSpellCheck"/>
     <addaction name="actionSpellCheck"/>
@@ -1215,10 +1215,10 @@
      <normaloff>:/main/document-autospellcheck_22px.png</normaloff>:/main/document-autospellcheck_22px.png</iconset>
    </property>
    <property name="text">
-    <string>&amp;Auto SpellCheck</string>
+    <string>&amp;Highlight Misspelled Words</string>
    </property>
    <property name="toolTip">
-    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Auto Spell Check&lt;/b&gt;&lt;/p&gt;
+    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Spellcheck - Highlight Misspelled Words&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Toggle automatic spell checking in Code View.&lt;/p&gt;</string>
    </property>
@@ -1229,10 +1229,10 @@
      <normaloff>:/main/document-spellcheck_22px.png</normaloff>:/main/document-spellcheck_22px.png</iconset>
    </property>
    <property name="text">
-    <string>&amp;SpellCheck</string>
+    <string>&amp;Next Misspelled Word</string>
    </property>
    <property name="toolTip">
-    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Spell Check&lt;/b&gt;&lt;/p&gt;
+    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Spellcheck - Next Misspelled Word&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Find the next misspelled word in Code View.&lt;/p&gt;</string>
    </property>

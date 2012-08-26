@@ -25,7 +25,7 @@
 
 If a translation for specific word or phrase is not available it will be displayed in English.
 
-Use Preferences-&gt;Spell Check to set the Spell Check language.</string>
+Use Preferences-&gt;Spellcheck Dictionaries to set the Spellcheck dictionary.</string>
          </property>
          <property name="text">
           <string>User Interface Language:</string>

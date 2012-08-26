@@ -82,7 +82,7 @@ public:
     QString dictionary();
 
     /**
-     * Whether automatic Spell Check is enabled or not
+     * Whether automatic Spellcheck is enabled or not
      *
      * @return if spell check is enabled
      */
@@ -199,7 +199,7 @@ public slots:
     void setDictionary(const QString &name);
 
     /**
-     * Set whether automatic Spell Check is enabled
+     * Set whether automatic Spellcheck is enabled
      *
      * @param name The name of the dictionary.
      */

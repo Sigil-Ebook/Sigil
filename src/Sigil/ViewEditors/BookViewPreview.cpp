@@ -194,7 +194,7 @@ bool BookViewPreview::FindNext( SearchTools &search_tools,
 {
     if ( check_spelling )
 	{
-		QMessageBox::critical( this, tr( "Unsupported" ), tr( "Spell Check mode is not supported in Book View at this time.  Switch to Code View." ) );
+		QMessageBox::critical( this, tr( "Unsupported" ), tr( "Spellcheck mode is not supported in Book View at this time.  Switch to Code View." ) );
 	    return false;
 	}
 
