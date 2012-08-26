@@ -1535,6 +1535,10 @@ void MainWindow::SetStateActionsBookView()
 	
 	ui.actionDecreaseIndent->setEnabled(true);
     ui.actionIncreaseIndent->setEnabled(true);
+    	
+    ui.actionTextDirectionLTR    ->setEnabled(true);
+    ui.actionTextDirectionRTL    ->setEnabled(true);
+    ui.actionTextDirectionDefault->setEnabled(true);
 
     ui.actionInsertBulletedList->setEnabled(true);
     ui.actionInsertNumberedList->setEnabled(true);
@@ -1600,6 +1604,10 @@ void MainWindow::SetStateActionsSplitView()
 	
 	ui.actionDecreaseIndent->setEnabled(false);
     ui.actionIncreaseIndent->setEnabled(false);
+    	
+    ui.actionTextDirectionLTR    ->setEnabled(false);
+    ui.actionTextDirectionRTL    ->setEnabled(false);
+    ui.actionTextDirectionDefault->setEnabled(false);
 
     ui.actionInsertBulletedList->setEnabled(false);
     ui.actionInsertNumberedList->setEnabled(false);
@@ -1665,6 +1673,10 @@ void MainWindow::SetStateActionsCodeView()
 	
 	ui.actionDecreaseIndent->setEnabled(false);
     ui.actionIncreaseIndent->setEnabled(false);
+    	
+    ui.actionTextDirectionLTR    ->setEnabled(false);
+    ui.actionTextDirectionRTL    ->setEnabled(false);
+    ui.actionTextDirectionDefault->setEnabled(false);
 
     ui.actionInsertBulletedList->setEnabled(false);
     ui.actionInsertNumberedList->setEnabled(false);
@@ -1731,6 +1743,10 @@ void MainWindow::SetStateActionsRawView()
 	
 	ui.actionDecreaseIndent->setEnabled(false);
     ui.actionIncreaseIndent->setEnabled(false);
+	
+    ui.actionTextDirectionLTR    ->setEnabled(false);
+    ui.actionTextDirectionRTL    ->setEnabled(false);
+    ui.actionTextDirectionDefault->setEnabled(false);
 
     ui.actionInsertBulletedList->setEnabled(false);
     ui.actionInsertNumberedList->setEnabled(false);
@@ -1796,6 +1812,10 @@ void MainWindow::SetStateActionsStaticView()
 	
 	ui.actionDecreaseIndent->setEnabled(false);
     ui.actionIncreaseIndent->setEnabled(false);
+	
+    ui.actionTextDirectionLTR    ->setEnabled(false);
+    ui.actionTextDirectionRTL    ->setEnabled(false);
+    ui.actionTextDirectionDefault->setEnabled(false);
 
     ui.actionInsertBulletedList->setEnabled(false);
     ui.actionInsertNumberedList->setEnabled(false);
@@ -2658,6 +2678,7 @@ void MainWindow::ExtendUI()
     ui.menuToolbars->addAction(ui.toolBarLists->toggleViewAction());
     ui.menuToolbars->addAction(ui.toolBarTextFormats->toggleViewAction());
     ui.menuToolbars->addAction(ui.toolBarTextAlign->toggleViewAction());
+    ui.menuToolbars->addAction(ui.toolBarTextDirection->toggleViewAction());
     ui.menuToolbars->addAction(ui.toolBarDonate->toggleViewAction());
     ui.menuToolbars->addAction(ui.toolBarTools->toggleViewAction());
 
@@ -2756,6 +2777,9 @@ void MainWindow::ExtendUI()
     sm->registerAction(ui.actionInsertBulletedList, "MainWindow.InsertBulletedList");
     sm->registerAction(ui.actionIncreaseIndent, "MainWindow.IncreaseIndent");
     sm->registerAction(ui.actionDecreaseIndent, "MainWindow.DecreaseIndent");
+    sm->registerAction(ui.actionTextDirectionLTR, "MainWindow.TextDirectionLTR");
+    sm->registerAction(ui.actionTextDirectionRTL, "MainWindow.TextDirectionRTL");
+    sm->registerAction(ui.actionTextDirectionDefault, "MainWindow.TextDirectionDefault");
     sm->registerAction(ui.actionRemoveFormatting, "MainWindow.RemoveFormatting");
     sm->registerAction(ui.actionHeading1, "MainWindow.Heading1");
     sm->registerAction(ui.actionHeading2, "MainWindow.Heading2");
@@ -2923,6 +2947,18 @@ void MainWindow::ExtendIconSizes()
     icon = ui.actionDecreaseIndent->icon();
     icon.addFile(QString::fromUtf8(":/main/format-indent-less_16px.png"));
     ui.actionDecreaseIndent->setIcon(icon);
+    
+    icon = ui.actionTextDirectionLTR->icon();
+    icon.addFile(QString::fromUtf8(":/main/format-direction-ltr_16px.png"));
+    ui.actionTextDirectionLTR->setIcon(icon);
+
+    icon = ui.actionTextDirectionRTL->icon();
+    icon.addFile(QString::fromUtf8(":/main/format-direction-rtl_16px.png"));
+    ui.actionTextDirectionRTL->setIcon(icon);
+
+    icon = ui.actionTextDirectionDefault->icon();
+    icon.addFile(QString::fromUtf8(":/main/format-direction-default_16px.png"));
+    ui.actionTextDirectionDefault->setIcon(icon);
 
     icon = ui.actionHeading1->icon();
     icon.addFile(QString::fromUtf8(":/main/heading-1_16px.png"));
@@ -3247,6 +3283,9 @@ void MainWindow::MakeTabConnections( ContentTab *tab )
         connect( ui.actionInsertNumberedList,       SIGNAL( triggered() ),  tab,   SLOT( InsertNumberedList()       ) );
         connect( ui.actionDecreaseIndent,           SIGNAL( triggered() ),  tab,   SLOT( DecreaseIndent()           ) );
         connect( ui.actionIncreaseIndent,           SIGNAL( triggered() ),  tab,   SLOT( IncreaseIndent()           ) );
+        connect( ui.actionTextDirectionLTR,         SIGNAL( triggered() ),  tab,   SLOT( TextDirectionLeftToRight() ) );
+        connect( ui.actionTextDirectionRTL,         SIGNAL( triggered() ),  tab,   SLOT( TextDirectionRightToLeft() ) );
+        connect( ui.actionTextDirectionDefault,     SIGNAL( triggered() ),  tab,   SLOT( TextDirectionDefault()     ) );
         connect( ui.actionRemoveFormatting,         SIGNAL( triggered() ),  tab,   SLOT( RemoveFormatting()         ) );
 
         connect( ui.actionSplitChapter,             SIGNAL( triggered() ),  tab,   SLOT( SplitChapter()             ) );
@@ -3325,6 +3364,9 @@ void MainWindow::BreakTabConnections( ContentTab *tab )
     disconnect( ui.actionInsertNumberedList,        0, tab, 0 );
     disconnect( ui.actionDecreaseIndent,            0, tab, 0 );
     disconnect( ui.actionIncreaseIndent,            0, tab, 0 );
+    disconnect( ui.actionTextDirectionLTR,          0, tab, 0 );
+    disconnect( ui.actionTextDirectionRTL,          0, tab, 0 );
+    disconnect( ui.actionTextDirectionDefault,      0, tab, 0 );
     disconnect( ui.actionRemoveFormatting,          0, tab, 0 );
 
     disconnect( ui.actionSplitChapter,              0, tab, 0 );

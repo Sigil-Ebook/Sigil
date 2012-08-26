@@ -334,6 +334,21 @@ public slots:
     void IncreaseIndent();
 
     /**
+     * Implements Text direction left-to-right functionaliry.
+     */
+    void TextDirectionLeftToRight();
+
+    /**
+     * Implements Text direction right-to-left functionaliry.
+     */
+    void TextDirectionRightToLeft();
+
+    /**
+     * Implements Text direction default functionaliry.
+     */
+    void TextDirectionDefault();
+
+    /**
      * Implements Remove Formatting action functionality.
      */
     void RemoveFormatting();

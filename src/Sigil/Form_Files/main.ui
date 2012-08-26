@@ -146,6 +146,10 @@
     <addaction name="actionDecreaseIndent"/>
     <addaction name="actionIncreaseIndent"/>
     <addaction name="separator"/>
+    <addaction name="actionTextDirectionLTR"/>
+    <addaction name="actionTextDirectionRTL"/>
+    <addaction name="actionTextDirectionDefault"/>
+    <addaction name="separator"/>
     <addaction name="actionRemoveFormatting"/>
    </widget>
    <widget class="QMenu" name="menuView">
@@ -447,6 +451,20 @@
    </attribute>
    <addaction name="actionDecreaseIndent"/>
    <addaction name="actionIncreaseIndent"/>
+  </widget>
+  <widget class="QToolBar" name="toolBarTextDirection">
+   <property name="windowTitle">
+    <string>Text Direction</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionTextDirectionLTR"/>
+   <addaction name="actionTextDirectionRTL"/>
+   <addaction name="actionTextDirectionDefault"/>
   </widget>
   <action name="actionNew">
    <property name="icon">
@@ -1096,6 +1114,57 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+Shift+M</string>
+   </property>
+  </action>
+  <action name="actionTextDirectionLTR">
+   <property name="icon">
+    <iconset resource="../Resource_Files/main/main.qrc">
+     <normaloff>:/main/format-direction-ltr_22px.png</normaloff>:/main/format-direction-ltr_22px.png
+    </iconset>
+   </property>
+   <property name="text">
+    <string>Text Direction LTR</string>
+   </property>
+   <property name="toolTip">
+    <string>
+     &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Left-to-Right&lt;/b&gt;&lt;/p&gt;
+
+     &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Set paragraph direction left to right.&lt;/p&gt;
+    </string>
+   </property>
+  </action>
+  <action name="actionTextDirectionRTL">
+   <property name="icon">
+    <iconset resource="../Resource_Files/main/main.qrc">
+     <normaloff>:/main/format-direction-rtl_22px.png</normaloff>:/main/format-direction-rtl_22px.png
+    </iconset>
+   </property>
+   <property name="text">
+    <string>Text Direction RTL</string>
+   </property>
+   <property name="toolTip">
+    <string>
+     &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Right-to-Left&lt;/b&gt;&lt;/p&gt;
+
+     &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Set paragraph direction right to left.&lt;/p&gt;
+    </string>
+   </property>
+  </action>
+  <action name="actionTextDirectionDefault">
+   <property name="icon">
+    <iconset resource="../Resource_Files/main/main.qrc">
+     <normaloff>:/main/format-direction-default_22px.png</normaloff>:/main/format-direction-default_22px.png
+    </iconset>
+   </property>
+   <property name="text">
+    <string>Text Direction Default</string>
+   </property>
+   <property name="toolTip">
+    <string>
+     &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Default&lt;/b&gt;&lt;/p&gt;
+
+     &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Set paragraph direction to inherit from default.&lt;/p&gt;
+    </string>
    </property>
   </action>
   <action name="actionRemoveFormatting">

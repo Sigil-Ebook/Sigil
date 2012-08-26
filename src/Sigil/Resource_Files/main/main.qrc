@@ -102,5 +102,11 @@
         <file>format-text-superscript_22px.png</file>
         <file>format-text-subscript_16px.png</file>
         <file>format-text-superscript_16px.png</file>
+        <file>format-direction-ltr_22px.png</file>
+        <file>format-direction-rtl_22px.png</file>
+        <file>format-direction-default_22px.png</file>
+        <file>format-direction-ltr_16px.png</file>
+        <file>format-direction-rtl_16px.png</file>
+        <file>format-direction-default_16px.png</file>
     </qresource>
 </RCC>

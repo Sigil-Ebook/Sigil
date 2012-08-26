@@ -1105,6 +1105,30 @@ void FlowTab::IncreaseIndent()
 }
 
 
+void FlowTab::TextDirectionLeftToRight()
+{
+    if (m_ViewState == MainWindow::ViewState_BookView) {
+        m_wBookView->page()->triggerAction( QWebPage::SetTextDirectionLeftToRight );
+    }
+}
+
+
+void FlowTab::TextDirectionRightToLeft()
+{
+    if (m_ViewState == MainWindow::ViewState_BookView) {
+        m_wBookView->page()->triggerAction( QWebPage::SetTextDirectionRightToLeft );
+    }
+}
+
+
+void FlowTab::TextDirectionDefault()
+{
+    if (m_ViewState == MainWindow::ViewState_BookView) {
+        m_wBookView->page()->triggerAction( QWebPage::SetTextDirectionDefault );
+    }
+}
+
+
 void FlowTab::RemoveFormatting()
 {
     if (m_ViewState == MainWindow::ViewState_BookView) {
