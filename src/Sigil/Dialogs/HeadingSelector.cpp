@@ -204,8 +204,11 @@ void HeadingSelector::UpdateHeadingInclusion( QStandardItem *checkbox_item )
 void HeadingSelector::UpdateTreeViewDisplay()
 {      
     ui.tvTOCDisplay->expandAll();
-    ui.tvTOCDisplay->resizeColumnToContents( 0 );
-    ui.tvTOCDisplay->setColumnWidth( 0, ui.tvTOCDisplay->columnWidth( 0 ) + FIRST_COLUMN_PADDING );    
+
+    // Make the header fill all the available space not used by the checkbox
+    ui.tvTOCDisplay->header()->setStretchLastSection( false );
+    ui.tvTOCDisplay->resizeColumnToContents(1);
+    ui.tvTOCDisplay->header()->setResizeMode(0, QHeaderView::Stretch);
 }
 
 
@@ -261,6 +264,7 @@ void HeadingSelector::InsertHeadingIntoModel( Headings::Heading &heading, QStand
     wrap.heading = &heading;
 
     item_heading->setData( QVariant::fromValue( wrap ) );
+    item_heading->setToolTip( heading.text );
 
     QList< QStandardItem* > items;        
     items << item_heading << heading_included_check;
