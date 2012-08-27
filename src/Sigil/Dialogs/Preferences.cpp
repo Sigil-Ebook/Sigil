@@ -87,7 +87,7 @@ void Preferences::saveSettings()
         QMessageBox::warning( this, tr( "Sigil" ), tr( "Changes will take effect for any new tabs you open." ) );
     }
     else if (finalResult == PreferencesWidget::ResultAction_RestartSigil) {
-        QMessageBox::warning( this, tr( "Sigil" ), tr( "You must restart Sigil to show the User Interface in a different language." ) );
+        QMessageBox::warning( this, tr( "Sigil" ), tr( "Changes will take effect when you restart Sigil." ) );
     }
 }
 
