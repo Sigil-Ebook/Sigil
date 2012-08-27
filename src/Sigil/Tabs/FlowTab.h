@@ -165,6 +165,14 @@ public:
 
     bool SuperscriptChecked();
 
+    bool AlignLeftChecked();
+
+    bool AlignRightChecked();
+
+    bool AlignCenterChecked();
+
+    bool AlignJustifyChecked();
+
     bool BulletListChecked();
 
     bool NumberListChecked();
@@ -299,7 +307,7 @@ public slots:
     /**
      * Implements Center action functionality.
      */
-    void Center();
+    void AlignCenter();
 
     /**
      * Implements Align Right action functionality.
@@ -309,7 +317,7 @@ public slots:
     /**
      * Implements Justify action functionality.
      */
-    void Justify();
+    void AlignJustify();
     
     /**
      * Implements Insert bulleted list action functionality.

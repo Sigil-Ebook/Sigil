@@ -230,7 +230,12 @@ public:
      * @return \c true if the Superscript action should be checked.
      */
     virtual bool SuperscriptChecked() { return false; }
-   
+
+    virtual bool AlignLeftChecked()     { return false; }
+    virtual bool AlignRightChecked()    { return false; }
+    virtual bool AlignCenterChecked()   { return false; }
+    virtual bool AlignJustifyChecked()  { return false; }
+
     /**
      * Checked state of the BulletList action.
      *

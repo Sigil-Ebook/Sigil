@@ -1044,7 +1044,7 @@ void FlowTab::AlignLeft()
     }
 }
 
-void FlowTab::Center()
+void FlowTab::AlignCenter()
 {
     if (m_ViewState == MainWindow::ViewState_BookView) {
         m_wBookView->ExecCommand( "justifyCenter" );
@@ -1058,7 +1058,7 @@ void FlowTab::AlignRight()
     }    
 }
 
-void FlowTab::Justify()
+void FlowTab::AlignJustify()
 {
     if (m_ViewState == MainWindow::ViewState_BookView) {
         m_wBookView->ExecCommand( "justifyFull" );
@@ -1226,6 +1226,38 @@ bool FlowTab::SuperscriptChecked()
         return ContentTab::SuperscriptChecked();
 }
 
+
+bool FlowTab::AlignLeftChecked()
+{
+    if (m_ViewState == MainWindow::ViewState_BookView)
+        return m_wBookView->QueryCommandState( "justifyLeft" );
+    else
+        return ContentTab::AlignLeftChecked();
+}
+
+bool FlowTab::AlignRightChecked()
+{
+    if (m_ViewState == MainWindow::ViewState_BookView)
+        return m_wBookView->QueryCommandState( "justifyRight" );
+    else
+        return ContentTab::AlignRightChecked();
+}
+
+bool FlowTab::AlignCenterChecked()
+{
+    if (m_ViewState == MainWindow::ViewState_BookView)
+        return m_wBookView->QueryCommandState( "justifyCenter" );
+    else
+        return ContentTab::AlignCenterChecked();
+}
+
+bool FlowTab::AlignJustifyChecked()
+{
+    if (m_ViewState == MainWindow::ViewState_BookView)
+        return m_wBookView->QueryCommandState( "justifyFull" );
+    else
+        return ContentTab::AlignJustifyChecked();
+}
 
 bool FlowTab::BulletListChecked()
 {

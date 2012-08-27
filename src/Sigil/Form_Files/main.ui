@@ -136,9 +136,9 @@
     <addaction name="actionSuperscript"/>
     <addaction name="separator"/>
     <addaction name="actionAlignLeft"/>
-    <addaction name="actionCenter"/>
+    <addaction name="actionAlignCenter"/>
     <addaction name="actionAlignRight"/>
-    <addaction name="actionJustify"/>
+    <addaction name="actionAlignJustify"/>
     <addaction name="separator"/>
     <addaction name="actionInsertBulletedList"/>
     <addaction name="actionInsertNumberedList"/>
@@ -422,9 +422,9 @@
     <bool>false</bool>
    </attribute>
    <addaction name="actionAlignLeft"/>
-   <addaction name="actionCenter"/>
+   <addaction name="actionAlignCenter"/>
    <addaction name="actionAlignRight"/>
-   <addaction name="actionJustify"/>
+   <addaction name="actionAlignJustify"/>
   </widget>
   <widget class="QToolBar" name="toolBarLists">
    <property name="windowTitle">
@@ -611,6 +611,9 @@
    </property>
   </action>
   <action name="actionAlignLeft">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="icon">
     <iconset resource="../Resource_Files/main/main.qrc">
      <normaloff>:/main/format-justify-left_22px.png</normaloff>:/main/format-justify-left_22px.png</iconset>
@@ -628,6 +631,9 @@
    </property>
   </action>
   <action name="actionAlignRight">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="icon">
     <iconset resource="../Resource_Files/main/main.qrc">
      <normaloff>:/main/format-justify-right_22px.png</normaloff>:/main/format-justify-right_22px.png</iconset>
@@ -644,7 +650,10 @@
     <string>Ctrl+R</string>
    </property>
   </action>
-  <action name="actionCenter">
+  <action name="actionAlignCenter">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="icon">
     <iconset resource="../Resource_Files/main/main.qrc">
      <normaloff>:/main/format-justify-center_22px.png</normaloff>:/main/format-justify-center_22px.png</iconset>
@@ -661,7 +670,10 @@
     <string>Ctrl+E</string>
    </property>
   </action>
-  <action name="actionJustify">
+  <action name="actionAlignJustify">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="icon">
     <iconset resource="../Resource_Files/main/main.qrc">
      <normaloff>:/main/format-justify-fill_22px.png</normaloff>:/main/format-justify-fill_22px.png</iconset>

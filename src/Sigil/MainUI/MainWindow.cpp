@@ -1470,25 +1470,30 @@ void MainWindow::UpdateUIOnTabChanges()
     ui.actionPrintPreview->setEnabled( tab.PrintEnabled() );
     ui.actionPrint->setEnabled( tab.PrintEnabled() );
 
-    ui.actionCut  ->setEnabled( tab.CutEnabled() );
-    ui.actionCopy ->setEnabled( tab.CopyEnabled() );
-    ui.actionPaste->setEnabled( tab.PasteEnabled() );
-    ui.actionPasteClipboardHistory->setEnabled( tab.PasteEnabled() );
-    ui.actionInsertClosingTag->setEnabled( tab.InsertClosingTagEnabled() );
-    ui.actionAddToIndex->setEnabled( tab.AddToIndexEnabled() );
-    ui.actionMarkForIndex->setEnabled( tab.MarkForIndexEnabled() );
+    ui.actionCut                    ->setEnabled( tab.CutEnabled() );
+    ui.actionCopy                   ->setEnabled( tab.CopyEnabled() );
+    ui.actionPaste                  ->setEnabled( tab.PasteEnabled() );
+    ui.actionPasteClipboardHistory  ->setEnabled( tab.PasteEnabled() );
+    ui.actionInsertClosingTag       ->setEnabled( tab.InsertClosingTagEnabled() );
+    ui.actionAddToIndex             ->setEnabled( tab.AddToIndexEnabled() );
+    ui.actionMarkForIndex           ->setEnabled( tab.MarkForIndexEnabled() );
 
-    ui.actionBold     ->setChecked( tab.BoldChecked() );
-    ui.actionItalic   ->setChecked( tab.ItalicChecked() );
-    ui.actionUnderline->setChecked( tab.UnderlineChecked() );
+    ui.actionBold           ->setChecked( tab.BoldChecked() );
+    ui.actionItalic         ->setChecked( tab.ItalicChecked() );
+    ui.actionUnderline      ->setChecked( tab.UnderlineChecked() );
     ui.actionStrikethrough  ->setChecked( tab.StrikethroughChecked() );
     ui.actionSubscript      ->setChecked( tab.SubscriptChecked() );
     ui.actionSuperscript    ->setChecked( tab.SuperscriptChecked() );
 
-    ui.actionInsertBulletedList->setChecked( tab.BulletListChecked() );
-    ui.actionInsertNumberedList->setChecked( tab.NumberListChecked() );
-    ui.actionRemoveFormatting  ->setEnabled( tab.RemoveFormattingEnabled() );
-    ui.actionGoToLinkOrStyle->setEnabled( tab.GoToLinkOrStyleEnabled() );
+    ui.actionAlignLeft      ->setChecked( tab.AlignLeftChecked() );
+    ui.actionAlignRight     ->setChecked( tab.AlignRightChecked() );
+    ui.actionAlignCenter    ->setChecked( tab.AlignCenterChecked() );
+    ui.actionAlignJustify   ->setChecked( tab.AlignJustifyChecked() );
+
+    ui.actionInsertBulletedList ->setChecked( tab.BulletListChecked() );
+    ui.actionInsertNumberedList ->setChecked( tab.NumberListChecked() );
+    ui.actionRemoveFormatting   ->setEnabled( tab.RemoveFormattingEnabled() );
+    ui.actionGoToLinkOrStyle    ->setEnabled( tab.GoToLinkOrStyleEnabled() );
 
     // State of zoom controls depends on current tab/view
     float zoom_factor = tab.GetZoomFactor();
@@ -1544,10 +1549,10 @@ void MainWindow::SetStateActionsBookView()
     ui.actionSubscript    ->setEnabled(true);
     ui.actionSuperscript  ->setEnabled(true);
 
-    ui.actionAlignLeft ->setEnabled(true);
-    ui.actionCenter    ->setEnabled(true);
-    ui.actionAlignRight->setEnabled(true);
-    ui.actionJustify   ->setEnabled(true);
+    ui.actionAlignLeft   ->setEnabled(true);
+    ui.actionAlignCenter ->setEnabled(true);
+    ui.actionAlignRight  ->setEnabled(true);
+    ui.actionAlignJustify->setEnabled(true);
 	
 	ui.actionDecreaseIndent->setEnabled(true);
     ui.actionIncreaseIndent->setEnabled(true);
@@ -1613,10 +1618,10 @@ void MainWindow::SetStateActionsSplitView()
     ui.actionSubscript    ->setEnabled(false);
     ui.actionSuperscript  ->setEnabled(false);
 
-    ui.actionAlignLeft ->setEnabled(false);
-    ui.actionCenter    ->setEnabled(false);
-    ui.actionAlignRight->setEnabled(false);
-    ui.actionJustify   ->setEnabled(false);
+    ui.actionAlignLeft   ->setEnabled(false);
+    ui.actionAlignCenter ->setEnabled(false);
+    ui.actionAlignRight  ->setEnabled(false);
+    ui.actionAlignJustify->setEnabled(false);
 	
 	ui.actionDecreaseIndent->setEnabled(false);
     ui.actionIncreaseIndent->setEnabled(false);
@@ -1682,10 +1687,10 @@ void MainWindow::SetStateActionsCodeView()
     ui.actionSubscript    ->setEnabled(true);
     ui.actionSuperscript  ->setEnabled(true);
 
-    ui.actionAlignLeft ->setEnabled(false);
-    ui.actionCenter    ->setEnabled(false);
-    ui.actionAlignRight->setEnabled(false);
-    ui.actionJustify   ->setEnabled(false);
+    ui.actionAlignLeft   ->setEnabled(false);
+    ui.actionAlignCenter ->setEnabled(false);
+    ui.actionAlignRight  ->setEnabled(false);
+    ui.actionAlignJustify->setEnabled(false);
 	
 	ui.actionDecreaseIndent->setEnabled(false);
     ui.actionIncreaseIndent->setEnabled(false);
@@ -1727,7 +1732,6 @@ void MainWindow::SetStateActionsCodeView()
     m_FindReplace->ShowHide();
 }
 
-
 void MainWindow::SetStateActionsRawView()
 {
     ui.actionBookView->setEnabled(false);
@@ -1752,10 +1756,10 @@ void MainWindow::SetStateActionsRawView()
     ui.actionSubscript    ->setEnabled(false);
     ui.actionSuperscript  ->setEnabled(false);
 
-    ui.actionAlignLeft ->setEnabled(false);
-    ui.actionCenter    ->setEnabled(false);
-    ui.actionAlignRight->setEnabled(false);
-    ui.actionJustify   ->setEnabled(false);
+    ui.actionAlignLeft   ->setEnabled(false);
+    ui.actionAlignCenter ->setEnabled(false);
+    ui.actionAlignRight  ->setEnabled(false);
+    ui.actionAlignJustify->setEnabled(false);
 	
 	ui.actionDecreaseIndent->setEnabled(false);
     ui.actionIncreaseIndent->setEnabled(false);
@@ -1796,7 +1800,6 @@ void MainWindow::SetStateActionsRawView()
     m_FindReplace->ShowHide();
 }
 
-
 void MainWindow::SetStateActionsStaticView()
 {
     ui.actionBookView->setEnabled(false);
@@ -1821,10 +1824,10 @@ void MainWindow::SetStateActionsStaticView()
     ui.actionSubscript    ->setEnabled(false);
     ui.actionSuperscript  ->setEnabled(false);
 
-    ui.actionAlignLeft ->setEnabled(false);
-    ui.actionCenter    ->setEnabled(false);
-    ui.actionAlignRight->setEnabled(false);
-    ui.actionJustify   ->setEnabled(false);
+    ui.actionAlignLeft   ->setEnabled(false);
+    ui.actionAlignCenter ->setEnabled(false);
+    ui.actionAlignRight  ->setEnabled(false);
+    ui.actionAlignJustify->setEnabled(false);
 	
 	ui.actionDecreaseIndent->setEnabled(false);
     ui.actionIncreaseIndent->setEnabled(false);
@@ -2786,9 +2789,9 @@ void MainWindow::ExtendUI()
     sm->registerAction(ui.actionSubscript, "MainWindow.Subscript");
     sm->registerAction(ui.actionSuperscript, "MainWindow.Superscript");
     sm->registerAction(ui.actionAlignLeft, "MainWindow.AlignLeft");
-    sm->registerAction(ui.actionCenter, "MainWindow.Center");
+    sm->registerAction(ui.actionAlignCenter, "MainWindow.AlignCenter");
     sm->registerAction(ui.actionAlignRight, "MainWindow.AlignRight");
-    sm->registerAction(ui.actionJustify, "MainWindow.Justify");
+    sm->registerAction(ui.actionAlignJustify, "MainWindow.AlignJustify");
     sm->registerAction(ui.actionInsertNumberedList, "MainWindow.InsertNumberedList");
     sm->registerAction(ui.actionInsertBulletedList, "MainWindow.InsertBulletedList");
     sm->registerAction(ui.actionIncreaseIndent, "MainWindow.IncreaseIndent");
@@ -2916,13 +2919,13 @@ void MainWindow::ExtendIconSizes()
     icon.addFile(QString::fromUtf8(":/main/format-justify-right_16px.png"));
     ui.actionAlignRight->setIcon(icon);
 
-    icon = ui.actionCenter->icon();
+    icon = ui.actionAlignCenter->icon();
     icon.addFile(QString::fromUtf8(":/main/format-justify-center_16px.png"));
-    ui.actionCenter->setIcon(icon);
+    ui.actionAlignCenter->setIcon(icon);
 
-    icon = ui.actionJustify->icon();
+    icon = ui.actionAlignJustify->icon();
     icon.addFile(QString::fromUtf8(":/main/format-justify-fill_16px.png"));
-    ui.actionJustify->setIcon(icon);
+    ui.actionAlignJustify->setIcon(icon);
 
     icon = ui.actionBold->icon();
     icon.addFile(QString::fromUtf8(":/main/format-text-bold_16px.png"));
@@ -3291,9 +3294,9 @@ void MainWindow::MakeTabConnections( ContentTab *tab )
         connect( ui.actionSuperscript,              SIGNAL( triggered() ),  tab,   SLOT( Superscript()              ) );
 
         connect( ui.actionAlignLeft,                SIGNAL( triggered() ),  tab,   SLOT( AlignLeft()                ) );
-        connect( ui.actionCenter,                   SIGNAL( triggered() ),  tab,   SLOT( Center()                   ) );
+        connect( ui.actionAlignCenter,              SIGNAL( triggered() ),  tab,   SLOT( AlignCenter()              ) );
         connect( ui.actionAlignRight,               SIGNAL( triggered() ),  tab,   SLOT( AlignRight()               ) );
-        connect( ui.actionJustify,                  SIGNAL( triggered() ),  tab,   SLOT( Justify()                  ) );
+        connect( ui.actionAlignJustify,             SIGNAL( triggered() ),  tab,   SLOT( AlignJustify()             ) );
         
         connect( ui.actionInsertBulletedList,       SIGNAL( triggered() ),  tab,   SLOT( InsertBulletedList()       ) );
         connect( ui.actionInsertNumberedList,       SIGNAL( triggered() ),  tab,   SLOT( InsertNumberedList()       ) );
@@ -3373,9 +3376,9 @@ void MainWindow::BreakTabConnections( ContentTab *tab )
     disconnect( ui.actionSubscript,                 0, tab, 0 );
     disconnect( ui.actionSuperscript,               0, tab, 0 );
     disconnect( ui.actionAlignLeft,                 0, tab, 0 );
-    disconnect( ui.actionCenter,                    0, tab, 0 );
+    disconnect( ui.actionAlignCenter,               0, tab, 0 );
     disconnect( ui.actionAlignRight,                0, tab, 0 );
-    disconnect( ui.actionJustify,                   0, tab, 0 );
+    disconnect( ui.actionAlignJustify,              0, tab, 0 );
     disconnect( ui.actionInsertBulletedList,        0, tab, 0 );
     disconnect( ui.actionInsertNumberedList,        0, tab, 0 );
     disconnect( ui.actionDecreaseIndent,            0, tab, 0 );
