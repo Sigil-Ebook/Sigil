@@ -22,6 +22,7 @@
 #include <stdio.h>
 #include <time.h>
 
+#include <QApplication>
 #include <QtCore/QDir>
 #include <QtCore/QFile>
 #include <QtCore/QFileInfo>
@@ -338,7 +339,7 @@ QString Utility::URLDecodePath( const QString &path )
 
 void Utility::DisplayExceptionErrorDialog( const QString &error_info )
 {
-    QMessageBox message_box;
+    QMessageBox message_box(QApplication::activeWindow());
     message_box.setIcon( QMessageBox::Critical );
     message_box.setWindowTitle( "Sigil" );
 
@@ -370,7 +371,7 @@ void Utility::DisplayExceptionErrorDialog( const QString &error_info )
 
 void Utility::DisplayStdErrorDialog( const QString &error_message, const QString &detailed_text )
 {
-    QMessageBox message_box;
+    QMessageBox message_box(QApplication::activeWindow());
     message_box.setIcon( QMessageBox::Critical );
     message_box.setWindowTitle( "Sigil" );
     message_box.setText( error_message );
