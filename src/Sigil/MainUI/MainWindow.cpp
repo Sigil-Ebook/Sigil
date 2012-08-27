@@ -1375,6 +1375,22 @@ void MainWindow::PreferencesDialog()
 {
     Preferences preferences( this );
     preferences.exec();
+
+    if ( preferences.isReloadTabsRequired() ) 
+    {
+        ContentTab &currentTab = m_TabManager.GetCurrentContentTab();
+
+        QList<Resource*> resources = GetTabResources();
+        foreach(Resource *resource, resources) {
+            m_TabManager.CloseTabForResource(*resource);
+        }
+
+        foreach(Resource *resource, resources) {
+            OpenResource(*resource);
+        }
+
+        OpenResource(currentTab.GetLoadedResource());
+    }
 }
 
 

@@ -40,6 +40,14 @@ class Preferences : public QDialog
 
 public:
     Preferences(QWidget *parent = 0);
+    /**
+     * Check this after dialog closes to determine if tabs need reopening.
+     */
+    bool isReloadTabsRequired();
+    /**
+     * Check this after dialog closes to determine if Sigil needs restarting.
+     */
+    bool isRestartRequired();
 
 private slots:
     /**
@@ -75,6 +83,9 @@ private:
      * Connect signals to slots used by this dialog.
      */
     void connectSignalsSlots();
+
+    bool m_reloadTabs;
+    bool m_restartSigil;
 
     Ui::Preferences ui;
 };

@@ -32,7 +32,9 @@
 static const QString SETTINGS_GROUP = "preferences_dialog";
 
 Preferences::Preferences(QWidget *parent) :
-    QDialog(parent)
+    QDialog(parent),
+    m_reloadTabs(false),
+    m_restartSigil(false)
 {
     ui.setupUi(this);
 
@@ -59,7 +61,6 @@ void Preferences::selectPWidget(QListWidgetItem *current, QListWidgetItem *previ
 
 void Preferences::saveSettings()
 {
-    PreferencesWidget::ResultAction finalResult = PreferencesWidget::ResultAction_None;
     PreferencesWidget::ResultAction widgetResult;
 
     SettingsStore settings;
@@ -74,8 +75,11 @@ void Preferences::saveSettings()
         PreferencesWidget *pw = qobject_cast<PreferencesWidget*>(ui.pWidget->widget(i));
         if (pw != 0) {
             widgetResult = pw->saveSettings();
-            if ( widgetResult > finalResult ) {
-                finalResult = widgetResult;
+            if ( widgetResult == PreferencesWidget::ResultAction_ReloadTabs ) {
+                m_reloadTabs = true;
+            }
+            else if ( widgetResult == PreferencesWidget::ResultAction_RestartSigil ) {
+                m_restartSigil = true;
             }
         }
     }
@@ -83,10 +87,7 @@ void Preferences::saveSettings()
     QApplication::restoreOverrideCursor();
     settings.endGroup();
 
-    if (finalResult == PreferencesWidget::ResultAction_ReloadTabs) {
-        QMessageBox::warning( this, tr( "Sigil" ), tr( "Changes will take effect for any new tabs you open." ) );
-    }
-    else if (finalResult == PreferencesWidget::ResultAction_RestartSigil) {
+    if ( m_restartSigil ) {
         QMessageBox::warning( this, tr( "Sigil" ), tr( "Changes will take effect when you restart Sigil." ) );
     }
 }
@@ -119,6 +120,16 @@ void Preferences::appendPreferenceWidget(PreferencesWidget *widget)
 
     // Add an entry to the list of available preference widgets.
     ui.availableWidgets->addItem(widget->windowTitle());
+}
+
+bool Preferences::isReloadTabsRequired()
+{
+    return m_reloadTabs;
+}
+
+bool Preferences::isRestartRequired()
+{
+    return m_restartSigil;
 }
 
 void Preferences::connectSignalsSlots()
