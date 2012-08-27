@@ -38,7 +38,7 @@ class KeyboardShortcutsWidget : public PreferencesWidget
 
 public:
     KeyboardShortcutsWidget();
-    void saveSettings();
+    PreferencesWidget::ResultAction saveSettings();
 
     /**
      * Filter events.

@@ -24,7 +24,6 @@
 #include "Misc/SettingsStore.h"
 #include "Misc/Language.h"
 #include "Misc/UILanguage.h"
-#include "QtGui/QMessageBox"
 
 #include <QString>
 #include <QStringList>
@@ -56,7 +55,7 @@ LanguageWidget::LanguageWidget()
     readSettings();
 }
 
-void LanguageWidget::saveSettings()
+PreferencesWidget::ResultAction LanguageWidget::saveSettings()
 {
     SettingsStore settings;
 
@@ -65,10 +64,9 @@ void LanguageWidget::saveSettings()
 
     if ( ui.cbUILanguage->currentText() != m_UILanguage )
     {
-        QApplication::restoreOverrideCursor();
-        QMessageBox::warning( this, tr( "Restart Required" ), tr( "You must restart Sigil to show the User Interface in a different language." ) );
-        QApplication::setOverrideCursor(Qt::WaitCursor);
+        return PreferencesWidget::ResultAction_RestartSigil;
     }
+    return PreferencesWidget::ResultAction_None;
 }
 
 void LanguageWidget::readSettings()

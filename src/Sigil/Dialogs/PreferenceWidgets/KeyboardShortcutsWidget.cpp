@@ -41,7 +41,7 @@ KeyboardShortcutsWidget::KeyboardShortcutsWidget()
     readSettings();
 }
 
-void KeyboardShortcutsWidget::saveSettings()
+PreferencesWidget::ResultAction KeyboardShortcutsWidget::saveSettings()
 {
      KeyboardShortcutManager *sm = KeyboardShortcutManager::instance();
 
@@ -53,6 +53,8 @@ void KeyboardShortcutsWidget::saveSettings()
 
          sm->setKeySequence(id, keySequence);
      }
+
+     return PreferencesWidget::ResultAction_None;
 }
 
 bool KeyboardShortcutsWidget::eventFilter(QObject *object, QEvent *event)

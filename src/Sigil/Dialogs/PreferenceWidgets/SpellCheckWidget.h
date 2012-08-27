@@ -32,7 +32,7 @@ class SpellCheckWidget : public PreferencesWidget
 
 public:
     SpellCheckWidget();
-    void saveSettings();
+    PreferencesWidget::ResultAction saveSettings();
 
 private slots:
     void addUserDict();

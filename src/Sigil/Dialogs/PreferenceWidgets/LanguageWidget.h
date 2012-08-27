@@ -34,7 +34,7 @@ class LanguageWidget : public PreferencesWidget
 {
 public:
     LanguageWidget();
-    void saveSettings();
+    PreferencesWidget::ResultAction saveSettings();
 
 private:
     void readSettings();

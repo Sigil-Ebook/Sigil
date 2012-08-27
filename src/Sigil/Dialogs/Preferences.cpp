@@ -19,6 +19,7 @@
 **
 *************************************************************************/
 
+#include "QtGui/QMessageBox"
 #include <QtGui/QScrollArea>
 
 #include "Dialogs/Preferences.h"
@@ -58,6 +59,9 @@ void Preferences::selectPWidget(QListWidgetItem *current, QListWidgetItem *previ
 
 void Preferences::saveSettings()
 {
+    PreferencesWidget::ResultAction finalResult = PreferencesWidget::ResultAction_None;
+    PreferencesWidget::ResultAction widgetResult;
+
     SettingsStore settings;
     settings.beginGroup( SETTINGS_GROUP );
 
@@ -69,13 +73,22 @@ void Preferences::saveSettings()
     for (int i = 0; i < ui.pWidget->count(); ++i) {
         PreferencesWidget *pw = qobject_cast<PreferencesWidget*>(ui.pWidget->widget(i));
         if (pw != 0) {
-            pw->saveSettings();
+            widgetResult = pw->saveSettings();
+            if ( widgetResult > finalResult ) {
+                finalResult = widgetResult;
+            }
         }
     }
 
     QApplication::restoreOverrideCursor();
-
     settings.endGroup();
+
+    if (finalResult == PreferencesWidget::ResultAction_ReloadTabs) {
+        QMessageBox::warning( this, tr( "Sigil" ), tr( "Changes will take effect for any new tabs you open." ) );
+    }
+    else if (finalResult == PreferencesWidget::ResultAction_RestartSigil) {
+        QMessageBox::warning( this, tr( "Sigil" ), tr( "You must restart Sigil to show the User Interface in a different language." ) );
+    }
 }
 
 void Preferences::readSettings()

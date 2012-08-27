@@ -43,10 +43,10 @@ SpellCheckWidget::SpellCheckWidget()
     readSettings();
 }
 
-void SpellCheckWidget::saveSettings()
+PreferencesWidget::ResultAction SpellCheckWidget::saveSettings()
 {
     if (!m_isDirty)
-        return;
+        return PreferencesWidget::ResultAction_None;
 
     saveUserDictionaryWordList(ui.userDictList->currentItem());
 
@@ -55,6 +55,8 @@ void SpellCheckWidget::saveSettings()
 
     SpellCheck *sc = SpellCheck::instance();
     sc->setDictionary(settings.dictionary(), true);
+
+    return PreferencesWidget::ResultAction_None;
 }
 
 void SpellCheckWidget::addUserDict()

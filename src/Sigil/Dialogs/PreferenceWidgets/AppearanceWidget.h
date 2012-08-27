@@ -37,15 +37,16 @@ class AppearanceWidget : public PreferencesWidget
 
 public:
     AppearanceWidget();
-    void saveSettings();
+    PreferencesWidget::ResultAction saveSettings();
 
 private slots:
     void customColorButtonClicked();
     void resetAllButtonClicked();
 
 private:
-    void readSettings();
-    void loadCodeViewColorsList();
+    SettingsStore::CodeViewAppearance readSettings();
+    void loadComboValueOrDefault(QFontComboBox *fontComboBox, const QString &value, const QString &defaultValue);
+    void loadCodeViewColorsList( SettingsStore::CodeViewAppearance );
     void addColorItem(const QString &text, const QColor &color);
     QColor getListItemColor(const int &row = -1);
     void connectSignalsToSlots();

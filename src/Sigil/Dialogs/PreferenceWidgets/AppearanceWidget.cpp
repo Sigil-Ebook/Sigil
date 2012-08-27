@@ -29,7 +29,6 @@
 
 #include "AppearanceWidget.h"
 #include "Misc/SettingsStore.h"
-#include "QtGui/QMessageBox"
 
 class ColorSwatchDelegate : public QStyledItemDelegate  
 {
@@ -82,15 +81,15 @@ AppearanceWidget::AppearanceWidget()
     ui.setupUi(this);
 
     // Custom delegate for painting the color swatches
-    ui.codeViewColorsList->setItemDelegate(new ColorSwatchDelegate(ui.codeViewColorsList));
+    ui.codeViewColorsList->setItemDelegate( new ColorSwatchDelegate(ui.codeViewColorsList) );
 
-    readSettings();
+    m_codeViewAppearance = readSettings();
 
-    loadCodeViewColorsList();
+    loadCodeViewColorsList( m_codeViewAppearance );
     connectSignalsToSlots();
 }
 
-void AppearanceWidget::saveSettings()
+PreferencesWidget::ResultAction AppearanceWidget::saveSettings()
 {
     SettingsStore settings;
 
@@ -165,97 +164,77 @@ void AppearanceWidget::saveSettings()
          (m_codeViewAppearance.xhtml_html_color             != codeViewAppearance.xhtml_html_color) ||
          (m_codeViewAppearance.xhtml_html_comment_color     != codeViewAppearance.xhtml_html_comment_color) )
     {
-        QApplication::restoreOverrideCursor();
-        QMessageBox::warning( this, tr( "Sigil" ), tr( "Changes will take effect for any new tabs you open." ) );
-        QApplication::setOverrideCursor(Qt::WaitCursor);
+        return PreferencesWidget::ResultAction_ReloadTabs;
     }
+    return PreferencesWidget::ResultAction_None;
 }
 
-void AppearanceWidget::readSettings()
+SettingsStore::CodeViewAppearance AppearanceWidget::readSettings()
 {
     SettingsStore settings;
 
-    // Book View font/size
-    SettingsStore::BookViewAppearance bookViewAppearance;
-    bookViewAppearance = settings.bookViewAppearance();
-    int index = ui.cbBookViewFontStandard->findText( bookViewAppearance.font_family_standard );
-    if ( index == -1 ) {
-        index = ui.cbBookViewFontStandard->findText( "Arial" );
-        if (index == -1) {
-            index = 0;
-        }
-    }
-    ui.cbBookViewFontStandard->setCurrentIndex( index );
+    SettingsStore::BookViewAppearance bookViewAppearance = settings.bookViewAppearance();
+    SettingsStore::CodeViewAppearance codeViewAppearance = settings.codeViewAppearance();
 
-    ui.bookViewFontSizeSpin->setValue( bookViewAppearance.font_size );
-
-    index = ui.cbBookViewFontSerif->findText( bookViewAppearance.font_family_serif );
-    if ( index == -1 ) {
-        index = ui.cbBookViewFontSerif->findText( "Times New Roman" );
-        if (index == -1) {
-            index = 0;
-        }
-    }
-    ui.cbBookViewFontSerif->setCurrentIndex( index );
-
-    index = ui.cbBookViewFontSansSerif->findText( bookViewAppearance.font_family_sans_serif );
-    if ( index == -1 ) {
-        index = ui.cbBookViewFontSansSerif->findText( "Arial" );
-        if (index == -1) {
-            index = 0;
-        }
-    }
-    ui.cbBookViewFontSansSerif->setCurrentIndex( index );
-
-    // Code View appearance
-    m_codeViewAppearance = settings.codeViewAppearance();
-    index = ui.cbCodeViewFont->findText( m_codeViewAppearance.font_family );
-    if ( index == -1 ) {
-        index = ui.cbCodeViewFont->findText( "Consolas" );
-        if (index == -1) {
-            index = 0;
-        }
-    }
-    ui.cbCodeViewFont->setCurrentIndex( index );
-    m_codeViewAppearance.font_family = ui.cbCodeViewFont->currentText();
+    loadComboValueOrDefault( ui.cbBookViewFontStandard,  bookViewAppearance.font_family_standard,    "Arial"           );
+    loadComboValueOrDefault( ui.cbBookViewFontSerif,     bookViewAppearance.font_family_serif,       "Times New Roman" );
+    loadComboValueOrDefault( ui.cbBookViewFontSansSerif, bookViewAppearance.font_family_sans_serif,  "Arial"           );
+    loadComboValueOrDefault( ui.cbCodeViewFont,          codeViewAppearance.font_family,             "Consolas"        );
  
-    ui.codeViewFontSizeSpin->setValue( m_codeViewAppearance.font_size );
+    ui.bookViewFontSizeSpin->setValue( bookViewAppearance.font_size );
+    ui.codeViewFontSizeSpin->setValue( codeViewAppearance.font_size );
+
+    codeViewAppearance.font_family = ui.cbCodeViewFont->currentText();
+
+    return codeViewAppearance;
 }
 
-void AppearanceWidget::loadCodeViewColorsList()
+void AppearanceWidget::loadComboValueOrDefault( QFontComboBox *fontComboBox, const QString &value, const QString &defaultValue )
+{
+    int index = fontComboBox->findText( value );
+    if ( index == -1 ) {
+        index = fontComboBox->findText( defaultValue );
+        if (index == -1) {
+            index = 0;
+        }
+    }
+    fontComboBox->setCurrentIndex( index );
+}
+
+void AppearanceWidget::loadCodeViewColorsList( SettingsStore::CodeViewAppearance codeViewAppearance )
 {
     ui.codeViewColorsList->clear();
 
-    addColorItem( tr( "Background" ),            m_codeViewAppearance.background_color );
-    addColorItem( tr( "Foreground" ),            m_codeViewAppearance.foreground_color );
-    addColorItem( tr( "CSS Comment" ),           m_codeViewAppearance.css_comment_color );
-    addColorItem( tr( "CSS Property" ),          m_codeViewAppearance.css_property_color );
-    addColorItem( tr( "CSS Quote" ),             m_codeViewAppearance.css_quote_color );
-    addColorItem( tr( "CSS Selector" ),          m_codeViewAppearance.css_selector_color );
-    addColorItem( tr( "CSS Value" ),             m_codeViewAppearance.css_value_color );
-    addColorItem( tr( "Line Highlight" ),        m_codeViewAppearance.line_highlight_color );
-    addColorItem( tr( "Line# Background" ),      m_codeViewAppearance.line_number_background_color );
-    addColorItem( tr( "Line# Foreground" ),      m_codeViewAppearance.line_number_foreground_color );
-    addColorItem( tr( "Selection Background" ),  m_codeViewAppearance.selection_background_color );
-    addColorItem( tr( "Selection Foreground" ),  m_codeViewAppearance.selection_foreground_color );
-    addColorItem( tr( "Spelling Underline" ),    m_codeViewAppearance.spelling_underline_color );
-    addColorItem( tr( "XHTML Attribute Name" ),  m_codeViewAppearance.xhtml_attribute_name_color );
-    addColorItem( tr( "XHTML Attribute Value" ), m_codeViewAppearance.xhtml_attribute_value_color );
-    addColorItem( tr( "XHTML CSS" ),             m_codeViewAppearance.xhtml_css_color );
-    addColorItem( tr( "XHTML CSS Comment" ),     m_codeViewAppearance.xhtml_css_comment_color );
-    addColorItem( tr( "XHTML DocType" ),         m_codeViewAppearance.xhtml_doctype_color );
-    addColorItem( tr( "XHTML Entity" ),          m_codeViewAppearance.xhtml_entity_color );
-    addColorItem( tr( "XHTML HTML Tag" ),        m_codeViewAppearance.xhtml_html_color );
-    addColorItem( tr( "XHTML HTML Comment" ),    m_codeViewAppearance.xhtml_html_comment_color );
+    addColorItem( tr( "Background" ),            codeViewAppearance.background_color );
+    addColorItem( tr( "Foreground" ),            codeViewAppearance.foreground_color );
+    addColorItem( tr( "CSS Comment" ),           codeViewAppearance.css_comment_color );
+    addColorItem( tr( "CSS Property" ),          codeViewAppearance.css_property_color );
+    addColorItem( tr( "CSS Quote" ),             codeViewAppearance.css_quote_color );
+    addColorItem( tr( "CSS Selector" ),          codeViewAppearance.css_selector_color );
+    addColorItem( tr( "CSS Value" ),             codeViewAppearance.css_value_color );
+    addColorItem( tr( "Line Highlight" ),        codeViewAppearance.line_highlight_color );
+    addColorItem( tr( "Line# Background" ),      codeViewAppearance.line_number_background_color );
+    addColorItem( tr( "Line# Foreground" ),      codeViewAppearance.line_number_foreground_color );
+    addColorItem( tr( "Selection Background" ),  codeViewAppearance.selection_background_color );
+    addColorItem( tr( "Selection Foreground" ),  codeViewAppearance.selection_foreground_color );
+    addColorItem( tr( "Spelling Underline" ),    codeViewAppearance.spelling_underline_color );
+    addColorItem( tr( "XHTML Attribute Name" ),  codeViewAppearance.xhtml_attribute_name_color );
+    addColorItem( tr( "XHTML Attribute Value" ), codeViewAppearance.xhtml_attribute_value_color );
+    addColorItem( tr( "XHTML CSS" ),             codeViewAppearance.xhtml_css_color );
+    addColorItem( tr( "XHTML CSS Comment" ),     codeViewAppearance.xhtml_css_comment_color );
+    addColorItem( tr( "XHTML DocType" ),         codeViewAppearance.xhtml_doctype_color );
+    addColorItem( tr( "XHTML Entity" ),          codeViewAppearance.xhtml_entity_color );
+    addColorItem( tr( "XHTML HTML Tag" ),        codeViewAppearance.xhtml_html_color );
+    addColorItem( tr( "XHTML HTML Comment" ),    codeViewAppearance.xhtml_html_comment_color );
 
     ui.codeViewColorsList->setCurrentRow(0);
 }
 
 void AppearanceWidget::addColorItem(const QString &text, const QColor &color)
 {
-    QListWidgetItem *listItem = new QListWidgetItem(text, ui.codeViewColorsList);
-    listItem->setData(Qt::UserRole, color);
-    ui.codeViewColorsList->addItem(listItem); 
+    QListWidgetItem *listItem = new QListWidgetItem( text, ui.codeViewColorsList );
+    listItem->setData( Qt::UserRole, color );
+    ui.codeViewColorsList->addItem( listItem ); 
 }
 
 QColor AppearanceWidget::getListItemColor(const int &row)
@@ -272,9 +251,9 @@ QColor AppearanceWidget::getListItemColor(const int &row)
 
 void AppearanceWidget::customColorButtonClicked()
 {
-    QColorDialog colorDlg(getListItemColor(), this);
+    QColorDialog colorDlg( getListItemColor(), this );
     if (colorDlg.exec() == QDialog::Accepted) {
-        ui.codeViewColorsList->currentItem()->setData(Qt::UserRole, colorDlg.selectedColor());
+        ui.codeViewColorsList->currentItem()->setData( Qt::UserRole, colorDlg.selectedColor() );
     }
 }
 
@@ -283,15 +262,17 @@ void AppearanceWidget::resetAllButtonClicked()
     SettingsStore settings;
     settings.clearAppearanceSettings();
 
-    readSettings();
+    // Read and apply the settings without changing our m_codeViewAppearance
+    // instance holding the last persisted values.
+    SettingsStore::CodeViewAppearance codeViewAppearance = readSettings();
 
-    ui.codeViewColorsList->blockSignals(true);
-    loadCodeViewColorsList();
-    ui.codeViewColorsList->blockSignals(false);
+    ui.codeViewColorsList->blockSignals( true );
+    loadCodeViewColorsList( codeViewAppearance );
+    ui.codeViewColorsList->blockSignals( false );
 }
 
 void AppearanceWidget::connectSignalsToSlots()
 {
-    connect(ui.customColorButton, SIGNAL(clicked()), this, SLOT(customColorButtonClicked()));
-    connect(ui.resetAllButton, SIGNAL(clicked()), this, SLOT(resetAllButtonClicked()));
+    connect( ui.customColorButton, SIGNAL( clicked() ), this, SLOT( customColorButtonClicked() ));
+    connect( ui.resetAllButton,    SIGNAL( clicked() ), this, SLOT( resetAllButtonClicked()    ));
 }

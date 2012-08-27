@@ -36,9 +36,21 @@ class PreferencesWidget : public QWidget
 
 public:
     /**
-     * Save settings made avaliable by the widget.
+     * Describes the result actions to present to the user as a result
+     * of saving any changes made in the preferences widgets.
+     * Results are in order of increasing priority of result to display.
      */
-    virtual void saveSettings() = 0;
+    enum ResultAction
+    {
+        ResultAction_None = 0,       /**< Default, no further action required */
+        ResultAction_ReloadTabs,     /**< All tabs need to be reloaded. */
+        ResultAction_RestartSigil    /**< Warn user that Sigil needs to be restarted. */
+    };
+
+    /**
+     * Save settings made available by the widget.
+     */
+    virtual ResultAction saveSettings() = 0;
 };
 
 #endif // PREFERENCESWIDGET_H
