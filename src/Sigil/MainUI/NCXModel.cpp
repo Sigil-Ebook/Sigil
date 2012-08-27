@@ -201,10 +201,6 @@ NCXModel::NCXEntry NCXModel::ParseNavPoint( QXmlStreamReader &ncx )
 
 void NCXModel::BuildModel( const NCXModel::NCXEntry &root_entry )
 {
-    if ( root_entry.children.isEmpty() )
-
-        return;
-
     clear();
 
     foreach ( const NCXModel::NCXEntry &child_entry, root_entry.children )
