@@ -35,7 +35,7 @@ const int COLUMNS = 2;
 static const int IS_GROUP_ROLE = Qt::UserRole + 1;
 static const int FULLNAME_ROLE = Qt::UserRole + 2;
 
-static const QString CLIP_EXAMPLE_FILE = "clip_examples.ini";
+static const QString CLIP_EXAMPLES_FILE = "clip_examples.ini";
 
 ClipEditorModel *ClipEditorModel::m_instance = 0;
 
@@ -440,9 +440,19 @@ QStandardItem *ClipEditorModel::AddEntryToModel(ClipEditorModel::clipEntry *entr
 
 void ClipEditorModel::AddExampleEntries()
 {
-    QString example_file = QCoreApplication::applicationDirPath() + "/../share/" + QCoreApplication::applicationName().toLower() + "/examples/" + CLIP_EXAMPLE_FILE;
+    QString examples_dir;
 
-    LoadData(example_file);
+#ifdef Q_WS_MAC
+    examples_dir = QCoreApplication::applicationDirPath() + "/../examples/";
+#endif
+#ifdef Q_WS_WIN 
+    examples_dir = QCoreApplication::applicationDirPath() + "/examples";
+#endif
+#ifdef Q_WS_X11
+    examples_dir = QCoreApplication::applicationDirPath() + "/../share/" + QCoreApplication::applicationName().toLower() + "/examples/";
+#endif
+
+    LoadData(examples_dir % CLIP_EXAMPLES_FILE);
 }
 
 QList<QStandardItem*> ClipEditorModel::GetItemsForIndexes(QModelIndexList indexes)
