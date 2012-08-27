@@ -561,6 +561,8 @@ void MainWindow::GoToLinkedStyleDefinition( const QString &element_name, const Q
         QList<Resource *> css_resources = m_BookBrowser->AllCSSResources();
         QStringList stylesheets = GetStylesheetsAlreadyLinked( current_resource );
 
+        bool found_match = false;
+        CSSResource *first_css_resource = 0;
         foreach( QString pathname, stylesheets )
         {
             // Check whether the stylesheet contains this style
@@ -570,6 +572,9 @@ void MainWindow::GoToLinkedStyleDefinition( const QString &element_name, const Q
                 if ( pathname == QString( "../" + resource->GetRelativePathToOEBPS()) ) {
                     // We have our resource matching this stylesheet.
                     css_resource = dynamic_cast<CSSResource *>( resource );
+                    if (!first_css_resource) {
+                        first_css_resource = css_resource;
+                    }
                     break;
                 }
             }
@@ -579,14 +584,32 @@ void MainWindow::GoToLinkedStyleDefinition( const QString &element_name, const Q
             QString text = " " + css_resource->GetText();
             if ( !style_class_name.isEmpty() ) {
                 if ( OpenCSSResourceWithStyleDefinition( element_name + "\\." + style_class_name, text, css_resource ) ) { 
+                    found_match = true;
                     break;
                 }
                 if ( OpenCSSResourceWithStyleDefinition( "\\." + style_class_name, text, css_resource ) ) { 
+                    found_match = true;
                     break;
                 }
             }
             else if ( OpenCSSResourceWithStyleDefinition( element_name, text, css_resource ) ) { 
+                found_match = true;
                 break;
+            }
+        }
+
+        if (!found_match) {
+            QString display_name;
+            if (style_class_name.isEmpty()) {
+                display_name = element_name;
+            }
+            else {
+                display_name = QString(".%1 / %2.%1").arg(style_class_name).arg(element_name);
+            }
+            ShowMessageOnCurrentStatusBar(QString( tr("No CSS styles named") +  " " + display_name), 3000);
+            // Open the first linked stylesheet if any
+            if (first_css_resource) {
+                OpenResource(*first_css_resource);
             }
         }
     }
