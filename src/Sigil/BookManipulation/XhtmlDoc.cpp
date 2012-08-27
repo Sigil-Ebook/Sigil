@@ -675,9 +675,9 @@ QStringList XhtmlDoc::GetLinkedStylesheets( const QString &source )
     foreach( XhtmlDoc::XMLElement element, link_tag_nodes )
     {
         if ( element.attributes.contains( "type" ) &&
-             ( element.attributes.value( "type" ) == "text/css" ) &&
+             ( element.attributes.value( "type" ).toLower() == "text/css" ) &&
              element.attributes.contains( "rel" ) &&
-            ( element.attributes.value( "rel" ) == "stylesheet" ) &&
+             ( element.attributes.value( "rel" ).toLower() == "stylesheet" ) &&
              element.attributes.contains( "href" ) )
         {
             linked_css_paths.append( element.attributes.value( "href" ) );
