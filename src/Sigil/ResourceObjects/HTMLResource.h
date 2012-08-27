@@ -107,15 +107,6 @@ private:
      */
     void TrackNewResources( const QStringList &filepaths );
 
-    /**
-     * Converts certain unicode characters into their html entities to
-     * allow for easier visibility in Code View.
-     *
-     * The entities converted are:
-     * &shy; &mdash; &ndash;
-     */
-    QString ConvertToEntities( const QString &source );
-
     ///////////////////////////////
     // PRIVATE MEMBER VARIABLES
     ///////////////////////////////

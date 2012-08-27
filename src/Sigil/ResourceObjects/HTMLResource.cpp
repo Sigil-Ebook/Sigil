@@ -61,7 +61,7 @@ Resource::ResourceType HTMLResource::Type() const
 void HTMLResource::SetText(const QString &text)
 {
     emit TextChanging();
-    XMLResource::SetText(ConvertToEntities(CleanSource::Clean(text)));
+    XMLResource::SetText(CleanSource::Clean(text));
 
     // Track resources whose change will necessitate an update of the BV and PV.
     // At present this only applies to css files and images.
@@ -71,7 +71,7 @@ void HTMLResource::SetText(const QString &text)
 
 void HTMLResource::SaveToDisk(bool book_wide_save)
 {
-    SetText(ConvertToEntities(CleanSource::PrettyPrint(GetText())));
+    SetText(CleanSource::PrettyPrint(GetText()));
 
     XMLResource::SaveToDisk(book_wide_save);
 }
@@ -152,16 +152,4 @@ void HTMLResource::TrackNewResources(const QStringList &filepaths)
             connect(resource, SIGNAL(Deleted( const Resource &)), this, SIGNAL(LinkedResourceUpdated()));
         }
     }
-}
-
-
-QString HTMLResource::ConvertToEntities( const QString &source )
-{
-    QString newsource = source;
-
-    newsource = newsource.replace( QString::fromUtf8( "\u00ad" ), "&shy;" );
-    newsource = newsource.replace( QString::fromUtf8( "\u2014" ), "&mdash;" );
-    newsource = newsource.replace( QString::fromUtf8( "\u2013" ), "&ndash;" );
-
-    return newsource;
 }
