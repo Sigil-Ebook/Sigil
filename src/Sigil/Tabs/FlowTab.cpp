@@ -1042,12 +1042,18 @@ void FlowTab::AlignLeft()
     if (m_ViewState == MainWindow::ViewState_BookView) {
         m_wBookView->ExecCommand( "justifyLeft" );
     }
+    else if (m_ViewState == MainWindow::ViewState_CodeView) {
+        m_wCodeView->FormatStyle( "text-align", "left" );
+    }    
 }
 
 void FlowTab::AlignCenter()
 {
     if (m_ViewState == MainWindow::ViewState_BookView) {
         m_wBookView->ExecCommand( "justifyCenter" );
+    }    
+    else if (m_ViewState == MainWindow::ViewState_CodeView) {
+        m_wCodeView->FormatStyle( "text-align", "center" );
     }    
 }
 
@@ -1056,12 +1062,18 @@ void FlowTab::AlignRight()
     if (m_ViewState == MainWindow::ViewState_BookView) {
         m_wBookView->ExecCommand( "justifyRight" );
     }    
+    else if (m_ViewState == MainWindow::ViewState_CodeView) {
+        m_wCodeView->FormatStyle( "text-align", "right" );
+    }    
 }
 
 void FlowTab::AlignJustify()
 {
     if (m_ViewState == MainWindow::ViewState_BookView) {
         m_wBookView->ExecCommand( "justifyFull" );
+    }    
+    else if (m_ViewState == MainWindow::ViewState_CodeView) {
+        m_wCodeView->FormatStyle( "text-align", "justify" );
     }    
 }
 
@@ -1102,6 +1114,9 @@ void FlowTab::TextDirectionLeftToRight()
     if (m_ViewState == MainWindow::ViewState_BookView) {
         m_wBookView->page()->triggerAction( QWebPage::SetTextDirectionLeftToRight );
     }
+    else if (m_ViewState == MainWindow::ViewState_CodeView) {
+        m_wCodeView->FormatStyle( "direction", "ltr" );
+    }    
 }
 
 
@@ -1110,6 +1125,9 @@ void FlowTab::TextDirectionRightToLeft()
     if (m_ViewState == MainWindow::ViewState_BookView) {
         m_wBookView->page()->triggerAction( QWebPage::SetTextDirectionRightToLeft );
     }
+    else if (m_ViewState == MainWindow::ViewState_CodeView) {
+        m_wCodeView->FormatStyle( "direction", "rtl" );
+    }    
 }
 
 
@@ -1118,6 +1136,9 @@ void FlowTab::TextDirectionDefault()
     if (m_ViewState == MainWindow::ViewState_BookView) {
         m_wBookView->page()->triggerAction( QWebPage::SetTextDirectionDefault );
     }
+    else if (m_ViewState == MainWindow::ViewState_CodeView) {
+        m_wCodeView->FormatStyle( "direction", "inherit" );
+    }    
 }
 
 

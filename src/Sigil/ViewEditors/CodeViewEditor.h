@@ -248,6 +248,15 @@ public:
      * @param element_name The name of the element to toggle the format of the selection.
      */
     void ToggleFormatSelection( const QString &element_name );
+        
+    /**
+     * Based on the cursor location (in html file) add/replace as
+     * appropriate a style="property_name: property_value" attribute.
+     *
+     * @param property_name The name of the style property to be inserted/replaced.
+     * @param property_value The new value to be assigned to this property.
+     */
+    void FormatStyle( const QString &property_name, const QString &property_value );
     	
 signals:
 
@@ -550,6 +559,13 @@ private:
     };
 
     StyleTagElement GetSelectedStyleTagElement();
+
+    /**
+     * Given raw text containing CSS name:value pairs, return as a list of new pairs, performing
+     * any pruning/replacement as necessary to ensure that property_name:property_value is added
+     * (or removed if it already exists).
+     */
+    QStringList GetNewStyleProperties(const QString &style_text, const QString &property_name, const QString &property_value);
 
     ///////////////////////////////
     // PRIVATE MEMBER VARIABLES

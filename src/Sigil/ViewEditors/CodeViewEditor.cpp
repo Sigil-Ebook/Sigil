@@ -59,6 +59,8 @@ static const QString XML_OPENING_TAG        = "(<[^>/][^>]*[^>/]>|<[^>/]>)";
 static const QString NEXT_OPEN_TAG_LOCATION = "<\\s*(?!/)";
 static const QString NEXT_TAG_LOCATION      = "<[^>]+>";
 static const QString TAG_NAME_SEARCH        = "<\\s*([^\\s>]+)";
+static const QString STYLE_ATTRIBUTE_SEARCH = "style\\s*=\\s*\"[^\"]*\"";
+static const QString ATTRIB_VALUES_SEARCH   = "\"([^\"]*)";
 
 static const int MAX_SPELLING_SUGGESTIONS = 10;
 
@@ -160,6 +162,7 @@ bool CodeViewEditor::IsGoToLinkOrStyleAllowed()
 {
     return IsPositionInOpeningTag();
 }
+
 bool CodeViewEditor::IsCutCodeTagsAllowed()
 {
     return IsNotInTagTextSelected();
@@ -2177,6 +2180,141 @@ QString CodeViewEditor::GetAttribute(QString attribute, const QString &text)
     }
 
     return attribute_value;
+}
+
+void CodeViewEditor::FormatStyle( const QString &property_name, const QString &property_value )
+{
+    if ( property_name.isEmpty() || property_value.isEmpty() ) {
+        return;
+    }
+
+    // Emit a selection changed event, so we can make sure the style buttons are updated
+    // to uncheck any buttons check states.
+    emit selectionChanged();
+
+    // Going to assume that the user is allowed to click anywhere within or just after the block 
+    // Also makes assumptions about being well formed, or else crazy things may happen...
+    int pos = textCursor().selectionStart();
+    QString text = toPlainText();
+
+    if ( !IsPositionInBody(pos, text) ) {
+        return;
+    }
+
+    QString tag_name;
+    QString opening_tag_text;
+    QString opening_tag_attributes;
+    QString style_attribute_text;
+    int opening_tag_start = -1;
+    int opening_tag_end = -1;
+    int style_attribute_start = -1;
+    int style_attribute_end = -1;
+
+    QRegExp tag_search( NEXT_OPEN_TAG_LOCATION );
+    QRegExp tag_name_search( TAG_NAME_SEARCH );
+    QRegExp style_attribute_search( STYLE_ATTRIBUTE_SEARCH, Qt::CaseInsensitive );
+    QRegExp attrib_values_search( ATTRIB_VALUES_SEARCH );
+
+    // Search backwards for the next opening block tag
+    while (true) {
+        int previous_tag_index = text.lastIndexOf( tag_search, pos );
+        if (previous_tag_index < 0) {
+            return;
+        }
+        // We found a tag, make sure it has a name.
+        int tag_name_index = tag_name_search.indexIn(text, previous_tag_index);
+        if (tag_name_index < 0) {
+            pos = previous_tag_index - 1;
+            continue;
+        }
+        tag_name = tag_name_search.cap(1).toLower();
+
+        // Is this a block level tag? If not, keep searching...
+        if ( !BLOCK_LEVEL_TAGS.contains( tag_name) ) {
+            pos = previous_tag_index - 1;
+            continue;
+        }
+
+        // If we got to here we know we have an opening block tag that we can 
+        // apply a style attribute to. Figure out boundaries of this tag.
+        opening_tag_start = previous_tag_index;
+        opening_tag_end = text.indexOf('>', opening_tag_start) + 1;
+
+        // Now look for a style attribute, which may or may not already exist
+        style_attribute_start = style_attribute_search.indexIn(text, opening_tag_start);
+        if ( (style_attribute_start < 0) || (style_attribute_start >= opening_tag_end ) ) {
+            // There is no style attribute currently on this tag.
+            style_attribute_start = opening_tag_end - 1;
+            style_attribute_end = style_attribute_start;
+            style_attribute_text = QString(" style=\"%1: %2;\"").arg(property_name).arg(property_value);
+        }
+        else {
+            // We have an existing style attribute on this tag, need to parse it to rewrite it.
+            style_attribute_start--;
+            style_attribute_end = style_attribute_start + style_attribute_search.matchedLength() + 1;
+            attrib_values_search.indexIn(text, style_attribute_start);
+            QString properties_text = attrib_values_search.cap(1).trimmed();
+
+            // Apply the name=value replacement getting a list of our new property pairs
+            QStringList new_properties = GetNewStyleProperties(properties_text, property_name, property_value);
+            if (new_properties.count() == 0) {
+                style_attribute_text = "";
+            }
+            else {
+                style_attribute_text = QString(" style=\"%1;\"").arg(new_properties.join("; "));
+            }
+        }
+
+        // Now perform the replacement/insertion of the style attribute on this tag
+        QTextCursor cursor = textCursor();
+        cursor.beginEditBlock();
+
+        // Replace the end block tag first since that does not affect positions
+        cursor.setPosition( style_attribute_end );
+        cursor.setPosition( style_attribute_start, QTextCursor::KeepAnchor );
+        cursor.removeSelectedText();
+        cursor.insertText( style_attribute_text );
+
+        cursor.endEditBlock();
+
+        setTextCursor(cursor);
+        break;
+    }
+}
+
+QStringList CodeViewEditor::GetNewStyleProperties(const QString &style_text, const QString &property_name, const QString &property_value)
+{
+    QStringList properties = style_text.split(QChar(';'), QString::SplitBehavior::SkipEmptyParts);
+    QStringList new_properties;
+
+    bool has_property = false;
+    foreach( QString property_text, properties ) {
+        QStringList name_values = property_text.split(QChar(':'), QString::SplitBehavior::SkipEmptyParts);
+        // Any badly formed CSS we just ignore
+        if (name_values.count() < 2) {
+            new_properties.append(property_text.trimmed());
+        }
+        else {
+            QString found_property_name = name_values.at(0).trimmed();
+            QString found_property_value = name_values.at(1).trimmed();
+            if (found_property_name.toLower() == property_name) {
+                has_property = true;
+                // We will treat this as a toggle - if we already have the value then effectively remove it
+                if (found_property_value.toLower() == property_value) {
+                    continue;
+                }
+                else {
+                    found_property_value = property_value;
+                }
+            }
+            new_properties.append(QString("%1: %2").arg(found_property_name).arg(found_property_value));
+        }
+    }
+    if (!has_property) {
+        new_properties.append(QString("%1: %2").arg(property_name).arg(property_value));
+    }
+
+    return new_properties;
 }
 
 void CodeViewEditor::ConnectSignalsToSlots()

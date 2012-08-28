@@ -1710,17 +1710,17 @@ void MainWindow::SetStateActionsCodeView()
     ui.actionSubscript    ->setEnabled(true);
     ui.actionSuperscript  ->setEnabled(true);
 
-    ui.actionAlignLeft   ->setEnabled(false);
-    ui.actionAlignCenter ->setEnabled(false);
-    ui.actionAlignRight  ->setEnabled(false);
-    ui.actionAlignJustify->setEnabled(false);
+    ui.actionAlignLeft   ->setEnabled(true);
+    ui.actionAlignCenter ->setEnabled(true);
+    ui.actionAlignRight  ->setEnabled(true);
+    ui.actionAlignJustify->setEnabled(true);
 	
 	ui.actionDecreaseIndent->setEnabled(false);
     ui.actionIncreaseIndent->setEnabled(false);
     	
-    ui.actionTextDirectionLTR    ->setEnabled(false);
-    ui.actionTextDirectionRTL    ->setEnabled(false);
-    ui.actionTextDirectionDefault->setEnabled(false);
+    ui.actionTextDirectionLTR    ->setEnabled(true);
+    ui.actionTextDirectionRTL    ->setEnabled(true);
+    ui.actionTextDirectionDefault->setEnabled(true);
 
     ui.actionInsertBulletedList->setEnabled(false);
     ui.actionInsertNumberedList->setEnabled(false);
