@@ -257,6 +257,16 @@ public:
      * @param property_value The new value to be assigned to this property.
      */
     void FormatStyle( const QString &property_name, const QString &property_value );
+
+    /**
+     * Based on the cursor location (in CSS file or inlined in HTML file) 
+     * add/replace as appropriate a property_name: property_value property in
+     * the currently selected CSS style if any.
+     *
+     * @param property_name The name of the style property to be inserted/replaced.
+     * @param property_value The new value to be assigned to this property.
+     */
+    void FormatCSSStyle( const QString &property_name, const QString &property_value );
     	
 signals:
 

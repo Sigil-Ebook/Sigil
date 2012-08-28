@@ -2198,6 +2198,9 @@ void CodeViewEditor::FormatStyle( const QString &property_name, const QString &p
     QString text = toPlainText();
 
     if ( !IsPositionInBody(pos, text) ) {
+        // Either we are in a CSS file, or we are in an HTML file outside the body element.
+        // Treat both these cases as trying to find a CSS style on the current line
+        FormatCSSStyle(property_name, property_value);
         return;
     }
 
@@ -2282,14 +2285,95 @@ void CodeViewEditor::FormatStyle( const QString &property_name, const QString &p
     }
 }
 
+void CodeViewEditor::FormatCSSStyle( const QString &property_name, const QString &property_value )
+{
+    if ( property_name.isEmpty() || property_value.isEmpty() ) {
+        return;
+    }
+
+    // Emit a selection changed event, so we can make sure the style buttons are updated
+    // to uncheck any buttons check states.
+    emit selectionChanged();
+
+    // Going to assume that the user is allowed to click anywhere within or just after the block 
+    // Also makes assumptions about being well formed, or else crazy things may happen...
+    int pos = textCursor().selectionStart();
+    QString text = toPlainText();
+
+    // Valid places to apply this modification are either if:
+    // (a) the caret is on a line somewhere inside CSS {} parenthesis.
+    // (b) the caret is on a line declaring a CSS style
+    const QTextBlock block = textCursor().block();
+    int bracket_end = text.indexOf(QChar('}'), pos);
+    if (bracket_end < 0) {
+        return;
+    }
+    int bracket_start = text.lastIndexOf(QChar('{'), pos);
+    if (bracket_start < 0 || text.lastIndexOf(QChar('}'), pos - 1) > bracket_start) {
+        // The previous opening parenthesis we found belongs to another CSS style set
+        // Look for after the current position but must be on the same line.
+        bracket_start = block.text().indexOf('{');
+        if (bracket_start < 0) {
+            return;
+        }
+        bracket_start += block.position();
+    }
+    if (bracket_start > bracket_end) {
+        // Sanity check for some really weird bracketing (perhaps invalid css)
+        return;
+    }
+
+    // Now parse the CSS style content
+    QString properties_text = text.mid(bracket_start + 1, bracket_end - bracket_start - 1).replace(QChar('\n'), "");
+    QStringList new_properties = GetNewStyleProperties(properties_text, property_name, property_value);
+    
+    // Figure out the formatting to be applied to these style properties to write prettily
+    // preserving any multi-line/single line style the CSS had before we changed things.
+    bool is_single_line_format = (block.position() < bracket_start) && (bracket_end <= (block.position() + block.length()) );
+
+    QString style_attribute_text;
+    if (new_properties.count() == 0) {
+        if (is_single_line_format) {
+            style_attribute_text = "";
+        }
+        else {
+            style_attribute_text = "\n";
+        }
+    }
+    else {
+        if ( is_single_line_format ) {
+            style_attribute_text = QString("%1;").arg(new_properties.join(";"));
+        }
+        else {
+            QString tab_spaces = QString(" ").repeated(TAB_SPACES_WIDTH);
+            style_attribute_text = QString("\n%1%2;\n").arg(tab_spaces).arg(new_properties.join(";\n" + tab_spaces));
+        }
+    }
+
+    // Now perform the replacement/insertion of the style properties into the CSS
+    QTextCursor cursor = textCursor();
+    cursor.beginEditBlock();
+
+    // Replace the end block tag first since that does not affect positions
+    cursor.setPosition( bracket_end );
+    cursor.setPosition( bracket_start + 1, QTextCursor::KeepAnchor );
+    cursor.removeSelectedText();
+    cursor.insertText( style_attribute_text );
+    cursor.setPosition( bracket_start );
+
+    cursor.endEditBlock();
+
+    setTextCursor(cursor);
+}
+
 QStringList CodeViewEditor::GetNewStyleProperties(const QString &style_text, const QString &property_name, const QString &property_value)
 {
-    QStringList properties = style_text.split(QChar(';'), QString::SplitBehavior::SkipEmptyParts);
+    QStringList properties = style_text.split(QChar(';'), QString::SkipEmptyParts);
     QStringList new_properties;
 
     bool has_property = false;
     foreach( QString property_text, properties ) {
-        QStringList name_values = property_text.split(QChar(':'), QString::SplitBehavior::SkipEmptyParts);
+        QStringList name_values = property_text.split(QChar(':'), QString::SkipEmptyParts);
         // Any badly formed CSS we just ignore
         if (name_values.count() < 2) {
             new_properties.append(property_text.trimmed());

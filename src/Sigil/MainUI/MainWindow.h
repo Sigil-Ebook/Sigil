@@ -424,6 +424,11 @@ private slots:
     void SetStateActionsCodeView();
 
     /**
+     * Set initial state for actions in CSS files
+     */
+    void SetStateActionsCSSView();
+
+    /**
      * Set initial state for actions in Raw View
      */
     void SetStateActionsRawView();

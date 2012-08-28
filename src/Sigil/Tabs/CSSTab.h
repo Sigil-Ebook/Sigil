@@ -35,6 +35,21 @@ public:
 
     CSSTab( CSSResource& resource, int line_to_scroll_to = -1, QWidget *parent = 0 );
 
+public slots:
+
+    void Bold();
+    void Italic();
+    void Underline();
+    void Strikethrough();
+
+    void AlignLeft();
+    void AlignCenter();
+    void AlignRight();
+    void AlignJustify();
+
+    void TextDirectionLeftToRight();
+    void TextDirectionRightToLeft();
+    void TextDirectionDefault();
 };
 
 #endif // CSSTAB_H

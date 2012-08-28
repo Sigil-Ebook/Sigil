@@ -1465,12 +1465,15 @@ bool MainWindow::UpdateViewState(bool set_tab_state)
             SetStateActionsBookView();
         }
     }
+    else if (type == Resource::CSSResourceType)
+    {
+        SetStateActionsCSSView();
+    }
     else if (type == Resource::XMLResourceType ||
              type == Resource::XPGTResourceType ||
              type == Resource::OPFResourceType ||
              type == Resource::NCXResourceType ||
-             type == Resource::TextResourceType ||
-             type == Resource::CSSResourceType)
+             type == Resource::TextResourceType)
     {
         SetStateActionsRawView();
     }
@@ -1550,10 +1553,6 @@ void MainWindow::UpdateUIOnTabCountChange()
 
 void MainWindow::SetStateActionsBookView()
 {
-    ui.actionBookView->setEnabled(true);
-    ui.actionSplitView->setEnabled(true);
-    ui.actionCodeView->setEnabled(true);
-
     ui.actionBookView->setChecked(true);
     ui.actionSplitView->setChecked(false);
     ui.actionCodeView->setChecked(false);
@@ -1619,10 +1618,6 @@ void MainWindow::SetStateActionsBookView()
 
 void MainWindow::SetStateActionsSplitView()
 {
-    ui.actionBookView->setEnabled(true);
-    ui.actionSplitView->setEnabled(true);
-    ui.actionCodeView->setEnabled(true);
-
     ui.actionBookView->setChecked(false);
     ui.actionSplitView->setChecked(true);
     ui.actionCodeView->setChecked(false);
@@ -1688,10 +1683,6 @@ void MainWindow::SetStateActionsSplitView()
 
 void MainWindow::SetStateActionsCodeView()
 {
-    ui.actionBookView->setEnabled(true);
-    ui.actionSplitView->setEnabled(true);
-    ui.actionCodeView->setEnabled(true);
-
     ui.actionBookView->setChecked(false);
     ui.actionSplitView->setChecked(false);
     ui.actionCodeView->setChecked(true);
@@ -1755,12 +1746,27 @@ void MainWindow::SetStateActionsCodeView()
     m_FindReplace->ShowHide();
 }
 
+void MainWindow::SetStateActionsCSSView()
+{
+    SetStateActionsRawView();
+
+    ui.actionBold         ->setEnabled(true);
+    ui.actionItalic       ->setEnabled(true);
+    ui.actionUnderline    ->setEnabled(true);
+    ui.actionStrikethrough->setEnabled(true);
+
+    ui.actionAlignLeft   ->setEnabled(true);
+    ui.actionAlignCenter ->setEnabled(true);
+    ui.actionAlignRight  ->setEnabled(true);
+    ui.actionAlignJustify->setEnabled(true);
+    	
+    ui.actionTextDirectionLTR    ->setEnabled(true);
+    ui.actionTextDirectionRTL    ->setEnabled(true);
+    ui.actionTextDirectionDefault->setEnabled(true);
+}
+
 void MainWindow::SetStateActionsRawView()
 {
-    ui.actionBookView->setEnabled(false);
-    ui.actionSplitView->setEnabled(false);
-    ui.actionCodeView->setEnabled(false);
-
     ui.actionBookView->setChecked(false);
     ui.actionSplitView->setChecked(false);
     ui.actionCodeView->setChecked(false);
@@ -1825,10 +1831,6 @@ void MainWindow::SetStateActionsRawView()
 
 void MainWindow::SetStateActionsStaticView()
 {
-    ui.actionBookView->setEnabled(false);
-    ui.actionSplitView->setEnabled(false);
-    ui.actionCodeView->setEnabled(false);
-
     ui.actionBookView->setChecked(false);
     ui.actionSplitView->setChecked(false);
     ui.actionCodeView->setChecked(false);
@@ -3307,27 +3309,34 @@ void MainWindow::MakeTabConnections( ContentTab *tab )
         connect( m_ClipboardHistorySelector,        SIGNAL( PasteFromClipboardRequest() ), tab, SLOT( Paste()       ) );
     }
 
-    if (tab->GetLoadedResource().Type() == Resource::HTMLResourceType )
+    if (tab->GetLoadedResource().Type() == Resource::HTMLResourceType ||
+        tab->GetLoadedResource().Type() == Resource::CSSResourceType)
     {
         connect( ui.actionBold,                     SIGNAL( triggered() ),  tab,   SLOT( Bold()                     ) );
         connect( ui.actionItalic,                   SIGNAL( triggered() ),  tab,   SLOT( Italic()                   ) );
         connect( ui.actionUnderline,                SIGNAL( triggered() ),  tab,   SLOT( Underline()                ) );    
         connect( ui.actionStrikethrough,            SIGNAL( triggered() ),  tab,   SLOT( Strikethrough()            ) );
-        connect( ui.actionSubscript,                SIGNAL( triggered() ),  tab,   SLOT( Subscript()                ) );
-        connect( ui.actionSuperscript,              SIGNAL( triggered() ),  tab,   SLOT( Superscript()              ) );
 
         connect( ui.actionAlignLeft,                SIGNAL( triggered() ),  tab,   SLOT( AlignLeft()                ) );
         connect( ui.actionAlignCenter,              SIGNAL( triggered() ),  tab,   SLOT( AlignCenter()              ) );
         connect( ui.actionAlignRight,               SIGNAL( triggered() ),  tab,   SLOT( AlignRight()               ) );
         connect( ui.actionAlignJustify,             SIGNAL( triggered() ),  tab,   SLOT( AlignJustify()             ) );
         
+        connect( ui.actionTextDirectionLTR,         SIGNAL( triggered() ),  tab,   SLOT( TextDirectionLeftToRight() ) );
+        connect( ui.actionTextDirectionRTL,         SIGNAL( triggered() ),  tab,   SLOT( TextDirectionRightToLeft() ) );
+        connect( ui.actionTextDirectionDefault,     SIGNAL( triggered() ),  tab,   SLOT( TextDirectionDefault()     ) );
+
+        connect( tab,   SIGNAL( SelectionChanged() ),           this,          SLOT( UpdateUIOnTabChanges()    ) );
+    }
+
+    if (tab->GetLoadedResource().Type() == Resource::HTMLResourceType )
+    {
+        connect( ui.actionSubscript,                SIGNAL( triggered() ),  tab,   SLOT( Subscript()                ) );
+        connect( ui.actionSuperscript,              SIGNAL( triggered() ),  tab,   SLOT( Superscript()              ) );
         connect( ui.actionInsertBulletedList,       SIGNAL( triggered() ),  tab,   SLOT( InsertBulletedList()       ) );
         connect( ui.actionInsertNumberedList,       SIGNAL( triggered() ),  tab,   SLOT( InsertNumberedList()       ) );
         connect( ui.actionDecreaseIndent,           SIGNAL( triggered() ),  tab,   SLOT( DecreaseIndent()           ) );
         connect( ui.actionIncreaseIndent,           SIGNAL( triggered() ),  tab,   SLOT( IncreaseIndent()           ) );
-        connect( ui.actionTextDirectionLTR,         SIGNAL( triggered() ),  tab,   SLOT( TextDirectionLeftToRight() ) );
-        connect( ui.actionTextDirectionRTL,         SIGNAL( triggered() ),  tab,   SLOT( TextDirectionRightToLeft() ) );
-        connect( ui.actionTextDirectionDefault,     SIGNAL( triggered() ),  tab,   SLOT( TextDirectionDefault()     ) );
         connect( ui.actionRemoveFormatting,         SIGNAL( triggered() ),  tab,   SLOT( RemoveFormatting()         ) );
 
         connect( ui.actionSplitChapter,             SIGNAL( triggered() ),  tab,   SLOT( SplitChapter()             ) );
@@ -3342,7 +3351,6 @@ void MainWindow::MakeTabConnections( ContentTab *tab )
 
         connect( this,                              SIGNAL( SettingsChanged()), tab, SLOT( LoadSettings()           ) );
     
-        connect( tab,   SIGNAL( SelectionChanged() ),           this,          SLOT( UpdateUIOnTabChanges()    ) );
         connect( tab,   SIGNAL( EnteringBookView() ),           this,          SLOT( SetStateActionsBookView() ) );
         connect( tab,   SIGNAL( EnteringBookPreview() ),        this,          SLOT( SetStateActionsSplitView() ) );
         connect( tab,   SIGNAL( EnteringCodeView() ),           this,          SLOT( SetStateActionsCodeView() ) );
@@ -3361,11 +3369,6 @@ void MainWindow::MakeTabConnections( ContentTab *tab )
 
         connect( tab,   SIGNAL( BookmarkLinkOrStyleLocationRequest() ),
                  this,  SLOT (  BookmarkLinkOrStyleLocation() ) );
-    }
-
-    if (tab->GetLoadedResource().Type() == Resource::CSSResourceType )
-    {
-        connect( tab,   SIGNAL( SelectionChanged() ),           this,          SLOT( UpdateUIOnTabChanges()    ) );
     }
 
     if (tab->GetLoadedResource().Type() == Resource::HTMLResourceType ||
