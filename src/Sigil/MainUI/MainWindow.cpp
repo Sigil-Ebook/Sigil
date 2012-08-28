@@ -606,10 +606,10 @@ void MainWindow::GoToLinkedStyleDefinition( const QString &element_name, const Q
             else {
                 display_name = QString(".%1 / %2.%1").arg(style_class_name).arg(element_name);
             }
-            ShowMessageOnCurrentStatusBar(QString( tr("No CSS styles named") +  " " + display_name), 3000);
+            ShowMessageOnCurrentStatusBar(QString( tr("No CSS styles named") +  " " + display_name), 5000);
             // Open the first linked stylesheet if any
             if (first_css_resource) {
-                OpenResource(*first_css_resource);
+                OpenResource(*first_css_resource, false, QUrl(), MainWindow::ViewState_Unknown, 1);
             }
         }
     }
