@@ -474,7 +474,7 @@ void SearchEditorModel::AddExampleEntries()
     examples_dir = QCoreApplication::applicationDirPath() + "/../examples/";
 #endif
 #ifdef Q_WS_WIN 
-    examples_dir = QCoreApplication::applicationDirPath() + "/examples";
+    examples_dir = QCoreApplication::applicationDirPath() + "/examples/";
 #endif
 #ifdef Q_WS_X11
     examples_dir = QCoreApplication::applicationDirPath() + "/../share/" + QCoreApplication::applicationName().toLower() + "/examples/";
