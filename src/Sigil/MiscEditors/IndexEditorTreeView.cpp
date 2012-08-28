@@ -49,23 +49,20 @@ QModelIndex IndexEditorTreeView::moveCursor(CursorAction cursorAction, Qt::Keybo
             return model()->index(index.row(), index.column() + 1, index.parent());
         }
 
-        if (index.row() == model()->rowCount() - 1) {
-            return model()->index(index.row(), index.column(), index.parent());
+        if (indexBelow(index).isValid()) {
+            setCurrentIndex(model()->index(index.row(), 0, index.parent()));
         }
- 
-        setCurrentIndex(model()->index(index.row(), 0, index.parent()));
     }
     else if (cursorAction == QAbstractItemView::MovePrevious) {
         QModelIndex index = currentIndex();
+
         if (index.column() > 0) {
             return model()->index(index.row(), index.column() - 1, index.parent());
         }
 
-        if (index.row() == 0) {
-            return model()->index(index.row(), index.column(), index.parent());
+        if (indexAbove(index).isValid()) {
+            setCurrentIndex(model()->index(index.row(), header()->count() - 1, index.parent()));
         }
- 
-         setCurrentIndex(model()->index(index.row(), header()->count() - 1, index.parent()));
     }
  
     return QTreeView::moveCursor(cursorAction, modifiers);
