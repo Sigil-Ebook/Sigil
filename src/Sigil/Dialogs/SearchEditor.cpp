@@ -73,7 +73,6 @@ void SearchEditor::SetupSearchEditorTree()
         "<p>" + tr("You can also right click on the Find text box in the Find & Replace window to select an entry.") + "</p>" +
         "<dl>" +
         "<dt><b>" + tr("Name") + "</b><dd>" + tr("Name of your entry or group.") + "</dd>" +
-        "<dt><b>" + tr("Description") + "</b><dd>" + tr("Optional.") + "</dd>" +
         "<dt><b>" + tr("Find") + "</b><dd>" + tr("The text to put into the Find box.") + "</dd>" +
         "<dt><b>" + tr("Replace") + "</b><dd>" + tr("The text to put into the Replace box.") + "</dd>" +
         "<dt><b>" + tr("Mode") + "</b><dd>" + tr("What to search.") + "</dd>" +
@@ -303,7 +302,6 @@ bool SearchEditor::Copy()
     foreach (SearchEditorModel::searchEntry *entry, entries) {
         SearchEditorModel::searchEntry *save_entry = new SearchEditorModel::searchEntry();
         save_entry->name = entry->name;
-        save_entry->description = entry->description;
         save_entry->find = entry->find;
         save_entry->replace = entry->replace;
         save_entry->search_mode = entry->search_mode;
@@ -485,7 +483,6 @@ bool SearchEditor::FilterEntries(const QString &text, QStandardItem *item)
         }
         else {
             hidden = !(text.isEmpty() || entry->name.toLower().contains(lowercaseText) ||
-                       entry->description.toLower().contains(lowercaseText) ||
                        entry->find.toLower().contains(lowercaseText) ||
                        entry->replace.toLower().contains(lowercaseText));
         }

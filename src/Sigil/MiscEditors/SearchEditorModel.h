@@ -44,7 +44,6 @@ public:
         bool is_group;
         QString fullname;
         QString name;
-        QString description;
         QString find;
         QString replace;
         FindFields::SearchMode search_mode;

@@ -28,14 +28,13 @@
 
 static const QString SETTINGS_GROUP         = "search_entries";
 static const QString ENTRY_NAME             = "Name";
-static const QString ENTRY_DESCRIPTION      = "Description";
 static const QString ENTRY_FIND             = "Find";
 static const QString ENTRY_REPLACE          = "Replace";
 static const QString ENTRY_MODE             = "Mode";
 static const QString ENTRY_WHERE            = "Where";
 static const QString ENTRY_DIRECTION        = "Direction";
 
-const int COLUMNS = 7;
+const int COLUMNS = 6;
 
 static const int IS_GROUP_ROLE = Qt::UserRole + 1;
 static const int FULLNAME_ROLE = Qt::UserRole + 2;
@@ -278,7 +277,6 @@ void SearchEditorModel::LoadInitialData()
 
     QStringList header;
     header.append(tr("Name"));
-    header.append(tr("Description"));
     header.append(tr("Find"));
     header.append(tr("Replace"));
     header.append(tr("Mode"));
@@ -321,7 +319,6 @@ void SearchEditorModel::LoadData(QString filename, QStandardItem *item)
         // Name is set to fullname only while looping through parent groups when adding
         entry->name = fullname;
         entry->fullname = fullname;
-        entry->description = settings->value(ENTRY_DESCRIPTION).toString();
         entry->find = settings->value(ENTRY_FIND).toString();
         entry->replace = settings->value(ENTRY_REPLACE).toString();
 
@@ -396,7 +393,6 @@ QStandardItem *SearchEditorModel::AddEntryToModel(SearchEditorModel::searchEntry
     if (!entry) {
         entry = new SearchEditorModel::searchEntry();
         entry->is_group = is_group;
-        entry->description = "";
         if (!is_group) {
             entry->name = "Search";
             entry->find = "";
@@ -431,8 +427,7 @@ QStandardItem *SearchEditorModel::AddEntryToModel(SearchEditorModel::searchEntry
         group_item->setFont(font);
 
         rowItems << group_item;
-        rowItems << new QStandardItem(entry->description);
-        for (int col = 2; col < COLUMNS ; col++) {
+        for (int col = 1; col < COLUMNS ; col++) {
             QStandardItem *item = new QStandardItem("");
             item->setEditable(false);
             rowItems << item;
@@ -440,7 +435,6 @@ QStandardItem *SearchEditorModel::AddEntryToModel(SearchEditorModel::searchEntry
     }
     else {
         rowItems << new QStandardItem(entry->name);
-        rowItems << new QStandardItem(entry->description);
         rowItems << new QStandardItem(entry->find);
         rowItems << new QStandardItem(entry->replace);
         rowItems << new QStandardItem(FindFields::instance()->GetSearchModeText(entry->search_mode));
@@ -563,17 +557,16 @@ SearchEditorModel::searchEntry* SearchEditorModel::GetEntry(QStandardItem *item)
     entry->is_group =    parent_item->child(item->row(), 0)->data(IS_GROUP_ROLE).toBool();
     entry->fullname =    parent_item->child(item->row(), 0)->data(FULLNAME_ROLE).toString();
     entry->name =        parent_item->child(item->row(), 0)->text();
-    entry->description = parent_item->child(item->row(), 1)->text();
-    entry->find =        parent_item->child(item->row(), 2)->text();
-    entry->replace =     parent_item->child(item->row(), 3)->text();
+    entry->find =        parent_item->child(item->row(), 1)->text();
+    entry->replace =     parent_item->child(item->row(), 2)->text();
 
     // Convert the mode values from translated text into enumerated modes
     entry->search_mode = FindFields::instance()->GetSearchMode(
-                        parent_item->child(item->row(), 4)->text());
+                        parent_item->child(item->row(), 3)->text());
     entry->look_where = FindFields::instance()->GetLookWhere(
-                        parent_item->child(item->row(), 5)->text());
+                        parent_item->child(item->row(), 4)->text());
     entry->search_direction = FindFields::instance()->GetSearchDirection(
-                        parent_item->child(item->row(), 6)->text());
+                        parent_item->child(item->row(), 5)->text());
 
     return entry;
 }
@@ -664,7 +657,6 @@ QString SearchEditorModel::SaveData(QList<SearchEditorModel::searchEntry*> entri
     foreach (SearchEditorModel::searchEntry *entry, entries) {
         settings->setArrayIndex(i++);
         settings->setValue(ENTRY_NAME, entry->fullname);
-        settings->setValue(ENTRY_DESCRIPTION, entry->description);
 
         if (!entry->is_group) {
             settings->setValue(ENTRY_FIND, entry->find);
