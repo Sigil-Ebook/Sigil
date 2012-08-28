@@ -2373,6 +2373,9 @@ QStringList CodeViewEditor::GetNewStyleProperties(const QString &style_text, con
 
     bool has_property = false;
     foreach( QString property_text, properties ) {
+        if (property_text.trimmed().isEmpty()) {
+            continue;
+        }
         QStringList name_values = property_text.split(QChar(':'), QString::SkipEmptyParts);
         // Any badly formed CSS we just ignore
         if (name_values.count() < 2) {
