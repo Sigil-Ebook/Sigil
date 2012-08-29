@@ -1763,6 +1763,7 @@ void CodeViewEditor::FormatBlock( const QString &element_name, bool preserve_att
     QRegExp tag_name_search( TAG_NAME_SEARCH );
 
     // Search backwards for the next block tag
+    pos--;
     while (true) {
         int previous_tag_index = text.lastIndexOf( tag_search, pos );
         if (previous_tag_index < 0) {
@@ -1789,7 +1790,17 @@ void CodeViewEditor::FormatBlock( const QString &element_name, bool preserve_att
             continue;
         }
 
-        // Special case for the body tag or a previous closing block tag
+        // Has the user clicked inside a closing block tag?
+        // If so, keep searching backwards
+        if ( is_closing_tag ) {
+            closing_tag_end = text.indexOf(QChar('>'), tag_name_index);
+            if ( closing_tag_end >= textCursor().selectionStart() ) {
+                pos = previous_tag_index - 1;
+                continue;
+            }
+        }
+
+        // Special case for the body tag or clicked past a previous closing block tag
         // In these situations we just insert html around our selection.
         if ( tag_name == "body" || is_closing_tag ) {
             InsertHTMLTagAroundSelection( element_name, "/" + element_name );
