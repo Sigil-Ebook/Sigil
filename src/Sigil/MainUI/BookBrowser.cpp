@@ -59,7 +59,8 @@ BookBrowser::BookBrowser( QWidget *parent )
     m_SemanticsContextMenu( *new QMenu( this ) ),
     m_FontObfuscationContextMenu( *new QMenu( this ) ),
     m_GuideSemanticMapper( *new QSignalMapper( this ) ),
-    m_LastContextMenuType( Resource::GenericResourceType )
+    m_LastContextMenuType( Resource::GenericResourceType ),
+    m_RenamedResource(NULL)
 { 
     m_SemanticsContextMenu      .setTitle( tr( "Add Semantics"    ) );
     m_FontObfuscationContextMenu.setTitle( tr( "Font Obfuscation" ) );
@@ -129,6 +130,21 @@ void BookBrowser::SelectResources(QList<Resource *> resources)
         QModelIndex index = m_OPFModel.GetModelItemIndex( *resource, OPFModel::IndexChoice_Current );
         m_TreeView.selectionModel()->select(index, QItemSelectionModel::Select);
     }
+}
+
+void BookBrowser::SelectRenamedResource()
+{
+    if (m_RenamedResource == NULL) {
+        return;
+    }
+
+    // Set the selection to the resource that was being renamed
+    UpdateSelection(*m_RenamedResource);
+
+    // Make sure Book Browser has focus so keyboard navigation works as expected
+    qobject_cast<QWidget *>(&m_TreeView)->setFocus();
+
+    m_RenamedResource = NULL;
 }
 
 void BookBrowser::UpdateSelection( Resource &resource )
@@ -595,18 +611,23 @@ void BookBrowser::Rename()
 {
     QList <Resource *> resources = ValidSelectedResources();
 
-    if ( resources.isEmpty() )
-    {
+    if (resources.isEmpty()) {
         return;
     }
 
-    if ( resources.count() == 1 )
-    { 
-        // The actual renaming code is in OPFModel::ItemChangedHandler
-        m_TreeView.edit( m_TreeView.currentIndex() );
+    Resource::ResourceType resource_type = resources.first()->Type();
+    if (resource_type == Resource::OPFResourceType || resource_type == Resource::NCXResourceType) {
+        return;
     }
-    else
-    {
+
+    if (resources.count() == 1) { 
+        // Save the resource so it can be re-selected
+        m_RenamedResource = GetCurrentResource();
+
+        // The actual renaming code is in OPFModel::ItemChangedHandler
+        m_TreeView.edit(m_TreeView.currentIndex());
+    }
+    else {
         RenameSelected();
     }
 }
@@ -877,6 +898,17 @@ void BookBrowser::Merge()
 
 void BookBrowser::LinkStylesheets()
 {
+    QList <Resource *> resources = ValidSelectedResources();
+
+    if (resources.isEmpty()) {
+        return;
+    }
+
+    Resource::ResourceType resource_type = resources.first()->Type();
+    if (resource_type != Resource::HTMLResourceType) {
+        return;
+    }
+
     emit LinkStylesheetsToResourcesRequest(ValidSelectedResources(Resource::HTMLResourceType));
 }
 
@@ -996,14 +1028,24 @@ void BookBrowser::CreateContextMenuActions()
     m_IdpfsObfuscationMethod ->setCheckable( true );
 
     m_Remove->setShortcut( QKeySequence::Delete );
+
     m_Merge->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_M));
     m_Merge->setToolTip( "Merge with previous file, or merge multiple files into one." );
     sm->registerAction( m_Merge, "MainWindow.BookBrowser.Merge" );
+
+    m_Rename->setShortcut(QKeySequence(Qt::CTRL + Qt::ALT + Qt::Key_R));
+    m_Rename->setToolTip( "Rename selected file(s)" );
+    sm->registerAction( m_Rename, "MainWindow.BookBrowser.Rename" );
+
+    m_LinkStylesheets->setToolTip( "Link Stylesheets to selected file(s)." );
+    sm->registerAction( m_LinkStylesheets, "MainWindow.BookBrowser.LinkStylesheets" );
 
     // Has to be added to the book browser itself as well
     // for the keyboard shortcut to work.
     addAction( m_Remove );
     addAction( m_Merge );
+    addAction( m_Rename );
+    addAction( m_LinkStylesheets );
 
     CreateGuideSemanticActions();
 }
@@ -1330,8 +1372,8 @@ void BookBrowser::ConnectSignalsToSlots()
     connect( &m_TreeView, SIGNAL( customContextMenuRequested( const QPoint& ) ),
              this,        SLOT(   OpenContextMenu(            const QPoint& ) ) );
 
-    connect( &m_OPFModel, SIGNAL( UpdateSelection(                Resource& ) ),
-             this,        SLOT(   UpdateSelection(                Resource& ) ) );
+    connect( &m_OPFModel, SIGNAL( ResourceRenamed() ),
+             this,        SLOT(   SelectRenamedResource() ) );
 
     connect( m_SelectAll,               SIGNAL( triggered() ), this, SLOT( SelectAll()               ) );
     connect( m_AddNewHTML,              SIGNAL( triggered() ), this, SLOT( AddNewHTML()              ) );

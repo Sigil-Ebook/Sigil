@@ -92,6 +92,11 @@ public:
 
     void RemoveSelection( QList<Resource *> tab_resources );
 
+    /**
+     * Updates the selection in the book display
+     */
+    void UpdateSelection( Resource &resource );
+
 public slots:
 
     /**
@@ -112,11 +117,6 @@ public slots:
      * Refreshes the TOC file to renumber entries
      */
     void RefreshTOC();
-
-    /**
-     * Updates the selection in the book display
-     */
-    void UpdateSelection( Resource &resource );
 
     /**
      * Returns the previous resource in the book display
@@ -149,6 +149,13 @@ public slots:
     void SortHTML();
 
     void SelectAll();
+
+    /**
+     * Updates the selection in the book display
+     * to the one resource being renamed
+     * and resets the focus to Book Browser.
+     */
+    void SelectRenamedResource();
 
 signals:
 
@@ -511,6 +518,8 @@ private:
     QString m_LastFolderExport;
 
     QList <QModelIndex> m_SavedSelection;
+
+    Resource *m_RenamedResource;
 };
 
 #endif // BOOKBROWSER_H

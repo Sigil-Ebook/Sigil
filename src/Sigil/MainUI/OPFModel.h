@@ -166,10 +166,9 @@ signals:
     void BookContentModified();
 
     /**
-     * Emitted when renaming to update the selection to the renamed entry
+     * Emitted after a rename of a file is attempted.
      */
-    void UpdateSelection( Resource& );
-
+    void ResourceRenamed();
 
 private slots:
 

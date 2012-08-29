@@ -305,27 +305,23 @@ void OPFModel::RowsRemovedHandler( const QModelIndex &parent, int start, int end
 }
 
 
-void OPFModel::ItemChangedHandler( QStandardItem *item )
+void OPFModel::ItemChangedHandler(QStandardItem *item)
 {
-    Q_ASSERT( item );
+    Q_ASSERT(item);
 
     const QString &identifier = item->data().toString(); 
 
-    if ( identifier.isEmpty() )
-    {
-        return;
+    if (!identifier.isEmpty()) {
+        const QString &new_filename = item->text();
+
+        Resource &resource = m_Book->GetFolderKeeper().GetResourceByIdentifier(identifier);
+
+        if (new_filename != resource.Filename()) {
+            RenameResource(resource, new_filename);
+        }
     }
 
-    const QString &new_filename = item->text();
-
-    Resource &resource = m_Book->GetFolderKeeper().GetResourceByIdentifier( identifier );
-
-    if ( new_filename == resource.Filename() )
-    {
-        return;
-    }
-
-    RenameResource( resource, new_filename );
+    emit ResourceRenamed();
 }
 
 
@@ -378,8 +374,6 @@ bool OPFModel:: RenameResource( Resource &resource, const QString &new_filename 
     emit BookContentModified();
 
     Refresh();
-
-    emit UpdateSelection ( resource );
 
     return true;
 }
