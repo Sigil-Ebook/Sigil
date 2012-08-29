@@ -26,6 +26,7 @@
 #include <QtCore/QVariant>
 #include <QtWebKit/QWebElement>
 
+#include "Misc/Utility.h"
 #include "ViewEditors/BookViewPreview.h"
 #include "ViewEditors/ViewEditor.h"
 
@@ -173,6 +174,8 @@ public:
      */
     QString GetCaretElementName();
 
+    void ApplyCaseChangeToSelection( const Utility::Casing &casing );
+
 public slots:
     /**
      * Filters the text changed signals by the CKEditor inside of the page
@@ -216,6 +219,15 @@ signals:
      * Emitted when the focus is lost.
      */
     void FocusLost(QWidget* editor);
+
+    /**
+     * Emitted when we want to do some operations with the clipboard
+     * to paste things into Book View, but restoring state afterwards
+     * so that Clipboard History and current clipboard contents are
+     * left unaffected.
+     */
+    void ClipboardSaveRequest();
+    void ClipboardRestoreRequest();
 
 protected:
     /**

@@ -115,6 +115,9 @@ void ContentTab::ContentChangedExternally()
     activateWindow();
 }
 
+void ContentTab::ChangeCasing( const Utility::Casing casing )
+{
+}
 
 void ContentTab::EmitDeleteMe()
 {

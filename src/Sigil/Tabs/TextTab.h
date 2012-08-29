@@ -23,9 +23,10 @@
 #ifndef TEXTTAB_H
 #define TEXTTAB_H
 
+#include "Misc/Utility.h"
+#include "MiscEditors/ClipEditorModel.h"
 #include "Tabs/ContentTab.h"
 #include "ViewEditors/CodeViewEditor.h"
-#include "MiscEditors/ClipEditorModel.h"
 
 class TextResource;
 class QTextDocument;
@@ -96,6 +97,11 @@ public slots:
     void PasteClipEntries(QList<ClipEditorModel::clipEntry *> clips);
 
     void CutCodeTags();
+
+    /**
+     * Change casing of the selected text.
+     */
+    void ChangeCasing( const Utility::Casing casing );
 
 signals:
 

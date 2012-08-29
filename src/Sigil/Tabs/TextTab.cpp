@@ -173,6 +173,13 @@ void TextTab::CutCodeTags()
 {
 }
 
+void TextTab::ChangeCasing( const Utility::Casing casing )
+{
+    if( m_wCodeView.hasFocus() ) {
+        m_wCodeView.ApplyCaseChangeToSelection( casing );
+    }
+}
+
 
 void TextTab::SaveTabContent()
 {

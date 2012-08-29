@@ -35,6 +35,16 @@ class Utility
 
 public:
 
+    enum Casing
+    {
+        Casing_Uppercase,     /**< Change characters to uppercase */
+        Casing_Lowercase,     /**< Change characters to lowercase */
+        Casing_Propercase,    /**< Change first character of each word to uppercase, reset to lowercase. */
+        Casing_Capitalize,    /**< Change first character of sentence to uppercase, rest to lowercase. */
+    };
+
+    static QString ChangeCase( const QString &text, const Casing &casing );
+
     // Uses QUuid to generate a random UUID but also removes
     // the curly braces that QUuid::createUuid() adds
     static QString CreateUUID();

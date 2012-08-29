@@ -77,6 +77,15 @@
     <property name="title">
      <string>&amp;Edit</string>
     </property>
+    <widget class="QMenu" name="menuChangeCase">
+     <property name="title">
+      <string>Change Case</string>
+     </property>
+     <addaction name="actionCasingLowercase"/>
+     <addaction name="actionCasingUppercase"/>
+     <addaction name="actionCasingPropercase"/>
+     <addaction name="actionCasingCapitalize"/>
+    </widget>
     <addaction name="actionUndo"/>
     <addaction name="actionRedo"/>
     <addaction name="separator"/>
@@ -84,6 +93,8 @@
     <addaction name="actionCopy"/>
     <addaction name="actionPaste"/>
     <addaction name="actionPasteClipboardHistory"/>
+    <addaction name="separator"/>
+    <addaction name="menuChangeCase"/>
     <addaction name="separator"/>
     <addaction name="actionInsertImage"/>
     <addaction name="separator"/>
@@ -450,6 +461,21 @@
    </attribute>
    <addaction name="actionDecreaseIndent"/>
    <addaction name="actionIncreaseIndent"/>
+  </widget>
+  <widget class="QToolBar" name="toolBarChangeCase">
+   <property name="windowTitle">
+    <string>Change Case</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionCasingLowercase"/>
+   <addaction name="actionCasingUppercase"/>
+   <addaction name="actionCasingPropercase"/>
+   <addaction name="actionCasingCapitalize"/>
   </widget>
   <widget class="QToolBar" name="toolBarTextDirection">
    <property name="windowTitle">
@@ -1184,6 +1210,80 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+Space</string>
+   </property>
+  </action>
+  <action name="actionCasingLowercase">
+   <property name="icon">
+    <iconset resource="../Resource_Files/main/main.qrc">
+     <normaloff>:/main/format-case-lowercase_22px.png</normaloff>:/main/format-case-lowercase_22px.png
+    </iconset>
+   </property>
+   <property name="text">
+    <string>Lowercase</string>
+   </property>
+   <property name="toolTip">
+    <string>
+     &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Lowercase&lt;/b&gt;&lt;/p&gt;
+
+     &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Set selected text to lowercase.&lt;/p&gt;
+    </string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+L</string>
+   </property>
+  </action>
+  <action name="actionCasingUppercase">
+   <property name="icon">
+    <iconset resource="../Resource_Files/main/main.qrc">
+     <normaloff>:/main/format-case-uppercase_22px.png</normaloff>:/main/format-case-uppercase_22px.png
+    </iconset>
+   </property>
+   <property name="text">
+    <string>Uppercase</string>
+   </property>
+   <property name="toolTip">
+    <string>
+     &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Uppercase&lt;/b&gt;&lt;/p&gt;
+
+     &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Set selected text to uppercase.&lt;/p&gt;
+    </string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+U</string>
+   </property>
+  </action>
+  <action name="actionCasingPropercase">
+   <property name="icon">
+    <iconset resource="../Resource_Files/main/main.qrc">
+     <normaloff>:/main/format-case-propercase_22px.png</normaloff>:/main/format-case-propercase_22px.png
+    </iconset>
+   </property>
+   <property name="text">
+    <string>Propercase</string>
+   </property>
+   <property name="toolTip">
+    <string>
+     &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Propercase&lt;/b&gt;&lt;/p&gt;
+
+     &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Capitalize the first letter of each word selected.&lt;/p&gt;
+    </string>
+   </property>
+  </action>
+  <action name="actionCasingCapitalize">
+   <property name="icon">
+    <iconset resource="../Resource_Files/main/main.qrc">
+     <normaloff>:/main/format-case-capitalize_22px.png</normaloff>:/main/format-case-capitalize_22px.png
+    </iconset>
+   </property>
+   <property name="text">
+    <string>Capitalize</string>
+   </property>
+   <property name="toolTip">
+    <string>
+     &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Capitalize&lt;/b&gt;&lt;/p&gt;
+
+     &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Capitalize only the first word of the selection.&lt;/p&gt;
+    </string>
    </property>
   </action>
   <action name="actionReportAnIssue">

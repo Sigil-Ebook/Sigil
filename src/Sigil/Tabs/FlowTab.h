@@ -27,10 +27,11 @@
 #include <QtCore/QUrl>
 
 #include "MainUI/MainWindow.h"
-#include "Tabs/ContentTab.h"
-#include "Tabs/WellFormedContent.h"
+#include "Misc/Utility.h"
 #include "MiscEditors/ClipEditorModel.h"
 #include "MiscEditors/IndexEditorModel.h"
+#include "Tabs/ContentTab.h"
+#include "Tabs/WellFormedContent.h"
 
 class QSplitter;
 class QStackedWidget;
@@ -269,95 +270,31 @@ public slots:
 
     void LoadTabContent();
 
-    /**
-     * Implements Bold action functionality.
-     */
     void Bold();
-
-    /**
-     * Implements Italic action functionality.
-     */
     void Italic();
-
-    /**
-     * Implements Underline action functionality.
-     */
     void Underline();
-
-    /**
-     * Implements Strikethrough action functionality.
-     */
     void Strikethrough();
-
-    /**
-     * Implements Subscript action functionality.
-     */
     void Subscript();
-
-    /**
-     * Implements Superscript action functionality.
-     */
     void Superscript();
 
-    /**
-     * Implements Align Left action functionality.
-     */
     void AlignLeft();
-
-    /**
-     * Implements Center action functionality.
-     */
     void AlignCenter();
-
-    /**
-     * Implements Align Right action functionality.
-     */
     void AlignRight();
-
-    /**
-     * Implements Justify action functionality.
-     */
     void AlignJustify();
     
-    /**
-     * Implements Insert bulleted list action functionality.
-     */
     void InsertBulletedList();
-
-    /**
-     * Implements Insert numbered list action functionality.
-     */
     void InsertNumberedList();
 
-    /**
-     * Implements Decrease indent action functionality.
-     */
     void DecreaseIndent();
-
-    /**
-     * Implements Increase indent action functionality.
-     */
     void IncreaseIndent();
 
-    /**
-     * Implements Text direction left-to-right functionaliry.
-     */
     void TextDirectionLeftToRight();
-
-    /**
-     * Implements Text direction right-to-left functionaliry.
-     */
     void TextDirectionRightToLeft();
-
-    /**
-     * Implements Text direction default functionaliry.
-     */
     void TextDirectionDefault();
 
-    /**
-     * Implements Remove Formatting action functionality.
-     */
     void RemoveFormatting();
+    
+    void ChangeCasing( const Utility::Casing casing );
 
     /**
      * Implements the application of a heading style functionality.

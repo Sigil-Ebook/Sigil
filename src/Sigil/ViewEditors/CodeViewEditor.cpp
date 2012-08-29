@@ -2415,6 +2415,34 @@ QStringList CodeViewEditor::GetNewStyleProperties(const QString &style_text, con
     return new_properties;
 }
 
+void CodeViewEditor::ApplyCaseChangeToSelection(const Utility::Casing &casing)
+{
+    QTextCursor cursor = textCursor();
+    
+    const QString selected_text = cursor.selectedText();
+    if (selected_text.isEmpty()) {
+        return;
+    }
+
+    const QString new_text = Utility::ChangeCase(selected_text, casing);
+    if (new_text == selected_text) {
+        return;
+    }
+
+    const int pos = cursor.selectionStart();
+
+    cursor.beginEditBlock();
+
+    cursor.removeSelectedText();
+    cursor.insertText( new_text );
+    cursor.setPosition( pos + new_text.length() );
+    cursor.setPosition( pos, QTextCursor::KeepAnchor );
+
+    cursor.endEditBlock();
+
+    //setTextCursor(cursor);
+}
+
 void CodeViewEditor::ConnectSignalsToSlots()
 {
     connect( this, SIGNAL( blockCountChanged( int )           ), this, SLOT( UpdateLineNumberAreaMargin()              ) );

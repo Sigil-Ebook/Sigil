@@ -19,6 +19,8 @@
 **
 *************************************************************************/
 
+#include <QApplication>
+#include <QClipboard>
 #include <QtCore/QCoreApplication>
 #include <QtCore/QDir>
 #include <QtCore/QEvent>
@@ -450,6 +452,35 @@ QString BookViewEditor::GetCaretElementName()
                           "startNode.nodeName;";
 
     return EvaluateJavascript( c_GetBlock % javascript ).toString();
+}
+
+void BookViewEditor::ApplyCaseChangeToSelection( const Utility::Casing &casing )
+{
+    // This is going to lose any styles that may have been applied within
+    // that selected text.
+    QString selected_text = GetSelectedText();
+    QString new_text = Utility::ChangeCase( selected_text, casing );
+    if (new_text == selected_text) {
+        return;
+    }
+
+    // The "proper" way to do a replacement of the text (and allow undo) will
+    // undoubtedly involve reams of javascript. However there is a quick and
+    // dirty alternative, of putting the text on the clipboard and pasting it.
+    // However since this will muck around the with clipboard history we need
+    // to do a little extra work to disconnect and restore things afterwards.
+    emit ClipboardSaveRequest();
+
+    QApplication::clipboard()->setText(new_text);
+    paste();
+
+    emit ClipboardRestoreRequest();
+
+    // We will have lost our selection from the paste operation.
+    for (int i = 0; i < new_text.length(); i++ )
+    {
+        page()->triggerAction( QWebPage::SelectPreviousChar );
+    }
 }
 
 void BookViewEditor::cut()

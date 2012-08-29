@@ -125,6 +125,7 @@ MainWindow::MainWindow( const QString &openfilepath, QWidget *parent, Qt::WFlags
     m_CheckWellFormedErrors( true ),
     m_ViewState( MainWindow::ViewState_BookView ),
     m_headingMapper( new QSignalMapper( this ) ),
+    m_casingChangeMapper( new QSignalMapper( this ) ),
     m_SearchEditor(new SearchEditor(this)),
     m_ClipEditor(new ClipEditor(this)),
     m_IndexEditor(new IndexEditor(this)),
@@ -1241,6 +1242,37 @@ void MainWindow::setCleanLevel(int level, bool store, bool show_warning)
     }
 }
 
+void MainWindow::ChangeCasing(int casing_mode)
+{
+    ContentTab &tab = GetCurrentContentTab();
+    if (&tab == NULL) {
+        return;
+    }
+
+    Utility::Casing casing;
+    switch (casing_mode) {
+        case Utility::Casing_Lowercase: {
+            casing = Utility::Casing_Lowercase;
+            break;
+        }
+        case Utility::Casing_Uppercase: {
+            casing = Utility::Casing_Uppercase;
+            break;
+        }
+        case Utility::Casing_Propercase: {
+            casing = Utility::Casing_Propercase;
+            break;
+        }
+        case Utility::Casing_Capitalize: {
+            casing = Utility::Casing_Capitalize;
+            break;
+        }
+        default:
+            return;
+    }
+    tab.ChangeCasing( casing );
+}
+
 void MainWindow::ToggleViewState()
 {
     ContentTab &tab = GetCurrentContentTab();
@@ -1596,6 +1628,11 @@ void MainWindow::SetStateActionsBookView()
     ui.actionHeading6->setEnabled(true);
     ui.actionHeadingNormal->setEnabled(true);
 
+    ui.actionCasingLowercase  ->setEnabled(true);
+    ui.actionCasingUppercase  ->setEnabled(true);
+    ui.actionCasingPropercase ->setEnabled(true);
+    ui.actionCasingCapitalize ->setEnabled(true);
+
     ui.actionInsertImage->setEnabled(true);
     ui.actionSplitChapter->setEnabled(true);
     ui.actionInsertClosingTag->setEnabled(false);
@@ -1661,6 +1698,11 @@ void MainWindow::SetStateActionsSplitView()
     ui.actionHeading6->setEnabled(false);
     ui.actionHeadingNormal->setEnabled(false);
 
+    ui.actionCasingLowercase  ->setEnabled(false);
+    ui.actionCasingUppercase  ->setEnabled(false);
+    ui.actionCasingPropercase ->setEnabled(false);
+    ui.actionCasingCapitalize ->setEnabled(false);
+
     ui.actionInsertImage->setEnabled(false);
     ui.actionSplitChapter->setEnabled(false);
     ui.actionInsertClosingTag->setEnabled(false);
@@ -1725,6 +1767,11 @@ void MainWindow::SetStateActionsCodeView()
     ui.actionHeading5->setEnabled(true);
     ui.actionHeading6->setEnabled(true);
     ui.actionHeadingNormal->setEnabled(true);
+
+    ui.actionCasingLowercase  ->setEnabled(true);
+    ui.actionCasingUppercase  ->setEnabled(true);
+    ui.actionCasingPropercase ->setEnabled(true);
+    ui.actionCasingCapitalize ->setEnabled(true);
 
     ui.actionInsertImage->setEnabled(true);
     ui.actionSplitChapter->setEnabled(true);
@@ -1810,6 +1857,11 @@ void MainWindow::SetStateActionsRawView()
     ui.actionHeading6->setEnabled(false);
     ui.actionHeadingNormal->setEnabled(false);
 
+    ui.actionCasingLowercase  ->setEnabled(true);
+    ui.actionCasingUppercase  ->setEnabled(true);
+    ui.actionCasingPropercase ->setEnabled(true);
+    ui.actionCasingCapitalize ->setEnabled(true);
+
     ui.actionInsertImage->setEnabled(false);
     ui.actionSplitChapter->setEnabled(false);
     ui.actionInsertSGFChapterMarker->setEnabled(false);
@@ -1873,6 +1925,11 @@ void MainWindow::SetStateActionsStaticView()
     ui.actionHeading5->setEnabled(false);
     ui.actionHeading6->setEnabled(false);
     ui.actionHeadingNormal->setEnabled(false);
+
+    ui.actionCasingLowercase  ->setEnabled(false);
+    ui.actionCasingUppercase  ->setEnabled(false);
+    ui.actionCasingPropercase ->setEnabled(false);
+    ui.actionCasingCapitalize ->setEnabled(false);
 
     ui.actionInsertImage->setEnabled(false);
     ui.actionSplitChapter->setEnabled(false);
@@ -2722,11 +2779,13 @@ void MainWindow::ExtendUI()
     ui.menuToolbars->addAction(ui.toolBarLists->toggleViewAction());
     ui.menuToolbars->addAction(ui.toolBarTextFormats->toggleViewAction());
     ui.menuToolbars->addAction(ui.toolBarTextAlign->toggleViewAction());
+    ui.menuToolbars->addAction(ui.toolBarChangeCase->toggleViewAction());
     ui.menuToolbars->addAction(ui.toolBarTextDirection->toggleViewAction());
     ui.menuToolbars->addAction(ui.toolBarDonate->toggleViewAction());
     ui.menuToolbars->addAction(ui.toolBarTools->toggleViewAction());
 
     ui.toolBarTextDirection->setVisible(false);
+    ui.toolBarChangeCase->setVisible(false);
 
     m_lbCursorPosition = new QLabel( QString (""), statusBar() );
     statusBar()->addPermanentWidget( m_lbCursorPosition );
@@ -2835,6 +2894,10 @@ void MainWindow::ExtendUI()
     sm->registerAction(ui.actionHeading6, "MainWindow.Heading6");
     sm->registerAction(ui.actionHeadingNormal, "MainWindow.HeadingNormal");
     sm->registerAction(ui.actionHeadingPreserveAttributes, "MainWindow.HeadingPreserveAttributes");
+    sm->registerAction(ui.actionCasingLowercase, "MainWindow.CasingLowercase");
+    sm->registerAction(ui.actionCasingUppercase, "MainWindow.CasingUppercase");
+    sm->registerAction(ui.actionCasingPropercase, "MainWindow.CasingPropercase");
+    sm->registerAction(ui.actionCasingCapitalize, "MainWindow.CasingCapitalize");
 
     // Tools
     sm->registerAction(ui.actionMetaEditor, "MainWindow.MetaEditor");
@@ -2993,6 +3056,22 @@ void MainWindow::ExtendIconSizes()
     icon = ui.actionDecreaseIndent->icon();
     icon.addFile(QString::fromUtf8(":/main/format-indent-less_16px.png"));
     ui.actionDecreaseIndent->setIcon(icon);
+    
+    icon = ui.actionCasingLowercase->icon();
+    icon.addFile(QString::fromUtf8(":/main/format-case-lowercase_16px.png"));
+    ui.actionCasingLowercase->setIcon(icon);
+    
+    icon = ui.actionCasingUppercase->icon();
+    icon.addFile(QString::fromUtf8(":/main/format-case-uppercase_16px.png"));
+    ui.actionCasingUppercase->setIcon(icon);
+    
+    icon = ui.actionCasingPropercase->icon();
+    icon.addFile(QString::fromUtf8(":/main/format-case-propercase_16px.png"));
+    ui.actionCasingPropercase->setIcon(icon);
+    
+    icon = ui.actionCasingCapitalize->icon();
+    icon.addFile(QString::fromUtf8(":/main/format-case-capitalize_16px.png"));
+    ui.actionCasingCapitalize->setIcon(icon);
     
     icon = ui.actionTextDirectionLTR->icon();
     icon.addFile(QString::fromUtf8(":/main/format-direction-ltr_16px.png"));
@@ -3183,6 +3262,17 @@ void MainWindow::ConnectSignalsToSlots()
     m_cleanMapper->setMapping(ui.actionCleanLevelTidy, SettingsStore::CleanLevel_Tidy);
     connect(m_cleanMapper, SIGNAL(mapped(int)), this, SLOT(setCleanLevel(int)));
 
+    // Change case
+    connect(ui.actionCasingLowercase,  SIGNAL(triggered()), m_casingChangeMapper, SLOT(map()));
+    connect(ui.actionCasingUppercase,  SIGNAL(triggered()), m_casingChangeMapper, SLOT(map()));
+    connect(ui.actionCasingPropercase, SIGNAL(triggered()), m_casingChangeMapper, SLOT(map()));
+    connect(ui.actionCasingCapitalize, SIGNAL(triggered()), m_casingChangeMapper, SLOT(map()));
+    m_casingChangeMapper->setMapping(ui.actionCasingLowercase,  Utility::Casing_Lowercase);
+    m_casingChangeMapper->setMapping(ui.actionCasingUppercase,  Utility::Casing_Uppercase);
+    m_casingChangeMapper->setMapping(ui.actionCasingPropercase, Utility::Casing_Propercase);
+    m_casingChangeMapper->setMapping(ui.actionCasingCapitalize, Utility::Casing_Capitalize);
+    connect(m_casingChangeMapper, SIGNAL(mapped(int)), this, SLOT(ChangeCasing(int)));
+
     // View
     connect( ui.actionZoomIn,        SIGNAL( triggered() ), this, SLOT( ZoomIn()                   ) );
     connect( ui.actionZoomOut,       SIGNAL( triggered() ), this, SLOT( ZoomOut()                  ) );
@@ -3371,6 +3461,9 @@ void MainWindow::MakeTabConnections( ContentTab *tab )
 
         connect( tab,   SIGNAL( BookmarkLinkOrStyleLocationRequest() ),
                  this,  SLOT (  BookmarkLinkOrStyleLocation() ) );
+
+        connect( tab,   SIGNAL( ClipboardSaveRequest() ),     m_ClipboardHistorySelector,  SLOT( SaveClipboardState() ) );
+        connect( tab,   SIGNAL( ClipboardRestoreRequest() ),  m_ClipboardHistorySelector,  SLOT( RestoreClipboardState() ) );
     }
 
     if (tab->GetLoadedResource().Type() == Resource::HTMLResourceType ||
@@ -3380,7 +3473,7 @@ void MainWindow::MakeTabConnections( ContentTab *tab )
     }
 
     connect( tab,   SIGNAL( ContentChanged() ),             m_Book.data(), SLOT( SetModified()             ) );
-    connect(tab, SIGNAL(UpdateCursorPosition(int,int)), this, SLOT(UpdateCursorPositionLabel(int,int)));
+    connect( tab,   SIGNAL( UpdateCursorPosition(int,int)), this,          SLOT( UpdateCursorPositionLabel(int,int)));
     connect( tab,   SIGNAL( ZoomFactorChanged( float ) ),   this,          SLOT( UpdateZoomLabel( float )  ) );
     connect( tab,   SIGNAL( ZoomFactorChanged( float ) ),   this,          SLOT( UpdateZoomSlider( float ) ) );
 }

@@ -26,6 +26,7 @@
 #include <QWidget>
 #include <QString>
 
+#include "Misc/Utility.h"
 #include "ViewEditors/Zoomable.h"
 
 class QLayout;
@@ -285,6 +286,11 @@ public slots:
      */
     void ContentChangedExternally();
 
+    /**
+     * Change casing of the selected text.
+     */
+    virtual void ChangeCasing( const Utility::Casing casing );
+
 signals:
 
     /**
@@ -331,6 +337,15 @@ signals:
      * @param column The column the cursor is at.
      */
     void UpdateCursorPosition(int line, int column);
+    
+    /**
+     * Emitted when we want to do some operations with the clipboard
+     * to paste things into Book View, but restoring state afterwards
+     * so that Clipboard History and current clipboard contents are
+     * left unaffected.
+     */
+    void ClipboardSaveRequest();
+    void ClipboardRestoreRequest();
 
 protected slots:
 

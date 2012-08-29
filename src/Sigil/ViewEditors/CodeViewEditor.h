@@ -33,6 +33,7 @@
 
 #include "ViewEditors/ViewEditor.h"
 #include "Misc/SettingsStore.h"
+#include "Misc/Utility.h"
 #include "MiscEditors/IndexEditorModel.h"
 #include "MiscEditors/ClipEditorModel.h"
 
@@ -267,7 +268,9 @@ public:
      * @param property_value The new value to be assigned to this property.
      */
     void FormatCSSStyle( const QString &property_name, const QString &property_value );
-    	
+    
+    void ApplyCaseChangeToSelection( const Utility::Casing &casing );
+   	
 signals:
 
     /**

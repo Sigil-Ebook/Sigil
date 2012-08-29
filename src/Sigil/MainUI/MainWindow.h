@@ -548,6 +548,8 @@ private slots:
 
     void setCleanLevel(int level, bool store=true, bool show_warning=true);
 
+    void ChangeCasing(int casing_mode);
+
     void ToggleViewState();
 
     void ApplyHeadingStyleToTab( const QString &heading_type );
@@ -872,9 +874,10 @@ private:
     MainWindow::ViewState m_ViewState;
 
     /**
-     * Collects signals and sends specific paramerts to the connected slots.
+     * Collects signals and sends specific parameters to the connected slots.
      */
     QSignalMapper *m_headingMapper;
+    QSignalMapper *m_casingChangeMapper;
 
     /**
      * The Search Manager dialog

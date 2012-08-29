@@ -108,5 +108,13 @@
         <file>format-direction-ltr_16px.png</file>
         <file>format-direction-rtl_16px.png</file>
         <file>format-direction-default_16px.png</file>
+        <file>format-case-lowercase_22px.png</file>
+        <file>format-case-uppercase_22px.png</file>
+        <file>format-case-propercase_22px.png</file>
+        <file>format-case-capitalize_22px.png</file>
+        <file>format-case-lowercase_16px.png</file>
+        <file>format-case-uppercase_16px.png</file>
+        <file>format-case-propercase_16px.png</file>
+        <file>format-case-capitalize_16px.png</file>
     </qresource>
 </RCC>

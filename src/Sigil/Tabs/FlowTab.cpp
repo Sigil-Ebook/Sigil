@@ -1084,14 +1084,12 @@ void FlowTab::InsertBulletedList()
     }
 }
 
-
 void FlowTab::InsertNumberedList()
 {
     if (m_ViewState == MainWindow::ViewState_BookView) {
         m_wBookView->ExecCommand( "insertOrderedList" );
     }
 }
-
 
 void FlowTab::DecreaseIndent()
 {
@@ -1100,14 +1098,12 @@ void FlowTab::DecreaseIndent()
     }
 }
 
-
 void FlowTab::IncreaseIndent()
 {
     if (m_ViewState == MainWindow::ViewState_BookView) {
         m_wBookView->page()->triggerAction( QWebPage::Indent );
     }
 }
-
 
 void FlowTab::TextDirectionLeftToRight()
 {
@@ -1119,7 +1115,6 @@ void FlowTab::TextDirectionLeftToRight()
     }    
 }
 
-
 void FlowTab::TextDirectionRightToLeft()
 {
     if (m_ViewState == MainWindow::ViewState_BookView) {
@@ -1129,7 +1124,6 @@ void FlowTab::TextDirectionRightToLeft()
         m_wCodeView->FormatStyle( "direction", "rtl" );
     }    
 }
-
 
 void FlowTab::TextDirectionDefault()
 {
@@ -1141,7 +1135,6 @@ void FlowTab::TextDirectionDefault()
     }    
 }
 
-
 void FlowTab::RemoveFormatting()
 {
     if (m_ViewState == MainWindow::ViewState_BookView) {
@@ -1152,6 +1145,15 @@ void FlowTab::RemoveFormatting()
     }
 }
 
+void FlowTab::ChangeCasing( const Utility::Casing casing )
+{
+    if (m_ViewState == MainWindow::ViewState_BookView) {
+        m_wBookView->ApplyCaseChangeToSelection( casing );
+    }
+    else if (m_ViewState == MainWindow::ViewState_CodeView) {
+        m_wCodeView->ApplyCaseChangeToSelection( casing );
+    }
+}
 
 void FlowTab::HeadingStyle( const QString& heading_type, bool preserve_attributes )
 {
@@ -1289,7 +1291,6 @@ bool FlowTab::BulletListChecked()
         return ContentTab::BulletListChecked();
 }
 
-
 bool FlowTab::NumberListChecked()
 {
     if (m_ViewState == MainWindow::ViewState_BookView)
@@ -1349,5 +1350,6 @@ void FlowTab::ConnectSignalsToSlots()
 
     connect(m_wCodeView, SIGNAL(GoToLinkedStyleDefinitionRequest(const QString&, const QString&)), this, SIGNAL(GoToLinkedStyleDefinitionRequest(const QString&, const QString&)));
 
-    connect(m_wCodeView, SIGNAL(BookmarkLinkOrStyleLocationRequest()), this, SIGNAL(BookmarkLinkOrStyleLocationRequest()));
+    connect(m_wBookView, SIGNAL(ClipboardSaveRequest()),    this, SIGNAL(ClipboardSaveRequest()));
+    connect(m_wBookView, SIGNAL(ClipboardRestoreRequest()), this, SIGNAL(ClipboardRestoreRequest()));
 }

@@ -46,6 +46,44 @@ QString Utility::CreateUUID()
 }
 
 
+// Convert the casing of the text, returning the result.
+QString Utility::ChangeCase( const QString &text, const Utility::Casing &casing )
+{
+    if ( text.isEmpty() ) {
+        return text;
+    }
+    switch (casing) {
+        case Utility::Casing_Lowercase:
+        {
+            return text.toLower();
+        }
+        case Utility::Casing_Uppercase:
+        {
+            return text.toUpper();
+        }
+        case Utility::Casing_Propercase:
+        {
+            // This is a super crude algorithm, could be replaced by something more clever.
+            QString new_text = text.toLower();
+            for(int i = 0; i < text.length(); i++) {
+                if (i == 0 || new_text.at(i-1).isSpace()) {
+                    new_text.replace(i, 1, new_text.at(i).toUpper());
+                }
+            }
+            return new_text;
+        }
+        case Utility::Casing_Capitalize:
+        {
+            // This is a super crude algorithm, could be replaced by something more clever.
+            QString new_text = text.at(0).toUpper() + text.mid(1, text.length() - 1).toLower();
+            return new_text;
+        }
+        default:
+            return text;
+    }
+}
+
+
 // Returns true if the string is mixed case, false otherwise.
 // For instance, "test" and "TEST" return false, "teSt" returns true.
 // If the string is empty, returns false.

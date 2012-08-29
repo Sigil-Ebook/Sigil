@@ -45,6 +45,10 @@ public:
     void LoadClipboardHistory(const QStringList &clipboardHistory);
     QStringList GetClipboardHistory() const;
 
+public slots:
+    void SaveClipboardState();
+    void RestoreClipboardState();
+
 signals:
     void PasteFromClipboardRequest();
 

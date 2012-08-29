@@ -63,6 +63,19 @@ QStringList ClipboardHistorySelector::GetClipboardHistory() const
     return clipboardHistoryItems;
 }
 
+void ClipboardHistorySelector::SaveClipboardState()
+{
+    disconnect(QApplication::clipboard(), 0, this, 0 );
+}
+
+void ClipboardHistorySelector::RestoreClipboardState()
+{
+    if (m_ClipboardHistoryItems->count() > 0) {
+        QApplication::clipboard()->setText(m_ClipboardHistoryItems->at(0));
+    }
+    connect(QApplication::clipboard(), SIGNAL( changed(QClipboard::Mode) ), this, SLOT( ClipboardChanged(QClipboard::Mode) ));
+}
+
 void ClipboardHistorySelector::SetupClipboardHistoryTable()
 {
     ui.clipboardItemsTable->setRowCount(0);
