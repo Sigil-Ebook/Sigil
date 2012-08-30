@@ -34,7 +34,7 @@ endif()
 
 #############################################################################
 
-find_package( Qt4 4.7.0 COMPONENTS QtCore QtGui QtMain QtNetwork QtWebkit QtSvg QtXml QtXmlPatterns REQUIRED )
+find_package( Qt4 4.8.0 COMPONENTS QtCore QtGui QtMain QtNetwork QtWebkit QtSvg QtXml QtXmlPatterns REQUIRED )
 include( ${QT_USE_FILE} )
 
 # These headers need to go through Qt's MOC compiler
