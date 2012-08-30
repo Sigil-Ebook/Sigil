@@ -2440,7 +2440,7 @@ void CodeViewEditor::ApplyCaseChangeToSelection(const Utility::Casing &casing)
 
     cursor.endEditBlock();
 
-    //setTextCursor(cursor);
+    setTextCursor(cursor);
 }
 
 void CodeViewEditor::ConnectSignalsToSlots()

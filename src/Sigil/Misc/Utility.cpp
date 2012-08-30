@@ -65,17 +65,32 @@ QString Utility::ChangeCase( const QString &text, const Utility::Casing &casing 
         {
             // This is a super crude algorithm, could be replaced by something more clever.
             QString new_text = text.toLower();
-            for(int i = 0; i < text.length(); i++) {
+            // Skip past any leading spaces
+            int i = 0;
+            while (new_text.at(i).isSpace()) {
+                i++;
+            }
+            while (i < text.length())
+            {
                 if (i == 0 || new_text.at(i-1).isSpace()) {
                     new_text.replace(i, 1, new_text.at(i).toUpper());
                 }
+                i++;
             }
             return new_text;
         }
         case Utility::Casing_Capitalize:
         {
             // This is a super crude algorithm, could be replaced by something more clever.
-            QString new_text = text.at(0).toUpper() + text.mid(1, text.length() - 1).toLower();
+            QString new_text = text.toLower();
+            // Skip past any leading spaces
+            int i = 0;
+            while (new_text.at(i).isSpace()) {
+                i++;
+            }
+            if (i < text.length()) {
+                new_text.replace(i, 1, new_text.at(i).toUpper());
+            }
             return new_text;
         }
         default:
