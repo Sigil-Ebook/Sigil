@@ -211,7 +211,7 @@ void ClipboardHistorySelector::accept()
 {
     if ( ui.clipboardItemsTable->rowCount() > 0 ) {
         int selected_row = ui.clipboardItemsTable->currentRow();
-        if (selected_row > 0) {
+        if (selected_row >= 0) {
             QTableWidgetItem *item = ui.clipboardItemsTable->item(selected_row, 1);
             QString text = item->data(Qt::UserRole).toString();
             QApplication::clipboard()->setText(text);
