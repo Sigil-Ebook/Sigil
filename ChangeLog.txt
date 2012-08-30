@@ -1,4 +1,5 @@
 Sigil 0.6.0 TBA
+    - Implement issue 401:  Add edit buttons for Uppercase, Lowercase, Propercase, Capitization.
     - Implement issue 985:  Sigil fonts should be configurable in Preferences.
     - Implement issue 1248: Code View/CSS should allow colors to be configurable in Preferences.
     - Implement issue 1153: Highlighted Text in Code view Difficult/Impossible to see.
