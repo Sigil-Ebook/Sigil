@@ -67,7 +67,7 @@ QString Utility::ChangeCase( const QString &text, const Utility::Casing &casing 
             QString new_text = text.toLower();
             // Skip past any leading spaces
             int i = 0;
-            while (new_text.at(i).isSpace()) {
+            while (i < text.length() && new_text.at(i).isSpace()) {
                 i++;
             }
             while (i < text.length())
@@ -85,7 +85,7 @@ QString Utility::ChangeCase( const QString &text, const Utility::Casing &casing 
             QString new_text = text.toLower();
             // Skip past any leading spaces
             int i = 0;
-            while (new_text.at(i).isSpace()) {
+            while (i < text.length() && new_text.at(i).isSpace()) {
                 i++;
             }
             if (i < text.length()) {

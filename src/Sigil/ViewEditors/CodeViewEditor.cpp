@@ -2423,6 +2423,10 @@ void CodeViewEditor::ApplyCaseChangeToSelection(const Utility::Casing &casing)
     if (selected_text.isEmpty()) {
         return;
     }
+    // Do not allow user to try to capitalize where selection contains an html tag.
+    if (selected_text.contains(QChar('<')) || selected_text.contains(QChar('>'))) {
+        return;
+    }
 
     const QString new_text = Utility::ChangeCase(selected_text, casing);
     if (new_text == selected_text) {
