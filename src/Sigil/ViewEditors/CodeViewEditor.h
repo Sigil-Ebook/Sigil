@@ -90,14 +90,17 @@ public:
     void CutCodeTags();
     bool IsCutCodeTagsAllowed();
 
-    bool IsNotInTagTextSelected();
+    bool TextIsSelectedAndNotInStartOrEndTag();
+    bool TextIsSelectedAndNotInTag();
+
     QString StripCodeTags(QString text);
+
+    bool IsSelectionOK();
 
     void InsertClosingTag();
     bool IsInsertClosingTagAllowed();
 
     void GoToLinkOrStyle();
-    bool IsGoToLinkOrStyleAllowed();
     void GoToStyleDefinition();
 
     void AddToIndex();
@@ -105,6 +108,10 @@ public:
 
     void MarkForIndex();
     bool IsMarkForIndexAllowed();
+
+    void InsertId(QString attribute_value);
+    void InsertHyperlink(QString attribute_value);
+    void InsertTagAttribute(QString element_name, QString attribute_name, QString attribute_value, QStringList tag_list);
 
     /**
     * Splits the chapter and returns the "upper" content.
@@ -268,9 +275,25 @@ public:
      * @param property_value The new value to be assigned to this property.
      */
     void FormatCSSStyle( const QString &property_name, const QString &property_value );
-    
+
     void ApplyCaseChangeToSelection( const Utility::Casing &casing );
-   	
+
+    /**
+     * Based on the cursor location (in html file)
+     * get appropriate attribute_value for attribute_name.
+     *
+     */
+    QString GetAttribute(const QString &attribute_name, QStringList tag_list = QStringList());
+
+    /**
+     * Based on the cursor location (in html file) add/replace as
+     * appropriate an attribute_name="attribute_value".
+     *
+     * @param attribute_name The name of the attribute to be inserted/replaced.
+     * @param attribute_value The new value to be assigned to this attribute.
+     */
+    QString SetAttribute( const QString &attribute_name, QStringList tag_list = QStringList(), const QString &attribute_value = QString(), bool set_attribute = false );
+
 signals:
 
     /**
@@ -422,8 +445,6 @@ private slots:
 
     void SaveClipAction();
 
-    QString GetAttribute(QString attribute, const QString &text);
-
     void GoToLinkOrStyleAction();
     
 private:
@@ -538,7 +559,9 @@ private:
     /**
      * Insert HTML tags around the current selection.
      */
-    void InsertHTMLTagAroundSelection( const QString &left_element_name, const QString &right_element_name );
+    void InsertHTMLTagAroundSelection( const QString &left_element_name, const QString &right_element_name, const QString &attributes = QString() );
+
+    void InsertHTMLTagAroundText( const QString &left_element_name, const QString &right_element_name, const QString &attributes, const QString &text );
 
     /**
      * Is this position within the <body> tag of this text.
@@ -546,6 +569,7 @@ private:
     bool IsPositionInBody( const int &pos, const QString &text );
     bool IsPositionInTag( const int &pos = -1, const QString &text = QString() );
     bool IsPositionInOpeningTag( const int &pos = -1, const QString &text = QString() );
+    bool IsPositionInClosingTag( const int &pos = -1, const QString &text = QString() );
 
     void FormatSelectionWithinElement(const QString &element_name, const int &previous_tag_index, const QString &text);
 

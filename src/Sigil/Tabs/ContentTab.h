@@ -136,6 +136,9 @@ public:
     virtual bool AddToIndexEnabled()   { return false; }
     virtual bool MarkForIndexEnabled() { return false; }
 
+    virtual bool InsertIdEnabled() { return false; }
+    virtual bool InsertHyperlinkEnabled() { return false; }
+
     /**
      * Checked state of the BookView action.
      *

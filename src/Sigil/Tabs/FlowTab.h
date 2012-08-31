@@ -99,6 +99,9 @@ public:
     bool AddToIndexEnabled();
     bool MarkForIndexEnabled();
 
+    bool InsertIdEnabled();
+    bool InsertHyperlinkEnabled();
+
     QString GetCaretLocationUpdate() const;
 
     int GetCursorPosition() const;
@@ -303,6 +306,12 @@ public slots:
 
     void AddToIndex();
     void MarkForIndex();
+
+    QString GetAttributeId();
+    QString GetAttributeHref();
+
+    void InsertId(QString id);
+    void InsertHyperlink(QString url);
     
     void GoToLinkOrStyle();
 

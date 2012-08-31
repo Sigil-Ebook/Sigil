@@ -483,6 +483,53 @@ void BookViewEditor::ApplyCaseChangeToSelection( const Utility::Casing &casing )
     }
 }
 
+bool BookViewEditor::IsInsertHyperlinkAllowed()
+{
+    return !selectedText().isEmpty();
+}
+
+void BookViewEditor::InsertHyperlink(QString href)
+{
+    // This is going to lose any styles that may have been applied within
+    // the selected text, including any anchor ids!
+
+    QString selected_text = GetSelectedText();
+
+    QString html = selected_text;
+    // If no reference delete any anchor (and other styles)
+    if (!href.isEmpty()) {
+        html = "<a href=\"" % href % "\">" % selected_text % "</a>";
+    }
+
+    InsertHtml(html);
+}
+
+bool BookViewEditor::IsInsertIdAllowed()
+{
+    return !selectedText().isEmpty();
+}
+
+void BookViewEditor::InsertId(QString id)
+{
+    // This is going to lose any styles that may have been applied within
+    // the selected text, including any hrefs!
+
+    QString selected_text = GetSelectedText();
+
+    if (selected_text.isEmpty()) {
+        return;
+    }
+
+    QString html = selected_text;
+    // If no reference delete any anchor (and other styles)
+    if (!id.isEmpty()) {
+        html = "<a id=\"" % id % "\">" % selected_text % "</a>";
+    }
+
+    InsertHtml(html);
+}
+
+
 void BookViewEditor::cut()
 {
     page()->triggerAction( QWebPage::Cut );

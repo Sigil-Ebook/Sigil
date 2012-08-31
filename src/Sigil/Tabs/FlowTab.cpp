@@ -236,7 +236,7 @@ bool FlowTab::InsertClosingTagEnabled()
 bool FlowTab::GoToLinkOrStyleEnabled()
 {
     if (m_ViewState == MainWindow::ViewState_CodeView) {
-        return m_wCodeView->IsGoToLinkOrStyleAllowed();
+        return true;
     }
 
     return false;
@@ -255,6 +255,30 @@ bool FlowTab::MarkForIndexEnabled()
 {
     if (m_ViewState == MainWindow::ViewState_CodeView) {
         return m_wCodeView->IsMarkForIndexAllowed();
+    }
+
+    return false;
+}
+
+bool FlowTab::InsertIdEnabled()
+{
+    if (m_ViewState == MainWindow::ViewState_CodeView) {
+        return true;
+    }
+    else if (m_ViewState == MainWindow::ViewState_BookView) {
+        return m_wBookView->IsInsertIdAllowed();
+    }
+
+    return false;
+}
+
+bool FlowTab::InsertHyperlinkEnabled()
+{
+    if (m_ViewState == MainWindow::ViewState_CodeView) {
+        return true;
+    }
+    else if (m_ViewState == MainWindow::ViewState_BookView) {
+        return m_wBookView->IsInsertHyperlinkAllowed();
     }
 
     return false;
@@ -619,6 +643,46 @@ void FlowTab::MarkForIndex()
 {
     if (m_ViewState == MainWindow::ViewState_CodeView) {
         m_wCodeView->MarkForIndex();
+    }
+}
+
+QString FlowTab::GetAttributeId()
+{
+    QString attribute_value;
+    if (m_ViewState == MainWindow::ViewState_CodeView) {
+        attribute_value = m_wCodeView->GetAttribute("id", ID_TAGS);
+    }
+
+    return attribute_value;
+}
+
+QString FlowTab::GetAttributeHref()
+{
+    QString attribute_value;
+    if (m_ViewState == MainWindow::ViewState_CodeView) {
+        attribute_value = m_wCodeView->GetAttribute("href", HREF_TAGS);
+    }
+
+    return attribute_value;
+}
+
+void FlowTab::InsertId(QString id)
+{
+    if (m_ViewState == MainWindow::ViewState_CodeView) {
+        m_wCodeView->InsertId(id);
+    }
+    else if (m_ViewState == MainWindow::ViewState_BookView) {
+        m_wBookView->InsertId(id);
+    }
+}
+
+void FlowTab::InsertHyperlink(QString href)
+{
+    if (m_ViewState == MainWindow::ViewState_CodeView) {
+        m_wCodeView->InsertHyperlink(href);
+    }
+    else if (m_ViewState == MainWindow::ViewState_BookView) {
+        m_wBookView->InsertHyperlink(href);
     }
 }
 
