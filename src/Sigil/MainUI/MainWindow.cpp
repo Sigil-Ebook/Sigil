@@ -1579,7 +1579,6 @@ void MainWindow::UpdateUIOnTabChanges()
     ui.actionCut                    ->setEnabled( tab.CutEnabled() );
     ui.actionCopy                   ->setEnabled( tab.CopyEnabled() );
     ui.actionPaste                  ->setEnabled( tab.PasteEnabled() );
-    ui.actionPasteClipboardHistory  ->setEnabled( tab.PasteEnabled() );
     ui.actionInsertClosingTag       ->setEnabled( tab.InsertClosingTagEnabled() );
     ui.actionAddToIndex             ->setEnabled( tab.AddToIndexEnabled() );
     ui.actionMarkForIndex           ->setEnabled( tab.MarkForIndexEnabled() );
@@ -1645,6 +1644,7 @@ void MainWindow::SetStateActionsBookView()
     ui.actionCut  ->setEnabled(true);  
     ui.actionCopy ->setEnabled(true); 
     ui.actionPaste->setEnabled(true); 
+    ui.actionPasteClipboardHistory->setEnabled(true);
 
     ui.actionBold         ->setEnabled(true);
     ui.actionItalic       ->setEnabled(true);
@@ -1715,6 +1715,7 @@ void MainWindow::SetStateActionsSplitView()
     ui.actionCut  ->setEnabled(false);  
     ui.actionCopy ->setEnabled(false); 
     ui.actionPaste->setEnabled(false); 
+    ui.actionPasteClipboardHistory->setEnabled(false);
 
     ui.actionBold         ->setEnabled(false);
     ui.actionItalic       ->setEnabled(false);
@@ -1785,6 +1786,7 @@ void MainWindow::SetStateActionsCodeView()
     ui.actionCut  ->setEnabled(true);  
     ui.actionCopy ->setEnabled(true); 
     ui.actionPaste->setEnabled(true); 
+    ui.actionPasteClipboardHistory->setEnabled(true);
 
     ui.actionBold         ->setEnabled(true);
     ui.actionItalic       ->setEnabled(true);
@@ -1874,6 +1876,7 @@ void MainWindow::SetStateActionsRawView()
     ui.actionCut  ->setEnabled(false);  
     ui.actionCopy ->setEnabled(false); 
     ui.actionPaste->setEnabled(false); 
+    ui.actionPasteClipboardHistory->setEnabled(true);
 
     ui.actionBold         ->setEnabled(false);
     ui.actionItalic       ->setEnabled(false);
@@ -1943,6 +1946,7 @@ void MainWindow::SetStateActionsStaticView()
     ui.actionCut  ->setEnabled(false);  
     ui.actionCopy ->setEnabled(false); 
     ui.actionPaste->setEnabled(false); 
+    ui.actionPasteClipboardHistory->setEnabled(false);
 
     ui.actionBold         ->setEnabled(false);
     ui.actionItalic       ->setEnabled(false);
