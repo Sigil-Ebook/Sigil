@@ -1108,7 +1108,6 @@ void CodeViewEditor::AddGoToLinkOrStyleContextMenu(QMenu *menu)
     else {
         menu->insertAction(topAction, goToLinkOrStyleAction);
     }
-//    goToLinkOrStyleAction->setEnabled( IsGoToLinkOrStyleAllowed() );
     connect(goToLinkOrStyleAction, SIGNAL(triggered()), this, SLOT(GoToLinkOrStyleAction()));
 
     if (topAction) {
