@@ -2477,12 +2477,21 @@ void CodeViewEditor::FormatCSSStyle( const QString &property_name, const QString
     int bracket_start = text.lastIndexOf(QChar('{'), pos);
     if (bracket_start < 0 || text.lastIndexOf(QChar('}'), pos - 1) > bracket_start) {
         // The previous opening parenthesis we found belongs to another CSS style set
-        // Look for after the current position but must be on the same line.
+        // Look for another one after the current position on the same line.
         bracket_start = block.text().indexOf('{');
-        if (bracket_start < 0) {
-            return;
+        if (bracket_start >= 0) {
+            bracket_start += block.position();
         }
-        bracket_start += block.position();
+        else {
+            // Some CSS stylesheets put the {} on their own line following the style name.
+            // Look for a non-empty current line followed by a line starting with parenthesis
+            const QTextBlock next_block = block.next();
+            if (block.text().trimmed().isEmpty() || !next_block.isValid() ||
+                !next_block.text().trimmed().startsWith(QChar('{'))) {
+                return;
+            }
+            bracket_start = next_block.text().indexOf(QChar('{')) + next_block.position();
+        }
     }
     if (bracket_start > bracket_end) {
         // Sanity check for some really weird bracketing (perhaps invalid css)
@@ -2508,7 +2517,7 @@ void CodeViewEditor::FormatCSSStyle( const QString &property_name, const QString
     }
     else {
         if ( is_single_line_format ) {
-            style_attribute_text = QString("%1;").arg(new_properties.join(";"));
+            style_attribute_text = QString(" %1; ").arg(new_properties.join(";"));
         }
         else {
             QString tab_spaces = QString(" ").repeated(TAB_SPACES_WIDTH);
