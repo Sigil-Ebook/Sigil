@@ -46,9 +46,9 @@ SPCRE *PCRECache::getObject(const QString &key)
 {
     // Create a new SPCRE if it doesn't alreayd exit.
     // The key is the pattern for initializing the SPCRE.
-    if (!m_cache.keys().contains(key)) {
+    if (!m_cache.contains(key)) {
         SPCRE *spcre = new SPCRE(key);
-        m_cache.insert(key, spcre);
+        m_cache.insert(key, spcre, 1);
         return spcre;
     }
 

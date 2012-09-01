@@ -57,9 +57,11 @@ SPCRE::~SPCRE()
 {
     if (m_re != NULL) {
         pcre16_free(m_re);
+        m_re = NULL;
     }
     if (m_study != NULL) {
         pcre16_free(m_study);
+        m_study = NULL;
     }
 }
 
