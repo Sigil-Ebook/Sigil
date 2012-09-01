@@ -52,12 +52,6 @@ private:
     // Loads the source code into the Book
     QString LoadSource();      
 
-    // Strips the file specifier on all the href attributes 
-    // of anchor tags with filesystem links with fragment identifiers;
-    // thus something like <a href="chapter01.html#firstheading" />
-    // becomes just <a href="#firstheading" />
-    void StripFilesFromAnchors( xc::DOMDocument &document );
-
     // Searches for meta information in the HTML file
     // and tries to convert it to Dublin Core
     void LoadMetadata( const xc::DOMDocument &document ); 

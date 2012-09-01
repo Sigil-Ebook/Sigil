@@ -74,7 +74,6 @@ QSharedPointer< Book > ImportHTML::GetBook()
 
     shared_ptr< xc::DOMDocument > document = XhtmlDoc::LoadTextIntoDocument( LoadSource() );
 
-    StripFilesFromAnchors( *document );
     LoadMetadata( *document );
 
     UpdateFiles( CreateHTMLResource(), *document, LoadFolderStructure( *document ) );
@@ -93,32 +92,6 @@ QString ImportHTML::LoadSource()
                 HTMLEncodingResolver::ReadHTMLFile( m_FullFilePath ) ) );
 }
 
-
-// Strips the file specifier on all the href attributes 
-// of anchor tags with filesystem links with fragment identifiers;
-// thus something like <a href="chapter01.html#firstheading" />
-// becomes just <a href="#firstheading" />
-void ImportHTML::StripFilesFromAnchors( xc::DOMDocument &document )
-{
-    QList< xc::DOMElement* > anchors = XhtmlDoc::GetTagMatchingDescendants( document, "a" );
-
-    for ( int i = 0; i < anchors.count(); ++i )
-    {
-        xc::DOMElement &element = *anchors.at( i );
-        Q_ASSERT( &element );
-
-        // We strip the file specifier on all
-        // the filesystem links with fragment identifiers
-        if ( element.hasAttribute( QtoX( "href" ) ) &&
-             QUrl( XtoQ( element.getAttribute( QtoX( "href" ) ) ) ).isRelative() &&
-             XtoQ( element.getAttribute( QtoX( "href" ) ) ).contains( "#" )
-           )
-        {
-            QString value = ( "#" + XtoQ( element.getAttribute( QtoX( "href" ) ) ).split( "#" )[ 1 ] );
-            element.setAttribute( QtoX( "href" ), QtoX( value ) );            
-        } 
-    }     
-}
 
 // Searches for meta information in the HTML file
 // and tries to convert it to Dublin Core
