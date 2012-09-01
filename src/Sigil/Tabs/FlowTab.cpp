@@ -1047,7 +1047,7 @@ void FlowTab::Bold()
         m_wBookView->page()->triggerAction( QWebPage::ToggleBold );
     }
     else if (m_ViewState == MainWindow::ViewState_CodeView) {
-        m_wCodeView->ToggleFormatSelection("b");
+        m_wCodeView->ToggleFormatSelection("b", "font-weight", "bold");
     }
 }
 
@@ -1057,7 +1057,7 @@ void FlowTab::Italic()
         m_wBookView->page()->triggerAction( QWebPage::ToggleItalic );
     }    
     else if (m_ViewState == MainWindow::ViewState_CodeView) {
-        m_wCodeView->ToggleFormatSelection("i");
+        m_wCodeView->ToggleFormatSelection("i", "font-style", "italic");
     }
 }
 
@@ -1067,7 +1067,7 @@ void FlowTab::Underline()
         m_wBookView->page()->triggerAction( QWebPage::ToggleUnderline );
     }    
     else if (m_ViewState == MainWindow::ViewState_CodeView) {
-        m_wCodeView->ToggleFormatSelection("u");
+        m_wCodeView->ToggleFormatSelection("u", "text-decoration", "underline");
     }
 }
 
@@ -1077,7 +1077,7 @@ void FlowTab::Strikethrough()
         m_wBookView->ExecCommand( "strikeThrough" );
     }    
     else if (m_ViewState == MainWindow::ViewState_CodeView) {
-        m_wCodeView->ToggleFormatSelection("strike");
+        m_wCodeView->ToggleFormatSelection("strike", "text-decoration", "line-through");
     }
 }
 

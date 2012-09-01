@@ -254,8 +254,10 @@ public:
      * Otherwise a new tag is inserted around the selection.
      *
      * @param element_name The name of the element to toggle the format of the selection.
+     * @param property_name If caret is in an inline CSS style instead of the body, property to change
+     * @param property_value If caret is in an inline CSS style instead of the body, value of property to change
      */
-    void ToggleFormatSelection( const QString &element_name );
+    void ToggleFormatSelection( const QString &element_name, const QString property_name="", const QString property_value="" );
         
     /**
      * Based on the cursor location (in html file) add/replace as

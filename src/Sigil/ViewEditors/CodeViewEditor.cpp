@@ -2018,7 +2018,7 @@ bool CodeViewEditor::IsPositionInClosingTag( const int &pos, const QString &text
     return false;
 }
 
-void CodeViewEditor::ToggleFormatSelection( const QString &element_name )
+void CodeViewEditor::ToggleFormatSelection( const QString &element_name, const QString property_name, const QString property_value )
 {
     if ( element_name.isEmpty() ) {
         return;
@@ -2033,8 +2033,12 @@ void CodeViewEditor::ToggleFormatSelection( const QString &element_name )
     int pos = textCursor().selectionStart();
     QString text = toPlainText();
 
-    if ( !IsPositionInBody(pos, text) ) {
-        // User is outside the body so not allowed to change or insert a style tag
+    if (!IsPositionInBody(pos, text)) {
+        // We are in an HTML file outside the body element. We might possibly be in an
+        // inline CSS style so attempt to format that.
+        if (!property_name.isEmpty()) {
+            FormatCSSStyle(property_name, property_value);
+        }
         return;
     }
     // We might have a selection that begins or ends in a tag < > itself
