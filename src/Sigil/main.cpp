@@ -37,6 +37,7 @@
 #include "Misc/UILanguage.h"
 #include "Exporters/ExporterFactory.h"
 #include "Importers/ImporterFactory.h"
+#include "MainUI/MainApplication.h"
 #include "MainUI/MainWindow.h"
 #include "Misc/AppEventFilter.h"
 #include "Misc/TempFolder.h"
@@ -206,7 +207,7 @@ int main( int argc, char *argv[] )
     qInstallMsgHandler( MessageHandler );
 #endif
 
-    QApplication app( argc, argv );
+    MainApplication app( argc, argv );
     XercesExt::XercesInit init;
 
     try
@@ -293,8 +294,3 @@ int main( int argc, char *argv[] )
         return 1;
     }
 }
-
-
-
-
-

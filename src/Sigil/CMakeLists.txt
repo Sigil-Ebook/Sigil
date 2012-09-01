@@ -76,6 +76,7 @@ set( QOBJECT_HEADERS
     Tabs/NCXTab.h
     Tabs/WellFormedCheckComponent.h
     Tabs/XMLTab.h
+    MainUI/MainApplication.h
     MainUI/MainWindow.h
     MainUI/FindReplace.h
     MainUI/BookBrowser.h
@@ -336,6 +337,8 @@ set( VIEW_EDITOR_FILES
     )
 
 set( MAINUI_FILES 
+    MainUI/MainApplication.cpp
+    MainUI/MainApplication.h
     MainUI/MainWindow.cpp
     MainUI/MainWindow.h
     MainUI/FindReplace.cpp

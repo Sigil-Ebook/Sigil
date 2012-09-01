@@ -28,6 +28,7 @@
 #include <QtGui/QTableWidgetItem>
 
 #include "Dialogs/ClipboardHistorySelector.h"
+#include "MainUI/MainApplication.h"
 #include "Misc/Utility.h"
 
 static const QString SETTINGS_GROUP = "clipboard_history";
@@ -49,6 +50,23 @@ ClipboardHistorySelector::ClipboardHistorySelector(QWidget *parent)
 void ClipboardHistorySelector::showEvent(QShowEvent *event)
 {
     SetupClipboardHistoryTable();
+    ui.clipboardItemsTable->setFocus();
+}
+
+void ClipboardHistorySelector::ApplicationActivated()
+{
+    // Turned on when Sigil is activated, put the latest text if any at the top of the history
+    ClipboardChanged(QClipboard::Clipboard);
+    connect(QApplication::clipboard(), SIGNAL( changed(QClipboard::Mode) ), this, SLOT( ClipboardChanged(QClipboard::Mode) ));
+    // If we are currently showing this dialog, refresh the display
+    if (isVisible()) {
+        SetupClipboardHistoryTable();
+    }
+}
+
+void ClipboardHistorySelector::ApplicationDeactivated()
+{
+    SaveClipboardState();
 }
 
 void ClipboardHistorySelector::LoadClipboardHistory(const QStringList &clipboardHistoryItems)
@@ -243,5 +261,10 @@ void ClipboardHistorySelector::ExtendUI()
 void ClipboardHistorySelector::ConnectSignalsToSlots()
 {
     connect(ui.clipboardItemsTable,    SIGNAL( itemDoubleClicked(QTableWidgetItem*) ),  this, SLOT( ClipboardItemDoubleClicked(QTableWidgetItem*) ));
-    connect(QApplication::clipboard(), SIGNAL( changed(QClipboard::Mode) ),             this, SLOT( ClipboardChanged(QClipboard::Mode) ));
+    
+    MainApplication *mainApplication = qobject_cast<MainApplication*>(qApp);
+    if (mainApplication) {
+        connect(mainApplication, SIGNAL(applicationActivated()),   this, SLOT(ApplicationActivated()));
+        connect(mainApplication, SIGNAL(applicationDeactivated()), this, SLOT(ApplicationDeactivated()));
+    }
 }

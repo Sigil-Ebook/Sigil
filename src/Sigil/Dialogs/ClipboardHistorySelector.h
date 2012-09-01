@@ -61,6 +61,8 @@ protected slots:
     void reject();
 
 private slots:
+    void ApplicationActivated();
+    void ApplicationDeactivated();
     void ClipboardItemDoubleClicked(QTableWidgetItem *item);
     void ClipboardChanged( QClipboard::Mode mode );
 
