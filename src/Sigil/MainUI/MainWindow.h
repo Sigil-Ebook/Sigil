@@ -305,6 +305,10 @@ private slots:
      */
     void InsertImage();
 
+    void InsertId();
+
+    void InsertHyperlink();
+
     /**
      * Implements the set BookView functionality.
      */

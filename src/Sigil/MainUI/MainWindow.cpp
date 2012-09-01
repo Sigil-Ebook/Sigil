@@ -44,6 +44,8 @@
 #include "Dialogs/Preferences.h"
 #include "Dialogs/SearchEditor.h"
 #include "Dialogs/SelectImages.h"
+#include "Dialogs/SelectHyperlink.h"
+#include "Dialogs/SelectId.h"
 #include "Dialogs/ViewClasses.h"
 #include "Dialogs/ViewHTML.h"
 #include "Dialogs/ViewImages.h"
@@ -242,7 +244,7 @@ void MainWindow::BookmarkLinkOrStyleLocation()
 {
     ResetLinkOrStyleBookmark();
 
-    ContentTab &tab = m_TabManager.GetCurrentContentTab();
+    ContentTab &tab = GetCurrentContentTab();
     if (&tab == NULL) {
         return;
     }
@@ -531,7 +533,7 @@ void MainWindow::Find()
 
 void MainWindow::GoToLine()
 {
-    ContentTab &tab = m_TabManager.GetCurrentContentTab();
+    ContentTab &tab = GetCurrentContentTab();
     if (&tab == NULL) {
         return;
     }
@@ -861,6 +863,52 @@ void MainWindow::InsertImages(QStringList selected_images)
     }
 }
 
+void MainWindow::InsertId()
+{
+    m_TabManager.SaveTabData();
+   
+    // Get current id attribute value if any
+    ContentTab &tab = GetCurrentContentTab();
+    FlowTab *flow_tab = qobject_cast<FlowTab*>(&tab);
+
+    if (!(flow_tab->InsertIdEnabled())) {
+        Utility::DisplayStdErrorDialog(tr("Unable to insert an id."));
+        return;
+    }
+
+    QString id = flow_tab->GetAttributeId();
+    HTMLResource *html_resource = qobject_cast< HTMLResource* >( &tab.GetLoadedResource() );
+
+    SelectId select_id(id, html_resource, m_Book, this);
+
+    if (select_id.exec() == QDialog::Accepted) {
+        flow_tab->InsertId(select_id.SelectedText());
+    }
+}
+
+void MainWindow::InsertHyperlink()
+{
+    m_TabManager.SaveTabData();
+   
+    // Get current id attribute value if any
+    ContentTab &tab = GetCurrentContentTab();
+    FlowTab *flow_tab = qobject_cast<FlowTab*>(&tab);
+
+    if (!flow_tab->InsertHyperlinkEnabled()) {
+        Utility::DisplayStdErrorDialog(tr("Unable to insert a hyperlink."));
+        return;
+    }
+
+    QString href = flow_tab->GetAttributeHref();
+    HTMLResource *html_resource = qobject_cast< HTMLResource* >( &tab.GetLoadedResource() );
+    QList<Resource *> resources = m_BookBrowser->AllHTMLResources();
+
+    SelectHyperlink select_hyperlink(href, html_resource, resources, m_Book, this);
+
+    if (select_hyperlink.exec() == QDialog::Accepted) {
+        flow_tab->InsertHyperlink(select_hyperlink.GetText());
+    }
+}
 
 void MainWindow::SetViewState(MainWindow::ViewState view_state)
 {
@@ -1535,6 +1583,8 @@ void MainWindow::UpdateUIOnTabChanges()
     ui.actionInsertClosingTag       ->setEnabled( tab.InsertClosingTagEnabled() );
     ui.actionAddToIndex             ->setEnabled( tab.AddToIndexEnabled() );
     ui.actionMarkForIndex           ->setEnabled( tab.MarkForIndexEnabled() );
+    ui.actionInsertId               ->setEnabled( tab.InsertIdEnabled() );
+    ui.actionInsertHyperlink        ->setEnabled( tab.InsertHyperlinkEnabled() );
 
     ui.actionBold           ->setChecked( tab.BoldChecked() );
     ui.actionItalic         ->setChecked( tab.ItalicChecked() );
@@ -2774,6 +2824,7 @@ void MainWindow::ExtendUI()
     ui.menuToolbars->addAction(ui.toolBarTextManip->toggleViewAction());
     ui.menuToolbars->addAction(ui.toolBarViews->toggleViewAction());
     ui.menuToolbars->addAction(ui.toolBarInsertions->toggleViewAction());
+    ui.menuToolbars->addAction(ui.toolBarLinks->toggleViewAction());
     ui.menuToolbars->addAction(ui.toolBarHeadings->toggleViewAction());
     ui.menuToolbars->addAction(ui.toolBarIndents->toggleViewAction());
     ui.menuToolbars->addAction(ui.toolBarLists->toggleViewAction());
@@ -2848,6 +2899,8 @@ void MainWindow::ExtendUI()
     sm->registerAction(ui.actionPaste, "MainWindow.Paste");
     sm->registerAction(ui.actionPasteClipboardHistory, "MainWindow.PasteClipboardHistory");
     sm->registerAction(ui.actionInsertImage, "MainWindow.InsertImage");
+    sm->registerAction(ui.actionInsertId, "MainWindow.InsertId");
+    sm->registerAction(ui.actionInsertHyperlink, "MainWindow.InsertHyperlink");
     sm->registerAction(ui.actionSplitChapter, "MainWindow.SplitChapter");
     sm->registerAction(ui.actionInsertSGFChapterMarker, "MainWindow.InsertSGFChapterMarker");
     sm->registerAction(ui.actionSplitOnSGFChapterMarkers, "MainWindow.SplitOnSGFChapterMarkers");
@@ -3213,6 +3266,9 @@ void MainWindow::ConnectSignalsToSlots()
 
     // Edit
     connect( ui.actionInsertImage,   SIGNAL( triggered() ), this, SLOT( InsertImage()              ) );
+    connect( ui.actionInsertId,        SIGNAL( triggered() ),  this,   SLOT( InsertId()            ) );
+    connect( ui.actionInsertHyperlink, SIGNAL( triggered() ),  this,   SLOT( InsertHyperlink()     ) );
+
     connect( ui.actionPreferences,   SIGNAL( triggered() ), this, SLOT( PreferencesDialog()        ) );
 
     // Search
@@ -3418,7 +3474,7 @@ void MainWindow::MakeTabConnections( ContentTab *tab )
         connect( ui.actionTextDirectionRTL,         SIGNAL( triggered() ),  tab,   SLOT( TextDirectionRightToLeft() ) );
         connect( ui.actionTextDirectionDefault,     SIGNAL( triggered() ),  tab,   SLOT( TextDirectionDefault()     ) );
 
-        connect( tab,   SIGNAL( SelectionChanged() ),           this,          SLOT( UpdateUIOnTabChanges()    ) );
+        connect( tab,   SIGNAL( SelectionChanged() ),           this,          SLOT( UpdateUIOnTabChanges()         ) );
     }
 
     if (tab->GetLoadedResource().Type() == Resource::HTMLResourceType )
@@ -3434,12 +3490,12 @@ void MainWindow::MakeTabConnections( ContentTab *tab )
         connect( ui.actionSplitChapter,             SIGNAL( triggered() ),  tab,   SLOT( SplitChapter()             ) );
         connect( ui.actionInsertSGFChapterMarker,   SIGNAL( triggered() ),  tab,   SLOT( InsertSGFChapterMarker()   ) );
         connect( ui.actionInsertClosingTag,         SIGNAL( triggered() ),  tab,   SLOT( InsertClosingTag()         ) );
-        connect( ui.actionGoToLinkOrStyle,          SIGNAL( triggered() ),  tab,   SLOT( GoToLinkOrStyle()      ) );
+        connect( ui.actionGoToLinkOrStyle,          SIGNAL( triggered() ),  tab,   SLOT( GoToLinkOrStyle()          ) );
 
         connect( ui.actionPrintPreview,             SIGNAL( triggered() ),  tab,   SLOT( PrintPreview()             ) );
         connect( ui.actionPrint,                    SIGNAL( triggered() ),  tab,   SLOT( Print()                    ) );
-        connect( ui.actionAddToIndex,               SIGNAL( triggered() ),  tab,   SLOT( AddToIndex()        ) );
-        connect( ui.actionMarkForIndex,             SIGNAL( triggered() ),  tab,   SLOT( MarkForIndex()      ) );
+        connect( ui.actionAddToIndex,               SIGNAL( triggered() ),  tab,   SLOT( AddToIndex()               ) );
+        connect( ui.actionMarkForIndex,             SIGNAL( triggered() ),  tab,   SLOT( MarkForIndex()             ) );
 
         connect( this,                              SIGNAL( SettingsChanged()), tab, SLOT( LoadSettings()           ) );
     

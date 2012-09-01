@@ -191,6 +191,9 @@ public:
      */
     Resource* PreviousResource( Resource *resource );
 
+    QHash<QString, QStringList> GetAllIdsInHTMLFiles();
+    static QStringList GetAllIdsInHTMLFile( HTMLResource* html_resource );
+
     QHash<QString, QStringList> GetAllClassesUsedInHTML();
     static QStringList GetAllClassesInHTML(HTMLResource *html_resource);
 

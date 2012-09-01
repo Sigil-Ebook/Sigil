@@ -176,6 +176,12 @@ public:
 
     void ApplyCaseChangeToSelection( const Utility::Casing &casing );
 
+    bool IsInsertHyperlinkAllowed();
+    void InsertHyperlink(QString href);
+
+    bool IsInsertIdAllowed();
+    void InsertId(QString id);
+
 public slots:
     /**
      * Filters the text changed signals by the CKEditor inside of the page
