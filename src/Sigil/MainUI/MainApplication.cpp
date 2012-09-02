@@ -23,7 +23,7 @@
 
 #include "MainUI/MainApplication.h"
 
-MainApplication::MainApplication( int argc, char * argv[] )
+MainApplication::MainApplication( int &argc, char **argv )
     : QApplication( argc, argv ) 
 {
 }

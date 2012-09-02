@@ -33,7 +33,7 @@ class MainApplication : public QApplication
     Q_OBJECT
 
 public:
-    MainApplication( int argc, char * argv[] );
+    MainApplication( int &argc, char **argv );
 
 signals:
     void applicationActivated();
