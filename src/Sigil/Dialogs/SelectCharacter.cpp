@@ -102,7 +102,6 @@ void SelectCharacter::SetList()
     ;
 
     QHBoxLayout *layout;
-    QSpacerItem *horizontal_spacer = new QSpacerItem(10, 10, QSizePolicy::Expanding);
 
     QToolButton *button;
     QFont font = *new QFont();
@@ -124,7 +123,6 @@ void SelectCharacter::SetList()
 
         if (insert_text.isEmpty()) {
             if (!first_row) {
-//                layout->addItem(horizontal_spacer);
                 ui.character_box->addLayout(layout);
             }
             layout = new QHBoxLayout();

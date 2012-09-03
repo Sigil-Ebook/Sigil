@@ -400,9 +400,9 @@
    <attribute name="toolBarBreak">
     <bool>false</bool>
    </attribute>
+   <addaction name="actionMetaEditor"/>
    <addaction name="actionAutoSpellCheck"/>
    <addaction name="actionSpellCheck"/>
-   <addaction name="actionMetaEditor"/>
    <addaction name="actionValidateEpub"/>
   </widget>
   <widget class="QToolBar" name="toolBarHeadings">
