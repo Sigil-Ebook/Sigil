@@ -55,6 +55,7 @@ class TableOfContents;
 class ValidationResultsView;
 class SearchEditor;
 class ClipEditor;
+class SelectCharacter;
 
 
 /**
@@ -304,6 +305,8 @@ private slots:
      * Implements Insert image action functionality.
      */
     void InsertImage();
+
+    void InsertSpecialCharacter();
 
     void InsertId();
 
@@ -896,6 +899,8 @@ private:
     ClipEditor *m_ClipEditor;
 
     IndexEditor *m_IndexEditor;
+
+    SelectCharacter *m_SelectCharacter;
 
     bool m_preserveHeadingAttributes;
 

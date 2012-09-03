@@ -1,5 +1,6 @@
 <RCC>
     <qresource prefix="/main">
+        <file>metadata-editor_22px.png</file>
         <file>edit-clear_22px.png</file>
         <file>emblem-favorite_22px.png</file>
         <file>format-indent-less_22px.png</file>
@@ -15,6 +16,7 @@
         <file>document-autospellcheck_22px.png</file>
         <file>document-spellcheck_16px.png</file>
         <file>document-spellcheck_22px.png</file>
+        <file>insert-special-character_22px.png</file>
         <file>insert-bullet-list_22px.png</file>
         <file>insert-numbered-list_22px.png</file>
         <file>insert-font_22px.png</file>

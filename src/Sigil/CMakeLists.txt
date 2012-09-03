@@ -46,6 +46,7 @@ set( QOBJECT_HEADERS
     Dialogs/About.h
     Dialogs/ClipboardHistorySelector.h
     Dialogs/HeadingSelector.h 
+    Dialogs/SelectCharacter.h
     Dialogs/SelectHyperlink.h
     Dialogs/SelectId.h
     Dialogs/ViewClasses.h
@@ -170,6 +171,8 @@ set( DIALOG_FILES
     Dialogs/AddMetadata.h
     Dialogs/ClipboardHistorySelector.h
     Dialogs/ClipboardHistorySelector.cpp
+    Dialogs/SelectCharacter.cpp
+    Dialogs/SelectCharacter.h
     Dialogs/SelectHyperlink.cpp
     Dialogs/SelectHyperlink.h
     Dialogs/SelectId.cpp
@@ -382,6 +385,7 @@ set( TAB_FILES
 set( UI_FILES   
     Form_Files/main.ui 
     Form_Files/ClipboardHistorySelector.ui
+    Form_Files/SelectCharacter.ui
     Form_Files/SelectHyperlink.ui
     Form_Files/SelectId.ui
     Form_Files/ViewClasses.ui

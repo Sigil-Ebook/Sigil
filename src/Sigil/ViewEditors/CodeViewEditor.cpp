@@ -1336,6 +1336,17 @@ bool CodeViewEditor::IsMarkForIndexAllowed()
     return TextIsSelectedAndNotInStartOrEndTag();
 }
 
+void CodeViewEditor::InsertText(QString text)
+{
+    QTextCursor cursor = textCursor();
+
+    cursor.beginEditBlock();
+
+    cursor.insertText(text);
+
+    cursor.endEditBlock();
+}
+
 void CodeViewEditor::InsertId(QString attribute_value)
 {
     QString element_name = "a";

@@ -97,6 +97,7 @@
     <addaction name="menuChangeCase"/>
     <addaction name="separator"/>
     <addaction name="actionInsertImage"/>
+    <addaction name="actionInsertSpecialCharacter"/>
     <addaction name="actionInsertId"/>
     <addaction name="actionInsertHyperlink"/>
     <addaction name="separator"/>
@@ -361,6 +362,7 @@
    </attribute>
    <addaction name="actionSplitChapter"/>
    <addaction name="actionInsertImage"/>
+   <addaction name="actionInsertSpecialCharacter"/>
   </widget>
   <widget class="QToolBar" name="toolBarLinks">
    <property name="windowTitle">
@@ -400,6 +402,7 @@
    </attribute>
    <addaction name="actionAutoSpellCheck"/>
    <addaction name="actionSpellCheck"/>
+   <addaction name="actionMetaEditor"/>
    <addaction name="actionValidateEpub"/>
   </widget>
   <widget class="QToolBar" name="toolBarHeadings">
@@ -839,8 +842,14 @@
    <property name="text">
     <string>&amp;Metadata Editor...</string>
    </property>
+   <property name="icon">
+    <iconset resource="../Resource_Files/main/main.qrc">
+     <normaloff>:/main/metadata-editor_22px.png</normaloff>:/main/metadata-editor_22px.png</iconset>
+   </property>
    <property name="toolTip">
-    <string>Metadata information editor</string>
+    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Metadata Editor&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Edit and display the information about your book - author, title, etc.&lt;/p&gt;</string>
    </property>
    <property name="shortcut">
     <string>F8</string>
@@ -954,6 +963,15 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+Shift+I</string>
+   </property>
+  </action>
+ <action name="actionInsertSpecialCharacter">
+   <property name="icon">
+    <iconset resource="../Resource_Files/main/main.qrc">
+     <normaloff>:/main/insert-special-character_22px.png</normaloff>:/main/insert-special-character_22px.png</iconset>
+   </property>
+   <property name="text">
+    <string>Insert Special Character...</string>
    </property>
   </action>
  <action name="actionInsertId">

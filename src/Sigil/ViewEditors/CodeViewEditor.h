@@ -109,6 +109,8 @@ public:
     void MarkForIndex();
     bool IsMarkForIndexAllowed();
 
+    void InsertText(QString text);
+
     void InsertId(QString attribute_value);
     void InsertHyperlink(QString attribute_value);
     void InsertTagAttribute(QString element_name, QString attribute_name, QString attribute_value, QStringList tag_list);

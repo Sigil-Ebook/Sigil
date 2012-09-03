@@ -310,6 +310,7 @@ public slots:
     QString GetAttributeId();
     QString GetAttributeHref();
 
+    void InsertText(QString text);
     void InsertId(QString id);
     void InsertHyperlink(QString url);
     

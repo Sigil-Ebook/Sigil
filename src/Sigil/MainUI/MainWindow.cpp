@@ -43,6 +43,7 @@
 #include "Dialogs/MetaEditor.h"
 #include "Dialogs/Preferences.h"
 #include "Dialogs/SearchEditor.h"
+#include "Dialogs/SelectCharacter.h"
 #include "Dialogs/SelectImages.h"
 #include "Dialogs/SelectHyperlink.h"
 #include "Dialogs/SelectId.h"
@@ -131,6 +132,7 @@ MainWindow::MainWindow( const QString &openfilepath, QWidget *parent, Qt::WFlags
     m_SearchEditor(new SearchEditor(this)),
     m_ClipEditor(new ClipEditor(this)),
     m_IndexEditor(new IndexEditor(this)),
+    m_SelectCharacter(new SelectCharacter(this)),
     m_preserveHeadingAttributes( true ),
     m_LinkOrStyleBookmark(new LocationBookmark()),
     m_ClipboardHistorySelector(new ClipboardHistorySelector(this))
@@ -861,6 +863,20 @@ void MainWindow::InsertImages(QStringList selected_images)
     if (!selected_images.isEmpty()) {
         m_LastInsertedImage = selected_images.last();
     }
+}
+
+void MainWindow::InsertSpecialCharacter()
+{
+   if ( !m_TabManager.TabDataIsWellFormed() ) {
+        return;
+    }
+
+    m_TabManager.SaveTabData();
+
+    // non-modal dialog
+    m_SelectCharacter->show();
+    m_SelectCharacter->raise();
+    m_SelectCharacter->activateWindow();
 }
 
 void MainWindow::InsertId()
@@ -2903,6 +2919,7 @@ void MainWindow::ExtendUI()
     sm->registerAction(ui.actionPaste, "MainWindow.Paste");
     sm->registerAction(ui.actionPasteClipboardHistory, "MainWindow.PasteClipboardHistory");
     sm->registerAction(ui.actionInsertImage, "MainWindow.InsertImage");
+    sm->registerAction(ui.actionInsertSpecialCharacter, "MainWindow.InsertSpecialCharacter");
     sm->registerAction(ui.actionInsertId, "MainWindow.InsertId");
     sm->registerAction(ui.actionInsertHyperlink, "MainWindow.InsertHyperlink");
     sm->registerAction(ui.actionSplitChapter, "MainWindow.SplitChapter");
@@ -3269,11 +3286,12 @@ void MainWindow::ConnectSignalsToSlots()
     connect( ui.actionExit,          SIGNAL( triggered() ), qApp, SLOT( closeAllWindows()          ) );
 
     // Edit
-    connect( ui.actionInsertImage,   SIGNAL( triggered() ), this, SLOT( InsertImage()              ) );
+    connect( ui.actionInsertImage,     SIGNAL( triggered() ), this, SLOT( InsertImage()              ) );
+    connect( ui.actionInsertSpecialCharacter, SIGNAL( triggered() ), this, SLOT( InsertSpecialCharacter()              ) );
     connect( ui.actionInsertId,        SIGNAL( triggered() ),  this,   SLOT( InsertId()            ) );
     connect( ui.actionInsertHyperlink, SIGNAL( triggered() ),  this,   SLOT( InsertHyperlink()     ) );
 
-    connect( ui.actionPreferences,   SIGNAL( triggered() ), this, SLOT( PreferencesDialog()        ) );
+    connect( ui.actionPreferences,     SIGNAL( triggered() ), this, SLOT( PreferencesDialog()        ) );
 
     // Search
     connect( ui.actionFind,          SIGNAL( triggered() ), this, SLOT( Find()                     ) );
@@ -3502,6 +3520,9 @@ void MainWindow::MakeTabConnections( ContentTab *tab )
         connect( ui.actionMarkForIndex,             SIGNAL( triggered() ),  tab,   SLOT( MarkForIndex()             ) );
 
         connect( this,                              SIGNAL( SettingsChanged()), tab, SLOT( LoadSettings()           ) );
+
+        connect( m_SelectCharacter, SIGNAL( SelectedCharacter(const QString&) ),
+                 tab,            SLOT( InsertText(const QString&) ) );
     
         connect( tab,   SIGNAL( EnteringBookView() ),           this,          SLOT( SetStateActionsBookView() ) );
         connect( tab,   SIGNAL( EnteringBookPreview() ),        this,          SLOT( SetStateActionsSplitView() ) );
@@ -3584,5 +3605,7 @@ void MainWindow::BreakTabConnections( ContentTab *tab )
 
     disconnect( tab,                                0, this, 0 );
     disconnect( tab,                                0, m_Book.data(), 0 );
+
+    disconnect( m_SelectCharacter,                  0, tab, 0 );
 }
 

@@ -666,6 +666,16 @@ QString FlowTab::GetAttributeHref()
     return attribute_value;
 }
 
+void FlowTab::InsertText(QString text)
+{
+    if (m_ViewState == MainWindow::ViewState_CodeView) {
+        m_wCodeView->InsertText(text);
+    }
+    else if (m_ViewState == MainWindow::ViewState_BookView) {
+        m_wBookView->InsertHtml(text);
+    }
+}
+
 void FlowTab::InsertId(QString id)
 {
     if (m_ViewState == MainWindow::ViewState_CodeView) {
