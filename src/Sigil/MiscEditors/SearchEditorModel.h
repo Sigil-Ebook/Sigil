@@ -46,9 +46,6 @@ public:
         QString name;
         QString find;
         QString replace;
-        FindFields::SearchMode search_mode;
-        FindFields::LookWhere look_where;
-        FindFields::SearchDirection search_direction;
     };
 
     bool ItemIsGroup(QStandardItem* item);

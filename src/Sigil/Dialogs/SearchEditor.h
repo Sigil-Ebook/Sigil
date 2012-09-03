@@ -33,7 +33,6 @@
 #include "Misc/FindFields.h"
 #include "MiscEditors/SearchEditorModel.h"
 #include "MiscEditors/SearchEditorTreeView.h"
-#include "MiscEditors/SearchEditorItemDelegate.h"
 
 #include "ui_SearchEditor.h"
 
@@ -126,8 +125,6 @@ private:
     SearchEditorModel *m_SearchEditorModel;
 
     QString m_LastFolderOpen;
-
-    SearchEditorItemDelegate* m_cbDelegate;
 
     QMenu *m_ContextMenu;
 

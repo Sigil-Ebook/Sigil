@@ -30,11 +30,8 @@ static const QString SETTINGS_GROUP         = "search_entries";
 static const QString ENTRY_NAME             = "Name";
 static const QString ENTRY_FIND             = "Find";
 static const QString ENTRY_REPLACE          = "Replace";
-static const QString ENTRY_MODE             = "Mode";
-static const QString ENTRY_WHERE            = "Where";
-static const QString ENTRY_DIRECTION        = "Direction";
 
-const int COLUMNS = 6;
+const int COLUMNS = 3;
 
 static const int IS_GROUP_ROLE = Qt::UserRole + 1;
 static const int FULLNAME_ROLE = Qt::UserRole + 2;
@@ -279,9 +276,6 @@ void SearchEditorModel::LoadInitialData()
     header.append(tr("Name"));
     header.append(tr("Find"));
     header.append(tr("Replace"));
-    header.append(tr("Mode"));
-    header.append(tr("Where"));
-    header.append(tr("Direction"));
 
     setHorizontalHeaderLabels(header);
 
@@ -321,10 +315,6 @@ void SearchEditorModel::LoadData(QString filename, QStandardItem *item)
         entry->fullname = fullname;
         entry->find = settings->value(ENTRY_FIND).toString();
         entry->replace = settings->value(ENTRY_REPLACE).toString();
-
-        entry->search_mode = static_cast<FindFields::SearchMode>(settings->value(ENTRY_MODE).toInt());
-        entry->look_where = static_cast<FindFields::LookWhere>(settings->value(ENTRY_WHERE).toInt());
-        entry->search_direction = static_cast<FindFields::SearchDirection>(settings->value(ENTRY_DIRECTION).toInt());
 
         AddFullNameEntry(entry, item);
     }
@@ -397,10 +387,6 @@ QStandardItem *SearchEditorModel::AddEntryToModel(SearchEditorModel::searchEntry
             entry->name = "Search";
             entry->find = "";
             entry->replace = "";
-            entry->search_mode = FindFields::SearchMode_Regex;
-            entry->search_mode = FindFields::SearchMode_Regex;
-            entry->look_where = FindFields::LookWhere_AllHTMLFiles;
-            entry->search_direction = FindFields::SearchDirection_Down;
         }
         else {
             entry->name = "Group";
@@ -437,9 +423,6 @@ QStandardItem *SearchEditorModel::AddEntryToModel(SearchEditorModel::searchEntry
         rowItems << new QStandardItem(entry->name);
         rowItems << new QStandardItem(entry->find);
         rowItems << new QStandardItem(entry->replace);
-        rowItems << new QStandardItem(FindFields::instance()->GetSearchModeText(entry->search_mode));
-        rowItems << new QStandardItem(FindFields::instance()->GetLookWhereText(entry->look_where));
-        rowItems << new QStandardItem(FindFields::instance()->GetSearchDirectionText(entry->search_direction));
     }
 
     rowItems[0]->setData(entry->is_group, IS_GROUP_ROLE);
@@ -560,14 +543,6 @@ SearchEditorModel::searchEntry* SearchEditorModel::GetEntry(QStandardItem *item)
     entry->find =        parent_item->child(item->row(), 1)->text();
     entry->replace =     parent_item->child(item->row(), 2)->text();
 
-    // Convert the mode values from translated text into enumerated modes
-    entry->search_mode = FindFields::instance()->GetSearchMode(
-                        parent_item->child(item->row(), 3)->text());
-    entry->look_where = FindFields::instance()->GetLookWhere(
-                        parent_item->child(item->row(), 4)->text());
-    entry->search_direction = FindFields::instance()->GetSearchDirection(
-                        parent_item->child(item->row(), 5)->text());
-
     return entry;
 }
 
@@ -661,9 +636,6 @@ QString SearchEditorModel::SaveData(QList<SearchEditorModel::searchEntry*> entri
         if (!entry->is_group) {
             settings->setValue(ENTRY_FIND, entry->find);
             settings->setValue(ENTRY_REPLACE, entry->replace);
-            settings->setValue(ENTRY_MODE, FindFields::instance()->GetSearchMode(entry->search_mode));
-            settings->setValue(ENTRY_WHERE, FindFields::instance()->GetLookWhere(entry->look_where));
-            settings->setValue(ENTRY_DIRECTION, FindFields::instance()->GetSearchDirection(entry->search_direction));
         }
     }
 

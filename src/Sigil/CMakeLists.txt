@@ -91,7 +91,6 @@ set( QOBJECT_HEADERS
     Misc/UpdateChecker.h 
     Misc/RasterizeImageResource.h
     Misc/WrapIndicator.h
-    MiscEditors/SearchEditorItemDelegate.h
     MiscEditors/SearchEditorModel.h
     MiscEditors/ClipEditorTreeView.h
     MiscEditors/ClipEditorModel.h
@@ -306,8 +305,6 @@ set( MISC_EDITORS_FILES
     MiscEditors/IndexHTMLWriter.h
     MiscEditors/SearchEditorTreeView.cpp
     MiscEditors/SearchEditorTreeView.h
-    MiscEditors/SearchEditorItemDelegate.cpp
-    MiscEditors/SearchEditorItemDelegate.h
     MiscEditors/SearchEditorModel.cpp
     MiscEditors/SearchEditorModel.h
     )

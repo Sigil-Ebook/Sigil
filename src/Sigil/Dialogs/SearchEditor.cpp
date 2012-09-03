@@ -34,7 +34,6 @@ SearchEditor::SearchEditor(QWidget *parent)
     : 
     QDialog(parent),
     m_LastFolderOpen(QString()),
-    m_cbDelegate(new SearchEditorItemDelegate()),
     m_ContextMenu(new QMenu(this))
 {
     ui.setupUi(this);	
@@ -50,11 +49,6 @@ SearchEditor::~SearchEditor()
 {
     // Restore data from file since we aren't saving
     m_SearchEditorModel->LoadInitialData();
-
-    if (m_cbDelegate) {
-        delete m_cbDelegate;
-        m_cbDelegate = 0;
-    }
 }
 
 void SearchEditor::SetupSearchEditorTree()
@@ -69,26 +63,20 @@ void SearchEditor::SetupSearchEditorTree()
 
 
     ui.SearchEditorTree->header()->setToolTip(
+        "<p>" + tr("All searches default to Regex, All HTML Files, Down.") + "</p>" +
+        "<p>" + tr("Hold Ctrl down while clicking Find, Replace, etc. to temporarily search only the Current File.") + "</p>" +
         "<p>" + tr("Right click on an entry to see a context menu of actions.") + "</p>" +
         "<p>" + tr("You can also right click on the Find text box in the Find & Replace window to select an entry.") + "</p>" +
         "<dl>" +
         "<dt><b>" + tr("Name") + "</b><dd>" + tr("Name of your entry or group.") + "</dd>" +
         "<dt><b>" + tr("Find") + "</b><dd>" + tr("The text to put into the Find box.") + "</dd>" +
         "<dt><b>" + tr("Replace") + "</b><dd>" + tr("The text to put into the Replace box.") + "</dd>" +
-        "<dt><b>" + tr("Mode") + "</b><dd>" + tr("What to search.") + "</dd>" +
-        "<dt><b>" + tr("Where") + "</b><dd>" + tr("Where to search.") + "</dd>" +
-        "<dt><b>" + tr("Direction") + "</b><dd>" + tr("Direction to search.") + "</dd>" +
         "</dl>");
 
-    ui.SearchEditorTree->header()->setStretchLastSection(false);
     for (int column = 0; column < ui.SearchEditorTree->header()->count(); column++) {
         ui.SearchEditorTree->resizeColumnToContents(column);
     }
-
-    // The mode columns use a combobox for editing their values
-    ui.SearchEditorTree->setItemDelegateForColumn(4, m_cbDelegate);
-    ui.SearchEditorTree->setItemDelegateForColumn(5, m_cbDelegate);
-    ui.SearchEditorTree->setItemDelegateForColumn(6, m_cbDelegate);
+    ui.SearchEditorTree->header()->setStretchLastSection(true);
 }
 
 void SearchEditor::ShowMessage(QString message)
@@ -304,9 +292,6 @@ bool SearchEditor::Copy()
         save_entry->name = entry->name;
         save_entry->find = entry->find;
         save_entry->replace = entry->replace;
-        save_entry->search_mode = entry->search_mode;
-        save_entry->look_where = entry->look_where;
-        save_entry->search_direction = entry->search_direction;
         m_SavedSearchEntries.append(save_entry);
     }
 

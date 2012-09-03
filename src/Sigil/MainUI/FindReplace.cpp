@@ -158,7 +158,6 @@ void FindReplace::ShowMessage( const QString &message )
     emit ShowMessageRequest(new_message);
 }
 
-
 void FindReplace::SetLookWhereFromModifier()
 {
     // Only use with mouse click not menu/shortcuts to avoid modifying actions
@@ -1042,9 +1041,6 @@ void FindReplace::SaveSearchAction()
     search_entry->is_group = false;
     search_entry->find = ui.cbFind->lineEdit()->text(),
     search_entry->replace = ui.cbReplace->lineEdit()->text(),
-    search_entry->search_mode = GetSearchMode();
-    search_entry->look_where= GetLookWhere();
-    search_entry->search_direction = GetSearchDirection();
 
     emit OpenSearchEditorRequest(search_entry);
 }
@@ -1065,23 +1061,20 @@ void FindReplace::LoadSearch(SearchEditorModel::searchEntry *search_entry)
     UpdatePreviousFindStrings(search_entry->find);
     UpdatePreviousReplaceStrings(search_entry->replace);
 
-    int cbSearchModeIndex = ui.cbSearchMode->findText(FindFields::instance()->GetSearchModeText(search_entry->search_mode));
-    if (cbSearchModeIndex < 0) {
-        cbSearchModeIndex = 0;
-    }
-    ui.cbSearchMode->setCurrentIndex(cbSearchModeIndex);
+    // Default for all saved searches is Regex, All HTML Files, Down.
 
-    int cbLookWhereIndex = ui.cbLookWhere->findText(FindFields::instance()->GetLookWhereText(search_entry->look_where));
-    if (cbLookWhereIndex < 0) {
-        cbLookWhereIndex = 0;
+    int search_mode = FindFields::SearchMode_Regex;
+    for ( int i = 0; i < ui.cbSearchMode->count(); ++i )
+    {
+        if ( ui.cbSearchMode->itemData( i ) == search_mode )
+        {
+            ui.cbSearchMode->setCurrentIndex( i );
+            break;
+        }
     }
-    ui.cbLookWhere->setCurrentIndex(cbLookWhereIndex);
 
-    int cbSearchDirectionIndex = ui.cbSearchDirection->findText(FindFields::instance()->GetSearchDirectionText(search_entry->search_direction));
-    if (cbSearchDirectionIndex < 0) {
-        cbSearchDirectionIndex = 0;
-    }
-    ui.cbSearchDirection->setCurrentIndex(cbSearchDirectionIndex);
+    ui.cbLookWhere->setCurrentIndex(1);
+    ui.cbSearchDirection->setCurrentIndex(1);
 
     // Show a message containing the name that was loaded
     QString message = "";
