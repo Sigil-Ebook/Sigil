@@ -35,7 +35,7 @@ const int COLUMNS = 2;
 static const int IS_GROUP_ROLE = Qt::UserRole + 1;
 static const int FULLNAME_ROLE = Qt::UserRole + 2;
 
-static const QString CLIP_EXAMPLES_FILE = "clip_examples.ini";
+static const QString CLIP_EXAMPLES_FILE = "clip_entries.ini";
 
 ClipEditorModel *ClipEditorModel::m_instance = 0;
 
