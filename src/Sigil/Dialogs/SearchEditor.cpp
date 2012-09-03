@@ -73,9 +73,6 @@ void SearchEditor::SetupSearchEditorTree()
         "<dt><b>" + tr("Replace") + "</b><dd>" + tr("The text to put into the Replace box.") + "</dd>" +
         "</dl>");
 
-    for (int column = 0; column < ui.SearchEditorTree->header()->count(); column++) {
-        ui.SearchEditorTree->resizeColumnToContents(column);
-    }
     ui.SearchEditorTree->header()->setStretchLastSection(true);
 }
 
@@ -127,6 +124,11 @@ void SearchEditor::showEvent(QShowEvent *event)
     ui.Filter->setCurrentIndex(0);
     ui.FilterText->clear();
     ui.FilterText->setFocus();
+
+    for (int column = 0; column < ui.SearchEditorTree->header()->count() - 1; column++) {
+        ui.SearchEditorTree->resizeColumnToContents(column);
+    }
+
 }
 
 int SearchEditor::SelectedRowsCount()
