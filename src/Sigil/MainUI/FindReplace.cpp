@@ -83,7 +83,7 @@ void FindReplace::SetUpFindText()
 
         if ( !selected_text.isEmpty() ) 
         {
-		    if ( m_RegexOptionAutoTokenise && GetSearchMode() == FindFields::SearchMode_Regex ) {
+		    if ( m_RegexOptionAutoTokenise && GetSearchMode() == FindReplace::SearchMode_Regex ) {
 			    selected_text = TokeniseSpacesForRegex( selected_text );
 		    }
 		    // We want to make the text selected in the editor
@@ -149,7 +149,7 @@ void FindReplace::ShowMessage( const QString &message )
     ui.message->setFont(f);
 
     QString new_message = message;
-    if (m_LookWhereCurrentFile && GetLookWhere() != FindFields::LookWhere_CurrentFile) {
+    if (m_LookWhereCurrentFile && GetLookWhere() != FindReplace::LookWhere_CurrentFile) {
         new_message.append(tr(" (Current File)"));
     }
     ui.message->setText(new_message);
@@ -201,7 +201,7 @@ bool FindReplace::Find()
 {
     bool found = false;
 
-    if ( GetSearchDirection() == FindFields::SearchDirection_Up )
+    if ( GetSearchDirection() == FindReplace::SearchDirection_Up )
     {
         found = FindPrevious();
     }
@@ -241,7 +241,7 @@ int FindReplace::Count()
 
     int count = 0;
 
-    if ( GetLookWhere() == FindFields::LookWhere_CurrentFile || m_LookWhereCurrentFile)
+    if ( GetLookWhere() == FindReplace::LookWhere_CurrentFile || m_LookWhereCurrentFile)
     {
         Searchable *searchable = GetAvailableSearchable();
 
@@ -277,7 +277,7 @@ bool FindReplace::Replace()
 {
     bool found = false;
 
-    if ( GetSearchDirection() == FindFields::SearchDirection_Up )
+    if ( GetSearchDirection() == FindReplace::SearchDirection_Up )
     {
         found = ReplacePrevious();
     }
@@ -318,7 +318,7 @@ int FindReplace::ReplaceAll()
 
     int count = 0;
 
-    if ( GetLookWhere() == FindFields::LookWhere_CurrentFile || m_LookWhereCurrentFile)
+    if ( GetLookWhere() == FindReplace::LookWhere_CurrentFile || m_LookWhereCurrentFile)
     {
         Searchable *searchable = GetAvailableSearchable();
 
@@ -411,7 +411,7 @@ bool FindReplace::FindText( Searchable::Direction direction )
 
     SetCodeViewIfNeeded();
 
-    if ( GetLookWhere() == FindFields::LookWhere_CurrentFile || m_LookWhereCurrentFile)
+    if ( GetLookWhere() == FindReplace::LookWhere_CurrentFile || m_LookWhereCurrentFile)
     {
         Searchable *searchable = GetAvailableSearchable();
 
@@ -494,8 +494,8 @@ void FindReplace::SetCodeViewIfNeeded( bool force )
 
     if ( force ||
             ( !m_LookWhereCurrentFile && 
-              ( GetLookWhere() == FindFields::LookWhere_AllHTMLFiles || 
-                GetLookWhere() == FindFields::LookWhere_SelectedHTMLFiles ) &&
+              ( GetLookWhere() == FindReplace::LookWhere_AllHTMLFiles || 
+                GetLookWhere() == FindReplace::LookWhere_SelectedHTMLFiles ) &&
               ( m_MainWindow.GetViewState() == MainWindow::ViewState_BookView ||
                 m_MainWindow.GetViewState() == MainWindow::ViewState_PreviewView ) ) )
     {
@@ -527,11 +527,11 @@ QString FindReplace::GetSearchRegex()
     QString search( ui.cbFind->currentText() );
 
     // Search type
-    if ( GetSearchMode() == FindFields::SearchMode_Normal || GetSearchMode() == FindFields::SearchMode_Case_Sensitive )
+    if ( GetSearchMode() == FindReplace::SearchMode_Normal || GetSearchMode() == FindReplace::SearchMode_Case_Sensitive )
     {
         search = QRegExp::escape(search);
 
-        if ( GetSearchMode() == FindFields::SearchMode_Normal ) {
+        if ( GetSearchMode() == FindReplace::SearchMode_Normal ) {
             search = "(?i)" + search;
         }
     }
@@ -574,10 +574,10 @@ bool FindReplace::IsCurrentFileInHTMLSelection()
 QList <Resource *> FindReplace::GetHTMLFiles()
 {
     // For now, this must hold
-    Q_ASSERT( GetLookWhere() == FindFields::LookWhere_AllHTMLFiles || GetLookWhere() == FindFields::LookWhere_SelectedHTMLFiles );
+    Q_ASSERT( GetLookWhere() == FindReplace::LookWhere_AllHTMLFiles || GetLookWhere() == FindReplace::LookWhere_SelectedHTMLFiles );
     QList <Resource *> resources;
 
-    if ( GetLookWhere() == FindFields::LookWhere_AllHTMLFiles )
+    if ( GetLookWhere() == FindReplace::LookWhere_AllHTMLFiles )
     {
         resources = m_MainWindow.GetAllHTMLResources();
     }
@@ -592,7 +592,7 @@ QList <Resource *> FindReplace::GetHTMLFiles()
 int FindReplace::CountInFiles()
 {
     // For now, this must hold
-    Q_ASSERT( GetLookWhere() == FindFields::LookWhere_AllHTMLFiles || GetLookWhere() == FindFields::LookWhere_SelectedHTMLFiles );
+    Q_ASSERT( GetLookWhere() == FindReplace::LookWhere_AllHTMLFiles || GetLookWhere() == FindReplace::LookWhere_SelectedHTMLFiles );
 
     m_MainWindow.GetCurrentContentTab().SaveTabContent();
 
@@ -606,7 +606,7 @@ int FindReplace::CountInFiles()
 int FindReplace::ReplaceInAllFiles()
 {
     // For now, this must hold
-    Q_ASSERT( GetLookWhere() == FindFields::LookWhere_AllHTMLFiles || GetLookWhere() == FindFields::LookWhere_SelectedHTMLFiles );
+    Q_ASSERT( GetLookWhere() == FindReplace::LookWhere_AllHTMLFiles || GetLookWhere() == FindReplace::LookWhere_SelectedHTMLFiles );
 
     m_MainWindow.GetCurrentContentTab().SaveTabContent();
 
@@ -657,7 +657,7 @@ bool FindReplace::FindInAllFiles( Searchable::Direction direction )
             }
 
             // Restore selection since opening tabs changes selection 
-            if ( GetLookWhere() == FindFields::LookWhere_SelectedHTMLFiles )
+            if ( GetLookWhere() == FindReplace::LookWhere_SelectedHTMLFiles )
             {
                 m_MainWindow.SelectResources(selected_resources);
             }
@@ -691,7 +691,7 @@ HTMLResource* FindReplace::GetNextContainingHTMLResource( Searchable::Direction 
     Resource* current_resource = GetCurrentResource();
     HTMLResource *starting_html_resource = qobject_cast< HTMLResource *> ( current_resource );
 
-    if ( !starting_html_resource || ( GetLookWhere() == FindFields::LookWhere_SelectedHTMLFiles && !IsCurrentFileInHTMLSelection() ) )
+    if ( !starting_html_resource || ( GetLookWhere() == FindReplace::LookWhere_SelectedHTMLFiles && !IsCurrentFileInHTMLSelection() ) )
     {
         QList<Resource *> resources = GetHTMLFiles();
         if ( resources.isEmpty() )
@@ -861,23 +861,49 @@ void FindReplace::UpdatePreviousReplaceStrings(const QString &text)
     ui.cbReplace->setCurrentIndex( 0 );
 }
 
-
-
-FindFields::LookWhere FindReplace::GetLookWhere()
+FindReplace::SearchMode FindReplace::GetSearchMode()
 {
-    return ( FindFields::instance()->GetLookWhere( ui.cbLookWhere->itemData( ui.cbLookWhere->currentIndex() ).toInt() ) );
+    int mode = ui.cbSearchMode->itemData( ui.cbSearchMode->currentIndex() ).toInt();
+    switch ( mode )
+    {
+    case FindReplace::SearchMode_Regex:
+        return static_cast<FindReplace::SearchMode>( mode );
+        break;
+    case FindReplace::SearchMode_Case_Sensitive:
+        return static_cast<FindReplace::SearchMode>( mode );
+        break;
+    default:
+        return FindReplace::SearchMode_Normal;
+    }
 }
 
-
-FindFields::SearchMode FindReplace::GetSearchMode()
+FindReplace::LookWhere FindReplace::GetLookWhere()
 {
-    return ( FindFields::instance()->GetSearchMode( ui.cbSearchMode->itemData( ui.cbSearchMode->currentIndex() ).toInt() ) );
+    int look = ui.cbLookWhere->itemData( ui.cbLookWhere->currentIndex() ).toInt();
+    switch ( look )
+    {
+    case FindReplace::LookWhere_AllHTMLFiles:
+        return static_cast<FindReplace::LookWhere>( look );
+        break;
+    case FindReplace::LookWhere_SelectedHTMLFiles:
+        return static_cast<FindReplace::LookWhere>( look );
+        break;
+    default:
+        return FindReplace::LookWhere_CurrentFile;
+    }
 }
 
-
-FindFields::SearchDirection FindReplace::GetSearchDirection()
+FindReplace::SearchDirection FindReplace::GetSearchDirection()
 {
-    return ( FindFields::instance()->GetSearchDirection( ui.cbSearchDirection->itemData( ui.cbSearchDirection->currentIndex() ).toInt() ) );
+    int direction = ui.cbSearchDirection->itemData( ui.cbSearchDirection->currentIndex() ).toInt();
+    switch ( direction )
+    {
+    case FindReplace::SearchDirection_Up:
+        return static_cast<FindReplace::SearchDirection>( direction );
+        break;
+    default:
+        return FindReplace::SearchDirection_Down;
+    }
 }
 
 
@@ -903,38 +929,9 @@ void FindReplace::ReadSettings()
     ui.cbReplace->clear();
     ui.cbReplace->addItems( replace_strings );
 
-    ui.cbSearchMode->setCurrentIndex( 0 );
-    int search_mode = settings.value( "search_mode", 0 ).toInt();
-    for ( int i = 0; i < ui.cbSearchMode->count(); ++i )
-    {
-        if ( ui.cbSearchMode->itemData( i ) == search_mode )
-        {
-            ui.cbSearchMode->setCurrentIndex( i );
-            break;
-        }
-    }
-
-    ui.cbLookWhere->setCurrentIndex( 0 );
-    int look_where = settings.value( "look_where", 0 ).toInt();
-    for ( int i = 0; i < ui.cbLookWhere->count(); ++i )
-    {
-        if ( ui.cbLookWhere->itemData( i )  == look_where )
-        {
-            ui.cbLookWhere->setCurrentIndex( i );
-            break;
-        }
-    }
-
-    ui.cbSearchDirection->setCurrentIndex( 0 );
-    int search_direction= settings.value( "search_direction", 0 ).toInt();
-    for ( int i = 0; i < ui.cbSearchDirection->count(); ++i )
-    {
-        if ( ui.cbSearchDirection->itemData( i ) == search_direction )
-        {
-            ui.cbSearchDirection->setCurrentIndex( i );
-            break;
-        }
-    }
+    SetSearchMode( settings.value( "search_mode", 0 ).toInt() );
+    SetLookWhere( settings.value( "look_where", 0 ).toInt() );
+    SetSearchDirection( settings.value( "search_direction", 0 ).toInt() );
 
     settings.endGroup();
 }
@@ -1005,32 +1002,35 @@ void FindReplace::ExtendUI()
     ui.cbLookWhere->clear();
     ui.cbSearchDirection->clear();
 
-    // All Combobox items are retrieved from FindFields for consistent translation
     QString mode_tooltip = "<p>" + tr("What to search for") + ":</p><dl>";
-    ui.cbSearchMode->addItem(FindFields::instance()->GetSearchModeText(FindFields::SearchMode_Normal), FindFields::SearchMode_Normal);
-    mode_tooltip += "<dt><b>" + FindFields::instance()->GetSearchModeText( FindFields::SearchMode_Normal) + "</b><dd>" + tr("Case in-sensitive search of exactly what you type.") + "</dd>";
-    ui.cbSearchMode->addItem(FindFields::instance()->GetSearchModeText(FindFields::SearchMode_Case_Sensitive), FindFields::SearchMode_Case_Sensitive);
-    mode_tooltip += "<dt><b>" + FindFields::instance()->GetSearchModeText( FindFields::SearchMode_Case_Sensitive) + "</b><dd>" + tr("Case sensitive search of exactly what you type.") + "</dd>";
-    ui.cbSearchMode->addItem(FindFields::instance()->GetSearchModeText(FindFields::SearchMode_Regex), FindFields::SearchMode_Regex);
-    mode_tooltip += "<dt><b>" + FindFields::instance()->GetSearchModeText( FindFields::SearchMode_Regex) + "</b><dd>" + tr("Search for a pattern using Regular Expression syntax.") + "</dd>";
+    ui.cbSearchMode->addItem(tr("Normal"), FindReplace::SearchMode_Normal);
+    mode_tooltip += "<dt><b>Normal</b><dd>" + tr("Case in-sensitive search of exactly what you type.") + "</dd>";
+
+    ui.cbSearchMode->addItem(tr("Case Sensitive"), FindReplace::SearchMode_Case_Sensitive);
+    mode_tooltip += "<dt><b>Case Sensitive</b><dd>" + tr("Case sensitive search of exactly what you type.") + "</dd>";
+
+    ui.cbSearchMode->addItem(tr("Regex"), FindReplace::SearchMode_Regex);
+    mode_tooltip += "<dt><b>Regex</b><dd>" + tr("Search for a pattern using Regular Expression syntax.") + "</dd>";
     ui.cbSearchMode->setToolTip(mode_tooltip);
 
     QString look_tooltip = "<p>" + tr("Where to search") + ":</p><dl>";
-    ui.cbLookWhere->addItem(FindFields::instance()->GetLookWhereText(FindFields::LookWhere_CurrentFile), FindFields::LookWhere_CurrentFile);
-    look_tooltip += "<dt><b>" + FindFields::instance()->GetLookWhereText(FindFields::LookWhere_CurrentFile) + "</b><dd>" + tr("Restrict the find or replace to the opened file.  Hold the Ctrl key down while clicking any search buttons to temporarily restrict the search to the Current File.") + "</dd>";
-    ui.cbLookWhere->addItem(FindFields::instance()->GetLookWhereText(FindFields::LookWhere_AllHTMLFiles), FindFields::LookWhere_AllHTMLFiles);
-    look_tooltip += "<dt><b>" + FindFields::instance()->GetLookWhereText(FindFields::LookWhere_AllHTMLFiles) + "</b><dd>" + tr("Find or replace in all HTML files in Code View.") + "</dd>";
-    ui.cbLookWhere->addItem(FindFields::instance()->GetLookWhereText(FindFields::LookWhere_SelectedHTMLFiles), FindFields::LookWhere_SelectedHTMLFiles);
-    look_tooltip += "<dt><b>" + FindFields::instance()->GetLookWhereText(FindFields::LookWhere_SelectedHTMLFiles) + "</b><dd>" + tr("Restrict the find or replace to the HTML files selected in the Book Browser in Code View.") + "</dd>";
+    ui.cbLookWhere->addItem(tr("Current File"), FindReplace::LookWhere_CurrentFile);
+    look_tooltip += "<dt><b>Current File</b><dd>" + tr("Restrict the find or replace to the opened file.  Hold the Ctrl key down while clicking any search buttons to temporarily restrict the search to the Current File.") + "</dd>";
+
+    ui.cbLookWhere->addItem(tr("All HTML Files"), FindReplace::LookWhere_AllHTMLFiles);
+    look_tooltip += "<dt><b>All HTML Files</b><dd>" + tr("Find or replace in all HTML files in Code View.") + "</dd>";
+
+    ui.cbLookWhere->addItem(tr("Selected Files"), FindReplace::LookWhere_SelectedHTMLFiles);
+    look_tooltip += "<dt><b>Selected Files</b><dd>" + tr("Restrict the find or replace to the HTML files selected in the Book Browser in Code View.") + "</dd>";
     look_tooltip += "</dl>";
     ui.cbLookWhere->setToolTip(look_tooltip);
 
-    ui.cbSearchDirection->addItem(FindFields::instance()->GetSearchDirectionText(FindFields::SearchDirection_Up), FindFields::SearchDirection_Up);
-    ui.cbSearchDirection->addItem(FindFields::instance()->GetSearchDirectionText(FindFields::SearchDirection_Down), FindFields::SearchDirection_Down);
+    ui.cbSearchDirection->addItem(tr("Up"), FindReplace::SearchDirection_Up);
+    ui.cbSearchDirection->addItem(tr("Down"), FindReplace::SearchDirection_Down);
     ui.cbSearchDirection->setToolTip("<p>" + tr("Direction to search") + ":</p>"
         "<dl>"
-        "<dt><b>" + FindFields::instance()->GetSearchDirectionText(FindFields::SearchDirection_Up) + "</b><dd>" + tr("Search for the previous match from your current position.") + "</dd>"
-        "<dt><b>" + FindFields::instance()->GetSearchDirectionText(FindFields::SearchDirection_Down) + "</b><dd>" + tr("Search for the next match from your current position.") + "</dd>"
+        "<dt><b>Up</b><dd>" + tr("Search for the previous match from your current position.") + "</dd>"
+        "<dt><b>Down</b><dd>" + tr("Search for the next match from your current position.") + "</dd>"
         "</dl>");
 }
 
@@ -1050,6 +1050,45 @@ void FindReplace::LoadSearchByName(QString name)
     LoadSearch(SearchEditorModel::instance()->GetEntryFromName(name));
 }
 
+void FindReplace::SetSearchMode(int search_mode)
+{
+    ui.cbSearchMode->setCurrentIndex(0);
+    for ( int i = 0; i < ui.cbSearchMode->count(); ++i )
+    {
+        if ( ui.cbSearchMode->itemData( i ) == search_mode )
+        {
+            ui.cbSearchMode->setCurrentIndex( i );
+            break;
+        }
+    }
+}
+
+void FindReplace::SetLookWhere(int look_where)
+{
+    ui.cbLookWhere->setCurrentIndex( 0 );
+    for ( int i = 0; i < ui.cbLookWhere->count(); ++i )
+    {
+        if ( ui.cbLookWhere->itemData( i )  == look_where )
+        {
+            ui.cbLookWhere->setCurrentIndex( i );
+            break;
+        }
+    }
+}
+
+void FindReplace::SetSearchDirection(int search_direction)
+{
+    ui.cbSearchDirection->setCurrentIndex( 0 );
+    for ( int i = 0; i < ui.cbSearchDirection->count(); ++i )
+    {
+        if ( ui.cbSearchDirection->itemData( i ) == search_direction )
+        {
+            ui.cbSearchDirection->setCurrentIndex( i );
+            break;
+        }
+    }
+}
+
 void FindReplace::LoadSearch(SearchEditorModel::searchEntry *search_entry)
 {
     clearMessage();
@@ -1062,16 +1101,9 @@ void FindReplace::LoadSearch(SearchEditorModel::searchEntry *search_entry)
     UpdatePreviousReplaceStrings(search_entry->replace);
 
     // Default for all saved searches is Regex, All HTML Files, Down.
-
-    int search_mode = FindFields::SearchMode_Regex;
-    for ( int i = 0; i < ui.cbSearchMode->count(); ++i )
-    {
-        if ( ui.cbSearchMode->itemData( i ) == search_mode )
-        {
-            ui.cbSearchMode->setCurrentIndex( i );
-            break;
-        }
-    }
+    SetSearchMode(FindReplace::SearchMode_Regex);
+    SetLookWhere(FindReplace::LookWhere_AllHTMLFiles);;
+    SetSearchDirection(FindReplace::SearchDirection_Down);
 
     ui.cbLookWhere->setCurrentIndex(1);
     ui.cbSearchDirection->setCurrentIndex(1);

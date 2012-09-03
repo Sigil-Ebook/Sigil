@@ -27,7 +27,6 @@
 #include <QtGui/QStandardItemModel>
 #include <QDropEvent>
 
-#include "Misc/FindFields.h"
 #include "Misc/SettingsStore.h"
 
 class SearchEditorModel : public QStandardItemModel

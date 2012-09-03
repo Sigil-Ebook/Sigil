@@ -85,7 +85,6 @@ set( QOBJECT_HEADERS
     MainUI/NCXModel.h
     MainUI/ValidationResultsView.h
     Misc/AppEventFilter.h
-    Misc/FindFields.h
     Misc/SettingsStore.h
     Misc/UILanguage.h
     Misc/UpdateChecker.h 
@@ -249,8 +248,6 @@ set( MISC_FILES
     Misc/Utility.cpp
     Misc/Utility.h
     Misc/SleepFunctions.h
-    Misc/FindFields.cpp
-    Misc/FindFields.h
     Misc/FindReplaceQLineEdit.cpp
     Misc/FindReplaceQLineEdit.h
     Misc/FilenameDelegate.cpp

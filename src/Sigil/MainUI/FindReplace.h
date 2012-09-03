@@ -28,7 +28,6 @@
 #include <QtCore/QTimer>
 
 #include "ui_FindReplace.h"
-#include "Misc/FindFields.h"
 #include "BookManipulation/FolderKeeper.h"
 #include "MainUI/MainWindow.h"
 #include "Misc/SearchOperations.h"
@@ -46,6 +45,30 @@ class FindReplace : public QWidget
 public:
     FindReplace( MainWindow &main_window );
     ~FindReplace();
+
+    /**
+     * Defines possible areas where the search can be performed.
+     */
+    enum LookWhere
+    {
+        LookWhere_CurrentFile = 0,
+        LookWhere_AllHTMLFiles = 10,
+        LookWhere_SelectedHTMLFiles = 20
+    };  
+    
+    enum SearchMode
+    {
+        // Normal is Case insensitive
+        SearchMode_Normal = 0,
+        SearchMode_Case_Sensitive = 10,
+        SearchMode_Regex = 20
+    };
+
+    enum SearchDirection
+    {
+        SearchDirection_Down = 0,
+        SearchDirection_Up = 10
+    };
 
     /**
      * Sets up the default Find text during dialog creation.
@@ -172,6 +195,10 @@ private:
 
     Resource* GetCurrentResource();
 
+    void SetSearchMode(int search_mode);
+    void SetLookWhere(int look_where);
+    void SetSearchDirection(int search_direction);
+
     template< class T >
     bool ResourceContainsCurrentRegex( T *resource );
 
@@ -203,9 +230,9 @@ private:
      */
     void UpdatePreviousReplaceStrings(const QString &text = QString());
 
-    FindFields::LookWhere GetLookWhere();
-    FindFields::SearchMode GetSearchMode();
-    FindFields::SearchDirection GetSearchDirection();
+    FindReplace::LookWhere GetLookWhere();
+    FindReplace::SearchMode GetSearchMode();
+    FindReplace::SearchDirection GetSearchDirection();
 
     // Checks if Find is empty when not checking spelling
     bool IsValidFindText();
@@ -259,7 +286,7 @@ template< class T >
 bool FindReplace::ResourceContainsCurrentRegex( T *resource )
 {
     // For now, this must hold
-    Q_ASSERT( GetLookWhere() == FindFields::LookWhere_AllHTMLFiles || GetLookWhere() == FindFields::LookWhere_SelectedHTMLFiles );
+    Q_ASSERT( GetLookWhere() == FindReplace::LookWhere_AllHTMLFiles || GetLookWhere() == FindReplace::LookWhere_SelectedHTMLFiles );
 
     Resource *generic_resource = resource;
 

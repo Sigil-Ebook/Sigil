@@ -30,7 +30,6 @@
 #include <QtGui/QMenu>
 
 #include "Misc/SettingsStore.h"
-#include "Misc/FindFields.h"
 #include "MiscEditors/SearchEditorModel.h"
 #include "MiscEditors/SearchEditorTreeView.h"
 
