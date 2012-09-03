@@ -96,18 +96,24 @@
     <addaction name="separator"/>
     <addaction name="menuChangeCase"/>
     <addaction name="separator"/>
+    <addaction name="actionSplitOnSGFChapterMarkers"/>
+    <addaction name="separator"/>
+    <addaction name="actionPreferences"/>
+   </widget>
+   <widget class="QMenu" name="menuInsert">
+    <property name="title">
+     <string>&amp;Insert</string>
+    </property>
+    <addaction name="actionSplitChapter"/>
+    <addaction name="actionInsertSGFChapterMarker"/>
+    <addaction name="separator"/>
     <addaction name="actionInsertImage"/>
     <addaction name="actionInsertSpecialCharacter"/>
+    <addaction name="separator"/>
     <addaction name="actionInsertId"/>
     <addaction name="actionInsertHyperlink"/>
     <addaction name="separator"/>
-    <addaction name="actionSplitChapter"/>
-    <addaction name="actionInsertSGFChapterMarker"/>
-    <addaction name="actionSplitOnSGFChapterMarkers"/>
-    <addaction name="separator"/>
     <addaction name="actionInsertClosingTag"/>
-    <addaction name="separator"/>
-    <addaction name="actionPreferences"/>
    </widget>
    <widget class="QMenu" name="menuHelp">
     <property name="title">
@@ -295,6 +301,7 @@
    </widget>
    <addaction name="menuFile"/>
    <addaction name="menuEdit"/>
+   <addaction name="menuInsert"/>
    <addaction name="menuFormat"/>
    <addaction name="menuFindReplace"/>
    <addaction name="menuTools"/>
@@ -600,7 +607,7 @@
     <string>Ctrl+.</string>
    </property>
    <property name="text">
-    <string>&amp;Insert Closing Tag</string>
+    <string>&amp;Closing Tag</string>
    </property>
   </action>
   <action name="actionUndo">
@@ -933,7 +940,7 @@
      <normaloff>:/main/insert-chapter-break_22px.png</normaloff>:/main/insert-chapter-break_22px.png</iconset>
    </property>
    <property name="text">
-    <string>Split Chapter</string>
+    <string>Chapter Break</string>
    </property>
    <property name="toolTip">
     <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Chapter Break&lt;/b&gt;&lt;/p&gt;
@@ -952,7 +959,7 @@
      <normaloff>:/main/insert-image_22px.png</normaloff>:/main/insert-image_22px.png</iconset>
    </property>
    <property name="text">
-    <string>Insert Image...</string>
+    <string>Image...</string>
    </property>
    <property name="toolTip">
     <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert Image&lt;/b&gt;&lt;/p&gt;
@@ -971,7 +978,7 @@
      <normaloff>:/main/insert-special-character_22px.png</normaloff>:/main/insert-special-character_22px.png</iconset>
    </property>
    <property name="text">
-    <string>Insert Special Character...</string>
+    <string>Special Character...</string>
    </property>
   </action>
  <action name="actionInsertId">
@@ -980,7 +987,7 @@
      <normaloff>:/main/insert-id_22px.png</normaloff>:/main/insert-iid_22px.png</iconset>
    </property>
    <property name="text">
-    <string>Insert ID...</string>
+    <string>ID...</string>
    </property>
    <property name="toolTip">
     <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert ID&lt;/b&gt;&lt;/p&gt;
@@ -995,7 +1002,7 @@
      <normaloff>:/main/insert-hyperlink_22px.png</normaloff>:/main/insert-hyperlink_22px.png</iconset>
    </property>
    <property name="text">
-    <string>Insert Hyperlink...</string>
+    <string>Hyperlink...</string>
    </property>
    <property name="toolTip">
     <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert Hyperlink&lt;/b&gt;&lt;/p&gt;
@@ -1397,10 +1404,10 @@
   </action>
   <action name="actionInsertSGFChapterMarker">
    <property name="text">
-    <string>Insert Chapter Marker</string>
+    <string>Chapter Marker</string>
    </property>
    <property name="toolTip">
-    <string>Insert Sigil Chapter Marker</string>
+    <string>Sigil Chapter Marker</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+Shift+Return</string>
