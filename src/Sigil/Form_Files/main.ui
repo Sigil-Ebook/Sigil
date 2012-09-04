@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>945</width>
-    <height>673</height>
+    <width>1000</width>
+    <height>700</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -48,20 +48,20 @@
     <property name="title">
      <string>&amp;File</string>
     </property>
-    <widget class="QMenu" name="menuNew">
+    <widget class="QMenu" name="menuAdd">
      <property name="title">
-      <string>New</string>
+      <string>Add</string>
      </property>
-     <addaction name="actionNew"/>
      <addaction name="separator"/>
      <addaction name="actionNewHTMLFile"/>
      <addaction name="actionNewCSSFile"/>
      <addaction name="separator"/>
      <addaction name="actionAddExistingFile"/>
     </widget>
-    <addaction name="menuNew"/>
-    <addaction name="separator"/>
+     <addaction name="actionNew"/>
     <addaction name="actionOpen"/>
+    <addaction name="separator"/>
+    <addaction name="menuAdd"/>
     <addaction name="separator"/>
     <addaction name="actionSave"/>
     <addaction name="actionSaveAs"/>
@@ -523,7 +523,7 @@
      <normaloff>:/main/document-new_22px.png</normaloff>:/main/document-new_22px.png</iconset>
    </property>
    <property name="text">
-    <string>&amp;New Book</string>
+    <string>&amp;New</string>
    </property>
    <property name="toolTip">
     <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;New&lt;/b&gt;&lt;/p&gt;
@@ -579,7 +579,7 @@
    <property name="toolTip">
     <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Cut&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Cuts the selection from the text and puts it on the clipboard.&lt;/p&gt;</string>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Cuts the selected text from the document and puts it on the clipboard.&lt;/p&gt;</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+X</string>
@@ -608,6 +608,9 @@
    </property>
    <property name="text">
     <string>&amp;Closing Tag</string>
+   </property>
+   <property name="toolTip">
+    <string>Insert a closing tag in Code View.</string>
    </property>
   </action>
   <action name="actionUndo">
@@ -655,7 +658,7 @@
    <property name="toolTip">
     <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Copy&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Copies the selection and puts it on the clipboard.&lt;/p&gt;</string>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Copies the selected text and puts it on the clipboard.&lt;/p&gt;</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+C</string>
@@ -675,7 +678,7 @@
    <property name="toolTip">
     <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Align Text Left&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Align text to the left.&lt;/p&gt;</string>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Align the paragraph to the left.&lt;/p&gt;</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+L</string>
@@ -695,7 +698,7 @@
    <property name="toolTip">
     <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Align Text Right&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Align text to the right.&lt;/p&gt;</string>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Align the paragraph to the right.&lt;/p&gt;</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+R</string>
@@ -715,7 +718,7 @@
    <property name="toolTip">
     <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Center&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Center text.&lt;/p&gt;</string>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Center the paragraph.&lt;/p&gt;</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+E</string>
@@ -735,7 +738,7 @@
    <property name="toolTip">
     <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Justify&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Align the text to both the left and right margins.&lt;/p&gt;</string>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Align the paragraph to both the left and right margins.&lt;/p&gt;</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+J</string>
@@ -755,7 +758,7 @@
    <property name="toolTip">
     <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Bold&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Makes the selected text bold.&lt;/p&gt;</string>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Make the selected text bold.&lt;/p&gt;</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+B</string>
@@ -775,7 +778,7 @@
    <property name="toolTip">
     <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Italic&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Makes the selected text italic.&lt;/p&gt;</string>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Make the selected text italic.&lt;/p&gt;</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+I</string>
@@ -812,7 +815,7 @@
    <property name="toolTip">
     <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Underline&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Underlines the selected text.&lt;/p&gt;</string>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Underline the selected text.&lt;/p&gt;</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+U</string>
@@ -842,7 +845,7 @@
     <string>&amp;About...</string>
    </property>
    <property name="toolTip">
-    <string>About</string>
+    <string>Show information about Sigil.</string>
    </property>
   </action>
   <action name="actionMetaEditor">
@@ -856,7 +859,7 @@
    <property name="toolTip">
     <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Metadata Editor&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Edit and display the information about your book - author, title, etc.&lt;/p&gt;</string>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Edit and display information about your book including the author and title.&lt;/p&gt;</string>
    </property>
    <property name="shortcut">
     <string>F8</string>
@@ -943,11 +946,9 @@
     <string>Chapter Break</string>
    </property>
    <property name="toolTip">
-    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Chapter Break&lt;/b&gt;&lt;/p&gt;
+    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert Chapter Break&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Splits the current file into two, using the end of the current paragraph as the dividing point.&lt;/p&gt;
-
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Do this often and where appropriate.&lt;/p&gt;</string>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Splits the current file into two, using the end of the current paragraph as the dividing point.&lt;/p&gt;</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+Return</string>
@@ -980,6 +981,11 @@
    <property name="text">
     <string>Special Character...</string>
    </property>
+    <property name="toolTip">
+    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert Special Character&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Select a character to insert into your text.&lt;/p&gt;</string>
+    </property>
   </action>
  <action name="actionInsertId">
    <property name="icon">
@@ -992,8 +998,7 @@
    <property name="toolTip">
     <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert ID&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Insert or edit an ID attribute for links and TOC entries.&lt;/p&gt;
-    </string>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Insert or edit an ID attribute for links and TOC entries.&lt;/p&gt;</string>
    </property>
   </action>
  <action name="actionInsertHyperlink">
@@ -1065,7 +1070,7 @@
    <property name="toolTip">
     <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Strikethrough&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Draws a line through the selected text.&lt;/p&gt;</string>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Draw a line through the selected text.&lt;/p&gt;</string>
    </property>
   </action>
   <action name="actionSubscript">
@@ -1082,7 +1087,7 @@
    <property name="toolTip">
     <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Subscript&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Sets the selected text slightly smaller and below the normal line.&lt;/p&gt;</string>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Set the selected text slightly smaller and below the normal line.&lt;/p&gt;</string>
    </property>
   </action>
   <action name="actionSuperscript">
@@ -1099,7 +1104,7 @@
    <property name="toolTip">
     <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Superscript&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Sets the selected text slightly smaller and above the normal line.&lt;/p&gt;</string>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Set the selected text slightly smaller and above the normal line.&lt;/p&gt;</string>
    </property>
   </action>
   <action name="actionPrint">
@@ -1353,7 +1358,7 @@
     <string>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Capitalize&lt;/b&gt;&lt;/p&gt;
 
-     &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Capitalize only the first word of the selection.&lt;/p&gt;
+     &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Capitalize only the first word of the selected text.&lt;/p&gt;
     </string>
    </property>
   </action>
@@ -1451,7 +1456,7 @@
    <property name="toolTip">
     <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Validate EPUB&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Performs EPUB validation using the FlightCrew validator.&lt;/p&gt;</string>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Verify your document complies with EPUB standards using FlightCrew.&lt;/p&gt;</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+Shift+V</string>
@@ -1469,9 +1474,9 @@
     <string>&amp;Highlight Misspelled Words</string>
    </property>
    <property name="toolTip">
-    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Spellcheck - Highlight Misspelled Words&lt;/b&gt;&lt;/p&gt;
+    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Highlight Misspelled Words&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Toggle automatic spell checking in Code View.&lt;/p&gt;</string>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Toggle automatic Spellcheck in Code View.&lt;/p&gt;</string>
    </property>
   </action>
   <action name="actionSpellCheck">
@@ -1483,7 +1488,7 @@
     <string>&amp;Next Misspelled Word</string>
    </property>
    <property name="toolTip">
-    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Spellcheck - Next Misspelled Word&lt;/b&gt;&lt;/p&gt;
+    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Next Misspelled Word&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Find the next misspelled word in Code View.&lt;/p&gt;</string>
    </property>
@@ -1524,9 +1529,9 @@
     <string>&amp;Donate...</string>
    </property>
    <property name="toolTip">
-    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Donate to Sigil's development&lt;/b&gt;&lt;/p&gt;
+    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Donate&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Your donations keep the project going!&lt;/p&gt;
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Donate to support Sigil.&lt;/p&gt;
 </string>
    </property>
   </action>
@@ -1625,6 +1630,9 @@
    <property name="text">
     <string>Clip Editor...</string>
    </property>
+   <property name="toolTip">
+    <string>Open the Clip Editor.</string>
+   </property>
    <property name="shortcut">
     <string>Ctrl+Alt+C</string>
    </property>
@@ -1656,7 +1664,9 @@
     <string notr="true">Heading 1</string>
    </property>
    <property name="toolTip">
-    <string>Style with heading 1</string>
+    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 1&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 1 heading.&lt;/p&gt;</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+1</string>
@@ -1674,7 +1684,9 @@
     <string notr="true">Heading 2</string>
    </property>
    <property name="toolTip">
-    <string>Style with heading 2</string>
+    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 2&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 2 heading.&lt;/p&gt;</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+2</string>
@@ -1692,7 +1704,9 @@
     <string notr="true">Heading 3</string>
    </property>
    <property name="toolTip">
-    <string>Style with heading 3</string>
+    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 3&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 3 heading.&lt;/p&gt;</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+3</string>
@@ -1710,7 +1724,9 @@
     <string notr="true">Heading 4</string>
    </property>
    <property name="toolTip">
-    <string>Style with heading 4</string>
+    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 4&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 4 heading.&lt;/p&gt;</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+4</string>
@@ -1728,7 +1744,9 @@
     <string notr="true">Heading 5</string>
    </property>
    <property name="toolTip">
-    <string>Style with heading 5</string>
+    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 5&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 5 heading.&lt;/p&gt;</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+5</string>
@@ -1746,7 +1764,9 @@
     <string notr="true">Heading 6</string>
    </property>
    <property name="toolTip">
-    <string>Style with heading 6</string>
+    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 6&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 6 heading.&lt;/p&gt;</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+6</string>
@@ -1764,7 +1784,9 @@
     <string notr="true">Normal</string>
    </property>
    <property name="toolTip">
-    <string>Style as normal text</string>
+    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Paragraph&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a normal paragraph.&lt;/p&gt;</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+7</string>
@@ -1787,17 +1809,26 @@
   </action>
   <action name="actionNewHTMLFile">
    <property name="text">
-    <string>Blank Section</string>
+    <string>Blank HTML File</string>
+   </property>
+   <property name="toolTip">
+    <string>Add a new blank HTML file to the book.</string>
    </property>
   </action>
   <action name="actionAddExistingFile">
    <property name="text">
-    <string>Add Existing Files...</string>
+    <string>Existing Files...</string>
+   </property>
+   <property name="toolTip">
+    <string>Add files from your computer to the book.</string>
    </property>
   </action>
   <action name="actionNewCSSFile">
    <property name="text">
     <string>Blank Stylesheet</string>
+   </property>
+   <property name="toolTip">
+    <string>Add a new blank stylesheet to the book.</string>
    </property>
   </action>
   <action name="actionOpenPreviousResource">
@@ -1805,7 +1836,7 @@
     <string>Open Previous File</string>
    </property>
    <property name="toolTip">
-    <string>Open previous file of the same type</string>
+    <string>Open previous file of the same type.</string>
    </property>
    <property name="shortcut">
     <string>Alt+PgUp</string>
@@ -1816,7 +1847,7 @@
     <string>Open Next File</string>
    </property>
    <property name="toolTip">
-    <string>Open next file of the same type</string>
+    <string>Open next file of the same type.</string>
    </property>
    <property name="shortcut">
     <string>Alt+PgDown</string>
@@ -1850,15 +1881,24 @@
    <property name="text">
     <string>Add to Index</string>
    </property>
+   <property name="toolTip">
+    <string>Add the selected text to the Index Editor.</string>
+   </property>
   </action>
   <action name="actionMarkForIndex">
    <property name="text">
     <string>Mark for Index</string>
    </property>
+   <property name="toolTip">
+    <string>Mark the selected text for inclusion in the Index.</string>
+   </property>
   </action>
   <action name="actionCreateIndex">
    <property name="text">
     <string>Create Index</string>
+   </property>
+   <property name="toolTip">
+    <string>Generate a new Index HTML file.</string>
    </property>
   </action>
   <action name="actionGenerateTOC">
@@ -1869,6 +1909,9 @@
   <action name="actionCreateHTMLTOC">
    <property name="text">
     <string>Create HTML Table of Contents</string>
+   </property>
+   <property name="toolTip">
+    <string>Create a new HTML file using the current TOC.</string>
    </property>
   </action>
   <action name="actionRegexDotAll">

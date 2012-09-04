@@ -2856,7 +2856,6 @@ void MainWindow::ExtendUI()
     ui.menuToolbars->addAction(ui.toolBarTools->toggleViewAction());
 
     ui.toolBarTextDirection->setVisible(false);
-    ui.toolBarChangeCase->setVisible(false);
 
     m_lbCursorPosition = new QLabel( QString (""), statusBar() );
     statusBar()->addPermanentWidget( m_lbCursorPosition );
