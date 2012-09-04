@@ -57,45 +57,44 @@ void SelectCharacter::SetList()
 
     << "" << "" << "" << ""
 
-
-    << QString::fromUtf8("\u00A0") << "nbsp"       << "&nbsp;"     << "non-breaking space"
-    << QString::fromUtf8("\u2003") << "emsp"       << "&emsp;"     << "em space"
-    << QString::fromUtf8("\u2002") << "ensp"       << "&ensp;"     << "en space"
-    << QString::fromUtf8("\u2009") << "thinsp"     << "&thinsp;"   << "thin space"
-    << QString::fromUtf8("\u00AD") << "soft-hypen"        << "&shy;"      << "soft hyphen"
-
-    << "" << "" << "" << ""
-
-    << QString::fromUtf8("\u2018") << ""            << "&lsquo;"      << "left single quote"
-    << QString::fromUtf8("\u2019") << ""            << "&rsquo;"      << "right single quote"
-    << QString::fromUtf8("\u201C") << ""            << "&ldquo;"      << "left double quote"
-    << QString::fromUtf8("\u201D") << ""            << "&rdaquo;"      << "right double quote"
-    << QString::fromUtf8("\u2039") << ""            << "&lsaquo;"      << "left-pointing angle quote"
-    << QString::fromUtf8("\u203A") << ""            << "&rsaquo;"      << "right-pointing anglequote"
-    << QString::fromUtf8("\u00AB") << ""            << "&ldaquo;"      << "left-pointing double angle quote"
-    << QString::fromUtf8("\u00BB") << ""            << "&rdaquo;"      << "right-pointing double anglequote"
-    << QString::fromUtf8("'") << ""            << "&apos;"      << "apos"
-    << QString::fromUtf8("\"") << ""            << "&quot;"      << "double quote"
-    << QString::fromUtf8("\u201A") << ""            << "&sbquo;"      << "single low-9 quote"
-    << QString::fromUtf8("\u201E") << ""            << "&bdquo;"      << "double low-9 quote"
+    << QString::fromUtf8("\xc2\xA0")        << "nbsp"       << "&nbsp;"     << "non-breaking space"
+    << QString::fromUtf8("\xc2\x80\x82")    << "ensp"       << "&ensp;"     << "en space"
+    << QString::fromUtf8("\xc2\x80\x83")    << "emsp"       << "&emsp;"     << "em space"
+    << QString::fromUtf8("\xc2\x80\x89")    << "thinsp"     << "&thinsp;"   << "thin space"
+    << QString::fromUtf8("\xc2\xad")        << "soft-hypen" << "&shy;"      << "soft hyphen"
 
     << "" << "" << "" << ""
 
-    << QString::fromUtf8("\u2014") << ""       << "&mdash;"     << "mdash"
-    << QString::fromUtf8("\u2013") << ""       << "&ndash;"     << "ndash"
-    << "&amp;"  << "&&"     << "&amp;"      << "ampersand"
-    << "&lt;" << "<"       << "&lt;"       << "less-than sign"
-    << "&gt;" << ">"       << "&gt;"       << "greater-than sign"
-    << QString::fromUtf8("\u00A9") << ""            << "&copy;"      << "copyright"
-    << QString::fromUtf8("\u00AE") << ""            << "&reg;"      << "registered sign"
-    << QString::fromUtf8("\u2122") << ""            << "&trade;"      << "trademark symbol"
-    << QString::fromUtf8("\u00A7") << ""            << "&sect;"      << "section sign"
-    << QString::fromUtf8("\u00B6") << ""            << "&para;"      << "pilcrow - paragraph sign"
-    << QString::fromUtf8("\u2020") << ""            << "&dagger;"      << "dagger"
-    << QString::fromUtf8("\u2021") << ""            << "&Dagger;"      << "double dagger"
-    << QString::fromUtf8("\u2192") << ""            << "&rarr;"      << "right arrow"
-    << QString::fromUtf8("\u21D2") << ""            << "&rArr;"      << "double right arrow"
-    << QString::fromUtf8("\u2026") << ""            << "&hellip;"      << "horizontal ellipsis - 3 dots"
+    << QString::fromUtf8("\xe2\x80\x98")    << ""           << "&lsquo;"    << "left single quote"
+    << QString::fromUtf8("\xe2\x80\x99")    << ""           << "&rsquo;"    << "right single quote"
+    << QString::fromUtf8("\xe2\x80\x9C")    << ""           << "&ldquo;"    << "left double quote"
+    << QString::fromUtf8("\xe2\x80\x9D")    << ""           << "&rdaquo;"   << "right double quote"
+    << QString::fromUtf8("\xe2\x80\xB9")    << ""           << "&lsaquo;"   << "left-pointing single angle quote"
+    << QString::fromUtf8("\xe2\x80\xBA")    << ""           << "&rsaquo;"   << "right-pointing single angle quote"
+    << QString::fromUtf8("\xc2\xab")        << ""           << "&ldaquo;"   << "left-pointing double angle quote"
+    << QString::fromUtf8("\xc2\xbb")        << ""           << "&rdaquo;"   << "right-pointing double anglequote"
+    << QString::fromUtf8("'")               << ""           << "&apos;"     << "apos"
+    << QString::fromUtf8("\"")              << ""           << "&quot;"     << "double quote"
+    << QString::fromUtf8("\xe2\x80\x9A")    << ""           << "&sbquo;"    << "single low-9 quote"
+    << QString::fromUtf8("\xe2\x80\x9E")    << ""           << "&bdquo;"    << "double low-9 quote"
+
+    << "" << "" << "" << ""
+
+    << QString::fromUtf8("\xe2\x80\x94")    << ""           << "&mdash;"    << "emdash"
+    << QString::fromUtf8("\xe2\x80\x93")    << ""           << "&ndash;"    << "endash"
+    << "&amp;"                              << "&&"         << "&amp;"      << "ampersand"
+    << "&lt;"                               << "<"          << "&lt;"       << "less-than sign"
+    << "&gt;"                               << ">"          << "&gt;"       << "greater-than sign"
+    << QString::fromUtf8("\xc2\xa9")        << ""           << "&copy;"     << "copyright"
+    << QString::fromUtf8("\xc2\xae")        << ""           << "&reg;"      << "registered sign"
+    << QString::fromUtf8("\xe2\x84\xa2")    << ""           << "&trade;"    << "trademark symbol"
+    << QString::fromUtf8("\xc2\xa7")        << ""           << "&sect;"     << "section sign"
+    << QString::fromUtf8("\xc2\xb6")        << ""           << "&para;"     << "pilcrow - paragraph sign"
+    << QString::fromUtf8("\xe2\x80\xa0")    << ""           << "&dagger;"   << "dagger"
+    << QString::fromUtf8("\xe2\x80\xa1")    << ""           << "&Dagger;"   << "double dagger"
+    << QString::fromUtf8("\xe2\x86\x92")    << ""           << "&rarr;"     << "right arrow"
+    << QString::fromUtf8("\xe2\x87\x92")    << ""           << "&rArr;"     << "double right arrow"
+    << QString::fromUtf8("\xe2\x80\xa6")    << ""           << "&hellip;"   << "horizontal ellipsis - 3 dots"
 
     << "" << "" << "" << ""
 
@@ -106,6 +105,7 @@ void SelectCharacter::SetList()
     QToolButton *button;
     QFont font = *new QFont();
     font.setPointSize(font.pointSize() + 2);
+    font.setFamily("helvetica");
     font.setFixedPitch(true);
 
     bool first_row = true;
