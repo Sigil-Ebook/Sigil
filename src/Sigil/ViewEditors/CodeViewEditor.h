@@ -453,7 +453,7 @@ private slots:
     
 private:
 
-    bool ScrollToInlineStyleDefinition( const QString &style_name, const QString &text, const int &start_pos, const int &end_pos );
+    int FindInlineStyleDefinitionLine( const QString &style_name, const QString &text, const int &start_pos, const int &end_pos );
 
     /**
      * Returns the text inside < > if cursor is in < >

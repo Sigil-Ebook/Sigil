@@ -1426,4 +1426,6 @@ void FlowTab::ConnectSignalsToSlots()
 
     connect(m_wBookView, SIGNAL(ClipboardSaveRequest()),    this, SIGNAL(ClipboardSaveRequest()));
     connect(m_wBookView, SIGNAL(ClipboardRestoreRequest()), this, SIGNAL(ClipboardRestoreRequest()));
+
+    connect(m_wCodeView, SIGNAL(BookmarkLinkOrStyleLocationRequest()), this, SIGNAL(BookmarkLinkOrStyleLocationRequest()));
 }

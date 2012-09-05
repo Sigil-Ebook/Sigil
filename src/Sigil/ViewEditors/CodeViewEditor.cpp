@@ -1231,7 +1231,7 @@ void CodeViewEditor::GoToStyleDefinition()
         return;
 
     // Look to see whether we have an inline style matching this.
-    bool found_inline_style = false;
+    int scroll_to_line = -1;
     const QString text = toPlainText();
 
     // First look to see whether there is a <style type="text/css"> block
@@ -1248,41 +1248,40 @@ void CodeViewEditor::GoToStyleDefinition()
             // Then look for just ".class {"
             // Finally look for "element {"
             if ( !element.classStyle.isEmpty() ) {
-                if ( ScrollToInlineStyleDefinition( element.name + "\\." + element.classStyle, text, start, end ) ) { 
-                    found_inline_style = true;
+                scroll_to_line = FindInlineStyleDefinitionLine( element.name + "\\." + element.classStyle, text, start, end );
+                if (scroll_to_line <= 0) {
+                    scroll_to_line = FindInlineStyleDefinitionLine( "\\." + element.classStyle, text, start, end );
                 }
-                else if ( ScrollToInlineStyleDefinition( "\\." + element.classStyle, text, start, end ) ) { 
-                    found_inline_style = true;
+                if (scroll_to_line <= 0) {
+                    scroll_to_line = FindInlineStyleDefinitionLine( element.name, text, start, end );
                 }
-            }
-            else if ( ScrollToInlineStyleDefinition( element.name, text, start, end ) ) { 
-                found_inline_style = true;
             }
         }
     }
 
-    if (found_inline_style) {
-        // Emit a signal to bookmark our code location, enabling the "Back to" feature
-        emit BookmarkLinkOrStyleLocationRequest();
-    }
-    else {
+    if (scroll_to_line <= 0) {
         // We didn't find the style - escalate as an event to look in linked stylesheets
         emit GoToLinkedStyleDefinitionRequest( element.name, element.classStyle );
     }
+    else {
+        // Emit a signal to bookmark our code location, enabling the "Back to" feature
+        emit BookmarkLinkOrStyleLocationRequest();
+        // Scroll to the line after bookmarking or we lose our place
+        ScrollToLine(scroll_to_line);
+    }
 }
 
-bool CodeViewEditor::ScrollToInlineStyleDefinition( const QString &style_name, const QString &text, const int &start_pos, const int &end_pos )
+int CodeViewEditor::FindInlineStyleDefinitionLine( const QString &style_name, const QString &text, const int &start_pos, const int &end_pos )
 {
     QRegExp inline_style_search("[>\\};\\s]" + style_name + "\\s*\\{");
 
     int inline_index = inline_style_search.indexIn(text, start_pos);
     if ( inline_index > 0 && inline_index < end_pos ) {
         QStringList lines = text.left( inline_index + 1 ).split( QChar('\n') );
-        ScrollToLine(lines.count());
-        return true;
+        return lines.count();
     }
 
-    return false;
+    return -1;
 }
 
 
