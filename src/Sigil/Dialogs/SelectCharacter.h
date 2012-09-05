@@ -54,6 +54,7 @@ private slots:
 
 private:
 
+    void AddGrid(QStringList characters, int width);
     void ReadSettings();
     void connectSignalsSlots();
 
