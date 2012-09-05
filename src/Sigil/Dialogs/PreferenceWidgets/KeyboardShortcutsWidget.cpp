@@ -28,8 +28,8 @@
 #include "Misc/KeyboardShortcutManager.h"
 
 const int COL_NAME = 0;
-const int COL_DESCRIPTION = 1;
-const int COL_SHORTCUT = 2;
+const int COL_SHORTCUT = 1;
+const int COL_DESCRIPTION = 2;
 // This column is not displayed but we still need it so we can reference
 // The short cut in the shortcut manager.
 const int COL_ID = 3;
@@ -84,9 +84,8 @@ void KeyboardShortcutsWidget::showEvent(QShowEvent *event)
 {
     // Fill out the tree view
     readSettings();
-    ui.commandList->setColumnWidth(COL_NAME, ui.commandList->width() * .30);
-    ui.commandList->setColumnWidth(COL_DESCRIPTION, ui.commandList->width() * .50);
-    ui.commandList->setColumnWidth(COL_SHORTCUT, ui.commandList->width() * .15);
+    ui.commandList->resizeColumnToContents(COL_NAME);
+    ui.commandList->resizeColumnToContents(COL_SHORTCUT);
     QWidget::showEvent(event);
 }
 
@@ -197,8 +196,9 @@ void KeyboardShortcutsWidget::readSettings()
         if (!shortcut.isEmpty()) {
             QTreeWidgetItem *item = new QTreeWidgetItem();
             item->setText(COL_NAME, shortcut.name());
-            item->setText(COL_DESCRIPTION, shortcut.description());
             item->setText(COL_SHORTCUT, shortcut.keySequence());
+            item->setText(COL_DESCRIPTION, shortcut.description());
+            item->setToolTip(COL_DESCRIPTION, shortcut.toolTip());
             item->setText(COL_ID, id);
             ui.commandList->addTopLevelItem(item);
         }

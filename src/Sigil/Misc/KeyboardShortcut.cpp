@@ -39,6 +39,7 @@ KeyboardShortcutPrivate::KeyboardShortcutPrivate(const KeyboardShortcutPrivate &
       action(other.action),
       shortcut(other.shortcut),
       description(other.description),
+      toolTip(other.toolTip),
       keySequence(other.keySequence),
       defaultKeySequence(other.defaultKeySequence)
 {
@@ -83,6 +84,11 @@ void KeyboardShortcut::setDescription(const QString &description)
     d->description = description;
 }
 
+void KeyboardShortcut::setToolTip(const QString &toolTip)
+{
+    d->toolTip = toolTip;
+}
+
 void KeyboardShortcut::setKeySequence(const QKeySequence &keySequence)
 {
     d->keySequence = keySequence;
@@ -111,6 +117,11 @@ QString KeyboardShortcut::name()
 QString KeyboardShortcut::description()
 {
     return d->description;
+}
+
+QString KeyboardShortcut::toolTip()
+{
+    return d->toolTip;
 }
 
 QKeySequence KeyboardShortcut::keySequence()

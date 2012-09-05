@@ -44,6 +44,7 @@ public:
     void setShortcut(QShortcut *shortcut);
     void setName(const QString &name);
     void setDescription(const QString &description);
+    void setToolTip(const QString &toolTip);
     void setKeySequence(const QKeySequence &keySequence);
     void setDefaultKeySequence(const QKeySequence &defaultKeySequence);
 
@@ -51,6 +52,7 @@ public:
     QShortcut *shortcut();
     QString name();
     QString description();
+    QString toolTip();
     QKeySequence keySequence();
     QKeySequence defaultKeySequence();
 

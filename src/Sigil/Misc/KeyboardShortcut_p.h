@@ -44,6 +44,8 @@ public:
     QString name;
     // Short text description what command 'does'.
     QString description;
+    // HTML tooltip text for what command 'does'.
+    QString toolTip;
     // KeySequence that is assigned.
     QKeySequence keySequence;
     // Default KeySequence used when "resetting" the shortcut.

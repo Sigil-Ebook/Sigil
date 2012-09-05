@@ -52,12 +52,12 @@
      </column>
      <column>
       <property name="text">
-       <string>Description</string>
+       <string>Shortcut</string>
       </property>
      </column>
      <column>
       <property name="text">
-       <string>Shortcut</string>
+       <string>Description</string>
       </property>
      </column>
     </widget>
