@@ -33,6 +33,7 @@ static const QString SETTINGS_GROUP = "preferences_dialog";
 
 Preferences::Preferences(QWidget *parent) :
     QDialog(parent),
+    m_refreshSpellingHighlighting(false),
     m_reloadTabs(false),
     m_restartSigil(false)
 {
@@ -75,7 +76,10 @@ void Preferences::saveSettings()
         PreferencesWidget *pw = qobject_cast<PreferencesWidget*>(ui.pWidget->widget(i));
         if (pw != 0) {
             widgetResult = pw->saveSettings();
-            if ( widgetResult == PreferencesWidget::ResultAction_ReloadTabs ) {
+            if ( widgetResult == PreferencesWidget::ResultAction_RefreshSpelling ) {
+                m_refreshSpellingHighlighting = true;
+            }
+            else if ( widgetResult == PreferencesWidget::ResultAction_ReloadTabs ) {
                 m_reloadTabs = true;
             }
             else if ( widgetResult == PreferencesWidget::ResultAction_RestartSigil ) {
@@ -120,6 +124,11 @@ void Preferences::appendPreferenceWidget(PreferencesWidget *widget)
 
     // Add an entry to the list of available preference widgets.
     ui.availableWidgets->addItem(widget->windowTitle());
+}
+
+bool Preferences::isRefreshSpellingHighlightingRequired()
+{
+    return m_refreshSpellingHighlighting;
 }
 
 bool Preferences::isReloadTabsRequired()

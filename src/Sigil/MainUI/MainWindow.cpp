@@ -1203,22 +1203,10 @@ QStringList MainWindow::GetStylesheetsAlreadyLinked( Resource *resource )
     return linked_stylesheets;
 }
 
-QList<Resource*> MainWindow::GetTabResources()
-{
-    QList <ContentTab*> tabs = m_TabManager.GetContentTabs();
-    QList <Resource*> tab_resources;
-
-    foreach (ContentTab *tab, tabs) {
-        tab_resources.append(&tab->GetLoadedResource());
-    }
-
-    return tab_resources;
-}
-
 void MainWindow::RemoveResources()
 {
     // Provide the open tab list to ensure one tab stays open
-    m_BookBrowser->RemoveSelection(GetTabResources());
+    m_BookBrowser->RemoveSelection(m_TabManager.GetTabResources());
 }
 
 void MainWindow::GenerateToc()
@@ -1533,18 +1521,11 @@ void MainWindow::PreferencesDialog()
 
     if ( preferences.isReloadTabsRequired() ) 
     {
-        ContentTab &currentTab = m_TabManager.GetCurrentContentTab();
-
-        QList<Resource*> resources = GetTabResources();
-        foreach(Resource *resource, resources) {
-            m_TabManager.CloseTabForResource(*resource);
-        }
-
-        foreach(Resource *resource, resources) {
-            OpenResource(*resource);
-        }
-
-        OpenResource(currentTab.GetLoadedResource());
+        m_TabManager.ReopenTabs();
+    }
+    else if ( preferences.isRefreshSpellingHighlightingRequired() )
+    {
+        RefreshSpellingHighlighting();
     }
 }
 
@@ -2131,6 +2112,29 @@ void MainWindow::SetAutoSpellCheck( bool new_state )
     emit SettingsChanged();
 }
 
+void MainWindow::ClearIgnoredWords()
+{
+    QApplication::setOverrideCursor(Qt::WaitCursor);
+
+    SpellCheck *sc = SpellCheck::instance();
+    sc->reloadDictionary();
+
+    // Need to reload any tabs to force spelling to be run again in CodeView
+    RefreshSpellingHighlighting();
+
+    QApplication::restoreOverrideCursor();
+}
+
+void MainWindow::RefreshSpellingHighlighting()
+{
+    QList<ContentTab*> content_tabs = m_TabManager.GetContentTabs();
+    foreach(ContentTab *content_tab, content_tabs) {
+        FlowTab *flow_tab = qobject_cast<FlowTab *>(content_tab);
+        if (flow_tab) {
+            flow_tab->RefreshSpellingHighlighting();
+        }
+    }
+}
 
 void MainWindow::UpdateZoomLabel( float new_zoom_factor )
 {
@@ -3024,6 +3028,7 @@ void MainWindow::ExtendUI()
     sm->registerAction(ui.actionValidateEpub, "MainWindow.ValidateEpub");
     sm->registerAction(ui.actionAutoSpellCheck, "MainWindow.AutoSpellCheck");
     sm->registerAction(ui.actionSpellCheck, "MainWindow.SpellCheck");
+    sm->registerAction(ui.actionClearIgnoredWords, "MainWindow.ClearIgnoredWords");
     sm->registerAction(ui.actionViewClasses, "MainWindow.ViewClasses");
     sm->registerAction(ui.actionViewHTML, "MainWindow.ViewHTML");
     sm->registerAction(ui.actionViewImages, "MainWindow.ViewImages");
@@ -3365,6 +3370,7 @@ void MainWindow::ConnectSignalsToSlots()
     connect( ui.actionValidateEpub,  SIGNAL( triggered() ), this, SLOT( ValidateEpub()             ) );
     connect( ui.actionAutoSpellCheck, SIGNAL( triggered( bool ) ), this, SLOT( SetAutoSpellCheck( bool ) ) );
     connect( ui.actionSpellCheck,    SIGNAL( triggered() ), m_FindReplace, SLOT( FindMisspelledWord() ) );
+    connect( ui.actionClearIgnoredWords, SIGNAL( triggered() ), this, SLOT( ClearIgnoredWords() ) );
     connect( ui.actionGenerateTOC,   SIGNAL( triggered() ), this, SLOT( GenerateToc()              ) );
     connect( ui.actionCreateHTMLTOC, SIGNAL( triggered() ), this, SLOT( CreateHTMLTOC()        ) );
     connect( ui.actionViewClasses,   SIGNAL( triggered() ), this, SLOT( ViewClassesUsedInHTML()    ) );
@@ -3590,6 +3596,8 @@ void MainWindow::MakeTabConnections( ContentTab *tab )
 
         connect( tab,   SIGNAL( ClipboardSaveRequest() ),     m_ClipboardHistorySelector,  SLOT( SaveClipboardState() ) );
         connect( tab,   SIGNAL( ClipboardRestoreRequest() ),  m_ClipboardHistorySelector,  SLOT( RestoreClipboardState() ) );
+
+        connect( tab,   SIGNAL( SpellingHighlightRefreshRequest() ), this,  SLOT(  RefreshSpellingHighlighting() ) );
     }
 
     if (tab->GetLoadedResource().Type() == Resource::HTMLResourceType ||

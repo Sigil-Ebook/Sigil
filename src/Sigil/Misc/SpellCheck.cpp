@@ -157,6 +157,11 @@ void SpellCheck::setDictionary(const QString &name, bool forceReplace)
     }
 }
 
+void SpellCheck::reloadDictionary()
+{
+    setDictionary(m_dictionaryName, true);
+}
+
 void SpellCheck::addToUserDictionary(const QString &word)
 {
     // Adding to the user dictionary also marks the word as a correct spelling.
@@ -214,7 +219,7 @@ void SpellCheck::replaceUserDictionaryWords(QStringList words)
     }
 
     // Reload the dictionary so old user words are cleared.
-    setDictionary(m_dictionaryName, true);
+    reloadDictionary();
 }
 
 SpellCheck::SpellCheck() :

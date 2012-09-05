@@ -530,6 +530,10 @@ private slots:
 
     void SetAutoSpellCheck( bool new_state );
 
+    void ClearIgnoredWords();
+
+    void RefreshSpellingHighlighting();
+
     /**
      * Sets the view state of the current tab to the saved state
      */
@@ -550,8 +554,6 @@ private slots:
      * Return the list of stylesheets linked to the given resource
      */
     QStringList GetStylesheetsAlreadyLinked( Resource *resource );
-
-    QList<Resource*> GetTabResources();
 
     void RemoveResources();
 

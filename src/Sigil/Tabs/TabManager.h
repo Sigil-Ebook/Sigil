@@ -60,6 +60,8 @@ public:
 
     QList<ContentTab*> GetContentTabs();
 
+    QList<Resource*> GetTabResources();
+
     int GetTabCount();
 
     bool TryCloseAllTabs();
@@ -79,6 +81,11 @@ public:
     void ReloadTabData();
 
     void ReloadTabDataForResources( const QList<Resource*> &resources );
+
+    /**
+     * Close and reopen all tabs
+     */
+    void ReopenTabs();
 
     void UpdateTabDisplay();
 

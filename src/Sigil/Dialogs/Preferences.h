@@ -41,6 +41,10 @@ class Preferences : public QDialog
 public:
     Preferences(QWidget *parent = 0);
     /**
+     * Check this after dialog closes to determine if spelling highlighting needs reapplying.
+     */
+    bool isRefreshSpellingHighlightingRequired();
+    /**
      * Check this after dialog closes to determine if tabs need reopening.
      */
     bool isReloadTabsRequired();
@@ -72,7 +76,7 @@ private:
     /**
      * Adds the given preferences with to the dialog.
      *
-     * The widget is added to the list of avaliable widgets and when the
+     * The widget is added to the list of available widgets and when the
      * entry in the list is selected the widget it shown in the widget display
      * area to the right of the avaliable widget list.
      *
@@ -84,6 +88,7 @@ private:
      */
     void connectSignalsSlots();
 
+    bool m_refreshSpellingHighlighting;
     bool m_reloadTabs;
     bool m_restartSigil;
 

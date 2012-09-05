@@ -79,6 +79,18 @@ QList<ContentTab*> TabManager::GetContentTabs()
     return tabs;
 }
 
+QList<Resource*> TabManager::GetTabResources()
+{
+    QList <ContentTab*> tabs = GetContentTabs();
+    QList <Resource*> tab_resources;
+
+    foreach (ContentTab *tab, tabs) {
+        tab_resources.append(&tab->GetLoadedResource());
+    }
+
+    return tab_resources;
+}
+
 void TabManager::tabInserted(int index)
 {
     emit TabCountChanged();
@@ -178,6 +190,22 @@ void TabManager::ReloadTabDataForResources( const QList<Resource*> &resources )
             }
         }
     }
+}
+
+void TabManager::ReopenTabs()
+{
+    ContentTab &currentTab = GetCurrentContentTab();
+
+    QList<Resource*> resources = GetTabResources();
+    foreach(Resource *resource, resources) {
+        CloseTabForResource(*resource);
+    }
+
+    foreach(Resource *resource, resources) {
+        OpenResource(*resource);
+    }
+
+    OpenResource(currentTab.GetLoadedResource());
 }
 
 void TabManager::WellFormedDialogsEnabled( bool enabled )

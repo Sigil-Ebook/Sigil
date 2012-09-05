@@ -350,6 +350,8 @@ signals:
     void ClipboardSaveRequest();
     void ClipboardRestoreRequest();
 
+    void SpellingHighlightRefreshRequest();
+
 protected slots:
 
     /**

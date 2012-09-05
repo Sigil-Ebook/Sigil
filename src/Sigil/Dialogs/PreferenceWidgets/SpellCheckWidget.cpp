@@ -35,17 +35,18 @@
 
 SpellCheckWidget::SpellCheckWidget()
     :
-    m_isDirty(false)
+    m_isDirty(false),
+    m_clearIgnoredWords(false)
 {
     ui.setupUi(this);
 
-    connectSignalsSlots();
+    connectSignalsToSlots();
     readSettings();
 }
 
 PreferencesWidget::ResultAction SpellCheckWidget::saveSettings()
 {
-    if (!m_isDirty)
+    if (!m_isDirty && !m_clearIgnoredWords)
         return PreferencesWidget::ResultAction_None;
 
     saveUserDictionaryWordList(ui.userDictList->currentItem());
@@ -56,7 +57,7 @@ PreferencesWidget::ResultAction SpellCheckWidget::saveSettings()
     SpellCheck *sc = SpellCheck::instance();
     sc->setDictionary(settings.dictionary(), true);
 
-    return PreferencesWidget::ResultAction_None;
+    return PreferencesWidget::ResultAction_RefreshSpelling;
 }
 
 void SpellCheckWidget::addUserDict()
@@ -375,7 +376,12 @@ void SpellCheckWidget::dictionariesCurrentIndexChanged(int index)
     m_isDirty = true;
 }
 
-void SpellCheckWidget::connectSignalsSlots()
+void SpellCheckWidget::clearIgnoredWords()
+{
+    m_clearIgnoredWords = true;
+}
+
+void SpellCheckWidget::connectSignalsToSlots()
 {
     // User dict list.
     connect(ui.addUserDict, SIGNAL(clicked()), this, SLOT(addUserDict()));
@@ -391,4 +397,6 @@ void SpellCheckWidget::connectSignalsSlots()
 
     connect(ui.pbDictionaryDirectory, SIGNAL(clicked()), this, SLOT(openDictionaryDirectory()));
     connect(ui.dictionaries, SIGNAL(currentIndexChanged(int)), this, SLOT(dictionariesCurrentIndexChanged(int)));
+
+    connect(ui.pbClearIgnoredWords, SIGNAL(clicked()), this, SLOT(clearIgnoredWords()));
 }

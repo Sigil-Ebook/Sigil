@@ -43,6 +43,7 @@ public:
     enum ResultAction
     {
         ResultAction_None = 0,       /**< Default, no further action required */
+        ResultAction_RefreshSpelling,/**< Refresh spelling highlighting on any open tabs */ 
         ResultAction_ReloadTabs,     /**< All tabs need to be reloaded. */
         ResultAction_RestartSigil    /**< Warn user that Sigil needs to be restarted. */
     };

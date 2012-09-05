@@ -86,7 +86,8 @@ CodeViewEditor::CodeViewEditor( HighlighterType high_type, bool check_spelling, 
     m_ignoreSpellingMapper( new QSignalMapper( this ) ),
     m_clipMapper( new QSignalMapper( this ) ),
     m_pendingClipEntryRequest( NULL ),
-    m_pendingGoToLinkOrStyleRequest( false )
+    m_pendingGoToLinkOrStyleRequest( false ),
+    m_pendingSpellingHighlighting( false)
 {
     if ( high_type == CodeViewEditor::Highlight_XHTML ) {
         m_Highlighter = new XHTMLHighlighter( check_spelling, this );
@@ -973,6 +974,10 @@ void CodeViewEditor::contextMenuEvent( QContextMenuEvent *event )
         m_pendingGoToLinkOrStyleRequest = false;
         GoToLinkOrStyle();
     }
+    if (m_pendingSpellingHighlighting) { 
+        m_pendingSpellingHighlighting = false;
+        emit SpellingHighlightRefreshRequest();
+    }
 }
 
 bool CodeViewEditor::AddSpellCheckContextMenu(QMenu *menu)
@@ -1394,6 +1399,10 @@ void CodeViewEditor::MarkForIndex()
 // Overridden so we can emit the FocusGained() signal.
 void CodeViewEditor::focusInEvent( QFocusEvent *event )
 {
+    if (m_pendingSpellingHighlighting) {
+        m_pendingSpellingHighlighting = false;
+        m_Highlighter->rehighlight();
+    }
     emit FocusGained( this );
 
     QPlainTextEdit::focusInEvent( event );
@@ -1489,19 +1498,31 @@ void CodeViewEditor::ReplaceSelected(const QString &text)
     setTextCursor(c);
 }
 
+void CodeViewEditor::RefreshSpellingHighlighting()
+{
+    if (hasFocus()) {
+        m_pendingSpellingHighlighting = false;
+        m_Highlighter->rehighlight();
+    }
+    else {
+        m_pendingSpellingHighlighting = true;
+    }
+}
 
 void CodeViewEditor::addToUserDictionary(const QString &text)
 {
     SpellCheck *sc = SpellCheck::instance();
     sc->addToUserDictionary(getSpellingSafeText(text));
-    m_Highlighter->rehighlight();
+    // Cannot emit a signal right now to refresh tabs since signals are blocked
+    m_pendingSpellingHighlighting = true;
 }
 
 void CodeViewEditor::ignoreWordInDictionary(const QString &text)
 {
     SpellCheck *sc = SpellCheck::instance();
     sc->ignoreWord(getSpellingSafeText(text));
-    m_Highlighter->rehighlight();
+    // Cannot emit a signal right now to refresh tabs since signals are blocked
+    m_pendingSpellingHighlighting = true;
 }
 
 QString CodeViewEditor::getSpellingSafeText(const QString &raw_text)

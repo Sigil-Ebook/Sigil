@@ -333,6 +333,8 @@ signals:
     
     void BookmarkLinkOrStyleLocationRequest();
 
+    void SpellingHighlightRefreshRequest();
+
 public slots:
 
     /**
@@ -347,6 +349,8 @@ public slots:
     void PasteClipEntryFromName(QString name);
     void PasteClipEntries(QList<ClipEditorModel::clipEntry *> clips);
     void PasteClipEntry(ClipEditorModel::clipEntry *clip);
+
+    void RefreshSpellingHighlighting();
 
 protected:
 
@@ -715,6 +719,11 @@ private:
      * The fonts and colors for appearance of xhtml and text.
      */
     SettingsStore::CodeViewAppearance m_codeViewAppearance;
+
+    /**
+     * Whether spelling highlighting should be reapplied when this tab is next given focus.
+     */
+    bool m_pendingSpellingHighlighting;
 };
 
 #endif // CODEVIEWEDITOR_H

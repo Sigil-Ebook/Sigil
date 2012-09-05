@@ -1263,6 +1263,12 @@ void FlowTab::GoToLinkOrStyle()
         m_wCodeView->GoToLinkOrStyle();
 }
 
+void FlowTab::RefreshSpellingHighlighting()
+{
+    // We always want this to happen, regardless of what the current view is.
+    m_wCodeView->RefreshSpellingHighlighting();
+}
+
 
 bool FlowTab::BoldChecked()
 {
@@ -1428,4 +1434,6 @@ void FlowTab::ConnectSignalsToSlots()
     connect(m_wBookView, SIGNAL(ClipboardRestoreRequest()), this, SIGNAL(ClipboardRestoreRequest()));
 
     connect(m_wCodeView, SIGNAL(BookmarkLinkOrStyleLocationRequest()), this, SIGNAL(BookmarkLinkOrStyleLocationRequest()));
+
+    connect(m_wCodeView, SIGNAL(SpellingHighlightRefreshRequest()), this, SIGNAL(SpellingHighlightRefreshRequest()));
 }

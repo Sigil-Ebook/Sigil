@@ -259,8 +259,10 @@
      <property name="title">
       <string>Spellcheck</string>
      </property>
-    <addaction name="actionAutoSpellCheck"/>
-    <addaction name="actionSpellCheck"/>
+     <addaction name="actionAutoSpellCheck"/>
+     <addaction name="actionSpellCheck"/>
+     <addaction name="separator"/>
+     <addaction name="actionClearIgnoredWords"/>
     </widget>
     <widget class="QMenu" name="menuIndex">
      <property name="title">
@@ -1507,6 +1509,14 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+Alt+S</string>
+   </property>
+  </action>
+  <action name="actionClearIgnoredWords">
+   <property name="text">
+    <string>Clear Ignored Words</string>
+   </property>
+   <property name="toolTip">
+    <string>Clear currently ignored words from Spellcheck without having to restart Sigil.</string>
    </property>
   </action>
 

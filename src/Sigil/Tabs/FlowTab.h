@@ -316,6 +316,8 @@ public slots:
     
     void GoToLinkOrStyle();
 
+    void RefreshSpellingHighlighting();
+
 signals:
 
     /**
