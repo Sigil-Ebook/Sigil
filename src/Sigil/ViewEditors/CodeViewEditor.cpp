@@ -1493,15 +1493,25 @@ void CodeViewEditor::ReplaceSelected(const QString &text)
 void CodeViewEditor::addToUserDictionary(const QString &text)
 {
     SpellCheck *sc = SpellCheck::instance();
-    sc->addToUserDictionary(text);
+    sc->addToUserDictionary(getSpellingSafeText(text));
     m_Highlighter->rehighlight();
 }
 
 void CodeViewEditor::ignoreWordInDictionary(const QString &text)
 {
     SpellCheck *sc = SpellCheck::instance();
-    sc->ignoreWord(text);
+    sc->ignoreWord(getSpellingSafeText(text));
     m_Highlighter->rehighlight();
+}
+
+QString CodeViewEditor::getSpellingSafeText(const QString &raw_text)
+{
+    // There is currently a problem with Hunspell if we attempt to pass
+    // words with smart apostrophes from the CodeView encoding. 
+    // There are likely better ways to solve this, but this one does
+    // get the job done until someone can implement something better.
+    QString text(raw_text);
+    return text.replace(QString::fromWCharArray(L"\u2019"), "'");
 }
 
 void CodeViewEditor::PasteClipEntryFromName(QString name)

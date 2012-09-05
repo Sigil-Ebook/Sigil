@@ -453,6 +453,12 @@ private slots:
     
 private:
 
+    /**
+     * Workaround to ensure that words passed from CodeView to Ignore/Add features of SpellCheck
+     * have smart apostrophes replaced to ensure words will match.
+     */
+    QString getSpellingSafeText(const QString &text);
+
     int FindInlineStyleDefinitionLine( const QString &style_name, const QString &text, const int &start_pos, const int &end_pos );
 
     /**
