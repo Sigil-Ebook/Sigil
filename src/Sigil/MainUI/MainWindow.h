@@ -254,6 +254,11 @@ private slots:
     bool SaveAs();
 
     /**
+     * Implements Save A Copy action functionality.
+     */
+    bool SaveACopy();
+
+    /**
      * Implements Find action functionality.
      */
     void Find();
@@ -628,7 +633,7 @@ private:
      *
      * @param fullfilepath The path to save to.
      */
-    bool SaveFile( const QString &fullfilepath );
+    bool SaveFile( const QString &fullfilepath, bool update_current_filename = true );
 
     /**
      * Performs zoom operations in the views using the default
@@ -791,6 +796,11 @@ private:
      * The last folder from which the user opened or saved a file.
      */
     QString m_LastFolderOpen;
+
+    /**
+     * The last filename used for Save As Copy
+     */
+    QString m_SaveACopyFilename;
 
     /**
      * The last image selected from Insert Image, per book

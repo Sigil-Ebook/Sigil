@@ -65,6 +65,7 @@
     <addaction name="separator"/>
     <addaction name="actionSave"/>
     <addaction name="actionSaveAs"/>
+    <addaction name="actionSaveACopy"/>
     <addaction name="separator"/>
     <addaction name="actionPrintPreview"/>
     <addaction name="actionPrint"/>
@@ -566,6 +567,18 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+Shift+S</string>
+   </property>
+  </action>
+  <action name="actionSaveACopy">
+   <property name="icon">
+    <iconset resource="../Resource_Files/main/main.qrc">
+     <normaloff>:/main/document-save-as_22px.png</normaloff>:/main/document-save-as_22px.png</iconset>
+   </property>
+   <property name="text">
+    <string>Save A &amp;Copy...</string>
+   </property>
+   <property name="toolTip">
+    <string>Save a copy of your book to another file name.</string>
    </property>
   </action>
   <action name="actionCut">

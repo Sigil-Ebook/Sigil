@@ -115,6 +115,7 @@ MainWindow::MainWindow( const QString &openfilepath, QWidget *parent, Qt::WFlags
     m_CurrentFilePath( QString() ),
     m_Book( new Book() ),
     m_LastFolderOpen( QString() ),
+    m_SaveACopyFilename( QString() ),
     m_LastInsertedImage( QString() ),
     m_TabManager( *new TabManager( this ) ),
     m_BookBrowser( NULL ),
@@ -521,6 +522,41 @@ bool MainWindow::SaveAs()
     m_LastFolderOpen = QFileInfo( filename ).absolutePath();
 
     return SaveFile( filename );
+}
+
+
+bool MainWindow::SaveACopy()
+{
+    if (!m_TabManager.TabDataIsWellFormed()) {
+        return false;
+    }
+
+    QStringList filters(c_SaveFilters.values());
+    filters.removeDuplicates();
+
+    QString filter_string = "*.epub";
+    QString default_filter  = "*.epub";
+
+    QString filename = QFileDialog::getSaveFileName( this,
+                                                     tr( "Save a Copy" ),
+                                                     m_SaveACopyFilename,
+                                                     filter_string,
+                                                     &default_filter
+                                                   );
+
+    if (filename.isEmpty()) {
+        return false;
+    }
+
+    QString extension = QFileInfo(filename).suffix();
+    if (extension.isEmpty()) {
+        filename += ".epub";
+    }
+
+    // Store the filename the user saved to
+    m_SaveACopyFilename = filename;
+
+    return SaveFile(filename, false);
 }
 
 
@@ -2228,6 +2264,9 @@ void MainWindow::ReadSettings()
     // The last folder used for saving and opening files
     m_LastFolderOpen  = settings.value( "lastfolderopen"  ).toString();
 
+    // The last filename used for save a copy
+    m_SaveACopyFilename = settings.value( "saveacopyfilename" ).toString();
+
     // The list of recent files
     s_RecentFiles    = settings.value( "recentfiles" ).toStringList();
 
@@ -2274,6 +2313,9 @@ void MainWindow::WriteSettings()
 
     // The last folders used for saving and opening files
     settings.setValue( "lastfolderopen",  m_LastFolderOpen  );
+
+    // The last filename used for save a copy
+    settings.setValue( "saveacopyfilename",  m_SaveACopyFilename );
 
     // The list of recent files
     settings.setValue( "recentfiles", s_RecentFiles );
@@ -2418,7 +2460,7 @@ void MainWindow::LoadFile( const QString &fullfilepath )
 }
 
 
-bool MainWindow::SaveFile( const QString &fullfilepath )
+bool MainWindow::SaveFile( const QString &fullfilepath, bool update_current_filename )
 {
     try
     {
@@ -2452,8 +2494,10 @@ bool MainWindow::SaveFile( const QString &fullfilepath )
 
             tab.setFocus();
 
-        m_Book->SetModified( false );
-        UpdateUiWithCurrentFile( fullfilepath );
+        if ( update_current_filename ) {
+            m_Book->SetModified( false );
+            UpdateUiWithCurrentFile( fullfilepath );
+        }
         statusBar()->showMessage( tr( "File saved" ), STATUSBAR_MSG_DISPLAY_TIME );
     }
     catch ( const ExceptionBase &exception )
@@ -2907,6 +2951,7 @@ void MainWindow::ExtendUI()
 #endif
     sm->registerAction(ui.actionSave, "MainWindow.Save");
     sm->registerAction(ui.actionSaveAs, "MainWindow.SaveAs");
+    sm->registerAction(ui.actionSaveACopy, "MainWindow.SaveACopy");
     sm->registerAction(ui.actionPrintPreview, "MainWindow.PrintPreview");
     sm->registerAction(ui.actionPrint, "MainWindow.Print");
     sm->registerAction(ui.actionExit, "MainWindow.Exit");
@@ -3281,6 +3326,7 @@ void MainWindow::ConnectSignalsToSlots()
     connect( ui.actionAddExistingFile,SIGNAL(triggered() ), m_BookBrowser, SLOT( AddExisting()     ) );
     connect( ui.actionSave,          SIGNAL( triggered() ), this, SLOT( Save()                     ) );
     connect( ui.actionSaveAs,        SIGNAL( triggered() ), this, SLOT( SaveAs()                   ) );
+    connect( ui.actionSaveACopy,     SIGNAL( triggered() ), this, SLOT( SaveACopy()                ) );
     connect( ui.actionClose,         SIGNAL( triggered() ), this, SLOT( close()                    ) );
     connect( ui.actionExit,          SIGNAL( triggered() ), qApp, SLOT( closeAllWindows()          ) );
 
