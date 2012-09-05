@@ -661,6 +661,13 @@ bool MainWindow::OpenCSSResourceWithStyleDefinition( const QString &style_name, 
     QRegExp inline_style_search("[\\};\\s]" + style_name + "\\s*\\{");
 
     int style_index = inline_style_search.indexIn(text);
+    if ( style_index < 0 ) {
+        // Look for a style name followed by a comment before the opening brace
+        // i.e. styleName /* My style */ {
+        QRegExp inline_style_search2("[\\};\\s]" + style_name + "\\s*/\\*.*\\*/\\s*\\{");
+        inline_style_search2.setMinimal(true);
+        style_index = inline_style_search2.indexIn(text);
+    }
     if ( style_index >= 0 ) {
         // Need to work out the line number to scroll to, as CSSTab takes lines not position.
         QStringList lines = text.left( style_index + 1 ).split( QChar('\n') );

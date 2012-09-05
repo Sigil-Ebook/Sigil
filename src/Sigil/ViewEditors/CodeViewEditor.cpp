@@ -1246,7 +1246,7 @@ void CodeViewEditor::GoToStyleDefinition()
     if ( start > 0 ) 
     {
         start += inline_styles_search.matchedLength() - 1;
-        int end = text.indexOf(QRegExp("<\\s*/\\s*style\\s*>"));
+        int end = text.indexOf(QRegExp("<\\s*/\\s*style\\s*>", Qt::CaseInsensitive));
         if ( end >= 0 )
         {
             // First look for "element.class {"
@@ -1281,6 +1281,13 @@ int CodeViewEditor::FindInlineStyleDefinitionLine( const QString &style_name, co
     QRegExp inline_style_search("[>\\};\\s]" + style_name + "\\s*\\{");
 
     int inline_index = inline_style_search.indexIn(text, start_pos);
+    if ( inline_index < 0 ) {
+        // Look for a style name followed by a comment before the opening brace
+        // i.e. styleName /* My style */ {
+        QRegExp inline_style_search2("[\\};\\s]" + style_name + "\\s*/\\*.*\\*/\\s*\\{");
+        inline_style_search2.setMinimal(true);
+        inline_index = inline_style_search2.indexIn(text);
+    }
     if ( inline_index > 0 && inline_index < end_pos ) {
         QStringList lines = text.left( inline_index + 1 ).split( QChar('\n') );
         return lines.count();
