@@ -3046,9 +3046,9 @@ void MainWindow::ExtendIconSizes()
     icon.addFile(QString::fromUtf8(":/main/document-spellcheck_16px.png"));
     ui.actionSpellCheck->setIcon(icon);
 
-    icon = ui.actionSpellCheck->icon();
+    icon = ui.actionAutoSpellCheck->icon();
     icon.addFile(QString::fromUtf8(":/main/document-autospellcheck_16px.png"));
-    ui.actionSpellCheck->setIcon(icon);
+    ui.actionAutoSpellCheck->setIcon(icon);
 
     icon = ui.actionCut->icon();
     icon.addFile(QString::fromUtf8(":/main/edit-cut_16px.png"));
