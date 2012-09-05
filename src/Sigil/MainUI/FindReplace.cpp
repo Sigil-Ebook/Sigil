@@ -574,10 +574,10 @@ bool FindReplace::IsCurrentFileInHTMLSelection()
 QList <Resource *> FindReplace::GetHTMLFiles()
 {
     // For now, this must hold
-    Q_ASSERT( GetLookWhere() == FindReplace::LookWhere_AllHTMLFiles || GetLookWhere() == FindReplace::LookWhere_SelectedHTMLFiles );
+    Q_ASSERT( GetLookWhere() == FindReplace::LookWhere_AllHTMLFiles || GetLookWhere() == FindReplace::LookWhere_SelectedHTMLFiles || m_SpellCheck );
     QList <Resource *> resources;
 
-    if ( GetLookWhere() == FindReplace::LookWhere_AllHTMLFiles )
+    if ( GetLookWhere() == FindReplace::LookWhere_AllHTMLFiles || m_SpellCheck )
     {
         resources = m_MainWindow.GetAllHTMLResources();
     }
@@ -657,7 +657,7 @@ bool FindReplace::FindInAllFiles( Searchable::Direction direction )
             }
 
             // Restore selection since opening tabs changes selection 
-            if ( GetLookWhere() == FindReplace::LookWhere_SelectedHTMLFiles )
+            if ( GetLookWhere() == FindReplace::LookWhere_SelectedHTMLFiles && !m_SpellCheck)
             {
                 m_MainWindow.SelectResources(selected_resources);
             }
