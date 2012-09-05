@@ -280,8 +280,9 @@
     <addaction name="menuTOC"/>
     <addaction name="menuIndex"/>
     <addaction name="separator"/>
-    <addaction name="actionValidateEpub"/>
     <addaction name="menuSpellCheckMenu"/>
+    <addaction name="separator"/>
+    <addaction name="actionValidateEpub"/>
     <addaction name="menuViewReports"/>
     <addaction name="separator"/>
     <addaction name="actionClipEditor"/>
