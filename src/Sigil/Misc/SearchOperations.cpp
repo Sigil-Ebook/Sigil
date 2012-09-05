@@ -49,14 +49,17 @@ int SearchOperations::CountInFiles( const QString &search_regex,
 {
     QProgressDialog progress( QObject::tr( "Counting occurrences.." ), QString(), 0, resources.count() );
     progress.setMinimumDuration( PROGRESS_BAR_MINIMUM_DURATION );
+    int progress_value = 0;
 
-    QFutureWatcher<int> watcher;
-    QObject::connect( &watcher, SIGNAL( progressValueChanged( int ) ), &progress, SLOT( setValue( int ) ) );
+    // Count sequentially in order to see if occassional crashes are due to threading 
+    int count = 0;
+    foreach (Resource *resource, resources) {
+        progress.setValue(progress_value++);
 
-    watcher.setFuture( QtConcurrent::mappedReduced( resources, 
-                                                    boost::bind( CountInFile, search_regex, _1, search_type, check_spelling ),
-                                                    Accumulate ) );
-    return watcher.result();
+        count += CountInFile(search_regex, resource, search_type, check_spelling);
+    }
+
+    return count;
 }
 
 
@@ -67,14 +70,17 @@ int SearchOperations::ReplaceInAllFIles( const QString &search_regex,
 {
     QProgressDialog progress( QObject::tr( "Replacing search term..." ), QString(), 0, resources.count() );
     progress.setMinimumDuration( PROGRESS_BAR_MINIMUM_DURATION );
+    int progress_value = 0;
 
-    QFutureWatcher<int> watcher;
-    QObject::connect( &watcher, SIGNAL( progressValueChanged( int ) ), &progress, SLOT( setValue( int ) ) );
+    // Replace sequentially in order to see if occassional crashes are due to threading 
+    int count = 0;
+    foreach (Resource *resource, resources) {
+        progress.setValue(progress_value++);
 
-    watcher.setFuture( QtConcurrent::mappedReduced( resources, 
-                                                    boost::bind( ReplaceInFile, search_regex, replacement, _1, search_type ),
-                                                    Accumulate ) );
-    return watcher.result();
+        count += ReplaceInFile(search_regex, replacement, resource, search_type);
+    }
+
+    return count;
 }
 
 
