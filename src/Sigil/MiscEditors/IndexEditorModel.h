@@ -60,8 +60,6 @@ public:
     QList<QStandardItem*> GetItems();
 
 private:
-    QString CheckEntries(QList<IndexEditorModel::indexEntry*> entries);
-
     static IndexEditorModel *m_instance;
 };
 

@@ -66,8 +66,6 @@ public:
 
     QStandardItem* GetItemFromName(QString name, QStandardItem *item = NULL);
 
-    QList<QStandardItem*> GetItemsForIndexes(QModelIndexList indexes);
-
     QList<QStandardItem*> GetNonGroupItems(QList<QStandardItem*> items);
     QList<QStandardItem*> GetNonGroupItems(QStandardItem* item);
 

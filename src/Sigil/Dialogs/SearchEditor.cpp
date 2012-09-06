@@ -225,9 +225,11 @@ QStandardItem* SearchEditor::AddEntry(bool is_group, SearchEditorModel::searchEn
     if (insert_after) {
         if (ui.SearchEditorTree->selectionModel()->hasSelection()) {
             parent_item = GetSelectedItems().last();
+
             if (!parent_item) {
                 return parent_item;
             }
+
             if (!m_SearchEditorModel->ItemIsGroup(parent_item)) {
                     row = parent_item->row() + 1;
                     parent_item = parent_item->parent();

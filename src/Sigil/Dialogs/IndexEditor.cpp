@@ -470,7 +470,7 @@ void IndexEditor::OpenContextMenu(const QPoint &point)
 
 void IndexEditor::SetupContextMenu(const QPoint &point)
 {
-    int selected_row_count = SelectedRowsCount();
+    int selected_rows_count = SelectedRowsCount();
     int total_row_count = m_IndexEditorModel->invisibleRootItem()->rowCount();
 
     m_ContextMenu->addAction(m_AddEntry);
@@ -478,10 +478,10 @@ void IndexEditor::SetupContextMenu(const QPoint &point)
     m_ContextMenu->addSeparator();
 
     m_ContextMenu->addAction(m_Cut);
-    m_Cut->setEnabled(selected_row_count > 0); 
+    m_Cut->setEnabled(selected_rows_count > 0); 
 
     m_ContextMenu->addAction(m_Copy);
-    m_Copy->setEnabled(selected_row_count > 0);
+    m_Copy->setEnabled(selected_rows_count > 0);
 
     m_ContextMenu->addAction(m_Paste);
     m_Paste->setEnabled(m_SavedIndexEntries.count());
@@ -489,7 +489,7 @@ void IndexEditor::SetupContextMenu(const QPoint &point)
     m_ContextMenu->addSeparator();
 
     m_ContextMenu->addAction(m_Delete);
-    m_Delete->setEnabled(selected_row_count > 0);
+    m_Delete->setEnabled(selected_rows_count > 0);
 
     m_ContextMenu->addSeparator();
 
@@ -501,12 +501,12 @@ void IndexEditor::SetupContextMenu(const QPoint &point)
     m_ContextMenu->addSeparator();
 
     m_ContextMenu->addAction(m_AutoFill);
-    m_AutoFill->setEnabled(selected_row_count <= 1);
+    m_AutoFill->setEnabled(selected_rows_count <= 1);
 
     m_ContextMenu->addSeparator();
 
     m_ContextMenu->addAction(m_SelectAll);
-    bool show_select_all = total_row_count && total_row_count != selected_row_count;
+    bool show_select_all = total_row_count && total_row_count != selected_rows_count;
     if (show_select_all) {
         m_ContextMenu->addSeparator();
     }

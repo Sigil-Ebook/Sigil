@@ -167,7 +167,6 @@ QStandardItem* ClipEditor::AddEntry(bool is_group, ClipEditorModel::clipEntry *c
     // If adding a new/blank entry add it after the selected entry.
     if (insert_after) {
         if (ui.ClipEditorTree->selectionModel()->hasSelection()) {
-            QModelIndexList selected_indexes = ui.ClipEditorTree->selectionModel()->selectedRows(0);
             parent_item = GetSelectedItems().last();
 
             if (!parent_item) {
@@ -555,7 +554,7 @@ void ClipEditor::OpenContextMenu(const QPoint &point)
 
 void ClipEditor::SetupContextMenu(const QPoint &point)
 {
-    int selected_row_count = SelectedRowsCount();
+    int selected_rows_count = SelectedRowsCount();
 
     m_ContextMenu->addAction(m_AddEntry);
 
@@ -564,10 +563,10 @@ void ClipEditor::SetupContextMenu(const QPoint &point)
     m_ContextMenu->addSeparator();
 
     m_ContextMenu->addAction(m_Cut);
-    m_Cut->setEnabled(selected_row_count > 0);
+    m_Cut->setEnabled(selected_rows_count > 0);
 
     m_ContextMenu->addAction(m_Copy);
-    m_Copy->setEnabled(selected_row_count > 0);
+    m_Copy->setEnabled(selected_rows_count > 0);
 
     m_ContextMenu->addAction(m_Paste);
     m_Paste->setEnabled(m_SavedClipEntries.count());
@@ -575,15 +574,15 @@ void ClipEditor::SetupContextMenu(const QPoint &point)
     m_ContextMenu->addSeparator();
 
     m_ContextMenu->addAction(m_Delete);
-    m_Delete->setEnabled(selected_row_count > 0);
+    m_Delete->setEnabled(selected_rows_count > 0);
 
     m_ContextMenu->addSeparator();
 
     m_ContextMenu->addAction(m_Import);
-    m_Import->setEnabled(selected_row_count <= 1);
+    m_Import->setEnabled(selected_rows_count <= 1);
 
     m_ContextMenu->addAction(m_Export);
-    m_Export->setEnabled(selected_row_count > 0);
+    m_Export->setEnabled(selected_rows_count > 0);
 
     m_ContextMenu->addSeparator();
 

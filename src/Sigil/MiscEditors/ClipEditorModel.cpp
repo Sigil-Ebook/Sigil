@@ -455,19 +455,6 @@ void ClipEditorModel::AddExampleEntries()
     LoadData(examples_dir % CLIP_EXAMPLES_FILE);
 }
 
-QList<QStandardItem*> ClipEditorModel::GetItemsForIndexes(QModelIndexList indexes)
-{
-    QList<QStandardItem*> items;
-
-    foreach (QModelIndex index, indexes) {
-        if (index.column() == 0) {
-            items.append(itemFromIndex(index));
-        }
-    }
-
-    return items;
-}
-
 QList<QStandardItem *> ClipEditorModel::GetNonGroupItems(QList<QStandardItem *> items)
 {
     QList<QStandardItem *> all_items;
@@ -548,8 +535,6 @@ ClipEditorModel::clipEntry* ClipEditorModel::GetEntry(QStandardItem *item)
     entry->fullname =    parent_item->child(item->row(), 0)->data(FULLNAME_ROLE).toString();
     entry->name =        parent_item->child(item->row(), 0)->text();
     entry->text =        parent_item->child(item->row(), 1)->text();
-
-    // Convert the mode values from translated text into enumerated modes
 
     return entry;
 }

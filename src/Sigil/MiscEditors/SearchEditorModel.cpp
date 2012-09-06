@@ -359,7 +359,7 @@ void SearchEditorModel::AddFullNameEntry(SearchEditorModel::searchEntry *entry, 
                 SearchEditorModel::searchEntry *new_entry = new SearchEditorModel::searchEntry();
                 new_entry->is_group = true;
                 new_entry->name = group_name;
-                parent_item = AddEntryToModel(new_entry, new_entry->is_group, parent_item, parent_item->row());
+                parent_item = AddEntryToModel(new_entry, new_entry->is_group, parent_item, parent_item->rowCount());
             }
         }
         row = parent_item->row();
@@ -574,26 +574,6 @@ QStandardItem* SearchEditorModel::GetItemFromId(qint64 id, int row, QStandardIte
     }
 
     return found_item;
-}
-
-QString SearchEditorModel::CheckEntries(QList<SearchEditorModel::searchEntry*> entries)
-{
-    QString message = "";
-    QStringList names;
-    
-
-    QStringList fullnames;
-    foreach (SearchEditorModel::searchEntry* entry, entries) {
-        if (entry->name.isEmpty()) {
-            return tr("At least one entry has no name.");
-        }
-        if (fullnames.contains(entry->fullname)) {
-            return tr("An entry has a duplicate name or has been included more than once: %1").arg(entry->fullname);
-        }
-        fullnames.append(entry->fullname);
-    }
-
-    return message;
 }
 
 QString SearchEditorModel::SaveData(QList<SearchEditorModel::searchEntry*> entries, QString filename)
