@@ -266,7 +266,7 @@ bool FlowTab::InsertIdEnabled()
         return true;
     }
     else if (m_ViewState == MainWindow::ViewState_BookView) {
-        return m_wBookView->IsInsertIdAllowed();
+        return true;
     }
 
     return false;
@@ -278,7 +278,7 @@ bool FlowTab::InsertHyperlinkEnabled()
         return true;
     }
     else if (m_ViewState == MainWindow::ViewState_BookView) {
-        return m_wBookView->IsInsertHyperlinkAllowed();
+        return true;
     }
 
     return false;

@@ -176,10 +176,7 @@ public:
 
     void ApplyCaseChangeToSelection( const Utility::Casing &casing );
 
-    bool IsInsertHyperlinkAllowed();
     void InsertHyperlink(QString href);
-
-    bool IsInsertIdAllowed();
     void InsertId(QString id);
 
 public slots:

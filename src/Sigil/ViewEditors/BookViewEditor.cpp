@@ -483,11 +483,6 @@ void BookViewEditor::ApplyCaseChangeToSelection( const Utility::Casing &casing )
     }
 }
 
-bool BookViewEditor::IsInsertHyperlinkAllowed()
-{
-    return !selectedText().isEmpty();
-}
-
 void BookViewEditor::InsertHyperlink(QString href)
 {
     // This is going to lose any styles that may have been applied within
@@ -495,18 +490,19 @@ void BookViewEditor::InsertHyperlink(QString href)
 
     QString selected_text = GetSelectedText();
 
+    // If no text selected, use the id as the text
+    if (selected_text.isEmpty()) {
+        selected_text = href ;
+    }
+
+    // Set the html for the href if there is one
     QString html = selected_text;
-    // If no reference delete any anchor (and other styles)
     if (!href.isEmpty()) {
         html = "<a href=\"" % href % "\">" % selected_text % "</a>";
     }
 
+    // If no href this will delete any anchor (and other styles)
     InsertHtml(html);
-}
-
-bool BookViewEditor::IsInsertIdAllowed()
-{
-    return !selectedText().isEmpty();
 }
 
 void BookViewEditor::InsertId(QString id)
@@ -516,16 +512,18 @@ void BookViewEditor::InsertId(QString id)
 
     QString selected_text = GetSelectedText();
 
+    // If no text selected, use the id as the text
     if (selected_text.isEmpty()) {
-        return;
+        selected_text = id ;
     }
 
+    // Set the html for the id if there is one
     QString html = selected_text;
-    // If no reference delete any anchor (and other styles)
     if (!id.isEmpty()) {
         html = "<a id=\"" % id % "\">" % selected_text % "</a>";
     }
 
+    // If no id this will delete any anchor (and other styles)
     InsertHtml(html);
 }
 
