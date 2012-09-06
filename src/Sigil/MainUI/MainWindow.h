@@ -159,18 +159,6 @@ public:
     QMutex& GetStatusBarMutex();
 
     /**
-     * Shows a message on the status bar of the current MainWindow.
-     *
-     * @param message The message to display.
-     * @param millisecond_duration The millisecond duration during
-     *                             which the message should be displayed.
-     *
-     * @note This function is thread-safe.
-     */
-    static void ShowMessageOnCurrentStatusBar( const QString &message,
-                                               int millisecond_duration = STATUSBAR_MSG_DISPLAY_TIME );
-
-    /**
      * Returns the current view state.
      *
      * @return The current view state.
@@ -192,6 +180,18 @@ public:
     ClipEditorModel* GetClipEditorModel();
 
 public slots:
+    /**
+     * Shows a message on the status bar of the current MainWindow.
+     *
+     * @param message The message to display.
+     * @param millisecond_duration The millisecond duration during
+     *                             which the message should be displayed.
+     *
+     * @note This function is thread-safe.
+     */
+    static void ShowMessageOnCurrentStatusBar( const QString &message,
+                                               int millisecond_duration = STATUSBAR_MSG_DISPLAY_TIME );
+
     void OpenFilename( QString filename );
 
     void OpenUrl(const QUrl& url);

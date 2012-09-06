@@ -63,6 +63,7 @@ private slots:
     void Delete();
     void Import();
     void Export();
+    void ExportAll();
     void CollapseAll(); 
     void ExpandAll(); 
 
@@ -73,6 +74,8 @@ private slots:
     void OpenContextMenu(const QPoint &point);
 
 private:
+    void ExportItems(QList<QStandardItem*> items);
+
     void SetupClipEditorTree();
 
     int SelectedRowsCount();

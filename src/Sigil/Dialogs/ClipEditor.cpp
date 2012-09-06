@@ -321,6 +321,20 @@ void ClipEditor::Import()
     }
 }
 
+void ClipEditor::ExportAll()
+{
+    QList<QStandardItem*> items = GetSelectedItems();
+
+    QStandardItem *item = m_ClipEditorModel->invisibleRootItem();
+    QModelIndex parent_index;
+
+    for (int row = 0; row < item->rowCount(); row++) {
+        items.append(item->child(row,0));
+    }
+
+    ExportItems(items);
+}
+
 void ClipEditor::Export()
 {
     if (SelectedRowsCount() < 1) {
@@ -333,6 +347,11 @@ void ClipEditor::Export()
         return;
     }
 
+    ExportItems(items);
+}
+
+void ClipEditor::ExportItems(QList<QStandardItem*> items)
+{
     QList<ClipEditorModel::clipEntry*> entries;
 
     foreach (QStandardItem *item, items) {
@@ -513,6 +532,7 @@ void ClipEditor::CreateContextMenuActions()
     m_Delete    =   new QAction(tr( "Delete" ),     this );
     m_Import    =   new QAction(tr( "Import" ),     this );
     m_Export    =   new QAction(tr( "Export" ),     this );
+    m_ExportAll =   new QAction(tr( "Export All" ), this );
     m_CollapseAll = new QAction(tr( "Collapse All" ),  this );
     m_ExpandAll =   new QAction(tr( "Expand All" ),  this );
 
@@ -548,6 +568,7 @@ void ClipEditor::OpenContextMenu(const QPoint &point)
     m_Delete->setEnabled(true);
     m_Import->setEnabled(true);
     m_Export->setEnabled(true);
+    m_ExportAll->setEnabled(true);
     m_CollapseAll->setEnabled(true);
     m_ExpandAll->setEnabled(true);
 }
@@ -583,6 +604,8 @@ void ClipEditor::SetupContextMenu(const QPoint &point)
 
     m_ContextMenu->addAction(m_Export);
     m_Export->setEnabled(selected_rows_count > 0);
+
+    m_ContextMenu->addAction(m_ExportAll);
 
     m_ContextMenu->addSeparator();
 
@@ -622,6 +645,7 @@ void ClipEditor::ConnectSignalsSlots()
     connect(m_Delete,      SIGNAL(triggered()), this, SLOT(Delete()));
     connect(m_Import,      SIGNAL(triggered()), this, SLOT(Import()));
     connect(m_Export,      SIGNAL(triggered()), this, SLOT(Export()));
+    connect(m_ExportAll,   SIGNAL(triggered()), this, SLOT(ExportAll()));
     connect(m_CollapseAll, SIGNAL(triggered()), this, SLOT(CollapseAll()));
     connect(m_ExpandAll,   SIGNAL(triggered()), this, SLOT(ExpandAll()));
 }
