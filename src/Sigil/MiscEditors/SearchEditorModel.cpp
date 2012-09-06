@@ -362,7 +362,7 @@ void SearchEditorModel::AddFullNameEntry(SearchEditorModel::searchEntry *entry, 
                 parent_item = AddEntryToModel(new_entry, new_entry->is_group, parent_item, parent_item->rowCount());
             }
         }
-        row = parent_item->row();
+        row = parent_item->rowCount();
     }
 
     if (!entry->is_group) {
