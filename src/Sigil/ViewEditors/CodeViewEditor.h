@@ -463,8 +463,6 @@ private:
      */
     QString getSpellingSafeText(const QString &text);
 
-    int FindInlineStyleDefinitionLine( const QString &style_name, const QString &text, const int &start_pos, const int &end_pos );
-
     /**
      * Returns the text inside < > if cursor is in < >
      */

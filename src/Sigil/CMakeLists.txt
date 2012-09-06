@@ -86,6 +86,7 @@ set( QOBJECT_HEADERS
     MainUI/NCXModel.h
     MainUI/ValidationResultsView.h
     Misc/AppEventFilter.h
+    Misc/CSSInfo.h
     Misc/SettingsStore.h
     Misc/UILanguage.h
     Misc/UpdateChecker.h 
@@ -259,6 +260,8 @@ set( MISC_FILES
     Misc/XHTMLHighlighter.h
     Misc/CSSHighlighter.cpp
     Misc/CSSHighlighter.h
+    Misc/CSSInfo.cpp
+    Misc/CSSInfo.h
     Misc/HTMLEncodingResolver.cpp
     Misc/HTMLEncodingResolver.h
     Misc/HTMLSpellCheck.cpp

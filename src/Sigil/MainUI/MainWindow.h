@@ -582,8 +582,6 @@ private slots:
 
 private:
 
-    bool OpenCSSResourceWithStyleDefinition( const QString &style_name, const QString &text, CSSResource *css_resource );
-
     void ResetLinkOrStyleBookmark();
     void ResetLocationBookmark(LocationBookmark *locationBookmark);
 

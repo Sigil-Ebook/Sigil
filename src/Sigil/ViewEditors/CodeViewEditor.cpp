@@ -40,6 +40,7 @@
 #include "Misc/XHTMLHighlighter.h"
 #include "Dialogs/ClipEditor.h"
 #include "Misc/CSSHighlighter.h"
+#include "Misc/CSSInfo.h"
 #include "Misc/SettingsStore.h"
 #include "Misc/SpellCheck.h"
 #include "Misc/HTMLSpellCheck.h"
@@ -1235,36 +1236,10 @@ void CodeViewEditor::GoToStyleDefinition()
     if ( element.name.isEmpty() )
         return;
 
-    // Look to see whether we have an inline style matching this.
-    int scroll_to_line = -1;
-    const QString text = toPlainText();
+    CSSInfo css_info(toPlainText(), false);
+    CSSInfo::CSSSelector* selector = css_info.getCSSSelectorForElementClass(element.name, element.classStyle);
 
-    // First look to see whether there is a <style type="text/css"> block
-    QRegExp inline_styles_search("<\\s*style\\s[^>]+>", Qt::CaseInsensitive);
-    inline_styles_search.setMinimal(true);
-    int start = inline_styles_search.indexIn(text);
-    if ( start > 0 ) 
-    {
-        start += inline_styles_search.matchedLength() - 1;
-        int end = text.indexOf(QRegExp("<\\s*/\\s*style\\s*>", Qt::CaseInsensitive));
-        if ( end >= 0 )
-        {
-            // First look for "element.class {"
-            // Then look for just ".class {"
-            // Finally look for "element {"
-            if ( !element.classStyle.isEmpty() ) {
-                scroll_to_line = FindInlineStyleDefinitionLine( element.name + "\\." + element.classStyle, text, start, end );
-                if (scroll_to_line <= 0) {
-                    scroll_to_line = FindInlineStyleDefinitionLine( "\\." + element.classStyle, text, start, end );
-                }
-                if (scroll_to_line <= 0) {
-                    scroll_to_line = FindInlineStyleDefinitionLine( element.name, text, start, end );
-                }
-            }
-        }
-    }
-
-    if (scroll_to_line <= 0) {
+    if (!selector) {
         // We didn't find the style - escalate as an event to look in linked stylesheets
         emit GoToLinkedStyleDefinitionRequest( element.name, element.classStyle );
     }
@@ -1272,30 +1247,9 @@ void CodeViewEditor::GoToStyleDefinition()
         // Emit a signal to bookmark our code location, enabling the "Back to" feature
         emit BookmarkLinkOrStyleLocationRequest();
         // Scroll to the line after bookmarking or we lose our place
-        ScrollToLine(scroll_to_line);
+        ScrollToPosition(selector->position);
     }
 }
-
-int CodeViewEditor::FindInlineStyleDefinitionLine( const QString &style_name, const QString &text, const int &start_pos, const int &end_pos )
-{
-    QRegExp inline_style_search("[>\\};\\s]" + style_name + "\\s*\\{");
-
-    int inline_index = inline_style_search.indexIn(text, start_pos);
-    if ( inline_index < 0 ) {
-        // Look for a style name followed by a comment before the opening brace
-        // i.e. styleName /* My style */ {
-        QRegExp inline_style_search2("[\\};\\s]" + style_name + "\\s*/\\*.*\\*/\\s*\\{");
-        inline_style_search2.setMinimal(true);
-        inline_index = inline_style_search2.indexIn(text);
-    }
-    if ( inline_index > 0 && inline_index < end_pos ) {
-        QStringList lines = text.left( inline_index + 1 ).split( QChar('\n') );
-        return lines.count();
-    }
-
-    return -1;
-}
-
 
 QString CodeViewEditor::GetTagText()
 {

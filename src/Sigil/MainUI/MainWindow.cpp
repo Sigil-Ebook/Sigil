@@ -59,6 +59,7 @@
 #include "MainUI/FindReplace.h"
 #include "MainUI/TableOfContents.h"
 #include "MainUI/ValidationResultsView.h"
+#include "Misc/CSSInfo.h"
 #include "Misc/KeyboardShortcutManager.h"
 #include "Misc/SettingsStore.h"
 #include "Misc/SpellCheck.h"
@@ -619,21 +620,11 @@ void MainWindow::GoToLinkedStyleDefinition( const QString &element_name, const Q
                     break;
                 }
             }
-            // First look for "element.class {"
-            // Then look for just ".class {"
-            // Finally look for "element {"
-            QString text = " " + css_resource->GetText();
-            if ( !style_class_name.isEmpty() ) {
-                if ( OpenCSSResourceWithStyleDefinition( element_name + "\\." + style_class_name, text, css_resource ) ) { 
-                    found_match = true;
-                    break;
-                }
-                if ( OpenCSSResourceWithStyleDefinition( "\\." + style_class_name, text, css_resource ) ) { 
-                    found_match = true;
-                    break;
-                }
-            }
-            else if ( OpenCSSResourceWithStyleDefinition( element_name, text, css_resource ) ) { 
+            CSSInfo css_info(css_resource->GetText(), true);
+            CSSInfo::CSSSelector* selector = css_info.getCSSSelectorForElementClass(element_name, style_class_name);
+            if (selector) {
+                m_TabManager.OpenResource( *css_resource, false, QUrl(), MainWindow::ViewState_RawView,
+                                            selector->line, -1, QString(), true );
                 found_match = true;
                 break;
             }
@@ -654,30 +645,6 @@ void MainWindow::GoToLinkedStyleDefinition( const QString &element_name, const Q
             }
         }
     }
-}
-
-bool MainWindow::OpenCSSResourceWithStyleDefinition( const QString &style_name, const QString &text, CSSResource *css_resource )
-{
-    QRegExp inline_style_search("[\\};\\s]" + style_name + "\\s*\\{");
-
-    int style_index = inline_style_search.indexIn(text);
-    if ( style_index < 0 ) {
-        // Look for a style name followed by a comment before the opening brace
-        // i.e. styleName /* My style */ {
-        QRegExp inline_style_search2("[\\};\\s]" + style_name + "\\s*/\\*.*\\*/\\s*\\{");
-        inline_style_search2.setMinimal(true);
-        style_index = inline_style_search2.indexIn(text);
-    }
-    if ( style_index >= 0 ) {
-        // Need to work out the line number to scroll to, as CSSTab takes lines not position.
-        QStringList lines = text.left( style_index + 1 ).split( QChar('\n') );
-        int scroll_to_line = lines.count();
-        m_TabManager.OpenResource( *css_resource, false, QUrl(), MainWindow::ViewState_RawView,
-                                    scroll_to_line, -1, QString(), true );
-        return true;
-    }
-
-    return false;
 }
 
 
