@@ -29,7 +29,7 @@ CSSInfo::CSSInfo( const QString &text, bool isCSSFile )
         parseCSSSelectors(text, 0, 0);
     }
     else {
-        // Given some text, first identify whether it is straight CSS or inlined within HTML
+        // Is an HTML file with possibly some inline CSS within it
         QRegExp inline_styles_search("<\\s*style\\s[^>]+>", Qt::CaseInsensitive);
         inline_styles_search.setMinimal(true);
 
@@ -88,8 +88,6 @@ void CSSInfo::parseCSSSelectors( const QString &text, const int &offsetLines, co
     QRegExp strip_attributes_regex("\\[[^\\]]*\\]");
     QRegExp strip_ids_regex("#[^\\s\\.]+");
     QRegExp strip_non_name_chars_regex("[^A-Za-z0-9_\\-\\.]+");
-
-    // TODO: Detect whether we are dealing with inline CSS or not.
 
     QString search_text = ReplaceBlockComments(text);
 
