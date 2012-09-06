@@ -135,10 +135,10 @@ then when no more matches replace the second entry in the list, etc.</string>
      <item>
       <widget class="QDialogButtonBox" name="buttonBox">
        <property name="toolTip">
-        <string/>
+        <string>Selecting OK will load the selected search into Find &amp; Replace</string>
        </property>
        <property name="standardButtons">
-        <set>QDialogButtonBox::Cancel|QDialogButtonBox::Save</set>
+        <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
        </property>
       </widget>
      </item>
