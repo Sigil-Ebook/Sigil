@@ -138,6 +138,7 @@ public slots:
 
     void AddNewHTML();
     void AddNewCSS();
+    void AddNewSVG();
     /**
      * Implements the Add Existing context menu action functionality.
      */
@@ -476,6 +477,7 @@ private:
     QAction *m_SelectAll;
     QAction *m_AddNewHTML;
     QAction *m_AddNewCSS;
+    QAction *m_AddNewSVG;
     QAction *m_AddExisting;
     QAction *m_Rename;
     QAction *m_Remove;

@@ -394,6 +394,10 @@ void BookBrowser::AddNew()
     {
         AddNewCSS();
     }
+    else if ( m_LastContextMenuType == Resource::ImageResourceType )
+    {
+        AddNewSVG();
+    }
 }
 
 
@@ -419,6 +423,16 @@ void BookBrowser::AddNewHTML()
 void BookBrowser::AddNewCSS()
 {
     CSSResource &new_resource = m_Book->CreateEmptyCSSFile();
+    // Open the new file in a tab
+    emit ResourceActivated( new_resource );
+    emit BookContentModified();
+    Refresh();
+}
+
+
+void BookBrowser::AddNewSVG()
+{
+    SVGResource &new_resource = m_Book->CreateEmptySVGFile();
     // Open the new file in a tab
     emit ResourceActivated( new_resource );
     emit BookContentModified();
@@ -1010,6 +1024,7 @@ void BookBrowser::CreateContextMenuActions()
     m_SelectAll               = new QAction( tr( "Select All" ),            this );
     m_AddNewHTML              = new QAction( tr( "Add Blank Section" ),     this );
     m_AddNewCSS               = new QAction( tr( "Add Blank Stylesheet" ),  this );
+    m_AddNewSVG               = new QAction( tr( "Add Blank SVG Image" ),   this );
     m_AddExisting             = new QAction( tr( "Add Existing Files..." ), this );
     m_Rename                  = new QAction( tr( "Rename" ),                this );
     m_Remove                  = new QAction( tr( "Delete" ),                this );
@@ -1177,6 +1192,10 @@ bool BookBrowser::SuccessfullySetupContextMenu( const QPoint &point )
     else if ( m_LastContextMenuType == Resource::CSSResourceType )
     {
         m_ContextMenu.addAction( m_AddNewCSS );
+    }
+    else if ( m_LastContextMenuType == Resource::ImageResourceType )
+    {
+        m_ContextMenu.addAction( m_AddNewSVG );
     }
 
     Resource *resource = GetCurrentResource();
@@ -1380,6 +1399,7 @@ void BookBrowser::ConnectSignalsToSlots()
     connect( m_RefreshTOC,              SIGNAL( triggered() ), this, SLOT( RefreshTOC()              ) );
     connect( m_SortHTML,                SIGNAL( triggered() ), this, SLOT( SortHTML()                ) );
     connect( m_AddNewCSS,               SIGNAL( triggered() ), this, SLOT( AddNewCSS()               ) );
+    connect( m_AddNewSVG,               SIGNAL( triggered() ), this, SLOT( AddNewSVG()               ) );
     connect( m_AddExisting,             SIGNAL( triggered() ), this, SLOT( AddExisting()             ) );
     connect( m_Rename,                  SIGNAL( triggered() ), this, SLOT( Rename()                  ) );
     connect( m_Remove,                  SIGNAL( triggered() ), this, SLOT( Remove()                  ) );

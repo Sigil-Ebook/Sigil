@@ -44,6 +44,7 @@
 using boost::shared_ptr;
 
 static const QString FIRST_CSS_NAME   = "Style0001.css";
+static const QString FIRST_SVG_NAME   = "Image0001.svg";
 static const QString PLACEHOLDER_TEXT = "PLACEHOLDER";
 static const QString EMPTY_HTML_FILE  = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
                                         "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.1//EN\"\n"
@@ -210,6 +211,22 @@ CSSResource& Book::CreateEmptyCSSFile()
 
     SetModified( true );
     return css_resource;
+}
+
+
+SVGResource& Book::CreateEmptySVGFile()
+{
+    TempFolder tempfolder;
+
+    QString fullfilepath = tempfolder.GetPath() + "/" + m_Mainfolder.GetUniqueFilenameVersion( FIRST_SVG_NAME );
+
+    Utility::WriteUnicodeTextFile( "", fullfilepath );
+
+    SVGResource &svg_resource = *qobject_cast< SVGResource* >(
+                                        &m_Mainfolder.AddContentFileToFolder( fullfilepath ) );
+
+    SetModified( true );
+    return svg_resource;
 }
 
 

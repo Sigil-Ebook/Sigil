@@ -2929,6 +2929,7 @@ void MainWindow::ExtendUI()
     sm->registerAction(ui.actionNew, "MainWindow.New");
     sm->registerAction(ui.actionNewHTMLFile, "MainWindow.NewHTMLFile");
     sm->registerAction(ui.actionNewCSSFile, "MainWindow.NewCSSFile");
+    sm->registerAction(ui.actionNewSVGFile, "MainWindow.NewSVGFile");
     sm->registerAction(ui.actionAddExistingFile, "MainWindow.AddExistingFile");
     sm->registerAction(ui.actionOpen, "MainWindow.Open");
 #ifndef Q_WS_MAC
@@ -3309,6 +3310,7 @@ void MainWindow::ConnectSignalsToSlots()
     connect( ui.actionOpen,          SIGNAL( triggered() ), this, SLOT( Open()                     ) );
     connect( ui.actionNewHTMLFile,   SIGNAL( triggered() ), m_BookBrowser, SLOT( AddNewHTML()      ) );
     connect( ui.actionNewCSSFile,    SIGNAL( triggered() ), m_BookBrowser, SLOT( AddNewCSS()       ) );
+    connect( ui.actionNewSVGFile,    SIGNAL( triggered() ), m_BookBrowser, SLOT( AddNewSVG()       ) );
     connect( ui.actionAddExistingFile,SIGNAL(triggered() ), m_BookBrowser, SLOT( AddExisting()     ) );
     connect( ui.actionSave,          SIGNAL( triggered() ), this, SLOT( Save()                     ) );
     connect( ui.actionSaveAs,        SIGNAL( triggered() ), this, SLOT( SaveAs()                   ) );

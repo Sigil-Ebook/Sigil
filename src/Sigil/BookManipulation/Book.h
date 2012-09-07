@@ -30,6 +30,7 @@
 #include "BookManipulation/Metadata.h"
 
 class CSSResource;
+class SVGResource;
 class FolderKeeper;
 class HTMLResource;
 class NCXResource;
@@ -156,6 +157,8 @@ public:
      * The file on disk is empty.
      */
     CSSResource& CreateEmptyCSSFile();
+
+    SVGResource& CreateEmptySVGFile();
 
     /**
      * Creates an "old" resource from a chapter breaking operation. 

@@ -52,11 +52,11 @@
      <property name="title">
       <string>Add</string>
      </property>
+     <addaction name="actionAddExistingFile"/>
      <addaction name="separator"/>
      <addaction name="actionNewHTMLFile"/>
      <addaction name="actionNewCSSFile"/>
-     <addaction name="separator"/>
-     <addaction name="actionAddExistingFile"/>
+     <addaction name="actionNewSVGFile"/>
     </widget>
      <addaction name="actionNew"/>
     <addaction name="actionOpen"/>
@@ -1853,6 +1853,14 @@
    </property>
    <property name="toolTip">
     <string>Add a new blank stylesheet to the book.</string>
+   </property>
+  </action>
+  <action name="actionNewSVGFile">
+   <property name="text">
+    <string>Blank SVG Image File</string>
+   </property>
+   <property name="toolTip">
+    <string>Add a new blank svg image file to the book.</string>
    </property>
   </action>
   <action name="actionOpenPreviousResource">
