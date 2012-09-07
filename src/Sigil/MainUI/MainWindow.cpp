@@ -2124,6 +2124,10 @@ void MainWindow::UpdateZoomLabel( float new_zoom_factor )
 
 void MainWindow::CreateChapterBreakOldTab( QString content, HTMLResource& originating_resource )
 {
+    if (content.isNull() || content.isEmpty()) {
+        statusBar()->showMessage( tr( "Chapter cannot be split at this position." ), STATUSBAR_MSG_DISPLAY_TIME );
+        return;
+    }
     HTMLResource& html_resource = m_Book->CreateChapterBreakOriginalResource( content, originating_resource );
 
     m_BookBrowser->Refresh();

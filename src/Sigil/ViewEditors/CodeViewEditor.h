@@ -616,6 +616,8 @@ private:
      */
     QStringList GetNewStyleProperties(const QString &style_text, const QString &property_name, const QString &property_value);
 
+    QString GetUnmatchedTagsForBlock(const int &pos, const QString &text);
+
     ///////////////////////////////
     // PRIVATE MEMBER VARIABLES
     ///////////////////////////////

@@ -59,7 +59,7 @@ static const int TAB_SPACES_WIDTH        = 4;
 static const int LINE_NUMBER_MARGIN      = 5;
 
 static const QString XML_OPENING_TAG        = "(<[^>/][^>]*[^>/]>|<[^>/]>)";
-static const QString NEXT_OPEN_TAG_LOCATION = "<\\s*(?!/)";
+static const QString NEXT_CLOSE_TAG_LOCATION = "</\\s*[^>]+>";
 static const QString NEXT_TAG_LOCATION      = "<[^>]+>";
 static const QString TAG_NAME_SEARCH        = "<\\s*([^\\s>]+)";
 static const QString STYLE_ATTRIBUTE_SEARCH = "style\\s*=\\s*\"[^\"]*\"";
@@ -227,55 +227,67 @@ QString CodeViewEditor::StripCodeTags(QString text)
 QString CodeViewEditor::SplitChapter()
 {
     QString text = toPlainText();
+    int split_position = textCursor().position();
+    
+    // Abort splitting the chapter if user is within a tag - MainWindow will display a status message
+    if (IsPositionInTag(split_position, text)) {
+        return QString();
+    }
 
-    QRegExp body_search( BODY_START );
+    QRegExp body_search( BODY_START, Qt::CaseInsensitive );
     int body_tag_start = text.indexOf( body_search );
     int body_tag_end   = body_tag_start + body_search.matchedLength();
 
-    QRegExp body_end_search( BODY_END );
+    QRegExp body_end_search( BODY_END, Qt::CaseInsensitive );
     int body_contents_end = text.indexOf( body_end_search );
 
     QString head = text.left( body_tag_start );
 
-    int next_open_tag_index = text.indexOf( QRegExp( NEXT_OPEN_TAG_LOCATION ), textCursor().position() );
-    if ( next_open_tag_index == -1 )
-    {
-        // Cursor is at end of file
-        next_open_tag_index = body_contents_end;
-    }
-    else
-    {
-        if ( next_open_tag_index < body_tag_end )
-        {
-            // Cursor is before the start of the body
-            next_open_tag_index = body_tag_end;
+    if ( split_position < body_tag_end ) {
+        // Cursor is before the start of the body
+        split_position = body_tag_end;
+    }    
+    else {
+        int next_close_tag_index = text.indexOf( QRegExp( NEXT_CLOSE_TAG_LOCATION ), split_position );
+        if ( next_close_tag_index == -1 ) {
+            // Cursor is at end of file
+            split_position = body_contents_end;
         }
     }
+    
+    const QString &text_segment = split_position != body_tag_end
+                                  ? Utility::Substring( body_tag_start, split_position, text ) 
+                                  : QString( "<p>&nbsp;</p>" );
 
-    const QString &text_segment = next_open_tag_index != body_tag_end                             ?
-                                  Utility::Substring( body_tag_start, next_open_tag_index, text ) :
-                                  QString( "<p>&nbsp;</p>" );
-
-    // Remove the text that will be in
-    // the new chapter from the View.
+    // Remove the text that will be in the new chapter from the View.
     QTextCursor cursor = textCursor();
     cursor.beginEditBlock();
     cursor.setPosition( body_tag_end );
-    cursor.setPosition( next_open_tag_index, QTextCursor::KeepAnchor );
+    cursor.setPosition( split_position, QTextCursor::KeepAnchor );
     cursor.removeSelectedText();
 
-    // We add a newline if the next tag
-    // is sitting right next to the end of the body tag.
-    if ( toPlainText().at( body_tag_end ) == QChar( '<' ) )
-
+    // We add a newline if the next tag is sitting right next to the end of the body tag.
+    if ( toPlainText().at( body_tag_end ) == QChar( '<' ) ) {
         cursor.insertBlock();
-
+    }
+    // There is a scenario which causes Xerces disaster - if our split point is next to
+    // a <br/> tag then Xerces will discard all content after the end of the current block.
+    // e.g. If split point is: <br/></p><p>More text</p> then anything after first </p> is lost
+    //      from within AnchorUpdates.cpp when it replaces the resource text by re-serializing.
+    // An additional problem occurs if the user splits inside the last block in the body,
+    // as previous logic would always give you a blank new page without the split off text.
+    // So instead we will identify any open tags for the current caret position, and repeat
+    // those at the caret position to ensure we have valid html that Xerces will not choke on.
+    const QString &opening_tags = GetUnmatchedTagsForBlock(split_position, text);
+    if (!opening_tags.isNull() && !opening_tags.isEmpty()) {
+        cursor.insertText( opening_tags );
+    }
     cursor.endEditBlock();
 
     return QString()
            .append( head )
            .append( text_segment )
-           .append( "</body></html>" );
+           .append( "\n</body>\n</html>" );
 }
 
 
@@ -2611,6 +2623,73 @@ void CodeViewEditor::ApplyCaseChangeToSelection(const Utility::Casing &casing)
     cursor.endEditBlock();
 
     setTextCursor(cursor);
+}
+
+QString CodeViewEditor::GetUnmatchedTagsForBlock(const int &start_pos, const QString &text)
+{
+    // Given the specified position within the text, keep looking backwards finding
+    // any tags until we hit an opening block tag. Append all the opening tags
+    // that do not have closing tags together (ignoring self-closing tags) 
+    // and return the opening tags complete with their attributes contiguously. 
+
+    QStringList opening_tags;
+    int closing_tag_count = 0;
+    int pos = start_pos;
+    QString tag_name;
+
+    QRegExp tag_search( NEXT_TAG_LOCATION );
+    QRegExp tag_name_search( TAG_NAME_SEARCH );
+
+    pos--;
+    while (true) {
+        int previous_tag_index = text.lastIndexOf( tag_search, pos );
+        if (previous_tag_index < 0) {
+            break;
+        }
+        // We found a tag. Is it self-closing? If so, ignore it.
+        const QString &full_tag_text = text.mid(previous_tag_index, tag_search.matchedLength());
+        if (full_tag_text.endsWith("/>")) {
+            pos = previous_tag_index - 1;
+            continue;
+        }
+        // Is it valid with a name? If not, ignore it
+        int tag_name_index = tag_name_search.indexIn(full_tag_text);
+        if (tag_name_index < 0) {
+            pos = previous_tag_index - 1;
+            continue;
+        }
+        tag_name = tag_name_search.cap(1).toLower();
+
+        // Isolate whether it was opening or closing tag.
+        bool is_closing_tag = false;
+        if ( tag_name.startsWith('/') ) {
+            is_closing_tag = true;
+            tag_name = tag_name.right(tag_name.length() - 1);
+            closing_tag_count++;
+        }
+        else {
+            // Add the whole tag text to our opening tags if we hav't found a closing tag for it.
+            if (closing_tag_count > 0) {
+                closing_tag_count--;
+            }
+            else {
+                opening_tags.insert(0, full_tag_text);
+            }
+        }
+
+        // Is this a block level tag?
+        if ( BLOCK_LEVEL_TAGS.contains( tag_name) ) {
+            // We are done. 
+            break;
+        }
+        pos = previous_tag_index - 1;
+        continue;
+    }
+
+    if (opening_tags.count() > 0) {
+        return opening_tags.join("");
+    }
+    return QString();
 }
 
 void CodeViewEditor::ConnectSignalsToSlots()
