@@ -152,7 +152,7 @@ QList <Resource* > OPFModel::GetResourceListInFolder( Resource::ResourceType res
     {
         folder = &m_StylesFolderItem;
     }
-    else if ( resource_type == Resource::ImageResourceType )
+    else if ( resource_type == Resource::ImageResourceType || resource_type == Resource::SVGResourceType )
     {
         folder = &m_ImagesFolderItem;
     }
@@ -197,7 +197,8 @@ QModelIndex OPFModel::GetModelItemIndex( Resource &resource, IndexChoice indexCh
             QStandardItem *child = invisibleRootItem()->child( i );
     
             if ( (child == &m_TextFolderItem && resourceType == Resource::HTMLResourceType ) ||
-                 (child == &m_ImagesFolderItem && resourceType == Resource::ImageResourceType ) ||
+                 (child == &m_ImagesFolderItem &&
+                    ( resourceType == Resource::ImageResourceType || resourceType == Resource::SVGResourceType ) ) ||
                  (child == &m_StylesFolderItem && 
                     ( resourceType == Resource::CSSResourceType || resourceType == Resource::XPGTResourceType ) ) ||
                  (child == &m_FontsFolderItem && resourceType == Resource::FontResourceType ) ||
@@ -419,7 +420,9 @@ void OPFModel::InitializeModel()
             m_StylesFolderItem.appendRow( item );
         }
 
-        else if ( resource->Type() == Resource::ImageResourceType )
+        else if ( resource->Type() == Resource::ImageResourceType ||
+                  resource->Type() == Resource::SVGResourceType 
+                )
         {
             m_ImagesFolderItem.appendRow( item );
         }

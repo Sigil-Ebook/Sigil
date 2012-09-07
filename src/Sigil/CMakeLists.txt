@@ -72,6 +72,7 @@ set( QOBJECT_HEADERS
     Tabs/TextTab.h
     Tabs/CSSTab.h 
     Tabs/ImageTab.h
+    Tabs/SVGTab.h
     Tabs/XPGTTab.h
     Tabs/OPFTab.h
     Tabs/NCXTab.h
@@ -104,6 +105,7 @@ set( QOBJECT_HEADERS
     ResourceObjects/CSSResource.h
     ResourceObjects/XPGTResource.h
     ResourceObjects/ImageResource.h
+    ResourceObjects/SVGResource.h
     ResourceObjects/FontResource.h
     ResourceObjects/NCXResource.h
     ResourceObjects/OPFResource.h
@@ -155,6 +157,8 @@ set( RESOURCE_OBJECT_FILES
     ResourceObjects/XPGTResource.h
     ResourceObjects/ImageResource.cpp
     ResourceObjects/ImageResource.h
+    ResourceObjects/SVGResource.cpp
+    ResourceObjects/SVGResource.h
     ResourceObjects/FontResource.cpp
     ResourceObjects/FontResource.h
     ResourceObjects/OPFResource.cpp
@@ -374,6 +378,8 @@ set( TAB_FILES
     Tabs/XPGTTab.h
     Tabs/ImageTab.cpp
     Tabs/ImageTab.h
+    Tabs/SVGTab.cpp
+    Tabs/SVGTab.h
     Tabs/OPFTab.cpp
     Tabs/OPFTab.h
     Tabs/NCXTab.cpp

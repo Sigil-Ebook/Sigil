@@ -1,4 +1,5 @@
 Sigil 0.6.0 TBA
+    - Implement issue 755: Support 'code view' for svg images that are loaded as separate files.
     - Implement issue 1561: Add Save A Copy option to save file under a different name without renaming current file.
     - Implement issue 1559: Add option to insert special characters into document.
     - Implement issue 1333: Add Hyperlink editor buttons to select target from existing ids and set id anchor.

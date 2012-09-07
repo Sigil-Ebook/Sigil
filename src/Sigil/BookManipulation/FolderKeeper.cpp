@@ -35,7 +35,9 @@
 
 const QStringList IMAGE_EXTENSIONS = QStringList() << "jpg"   << "jpeg"  << "png"
                                                    << "gif"   << "tif"   << "tiff"
-                                                   << "bm"    << "bmp"   << "svg";
+                                                   << "bm"    << "bmp";
+static const QStringList SVG_EXTENSIONS = QStringList() << "svg";
+
 const QStringList JPG_EXTENSIONS = QStringList()   << "jpg"   << "jpeg";
 const QStringList TIFF_EXTENSIONS = QStringList()  << "tif"  << "tiff";
 
@@ -57,6 +59,7 @@ const QString MISC_FOLDER_NAME  = "Misc";
 
 const QStringList IMAGE_MIMEYPES = QStringList() << "image/gif" << "image/jpeg"
                                                  << "image/png" << "image/svg+xml";
+const QStringList SVG_MIMETYPES = QStringList() << "image/svg+xml";
 const QStringList TEXT_MIMETYPES = QStringList() << "application/xhtml+xml"
                                                  << "application/x-dtbook+xml"
                                                  << "application/xml";
@@ -160,6 +163,14 @@ Resource& FolderKeeper::AddContentFileToFolder( const QString &fullfilepath,
             relative_path = IMAGE_FOLDER_NAME + "/" + filename;
 
             resource = new ImageResource( new_file_path );
+        }
+
+        else if ( SVG_EXTENSIONS.contains( extension ) || SVG_MIMETYPES.contains( mimetype ) )
+        {
+            new_file_path = m_FullPathToTextFolder + "/" + filename;
+            relative_path = IMAGE_FOLDER_NAME + "/" + filename;
+
+            resource = new SVGResource( new_file_path );
         }
 
         else if ( FONT_EXTENSIONS.contains( extension ) )

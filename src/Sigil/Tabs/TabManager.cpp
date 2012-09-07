@@ -26,9 +26,11 @@
 #include "ResourceObjects/XPGTResource.h"
 #include "ResourceObjects/HTMLResource.h"
 #include "ResourceObjects/ImageResource.h"
+#include "ResourceObjects/SVGResource.h"
 #include "Tabs/CSSTab.h"
 #include "Tabs/FlowTab.h"
 #include "Tabs/ImageTab.h"
+#include "Tabs/SVGTab.h"
 #include "Tabs/NCXTab.h"
 #include "Tabs/OPFTab.h"
 #include "Tabs/TabManager.h"
@@ -561,6 +563,13 @@ ContentTab* TabManager::CreateTabForResource( Resource& resource,
             tab = new ImageTab( *( qobject_cast< ImageResource* >( &resource ) ), this );
             break;
         }
+
+    case Resource::SVGResourceType:
+        {
+            tab = new SVGTab( *( qobject_cast< SVGResource* >( &resource ) ), line_to_scroll_to, this );
+            break;
+        }
+
 
     case Resource::OPFResourceType:
         {

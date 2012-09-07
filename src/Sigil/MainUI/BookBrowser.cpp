@@ -1182,7 +1182,7 @@ bool BookBrowser::SuccessfullySetupContextMenu( const QPoint &point )
     Resource *resource = GetCurrentResource();
 
     if ( resource ) {
-        if ( resource->Type() == Resource::ImageResourceType ) {
+        if ( resource->Type() == Resource::ImageResourceType || resource->Type() == Resource::SVGResourceType ) {
             m_ContextMenu.addSeparator();
             m_ContextMenu.addAction( m_InsertImages );
             m_ContextMenu.addSeparator();

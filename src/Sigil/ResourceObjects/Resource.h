@@ -59,6 +59,7 @@ public:
         CSSResourceType,     /**< Used for CSS resources (stylesheets). */
         XPGTResourceType,    /**< Used for XPGT resources. */
         ImageResourceType,   /**< Used for image resource, of all types. */
+        SVGResourceType,     /**< Used for SVG image resources. */
         FontResourceType,    /**< Used for font resources, both TTF and OTF. */
         OPFResourceType,     /**< Used for the OPF document. */
         NCXResourceType      /**< Used for the NCX table of contents. */

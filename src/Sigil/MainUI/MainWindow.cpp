@@ -1560,6 +1560,7 @@ bool MainWindow::UpdateViewState(bool set_tab_state)
              type == Resource::XPGTResourceType ||
              type == Resource::OPFResourceType ||
              type == Resource::NCXResourceType ||
+             type == Resource::SVGResourceType ||
              type == Resource::TextResourceType)
     {
         SetStateActionsRawView();
