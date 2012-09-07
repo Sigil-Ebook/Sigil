@@ -1269,7 +1269,7 @@ void FlowTab::HeadingStyle( const QString& heading_type, bool preserve_attribute
 
         // For heading_type == "Heading #"
         if ( last_char.isDigit() ) {
-            m_wBookView->FormatBlock( "h" + QString( last_char ), preserve_attributes );
+            m_wBookView->FormatBlock( "h" % QString( last_char ), preserve_attributes );
         }
         else if ( heading_type == "Normal" ) {
             m_wBookView->FormatBlock( "p", preserve_attributes );
@@ -1281,7 +1281,7 @@ void FlowTab::HeadingStyle( const QString& heading_type, bool preserve_attribute
 
         // For heading_type == "Heading #"
         if ( last_char.isDigit() ) {
-            m_wCodeView->FormatBlock( "h" + QString( last_char ), preserve_attributes );
+            m_wCodeView->FormatBlock( "h" % QString( last_char ), preserve_attributes );
         }
         else if ( heading_type == "Normal" ) {
             m_wCodeView->FormatBlock( "p", preserve_attributes );

@@ -372,7 +372,7 @@ void CodeViewEditor::InsertClosingTag()
     }
 
     if (!tag.isEmpty()) {
-        QString closing_tag = "</" + tag + ">";
+        QString closing_tag = "</" % tag % ">";
 
         textCursor().insertText(closing_tag);
     }
@@ -1348,13 +1348,13 @@ void CodeViewEditor::InsertTagAttribute(QString element_name, QString attribute_
 
         // If nothing was inserted, then just insert a new tag with no text
         if (inserted_attribute.isEmpty()) {
-            InsertHTMLTagAroundText(element_name, "/" + element_name, attribute_name + "=\"" + attribute_value + "\"", "" );
+            InsertHTMLTagAroundText(element_name, "/" % element_name, attribute_name % "=\"" % attribute_value % "\"", "" );
         }
     }
     else if (TextIsSelectedAndNotInTag()) {
         // Just prepend and append the tag pairs to the text
-        QString attributes = attribute_name + "=\"" + attribute_value + "\"";
-        InsertHTMLTagAroundSelection( element_name, "/" + element_name, attributes);
+        QString attributes = attribute_name % "=\"" % attribute_value % "\"";
+        InsertHTMLTagAroundSelection( element_name, "/" % element_name, attributes);
     }
 }
 
@@ -1366,7 +1366,7 @@ void CodeViewEditor::MarkForIndex()
 
     QString selected_text = textCursor().selectedText();
 
-    InsertHTMLTagAroundSelection("span", "/span", "class=\"" + SIGIL_INDEX_CLASS + "\" title=\"" % selected_text % "\"");
+    InsertHTMLTagAroundSelection("span", "/span", "class=\"" % SIGIL_INDEX_CLASS % "\" title=\"" % selected_text % "\"");
 }
 
 // Overridden so we can emit the FocusGained() signal.
@@ -1870,7 +1870,7 @@ void CodeViewEditor::FormatBlock( const QString &element_name, bool preserve_att
         // Special case for the body tag or clicked past a previous closing block tag
         // In these situations we just insert html around our selection.
         if ( tag_name == "body" || is_closing_tag ) {
-            InsertHTMLTagAroundSelection( element_name, "/" + element_name );
+            InsertHTMLTagAroundSelection( element_name, "/" % element_name );
             return;
         }
 
@@ -1882,7 +1882,7 @@ void CodeViewEditor::FormatBlock( const QString &element_name, bool preserve_att
         opening_tag_attributes = text.mid(attribute_start_index, opening_tag_end - attribute_start_index - 1).trimmed();
 
         // Now find the closing tag for this block.
-        QRegExp closing_tag_search("</\\s*" + tag_name + "\\s*>", Qt::CaseInsensitive);
+        QRegExp closing_tag_search("</\\s*" % tag_name % "\\s*>", Qt::CaseInsensitive);
         closing_tag_start = text.indexOf(closing_tag_search, opening_tag_end);
         if (closing_tag_start < 0) {
             // Could not find a closing tag for this block name. Invalid HTML.
@@ -1894,12 +1894,12 @@ void CodeViewEditor::FormatBlock( const QString &element_name, bool preserve_att
     }
 
     if ( preserve_attributes && opening_tag_attributes.length() > 0 ) {
-        opening_tag_text = "<" + element_name + " " + opening_tag_attributes + ">";
+        opening_tag_text = "<" % element_name % " " % opening_tag_attributes % ">";
     }
     else {
-        opening_tag_text = "<" + element_name + ">";
+        opening_tag_text = "<" % element_name % ">";
     }
-    closing_tag_text = "</" + element_name + ">";
+    closing_tag_text = "</" % element_name % ">";
 
     ReplaceTags( opening_tag_start, opening_tag_end, opening_tag_text,
                  closing_tag_start, closing_tag_end, closing_tag_text );
@@ -1914,7 +1914,7 @@ void CodeViewEditor::InsertHTMLTagAroundText( const QString &left_element_name, 
         new_attributes.prepend(" ");
     }
 
-    const QString new_text = "<" + left_element_name + new_attributes + ">" + text + "<" + right_element_name + ">";
+    const QString new_text = "<" % left_element_name % new_attributes % ">" % text % "<" % right_element_name % ">";
     int selection_start = cursor.selectionStart() + left_element_name.length() + 2;
 
     cursor.beginEditBlock();
@@ -1938,7 +1938,7 @@ void CodeViewEditor::InsertHTMLTagAroundSelection( const QString &left_element_n
     }
 
     const QString selected_text = cursor.selectedText();
-    const QString replacement_text = "<" + left_element_name + new_attributes + ">" + selected_text + "<" + right_element_name + ">";
+    const QString replacement_text = "<" % left_element_name % new_attributes % ">" % selected_text % "<" % right_element_name % ">";
     int selection_start = cursor.selectionStart();
 
     cursor.beginEditBlock();
@@ -2118,7 +2118,7 @@ void CodeViewEditor::ToggleFormatSelection( const QString &element_name, const Q
     }
     else {
         // Otherwise assume we are in a safe place to add a wrapper tag.
-        InsertHTMLTagAroundSelection( element_name, "/" + element_name );
+        InsertHTMLTagAroundSelection( element_name, "/" % element_name );
     }
 }
 
@@ -2130,7 +2130,7 @@ void CodeViewEditor::FormatSelectionWithinElement(const QString &element_name, c
     // plus the variations where XXX or YYY may be non-existent to make tag adjacent.
 
     int previous_tag_end_index = text.indexOf(">", previous_tag_index);
-    QRegExp closing_tag_search("</\\s*" + element_name + "\\s*>", Qt::CaseInsensitive);
+    QRegExp closing_tag_search("</\\s*" % element_name % "\\s*>", Qt::CaseInsensitive);
     int closing_tag_index = text.indexOf(closing_tag_search, previous_tag_end_index);
     if ( closing_tag_index < 0 ) {
         // There is no closing tag for this style (not well formed). Give up.
@@ -2147,7 +2147,7 @@ void CodeViewEditor::FormatSelectionWithinElement(const QString &element_name, c
     if ( !adjacent_to_start && !adjacent_to_end ) {
         // We want to put a closing tag at the start and an opening tag after (copying attributes)
         QString opening_tag_text = text.mid(previous_tag_index + 1, previous_tag_end_index - previous_tag_index - 1).trimmed();
-        InsertHTMLTagAroundSelection( "/" + element_name, opening_tag_text );
+        InsertHTMLTagAroundSelection( "/" % element_name, opening_tag_text );
     }
     else if ( ( selection_end == selection_start) && ( adjacent_to_start || adjacent_to_end ) ) {
         // User is just inside the opening or closing tag with no selection. Nothing to do
@@ -2535,7 +2535,7 @@ void CodeViewEditor::FormatCSSStyle( const QString &property_name, const QString
         }
         else {
             QString tab_spaces = QString(" ").repeated(TAB_SPACES_WIDTH);
-            style_attribute_text = QString("\n%1%2;\n").arg(tab_spaces).arg(new_properties.join(";\n" + tab_spaces));
+            style_attribute_text = QString("\n%1%2;\n").arg(tab_spaces).arg(new_properties.join(";\n" % tab_spaces));
         }
     }
 
@@ -2662,10 +2662,11 @@ QString CodeViewEditor::GetUnmatchedTagsForBlock(const int &start_pos, const QSt
 
         // Isolate whether it was opening or closing tag.
         if ( tag_name.startsWith('/') ) {
+            tag_name = tag_name.right(tag_name.length() - 1);
             closing_tag_count++;
         }
         else {
-            // Add the whole tag text to our opening tags if we haven't found a closing tag for it.
+            // Add the whole tag text to our opening tags if we hav't found a closing tag for it.
             if (closing_tag_count > 0) {
                 closing_tag_count--;
             }
