@@ -284,6 +284,38 @@ bool FlowTab::InsertHyperlinkEnabled()
     return false;
 }
 
+bool FlowTab::InsertSpecialCharacterEnabled()
+{
+    if (m_ViewState == MainWindow::ViewState_CodeView) {
+        return true;
+    }
+    else if (m_ViewState == MainWindow::ViewState_BookView) {
+        return true;
+    }
+
+    return false;
+}
+
+bool FlowTab::ToggleAutoSpellcheckEnabled()
+{
+    if (m_ViewState == MainWindow::ViewState_CodeView) {
+        return true;
+    }
+
+    return false;
+}
+
+bool FlowTab::ViewStatesEnabled()
+{
+    if (m_ViewState == MainWindow::ViewState_BookView ||
+        m_ViewState == MainWindow::ViewState_PreviewView ||
+        m_ViewState == MainWindow::ViewState_CodeView ) {
+        return true;
+    }
+
+    return false;
+}
+
 QString FlowTab::GetCaretLocationUpdate() const
 {
     if (m_ViewState == MainWindow::ViewState_BookView) {

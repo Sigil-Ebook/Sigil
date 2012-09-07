@@ -138,6 +138,10 @@ public:
 
     virtual bool InsertIdEnabled() { return false; }
     virtual bool InsertHyperlinkEnabled() { return false; }
+    virtual bool InsertSpecialCharacterEnabled() { return false; }
+    virtual bool ToggleAutoSpellcheckEnabled() { return false; }
+
+    virtual bool ViewStatesEnabled() { return false; }
 
     /**
      * Checked state of the BookView action.

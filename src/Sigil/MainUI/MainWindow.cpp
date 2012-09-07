@@ -1580,6 +1580,10 @@ void MainWindow::UpdateUIOnTabChanges()
 
         return;
 
+    ui.actionBookView               ->setEnabled( tab.ViewStatesEnabled() );
+    ui.actionSplitView              ->setEnabled( tab.ViewStatesEnabled() );
+    ui.actionCodeView               ->setEnabled( tab.ViewStatesEnabled() );
+
     ui.actionPrintPreview->setEnabled( tab.PrintEnabled() );
     ui.actionPrint->setEnabled( tab.PrintEnabled() );
 
@@ -1591,6 +1595,8 @@ void MainWindow::UpdateUIOnTabChanges()
     ui.actionMarkForIndex           ->setEnabled( tab.MarkForIndexEnabled() );
     ui.actionInsertId               ->setEnabled( tab.InsertIdEnabled() );
     ui.actionInsertHyperlink        ->setEnabled( tab.InsertHyperlinkEnabled() );
+    ui.actionInsertSpecialCharacter ->setEnabled( tab.InsertSpecialCharacterEnabled() );
+    ui.actionAutoSpellCheck         ->setEnabled( tab.ToggleAutoSpellcheckEnabled() );
 
     ui.actionBold           ->setChecked( tab.BoldChecked() );
     ui.actionItalic         ->setChecked( tab.ItalicChecked() );

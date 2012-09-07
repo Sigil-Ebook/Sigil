@@ -102,6 +102,11 @@ public:
     bool InsertIdEnabled();
     bool InsertHyperlinkEnabled();
 
+    bool InsertSpecialCharacterEnabled();
+    bool ToggleAutoSpellcheckEnabled();
+
+    bool ViewStatesEnabled();
+
     QString GetCaretLocationUpdate() const;
 
     int GetCursorPosition() const;
