@@ -207,14 +207,16 @@ QHash< QString, QString > ImportHTML::LoadImages( const xc::DOMDocument *documen
         try
         {
             QString filename = QFileInfo( image_path ).fileName();
-
-            if ( m_IgnoreDuplicates && current_filenames.contains( filename ) )
-
-                continue;
-
             QString fullfilepath  = QFileInfo( folder, image_path ).absoluteFilePath();
-            QString newpath       = "../" + m_Book->GetFolderKeeper()
-                                        .AddContentFileToFolder( fullfilepath ).GetRelativePathToOEBPS();
+
+            QString newpath;
+            if ( m_IgnoreDuplicates && current_filenames.contains( filename ) ) {
+                newpath = "../" + m_Book->GetFolderKeeper().GetResourceByFilename(filename).GetRelativePathToOEBPS();
+            }
+            else {
+                newpath       = "../" + m_Book->GetFolderKeeper()
+                                            .AddContentFileToFolder( fullfilepath ).GetRelativePathToOEBPS();
+            }
             updates[ fullfilepath ] = newpath;
         }
         
@@ -253,13 +255,14 @@ QHash< QString, QString > ImportHTML::LoadStyleFiles( const xc::DOMDocument *doc
         {
             try
             {
-                if ( m_IgnoreDuplicates && current_filenames.contains( file_info.fileName() ) )
-
-                    continue;
-
-                QString newpath = "../" + m_Book->GetFolderKeeper().AddContentFileToFolder( 
+                QString newpath;
+                if ( m_IgnoreDuplicates && current_filenames.contains( file_info.fileName() ) ) {
+                    newpath = "../" + m_Book->GetFolderKeeper().GetResourceByFilename(file_info.fileName()).GetRelativePathToOEBPS();
+                }
+                else {
+                    newpath = "../" + m_Book->GetFolderKeeper().AddContentFileToFolder( 
                                                 file_info.absoluteFilePath() ).GetRelativePathToOEBPS();
-
+                }
                 updates[ relative_path ] = newpath;
             }
 
