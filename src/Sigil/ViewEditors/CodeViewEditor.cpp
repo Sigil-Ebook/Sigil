@@ -2661,14 +2661,11 @@ QString CodeViewEditor::GetUnmatchedTagsForBlock(const int &start_pos, const QSt
         tag_name = tag_name_search.cap(1).toLower();
 
         // Isolate whether it was opening or closing tag.
-        bool is_closing_tag = false;
         if ( tag_name.startsWith('/') ) {
-            is_closing_tag = true;
-            tag_name = tag_name.right(tag_name.length() - 1);
             closing_tag_count++;
         }
         else {
-            // Add the whole tag text to our opening tags if we hav't found a closing tag for it.
+            // Add the whole tag text to our opening tags if we haven't found a closing tag for it.
             if (closing_tag_count > 0) {
                 closing_tag_count--;
             }
