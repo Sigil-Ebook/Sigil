@@ -246,11 +246,10 @@ private:
     void ExtendUI();
 
     /* 
-     * Tokenisation helper functions for automating replacement
+     * Tokenisation helper function for automating replacement
      * of elements of Find text in regular expressions
      */
-    QString TokeniseSpacesForRegex(const QString &text);
-	QString TokeniseNumericsForRegex(const QString &text);
+    QString TokeniseForRegex(const QString &text, bool includeNumerics);
 
     /**
      * Connects all the required signals to their respective slots.

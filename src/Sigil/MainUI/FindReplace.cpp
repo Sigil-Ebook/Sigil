@@ -84,7 +84,7 @@ void FindReplace::SetUpFindText()
         if ( !selected_text.isEmpty() ) 
         {
 		    if ( m_RegexOptionAutoTokenise && GetSearchMode() == FindReplace::SearchMode_Regex ) {
-			    selected_text = TokeniseSpacesForRegex( selected_text );
+			    selected_text = TokeniseForRegex( selected_text, false );
 		    }
 		    // We want to make the text selected in the editor
 		    // as the default search text, but only if it's not "too long"
@@ -1224,8 +1224,7 @@ void FindReplace::TokeniseSelection()
         text = ui.cbFind->lineEdit()->text();
     }
 
-	QString new_text = TokeniseSpacesForRegex( text );
-	new_text = TokeniseNumericsForRegex( new_text );
+	QString new_text = TokeniseForRegex( text, true );
 
     if (ui.cbFind->lineEdit()->hasSelectedText()) {
         int selectionStart = ui.cbFind->lineEdit()->selectionStart();
@@ -1240,18 +1239,19 @@ void FindReplace::TokeniseSelection()
     }
 }
 
-QString FindReplace::TokeniseSpacesForRegex(const QString &text)
+QString FindReplace::TokeniseForRegex(const QString &text, bool includeNumerics)
 {
-    QRegExp replace_spaces("([\\n\\s]{2,})");
-    QString new_text = text;
-    return new_text.replace(replace_spaces, "\\s+");
-}
+    QString new_text = QRegExp::escape(text);
 
-QString FindReplace::TokeniseNumericsForRegex(const QString &text)
-{
-    QRegExp replace_numerics("(\\d+)");
-    QString new_text = text;
-    return new_text.replace(replace_numerics, "\\d+");
+    QRegExp replace_spaces("([\\n\\s]{2,})");
+    new_text.replace(replace_spaces, "\\s+");
+
+    if (includeNumerics) {
+        QRegExp replace_numerics("(\\d+)");
+        new_text.replace(replace_numerics, "\\d+");
+    }
+
+    return new_text;
 }
 
 void FindReplace::SetRegexOptionDotAll(bool new_state)
