@@ -89,9 +89,9 @@ static const int ZOOM_SLIDER_WIDTH          = 140;
 static const QString REPORTING_ISSUES_WIKI  = "http://code.google.com/p/sigil/wiki/ReportingIssues";
 static const QString DONATE_WIKI            = "http://code.google.com/p/sigil/wiki/Donate";
 static const QString SIGIL_DEV_BLOG         = "http://sigildev.blogspot.com/";
-static const QString USER_GUIDE_URL         = "http://web.sigil.googlecode.com/git/files/OEBPS/Text/introduction.xhtml";
-static const QString FAQ_URL                = "http://web.sigil.googlecode.com/git/files/OEBPS/Text/faq.xhtml";
-static const QString TUTORIALS_URL          = "http://web.sigil.googlecode.com/git/files/OEBPS/Text/tutorials.xhtml";
+static const QString USER_GUIDE_URL         = "http://web.sigil.googlecode.com/git/files/OEBPS/Text/introduction.html";
+static const QString FAQ_URL                = "http://web.sigil.googlecode.com/git/files/OEBPS/Text/faq.html";
+static const QString TUTORIALS_URL          = "http://web.sigil.googlecode.com/git/files/OEBPS/Text/tutorials.html";
 
 static const QString BOOK_BROWSER_NAME            = "bookbrowser";
 static const QString FIND_REPLACE_NAME            = "findreplace";
