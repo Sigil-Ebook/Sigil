@@ -523,6 +523,11 @@ capturing parenthesis numbers in back references. */
 
 #define PUT2INC(a,n,d)  PUT2(a,n,d), a += IMM2_SIZE
 
+/* The maximum length of a MARK name is currently one data unit; it may be
+changed in future to be a fixed number of bytes or to depend on LINK_SIZE. */
+
+#define MAX_MARK ((1 << (sizeof(pcre_uchar)*8)) - 1)
+
 /* When UTF encoding is being used, a character is no longer just a single
 character. The macros for character handling generate simple sequences when
 used in character-mode, and more complicated ones for UTF characters.
@@ -887,7 +892,8 @@ time, run time, or study time, respectively. */
    PCRE_NO_START_OPTIMIZE)
 
 #define PUBLIC_STUDY_OPTIONS \
-   PCRE_STUDY_JIT_COMPILE
+   (PCRE_STUDY_JIT_COMPILE|PCRE_STUDY_JIT_PARTIAL_SOFT_COMPILE| \
+    PCRE_STUDY_JIT_PARTIAL_HARD_COMPILE)
 
 /* Magic number to provide a small check against being handed junk. */
 
@@ -1939,7 +1945,11 @@ enum { ERR0,  ERR1,  ERR2,  ERR3,  ERR4,  ERR5,  ERR6,  ERR7,  ERR8,  ERR9,
        ERR40, ERR41, ERR42, ERR43, ERR44, ERR45, ERR46, ERR47, ERR48, ERR49,
        ERR50, ERR51, ERR52, ERR53, ERR54, ERR55, ERR56, ERR57, ERR58, ERR59,
        ERR60, ERR61, ERR62, ERR63, ERR64, ERR65, ERR66, ERR67, ERR68, ERR69,
-       ERR70, ERR71, ERR72, ERR73, ERR74, ERRCOUNT };
+       ERR70, ERR71, ERR72, ERR73, ERR74, ERR75, ERR76, ERRCOUNT };
+
+/* JIT compiling modes. The function list is indexed by them. */
+enum { JIT_COMPILE, JIT_PARTIAL_SOFT_COMPILE, JIT_PARTIAL_HARD_COMPILE,
+       JIT_NUMBER_OF_COMPILE_MODES };
 
 /* The real format of the start of the pcre block; the index of names and the
 code vector run on as long as necessary after the end. We store an explicit
@@ -1969,16 +1979,15 @@ typedef struct REAL_PCRE {
   pcre_uint32 size;               /* Total that was malloced */
   pcre_uint32 options;            /* Public options */
   pcre_uint16 flags;              /* Private flags */
-  pcre_uint16 dummy1;             /* For future use */
-  pcre_uint16 top_bracket;
-  pcre_uint16 top_backref;
+  pcre_uint16 max_lookbehind;     /* Longest lookbehind (characters) */
+  pcre_uint16 top_bracket;        /* Highest numbered group */
+  pcre_uint16 top_backref;        /* Highest numbered back reference */
   pcre_uint16 first_char;         /* Starting character */
   pcre_uint16 req_char;           /* This character must be seen */
   pcre_uint16 name_table_offset;  /* Offset to name table that follows */
   pcre_uint16 name_entry_size;    /* Size of any name items */
   pcre_uint16 name_count;         /* Number of name items */
   pcre_uint16 ref_count;          /* Reference count */
-
   const pcre_uint8 *tables;       /* Pointer to tables or NULL for std */
   const pcre_uint8 *nullpad;      /* NULL padding */
 } REAL_PCRE;
@@ -2024,6 +2033,7 @@ typedef struct compile_data {
   int  workspace_size;              /* Size of workspace */
   int  bracount;                    /* Count of capturing parens as we compile */
   int  final_bracount;              /* Saved value after first pass */
+  int  max_lookbehind;              /* Maximum lookbehind (characters) */
   int  top_backref;                 /* Maximum back reference */
   unsigned int backref_map;         /* Bitmap of low back refs */
   int  assert_depth;                /* Depth of nested assertions */
@@ -2125,6 +2135,9 @@ typedef struct match_data {
   const  pcre_uchar *mark;        /* Mark pointer to pass back on success */
   const  pcre_uchar *nomatch_mark;/* Mark pointer to pass back on failure */
   const  pcre_uchar *once_target; /* Where to back up to for atomic groups */
+#ifdef NO_RECURSE
+  void  *match_frames_base;       /* For remembering malloc'd frames */
+#endif
 } match_data;
 
 /* A similar structure is used for the same purpose by the DFA matching
@@ -2179,7 +2192,7 @@ total length. */
 #define ctypes_offset (cbits_offset + cbit_length)
 #define tables_length (ctypes_offset + 256)
 
-/* Internal function prefix */
+/* Internal function and data prefixes. */
 
 #ifdef COMPILE_PCRE8
 #ifndef PUBL
@@ -2288,9 +2301,10 @@ extern BOOL              PRIV(was_newline)(PCRE_PUCHAR, int, PCRE_PUCHAR,
 extern BOOL              PRIV(xclass)(int, const pcre_uchar *, BOOL);
 
 #ifdef SUPPORT_JIT
-extern void              PRIV(jit_compile)(const REAL_PCRE *, PUBL(extra) *);
-extern int               PRIV(jit_exec)(const REAL_PCRE *, void *,
-                           const pcre_uchar *, int, int, int, int, int *, int);
+extern void              PRIV(jit_compile)(const REAL_PCRE *,
+                           PUBL(extra) *, int);
+extern int               PRIV(jit_exec)(const REAL_PCRE *, const PUBL(extra) *,
+                           const pcre_uchar *, int, int, int, int *, int);
 extern void              PRIV(jit_free)(void *);
 extern int               PRIV(jit_get_size)(void *);
 extern const char*       PRIV(jit_get_target)(void);

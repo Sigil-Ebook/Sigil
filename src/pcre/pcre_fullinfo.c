@@ -193,6 +193,10 @@ switch (what)
   *((int *)where) = (re->flags & PCRE_HASCRORLF) != 0;
   break;
 
+  case PCRE_INFO_MAXLOOKBEHIND:
+  *((int *)where) = re->max_lookbehind;
+  break;
+
   default: return PCRE_ERROR_BADOPTION;
   }
 

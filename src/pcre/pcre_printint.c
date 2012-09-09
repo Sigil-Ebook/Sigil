@@ -477,12 +477,9 @@ for(;;)
     flag = "/i";
     /* Fall through */
     case OP_NOT:
-    c = code[1];
-    if (PRINTABLE(c)) fprintf(f, " %s [^%c]", flag, c);
-    else if (utf || c > 0xff)
-      fprintf(f, " %s [^\\x{%02x}]", flag, c);
-    else
-      fprintf(f, " %s [^\\x%02x]", flag, c);
+    fprintf(f, " %s [^", flag);
+    extra = print_char(f, code + 1, utf);
+    fprintf(f, "]");
     break;
 
     case OP_NOTSTARI:
@@ -506,10 +503,9 @@ for(;;)
     case OP_NOTQUERY:
     case OP_NOTMINQUERY:
     case OP_NOTPOSQUERY:
-    c = code[1];
-    if (PRINTABLE(c)) fprintf(f, " %s [^%c]", flag, c);
-      else fprintf(f, " %s [^\\x%02x]", flag, c);
-    fprintf(f, "%s", priv_OP_names[*code]);
+    fprintf(f, " %s [^", flag);
+    extra = print_char(f, code + 1, utf);
+    fprintf(f, "]%s", priv_OP_names[*code]);
     break;
 
     case OP_NOTEXACTI:
@@ -523,9 +519,9 @@ for(;;)
     case OP_NOTUPTO:
     case OP_NOTMINUPTO:
     case OP_NOTPOSUPTO:
-    c = code[1 + IMM2_SIZE];
-    if (PRINTABLE(c)) fprintf(f, " %s [^%c]{", flag, c);
-      else fprintf(f, " %s [^\\x%02x]{", flag, c);
+    fprintf(f, " %s [^", flag);
+    extra = print_char(f, code + 1 + IMM2_SIZE, utf);
+    fprintf(f, "]{");
     if (*code != OP_NOTEXACT && *code != OP_NOTEXACTI) fprintf(f, "0,");
     fprintf(f, "%d}", GET2(code,1));
     if (*code == OP_NOTMINUPTO || *code == OP_NOTMINUPTOI) fprintf(f, "?");

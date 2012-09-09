@@ -42,6 +42,10 @@
         - very effective to cache an important value once
       - A fixed stack space can be allocated for local variables
       - The compiler is thread-safe
+      - The compiler is highly configurable through preprocessor macros.
+        You can disable unneeded features (multithreading in single
+        threaded applications), and you can use your own system functions
+        (including memory allocators). See sljitConfig.h
     Disadvantages:
       - Limited number of registers (only 6+4 integer registers, max 3+2
         temporary, max 3+2 saved and 4 floating point registers)
@@ -113,9 +117,10 @@ of sljitConfigInternal.h */
 #define SLJIT_SAVED_EREG1	9
 #define SLJIT_SAVED_EREG2	10
 
-/* Read-only register (cannot be the destination of an operation). */
-/* Note: SLJIT_MEM2( ... , SLJIT_LOCALS_REG) is not supported (x86 limitation). */
-/* Note: SLJIT_LOCALS_REG is not necessary the real stack pointer. See sljit_emit_enter. */
+/* Read-only register (cannot be the destination of an operation).
+   Only SLJIT_MEM1(SLJIT_LOCALS_REG) addressing mode is allowed since
+   several ABIs has certain limitations about the stack layout. However
+   sljit_get_local_base() can be used to obtain the offset of a value. */
 #define SLJIT_LOCALS_REG	11
 
 /* Number of registers. */
@@ -207,15 +212,13 @@ struct sljit_compiler {
 
 #if (defined SLJIT_CONFIG_X86_32 && SLJIT_CONFIG_X86_32)
 	int args;
+	int locals_offset;
 	int temporaries_start;
 	int saveds_start;
 #endif
 
 #if (defined SLJIT_CONFIG_X86_64 && SLJIT_CONFIG_X86_64)
 	int mode32;
-#ifdef _WIN64
-	int has_locals;
-#endif
 #endif
 
 #if (defined SLJIT_CONFIG_X86_32 && SLJIT_CONFIG_X86_32) || (defined SLJIT_CONFIG_X86_64 && SLJIT_CONFIG_X86_64)
@@ -246,14 +249,12 @@ struct sljit_compiler {
 #endif
 
 #if (defined SLJIT_CONFIG_PPC_32 && SLJIT_CONFIG_PPC_32) || (defined SLJIT_CONFIG_PPC_64 && SLJIT_CONFIG_PPC_64)
-	int has_locals;
 	sljit_w imm;
 	int cache_arg;
 	sljit_w cache_argw;
 #endif
 
 #if (defined SLJIT_CONFIG_MIPS_32 && SLJIT_CONFIG_MIPS_32)
-	int has_locals;
 	int delay_slot;
 	int cache_arg;
 	sljit_w cache_argw;
@@ -261,6 +262,11 @@ struct sljit_compiler {
 
 #if (defined SLJIT_VERBOSE && SLJIT_VERBOSE)
 	FILE* verbose;
+#endif
+
+#if (defined SLJIT_DEBUG && SLJIT_DEBUG)
+	/* Local size passed to the functions. */
+	int logical_local_size;
 #endif
 
 #if (defined SLJIT_VERBOSE && SLJIT_VERBOSE) || (defined SLJIT_DEBUG && SLJIT_DEBUG)
@@ -378,7 +384,7 @@ SLJIT_API_FUNC_ATTRIBUTE int sljit_emit_return(struct sljit_compiler *compiler, 
 /* Note: although sljit_emit_fast_return could be replaced by an ijump, it is not suggested,
    since many architectures do clever branch prediction on call / return instruction pairs. */
 
-SLJIT_API_FUNC_ATTRIBUTE int sljit_emit_fast_enter(struct sljit_compiler *compiler, int dst, sljit_w dstw, int args, int temporaries, int saveds, int local_size);
+SLJIT_API_FUNC_ATTRIBUTE int sljit_emit_fast_enter(struct sljit_compiler *compiler, int dst, sljit_w dstw);
 SLJIT_API_FUNC_ATTRIBUTE int sljit_emit_fast_return(struct sljit_compiler *compiler, int src, sljit_w srcw);
 
 /*
@@ -744,6 +750,10 @@ SLJIT_API_FUNC_ATTRIBUTE int sljit_emit_ijump(struct sljit_compiler *compiler, i
    Note: sljit_emit_cond_value does nothing, if dst is SLJIT_UNUSED (regardless of op). */
 SLJIT_API_FUNC_ATTRIBUTE int sljit_emit_cond_value(struct sljit_compiler *compiler, int op, int dst, sljit_w dstw, int type);
 
+/* Copies the base address of SLJIT_MEM1(SLJIT_LOCALS_REG)+offset to dst.
+   Flags: - (never set any flags) */
+SLJIT_API_FUNC_ATTRIBUTE int sljit_get_local_base(struct sljit_compiler *compiler, int dst, sljit_w dstw, sljit_w offset);
+
 /* The constant can be changed runtime (see: sljit_set_const)
    Flags: - (never set any flags) */
 SLJIT_API_FUNC_ATTRIBUTE struct sljit_const* sljit_emit_const(struct sljit_compiler *compiler, int dst, sljit_w dstw, sljit_w init_value);
@@ -764,7 +774,7 @@ SLJIT_API_FUNC_ATTRIBUTE void sljit_set_const(sljit_uw addr, sljit_w new_constan
 /* --------------------------------------------------------------------- */
 
 #define SLJIT_MAJOR_VERSION	0
-#define SLJIT_MINOR_VERSION	87
+#define SLJIT_MINOR_VERSION	88
 
 /* Get the human readable name of the platfrom.
    Can be useful for debugging on platforms like ARM, where ARM and

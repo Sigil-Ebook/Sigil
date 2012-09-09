@@ -38,10 +38,9 @@ POSSIBILITY OF SUCH DAMAGE.
 -----------------------------------------------------------------------------
 */
 
-
 /* This module contains the external function pcre_dfa_exec(), which is an
 alternative matching function that uses a sort of DFA algorithm (not a true
-FSM). This is NOT Perl- compatible, but it has advantages in certain
+FSM). This is NOT Perl-compatible, but it has advantages in certain
 applications. */
 
 
@@ -282,7 +281,7 @@ typedef struct stateblock {
   int data;                       /* Some use extra data */
 } stateblock;
 
-#define INTS_PER_STATEBLOCK  (sizeof(stateblock)/sizeof(int))
+#define INTS_PER_STATEBLOCK  (int)(sizeof(stateblock)/sizeof(int))
 
 
 #ifdef PCRE_DEBUG
@@ -382,7 +381,8 @@ for the current character, one for the following character). */
     next_new_state->count  = (y); \
     next_new_state->data   = (z); \
     next_new_state++; \
-    DPRINTF(("%.*sADD_NEW_DATA(%d,%d,%d)\n", rlevel*2-2, SP, (x), (y), (z))); \
+    DPRINTF(("%.*sADD_NEW_DATA(%d,%d,%d) line %d\n", rlevel*2-2, SP, \
+      (x), (y), (z), __LINE__)); \
     } \
   else return PCRE_ERROR_DFA_WSSIZE
 
@@ -423,6 +423,8 @@ BOOL utf = (md->poptions & PCRE_UTF8) != 0;
 #else
 BOOL utf = FALSE;
 #endif
+
+BOOL reset_could_continue = FALSE;
 
 rlevel++;
 offsetcount &= (-2);
@@ -571,7 +573,9 @@ for (;;)
   int clen, dlen;
   unsigned int c, d;
   int forced_fail = 0;
-  BOOL could_continue = FALSE;
+  BOOL partial_newline = FALSE;
+  BOOL could_continue = reset_could_continue;
+  reset_could_continue = FALSE;
 
   /* Make the new state list into the active state list and empty the
   new state list. */
@@ -607,7 +611,7 @@ for (;;)
 
   if (ptr < end_subject)
     {
-    clen = 1;        /* Number of bytes in the character */
+    clen = 1;        /* Number of data items in the character */
 #ifdef SUPPORT_UTF
     if (utf) { GETCHARLEN(c, ptr, clen); } else
 #endif  /* SUPPORT_UTF */
@@ -641,7 +645,8 @@ for (;;)
 
     /* A negative offset is a special case meaning "hold off going to this
     (negated) state until the number of characters in the data field have
-    been skipped". */
+    been skipped". If the could_continue flag was passed over from a previous
+    state, arrange for it to passed on. */
 
     if (state_offset < 0)
       {
@@ -650,6 +655,7 @@ for (;;)
         DPRINTF(("%.*sSkipping this character\n", rlevel*2-2, SP));
         ADD_NEW_DATA(state_offset, current_state->count,
           current_state->data - 1);
+        if (could_continue) reset_could_continue = TRUE;
         continue;
         }
       else
@@ -689,10 +695,10 @@ for (;;)
     permitted.
 
     We also use this mechanism for opcodes such as OP_TYPEPLUS that take an
-    argument that is not a data character - but is always one byte long. We
-    have to take special action to deal with  \P, \p, \H, \h, \V, \v and \X in
-    this case. To keep the other cases fast, convert these ones to new opcodes.
-    */
+    argument that is not a data character - but is always one byte long because
+    the values are small. We have to take special action to deal with  \P, \p,
+    \H, \h, \V, \v and \X in this case. To keep the other cases fast, convert
+    these ones to new opcodes. */
 
     if (coptable[codevalue] > 0)
       {
@@ -783,7 +789,7 @@ for (;;)
             offsets[0] = (int)(current_subject - start_subject);
             offsets[1] = (int)(ptr - start_subject);
             DPRINTF(("%.*sSet matched string = \"%.*s\"\n", rlevel*2-2, SP,
-              offsets[1] - offsets[0], current_subject));
+              offsets[1] - offsets[0], (char *)current_subject));
             }
           if ((md->moptions & PCRE_DFA_SHORTEST) != 0)
             {
@@ -888,7 +894,20 @@ for (;;)
       /*-----------------------------------------------------------------*/
       case OP_ANY:
       if (clen > 0 && !IS_NEWLINE(ptr))
-        { ADD_NEW(state_offset + 1, 0); }
+        {
+        if (ptr + 1 >= md->end_subject &&
+            (md->moptions & (PCRE_PARTIAL_HARD)) != 0 &&
+            NLBLOCK->nltype == NLTYPE_FIXED &&
+            NLBLOCK->nllen == 2 &&
+            c == NLBLOCK->nl[0])
+          {
+          could_continue = partial_newline = TRUE;
+          }
+        else
+          {
+          ADD_NEW(state_offset + 1, 0);
+          }
+        }
       break;
 
       /*-----------------------------------------------------------------*/
@@ -916,6 +935,19 @@ for (;;)
                (ptr == end_subject - md->nllen)
             ))
           { ADD_ACTIVE(state_offset + 1, 0); }
+        else if (ptr + 1 >= md->end_subject &&
+                 (md->moptions & (PCRE_PARTIAL_HARD|PCRE_PARTIAL_SOFT)) != 0 &&
+                 NLBLOCK->nltype == NLTYPE_FIXED &&
+                 NLBLOCK->nllen == 2 &&
+                 c == NLBLOCK->nl[0])
+          {
+          if ((md->moptions & PCRE_PARTIAL_HARD) != 0)
+            {
+            reset_could_continue = TRUE;
+            ADD_NEW_DATA(-(state_offset + 1), 0, 1);
+            }
+          else could_continue = partial_newline = TRUE;
+          }
         }
       break;
 
@@ -928,6 +960,19 @@ for (;;)
         else if (clen == 0 ||
             ((md->poptions & PCRE_DOLLAR_ENDONLY) == 0 && IS_NEWLINE(ptr)))
           { ADD_ACTIVE(state_offset + 1, 0); }
+        else if (ptr + 1 >= md->end_subject &&
+                 (md->moptions & (PCRE_PARTIAL_HARD|PCRE_PARTIAL_SOFT)) != 0 &&
+                 NLBLOCK->nltype == NLTYPE_FIXED &&
+                 NLBLOCK->nllen == 2 &&
+                 c == NLBLOCK->nl[0])
+          {
+          if ((md->moptions & PCRE_PARTIAL_HARD) != 0)
+            {
+            reset_could_continue = TRUE;
+            ADD_NEW_DATA(-(state_offset + 1), 0, 1);
+            }
+          else could_continue = partial_newline = TRUE;
+          }
         }
       else if (IS_NEWLINE(ptr))
         { ADD_ACTIVE(state_offset + 1, 0); }
@@ -1090,7 +1135,15 @@ for (;;)
       if (count > 0) { ADD_ACTIVE(state_offset + 2, 0); }
       if (clen > 0)
         {
-        if ((c >= 256 && d != OP_DIGIT && d != OP_WHITESPACE && d != OP_WORDCHAR) ||
+        if (d == OP_ANY && ptr + 1 >= md->end_subject &&
+            (md->moptions & (PCRE_PARTIAL_HARD)) != 0 &&
+            NLBLOCK->nltype == NLTYPE_FIXED &&
+            NLBLOCK->nllen == 2 &&
+            c == NLBLOCK->nl[0])
+          {
+          could_continue = partial_newline = TRUE;
+          }
+        else if ((c >= 256 && d != OP_DIGIT && d != OP_WHITESPACE && d != OP_WORDCHAR) ||
             (c < 256 &&
               (d != OP_ANY || !IS_NEWLINE(ptr)) &&
               ((ctypes[c] & toptable1[d]) ^ toptable2[d]) != 0))
@@ -1113,7 +1166,15 @@ for (;;)
       ADD_ACTIVE(state_offset + 2, 0);
       if (clen > 0)
         {
-        if ((c >= 256 && d != OP_DIGIT && d != OP_WHITESPACE && d != OP_WORDCHAR) ||
+        if (d == OP_ANY && ptr + 1 >= md->end_subject &&
+            (md->moptions & (PCRE_PARTIAL_HARD)) != 0 &&
+            NLBLOCK->nltype == NLTYPE_FIXED &&
+            NLBLOCK->nllen == 2 &&
+            c == NLBLOCK->nl[0])
+          {
+          could_continue = partial_newline = TRUE;
+          }
+        else if ((c >= 256 && d != OP_DIGIT && d != OP_WHITESPACE && d != OP_WORDCHAR) ||
             (c < 256 &&
               (d != OP_ANY || !IS_NEWLINE(ptr)) &&
               ((ctypes[c] & toptable1[d]) ^ toptable2[d]) != 0))
@@ -1135,7 +1196,15 @@ for (;;)
       ADD_ACTIVE(state_offset + 2, 0);
       if (clen > 0)
         {
-        if ((c >= 256 && d != OP_DIGIT && d != OP_WHITESPACE && d != OP_WORDCHAR) ||
+        if (d == OP_ANY && ptr + 1 >= md->end_subject &&
+            (md->moptions & (PCRE_PARTIAL_HARD)) != 0 &&
+            NLBLOCK->nltype == NLTYPE_FIXED &&
+            NLBLOCK->nllen == 2 &&
+            c == NLBLOCK->nl[0])
+          {
+          could_continue = partial_newline = TRUE;
+          }
+        else if ((c >= 256 && d != OP_DIGIT && d != OP_WHITESPACE && d != OP_WORDCHAR) ||
             (c < 256 &&
               (d != OP_ANY || !IS_NEWLINE(ptr)) &&
               ((ctypes[c] & toptable1[d]) ^ toptable2[d]) != 0))
@@ -1155,7 +1224,15 @@ for (;;)
       count = current_state->count;  /* Number already matched */
       if (clen > 0)
         {
-        if ((c >= 256 && d != OP_DIGIT && d != OP_WHITESPACE && d != OP_WORDCHAR) ||
+        if (d == OP_ANY && ptr + 1 >= md->end_subject &&
+            (md->moptions & (PCRE_PARTIAL_HARD)) != 0 &&
+            NLBLOCK->nltype == NLTYPE_FIXED &&
+            NLBLOCK->nllen == 2 &&
+            c == NLBLOCK->nl[0])
+          {
+          could_continue = partial_newline = TRUE;
+          }
+        else if ((c >= 256 && d != OP_DIGIT && d != OP_WHITESPACE && d != OP_WORDCHAR) ||
             (c < 256 &&
               (d != OP_ANY || !IS_NEWLINE(ptr)) &&
               ((ctypes[c] & toptable1[d]) ^ toptable2[d]) != 0))
@@ -1176,7 +1253,15 @@ for (;;)
       count = current_state->count;  /* Number already matched */
       if (clen > 0)
         {
-        if ((c >= 256 && d != OP_DIGIT && d != OP_WHITESPACE && d != OP_WORDCHAR) ||
+        if (d == OP_ANY && ptr + 1 >= md->end_subject &&
+            (md->moptions & (PCRE_PARTIAL_HARD)) != 0 &&
+            NLBLOCK->nltype == NLTYPE_FIXED &&
+            NLBLOCK->nllen == 2 &&
+            c == NLBLOCK->nl[0])
+          {
+          could_continue = partial_newline = TRUE;
+          }
+        else if ((c >= 256 && d != OP_DIGIT && d != OP_WHITESPACE && d != OP_WORDCHAR) ||
             (c < 256 &&
               (d != OP_ANY || !IS_NEWLINE(ptr)) &&
               ((ctypes[c] & toptable1[d]) ^ toptable2[d]) != 0))
@@ -1824,6 +1909,8 @@ for (;;)
           ncount++;
           nptr += ndlen;
           }
+        if (nptr >= end_subject && (md->moptions & PCRE_PARTIAL_HARD) != 0)
+            reset_could_continue = TRUE;
         if (++count >= GET2(code, 1))
           { ADD_NEW_DATA(-(state_offset + 2 + IMM2_SIZE), 0, ncount); }
         else
@@ -2037,6 +2124,8 @@ for (;;)
           ncount++;
           nptr += nclen;
           }
+        if (nptr >= end_subject && (md->moptions & PCRE_PARTIAL_HARD) != 0)
+            reset_could_continue = TRUE;
         ADD_NEW_DATA(-(state_offset + 1), 0, ncount);
         }
       break;
@@ -2062,7 +2151,13 @@ for (;;)
         break;
 
         case 0x000d:
-        if (ptr + 1 < end_subject && ptr[1] == 0x0a)
+        if (ptr + 1 >= end_subject)
+          {
+          ADD_NEW(state_offset + 1, 0);
+          if ((md->moptions & PCRE_PARTIAL_HARD) != 0)
+            reset_could_continue = TRUE;
+          }
+        else if (ptr[1] == 0x0a)
           {
           ADD_NEW_DATA(-(state_offset + 1), 0, 1);
           }
@@ -2171,22 +2266,32 @@ for (;;)
       break;
 
       /*-----------------------------------------------------------------*/
-      /* Match a negated single character casefully. This is only used for
-      one-byte characters, that is, we know that d < 256. The character we are
-      checking (c) can be multibyte. */
+      /* Match a negated single character casefully. */
 
       case OP_NOT:
       if (clen > 0 && c != d) { ADD_NEW(state_offset + dlen + 1, 0); }
       break;
 
       /*-----------------------------------------------------------------*/
-      /* Match a negated single character caselessly. This is only used for
-      one-byte characters, that is, we know that d < 256. The character we are
-      checking (c) can be multibyte. */
+      /* Match a negated single character caselessly. */
 
       case OP_NOTI:
-      if (clen > 0 && c != d && c != fcc[d])
-        { ADD_NEW(state_offset + dlen + 1, 0); }
+      if (clen > 0)
+        {
+        unsigned int otherd;
+#ifdef SUPPORT_UTF
+        if (utf && d >= 128)
+          {
+#ifdef SUPPORT_UCP
+          otherd = UCD_OTHERCASE(d);
+#endif  /* SUPPORT_UCP */
+          }
+        else
+#endif  /* SUPPORT_UTF */
+        otherd = TABLE_GET(d, fcc, d);
+        if (c != d && c != otherd)
+          { ADD_NEW(state_offset + dlen + 1, 0); }
+        }
       break;
 
       /*-----------------------------------------------------------------*/
@@ -2692,9 +2797,12 @@ for (;;)
             {
             int charcount = local_offsets[rc+1] - local_offsets[rc];
 #ifdef SUPPORT_UTF
-            const pcre_uchar *p = start_subject + local_offsets[rc];
-            const pcre_uchar *pp = start_subject + local_offsets[rc+1];
-            while (p < pp) if (NOT_FIRSTCHAR(*p++)) charcount--;
+            if (utf)
+              {
+              const pcre_uchar *p = start_subject + local_offsets[rc];
+              const pcre_uchar *pp = start_subject + local_offsets[rc+1];
+              while (p < pp) if (NOT_FIRSTCHAR(*p++)) charcount--;
+              }
 #endif
             if (charcount > 0)
               {
@@ -2793,7 +2901,7 @@ for (;;)
             const pcre_uchar *pp = local_ptr;
             charcount = (int)(pp - p);
 #ifdef SUPPORT_UTF
-            while (p < pp) if (NOT_FIRSTCHAR(*p++)) charcount--;
+            if (utf) while (p < pp) if (NOT_FIRSTCHAR(*p++)) charcount--;
 #endif
             ADD_NEW_DATA(-next_state_offset, 0, (charcount - 1));
             }
@@ -2875,9 +2983,12 @@ for (;;)
           else
             {
 #ifdef SUPPORT_UTF
-            const pcre_uchar *p = start_subject + local_offsets[0];
-            const pcre_uchar *pp = start_subject + local_offsets[1];
-            while (p < pp) if (NOT_FIRSTCHAR(*p++)) charcount--;
+            if (utf)
+              {
+              const pcre_uchar *p = start_subject + local_offsets[0];
+              const pcre_uchar *pp = start_subject + local_offsets[1];
+              while (p < pp) if (NOT_FIRSTCHAR(*p++)) charcount--;
+              }
 #endif
             ADD_NEW_DATA(-next_state_offset, 0, (charcount - 1));
             if (repeat_state_offset >= 0)
@@ -2946,7 +3057,7 @@ for (;;)
   if (new_count <= 0)
     {
     if (rlevel == 1 &&                               /* Top level, and */
-        could_continue &&                            /* Some could go on */
+        could_continue &&                            /* Some could go on, and */
         forced_fail != workspace[1] &&               /* Not all forced fail & */
         (                                            /* either... */
         (md->moptions & PCRE_PARTIAL_HARD) != 0      /* Hard partial */
@@ -2954,8 +3065,13 @@ for (;;)
         ((md->moptions & PCRE_PARTIAL_SOFT) != 0 &&  /* Soft partial and */
          match_count < 0)                            /* no matches */
         ) &&                                         /* And... */
-        ptr >= end_subject &&                  /* Reached end of subject */
-        ptr > md->start_used_ptr)              /* Inspected non-empty string */
+        (
+        partial_newline ||                           /* Either partial NL */
+          (                                          /* or ... */
+          ptr >= end_subject &&                /* End of subject and */
+          ptr > md->start_used_ptr)            /* Inspected non-empty string */
+          )
+        )
       {
       if (offsetcount >= 2)
         {
@@ -3052,10 +3168,27 @@ if (offsetcount < 0) return PCRE_ERROR_BADCOUNT;
 if (wscount < 20) return PCRE_ERROR_DFA_WSSIZE;
 if (start_offset < 0 || start_offset > length) return PCRE_ERROR_BADOFFSET;
 
-/* We need to find the pointer to any study data before we test for byte
-flipping, so we scan the extra_data block first. This may set two fields in the
-match block, so we must initialize them beforehand. However, the other fields
-in the match block must not be set until after the byte flipping. */
+/* Check that the first field in the block is the magic number. If it is not,
+return with PCRE_ERROR_BADMAGIC. However, if the magic number is equal to
+REVERSED_MAGIC_NUMBER we return with PCRE_ERROR_BADENDIANNESS, which
+means that the pattern is likely compiled with different endianness. */
+
+if (re->magic_number != MAGIC_NUMBER)
+  return re->magic_number == REVERSED_MAGIC_NUMBER?
+    PCRE_ERROR_BADENDIANNESS:PCRE_ERROR_BADMAGIC;
+if ((re->flags & PCRE_MODE) == 0) return PCRE_ERROR_BADMODE;
+
+/* If restarting after a partial match, do some sanity checks on the contents
+of the workspace. */
+
+if ((options & PCRE_DFA_RESTART) != 0)
+  {
+  if ((workspace[0] & (-2)) != 0 || workspace[1] < 1 ||
+    workspace[1] > (wscount - 2)/INTS_PER_STATEBLOCK)
+      return PCRE_ERROR_DFA_BADRESTART;
+  }
+
+/* Set up study, callout, and table data */
 
 md->tables = re->tables;
 md->callout_data = NULL;
@@ -3073,16 +3206,6 @@ if (extra_data != NULL)
   if ((flags & PCRE_EXTRA_TABLES) != 0)
     md->tables = extra_data->tables;
   }
-
-/* Check that the first field in the block is the magic number. If it is not,
-return with PCRE_ERROR_BADMAGIC. However, if the magic number is equal to
-REVERSED_MAGIC_NUMBER we return with PCRE_ERROR_BADENDIANNESS, which
-means that the pattern is likely compiled with different endianness. */
-
-if (re->magic_number != MAGIC_NUMBER)
-  return re->magic_number == REVERSED_MAGIC_NUMBER?
-    PCRE_ERROR_BADENDIANNESS:PCRE_ERROR_BADMAGIC;
-if ((re->flags & PCRE_MODE) == 0) return PCRE_ERROR_BADMODE;
 
 /* Set some local values */
 

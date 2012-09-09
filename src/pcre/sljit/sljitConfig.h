@@ -28,10 +28,17 @@
 #define _SLJIT_CONFIG_H_
 
 /* --------------------------------------------------------------------- */
+/*  Custom defines                                                       */
+/* --------------------------------------------------------------------- */
+
+/* Put your custom defines here. This empty section will never change
+   which helps maintaining patches (with diff / patch utilities). */
+
+/* --------------------------------------------------------------------- */
 /*  Architecture                                                         */
 /* --------------------------------------------------------------------- */
 
-/* Architecture selection */
+/* Architecture selection. */
 /* #define SLJIT_CONFIG_X86_32 1 */
 /* #define SLJIT_CONFIG_X86_64 1 */
 /* #define SLJIT_CONFIG_ARM_V5 1 */
@@ -58,6 +65,12 @@
 #ifndef SLJIT_UTIL_STACK
 /* Enabled by default */
 #define SLJIT_UTIL_STACK 1
+#endif
+
+/* Single threaded application. Does not require any locks. */
+#ifndef SLJIT_SINGLE_THREADED
+/* Disabled by default. */
+#define SLJIT_SINGLE_THREADED 0
 #endif
 
 /* --------------------------------------------------------------------- */

@@ -33,6 +33,7 @@
 
 #cmakedefine SUPPORT_LIBBZ2 1
 #cmakedefine SUPPORT_LIBZ 1
+#cmakedefine SUPPORT_LIBEDIT 1
 #cmakedefine SUPPORT_LIBREADLINE 1
 
 #define NEWLINE			@NEWLINE@

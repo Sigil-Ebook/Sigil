@@ -194,16 +194,25 @@
 
 #ifndef SLJIT_CACHE_FLUSH
 
-#if (defined SLJIT_CONFIG_PPC_32 && SLJIT_CONFIG_PPC_32) || (defined SLJIT_CONFIG_PPC_64 && SLJIT_CONFIG_PPC_64)
+#if (defined SLJIT_CONFIG_X86_32 && SLJIT_CONFIG_X86_32) || (defined SLJIT_CONFIG_X86_64 && SLJIT_CONFIG_X86_64)
+
+/* Not required to implement on archs with unified caches. */
+#define SLJIT_CACHE_FLUSH(from, to)
+
+#elif defined __APPLE__
+
+/* Supported by all macs since Mac OS 10.5.
+   However, it does not work on non-jailbroken iOS devices,
+   although the compilation is successful. */
+
+#define SLJIT_CACHE_FLUSH(from, to) \
+	sys_icache_invalidate((char*)(from), (char*)(to) - (char*)(from))
+
+#elif (defined SLJIT_CONFIG_PPC_32 && SLJIT_CONFIG_PPC_32) || (defined SLJIT_CONFIG_PPC_64 && SLJIT_CONFIG_PPC_64)
 
 /* The __clear_cache() implementation of GCC is a dummy function on PowerPC. */
 #define SLJIT_CACHE_FLUSH(from, to) \
 	ppc_cache_flush((from), (to))
-
-#elif (defined SLJIT_CONFIG_X86_32 && SLJIT_CONFIG_X86_32) || (defined SLJIT_CONFIG_X86_64 && SLJIT_CONFIG_X86_64)
-
-/* Not required to implement on archs with unified caches. */
-#define SLJIT_CACHE_FLUSH(from, to)
 
 #else
 
@@ -335,14 +344,13 @@ typedef long int sljit_w;
 #ifndef SLJIT_SSE2
 
 #if (defined SLJIT_CONFIG_X86_32 && SLJIT_CONFIG_X86_32) || (defined SLJIT_CONFIG_X86_64 && SLJIT_CONFIG_X86_64)
-/* Turn on SSE2 support on x86 (operating on doubles).
-   (Better performance than legacy fpu instructions). */
+/* Turn on SSE2 support on x86. */
 #define SLJIT_SSE2 1
 
 #if (defined SLJIT_CONFIG_X86_32 && SLJIT_CONFIG_X86_32)
 /* Auto detect SSE2 support using CPUID.
    On 64 bit x86 cpus, sse2 must be present. */
-#define SLJIT_SSE2_AUTO 1
+#define SLJIT_DETECT_SSE2 1
 #endif
 
 #endif /* (defined SLJIT_CONFIG_X86_32 && SLJIT_CONFIG_X86_32) || (defined SLJIT_CONFIG_X86_64 && SLJIT_CONFIG_X86_64) */
