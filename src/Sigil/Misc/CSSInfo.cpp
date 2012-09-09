@@ -76,7 +76,7 @@ CSSInfo::CSSSelector* CSSInfo::getCSSSelectorForElementClass( const QString &ele
     }
     // try match on element name alone
     foreach(CSSInfo::CSSSelector *cssSelector, m_CSSSelectors) {
-        if (cssSelector->elementNames.contains(elementName)) {
+        if (cssSelector->elementNames.contains(elementName) && cssSelector->classNames.isEmpty()) {
             return cssSelector;
         }
     }
