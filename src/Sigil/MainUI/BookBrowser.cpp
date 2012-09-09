@@ -574,8 +574,46 @@ void BookBrowser::Export()
         return;
     }
 
+    // If only one file, let user rename it
+    if (resources.count() == 1) {
+        Resource *resource = resources.first();
+
+        QString save_path       = m_LastFolderExport + "/" + resource->Filename();
+        QString filter_string = "";
+        QString default_filter = "";
+
+        QString destination = QFileDialog::getSaveFileName( this,
+                                                         tr( "Export File" ),
+                                                         save_path,
+                                                         filter_string,
+                                                         &default_filter
+                                                       );
+
+        if (destination.isEmpty()) {
+            return;
+        }
+
+        // Store the folder the user saved to
+        m_LastFolderExport = QFileInfo(destination).absolutePath();
+
+       resource->SaveToDisk();
+
+        QString source = resource->GetFullPath();
+
+        if (QFileInfo(destination).exists()) {
+            QFile::remove(destination);
+        }
+
+        if (!QFile::copy(source, destination)) {
+            Utility::DisplayStdErrorDialog(tr( "Unable to export file."));
+        }
+
+        return;
+    }
+
+    // If more than one file, just save to a directory
     QString dirname = QFileDialog::getExistingDirectory(this,
-                        tr("Choose the directory to export file(s) to"),
+                        tr("Choose the directory to export the files to"),
                         m_LastFolderExport);
 
     if (dirname.isEmpty()) {
@@ -611,7 +649,7 @@ void BookBrowser::Export()
 
         if (QFileInfo(destination).exists()) {
             if (!QFileInfo(destination).isFile()) {
-                Utility::DisplayStdErrorDialog(tr( "Unable to export file(s).  Destination may be a directory."));
+                Utility::DisplayStdErrorDialog(tr( "Unable to export files.  Destination may be a directory."));
                 break;
             }
 
@@ -619,7 +657,7 @@ void BookBrowser::Export()
         }
 
         if (!QFile::copy(source, destination)) {
-            Utility::DisplayStdErrorDialog(tr( "Unable to export file(s)."));
+            Utility::DisplayStdErrorDialog(tr( "Unable to export files."));
             break;
         }
     }
