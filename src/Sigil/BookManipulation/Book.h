@@ -196,40 +196,26 @@ public:
      */
     Resource* PreviousResource( Resource *resource );
 
-    QHash<QString, QStringList> GetAllIdsInHTMLFiles();
-    static QStringList GetAllIdsInHTMLFile( HTMLResource* html_resource );
+    QHash<QString, QStringList> GetIdsInHTMLFiles();
+    static boost::tuple<QString, QStringList> GetIdsInHTMLFileMapped( HTMLResource* html_resource );
+    QStringList GetIdsInHTMLFile( HTMLResource* html_resource );
 
     QHash<QString, QStringList> GetClassesInHTMLFiles();
     static boost::tuple<QString, QStringList> GetClassesInHTMLFileMapped(HTMLResource *html_resource);
     QStringList GetClassesInHTMLFile(QString filename);
 
-    QSet<QString> GetUniqueWordsInAllHTML();
-    static QStringList GetAllWordsInHTMLFile(HTMLResource *html_resource);
+    QSet<QString> GetWordsInHTMLFiles();
+    static QStringList GetWordsInHTMLFileMapped(HTMLResource *html_resource);
 
-    /**
-     * Returns a hash listing the filename and all stylesheet names in the file
-     */
-    QHash<QString, QStringList> GetAllStylesheetNamesInHTML();
+    QHash<QString, QStringList> GetStylesheetsInHTMLFiles();
+    static boost::tuple<QString, QStringList> GetStylesheetsInHTMLFileMapped(HTMLResource *html_resource);
+    QStringList GetStylesheetsInHTMLFile(HTMLResource *html_resource);
 
-    /**
-     * Returns a hash listing the filename and all image names in the file
-     */
-    QHash<QString, QStringList> GetAllImageNamesInHTML();
-
-    /**
-     * Returns a hash listing every unique image name and the files that use it
-     */
-    QHash<QString, QStringList> GetAllImagesUsedByHTML();
-
-    /**
-     * Returns a list of all the image paths used in an img tag in one file
-     */
-
-    static QStringList GetAllImagePathsInHTMLFile(HTMLResource *html_resource);
+    QHash<QString, QStringList> GetImagesInHTMLFiles();
+    QHash<QString, QStringList> GetHTMLFilesUsingImages();
+    static boost::tuple<QString, QStringList> GetImagesInHTMLFileMapped(HTMLResource *html_resource);
 
     QHash<QString, int> CountAllLinksInHTML();
-    static QStringList GetAllLinkPathsInHTMLFileSub(HTMLResource *html_resource);
-    QStringList GetAllLinkPathsInHTMLFile(HTMLResource *html_resource);
 
     /**
      * Merges the second HTML resource into the first one

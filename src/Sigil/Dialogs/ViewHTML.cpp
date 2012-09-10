@@ -80,8 +80,8 @@ void ViewHTML::SetFiles(int sort_column, Qt::SortOrder sort_order)
     int total_images = 0;
     int total_stylesheets = 0;
 
-    QHash<QString, QStringList> stylesheet_names_hash = m_Book->GetAllStylesheetNamesInHTML();
-    QHash<QString, QStringList> image_names_hash = m_Book->GetAllImageNamesInHTML();
+    QHash<QString, QStringList> stylesheet_names_hash = m_Book->GetStylesheetsInHTMLFiles();
+    QHash<QString, QStringList> image_names_hash = m_Book->GetImagesInHTMLFiles();
 
     foreach (Resource *resource, m_HTMLResources) {
             HTMLResource *html_resource = qobject_cast<HTMLResource *>(resource);

@@ -53,9 +53,7 @@ void SelectId::SetList()
     qc->setCaseSensitivity(Qt::CaseSensitive);
     ui.id->setCompleter(qc);
 
-    QStringList ids = m_Book->GetAllIdsInHTMLFile(m_HTMLResource);
-    // First entry in list is the filename
-    ids.removeFirst();
+    QStringList ids = m_Book->GetIdsInHTMLFile(m_HTMLResource);
 
     foreach(QString id, ids) {
         ui.id->addItem(id);

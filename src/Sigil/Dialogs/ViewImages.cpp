@@ -82,7 +82,7 @@ void ViewImages::SetImages(int sort_column, Qt::SortOrder sort_order)
 
     double total_size = 0;
     int total_links = 0;
-    QHash<QString, QStringList> image_html_files_hash = m_Book->GetAllImagesUsedByHTML();
+    QHash<QString, QStringList> image_html_files_hash = m_Book->GetHTMLFilesUsingImages();
 
     foreach (Resource *resource, m_ImageResources) {
             QString filepath = "../" + resource->GetRelativePathToOEBPS();

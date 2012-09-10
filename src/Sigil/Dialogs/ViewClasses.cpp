@@ -113,7 +113,7 @@ QHash< QString, QList<ViewClasses::Selector *> > ViewClasses::CheckHTMLFiles()
         // Get the text and linked stylesheets for this file
         HTMLResource *html_type_resource = dynamic_cast<HTMLResource *>( html_resource );
         QString html_text = html_type_resource->GetText();
-        QStringList linked_stylesheets = m_Book->GetAllLinkPathsInHTMLFile(html_type_resource);
+        QStringList linked_stylesheets = m_Book->GetStylesheetsInHTMLFile(html_type_resource);
 
             // For each class check in the inline text and the linked stylesheets
         foreach (QString class_name, classes_in_file) {

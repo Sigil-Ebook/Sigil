@@ -61,7 +61,7 @@ void SelectHyperlink::SetList()
     ui.list->setModel(m_SelectHyperlinkModel);
 
     // Get the complete list of valid targets
-    QHash<QString, QStringList> id_names_hash = m_Book->GetAllIdsInHTMLFiles();
+    QHash<QString, QStringList> id_names_hash = m_Book->GetIdsInHTMLFiles();
 
     // Display filenames#ids in order starting with just filename
     foreach (Resource *resource, m_Resources) {

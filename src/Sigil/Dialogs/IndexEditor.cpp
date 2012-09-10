@@ -264,7 +264,7 @@ void IndexEditor::AutoFill()
         return;
     }
 
-    QSet<QString> unique_words = m_Book->GetUniqueWordsInAllHTML();
+    QSet<QString> unique_words = m_Book->GetWordsInHTMLFiles();
 
     // Display progress dialog
     QProgressDialog progress(QObject::tr("Automatically Filling Index..."), tr("Cancel"), 0, unique_words.count(), this);
