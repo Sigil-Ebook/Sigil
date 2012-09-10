@@ -42,6 +42,9 @@
 #include "SourceUpdates/UniversalUpdates.h"
 
 using boost::shared_ptr;
+using boost::make_tuple;
+using boost::tuple;
+using boost::tie;
 
 static const QString FIRST_CSS_NAME   = "Style0001.css";
 static const QString FIRST_SVG_NAME   = "Image0001.svg";
@@ -453,21 +456,21 @@ QStringList Book::GetAllIdsInHTMLFile( HTMLResource* html_resource )
     return data;
 }
 
-QHash<QString, QStringList> Book::GetAllClassesUsedInHTML()
+QHash<QString, QStringList> Book::GetClassesInHTMLFiles()
 {
     QHash<QString, QStringList> classes_in_html;
 
     const QList<HTMLResource*> html_resources = m_Mainfolder.GetResourceTypeList< HTMLResource >(false);
 
-    QFuture<QStringList> future = QtConcurrent::mapped(html_resources, GetAllClassesInHTML);
+    QFuture< tuple<QString, QStringList> > future = QtConcurrent::mapped(html_resources, GetClassesInHTMLFileMapped);
 
     for (int i = 0; i < future.results().count(); i++) {
-        QStringList result = future.resultAt(i);
-        QString filename = result.first();
-        result.removeFirst();
+        QString filename;
+        QStringList class_names;
+        tie(filename, class_names) = future.resultAt(i);
 
         // Each class entry has a list of filenames that contain it
-        foreach (QString class_name, result) {
+        foreach (QString class_name, class_names) {
             classes_in_html[class_name].append(filename);
         }
     }
@@ -475,13 +478,23 @@ QHash<QString, QStringList> Book::GetAllClassesUsedInHTML()
     return classes_in_html;
 }
 
-QStringList Book::GetAllClassesInHTML(HTMLResource *html_resource)
+tuple<QString, QStringList> Book::GetClassesInHTMLFileMapped(HTMLResource *html_resource)
 {
-    QStringList data;
-    data.append(html_resource->Filename());
-    data.append(XhtmlDoc::GetAllDescendantClasses(*XhtmlDoc::LoadTextIntoDocument(html_resource->GetText()).get()->getDocumentElement()));
+    return make_tuple(html_resource->Filename(), 
+            XhtmlDoc::GetAllDescendantClasses(*XhtmlDoc::LoadTextIntoDocument(html_resource->GetText()).get()->getDocumentElement()));
+}
 
-    return data;
+QStringList Book::GetClassesInHTMLFile(QString filename)
+{
+    QList<HTMLResource*> html_resources = m_Mainfolder.GetResourceTypeList< HTMLResource >(true);
+
+    foreach (HTMLResource *html_resource, html_resources) {
+        if (html_resource->Filename() == filename) {
+            return XhtmlDoc::GetAllDescendantClasses(*XhtmlDoc::LoadTextIntoDocument(html_resource->GetText()).get()->getDocumentElement());
+        }
+    }
+
+    return QStringList();
 }
 
 QHash<QString, QStringList> Book::GetAllImageNamesInHTML()
@@ -539,7 +552,7 @@ QHash<QString, QStringList> Book::GetAllStylesheetNamesInHTML()
 
     const QList<HTMLResource*> html_resources = m_Mainfolder.GetResourceTypeList< HTMLResource >(false);
 
-    QFuture<QStringList> future = QtConcurrent::mapped(html_resources, GetAllLinkPathsInHTMLFile);
+    QFuture<QStringList> future = QtConcurrent::mapped(html_resources, GetAllLinkPathsInHTMLFileSub);
 
     for (int i = 0; i < future.results().count(); i++) {
         QStringList result = future.resultAt(i);
@@ -551,12 +564,17 @@ QHash<QString, QStringList> Book::GetAllStylesheetNamesInHTML()
     return links_in_html;
 }
 
-QStringList Book::GetAllLinkPathsInHTMLFile(HTMLResource *html_resource)
+QStringList Book::GetAllLinkPathsInHTMLFileSub(HTMLResource *html_resource)
 {
     QStringList data;
     data.append(html_resource->Filename());
     data.append(XhtmlDoc::GetLinkedStylesheets(html_resource->GetText()));
     return data;
+}
+
+QStringList Book::GetAllLinkPathsInHTMLFile(HTMLResource *html_resource)
+{
+    return XhtmlDoc::GetLinkedStylesheets(html_resource->GetText());
 }
 
 QHash<QString, QStringList> Book::GetAllImagesUsedByHTML()

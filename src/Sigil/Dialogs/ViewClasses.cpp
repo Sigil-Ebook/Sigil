@@ -26,16 +26,18 @@
 
 #include "Dialogs/ViewClasses.h"
 #include "Misc/NumericItem.h"
+#include "Misc/CSSInfo.h"
 #include "ResourceObjects/HTMLResource.h"
+#include "ResourceObjects/CSSResource.h"
 #include "Misc/SettingsStore.h"
-
-static const int COL_NAME = 0;
 
 static QString SETTINGS_GROUP = "view_classes_files";
 
-ViewClasses::ViewClasses(QSharedPointer< Book > book, QWidget *parent)
+ViewClasses::ViewClasses(QList<Resource *>css_resources, QList<Resource *>html_resources, QSharedPointer< Book > book, QWidget *parent)
     :
     QDialog(parent),
+    m_CSSResources(css_resources),
+    m_HTMLResources(html_resources),
     m_Book(book),
     m_ViewClassesModel(new QStandardItemModel),
     m_SelectedFile(QString())
@@ -45,90 +47,209 @@ ViewClasses::ViewClasses(QSharedPointer< Book > book, QWidget *parent)
 
     ReadSettings();
 
-    SetFiles();
+    SetupTable();
+    QHash< QString, QList<ViewClasses::Selector *> > css_selectors = CheckHTMLFiles();
+    CheckCSSFiles(css_selectors);
+
+    for (int i = 0; i < ui.fileTree->header()->count(); i++) {
+        ui.fileTree->resizeColumnToContents(i);
+    }
+
 }
 
-void ViewClasses::SetFiles(int sort_column, Qt::SortOrder sort_order)
+void ViewClasses::SetupTable()
 {
     m_ViewClassesModel->clear();
 
     QStringList header;
 
+    header.append(tr("File"));
+    header.append(tr("Element"));
     header.append(tr("Class"));
-    header.append(tr("Times Used"));
+    header.append(tr("Selector"));
+    header.append(tr("Found In"));
 
     m_ViewClassesModel->setHorizontalHeaderLabels(header);
 
     ui.fileTree->setSelectionBehavior(QAbstractItemView::SelectRows);
-
     ui.fileTree->setModel(m_ViewClassesModel);
-
     ui.fileTree->header()->setSortIndicatorShown(true);
 
-    int total_classes = 0;
+    ui.fileTree->header()->setToolTip(
+        tr("<p>This report lists classes used in HTML files and whether or not the element.class appears to match a selector in an Inline Style or a linked CSS stylesheet.</p>") %
+        tr("<p>The report also lists selectors found in CSS files and if they were matched by a class used in an HTML file.</p>") %
+        tr("<p>WARNING:</p>") %
+        tr("<p>Due to the complexities of CSS selectors you must check your code manually to be certain if a selector is used or not.</p>")
+        );
+}
 
-    QHash<QString, QStringList> class_names_hash = m_Book->GetAllClassesUsedInHTML();
-    QHashIterator<QString, QStringList> iterator(class_names_hash);
+QHash< QString, QList<ViewClasses::Selector *> > ViewClasses::CheckHTMLFiles()
+{
+    QHash< QString, QList<ViewClasses::Selector *> > css_selectors;
 
-    while (iterator.hasNext()) {
-            iterator.next();
-            QString class_name = iterator.key();
-            QStringList class_names = iterator.value();
+    // Get classes found in all HTML files
+    QHash<QString, QStringList> class_names_hash = m_Book->GetClassesInHTMLFiles();
+    QHashIterator<QString, QStringList> class_name_iterator(class_names_hash);
+
+    // Save the text for each stylesheet in the EPUB
+    QList<Resource *> css_named_resources;
+    QHash<QString, QString> css_names_to_text;
+    foreach (Resource *resource, m_CSSResources) {
+        QString filename = "../" + resource->GetRelativePathToOEBPS();
+        if (!css_names_to_text.contains(filename)) {
+            CSSResource *css_resource = dynamic_cast<CSSResource *>( resource );
+            css_names_to_text[filename] = css_resource->GetText();
+        }
+    }
+
+    // Check each file for classes to look for in inline and linked stylesheets
+    foreach (Resource *html_resource, m_HTMLResources) {
+        QString html_filename = html_resource->Filename();
+
+        // Get the unique list of classes in this file
+        QStringList classes_in_file = m_Book->GetClassesInHTMLFile(html_filename);    
+        classes_in_file.removeDuplicates();
+
+        // Get the text and linked stylesheets for this file
+        HTMLResource *html_type_resource = dynamic_cast<HTMLResource *>( html_resource );
+        QString html_text = html_type_resource->GetText();
+        QStringList linked_stylesheets = m_Book->GetAllLinkPathsInHTMLFile(html_type_resource);
+
+            // For each class check in the inline text and the linked stylesheets
+        foreach (QString class_name, classes_in_file) {
+            QString found_location;
+            QString selector_text;
+            QString element_part = class_name.split(".").at(0);
+            QString class_part = class_name.split(".").at(1);
+
+            // Check inline styles
+            CSSInfo css_info(html_text, false);
+            CSSInfo::CSSSelector* selector = css_info.getCSSSelectorForElementClass( element_part, class_part); 
+            if (selector && (selector->classNames.count() > 0)) {
+                found_location = "INLINE";
+                selector_text = selector->originalText;
+            }
+
+            // Check in stylesheets if not inline
+            if (found_location.isEmpty()) {
+                foreach (QString stylesheet_filename, linked_stylesheets) {
+                    if (css_names_to_text.contains(stylesheet_filename)) {
+                        CSSInfo css_info(css_names_to_text[stylesheet_filename], true);
+                        CSSInfo::CSSSelector* selector = css_info.getCSSSelectorForElementClass( element_part, class_part); 
+                        if (selector && (selector->classNames.count() > 0)) {
+                            found_location = stylesheet_filename;
+                            // Record the matched information to use later when checking CSS file
+                            ViewClasses::Selector *selector_info = new ViewClasses::Selector();
+                            selector_text = selector->originalText;
+                            selector_info->css_selector_text = selector_text;
+                            selector_info->css_position = selector->position;
+                            selector_info->html_filename = "../" + html_resource->GetRelativePathToOEBPS();
+                            css_selectors[stylesheet_filename].append(selector_info);
+                            break;
+                        }
+                    }
+                }
+            }
+
+            // Write the table entries
 
             QList<QStandardItem *> rowItems;
 
-            // Class name
-            QStandardItem *name_item = new QStandardItem();
-            name_item->setText(class_name);
-            rowItems << name_item;
+            // File name
+            QStandardItem *filename_item = new QStandardItem();
+            filename_item->setText(html_filename);
+            rowItems << filename_item;
 
-            // Times Used
-            NumericItem *count_item = new NumericItem();
-            count_item->setText(QString::number(class_names.count()));
-            total_classes += class_names.count();
-            if (!class_names.isEmpty()) {
-                class_names.removeDuplicates();
-                count_item->setToolTip(class_names.join("\n"));
-            }
-            rowItems << count_item;
+            // Element name
+            QStandardItem *element_name_item = new QStandardItem();
+            element_name_item->setText(element_part);
+            rowItems << element_name_item;
+
+            // Class name
+            QStandardItem *class_name_item = new QStandardItem();
+            class_name_item->setText(class_part);
+            rowItems << class_name_item;
+
+            // Selector
+            QStandardItem *selector_text_item = new QStandardItem();
+            selector_text_item->setText(selector_text);
+            rowItems << selector_text_item;
+
+            // Found in
+            QStandardItem *found_in_item = new QStandardItem();
+            found_in_item->setText(found_location);
+            rowItems << found_in_item;
 
             for (int i = 0; i < rowItems.count(); i++) {
                 rowItems[i]->setEditable(false);
             }
+
             m_ViewClassesModel->appendRow(rowItems);
+        }
     }
 
-    // Sort before adding the totals row
-    // Since sortIndicator calls this routine, must disconnect/reconnect while resorting
-    disconnect (ui.fileTree->header(), SIGNAL(sortIndicatorChanged(int, Qt::SortOrder)), this, SLOT(Sort(int, Qt::SortOrder)));
-    ui.fileTree->header()->setSortIndicator(sort_column, sort_order);
-    connect (ui.fileTree->header(), SIGNAL(sortIndicatorChanged(int, Qt::SortOrder)), this, SLOT(Sort(int, Qt::SortOrder)));
+    return css_selectors;
+}
 
-    // Totals
-    NumericItem *nitem;
-    QList<QStandardItem *> rowItems;
+void ViewClasses::CheckCSSFiles(QHash< QString, QList<ViewClasses::Selector *> > css_selectors)
+{
+    // Now check the CSS files to see if their classes appear in an HTML file
+    foreach (Resource *resource, m_CSSResources) {
+        CSSResource *css_resource = dynamic_cast<CSSResource *>( resource );
+        QString text = css_resource->GetText();
+        CSSInfo css_info(text, true);
+        QList<CSSInfo::CSSSelector*> selectors = css_info.getClassSelectors();
 
-    // Files
-    nitem = new NumericItem();
-    nitem->setText(QString::number(m_ViewClassesModel->rowCount()) % tr(" classes"));
-    rowItems << nitem;
+        foreach (CSSInfo::CSSSelector *selector, selectors) {
+            QString filename = "../" + resource->GetRelativePathToOEBPS();
 
-    // Times Used
-    nitem = new NumericItem();
-    nitem->setText(QString::number(total_classes));
-    rowItems << nitem;
+            QString selector_text = selector->originalText;
+            QString found_location;
 
-    QFont font = *new QFont();
-    font.setWeight(QFont::Bold);
-    for (int i = 0; i < rowItems.count(); i++) {
-        rowItems[i]->setEditable(false);
-        rowItems[i]->setFont(font);
-    }
+            if (css_selectors.contains(filename)) {
+                foreach (ViewClasses::Selector *selector_info, css_selectors[filename]) {
+                    if (selector_info->css_position == selector->position) {
+                        found_location = selector_info->html_filename;
+                        break;
+                    }
+                }
+            }
 
-    m_ViewClassesModel->appendRow(rowItems);
+            // Write the table entries
 
-    for (int i = 0; i < ui.fileTree->header()->count(); i++) {
-        ui.fileTree->resizeColumnToContents(i);
+            QList<QStandardItem *> rowItems;
+
+            // File name
+            QStandardItem *filename_item = new QStandardItem();
+            filename_item->setText(css_resource->Filename());
+            rowItems << filename_item;
+
+            // Element name is blank since anything could have matched
+            QStandardItem *element_name_item = new QStandardItem();
+            element_name_item->setText("");
+            rowItems << element_name_item;
+
+            // Class name is blank since anything could have matched
+            QStandardItem *class_name_item = new QStandardItem();
+            class_name_item->setText("");
+            rowItems << class_name_item;
+
+            // Selector
+            QStandardItem *selector_text_item = new QStandardItem();
+            selector_text_item->setText(selector_text);
+            rowItems << selector_text_item;
+
+            // Found in
+            QStandardItem *found_in_item = new QStandardItem();
+            found_in_item->setText(found_location);
+            rowItems << found_in_item;
+
+            for (int i = 0; i < rowItems.count(); i++) {
+                rowItems[i]->setEditable(false);
+            }
+
+            m_ViewClassesModel->appendRow(rowItems);
+        }
     }
 }
 
@@ -143,7 +264,10 @@ void ViewClasses::FilterEditTextChangedSlot(const QString &text)
     // Hide rows that don't contain the filter text
     int first_visible_row = -1;
     for (int row = 0; row < root_item->rowCount(); row++) {
-        if (text.isEmpty() || root_item->child(row, COL_NAME)->text().toLower().contains(lowercaseText)) {
+        if (text.isEmpty() || root_item->child(row, 0)->text().toLower().contains(lowercaseText) ||
+                              root_item->child(row, 1)->text().toLower().contains(lowercaseText) ||
+                              root_item->child(row, 2)->text().toLower().contains(lowercaseText) ||
+                              root_item->child(row, 3)->text().toLower().contains(lowercaseText)) {
             ui.fileTree->setRowHidden(row, parent_index, false);
             if (first_visible_row == -1) {
                 first_visible_row = row;
@@ -164,11 +288,6 @@ void ViewClasses::FilterEditTextChangedSlot(const QString &text)
     }
 }
 
-void ViewClasses::Sort(int logicalindex, Qt::SortOrder order)
-{
-    SetFiles(logicalindex, order);
-}
-
 QString ViewClasses::SelectedFile()
 {
     return m_SelectedFile;
@@ -177,11 +296,9 @@ QString ViewClasses::SelectedFile()
 void ViewClasses::SetSelectedFile()
 {
     if (m_SelectedFile.isEmpty() && ui.fileTree->selectionModel()->hasSelection()) {
-        QModelIndex index = ui.fileTree->selectionModel()->selectedRows(1).first();
+        QModelIndex index = ui.fileTree->selectionModel()->selectedRows(0).first();
         if (index.row() != m_ViewClassesModel->rowCount() - 1) {
-            QString filenames = m_ViewClassesModel->itemFromIndex(index)->toolTip();
-            // Return the first file that includes the class, not the class name
-            m_SelectedFile = filenames.left(filenames.indexOf("\n"));
+            m_SelectedFile = m_ViewClassesModel->itemFromIndex(index)->text();
         }
     }
 }
@@ -222,5 +339,4 @@ void ViewClasses::connectSignalsSlots()
             this,         SLOT(FilterEditTextChangedSlot(QString)));
     connect (ui.fileTree, SIGNAL(doubleClicked(const QModelIndex &)),
             this,         SLOT(accept()));
-    connect (ui.fileTree->header(), SIGNAL(sortIndicatorChanged(int, Qt::SortOrder)), this, SLOT(Sort(int, Qt::SortOrder)));
 }

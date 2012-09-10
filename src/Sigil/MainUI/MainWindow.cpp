@@ -196,7 +196,7 @@ ContentTab& MainWindow::GetCurrentContentTab()
 
 void MainWindow::OpenFilename( QString filename )
 {
-    QList<Resource *> resources = m_BookBrowser->AllImageResources() + m_BookBrowser->AllHTMLResources();
+    QList<Resource *> resources = m_BookBrowser->AllImageResources() + m_BookBrowser->AllHTMLResources() + m_BookBrowser->AllCSSResources();
     foreach (Resource *resource, resources) {
         if (resource->Filename() == filename) {
             OpenResource(*resource);
@@ -689,7 +689,10 @@ void MainWindow::ZoomReset()
 
 void MainWindow::ViewClassesUsedInHTML()
 {
-    ViewClasses view_classes(m_Book, this);
+    QList<Resource *> css_resources = m_BookBrowser->AllCSSResources();
+    QList<Resource *> html_resources = m_BookBrowser->AllHTMLResources();
+
+    ViewClasses view_classes(css_resources, html_resources, m_Book, this);
 
     if (view_classes.exec() == QDialog::Accepted) {
         OpenFilename(view_classes.SelectedFile());

@@ -139,6 +139,7 @@ void CSSInfo::parseCSSSelectors( const QString &text, const int &offsetLines, co
         foreach (QString match, matches) {
             CSSSelector *selector = new CSSSelector();
 
+            selector->originalText = selector_text;
             selector->position = pos + offsetPos;
             selector->line = line + offsetLines;
             selector->isGroup = matches.length() > 1;

@@ -42,24 +42,33 @@ class ViewClasses : public QDialog
     Q_OBJECT
 
 public:
-    ViewClasses(QSharedPointer<Book> book, QWidget *parent = 0);
-
-    void SetFiles(int sort_column = 1, Qt::SortOrder sort_order = Qt::AscendingOrder);
+    ViewClasses(QList<Resource *> css_resources, QList<Resource *> html_resources, QSharedPointer<Book> book, QWidget *parent = 0);
 
     QString SelectedFile();
 
 private slots:
-    void Sort(int logicalindex, Qt::SortOrder order);
-
     void FilterEditTextChangedSlot(const QString &text);
 
     void WriteSettings();
 
 private:
+    struct Selector {
+        int css_position;
+        QString css_selector_text;
+        QString html_filename;
+    };
+
     void SetSelectedFile();
 
     void ReadSettings();
     void connectSignalsSlots();
+
+    void SetupTable();
+    QHash< QString, QList<ViewClasses::Selector *> > CheckHTMLFiles();
+    void CheckCSSFiles(QHash< QString, QList<ViewClasses::Selector *> > css_selectors);
+
+    QList<Resource *> m_CSSResources;
+    QList<Resource *> m_HTMLResources;
 
     QSharedPointer< Book > m_Book;
 

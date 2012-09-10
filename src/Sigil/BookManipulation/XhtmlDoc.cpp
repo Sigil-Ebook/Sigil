@@ -328,9 +328,12 @@ QList<QString> XhtmlDoc::GetAllDescendantClasses(const xc::DOMNode &node)
 
     QList< QString > classes;
 
+    QString element_name = GetNodeName(*element);
     if (element->hasAttribute(QtoX( "class" ))) {
         QString class_values = XtoQ( element->getAttribute(QtoX("class")));
-        classes.append(class_values.split(" "));
+        foreach (QString class_name, class_values.split(" ")) {
+            classes.append(element_name + "." + class_name);
+        }
     }
     
     if (node.hasChildNodes()) {

@@ -1078,7 +1078,7 @@ void BookBrowser::CreateContextMenuActions()
     m_SortHTML                = new QAction( tr( "Sort" ),                  this );
     m_RefreshTOC              = new QAction( tr( "Renumber TOC Entries" ),  this );
     m_LinkStylesheets         = new QAction( tr( "Link Stylesheets..." ),   this );
-    m_Export                  = new QAction( tr( "Export" ),                this );
+    m_Export                  = new QAction( tr( "Export..." ),             this );
     m_InsertImages            = new QAction( tr( "Insert" ),                this );
 
     m_CoverImage             ->setCheckable( true );  

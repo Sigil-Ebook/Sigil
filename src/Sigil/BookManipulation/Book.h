@@ -23,6 +23,8 @@
 #ifndef BOOK_H
 #define BOOK_H
 
+#include <boost/tuple/tuple.hpp>
+
 #include <QtCore/QHash>
 #include <QtCore/QObject>
 #include <QtCore/QUrl>
@@ -197,8 +199,9 @@ public:
     QHash<QString, QStringList> GetAllIdsInHTMLFiles();
     static QStringList GetAllIdsInHTMLFile( HTMLResource* html_resource );
 
-    QHash<QString, QStringList> GetAllClassesUsedInHTML();
-    static QStringList GetAllClassesInHTML(HTMLResource *html_resource);
+    QHash<QString, QStringList> GetClassesInHTMLFiles();
+    static boost::tuple<QString, QStringList> GetClassesInHTMLFileMapped(HTMLResource *html_resource);
+    QStringList GetClassesInHTMLFile(QString filename);
 
     QSet<QString> GetUniqueWordsInAllHTML();
     static QStringList GetAllWordsInHTMLFile(HTMLResource *html_resource);
@@ -225,7 +228,8 @@ public:
     static QStringList GetAllImagePathsInHTMLFile(HTMLResource *html_resource);
 
     QHash<QString, int> CountAllLinksInHTML();
-    static QStringList GetAllLinkPathsInHTMLFile(HTMLResource *html_resource);
+    static QStringList GetAllLinkPathsInHTMLFileSub(HTMLResource *html_resource);
+    QStringList GetAllLinkPathsInHTMLFile(HTMLResource *html_resource);
 
     /**
      * Merges the second HTML resource into the first one

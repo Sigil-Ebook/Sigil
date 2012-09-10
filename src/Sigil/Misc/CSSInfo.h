@@ -43,6 +43,7 @@ public:
 
     struct CSSSelector
     {
+        QString originalText;       /* The original text of the complete selector                  */
         QStringList classNames;     /* The classname(s) (stripped of periods) if a class selector  */
         QStringList elementNames;   /* The element names (stripped of any ids/attributes)          */
         int line;                   /* For convenience of navigation, the line# selector is on     */
@@ -60,7 +61,7 @@ public:
     /**
      * Search for a line position for a tag element name and an optional 
      * class name for the style.
-     * Looks in order of: elementName.style, .style, elementName
+     * Looks in order of: elementName.style, .style
      */
     CSSSelector* getCSSSelectorForElementClass( const QString &elementName, const QString &className );
 
