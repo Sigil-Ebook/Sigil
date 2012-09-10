@@ -148,6 +148,10 @@ QList <Resource* > OPFModel::GetResourceListInFolder( Resource::ResourceType res
     {
         folder = &m_TextFolderItem;
     }
+    else if ( resource_type == Resource::CSSResourceType )
+    {
+        folder = &m_StylesFolderItem;
+    }
     else if ( resource_type == Resource::ImageResourceType || resource_type == Resource::SVGResourceType )
     {
         folder = &m_ImagesFolderItem;
