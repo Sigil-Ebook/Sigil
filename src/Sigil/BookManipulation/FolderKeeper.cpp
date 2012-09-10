@@ -49,7 +49,7 @@ const QRegExp FILE_EXCEPTIONS ( "META-INF|page-map" );
 
 const QStringList FONT_EXTENSIONS         = QStringList() << "ttf"   << "ttc"   << "otf";
 const QStringList TEXT_EXTENSIONS         = QStringList() << "xhtml" << "html"  << "htm" << "xml";
-static const QStringList STYLE_EXTENSIONS = QStringList() << "css"   << "xpgt";
+static const QStringList STYLE_EXTENSIONS = QStringList() << "css";
 
 const QString IMAGE_FOLDER_NAME = "Images";
 const QString FONT_FOLDER_NAME  = "Fonts";
@@ -197,10 +197,6 @@ Resource& FolderKeeper::AddContentFileToFolder( const QString &fullfilepath,
             if ( extension == "css" )
 
                 resource = new CSSResource( new_file_path );
-
-            else
-
-                resource = new XPGTResource( new_file_path );
         }
 
         else

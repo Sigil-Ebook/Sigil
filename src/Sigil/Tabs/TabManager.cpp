@@ -23,7 +23,6 @@
 #include "ResourceObjects/CSSResource.h"
 #include "ResourceObjects/OPFResource.h"
 #include "ResourceObjects/NCXResource.h"
-#include "ResourceObjects/XPGTResource.h"
 #include "ResourceObjects/HTMLResource.h"
 #include "ResourceObjects/ImageResource.h"
 #include "ResourceObjects/SVGResource.h"
@@ -35,7 +34,6 @@
 #include "Tabs/OPFTab.h"
 #include "Tabs/TabManager.h"
 #include "Tabs/WellFormedContent.h"
-#include "Tabs/XPGTTab.h"
 #include "Tabs/TabBar.h"
 
 TabManager::TabManager( QWidget *parent )
@@ -549,12 +547,6 @@ ContentTab* TabManager::CreateTabForResource( Resource& resource,
     case Resource::CSSResourceType:
         {
             tab = new CSSTab( *( qobject_cast< CSSResource* >( &resource ) ), line_to_scroll_to, this );
-            break;
-        }
-
-    case Resource::XPGTResourceType:
-        {
-            tab = new XPGTTab( *( qobject_cast< XPGTResource* >( &resource ) ), line_to_scroll_to, this );
             break;
         }
 

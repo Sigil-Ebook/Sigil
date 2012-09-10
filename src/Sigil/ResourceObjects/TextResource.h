@@ -30,7 +30,7 @@
 class QTextDocument;
 
 /**
- * A parent class for textual resources like CSS and XPGT stylesheets or SVG.
+ * A parent class for textual resources like CSS and SVG images.
  * Takes care of loading and caching content etc.
  */
 class TextResource : public Resource

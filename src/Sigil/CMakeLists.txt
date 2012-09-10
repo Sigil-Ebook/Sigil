@@ -73,7 +73,6 @@ set( QOBJECT_HEADERS
     Tabs/CSSTab.h 
     Tabs/ImageTab.h
     Tabs/SVGTab.h
-    Tabs/XPGTTab.h
     Tabs/OPFTab.h
     Tabs/NCXTab.h
     Tabs/WellFormedCheckComponent.h
@@ -103,7 +102,6 @@ set( QOBJECT_HEADERS
     ResourceObjects/TextResource.h
     ResourceObjects/HTMLResource.h
     ResourceObjects/CSSResource.h
-    ResourceObjects/XPGTResource.h
     ResourceObjects/ImageResource.h
     ResourceObjects/SVGResource.h
     ResourceObjects/FontResource.h
@@ -153,8 +151,6 @@ set( RESOURCE_OBJECT_FILES
     ResourceObjects/HTMLResource.h
     ResourceObjects/CSSResource.cpp
     ResourceObjects/CSSResource.h
-    ResourceObjects/XPGTResource.cpp
-    ResourceObjects/XPGTResource.h
     ResourceObjects/ImageResource.cpp
     ResourceObjects/ImageResource.h
     ResourceObjects/SVGResource.cpp
@@ -374,8 +370,6 @@ set( TAB_FILES
     Tabs/TextTab.h
     Tabs/CSSTab.cpp
     Tabs/CSSTab.h
-    Tabs/XPGTTab.cpp
-    Tabs/XPGTTab.h
     Tabs/ImageTab.cpp
     Tabs/ImageTab.h
     Tabs/SVGTab.cpp

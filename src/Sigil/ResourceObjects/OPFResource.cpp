@@ -1466,9 +1466,6 @@ void OPFResource::CreateMimetypes()
     m_Mimetypes[ "htm"   ] = "application/xhtml+xml"; 
     m_Mimetypes[ "css"   ] = "text/css"; 
 
-    // Hopefully we won't get a lot of these
-    m_Mimetypes[ "xpgt"  ] = "application/vnd.adobe-page-template+xml"; 
-
     // Until the standards gods grace us with font mimetypes,
     // these will have to do
     m_Mimetypes[ "otf"   ] = "application/vnd.ms-opentype"; 

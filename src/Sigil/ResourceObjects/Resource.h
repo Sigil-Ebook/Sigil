@@ -57,7 +57,6 @@ public:
         XMLResourceType,     /**< Used for Text resources, but \em not HTML files. */
         HTMLResourceType,    /**< Used for pure (X)HTML resources. */
         CSSResourceType,     /**< Used for CSS resources (stylesheets). */
-        XPGTResourceType,    /**< Used for XPGT resources. */
         ImageResourceType,   /**< Used for image resource, of all types. */
         SVGResourceType,     /**< Used for SVG image resources. */
         FontResourceType,    /**< Used for font resources, both TTF and OTF. */

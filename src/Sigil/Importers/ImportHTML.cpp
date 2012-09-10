@@ -249,9 +249,7 @@ QHash< QString, QString > ImportHTML::LoadStyleFiles( const xc::DOMDocument *doc
 
         QFileInfo file_info( folder, relative_path );
 
-        if ( file_info.suffix().toLower() == "css" ||
-             file_info.suffix().toLower() == "xpgt"
-           )
+        if ( file_info.suffix().toLower() == "css" )
         {
             try
             {

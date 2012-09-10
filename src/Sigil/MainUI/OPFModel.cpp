@@ -148,10 +148,6 @@ QList <Resource* > OPFModel::GetResourceListInFolder( Resource::ResourceType res
     {
         folder = &m_TextFolderItem;
     }
-    else if ( resource_type == Resource::CSSResourceType  || resource_type == Resource::XPGTResourceType )
-    {
-        folder = &m_StylesFolderItem;
-    }
     else if ( resource_type == Resource::ImageResourceType || resource_type == Resource::SVGResourceType )
     {
         folder = &m_ImagesFolderItem;
@@ -200,7 +196,7 @@ QModelIndex OPFModel::GetModelItemIndex( Resource &resource, IndexChoice indexCh
                  (child == &m_ImagesFolderItem &&
                     ( resourceType == Resource::ImageResourceType || resourceType == Resource::SVGResourceType ) ) ||
                  (child == &m_StylesFolderItem && 
-                    ( resourceType == Resource::CSSResourceType || resourceType == Resource::XPGTResourceType ) ) ||
+                    ( resourceType == Resource::CSSResourceType ) ) ||
                  (child == &m_FontsFolderItem && resourceType == Resource::FontResourceType ) ||
                  (child == &m_MiscFolderItem && resourceType == Resource::GenericResourceType ))
             {
@@ -412,9 +408,7 @@ void OPFModel::InitializeModel()
             m_TextFolderItem.appendRow( item );
         }
 
-        else if ( resource->Type() == Resource::CSSResourceType || 
-                  resource->Type() == Resource::XPGTResourceType 
-                )
+        else if ( resource->Type() == Resource::CSSResourceType )
         {
             item->setDragEnabled(false);
             m_StylesFolderItem.appendRow( item );
