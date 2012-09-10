@@ -243,9 +243,10 @@ void TextTab::ConnectSignalsToSlots()
     connect( &m_wCodeView, SIGNAL( FocusLost( QWidget* ) ),      this, SLOT( SaveTabContent( QWidget* ) ) );
 
     connect( &m_wCodeView, SIGNAL( FilteredTextChanged() ),      this, SIGNAL( ContentChanged() )           );
-    connect(&m_wCodeView, SIGNAL(cursorPositionChanged()), this, SLOT(EmitUpdateCursorPosition()));
+    connect( &m_wCodeView, SIGNAL( cursorPositionChanged()),     this, SLOT(EmitUpdateCursorPosition()));
     connect( &m_wCodeView, SIGNAL( ZoomFactorChanged( float ) ), this, SIGNAL( ZoomFactorChanged( float ) ) );
     connect( &m_wCodeView, SIGNAL( selectionChanged() ),         this, SIGNAL( SelectionChanged() )         );
+    connect( &m_wCodeView, SIGNAL(OpenClipEditorRequest(ClipEditorModel::clipEntry *)), this, SIGNAL(OpenClipEditorRequest(ClipEditorModel::clipEntry *)));
 }
 
 

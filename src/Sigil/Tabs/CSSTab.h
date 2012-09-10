@@ -35,6 +35,9 @@ public:
 
     CSSTab( CSSResource& resource, int line_to_scroll_to = -1, QWidget *parent = 0 );
 
+signals:
+    void OpenClipEditorRequest(ClipEditorModel::clipEntry *clip);
+
 public slots:
 
     void Bold();

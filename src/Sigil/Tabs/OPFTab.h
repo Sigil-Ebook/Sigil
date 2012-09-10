@@ -23,6 +23,7 @@
 #ifndef OPFTAB_H
 #define OPFTAB_H
 
+#include "MiscEditors/ClipEditorModel.h"
 #include "Tabs/XMLTab.h"
 
 class OPFResource;
@@ -36,6 +37,9 @@ public:
     OPFTab( OPFResource& resource, int line_to_scroll_to = -1, QWidget *parent = 0 );
 
     void AutoFixWellFormedErrors();
+
+signals:
+    void OpenClipEditorRequest(ClipEditorModel::clipEntry *clip);
 
 private:
 

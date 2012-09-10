@@ -107,6 +107,8 @@ signals:
 
     void SelectionChanged();
 
+    void OpenClipEditorRequest(ClipEditorModel::clipEntry *clip);
+
 protected slots:
 
     void SaveTabContent();

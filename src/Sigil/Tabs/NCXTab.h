@@ -23,6 +23,7 @@
 #ifndef NCXTAB_H
 #define NCXTAB_H
 
+#include "MiscEditors/ClipEditorModel.h"
 #include "Tabs/XMLTab.h"
 
 class NCXResource;
@@ -35,6 +36,8 @@ public:
 
     NCXTab( NCXResource& resource, int line_to_scroll_to = -1, QWidget *parent = 0 );
 
+signals:
+    void OpenClipEditorRequest(ClipEditorModel::clipEntry *clip);
 };
 
 #endif // NCXTAB_H

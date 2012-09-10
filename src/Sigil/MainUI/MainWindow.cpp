@@ -3514,6 +3514,9 @@ void MainWindow::MakeTabConnections( ContentTab *tab )
         connect( ui.actionCopy,                     SIGNAL( triggered() ),  tab,   SLOT( Copy()                     ) );
         connect( ui.actionPaste,                    SIGNAL( triggered() ),  tab,   SLOT( Paste()                    ) );
         connect( m_ClipboardHistorySelector,        SIGNAL( PasteFromClipboardRequest() ), tab, SLOT( Paste()       ) );
+
+        connect( tab,   SIGNAL( OpenClipEditorRequest(ClipEditorModel::clipEntry *) ),
+                 this,  SLOT (  ClipEditorDialog( ClipEditorModel::clipEntry * ) ) );
     }
 
     if (tab->GetLoadedResource().Type() == Resource::HTMLResourceType ||
@@ -3567,9 +3570,6 @@ void MainWindow::MakeTabConnections( ContentTab *tab )
         connect( tab,   SIGNAL( EnteringBookView() ),           this,          SLOT( UpdateZoomControls()      ) );
         connect( tab,   SIGNAL( EnteringBookPreview() ),        this,          SLOT( UpdateZoomControls() ) );
         connect( tab,   SIGNAL( EnteringCodeView() ),           this,          SLOT( UpdateZoomControls()      ) );
-
-        connect( tab,   SIGNAL( OpenClipEditorRequest(ClipEditorModel::clipEntry *) ),
-                 this,  SLOT (  ClipEditorDialog( ClipEditorModel::clipEntry * ) ) );
 
         connect( tab,   SIGNAL( OpenIndexEditorRequest(IndexEditorModel::indexEntry *) ),
                  this,  SLOT (  IndexEditorDialog( IndexEditorModel::indexEntry * ) ) );

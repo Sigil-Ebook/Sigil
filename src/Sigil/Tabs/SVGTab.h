@@ -23,6 +23,7 @@
 #ifndef SVGTAB_H
 #define SVGTAB_H
 
+#include "MiscEditors/ClipEditorModel.h"
 #include "Tabs/TextTab.h"
 #include "ViewEditors/CodeViewEditor.h"
 
@@ -33,8 +34,10 @@ class SVGTab : public TextTab
     Q_OBJECT
 
 public:
-
     SVGTab( SVGResource &resource, int line_to_scroll_to = -1, QWidget *parent = 0);
+
+signals:
+    void OpenClipEditorRequest(ClipEditorModel::clipEntry *clip);
 };
 
 #endif // SVGTAB_H
