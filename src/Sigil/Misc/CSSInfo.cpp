@@ -23,24 +23,26 @@
 
 #include "Misc/CSSInfo.h"
 
+const int TAB_SPACES_WIDTH = 4;
+const QString LINE_MARKER("[SIGIL_NEWLINE]");
+
 CSSInfo::CSSInfo( const QString &text, bool isCSSFile )
+    : m_OriginalText(text),
+      m_IsCSSFile(isCSSFile)
 {
     if (isCSSFile) {
         parseCSSSelectors(text, 0, 0);
     }
     else {
-        // Is an HTML file with possibly some inline CSS within it
-        QRegExp inline_styles_search("<\\s*style\\s[^>]+>", Qt::CaseInsensitive);
-        inline_styles_search.setMinimal(true);
+        // This is an HTML file with any number of inline CSS style blocks within it
+        int style_start = -1;
+        int style_end = -1;
+        int offset = 0;
 
-        int offset = inline_styles_search.indexIn(text);
-        if ( offset > 0 ) {
-            offset += inline_styles_search.matchedLength();
-            int end = text.indexOf(QRegExp("<\\s*/\\s*style\\s*>", Qt::CaseInsensitive), offset);
-            if (end >= offset) {
-                int line = text.left(offset).count(QChar('\n'));
-                parseCSSSelectors(text.mid(offset, end - offset), line, offset);
-            }
+        while (findInlineStyleBlock(text, offset, style_start, style_end)) {
+            int line = text.left(style_start).count(QChar('\n'));
+            parseCSSSelectors(text.mid(style_start, style_end - style_start), line, style_start);
+            offset = style_end;
         }
     }
 }
@@ -83,13 +85,152 @@ CSSInfo::CSSSelector* CSSInfo::getCSSSelectorForElementClass( const QString &ele
     return NULL;
 }
 
+QString CSSInfo::GetReformattedCSSText( bool multipleLineFormat )
+{
+    QString new_text(m_OriginalText);
+    int selector_indent = m_IsCSSFile ? 0 : TAB_SPACES_WIDTH;
+    // Work backwards through our selectors to change the document as will be in line order.
+    // must also cater for fact that a selector group ( e.g. body,p { ) will have multiple
+    // selector entries so skip if the next selector is on the same line.
+    int last_selector_line = -1;
+    for (int i = m_CSSSelectors.count() - 1; i >=0; i--) {
+        CSSInfo::CSSSelector *cssSelector = m_CSSSelectors.at(i);
+        if (cssSelector->isGroup && cssSelector->line == last_selector_line) {
+            // Must be a selector group which we have already processed.
+            continue;
+        }
+        last_selector_line = cssSelector->line;
+
+        // First replace the contents inside the braces
+        QList< CSSInfo::CSSProperty* > new_properties = getCSSProperties(m_OriginalText, cssSelector->openingBracePos, cssSelector->closingBracePos);
+        const QString &new_properties_text = formatCSSProperties(new_properties, multipleLineFormat, selector_indent);
+        new_text.replace(cssSelector->openingBracePos + 1, cssSelector->closingBracePos - cssSelector->openingBracePos - 1, new_properties_text);
+
+        // Ensure the braces are placed on the same line as the selector name
+        int pos = cssSelector->openingBracePos;
+        while (--pos > 0 && new_text.at(pos).isSpace());
+        new_text.replace(pos + 1, cssSelector->openingBracePos - pos - 1, " ");
+
+        // Make sure the selector itself is left-aligned (indented if inline CSS)
+        pos = cssSelector->position;
+        while (--pos > 0 && (new_text.at(pos) == '\t' || new_text.at(pos) == ' '));
+        new_text.replace(pos + 1, cssSelector->position - pos - 1, QString(" ").repeated(selector_indent));
+
+        // Insert a character to use as a marker before the selector so we know where to add line breaks after
+        if (pos > 0) {
+            new_text.insert(pos + 1, LINE_MARKER);
+        }
+    }
+
+    // Finally remove extra blank lines so styles are placed consecutively if inline, or one line spacing if CSS.
+    // If we are reformatting an inline CSS, make sure we are doing so only within style blocks
+    if (m_IsCSSFile) {
+        new_text.replace(QRegExp("\n{2,}"),"\n");
+    }
+    else {
+        int style_start = -1;
+        int style_end = -1;
+        int offset = 0;
+
+        while (findInlineStyleBlock(new_text, offset, style_start, style_end)) {
+            QString script_text = new_text.mid(style_start, style_end - style_start);
+            script_text.replace(QRegExp("\n{2,}"),"\n");
+            new_text.replace(style_start, style_end - style_start, script_text);
+            offset = style_start + script_text.length();
+        }
+    }
+
+    new_text.replace(LINE_MARKER, multipleLineFormat ? "\n" : "");
+    return new_text;
+}
+
+QList< CSSInfo::CSSProperty* > CSSInfo::getCSSProperties( const QString &text, const int &openingBracePos, const int &closingBracePos )
+{
+    const QString &style_text = text.mid(openingBracePos + 1, closingBracePos - openingBracePos - 1);
+    QStringList properties = style_text.split(QChar(';'), QString::SkipEmptyParts);
+    QList<CSSProperty*> new_properties;
+
+    bool has_property = false;
+    foreach( QString property_text, properties ) {
+        if (property_text.trimmed().isEmpty()) {
+            continue;
+        }
+        QStringList name_values = property_text.split(QChar(':'), QString::SkipEmptyParts);
+        CSSProperty *css_property = new CSSProperty();
+
+        // Any badly formed CSS or stuff we don't "understand" like pre-processing we leave as is
+        if (name_values.count() != 2) {
+            css_property->name = property_text.trimmed();
+            css_property->value = QString();
+        }
+        else {
+            css_property->name = name_values.at(0).trimmed();
+            css_property->value = name_values.at(1).trimmed();
+        }
+        new_properties.append(css_property);
+    }
+    return new_properties;
+}
+
+QString CSSInfo::formatCSSProperties(QList< CSSInfo::CSSProperty* > new_properties, bool multipleLineFormat, const int &selectorIndent)
+{
+    QString tab_spaces = QString(" ").repeated(TAB_SPACES_WIDTH + selectorIndent);
+    
+    if (new_properties.count() == 0) {
+        if (multipleLineFormat) {
+            return QString("\n%1")
+                .arg(QString(" ").repeated(selectorIndent));
+        }
+        else {
+            return QString("");
+        }
+    }
+    else {
+        QStringList property_values;
+        foreach(CSSInfo::CSSProperty *new_property, new_properties) {
+            if (new_property->value.isNull()) {
+                property_values.append(new_property->name);
+            }
+            else {
+                property_values.append(QString("%1: %2").arg(new_property->name).arg(new_property->value));
+            }
+        }
+        if (multipleLineFormat) {
+            return QString("\n%1%2;\n%3")
+                .arg(tab_spaces)
+                .arg(property_values.join(";\n" % tab_spaces))
+                .arg(QString(" ").repeated(selectorIndent));
+        }
+        else {
+            return QString(" %1; ").arg(property_values.join("; "));
+        }
+    }
+}
+
+bool CSSInfo::findInlineStyleBlock( const QString &text, const int &offset, int &styleStart, int &styleEnd )
+{
+    QRegExp inline_styles_search("<\\s*style\\s[^>]+>", Qt::CaseInsensitive);
+    inline_styles_search.setMinimal(true);
+
+    styleEnd = -1;
+    styleStart = inline_styles_search.indexIn(text, offset);
+    if ( styleStart > 0 ) {
+        styleStart += inline_styles_search.matchedLength();
+        styleEnd = text.indexOf(QRegExp("<\\s*/\\s*style\\s*>", Qt::CaseInsensitive), styleStart);
+        if (styleEnd >= styleStart) {
+            return true;
+        }
+    }
+    return false;
+}
+
 void CSSInfo::parseCSSSelectors( const QString &text, const int &offsetLines, const int &offsetPos )
 {
     QRegExp strip_attributes_regex("\\[[^\\]]*\\]");
     QRegExp strip_ids_regex("#[^\\s\\.]+");
     QRegExp strip_non_name_chars_regex("[^A-Za-z0-9_\\-\\.]+");
 
-    QString search_text = ReplaceBlockComments(text);
+    QString search_text = replaceBlockComments(text);
 
     // CSS selectors can be in a myriad of formats... the class based selectors could be:
     //    .c1 / e1.c1 / e1.c1.c2 / e1[class~=c1] / e1#id1.c1 / e1.c1#id1 / .c1, .c2 / ...
@@ -176,7 +317,7 @@ void CSSInfo::parseCSSSelectors( const QString &text, const int &offsetLines, co
     }
 }
 
-QString CSSInfo::ReplaceBlockComments(const QString &text)
+QString CSSInfo::replaceBlockComments(const QString &text)
 {
     // We take a copy of the text and remove all block comments from it.
     // However we must be careful to replace with spaces/keep line feeds

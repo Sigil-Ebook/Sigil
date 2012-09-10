@@ -40,7 +40,6 @@
 #include "Misc/XHTMLHighlighter.h"
 #include "Dialogs/ClipEditor.h"
 #include "Misc/CSSHighlighter.h"
-#include "Misc/CSSInfo.h"
 #include "Misc/SettingsStore.h"
 #include "Misc/SpellCheck.h"
 #include "Misc/HTMLSpellCheck.h"
@@ -82,12 +81,16 @@ CodeViewEditor::CodeViewEditor( HighlighterType high_type, bool check_spelling, 
     m_DelayedCursorScreenCenteringRequired( false ),
     m_CaretUpdate( QList< ViewEditor::ElementIndex >() ),
     m_checkSpelling( check_spelling ),
+    m_goToLinkOrStyleEnabled( false ),
+    m_reformatCSSEnabled( false ),
     m_spellingMapper( new QSignalMapper( this ) ),
     m_addSpellingMapper( new QSignalMapper( this ) ),
     m_ignoreSpellingMapper( new QSignalMapper( this ) ),
     m_clipMapper( new QSignalMapper( this ) ),
     m_pendingClipEntryRequest( NULL ),
     m_pendingGoToLinkOrStyleRequest( false ),
+    m_pendingReformatCSSRequest( false ),
+    m_reformatCSSMultiLine( false ),
     m_pendingSpellingHighlighting( false)
 {
     if ( high_type == CodeViewEditor::Highlight_XHTML ) {
@@ -969,7 +972,12 @@ void CodeViewEditor::contextMenuEvent( QContextMenuEvent *event )
     }
 
     if (!offered_spelling) {
-        AddGoToLinkOrStyleContextMenu(menu);
+        if (m_reformatCSSEnabled) {
+            AddReformatCSSContextMenu(menu);
+        }
+        if (m_goToLinkOrStyleEnabled) {
+            AddGoToLinkOrStyleContextMenu(menu);
+        }
         AddClipContextMenu(menu);
     }
 
@@ -990,6 +998,10 @@ void CodeViewEditor::contextMenuEvent( QContextMenuEvent *event )
     if (m_pendingSpellingHighlighting) { 
         m_pendingSpellingHighlighting = false;
         emit SpellingHighlightRefreshRequest();
+    }
+    if (m_pendingReformatCSSRequest) {
+        m_pendingReformatCSSRequest = false;
+        ReformatCSS(m_reformatCSSMultiLine);
     }
 }
 
@@ -1110,6 +1122,33 @@ bool CodeViewEditor::AddSpellCheckContextMenu(QMenu *menu)
     }
 
     return offer_spelling;
+}
+
+void CodeViewEditor::AddReformatCSSContextMenu(QMenu *menu)
+{
+    QAction *topAction = 0;
+    if (!menu->actions().isEmpty()) {
+        topAction = menu->actions().at(0);
+    }
+
+    QMenu *reformatCSSMenu = new QMenu(tr("Reformat CSS"), menu);
+    QAction *multiLineCSSAction = new QAction(tr("Multiple Lines Per Style"), reformatCSSMenu);
+    QAction *singleLineCSSAction = new QAction(tr("Single Line Per Style"), reformatCSSMenu);
+    connect(multiLineCSSAction, SIGNAL(triggered()), this, SLOT(ReformatCSSMultiLineAction()));
+    connect(singleLineCSSAction, SIGNAL(triggered()), this, SLOT(ReformatCSSSingleLineAction()));
+    reformatCSSMenu->addAction(multiLineCSSAction);
+    reformatCSSMenu->addAction(singleLineCSSAction);
+
+    if (!topAction) {
+        menu->addMenu(reformatCSSMenu);
+    }
+    else {
+        menu->insertMenu(topAction, reformatCSSMenu);
+    }
+
+    if (topAction) {
+        menu->insertSeparator(topAction);
+    }
 }
 
 void CodeViewEditor::AddGoToLinkOrStyleContextMenu(QMenu *menu)
@@ -1261,6 +1300,18 @@ void CodeViewEditor::GoToStyleDefinition()
         // Scroll to the line after bookmarking or we lose our place
         ScrollToPosition(selector->position);
     }
+}
+
+void CodeViewEditor::ReformatCSSMultiLineAction()
+{
+    m_reformatCSSMultiLine = true;
+    m_pendingReformatCSSRequest = true;
+}
+
+void CodeViewEditor::ReformatCSSSingleLineAction()
+{
+    m_reformatCSSMultiLine = false;
+    m_pendingReformatCSSRequest = true;
 }
 
 QString CodeViewEditor::GetTagText()
@@ -2452,12 +2503,23 @@ void CodeViewEditor::FormatStyle( const QString &property_name, const QString &p
     else {
         // We have an existing style attribute on this tag, need to parse it to rewrite it.
         // Apply the name=value replacement getting a list of our new property pairs
-        QStringList new_properties = GetNewStyleProperties(style_attribute_value, property_name, property_value);
-        if (new_properties.count() == 0) {
+        QList< CSSInfo::CSSProperty* > css_properties = CSSInfo::getCSSProperties(style_attribute_value, 0, style_attribute_value.length());
+        // Apply our property value, adding if not present currently, toggling if it is.
+        ApplyChangeToProperties(css_properties, property_name, property_value);
+        if (css_properties.count() == 0) {
             style_attribute_value = "";
         }
         else {
-            style_attribute_value = QString("%1;").arg(new_properties.join("; "));
+            QStringList property_values;
+            foreach(CSSInfo::CSSProperty *css_property, css_properties) {
+                if (css_property->value.isNull()) {
+                    property_values.append(css_property->name);
+                }
+                else {
+                    property_values.append(QString("%1: %2").arg(css_property->name).arg(css_property->value));
+                }
+            }
+            style_attribute_value = QString("%1;").arg(property_values.join("; "));
         }
     }
 
@@ -2513,31 +2575,16 @@ void CodeViewEditor::FormatCSSStyle( const QString &property_name, const QString
     }
 
     // Now parse the CSS style content
-    QString properties_text = text.mid(bracket_start + 1, bracket_end - bracket_start - 1).replace(QChar('\n'), "");
-    QStringList new_properties = GetNewStyleProperties(properties_text, property_name, property_value);
+    QList< CSSInfo::CSSProperty* > css_properties = CSSInfo::getCSSProperties(text, bracket_start, bracket_end);
+
+    // Apply our property value, adding if not present currently, toggling if it is.
+    ApplyChangeToProperties(css_properties, property_name, property_value);
     
     // Figure out the formatting to be applied to these style properties to write prettily
     // preserving any multi-line/single line style the CSS had before we changed things.
     bool is_single_line_format = (block.position() < bracket_start) && (bracket_end <= (block.position() + block.length()) );
 
-    QString style_attribute_text;
-    if (new_properties.count() == 0) {
-        if (is_single_line_format) {
-            style_attribute_text = "";
-        }
-        else {
-            style_attribute_text = "\n";
-        }
-    }
-    else {
-        if ( is_single_line_format ) {
-            style_attribute_text = QString(" %1; ").arg(new_properties.join(";"));
-        }
-        else {
-            QString tab_spaces = QString(" ").repeated(TAB_SPACES_WIDTH);
-            style_attribute_text = QString("\n%1%2;\n").arg(tab_spaces).arg(new_properties.join(";\n" % tab_spaces));
-        }
-    }
+    const QString &style_attribute_text = CSSInfo::formatCSSProperties(css_properties, !is_single_line_format);
 
     // Now perform the replacement/insertion of the style properties into the CSS
     QTextCursor cursor = textCursor();
@@ -2555,42 +2602,46 @@ void CodeViewEditor::FormatCSSStyle( const QString &property_name, const QString
     setTextCursor(cursor);
 }
 
-QStringList CodeViewEditor::GetNewStyleProperties(const QString &style_text, const QString &property_name, const QString &property_value)
+void CodeViewEditor::ApplyChangeToProperties(QList< CSSInfo::CSSProperty* > &css_properties, const QString &property_name, const QString &property_value)
 {
-    QStringList properties = style_text.split(QChar(';'), QString::SkipEmptyParts);
-    QStringList new_properties;
-
+    // Apply our property value, adding if not present currently, toggling if it is.
     bool has_property = false;
-    foreach( QString property_text, properties ) {
-        if (property_text.trimmed().isEmpty()) {
-            continue;
-        }
-        QStringList name_values = property_text.split(QChar(':'), QString::SkipEmptyParts);
-        // Any badly formed CSS we just ignore
-        if (name_values.count() < 2) {
-            new_properties.append(property_text.trimmed());
-        }
-        else {
-            QString found_property_name = name_values.at(0).trimmed();
-            QString found_property_value = name_values.at(1).trimmed();
-            if (found_property_name.toLower() == property_name) {
-                has_property = true;
-                // We will treat this as a toggle - if we already have the value then effectively remove it
-                if (found_property_value.toLower() == property_value) {
-                    continue;
-                }
-                else {
-                    found_property_value = property_value;
-                }
+    for (int i = css_properties.length() - 1; i >= 0; i--) {
+        CSSInfo::CSSProperty *css_property = css_properties.at(i);
+        if (css_property->name.toLower() == property_name) {
+            has_property = true;
+            // We will treat this as a toggle - if we already have the value then remove it
+            if (css_property->value.toLower() == property_value) {
+                css_properties.removeAt(i);
+                continue;
             }
-            new_properties.append(QString("%1: %2").arg(found_property_name).arg(found_property_value));
+            else {
+                css_property->value = property_value;
+            }
         }
     }
     if (!has_property) {
-        new_properties.append(QString("%1: %2").arg(property_name).arg(property_value));
+        CSSInfo::CSSProperty *new_property = new CSSInfo::CSSProperty();
+        new_property->name = property_name;
+        new_property->value = property_value;
+        css_properties.append(new_property);
     }
+}
 
-    return new_properties;
+void CodeViewEditor::ReformatCSS(bool multiple_line_format)
+{
+    const QString &original_text = toPlainText();
+    // Currently this feature is only enabled for CSS content, no inline HTML
+    CSSInfo css_info(original_text, true);
+    
+    const QString &new_text = css_info.GetReformattedCSSText(multiple_line_format);
+    if (original_text != new_text) {
+        QTextCursor cursor = textCursor();
+        cursor.beginEditBlock();
+        cursor.select(QTextCursor::Document);
+        cursor.insertText(new_text);
+        cursor.endEditBlock();
+    }
 }
 
 void CodeViewEditor::ApplyCaseChangeToSelection(const Utility::Casing &casing)
@@ -2688,6 +2739,26 @@ QString CodeViewEditor::GetUnmatchedTagsForBlock(const int &start_pos, const QSt
         return opening_tags.join("");
     }
     return QString();
+}
+
+bool CodeViewEditor::GoToLinkOrStyleEnabled()
+{
+    return m_goToLinkOrStyleEnabled;
+}
+
+void CodeViewEditor::SetGoToLinkOrStyleEnabled(bool value)
+{
+    m_goToLinkOrStyleEnabled = value;
+}
+
+bool CodeViewEditor::ReformatCSSEnabled()
+{
+    return m_reformatCSSEnabled;
+}
+
+void CodeViewEditor::SetReformatCSSEnabled(bool value)
+{
+    m_reformatCSSEnabled = value;
 }
 
 void CodeViewEditor::ConnectSignalsToSlots()

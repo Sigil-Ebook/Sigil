@@ -85,6 +85,8 @@ FlowTab::FlowTab(HTMLResource& resource,
     // cursor and clear it at the end of the delayed initialization.
     QApplication::setOverrideCursor(Qt::WaitCursor);
 
+    m_wCodeView->SetGoToLinkOrStyleEnabled(true);
+
     m_inspector->setPage(m_wBookPreview->page());
 
     m_pvVSplitter->setOrientation(Qt::Vertical);

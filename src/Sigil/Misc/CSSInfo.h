@@ -53,10 +53,16 @@ public:
         int closingBracePos;        /* Location of the closing brace which contains properties     */
     };
 
+    struct CSSProperty
+    {
+        QString name;
+        QString value;
+    };
+
     /**
      * Return selectors subset for only class based CSS declarations.
      */
-    QList< CSSSelector* > getClassSelectors(const QString filterClassName="");
+    QList< CSSSelector* > getClassSelectors( const QString filterClassName="" );
 
     /**
      * Search for a line position for a tag element name and an optional 
@@ -65,11 +71,23 @@ public:
      */
     CSSSelector* getCSSSelectorForElementClass( const QString &elementName, const QString &className );
 
+    /**
+     * Return the original text with a reformatted appearance either to
+     * a multiple line style (each property on its own line) or single line style.
+     */
+    QString GetReformattedCSSText( bool multipleLineFormat );
+
+    static QList< CSSProperty* > getCSSProperties( const QString &text, const int &openingBracePos, const int &closingBracePos );
+    static QString formatCSSProperties(QList< CSSProperty* > new_properties, bool multipleLineFormat, const int &selectorIndent = 0);
+
 private:
+    bool findInlineStyleBlock( const QString &text, const int &offset, int &styleStart, int &styleEnd );
     void parseCSSSelectors( const QString &text, const int &offsetLines, const int &offsetPos );
-    QString ReplaceBlockComments(const QString &text);
+    QString replaceBlockComments(const QString &text);
 
     QList< CSSSelector* > m_CSSSelectors;
+    QString m_OriginalText;
+    bool m_IsCSSFile;
 };
 
 #endif // CSSINFO_H

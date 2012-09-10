@@ -32,6 +32,7 @@
 #include <QtCore/QUrl>
 
 #include "ViewEditors/ViewEditor.h"
+#include "Misc/CSSInfo.h"
 #include "Misc/SettingsStore.h"
 #include "Misc/Utility.h"
 #include "MiscEditors/IndexEditorModel.h"
@@ -298,6 +299,18 @@ public:
      */
     QString SetAttribute( const QString &attribute_name, QStringList tag_list = QStringList(), const QString &attribute_value = QString(), bool set_attribute = false );
 
+    /**
+     * Control whether the Go To Link Or Style option is available on the context menu.
+     */
+    bool GoToLinkOrStyleEnabled();
+    void SetGoToLinkOrStyleEnabled(bool value);
+
+    /**
+     * Control whether the Reformat CSS submenu is available on the context menu.
+     */
+    bool ReformatCSSEnabled();
+    void SetReformatCSSEnabled(bool value);
+
 signals:
 
     /**
@@ -454,6 +467,9 @@ private slots:
     void SaveClipAction();
 
     void GoToLinkOrStyleAction();
+
+    void ReformatCSSMultiLineAction();
+    void ReformatCSSSingleLineAction();
     
 private:
 
@@ -512,6 +528,8 @@ private:
      * Connects all the required signals to their respective slots.
      */
     void ConnectSignalsToSlots();
+
+    void AddReformatCSSContextMenu(QMenu *menu);
 
     void AddGoToLinkOrStyleContextMenu(QMenu *menu);
 
@@ -610,11 +628,12 @@ private:
     StyleTagElement GetSelectedStyleTagElement();
 
     /**
-     * Given raw text containing CSS name:value pairs, return as a list of new pairs, performing
-     * any pruning/replacement as necessary to ensure that property_name:property_value is added
-     * (or removed if it already exists).
+     * Given a list of CSS properties perform any pruning/replacing/adding as necessary to
+     * ensure that property_name:property_value is added (or removed if it already exists).
      */
-    QStringList GetNewStyleProperties(const QString &style_text, const QString &property_name, const QString &property_value);
+    void ApplyChangeToProperties(QList< CSSInfo::CSSProperty* > &css_properties, const QString &property_name, const QString &property_value);
+
+    void ReformatCSS(bool multiple_line_format);
 
     QString GetUnmatchedTagsForBlock(const int &pos, const QString &text);
 
@@ -691,6 +710,16 @@ private:
     bool m_checkSpelling;
 
     /**
+     * Whether Go To Link Or Style context menu option is enabled on this view.
+     */
+    bool m_goToLinkOrStyleEnabled;
+
+    /**
+     * Whether reformat CSS context menu option is enabled on this view.
+     */
+    bool m_reformatCSSEnabled;
+
+    /**
      * Store the last match when doing a find so we can determine if
      * found text is selected for doing a replace. We also need to store the
      * match because we can't run the selected text though the PCRE engine
@@ -714,6 +743,8 @@ private:
      */
     ClipEditorModel::clipEntry *m_pendingClipEntryRequest;
     bool m_pendingGoToLinkOrStyleRequest;
+    bool m_pendingReformatCSSRequest;
+    bool m_reformatCSSMultiLine;
 
     /**
      * The fonts and colors for appearance of xhtml and text.

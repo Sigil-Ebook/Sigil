@@ -26,6 +26,7 @@ CSSTab::CSSTab( CSSResource& resource, int line_to_scroll_to, QWidget *parent )
     :
     TextTab( resource, CodeViewEditor::Highlight_CSS, line_to_scroll_to, parent )
 {
+    m_wCodeView.SetReformatCSSEnabled(true);
 }
     
 void CSSTab::Bold()
