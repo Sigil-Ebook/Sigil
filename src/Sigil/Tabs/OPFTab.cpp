@@ -27,8 +27,6 @@ OPFTab::OPFTab( OPFResource& resource, int line_to_scroll_to, QWidget *parent )
     XMLTab( resource, line_to_scroll_to, parent ),
     m_OPFResource( resource )
 {
-    connect( &m_wCodeView, SIGNAL(OpenClipEditorRequest(ClipEditorModel::clipEntry *)), this, SIGNAL(OpenClipEditorRequest(ClipEditorModel::clipEntry *)));
-    
 }
 
 void OPFTab::AutoFixWellFormedErrors()

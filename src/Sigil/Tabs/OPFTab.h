@@ -38,9 +38,6 @@ public:
 
     void AutoFixWellFormedErrors();
 
-signals:
-    void OpenClipEditorRequest(ClipEditorModel::clipEntry *clip);
-
 private:
 
     ///////////////////////////////

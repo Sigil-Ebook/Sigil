@@ -60,6 +60,9 @@ public slots:
     
     bool IsDataWellFormed();
 
+signals:
+    void OpenClipEditorRequest(ClipEditorModel::clipEntry *clip);
+
 private:
 
     void ConnectSignalsToSlots();
