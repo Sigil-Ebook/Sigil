@@ -1,7 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2012 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012 Dave Heiland
+**  Copyright (C) 2012 John Schember <john@nachtimwald.com>
 **
 **  This file is part of Sigil.
 **
@@ -21,60 +21,52 @@
 *************************************************************************/
 
 #pragma once
-#ifndef VIEWHTML_H
-#define VIEWHTML_H
+#ifndef CSSFILESWIDGET_H
+#define CSSFILESWIDGET_H
 
-#include <QtCore/QHash>
-#include <QtGui/QDialog>
-#include <QtGui/QStandardItemModel>
 #include <QtCore/QSharedPointer>
 
 #include "ResourceObjects/Resource.h"
+#include <QtCore/QHash>
+#include <QtGui/QDialog>
+#include <QtGui/QStandardItemModel>
 #include "BookManipulation/Book.h"
+#include "ReportsWidget.h"
 
-#include "ui_ViewHTML.h"
+#include "ui_ReportsCSSFilesWidget.h"
 
 class QString;
 class QStringList;
 
-class ViewHTML : public QDialog
+class CSSFilesWidget : public ReportsWidget
 {
     Q_OBJECT
 
 public:
-    ViewHTML(QString basepath, 
-             QList<Resource*> html_resources, 
-             QSharedPointer<Book> book,
-             QWidget *parent = 0);
+    CSSFilesWidget(QList<Resource*> html_resources, QList<Resource*> css_resources, QSharedPointer<Book> book);
 
-    void SetFiles(int sort_column = 1, Qt::SortOrder sort_order = Qt::AscendingOrder);
+    void SetupTable(int sort_column = 1, Qt::SortOrder sort_order = Qt::AscendingOrder);
 
     QString SelectedFile();
+
+    QString saveSettings();
 
 private slots:
     void Sort(int logicalindex, Qt::SortOrder order);
 
     void FilterEditTextChangedSlot(const QString &text);
 
-    void WriteSettings();
-
 private:
-    void SetSelectedFile();
-
-    void ReadSettings();
     void connectSignalsSlots();
 
-    QString m_Basepath;
-
     QList<Resource*> m_HTMLResources;
+    QList<Resource*> m_CSSResources;
 
-    QSharedPointer< Book > m_Book;
+    QSharedPointer<Book> m_Book;
 
-    QStandardItemModel *m_ViewHTMLModel;
+    QStandardItemModel *m_ItemModel;
 
-    QString m_SelectedFile;
-
-    Ui::ViewHTML ui;
+    Ui::CSSFilesWidget ui;
 };
 
-#endif // VIEWHTML_H
+#endif // CSSFILESWIDGET_H

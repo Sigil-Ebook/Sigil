@@ -240,14 +240,6 @@
     <property name="title">
      <string>&amp;Tools</string>
     </property>
-    <widget class="QMenu" name="menuViewReports">
-     <property name="title">
-      <string>Reports</string>
-     </property>
-    <addaction name="actionViewHTML"/>
-    <addaction name="actionViewImages"/>
-    <addaction name="actionViewClasses"/>
-    </widget>
     <widget class="QMenu" name="menuTOC">
      <property name="title">
       <string>Table of Contents</string>
@@ -276,6 +268,7 @@
      <addaction name="actionCreateIndex"/>
     </widget>
     <addaction name="actionMetaEditor"/>
+    <addaction name="menuSpellCheckMenu"/>
     <addaction name="actionValidateEpub"/>
     <addaction name="separator"/>
     <addaction name="menuTOC"/>
@@ -284,9 +277,7 @@
     <addaction name="actionClipEditor"/>
     <addaction name="actionSearchEditor"/>
     <addaction name="separator"/>
-    <addaction name="menuSpellCheckMenu"/>
-    <addaction name="separator"/>
-    <addaction name="menuViewReports"/>
+    <addaction name="actionReports"/>
     <addaction name="separator"/>
     <widget class="QMenu" name="menuCleanLevel">
      <property name="title">
@@ -1475,7 +1466,7 @@
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Verify your document complies with EPUB standards using FlightCrew.&lt;/p&gt;</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+Shift+V</string>
+    <string>F7</string>
    </property>
   </action>
   <action name="actionAutoSpellCheck">
@@ -1520,7 +1511,6 @@
     <string>Clear currently ignored words from Spellcheck without having to restart Sigil.</string>
    </property>
   </action>
-
   <action name="actionIndexEditor">
    <property name="text">
     <string>Index Editor...</string>
@@ -1529,19 +1519,12 @@
     <string>Ctrl+Alt+I</string>
    </property>
   </action>
-  <action name="actionViewHTML">
+  <action name="actionReports">
    <property name="text">
-    <string>HTML Files</string>
+    <string>Reports</string>
    </property>
-  </action>
-  <action name="actionViewImages">
-   <property name="text">
-    <string>Image Files </string>
-   </property>
-  </action>
-  <action name="actionViewClasses">
-   <property name="text">
-    <string>Style Classes</string>
+   <property name="shortcut">
+    <string>Ctrl+Shift+R</string>
    </property>
   </action>
   <action name="actionDonate">

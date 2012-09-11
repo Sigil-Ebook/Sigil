@@ -23,38 +23,33 @@
 #include <QtCore/QFile>
 #include <QtGui/QFont>
 
-#include "Dialogs/ViewImages.h"
 #include "Misc/NumericItem.h"
 #include "Misc/SettingsStore.h"
-
-static const int COL_NAME = 0;
+#include "ImageFilesWidget.h"
 
 static const int THUMBNAIL_SIZE = 100;
 static const int THUMBNAIL_SIZE_INCREMENT = 50;
 
-static QString SETTINGS_GROUP = "view_images";
+static QString SETTINGS_GROUP = "reports_image_files";
 
-ViewImages::ViewImages(QString basepath, QList<Resource*> image_resources, QSharedPointer<Book> book,  QWidget *parent)
+ImageFilesWidget::ImageFilesWidget(QList<Resource*> image_resources, QSharedPointer<Book> book)
     :
-    QDialog(parent),
-    m_Basepath(basepath),
     m_ImageResources(image_resources),
     m_Book(book),
-    m_ViewImagesModel(new QStandardItemModel),
-    m_ThumbnailSize(THUMBNAIL_SIZE),
-    m_SelectedFile(QString())
+    m_ItemModel(new QStandardItemModel),
+    m_ThumbnailSize(THUMBNAIL_SIZE)
 {
     ui.setupUi(this);
     connectSignalsSlots();
 
     ReadSettings();
 
-    SetImages();
+    SetupTable();
 }
 
-void ViewImages::SetImages(int sort_column, Qt::SortOrder sort_order)
+void ImageFilesWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
 {
-    m_ViewImagesModel->clear();
+    m_ItemModel->clear();
 
     QStringList header;
 
@@ -69,11 +64,11 @@ void ViewImages::SetImages(int sort_column, Qt::SortOrder sort_order)
         header.append(tr("Image" ));
     }
 
-    m_ViewImagesModel->setHorizontalHeaderLabels(header);
+    m_ItemModel->setHorizontalHeaderLabels(header);
 
     ui.imageTree->setSelectionBehavior(QAbstractItemView::SelectRows);
 
-    ui.imageTree->setModel(m_ViewImagesModel);
+    ui.imageTree->setModel(m_ItemModel);
 
     ui.imageTree->header()->setSortIndicatorShown(true);
 
@@ -149,7 +144,7 @@ void ViewImages::SetImages(int sort_column, Qt::SortOrder sort_order)
             for (int i = 0; i < rowItems.count(); i++) {
                 rowItems[i]->setEditable(false);
             }
-            m_ViewImagesModel->appendRow(rowItems);
+            m_ItemModel->appendRow(rowItems);
     }
 
     // Sort before adding the totals row
@@ -206,42 +201,42 @@ void ViewImages::SetImages(int sort_column, Qt::SortOrder sort_order)
         rowItems[i]->setEditable(false);
         rowItems[i]->setFont(font);
     }
-    m_ViewImagesModel->appendRow(rowItems);
+    m_ItemModel->appendRow(rowItems);
 
     for (int i = 0; i < ui.imageTree->header()->count(); i++) {
         ui.imageTree->resizeColumnToContents(i);
     }
 }
 
-void ViewImages::IncreaseThumbnailSize()
+void ImageFilesWidget::IncreaseThumbnailSize()
 {
     m_ThumbnailSize += THUMBNAIL_SIZE_INCREMENT;
     ui.ThumbnailDecrease->setEnabled(true);
-    SetImages();
+    SetupTable();
 }
 
-void ViewImages::DecreaseThumbnailSize()
+void ImageFilesWidget::DecreaseThumbnailSize()
 {
     m_ThumbnailSize -= THUMBNAIL_SIZE_INCREMENT;
     if (m_ThumbnailSize <= 0) {
         m_ThumbnailSize = 0;
         ui.ThumbnailDecrease->setEnabled(false);
     }
-    SetImages();
+    SetupTable();
 }
 
 
-void ViewImages::FilterEditTextChangedSlot(const QString &text)
+void ImageFilesWidget::FilterEditTextChangedSlot(const QString &text)
 {
     const QString lowercaseText = text.toLower();
 
-    QStandardItem *root_item = m_ViewImagesModel->invisibleRootItem();
+    QStandardItem *root_item = m_ItemModel->invisibleRootItem();
     QModelIndex parent_index;
 
     // Hide rows that don't contain the filter text
     int first_visible_row = -1;
     for (int row = 0; row < root_item->rowCount(); row++) {
-        if (text.isEmpty() || root_item->child(row, COL_NAME)->text().toLower().contains(lowercaseText)) {
+        if (text.isEmpty() || root_item->child(row, 0)->text().toLower().contains(lowercaseText)) {
             ui.imageTree->setRowHidden(row, parent_index, false);
             if (first_visible_row == -1) {
                 first_visible_row = row;
@@ -262,37 +257,15 @@ void ViewImages::FilterEditTextChangedSlot(const QString &text)
     }
 }
 
-void ViewImages::Sort(int logicalindex, Qt::SortOrder order)
+void ImageFilesWidget::Sort(int logicalindex, Qt::SortOrder order)
 {
-    SetImages(logicalindex, order);
+    SetupTable(logicalindex, order);
 }
 
-QString ViewImages::SelectedFile()
-{
-    return m_SelectedFile;
-}
-
-void ViewImages::SetSelectedFile()
-{
-    if (m_SelectedFile.isEmpty() && ui.imageTree->selectionModel()->hasSelection()) {
-        QModelIndex index = ui.imageTree->selectionModel()->selectedRows(0).first();
-        if (index.row() != m_ViewImagesModel->rowCount() - 1) {
-            m_SelectedFile = m_ViewImagesModel->itemFromIndex(index)->text();
-        }
-    }
-}
-
-void ViewImages::ReadSettings()
+void ImageFilesWidget::ReadSettings()
 {
     SettingsStore settings;
     settings.beginGroup(SETTINGS_GROUP);
-
-    // The size of the window and it's full screen status
-    QByteArray geometry = settings.value("geometry").toByteArray();
-
-    if (!geometry.isNull()) {
-        restoreGeometry(geometry);
-    }
 
     // The thumbnail size
     if (!settings.value("thumbnail_size").toString().isEmpty()) {
@@ -305,36 +278,35 @@ void ViewImages::ReadSettings()
     settings.endGroup();
 }
 
-void ViewImages::WriteSettings()
+QString ImageFilesWidget::saveSettings()
 {
-    SetSelectedFile();
-
     SettingsStore settings;
     settings.beginGroup(SETTINGS_GROUP);
-
-    // The size of the window and it's full screen status
-    settings.setValue("geometry", saveGeometry());
 
     // The thumbnail size
     settings.setValue("thumbnail_size", m_ThumbnailSize);
 
     settings.endGroup();
+
+    QString selected_file;
+
+    if (ui.imageTree->selectionModel()->hasSelection()) {
+        QModelIndex index = ui.imageTree->selectionModel()->selectedRows(0).first();
+        if (index.row() != m_ItemModel->rowCount() - 1) {
+            selected_file = m_ItemModel->itemFromIndex(index)->text();
+        }
+    }
+    return selected_file;
 }
 
-void ViewImages::connectSignalsSlots()
+void ImageFilesWidget::connectSignalsSlots()
 {
-    connect(this,                    SIGNAL(accepted()),
-            this,                    SLOT(WriteSettings()));
     connect(ui.leFilter,             SIGNAL(textChanged(QString)),
             this,                    SLOT(FilterEditTextChangedSlot(QString)));
     connect(ui.ThumbnailIncrease,    SIGNAL(clicked()),
             this,                    SLOT(IncreaseThumbnailSize()));
     connect(ui.ThumbnailDecrease,    SIGNAL(clicked()),
             this,                    SLOT(DecreaseThumbnailSize()));
-    connect (ui.imageTree,           SIGNAL(doubleClicked(const QModelIndex &)),
-            this,                    SLOT(accept()));
     connect (ui.imageTree->header(), SIGNAL(sortIndicatorChanged(int, Qt::SortOrder)), 
             this,                    SLOT(Sort(int, Qt::SortOrder)));
-
-
 }

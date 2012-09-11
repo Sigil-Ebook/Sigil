@@ -47,9 +47,7 @@
 #include "Dialogs/SelectImages.h"
 #include "Dialogs/SelectHyperlink.h"
 #include "Dialogs/SelectId.h"
-#include "Dialogs/ViewClasses.h"
-#include "Dialogs/ViewHTML.h"
-#include "Dialogs/ViewImages.h"
+#include "Dialogs/Reports.h"
 #include "Exporters/ExportEPUB.h"
 #include "Exporters/ExporterFactory.h"
 #include "Importers/ImporterFactory.h"
@@ -687,19 +685,6 @@ void MainWindow::ZoomReset()
 }
 
 
-void MainWindow::ViewClassesUsedInHTML()
-{
-    QList<Resource *> css_resources = m_BookBrowser->AllCSSResources();
-    QList<Resource *> html_resources = m_BookBrowser->AllHTMLResources();
-
-    ViewClasses view_classes(css_resources, html_resources, m_Book, this);
-
-    if (view_classes.exec() == QDialog::Accepted) {
-        OpenFilename(view_classes.SelectedFile());
-    }
-}
-
-
 void MainWindow::IndexEditorDialog(IndexEditorModel::indexEntry* index_entry)
 {
     if (!m_TabManager.TabDataIsWellFormed()) {
@@ -787,39 +772,16 @@ void MainWindow::CreateIndex()
 }
 
 
-void MainWindow::ViewAllImages()
+void MainWindow::ReportsDialog()
 {
-    QList<Resource *> image_resources = m_BookBrowser->AllImageResources();
-
-    if (image_resources.isEmpty()) {
-        QMessageBox::warning( this,
-                              tr( "Sigil"),
-                              tr( "<p>There are no images available in your book to view.</p><p>Use the menu option <b>File->New->Add Existing</b> to add images to your book.</p>")
-                            );
-        return;
-    }
-
-    QString basepath = m_Book->GetFolderKeeper().GetFullPathToImageFolder();
-    if (!basepath.endsWith("/")) {
-        basepath.append("/");
-    }
-
-    ViewImages view_images(basepath, image_resources, m_Book, this);
-
-    if (view_images.exec() == QDialog::Accepted) {
-        OpenFilename(view_images.SelectedFile());
-    }
-}
-
-void MainWindow::ViewAllHTML()
-{
-    QString basepath = m_Book->GetFolderKeeper().GetFullPathToTextFolder();
     QList<Resource *> html_resources = m_BookBrowser->AllHTMLResources();
+    QList<Resource *> image_resources = m_BookBrowser->AllImageResources();
+    QList<Resource *> css_resources = m_BookBrowser->AllCSSResources();
 
-    ViewHTML view_html(basepath, html_resources, m_Book, this);
+    Reports reports(html_resources, image_resources, css_resources, m_Book, this);
 
-    if (view_html.exec() == QDialog::Accepted) {
-        OpenFilename(view_html.SelectedFile());
+    if (reports.exec() == QDialog::Accepted) {
+        OpenFilename(reports.SelectedFile());
     }
 }
 
@@ -3017,9 +2979,7 @@ void MainWindow::ExtendUI()
     sm->registerAction(ui.actionAutoSpellCheck, "MainWindow.AutoSpellCheck");
     sm->registerAction(ui.actionSpellCheck, "MainWindow.SpellCheck");
     sm->registerAction(ui.actionClearIgnoredWords, "MainWindow.ClearIgnoredWords");
-    sm->registerAction(ui.actionViewClasses, "MainWindow.ViewClasses");
-    sm->registerAction(ui.actionViewHTML, "MainWindow.ViewHTML");
-    sm->registerAction(ui.actionViewImages, "MainWindow.ViewImages");
+    sm->registerAction(ui.actionReports, "MainWindow.Reports");
     sm->registerAction(ui.actionSearchEditor, "MainWindow.SearchEditor");
     sm->registerAction(ui.actionClipEditor, "MainWindow.ClipEditor");
     sm->registerAction(ui.actionIndexEditor, "MainWindow.IndexEditor");
@@ -3359,16 +3319,14 @@ void MainWindow::ConnectSignalsToSlots()
     connect( ui.actionValidateEpub,  SIGNAL( triggered() ), this, SLOT( ValidateEpub()             ) );
     connect( ui.actionAutoSpellCheck, SIGNAL( triggered( bool ) ), this, SLOT( SetAutoSpellCheck( bool ) ) );
     connect( ui.actionSpellCheck,    SIGNAL( triggered() ), m_FindReplace, SLOT( FindMisspelledWord() ) );
-    connect( ui.actionClearIgnoredWords, SIGNAL( triggered() ), this, SLOT( ClearIgnoredWords() ) );
+    connect( ui.actionClearIgnoredWords, SIGNAL( triggered() ), this, SLOT( ClearIgnoredWords()    ) );
     connect( ui.actionGenerateTOC,   SIGNAL( triggered() ), this, SLOT( GenerateToc()              ) );
-    connect( ui.actionCreateHTMLTOC, SIGNAL( triggered() ), this, SLOT( CreateHTMLTOC()        ) );
-    connect( ui.actionViewClasses,   SIGNAL( triggered() ), this, SLOT( ViewClassesUsedInHTML()    ) );
-    connect( ui.actionViewHTML,      SIGNAL( triggered() ), this, SLOT( ViewAllHTML()              ) );
-    connect( ui.actionViewImages,    SIGNAL( triggered() ), this, SLOT( ViewAllImages()            ) );
-    connect( ui.actionClipEditor, SIGNAL( triggered() ), this, SLOT( ClipEditorDialog()  ) );
+    connect( ui.actionCreateHTMLTOC, SIGNAL( triggered() ), this, SLOT( CreateHTMLTOC()            ) );
+    connect( ui.actionReports,       SIGNAL( triggered() ), this, SLOT( ReportsDialog()            ) );
+    connect( ui.actionClipEditor,    SIGNAL( triggered() ), this, SLOT( ClipEditorDialog()         ) );
     connect( ui.actionSearchEditor,  SIGNAL( triggered() ), this, SLOT( SearchEditorDialog()       ) );
     connect( ui.actionIndexEditor,   SIGNAL( triggered() ), this, SLOT( IndexEditorDialog()        ) );
-    connect( ui.actionCreateIndex,   SIGNAL( triggered() ), this, SLOT( CreateIndex()      ) );
+    connect( ui.actionCreateIndex,   SIGNAL( triggered() ), this, SLOT( CreateIndex()              ) );
     connect( ui.actionCheckWellFormedErrors, SIGNAL( triggered( bool ) ), this, SLOT( SetCheckWellFormedErrors( bool ) ) );
 
     // Tidy clean

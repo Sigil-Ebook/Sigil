@@ -23,39 +23,28 @@
 #include <QtCore/QFile>
 #include <QtGui/QFont>
 
-#include "Dialogs/ViewHTML.h"
 #include "Misc/NumericItem.h"
 #include "ResourceObjects/HTMLResource.h"
 #include "Misc/HTMLSpellCheck.h"
 #include "Misc/SettingsStore.h"
+#include "HTMLFilesWidget.h"
 
-static const int COL_NAME = 0;
-
-static QString SETTINGS_GROUP = "view_html_files";
-
-ViewHTML::ViewHTML(QString basepath, 
-                   QList<Resource*> html_resources, 
-                   QSharedPointer< Book > book,
-                   QWidget *parent)
+HTMLFilesWidget::HTMLFilesWidget(QList<Resource*> html_resources, QSharedPointer< Book > book)
     :
-    QDialog(parent),
-    m_Basepath(basepath),
     m_HTMLResources(html_resources),
     m_Book(book),
-    m_ViewHTMLModel(new QStandardItemModel),
-    m_SelectedFile(QString())
+    m_ItemModel(new QStandardItemModel)
 {
+
     ui.setupUi(this);
     connectSignalsSlots();
 
-    ReadSettings();
-
-    SetFiles();
+    SetupTable();
 }
 
-void ViewHTML::SetFiles(int sort_column, Qt::SortOrder sort_order)
+void HTMLFilesWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
 {
-    m_ViewHTMLModel->clear();
+    m_ItemModel->clear();
 
     QStringList header;
 
@@ -66,11 +55,11 @@ void ViewHTML::SetFiles(int sort_column, Qt::SortOrder sort_order)
     header.append(tr("Images"));
     header.append(tr("Stylesheets"));
 
-    m_ViewHTMLModel->setHorizontalHeaderLabels(header);
+    m_ItemModel->setHorizontalHeaderLabels(header);
 
     ui.fileTree->setSelectionBehavior(QAbstractItemView::SelectRows);
 
-    ui.fileTree->setModel(m_ViewHTMLModel);
+    ui.fileTree->setModel(m_ItemModel);
 
     ui.fileTree->header()->setSortIndicatorShown(true);
 
@@ -142,7 +131,7 @@ void ViewHTML::SetFiles(int sort_column, Qt::SortOrder sort_order)
             for (int i = 0; i < rowItems.count(); i++) {
                 rowItems[i]->setEditable(false);
             }
-            m_ViewHTMLModel->appendRow(rowItems);
+            m_ItemModel->appendRow(rowItems);
     }
 
     // Sort before adding the totals row
@@ -192,7 +181,7 @@ void ViewHTML::SetFiles(int sort_column, Qt::SortOrder sort_order)
         rowItems[i]->setFont(font);
     }
 
-    m_ViewHTMLModel->appendRow(rowItems);
+    m_ItemModel->appendRow(rowItems);
 
     for (int i = 0; i < ui.fileTree->header()->count(); i++) {
         ui.fileTree->resizeColumnToContents(i);
@@ -200,17 +189,17 @@ void ViewHTML::SetFiles(int sort_column, Qt::SortOrder sort_order)
 }
 
 
-void ViewHTML::FilterEditTextChangedSlot(const QString &text)
+void HTMLFilesWidget::FilterEditTextChangedSlot(const QString &text)
 {
     const QString lowercaseText = text.toLower();
 
-    QStandardItem *root_item = m_ViewHTMLModel->invisibleRootItem();
+    QStandardItem *root_item = m_ItemModel->invisibleRootItem();
     QModelIndex parent_index;
 
     // Hide rows that don't contain the filter text
     int first_visible_row = -1;
     for (int row = 0; row < root_item->rowCount(); row++) {
-        if (text.isEmpty() || root_item->child(row, COL_NAME)->text().toLower().contains(lowercaseText)) {
+        if (text.isEmpty() || root_item->child(row, 0)->text().toLower().contains(lowercaseText)) {
             ui.fileTree->setRowHidden(row, parent_index, false);
             if (first_visible_row == -1) {
                 first_visible_row = row;
@@ -231,61 +220,34 @@ void ViewHTML::FilterEditTextChangedSlot(const QString &text)
     }
 }
 
-void ViewHTML::Sort(int logicalindex, Qt::SortOrder order)
+void HTMLFilesWidget::Sort(int logicalindex, Qt::SortOrder order)
 {
-    SetFiles(logicalindex, order);
+    SetupTable(logicalindex, order);
 }
 
-QString ViewHTML::SelectedFile()
+void HTMLFilesWidget::Done()
 {
-    return m_SelectedFile;
+    close();
 }
 
-void ViewHTML::SetSelectedFile()
+QString HTMLFilesWidget::saveSettings()
 {
-    if (m_SelectedFile.isEmpty() && ui.fileTree->selectionModel()->hasSelection()) {
+    QString selected_file;
+
+    if (ui.fileTree->selectionModel()->hasSelection()) {
         QModelIndex index = ui.fileTree->selectionModel()->selectedRows(0).first();
-        if (index.row() != m_ViewHTMLModel->rowCount() - 1) {
-            m_SelectedFile = m_ViewHTMLModel->itemFromIndex(index)->text();
+        if (index.row() != m_ItemModel->rowCount() - 1) {
+            selected_file = m_ItemModel->itemFromIndex(index)->text();
         }
     }
+    return selected_file;
 }
 
-void ViewHTML::ReadSettings()
+void HTMLFilesWidget::connectSignalsSlots()
 {
-    SettingsStore settings;
-    settings.beginGroup(SETTINGS_GROUP);
-
-    // The size of the window and it's full screen status
-    QByteArray geometry = settings.value("geometry").toByteArray();
-
-    if (!geometry.isNull()) {
-        restoreGeometry(geometry);
-    }
-
-    settings.endGroup();
-}
-
-void ViewHTML::WriteSettings()
-{
-    SetSelectedFile();
-
-    SettingsStore settings;
-    settings.beginGroup(SETTINGS_GROUP);
-
-    // The size of the window and it's full screen status
-    settings.setValue("geometry", saveGeometry());
-
-    settings.endGroup();
-}
-
-void ViewHTML::connectSignalsSlots()
-{
-    connect(this,         SIGNAL(accepted()),
-            this,         SLOT(WriteSettings()));
     connect(ui.leFilter,  SIGNAL(textChanged(QString)), 
             this,         SLOT(FilterEditTextChangedSlot(QString)));
-    connect (ui.fileTree, SIGNAL(doubleClicked(const QModelIndex &)),
-            this,         SLOT(accept()));
+//    connect (ui.fileTree, SIGNAL(doubleClicked(const QModelIndex &)),
+//            this,         SLOT(accept()));
     connect (ui.fileTree->header(), SIGNAL(sortIndicatorChanged(int, Qt::SortOrder)), this, SLOT(Sort(int, Qt::SortOrder)));
 }

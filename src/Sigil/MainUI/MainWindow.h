@@ -300,11 +300,7 @@ private slots:
 
     void IndexEditorDialog(IndexEditorModel::indexEntry* index_entry = NULL);
 
-    void ViewClassesUsedInHTML();
-
-    void ViewAllHTML();
-
-    void ViewAllImages();
+    void ReportsDialog();
 
     /**
      * Implements Insert image action functionality.

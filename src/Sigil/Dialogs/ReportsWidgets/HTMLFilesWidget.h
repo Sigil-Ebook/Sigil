@@ -21,8 +21,8 @@
 *************************************************************************/
 
 #pragma once
-#ifndef VIEWCLASSES_H
-#define VIEWCLASSES_H
+#ifndef HTMLFILESWIDGET_H
+#define HTMLFILESWIDGET_H
 
 #include <QtCore/QHash>
 #include <QtGui/QDialog>
@@ -31,52 +31,42 @@
 
 #include "ResourceObjects/Resource.h"
 #include "BookManipulation/Book.h"
+#include "ReportsWidget.h"
 
-#include "ui_ViewClasses.h"
+#include "ui_ReportsHTMLFilesWidget.h"
 
 class QString;
 class QStringList;
 
-class ViewClasses : public QDialog
+class HTMLFilesWidget : public ReportsWidget
+
 {
     Q_OBJECT
 
 public:
-    ViewClasses(QList<Resource *> css_resources, QList<Resource *> html_resources, QSharedPointer<Book> book, QWidget *parent = 0);
+    HTMLFilesWidget(QList<Resource*> html_resources, QSharedPointer<Book> book);
 
-    QString SelectedFile();
+    void SetupTable(int sort_column = 1, Qt::SortOrder sort_order = Qt::AscendingOrder);
+
+    QString saveSettings();
 
 private slots:
+    void Sort(int logicalindex, Qt::SortOrder order);
+
     void FilterEditTextChangedSlot(const QString &text);
 
-    void WriteSettings();
+    void Done();
 
 private:
-    struct Selector {
-        int css_position;
-        QString css_selector_text;
-        QString html_filename;
-    };
-
-    void SetSelectedFile();
-
-    void ReadSettings();
     void connectSignalsSlots();
 
-    void SetupTable();
-    QHash< QString, QList<ViewClasses::Selector *> > CheckHTMLFiles();
-    void CheckCSSFiles(QHash< QString, QList<ViewClasses::Selector *> > css_selectors);
-
-    QList<Resource *> m_CSSResources;
-    QList<Resource *> m_HTMLResources;
+    QList<Resource*> m_HTMLResources;
 
     QSharedPointer< Book > m_Book;
 
-    QStandardItemModel *m_ViewClassesModel;
+    QStandardItemModel *m_ItemModel;
 
-    QString m_SelectedFile;
-
-    Ui::ViewClasses ui;
+    Ui::HTMLFilesWidget ui;
 };
 
-#endif // VIEWCLASSES_H
+#endif // HTMLFILESWIDGET_H

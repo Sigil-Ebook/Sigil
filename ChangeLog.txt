@@ -1,4 +1,5 @@
-Sigil 0.6.0 TBA
+Sigil 0.6.0 TBA 
+    - Implement issue 1571: Display whether classes are used in the HTML or CSS files in a new Reports dialog.
     - Implement issue 1572: Add feature to re-format CSS files
     - Implement issue 1567: Remove XPGT support.
     - Implement issue 755: Support 'code view' for svg images that are loaded as separate files.

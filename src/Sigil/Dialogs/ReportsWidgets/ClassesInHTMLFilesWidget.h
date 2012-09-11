@@ -1,7 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2012 Dave Heiland
 **  Copyright (C) 2012 John Schember <john@nachtimwald.com>
+**  Copyright (C) 2012 Dave Heiland
 **
 **  This file is part of Sigil.
 **
@@ -21,65 +21,49 @@
 *************************************************************************/
 
 #pragma once
-#ifndef VIEWIMAGES_H
-#define VIEWIMAGES_H
+#ifndef CLASSESINHTMLFILESWIDGET_H
+#define CLASSESINHTMLFILESWIDGET_H
 
-#include <QtCore/QSharedPointer>
-
-#include "ResourceObjects/Resource.h"
 #include <QtCore/QHash>
 #include <QtGui/QDialog>
 #include <QtGui/QStandardItemModel>
-#include "BookManipulation/Book.h"
+#include <QtCore/QSharedPointer>
 
-#include "ui_ViewImages.h"
+#include "ResourceObjects/Resource.h"
+#include "BookManipulation/Book.h"
+#include "ReportsWidget.h"
+
+#include "ui_ReportsClassesInHTMLFilesWidget.h"
 
 class QString;
 class QStringList;
 
-class ViewImages : public QDialog
+class ClassesInHTMLFilesWidget : public ReportsWidget
 {
     Q_OBJECT
 
 public:
-    ViewImages(QString basepath, QList<Resource*> image_resources, QSharedPointer<Book> book,  QWidget *parent = 0);
+    ClassesInHTMLFilesWidget(QList<Resource *> html_resources, QList<Resource *> css_resources, QSharedPointer<Book> book);
 
-    void SetImages(int sort_column = 1, Qt::SortOrder sort_order = Qt::AscendingOrder);
-
-    QString SelectedFile();
+    QString saveSettings();
 
 private slots:
-    void Sort(int logicalindex, Qt::SortOrder order);
-
-    /**
-     * Filters the list of displayed images
-     */
     void FilterEditTextChangedSlot(const QString &text);
 
-    void WriteSettings();
-
-    void IncreaseThumbnailSize();
-    void DecreaseThumbnailSize();
-
 private:
-    void SetSelectedFile();
-
-    void ReadSettings();
     void connectSignalsSlots();
 
-    QString m_Basepath;
+    void SetupTable();
+    void CheckHTMLFiles();
 
-    QList<Resource*> m_ImageResources;
+    QList<Resource *> m_HTMLResources;
+    QList<Resource *> m_CSSResources;
 
-    QSharedPointer<Book> m_Book;
+    QSharedPointer< Book > m_Book;
 
-    QStandardItemModel *m_ViewImagesModel;
+    QStandardItemModel *m_ItemModel;
 
-    int m_ThumbnailSize;
-
-    QString m_SelectedFile;
-
-    Ui::ViewImages ui;
+    Ui::ClassesInHTMLFilesWidget ui;
 };
 
-#endif // VIEWIMAGES_H
+#endif // CLASSESINHTMLFILESWIDGET_H

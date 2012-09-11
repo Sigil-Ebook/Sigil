@@ -49,9 +49,6 @@ set( QOBJECT_HEADERS
     Dialogs/SelectCharacter.h
     Dialogs/SelectHyperlink.h
     Dialogs/SelectId.h
-    Dialogs/ViewClasses.h
-    Dialogs/ViewHTML.h
-    Dialogs/ViewImages.h
     Dialogs/SelectImages.h
     Dialogs/MetaEditor.h
     Dialogs/MetaEditorItemDelegate.h
@@ -61,6 +58,13 @@ set( QOBJECT_HEADERS
     Dialogs/PreferenceWidgets/KeyboardShortcutsWidget.h
     Dialogs/PreferenceWidgets/SpellCheckWidget.h
     Dialogs/RenameTemplate.h
+    Dialogs/Reports.h
+    Dialogs/ReportsWidgets/HTMLFilesWidget.h
+    Dialogs/ReportsWidgets/ImageFilesWidget.h
+    Dialogs/ReportsWidgets/CSSFilesWidget.h
+    Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.h
+    Dialogs/ReportsWidgets/StylesInCSSFilesWidget.h
+    Dialogs/ReportsWidgets/ReportsWidget.h
     Dialogs/LinkStylesheets.h
     Dialogs/SearchEditor.h
     Dialogs/ClipEditor.h
@@ -178,12 +182,6 @@ set( DIALOG_FILES
     Dialogs/SelectHyperlink.h
     Dialogs/SelectId.cpp
     Dialogs/SelectId.h
-    Dialogs/ViewClasses.cpp
-    Dialogs/ViewClasses.h
-    Dialogs/ViewHTML.cpp
-    Dialogs/ViewHTML.h
-    Dialogs/ViewImages.cpp
-    Dialogs/ViewImages.h
     Dialogs/SelectImages.cpp
     Dialogs/SelectImages.h
     Dialogs/MetaEditor.cpp
@@ -205,6 +203,19 @@ set( DIALOG_FILES
     Dialogs/PreferenceWidgets/SpellCheckWidget.h
     Dialogs/RenameTemplate.cpp
     Dialogs/RenameTemplate.h
+    Dialogs/Reports.cpp
+    Dialogs/Reports.h
+    Dialogs/ReportsWidgets/HTMLFilesWidget.cpp
+    Dialogs/ReportsWidgets/HTMLFilesWidget.h
+    Dialogs/ReportsWidgets/ImageFilesWidget.cpp
+    Dialogs/ReportsWidgets/ImageFilesWidget.h
+    Dialogs/ReportsWidgets/CSSFilesWidget.cpp
+    Dialogs/ReportsWidgets/CSSFilesWidget.h
+    Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp
+    Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.h
+    Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp
+    Dialogs/ReportsWidgets/StylesInCSSFilesWidget.h
+    Dialogs/ReportsWidgets/ReportsWidget.h
     Dialogs/LinkStylesheets.cpp
     Dialogs/LinkStylesheets.h
     Dialogs/SearchEditor.cpp
@@ -391,9 +402,6 @@ set( UI_FILES
     Form_Files/SelectCharacter.ui
     Form_Files/SelectHyperlink.ui
     Form_Files/SelectId.ui
-    Form_Files/ViewClasses.ui
-    Form_Files/ViewHTML.ui
-    Form_Files/ViewImages.ui
     Form_Files/SelectImages.ui
     Form_Files/MetaEditor.ui 
     Form_Files/AddMetadata.ui 
@@ -406,6 +414,12 @@ set( UI_FILES
     Form_Files/PLanguageWidget.ui
     Form_Files/PSpellCheckWidget.ui
     Form_Files/RenameTemplate.ui 
+    Form_Files/Reports.ui
+    Form_Files/ReportsHTMLFilesWidget.ui
+    Form_Files/ReportsImageFilesWidget.ui
+    Form_Files/ReportsCSSFilesWidget.ui
+    Form_Files/ReportsClassesInHTMLFilesWidget.ui
+    Form_Files/ReportsStylesInCSSFilesWidget.ui
     Form_Files/LinkStylesheets.ui 
     Form_Files/SearchEditor.ui
     Form_Files/ClipEditor.ui
