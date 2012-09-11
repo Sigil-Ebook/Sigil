@@ -101,24 +101,34 @@ QString CSSInfo::GetReformattedCSSText( bool multipleLineFormat )
         }
         last_selector_line = cssSelector->line;
 
-        // First replace the contents inside the braces
+        // Will place a blank line after every style if in multi-line mode
+        if (multipleLineFormat) {
+            new_text.insert(cssSelector->closingBracePos + 1, LINE_MARKER);
+        }
+
+        // Now replace the contents inside the braces
         QList< CSSInfo::CSSProperty* > new_properties = getCSSProperties(m_OriginalText, cssSelector->openingBracePos, cssSelector->closingBracePos);
         const QString &new_properties_text = formatCSSProperties(new_properties, multipleLineFormat, selector_indent);
         new_text.replace(cssSelector->openingBracePos + 1, cssSelector->closingBracePos - cssSelector->openingBracePos - 1, new_properties_text);
 
-        // Ensure the braces are placed on the same line as the selector name
-        int pos = cssSelector->openingBracePos;
-        while (--pos > 0 && new_text.at(pos).isSpace());
-        new_text.replace(pos + 1, cssSelector->openingBracePos - pos - 1, " ");
+        // Reformat the selector text itself - whitespace only since incomplete parsing.
+        // Will ensure the braces are placed on the same line as the selector name,
+        // comma separated groups are spaced apart and double spaces are removed.
+        QString selector_text = m_OriginalText.mid(cssSelector->position, cssSelector->openingBracePos - cssSelector->position);
+        selector_text.replace(QRegExp(","), ", ");
+        selector_text.replace(QRegExp(" {2,}"), QChar(' '));
+        new_text.replace(cssSelector->position, cssSelector->openingBracePos - cssSelector->position, selector_text.trimmed() % QChar(' '));
 
         // Make sure the selector itself is left-aligned (indented if inline CSS)
-        pos = cssSelector->position;
-        while (--pos > 0 && (new_text.at(pos) == '\t' || new_text.at(pos) == ' '));
-        new_text.replace(pos + 1, cssSelector->position - pos - 1, QString(" ").repeated(selector_indent));
-
-        // Insert a character to use as a marker before the selector so we know where to add line breaks after
-        if (pos > 0) {
-            new_text.insert(pos + 1, LINE_MARKER);
+        if (cssSelector->position > 0) {
+            int pos = cssSelector->position;
+            while (pos-- > 0 && (new_text.at(pos) == QChar(' ') || new_text.at(pos) == QChar('\t')));
+            if (pos <= 0) {
+                new_text.replace(0, cssSelector->position, QString(" ").repeated(selector_indent));
+            }
+            else {
+                new_text.replace(pos + 1, cssSelector->position - pos - 1, QString(" ").repeated(selector_indent));
+            }
         }
     }
 
@@ -140,8 +150,8 @@ QString CSSInfo::GetReformattedCSSText( bool multipleLineFormat )
         }
     }
 
-    new_text.replace(LINE_MARKER, multipleLineFormat ? "\n" : "");
-    return new_text;
+    new_text.replace(LINE_MARKER, "\n");
+    return new_text.trimmed();
 }
 
 QList< CSSInfo::CSSProperty* > CSSInfo::getCSSProperties( const QString &text, const int &openingBracePos, const int &closingBracePos )
@@ -292,7 +302,7 @@ void CSSInfo::parseCSSSelectors( const QString &text, const int &offsetLines, co
             match.replace(QRegExp(strip_attributes_regex), "");
             match.replace(QRegExp(strip_ids_regex), "");
             // Also replace any other characters like > or + not of interest
-            match.replace(QRegExp(strip_non_name_chars_regex), " ");
+            match.replace(QRegExp(strip_non_name_chars_regex), QChar(' '));
 
             // Now break it down into the element components
             QStringList elements = match.trimmed().split(QChar(' '), QString::SkipEmptyParts);
@@ -333,7 +343,7 @@ QString CSSInfo::replaceBlockComments(const QString &text)
             break;
         }
         QString match_text = new_text.mid(comment_index, comment_search.matchedLength());
-        match_text.replace(QRegExp("[^\r\n]"), " ");
+        match_text.replace(QRegExp("[^\r\n]"), QChar(' '));
         new_text.remove(comment_index, match_text.length());
         new_text.insert(comment_index, match_text);
 
