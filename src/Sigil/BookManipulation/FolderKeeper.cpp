@@ -58,7 +58,7 @@ const QString STYLE_FOLDER_NAME = "Styles";
 const QString MISC_FOLDER_NAME  = "Misc";
 
 const QStringList IMAGE_MIMEYPES = QStringList() << "image/gif" << "image/jpeg"
-                                                 << "image/png" << "image/svg+xml";
+                                                 << "image/png";
 const QStringList SVG_MIMETYPES = QStringList() << "image/svg+xml";
 const QStringList TEXT_MIMETYPES = QStringList() << "application/xhtml+xml"
                                                  << "application/x-dtbook+xml"
