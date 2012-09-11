@@ -1,4 +1,5 @@
 Sigil 0.6.0 TBA
+    - Implement issue 1572: Add feature to re-format CSS files
     - Implement issue 1567: Remove XPGT support.
     - Implement issue 755: Support 'code view' for svg images that are loaded as separate files.
     - Implement issue 1561: Add Save A Copy option to save file under a different name without renaming current file.
@@ -71,10 +72,10 @@ Sigil 0.6.0 TBA
     - Implement issue 1376: Change organization name and location of settings to sigil-ebook.
     - Implement issue 1381: Switch to using Minizip for 1.1 for ZIP support. 
       - Remove ZipArchive and Zipios++.
-    - Implement issue 1380: Update zlib to 1.2.6.
+    - Implement issue 1380: Update zlib to 1.2.7.
     - Implement issue 1383: Remove the use of a precompiled header.
-    - Implement issue 1377: Update PCRE to 8.30.
-      - Make PCRE 8.30 with UTF-16 support the minimum required version.
+    - Implement issue 1377: Update PCRE to 8.31.
+      - Make PCRE 8.31 with UTF-16 support the minimum required version.
       - Bundled PCRE uses PCRE's JIT for faster searching.
       - Modify Regex search code to use UTF-16 instead of UTF-8 for all
         searches. This brings search in line with the view components
