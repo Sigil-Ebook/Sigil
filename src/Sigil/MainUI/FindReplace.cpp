@@ -490,6 +490,12 @@ bool FindReplace::ReplaceText( Searchable::Direction direction )
 
 void FindReplace::SetCodeViewIfNeeded( bool force )
 {
+    // We never need to switch to CodeView if only working within scope of a non-html file.
+    if (m_LookWhereCurrentFile || GetLookWhere() == FindReplace::LookWhere_CurrentFile) {
+        if (GetCurrentResource()->Type() != Resource::HTMLResourceType) {
+            return;
+        }
+    }
     bool has_focus = HasFocus();
 
     if ( force ||
