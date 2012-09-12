@@ -769,26 +769,16 @@ void BookBrowser::RenameSelected()
         extension = first_filename.right( first_filename.length() - first_filename.lastIndexOf( '.' ) );
     }
 
-    // Display progress dialog
-    QProgressDialog progress(QObject::tr( "Renaming Files.." ), QString(), 0, resources.count(), this);
-    progress.setMinimumDuration(PROGRESS_BAR_MINIMUM_DURATION);
-    int progress_value = 0;
+    // Rename all entries at once
+    QList<QString> new_filenames;
 
-    // Rename each entry in turn
-    int i = templateNumber.toInt();
-    foreach ( Resource *resource, resources )
+    int start = templateNumber.toInt();
+    for (int i = start; i < start + resources.count(); i++) 
     {
-        // Set progress value and ensure dialog has time to display when doing extensive updates
-        progress.setValue(progress_value++);
-        QApplication::processEvents(QEventLoop::ExcludeUserInputEvents);
-
         QString name = QString( "%1%2" ).arg( templateBase ).arg( i, templateNumber.length(), 10, QChar( '0' ) ).append( extension );
-        if ( !m_OPFModel.RenameResource( *resource, name ) )
-        {
-            break;
-        }
-        i++;
+        new_filenames.append(name);
     }
+    m_OPFModel.RenameResourceList(resources, new_filenames);
 
     SelectResources(resources);
 }

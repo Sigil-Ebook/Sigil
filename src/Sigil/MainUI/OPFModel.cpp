@@ -328,55 +328,75 @@ void OPFModel::ItemChangedHandler(QStandardItem *item)
 
 bool OPFModel:: RenameResource( Resource &resource, const QString &new_filename )
 {
-    const QString &old_fullpath = resource.GetFullPath();
+    QList<Resource *> resources;
+    QStringList filenames;
 
-    QString old_filename = resource.Filename();
-    QString extension = old_filename.right( old_filename.length() - old_filename.lastIndexOf( '.' ) );
+    resources.append(&resource);
+    filenames.append(new_filename);
 
-    QString new_filename_with_extension = new_filename;
+    return RenameResourceList(resources, filenames);
+}
 
-    if ( !new_filename.contains( '.')  )
-    {
-        new_filename_with_extension.append( extension );
-    }
-
-    if ( old_filename == new_filename_with_extension )
-    {
-        return true;
-    }
-
-    if ( !FilenameIsValid( old_filename, new_filename_with_extension )   )
-    {
-        Refresh();
-
-        return false;
-    }
-
-    bool rename_success = resource.RenameTo( new_filename_with_extension );
-
-    if ( !rename_success )
-    {
-        Utility::DisplayStdErrorDialog( 
-            tr( "The file could not be renamed." )
-            );
-
-        Refresh();
-
-        return false;
-    }
-
+bool OPFModel:: RenameResourceList( QList<Resource *> resources, QList<QString> new_filenames )
+{
+    QStringList not_renamed;
     QHash< QString, QString > update;
-    update[ old_fullpath ] = "../" + resource.GetRelativePathToOEBPS();
 
-    QApplication::setOverrideCursor( Qt::WaitCursor );
-    UniversalUpdates::PerformUniversalUpdates( true, m_Book->GetFolderKeeper().GetResourceList(), update );
-    QApplication::restoreOverrideCursor();
+    foreach (Resource *resource, resources) {
 
-    emit BookContentModified();
+        const QString &old_fullpath = resource->GetFullPath();
+    
+        QString old_filename = resource->Filename();
+        QString extension = old_filename.right( old_filename.length() - old_filename.lastIndexOf( '.' ) );
+    
+        //QString new_filename_with_extension = new_filename;
+        QString new_filename = new_filenames.first();
+        new_filenames.removeFirst();
+        QString new_filename_with_extension = new_filename;
+    
+        if ( !new_filename.contains( '.')  )
+        {
+            new_filename_with_extension.append( extension );
+        }
+    
+        if ( old_filename == new_filename_with_extension )
+        {
+            return true;
+        }
+    
+        if ( !FilenameIsValid( old_filename, new_filename_with_extension )   )
+        {
+            not_renamed.append(resource->Filename());
+            continue;
+        }
+    
+        bool rename_success = resource->RenameTo( new_filename_with_extension );
+    
+        if ( !rename_success )
+        {
+            not_renamed.append(resource->Filename());
+            continue;
+        }
+    
+        update[ old_fullpath ] = "../" + resource->GetRelativePathToOEBPS();
+
+    }
+
+    if (update.count() > 0) {
+        QApplication::setOverrideCursor( Qt::WaitCursor );
+        UniversalUpdates::PerformUniversalUpdates( true, m_Book->GetFolderKeeper().GetResourceList(), update );
+        QApplication::restoreOverrideCursor();
+
+        emit BookContentModified();
+    }
 
     Refresh();
 
-    return true;
+    if (not_renamed.isEmpty()) {
+        return true;
+    }
+
+    return false;
 }
 
 

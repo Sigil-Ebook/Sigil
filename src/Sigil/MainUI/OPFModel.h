@@ -157,6 +157,7 @@ public:
      * @return Whether rename succeeded or not
      */
     bool RenameResource( Resource &resource, const QString &new_filename );
+    bool RenameResourceList( QList<Resource *> resources, QList<QString> new_filenames );
 
 signals:
 
