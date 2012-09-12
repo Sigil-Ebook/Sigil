@@ -49,8 +49,11 @@ public:
              QWidget *parent = 0);
 
     QString SelectedFile();
+    int SelectedFileLine();
 
 private slots:
+    void DoubleClickReceived();
+
     /**
      * Load the ReportsWidget that the user has selected.
      */
@@ -92,6 +95,8 @@ private:
     QSharedPointer< Book > m_Book;
 
     QString m_SelectedFile;
+
+    int m_SelectedFileLine;
 
     Ui::Reports ui;
 };

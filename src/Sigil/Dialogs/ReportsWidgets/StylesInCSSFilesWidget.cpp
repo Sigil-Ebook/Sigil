@@ -126,6 +126,7 @@ QHash< QString, QList<StylesInCSSFilesWidget::Selector *> > StylesInCSSFilesWidg
                         selector_text = selector->originalText;
                         selector_info->css_selector_text = selector_text;
                         selector_info->css_position = selector->position;
+                        selector_info->css_line = selector->line;
                         selector_info->html_filename = "../" + html_resource->GetRelativePathToOEBPS();
                         selector_info->html_filename = html_resource->Filename();
                         css_selectors[stylesheet_filename].append(selector_info);
@@ -153,11 +154,13 @@ void StylesInCSSFilesWidget::CheckCSSFiles(QHash< QString, QList<StylesInCSSFile
 
             QString selector_text = selector->originalText;
             QString found_location;
+            int found_location_line;
 
             if (css_selectors.contains(filename)) {
                 foreach (StylesInCSSFilesWidget::Selector *selector_info, css_selectors[filename]) {
                     if (selector_info->css_position == selector->position) {
                         found_location = selector_info->html_filename;
+                        found_location_line = selector_info->css_line;
                         break;
                     }
                 }
@@ -170,6 +173,7 @@ void StylesInCSSFilesWidget::CheckCSSFiles(QHash< QString, QList<StylesInCSSFile
             // File name
             QStandardItem *filename_item = new QStandardItem();
             filename_item->setText(css_resource->Filename());
+            filename_item->setData(found_location_line);
             rowItems << filename_item;
 
             // Selector
@@ -226,22 +230,28 @@ void StylesInCSSFilesWidget::FilterEditTextChangedSlot(const QString &text)
     }
 }
 
-QString StylesInCSSFilesWidget::saveSettings()
+ReportsWidget::Results StylesInCSSFilesWidget::saveSettings()
 {
-    QString selected_file;
+    ReportsWidget::Results results;
+
+    results.filename = "";
+    results.line = -1;
 
     if (ui.fileTree->selectionModel()->hasSelection()) {
         QModelIndex index = ui.fileTree->selectionModel()->selectedRows(0).first();
         if (index.row() != m_ItemModel->rowCount() - 1) {
-            selected_file = m_ItemModel->itemFromIndex(index)->text();
+            results.filename = m_ItemModel->itemFromIndex(index)->text();
+            results.line = m_ItemModel->itemFromIndex(index)->data().toInt();
         }
     }
 
-    return selected_file;
+    return results;
 }
 
 void StylesInCSSFilesWidget::connectSignalsSlots()
 {
     connect(ui.Filter,    SIGNAL(textChanged(QString)), 
             this,         SLOT(FilterEditTextChangedSlot(QString)));
+    connect (ui.fileTree, SIGNAL(doubleClicked(const QModelIndex &)),
+            this,          SIGNAL(DoubleClick()));
 }

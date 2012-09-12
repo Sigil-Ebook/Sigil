@@ -24,8 +24,7 @@
 #define REPORTSWIDGET_H
 
 #include <QWidget>
-
-class QString;
+#include <QString>
 
 /**
  * Base Interface for reports widgets.
@@ -35,7 +34,21 @@ class ReportsWidget : public QWidget
     Q_OBJECT
 
 public:
-    virtual QString saveSettings() = 0;
+    /**
+     * Describes the result actions to present to the user as a result
+     * of saving any changes made in the preferences widgets.
+     * Results are in order of increasing priority of result to display.
+     */
+    struct Results
+    {
+        QString filename;
+        int line;
+    };
+
+    /**
+     * Save settings made available by the widget.
+     */
+    virtual Results saveSettings() = 0;
 };
 
 #endif // REPORTSWIDGET_H

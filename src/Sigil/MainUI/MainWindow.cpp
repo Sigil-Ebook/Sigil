@@ -192,12 +192,18 @@ ContentTab& MainWindow::GetCurrentContentTab()
     return m_TabManager.GetCurrentContentTab();
 }
 
-void MainWindow::OpenFilename( QString filename )
+void MainWindow::OpenFilename( QString filename, int line )
 {
     QList<Resource *> resources = m_BookBrowser->AllImageResources() + m_BookBrowser->AllHTMLResources() + m_BookBrowser->AllCSSResources();
     foreach (Resource *resource, resources) {
         if (resource->Filename() == filename) {
-            OpenResource(*resource);
+            if (line < 1) {
+                OpenResource(*resource);
+            }
+            else {
+                OpenResource(*resource, false, QUrl(), MainWindow::ViewState_Unknown, line);
+
+            }
             break;
         }
     }
@@ -781,7 +787,7 @@ void MainWindow::ReportsDialog()
     Reports reports(html_resources, image_resources, css_resources, m_Book, this);
 
     if (reports.exec() == QDialog::Accepted) {
-        OpenFilename(reports.SelectedFile());
+        OpenFilename(reports.SelectedFile(), reports.SelectedFileLine());
     }
 }
 

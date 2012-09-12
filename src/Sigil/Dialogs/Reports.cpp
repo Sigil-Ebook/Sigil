@@ -45,7 +45,9 @@ Reports::Reports(QList<Resource*> html_resources,
     m_HTMLResources(html_resources),
     m_ImageResources(image_resources),
     m_CSSResources(css_resources),
-    m_Book(book)
+    m_Book(book),
+    m_SelectedFile(QString()),
+    m_SelectedFileLine(-1)
 {
     // Display progress dialog
     QProgressDialog progress(QObject::tr("Creating reports..."), tr("Cancel"), 0, NUMBER_OF_REPORTS, this);
@@ -91,9 +93,14 @@ QString Reports::SelectedFile()
     return m_SelectedFile;
 }
 
+int Reports::SelectedFileLine()
+{
+    return m_SelectedFileLine;
+}
+
 void Reports::saveSettings()
 {
-    QString widgetResult;
+    ReportsWidget::Results widgetResult;
 
     SettingsStore settings;
     settings.beginGroup( SETTINGS_GROUP );
@@ -109,7 +116,8 @@ void Reports::saveSettings()
         widgetResult = rw->saveSettings();
     }
 
-    m_SelectedFile = widgetResult;
+    m_SelectedFile = widgetResult.filename;
+    m_SelectedFileLine = widgetResult.line;
 
     QApplication::restoreOverrideCursor();
 }
@@ -140,8 +148,15 @@ void Reports::appendReportsWidget(ReportsWidget *widget)
     // Add the ReportsWidget to the stack view area.
     ui.pWidget->addWidget(widget);
 
+    connect(widget, SIGNAL(DoubleClick()), this, SLOT(DoubleClickReceived()));
+
     // Add an entry to the list of available reports widgets.
     ui.availableWidgets->addItem(widget->windowTitle());
+}
+
+void Reports::DoubleClickReceived()
+{
+    accept();
 }
 
 void Reports::connectSignalsSlots()

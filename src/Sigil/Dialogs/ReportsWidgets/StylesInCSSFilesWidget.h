@@ -45,13 +45,17 @@ class StylesInCSSFilesWidget : public ReportsWidget
 public:
     StylesInCSSFilesWidget(QList<Resource *> html_resources, QList<Resource *> css_resources, QSharedPointer<Book> book);
 
-    QString saveSettings();
+    ReportsWidget::Results saveSettings();
+
+signals:
+    void DoubleClick();
 
 private slots:
     void FilterEditTextChangedSlot(const QString &text);
 
 private:
     struct Selector {
+        int css_line;
         int css_position;
         QString css_selector_text;
         QString html_filename;

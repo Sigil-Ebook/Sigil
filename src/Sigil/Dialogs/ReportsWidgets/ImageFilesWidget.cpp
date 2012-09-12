@@ -278,8 +278,13 @@ void ImageFilesWidget::ReadSettings()
     settings.endGroup();
 }
 
-QString ImageFilesWidget::saveSettings()
+ReportsWidget::Results ImageFilesWidget::saveSettings()
 {
+    ReportsWidget::Results results;
+
+    results.filename = "";
+    results.line = -1;
+
     SettingsStore settings;
     settings.beginGroup(SETTINGS_GROUP);
 
@@ -293,10 +298,11 @@ QString ImageFilesWidget::saveSettings()
     if (ui.imageTree->selectionModel()->hasSelection()) {
         QModelIndex index = ui.imageTree->selectionModel()->selectedRows(0).first();
         if (index.row() != m_ItemModel->rowCount() - 1) {
-            selected_file = m_ItemModel->itemFromIndex(index)->text();
+            results.filename = m_ItemModel->itemFromIndex(index)->text();
         }
     }
-    return selected_file;
+
+    return results;
 }
 
 void ImageFilesWidget::connectSignalsSlots()
@@ -309,4 +315,6 @@ void ImageFilesWidget::connectSignalsSlots()
             this,                    SLOT(DecreaseThumbnailSize()));
     connect (ui.imageTree->header(), SIGNAL(sortIndicatorChanged(int, Qt::SortOrder)), 
             this,                    SLOT(Sort(int, Qt::SortOrder)));
+    connect (ui.imageTree,           SIGNAL(doubleClicked(const QModelIndex &)),
+            this,                    SIGNAL(DoubleClick()));
 }

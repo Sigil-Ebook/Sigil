@@ -48,7 +48,10 @@ public:
 
     void SetupTable(int sort_column = 1, Qt::SortOrder sort_order = Qt::AscendingOrder);
 
-    QString saveSettings();
+    ReportsWidget::Results saveSettings();
+
+signals:
+    void DoubleClick();
 
 private slots:
     void Sort(int logicalindex, Qt::SortOrder order);

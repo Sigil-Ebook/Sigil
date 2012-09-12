@@ -49,7 +49,10 @@ public:
 
     QString SelectedFile();
 
-    QString saveSettings();
+    ReportsWidget::Results saveSettings();
+
+signals:
+    void DoubleClick();
 
 private slots:
     void Sort(int logicalindex, Qt::SortOrder order);

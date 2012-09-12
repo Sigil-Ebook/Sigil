@@ -45,7 +45,10 @@ class ClassesInHTMLFilesWidget : public ReportsWidget
 public:
     ClassesInHTMLFilesWidget(QList<Resource *> html_resources, QList<Resource *> css_resources, QSharedPointer<Book> book);
 
-    QString saveSettings();
+    ReportsWidget::Results saveSettings();
+
+signals:
+    void DoubleClick();
 
 private slots:
     void FilterEditTextChangedSlot(const QString &text);

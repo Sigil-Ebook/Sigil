@@ -192,7 +192,7 @@ public slots:
     static void ShowMessageOnCurrentStatusBar( const QString &message,
                                                int millisecond_duration = STATUSBAR_MSG_DISPLAY_TIME );
 
-    void OpenFilename( QString filename );
+    void OpenFilename( QString filename, int line = -1 );
 
     void OpenUrl(const QUrl& url);
 

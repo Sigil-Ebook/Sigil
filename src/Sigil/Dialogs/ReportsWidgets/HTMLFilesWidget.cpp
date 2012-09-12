@@ -230,24 +230,28 @@ void HTMLFilesWidget::Done()
     close();
 }
 
-QString HTMLFilesWidget::saveSettings()
+ReportsWidget::Results HTMLFilesWidget::saveSettings()
 {
-    QString selected_file;
+    ReportsWidget::Results results;
+
+    results.filename = "";
+    results.line = -1;
 
     if (ui.fileTree->selectionModel()->hasSelection()) {
         QModelIndex index = ui.fileTree->selectionModel()->selectedRows(0).first();
         if (index.row() != m_ItemModel->rowCount() - 1) {
-            selected_file = m_ItemModel->itemFromIndex(index)->text();
+            results.filename = m_ItemModel->itemFromIndex(index)->text();
         }
     }
-    return selected_file;
+
+    return results;
 }
 
 void HTMLFilesWidget::connectSignalsSlots()
 {
     connect(ui.leFilter,  SIGNAL(textChanged(QString)), 
             this,         SLOT(FilterEditTextChangedSlot(QString)));
-//    connect (ui.fileTree, SIGNAL(doubleClicked(const QModelIndex &)),
-//            this,         SLOT(accept()));
+    connect (ui.fileTree, SIGNAL(doubleClicked(const QModelIndex &)),
+            this,         SIGNAL(DoubleClick()));
     connect (ui.fileTree->header(), SIGNAL(sortIndicatorChanged(int, Qt::SortOrder)), this, SLOT(Sort(int, Qt::SortOrder)));
 }
