@@ -609,7 +609,7 @@ bool BookViewEditor::SuccessfullySetupContextMenu( const QPoint &point )
             {
                 m_OpenWithEditor->setData( QVariant::Invalid );
 
-                m_OpenWith->setText( tr( "Open With" ) + " ...");
+                m_OpenWith->setText( tr( "Open With" ) + "...");
                 m_OpenWith->setData( imageUrl );
 
                 m_ContextMenu.addAction( m_OpenWith );
@@ -619,7 +619,7 @@ bool BookViewEditor::SuccessfullySetupContextMenu( const QPoint &point )
                 m_OpenWithEditor->setText( OpenExternally::prettyApplicationName(editorPath) );
                 m_OpenWithEditor->setData( imageUrl );
 
-                m_OpenWith->setText( tr( "Other Application" ) + " ...");
+                m_OpenWith->setText( tr( "Other Application" ) + "...");
                 m_OpenWith->setData( imageUrl );
 
                 m_ContextMenu.addMenu( &m_OpenWithContextMenu );
