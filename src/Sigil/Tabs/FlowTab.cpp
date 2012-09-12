@@ -924,6 +924,12 @@ void FlowTab::ResourceModified()
     if ( m_ViewState == MainWindow::ViewState_CodeView ) {
         m_wCodeView->ExecuteCaretUpdate();
     }
+    else {
+        // We will immediately reload the tab if it is the currently displayed one
+        if (isVisible()) {
+            ReloadTabIfPending();
+        }
+    }
 }
 
 void FlowTab::ResourceTextChanging()
@@ -959,11 +965,6 @@ void FlowTab::EnterEditor(QWidget *editor)
     // over a valid file.
     if (!m_safeToLoad) {
         return;
-    }
-
-    if (m_BookPreviewNeedReload && (m_ViewState == MainWindow::ViewState_PreviewView || m_ViewState == MainWindow::ViewState_BookView)) {
-        LoadTabContent();
-        m_BookPreviewNeedReload = false;
     }
 
     // BookPreview is left out of this because we always want to reload with any current changes

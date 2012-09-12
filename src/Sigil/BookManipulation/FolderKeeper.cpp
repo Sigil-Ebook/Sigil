@@ -24,6 +24,7 @@
 #include <QtCore/QFileInfo>
 #include <QtCore/QString>
 #include <QtCore/QThread>
+#include <QtCore/QTime>
 #include <QtGui/QApplication>
 
 #include "BookManipulation/FolderKeeper.h"
@@ -416,6 +417,11 @@ void FolderKeeper::ResourceRenamed( const Resource& resource, const QString& old
 
 void FolderKeeper::ResourceFileChanged( const QString &path ) const
 {
+    // The file may have been deleted prior to writing a new version - give it a chance to write.
+    QTime wake_time = QTime::currentTime().addSecs(1);   
+    while( !QFile::exists(path) && QTime::currentTime() < wake_time ) {
+        QCoreApplication::processEvents(QEventLoop::AllEvents, 100);
+    }
     // The signal is also received after resource files are removed / renamed,
     // but it can be safely ignored because QFileSystemWatcher automatically stops watching them.
     if ( QFile::exists(path) )
