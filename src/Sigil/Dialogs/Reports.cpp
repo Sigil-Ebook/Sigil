@@ -50,10 +50,11 @@ Reports::Reports(QList<Resource*> html_resources,
     m_SelectedFileLine(-1)
 {
     // Display progress dialog
-    QProgressDialog progress(QObject::tr("Creating reports..."), tr("Cancel"), 0, NUMBER_OF_REPORTS, this);
-    progress.setMinimumDuration(1500);
+    QProgressDialog progress(QObject::tr("Creating reports..."), 0, 0, NUMBER_OF_REPORTS, parent);
+    progress.setMinimumDuration(0);
     int progress_value = 0;
     progress.setValue(progress_value++);
+    qApp->processEvents();
 
     ui.setupUi(this);
 
