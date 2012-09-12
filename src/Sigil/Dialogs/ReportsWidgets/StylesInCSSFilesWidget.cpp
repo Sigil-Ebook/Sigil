@@ -154,7 +154,7 @@ void StylesInCSSFilesWidget::CheckCSSFiles(QHash< QString, QList<StylesInCSSFile
 
             QString selector_text = selector->originalText;
             QString found_location;
-            int found_location_line;
+            int found_location_line = -1;
 
             if (css_selectors.contains(filename)) {
                 foreach (StylesInCSSFilesWidget::Selector *selector_info, css_selectors[filename]) {
