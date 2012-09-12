@@ -160,7 +160,6 @@ QList< CSSInfo::CSSProperty* > CSSInfo::getCSSProperties( const QString &text, c
     QStringList properties = style_text.split(QChar(';'), QString::SkipEmptyParts);
     QList<CSSProperty*> new_properties;
 
-    bool has_property = false;
     foreach( QString property_text, properties ) {
         if (property_text.trimmed().isEmpty()) {
             continue;
