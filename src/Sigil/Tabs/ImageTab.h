@@ -43,6 +43,12 @@ public:
 
     void UpdateDisplay();
 
+public slots:
+    void RefreshContent();
+
+private slots:
+    void ImageFileModified();
+
 private:
 
     void ConnectSignalsToSlots();
@@ -53,11 +59,11 @@ private:
     // PRIVATE MEMBER VARIABLES
     ///////////////////////////////
 
-    ImageResource &m_ImageResource;
-
     QWebView &m_WebView;
 
     float m_CurrentZoomFactor;
+
+    qint64 m_RefreshedTimestamp;
 };
 
 #endif // IMAGETAB_H

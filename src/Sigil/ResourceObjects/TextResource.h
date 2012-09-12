@@ -83,6 +83,9 @@ public:
     // inherited
     virtual ResourceType Type() const;
 
+protected:
+    virtual bool LoadFromDisk();
+
 private slots:
 
     /**

@@ -35,3 +35,13 @@ Resource::ResourceType ImageResource::Type() const
 {
     return Resource::ImageResourceType;
 }
+
+bool ImageResource::LoadFromDisk()
+{
+    // don't really have to do anything here,
+    // but Modified() is necessary to tell tabs and the book that the resource has been modified
+
+    emit Modified();
+
+    return true;
+}

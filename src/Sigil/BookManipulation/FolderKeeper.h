@@ -28,6 +28,7 @@
 #include <QtCore/QHash>
 #include <QtCore/QList>
 #include <QtCore/QMutex>
+#include <QFileSystemWatcher>
 
 // These have to be included directly because
 // of the template functions.
@@ -237,7 +238,23 @@ private slots:
      */
     void RemoveResource( const Resource& resource );
 
+    /**
+     * Tell the OPF object to updated itself,
+     * and (optionally) register the new file with the FS watcher.
+     */
+    void ResourceRenamed( const Resource& resource, const QString& old_full_path );
+
+    /**
+     * Called by the FSWatcher when a watched file has changed on disk.
+     */
+    void ResourceFileChanged( const QString& path ) const;
+
 private:
+
+    /**
+     * Registers certain file types to be watched for external modifications.
+     */
+    void WatchResourceFile( const Resource& resource, bool file_renamed = false );
 
     /**
      * Creates the required subfolders of each book.
@@ -296,6 +313,11 @@ private:
      * The main temp folder where files are stored.
      */
     TempFolder m_TempFolder;
+
+    /**
+     * Watches the files on disk for any changes in case the resources have been modified from outside Sigil.
+     */
+    QFileSystemWatcher *m_FSWatcher;
 
     // Full paths to all the folders in the publication
     QString m_FullPathToMainFolder;

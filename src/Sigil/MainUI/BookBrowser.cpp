@@ -39,6 +39,7 @@
 #include "Misc/KeyboardShortcutManager.h"
 #include "Misc/SettingsStore.h"
 #include "Misc/Utility.h"
+#include "Misc/OpenExternally.h"
 #include "ResourceObjects/HTMLResource.h"
 #include "ResourceObjects/NCXResource.h"
 #include "ResourceObjects/OPFResource.h"
@@ -58,12 +59,14 @@ BookBrowser::BookBrowser( QWidget *parent )
     m_ContextMenu( *new QMenu( this ) ),
     m_SemanticsContextMenu( *new QMenu( this ) ),
     m_FontObfuscationContextMenu( *new QMenu( this ) ),
+    m_OpenWithContextMenu( *new QMenu( this ) ),
     m_GuideSemanticMapper( *new QSignalMapper( this ) ),
     m_LastContextMenuType( Resource::GenericResourceType ),
     m_RenamedResource(NULL)
 { 
     m_SemanticsContextMenu      .setTitle( tr( "Add Semantics"    ) );
     m_FontObfuscationContextMenu.setTitle( tr( "Font Obfuscation" ) );
+    m_OpenWithContextMenu       .setTitle( tr( "Open With"        ) );
 
     setWidget( &m_TreeView );
     setAllowedAreas( Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea );
@@ -73,6 +76,9 @@ BookBrowser::BookBrowser( QWidget *parent )
     SetupTreeView();
     CreateContextMenuActions();
     ConnectSignalsToSlots();
+
+    m_OpenWithContextMenu.addAction( m_OpenWithEditor );
+    m_OpenWithContextMenu.addAction( m_OpenWith );
 }
 
 
@@ -664,6 +670,32 @@ void BookBrowser::Export()
 
 }
 
+void BookBrowser::OpenWith() const
+{
+    const Resource *resource = GetCurrentResource();
+    if ( resource )
+    {
+        const QString& editorPath = OpenExternally::selectEditorForResourceType( resource->Type() );
+        if ( !editorPath.isEmpty() )
+        {
+            OpenExternally::openFile( resource->GetFullPath(), editorPath );
+        }
+    }
+}
+
+void BookBrowser::OpenWithEditor() const
+{
+    const Resource * resource = GetCurrentResource();
+    if ( resource )
+    {
+        const QVariant& editorPathData = m_OpenWithEditor->data();
+        if ( editorPathData.isValid() )
+        {
+            OpenExternally::openFile( resource->GetFullPath(), editorPathData.toString() );
+        }
+    }
+}
+
 void BookBrowser::Rename()
 {
     QList <Resource *> resources = ValidSelectedResources();
@@ -1079,6 +1111,8 @@ void BookBrowser::CreateContextMenuActions()
     m_RefreshTOC              = new QAction( tr( "Renumber TOC Entries" ),  this );
     m_LinkStylesheets         = new QAction( tr( "Link Stylesheets..." ),   this );
     m_Export                  = new QAction( tr( "Export..." ),             this );
+    m_OpenWith                = new QAction( tr( "Open With" ) + "...",     this );
+    m_OpenWithEditor          = new QAction( "",                            this );
     m_InsertImages            = new QAction( tr( "Insert" ),                this );
 
     m_CoverImage             ->setCheckable( true );  
@@ -1270,6 +1304,26 @@ bool BookBrowser::SuccessfullySetupContextMenu( const QPoint &point )
         m_ContextMenu.addSeparator();
         m_ContextMenu.addAction( m_Export );
 
+        if ( OpenExternally::mayOpen( resource->Type() ) ) {
+            const QString& editorPath = OpenExternally::editorForResourceType( resource->Type() );
+            if ( editorPath.isEmpty() )
+            {
+                m_OpenWithEditor->setData( QVariant::Invalid );
+
+                m_OpenWith->setText( tr( "Open With" ) + " ..." );
+
+                m_ContextMenu.addAction( m_OpenWith );
+            }
+            else
+            {
+                m_OpenWithEditor->setText( OpenExternally::prettyApplicationName(editorPath) );
+                m_OpenWithEditor->setData( editorPath );
+
+                m_OpenWith->setText( tr( "Other Application" ) + " ..." );
+
+                m_ContextMenu.addMenu( &m_OpenWithContextMenu );
+            }
+        }
     }
 
     // Add Select All
@@ -1450,6 +1504,8 @@ void BookBrowser::ConnectSignalsToSlots()
     connect( m_Merge,                   SIGNAL( triggered() ), this, SLOT( Merge()                   ) );
     connect( m_LinkStylesheets,         SIGNAL( triggered() ), this, SLOT( LinkStylesheets()         ) );
     connect( m_Export,                  SIGNAL( triggered() ), this, SLOT( Export()                  ) );
+    connect( m_OpenWith,                SIGNAL( triggered() ), this, SLOT( OpenWith()                ) );
+    connect( m_OpenWithEditor,          SIGNAL( triggered() ), this, SLOT( OpenWithEditor()          ) );
     connect( m_InsertImages,            SIGNAL( triggered() ), this, SLOT( InsertImages()            ) );
 
     connect( m_AdobesObfuscationMethod, SIGNAL( triggered() ), this, SLOT( AdobesObfuscationMethod() ) );
@@ -1464,13 +1520,13 @@ void BookBrowser::ConnectSignalsToSlots()
 }
 
 
-Resource* BookBrowser::GetCurrentResource()
+Resource* BookBrowser::GetCurrentResource() const
 {
     return GetResourceByIndex( m_TreeView.currentIndex() );
 }   
 
 
-Resource* BookBrowser::GetResourceByIndex( QModelIndex index )
+Resource* BookBrowser::GetResourceByIndex( QModelIndex index ) const
 {
     if ( !index.isValid() )
 

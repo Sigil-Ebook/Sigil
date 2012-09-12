@@ -35,6 +35,7 @@
 #include "BookManipulation/Book.h"
 #include "Misc/SettingsStore.h"
 #include "Misc/Utility.h"
+#include "Misc/OpenExternally.h"
 #include "PCRE/PCRECache.h"
 #include "sigil_constants.h"
 #include "sigil_exception.h"
@@ -69,6 +70,7 @@ BookViewEditor::BookViewEditor(QWidget *parent)
     BookViewPreview(parent),
     m_WebPageModified( false ),
     m_ContextMenu( *new QMenu( this ) ),
+    m_OpenWithContextMenu( *new QMenu( this ) ),
     m_ScrollOneLineUp(   *( new QShortcut( QKeySequence( Qt::ControlModifier + Qt::Key_Up   ), this, 0, 0, Qt::WidgetShortcut ) ) ),
     m_ScrollOneLineDown( *( new QShortcut( QKeySequence( Qt::ControlModifier + Qt::Key_Down ), this, 0, 0, Qt::WidgetShortcut ) ) ),
     c_GetSegmentHTML(   Utility::ReadUnicodeTextFile( ":/javascript/get_segment_html.js"           ) ),
@@ -102,6 +104,14 @@ BookViewEditor::~BookViewEditor()
     if (m_SelectAll) {
         delete m_SelectAll;
         m_SelectAll = 0;
+    }
+    if (m_OpenWith) {
+        delete m_OpenWith;
+        m_OpenWith = 0;
+    }
+    if (m_OpenWithEditor) {
+        delete m_OpenWithEditor;
+        m_OpenWithEditor = 0;
     }
 }
 
@@ -543,6 +553,31 @@ void BookViewEditor::selectAll()
     page()->triggerAction( QWebPage::SelectAll );
 }
 
+void BookViewEditor::openWith() const
+{
+    const QVariant& data = m_OpenWith->data();
+    if ( data.isValid() )
+    {
+        const QUrl& resourceUrl = data.toUrl();
+        const QString& editorPath = OpenExternally::selectEditorForResourceType( (Resource::ResourceType) resourceUrl.port() );
+        if ( !editorPath.isEmpty() )
+        {
+            OpenExternally::openFile( resourceUrl.toLocalFile(), editorPath );
+        }
+    }
+}
+
+void BookViewEditor::openWithEditor() const
+{
+    const QVariant& data = m_OpenWithEditor->data();
+    if ( data.isValid() )
+    {
+        const QUrl& resourceUrl = data.toUrl();
+        const QString& editorPath = OpenExternally::editorForResourceType( (Resource::ResourceType) resourceUrl.port() );
+        OpenExternally::openFile( resourceUrl.toLocalFile(), editorPath );
+    }
+}
+
 void BookViewEditor::OpenContextMenu( const QPoint &point )
 {
     if ( !SuccessfullySetupContextMenu( point ) )
@@ -555,6 +590,45 @@ void BookViewEditor::OpenContextMenu( const QPoint &point )
 
 bool BookViewEditor::SuccessfullySetupContextMenu( const QPoint &point )
 {
+    const QWebFrame *frame = page()->frameAt(point);
+    if (frame)
+    {
+        const QWebHitTestResult& hitTest = frame->hitTestContent(point);
+        QUrl imageUrl = hitTest.imageUrl();
+        if ( imageUrl.isValid() && imageUrl.isLocalFile() )
+        {
+            Resource::ResourceType imageType = Resource::ImageResourceType;
+            if ( imageUrl.path().toLower().endsWith(".svg") )
+            {
+                imageType = Resource::SVGResourceType;
+            }
+
+            imageUrl.setPort( imageType ); // "somewhat" ugly, but cheaper than using a QList<QVariant>
+            const QString& editorPath = OpenExternally::editorForResourceType( imageType );
+            if ( editorPath.isEmpty() )
+            {
+                m_OpenWithEditor->setData( QVariant::Invalid );
+
+                m_OpenWith->setText( tr( "Open With" ) + " ...");
+                m_OpenWith->setData( imageUrl );
+
+                m_ContextMenu.addAction( m_OpenWith );
+            }
+            else
+            {
+                m_OpenWithEditor->setText( OpenExternally::prettyApplicationName(editorPath) );
+                m_OpenWithEditor->setData( imageUrl );
+
+                m_OpenWith->setText( tr( "Other Application" ) + " ...");
+                m_OpenWith->setData( imageUrl );
+
+                m_ContextMenu.addMenu( &m_OpenWithContextMenu );
+            }
+
+            m_ContextMenu.addSeparator();
+        }
+    }
+
     m_ContextMenu.addAction( m_Cut );
     m_ContextMenu.addAction( m_Copy );
     m_ContextMenu.addAction( m_Paste );
@@ -574,6 +648,13 @@ void BookViewEditor::CreateContextMenuActions()
     m_Copy      = new QAction( tr( "Copy" ),        this );
     m_Paste     = new QAction( tr( "Paste" ),       this );
     m_SelectAll = new QAction( tr( "Select All" ),  this );
+
+    m_OpenWithEditor = new QAction( "",          this );
+    m_OpenWith       = new QAction( tr( "Open With" ) + "...",  this );
+
+    m_OpenWithContextMenu.setTitle( tr( "Open With" ) );
+    m_OpenWithContextMenu.addAction( m_OpenWithEditor );
+    m_OpenWithContextMenu.addAction( m_OpenWith );
 }
 
 void BookViewEditor::ConnectSignalsToSlots()
@@ -587,9 +668,11 @@ void BookViewEditor::ConnectSignalsToSlots()
 
     connect( page(), SIGNAL( contentsChanged()  ),      this,   SLOT( SetWebPageModified()       ) );
 
-    connect( this,        SIGNAL( customContextMenuRequested(const QPoint&) ),  this, SLOT( OpenContextMenu(const QPoint&) ) );
-    connect( m_Cut,       SIGNAL( triggered() ),  this, SLOT( cut()                 ) );
-    connect( m_Copy,      SIGNAL( triggered() ),  this, SLOT( copy()                ) );
-    connect( m_Paste,     SIGNAL( triggered() ),  this, SLOT( paste()               ) );
-    connect( m_SelectAll, SIGNAL( triggered() ),  this, SLOT( selectAll()           ) );
+    connect( this,             SIGNAL( customContextMenuRequested(const QPoint&) ),  this, SLOT( OpenContextMenu(const QPoint&) ) );
+    connect( m_Cut,            SIGNAL( triggered() ),  this, SLOT( cut()            ) );
+    connect( m_Copy,           SIGNAL( triggered() ),  this, SLOT( copy()           ) );
+    connect( m_Paste,          SIGNAL( triggered() ),  this, SLOT( paste()          ) );
+    connect( m_SelectAll,      SIGNAL( triggered() ),  this, SLOT( selectAll()      ) );
+    connect( m_OpenWith,       SIGNAL( triggered() ),  this, SLOT( openWith()       ) );
+    connect( m_OpenWithEditor, SIGNAL( triggered() ),  this, SLOT( openWithEditor() ) );
 }

@@ -29,6 +29,7 @@
 
 #include "Misc/Utility.h"
 #include "ResourceObjects/TextResource.h"
+#include "sigil_exception.h"
 
 TextResource::TextResource( const QString &fullfilepath, QObject *parent )
     :
@@ -113,6 +114,7 @@ void TextResource::SaveToDisk( bool book_wide_save )
         emit ResourceUpdatedOnDisk();
 
     m_TextDocument->setModified( false );
+    Resource::SaveToDisk( book_wide_save );
 }
 
 
@@ -132,6 +134,33 @@ void TextResource::InitialLoad()
 Resource::ResourceType TextResource::Type() const
 {
     return Resource::TextResourceType;
+}
+
+bool TextResource::LoadFromDisk()
+{
+    try
+    {
+        const QString &text = Utility::ReadUnicodeTextFile(GetFullPath());
+
+        QMutexLocker locker( &m_CacheAccessMutex );
+
+        m_Cache = text;
+
+        // We want to make sure we schedule only one delayed update
+        if ( !m_CacheInUse )
+        {
+            m_CacheInUse = true;
+            QTimer::singleShot( 0, this, SLOT( DelayedUpdateToTextDocument() ) );
+        }
+
+        return true;
+    }
+    catch (CannotOpenFile)
+    {
+        // ?
+    }
+
+    return false;
 }
 
 

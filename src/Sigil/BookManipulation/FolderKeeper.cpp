@@ -32,6 +32,7 @@
 #include "ResourceObjects/NCXResource.h"
 #include "ResourceObjects/Resource.h"
 #include "Misc/Utility.h"
+#include "Misc/OpenExternally.h"
 
 const QStringList IMAGE_EXTENSIONS = QStringList() << "jpg"   << "jpeg"  << "png"
                                                    << "gif"   << "tif"   << "tiff"
@@ -78,6 +79,7 @@ FolderKeeper::FolderKeeper( QObject *parent )
     QObject( parent ),
     m_OPF( NULL ),
     m_NCX( NULL ),
+    m_FSWatcher( new QFileSystemWatcher() ),
     m_FullPathToMainFolder( m_TempFolder.GetPath() )
 {
     CreateFolderStructure();
@@ -90,6 +92,9 @@ FolderKeeper::~FolderKeeper()
     if ( m_FullPathToMainFolder.isEmpty() )
 
         return;
+
+    delete m_FSWatcher;
+    m_FSWatcher = 0;
 
     foreach( Resource *resource, m_Resources.values() )
     {
@@ -220,7 +225,9 @@ Resource& FolderKeeper::AddContentFileToFolder( const QString &fullfilepath,
     connect( resource, SIGNAL( Deleted( const Resource& ) ), 
              this,     SLOT( RemoveResource( const Resource& ) ), Qt::DirectConnection );
     connect( resource, SIGNAL( Renamed( const Resource&, QString ) ), 
-             m_OPF,    SLOT( ResourceRenamed( const Resource&, QString ) ), Qt::DirectConnection );
+             this,     SLOT( ResourceRenamed( const Resource&, QString ) ), Qt::DirectConnection );
+
+    WatchResourceFile( *resource );
 
     if ( update_opf )
     
@@ -398,6 +405,51 @@ void FolderKeeper::RemoveResource( const Resource& resource )
     emit ResourceRemoved( resource );
 }
 
+void FolderKeeper::ResourceRenamed( const Resource& resource, const QString& old_full_path )
+{
+    m_OPF->ResourceRenamed( resource, old_full_path );
+
+    // By the time this SLOT is called, the file has already been renamed
+    // and the QFileSystemWatcher already removed the old file name from its list of watched files.
+    WatchResourceFile( resource, true );
+}
+
+void FolderKeeper::ResourceFileChanged( const QString &path ) const
+{
+    // The signal is also received after resource files are removed / renamed,
+    // but it can be safely ignored because QFileSystemWatcher automatically stops watching them.
+    if ( QFile::exists(path) )
+    {
+        // Some editors write the updated contents to a temporary file
+        // and then atomically move it over the watched file.
+        // In this case QFileSystemWatcher loses track of the file, so we have to add it again.
+        if ( !m_FSWatcher->files().contains(path) )
+        {
+            m_FSWatcher->addPath( path );
+        }
+
+        foreach( Resource *resource, m_Resources.values() )
+        {
+            if ( resource->GetFullPath() == path ) {
+                resource->FileChangedOnDisk();
+                return;
+            }
+        }
+    }
+}
+
+void FolderKeeper::WatchResourceFile( const Resource& resource, bool file_renamed )
+{
+    if ( OpenExternally::mayOpen( resource.Type() ) )
+    {
+        m_FSWatcher->addPath( resource.GetFullPath() );
+
+        // when the file is changed externally, mark the owning Book as modified
+        // parent() is the Book object
+        connect( &resource,  SIGNAL( ResourceUpdatedFromDisk() ),
+                 parent(),   SLOT( SetModified() ), Qt::UniqueConnection );
+    }
+}
 
 // The required folder structure is this:
 //	 META-INF
@@ -452,6 +504,9 @@ void FolderKeeper::CreateInfrastructureFiles()
              m_OPF, SLOT( AddResource(     const Resource& ) ), Qt::DirectConnection );
     connect( this,  SIGNAL( ResourceRemoved( const Resource& ) ), 
              m_OPF, SLOT( RemoveResource(    const Resource& ) ) );
+
+    connect( m_FSWatcher, SIGNAL( fileChanged( const QString& ) ),
+             this,        SLOT( ResourceFileChanged( const QString& )), Qt::DirectConnection );
 
     Utility::WriteUnicodeTextFile( CONTAINER_XML, m_FullPathToMetaInfFolder + "/container.xml" );
 }

@@ -52,16 +52,16 @@ public:
      */
     enum ResourceType
     {
-        GenericResourceType, /**< A \em vulgaris resource; used for Misc resources. */
-        TextResourceType,    /**< Used for Text resources, but \em not HTML files. */
-        XMLResourceType,     /**< Used for Text resources, but \em not HTML files. */
-        HTMLResourceType,    /**< Used for pure (X)HTML resources. */
-        CSSResourceType,     /**< Used for CSS resources (stylesheets). */
-        ImageResourceType,   /**< Used for image resource, of all types. */
-        SVGResourceType,     /**< Used for SVG image resources. */
-        FontResourceType,    /**< Used for font resources, both TTF and OTF. */
-        OPFResourceType,     /**< Used for the OPF document. */
-        NCXResourceType      /**< Used for the NCX table of contents. */
+        GenericResourceType = 1 <<  0, /**< A \em vulgaris resource; used for Misc resources. */
+        TextResourceType    = 1 <<  1, /**< Used for Text resources, but \em not HTML files. */
+        XMLResourceType     = 1 <<  2, /**< Used for Text resources, but \em not HTML files. */
+        HTMLResourceType    = 1 <<  3, /**< Used for pure (X)HTML resources. */
+        CSSResourceType     = 1 <<  4, /**< Used for CSS resources (stylesheets). */
+        ImageResourceType   = 1 <<  5, /**< Used for image resource, of all types. */
+        SVGResourceType     = 1 <<  6, /**< Used for SVG image resources. */
+        FontResourceType    = 1 <<  7, /**< Used for font resources, both TTF and OTF. */
+        OPFResourceType     = 1 <<  8, /**< Used for the OPF document. */
+        NCXResourceType     = 1 <<  9  /**< Used for the NCX table of contents. */
     };
 
     /**
@@ -173,6 +173,12 @@ public:
      */
     virtual void SaveToDisk( bool book_wide_save = false );
 
+    /**
+     * Called by FolderKeeper when files get changed on disk.
+     * May trigger a resource internal update if the files were not changed by Sigil.
+     */
+    void FileChangedOnDisk();
+
 signals:
 
     /**
@@ -195,6 +201,12 @@ signals:
     void ResourceUpdatedOnDisk();
 
     /**
+     * Emitted after a resource was refreshed from a newer version on disk.
+     * Caused by book files being modified from outside Sigil.
+     */
+    void ResourceUpdatedFromDisk();
+
+    /**
      * Emitted when the resource has been modified. This 
      * modification may or may not be visible on the disk.
      * (this means that the ResourceUpdatedOnDisk may or may
@@ -207,6 +219,12 @@ signals:
      */
     void Modified();
 
+protected:
+    /**
+     * Update the internal resource data from the disk file.
+     */
+    virtual bool LoadFromDisk();
+
 private:
 
     /**
@@ -218,6 +236,11 @@ private:
      * The full path to the resource on disk.
      */
     QString m_FullFilePath;
+
+    /**
+     * Timestamp of when the resource was last saved to disk by Sigil.
+     */
+    qint64 m_LastSaved;
 
     /**
      * The ReaWriteLock guarding access to the resource's data.

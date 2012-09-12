@@ -244,6 +244,10 @@ private slots:
 
     void Export();
 
+    void OpenWith() const;
+
+    void OpenWithEditor() const;
+
     /**
      * Implements the Rename context menu action functionality.
      */
@@ -400,7 +404,7 @@ private:
      * @return The currently selected resource in the tree view,
      *         or NULL if no resource is selected. 
      */
-    Resource* GetCurrentResource();
+    Resource* GetCurrentResource() const;
 
     /**
      * Returns the resource for the given index in the tree view.
@@ -408,7 +412,7 @@ private:
      * @return the resource for the given index in the tree view,
      *         or NULL if no resource is selected. 
      */
-    Resource* GetResourceByIndex( QModelIndex index );
+    Resource* GetResourceByIndex( QModelIndex index ) const;
 
 
     /**
@@ -491,6 +495,10 @@ private:
     QAction *m_LinkStylesheets;
     QAction *m_Export;
     QAction *m_InsertImages;
+
+    QMenu &m_OpenWithContextMenu;
+    QAction *m_OpenWith;
+    QAction *m_OpenWithEditor;
 
     /**
      * All the semantic actions for the <guide>

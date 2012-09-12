@@ -21,6 +21,7 @@
 
 #include <QtCore/QDir>
 #include <QtCore/QFileInfo>
+#include <QtCore/QDateTime>
 #include <QtCore/QString>
 #include <QtGui/QFileIconProvider>
 
@@ -32,6 +33,7 @@ Resource::Resource( const QString &fullfilepath, QObject *parent )
     QObject( parent ),
     m_Identifier( Utility::CreateUUID() ),
     m_FullFilePath( fullfilepath ),
+    m_LastSaved(0),
     m_ReadWriteLock( QReadWriteLock::Recursive )
 {
 
@@ -145,10 +147,36 @@ Resource::ResourceType Resource::Type() const
     return Resource::GenericResourceType;
 }
 
+bool Resource::LoadFromDisk()
+{
+    return false;
+}
 
 void Resource::SaveToDisk( bool book_wide_save )
 {
-    return;
+    const QDateTime lastModifiedDate = QFileInfo(m_FullFilePath).lastModified();
+    if ( lastModifiedDate.isValid() )
+    {
+        m_LastSaved = lastModifiedDate.toMSecsSinceEpoch();
+    }
 }
 
+void Resource::FileChangedOnDisk()
+{
+    const QDateTime lastModifiedDate = QFileInfo(m_FullFilePath).lastModified();
+    qint64 lastModified = lastModifiedDate.isValid() ? lastModifiedDate.toMSecsSinceEpoch() : 0;
 
+    if ( lastModified > m_LastSaved || m_LastSaved == 0 )
+    {
+        if ( LoadFromDisk() )
+        {
+            m_LastSaved = lastModified;
+
+            // will trigger marking the book as modified
+            emit ResourceUpdatedFromDisk();
+        }
+
+        // will trigger updates in other resources that link to this resource
+        emit ResourceUpdatedOnDisk();
+    }
+}

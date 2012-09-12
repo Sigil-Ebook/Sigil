@@ -961,6 +961,11 @@ void FlowTab::EnterEditor(QWidget *editor)
         return;
     }
 
+    if (m_BookPreviewNeedReload && (m_ViewState == MainWindow::ViewState_PreviewView || m_ViewState == MainWindow::ViewState_BookView)) {
+        LoadTabContent();
+        m_BookPreviewNeedReload = false;
+    }
+
     // BookPreview is left out of this because we always want to reload with any current changes
     // from CodeView.
     if ((m_ViewState == MainWindow::ViewState_BookView && editor == m_wBookView) ||

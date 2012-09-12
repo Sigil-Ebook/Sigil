@@ -297,6 +297,8 @@ set( MISC_FILES
     Misc/FontObfuscation.h
     Misc/TempFolder.cpp
     Misc/TempFolder.h
+    Misc/OpenExternally.cpp
+    Misc/OpenExternally.h
     Misc/TOCHTMLWriter.cpp
     Misc/TOCHTMLWriter.h
     Misc/NumericItem.h

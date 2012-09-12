@@ -50,6 +50,8 @@ public:
 
     void SetObfuscationAlgorithm( const QString &algorithm );
 
+    virtual bool LoadFromDisk();
+
 private:
 
     QString m_ObfuscationAlgorithm;

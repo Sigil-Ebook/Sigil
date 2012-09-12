@@ -20,7 +20,10 @@
 *************************************************************************/
 
 #include <QtCore/QFile>
+#include <QtCore/QFileInfo>
+#include <QtCore/QTimer>
 #include <QtCore/QLocale>
+#include <QtCore/QDateTime>
 #include <QtCore/QString>
 #include <QtCore/QUrl>
 #include <QtGui/QLayout>
@@ -34,6 +37,7 @@ const QString IMAGE_HTML_BASE =
         "<html>"
         "<head>"
         "<style type=\"text/css\">"
+        "body { -webkit-user-select: none; }"
         "img { display: block; margin-left: auto; margin-right: auto; border-style: solid; border-width: 1px; }"
         "hr { width: 75%; }"
         "div { text-align: center; }"
@@ -41,26 +45,19 @@ const QString IMAGE_HTML_BASE =
         "<body>"
         "<p><img src=\"%1\" /></p>"
         "<hr />"
-        "<div>%2x%3px | %4 KB | %5</div>"
+        "<div>%2&times;%3px | %4 KB | %5%6</div>"
         "</body>"
         "</html>";
 
 ImageTab::ImageTab( ImageResource& resource, QWidget *parent )
     :
     ContentTab( resource, parent ),
-    m_ImageResource( resource ),
     m_WebView(*new QWebView(this))
 {
-    QImage img(resource.GetFullPath());
-    QString path = resource.GetFullPath();
-    double ffsize = QFile(path).size() / 1024.0;
-    QString fsize = QLocale().toString(ffsize, 'f', 2);
-
-    QString html = IMAGE_HTML_BASE.arg(path).arg(img.width()).arg(img.height()).arg(fsize).arg(img.allGray() ? "BW" : "Color");
-    m_WebView.setHtml(html, QUrl::fromLocalFile(path));
-
     m_WebView.setContextMenuPolicy(Qt::NoContextMenu);
-    
+    m_WebView.setFocusPolicy(Qt::NoFocus);
+    m_WebView.setAcceptDrops(false);
+
     m_Layout.addWidget( &m_WebView);
 
     // Set the Zoom factor but be sure no signals are set because of this.
@@ -69,6 +66,8 @@ ImageTab::ImageTab( ImageResource& resource, QWidget *parent )
     Zoom();
 
     ConnectSignalsToSlots();
+
+    RefreshContent();
 }
 
 float ImageTab::GetZoomFactor() const
@@ -99,9 +98,73 @@ void ImageTab::UpdateDisplay()
     }
 }
 
+void ImageTab::RefreshContent()
+{
+    QWebSettings::clearMemoryCaches();
+
+    const QString path = m_Resource.GetFullPath();
+
+    const QFileInfo fileInfo = QFileInfo(path);
+    m_RefreshedTimestamp = fileInfo.lastModified().toMSecsSinceEpoch();
+
+    const double ffsize = fileInfo.size() / 1024.0;
+    const QString fsize = QLocale().toString(ffsize, 'f', 2);
+
+    const QImage img(path);
+    const QUrl imgUrl = QUrl::fromLocalFile(path);
+
+    QString colors_shades = img.isGrayscale() ? tr("shades") : tr ("colors");
+    QString colorsInfo = ""; 
+    if (img.depth() == 32) {
+        colorsInfo = QString(" %1bpp").arg(img.bitPlaneCount());
+    }
+    else if (img.depth() > 0) {
+        colorsInfo = QString(" %1bpp (%2 %3)").arg(img.bitPlaneCount()).arg(img.colorCount()).arg(colors_shades);
+    }
+
+    const QString html = IMAGE_HTML_BASE.arg(imgUrl.toString()).arg(img.width()).arg(img.height()).arg(fsize)
+            .arg(img.isGrayscale() ? tr("Grayscale") : tr("Color")).arg(colorsInfo);
+    m_WebView.setHtml(html, imgUrl);
+}
+
+void ImageTab::ImageFileModified()
+{
+    const QFileInfo fileInfo = QFileInfo( m_Resource.GetFullPath() );
+
+    const qint64 lastModified = fileInfo.lastModified().toMSecsSinceEpoch();
+    if ( lastModified == m_RefreshedTimestamp )
+    {
+        return;
+    }
+
+    // It's best to wait a bit before triggering the actual page refresh,
+    // in case the file has not been completely written to disk. The image tab will take
+    // a bit to become up-to-date with the file on disk, but it's just an informational tab
+    // and instant reaction to file changes is not critical.
+    // - If the file is empty, then the file-modified signal was received
+    //   exactly when the editor application truncated the file, but before
+    //   writing any data to it, so we'll be extra patient.
+    // - If the file is larger than 512k (unlikely for images in an ebook, but possible),
+    //   it might get even larger than that, and the editor application
+    //   might take a long time (ms-wise) to write it, so we'll be extra patient again.
+    // The values below are mostly guesswork derived from how things go on my machine;
+    // they may not work just as well on slower (disk/cpu) systems.
+
+    const int delay = 500 + ( fileInfo.size() == 0 ? 750 : 0); // + ( fileInfo.size() > 512 * 1024 ? 500 : 0 );
+
+    if ( QDateTime::currentMSecsSinceEpoch() - lastModified < delay )
+    {
+        QTimer::singleShot( delay, this, SLOT( ImageFileModified() ) );
+    }
+    else
+    {
+        QTimer::singleShot( 0, this, SLOT( RefreshContent() ) );
+    }
+}
+
 void ImageTab::ConnectSignalsToSlots()
 {
-    connect(&m_Resource, SIGNAL(Modified()), &m_WebView, SLOT(reload()));
+    connect(&m_Resource, SIGNAL(Modified()), this, SLOT(ImageFileModified()), Qt::QueuedConnection);
     connect(&m_Resource, SIGNAL(Deleted(Resource)), this, SLOT(Close()));
 }
 

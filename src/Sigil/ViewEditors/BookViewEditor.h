@@ -197,6 +197,9 @@ public slots:
     void paste();
     void selectAll();
 
+    void openWith() const;
+    void openWithEditor() const;
+
 signals:
     /**
      * Emitted when the text changes.
@@ -360,6 +363,10 @@ private:
     QAction *m_Copy;
     QAction *m_Paste;
     QAction *m_SelectAll;
+
+    QMenu &m_OpenWithContextMenu;
+    QAction *m_OpenWith;
+    QAction *m_OpenWithEditor;
 
     /**
      * Keyboard shortcut for scrolling one line up.
