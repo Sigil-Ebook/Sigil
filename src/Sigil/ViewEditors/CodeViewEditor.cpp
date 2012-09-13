@@ -868,6 +868,7 @@ int CodeViewEditor::ReplaceAll( const QString &search_regex,
     cursor.beginEditBlock();
 
     // Replace all text in the document with the new text.
+    cursor.setPosition(cursor_position);
     cursor.select(QTextCursor::Document);
     cursor.insertText(text);
 
