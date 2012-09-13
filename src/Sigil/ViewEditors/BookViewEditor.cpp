@@ -553,6 +553,16 @@ void BookViewEditor::selectAll()
     page()->triggerAction( QWebPage::SelectAll );
 }
 
+void BookViewEditor::openImage() 
+{
+    const QVariant& data = m_Open->data();
+    if ( data.isValid() )
+    {
+        const QUrl &url = data.toUrl();
+        emit LinkClicked( url );
+    }
+}
+
 void BookViewEditor::openWith() const
 {
     const QVariant& data = m_OpenWith->data();
@@ -597,6 +607,15 @@ bool BookViewEditor::SuccessfullySetupContextMenu( const QPoint &point )
         QUrl imageUrl = hitTest.imageUrl();
         if ( imageUrl.isValid() && imageUrl.isLocalFile() )
         {
+
+            // Open in image tab
+            QString filename = imageUrl.toString();
+            filename = filename.right(filename.length() - filename.lastIndexOf("/") - 1);
+            m_Open->setData( imageUrl );
+            m_Open->setText( tr( "Open" ) + " " + filename );
+            m_ContextMenu.addAction( m_Open );
+
+            // Open With
             Resource::ResourceType imageType = Resource::ImageResourceType;
             if ( imageUrl.path().toLower().endsWith(".svg") )
             {
@@ -649,6 +668,7 @@ void BookViewEditor::CreateContextMenuActions()
     m_Paste     = new QAction( tr( "Paste" ),       this );
     m_SelectAll = new QAction( tr( "Select All" ),  this );
 
+    m_Open           = new QAction( tr( "Open" ),  this );
     m_OpenWithEditor = new QAction( "",          this );
     m_OpenWith       = new QAction( tr( "Open With" ) + "...",  this );
 
@@ -673,6 +693,7 @@ void BookViewEditor::ConnectSignalsToSlots()
     connect( m_Copy,           SIGNAL( triggered() ),  this, SLOT( copy()           ) );
     connect( m_Paste,          SIGNAL( triggered() ),  this, SLOT( paste()          ) );
     connect( m_SelectAll,      SIGNAL( triggered() ),  this, SLOT( selectAll()      ) );
+    connect( m_Open,           SIGNAL( triggered() ),  this, SLOT( openImage()      ) );
     connect( m_OpenWith,       SIGNAL( triggered() ),  this, SLOT( openWith()       ) );
     connect( m_OpenWithEditor, SIGNAL( triggered() ),  this, SLOT( openWithEditor() ) );
 }

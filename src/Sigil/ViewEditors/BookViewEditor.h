@@ -197,6 +197,8 @@ public slots:
     void paste();
     void selectAll();
 
+    void openImage();
+
     void openWith() const;
     void openWithEditor() const;
 
@@ -234,6 +236,8 @@ signals:
      */
     void ClipboardSaveRequest();
     void ClipboardRestoreRequest();
+
+    void LinkClicked(const QUrl &url);
 
 protected:
     /**
@@ -363,6 +367,8 @@ private:
     QAction *m_Copy;
     QAction *m_Paste;
     QAction *m_SelectAll;
+
+    QAction *m_Open;
 
     QMenu &m_OpenWithContextMenu;
     QAction *m_OpenWith;
