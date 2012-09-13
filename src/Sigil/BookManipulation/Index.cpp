@@ -20,6 +20,7 @@
 **
 *************************************************************************/
 
+#include <QtDebug>
 #include <boost/shared_ptr.hpp>
 
 #include <QtCore/QtCore>
@@ -43,10 +44,13 @@ bool Index::BuildIndex(QList<HTMLResource*> html_resources)
 {
     IndexEntries::instance()->Clear();
 
+qDebug() << "doing" << html_resources.count();
     // Display progress dialog
     QProgressDialog progress(QObject::tr("Creating Index..."), QObject::tr("Cancel"), 0, html_resources.count());
-    progress.setMinimumDuration(1500);
+    progress.setMinimumDuration(0);
     int progress_value = 0;
+    progress.setValue(progress_value);
+    qApp->processEvents();
 
     // Must do sequentially in order to keep chapters in order
     foreach (HTMLResource *html_resource, html_resources) {
@@ -55,10 +59,12 @@ bool Index::BuildIndex(QList<HTMLResource*> html_resources)
             return false;
         }
         progress.setValue(progress_value++);
+        qApp->processEvents();
 
         AddIndexIDsOneFile(html_resource);
     }
 
+qDebug() << "done build index";
     return true;
 }
 

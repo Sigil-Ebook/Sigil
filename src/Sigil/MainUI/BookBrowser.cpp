@@ -480,15 +480,16 @@ void BookBrowser::AddExisting()
     Resource *open_resource = NULL;
 
     // Display progress dialog
-    QProgressDialog progress(QObject::tr( "Adding Existing Files.." ), QString(), 0, filepaths.count(), this );
+    QProgressDialog progress(QObject::tr( "Adding Existing Files.." ), 0, 0, filepaths.count(), this );
     progress.setMinimumDuration(PROGRESS_BAR_MINIMUM_DURATION);
     int progress_value = 0;
+    progress.setValue(progress_value);
 
     foreach( QString filepath, filepaths )
     {
         // Set progress value and ensure dialog has time to display when doing extensive updates
         progress.setValue(progress_value++);
-        QApplication::processEvents(QEventLoop::ExcludeUserInputEvents);
+        qApp->processEvents(QEventLoop::ExcludeUserInputEvents);
 
         QString filename = QFileInfo( filepath ).fileName();
 

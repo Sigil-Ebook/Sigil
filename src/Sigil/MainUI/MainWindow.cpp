@@ -988,14 +988,15 @@ void MainWindow::MergeResources(QList <Resource *> resources)
     HTMLResource &html_resource1 = *qobject_cast<HTMLResource *>(resource1);
 
     // Display progress dialog
-    QProgressDialog progress(QObject::tr( "Merging Files.." ), QString(), 0, resources.count(), this);
+    QProgressDialog progress(QObject::tr( "Merging Files.." ), 0, 0, resources.count(), this);
     progress.setMinimumDuration(PROGRESS_BAR_MINIMUM_DURATION);
     int progress_value = 0;
+    progress.setValue(progress_value);
 
     foreach (Resource *resource, resources) {
         // Set progress value and ensure dialog has time to display when doing extensive updates
         progress.setValue(progress_value++);
-        QApplication::processEvents(QEventLoop::ExcludeUserInputEvents);
+        qApp->processEvents(QEventLoop::ExcludeUserInputEvents);
 
         if (resource) {
             HTMLResource &html_resource2 = *qobject_cast<HTMLResource *>(resource);

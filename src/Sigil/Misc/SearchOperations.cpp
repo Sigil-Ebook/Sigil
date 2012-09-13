@@ -47,14 +47,16 @@ int SearchOperations::CountInFiles( const QString &search_regex,
                                     SearchType search_type,
                                     bool check_spelling )
 {
-    QProgressDialog progress( QObject::tr( "Counting occurrences.." ), QString(), 0, resources.count() );
+    QProgressDialog progress( QObject::tr( "Counting occurrences.." ), 0, 0, resources.count() );
     progress.setMinimumDuration( PROGRESS_BAR_MINIMUM_DURATION );
     int progress_value = 0;
+    progress.setValue(progress_value);
 
     // Count sequentially in order to see if occassional crashes are due to threading 
     int count = 0;
     foreach (Resource *resource, resources) {
         progress.setValue(progress_value++);
+        qApp->processEvents();
 
         count += CountInFile(search_regex, resource, search_type, check_spelling);
     }
@@ -68,14 +70,16 @@ int SearchOperations::ReplaceInAllFIles( const QString &search_regex,
                                          QList< Resource* > resources, 
                                          SearchType search_type )
 {
-    QProgressDialog progress( QObject::tr( "Replacing search term..." ), QString(), 0, resources.count() );
+    QProgressDialog progress( QObject::tr( "Replacing search term..." ), 0, 0, resources.count() );
     progress.setMinimumDuration( PROGRESS_BAR_MINIMUM_DURATION );
     int progress_value = 0;
+    progress.setValue(progress_value);
 
     // Replace sequentially in order to see if occassional crashes are due to threading 
     int count = 0;
     foreach (Resource *resource, resources) {
         progress.setValue(progress_value++);
+        qApp->processEvents();
 
         count += ReplaceInFile(search_regex, replacement, resource, search_type);
     }

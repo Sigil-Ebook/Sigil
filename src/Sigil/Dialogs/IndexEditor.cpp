@@ -213,6 +213,7 @@ void IndexEditor::Paste()
     }
 }
 
+#include <QtDebug>
 void IndexEditor::Delete()
 {
     if (SelectedRowsCount() < 1) {
@@ -221,24 +222,29 @@ void IndexEditor::Delete()
 
     // Display progress dialog
     QProgressDialog progress(QObject::tr("Deleting entries..."), tr("Cancel"), 0, SelectedRowsCount(), this);
-    progress.setMinimumDuration(1500);
+    progress.setMinimumDuration(0);
     int progress_value = 0;
+    progress.setValue(progress_value);
+    qApp->processEvents();
 
     // Deleting all entries can be done much quicker than deleting one by one.
     if (SelectedRowsCount() == m_IndexEditorModel->invisibleRootItem()->rowCount()) {
         m_IndexEditorModel->ClearData();
+qDebug() << "Deleting at once";
     }
 
     // Delete one at a time as selection may not be contiguous
     // Could be faster if dialog is hidden during delete.
     int row = -1;
     while (ui.IndexEditorTree->selectionModel()->hasSelection()) {
+//meme check if this is every run
+qDebug() << "Deleting in loop";
         // Set progress value and ensure dialog has time to display when doing extensive updates
         if (progress.wasCanceled()) {
             break;
         }
         progress.setValue(progress_value++);
-        QApplication::processEvents();
+        qApp->processEvents();
 
         QModelIndex index = ui.IndexEditorTree->selectionModel()->selectedRows(0).first();
         if (index.isValid()) {
@@ -268,8 +274,10 @@ void IndexEditor::AutoFill()
 
     // Display progress dialog
     QProgressDialog progress(QObject::tr("Automatically Filling Index..."), tr("Cancel"), 0, unique_words.count(), this);
-    progress.setMinimumDuration(1500);
+    progress.setMinimumDuration(0);
     int progress_value = 0;
+    progress.setValue(progress_value);
+    qApp->processEvents();
 
     // Temporarily hide the Index dialog to significantly speed up adding entries by reducing gui updates
     hide();
@@ -278,10 +286,11 @@ void IndexEditor::AutoFill()
     foreach(QString word, unique_words) {
         // Set progress value and ensure dialog has time to display when doing extensive updates
         progress.setValue(progress_value++);
+        qApp->processEvents();
         if (progress.wasCanceled()) {
             break;
         }
-        QApplication::processEvents();
+        qApp->processEvents();
 
         IndexEditorModel::indexEntry *entry = new IndexEditorModel::indexEntry();
         entry->pattern = word;
