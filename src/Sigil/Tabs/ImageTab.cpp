@@ -24,11 +24,14 @@
 #include <QtCore/QTimer>
 #include <QtCore/QLocale>
 #include <QtCore/QDateTime>
+#include <QtGui/QMenu>
 #include <QtCore/QString>
 #include <QtCore/QUrl>
 #include <QtGui/QLayout>
 #include <QtWebKit/QWebView>
 
+
+#include "Misc/OpenExternally.h"
 #include "Misc/SettingsStore.h"
 #include "ResourceObjects/ImageResource.h"
 #include "Tabs/ImageTab.h"
@@ -52,9 +55,11 @@ const QString IMAGE_HTML_BASE =
 ImageTab::ImageTab( ImageResource& resource, QWidget *parent )
     :
     ContentTab( resource, parent ),
-    m_WebView(*new QWebView(this))
+    m_WebView(*new QWebView(this)),
+    m_ContextMenu( *new QMenu( this ) ),
+    m_OpenWithContextMenu( *new QMenu( this ) )
 {
-    m_WebView.setContextMenuPolicy(Qt::NoContextMenu);
+    m_WebView.setContextMenuPolicy(Qt::CustomContextMenu);
     m_WebView.setFocusPolicy(Qt::NoFocus);
     m_WebView.setAcceptDrops(false);
 
@@ -65,10 +70,25 @@ ImageTab::ImageTab( ImageResource& resource, QWidget *parent )
     m_CurrentZoomFactor = settings.zoomImage();
     Zoom();
 
+    CreateContextMenuActions();
+
     ConnectSignalsToSlots();
 
     RefreshContent();
 }
+
+ImageTab::~ImageTab()
+{
+    if (m_OpenWith) {
+        delete m_OpenWith;
+        m_OpenWith = 0;
+    }
+    if (m_OpenWithEditor) {
+        delete m_OpenWithEditor;
+        m_OpenWithEditor = 0;
+    }
+}
+
 
 float ImageTab::GetZoomFactor() const
 {
@@ -162,10 +182,99 @@ void ImageTab::ImageFileModified()
     }
 }
 
+void ImageTab::openWith() const
+{
+    const QVariant& data = m_OpenWith->data();
+    if ( data.isValid() )
+    {
+        const QUrl& resourceUrl = data.toUrl();
+        const QString& editorPath = OpenExternally::selectEditorForResourceType( (Resource::ResourceType) resourceUrl.port() );
+        if ( !editorPath.isEmpty() )
+        {
+            OpenExternally::openFile( resourceUrl.toLocalFile(), editorPath );
+        }
+    }
+}
+
+void ImageTab::openWithEditor() const
+{
+    const QVariant& data = m_OpenWithEditor->data();
+    if ( data.isValid() )
+    {
+        const QUrl& resourceUrl = data.toUrl();
+        const QString& editorPath = OpenExternally::editorForResourceType( (Resource::ResourceType) resourceUrl.port() );
+        OpenExternally::openFile( resourceUrl.toLocalFile(), editorPath );
+    }
+}
+
+
+void ImageTab::OpenContextMenu( const QPoint &point )
+{
+    if ( !SuccessfullySetupContextMenu( point ) )
+
+        return;
+
+    m_ContextMenu.exec( mapToGlobal(point) );
+    m_ContextMenu.clear();
+}
+
+bool ImageTab::SuccessfullySetupContextMenu( const QPoint &point )
+{
+    QUrl imageUrl = QUrl("file://" % m_Resource.GetFullPath());
+    if ( imageUrl.isValid() && imageUrl.isLocalFile() )
+    {
+        // Open With
+        Resource::ResourceType imageType = Resource::ImageResourceType;
+        if ( imageUrl.path().toLower().endsWith(".svg") )
+        {
+            imageType = Resource::SVGResourceType;
+        }
+
+        imageUrl.setPort( imageType ); // "somewhat" ugly, but cheaper than using a QList<QVariant>
+        const QString& editorPath = OpenExternally::editorForResourceType( imageType );
+        if ( editorPath.isEmpty() )
+        {
+            m_OpenWithEditor->setData( QVariant::Invalid );
+
+            m_OpenWith->setText( tr( "Open With" ) + "...");
+            m_OpenWith->setData( imageUrl );
+
+            m_ContextMenu.addAction( m_OpenWith );
+        }
+        else
+        {
+            m_OpenWithEditor->setText( OpenExternally::prettyApplicationName(editorPath) );
+            m_OpenWithEditor->setData( imageUrl );
+
+            m_OpenWith->setText( tr( "Other Application" ) + "...");
+            m_OpenWith->setData( imageUrl );
+
+            m_ContextMenu.addMenu( &m_OpenWithContextMenu );
+        }
+
+        m_ContextMenu.addSeparator();
+    }
+
+    return true;
+}
+
+void ImageTab::CreateContextMenuActions()
+{
+    m_OpenWithEditor = new QAction( "",          this );
+    m_OpenWith       = new QAction( tr( "Open With" ) + "...",  this );
+
+    m_OpenWithContextMenu.setTitle( tr( "Open With" ) );
+    m_OpenWithContextMenu.addAction( m_OpenWithEditor );
+    m_OpenWithContextMenu.addAction( m_OpenWith );
+}
+
 void ImageTab::ConnectSignalsToSlots()
 {
     connect(&m_Resource, SIGNAL(Modified()), this, SLOT(ImageFileModified()), Qt::QueuedConnection);
     connect(&m_Resource, SIGNAL(Deleted(Resource)), this, SLOT(Close()));
+    connect( &m_WebView, SIGNAL( customContextMenuRequested(const QPoint&) ),  this, SLOT( OpenContextMenu(const QPoint&) ) );
+    connect( m_OpenWith,       SIGNAL( triggered() ),  this, SLOT( openWith()       ) );
+    connect( m_OpenWithEditor, SIGNAL( triggered() ),  this, SLOT( openWithEditor() ) );
 }
 
 void ImageTab::Zoom()

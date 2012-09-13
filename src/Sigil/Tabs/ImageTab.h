@@ -27,6 +27,8 @@
 
 class ImageResource;
 class QWebView;
+class QAction;
+class QMenu;
 
 class ImageTab : public ContentTab
 {
@@ -35,6 +37,7 @@ class ImageTab : public ContentTab
 public:
 
     ImageTab( ImageResource& resource, QWidget *parent = 0 );
+    ~ImageTab();
 
     // Overrides inherited from ContentTab
     float GetZoomFactor() const;
@@ -46,10 +49,34 @@ public:
 public slots:
     void RefreshContent();
 
+    void openWith() const;
+    void openWithEditor() const;
+
 private slots:
     void ImageFileModified();
 
+    /**
+     * Opens the context menu at the requested point.
+     *
+     * @param point The point at which the menu should be opened.
+     */
+    void OpenContextMenu( const QPoint &point );
+
 private:
+
+    /**
+     * Creates all the context menu actions.
+     */
+    void CreateContextMenuActions();
+
+    /**
+     * Tries to setup the context menu for the specified point,
+     * and returns true on success.
+     *
+     * @param point The point at which the menu should be opened.
+     * @return \c true if the menu could be set up.
+     */
+    bool SuccessfullySetupContextMenu( const QPoint &point );
 
     void ConnectSignalsToSlots();
 
@@ -60,6 +87,12 @@ private:
     ///////////////////////////////
 
     QWebView &m_WebView;
+
+    QMenu &m_ContextMenu;
+    QMenu &m_OpenWithContextMenu;
+
+    QAction *m_OpenWith;
+    QAction *m_OpenWithEditor;
 
     float m_CurrentZoomFactor;
 

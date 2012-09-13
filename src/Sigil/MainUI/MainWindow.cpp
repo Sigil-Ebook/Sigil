@@ -3424,8 +3424,6 @@ void MainWindow::ConnectSignalsToSlots()
 
     connect(m_BookBrowser, SIGNAL(LinkStylesheetsToResourcesRequest(QList<Resource *>)), this, SLOT(LinkStylesheetsToResources(QList<Resource *>)));
 
-    connect(m_BookBrowser, SIGNAL(InsertImagesRequest(QStringList)), this, SLOT(InsertImages(QStringList)));
-
     connect(m_BookBrowser, SIGNAL(RemoveResourcesRequest()), this, SLOT(RemoveResources()));
 
     connect( m_TableOfContents, SIGNAL( OpenResourceRequest( Resource&, bool, const QUrl& ) ),
@@ -3551,6 +3549,7 @@ void MainWindow::MakeTabConnections( ContentTab *tab )
         connect( tab,   SIGNAL( ClipboardRestoreRequest() ),  m_ClipboardHistorySelector,  SLOT( RestoreClipboardState() ) );
 
         connect( tab,   SIGNAL( SpellingHighlightRefreshRequest() ), this,  SLOT(  RefreshSpellingHighlighting() ) );
+        connect( tab,   SIGNAL( InsertImageRequest() ), this,  SLOT(  InsertImage() ) );
     }
 
     if (tab->GetLoadedResource().Type() == Resource::HTMLResourceType ||

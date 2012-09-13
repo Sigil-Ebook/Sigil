@@ -1460,6 +1460,7 @@ void FlowTab::ConnectSignalsToSlots()
     connect(m_wCodeView, SIGNAL(FocusGained(QWidget *)), this, SLOT(EnterEditor(QWidget *)));
     connect(m_wCodeView, SIGNAL(FocusLost(QWidget *)), this, SLOT(LeaveEditor(QWidget *)));
 
+    connect(m_wBookView, SIGNAL(InsertImage()), this, SIGNAL(InsertImageRequest()));
     connect(m_wBookView, SIGNAL(LinkClicked(const QUrl&)), this, SIGNAL(LinkClicked(const QUrl&)));
     connect(m_wCodeView, SIGNAL(LinkClicked(const QUrl&)), this, SIGNAL(LinkClicked(const QUrl&)));
     connect(m_wBookPreview, SIGNAL(LinkClicked(const QUrl&)), this, SIGNAL(LinkClicked(const QUrl&)));

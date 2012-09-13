@@ -783,17 +783,6 @@ void BookBrowser::RenameSelected()
     SelectResources(resources);
 }
 
-void BookBrowser::InsertImages()
-{
-    QStringList selected_images;
-
-    foreach (Resource *resource, ValidSelectedResources()) {
-        selected_images.append(resource->Filename());
-    }
-
-    emit InsertImagesRequest(selected_images);
-}
-
 
 void BookBrowser::Remove()
 {
@@ -1103,7 +1092,6 @@ void BookBrowser::CreateContextMenuActions()
     m_Export                  = new QAction( tr( "Export..." ),             this );
     m_OpenWith                = new QAction( tr( "Open With" ) + "...",     this );
     m_OpenWithEditor          = new QAction( "",                            this );
-    m_InsertImages            = new QAction( tr( "Insert" ),                this );
 
     m_CoverImage             ->setCheckable( true );  
     m_AdobesObfuscationMethod->setCheckable( true ); 
@@ -1268,12 +1256,6 @@ bool BookBrowser::SuccessfullySetupContextMenu( const QPoint &point )
     Resource *resource = GetCurrentResource();
 
     if ( resource ) {
-        if ( resource->Type() == Resource::ImageResourceType || resource->Type() == Resource::SVGResourceType ) {
-            m_ContextMenu.addSeparator();
-            m_ContextMenu.addAction( m_InsertImages );
-            m_ContextMenu.addSeparator();
-        }
-
         m_ContextMenu.addSeparator();
 
         // Remove and rename not valid for OPF or NCX
@@ -1300,7 +1282,7 @@ bool BookBrowser::SuccessfullySetupContextMenu( const QPoint &point )
             {
                 m_OpenWithEditor->setData( QVariant::Invalid );
 
-                m_OpenWith->setText( tr( "Open With" ) + " ..." );
+                m_OpenWith->setText( tr( "Open With" ) + "..." );
 
                 m_ContextMenu.addAction( m_OpenWith );
             }
@@ -1309,7 +1291,7 @@ bool BookBrowser::SuccessfullySetupContextMenu( const QPoint &point )
                 m_OpenWithEditor->setText( OpenExternally::prettyApplicationName(editorPath) );
                 m_OpenWithEditor->setData( editorPath );
 
-                m_OpenWith->setText( tr( "Other Application" ) + " ..." );
+                m_OpenWith->setText( tr( "Other Application" ) + "..." );
 
                 m_ContextMenu.addMenu( &m_OpenWithContextMenu );
             }
@@ -1496,7 +1478,6 @@ void BookBrowser::ConnectSignalsToSlots()
     connect( m_Export,                  SIGNAL( triggered() ), this, SLOT( Export()                  ) );
     connect( m_OpenWith,                SIGNAL( triggered() ), this, SLOT( OpenWith()                ) );
     connect( m_OpenWithEditor,          SIGNAL( triggered() ), this, SLOT( OpenWithEditor()          ) );
-    connect( m_InsertImages,            SIGNAL( triggered() ), this, SLOT( InsertImages()            ) );
 
     connect( m_AdobesObfuscationMethod, SIGNAL( triggered() ), this, SLOT( AdobesObfuscationMethod() ) );
     connect( m_IdpfsObfuscationMethod,  SIGNAL( triggered() ), this, SLOT( IdpfsObfuscationMethod()  ) );

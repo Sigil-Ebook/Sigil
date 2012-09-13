@@ -113,6 +113,10 @@ BookViewEditor::~BookViewEditor()
         delete m_OpenWithEditor;
         m_OpenWithEditor = 0;
     }
+    if (m_InsertImage) {
+        delete m_InsertImage;
+        m_InsertImage = 0;
+    }
 }
 
 
@@ -563,6 +567,11 @@ void BookViewEditor::openImage()
     }
 }
 
+void BookViewEditor::insertImage() 
+{
+    emit InsertImage();
+}
+
 void BookViewEditor::openWith() const
 {
     const QVariant& data = m_OpenWith->data();
@@ -648,6 +657,8 @@ bool BookViewEditor::SuccessfullySetupContextMenu( const QPoint &point )
         }
     }
 
+    m_ContextMenu.addAction( m_InsertImage );
+    m_ContextMenu.addSeparator();
     m_ContextMenu.addAction( m_Cut );
     m_ContextMenu.addAction( m_Copy );
     m_ContextMenu.addAction( m_Paste );
@@ -663,6 +674,8 @@ bool BookViewEditor::SuccessfullySetupContextMenu( const QPoint &point )
 
 void BookViewEditor::CreateContextMenuActions()
 {
+    m_InsertImage = new QAction( tr( "Insert Image" ), this );
+
     m_Cut       = new QAction( tr( "Cut" ),         this );
     m_Copy      = new QAction( tr( "Copy" ),        this );
     m_Paste     = new QAction( tr( "Paste" ),       this );
@@ -689,6 +702,7 @@ void BookViewEditor::ConnectSignalsToSlots()
     connect( page(), SIGNAL( contentsChanged()  ),      this,   SLOT( SetWebPageModified()       ) );
 
     connect( this,             SIGNAL( customContextMenuRequested(const QPoint&) ),  this, SLOT( OpenContextMenu(const QPoint&) ) );
+    connect( m_InsertImage,    SIGNAL( triggered() ),  this, SLOT( insertImage()    ) );
     connect( m_Cut,            SIGNAL( triggered() ),  this, SLOT( cut()            ) );
     connect( m_Copy,           SIGNAL( triggered() ),  this, SLOT( copy()           ) );
     connect( m_Paste,          SIGNAL( triggered() ),  this, SLOT( paste()          ) );

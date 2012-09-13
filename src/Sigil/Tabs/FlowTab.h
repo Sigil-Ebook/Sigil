@@ -367,6 +367,8 @@ signals:
 
     void BookmarkLinkOrStyleLocationRequest();
 
+    void InsertImageRequest();
+
 private slots:
 
     /**

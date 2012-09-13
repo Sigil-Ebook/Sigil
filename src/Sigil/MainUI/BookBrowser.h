@@ -219,8 +219,6 @@ signals:
 
     void RemoveResourcesRequest();
 
-    void InsertImagesRequest(QStringList selected_images);
-
 private slots:
 
     /**
@@ -262,8 +260,6 @@ private slots:
      * Implements the Add New context menu action functionality.
      */
     void Remove();
-
-    void InsertImages();
 
     /**
      * Returns the resource to select after removal
@@ -494,7 +490,6 @@ private:
     QAction *m_RefreshTOC;
     QAction *m_LinkStylesheets;
     QAction *m_Export;
-    QAction *m_InsertImages;
 
     QMenu &m_OpenWithContextMenu;
     QAction *m_OpenWith;
