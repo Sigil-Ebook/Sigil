@@ -76,7 +76,7 @@ public slots:
     /**
      * Refresh the TOC file contents to renumber entries
      */
-    void RefreshTOCContents();
+    void RenumberTOCContents();
 
     /**
      * Implements the "Generate TOC From headings" button functionality.

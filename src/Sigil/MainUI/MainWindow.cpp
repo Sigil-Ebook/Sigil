@@ -3409,8 +3409,8 @@ void MainWindow::ConnectSignalsToSlots()
     connect( m_BookBrowser,          SIGNAL( UpdateBrowserSelection() ),
             this,                    SLOT(   UpdateBrowserSelectionToTab() ) );
 
-    connect( m_BookBrowser, SIGNAL( RefreshTOCContentsRequest() ),
-             m_TableOfContents,     SLOT(   RefreshTOCContents() ) );
+    connect( m_BookBrowser, SIGNAL( RenumberTOCContentsRequest() ),
+             m_TableOfContents,     SLOT(   RenumberTOCContents() ) );
 
     connect( m_TableOfContents, SIGNAL( GenerateTocRequest() ),
              this,     SLOT(   GenerateToc() ) );

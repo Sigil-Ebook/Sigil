@@ -208,9 +208,9 @@ void BookBrowser::SortHTML()
     SelectResources(resources);
 }
 
-void BookBrowser::RefreshTOC()
+void BookBrowser::RenumberTOC()
 {
-    emit RefreshTOCContentsRequest();
+    emit RenumberTOCContentsRequest();
 }
 
 Resource* BookBrowser::GetUrlResource( const QUrl &url )
@@ -258,7 +258,7 @@ void BookBrowser::OpenContextMenu( const QPoint &point )
     m_SemanticsContextMenu.clear();
     // Ensure any actions with keyboard shortcuts that might have temporarily been
     // disabled are enabled again to let the shortcut work outside the menu.
-    m_Remove->setEnabled(true);
+    m_Delete->setEnabled(true);
     m_Merge->setEnabled(true);
     m_Rename->setEnabled(true);
 }
@@ -785,7 +785,7 @@ void BookBrowser::RenameSelected()
 }
 
 
-void BookBrowser::Remove()
+void BookBrowser::Delete()
 {
     emit RemoveResourcesRequest();
 }
@@ -1081,24 +1081,24 @@ void BookBrowser::CreateContextMenuActions()
     m_AddNewCSS               = new QAction( tr( "Add Blank Stylesheet" ),  this );
     m_AddNewSVG               = new QAction( tr( "Add Blank SVG Image" ),   this );
     m_AddExisting             = new QAction( tr( "Add Existing Files..." ), this );
-    m_Rename                  = new QAction( tr( "Rename" ),                this );
-    m_Remove                  = new QAction( tr( "Delete" ),                this );
+    m_Rename                  = new QAction( tr( "Rename" ) + "...",        this );
+    m_Delete                  = new QAction( tr( "Delete" ) + "...",        this );
     m_CoverImage              = new QAction( tr( "Cover Image" ),           this );
     m_Merge                   = new QAction( tr( "Merge" ),                 this );
     m_AdobesObfuscationMethod = new QAction( tr( "Use Adobe's Method" ),    this );
     m_IdpfsObfuscationMethod  = new QAction( tr( "Use IDPF's Method" ),     this );
-    m_SortHTML                = new QAction( tr( "Sort" ),                  this );
-    m_RefreshTOC              = new QAction( tr( "Renumber TOC Entries" ),  this );
+    m_SortHTML                = new QAction( tr( "Sort" ) + "...",          this );
+    m_RenumberTOC             = new QAction( tr( "Renumber TOC Entries" ),  this );
     m_LinkStylesheets         = new QAction( tr( "Link Stylesheets..." ),   this );
-    m_Export                  = new QAction( tr( "Export..." ),             this );
     m_OpenWith                = new QAction( tr( "Open With" ) + "...",     this );
+    m_Export                  = new QAction( tr( "Save As" ) + "...",       this );
     m_OpenWithEditor          = new QAction( "",                            this );
 
     m_CoverImage             ->setCheckable( true );  
     m_AdobesObfuscationMethod->setCheckable( true ); 
     m_IdpfsObfuscationMethod ->setCheckable( true );
 
-    m_Remove->setShortcut( QKeySequence::Delete );
+    m_Delete->setShortcut( QKeySequence::Delete );
 
     m_Merge->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_M));
     m_Merge->setToolTip( "Merge with previous file, or merge multiple files into one." );
@@ -1113,7 +1113,7 @@ void BookBrowser::CreateContextMenuActions()
 
     // Has to be added to the book browser itself as well
     // for the keyboard shortcut to work.
-    addAction( m_Remove );
+    addAction( m_Delete );
     addAction( m_Merge );
     addAction( m_Rename );
     addAction( m_LinkStylesheets );
@@ -1223,59 +1223,64 @@ bool BookBrowser::SuccessfullySetupContextMenu( const QPoint &point )
 
     QModelIndex index = m_TreeView.indexAt( point );
 
-    if ( !index.isValid() )
-
+    if ( !index.isValid() ) {
         return false;
+    }
 
     int item_count = ValidSelectedItemCount();
 
-    if ( item_count < 1 )
-    {
+    if ( item_count < 1 ) {
         return false;
     }
 
-    m_ContextMenu.addAction( m_AddExisting );
-
     QStandardItem *item = m_OPFModel.itemFromIndex( index );
     Q_ASSERT( item );
-
     m_LastContextMenuType = m_OPFModel.GetResourceType( item );
 
-    if ( m_LastContextMenuType == Resource::HTMLResourceType )
-    {
-        m_ContextMenu.addAction( m_AddNewHTML );
-    }
-    else if ( m_LastContextMenuType == Resource::CSSResourceType )
-    {
-        m_ContextMenu.addAction( m_AddNewCSS );
-    }
-    else if ( m_LastContextMenuType == Resource::ImageResourceType )
-    {
-        m_ContextMenu.addAction( m_AddNewSVG );
-    }
+    QList<Resource *> resources = m_OPFModel.GetResourceListInFolder(m_LastContextMenuType);
 
     Resource *resource = GetCurrentResource();
 
     if ( resource ) {
         m_ContextMenu.addSeparator();
 
-        // Remove and rename not valid for OPF or NCX
+        // Delete and Rename
         if ( m_LastContextMenuType != Resource::OPFResourceType &&
-             m_LastContextMenuType != Resource::NCXResourceType )
-        {
-            m_ContextMenu.addAction( m_Remove );
-            m_Remove->setEnabled(m_LastContextMenuType != Resource::HTMLResourceType ||
-                                 AllHTMLResources().count() > 1);
-
-            m_ContextMenu.addSeparator();
-
+                    m_LastContextMenuType != Resource::NCXResourceType ) {
+            m_ContextMenu.addAction( m_Delete );
+            m_Delete->setEnabled(m_LastContextMenuType != Resource::HTMLResourceType ||
+                                 (AllHTMLResources().count() > 1 && resources.count() != item_count) );
             m_ContextMenu.addAction( m_Rename );
         }
 
-        SetupResourceSpecificContextMenu( resource );    
+        if ( resource->Type() == Resource::HTMLResourceType )
+        {
+            m_ContextMenu.addAction(m_Merge);
+            m_Merge->setEnabled(item_count > 1 || 
+                                      (AllHTMLResources().count() > 1 && 
+                                       AllHTMLResources().at(0) != ValidSelectedResources().at(0)));
+    
+            m_ContextMenu.addAction( m_SortHTML );
+            m_SortHTML->setEnabled(item_count > 1);
 
+            m_ContextMenu.addAction( m_LinkStylesheets );
+            m_LinkStylesheets->setEnabled(AllCSSResources().count() > 0);
+
+        }
+    
+        if ( resource->Type() == Resource::FontResourceType) {
+            SetupFontObfuscationMenu( resource );
+        }
+    
+        if ( resource->Type() == Resource::NCXResourceType) {
+            m_ContextMenu.addAction( m_RenumberTOC );
+        }
+
+        // Semantic Menu
+        SetupSemanticContextmenu( resource );
+    
+        // Open With and Export
         m_ContextMenu.addSeparator();
-        m_ContextMenu.addAction( m_Export );
 
         if ( OpenExternally::mayOpen( resource->Type() ) ) {
             const QString& editorPath = OpenExternally::editorForResourceType( resource->Type() );
@@ -1297,60 +1302,53 @@ bool BookBrowser::SuccessfullySetupContextMenu( const QPoint &point )
                 m_ContextMenu.addMenu( &m_OpenWithContextMenu );
             }
         }
+
+        m_ContextMenu.addAction( m_Export );
     }
 
-    // Add Select All
-    if ( m_OPFModel.GetResourceListInFolder(m_LastContextMenuType).count() > 1 && 
-            m_LastContextMenuType != Resource::OPFResourceType &&
+    // Applies to Menus and Resources
+
+    // Add Existing and Add specific file types
+    m_ContextMenu.addSeparator();
+
+    if ( m_LastContextMenuType == Resource::HTMLResourceType )
+    {
+        m_ContextMenu.addAction( m_AddNewHTML );
+    }
+    else if ( m_LastContextMenuType == Resource::CSSResourceType )
+    {
+        m_ContextMenu.addAction( m_AddNewCSS );
+    }
+    else if ( m_LastContextMenuType == Resource::ImageResourceType )
+    {
+        m_ContextMenu.addAction( m_AddNewSVG );
+    }
+
+    m_ContextMenu.addAction( m_AddExisting );
+
+    // Select All
+    if ( m_LastContextMenuType != Resource::OPFResourceType &&
             m_LastContextMenuType != Resource::NCXResourceType ) {
         m_ContextMenu.addSeparator();
         m_ContextMenu.addAction(m_SelectAll);
+        m_SelectAll->setEnabled(item_count > 0 || (!resource && resources.count() > 0));
     }
 
     return true;
 }
 
 
-void BookBrowser::SetupResourceSpecificContextMenu( Resource *resource  )
-{
-    if ( resource->Type() == Resource::HTMLResourceType )
-    {
-        m_ContextMenu.addAction( m_SortHTML );
-        m_SortHTML->setEnabled(ValidSelectedItemCount() > 1);
-
-        m_ContextMenu.addAction(m_Merge);
-        m_Merge->setEnabled(ValidSelectedItemCount() > 1 || 
-                                  (AllHTMLResources().count() > 1 && 
-                                   AllHTMLResources().at(0) != ValidSelectedResources().at(0)));
-
-        m_ContextMenu.addAction( m_LinkStylesheets );
-        m_LinkStylesheets->setEnabled(AllCSSResources().count() > 0);
-    }
-
-    if ( resource->Type() == Resource::FontResourceType && ValidSelectedItemCount() == 1 )
-    {
-        SetupFontObfuscationMenu( resource );
-    }
-
-    if ( resource->Type() == Resource::NCXResourceType && ValidSelectedItemCount() == 1 )
-    {
-        m_ContextMenu.addAction( m_RefreshTOC );
-    }
-
-    SetupSemanticContextmenu( resource );
-}
-
-
 void BookBrowser::SetupSemanticContextmenu( Resource *resource )
 {
-    if (resource->Type() == Resource::HTMLResourceType && ValidSelectedItemCount() == 1) {
+    if (resource->Type() == Resource::HTMLResourceType) {
         SetupHTMLSemanticContextMenu( resource );
         m_ContextMenu.addMenu( &m_SemanticsContextMenu );
     }
-    else if (resource->Type() == Resource::ImageResourceType && ValidSelectedItemCount() == 1) {
+    else if (resource->Type() == Resource::ImageResourceType) {
         SetupImageSemanticContextMenu( resource );
         m_ContextMenu.addMenu( &m_SemanticsContextMenu );
     }
+    m_SemanticsContextMenu.setEnabled(ValidSelectedItemCount() == 1);
 }
 
 
@@ -1434,6 +1432,7 @@ void BookBrowser::SetupFontObfuscationMenu( Resource *resource )
     SetFontObfuscationActionCheckState( resource );
 
     m_ContextMenu.addMenu( &m_FontObfuscationContextMenu );
+    m_FontObfuscationContextMenu.setEnabled(ValidSelectedItemCount() == 1);
 }
 
 
@@ -1466,13 +1465,13 @@ void BookBrowser::ConnectSignalsToSlots()
 
     connect( m_SelectAll,               SIGNAL( triggered() ), this, SLOT( SelectAll()               ) );
     connect( m_AddNewHTML,              SIGNAL( triggered() ), this, SLOT( AddNewHTML()              ) );
-    connect( m_RefreshTOC,              SIGNAL( triggered() ), this, SLOT( RefreshTOC()              ) );
+    connect( m_RenumberTOC,             SIGNAL( triggered() ), this, SLOT( RenumberTOC()             ) );
     connect( m_SortHTML,                SIGNAL( triggered() ), this, SLOT( SortHTML()                ) );
     connect( m_AddNewCSS,               SIGNAL( triggered() ), this, SLOT( AddNewCSS()               ) );
     connect( m_AddNewSVG,               SIGNAL( triggered() ), this, SLOT( AddNewSVG()               ) );
     connect( m_AddExisting,             SIGNAL( triggered() ), this, SLOT( AddExisting()             ) );
     connect( m_Rename,                  SIGNAL( triggered() ), this, SLOT( Rename()                  ) );
-    connect( m_Remove,                  SIGNAL( triggered() ), this, SLOT( Remove()                  ) );
+    connect( m_Delete,                  SIGNAL( triggered() ), this, SLOT( Delete()                  ) );
     connect( m_CoverImage,              SIGNAL( triggered() ), this, SLOT( SetCoverImage()           ) );
     connect( m_Merge,                   SIGNAL( triggered() ), this, SLOT( Merge()                   ) );
     connect( m_LinkStylesheets,         SIGNAL( triggered() ), this, SLOT( LinkStylesheets()         ) );

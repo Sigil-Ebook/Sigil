@@ -113,7 +113,7 @@ void TableOfContents::StartRefreshDelay()
 }
 
 
-void TableOfContents::RefreshTOCContents()
+void TableOfContents::RenumberTOCContents()
 {
     m_Book->GetNCX().GenerateNCXFromTOCContents( *m_Book, m_NCXModel );
 }

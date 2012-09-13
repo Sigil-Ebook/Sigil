@@ -116,7 +116,7 @@ public slots:
    /**
      * Refreshes the TOC file to renumber entries
      */
-    void RefreshTOC();
+    void RenumberTOC();
 
     /**
      * Returns the previous resource in the book display
@@ -178,7 +178,7 @@ signals:
      * Emitted when requested to update the TOC numbers
      *
      */
-    void RefreshTOCContentsRequest();
+    void RenumberTOCContentsRequest();
 
     /**
      * Emitted when the book's content is modified through the Book Browser.
@@ -257,9 +257,9 @@ private slots:
     void RenameSelected();
 
     /**
-     * Implements the Add New context menu action functionality.
+     * Implements the Delete context menu action functionality.
      */
-    void Remove();
+    void Delete();
 
     /**
      * Returns the resource to select after removal
@@ -480,14 +480,14 @@ private:
     QAction *m_AddNewSVG;
     QAction *m_AddExisting;
     QAction *m_Rename;
-    QAction *m_Remove;
+    QAction *m_Delete;
     QAction *m_Merge;
     QAction *m_MergeWithPrevious;
     QAction *m_CoverImage;
     QAction *m_AdobesObfuscationMethod;
     QAction *m_IdpfsObfuscationMethod;
     QAction *m_SortHTML;
-    QAction *m_RefreshTOC;
+    QAction *m_RenumberTOC;
     QAction *m_LinkStylesheets;
     QAction *m_Export;
 
