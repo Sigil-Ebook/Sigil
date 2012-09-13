@@ -416,6 +416,7 @@ private slots:
     // when the user enters the view. CV is linked to the resource in such a
     // way that this is unnecessary. The CV linking is not possible in BV.
     void ResourceModified();
+    void LinkedResourceModified();
 
     // Called when the underlying text inside the control is being replaced
     // Store our caret location as required.

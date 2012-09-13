@@ -920,9 +920,17 @@ void FlowTab::LoadSettings()
 void FlowTab::ResourceModified()
 {
     m_BookPreviewNeedReload = true;
-    QWebSettings::clearMemoryCaches();
     if ( m_ViewState == MainWindow::ViewState_CodeView ) {
         m_wCodeView->ExecuteCaretUpdate();
+    }
+}
+
+void FlowTab::LinkedResourceModified()
+{
+    m_BookPreviewNeedReload = true;
+    QWebSettings::clearMemoryCaches();
+    if ( m_ViewState != MainWindow::ViewState_CodeView && isVisible() ) {
+        ReloadTabIfPending();
     }
 }
 
@@ -1428,7 +1436,7 @@ void FlowTab::DelayedConnectSignalsToSlots()
     connect(m_wCodeView, SIGNAL(FilteredTextChanged()), this, SLOT(EmitContentChanged()));
 
     connect(&m_HTMLResource, SIGNAL(TextChanging()), this, SLOT(ResourceTextChanging()));
-    connect(&m_HTMLResource, SIGNAL(LinkedResourceUpdated()), this, SLOT(ResourceModified()));
+    connect(&m_HTMLResource, SIGNAL(LinkedResourceUpdated()), this, SLOT(LinkedResourceModified()));
     connect(&m_HTMLResource, SIGNAL(Modified()), this, SLOT(ResourceModified()));
 }
 
