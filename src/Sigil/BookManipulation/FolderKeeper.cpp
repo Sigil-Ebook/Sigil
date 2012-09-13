@@ -34,6 +34,7 @@
 #include "ResourceObjects/Resource.h"
 #include "Misc/Utility.h"
 #include "Misc/OpenExternally.h"
+#include "Misc/SleepFunctions.h"
 
 const QStringList IMAGE_EXTENSIONS = QStringList() << "jpg"   << "jpeg"  << "png"
                                                    << "gif"   << "tif"   << "tiff"
@@ -418,6 +419,7 @@ void FolderKeeper::ResourceRenamed( const Resource& resource, const QString& old
 void FolderKeeper::ResourceFileChanged( const QString &path ) const
 {
     // The file may have been deleted prior to writing a new version - give it a chance to write.
+    SleepFunctions::msleep(500);
     QTime wake_time = QTime::currentTime().addSecs(1);   
     while( !QFile::exists(path) && QTime::currentTime() < wake_time ) {
         QCoreApplication::processEvents(QEventLoop::AllEvents, 100);
