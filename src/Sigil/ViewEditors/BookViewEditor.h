@@ -237,8 +237,6 @@ signals:
     void ClipboardSaveRequest();
     void ClipboardRestoreRequest();
 
-    void LinkClicked(const QUrl &url);
-
 protected:
     /**
      * Handles the focus out event for the editor.
