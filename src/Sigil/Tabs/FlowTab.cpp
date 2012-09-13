@@ -924,12 +924,6 @@ void FlowTab::ResourceModified()
     if ( m_ViewState == MainWindow::ViewState_CodeView ) {
         m_wCodeView->ExecuteCaretUpdate();
     }
-    else {
-        // We will immediately reload the tab if it is the currently displayed one
-        if (isVisible()) {
-            ReloadTabIfPending();
-        }
-    }
 }
 
 void FlowTab::ResourceTextChanging()
