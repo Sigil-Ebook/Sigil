@@ -326,7 +326,7 @@ void BookViewPreview::WebPageJavascriptOnLoad()
     page()->mainFrame()->evaluateJavaScript( c_jQueryWrapSelection );
     
     m_pendingLoadCount -= 1;
-    QTimer::singleShot(0, this, SLOT(executeCaretUpdateInternal()));
+    executeCaretUpdateInternal();
 }
 
 
