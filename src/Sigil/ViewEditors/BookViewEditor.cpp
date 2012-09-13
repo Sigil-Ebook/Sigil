@@ -674,7 +674,7 @@ bool BookViewEditor::SuccessfullySetupContextMenu( const QPoint &point )
 
 void BookViewEditor::CreateContextMenuActions()
 {
-    m_InsertImage = new QAction( tr( "Insert Image" ), this );
+    m_InsertImage = new QAction( tr( "Insert Image" ) + "...", this );
 
     m_Cut       = new QAction( tr( "Cut" ),         this );
     m_Copy      = new QAction( tr( "Copy" ),        this );
