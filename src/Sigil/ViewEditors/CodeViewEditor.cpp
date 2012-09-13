@@ -821,6 +821,15 @@ bool CodeViewEditor::ReplaceSelected( const QString &search_regex, const QString
 
             setTextCursor( cursor );
 
+            if (!hasFocus()) {
+                // The replace operation is being performed where focus is elsewhere (like in the F&R combos)
+                // If the user does not click back into the tab, these changes will not be saved yet, which
+                // means if the switch to another tab (such as a BV tab after doing a F&R in CSS) they will
+                // not see the result of those changes. So we will emit a FocusLost event, which will trigger
+                // the saving of the tab content and all associated ResourceModified signals to fire.
+                emit FocusLost( this );
+            }
+
             return true;
         }
     }
@@ -867,6 +876,15 @@ int CodeViewEditor::ReplaceAll( const QString &search_regex,
     // Restore the cursor position
     cursor.setPosition(cursor_position);
     setTextCursor(cursor);
+
+    if (!hasFocus()) {
+        // The replace operation is being performed where focus is elsewhere (like in the F&R combos)
+        // If the user does not click back into the tab, these changes will not be saved yet, which
+        // means if the switch to another tab (such as a BV tab after doing a F&R in CSS) they will
+        // not see the result of those changes. So we will emit a FocusLost event, which will trigger
+        // the saving of the tab content and all associated ResourceModified signals to fire.
+        emit FocusLost( this );
+    }
 
     return count;
 }
