@@ -68,6 +68,8 @@ public:
 
     virtual void SetText(const QString &text);
 
+    virtual bool LoadFromDisk();
+
     void SaveToDisk(bool book_wide_save=false);
 
     /**

@@ -673,9 +673,10 @@ void BookBrowser::Export()
 
 void BookBrowser::OpenWith() const
 {
-    const Resource *resource = GetCurrentResource();
+    Resource *resource = GetCurrentResource();
     if ( resource )
     {
+        resource->SaveToDisk();
         const QString& editorPath = OpenExternally::selectEditorForResourceType( resource->Type() );
         if ( !editorPath.isEmpty() )
         {
@@ -686,9 +687,10 @@ void BookBrowser::OpenWith() const
 
 void BookBrowser::OpenWithEditor() const
 {
-    const Resource * resource = GetCurrentResource();
+    Resource * resource = GetCurrentResource();
     if ( resource )
     {
+        resource->SaveToDisk();
         const QVariant& editorPathData = m_OpenWithEditor->data();
         if ( editorPathData.isValid() )
         {

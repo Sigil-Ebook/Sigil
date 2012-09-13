@@ -32,8 +32,8 @@ static const QString EMPTY;
 
 // resource types that are watched for modifications from outside Sigil
 // only watch certain types of resources (auxiliaries)
-// (X)HTML files would have to go through the validator first
-static const int WATCHED_RESOURCE_TYPES = Resource::CSSResourceType   |
+static const int WATCHED_RESOURCE_TYPES = Resource::HTMLResourceType  |
+                                          Resource::CSSResourceType   |
                                           Resource::ImageResourceType |
                                           Resource::SVGResourceType   |
                                           Resource::FontResourceType;
@@ -44,9 +44,10 @@ static inline const char* const RESOURCE_TYPE_NAME( const Resource::ResourceType
 {
     switch (type)
     {
+    case Resource::HTMLResourceType:    return "html";
     case Resource::CSSResourceType:     return "stylesheet";
     case Resource::ImageResourceType:   return "image";
-    case Resource::SVGResourceType:     return "SVG";
+    case Resource::SVGResourceType:     return "svg";
     case Resource::FontResourceType:    return "font";
     default:                            return "";
     }

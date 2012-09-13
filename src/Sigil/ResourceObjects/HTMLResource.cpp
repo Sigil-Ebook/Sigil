@@ -58,6 +58,25 @@ Resource::ResourceType HTMLResource::Type() const
     return Resource::HTMLResourceType;
 }
 
+bool HTMLResource::LoadFromDisk()
+{
+    try {
+        const QString &text = Utility::ReadUnicodeTextFile(GetFullPath());
+
+        SetText(text);
+
+        emit Modified();
+
+        return true;
+    }
+    catch (CannotOpenFile)
+    {
+        //
+    }
+
+    return false;
+}
+
 void HTMLResource::SetText(const QString &text)
 {
     emit TextChanging();
