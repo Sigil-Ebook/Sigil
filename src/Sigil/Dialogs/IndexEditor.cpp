@@ -81,9 +81,6 @@ void IndexEditor::SetupIndexEditorTree()
         "</dl>");
 
     ui.IndexEditorTree->header()->setStretchLastSection(true);
-    for (int column = 0; column < ui.IndexEditorTree->header()->count(); column++) {
-        ui.IndexEditorTree->resizeColumnToContents(column);
-    }
 }
 
 bool IndexEditor::SaveData(QList<IndexEditorModel::indexEntry*> entries, QString filename)
@@ -107,6 +104,10 @@ void IndexEditor::showEvent(QShowEvent *event)
 
     ui.FilterText->clear();
     ui.FilterText->setFocus();
+
+    for (int column = 0; column < ui.IndexEditorTree->header()->count(); column++) {
+        ui.IndexEditorTree->resizeColumnToContents(column);
+    }
 }
 
 int IndexEditor::SelectedRowsCount()
