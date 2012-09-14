@@ -412,6 +412,31 @@ void BookBrowser::AddNew()
 }
 
 
+// Create a new HTML file and copy the text from the current file into it
+void BookBrowser::CopyHTML()
+{
+    Resource *current_resource = GetCurrentResource();
+
+    if (!current_resource) {
+        return;
+    }
+
+    HTMLResource &current_html_resource = *qobject_cast< HTMLResource* >( current_resource );
+
+    // Create an empty file
+    HTMLResource &new_html_resource = m_Book->CreateEmptyHTMLFile( current_html_resource );
+    m_Book->MoveResourceAfter( new_html_resource, current_html_resource );
+
+    // Copy the text from the current file
+    new_html_resource.SetText(current_html_resource.GetText());
+
+    // Open the new file in a tab
+    emit ResourceActivated( new_html_resource );
+    emit BookContentModified();
+    Refresh();
+}
+
+
 // Create a new HTML file and insert it after the currently selected file
 void BookBrowser::AddNewHTML()
 {
@@ -429,6 +454,29 @@ void BookBrowser::AddNewHTML()
     emit BookContentModified();
     Refresh();
 }
+
+void BookBrowser::CopyCSS()
+{
+    Resource *current_resource = GetCurrentResource();
+
+    if (!current_resource) {
+        return;
+    }
+
+    CSSResource &current_css_resource = *qobject_cast< CSSResource* >( current_resource );
+
+    // Create an empty file
+    CSSResource &new_resource = m_Book->CreateEmptyCSSFile();
+
+    // Copy the text from the current file
+    new_resource.SetText(current_css_resource.GetText());
+
+    // Open the new file in a tab
+    emit ResourceActivated( new_resource );
+    emit BookContentModified();
+    Refresh();
+}
+
 
 
 void BookBrowser::AddNewCSS()
@@ -1087,6 +1135,8 @@ void BookBrowser::CreateContextMenuActions()
     m_AddNewCSS               = new QAction( tr( "Add Blank Stylesheet" ),  this );
     m_AddNewSVG               = new QAction( tr( "Add Blank SVG Image" ),   this );
     m_AddExisting             = new QAction( tr( "Add Existing Files..." ), this );
+    m_CopyHTML                = new QAction( tr( "Add Copy" ),              this );
+    m_CopyCSS                 = new QAction( tr( "Add Copy" ),              this );
     m_Rename                  = new QAction( tr( "Rename" ) + "...",        this );
     m_Delete                  = new QAction( tr( "Delete" ) + "...",        this );
     m_CoverImage              = new QAction( tr( "Cover Image" ),           this );
@@ -1320,10 +1370,16 @@ bool BookBrowser::SuccessfullySetupContextMenu( const QPoint &point )
 
     if ( m_LastContextMenuType == Resource::HTMLResourceType )
     {
+        m_ContextMenu.addAction( m_CopyHTML);
+        m_CopyHTML->setEnabled(item_count == 1);
+
         m_ContextMenu.addAction( m_AddNewHTML );
     }
     else if ( m_LastContextMenuType == Resource::CSSResourceType )
     {
+        m_ContextMenu.addAction( m_CopyCSS);
+        m_CopyCSS->setEnabled(item_count == 1);
+
         m_ContextMenu.addAction( m_AddNewCSS );
     }
     else if ( m_LastContextMenuType == Resource::ImageResourceType )
@@ -1471,6 +1527,8 @@ void BookBrowser::ConnectSignalsToSlots()
              this,        SLOT(   SelectRenamedResource() ) );
 
     connect( m_SelectAll,               SIGNAL( triggered() ), this, SLOT( SelectAll()               ) );
+    connect( m_CopyHTML,                SIGNAL( triggered() ), this, SLOT( CopyHTML()                ) );
+    connect( m_CopyCSS,                 SIGNAL( triggered() ), this, SLOT( CopyCSS()                 ) );
     connect( m_AddNewHTML,              SIGNAL( triggered() ), this, SLOT( AddNewHTML()              ) );
     connect( m_RenumberTOC,             SIGNAL( triggered() ), this, SLOT( RenumberTOC()             ) );
     connect( m_SortHTML,                SIGNAL( triggered() ), this, SLOT( SortHTML()                ) );

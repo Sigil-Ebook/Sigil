@@ -136,6 +136,8 @@ public slots:
      */
     Resource* GetUrlResource( const QUrl &url );
 
+    void CopyHTML();
+    void CopyCSS();
     void AddNewHTML();
     void AddNewCSS();
     void AddNewSVG();
@@ -475,6 +477,8 @@ private:
     // The context menu actions.
 
     QAction *m_SelectAll;
+    QAction *m_CopyHTML;
+    QAction *m_CopyCSS;
     QAction *m_AddNewHTML;
     QAction *m_AddNewCSS;
     QAction *m_AddNewSVG;
