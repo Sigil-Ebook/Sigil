@@ -134,6 +134,7 @@ void ImageTab::RefreshContent()
     const QUrl imgUrl = QUrl::fromLocalFile(path);
 
     QString colors_shades = img.isGrayscale() ? tr("shades") : tr ("colors");
+    QString grayscale_color = img.isGrayscale() ? tr("Grayscale") : tr("Color");
     QString colorsInfo = ""; 
     if (img.depth() == 32) {
         colorsInfo = QString(" %1bpp").arg(img.bitPlaneCount());
@@ -143,7 +144,7 @@ void ImageTab::RefreshContent()
     }
 
     const QString html = IMAGE_HTML_BASE.arg(imgUrl.toString()).arg(img.width()).arg(img.height()).arg(fsize)
-            .arg(img.isGrayscale() ? tr("Grayscale") : tr("Color")).arg(colorsInfo);
+            .arg(grayscale_color).arg(colorsInfo);
     m_WebView.setHtml(html, imgUrl);
 }
 

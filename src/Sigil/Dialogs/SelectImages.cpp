@@ -20,6 +20,8 @@
 **
 *************************************************************************/
 
+#include <QtCore/QFileInfo>
+
 #include "Dialogs/SelectImages.h"
 #include "Misc/SettingsStore.h"
 
@@ -172,12 +174,14 @@ void SelectImages::SelectionChanged(const QItemSelection &selected, const QItemS
 void SelectImages::SetPreviewImage()
 {
     QPixmap(pixmap);
+    QString details = "";
 
     QStandardItem *item = GetLastSelectedImageItem();
 
     if (item && !item->text().isEmpty()) {
 
-        pixmap = QPixmap(m_Basepath + item->text());
+        QString path = m_Basepath + item->text();
+        pixmap = QPixmap(path);
 
         // Set size to match window, with a small border
         int width = ui.preview->width() - 10;
@@ -187,9 +191,32 @@ void SelectImages::SetPreviewImage()
         if (pixmap.height() > height || pixmap.width() > width) {
             pixmap = pixmap.scaled(QSize(width, height), Qt::KeepAspectRatio);
         }
+
+        // Define detailed information label
+        const QFileInfo fileInfo = QFileInfo(path);
+        const double ffsize = fileInfo.size() / 1024.0;
+        const QString fsize = QLocale().toString(ffsize, 'f', 2);
+    
+        const QImage img(path);
+        const QUrl imgUrl = QUrl::fromLocalFile(path);
+    
+        QString colors_shades = img.isGrayscale() ? tr("shades") : tr ("colors");
+        QString grayscale_color = img.isGrayscale() ? tr("Grayscale") : tr("Color");
+        QString colorsInfo = ""; 
+        if (img.depth() == 32) {
+            colorsInfo = QString(" %1bpp").arg(img.bitPlaneCount());
+        }
+        else if (img.depth() > 0) {
+            colorsInfo = QString(" %1bpp (%2 %3)").arg(img.bitPlaneCount()).arg(img.colorCount()).arg(colors_shades);
+        }
+
+        details = QString("%2x%3px | %4 KB | %5%6").arg(img.width()).arg(img.height())
+                                                .arg(fsize).arg(grayscale_color).arg(colorsInfo);
     }
 
     ui.preview->setPixmap(pixmap);
+
+    ui.Details->setText(details);
 
     m_PreviewLoaded = true;
 }
