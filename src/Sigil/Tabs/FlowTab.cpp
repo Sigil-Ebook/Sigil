@@ -792,6 +792,9 @@ void FlowTab::PasteClipEntries(QList<ClipEditorModel::clipEntry *> clips)
 
 void FlowTab::ReloadTabIfPending()
 {
+    if (!isVisible()) {
+        return;
+    }
     setFocus();
     // Reload BV/PV if the resource was marked as changed outside of the editor.
     if (m_BookPreviewNeedReload && (m_ViewState == MainWindow::ViewState_PreviewView || m_ViewState == MainWindow::ViewState_BookView)) {
@@ -927,11 +930,9 @@ void FlowTab::ResourceModified()
 
 void FlowTab::LinkedResourceModified()
 {
-    m_BookPreviewNeedReload = true;
     QWebSettings::clearMemoryCaches();
-    if ( m_ViewState != MainWindow::ViewState_CodeView && isVisible() ) {
-        ReloadTabIfPending();
-    }
+    ResourceModified();
+    ReloadTabIfPending();
 }
 
 void FlowTab::ResourceTextChanging()
