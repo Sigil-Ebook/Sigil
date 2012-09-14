@@ -139,7 +139,11 @@ const QString OpenExternally::selectEditorForResourceType( const Resource::Resou
     SettingsStore settings;
     settings.beginGroup( SETTINGS_GROUP );
 
+#if defined(Q_WS_WIN)
+    static QString LAST_LOCATION(getenv("PROGRAMFILES"));
+#else
     static QString LAST_LOCATION = QDesktopServices::storageLocation( QDesktopServices::ApplicationsLocation );
+#endif
 
     QString lastEditor = settings.value( editorKey ).toString();
     if ( !QFile::exists(lastEditor) )
