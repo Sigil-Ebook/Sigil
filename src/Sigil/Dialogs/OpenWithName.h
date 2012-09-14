@@ -1,6 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2012  Daniel Pavel <daniel.pavel@gmail.com>
+**  Copyright (C) 2012 John Schember <john@nachtimwald.com>
+**  Copyright (C) 2012 Dave Heiland
 **
 **  This file is part of Sigil.
 **
@@ -20,27 +21,37 @@
 *************************************************************************/
 
 #pragma once
-#ifndef OPENEXTERNALLY_H
-#define OPENEXTERNALLY_H
+#ifndef OPENWITHNAME_H
+#define OPENWITHNAME_H
+
+#include <QtGui/QDialog>
 
 #include "ResourceObjects/Resource.h"
+#include "BookManipulation/Book.h"
 
-class OpenExternally
+#include "ui_OpenWithName.h"
+
+class OpenWithName: public QDialog
 {
+    Q_OBJECT
 
 public:
+    OpenWithName(QString filename, QWidget *parent = 0);
 
-    static bool mayOpen( const Resource::ResourceType type );
+    QString GetName();
 
-    static bool openFile( const QString& filePath, const QString& application );
+private slots:
+    void SetName();
 
-    static const QString editorForResourceType( const Resource::ResourceType type );
+private:
 
-    static const QString editorDescriptionForResourceType( const Resource::ResourceType type );
+    void connectSignalsSlots();
 
-    static const QString selectEditorForResourceType( const Resource::ResourceType type );
+    QString m_Filename;
+    QString m_MenuName;
 
-    static const QString prettyApplicationName( const QString& applicationpath );
+
+    Ui::OpenWithName ui;
 };
 
-#endif // OPENEXTERNALLY_H
+#endif // OPENWITHNAME_H

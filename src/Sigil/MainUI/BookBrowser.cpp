@@ -1290,6 +1290,7 @@ bool BookBrowser::SuccessfullySetupContextMenu( const QPoint &point )
 
         if ( OpenExternally::mayOpen( resource->Type() ) ) {
             const QString& editorPath = OpenExternally::editorForResourceType( resource->Type() );
+            const QString& editorDescription = OpenExternally::editorDescriptionForResourceType( resource->Type() );
             if ( editorPath.isEmpty() )
             {
                 m_OpenWithEditor->setData( QVariant::Invalid );
@@ -1300,7 +1301,7 @@ bool BookBrowser::SuccessfullySetupContextMenu( const QPoint &point )
             }
             else
             {
-                m_OpenWithEditor->setText( OpenExternally::prettyApplicationName(editorPath) );
+                m_OpenWithEditor->setText( editorDescription );
                 m_OpenWithEditor->setData( editorPath );
 
                 m_OpenWith->setText( tr( "Other Application" ) + "..." );

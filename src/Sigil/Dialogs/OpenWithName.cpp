@@ -1,6 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2012  Daniel Pavel <daniel.pavel@gmail.com>
+**  Copyright (C) 2012 John Schember <john@nachtimwald.com>
+**  Copyright (C) 2012 Dave Heiland
 **
 **  This file is part of Sigil.
 **
@@ -19,28 +20,37 @@
 **
 *************************************************************************/
 
-#pragma once
-#ifndef OPENEXTERNALLY_H
-#define OPENEXTERNALLY_H
+#include <QtGui/QLineEdit>
 
-#include "ResourceObjects/Resource.h"
+#include "Dialogs/OpenWithName.h"
 
-class OpenExternally
+OpenWithName::OpenWithName(QString filename, QWidget *parent)
+    :
+    QDialog(parent),
+    m_Filename(filename),
+    m_MenuName(filename)
 {
+    ui.setupUi(this);
 
-public:
+    connectSignalsSlots();
 
-    static bool mayOpen( const Resource::ResourceType type );
+    ui.Filename->setText(m_Filename);
+    ui.MenuName->setText(m_Filename);
+}
 
-    static bool openFile( const QString& filePath, const QString& application );
+void OpenWithName::SetName()
+{
+    m_MenuName = ui.MenuName->text();
+}
 
-    static const QString editorForResourceType( const Resource::ResourceType type );
+QString OpenWithName::GetName()
+{
+    return m_MenuName;
+}
 
-    static const QString editorDescriptionForResourceType( const Resource::ResourceType type );
+void OpenWithName::connectSignalsSlots()
+{
+    connect(this,         SIGNAL(accepted()),
+            this,         SLOT(SetName()));
+}
 
-    static const QString selectEditorForResourceType( const Resource::ResourceType type );
-
-    static const QString prettyApplicationName( const QString& applicationpath );
-};
-
-#endif // OPENEXTERNALLY_H

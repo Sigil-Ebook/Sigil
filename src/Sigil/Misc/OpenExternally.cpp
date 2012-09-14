@@ -23,6 +23,7 @@
 #include <QtGui/QDesktopServices>
 #include <QtGui/QFileDialog>
 
+#include "Dialogs/OpenWithName.h"
 #include "Misc/OpenExternally.h"
 #include "Misc/SettingsStore.h"
 
@@ -96,6 +97,29 @@ const QString OpenExternally::editorForResourceType( const Resource::ResourceTyp
     return EMPTY;
 }
 
+const QString OpenExternally::editorDescriptionForResourceType( const Resource::ResourceType type )
+{
+    QString editorDescription;
+
+    if ( mayOpen( type ) )
+    {
+        SettingsStore settings;
+        settings.beginGroup( SETTINGS_GROUP );
+
+        const QString& editorDescriptionKey = QString("editor_description_") + RESOURCE_TYPE_NAME(type);
+        const QString& editorKey = QString("editor_") + RESOURCE_TYPE_NAME(type);
+
+        if ( settings.contains( editorDescriptionKey ) )
+        {
+            editorDescription = settings.value(editorDescriptionKey).toString();
+        }
+        if (editorDescription.isEmpty()) {
+            editorDescription = prettyApplicationName(settings.value(editorKey).toString());
+        }
+    }
+
+    return editorDescription;
+}
 
 const QString OpenExternally::prettyApplicationName( const QString& applicationpath )
 {
@@ -110,6 +134,7 @@ const QString OpenExternally::selectEditorForResourceType( const Resource::Resou
     }
 
     const QString& editorKey = QString("editor_") + RESOURCE_TYPE_NAME(type);
+    const QString& editorDescriptionKey = QString("editor_description_") + RESOURCE_TYPE_NAME(type);
 
     SettingsStore settings;
     settings.beginGroup( SETTINGS_GROUP );
@@ -155,6 +180,20 @@ const QString OpenExternally::selectEditorForResourceType( const Resource::Resou
     {
         settings.setValue( editorKey, selectedFile );
         LAST_LOCATION = selectedFile;
+
+        // Let the user choose a friendly menu name for the application
+        QString editorDescription;
+
+        QString prettyName = prettyApplicationName(selectedFile);
+        OpenWithName name(prettyName);
+        name.exec();
+        editorDescription = name.GetName();
+        
+        if (editorDescription.isEmpty()) {
+            editorDescription = prettyName;
+        }
+
+        settings.setValue( editorDescriptionKey, editorDescription );
     }
 
     return selectedFile;
