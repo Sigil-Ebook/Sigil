@@ -65,7 +65,7 @@ bool HTMLResource::LoadFromDisk()
 
         SetText(text);
 
-        emit Modified();
+        emit LoadedFromDisk();
 
         return true;
     }

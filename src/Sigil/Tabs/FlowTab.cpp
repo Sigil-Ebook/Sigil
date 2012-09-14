@@ -1438,6 +1438,7 @@ void FlowTab::DelayedConnectSignalsToSlots()
     connect(&m_HTMLResource, SIGNAL(TextChanging()), this, SLOT(ResourceTextChanging()));
     connect(&m_HTMLResource, SIGNAL(LinkedResourceUpdated()), this, SLOT(LinkedResourceModified()));
     connect(&m_HTMLResource, SIGNAL(Modified()), this, SLOT(ResourceModified()));
+    connect(&m_HTMLResource, SIGNAL(LoadedFromDisk()), this, SLOT(ReloadTabIfPending()));
 }
 
 void FlowTab::ConnectSignalsToSlots()

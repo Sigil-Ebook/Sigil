@@ -100,6 +100,7 @@ public:
 signals:
     void LinkedResourceUpdated();
     void TextChanging();
+    void LoadedFromDisk();
 
 private:
     /**
