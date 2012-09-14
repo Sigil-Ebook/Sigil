@@ -20,7 +20,6 @@
 **
 *************************************************************************/
 
-#include <QtDebug>
 #include <boost/shared_ptr.hpp>
 
 #include <QtCore/QtCore>
@@ -44,7 +43,6 @@ bool Index::BuildIndex(QList<HTMLResource*> html_resources)
 {
     IndexEntries::instance()->Clear();
 
-qDebug() << "doing" << html_resources.count();
     // Display progress dialog
     QProgressDialog progress(QObject::tr("Creating Index..."), QObject::tr("Cancel"), 0, html_resources.count());
     progress.setMinimumDuration(0);
@@ -64,7 +62,6 @@ qDebug() << "doing" << html_resources.count();
         AddIndexIDsOneFile(html_resource);
     }
 
-qDebug() << "done build index";
     return true;
 }
 

@@ -576,6 +576,8 @@ private slots:
 
     void ResourcesAddedOrDeleted();
 
+    void SetImageWatchResourceFile(const QString &pathname);
+
 private:
 
     void ResetLinkOrStyleBookmark();

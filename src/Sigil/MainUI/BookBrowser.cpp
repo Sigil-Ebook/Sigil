@@ -680,21 +680,25 @@ void BookBrowser::OpenWith() const
         const QString& editorPath = OpenExternally::selectEditorForResourceType( resource->Type() );
         if ( !editorPath.isEmpty() )
         {
-            OpenExternally::openFile( resource->GetFullPath(), editorPath );
+            if (OpenExternally::openFile( resource->GetFullPath(), editorPath )) {
+                m_Book->GetFolderKeeper().WatchResourceFile(*resource);
+            }
         }
     }
 }
 
 void BookBrowser::OpenWithEditor() const
 {
-    Resource * resource = GetCurrentResource();
+    Resource *resource = GetCurrentResource();
     if ( resource )
     {
         resource->SaveToDisk();
         const QVariant& editorPathData = m_OpenWithEditor->data();
         if ( editorPathData.isValid() )
         {
-            OpenExternally::openFile( resource->GetFullPath(), editorPathData.toString() );
+            if (OpenExternally::openFile( resource->GetFullPath(), editorPathData.toString() )) {
+                m_Book->GetFolderKeeper().WatchResourceFile(*resource);
+            }
         }
     }
 }

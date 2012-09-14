@@ -356,6 +356,8 @@ signals:
 
     void SpellingHighlightRefreshRequest();
 
+    void ImageOpenedExternally(const QString &pathname);
+
 protected slots:
 
     /**

@@ -1480,4 +1480,6 @@ void FlowTab::ConnectSignalsToSlots()
     connect(m_wCodeView, SIGNAL(BookmarkLinkOrStyleLocationRequest()), this, SIGNAL(BookmarkLinkOrStyleLocationRequest()));
 
     connect(m_wCodeView, SIGNAL(SpellingHighlightRefreshRequest()), this, SIGNAL(SpellingHighlightRefreshRequest()));
+
+    connect(m_wBookView, SIGNAL(ImageOpenedExternally(const QString &)), this, SIGNAL(ImageOpenedExternally(const QString &)));
 }

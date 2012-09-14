@@ -2579,6 +2579,19 @@ float MainWindow::SliderRangeToZoomFactor( int slider_range_value )
     }
 }
 
+void MainWindow::SetImageWatchResourceFile(const QString &pathname)
+{
+    QString filename = QFileInfo(pathname).fileName();
+
+    try {
+        Resource &resource = m_Book->GetFolderKeeper().GetResourceByFilename(filename);
+        m_Book->GetFolderKeeper().WatchResourceFile(resource);
+    }
+    catch (const ResourceDoesNotExist&)
+    {
+        // nothing
+    }
+}
 
 const QMap< QString, QString > MainWindow::GetLoadFiltersMap()
 {
@@ -3483,6 +3496,13 @@ void MainWindow::MakeTabConnections( ContentTab *tab )
 
         connect( tab,   SIGNAL( OpenClipEditorRequest(ClipEditorModel::clipEntry *) ),
                  this,  SLOT (  ClipEditorDialog( ClipEditorModel::clipEntry * ) ) );
+    }
+
+    if (tab->GetLoadedResource().Type() == Resource::HTMLResourceType ||
+        tab->GetLoadedResource().Type() == Resource::ImageResourceType ||
+        tab->GetLoadedResource().Type() == Resource::SVGResourceType)
+    {
+        connect( tab, SIGNAL( ImageOpenedExternally(const QString&) ), this, SLOT( SetImageWatchResourceFile(const QString&)      ) );
     }
 
     if (tab->GetLoadedResource().Type() == Resource::HTMLResourceType ||

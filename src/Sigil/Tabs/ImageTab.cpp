@@ -183,7 +183,7 @@ void ImageTab::ImageFileModified()
     }
 }
 
-void ImageTab::openWith() const
+void ImageTab::openWith()
 {
     const QVariant& data = m_OpenWith->data();
     if ( data.isValid() )
@@ -192,19 +192,25 @@ void ImageTab::openWith() const
         const QString& editorPath = OpenExternally::selectEditorForResourceType( (Resource::ResourceType) resourceUrl.port() );
         if ( !editorPath.isEmpty() )
         {
-            OpenExternally::openFile( resourceUrl.toLocalFile(), editorPath );
+            if (OpenExternally::openFile( resourceUrl.toLocalFile(), editorPath )) {
+                const QString &pathname = resourceUrl.toString();
+                emit ImageOpenedExternally(pathname);
+            }
         }
     }
 }
 
-void ImageTab::openWithEditor() const
+void ImageTab::openWithEditor()
 {
     const QVariant& data = m_OpenWithEditor->data();
     if ( data.isValid() )
     {
         const QUrl& resourceUrl = data.toUrl();
         const QString& editorPath = OpenExternally::editorForResourceType( (Resource::ResourceType) resourceUrl.port() );
-        OpenExternally::openFile( resourceUrl.toLocalFile(), editorPath );
+        if (OpenExternally::openFile( resourceUrl.toLocalFile(), editorPath )) {
+                const QString &pathname = resourceUrl.toString();
+                emit ImageOpenedExternally(pathname);
+        }
     }
 }
 
@@ -271,7 +277,7 @@ void ImageTab::CreateContextMenuActions()
 
 void ImageTab::ConnectSignalsToSlots()
 {
-    connect(&m_Resource, SIGNAL(Modified()), this, SLOT(ImageFileModified()), Qt::QueuedConnection);
+    connect(&m_Resource, SIGNAL(ResourceUpdatedOnDisk()), this, SLOT(ImageFileModified()), Qt::QueuedConnection);
     connect(&m_Resource, SIGNAL(Deleted(Resource)), this, SLOT(Close()));
     connect( &m_WebView, SIGNAL( customContextMenuRequested(const QPoint&) ),  this, SLOT( OpenContextMenu(const QPoint&) ) );
     connect( m_OpenWith,       SIGNAL( triggered() ),  this, SLOT( openWith()       ) );

@@ -214,7 +214,6 @@ void IndexEditor::Paste()
     }
 }
 
-#include <QtDebug>
 void IndexEditor::Delete()
 {
     if (SelectedRowsCount() < 1) {
@@ -231,15 +230,12 @@ void IndexEditor::Delete()
     // Deleting all entries can be done much quicker than deleting one by one.
     if (SelectedRowsCount() == m_IndexEditorModel->invisibleRootItem()->rowCount()) {
         m_IndexEditorModel->ClearData();
-qDebug() << "Deleting at once";
     }
 
     // Delete one at a time as selection may not be contiguous
     // Could be faster if dialog is hidden during delete.
     int row = -1;
     while (ui.IndexEditorTree->selectionModel()->hasSelection()) {
-//meme check if this is every run
-qDebug() << "Deleting in loop";
         // Set progress value and ensure dialog has time to display when doing extensive updates
         if (progress.wasCanceled()) {
             break;

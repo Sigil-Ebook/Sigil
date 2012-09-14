@@ -49,8 +49,8 @@ public:
 public slots:
     void RefreshContent();
 
-    void openWith() const;
-    void openWithEditor() const;
+    void openWith();
+    void openWithEditor();
 
 private slots:
     void ImageFileModified();

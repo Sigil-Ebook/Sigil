@@ -572,28 +572,34 @@ void BookViewEditor::insertImage()
     emit InsertImage();
 }
 
-void BookViewEditor::openWith() const
+void BookViewEditor::openWith()
 {
-    const QVariant& data = m_OpenWith->data();
+    const QVariant &data = m_OpenWith->data();
     if ( data.isValid() )
     {
-        const QUrl& resourceUrl = data.toUrl();
+        const QUrl &resourceUrl = data.toUrl();
         const QString& editorPath = OpenExternally::selectEditorForResourceType( (Resource::ResourceType) resourceUrl.port() );
         if ( !editorPath.isEmpty() )
         {
-            OpenExternally::openFile( resourceUrl.toLocalFile(), editorPath );
+            if (OpenExternally::openFile( resourceUrl.toLocalFile(), editorPath )) {
+                const QString &pathname = resourceUrl.toString();
+                emit ImageOpenedExternally(pathname);
+            }
         }
     }
 }
 
-void BookViewEditor::openWithEditor() const
+void BookViewEditor::openWithEditor()
 {
-    const QVariant& data = m_OpenWithEditor->data();
+    const QVariant &data = m_OpenWithEditor->data();
     if ( data.isValid() )
     {
-        const QUrl& resourceUrl = data.toUrl();
+        const QUrl &resourceUrl = data.toUrl();
         const QString& editorPath = OpenExternally::editorForResourceType( (Resource::ResourceType) resourceUrl.port() );
-        OpenExternally::openFile( resourceUrl.toLocalFile(), editorPath );
+            if (OpenExternally::openFile( resourceUrl.toLocalFile(), editorPath )) {
+                const QString &pathname = resourceUrl.toString();
+                emit ImageOpenedExternally(pathname);
+            }
     }
 }
 

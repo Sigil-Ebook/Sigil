@@ -212,6 +212,11 @@ public:
      */
     QStringList GetAllFilenames() const;
 
+    /**
+     * Registers certain file types to be watched for external modifications.
+     */
+    void WatchResourceFile( const Resource& resource, bool file_renamed = false );
+
 signals:
 
     /**
@@ -250,11 +255,6 @@ private slots:
     void ResourceFileChanged( const QString& path ) const;
 
 private:
-
-    /**
-     * Registers certain file types to be watched for external modifications.
-     */
-    void WatchResourceFile( const Resource& resource, bool file_renamed = false );
 
     /**
      * Creates the required subfolders of each book.

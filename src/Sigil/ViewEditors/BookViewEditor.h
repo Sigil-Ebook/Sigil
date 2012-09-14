@@ -200,8 +200,8 @@ public slots:
     void insertImage();
     void openImage();
 
-    void openWith() const;
-    void openWithEditor() const;
+    void openWith();
+    void openWithEditor();
 
 signals:
     /**
@@ -239,6 +239,8 @@ signals:
     void ClipboardRestoreRequest();
 
     void InsertImage();
+
+    void ImageOpenedExternally(const QString &pathname);
 
 protected:
     /**

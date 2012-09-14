@@ -228,8 +228,6 @@ Resource& FolderKeeper::AddContentFileToFolder( const QString &fullfilepath,
     connect( resource, SIGNAL( Renamed( const Resource&, QString ) ), 
              this,     SLOT( ResourceRenamed( const Resource&, QString ) ), Qt::DirectConnection );
 
-    WatchResourceFile( *resource );
-
     if ( update_opf )
     
         emit ResourceAdded( *resource );
@@ -403,6 +401,10 @@ void FolderKeeper::RemoveResource( const Resource& resource )
 {
     m_Resources.remove( resource.GetIdentifier() );
 
+    if (m_FSWatcher->files().contains( resource.GetFullPath() ) ) {
+        m_FSWatcher->removePath( resource.GetFullPath() );
+    }
+
     emit ResourceRemoved( resource );
 }
 
@@ -454,7 +456,9 @@ void FolderKeeper::WatchResourceFile( const Resource& resource, bool file_rename
 {
     if ( OpenExternally::mayOpen( resource.Type() ) )
     {
-        m_FSWatcher->addPath( resource.GetFullPath() );
+        if (!m_FSWatcher->files().contains( resource.GetFullPath() ) ) {
+            m_FSWatcher->addPath( resource.GetFullPath() );
+        }
 
         // when the file is changed externally, mark the owning Book as modified
         // parent() is the Book object
