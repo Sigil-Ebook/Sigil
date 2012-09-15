@@ -107,7 +107,7 @@ QString CSSInfo::GetReformattedCSSText( bool multipleLineFormat )
         }
 
         // Now replace the contents inside the braces
-        QList< CSSInfo::CSSProperty* > new_properties = getCSSProperties(m_OriginalText, cssSelector->openingBracePos, cssSelector->closingBracePos);
+        QList< CSSInfo::CSSProperty* > new_properties = getCSSProperties(m_OriginalText, cssSelector->openingBracePos + 1, cssSelector->closingBracePos);
         const QString &new_properties_text = formatCSSProperties(new_properties, multipleLineFormat, selector_indent);
         new_text.replace(cssSelector->openingBracePos + 1, cssSelector->closingBracePos - cssSelector->openingBracePos - 1, new_properties_text);
 
@@ -156,7 +156,7 @@ QString CSSInfo::GetReformattedCSSText( bool multipleLineFormat )
 
 QList< CSSInfo::CSSProperty* > CSSInfo::getCSSProperties( const QString &text, const int &openingBracePos, const int &closingBracePos )
 {
-    const QString &style_text = text.mid(openingBracePos + 1, closingBracePos - openingBracePos - 1);
+    const QString &style_text = text.mid(openingBracePos, closingBracePos - openingBracePos - 1);
     QStringList properties = style_text.split(QChar(';'), QString::SkipEmptyParts);
     QList<CSSProperty*> new_properties;
 

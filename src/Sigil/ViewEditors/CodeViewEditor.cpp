@@ -2597,7 +2597,7 @@ void CodeViewEditor::FormatCSSStyle( const QString &property_name, const QString
     }
 
     // Now parse the CSS style content
-    QList< CSSInfo::CSSProperty* > css_properties = CSSInfo::getCSSProperties(text, bracket_start, bracket_end);
+    QList< CSSInfo::CSSProperty* > css_properties = CSSInfo::getCSSProperties(text, bracket_start + 1, bracket_end);
 
     // Apply our property value, adding if not present currently, toggling if it is.
     ApplyChangeToProperties(css_properties, property_name, property_value);
