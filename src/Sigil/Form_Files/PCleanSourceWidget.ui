@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>CleanSourceWidget</class>
+ <widget class="QWidget" name="CleanSourceWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>300</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Clean Source</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QGroupBox" name="groupBox">
+     <property name="title">
+      <string>Automatically Clean and Format HTML Source Code</string>
+     </property>
+     <widget class="QWidget" name="layoutWidget">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>382</width>
+        <height>82</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout" stretch="0,0,0,0">
+       <item>
+        <widget class="QRadioButton" name="CleanLevelOff">
+         <property name="toolTip">
+          <string>No formatting or cleaning of source code will be done, 
+except for error correction when loading a file.</string>
+         </property>
+         <property name="text">
+          <string>Off</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QRadioButton" name="CleanLevelPrettyPrint">
+         <property name="toolTip">
+          <string>Format your source code so it looks nice.  
+No modifications are made to your code, except error corrections when loading a file.</string>
+         </property>
+         <property name="text">
+          <string>Pretty Print</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QRadioButton" name="CleanLevelTidy">
+         <property name="toolTip">
+          <string>Use HTML Tidy to clean and reorganize your code.
+This may cause inline styles to be created.</string>
+         </property>
+         <property name="text">
+          <string>HTML Tidy</string>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

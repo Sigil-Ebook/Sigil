@@ -279,19 +279,6 @@
     <addaction name="separator"/>
     <addaction name="actionReports"/>
     <addaction name="separator"/>
-    <widget class="QMenu" name="menuCleanLevel">
-     <property name="title">
-      <string>Clean Source Options</string>
-     </property>
-     <property name="icon">
-      <iconset resource="../Resource_Files/main/main.qrc">
-       <normaloff>:/main/edit-clear_22px.png</normaloff>:/main/edit-clear_22px.png</iconset>
-     </property>
-     <addaction name="actionCleanLevelOff"/>
-     <addaction name="actionCleanLevelPrettyPrint"/>
-     <addaction name="actionCleanLevelTidy"/>
-    </widget>
-    <addaction name="menuCleanLevel"/>
     <addaction name="actionCheckWellFormedErrors"/>
    </widget>
    <addaction name="menuFile"/>
@@ -1866,30 +1853,6 @@
    </property>
    <property name="shortcut">
     <string>Alt+PgDown</string>
-   </property>
-  </action>
-  <action name="actionCleanLevelOff">
-   <property name="checkable">
-    <bool>true</bool>
-   </property>
-   <property name="text">
-    <string>Off</string>
-   </property>
-  </action>
-  <action name="actionCleanLevelPrettyPrint">
-   <property name="checkable">
-    <bool>true</bool>
-   </property>
-   <property name="text">
-    <string>Pretty Print</string>
-   </property>
-  </action>
-  <action name="actionCleanLevelTidy">
-   <property name="checkable">
-    <bool>true</bool>
-   </property>
-   <property name="text">
-    <string>Tidy</string>
    </property>
   </action>
   <action name="actionAddToIndex">

@@ -556,8 +556,6 @@ private slots:
     void GenerateToc();
     void CreateHTMLTOC();
 
-    void setCleanLevel(int level, bool store=true, bool show_warning=true);
-
     void ChangeCasing(int casing_mode);
 
     void ToggleViewState();
@@ -777,8 +775,6 @@ private:
     ///////////////////////////////
     // PRIVATE MEMBER VARIABLES
     ///////////////////////////////
-
-    QSignalMapper *m_cleanMapper;
 
     /**
      * The path to the current file loaded.

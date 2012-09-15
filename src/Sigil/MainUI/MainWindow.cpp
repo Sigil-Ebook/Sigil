@@ -110,7 +110,6 @@ QStringList MainWindow::s_RecentFiles = QStringList();
 MainWindow::MainWindow( const QString &openfilepath, QWidget *parent, Qt::WFlags flags )
     :
     QMainWindow( parent, flags ),
-    m_cleanMapper(new QSignalMapper(this)),
     m_CurrentFilePath( QString() ),
     m_Book( new Book() ),
     m_LastFolderOpen( QString() ),
@@ -1243,39 +1242,6 @@ void MainWindow::CreateHTMLTOC()
     QApplication::restoreOverrideCursor();
 }
 
-void MainWindow::setCleanLevel(int level, bool store, bool show_warning)
-{
-    SettingsStore settings;
-    SettingsStore::CleanLevel clean_level = SettingsStore::CleanLevel_Off;
-
-    ui.actionCleanLevelOff->setChecked(false);
-    ui.actionCleanLevelPrettyPrint->setChecked(false);
-    ui.actionCleanLevelTidy->setChecked(false);
-
-    switch (level) {
-        case SettingsStore::CleanLevel_PrettyPrint:
-            ui.actionCleanLevelPrettyPrint->setChecked(true);
-            clean_level = SettingsStore::CleanLevel_PrettyPrint;
-            break;
-        case SettingsStore::CleanLevel_Tidy:
-            ui.actionCleanLevelTidy->setChecked(true);
-            clean_level = SettingsStore::CleanLevel_Tidy;
-            break;
-        default:
-            ui.actionCleanLevelOff->setChecked(true);
-            clean_level = SettingsStore::CleanLevel_Off;
-            break;
-    }
-
-    if (store) {
-        settings.setCleanLevel(clean_level);
-    }
-
-    if (show_warning) {
-        QMessageBox::critical(this, tr("Sigil"), tr("You must restart Sigil for any change to the Clean Source setting to be used."));
-    }
-}
-
 void MainWindow::ChangeCasing(int casing_mode)
 {
     ContentTab &tab = GetCurrentContentTab();
@@ -2194,8 +2160,6 @@ void MainWindow::ReadSettings()
     ui.actionAutoSpellCheck->setChecked(settings.spellCheck());
     emit SettingsChanged();
 
-    SettingsStore::CleanLevel clean_level = settings.cleanLevel();
-
     settings.beginGroup( SETTINGS_GROUP );
 
     // The size of the window and its full screen status
@@ -2211,8 +2175,6 @@ void MainWindow::ReadSettings()
     if ( !toolbars.isNull() )
 
         restoreState( toolbars );
-
-    setCleanLevel(clean_level, false, false);
 
     // For the checkwellformed option, we want to default to true
     // if no value has been set.
@@ -3348,15 +3310,6 @@ void MainWindow::ConnectSignalsToSlots()
     connect( ui.actionIndexEditor,   SIGNAL( triggered() ), this, SLOT( IndexEditorDialog()        ) );
     connect( ui.actionCreateIndex,   SIGNAL( triggered() ), this, SLOT( CreateIndex()              ) );
     connect( ui.actionCheckWellFormedErrors, SIGNAL( triggered( bool ) ), this, SLOT( SetCheckWellFormedErrors( bool ) ) );
-
-    // Tidy clean
-    connect(ui.actionCleanLevelOff, SIGNAL(triggered()), m_cleanMapper, SLOT(map()));
-    m_cleanMapper->setMapping(ui.actionCleanLevelOff, SettingsStore::CleanLevel_Off);
-    connect(ui.actionCleanLevelPrettyPrint, SIGNAL(triggered()), m_cleanMapper, SLOT(map()));
-    m_cleanMapper->setMapping(ui.actionCleanLevelPrettyPrint, SettingsStore::CleanLevel_PrettyPrint);
-    connect(ui.actionCleanLevelTidy, SIGNAL(triggered()), m_cleanMapper, SLOT(map()));
-    m_cleanMapper->setMapping(ui.actionCleanLevelTidy, SettingsStore::CleanLevel_Tidy);
-    connect(m_cleanMapper, SIGNAL(mapped(int)), this, SLOT(setCleanLevel(int)));
 
     // Change case
     connect(ui.actionCasingLowercase,  SIGNAL(triggered()), m_casingChangeMapper, SLOT(map()));
