@@ -130,9 +130,15 @@ void SelectImages::SelectDefaultImage()
     QStandardItem *root_item = m_SelectImagesModel->invisibleRootItem();
     QModelIndex parent_index;
 
+    // Set the default to the first image if no default is set
+    if (m_DefaultSelectedImage.isEmpty() && root_item->rowCount() > 0) {
+        m_DefaultSelectedImage = m_SelectImagesModel->itemFromIndex(m_SelectImagesModel->index(0, 0, parent_index))->text();
+    }
+
     for (int row = 0; row < root_item->rowCount(); row++) {
         if (root_item->child(row, COL_NAME)->text() == m_DefaultSelectedImage) {
             ui.imageTree->selectionModel()->select(m_SelectImagesModel->index(row, 0, parent_index), QItemSelectionModel::Select | QItemSelectionModel::Rows);
+            ui.imageTree->setFocus();
             ui.imageTree->setCurrentIndex(root_item->child(row, 0)->index());
             SetPreviewImage();
             break;
