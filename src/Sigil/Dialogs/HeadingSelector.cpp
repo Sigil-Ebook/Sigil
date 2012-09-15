@@ -339,6 +339,11 @@ void HeadingSelector::RemoveExcludedItems( QStandardItem *item )
 
         // Item removes itself
         item_parent->removeRow( item->row() );
+
+        if (ui.tvTOCDisplay->selectionModel()->hasSelection()) {
+            QModelIndex selected_index = ui.tvTOCDisplay->selectionModel()->selectedRows(0).first();
+            ui.tvTOCDisplay->expand(selected_index);
+        }
     }
 }
 
