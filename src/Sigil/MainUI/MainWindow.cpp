@@ -2987,8 +2987,8 @@ void MainWindow::ExtendUI()
     sm->registerAction(ui.actionPreviousTab, "MainWindow.PreviousTab");
     sm->registerAction(ui.actionCloseTab, "MainWindow.CloseTab");
     sm->registerAction(ui.actionCloseOtherTabs, "MainWindow.CloseOtherTabs");
-    sm->registerAction(ui.actionOpenPreviousResource, "MainWindow.OpenPreviousResource");
-    sm->registerAction(ui.actionOpenNextResource, "MainWindow.OpenNextResource");
+    sm->registerAction(ui.actionPreviousResource, "MainWindow.PreviousResource");
+    sm->registerAction(ui.actionNextResource, "MainWindow.NextResource");
 
     // Help
     sm->registerAction(ui.actionUserGuide, "MainWindow.UserGuide");
@@ -3339,8 +3339,8 @@ void MainWindow::ConnectSignalsToSlots()
     connect( ui.actionPreviousTab,   SIGNAL( triggered() ), &m_TabManager, SLOT( PreviousTab() ) );
     connect( ui.actionCloseTab,      SIGNAL( triggered() ), &m_TabManager, SLOT( CloseTab()    ) );
     connect( ui.actionCloseOtherTabs,SIGNAL( triggered() ), &m_TabManager, SLOT( CloseOtherTabs() ) );
-    connect( ui.actionOpenPreviousResource, SIGNAL( triggered() ), m_BookBrowser, SLOT( OpenPreviousResource() ) );
-    connect( ui.actionOpenNextResource,     SIGNAL( triggered() ), m_BookBrowser, SLOT( OpenNextResource()     ) );
+    connect( ui.actionPreviousResource, SIGNAL( triggered() ), m_BookBrowser, SLOT( PreviousResource() ) );
+    connect( ui.actionNextResource,     SIGNAL( triggered() ), m_BookBrowser, SLOT( NextResource()     ) );
     connect( ui.actionGoBackFromLinkOrStyle,  SIGNAL( triggered() ), this,   SLOT( GoBackFromLinkOrStyle()  ) );
     
     connect( ui.actionSplitOnSGFChapterMarkers, SIGNAL( triggered() ),  this,   SLOT( SplitOnSGFChapterMarkers() ) );

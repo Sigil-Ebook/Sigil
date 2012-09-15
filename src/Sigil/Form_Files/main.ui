@@ -233,8 +233,8 @@
     <addaction name="actionCloseTab"/>
     <addaction name="actionCloseOtherTabs"/>
     <addaction name="separator"/>
-    <addaction name="actionOpenPreviousResource"/>
-    <addaction name="actionOpenNextResource"/>
+    <addaction name="actionPreviousResource"/>
+    <addaction name="actionNextResource"/>
    </widget>
    <widget class="QMenu" name="menuTools">
     <property name="title">
@@ -1833,9 +1833,9 @@
     <string>Add a new blank svg image file to the book.</string>
    </property>
   </action>
-  <action name="actionOpenPreviousResource">
+  <action name="actionPreviousResource">
    <property name="text">
-    <string>Open Previous File</string>
+    <string>Previous File</string>
    </property>
    <property name="toolTip">
     <string>Open previous file of the same type.</string>
@@ -1844,9 +1844,9 @@
     <string>Alt+PgUp</string>
    </property>
   </action>
-  <action name="actionOpenNextResource">
+  <action name="actionNextResource">
    <property name="text">
-    <string>Open Next File</string>
+    <string>Next File</string>
    </property>
    <property name="toolTip">
     <string>Open next file of the same type.</string>

@@ -161,7 +161,7 @@ void BookBrowser::UpdateSelection( Resource &resource )
     m_TreeView.selectionModel()->setCurrentIndex( index, QItemSelectionModel::SelectCurrent );
 }
 
-void BookBrowser::OpenNextResource()
+void BookBrowser::NextResource()
 {
     Resource *resource = GetCurrentResource();
     if ( resource != NULL )
@@ -174,7 +174,7 @@ void BookBrowser::OpenNextResource()
     }
 }
 
-void BookBrowser::OpenPreviousResource()
+void BookBrowser::PreviousResource()
 {
     Resource *resource = GetCurrentResource();
     if ( resource != NULL )

@@ -119,14 +119,14 @@ public slots:
     void RenumberTOC();
 
     /**
-     * Returns the previous resource in the book display
+     * Displays the previous resource in the book display
      */
-    void OpenPreviousResource();
+    void PreviousResource();
 
     /**
-     * Returns the next resource in the book display
+     * Displays the next resource in the book display
      */
-    void OpenNextResource();
+    void NextResource();
 
 
     /**
