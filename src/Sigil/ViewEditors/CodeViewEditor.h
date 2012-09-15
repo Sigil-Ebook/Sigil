@@ -110,11 +110,11 @@ public:
     void MarkForIndex();
     bool IsMarkForIndexAllowed();
 
-    void InsertText(QString text);
+    void InsertText(const QString &text);
 
-    void InsertId(QString attribute_value);
-    void InsertHyperlink(QString attribute_value);
-    void InsertTagAttribute(QString element_name, QString attribute_name, QString attribute_value, QStringList tag_list);
+    void InsertId(const QString &attribute_value);
+    void InsertHyperlink(const QString &attribute_value);
+    void InsertTagAttribute(const QString &element_name, const QString &attribute_name, const QString &attribute_value, const QStringList &tag_list);
 
     /**
     * Splits the chapter and returns the "upper" content.

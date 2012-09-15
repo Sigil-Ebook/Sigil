@@ -1383,7 +1383,7 @@ bool CodeViewEditor::IsMarkForIndexAllowed()
     return TextIsSelectedAndNotInStartOrEndTag();
 }
 
-void CodeViewEditor::InsertText(QString text)
+void CodeViewEditor::InsertText(const QString &text)
 {
     QTextCursor cursor = textCursor();
 
@@ -1394,27 +1394,27 @@ void CodeViewEditor::InsertText(QString text)
     cursor.endEditBlock();
 }
 
-void CodeViewEditor::InsertId(QString attribute_value)
+void CodeViewEditor::InsertId(const QString &attribute_value)
 {
-    QString element_name = "a";
-    QString attribute_name = "id";
+    const QString &element_name = "a";
+    const QString &attribute_name = "id";
     QStringList tag_list = QStringList() << ID_TAGS;
     InsertTagAttribute(element_name, attribute_name, attribute_value, tag_list);
 }
 
-void CodeViewEditor::InsertHyperlink(QString attribute_value)
+void CodeViewEditor::InsertHyperlink(const QString &attribute_value)
 {
-    QString element_name = "a";
-    QString attribute_name = "href";
+    const QString &element_name = "a";
+    const QString &attribute_name = "href";
     QStringList tag_list = QStringList() << "a";
     InsertTagAttribute(element_name, attribute_name, attribute_value, tag_list);
 }
 
-void CodeViewEditor::InsertTagAttribute(QString element_name, QString attribute_name, QString attribute_value, QStringList tag_list)
+void CodeViewEditor::InsertTagAttribute(const QString &element_name, const QString &attribute_name, const QString &attribute_value, const QStringList &tag_list)
 {
     if (!textCursor().hasSelection()) {
         // Add or update the attribute within the start tag
-        QString inserted_attribute = SetAttribute(attribute_name, tag_list, attribute_value, true);
+       const QString &inserted_attribute = SetAttribute(attribute_name, tag_list, attribute_value, true);
 
         // If nothing was inserted, then just insert a new tag with no text
         if (inserted_attribute.isEmpty()) {
@@ -1984,8 +1984,10 @@ void CodeViewEditor::InsertHTMLTagAroundText( const QString &left_element_name, 
         new_attributes.prepend(" ");
     }
 
-    const QString new_text = "<" % left_element_name % new_attributes % ">" % text % "<" % right_element_name % ">";
-    int selection_start = cursor.selectionStart() + left_element_name.length() + 2;
+    const QString &prefix = "<" % left_element_name % new_attributes % ">";
+    const QString &new_text = prefix % text % "<" % right_element_name % ">";
+
+    int selection_start = cursor.selectionStart() + prefix.length();
 
     cursor.beginEditBlock();
 
@@ -2007,18 +2009,19 @@ void CodeViewEditor::InsertHTMLTagAroundSelection( const QString &left_element_n
         new_attributes.prepend(" ");
     }
 
-    const QString selected_text = cursor.selectedText();
-    const QString replacement_text = "<" % left_element_name % new_attributes % ">" % selected_text % "<" % right_element_name % ">";
+    const QString &selected_text = cursor.selectedText();
+    const QString &prefix_text = "<" % left_element_name % new_attributes % ">";
+    const QString &replacement_text = prefix_text % selected_text % "<" % right_element_name % ">";
     int selection_start = cursor.selectionStart();
 
     cursor.beginEditBlock();
 
-    cursor.removeSelectedText();
     cursor.insertText( replacement_text );
 
     cursor.endEditBlock();
-    cursor.setPosition( selection_start + replacement_text.length() );
-	cursor.setPosition( selection_start, QTextCursor::KeepAnchor );
+    // Move caret to between the tags to allow the user to start typing/keep selection.
+    cursor.setPosition(selection_start + prefix_text.length() + selected_text.length());
+    cursor.setPosition(selection_start + prefix_text.length(), QTextCursor::KeepAnchor);
 
     setTextCursor(cursor);
 }
