@@ -156,9 +156,12 @@ QString CSSInfo::GetReformattedCSSText( bool multipleLineFormat )
 
 QList< CSSInfo::CSSProperty* > CSSInfo::getCSSProperties( const QString &text, const int &openingBracePos, const int &closingBracePos )
 {
+    QList<CSSProperty*> new_properties;
+    if (closingBracePos - 1 <= openingBracePos) {
+        return new_properties;
+    }
     const QString &style_text = text.mid(openingBracePos, closingBracePos - openingBracePos - 1);
     QStringList properties = style_text.split(QChar(';'), QString::SkipEmptyParts);
-    QList<CSSProperty*> new_properties;
 
     foreach( QString property_text, properties ) {
         if (property_text.trimmed().isEmpty()) {
