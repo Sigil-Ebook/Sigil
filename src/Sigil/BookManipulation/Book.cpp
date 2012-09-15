@@ -319,13 +319,15 @@ void Book::CreateNewChapters( const QStringList &new_chapters, HTMLResource &ori
         chapterInfo.reading_order = reading_order;
         chapterInfo.temp_folder_path = tempfolder.GetPath();
         chapterInfo.new_file_prefix = new_file_prefix;
-        chapterInfo.file_suffix = i + 1;
+        chapterInfo.file_suffix = i;
 
         sync.addFuture( 
             QtConcurrent::run( 
                 this, 
                 &Book::CreateOneNewChapter, 
                 chapterInfo ) );
+
+        chapterInfo.file_suffix++;
     }	
 
     sync.waitForFinished();
