@@ -303,7 +303,7 @@ void IndexEditor::AutoFill()
 
     show();
 
-    QMessageBox::information(this, tr("Sigil"), tr("Added %1 entries.").arg(QString::number(count)));
+    QMessageBox::information(this, tr("Sigil"), tr("Added %n entries.", "", count));
 }
 
 void IndexEditor::Open()
