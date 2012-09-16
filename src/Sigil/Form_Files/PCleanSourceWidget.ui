@@ -32,8 +32,10 @@
        <item>
         <widget class="QRadioButton" name="CleanLevelOff">
          <property name="toolTip">
-          <string>No formatting or cleaning of source code will be done, 
-except for error correction when loading a file.</string>
+          <string>Use this option if you do not want Sigil to try to
+automatically format or clean your HTML source code.
+
+Error correction when loading a file will always be performed.</string>
          </property>
          <property name="text">
           <string>Off</string>
@@ -43,8 +45,11 @@ except for error correction when loading a file.</string>
        <item>
         <widget class="QRadioButton" name="CleanLevelPrettyPrint">
          <property name="toolTip">
-          <string>Format your source code so it looks nice.  
-No modifications are made to your code, except error corrections when loading a file.</string>
+          <string>Use this option if you want Sigil to automatically
+format your HTML source code to look nice, but 
+do not want it to automatically clean your source code.
+
+Error correction when loading a file will always be performed.</string>
          </property>
          <property name="text">
           <string>Pretty Print</string>
@@ -54,8 +59,12 @@ No modifications are made to your code, except error corrections when loading a 
        <item>
         <widget class="QRadioButton" name="CleanLevelTidy">
          <property name="toolTip">
-          <string>Use HTML Tidy to clean and reorganize your code.
-This may cause inline styles to be created.</string>
+          <string>Use this option if you want Sigil to automatically
+format and clean your HTML source code using HTML Tidy.  
+This may cause your source code to be re-arranged and may
+change your formatting to use inline style sections.
+
+Error correction when loading a file will always be performed.</string>
          </property>
          <property name="text">
           <string>HTML Tidy</string>
