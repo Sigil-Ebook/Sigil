@@ -105,6 +105,9 @@ public:
     void GoToLinkOrStyle();
     void GoToStyleDefinition();
 
+    void AddMisspelledWord();
+    void IgnoreMisspelledWord();
+
     void AddToIndex();
     bool IsAddToIndexAllowed();
 
@@ -479,6 +482,8 @@ private:
      * have smart apostrophes replaced to ensure words will match.
      */
     QString getSpellingSafeText(const QString &text);
+
+    QString GetCurrentWordAtCaret(bool select_word);
 
     /**
      * Returns the text inside < > if cursor is in < >

@@ -1649,6 +1649,9 @@ void MainWindow::SetStateActionsBookView()
     ui.actionGoToLine->setEnabled(false);
     ui.actionGoToLinkOrStyle->setEnabled(false);
 
+    ui.actionAddMisspelledWord->setEnabled(false);
+    ui.actionIgnoreMisspelledWord->setEnabled(false);
+
     UpdateUIOnTabChanges();
 
     m_FindReplace->ShowHide();
@@ -1791,6 +1794,9 @@ void MainWindow::SetStateActionsCodeView()
     ui.actionGoToLine->setEnabled(true);
     ui.actionGoToLinkOrStyle->setEnabled(true);
 
+    ui.actionAddMisspelledWord->setEnabled(true);
+    ui.actionIgnoreMisspelledWord->setEnabled(true);
+
     UpdateUIOnTabChanges();
 
     m_FindReplace->ShowHide();
@@ -1879,6 +1885,9 @@ void MainWindow::SetStateActionsRawView()
     ui.actionCount->setEnabled(true);
     ui.actionGoToLine->setEnabled(true);
     ui.actionGoToLinkOrStyle->setEnabled(false);
+    
+    ui.actionAddMisspelledWord->setEnabled(false);
+    ui.actionIgnoreMisspelledWord->setEnabled(false);
 
     UpdateUIOnTabChanges();
 
@@ -1949,6 +1958,9 @@ void MainWindow::SetStateActionsStaticView()
     ui.actionCount->setEnabled(false);
     ui.actionGoToLine->setEnabled(false);
     ui.actionGoToLinkOrStyle->setEnabled(false);
+
+    ui.actionAddMisspelledWord->setEnabled(false);
+    ui.actionIgnoreMisspelledWord->setEnabled(false);
 
     UpdateUIOnTabChanges();
 
@@ -2960,6 +2972,8 @@ void MainWindow::ExtendUI()
     sm->registerAction(ui.actionValidateEpub, "MainWindow.ValidateEpub");
     sm->registerAction(ui.actionAutoSpellCheck, "MainWindow.AutoSpellCheck");
     sm->registerAction(ui.actionSpellCheck, "MainWindow.SpellCheck");
+    sm->registerAction(ui.actionAddMisspelledWord, "MainWindow.AddMispelledWord");
+    sm->registerAction(ui.actionIgnoreMisspelledWord, "MainWindow.IgnoreMispelledWord");
     sm->registerAction(ui.actionClearIgnoredWords, "MainWindow.ClearIgnoredWords");
     sm->registerAction(ui.actionReports, "MainWindow.Reports");
     sm->registerAction(ui.actionSearchEditor, "MainWindow.SearchEditor");
@@ -3476,6 +3490,9 @@ void MainWindow::MakeTabConnections( ContentTab *tab )
         connect( ui.actionTextDirectionDefault,     SIGNAL( triggered() ),  tab,   SLOT( TextDirectionDefault()     ) );
 
         connect( tab,   SIGNAL( SelectionChanged() ),           this,          SLOT( UpdateUIOnTabChanges()         ) );
+
+        connect( m_ClipEditor, SIGNAL( PasteSelectedClipRequest(QList<ClipEditorModel::clipEntry *>) ),
+                 tab,          SLOT(   PasteClipEntries(QList<ClipEditorModel::clipEntry *>) ) );
     }
 
     if (tab->GetLoadedResource().Type() == Resource::HTMLResourceType )
@@ -3497,6 +3514,9 @@ void MainWindow::MakeTabConnections( ContentTab *tab )
         connect( ui.actionPrint,                    SIGNAL( triggered() ),  tab,   SLOT( Print()                    ) );
         connect( ui.actionAddToIndex,               SIGNAL( triggered() ),  tab,   SLOT( AddToIndex()               ) );
         connect( ui.actionMarkForIndex,             SIGNAL( triggered() ),  tab,   SLOT( MarkForIndex()             ) );
+
+        connect( ui.actionAddMisspelledWord,        SIGNAL( triggered() ),  tab,   SLOT( AddMisspelledWord()        ) );
+        connect( ui.actionIgnoreMisspelledWord,     SIGNAL( triggered() ),  tab,   SLOT( IgnoreMisspelledWord()     ) );
 
         connect( this,                              SIGNAL( SettingsChanged()), tab, SLOT( LoadSettings()           ) );
 
@@ -3524,12 +3544,6 @@ void MainWindow::MakeTabConnections( ContentTab *tab )
 
         connect( tab,   SIGNAL( SpellingHighlightRefreshRequest() ), this,  SLOT(  RefreshSpellingHighlighting() ) );
         connect( tab,   SIGNAL( InsertImageRequest() ), this,  SLOT(  InsertImage() ) );
-    }
-
-    if (tab->GetLoadedResource().Type() == Resource::HTMLResourceType ||
-        tab->GetLoadedResource().Type() == Resource::CSSResourceType ) {
-        connect( m_ClipEditor, SIGNAL( PasteSelectedClipRequest(QList<ClipEditorModel::clipEntry *>) ),
-                 tab,                SLOT(   PasteClipEntries(QList<ClipEditorModel::clipEntry *>) ) );
     }
 
     connect( tab,   SIGNAL( ContentChanged() ),             m_Book.data(), SLOT( SetModified()             ) );
@@ -3573,6 +3587,9 @@ void MainWindow::BreakTabConnections( ContentTab *tab )
     disconnect( ui.actionInsertSGFChapterMarker,    0, tab, 0 );
     disconnect( ui.actionInsertClosingTag,          0, tab, 0 );
     disconnect( ui.actionGoToLinkOrStyle,           0, tab, 0 );
+
+    disconnect( ui.actionAddMisspelledWord,         0, tab, 0 );
+    disconnect( ui.actionIgnoreMisspelledWord,      0, tab, 0 );
 
     disconnect( ui.actionPrintPreview,              0, tab, 0 );
     disconnect( ui.actionPrint,                     0, tab, 0 );

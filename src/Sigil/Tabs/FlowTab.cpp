@@ -1310,6 +1310,18 @@ void FlowTab::GoToLinkOrStyle()
         m_wCodeView->GoToLinkOrStyle();
 }
 
+void FlowTab::AddMisspelledWord()
+{
+    if (m_ViewState == MainWindow::ViewState_CodeView)
+        m_wCodeView->AddMisspelledWord();
+}
+
+void FlowTab::IgnoreMisspelledWord()
+{
+    if (m_ViewState == MainWindow::ViewState_CodeView)
+        m_wCodeView->IgnoreMisspelledWord();
+}
+
 void FlowTab::RefreshSpellingHighlighting()
 {
     // We always want this to happen, regardless of what the current view is.

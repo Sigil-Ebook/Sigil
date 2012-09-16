@@ -321,6 +321,9 @@ public slots:
     
     void GoToLinkOrStyle();
 
+    void AddMisspelledWord();
+    void IgnoreMisspelledWord();
+
     void RefreshSpellingHighlighting();
 
 signals:

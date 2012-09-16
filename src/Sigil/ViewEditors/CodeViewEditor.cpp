@@ -1037,7 +1037,6 @@ bool CodeViewEditor::AddSpellCheckContextMenu(QMenu *menu)
         topAction = menu->actions().at(0);
     }
 
-    QTextCursor c = textCursor();
     // We check if offering spelling suggestions is necessary.
     //
     // If no text is selected we check the position of the cursor and see if it
@@ -1061,40 +1060,14 @@ bool CodeViewEditor::AddSpellCheckContextMenu(QMenu *menu)
     // code here is not or vice versa.
     if (m_checkSpelling) {
         // See if we are close to or inside of a misspelled word. If so select it.
-        if (!c.hasSelection()) {
-            // We cannot use QTextCursor::charFormat because the format is not set directly in
-            // the document. The QSyntaxHighlighter sets the format in the block layout's
-            // additionalFormats property. Thus we have to check if the cursor is within
-            // an additionalFormat for the block and if that format is for a misspelled word.
-            int pos = c.positionInBlock();
-            foreach (QTextLayout::FormatRange r, textCursor().block().layout()->additionalFormats()) {
-                if (pos > r.start && pos < r.start + r.length && r.format.underlineStyle() == QTextCharFormat::SpellCheckUnderline) {
-                    c.setPosition(c.block().position() + r.start);
-                    c.movePosition(QTextCursor::Right, QTextCursor::KeepAnchor, r.length);
-                    setTextCursor(c);
-                    offer_spelling = true;
-                    break;
-                }
-            }
-        }
-        // Check if our selection is a misspelled word.
-        else {
-            int selStart = c.selectionStart() - c.block().position();
-            int selLen = c.selectionEnd() - c.block().position() - selStart;
-            foreach (QTextLayout::FormatRange r, textCursor().block().layout()->additionalFormats()) {
-                if (r.start == selStart && selLen == r.length && r.format.underlineStyle() == QTextCharFormat::SpellCheckUnderline) {
-                    offer_spelling = true;
-                    break;
-                }
-            }
-        }
+        const QString &selected_word = GetCurrentWordAtCaret(true);
+        offer_spelling = !selected_word.isNull() && !selected_word.isEmpty();
 
         // If a misspelled word is selected try to offer spelling suggestions.
-        if (offer_spelling && c.hasSelection()) {
+        if (offer_spelling) {
             SpellCheck *sc = SpellCheck::instance();
-            QString text = c.selectedText();
 
-            QStringList suggestions = sc->suggest(text);
+            QStringList suggestions = sc->suggest(selected_word);
             QAction *suggestAction = 0;
 
             // We want to limit the number of suggestions so we don't
@@ -1122,7 +1095,7 @@ bool CodeViewEditor::AddSpellCheckContextMenu(QMenu *menu)
             // Allow the user to add the misspelled word to their user dictionary.
             QAction *addToDictAction = new QAction(tr("Add to dictionary"), menu);
             connect(addToDictAction, SIGNAL(triggered()), m_addSpellingMapper, SLOT(map()));
-            m_addSpellingMapper->setMapping(addToDictAction, text);
+            m_addSpellingMapper->setMapping(addToDictAction, selected_word);
             if (topAction) {
                 menu->insertAction(topAction, addToDictAction);
                 menu->insertSeparator(topAction);
@@ -1134,7 +1107,7 @@ bool CodeViewEditor::AddSpellCheckContextMenu(QMenu *menu)
             // Allow the user to ignore misspelled words until the program exits
             QAction *ignoreWordAction = new QAction(tr("Ignore"), menu);
             connect(ignoreWordAction, SIGNAL(triggered()), m_ignoreSpellingMapper, SLOT(map()));
-            m_ignoreSpellingMapper->setMapping(ignoreWordAction, text);
+            m_ignoreSpellingMapper->setMapping(ignoreWordAction, selected_word);
             if (topAction) {
                 menu->insertAction(topAction, ignoreWordAction);
                 menu->insertSeparator(topAction);
@@ -1146,6 +1119,43 @@ bool CodeViewEditor::AddSpellCheckContextMenu(QMenu *menu)
     }
 
     return offer_spelling;
+}
+
+QString CodeViewEditor::GetCurrentWordAtCaret(bool select_word)
+{
+    QTextCursor c = textCursor();
+    // See if we are close to or inside of a misspelled word. If so select it.
+    if (!c.hasSelection()) {
+        // We cannot use QTextCursor::charFormat because the format is not set directly in
+        // the document. The QSyntaxHighlighter sets the format in the block layout's
+        // additionalFormats property. Thus we have to check if the cursor is within
+        // an additionalFormat for the block and if that format is for a misspelled word.
+        int pos = c.positionInBlock();
+        foreach (QTextLayout::FormatRange r, textCursor().block().layout()->additionalFormats()) {
+            if (pos > r.start && pos < r.start + r.length && r.format.underlineStyle() == QTextCharFormat::SpellCheckUnderline) {
+                if (select_word) {
+                    c.setPosition(c.block().position() + r.start);
+                    c.movePosition(QTextCursor::Right, QTextCursor::KeepAnchor, r.length);
+                    setTextCursor(c);
+                    return c.selectedText();
+                }
+                else {
+                    return toPlainText().mid(c.block().position() + r.start, r.length);
+                }
+            }
+        }
+    }
+    // Check if our selection is a misspelled word.
+    else {
+        int selStart = c.selectionStart() - c.block().position();
+        int selLen = c.selectionEnd() - c.block().position() - selStart;
+        foreach (QTextLayout::FormatRange r, textCursor().block().layout()->additionalFormats()) {
+            if (r.start == selStart && selLen == r.length && r.format.underlineStyle() == QTextCharFormat::SpellCheckUnderline) {
+                return c.selectedText();
+            }
+        }
+    }
+    return QString();
 }
 
 void CodeViewEditor::AddReformatCSSContextMenu(QMenu *menu)
@@ -1324,6 +1334,28 @@ void CodeViewEditor::GoToStyleDefinition()
         // Scroll to the line after bookmarking or we lose our place
         ScrollToPosition(selector->position);
     }
+}
+
+void CodeViewEditor::AddMisspelledWord()
+{
+    if (m_checkSpelling) {
+        const QString &selected_word = GetCurrentWordAtCaret(false);
+        if (!selected_word.isNull() && !selected_word.isEmpty()) {
+            addToUserDictionary(selected_word);
+            emit SpellingHighlightRefreshRequest();
+        }
+    }  
+}
+
+void CodeViewEditor::IgnoreMisspelledWord()
+{
+    if (m_checkSpelling) {
+        const QString &selected_word = GetCurrentWordAtCaret(false);
+        if (!selected_word.isNull() && !selected_word.isEmpty()) {
+            ignoreWordInDictionary(selected_word);
+            emit SpellingHighlightRefreshRequest();
+        }
+    }  
 }
 
 void CodeViewEditor::ReformatCSSMultiLineAction()

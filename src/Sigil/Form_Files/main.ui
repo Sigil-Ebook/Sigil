@@ -254,6 +254,9 @@
      <addaction name="actionAutoSpellCheck"/>
      <addaction name="actionSpellCheck"/>
      <addaction name="separator"/>
+     <addaction name="actionAddMisspelledWord"/>
+     <addaction name="actionIgnoreMisspelledWord"/>
+     <addaction name="separator"/>
      <addaction name="actionClearIgnoredWords"/>
     </widget>
     <widget class="QMenu" name="menuIndex">
@@ -1482,6 +1485,22 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+Alt+S</string>
+   </property>
+  </action>
+  <action name="actionAddMisspelledWord">
+   <property name="text">
+    <string>Add Misspelled Word</string>
+   </property>
+   <property name="toolTip">
+    <string>Add the current misspelled word under the caret to the user dictionary.</string>
+   </property>
+  </action>
+  <action name="actionIgnoreMisspelledWord">
+   <property name="text">
+    <string>Ignore Misspelled Word</string>
+   </property>
+   <property name="toolTip">
+    <string>Ignore the current misspelled word under the caret until Sigil is restarted.</string>
    </property>
   </action>
   <action name="actionClearIgnoredWords">
