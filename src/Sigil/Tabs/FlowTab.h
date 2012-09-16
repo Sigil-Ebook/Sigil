@@ -372,8 +372,6 @@ signals:
 
     void InsertImageRequest();
 
-    void ImageOpenedExternally(const QString &pathname);
-
 private slots:
 
     /**
