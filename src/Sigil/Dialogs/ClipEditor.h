@@ -57,6 +57,7 @@ protected slots:
 
 private slots:
     QStandardItem* AddGroup();
+    void Rename();
     void Cut();
     bool Copy();
     void Paste();
@@ -100,6 +101,7 @@ private:
 
     QAction *m_AddEntry;
     QAction *m_AddGroup;
+    QAction *m_Rename;
     QAction *m_Cut;
     QAction *m_Copy;
     QAction *m_Paste;

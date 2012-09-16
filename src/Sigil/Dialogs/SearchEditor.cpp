@@ -261,6 +261,11 @@ QStandardItem* SearchEditor::AddGroup()
     return AddEntry(true);
 }
 
+void SearchEditor::Rename()
+{
+    ui.SearchEditorTree->edit(ui.SearchEditorTree->currentIndex());
+}
+
 void SearchEditor::Cut()
 {
     if (Copy()) {
@@ -607,6 +612,7 @@ void SearchEditor::CreateContextMenuActions()
 {
     m_AddEntry  =   new QAction(tr( "Add Entry" ),  this );
     m_AddGroup  =   new QAction(tr( "Add Group" ),  this );
+    m_Rename    =   new QAction(tr( "Rename" ),     this );
     m_Cut       =   new QAction(tr( "Cut" ),        this );
     m_Copy      =   new QAction(tr( "Copy" ),       this );
     m_Paste     =   new QAction(tr( "Paste" ),      this );
@@ -619,6 +625,7 @@ void SearchEditor::CreateContextMenuActions()
 
     m_AddEntry->setShortcut(QKeySequence(Qt::ControlModifier + Qt::Key_E));
     m_AddGroup->setShortcut(QKeySequence(Qt::ControlModifier + Qt::Key_G));
+    m_Rename->setShortcut(QKeySequence(Qt::ControlModifier + Qt::Key_R));
     m_Cut->setShortcut(QKeySequence(Qt::ControlModifier + Qt::Key_X));
     m_Copy->setShortcut(QKeySequence(Qt::ControlModifier + Qt::Key_C));
     m_Paste->setShortcut(QKeySequence(Qt::ControlModifier + Qt::Key_V));
@@ -627,6 +634,7 @@ void SearchEditor::CreateContextMenuActions()
     // Has to be added to the dialog itself for the keyboard shortcut to work.
     addAction(m_AddEntry);
     addAction(m_AddGroup);
+    addAction(m_Rename);
     addAction(m_Cut);
     addAction(m_Copy);
     addAction(m_Paste);
@@ -643,6 +651,7 @@ void SearchEditor::OpenContextMenu(const QPoint &point)
     // Make sure every action is enabled - in case shortcut is used after context menu disables some.
     m_AddEntry->setEnabled(true);
     m_AddGroup->setEnabled(true);
+    m_Rename->setEnabled(true);
     m_Cut->setEnabled(true);
     m_Copy->setEnabled(true);
     m_Paste->setEnabled(true);
@@ -677,6 +686,8 @@ void SearchEditor::SetupContextMenu(const QPoint &point)
 
     m_ContextMenu->addAction(m_Delete);
     m_Delete->setEnabled(selected_rows_count > 0);
+
+    m_ContextMenu->addAction(m_Rename);
 
     m_ContextMenu->addSeparator();
 
@@ -724,6 +735,7 @@ void SearchEditor::ConnectSignalsSlots()
 
     connect(m_AddEntry,    SIGNAL(triggered()), this, SLOT(AddEntry()));
     connect(m_AddGroup,    SIGNAL(triggered()), this, SLOT(AddGroup()));
+    connect(m_Rename,      SIGNAL(triggered()), this, SLOT(Rename()));
     connect(m_Cut,         SIGNAL(triggered()), this, SLOT(Cut()));
     connect(m_Copy,        SIGNAL(triggered()), this, SLOT(Copy()));
     connect(m_Paste,       SIGNAL(triggered()), this, SLOT(Paste()));
