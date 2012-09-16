@@ -720,35 +720,9 @@ bool CodeViewEditor::FindNext( const QString &search_regex,
         m_lastMatch.offset.first += start_offset;
         m_lastMatch.offset.second += start_offset;
 
-        QTextCursor cursor = textCursor();
-        if ( search_direction == Searchable::Direction_Up )
-        {
-            // Make sure there are 10 lines above/below if possible
-            cursor.setPosition( match_info.offset.second + start_offset );
-            setTextCursor( cursor );
-            cursor.movePosition( QTextCursor::Down, QTextCursor::KeepAnchor, 10 );
-            setTextCursor( cursor );
-            cursor.movePosition( QTextCursor::Up, QTextCursor::KeepAnchor, 20 );
-            setTextCursor( cursor );
-
-            cursor.setPosition( match_info.offset.second + start_offset );
-            cursor.setPosition( match_info.offset.first + start_offset, QTextCursor::KeepAnchor );
-        }
-        else
-        {
-            // Make sure there are 10 lines above/below if possible
-            cursor.setPosition( match_info.offset.first + start_offset );
-            setTextCursor( cursor );
-            cursor.movePosition( QTextCursor::Up, QTextCursor::KeepAnchor, 10 );
-            setTextCursor( cursor );
-            cursor.movePosition( QTextCursor::Down, QTextCursor::KeepAnchor, 20 );
-            setTextCursor( cursor );
-
-            cursor.setPosition( match_info.offset.first + start_offset );
-            cursor.setPosition( match_info.offset.second + start_offset, QTextCursor::KeepAnchor );
-        }
-
-        setTextCursor( cursor );
+        // We will scroll the position on screen in order to ensure the entire block is visible
+        // and if not, then center the match.
+        SelectAndScrollIntoView(match_info.offset.first + start_offset, match_info.offset.second + start_offset, search_direction);
 
         return true;
     }
@@ -810,7 +784,7 @@ bool CodeViewEditor::ReplaceSelected( const QString &search_regex, const QString
         {
             QTextCursor cursor = textCursor();
 
-            // Replace the selected text with our replacemnt text.
+            // Replace the selected text with our replacement text.
             cursor.beginEditBlock();
             cursor.removeSelectedText();
             cursor.insertText( replaced_text );
@@ -2818,6 +2792,60 @@ bool CodeViewEditor::ReformatCSSEnabled()
 void CodeViewEditor::SetReformatCSSEnabled(bool value)
 {
     m_reformatCSSEnabled = value;
+}
+
+void CodeViewEditor::SelectAndScrollIntoView(int start_position, int end_position, Searchable::Direction direction)
+{
+    // We will scroll the position on screen if necessary in order to ensure that there is a block visible
+    // before and after the text that will be selected by these positions.
+
+    QTextBlock start_block = document()->findBlock(start_position);
+    QTextBlock end_block = document()->findBlock(end_position);
+    bool scroll_to_center = false;
+
+    QTextCursor cursor = textCursor();
+
+    if (direction == Searchable::Direction_Up || start_block.blockNumber() < end_block.blockNumber()) {
+        QTextBlock first_visible_block = firstVisibleBlock();
+        QTextBlock previous_block = start_block.previous();
+        while (previous_block.blockNumber() > 0 && previous_block.text().isEmpty()) {
+            previous_block = previous_block.previous();
+        }
+        if (!previous_block.isValid()) {
+            previous_block = start_block;
+        }
+        if (previous_block.blockNumber() < first_visible_block.blockNumber()) {
+            scroll_to_center = true;
+        }
+    }
+
+    if (direction == Searchable::Direction_Down || start_block.blockNumber() < end_block.blockNumber()) {
+        QTextBlock last_visible_block =  cursorForPosition(QPoint(viewport()->width(), viewport()->height())).block();
+        QTextBlock next_block = end_block.next();
+        while (next_block.blockNumber() < blockCount() - 1 && next_block.text().isEmpty()) {
+            next_block = next_block.next();
+        }
+        if (!next_block.isValid()) {
+            next_block = end_block;
+        }
+        if (next_block.blockNumber() > last_visible_block.blockNumber()) {
+            scroll_to_center = true;
+        }
+    }
+
+    if (direction == Searchable::Direction_Up) {
+        cursor.setPosition( end_position );
+        cursor.setPosition( start_position, QTextCursor::KeepAnchor );
+    }
+    else {
+        cursor.setPosition( start_position );
+        cursor.setPosition( end_position, QTextCursor::KeepAnchor );
+    }
+    setTextCursor( cursor );
+
+    if (scroll_to_center) {
+        centerCursor();
+    }
 }
 
 void CodeViewEditor::ConnectSignalsToSlots()
