@@ -647,6 +647,7 @@ void BookViewPreview::SelectTextRange( const SelectRangeInputs &input )
 
 void BookViewPreview::ScrollToNodeText( const xc::DOMNode &node, int character_offset )
 {
+    const int MIN_MARGIN = 20;
     const QWebElement element = DomNodeToQWebElement( node );
     QRect element_geometry    = element.geometry();
 
@@ -659,40 +660,28 @@ void BookViewPreview::ScrollToNodeText( const xc::DOMNode &node, int character_o
     int current_scroll_offset = page()->mainFrame()->scrollBarValue( Qt::Vertical );
     int new_scroll_Y = 0;
 
-    // If the element is visible, then we don't scroll
-    if ( elem_offset >= current_scroll_offset && 
-         elem_offset + elem_height <= current_scroll_offset + frame_height )
-    {
-        return;       
-    }
+    // We always want to make sure that the actual text within the block is visible at
+    // the position we want it, in case the paragraph is very long.
+    float char_position = character_offset / (float) element.toPlainText().count();
+    int actual_offset = elem_offset + elem_height * char_position;
 
-    else if ( elem_height >= frame_height )
-    {
-        // The relative position of the text string start to the whole node
-        float char_position = character_offset / (float) element.toPlainText().count();
-        
-        new_scroll_Y = elem_offset + elem_height * char_position - frame_height / 2;
+    // If the full element is visible with enough margin, then we don't scroll
+    if ( (elem_offset - MIN_MARGIN >= current_scroll_offset ) && 
+         (elem_offset + elem_height <= current_scroll_offset + frame_height) &&
+         (actual_offset + MIN_MARGIN <= current_scroll_offset + frame_height) ) {
+        // It is all visible, so no scrolling required.
+        return;
     }
-
-    // If it's "above" the currently displayed page section,
-    // we scroll to the element, positioning the top of screen just above it
-    else if ( elem_offset < current_scroll_offset )
-    {
-        new_scroll_Y = elem_offset;
+    else {
+        // In all other circumstances (scrolling upwards or downwards) center on screen.
+        new_scroll_Y = actual_offset - (frame_height / 2);
     }
-
-    // If it's "below" the currently displayed page section,
-    // we scroll to the element, positioning the bottom of screen on the element
-    else
-    {
-        new_scroll_Y = elem_offset + elem_height - frame_height;
-    }   
 
     // If the element is very near the beginning of the document,
     // we can't position the bottom of the screen on the element
-    if ( new_scroll_Y < 0 )
-
+    if ( new_scroll_Y < 0 ) {
         new_scroll_Y = 0;
+    }
 
     page()->mainFrame()->setScrollBarValue( Qt::Vertical, new_scroll_Y );
 }
