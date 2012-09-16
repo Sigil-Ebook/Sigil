@@ -666,7 +666,8 @@ void BookViewPreview::ScrollToNodeText( const xc::DOMNode &node, int character_o
     int actual_offset = elem_offset + elem_height * char_position;
 
     // If the full element is visible with enough margin, then we don't scroll
-    if ( (elem_offset - MIN_MARGIN >= current_scroll_offset ) && 
+    if ( (elem_offset >= current_scroll_offset) && 
+         (actual_offset - MIN_MARGIN >= current_scroll_offset) && 
          (elem_offset + elem_height <= current_scroll_offset + frame_height) &&
          (actual_offset + MIN_MARGIN <= current_scroll_offset + frame_height) ) {
         // It is all visible, so no scrolling required.
