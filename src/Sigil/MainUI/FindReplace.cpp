@@ -34,7 +34,6 @@
 #include "Misc/FindReplaceQLineEdit.h"
 
 static const QString SETTINGS_GROUP = "find_replace";
-static const int MAXIMUM_SELECTED_TEXT_LIMIT = 500;
 
 FindReplace::FindReplace( MainWindow &main_window )
     : QWidget( &main_window ),
@@ -85,11 +84,7 @@ void FindReplace::SetUpFindText()
 		    if ( m_RegexOptionAutoTokenise && GetSearchMode() == FindReplace::SearchMode_Regex ) {
 			    selected_text = TokeniseForRegex( selected_text, false );
 		    }
-		    // We want to make the text selected in the editor
-		    // as the default search text, but only if it's not "too long"
-		    if ( selected_text.length() < MAXIMUM_SELECTED_TEXT_LIMIT ) {
-                ui.cbFind->setEditText( selected_text );
-            }
+            ui.cbFind->setEditText( selected_text );
         }
     }
 
