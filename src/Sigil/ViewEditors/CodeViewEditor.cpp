@@ -161,6 +161,11 @@ void CodeViewEditor::CutCodeTags()
 
 }
 
+bool CodeViewEditor::TextIsSelected()
+{
+    return textCursor().hasSelection();
+}
+
 bool CodeViewEditor::TextIsSelectedAndNotInStartOrEndTag()
 {
     if (!textCursor().hasSelection()) {

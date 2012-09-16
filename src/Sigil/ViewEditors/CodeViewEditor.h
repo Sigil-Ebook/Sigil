@@ -91,6 +91,7 @@ public:
     void CutCodeTags();
     bool IsCutCodeTagsAllowed();
 
+    bool TextIsSelected();
     bool TextIsSelectedAndNotInStartOrEndTag();
     bool TextIsSelectedAndNotInTag();
 
