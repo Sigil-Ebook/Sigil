@@ -302,8 +302,8 @@
    <attribute name="toolBarBreak">
     <bool>false</bool>
    </attribute>
-   <addaction name="actionNew"/>
    <addaction name="actionOpen"/>
+   <addaction name="actionAddExistingFile"/>
    <addaction name="actionSave"/>
   </widget>
   <widget class="QToolBar" name="toolBarTextManip">
@@ -500,17 +500,11 @@
    <addaction name="actionTextDirectionDefault"/>
   </widget>
   <action name="actionNew">
-   <property name="icon">
-    <iconset resource="../Resource_Files/main/main.qrc">
-     <normaloff>:/main/document-new_22px.png</normaloff>:/main/document-new_22px.png</iconset>
-   </property>
    <property name="text">
     <string>&amp;New</string>
    </property>
    <property name="toolTip">
-    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;New&lt;/b&gt;&lt;/p&gt;
-
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Create a new book.&lt;/p&gt;</string>
+    <string>Create a new book.</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+N</string>
@@ -961,7 +955,7 @@
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Select an image from your book to insert into the text.&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;You can add images to your book by right-clicking on a file in the Book Browser and selecting &quot;Add Existing Files&quot;.&lt;/p&gt;</string>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;You can add images to your book by using File-Add-Existing Files...&lt;/p&gt;</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+Shift+I</string>
@@ -1810,11 +1804,17 @@
    </property>
   </action>
   <action name="actionAddExistingFile">
+   <property name="icon">
+    <iconset resource="../Resource_Files/main/main.qrc">
+     <normaloff>:/main/document-add_22px.png</normaloff>:/main/document-add_22px.png</iconset>
+   </property>
    <property name="text">
     <string>Existing Files...</string>
    </property>
    <property name="toolTip">
-    <string>Add files from your computer to the book.</string>
+    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Add Existing Files&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Add files from your computer to the book.&lt;/p&gt;</string>
    </property>
   </action>
   <action name="actionNewCSSFile">

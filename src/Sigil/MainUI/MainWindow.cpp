@@ -3006,9 +3006,9 @@ void MainWindow::ExtendUI()
 void MainWindow::ExtendIconSizes()
 {
     QIcon icon;
-    icon = ui.actionNew->icon();
-    icon.addFile(QString::fromUtf8(":/main/document-new_16px.png") );
-    ui.actionNew->setIcon(icon);
+    icon = ui.actionAddExistingFile->icon();
+    icon.addFile(QString::fromUtf8(":/main/document-add_16px.png") );
+    ui.actionAddExistingFile->setIcon(icon);
 
     icon = ui.actionSave->icon();
     icon.addFile(QString::fromUtf8(":/main/document-save_16px.png"));
@@ -3259,7 +3259,7 @@ void MainWindow::ConnectSignalsToSlots()
     connect( ui.actionNewHTMLFile,   SIGNAL( triggered() ), m_BookBrowser, SLOT( AddNewHTML()      ) );
     connect( ui.actionNewCSSFile,    SIGNAL( triggered() ), m_BookBrowser, SLOT( AddNewCSS()       ) );
     connect( ui.actionNewSVGFile,    SIGNAL( triggered() ), m_BookBrowser, SLOT( AddNewSVG()       ) );
-    connect( ui.actionAddExistingFile,SIGNAL(triggered() ), m_BookBrowser, SLOT( AddExisting()     ) );
+    connect( ui.actionAddExistingFile,   SIGNAL(triggered() ), m_BookBrowser, SLOT( AddExisting()     ) );
     connect( ui.actionSave,          SIGNAL( triggered() ), this, SLOT( Save()                     ) );
     connect( ui.actionSaveAs,        SIGNAL( triggered() ), this, SLOT( SaveAs()                   ) );
     connect( ui.actionSaveACopy,     SIGNAL( triggered() ), this, SLOT( SaveACopy()                ) );
