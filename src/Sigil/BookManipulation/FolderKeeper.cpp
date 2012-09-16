@@ -411,10 +411,6 @@ void FolderKeeper::RemoveResource( const Resource& resource )
 void FolderKeeper::ResourceRenamed( const Resource& resource, const QString& old_full_path )
 {
     m_OPF->ResourceRenamed( resource, old_full_path );
-
-    // By the time this SLOT is called, the file has already been renamed
-    // and the QFileSystemWatcher already removed the old file name from its list of watched files.
-    WatchResourceFile( resource, true );
 }
 
 void FolderKeeper::ResourceFileChanged( const QString &path ) const
