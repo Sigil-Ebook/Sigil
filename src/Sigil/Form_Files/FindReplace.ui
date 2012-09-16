@@ -126,7 +126,7 @@
            <bool>true</bool>
           </property>
           <property name="maxCount">
-           <number>15</number>
+           <number>25</number>
           </property>
           <property name="sizeAdjustPolicy">
            <enum>QComboBox::AdjustToMinimumContentsLengthWithIcon</enum>
@@ -190,7 +190,7 @@
            <bool>true</bool>
           </property>
           <property name="maxCount">
-           <number>15</number>
+           <number>25</number>
           </property>
           <property name="sizeAdjustPolicy">
            <enum>QComboBox::AdjustToMinimumContentsLengthWithIcon</enum>
