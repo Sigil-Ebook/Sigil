@@ -1023,9 +1023,6 @@
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Create a numbered list.&lt;/p&gt;</string>
    </property>
-   <property name="shortcut">
-    <string>Ctrl+Alt+L</string>
-   </property>
   </action>
   <action name="actionInsertBulletedList">
    <property name="checkable">
@@ -1123,9 +1120,6 @@
    </property>
    <property name="toolTip">
     <string>Print Preview</string>
-   </property>
-   <property name="shortcut">
-    <string>Ctrl+F2</string>
    </property>
   </action>
   <action name="actionClose">
