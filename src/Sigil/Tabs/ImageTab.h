@@ -53,7 +53,6 @@ public slots:
     void openWithEditor();
 
 private slots:
-    void ImageFileModified();
 
     /**
      * Opens the context menu at the requested point.
@@ -95,8 +94,6 @@ private:
     QAction *m_OpenWithEditor;
 
     float m_CurrentZoomFactor;
-
-    qint64 m_RefreshedTimestamp;
 };
 
 #endif // IMAGETAB_H

@@ -20,20 +20,25 @@
 *************************************************************************/
 
 #include <QtCore/QDir>
-#include <QtCore/QFileInfo>
 #include <QtCore/QDateTime>
+#include <QtCore/QFileInfo>
 #include <QtCore/QString>
+#include <QtCore/QTimer>
 #include <QtGui/QFileIconProvider>
 
 #include "Misc/Utility.h"
 #include "ResourceObjects/Resource.h"
+
+const int WAIT_FOR_WRITE_DELAY = 100;
 
 Resource::Resource( const QString &fullfilepath, QObject *parent )
     : 
     QObject( parent ),
     m_Identifier( Utility::CreateUUID() ),
     m_FullFilePath( fullfilepath ),
-    m_LastSaved(0),
+    m_LastSaved( 0 ),
+    m_LastWrittenTo( 0 ),
+    m_LastWrittenSize( 0 ),
     m_ReadWriteLock( QReadWriteLock::Recursive )
 {
 
@@ -163,15 +168,36 @@ void Resource::SaveToDisk( bool book_wide_save )
 
 void Resource::FileChangedOnDisk()
 {
-    const QDateTime lastModifiedDate = QFileInfo(m_FullFilePath).lastModified();
-    qint64 lastModified = lastModifiedDate.isValid() ? lastModifiedDate.toMSecsSinceEpoch() : 0;
+    QFileInfo latestFileInfo(m_FullFilePath);
+    const QDateTime lastModifiedDate = latestFileInfo.lastModified();
+    m_LastWrittenTo = lastModifiedDate.isValid() ? lastModifiedDate.toMSecsSinceEpoch() : 0;
+    m_LastWrittenSize = latestFileInfo.size();
 
-    if ( lastModified > m_LastSaved || m_LastSaved == 0 )
-    {
-        if ( LoadFromDisk() )
-        {
-            m_LastSaved = lastModified;
+    QTimer::singleShot( WAIT_FOR_WRITE_DELAY, this, SLOT( ResourceFileModified() ) );
+}
 
+void Resource::ResourceFileModified()
+{
+    QFileInfo newFileInfo(m_FullFilePath);
+    const QDateTime lastModifiedDate = newFileInfo.lastModified();
+    qint64 latestWrittenTo = lastModifiedDate.isValid() ? lastModifiedDate.toMSecsSinceEpoch() : 0;
+    qint64 latestWrittenSize = newFileInfo.size();
+
+    if ( latestWrittenTo == m_LastSaved ) {
+        // The FileChangedOnDisk has triggered even though the data in the file has not changed.
+        // This can happen if the FileWatcher is monitoring a file that Sigil has just performed
+        // a disk operation with, such as Saving before a Merge. In this circumstance the data
+        // loaded in memory by Sigil may be more up to date than that on disk (such as after the
+        // merge but before user has chosen to Save) so we want to ignore the file change notification.
+        return;
+    }
+
+    if ( (latestWrittenTo != m_LastWrittenTo) || (latestWrittenSize != m_LastWrittenSize ) ) {
+        // The file is still being written to.
+        QTimer::singleShot( WAIT_FOR_WRITE_DELAY, this, SLOT( ResourceFileModified() ) );
+    }
+    else {
+        if ( LoadFromDisk() ) {
             // will trigger marking the book as modified
             emit ResourceUpdatedFromDisk();
         }

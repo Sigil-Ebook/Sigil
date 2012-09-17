@@ -225,6 +225,13 @@ protected:
      */
     virtual bool LoadFromDisk();
 
+private slots:
+    /**
+     * When ResourceFileChanged detects a modification this slot is activated on
+     * a timer to wait for the file to stop changing.
+     */
+    void ResourceFileModified();
+
 private:
 
     /**
@@ -243,7 +250,17 @@ private:
     qint64 m_LastSaved;
 
     /**
-     * The ReaWriteLock guarding access to the resource's data.
+     * Timestamp of when the resource was last written to by an external application.
+     */
+    qint64 m_LastWrittenTo;
+
+    /**
+     * Size of the resource when last written to by an external application.
+     */
+    qint64 m_LastWrittenSize;
+
+    /**
+     * The ReadWriteLock guarding access to the resource's data.
      */
     mutable QReadWriteLock m_ReadWriteLock;
 };

@@ -416,12 +416,7 @@ void FolderKeeper::ResourceRenamed( const Resource& resource, const QString& old
 void FolderKeeper::ResourceFileChanged( const QString &path ) const
 {
     // The file may have been deleted prior to writing a new version - give it a chance to write.
-    QTime wake_time = QTime::currentTime().addMSecs(500);   
-    while( QTime::currentTime() < wake_time ) {
-        QCoreApplication::processEvents(QEventLoop::AllEvents, 100);
-    }
-
-    wake_time = QTime::currentTime().addMSecs(1000);   
+    QTime wake_time = QTime::currentTime().addMSecs(1000);
     while( !QFile::exists(path) && QTime::currentTime() < wake_time ) {
         QCoreApplication::processEvents(QEventLoop::AllEvents, 100);
     }
@@ -433,13 +428,11 @@ void FolderKeeper::ResourceFileChanged( const QString &path ) const
         // Some editors write the updated contents to a temporary file
         // and then atomically move it over the watched file.
         // In this case QFileSystemWatcher loses track of the file, so we have to add it again.
-        if ( !m_FSWatcher->files().contains(path) )
-        {
+        if ( !m_FSWatcher->files().contains(path) ) {
             m_FSWatcher->addPath( path );
         }
 
-        foreach( Resource *resource, m_Resources.values() )
-        {
+        foreach( Resource *resource, m_Resources.values() ) {
             if ( resource->GetFullPath() == path ) {
                 resource->FileChangedOnDisk();
                 return;
@@ -522,9 +515,3 @@ void FolderKeeper::CreateInfrastructureFiles()
 
     Utility::WriteUnicodeTextFile( CONTAINER_XML, m_FullPathToMetaInfFolder + "/container.xml" );
 }
-
-
-
-
-
-

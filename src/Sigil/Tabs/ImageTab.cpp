@@ -21,7 +21,6 @@
 
 #include <QtCore/QFile>
 #include <QtCore/QFileInfo>
-#include <QtCore/QTimer>
 #include <QtCore/QLocale>
 #include <QtCore/QDateTime>
 #include <QtGui/QMenu>
@@ -125,7 +124,6 @@ void ImageTab::RefreshContent()
     const QString path = m_Resource.GetFullPath();
 
     const QFileInfo fileInfo = QFileInfo(path);
-    m_RefreshedTimestamp = fileInfo.lastModified().toMSecsSinceEpoch();
 
     const double ffsize = fileInfo.size() / 1024.0;
     const QString fsize = QLocale().toString(ffsize, 'f', 2);
@@ -146,41 +144,6 @@ void ImageTab::RefreshContent()
     const QString html = IMAGE_HTML_BASE.arg(imgUrl.toString()).arg(img.width()).arg(img.height()).arg(fsize)
             .arg(grayscale_color).arg(colorsInfo);
     m_WebView.setHtml(html, imgUrl);
-}
-
-void ImageTab::ImageFileModified()
-{
-    const QFileInfo fileInfo = QFileInfo( m_Resource.GetFullPath() );
-
-    const qint64 lastModified = fileInfo.lastModified().toMSecsSinceEpoch();
-    if ( lastModified == m_RefreshedTimestamp )
-    {
-        return;
-    }
-
-    // It's best to wait a bit before triggering the actual page refresh,
-    // in case the file has not been completely written to disk. The image tab will take
-    // a bit to become up-to-date with the file on disk, but it's just an informational tab
-    // and instant reaction to file changes is not critical.
-    // - If the file is empty, then the file-modified signal was received
-    //   exactly when the editor application truncated the file, but before
-    //   writing any data to it, so we'll be extra patient.
-    // - If the file is larger than 512k (unlikely for images in an ebook, but possible),
-    //   it might get even larger than that, and the editor application
-    //   might take a long time (ms-wise) to write it, so we'll be extra patient again.
-    // The values below are mostly guesswork derived from how things go on my machine;
-    // they may not work just as well on slower (disk/cpu) systems.
-
-    const int delay = 500 + ( fileInfo.size() == 0 ? 750 : 0); // + ( fileInfo.size() > 512 * 1024 ? 500 : 0 );
-
-    if ( QDateTime::currentMSecsSinceEpoch() - lastModified < delay )
-    {
-        QTimer::singleShot( delay, this, SLOT( ImageFileModified() ) );
-    }
-    else
-    {
-        QTimer::singleShot( 0, this, SLOT( RefreshContent() ) );
-    }
 }
 
 void ImageTab::openWith()
@@ -277,7 +240,7 @@ void ImageTab::CreateContextMenuActions()
 
 void ImageTab::ConnectSignalsToSlots()
 {
-    connect(&m_Resource, SIGNAL(ResourceUpdatedOnDisk()), this, SLOT(ImageFileModified()), Qt::QueuedConnection);
+    connect(&m_Resource, SIGNAL(ResourceUpdatedOnDisk()), this, SLOT(RefreshContent()));
     connect(&m_Resource, SIGNAL(Deleted(Resource)), this, SLOT(Close()));
     connect( &m_WebView, SIGNAL( customContextMenuRequested(const QPoint&) ),  this, SLOT( OpenContextMenu(const QPoint&) ) );
     connect( m_OpenWith,       SIGNAL( triggered() ),  this, SLOT( openWith()       ) );
