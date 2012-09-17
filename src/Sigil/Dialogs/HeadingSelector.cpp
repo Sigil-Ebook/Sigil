@@ -86,9 +86,50 @@ void HeadingSelector::ModelItemFilter( QStandardItem *item )
 {
     Q_ASSERT( item );
 
-    if ( item->isCheckable() )
+    if ( !item->isCheckable() ) {
+        return;
+    }
+
+    // Get the absolute row of the index in the table for later re-selection
+    QModelIndex current_index = item->index().sibling(item->index().row(), 0);
+    QModelIndex first_index = m_TableOfContents.invisibleRootItem()->child(0)->index();
+    QModelIndex index = first_index;
+    int row = 0;
+
+    while (index.isValid()) {
+        if (current_index == index) {
+            break;
+        }
+        index = ui.tvTOCDisplay->indexBelow(index);
+        row++;
+    }
+
+    // Do the actual update of the list
+    UpdateHeadingInclusion( item );
+
+    // Select the item that was below the original item
+    index = first_index;
+    QModelIndex previous_index = index;
+
+    for (int i = 0; i < row; i++) {
+        previous_index = index;
+        index = ui.tvTOCDisplay->indexBelow(index);
+    }
+
+    if (!index.isValid())  {
+        index = previous_index;
+    }
+    if (!index.isValid())  {
+        index = first_index;
+    }
+
+    // Select the new item
+    ui.tvTOCDisplay->selectionModel()->clear();
+    ui.tvTOCDisplay->setCurrentIndex(index);
+    ui.tvTOCDisplay->selectionModel()->select(index, QItemSelectionModel::SelectCurrent | QItemSelectionModel::Rows);
     
-        UpdateHeadingInclusion( item );
+    // Expand the item
+    ui.tvTOCDisplay->expand(index);
 }
 
 
@@ -339,11 +380,6 @@ void HeadingSelector::RemoveExcludedItems( QStandardItem *item )
 
         // Item removes itself
         item_parent->removeRow( item->row() );
-
-        if (ui.tvTOCDisplay->selectionModel()->hasSelection()) {
-            QModelIndex selected_index = ui.tvTOCDisplay->selectionModel()->selectedRows(0).first();
-            ui.tvTOCDisplay->expand(selected_index);
-        }
     }
 }
 
