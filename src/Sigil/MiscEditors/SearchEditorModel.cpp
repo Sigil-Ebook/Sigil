@@ -179,7 +179,7 @@ void SearchEditorModel::ItemChangedHandler(QStandardItem *item)
 
     // Restore name if nothing entered or contains a group indicator
     if (item->text().isEmpty() || item->text().contains("/")) {
-        QString name = item->text();
+        QString name = item->data(FULLNAME_ROLE).toString();
         name.replace(QRegExp("/$"), "");
         if (name.contains("/")) {
             name = name.split("/").last();
