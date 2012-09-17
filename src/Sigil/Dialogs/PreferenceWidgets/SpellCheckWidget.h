@@ -52,15 +52,12 @@ private slots:
     void userDictionaryChanged(QListWidgetItem *current, QListWidgetItem *previous);
     void dictionariesCurrentIndexChanged(int index);
 
-    void clearIgnoredWords();
-
 private:
     void readSettings();
     void connectSignalsToSlots();
 
     Ui::SpellCheckWidget ui;
     bool m_isDirty;
-    bool m_clearIgnoredWords;
 };
 
 #endif // SPELLCHECKWIDGET_H

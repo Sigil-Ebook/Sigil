@@ -35,8 +35,7 @@
 
 SpellCheckWidget::SpellCheckWidget()
     :
-    m_isDirty(false),
-    m_clearIgnoredWords(false)
+    m_isDirty(false)
 {
     ui.setupUi(this);
 
@@ -46,7 +45,7 @@ SpellCheckWidget::SpellCheckWidget()
 
 PreferencesWidget::ResultAction SpellCheckWidget::saveSettings()
 {
-    if (!m_isDirty && !m_clearIgnoredWords)
+    if (!m_isDirty)
         return PreferencesWidget::ResultAction_None;
 
     saveUserDictionaryWordList(ui.userDictList->currentItem());
@@ -376,11 +375,6 @@ void SpellCheckWidget::dictionariesCurrentIndexChanged(int index)
     m_isDirty = true;
 }
 
-void SpellCheckWidget::clearIgnoredWords()
-{
-    m_clearIgnoredWords = true;
-}
-
 void SpellCheckWidget::connectSignalsToSlots()
 {
     // User dict list.
@@ -397,6 +391,4 @@ void SpellCheckWidget::connectSignalsToSlots()
 
     connect(ui.pbDictionaryDirectory, SIGNAL(clicked()), this, SLOT(openDictionaryDirectory()));
     connect(ui.dictionaries, SIGNAL(currentIndexChanged(int)), this, SLOT(dictionariesCurrentIndexChanged(int)));
-
-    connect(ui.pbClearIgnoredWords, SIGNAL(clicked()), this, SLOT(clearIgnoredWords()));
 }
