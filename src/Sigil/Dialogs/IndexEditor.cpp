@@ -501,12 +501,12 @@ void IndexEditor::SetupContextMenu(const QPoint &point)
     m_ContextMenu->addAction(m_Paste);
     m_Paste->setEnabled(m_SavedIndexEntries.count());
 
+    m_ContextMenu->addAction(m_Rename);
+
     m_ContextMenu->addSeparator();
 
     m_ContextMenu->addAction(m_Delete);
     m_Delete->setEnabled(selected_rows_count > 0);
-
-    m_ContextMenu->addAction(m_Rename);
 
     m_ContextMenu->addSeparator();
 
