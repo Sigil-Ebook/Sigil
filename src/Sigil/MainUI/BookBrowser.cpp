@@ -159,6 +159,7 @@ void BookBrowser::UpdateSelection( Resource &resource )
 
     QModelIndex index = m_OPFModel.GetModelItemIndex( resource, OPFModel::IndexChoice_Current );
     m_TreeView.selectionModel()->setCurrentIndex( index, QItemSelectionModel::SelectCurrent );
+    m_TreeView.scrollTo(index, QAbstractItemView::PositionAtCenter);
 }
 
 void BookBrowser::NextResource()
