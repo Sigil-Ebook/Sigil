@@ -151,7 +151,7 @@ QList< HTMLSpellCheck::MisspelledWord > HTMLSpellCheck::GetMisspelledWords( cons
 
 bool HTMLSpellCheck::IsBoundary( QChar prev_c, QChar c, QChar next_c )
 {
-    return !c.isLetter() && !((c == '-' || c == QChar(0x2012) || c == QChar(0x2013) || c == QChar(0x2014) || c == QChar(0x2015)) && (prev_c.isLetter() || next_c.isLetter()));
+    return !c.isLetter() && !((c == '-' || c == QChar(0x2012) || c == '\'' || c == QChar(0x2019)) && (prev_c.isLetter() || next_c.isLetter()));
 }
 
 
