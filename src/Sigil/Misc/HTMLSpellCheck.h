@@ -71,7 +71,7 @@ public:
 
 private:
 
-    static bool IsBoundary( QChar prev_c, QChar c, QChar next_c, bool in_entity );
+    static bool IsBoundary( QChar prev_c, QChar c, QChar next_c );
 
 };
 
