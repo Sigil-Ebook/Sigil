@@ -37,7 +37,9 @@ static const int WATCHED_RESOURCE_TYPES = Resource::HTMLResourceType  |
                                           Resource::CSSResourceType   |
                                           Resource::ImageResourceType |
                                           Resource::SVGResourceType   |
-                                          Resource::FontResourceType;
+                                          Resource::FontResourceType  |
+                                          Resource::NCXResourceType   |
+                                          Resource::OPFResourceType;
 
 // not very elegant, but much lighter than a std::map (and with less initialization trouble)
 // the switch _must_ always be in sync with WATCHED_RESOURCE_TYPES
@@ -50,6 +52,8 @@ static inline const char* const RESOURCE_TYPE_NAME( const Resource::ResourceType
     case Resource::ImageResourceType:   return "image";
     case Resource::SVGResourceType:     return "svg";
     case Resource::FontResourceType:    return "font";
+    case Resource::NCXResourceType:     return "ncx";
+    case Resource::OPFResourceType:     return "opf";
     default:                            return "";
     }
 }
