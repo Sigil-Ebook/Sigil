@@ -64,10 +64,6 @@ public:
      */
     void CustomSetDocument(const QString &path, const QString &html);
 
-    void ScrollToFragment(const QString &fragment);
-
-    void ScrollToFragmentAfterLoad(const QString &fragment);
-
     QString GetHtml();
     //QString GetXHtml11();
     //QString GetHtml5();

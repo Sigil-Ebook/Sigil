@@ -53,7 +53,8 @@ BookViewPreview::BookViewPreview(QWidget *parent)
       c_GetRange(         Utility::ReadUnicodeTextFile( ":/javascript/get_range.js"                  ) ),
       c_NewSelection(     Utility::ReadUnicodeTextFile( ":/javascript/new_selection.js"              ) ),
       m_CaretLocationUpdate( QString() ),
-      m_pendingLoadCount(0)
+      m_pendingLoadCount(0),
+      m_pendingScrollToFragment( QString() )
 {
     setContextMenuPolicy(Qt::NoContextMenu);
 
@@ -90,7 +91,10 @@ QSize BookViewPreview::sizeHint() const
 void BookViewPreview::CustomSetDocument(const QString &path, const QString &html)
 {
     m_pendingLoadCount += 1;
-    StoreCurrentCaretLocation();
+    // If this is not the very first load of this document, store the caret location
+    if ( !url().isEmpty() ) {
+        StoreCurrentCaretLocation();
+    }
     m_isLoadFinished = false;
     // If Tidy is turned off, then Sigil will explode if there is no xmlns 
     // on the <html> element. So we will silently add it if needed to ensure
@@ -164,14 +168,12 @@ void BookViewPreview::ScrollToFragmentAfterLoad(const QString &fragment)
     if (fragment.isEmpty()) {
         return;
     }
-
-    QString caret_location = "var element = document.getElementById(\"" % fragment % "\");";
-    QString scroll = "var from_top = window.innerHeight / 2;"
-        "$.scrollTo(element, 0, {offset: {top:-from_top, left:0 } });";
-    QString javascript = "window.addEventListener('load', GoToFragment, false);"
-        "function GoToFragment() { " % caret_location % scroll % SET_CURSOR_JS % "}";
-
-    EvaluateJavascript(javascript);
+    if (IsLoadingFinished()) {
+        ScrollToFragment(fragment);
+    }
+    else {
+        m_pendingScrollToFragment = fragment;
+    }
 }
 
 bool BookViewPreview::FindNext( const QString &search_regex,
@@ -326,7 +328,15 @@ void BookViewPreview::WebPageJavascriptOnLoad()
     page()->mainFrame()->evaluateJavaScript( c_jQueryWrapSelection );
     
     m_pendingLoadCount -= 1;
-    executeCaretUpdateInternal();
+    if (m_pendingLoadCount == 0 ) {
+        if (!m_pendingScrollToFragment.isEmpty()) {
+            ScrollToFragment(m_pendingScrollToFragment);
+            m_pendingScrollToFragment.clear();
+        }
+        else {
+            executeCaretUpdateInternal();
+        }
+    }
 }
 
 

@@ -130,39 +130,6 @@ void BookViewEditor::CustomSetDocument(const QString &path, const QString &html)
     SetWebPageModified( false );
 }
 
-void BookViewEditor::ScrollToFragment(const QString &fragment)
-{
-    if (fragment.isEmpty()) {
-        ScrollToTop();
-        return;
-    }
-
-    QString caret_location = "var element = document.getElementById(\"" % fragment % "\");";
-
-    QString scroll = "var from_top = window.innerHeight / 2;"
-        "$.scrollTo( element, 0, {offset: {top:-from_top, left:0 } } );";
-
-    EvaluateJavascript(caret_location % scroll % SET_CURSOR_JS);
-}
-
-void BookViewEditor::ScrollToFragmentAfterLoad(const QString &fragment)
-{
-    if (fragment.isEmpty()) {
-        ScrollToTop();
-        return;
-    }
-
-    QString caret_location = "var element = document.getElementById(\"" % fragment % "\");";
-
-    QString scroll = "var from_top = window.innerHeight / 2;"
-        "$.scrollTo( element, 0, {offset: {top:-from_top, left:0 } } );";
-
-    QString javascript = "window.addEventListener('load', GoToFragment, false);"
-        "function GoToFragment() { " % caret_location % scroll % SET_CURSOR_JS % "}";
-
-    EvaluateJavascript(javascript);
-}
-
 QString BookViewEditor::GetHtml()
 {
     RemoveWebkitCruft();

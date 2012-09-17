@@ -396,6 +396,7 @@ private:
     QString m_CaretLocationUpdate;
 
     int m_pendingLoadCount;
+    QString m_pendingScrollToFragment;
 };
 
 #endif // BOOKVIEWPREVIEW_H
