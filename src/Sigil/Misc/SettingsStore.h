@@ -88,6 +88,8 @@ public:
      */
     bool spellCheck();
 
+    int viewState();
+
     /**
      * The name of the file containing user words
      *
@@ -204,6 +206,8 @@ public slots:
      * @param name The name of the dictionary.
      */
     void setSpellCheck(bool enabled);
+
+    void setViewState(int state);
 
     /**
      * Set the name of the dictionary file to store user words.

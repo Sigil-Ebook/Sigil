@@ -35,6 +35,7 @@ static QString KEY_ZOOM_TEXT = SETTINGS_GROUP + "/" + "zoom_text";
 static QString KEY_ZOOM_WEB = SETTINGS_GROUP + "/" + "zoom_web";
 static QString KEY_RENAME_TEMPLATE = SETTINGS_GROUP + "/" + "rename_template";
 static QString KEY_DICTIONARY_NAME = SETTINGS_GROUP + "/" + "dictionary_name";
+static QString KEY_VIEW_STATE = SETTINGS_GROUP + "/" + "view_state";
 static QString KEY_SPELL_CHECK = SETTINGS_GROUP + "/" + "spell_check";
 static QString KEY_USER_DICTIONARY_NAME = SETTINGS_GROUP + "/" + "user_dictionary_name";
 static QString KEY_CLEAN_LEVEL = SETTINGS_GROUP + "/" + "clean_level";
@@ -113,6 +114,12 @@ QString SettingsStore::dictionary()
 {
     clearSettingsGroup();
     return value(KEY_DICTIONARY_NAME, "en_US").toString();
+}
+
+int SettingsStore::viewState()
+{
+    clearSettingsGroup();
+    return value(KEY_VIEW_STATE, -1).toInt();
 }
 
 bool SettingsStore::spellCheck()
@@ -235,6 +242,12 @@ void SettingsStore::setDictionary(const QString &name)
 {
     clearSettingsGroup();
     setValue(KEY_DICTIONARY_NAME, name);
+}
+
+void SettingsStore::setViewState( int state )
+{
+    clearSettingsGroup();
+    setValue(KEY_VIEW_STATE, state);
 }
 
 void SettingsStore::setSpellCheck(bool enabled)

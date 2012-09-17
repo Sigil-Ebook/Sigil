@@ -149,6 +149,9 @@ MainWindow::MainWindow( const QString &openfilepath, QWidget *parent, Qt::WFlags
     // (avoiding side-effects)
     ReadSettings();
 
+    // Ensure the UI is properly set to the saved view state.
+    SetDefaultViewState();
+
     ConnectSignalsToSlots();
 
     CreateRecentFilesActions();
@@ -157,8 +160,6 @@ MainWindow::MainWindow( const QString &openfilepath, QWidget *parent, Qt::WFlags
     ChangeSignalsWhenTabChanges(NULL, &m_TabManager.GetCurrentContentTab());
 
     LoadInitialFile(openfilepath);
-    // Ensure the UI is setup properly for the default view state.
-    SetViewState(m_ViewState);
 }
 
 
@@ -923,6 +924,8 @@ void MainWindow::SetViewState(MainWindow::ViewState view_state)
         // the well formed check failing. Due to this we know that we're still in CV.
         ui.actionCodeView->setChecked(true);
     }
+
+    SaveDefaultViewState();
 }
 
 
@@ -2034,6 +2037,33 @@ void MainWindow::SetCheckWellFormedErrors( bool new_state )
     m_TabManager.SetCheckWellFormedErrors( new_state );
 }
 
+void MainWindow::SetDefaultViewState()
+{
+    MainWindow::ViewState view_state = MainWindow::ViewState_BookView;
+
+    SettingsStore settings;
+
+    int view_state_value = settings.viewState();
+    switch (view_state_value) {
+        case MainWindow::ViewState_PreviewView:
+        case MainWindow::ViewState_CodeView:
+            view_state = static_cast<MainWindow::ViewState>(view_state_value);
+            break;
+    }
+
+    emit SettingsChanged();
+
+    m_ViewState = view_state;
+
+    SetViewState(m_ViewState);
+}
+
+void MainWindow::SaveDefaultViewState()
+{
+    SettingsStore settings;
+    settings.setViewState( m_ViewState );
+    emit SettingsChanged();
+}
 
 void MainWindow::SetAutoSpellCheck( bool new_state )
 {
