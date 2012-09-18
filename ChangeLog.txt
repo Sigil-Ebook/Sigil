@@ -90,10 +90,11 @@ Sigil 0.6.0 TBA
     - Implement issue 1378: Update Hunspell to 1.3.2.
     - Implement issue 1379: Update Boost to Boost 1.49.0.
     - Implement issue 1283: Spell check should have an ignore option.
+    - Fix issue 1589: Clicking on TOC entry the first time does not scroll to a heading at the top of the page.
     - Fix issue 1582: Replace All should be single-threaded to avoid certain crashes.
     - Fix issue 1581: Caret position in Book View - Code View syncing is not always correct.
-    - Fix issue 1580:   Chapter split starts new files with suffix _002 instead of 001.
-    - Fix issue 1579:   Generate Headings in TOC should select next item after unchecking an item.
+    - Fix issue 1580: Chapter split starts new files with suffix _002 instead of 001.
+    - Fix issue 1579: Generate Headings in TOC should select next item after unchecking an item.
     - Fix issue 1563: Split Chapter break can create empty page.
     - Fix issue 1284: Image and Stylesheet paths not updated for duplicate references when importing.
     - Fix issue 1155: Filename removed from href in anchor tag when importing HTML.
