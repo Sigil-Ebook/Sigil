@@ -2663,8 +2663,9 @@ void MainWindow::UpdateUiWithCurrentFile( const QString &fullfilepath )
         return;
 
     // Update recent files actions
-    s_RecentFiles.removeAll( m_CurrentFilePath );
-    s_RecentFiles.prepend( m_CurrentFilePath );
+    const QString nativeFilePath = QDir::toNativeSeparators(m_CurrentFilePath);
+    s_RecentFiles.removeAll( nativeFilePath );
+    s_RecentFiles.prepend( nativeFilePath );
 
     while ( s_RecentFiles.size() > MAX_RECENT_FILES )
     {
