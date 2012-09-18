@@ -1371,17 +1371,17 @@ bool BookBrowser::SuccessfullySetupContextMenu( const QPoint &point )
 
     if ( m_LastContextMenuType == Resource::HTMLResourceType )
     {
+        m_ContextMenu.addAction( m_AddNewHTML );
+
         m_ContextMenu.addAction( m_CopyHTML);
         m_CopyHTML->setEnabled(item_count == 1);
-
-        m_ContextMenu.addAction( m_AddNewHTML );
     }
     else if ( m_LastContextMenuType == Resource::CSSResourceType )
     {
+        m_ContextMenu.addAction( m_AddNewCSS );
+
         m_ContextMenu.addAction( m_CopyCSS);
         m_CopyCSS->setEnabled(item_count == 1);
-
-        m_ContextMenu.addAction( m_AddNewCSS );
     }
     else if ( m_LastContextMenuType == Resource::ImageResourceType )
     {
