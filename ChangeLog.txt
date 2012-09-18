@@ -1,4 +1,5 @@
 Sigil 0.6.0 TBA 
+    - Implement issue 1557: Sigil requires Qt 4.8 or above.
     - Implement issue 1586: Spellcheck should allow setting a keyboard shortcut for Ignore Word to speed editing.
     - Implement issue 1585: Spellcheck should have a menu entry to clear all ignored words.
     - Implement issue 1584: Sigil should allow CSS file to be edited while viewing HTML.
@@ -90,6 +91,7 @@ Sigil 0.6.0 TBA
     - Implement issue 1378: Update Hunspell to 1.3.2.
     - Implement issue 1379: Update Boost to Boost 1.49.0.
     - Implement issue 1283: Spell check should have an ignore option.
+    - Fix issue 1477: Sigil may crash when loading ePubs containing empty (zero-sized) files.
     - Fix issue 1589: Clicking on TOC entry the first time does not scroll to a heading at the top of the page.
     - Fix issue 1582: Replace All should be single-threaded to avoid certain crashes.
     - Fix issue 1581: Caret position in Book View - Code View syncing is not always correct.
