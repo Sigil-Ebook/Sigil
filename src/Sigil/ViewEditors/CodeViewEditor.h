@@ -422,6 +422,8 @@ private slots:
      */
     void TextChangedFilter();
 
+    void RehighlightDocument();
+
     /**
      * Used solely to update the m_isUndoAvailable variable
      * on undo availability change.

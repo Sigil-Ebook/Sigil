@@ -886,7 +886,7 @@ void CodeViewEditor::print( QPrinter* printer )
 
 void CodeViewEditor::LoadSettings()
 {
-    m_Highlighter->rehighlight();
+    RehighlightDocument();
 }
 
 // Overridden because we need to update the cursor
@@ -1454,8 +1454,7 @@ void CodeViewEditor::MarkForIndex()
 void CodeViewEditor::focusInEvent( QFocusEvent *event )
 {
     if (m_pendingSpellingHighlighting) {
-        m_pendingSpellingHighlighting = false;
-        m_Highlighter->rehighlight();
+        RehighlightDocument();
     }
     emit FocusGained( this );
 
@@ -1479,6 +1478,17 @@ void CodeViewEditor::TextChangedFilter()
     if ( m_isUndoAvailable )
 
         emit FilteredTextChanged();
+}
+
+void CodeViewEditor::RehighlightDocument()
+{
+    m_pendingSpellingHighlighting = false;
+    // We block signals from the document while highlighting takes place,
+    // because we do not want the contentsChanged() signal to be fired
+    // which would mark the underlying resource as needing saving.
+    document()->blockSignals(true);
+    m_Highlighter->rehighlight();
+    document()->blockSignals(false);
 }
 
 
@@ -1555,8 +1565,7 @@ void CodeViewEditor::ReplaceSelected(const QString &text)
 void CodeViewEditor::RefreshSpellingHighlighting()
 {
     if (hasFocus()) {
-        m_pendingSpellingHighlighting = false;
-        m_Highlighter->rehighlight();
+        RehighlightDocument();
     }
     else {
         m_pendingSpellingHighlighting = true;
