@@ -119,7 +119,6 @@ public:
      * @return \c true if the update was performed.
      */
     virtual bool ExecuteCaretUpdate() { return false; }
-    virtual bool ExecuteCaretUpdateAfterLoad() { return false; }
 };
 
 #endif // VIEWEDITOR_H

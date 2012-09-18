@@ -1027,10 +1027,10 @@ void FlowTab::DelayedInitialization()
         {
             SplitView();
             if (!m_CaretLocationToScrollTo.isEmpty()) {
-                m_wBookPreview->ExecuteCaretUpdateAfterLoad(m_CaretLocationToScrollTo);
+                m_wBookPreview->ExecuteCaretUpdate(m_CaretLocationToScrollTo);
             }
             else {
-                m_wBookPreview->ScrollToFragmentAfterLoad(m_FragmentToScroll.toString());
+                m_wBookPreview->ScrollToFragment(m_FragmentToScroll.toString());
             }
             break;
         }
@@ -1040,10 +1040,10 @@ void FlowTab::DelayedInitialization()
         default:
             BookView();
             if (!m_CaretLocationToScrollTo.isEmpty()) {
-                m_wBookView->ExecuteCaretUpdateAfterLoad(m_CaretLocationToScrollTo);
+                m_wBookView->ExecuteCaretUpdate(m_CaretLocationToScrollTo);
             }
             else {
-                m_wBookView->ScrollToFragmentAfterLoad(m_FragmentToScroll.toString());
+                m_wBookView->ScrollToFragment(m_FragmentToScroll.toString());
             }
             break;
     }

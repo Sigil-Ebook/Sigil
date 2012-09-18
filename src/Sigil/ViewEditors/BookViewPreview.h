@@ -66,20 +66,12 @@ public:
     void ScrollToTop();
 
     /**
-     * Scrolls the editor to the specified fragment.
+     * Scrolls the editor to the specified fragment when the document is loaded.
      *
      * @param fragment The fragment ID to scroll to.
      *                 It should have the "#" character as the first character.
      */
     void ScrollToFragment(const QString &fragment);
-
-    /**
-     * Scrolls the editor to the specified fragment after the document is loaded.
-     *
-     * @param fragment The fragment ID to scroll to.
-     *                 It should have the "#" character as the first character.
-     */
-    void ScrollToFragmentAfterLoad(const QString &fragment);
 
     bool FindNext(const QString &search_regex,
                   Searchable::Direction search_direction,
@@ -107,9 +99,12 @@ public:
     void StoreCaretLocationUpdate( const QList< ViewEditor::ElementIndex > &hierarchy );
 
     // inherited
-    bool ExecuteCaretUpdate(QString caret_update = QString());
+    bool ExecuteCaretUpdate();
 
-    void ExecuteCaretUpdateAfterLoad(QString caret_location_update);
+    /**
+     * Force a caret location update to the specified position.
+     */
+    bool ExecuteCaretUpdate(const QString &caret_location);
 
     QString GetCaretLocationUpdate();
 
@@ -179,6 +174,11 @@ private slots:
     }
 
 private:
+
+    /**
+     * Actually performs the scrolling, will only be invoked after the document has loaded.
+     */
+    void ScrollToFragmentInternal(const QString &fragment);
 
     /**
      * Builds the element-selecting JavaScript code, ignoring the text nodes.

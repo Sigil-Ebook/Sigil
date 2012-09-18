@@ -151,6 +151,16 @@ void BookViewPreview::ScrollToTop()
 
 void BookViewPreview::ScrollToFragment(const QString &fragment)
 {
+    if (IsLoadingFinished()) {
+        ScrollToFragmentInternal(fragment);
+    }
+    else {
+        m_pendingScrollToFragment = fragment;
+    }
+}
+
+void BookViewPreview::ScrollToFragmentInternal(const QString &fragment)
+{
     if (fragment.isEmpty()) {
         ScrollToTop();
         return;
@@ -161,19 +171,6 @@ void BookViewPreview::ScrollToFragment(const QString &fragment)
         "$.scrollTo(element, 0, {offset: {top:-from_top, left:0 } });";
 
     EvaluateJavascript(caret_location % scroll % SET_CURSOR_JS);
-}
-
-void BookViewPreview::ScrollToFragmentAfterLoad(const QString &fragment)
-{
-    if (fragment.isEmpty()) {
-        return;
-    }
-    if (IsLoadingFinished()) {
-        ScrollToFragment(fragment);
-    }
-    else {
-        m_pendingScrollToFragment = fragment;
-    }
 }
 
 bool BookViewPreview::FindNext( const QString &search_regex,
@@ -544,8 +541,7 @@ QWebElement BookViewPreview::DomNodeToQWebElement( const xc::DOMNode &node )
     return element;
 }
 
-
-bool BookViewPreview::ExecuteCaretUpdate(QString caret_update)
+bool BookViewPreview::ExecuteCaretUpdate()
 {
     // Currently certain actions in Sigil result in a document being loaded multiple times
 	// in response to the signals. Only proceed with moving the caret if all loads are finished. 
@@ -553,7 +549,7 @@ bool BookViewPreview::ExecuteCaretUpdate(QString caret_update)
         return false;
     }
     // If there is no caret location update pending... 
-    if ( m_CaretLocationUpdate.length() == 0 ) {
+    if ( m_CaretLocationUpdate.isEmpty() ) {
         return false;
     }
 
@@ -561,22 +557,21 @@ bool BookViewPreview::ExecuteCaretUpdate(QString caret_update)
     EvaluateJavascript( m_CaretLocationUpdate );
 
     // ...and clear the update.
-    m_CaretLocationUpdate = ""; 
+    m_CaretLocationUpdate.clear(); 
 
     return true;
 }
 
-
-void BookViewPreview::ExecuteCaretUpdateAfterLoad(QString caret_location_update)
+bool BookViewPreview::ExecuteCaretUpdate(const QString &caret_update)
 {
-    QString javascript = "window.addEventListener('load', GoToCaretLocation, false);"
-        "function GoToCaretLocation() { " % caret_location_update % "}";
-
-    EvaluateJavascript(caret_location_update);
-
-    m_CaretLocationUpdate = "";
+    // This overload is for use with the Back To Link type functionality, where we have
+    // a specific caret location javascript we want to force when the tab is fully loaded.
+    if ( !caret_update.isEmpty() ) {
+        m_CaretLocationUpdate = caret_update;
+        return ExecuteCaretUpdate();
+    }
+    return false;
 }
-
 
 BookViewPreview::SelectRangeInputs BookViewPreview::GetRangeInputs( const QMap< int, xc::DOMNode* > &node_offsets,
                                                                   int string_start, 
