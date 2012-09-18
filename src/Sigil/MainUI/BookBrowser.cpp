@@ -591,22 +591,18 @@ void BookBrowser::AddExisting()
             {
                 m_Book->MoveResourceAfter( *added_html_resource, *current_html_resource );
                 current_html_resource = added_html_resource;
-                open_resource = &added_resource;
+                // Only open HTML files as they are likely to be edited whereas other items
+                // are likely to be inserted into or linked to the current file.
+                // Only open the first file in any added group.
+                if (!open_resource) {
+                    open_resource = &added_resource;
+                }
             }
         }
-
         else
         {
             // TODO: adding a CSS file should add the referenced fonts too
             m_Book->GetFolderKeeper().AddContentFileToFolder( filepath );
-
-            try {
-                Resource &added_resource = m_Book->GetFolderKeeper().GetResourceByFilename( filename );
-                open_resource = &added_resource;
-            }
-            catch (const ResourceDoesNotExist&) {
-                // nothing
-            }
         }
     }
 
