@@ -1274,10 +1274,10 @@ void CodeViewEditor::GoToLinkOrStyleAction()
 void CodeViewEditor::GoToLinkOrStyle()
 {
     QString text = toPlainText();
-    QString url_name = GetAttribute("href", HREF_TAGS);
+    QString url_name = GetAttribute("href", HREF_TAGS, true);
 
     if (url_name.isEmpty()) {
-        url_name = GetAttribute("src", SRC_TAGS);
+        url_name = GetAttribute("src", SRC_TAGS, true);
     }
 
     if (!url_name.isEmpty()) {
@@ -1425,7 +1425,7 @@ void CodeViewEditor::InsertTagAttribute(const QString &element_name, const QStri
 {
     if (!textCursor().hasSelection()) {
         // Add or update the attribute within the start tag
-       const QString &inserted_attribute = SetAttribute(attribute_name, tag_list, attribute_value, true);
+       const QString &inserted_attribute = SetAttribute(attribute_name, tag_list, attribute_value);
 
         // If nothing was inserted, then just insert a new tag with no text
         if (inserted_attribute.isEmpty()) {
@@ -2350,12 +2350,18 @@ CodeViewEditor::StyleTagElement CodeViewEditor::GetSelectedStyleTagElement()
     return element;
 }
 
-QString CodeViewEditor::GetAttribute(const QString &attribute_name, QStringList tag_list)
+QString CodeViewEditor::GetAttribute(const QString &attribute_name, QStringList tag_list, bool must_be_in_attribute)
 {
-    return SetAttribute(attribute_name, tag_list);
+    return ProcessAttribute(attribute_name, tag_list, QString(), false, must_be_in_attribute);
 }
 
-QString CodeViewEditor::SetAttribute( const QString &attribute_name, QStringList tag_list, const QString &attribute_value, bool set_attribute )
+
+QString CodeViewEditor::SetAttribute(const QString &attribute_name, QStringList tag_list, const QString &attribute_value, bool must_be_in_attribute)
+{
+    return ProcessAttribute(attribute_name, tag_list, attribute_value, true, must_be_in_attribute);
+}
+
+QString CodeViewEditor::ProcessAttribute( const QString &attribute_name, QStringList tag_list, const QString &attribute_value, bool set_attribute, bool must_be_in_attribute )
 {
     if ( attribute_name.isEmpty() ) {
         return QString();
@@ -2465,6 +2471,11 @@ QString CodeViewEditor::SetAttribute( const QString &attribute_name, QStringList
             attrib_values_search.indexIn(text, attribute_start);
             old_attribute_value = attrib_values_search.cap(1).trimmed();
 
+            // If not in the attribute string return nothing
+            if (must_be_in_attribute && (original_position <= attribute_start || original_position >= attribute_end)) {
+                return "";
+            }
+
             // If not setting the value, just return the found value
             if (!set_attribute) {
                 return old_attribute_value;
@@ -2557,7 +2568,7 @@ void CodeViewEditor::FormatStyle( const QString &property_name, const QString &p
     }
 
     // Apply the modified attribute.
-    SetAttribute("style", BLOCK_LEVEL_TAGS, style_attribute_value, true);
+    SetAttribute("style", BLOCK_LEVEL_TAGS, style_attribute_value);
 }
 
 void CodeViewEditor::FormatCSSStyle( const QString &property_name, const QString &property_value )
