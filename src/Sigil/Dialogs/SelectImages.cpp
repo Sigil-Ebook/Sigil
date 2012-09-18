@@ -40,7 +40,8 @@ SelectImages::SelectImages(QString basepath, QList<Resource *> image_resources, 
     m_SelectImagesModel(new QStandardItemModel),
     m_PreviewLoaded(false),
     m_DefaultSelectedImage(default_selected_image),
-    m_ThumbnailSize(THUMBNAIL_SIZE)
+    m_ThumbnailSize(THUMBNAIL_SIZE),
+    m_IsInsertFromDisk(false)
 {
     ui.setupUi(this);
 
@@ -49,6 +50,11 @@ SelectImages::SelectImages(QString basepath, QList<Resource *> image_resources, 
     SetImages();
 
     connectSignalsSlots();
+}
+
+bool SelectImages::IsInsertFromDisk()
+{
+    return m_IsInsertFromDisk;
 }
 
 QStringList SelectImages::SelectedImages()
@@ -75,9 +81,9 @@ void SelectImages::SetImages()
 
     QStringList header;
 
-    header.append(tr("Name" ));
+    header.append(tr("Images In the Book" ));
     if (m_ThumbnailSize) {
-        header.append(tr("Images"));
+        header.append(tr("Thumbnails"));
     }
     m_SelectImagesModel->setHorizontalHeaderLabels(header);
 
@@ -285,6 +291,13 @@ QString SelectImages::GetLastSelectedImageName()
     return selected_entry;
 }
 
+void SelectImages::InsertFromDisk()
+{
+    m_IsInsertFromDisk = true;
+    ui.imageTree->selectionModel()->clear();
+    accept();
+}
+
 void SelectImages::ReadSettings()
 {
     SettingsStore settings;
@@ -343,5 +356,6 @@ void SelectImages::connectSignalsSlots()
     connect(ui.ThumbnailIncrease, SIGNAL(clicked()), this, SLOT(IncreaseThumbnailSize()));
     connect(ui.ThumbnailDecrease, SIGNAL(clicked()), this, SLOT(DecreaseThumbnailSize()));
     connect(ui.preview,         SIGNAL(Resized()), this, SLOT(ReloadPreview()));
+    connect(ui.InsertFromDisk,  SIGNAL(clicked()), this, SLOT(InsertFromDisk()));
 
 }

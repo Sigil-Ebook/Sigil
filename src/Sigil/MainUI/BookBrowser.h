@@ -144,7 +144,7 @@ public slots:
     /**
      * Implements the Add Existing context menu action functionality.
      */
-    void AddExisting();
+    QStringList AddExisting(Resource::ResourceType add_resource_type = Resource::GenericResourceType);
 
     /*
      * Sorts the HTML book entries alphanumerically

@@ -58,6 +58,7 @@ extern const QString CONTAINER_XML_FILE_NAME;
 extern const QStringList TEXT_EXTENSIONS;
 extern const QStringList FONT_EXTENSIONS;
 extern const QStringList IMAGE_EXTENSIONS;
+extern const QStringList SVG_EXTENSIONS;
 extern const QStringList JPG_EXTENSIONS;
 extern const QStringList TIFF_EXTENSIONS;
 extern const QString ENCODING_ATTRIBUTE;

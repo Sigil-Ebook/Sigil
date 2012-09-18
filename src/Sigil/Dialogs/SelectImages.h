@@ -55,6 +55,11 @@ public:
      */
     QStringList SelectedImages();
 
+    bool IsInsertFromDisk();
+
+signals:
+    void InsertImageFromDiskRequest();
+
 private slots:
     /**
      * Displays a given image in the list in the preview area.
@@ -73,6 +78,8 @@ private slots:
     void FilterEditTextChangedSlot(const QString &text);
 
     void WriteSettings();
+
+    void InsertFromDisk();
 
 private:
     void ReadSettings();
@@ -94,6 +101,8 @@ private:
     QString m_DefaultSelectedImage;
 
     int m_ThumbnailSize;
+
+    bool m_IsInsertFromDisk;
 
     Ui::SelectImages ui;
 };

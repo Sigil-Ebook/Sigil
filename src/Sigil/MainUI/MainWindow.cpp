@@ -791,20 +791,12 @@ void MainWindow::ReportsDialog()
     }
 }
 
-void MainWindow::InsertImage()
+void MainWindow::InsertImageDialog()
 {
     m_TabManager.SaveTabData();
 
     QStringList selected_images;
     QList<Resource *> image_resources = m_BookBrowser->AllImageResources();
-
-    if (image_resources.isEmpty()) {
-        QMessageBox::warning( this,
-                              tr( "Sigil"),
-                              tr( "<p>There are no images available in your book to insert.</p><p>Use the menu option <b>File->New->Add Existing</b> to add images to your book before trying to insert an image.</p>")
-                            );
-        return;
-    }
 
     QString basepath = m_Book->GetFolderKeeper().GetFullPathToImageFolder();
     if (!basepath.endsWith("/")) {
@@ -813,14 +805,22 @@ void MainWindow::InsertImage()
     SelectImages select_images(basepath, image_resources, m_LastInsertedImage, this);
 
     if (select_images.exec() == QDialog::Accepted) {
-        selected_images = select_images.SelectedImages();
+        if (select_images.IsInsertFromDisk()) {
+            InsertImagesFromDisk();
+        }
+        else {
+            selected_images = select_images.SelectedImages();
+            InsertImages(selected_images);
+        }
     }
-
-    InsertImages(selected_images);
 }
 
 void MainWindow::InsertImages(QStringList selected_images)
 {
+    if (selected_images.isEmpty()) {
+        return;
+    }
+
     FlowTab *flow_tab = qobject_cast<FlowTab*>(&GetCurrentContentTab());
 
     if (!(flow_tab && (m_ViewState == MainWindow::ViewState_CodeView || m_ViewState == MainWindow::ViewState_BookView))) {
@@ -846,9 +846,27 @@ void MainWindow::InsertImages(QStringList selected_images)
     }
 }
 
+void MainWindow::InsertImagesFromDisk()
+{
+    // Prompt the user for the images to add.
+    // We must disconnect the ResourcesAdded signal to avoid clearMemoryCaches being called
+    // which results in the inserted image being cleared from the BV page immediately.
+    disconnect(m_BookBrowser, SIGNAL(ResourcesAdded()), this, SLOT(ResourcesAddedOrDeleted()));
+    QStringList filenames = m_BookBrowser->AddExisting(Resource::ImageResourceType);
+    connect(m_BookBrowser, SIGNAL(ResourcesAdded()), this, SLOT( ResourcesAddedOrDeleted()));
+
+    QStringList internal_filenames;
+    foreach (QString filename, filenames) {
+        QString internal_filename = filename.right(filename.length() - filename.lastIndexOf("/") - 1);
+        internal_filenames.append(internal_filename);
+    }
+
+    InsertImages(internal_filenames);
+}
+
 void MainWindow::InsertSpecialCharacter()
 {
-   if ( !m_TabManager.TabDataIsWellFormed() ) {
+    if ( !m_TabManager.TabDataIsWellFormed() ) {
         return;
     }
 
@@ -3308,12 +3326,12 @@ void MainWindow::ConnectSignalsToSlots()
     connect( ui.actionExit,          SIGNAL( triggered() ), qApp, SLOT( closeAllWindows()          ) );
 
     // Edit
-    connect( ui.actionInsertImage,     SIGNAL( triggered() ), this, SLOT( InsertImage()              ) );
+    connect( ui.actionInsertImage,     SIGNAL( triggered() ), this, SLOT( InsertImageDialog()      ) );
     connect( ui.actionInsertSpecialCharacter, SIGNAL( triggered() ), this, SLOT( InsertSpecialCharacter()              ) );
     connect( ui.actionInsertId,        SIGNAL( triggered() ),  this,   SLOT( InsertId()            ) );
     connect( ui.actionInsertHyperlink, SIGNAL( triggered() ),  this,   SLOT( InsertHyperlink()     ) );
 
-    connect( ui.actionPreferences,     SIGNAL( triggered() ), this, SLOT( PreferencesDialog()        ) );
+    connect( ui.actionPreferences,     SIGNAL( triggered() ), this, SLOT( PreferencesDialog()      ) );
 
     // Search
     connect( ui.actionFind,          SIGNAL( triggered() ), this, SLOT( Find()                     ) );
@@ -3571,7 +3589,8 @@ void MainWindow::MakeTabConnections( ContentTab *tab )
         connect( tab,   SIGNAL( ClipboardRestoreRequest() ),  m_ClipboardHistorySelector,  SLOT( RestoreClipboardState() ) );
 
         connect( tab,   SIGNAL( SpellingHighlightRefreshRequest() ), this,  SLOT(  RefreshSpellingHighlighting() ) );
-        connect( tab,   SIGNAL( InsertImageRequest() ), this,  SLOT(  InsertImage() ) );
+        connect( tab,   SIGNAL( InsertImageRequest() ), this,  SLOT(  InsertImageDialog() ) );
+
     }
 
     connect( tab,   SIGNAL( ContentChanged() ),             m_Book.data(), SLOT( SetModified()             ) );

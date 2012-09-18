@@ -305,7 +305,7 @@ private slots:
     /**
      * Implements Insert image action functionality.
      */
-    void InsertImage();
+    void InsertImageDialog();
 
     void InsertSpecialCharacter();
 
@@ -577,6 +577,8 @@ private slots:
     void SetImageWatchResourceFile(const QString &pathname);
 
 private:
+
+    void InsertImagesFromDisk();
 
     void ResetLinkOrStyleBookmark();
     void ResetLocationBookmark(LocationBookmark *locationBookmark);

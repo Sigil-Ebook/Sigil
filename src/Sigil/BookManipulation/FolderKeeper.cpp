@@ -38,7 +38,7 @@
 const QStringList IMAGE_EXTENSIONS = QStringList() << "jpg"   << "jpeg"  << "png"
                                                    << "gif"   << "tif"   << "tiff"
                                                    << "bm"    << "bmp";
-static const QStringList SVG_EXTENSIONS = QStringList() << "svg";
+const QStringList SVG_EXTENSIONS = QStringList() << "svg";
 
 const QStringList JPG_EXTENSIONS = QStringList()   << "jpg"   << "jpeg";
 const QStringList TIFF_EXTENSIONS = QStringList()  << "tif"  << "tiff";

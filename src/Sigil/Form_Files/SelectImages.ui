@@ -11,11 +11,11 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Images</string>
+   <string>Insert Images</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
-    <layout class="QHBoxLayout" name="horizontalLayout" stretch="0,0">
+    <layout class="QHBoxLayout" name="horizontalLayout" stretch="0,0,0">
      <item>
       <widget class="QLabel" name="label">
        <property name="toolTip">
@@ -28,6 +28,17 @@
      </item>
      <item>
       <widget class="QLineEdit" name="Filter"/>
+     </item>
+     <item>
+      <widget class="QPushButton" name="InsertFromDisk">
+       <property name="toolTip">
+        <string>Choose images from your computer to automatically 
+add to your book and then insert into your document.</string>
+       </property>
+       <property name="text">
+        <string>Other Images...</string>
+       </property>
+      </widget>
      </item>
     </layout>
    </item>
@@ -140,11 +151,27 @@
      <item>
       <widget class="QLabel" name="Details">
        <property name="text">
-        <string>No image selected</string>
+        <string/>
        </property>
       </widget>
      </item>
     </layout>
+   </item>
+   <item>
+    <spacer name="verticalSpacer_2">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeType">
+      <enum>QSizePolicy::Fixed</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>10</height>
+      </size>
+     </property>
+    </spacer>
    </item>
    <item>
     <widget class="QDialogButtonBox" name="buttonBox">

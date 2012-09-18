@@ -500,8 +500,10 @@ void BookBrowser::AddNewSVG()
 }
 
 
-void BookBrowser::AddExisting()
+QStringList BookBrowser::AddExisting(Resource::ResourceType add_resource_type)
 {
+    QStringList added_files;
+
     // The static getOpenFileNames dialog does not always immediately disappear when finished
     QFileDialog file_dialog(this, tr("Add existing file(s)"), m_LastFolderOpen);
     file_dialog.setViewMode(QFileDialog::List);
@@ -514,7 +516,7 @@ void BookBrowser::AddExisting()
 
     if ( filepaths.isEmpty() )
 
-        return;
+        return added_files;
 
     m_LastFolderOpen = QFileInfo( filepaths.first() ).absolutePath();
 
@@ -537,13 +539,27 @@ void BookBrowser::AddExisting()
     foreach( QString filepath, filepaths )
     {
         // Set progress value and ensure dialog has time to display when doing extensive updates
+        // Set ahead of actual add since it can abort in several places
         progress.setValue(progress_value++);
         qApp->processEvents(QEventLoop::ExcludeUserInputEvents);
+
+        // Check if the file matches the type requested for adding
+        // Only used for inserting images from disk
+        if (add_resource_type == Resource::ImageResourceType || add_resource_type == Resource::SVGResourceType) {
+            if (!IMAGE_EXTENSIONS.contains(QFileInfo(filepath).suffix().toLower()) &&
+                !SVG_EXTENSIONS.contains(QFileInfo(filepath).suffix().toLower()) ) {
+                Utility::DisplayStdErrorDialog( 
+                        tr( "File is not an image and cannot be inserted:\n\n\"%1\"." ) .arg(filepath) );
+                continue;
+            }
+        }
 
         QString filename = QFileInfo( filepath ).fileName();
 
         if ( current_filenames.contains( filename ) ) {
-            if (IMAGE_EXTENSIONS.contains(QFileInfo(filepath).suffix().toLower())) {
+            // If this is an image prompt to replace it.
+            if (  IMAGE_EXTENSIONS.contains(QFileInfo(filepath).suffix().toLower()) ||
+                  SVG_EXTENSIONS.contains(QFileInfo(filepath).suffix().toLower()) ) {
                 QMessageBox::StandardButton button_pressed;
                 button_pressed = QMessageBox::warning(this,
                                     tr("Sigil"), tr("The image \"%1\" already exists in the book.\n\nOK to replace?").arg(filename),
@@ -604,6 +620,8 @@ void BookBrowser::AddExisting()
             // TODO: adding a CSS file should add the referenced fonts too
             m_Book->GetFolderKeeper().AddContentFileToFolder( filepath );
         }
+
+        added_files.append(filepath);
     }
 
     emit ResourcesAdded();
@@ -616,6 +634,8 @@ void BookBrowser::AddExisting()
 
     emit BookContentModified();
     Refresh();
+
+    return added_files;
 }
 
 void BookBrowser::SaveAsUrl(const QUrl &url)
