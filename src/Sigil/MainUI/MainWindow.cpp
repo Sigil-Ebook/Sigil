@@ -3497,6 +3497,7 @@ void MainWindow::MakeTabConnections( ContentTab *tab )
         tab->GetLoadedResource().Type() == Resource::SVGResourceType)
     {
         connect( tab, SIGNAL( ImageOpenedExternally(const QString&) ), this, SLOT( SetImageWatchResourceFile(const QString&)      ) );
+        connect( tab, SIGNAL( ImageSaveAs(const QUrl&) ), m_BookBrowser, SLOT( SaveAsUrl(const QUrl&)      ) );
     }
 
     if (tab->GetLoadedResource().Type() == Resource::HTMLResourceType ||

@@ -160,6 +160,8 @@ public slots:
      */
     void SelectRenamedResource();
 
+    void SaveAsUrl(const QUrl &url);
+
 signals:
 
     /**
@@ -242,7 +244,9 @@ private slots:
      */
     void AddNew();
 
-    void Export();
+    void SaveAs();
+    void SaveAsFile(Resource *resource);
+    void SaveAsFiles();
 
     void OpenWith() const;
 
@@ -493,7 +497,7 @@ private:
     QAction *m_SortHTML;
     QAction *m_RenumberTOC;
     QAction *m_LinkStylesheets;
-    QAction *m_Export;
+    QAction *m_SaveAs;
 
     QMenu &m_OpenWithContextMenu;
     QAction *m_OpenWith;
@@ -524,7 +528,7 @@ private:
      */
     QString m_LastFolderOpen;
 
-    QString m_LastFolderExport;
+    QString m_LastFolderSaveAs;
 
     QList <QModelIndex> m_SavedSelection;
 

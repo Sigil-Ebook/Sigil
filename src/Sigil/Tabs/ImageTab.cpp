@@ -86,6 +86,10 @@ ImageTab::~ImageTab()
         delete m_OpenWithEditor;
         m_OpenWithEditor = 0;
     }
+    if (m_SaveAs) {
+        delete m_SaveAs;
+        m_SaveAs = 0;
+    }
 }
 
 
@@ -144,6 +148,16 @@ void ImageTab::RefreshContent()
     const QString html = IMAGE_HTML_BASE.arg(imgUrl.toString()).arg(img.width()).arg(img.height()).arg(fsize)
             .arg(grayscale_color).arg(colorsInfo);
     m_WebView.setHtml(html, imgUrl);
+}
+
+void ImageTab::saveAs()
+{
+    const QVariant& data = m_SaveAs->data();
+    if ( data.isValid() )
+    {
+        const QUrl &url = data.toUrl();
+        emit ImageSaveAs( url );
+    }
 }
 
 void ImageTab::openWith()
@@ -222,6 +236,10 @@ bool ImageTab::SuccessfullySetupContextMenu( const QPoint &point )
             m_ContextMenu.addMenu( &m_OpenWithContextMenu );
         }
 
+        // Save As
+        m_SaveAs->setData( imageUrl );
+        m_ContextMenu.addAction( m_SaveAs );
+
         m_ContextMenu.addSeparator();
     }
 
@@ -232,6 +250,7 @@ void ImageTab::CreateContextMenuActions()
 {
     m_OpenWithEditor = new QAction( "",          this );
     m_OpenWith       = new QAction( tr( "Open With" ) + "...",  this );
+    m_SaveAs         = new QAction( tr( "Save As" ) + "...",  this );
 
     m_OpenWithContextMenu.setTitle( tr( "Open With" ) );
     m_OpenWithContextMenu.addAction( m_OpenWithEditor );
@@ -245,6 +264,7 @@ void ImageTab::ConnectSignalsToSlots()
     connect( &m_WebView, SIGNAL( customContextMenuRequested(const QPoint&) ),  this, SLOT( OpenContextMenu(const QPoint&) ) );
     connect( m_OpenWith,       SIGNAL( triggered() ),  this, SLOT( openWith()       ) );
     connect( m_OpenWithEditor, SIGNAL( triggered() ),  this, SLOT( openWithEditor() ) );
+    connect( m_SaveAs,         SIGNAL( triggered() ),  this, SLOT( saveAs()         ) );
 }
 
 void ImageTab::Zoom()

@@ -199,6 +199,8 @@ public slots:
     void openWith();
     void openWithEditor();
 
+    void saveAs();
+
 signals:
     /**
      * Emitted when the text changes.
@@ -237,6 +239,8 @@ signals:
     void InsertImage();
 
     void ImageOpenedExternally(const QString &pathname);
+
+    void ImageSaveAs(const QUrl &url);
 
 protected:
     /**
@@ -373,6 +377,8 @@ private:
     QMenu &m_OpenWithContextMenu;
     QAction *m_OpenWith;
     QAction *m_OpenWithEditor;
+
+    QAction *m_SaveAs;
 
     /**
      * Keyboard shortcut for scrolling one line up.

@@ -23,6 +23,8 @@
 #ifndef IMAGETAB_H
 #define IMAGETAB_H
 
+#include <QtCore/QUrl>
+
 #include "Tabs/ContentTab.h"
 
 class ImageResource;
@@ -51,6 +53,12 @@ public slots:
 
     void openWith();
     void openWithEditor();
+
+    void saveAs();
+
+signals:
+
+    void ImageSaveAs(const QUrl &url);
 
 private slots:
 
@@ -92,6 +100,8 @@ private:
 
     QAction *m_OpenWith;
     QAction *m_OpenWithEditor;
+
+    QAction *m_SaveAs;
 
     float m_CurrentZoomFactor;
 };

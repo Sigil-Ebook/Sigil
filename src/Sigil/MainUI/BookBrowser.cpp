@@ -618,55 +618,71 @@ void BookBrowser::AddExisting()
     Refresh();
 }
 
-void BookBrowser::Export()
+void BookBrowser::SaveAsUrl(const QUrl &url)
+{
+    SaveAsFile(GetUrlResource(url));
+}
+
+void BookBrowser::SaveAs()
 {
     QList <Resource *> resources = ValidSelectedResources();
 
-    if (resources.isEmpty()) {
-        return;
-    }
-
-    // If only one file, let user rename it
     if (resources.count() == 1) {
         Resource *resource = resources.first();
+        SaveAsFile(resource);
+    }
+    else if (resources.count() > 1) {
+        SaveAsFiles();
+    }
+}
 
-        QString save_path       = m_LastFolderExport + "/" + resource->Filename();
-        QString filter_string = "";
-        QString default_filter = "";
-
-        QString destination = QFileDialog::getSaveFileName( this,
-                                                         tr( "Export File" ),
-                                                         save_path,
-                                                         filter_string,
-                                                         &default_filter
-                                                       );
-
-        if (destination.isEmpty()) {
-            return;
-        }
-
-        // Store the folder the user saved to
-        m_LastFolderExport = QFileInfo(destination).absolutePath();
-
-       resource->SaveToDisk();
-
-        QString source = resource->GetFullPath();
-
-        if (QFileInfo(destination).exists()) {
-            QFile::remove(destination);
-        }
-
-        if (!QFile::copy(source, destination)) {
-            Utility::DisplayStdErrorDialog(tr( "Unable to export file."));
-        }
-
+void BookBrowser::SaveAsFile(Resource *resource)
+{
+    if (!resource) {
         return;
     }
 
-    // If more than one file, just save to a directory
+    const QString &filename = resource->Filename();
+
+    QString save_path = m_LastFolderSaveAs + "/" + filename;
+
+    QString filter_string = "";
+    QString default_filter = "";
+
+    QString destination = QFileDialog::getSaveFileName( this,
+                                                     tr( "Save As File" ),
+                                                     save_path,
+                                                     filter_string,
+                                                     &default_filter
+                                                   );
+
+    if (destination.isEmpty()) {
+        return;
+    }
+
+    // Store the folder the user saved to
+    m_LastFolderSaveAs = QFileInfo(destination).absolutePath();
+
+    resource->SaveToDisk();
+
+    QString source = resource->GetFullPath();
+
+    if (QFileInfo(destination).exists()) {
+        QFile::remove(destination);
+    }
+
+    if (!QFile::copy(source, destination)) {
+        Utility::DisplayStdErrorDialog(tr( "Unable to save the file."));
+    }
+}
+
+void BookBrowser::SaveAsFiles()
+{
+    QList <Resource *> resources = ValidSelectedResources();
+
     QString dirname = QFileDialog::getExistingDirectory(this,
-                        tr("Choose the directory to export the files to"),
-                        m_LastFolderExport);
+                        tr("Choose the directory to save the files to"),
+                        m_LastFolderSaveAs);
 
     if (dirname.isEmpty()) {
         return;
@@ -691,7 +707,7 @@ void BookBrowser::Export()
         }
     }
 
-    m_LastFolderExport = dirname;
+    m_LastFolderSaveAs = dirname;
 
     foreach (Resource *resource, resources) {
         resource->SaveToDisk();
@@ -701,7 +717,7 @@ void BookBrowser::Export()
 
         if (QFileInfo(destination).exists()) {
             if (!QFileInfo(destination).isFile()) {
-                Utility::DisplayStdErrorDialog(tr( "Unable to export files.  Destination may be a directory."));
+                Utility::DisplayStdErrorDialog(tr( "Unable to save files.  Destination may be a directory."));
                 break;
             }
 
@@ -709,7 +725,7 @@ void BookBrowser::Export()
         }
 
         if (!QFile::copy(source, destination)) {
-            Utility::DisplayStdErrorDialog(tr( "Unable to export files."));
+            Utility::DisplayStdErrorDialog(tr( "Unable to save files."));
             break;
         }
     }
@@ -1079,7 +1095,7 @@ void BookBrowser::ReadSettings()
     settings.beginGroup( SETTINGS_GROUP );
 
     m_LastFolderOpen = settings.value( "lastfolderopen" ).toString();
-    m_LastFolderExport = settings.value( "lastfolderexport" ).toString();
+    m_LastFolderSaveAs = settings.value( "lastfoldersaveas" ).toString();
 
     settings.endGroup();
 }
@@ -1091,7 +1107,7 @@ void BookBrowser::WriteSettings()
     settings.beginGroup( SETTINGS_GROUP );
 
     settings.setValue( "lastfolderopen", m_LastFolderOpen );
-    settings.setValue( "lastfolderexport", m_LastFolderExport);
+    settings.setValue( "lastfoldersaveas", m_LastFolderSaveAs);
 
     settings.endGroup();
 }
@@ -1144,7 +1160,7 @@ void BookBrowser::CreateContextMenuActions()
     m_RenumberTOC             = new QAction( tr( "Renumber TOC Entries" ),  this );
     m_LinkStylesheets         = new QAction( tr( "Link Stylesheets..." ),   this );
     m_OpenWith                = new QAction( tr( "Open With" ) + "...",     this );
-    m_Export                  = new QAction( tr( "Save As" ) + "...",       this );
+    m_SaveAs                  = new QAction( tr( "Save As" ) + "...",       this );
     m_OpenWithEditor          = new QAction( "",                            this );
 
     m_CoverImage             ->setCheckable( true );  
@@ -1332,7 +1348,7 @@ bool BookBrowser::SuccessfullySetupContextMenu( const QPoint &point )
         // Semantic Menu
         SetupSemanticContextmenu( resource );
     
-        // Open With and Export
+        // Open With and Save As
         m_ContextMenu.addSeparator();
 
         if ( OpenExternally::mayOpen( resource->Type() ) ) {
@@ -1357,7 +1373,7 @@ bool BookBrowser::SuccessfullySetupContextMenu( const QPoint &point )
             }
         }
 
-        m_ContextMenu.addAction( m_Export );
+        m_ContextMenu.addAction( m_SaveAs );
     }
 
     // Applies to Menus and Resources
@@ -1537,7 +1553,7 @@ void BookBrowser::ConnectSignalsToSlots()
     connect( m_CoverImage,              SIGNAL( triggered() ), this, SLOT( SetCoverImage()           ) );
     connect( m_Merge,                   SIGNAL( triggered() ), this, SLOT( Merge()                   ) );
     connect( m_LinkStylesheets,         SIGNAL( triggered() ), this, SLOT( LinkStylesheets()         ) );
-    connect( m_Export,                  SIGNAL( triggered() ), this, SLOT( Export()                  ) );
+    connect( m_SaveAs,                  SIGNAL( triggered() ), this, SLOT( SaveAs()                  ) );
     connect( m_OpenWith,                SIGNAL( triggered() ), this, SLOT( OpenWith()                ) );
     connect( m_OpenWithEditor,          SIGNAL( triggered() ), this, SLOT( OpenWithEditor()          ) );
 

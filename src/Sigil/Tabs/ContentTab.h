@@ -25,6 +25,7 @@
 
 #include <QWidget>
 #include <QString>
+#include <QtCore/QUrl>
 
 #include "Misc/Utility.h"
 #include "ViewEditors/Zoomable.h"
@@ -357,6 +358,8 @@ signals:
     void SpellingHighlightRefreshRequest();
 
     void ImageOpenedExternally(const QString &pathname);
+
+    void ImageSaveAs(const QUrl &url);
 
 protected slots:
 

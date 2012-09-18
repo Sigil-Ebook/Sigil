@@ -1499,4 +1499,6 @@ void FlowTab::ConnectSignalsToSlots()
     connect(m_wCodeView, SIGNAL(SpellingHighlightRefreshRequest()), this, SIGNAL(SpellingHighlightRefreshRequest()));
 
     connect(m_wBookView, SIGNAL(ImageOpenedExternally(const QString &)), this, SIGNAL(ImageOpenedExternally(const QString &)));
+
+    connect(m_wBookView, SIGNAL(ImageSaveAs(const QUrl&)), this, SIGNAL(ImageSaveAs(const QUrl&)));
 }

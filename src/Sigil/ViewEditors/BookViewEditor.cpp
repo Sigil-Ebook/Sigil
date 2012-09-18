@@ -113,6 +113,10 @@ BookViewEditor::~BookViewEditor()
         delete m_OpenWithEditor;
         m_OpenWithEditor = 0;
     }
+    if (m_SaveAs) {
+        delete m_SaveAs;
+        m_SaveAs = 0;
+    }
     if (m_InsertImage) {
         delete m_InsertImage;
         m_InsertImage = 0;
@@ -556,6 +560,16 @@ void BookViewEditor::openWith()
     }
 }
 
+void BookViewEditor::saveAs()
+{
+    const QVariant& data = m_SaveAs->data();
+    if ( data.isValid() )
+    {
+        const QUrl &url = data.toUrl();
+        emit ImageSaveAs( url );
+    }
+}
+
 void BookViewEditor::openWithEditor()
 {
     const QVariant &data = m_OpenWithEditor->data();
@@ -626,6 +640,10 @@ bool BookViewEditor::SuccessfullySetupContextMenu( const QPoint &point )
                 m_ContextMenu.addMenu( &m_OpenWithContextMenu );
             }
 
+            // Save As
+            m_SaveAs->setData( imageUrl );
+            m_ContextMenu.addAction( m_SaveAs );
+
             m_ContextMenu.addSeparator();
         }
     }
@@ -657,6 +675,7 @@ void BookViewEditor::CreateContextMenuActions()
     m_Open           = new QAction( tr( "Open" ),  this );
     m_OpenWithEditor = new QAction( "",          this );
     m_OpenWith       = new QAction( tr( "Open With" ) + "...",  this );
+    m_SaveAs         = new QAction( tr( "Save As" ) + "...",  this );
 
     m_OpenWithContextMenu.setTitle( tr( "Open With" ) );
     m_OpenWithContextMenu.addAction( m_OpenWithEditor );
@@ -683,4 +702,5 @@ void BookViewEditor::ConnectSignalsToSlots()
     connect( m_Open,           SIGNAL( triggered() ),  this, SLOT( openImage()      ) );
     connect( m_OpenWith,       SIGNAL( triggered() ),  this, SLOT( openWith()       ) );
     connect( m_OpenWithEditor, SIGNAL( triggered() ),  this, SLOT( openWithEditor() ) );
+    connect( m_SaveAs,         SIGNAL( triggered() ),  this, SLOT( saveAs()         ) );
 }
