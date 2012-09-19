@@ -173,7 +173,7 @@ Resource& FolderKeeper::AddContentFileToFolder( const QString &fullfilepath,
 
         else if ( SVG_EXTENSIONS.contains( extension ) || SVG_MIMETYPES.contains( mimetype ) )
         {
-            new_file_path = m_FullPathToTextFolder + "/" + filename;
+            new_file_path = m_FullPathToImagesFolder + "/" + filename;
             relative_path = IMAGE_FOLDER_NAME + "/" + filename;
 
             resource = new SVGResource( new_file_path );
