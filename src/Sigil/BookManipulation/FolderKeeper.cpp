@@ -49,6 +49,8 @@ const QStringList TIFF_EXTENSIONS = QStringList()  << "tif"  << "tiff";
 // through untouched.
 const QRegExp FILE_EXCEPTIONS ( "META-INF|page-map" );
 
+const QStringList MISC_TEXT_EXTENSIONS = QStringList()  << "txt"  << "js" << "xpgt";
+
 const QStringList FONT_EXTENSIONS         = QStringList() << "ttf"   << "ttc"   << "otf";
 const QStringList TEXT_EXTENSIONS         = QStringList() << "xhtml" << "html"  << "htm" << "xml";
 static const QStringList STYLE_EXTENSIONS = QStringList() << "css";
@@ -149,7 +151,7 @@ Resource& FolderKeeper::AddContentFileToFolder( const QString &fullfilepath,
             {
                 new_file_path = m_FullPathToMiscFolder + "/" + filename;
 
-                resource = new XMLResource( new_file_path );
+                resource = new MiscTextResource( new_file_path );
             }
             else 
             {
@@ -161,6 +163,13 @@ Resource& FolderKeeper::AddContentFileToFolder( const QString &fullfilepath,
 
                 resource = new Resource( new_file_path );
             }
+        }
+        else if ( MISC_TEXT_EXTENSIONS.contains( extension ) )
+        {
+                new_file_path = m_FullPathToMiscFolder + "/" + filename;
+                relative_path = MISC_FOLDER_NAME + "/" + filename;
+
+                resource = new MiscTextResource( new_file_path );
         }
 
         else if ( IMAGE_EXTENSIONS.contains( extension ) || IMAGE_MIMEYPES.contains( mimetype ) )

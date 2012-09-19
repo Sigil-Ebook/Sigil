@@ -33,13 +33,15 @@ static const QString EMPTY;
 
 // resource types that are watched for modifications from outside Sigil
 // only watch certain types of resources (auxiliaries)
-static const int WATCHED_RESOURCE_TYPES = Resource::HTMLResourceType  |
-                                          Resource::CSSResourceType   |
-                                          Resource::ImageResourceType |
-                                          Resource::SVGResourceType   |
-                                          Resource::FontResourceType  |
-                                          Resource::NCXResourceType   |
-                                          Resource::OPFResourceType;
+static const int WATCHED_RESOURCE_TYPES = Resource::HTMLResourceType       |
+                                          Resource::CSSResourceType        |
+                                          Resource::ImageResourceType      |
+                                          Resource::MiscTextResourceType   |
+                                          Resource::SVGResourceType        |
+                                          Resource::FontResourceType       |
+                                          Resource::NCXResourceType        |
+                                          Resource::OPFResourceType        |
+                                          Resource::GenericResourceType;
 
 // not very elegant, but much lighter than a std::map (and with less initialization trouble)
 // the switch _must_ always be in sync with WATCHED_RESOURCE_TYPES
@@ -47,14 +49,16 @@ static inline const char* const RESOURCE_TYPE_NAME( const Resource::ResourceType
 {
     switch (type)
     {
-    case Resource::HTMLResourceType:    return "html";
-    case Resource::CSSResourceType:     return "stylesheet";
-    case Resource::ImageResourceType:   return "image";
-    case Resource::SVGResourceType:     return "svg";
-    case Resource::FontResourceType:    return "font";
-    case Resource::NCXResourceType:     return "ncx";
-    case Resource::OPFResourceType:     return "opf";
-    default:                            return "";
+    case Resource::GenericResourceType:  return "generic";
+    case Resource::HTMLResourceType:     return "html";
+    case Resource::CSSResourceType:      return "stylesheet";
+    case Resource::ImageResourceType:    return "image";
+    case Resource::MiscTextResourceType: return "misctext";
+    case Resource::SVGResourceType:      return "svg";
+    case Resource::FontResourceType:     return "font";
+    case Resource::NCXResourceType:      return "ncx";
+    case Resource::OPFResourceType:      return "opf";
+    default:                             return "";
     }
 }
 

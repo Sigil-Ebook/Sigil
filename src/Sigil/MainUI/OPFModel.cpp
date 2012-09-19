@@ -160,6 +160,10 @@ QList <Resource* > OPFModel::GetResourceListInFolder( Resource::ResourceType res
     {
         folder = &m_FontsFolderItem;
     }
+    else if ( resource_type == Resource::MiscTextResourceType )
+    {
+        folder = &m_MiscFolderItem;
+    }
     else if ( resource_type != Resource::OPFResourceType && resource_type != Resource::NCXResourceType )
     {
         folder = &m_MiscFolderItem;

@@ -77,6 +77,7 @@ set( QOBJECT_HEADERS
     Tabs/TextTab.h
     Tabs/CSSTab.h 
     Tabs/ImageTab.h
+    Tabs/MiscTextTab.h
     Tabs/SVGTab.h
     Tabs/OPFTab.h
     Tabs/NCXTab.h
@@ -108,6 +109,7 @@ set( QOBJECT_HEADERS
     ResourceObjects/HTMLResource.h
     ResourceObjects/CSSResource.h
     ResourceObjects/ImageResource.h
+    ResourceObjects/MiscTextResource.h
     ResourceObjects/SVGResource.h
     ResourceObjects/FontResource.h
     ResourceObjects/NCXResource.h
@@ -158,6 +160,8 @@ set( RESOURCE_OBJECT_FILES
     ResourceObjects/CSSResource.h
     ResourceObjects/ImageResource.cpp
     ResourceObjects/ImageResource.h
+    ResourceObjects/MiscTextResource.cpp
+    ResourceObjects/MiscTextResource.h
     ResourceObjects/SVGResource.cpp
     ResourceObjects/SVGResource.h
     ResourceObjects/FontResource.cpp
@@ -390,6 +394,8 @@ set( TAB_FILES
     Tabs/CSSTab.h
     Tabs/ImageTab.cpp
     Tabs/ImageTab.h
+    Tabs/MiscTextTab.cpp
+    Tabs/MiscTextTab.h
     Tabs/SVGTab.cpp
     Tabs/SVGTab.h
     Tabs/OPFTab.cpp

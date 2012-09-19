@@ -1,4 +1,5 @@
 Sigil 0.6.0 TBA 
+    - Implement issue 1594: Allow miscellaneous text files to be edited and others to be opened externally.
     - Implement issue 1590: Insert image should allow insert from disk.
     - Implement issue 1557: Sigil requires Qt 4.8 or above.
     - Implement issue 1586: Spellcheck should allow setting a keyboard shortcut for Ignore Word to speed editing.

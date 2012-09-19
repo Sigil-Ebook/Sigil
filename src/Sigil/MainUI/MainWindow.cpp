@@ -1530,6 +1530,7 @@ bool MainWindow::UpdateViewState(bool set_tab_state)
     else if (type == Resource::XMLResourceType ||
              type == Resource::OPFResourceType ||
              type == Resource::NCXResourceType ||
+             type == Resource::MiscTextResourceType ||
              type == Resource::SVGResourceType ||
              type == Resource::TextResourceType)
     {

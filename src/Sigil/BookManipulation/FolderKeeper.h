@@ -36,6 +36,7 @@
 #include "ResourceObjects/FontResource.h"
 #include "ResourceObjects/HTMLResource.h"
 #include "ResourceObjects/ImageResource.h"
+#include "ResourceObjects/MiscTextResource.h"
 #include "ResourceObjects/SVGResource.h"
 #include "ResourceObjects/OPFResource.h"
 

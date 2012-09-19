@@ -25,10 +25,12 @@
 #include "ResourceObjects/NCXResource.h"
 #include "ResourceObjects/HTMLResource.h"
 #include "ResourceObjects/ImageResource.h"
+#include "ResourceObjects/MiscTextResource.h"
 #include "ResourceObjects/SVGResource.h"
 #include "Tabs/CSSTab.h"
 #include "Tabs/FlowTab.h"
 #include "Tabs/ImageTab.h"
+#include "Tabs/MiscTextTab.h"
 #include "Tabs/SVGTab.h"
 #include "Tabs/NCXTab.h"
 #include "Tabs/OPFTab.h"
@@ -555,6 +557,13 @@ ContentTab* TabManager::CreateTabForResource( Resource& resource,
             tab = new ImageTab( *( qobject_cast< ImageResource* >( &resource ) ), this );
             break;
         }
+
+    case Resource::MiscTextResourceType:
+        {
+            tab = new MiscTextTab( *( qobject_cast< MiscTextResource* >( &resource ) ), line_to_scroll_to, this );
+            break;
+        }
+
 
     case Resource::SVGResourceType:
         {
