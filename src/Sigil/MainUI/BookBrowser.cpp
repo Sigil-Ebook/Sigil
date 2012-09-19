@@ -591,7 +591,10 @@ QStringList BookBrowser::AddExisting(Resource::ResourceType add_resource_type)
             }
         }
 
-        if ( TEXT_EXTENSIONS.contains( QFileInfo( filepath ).suffix().toLower() ) )
+        if ( QFileInfo( filepath ).fileName() == "page-map.xml") {
+            m_Book->GetFolderKeeper().AddContentFileToFolder( filepath );
+        }
+        else if ( TEXT_EXTENSIONS.contains( QFileInfo( filepath ).suffix().toLower() ) )
         {
             ImportHTML html_import( filepath );
             html_import.SetBook( m_Book, true );
