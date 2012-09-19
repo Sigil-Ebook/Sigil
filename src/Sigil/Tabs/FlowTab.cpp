@@ -699,7 +699,7 @@ QString FlowTab::GetAttributeId()
         // If text is selected we don't want to use the enclosing id
         // since the user might want a new id inside the existing one
         if (!m_wCodeView->TextIsSelected()) {
-            attribute_value = m_wCodeView->GetAttribute("id", ID_TAGS);
+            attribute_value = m_wCodeView->GetAttribute("id", ID_TAGS, false, true);
         }
     }
 
@@ -710,7 +710,7 @@ QString FlowTab::GetAttributeHref()
 {
     QString attribute_value;
     if (m_ViewState == MainWindow::ViewState_CodeView) {
-        attribute_value = m_wCodeView->GetAttribute("href", HREF_TAGS);
+        attribute_value = m_wCodeView->GetAttribute("href", HREF_TAGS, false, true);
     }
 
     return attribute_value;

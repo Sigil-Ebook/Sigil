@@ -93,7 +93,7 @@ public:
 
     bool TextIsSelected();
     bool TextIsSelectedAndNotInStartOrEndTag();
-    bool TextIsSelectedAndNotInTag();
+    bool TextIsSelectedAndNotContainingTag();
 
     QString StripCodeTags(QString text);
 
@@ -296,9 +296,9 @@ public:
      * get appropriate attribute_value for attribute_name.
      *
      */
-    QString GetAttribute(const QString &attribute_name, QStringList tag_list = QStringList(), bool must_be_in_attribute = false);
+    QString GetAttribute(const QString &attribute_name, QStringList tag_list = QStringList(), bool must_be_in_attribute = false, bool skip_paired_tags = false);
 
-    QString SetAttribute(const QString &attribute_name, QStringList tag_list = QStringList(), const QString &attribute_value = QString(), bool must_be_in_attribute = false);
+    QString SetAttribute(const QString &attribute_name, QStringList tag_list = QStringList(), const QString &attribute_value = QString(), bool must_be_in_attribute = false, bool skip_paired_tags = false);
 
     /**
      * Based on the cursor location (in html file) add/replace as
@@ -307,7 +307,7 @@ public:
      * @param attribute_name The name of the attribute to be inserted/replaced.
      * @param attribute_value The new value to be assigned to this attribute.
      */
-    QString ProcessAttribute( const QString &attribute_name, QStringList tag_list = QStringList(), const QString &attribute_value = QString(), bool set_attribute = false , bool must_be_in_attribute = false);
+    QString ProcessAttribute( const QString &attribute_name, QStringList tag_list = QStringList(), const QString &attribute_value = QString(), bool set_attribute = false , bool must_be_in_attribute = false, bool skip_paired_tags = false);
 
     /**
      * Control whether the Go To Link Or Style option is available on the context menu.

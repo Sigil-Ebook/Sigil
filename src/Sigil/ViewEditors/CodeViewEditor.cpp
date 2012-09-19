@@ -178,27 +178,6 @@ bool CodeViewEditor::TextIsSelectedAndNotInStartOrEndTag()
     return true;
 }
 
-bool CodeViewEditor::TextIsSelectedAndNotInTag()
-{
-    if (!textCursor().hasSelection()) {
-        return false;
-    }
-
-    QString text = toPlainText();
-    QTextCursor cursor = textCursor();
-    QString selected_text = cursor.selectedText();
-
-    // OK if every part of the selection is outside a tag
-    if (selected_text.contains("<") || 
-            selected_text.contains(">") ||
-            IsPositionInTag(cursor.selectionStart(), text) ||
-            IsPositionInTag(cursor.selectionEnd(), text)) {
-        return false;
-    }
-
-    return true;
-}
-
 bool CodeViewEditor::IsCutCodeTagsAllowed()
 {
     return TextIsSelectedAndNotInStartOrEndTag();
@@ -1449,14 +1428,14 @@ void CodeViewEditor::InsertTagAttribute(const QString &element_name, const QStri
 {
     if (!textCursor().hasSelection()) {
         // Add or update the attribute within the start tag
-       const QString &inserted_attribute = SetAttribute(attribute_name, tag_list, attribute_value);
+       const QString &inserted_attribute = SetAttribute(attribute_name, tag_list, attribute_value, false, true);
 
         // If nothing was inserted, then just insert a new tag with no text
         if (inserted_attribute.isEmpty()) {
             InsertHTMLTagAroundText(element_name, "/" % element_name, attribute_name % "=\"" % attribute_value % "\"", "" );
         }
     }
-    else if (TextIsSelectedAndNotInTag()) {
+    else if (TextIsSelectedAndNotInStartOrEndTag()) {
         // Just prepend and append the tag pairs to the text
         QString attributes = attribute_name % "=\"" % attribute_value % "\"";
         InsertHTMLTagAroundSelection( element_name, "/" % element_name, attributes);
@@ -2383,18 +2362,18 @@ CodeViewEditor::StyleTagElement CodeViewEditor::GetSelectedStyleTagElement()
     return element;
 }
 
-QString CodeViewEditor::GetAttribute(const QString &attribute_name, QStringList tag_list, bool must_be_in_attribute)
+QString CodeViewEditor::GetAttribute(const QString &attribute_name, QStringList tag_list, bool must_be_in_attribute, bool skip_paired_tags)
 {
-    return ProcessAttribute(attribute_name, tag_list, QString(), false, must_be_in_attribute);
+    return ProcessAttribute(attribute_name, tag_list, QString(), false, must_be_in_attribute, skip_paired_tags);
 }
 
 
-QString CodeViewEditor::SetAttribute(const QString &attribute_name, QStringList tag_list, const QString &attribute_value, bool must_be_in_attribute)
+QString CodeViewEditor::SetAttribute(const QString &attribute_name, QStringList tag_list, const QString &attribute_value, bool must_be_in_attribute, bool skip_paired_tags)
 {
-    return ProcessAttribute(attribute_name, tag_list, attribute_value, true, must_be_in_attribute);
+    return ProcessAttribute(attribute_name, tag_list, attribute_value, true, must_be_in_attribute, skip_paired_tags);
 }
 
-QString CodeViewEditor::ProcessAttribute( const QString &attribute_name, QStringList tag_list, const QString &attribute_value, bool set_attribute, bool must_be_in_attribute )
+QString CodeViewEditor::ProcessAttribute( const QString &attribute_name, QStringList tag_list, const QString &attribute_value, bool set_attribute, bool must_be_in_attribute, bool skip_paired_tags )
 {
     if ( attribute_name.isEmpty() ) {
         return QString();
@@ -2444,6 +2423,8 @@ QString CodeViewEditor::ProcessAttribute( const QString &attribute_name, QString
         }
     }
 
+    QStringList pairs;
+
     // Search backwards for the next opening tag
     while (true) {
         int previous_tag_index = text.lastIndexOf( tag_search, pos );
@@ -2464,11 +2445,29 @@ QString CodeViewEditor::ProcessAttribute( const QString &attribute_name, QString
         if ( tag_name.startsWith('/') ) {
             tag_name = tag_name.right(tag_name.length() - 1);
 
+            // If we're ignoring paired tags before us and this isn't a block tag
+            // then save this tag for skipping later
+            if (skip_paired_tags && !BLOCK_LEVEL_TAGS.contains(tag_name)) {
+                pairs.prepend(tag_name);
+                pos = previous_tag_index - 1;
+                continue;
+            }
+
             // If this is the closing tag of something we're checking then skip
             // since we are outside of a relevant tag pair.
             if (tag_list.contains(tag_name) || BLOCK_LEVEL_TAGS.contains(tag_name)) {
                 break;
             }
+            pos = previous_tag_index - 1;
+            continue;
+        }
+
+        // We have an opening tag
+
+        // If we are skipping tag pairs and this opening tag is partner to the last
+        // found closed tag then keep searching
+        if (skip_paired_tags && !pairs.isEmpty() && tag_name == pairs.first()) {
+            pairs.removeFirst();
             pos = previous_tag_index - 1;
             continue;
         }

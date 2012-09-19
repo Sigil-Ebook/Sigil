@@ -63,12 +63,12 @@ static const QStringList IMAGE_TAGS = QStringList() << "img" << "image";
 static const QStringList INVALID_ID_TAGS = QStringList() << "base" << "head" << "meta" << "param" << "script" << "style" << "title";
 static const QStringList SKIP_ID_TAGS = QStringList() << "html" << "#document" << "body";
 const QStringList ID_TAGS = QStringList() << BLOCK_LEVEL_TAGS << 
-                                                          "dd" << "dt" << "li" << "tbody" << "td" << "tfoot" << "th" <<
-                                                          "thead" << "tr" <<
-                                                          "a" << "abbr" << "acronym" << "address" << "b" << "big" << 
-                                                          "caption" << "center" << "cite" << "code" << "font" << "label" << 
-                                                          "pre" << "small" << "span" << "strike" << "strong" << "sub" << 
-                                                          "sup" << "u";
+                                                          "dd" << "dt" << "li" << "tbody" << "td" << "tfoot" << 
+                                                          "th" << "thead" << "tr" << "a" << "abbr" <<
+                                                          "acronym" << "address" << "b" << "big" << 
+                                                          "caption" << "center" << "cite" << "code" << "font" <<
+                                                          "label" << "i" << "pre" << "small" << "span" << 
+                                                          "strike" << "strong" << "sub" << "sup" << "u";
 const QStringList HREF_TAGS = QStringList() << "a";
 const QStringList SRC_TAGS = QStringList() << "link" << "img";
 
