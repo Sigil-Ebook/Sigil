@@ -190,6 +190,9 @@ public:
 
     QString GetCaretElementName();
 
+    void SuspendTabReloading();
+    void ResumeTabReloading();
+
 public slots:
 
     bool IsDataWellFormed();
@@ -537,6 +540,8 @@ private:
     bool m_BookPreviewNeedReload;
 
     bool m_grabFocus;
+
+    bool m_suspendTabReloading;
 };
 
 #endif // FLOWTAB_H

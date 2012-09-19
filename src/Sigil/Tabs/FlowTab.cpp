@@ -79,7 +79,8 @@ FlowTab::FlowTab(HTMLResource& resource,
     m_safeToLoad(false),
     m_initialLoad(true),
     m_BookPreviewNeedReload(false),
-    m_grabFocus(grab_focus)
+    m_grabFocus(grab_focus),
+    m_suspendTabReloading(false)
 {
     // Loading a flow tab can take a while. We set the wait
     // cursor and clear it at the end of the delayed initialization.
@@ -811,6 +812,9 @@ void FlowTab::ReloadTabIfPending()
     if (!isVisible()) {
         return;
     }
+    if (m_suspendTabReloading) {
+        return;
+    }
     setFocus();
     // Reload BV/PV if the resource was marked as changed outside of the editor.
     if (m_BookPreviewNeedReload && (m_ViewState == MainWindow::ViewState_PreviewView || m_ViewState == MainWindow::ViewState_BookView)) {
@@ -1457,6 +1461,27 @@ QString FlowTab::GetCaretElementName()
         return m_wBookView->GetCaretElementName();
     else
         return ContentTab::GetCaretElementName();
+}
+
+void FlowTab::SuspendTabReloading()
+{
+    // Call this function to prevent the currently displayed BV/PV from being
+    // reloaded if a linked resource is changed. Automatic reloading can cause
+    // issues if your code is attempting to manipulate the tab content concurrently.
+    m_suspendTabReloading = true;
+}
+
+void FlowTab::ResumeTabReloading()
+{
+    // Call this function to resume reloading of BV/PV in response to linked
+    // resources changing. If a reload tab request is pending it is executed now.
+    m_suspendTabReloading = false;
+    // Force an immediate reload if there is one pending
+    if (m_BookPreviewNeedReload) {
+        // Must save tab content first or else reload may not take place.
+        SaveTabContent();
+        ReloadTabIfPending();
+    }
 }
 
 void FlowTab::DelayedConnectSignalsToSlots()

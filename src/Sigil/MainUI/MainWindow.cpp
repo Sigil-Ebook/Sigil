@@ -824,30 +824,27 @@ void MainWindow::InsertImageDialog()
 
 void MainWindow::InsertImages(QStringList selected_images)
 {
-    if (selected_images.isEmpty()) {
-        return;
-    }
-
-    FlowTab *flow_tab = qobject_cast<FlowTab*>(&GetCurrentContentTab());
-
-    if (!flow_tab || !flow_tab->InsertImageEnabled()) {
-        return;
-    }
-
-    foreach (QString selected_image, selected_images) {
-        try
-        {
-            const Resource &resource = m_Book->GetFolderKeeper().GetResourceByFilename(selected_image);
-            const QString &relative_path = "../" + resource.GetRelativePathToOEBPS();
-            flow_tab->InsertImage(relative_path);
-        }
-        catch (const ResourceDoesNotExist&)
-        {
-            Utility::DisplayStdErrorDialog(tr("The file \"%1\" does not exist.") .arg(selected_image));
-        }
-    }
-
     if (!selected_images.isEmpty()) {
+        FlowTab *flow_tab = qobject_cast<FlowTab*>(&GetCurrentContentTab());
+        if (!flow_tab) {
+            return;
+        }
+        if (flow_tab->InsertImageEnabled()) {
+            foreach (QString selected_image, selected_images) {
+                try
+                {
+                    const Resource &resource = m_Book->GetFolderKeeper().GetResourceByFilename(selected_image);
+                    const QString &relative_path = "../" + resource.GetRelativePathToOEBPS();
+                    flow_tab->InsertImage(relative_path);
+                }
+                catch (const ResourceDoesNotExist&)
+                {
+                    Utility::DisplayStdErrorDialog(tr("The file \"%1\" does not exist.") .arg(selected_image));
+                }
+            }
+        }
+        flow_tab->ResumeTabReloading();
+
         m_LastInsertedImage = selected_images.last();
     }
 }
@@ -855,11 +852,22 @@ void MainWindow::InsertImages(QStringList selected_images)
 void MainWindow::InsertImagesFromDisk()
 {
     // Prompt the user for the images to add.
-    // We must disconnect the ResourcesAdded signal to avoid clearMemoryCaches being called
+
+    // Workaround for insert same image twice from disk causing a book view refresh
+    // due to the linked resource being modified. Will perform the refresh afterwards.
+    FlowTab *flow_tab = qobject_cast< FlowTab* >( &GetCurrentContentTab() );
+    if (flow_tab) {
+        flow_tab->SuspendTabReloading();
+    }
+
+    // We must disconnect the ResourcesAdded signal to avoid LoadTabContent being called
     // which results in the inserted image being cleared from the BV page immediately.
-    disconnect(m_BookBrowser, SIGNAL(ResourcesAdded()), this, SLOT(ResourcesAddedOrDeleted()));
+    disconnect(m_BookBrowser, SIGNAL(ResourcesAdded()), this, SLOT(ResourcesAddedOrDeleted()));    
     QStringList filenames = m_BookBrowser->AddExisting(Resource::ImageResourceType);
     connect(m_BookBrowser, SIGNAL(ResourcesAdded()), this, SLOT( ResourcesAddedOrDeleted()));
+    
+    // Since we disconnected the signal we will have missed forced clearing of cache
+    QWebSettings::clearMemoryCaches();
 
     QStringList internal_filenames;
     foreach (QString filename, filenames) {
@@ -868,12 +876,6 @@ void MainWindow::InsertImagesFromDisk()
     }
 
     InsertImages(internal_filenames);
-
-    // Workaround for insert same image twice from disk needed a book view refresh
-    FlowTab *flow_tab = qobject_cast< FlowTab* >( &GetCurrentContentTab() );
-    if (flow_tab) {
-        flow_tab->LoadTabContent();
-    }
 }
 
 void MainWindow::InsertSpecialCharacter()
@@ -2376,7 +2378,6 @@ void MainWindow::SetNewBook( QSharedPointer< Book > new_book )
 
 void MainWindow::ResourcesAddedOrDeleted()
 {
-
     ContentTab &tab = GetCurrentContentTab();
 
     QWebSettings::clearMemoryCaches();
