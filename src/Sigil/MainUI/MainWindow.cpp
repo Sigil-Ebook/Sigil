@@ -868,6 +868,12 @@ void MainWindow::InsertImagesFromDisk()
     }
 
     InsertImages(internal_filenames);
+
+    // Workaround for insert same image twice from disk needed a book view refresh
+    FlowTab *flow_tab = qobject_cast< FlowTab* >( &GetCurrentContentTab() );
+    if (flow_tab) {
+        flow_tab->LoadTabContent();
+    }
 }
 
 void MainWindow::InsertSpecialCharacter()
