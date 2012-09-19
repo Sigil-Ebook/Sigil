@@ -35,9 +35,9 @@ TextResource::TextResource( const QString &fullfilepath, QObject *parent )
     :
     Resource( fullfilepath, parent ),
     m_CacheInUse( false ),
-    m_TextDocument( new QTextDocument( this ) )
+    m_TextDocument( new QTextDocument( this ) ),
+    m_IsLoaded( false )
 {
-    InitialLoad();
     m_TextDocument->setDocumentLayout( new QPlainTextDocumentLayout( m_TextDocument ) );
     connect( m_TextDocument, SIGNAL( contentsChanged() ), this, SIGNAL( Modified() ) );
 }
@@ -71,7 +71,6 @@ void TextResource::SetText( const QString& text )
     {
         SetTextInternal( text );
     }
-
     else
     {
         QMutexLocker locker( &m_CacheAccessMutex );
@@ -98,14 +97,15 @@ QTextDocument& TextResource::GetTextDocumentForWriting()
 
 void TextResource::SaveToDisk( bool book_wide_save )
 {
+    if (!m_IsLoaded) {
+        return;
+    }
     // We can't perform the document modified check
     // here because that causes problems with epub export
     // when the user has not changed the text file.
     // (some text files have placeholder text on disk)
-
     {
         QWriteLocker locker( &GetLock() );
-
         Utility::WriteUnicodeTextFile( GetText(), GetFullPath() );
     }
 
@@ -120,6 +120,26 @@ void TextResource::SaveToDisk( bool book_wide_save )
 
 void TextResource::InitialLoad()
 {
+    /**
+      * Stuff to know about resource loading...
+      *
+      * Currently Sigil when opening an ePub creates Resource objects *prior*
+      * to actually copying the resources from the zip into the Sigil folders.
+      * So in 99% of cases the resource will not exist, so a call to InitialLoad()
+      * from the constructor would fail (which it used to do). 
+      *
+      * For some resource types there is a call made afterwards which will result 
+      * in the resource being loaded such as for HTML files, CSS, NCX and OPF 
+      * (see UniversalUpdates.cpp and code setting default text for new html pages etc).
+      *
+      * For other text resource types, they will only get loaded on demand, when
+      * the tab is actually opened, TextTab.cpp will call this InitialLoad() function.
+      *
+      * If you were to write some code to iterate over resources that do not fall
+      * into the special cases above, you *must* call InitialLoad() first to ensure
+      * the data is loaded, or else it will be blank or have data depending on whether
+      * it had been opened in a tab first.
+      */
     QWriteLocker locker( &GetLock() );
 
     Q_ASSERT( m_TextDocument );
@@ -184,4 +204,11 @@ void TextResource::SetTextInternal( const QString &text )
     // Clear anything left in the cache
     m_Cache = "";
     m_CacheInUse = false;
+    // Our resource has now been loaded with some text
+    m_IsLoaded = true;
+}
+
+bool TextResource::IsLoaded()
+{
+    return m_IsLoaded;
 }

@@ -80,6 +80,8 @@ public:
      */
     virtual void InitialLoad();
 
+    bool IsLoaded();
+
     // inherited
     virtual ResourceType Type() const;
 
@@ -127,6 +129,8 @@ private:
      * The syntax colored cache of the TextResource text content.
      */
     QTextDocument *m_TextDocument;
+
+    bool m_IsLoaded;
 };
 
 #endif // TEXTRESOURCE_H
