@@ -35,9 +35,6 @@ class SVGTab : public TextTab
 
 public:
     SVGTab( SVGResource &resource, int line_to_scroll_to = -1, QWidget *parent = 0);
-
-signals:
-    void OpenClipEditorRequest(ClipEditorModel::clipEntry *clip);
 };
 
 #endif // SVGTAB_H
