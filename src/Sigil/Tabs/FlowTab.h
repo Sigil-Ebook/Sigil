@@ -105,6 +105,8 @@ public:
     bool InsertSpecialCharacterEnabled();
     bool ToggleAutoSpellcheckEnabled();
 
+    bool InsertImageEnabled();
+
     bool ViewStatesEnabled();
 
     QString GetCaretLocationUpdate() const;

@@ -1394,6 +1394,30 @@ bool CodeViewEditor::IsMarkForIndexAllowed()
     return TextIsSelectedAndNotInStartOrEndTag();
 }
 
+bool CodeViewEditor::IsInsertIdAllowed()
+{
+    int pos = textCursor().selectionStart();
+    QString text = toPlainText();
+
+    return IsPositionInBody(pos, text);
+}
+
+bool CodeViewEditor::IsInsertHyperlinkAllowed()
+{
+    int pos = textCursor().selectionStart();
+    QString text = toPlainText();
+
+    return IsPositionInBody(pos, text);
+}
+
+bool CodeViewEditor::IsInsertImageAllowed()
+{
+    int pos = textCursor().selectionStart();
+    QString text = toPlainText();
+
+    return IsPositionInBody(pos, text) && !IsPositionInTag(pos, text);
+}
+
 void CodeViewEditor::InsertText(const QString &text)
 {
     QTextCursor cursor = textCursor();

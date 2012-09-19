@@ -265,7 +265,7 @@ bool FlowTab::MarkForIndexEnabled()
 bool FlowTab::InsertIdEnabled()
 {
     if (m_ViewState == MainWindow::ViewState_CodeView) {
-        return true;
+        return m_wCodeView->IsInsertIdAllowed();
     }
     else if (m_ViewState == MainWindow::ViewState_BookView) {
         return true;
@@ -277,7 +277,7 @@ bool FlowTab::InsertIdEnabled()
 bool FlowTab::InsertHyperlinkEnabled()
 {
     if (m_ViewState == MainWindow::ViewState_CodeView) {
-        return true;
+        return m_wCodeView->IsInsertHyperlinkAllowed();
     }
     else if (m_ViewState == MainWindow::ViewState_BookView) {
         return true;
@@ -290,6 +290,18 @@ bool FlowTab::InsertSpecialCharacterEnabled()
 {
     if (m_ViewState == MainWindow::ViewState_CodeView) {
         return true;
+    }
+    else if (m_ViewState == MainWindow::ViewState_BookView) {
+        return true;
+    }
+
+    return false;
+}
+
+bool FlowTab::InsertImageEnabled()
+{
+    if (m_ViewState == MainWindow::ViewState_CodeView) {
+        return m_wCodeView->IsInsertImageAllowed();
     }
     else if (m_ViewState == MainWindow::ViewState_BookView) {
         return true;

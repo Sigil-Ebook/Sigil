@@ -140,6 +140,7 @@ public:
     virtual bool InsertIdEnabled() { return false; }
     virtual bool InsertHyperlinkEnabled() { return false; }
     virtual bool InsertSpecialCharacterEnabled() { return false; }
+    virtual bool InsertImageEnabled() { return false; }
     virtual bool ToggleAutoSpellcheckEnabled() { return false; }
 
     virtual bool ViewStatesEnabled() { return false; }

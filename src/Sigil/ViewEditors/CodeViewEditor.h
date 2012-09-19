@@ -116,8 +116,12 @@ public:
 
     void InsertText(const QString &text);
 
+    bool IsInsertImageAllowed();
+
     void InsertId(const QString &attribute_value);
     void InsertHyperlink(const QString &attribute_value);
+    bool IsInsertIdAllowed();
+    bool IsInsertHyperlinkAllowed();
     void InsertTagAttribute(const QString &element_name, const QString &attribute_name, const QString &attribute_value, const QStringList &tag_list);
 
     /**

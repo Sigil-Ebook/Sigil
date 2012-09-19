@@ -795,6 +795,13 @@ void MainWindow::InsertImageDialog()
 {
     m_TabManager.SaveTabData();
 
+    FlowTab *flow_tab = qobject_cast<FlowTab*>(&GetCurrentContentTab());
+
+    if (!flow_tab || !flow_tab->InsertImageEnabled()) {
+        statusBar()->showMessage( tr( "You cannot insert an image at this position." ), STATUSBAR_MSG_DISPLAY_TIME );
+        return;
+    }
+
     QStringList selected_images;
     QList<Resource *> image_resources = m_BookBrowser->AllImageResources();
 
@@ -823,8 +830,7 @@ void MainWindow::InsertImages(QStringList selected_images)
 
     FlowTab *flow_tab = qobject_cast<FlowTab*>(&GetCurrentContentTab());
 
-    if (!(flow_tab && (m_ViewState == MainWindow::ViewState_CodeView || m_ViewState == MainWindow::ViewState_BookView))) {
-        Utility::DisplayStdErrorDialog(tr("You cannot insert an image into the current tab.")); 
+    if (!flow_tab || !flow_tab->InsertImageEnabled()) {
         return;
     }
 
@@ -886,8 +892,8 @@ void MainWindow::InsertId()
     ContentTab &tab = GetCurrentContentTab();
     FlowTab *flow_tab = qobject_cast<FlowTab*>(&tab);
 
-    if (!(flow_tab->InsertIdEnabled())) {
-        Utility::DisplayStdErrorDialog(tr("Unable to insert an id."));
+    if (!flow_tab || !flow_tab->InsertIdEnabled()) {
+        statusBar()->showMessage( tr( "You cannot insert an id at this position." ), STATUSBAR_MSG_DISPLAY_TIME );
         return;
     }
 
@@ -909,8 +915,8 @@ void MainWindow::InsertHyperlink()
     ContentTab &tab = GetCurrentContentTab();
     FlowTab *flow_tab = qobject_cast<FlowTab*>(&tab);
 
-    if (!flow_tab->InsertHyperlinkEnabled()) {
-        Utility::DisplayStdErrorDialog(tr("Unable to insert a hyperlink."));
+    if (!flow_tab || !flow_tab->InsertHyperlinkEnabled()) {
+        statusBar()->showMessage( tr( "You cannot insert a hyperlink at this position." ), STATUSBAR_MSG_DISPLAY_TIME );
         return;
     }
 
@@ -1555,6 +1561,7 @@ void MainWindow::UpdateUIOnTabChanges()
     ui.actionInsertId               ->setEnabled( tab.InsertIdEnabled() );
     ui.actionInsertHyperlink        ->setEnabled( tab.InsertHyperlinkEnabled() );
     ui.actionInsertSpecialCharacter ->setEnabled( tab.InsertSpecialCharacterEnabled() );
+    ui.actionInsertImage            ->setEnabled( tab.InsertImageEnabled() );
     ui.actionAutoSpellCheck         ->setEnabled( tab.ToggleAutoSpellcheckEnabled() );
 
     ui.actionBold           ->setChecked( tab.BoldChecked() );
