@@ -56,10 +56,6 @@ public slots:
 
     void saveAs();
 
-signals:
-
-    void ImageSaveAs(const QUrl &url);
-
 private slots:
 
     /**
