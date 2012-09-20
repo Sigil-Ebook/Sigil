@@ -33,6 +33,7 @@
 #include "PCRE/PCRECache.h"
 #include "sigil_constants.h"
 #include "ViewEditors/BookViewPreview.h"
+#include "ViewEditors/ViewWebPage.h"
 
 const QString SET_CURSOR_JS =
     "var range = document.createRange();"
@@ -45,6 +46,7 @@ const QString SET_CURSOR_JS =
 
 BookViewPreview::BookViewPreview(QWidget *parent)
     : QWebView(parent),
+      m_ViewWebPage(new ViewWebPage(this)),
       m_isLoadFinished(false),
       c_jQuery(           Utility::ReadUnicodeTextFile( ":/javascript/jquery-1.6.2.min.js"           ) ),
       c_jQueryScrollTo(   Utility::ReadUnicodeTextFile( ":/javascript/jquery.scrollTo-1.4.2-min.js"  ) ),
@@ -63,6 +65,9 @@ BookViewPreview::BookViewPreview(QWidget *parent)
     m_CurrentZoomFactor = settings.zoomWeb();
     Zoom();
 
+    // use our web page that can be used for debugging javascript
+    setPage(m_ViewWebPage);
+
     // Enable our link filter.
     page()->setLinkDelegationPolicy(QWebPage::DelegateAllLinks);
     page()->settings()->setAttribute(QWebSettings::DeveloperExtrasEnabled, true);
@@ -70,6 +75,14 @@ BookViewPreview::BookViewPreview(QWidget *parent)
     connect(page(), SIGNAL(loadProgress(int)), this, SLOT(UpdateFinishedState(int)));
     connect(page(), SIGNAL(linkClicked(const QUrl&)), SIGNAL(LinkClicked(const QUrl&)));
     connect(page(), SIGNAL(loadFinished(bool)), this, SLOT(WebPageJavascriptOnLoad()));
+}
+
+BookViewPreview::~BookViewPreview()
+{
+    if (m_ViewWebPage != NULL) {
+        delete m_ViewWebPage;
+        m_ViewWebPage = NULL;
+    }
 }
 
 QString BookViewPreview::GetCaretLocationUpdate()

@@ -42,6 +42,7 @@ set( QOBJECT_HEADERS
     ViewEditors/BookViewEditor.h
     ViewEditors/BookViewPreview.h
     ViewEditors/CodeViewEditor.h 
+    ViewEditors/ViewWebPage.h 
     Dialogs/AddMetadata.h 
     Dialogs/About.h
     Dialogs/ClipboardHistorySelector.h
@@ -356,6 +357,8 @@ set( VIEW_EDITOR_FILES
     ViewEditors/Searchable.h
     ViewEditors/Zoomable.h 
     ViewEditors/ViewEditor.h     
+    ViewEditors/ViewWebPage.cpp
+    ViewEditors/ViewWebPage.h 
     )
 
 set( MAINUI_FILES 

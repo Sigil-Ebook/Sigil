@@ -33,6 +33,7 @@
 using boost::shared_ptr;
 
 class QSize;
+class ViewWebPage;
 
 class BookViewPreview : public QWebView, public ViewEditor
 {
@@ -45,6 +46,7 @@ public:
      * @param parent The object's parent.
      */
     BookViewPreview(QWidget *parent=0);
+    ~BookViewPreview();
 
     QSize sizeHint() const;
 
@@ -348,6 +350,8 @@ private:
     ///////////////////////////////
     // PRIVATE MEMBER VARIABLES
     ///////////////////////////////
+
+    ViewWebPage *m_ViewWebPage;
 
     float m_CurrentZoomFactor;
 
