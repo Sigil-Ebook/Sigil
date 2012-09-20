@@ -2416,11 +2416,10 @@ QString CodeViewEditor::ProcessAttribute( const QString &attribute_name, QString
         while (pos > 0 && text[pos] != QChar('<')) {
             pos--;
         }
-        pos--;
-
-        if (pos <= 0) {
-            return QString();
-        }
+    }
+    pos--;
+    if (pos <= 0) {
+        return QString();
     }
 
     QStringList pairs;
