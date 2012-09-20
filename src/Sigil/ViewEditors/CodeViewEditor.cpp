@@ -1425,8 +1425,8 @@ void CodeViewEditor::InsertTagAttribute(const QString &element_name, const QStri
         // Add or update the attribute within the start tag
        const QString &inserted_attribute = SetAttribute(attribute_name, tag_list, attribute_value, false, true);
 
-        // If nothing was inserted, then just insert a new tag with no text
-        if (inserted_attribute.isNull()) {
+        // If nothing was inserted, then just insert a new tag with no text as long as we aren't in a tag
+        if (inserted_attribute.isNull() && !IsPositionInTag()) {
             InsertHTMLTagAroundText(element_name, "/" % element_name, attribute_name % "=\"" % attribute_value % "\"", "" );
         }
     }
