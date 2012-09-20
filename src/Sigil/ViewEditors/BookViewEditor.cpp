@@ -437,7 +437,7 @@ QString BookViewEditor::GetCaretElementName()
 {
     QString javascript =  "var node = document.getSelection().anchorNode;"
                           "var startNode = get_block( node );"
-                          "startNode.nodeName;";
+                          "if (startNode != null) { startNode.nodeName; }";
 
     return EvaluateJavascript( c_GetBlock % javascript ).toString();
 }
