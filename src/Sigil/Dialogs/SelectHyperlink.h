@@ -58,11 +58,18 @@ private:
     void ReadSettings();
     void connectSignalsSlots();
 
+    void AddEntry(Resource *resource);
+
     QString GetSelectedText();
 
-    QString m_DefaultHref;
+    void SelectText(QString &text);
 
-    HTMLResource *m_HTMLResource;
+    HTMLResource *m_CurrentHTMLResource;
+
+    QString m_DefaultTarget;
+    QString m_SavedTarget;
+
+    QHash<QString, QStringList> m_IDNames;
 
     QList<Resource*> m_Resources;
 
