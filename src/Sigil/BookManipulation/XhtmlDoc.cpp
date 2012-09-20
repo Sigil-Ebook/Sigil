@@ -69,7 +69,7 @@ const QStringList ID_TAGS = QStringList() << BLOCK_LEVEL_TAGS <<
                                                           "caption" << "center" << "cite" << "code" << "font" <<
                                                           "label" << "i" << "pre" << "small" << "span" << 
                                                           "strike" << "strong" << "sub" << "sup" << "u";
-const QStringList HREF_TAGS = QStringList() << "a";
+const QStringList ANCHOR_TAGS = QStringList() << "a";
 const QStringList SRC_TAGS = QStringList() << "link" << "img";
 
 

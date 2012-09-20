@@ -1253,7 +1253,7 @@ void CodeViewEditor::GoToLinkOrStyleAction()
 void CodeViewEditor::GoToLinkOrStyle()
 {
     QString text = toPlainText();
-    QString url_name = GetAttribute("href", HREF_TAGS, true);
+    QString url_name = GetAttribute("href", ANCHOR_TAGS, true);
 
     if (url_name.isEmpty()) {
         url_name = GetAttribute("src", SRC_TAGS, true);
@@ -1412,16 +1412,14 @@ void CodeViewEditor::InsertId(const QString &attribute_value)
 {
     const QString &element_name = "a";
     const QString &attribute_name = "id";
-    QStringList tag_list = QStringList() << ID_TAGS;
-    InsertTagAttribute(element_name, attribute_name, attribute_value, tag_list);
+    InsertTagAttribute(element_name, attribute_name, attribute_value, ANCHOR_TAGS);
 }
 
 void CodeViewEditor::InsertHyperlink(const QString &attribute_value)
 {
     const QString &element_name = "a";
     const QString &attribute_name = "href";
-    QStringList tag_list = QStringList() << "a";
-    InsertTagAttribute(element_name, attribute_name, attribute_value, tag_list);
+    InsertTagAttribute(element_name, attribute_name, attribute_value, ANCHOR_TAGS);
 }
 
 void CodeViewEditor::InsertTagAttribute(const QString &element_name, const QString &attribute_name, const QString &attribute_value, const QStringList &tag_list)
@@ -1431,7 +1429,7 @@ void CodeViewEditor::InsertTagAttribute(const QString &element_name, const QStri
        const QString &inserted_attribute = SetAttribute(attribute_name, tag_list, attribute_value, false, true);
 
         // If nothing was inserted, then just insert a new tag with no text
-        if (inserted_attribute.isEmpty()) {
+        if (inserted_attribute.isNull()) {
             InsertHTMLTagAroundText(element_name, "/" % element_name, attribute_name % "=\"" % attribute_value % "\"", "" );
         }
     }
@@ -2383,8 +2381,6 @@ QString CodeViewEditor::ProcessAttribute( const QString &attribute_name, QString
         tag_list = BLOCK_LEVEL_TAGS;
     }
 
-    QString old_attribute_value;
-
     // Given the code <p>abc</p>, users can click between first < and > and 
     // one character to the left of the first <.
     // Makes assumptions about being well formed, or else crazy things may happen...
@@ -2396,6 +2392,7 @@ QString CodeViewEditor::ProcessAttribute( const QString &attribute_name, QString
         return QString();
     }
 
+    QString old_attribute_value;
     QString tag_name;
     QString opening_tag_text;
     QString opening_tag_attributes;
@@ -2404,6 +2401,8 @@ QString CodeViewEditor::ProcessAttribute( const QString &attribute_name, QString
     int opening_tag_end = -1;
     int attribute_start = -1;
     int attribute_end = -1;
+    int previous_tag_index = -1;
+    int tag_name_index = -1;
 
     QRegExp tag_search( NEXT_TAG_LOCATION );
     QRegExp tag_name_search( TAG_NAME_SEARCH );
@@ -2426,13 +2425,13 @@ QString CodeViewEditor::ProcessAttribute( const QString &attribute_name, QString
 
     // Search backwards for the next opening tag
     while (true) {
-        int previous_tag_index = text.lastIndexOf( tag_search, pos );
+        previous_tag_index = text.lastIndexOf( tag_search, pos );
         if (previous_tag_index < 0) {
             return QString();
         }
 
         // We found a tag. It could be opening or closing.
-        int tag_name_index = tag_name_search.indexIn(text, previous_tag_index);
+        tag_name_index = tag_name_search.indexIn(text, previous_tag_index);
         if (tag_name_index < 0) {
             pos = previous_tag_index - 1;
             // If no name skip
@@ -2520,7 +2519,7 @@ QString CodeViewEditor::ProcessAttribute( const QString &attribute_name, QString
 
         // Define the new attribute name/values to use.
         // Delete the attribute if no attribute value was given.
-        if (!attribute_value.isEmpty()) {
+        if (!attribute_value.isNull()) {
             attribute_text = QString(" %1=\"%2\"").arg(attribute_name).arg(attribute_value);
         }
 
@@ -2528,11 +2527,10 @@ QString CodeViewEditor::ProcessAttribute( const QString &attribute_name, QString
         QTextCursor cursor = textCursor();
         cursor.beginEditBlock();
 
-        // Replace the end block tag first since that does not affect positions
         cursor.setPosition( attribute_end );
         cursor.setPosition( attribute_start, QTextCursor::KeepAnchor );
         cursor.removeSelectedText();
-        if (!attribute_value.isEmpty()) {
+        if (!attribute_text.isEmpty()) {
             cursor.insertText( attribute_text );
         }
 
@@ -2571,7 +2569,7 @@ void CodeViewEditor::FormatStyle( const QString &property_name, const QString &p
     // Get the existing style attribute if there is one.
     QString style_attribute_value = GetAttribute("style");
 
-    if (style_attribute_value.isEmpty()) {
+    if (style_attribute_value.isNull()) {
         // There is no style attribute currently on this tag so just set it.
         style_attribute_value = QString("%1: %2;").arg(property_name).arg(property_value);
     }
@@ -2582,7 +2580,7 @@ void CodeViewEditor::FormatStyle( const QString &property_name, const QString &p
         // Apply our property value, adding if not present currently, toggling if it is.
         ApplyChangeToProperties(css_properties, property_name, property_value);
         if (css_properties.count() == 0) {
-            style_attribute_value = "";
+            style_attribute_value = QString();
         }
         else {
             QStringList property_values;
