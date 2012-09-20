@@ -2243,8 +2243,11 @@ void CodeViewEditor::FormatSelectionWithinElement(const QString &element_name, c
         QString opening_tag_text = text.mid(previous_tag_index + 1, previous_tag_end_index - previous_tag_index - 1).trimmed();
         InsertHTMLTagAroundSelection( "/" % element_name, opening_tag_text );
     }
-    else if ( ( selection_end == selection_start) && ( adjacent_to_start || adjacent_to_end ) ) {
-        // User is just inside the opening or closing tag with no selection. Nothing to do
+    else if ( ( selection_end == selection_start) && ( adjacent_to_start || adjacent_to_end ) && 
+              ( closing_tag_index > previous_tag_end_index + 1 )) {
+        // User is just inside the opening or closing tag with no selection and there is text within
+        // The tags. Nothing to do in this situation. 
+        // If there is no text e.g. <b></b> and caret between then we will toggle off as per following else.
         return;
     }
     else {
