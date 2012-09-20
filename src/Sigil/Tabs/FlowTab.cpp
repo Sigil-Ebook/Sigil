@@ -704,6 +704,11 @@ QString FlowTab::GetAttributeId()
             attribute_value = m_wCodeView->GetAttribute("id", ANCHOR_TAGS, false, true);
         }
     }
+    else if (m_ViewState == MainWindow::ViewState_BookView) {
+        if (m_wBookView->selectedText().length() == 0) {
+            attribute_value = m_wBookView->GetAncestorTagAttributeValue("id", ANCHOR_TAGS);
+        }
+    }
 
     return attribute_value;
 }
@@ -713,6 +718,9 @@ QString FlowTab::GetAttributeHref()
     QString attribute_value;
     if (m_ViewState == MainWindow::ViewState_CodeView) {
         attribute_value = m_wCodeView->GetAttribute("href", ANCHOR_TAGS, false, true);
+    }
+    else if (m_ViewState == MainWindow::ViewState_BookView) {
+        attribute_value = m_wBookView->GetAncestorTagAttributeValue("href", ANCHOR_TAGS);
     }
 
     return attribute_value;

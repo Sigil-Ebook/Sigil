@@ -73,9 +73,12 @@ BookViewEditor::BookViewEditor(QWidget *parent)
     m_OpenWithContextMenu( *new QMenu( this ) ),
     m_ScrollOneLineUp(   *( new QShortcut( QKeySequence( Qt::ControlModifier + Qt::Key_Up   ), this, 0, 0, Qt::WidgetShortcut ) ) ),
     m_ScrollOneLineDown( *( new QShortcut( QKeySequence( Qt::ControlModifier + Qt::Key_Down ), this, 0, 0, Qt::WidgetShortcut ) ) ),
-    c_GetSegmentHTML(   Utility::ReadUnicodeTextFile( ":/javascript/get_segment_html.js"           ) ),
-    c_GetBlock(         Utility::ReadUnicodeTextFile( ":/javascript/get_block.js"                  ) ),
-    c_FormatBlock(      Utility::ReadUnicodeTextFile( ":/javascript/format_block.js"               ) )
+    c_GetSegmentHTML(       Utility::ReadUnicodeTextFile( ":/javascript/get_segment_html.js"           ) ),
+    c_GetBlock(             Utility::ReadUnicodeTextFile( ":/javascript/get_block.js"                  ) ),
+    c_FormatBlock(          Utility::ReadUnicodeTextFile( ":/javascript/format_block.js"               ) ),
+    c_GetAncestor(          Utility::ReadUnicodeTextFile( ":/javascript/get_ancestor.js"               ) ),
+    c_GetAncestorAttribute( Utility::ReadUnicodeTextFile( ":/javascript/get_ancestor_attribute.js"     ) ),
+    c_SetAncestorAttribute( Utility::ReadUnicodeTextFile( ":/javascript/set_ancestor_attribute.js"     ) )
 {
     setContextMenuPolicy( Qt::CustomContextMenu );
     page()->settings()->setAttribute( QWebSettings::DeveloperExtrasEnabled, false );
@@ -468,48 +471,71 @@ void BookViewEditor::ApplyCaseChangeToSelection( const Utility::Casing &casing )
     }
 }
 
-void BookViewEditor::InsertHyperlink(QString href)
+void BookViewEditor::InsertId(const QString &id)
 {
-    // This is going to lose any styles that may have been applied within
-    // the selected text, including any anchor ids!
+    const QString &element_name = "a";
+    const QString &attribute_name = "id";
+    InsertTagAttribute(element_name, attribute_name, id, ANCHOR_TAGS);
+}
 
+void BookViewEditor::InsertHyperlink(const QString &href)
+{
+    const QString &element_name = "a";
+    const QString &attribute_name = "href";
+    InsertTagAttribute(element_name, attribute_name, href, ANCHOR_TAGS);
+}
+
+void BookViewEditor::InsertTagAttribute(const QString &element_name, const QString &attribute_name, const QString &attribute_value, const QStringList &tag_list)
+{
     QString selected_text = GetSelectedText();
-
-    // If no text selected, use the id as the text
+    
     if (selected_text.isEmpty()) {
-        selected_text = href ;
+        // Apply this value to any existing allowed ancestor element tag if it exists
+        if ( SetAncestorTagAttributeValue(attribute_name, attribute_value, tag_list) ) {
+            return;
+        }
     }
-
-    // Set the html for the href if there is one
-    QString html = selected_text;
-    if (!href.isEmpty()) {
-        html = "<a href=\"" % href % "\">" % selected_text % "</a>";
+    // We need to insert a new tag element into the document - cannot insert an empty
+    // element or else Qt will push it into a new block. So we will just insert the
+    // attribute value as some placeholder text.
+    if (selected_text.isEmpty()) {
+        selected_text = attribute_value;
     }
-
-    // If no href this will delete any anchor (and other styles)
+    // Just prepend and append the tag pairs to the text
+    const QString html = "<" % element_name % " " % attribute_name % "=\"" % attribute_value % "\">" % selected_text % "</" % element_name %">";
     InsertHtml(html);
 }
 
-void BookViewEditor::InsertId(QString id)
+QString BookViewEditor::GetAncestorTagAttributeValue(const QString &attribute_name, const QStringList &tag_list)
 {
-    // This is going to lose any styles that may have been applied within
-    // the selected text, including any hrefs!
-
-    QString selected_text = GetSelectedText();
-
-    // If no text selected, use the id as the text
-    if (selected_text.isEmpty()) {
-        selected_text = id ;
+    if (tag_list.isEmpty() || attribute_name.isEmpty()) {
+        return QString();
     }
+    const QString js = c_GetAncestor % c_GetAncestorAttribute %
+        "var tagNames = [\"" % tag_list.join("\", \"") % "\"];"
+        "var attributeName = '" % attribute_name % "';"
+        "var startNode = document.getSelection().anchorNode;"
+        "get_ancestor_attribute(startNode, tagNames, attributeName);";
+    return EvaluateJavascript(js).toString();
+}
 
-    // Set the html for the id if there is one
-    QString html = selected_text;
-    if (!id.isEmpty()) {
-        html = "<a id=\"" % id % "\">" % selected_text % "</a>";
+bool BookViewEditor::SetAncestorTagAttributeValue(const QString &attribute_name, const QString &attribute_value, const QStringList &tag_list)
+{
+    if (tag_list.isEmpty() || attribute_name.isEmpty()) {
+        return false;
     }
-
-    // If no id this will delete any anchor (and other styles)
-    InsertHtml(html);
+    const QString js = c_GetAncestor % c_SetAncestorAttribute %
+        "var tagNames = [\"" % tag_list.join("\", \"") % "\"];"
+        "var attributeName = '" % attribute_name % "';"
+        "var attributeValue = '" % attribute_value % "';"
+        "var startNode = document.getSelection().anchorNode;"
+        "set_ancestor_attribute(startNode, tagNames, attributeName, attributeValue);";
+    
+    bool applied = EvaluateJavascript(js).toBool();
+    if (applied) {
+        emit contentsChangedExtra();
+    }
+    return applied;
 }
 
 

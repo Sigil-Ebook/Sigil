@@ -172,8 +172,14 @@ public:
 
     void ApplyCaseChangeToSelection( const Utility::Casing &casing );
 
-    void InsertHyperlink(QString href);
-    void InsertId(QString id);
+    void InsertId(const QString &id);
+    void InsertHyperlink(const QString &href);
+
+    /**
+      * From the current cursor position, search for a parent tag element named in the tag list.
+      * When first if any matching tag found, return the value of the named attribute if exists.
+      */
+    QString GetAncestorTagAttributeValue(const QString &attribute_name, const QStringList &tag_list);
 
 public slots:
     /**
@@ -315,6 +321,10 @@ private:
      */
     QString RemoveBookViewReplaceSpans( const QString &source );
 
+    void InsertTagAttribute(const QString &element_name, const QString &attribute_name, const QString &attribute_value, const QStringList &tag_list);
+
+    bool SetAncestorTagAttributeValue(const QString &attribute_name, const QString &attribute_value, const QStringList &tag_list);
+
     /**
      * Creates all the context menu actions.
      */
@@ -408,6 +418,26 @@ private:
      * first block-level parent of a node in the source.
      */
     const QString c_FormatBlock;
+
+    /**
+     * Javascript source that implements a function to find the
+     * ancestor node that has the matching element node name.
+     */
+    const QString c_GetAncestor;
+
+    /**
+     * Javascript source that implements a function to find the
+     * ancestor node that has the matching element node name
+     * and return the named attribute value if any.
+     */
+    const QString c_GetAncestorAttribute;
+
+    /**
+     * Javascript source that implements a function to find the
+     * ancestor node that has the matching element node name
+     * and set the named attribute value.
+     */
+    const QString c_SetAncestorAttribute;
 };
 
 
