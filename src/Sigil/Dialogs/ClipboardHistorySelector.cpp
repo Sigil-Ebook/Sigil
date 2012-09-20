@@ -142,7 +142,7 @@ void ClipboardHistorySelector::ClipboardChanged( QClipboard::Mode mode )
     if ( mode != QClipboard::Clipboard )
         return;
     QString text = QApplication::clipboard()->text();
-    if ( text.isNull() || text.isEmpty() ) {
+    if ( text.isEmpty() ) {
         return;
     }
     int existing_index = m_ClipboardHistoryItems->indexOf(text);
