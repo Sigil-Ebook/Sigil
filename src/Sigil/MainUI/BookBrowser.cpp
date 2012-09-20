@@ -1371,9 +1371,9 @@ bool BookBrowser::SuccessfullySetupContextMenu( const QPoint &point )
         // Semantic Menu
         SetupSemanticContextmenu( resource );
     
-        // Open With and Save As
         m_ContextMenu.addSeparator();
 
+        // Open With
         if ( OpenExternally::mayOpen( resource->Type() ) ) {
             const QString& editorPath = OpenExternally::editorForResourceType( resource->Type() );
             const QString& editorDescription = OpenExternally::editorDescriptionForResourceType( resource->Type() );
@@ -1384,18 +1384,22 @@ bool BookBrowser::SuccessfullySetupContextMenu( const QPoint &point )
                 m_OpenWith->setText( tr( "Open With" ) + "..." );
 
                 m_ContextMenu.addAction( m_OpenWith );
+                m_OpenWith->setEnabled(item_count == 1);
             }
             else
             {
                 m_OpenWithEditor->setText( editorDescription );
                 m_OpenWithEditor->setData( editorPath );
+                m_OpenWithEditor->setEnabled(item_count == 1);
 
                 m_OpenWith->setText( tr( "Other Application" ) + "..." );
+                m_OpenWith->setEnabled(item_count == 1);
 
                 m_ContextMenu.addMenu( &m_OpenWithContextMenu );
             }
         }
 
+        // Save As
         m_ContextMenu.addAction( m_SaveAs );
     }
 
