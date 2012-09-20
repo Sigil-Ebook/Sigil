@@ -45,7 +45,8 @@
    <item>
     <widget class="QCheckBox" name="cbTOCItemsOnly">
      <property name="toolTip">
-      <string>If this is checked, only the items that will end up in the Table Of Contents are displayed in the list</string>
+      <string>If this is checked, only the items that will end up 
+in the Table Of Contents are displayed in the list</string>
      </property>
      <property name="text">
       <string>Show TOC items only</string>

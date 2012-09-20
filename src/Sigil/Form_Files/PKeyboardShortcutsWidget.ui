@@ -116,7 +116,7 @@
            </sizepolicy>
           </property>
           <property name="toolTip">
-           <string>Assign this keyboard shortcut, overring any conflicting usages</string>
+           <string>Assign this keyboard shortcut, overriding any conflicting usages.</string>
           </property>
           <property name="text">
            <string>Assign</string>
@@ -135,7 +135,7 @@
         <item>
          <widget class="QPushButton" name="removeButton">
           <property name="toolTip">
-           <string>Remove this keyboard shortcut</string>
+           <string>Remove this keyboard shortcut.</string>
           </property>
           <property name="text">
            <string>Remove</string>

@@ -166,8 +166,8 @@ Click 'Add Role' to add more authors, creators, or contributors.</string>
             <property name="toolTip">
              <string>Copy the first selected row and create a new duplicate entry.
 
-You can also use a ';' between values to quickly create multiple entries of the same type.
-</string>
+You can also use a ';' between values to quickly create multiple
+entries of the same type.</string>
             </property>
             <property name="text">
              <string>Copy</string>
@@ -205,7 +205,8 @@ You can also use a ';' between values to quickly create multiple entries of the 
             <item>
              <widget class="QToolButton" name="tbMoveUp">
               <property name="toolTip">
-               <string>Move the selected rows up.  Readers may display entries in the order they are listed.</string>
+               <string>Move the selected rows up.
+Readers may display entries in the order they are listed.</string>
               </property>
               <property name="text">
                <string>...</string>
@@ -218,7 +219,8 @@ You can also use a ';' between values to quickly create multiple entries of the 
             <item>
              <widget class="QToolButton" name="tbMoveDown">
               <property name="toolTip">
-               <string>Move the selected rows down.</string>
+               <string>Move the selected rows down.
+Readers may display entries in the order they are listed.</string>
               </property>
               <property name="text">
                <string>...</string>

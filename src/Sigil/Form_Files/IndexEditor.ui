@@ -42,8 +42,10 @@
        <item>
         <widget class="QPushButton" name="CreateIndex">
          <property name="toolTip">
-          <string>Generate an Index.html file using the table of index entries and any custom entries.
-A custom entry is any tag with attributes class=&quot;sigil_index&quot; and title=&quot;MYINDEXENTRY&quot;.</string>
+          <string>Generate an Index.html file using the
+table of index entries and any custom entries.
+A custom entry is any tag with attributes
+class=&quot;sigil_index&quot; and title=&quot;MYINDEXENTRY&quot;.</string>
          </property>
          <property name="text">
           <string>Create Index</string>
@@ -55,8 +57,7 @@ A custom entry is any tag with attributes class=&quot;sigil_index&quot; and titl
          <property name="orientation">
           <enum>Qt::Vertical</enum>
          </property>
-         <property name="sizeHint" stdset="0">
-          <size>
+         <property name="sizeHint" stdset="0"> <size>
            <width>20</width>
            <height>40</height>
           </size>

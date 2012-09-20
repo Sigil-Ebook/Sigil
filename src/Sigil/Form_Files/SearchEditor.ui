@@ -61,7 +61,8 @@ then if not found look for the second entry in the list, etc.</string>
        <item>
         <widget class="QPushButton" name="CountAll">
          <property name="toolTip">
-          <string>Run Count All for the selected entries in the order selected, including entries in selected groups.</string>
+          <string>Run Count All for the selected entries in the order selected,
+including entries in selected groups.</string>
          </property>
          <property name="text">
           <string>Count All</string>
@@ -99,7 +100,8 @@ then when no more matches replace the second entry in the list, etc.</string>
        <item>
         <widget class="QPushButton" name="ReplaceAll">
          <property name="toolTip">
-          <string>Run Replace All for the selected entries in the order selected, including entries in selected groups.</string>
+          <string>Run Replace All for the selected entries in the order selected,
+including entries in selected groups.</string>
          </property>
          <property name="text">
           <string>Replace All</string>

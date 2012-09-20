@@ -63,7 +63,7 @@ void SelectHyperlink::SetList()
 
     QStringList header;
 
-    header.append(tr("Existing Filenames and IDs in the EPUB:"));
+    header.append(tr("Targets in the Book"));
 
     m_SelectHyperlinkModel->setHorizontalHeaderLabels(header);
 
