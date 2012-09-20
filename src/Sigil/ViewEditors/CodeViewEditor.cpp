@@ -2533,6 +2533,8 @@ QString CodeViewEditor::ProcessAttribute( const QString &attribute_name, QString
         if (!attribute_text.isEmpty()) {
             cursor.insertText( attribute_text );
         }
+        // Now place the cursor at the end of this opening tag, taking into account difference in attributes.
+        cursor.setPosition( opening_tag_end - (attribute_end - attribute_start) + attribute_text.length() ); 
 
         cursor.endEditBlock();
 
