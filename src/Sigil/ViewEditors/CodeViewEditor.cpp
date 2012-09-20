@@ -1405,22 +1405,23 @@ void CodeViewEditor::InsertText(const QString &text)
     cursor.endEditBlock();
 }
 
-void CodeViewEditor::InsertId(const QString &attribute_value)
+bool CodeViewEditor::InsertId(const QString &attribute_value)
 {
     const QString &element_name = "a";
     const QString &attribute_name = "id";
-    InsertTagAttribute(element_name, attribute_name, attribute_value, ANCHOR_TAGS);
+    return InsertTagAttribute(element_name, attribute_name, attribute_value, ANCHOR_TAGS);
 }
 
-void CodeViewEditor::InsertHyperlink(const QString &attribute_value)
+bool CodeViewEditor::InsertHyperlink(const QString &attribute_value)
 {
     const QString &element_name = "a";
     const QString &attribute_name = "href";
-    InsertTagAttribute(element_name, attribute_name, attribute_value, ANCHOR_TAGS);
+    return InsertTagAttribute(element_name, attribute_name, attribute_value, ANCHOR_TAGS);
 }
 
-void CodeViewEditor::InsertTagAttribute(const QString &element_name, const QString &attribute_name, const QString &attribute_value, const QStringList &tag_list)
+bool CodeViewEditor::InsertTagAttribute(const QString &element_name, const QString &attribute_name, const QString &attribute_value, const QStringList &tag_list)
 {
+    bool inserted = false;
     if (!textCursor().hasSelection()) {
         // Add or update the attribute within the start tag
        const QString &inserted_attribute = SetAttribute(attribute_name, tag_list, attribute_value, false, true);
@@ -1428,13 +1429,17 @@ void CodeViewEditor::InsertTagAttribute(const QString &element_name, const QStri
         // If nothing was inserted, then just insert a new tag with no text as long as we aren't in a tag
         if (inserted_attribute.isNull() && !IsPositionInTag()) {
             InsertHTMLTagAroundText(element_name, "/" % element_name, attribute_name % "=\"" % attribute_value % "\"", "" );
+            inserted = true;
         }
     }
     else if (TextIsSelectedAndNotInStartOrEndTag()) {
         // Just prepend and append the tag pairs to the text
         QString attributes = attribute_name % "=\"" % attribute_value % "\"";
         InsertHTMLTagAroundSelection( element_name, "/" % element_name, attributes);
+        inserted = true;
     }
+
+    return inserted;
 }
 
 void CodeViewEditor::MarkForIndex()

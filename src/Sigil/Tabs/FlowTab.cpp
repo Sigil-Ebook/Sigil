@@ -720,24 +720,28 @@ void FlowTab::InsertText(QString text)
     }
 }
 
-void FlowTab::InsertId(QString id)
+bool FlowTab::InsertId(QString id)
 {
     if (m_ViewState == MainWindow::ViewState_CodeView) {
-        m_wCodeView->InsertId(id);
+        return m_wCodeView->InsertId(id);
     }
     else if (m_ViewState == MainWindow::ViewState_BookView) {
         m_wBookView->InsertId(id);
+        return true;
     }
+    return false;
 }
 
-void FlowTab::InsertHyperlink(QString href)
+bool FlowTab::InsertHyperlink(QString href)
 {
     if (m_ViewState == MainWindow::ViewState_CodeView) {
-        m_wCodeView->InsertHyperlink(href);
+        return m_wCodeView->InsertHyperlink(href);
     }
     else if (m_ViewState == MainWindow::ViewState_BookView) {
         m_wBookView->InsertHyperlink(href);
+        return true;
     }
+    return false;
 }
 
 void FlowTab::InsertImage( const QString &image_path )

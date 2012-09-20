@@ -119,14 +119,18 @@ void SelectHyperlink::AddEntry(Resource *resource)
 
 QString SelectHyperlink::GetSelectedText()
 {
-    QStandardItem *item = NULL;
+    QString text;
 
     if (ui.list->selectionModel()->hasSelection()) {
         QModelIndexList selected_indexes = ui.list->selectionModel()->selectedRows(0);
-        if (!selected_indexes.isEmpty()) { item = m_SelectHyperlinkModel->itemFromIndex(selected_indexes.last());
+        if (!selected_indexes.isEmpty()) { 
+            QStandardItem *item = m_SelectHyperlinkModel->itemFromIndex(selected_indexes.last());
+            if (item) {
+                text = item->text();
+            }
         }
     }
-    return item->text();
+    return text;
 }
 
 void SelectHyperlink::SelectText(QString &text)

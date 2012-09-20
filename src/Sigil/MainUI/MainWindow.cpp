@@ -797,6 +797,8 @@ void MainWindow::InsertImageDialog()
 
     FlowTab *flow_tab = qobject_cast<FlowTab*>(&GetCurrentContentTab());
 
+    statusBar()->clearMessage();
+
     if (!flow_tab || !flow_tab->InsertImageEnabled()) {
         statusBar()->showMessage( tr( "You cannot insert an image at this position." ), STATUSBAR_MSG_DISPLAY_TIME );
         return;
@@ -900,6 +902,8 @@ void MainWindow::InsertId()
     ContentTab &tab = GetCurrentContentTab();
     FlowTab *flow_tab = qobject_cast<FlowTab*>(&tab);
 
+    statusBar()->clearMessage();
+
     if (!flow_tab || !flow_tab->InsertIdEnabled()) {
         statusBar()->showMessage( tr( "You cannot insert an id at this position." ), STATUSBAR_MSG_DISPLAY_TIME );
         return;
@@ -911,7 +915,9 @@ void MainWindow::InsertId()
     SelectId select_id(id, html_resource, m_Book, this);
 
     if (select_id.exec() == QDialog::Accepted) {
-        flow_tab->InsertId(select_id.SelectedText());
+        if (!flow_tab->InsertId(select_id.SelectedText())) {
+            statusBar()->showMessage( tr( "You cannot insert an id at this position." ), STATUSBAR_MSG_DISPLAY_TIME );
+        }
     }
 }
 
@@ -923,11 +929,12 @@ void MainWindow::InsertHyperlink()
     ContentTab &tab = GetCurrentContentTab();
     FlowTab *flow_tab = qobject_cast<FlowTab*>(&tab);
 
+    statusBar()->clearMessage();
+
     if (!flow_tab || !flow_tab->InsertHyperlinkEnabled()) {
         statusBar()->showMessage( tr( "You cannot insert a hyperlink at this position." ), STATUSBAR_MSG_DISPLAY_TIME );
         return;
     }
-
     QString href = flow_tab->GetAttributeHref();
     HTMLResource *html_resource = qobject_cast< HTMLResource* >( &tab.GetLoadedResource() );
     QList<Resource *> resources = m_BookBrowser->AllHTMLResources();
@@ -935,7 +942,9 @@ void MainWindow::InsertHyperlink()
     SelectHyperlink select_hyperlink(href, html_resource, resources, m_Book, this);
 
     if (select_hyperlink.exec() == QDialog::Accepted) {
-        flow_tab->InsertHyperlink(select_hyperlink.GetText());
+        if (!flow_tab->InsertHyperlink(select_hyperlink.GetText())) {
+            statusBar()->showMessage( tr( "You cannot insert a hyperlink at this position." ), STATUSBAR_MSG_DISPLAY_TIME );
+        }
     }
 }
 
