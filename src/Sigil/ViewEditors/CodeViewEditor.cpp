@@ -81,7 +81,6 @@ CodeViewEditor::CodeViewEditor( HighlighterType high_type, bool check_spelling, 
     m_DelayedCursorScreenCenteringRequired( false ),
     m_CaretUpdate( QList< ViewEditor::ElementIndex >() ),
     m_checkSpelling( check_spelling ),
-    m_goToLinkOrStyleEnabled( false ),
     m_reformatCSSEnabled( false ),
     m_spellingMapper( new QSignalMapper( this ) ),
     m_addSpellingMapper( new QSignalMapper( this ) ),
@@ -952,9 +951,7 @@ void CodeViewEditor::contextMenuEvent( QContextMenuEvent *event )
         if (m_reformatCSSEnabled) {
             AddReformatCSSContextMenu(menu);
         }
-        if (m_goToLinkOrStyleEnabled) {
-            AddGoToLinkOrStyleContextMenu(menu);
-        }
+        AddGoToLinkOrStyleContextMenu(menu);
         AddClipContextMenu(menu);
     }
 
@@ -2817,16 +2814,6 @@ QString CodeViewEditor::GetUnmatchedTagsForBlock(const int &start_pos, const QSt
         return opening_tags.join("");
     }
     return QString();
-}
-
-bool CodeViewEditor::GoToLinkOrStyleEnabled()
-{
-    return m_goToLinkOrStyleEnabled;
-}
-
-void CodeViewEditor::SetGoToLinkOrStyleEnabled(bool value)
-{
-    m_goToLinkOrStyleEnabled = value;
 }
 
 bool CodeViewEditor::ReformatCSSEnabled()

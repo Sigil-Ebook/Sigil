@@ -86,8 +86,6 @@ FlowTab::FlowTab(HTMLResource& resource,
     // cursor and clear it at the end of the delayed initialization.
     QApplication::setOverrideCursor(Qt::WaitCursor);
 
-    m_wCodeView->SetGoToLinkOrStyleEnabled(true);
-
     m_inspector->setPage(m_wBookPreview->page());
 
     m_pvVSplitter->setOrientation(Qt::Vertical);
@@ -171,11 +169,6 @@ bool FlowTab::IsModified()
     return m_wBookView->isModified() || m_wCodeView->document()->isModified();
 }
 
-bool FlowTab::PrintEnabled()
-{
-    return true;
-}
-
 bool FlowTab::CutEnabled()
 {
     if (m_ViewState == MainWindow::ViewState_BookView) {
@@ -231,15 +224,6 @@ bool FlowTab::InsertClosingTagEnabled()
 {
     if (m_ViewState == MainWindow::ViewState_CodeView) {
         return m_wCodeView->IsInsertClosingTagAllowed();
-    }
-
-    return false;
-}
-
-bool FlowTab::GoToLinkOrStyleEnabled()
-{
-    if (m_ViewState == MainWindow::ViewState_CodeView) {
-        return true;
     }
 
     return false;

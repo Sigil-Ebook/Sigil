@@ -310,12 +310,6 @@ public:
     QString ProcessAttribute( const QString &attribute_name, QStringList tag_list = QStringList(), const QString &attribute_value = QString(), bool set_attribute = false , bool must_be_in_attribute = false, bool skip_paired_tags = false);
 
     /**
-     * Control whether the Go To Link Or Style option is available on the context menu.
-     */
-    bool GoToLinkOrStyleEnabled();
-    void SetGoToLinkOrStyleEnabled(bool value);
-
-    /**
      * Control whether the Reformat CSS submenu is available on the context menu.
      */
     bool ReformatCSSEnabled();
@@ -724,11 +718,6 @@ private:
      * Misspellings are marked by the QSyntaxHighlighter used.
      */
     bool m_checkSpelling;
-
-    /**
-     * Whether Go To Link Or Style context menu option is enabled on this view.
-     */
-    bool m_goToLinkOrStyleEnabled;
 
     /**
      * Whether reformat CSS context menu option is enabled on this view.

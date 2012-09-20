@@ -82,8 +82,6 @@ public:
 
     bool IsModified();
 
-    bool PrintEnabled();
-
     bool CutEnabled();
 
     bool CopyEnabled();

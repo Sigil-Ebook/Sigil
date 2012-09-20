@@ -86,13 +86,6 @@ public:
     virtual bool IsModified()           { return false; }
 
     /**
-     * Can the user print the content of the tab.
-     *
-     * @return \c true if the user can print.
-     */
-    virtual bool PrintEnabled()         { return false; }
-
-    /**
      * Can the user perform the Cut clipboard operation.
      *
      * @return \c true if the user can Cut.
@@ -119,13 +112,6 @@ public:
      * @return \c true if the user can Cut.
      */
     virtual bool RemoveFormattingEnabled()          { return false; }
-
-    /*
-     * Can the user navigate to a link or style definition.
-     *
-     * @return \c true if the user can navigate to a link or style definition.
-     */
-    virtual bool GoToLinkOrStyleEnabled() { return false; }
 
     /*
      * Can the user perform the Cut Code Tags operation.

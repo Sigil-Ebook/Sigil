@@ -1554,25 +1554,17 @@ void MainWindow::UpdateUIOnTabChanges()
 
         return;
 
-    ui.actionBookView               ->setEnabled( tab.ViewStatesEnabled() );
-    ui.actionSplitView              ->setEnabled( tab.ViewStatesEnabled() );
-    ui.actionCodeView               ->setEnabled( tab.ViewStatesEnabled() );
-
-    ui.actionPrintPreview->setEnabled( tab.PrintEnabled() );
-    ui.actionPrint->setEnabled( tab.PrintEnabled() );
-
+    // Set enabled state based on selection change
     ui.actionCut                    ->setEnabled( tab.CutEnabled() );
     ui.actionCopy                   ->setEnabled( tab.CopyEnabled() );
     ui.actionPaste                  ->setEnabled( tab.PasteEnabled() );
-    ui.actionInsertClosingTag       ->setEnabled( tab.InsertClosingTagEnabled() );
+
     ui.actionAddToIndex             ->setEnabled( tab.AddToIndexEnabled() );
     ui.actionMarkForIndex           ->setEnabled( tab.MarkForIndexEnabled() );
-    ui.actionInsertId               ->setEnabled( tab.InsertIdEnabled() );
-    ui.actionInsertHyperlink        ->setEnabled( tab.InsertHyperlinkEnabled() );
-    ui.actionInsertSpecialCharacter ->setEnabled( tab.InsertSpecialCharacterEnabled() );
-    ui.actionInsertImage            ->setEnabled( tab.InsertImageEnabled() );
-    ui.actionAutoSpellCheck         ->setEnabled( tab.ToggleAutoSpellcheckEnabled() );
 
+    ui.actionRemoveFormatting   ->setEnabled( tab.RemoveFormattingEnabled() );
+
+    // Set whether icons are checked
     ui.actionBold           ->setChecked( tab.BoldChecked() );
     ui.actionItalic         ->setChecked( tab.ItalicChecked() );
     ui.actionUnderline      ->setChecked( tab.UnderlineChecked() );
@@ -1587,8 +1579,6 @@ void MainWindow::UpdateUIOnTabChanges()
 
     ui.actionInsertBulletedList ->setChecked( tab.BulletListChecked() );
     ui.actionInsertNumberedList ->setChecked( tab.NumberListChecked() );
-    ui.actionRemoveFormatting   ->setEnabled( tab.RemoveFormattingEnabled() );
-    ui.actionGoToLinkOrStyle    ->setEnabled( tab.GoToLinkOrStyleEnabled() );
 
     // State of zoom controls depends on current tab/view
     float zoom_factor = tab.GetZoomFactor();
@@ -1626,12 +1616,24 @@ void MainWindow::SetStateActionsBookView()
     ui.actionSplitView->setChecked(false);
     ui.actionCodeView->setChecked(false);
 
+    ui.actionBookView->setEnabled(true);
+    ui.actionSplitView->setEnabled(true);
+    ui.actionCodeView->setEnabled(true);
+
+    ui.actionPrintPreview->setEnabled(true);
+    ui.actionPrint->setEnabled(true);
+
+    ui.actionSplitChapter->setEnabled(true);
+    ui.actionInsertSGFChapterMarker->setEnabled(true);
+    ui.actionInsertImage->setEnabled(true);
+    ui.actionInsertSpecialCharacter->setEnabled(true);
+    ui.actionInsertId->setEnabled(true);
+    ui.actionInsertHyperlink->setEnabled(true);
+    ui.actionInsertClosingTag->setEnabled(false);
+
     ui.actionUndo->setEnabled(true);
     ui.actionRedo->setEnabled(true);
 	
-    ui.actionCut  ->setEnabled(true);  
-    ui.actionCopy ->setEnabled(true); 
-    ui.actionPaste->setEnabled(true); 
     ui.actionPasteClipboardHistory->setEnabled(true);
 
     ui.actionBold         ->setEnabled(true);
@@ -1671,11 +1673,6 @@ void MainWindow::SetStateActionsBookView()
     ui.actionCasingPropercase ->setEnabled(true);
     ui.actionCasingCapitalize ->setEnabled(true);
 
-    ui.actionInsertImage->setEnabled(true);
-    ui.actionSplitChapter->setEnabled(true);
-    ui.actionInsertClosingTag->setEnabled(false);
-    ui.actionInsertSGFChapterMarker->setEnabled(true);
-
     ui.actionFind->setEnabled(true);
     ui.actionFindNext->setEnabled(true);
     ui.actionFindPrevious->setEnabled(true);
@@ -1688,6 +1685,7 @@ void MainWindow::SetStateActionsBookView()
 
     ui.actionAddMisspelledWord->setEnabled(false);
     ui.actionIgnoreMisspelledWord->setEnabled(false);
+    ui.actionAutoSpellCheck->setEnabled(false);
 
     UpdateUIOnTabChanges();
 
@@ -1700,12 +1698,24 @@ void MainWindow::SetStateActionsSplitView()
     ui.actionSplitView->setChecked(true);
     ui.actionCodeView->setChecked(false);
 
+    ui.actionBookView->setEnabled(true);
+    ui.actionSplitView->setEnabled(true);
+    ui.actionCodeView->setEnabled(true);
+
+    ui.actionPrintPreview->setEnabled(true);
+    ui.actionPrint->setEnabled(true);
+
+    ui.actionSplitChapter->setEnabled(false);
+    ui.actionInsertSGFChapterMarker->setEnabled(false);
+    ui.actionInsertImage->setEnabled(false);
+    ui.actionInsertSpecialCharacter->setEnabled(false);
+    ui.actionInsertId->setEnabled(false);
+    ui.actionInsertHyperlink->setEnabled(false);
+    ui.actionInsertClosingTag->setEnabled(false);
+
     ui.actionUndo->setEnabled(false);
     ui.actionRedo->setEnabled(false);
 	
-    ui.actionCut  ->setEnabled(false);  
-    ui.actionCopy ->setEnabled(false); 
-    ui.actionPaste->setEnabled(false); 
     ui.actionPasteClipboardHistory->setEnabled(false);
 
     ui.actionBold         ->setEnabled(false);
@@ -1745,11 +1755,6 @@ void MainWindow::SetStateActionsSplitView()
     ui.actionCasingPropercase ->setEnabled(false);
     ui.actionCasingCapitalize ->setEnabled(false);
 
-    ui.actionInsertImage->setEnabled(false);
-    ui.actionSplitChapter->setEnabled(false);
-    ui.actionInsertClosingTag->setEnabled(false);
-    ui.actionInsertSGFChapterMarker->setEnabled(false);
-
     ui.actionFind->setEnabled(true);
     ui.actionFindNext->setEnabled(true);
     ui.actionFindPrevious->setEnabled(true);
@@ -1759,6 +1764,10 @@ void MainWindow::SetStateActionsSplitView()
     ui.actionCount->setEnabled(false);
     ui.actionGoToLine->setEnabled(false);
     ui.actionGoToLinkOrStyle->setEnabled(false);
+
+    ui.actionAddMisspelledWord->setEnabled(false);
+    ui.actionIgnoreMisspelledWord->setEnabled(false);
+    ui.actionAutoSpellCheck->setEnabled(false);
 
     UpdateUIOnTabChanges();
 
@@ -1771,12 +1780,24 @@ void MainWindow::SetStateActionsCodeView()
     ui.actionSplitView->setChecked(false);
     ui.actionCodeView->setChecked(true);
 
+    ui.actionBookView->setEnabled(true);
+    ui.actionSplitView->setEnabled(true);
+    ui.actionCodeView->setEnabled(true);
+
+    ui.actionPrintPreview->setEnabled(true);
+    ui.actionPrint->setEnabled(true);
+
+    ui.actionSplitChapter->setEnabled(true);
+    ui.actionInsertSGFChapterMarker->setEnabled(true);
+    ui.actionInsertImage->setEnabled(true);
+    ui.actionInsertSpecialCharacter->setEnabled(true);
+    ui.actionInsertId->setEnabled(true);
+    ui.actionInsertHyperlink->setEnabled(true);
+    ui.actionInsertClosingTag->setEnabled(true);
+
     ui.actionUndo->setEnabled(true);
     ui.actionRedo->setEnabled(true);
 	
-    ui.actionCut  ->setEnabled(true);  
-    ui.actionCopy ->setEnabled(true); 
-    ui.actionPaste->setEnabled(true); 
     ui.actionPasteClipboardHistory->setEnabled(true);
 
     ui.actionBold         ->setEnabled(true);
@@ -1816,11 +1837,6 @@ void MainWindow::SetStateActionsCodeView()
     ui.actionCasingPropercase ->setEnabled(true);
     ui.actionCasingCapitalize ->setEnabled(true);
 
-    ui.actionInsertImage->setEnabled(true);
-    ui.actionSplitChapter->setEnabled(true);
-    ui.actionInsertSGFChapterMarker->setEnabled(true);
-    ui.actionInsertClosingTag->setEnabled(true);
-
     ui.actionFind->setEnabled(true);
     ui.actionFindNext->setEnabled(true);
     ui.actionFindPrevious->setEnabled(true);
@@ -1833,6 +1849,7 @@ void MainWindow::SetStateActionsCodeView()
 
     ui.actionAddMisspelledWord->setEnabled(true);
     ui.actionIgnoreMisspelledWord->setEnabled(true);
+    ui.actionAutoSpellCheck->setEnabled(true);
 
     UpdateUIOnTabChanges();
 
@@ -1856,6 +1873,8 @@ void MainWindow::SetStateActionsCSSView()
     ui.actionTextDirectionLTR    ->setEnabled(true);
     ui.actionTextDirectionRTL    ->setEnabled(true);
     ui.actionTextDirectionDefault->setEnabled(true);
+
+    UpdateUIOnTabChanges();
 }
 
 void MainWindow::SetStateActionsRawView()
@@ -1864,12 +1883,24 @@ void MainWindow::SetStateActionsRawView()
     ui.actionSplitView->setChecked(false);
     ui.actionCodeView->setChecked(false);
 
+    ui.actionBookView->setEnabled(false);
+    ui.actionSplitView->setEnabled(false);
+    ui.actionCodeView->setEnabled(false);
+
+    ui.actionPrintPreview->setEnabled(false);
+    ui.actionPrint->setEnabled(false);
+
+    ui.actionSplitChapter->setEnabled(false);
+    ui.actionInsertSGFChapterMarker->setEnabled(false);
+    ui.actionInsertImage->setEnabled(false);
+    ui.actionInsertSpecialCharacter->setEnabled(false);
+    ui.actionInsertId->setEnabled(false);
+    ui.actionInsertHyperlink->setEnabled(false);
+    ui.actionInsertClosingTag->setEnabled(false);
+
     ui.actionUndo->setEnabled(true);
     ui.actionRedo->setEnabled(true);
 	
-    ui.actionCut  ->setEnabled(false);  
-    ui.actionCopy ->setEnabled(false); 
-    ui.actionPaste->setEnabled(false); 
     ui.actionPasteClipboardHistory->setEnabled(true);
 
     ui.actionBold         ->setEnabled(false);
@@ -1909,10 +1940,6 @@ void MainWindow::SetStateActionsRawView()
     ui.actionCasingPropercase ->setEnabled(true);
     ui.actionCasingCapitalize ->setEnabled(true);
 
-    ui.actionInsertImage->setEnabled(false);
-    ui.actionSplitChapter->setEnabled(false);
-    ui.actionInsertSGFChapterMarker->setEnabled(false);
-
     ui.actionFind->setEnabled(true);
     ui.actionFindNext->setEnabled(true);
     ui.actionFindPrevious->setEnabled(true);
@@ -1925,6 +1952,7 @@ void MainWindow::SetStateActionsRawView()
     
     ui.actionAddMisspelledWord->setEnabled(false);
     ui.actionIgnoreMisspelledWord->setEnabled(false);
+    ui.actionAutoSpellCheck->setEnabled(false);
 
     UpdateUIOnTabChanges();
 
@@ -1937,12 +1965,24 @@ void MainWindow::SetStateActionsStaticView()
     ui.actionSplitView->setChecked(false);
     ui.actionCodeView->setChecked(false);
 
+    ui.actionBookView->setEnabled(false);
+    ui.actionSplitView->setEnabled(false);
+    ui.actionCodeView->setEnabled(false);
+
+    ui.actionPrintPreview->setEnabled(false);
+    ui.actionPrint->setEnabled(false);
+
+    ui.actionSplitChapter->setEnabled(false);
+    ui.actionInsertSGFChapterMarker->setEnabled(false);
+    ui.actionInsertImage->setEnabled(false);
+    ui.actionInsertSpecialCharacter->setEnabled(false);
+    ui.actionInsertId->setEnabled(false);
+    ui.actionInsertHyperlink->setEnabled(false);
+    ui.actionInsertClosingTag->setEnabled(false);
+
     ui.actionUndo->setEnabled(false);
     ui.actionRedo->setEnabled(false);
 	
-    ui.actionCut  ->setEnabled(false);  
-    ui.actionCopy ->setEnabled(false); 
-    ui.actionPaste->setEnabled(false); 
     ui.actionPasteClipboardHistory->setEnabled(false);
 
     ui.actionBold         ->setEnabled(false);
@@ -1982,10 +2022,6 @@ void MainWindow::SetStateActionsStaticView()
     ui.actionCasingPropercase ->setEnabled(false);
     ui.actionCasingCapitalize ->setEnabled(false);
 
-    ui.actionInsertImage->setEnabled(false);
-    ui.actionSplitChapter->setEnabled(false);
-    ui.actionInsertSGFChapterMarker->setEnabled(false);
-
     ui.actionFind->setEnabled(false);
     ui.actionFindNext->setEnabled(false);
     ui.actionFindPrevious->setEnabled(false);
@@ -1998,6 +2034,7 @@ void MainWindow::SetStateActionsStaticView()
 
     ui.actionAddMisspelledWord->setEnabled(false);
     ui.actionIgnoreMisspelledWord->setEnabled(false);
+    ui.actionAutoSpellCheck->setEnabled(false);
 
     UpdateUIOnTabChanges();
 
