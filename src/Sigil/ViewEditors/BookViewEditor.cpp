@@ -175,9 +175,9 @@ QString BookViewEditor::GetHtml5()
 }
 #endif
 
-void BookViewEditor::InsertHtml(const QString &html)
+bool BookViewEditor::InsertHtml(const QString &html)
 {
-    ExecCommand( "insertHTML", html );
+    return ExecCommand( "insertHTML", html );
 }
 
 QString BookViewEditor::SplitChapter()
@@ -245,21 +245,22 @@ void BookViewEditor::TextChangedFilter()
     emit textChanged();
 }
 
-void BookViewEditor::ExecCommand( const QString &command )
+bool BookViewEditor::ExecCommand( const QString &command )
 {
     if( m_isLoadFinished ) {
         QString javascript = QString( "document.execCommand( '%1', false, null)" ).arg( EscapeJSString( command ) );
-        EvaluateJavascript( javascript );
+        return EvaluateJavascript( javascript ).toBool();
     }
+    return false;
 }
 
-void BookViewEditor::ExecCommand( const QString &command, const QString &parameter )
+bool BookViewEditor::ExecCommand( const QString &command, const QString &parameter )
 {
     QString javascript = QString( "document.execCommand( '%1', false, '%2' )" )
                             .arg( EscapeJSString( command ) )
                             .arg( EscapeJSString( parameter ) );
 
-    EvaluateJavascript( javascript );
+    return EvaluateJavascript( javascript ).toBool();
 }
 
 bool BookViewEditor::QueryCommandState( const QString &command )
@@ -471,28 +472,28 @@ void BookViewEditor::ApplyCaseChangeToSelection( const Utility::Casing &casing )
     }
 }
 
-void BookViewEditor::InsertId(const QString &id)
+bool BookViewEditor::InsertId(const QString &id)
 {
     const QString &element_name = "a";
     const QString &attribute_name = "id";
-    InsertTagAttribute(element_name, attribute_name, id, ANCHOR_TAGS);
+    return InsertTagAttribute(element_name, attribute_name, id, ANCHOR_TAGS);
 }
 
-void BookViewEditor::InsertHyperlink(const QString &href)
+bool BookViewEditor::InsertHyperlink(const QString &href)
 {
     const QString &element_name = "a";
     const QString &attribute_name = "href";
-    InsertTagAttribute(element_name, attribute_name, href, ANCHOR_TAGS);
+    return InsertTagAttribute(element_name, attribute_name, href, ANCHOR_TAGS);
 }
 
-void BookViewEditor::InsertTagAttribute(const QString &element_name, const QString &attribute_name, const QString &attribute_value, const QStringList &tag_list)
+bool BookViewEditor::InsertTagAttribute(const QString &element_name, const QString &attribute_name, const QString &attribute_value, const QStringList &tag_list)
 {
     QString selected_text = GetSelectedText();
     
     if (selected_text.isEmpty()) {
         // Apply this value to any existing allowed ancestor element tag if it exists
         if ( SetAncestorTagAttributeValue(attribute_name, attribute_value, tag_list) ) {
-            return;
+            return true;
         }
     }
     // We need to insert a new tag element into the document - cannot insert an empty
@@ -503,7 +504,7 @@ void BookViewEditor::InsertTagAttribute(const QString &element_name, const QStri
     }
     // Just prepend and append the tag pairs to the text
     const QString html = "<" % element_name % " " % attribute_name % "=\"" % attribute_value % "\">" % selected_text % "</" % element_name %">";
-    InsertHtml(html);
+    return InsertHtml(html);
 }
 
 QString BookViewEditor::GetAncestorTagAttributeValue(const QString &attribute_name, const QStringList &tag_list)

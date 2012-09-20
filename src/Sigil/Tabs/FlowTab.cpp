@@ -726,8 +726,7 @@ bool FlowTab::InsertId(QString id)
         return m_wCodeView->InsertId(id);
     }
     else if (m_ViewState == MainWindow::ViewState_BookView) {
-        m_wBookView->InsertId(id);
-        return true;
+        return m_wBookView->InsertId(id);
     }
     return false;
 }
@@ -738,8 +737,7 @@ bool FlowTab::InsertHyperlink(QString href)
         return m_wCodeView->InsertHyperlink(href);
     }
     else if (m_ViewState == MainWindow::ViewState_BookView) {
-        m_wBookView->InsertHyperlink(href);
-        return true;
+        return m_wBookView->InsertHyperlink(href);
     }
     return false;
 }

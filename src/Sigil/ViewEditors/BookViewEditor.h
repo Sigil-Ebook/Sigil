@@ -68,7 +68,7 @@ public:
     //QString GetXHtml11();
     //QString GetHtml5();
 
-    void InsertHtml(const QString &html);
+    bool InsertHtml(const QString &html);
 
     /**
      * Splits the chapter and returns the "upper" content.
@@ -133,7 +133,7 @@ public:
      *
      * @param command The command to execute.
      */
-    void ExecCommand( const QString &command );
+    bool ExecCommand( const QString &command );
 
     /**
      * Executes a contentEditable command.
@@ -142,7 +142,7 @@ public:
      * @param command The command to execute.
      * @param parameter The parameter that should be passed to the command.
      */
-    void ExecCommand( const QString &command, const QString &parameter );
+    bool ExecCommand( const QString &command, const QString &parameter );
 
     /**
      * Returns the state of the contentEditable command.
@@ -172,8 +172,8 @@ public:
 
     void ApplyCaseChangeToSelection( const Utility::Casing &casing );
 
-    void InsertId(const QString &id);
-    void InsertHyperlink(const QString &href);
+    bool InsertId(const QString &id);
+    bool InsertHyperlink(const QString &href);
 
     /**
       * From the current cursor position, search for a parent tag element named in the tag list.
@@ -321,7 +321,7 @@ private:
      */
     QString RemoveBookViewReplaceSpans( const QString &source );
 
-    void InsertTagAttribute(const QString &element_name, const QString &attribute_name, const QString &attribute_value, const QStringList &tag_list);
+    bool InsertTagAttribute(const QString &element_name, const QString &attribute_name, const QString &attribute_value, const QStringList &tag_list);
 
     bool SetAncestorTagAttributeValue(const QString &attribute_name, const QString &attribute_value, const QStringList &tag_list);
 
