@@ -376,14 +376,14 @@ void TabManager::MakeCentralTab( ContentTab *tab )
     setCurrentIndex( indexOf( tab ) );
 }
 
-
 void TabManager::EmitTabChanged()
 {
     ContentTab *current_tab = qobject_cast< ContentTab* >( currentWidget() );
 
-    emit TabChanged( m_LastContentTab.data(), current_tab );
-
-    m_LastContentTab = QWeakPointer< ContentTab >( current_tab );
+    if ( m_LastContentTab.data() != current_tab ) {
+        emit TabChanged( m_LastContentTab.data(), current_tab );
+        m_LastContentTab = QWeakPointer< ContentTab >( current_tab );
+    }
 }
 
 void TabManager::UpdateTab(int index)
