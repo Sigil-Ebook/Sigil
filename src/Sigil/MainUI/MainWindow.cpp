@@ -965,8 +965,6 @@ void MainWindow::SetViewState(MainWindow::ViewState view_state)
         // the well formed check failing. Due to this we know that we're still in CV.
         ui.actionCodeView->setChecked(true);
     }
-
-    SaveDefaultViewState();
 }
 
 
@@ -2138,13 +2136,6 @@ void MainWindow::SetDefaultViewState()
     SetViewState(m_ViewState);
 }
 
-void MainWindow::SaveDefaultViewState()
-{
-    SettingsStore settings;
-    settings.setViewState( m_ViewState );
-    emit SettingsChanged();
-}
-
 void MainWindow::SetAutoSpellCheck( bool new_state )
 {
     SettingsStore settings;
@@ -2375,6 +2366,8 @@ void MainWindow::WriteSettings()
     KeyboardShortcutManager::instance()->writeSettings();
 
     settings.endGroup();
+
+    settings.setViewState( m_ViewState );
 }
 
 bool MainWindow::MaybeSaveDialogSaysProceed()

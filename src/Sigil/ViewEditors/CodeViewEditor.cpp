@@ -1485,6 +1485,10 @@ void CodeViewEditor::TextChangedFilter()
 
 void CodeViewEditor::RehighlightDocument()
 {
+    if (!isVisible()) {
+        m_pendingSpellingHighlighting = true;
+        return;
+    }
     m_pendingSpellingHighlighting = false;
     // We block signals from the document while highlighting takes place,
     // because we do not want the contentsChanged() signal to be fired

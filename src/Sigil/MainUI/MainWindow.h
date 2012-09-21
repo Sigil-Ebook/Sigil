@@ -596,7 +596,6 @@ private:
     void WriteSettings();
 
     void SetDefaultViewState();
-    void SaveDefaultViewState();
 
     /**
      * Gets called on possible saves and asks the user
