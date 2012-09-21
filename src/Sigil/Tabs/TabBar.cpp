@@ -63,9 +63,9 @@ void TabBar::ShowContextMenu(QMouseEvent *event, int tab_index)
 {
     QMenu *menu = new QMenu();
 
-    QAction *saveSearchAction = new QAction(tr("Close Other Tabs"), menu);
-    menu->addAction(saveSearchAction);
-    connect(saveSearchAction, SIGNAL(triggered()), this, SLOT(EmitCloseOtherTabs()));
+    QAction *closeOtherTabsAction = new QAction(tr("Close Other Tabs"), menu);
+    menu->addAction(closeOtherTabsAction);
+    connect(closeOtherTabsAction, SIGNAL(triggered()), this, SLOT(EmitCloseOtherTabs()));
 
     menu->exec(mapToGlobal(event->pos()));
 
