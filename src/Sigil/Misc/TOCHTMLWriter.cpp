@@ -121,7 +121,7 @@ void TOCHTMLWriter::WriteEntries(NCXModel::NCXEntry parent_entry, int level)
 
         m_Writer->writeCharacters("  ");
         m_Writer->writeStartElement("a");
-        m_Writer->writeAttribute("href", entry.target);
+        m_Writer->writeAttribute("href", "../" + entry.target);
         m_Writer->writeCharacters(entry.text);
         m_Writer->writeEndElement();
         m_Writer->writeCharacters("\n");
