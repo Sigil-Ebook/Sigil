@@ -175,7 +175,7 @@ void HTMLResource::TrackNewResources(const QStringList &filepaths)
 
 bool HTMLResource::DeleteCSStyles( QList<CSSInfo::CSSSelector*> css_selectors)
 {
-    CSSInfo css_info(GetText());
+    CSSInfo css_info(GetText(), false);
 
     // Search for selectors with the same definition and line and remove from text
     const QString &new_resource_text = css_info.removeMatchingSelectors(css_selectors);
