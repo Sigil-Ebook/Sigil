@@ -84,7 +84,7 @@
      </property>
      <addaction name="actionCasingLowercase"/>
      <addaction name="actionCasingUppercase"/>
-     <addaction name="actionCasingPropercase"/>
+     <addaction name="actionCasingTitlecase"/>
      <addaction name="actionCasingCapitalize"/>
     </widget>
     <addaction name="actionUndo"/>
@@ -484,7 +484,7 @@
    </attribute>
    <addaction name="actionCasingLowercase"/>
    <addaction name="actionCasingUppercase"/>
-   <addaction name="actionCasingPropercase"/>
+   <addaction name="actionCasingTitlecase"/>
    <addaction name="actionCasingCapitalize"/>
   </widget>
   <widget class="QToolBar" name="toolBarTextDirection">
@@ -1311,18 +1311,18 @@
     <string>Alt+U</string>
    </property>
   </action>
-  <action name="actionCasingPropercase">
+  <action name="actionCasingTitlecase">
    <property name="icon">
     <iconset resource="../Resource_Files/main/main.qrc">
-     <normaloff>:/main/format-case-propercase_22px.png</normaloff>:/main/format-case-propercase_22px.png
+     <normaloff>:/main/format-case-titlecase_22px.png</normaloff>:/main/format-case-titlecase_22px.png
     </iconset>
    </property>
    <property name="text">
-    <string>Propercase</string>
+    <string>Titlecase</string>
    </property>
    <property name="toolTip">
     <string>
-     &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Propercase&lt;/b&gt;&lt;/p&gt;
+     &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Titlecase&lt;/b&gt;&lt;/p&gt;
 
      &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Capitalize the first letter of each word selected.&lt;/p&gt;
     </string>

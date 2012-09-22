@@ -1301,8 +1301,8 @@ void MainWindow::ChangeCasing(int casing_mode)
             casing = Utility::Casing_Uppercase;
             break;
         }
-        case Utility::Casing_Propercase: {
-            casing = Utility::Casing_Propercase;
+        case Utility::Casing_Titlecase: {
+            casing = Utility::Casing_Titlecase;
             break;
         }
         case Utility::Casing_Capitalize: {
@@ -1677,7 +1677,7 @@ void MainWindow::SetStateActionsBookView()
 
     ui.actionCasingLowercase  ->setEnabled(true);
     ui.actionCasingUppercase  ->setEnabled(true);
-    ui.actionCasingPropercase ->setEnabled(true);
+    ui.actionCasingTitlecase ->setEnabled(true);
     ui.actionCasingCapitalize ->setEnabled(true);
 
     ui.actionFind->setEnabled(true);
@@ -1759,7 +1759,7 @@ void MainWindow::SetStateActionsSplitView()
 
     ui.actionCasingLowercase  ->setEnabled(false);
     ui.actionCasingUppercase  ->setEnabled(false);
-    ui.actionCasingPropercase ->setEnabled(false);
+    ui.actionCasingTitlecase ->setEnabled(false);
     ui.actionCasingCapitalize ->setEnabled(false);
 
     ui.actionFind->setEnabled(true);
@@ -1841,7 +1841,7 @@ void MainWindow::SetStateActionsCodeView()
 
     ui.actionCasingLowercase  ->setEnabled(true);
     ui.actionCasingUppercase  ->setEnabled(true);
-    ui.actionCasingPropercase ->setEnabled(true);
+    ui.actionCasingTitlecase ->setEnabled(true);
     ui.actionCasingCapitalize ->setEnabled(true);
 
     ui.actionFind->setEnabled(true);
@@ -1944,7 +1944,7 @@ void MainWindow::SetStateActionsRawView()
 
     ui.actionCasingLowercase  ->setEnabled(true);
     ui.actionCasingUppercase  ->setEnabled(true);
-    ui.actionCasingPropercase ->setEnabled(true);
+    ui.actionCasingTitlecase ->setEnabled(true);
     ui.actionCasingCapitalize ->setEnabled(true);
 
     ui.actionFind->setEnabled(true);
@@ -2026,7 +2026,7 @@ void MainWindow::SetStateActionsStaticView()
 
     ui.actionCasingLowercase  ->setEnabled(false);
     ui.actionCasingUppercase  ->setEnabled(false);
-    ui.actionCasingPropercase ->setEnabled(false);
+    ui.actionCasingTitlecase ->setEnabled(false);
     ui.actionCasingCapitalize ->setEnabled(false);
 
     ui.actionFind->setEnabled(false);
@@ -3065,7 +3065,7 @@ void MainWindow::ExtendUI()
     sm->registerAction(ui.actionHeadingPreserveAttributes, "MainWindow.HeadingPreserveAttributes");
     sm->registerAction(ui.actionCasingLowercase, "MainWindow.CasingLowercase");
     sm->registerAction(ui.actionCasingUppercase, "MainWindow.CasingUppercase");
-    sm->registerAction(ui.actionCasingPropercase, "MainWindow.CasingPropercase");
+    sm->registerAction(ui.actionCasingTitlecase, "MainWindow.CasingTitlecase");
     sm->registerAction(ui.actionCasingCapitalize, "MainWindow.CasingCapitalize");
 
     // Tools
@@ -3231,9 +3231,9 @@ void MainWindow::ExtendIconSizes()
     icon.addFile(QString::fromUtf8(":/main/format-case-uppercase_16px.png"));
     ui.actionCasingUppercase->setIcon(icon);
     
-    icon = ui.actionCasingPropercase->icon();
-    icon.addFile(QString::fromUtf8(":/main/format-case-propercase_16px.png"));
-    ui.actionCasingPropercase->setIcon(icon);
+    icon = ui.actionCasingTitlecase->icon();
+    icon.addFile(QString::fromUtf8(":/main/format-case-titlecase_16px.png"));
+    ui.actionCasingTitlecase->setIcon(icon);
     
     icon = ui.actionCasingCapitalize->icon();
     icon.addFile(QString::fromUtf8(":/main/format-case-capitalize_16px.png"));
@@ -3427,11 +3427,11 @@ void MainWindow::ConnectSignalsToSlots()
     // Change case
     connect(ui.actionCasingLowercase,  SIGNAL(triggered()), m_casingChangeMapper, SLOT(map()));
     connect(ui.actionCasingUppercase,  SIGNAL(triggered()), m_casingChangeMapper, SLOT(map()));
-    connect(ui.actionCasingPropercase, SIGNAL(triggered()), m_casingChangeMapper, SLOT(map()));
+    connect(ui.actionCasingTitlecase, SIGNAL(triggered()), m_casingChangeMapper, SLOT(map()));
     connect(ui.actionCasingCapitalize, SIGNAL(triggered()), m_casingChangeMapper, SLOT(map()));
     m_casingChangeMapper->setMapping(ui.actionCasingLowercase,  Utility::Casing_Lowercase);
     m_casingChangeMapper->setMapping(ui.actionCasingUppercase,  Utility::Casing_Uppercase);
-    m_casingChangeMapper->setMapping(ui.actionCasingPropercase, Utility::Casing_Propercase);
+    m_casingChangeMapper->setMapping(ui.actionCasingTitlecase, Utility::Casing_Titlecase);
     m_casingChangeMapper->setMapping(ui.actionCasingCapitalize, Utility::Casing_Capitalize);
     connect(m_casingChangeMapper, SIGNAL(mapped(int)), this, SLOT(ChangeCasing(int)));
 

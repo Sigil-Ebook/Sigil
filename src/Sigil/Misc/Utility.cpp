@@ -61,7 +61,7 @@ QString Utility::ChangeCase( const QString &text, const Utility::Casing &casing 
         {
             return text.toUpper();
         }
-        case Utility::Casing_Propercase:
+        case Utility::Casing_Titlecase:
         {
             // This is a super crude algorithm, could be replaced by something more clever.
             QString new_text = text.toLower();

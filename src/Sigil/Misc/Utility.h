@@ -39,7 +39,7 @@ public:
     {
         Casing_Uppercase,     /**< Change characters to uppercase */
         Casing_Lowercase,     /**< Change characters to lowercase */
-        Casing_Propercase,    /**< Change first character of each word to uppercase, reset to lowercase. */
+        Casing_Titlecase,    /**< Change first character of each word to uppercase, reset to lowercase. */
         Casing_Capitalize,    /**< Change first character of sentence to uppercase, rest to lowercase. */
     };
 
