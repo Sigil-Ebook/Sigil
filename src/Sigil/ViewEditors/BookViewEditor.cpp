@@ -643,7 +643,7 @@ bool BookViewEditor::SuccessfullySetupContextMenu( const QPoint &point )
             QString filename = imageUrl.toString();
             filename = filename.right(filename.length() - filename.lastIndexOf("/") - 1);
             m_Open->setData( imageUrl );
-            m_Open->setText( tr( "Open" ) + " " + filename );
+            m_Open->setText( tr( "Open Tab For" ) + " \"" + filename + "\"");
             m_ContextMenu.addAction( m_Open );
 
             // Open With
@@ -681,9 +681,12 @@ bool BookViewEditor::SuccessfullySetupContextMenu( const QPoint &point )
 
             m_ContextMenu.addSeparator();
         }
+        else {
+            // If not an image allow insert - otherwise cursor is not where you expect.
+            m_ContextMenu.addAction( m_InsertImage );
+        }
     }
 
-    m_ContextMenu.addAction( m_InsertImage );
     m_ContextMenu.addSeparator();
     m_ContextMenu.addAction( m_Undo );
     m_ContextMenu.addAction( m_Redo );
