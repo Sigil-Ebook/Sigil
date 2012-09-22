@@ -2718,7 +2718,7 @@ void CodeViewEditor::ReformatCSS(bool multiple_line_format)
     // Currently this feature is only enabled for CSS content, no inline HTML
     CSSInfo css_info(original_text, true);
     
-    const QString &new_text = css_info.GetReformattedCSSText(multiple_line_format);
+    const QString &new_text = css_info.getReformattedCSSText(multiple_line_format);
     if (original_text != new_text) {
         QTextCursor cursor = textCursor();
         cursor.beginEditBlock();
