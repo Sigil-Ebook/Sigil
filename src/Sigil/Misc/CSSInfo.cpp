@@ -195,7 +195,12 @@ QString CSSInfo::removeMatchingSelectors( QList<CSSSelector*> cssSelectors )
                 // but pad out with spaces before the opening brace, so if we later in this loop
                 // find ourselves removing the last group selector we can do so without position recalc.
                 // We could try to get more fancy, but this is a low value edge case.
-                current_groups.removeOne(remove_selector->groupText);
+                for (int j=0; j < current_groups.count(); j++) {
+                    if (current_groups.at(j).trimmed() == remove_selector->groupText) {
+                        current_groups.removeAt(j);
+                        break;
+                    }
+                }
                 const QString new_groups_text = current_groups.join(",");
                 new_text.replace(remove_selector->position, selector_length, new_groups_text.leftJustified(selector_length, QChar(' ')));
                 // Done all we intend to for this selector group for now
@@ -351,7 +356,7 @@ void CSSInfo::parseCSSSelectors( const QString &text, const int &offsetLines, co
             CSSSelector *selector = new CSSSelector();
 
             selector->originalText = selector_text;
-            selector->groupText = match;
+            selector->groupText = match.trimmed();
             selector->position = pos + offsetPos;
             selector->line = line + offsetLines;
             selector->isGroup = matches.length() > 1;
