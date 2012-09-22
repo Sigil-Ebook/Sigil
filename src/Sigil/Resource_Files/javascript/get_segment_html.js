@@ -11,7 +11,7 @@ if ( node.nodeType == 3 ) {
     if ( offset <= node.length - 1 ) {
         node.splitText( offset );
         // Our range will be up to past this #text node
-        for ( var childIndex = 0, e = node; e = e.previousSibling; ++childIndex );
+        for( var childIndex = 0, e = node; e = e.previousSibling; ++childIndex );
         splitOffset = childIndex + 1;
     }
     else {
@@ -24,7 +24,7 @@ if ( node.nodeType == 3 ) {
         while ( parent != null ) {
             if ( parent.childNodes[parent.childNodes.length - 1] != node ) {
                 // We are not the last parent so will split before the next node
-                for ( var childIndex = 0, e = node; e = e.previousSibling; ++childIndex );
+                for( var childIndex = 0, e = node; e = e.previousSibling; ++childIndex );
                 splitNode = parent;
                 splitOffset = childIndex + 1;
                 break;
@@ -32,7 +32,7 @@ if ( node.nodeType == 3 ) {
             if ( parent == blockNode ) {
                 // We reached the parent and must be the last node within it
                 splitNode = parent.parentNode;
-                for ( var childIndex = 0, e = parent; e = e.previousSibling; ++childIndex );
+                for( var childIndex = 0, e = parent; e = e.previousSibling; ++childIndex );
                 splitOffset = childIndex + 1;
                 break;
             }
