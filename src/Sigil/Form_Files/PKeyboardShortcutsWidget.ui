@@ -99,16 +99,26 @@
        <layout class="QHBoxLayout">
         <item>
          <widget class="QLabel" name="targetEditLabel">
+          <property name="toolTip">
+           <string>Press the key combination you want to use.</string>
+          </property>
           <property name="text">
            <string>Shortcut:</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QLineEdit" name="targetEdit"/>
+         <widget class="QLineEdit" name="targetEdit">
+          <property name="toolTip">
+           <string>Press the key combination you want to use.</string>
+          </property>
+         </widget>
         </item>
         <item>
          <widget class="QPushButton" name="assignButton">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
           <property name="sizePolicy">
            <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
             <horstretch>0</horstretch>
@@ -121,9 +131,6 @@
           <property name="text">
            <string>Assign</string>
           </property>
-          <property name="enabled">
-           <bool>false</bool>
-          </property>
           <property name="iconSize">
            <size>
             <width>16</width>
@@ -134,14 +141,14 @@
         </item>
         <item>
          <widget class="QPushButton" name="removeButton">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
           <property name="toolTip">
            <string>Remove this keyboard shortcut.</string>
           </property>
           <property name="text">
            <string>Remove</string>
-          </property>
-          <property name="enabled">
-            <bool>false</bool>
           </property>
          </widget>
         </item>

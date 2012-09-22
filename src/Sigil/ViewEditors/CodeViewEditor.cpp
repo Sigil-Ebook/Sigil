@@ -1043,7 +1043,7 @@ bool CodeViewEditor::AddSpellCheckContextMenu(QMenu *menu)
             }
 
             // Allow the user to add the misspelled word to their user dictionary.
-            QAction *addToDictAction = new QAction(tr("Add to dictionary"), menu);
+            QAction *addToDictAction = new QAction(tr("Add To Dictionary"), menu);
             connect(addToDictAction, SIGNAL(triggered()), m_addSpellingMapper, SLOT(map()));
             m_addSpellingMapper->setMapping(addToDictAction, selected_word);
             if (topAction) {

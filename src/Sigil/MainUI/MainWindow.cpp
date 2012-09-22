@@ -2938,16 +2938,17 @@ void MainWindow::ExtendUI()
     ui.menuToolbars->addAction(ui.toolBarTextManip->toggleViewAction());
     ui.menuToolbars->addAction(ui.toolBarViews->toggleViewAction());
     ui.menuToolbars->addAction(ui.toolBarInsertions->toggleViewAction());
-    ui.menuToolbars->addAction(ui.toolBarLinks->toggleViewAction());
-    ui.menuToolbars->addAction(ui.toolBarHeadings->toggleViewAction());
-    ui.menuToolbars->addAction(ui.toolBarIndents->toggleViewAction());
-    ui.menuToolbars->addAction(ui.toolBarLists->toggleViewAction());
-    ui.menuToolbars->addAction(ui.toolBarTextFormats->toggleViewAction());
-    ui.menuToolbars->addAction(ui.toolBarTextAlign->toggleViewAction());
-    ui.menuToolbars->addAction(ui.toolBarChangeCase->toggleViewAction());
-    ui.menuToolbars->addAction(ui.toolBarTextDirection->toggleViewAction());
+    ui.menuToolbars->addAction(ui.toolBarBack->toggleViewAction());
     ui.menuToolbars->addAction(ui.toolBarDonate->toggleViewAction());
     ui.menuToolbars->addAction(ui.toolBarTools->toggleViewAction());
+
+    ui.menuToolbars->addAction(ui.toolBarHeadings->toggleViewAction());
+    ui.menuToolbars->addAction(ui.toolBarTextFormats->toggleViewAction());
+    ui.menuToolbars->addAction(ui.toolBarTextAlign->toggleViewAction());
+    ui.menuToolbars->addAction(ui.toolBarLists->toggleViewAction());
+    ui.menuToolbars->addAction(ui.toolBarIndents->toggleViewAction());
+    ui.menuToolbars->addAction(ui.toolBarChangeCase->toggleViewAction());
+    ui.menuToolbars->addAction(ui.toolBarTextDirection->toggleViewAction());
 
     ui.toolBarTextDirection->setVisible(false);
 

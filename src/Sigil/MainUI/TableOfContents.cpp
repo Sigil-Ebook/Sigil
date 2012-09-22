@@ -41,13 +41,13 @@ static const int REFRESH_DELAY = 1000;
 
 TableOfContents::TableOfContents( QWidget *parent )
     : 
-    QDockWidget( tr( "Table of Contents" ), parent ),
+    QDockWidget( tr( "Table Of Contents" ), parent ),
     m_Book( NULL ),
     m_MainWidget( *new QWidget( this ) ),
     m_ButtonHolderWidget( *new QWidget( &m_MainWidget ) ),
     m_Layout( *new QVBoxLayout( &m_MainWidget ) ),
     m_TreeView( *new QTreeView( &m_MainWidget ) ),
-    m_GenerateTocButton( *new QPushButton( tr( "Generate Table of Contents" ), &m_ButtonHolderWidget ) ),
+    m_GenerateTocButton( *new QPushButton( tr( "Generate Table Of Contents" ), &m_ButtonHolderWidget ) ),
     m_RefreshTimer( *new QTimer( this ) ),
     m_NCXModel( *new NCXModel( this ) )
 {

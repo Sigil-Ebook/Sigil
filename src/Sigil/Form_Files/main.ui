@@ -217,10 +217,9 @@
     <addaction name="separator"/>
     <addaction name="actionCount"/>
     <addaction name="separator"/>
-    <addaction name="actionGoToLine"/>
-    <addaction name="separator"/>
     <addaction name="actionGoToLinkOrStyle"/>
     <addaction name="actionGoBackFromLinkOrStyle"/>
+    <addaction name="actionGoToLine"/>
     <addaction name="separator"/>
     <addaction name="menuRegexOptions"/>
    </widget>
@@ -242,7 +241,7 @@
     </property>
     <widget class="QMenu" name="menuTOC">
      <property name="title">
-      <string>Table of Contents</string>
+      <string>Table Of Contents</string>
      </property>
     <addaction name="actionGenerateTOC"/>
     <addaction name="actionCreateHTMLTOC"/>
@@ -271,16 +270,15 @@
      <addaction name="actionCreateIndex"/>
     </widget>
     <addaction name="actionMetaEditor"/>
-    <addaction name="menuSpellCheckMenu"/>
-    <addaction name="actionValidateEpub"/>
-    <addaction name="separator"/>
     <addaction name="menuTOC"/>
     <addaction name="menuIndex"/>
     <addaction name="separator"/>
+    <addaction name="menuSpellCheckMenu"/>
+    <addaction name="actionValidateEpub"/>
+    <addaction name="actionReports"/>
+    <addaction name="separator"/>
     <addaction name="actionClipEditor"/>
     <addaction name="actionSearchEditor"/>
-    <addaction name="separator"/>
-    <addaction name="actionReports"/>
     <addaction name="separator"/>
     <addaction name="actionCheckWellFormedErrors"/>
    </widget>
@@ -355,10 +353,12 @@
    <addaction name="actionSplitChapter"/>
    <addaction name="actionInsertImage"/>
    <addaction name="actionInsertSpecialCharacter"/>
+   <addaction name="actionInsertId"/>
+   <addaction name="actionInsertHyperlink"/>
   </widget>
-  <widget class="QToolBar" name="toolBarLinks">
+  <widget class="QToolBar" name="toolBarBack">
    <property name="windowTitle">
-    <string>Links</string>
+    <string>Back</string>
    </property>
    <attribute name="toolBarArea">
     <enum>TopToolBarArea</enum>
@@ -366,8 +366,6 @@
    <attribute name="toolBarBreak">
     <bool>false</bool>
    </attribute>
-   <addaction name="actionInsertId"/>
-   <addaction name="actionInsertHyperlink"/>
    <addaction name="actionGoBackFromLinkOrStyle"/>
   </widget>
   <widget class="QToolBar" name="toolBarDonate">
@@ -384,7 +382,7 @@
   </widget>
   <widget class="QToolBar" name="toolBarTools">
    <property name="windowTitle">
-    <string>Quick Settings</string>
+    <string>Tools</string>
    </property>
    <attribute name="toolBarArea">
     <enum>TopToolBarArea</enum>
@@ -666,7 +664,7 @@
     <string>Align &amp;Left</string>
    </property>
    <property name="toolTip">
-    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Align Text Left&lt;/b&gt;&lt;/p&gt;
+    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Align Left&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Align the paragraph to the left.&lt;/p&gt;</string>
    </property>
@@ -686,7 +684,7 @@
     <string>Align &amp;Right</string>
    </property>
    <property name="toolTip">
-    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Align Text Right&lt;/b&gt;&lt;/p&gt;
+    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Align Right&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Align the paragraph to the right.&lt;/p&gt;</string>
    </property>
@@ -986,7 +984,7 @@
     <string>ID...</string>
    </property>
    <property name="toolTip">
-    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert Anchor ID&lt;/b&gt;&lt;/p&gt;
+    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert ID&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Insert or edit an anchor with an ID name to use as a link target.&lt;/p&gt;</string>
    </property>
@@ -1000,7 +998,7 @@
     <string>Hyperlink...</string>
    </property>
    <property name="toolTip">
-    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert Anchor Hyperlink&lt;/b&gt;&lt;/p&gt;
+    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert Hyperlink&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Insert or edit an anchor with a hyperlink to a target.&lt;/p&gt;</string>
    </property>
@@ -1381,7 +1379,7 @@
   </action>
   <action name="actionSplitOnSGFChapterMarkers">
    <property name="text">
-    <string>Split at Chapter Markers</string>
+    <string>Split At Chapter Markers</string>
    </property>
    <property name="toolTip">
     <string>Split On Sigil Chapter Markers</string>
@@ -1467,7 +1465,7 @@
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Find the next misspelled word in Code View.&lt;/p&gt;</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+Alt+S</string>
+    <string>F4</string>
    </property>
   </action>
   <action name="actionAddMisspelledWord">
@@ -1791,7 +1789,7 @@
     <bool>true</bool>
    </property>
    <property name="text">
-    <string notr="true">Preserve existing attributes</string>
+    <string notr="true">Preserve Existing Attributes</string>
    </property>
    <property name="toolTip">
     <string>When applying this style, preserve any existing attributes on the tag</string>
@@ -1859,7 +1857,7 @@
   </action>
   <action name="actionAddToIndex">
    <property name="text">
-    <string>Add to Index</string>
+    <string>Add To Index</string>
    </property>
    <property name="toolTip">
     <string>Add the selected text to the Index Editor.</string>
@@ -1867,7 +1865,7 @@
   </action>
   <action name="actionMarkForIndex">
    <property name="text">
-    <string>Mark for Index</string>
+    <string>Mark For Index</string>
    </property>
    <property name="toolTip">
     <string>Mark the selected text for inclusion in the Index.</string>
@@ -1883,12 +1881,12 @@
   </action>
   <action name="actionGenerateTOC">
    <property name="text">
-    <string>Generate Table of Contents...</string>
+    <string>Generate Table Of Contents...</string>
    </property>
   </action>
   <action name="actionCreateHTMLTOC">
    <property name="text">
-    <string>Create HTML Table of Contents</string>
+    <string>Create HTML Table Of Contents</string>
    </property>
    <property name="toolTip">
     <string>Create a new HTML file using the current TOC.</string>
@@ -1920,7 +1918,7 @@
   </action>
   <action name="actionGoToLinkOrStyle">
    <property name="text">
-    <string>Go To Link or Style</string>
+    <string>Go To Link Or Style</string>
    </property>
    <property name="shortcut">
     <string>F3</string>
@@ -1932,7 +1930,7 @@
      <normaloff>:/main/back-to-link-style_22px.png</normaloff>:/main/back-to-link-style_22px.png</iconset>
    </property>
    <property name="text">
-    <string>Go Back To Link or Style</string>
+    <string>Go Back To Link Or Style</string>
    </property>
    <property name="toolTip">
     <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Back&lt;/b&gt;&lt;/p&gt;
