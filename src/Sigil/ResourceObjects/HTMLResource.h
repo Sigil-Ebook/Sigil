@@ -25,6 +25,7 @@
 
 #include <QtCore/QHash>
 
+#include "Misc/CSSInfo.h"
 #include "BookManipulation/GuideSemantics.h"
 #include "ResourceObjects/XMLResource.h"
 
@@ -96,6 +97,8 @@ public:
      * @return The paths to the linked stylesheets.
      */
     QStringList GetLinkedStylesheets();
+
+    bool DeleteCSStyles( QList<CSSInfo::CSSSelector*> css_selectors);
 
 signals:
     void LinkedResourceUpdated();

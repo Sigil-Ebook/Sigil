@@ -154,6 +154,64 @@ QString CSSInfo::getReformattedCSSText( bool multipleLineFormat )
     return new_text.trimmed();
 }
 
+QString CSSInfo::removeMatchingSelectors( QList<CSSSelector*> cssSelectors )
+{
+    // First try to find a CSS selector currently parsed that matches each of the selectors supplied.
+    QList<CSSSelector*> remove_selectors;
+
+    foreach(CSSSelector* css_selector, cssSelectors) {
+        foreach(CSSSelector* match_selector, m_CSSSelectors) {
+            if ((match_selector->line == css_selector->line) &&
+                (match_selector->groupText == css_selector->groupText)) {
+                    remove_selectors.append(match_selector);
+                    break;
+            }
+        }
+    }
+    
+    // If no matches found, return a null string to caller
+    if (remove_selectors.isEmpty()) {
+        return QString();
+    }
+
+    QString new_text(m_OriginalText);
+    // Sort the selectors by line number ascending.
+    qSort(remove_selectors);
+
+    CSSSelector* remove_selector;
+    // Now iterate in reverse order
+    for( int i = remove_selectors.count() - 1; i >= 0; i--) {
+        remove_selector = remove_selectors.at(i);
+
+        // Is the selector in a group - if so, just remove the text portion.
+        if (remove_selector->isGroup) {
+            // Life is now complicated. We need to be careful how we remove the text.
+            const int selector_length = remove_selector->originalText.length();
+            const QString current_selector_text = new_text.mid(remove_selector->position, selector_length);
+            QStringList current_groups = current_selector_text.split(QChar(','), QString::SkipEmptyParts);
+            // If we are the last group within the selector, we can safely remove the whole thing
+            if (current_groups.count() > 1) {
+                // Darn, we arent. To play things safe, we will reassemble without this group
+                // but pad out with spaces before the opening brace, so if we later in this loop
+                // find ourselves removing the last group selector we can do so without position recalc.
+                // We could try to get more fancy, but this is a low value edge case.
+                current_groups.removeOne(remove_selector->groupText);
+                const QString new_groups_text = current_groups.join(",");
+                new_text.replace(remove_selector->position, selector_length, new_groups_text.leftJustified(selector_length, QChar(' ')));
+                // Done all we intend to for this selector group for now
+                continue;
+            }
+        }
+        
+        // Remove the entire text for this CSS style from the stylesheet, plus trailing whitespace.
+        int start_pos = remove_selector->position;
+        int end_pos = remove_selector->closingBracePos;
+        while (++end_pos < new_text.length() && new_text.at(end_pos).isSpace());
+        new_text.remove(start_pos, end_pos - start_pos);
+    }
+    return new_text;
+}
+
 QList< CSSInfo::CSSProperty* > CSSInfo::getCSSProperties( const QString &text, const int &openingBracePos, const int &closingBracePos )
 {
     QList<CSSProperty*> new_properties;
@@ -293,6 +351,7 @@ void CSSInfo::parseCSSSelectors( const QString &text, const int &offsetLines, co
             CSSSelector *selector = new CSSSelector();
 
             selector->originalText = selector_text;
+            selector->groupText = match;
             selector->position = pos + offsetPos;
             selector->line = line + offsetLines;
             selector->isGroup = matches.length() > 1;

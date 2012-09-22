@@ -172,3 +172,18 @@ void HTMLResource::TrackNewResources(const QStringList &filepaths)
         }
     }
 }
+
+bool HTMLResource::DeleteCSStyles( QList<CSSInfo::CSSSelector*> css_selectors)
+{
+    CSSInfo css_info(GetText());
+
+    // Search for selectors with the same definition and line and remove from text
+    const QString &new_resource_text = css_info.removeMatchingSelectors(css_selectors);
+
+    if (!new_resource_text.isNull()) {
+        // At least one of the selector(s) was removed.
+        SetText(new_resource_text);
+        return true;
+    }
+    return false;
+}

@@ -44,13 +44,18 @@ public:
     struct CSSSelector
     {
         QString originalText;       /* The original text of the complete selector                  */
-        QStringList classNames;     /* The classname(s) (stripped of periods) if a class selector  */
-        QStringList elementNames;   /* The element names (stripped of any ids/attributes)          */
-        int line;                   /* For convenience of navigation, the line# selector is on     */
-        int position;               /* The position in the file of this selector name              */
         bool isGroup;               /* Whether selector was declared in a comma separated group    */
+        QString groupText;          /* The text of the selector for this group (same as originalText if not a group) */
+        QStringList classNames;     /* The classname(s) (stripped of periods) if a class selector  */
+        QStringList elementNames;   /* The element names if any (stripped of any ids/attributes)   */
+        int line;                   /* For convenience of navigation, the line# selector is on     */
+        int position;               /* The position in the file of the full selector name          */
         int openingBracePos;        /* Location of the opening brace which contains properties     */
         int closingBracePos;        /* Location of the closing brace which contains properties     */
+
+        bool operator<(const CSSSelector& rhs) const {
+            return line < rhs.line;
+        }
     };
 
     struct CSSProperty
@@ -76,6 +81,14 @@ public:
      * a multiple line style (each property on its own line) or single line style.
      */
     QString getReformattedCSSText( bool multipleLineFormat );
+
+    /**
+     * Search for a CSSSelector with the same definition of original group text and line as this,
+     * and if found remove from the document text, returning the new text.
+     * If not found returns a null string.
+     * Note the caller must intialise a new CSSInfo object to re-parse the updated text for another remove.
+     */
+    QString removeMatchingSelectors( QList<CSSSelector*> cssSelectors );
 
     static QList< CSSProperty* > getCSSProperties( const QString &text, const int &openingBracePos, const int &closingBracePos );
     static QString formatCSSProperties(QList< CSSProperty* > new_properties, bool multipleLineFormat, const int &selectorIndent = 0);

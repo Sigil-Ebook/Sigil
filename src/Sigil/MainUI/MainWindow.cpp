@@ -57,7 +57,6 @@
 #include "MainUI/FindReplace.h"
 #include "MainUI/TableOfContents.h"
 #include "MainUI/ValidationResultsView.h"
-#include "Misc/CSSInfo.h"
 #include "Misc/KeyboardShortcutManager.h"
 #include "Misc/SettingsStore.h"
 #include "Misc/SpellCheck.h"
@@ -809,6 +808,35 @@ void MainWindow::ReportsDialog()
             RemoveResources(resources);
         }
     }
+}
+
+bool MainWindow::DeleteCSStyles(const QString &filename, QList<CSSInfo::CSSSelector*> css_selectors)
+{
+    // Save our tabs data as we will be modifying the underlying resources
+    if (!m_TabManager.TabDataIsWellFormed()) {
+        return false;
+    }
+    SaveTabData();
+
+    // Try our CSS resources first as most likely place for a style
+    QList<Resource *> css_resources = m_BookBrowser->AllCSSResources();
+    foreach( Resource* resource, css_resources ) {
+        if ( resource->Filename() == filename) {
+            CSSResource* css_resource = qobject_cast<CSSResource*>(resource);
+            return css_resource->DeleteCSStyles(css_selectors);
+        }
+    }
+    // Try an inline style instead
+    QList<Resource *> html_resources = m_BookBrowser->AllHTMLResources();
+    foreach( Resource* resource, html_resources ) {
+        if ( resource->Filename() == filename) {
+            HTMLResource* html_resource = qobject_cast<HTMLResource*>(resource);
+            return html_resource->DeleteCSStyles(css_selectors);
+        }
+    }
+
+    // Could not find the file
+    return false;
 }
 
 void MainWindow::InsertImageDialog()

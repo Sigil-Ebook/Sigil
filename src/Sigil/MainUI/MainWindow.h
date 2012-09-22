@@ -35,6 +35,7 @@
 #include "Dialogs/IndexEditor.h"
 #include "MainUI/FindReplace.h"
 #include "MainUI/NCXModel.h"
+#include "Misc/CSSInfo.h"
 #include "Misc/SettingsStore.h"
 #include "MiscEditors/ClipEditorModel.h"
 #include "MiscEditors/IndexEditorModel.h"
@@ -301,6 +302,8 @@ private slots:
     void IndexEditorDialog(IndexEditorModel::indexEntry* index_entry = NULL);
 
     void ReportsDialog();
+
+    bool DeleteCSStyles(const QString &filename, QList<CSSInfo::CSSSelector*> css_selectors);
 
     /**
      * Implements Insert image action functionality.

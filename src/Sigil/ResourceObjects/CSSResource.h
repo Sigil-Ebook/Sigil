@@ -23,6 +23,7 @@
 #ifndef CSSRESOURCE_H
 #define CSSRESOURCE_H
 
+#include "Misc/CSSInfo.h"
 #include "ResourceObjects/TextResource.h"
 
 /**
@@ -42,6 +43,8 @@ public:
      * @param parent The object's parent.
      */
     CSSResource( const QString &fullfilepath, QObject *parent = NULL );
+
+    bool DeleteCSStyles( QList<CSSInfo::CSSSelector*> css_selectors);
 
     // inherited
     virtual ResourceType Type() const;
