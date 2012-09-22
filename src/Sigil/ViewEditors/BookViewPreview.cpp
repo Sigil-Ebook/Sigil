@@ -96,9 +96,9 @@ QString BookViewPreview::GetCaretLocationUpdate()
 void BookViewPreview::ShowTag()
 {
     // Walk up the parent tag element hierarhcy at the caret location appending html
-    // for all open tag nodes until we hit a block tag.
+    // for all open tag nodes until we hit the body tag.
     // e.g. <p class='foo'><b>
-    const QString &html = EvaluateJavascript(c_GetBlock % c_GetParentTags).toString();
+    const QString &html = EvaluateJavascript(c_GetParentTags).toString();
     emit ShowStatusMessageRequest(html, 5000);
 }
 

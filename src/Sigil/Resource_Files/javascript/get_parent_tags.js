@@ -1,15 +1,10 @@
-// uses get_block.js
-
 var node = document.getSelection().anchorNode;
-var blockNode = get_block(node);
-
-var totalHtml = "";
 
 function get_node_html(node) {
     var html = "<" + node.nodeName;
     var arrAttr = node.attributes;
-    for(var i = 0; i < arrAttr.length; i++) {
-        if(arrAttr[i].value != "" && arrAttr[i].value != "null") {
+    for( var i = 0; i < arrAttr.length; i++ ) {
+        if( arrAttr[i].value != "" && arrAttr[i].value != "null" ) {
             html += " " + arrAttr[i].name + "='" + arrAttr[i].value + "'";
         }
     }
@@ -19,17 +14,14 @@ function get_node_html(node) {
 
 var totalHtml = "";
 
-if (blockNode == node) {
-    // Special case where user is not in a text node, like between <br/> tags
-    totalHtml = get_node_html(blockNode);
+// If we are in a #text node jump to it's parent.
+if ( node.nodeType == 3 ) {
+    node = node.parentNode;
 }
-else if (blockNode != null) {
-    var currentNode = node.parentNode;
-    while (currentNode != blockNode) {
-        totalHtml = get_node_html(currentNode) + totalHtml;
-        currentNode = currentNode.parentNode;
-    };
-    totalHtml = get_node_html(blockNode) + totalHtml;
+
+while ( node != null && ( node.nodeName.toLowerCase() != 'body' ) ) {
+    totalHtml = get_node_html(node) + totalHtml;
+    node = node.parentNode;
 }
 
 totalHtml;
