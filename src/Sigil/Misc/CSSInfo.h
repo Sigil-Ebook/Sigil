@@ -75,7 +75,7 @@ public:
      * Return the original text with a reformatted appearance either to
      * a multiple line style (each property on its own line) or single line style.
      */
-    QString GetReformattedCSSText( bool multipleLineFormat );
+    QString getReformattedCSSText( bool multipleLineFormat );
 
     static QList< CSSProperty* > getCSSProperties( const QString &text, const int &openingBracePos, const int &closingBracePos );
     static QString formatCSSProperties(QList< CSSProperty* > new_properties, bool multipleLineFormat, const int &selectorIndent = 0);

@@ -85,7 +85,7 @@ CSSInfo::CSSSelector* CSSInfo::getCSSSelectorForElementClass( const QString &ele
     return NULL;
 }
 
-QString CSSInfo::GetReformattedCSSText( bool multipleLineFormat )
+QString CSSInfo::getReformattedCSSText( bool multipleLineFormat )
 {
     QString new_text(m_OriginalText);
     int selector_indent = m_IsCSSFile ? 0 : TAB_SPACES_WIDTH;
