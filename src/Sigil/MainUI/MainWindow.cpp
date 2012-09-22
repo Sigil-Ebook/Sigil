@@ -1664,6 +1664,8 @@ void MainWindow::SetStateActionsBookView()
 
     ui.actionInsertBulletedList->setEnabled(true);
     ui.actionInsertNumberedList->setEnabled(true);
+
+    ui.actionShowTag->setEnabled(true);
     ui.actionRemoveFormatting->setEnabled(true);
 
     ui.menuHeadings->setEnabled(true);
@@ -1746,6 +1748,8 @@ void MainWindow::SetStateActionsSplitView()
 
     ui.actionInsertBulletedList->setEnabled(false);
     ui.actionInsertNumberedList->setEnabled(false);
+
+    ui.actionShowTag->setEnabled(true);
     ui.actionRemoveFormatting->setEnabled(false);
 
     ui.menuHeadings->setEnabled(false);
@@ -1828,6 +1832,8 @@ void MainWindow::SetStateActionsCodeView()
 
     ui.actionInsertBulletedList->setEnabled(false);
     ui.actionInsertNumberedList->setEnabled(false);
+
+    ui.actionShowTag->setEnabled(false);
     ui.actionRemoveFormatting->setEnabled(true);
 
     ui.menuHeadings->setEnabled(true);
@@ -1931,6 +1937,8 @@ void MainWindow::SetStateActionsRawView()
 
     ui.actionInsertBulletedList->setEnabled(false);
     ui.actionInsertNumberedList->setEnabled(false);
+
+    ui.actionShowTag->setEnabled(false);
     ui.actionRemoveFormatting->setEnabled(false);
 
     ui.menuHeadings->setEnabled(false);
@@ -2013,6 +2021,8 @@ void MainWindow::SetStateActionsStaticView()
 
     ui.actionInsertBulletedList->setEnabled(false);
     ui.actionInsertNumberedList->setEnabled(false);
+
+    ui.actionShowTag->setEnabled(false);
     ui.actionRemoveFormatting->setEnabled(false);
 
     ui.menuHeadings->setEnabled(false);
@@ -3055,6 +3065,7 @@ void MainWindow::ExtendUI()
     sm->registerAction(ui.actionTextDirectionLTR, "MainWindow.TextDirectionLTR");
     sm->registerAction(ui.actionTextDirectionRTL, "MainWindow.TextDirectionRTL");
     sm->registerAction(ui.actionTextDirectionDefault, "MainWindow.TextDirectionDefault");
+    sm->registerAction(ui.actionShowTag, "MainWindow.ShowTag");
     sm->registerAction(ui.actionRemoveFormatting, "MainWindow.RemoveFormatting");
     sm->registerAction(ui.actionHeading1, "MainWindow.Heading1");
     sm->registerAction(ui.actionHeading2, "MainWindow.Heading2");
@@ -3604,6 +3615,7 @@ void MainWindow::MakeTabConnections( ContentTab *tab )
         connect( ui.actionInsertNumberedList,       SIGNAL( triggered() ),  tab,   SLOT( InsertNumberedList()       ) );
         connect( ui.actionDecreaseIndent,           SIGNAL( triggered() ),  tab,   SLOT( DecreaseIndent()           ) );
         connect( ui.actionIncreaseIndent,           SIGNAL( triggered() ),  tab,   SLOT( IncreaseIndent()           ) );
+        connect( ui.actionShowTag,                  SIGNAL( triggered() ),  tab,   SLOT( ShowTag()                  ) );
         connect( ui.actionRemoveFormatting,         SIGNAL( triggered() ),  tab,   SLOT( RemoveFormatting()         ) );
 
         connect( ui.actionSplitChapter,             SIGNAL( triggered() ),  tab,   SLOT( SplitChapter()             ) );
@@ -3684,6 +3696,7 @@ void MainWindow::BreakTabConnections( ContentTab *tab )
     disconnect( ui.actionTextDirectionLTR,          0, tab, 0 );
     disconnect( ui.actionTextDirectionRTL,          0, tab, 0 );
     disconnect( ui.actionTextDirectionDefault,      0, tab, 0 );
+    disconnect( ui.actionShowTag,               0, tab, 0 );
     disconnect( ui.actionRemoveFormatting,          0, tab, 0 );
 
     disconnect( ui.actionSplitChapter,              0, tab, 0 );

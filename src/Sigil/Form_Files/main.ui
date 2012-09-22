@@ -171,6 +171,7 @@
     <addaction name="actionTextDirectionRTL"/>
     <addaction name="actionTextDirectionDefault"/>
     <addaction name="separator"/>
+    <addaction name="actionShowTag"/>
     <addaction name="actionRemoveFormatting"/>
    </widget>
    <widget class="QMenu" name="menuView">
@@ -1157,6 +1158,17 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+-</string>
+   </property>
+  </action>
+  <action name="actionShowTag">
+   <property name="text">
+    <string>Show Tag</string>
+   </property>
+   <property name="toolTip">
+    <string>Show the enclosing tag HTML for the cursor position in Book View/Preview View.</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+T</string>
    </property>
   </action>
   <action name="actionFind">

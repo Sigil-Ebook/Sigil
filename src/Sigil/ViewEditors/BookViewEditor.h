@@ -411,12 +411,6 @@ private:
     const QString c_GetSegmentHTML;
 
     /**
-     * Javascript source that implements a function to find the
-     * first block-level parent of a node in the source.
-     */
-    const QString c_GetBlock;
-
-    /**
      * Javascript source that implements a function to format the
      * first block-level parent of a node in the source.
      */

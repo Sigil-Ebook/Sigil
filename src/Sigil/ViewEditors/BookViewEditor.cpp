@@ -74,7 +74,6 @@ BookViewEditor::BookViewEditor(QWidget *parent)
     m_ScrollOneLineUp(   *( new QShortcut( QKeySequence( Qt::ControlModifier + Qt::Key_Up   ), this, 0, 0, Qt::WidgetShortcut ) ) ),
     m_ScrollOneLineDown( *( new QShortcut( QKeySequence( Qt::ControlModifier + Qt::Key_Down ), this, 0, 0, Qt::WidgetShortcut ) ) ),
     c_GetSegmentHTML(       Utility::ReadUnicodeTextFile( ":/javascript/get_segment_html.js"           ) ),
-    c_GetBlock(             Utility::ReadUnicodeTextFile( ":/javascript/get_block.js"                  ) ),
     c_FormatBlock(          Utility::ReadUnicodeTextFile( ":/javascript/format_block.js"               ) ),
     c_GetAncestor(          Utility::ReadUnicodeTextFile( ":/javascript/get_ancestor.js"               ) ),
     c_GetAncestorAttribute( Utility::ReadUnicodeTextFile( ":/javascript/get_ancestor_attribute.js"     ) ),

@@ -109,6 +109,8 @@ public:
     bool ExecuteCaretUpdate(const QString &caret_location);
 
     QString GetCaretLocationUpdate();
+    
+    void ShowTag();
 
 public slots:
 
@@ -151,6 +153,12 @@ protected:
      * @return The result from the last executed javascript statement.
      */
     QVariant EvaluateJavascript(const QString &javascript);
+
+    /**
+     * Javascript source that implements a function to find the
+     * first block-level parent of a node in the source.
+     */
+    const QString c_GetBlock;
 
     bool m_isLoadFinished;
 
@@ -393,6 +401,12 @@ private:
      * variable to the current selection.
      */
     const QString c_NewSelection;
+    
+    /**
+     * The JavaScript source code for getting the html 
+     * for parent tag at the caret location.
+     */
+    const QString c_GetParentTags;
 
     /**
      * Stores the JavaScript source code for the 

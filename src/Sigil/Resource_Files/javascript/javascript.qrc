@@ -14,5 +14,6 @@
         <file>get_ancestor.js</file>
         <file>get_ancestor_attribute.js</file>
         <file>set_ancestor_attribute.js</file>
+        <file>get_parent_tags.js</file>
     </qresource>
 </RCC>

@@ -303,6 +303,7 @@ public slots:
     void TextDirectionRightToLeft();
     void TextDirectionDefault();
 
+    void ShowTag();
     void RemoveFormatting();
     
     void ChangeCasing( const Utility::Casing casing );

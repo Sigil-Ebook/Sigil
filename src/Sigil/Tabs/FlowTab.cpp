@@ -1267,6 +1267,14 @@ void FlowTab::TextDirectionDefault()
     }    
 }
 
+void FlowTab::ShowTag()
+{
+    if (m_ViewState == MainWindow::ViewState_BookView)
+        m_wBookView->ShowTag();
+    else if (m_ViewState == MainWindow::ViewState_PreviewView)
+        m_wBookPreview->ShowTag();
+}
+
 void FlowTab::RemoveFormatting()
 {
     if (m_ViewState == MainWindow::ViewState_BookView) {

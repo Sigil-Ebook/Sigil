@@ -54,6 +54,8 @@ BookViewPreview::BookViewPreview(QWidget *parent)
       c_GetCaretLocation( Utility::ReadUnicodeTextFile( ":/javascript/book_view_current_location.js" ) ),
       c_GetRange(         Utility::ReadUnicodeTextFile( ":/javascript/get_range.js"                  ) ),
       c_NewSelection(     Utility::ReadUnicodeTextFile( ":/javascript/new_selection.js"              ) ),
+      c_GetBlock(         Utility::ReadUnicodeTextFile( ":/javascript/get_block.js"                  ) ),
+      c_GetParentTags(    Utility::ReadUnicodeTextFile( ":/javascript/get_parent_tags.js"            ) ),
       m_CaretLocationUpdate( QString() ),
       m_pendingLoadCount(0),
       m_pendingScrollToFragment( QString() )
@@ -89,6 +91,15 @@ QString BookViewPreview::GetCaretLocationUpdate()
 {
     StoreCaretLocationUpdate(GetCaretLocation());
     return m_CaretLocationUpdate;
+}
+
+void BookViewPreview::ShowTag()
+{
+    // Walk up the parent tag element hierarhcy at the caret location appending html
+    // for all open tag nodes until we hit a block tag.
+    // e.g. <p class='foo'><b>
+    const QString &html = EvaluateJavascript(c_GetBlock % c_GetParentTags).toString();
+    emit ShowStatusMessageRequest(html, 5000);
 }
 
 void BookViewPreview::copy()
