@@ -46,6 +46,7 @@ const QString SET_CURSOR_JS =
 
 BookViewPreview::BookViewPreview(QWidget *parent)
     : QWebView(parent),
+      c_GetBlock(         Utility::ReadUnicodeTextFile( ":/javascript/get_block.js"                  ) ),
       m_isLoadFinished(false),
       m_ViewWebPage(new ViewWebPage(this)),
       c_jQuery(           Utility::ReadUnicodeTextFile( ":/javascript/jquery-1.6.2.min.js"           ) ),
@@ -54,7 +55,6 @@ BookViewPreview::BookViewPreview(QWidget *parent)
       c_GetCaretLocation( Utility::ReadUnicodeTextFile( ":/javascript/book_view_current_location.js" ) ),
       c_GetRange(         Utility::ReadUnicodeTextFile( ":/javascript/get_range.js"                  ) ),
       c_NewSelection(     Utility::ReadUnicodeTextFile( ":/javascript/new_selection.js"              ) ),
-      c_GetBlock(         Utility::ReadUnicodeTextFile( ":/javascript/get_block.js"                  ) ),
       c_GetParentTags(    Utility::ReadUnicodeTextFile( ":/javascript/get_parent_tags.js"            ) ),
       m_CaretLocationUpdate( QString() ),
       m_pendingLoadCount(0),
