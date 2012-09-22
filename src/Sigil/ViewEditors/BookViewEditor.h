@@ -92,9 +92,6 @@ public:
     bool IsModified();
     void ResetModified();
 
-    void Undo();
-    void Redo();
-
     // Even though the BookViewPreview implements these they are pure virtual
     // in ViewEditor so they have to be implemented here.
     float GetZoomFactor() const { return BookViewPreview::GetZoomFactor(); }
@@ -194,6 +191,9 @@ public slots:
      * Javascript inside of the web page.
      */
     void TextChangedFilter();
+
+    void Undo();
+    void Redo();
 
     void cut();
     void paste();
@@ -376,6 +376,9 @@ private:
     /**
      * The context menu actions.
      */
+    QAction *m_Undo;
+    QAction *m_Redo;
+
     QAction *m_Cut;
     QAction *m_Copy;
     QAction *m_Paste;

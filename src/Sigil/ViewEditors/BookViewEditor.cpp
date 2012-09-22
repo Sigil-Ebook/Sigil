@@ -92,6 +92,14 @@ BookViewEditor::BookViewEditor(QWidget *parent)
 
 BookViewEditor::~BookViewEditor()
 {
+    if (m_Undo) {
+        delete m_Undo;
+        m_Undo = 0;
+    }
+    if (m_Redo) {
+        delete m_Redo;
+        m_Redo = 0;
+    }
     if (m_Cut) {
         delete m_Cut;
         m_Cut = 0;
@@ -677,6 +685,9 @@ bool BookViewEditor::SuccessfullySetupContextMenu( const QPoint &point )
 
     m_ContextMenu.addAction( m_InsertImage );
     m_ContextMenu.addSeparator();
+    m_ContextMenu.addAction( m_Undo );
+    m_ContextMenu.addAction( m_Redo );
+    m_ContextMenu.addSeparator();
     m_ContextMenu.addAction( m_Cut );
     m_ContextMenu.addAction( m_Copy );
     m_ContextMenu.addAction( m_Paste );
@@ -693,6 +704,9 @@ bool BookViewEditor::SuccessfullySetupContextMenu( const QPoint &point )
 void BookViewEditor::CreateContextMenuActions()
 {
     m_InsertImage = new QAction( tr( "Insert Image" ) + "...", this );
+
+    m_Undo      = new QAction( tr( "Undo" ),         this );
+    m_Redo      = new QAction( tr( "Redo" ),         this );
 
     m_Cut       = new QAction( tr( "Cut" ),         this );
     m_Copy      = new QAction( tr( "Copy" ),        this );
@@ -722,6 +736,8 @@ void BookViewEditor::ConnectSignalsToSlots()
 
     connect( this,             SIGNAL( customContextMenuRequested(const QPoint&) ),  this, SLOT( OpenContextMenu(const QPoint&) ) );
     connect( m_InsertImage,    SIGNAL( triggered() ),  this, SLOT( insertImage()    ) );
+    connect( m_Undo,           SIGNAL( triggered() ),  this, SLOT( Undo()           ) );
+    connect( m_Redo,           SIGNAL( triggered() ),  this, SLOT( Redo()           ) );
     connect( m_Cut,            SIGNAL( triggered() ),  this, SLOT( cut()            ) );
     connect( m_Copy,           SIGNAL( triggered() ),  this, SLOT( copy()           ) );
     connect( m_Paste,          SIGNAL( triggered() ),  this, SLOT( paste()          ) );
