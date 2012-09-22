@@ -99,6 +99,10 @@ int Reports::SelectedFileLine()
     return m_SelectedFileLine;
 }
 
+QStringList Reports::FilesToDelete()
+{
+    return m_FilesToDelete;
+}
 void Reports::saveSettings()
 {
     ReportsWidget::Results widgetResult;
@@ -119,6 +123,7 @@ void Reports::saveSettings()
 
     m_SelectedFile = widgetResult.filename;
     m_SelectedFileLine = widgetResult.line;
+    m_FilesToDelete = widgetResult.files_to_delete;
 
     QApplication::restoreOverrideCursor();
 }
@@ -149,15 +154,10 @@ void Reports::appendReportsWidget(ReportsWidget *widget)
     // Add the ReportsWidget to the stack view area.
     ui.pWidget->addWidget(widget);
 
-    connect(widget, SIGNAL(DoubleClick()), this, SLOT(DoubleClickReceived()));
+    connect(widget, SIGNAL(Done()), this, SLOT(accept()));
 
     // Add an entry to the list of available reports widgets.
     ui.availableWidgets->addItem(widget->windowTitle());
-}
-
-void Reports::DoubleClickReceived()
-{
-    accept();
 }
 
 void Reports::connectSignalsSlots()

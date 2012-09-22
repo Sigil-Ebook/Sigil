@@ -215,6 +215,7 @@ ReportsWidget::Results ClassesInHTMLFilesWidget::saveSettings()
 
     results.filename = "";
     results.line = -1;
+    results.files_to_delete.clear();
 
     if (ui.fileTree->selectionModel()->hasSelection()) {
         QModelIndex index = ui.fileTree->selectionModel()->selectedRows(0).first();
@@ -231,5 +232,5 @@ void ClassesInHTMLFilesWidget::connectSignalsSlots()
     connect(ui.Filter,    SIGNAL(textChanged(QString)), 
             this,         SLOT(FilterEditTextChangedSlot(QString)));
     connect (ui.fileTree, SIGNAL(doubleClicked(const QModelIndex &)),
-            this,         SIGNAL(DoubleClick()));
+            this,         SIGNAL(Done()));
 }

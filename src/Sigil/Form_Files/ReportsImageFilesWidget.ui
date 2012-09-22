@@ -32,7 +32,7 @@
     </layout>
    </item>
    <item>
-    <widget class="QTreeView" name="imageTree">
+    <widget class="QTreeView" name="fileTree">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
        <horstretch>0</horstretch>
@@ -44,6 +44,9 @@
      </property>
      <property name="alternatingRowColors">
       <bool>true</bool>
+     </property>
+     <property name="selectionMode">
+      <enum>QAbstractItemView::ExtendedSelection</enum>
      </property>
      <property name="uniformRowHeights">
       <bool>false</bool>

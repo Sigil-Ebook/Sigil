@@ -884,13 +884,17 @@ void BookBrowser::Delete()
 void BookBrowser::RemoveSelection( QList<Resource *> tab_resources )
 {
     QList <Resource *> resources = ValidSelectedResources();
-    Resource *next_resource;
+    RemoveResources(tab_resources, resources);
+}
 
+void BookBrowser::RemoveResources( QList<Resource *> tab_resources, QList<Resource *> resources )
+{
     if ( resources.isEmpty() )
     {
         return;
     }
 
+    Resource *next_resource;
     Resource::ResourceType resource_type = resources.first()->Type();
 
     if ( resource_type == Resource::OPFResourceType || 

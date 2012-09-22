@@ -43,6 +43,7 @@ public:
     {
         QString filename;
         int line;
+        QStringList files_to_delete;
     };
 
     /**

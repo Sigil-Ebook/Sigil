@@ -37,9 +37,16 @@ ImageFilesWidget::ImageFilesWidget(QList<Resource*> image_resources, QSharedPoin
     m_ImageResources(image_resources),
     m_Book(book),
     m_ItemModel(new QStandardItemModel),
-    m_ThumbnailSize(THUMBNAIL_SIZE)
+    m_ThumbnailSize(THUMBNAIL_SIZE),
+    m_ContextMenu(new QMenu(this)),
+    m_DeleteFiles(false)
 {
     ui.setupUi(this);
+
+    ui.fileTree->setContextMenuPolicy(Qt::CustomContextMenu);
+
+    CreateContextMenuActions();
+
     connectSignalsSlots();
 
     ReadSettings();
@@ -66,14 +73,14 @@ void ImageFilesWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
 
     m_ItemModel->setHorizontalHeaderLabels(header);
 
-    ui.imageTree->setSelectionBehavior(QAbstractItemView::SelectRows);
+    ui.fileTree->setSelectionBehavior(QAbstractItemView::SelectRows);
 
-    ui.imageTree->setModel(m_ItemModel);
+    ui.fileTree->setModel(m_ItemModel);
 
-    ui.imageTree->header()->setSortIndicatorShown(true);
+    ui.fileTree->header()->setSortIndicatorShown(true);
 
     QSize icon_size(m_ThumbnailSize, m_ThumbnailSize);
-    ui.imageTree->setIconSize(icon_size);
+    ui.fileTree->setIconSize(icon_size);
 
     double total_size = 0;
     int total_links = 0;
@@ -149,9 +156,9 @@ void ImageFilesWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
 
     // Sort before adding the totals row
     // Since sortIndicator calls this routine, must disconnect/reconnect while resorting
-    disconnect (ui.imageTree->header(), SIGNAL(sortIndicatorChanged(int, Qt::SortOrder)), this, SLOT(Sort(int, Qt::SortOrder)));
-    ui.imageTree->header()->setSortIndicator(sort_column, sort_order);
-    connect (ui.imageTree->header(), SIGNAL(sortIndicatorChanged(int, Qt::SortOrder)), this, SLOT(Sort(int, Qt::SortOrder)));
+    disconnect (ui.fileTree->header(), SIGNAL(sortIndicatorChanged(int, Qt::SortOrder)), this, SLOT(Sort(int, Qt::SortOrder)));
+    ui.fileTree->header()->setSortIndicator(sort_column, sort_order);
+    connect (ui.fileTree->header(), SIGNAL(sortIndicatorChanged(int, Qt::SortOrder)), this, SLOT(Sort(int, Qt::SortOrder)));
 
     // Totals
     NumericItem *nitem;
@@ -203,8 +210,8 @@ void ImageFilesWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
     }
     m_ItemModel->appendRow(rowItems);
 
-    for (int i = 0; i < ui.imageTree->header()->count(); i++) {
-        ui.imageTree->resizeColumnToContents(i);
+    for (int i = 0; i < ui.fileTree->header()->count(); i++) {
+        ui.fileTree->resizeColumnToContents(i);
     }
 }
 
@@ -237,23 +244,23 @@ void ImageFilesWidget::FilterEditTextChangedSlot(const QString &text)
     int first_visible_row = -1;
     for (int row = 0; row < root_item->rowCount(); row++) {
         if (text.isEmpty() || root_item->child(row, 0)->text().toLower().contains(lowercaseText)) {
-            ui.imageTree->setRowHidden(row, parent_index, false);
+            ui.fileTree->setRowHidden(row, parent_index, false);
             if (first_visible_row == -1) {
                 first_visible_row = row;
             }
         }
         else {
-            ui.imageTree->setRowHidden(row, parent_index, true);
+            ui.fileTree->setRowHidden(row, parent_index, true);
         }
     }
 
     if (!text.isEmpty() && first_visible_row != -1) {
         // Select the first non-hidden row
-        ui.imageTree->setCurrentIndex(root_item->child(first_visible_row, 0)->index());
+        ui.fileTree->setCurrentIndex(root_item->child(first_visible_row, 0)->index());
     }
     else {
         // Clear current and selection, which clears preview image
-        ui.imageTree->setCurrentIndex(QModelIndex());
+        ui.fileTree->setCurrentIndex(QModelIndex());
     }
 }
 
@@ -295,14 +302,51 @@ ReportsWidget::Results ImageFilesWidget::saveSettings()
 
     QString selected_file;
 
-    if (ui.imageTree->selectionModel()->hasSelection()) {
-        QModelIndex index = ui.imageTree->selectionModel()->selectedRows(0).first();
-        if (index.row() != m_ItemModel->rowCount() - 1) {
-            results.filename = m_ItemModel->itemFromIndex(index)->text();
+    if (ui.fileTree->selectionModel()->hasSelection()) {
+        if (m_DeleteFiles) {
+            foreach (QModelIndex index, ui.fileTree->selectionModel()->selectedRows(0)) {
+                results.files_to_delete.append(m_ItemModel->itemFromIndex(index)->text());
+            }
+        }
+        else {
+            QModelIndex index = ui.fileTree->selectionModel()->selectedRows(0).first();
+            if (index.row() != m_ItemModel->rowCount() - 1) {
+                results.filename = m_ItemModel->itemFromIndex(index)->text();
+            }
         }
     }
 
     return results;
+}
+
+void ImageFilesWidget::Delete()
+{
+    m_DeleteFiles = true;
+
+    emit Done();
+}
+
+void ImageFilesWidget::CreateContextMenuActions()
+{
+    m_Delete    = new QAction(tr("Delete From Book"),     this);
+
+    m_Delete->setShortcut(QKeySequence::Delete);
+
+    // Has to be added to the dialog itself for the keyboard shortcut to work.
+    addAction(m_Delete);
+}
+
+void ImageFilesWidget::OpenContextMenu(const QPoint &point)
+{
+    SetupContextMenu(point);
+
+    m_ContextMenu->exec(ui.fileTree->viewport()->mapToGlobal(point));
+    m_ContextMenu->clear();
+}
+
+void ImageFilesWidget::SetupContextMenu(const QPoint &point)
+{
+    m_ContextMenu->addAction(m_Delete);
 }
 
 void ImageFilesWidget::connectSignalsSlots()
@@ -313,8 +357,12 @@ void ImageFilesWidget::connectSignalsSlots()
             this,                    SLOT(IncreaseThumbnailSize()));
     connect(ui.ThumbnailDecrease,    SIGNAL(clicked()),
             this,                    SLOT(DecreaseThumbnailSize()));
-    connect (ui.imageTree->header(), SIGNAL(sortIndicatorChanged(int, Qt::SortOrder)), 
+    connect (ui.fileTree->header(), SIGNAL(sortIndicatorChanged(int, Qt::SortOrder)), 
             this,                    SLOT(Sort(int, Qt::SortOrder)));
-    connect (ui.imageTree,           SIGNAL(doubleClicked(const QModelIndex &)),
-            this,                    SIGNAL(DoubleClick()));
+    connect (ui.fileTree,           SIGNAL(doubleClicked(const QModelIndex &)),
+            this,                    SIGNAL(Done()));
+
+    connect(ui.fileTree,  SIGNAL(customContextMenuRequested(const QPoint&)),
+            this,         SLOT(  OpenContextMenu(                  const QPoint&)));
+    connect(m_Delete,     SIGNAL(triggered()), this, SLOT(Delete()));
 }

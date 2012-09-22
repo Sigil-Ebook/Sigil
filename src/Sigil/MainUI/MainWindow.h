@@ -551,7 +551,7 @@ private slots:
      */
     QStringList GetStylesheetsAlreadyLinked( Resource *resource );
 
-    void RemoveResources();
+    void RemoveResources(QList<Resource *> resources = QList<Resource *>());
 
     void GenerateToc();
     void CreateHTMLTOC();

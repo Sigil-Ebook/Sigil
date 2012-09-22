@@ -33,10 +33,17 @@ HTMLFilesWidget::HTMLFilesWidget(QList<Resource*> html_resources, QSharedPointer
     :
     m_HTMLResources(html_resources),
     m_Book(book),
-    m_ItemModel(new QStandardItemModel)
+    m_ItemModel(new QStandardItemModel),
+    m_ContextMenu(new QMenu(this)),
+    m_DeleteFiles(false)
 {
 
     ui.setupUi(this);
+
+    ui.fileTree->setContextMenuPolicy(Qt::CustomContextMenu);
+
+    CreateContextMenuActions();
+
     connectSignalsSlots();
 
     SetupTable();
@@ -225,26 +232,59 @@ void HTMLFilesWidget::Sort(int logicalindex, Qt::SortOrder order)
     SetupTable(logicalindex, order);
 }
 
-void HTMLFilesWidget::Done()
-{
-    close();
-}
-
 ReportsWidget::Results HTMLFilesWidget::saveSettings()
 {
     ReportsWidget::Results results;
 
     results.filename = "";
     results.line = -1;
+    results.files_to_delete.clear();
 
     if (ui.fileTree->selectionModel()->hasSelection()) {
-        QModelIndex index = ui.fileTree->selectionModel()->selectedRows(0).first();
-        if (index.row() != m_ItemModel->rowCount() - 1) {
-            results.filename = m_ItemModel->itemFromIndex(index)->text();
+        if (m_DeleteFiles) {
+            foreach (QModelIndex index, ui.fileTree->selectionModel()->selectedRows(0)) {
+                results.files_to_delete.append(m_ItemModel->itemFromIndex(index)->text());
+            }
+        }
+        else {
+            QModelIndex index = ui.fileTree->selectionModel()->selectedRows(0).first();
+            if (index.row() != m_ItemModel->rowCount() - 1) {
+                results.filename = m_ItemModel->itemFromIndex(index)->text();
+            }
         }
     }
 
     return results;
+}
+
+void HTMLFilesWidget::Delete()
+{
+    m_DeleteFiles = true;
+
+    emit Done();
+}
+
+void HTMLFilesWidget::CreateContextMenuActions()
+{
+    m_Delete    = new QAction(tr("Delete From Book"),     this);
+
+    m_Delete->setShortcut(QKeySequence::Delete);
+
+    // Has to be added to the dialog itself for the keyboard shortcut to work.
+    addAction(m_Delete);
+}
+
+void HTMLFilesWidget::OpenContextMenu(const QPoint &point)
+{
+    SetupContextMenu(point);
+
+    m_ContextMenu->exec(ui.fileTree->viewport()->mapToGlobal(point));
+    m_ContextMenu->clear();
+}
+
+void HTMLFilesWidget::SetupContextMenu(const QPoint &point)
+{
+    m_ContextMenu->addAction(m_Delete);
 }
 
 void HTMLFilesWidget::connectSignalsSlots()
@@ -252,6 +292,11 @@ void HTMLFilesWidget::connectSignalsSlots()
     connect(ui.leFilter,  SIGNAL(textChanged(QString)), 
             this,         SLOT(FilterEditTextChangedSlot(QString)));
     connect (ui.fileTree, SIGNAL(doubleClicked(const QModelIndex &)),
-            this,         SIGNAL(DoubleClick()));
+            this,         SIGNAL(Done()));
     connect (ui.fileTree->header(), SIGNAL(sortIndicatorChanged(int, Qt::SortOrder)), this, SLOT(Sort(int, Qt::SortOrder)));
+
+    connect(ui.fileTree,  SIGNAL(customContextMenuRequested(const QPoint&)),
+            this,         SLOT(  OpenContextMenu(                  const QPoint&)));
+    connect(m_Delete,     SIGNAL(triggered()), this, SLOT(Delete()));
 }
+

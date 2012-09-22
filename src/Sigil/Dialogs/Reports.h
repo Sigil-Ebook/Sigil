@@ -49,11 +49,12 @@ public:
              QWidget *parent = 0);
 
     QString SelectedFile();
+
     int SelectedFileLine();
 
-private slots:
-    void DoubleClickReceived();
+    QStringList FilesToDelete();
 
+private slots:
     /**
      * Load the ReportsWidget that the user has selected.
      */
@@ -97,6 +98,8 @@ private:
     QString m_SelectedFile;
 
     int m_SelectedFileLine;
+
+    QStringList m_FilesToDelete;
 
     Ui::Reports ui;
 };

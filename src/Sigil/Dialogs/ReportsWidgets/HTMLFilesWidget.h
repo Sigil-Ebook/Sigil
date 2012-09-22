@@ -28,6 +28,8 @@
 #include <QtGui/QDialog>
 #include <QtGui/QStandardItemModel>
 #include <QtCore/QSharedPointer>
+#include <QtGui/QAction>
+#include <QtGui/QMenu>
 
 #include "ResourceObjects/Resource.h"
 #include "BookManipulation/Book.h"
@@ -51,16 +53,21 @@ public:
     ReportsWidget::Results saveSettings();
 
 signals:
-    void DoubleClick();
+    void Done();
 
 private slots:
+    void OpenContextMenu(const QPoint &point);
+
     void Sort(int logicalindex, Qt::SortOrder order);
 
     void FilterEditTextChangedSlot(const QString &text);
 
-    void Done();
+    void Delete();
 
 private:
+    void CreateContextMenuActions();
+    void SetupContextMenu(const QPoint &point);
+
     void connectSignalsSlots();
 
     QList<Resource*> m_HTMLResources;
@@ -68,6 +75,12 @@ private:
     QSharedPointer< Book > m_Book;
 
     QStandardItemModel *m_ItemModel;
+
+    QMenu *m_ContextMenu;
+
+    QAction *m_Delete;
+
+    bool m_DeleteFiles;
 
     Ui::HTMLFilesWidget ui;
 };

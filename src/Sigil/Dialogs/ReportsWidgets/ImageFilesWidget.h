@@ -25,6 +25,8 @@
 #define IMAGEFILESWIDGET_H
 
 #include <QtCore/QSharedPointer>
+#include <QtGui/QAction>
+#include <QtGui/QMenu>
 
 #include "ResourceObjects/Resource.h"
 #include <QtCore/QHash>
@@ -52,9 +54,11 @@ public:
     ReportsWidget::Results saveSettings();
 
 signals:
-    void DoubleClick();
+    void Done();
 
 private slots:
+    void OpenContextMenu(const QPoint &point);
+
     void Sort(int logicalindex, Qt::SortOrder order);
 
     /**
@@ -65,7 +69,12 @@ private slots:
     void IncreaseThumbnailSize();
     void DecreaseThumbnailSize();
 
+    void Delete();
+
 private:
+    void CreateContextMenuActions();
+    void SetupContextMenu(const QPoint &point);
+
     void ReadSettings();
     void connectSignalsSlots();
 
@@ -76,6 +85,12 @@ private:
     QStandardItemModel *m_ItemModel;
 
     int m_ThumbnailSize;
+
+    QMenu *m_ContextMenu;
+
+    QAction *m_Delete;
+
+    bool m_DeleteFiles;
 
     Ui::ImageFilesWidget ui;
 };

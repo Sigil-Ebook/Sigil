@@ -787,7 +787,27 @@ void MainWindow::ReportsDialog()
     Reports reports(html_resources, image_resources, css_resources, m_Book, this);
 
     if (reports.exec() == QDialog::Accepted) {
-        OpenFilename(reports.SelectedFile(), reports.SelectedFileLine());
+        QStringList files_to_delete = reports.FilesToDelete();
+        if (files_to_delete.count() == 0) {
+            OpenFilename(reports.SelectedFile(), reports.SelectedFileLine());
+        }
+        else {
+            QList <Resource *> resources;
+            foreach (QString filename, files_to_delete) {
+                try
+                {
+                    Resource &resource = m_Book->GetFolderKeeper().GetResourceByFilename(filename);
+                    resources.append(&resource);
+                }
+                catch (const ResourceDoesNotExist&)
+                {
+                    // If any error abort all deletes
+                    return;
+                }
+            }
+            
+            RemoveResources(resources);
+        }
     }
 }
 
@@ -1190,10 +1210,15 @@ QStringList MainWindow::GetStylesheetsAlreadyLinked( Resource *resource )
     return linked_stylesheets;
 }
 
-void MainWindow::RemoveResources()
+void MainWindow::RemoveResources(QList<Resource *> resources)
 {
     // Provide the open tab list to ensure one tab stays open
-    m_BookBrowser->RemoveSelection(m_TabManager.GetTabResources());
+    if (resources.count() > 0) {
+        m_BookBrowser->RemoveResources(m_TabManager.GetTabResources(), resources);
+    }
+    else {
+        m_BookBrowser->RemoveSelection(m_TabManager.GetTabResources());
+    }
 }
 
 void MainWindow::GenerateToc()

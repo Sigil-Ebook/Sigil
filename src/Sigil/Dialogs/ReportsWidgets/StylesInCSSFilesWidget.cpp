@@ -253,5 +253,5 @@ void StylesInCSSFilesWidget::connectSignalsSlots()
     connect(ui.Filter,    SIGNAL(textChanged(QString)), 
             this,         SLOT(FilterEditTextChangedSlot(QString)));
     connect (ui.fileTree, SIGNAL(doubleClicked(const QModelIndex &)),
-            this,          SIGNAL(DoubleClick()));
+            this,          SIGNAL(Done()));
 }

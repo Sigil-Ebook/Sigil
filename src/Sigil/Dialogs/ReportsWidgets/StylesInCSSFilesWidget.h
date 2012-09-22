@@ -48,7 +48,7 @@ public:
     ReportsWidget::Results saveSettings();
 
 signals:
-    void DoubleClick();
+    void Done();
 
 private slots:
     void FilterEditTextChangedSlot(const QString &text);
