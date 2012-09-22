@@ -133,6 +133,8 @@ signals:
      */
     void FocusGained(QWidget* editor);
 
+    void ShowStatusMessageRequest(const QString &message, int millisecond_duration);
+
 protected:
     /**
      * Handles the focus in event for the editor.

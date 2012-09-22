@@ -3652,6 +3652,7 @@ void MainWindow::MakeTabConnections( ContentTab *tab )
     connect( tab,   SIGNAL( UpdateCursorPosition(int,int)), this,          SLOT( UpdateCursorPositionLabel(int,int)));
     connect( tab,   SIGNAL( ZoomFactorChanged( float ) ),   this,          SLOT( UpdateZoomLabel( float )  ) );
     connect( tab,   SIGNAL( ZoomFactorChanged( float ) ),   this,          SLOT( UpdateZoomSlider( float ) ) );
+    connect( tab,   SIGNAL( ShowStatusMessageRequest(const QString&, int) ), this, SLOT( ShowMessageOnCurrentStatusBar(const QString&, int) ) );
 }
 
 

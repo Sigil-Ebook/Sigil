@@ -348,6 +348,8 @@ signals:
 
     void ImageSaveAs(const QUrl &url);
 
+    void ShowStatusMessageRequest(const QString &message, int millisecond_duration);
+
 protected slots:
 
     /**
