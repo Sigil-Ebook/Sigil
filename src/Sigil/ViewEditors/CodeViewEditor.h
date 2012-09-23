@@ -85,6 +85,8 @@ public:
      */
     void CustomSetDocument( QTextDocument &document );
 
+    void DeleteLine();
+
     /**
      * Routines to handle cutting code tags from selected text
      */

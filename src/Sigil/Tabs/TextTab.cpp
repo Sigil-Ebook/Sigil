@@ -79,6 +79,11 @@ bool TextTab::PasteEnabled()
     return m_wCodeView.canPaste();
 }
 
+bool TextTab::DeleteLineEnabled()
+{
+    return !m_wCodeView.document()->isEmpty();
+}
+
 bool TextTab::CutCodeTagsEnabled()
 {
     return false;
@@ -160,6 +165,14 @@ void TextTab::Copy()
 void TextTab::Paste()
 {
     m_wCodeView.paste();
+}
+
+
+void TextTab::DeleteLine()
+{
+    if( m_wCodeView.hasFocus() ) {
+        m_wCodeView.DeleteLine();
+    }
 }
 
 

@@ -54,6 +54,8 @@ public:
 
     bool PasteEnabled();
 
+    bool DeleteLineEnabled();
+
     bool CutCodeTagsEnabled();
 
     int GetCursorLine() const;
@@ -93,6 +95,8 @@ public slots:
      * Implements Paste action functionality.
      */
     void Paste();
+
+    void DeleteLine();
 
     void PasteClipEntries(QList<ClipEditorModel::clipEntry *> clips);
 

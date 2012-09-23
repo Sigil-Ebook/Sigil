@@ -208,6 +208,15 @@ bool FlowTab::PasteEnabled()
     return false;
 }
 
+bool FlowTab::DeleteLineEnabled()
+{
+    if (m_ViewState == MainWindow::ViewState_CodeView) {
+        return !m_wCodeView->document()->isEmpty();
+    }
+
+    return false;
+}
+
 bool FlowTab::RemoveFormattingEnabled()
 {
     if (m_ViewState == MainWindow::ViewState_BookView) {
@@ -625,6 +634,13 @@ void FlowTab::Paste()
     }
     else if (m_ViewState == MainWindow::ViewState_CodeView) {
         m_wCodeView->paste();
+    }
+}
+
+void FlowTab::DeleteLine()
+{
+    if (m_ViewState == MainWindow::ViewState_CodeView) {
+        m_wCodeView->DeleteLine();
     }
 }
 

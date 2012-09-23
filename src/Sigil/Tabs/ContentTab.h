@@ -106,6 +106,8 @@ public:
      */
     virtual bool PasteEnabled()         { return false; }
 
+    virtual bool DeleteLineEnabled()         { return false; }
+
     /*
      * Can the user perform the Cut Code Tags operation.
      *

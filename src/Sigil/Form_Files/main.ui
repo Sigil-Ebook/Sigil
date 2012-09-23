@@ -94,6 +94,7 @@
     <addaction name="actionCopy"/>
     <addaction name="actionPaste"/>
     <addaction name="actionPasteClipboardHistory"/>
+    <addaction name="actionDeleteLine"/>
     <addaction name="separator"/>
     <addaction name="menuChangeCase"/>
     <addaction name="separator"/>
@@ -1960,6 +1961,14 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+Alt+V</string>
+   </property>
+  </action>
+  <action name="actionDeleteLine">
+   <property name="text">
+    <string>Delete Line</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+D</string>
    </property>
   </action>
  </widget>

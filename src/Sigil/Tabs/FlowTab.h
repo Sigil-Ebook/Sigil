@@ -83,10 +83,10 @@ public:
     bool IsModified();
 
     bool CutEnabled();
-
     bool CopyEnabled();
-
     bool PasteEnabled();
+
+    bool DeleteLineEnabled();
 
     bool RemoveFormattingEnabled();
 
@@ -219,6 +219,8 @@ public slots:
      * Implements Paste action functionality.
      */
     void Paste();
+
+    void DeleteLine();
 
     /**
      * Implements Split chapter action functionality.

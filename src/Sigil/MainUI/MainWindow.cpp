@@ -1630,17 +1630,18 @@ void MainWindow::UpdateUIOnTabChanges()
 {
     ContentTab &tab = m_TabManager.GetCurrentContentTab();
 
-    if ( &tab == NULL )
-
+    if ( &tab == NULL ) {
         return;
+    }
 
     // Set enabled state based on selection change
-    ui.actionCut                    ->setEnabled( tab.CutEnabled() );
-    ui.actionCopy                   ->setEnabled( tab.CopyEnabled() );
-    ui.actionPaste                  ->setEnabled( tab.PasteEnabled() );
+    ui.actionCut                ->setEnabled( tab.CutEnabled() );
+    ui.actionCopy               ->setEnabled( tab.CopyEnabled() );
+    ui.actionPaste              ->setEnabled( tab.PasteEnabled() );
+    ui.actionDeleteLine         ->setEnabled( tab.DeleteLineEnabled() );
 
-    ui.actionAddToIndex             ->setEnabled( tab.AddToIndexEnabled() );
-    ui.actionMarkForIndex           ->setEnabled( tab.MarkForIndexEnabled() );
+    ui.actionAddToIndex         ->setEnabled( tab.AddToIndexEnabled() );
+    ui.actionMarkForIndex       ->setEnabled( tab.MarkForIndexEnabled() );
 
     ui.actionRemoveFormatting   ->setEnabled( tab.RemoveFormattingEnabled() );
 
@@ -3097,6 +3098,7 @@ void MainWindow::ExtendUI()
     sm->registerAction(ui.actionCopy, "MainWindow.Copy");
     sm->registerAction(ui.actionPaste, "MainWindow.Paste");
     sm->registerAction(ui.actionPasteClipboardHistory, "MainWindow.PasteClipboardHistory");
+    sm->registerAction(ui.actionDeleteLine, "MainWindow.DeleteLine");
     sm->registerAction(ui.actionInsertImage, "MainWindow.InsertImage");
     sm->registerAction(ui.actionInsertSpecialCharacter, "MainWindow.InsertSpecialCharacter");
     sm->registerAction(ui.actionInsertId, "MainWindow.InsertId");
@@ -3643,6 +3645,7 @@ void MainWindow::MakeTabConnections( ContentTab *tab )
         connect( ui.actionCut,                      SIGNAL( triggered() ),  tab,   SLOT( Cut()                      ) );
         connect( ui.actionCopy,                     SIGNAL( triggered() ),  tab,   SLOT( Copy()                     ) );
         connect( ui.actionPaste,                    SIGNAL( triggered() ),  tab,   SLOT( Paste()                    ) );
+        connect( ui.actionDeleteLine,               SIGNAL( triggered() ),  tab,   SLOT( DeleteLine()               ) );
         connect( m_ClipboardHistorySelector,        SIGNAL( PasteFromClipboardRequest() ), tab, SLOT( Paste()       ) );
 
         connect( tab,   SIGNAL( OpenClipEditorRequest(ClipEditorModel::clipEntry *) ),
@@ -3752,6 +3755,7 @@ void MainWindow::BreakTabConnections( ContentTab *tab )
     disconnect( ui.actionCut,                       0, tab, 0 );
     disconnect( ui.actionCopy,                      0, tab, 0 );
     disconnect( ui.actionPaste,                     0, tab, 0 );
+    disconnect( ui.actionDeleteLine,                0, tab, 0 );
     disconnect( ui.actionBold,                      0, tab, 0 );
     disconnect( ui.actionItalic,                    0, tab, 0 );
     disconnect( ui.actionUnderline,                 0, tab, 0 );

@@ -136,6 +136,21 @@ void CodeViewEditor::CustomSetDocument( QTextDocument &document )
     m_isLoadFinished = true;
 }
 
+void CodeViewEditor::DeleteLine()
+{
+    if (document()->isEmpty()) {
+        return;
+    }
+    QTextCursor cursor = textCursor();
+    cursor.beginEditBlock();
+    cursor.select(QTextCursor::LineUnderCursor);
+    cursor.movePosition(QTextCursor::Right, QTextCursor::KeepAnchor, 1);
+    cursor.removeSelectedText();
+    cursor.endEditBlock();
+    
+    emit selectionChanged();
+}
+
 void CodeViewEditor::CutCodeTags()
 {
     // If selection starts or ends in the middle of a tag, then do nothing
