@@ -1426,7 +1426,7 @@ bool BookBrowser::SuccessfullySetupContextMenu( const QPoint &point )
         m_ContextMenu.addAction( m_CopyCSS);
         m_CopyCSS->setEnabled(item_count == 1);
     }
-    else if ( m_LastContextMenuType == Resource::ImageResourceType )
+    else if ( m_LastContextMenuType == Resource::ImageResourceType || m_LastContextMenuType == Resource::ImageResourceType )
     {
         m_ContextMenu.addAction( m_AddNewSVG );
     }
