@@ -873,7 +873,12 @@ void MainWindow::DeleteUnusedImages()
         }
     }
 
-    RemoveResources(resources);
+    if (resources.count() > 0) {
+        RemoveResources(resources);
+    }
+    else {
+        QMessageBox::information(this, tr("Sigil"), tr("There are no unused images."));
+    }
 }
 
 void MainWindow::InsertImageDialog()

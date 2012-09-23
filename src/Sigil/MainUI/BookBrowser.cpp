@@ -923,8 +923,8 @@ void BookBrowser::RemoveResources( QList<Resource *> tab_resources, QList<Resour
             files += "\n" % resource->Filename();
         }
         QMessageBox::StandardButton button_pressed;
-        QString msg = resources.count() == 1 ? tr( "Are you sure you want to delete the selected file?\n" ):
-                                               tr( "Are you sure you want to delete all the selected files?\n" );
+        QString msg = resources.count() == 1 ? tr( "Are you sure you want to delete the file listed below?\n" ):
+                                               tr( "Are you sure you want to delete all the files listed below?\n" );
         button_pressed = QMessageBox::warning(	this,
                           tr( "Sigil" ), msg % tr( "This action cannot be reversed." ) % "\n" + files,
                                                     QMessageBox::Ok | QMessageBox::Cancel
@@ -1432,7 +1432,7 @@ bool BookBrowser::SuccessfullySetupContextMenu( const QPoint &point )
         m_ContextMenu.addAction( m_CopyCSS);
         m_CopyCSS->setEnabled(item_count == 1);
     }
-    else if ( m_LastContextMenuType == Resource::ImageResourceType || m_LastContextMenuType == Resource::ImageResourceType )
+    else if ( m_LastContextMenuType == Resource::ImageResourceType || m_LastContextMenuType == Resource::SVGResourceType )
     {
         m_ContextMenu.addAction( m_AddNewSVG );
     }
