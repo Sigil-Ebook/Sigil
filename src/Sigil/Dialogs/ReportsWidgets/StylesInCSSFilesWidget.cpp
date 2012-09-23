@@ -273,9 +273,9 @@ void StylesInCSSFilesWidget::Delete()
 {
     QMessageBox::StandardButton button_pressed;
     button_pressed = QMessageBox::warning(  this,
-                    tr( "Sigil" ), tr( "Are you sure you want to delete the selected styles from the stylesheets?")% "\n" % tr( "This action cannot be reversed." ),
-                    QMessageBox::Ok | QMessageBox::Cancel
-                    );
+                      tr( "Sigil" ), tr( "Are you sure you want to delete the selected styles from their stylesheets?") % "\n\n" % tr( "This action cannot be reversed." ),
+                                                QMessageBox::Ok | QMessageBox::Cancel
+                                         );
     if (button_pressed == QMessageBox::Ok) {
         m_DeleteStyles = true;
 

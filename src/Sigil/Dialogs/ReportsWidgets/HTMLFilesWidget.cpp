@@ -22,6 +22,7 @@
 
 #include <QtCore/QFile>
 #include <QtGui/QFont>
+#include <QtGui/QMessageBox>
 
 #include "Misc/NumericItem.h"
 #include "ResourceObjects/HTMLResource.h"
@@ -260,9 +261,16 @@ ReportsWidget::Results HTMLFilesWidget::saveSettings()
 
 void HTMLFilesWidget::Delete()
 {
-    m_DeleteFiles = true;
+    QMessageBox::StandardButton button_pressed;
+    button_pressed = QMessageBox::warning(  this,
+                      tr( "Sigil" ), tr( "Are you sure you want to delete the selected files from the Book?") % "\n" % tr( "This action cannot be reversed." ),
+                                                QMessageBox::Ok | QMessageBox::Cancel
+                                         );
 
-    emit Done();
+    if ( button_pressed == QMessageBox::Ok ) {
+        m_DeleteFiles = true;
+        emit Done();
+    }
 }
 
 void HTMLFilesWidget::CreateContextMenuActions()

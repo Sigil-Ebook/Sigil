@@ -305,6 +305,8 @@ private slots:
 
     bool DeleteCSSStyles(const QString &filename, QList<CSSInfo::CSSSelector*> css_selectors);
 
+    void DeleteUnusedImages();
+
     /**
      * Implements Insert image action functionality.
      */
@@ -554,7 +556,7 @@ private slots:
      */
     QStringList GetStylesheetsAlreadyLinked( Resource *resource );
 
-    void RemoveResources(QList<Resource *> resources = QList<Resource *>());
+    void RemoveResources(QList<Resource *> resources = QList<Resource *>(), bool prompt_user = true);
 
     void GenerateToc();
     void CreateHTMLTOC();

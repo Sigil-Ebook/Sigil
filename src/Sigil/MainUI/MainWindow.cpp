@@ -811,7 +811,8 @@ void MainWindow::ReportsDialog()
                 }
             }
             
-            RemoveResources(resources);
+            // Remove the files, but don't prompt the user to confirm again
+            RemoveResources(resources, false);
         }
         else {
             OpenFilename(reports.SelectedFile(), reports.SelectedFileLine());
@@ -857,6 +858,22 @@ bool MainWindow::DeleteCSSStyles(const QString &filename, QList<CSSInfo::CSSSele
         m_Book->SetModified();
     }
     return is_modified;
+}
+
+void MainWindow::DeleteUnusedImages()
+{
+    QList<Resource *> resources;
+
+    QHash<QString, QStringList> image_html_files_hash = m_Book->GetHTMLFilesUsingImages();
+
+    foreach (Resource *resource, m_BookBrowser->AllImageResources()) {
+        QString filepath = "../" + resource->GetRelativePathToOEBPS();
+        if (image_html_files_hash[filepath].count() == 0) {
+            resources.append(resource);
+        }
+    }
+
+    RemoveResources(resources);
 }
 
 void MainWindow::InsertImageDialog()
@@ -1258,11 +1275,11 @@ QStringList MainWindow::GetStylesheetsAlreadyLinked( Resource *resource )
     return linked_stylesheets;
 }
 
-void MainWindow::RemoveResources(QList<Resource *> resources)
+void MainWindow::RemoveResources(QList<Resource *> resources, bool prompt_user)
 {
     // Provide the open tab list to ensure one tab stays open
     if (resources.count() > 0) {
-        m_BookBrowser->RemoveResources(m_TabManager.GetTabResources(), resources);
+        m_BookBrowser->RemoveResources(m_TabManager.GetTabResources(), resources, prompt_user);
     }
     else {
         m_BookBrowser->RemoveSelection(m_TabManager.GetTabResources());
@@ -3168,10 +3185,11 @@ void MainWindow::ExtendUI()
     sm->registerAction(ui.actionReports, "MainWindow.Reports");
     sm->registerAction(ui.actionSearchEditor, "MainWindow.SearchEditor");
     sm->registerAction(ui.actionClipEditor, "MainWindow.ClipEditor");
-    sm->registerAction(ui.actionIndexEditor, "MainWindow.IndexEditor");
+    sm->registerAction(ui.actionClipEditor, "MainWindow.ClipEditor");
     sm->registerAction(ui.actionAddToIndex, "MainWindow.AddToIndex");
     sm->registerAction(ui.actionMarkForIndex, "MainWindow.MarkForIndex");
     sm->registerAction(ui.actionCreateIndex, "MainWindow.CreateIndex");
+    sm->registerAction(ui.actionDeleteUnusedImages, "MainWindow.DeleteUnusedImages");
     sm->registerAction(ui.actionCheckWellFormedErrors, "MainWindow.CheckWellFormedErrors");
 
     // View
@@ -3509,6 +3527,7 @@ void MainWindow::ConnectSignalsToSlots()
     connect( ui.actionSearchEditor,  SIGNAL( triggered() ), this, SLOT( SearchEditorDialog()       ) );
     connect( ui.actionIndexEditor,   SIGNAL( triggered() ), this, SLOT( IndexEditorDialog()        ) );
     connect( ui.actionCreateIndex,   SIGNAL( triggered() ), this, SLOT( CreateIndex()              ) );
+    connect( ui.actionDeleteUnusedImages,    SIGNAL( triggered() ), this, SLOT( DeleteUnusedImages()                   ) );
     connect( ui.actionCheckWellFormedErrors, SIGNAL( triggered( bool ) ), this, SLOT( SetCheckWellFormedErrors( bool ) ) );
 
     // Change case

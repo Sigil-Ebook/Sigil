@@ -887,7 +887,7 @@ void BookBrowser::RemoveSelection( QList<Resource *> tab_resources )
     RemoveResources(tab_resources, resources);
 }
 
-void BookBrowser::RemoveResources( QList<Resource *> tab_resources, QList<Resource *> resources )
+void BookBrowser::RemoveResources( QList<Resource *> tab_resources, QList<Resource *> resources, bool prompt_user )
 {
     if ( resources.isEmpty() )
     {
@@ -917,16 +917,22 @@ void BookBrowser::RemoveResources( QList<Resource *> tab_resources, QList<Resour
             }
     }
 
-    QMessageBox::StandardButton button_pressed;
-    QString msg = resources.count() == 1 ? tr( "Are you sure you want to delete the selected file?\n" ):
-                                           tr( "Are you sure you want to delete all the selected files?\n" );
-    button_pressed = QMessageBox::warning(	this,
-                      tr( "Sigil" ), msg % tr( "This action cannot be reversed." ),
-                                                QMessageBox::Ok | QMessageBox::Cancel
-                                         );
-    if ( button_pressed != QMessageBox::Ok )
-    { 
-        return;
+    if (prompt_user) {
+        QString files;
+        foreach (Resource *resource, resources) {
+            files += "\n" % resource->Filename();
+        }
+        QMessageBox::StandardButton button_pressed;
+        QString msg = resources.count() == 1 ? tr( "Are you sure you want to delete the selected file?\n" ):
+                                               tr( "Are you sure you want to delete all the selected files?\n" );
+        button_pressed = QMessageBox::warning(	this,
+                          tr( "Sigil" ), msg % tr( "This action cannot be reversed." ) % "\n" + files,
+                                                    QMessageBox::Ok | QMessageBox::Cancel
+                                             );
+        if ( button_pressed != QMessageBox::Ok )
+        { 
+            return;
+        }
     }
 
     // Find next resource to select
@@ -1426,7 +1432,7 @@ bool BookBrowser::SuccessfullySetupContextMenu( const QPoint &point )
         m_ContextMenu.addAction( m_CopyCSS);
         m_CopyCSS->setEnabled(item_count == 1);
     }
-    else if ( m_LastContextMenuType == Resource::ImageResourceType )
+    else if ( m_LastContextMenuType == Resource::ImageResourceType || m_LastContextMenuType == Resource::ImageResourceType )
     {
         m_ContextMenu.addAction( m_AddNewSVG );
     }
