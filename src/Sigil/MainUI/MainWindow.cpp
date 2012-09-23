@@ -790,17 +790,10 @@ void MainWindow::ReportsDialog()
         QStringList files_to_delete = reports.FilesToDelete();
 
         if (styles_to_delete.count() > 0) {
-            QMessageBox::StandardButton button_pressed;
-            button_pressed = QMessageBox::warning(  this,
-                          tr( "Sigil" ), tr( "Are you sure you want to delete the selected styles from the stylesheets?")% "\n" % tr( "This action cannot be reversed." ),
-                          QMessageBox::Ok | QMessageBox::Cancel
-                          );
-            if (button_pressed == QMessageBox::Ok) {
-                QHashIterator< QString, QList<CSSInfo::CSSSelector*> > stylesheets(styles_to_delete);
-                while (stylesheets.hasNext()) {
-                    stylesheets.next();
-                    DeleteCSSStyles(stylesheets.key(), stylesheets.value());
-                }
+            QHashIterator< QString, QList<CSSInfo::CSSSelector*> > stylesheets(styles_to_delete);
+            while (stylesheets.hasNext()) {
+                stylesheets.next();
+                DeleteCSSStyles(stylesheets.key(), stylesheets.value());
             }
         }
         else if (files_to_delete.count() > 0) {
@@ -834,25 +827,36 @@ bool MainWindow::DeleteCSSStyles(const QString &filename, QList<CSSInfo::CSSSele
     }
     SaveTabData();
 
+    bool is_modified = false;
+    bool is_found = false;
+
     // Try our CSS resources first as most likely place for a style
     QList<Resource *> css_resources = m_BookBrowser->AllCSSResources();
     foreach( Resource* resource, css_resources ) {
         if ( resource->Filename() == filename) {
             CSSResource* css_resource = qobject_cast<CSSResource*>(resource);
-            return css_resource->DeleteCSStyles(css_selectors);
+            is_found = true;
+            is_modified = css_resource->DeleteCSStyles(css_selectors);
+            break;
         }
     }
-    // Try an inline style instead
-    QList<Resource *> html_resources = m_BookBrowser->AllHTMLResources();
-    foreach( Resource* resource, html_resources ) {
-        if ( resource->Filename() == filename) {
-            HTMLResource* html_resource = qobject_cast<HTMLResource*>(resource);
-            return html_resource->DeleteCSStyles(css_selectors);
+    if (!is_found) {
+        // Try an inline style instead
+        QList<Resource *> html_resources = m_BookBrowser->AllHTMLResources();
+        foreach( Resource* resource, html_resources ) {
+            if ( resource->Filename() == filename) {
+                HTMLResource* html_resource = qobject_cast<HTMLResource*>(resource);
+                is_found = true;
+                is_modified = html_resource->DeleteCSStyles(css_selectors);
+                break;
+            }
         }
     }
 
-    // Could not find the file
-    return false;
+    if (is_modified) {
+        m_Book->SetModified();
+    }
+    return is_modified;
 }
 
 void MainWindow::InsertImageDialog()

@@ -191,18 +191,24 @@ QString CSSInfo::removeMatchingSelectors( QList<CSSSelector*> cssSelectors )
             QStringList current_groups = current_selector_text.split(QChar(','), QString::SkipEmptyParts);
             // If we are the last group within the selector, we can safely remove the whole thing
             if (current_groups.count() > 1) {
-                // Darn, we arent. To play things safe, we will reassemble without this group
-                // but pad out with spaces before the opening brace, so if we later in this loop
-                // find ourselves removing the last group selector we can do so without position recalc.
-                // We could try to get more fancy, but this is a low value edge case.
+                // Darn, we arent. We will reassemble the group selector, calculate the difference in length
+                // between the old and new and then update all of the selectors for the group to assign a 
+                // new offset for the opening bracket/closing bracket position.
                 for (int j=0; j < current_groups.count(); j++) {
                     if (current_groups.at(j).trimmed() == remove_selector->groupText) {
                         current_groups.removeAt(j);
                         break;
                     }
                 }
-                const QString new_groups_text = current_groups.join(",");
-                new_text.replace(remove_selector->position, selector_length, new_groups_text.leftJustified(selector_length, QChar(' ')));
+                const QString new_groups_text = current_groups.join(",").trimmed();
+                int delta = remove_selector->originalText.length() - new_groups_text.length();
+                foreach(CSSSelector* update_selector, m_CSSSelectors) {
+                    if (update_selector->line == remove_selector->line) {
+                        update_selector->openingBracePos -= delta;
+                        update_selector->closingBracePos -= delta;
+                    }
+                }
+                new_text.replace(remove_selector->position, selector_length, new_groups_text);
                 // Done all we intend to for this selector group for now
                 continue;
             }

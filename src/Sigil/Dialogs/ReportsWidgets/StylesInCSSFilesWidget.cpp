@@ -23,6 +23,7 @@
 #include <QtCore/QFile>
 #include <QtCore/QHashIterator>
 #include <QtGui/QFont>
+#include <QtGui/QMessageBox>
 
 #include "Misc/NumericItem.h"
 #include "Misc/CSSInfo.h"
@@ -39,7 +40,8 @@ StylesInCSSFilesWidget::StylesInCSSFilesWidget(QList<Resource *>html_resources, 
     m_CSSResources(css_resources),
     m_Book(book),
     m_ItemModel(new QStandardItemModel),
-    m_ContextMenu(new QMenu(this))
+    m_ContextMenu(new QMenu(this)),
+    m_DeleteStyles(false)
 {
     ui.setupUi(this);
 
@@ -269,9 +271,16 @@ ReportsWidget::Results StylesInCSSFilesWidget::saveSettings()
 
 void StylesInCSSFilesWidget::Delete()
 {
-    m_DeleteStyles = true;
+    QMessageBox::StandardButton button_pressed;
+    button_pressed = QMessageBox::warning(  this,
+                    tr( "Sigil" ), tr( "Are you sure you want to delete the selected styles from the stylesheets?")% "\n" % tr( "This action cannot be reversed." ),
+                    QMessageBox::Ok | QMessageBox::Cancel
+                    );
+    if (button_pressed == QMessageBox::Ok) {
+        m_DeleteStyles = true;
 
-    emit Done();
+        emit Done();
+    }
 }
 
 void StylesInCSSFilesWidget::CreateContextMenuActions()

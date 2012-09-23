@@ -183,6 +183,7 @@ bool HTMLResource::DeleteCSStyles( QList<CSSInfo::CSSSelector*> css_selectors)
     if (!new_resource_text.isNull()) {
         // At least one of the selector(s) was removed.
         SetText(new_resource_text);
+        emit Modified();
         return true;
     }
     return false;
