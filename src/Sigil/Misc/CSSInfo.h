@@ -103,5 +103,10 @@ private:
     bool m_IsCSSFile;
 };
 
+template<class T>
+bool dereferencedLessThan(T * o1, T * o2) {
+    return *o1 < *o2;
+}
+
 #endif // CSSINFO_H
 

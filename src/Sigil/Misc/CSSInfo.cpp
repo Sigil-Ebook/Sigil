@@ -176,7 +176,7 @@ QString CSSInfo::removeMatchingSelectors( QList<CSSSelector*> cssSelectors )
 
     QString new_text(m_OriginalText);
     // Sort the selectors by line number ascending.
-    qSort(remove_selectors);
+    qSort(remove_selectors.begin(), remove_selectors.end(), dereferencedLessThan<CSSSelector>);
 
     CSSSelector* remove_selector;
     // Now iterate in reverse order
