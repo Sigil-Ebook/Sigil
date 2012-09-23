@@ -1,4 +1,7 @@
 Sigil 0.6.0 TBA 
+    - Implement issue 1601: Delete unused Images.
+    - Implement issue 1602: Delete unused Styles.
+    - Implement issue 1603: Allow formatting buttons to work in Code View.
     - Implement issue 1597: Show HTML tag information for current location in text while in Book View.
     - Implement issue 1594: Allow miscellaneous text files to be edited and others to be opened externally.
     - Implement issue 1590: Insert image should allow insert from disk.
