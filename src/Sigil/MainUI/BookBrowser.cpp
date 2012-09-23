@@ -26,6 +26,7 @@
 #include <QtGui/QMessageBox>
 #include <QtGui/QTreeView>
 #include <QtGui/QProgressDialog>
+#include <QtGui/QScrollBar>
 
 #include "BookManipulation/Book.h"
 #include "BookManipulation/FolderKeeper.h"
@@ -869,9 +870,14 @@ void BookBrowser::RenameSelected()
         QString name = QString( "%1%2" ).arg( templateBase ).arg( i, templateNumber.length(), 10, QChar( '0' ) ).append( extension );
         new_filenames.append(name);
     }
-    m_OPFModel.RenameResourceList(resources, new_filenames);
 
+    // After a rename we want to keep the resources in the identical position.
+    int scrollY = m_TreeView.verticalScrollBar()->value();
+
+    m_OPFModel.RenameResourceList(resources, new_filenames);
+    
     SelectResources(resources);
+    m_TreeView.verticalScrollBar()->setSliderPosition(scrollY);
 }
 
 
