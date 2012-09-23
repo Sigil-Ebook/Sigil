@@ -118,7 +118,7 @@ void MessageHandler( QtMsgType type, const char *message )
             // On Windows there is a known issue with the clipboard that results in some copy
             // operations in controls being intermittently blocked. Rather than presenting
             // the user with an error dialog, we should simply retry the operation. 
-            // Hopefully this will be fixed in a future Qt version (still broken as of 4.8.2).
+            // Hopefully this will be fixed in a future Qt version (still broken as of 4.8.3).
             if ( error_message.startsWith(WIN_CLIPBOARD_ERROR) ) {
                 QWidget *widget = QApplication::focusWidget();
                 if (widget) {
@@ -132,6 +132,12 @@ void MessageHandler( QtMsgType type, const char *message )
                     BookViewPreview *bookViewPreview = dynamic_cast<BookViewPreview*>(widget);
                     if (bookViewPreview) {
                         QTimer::singleShot(RETRY_DELAY_MS, bookViewPreview, SLOT(copy()));
+                        break;
+                    }
+                    // Same issue can happen on a QLineEdit such as in the Find/Replace combos
+                    QLineEdit *lineEdit = dynamic_cast<QLineEdit*>(widget);
+                    if (lineEdit) {
+                        QTimer::singleShot(RETRY_DELAY_MS, lineEdit, SLOT(copy()));
                         break;
                     }
                 }
