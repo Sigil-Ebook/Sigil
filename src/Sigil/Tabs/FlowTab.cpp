@@ -526,7 +526,9 @@ void FlowTab::ScrollToTop()
 void FlowTab::AutoFixWellFormedErrors()
 {
     if (m_ViewState == MainWindow::ViewState_CodeView) {
+        int pos = m_wCodeView->GetCursorPosition();
         m_wCodeView->ReplaceDocumentText(CleanSource::PrettyPrint(CleanSource::Clean(m_wCodeView->toPlainText())));
+        m_wCodeView->ScrollToPosition(pos);
     }
 }
 
