@@ -92,7 +92,7 @@ public:
 
     void RemoveSelection( QList<Resource *> tab_resources );
 
-    void RemoveResources( QList<Resource *> tab_resources, QList<Resource *> resources );
+    void RemoveResources( QList<Resource *> tab_resources, QList<Resource *> resources, bool prompt_user = true);
 
     /**
      * Updates the selection in the book display

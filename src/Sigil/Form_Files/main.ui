@@ -281,6 +281,8 @@
     <addaction name="actionClipEditor"/>
     <addaction name="actionSearchEditor"/>
     <addaction name="separator"/>
+    <addaction name="actionDeleteUnusedImages"/>
+    <addaction name="separator"/>
     <addaction name="actionCheckWellFormedErrors"/>
    </widget>
    <addaction name="menuFile"/>
@@ -1510,6 +1512,11 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+Alt+I</string>
+   </property>
+  </action>
+  <action name="actionDeleteUnusedImages">
+   <property name="text">
+    <string>Delete Unused Image Files...</string>
    </property>
   </action>
   <action name="actionReports">
