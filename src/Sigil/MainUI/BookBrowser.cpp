@@ -861,15 +861,33 @@ void BookBrowser::RenameSelected()
         extension = first_filename.right( first_filename.length() - first_filename.lastIndexOf( '.' ) );
     }
 
+    // Abort if any of the new names already exist
+    QStringList filenames = m_Book->GetFolderKeeper().GetAllFilenames();
+    int test_start = templateNumber.toInt();
+    for (int i = test_start; i < test_start + resources.count(); i++) 
+    {
+        QString test_name = QString( "%1%2" ).arg( templateBase ).arg( i, templateNumber.length(), 10, QChar( '0' ) ).append( extension );
+        if (filenames.contains(test_name)) {
+            QMessageBox::critical(this, tr("Sigil"), tr("Cannot rename since one or more new filenames are already in use."));
+            return;
+        }
+    }
+
     // Rename all entries at once
     QList<QString> new_filenames;
 
     int start = templateNumber.toInt();
-    for (int i = start; i < start + resources.count(); i++) 
+    int i = 0;
+    for (i = start; i < start + resources.count(); i++) 
     {
         QString name = QString( "%1%2" ).arg( templateBase ).arg( i, templateNumber.length(), 10, QChar( '0' ) ).append( extension );
         new_filenames.append(name);
     }
+    
+    QString next_name_template = QString( "%1%2" ).arg( templateBase ).arg( i, templateNumber.length(), 10, QChar( '0' ) );
+
+    // Save the next name in the sequence for later
+    settings.setRenameTemplate(next_name_template);
 
     // After a rename we want to keep the resources in the identical position.
     int scrollY = m_TreeView.verticalScrollBar()->value();
