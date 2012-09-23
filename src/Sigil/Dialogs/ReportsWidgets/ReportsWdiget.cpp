@@ -294,7 +294,6 @@ ReportsWidget::Results ImageFilesWidget::saveSettings()
     results.files_to_delete.clear();
     results.styles_to_delete.clear();
 
-
     SettingsStore settings;
     settings.beginGroup(SETTINGS_GROUP);
 

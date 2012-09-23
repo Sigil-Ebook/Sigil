@@ -25,6 +25,9 @@
 
 #include <QWidget>
 #include <QString>
+#include <QHash>
+
+#include "Misc/CSSInfo.h"
 
 /**
  * Base Interface for reports widgets.
@@ -44,6 +47,7 @@ public:
         QString filename;
         int line;
         QStringList files_to_delete;
+        QHash< QString, QList<CSSInfo::CSSSelector*> > styles_to_delete;
     };
 
     /**

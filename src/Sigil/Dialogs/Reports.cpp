@@ -26,6 +26,7 @@
 
 #include "Dialogs/Reports.h"
 #include "Misc/SettingsStore.h"
+#include "Misc/CSSInfo.h"
 #include "ReportsWidgets/HTMLFilesWidget.h"
 #include "ReportsWidgets/ImageFilesWidget.h"
 #include "ReportsWidgets/CSSFilesWidget.h"
@@ -103,6 +104,12 @@ QStringList Reports::FilesToDelete()
 {
     return m_FilesToDelete;
 }
+
+QHash< QString, QList<CSSInfo::CSSSelector*> > Reports::StylesToDelete()
+{
+    return m_StylesToDelete;
+}
+
 void Reports::saveSettings()
 {
     ReportsWidget::Results widgetResult;
@@ -124,6 +131,7 @@ void Reports::saveSettings()
     m_SelectedFile = widgetResult.filename;
     m_SelectedFileLine = widgetResult.line;
     m_FilesToDelete = widgetResult.files_to_delete;
+    m_StylesToDelete = widgetResult.styles_to_delete;
 
     QApplication::restoreOverrideCursor();
 }

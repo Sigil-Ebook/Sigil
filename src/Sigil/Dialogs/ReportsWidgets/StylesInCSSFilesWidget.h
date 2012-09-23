@@ -28,6 +28,8 @@
 #include <QtGui/QDialog>
 #include <QtGui/QStandardItemModel>
 #include <QtCore/QSharedPointer>
+#include <QtGui/QAction>
+#include <QtGui/QMenu>
 
 #include "ResourceObjects/Resource.h"
 #include "BookManipulation/Book.h"
@@ -51,9 +53,16 @@ signals:
     void Done();
 
 private slots:
+    void OpenContextMenu(const QPoint &point);
+
     void FilterEditTextChangedSlot(const QString &text);
 
+    void Delete();
+
 private:
+    void CreateContextMenuActions();
+    void SetupContextMenu(const QPoint &point);
+
     struct Selector {
         int css_line;
         int css_position;
@@ -73,6 +82,12 @@ private:
     QSharedPointer< Book > m_Book;
 
     QStandardItemModel *m_ItemModel;
+
+    QMenu *m_ContextMenu;
+
+    QAction *m_Delete;
+
+    bool m_DeleteStyles;
 
     Ui::StylesInCSSFilesWidget ui;
 };

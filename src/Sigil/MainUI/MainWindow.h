@@ -303,7 +303,7 @@ private slots:
 
     void ReportsDialog();
 
-    bool DeleteCSStyles(const QString &filename, QList<CSSInfo::CSSSelector*> css_selectors);
+    bool DeleteCSSStyles(const QString &filename, QList<CSSInfo::CSSSelector*> css_selectors);
 
     /**
      * Implements Insert image action functionality.

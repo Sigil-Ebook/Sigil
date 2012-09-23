@@ -38,9 +38,15 @@ StylesInCSSFilesWidget::StylesInCSSFilesWidget(QList<Resource *>html_resources, 
     m_HTMLResources(html_resources),
     m_CSSResources(css_resources),
     m_Book(book),
-    m_ItemModel(new QStandardItemModel)
+    m_ItemModel(new QStandardItemModel),
+    m_ContextMenu(new QMenu(this))
 {
     ui.setupUi(this);
+
+    ui.fileTree->setContextMenuPolicy(Qt::CustomContextMenu);
+
+    CreateContextMenuActions();
+
     connectSignalsSlots();
 
     SetupTable();
@@ -50,7 +56,6 @@ StylesInCSSFilesWidget::StylesInCSSFilesWidget(QList<Resource *>html_resources, 
     for (int i = 0; i < ui.fileTree->header()->count(); i++) {
         ui.fileTree->resizeColumnToContents(i);
     }
-
 }
 
 void StylesInCSSFilesWidget::SetupTable()
@@ -123,7 +128,7 @@ QHash< QString, QList<StylesInCSSFilesWidget::Selector *> > StylesInCSSFilesWidg
                         found_location = stylesheet_filename;
                         // Record the matched information to use later when checking CSS file
                         StylesInCSSFilesWidget::Selector *selector_info = new StylesInCSSFilesWidget::Selector();
-                        selector_text = selector->originalText;
+                        selector_text = selector->groupText;
                         selector_info->css_selector_text = selector_text;
                         selector_info->css_position = selector->position;
                         selector_info->css_line = selector->line;
@@ -152,15 +157,14 @@ void StylesInCSSFilesWidget::CheckCSSFiles(QHash< QString, QList<StylesInCSSFile
         foreach (CSSInfo::CSSSelector *selector, selectors) {
             QString filename = "../" + resource->GetRelativePathToOEBPS();
 
-            QString selector_text = selector->originalText;
+            QString selector_text = selector->groupText;
+            int selector_line = selector->line;
             QString found_location;
-            int found_location_line = -1;
 
             if (css_selectors.contains(filename)) {
                 foreach (StylesInCSSFilesWidget::Selector *selector_info, css_selectors[filename]) {
                     if (selector_info->css_position == selector->position) {
                         found_location = selector_info->html_filename;
-                        found_location_line = selector_info->css_line;
                         break;
                     }
                 }
@@ -173,12 +177,12 @@ void StylesInCSSFilesWidget::CheckCSSFiles(QHash< QString, QList<StylesInCSSFile
             // File name
             QStandardItem *filename_item = new QStandardItem();
             filename_item->setText(css_resource->Filename());
-            filename_item->setData(found_location_line);
             rowItems << filename_item;
 
             // Selector
             QStandardItem *selector_text_item = new QStandardItem();
             selector_text_item->setText(selector_text);
+            selector_text_item->setData(selector_line);
             rowItems << selector_text_item;
 
             // Found in
@@ -236,16 +240,61 @@ ReportsWidget::Results StylesInCSSFilesWidget::saveSettings()
 
     results.filename = "";
     results.line = -1;
+    results.files_to_delete.clear();
+    results.styles_to_delete.clear();
+
 
     if (ui.fileTree->selectionModel()->hasSelection()) {
-        QModelIndex index = ui.fileTree->selectionModel()->selectedRows(0).first();
-        if (index.row() != m_ItemModel->rowCount() - 1) {
-            results.filename = m_ItemModel->itemFromIndex(index)->text();
-            results.line = m_ItemModel->itemFromIndex(index)->data().toInt();
+        if (m_DeleteStyles) {
+            foreach (QModelIndex index, ui.fileTree->selectionModel()->selectedRows(0)) {
+                QString filename = m_ItemModel->itemFromIndex(index)->text();
+
+                CSSInfo::CSSSelector *selector = new CSSInfo::CSSSelector();
+                selector->groupText = m_ItemModel->itemFromIndex(index.sibling(index.row(), 1))->text();
+                selector->line = m_ItemModel->itemFromIndex(index.sibling(index.row(), 1))->data().toInt();
+
+                results.styles_to_delete[filename].append(selector);
+            }
+        }
+        else {
+            QModelIndex index = ui.fileTree->selectionModel()->selectedRows(0).first();
+            if (index.row() != m_ItemModel->rowCount() - 1) {
+                results.filename = m_ItemModel->itemFromIndex(index)->text();
+            }
         }
     }
 
     return results;
+}
+
+void StylesInCSSFilesWidget::Delete()
+{
+    m_DeleteStyles = true;
+
+    emit Done();
+}
+
+void StylesInCSSFilesWidget::CreateContextMenuActions()
+{
+    m_Delete    = new QAction(tr("Delete From Stylesheet"),     this);
+
+    m_Delete->setShortcut(QKeySequence::Delete);
+
+    // Has to be added to the dialog itself for the keyboard shortcut to work.
+    addAction(m_Delete);
+}
+
+void StylesInCSSFilesWidget::OpenContextMenu(const QPoint &point)
+{
+    SetupContextMenu(point);
+
+    m_ContextMenu->exec(ui.fileTree->viewport()->mapToGlobal(point));
+    m_ContextMenu->clear();
+}
+
+void StylesInCSSFilesWidget::SetupContextMenu(const QPoint &point)
+{
+    m_ContextMenu->addAction(m_Delete);
 }
 
 void StylesInCSSFilesWidget::connectSignalsSlots()
@@ -254,4 +303,8 @@ void StylesInCSSFilesWidget::connectSignalsSlots()
             this,         SLOT(FilterEditTextChangedSlot(QString)));
     connect (ui.fileTree, SIGNAL(doubleClicked(const QModelIndex &)),
             this,          SIGNAL(Done()));
+
+    connect(ui.fileTree,  SIGNAL(customContextMenuRequested(const QPoint&)),
+            this,         SLOT(  OpenContextMenu(                  const QPoint&)));
+    connect(m_Delete,     SIGNAL(triggered()), this, SLOT(Delete()));
 }

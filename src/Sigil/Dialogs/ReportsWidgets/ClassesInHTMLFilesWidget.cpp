@@ -118,7 +118,8 @@ void ClassesInHTMLFilesWidget::CheckHTMLFiles()
             CSSInfo::CSSSelector* selector = css_info.getCSSSelectorForElementClass( element_part, class_part); 
             if (selector && (selector->classNames.count() > 0)) {
                 found_location = "*** INLINE ***";
-                selector_text = selector->originalText;
+                // Get just the one selector in a comma separated group
+                selector_text = selector->groupText;
             }
 
             // Check in stylesheets if not inline
@@ -130,7 +131,8 @@ void ClassesInHTMLFilesWidget::CheckHTMLFiles()
                         if (selector && (selector->classNames.count() > 0)) {
                             found_location = stylesheet_filename;
                             found_location = found_location.right(found_location.length() - found_location.lastIndexOf("/") - 1);
-                            selector_text = selector->originalText;
+                            // Get just the one selector in a comma separated group
+                            selector_text = selector->groupText;
                             break;
                         }
                     }
@@ -216,6 +218,7 @@ ReportsWidget::Results ClassesInHTMLFilesWidget::saveSettings()
     results.filename = "";
     results.line = -1;
     results.files_to_delete.clear();
+    results.styles_to_delete.clear();
 
     if (ui.fileTree->selectionModel()->hasSelection()) {
         QModelIndex index = ui.fileTree->selectionModel()->selectedRows(0).first();

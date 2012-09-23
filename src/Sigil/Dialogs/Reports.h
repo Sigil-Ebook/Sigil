@@ -25,6 +25,7 @@
 #define REPORTS_H
 
 #include <QtGui/QDialog>
+#include <QHash>
 
 #include "ResourceObjects/Resource.h"
 #include "BookManipulation/Book.h" 
@@ -53,6 +54,7 @@ public:
     int SelectedFileLine();
 
     QStringList FilesToDelete();
+    QHash< QString, QList<CSSInfo::CSSSelector*> > StylesToDelete();
 
 private slots:
     /**
@@ -100,6 +102,7 @@ private:
     int m_SelectedFileLine;
 
     QStringList m_FilesToDelete;
+    QHash<QString, QList<CSSInfo::CSSSelector *> > m_StylesToDelete;
 
     Ui::Reports ui;
 };

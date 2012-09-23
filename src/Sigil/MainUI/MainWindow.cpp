@@ -786,11 +786,24 @@ void MainWindow::ReportsDialog()
     Reports reports(html_resources, image_resources, css_resources, m_Book, this);
 
     if (reports.exec() == QDialog::Accepted) {
+        QHash< QString, QList<CSSInfo::CSSSelector*> > styles_to_delete = reports.StylesToDelete();
         QStringList files_to_delete = reports.FilesToDelete();
-        if (files_to_delete.count() == 0) {
-            OpenFilename(reports.SelectedFile(), reports.SelectedFileLine());
+
+        if (styles_to_delete.count() > 0) {
+            QMessageBox::StandardButton button_pressed;
+            button_pressed = QMessageBox::warning(  this,
+                          tr( "Sigil" ), tr( "Are you sure you want to delete the selected styles from the stylesheets?")% "\n" % tr( "This action cannot be reversed." ),
+                          QMessageBox::Ok | QMessageBox::Cancel
+                          );
+            if (button_pressed == QMessageBox::Ok) {
+                QHashIterator< QString, QList<CSSInfo::CSSSelector*> > stylesheets(styles_to_delete);
+                while (stylesheets.hasNext()) {
+                    stylesheets.next();
+                    DeleteCSSStyles(stylesheets.key(), stylesheets.value());
+                }
+            }
         }
-        else {
+        else if (files_to_delete.count() > 0) {
             QList <Resource *> resources;
             foreach (QString filename, files_to_delete) {
                 try
@@ -807,10 +820,13 @@ void MainWindow::ReportsDialog()
             
             RemoveResources(resources);
         }
+        else {
+            OpenFilename(reports.SelectedFile(), reports.SelectedFileLine());
+        }
     }
 }
 
-bool MainWindow::DeleteCSStyles(const QString &filename, QList<CSSInfo::CSSSelector*> css_selectors)
+bool MainWindow::DeleteCSSStyles(const QString &filename, QList<CSSInfo::CSSSelector*> css_selectors)
 {
     // Save our tabs data as we will be modifying the underlying resources
     if (!m_TabManager.TabDataIsWellFormed()) {

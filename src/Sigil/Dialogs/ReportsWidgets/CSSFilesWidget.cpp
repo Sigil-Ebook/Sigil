@@ -211,6 +211,7 @@ ReportsWidget::Results CSSFilesWidget::saveSettings()
     results.filename = "";
     results.line = -1;
     results.files_to_delete.clear();
+    results.styles_to_delete.clear();
 
     if (ui.fileTree->selectionModel()->hasSelection()) {
         if (m_DeleteFiles) {
