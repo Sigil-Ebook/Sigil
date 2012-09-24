@@ -2849,6 +2849,9 @@ void MainWindow::UpdateUiWithCurrentFile( const QString &fullfilepath )
 {
     m_CurrentFilePath = fullfilepath;
 
+    QString file_copy = QFileInfo(m_CurrentFilePath).completeBaseName() + "_copy." + QFileInfo(m_CurrentFilePath).suffix();
+    m_SaveACopyFilename = m_CurrentFilePath.isEmpty() ? "untitled_copy.epub" : file_copy;
+
     QString shownName = m_CurrentFilePath.isEmpty() ? "untitled.epub" : QFileInfo( m_CurrentFilePath ).fileName();
 
     // Update the titlebar
