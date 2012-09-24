@@ -17,7 +17,7 @@
    <item>
     <widget class="QTreeView" name="tvTOCDisplay">
      <property name="editTriggers">
-      <set>QAbstractItemView::NoEditTriggers</set>
+      <set>QAbstractItemView::DoubleClicked</set>
      </property>
      <property name="tabKeyNavigation">
       <bool>false</bool>

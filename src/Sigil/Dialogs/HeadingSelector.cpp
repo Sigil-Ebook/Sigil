@@ -41,9 +41,15 @@ static const int FIRST_COLUMN_PADDING = 30;
 HeadingSelector::HeadingSelector( QSharedPointer< Book > book, QWidget *parent )
     : 
     QDialog( parent ),
-    m_Book( book )
+    m_Book( book ),
+    m_ContextMenu(new QMenu(this))
 {
     ui.setupUi( this );
+
+    ui.tvTOCDisplay->setContextMenuPolicy(Qt::CustomContextMenu);
+
+    CreateContextMenuActions();
+
     ConnectSignalsToSlots();
 
     ui.tvTOCDisplay->setModel( &m_TableOfContents );
@@ -87,6 +93,8 @@ void HeadingSelector::ModelItemFilter( QStandardItem *item )
     Q_ASSERT( item );
 
     if ( !item->isCheckable() ) {
+        // Heading changed
+        UpdateOneHeadingTitle(item, item->text());
         return;
     }
 
@@ -213,6 +221,21 @@ void HeadingSelector::UpdateOneHeadingElement(QStandardItem *item)
     }
 }
 
+void HeadingSelector::UpdateOneHeadingTitle(QStandardItem *item, QString title)
+{
+    Headings::Heading *heading = GetItemHeading(item);
+
+    if (heading != NULL) {
+        QString title_attribute = XtoQ(heading->element->getAttribute(QtoX("title")))
+                                  .simplified();
+
+        if (!title_attribute.isEmpty()) {
+            heading->element->removeAttribute(QtoX("title"));
+        }
+        heading->element->setAttribute(QtoX("title"), QtoX(title));
+    }
+}
+
 
 // Updates the inclusion of the heading in the TOC
 // whenever that heading's "include in TOC" checkbox
@@ -287,7 +310,7 @@ void HeadingSelector::InsertHeadingIntoModel( Headings::Heading &heading, QStand
 
     heading_included_check->setEditable( false );
     heading_included_check->setCheckable( true );
-    item_heading->setEditable( false );
+    item_heading->setEditable( true );
     item_heading->setDragEnabled( false );
     item_heading->setDropEnabled( false );
 
@@ -305,7 +328,7 @@ void HeadingSelector::InsertHeadingIntoModel( Headings::Heading &heading, QStand
     wrap.heading = &heading;
 
     item_heading->setData( QVariant::fromValue( wrap ) );
-    item_heading->setToolTip( heading.text );
+    item_heading->setToolTip( heading.resource_file->Filename() + ": " + heading.text );
 
     QList< QStandardItem* > items;        
     items << item_heading << heading_included_check;
@@ -629,6 +652,36 @@ void HeadingSelector::UnlockHTMLResources()
 }
 
 
+void HeadingSelector::Rename()
+{
+    ui.tvTOCDisplay->edit(ui.tvTOCDisplay->currentIndex());
+}
+
+
+void HeadingSelector::CreateContextMenuActions()
+{
+    m_Rename = new QAction(tr("Rename"),     this);
+
+    m_Rename->setShortcut(QKeySequence(Qt::ControlModifier + Qt::Key_R));
+
+    // Has to be added to the dialog itself for the keyboard shortcut to work.
+    addAction(m_Rename);
+}
+
+void HeadingSelector::OpenContextMenu(const QPoint &point)
+{
+    SetupContextMenu(point);
+
+    m_ContextMenu->exec(ui.tvTOCDisplay->viewport()->mapToGlobal(point));
+    m_ContextMenu->clear();
+}
+
+void HeadingSelector::SetupContextMenu(const QPoint &point)
+{
+    m_ContextMenu->addAction(m_Rename);
+}
+
+
 void HeadingSelector::ConnectSignalsToSlots()
 {
     connect( &m_TableOfContents, SIGNAL( itemChanged( QStandardItem* ) ),
@@ -651,6 +704,11 @@ void HeadingSelector::ConnectSignalsToSlots()
                                  SIGNAL( activated( const QString& ) ),  
              this,               SLOT( SelectHeadingLevelInclusion( const QString& ) )
              );
+
+    connect(ui.tvTOCDisplay,     SIGNAL(customContextMenuRequested(const QPoint&)),
+            this,                SLOT(  OpenContextMenu(                  const QPoint&)));
+    connect(m_Rename,            SIGNAL(triggered()), this, SLOT(Rename()));
+
 }
 
 

@@ -27,6 +27,8 @@
 #include <QtCore/QSharedPointer>
 #include <QtGui/QDialog>
 #include <QtGui/QStandardItemModel>
+#include <QtGui/QAction>
+#include <QtGui/QMenu>
 
 #include "ui_HeadingSelector.h"
 #include "BookManipulation/Headings.h"
@@ -49,6 +51,9 @@ public:
     ~HeadingSelector();
 
 private slots:
+    void OpenContextMenu(const QPoint &point);
+
+    void Rename();
 
     // We need to filter the calls to functions that would normally
     // connect directly to the itemChanged( QStandardItem* ) signal
@@ -72,12 +77,16 @@ private slots:
     void SelectHeadingLevelInclusion( const QString& heading_level );
 
 private:
+    void CreateContextMenuActions();
+    void SetupContextMenu(const QPoint &point);
 
     // We need this to be able to use a forward
     // declaration of Book in the QSharedPointer
     Q_DISABLE_COPY( HeadingSelector )
 
     void UpdateOneHeadingElement( QStandardItem *item );
+
+    void UpdateOneHeadingTitle(QStandardItem *item, QString title);
 
     // Updates the inclusion of the heading in the TOC
     // whenever that heading's "include in TOC" checkbox
@@ -166,6 +175,10 @@ private:
 
     // The tree of all the headings in the book
     QList< Headings::Heading > m_Headings;
+
+    QMenu *m_ContextMenu;
+
+    QAction *m_Rename;
 
     // Holds all the widgets Qt Designer created for us
     Ui::HeadingSelector ui;
