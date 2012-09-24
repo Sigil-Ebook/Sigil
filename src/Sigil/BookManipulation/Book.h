@@ -31,6 +31,7 @@
 #include <QtCore/QVariant>
 #include "BookManipulation/Metadata.h"
 
+class QProgressDialog;
 class CSSResource;
 class SVGResource;
 class FolderKeeper;
@@ -218,11 +219,10 @@ public:
     QHash<QString, int> CountAllLinksInHTML();
 
     /**
-     * Merges the second HTML resource into the first one
-     *
-     * @param html_resource The resource being merged.
+     * Merges two or more html resources together in order into the first resource in the list.
+     * If the merge fails, returns resource which caused the failure, otherwise returns null.
      */
-    bool Merge( HTMLResource& html_resource1, HTMLResource& html_resource2 );
+    Resource* MergeResources( QList<Resource*> resources, QProgressDialog* progress );
 
     /**
      * Makes sure that all the resources have saved the state of 

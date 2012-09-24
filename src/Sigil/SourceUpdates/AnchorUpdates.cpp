@@ -56,6 +56,23 @@ void AnchorUpdates::UpdateExternalAnchors( const QList< HTMLResource* > &html_re
 }
 
 
+void AnchorUpdates::UpdateAllAnchors( const QList< HTMLResource* > &html_resources, const QStringList &originating_filenames, HTMLResource* new_file )
+{
+    QList< HTMLResource* > new_files;
+    new_files.append(new_file);
+    const QHash< QString, QString > &ID_locations = GetIDLocations( new_files );
+
+    QList< QString > originating_filename_links;
+    foreach( QString originating_filename, originating_filenames) {
+        originating_filename_links.append("../" % TEXT_FOLDER_NAME % "/" % originating_filename);
+    }
+
+    const QString &new_filename_with_relative_path = "../" % TEXT_FOLDER_NAME % "/" % Utility::URLEncodePath(new_file->Filename());
+
+    QtConcurrent::blockingMap( html_resources, boost::bind( UpdateAllAnchorsInOneFile, _1, originating_filename_links, ID_locations, new_filename_with_relative_path ) );
+}
+
+
 QHash< QString, QString > AnchorUpdates::GetIDLocations( const QList< HTMLResource* > &html_resources )
 {
     const QList< tuple< QString, QList< QString > > > &IDs_in_files = QtConcurrent::blockingMapped( html_resources, GetOneFileIDs );
@@ -104,6 +121,7 @@ void AnchorUpdates::UpdateAnchorsInOneFile( HTMLResource *html_resource,
 
     const QString &resource_filename = html_resource->Filename();
 
+    bool is_changed = false;
     for ( uint i = 0; i < anchors->getLength(); ++i )
     {
         xc::DOMElement &element = *static_cast< xc::DOMElement* >( anchors->item( i ) );
@@ -130,10 +148,13 @@ void AnchorUpdates::UpdateAnchorsInOneFile( HTMLResource *html_resource,
                                           .append( id );
 
                 element.setAttribute( QtoX( "href" ), QtoX( attribute_value ) );
+                is_changed = true;
             }
         }
     }
-    html_resource->SetText(XhtmlDoc::GetDomDocumentAsString(document));
+    if (is_changed) {
+        html_resource->SetText(XhtmlDoc::GetDomDocumentAsString(document));
+    }
 }
 
 
@@ -149,8 +170,7 @@ void AnchorUpdates::UpdateExternalAnchorsInOneFile( HTMLResource *html_resource,
 
     QString original_filename_with_relative_path = "../" % TEXT_FOLDER_NAME % "/" % originating_filename;
 
-    // const QString &resource_filename = html_resource->Filename();
-
+    bool is_changed = false;
     for ( uint i = 0; i < anchors->getLength(); ++i )
     {
         xc::DOMElement &element = *static_cast< xc::DOMElement* >( anchors->item( i ) );
@@ -179,11 +199,75 @@ void AnchorUpdates::UpdateExternalAnchorsInOneFile( HTMLResource *html_resource,
                                           .append( fragment_id );
 
                 element.setAttribute( QtoX( "href" ), QtoX( attribute_value ) );
+                is_changed = true;
             }
         }
     }
-    html_resource->SetText(XhtmlDoc::GetDomDocumentAsString(document));
+    if (is_changed) {
+        html_resource->SetText(XhtmlDoc::GetDomDocumentAsString(document));
+    }
 }
+
+
+void AnchorUpdates::UpdateAllAnchorsInOneFile( HTMLResource *html_resource, 
+                                               const QList< QString > &originating_filename_links, 
+                                               const QHash< QString, QString > ID_locations, 
+                                               const QString &new_filename )
+{
+    Q_ASSERT( html_resource );
+
+    QWriteLocker locker( &html_resource->GetLock() );
+
+    shared_ptr<xc::DOMDocument> d = XhtmlDoc::LoadTextIntoDocument(html_resource->GetText());
+    xc::DOMDocument &document = *d.get();
+    xc::DOMNodeList *anchors  = document.getElementsByTagName( QtoX( "a" ) );
+
+    bool is_changed = false;
+    for ( uint i = 0; i < anchors->getLength(); ++i )
+    {
+        xc::DOMElement &element = *static_cast< xc::DOMElement* >( anchors->item( i ) );
+
+        Q_ASSERT( &element );
+
+        // We find the hrefs that are relative and contain an href.
+        if ( element.hasAttribute( QtoX( "href" ) ) &&
+            QUrl( XtoQ( element.getAttribute( QtoX(  "href" ) ) ) ).isRelative()
+            )
+        {
+            // Is this href in the form "originating_filename#fragment_id" or "originating_filename"?
+            QString href = XtoQ( element.getAttribute( QtoX( "href" ) ) );
+            if (href.contains('#')) {
+                QString file_id = href.left( href.indexOf( QChar( '#' ) ) );
+                QString fragment_id = href.right( href.size() - ( href.indexOf( QChar( '#' ) ) + 1 ) );
+
+                // If the href pointed to the original file then update the file_id.
+                if ( originating_filename_links.contains(file_id) )
+                {
+                    QString attribute_value = QString( "../" )
+                                              .append( TEXT_FOLDER_NAME )
+                                              .append( "/" )
+                                              .append( Utility::URLEncodePath( ID_locations.value( fragment_id ) ) )
+                                              .append( "#" )
+                                              .append( fragment_id );
+
+                    element.setAttribute( QtoX( "href" ), QtoX( attribute_value ) );
+                    is_changed = true;
+                }
+            }
+            else {
+                // This is a straight href with no anchor fragment
+                if ( originating_filename_links.contains(href) ) {
+                    element.setAttribute( QtoX( "href" ), QtoX( new_filename ) );
+                    is_changed = true;
+                }
+            }
+        }
+    }
+    if (is_changed) {
+        html_resource->SetText(XhtmlDoc::GetDomDocumentAsString(document));
+    }
+}
+
 
 void AnchorUpdates::UpdateTOCEntries(NCXResource *ncx_resource, const QString &originating_filename, const QList< HTMLResource* > new_files)
 {
@@ -227,4 +311,3 @@ void AnchorUpdates::UpdateTOCEntries(NCXResource *ncx_resource, const QString &o
     }
     ncx_resource->SetText(XhtmlDoc::GetDomDocumentAsString(document));
 }
-

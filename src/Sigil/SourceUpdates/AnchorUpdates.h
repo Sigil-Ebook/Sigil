@@ -28,7 +28,7 @@ class NCXResource;
 
 class AnchorUpdates
 {
-
+    
 public:
 
     static void UpdateAllAnchorsWithIDs( const QList< HTMLResource* > &html_resources );
@@ -42,6 +42,16 @@ public:
      * @param new_files A list of the new files created by splitting the originating_filename.
      */
     static void UpdateExternalAnchors( const QList< HTMLResource* > &html_resources, const QString &originating_filename, const QList< HTMLResource* > new_files );
+
+    /**
+     * Updates the anchors in html_resources that point to ids that were originally located in originating_filenames
+     * but are now merged into the file referenced by new_file. Updates both hrefs with and without fragment ids.
+     *
+     * @param html_resources A list of xhtml files that need to be scanned for references to originating_filenames.
+     * @param originating_filenames The names of the original files for which references need to be reconciled.
+     * @param new_file The new file created by merging the original files.
+     */
+    static void UpdateAllAnchors( const QList< HTMLResource* > &html_resources, const QStringList &originating_filenames, HTMLResource* new_file );
 
     /**
      * Updates the src attributes of the content tags in the toc.ncx file that point to 
@@ -63,7 +73,9 @@ private:
     static void UpdateAnchorsInOneFile( HTMLResource *html_resource, 
                                         const QHash< QString, QString > ID_locations );
 
-    static void UpdateExternalAnchorsInOneFile( HTMLResource *html_resource, const QString &originating_filename, const QHash< QString, QString > id_locations );
+    static void UpdateExternalAnchorsInOneFile( HTMLResource *html_resource, const QString &originating_filename, const QHash< QString, QString > ID_locations );
+
+    static void UpdateAllAnchorsInOneFile( HTMLResource *html_resource, const QList< QString > &originating_filename_links, const QHash< QString, QString > ID_locations, const QString &new_filename );
 };
 
 #endif // ANCHORUPDATES_H

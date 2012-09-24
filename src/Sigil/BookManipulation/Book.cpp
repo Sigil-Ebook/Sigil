@@ -24,6 +24,7 @@
 #include <QtCore/QtCore>
 #include <QtCore/QFileInfo>
 #include <QtCore/QFutureSynchronizer>
+#include <QtGui/QProgressDialog>
 
 #include "BookManipulation/Book.h"
 #include "BookManipulation/CleanSource.h"
@@ -595,78 +596,84 @@ QStringList Book::GetStylesheetsInHTMLFile(HTMLResource *html_resource)
     return XhtmlDoc::GetLinkedStylesheets(html_resource->GetText());
 }
 
-// Merge selected html files into the first document - already checked for well-formed data
-bool Book::Merge( HTMLResource& html_resource1, HTMLResource& html_resource2 )
+Resource* Book::MergeResources( QList<Resource *> resources, QProgressDialog* progress )
 {
-    if ( &html_resource1 == &html_resource2 )
-    {
-        return false;
+    int progress_value = 0;
+    Resource *sink_resource = resources.takeFirst();
+    HTMLResource &sink_html_resource = *qobject_cast<HTMLResource *>(sink_resource);
+    
+    if ( !IsDataWellFormed( sink_html_resource ) ) {
+        return sink_resource;
     }
 
-    if ( !IsDataWellFormed( html_resource1 ) || !IsDataWellFormed( html_resource2 ) )
+    QList<QString> merged_filenames;
     {
-        return false;
-    }
-    const QString defunct_filename = html_resource2.Filename();
-
-    QString html_resource2_fullpath = html_resource2.GetFullPath();
-    {
-        xc::DOMDocumentFragment *body_children_fragment = NULL;
-
-        // Get the html out of resource 2.
-        QWriteLocker source_locker( &html_resource2.GetLock() );
-        shared_ptr<xc::DOMDocument> sd = XhtmlDoc::LoadTextIntoDocument(html_resource2.GetText());
-        const xc::DOMDocument &source_dom  = *sd.get();
-        xc::DOMNodeList &source_body_nodes = *source_dom.getElementsByTagName( QtoX( "body" ) );
-
-        if ( source_body_nodes.getLength() != 1 )
-        {
-            return false;
-        }
-
-        xc::DOMNode &source_body_node = *source_body_nodes.item( 0 );
-        body_children_fragment        = XhtmlDoc::ConvertToDocumentFragment( *source_body_node.getChildNodes() );
-
-        // Append the html from resource 2 into resource 1.
-        QWriteLocker sink_locker( &html_resource1.GetLock() );
-        shared_ptr<xc::DOMDocument> sink_d = XhtmlDoc::LoadTextIntoDocument(html_resource1.GetText());
+        // Load our DOMDocument just once up front for our sink resource we are merging into
+        QWriteLocker sink_locker( &sink_html_resource.GetLock() );
+        shared_ptr<xc::DOMDocument> sink_d = XhtmlDoc::LoadTextIntoDocument(sink_html_resource.GetText());
         xc::DOMDocument &sink_dom        = *sink_d.get();
         xc::DOMNodeList &sink_body_nodes = *sink_dom.getElementsByTagName( QtoX( "body" ) );
+        xc::DOMNode &sink_body_node      = *sink_body_nodes.item( 0 );
 
-        if ( sink_body_nodes.getLength() != 1 )
-        {
-            return false;
+        if ( sink_body_nodes.getLength() != 1 ) {
+            return sink_resource;
         }
 
-        xc::DOMNode &sink_body_node = *sink_body_nodes.item( 0 );
-        sink_body_node.appendChild( sink_dom.importNode( body_children_fragment, true ) );
-        html_resource1.SetText(XhtmlDoc::GetDomDocumentAsString(sink_dom));
+        Resource *failed_resource = NULL;
+        // Now iterate across all the other resources merging them into this resource
+        foreach (Resource *source_resource, resources) {
+            // Set progress value and ensure dialog has time to display when doing extensive updates
+            progress->setValue(progress_value++);
+            qApp->processEvents(QEventLoop::ExcludeUserInputEvents);
 
-        html_resource2.Delete();
+            xc::DOMDocumentFragment *body_children_fragment = NULL;
+            HTMLResource &source_html_resource = *qobject_cast<HTMLResource *>(source_resource);
+            if ( !IsDataWellFormed( source_html_resource ) ) {
+                failed_resource = source_resource;
+                break;
+            }
+
+            // Get the html document for this source resource.
+            QWriteLocker source_locker( &source_html_resource.GetLock() );
+            shared_ptr<xc::DOMDocument> sd = XhtmlDoc::LoadTextIntoDocument(source_html_resource.GetText());
+            const xc::DOMDocument &source_dom  = *sd.get();
+            xc::DOMNodeList &source_body_nodes = *source_dom.getElementsByTagName( QtoX( "body" ) );
+            if ( source_body_nodes.getLength() != 1 ) {
+                failed_resource = source_resource;
+                break;
+            }
+
+            // Append the html fragment to the body for our sink. 
+            xc::DOMNode &source_body_node = *source_body_nodes.item( 0 );
+            body_children_fragment        = XhtmlDoc::ConvertToDocumentFragment( *source_body_node.getChildNodes() );
+            sink_body_node.appendChild( sink_dom.importNode( body_children_fragment, true ) );
+
+            merged_filenames.append(Utility::URLEncodePath(source_resource->Filename()));
+        }
+
+        if (failed_resource != NULL) {
+            // Abort the merge process. We will discard whatever we had merged so far
+            return failed_resource;
+        }
+
+        // Now all fragments have been merged into this sink document, serialize and store it.
+        sink_html_resource.SetText(XhtmlDoc::GetDomDocumentAsString(sink_dom));
+        // Now safe to do the delete
+        foreach (Resource *source_resource, resources) {
+            source_resource->Delete();
+        }
     }
+    progress->setValue(progress_value++);
+    qApp->processEvents(QEventLoop::ExcludeUserInputEvents);
 
-    // Reconcile internal references in the merged file. It is the user's responsibility to ensure that
-    // all ids used across the two merged files are unique.
-    QList< HTMLResource* > new_file;
-    new_file.append( &html_resource1 );
-    AnchorUpdates::UpdateAllAnchorsWithIDs( new_file );
-
-    // Reconcile external references to the file that was merged.
+    // It is the user's responsibility to ensure that all ids used across the two merged files are unique.
+    // Reconcile all references to the files that were merged.
     QList< HTMLResource* > html_resources = m_Mainfolder.GetResourceTypeList< HTMLResource >( true );
-    html_resources.removeOne( &html_resource1 );
-    AnchorUpdates::UpdateExternalAnchors( html_resources, Utility::URLEncodePath( defunct_filename ), new_file );
+    AnchorUpdates::UpdateAllAnchors( html_resources, merged_filenames, &sink_html_resource );
 
-    // PerformUniversalUpdates accepts generic Resources
-    QList< Resource* > resources = m_Mainfolder.GetResourceTypeAsGenericList< HTMLResource >();
-    QHash< QString, QString > updates;
-    updates[ html_resource2_fullpath ] = "../" + html_resource1.GetRelativePathToOEBPS();
-
-    UniversalUpdates::PerformUniversalUpdates( true, resources, updates );
     SetModified( true );
-
-    return true;
+    return NULL;
 }
-
 
 void Book::SaveAllResourcesToDisk()
 {
