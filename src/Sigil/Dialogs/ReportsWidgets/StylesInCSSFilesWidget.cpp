@@ -262,6 +262,7 @@ ReportsWidget::Results StylesInCSSFilesWidget::saveSettings()
             QModelIndex index = ui.fileTree->selectionModel()->selectedRows(0).first();
             if (index.row() != m_ItemModel->rowCount() - 1) {
                 results.filename = m_ItemModel->itemFromIndex(index)->text();
+                results.line = m_ItemModel->itemFromIndex(index.sibling(index.row(), 1))->data().toInt();
             }
         }
     }

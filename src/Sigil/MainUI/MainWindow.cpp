@@ -788,6 +788,8 @@ void MainWindow::ReportsDialog()
     if (reports.exec() == QDialog::Accepted) {
         QHash< QString, QList<CSSInfo::CSSSelector*> > styles_to_delete = reports.StylesToDelete();
         QStringList files_to_delete = reports.FilesToDelete();
+        QString selected_file = reports.SelectedFile();
+        int selected_file_line = reports.SelectedFileLine();
 
         if (styles_to_delete.count() > 0) {
             QHashIterator< QString, QList<CSSInfo::CSSSelector*> > stylesheets(styles_to_delete);
@@ -814,8 +816,24 @@ void MainWindow::ReportsDialog()
             // Remove the files, but don't prompt the user to confirm again
             RemoveResources(resources, false);
         }
-        else {
-            OpenFilename(reports.SelectedFile(), reports.SelectedFileLine());
+        else if (!selected_file.isEmpty()) {
+            try
+            {
+                Resource &resource = m_Book->GetFolderKeeper().GetResourceByFilename(selected_file);
+
+                if (resource.Type() == Resource::CSSResourceType) {
+                    // For CSS we know the line of the style to go to
+                    m_TabManager.OpenResource( resource, false, QUrl(), MainWindow::ViewState_RawView,
+                            selected_file_line, -1, QString(), true );
+                }
+                else if (resource.Type() == Resource::HTMLResourceType) {
+                    OpenFilename(selected_file, 1);
+                }
+            }
+            catch (const ResourceDoesNotExist&)
+            {
+                //
+            }
         }
     }
 }
