@@ -88,7 +88,7 @@ void BookNormalization::GiveIDsToHeadingsInResource( HTMLResource *html_resource
 
 int BookNormalization::MaxSigilHeadingIDIndex( const QList< Headings::Heading > headings )
 {
-    int maxindex = 1;
+    int maxindex = 0;
     
     for ( int index = 0; index < headings.count(); index++ )
     {
