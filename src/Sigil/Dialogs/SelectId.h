@@ -40,7 +40,7 @@ public:
 
     void SetList();
 
-    QString SelectedText();
+    QString GetId();
 
 private slots:
     void WriteSettings();

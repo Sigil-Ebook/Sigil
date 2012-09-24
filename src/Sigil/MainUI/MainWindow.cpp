@@ -1023,7 +1023,7 @@ void MainWindow::InsertId()
     SelectId select_id(id, html_resource, m_Book, this);
 
     if (select_id.exec() == QDialog::Accepted) {
-        if (!flow_tab->InsertId(select_id.SelectedText())) {
+        if (!flow_tab->InsertId(select_id.GetId())) {
             statusBar()->showMessage( tr( "You cannot insert an id at this position." ), STATUSBAR_MSG_DISPLAY_TIME );
         }
     }
@@ -1045,12 +1045,12 @@ void MainWindow::InsertHyperlink()
     }
     QString href = flow_tab->GetAttributeHref();
     HTMLResource *html_resource = qobject_cast< HTMLResource* >( &tab.GetLoadedResource() );
-    QList<Resource *> resources = m_BookBrowser->AllHTMLResources();
+    QList<Resource *> resources = m_BookBrowser->AllHTMLResources() + m_BookBrowser->AllImageResources();
 
     SelectHyperlink select_hyperlink(href, html_resource, resources, m_Book, this);
 
     if (select_hyperlink.exec() == QDialog::Accepted) {
-        if (!flow_tab->InsertHyperlink(select_hyperlink.GetText())) {
+        if (!flow_tab->InsertHyperlink(select_hyperlink.GetTarget())) {
             statusBar()->showMessage( tr( "You cannot insert a hyperlink at this position." ), STATUSBAR_MSG_DISPLAY_TIME );
         }
     }

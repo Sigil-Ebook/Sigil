@@ -64,7 +64,7 @@ void SelectId::SetList()
 }
 
 
-QString SelectId::SelectedText()
+QString SelectId::GetId()
 {
     return m_SelectedText;
 }

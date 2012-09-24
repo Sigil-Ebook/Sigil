@@ -42,7 +42,7 @@ public:
 
     void SetList();
 
-    QString GetText();
+    QString GetTarget();
 
 private slots:
     void WriteSettings();

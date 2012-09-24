@@ -197,21 +197,25 @@ void SelectHyperlink::FilterEditTextChangedSlot(const QString &text)
     }
 }
 
-QString SelectHyperlink::GetText()
+QString SelectHyperlink::GetTarget()
 {
     return ui.href->text();
 }
 
 void SelectHyperlink::DoubleClicked(const QModelIndex &index)
 {
-    QStandardItem *item = m_SelectHyperlinkModel->itemFromIndex(index);
-    ui.href->setText(item->text());
+    Clicked(index);
     accept();
 }
 void SelectHyperlink::Clicked(const QModelIndex &index)
 {
     QStandardItem *item = m_SelectHyperlinkModel->itemFromIndex(index);
-    ui.href->setText(item->text());
+    if (item->text().startsWith("#")) {
+        ui.href->setText(item->text());
+    }
+    else {
+        ui.href->setText(item->data().toString());
+    }
 }
 
 void SelectHyperlink::ReadSettings()
