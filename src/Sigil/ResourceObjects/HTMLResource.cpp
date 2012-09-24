@@ -102,13 +102,13 @@ QStringList HTMLResource::GetLinkedStylesheets()
 }
 
 
-QStringList HTMLResource::SplitOnSGFChapterMarkers()
+QStringList HTMLResource::SplitOnSGFSectionMarkers()
 {
-    QStringList chapters = XhtmlDoc::GetSGFChapterSplits(GetText());
+    QStringList sections = XhtmlDoc::GetSGFSectionSplits(GetText());
 
-    SetText(CleanSource::Clean(chapters.takeFirst()));
+    SetText(CleanSource::Clean(sections.takeFirst()));
 
-    return chapters;
+    return sections;
 }
 
 

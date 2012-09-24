@@ -140,7 +140,7 @@ HTMLResource& Book::CreateNewHTMLFile()
 {
     TempFolder tempfolder;
 
-    QString fullfilepath = tempfolder.GetPath() + "/" + m_Mainfolder.GetUniqueFilenameVersion( FIRST_CHAPTER_NAME );
+    QString fullfilepath = tempfolder.GetPath() + "/" + m_Mainfolder.GetUniqueFilenameVersion( FIRST_SECTION_NAME );
 
     Utility::WriteUnicodeTextFile( PLACEHOLDER_TEXT, fullfilepath );
 
@@ -233,7 +233,7 @@ SVGResource& Book::CreateEmptySVGFile()
 }
 
 
-HTMLResource& Book::CreateChapterBreakOriginalResource( const QString &content, HTMLResource& originating_resource )
+HTMLResource& Book::CreateSectionBreakOriginalResource( const QString &content, HTMLResource& originating_resource )
 {
     const QString originating_filename = originating_resource.Filename();
 
@@ -242,7 +242,7 @@ HTMLResource& Book::CreateChapterBreakOriginalResource( const QString &content, 
 
     QList< HTMLResource* > html_resources = m_Mainfolder.GetResourceTypeList< HTMLResource >( true );
 
-    originating_resource.RenameTo( m_Mainfolder.GetUniqueFilenameVersion( FIRST_CHAPTER_NAME ) );
+    originating_resource.RenameTo( m_Mainfolder.GetUniqueFilenameVersion( FIRST_SECTION_NAME ) );
 
     HTMLResource &new_resource = CreateNewHTMLFile();
     new_resource.RenameTo( originating_filename );
@@ -280,20 +280,20 @@ HTMLResource& Book::CreateChapterBreakOriginalResource( const QString &content, 
 }
 
 
-void Book::CreateNewChapters( const QStringList &new_chapters, HTMLResource &original_resource )
+void Book::CreateNewSections( const QStringList &new_sections, HTMLResource &original_resource )
 {
     int original_position = GetOPF().GetReadingOrder( original_resource );
     Q_ASSERT( original_position >= 0 );
 
     QString new_file_prefix = QFileInfo( original_resource.Filename() ).baseName();
 
-    if ( new_chapters.isEmpty() )
+    if ( new_sections.isEmpty() )
 
         return;
 
     TempFolder tempfolder;
 
-    QFutureSynchronizer< NewChapterResult > sync;
+    QFutureSynchronizer< NewSectionResult > sync;
     QList< HTMLResource* > html_resources = m_Mainfolder.GetResourceTypeList< HTMLResource >( true );
 
     // A list of all the files that have not been involved in the split.
@@ -310,24 +310,24 @@ void Book::CreateNewChapters( const QStringList &new_chapters, HTMLResource &ori
 
         next_reading_order = original_position + 1;
 
-    for ( int i = 0; i < new_chapters.count(); ++i )
+    for ( int i = 0; i < new_sections.count(); ++i )
     {
         int reading_order = next_reading_order + i;
 
-        NewChapter chapterInfo;
-        chapterInfo.source = new_chapters.at( i );
-        chapterInfo.reading_order = reading_order;
-        chapterInfo.temp_folder_path = tempfolder.GetPath();
-        chapterInfo.new_file_prefix = new_file_prefix;
-        chapterInfo.file_suffix = i;
+        NewSection sectionInfo;
+        sectionInfo.source = new_sections.at( i );
+        sectionInfo.reading_order = reading_order;
+        sectionInfo.temp_folder_path = tempfolder.GetPath();
+        sectionInfo.new_file_prefix = new_file_prefix;
+        sectionInfo.file_suffix = i;
 
         sync.addFuture( 
             QtConcurrent::run( 
                 this, 
-                &Book::CreateOneNewChapter, 
-                chapterInfo ) );
+                &Book::CreateOneNewSection, 
+                sectionInfo ) );
 
-        chapterInfo.file_suffix++;
+        sectionInfo.file_suffix++;
     }	
 
     sync.waitForFinished();
@@ -335,27 +335,27 @@ void Book::CreateNewChapters( const QStringList &new_chapters, HTMLResource &ori
     QList< HTMLResource* > new_files;
     new_files.append( &original_resource );
 
-    QList< QFuture< NewChapterResult > > futures = sync.futures();
+    QList< QFuture< NewSectionResult > > futures = sync.futures();
     if ( original_position == -1 )
     {
-        // Add new chapters to the end of the book
+        // Add new sections to the end of the book
         for ( int i = 0; i < futures.count(); ++i )
         {
-            html_resources.append( futures.at( i ).result().created_chapter );
-            new_files.append( futures.at( i ).result().created_chapter );
+            html_resources.append( futures.at( i ).result().created_section );
+            new_files.append( futures.at( i ).result().created_section );
         }
     }
     else
     {
         // Insert the new files at the correct positions in the list
         // The new files need to be inserted in order from first to last
-        for ( int i = 0; i < new_chapters.count(); ++i )
+        for ( int i = 0; i < new_sections.count(); ++i )
         {
             int reading_order = next_reading_order + i;
             if( futures.at(i).result().reading_order == reading_order )
             {
-                html_resources.insert( reading_order , futures.at( i ).result().created_chapter );
-                new_files.append( futures.at( i ).result().created_chapter );
+                html_resources.insert( reading_order , futures.at( i ).result().created_section );
+                new_files.append( futures.at( i ).result().created_section );
             }
             else
             {
@@ -364,8 +364,8 @@ void Book::CreateNewChapters( const QStringList &new_chapters, HTMLResource &ori
                 {
                     if( futures.at(j).result().reading_order == reading_order )
                     {
-                        html_resources.insert( reading_order , futures.at( j ).result().created_chapter );
-                        new_files.append( futures.at( j ).result().created_chapter );
+                        html_resources.insert( reading_order , futures.at( j ).result().created_section );
+                        new_files.append( futures.at( j ).result().created_section );
                         break;
                     }
                 }
@@ -718,17 +718,17 @@ void Book::SaveOneResourceToDisk( Resource *resource )
 }
 
 
-Book::NewChapterResult Book::CreateOneNewChapter( NewChapter chapter_info )
+Book::NewSectionResult Book::CreateOneNewSection( NewSection section_info )
 {
-    return CreateOneNewChapter( chapter_info, QHash< QString, QString >() );
+    return CreateOneNewSection( section_info, QHash< QString, QString >() );
 }
 
 
-Book::NewChapterResult Book::CreateOneNewChapter( NewChapter chapter_info,
+Book::NewSectionResult Book::CreateOneNewSection( NewSection section_info,
                                          const QHash<QString, QString> &html_updates )
 {
-    QString filename = chapter_info.new_file_prefix % "_" % QString( "%1" ).arg( chapter_info.file_suffix + 1, 4, 10, QChar( '0' ) ) + ".xhtml";
-    QString fullfilepath = chapter_info.temp_folder_path + "/" + filename;
+    QString filename = section_info.new_file_prefix % "_" % QString( "%1" ).arg( section_info.file_suffix + 1, 4, 10, QChar( '0' ) ) + ".xhtml";
+    QString fullfilepath = section_info.temp_folder_path + "/" + filename;
 
     Utility::WriteUnicodeTextFile( "PLACEHOLDER", fullfilepath );
 
@@ -739,21 +739,21 @@ Book::NewChapterResult Book::CreateOneNewChapter( NewChapter chapter_info,
 
     if ( html_updates.isEmpty() )
     {
-        html_resource->SetText( CleanSource::Clean( chapter_info.source ) );
+        html_resource->SetText( CleanSource::Clean( section_info.source ) );
     }
 
     else
     {
         html_resource->SetText(
-            XhtmlDoc::GetDomDocumentAsString( *PerformHTMLUpdates( CleanSource::Clean( chapter_info.source ),
+            XhtmlDoc::GetDomDocumentAsString( *PerformHTMLUpdates( CleanSource::Clean( section_info.source ),
                                 html_updates,
                                 QHash< QString, QString >()
                               )().get() ) );
     }
 
-    NewChapterResult chapter;
-    chapter.created_chapter = html_resource;
-    chapter.reading_order = chapter_info.reading_order;
+    NewSectionResult section;
+    section.created_section = html_resource;
+    section.reading_order = section_info.reading_order;
 
-    return chapter;
+    return section;
 }

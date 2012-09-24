@@ -74,14 +74,14 @@ public:
     void SaveToDisk(bool book_wide_save=false);
 
     /**
-     * Splits the content of the resource into multiple chapters.
-     * The SGF chapter markers are used as the break points.
-     * The first chapter is set as the content of the resource,
+     * Splits the content of the resource into multiple section.
+     * The SGF section markers are used as the break points.
+     * The first section is set as the content of the resource,
      * and the others are returned.
      *
-     * @return The content of all the chapters except the first. 
+     * @return The content of all the sections except the first. 
      */
-    QStringList SplitOnSGFChapterMarkers();
+    QStringList SplitOnSGFSectionMarkers();
 
     /**
      * Returns the paths to all the linked resources

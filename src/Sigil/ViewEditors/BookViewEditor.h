@@ -39,7 +39,7 @@ class QShortcut;
 /**
  * A WYSIWYG editor for XHTML flows.
  * Also called the "Book View", because it shows a
- * chapter of a book in its final, rendered state
+ * section of a book in its final, rendered state
  * (the way it will look like in epub Reading Systems).
  */
 class BookViewEditor : public BookViewPreview
@@ -71,23 +71,23 @@ public:
     bool InsertHtml(const QString &html);
 
     /**
-     * Splits the chapter and returns the "upper" content.
+     * Splits the section and returns the "upper" content.
      * The current flow is split at the caret point.
      *
-     * @return The content of the chapter up to the chapter break point.
+     * @return The content of the section up to the section break point.
      *
-     * @note What we actually do when the user wants to split the loaded chapter
+     * @note What we actually do when the user wants to split the loaded section
      * is create a new tab with the XHTML content \em above the split point.
-     * The new tab is actually the "old" chapter, and this tab becomes the
-     * "new" chapter.
+     * The new tab is actually the "old" section, and this tab becomes the
+     * "new" section.
      * \par
      * Why? Because we can only avoid a tab render in the tab from which
      * we remove elements. Since the users move from the top of a large HTML
-     * file down, the new chapter will be the one with the most content.
+     * file down, the new section will be the one with the most content.
      * So this way we \em try to avoid the painful render time on the biggest
-     * chapter, but there is still some render time left...
+     * section, but there is still some render time left...
      */
-    QString SplitChapter();
+    QString SplitSection();
 
     bool IsModified();
     void ResetModified();
@@ -406,7 +406,7 @@ private:
     /**
      * The JavaScript source code that returns the XHTML source
      * from the caret to the top of the file. This code is also
-     * removed from the current chapter.
+     * removed from the current section.
      */
     const QString c_GetSegmentHTML;
 

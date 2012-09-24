@@ -118,5 +118,5 @@ void NCXResource::GenerateNCXFromTOCContents( const Book &book, NCXModel &ncx_mo
 
 void NCXResource::FillWithDefaultText()
 {
-    SetText( TEMPLATE_TEXT.arg( tr( "Start" ) ).arg( FIRST_CHAPTER_NAME ) );
+    SetText( TEMPLATE_TEXT.arg( tr( "Start" ) ).arg( FIRST_SECTION_NAME ) );
 }

@@ -46,8 +46,8 @@ class ViewEditor;
 class WellFormedCheckComponent;
 
 /**
- * A tab widget used for displaying XHTML chapters.
- * It can display the chapter in both rendered view (Book View)
+ * A tab widget used for displaying XHTML section.
+ * It can display the section in both rendered view (Book View)
  * and raw code view (Code View).
  */
 class FlowTab : public ContentTab, public WellFormedContent
@@ -223,14 +223,14 @@ public slots:
     void DeleteLine();
 
     /**
-     * Implements Split chapter action functionality.
+     * Implements Split section action functionality.
      */
-    void SplitChapter();
+    void SplitSection();
 
     /**
-     * Implements Insert SGF chapter marker action functionality.
+     * Implements Insert SGF section marker action functionality.
      */
-    void InsertSGFChapterMarker();
+    void InsertSGFSectionMarker();
 
     void InsertClosingTag();
 
@@ -360,7 +360,7 @@ signals:
 
     /**
      * Emitted when an "old" tab should be created.
-     * Emitted as part of the chapter break operation.
+     * Emitted as part of the section break operation.
      *
      * @param content The content of the "old" tab/resource.
      * @param originating_resource  The original resource from which the content

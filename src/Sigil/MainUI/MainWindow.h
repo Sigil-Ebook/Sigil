@@ -498,15 +498,15 @@ private slots:
     void UpdateZoomLabel( float new_zoom_factor );
 
     /**
-     * Creates a new tab from the chapter splitting operation.
+     * Creates a new tab from the section splitting operation.
      *
      * @param content The content of the "old" tab/resource.
      * @param originating_resource  The original resource from which the content
      *                              was extracted to create the "old" tab/resource.
-     * @see FlowTab::SplitChapter, FlowTab::OldTabRequest,
-     *      BookViewEditor::SplitChapter, Book::CreateChapterBreakOriginalResource
+     * @see FlowTab::SplitSection, FlowTab::OldTabRequest,
+     *      BookViewEditor::SplitSection, Book::CreateSectionBreakOriginalResource
      */
-    void CreateChapterBreakOldTab( QString content, HTMLResource& originating_resource );
+    void CreateSectionBreakOldTab( QString content, HTMLResource& originating_resource );
 
 
     /**
@@ -517,9 +517,9 @@ private slots:
     void UpdateBrowserSelectionToTab();
 
     /**
-     * Creates new chapters/XHTML documents.
+     * Creates new section/XHTML documents.
      */
-    void SplitOnSGFChapterMarkers();
+    void SplitOnSGFSectionMarkers();
 
     /**
      * Sets the new state of the option that controls

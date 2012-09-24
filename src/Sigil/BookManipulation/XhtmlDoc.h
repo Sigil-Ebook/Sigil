@@ -149,14 +149,14 @@ public:
     static QList< QWebElement > QWebElementChildren( const QWebElement &element );
 
     /**
-     * Splits the provided source on SGF chapter breaks.
+     * Splits the provided source on SGF section breaks.
      *
      * @param source The source which we want to split.
      * @param custom_header An option custom header to be used instead of 
      *                      the one in the current source.
-     * @return The split chapters.
+     * @return The split sections.
      */
-    static QStringList GetSGFChapterSplits( const QString& source, 
+    static QStringList GetSGFSectionSplits( const QString& source, 
                                             const QString& custom_header = QString() );
 
     // Removes all the children of a node

@@ -98,7 +98,8 @@
     <addaction name="separator"/>
     <addaction name="menuChangeCase"/>
     <addaction name="separator"/>
-    <addaction name="actionSplitOnSGFChapterMarkers"/>
+    <addaction name="actionSplitSection"/>
+    <addaction name="actionSplitOnSGFSectionMarkers"/>
     <addaction name="separator"/>
     <addaction name="actionPreferences"/>
    </widget>
@@ -106,8 +107,7 @@
     <property name="title">
      <string>&amp;Insert</string>
     </property>
-    <addaction name="actionSplitChapter"/>
-    <addaction name="actionInsertSGFChapterMarker"/>
+    <addaction name="actionInsertSGFSectionMarker"/>
     <addaction name="separator"/>
     <addaction name="actionInsertImage"/>
     <addaction name="actionInsertSpecialCharacter"/>
@@ -354,7 +354,8 @@
    <attribute name="toolBarBreak">
     <bool>false</bool>
    </attribute>
-   <addaction name="actionSplitChapter"/>
+   <addaction name="actionSplitSection"/>
+   <addaction name="separator"/>
    <addaction name="actionInsertImage"/>
    <addaction name="actionInsertSpecialCharacter"/>
    <addaction name="actionInsertId"/>
@@ -929,18 +930,18 @@
     <string>F2</string>
    </property>
   </action>
-  <action name="actionSplitChapter">
+  <action name="actionSplitSection">
    <property name="icon">
     <iconset resource="../Resource_Files/main/main.qrc">
-     <normaloff>:/main/insert-chapter-break_22px.png</normaloff>:/main/insert-chapter-break_22px.png</iconset>
+     <normaloff>:/main/split-section_22px.png</normaloff>:/main/split-section_22px.png</iconset>
    </property>
    <property name="text">
-    <string>Chapter Break</string>
+    <string>Split File</string>
    </property>
    <property name="toolTip">
-    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert Chapter Break&lt;/b&gt;&lt;/p&gt;
+    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Split File&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Splits the current file into two, using the end of the current paragraph as the dividing point.&lt;/p&gt;</string>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Split the current file into two files, using the end of the current paragraph as the dividing point.&lt;/p&gt;</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+Return</string>
@@ -1392,23 +1393,23 @@
     <string>Ctrl+W</string>
    </property>
   </action>
-  <action name="actionSplitOnSGFChapterMarkers">
+  <action name="actionSplitOnSGFSectionMarkers">
    <property name="text">
-    <string>Split At Chapter Markers</string>
+    <string>Split At Markers</string>
    </property>
    <property name="toolTip">
-    <string>Split On Sigil Chapter Markers</string>
+    <string>Split At Sigil split file markers</string>
    </property>
    <property name="shortcut">
     <string>F6</string>
    </property>
   </action>
-  <action name="actionInsertSGFChapterMarker">
+  <action name="actionInsertSGFSectionMarker">
    <property name="text">
-    <string>Chapter Marker</string>
+    <string>Split Marker</string>
    </property>
    <property name="toolTip">
-    <string>Sigil Chapter Marker</string>
+    <string>Insert Sigil split file marker</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+Shift+Return</string>

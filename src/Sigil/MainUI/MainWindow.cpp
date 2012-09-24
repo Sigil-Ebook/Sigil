@@ -1744,8 +1744,8 @@ void MainWindow::SetStateActionsBookView()
     ui.actionPrintPreview->setEnabled(true);
     ui.actionPrint->setEnabled(true);
 
-    ui.actionSplitChapter->setEnabled(true);
-    ui.actionInsertSGFChapterMarker->setEnabled(true);
+    ui.actionSplitSection->setEnabled(true);
+    ui.actionInsertSGFSectionMarker->setEnabled(true);
     ui.actionInsertImage->setEnabled(true);
     ui.actionInsertSpecialCharacter->setEnabled(true);
     ui.actionInsertId->setEnabled(true);
@@ -1828,8 +1828,8 @@ void MainWindow::SetStateActionsSplitView()
     ui.actionPrintPreview->setEnabled(true);
     ui.actionPrint->setEnabled(true);
 
-    ui.actionSplitChapter->setEnabled(false);
-    ui.actionInsertSGFChapterMarker->setEnabled(false);
+    ui.actionSplitSection->setEnabled(false);
+    ui.actionInsertSGFSectionMarker->setEnabled(false);
     ui.actionInsertImage->setEnabled(false);
     ui.actionInsertSpecialCharacter->setEnabled(false);
     ui.actionInsertId->setEnabled(false);
@@ -1912,8 +1912,8 @@ void MainWindow::SetStateActionsCodeView()
     ui.actionPrintPreview->setEnabled(true);
     ui.actionPrint->setEnabled(true);
 
-    ui.actionSplitChapter->setEnabled(true);
-    ui.actionInsertSGFChapterMarker->setEnabled(true);
+    ui.actionSplitSection->setEnabled(true);
+    ui.actionInsertSGFSectionMarker->setEnabled(true);
     ui.actionInsertImage->setEnabled(true);
     ui.actionInsertSpecialCharacter->setEnabled(true);
     ui.actionInsertId->setEnabled(true);
@@ -2017,8 +2017,8 @@ void MainWindow::SetStateActionsRawView()
     ui.actionPrintPreview->setEnabled(false);
     ui.actionPrint->setEnabled(false);
 
-    ui.actionSplitChapter->setEnabled(false);
-    ui.actionInsertSGFChapterMarker->setEnabled(false);
+    ui.actionSplitSection->setEnabled(false);
+    ui.actionInsertSGFSectionMarker->setEnabled(false);
     ui.actionInsertImage->setEnabled(false);
     ui.actionInsertSpecialCharacter->setEnabled(false);
     ui.actionInsertId->setEnabled(false);
@@ -2101,8 +2101,8 @@ void MainWindow::SetStateActionsStaticView()
     ui.actionPrintPreview->setEnabled(false);
     ui.actionPrint->setEnabled(false);
 
-    ui.actionSplitChapter->setEnabled(false);
-    ui.actionInsertSGFChapterMarker->setEnabled(false);
+    ui.actionSplitSection->setEnabled(false);
+    ui.actionInsertSGFSectionMarker->setEnabled(false);
     ui.actionInsertImage->setEnabled(false);
     ui.actionInsertSpecialCharacter->setEnabled(false);
     ui.actionInsertId->setEnabled(false);
@@ -2296,13 +2296,13 @@ void MainWindow::UpdateZoomLabel( float new_zoom_factor )
     m_lbZoomLabel->setText( QString( "%1% " ).arg( qRound( new_zoom_factor * 100 ) ) );
 }
 
-void MainWindow::CreateChapterBreakOldTab( QString content, HTMLResource& originating_resource )
+void MainWindow::CreateSectionBreakOldTab( QString content, HTMLResource& originating_resource )
 {
     if (content.isEmpty()) {
-        statusBar()->showMessage( tr( "Chapter cannot be split at this position." ), STATUSBAR_MSG_DISPLAY_TIME );
+        statusBar()->showMessage( tr( "File cannot be split at this position." ), STATUSBAR_MSG_DISPLAY_TIME );
         return;
     }
-    HTMLResource& html_resource = m_Book->CreateChapterBreakOriginalResource( content, originating_resource );
+    HTMLResource& html_resource = m_Book->CreateSectionBreakOriginalResource( content, originating_resource );
 
     m_BookBrowser->Refresh();
 
@@ -2317,10 +2317,10 @@ void MainWindow::CreateChapterBreakOldTab( QString content, HTMLResource& origin
         flow_tab->ScrollToTop();
     }
 
-    statusBar()->showMessage( tr( "Chapter split. You may need to update the Table of Contents." ), STATUSBAR_MSG_DISPLAY_TIME );
+    statusBar()->showMessage( tr( "Split completed. You may need to update the Table of Contents." ), STATUSBAR_MSG_DISPLAY_TIME );
 }
 
-void MainWindow::SplitOnSGFChapterMarkers()
+void MainWindow::SplitOnSGFSectionMarkers()
 {
     QList<Resource *> html_resources = m_BookBrowser->AllHTMLResources();
     
@@ -2343,9 +2343,9 @@ void MainWindow::SplitOnSGFChapterMarkers()
     QList<Resource *> *changed_resources = new QList<Resource *>();
     foreach (Resource *resource, html_resources) { 
         HTMLResource *html_resource = qobject_cast<HTMLResource *>(resource);
-        QStringList new_chapters = html_resource->SplitOnSGFChapterMarkers();
-        if ( !new_chapters.isEmpty() ) {
-            m_Book->CreateNewChapters( new_chapters, *html_resource );
+        QStringList new_sections = html_resource->SplitOnSGFSectionMarkers();
+        if ( !new_sections.isEmpty() ) {
+            m_Book->CreateNewSections( new_sections, *html_resource );
             changed_resources->append(resource);
         }
     }
@@ -2354,7 +2354,7 @@ void MainWindow::SplitOnSGFChapterMarkers()
         m_TabManager.ReloadTabDataForResources( *changed_resources );
         m_BookBrowser->Refresh();
 
-        statusBar()->showMessage( tr( "Chapters split. You may need to update the Table of Contents." ), STATUSBAR_MSG_DISPLAY_TIME );
+        statusBar()->showMessage( tr( "Split completed. You may need to update the Table of Contents." ), STATUSBAR_MSG_DISPLAY_TIME );
         if ( flow_tab && ( flow_tab->GetViewState() == MainWindow::ViewState_BookView) ) {
             // Our focus will have been moved to the book browser. Set it there and back to do
             // an equivalent of "GrabFocus()" to workaround Qt setFocus() not always working.
@@ -2363,7 +2363,7 @@ void MainWindow::SplitOnSGFChapterMarkers()
         }
     }
     else {
-        statusBar()->showMessage( tr( "No chapter split markers found." ), STATUSBAR_MSG_DISPLAY_TIME );
+        statusBar()->showMessage( tr( "No split file markers found. Use Insert->Split Marker." ), STATUSBAR_MSG_DISPLAY_TIME );
     }
 
     QApplication::restoreOverrideCursor();
@@ -3143,9 +3143,9 @@ void MainWindow::ExtendUI()
     sm->registerAction(ui.actionInsertSpecialCharacter, "MainWindow.InsertSpecialCharacter");
     sm->registerAction(ui.actionInsertId, "MainWindow.InsertId");
     sm->registerAction(ui.actionInsertHyperlink, "MainWindow.InsertHyperlink");
-    sm->registerAction(ui.actionSplitChapter, "MainWindow.SplitChapter");
-    sm->registerAction(ui.actionInsertSGFChapterMarker, "MainWindow.InsertSGFChapterMarker");
-    sm->registerAction(ui.actionSplitOnSGFChapterMarkers, "MainWindow.SplitOnSGFChapterMarkers");
+    sm->registerAction(ui.actionSplitSection, "MainWindow.SplitSection");
+    sm->registerAction(ui.actionInsertSGFSectionMarker, "MainWindow.InsertSGFSectionMarker");
+    sm->registerAction(ui.actionSplitOnSGFSectionMarkers, "MainWindow.SplitOnSGFSectionMarkers");
     sm->registerAction(ui.actionInsertClosingTag, "MainWindow.InsertClosingTag");
 #ifndef Q_WS_MAC
     sm->registerAction(ui.actionPreferences, "MainWindow.Preferences");
@@ -3431,9 +3431,9 @@ void MainWindow::ExtendIconSizes()
     icon.addFile(QString::fromUtf8(":/main/view-code_16px.png"));
     ui.actionCodeView->setIcon(icon);
 
-    icon = ui.actionSplitChapter->icon();
-    icon.addFile(QString::fromUtf8(":/main/insert-chapter-break_16px.png"));
-    ui.actionSplitChapter->setIcon(icon);
+    icon = ui.actionSplitSection->icon();
+    icon.addFile(QString::fromUtf8(":/main/insert-section-break_16px.png"));
+    ui.actionSplitSection->setIcon(icon);
 
     icon = ui.actionInsertImage->icon();
     icon.addFile(QString::fromUtf8(":/main/insert-image_16px.png"));
@@ -3585,7 +3585,7 @@ void MainWindow::ConnectSignalsToSlots()
     connect( ui.actionNextResource,     SIGNAL( triggered() ), m_BookBrowser, SLOT( NextResource()     ) );
     connect( ui.actionGoBackFromLinkOrStyle,  SIGNAL( triggered() ), this,   SLOT( GoBackFromLinkOrStyle()  ) );
     
-    connect( ui.actionSplitOnSGFChapterMarkers, SIGNAL( triggered() ),  this,   SLOT( SplitOnSGFChapterMarkers() ) );
+    connect( ui.actionSplitOnSGFSectionMarkers, SIGNAL( triggered() ),  this,   SLOT( SplitOnSGFSectionMarkers() ) );
 
     connect( ui.actionPasteClipboardHistory,    SIGNAL( triggered() ),  this,   SLOT( ShowPasteClipboardHistoryDialog() ) );
 
@@ -3647,7 +3647,7 @@ void MainWindow::ConnectSignalsToSlots()
              this, SLOT(   OpenUrl( const QUrl& ) ) );
 
     connect( &m_TabManager, SIGNAL( OldTabRequest(            QString, HTMLResource& ) ),
-             this,          SLOT(   CreateChapterBreakOldTab( QString, HTMLResource& ) ) );
+             this,          SLOT(   CreateSectionBreakOldTab( QString, HTMLResource& ) ) );
 
     connect( &m_TabManager, SIGNAL( ToggleViewStateRequest() ),
              this,          SLOT(   ToggleViewState() ) );
@@ -3736,8 +3736,8 @@ void MainWindow::MakeTabConnections( ContentTab *tab )
         connect( ui.actionShowTag,                  SIGNAL( triggered() ),  tab,   SLOT( ShowTag()                  ) );
         connect( ui.actionRemoveFormatting,         SIGNAL( triggered() ),  tab,   SLOT( RemoveFormatting()         ) );
 
-        connect( ui.actionSplitChapter,             SIGNAL( triggered() ),  tab,   SLOT( SplitChapter()             ) );
-        connect( ui.actionInsertSGFChapterMarker,   SIGNAL( triggered() ),  tab,   SLOT( InsertSGFChapterMarker()   ) );
+        connect( ui.actionSplitSection,             SIGNAL( triggered() ),  tab,   SLOT( SplitSection()             ) );
+        connect( ui.actionInsertSGFSectionMarker,   SIGNAL( triggered() ),  tab,   SLOT( InsertSGFSectionMarker()   ) );
         connect( ui.actionInsertClosingTag,         SIGNAL( triggered() ),  tab,   SLOT( InsertClosingTag()         ) );
         connect( ui.actionGoToLinkOrStyle,          SIGNAL( triggered() ),  tab,   SLOT( GoToLinkOrStyle()          ) );
 
@@ -3818,8 +3818,8 @@ void MainWindow::BreakTabConnections( ContentTab *tab )
     disconnect( ui.actionShowTag,               0, tab, 0 );
     disconnect( ui.actionRemoveFormatting,          0, tab, 0 );
 
-    disconnect( ui.actionSplitChapter,              0, tab, 0 );
-    disconnect( ui.actionInsertSGFChapterMarker,    0, tab, 0 );
+    disconnect( ui.actionSplitSection,              0, tab, 0 );
+    disconnect( ui.actionInsertSGFSectionMarker,    0, tab, 0 );
     disconnect( ui.actionInsertClosingTag,          0, tab, 0 );
     disconnect( ui.actionGoToLinkOrStyle,           0, tab, 0 );
 

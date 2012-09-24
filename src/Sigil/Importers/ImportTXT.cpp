@@ -31,8 +31,8 @@
 #include "sigil_constants.h"
 #include "sigil_exception.h"
 
-const QString FIRST_CHAPTER_PREFIX = "Section";
-const QString FIRST_CHAPTER_NAME   = FIRST_CHAPTER_PREFIX + "0001.xhtml";
+const QString FIRST_SECTION_PREFIX = "Section";
+const QString FIRST_SECTION_NAME   = FIRST_SECTION_PREFIX + "0001.xhtml";
 
 // Constructor;
 // The parameter is the file to be imported
@@ -72,7 +72,7 @@ HTMLResource* ImportTXT::CreateHTMLResource( const QString &source )
 {
     TempFolder tempfolder;
 
-    QString fullfilepath = tempfolder.GetPath() + "/" + FIRST_CHAPTER_NAME;
+    QString fullfilepath = tempfolder.GetPath() + "/" + FIRST_SECTION_NAME;
     Utility::WriteUnicodeTextFile( source, fullfilepath );
 
     m_Book->GetFolderKeeper().AddContentFileToFolder( fullfilepath );

@@ -123,7 +123,7 @@ void BookViewPreview::CustomSetDocument(const QString &path, const QString &html
     // If Tidy is turned off, then Sigil will explode if there is no xmlns 
     // on the <html> element. So we will silently add it if needed to ensure
     // no errors occur, to allow loading of documents created outside of
-    // Sigil as well as catering for chapter splits etc.
+    // Sigil as well as catering for section splits etc.
     QString replaced_html = html;
     replaced_html = replaced_html.replace("<html>", "<html xmlns=\"http://www.w3.org/1999/xhtml\">");
     setContent(replaced_html.toUtf8(), "application/xhtml+xml", QUrl::fromLocalFile(path));

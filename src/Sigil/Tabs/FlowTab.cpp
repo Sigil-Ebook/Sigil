@@ -646,21 +646,21 @@ void FlowTab::DeleteLine()
     }
 }
 
-void FlowTab::SplitChapter()
+void FlowTab::SplitSection()
 {
     if (!IsDataWellFormed()) {
         return;
     }
 
     if (m_ViewState == MainWindow::ViewState_BookView) {
-        emit OldTabRequest( m_wBookView->SplitChapter(), m_HTMLResource );
+        emit OldTabRequest( m_wBookView->SplitSection(), m_HTMLResource );
     }
     else if (m_ViewState == MainWindow::ViewState_CodeView) {
-        emit OldTabRequest( m_wCodeView->SplitChapter(), m_HTMLResource );
+        emit OldTabRequest( m_wCodeView->SplitSection(), m_HTMLResource );
     }
 }
 
-void FlowTab::InsertSGFChapterMarker()
+void FlowTab::InsertSGFSectionMarker()
 {
     if (!IsDataWellFormed()) {
         return;
@@ -670,7 +670,7 @@ void FlowTab::InsertSGFChapterMarker()
         m_wBookView->InsertHtml(BREAK_TAG_INSERT);
     }
     else if (m_ViewState == MainWindow::ViewState_CodeView) {
-        m_wCodeView->InsertSGFChapterMarker();
+        m_wCodeView->InsertSGFSectionMarker();
     }
 }
 
@@ -849,7 +849,7 @@ void FlowTab::BookView()
     m_views->setCurrentIndex(BV_INDEX);
 
     setFocusProxy(m_wBookView);
-    // When opening this tab as a preceding tab such as when splitting a chapter
+    // When opening this tab as a preceding tab such as when splitting a section
     // we do not want focus grabbed from the currently selected tab.
     if (m_grabFocus) {
         m_wBookView->GrabFocus();

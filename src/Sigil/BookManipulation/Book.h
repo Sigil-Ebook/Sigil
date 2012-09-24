@@ -163,30 +163,30 @@ public:
     SVGResource& CreateEmptySVGFile();
 
     /**
-     * Creates an "old" resource from a chapter breaking operation. 
-     * The chapter break operation actually creates a new resource
-     * from the chapter content up to the chapter break point.
+     * Creates an "old" resource from a section breaking operation. 
+     * The section break operation actually creates a new resource
+     * from the section content up to the section break point.
      *
      * @param content The content of the "old" tab/resource.
      * @param originating_resource  The original resource from which the content
      *                              was extracted to create the "old" tab/resource.
      * @return A reference to the newly created "old" tab/resource.
-     * @see FlowTab::SplitChapter, FlowTab::OldTabRequest,
-     *      BookViewEditor::SplitChapter, MainWindow::CreateChapterBreakOldTab
+     * @see FlowTab::SplitSection, FlowTab::OldTabRequest,
+     *      BookViewEditor::SplitSection, MainWindow::CreateSectionBreakOldTab
      */
-    HTMLResource& CreateChapterBreakOriginalResource( const QString &content, 
+    HTMLResource& CreateSectionBreakOriginalResource( const QString &content, 
                                                       HTMLResource& originating_resource );
 
     /**
-     * Creates new chapters/XHTML documents.
+     * Creates new sections/XHTML documents.
 	 * The only reason why we have an overload instead of just one function
 	 * with a default argument is because then Apple GCC 4.2 flakes out here.
      *
-     * @param new_chapters The contents of the new chapters.
-     * @param originating_resource The original HTML chapter that chapters
+     * @param new_sections The contents of the new sections.
+     * @param originating_resource The original HTML section that sections
      * will be created after.
      */
-    void CreateNewChapters( const QStringList& new_chapters,
+    void CreateNewSections( const QStringList& new_sections,
                             HTMLResource& originalResource );
 
     /**
@@ -284,15 +284,15 @@ signals:
 
 private:
 
-    // Describe a new chapter.
+    // Describe a new section.
     //
     // This is needed because QtConcurrent only seems to accept functions with
     //a maximum of 5 arguments.
-    struct NewChapter {
-        // The source code of the new chapter.
+    struct NewSection {
+        // The source code of the new section.
         QString source;
 
-        // The reading order of the new chapter.
+        // The reading order of the new section.
         int reading_order;
 
         // The path to the temporary folder where the new file will be
@@ -306,12 +306,12 @@ private:
         int file_suffix;
     };
 
-    // Describe a newly created chapter.
-    struct NewChapterResult {
+    // Describe a newly created section.
+    struct NewSectionResult {
         // Chatper that was created.
-        HTMLResource *created_chapter;
+        HTMLResource *created_section;
 
-        // Position in the reading order of this chapter.
+        // Position in the reading order of this section.
         int reading_order;
     };
 
@@ -322,21 +322,21 @@ private:
     static void SaveOneResourceToDisk( Resource *resource );
 
     /**
-     * Creates one new chapter/XHTML document.
+     * Creates one new section/XHTML document.
      *
-     * @param chapter_info New chapter to create.
+     * @param section_info New section to create.
      */
-    NewChapterResult CreateOneNewChapter( NewChapter chapter_info );
+    NewSectionResult CreateOneNewSection( NewSection section_info );
 
     /**
-     * Creates one new chapter/XHTML document.
+     * Creates one new section/XHTML document.
      * The only reason why we have an overload instead of just one function
      * with a default argument is because then Apple GCC 4.2 flakes out here.
      * 
-     * @param chapter_info New chapter to create.
+     * @param section_info New section to create.
      * @param html_updates Any reference updates that need to be performed.
      */
-    NewChapterResult CreateOneNewChapter( NewChapter chapter_info,
+    NewSectionResult CreateOneNewSection( NewSection section_info,
                                        const QHash< QString, QString > &html_updates );
 
 

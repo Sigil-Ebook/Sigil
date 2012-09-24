@@ -77,7 +77,7 @@ const int XML_DECLARATION_SEARCH_PREFIX_SIZE = 150;
 static const int XML_CUSTOM_ENTITY_SEARCH_PREFIX_SIZE = 500;
 static const QString ENTITY_SEARCH = "<!ENTITY\\s+(\\w+)\\s+\"([^\"]+)\">";
 
-const QString BREAK_TAG_SEARCH  = "(<div>\\s*)?<hr\\s*class\\s*=\\s*\"[^\"]*sigilChapterBreak[^\"]*\"\\s*/>(\\s*</div>)?";
+const QString BREAK_TAG_SEARCH  = "(<div>\\s*)?<hr\\s*class\\s*=\\s*\"[^\"]*sigilSectionBreak[^\"]*\"\\s*/>(\\s*</div>)?";
 
 namespace FlightCrew
 {
@@ -617,7 +617,7 @@ QList< QWebElement > XhtmlDoc::QWebElementChildren( const QWebElement &element )
 }
 
 
-QStringList XhtmlDoc::GetSGFChapterSplits( const QString& source,
+QStringList XhtmlDoc::GetSGFSectionSplits( const QString& source,
                                            const QString& custom_header )
 {
     QRegExp body_start_tag( BODY_START );
@@ -630,7 +630,7 @@ QStringList XhtmlDoc::GetSGFChapterSplits( const QString& source,
 
     QString header = !custom_header.isEmpty() ? custom_header + "<body>\n" : source.left( body_begin );
     
-    QStringList chapters;
+    QStringList sections;
     QRegExp break_tag( BREAK_TAG_SEARCH );
 
     while ( main_index != body_end )
@@ -654,10 +654,10 @@ QStringList XhtmlDoc::GetSGFChapterSplits( const QString& source,
             main_index = body_end;
         }
 
-        chapters.append( header + body + "</body> </html>" );
+        sections.append( header + body + "</body> </html>" );
     }	
 
-    return chapters;
+    return sections;
 }
 
 

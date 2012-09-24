@@ -50,7 +50,7 @@ bool Index::BuildIndex(QList<HTMLResource*> html_resources)
     progress.setValue(progress_value);
     qApp->processEvents();
 
-    // Must do sequentially in order to keep chapters in order
+    // Must do sequentially in order to keep sections in order
     foreach (HTMLResource *html_resource, html_resources) {
         // Set progress value and ensure dialog has time to display when doing extensive updates
         if (progress.wasCanceled()) {

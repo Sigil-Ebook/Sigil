@@ -190,7 +190,7 @@ NCXModel::NCXEntry NCXWriter::ConvertHeadingWalker( Headings::Heading &heading )
         ncx_child.text = heading.text;
         QString heading_file = heading.resource_file->GetRelativePathToOEBPS();       
 
-        // If this heading appears right after a chapter break,
+        // If this heading appears right after a section break,
         // then it "represents" and links to its file; otherwise,
         // we link to the heading element directly
         if ( heading.at_file_start )

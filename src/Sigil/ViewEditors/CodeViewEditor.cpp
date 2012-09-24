@@ -225,12 +225,12 @@ QString CodeViewEditor::StripCodeTags(QString text)
     return new_text;
 }
 
-QString CodeViewEditor::SplitChapter()
+QString CodeViewEditor::SplitSection()
 {
     QString text = toPlainText();
     int split_position = textCursor().position();
     
-    // Abort splitting the chapter if user is within a tag - MainWindow will display a status message
+    // Abort splitting the section if user is within a tag - MainWindow will display a status message
     if (IsPositionInTag(split_position, text)) {
         return QString();
     }
@@ -260,7 +260,7 @@ QString CodeViewEditor::SplitChapter()
                                   ? Utility::Substring( body_tag_start, split_position, text ) 
                                   : QString( "<p>&nbsp;</p>" );
 
-    // Remove the text that will be in the new chapter from the View.
+    // Remove the text that will be in the new section from the View.
     QTextCursor cursor = textCursor();
     cursor.beginEditBlock();
     cursor.setPosition( body_tag_end );
@@ -292,7 +292,7 @@ QString CodeViewEditor::SplitChapter()
 }
 
 
-void CodeViewEditor::InsertSGFChapterMarker()
+void CodeViewEditor::InsertSGFSectionMarker()
 {
     textCursor().insertText( BREAK_TAG_INSERT );
 }
