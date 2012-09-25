@@ -44,7 +44,7 @@
 
 const int PROGRESS_BAR_MINIMUM_DURATION = 1000;
 
-const QString BREAK_TAG_INSERT    = "<hr class=\"sigilSectionBreak\" />";
+const QString BREAK_TAG_INSERT    = "<hr class=\"sigil_split_marker\" />";
 const QString XML_NAMESPACE_CRUFT = "xmlns=\"http://www.w3.org/1999/xhtml\"";
 const QString WEBKIT_BODY_STYLE_CRUFT = " style=\"word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space; \"";
 
