@@ -1096,7 +1096,7 @@ void MainWindow::MergeResources(QList <Resource *> resources)
     // Convert merge previous to merge selected so all files can be checked for validity
     if (resources.count() == 1) {
         Resource *resource = m_Book->PreviousResource(resources.first());
-        if (!resource) {
+        if (!resource || resource == resources.first()) {
             QMessageBox::warning(this, tr("Sigil"), tr("One resource selected and there is no previous resource to merge into."));
             return;
         }
@@ -1111,7 +1111,8 @@ void MainWindow::MergeResources(QList <Resource *> resources)
     }
 
     // Check if data is well formed before saving
-    foreach (Resource *resource, resources) { if (!m_TabManager.TabDataIsWellFormed(*resource)) {
+    foreach (Resource *resource, resources) { 
+        if (!m_TabManager.TabDataIsWellFormed(*resource)) {
             Utility::DisplayStdErrorDialog(tr("Merge aborted.\n\nOne of the files may have an error or has not been saved.\n\nTry saving your book or correcting any errors before merging."));
             return;
         }
