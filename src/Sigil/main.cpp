@@ -154,40 +154,6 @@ void MessageHandler( QtMsgType type, const char *message )
 }
 
 
-// Used for an undocumented, unsupported *-to-epub
-// console conversion. USE AT YOUR OWN PERIL!
-static bool QuickConvert( const QStringList &arguments )
-{
-    if ( arguments.count() != 3 )
-
-        return false;
-
-    // Hm... no text is printed to the console
-    // for a QApplication...
-    if ( !QFileInfo( arguments.at( 1 ) ).isAbsolute() )
-    {
-        std::cout << "ERROR: The input file path is not an absolute path." << std::endl;
-        return false;
-    }
-
-    if ( !QFileInfo( arguments.at( 2 ) ).isAbsolute() )
-    {
-        std::cout << "ERROR: The output file path is not an absolute path." << std::endl;
-        return false;
-    }
-
-    if ( !QFileInfo( arguments.at( 1 ) ).isReadable() )
-    {
-        std::cout << "ERROR: The input file cannot be read." << std::endl;
-        return false;
-    }
-
-    QSharedPointer< Book > book = ImporterFactory().GetImporter( arguments.at( 1 ) ).GetBook();
-    ExporterFactory().GetExporter( arguments.at( 2 ), book ).WriteBook();
-
-    return true;
-}
-
 /**
  * Creates (or modifies, if it already exists) the Sigil temp folder so that it
  * can be read and modified by anyone.
@@ -282,10 +248,6 @@ int main( int argc, char *argv[] )
         if (arguments.contains("-t")) {
             std::cout  << TempFolder::GetPathToSigilScratchpad().toStdString() << std::endl;
             return 1;
-        //} else if (arguments.count() == 3) {
-            // Used for an undocumented, unsupported *-to-epub
-            // console conversion. USE AT YOUR OWN PERIL!
-            return QuickConvert( arguments );
         } else {
             // Normal startup
             MainWindow *widget = GetMainWindow( arguments );
