@@ -60,11 +60,6 @@ public:
         // (lower number means 'bigger' heading )
         int level;
 
-        // True if the heading appears within
-        // 20 lines after the body tag 
-        // (only one heading per file)
-        bool at_file_start;
-
         // Should the heading be included in the TOC or not
         bool include_in_toc;
 

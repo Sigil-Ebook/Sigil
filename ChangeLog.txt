@@ -101,6 +101,7 @@ Sigil 0.6.0 TBA
     - Implement issue 1378: Update Hunspell to 1.3.2.
     - Implement issue 1379: Update Boost to Boost 1.49.0.
     - Implement issue 1283: Spell check should have an ignore option.
+    - Fix Issue 1613: Generate TOC should always use filename#id instead of guessing for one heading per file.
     - Fix issue 1477: Sigil may crash when loading ePubs containing empty (zero-sized) files.
     - Fix issue 1589: Clicking on TOC entry the first time does not scroll to a heading at the top of the page.
     - Fix issue 1582: Replace All should be single-threaded to avoid certain crashes.
