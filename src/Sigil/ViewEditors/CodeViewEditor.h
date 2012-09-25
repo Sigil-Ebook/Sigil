@@ -649,7 +649,7 @@ private:
 
     QString GetUnmatchedTagsForBlock(const int &pos, const QString &text);
 
-    void SelectAndScrollIntoView(int start_position, int end_position, Searchable::Direction direction);
+    void SelectAndScrollIntoView(int start_position, int end_position, Searchable::Direction direction, bool wrapped);
 
     ///////////////////////////////
     // PRIVATE MEMBER VARIABLES

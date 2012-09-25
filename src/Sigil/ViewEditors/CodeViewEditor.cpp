@@ -715,7 +715,8 @@ bool CodeViewEditor::FindNext( const QString &search_regex,
 
         // We will scroll the position on screen in order to ensure the entire block is visible
         // and if not, then center the match.
-        SelectAndScrollIntoView(match_info.offset.first + start_offset, match_info.offset.second + start_offset, search_direction);
+        SelectAndScrollIntoView(match_info.offset.first + start_offset, match_info.offset.second + start_offset, 
+                                search_direction, ignore_selection_offset);
 
         return true;
     }
@@ -2850,7 +2851,7 @@ void CodeViewEditor::SetReformatCSSEnabled(bool value)
     m_reformatCSSEnabled = value;
 }
 
-void CodeViewEditor::SelectAndScrollIntoView(int start_position, int end_position, Searchable::Direction direction)
+void CodeViewEditor::SelectAndScrollIntoView(int start_position, int end_position, Searchable::Direction direction, bool wrapped)
 {
     // We will scroll the position on screen if necessary in order to ensure that there is a block visible
     // before and after the text that will be selected by these positions.
@@ -2860,6 +2861,18 @@ void CodeViewEditor::SelectAndScrollIntoView(int start_position, int end_positio
     bool scroll_to_center = false;
 
     QTextCursor cursor = textCursor();
+
+    if (wrapped) {
+        // Set an initial cursor position at the top or bottom of the screen as appropriate
+        if (direction == Searchable::Direction_Up) {
+            cursor.movePosition(QTextCursor::End);
+            setTextCursor(cursor);
+        }
+        else {
+            cursor.movePosition(QTextCursor::Start);
+            setTextCursor(cursor);
+        }
+    }
 
     if (direction == Searchable::Direction_Up || start_block.blockNumber() < end_block.blockNumber()) {
         QTextBlock first_visible_block = firstVisibleBlock();
