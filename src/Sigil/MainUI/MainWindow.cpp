@@ -1162,6 +1162,8 @@ void MainWindow::MergeResources(QList <Resource *> resources)
     UpdateBrowserSelectionToTab();
 
     QApplication::restoreOverrideCursor();
+
+    statusBar()->showMessage(("Merge completed.  You may need to regenerate or edit your Table Of Contents."), 5000);
 }
 
 void MainWindow::LinkStylesheetsToResources(QList <Resource *> resources)
