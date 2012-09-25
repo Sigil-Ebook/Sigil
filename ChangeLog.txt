@@ -1,4 +1,5 @@
 Sigil 0.6.0 TBA 
+    - Implement issue 1610: Use html instead of xhtml as the default extension for new blank HTML files.
     - Implement issue 1606: Allow rename of titles in Generate Table Of Contents and show filenames in tooltip.
     - Implement issue 1601: Delete unused Images.
     - Implement issue 1602: Delete unused Styles.
