@@ -24,6 +24,7 @@
 #include <QtCore/QCoreApplication>
 #include <QtCore/QDir>
 #include <QtCore/QEvent>
+#include <QtCore/QTimer>
 #include <QtGui/QDesktopServices>
 #include <QtGui/QKeyEvent>
 #include <QtGui/QMenu>
@@ -43,7 +44,7 @@
 
 const int PROGRESS_BAR_MINIMUM_DURATION = 1000;
 
-const QString BREAK_TAG_INSERT    = "<hr class=\"sigil_split_marker\" />";
+const QString BREAK_TAG_INSERT    = "<hr class=\"sigilSectionBreak\" />";
 const QString XML_NAMESPACE_CRUFT = "xmlns=\"http://www.w3.org/1999/xhtml\"";
 const QString WEBKIT_BODY_STYLE_CRUFT = " style=\"word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space; \"";
 
@@ -68,6 +69,7 @@ static const QString GET_BODY_TAG_HTML = "new XMLSerializer().serializeToString(
 BookViewEditor::BookViewEditor(QWidget *parent)
     :
     BookViewPreview(parent),
+    m_isDelayedPageDown( false ),
     m_WebPageModified( false ),
     m_ContextMenu( *new QMenu( this ) ),
     m_OpenWithContextMenu( *new QMenu( this ) ),
@@ -84,6 +86,7 @@ BookViewEditor::BookViewEditor(QWidget *parent)
     page()->settings()->setAttribute (QWebSettings::JavascriptCanAccessClipboard, true );
     page()->settings()->setAttribute( QWebSettings::LocalContentCanAccessRemoteUrls, false );
     page()->settings()->setAttribute( QWebSettings::ZoomTextOnly, true );
+    installEventFilter(this);
 
     CreateContextMenuActions();
     ConnectSignalsToSlots();
@@ -142,6 +145,45 @@ void BookViewEditor::CustomSetDocument(const QString &path, const QString &html)
     BookViewPreview::CustomSetDocument(m_path, html);
     page()->setContentEditable(true);
     SetWebPageModified( false );
+}
+
+bool BookViewEditor::eventFilter(QObject *obj, QEvent *evt)
+{
+    if (evt->type() == QEvent::KeyPress) {
+        QKeyEvent *keyEvent = static_cast<QKeyEvent*>(evt);
+        int key = keyEvent->key();
+
+        if (key == Qt::Key_PageDown) {
+            // As of Qt 4.8.3 there is still a bug with Page Down. If the caret location is
+            // not at the top of the screen, it scrolls 1.y lines, where y is the distance
+            // from the top of the screen of the caret. To work around this, we will divert
+            // the standard Page Down handling through our delay function below.
+            if (!m_isDelayedPageDown) {
+                QTimer::singleShot(0, this, SLOT(PageDown()));
+                return true;
+            }
+            else {
+                m_isDelayedPageDown = false;
+            }
+        }
+    }
+    // pass the event on to the parent class
+    return BookViewPreview::eventFilter(obj, evt);
+}
+
+void BookViewEditor::PageDown()
+{
+    // To get Qt to scroll QWebView correctly, we will simulate the user clicking in the
+    // top left corner of the window, before then issuing the Page Down keypress again
+    m_isDelayedPageDown = true;
+    QPoint topLeft = QPoint(0,0);
+    QMouseEvent* mouseDownEvent = new QMouseEvent( QEvent::MouseButtonPress, topLeft, Qt::LeftButton, Qt::LeftButton, Qt::NoModifier );
+    QMouseEvent* mouseUpEvent = new QMouseEvent( QEvent::MouseButtonRelease, topLeft, Qt::LeftButton, Qt::LeftButton, Qt::NoModifier );
+    QKeyEvent* pageDownEvent = new QKeyEvent( QEvent::KeyPress, Qt::Key_PageDown, Qt::NoModifier );
+
+    QApplication::postEvent(this, mouseDownEvent);
+    QApplication::postEvent(this, mouseUpEvent);
+    QApplication::postEvent(this, pageDownEvent);
 }
 
 QString BookViewEditor::GetHtml()

@@ -256,6 +256,8 @@ protected:
      */
     void focusOutEvent(QFocusEvent *event);
 
+    bool eventFilter(QObject *obj, QEvent *ev);
+
 private slots:
 
     /**
@@ -267,6 +269,8 @@ private slots:
      * Wrapper slot for the Scroll One Line Down shortcut.
      */
     void ScrollOneLineDown();
+
+    void PageDown();
 
     /**
      * Sets the web page modified state.
@@ -359,6 +363,8 @@ private:
 
     QVariant m_caret;
     QString m_path;
+
+    bool m_isDelayedPageDown;
 
     /**
      * \c true if the WebPage was modified by the user.
