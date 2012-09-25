@@ -377,6 +377,8 @@ void MainWindow::New()
     }
 
     m_TabManager.WellFormedDialogsEnabled( true );
+
+    statusBar()->showMessage(("New file created."), 5000);
 }
 
 
@@ -3246,6 +3248,11 @@ void MainWindow::ExtendUI()
 void MainWindow::ExtendIconSizes()
 {
     QIcon icon;
+
+    icon = ui.actionNew->icon();
+    icon.addFile(QString::fromUtf8(":/main/document-new_16px.png") );
+    ui.actionNew->setIcon(icon);
+
     icon = ui.actionAddExistingFile->icon();
     icon.addFile(QString::fromUtf8(":/main/document-add_16px.png") );
     ui.actionAddExistingFile->setIcon(icon);

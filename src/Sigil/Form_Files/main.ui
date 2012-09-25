@@ -307,6 +307,7 @@
    <attribute name="toolBarBreak">
     <bool>false</bool>
    </attribute>
+   <addaction name="actionNew"/>
    <addaction name="actionOpen"/>
    <addaction name="actionAddExistingFile"/>
    <addaction name="actionSave"/>
@@ -505,11 +506,17 @@
    <addaction name="actionTextDirectionDefault"/>
   </widget>
   <action name="actionNew">
+   <property name="icon">
+    <iconset resource="../Resource_Files/main/main.qrc">
+     <normaloff>:/main/document-new_22px.png</normaloff>:/main/document-new_22px.png</iconset>
+   </property>
    <property name="text">
     <string>&amp;New</string>
    </property>
    <property name="toolTip">
-    <string>Create a new book.</string>
+    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;New&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Create a new book.&lt;/p&gt;</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+N</string>
