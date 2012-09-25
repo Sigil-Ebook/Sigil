@@ -77,7 +77,7 @@ QList< Headings::Heading > Headings::GetHeadingListForOneFile( HTMLResource* htm
     if (dom_elements.isEmpty()) {
         return QList<Headings::Heading>();
     }
-    xc::DOMElement &body_element = *dom_elements.at( 0 );
+
     QList<xc::DOMElement *> heading_nodes = XhtmlDoc::GetTagMatchingDescendants( document, HEADING_TAGS );
     int num_heading_nodes = heading_nodes.count();
 
