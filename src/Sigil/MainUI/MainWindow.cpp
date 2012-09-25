@@ -1331,6 +1331,8 @@ void MainWindow::GenerateToc()
     m_TabManager.ReloadTabData();
 
     QApplication::restoreOverrideCursor();
+
+    statusBar()->showMessage(("Table Of Contents generated."), 5000);
 }
     
 
