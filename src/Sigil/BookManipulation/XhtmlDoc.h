@@ -89,6 +89,8 @@ public:
         const QString &tag_name,
         const QString &namespace_name );
 
+    static QList< QString > GetAllDescendantHrefs( const xc::DOMNode &node );
+
     static QList< QString > GetAllDescendantIDs( const xc::DOMNode &node ); 
     static QList<QString> GetAllDescendantClasses(const xc::DOMNode &node);
 
@@ -224,6 +226,8 @@ public:
     static QStringList GetImagePathsFromImageChildren( const xc::DOMNode &node );
 
     static QStringList GetAllImagePathsFromImageChildren( const xc::DOMNode &node );
+
+    static QStringList GetAllHrefPaths( const xc::DOMNode &node );
 
     // Returns the node identified by the specified ViewEditor element hierarchy
     static xc::DOMNode* GetNodeFromHierarchy( const xc::DOMDocument &document, 

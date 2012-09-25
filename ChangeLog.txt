@@ -1,4 +1,5 @@
 Sigil 0.6.0 TBA 
+    - Implement issue 1615:Generate TOC should number sigil_toc_id's across all files and delete unused id's before generating.
     - Implement issue 1612: Improve performance of merging files.
     - Implement issue 1611: Improve performance of switching and closing tabs.
     - Implement issue 1610: Use html instead of xhtml as the default extension for new blank HTML files.

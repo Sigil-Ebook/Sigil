@@ -459,6 +459,56 @@ QStringList Book::GetIdsInHTMLFile( HTMLResource* html_resource )
     return XhtmlDoc::GetAllDescendantIDs(*XhtmlDoc::LoadTextIntoDocument(html_resource->GetText()).get()->getDocumentElement());
 }
 
+QStringList Book::GetIdsInHrefs()
+{
+    QStringList ids;
+
+    QHash<QString, QStringList> hrefs = GetHrefsInHTMLFiles();
+    QHashIterator<QString, QStringList> it (hrefs);
+
+    while (it.hasNext()) {
+        it.next();
+        foreach(QString href, it.value()) {
+            if (href.contains('#')) {
+                href = href.right(href.length() - href.indexOf("#") - 1);
+                if (!ids.contains(href)) {
+                    ids.append(href);
+                }
+            }
+        }
+    }
+
+    // Return the list of ids used in hrefs in the book
+    return ids;
+}
+
+
+QHash<QString, QStringList> Book::GetHrefsInHTMLFiles()
+{
+    QHash<QString, QStringList> hrefs_in_html;
+
+    const QList<HTMLResource*> html_resources = m_Mainfolder.GetResourceTypeList< HTMLResource >(false);
+
+    QFuture< boost::tuple<QString, QStringList> > future = QtConcurrent::mapped(html_resources, GetHrefsInHTMLFileMapped);
+
+    for (int i = 0; i < future.results().count(); i++) {
+        QString filename;
+        QStringList hrefs;
+        tie(filename, hrefs) = future.resultAt(i);
+
+        // Each target entry has a list of filenames that contain it
+        hrefs_in_html[filename] = hrefs;
+    }
+
+    return hrefs_in_html;
+}
+
+tuple<QString, QStringList> Book::GetHrefsInHTMLFileMapped( HTMLResource* html_resource )
+{
+    return make_tuple(html_resource->Filename(), 
+        XhtmlDoc::GetAllDescendantHrefs(*XhtmlDoc::LoadTextIntoDocument(html_resource->GetText()).get()->getDocumentElement()));
+}
+
 QHash<QString, QStringList> Book::GetClassesInHTMLFiles()
 {
     QHash<QString, QStringList> classes_in_html;

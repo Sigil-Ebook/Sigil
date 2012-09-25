@@ -201,6 +201,10 @@ public:
     static boost::tuple<QString, QStringList> GetIdsInHTMLFileMapped( HTMLResource* html_resource );
     QStringList GetIdsInHTMLFile( HTMLResource* html_resource );
 
+    QStringList GetIdsInHrefs();
+    QHash<QString, QStringList> GetHrefsInHTMLFiles();
+    static boost::tuple<QString, QStringList> GetHrefsInHTMLFileMapped( HTMLResource* html_resource );
+
     QHash<QString, QStringList> GetClassesInHTMLFiles();
     static boost::tuple<QString, QStringList> GetClassesInHTMLFileMapped(HTMLResource *html_resource);
     QStringList GetClassesInHTMLFile(QString filename);

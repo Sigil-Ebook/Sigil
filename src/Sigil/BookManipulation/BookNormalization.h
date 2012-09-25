@@ -56,7 +56,7 @@ private:
      *
      * @param html_resources All the book's html resources.
      */
-    static void GiveIDsToHeadings( const QList< HTMLResource* > &html_resources );
+    static void GiveIDsToHeadings( const QList< HTMLResource* > &html_resources, int toc_id_index );
 
     /**
      * Gives ID's to all headings that don't have them
@@ -65,15 +65,13 @@ private:
      * @param html_resource The HTMLResource on whose headings 
      *                      the operation will be performed.
      */
-    static void GiveIDsToHeadingsInResource( HTMLResource *html_resource );
+    static int GiveIDsToHeadingsInResource( HTMLResource *html_resource, int toc_id_index );
 
-    /**
-     * Returns the maximum Sigil heading ID index. 
-     * 
-     * @param headings The list of headings to search.
-     * @return The highest index.
-     */
-    static int MaxSigilHeadingIDIndex( const QList< Headings::Heading > headings );
+    static int MaxSigilHeadingIDIndex(QHash<QString, QStringList> file_ids);
+
+    static void RemoveTOCIDs( const QList< HTMLResource* > &html_resources, QStringList &used_ids );
+    static void RemoveTOCIDsInResource( HTMLResource* html_resources, QStringList &used_ids );
+    static void RemoveTOCIDsInNodes( xc::DOMNode &node, QStringList &used_ids );
 
     /**
      * Returns the cover page from the HTML resources.

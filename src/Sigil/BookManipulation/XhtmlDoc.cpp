@@ -378,6 +378,33 @@ QList< QString > XhtmlDoc::GetAllDescendantIDs( const xc::DOMNode &node )
     return IDs;
 }
 
+QList< QString > XhtmlDoc::GetAllDescendantHrefs( const xc::DOMNode &node )
+{
+    if ( node.getNodeType() != xc::DOMNode::ELEMENT_NODE )
+
+        return QList< QString >();   
+
+    const xc::DOMElement* element = static_cast< const xc::DOMElement* >( &node ); 
+
+    QList< QString > hrefs;
+
+    if ( element->hasAttribute( QtoX( "href" ) ) )
+    
+        hrefs.append( XtoQ( element->getAttribute( QtoX( "href" ) ) ) );    
+    
+    if ( node.hasChildNodes() )
+    {
+        QList< xc::DOMNode* > children = GetNodeChildren( node );
+
+        for ( int i = 0; i < children.count(); ++i )
+        {
+            hrefs.append( GetAllDescendantHrefs( *children.at( i ) ) );              
+        }
+    }    
+
+    return hrefs;
+}
+
 
 // DO NOT USE FOR DOMDOCUMENTS! Use GetDomDocumentAsString for such needs!
 QString XhtmlDoc::GetDomNodeAsString( const xc::DOMNode &node )
@@ -1068,6 +1095,23 @@ QStringList XhtmlDoc::GetAllImagePathsFromImageChildren( const xc::DOMNode &node
     return image_links;
 }
 
+QStringList XhtmlDoc::GetAllHrefPaths( const xc::DOMNode &node )
+{
+    // Anchor tags
+    QList< xc::DOMElement* > nodes = GetTagMatchingDescendants(node, ANCHOR_TAGS);
+
+    QStringList hrefs;
+
+    // Get a list of all defined hrefs
+    foreach( xc::DOMElement *node, nodes )
+    {
+        if ( node->hasAttribute( QtoX( "href" ) ) ) {
+            hrefs.append(XtoQ(node->getAttribute(QtoX("href"))));
+        }
+    }
+
+    return hrefs;
+}
 
 // Accepts a reference to an XML stream reader positioned on an XML element.
 // Returns an XMLElement struct with the data in the stream.
