@@ -1122,6 +1122,7 @@ void MainWindow::MergeResources(QList <Resource *> resources)
 
     foreach (Resource *resource, resources) {
         if (!m_TabManager.TabDataIsWellFormed(*resource)) {
+            QApplication::restoreOverrideCursor();
             QMessageBox::critical(this, tr("Sigil"), tr("Cannot merge: %1 data is not well formed.").arg(resource->Filename()));
             return;
         }
@@ -1130,6 +1131,7 @@ void MainWindow::MergeResources(QList <Resource *> resources)
     // Close all tabs being updated to prevent BV overwriting the new data
     foreach (Resource *resource, resources) {
         if (!m_TabManager.CloseTabForResource(*resource)) {
+            QApplication::restoreOverrideCursor();
             QMessageBox::critical(this, tr("Sigil"), tr("Cannot merge\n\nCannot close tab: %1").arg(resource->Filename()));
             return;
         }
@@ -1143,7 +1145,9 @@ void MainWindow::MergeResources(QList <Resource *> resources)
     Resource* failed_resource = m_Book->MergeResources(resources, &progress);
 
     if (failed_resource != NULL) {
+        QApplication::restoreOverrideCursor();
         QMessageBox::critical(this, tr("Sigil"), tr("Cannot merge file %1").arg(failed_resource->Filename()));
+        QApplication::setOverrideCursor(Qt::WaitCursor);
         resource_to_open = failed_resource;
     }
     else {
