@@ -2319,7 +2319,7 @@ void MainWindow::CreateSectionBreakOldTab( QString content, HTMLResource& origin
         flow_tab->ScrollToTop();
     }
 
-    statusBar()->showMessage( tr( "Split completed. You may need to update the Table of Contents." ), STATUSBAR_MSG_DISPLAY_TIME );
+    statusBar()->showMessage( tr( "Split completed." ), STATUSBAR_MSG_DISPLAY_TIME );
 }
 
 void MainWindow::SplitOnSGFSectionMarkers()
