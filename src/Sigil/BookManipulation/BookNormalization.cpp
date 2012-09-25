@@ -41,7 +41,6 @@ using boost::shared_ptr;
 
 static const QString SIGIL_TOC_ID_PREFIX = "sigil_toc_id_";
 static const QString SIGIL_TOC_ID_REG    = SIGIL_TOC_ID_PREFIX + "(\\d+)";
-static const int FLOW_SIZE_THRESHOLD         = 1000;
 
 
 void BookNormalization::Normalize( QSharedPointer< Book > book )
@@ -115,42 +114,6 @@ int BookNormalization::MaxSigilHeadingIDIndex(QHash<QString, QStringList> file_i
     }
 
     return maxindex;
-}
-
-
-HTMLResource* BookNormalization::GetCoverPage( const QList< HTMLResource* > &html_resources, Book &book )
-{
-    QString oebps_path = book.GetOPF().GetCoverPageOEBPSPath();
-    foreach( HTMLResource* html_resource, html_resources )
-    {
-        if ( html_resource->GetRelativePathToOEBPS() == oebps_path )
-
-            return html_resource;
-    }
-
-    return NULL;
-}
-
-
-bool BookNormalization::CoverPageExists( Book &book )
-{
-    return !book.GetOPF().GetCoverPageOEBPSPath().isEmpty();
-}
-
-
-bool BookNormalization::IsFlowUnderThreshold( HTMLResource *html_resource, int threshold )
-{
-    QReadLocker locker(&html_resource->GetLock());
-
-    shared_ptr<xc::DOMDocument> d = XhtmlDoc::LoadTextIntoDocument(html_resource->GetText());
-    xc::DOMElement &doc_element = *d.get()->getDocumentElement();
-    return XtoQ(doc_element.getTextContent()).count() < threshold;
-}
-
-bool BookNormalization::FlowHasOnlyOneImage( HTMLResource* html_resource )
-{
-    shared_ptr<xc::DOMDocument> d = XhtmlDoc::LoadTextIntoDocument(html_resource->GetText());
-    return XhtmlDoc::GetImagePathsFromImageChildren(*d.get()).count() == 1;
 }
 
 void BookNormalization::RemoveTOCIDs( const QList< HTMLResource* > &html_resources, QStringList &used_ids)

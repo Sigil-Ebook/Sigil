@@ -61,8 +61,6 @@ public:
 
     int GetReadingOrder( const ::HTMLResource &html_resource ) const;
 
-    QString GetCoverPageOEBPSPath() const;
-
     QString GetMainIdentifierValue() const;
 
     void SaveToDisk( bool book_wide_save = false );

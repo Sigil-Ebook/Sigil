@@ -183,7 +183,6 @@ static bool QuickConvert( const QStringList &arguments )
     }
 
     QSharedPointer< Book > book = ImporterFactory().GetImporter( arguments.at( 1 ) ).GetBook();
-    BookNormalization::Normalize( book );
     ExporterFactory().GetExporter( arguments.at( 2 ), book ).WriteBook();
 
     return true;

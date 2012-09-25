@@ -72,42 +72,6 @@ private:
     static void RemoveTOCIDs( const QList< HTMLResource* > &html_resources, QStringList &used_ids );
     static void RemoveTOCIDsInResource( HTMLResource* html_resources, QStringList &used_ids );
     static void RemoveTOCIDsInNodes( xc::DOMNode &node, QStringList &used_ids );
-
-    /**
-     * Returns the cover page from the HTML resources.
-     *
-     * @param html_resource The book's HTML resources.
-     * @param book The book we're manipulating.
-     * @return The cover page resource.
-     */
-    static HTMLResource* GetCoverPage( const QList< HTMLResource* > &html_resources, Book &book );
-
-    /**
-     * Determines if a cover page exists.
-     *
-     * @param book The book we're manipulating.
-     * @return \c true if a cover page exists.
-     */
-    static bool CoverPageExists( Book &book );
-
-    /**
-     * Determines if a flow is under the specified threshold.
-     * Used as a heuristic for finding the cover XHTML file.
-     *
-     * @param resource The XHTML flow to inspect.
-     * @param threshold The maximum number of text characters.
-     * @return \c true if the text of the HTML resource specified 
-     *         has fewer characters than 'threshold' number. 
-     */
-    static bool IsFlowUnderThreshold( HTMLResource *html_resource, int threshold );
-
-    /**
-     * Determines if the specified flow has only one image in it.
-     *
-     * @param html_resource The XHTML flow to inspect.
-     * @return \c true if only one image present.
-     */
-    static bool FlowHasOnlyOneImage( HTMLResource* html_resource );
 };
 
 #endif // BOOKNORMALIZATION_H

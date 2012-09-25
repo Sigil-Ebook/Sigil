@@ -122,29 +122,6 @@ int OPFResource::GetReadingOrder( const ::HTMLResource &html_resource ) const
 }
 
 
-QString OPFResource::GetCoverPageOEBPSPath() const
-{
-    QReadLocker locker( &GetLock() );
-    shared_ptr< xc::DOMDocument > document = GetDocument();
-    QList< xc::DOMElement* > references = 
-        XhtmlDoc::GetTagMatchingDescendants( *document, "reference", OPF_XML_NAMESPACE );
-
-    foreach( xc::DOMElement* reference, references )
-    {
-        QString type_text = XtoQ( reference->getAttribute( QtoX( "type" ) ) );
-        GuideSemantics::GuideSemanticType current_type =
-            GuideSemantics::Instance().MapReferenceTypeToGuideEnum( type_text );
-
-        if ( current_type == GuideSemantics::Cover )
-        {
-            return Utility::URLDecodePath( XtoQ( reference->getAttribute( QtoX( "href" ) ) ) );              
-        }
-    }
-
-    return QString();
-}
-
-
 QString OPFResource::GetMainIdentifierValue() const
 {
     QReadLocker locker( &GetLock() );
