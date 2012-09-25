@@ -129,26 +129,27 @@ void AnchorUpdates::UpdateAnchorsInOneFile( HTMLResource *html_resource,
         Q_ASSERT( &element );
 
         if ( element.hasAttribute( QtoX( "href" ) ) &&
-             QUrl( XtoQ( element.getAttribute( QtoX(  "href" ) ) ) ).isRelative() &&
-             XtoQ( element.getAttribute( QtoX(  "href" ) ) ).contains( "#" )
-            )
+             QUrl( XtoQ( element.getAttribute( QtoX( "href" ) ) ) ).isRelative() )
         {
             QString href = XtoQ( element.getAttribute( QtoX( "href" ) ) );
-            QString id   = href.right( href.size() - ( href.indexOf( QChar( '#' ) ) + 1 ) );
+            QStringList parts = href.split(QChar('#'), QString::SkipEmptyParts);
+            if (parts.length() > 1) {
+                QString fragment_id = href.right(href.size() - (parts.at(0).length() + 1));
 
-            QString file_id = ID_locations.value( id );
-            // If the ID is in a different file, update the link
-            if ( file_id != resource_filename && !file_id.isEmpty() )
-            {
-                QString attribute_value = QString( "../" )
-                                          .append( TEXT_FOLDER_NAME )
-                                          .append( "/" )
-                                          .append( Utility::URLEncodePath( file_id ) )
-                                          .append( "#" )
-                                          .append( id );
+                QString file_id = ID_locations.value( fragment_id );
+                // If the ID is in a different file, update the link
+                if ( file_id != resource_filename && !file_id.isEmpty() )
+                {
+                    QString attribute_value = QString( "../" )
+                                              .append( TEXT_FOLDER_NAME )
+                                              .append( "/" )
+                                              .append( Utility::URLEncodePath( file_id ) )
+                                              .append( "#" )
+                                              .append( fragment_id );
 
-                element.setAttribute( QtoX( "href" ), QtoX( attribute_value ) );
-                is_changed = true;
+                    element.setAttribute( QtoX( "href" ), QtoX( attribute_value ) );
+                    is_changed = true;
+                }
             }
         }
     }
@@ -180,17 +181,15 @@ void AnchorUpdates::UpdateExternalAnchorsInOneFile( HTMLResource *html_resource,
         // We're only interested in hrefs of the form "originating_filename#fragment_id".
         // First, we find the hrefs that are relative and contain a fragment id.
         if ( element.hasAttribute( QtoX( "href" ) ) &&
-            QUrl( XtoQ( element.getAttribute( QtoX(  "href" ) ) ) ).isRelative() &&
-            XtoQ( element.getAttribute( QtoX(  "href" ) ) ).contains( "#" )
-            )
+            QUrl( XtoQ( element.getAttribute( QtoX( "href" ) ) ) ).isRelative() )
         {
             QString href = XtoQ( element.getAttribute( QtoX( "href" ) ) );
-            QString file_id       = href.left(  href.indexOf( QChar( '#' ) ) );
-            QString fragment_id   = href.right( href.size() - ( href.indexOf( QChar( '#' ) ) + 1 ) );
+            QStringList parts = href.split(QChar('#'), QString::SkipEmptyParts);
 
             // If the href pointed to the original file then update the file_id.
-            if ( file_id == original_filename_with_relative_path )
+            if ( parts.at(0) == original_filename_with_relative_path && parts.length() > 1 )
             {
+                QString fragment_id = href.right(href.size() - (parts.at(0).length() + 1));
                 QString attribute_value = QString( "../" )
                                           .append( TEXT_FOLDER_NAME )
                                           .append( "/" )
@@ -231,35 +230,32 @@ void AnchorUpdates::UpdateAllAnchorsInOneFile( HTMLResource *html_resource,
 
         // We find the hrefs that are relative and contain an href.
         if ( element.hasAttribute( QtoX( "href" ) ) &&
-            QUrl( XtoQ( element.getAttribute( QtoX(  "href" ) ) ) ).isRelative()
-            )
+            QUrl( XtoQ( element.getAttribute( QtoX( "href" ) ) ) ).isRelative() )
         {
             // Is this href in the form "originating_filename#fragment_id" or "originating_filename"?
             QString href = XtoQ( element.getAttribute( QtoX( "href" ) ) );
-            if (href.contains('#')) {
-                QString file_id = href.left( href.indexOf( QChar( '#' ) ) );
-                QString fragment_id = href.right( href.size() - ( href.indexOf( QChar( '#' ) ) + 1 ) );
+            QStringList parts = href.split(QChar('#'), QString::SkipEmptyParts);
 
-                // If the href pointed to the original file then update the file_id.
-                if ( originating_filename_links.contains(file_id) )
-                {
+            // If the href pointed to the original file then update the file_id.
+            if ( originating_filename_links.contains(parts.at(0)) ) {
+                if (parts.count() == 1) {
+                    // This is a straight href with no anchor fragment
+                    element.setAttribute( QtoX( "href" ), QtoX( new_filename ) );
+                }
+                else {
+                    // Rather than using parts.at(1) we will allow a # being part of the anchor
+                    QString fragment_id = href.right(href.size() - (parts.at(0).length() + 1));
+
                     QString attribute_value = QString( "../" )
-                                              .append( TEXT_FOLDER_NAME )
-                                              .append( "/" )
-                                              .append( Utility::URLEncodePath( ID_locations.value( fragment_id ) ) )
-                                              .append( "#" )
-                                              .append( fragment_id );
+                                                .append( TEXT_FOLDER_NAME )
+                                                .append( "/" )
+                                                .append( Utility::URLEncodePath( ID_locations.value( fragment_id ) ) )
+                                                .append( "#" )
+                                                .append( fragment_id );
 
                     element.setAttribute( QtoX( "href" ), QtoX( attribute_value ) );
-                    is_changed = true;
                 }
-            }
-            else {
-                // This is a straight href with no anchor fragment
-                if ( originating_filename_links.contains(href) ) {
-                    element.setAttribute( QtoX( "href" ), QtoX( new_filename ) );
-                    is_changed = true;
-                }
+                is_changed = true;
             }
         }
     }
@@ -291,14 +287,14 @@ void AnchorUpdates::UpdateTOCEntries(NCXResource *ncx_resource, const QString &o
         // We're only interested in src links of the form "originating_filename#fragment_id".
         // First, we find the hrefs that are relative and contain a fragment id.
         if (element.hasAttribute(QtoX("src")) &&
-            QUrl(XtoQ( element.getAttribute(QtoX("src")))).isRelative() &&
-            XtoQ(element.getAttribute(QtoX("src"))).contains("#")) {
+            QUrl(XtoQ( element.getAttribute(QtoX("src")))).isRelative()) {
+
             QString src = XtoQ(element.getAttribute(QtoX("src")));
-            QString file_id = src.left(src.indexOf(QChar( '#' )));
-            QString fragment_id = src.right(src.size() - (src.indexOf(QChar('#')) + 1));
+            QStringList parts = src.split(QChar('#'), QString::SkipEmptyParts);
 
             // If the src pointed to the original file then update the file_id.
-            if (file_id == original_filename_with_relative_path) {
+            if (parts.count() > 1 && parts.at(0) == original_filename_with_relative_path) {
+                QString fragment_id = src.right(src.size() - (parts.at(0).length() + 1));
                 QString attribute_value = QString("%1").arg(TEXT_FOLDER_NAME)
                                           .append("/")
                                           .append(Utility::URLEncodePath(ID_locations.value(fragment_id)))
