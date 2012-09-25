@@ -499,6 +499,10 @@ bool MainWindow::SaveAs()
     QString save_path       = "";
     QString default_filter  = "";
 
+    if (m_CurrentFilePath.isEmpty()) {
+        m_CurrentFilePath = "untitled.epub";
+    }
+
     // If we can save this file type, then we use the current filename
     if ( c_SaveFilters.contains( QFileInfo( m_CurrentFilePath ).suffix().toLower() ) )
     {
