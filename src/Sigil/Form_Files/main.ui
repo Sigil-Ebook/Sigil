@@ -1848,7 +1848,7 @@
   </action>
   <action name="actionNewSVGFile">
    <property name="text">
-    <string>Blank SVG Image File</string>
+    <string>Blank SVG Image</string>
    </property>
    <property name="toolTip">
     <string>Add a new blank svg image file to the book.</string>

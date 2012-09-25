@@ -1201,7 +1201,7 @@ void BookBrowser::CreateContextMenuActions()
     KeyboardShortcutManager *sm = KeyboardShortcutManager::instance();
 
     m_SelectAll               = new QAction( tr( "Select All" ),            this );
-    m_AddNewHTML              = new QAction( tr( "Add Blank Section" ),     this );
+    m_AddNewHTML              = new QAction( tr( "Add Blank HTML File" ),   this );
     m_AddNewCSS               = new QAction( tr( "Add Blank Stylesheet" ),  this );
     m_AddNewSVG               = new QAction( tr( "Add Blank SVG Image" ),   this );
     m_AddExisting             = new QAction( tr( "Add Existing Files..." ), this );
