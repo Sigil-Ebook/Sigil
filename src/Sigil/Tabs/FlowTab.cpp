@@ -80,7 +80,8 @@ FlowTab::FlowTab(HTMLResource& resource,
     m_initialLoad(true),
     m_BookPreviewNeedReload(false),
     m_grabFocus(grab_focus),
-    m_suspendTabReloading(false)
+    m_suspendTabReloading(false),
+    m_defaultCaretLocationToTop( false)
 {
     // Loading a flow tab can take a while. We set the wait
     // cursor and clear it at the end of the delayed initialization.
@@ -957,7 +958,8 @@ void FlowTab::ResourceModified()
 {
     m_BookPreviewNeedReload = true;
     if ( m_ViewState == MainWindow::ViewState_CodeView ) {
-        m_wCodeView->ExecuteCaretUpdate();
+        m_wCodeView->ExecuteCaretUpdate(m_defaultCaretLocationToTop);
+        m_defaultCaretLocationToTop = false;
     }
 }
 
@@ -973,6 +975,12 @@ void FlowTab::ResourceTextChanging()
     if ( m_ViewState == MainWindow::ViewState_CodeView ) {
         // We need to store the caret location so it can be restored later
         m_wCodeView->StoreCaretLocationUpdate( m_wCodeView->GetCaretLocation() );
+        // After the resource text has been modified, if the caret is at the
+        // very top of the document then our stored location will be empty.
+        // The default behaviour of CodeView is to "do nothing" if no location
+        // is stored, in this one situation we want to override that to force
+        // it to place the cursor at the top of the document.
+        m_defaultCaretLocationToTop = true;
     }
 }
 

@@ -1873,12 +1873,16 @@ tuple< int, int > CodeViewEditor::ConvertHierarchyToCaretMove( const QList< View
 }
 
 
-bool CodeViewEditor::ExecuteCaretUpdate()
+bool CodeViewEditor::ExecuteCaretUpdate(bool default_to_top)
 {
     // If there's a cursor/caret update waiting (from BookView),
     // we update the caret location and reset the update variable
-    if ( m_CaretUpdate.count() == 0 )
-    {
+    if ( m_CaretUpdate.isEmpty() ) {
+        if (default_to_top) {
+            QTextCursor cursor = textCursor();
+            cursor.movePosition(QTextCursor::Start);
+            setTextCursor(cursor);
+        }
         return false;
     }
 

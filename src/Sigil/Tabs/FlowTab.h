@@ -543,6 +543,8 @@ private:
     bool m_grabFocus;
 
     bool m_suspendTabReloading;
+
+    bool m_defaultCaretLocationToTop;
 };
 
 #endif // FLOWTAB_H

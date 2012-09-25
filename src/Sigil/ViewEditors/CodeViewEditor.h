@@ -248,7 +248,7 @@ public:
     void StoreCaretLocationUpdate( const QList< ViewEditor::ElementIndex > &hierarchy );
 
     // inherited
-    bool ExecuteCaretUpdate();
+    bool ExecuteCaretUpdate(bool default_to_top=false);
         
     /**
      * Find the containing block for the cursor location and apply a new
