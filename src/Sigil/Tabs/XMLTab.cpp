@@ -49,7 +49,7 @@ void XMLTab::ScrollToLine( int line )
     
 void XMLTab::AutoFixWellFormedErrors()
 {
-    m_wCodeView.ReplaceDocumentText( CleanSource::PrettyPrint( CleanSource::ProcessXML( m_wCodeView.toPlainText() ) ) );
+    m_wCodeView.ReplaceDocumentText( CleanSource::ProcessXML( m_wCodeView.toPlainText() ) );
 }
 
 
@@ -66,37 +66,14 @@ QString XMLTab::GetFilename()
 }
 
 
-bool XMLTab::GetCheckWellFormedErrors()
-{
-    return m_WellFormedCheckComponent.GetCheckWellFormedErrors();
-}
-
-
-void XMLTab::SetWellFormedDialogsEnabledState( bool enabled )
-{
-    m_WellFormedCheckComponent.SetWellFormedDialogsEnabledState( enabled );
-}
-
-
-void XMLTab::SetCheckWellFormedErrorsState( bool enabled )
-{
-    m_WellFormedCheckComponent.SetCheckWellFormedErrorsState( enabled );
-}
-
-
 bool XMLTab::IsDataWellFormed()
 {
-    if ( !GetCheckWellFormedErrors() )
-    {
-        return true;
-    }
-
     XhtmlDoc::WellFormedError error = m_XMLResource.WellFormedErrorLocation();
     bool well_formed = error.line == -1;
 
-    if ( !well_formed )
-
+    if ( !well_formed ) {
         m_WellFormedCheckComponent.DemandAttentionIfAllowed( error );
+    }
 
     return well_formed;
 }
@@ -104,9 +81,6 @@ bool XMLTab::IsDataWellFormed()
 
 void XMLTab::ConnectSignalsToSlots()
 {
-    // We set the Code View as the focus proxy for the tab,
-    // so the ContentTab focusIn/Out handlers are not called.
-    connect( &m_wCodeView, SIGNAL( FocusLost( QWidget* ) ), this, SLOT( IsDataWellFormed() ) );
     connect( &m_wCodeView, SIGNAL(OpenClipEditorRequest(ClipEditorModel::clipEntry *)), this, SIGNAL(OpenClipEditorRequest(ClipEditorModel::clipEntry *)));
 }
 

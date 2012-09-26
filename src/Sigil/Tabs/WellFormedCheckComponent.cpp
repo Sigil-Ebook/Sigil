@@ -20,9 +20,11 @@
 *************************************************************************/
 
 #include <QtCore/QTimer>
-#include <QtGui/QPushButton>
+#include <QtGui/QMainWindow>
 #include <QtGui/QMessageBox>
+#include <QtGui/QPushButton>
 
+#include "Misc/SettingsStore.h"
 #include "Tabs/ContentTab.h"
 #include "Tabs/WellFormedCheckComponent.h"
 #include "Tabs/WellFormedContent.h"
@@ -32,21 +34,29 @@ WellFormedCheckComponent::WellFormedCheckComponent( WellFormedContent &content )
     QObject(),
     m_Content( content ),
     m_Message(),
-    m_MessageBox( new QMessageBox() ),
+    m_AutoFixMessage(),
     m_AutoFixButton( NULL ),
     m_ManualFixButton( NULL ),
     m_LastError(),
-    m_DemandingAttention( false ),
-    m_WellFormedDialogsEnabled( true ),
-    m_CheckWellFormedErrors( true )
+    m_DemandingAttention( false )
 {
     m_Message = tr( 
         "<p>The operation you requested cannot be performed "
         "because <b>%1</b> is not a well-formed XML document.</p>"
-        "<p>An error was found on <b>line %2, column %3: %4.</b></p>"
-        "<p>The <i>Fix Manually</i> option will let you fix the problem by hand.</p>"
+        "<p>An error was found <b>above line %2: %3.</b></p>"
+        "<p>The <i>Fix Manually</i> option will let you fix the problem by hand.</p>");
+    m_AutoFixMessage = tr(
         "<p>The <i>Fix Automatically</i> option will instruct Sigil to try to "
         "repair the document. <b>This option may lead to loss of data!</b></p>" );
+
+    // Find the parent main window. Hopefully one day we will have a better way,
+    // right now the first tab is created before the show() event so we cannot
+    // rely on anything hooked to qApp.
+    QWidget *p = dynamic_cast<QWidget *>(&content);
+    while (p && !dynamic_cast<QMainWindow *>(p)) {
+        p = p->parentWidget();
+    }
+    m_MessageBox = new QMessageBox(p);
 
     m_MessageBox->setWindowTitle( "Sigil" );
     m_MessageBox->setIcon( QMessageBox::Critical );
@@ -65,24 +75,16 @@ WellFormedCheckComponent::~WellFormedCheckComponent()
     m_MessageBox->deleteLater();
 }
 
-
-bool WellFormedCheckComponent::GetCheckWellFormedErrors()
+void WellFormedCheckComponent::deleteLater()
 {
-    return m_CheckWellFormedErrors;
+    // Clear the parent to ensure the object disposal for the parent tab
+    // will not dispose of the messagebox before the destructor gets called.
+    // Quite probably the destructor and call to deleteLater() from FlowTab 
+    // and XMLTab destructors are completely redundant by parenting this 
+    // messagebox, but not going to risk memory leak at this point by changing.
+    m_MessageBox->setParent(0);
+    QObject::deleteLater();
 }
-
-    
-void WellFormedCheckComponent::SetWellFormedDialogsEnabledState( bool enabled )
-{
-    m_WellFormedDialogsEnabled = enabled;
-}
-
-
-void WellFormedCheckComponent::SetCheckWellFormedErrorsState( bool enabled )
-{
-    m_CheckWellFormedErrors = enabled;
-}
-
 
 void WellFormedCheckComponent::DemandAttentionIfAllowed( const XhtmlDoc::WellFormedError &error )
 {   
@@ -91,9 +93,7 @@ void WellFormedCheckComponent::DemandAttentionIfAllowed( const XhtmlDoc::WellFor
     // We schedule a request to make the OPF tab the central
     // tab of the UI. We do this async to make sure there are 
     // no infinite loops.
-    if ( m_WellFormedDialogsEnabled )
-
-        QTimer::singleShot( 0, this, SLOT( DemandAttention() ) );
+    QTimer::singleShot( 0, this, SLOT( DemandAttention() ) );
 }
 
 
@@ -116,28 +116,27 @@ void WellFormedCheckComponent::DemandAttention()
 
 void WellFormedCheckComponent::DisplayErrorMessage()
 {
-    QString error_line = m_LastError.line != -1              ?
+    SettingsStore settings;
+
+    const QString error_line = m_LastError.line != -1 ?
                          QString::number( m_LastError.line ) :
                          "N/A";
-    QString error_column = m_LastError.column != -1              ?
-                           QString::number( m_LastError.column ) :
-                           "N/A";
-
     QString full_message = m_Message
-        .arg( m_Content.GetFilename(), error_line, error_column, m_LastError.message );
+        .arg( m_Content.GetFilename(), error_line, m_LastError.message );
+
+    if (settings.cleanLevel() == SettingsStore::CleanLevel_Off) {
+        m_AutoFixButton->setVisible(false);
+    }
+    else {
+        m_AutoFixButton->setVisible(true);
+        full_message.append(m_AutoFixMessage);
+    }
 
     m_MessageBox->setText( full_message );
     m_MessageBox->exec();
          
-    if ( m_MessageBox->clickedButton() == m_AutoFixButton ) 
-    
+    if ( m_MessageBox->clickedButton() == m_AutoFixButton ) {
         m_Content.AutoFixWellFormedErrors();
+    }
 }
-
-
-
-
-
-
-
 

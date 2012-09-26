@@ -37,28 +37,6 @@ public:
     virtual ~WellFormedContent() {}
 
     /**
-     * Gets whether checking for well-formed errors is enabled.
-     */
-    virtual bool GetCheckWellFormedErrors() = 0;
-    
-    /**
-     * Turns on/off the dialog responsible for notifying the user
-     * about well-formed errors.
-     *
-     * @param enabled If \c true, the dialog is enabled.
-     */
-    virtual void SetWellFormedDialogsEnabledState( bool enabled ) = 0;
-
-    /**
-     * Turns on/off checking for well-formed errors. The state
-     * will be used in IsDataWellFormed.
-     *
-     * @param enabled If \true, the content will be checked for
-     * well-formed errors.
-     */
-    virtual void SetCheckWellFormedErrorsState( bool enabled ) = 0;
-
-    /**
      * Returns \c true if the data is well-formed. If checking
      * for well-formed errors has been disabled this will always
      * return true. Also, depending on whether the dialog is

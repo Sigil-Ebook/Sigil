@@ -436,11 +436,10 @@ bool FlowTab::SetViewState(MainWindow::ViewState new_view_state)
     if (new_view_state == m_ViewState) {
         return false;
     }
-    if (new_view_state == MainWindow::ViewState_BookView && !m_wBookView->IsLoadingFinished()) {
-        return false;
-    }
-    if (!IsDataWellFormed()) {
-        return false;
+    if (new_view_state == MainWindow::ViewState_BookView) { 
+        if ( !m_wBookView->IsLoadingFinished() || !IsDataWellFormed() ) {
+            return false;
+        }
     }
 
     // We do a save before changing to ensure we don't lose any unsaved data
@@ -533,21 +532,6 @@ void FlowTab::AutoFixWellFormedErrors()
     }
 }
 
-bool FlowTab::GetCheckWellFormedErrors()
-{
-    return m_WellFormedCheckComponent.GetCheckWellFormedErrors();
-}
-
-void FlowTab::SetWellFormedDialogsEnabledState(bool enabled)
-{
-    m_WellFormedCheckComponent.SetWellFormedDialogsEnabledState(enabled);
-}
-
-void FlowTab::SetCheckWellFormedErrorsState(bool enabled)
-{
-    m_WellFormedCheckComponent.SetCheckWellFormedErrorsState(enabled);
-}
-
 void FlowTab::TakeControlOfUI()
 {
     EmitCentralTabRequest();
@@ -561,27 +545,26 @@ QString FlowTab::GetFilename()
 
 bool FlowTab::IsDataWellFormed()
 {
-    if (m_ViewState == MainWindow::ViewState_BookView || m_ViewState == MainWindow::ViewState_PreviewView || !GetCheckWellFormedErrors()) {
+    if (m_ViewState == MainWindow::ViewState_BookView) {
         m_safeToLoad = true;
         return true;
     }
 
-    if (m_ViewState == MainWindow::ViewState_CodeView) {
-        XhtmlDoc::WellFormedError error = XhtmlDoc::WellFormedErrorForSource(m_wCodeView->toPlainText());
-        bool well_formed = error.line == -1;
+    XhtmlDoc::WellFormedError error = XhtmlDoc::WellFormedErrorForSource(m_wCodeView->toPlainText());
+    bool well_formed = error.line == -1;
 
-        if (!well_formed) {
-            m_safeToLoad = false;
-            m_WellFormedCheckComponent.DemandAttentionIfAllowed(error);
+    if (!well_formed) {
+        m_safeToLoad = false;
+        if (m_ViewState != MainWindow::ViewState_CodeView) {
+            CodeView();
         }
-        else {
-            m_safeToLoad = true;
-        }
-
-        return well_formed;
+        m_WellFormedCheckComponent.DemandAttentionIfAllowed(error);
+    }
+    else {
+        m_safeToLoad = true;
     }
 
-    return true;
+    return well_formed;
 }
 
 void FlowTab::Undo()
@@ -870,10 +853,6 @@ void FlowTab::BookView()
 
 void FlowTab::SplitView()
 {
-    if (!IsDataWellFormed()) {
-        return;
-    }
-
     QApplication::setOverrideCursor(Qt::WaitCursor);
 
     m_views->setCurrentIndex(PV_INDEX);
@@ -975,8 +954,9 @@ void FlowTab::ResourceTextChanging()
     if ( m_ViewState == MainWindow::ViewState_CodeView ) {
         // We need to store the caret location so it can be restored later
         m_wCodeView->StoreCaretLocationUpdate( m_wCodeView->GetCaretLocation() );
-        // After the resource text has been modified, if the caret is at the
-        // very top of the document then our stored location will be empty.
+        // If the caret is at the very top of the document then our stored location 
+        // will be empty. The problem is that when ResourceModified() fires next
+        // it will have effectively moved the caret to the bottom of the document.
         // The default behaviour of CodeView is to "do nothing" if no location
         // is stored, in this one situation we want to override that to force
         // it to place the cursor at the top of the document.

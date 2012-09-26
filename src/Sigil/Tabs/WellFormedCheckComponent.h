@@ -56,29 +56,8 @@ public:
      * Destructor.
      */
     ~WellFormedCheckComponent();
-
-    /**
-     * Gets whether checking for well-formed errors is enabled.
-     */
-    bool GetCheckWellFormedErrors();
     
 public slots:
-
-    /**
-     * Turns on/off the dialog responsible for notifying the user
-     * about well-formed errors.
-     *
-     * @param enabled If \true, the dialog is enabled.
-     */
-    void SetWellFormedDialogsEnabledState( bool enabled );
-
-    /**
-     * Turns on/off checking for well-formed errors.
-     *
-     * @param enabled If \true, the content will be checked for
-     * well-formed errors.
-     */
-    void SetCheckWellFormedErrorsState( bool enabled );
     
     /**
      * Displays a dialog informing the user about the well-formed error
@@ -87,6 +66,8 @@ public slots:
      * @param error The error info to display.
      */
     void DemandAttentionIfAllowed( const XhtmlDoc::WellFormedError &error );
+
+    void deleteLater();
 
 private slots:
 
@@ -116,6 +97,7 @@ private:
      * The message used in the dialog (with placeholders).
      */
     QString m_Message;
+    QString m_AutoFixMessage;
 
     /**
      * The message box used to inform the user about an error.
@@ -143,17 +125,6 @@ private:
      * same problem.
      */
     bool m_DemandingAttention;
-
-    /**
-     * If \c true, then we are allowed to show a dialog for errors.
-     */
-    bool m_WellFormedDialogsEnabled;
-
-    /**
-     * If \c true, then we are allowed to check for errors.
-     */
-    bool m_CheckWellFormedErrors;
-
 };
 
 #endif // WELLFORMEDCHECKCOMPONENT_H

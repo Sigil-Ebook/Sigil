@@ -123,7 +123,6 @@ MainWindow::MainWindow( const QString &openfilepath, QWidget *parent, Qt::WFlags
     m_lbZoomLabel( NULL ),
     c_SaveFilters( GetSaveFiltersMap() ),
     c_LoadFilters( GetLoadFiltersMap() ),
-    m_CheckWellFormedErrors( true ),
     m_ViewState( MainWindow::ViewState_BookView ),
     m_headingMapper( new QSignalMapper( this ) ),
     m_casingChangeMapper( new QSignalMapper( this ) ),
@@ -340,8 +339,6 @@ void MainWindow::ShowMessageOnCurrentStatusBar( const QString &message,
 
 void MainWindow::closeEvent( QCloseEvent *event )
 {
-    m_TabManager.WellFormedDialogsEnabled( false );
-
     if ( MaybeSaveDialogSaysProceed() )
     {
         WriteSettings();
@@ -352,15 +349,12 @@ void MainWindow::closeEvent( QCloseEvent *event )
     else
     {
         event->ignore();
-        m_TabManager.WellFormedDialogsEnabled( true );
     }
 }
 
 
 void MainWindow::New()
 {
-    m_TabManager.WellFormedDialogsEnabled( false );
-
     // The nasty IFDEFs are here to enable the multi-document
     // interface on the Mac; Lin and Win just use multiple
     // instances of the Sigil application
@@ -376,16 +370,12 @@ void MainWindow::New()
 #endif
     }
 
-    m_TabManager.WellFormedDialogsEnabled( true );
-
     statusBar()->showMessage(("New file created."), 5000);
 }
 
 
 void MainWindow::Open()
 {
-    m_TabManager.WellFormedDialogsEnabled( false );
-
     // The nasty IFDEFs are here to enable the multi-document
     // interface on the Mac; Lin and Win just use multiple
     // instances of the Sigil application
@@ -426,8 +416,6 @@ void MainWindow::Open()
 #endif
         }
     }
-
-    m_TabManager.WellFormedDialogsEnabled( true );
 }
 
 
@@ -458,9 +446,10 @@ void MainWindow::OpenRecentFile()
 
 bool MainWindow::Save()
 {
-    if ( !m_TabManager.TabDataIsWellFormed() )
-
+    if ( !m_TabManager.IsAllTabDataWellFormed() ) {
+        ShowMessageOnCurrentStatusBar(tr("Save cancelled due to XML not well formed"));
         return false;
+    }
 
     if ( m_CurrentFilePath.isEmpty() )
     {
@@ -482,9 +471,10 @@ bool MainWindow::Save()
 
 bool MainWindow::SaveAs()
 {
-    if ( !m_TabManager.TabDataIsWellFormed() )
-
+    if ( !m_TabManager.IsAllTabDataWellFormed() ) {
+        ShowMessageOnCurrentStatusBar(tr("Save cancelled due to XML not well formed"));
         return false;
+    }
 
     QStringList filters( c_SaveFilters.values() );
     filters.removeDuplicates();
@@ -537,7 +527,8 @@ bool MainWindow::SaveAs()
 
 bool MainWindow::SaveACopy()
 {
-    if (!m_TabManager.TabDataIsWellFormed()) {
+    if ( !m_TabManager.IsAllTabDataWellFormed() ) {
+        ShowMessageOnCurrentStatusBar(tr("Save cancelled due to XML not well formed"));
         return false;
     }
 
@@ -698,9 +689,6 @@ void MainWindow::ZoomReset()
 
 void MainWindow::IndexEditorDialog(IndexEditorModel::indexEntry* index_entry)
 {
-    if (!m_TabManager.TabDataIsWellFormed()) {
-        return;
-    }
     m_TabManager.SaveTabData();
 
     // non-modal dialog
@@ -715,7 +703,8 @@ void MainWindow::IndexEditorDialog(IndexEditorModel::indexEntry* index_entry)
 
 void MainWindow::CreateIndex()
 {
-    if (!m_TabManager.TabDataIsWellFormed()) {
+    if ( !m_TabManager.IsAllTabDataWellFormed() ) {
+        ShowMessageOnCurrentStatusBar(tr("Create Index cancelled due to XML not well formed"));
         return;
     }
     SaveTabData();
@@ -847,7 +836,8 @@ void MainWindow::ReportsDialog()
 bool MainWindow::DeleteCSSStyles(const QString &filename, QList<CSSInfo::CSSSelector*> css_selectors)
 {
     // Save our tabs data as we will be modifying the underlying resources
-    if (!m_TabManager.TabDataIsWellFormed()) {
+    if ( !m_TabManager.IsAllTabDataWellFormed() ) {
+        ShowMessageOnCurrentStatusBar(tr("Delete CSS Style cancelled due to XML not well formed"));
         return false;
     }
     SaveTabData();
@@ -996,12 +986,6 @@ void MainWindow::InsertImagesFromDisk()
 
 void MainWindow::InsertSpecialCharacter()
 {
-    if ( !m_TabManager.TabDataIsWellFormed() ) {
-        return;
-    }
-
-    m_TabManager.SaveTabData();
-
     // non-modal dialog
     m_SelectCharacter->show();
     m_SelectCharacter->raise();
@@ -1111,11 +1095,9 @@ void MainWindow::MergeResources(QList <Resource *> resources)
     }
 
     // Check if data is well formed before saving
-    foreach (Resource *resource, resources) { 
-        if (!m_TabManager.TabDataIsWellFormed(*resource)) {
-            Utility::DisplayStdErrorDialog(tr("Merge aborted.\n\nOne of the files may have an error or has not been saved.\n\nTry saving your book or correcting any errors before merging."));
-            return;
-        }
+    if ( !m_TabManager.IsAllTabDataWellFormed() ) {
+        ShowMessageOnCurrentStatusBar(tr("Merge cancelled due to XML not well formed"));
+        return;
     }
 
     QApplication::setOverrideCursor(Qt::WaitCursor);
@@ -1125,13 +1107,12 @@ void MainWindow::MergeResources(QList <Resource *> resources)
     SaveTabData();
     m_Book->SaveAllResourcesToDisk();
 
-    foreach (Resource *resource, resources) {
-        if (!m_TabManager.TabDataIsWellFormed(*resource)) {
-            QApplication::restoreOverrideCursor();
-            QMessageBox::critical(this, tr("Sigil"), tr("Cannot merge: %1 data is not well formed.").arg(resource->Filename()));
-            return;
-        }
+    QApplication::restoreOverrideCursor();
+    if ( !m_TabManager.IsAllTabDataWellFormed() ) {
+        ShowMessageOnCurrentStatusBar(tr("Merge cancelled due to XML not well formed"));
+        return;
     }
+    QApplication::setOverrideCursor(Qt::WaitCursor);
 
     // Close all tabs being updated to prevent BV overwriting the new data
     foreach (Resource *resource, resources) {
@@ -1164,7 +1145,7 @@ void MainWindow::MergeResources(QList <Resource *> resources)
 
     QApplication::restoreOverrideCursor();
 
-    statusBar()->showMessage(("Merge completed.  You may need to regenerate or edit your Table Of Contents."), 5000);
+    ShowMessageOnCurrentStatusBar(tr("Merge completed. You may need to regenerate or edit your Table Of Contents."));
 }
 
 void MainWindow::LinkStylesheetsToResources(QList <Resource *> resources)
@@ -1174,20 +1155,16 @@ void MainWindow::LinkStylesheetsToResources(QList <Resource *> resources)
     }
 
     // Check if data is well formed before saving
-    foreach (Resource *resource, resources) {
-        if (!m_TabManager.TabDataIsWellFormed(*resource)) {
-            Utility::DisplayStdErrorDialog(tr("Link aborted.") % "\n\n" % tr("One of the files may have an error or has not been saved.") % "\n\n" % tr("Try saving your book or correcting any errors before linking stylesheets."));
-            return;
-        }
+    if ( !m_TabManager.IsAllTabDataWellFormed() ) {
+        ShowMessageOnCurrentStatusBar(tr("Link Stylesheets cancelled due to XML not well formed"));
+        return;
     }
 
     // Save the tab data and recheck if data is still well formed
     SaveTabData();
-    foreach (Resource *resource, resources) {
-        if (!m_TabManager.TabDataIsWellFormed(*resource)) {
-            QMessageBox::critical(this, tr("Sigil"), tr("Cannot link stylesheets: %1 data is not well formed.").arg(resource->Filename()));
-            return;
-        }
+    if ( !m_TabManager.IsAllTabDataWellFormed() ) {
+        ShowMessageOnCurrentStatusBar(tr("Link Stylesheets cancelled due to XML not well formed"));
+        return;
     }
 
     // Choose which stylesheets to link
@@ -1314,6 +1291,10 @@ void MainWindow::RemoveResources(QList<Resource *> resources, bool prompt_user)
 
 void MainWindow::GenerateToc()
 {
+    if ( !m_TabManager.IsAllTabDataWellFormed() ) {
+        ShowMessageOnCurrentStatusBar(tr("Generate TOC cancelled due to XML not well formed"));
+        return;
+    }
     SaveTabData();
     m_Book->SaveAllResourcesToDisk();
 
@@ -1321,11 +1302,9 @@ void MainWindow::GenerateToc()
     if (resources.isEmpty()) {
         return;
     }
-    foreach (Resource *resource, resources) {
-        if (!m_TabManager.TabDataIsWellFormed(*resource)) {
-            QMessageBox::critical(this, tr("Sigil"), tr("Cannot generate TOC: %1 data is not well formed.").arg(resource->Filename()));
-            return;
-        }
+    if ( !m_TabManager.IsAllTabDataWellFormed() ) {
+        ShowMessageOnCurrentStatusBar(tr("Generate TOC cancelled due to XML not well formed"));
+        return;
     }
 
     {
@@ -1482,12 +1461,6 @@ void MainWindow::AnyCodeView()
 
 void MainWindow::SearchEditorDialog(SearchEditorModel::searchEntry* search_entry)
 {
-    if ( !m_TabManager.TabDataIsWellFormed() ) {
-        return;
-    }
-
-    m_TabManager.SaveTabData();
-
     // non-modal dialog
     m_SearchEditor->show();
     m_SearchEditor->raise();
@@ -1500,12 +1473,6 @@ void MainWindow::SearchEditorDialog(SearchEditorModel::searchEntry* search_entry
 
 void MainWindow::ClipEditorDialog(ClipEditorModel::clipEntry* clip_entry)
 {
-    if ( !m_TabManager.TabDataIsWellFormed() ) {
-        return;
-    }
-
-    m_TabManager.SaveTabData();
-
     // non-modal dialog
     m_ClipEditor->show();
     m_ClipEditor->raise();
@@ -1528,9 +1495,10 @@ void MainWindow::SaveTabData()
 
 void MainWindow::MetaEditorDialog()
 {
-    if ( !m_TabManager.TabDataIsWellFormed() )
-
+    if ( !m_TabManager.IsAllTabDataWellFormed() ) {
+        ShowMessageOnCurrentStatusBar(tr("Meta Editor cancelled due to XML not well formed"));
         return;
+    }
 
     MetaEditor meta( m_Book->GetOPF(), this );
     meta.exec();
@@ -2238,12 +2206,6 @@ void MainWindow::UpdateZoomLabel( int slider_value )
 }
 
 
-void MainWindow::SetCheckWellFormedErrors( bool new_state )
-{
-    m_CheckWellFormedErrors = new_state;
-    m_TabManager.SetCheckWellFormedErrors( new_state );
-}
-
 void MainWindow::SetDefaultViewState()
 {
     MainWindow::ViewState view_state = MainWindow::ViewState_BookView;
@@ -2330,11 +2292,9 @@ void MainWindow::SplitOnSGFSectionMarkers()
     QList<Resource *> html_resources = m_BookBrowser->AllHTMLResources();
     
     // Check if data is well formed before saving
-    foreach (Resource *resource, html_resources) { 
-        if (!m_TabManager.TabDataIsWellFormed(*resource)) {
-            Utility::DisplayStdErrorDialog(tr("Split aborted.\n\nOne of the files may have an error or has not been saved.\n\nTry saving your book or correcting any errors before splitting."));
-            return;
-        }
+    if ( !m_TabManager.IsAllTabDataWellFormed() ) {
+        ShowMessageOnCurrentStatusBar(tr("Split cancelled due to XML not well formed"));
+        return;
     }
 
     // If have the current tab is open in BV, make sure it has its content saved so it won't later overwrite a split.
@@ -2408,22 +2368,13 @@ void MainWindow::ReadSettings()
     QByteArray geometry = settings.value( "geometry" ).toByteArray();
 
     if ( !geometry.isNull() )
-
         restoreGeometry( geometry );
 
     // The positions of all the toolbars and dock widgets
     QByteArray toolbars = settings.value( "toolbars" ).toByteArray();
 
     if ( !toolbars.isNull() )
-
         restoreState( toolbars );
-
-    // For the checkwellformed option, we want to default to true
-    // if no value has been set.
-    QVariant checkwellformederrors = settings.value( "checkwellformederrors" );
-    m_CheckWellFormedErrors = checkwellformederrors.isNull() ? true : checkwellformederrors.toBool();
-    ui.actionCheckWellFormedErrors->setChecked( m_CheckWellFormedErrors );
-    SetCheckWellFormedErrors( m_CheckWellFormedErrors );
 
     // The last folder used for saving and opening files
     m_LastFolderOpen  = settings.value( "lastfolderopen"  ).toString();
@@ -2471,9 +2422,6 @@ void MainWindow::WriteSettings()
 
     // The positions of all the toolbars and dock widgets
     settings.setValue( "toolbars", saveState() );
-
-    // Whether the user wants to be informed about well-formed errors
-    settings.setValue( "checkwellformederrors", m_CheckWellFormedErrors );
 
     // The last folders used for saving and opening files
     settings.setValue( "lastfolderopen",  m_LastFolderOpen  );
@@ -3221,7 +3169,6 @@ void MainWindow::ExtendUI()
     sm->registerAction(ui.actionMarkForIndex, "MainWindow.MarkForIndex");
     sm->registerAction(ui.actionCreateIndex, "MainWindow.CreateIndex");
     sm->registerAction(ui.actionDeleteUnusedImages, "MainWindow.DeleteUnusedImages");
-    sm->registerAction(ui.actionCheckWellFormedErrors, "MainWindow.CheckWellFormedErrors");
 
     // View
     sm->registerAction(ui.actionBookView, "MainWindow.BookView");
@@ -3303,10 +3250,6 @@ void MainWindow::ExtendIconSizes()
     icon = ui.actionCopy->icon();
     icon.addFile(QString::fromUtf8(":/main/edit-copy_16px.png"));
     ui.actionCopy->setIcon(icon);
-
-    icon = ui.actionCheckWellFormedErrors->icon();
-    icon.addFile(QString::fromUtf8(":/main/document-well-formed_check_16px.png"));
-    ui.actionCheckWellFormedErrors->setIcon(icon);
 
     icon = ui.actionAlignLeft->icon();
     icon.addFile(QString::fromUtf8(":/main/format-justify-left_16px.png"));
@@ -3564,7 +3507,6 @@ void MainWindow::ConnectSignalsToSlots()
     connect( ui.actionIndexEditor,   SIGNAL( triggered() ), this, SLOT( IndexEditorDialog()        ) );
     connect( ui.actionCreateIndex,   SIGNAL( triggered() ), this, SLOT( CreateIndex()              ) );
     connect( ui.actionDeleteUnusedImages,    SIGNAL( triggered() ), this, SLOT( DeleteUnusedImages()                   ) );
-    connect( ui.actionCheckWellFormedErrors, SIGNAL( triggered( bool ) ), this, SLOT( SetCheckWellFormedErrors( bool ) ) );
 
     // Change case
     connect(ui.actionCasingLowercase,  SIGNAL(triggered()), m_casingChangeMapper, SLOT(map()));

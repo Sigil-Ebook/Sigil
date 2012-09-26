@@ -69,14 +69,13 @@ public:
     bool CloseTabForResource(const Resource &resource);
 
     /**
-     * Returns \c true if tab data is well-formed. Also,
-     * depending on whether the dialog is enabled, notifies
-     * the user about the problem.
+     * Returns \c true if all open tabs data is well-formed.
+     * If an issue occurs, user is notified of the problem with a
+     * dialog and the offending tab is switched to automatically.
      *
      * @return \c true if the tab data is well-formed.
      */
-    bool TabDataIsWellFormed();
-    bool TabDataIsWellFormed(const Resource &resource);
+    bool IsAllTabDataWellFormed();
 
     void ReloadTabData();
 
@@ -90,23 +89,6 @@ public:
     void UpdateTabDisplay();
 
 public slots:
-
-    /**
-     * Turns on/off the dialog responsible for notifying the user
-     * about well-formed errors.
-     *
-     * @param enabled If \true, the dialog is enabled.
-     */
-    void WellFormedDialogsEnabled( bool enabled );
-
-    /**
-     * Turns on/off checking for well-formed errors. The state
-     * will be used in IsDataWellFormed.
-     *
-     * @param enabled If \true, the content will be checked for
-     * well-formed errors.
-     */
-    void SetCheckWellFormedErrors( bool enabled );
 
     /**
      * Saves any unsaved data in the all the open tabs.

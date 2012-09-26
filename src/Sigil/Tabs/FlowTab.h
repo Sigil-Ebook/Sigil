@@ -152,12 +152,6 @@ public:
 
     void AutoFixWellFormedErrors();
 
-    bool GetCheckWellFormedErrors();
-
-    void SetWellFormedDialogsEnabledState( bool enabled );
-
-    void SetCheckWellFormedErrorsState( bool enabled );
-
     void TakeControlOfUI();
 
     QString GetFilename();

@@ -146,28 +146,19 @@ bool TabManager::CloseTabForResource(const Resource &resource)
     return true;
 }
 
-
-bool TabManager::TabDataIsWellFormed()
+bool TabManager::IsAllTabDataWellFormed()
 {
-    WellFormedContent *content = GetWellFormedContent();
+    QList<Resource*> resources = GetTabResources();
 
-    if ( content )
-
-        return content->IsDataWellFormed();
-
-    return true;
-}
-
-bool TabManager::TabDataIsWellFormed(const Resource &resource)
-{
-    int index = ResourceTabIndex(resource);
-    if (index != -1) {
+    foreach(Resource *resource, resources) {
+        int index = ResourceTabIndex(*resource);
         WellFormedContent *content = dynamic_cast<WellFormedContent *>(widget(index));
         if (content) {
-            return content->IsDataWellFormed();
+            if (!content->IsDataWellFormed()) {
+                return false;
+            }
         }
     }
-
     return true;
 }
 
@@ -208,31 +199,6 @@ void TabManager::ReopenTabs()
     }
 
     OpenResource(currentTab.GetLoadedResource());
-}
-
-void TabManager::WellFormedDialogsEnabled( bool enabled )
-{
-    WellFormedContent *content = GetWellFormedContent();
-
-    if ( content )
-
-        content->SetWellFormedDialogsEnabledState( enabled );
-}
-
-
-void TabManager::SetCheckWellFormedErrors( bool enabled )
-{
-    m_CheckWellFormedErrors = enabled;
-
-    for ( int i = 0; i < count(); ++i )
-    {
-        WellFormedContent *tab = dynamic_cast< WellFormedContent* >( widget( i ) );
-
-        if ( tab )
-        {
-            tab->SetCheckWellFormedErrorsState( enabled );
-        }
-    }
 }
 
 
@@ -599,14 +565,13 @@ ContentTab* TabManager::CreateTabForResource( Resource& resource,
         break;
     }
 
-    // Wet whether to inform or auto correct well-formed errors.
+    // Set whether to inform or auto correct well-formed errors.
     WellFormedContent *wtab = dynamic_cast< WellFormedContent* >( tab );
     if ( wtab )
     {
         // In case of well-formed errors we want the tab to be focused.
         connect( tab,  SIGNAL( CentralTabRequest( ContentTab* ) ),
                 this, SLOT( MakeCentralTab( ContentTab* ) ) );//, Qt::QueuedConnection );
-        wtab->SetCheckWellFormedErrorsState( m_CheckWellFormedErrors );
     }
 
     return tab;

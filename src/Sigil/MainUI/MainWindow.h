@@ -521,14 +521,6 @@ private slots:
      */
     void SplitOnSGFSectionMarkers();
 
-    /**
-     * Sets the new state of the option that controls
-     * whether to check or auto fix well-formed wrrors.
-     *
-     * @param new_state The new state of the option.
-     */
-    void SetCheckWellFormedErrors( bool new_state );
-
     void SetAutoSpellCheck( bool new_state );
 
     void ClearIgnoredWords();
@@ -881,12 +873,6 @@ private:
      * we can save, and the values being filters for use in file dialogs.
      */
     const QMap< QString, QString > c_LoadFilters;
-
-    /**
-     * Holds the state of wheter the user wants to be informed
-     * about well-formed errors or if they should be auto fixed.
-     */
-    bool m_CheckWellFormedErrors;
 
     /**
      * Holds the view state for new/switched tabs

@@ -50,13 +50,7 @@ public:
 
     QString GetFilename();
 
-    bool GetCheckWellFormedErrors();
-
 public slots:
-
-    void SetWellFormedDialogsEnabledState( bool enabled );
-
-    void SetCheckWellFormedErrorsState( bool enabled );
     
     bool IsDataWellFormed();
 
