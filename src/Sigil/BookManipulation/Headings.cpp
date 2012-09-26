@@ -189,4 +189,3 @@ void Headings::AddChildHeading( Heading &parent, Heading new_child )
         parent.children.append( new_child );
     }
 }
-

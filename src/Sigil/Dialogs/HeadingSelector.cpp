@@ -62,14 +62,8 @@ HeadingSelector::HeadingSelector( QSharedPointer< Book > book, QWidget *parent )
 
     PopulateSelectHeadingCombo( GetMaxHeadingLevel( flat_headings ) );
 
-    CreateTOCModel();
+    RefreshTOCModelDisplay();
 
-    // Set the initial display state
-    if ( ui.cbTOCItemsOnly->checkState() == Qt::Checked ) 
-
-        RemoveExcludedItems( m_TableOfContents.invisibleRootItem() );
-
-    UpdateTreeViewDisplay();
     ReadSettings();
 }
 
@@ -82,6 +76,50 @@ HeadingSelector::~HeadingSelector()
     UnlockHTMLResources();
 }
 
+int HeadingSelector::GetAbsoluteRowForIndex(QModelIndex current_index)
+{
+    QModelIndex index = m_TableOfContents.invisibleRootItem()->child(0)->index();
+
+    int row = 0;
+
+    while (index.isValid()) {
+        if (current_index == index) {
+            break;
+        }
+        index = ui.tvTOCDisplay->indexBelow(index);
+        row++;
+    }
+
+    return row;
+}
+
+QModelIndex HeadingSelector::SelectAbsoluteRow(int row)
+{
+    // Select the item that was below the original item
+    QModelIndex first_index = m_TableOfContents.invisibleRootItem()->child(0)->index();
+    QModelIndex index = first_index;
+    QModelIndex previous_index = index;
+
+    for (int i = 0; i < row; i++) {
+        previous_index = index;
+        index = ui.tvTOCDisplay->indexBelow(index);
+    }
+
+    if (!index.isValid()) {
+        index = previous_index;
+    }
+    if (!index.isValid()) {
+        index = first_index;
+    }
+
+    // Select the item
+    ui.tvTOCDisplay->selectionModel()->clear();
+    ui.tvTOCDisplay->setCurrentIndex(index);
+    ui.tvTOCDisplay->selectionModel()->select(index, QItemSelectionModel::SelectCurrent | QItemSelectionModel::Rows);
+
+    return index;
+}
+    
 
 // We need to filter the calls to functions that would normally
 // connect directly to the itemChanged( QStandardItem* ) signal
@@ -100,44 +138,36 @@ void HeadingSelector::ModelItemFilter( QStandardItem *item )
 
     // Get the absolute row of the index in the table for later re-selection
     QModelIndex current_index = item->index().sibling(item->index().row(), 0);
-    QModelIndex first_index = m_TableOfContents.invisibleRootItem()->child(0)->index();
-    QModelIndex index = first_index;
-    int row = 0;
 
-    while (index.isValid()) {
-        if (current_index == index) {
-            break;
-        }
-        index = ui.tvTOCDisplay->indexBelow(index);
-        row++;
-    }
+    int row = GetAbsoluteRowForIndex(current_index);
 
     // Do the actual update of the list
     UpdateHeadingInclusion( item );
 
-    // Select the item that was below the original item
-    index = first_index;
-    QModelIndex previous_index = index;
+    QModelIndex new_index = SelectAbsoluteRow(row);
 
-    for (int i = 0; i < row; i++) {
-        previous_index = index;
-        index = ui.tvTOCDisplay->indexBelow(index);
+    // Expand the item and all its children
+    QStandardItem *new_item = m_TableOfContents.itemFromIndex(new_index);
+    QStandardItem *parent_item = GetActualItemParent(new_item);
+    if (new_item) {
+        for (int i = 0; i < parent_item->rowCount(); i++) {
+            if (i >= new_item->row()) {
+                ExpandChildren(parent_item->child(i));
+            }
+        }
     }
+}
 
-    if (!index.isValid())  {
-        index = previous_index;
-    }
-    if (!index.isValid())  {
-        index = first_index;
-    }
+void HeadingSelector::ExpandChildren(QStandardItem *item)
+{
+    QModelIndexList indexes;
 
-    // Select the new item
-    ui.tvTOCDisplay->selectionModel()->clear();
-    ui.tvTOCDisplay->setCurrentIndex(index);
-    ui.tvTOCDisplay->selectionModel()->select(index, QItemSelectionModel::SelectCurrent | QItemSelectionModel::Rows);
-    
-    // Expand the item
-    ui.tvTOCDisplay->expand(index);
+    if (item->hasChildren()) {
+        for (int i = 0; i < item->rowCount(); i++) {
+            ExpandChildren(item->child(i, 0));
+        }
+    }
+    ui.tvTOCDisplay->expand(item->index());
 }
 
 
@@ -236,6 +266,66 @@ void HeadingSelector::UpdateOneHeadingTitle(QStandardItem *item, QString title)
     }
 }
 
+void HeadingSelector::DecreaseHeadingLevel()
+{
+    ChangeHeadingLevel(-1);
+}
+
+void HeadingSelector::IncreaseHeadingLevel()
+{
+    ChangeHeadingLevel(1);
+}
+
+void HeadingSelector::ChangeHeadingLevel(int change_amount)
+{
+    if (!ui.tvTOCDisplay->selectionModel()->hasSelection()) {
+        return;
+    }
+
+    QModelIndex selected_index = ui.tvTOCDisplay->selectionModel()->selectedRows(0).first();
+    QStandardItem *item = m_TableOfContents.itemFromIndex(selected_index);
+    if (!item) {
+        return;
+    }
+
+    Headings::Heading *heading = GetItemHeading(item);
+
+    if (heading == NULL) {
+        return;
+    }
+
+    // Change the heading level
+    int new_level = heading->level + change_amount;
+    if (new_level < 1 || new_level > 6) {
+            return;
+    }
+    heading->level = new_level;
+
+    // Get new tag name
+    QString tag_name = XtoQ(heading->element->getTagName());
+    QString new_tag_name = "h" + QString::number(heading->level);
+
+    // Rename in document
+    heading->element = XhtmlDoc::RenameElementInDocument(*heading->document, *heading->element, new_tag_name);
+
+    // Clear all children information then rebuild heirarchy
+    QList< Headings::Heading > flat_headings = Headings::GetFlattenedHeadings(m_Headings);
+    for (int i = 0; i < flat_headings.count(); i++) {
+        flat_headings[i].children.clear();
+    }
+
+    m_Headings = Headings::MakeHeadingHeirarchy( flat_headings );
+
+    // Save selected row, refresh the display, restore selection
+    int row = GetAbsoluteRowForIndex(selected_index);
+
+    RefreshTOCModelDisplay();
+
+    SelectAbsoluteRow(row);
+
+    PopulateSelectHeadingCombo( GetMaxHeadingLevel( flat_headings ) );
+}
+
 
 // Updates the inclusion of the heading in the TOC
 // whenever that heading's "include in TOC" checkbox
@@ -328,7 +418,10 @@ void HeadingSelector::InsertHeadingIntoModel( Headings::Heading &heading, QStand
     wrap.heading = &heading;
 
     item_heading->setData( QVariant::fromValue( wrap ) );
-    item_heading->setToolTip( heading.resource_file->Filename() + ": " + heading.text );
+
+    QString html = XhtmlDoc::GetDomNodeAsString(*heading.element).replace('<', "&lt;").replace('>', "&gt;").remove("xmlns=\"http://www.w3.org/1999/xhtml\"");
+
+    item_heading->setToolTip( heading.resource_file->Filename() + ": " + html);
 
     QList< QStandardItem* > items;        
     items << item_heading << heading_included_check;
@@ -520,7 +613,9 @@ void HeadingSelector::PopulateSelectHeadingCombo( int max_heading_level )
 {
     QString entry = tr( "Up to level" );
 
-    ui.cbTOCSetHeadingLevel->addItem( tr( "<Select headings to include>" ) );
+    ui.cbTOCSetHeadingLevel->clear();
+
+    ui.cbTOCSetHeadingLevel->addItem( tr( "<Select headings to include in TOC>" ) );
     if ( max_heading_level > 0 )
     {
         ui.cbTOCSetHeadingLevel->addItem( tr( "None" ) );
@@ -532,6 +627,16 @@ void HeadingSelector::PopulateSelectHeadingCombo( int max_heading_level )
     }
 }
 
+void HeadingSelector::RefreshTOCModelDisplay()
+{
+    CreateTOCModel();
+
+    if ( ui.cbTOCItemsOnly->checkState() == Qt::Checked ) {
+        RemoveExcludedItems( m_TableOfContents.invisibleRootItem() );
+    }
+
+    UpdateTreeViewDisplay();       
+}
 
 // Set all headings to be in or not in the TOC
 void HeadingSelector::SetAllHeadingInclusion( int upToLevel )
@@ -542,13 +647,7 @@ void HeadingSelector::SetAllHeadingInclusion( int upToLevel )
         SetOneHeadingInclusion( m_Headings[ i ], upToLevel );
     }
 
-    // Recreate model and display selected headings
-    CreateTOCModel();
-    if ( ui.cbTOCItemsOnly->checkState() == Qt::Checked ) 
-    {
-        RemoveExcludedItems( m_TableOfContents.invisibleRootItem() );
-    }
-    UpdateTreeViewDisplay();       
+    RefreshTOCModelDisplay();
 }
 
 
@@ -654,6 +753,14 @@ void HeadingSelector::UnlockHTMLResources()
 
 void HeadingSelector::Rename()
 {
+    if (!ui.tvTOCDisplay->selectionModel()->hasSelection()) {
+        return;
+    }
+
+    if (ui.tvTOCDisplay->selectionModel()->selectedRows(0).count() > 1) {
+        return;
+    }
+
     ui.tvTOCDisplay->edit(ui.tvTOCDisplay->currentIndex());
 }
 
@@ -705,10 +812,13 @@ void HeadingSelector::ConnectSignalsToSlots()
              this,               SLOT( SelectHeadingLevelInclusion( const QString& ) )
              );
 
+    connect(ui.left,             SIGNAL(clicked()), this, SLOT(DecreaseHeadingLevel()));
+    connect(ui.right,            SIGNAL(clicked()), this, SLOT(IncreaseHeadingLevel()));
+    connect(ui.rename,           SIGNAL(clicked()), this, SLOT(Rename()));
+
     connect(ui.tvTOCDisplay,     SIGNAL(customContextMenuRequested(const QPoint&)),
             this,                SLOT(  OpenContextMenu(                  const QPoint&)));
     connect(m_Rename,            SIGNAL(triggered()), this, SLOT(Rename()));
-
 }
 
 

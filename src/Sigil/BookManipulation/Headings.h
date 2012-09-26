@@ -96,7 +96,6 @@ public:
     static QList< Heading > GetFlattenedHeadings( const QList< Heading > &headings );       
 
 private:
-
     // Flattens the provided heading node and its children
     // into a list and returns it
     static QList< Heading > FlattenHeadingNode( Heading heading );   

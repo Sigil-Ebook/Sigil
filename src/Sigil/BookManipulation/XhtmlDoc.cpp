@@ -561,7 +561,6 @@ XhtmlDoc::WellFormedError XhtmlDoc::WellFormedErrorForSource( const QString &sou
 }
 
 
-
 // This only exist because of a bug in Apple's GCC.
 // It has problems with templates in default arguments.
 xc::DOMElement* XhtmlDoc::CreateElementInDocument( 
@@ -571,7 +570,6 @@ xc::DOMElement* XhtmlDoc::CreateElementInDocument(
 {
     return CreateElementInDocument( tag_name, namespace_name, document, QHash< QString, QString >() );
 }
-
 
 
 xc::DOMElement* XhtmlDoc::CreateElementInDocument( 
@@ -590,6 +588,23 @@ xc::DOMElement* XhtmlDoc::CreateElementInDocument(
     return element;
 }
 
+
+xc::DOMElement* XhtmlDoc::RenameElementInDocument(xc::DOMDocument &document, xc::DOMNode &node, QString tag_name)
+{
+    xc::DOMElement* element = static_cast< xc::DOMElement* >( &node ); 
+
+    xc::DOMElement *new_element = CreateElementInDocument(tag_name, XtoQ(element->getNamespaceURI()), document, GetNodeAttributes(node));
+
+    // Move all the children
+    while (node.hasChildNodes()) {
+        new_element->appendChild(element->getFirstChild());
+    }
+
+    // Replace the old node with the new node
+    node.getParentNode()->replaceChild(new_element, element);
+
+    return new_element;
+}
 
 
 // Accepts a string with HTML and returns the text

@@ -51,6 +51,9 @@ public:
     ~HeadingSelector();
 
 private slots:
+    void DecreaseHeadingLevel();
+    void IncreaseHeadingLevel();
+
     void OpenContextMenu(const QPoint &point);
 
     void Rename();
@@ -77,6 +80,13 @@ private slots:
     void SelectHeadingLevelInclusion( const QString& heading_level );
 
 private:
+    void ExpandChildren(QStandardItem *item);
+
+    int GetAbsoluteRowForIndex(QModelIndex current_index);
+    QModelIndex SelectAbsoluteRow(int row);
+
+    void ChangeHeadingLevel(int change_amount);
+
     void CreateContextMenuActions();
     void SetupContextMenu(const QPoint &point);
 
@@ -100,6 +110,8 @@ private:
     // Creates the model that is displayed
     // in the tree view 
     void CreateTOCModel();
+
+    void RefreshTOCModelDisplay();
 
     // Inserts the specified heading into the model
     // as the child of the specified parent item;

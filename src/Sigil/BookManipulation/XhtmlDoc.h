@@ -134,6 +134,8 @@ public:
         xc::DOMDocument &document,
         QHash< QString, QString > attributes );
 
+    static xc::DOMElement* RenameElementInDocument(xc::DOMDocument &document, xc::DOMNode &node, QString tag_name);
+
     // Accepts a string with HTML and returns the text
     // in that HTML fragment. For instance: 
     //   <h1>Hello <b>Qt</b>&nbsp;this is great</h1>

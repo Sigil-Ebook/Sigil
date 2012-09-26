@@ -6,47 +6,111 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>408</width>
-    <height>328</height>
+    <width>611</width>
+    <height>445</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Heading Selector</string>
+   <string>Generate Table Of Contents</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
-    <widget class="QTreeView" name="tvTOCDisplay">
-     <property name="editTriggers">
-      <set>QAbstractItemView::DoubleClicked</set>
-     </property>
-     <property name="tabKeyNavigation">
-      <bool>false</bool>
-     </property>
-     <property name="showDropIndicator" stdset="0">
-      <bool>false</bool>
-     </property>
-     <property name="dragEnabled">
-      <bool>false</bool>
-     </property>
-     <property name="alternatingRowColors">
-      <bool>true</bool>
-     </property>
-     <property name="indentation">
-      <number>15</number>
-     </property>
-     <property name="uniformRowHeights">
-      <bool>true</bool>
-     </property>
-     <property name="animated">
-      <bool>true</bool>
-     </property>
-    </widget>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QTreeView" name="tvTOCDisplay">
+       <property name="editTriggers">
+        <set>QAbstractItemView::DoubleClicked</set>
+       </property>
+       <property name="tabKeyNavigation">
+        <bool>false</bool>
+       </property>
+       <property name="showDropIndicator" stdset="0">
+        <bool>false</bool>
+       </property>
+       <property name="dragEnabled">
+        <bool>false</bool>
+       </property>
+       <property name="alternatingRowColors">
+        <bool>true</bool>
+       </property>
+       <property name="indentation">
+        <number>15</number>
+       </property>
+       <property name="uniformRowHeights">
+        <bool>true</bool>
+       </property>
+       <property name="animated">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <widget class="QPushButton" name="rename">
+         <property name="toolTip">
+          <string>Change the title attribute of the heading in the document
+and the name of the TOC entry.</string>
+         </property>
+         <property name="text">
+          <string>Rename</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_2">
+         <item>
+          <widget class="QToolButton" name="left">
+           <property name="toolTip">
+            <string>Decrease the heading level of the selected entry by 1 in the document
+and in the TOC.</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="arrowType">
+            <enum>Qt::LeftArrow</enum>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QToolButton" name="right">
+           <property name="toolTip">
+            <string>Increase the heading level of the selected entry by 1 in the document 
+and in the TOC.</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="arrowType">
+            <enum>Qt::RightArrow</enum>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <spacer name="verticalSpacer">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </item>
+    </layout>
    </item>
    <item>
     <widget class="QCheckBox" name="cbTOCItemsOnly">
      <property name="toolTip">
-      <string>If this is checked, only the items that will end up 
-in the Table Of Contents are displayed in the list</string>
+      <string>Only display the items that will be added to the Table Of Contents.
+Check or uncheck an entry to determine if it will be added to the TOC.</string>
      </property>
      <property name="text">
       <string>Show TOC items only</string>
@@ -68,7 +132,8 @@ in the Table Of Contents are displayed in the list</string>
       <enum>Qt::ClickFocus</enum>
      </property>
      <property name="toolTip">
-      <string>Select which headings are included in the TOC</string>
+      <string>Quickly mark which headings are included in the TOC.
+You can then check or uncheck individual headings in the list above.</string>
      </property>
      <property name="sizeAdjustPolicy">
       <enum>QComboBox::AdjustToContents</enum>
