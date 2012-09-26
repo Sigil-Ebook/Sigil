@@ -1107,13 +1107,6 @@ void MainWindow::MergeResources(QList <Resource *> resources)
     SaveTabData();
     m_Book->SaveAllResourcesToDisk();
 
-    QApplication::restoreOverrideCursor();
-    if ( !m_TabManager.IsAllTabDataWellFormed() ) {
-        ShowMessageOnCurrentStatusBar(tr("Merge cancelled due to XML not well formed"));
-        return;
-    }
-    QApplication::setOverrideCursor(Qt::WaitCursor);
-
     // Close all tabs being updated to prevent BV overwriting the new data
     foreach (Resource *resource, resources) {
         if (!m_TabManager.CloseTabForResource(*resource)) {
@@ -1162,10 +1155,6 @@ void MainWindow::LinkStylesheetsToResources(QList <Resource *> resources)
 
     // Save the tab data and recheck if data is still well formed
     SaveTabData();
-    if ( !m_TabManager.IsAllTabDataWellFormed() ) {
-        ShowMessageOnCurrentStatusBar(tr("Link Stylesheets cancelled due to XML not well formed"));
-        return;
-    }
 
     // Choose which stylesheets to link
     LinkStylesheets link( GetStylesheetsMap( resources ), this );
@@ -1300,10 +1289,6 @@ void MainWindow::GenerateToc()
 
     QList<Resource *> resources = m_BookBrowser->AllHTMLResources();
     if (resources.isEmpty()) {
-        return;
-    }
-    if ( !m_TabManager.IsAllTabDataWellFormed() ) {
-        ShowMessageOnCurrentStatusBar(tr("Generate TOC cancelled due to XML not well formed"));
         return;
     }
 
