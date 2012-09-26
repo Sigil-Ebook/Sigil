@@ -447,7 +447,7 @@ void MainWindow::OpenRecentFile()
 bool MainWindow::Save()
 {
     if ( !m_TabManager.IsAllTabDataWellFormed() ) {
-        ShowMessageOnCurrentStatusBar(tr("Save cancelled due to XML not well formed"));
+        ShowMessageOnCurrentStatusBar(tr("Save cancelled due to XML not well formed."));
         return false;
     }
 
@@ -472,7 +472,7 @@ bool MainWindow::Save()
 bool MainWindow::SaveAs()
 {
     if ( !m_TabManager.IsAllTabDataWellFormed() ) {
-        ShowMessageOnCurrentStatusBar(tr("Save cancelled due to XML not well formed"));
+        ShowMessageOnCurrentStatusBar(tr("Save cancelled due to XML not well formed."));
         return false;
     }
 
@@ -528,7 +528,7 @@ bool MainWindow::SaveAs()
 bool MainWindow::SaveACopy()
 {
     if ( !m_TabManager.IsAllTabDataWellFormed() ) {
-        ShowMessageOnCurrentStatusBar(tr("Save cancelled due to XML not well formed"));
+        ShowMessageOnCurrentStatusBar(tr("Save cancelled due to XML not well formed."));
         return false;
     }
 
@@ -704,7 +704,7 @@ void MainWindow::IndexEditorDialog(IndexEditorModel::indexEntry* index_entry)
 void MainWindow::CreateIndex()
 {
     if ( !m_TabManager.IsAllTabDataWellFormed() ) {
-        ShowMessageOnCurrentStatusBar(tr("Create Index cancelled due to XML not well formed"));
+        ShowMessageOnCurrentStatusBar(tr("Create Index cancelled due to XML not well formed."));
         return;
     }
     SaveTabData();
@@ -837,7 +837,7 @@ bool MainWindow::DeleteCSSStyles(const QString &filename, QList<CSSInfo::CSSSele
 {
     // Save our tabs data as we will be modifying the underlying resources
     if ( !m_TabManager.IsAllTabDataWellFormed() ) {
-        ShowMessageOnCurrentStatusBar(tr("Delete CSS Style cancelled due to XML not well formed"));
+        ShowMessageOnCurrentStatusBar(tr("Delete CSS Style cancelled due to XML not well formed."));
         return false;
     }
     SaveTabData();
@@ -1096,7 +1096,7 @@ void MainWindow::MergeResources(QList <Resource *> resources)
 
     // Check if data is well formed before saving
     if ( !m_TabManager.IsAllTabDataWellFormed() ) {
-        ShowMessageOnCurrentStatusBar(tr("Merge cancelled due to XML not well formed"));
+        ShowMessageOnCurrentStatusBar(tr("Merge cancelled due to XML not well formed."));
         return;
     }
 
@@ -1149,7 +1149,7 @@ void MainWindow::LinkStylesheetsToResources(QList <Resource *> resources)
 
     // Check if data is well formed before saving
     if ( !m_TabManager.IsAllTabDataWellFormed() ) {
-        ShowMessageOnCurrentStatusBar(tr("Link Stylesheets cancelled due to XML not well formed"));
+        ShowMessageOnCurrentStatusBar(tr("Link Stylesheets cancelled due to XML not well formed."));
         return;
     }
 
@@ -1281,7 +1281,7 @@ void MainWindow::RemoveResources(QList<Resource *> resources, bool prompt_user)
 void MainWindow::GenerateToc()
 {
     if ( !m_TabManager.IsAllTabDataWellFormed() ) {
-        ShowMessageOnCurrentStatusBar(tr("Generate TOC cancelled due to XML not well formed"));
+        ShowMessageOnCurrentStatusBar(tr("Generate TOC cancelled due to XML not well formed."));
         return;
     }
     SaveTabData();
@@ -1481,7 +1481,7 @@ void MainWindow::SaveTabData()
 void MainWindow::MetaEditorDialog()
 {
     if ( !m_TabManager.IsAllTabDataWellFormed() ) {
-        ShowMessageOnCurrentStatusBar(tr("Meta Editor cancelled due to XML not well formed"));
+        ShowMessageOnCurrentStatusBar(tr("Meta Editor cancelled due to XML not well formed."));
         return;
     }
 
@@ -2278,7 +2278,7 @@ void MainWindow::SplitOnSGFSectionMarkers()
     
     // Check if data is well formed before saving
     if ( !m_TabManager.IsAllTabDataWellFormed() ) {
-        ShowMessageOnCurrentStatusBar(tr("Split cancelled due to XML not well formed"));
+        ShowMessageOnCurrentStatusBar(tr("Split cancelled due to XML not well formed."));
         return;
     }
 
@@ -2538,7 +2538,7 @@ void MainWindow::LoadFile( const QString &fullfilepath )
         QApplication::restoreOverrideCursor();
 
         UpdateUiWithCurrentFile( fullfilepath );
-        statusBar()->showMessage( tr( "File loaded" ), STATUSBAR_MSG_DISPLAY_TIME );
+        statusBar()->showMessage( tr( "File loaded." ), STATUSBAR_MSG_DISPLAY_TIME );
     }
 
     catch ( const FileEncryptedWithDrm& )
@@ -2596,7 +2596,7 @@ bool MainWindow::SaveFile( const QString &fullfilepath, bool update_current_file
             m_Book->SetModified( false );
             UpdateUiWithCurrentFile( fullfilepath );
         }
-        statusBar()->showMessage( tr( "File saved" ), STATUSBAR_MSG_DISPLAY_TIME );
+        statusBar()->showMessage( tr( "File saved." ), STATUSBAR_MSG_DISPLAY_TIME );
     }
     catch ( const ExceptionBase &exception )
     {

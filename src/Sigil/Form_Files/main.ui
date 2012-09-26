@@ -941,12 +941,12 @@
      <normaloff>:/main/split-section_22px.png</normaloff>:/main/split-section_22px.png</iconset>
    </property>
    <property name="text">
-    <string>Split File</string>
+    <string>Split At Cursor</string>
    </property>
    <property name="toolTip">
-    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Split File&lt;/b&gt;&lt;/p&gt;
+    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Split At Cursor&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Split the current file into two files, using the end of the current paragraph as the dividing point.&lt;/p&gt;</string>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Split the current file into two files using your cursor location as the dividing point.&lt;/p&gt;</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+Return</string>
@@ -1920,7 +1920,7 @@
     <bool>true</bool>
    </property>
    <property name="text">
-    <string>Tokenise Spaces When Opening Find</string>
+    <string>Tokenise/Escape When Opening Find</string>
    </property>
   </action>
   <action name="actionGoToLinkOrStyle">

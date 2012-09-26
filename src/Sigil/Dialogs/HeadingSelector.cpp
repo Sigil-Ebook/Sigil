@@ -227,13 +227,14 @@ void HeadingSelector::UpdateOneHeadingElement(QStandardItem *item)
 
     if (heading != NULL) {
         // Update heading inclusion: if a heading element
-        // has the NOT_IN_TOC_CLASS class, then it's not in the TOC
+        // has one of the SIGIL_NOT_IN_TOC_CLASS classes, then it's not in the TOC
         QString class_attribute = XtoQ(heading->element->getAttribute(QtoX("class")))
-                                  .remove(NOT_IN_TOC_CLASS)
+                                  .remove(SIGIL_NOT_IN_TOC_CLASS)
+                                  .remove(OLD_SIGIL_NOT_IN_TOC_CLASS)
                                   .simplified();
 
         if (!heading->include_in_toc) {
-            class_attribute = class_attribute.append(" " + NOT_IN_TOC_CLASS).simplified();
+            class_attribute = class_attribute.append(" " + SIGIL_NOT_IN_TOC_CLASS).simplified();
         }
 
         if (!class_attribute.isEmpty()) {

@@ -38,7 +38,8 @@ using boost::make_tuple;
 
 static const QStringList HEADING_TAGS = QStringList() << "h1" << "h2" << "h3" << "h4" << "h5" << "h6";
 
-const QString NOT_IN_TOC_CLASS = "sigilNotInTOC";
+const QString SIGIL_NOT_IN_TOC_CLASS = "sigil_not_in_toc";
+const QString OLD_SIGIL_NOT_IN_TOC_CLASS = "sigilNotInTOC";
 
 
 // Returns a list of headings from the provided XHTML source;
@@ -98,8 +99,9 @@ QList< Headings::Heading > Headings::GetHeadingListForOneFile( HTMLResource* htm
                                  ).simplified();
 
         heading.level          = QString( XtoQ( element.getTagName() ).at( 1 ) ).toInt();
-        heading.include_in_toc = !XtoQ( element.getAttribute( QtoX( "class" ) ) )
-                                 .contains( NOT_IN_TOC_CLASS );
+        QString classes        = XtoQ( element.getAttribute( QtoX( "class" ) ) );
+        heading.include_in_toc = !(classes.contains(SIGIL_NOT_IN_TOC_CLASS) || 
+                                    classes.contains (OLD_SIGIL_NOT_IN_TOC_CLASS));
 
         if ( heading.include_in_toc || include_unwanted_headings )
 

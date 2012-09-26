@@ -46,8 +46,8 @@ Error correction when loading a file will always be performed.</string>
         <widget class="QRadioButton" name="CleanLevelPrettyPrint">
          <property name="toolTip">
           <string>Use this option if you want Sigil to automatically
-format your HTML source code to look nice, but 
-do not want it to automatically clean your source code.
+format your HTML source code to look nice, and close missing end tags,
+but do not want it to automatically clean your source code.
 
 Error correction when loading a file will always be performed.</string>
          </property>
