@@ -24,6 +24,7 @@
 #include <QtCore/QtCore>
 #include <QtCore/QFileInfo>
 #include <QtCore/QFutureSynchronizer>
+#include <QtGui/QApplication>
 #include <QtGui/QProgressDialog>
 
 #include "BookManipulation/Book.h"
@@ -646,9 +647,12 @@ QStringList Book::GetStylesheetsInHTMLFile(HTMLResource *html_resource)
     return XhtmlDoc::GetLinkedStylesheets(html_resource->GetText());
 }
 
-Resource* Book::MergeResources( QList<Resource *> resources, QProgressDialog* progress )
+Resource* Book::MergeResources( QList<Resource *> resources )
 {
+    QProgressDialog progress(QObject::tr( "Merging Files.." ), 0, 0, resources.count(), QApplication::activeWindow());
+    progress.setMinimumDuration(PROGRESS_BAR_MINIMUM_DURATION);
     int progress_value = 0;
+
     Resource *sink_resource = resources.takeFirst();
     HTMLResource &sink_html_resource = *qobject_cast<HTMLResource *>(sink_resource);
     
@@ -673,7 +677,7 @@ Resource* Book::MergeResources( QList<Resource *> resources, QProgressDialog* pr
         // Now iterate across all the other resources merging them into this resource
         foreach (Resource *source_resource, resources) {
             // Set progress value and ensure dialog has time to display when doing extensive updates
-            progress->setValue(progress_value++);
+            progress.setValue(progress_value++);
             qApp->processEvents(QEventLoop::ExcludeUserInputEvents);
 
             xc::DOMDocumentFragment *body_children_fragment = NULL;
@@ -713,7 +717,7 @@ Resource* Book::MergeResources( QList<Resource *> resources, QProgressDialog* pr
             source_resource->Delete();
         }
     }
-    progress->setValue(progress_value++);
+    progress.setValue(progress_value++);
     qApp->processEvents(QEventLoop::ExcludeUserInputEvents);
 
     // It is the user's responsibility to ensure that all ids used across the two merged files are unique.

@@ -31,7 +31,6 @@
 #include <QtCore/QVariant>
 #include "BookManipulation/Metadata.h"
 
-class QProgressDialog;
 class CSSResource;
 class SVGResource;
 class FolderKeeper;
@@ -226,7 +225,7 @@ public:
      * Merges two or more html resources together in order into the first resource in the list.
      * If the merge fails, returns resource which caused the failure, otherwise returns null.
      */
-    Resource* MergeResources( QList<Resource*> resources, QProgressDialog* progress );
+    Resource* MergeResources( QList<Resource*> resources );
 
     /**
      * Makes sure that all the resources have saved the state of 

@@ -23,6 +23,7 @@
 #include <boost/shared_ptr.hpp>
 
 #include <QtCore/QtCore>
+#include <QtGui/QApplication>
 #include <QtGui/QProgressDialog>
 
 #include "ResourceObjects/HTMLResource.h"
@@ -44,7 +45,7 @@ bool Index::BuildIndex(QList<HTMLResource*> html_resources)
     IndexEntries::instance()->Clear();
 
     // Display progress dialog
-    QProgressDialog progress(QObject::tr("Creating Index..."), QObject::tr("Cancel"), 0, html_resources.count());
+    QProgressDialog progress(QObject::tr("Creating Index..."), QObject::tr("Cancel"), 0, html_resources.count(), QApplication::activeWindow());
     progress.setMinimumDuration(0);
     int progress_value = 0;
     progress.setValue(progress_value);

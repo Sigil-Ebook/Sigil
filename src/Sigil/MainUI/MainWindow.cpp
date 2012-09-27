@@ -1156,11 +1156,9 @@ void MainWindow::MergeResources(QList <Resource *> resources)
     }
 
     // Display progress dialog
-    QProgressDialog progress(QObject::tr( "Merging Files.." ), 0, 0, resources.count(), this);
-    progress.setMinimumDuration(PROGRESS_BAR_MINIMUM_DURATION);
     Resource *resource_to_open = resources.first();
 
-    Resource* failed_resource = m_Book->MergeResources(resources, &progress);
+    Resource* failed_resource = m_Book->MergeResources(resources);
 
     if (failed_resource != NULL) {
         QApplication::restoreOverrideCursor();
