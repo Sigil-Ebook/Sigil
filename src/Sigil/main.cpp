@@ -134,10 +134,15 @@ void MessageHandler( QtMsgType type, const char *message )
                         QTimer::singleShot(RETRY_DELAY_MS, bookViewPreview, SLOT(copy()));
                         break;
                     }
-                    // Same issue can happen on a QLineEdit such as in the Find/Replace combos
+                    // Same issue can happen on a QLineEdit / QComboBox
                     QLineEdit *lineEdit = dynamic_cast<QLineEdit*>(widget);
                     if (lineEdit) {
                         QTimer::singleShot(RETRY_DELAY_MS, lineEdit, SLOT(copy()));
+                        break;
+                    }
+                    QComboBox *comboBox = dynamic_cast<QComboBox*>(widget);
+                    if (comboBox) {
+                        QTimer::singleShot(RETRY_DELAY_MS, comboBox->lineEdit(), SLOT(copy()));
                         break;
                     }
                 }
