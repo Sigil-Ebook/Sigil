@@ -43,7 +43,7 @@
 #include "Tabs/ContentTab.h"
 
 const int MAX_RECENT_FILES = 5;
-const int STATUSBAR_MSG_DISPLAY_TIME = 20000;
+const int STATUSBAR_MSG_DISPLAY_TIME = 7000;
 
 class QComboBox;
 class QLabel;
