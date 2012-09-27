@@ -1227,12 +1227,11 @@ void FindReplace::TokeniseSelection()
 	QString new_text = TokeniseForRegex( text, true );
 
     if (ui.cbFind->lineEdit()->hasSelectedText()) {
-        int selectionStart = ui.cbFind->lineEdit()->selectionStart();
-        int selectionLength = ui.cbFind->lineEdit()->selectedText().length();
-        text = ui.cbFind->lineEdit()->text();
-        QString all_text = text.left(selectionStart) + new_text + text.right(text.length() - selectionLength - selectionStart);
+        int selection_start = ui.cbFind->lineEdit()->selectionStart();
+        int selection_length = ui.cbFind->lineEdit()->selectedText().length();
+        QString all_text = text.left(selection_start) + new_text + text.right(text.length() - selection_length - selection_start);
 	    ui.cbFind->setEditText( all_text );
-        ui.cbFind->lineEdit()->setSelection(selectionStart, new_text.length());
+        ui.cbFind->lineEdit()->setSelection(selection_start, new_text.length());
     }
     else {
 	    ui.cbFind->setEditText( new_text );
