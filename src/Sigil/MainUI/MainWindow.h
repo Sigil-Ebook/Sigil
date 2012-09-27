@@ -44,7 +44,7 @@
 #include "Tabs/ContentTab.h"
 
 const int MAX_RECENT_FILES = 5;
-const int STATUSBAR_MSG_DISPLAY_TIME = 20000;
+const int STATUSBAR_MSG_DISPLAY_TIME = 7000;
 
 class QComboBox;
 class QLabel;
@@ -192,6 +192,9 @@ public slots:
      * @note This function is thread-safe.
      */
     static void ShowMessageOnCurrentStatusBar( const QString &message,
+                                               int millisecond_duration = STATUSBAR_MSG_DISPLAY_TIME );
+
+    void ShowMessageOnStatusBar( const QString &message,
                                                int millisecond_duration = STATUSBAR_MSG_DISPLAY_TIME );
 
     void OpenFilename( QString filename, int line = -1 );

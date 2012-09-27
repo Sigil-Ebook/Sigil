@@ -639,6 +639,8 @@ QStringList BookBrowser::AddExisting(Resource::ResourceType add_resource_type)
     emit BookContentModified();
     Refresh();
 
+    emit ShowStatusMessageRequest(tr("File(s) added."));
+
     return added_files;
 }
 

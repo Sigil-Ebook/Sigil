@@ -757,6 +757,11 @@ bool Book::HasObfuscatedFonts() const
     return false;
 }
 
+void Book::ResourceUpdatedFromDiskStatus(const Resource &resource)
+{
+    QString message = QString("File ") + resource.Filename() + " updated from disk.";
+    emit ShowStatusMessageRequest(message, 10000);
+}
 
 void Book::SetModified( bool modified )
 {

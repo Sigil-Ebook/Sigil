@@ -200,6 +200,8 @@ void Resource::ResourceFileModified()
         if ( LoadFromDisk() ) {
             // will trigger marking the book as modified
             emit ResourceUpdatedFromDisk();
+            // will trigger a status bar message
+            emit ResourceUpdatedFromDiskStatus(*this);
         }
 
         // will trigger updates in other resources that link to this resource
