@@ -1864,7 +1864,7 @@
   </action>
   <action name="actionAddToIndex">
    <property name="text">
-    <string>Add To Index</string>
+    <string>Add To Index Editor</string>
    </property>
    <property name="toolTip">
     <string>Add the selected text to the Index Editor.</string>

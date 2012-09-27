@@ -1640,9 +1640,9 @@ void CodeViewEditor::PasteClipEntry(ClipEditorModel::clipEntry *clip)
         return;
     }
 
-    // Remove any existing tags before adding in clip (save them if Shift not depressed)
-    bool isShift = QApplication::keyboardModifiers() & Qt::ControlModifier;
-    if (!isShift) {
+    // Remove any existing tags before adding in clip if Control is active
+    bool isCtrl = QApplication::keyboardModifiers() & Qt::ControlModifier;
+    if (isCtrl) {
         CutCodeTags();
     }
 
