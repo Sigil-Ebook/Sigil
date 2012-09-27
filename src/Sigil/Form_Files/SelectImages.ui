@@ -153,6 +153,9 @@ add to your book and then insert into your document.</string>
        <property name="text">
         <string/>
        </property>
+       <property name="textInteractionFlags">
+        <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
+       </property>
       </widget>
      </item>
     </layout>

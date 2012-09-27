@@ -370,7 +370,7 @@ void MainWindow::New()
 #endif
     }
 
-    statusBar()->showMessage(("New file created."), 5000);
+    ShowMessageOnCurrentStatusBar(tr("New file created."));
 }
 
 
@@ -904,7 +904,7 @@ void MainWindow::InsertImageDialog()
     statusBar()->clearMessage();
 
     if (!flow_tab || !flow_tab->InsertImageEnabled()) {
-        statusBar()->showMessage( tr( "You cannot insert an image at this position." ), STATUSBAR_MSG_DISPLAY_TIME );
+        ShowMessageOnCurrentStatusBar(tr("You cannot insert an image at this position."));
         return;
     }
 
@@ -1003,7 +1003,7 @@ void MainWindow::InsertId()
     statusBar()->clearMessage();
 
     if (!flow_tab || !flow_tab->InsertIdEnabled()) {
-        statusBar()->showMessage( tr( "You cannot insert an id at this position." ), STATUSBAR_MSG_DISPLAY_TIME );
+        ShowMessageOnCurrentStatusBar(tr("You cannot insert an id at this position."));
         return;
     }
 
