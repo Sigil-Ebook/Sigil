@@ -36,6 +36,7 @@
 #include "MainUI/FindReplace.h"
 #include "MainUI/NCXModel.h"
 #include "Misc/CSSInfo.h"
+#include "Misc/PasteTarget.h"
 #include "Misc/SettingsStore.h"
 #include "MiscEditors/ClipEditorModel.h"
 #include "MiscEditors/IndexEditorModel.h"
@@ -317,6 +318,21 @@ private slots:
     void InsertId();
 
     void InsertHyperlink();
+
+    /**
+     * Track the last active control that had focus in the MainWindow that
+     * is a valid PasteTarget.
+     */
+    void ApplicationFocusChanged( QWidget *old, QWidget *now );
+
+    /**
+     * Some controls (CodeView, BookView and combo boxes in F&R) inherit PasteTarget
+     * to allow various modeless/popup dialogs like Clipboard History, Clip Editor and
+     * Insert Special Characters to insert text into the focused "PasteTarget" control.
+     * These two slots will delegate the relevant signal to the current target if any.
+     */
+    void PasteTextIntoCurrentTarget( const QString &text );
+    void PasteClipEntriesIntoCurrentTarget( const QList<ClipEditorModel::clipEntry *> &clips );
 
     /**
      * Implements the set BookView functionality.
@@ -906,6 +922,11 @@ private:
     LocationBookmark *m_LinkOrStyleBookmark;
 
     ClipboardHistorySelector *m_ClipboardHistorySelector;
+
+    /**
+     * The last widget in this window that had focus that inherited PasteTarget.
+     */
+    PasteTarget *m_LastPasteTarget;
 
     /**
      * Holds all the widgets Qt Designer created for us.

@@ -660,6 +660,16 @@ void BookViewEditor::openWithEditor()
     }
 }
 
+void BookViewEditor::PasteText(const QString &text)
+{
+    InsertHtml(text);
+}
+
+void BookViewEditor::PasteClipEntries(const QList<ClipEditorModel::clipEntry *> &clips)
+{
+    // This operation is not currently supported in BookView.
+}
+
 void BookViewEditor::OpenContextMenu( const QPoint &point )
 {
     if ( !SuccessfullySetupContextMenu( point ) )

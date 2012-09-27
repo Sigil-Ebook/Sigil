@@ -50,7 +50,7 @@ public slots:
     void RestoreClipboardState();
 
 signals:
-    void PasteFromClipboardRequest();
+    void PasteRequest(const QString&);
 
 protected:
     bool eventFilter(QObject *obj, QEvent *ev);

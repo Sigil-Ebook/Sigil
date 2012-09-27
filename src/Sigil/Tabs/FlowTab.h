@@ -247,7 +247,6 @@ public slots:
      */
     void Print();
 
-    void PasteClipEntries(QList<ClipEditorModel::clipEntry *> clips);
 
     /**
      * Qt has some nasty inconsistencies on when to focus is fired. In the situation
@@ -315,9 +314,8 @@ public slots:
     QString GetAttributeId();
     QString GetAttributeHref();
 
-    void InsertText(QString text);
-    bool InsertId(QString id);
-    bool InsertHyperlink(QString url);
+    bool InsertId(const QString &id);
+    bool InsertHyperlink(const QString &url);
     
     void GoToLinkOrStyle();
 

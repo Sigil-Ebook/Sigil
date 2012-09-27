@@ -176,12 +176,6 @@ void TextTab::DeleteLine()
 }
 
 
-void TextTab::PasteClipEntries(QList<ClipEditorModel::clipEntry *> clips)
-{
-    // Insert text even if no focus to allow Paste
-    m_wCodeView.PasteClipEntries(clips);
-}
-
 void TextTab::CutCodeTags()
 {
 }

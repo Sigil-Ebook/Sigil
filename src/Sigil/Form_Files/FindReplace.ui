@@ -121,7 +121,7 @@
          </widget>
         </item>
         <item row="0" column="1">
-         <widget class="QComboBox" name="cbFind">
+         <widget class="PasteTargetComboBox" name="cbFind">
           <property name="editable">
            <bool>true</bool>
           </property>
@@ -185,7 +185,7 @@
          </widget>
         </item>
         <item row="1" column="1">
-         <widget class="QComboBox" name="cbReplace">
+         <widget class="PasteTargetComboBox" name="cbReplace">
           <property name="editable">
            <bool>true</bool>
           </property>
@@ -306,6 +306,13 @@
   <tabstop>replaceAll</tabstop>
   <tabstop>close</tabstop>
  </tabstops>
+ <customwidgets>
+  <customwidget>
+   <class>PasteTargetComboBox</class>
+   <extends>QComboBox</extends>
+   <header>Misc/PasteTargetComboBox.h</header>
+  </customwidget>
+ </customwidgets>
  <resources>
   <include location="../Resource_Files/main/main.qrc"/>
  </resources>

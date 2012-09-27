@@ -102,6 +102,14 @@ signals:
     void OpenSearchEditorRequest(SearchEditorModel::searchEntry *search_entry = NULL);
 
     void ShowMessageRequest(QString message);
+    
+    /**
+     * Emitted when we want to do some operations with the clipboard
+     * to paste things, but restoring state afterwards so that the
+     * Clipboard History and current clipboard is left unaffected.
+     */
+    void ClipboardSaveRequest();
+    void ClipboardRestoreRequest();
 
 protected:
     void keyPressEvent(QKeyEvent *event);

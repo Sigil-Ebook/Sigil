@@ -94,6 +94,7 @@ set( QOBJECT_HEADERS
     MainUI/ValidationResultsView.h
     Misc/AppEventFilter.h
     Misc/CSSInfo.h
+    Misc/PasteTargetComboBox.h
     Misc/SettingsStore.h
     Misc/UILanguage.h
     Misc/UpdateChecker.h 
@@ -287,6 +288,9 @@ set( MISC_FILES
     Misc/HTMLEncodingResolver.h
     Misc/HTMLSpellCheck.cpp
     Misc/HTMLSpellCheck.h
+    Misc/PasteTargetComboBox.cpp
+    Misc/PasteTargetComboBox.h
+    Misc/PasteTarget.h
     Misc/RasterizeImageResource.cpp
     Misc/RasterizeImageResource.h
     Misc/SearchOperations.cpp

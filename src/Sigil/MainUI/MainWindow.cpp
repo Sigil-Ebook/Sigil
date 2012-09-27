@@ -132,7 +132,8 @@ MainWindow::MainWindow( const QString &openfilepath, QWidget *parent, Qt::WFlags
     m_SelectCharacter(new SelectCharacter(this)),
     m_preserveHeadingAttributes( true ),
     m_LinkOrStyleBookmark(new LocationBookmark()),
-    m_ClipboardHistorySelector(new ClipboardHistorySelector(this))
+    m_ClipboardHistorySelector(new ClipboardHistorySelector(this)),
+    m_LastPasteTarget(NULL)
 {
     ui.setupUi( this );
 
@@ -1046,6 +1047,39 @@ void MainWindow::InsertHyperlink()
     }
 }
 
+void MainWindow::ApplicationFocusChanged( QWidget *old, QWidget *now )
+{
+    QWidget *window = QApplication::activeWindow();
+    if (!window || !now) {
+        // Nothing to do - application is exiting
+        return;
+    }
+    // We are only interested in focus events that take place in this MainWindow
+    if (window == this) {
+        m_LastPasteTarget = dynamic_cast<PasteTarget*>(now);
+    }
+}
+
+void MainWindow::PasteTextIntoCurrentTarget(const QString &text)
+{
+    if (m_LastPasteTarget == NULL) {
+        ShowMessageOnCurrentStatusBar(tr("Select the destination to paste into first."));
+        return;
+    }
+    ShowMessageOnCurrentStatusBar(QString());
+    m_LastPasteTarget->PasteText(text);
+}
+
+void MainWindow::PasteClipEntriesIntoCurrentTarget(const QList<ClipEditorModel::clipEntry *> &clips)
+{
+    if (m_LastPasteTarget == NULL) {
+        ShowMessageOnCurrentStatusBar(tr("Select the destination to paste into first."));
+        return;
+    }
+    ShowMessageOnCurrentStatusBar(QString());
+    m_LastPasteTarget->PasteClipEntries(clips);
+}
+
 void MainWindow::SetViewState(MainWindow::ViewState view_state)
 {
     if (view_state == MainWindow::ViewState_Unknown) {
@@ -1316,7 +1350,7 @@ void MainWindow::GenerateToc()
 void MainWindow::CreateHTMLTOC()
 {
     if ( !m_TabManager.IsAllTabDataWellFormed() ) {
-        ShowMessageOnCurrentStatusBar(tr("Create HTML TOC cancelled due to XML not well formed"));
+        ShowMessageOnCurrentStatusBar(tr("Create HTML TOC cancelled due to XML not well formed."));
         return;
     }
     SaveTabData();
@@ -2328,9 +2362,8 @@ void MainWindow::SplitOnSGFSectionMarkers()
 
 void MainWindow::ShowPasteClipboardHistoryDialog()
 {
-    // We only want to show the dialog if focus is in a content tab.
-    ContentTab *contentTab = &GetCurrentContentTab();
-    if ( !contentTab || !contentTab->hasFocus() ) {
+    // We only want to show the dialog if focus is in a control that can accept its content.
+    if (m_LastPasteTarget == NULL) {
         return;
     }
     m_ClipboardHistorySelector->exec();
@@ -3426,6 +3459,8 @@ void MainWindow::LoadInitialFile( const QString &openfilepath )
 
 void MainWindow::ConnectSignalsToSlots()
 {
+    connect( qApp, SIGNAL( focusChanged(QWidget*, QWidget*)  ), this, SLOT( ApplicationFocusChanged(QWidget*, QWidget*) ) );
+
     // Setup signal mapping for heading actions.
     connect( ui.actionHeading1, SIGNAL( triggered() ), m_headingMapper, SLOT( map() ) );
     m_headingMapper->setMapping( ui.actionHeading1, "1" );
@@ -3605,6 +3640,9 @@ void MainWindow::ConnectSignalsToSlots()
     connect(m_FindReplace, SIGNAL( ShowMessageRequest(QString) ),
             m_SearchEditor, SLOT( ShowMessage(QString)  ) );
 
+    connect( m_FindReplace,   SIGNAL( ClipboardSaveRequest() ),     m_ClipboardHistorySelector,  SLOT( SaveClipboardState() ) );
+    connect( m_FindReplace,   SIGNAL( ClipboardRestoreRequest() ),  m_ClipboardHistorySelector,  SLOT( RestoreClipboardState() ) );
+
     connect(m_SearchEditor, SIGNAL(LoadSelectedSearchRequest(      SearchEditorModel::searchEntry *)),
             m_FindReplace,   SLOT( LoadSearch(                     SearchEditorModel::searchEntry *)));
     connect(m_SearchEditor, SIGNAL(FindSelectedSearchRequest(      QList<SearchEditorModel::searchEntry *>)),
@@ -3615,6 +3653,13 @@ void MainWindow::ConnectSignalsToSlots()
             m_FindReplace,   SLOT( CountAllSearch(                 QList<SearchEditorModel::searchEntry *>)));
     connect(m_SearchEditor, SIGNAL(ReplaceAllSelectedSearchRequest(QList<SearchEditorModel::searchEntry *>)),
             m_FindReplace,   SLOT( ReplaceAllSearch(               QList<SearchEditorModel::searchEntry *>)));
+
+    connect( m_ClipboardHistorySelector, SIGNAL( PasteRequest(const QString&) ), this, SLOT( PasteTextIntoCurrentTarget(const QString&) ) );
+
+    connect( m_SelectCharacter, SIGNAL( SelectedCharacter(const QString&) ), this, SLOT( PasteTextIntoCurrentTarget(const QString&) ) );
+
+    connect( m_ClipEditor, SIGNAL( PasteSelectedClipRequest(QList<ClipEditorModel::clipEntry *>) ),
+             this,           SLOT( PasteClipEntriesIntoCurrentTarget(QList<ClipEditorModel::clipEntry *>) ) );
 
     connect( m_IndexEditor, SIGNAL( CreateIndexRequest() ),
              this,            SLOT( CreateIndex() ) );
@@ -3635,7 +3680,6 @@ void MainWindow::MakeTabConnections( ContentTab *tab )
         connect( ui.actionCopy,                     SIGNAL( triggered() ),  tab,   SLOT( Copy()                     ) );
         connect( ui.actionPaste,                    SIGNAL( triggered() ),  tab,   SLOT( Paste()                    ) );
         connect( ui.actionDeleteLine,               SIGNAL( triggered() ),  tab,   SLOT( DeleteLine()               ) );
-        connect( m_ClipboardHistorySelector,        SIGNAL( PasteFromClipboardRequest() ), tab, SLOT( Paste()       ) );
 
         connect( tab,   SIGNAL( OpenClipEditorRequest(ClipEditorModel::clipEntry *) ),
                  this,  SLOT (  ClipEditorDialog( ClipEditorModel::clipEntry * ) ) );
@@ -3667,9 +3711,6 @@ void MainWindow::MakeTabConnections( ContentTab *tab )
         connect( ui.actionTextDirectionDefault,     SIGNAL( triggered() ),  tab,   SLOT( TextDirectionDefault()     ) );
 
         connect( tab,   SIGNAL( SelectionChanged() ),           this,          SLOT( UpdateUIOnTabChanges()         ) );
-
-        connect( m_ClipEditor, SIGNAL( PasteSelectedClipRequest(QList<ClipEditorModel::clipEntry *>) ),
-                 tab,          SLOT(   PasteClipEntries(QList<ClipEditorModel::clipEntry *>) ) );
     }
 
     if (tab->GetLoadedResource().Type() == Resource::HTMLResourceType )
@@ -3697,9 +3738,6 @@ void MainWindow::MakeTabConnections( ContentTab *tab )
         connect( ui.actionIgnoreMisspelledWord,     SIGNAL( triggered() ),  tab,   SLOT( IgnoreMisspelledWord()     ) );
 
         connect( this,                              SIGNAL( SettingsChanged()), tab, SLOT( LoadSettings()           ) );
-
-        connect( m_SelectCharacter, SIGNAL( SelectedCharacter(const QString&) ),
-                 tab,            SLOT( InsertText(const QString&) ) );
     
         connect( tab,   SIGNAL( EnteringBookView() ),           this,          SLOT( SetStateActionsBookView() ) );
         connect( tab,   SIGNAL( EnteringBookPreview() ),        this,          SLOT( SetStateActionsSplitView() ) );
@@ -3778,12 +3816,7 @@ void MainWindow::BreakTabConnections( ContentTab *tab )
     disconnect( ui.actionAddToIndex,                0, tab, 0 );
     disconnect( ui.actionMarkForIndex,              0, tab, 0 );
 
-    disconnect( m_ClipEditor,                       0, tab, 0 );
-    disconnect( m_ClipboardHistorySelector,         0, tab, 0 );
-
     disconnect( tab,                                0, this, 0 );
     disconnect( tab,                                0, m_Book.data(), 0 );
-
-    disconnect( m_SelectCharacter,                  0, tab, 0 );
 }
 

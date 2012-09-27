@@ -31,12 +31,13 @@
 #include <QtGui/QStandardItem>
 #include <QtCore/QUrl>
 
-#include "ViewEditors/ViewEditor.h"
 #include "Misc/CSSInfo.h"
+#include "Misc/PasteTarget.h"
 #include "Misc/SettingsStore.h"
 #include "Misc/Utility.h"
-#include "MiscEditors/IndexEditorModel.h"
 #include "MiscEditors/ClipEditorModel.h"
+#include "MiscEditors/IndexEditorModel.h"
+#include "ViewEditors/ViewEditor.h"
 
 class QResizeEvent;
 class QSize;
@@ -52,7 +53,7 @@ class QSignalMapper;
  * Also called the "Code View" because it shows
  * the code of a section of the book. Provides syntax highlighting.
  */
-class CodeViewEditor : public QPlainTextEdit, public ViewEditor
+class CodeViewEditor : public QPlainTextEdit, public ViewEditor, public PasteTarget
 {
     Q_OBJECT
 
@@ -115,8 +116,6 @@ public:
 
     void MarkForIndex();
     bool IsMarkForIndexAllowed();
-
-    void InsertText(const QString &text);
 
     bool IsInsertImageAllowed();
 
@@ -367,9 +366,9 @@ public slots:
 
     void LoadSettings();
 
-    void PasteClipEntryFromName(QString name);
-    void PasteClipEntries(QList<ClipEditorModel::clipEntry *> clips);
-    void PasteClipEntry(ClipEditorModel::clipEntry *clip);
+    // Implementations for PasteTarget.h
+    void PasteText(const QString &text);
+    void PasteClipEntries(const QList<ClipEditorModel::clipEntry *> &clips);
 
     void RefreshSpellingHighlighting();
 
@@ -425,6 +424,8 @@ private slots:
     void TextChangedFilter();
 
     void RehighlightDocument();
+
+    void PasteClipEntryFromName(const QString &name);
 
     /**
      * Used solely to update the m_isUndoAvailable variable
@@ -490,6 +491,8 @@ private:
     QString getSpellingSafeText(const QString &text);
 
     QString GetCurrentWordAtCaret(bool select_word);
+
+    void PasteClipEntry(ClipEditorModel::clipEntry *clip);
 
     /**
      * Returns the text inside < > if cursor is in < >

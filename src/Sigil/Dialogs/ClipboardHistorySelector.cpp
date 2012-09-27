@@ -20,10 +20,10 @@
 **
 *************************************************************************/
 
-#include <QApplication>
-#include <QClipboard>
-#include <QKeyEvent>
 #include <QtCore/QSignalMapper>
+#include <QtGui/QApplication>
+#include <QtGui/QClipboard>
+#include <QtGui/QKeyEvent>
 #include <QtGui/QPushButton>
 #include <QtGui/QTableWidgetItem>
 
@@ -107,7 +107,7 @@ void ClipboardHistorySelector::SetupClipboardHistoryTable()
         selector->setFlags(Qt::ItemIsSelectable|Qt::ItemIsEnabled);
         ui.clipboardItemsTable->setItem(row, 0, selector);
 
-        QString text = m_ClipboardHistoryItems->at(row); 
+        const QString text = m_ClipboardHistoryItems->at(row); 
         QString display_text(text);
         
         // Replace certain non-printable characters with spaces (to avoid
@@ -141,7 +141,7 @@ void ClipboardHistorySelector::ClipboardChanged( QClipboard::Mode mode )
 {
     if ( mode != QClipboard::Clipboard )
         return;
-    QString text = QApplication::clipboard()->text();
+    const QString text = QApplication::clipboard()->text();
     if ( text.isEmpty() ) {
         return;
     }
@@ -231,11 +231,15 @@ void ClipboardHistorySelector::accept()
         int selected_row = ui.clipboardItemsTable->currentRow();
         if (selected_row >= 0) {
             QTableWidgetItem *item = ui.clipboardItemsTable->item(selected_row, 1);
-            QString text = item->data(Qt::UserRole).toString();
+            const QString text = item->data(Qt::UserRole).toString();
             QApplication::clipboard()->setText(text);
-        }
 
-        emit PasteFromClipboardRequest();
+            emit PasteRequest(text);
+        }
+        else {
+            // user does not have any rows selected - paste text currently on clipboard
+            emit PasteRequest(QApplication::clipboard()->text());
+        }
     }
 
     WriteSettings();

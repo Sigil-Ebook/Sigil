@@ -1410,17 +1410,6 @@ bool CodeViewEditor::IsInsertImageAllowed()
     return IsPositionInBody(pos, text) && !IsPositionInTag(pos, text);
 }
 
-void CodeViewEditor::InsertText(const QString &text)
-{
-    QTextCursor cursor = textCursor();
-
-    cursor.beginEditBlock();
-
-    cursor.insertText(text);
-
-    cursor.endEditBlock();
-}
-
 bool CodeViewEditor::InsertId(const QString &attribute_value)
 {
     const QString &element_name = "a";
@@ -1621,17 +1610,22 @@ QString CodeViewEditor::getSpellingSafeText(const QString &raw_text)
     return text.replace(QString::fromWCharArray(L"\u2019"), "'");
 }
 
-void CodeViewEditor::PasteClipEntryFromName(QString name)
+void CodeViewEditor::PasteText(const QString &text)
 {
-    ClipEditorModel::clipEntry *clip = ClipEditorModel::instance()->GetEntryFromName(name);
-    PasteClipEntry(clip);
+    ReplaceSelected(text);
 }
 
-void CodeViewEditor::PasteClipEntries(QList<ClipEditorModel::clipEntry *> clips)
+void CodeViewEditor::PasteClipEntries(const QList<ClipEditorModel::clipEntry *> &clips)
 {
     foreach(ClipEditorModel::clipEntry *clip, clips) {
         PasteClipEntry(clip);
     }
+}
+
+void CodeViewEditor::PasteClipEntryFromName(const QString &name)
+{
+    ClipEditorModel::clipEntry *clip = ClipEditorModel::instance()->GetEntryFromName(name);
+    PasteClipEntry(clip);
 }
 
 void CodeViewEditor::PasteClipEntry(ClipEditorModel::clipEntry *clip)

@@ -712,17 +712,7 @@ QString FlowTab::GetAttributeHref()
     return attribute_value;
 }
 
-void FlowTab::InsertText(QString text)
-{
-    if (m_ViewState == MainWindow::ViewState_CodeView) {
-        m_wCodeView->InsertText(text);
-    }
-    else if (m_ViewState == MainWindow::ViewState_BookView) {
-        m_wBookView->InsertHtml(text);
-    }
-}
-
-bool FlowTab::InsertId(QString id)
+bool FlowTab::InsertId(const QString &id)
 {
     if (m_ViewState == MainWindow::ViewState_CodeView) {
         return m_wCodeView->InsertId(id);
@@ -733,7 +723,7 @@ bool FlowTab::InsertId(QString id)
     return false;
 }
 
-bool FlowTab::InsertHyperlink(QString href)
+bool FlowTab::InsertHyperlink(const QString &href)
 {
     if (m_ViewState == MainWindow::ViewState_CodeView) {
         return m_wCodeView->InsertHyperlink(href);
@@ -794,13 +784,6 @@ void FlowTab::Print()
         else if (m_ViewState == MainWindow::ViewState_CodeView) {
             m_wCodeView->print(&printer);
         }
-    }
-}
-
-void FlowTab::PasteClipEntries(QList<ClipEditorModel::clipEntry *> clips)
-{
-    if (m_ViewState == MainWindow::ViewState_CodeView) {
-        m_wCodeView->PasteClipEntries(clips);
     }
 }
 

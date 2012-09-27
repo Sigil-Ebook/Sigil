@@ -26,7 +26,9 @@
 #include <QtCore/QVariant>
 #include <QtWebKit/QWebElement>
 
+#include "Misc/PasteTarget.h"
 #include "Misc/Utility.h"
+#include "MiscEditors/ClipEditorModel.h"
 #include "ViewEditors/BookViewPreview.h"
 #include "ViewEditors/ViewEditor.h"
 
@@ -42,7 +44,7 @@ class QShortcut;
  * section of a book in its final, rendered state
  * (the way it will look like in epub Reading Systems).
  */
-class BookViewEditor : public BookViewPreview
+class BookViewEditor : public BookViewPreview, public PasteTarget
 {
     Q_OBJECT
 
@@ -180,15 +182,8 @@ public:
 
 public slots:
     /**
-     * Filters the text changed signals by the CKEditor inside of the page
+     * Filters the text changed signals by the BVEditor inside of the page
      * and then takes the appropriate action.
-     *
-     * The CKEditor is written in Javascript and runs inside of the webpage.
-     * Using the magic of QtWebKit we link the Javascript calls to this function
-     * so CKEditor can communicate to this C++ instance of the BooViewEditor.
-     *
-     * This must be a public slot so it is visible and connectable to the
-     * Javascript inside of the web page.
      */
     void TextChangedFilter();
 
@@ -206,6 +201,10 @@ public slots:
     void openWithEditor();
 
     void saveAs();
+
+    // Implementations for PasteTarget.h
+    void PasteText(const QString &text);
+    void PasteClipEntries(const QList<ClipEditorModel::clipEntry *> &clips);
 
 signals:
     /**
@@ -233,20 +232,19 @@ signals:
      */
     void FocusLost(QWidget* editor);
 
-    /**
-     * Emitted when we want to do some operations with the clipboard
-     * to paste things into Book View, but restoring state afterwards
-     * so that Clipboard History and current clipboard contents are
-     * left unaffected.
-     */
-    void ClipboardSaveRequest();
-    void ClipboardRestoreRequest();
-
     void InsertImage();
 
     void ImageOpenedExternally(const QString &pathname);
 
     void ImageSaveAs(const QUrl &url);
+
+    /**
+     * Emitted when we want to do some operations with the clipboard
+     * to paste things, but restoring state afterwards so that the
+     * Clipboard History and current clipboard is left unaffected.
+     */
+    void ClipboardSaveRequest();
+    void ClipboardRestoreRequest();
 
 protected:
     /**

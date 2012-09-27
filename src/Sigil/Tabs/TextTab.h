@@ -98,8 +98,6 @@ public slots:
 
     void DeleteLine();
 
-    void PasteClipEntries(QList<ClipEditorModel::clipEntry *> clips);
-
     void CutCodeTags();
 
     /**
