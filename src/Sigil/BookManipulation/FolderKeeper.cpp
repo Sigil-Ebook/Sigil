@@ -462,6 +462,9 @@ void FolderKeeper::WatchResourceFile( const Resource& resource, bool file_rename
         // parent() is the Book object
         connect( &resource,  SIGNAL( ResourceUpdatedFromDisk() ),
                  parent(),   SLOT( SetModified() ), Qt::UniqueConnection );
+
+        connect (&resource,  SIGNAL( ResourceUpdatedFromDiskStatus(const Resource&) ),
+                 parent(),   SLOT( ResourceUpdatedFromDiskStatus(const Resource&)), Qt::UniqueConnection);
     }
 }
 

@@ -336,6 +336,11 @@ void MainWindow::ShowMessageOnCurrentStatusBar( const QString &message,
     status_bar->showMessage( message, millisecond_duration );
 }
 
+void MainWindow::ShowMessageOnStatusBar( const QString &message,
+                                                int millisecond_duration )
+{
+    statusBar()->showMessage(message, millisecond_duration);
+}
 
 void MainWindow::closeEvent( QCloseEvent *event )
 {
@@ -370,7 +375,7 @@ void MainWindow::New()
 #endif
     }
 
-    ShowMessageOnCurrentStatusBar(tr("New file created."));
+    ShowMessageOnStatusBar(tr("New file created."));
 }
 
 
@@ -1276,6 +1281,8 @@ void MainWindow::RemoveResources(QList<Resource *> resources, bool prompt_user)
     else {
         m_BookBrowser->RemoveSelection(m_TabManager.GetTabResources());
     }
+
+    ShowMessageOnStatusBar(tr("File(s) deleted."));
 }
 
 void MainWindow::GenerateToc()
@@ -1309,7 +1316,7 @@ void MainWindow::GenerateToc()
 
     QApplication::restoreOverrideCursor();
 
-    statusBar()->showMessage(("Table Of Contents generated."), 5000);
+    statusBar()->showMessage(tr("Table Of Contents generated."), 5000);
 }
     
 
@@ -2475,7 +2482,9 @@ void MainWindow::SetNewBook( QSharedPointer< Book > new_book )
     m_IndexEditor->SetBook( m_Book );
     ResetLinkOrStyleBookmark();
 
-    connect( m_Book.data(), SIGNAL( ModifiedStateChanged( bool ) ), this, SLOT( setWindowModified( bool ) ) );
+    connect( m_Book.data(),     SIGNAL( ModifiedStateChanged( bool ) ), this, SLOT( setWindowModified( bool ) ) );
+    connect( m_Book.data(),     SIGNAL( ShowStatusMessageRequest(const QString&, int) ), this, SLOT( ShowMessageOnStatusBar(const QString&, int) ) );
+    connect( m_BookBrowser,     SIGNAL( ShowStatusMessageRequest(const QString&, int) ), this, SLOT( ShowMessageOnStatusBar(const QString&, int) ) );
     connect( m_BookBrowser,     SIGNAL( GuideSemanticTypeAdded( const HTMLResource&, GuideSemantics::GuideSemanticType ) ),
              &m_Book->GetOPF(), SLOT(   AddGuideSemanticType(   const HTMLResource&, GuideSemantics::GuideSemanticType ) ) );
     connect( m_BookBrowser,     SIGNAL( CoverImageSet(           const ImageResource& ) ),

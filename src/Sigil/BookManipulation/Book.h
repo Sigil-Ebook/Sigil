@@ -277,6 +277,8 @@ public slots:
      */
     void SetModified( bool modified = true );
 
+    void ResourceUpdatedFromDiskStatus(const Resource &resource);
+
 signals:
 
     /**
@@ -285,6 +287,8 @@ signals:
      * @param new_state The new modified state.
      */
     void ModifiedStateChanged( bool new_state );
+
+    void ShowStatusMessageRequest(const QString &message, int duration);
 
 private:
 

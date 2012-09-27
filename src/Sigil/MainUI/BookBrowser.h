@@ -166,6 +166,8 @@ public slots:
 
 signals:
 
+    void ShowStatusMessageRequest(const QString &message, int duration = 10000);
+
     /**
      * Emitted when the user activates a resource in the browser.
      *
