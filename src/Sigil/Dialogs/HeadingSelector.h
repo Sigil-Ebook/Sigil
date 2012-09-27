@@ -50,7 +50,11 @@ public:
     // Destructor
     ~HeadingSelector();
 
+protected:
+    bool eventFilter(QObject *obj, QEvent *event);
+
 private slots:
+
     void DecreaseHeadingLevel();
     void IncreaseHeadingLevel();
 
@@ -83,7 +87,10 @@ private:
     void ExpandChildren(QStandardItem *item);
 
     int GetAbsoluteRowForIndex(QModelIndex current_index);
+    QModelIndex GetIndexForAbsoluteRow(int row);
     QModelIndex SelectAbsoluteRow(int row);
+
+    int GetHeadingLevelAbove(QStandardItem *item);
 
     void ChangeHeadingLevel(int change_amount);
 

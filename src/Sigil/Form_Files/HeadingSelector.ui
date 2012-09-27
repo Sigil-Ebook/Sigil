@@ -18,9 +18,6 @@
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
       <widget class="QTreeView" name="tvTOCDisplay">
-       <property name="editTriggers">
-        <set>QAbstractItemView::DoubleClicked</set>
-       </property>
        <property name="tabKeyNavigation">
         <bool>false</bool>
        </property>
@@ -39,9 +36,6 @@
        <property name="uniformRowHeights">
         <bool>true</bool>
        </property>
-       <property name="animated">
-        <bool>true</bool>
-       </property>
       </widget>
      </item>
      <item>
@@ -49,8 +43,8 @@
        <item>
         <widget class="QPushButton" name="rename">
          <property name="toolTip">
-          <string>Change the title attribute of the heading in the document
-and the name of the TOC entry.</string>
+          <string>Change the name of the entry in the TOC.
+The heading's title attribute will be updated in the document.</string>
          </property>
          <property name="text">
           <string>Rename</string>
@@ -62,8 +56,9 @@ and the name of the TOC entry.</string>
          <item>
           <widget class="QToolButton" name="left">
            <property name="toolTip">
-            <string>Decrease the heading level of the selected entry by 1 in the document
-and in the TOC.</string>
+            <string>Decrease the heading level of the selected entry by 1.
+The heading's tag will be updated in the document.
+You can also use the left arrow key.</string>
            </property>
            <property name="text">
             <string/>
@@ -76,8 +71,9 @@ and in the TOC.</string>
          <item>
           <widget class="QToolButton" name="right">
            <property name="toolTip">
-            <string>Increase the heading level of the selected entry by 1 in the document 
-and in the TOC.</string>
+            <string>Increase the heading level of the selected entry by 1.
+The heading's tag will be updated in the document.
+You can also use the right arrow key.</string>
            </property>
            <property name="text">
             <string/>

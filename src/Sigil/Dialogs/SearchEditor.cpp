@@ -61,6 +61,7 @@ void SearchEditor::SetupSearchEditorTree()
     ui.SearchEditorTree->setWordWrap(true);
     ui.SearchEditorTree->setAlternatingRowColors(true); 
 
+    ui.SearchEditorTree->installEventFilter(this);
 
     ui.SearchEditorTree->header()->setToolTip(
         "<p>" + tr("All searches default to Regex, All HTML Files, Down.") + "</p>" +

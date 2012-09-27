@@ -21,6 +21,7 @@
 
 #include <QtCore/QStringList>
 #include <QtGui/QStandardItem>
+#include <QKeyEvent>
 
 #include "BookManipulation/Book.h"
 #include "BookManipulation/FolderKeeper.h"
@@ -47,6 +48,7 @@ HeadingSelector::HeadingSelector( QSharedPointer< Book > book, QWidget *parent )
     ui.setupUi( this );
 
     ui.tvTOCDisplay->setContextMenuPolicy(Qt::CustomContextMenu);
+    ui.tvTOCDisplay->installEventFilter(this);
 
     CreateContextMenuActions();
 
@@ -81,16 +83,51 @@ int HeadingSelector::GetAbsoluteRowForIndex(QModelIndex current_index)
     QModelIndex index = m_TableOfContents.invisibleRootItem()->child(0)->index();
 
     int row = 0;
+    bool past_last_row = false;
 
     while (index.isValid()) {
         if (current_index == index) {
             break;
         }
         index = ui.tvTOCDisplay->indexBelow(index);
+        if (!index.isValid()) {
+            past_last_row = true;
+            break;
+        }
         row++;
     }
 
+    if (past_last_row) {
+        row = -1;
+    }
+
     return row;
+}
+
+QModelIndex HeadingSelector::GetIndexForAbsoluteRow(int row)
+{
+    QModelIndex found_index;
+
+    if (row < 0) {
+        return found_index;
+    }
+
+    QModelIndex index = m_TableOfContents.invisibleRootItem()->child(0)->index();
+    bool past_last_row = false;
+
+    for (int i = 0; i < row; i++) {
+        index = ui.tvTOCDisplay->indexBelow(index);
+        if (!index.isValid()) {
+            past_last_row = true;
+            break;
+        }
+    }
+
+    if (!past_last_row) {
+        found_index = index;
+    }
+
+    return found_index;
 }
 
 QModelIndex HeadingSelector::SelectAbsoluteRow(int row)
@@ -267,6 +304,28 @@ void HeadingSelector::UpdateOneHeadingTitle(QStandardItem *item, QString title)
     }
 }
 
+int HeadingSelector::GetHeadingLevelAbove(QStandardItem *item)
+{
+    QModelIndex index = item->index();
+    if (!index.isValid()) {
+        return 0;
+    }
+
+    int row = GetAbsoluteRowForIndex(index);
+    QModelIndex index_above = GetIndexForAbsoluteRow(row - 1);
+
+    if (!index_above.isValid()) {
+        return 0;
+    }
+
+    QStandardItem *item_above = m_TableOfContents.itemFromIndex(index_above);
+
+    Headings::Heading *heading_above = GetItemHeading(item_above);
+
+    return heading_above->level;
+}
+
+
 void HeadingSelector::DecreaseHeadingLevel()
 {
     ChangeHeadingLevel(-1);
@@ -279,7 +338,7 @@ void HeadingSelector::IncreaseHeadingLevel()
 
 void HeadingSelector::ChangeHeadingLevel(int change_amount)
 {
-    if (!ui.tvTOCDisplay->selectionModel()->hasSelection()) {
+    if (!ui.tvTOCDisplay->selectionModel()->hasSelection() || change_amount == 0) {
         return;
     }
 
@@ -295,12 +354,29 @@ void HeadingSelector::ChangeHeadingLevel(int change_amount)
         return;
     }
 
-    // Change the heading level
-    int new_level = heading->level + change_amount;
-    if (new_level < 1 || new_level > 6) {
-            return;
+    // Can't change level if not a valid h1-h6 tag
+    if (heading->level < 1 || heading->level > 6) {
+        return;
     }
-    heading->level = new_level;
+
+    // Get min and max levels for new level
+    QStandardItem *first_item = m_TableOfContents.invisibleRootItem()->child(0);
+    Headings::Heading *first_heading = GetItemHeading(first_item);
+
+    int heading_above_level = GetHeadingLevelAbove(item);
+
+    // Change the heading level if valid to do so
+    if (change_amount < 0) {
+        if (heading->level <= 1 || heading->level <= first_heading->level) {
+            return;
+        }
+    }
+    else {
+        if (heading->level >= 6 || heading_above_level <= 0 || heading->level > heading_above_level) {
+            return;
+        }
+    }
+    heading->level += change_amount;
 
     // Get new tag name
     QString tag_name = XtoQ(heading->element->getTagName());
@@ -420,9 +496,10 @@ void HeadingSelector::InsertHeadingIntoModel( Headings::Heading &heading, QStand
 
     item_heading->setData( QVariant::fromValue( wrap ) );
 
-    QString html = XhtmlDoc::GetDomNodeAsString(*heading.element).replace('<', "&lt;").replace('>', "&gt;").remove("xmlns=\"http://www.w3.org/1999/xhtml\"");
 
-    item_heading->setToolTip( heading.resource_file->Filename() + ": " + html);
+    // Apparently using \n in the string means you don't have to replace < with &lt; or > with &gt;
+    QString html = XhtmlDoc::GetDomNodeAsString(*heading.element).remove("xmlns=\"http://www.w3.org/1999/xhtml\"");
+    item_heading->setToolTip( heading.resource_file->Filename() + ":\n\n" + html);
 
     QList< QStandardItem* > items;        
     items << item_heading << heading_included_check;
@@ -789,6 +866,26 @@ void HeadingSelector::SetupContextMenu(const QPoint &point)
     m_ContextMenu->addAction(m_Rename);
 }
 
+bool HeadingSelector::eventFilter(QObject *obj, QEvent *event)
+{
+    if (obj == ui.tvTOCDisplay) {
+        if (event->type() == QEvent::KeyPress) {
+            QKeyEvent *keyEvent = static_cast<QKeyEvent*>(event);
+            int key = keyEvent->key();
+
+            if (key == Qt::Key_Left) {
+                DecreaseHeadingLevel();
+                return true;
+            }
+            else if (key == Qt::Key_Right) {
+                IncreaseHeadingLevel();
+                return true;
+            }
+        }
+    }
+    // pass the event on to the parent class
+    return QDialog::eventFilter(obj, event);
+}
 
 void HeadingSelector::ConnectSignalsToSlots()
 {
