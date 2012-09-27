@@ -79,67 +79,71 @@ void ImportOEBPS::ExtractContainer()
         boost_throw(CannotOpenFile() << errinfo_file_fullpath(m_FullFilePath.toStdString()));
     }
 
-    while ((res = unzGoToNextFile(zfile)) == UNZ_OK) {
-        // Get the name of the file in the archive.
-        char file_name[MAX_PATH] = {0};
-        unz_file_info64 file_info;
-        unzGetCurrentFileInfo64(zfile, &file_info, file_name, MAX_PATH, NULL, 0, NULL, 0);
-        QString qfile_name = QString::fromUtf8(file_name);
+    res = unzGoToFirstFile(zfile);
+    if (res == UNZ_OK) {
+        do {
+            // Get the name of the file in the archive.
+            char file_name[MAX_PATH] = {0};
+            unz_file_info64 file_info;
+            unzGetCurrentFileInfo64(zfile, &file_info, file_name, MAX_PATH, NULL, 0, NULL, 0);
+            QString qfile_name = QString::fromUtf8(file_name);
 
-        // If there is no file name then we can't do anything with it.
-        if (!qfile_name.isEmpty()) {
-            // We use the dir object to create the path in the temporary directory.
-            // Unfortunately, we need a dir ojbect to do this as it's not a static function.
-            QDir dir(m_ExtractedFolderPath);
-            // Full file path in the temporary directory.
-            QString file_path = m_ExtractedFolderPath + "/" + qfile_name;
-            QFileInfo qfile_info(file_path);
+            // If there is no file name then we can't do anything with it.
+            if (!qfile_name.isEmpty()) {
+                // We use the dir object to create the path in the temporary directory.
+                // Unfortunately, we need a dir ojbect to do this as it's not a static function.
+                QDir dir(m_ExtractedFolderPath);
+                // Full file path in the temporary directory.
+                QString file_path = m_ExtractedFolderPath + "/" + qfile_name;
+                QFileInfo qfile_info(file_path);
 
-            // Is this entry a directory?
-            if (file_info.uncompressed_size == 0 && qfile_name.endsWith('/')) {
-                dir.mkpath(qfile_name);
-                continue;
-            } else {
-                dir.mkpath(qfile_info.path());
-            }
+                // Is this entry a directory?
+                if (file_info.uncompressed_size == 0 && qfile_name.endsWith('/')) {
+                    dir.mkpath(qfile_name);
+                    continue;
+                } else {
+                    dir.mkpath(qfile_info.path());
+                }
 
-            // Open the file entry in the archive for reading.
-            if (unzOpenCurrentFile(zfile) != UNZ_OK) {
-                unzClose(zfile);
-                boost_throw(CannotExtractFile() << errinfo_file_fullpath(qfile_name.toStdString()));
-            }
+                // Open the file entry in the archive for reading.
+                if (unzOpenCurrentFile(zfile) != UNZ_OK) {
+                    unzClose(zfile);
+                    boost_throw(CannotExtractFile() << errinfo_file_fullpath(qfile_name.toStdString()));
+                }
 
-            // Open the file on disk to write the entry in the archive to.
-            QFile entry(file_path);
-            if (!entry.open(QIODevice::WriteOnly|QIODevice::Truncate)) {
-                unzCloseCurrentFile(zfile);
-                unzClose(zfile);
-                boost_throw(CannotExtractFile() << errinfo_file_fullpath(qfile_name.toStdString()));
-            }
+                // Open the file on disk to write the entry in the archive to.
+                QFile entry(file_path);
+                if (!entry.open(QIODevice::WriteOnly|QIODevice::Truncate)) {
+                    unzCloseCurrentFile(zfile);
+                    unzClose(zfile);
+                    boost_throw(CannotExtractFile() << errinfo_file_fullpath(qfile_name.toStdString()));
+                }
 
-            // Buffered reading and writing.
-            char buff[BUFF_SIZE] = {0};
-            int read = 0;
-            while ((read = unzReadCurrentFile(zfile, buff, BUFF_SIZE)) > 0) {
-                entry.write(buff, read);
-            }
-            entry.close();
-            // Read errors are marked by a negative read amount.
-            if (read < 0) {
-                unzCloseCurrentFile(zfile);
-                unzClose(zfile);
-                boost_throw(CannotExtractFile() << errinfo_file_fullpath(qfile_name.toStdString()));
-            }
+                // Buffered reading and writing.
+                char buff[BUFF_SIZE] = {0};
+                int read = 0;
+                while ((read = unzReadCurrentFile(zfile, buff, BUFF_SIZE)) > 0) {
+                    entry.write(buff, read);
+                }
+                entry.close();
+                // Read errors are marked by a negative read amount.
+                if (read < 0) {
+                    unzCloseCurrentFile(zfile);
+                    unzClose(zfile);
+                    boost_throw(CannotExtractFile() << errinfo_file_fullpath(qfile_name.toStdString()));
+                }
 
-            // The file was read but the CRC did not match.
-            // We don't check the read file size vs the uncompressed file size
-            // because if they're different there should be a CRC error.
-            if (unzCloseCurrentFile(zfile) == UNZ_CRCERROR) {
-                unzClose(zfile);
-                boost_throw(CannotExtractFile() << errinfo_file_fullpath(qfile_name.toStdString()));
+                // The file was read but the CRC did not match.
+                // We don't check the read file size vs the uncompressed file size
+                // because if they're different there should be a CRC error.
+                if (unzCloseCurrentFile(zfile) == UNZ_CRCERROR) {
+                    unzClose(zfile);
+                    boost_throw(CannotExtractFile() << errinfo_file_fullpath(qfile_name.toStdString()));
+                }
             }
-        }
+        } while ((res = unzGoToNextFile(zfile)) == UNZ_OK);
     }
+
     if (res != UNZ_END_OF_LIST_OF_FILE) {
         unzClose(zfile);
         boost_throw(CannotReadFile() << errinfo_file_fullpath(m_FullFilePath.toStdString()));
