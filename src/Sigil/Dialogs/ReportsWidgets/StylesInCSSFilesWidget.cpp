@@ -87,10 +87,6 @@ QHash< QString, QList<StylesInCSSFilesWidget::Selector *> > StylesInCSSFilesWidg
 {
     QHash< QString, QList<StylesInCSSFilesWidget::Selector *> > css_selectors;
 
-    // Get classes found in all HTML files
-    QHash<QString, QStringList> class_names_hash = m_Book->GetClassesInHTMLFiles();
-    QHashIterator<QString, QStringList> class_name_iterator(class_names_hash);
-
     // Save the text for each stylesheet in the EPUB
     QList<Resource *> css_named_resources;
     QHash<QString, QString> css_names_to_text;
