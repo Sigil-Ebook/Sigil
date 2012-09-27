@@ -1315,6 +1315,13 @@ void MainWindow::GenerateToc()
 
 void MainWindow::CreateHTMLTOC()
 {
+    if ( !m_TabManager.IsAllTabDataWellFormed() ) {
+        ShowMessageOnCurrentStatusBar(tr("Create HTML TOC cancelled due to XML not well formed"));
+        return;
+    }
+    SaveTabData();
+    m_Book->SaveAllResourcesToDisk();
+
     QApplication::setOverrideCursor(Qt::WaitCursor);
 
     HTMLResource *tocResource = NULL;
