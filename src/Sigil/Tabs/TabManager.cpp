@@ -121,7 +121,7 @@ bool TabManager::TryCloseTab(int tab_index)
 {
     Q_ASSERT(tab_index >= 0);
 
-    WellFormedContent *content = GetWellFormedContent();
+    WellFormedContent *content = GetWellFormedContent(tab_index);
     if (content && !content->IsDataWellFormed()) {
         return false;
     }
@@ -390,9 +390,9 @@ void TabManager::UpdateTabName( ContentTab *renamed_tab )
 }
 
 
-WellFormedContent* TabManager::GetWellFormedContent()
+WellFormedContent* TabManager::GetWellFormedContent(int index)
 {
-    return dynamic_cast< WellFormedContent* >( currentWidget() );
+    return dynamic_cast< WellFormedContent* >( widget(index) );
 }
 
 

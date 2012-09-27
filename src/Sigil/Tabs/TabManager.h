@@ -220,9 +220,10 @@ private:
      * Returns the element of the UI that houses well-formed XML data.
      * 
      * @note CAN BE NULL! This means the main tab has no XML data.
+     * @param index The index of the tab to retrieve.
      * @return The element with XML data.
      */
-    WellFormedContent* GetWellFormedContent();
+    WellFormedContent* GetWellFormedContent(int index);
 
     /**
      * Returns the index of tab in which the resource is loaded.
