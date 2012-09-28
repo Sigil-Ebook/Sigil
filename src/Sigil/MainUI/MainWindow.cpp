@@ -2608,6 +2608,7 @@ void MainWindow::LoadFile( const QString &fullfilepath )
 
         UpdateUiWithCurrentFile( fullfilepath );
         statusBar()->showMessage( tr( "File loaded." ), STATUSBAR_MSG_DISPLAY_TIME );
+        return;
     }
 
     catch ( const FileEncryptedWithDrm& )
@@ -2624,6 +2625,10 @@ void MainWindow::LoadFile( const QString &fullfilepath )
 
         Utility::DisplayExceptionErrorDialog( tr("Cannot load file %1: %2").arg(fullfilepath).arg(Utility::GetExceptionInfo( exception ) ));
     }
+    // If we got to here some sort of error occurred while loading the file
+    // and potentially has left the GUI in a nasty state (like on initial startup)
+    // Fallback to displaying a new book instead so GUI integrity is maintained.
+    CreateNewBook();
 }
 
 
