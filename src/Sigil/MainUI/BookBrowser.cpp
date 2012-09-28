@@ -1141,6 +1141,19 @@ void BookBrowser::IdpfsObfuscationMethod()
 }
 
 
+void BookBrowser::ValidateStylesheetWithW3C()
+{
+    QList <Resource *> resources = ValidSelectedResources( Resource::CSSResourceType );
+
+    foreach ( Resource *resource, resources ) {
+        CSSResource *css_resource = qobject_cast< CSSResource* >( resource );
+        Q_ASSERT(css_resource);
+
+        css_resource->ValidateStylesheetWithW3C();
+    }
+}
+
+
 void BookBrowser::ExpandTextFolder()
 {
     m_TreeView.expand( m_OPFModel.GetTextFolderModelIndex() );
@@ -1218,6 +1231,7 @@ void BookBrowser::CreateContextMenuActions()
     m_SortHTML                = new QAction( tr( "Sort" ) + "...",          this );
     m_RenumberTOC             = new QAction( tr( "Renumber TOC Entries" ),  this );
     m_LinkStylesheets         = new QAction( tr( "Link Stylesheets..." ),   this );
+    m_ValidateWithW3C         = new QAction( tr( "Validate with W3C" ),     this );
     m_OpenWith                = new QAction( tr( "Open With" ) + "...",     this );
     m_SaveAs                  = new QAction( tr( "Save As" ) + "...",       this );
     m_OpenWithEditor          = new QAction( "",                            this );
@@ -1403,6 +1417,10 @@ bool BookBrowser::SuccessfullySetupContextMenu( const QPoint &point )
     
         if ( resource->Type() == Resource::NCXResourceType) {
             m_ContextMenu.addAction( m_RenumberTOC );
+        }
+    
+        if ( resource->Type() == Resource::CSSResourceType) {
+            m_ContextMenu.addAction( m_ValidateWithW3C );
         }
 
         // Semantic Menu
@@ -1634,6 +1652,7 @@ void BookBrowser::ConnectSignalsToSlots()
     connect( m_Merge,                   SIGNAL( triggered() ), this, SLOT( Merge()                   ) );
     connect( m_LinkStylesheets,         SIGNAL( triggered() ), this, SLOT( LinkStylesheets()         ) );
     connect( m_SaveAs,                  SIGNAL( triggered() ), this, SLOT( SaveAs()                  ) );
+    connect( m_ValidateWithW3C,         SIGNAL( triggered() ), this, SLOT( ValidateStylesheetWithW3C() ) );
     connect( m_OpenWith,                SIGNAL( triggered() ), this, SLOT( OpenWith()                ) );
     connect( m_OpenWithEditor,          SIGNAL( triggered() ), this, SLOT( OpenWithEditor()          ) );
 

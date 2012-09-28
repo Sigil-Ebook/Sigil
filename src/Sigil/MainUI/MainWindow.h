@@ -405,9 +405,11 @@ private slots:
     void PreferencesDialog();
 
     /**
-     * Implements Validate Epub action functionality.
+     * Implements Validate Epub with FlightCrew action functionality.
      */
-    void ValidateEpub();
+    void ValidateEpubWithFlightCrew();
+
+    void ValidateStylesheetsWithW3C();
 
     /**
      * Disconnects all signals to the old tab

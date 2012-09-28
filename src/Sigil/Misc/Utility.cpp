@@ -239,7 +239,7 @@ bool Utility::RenameFile( const QString &oldfilepath, const QString &newfilepath
     }
 
     // Ensure that the newfilepath doesn't already exist but due to case insenstive file systems
-    // check if we are actually renaming to an identical path wiht a different case.
+    // check if we are actually renaming to an identical path with a different case.
     if (QFileInfo(newfilepath).exists() && QFileInfo(oldfilepath) != QFileInfo(newfilepath)) {
         return false;
     }
@@ -259,6 +259,11 @@ bool Utility::RenameFile( const QString &oldfilepath, const QString &newfilepath
     return false;
 }
 
+
+QString Utility::GetTemporaryFileNameWithExtension( const QString &extension )
+{
+    return QDir::temp().absolutePath() + "/sigil_" + Utility::CreateUUID() + extension;
+}
 
 // Creates a copy of the provided file with a random name in
 // the systems TEMP directory and returns the full path to the new file.

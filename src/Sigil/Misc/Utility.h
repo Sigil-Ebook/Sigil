@@ -78,6 +78,11 @@ public:
     static bool DeleteFile( const QString &fullfilepath );
 
     static bool RenameFile( const QString &oldfilepath, const QString &newfilepath );
+    
+    // Returns path to a random filename with the specified extension in
+    // the systems TEMP directory. The caller has responsibility for
+    // creating a file at this location and removing it afterwards.
+    static QString GetTemporaryFileNameWithExtension( const QString &extension ); 
 
     // Creates a copy of the provided file with a random name in
     // the systems TEMP directory and returns the full path to the new file.

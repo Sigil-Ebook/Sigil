@@ -276,7 +276,8 @@
     <addaction name="menuIndex"/>
     <addaction name="separator"/>
     <addaction name="menuSpellCheckMenu"/>
-    <addaction name="actionValidateEpub"/>
+    <addaction name="actionValidateEpubWithFlightCrew"/>
+    <addaction name="actionValidateStylesheetsWithW3C"/>
     <addaction name="actionReports"/>
     <addaction name="separator"/>
     <addaction name="actionClipEditor"/>
@@ -396,7 +397,7 @@
    </attribute>
    <addaction name="actionMetaEditor"/>
    <addaction name="actionSpellCheck"/>
-   <addaction name="actionValidateEpub"/>
+   <addaction name="actionValidateEpubWithFlightCrew"/>
   </widget>
   <widget class="QToolBar" name="toolBarHeadings">
    <property name="windowTitle">
@@ -1447,21 +1448,33 @@
     <string>Tutorials</string>
    </property>
   </action>
-  <action name="actionValidateEpub">
+  <action name="actionValidateEpubWithFlightCrew">
    <property name="icon">
     <iconset resource="../Resource_Files/main/main.qrc">
      <normaloff>:/main/document-validate_22px.png</normaloff>:/main/document-validate_22px.png</iconset>
    </property>
    <property name="text">
-    <string>&amp;Validate EPUB</string>
+    <string>&amp;Validate EPUB with FlightCrew</string>
    </property>
    <property name="toolTip">
-    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Validate EPUB&lt;/b&gt;&lt;/p&gt;
+    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Validate EPUB with FlightCrew&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Verify your document complies with EPUB standards using FlightCrew.&lt;/p&gt;</string>
    </property>
    <property name="shortcut">
     <string>F7</string>
+   </property>
+  </action>
+  <action name="actionValidateStylesheetsWithW3C">
+   <property name="text">
+    <string>&amp;Validate Stylesheets with W3C</string>
+   </property>
+   <property name="toolTip">
+    <string>
+     &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Validate Stylesheets with W3C&lt;/b&gt;&lt;/p&gt;
+
+     &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Verify your CSS stylesheets comply with W3C standards using the online W3C CSS Validation Service.&lt;/p&gt;
+    </string>
    </property>
   </action>
   <action name="actionAutoSpellCheck">

@@ -19,13 +19,42 @@
 **
 *************************************************************************/
 
+#include <QtGui/QDesktopServices>
+
 #include "Misc/Utility.h"
 #include "ResourceObjects/CSSResource.h"
 
+static const QString W3C_HTML_FORM = "<html>"
+                                     " <body>"
+                                     "  <p>Sigil will send your stylesheet data to the <a href='http://jigsaw.w3.org/css-validator/'>W3C Validation Service</a>.</p>"
+                                     "  <p><b>This page should disappear automatically once loaded.</b></p>"
+                                     "  <p>If your browser does not have javascript enabled, click on the button below.</p>"
+                                     "  <p><input id='button' type='submit' value='Check' /></p>"
+                                     "  <div>"
+                                     "   <form id='form' enctype='multipart/form-data' action='http://jigsaw.w3.org/css-validator/validator' method='post'>"
+                                     "    <p><textarea name='text' rows='12' cols='70'>%1</textarea></p>"
+                                     "    <input type='hidden' name='lang' value='en' />"
+                                     "   </form>"
+                                     "  </div>"
+                                     "  <script type='text/javascript'>"
+                                     "   function mySubmit() { var frm=document.getElementById('form'); frm.submit(); }"
+                                     "   window.onLoad = mySubmit();"
+                                     "  </script>"
+                                     " </body>"
+                                     "</html>";
+
 CSSResource::CSSResource( const QString &fullfilepath, QObject *parent )
-    : TextResource( fullfilepath, parent )
+    : TextResource( fullfilepath, parent ),
+      m_TemporaryValidationFiles( QList< QString >() )
 {
 
+}
+
+CSSResource::~CSSResource()
+{
+    foreach(QString filepath, m_TemporaryValidationFiles) {
+        Utility::DeleteFile(filepath);
+    }
 }
 
 bool CSSResource::DeleteCSStyles( QList<CSSInfo::CSSSelector*> css_selectors)
@@ -47,4 +76,15 @@ bool CSSResource::DeleteCSStyles( QList<CSSInfo::CSSSelector*> css_selectors)
 Resource::ResourceType CSSResource::Type() const
 {
     return Resource::CSSResourceType;
+}
+
+void CSSResource::ValidateStylesheetWithW3C()
+{
+    const QString &post_form_html = W3C_HTML_FORM.arg( GetText() );
+
+    const QString &temp_file_path = Utility::GetTemporaryFileNameWithExtension(".html");
+    Utility::WriteUnicodeTextFile( post_form_html, temp_file_path );
+    m_TemporaryValidationFiles.append( temp_file_path );
+
+    QDesktopServices::openUrl( QUrl(temp_file_path) );
 }

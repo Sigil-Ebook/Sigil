@@ -44,10 +44,18 @@ public:
      */
     CSSResource( const QString &fullfilepath, QObject *parent = NULL );
 
+    ~CSSResource();
+
     bool DeleteCSStyles( QList<CSSInfo::CSSSelector*> css_selectors);
 
     // inherited
     virtual ResourceType Type() const;
+
+    void ValidateStylesheetWithW3C();
+
+private:
+
+    QList<QString> m_TemporaryValidationFiles;
 };
 
 #endif // CSSRESOURCE_H

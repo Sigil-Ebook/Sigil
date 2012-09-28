@@ -312,6 +312,8 @@ private slots:
      */
     void IdpfsObfuscationMethod();
 
+    void ValidateStylesheetWithW3C();
+
 private:
     /**
      * Expands the Text folder so that all HTML files are shown.
@@ -504,6 +506,7 @@ private:
     QAction *m_RenumberTOC;
     QAction *m_LinkStylesheets;
     QAction *m_SaveAs;
+    QAction *m_ValidateWithW3C;
 
     QMenu &m_OpenWithContextMenu;
     QAction *m_OpenWith;

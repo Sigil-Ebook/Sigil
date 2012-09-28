@@ -1603,9 +1603,29 @@ void MainWindow::PreferencesDialog()
 }
 
 
-void MainWindow::ValidateEpub()
+void MainWindow::ValidateEpubWithFlightCrew()
 {
     m_ValidationResultsView->ValidateCurrentBook();
+}
+
+
+void MainWindow::ValidateStylesheetsWithW3C()
+{
+    if ( !m_TabManager.IsAllTabDataWellFormed() ) {
+        ShowMessageOnCurrentStatusBar(tr("Validation cancelled due to XML not well formed."));
+        return;
+    }
+    SaveTabData();
+
+    QList<Resource *> css_resources = m_BookBrowser->AllCSSResources();
+    if (css_resources.isEmpty()) {
+        QMessageBox::warning(this, tr("Sigil"), tr("This EPUB does not contain any CSS stylesheets to validate."));
+        return;
+    }
+    foreach( Resource *resource, css_resources) {
+        CSSResource *css_resource = qobject_cast<CSSResource*>(resource);
+        css_resource->ValidateStylesheetWithW3C();
+    }
 }
 
 
@@ -2808,6 +2828,7 @@ const QMap< QString, QString > MainWindow::GetSaveFiltersMap()
 MainWindow& MainWindow::GetCurrentMainWindow()
 {
     QObject *object = qobject_cast< QObject* >( QApplication::activeWindow() );
+    Q_ASSERT( object );
     MainWindow *main_window = NULL;
 
     // In Sigil, every window has to be either a MainWindow,
@@ -3189,7 +3210,8 @@ void MainWindow::ExtendUI()
     sm->registerAction(ui.actionMetaEditor, "MainWindow.MetaEditor");
     sm->registerAction(ui.actionGenerateTOC, "MainWindow.GenerateTOC");
     sm->registerAction(ui.actionCreateHTMLTOC, "MainWindow.CreateHTMLTOC");
-    sm->registerAction(ui.actionValidateEpub, "MainWindow.ValidateEpub");
+    sm->registerAction(ui.actionValidateEpubWithFlightCrew, "MainWindow.ValidateEpub");
+    sm->registerAction(ui.actionValidateStylesheetsWithW3C, "MainWindow.ValidateStylesheetsWithW3C");
     sm->registerAction(ui.actionAutoSpellCheck, "MainWindow.AutoSpellCheck");
     sm->registerAction(ui.actionSpellCheck, "MainWindow.SpellCheck");
     sm->registerAction(ui.actionAddMisspelledWord, "MainWindow.AddMispelledWord");
@@ -3257,9 +3279,9 @@ void MainWindow::ExtendIconSizes()
     icon.addFile(QString::fromUtf8(":/main/document-save-as_16px.png"));
     ui.actionSaveAs->setIcon(icon);
 
-    icon = ui.actionValidateEpub->icon();
+    icon = ui.actionValidateEpubWithFlightCrew->icon();
     icon.addFile(QString::fromUtf8(":/main/document-validate_16px.png"));
-    ui.actionValidateEpub->setIcon(icon);
+    ui.actionValidateEpubWithFlightCrew->setIcon(icon);
 
     icon = ui.actionSpellCheck->icon();
     icon.addFile(QString::fromUtf8(":/main/document-spellcheck_16px.png"));
@@ -3531,7 +3553,8 @@ void MainWindow::ConnectSignalsToSlots()
 
     // Tools
     connect( ui.actionMetaEditor,    SIGNAL( triggered() ), this, SLOT( MetaEditorDialog()         ) );
-    connect( ui.actionValidateEpub,  SIGNAL( triggered() ), this, SLOT( ValidateEpub()             ) );
+    connect( ui.actionValidateEpubWithFlightCrew,  SIGNAL( triggered() ), this, SLOT( ValidateEpubWithFlightCrew() ) );
+    connect( ui.actionValidateStylesheetsWithW3C,  SIGNAL( triggered() ), this, SLOT( ValidateStylesheetsWithW3C() ) );
     connect( ui.actionAutoSpellCheck, SIGNAL( triggered( bool ) ), this, SLOT( SetAutoSpellCheck( bool ) ) );
     connect( ui.actionSpellCheck,    SIGNAL( triggered() ), m_FindReplace, SLOT( FindMisspelledWord() ) );
     connect( ui.actionClearIgnoredWords, SIGNAL( triggered() ), this, SLOT( ClearIgnoredWords()    ) );
