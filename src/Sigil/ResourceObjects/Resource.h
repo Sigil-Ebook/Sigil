@@ -207,7 +207,7 @@ signals:
      */
     void ResourceUpdatedFromDisk();
 
-    void ResourceUpdatedFromDiskStatus(const Resource& resource);
+    void ResourceUpdatedFromDiskStatus(Resource& resource);
 
     /**
      * Emitted when the resource has been modified. This 

@@ -392,7 +392,7 @@ void Book::CreateNewSections( const QStringList &new_sections, HTMLResource &ori
 }
 
 
-bool Book::IsDataWellFormed( HTMLResource& html_resource )
+bool Book::IsDataOnDiskWellFormed( HTMLResource& html_resource )
 {
     XhtmlDoc::WellFormedError error = XhtmlDoc::WellFormedErrorForSource( Utility::ReadUnicodeTextFile( html_resource.GetFullPath() ) );
     return error.line == -1;
@@ -404,7 +404,7 @@ bool Book::AreResourcesWellFormed( QList<Resource *> resources )
     foreach( Resource *resource, resources )
     {
         HTMLResource &html_resource = *qobject_cast< HTMLResource *>( resource );
-        if ( !IsDataWellFormed( html_resource ) )
+        if ( !IsDataOnDiskWellFormed( html_resource ) )
         {
             return false;
         }
@@ -656,7 +656,7 @@ Resource* Book::MergeResources( QList<Resource *> resources )
     Resource *sink_resource = resources.takeFirst();
     HTMLResource &sink_html_resource = *qobject_cast<HTMLResource *>(sink_resource);
     
-    if ( !IsDataWellFormed( sink_html_resource ) ) {
+    if ( !IsDataOnDiskWellFormed( sink_html_resource ) ) {
         return sink_resource;
     }
 
@@ -682,7 +682,7 @@ Resource* Book::MergeResources( QList<Resource *> resources )
 
             xc::DOMDocumentFragment *body_children_fragment = NULL;
             HTMLResource &source_html_resource = *qobject_cast<HTMLResource *>(source_resource);
-            if ( !IsDataWellFormed( source_html_resource ) ) {
+            if ( !IsDataOnDiskWellFormed( source_html_resource ) ) {
                 failed_resource = source_resource;
                 break;
             }
@@ -761,10 +761,19 @@ bool Book::HasObfuscatedFonts() const
     return false;
 }
 
-void Book::ResourceUpdatedFromDiskStatus(const Resource &resource)
+void Book::ResourceUpdatedFromDiskStatus(Resource &resource)
 {
-    QString message = QString("File ") + resource.Filename() + " updated from disk.";
-    emit ShowStatusMessageRequest(message, 10000);
+    QString message = QString(tr("File")) + " " + resource.Filename() + " " + tr("was updated by another application") + ".";
+    int duration = 10000;
+    if ( resource.Type() == Resource::HTMLResourceType ) {
+        HTMLResource &html_resource = *qobject_cast< HTMLResource *>( &resource );
+        if (!IsDataOnDiskWellFormed( html_resource )) {
+            message = QString(tr("Warning")) + ": " + message + " " + tr("The file was NOT well-formed and may be corrupted.");
+            duration = 20000;
+        }
+    }
+
+    emit ShowStatusMessageRequest(message, duration);
 }
 
 void Book::SetModified( bool modified )

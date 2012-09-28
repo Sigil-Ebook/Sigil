@@ -463,8 +463,8 @@ void FolderKeeper::WatchResourceFile( const Resource& resource, bool file_rename
         connect( &resource,  SIGNAL( ResourceUpdatedFromDisk() ),
                  parent(),   SLOT( SetModified() ), Qt::UniqueConnection );
 
-        connect (&resource,  SIGNAL( ResourceUpdatedFromDiskStatus(const Resource&) ),
-                 parent(),   SLOT( ResourceUpdatedFromDiskStatus(const Resource&)), Qt::UniqueConnection);
+        connect (&resource,  SIGNAL( ResourceUpdatedFromDiskStatus(Resource&) ),
+                 parent(),   SLOT( ResourceUpdatedFromDiskStatus(Resource&)), Qt::UniqueConnection);
     }
 }
 

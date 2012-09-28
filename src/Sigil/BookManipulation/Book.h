@@ -247,7 +247,7 @@ public:
      *
      * @return true if well formed
      */
-    bool IsDataWellFormed( HTMLResource& html_resource );
+    bool IsDataOnDiskWellFormed( HTMLResource& html_resource );
 
     /**
      * Returns whether or not a list of resources are well-formed
@@ -276,7 +276,7 @@ public slots:
      */
     void SetModified( bool modified = true );
 
-    void ResourceUpdatedFromDiskStatus(const Resource &resource);
+    void ResourceUpdatedFromDiskStatus(Resource &resource);
 
 signals:
 
