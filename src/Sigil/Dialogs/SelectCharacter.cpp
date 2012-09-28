@@ -23,6 +23,7 @@
 #include <QtGui/QCompleter>
 #include <QtGui/QLineEdit>
 #include <QtGui/QToolButton>
+#include <QtGui/QApplication>
 #include <QtCore/QSignalMapper>
 
 #include "Dialogs/SelectCharacter.h"
@@ -262,6 +263,9 @@ void SelectCharacter::SetSelectedCharacter(const QString& text)
     if (isCtrl) {
         accept();
     }
+
+    // Return focus to last window to allow typing to continue
+    QApplication::setActiveWindow(parentWidget());
 }
 
 void SelectCharacter::ReadSettings()
