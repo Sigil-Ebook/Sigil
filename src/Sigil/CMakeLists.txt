@@ -653,8 +653,9 @@ if( APPLE )
         set( WORK_DIR "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}" )
     endif()
 
-    add_custom_target(  addframeworks ALL 
-                        COMMAND ${QT_BINARY_DIR}/macdeployqt Sigil.app
+    add_custom_target(  addframeworks
+                        COMMAND sudo ${QT_BINARY_DIR}/macdeployqt Sigil.app &&
+                        sudo chown -R `whoami` Sigil.app
                         WORKING_DIRECTORY ${WORK_DIR}
                         DEPENDS ${PROJECT_NAME} )
 
@@ -663,8 +664,8 @@ if( APPLE )
                         WORKING_DIRECTORY ${WORK_DIR}
                         DEPENDS addframeworks )
 
-    add_custom_command( TARGET addframeworks POST_BUILD COMMAND cp ${PROJECT_BINARY_DIR}/*.qm ${WORK_DIR}/Sigil.app/Contents/translations/ )
-    add_custom_command( TARGET addframeworks POST_BUILD COMMAND cp ${CMAKE_SOURCE_DIR}/src/Sigil/Resource_Files/dictionaries/* ${WORK_DIR}/Sigil.app/Contents/hunspell_dictionaries )
+    add_custom_command( TARGET ${PROJECT_NAME} POST_BUILD COMMAND cp ${PROJECT_BINARY_DIR}/*.qm ${WORK_DIR}/Sigil.app/Contents/translations/ )
+    add_custom_command( TARGET ${PROJECT_NAME} POST_BUILD COMMAND cp ${CMAKE_SOURCE_DIR}/src/Sigil/Resource_Files/dictionaries/* ${WORK_DIR}/Sigil.app/Contents/hunspell_dictionaries )
                 
 # For Linux and Windows, provide binary installers.
 # For this to work on Linux, InstallJammer needs to be installed and on the system path.
