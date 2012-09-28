@@ -47,6 +47,12 @@ public:
      * Destructor.
      */
     virtual ~Importer() {}
+    
+    /**
+     * Call this prior to calling GetBook to determine whether the item
+     * is valid to be loaded. 
+     */
+    virtual bool IsValidToLoad();
 
     /**
      * Loads the file as a Book and returns it.

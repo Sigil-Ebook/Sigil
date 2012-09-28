@@ -526,6 +526,7 @@ QStringList BookBrowser::AddExisting(Resource::ResourceType add_resource_type)
     QList< Metadata::MetaElement > old_metadata = m_Book->GetMetadata();
 
     QStringList current_filenames = m_Book->GetFolderKeeper().GetAllFilenames();
+    QStringList invalid_filenames;
 
     HTMLResource *current_html_resource = qobject_cast< HTMLResource* >( GetCurrentResource() );
 
@@ -598,6 +599,11 @@ QStringList BookBrowser::AddExisting(Resource::ResourceType add_resource_type)
         else if ( TEXT_EXTENSIONS.contains( QFileInfo( filepath ).suffix().toLower() ) )
         {
             ImportHTML html_import( filepath );
+            if ( !html_import.IsValidToLoad() ) {
+                invalid_filenames.append(QDir::toNativeSeparators(filepath));
+                continue;
+            }
+
             html_import.SetBook( m_Book, true );
 
             // Since we set the Book manually,
@@ -628,18 +634,27 @@ QStringList BookBrowser::AddExisting(Resource::ResourceType add_resource_type)
         added_files.append(filepath);
     }
 
-    emit ResourcesAdded();
-
-    if (open_resource) {
-        emit ResourceActivated(*open_resource);
+    if (!invalid_filenames.isEmpty()) {
+        progress.cancel();
+        QMessageBox::warning( this, tr( "Sigil" ),
+                                tr( "The following file(s) were not loaded due to invalid content or not well formed XML:\n\n\%1" )
+                                .arg( invalid_filenames.join("\n") ) );
     }
 
-    m_Book->SetMetadata( old_metadata );
+    if (!added_files.isEmpty()) {
+        emit ResourcesAdded();
 
-    emit BookContentModified();
-    Refresh();
+        if (open_resource) {
+            emit ResourceActivated(*open_resource);
+        }
 
-    emit ShowStatusMessageRequest(tr("File(s) added."));
+        m_Book->SetMetadata( old_metadata );
+
+        emit BookContentModified();
+        Refresh();
+
+        emit ShowStatusMessageRequest(tr("File(s) added."));
+    }
 
     return added_files;
 }

@@ -2576,7 +2576,6 @@ void MainWindow::CreateNewBook()
 void MainWindow::LoadFile( const QString &fullfilepath )
 {
     if ( !Utility::IsFileReadable( fullfilepath ) )
-
         return;
 
     // Store the folder the user opened from
@@ -2587,12 +2586,25 @@ void MainWindow::LoadFile( const QString &fullfilepath )
 
     try
     {
+        ImporterFactory importerFactory;
+        // Create the new book, clean up the old one
+        // (destructors take care of that)
+        Importer &importer = importerFactory.GetImporter( fullfilepath );
+
+        if ( !importer.IsValidToLoad() ) {
+            // Warn the user their content is invalid.
+            QMessageBox::warning( this, tr( "Sigil" ),
+                                    tr( "The following file was not loaded due to invalid content or not well formed XML:\n\n\%1" )
+                                    .arg( fullfilepath ) );
+            // Fallback to displaying a new book
+            CreateNewBook();
+            return;
+        }
+        
         QApplication::setOverrideCursor( Qt::WaitCursor );
         m_Book->SetModified( false );
 
-        // Create the new book, clean up the old one
-        // (destructors take care of that)
-        SetNewBook( ImporterFactory().GetImporter( fullfilepath ).GetBook() );
+        SetNewBook( importer.GetBook() );
 
         // The m_IsModified state variable is set in GetBook() to indicate whether the OPF
         // file was invalid and had to be recreated.

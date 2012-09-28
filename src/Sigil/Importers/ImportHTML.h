@@ -43,6 +43,8 @@ public:
     // in which to load HTML files (and their dependencies).
     void SetBook( QSharedPointer< Book > book, bool ignore_duplicates );
 
+    virtual bool IsValidToLoad();
+
     // Reads and parses the file 
     // and returns the created Book.
     virtual QSharedPointer< Book > GetBook();
@@ -78,6 +80,8 @@ private:
     ///////////////////////////////
 
     bool m_IgnoreDuplicates;
+
+    QString m_CachedSource;
 };
 
 #endif // IMPORTHTML_H

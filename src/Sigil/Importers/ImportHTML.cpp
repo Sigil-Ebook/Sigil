@@ -51,7 +51,8 @@ using boost::tie;
 ImportHTML::ImportHTML( const QString &fullfilepath )
     : 
     Importer( fullfilepath ),
-    m_IgnoreDuplicates( false )
+    m_IgnoreDuplicates( false ),
+    m_CachedSource( QString() )
 {
 
 }
@@ -64,14 +65,18 @@ void ImportHTML::SetBook( QSharedPointer< Book > book, bool ignore_duplicates )
 }
 
 
+bool ImportHTML::IsValidToLoad()
+{
+    // For HTML & XML documents we will perform a well-formed check
+    XhtmlDoc::WellFormedError error = XhtmlDoc::WellFormedErrorForSource(LoadSource());
+    return error.line == -1;
+}
+
+
 // Reads and parses the file 
 // and returns the created Book
 QSharedPointer< Book > ImportHTML::GetBook()
 {
-    if ( !Utility::IsFileReadable( m_FullFilePath ) )
-
-        boost_throw( CannotReadFile() << errinfo_file_fullpath( m_FullFilePath.toStdString() ) );
-
     shared_ptr< xc::DOMDocument > document = XhtmlDoc::LoadTextIntoDocument( LoadSource() );
 
     LoadMetadata( *document );
@@ -86,10 +91,15 @@ QSharedPointer< Book > ImportHTML::GetBook()
 // Loads the source code into the Book
 QString ImportHTML::LoadSource()
 {
-    return 
-        CleanSource::Clean( 
+    if (m_CachedSource.isNull()) {
+        if ( !Utility::IsFileReadable( m_FullFilePath ) ) {
+            boost_throw( CannotReadFile() << errinfo_file_fullpath( m_FullFilePath.toStdString() ) );
+        }
+        m_CachedSource = CleanSource::Clean( 
             XhtmlDoc::ResolveCustomEntities( 
                 HTMLEncodingResolver::ReadHTMLFile( m_FullFilePath ) ) );
+    }
+    return m_CachedSource;
 }
 
 

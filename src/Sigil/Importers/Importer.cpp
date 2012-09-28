@@ -28,3 +28,9 @@ Importer::Importer( const QString &fullfilepath )
 {
 
 }
+
+bool Importer::IsValidToLoad()
+{
+    // Default behaviour is to assume resource is valid.
+    return true;
+}
