@@ -298,6 +298,11 @@ private slots:
     void LinkStylesheets();
 
     /**
+     * Clears obfuscation for the current resource.
+     */
+    void NoObfuscationMethod();
+
+    /**
      * Sets the use of Adobe's obfuscation method for the current resource.
      */
     void AdobesObfuscationMethod();
@@ -391,18 +396,14 @@ private:
     /**
      * Sets up the sub-menu for adding or removing font obfuscation,
      * when the menu is invoked for FontResources.
-     *
-     * @param resource The resource on which the context menu was invoked.
      */
-    void SetupFontObfuscationMenu( Resource * esource );
+    void SetupFontObfuscationMenu();
 
     /**
      * Sets the checked state for the font obfuscation actions
      * based on the resource's current state.
-     *
-     * @param resource The resource on which the context menu was invoked.
      */
-    void SetFontObfuscationActionCheckState( Resource *resource );
+    void SetFontObfuscationActionCheckState();
 
     /**
      * Returns the currently selected resource in the tree view.
@@ -496,6 +497,7 @@ private:
     QAction *m_Merge;
     QAction *m_MergeWithPrevious;
     QAction *m_CoverImage;
+    QAction *m_NoObfuscationMethod;
     QAction *m_AdobesObfuscationMethod;
     QAction *m_IdpfsObfuscationMethod;
     QAction *m_SortHTML;

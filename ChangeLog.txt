@@ -1,4 +1,5 @@
 Sigil 0.6.0 TBA 
+    - Implement issue 1622: Allow Font Obfuscation to work for multiple font files.
     - Implement issue 1620: Well-formed check option should be removed and replaced with more appropriate automatic checking.
     - Implement issue 1617: Split should split at cursor position not at end of paragraph.
     - Implement issue 1619: Generate TOC should show tooltip details for the heading in case title and text is blank.

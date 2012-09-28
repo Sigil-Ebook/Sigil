@@ -1108,37 +1108,36 @@ void BookBrowser::LinkStylesheets()
 }
 
 
-void BookBrowser::AdobesObfuscationMethod()
+void BookBrowser::NoObfuscationMethod()
 {
-    FontResource *font_resource = qobject_cast< FontResource* >( GetCurrentResource() );
-    Q_ASSERT( font_resource );
-
-    QString current_algorithm = font_resource->GetObfuscationAlgorithm();
-
-    if ( current_algorithm == IDPF_FONT_ALGO_ID || current_algorithm.isEmpty() )
-
-        font_resource->SetObfuscationAlgorithm( ADOBE_FONT_ALGO_ID );
-
-    else
+    foreach (Resource *resource, ValidSelectedResources()) {
+        FontResource *font_resource = qobject_cast< FontResource* >(resource);
+        Q_ASSERT(font_resource);
 
         font_resource->SetObfuscationAlgorithm( "" );
+    }
+}
+
+
+void BookBrowser::AdobesObfuscationMethod()
+{
+    foreach (Resource *resource, ValidSelectedResources()) {
+        FontResource *font_resource = qobject_cast< FontResource* >(resource);
+        Q_ASSERT(font_resource);
+
+        font_resource->SetObfuscationAlgorithm( ADOBE_FONT_ALGO_ID );
+    }
 }
 
 
 void BookBrowser::IdpfsObfuscationMethod()
 {
-    FontResource *font_resource = qobject_cast< FontResource* >( GetCurrentResource() );
-    Q_ASSERT( font_resource );
-
-    QString current_algorithm = font_resource->GetObfuscationAlgorithm();
-
-    if ( current_algorithm == ADOBE_FONT_ALGO_ID || current_algorithm.isEmpty() )
+    foreach (Resource *resource, ValidSelectedResources()) {
+        FontResource *font_resource = qobject_cast< FontResource* >(resource);
+        Q_ASSERT(font_resource);
 
         font_resource->SetObfuscationAlgorithm( IDPF_FONT_ALGO_ID );
-
-    else
-
-        font_resource->SetObfuscationAlgorithm( "" );
+    }
 }
 
 
@@ -1213,6 +1212,7 @@ void BookBrowser::CreateContextMenuActions()
     m_Delete                  = new QAction( tr( "Delete" ) + "...",        this );
     m_CoverImage              = new QAction( tr( "Cover Image" ),           this );
     m_Merge                   = new QAction( tr( "Merge" ),                 this );
+    m_NoObfuscationMethod     = new QAction( tr( "None" ),                  this );
     m_AdobesObfuscationMethod = new QAction( tr( "Use Adobe's Method" ),    this );
     m_IdpfsObfuscationMethod  = new QAction( tr( "Use IDPF's Method" ),     this );
     m_SortHTML                = new QAction( tr( "Sort" ) + "...",          this );
@@ -1223,6 +1223,7 @@ void BookBrowser::CreateContextMenuActions()
     m_OpenWithEditor          = new QAction( "",                            this );
 
     m_CoverImage             ->setCheckable( true );  
+    m_NoObfuscationMethod    ->setCheckable( true ); 
     m_AdobesObfuscationMethod->setCheckable( true ); 
     m_IdpfsObfuscationMethod ->setCheckable( true );
 
@@ -1397,7 +1398,7 @@ bool BookBrowser::SuccessfullySetupContextMenu( const QPoint &point )
         }
     
         if ( resource->Type() == Resource::FontResourceType) {
-            SetupFontObfuscationMenu( resource );
+            SetupFontObfuscationMenu();
         }
     
         if ( resource->Type() == Resource::NCXResourceType) {
@@ -1420,7 +1421,6 @@ bool BookBrowser::SuccessfullySetupContextMenu( const QPoint &point )
                 m_OpenWith->setText( tr( "Open With" ) + "..." );
 
                 m_ContextMenu.addAction( m_OpenWith );
-                m_OpenWith->setEnabled(item_count == 1);
             }
             else
             {
@@ -1429,10 +1429,10 @@ bool BookBrowser::SuccessfullySetupContextMenu( const QPoint &point )
                 m_OpenWithEditor->setEnabled(item_count == 1);
 
                 m_OpenWith->setText( tr( "Other Application" ) + "..." );
-                m_OpenWith->setEnabled(item_count == 1);
 
                 m_ContextMenu.addMenu( &m_OpenWithContextMenu );
             }
+            m_OpenWithContextMenu.setEnabled(item_count == 1);
         }
 
         // Save As
@@ -1563,31 +1563,48 @@ void BookBrowser::SetHTMLSemanticActionCheckState( Resource *resource )
 }
 
 
-void BookBrowser::SetupFontObfuscationMenu( Resource *resource )
+void BookBrowser::SetupFontObfuscationMenu()
 {
+    m_FontObfuscationContextMenu.addAction( m_NoObfuscationMethod );    
     m_FontObfuscationContextMenu.addAction( m_AdobesObfuscationMethod );    
     m_FontObfuscationContextMenu.addAction( m_IdpfsObfuscationMethod );    
 
-    SetFontObfuscationActionCheckState( resource );
+    SetFontObfuscationActionCheckState();
 
     m_ContextMenu.addMenu( &m_FontObfuscationContextMenu );
-    m_FontObfuscationContextMenu.setEnabled(ValidSelectedItemCount() == 1);
 }
 
 
-void BookBrowser::SetFontObfuscationActionCheckState( Resource *resource )
+void BookBrowser::SetFontObfuscationActionCheckState()
 {
-    if ( resource->Type() != Resource::FontResourceType )
+    Resource *resource = GetCurrentResource();
 
+    if (resource->Type() != Resource::FontResourceType) {
         return;
+    }
 
+    // Get the algorithm used by the first font
     FontResource *font_resource = qobject_cast< FontResource* >( resource );
     Q_ASSERT( font_resource );
-
     QString algorithm = font_resource->GetObfuscationAlgorithm();
 
-    m_AdobesObfuscationMethod->setChecked( algorithm == ADOBE_FONT_ALGO_ID );
-    m_IdpfsObfuscationMethod ->setChecked( algorithm == IDPF_FONT_ALGO_ID  );
+    // Now compare against all the other fonts and if the same set a checkmark
+    bool same_algorithm = true;
+    foreach (Resource *resource, ValidSelectedResources()) {
+        FontResource *font_resource2 = qobject_cast< FontResource* >(resource);
+        Q_ASSERT(font_resource);
+
+        QString algorithm2 = font_resource2->GetObfuscationAlgorithm();
+
+        if (algorithm2 != algorithm) {
+            same_algorithm = false;
+            break;
+        }
+    }
+
+    m_NoObfuscationMethod->setChecked( same_algorithm && (algorithm.isEmpty() || algorithm == ""));
+    m_AdobesObfuscationMethod->setChecked( same_algorithm && algorithm == ADOBE_FONT_ALGO_ID );
+    m_IdpfsObfuscationMethod ->setChecked( same_algorithm && algorithm == IDPF_FONT_ALGO_ID  );
 }
 
 
@@ -1622,6 +1639,7 @@ void BookBrowser::ConnectSignalsToSlots()
 
     connect( m_AdobesObfuscationMethod, SIGNAL( triggered() ), this, SLOT( AdobesObfuscationMethod() ) );
     connect( m_IdpfsObfuscationMethod,  SIGNAL( triggered() ), this, SLOT( IdpfsObfuscationMethod()  ) );
+    connect( m_NoObfuscationMethod,     SIGNAL( triggered() ), this, SLOT( NoObfuscationMethod()     ) );
 
     foreach( QAction* action, m_GuideSemanticActions )
     {
