@@ -207,6 +207,7 @@ void SelectHyperlink::DoubleClicked(const QModelIndex &index)
     Clicked(index);
     accept();
 }
+
 void SelectHyperlink::Clicked(const QModelIndex &index)
 {
     QStandardItem *item = m_SelectHyperlinkModel->itemFromIndex(index);

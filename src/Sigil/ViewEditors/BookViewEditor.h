@@ -285,6 +285,8 @@ private slots:
     void OpenContextMenu( const QPoint &point );
 
 private:
+    void PasteClipEntry(ClipEditorModel::clipEntry *clip);
+
     /**
      * Escapes JavaScript string special characters.
      *

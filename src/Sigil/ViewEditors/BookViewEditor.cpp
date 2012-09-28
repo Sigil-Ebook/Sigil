@@ -665,9 +665,28 @@ void BookViewEditor::PasteText(const QString &text)
     InsertHtml(text);
 }
 
+
 void BookViewEditor::PasteClipEntries(const QList<ClipEditorModel::clipEntry *> &clips)
 {
-    // This operation is not currently supported in BookView.
+    foreach(ClipEditorModel::clipEntry *clip, clips) {
+        PasteClipEntry(clip);
+    }
+}
+
+void BookViewEditor::PasteClipEntry(ClipEditorModel::clipEntry *clip)
+{
+    if (!clip || clip->text.isEmpty()) {
+        return;
+    }
+
+    QString text = clip->text;
+    // If Ctrl is used, keep as html
+    bool isCtrl = QApplication::keyboardModifiers() & Qt::ControlModifier;
+    if (!isCtrl) {
+        text.replace(">", "&gt;").replace("<", "&lt;");
+    }
+
+    InsertHtml(text);
 }
 
 void BookViewEditor::OpenContextMenu( const QPoint &point )

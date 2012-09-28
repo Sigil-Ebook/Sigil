@@ -707,6 +707,10 @@ void SearchEditor::SetupContextMenu(const QPoint &point)
     m_ContextMenu->addAction(m_ExpandAll);
 }
 
+void SearchEditor::DoubleClicked(const QModelIndex &index)
+{
+        LoadFindReplace();
+}
 
 void SearchEditor::reject()
 {
@@ -714,11 +718,21 @@ void SearchEditor::reject()
     QDialog::reject();
 }
 
+void SearchEditor::PasteSearch()
+{
+    LoadFindReplace();
+}
+
+void SearchEditor::PasteAndClose()
+{
+    LoadFindReplace();
+    accept();
+}
+
 void SearchEditor::accept()
 {
     if (SaveData()) {
         WriteSettings();
-        LoadFindReplace();
         QDialog::accept();
     }
 }
@@ -730,9 +744,13 @@ void SearchEditor::ConnectSignalsSlots()
     connect(ui.Replace,    SIGNAL(clicked()),            this, SLOT(Replace()));
     connect(ui.CountAll,   SIGNAL(clicked()),            this, SLOT(CountAll()));
     connect(ui.ReplaceAll, SIGNAL(clicked()),            this, SLOT(ReplaceAll()));
+    connect(ui.PasteSearch, SIGNAL(clicked()),            this, SLOT(PasteSearch()));
+    connect(ui.PasteAndClose, SIGNAL(clicked()),            this, SLOT(PasteAndClose()));
 
     connect(ui.SearchEditorTree, SIGNAL(customContextMenuRequested(const QPoint&)),
             this,                SLOT(  OpenContextMenu(           const QPoint&)));
+    connect (ui.SearchEditorTree, SIGNAL(doubleClicked(const QModelIndex &)),
+            this,         SLOT(DoubleClicked(const QModelIndex &)));
 
     connect(m_AddEntry,    SIGNAL(triggered()), this, SLOT(AddEntry()));
     connect(m_AddGroup,    SIGNAL(triggered()), this, SLOT(AddGroup()));

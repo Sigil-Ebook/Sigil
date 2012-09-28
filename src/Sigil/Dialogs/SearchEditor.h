@@ -51,6 +51,8 @@ public slots:
 
     void ShowMessage(QString message);
 
+    void DoubleClicked(const QModelIndex &index);
+
 signals:
     void LoadSelectedSearchRequest(SearchEditorModel::searchEntry *search_entry);
     void FindSelectedSearchRequest(QList<SearchEditorModel::searchEntry *> search_entries);
@@ -81,6 +83,8 @@ private slots:
     void Replace();
     void CountAll();
     void ReplaceAll();
+    void PasteSearch();
+    void PasteAndClose();
 
     void FilterEditTextChangedSlot(const QString &text);
 

@@ -42,18 +42,36 @@
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout_2">
      <item>
-      <widget class="ClipEditorTreeView" name="ClipEditorTree"/>
+      <widget class="ClipEditorTreeView" name="ClipEditorTree">
+       <property name="editTriggers">
+        <set>QAbstractItemView::EditKeyPressed</set>
+       </property>
+      </widget>
      </item>
      <item>
       <layout class="QVBoxLayout" name="verticalLayout">
        <item>
         <widget class="QPushButton" name="PasteIntoDocument">
          <property name="toolTip">
-          <string>Paste the selected entry into Code View.
+          <string>Paste the selected entry.
 If a group is selected, paste each entry in order.</string>
          </property>
          <property name="text">
           <string>Paste</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="PasteAndClose">
+         <property name="toolTip">
+          <string>Paste the selected entry and close the dialog.
+If a group is selected, paste each entry in order.</string>
+         </property>
+         <property name="text">
+          <string>Paste &amp;&amp; Close</string>
+         </property>
+         <property name="default">
+          <bool>true</bool>
          </property>
         </widget>
        </item>
@@ -78,8 +96,11 @@ If a group is selected, paste each entry in order.</string>
     <layout class="QHBoxLayout" name="horizontalLayout_3">
      <item>
       <widget class="QDialogButtonBox" name="buttonBox">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
        <property name="toolTip">
-        <string>Selecting OK will paste the selected text into your document.</string>
+        <string/>
        </property>
        <property name="standardButtons">
         <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>

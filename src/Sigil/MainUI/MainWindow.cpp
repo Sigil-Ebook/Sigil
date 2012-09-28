@@ -1081,8 +1081,10 @@ void MainWindow::PasteClipEntriesIntoCurrentTarget(const QList<ClipEditorModel::
         ShowMessageOnCurrentStatusBar(tr("Select the destination to paste into first."));
         return;
     }
-    ShowMessageOnCurrentStatusBar(QString());
+
     m_LastPasteTarget->PasteClipEntries(clips);
+
+    ShowMessageOnCurrentStatusBar(QString());
 }
 
 void MainWindow::SetViewState(MainWindow::ViewState view_state)

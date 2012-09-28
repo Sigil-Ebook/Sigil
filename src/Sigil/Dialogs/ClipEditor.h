@@ -69,6 +69,9 @@ private slots:
     void ExpandAll(); 
 
     void PasteIntoDocument();
+    void PasteAndClose();
+
+    void DoubleClicked(const QModelIndex &index);
 
     void FilterEditTextChangedSlot(const QString &text);
 

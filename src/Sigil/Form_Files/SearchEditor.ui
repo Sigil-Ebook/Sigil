@@ -42,7 +42,11 @@
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout_2">
      <item>
-      <widget class="SearchEditorTreeView" name="SearchEditorTree"/>
+      <widget class="SearchEditorTreeView" name="SearchEditorTree">
+       <property name="editTriggers">
+        <set>QAbstractItemView::EditKeyPressed</set>
+       </property>
+      </widget>
      </item>
      <item>
       <layout class="QVBoxLayout" name="verticalLayout">
@@ -109,6 +113,48 @@ including entries in selected groups.</string>
         </widget>
        </item>
        <item>
+        <spacer name="verticalSpacer_3">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Fixed</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QPushButton" name="PasteSearch">
+         <property name="toolTip">
+          <string>Paste the selected entry into Find &amp; Replace.</string>
+         </property>
+         <property name="text">
+          <string>Paste</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="PasteAndClose">
+         <property name="toolTip">
+          <string>Paste the selected entry into Find &amp; Replace and close the dialog.</string>
+         </property>
+         <property name="text">
+          <string>Paste &amp;&amp; Close</string>
+         </property>
+         <property name="autoDefault">
+          <bool>true</bool>
+         </property>
+         <property name="default">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
         <spacer name="verticalSpacer">
          <property name="orientation">
           <enum>Qt::Vertical</enum>
@@ -137,7 +183,7 @@ including entries in selected groups.</string>
      <item>
       <widget class="QDialogButtonBox" name="buttonBox">
        <property name="toolTip">
-        <string>Selecting OK will load the selected search into Find &amp; Replace</string>
+        <string/>
        </property>
        <property name="standardButtons">
         <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
