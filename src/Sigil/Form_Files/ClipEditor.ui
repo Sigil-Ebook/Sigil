@@ -116,21 +116,5 @@
     </hint>
    </hints>
   </connection>
-  <connection>
-   <sender>buttonBox</sender>
-   <signal>clicked(QAbstractButton*)</signal>
-   <receiver>ClipEditor</receiver>
-   <slot>apply()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>399</x>
-     <y>416</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>399</x>
-     <y>219</y>
-    </hint>
-   </hints>
-  </connection>
  </connections>
 </ui>

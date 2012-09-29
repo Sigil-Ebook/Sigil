@@ -47,8 +47,6 @@ public:
 public slots:
     QStandardItem* AddEntry(bool is_group = false, ClipEditorModel::clipEntry *clip_entry = NULL, bool insert_after = true);
 
-    void apply();
-
 signals:
     void PasteSelectedClipRequest(QList<ClipEditorModel::clipEntry *> clip_entries);
 
@@ -68,7 +66,9 @@ private slots:
     void Export();
     void ExportAll();
     void CollapseAll(); 
-    void ExpandAll(); 
+    void ExpandAll();
+
+    void Apply();
 
     void PasteIntoDocument();
 

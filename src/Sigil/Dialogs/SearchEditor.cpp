@@ -738,7 +738,7 @@ void SearchEditor::accept()
     }
 }
 
-void SearchEditor::apply()
+void SearchEditor::Apply()
 {
         LoadFindReplace();
 }
@@ -766,4 +766,6 @@ void SearchEditor::ConnectSignalsSlots()
     connect(m_ExportAll,   SIGNAL(triggered()), this, SLOT(ExportAll()));
     connect(m_CollapseAll, SIGNAL(triggered()), this, SLOT(CollapseAll()));
     connect(m_ExpandAll,   SIGNAL(triggered()), this, SLOT(ExpandAll()));
+
+    connect(ui.buttonBox->button(QDialogButtonBox::Apply), SIGNAL(clicked()), this, SLOT(Apply()));
 }

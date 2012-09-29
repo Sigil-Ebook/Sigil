@@ -51,8 +51,6 @@ public slots:
 
     void ShowMessage(const QString &message);
 
-    void apply();
-
 signals:
     void LoadSelectedSearchRequest(SearchEditorModel::searchEntry *search_entry);
     void FindSelectedSearchRequest(QList<SearchEditorModel::searchEntry *> search_entries);
@@ -77,6 +75,8 @@ private slots:
     void ExportAll();
     void CollapseAll(); 
     void ExpandAll(); 
+
+    void Apply();
 
     void LoadFindReplace();
     void Find();

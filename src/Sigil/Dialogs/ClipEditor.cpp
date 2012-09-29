@@ -21,10 +21,11 @@
 *************************************************************************/
 
 #include <QtCore/QSignalMapper>
-#include <QtGui/QFileDialog>
-#include <QtGui/QContextMenuEvent>
 #include <QtGui/QAction>
+#include <QtGui/QContextMenuEvent>
+#include <QtGui/QFileDialog>
 #include <QtGui/QMenu>
+#include <QtGui/QPushButton>
 
 #include "Dialogs/ClipEditor.h"
 #include "Misc/Utility.h"
@@ -650,7 +651,7 @@ void ClipEditor::accept()
     }
 }
 
-void ClipEditor::apply()
+void ClipEditor::Apply()
 {
     PasteIntoDocument();
 }
@@ -674,4 +675,6 @@ void ClipEditor::ConnectSignalsSlots()
     connect(m_ExportAll,   SIGNAL(triggered()), this, SLOT(ExportAll()));
     connect(m_CollapseAll, SIGNAL(triggered()), this, SLOT(CollapseAll()));
     connect(m_ExpandAll,   SIGNAL(triggered()), this, SLOT(ExpandAll()));
+
+    connect(ui.buttonBox->button(QDialogButtonBox::Apply), SIGNAL(clicked()), this, SLOT(Apply()));
 }
