@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2011  John Schember <john@nachtimwald.com>
+**  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
 **
@@ -20,41 +20,33 @@
 *************************************************************************/
 
 #pragma once
-#ifndef REPORTSWIDGET_H
-#define REPORTSWIDGET_H
+#ifndef BOOKREPORTS_H
+#define BOOKREPORTS_H
 
-#include <QWidget>
-#include <QString>
-#include <QHash>
+#include "ResourceObjects/Resource.h"
+#include "BookManipulation/Book.h"
 
-#include "Misc/CSSInfo.h"
-#include "BookManipulation/BookReports.h"
+class QString;
 
-/**
- * Base Interface for reports widgets.
- */
-class ReportsWidget : public QWidget
+
+class BookReports
 {
-    Q_OBJECT
 
 public:
-    /**
-     * Describes the result actions to present to the user as a result
-     * of saving any changes made in the preferences widgets.
-     * Results are in order of increasing priority of result to display.
-     */
-    struct Results
-    {
-        QString filename;
-        int line;
-        QStringList files_to_delete;
-        QList<BookReports::StyleData*> styles_to_delete;
+
+    // Data used by the style reports
+    struct StyleData {
+        QString html_filename;
+        QString html_element_name;
+        QString html_class_name;
+        QString css_filename;
+        QString css_selector_text;
+        int css_selector_line;
+        int css_selector_position;
     };
 
-    /**
-     * Save settings made available by the widget.
-     */
-    virtual Results saveSettings() = 0;
+    static QList<BookReports::StyleData *> GetHTMLClassUsage(QList<Resource *>html_resources, QList<Resource *>css_resources, QSharedPointer< Book > book);
+    static QList<BookReports::StyleData *> GetCSSSelectorUsage(QList<Resource *>css_resources, QList<BookReports::StyleData *> html_class_usage);
 };
 
-#endif // REPORTSWIDGET_H
+#endif // BOOKREPORTS_H

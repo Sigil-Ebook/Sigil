@@ -44,11 +44,20 @@ ClassesInHTMLFilesWidget::ClassesInHTMLFilesWidget(QList<Resource *>html_resourc
     connectSignalsSlots();
 
     SetupTable();
-    CheckHTMLFiles();
+
+    QList<BookReports::StyleData *> html_classes_usage = BookReports::GetHTMLClassUsage(m_HTMLResources, m_CSSResources, m_Book);
+
+    AddTableData(html_classes_usage);
 
     for (int i = 0; i < ui.fileTree->header()->count(); i++) {
         ui.fileTree->resizeColumnToContents(i);
     }
+
+    // Sort commonly used order
+    ui.fileTree->sortByColumn(2, Qt::AscendingOrder);
+    ui.fileTree->sortByColumn(1, Qt::AscendingOrder);
+    ui.fileTree->sortByColumn(0, Qt::AscendingOrder);
+    ui.fileTree->sortByColumn(3, Qt::AscendingOrder);
 }
 
 void ClassesInHTMLFilesWidget::SetupTable()
@@ -76,100 +85,45 @@ void ClassesInHTMLFilesWidget::SetupTable()
         );
 }
 
-void ClassesInHTMLFilesWidget::CheckHTMLFiles()
+void ClassesInHTMLFilesWidget::AddTableData(QList<BookReports::StyleData *> html_classes_usage)
 {
-    // Save the text for each stylesheet in the EPUB
-    QList<Resource *> css_named_resources;
-    QHash<QString, QString> css_names_to_text;
-    foreach (Resource *resource, m_CSSResources) {
-        QString filename = "../" + resource->GetRelativePathToOEBPS();
-        if (!css_names_to_text.contains(filename)) {
-            CSSResource *css_resource = dynamic_cast<CSSResource *>( resource );
-            css_names_to_text[filename] = css_resource->GetText();
+    foreach (BookReports::StyleData *class_usage, html_classes_usage) {
+        // Write the table entries
+        QList<QStandardItem *> rowItems;
+
+        // File name
+        QStandardItem *filename_item = new QStandardItem();
+        filename_item->setText(class_usage->html_filename);
+        rowItems << filename_item;
+
+        // Element name
+        QStandardItem *element_name_item = new QStandardItem();
+        element_name_item->setText(class_usage->html_element_name);
+        rowItems << element_name_item;
+
+        // Class name
+        QStandardItem *class_name_item = new QStandardItem();
+        class_name_item->setText(class_usage->html_class_name);
+        rowItems << class_name_item;
+
+        // Selector
+        QStandardItem *selector_text_item = new QStandardItem();
+        selector_text_item->setText(class_usage->css_selector_text);
+        rowItems << selector_text_item;
+
+        // Found in
+        QStandardItem *found_in_item = new QStandardItem();
+        QString css_short_filename = class_usage->css_filename;
+        css_short_filename = css_short_filename.right(css_short_filename.length() - css_short_filename.lastIndexOf('/') - 1);
+        found_in_item->setText(css_short_filename);
+        found_in_item->setToolTip(class_usage->css_filename);
+        rowItems << found_in_item;
+
+        for (int i = 0; i < rowItems.count(); i++) {
+            rowItems[i]->setEditable(false);
         }
-    }
 
-    // Check each file for classes to look for in inline and linked stylesheets
-    foreach (Resource *html_resource, m_HTMLResources) {
-        QString html_filename = html_resource->Filename();
-
-        // Get the unique list of classes in this file
-        QStringList classes_in_file = m_Book->GetClassesInHTMLFile(html_filename);    
-        classes_in_file.removeDuplicates();
-
-        // Get the text and linked stylesheets for this file
-        HTMLResource *html_type_resource = dynamic_cast<HTMLResource *>( html_resource );
-        QString html_text = html_type_resource->GetText();
-        QStringList linked_stylesheets = m_Book->GetStylesheetsInHTMLFile(html_type_resource);
-
-        // For each class check in the inline text and the linked stylesheets
-        foreach (QString class_name, classes_in_file) {
-            QString found_location;
-            QString selector_text;
-            QString element_part = class_name.split(".").at(0);
-            QString class_part = class_name.split(".").at(1);
-
-            // Check inline styles
-            CSSInfo css_info(html_text, false);
-            CSSInfo::CSSSelector* selector = css_info.getCSSSelectorForElementClass( element_part, class_part); 
-            if (selector && (selector->classNames.count() > 0)) {
-                found_location = "*** INLINE ***";
-                // Get just the one selector in a comma separated group
-                selector_text = selector->groupText;
-            }
-
-            // Check in stylesheets if not inline
-            if (found_location.isEmpty()) {
-                foreach (QString stylesheet_filename, linked_stylesheets) {
-                    if (css_names_to_text.contains(stylesheet_filename)) {
-                        CSSInfo css_info(css_names_to_text[stylesheet_filename], true);
-                        CSSInfo::CSSSelector* selector = css_info.getCSSSelectorForElementClass( element_part, class_part); 
-                        if (selector && (selector->classNames.count() > 0)) {
-                            found_location = stylesheet_filename;
-                            found_location = found_location.right(found_location.length() - found_location.lastIndexOf("/") - 1);
-                            // Get just the one selector in a comma separated group
-                            selector_text = selector->groupText;
-                            break;
-                        }
-                    }
-                }
-            }
-
-            // Write the table entries
-
-            QList<QStandardItem *> rowItems;
-
-            // File name
-            QStandardItem *filename_item = new QStandardItem();
-            filename_item->setText(html_filename);
-            rowItems << filename_item;
-
-            // Element name
-            QStandardItem *element_name_item = new QStandardItem();
-            element_name_item->setText(element_part);
-            rowItems << element_name_item;
-
-            // Class name
-            QStandardItem *class_name_item = new QStandardItem();
-            class_name_item->setText(class_part);
-            rowItems << class_name_item;
-
-            // Selector
-            QStandardItem *selector_text_item = new QStandardItem();
-            selector_text_item->setText(selector_text);
-            rowItems << selector_text_item;
-
-            // Found in
-            QStandardItem *found_in_item = new QStandardItem();
-            found_in_item->setText(found_location);
-            rowItems << found_in_item;
-
-            for (int i = 0; i < rowItems.count(); i++) {
-                rowItems[i]->setEditable(false);
-            }
-
-            m_ItemModel->appendRow(rowItems);
-        }
+        m_ItemModel->appendRow(rowItems);
     }
 }
 

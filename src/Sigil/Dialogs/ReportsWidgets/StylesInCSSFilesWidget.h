@@ -33,6 +33,7 @@
 
 #include "ResourceObjects/Resource.h"
 #include "BookManipulation/Book.h"
+#include "BookManipulation/BookReports.h"
 #include "ReportsWidget.h"
 
 #include "ui_ReportsStylesInCSSFilesWidget.h"
@@ -63,18 +64,11 @@ private:
     void CreateContextMenuActions();
     void SetupContextMenu(const QPoint &point);
 
-    struct Selector {
-        int css_line;
-        int css_position;
-        QString css_selector_text;
-        QString html_filename;
-    };
-
     void connectSignalsSlots();
 
     void SetupTable();
-    QHash< QString, QList<StylesInCSSFilesWidget::Selector *> > CheckHTMLFiles();
-    void CheckCSSFiles(QHash< QString, QList<StylesInCSSFilesWidget::Selector *> > css_selectors);
+
+    void AddTableData(QList<BookReports::StyleData *> css_selectors_usage);
 
     QList<Resource *> m_HTMLResources;
     QList<Resource *> m_CSSResources;

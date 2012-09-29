@@ -769,6 +769,64 @@ void MainWindow::CreateIndex()
     QApplication::restoreOverrideCursor();
 }
 
+void MainWindow::DeleteReportsStyles(QList<BookReports::StyleData *> reports_styles_to_delete, bool prompt_user)
+{
+    // Convert the styles to CSS Selectors
+    QHash< QString, QList<CSSInfo::CSSSelector *> > css_styles_to_delete;
+
+    foreach(BookReports::StyleData *report_style, reports_styles_to_delete) {
+        CSSInfo::CSSSelector *selector = new CSSInfo::CSSSelector();
+        selector->groupText = report_style->css_selector_text;
+        selector->line = report_style->css_selector_line;
+
+        QString css_short_filename = report_style->css_filename;
+        css_short_filename = css_short_filename.right(css_short_filename.length() - css_short_filename.lastIndexOf('/') - 1);
+        css_styles_to_delete[css_short_filename].append(selector);
+    }
+
+    // Build a list of names for display
+    QString style_names;
+
+    int count = 0;
+    QHashIterator< QString, QList<CSSInfo::CSSSelector*> > stylesheets(css_styles_to_delete);
+    while (stylesheets.hasNext()) {
+        stylesheets.next();
+        QString css_short_filename = stylesheets.key();
+        css_short_filename = css_short_filename.right(css_short_filename.length() - css_short_filename.lastIndexOf('/') - 1);
+        style_names += "\n\n" + css_short_filename + ": " "\n";
+        foreach (CSSInfo::CSSSelector *s, stylesheets.value()) {
+            style_names += s->groupText + ", ";
+            count++;
+        }
+        style_names = style_names.left(style_names.length() - 2);
+    }
+
+    if (prompt_user) {
+        QMessageBox::StandardButton button_pressed;
+        QString msg = count == 1 ? tr( "Are you sure you want to delete the style listed below?\n" ):
+                                               tr( "Are you sure you want to delete all the styles listed below?\n" );
+        msg += "\nThese styles have been marked as unused because they were not matched by a class ";
+        msg += "found in the HTML files.  You may want to manually verify the style is not used if ";
+        msg += "the style is a complex CSS selector.\n\n";
+        button_pressed = QMessageBox::warning(  this,
+                          tr( "Sigil" ), msg % tr( "This action cannot be reversed." ) % style_names,
+                                                    QMessageBox::Ok | QMessageBox::Cancel
+                                             );
+        if ( button_pressed != QMessageBox::Ok ) {
+            return;
+        }
+    }
+
+    // Actually delete the styles
+    QHashIterator< QString, QList<CSSInfo::CSSSelector*> > stylesheets_to_delete(css_styles_to_delete);
+    while (stylesheets_to_delete.hasNext()) {
+        stylesheets_to_delete.next();
+        DeleteCSSStyles(stylesheets_to_delete.key(), stylesheets_to_delete.value());
+    }
+
+    ShowMessageOnStatusBar(tr("Styles deleted."));
+}
+
 
 void MainWindow::ReportsDialog()
 {
@@ -779,17 +837,13 @@ void MainWindow::ReportsDialog()
     Reports reports(html_resources, image_resources, css_resources, m_Book, this);
 
     if (reports.exec() == QDialog::Accepted) {
-        QHash< QString, QList<CSSInfo::CSSSelector*> > styles_to_delete = reports.StylesToDelete();
+        QList<BookReports::StyleData*> styles_to_delete = reports.StylesToDelete();
         QStringList files_to_delete = reports.FilesToDelete();
         QString selected_file = reports.SelectedFile();
         int selected_file_line = reports.SelectedFileLine();
 
         if (styles_to_delete.count() > 0) {
-            QHashIterator< QString, QList<CSSInfo::CSSSelector*> > stylesheets(styles_to_delete);
-            while (stylesheets.hasNext()) {
-                stylesheets.next();
-                DeleteCSSStyles(stylesheets.key(), stylesheets.value());
-            }
+            DeleteReportsStyles(styles_to_delete, false);
         }
         else if (files_to_delete.count() > 0) {
             QList <Resource *> resources;
@@ -873,7 +927,7 @@ bool MainWindow::DeleteCSSStyles(const QString &filename, QList<CSSInfo::CSSSele
 }
 
 void MainWindow::DeleteUnusedImages()
-{
+{            
     QList<Resource *> resources;
 
     QHash<QString, QStringList> image_html_files_hash = m_Book->GetHTMLFilesUsingImages();
@@ -887,9 +941,33 @@ void MainWindow::DeleteUnusedImages()
 
     if (resources.count() > 0) {
         RemoveResources(resources);
+        ShowMessageOnStatusBar(tr("Unused images delete."));
     }
     else {
-        QMessageBox::information(this, tr("Sigil"), tr("There are no unused images."));
+        ShowMessageOnStatusBar(tr("There are no unused images to delete."));
+    }
+
+}
+
+void MainWindow::DeleteUnusedStyles()
+{
+    QList<BookReports::StyleData *> html_class_usage = BookReports::GetHTMLClassUsage(m_BookBrowser->AllHTMLResources(), m_BookBrowser->AllCSSResources(), m_Book);
+
+    QList<BookReports::StyleData *> css_selector_usage = BookReports::GetCSSSelectorUsage(m_BookBrowser->AllCSSResources(), html_class_usage);
+
+    QList<BookReports::StyleData *> css_selectors_to_delete;
+    
+    foreach (BookReports::StyleData *selector, css_selector_usage) {
+        if (selector->html_filename.isEmpty()) {
+            css_selectors_to_delete.append(selector);
+        }
+    }
+
+    if (css_selectors_to_delete.count() > 0) {
+        DeleteReportsStyles(css_selectors_to_delete);
+    }
+    else {
+        ShowMessageOnStatusBar(tr("There are no unused styles to delete."));
     }
 }
 
@@ -3206,6 +3284,7 @@ void MainWindow::ExtendUI()
     sm->registerAction(ui.actionMarkForIndex, "MainWindow.MarkForIndex");
     sm->registerAction(ui.actionCreateIndex, "MainWindow.CreateIndex");
     sm->registerAction(ui.actionDeleteUnusedImages, "MainWindow.DeleteUnusedImages");
+    sm->registerAction(ui.actionDeleteUnusedStyles, "MainWindow.DeleteUnusedStyles");
 
     // View
     sm->registerAction(ui.actionBookView, "MainWindow.BookView");
@@ -3547,6 +3626,7 @@ void MainWindow::ConnectSignalsToSlots()
     connect( ui.actionIndexEditor,   SIGNAL( triggered() ), this, SLOT( IndexEditorDialog()        ) );
     connect( ui.actionCreateIndex,   SIGNAL( triggered() ), this, SLOT( CreateIndex()              ) );
     connect( ui.actionDeleteUnusedImages,    SIGNAL( triggered() ), this, SLOT( DeleteUnusedImages()                   ) );
+    connect( ui.actionDeleteUnusedStyles,    SIGNAL( triggered() ), this, SLOT( DeleteUnusedStyles()                   ) );
 
     // Change case
     connect(ui.actionCasingLowercase,  SIGNAL(triggered()), m_casingChangeMapper, SLOT(map()));

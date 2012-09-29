@@ -284,6 +284,7 @@
     <addaction name="actionSearchEditor"/>
     <addaction name="separator"/>
     <addaction name="actionDeleteUnusedImages"/>
+    <addaction name="actionDeleteUnusedStyles"/>
    </widget>
    <addaction name="menuFile"/>
    <addaction name="menuEdit"/>
@@ -1537,6 +1538,11 @@
   <action name="actionDeleteUnusedImages">
    <property name="text">
     <string>Delete Unused Image Files...</string>
+   </property>
+  </action>
+  <action name="actionDeleteUnusedStyles">
+   <property name="text">
+    <string>Delete Unused Stylesheet Styles...</string>
    </property>
   </action>
   <action name="actionReports">

@@ -133,6 +133,8 @@ set( BOOK_MANIPULATION_FILES
     BookManipulation/Book.h
     BookManipulation/BookNormalization.cpp
     BookManipulation/BookNormalization.h
+    BookManipulation/BookReports.cpp
+    BookManipulation/BookReports.h
     BookManipulation/Index.cpp
     BookManipulation/Index.h
     BookManipulation/CleanSource.cpp

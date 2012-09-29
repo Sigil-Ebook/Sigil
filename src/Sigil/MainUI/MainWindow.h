@@ -30,6 +30,7 @@
 
 #include "ui_main.h"
 #include "BookManipulation/Book.h"
+#include "BookManipulation/BookReports.h"
 #include "Dialogs/ClipboardHistorySelector.h"
 #include "Dialogs/IndexEditor.h"
 #include "MainUI/FindReplace.h"
@@ -289,6 +290,7 @@ private slots:
     bool DeleteCSSStyles(const QString &filename, QList<CSSInfo::CSSSelector*> css_selectors);
 
     void DeleteUnusedImages();
+    void DeleteUnusedStyles();
 
     /**
      * Implements Insert image action functionality.
@@ -574,6 +576,8 @@ private slots:
     void SetImageWatchResourceFile(const QString &pathname);
 
 private:
+
+    void DeleteReportsStyles(QList<BookReports::StyleData *> reports_styles_to_delete, bool prompt_user = true);
 
     void InsertImagesFromDisk();
 

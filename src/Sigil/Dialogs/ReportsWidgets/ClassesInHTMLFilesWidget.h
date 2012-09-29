@@ -31,6 +31,7 @@
 
 #include "ResourceObjects/Resource.h"
 #include "BookManipulation/Book.h"
+#include "BookManipulation/BookReports.h"
 #include "ReportsWidget.h"
 
 #include "ui_ReportsClassesInHTMLFilesWidget.h"
@@ -57,7 +58,7 @@ private:
     void connectSignalsSlots();
 
     void SetupTable();
-    void CheckHTMLFiles();
+    void AddTableData(QList<BookReports::StyleData *> html_classes_usage);
 
     QList<Resource *> m_HTMLResources;
     QList<Resource *> m_CSSResources;

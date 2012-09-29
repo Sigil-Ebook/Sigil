@@ -29,6 +29,7 @@
 
 #include "ResourceObjects/Resource.h"
 #include "BookManipulation/Book.h" 
+#include "BookManipulation/BookReports.h" 
 #include "ReportsWidgets/ReportsWidget.h"
 
 #include "ui_Reports.h"
@@ -54,7 +55,7 @@ public:
     int SelectedFileLine();
 
     QStringList FilesToDelete();
-    QHash< QString, QList<CSSInfo::CSSSelector*> > StylesToDelete();
+    QList<BookReports::StyleData *> StylesToDelete();
 
 private slots:
     /**
@@ -102,7 +103,7 @@ private:
     int m_SelectedFileLine;
 
     QStringList m_FilesToDelete;
-    QHash<QString, QList<CSSInfo::CSSSelector *> > m_StylesToDelete;
+    QList<BookReports::StyleData*> m_StylesToDelete;
 
     Ui::Reports ui;
 };

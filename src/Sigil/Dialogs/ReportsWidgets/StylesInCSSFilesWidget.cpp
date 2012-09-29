@@ -52,12 +52,22 @@ StylesInCSSFilesWidget::StylesInCSSFilesWidget(QList<Resource *>html_resources, 
     connectSignalsSlots();
 
     SetupTable();
-    QHash< QString, QList<StylesInCSSFilesWidget::Selector *> > css_selectors = CheckHTMLFiles();
-    CheckCSSFiles(css_selectors);
+
+    // Get the list of classes in HTML and what selectors they match
+    QList<BookReports::StyleData *> html_classes_usage = BookReports::GetHTMLClassUsage(m_HTMLResources, m_CSSResources, m_Book);
+
+    // Get the list of selectors in CSS files and if they were matched by HTML classes
+    QList<BookReports::StyleData *> css_selector_usage = BookReports::GetCSSSelectorUsage(m_CSSResources, html_classes_usage);
+
+    AddTableData(css_selector_usage);
 
     for (int i = 0; i < ui.fileTree->header()->count(); i++) {
         ui.fileTree->resizeColumnToContents(i);
     }
+
+    ui.fileTree->sortByColumn(1, Qt::AscendingOrder);
+    ui.fileTree->sortByColumn(0, Qt::AscendingOrder);
+    ui.fileTree->sortByColumn(2, Qt::AscendingOrder);
 }
 
 void StylesInCSSFilesWidget::SetupTable()
@@ -83,117 +93,36 @@ void StylesInCSSFilesWidget::SetupTable()
         );
 }
 
-QHash< QString, QList<StylesInCSSFilesWidget::Selector *> > StylesInCSSFilesWidget::CheckHTMLFiles()
+void StylesInCSSFilesWidget::AddTableData(QList<BookReports::StyleData *> css_selectors_usage)
 {
-    QHash< QString, QList<StylesInCSSFilesWidget::Selector *> > css_selectors;
+    foreach (BookReports::StyleData *selector_usage, css_selectors_usage) {
+        // Write the table entries
+        QList<QStandardItem *> rowItems;
 
-    // Save the text for each stylesheet in the EPUB
-    QList<Resource *> css_named_resources;
-    QHash<QString, QString> css_names_to_text;
-    foreach (Resource *resource, m_CSSResources) {
-        QString filename = "../" + resource->GetRelativePathToOEBPS();
-        if (!css_names_to_text.contains(filename)) {
-            CSSResource *css_resource = dynamic_cast<CSSResource *>( resource );
-            css_names_to_text[filename] = css_resource->GetText();
+        // File name
+        QStandardItem *filename_item = new QStandardItem();
+        QString css_short_filename = selector_usage->css_filename;
+        css_short_filename = css_short_filename.right(css_short_filename.length() - css_short_filename.lastIndexOf('/') - 1);
+        filename_item->setText(css_short_filename);
+        filename_item->setToolTip(selector_usage->css_filename);
+        rowItems << filename_item;
+
+        // Selector
+        QStandardItem *selector_text_item = new QStandardItem();
+        selector_text_item->setText(selector_usage->css_selector_text);
+        selector_text_item->setData(selector_usage->css_selector_line);
+        rowItems << selector_text_item;
+
+        // Found in
+        QStandardItem *found_in_item = new QStandardItem();
+        found_in_item->setText(selector_usage->html_filename);
+        rowItems << found_in_item;
+
+        for (int i = 0; i < rowItems.count(); i++) {
+            rowItems[i]->setEditable(false);
         }
-    }
 
-    // Check each file for classes to look for in inline and linked stylesheets
-    foreach (Resource *html_resource, m_HTMLResources) {
-        QString html_filename = html_resource->Filename();
-
-        // Get the unique list of classes in this file
-        QStringList classes_in_file = m_Book->GetClassesInHTMLFile(html_filename);    
-        classes_in_file.removeDuplicates();
-
-        // Get the text and linked stylesheets for this file
-        HTMLResource *html_type_resource = dynamic_cast<HTMLResource *>( html_resource );
-        QString html_text = html_type_resource->GetText();
-        QStringList linked_stylesheets = m_Book->GetStylesheetsInHTMLFile(html_type_resource);
-
-        // For each class check only the linked stylesheets
-        foreach (QString class_name, classes_in_file) {
-            QString found_location;
-            QString selector_text;
-            QString element_part = class_name.split(".").at(0);
-            QString class_part = class_name.split(".").at(1);
-
-            foreach (QString stylesheet_filename, linked_stylesheets) {
-                if (css_names_to_text.contains(stylesheet_filename)) {
-                    CSSInfo css_info(css_names_to_text[stylesheet_filename], true);
-                    CSSInfo::CSSSelector* selector = css_info.getCSSSelectorForElementClass( element_part, class_part); 
-                    if (selector && (selector->classNames.count() > 0)) {
-                        found_location = stylesheet_filename;
-                        // Record the matched information to use later when checking CSS file
-                        StylesInCSSFilesWidget::Selector *selector_info = new StylesInCSSFilesWidget::Selector();
-                        selector_text = selector->groupText;
-                        selector_info->css_selector_text = selector_text;
-                        selector_info->css_position = selector->position;
-                        selector_info->css_line = selector->line;
-                        selector_info->html_filename = "../" + html_resource->GetRelativePathToOEBPS();
-                        selector_info->html_filename = html_resource->Filename();
-                        css_selectors[stylesheet_filename].append(selector_info);
-                        break;
-                    }
-                }
-            }
-        }
-    }
-
-    return css_selectors;
-}
-
-void StylesInCSSFilesWidget::CheckCSSFiles(QHash< QString, QList<StylesInCSSFilesWidget::Selector *> > css_selectors)
-{
-    // Now check the CSS files to see if their classes appear in an HTML file
-    foreach (Resource *resource, m_CSSResources) {
-        CSSResource *css_resource = dynamic_cast<CSSResource *>( resource );
-        QString text = css_resource->GetText();
-        CSSInfo css_info(text, true);
-        QList<CSSInfo::CSSSelector*> selectors = css_info.getClassSelectors();
-
-        foreach (CSSInfo::CSSSelector *selector, selectors) {
-            QString filename = "../" + resource->GetRelativePathToOEBPS();
-
-            QString selector_text = selector->groupText;
-            int selector_line = selector->line;
-            QString found_location;
-
-            if (css_selectors.contains(filename)) {
-                foreach (StylesInCSSFilesWidget::Selector *selector_info, css_selectors[filename]) {
-                    if (selector_info->css_position == selector->position) {
-                        found_location = selector_info->html_filename;
-                        break;
-                    }
-                }
-            }
-
-            // Write the table entries
-
-            QList<QStandardItem *> rowItems;
-
-            // File name
-            QStandardItem *filename_item = new QStandardItem();
-            filename_item->setText(css_resource->Filename());
-            rowItems << filename_item;
-
-            // Selector
-            QStandardItem *selector_text_item = new QStandardItem();
-            selector_text_item->setText(selector_text);
-            selector_text_item->setData(selector_line);
-            rowItems << selector_text_item;
-
-            // Found in
-            QStandardItem *found_in_item = new QStandardItem();
-            found_in_item->setText(found_location);
-            rowItems << found_in_item;
-
-            for (int i = 0; i < rowItems.count(); i++) {
-                rowItems[i]->setEditable(false);
-            }
-
-            m_ItemModel->appendRow(rowItems);
-        }
+        m_ItemModel->appendRow(rowItems);
     }
 }
 
@@ -241,17 +170,16 @@ ReportsWidget::Results StylesInCSSFilesWidget::saveSettings()
     results.files_to_delete.clear();
     results.styles_to_delete.clear();
 
-
     if (ui.fileTree->selectionModel()->hasSelection()) {
         if (m_DeleteStyles) {
             foreach (QModelIndex index, ui.fileTree->selectionModel()->selectedRows(0)) {
-                QString filename = m_ItemModel->itemFromIndex(index)->text();
 
-                CSSInfo::CSSSelector *selector = new CSSInfo::CSSSelector();
-                selector->groupText = m_ItemModel->itemFromIndex(index.sibling(index.row(), 1))->text();
-                selector->line = m_ItemModel->itemFromIndex(index.sibling(index.row(), 1))->data().toInt();
+                BookReports::StyleData *style = new BookReports::StyleData();
+                style->css_filename = m_ItemModel->itemFromIndex(index)->text();
+                style->css_selector_text = m_ItemModel->itemFromIndex(index.sibling(index.row(), 1))->text();
+                style->css_selector_line = m_ItemModel->itemFromIndex(index.sibling(index.row(), 1))->data().toInt();
 
-                results.styles_to_delete[filename].append(selector);
+                results.styles_to_delete.append(style);
             }
         }
         else {
@@ -268,16 +196,41 @@ ReportsWidget::Results StylesInCSSFilesWidget::saveSettings()
 
 void StylesInCSSFilesWidget::Delete()
 {
+    QString style_names; 
+    QHash< QString, QStringList> stylesheet_styles;
+
+    foreach (QModelIndex index, ui.fileTree->selectionModel()->selectedRows(0)) {
+        QString filename = m_ItemModel->itemFromIndex(index)->text();
+        QString name = m_ItemModel->itemFromIndex(index.sibling(index.row(), 1))->text();
+        stylesheet_styles[filename].append(name);
+    }
+
+    int count = 0;
+    QHashIterator< QString, QStringList> it_stylesheet_styles(stylesheet_styles);
+    while (it_stylesheet_styles.hasNext()) {
+        it_stylesheet_styles.next();
+        style_names += "\n\n" + it_stylesheet_styles.key() + ": " "\n";
+        foreach (QString name, it_stylesheet_styles.value()) {
+            style_names += name + ", ";
+            count++;
+        }
+        style_names = style_names.left(style_names.length() - 2);
+    }
+
     QMessageBox::StandardButton button_pressed;
+    QString msg = count == 1 ? tr( "Are you sure you want to delete the style listed below?\n" ):
+                                           tr( "Are you sure you want to delete all the styles listed below?\n" );
     button_pressed = QMessageBox::warning(  this,
-                      tr( "Sigil" ), tr( "Are you sure you want to delete the selected styles from their stylesheets?") % "\n\n" % tr( "This action cannot be reversed." ),
+                      tr( "Sigil" ), msg % tr( "This action cannot be reversed." ) % style_names,
                                                 QMessageBox::Ok | QMessageBox::Cancel
                                          );
-    if (button_pressed == QMessageBox::Ok) {
-        m_DeleteStyles = true;
-
-        emit Done();
+    if ( button_pressed != QMessageBox::Ok ) {
+        return;
     }
+
+    m_DeleteStyles = true;
+
+    emit Done();
 }
 
 void StylesInCSSFilesWidget::CreateContextMenuActions()

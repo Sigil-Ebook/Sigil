@@ -69,10 +69,10 @@ Reports::Reports(QList<Resource*> html_resources,
     appendReportsWidget(new CSSFilesWidget(m_HTMLResources, m_CSSResources, m_Book));
     progress.setValue(progress_value++);
 
-    appendReportsWidget(new StylesInCSSFilesWidget(m_HTMLResources, m_CSSResources, m_Book));
+    appendReportsWidget(new ClassesInHTMLFilesWidget(m_HTMLResources, m_CSSResources, m_Book));
     progress.setValue(progress_value++);
 
-    appendReportsWidget(new ClassesInHTMLFilesWidget(m_HTMLResources, m_CSSResources, m_Book));
+    appendReportsWidget(new StylesInCSSFilesWidget(m_HTMLResources, m_CSSResources, m_Book));
     progress.setValue(progress_value++);
 
     connectSignalsSlots();
@@ -105,7 +105,7 @@ QStringList Reports::FilesToDelete()
     return m_FilesToDelete;
 }
 
-QHash< QString, QList<CSSInfo::CSSSelector*> > Reports::StylesToDelete()
+QList<BookReports::StyleData *> Reports::StylesToDelete()
 {
     return m_StylesToDelete;
 }
