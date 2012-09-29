@@ -9,8 +9,6 @@
         <file>format_block.js</file>
         <file>get_block.js</file>
         <file>jquery.wrapSelection.js</file>
-        <file>replace_wrapped.js</file>
-        <file>replace_undo.js</file>
         <file>get_ancestor.js</file>
         <file>get_ancestor_attribute.js</file>
         <file>set_ancestor_attribute.js</file>
