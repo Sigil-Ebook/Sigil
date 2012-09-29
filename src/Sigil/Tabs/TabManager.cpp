@@ -564,7 +564,7 @@ ContentTab* TabManager::CreateTabForResource( Resource& resource,
 
     case Resource::TextResourceType:
         {
-            tab = new TextTab( *( qobject_cast< TextResource* >( &resource ) ), CodeViewEditor::Highlight_XHTML, line_to_scroll_to, this );
+            tab = new TextTab( *( qobject_cast< TextResource* >( &resource ) ), CodeViewEditor::Highlight_NONE, line_to_scroll_to, this );
             break;
         }
     default:

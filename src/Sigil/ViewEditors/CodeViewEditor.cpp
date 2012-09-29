@@ -95,8 +95,11 @@ CodeViewEditor::CodeViewEditor( HighlighterType high_type, bool check_spelling, 
     if ( high_type == CodeViewEditor::Highlight_XHTML ) {
         m_Highlighter = new XHTMLHighlighter( check_spelling, this );
     }
-    else {
+    else if ( high_type == CodeViewEditor::Highlight_CSS) {
         m_Highlighter = new CSSHighlighter( this );
+    }
+    else {
+        m_Highlighter = NULL;
     }
 
     setFocusPolicy( Qt::StrongFocus );
@@ -129,7 +132,9 @@ void CodeViewEditor::CustomSetDocument( QTextDocument &document )
     setDocument( &document );
     document.setModified( false );
 
-    m_Highlighter->setDocument( &document );
+    if (m_Highlighter) {
+        m_Highlighter->setDocument( &document );
+    }
 
     ResetFont();
 
@@ -1495,12 +1500,14 @@ void CodeViewEditor::RehighlightDocument()
         return;
     }
     m_pendingSpellingHighlighting = false;
-    // We block signals from the document while highlighting takes place,
-    // because we do not want the contentsChanged() signal to be fired
-    // which would mark the underlying resource as needing saving.
-    document()->blockSignals(true);
-    m_Highlighter->rehighlight();
-    document()->blockSignals(false);
+    if (m_Highlighter) {
+        // We block signals from the document while highlighting takes place,
+        // because we do not want the contentsChanged() signal to be fired
+        // which would mark the underlying resource as needing saving.
+        document()->blockSignals(true);
+        m_Highlighter->rehighlight();
+        document()->blockSignals(false);
+    }
 }
 
 
