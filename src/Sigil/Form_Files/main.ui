@@ -1628,7 +1628,7 @@
   </action>
   <action name="actionSearchEditor">
    <property name="text">
-    <string>Search Editor...</string>
+    <string>Saved Searches...</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+Alt+F</string>
@@ -1636,10 +1636,10 @@
   </action>
   <action name="actionClipEditor">
    <property name="text">
-    <string>Clip Editor...</string>
+    <string>Clip Manager...</string>
    </property>
    <property name="toolTip">
-    <string>Open the Clip Editor.</string>
+    <string>Open the Clip Manager.</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+Alt+C</string>
