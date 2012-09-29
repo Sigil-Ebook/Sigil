@@ -182,6 +182,7 @@ private:
     // Constructs a searching regex from the selected
     // options and fields and then returns it.
     QString GetSearchRegex();
+    QString PrependRegexOptionToSearch(const QString &option, const QString &search);
 
     QList <Resource *> GetHTMLFiles();
 

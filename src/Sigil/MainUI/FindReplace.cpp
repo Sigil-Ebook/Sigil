@@ -34,6 +34,10 @@
 #include "Misc/FindReplaceQLineEdit.h"
 
 static const QString SETTINGS_GROUP = "find_replace";
+static const QString REGEX_OPTION_UCP = "(*UCP)";
+static const QString REGEX_OPTION_IGNORE_CASE = "(?i)";
+static const QString REGEX_OPTION_DOT_ALL = "(?U)";
+static const QString REGEX_OPTION_MINIMAL_MATCH = "(?s)";
 
 FindReplace::FindReplace( MainWindow &main_window )
     : QWidget( &main_window ),
@@ -532,20 +536,29 @@ QString FindReplace::GetSearchRegex()
         search = QRegExp::escape(search);
 
         if ( GetSearchMode() == FindReplace::SearchMode_Normal ) {
-            search = "(?i)" + search;
+            search = PrependRegexOptionToSearch(REGEX_OPTION_IGNORE_CASE, search);
         }
     }
     else 
 	{
         if ( m_RegexOptionDotAll ) {
-			search = "(?s)" + search;
+			search = PrependRegexOptionToSearch(REGEX_OPTION_DOT_ALL, search);
 		}
         if ( m_RegexOptionMinimalMatch ) {
-			search = "(?U)" + search;
+			search = PrependRegexOptionToSearch(REGEX_OPTION_MINIMAL_MATCH, search);
 		}
 	}
 
     return search;
+}
+
+QString FindReplace::PrependRegexOptionToSearch(const QString &option, const QString &search)
+{
+    if (search.startsWith(REGEX_OPTION_UCP)) {
+        // Special case scenario - this directive must *always* be before any others
+        return REGEX_OPTION_UCP % option % search.mid(REGEX_OPTION_UCP.length());
+    }
+    return option % search;
 }
 
 bool FindReplace::IsCurrentFileInHTMLSelection()
