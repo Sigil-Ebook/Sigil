@@ -63,7 +63,7 @@ protected slots:
     void showEvent(QShowEvent *event);
 
 private slots:
-    void Rename();
+    void Edit();
     void Cut();
     bool Copy();
     void Paste();
@@ -99,7 +99,7 @@ private:
     void ConnectSignalsSlots();
 
     QAction *m_AddEntry;
-    QAction *m_Rename;
+    QAction *m_Edit;
     QAction *m_Cut;
     QAction *m_Copy;
     QAction *m_Paste;
