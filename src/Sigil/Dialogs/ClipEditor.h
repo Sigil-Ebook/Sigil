@@ -47,6 +47,8 @@ public:
 public slots:
     QStandardItem* AddEntry(bool is_group = false, ClipEditorModel::clipEntry *clip_entry = NULL, bool insert_after = true);
 
+    void apply();
+
 signals:
     void PasteSelectedClipRequest(QList<ClipEditorModel::clipEntry *> clip_entries);
 
@@ -57,7 +59,7 @@ protected slots:
 
 private slots:
     QStandardItem* AddGroup();
-    void Rename();
+    void Edit();
     void Cut();
     bool Copy();
     void Paste();
@@ -69,7 +71,6 @@ private slots:
     void ExpandAll(); 
 
     void PasteIntoDocument();
-    void PasteAndClose();
 
     void DoubleClicked(const QModelIndex &index);
 
@@ -104,7 +105,7 @@ private:
 
     QAction *m_AddEntry;
     QAction *m_AddGroup;
-    QAction *m_Rename;
+    QAction *m_Edit;
     QAction *m_Cut;
     QAction *m_Copy;
     QAction *m_Paste;

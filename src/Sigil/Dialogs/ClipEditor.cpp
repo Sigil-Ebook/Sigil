@@ -71,6 +71,14 @@ void ClipEditor::SetupClipEditorTree()
         "<dt><b>" + tr("Text") + "</b><dd>" + tr("The text to insert. The text is treated like a Regex replacement expression so \\1 can be used to insert the text selected in Code View when you paste the clip.") + "</dd>" +
         "</dl>");
 
+    ui.buttonBox->setToolTip( QString() +
+        "<dl>" +
+        "<dt><b>" + tr("Apply") + "</b><dd>" + tr("Paste the selected entry into the active window.") + "</dd>" +
+        "<dt><b>" + tr("Cancel") + "</b><dd>" + tr("Close without saving.") + "</dd>" +
+        "<dt><b>" + tr("OK") + "</b><dd>" + tr("Paste the selected entry, save your changes, and close.") + "</dd>" +
+        "</dl>");
+
+
     ui.ClipEditorTree->header()->setStretchLastSection(true);
 }
 
@@ -87,12 +95,6 @@ bool ClipEditor::SaveData(QList<ClipEditorModel::clipEntry*> entries, QString fi
 void ClipEditor::PasteIntoDocument()
 {
     emit PasteSelectedClipRequest(GetSelectedEntries());
-}
-
-void ClipEditor::PasteAndClose()
-{
-    PasteIntoDocument();
-    accept();
 }
 
 void ClipEditor::DoubleClicked(const QModelIndex &index)
@@ -214,7 +216,7 @@ QStandardItem* ClipEditor::AddGroup()
     return AddEntry(true);
 }
 
-void ClipEditor::Rename()
+void ClipEditor::Edit()
 {
     ui.ClipEditorTree->edit(ui.ClipEditorTree->currentIndex());
 }
@@ -542,7 +544,7 @@ void ClipEditor::CreateContextMenuActions()
 {
     m_AddEntry  =   new QAction(tr( "Add Entry" ),  this );
     m_AddGroup  =   new QAction(tr( "Add Group" ),  this );
-    m_Rename    =   new QAction(tr( "Rename" ),     this );
+    m_Edit      =   new QAction(tr( "Edit" ),       this );
     m_Cut       =   new QAction(tr( "Cut" ),        this );
     m_Copy      =   new QAction(tr( "Copy" ),       this );
     m_Paste     =   new QAction(tr( "Paste" ),      this );
@@ -555,7 +557,7 @@ void ClipEditor::CreateContextMenuActions()
 
     m_AddEntry->setShortcut(QKeySequence(Qt::ControlModifier + Qt::Key_E));
     m_AddGroup->setShortcut(QKeySequence(Qt::ControlModifier + Qt::Key_G));
-    m_Rename->setShortcut(QKeySequence(Qt::ControlModifier + Qt::Key_R));
+    m_Edit->setShortcut(QKeySequence(Qt::Key_F2));
     m_Cut->setShortcut(QKeySequence(Qt::ControlModifier + Qt::Key_X));
     m_Copy->setShortcut(QKeySequence(Qt::ControlModifier + Qt::Key_C));
     m_Paste->setShortcut(QKeySequence(Qt::ControlModifier + Qt::Key_V));
@@ -564,7 +566,7 @@ void ClipEditor::CreateContextMenuActions()
     // Has to be added to the dialog itself for the keyboard shortcut to work.
     addAction(m_AddEntry);
     addAction(m_AddGroup);
-    addAction(m_Rename);
+    addAction(m_Edit);
     addAction(m_Cut);
     addAction(m_Copy);
     addAction(m_Paste);
@@ -581,7 +583,7 @@ void ClipEditor::OpenContextMenu(const QPoint &point)
     // Make sure every action is enabled - in case shortcut is used after context menu disables some.
     m_AddEntry->setEnabled(true);
     m_AddGroup->setEnabled(true);
-    m_Rename->setEnabled(true);
+    m_Edit->setEnabled(true);
     m_Cut->setEnabled(true);
     m_Copy->setEnabled(true);
     m_Paste->setEnabled(true);
@@ -603,6 +605,10 @@ void ClipEditor::SetupContextMenu(const QPoint &point)
 
     m_ContextMenu->addSeparator();
 
+    m_ContextMenu->addAction(m_Edit);
+
+    m_ContextMenu->addSeparator();
+
     m_ContextMenu->addAction(m_Cut);
     m_Cut->setEnabled(selected_rows_count > 0);
 
@@ -611,8 +617,6 @@ void ClipEditor::SetupContextMenu(const QPoint &point)
 
     m_ContextMenu->addAction(m_Paste);
     m_Paste->setEnabled(m_SavedClipEntries.count());
-
-    m_ContextMenu->addAction(m_Rename);
 
     m_ContextMenu->addSeparator();
 
@@ -646,15 +650,19 @@ void ClipEditor::accept()
 {
     if (SaveData()) {
         WriteSettings();
+        PasteIntoDocument();
         QDialog::accept();
     }
+}
+
+void ClipEditor::apply()
+{
+    PasteIntoDocument();
 }
 
 void ClipEditor::ConnectSignalsSlots()
 {
     connect(ui.FilterText,          SIGNAL(textChanged(QString)), this, SLOT(FilterEditTextChangedSlot(QString)));
-    connect(ui.PasteIntoDocument,   SIGNAL(clicked()),            this, SLOT(PasteIntoDocument()));
-    connect(ui.PasteAndClose,       SIGNAL(clicked()),            this, SLOT(PasteAndClose()));
 
     connect(ui.ClipEditorTree, SIGNAL(customContextMenuRequested(const QPoint&)),
             this,                   SLOT(  OpenContextMenu(                  const QPoint&)));
@@ -663,7 +671,7 @@ void ClipEditor::ConnectSignalsSlots()
 
     connect(m_AddEntry,    SIGNAL(triggered()), this, SLOT(AddEntry()));
     connect(m_AddGroup,    SIGNAL(triggered()), this, SLOT(AddGroup()));
-    connect(m_Rename,      SIGNAL(triggered()), this, SLOT(Rename()));
+    connect(m_Edit,        SIGNAL(triggered()), this, SLOT(Edit()));
     connect(m_Cut,         SIGNAL(triggered()), this, SLOT(Cut()));
     connect(m_Copy,        SIGNAL(triggered()), this, SLOT(Copy()));
     connect(m_Paste,       SIGNAL(triggered()), this, SLOT(Paste()));

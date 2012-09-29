@@ -43,52 +43,16 @@
     <layout class="QHBoxLayout" name="horizontalLayout_2">
      <item>
       <widget class="ClipEditorTreeView" name="ClipEditorTree">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>1</verstretch>
+        </sizepolicy>
+       </property>
        <property name="editTriggers">
         <set>QAbstractItemView::EditKeyPressed</set>
        </property>
       </widget>
-     </item>
-     <item>
-      <layout class="QVBoxLayout" name="verticalLayout">
-       <item>
-        <widget class="QPushButton" name="PasteIntoDocument">
-         <property name="toolTip">
-          <string>Paste the selected entry.
-If a group is selected, paste each entry in order.</string>
-         </property>
-         <property name="text">
-          <string>Paste</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="PasteAndClose">
-         <property name="toolTip">
-          <string>Paste the selected entry and close the dialog.
-If a group is selected, paste each entry in order.</string>
-         </property>
-         <property name="text">
-          <string>Paste &amp;&amp; Close</string>
-         </property>
-         <property name="default">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <spacer name="verticalSpacer">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>20</width>
-           <height>40</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-      </layout>
      </item>
     </layout>
    </item>
@@ -99,11 +63,8 @@ If a group is selected, paste each entry in order.</string>
        <property name="enabled">
         <bool>true</bool>
        </property>
-       <property name="toolTip">
-        <string/>
-       </property>
        <property name="standardButtons">
-        <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+        <set>QDialogButtonBox::Apply|QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
        </property>
       </widget>
      </item>
@@ -149,6 +110,22 @@ If a group is selected, paste each entry in order.</string>
     <hint type="destinationlabel">
      <x>399</x>
      <y>199</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>clicked(QAbstractButton*)</signal>
+   <receiver>ClipEditor</receiver>
+   <slot>apply()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>399</x>
+     <y>416</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>219</y>
     </hint>
    </hints>
   </connection>

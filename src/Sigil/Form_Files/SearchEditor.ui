@@ -113,48 +113,6 @@ including entries in selected groups.</string>
         </widget>
        </item>
        <item>
-        <spacer name="verticalSpacer_3">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="sizeType">
-          <enum>QSizePolicy::Fixed</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>20</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item>
-        <widget class="QPushButton" name="PasteSearch">
-         <property name="toolTip">
-          <string>Paste the selected entry into Find &amp; Replace.</string>
-         </property>
-         <property name="text">
-          <string>Paste</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="PasteAndClose">
-         <property name="toolTip">
-          <string>Paste the selected entry into Find &amp; Replace and close the dialog.</string>
-         </property>
-         <property name="text">
-          <string>Paste &amp;&amp; Close</string>
-         </property>
-         <property name="autoDefault">
-          <bool>true</bool>
-         </property>
-         <property name="default">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-       <item>
         <spacer name="verticalSpacer">
          <property name="orientation">
           <enum>Qt::Vertical</enum>
@@ -183,10 +141,10 @@ including entries in selected groups.</string>
      <item>
       <widget class="QDialogButtonBox" name="buttonBox">
        <property name="toolTip">
-        <string/>
+        <string>Click Apply to load Find &amp; Replace with the selected search.  Click OK to load your search, save your data, and close.</string>
        </property>
        <property name="standardButtons">
-        <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+        <set>QDialogButtonBox::Apply|QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
        </property>
       </widget>
      </item>
@@ -232,6 +190,22 @@ including entries in selected groups.</string>
     <hint type="destinationlabel">
      <x>399</x>
      <y>199</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>clicked(QAbstractButton*)</signal>
+   <receiver>SearchEditor</receiver>
+   <slot>apply()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>399</x>
+     <y>416</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>219</y>
     </hint>
    </hints>
   </connection>

@@ -53,6 +53,8 @@ public slots:
 
     void DoubleClicked(const QModelIndex &index);
 
+    void apply();
+
 signals:
     void LoadSelectedSearchRequest(SearchEditorModel::searchEntry *search_entry);
     void FindSelectedSearchRequest(QList<SearchEditorModel::searchEntry *> search_entries);
@@ -67,7 +69,7 @@ protected slots:
 
 private slots:
     QStandardItem* AddGroup();
-    void Rename();
+    void Edit();
     void Cut();
     bool Copy();
     void Paste();
@@ -83,8 +85,6 @@ private slots:
     void Replace();
     void CountAll();
     void ReplaceAll();
-    void PasteSearch();
-    void PasteAndClose();
 
     void FilterEditTextChangedSlot(const QString &text);
 
@@ -119,7 +119,7 @@ private:
 
     QAction *m_AddEntry;
     QAction *m_AddGroup;
-    QAction *m_Rename;
+    QAction *m_Edit;
     QAction *m_Cut;
     QAction *m_Copy;
     QAction *m_Paste;
