@@ -35,6 +35,7 @@ SearchEditorTreeView::SearchEditorTreeView(QWidget* parent)
     setSelectionBehavior(QAbstractItemView::SelectRows);
     setSortingEnabled(false);
     setTabKeyNavigation(true);
+    setAutoExpandDelay(200);
 }
 
 SearchEditorTreeView::~SearchEditorTreeView()

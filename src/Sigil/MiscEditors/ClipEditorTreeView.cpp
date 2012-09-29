@@ -35,6 +35,7 @@ ClipEditorTreeView::ClipEditorTreeView(QWidget* parent)
     setSelectionBehavior(QAbstractItemView::SelectRows);
     setSortingEnabled(false);
     setTabKeyNavigation(true);
+    setAutoExpandDelay(200);
 }
 
 ClipEditorTreeView::~ClipEditorTreeView()
