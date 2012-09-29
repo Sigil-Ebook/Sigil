@@ -240,7 +240,7 @@ private slots:
      */
     bool SaveACopy();
 
-    void ShowMessageOnStatusBar( const QString &message, int millisecond_duration = STATUSBAR_MSG_DISPLAY_TIME );
+    void ShowMessageOnStatusBar( const QString &message = "", int millisecond_duration = STATUSBAR_MSG_DISPLAY_TIME );
 
     /**
      * Implements Find action functionality.

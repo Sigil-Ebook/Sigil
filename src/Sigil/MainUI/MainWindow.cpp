@@ -327,7 +327,12 @@ void MainWindow::ShowMessageOnStatusBar( const QString &message,
     // The MainWindow has to have a status bar initialised
     Q_ASSERT( statusBar() );
 
-    statusBar()->showMessage(message, millisecond_duration);
+    if (message.isEmpty()) {
+        statusBar()->clearMessage();
+    }
+    else {
+        statusBar()->showMessage(message, millisecond_duration);
+    }
 }
 
 void MainWindow::closeEvent( QCloseEvent *event )
@@ -894,7 +899,7 @@ void MainWindow::InsertImageDialog()
 
     FlowTab *flow_tab = qobject_cast<FlowTab*>(&GetCurrentContentTab());
 
-    statusBar()->clearMessage();
+    ShowMessageOnStatusBar();
 
     if (!flow_tab || !flow_tab->InsertImageEnabled()) {
         ShowMessageOnStatusBar(tr("You cannot insert an image at this position."));
@@ -993,7 +998,7 @@ void MainWindow::InsertId()
     ContentTab &tab = GetCurrentContentTab();
     FlowTab *flow_tab = qobject_cast<FlowTab*>(&tab);
 
-    statusBar()->clearMessage();
+    ShowMessageOnStatusBar();
 
     if (!flow_tab || !flow_tab->InsertIdEnabled()) {
         ShowMessageOnStatusBar(tr("You cannot insert an id at this position."));
@@ -1020,7 +1025,7 @@ void MainWindow::InsertHyperlink()
     ContentTab &tab = GetCurrentContentTab();
     FlowTab *flow_tab = qobject_cast<FlowTab*>(&tab);
 
-    statusBar()->clearMessage();
+    ShowMessageOnStatusBar();
 
     if (!flow_tab || !flow_tab->InsertHyperlinkEnabled()) {
         ShowMessageOnStatusBar( tr( "You cannot insert a hyperlink at this position." ) );
@@ -1058,7 +1063,7 @@ void MainWindow::PasteTextIntoCurrentTarget(const QString &text)
         ShowMessageOnStatusBar(tr("Select the destination to paste into first."));
         return;
     }
-    statusBar()->clearMessage();
+    ShowMessageOnStatusBar();
     m_LastPasteTarget->PasteText(text);
 }
 
@@ -1071,7 +1076,7 @@ void MainWindow::PasteClipEntriesIntoCurrentTarget(const QList<ClipEditorModel::
 
     m_LastPasteTarget->PasteClipEntries(clips);
 
-    statusBar()->clearMessage();
+    ShowMessageOnStatusBar();
 }
 
 void MainWindow::SetViewState(MainWindow::ViewState view_state)
