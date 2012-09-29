@@ -51,8 +51,6 @@ public slots:
 
     void ShowMessage(QString message);
 
-    void DoubleClicked(const QModelIndex &index);
-
     void apply();
 
 signals:

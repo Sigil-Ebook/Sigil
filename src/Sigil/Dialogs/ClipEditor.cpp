@@ -97,11 +97,6 @@ void ClipEditor::PasteIntoDocument()
     emit PasteSelectedClipRequest(GetSelectedEntries());
 }
 
-void ClipEditor::DoubleClicked(const QModelIndex &index)
-{
-    emit PasteSelectedClipRequest(GetSelectedEntries());
-}
-
 void ClipEditor::showEvent(QShowEvent *event)
 {
     ReadSettings();
@@ -666,8 +661,6 @@ void ClipEditor::ConnectSignalsSlots()
 
     connect(ui.ClipEditorTree, SIGNAL(customContextMenuRequested(const QPoint&)),
             this,                   SLOT(  OpenContextMenu(                  const QPoint&)));
-    connect (ui.ClipEditorTree, SIGNAL(doubleClicked(const QModelIndex &)),
-            this,         SLOT(DoubleClicked(const QModelIndex &)));
 
     connect(m_AddEntry,    SIGNAL(triggered()), this, SLOT(AddEntry()));
     connect(m_AddGroup,    SIGNAL(triggered()), this, SLOT(AddGroup()));

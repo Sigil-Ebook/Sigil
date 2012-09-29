@@ -44,7 +44,7 @@
      <item>
       <widget class="SearchEditorTreeView" name="SearchEditorTree">
        <property name="editTriggers">
-        <set>QAbstractItemView::EditKeyPressed</set>
+        <set>QAbstractItemView::DoubleClicked|QAbstractItemView::EditKeyPressed</set>
        </property>
       </widget>
      </item>

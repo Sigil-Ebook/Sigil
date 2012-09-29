@@ -716,11 +716,6 @@ void SearchEditor::SetupContextMenu(const QPoint &point)
     m_ContextMenu->addAction(m_ExpandAll);
 }
 
-void SearchEditor::DoubleClicked(const QModelIndex &index)
-{
-        LoadFindReplace();
-}
-
 void SearchEditor::reject()
 {
     m_SearchEditorModel->LoadInitialData();
@@ -751,8 +746,6 @@ void SearchEditor::ConnectSignalsSlots()
 
     connect(ui.SearchEditorTree, SIGNAL(customContextMenuRequested(const QPoint&)),
             this,                SLOT(  OpenContextMenu(           const QPoint&)));
-    connect (ui.SearchEditorTree, SIGNAL(doubleClicked(const QModelIndex &)),
-            this,         SLOT(DoubleClicked(const QModelIndex &)));
 
     connect(m_AddEntry,    SIGNAL(triggered()), this, SLOT(AddEntry()));
     connect(m_AddGroup,    SIGNAL(triggered()), this, SLOT(AddGroup()));

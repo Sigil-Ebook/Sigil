@@ -72,8 +72,6 @@ private slots:
 
     void PasteIntoDocument();
 
-    void DoubleClicked(const QModelIndex &index);
-
     void FilterEditTextChangedSlot(const QString &text);
 
     void OpenContextMenu(const QPoint &point);
