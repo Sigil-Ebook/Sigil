@@ -637,7 +637,7 @@ QStringList BookBrowser::AddExisting(Resource::ResourceType add_resource_type)
     if (!invalid_filenames.isEmpty()) {
         progress.cancel();
         QMessageBox::warning( this, tr( "Sigil" ),
-                                tr( "The following file(s) were not loaded due to invalid content or not well formed XML:\n\n\%1" )
+                                tr( "The following file(s) were not loaded due to invalid content or not well formed XML:\n\n%1" )
                                 .arg( invalid_filenames.join("\n") ) );
     }
 

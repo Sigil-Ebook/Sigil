@@ -23,6 +23,7 @@
 
 #include <QtCore/QFileInfo>
 #include <QtCore/QSignalMapper>
+#include <QtCore/QThread>
 #include <QtGui/QDesktopServices>
 #include <QtGui/QFileDialog>
 #include <QtGui/QInputDialog>
@@ -318,28 +319,15 @@ void MainWindow::OpenResource( Resource& resource,
 }
 
 
-QMutex& MainWindow::GetStatusBarMutex()
-{
-    return m_StatusBarMutex;
-}
-
-
-void MainWindow::ShowMessageOnCurrentStatusBar( const QString &message,
-                                                int millisecond_duration )
-{
-    MainWindow& main_window = GetCurrentMainWindow();
-    QMutexLocker locker( &main_window.GetStatusBarMutex() );
-    QStatusBar* status_bar = main_window.statusBar();
-
-    // In Sigil, every MainWindow has to have a status bar
-    Q_ASSERT( status_bar );
-
-    status_bar->showMessage( message, millisecond_duration );
-}
-
 void MainWindow::ShowMessageOnStatusBar( const QString &message,
-                                                int millisecond_duration )
+                                         int millisecond_duration )
 {
+    // It is only safe to add messages to the status bar on the GUI thread.
+    const bool is_gui_thread = QThread::currentThread() == QCoreApplication::instance()->thread();
+    Q_ASSERT( is_gui_thread );
+    // The MainWindow has to have a status bar initialised
+    Q_ASSERT( statusBar() );
+
     statusBar()->showMessage(message, millisecond_duration);
 }
 
@@ -453,7 +441,7 @@ void MainWindow::OpenRecentFile()
 bool MainWindow::Save()
 {
     if ( !m_TabManager.IsAllTabDataWellFormed() ) {
-        ShowMessageOnCurrentStatusBar(tr("Save cancelled due to XML not well formed."));
+        ShowMessageOnStatusBar(tr("Save cancelled due to XML not well formed."));
         return false;
     }
 
@@ -478,7 +466,7 @@ bool MainWindow::Save()
 bool MainWindow::SaveAs()
 {
     if ( !m_TabManager.IsAllTabDataWellFormed() ) {
-        ShowMessageOnCurrentStatusBar(tr("Save cancelled due to XML not well formed."));
+        ShowMessageOnStatusBar(tr("Save cancelled due to XML not well formed."));
         return false;
     }
 
@@ -534,7 +522,7 @@ bool MainWindow::SaveAs()
 bool MainWindow::SaveACopy()
 {
     if ( !m_TabManager.IsAllTabDataWellFormed() ) {
-        ShowMessageOnCurrentStatusBar(tr("Save cancelled due to XML not well formed."));
+        ShowMessageOnStatusBar(tr("Save cancelled due to XML not well formed."));
         return false;
     }
 
@@ -644,7 +632,7 @@ void MainWindow::GoToLinkedStyleDefinition( const QString &element_name, const Q
             else {
                 display_name = QString(".%1 / %2.%1").arg(style_class_name).arg(element_name);
             }
-            ShowMessageOnCurrentStatusBar(QString( tr("No CSS styles named") +  " " + display_name + " " + "or stylesheet not linked."), 5000);
+            ShowMessageOnStatusBar(QString( tr("No CSS styles named") +  " " + display_name + " " + "or stylesheet not linked."), 5000);
             // Open the first linked stylesheet if any
             if (first_css_resource) {
                 OpenResource(*first_css_resource, false, QUrl(), MainWindow::ViewState_Unknown, 1);
@@ -710,7 +698,7 @@ void MainWindow::IndexEditorDialog(IndexEditorModel::indexEntry* index_entry)
 void MainWindow::CreateIndex()
 {
     if ( !m_TabManager.IsAllTabDataWellFormed() ) {
-        ShowMessageOnCurrentStatusBar(tr("Create Index cancelled due to XML not well formed."));
+        ShowMessageOnStatusBar(tr("Create Index cancelled due to XML not well formed."));
         return;
     }
     SaveTabData();
@@ -843,7 +831,7 @@ bool MainWindow::DeleteCSSStyles(const QString &filename, QList<CSSInfo::CSSSele
 {
     // Save our tabs data as we will be modifying the underlying resources
     if ( !m_TabManager.IsAllTabDataWellFormed() ) {
-        ShowMessageOnCurrentStatusBar(tr("Delete CSS Style cancelled due to XML not well formed."));
+        ShowMessageOnStatusBar(tr("Delete CSS Style cancelled due to XML not well formed."));
         return false;
     }
     SaveTabData();
@@ -910,7 +898,7 @@ void MainWindow::InsertImageDialog()
     statusBar()->clearMessage();
 
     if (!flow_tab || !flow_tab->InsertImageEnabled()) {
-        ShowMessageOnCurrentStatusBar(tr("You cannot insert an image at this position."));
+        ShowMessageOnStatusBar(tr("You cannot insert an image at this position."));
         return;
     }
 
@@ -1009,7 +997,7 @@ void MainWindow::InsertId()
     statusBar()->clearMessage();
 
     if (!flow_tab || !flow_tab->InsertIdEnabled()) {
-        ShowMessageOnCurrentStatusBar(tr("You cannot insert an id at this position."));
+        ShowMessageOnStatusBar(tr("You cannot insert an id at this position."));
         return;
     }
 
@@ -1020,7 +1008,7 @@ void MainWindow::InsertId()
 
     if (select_id.exec() == QDialog::Accepted) {
         if (!flow_tab->InsertId(select_id.GetId())) {
-            statusBar()->showMessage( tr( "You cannot insert an id at this position." ), STATUSBAR_MSG_DISPLAY_TIME );
+            ShowMessageOnStatusBar( tr( "You cannot insert an id at this position." ) );
         }
     }
 }
@@ -1036,7 +1024,7 @@ void MainWindow::InsertHyperlink()
     statusBar()->clearMessage();
 
     if (!flow_tab || !flow_tab->InsertHyperlinkEnabled()) {
-        statusBar()->showMessage( tr( "You cannot insert a hyperlink at this position." ), STATUSBAR_MSG_DISPLAY_TIME );
+        ShowMessageOnStatusBar( tr( "You cannot insert a hyperlink at this position." ) );
         return;
     }
     QString href = flow_tab->GetAttributeHref();
@@ -1047,7 +1035,7 @@ void MainWindow::InsertHyperlink()
 
     if (select_hyperlink.exec() == QDialog::Accepted) {
         if (!flow_tab->InsertHyperlink(select_hyperlink.GetTarget())) {
-            statusBar()->showMessage( tr( "You cannot insert a hyperlink at this position." ), STATUSBAR_MSG_DISPLAY_TIME );
+            ShowMessageOnStatusBar( tr( "You cannot insert a hyperlink at this position." ) );
         }
     }
 }
@@ -1068,23 +1056,23 @@ void MainWindow::ApplicationFocusChanged( QWidget *old, QWidget *now )
 void MainWindow::PasteTextIntoCurrentTarget(const QString &text)
 {
     if (m_LastPasteTarget == NULL) {
-        ShowMessageOnCurrentStatusBar(tr("Select the destination to paste into first."));
+        ShowMessageOnStatusBar(tr("Select the destination to paste into first."));
         return;
     }
-    ShowMessageOnCurrentStatusBar(QString());
+    statusBar()->clearMessage();
     m_LastPasteTarget->PasteText(text);
 }
 
 void MainWindow::PasteClipEntriesIntoCurrentTarget(const QList<ClipEditorModel::clipEntry *> &clips)
 {
     if (m_LastPasteTarget == NULL) {
-        ShowMessageOnCurrentStatusBar(tr("Select the destination to paste into first."));
+        ShowMessageOnStatusBar(tr("Select the destination to paste into first."));
         return;
     }
 
     m_LastPasteTarget->PasteClipEntries(clips);
 
-    ShowMessageOnCurrentStatusBar(QString());
+    statusBar()->clearMessage();
 }
 
 void MainWindow::SetViewState(MainWindow::ViewState view_state)
@@ -1137,7 +1125,7 @@ void MainWindow::MergeResources(QList <Resource *> resources)
 
     // Check if data is well formed before saving
     if ( !m_TabManager.IsAllTabDataWellFormed() ) {
-        ShowMessageOnCurrentStatusBar(tr("Merge cancelled due to XML not well formed."));
+        ShowMessageOnStatusBar(tr("Merge cancelled due to XML not well formed."));
         return;
     }
 
@@ -1177,7 +1165,7 @@ void MainWindow::MergeResources(QList <Resource *> resources)
 
     QApplication::restoreOverrideCursor();
 
-    ShowMessageOnCurrentStatusBar(tr("Merge completed. You may need to regenerate or edit your Table Of Contents."));
+    ShowMessageOnStatusBar(tr("Merge completed. You may need to regenerate or edit your Table Of Contents."));
 }
 
 void MainWindow::LinkStylesheetsToResources(QList <Resource *> resources)
@@ -1188,7 +1176,7 @@ void MainWindow::LinkStylesheetsToResources(QList <Resource *> resources)
 
     // Check if data is well formed before saving
     if ( !m_TabManager.IsAllTabDataWellFormed() ) {
-        ShowMessageOnCurrentStatusBar(tr("Link Stylesheets cancelled due to XML not well formed."));
+        ShowMessageOnStatusBar(tr("Link Stylesheets cancelled due to XML not well formed."));
         return;
     }
 
@@ -1322,7 +1310,7 @@ void MainWindow::RemoveResources(QList<Resource *> resources, bool prompt_user)
 void MainWindow::GenerateToc()
 {
     if ( !m_TabManager.IsAllTabDataWellFormed() ) {
-        ShowMessageOnCurrentStatusBar(tr("Generate TOC cancelled due to XML not well formed."));
+        ShowMessageOnStatusBar(tr("Generate TOC cancelled due to XML not well formed."));
         return;
     }
     SaveTabData();
@@ -1350,14 +1338,14 @@ void MainWindow::GenerateToc()
 
     QApplication::restoreOverrideCursor();
 
-    statusBar()->showMessage(tr("Table Of Contents generated."), 5000);
+    ShowMessageOnStatusBar(tr("Table Of Contents generated."));
 }
     
 
 void MainWindow::CreateHTMLTOC()
 {
     if ( !m_TabManager.IsAllTabDataWellFormed() ) {
-        ShowMessageOnCurrentStatusBar(tr("Create HTML TOC cancelled due to XML not well formed."));
+        ShowMessageOnStatusBar(tr("Create HTML TOC cancelled due to XML not well formed."));
         return;
     }
     SaveTabData();
@@ -1529,7 +1517,7 @@ void MainWindow::SaveTabData()
 void MainWindow::MetaEditorDialog()
 {
     if ( !m_TabManager.IsAllTabDataWellFormed() ) {
-        ShowMessageOnCurrentStatusBar(tr("Meta Editor cancelled due to XML not well formed."));
+        ShowMessageOnStatusBar(tr("Meta Editor cancelled due to XML not well formed."));
         return;
     }
 
@@ -1612,7 +1600,7 @@ void MainWindow::ValidateEpubWithFlightCrew()
 void MainWindow::ValidateStylesheetsWithW3C()
 {
     if ( !m_TabManager.IsAllTabDataWellFormed() ) {
-        ShowMessageOnCurrentStatusBar(tr("Validation cancelled due to XML not well formed."));
+        ShowMessageOnStatusBar(tr("Validation cancelled due to XML not well formed."));
         return;
     }
     SaveTabData();
@@ -2319,7 +2307,7 @@ void MainWindow::UpdateZoomLabel( float new_zoom_factor )
 void MainWindow::CreateSectionBreakOldTab( QString content, HTMLResource& originating_resource )
 {
     if (content.isEmpty()) {
-        statusBar()->showMessage( tr( "File cannot be split at this position." ), STATUSBAR_MSG_DISPLAY_TIME );
+        ShowMessageOnStatusBar( tr( "File cannot be split at this position." ) );
         return;
     }
     HTMLResource& html_resource = m_Book->CreateSectionBreakOriginalResource( content, originating_resource );
@@ -2337,7 +2325,7 @@ void MainWindow::CreateSectionBreakOldTab( QString content, HTMLResource& origin
         flow_tab->ScrollToTop();
     }
 
-    statusBar()->showMessage( tr( "Split completed." ), STATUSBAR_MSG_DISPLAY_TIME );
+    ShowMessageOnStatusBar( tr( "Split completed." ) );
 }
 
 void MainWindow::SplitOnSGFSectionMarkers()
@@ -2346,7 +2334,7 @@ void MainWindow::SplitOnSGFSectionMarkers()
     
     // Check if data is well formed before saving
     if ( !m_TabManager.IsAllTabDataWellFormed() ) {
-        ShowMessageOnCurrentStatusBar(tr("Split cancelled due to XML not well formed."));
+        ShowMessageOnStatusBar(tr("Split cancelled due to XML not well formed."));
         return;
     }
 
@@ -2372,7 +2360,7 @@ void MainWindow::SplitOnSGFSectionMarkers()
         m_TabManager.ReloadTabDataForResources( *changed_resources );
         m_BookBrowser->Refresh();
 
-        statusBar()->showMessage( tr( "Split completed. You may need to update the Table of Contents." ), STATUSBAR_MSG_DISPLAY_TIME );
+        ShowMessageOnStatusBar( tr( "Split completed. You may need to update the Table of Contents." ) );
         if ( flow_tab && ( flow_tab->GetViewState() == MainWindow::ViewState_BookView) ) {
             // Our focus will have been moved to the book browser. Set it there and back to do
             // an equivalent of "GrabFocus()" to workaround Qt setFocus() not always working.
@@ -2381,7 +2369,7 @@ void MainWindow::SplitOnSGFSectionMarkers()
         }
     }
     else {
-        statusBar()->showMessage( tr( "No split file markers found. Use Insert->Split Marker." ), STATUSBAR_MSG_DISPLAY_TIME );
+        ShowMessageOnStatusBar( tr( "No split file markers found. Use Insert->Split Marker." ) );
     }
 
     QApplication::restoreOverrideCursor();
@@ -2594,7 +2582,7 @@ void MainWindow::LoadFile( const QString &fullfilepath )
         if ( !importer.IsValidToLoad() ) {
             // Warn the user their content is invalid.
             QMessageBox::warning( this, tr( "Sigil" ),
-                                    tr( "The following file was not loaded due to invalid content or not well formed XML:\n\n\%1" )
+                                    tr( "The following file was not loaded due to invalid content or not well formed XML:\n\n%1" )
                                     .arg( fullfilepath ) );
             // Fallback to displaying a new book
             CreateNewBook();
@@ -2619,7 +2607,7 @@ void MainWindow::LoadFile( const QString &fullfilepath )
         QApplication::restoreOverrideCursor();
 
         UpdateUiWithCurrentFile( fullfilepath );
-        statusBar()->showMessage( tr( "File loaded." ), STATUSBAR_MSG_DISPLAY_TIME );
+        ShowMessageOnStatusBar( tr( "File loaded." ) );
         return;
     }
 
@@ -2682,7 +2670,7 @@ bool MainWindow::SaveFile( const QString &fullfilepath, bool update_current_file
             m_Book->SetModified( false );
             UpdateUiWithCurrentFile( fullfilepath );
         }
-        statusBar()->showMessage( tr( "File saved." ), STATUSBAR_MSG_DISPLAY_TIME );
+        ShowMessageOnStatusBar( tr( "File saved." ) );
     }
     catch ( const ExceptionBase &exception )
     {
@@ -2839,34 +2827,6 @@ const QMap< QString, QString > MainWindow::GetSaveFiltersMap()
     file_filters[ "epub" ] = tr( "EPUB file (*.epub)" );
 
     return file_filters;
-}
-
-
-MainWindow& MainWindow::GetCurrentMainWindow()
-{
-    QObject *object = qobject_cast< QObject* >( QApplication::activeWindow() );
-    Q_ASSERT( object );
-    MainWindow *main_window = NULL;
-
-    // In Sigil, every window has to be either a MainWindow,
-    // or the child of one.
-    while (true)
-    {
-        main_window = qobject_cast< MainWindow* >( object );
-
-        if ( main_window )
-        {
-            break;
-        }
-
-        else
-        {
-            object = object->parent();
-            Q_ASSERT( object );
-        }
-    }
-
-    return *main_window;
 }
 
 
@@ -3818,7 +3778,7 @@ void MainWindow::MakeTabConnections( ContentTab *tab )
     connect( tab,   SIGNAL( UpdateCursorPosition(int,int)), this,          SLOT( UpdateCursorPositionLabel(int,int)));
     connect( tab,   SIGNAL( ZoomFactorChanged( float ) ),   this,          SLOT( UpdateZoomLabel( float )  ) );
     connect( tab,   SIGNAL( ZoomFactorChanged( float ) ),   this,          SLOT( UpdateZoomSlider( float ) ) );
-    connect( tab,   SIGNAL( ShowStatusMessageRequest(const QString&, int) ), this, SLOT( ShowMessageOnCurrentStatusBar(const QString&, int) ) );
+    connect( tab,   SIGNAL( ShowStatusMessageRequest(const QString&, int) ), this, SLOT( ShowMessageOnStatusBar(const QString&, int) ) );
 }
 
 

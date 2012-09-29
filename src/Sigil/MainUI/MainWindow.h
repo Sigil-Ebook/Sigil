@@ -25,7 +25,6 @@
 #ifndef SIGIL_H
 #define SIGIL_H
 
-#include <QtCore/QMutex>
 #include <QtCore/QSharedPointer>
 #include <QtGui/QMainWindow>
 
@@ -153,14 +152,6 @@ public:
     };
 
     /**
-     * Returns the status bar mutex used to protect
-     * write access to the MainWindow's status bar.
-     *
-     * @return The status bar mutex.
-     */
-    QMutex& GetStatusBarMutex();
-
-    /**
      * Returns the current view state.
      *
      * @return The current view state.
@@ -182,20 +173,6 @@ public:
     ClipEditorModel* GetClipEditorModel();
 
 public slots:
-    /**
-     * Shows a message on the status bar of the current MainWindow.
-     *
-     * @param message The message to display.
-     * @param millisecond_duration The millisecond duration during
-     *                             which the message should be displayed.
-     *
-     * @note This function is thread-safe.
-     */
-    static void ShowMessageOnCurrentStatusBar( const QString &message,
-                                               int millisecond_duration = STATUSBAR_MSG_DISPLAY_TIME );
-
-    void ShowMessageOnStatusBar( const QString &message,
-                                               int millisecond_duration = STATUSBAR_MSG_DISPLAY_TIME );
 
     void OpenFilename( QString filename, int line = -1 );
 
@@ -262,6 +239,8 @@ private slots:
      * Implements Save A Copy action functionality.
      */
     bool SaveACopy();
+
+    void ShowMessageOnStatusBar( const QString &message, int millisecond_duration = STATUSBAR_MSG_DISPLAY_TIME );
 
     /**
      * Implements Find action functionality.
@@ -704,13 +683,6 @@ private:
     static const QMap< QString, QString > GetSaveFiltersMap();
 
     /**
-     * Returns the currently active MainWindow.
-     *
-     * @return The currently active MainWindow.
-     */
-    static MainWindow& GetCurrentMainWindow();
-
-    /**
      * Sets the current file in the window title and also
      * updates the recent files list.
      *
@@ -829,12 +801,6 @@ private:
      * \c static because on Mac we have many MainWindows
      */
     static QStringList s_RecentFiles;
-
-    /**
-     * Protects the status bar showMessage() func
-     * from being called from several threads at once.
-     */
-    QMutex m_StatusBarMutex;
 
     /**
      * Array of recent files actions that are in the File menu.
