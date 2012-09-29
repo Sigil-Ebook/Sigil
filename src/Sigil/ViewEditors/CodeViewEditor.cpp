@@ -752,7 +752,8 @@ bool CodeViewEditor::ReplaceSelected( const QString &search_regex, const QString
     // Convert to plain text or \s won't get newlines
     int selection_start = textCursor().selectionStart();
     int selection_end = textCursor().selectionEnd();
-    QString selected_text = Utility::Substring(selection_start, selection_end, toPlainText() );
+    const QString &document_text = toPlainText();
+    QString selected_text = Utility::Substring(selection_start, selection_end, document_text );
 
     SPCRE::MatchInfo match_info;
 
@@ -771,8 +772,7 @@ bool CodeViewEditor::ReplaceSelected( const QString &search_regex, const QString
     }
 
     // Check if the currently selected text is a match.
-    match_info = spcre->getFirstMatchInfo( selected_text );
-    if ( m_lastMatch.offset.first == selection_start && m_lastMatch.offset.second == selection_start + selected_text.length() && match_info.offset.first != -1 )
+    if ( m_lastMatch.offset.first == selection_start && m_lastMatch.offset.second == selection_start + selected_text.length() )
     {
         QString replaced_text;
         bool replacement_made = false;
