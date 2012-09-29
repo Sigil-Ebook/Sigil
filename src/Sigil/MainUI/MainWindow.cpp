@@ -3686,6 +3686,8 @@ void MainWindow::ConnectSignalsToSlots()
     connect(m_FindReplace, SIGNAL( OpenSearchEditorRequest(SearchEditorModel::searchEntry *) ),
             this,          SLOT( SearchEditorDialog(SearchEditorModel::searchEntry *)     ) );
 
+    connect( &m_TabManager, SIGNAL( ShowStatusMessageRequest(const QString&, int) ), this, SLOT( ShowMessageOnStatusBar(const QString&, int) ) );
+
     connect(m_FindReplace, SIGNAL( ShowMessageRequest(QString) ),
             m_SearchEditor, SLOT( ShowMessage(QString)  ) );
 

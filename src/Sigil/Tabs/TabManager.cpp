@@ -251,11 +251,17 @@ void TabManager::OpenResource( Resource& resource,
 
         return;
 
-    AddNewContentTab( CreateTabForResource( resource, fragment, view_state, 
-                                            line_to_scroll_to, position_to_scroll_to, caret_location_to_scroll_to, grab_focus), 
-                      precede_current_tab );
+    ContentTab *new_tab = CreateTabForResource( resource, fragment, view_state, 
+                                                line_to_scroll_to, position_to_scroll_to, caret_location_to_scroll_to, grab_focus);
 
-    // TODO: loading bar update
+    if (new_tab) {
+        AddNewContentTab( new_tab, precede_current_tab);
+        emit ShowStatusMessageRequest("");
+    }
+    else {
+        QString message = tr("Cannot edit file") + ": " + resource.Filename();
+        emit ShowStatusMessageRequest(message);
+    }
 }
 
 

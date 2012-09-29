@@ -180,6 +180,8 @@ signals:
      */
     void OldTabRequest( QString content, HTMLResource& originating_resource );
 
+    void ShowStatusMessageRequest(const QString &message, int duration = 5000);
+
 protected:
     virtual void tabInserted(int index);
 
