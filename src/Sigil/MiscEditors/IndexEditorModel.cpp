@@ -240,9 +240,11 @@ QString IndexEditorModel::SaveData(QList<IndexEditorModel::indexEntry*> entries,
         if (entry->pattern.isEmpty() && entry->index_entry.isEmpty()) {
             continue;
         }
-        settings->setArrayIndex(i++);
-        settings->setValue(ENTRY_PATTERN, entry->pattern);
-        settings->setValue(ENTRY_INDEX_ENTRY, entry->index_entry);
+        foreach (QString pattern, entry->pattern.split("\n")) {
+            settings->setArrayIndex(i++);
+            settings->setValue(ENTRY_PATTERN, pattern);
+            settings->setValue(ENTRY_INDEX_ENTRY, entry->index_entry);
+        }
     }
 
     settings->endArray();

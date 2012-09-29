@@ -39,6 +39,9 @@
        <property name="editTriggers">
         <set>QAbstractItemView::DoubleClicked|QAbstractItemView::EditKeyPressed</set>
        </property>
+       <property name="uniformRowHeights">
+        <bool>true</bool>
+       </property>
       </widget>
      </item>
      <item>
