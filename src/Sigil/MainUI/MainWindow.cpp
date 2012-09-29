@@ -323,8 +323,7 @@ void MainWindow::ShowMessageOnStatusBar( const QString &message,
                                          int millisecond_duration )
 {
     // It is only safe to add messages to the status bar on the GUI thread.
-    const bool is_gui_thread = QThread::currentThread() == QCoreApplication::instance()->thread();
-    Q_ASSERT( is_gui_thread );
+    Q_ASSERT( QThread::currentThread() == QCoreApplication::instance()->thread() );
     // The MainWindow has to have a status bar initialised
     Q_ASSERT( statusBar() );
 
