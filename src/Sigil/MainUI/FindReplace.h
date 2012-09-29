@@ -246,6 +246,10 @@ private:
     // Checks if Find is empty when not checking spelling
     bool IsValidFindText();
 
+    // Remember what the user typed in the Find combo to ensure if changed
+    // then click Replace they don't replace the wrong selection.
+    void RememberLastFindText();
+
     // Reads all the stored dialog settings
     void ReadSettings();
 
@@ -287,6 +291,7 @@ private:
     bool m_SpellCheck;
 
     bool m_LookWhereCurrentFile;
+    QString m_LastFindText;
 };
 
 
