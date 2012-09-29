@@ -21,7 +21,9 @@
 **
 *************************************************************************/
 
+#ifdef DEBUG
 #include <QDebug>
+#endif
 
 #include "ViewEditors/ViewWebPage.h"
 
@@ -32,6 +34,8 @@ ViewWebPage::ViewWebPage( QObject *parent )
 
 void ViewWebPage::javaScriptConsoleMessage( const QString &message, int lineNumber, const QString &sourceID )
 {
+#ifdef DEBUG
     const QString logEntry = message +" on line:" % QString::number(lineNumber) % " Source:"+ sourceID;
     qDebug() << "Javascript error: " << logEntry;
+#endif
 }
