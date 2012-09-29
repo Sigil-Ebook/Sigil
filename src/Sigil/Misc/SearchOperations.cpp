@@ -48,7 +48,7 @@ int SearchOperations::CountInFiles( const QString &search_regex,
                                     SearchType search_type,
                                     bool check_spelling )
 {
-    QProgressDialog progress( QObject::tr( "Counting occurrences.." ), 0, 0, resources.count(), QApplication::activeWindow() );
+    QProgressDialog progress( QObject::tr( "Counting occurrences.." ), 0, 0, resources.count(), Utility::GetMainWindow() );
     progress.setMinimumDuration( PROGRESS_BAR_MINIMUM_DURATION );
     int progress_value = 0;
     progress.setValue(progress_value);
@@ -71,7 +71,7 @@ int SearchOperations::ReplaceInAllFIles( const QString &search_regex,
                                          QList< Resource* > resources, 
                                          SearchType search_type )
 {
-    QProgressDialog progress( QObject::tr( "Replacing search term..." ), 0, 0, resources.count(), QApplication::activeWindow() );
+    QProgressDialog progress( QObject::tr( "Replacing search term..." ), 0, 0, resources.count(), Utility::GetMainWindow() );
     progress.setMinimumDuration( PROGRESS_BAR_MINIMUM_DURATION );
     int progress_value = 0;
     progress.setValue(progress_value);

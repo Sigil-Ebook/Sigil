@@ -27,6 +27,7 @@
 
 class QStringList;
 class QStringRef;
+class QWidget;
 
 struct ExceptionBase;
 
@@ -137,6 +138,8 @@ public:
 
     // Returns the same number, but rounded to one decimal place
     static float RoundToOneDecimal( float number );
+
+    static QWidget* GetMainWindow();
 };
 
 #endif // UTILITY_H
