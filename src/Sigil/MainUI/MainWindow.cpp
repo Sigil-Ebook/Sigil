@@ -1606,7 +1606,7 @@ void MainWindow::ValidateStylesheetsWithW3C()
 
     QList<Resource *> css_resources = m_BookBrowser->AllCSSResources();
     if (css_resources.isEmpty()) {
-        QMessageBox::warning(this, tr("Sigil"), tr("This EPUB does not contain any CSS stylesheets to validate."));
+        ShowMessageOnStatusBar(tr("This EPUB does not contain any CSS stylesheets to validate."));
         return;
     }
     foreach( Resource *resource, css_resources) {
