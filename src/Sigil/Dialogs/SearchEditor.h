@@ -107,7 +107,7 @@ private:
     bool FilterEntries(const QString &text, QStandardItem *item = NULL);
     bool SelectFirstVisibleNonGroup(QStandardItem *item);
 
-    void ReadSettings();
+    bool ReadSettings();
     void WriteSettings();
 
     void CreateContextMenuActions();

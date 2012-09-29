@@ -126,17 +126,19 @@ void SearchEditor::ReplaceAll()
 
 void SearchEditor::showEvent(QShowEvent *event)
 {
-    ReadSettings();
+    bool has_settings = ReadSettings();
 
     ui.SearchEditorTree->expandAll();
     ui.Filter->setCurrentIndex(0);
     ui.FilterText->clear();
     ui.FilterText->setFocus();
 
-    for (int column = 0; column < ui.SearchEditorTree->header()->count() - 1; column++) {
-        ui.SearchEditorTree->resizeColumnToContents(column);
+    // If the user has no persisted columns data yet, just resize automatically
+    if (!has_settings) {
+        for (int column = 0; column < ui.SearchEditorTree->header()->count(); column++) {
+            ui.SearchEditorTree->resizeColumnToContents(column);
+        }
     }
-
 }
 
 int SearchEditor::SelectedRowsCount()
@@ -565,7 +567,7 @@ bool SearchEditor::SelectFirstVisibleNonGroup(QStandardItem *item)
     return false;
 }
 
-void SearchEditor::ReadSettings()
+bool SearchEditor::ReadSettings()
 {
     SettingsStore settings;
     settings.beginGroup(SETTINGS_GROUP);
@@ -592,6 +594,9 @@ void SearchEditor::ReadSettings()
     m_LastFolderOpen = settings.value("last_folder_open").toString();
 
     settings.endGroup();
+
+    // Return whether we did have settings to load (based on persisted column data)
+    return size > 0;
 }
 
 void SearchEditor::WriteSettings()
