@@ -47,7 +47,8 @@ FindReplace::FindReplace( MainWindow &main_window )
       m_RegexOptionAutoTokenise( false ),
       m_SpellCheck(false),
       m_LookWhereCurrentFile(false),
-      m_LastFindText(QString())
+      m_LastFindText(QString()),
+      m_IsSearchGroupRunning(false)
 {
     ui.setupUi( this );
 
@@ -361,8 +362,10 @@ int FindReplace::ReplaceAll()
 
 void FindReplace::clearMessage()
 {
-    ui.message->clear();
-    emit ShowMessageRequest("");
+    if (!m_IsSearchGroupRunning) {
+        ui.message->clear();
+        emit ShowMessageRequest("");
+    }
 }
 
 void FindReplace::expireMessage()
@@ -1075,7 +1078,7 @@ void FindReplace::SaveSearchAction()
     emit OpenSearchEditorRequest(search_entry);
 }
 
-void FindReplace::LoadSearchByName(QString name)
+void FindReplace::LoadSearchByName(const QString &name)
 {
     LoadSearch(SearchEditorModel::instance()->GetEntryFromName(name));
 }
@@ -1121,9 +1124,8 @@ void FindReplace::SetSearchDirection(int search_direction)
 
 void FindReplace::LoadSearch(SearchEditorModel::searchEntry *search_entry)
 {
-    clearMessage();
-
     if (!search_entry) {
+        clearMessage();
         return;
     }
   
@@ -1139,13 +1141,11 @@ void FindReplace::LoadSearch(SearchEditorModel::searchEntry *search_entry)
     ui.cbSearchDirection->setCurrentIndex(1);
 
     // Show a message containing the name that was loaded
-    QString message = "";
-    message = tr("Unnamed search loaded");
+    QString message(tr("Unnamed search loaded"));
     if (!search_entry->name.isEmpty()) {
         message = QString("%1: %2 ").arg(tr("Loaded")).arg(search_entry->name.replace('<', "&lt;").replace('>', "&gt;").left(50));
     }
     ShowMessage(message);
-
 }
 
 void FindReplace::FindSearch(QList<SearchEditorModel::searchEntry *> search_entries)
@@ -1157,12 +1157,14 @@ void FindReplace::FindSearch(QList<SearchEditorModel::searchEntry *> search_entr
 
     SetLookWhereFromModifier();
 
+    m_IsSearchGroupRunning = true;
     foreach (SearchEditorModel::searchEntry* search_entry, search_entries) {
         LoadSearch(search_entry);
         if (Find()) {
             break;
         };
     }
+    m_IsSearchGroupRunning = false;
 
     ResetLookWhereFromModifier();
 }
@@ -1176,12 +1178,14 @@ void FindReplace::ReplaceSearch(QList<SearchEditorModel::searchEntry *> search_e
 
     SetLookWhereFromModifier();
 
+    m_IsSearchGroupRunning = true;
     foreach (SearchEditorModel::searchEntry* search_entry, search_entries) {
         LoadSearch(search_entry);
         if (Replace()) {
             break;
         }
     }
+    m_IsSearchGroupRunning = false;
 
     ResetLookWhereFromModifier();
 }
@@ -1195,11 +1199,13 @@ void FindReplace::CountAllSearch(QList<SearchEditorModel::searchEntry *> search_
 
     SetLookWhereFromModifier();
 
+    m_IsSearchGroupRunning = true;
     int count = 0;
     foreach (SearchEditorModel::searchEntry* search_entry, search_entries) {
         LoadSearch(search_entry);
         count += Count();
     }
+    m_IsSearchGroupRunning = false;
 
     if (count == 0) {
         CannotFindSearchTerm();
@@ -1221,11 +1227,13 @@ void FindReplace::ReplaceAllSearch(QList<SearchEditorModel::searchEntry *> searc
 
     SetLookWhereFromModifier();
 
+    m_IsSearchGroupRunning = true;
     int count = 0;
     foreach (SearchEditorModel::searchEntry* search_entry, search_entries) {
         LoadSearch(search_entry);
         count += ReplaceAll();
     }
+    m_IsSearchGroupRunning = false;
 
     if (count == 0) {
         ShowMessage(tr( "No replacements made" ));

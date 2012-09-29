@@ -84,9 +84,11 @@ void SearchEditor::SetupSearchEditorTree()
     ui.SearchEditorTree->header()->setStretchLastSection(true);
 }
 
-void SearchEditor::ShowMessage(QString message)
+void SearchEditor::ShowMessage(const QString &message)
 {
     ui.Message->setText(message);
+    ui.Message->repaint();
+    QApplication::processEvents();
 }
 
 bool SearchEditor::SaveData(QList<SearchEditorModel::searchEntry*> entries, QString filename)

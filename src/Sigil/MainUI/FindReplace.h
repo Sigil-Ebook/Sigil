@@ -87,7 +87,7 @@ public slots:
     void close();
     void show();
 
-    void LoadSearchByName(QString name);
+    void LoadSearchByName(const QString &name);
 
     void LoadSearch(SearchEditorModel::searchEntry *search_entry);
     void FindSearch(QList<SearchEditorModel::searchEntry *> search_entries);
@@ -101,7 +101,7 @@ signals:
 
     void OpenSearchEditorRequest(SearchEditorModel::searchEntry *search_entry = NULL);
 
-    void ShowMessageRequest(QString message);
+    void ShowMessageRequest(const QString &message);
     
     /**
      * Emitted when we want to do some operations with the clipboard
@@ -291,7 +291,10 @@ private:
     bool m_SpellCheck;
 
     bool m_LookWhereCurrentFile;
+    
     QString m_LastFindText;
+
+    bool m_IsSearchGroupRunning;
 };
 
 

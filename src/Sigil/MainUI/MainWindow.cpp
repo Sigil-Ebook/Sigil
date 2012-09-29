@@ -3732,8 +3732,8 @@ void MainWindow::ConnectSignalsToSlots()
 
     connect( &m_TabManager, SIGNAL( ShowStatusMessageRequest(const QString&, int) ), this, SLOT( ShowMessageOnStatusBar(const QString&, int) ) );
 
-    connect(m_FindReplace, SIGNAL( ShowMessageRequest(QString) ),
-            m_SearchEditor, SLOT( ShowMessage(QString)  ) );
+    connect(m_FindReplace, SIGNAL( ShowMessageRequest(const QString&) ),
+            m_SearchEditor, SLOT( ShowMessage(const QString&)  ) );
 
     connect( m_FindReplace,   SIGNAL( ClipboardSaveRequest() ),     m_ClipboardHistorySelector,  SLOT( SaveClipboardState() ) );
     connect( m_FindReplace,   SIGNAL( ClipboardRestoreRequest() ),  m_ClipboardHistorySelector,  SLOT( RestoreClipboardState() ) );
