@@ -165,7 +165,7 @@ QStandardItem* IndexEditor::AddEntry(bool is_group, IndexEditorModel::indexEntry
         }
     }
 
-    new_item = m_IndexEditorModel->AddEntryToModel(index_entry, false, parent_item, row);
+    new_item = m_IndexEditorModel->AddEntryToModel(index_entry, parent_item, row);
     QModelIndex new_index = new_item->index();
 
     // Select the added item and set it for editing

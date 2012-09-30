@@ -51,6 +51,9 @@ IndexEditorModel::IndexEditorModel(QObject *parent)
  : QStandardItemModel(parent)
 {
     LoadInitialData();
+
+    connect(this, SIGNAL(itemChanged(QStandardItem*)),
+            this, SLOT(ItemChangedHandler(QStandardItem*)));
 }
 
 IndexEditorModel::~IndexEditorModel()
@@ -60,6 +63,46 @@ IndexEditorModel::~IndexEditorModel()
         m_instance = 0;
     }
 }
+
+void IndexEditorModel::ItemChangedHandler(QStandardItem *item)
+{
+    Q_ASSERT(item);
+
+    if (item->column() != 0) {
+        return;
+    }
+
+    // Split the entry into multiple entries if there is a return in it
+    if (item->text().contains("\n")) {
+        SplitEntry(item);
+    }
+}
+
+void IndexEditorModel::SplitEntry(QStandardItem *item)
+{
+    // Disconnect change signal while changing the items
+    disconnect(this, SIGNAL(itemChanged(       QStandardItem*)),
+               this, SLOT(  ItemChangedHandler(QStandardItem*)));
+
+    IndexEditorModel::indexEntry* entry = GetEntry(item);
+
+    QStringList names = entry->pattern.split("\n");
+    QString first_name = names.first();
+    names.removeFirst();
+
+    // Update the first entry
+    item->setText(first_name);
+
+    foreach (QString name, names) {
+        entry->pattern = name;
+        QStandardItem *new_item = AddFullNameEntry(entry, item);
+        item = new_item;
+    }
+
+    connect(this, SIGNAL(itemChanged(       QStandardItem*)),
+            this, SLOT(  ItemChangedHandler(QStandardItem*)));
+}
+
 
 void IndexEditorModel::ClearData()
 {
@@ -108,7 +151,7 @@ void IndexEditorModel::LoadData(QString filename, QStandardItem *item)
     settings->endArray();
 }
 
-void IndexEditorModel::AddFullNameEntry(IndexEditorModel::indexEntry *entry, QStandardItem *parent_item, int row)
+QStandardItem* IndexEditorModel::AddFullNameEntry(IndexEditorModel::indexEntry *entry, QStandardItem *parent_item, int row)
 {
     if (!parent_item) {
         parent_item = invisibleRootItem();
@@ -122,10 +165,11 @@ void IndexEditorModel::AddFullNameEntry(IndexEditorModel::indexEntry *entry, QSt
     if (row < 0) {
         row = parent_item->rowCount();
     }
-        AddEntryToModel(entry, false, parent_item, row);
+
+    return AddEntryToModel(entry, parent_item, row);
 }
 
-QStandardItem *IndexEditorModel::AddEntryToModel(IndexEditorModel::indexEntry *entry, bool is_group, QStandardItem *parent_item, int row)
+QStandardItem* IndexEditorModel::AddEntryToModel(IndexEditorModel::indexEntry *entry, QStandardItem *parent_item, int row)
 {
     // parent_item must be a group item
 

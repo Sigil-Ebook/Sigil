@@ -48,9 +48,9 @@ public:
     void LoadInitialData(QString filename = QString());
     void LoadData(QString filename = QString(), QStandardItem *parent_item = NULL);
 
-    void AddFullNameEntry(IndexEditorModel::indexEntry *entry = NULL, QStandardItem *parent_item = NULL, int row = -1);
+    QStandardItem* AddFullNameEntry(IndexEditorModel::indexEntry *entry = NULL, QStandardItem *parent_item = NULL, int row = -1);
 
-    QStandardItem* AddEntryToModel(IndexEditorModel::indexEntry *entry, bool is_group = false, QStandardItem *parent_item = NULL, int row = -1);
+    QStandardItem* AddEntryToModel(IndexEditorModel::indexEntry *entry, QStandardItem *parent_item = NULL, int row = -1);
 
     QString SaveData(QList<IndexEditorModel::indexEntry*> entries = QList<IndexEditorModel::indexEntry*>(), QString filename = QString());
 
@@ -59,7 +59,12 @@ public:
 
     QList<QStandardItem*> GetItems();
 
+private slots:
+    void ItemChangedHandler(QStandardItem *item);
+
 private:
+    void SplitEntry(QStandardItem *item);
+
     static IndexEditorModel *m_instance;
 };
 
