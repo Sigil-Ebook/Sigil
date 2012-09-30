@@ -626,3 +626,12 @@ QString SearchEditorModel::SaveData(QList<SearchEditorModel::searchEntry*> entri
 
     return message;
 }
+
+QVariant SearchEditorModel::data( const QModelIndex& index, int role ) const
+{
+    if (index.isValid() && index.column() > 0 && role == Qt::SizeHintRole ) {
+        // Make all rows the same height using the name column to ensure text limited to a single line
+        return data(this->index(0,0), role).toSize();
+    }
+    return QStandardItemModel::data(index, role);
+}
