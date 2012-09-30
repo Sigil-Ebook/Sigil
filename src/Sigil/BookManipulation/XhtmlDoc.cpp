@@ -357,13 +357,16 @@ QList< QString > XhtmlDoc::GetAllDescendantIDs( const xc::DOMNode &node )
 
     QList< QString > IDs;
 
-    if ( element->hasAttribute( QtoX( "id" ) ) )
-    
+    if ( element->hasAttribute( QtoX( "id" ) ) ) {
         IDs.append( XtoQ( element->getAttribute( QtoX( "id" ) ) ) );    
-    
-    else if ( element->hasAttribute( QtoX( "name" ) ) )
-
-        IDs.append( XtoQ( element->getAttribute( QtoX( "name" ) ) ) );
+    }
+    else if ( element->hasAttribute( QtoX( "name" ) ) ) {
+        // This is supporting legacy html of <a name="xxx"> (deprecated).
+        // Make sure we don't return names of other elements like <meta> tags.
+        if ( XtoQ( element->getTagName() ).toLower() == "a" ) {
+            IDs.append( XtoQ( element->getAttribute( QtoX( "name" ) ) ) );
+        }
+    }
 
     if ( node.hasChildNodes() )
     {
