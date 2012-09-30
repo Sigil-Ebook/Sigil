@@ -743,6 +743,154 @@ void SearchEditor::Apply()
         LoadFindReplace();
 }
 
+void SearchEditor::MoveUp()
+{
+    MoveVertical(false);
+}
+
+void SearchEditor::MoveDown()
+{
+    MoveVertical(true);
+}
+
+void SearchEditor::MoveVertical(bool move_down)
+{
+    if (!ui.SearchEditorTree->selectionModel()->hasSelection()) {
+        return;
+    }
+    QModelIndexList selected_indexes = ui.SearchEditorTree->selectionModel()->selectedRows(0);
+    if (selected_indexes.count() > 1) {
+        return;
+    }
+
+    // Identify the selected item
+    QModelIndex index = selected_indexes.first();
+    int row = index.row();
+
+    QStandardItem *item = m_SearchEditorModel->itemFromIndex(index);
+    QStandardItem *parent_item = item->parent();
+    if (!parent_item) {
+        parent_item = m_SearchEditorModel->invisibleRootItem();
+    }
+
+    int destination_row;
+    if (move_down) {
+        if (row >= parent_item->rowCount() - 1) {
+            return;
+        }
+        destination_row = row + 1;
+    }
+    else {
+        if (row == 0) {
+            return;
+        }
+        destination_row = row - 1;
+    }
+
+    // Swap the item rows
+    QList<QStandardItem *> row_items = parent_item->takeRow(row);
+    parent_item->insertRow(destination_row, row_items);
+
+    // Get index
+    QModelIndex destination_index = parent_item->child(destination_row, 0)->index();
+
+    // Select the item row again
+    ui.SearchEditorTree->selectionModel()->clear();
+    ui.SearchEditorTree->setCurrentIndex(destination_index);
+    ui.SearchEditorTree->selectionModel()->select(destination_index, QItemSelectionModel::SelectCurrent | QItemSelectionModel::Rows);
+
+    ui.SearchEditorTree->expand(parent_item->index());
+}
+
+void SearchEditor::MoveLeft()
+{
+    MoveHorizontal(true);
+}
+
+void SearchEditor::MoveRight()
+{
+    MoveHorizontal(false);
+}
+
+void SearchEditor::MoveHorizontal(bool move_left)
+{
+    if (!ui.SearchEditorTree->selectionModel()->hasSelection()) {
+        return;
+    }
+    QModelIndexList selected_indexes = ui.SearchEditorTree->selectionModel()->selectedRows(0);
+    if (selected_indexes.count() > 1) {
+        return;
+    }
+
+    // Identify the source information
+    QModelIndex source_index = selected_indexes.first();
+    int source_row = source_index.row();
+    QStandardItem *source_item = m_SearchEditorModel->itemFromIndex(source_index);
+
+    QStandardItem *source_parent_item = source_item->parent();
+    if (!source_parent_item) {
+        source_parent_item = m_SearchEditorModel->invisibleRootItem();
+    }
+    
+    QStandardItem *destination_parent_item;
+    int destination_row = 0;
+
+    if (move_left) {
+        // Skip if at root
+        if (!source_parent_item) {
+            return;
+        }
+
+        // Move below parent
+        destination_parent_item = source_parent_item->parent();
+        if (!destination_parent_item) {
+            destination_parent_item = m_SearchEditorModel->invisibleRootItem();
+        }
+        destination_row = source_parent_item->index().row() + 1;
+    }
+    else {
+        QModelIndex index_above = ui.SearchEditorTree->indexAbove(source_index);
+
+        if (!index_above.isValid()) {
+            return;
+        }
+
+        QStandardItem *item = m_SearchEditorModel->itemFromIndex(index_above);
+
+        if (source_parent_item == item) {
+            return;
+        }
+        SearchEditorModel::searchEntry *entry = m_SearchEditorModel->GetEntry(item);
+
+        // Only move right if immediately under a group 
+        if (entry ->is_group) {
+            destination_parent_item = item;
+        }
+        else {
+            // Or if the item above is in a different group
+            if (item->parent() && item->parent() != source_parent_item) {
+                destination_parent_item = item->parent();
+            }
+            else {
+                return;
+            }
+        }
+
+        destination_row = destination_parent_item->rowCount();
+    }
+
+    // Swap the item rows
+    QList<QStandardItem *> row_items = source_parent_item->takeRow(source_row);
+    destination_parent_item->insertRow(destination_row, row_items);
+
+    QModelIndex destination_index = destination_parent_item->child(destination_row)->index();
+
+    // Select the item row again
+    ui.SearchEditorTree->selectionModel()->clear();
+    ui.SearchEditorTree->setCurrentIndex(destination_index);
+    ui.SearchEditorTree->selectionModel()->select(destination_index, QItemSelectionModel::SelectCurrent | QItemSelectionModel::Rows);
+}
+
 void SearchEditor::ConnectSignalsSlots()
 {
     connect(ui.FilterText, SIGNAL(textChanged(QString)), this, SLOT(FilterEditTextChangedSlot(QString)));
@@ -751,8 +899,15 @@ void SearchEditor::ConnectSignalsSlots()
     connect(ui.CountAll,   SIGNAL(clicked()),            this, SLOT(CountAll()));
     connect(ui.ReplaceAll, SIGNAL(clicked()),            this, SLOT(ReplaceAll()));
 
+    connect(ui.MoveUp,     SIGNAL(clicked()),            this, SLOT(MoveUp()));
+    connect(ui.MoveDown,   SIGNAL(clicked()),            this, SLOT(MoveDown()));
+    connect(ui.MoveLeft,   SIGNAL(clicked()),            this, SLOT(MoveLeft()));
+    connect(ui.MoveRight,  SIGNAL(clicked()),            this, SLOT(MoveRight()));
+
     connect(ui.SearchEditorTree, SIGNAL(customContextMenuRequested(const QPoint&)),
             this,                SLOT(  OpenContextMenu(           const QPoint&)));
+
+    connect(ui.buttonBox->button(QDialogButtonBox::Apply), SIGNAL(clicked()), this, SLOT(Apply()));
 
     connect(m_AddEntry,    SIGNAL(triggered()), this, SLOT(AddEntry()));
     connect(m_AddGroup,    SIGNAL(triggered()), this, SLOT(AddGroup()));
@@ -766,6 +921,4 @@ void SearchEditor::ConnectSignalsSlots()
     connect(m_ExportAll,   SIGNAL(triggered()), this, SLOT(ExportAll()));
     connect(m_CollapseAll, SIGNAL(triggered()), this, SLOT(CollapseAll()));
     connect(m_ExpandAll,   SIGNAL(triggered()), this, SLOT(ExpandAll()));
-
-    connect(ui.buttonBox->button(QDialogButtonBox::Apply), SIGNAL(clicked()), this, SLOT(Apply()));
 }

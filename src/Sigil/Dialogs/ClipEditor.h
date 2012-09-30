@@ -70,6 +70,11 @@ private slots:
 
     void Apply();
 
+    void MoveUp();
+    void MoveDown();
+    void MoveLeft();
+    void MoveRight();
+
     void PasteIntoDocument();
 
     void FilterEditTextChangedSlot(const QString &text);
@@ -77,6 +82,9 @@ private slots:
     void OpenContextMenu(const QPoint &point);
 
 private:
+    void MoveVertical(bool move_down);
+    void MoveHorizontal(bool move_left);
+
     void ExportItems(QList<QStandardItem*> items);
 
     void SetupClipEditorTree();

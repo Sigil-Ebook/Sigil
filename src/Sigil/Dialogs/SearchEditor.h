@@ -78,6 +78,11 @@ private slots:
 
     void Apply();
 
+    void MoveUp();
+    void MoveDown();
+    void MoveLeft();
+    void MoveRight();
+
     void LoadFindReplace();
     void Find();
     void Replace();
@@ -89,6 +94,9 @@ private slots:
     void OpenContextMenu(const QPoint &point);
 
 private:
+    void MoveVertical(bool move_down);
+    void MoveHorizontal(bool move_left);
+
     void ExportItems(QList<QStandardItem*> items);
 
     void SetupSearchEditorTree();
