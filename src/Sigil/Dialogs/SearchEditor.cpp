@@ -836,8 +836,8 @@ void SearchEditor::MoveHorizontal(bool move_left)
     int destination_row = 0;
 
     if (move_left) {
-        // Skip if at root
-        if (!source_parent_item) {
+        // Skip if at root or otherwise at top level
+        if (!source_parent_item || source_parent_item == m_SearchEditorModel->invisibleRootItem()) {
             return;
         }
 
