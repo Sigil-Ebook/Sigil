@@ -74,6 +74,8 @@ public:
 
     void Rename(QStandardItem *item, QString name="");
 
+    QVariant data( const QModelIndex& index, int role ) const;
+
 private slots:
     void ItemChangedHandler(QStandardItem *item);
 
