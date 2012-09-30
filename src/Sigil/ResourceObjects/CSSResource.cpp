@@ -1,5 +1,8 @@
 /************************************************************************
 **
+**  Copyright (C) 2012 John Schember <john@nachtimwald.com>
+**  Copyright (C) 2012 Dave Heiland
+**  Copyright (C) 2012 Grant Drake
 **  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -27,7 +30,7 @@
 static const QString W3C_HTML_FORM = "<html>"
                                      " <body>"
                                      "  <p>Sigil will send your stylesheet data to the <a href='http://jigsaw.w3.org/css-validator/'>W3C Validation Service</a>.</p>"
-                                     "  <p><b>This page should disappear automatically once loaded.</b></p>"
+                                     "  <p><b>This page should disappear once loaded after 3 seconds.</b></p>"
                                      "  <p>If your browser does not have javascript enabled, click on the button below.</p>"
                                      "  <p><input id='button' type='submit' value='Check' /></p>"
                                      "  <div>"
@@ -38,7 +41,7 @@ static const QString W3C_HTML_FORM = "<html>"
                                      "  </div>"
                                      "  <script type='text/javascript'>"
                                      "   function mySubmit() { var frm=document.getElementById('form'); frm.submit(); }"
-                                     "   window.onLoad = mySubmit();"
+                                     "   window.onload = function() { window.setTimeout(function() { mySubmit(); }, 3000); };"
                                      "  </script>"
                                      " </body>"
                                      "</html>";

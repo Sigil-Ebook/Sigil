@@ -1,5 +1,8 @@
 /************************************************************************
 **
+**  Copyright (C) 2012 John Schember <john@nachtimwald.com>
+**  Copyright (C) 2012 Dave Heiland
+**  Copyright (C) 2012 Grant Drake
 **  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
