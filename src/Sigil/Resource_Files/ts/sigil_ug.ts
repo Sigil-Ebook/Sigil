@@ -1,55 +1,55 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="sk" version="2.0">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="ug" version="2.0">
 <context>
     <name>About</name>
     <message>
         <location filename="../../Form_Files/About.ui" line="14"/>
         <source>About</source>
-        <translation>O programe</translation>
+        <translation>ھەققىدە</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="56"/>
         <source>The EPUB Editor</source>
-        <translation>Editor EPUB</translation>
+        <translation>EPUB تەھرىرلىگۈچ</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="70"/>
         <source>General</source>
-        <translation>Všeobecné</translation>
+        <translation>ئادەتتىكى</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="86"/>
         <source>Homepage:</source>
-        <translation>Domovská stránka:</translation>
+        <translation>باش بەت:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="122"/>
         <source>Version:</source>
-        <translation>Verzia:</translation>
+        <translation>نەشىرى:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="149"/>
         <source>Loaded Qt:</source>
-        <translation>Načítané Qt:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="179"/>
         <source>License:</source>
-        <translation>Licencia:</translation>
+        <translation>كېلىشىم:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="191"/>
         <source>&lt;a href=&quot;http://www.gnu.org/licenses/gpl-3.0-standalone.html&quot;&gt;GNU General Public License v3&lt;/a&gt;</source>
-        <translation>&lt;a href=&quot;http://www.gnu.org/licenses/gpl-3.0-standalone.html&quot;&gt;GNU General Public License v3&lt;/a&gt;</translation>
+        <translation>&lt;a href=&quot;http://www.gnu.org/licenses/gpl-3.0-standalone.html&quot;&gt;GNU GPL v3 كېلىشىمى&lt;/a&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="209"/>
         <source>Build time:</source>
-        <translation>Čas kompilácie:</translation>
+        <translation>ھاسىللانغان ۋاقتى:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="234"/>
         <source>Authors</source>
-        <translation>Autori</translation>
+        <translation>ئاپتورلىرى</translation>
     </message>
 </context>
 <context>
@@ -57,12 +57,12 @@
     <message>
         <location filename="../../Form_Files/AddMetadata.ui" line="14"/>
         <source>Add metadata property</source>
-        <translation>Pridať atribút metadát</translation>
+        <translation>مېتا مەلۇمات خاسلىقى قوشۇش</translation>
     </message>
     <message>
         <location filename="../../Form_Files/AddMetadata.ui" line="50"/>
         <source>Metadata description</source>
-        <translation>Popis metadát</translation>
+        <translation>مېتا مەلۇمات چۈشەندۈرۈلىشى</translation>
     </message>
 </context>
 <context>
@@ -70,7 +70,7 @@
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="14"/>
         <source>Appearance</source>
-        <translation>Vzhľad</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="20"/>
@@ -152,12 +152,12 @@
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="310"/>
         <source>Reset All</source>
-        <translation>Obnoviť všetko</translation>
+        <translation>ھەممىنى دەسلەپلەشتۈر</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="208"/>
         <source>Background</source>
-        <translation>Pozadie</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="209"/>
@@ -265,27 +265,27 @@
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="55"/>
         <source>Book Browser</source>
-        <translation>Prehliadač knihy</translation>
+        <translation>كىتاب كۆرگۈچ</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="67"/>
         <source>Add Semantics</source>
-        <translation>Pridanie sémantiky</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="68"/>
         <source>Font Obfuscation</source>
-        <translation>Obfuskácia písma</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="231"/>
         <source>The file &quot;%1&quot; does not exist.</source>
-        <translation>Súbor &quot;%1&quot; neexistuje.</translation>
+        <translation>&quot;%1&quot;  ھۆججىتى مەۋجۇت ئەمەس.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="508"/>
         <source>Add existing file(s)</source>
-        <translation>Pridať existujúci súbor(y)</translation>
+        <translation>تەييار ھۆججەت قوشۇش</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="197"/>
@@ -299,25 +299,27 @@
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="197"/>
         <source>Are you sure you want to sort the selected files alphanumerically?</source>
-        <translation>Ste si istý, že chcete zoradiť označené súbory alfanumericky?</translation>
+        <translation>تاللانغان ھۆججەتلەرنى ئېلىپبە تەرتىبى بۇيىچە رەتلەمدۇ؟</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="917"/>
         <source>Are you sure you want to delete the selected file?
 </source>
-        <translation>Ste si istý, že chcete zmazať označený súbor?</translation>
+        <translation>تاللانغان ھۆججەتنى ئۆچۈرەمسىز؟
+</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="918"/>
         <source>Are you sure you want to delete all the selected files?
 </source>
-        <translation>Ste si istý, že chcete zmazať všetky označené súbory?</translation>
+        <translation>تاللانغان بارلىق ھۆججەتنى ئۆچۈرەمسىز؟
+</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="197"/>
         <location filename="../../MainUI/BookBrowser.cpp" line="920"/>
         <source>This action cannot be reversed.</source>
-        <translation>Tento krok nie je možné vrátiť späť.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="69"/>
@@ -385,23 +387,23 @@ A file with this name already exists in the book.</source>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="900"/>
         <source>Neither the NCX nor the OPF can be removed.</source>
-        <translation>Ani NCX ani OPF môžu byť odstránené.</translation>
+        <translation>NCX ياكى  OPF ھۆججىتىنى قەتئى ئۆچۈرۋىتىشكە بولمايدۇ.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="909"/>
         <source>You cannot remove all html files.
 There always has to be at least one.</source>
-        <translation>Nemôžte odstrániť všetky html súbory.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1170"/>
         <source>Add Blank Section</source>
-        <translation>Vložiť prázdnu sekciu</translation>
+        <translation>قۇرۇق بۆلەك قوشۇش</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1171"/>
         <source>Add Blank Stylesheet</source>
-        <translation>Pridať prázdny štýl</translation>
+        <translation>قۇرۇق ئۇسلۇب قوشۇش</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1172"/>
@@ -411,7 +413,7 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1173"/>
         <source>Add Existing Files...</source>
-        <translation>Pridať existujúce súbory…</translation>
+        <translation>تەييار ھۆججەت قوشۇش</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1174"/>
@@ -422,7 +424,7 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1176"/>
         <source>Rename</source>
-        <translation>Premenovať</translation>
+        <translation>نام ئۆزگەرتىش</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1184"/>
@@ -442,27 +444,27 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1178"/>
         <source>Cover Image</source>
-        <translation>Obrázok na prednej strane</translation>
+        <translation>مۇقاۋا رەسىمى</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1179"/>
         <source>Merge</source>
-        <translation>Zlúčiť</translation>
+        <translation>بىرلەشتۈرۈش</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1180"/>
         <source>Use Adobe&apos;s Method</source>
-        <translation>Použiť Adobe metódu</translation>
+        <translation>Adobeنىڭ ئۇسۇلىنى ئىشلىتىش</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1181"/>
         <source>Use IDPF&apos;s Method</source>
-        <translation>Použiť IDPF metódu</translation>
+        <translation> IDPF ئۇسۇلىنى ئىشلىتىش</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1169"/>
         <source>Select All</source>
-        <translation>Vybrať všeko</translation>
+        <translation>ھەممىنى تاللاش</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1177"/>
@@ -472,97 +474,97 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1182"/>
         <source>Sort</source>
-        <translation>Triediť</translation>
+        <translation>تەرتىپلەش</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1183"/>
         <source>Renumber TOC Entries</source>
-        <translation>Prečíslovať položky obsahu</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1221"/>
         <source>Cover</source>
-        <translation>Predná strana</translation>
+        <translation>مۇقاۋا</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1226"/>
         <source>Title Page</source>
-        <translation>Titulná strana</translation>
+        <translation>ماۋزۇ بېتى</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1231"/>
         <source>Table Of Contents</source>
-        <translation>Obsah</translation>
+        <translation>مۇندەرىجە</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1236"/>
         <source>Index</source>
-        <translation>Index</translation>
+        <translation>ئىندىكىس</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1241"/>
         <source>Glossary</source>
-        <translation>Glosár</translation>
+        <translation>سۆزلۈك</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1246"/>
         <source>Acknowledgements</source>
-        <translation>Poďakovanie</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1251"/>
         <source>Bibliography</source>
-        <translation>Bibliografia</translation>
+        <translation>كاتولوگ</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1256"/>
         <source>Colophon</source>
-        <translation>Tiráž</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1261"/>
         <source>CopyrightPage</source>
-        <translation>Stranka s autorskými právami</translation>
+        <translation>نەشىر ئۇچۇرى بېتى</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1266"/>
         <source>Dedication</source>
-        <translation>Venovanie</translation>
+        <translation>بېغىشلىما</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1271"/>
         <source>Epigraph</source>
-        <translation>Epigraf</translation>
+        <translation>ئېپىگراف</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1276"/>
         <source>Foreword</source>
-        <translation>Predslov</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1281"/>
         <source>List Of Illustrations</source>
-        <translation>Zoznam ilustrácií</translation>
+        <translation>سىزمىلار تىزىملىكى</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1286"/>
         <source>List Of Tables</source>
-        <translation>Zoznam tabuliek</translation>
+        <translation>جەدىۋەل تىزىملىكى</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1291"/>
         <source>Notes</source>
-        <translation>Poznámky</translation>
+        <translation>خاتىرە</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1296"/>
         <source>Preface</source>
-        <translation>Predhovor</translation>
+        <translation>مۇقەددىمە</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1301"/>
         <source>Text</source>
-        <translation>Text</translation>
+        <translation>تېكىست</translation>
     </message>
 </context>
 <context>
@@ -598,7 +600,7 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="698"/>
         <source>Copy</source>
-        <translation>Kopírovať</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="699"/>
@@ -608,7 +610,7 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="700"/>
         <source>Select All</source>
-        <translation>Vybrať všeko</translation>
+        <translation>ھەممىنى تاللاش</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="705"/>
@@ -623,7 +625,7 @@ There always has to be at least one.</source>
         <location filename="../../ViewEditors/BookViewPreview.cpp" line="277"/>
         <location filename="../../ViewEditors/BookViewPreview.cpp" line="283"/>
         <source>Unsupported</source>
-        <translation>Nepodporované</translation>
+        <translation>قوللىمايدۇ</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewPreview.cpp" line="210"/>
@@ -633,12 +635,12 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../ViewEditors/BookViewPreview.cpp" line="277"/>
         <source>Replace is not supported in this view. Switch to Code View.</source>
-        <translation>Nahradzovanie je nie podporované v tomto zobrazení. Prepnite na Zobrazenie kódu.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewPreview.cpp" line="283"/>
         <source>Replace All for the current file is not supported in this view. Switch to Code View.</source>
-        <translation>Nahradiť všetko je nie podporované v tomto zobrazení. Prepnite na Zobrazenie kódu.</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -666,7 +668,7 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="55"/>
         <source>Name</source>
-        <translation>Meno</translation>
+        <translation>نامى</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="56"/>
@@ -752,7 +754,7 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Form_Files/PCleanSourceWidget.ui" line="14"/>
         <source>Clean Source</source>
-        <translation>Vyčistiť zdroj</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/PCleanSourceWidget.ui" line="20"/>
@@ -770,7 +772,7 @@ Error correction when loading a file will always be performed.</source>
     <message>
         <location filename="../../Form_Files/PCleanSourceWidget.ui" line="41"/>
         <source>Off</source>
-        <translation>Vypnuté</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/PCleanSourceWidget.ui" line="48"/>
@@ -784,7 +786,7 @@ Error correction when loading a file will always be performed.</source>
     <message>
         <location filename="../../Form_Files/PCleanSourceWidget.ui" line="55"/>
         <source>Pretty Print</source>
-        <translation>Pretty Print</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/PCleanSourceWidget.ui" line="62"/>
@@ -822,7 +824,7 @@ Error correction when loading a file will always be performed.</source>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="36"/>
         <source>List only the entries containing the text you enter.</source>
-        <translation>Iba zoznam položiek, ktoré obsahújú text, ktorý ste zadali.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="52"/>
@@ -854,7 +856,7 @@ If a group is selected, paste each entry in order.</source>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="70"/>
         <source>Name</source>
-        <translation>Meno</translation>
+        <translation>نامى</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="70"/>
@@ -864,7 +866,7 @@ If a group is selected, paste each entry in order.</source>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="71"/>
         <source>Text</source>
-        <translation>Text</translation>
+        <translation>تېكىست</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="71"/>
@@ -909,7 +911,7 @@ If a group is selected, paste each entry in order.</source>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="534"/>
         <source>Rename</source>
-        <translation>Premenovať</translation>
+        <translation>نام ئۆزگەرتىش</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="535"/>
@@ -919,7 +921,7 @@ If a group is selected, paste each entry in order.</source>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="536"/>
         <source>Copy</source>
-        <translation>Kopírovať</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="538"/>
@@ -944,12 +946,12 @@ If a group is selected, paste each entry in order.</source>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="542"/>
         <source>Collapse All</source>
-        <translation>Zložiť všetko</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="543"/>
         <source>Expand All</source>
-        <translation>Rozbaliť všetko</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -957,12 +959,12 @@ If a group is selected, paste each entry in order.</source>
     <message>
         <location filename="../../MiscEditors/ClipEditorModel.cpp" line="275"/>
         <source>Name</source>
-        <translation>Meno</translation>
+        <translation>نامى</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/ClipEditorModel.cpp" line="276"/>
         <source>Text</source>
-        <translation>Text</translation>
+        <translation>تېكىست</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/ClipEditorModel.cpp" line="595"/>
@@ -993,12 +995,12 @@ If a group is selected, paste each entry in order.</source>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1046"/>
         <source>Add to dictionary</source>
-        <translation>Pridať do slovníka</translation>
+        <translation>لۇغەتكە قوشۇش</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1058"/>
         <source>Ignore</source>
-        <translation>Ignorovať</translation>
+        <translation>ئاتلاپ كېتىش</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1118"/>
@@ -1031,7 +1033,7 @@ If a group is selected, paste each entry in order.</source>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="56"/>
         <source>Background</source>
-        <translation>Pozadie</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="59"/>
@@ -1054,47 +1056,47 @@ If a group is selected, paste each entry in order.</source>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="20"/>
         <source>Find &amp; Replace</source>
-        <translation>Nájsť a nahradiť</translation>
+        <translation>ئىزدەش ۋە ئالماشتۇرۇش</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="116"/>
         <source>Find:</source>
-        <translation>Hľadať:</translation>
+        <translation>ئىشدەش:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="154"/>
         <source>Find</source>
-        <translation>Hľadať</translation>
+        <translation>ئىزدەش</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="61"/>
         <source>...</source>
-        <translation>…</translation>
+        <translation>...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="55"/>
         <source>Hide Find and Replace</source>
-        <translation>Skryť Hľadať a nahradiť</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="173"/>
         <source>Count All</source>
-        <translation>Spočítať všetko</translation>
+        <translation>ھەممىنى ساناش</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="218"/>
         <source>Replace</source>
-        <translation>Nahradiť</translation>
+        <translation>ئالماشتۇرۇش</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="237"/>
         <source>Replace All</source>
-        <translation>Nahradiť všetko</translation>
+        <translation>ھەممىنى ئالماشتۇرۇش</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="180"/>
         <source>Replace:</source>
-        <translation>Nahradiť:</translation>
+        <translation>ئالماشتۇرۇش:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="148"/>
@@ -1119,7 +1121,7 @@ If a group is selected, paste each entry in order.</source>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="244"/>
         <source>Mode:</source>
-        <translation>Režim:</translation>
+        <translation>ھالىتى:</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="515"/>
@@ -1144,29 +1146,29 @@ If a group is selected, paste each entry in order.</source>
         <location filename="../../MainUI/FindReplace.cpp" line="260"/>
         <location filename="../../MainUI/FindReplace.cpp" line="1178"/>
         <source>%1 matches found</source>
-        <translation><numerusform>%1 výskyt nájdený</numerusform><numerusform>%1 výskyty nájdené</numerusform><numerusform>%1 výskytov nájdených</numerusform></translation>
+        <translation type="unfinished"><numerusform></numerusform></translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="332"/>
         <location filename="../../MainUI/FindReplace.cpp" line="1201"/>
         <source>No replacements made</source>
-        <translation>Nahradenie nebolo vykonané</translation>
+        <translation type="unfinished"/>
     </message>
     <message numerus="yes">
         <location filename="../../MainUI/FindReplace.cpp" line="336"/>
         <location filename="../../MainUI/FindReplace.cpp" line="1204"/>
         <source>%1 replacements made</source>
-        <translation><numerusform>%1 náhrada vykonaná</numerusform><numerusform>%1 náhrady vykonané</numerusform><numerusform>%1 náhrad vykonaných</numerusform></translation>
+        <translation type="unfinished"><numerusform></numerusform></translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="989"/>
         <source>This tab cannot be searched</source>
-        <translation>Túto kartu nie je možné prehľadávať</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1006"/>
         <source>Normal</source>
-        <translation>Normálny</translation>
+        <translation>نورمال</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1018"/>
@@ -1219,17 +1221,17 @@ If a group is selected, paste each entry in order.</source>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1009"/>
         <source>Case Sensitive</source>
-        <translation>Rozlišovať veľké a malé písmená</translation>
+        <translation>چوڭ-كىچىك يېزىلىشىغا دىققەت قىلىش</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1012"/>
         <source>Regex</source>
-        <translation>Regex</translation>
+        <translation>تەبىئى ئىپادە</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1005"/>
         <source>What to search for</source>
-        <translation>Čo hľadať</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1007"/>
@@ -1249,32 +1251,32 @@ If a group is selected, paste each entry in order.</source>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1016"/>
         <source>Where to search</source>
-        <translation>Kde hľadať</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1017"/>
         <source>Current File</source>
-        <translation>Aktuálny súbor</translation>
+        <translation>نۆۋەتتىكى ھۆججەت</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1020"/>
         <source>All HTML Files</source>
-        <translation>Všetky HTML súbory</translation>
+        <translation>بارلىقHTML ھۆججىتى</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1028"/>
         <source>Up</source>
-        <translation>Hore</translation>
+        <translation>يۇقۇرىغا</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1029"/>
         <source>Down</source>
-        <translation>Dole</translation>
+        <translation>تۆۋەنگە</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1030"/>
         <source>Direction to search</source>
-        <translation>Smer hľadania</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1295,7 +1297,7 @@ If a group is selected, paste each entry in order.</source>
     <message>
         <location filename="../../Tabs/FlowTab.cpp" line="783"/>
         <source>Print %1</source>
-        <translation>Tlačiť %1</translation>
+        <translation>%1 بېسىش</translation>
     </message>
 </context>
 <context>
@@ -1318,7 +1320,7 @@ If a group is selected, paste each entry in order.</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="51"/>
         <source>Name</source>
-        <translation>Meno</translation>
+        <translation>نامى</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="52"/>
@@ -1338,7 +1340,7 @@ If a group is selected, paste each entry in order.</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="55"/>
         <source>Images</source>
-        <translation>Obrázky</translation>
+        <translation>رەسىم</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="56"/>
@@ -1356,7 +1358,7 @@ If a group is selected, paste each entry in order.</source>
     <message>
         <location filename="../../Form_Files/HeadingSelector.ui" line="14"/>
         <source>Heading Selector</source>
-        <translation>Výber nadpisov</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/HeadingSelector.ui" line="48"/>
@@ -1372,40 +1374,40 @@ in the Table Of Contents are displayed in the list</source>
     <message>
         <location filename="../../Form_Files/HeadingSelector.ui" line="71"/>
         <source>Select which headings are included in the TOC</source>
-        <translation>Vybrať, ktoré nadpisy budú zaradené do obsahu</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="264"/>
         <source>TOC Entry</source>
-        <translation>Záznam obsahu</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="265"/>
         <source>Include</source>
-        <translation>Vrátane</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="498"/>
         <source>Up to level</source>
-        <translation>Až do úrovne</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="500"/>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="576"/>
         <source>&lt;Select headings to include&gt;</source>
-        <translation>&lt;Vybrať nadpisy na zaradenie&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="503"/>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="569"/>
         <source>None</source>
-        <translation>Žiadny</translation>
+        <translation>يوق</translation>
     </message>
     <message>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="508"/>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="565"/>
         <source>All</source>
-        <translation>Všetko</translation>
+        <translation>بارلىق</translation>
     </message>
 </context>
 <context>
@@ -1433,7 +1435,7 @@ in the Table Of Contents are displayed in the list</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="56"/>
         <source>Name</source>
-        <translation>Meno</translation>
+        <translation>نامى</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="57"/>
@@ -1463,12 +1465,12 @@ in the Table Of Contents are displayed in the list</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="62"/>
         <source>Color</source>
-        <translation>Farebne</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="64"/>
         <source>Image</source>
-        <translation>Obrázok</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="162"/>
@@ -1501,7 +1503,7 @@ in the Table Of Contents are displayed in the list</source>
     <message>
         <location filename="../../Tabs/ImageTab.cpp" line="139"/>
         <source>Color</source>
-        <translation>Farebne</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Tabs/ImageTab.cpp" line="223"/>
@@ -1527,21 +1529,19 @@ in the Table Of Contents are displayed in the list</source>
         <location filename="../../Importers/ImportOEBPS.cpp" line="309"/>
         <location filename="../../Importers/ImportOEBPS.cpp" line="329"/>
         <source>&lt;center&gt;&lt;b&gt;The OPF file is badly formed.&lt;/b&gt;&lt;/center&gt;</source>
-        <translation>&lt;center&gt;&lt;b&gt;Súbor OPF je vytvorený zle.&lt;/b&gt;&lt;/center&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Importers/ImportOEBPS.cpp" line="310"/>
         <source>Sigil will attempt to use the following file as the NCX:
 
 </source>
-        <translation>Sigil sa pokúsi použiť nasledujúci súbor ako NCX:
-
-</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Importers/ImportOEBPS.cpp" line="330"/>
         <source>Sigil could not find an NCX file and will create a new one.</source>
-        <translation>Sigil nemohol nájsť NCX súbor a preto vytvorí nový.</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1559,7 +1559,7 @@ in the Table Of Contents are displayed in the list</source>
     <message>
         <location filename="../../Form_Files/IndexEditor.ui" line="29"/>
         <source>List only the entries containing the text you enter.</source>
-        <translation>Iba zoznam položiek, ktoré obsahújú text, ktorý ste zadali.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/IndexEditor.ui" line="45"/>
@@ -1613,7 +1613,7 @@ class=&quot;sigil_index&quot; and title=&quot;MYINDEXENTRY&quot;.</source>
         <location filename="../../Dialogs/IndexEditor.cpp" line="229"/>
         <location filename="../../Dialogs/IndexEditor.cpp" line="278"/>
         <source>Cancel</source>
-        <translation>Zrušiť</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="311"/>
@@ -1623,7 +1623,7 @@ class=&quot;sigil_index&quot; and title=&quot;MYINDEXENTRY&quot;.</source>
     <message numerus="yes">
         <location filename="../../Dialogs/IndexEditor.cpp" line="311"/>
         <source>Added %n entries.</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation type="unfinished"><numerusform></numerusform></translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="320"/>
@@ -1643,7 +1643,7 @@ class=&quot;sigil_index&quot; and title=&quot;MYINDEXENTRY&quot;.</source>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="439"/>
         <source>Rename</source>
-        <translation>Premenovať</translation>
+        <translation>نام ئۆزگەرتىش</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="440"/>
@@ -1653,7 +1653,7 @@ class=&quot;sigil_index&quot; and title=&quot;MYINDEXENTRY&quot;.</source>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="441"/>
         <source>Copy</source>
-        <translation>Kopírovať</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="442"/>
@@ -1683,7 +1683,7 @@ class=&quot;sigil_index&quot; and title=&quot;MYINDEXENTRY&quot;.</source>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="447"/>
         <source>Select All</source>
-        <translation>Vybrať všeko</translation>
+        <translation>ھەممىنى تاللاش</translation>
     </message>
 </context>
 <context>
@@ -1709,27 +1709,27 @@ class=&quot;sigil_index&quot; and title=&quot;MYINDEXENTRY&quot;.</source>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="14"/>
         <source>Keyboard Shortcuts</source>
-        <translation>Klávesové skratky</translation>
+        <translation>تىزلەتمە كونۇپكا</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="22"/>
         <source>List only the entries containing the text you enter.</source>
-        <translation>Iba zoznam položiek, ktoré obsahújú text, ktorý ste zadali.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="25"/>
         <source>Filter: </source>
-        <translation>Filter: </translation>
+        <translation>سۈزگۈچ: </translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="50"/>
         <source>Name</source>
-        <translation>Názov</translation>
+        <translation>نامى</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="60"/>
         <source>Description</source>
-        <translation>Popis</translation>
+        <translation>چۈشەندۈرۈش</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="119"/>
@@ -1749,27 +1749,27 @@ class=&quot;sigil_index&quot; and title=&quot;MYINDEXENTRY&quot;.</source>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="141"/>
         <source>Remove</source>
-        <translation>Odstrániť</translation>
+        <translation>ئۆچۈرۈش</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="55"/>
         <source>Shortcut</source>
-        <translation>Skratka</translation>
+        <translation>تىزلەتمە</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="70"/>
         <source>Reset all to default</source>
-        <translation>Obnoviť všetko na štandardné</translation>
+        <translation>ھەممىنى ئەسلىگە قايتۇرش</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="73"/>
         <source>Reset All</source>
-        <translation>Obnoviť všetko</translation>
+        <translation>ھەممىنى دەسلەپلەشتۈر</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="103"/>
         <source>Shortcut:</source>
-        <translation>Skratky:</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1777,32 +1777,32 @@ class=&quot;sigil_index&quot; and title=&quot;MYINDEXENTRY&quot;.</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="80"/>
         <source>Abkhazian</source>
-        <translation>Abcházsky</translation>
+        <translation>ئابخازچە</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="81"/>
         <source>Afar</source>
-        <translation>Afar</translation>
+        <translation>ئافار</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="82"/>
         <source>Afrikaans</source>
-        <translation>Afrikánsky</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="83"/>
         <source>Akan</source>
-        <translation>Akan</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="84"/>
         <source>Albanian</source>
-        <translation>Albánsky</translation>
+        <translation>ئالبانچە</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="85"/>
         <source>Amharic</source>
-        <translation>Amharic</translation>
+        <translation>ئامخارچە</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="86"/>
@@ -1822,198 +1822,198 @@ class=&quot;sigil_index&quot; and title=&quot;MYINDEXENTRY&quot;.</source>
         <location filename="../../Misc/Language.cpp" line="100"/>
         <location filename="../../Misc/Language.cpp" line="101"/>
         <source>Arabic</source>
-        <translation>Arabsky</translation>
+        <translation>ئەرەبچە</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="87"/>
         <source>Algeria</source>
-        <translation>Alžírsko</translation>
+        <translation>ئالجىرىيە</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="88"/>
         <source>Bahrain</source>
-        <translation>Bahrajn</translation>
+        <translation>بەھرەيىن</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="89"/>
         <source>Egypt</source>
-        <translation>Egypt</translation>
+        <translation>مىسىر</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="90"/>
         <source>Iraq</source>
-        <translation>Irak</translation>
+        <translation>ئىراق</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="91"/>
         <source>Jordan</source>
-        <translation>Jordánsko</translation>
+        <translation>ئىوردانىيە</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="92"/>
         <source>Kuwait</source>
-        <translation>Kuvajt</translation>
+        <translation>كۇۋەيىت</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="93"/>
         <source>Lebanon</source>
-        <translation>Libanon</translation>
+        <translation>لىۋان</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="94"/>
         <source>Libya</source>
-        <translation>Líbya</translation>
+        <translation>لىۋىيە</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="95"/>
         <source>Morocco</source>
-        <translation>Maroko</translation>
+        <translation>موروككو</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="96"/>
         <source>Oman</source>
-        <translation>Omán</translation>
+        <translation>ئومان</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="97"/>
         <source>Qatar</source>
-        <translation>Katar</translation>
+        <translation>قاتار</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="98"/>
         <source>Syria</source>
-        <translation>Sýria</translation>
+        <translation>سۈرىيە</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="99"/>
         <source>Tunisia</source>
-        <translation>Tunisko</translation>
+        <translation>تۇنىس</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="100"/>
         <source>United Arab Emirates</source>
-        <translation>Spojené Arabské Emiráty</translation>
+        <translation>ئەرەب بىرلەشمە خەلىپىلىكى</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="101"/>
         <source>Yemen</source>
-        <translation>Jemen</translation>
+        <translation>يەمەن</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="102"/>
         <source>Aragonese</source>
-        <translation>Aragonese</translation>
+        <translation>ئاراگونچە</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="103"/>
         <source>Armenian</source>
-        <translation>Armémsky</translation>
+        <translation>ئەرمىنىيە</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="104"/>
         <source>Assamese</source>
-        <translation>Assamese</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="105"/>
         <source>Avaric</source>
-        <translation>Avaric</translation>
+        <translation>ئاۋارچە</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="106"/>
         <source>Avestan</source>
-        <translation>Avestan</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="107"/>
         <source>Aymara</source>
-        <translation>Aymara</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="108"/>
         <location filename="../../Misc/Language.cpp" line="109"/>
         <source>Azerbaijani</source>
-        <translation>Azerbajdžanský</translation>
+        <translation>ئەزەربەيجانچە</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="109"/>
         <source>Azerbaijan</source>
-        <translation>Azerbajdžan</translation>
+        <translation>ئەزەربەيجان</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="110"/>
         <source>Bambara</source>
-        <translation>Bambara</translation>
+        <translation>بامبارا</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="111"/>
         <source>Bashkir</source>
-        <translation>Bashkir</translation>
+        <translation>باشقىر</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="112"/>
         <source>Basque</source>
-        <translation>Baskitský</translation>
+        <translation>باسىك</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="113"/>
         <source>Belarusian</source>
-        <translation>Bieloruský</translation>
+        <translation>بىلىرۇسچە</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="114"/>
         <source>Bengali</source>
-        <translation>Bengálsky</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="115"/>
         <source>Bihari</source>
-        <translation>Bihari</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="116"/>
         <source>Bislama</source>
-        <translation>Bislama</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="117"/>
         <source>Bosnian</source>
-        <translation>Bosnianský</translation>
+        <translation>بوسىيانچە</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="118"/>
         <source>Breton</source>
-        <translation>Breton</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="119"/>
         <source>Bulgarian</source>
-        <translation>Bulharský</translation>
+        <translation>بۇلغارچە</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="120"/>
         <source>Burmese</source>
-        <translation>Barmský</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="121"/>
         <source>Catalan</source>
-        <translation>Katalánský</translation>
+        <translation>كاتالانچە</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="122"/>
         <source>Central Khmer</source>
-        <translation>Stredná kmérčina</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="123"/>
         <source>Chamorro</source>
-        <translation>Chamorro</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="124"/>
         <source>Chechen</source>
-        <translation>Čečenský</translation>
+        <translation>ھېچېنچە</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="125"/>
@@ -2023,106 +2023,106 @@ class=&quot;sigil_index&quot; and title=&quot;MYINDEXENTRY&quot;.</source>
         <location filename="../../Misc/Language.cpp" line="129"/>
         <location filename="../../Misc/Language.cpp" line="130"/>
         <source>Chinese</source>
-        <translation>Čínsky</translation>
+        <translation>خەنزۇچە</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="126"/>
         <source>China</source>
-        <translation>Čína</translation>
+        <translation>جوڭگۇ</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="127"/>
         <source>Hong Kong</source>
-        <translation>Hong Kong</translation>
+        <translation>شىياڭگاڭ</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="128"/>
         <source>Macau</source>
-        <translation>Macao</translation>
+        <translation>ماكائۇ</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="129"/>
         <source>Singapore</source>
-        <translation>Singapur</translation>
+        <translation>سىنگاپۇر</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="130"/>
         <source>Taiwan</source>
-        <translation>Taiwan</translation>
+        <translation>تەيۋەن</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="131"/>
         <source>Church Slavic</source>
-        <translation>Staroslovianský</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="132"/>
         <source>Chuvash</source>
-        <translation>Chuvash</translation>
+        <translation>چۇۋاش</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="133"/>
         <source>Cornish</source>
-        <translation>Cornwallsky</translation>
+        <translation>كىرونىش</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="134"/>
         <source>Corsican</source>
-        <translation>Korzický</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="135"/>
         <source>Cree</source>
-        <translation>Cree</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="136"/>
         <source>Croatian</source>
-        <translation>Chorvátsky</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="137"/>
         <source>Czech</source>
-        <translation>Český</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="138"/>
         <location filename="../../Misc/Language.cpp" line="139"/>
         <source>Danish</source>
-        <translation>Dánsky</translation>
+        <translation>دانىيەچە</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="139"/>
         <source>Denmark</source>
-        <translation>Dánsko</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="140"/>
         <source>Dhivehi</source>
-        <translation>Dhivehi</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="141"/>
         <location filename="../../Misc/Language.cpp" line="142"/>
         <location filename="../../Misc/Language.cpp" line="143"/>
         <source>Dutch</source>
-        <translation>Holandský</translation>
+        <translation>گېمانچە</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="142"/>
         <location filename="../../Misc/Language.cpp" line="165"/>
         <source>Belgium</source>
-        <translation>Belgicko</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="143"/>
         <source>Netherlands</source>
-        <translation>Holandsko</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="144"/>
         <source>Dzongkha</source>
-        <translation>Dzongkha</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="145"/>
@@ -2139,99 +2139,99 @@ class=&quot;sigil_index&quot; and title=&quot;MYINDEXENTRY&quot;.</source>
         <location filename="../../Misc/Language.cpp" line="156"/>
         <location filename="../../Misc/Language.cpp" line="157"/>
         <source>English</source>
-        <translation>Angličtina</translation>
+        <translation>ئىنگىلىزچە</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="146"/>
         <source>Australia</source>
-        <translation>Austrália</translation>
+        <translation>ئاۋىستىراليىە</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="147"/>
         <source>Belize</source>
-        <translation>Belizé</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="148"/>
         <location filename="../../Misc/Language.cpp" line="166"/>
         <source>Canada</source>
-        <translation>Kanada</translation>
+        <translation>كانادا</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="149"/>
         <source>Caribbean</source>
-        <translation>Karibik</translation>
+        <translation>كارىب</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="150"/>
         <source>Great Britain</source>
-        <translation>Veľká Británia</translation>
+        <translation>ئەنگىلىيە</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="151"/>
         <source>India</source>
-        <translation>India</translation>
+        <translation>ھىندىستان</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="152"/>
         <location filename="../../Misc/Language.cpp" line="172"/>
         <source>Ireland</source>
-        <translation>Írsko</translation>
+        <translation>ئىرلاندىيە</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="153"/>
         <source>Jamaica</source>
-        <translation>Jamajka</translation>
+        <translation>يامايكا</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="154"/>
         <source>Phillippines</source>
-        <translation>Filipíny</translation>
+        <translation>فىلىپىن</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="155"/>
         <source>Trinidad</source>
-        <translation>Trinidad</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="156"/>
         <source>South Africa</source>
-        <translation>Južná Afrika</translation>
+        <translation>جەنۇبى ئافىرقا</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="157"/>
         <source>United States</source>
-        <translation>Spojené štáty</translation>
+        <translation>ئامېركا</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="158"/>
         <source>Esperanto</source>
-        <translation>Esperanto</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="159"/>
         <source>Estonian</source>
-        <translation>Estónsky</translation>
+        <translation>ئىستونىيە</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="160"/>
         <source>Ewe</source>
-        <translation>Ewe</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="161"/>
         <source>Faroese</source>
-        <translation>Faerský</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="162"/>
         <source>Fijian</source>
-        <translation>Fidži</translation>
+        <translation>فىجىيچە</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="163"/>
         <source>Finnish</source>
-        <translation>Fínsky</translation>
+        <translation>فىننىشچە</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="164"/>
@@ -2241,56 +2241,56 @@ class=&quot;sigil_index&quot; and title=&quot;MYINDEXENTRY&quot;.</source>
         <location filename="../../Misc/Language.cpp" line="168"/>
         <location filename="../../Misc/Language.cpp" line="169"/>
         <source>French</source>
-        <translation>Francúzsky</translation>
+        <translation>فىرانسۇزچە</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="167"/>
         <source>France</source>
-        <translation>Francúzsko</translation>
+        <translation>فىرانسىيە</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="168"/>
         <location filename="../../Misc/Language.cpp" line="180"/>
         <source>Luxembourg</source>
-        <translation>Luxembursko</translation>
+        <translation>لۇكسېمبورۇگ</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="169"/>
         <location filename="../../Misc/Language.cpp" line="181"/>
         <location filename="../../Misc/Language.cpp" line="203"/>
         <source>Switzerland</source>
-        <translation>Švajčiarsko</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="170"/>
         <source>Fulah</source>
-        <translation>Fulah</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="171"/>
         <location filename="../../Misc/Language.cpp" line="172"/>
         <source>Gaelic</source>
-        <translation>Gaeština</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="171"/>
         <source>Scotland</source>
-        <translation>Škótsko</translation>
+        <translation>شوتلاندىيە</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="173"/>
         <source>Galician</source>
-        <translation>Galicijský</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="174"/>
         <source>Ganda</source>
-        <translation>Ganda</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="175"/>
         <source>Georgian</source>
-        <translation>Gruzínsky</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="176"/>
@@ -2300,495 +2300,495 @@ class=&quot;sigil_index&quot; and title=&quot;MYINDEXENTRY&quot;.</source>
         <location filename="../../Misc/Language.cpp" line="180"/>
         <location filename="../../Misc/Language.cpp" line="181"/>
         <source>German</source>
-        <translation>Nemčina</translation>
+        <translation>گېرمان</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="177"/>
         <source>Austria</source>
-        <translation>Rakúsko</translation>
+        <translation>ئاۋىستىرىيە</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="178"/>
         <source>Germany</source>
-        <translation>Nemecko</translation>
+        <translation>گېرمانىيە</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="179"/>
         <source>Liechtenstein</source>
-        <translation>Lichtenštajnsko</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="182"/>
         <source>Greek, Modern</source>
-        <translation>Gréčtina, moderná</translation>
+        <translation>گىرىك</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="183"/>
         <source>Guarani</source>
-        <translation>Guarani</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="184"/>
         <source>Gujarati</source>
-        <translation>Gujarati</translation>
+        <translation>گۇجاراتچە</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="185"/>
         <source>Haitian</source>
-        <translation>Haitský</translation>
+        <translation>ھايتىچە</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="186"/>
         <source>Hausa</source>
-        <translation>Hausa</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="187"/>
         <source>Hebrew</source>
-        <translation>Hebrejský</translation>
+        <translation>ئىبرايچە</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="188"/>
         <source>Herero</source>
-        <translation>Herero</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="189"/>
         <source>Hindi</source>
-        <translation>Hindský</translation>
+        <translation>ھىندىچە</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="190"/>
         <source>Hiri Motu</source>
-        <translation>Hiri Motu</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="191"/>
         <source>Hungarian</source>
-        <translation>Maďarský</translation>
+        <translation>ھونگىرچە</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="192"/>
         <source>Icelandic</source>
-        <translation>Islandský</translation>
+        <translation>ئىسلاندىيەچە</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="193"/>
         <source>Ido</source>
-        <translation>Ido</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="194"/>
         <source>Igbo</source>
-        <translation>Igbo</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="195"/>
         <source>Indonesian</source>
-        <translation>Indonézsky</translation>
+        <translation>ھىندىنوزىيانچە</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="196"/>
         <source>Interlingua</source>
-        <translation>Interlingua</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="197"/>
         <source>Interlingue</source>
-        <translation>Interlingue</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="198"/>
         <source>Inuktitut</source>
-        <translation>Inuktitut</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="199"/>
         <source>Inupiaq</source>
-        <translation>Inupiaq</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="200"/>
         <source>Irish</source>
-        <translation>Írsky</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="201"/>
         <location filename="../../Misc/Language.cpp" line="202"/>
         <location filename="../../Misc/Language.cpp" line="203"/>
         <source>Italian</source>
-        <translation>Taliančina</translation>
+        <translation>ئىتالىيانچە</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="202"/>
         <source>Italy</source>
-        <translation>Taliansko</translation>
+        <translation>ئىتالىيە</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="204"/>
         <source>Japanese</source>
-        <translation>Japonský</translation>
+        <translation>ياپۇنچە</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="205"/>
         <source>Javanese</source>
-        <translation>Jávsky</translation>
+        <translation>جاۋاچە</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="206"/>
         <source>Kalaallisut</source>
-        <translation>Kalaallisut</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="207"/>
         <source>Kannada</source>
-        <translation>Kannada</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="208"/>
         <source>Kanuri</source>
-        <translation>Kanuri</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="209"/>
         <source>Kashmiri</source>
-        <translation>Kashmiri</translation>
+        <translation>كەشمىرچە</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="210"/>
         <source>Kazakh</source>
-        <translation>Kazašsky</translation>
+        <translation>قازاقچە</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="211"/>
         <source>Kikuyu</source>
-        <translation>Kikuyu</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="212"/>
         <source>Kinyarwanda</source>
-        <translation>Kinyarwanda</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="213"/>
         <source>Kirghiz</source>
-        <translation>Kirgizský</translation>
+        <translation>قىرغىزچە</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="214"/>
         <source>Komi</source>
-        <translation>Komi</translation>
+        <translation>كومى</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="215"/>
         <source>Kongo</source>
-        <translation>Kongo</translation>
+        <translation>كونگو</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="216"/>
         <source>Korean</source>
-        <translation>Kórejský</translation>
+        <translation>كورىيانچە</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="217"/>
         <source>Kuanyama</source>
-        <translation>Kuanyama</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="218"/>
         <source>Kurdish</source>
-        <translation>Kurdsky</translation>
+        <translation>كۇردچە</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="219"/>
         <source>Lao</source>
-        <translation>Lao</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="220"/>
         <source>Latin</source>
-        <translation>Latinčina</translation>
+        <translation>لاتىنچە</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="221"/>
         <source>Latvian</source>
-        <translation>Lotyšský</translation>
+        <translation>لاتۋىيىچە</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="222"/>
         <source>Limburgan</source>
-        <translation>Limburčina</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="223"/>
         <source>Lingala</source>
-        <translation>Lingala</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="224"/>
         <source>Lithuanian</source>
-        <translation>Litovský</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="225"/>
         <source>Luba-Katanga</source>
-        <translation>Luba-Katanga</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="226"/>
         <source>Luxembourgish</source>
-        <translation>Luxemburský</translation>
+        <translation>لىكسۇمبۇرۇگچە</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="227"/>
         <source>Macedonian</source>
-        <translation>Macedónsky</translation>
+        <translation>ماكىدونىيە</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="228"/>
         <source>Malagasy</source>
-        <translation>Malgašský</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="229"/>
         <source>Malayalam</source>
-        <translation>Malayalam</translation>
+        <translation>مالايالام</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="230"/>
         <location filename="../../Misc/Language.cpp" line="231"/>
         <location filename="../../Misc/Language.cpp" line="232"/>
         <source>Malay</source>
-        <translation>Malajzijský</translation>
+        <translation>مالايچە</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="231"/>
         <source>Brunei</source>
-        <translation>Brunej</translation>
+        <translation>بىرۇنېي</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="232"/>
         <source>Malaysia</source>
-        <translation>Malajzia</translation>
+        <translation>مالايسىيا</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="233"/>
         <source>Maltese</source>
-        <translation>Maltézsky</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="234"/>
         <source>Manx</source>
-        <translation>Manský</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="235"/>
         <source>Maori</source>
-        <translation>Maorský</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="236"/>
         <source>Marathi</source>
-        <translation>Marathi</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="237"/>
         <source>Marshallese</source>
-        <translation>Maršálsky</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="238"/>
         <source>Mongolian</source>
-        <translation>Mongolský</translation>
+        <translation>مۇڭغۇلچە</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="239"/>
         <source>Nauru</source>
-        <translation>Nauru</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="240"/>
         <source>Navajo</source>
-        <translation>Navajo</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="241"/>
         <location filename="../../Misc/Language.cpp" line="242"/>
         <source>Ndebele</source>
-        <translation>Ndebelčina</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="241"/>
         <source>North</source>
-        <translation>Sever</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="242"/>
         <source>South</source>
-        <translation>Juh</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="243"/>
         <source>Ndonga</source>
-        <translation>Ndonga</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="244"/>
         <source>Nepali</source>
-        <translation>Nepálsky</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="245"/>
         <source>Northern, Sami</source>
-        <translation>Severná sámčina</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="246"/>
         <location filename="../../Misc/Language.cpp" line="247"/>
         <location filename="../../Misc/Language.cpp" line="248"/>
         <source>Norwegian</source>
-        <translation>Nórsky</translation>
+        <translation>نورۋىگىيەچە</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="247"/>
         <source>Bokmal</source>
-        <translation>Bokmål nórčina</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="248"/>
         <source>Nynorsk</source>
-        <translation>Nynorsk nórčina</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="249"/>
         <source>Nyanja</source>
-        <translation>Nyanja</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="250"/>
         <source>Occitan</source>
-        <translation>Occitan</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="251"/>
         <source>Ojibwa</source>
-        <translation>Ojibwa</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="252"/>
         <source>Oriya</source>
-        <translation>Urijština</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="253"/>
         <source>Oromo</source>
-        <translation>Oromo</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="254"/>
         <source>Ossetian</source>
-        <translation>Osetčina</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="255"/>
         <source>Pali</source>
-        <translation>Pali</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="256"/>
         <source>Panjabi</source>
-        <translation>Pandžábsky</translation>
+        <translation>پەنجابچە</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="257"/>
         <source>Persian</source>
-        <translation>Perzský</translation>
+        <translation>پارىسچە</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="258"/>
         <source>Polish</source>
-        <translation>Polský</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="259"/>
         <location filename="../../Misc/Language.cpp" line="260"/>
         <location filename="../../Misc/Language.cpp" line="261"/>
         <source>Portuguese</source>
-        <translation>Portugalský</translation>
+        <translation>پورتىگالچە</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="260"/>
         <source>Brazil</source>
-        <translation>Brazília</translation>
+        <translation>بىرازىلىيە</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="261"/>
         <source>Portugal</source>
-        <translation>Portugalčina</translation>
+        <translation>پورتۇگالىيە</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="262"/>
         <source>Pushto</source>
-        <translation>Pushto</translation>
+        <translation>پۇشتۇ</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="263"/>
         <source>Quechua</source>
-        <translation>Kečuánčina</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="264"/>
         <location filename="../../Misc/Language.cpp" line="265"/>
         <source>Romanian</source>
-        <translation>Rumunský</translation>
+        <translation>رومىنىيەچە</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="265"/>
         <location filename="../../Misc/Language.cpp" line="269"/>
         <source>Moldova</source>
-        <translation>Moldavčina</translation>
+        <translation>مولداۋا</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="266"/>
         <source>Romansh</source>
-        <translation>Rétorománčina</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="267"/>
         <source>Rundi</source>
-        <translation>Rundčina</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="268"/>
         <location filename="../../Misc/Language.cpp" line="269"/>
         <source>Russian</source>
-        <translation>Ruský</translation>
+        <translation>رۇسچە</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="270"/>
         <source>Samoan</source>
-        <translation>Samoánsky</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="271"/>
         <source>Sango</source>
-        <translation>Sango</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="272"/>
         <source>Sanskrit</source>
-        <translation>Sanskrit</translation>
+        <translation>سانسىكرىت</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="273"/>
         <source>Sardinian</source>
-        <translation>Sardínčina</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="274"/>
         <location filename="../../Misc/Language.cpp" line="275"/>
         <source>Serbian</source>
-        <translation>Srbský</translation>
+        <translation>سىرىبچە</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="275"/>
@@ -2798,42 +2798,42 @@ class=&quot;sigil_index&quot; and title=&quot;MYINDEXENTRY&quot;.</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="276"/>
         <source>Shona</source>
-        <translation>Shona</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="277"/>
         <source>Sichuan Yi</source>
-        <translation>Sichuan Yi</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="278"/>
         <source>Sindhi</source>
-        <translation>Sindhi</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="279"/>
         <source>Sinhala</source>
-        <translation>Sinhala</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="280"/>
         <source>Slovak</source>
-        <translation>Slovenský</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="281"/>
         <source>Slovenian</source>
-        <translation>Slovinský</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="282"/>
         <source>Somali</source>
-        <translation>Somálsky</translation>
+        <translation>سومالى</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="283"/>
         <source>Sotho, Southern</source>
-        <translation>Južná sotčina</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="284"/>
@@ -2857,301 +2857,301 @@ class=&quot;sigil_index&quot; and title=&quot;MYINDEXENTRY&quot;.</source>
         <location filename="../../Misc/Language.cpp" line="302"/>
         <location filename="../../Misc/Language.cpp" line="303"/>
         <source>Spanish</source>
-        <translation>Španielsky</translation>
+        <translation>ئىسپانچە</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="285"/>
         <source>Argentina</source>
-        <translation>Argentína</translation>
+        <translation>ئارگىنتىنا</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="286"/>
         <source>Bolivia</source>
-        <translation>Bolívia</translation>
+        <translation>بولىۋىيە</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="287"/>
         <source>Chile</source>
-        <translation>Čile</translation>
+        <translation>چىلى</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="288"/>
         <source>Columbia</source>
-        <translation>Kolumbia</translation>
+        <translation>كولۇمبىيە</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="289"/>
         <source>Costa Rica</source>
-        <translation>Kostarika</translation>
+        <translation>كوستارىكا</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="290"/>
         <source>Dominican Republic</source>
-        <translation>Dominikánska republika</translation>
+        <translation>دومىنىكا جۇمھىرىيىتى</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="291"/>
         <source>Ecuador</source>
-        <translation>Ekvádor</translation>
+        <translation>ئېكۋادور</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="292"/>
         <source>El Salvador</source>
-        <translation>Salvádor</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="293"/>
         <source>Guatemala</source>
-        <translation>Guatemala</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="294"/>
         <source>Honduras</source>
-        <translation>Honduras</translation>
+        <translation>ھوندۇراس</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="295"/>
         <source>Mexico</source>
-        <translation>Mexiko</translation>
+        <translation>مېكسىكا</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="296"/>
         <source>Nicaragua</source>
-        <translation>Nikaragua</translation>
+        <translation>نىكاراگۇئا</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="297"/>
         <source>Panama</source>
-        <translation>Panama</translation>
+        <translation>پاناما</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="298"/>
         <source>Paraguay</source>
-        <translation>Paraguaj</translation>
+        <translation>پاراگۋاي</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="299"/>
         <source>Peru</source>
-        <translation>Peru</translation>
+        <translation>پېرۇ</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="300"/>
         <source>Puerto Rico</source>
-        <translation>Portoriko</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="301"/>
         <source>Spain</source>
-        <translation>Španielsko</translation>
+        <translation>ئىسپانىيە</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="302"/>
         <source>Uruguay</source>
-        <translation>Uruguaj</translation>
+        <translation>ئۇرۇگۋاي</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="303"/>
         <source>Venezuela</source>
-        <translation>Venezuela</translation>
+        <translation>ۋېنسۇئېلا</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="304"/>
         <source>Sundanese</source>
-        <translation>Sundánčína</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="305"/>
         <source>Swahili</source>
-        <translation>Svahilsky</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="306"/>
         <source>Swati</source>
-        <translation>Swati</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="307"/>
         <location filename="../../Misc/Language.cpp" line="308"/>
         <location filename="../../Misc/Language.cpp" line="309"/>
         <source>Swedish</source>
-        <translation>Švédsky</translation>
+        <translation>شىۋىتچە</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="308"/>
         <source>Finland</source>
-        <translation>Fínsko</translation>
+        <translation>فىنلاندىيە</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="309"/>
         <source>Sweden</source>
-        <translation>Švédsko</translation>
+        <translation>شىۋىتسىيە</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="310"/>
         <source>Tagalog</source>
-        <translation>Tagalog</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="311"/>
         <source>Tahitian</source>
-        <translation>Tahitsky</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="312"/>
         <source>Tajik</source>
-        <translation>Tajisky</translation>
+        <translation>تاجىك</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="313"/>
         <source>Tamil</source>
-        <translation>Tamilčina</translation>
+        <translation>تامىل</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="314"/>
         <source>Tatar</source>
-        <translation>Tatárčina</translation>
+        <translation>تاتار</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="315"/>
         <source>Telugu</source>
-        <translation>Telugčina</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="316"/>
         <source>Thai</source>
-        <translation>Thajčina</translation>
+        <translation>تايلانچە</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="317"/>
         <source>Tibetan</source>
-        <translation>Tibetčina</translation>
+        <translation>تىبەتچە</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="318"/>
         <source>Tigrinya</source>
-        <translation>Tigrinyačina</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="319"/>
         <source>Tonga</source>
-        <translation>Tonga</translation>
+        <translation>توڭا</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="320"/>
         <source>Tsonga</source>
-        <translation>Tsonga</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="321"/>
         <source>Tswana</source>
-        <translation>Tswana</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="322"/>
         <location filename="../../Misc/Language.cpp" line="323"/>
         <source>Turkish</source>
-        <translation>Turecký</translation>
+        <translation>تۈرۈكچە</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="323"/>
         <source>Turkey</source>
-        <translation>Turečtina</translation>
+        <translation>تۈركىيە</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="324"/>
         <source>Turkmen</source>
-        <translation>Turkménčina</translation>
+        <translation>تۈركمەنچە</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="325"/>
         <source>Twi</source>
-        <translation>Twi</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="326"/>
         <source>Uighur</source>
-        <translation>Ujgurčina</translation>
+        <translation>ئۇيغۇر</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="327"/>
         <source>Ukrainian</source>
-        <translation>Ukrajinský</translation>
+        <translation>ئۇكرائىناچە</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="328"/>
         <source>Urdu</source>
-        <translation>Urudčina</translation>
+        <translation>ئۇردۇچە</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="329"/>
         <location filename="../../Misc/Language.cpp" line="330"/>
         <source>Uzbek</source>
-        <translation>Uzbekčina</translation>
+        <translation>ئۆزبەكچە</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="330"/>
         <source>Uzbekistan</source>
-        <translation>Uzbekistan</translation>
+        <translation>ئۆزبەگىستان</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="331"/>
         <source>Venda</source>
-        <translation>Venda</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="332"/>
         <source>Vietnamese</source>
-        <translation>Vietnamský</translation>
+        <translation>ۋىتنامچە</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="333"/>
         <source>Volapuk</source>
-        <translation>Volapuk</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="334"/>
         <source>Walloon</source>
-        <translation>Valónsky</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="335"/>
         <source>Welsh</source>
-        <translation>Welština</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="336"/>
         <source>Western Frisian</source>
-        <translation>Západná frýština</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="337"/>
         <source>Wolof</source>
-        <translation>Wolof</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="338"/>
         <source>Xhosa</source>
-        <translation>Xhosa</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="339"/>
         <source>Yiddish</source>
-        <translation>Jidiš</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="340"/>
         <source>Yoruba</source>
-        <translation>Joruba</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="341"/>
         <source>Zhuang</source>
-        <translation>Zhuang</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="342"/>
         <source>Zulu</source>
-        <translation>Zulučtina</translation>
+        <translation>زۇلۇ</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="343"/>
@@ -3206,7 +3206,7 @@ class=&quot;sigil_index&quot; and title=&quot;MYINDEXENTRY&quot;.</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="353"/>
         <source>Altaic languages</source>
-        <translation type="unfinished"/>
+        <translation>ئالتاي تىللىرى</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="354"/>
@@ -3251,7 +3251,7 @@ class=&quot;sigil_index&quot; and title=&quot;MYINDEXENTRY&quot;.</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="362"/>
         <source>Australian languages</source>
-        <translation type="unfinished"/>
+        <translation>ئاۋىستىرالىيە تىللىرى</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="363"/>
@@ -3826,7 +3826,7 @@ class=&quot;sigil_index&quot; and title=&quot;MYINDEXENTRY&quot;.</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="477"/>
         <source>Kara-Kalpak</source>
-        <translation type="unfinished"/>
+        <translation>قارا قالپاق</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="478"/>
@@ -3951,7 +3951,7 @@ class=&quot;sigil_index&quot; and title=&quot;MYINDEXENTRY&quot;.</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="502"/>
         <source>Lower Sorbian</source>
-        <translation>Dolnolužická srbština</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="503"/>
@@ -4341,7 +4341,7 @@ class=&quot;sigil_index&quot; and title=&quot;MYINDEXENTRY&quot;.</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="580"/>
         <source>Sasak</source>
-        <translation type="unfinished"/>
+        <translation>ساساك</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="581"/>
@@ -4366,7 +4366,7 @@ class=&quot;sigil_index&quot; and title=&quot;MYINDEXENTRY&quot;.</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="585"/>
         <source>Shan</source>
-        <translation type="unfinished"/>
+        <translation>شان</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="586"/>
@@ -4381,7 +4381,7 @@ class=&quot;sigil_index&quot; and title=&quot;MYINDEXENTRY&quot;.</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="588"/>
         <source>Sign Languages</source>
-        <translation>Znakové jazyky</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="589"/>
@@ -4431,7 +4431,7 @@ class=&quot;sigil_index&quot; and title=&quot;MYINDEXENTRY&quot;.</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="598"/>
         <source>Sorbian languages</source>
-        <translation>Lužická srbština</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="599"/>
@@ -4461,12 +4461,12 @@ class=&quot;sigil_index&quot; and title=&quot;MYINDEXENTRY&quot;.</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="604"/>
         <source>Sumerian</source>
-        <translation type="unfinished"/>
+        <translation>سۇمىرچە</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="605"/>
         <source>Susu</source>
-        <translation type="unfinished"/>
+        <translation>سۇسۇ</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="606"/>
@@ -4481,187 +4481,187 @@ class=&quot;sigil_index&quot; and title=&quot;MYINDEXENTRY&quot;.</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="608"/>
         <source>Tai languages</source>
-        <translation>Taiské jazyky</translation>
+        <translation>تايلاند تىللىرى</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="609"/>
         <source>Tamashek</source>
-        <translation>Tamašekčtina</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="610"/>
         <source>Tereno</source>
-        <translation>Terenčtina</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="611"/>
         <source>Tetum</source>
-        <translation>Tetumčtina</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="612"/>
         <source>Tigre</source>
-        <translation>Tigreština</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="613"/>
         <source>Timne</source>
-        <translation>Timneština</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="614"/>
         <source>Tiv</source>
-        <translation>Tivčtina</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="615"/>
         <source>Tlingit</source>
-        <translation>Tlingitčtina</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="616"/>
         <source>Tok Pisin</source>
-        <translation>Tok pisinčtina</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="617"/>
         <source>Tokelau</source>
-        <translation>Tokelauština</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="618"/>
         <source>Tonga (Nyasa)</source>
-        <translation>Tongčtina (Nyasa)</translation>
+        <translation>توڭا</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="619"/>
         <source>Tsimshian</source>
-        <translation>Tsimsijčtina</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="620"/>
         <source>Tumbuka</source>
-        <translation>Tumbukčtina</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="621"/>
         <source>Tupi languages</source>
-        <translation>Tupijské jazyky</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="622"/>
         <source>Turkish- Ottoman (1500-1928)</source>
-        <translation>Turečtina - otomančtina (1500-1928)</translation>
+        <translation>تۈرۈك-ئوسمان</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="623"/>
         <source>Tuvalu</source>
-        <translation>Tuvalčtina</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="624"/>
         <source>Tuvinian</source>
-        <translation>Tuviančtina</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="625"/>
         <source>Udmurt</source>
-        <translation>Udmurčtina</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="626"/>
         <source>Ugaritic</source>
-        <translation>Ugariština</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="627"/>
         <source>Umbundu</source>
-        <translation>Umbudčtina</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="628"/>
         <source>Uncoded languages</source>
-        <translation>Nekódované jazyky</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="629"/>
         <source>Undetermined</source>
-        <translation>Neidentifikovaný</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="630"/>
         <source>Upper Sorbian</source>
-        <translation>Hornolužická srbština</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="631"/>
         <source>Vai</source>
-        <translation>Vaiština</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="632"/>
         <source>Votic</source>
-        <translation>Votic</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="633"/>
         <source>Wakashan languages</source>
-        <translation>Wakašanské jazyky</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="634"/>
         <source>Waray</source>
-        <translation>Warajčtina</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="635"/>
         <source>Washo</source>
-        <translation>Wašoština</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="636"/>
         <source>Wolaitta, Wolaytta</source>
-        <translation>Wolajčtina</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="637"/>
         <source>Yakut</source>
-        <translation>Jakuština</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="638"/>
         <source>Yao</source>
-        <translation>Yaoština</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="639"/>
         <source>Yapese</source>
-        <translation>Yapčtina</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="640"/>
         <source>Yupik languages</source>
-        <translation>Sibirské jazyky</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="641"/>
         <source>Zande languages</source>
-        <translation>Zandské jazyky</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="642"/>
         <source>Zapotec</source>
-        <translation>Zapotečtina</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="643"/>
         <source>Zenaga</source>
-        <translation>Zenaga</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="644"/>
         <source>Zuni</source>
-        <translation>Zuni</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4669,7 +4669,7 @@ class=&quot;sigil_index&quot; and title=&quot;MYINDEXENTRY&quot;.</source>
     <message>
         <location filename="../../Form_Files/PLanguageWidget.ui" line="14"/>
         <source>Language</source>
-        <translation>Jazyk</translation>
+        <translation>تىل</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PLanguageWidget.ui" line="24"/>
@@ -4683,17 +4683,17 @@ Use Preferences-&gt;Spellcheck Dictionaries to set the Spellcheck dictionary.</s
     <message>
         <location filename="../../Form_Files/PLanguageWidget.ui" line="31"/>
         <source>User Interface Language:</source>
-        <translation>Jazyk používateľského rozhrania:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/PLanguageWidget.ui" line="41"/>
         <source>Set the default language used by the Metadata Editor for new books.</source>
-        <translation>Nastaví štandardný jazyk použitý editorom popisných dát pre nové knihy.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/PLanguageWidget.ui" line="44"/>
         <source>Default Language For Metadata:</source>
-        <translation>Štandardný jazyk pre popisné dáta:</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4701,41 +4701,39 @@ Use Preferences-&gt;Spellcheck Dictionaries to set the Spellcheck dictionary.</s
     <message>
         <location filename="../../Form_Files/LinkStylesheets.ui" line="14"/>
         <source>Link StyleSheets</source>
-        <translation>Prepojiť štýly</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/LinkStylesheets.ui" line="43"/>
         <source>Move the selected stylesheets up in priority.
 
 Stylesheets that are listed first take precedence over later stylesheets.</source>
-        <translation>Posunúť vybrané štýly podľa priority vyššie.
-
-Štýly, ktoré sú uvedené ako prvé majú prednosť pred nasledujúcimi štýlmi.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/LinkStylesheets.ui" line="48"/>
         <source>Up</source>
-        <translation>Hore</translation>
+        <translation>يۇقۇرىغا</translation>
     </message>
     <message>
         <location filename="../../Form_Files/LinkStylesheets.ui" line="58"/>
         <source>Move the selected stylesheets down in priority.</source>
-        <translation>Posunúť vybrané štýly podľa priority nižšie.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/LinkStylesheets.ui" line="61"/>
         <source>Down</source>
-        <translation>Dole</translation>
+        <translation>تۆۋەنگە</translation>
     </message>
     <message>
         <location filename="../../Dialogs/LinkStylesheets.cpp" line="67"/>
         <source>Include</source>
-        <translation>Vrátane</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/LinkStylesheets.cpp" line="68"/>
         <source>Stylesheet</source>
-        <translation>Štýl</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4743,72 +4741,72 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="14"/>
         <source>untitled.epub[*] - Sigil</source>
-        <translation>nepomenovaný.epub [*] - Sigil</translation>
+        <translation>نامسىز.epub[*] - Sigil</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="49"/>
         <source>&amp;File</source>
-        <translation>&amp;Súbor</translation>
+        <translation>ھۆججەت(&amp;F)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="79"/>
         <source>&amp;Edit</source>
-        <translation>&amp;Upraviť</translation>
+        <translation>تەھرىرلەش(&amp;E)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="121"/>
         <source>&amp;Help</source>
-        <translation>&amp;Pomocník</translation>
+        <translation>ياردەم(&amp;H)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="178"/>
         <source>&amp;View</source>
-        <translation>&amp;Zobrazenie</translation>
+        <translation>كۆرۈش(&amp;V)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="182"/>
         <source>Toolbars</source>
-        <translation>Panel nástrojov</translation>
+        <translation>قۇراللار</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="207"/>
         <source>&amp;Search</source>
-        <translation>&amp;Hľadať</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="229"/>
         <source>&amp;Window</source>
-        <translation>&amp;Okno</translation>
+        <translation>كۆزنەك(&amp;W)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="300"/>
         <source>File</source>
-        <translation>Súbor</translation>
+        <translation>ھۆججەت</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="314"/>
         <source>Edit</source>
-        <translation>Upraviť</translation>
+        <translation>تەھرىرلەش</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="333"/>
         <source>View</source>
-        <translation>Zobraziť</translation>
+        <translation>كۆرۈش</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="347"/>
         <source>Insert</source>
-        <translation>Vložiť</translation>
+        <translation>قىستۇرۇش</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="375"/>
         <source>Donate</source>
-        <translation>Darovať</translation>
+        <translation>ئىئانە</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="387"/>
         <source>Quick Settings</source>
-        <translation>Rýchle nastavenia</translation>
+        <translation>تىز تەڭشەك</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="512"/>
@@ -4818,15 +4816,16 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="521"/>
         <source>&amp;Save</source>
-        <translation>&amp;Uložiť</translation>
+        <translation>ساقلاش(&amp;S)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="524"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Save&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Save the current book.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt; &lt;b&gt;Uložiť&lt;/b&gt;&lt;/p&gt;
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt; Uloží aktuálnu knihu. &lt;/p&gt;</translation>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;ساقلاش&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;نۆۋەتتىكى كىتابنى ساقلاش.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="529"/>
@@ -4836,16 +4835,16 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="538"/>
         <source>Save &amp;As...</source>
-        <translation>Uložiť &amp;ako…</translation>
+        <translation>باشقا نامدا ساقلاش(&amp;A)...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="541"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Save As&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Save the current book with a different filename.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Uložiť ako&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;باشقا نامدا ساقلاش&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Uloží aktuálnu knihu pod iným názvom.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;نۆۋەتتىكى كىتابنى باشقا ھۆججەت نامىدا ساقلاش.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="546"/>
@@ -4855,7 +4854,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="567"/>
         <source>Cu&amp;t</source>
-        <translation>Vys&amp;trihnúť</translation>
+        <translation>كېسىش(&amp;t)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="575"/>
@@ -4865,16 +4864,16 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="584"/>
         <source>&amp;Paste</source>
-        <translation>&amp;Vložiť</translation>
+        <translation>چاپلاش(&amp;P)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="587"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Paste&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Pastes the content from the clipboard into the book.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Vložiť&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;چاپلاش&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Vloží obsah schránky do knihy.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;كېسىپ چاپلاش تاختىسىدىكى مەزمۇننى كىتابقا چاپلاش.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="592"/>
@@ -4884,16 +4883,14 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="612"/>
         <source>&amp;Undo</source>
-        <translation>&amp;Späť</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="615"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Undo&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Reverts the changes of the previous operation.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Späť&lt;/b&gt;&lt;/p&gt;
-
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Zruší zmeny predchádzajúcej operácie.&lt;/p&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="620"/>
@@ -4903,21 +4900,19 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="629"/>
         <source>&amp;Redo</source>
-        <translation>&amp;Znovu</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="632"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Redo&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Restores the changes reverted by the previous Undo action.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Znovu&lt;/b&gt;&lt;/p&gt;
-
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Obnoví zmeny zrušené predchádzajúcou akciou Späť.&lt;/p&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="646"/>
         <source>&amp;Copy</source>
-        <translation>&amp;Kopírovať</translation>
+        <translation>كۆچۈرۈش(&amp;C)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="654"/>
@@ -4927,16 +4922,16 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="783"/>
         <source>&amp;Open...</source>
-        <translation>&amp;Otvoriť…</translation>
+        <translation>ئېچىش(&amp;O)...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="786"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Open&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Open a book from disk.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Otvoriť&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;ئېچىش&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Otvorí knihu z disku.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;دىسكىدىن كىتاب ئېچىش&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="791"/>
@@ -4946,12 +4941,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="820"/>
         <source>Quit</source>
-        <translation>Ukončiť</translation>
+        <translation>چېكىنىش</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="823"/>
         <source>Exit</source>
-        <translation>Koniec</translation>
+        <translation>چىقىش كېتىش</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="826"/>
@@ -4961,7 +4956,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="835"/>
         <source>&amp;About...</source>
-        <translation>&amp;O…</translation>
+        <translation>ھەققىدە(&amp;A)...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="855"/>
@@ -4971,7 +4966,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="867"/>
         <source>&amp;Book View</source>
-        <translation>Zobrazenie kni&amp;hy</translation>
+        <translation>كىتاب كۆرۈش(&amp;B)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="875"/>
@@ -4986,7 +4981,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="908"/>
         <source>&amp;Code View</source>
-        <translation>Zobrazenie &amp;kódu</translation>
+        <translation>كودىنى كۆرۈش(&amp;C)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="916"/>
@@ -4996,25 +4991,21 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="944"/>
         <source>Ctrl+Return</source>
-        <translation>Ctrl+Return</translation>
+        <translation>Ctrl+ئېنتىر</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="870"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Book View&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Edit and display the files in your book as they will appear to readers.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Zobrazenie knihy&lt;/b&gt;&lt;/p&gt;
-
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Upraviť a zobraziť súbory  vo vašej knihe, tak ako ich bude vidieť čitateľ.&lt;/p&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="911"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Code View&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Edit and display the actual contents of the files in your book, including the formatting codes that control how your book will appear to readers.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Zobrazenie kódu&lt;/b&gt;&lt;/p&gt;
-
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Upraviť a zobraziť aktuálny obsah súborov vo vašej knihe vrátane formátovacieho kódu, ktorý ovplyvňuje, ako bude vaša kniha zobrazená čitateľom.&lt;/p&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="963"/>
@@ -5024,12 +5015,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1102"/>
         <source>&amp;Print...</source>
-        <translation>&amp;Tlač…</translation>
+        <translation>بېسىش(&amp;P)...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1105"/>
         <source>Print</source>
-        <translation>Tlač</translation>
+        <translation>بېسىش</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1108"/>
@@ -5039,17 +5030,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1117"/>
         <source>Print Pre&amp;view...</source>
-        <translation>&amp;Ukážka pre tlačou…</translation>
+        <translation>تەقلىدى كۆرۈش(&amp;v)...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1120"/>
         <source>Print Preview</source>
-        <translation>Ukážka pre tlačou</translation>
+        <translation>تەقلىدى كۆرۈش</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="53"/>
         <source>Add</source>
-        <translation>Pridať</translation>
+        <translation>قوشۇش</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="83"/>
@@ -5060,7 +5051,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="106"/>
         <source>&amp;Insert</source>
-        <translation>&amp;Vložiť</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="134"/>
@@ -5071,7 +5062,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
         <location filename="../../Form_Files/main.ui" line="138"/>
         <location filename="../../Form_Files/main.ui" line="401"/>
         <source>Heading</source>
-        <translation>Záhlavie</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="198"/>
@@ -5081,12 +5072,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="241"/>
         <source>&amp;Tools</source>
-        <translation>Nás&amp;troje</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="245"/>
         <source>Table of Contents</source>
-        <translation>Obsah</translation>
+        <translation>مۇندەرىجە</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="252"/>
@@ -5096,7 +5087,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="264"/>
         <source>Index</source>
-        <translation>Index</translation>
+        <translation>ئىندىكىس</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="361"/>
@@ -5106,22 +5097,22 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="419"/>
         <source>Format</source>
-        <translation>Formát</translation>
+        <translation>فورماتى</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="436"/>
         <source>Align</source>
-        <translation>Zarovnať</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="451"/>
         <source>List</source>
-        <translation>Zoznam</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="464"/>
         <source>Indent</source>
-        <translation>Odsadenie</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="492"/>
@@ -5131,7 +5122,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="506"/>
         <source>&amp;New</source>
-        <translation>&amp;Nový</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="509"/>
@@ -5185,7 +5176,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="666"/>
         <source>Align &amp;Left</source>
-        <translation>Zarovnať &amp;vľavo</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="669"/>
@@ -5202,7 +5193,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="686"/>
         <source>Align &amp;Right</source>
-        <translation>Zarovnať vp&amp;ravo</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="689"/>
@@ -5219,7 +5210,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="706"/>
         <source>&amp;Center</source>
-        <translation>Zarovnať &amp;na stred</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="709"/>
@@ -5236,7 +5227,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="726"/>
         <source>&amp;Justify</source>
-        <translation>&amp;Zarovnať do bloku</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="729"/>
@@ -5253,7 +5244,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="746"/>
         <source>&amp;Bold</source>
-        <translation>&amp;Tučné</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="749"/>
@@ -5270,7 +5261,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="766"/>
         <source>&amp;Italic</source>
-        <translation>&amp;Kurzíva</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="769"/>
@@ -5287,7 +5278,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="803"/>
         <source>&amp;Underline</source>
-        <translation>&amp;Podčiarknuť</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="806"/>
@@ -5326,7 +5317,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="927"/>
         <source>F2</source>
-        <translation>F2</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="936"/>
@@ -5393,16 +5384,14 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1017"/>
         <source>&amp;Numbered List</source>
-        <translation>Číslova&amp;ný zoznam</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1020"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Numbering&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Create a numbered list.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Číslovanie&lt;/b&gt;&lt;/p&gt;
-
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Vytvorí číslovaný zoznam.&lt;/p&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1034"/>
@@ -5414,9 +5403,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Bullets&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Create a bulleted list.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Odrážky&lt;/b&gt;&lt;/p&gt;
-
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Vytvorí zoznam s odrážkami.&lt;/p&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1042"/>
@@ -5463,7 +5450,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
         <location filename="../../Form_Files/main.ui" line="1125"/>
         <location filename="../../Form_Files/main.ui" line="1128"/>
         <source>Close</source>
-        <translation>Zavrieť</translation>
+        <translation>تاقاش</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1131"/>
@@ -5473,12 +5460,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1140"/>
         <source>Zoom &amp;In</source>
-        <translation>Pr&amp;iblížiť</translation>
+        <translation>چوڭايتىش(&amp;I)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1143"/>
         <source>Zoom In</source>
-        <translation>Priblížiť</translation>
+        <translation>چوڭايتىش</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1146"/>
@@ -5488,12 +5475,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1155"/>
         <source>Zoom &amp;Out</source>
-        <translation>&amp;Oddialiť</translation>
+        <translation>كىچىكلىتىش(&amp;O)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1158"/>
         <source>Zoom Out</source>
-        <translation>Oddialiť</translation>
+        <translation>كىچىكلىتىش</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1161"/>
@@ -5503,15 +5490,16 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1170"/>
         <source>&amp;Find / Replace...</source>
-        <translation>&amp;Nájsť / Nahradiť…</translation>
+        <translation>ئىزدەش ۋە ئالماشتۇرۇش(&amp;F)...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1173"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Find &amp;amp; Replace&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Find and replace text in the document.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Nájsť a nahradiť&lt;/b&gt;&lt;/p&gt;
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Nájsť a nahradiť text v dokumente.&lt;/p&gt;</translation>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;ئىزدەش ۋە ئالماشتۇرۇش&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;پۈتۈك ئىچىدىكى تېكىستنى ئىزدەش ۋە ئالماشتۇرۇش&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1178"/>
@@ -5521,16 +5509,14 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1187"/>
         <source>Increase Indent</source>
-        <translation>Zväčšiť odsadenie</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1190"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Increase Indent&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Increase the indent level of the paragraph.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Zväčšiť odsadenie&lt;/b&gt;&lt;/p&gt;
-
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Zväčšiť úroveň odsadenia odseku.&lt;/p&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1195"/>
@@ -5540,16 +5526,14 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1204"/>
         <source>Decrease Indent</source>
-        <translation>Zmenšiť odsadenie</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1207"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Decrease Indent&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Decrease the indent level of the paragraph.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Zmenšiť odsadenie&lt;/b&gt;&lt;/p&gt;
-
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Zmenšiť úroveň odsadenia odseku.&lt;/p&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1212"/>
@@ -5601,7 +5585,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1268"/>
         <source>Remove Formatting</source>
-        <translation>Odstrániť formátovanie</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1271"/>
@@ -5677,17 +5661,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1350"/>
         <source>&amp;Report An Issue...</source>
-        <translation>Nahlásiť p&amp;roblém…</translation>
+        <translation>مەسىلە مەلۇم قىلىش(&amp;R)...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1355"/>
         <source>Sigil Dev &amp;Blog...</source>
-        <translation>Vývojársky &amp;blog Sigilu…</translation>
+        <translation>Sigil ئىجادىيىتى ۋە بىلوگى...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1360"/>
         <source>&amp;Next Tab</source>
-        <translation>Ďa&amp;lšia karta</translation>
+        <translation>كېيىنكى تەب(&amp;N)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1363"/>
@@ -5697,7 +5681,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1368"/>
         <source>&amp;Previous Tab</source>
-        <translation>&amp;Predchádzajúca karta</translation>
+        <translation>ئالدىنقى تەب(&amp;P)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1371"/>
@@ -5707,7 +5691,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1376"/>
         <source>&amp;Close Tab</source>
-        <translation>&amp;Zavrieť kartu</translation>
+        <translation>تەبنى تاقاش(&amp;C)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1379"/>
@@ -5717,12 +5701,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1384"/>
         <source>Split at Chapter Markers</source>
-        <translation>Rozdeliť na značkách kapitol</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1387"/>
         <source>Split On Sigil Chapter Markers</source>
-        <translation>Rozdeliť na značkách kapitol Sigilu</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1390"/>
@@ -6065,7 +6049,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1926"/>
         <source>F3</source>
-        <translation>F3</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1935"/>
@@ -6103,22 +6087,22 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1417"/>
         <source>&amp;Frequently Asked Questions...</source>
-        <translation>Čas&amp;to kladené otázky…</translation>
+        <translation>سوئال-جاۋابلار(&amp;F)...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1420"/>
         <source>Frequently Asked Questions</source>
-        <translation>Často kladené otázk</translation>
+        <translation>سوئال- جاۋابلار</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1519"/>
         <source>&amp;Donate...</source>
-        <translation>&amp;Darovať…</translation>
+        <translation>ئىنائە(&amp;D)...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1530"/>
         <source>Close Other Tabs</source>
-        <translation>Zavrieť ostatné karty</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1533"/>
@@ -6128,7 +6112,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1538"/>
         <source>Go To Line...</source>
-        <translation>Prejsť na riadok…</translation>
+        <translation>مانچىنچى قۇرغا يۆتكۈلۈش...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1541"/>
@@ -6138,12 +6122,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1553"/>
         <source>Check For Well-Formed Errors</source>
-        <translation>Hľadať chyby štruktúry</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1565"/>
         <source>Find Next</source>
-        <translation>Nájsť ďalšie</translation>
+        <translation>كېيىنكىسىنى تاپ</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1568"/>
@@ -6153,7 +6137,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1573"/>
         <source>Find Previous</source>
-        <translation>Nájsť predchádzajúce</translation>
+        <translation>ئالدىنقىسىنى تاپ</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1576"/>
@@ -6163,7 +6147,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1581"/>
         <source>Replace Next</source>
-        <translation>Nahradiť ďalšie</translation>
+        <translation>كېينكىسىنى ئالماشتۇر</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1584"/>
@@ -6173,7 +6157,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1589"/>
         <source>Replace Previous</source>
-        <translation>Nahradiť predchádzajúca</translation>
+        <translation>ئالدىنقىسىنى ئالماشتۇر</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1592"/>
@@ -6183,7 +6167,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1597"/>
         <source>Replace All</source>
-        <translation>Nahradiť všetko</translation>
+        <translation>ھەممىنى ئالماشتۇرۇش</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1600"/>
@@ -6193,7 +6177,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1605"/>
         <source>Count All</source>
-        <translation>Spočítať všetko</translation>
+        <translation>ھەممىنى ساناش</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1608"/>
@@ -6203,13 +6187,13 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1635"/>
         <source>F5</source>
-        <translation>F5</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1640"/>
         <location filename="../../Form_Files/main.ui" line="1643"/>
         <source>Zoom Reset</source>
-        <translation>Vynulovať zväčšenie</translation>
+        <translation>چوڭ-كىچىكلىكىنى ئەسلىگە كەلتۈرۈش</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1646"/>
@@ -6219,7 +6203,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1824"/>
         <source>Blank Stylesheet</source>
-        <translation>Prázdny súbor štýlov</translation>
+        <translation>قۇرۇق ئۇسلوب ھۆججىتى</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1846"/>
@@ -6229,12 +6213,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="843"/>
         <source>&amp;Metadata Editor...</source>
-        <translation>&amp;Editor popisných dát...</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="887"/>
         <source>&amp;Preview View</source>
-        <translation>&amp;Náhľad</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="890"/>
@@ -6267,7 +6251,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1412"/>
         <source>F1</source>
-        <translation>F1</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1425"/>
@@ -6282,7 +6266,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1437"/>
         <source>&amp;Validate EPUB</source>
-        <translation>O&amp;veriť EPUB</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1556"/>
@@ -6291,11 +6275,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot; padding-top: 0.5em;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Checking for well-formed errors&lt;/span&gt; &lt;/p&gt;
 &lt;p style=&quot; margin-left: 0.5em;&quot;&gt;If this option is checked, then your XML and HTML content documents will be checked for structural errors. When changing from the code view you will be presented with a dialog asking to either auto or manually fix the issue. If manual fix is selected the cursor in will be placed on the line where there is an error in the code view.&lt;/p&gt;
 &lt;p style=&quot; margin-left: 0.5em;&quot;&gt;When the option is unchecked no error checking is performed. This can lead to significant data loss as all errors will be auto fixed.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;/head&gt;&lt;body&gt;
-&lt;p style=&quot; padding-top: 0.5em;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Checking for well-formed errors&lt;/span&gt; &lt;/p&gt;
-&lt;p style=&quot; margin-left: 0.5em;&quot;&gt;Pokiaľ je zaškrtnutá táto voľba, potom budú vaše XML a HTML dokumenty kontrolované na správnosť štruktúry. Pri zmene zobrazenia budete dialógovým oknom vyzvaný či chcete opraviť chyba automaticky alebo manuálne. Ak si zvolíte manuálne, kurzor bude umiestnený v zobrazení kódu na riadok, kde je chyba.&lt;/p&gt;
-&lt;p style=&quot; margin-left: 0.5em;&quot;&gt;Pokiaľ voľba nie je zaškrtnutá, tak sa nevykoná žiadna kontrola. Toto môže spôsobiť stratu dát, pretože všetky chyby budú opravené automaticky.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1857"/>
@@ -6305,22 +6285,22 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="409"/>
         <source>Open File</source>
-        <translation>Otvoriť súbor</translation>
+        <translation>ھۆججەت ئېچىش</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="516"/>
         <source>Save File</source>
-        <translation>Uložiť súbor</translation>
+        <translation>ھۆججەت ساقلاش</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="584"/>
         <source>Go To Line</source>
-        <translation>Prejsť na riadok</translation>
+        <translation>مانچىنچى قۇرغا يۆتكۈلۈش</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="584"/>
         <source>Line #</source>
-        <translation>Riadok #</translation>
+        <translation> # ئىنچى قۇر</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="293"/>
@@ -6362,7 +6342,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="844"/>
         <source>The file &quot;%1&quot; does not exist.</source>
-        <translation>Súbor &quot;%1&quot; neexistuje.</translation>
+        <translation>&quot;%1&quot; ھۆججىتى مەۋجۇت ئەمەس</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="908"/>
@@ -6416,7 +6396,7 @@ Cannot close tab: %1</source>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1070"/>
         <source>Link aborted.</source>
-        <translation>Prepojenie  zrušené.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1070"/>
@@ -6438,19 +6418,17 @@ Cannot close tab: %1</source>
         <source>Cannot link stylesheets
 
 Cannot close tab: %1</source>
-        <translation>Nie je možné pripojiť štýly
-
-Nie je možné zatvoriť kartu: %1</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1212"/>
         <source>Cannot generate TOC: %1 data is not well formed.</source>
-        <translation>Nie je možné vytvoriť obsaj: %1 dáta nie sú správne sformované.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2061"/>
         <source>Line: %1, Col: %2</source>
-        <translation>Riadok:%1, stĺpec: %2</translation>
+        <translation>قۇر: %1، سىتون %2</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2187"/>
@@ -6460,7 +6438,7 @@ Nie je možné zatvoriť kartu: %1</translation>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2205"/>
         <source>Chapter split. You may need to update the Table of Contents.</source>
-        <translation>Rozdelenie kapitoly. Možno bude potrebné obnoviť obsah.</translation>
+        <translation>باپقا بۆلۈندى. مۇندەرىجىنى يىڭىلىشىڭىز كېرەك.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2215"/>
@@ -6474,7 +6452,7 @@ Try saving your book or correcting any errors before splitting.</source>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2242"/>
         <source>Chapters split. You may need to update the Table of Contents.</source>
-        <translation>Rozdelenie kapitol. Možno bude potrebné obnoviť obsah.</translation>
+        <translation>باپقا بۆلۈندى. مۇندەرىجىنى يىڭىلىشىڭىز كېرەك.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2251"/>
@@ -6485,77 +6463,77 @@ Try saving your book or correcting any errors before splitting.</source>
         <location filename="../../MainUI/MainWindow.cpp" line="2388"/>
         <source>The document has been modified.
 Do you want to save your changes?</source>
-        <translation>Dokument bol upravený.
-Prajete si uložiť zmeny?</translation>
+        <translation>ھۆججەت ئۆزگەرتىلدى.
+ئۆزگەرتىشلەرنى ساقلامسىز؟</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2486"/>
         <source>File loaded</source>
-        <translation>Súbor bol načítaný</translation>
+        <translation>ھۆججەت يۈكلەندى</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2494"/>
         <source>The creator of this file has encrypted it with DRM. Sigil cannot open such files.</source>
-        <translation>Tvorca tohto súboru ho zašifroval s DRM. Sigil nedokáže otvoriť tieto súbory.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2501"/>
         <source>Cannot load file %1: %2</source>
-        <translation>Nie je možné načítať súbor %1: %2</translation>
+        <translation>%1: %2 ھۆججەتنى يۈكلىيەلمىدى</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2519"/>
         <source>Sigil currently cannot save files of type &quot;%1&quot;.
 Please choose a different format.</source>
-        <translation>Sigil v súčasnej dobe nemôže uložiť súbory typu &quot;%1&quot;.
-Prosím vyberte si iný formát.</translation>
+        <translation>بۇ ھۆججەت فورماتى(&quot;%1&quot;) دا ساقلىيالمايدۇ.
+باشقا ھۆججەت فورماتىنى تاللاڭ.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2544"/>
         <source>File saved</source>
-        <translation>Súbor bol uložený</translation>
+        <translation>ھۆججەت ساقلاندى</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2550"/>
         <source>Cannot save file %1: %2</source>
-        <translation>Nie je možné uložiť súbor %1: %2</translation>
+        <translation>بۇ ھۆججەت(%1: %2)نى ساقلىيالمىدى</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2683"/>
         <source>EPUB files (*.epub)</source>
-        <translation>EPUB súbory (*.EPUB)</translation>
+        <translation>EPUB ھۆججىتى(*.epub)</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2684"/>
         <location filename="../../MainUI/MainWindow.cpp" line="2685"/>
         <location filename="../../MainUI/MainWindow.cpp" line="2686"/>
         <source>HTML files (*.htm *.html *.xhtml)</source>
-        <translation>HTML súbory (*.htm *.html *.xhtml)</translation>
+        <translation>HTML ھۆججىتى (*.htm *.html *.xhtml)</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2687"/>
         <source>Text files (*.txt)</source>
-        <translation>Textové súbory (*.txt)</translation>
+        <translation>Text ھۆججىتى (*.txt)</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2688"/>
         <source>All files (*.*)</source>
-        <translation>Všetky súbory (*.*)</translation>
+        <translation>بارلىق ھۆججەت (*.*)</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2698"/>
         <source>EPUB file (*.epub)</source>
-        <translation>EPUB súbor (*. EPUB)</translation>
+        <translation>EPUB ھۆججىتى (*.epub)</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2738"/>
         <source>%1[*] - %2</source>
-        <translation>%1[*] - %2</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2846"/>
         <source>&amp;%1 %2</source>
-        <translation>&amp;%1 %2</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -6563,17 +6541,17 @@ Prosím vyberte si iný formát.</translation>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="20"/>
         <source>Metadata Editor</source>
-        <translation>Editor popisných dát</translation>
+        <translation>تۈرۈك-ئوسمان</translation>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="36"/>
         <source>The main title of the book.  At least one title is required.</source>
-        <translation>Hlavný názov knihy.  Požaduje sa aspoň jeden názov.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="39"/>
         <source>Title:</source>
-        <translation>Názov:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="56"/>
@@ -6590,17 +6568,17 @@ Click &apos;Add Role&apos; to add more authors, creators, or contributors.</sour
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="131"/>
         <source>Add basic metadata like Subject, Dates, etc.</source>
-        <translation>Pridať základné popisné dáta ako Predmet, Dátumy atď.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="141"/>
         <source>Add the name of a Creator or Contributor.</source>
-        <translation>Pridať meno tvorcu alebo prispievateľa.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="144"/>
         <source>Add Role</source>
-        <translation>Pridať úlohu</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="208"/>
@@ -6617,33 +6595,33 @@ Readers may display entries in the order they are listed.</source>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="173"/>
         <source>Copy</source>
-        <translation>Kopírovať</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="180"/>
         <source>Remove all selected rows.</source>
-        <translation>Odstrániť  všetky vybrané riadky.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="212"/>
         <location filename="../../Form_Files/MetaEditor.ui" line="226"/>
         <source>...</source>
-        <translation>...</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="61"/>
         <source>Author:</source>
-        <translation>Autor:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="81"/>
         <source>Language:</source>
-        <translation>Jazyk:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="134"/>
         <source>Add Basic</source>
-        <translation>Pridať základné</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="167"/>
@@ -6656,17 +6634,17 @@ entries of the same type.</source>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="183"/>
         <source>Remove</source>
-        <translation>Odstrániť</translation>
+        <translation>ئۆچۈرۈش</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="465"/>
         <source>Name</source>
-        <translation>Meno</translation>
+        <translation>نامى</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="466"/>
         <source>Value</source>
-        <translation>Hodnota</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="467"/>
@@ -6676,7 +6654,7 @@ entries of the same type.</source>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="468"/>
         <source>Role Type</source>
-        <translation>Typ úlohy</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -6684,478 +6662,478 @@ entries of the same type.</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="238"/>
         <source>Subject</source>
-        <translation>Predmet</translation>
+        <translation>قىسقىچە مەزمۇنى</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="238"/>
         <source>An arbitrary phrase or keyword describing the subject in question. Use multiple &apos;subject&apos; elements if needed.</source>
-        <translation>Ľubovolná fráza alebo kľúčové slovo popisujúce predmet otázky. V prípade potreby použite viacej prvkov &quot;predmet&quot;.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="239"/>
         <source>Description</source>
-        <translation>Popis</translation>
+        <translation>چۈشەندۈرۈش</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="239"/>
         <source>Description of the publication&apos;s content.</source>
-        <translation>Popis obsahu diela.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="240"/>
         <location filename="../../BookManipulation/Metadata.cpp" line="450"/>
         <source>Publisher</source>
-        <translation>Vydavateľ</translation>
+        <translation>نەشىر قىلغۇچى</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="240"/>
         <source>An entity responsible for making the publication available.</source>
-        <translation>Entita zodpovedná za dostupnosť publikácie.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="241"/>
         <source>The date of publication.</source>
-        <translation>Dátum publikovania.</translation>
+        <translation>نەشىر قىلىنغان ۋاقتى:</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="242"/>
         <source>The date of creation.</source>
-        <translation>Dátum vytvorenia.</translation>
+        <translation>قۇرۇلغان ۋاقتى.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="243"/>
         <source>The date of modification.</source>
-        <translation>Dátum zmeny.</translation>
+        <translation>ئۆزگەرتىلگەن ۋاقتى</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="245"/>
         <source>Type</source>
-        <translation>Typ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="245"/>
         <source>The nature or genre of the content of the resource.</source>
-        <translation>Povaha alebo žáner obsahu zdroja.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="246"/>
         <source>Format</source>
-        <translation>Formát</translation>
+        <translation>فورماتى</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="246"/>
         <source>The media type or dimensions of the publication. Best practice is to use a value from a controlled vocabulary (e.g. MIME media types).</source>
-        <translation>Typ média alebo rozmery publikácie. Najlepší postup je použiť hodnotu z riadenej slovnej zásoby (napr. typy MIME médií)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="247"/>
         <source>Source</source>
-        <translation>Zdroj</translation>
+        <translation>مەنبە</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="247"/>
         <source>A reference to a resource from which the present publication is derived.</source>
-        <translation>Odkaz na zdroj, z ktorého je prítomná kniha odvodená.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="248"/>
         <source>Language</source>
-        <translation>Jazyk</translation>
+        <translation>تىل</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="248"/>
         <source>An optional extra language of the publication.  Use a value from the Language drop down menu.  For example use &apos;English&apos; instead of the language code &apos;en&apos;.</source>
-        <translation>Voliteľný extra jazyk publikácie.  Použite hodnotu z rozbaľovacej ponuky jazykov.  Napríklad použite &apos;Angličtina&apos; namiesto kódu jazyka &apos;en&apos;. </translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="249"/>
         <source>Relation</source>
-        <translation>Vzťah</translation>
+        <translation>مۇناسىۋەت</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="249"/>
         <source>A reference to a related resource. The recommended best practice is to identify the referenced resource by means of a string or number conforming to a formal identification system.</source>
-        <translation>Odkaz na súvisiaci zdroj. Najlepší doporučený postup je identifikovať odkazovaný zdroj pomocou reťazca alebo čísla, ktoré zodpovedá formálnym identifikačným systémom.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="250"/>
         <source>Coverage</source>
-        <translation>Pokrytie</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="250"/>
         <source>The extent or scope of the content of the publication&apos;s content.</source>
-        <translation>Rozsah alebo šírka obsahu obsahu knihy</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="251"/>
         <source>Rights</source>
-        <translation>Práva</translation>
+        <translation>ھوقۇق</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="251"/>
         <source>Information about rights held in and over the publication. Rights information often encompasses Intellectual Property Rights (IPR), Copyright, and various Property Rights. If the Rights element is absent, no assumptions may be made about any rights held in or over the publication.</source>
-        <translation>Informácie o držbe práv ku knihe. Informácie o právach často pokrývajú práva k duševnému vlastníctvu, autorské právo (právo ku kopírovaniu) a rôzne vlastnícke práva. Pokiaľ nie je prítomný právny prvok, nie je možné mať domnienky o držbe akýchkoľvek práv k publikácií.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="252"/>
         <source>Title</source>
-        <translation>Názov</translation>
+        <translation>تېمىسى</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="252"/>
         <source>An optional extra title of the publication in addition to the main title already entered.</source>
-        <translation>Ďalší voliteľný názov publikácie k už zadanému hlavnému názvu</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="253"/>
         <source>Digital Object Identifier</source>
-        <translation>Identifikátor digitálneho objektu</translation>
+        <translation>رەقەملىك ئوبىكىت پەرقلەندۈرگۈچ</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="254"/>
         <source>International Standard Book Number</source>
-        <translation>Číslo knihy podľa medzinárodné štandardu (ISBN)</translation>
+        <translation>خەلقئارالىق ئۆلچەملىك كىتاب نۇمۇرى-ISBN</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="255"/>
         <source>International Standard Serial Number</source>
-        <translation>Medzinárodné štandardné číslo seriálových publikácií (ISSN)</translation>
+        <translation>خەلقئارالىق ئۆلچەملىك تەرتىپ نۇمۇرى-ISSN</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="288"/>
         <source>Actor</source>
-        <translation>Predstaviteľ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="288"/>
         <source>Use for a person or organization who principally exhibits acting skills in a musical or dramatic presentation or entertainment.</source>
-        <translation>Použite pre osobu alebo organizáciu, ktorá predovšetkým prejavuje herecké  schopnosti v hudobnom, divadelnom alebo zábavnom predstavení.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="289"/>
         <source>Adapter</source>
-        <translation>Adaptér</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="289"/>
         <source>Use for a person or organization who 1) reworks a musical composition, usually for a different medium, or 2) rewrites novels or stories for motion pictures or other audiovisual medium.</source>
-        <translation>Použite pre osobu alebo organizáciu, ktorá 1) prerába hudobnú skladu zvyčajne pre iné médium, alebo 2) prepracováva romány alebo príbehy pre filmy alebo iné audiovizuálne médium.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="290"/>
         <source>Analyst</source>
-        <translation>Analytik</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="290"/>
         <source>Use for a person or organization that reviews, examines and interprets data or information in a specific area.</source>
-        <translation>Použite pre osobu alebo organizáciu, ktorá posudzuje a interpretuje dáta a informácie v určitej oblasti</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="291"/>
         <source>Animator</source>
-        <translation>Animátor</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="291"/>
         <source>Use for a person or organization who draws the two-dimensional figures, manipulates the three dimensional objects and/or also programs the computer to move objects and images for the purpose of animated film processing. Animation cameras, stands, celluloid screens, transparencies and inks are some of the tools of the animator.</source>
-        <translation>Použite pre osobu alebo organizáciu, ktorá kreslí dvojrozmerné obrázky, pracuje s trojrozmernými predmetmi a/alebo tiež programuje počítač aby pohyboval predmetmi a obrázkami za účelom vytvorenia kresleného filmu. Kamery pre kreslený film, stojany, celuloidové filmy, priesvitky a atramenty niektoré z nástrojom animátora.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="292"/>
         <source>Annotator</source>
-        <translation>Anotátor</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="292"/>
         <source>Use for a person who writes manuscript annotations on a printed item.</source>
-        <translation>Použite pre osobu, ktorá píše rukopisné vysvetlivky na vytlačené položky</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="293"/>
         <source>Applicant</source>
-        <translation>Žiadateľ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="293"/>
         <source>Use for a person or organization responsible for the submission of an application or who is named as eligible for the results of the processing of the application (e.g., bestowing of rights, reward, title, position).</source>
-        <translation>Použite pre osobu, alebo organizáciu, ktorá zodpovedá za podanie žiadosti, alebo ktorá je určená ako spôsobilá pre výsledky spracovania žiadosti (napr. udelenie práv, odmena, názov, pozícia).</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="294"/>
         <source>Architect</source>
-        <translation>Architekt</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="294"/>
         <source>Use for a person or organization who designs structures or oversees their construction.</source>
-        <translation>Použite pre osobu, alebo organizáciu, ktorá navrhuje štruktúry alebo dozerá na ich výstavbu.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="295"/>
         <source>Arranger</source>
-        <translation>Aranžér</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="295"/>
         <source>Use for a person or organization who transcribes a musical composition, usually for a different medium from that of the original; in an arrangement the musical substance remains essentially unchanged.</source>
-        <translation>Použite pre osobu alebo organizáciu, ktorá prepisuje hudobné dielo z originálu pre iné médium; v úprave zostáva hudobný obsah v podstate nezmenený.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="296"/>
         <source>Art copyist</source>
-        <translation>Opisovač umenia</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="296"/>
         <source>Use for a person (e.g., a painter or sculptor) who makes copies of works of visual art.</source>
-        <translation>Použite pre osobu (napr. maliar alebo sochár), ktorá robí kópie vizuálne umenia</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="297"/>
         <source>Artist</source>
-        <translation>Umelec</translation>
+        <translation>ئارتىست</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="297"/>
         <source>Use for a person (e.g., a painter) or organization who conceives, and perhaps also implements, an original graphic design or work of art, if specific codes (e.g., [egr], [etr]) are not desired. For book illustrators, prefer Illustrator [ill]. </source>
-        <translation>Použite pre osobu (napr. maliara) alebo organizáciu, ktorá koncipuje a môžno aj uskutočňuje pôvodný grafický návrh alebo umelecké dielo, pokiaľ nie sú požadované zvláštne kódy (napr. [egr], [etr]). Pre ilustrátorov uprednostnite ilustrátora [ill].</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="298"/>
         <source>Artistic director</source>
-        <translation>Umelecký vedúci</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="298"/>
         <source>Use for a person responsible for controlling the development of the artistic style of an entire production, including the choice of works to be presented and selection of senior production staff.</source>
-        <translation>Použite pre osobu alebo organizáciu, ktorá je zodpovedná za kontrolu vývoja umeleckého štýlu celej produkcie, vrátane výber diel, ktoré budú prezentované, a  výberu vedúcich pracovníkov výroby.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="299"/>
         <source>Assignee</source>
-        <translation>Nadobúdateľ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="299"/>
         <source>Use for a person or organization to whom a license for printing or publishing has been transferred.</source>
-        <translation>Použite pre osobu alebo organizáciu, na ktorú bola prenesená licencia na tlač a publikovanie.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="300"/>
         <source>Associated name</source>
-        <translation>Súvisiace meno</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="300"/>
         <source>Use for a person or organization associated with or found in an item or collection, which cannot be determined to be that of a Former owner [fmo] or other designated relator indicative of provenance.</source>
-        <translation>Použite pre osobu alebo organizáciu, ktorá súvisí alebo sa nachádza v nejakom príspevku alebo zbierke, ktorú nie je možné určiť, ako bývalého vlastníka [fmo] alebo iný určený vzťah svedčiaci o pôvode.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="301"/>
         <source>Attributed name</source>
-        <translation>Predpokladané meno</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="301"/>
         <source>Use for an author, artist, etc., relating him/her to a work for which there is or once was substantial authority for designating that person as author, creator, etc. of the work. </source>
-        <translation>Použite pre autora, umelca atď, ktorý sa je spájaný s dielom a ktorý je alebo bol významnou autoritou označený za autora, tvorcu diela. </translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="302"/>
         <source>Auctioneer</source>
-        <translation>Dražiteľ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="302"/>
         <source>Use for a person or organization in charge of the estimation and public auctioning of goods, particularly books, artistic works, etc.</source>
-        <translation>Použite pre osobu alebo organizáciu, ktorá je zodpovedná za odhad a verejnú dražbu tovaru — osobitne kníh, umeleckých diel atď.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="303"/>
         <source>Author</source>
-        <translation>Autor</translation>
+        <translation>ئاپتۇر</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="303"/>
         <source>Use for a person or organization chiefly responsible for the intellectual or artistic content of a work, usually printed text. This term may also be used when more than one person or body bears such responsibility. </source>
-        <translation>Použite pre osobu alebo organizáciu, ktorá je hlavne zodpovedná  za intelektuálny a umelecký obsah, zvyčajne tlačeného textu. Tento pojem sa tiež dá použiť, keď takú zodpovednosť má viac osôb alebo skupina.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="304"/>
         <source>Author in quotations or text extracts</source>
-        <translation>Autor v citáciách alebo textových úryvkoch</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="304"/>
         <source>Use for a person or organization whose work is largely quoted or extracted in works to which he or she did not contribute directly. Such quotations are found particularly in exhibition catalogs, collections of photographs, etc.</source>
-        <translation>Použite pre osobu alebo organizáciu, ktorej dielo je veľkou mierou citované alebo vypisované v diele, do ktorého on alebo ona priamo neprispel. Takéto citácie sa nachádzajú hlavne v prehľadoch vo výstavných katalógoch, zbierkach fotografií atď.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="305"/>
         <source>Author of afterword, colophon, etc.</source>
-        <translation>Autor doslovu, tiráže atď</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="305"/>
         <source>Use for a person or organization responsible for an afterword, postface, colophon, etc. but who is not the chief author of a work.</source>
-        <translation>Použite pre osobu alebo organizáciu, ktorá je zodpovedná za doslov, tiráž atď, ale ktorá nie je hlavným autorom diela.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="306"/>
         <source>Author of dialog</source>
-        <translation>Autor rozhovoru</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="306"/>
         <source>Use for a person or organization responsible for the dialog or spoken commentary for a screenplay or sound recording.</source>
-        <translation>Použite pre osobu alebo organizáciu, ktorá zodpovedá  za dialógy,  alebo hovorený výklad pre filmový scenár alebo zvukovú nahrávku.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="307"/>
         <source>Author of introduction, etc.</source>
-        <translation>Autor predhovoru</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="307"/>
         <source>Use for a person or organization responsible for an introduction, preface, foreword, or other critical introductory matter, but who is not the chief author.</source>
-        <translation>Použite pre osobu alebo organizáciu, ktorá je zodpovedná za úvod, predhovor alebo inú veľmi dôležitú úvodnú záležitosť, ale ktorá nie je hlavným autorom diela.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="308"/>
         <source>Author of screenplay, etc.</source>
-        <translation>Autor filmového scenára</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="308"/>
         <source>Use for a person or organization responsible for a motion picture screenplay, dialog, spoken commentary, etc.</source>
-        <translation>Použite pre osobu alebo organizáciu, ktorá zodpovedá za scenár k filmu, dialógy, hovorený výklad atď.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="309"/>
         <source>Bibliographic antecedent</source>
-        <translation>Predchodca zoznamu prameňov</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="309"/>
         <source>Use for a person or organization responsible for a work upon which the work represented by the catalog record is based. This may be appropriate for adaptations, sequels, continuations, indexes, etc.</source>
-        <translation>Použite pre osobu alebo organizáciu, ktorá zodpovedá za dielo, na ktorom je založená dielo predstavované záznamom v katalógu. toto môže byť vhodné pre adaptácie, ďalšie diely, pokračovania, indexy atď.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="310"/>
         <source>Binder</source>
-        <translation>Kníhviazač</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="310"/>
         <source>Use for a person or organization responsible for the binding of printed or manuscript materials.</source>
-        <translation>Použite pre osobu alebo organizáciu, ktorá zodpovedá za viazanie rukopisov alebo vytlačených materiálov.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="311"/>
         <source>Binding designer</source>
-        <translation>Návrhár väzby</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="311"/>
         <source>Use for a person or organization responsible for the binding design of a book, including the type of binding, the type of materials used, and any decorative aspects of the binding. </source>
-        <translation>Použite pre osobu alebo organizáciu, ktorá zodpovedá za návrh väzby knihy vrátane druhu väzby, druhu použitej látky a akejkoľvek ozdobnej väzby.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="312"/>
         <source>Book designer</source>
-        <translation>Návrhár knihy</translation>
+        <translation>كىتاب لايىھەلىگۈچى</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="312"/>
         <source>Use for a person or organization responsible for the entire graphic design of a book, including arrangement of type and illustration, choice of materials, and process used. </source>
-        <translation>Použite pre osobu alebo organizáciu, ktorá zodpovedá za kompletný obrazový návrh knihy vrátane typografie a ilustrácií, výberu materiálov a použitých procesov.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="313"/>
         <source>Book producer</source>
-        <translation>Výrobca knihy</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="313"/>
         <source>Use for a person or organization responsible for the production of books and other print media, if specific codes (e.g., [bkd], [egr], [tyd], [prt]) are not desired. </source>
-        <translation>Použite pre osobu alebo organizáciu, ktorá zodpovedá za výrobu kníh a ďalších tlačených médií, pokiaľ nie sú vyžadované špeciálne kódy (napr.  [bkd], [egr], [tyd], [prt])</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="314"/>
         <source>Bookjacket designer</source>
-        <translation>Návrhár knižného prebalu</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="314"/>
         <source>Use for a person or organization responsible for the design of flexible covers designed for or published with a book, including the type of materials used, and any decorative aspects of the bookjacket. </source>
-        <translation>Použite pre osobu alebo organizáciu, ktorá zodpovedá za návrh flexibilných obalov navrhnutých alebo vydaných s  knihou vrátane typu použitých materiálov a akéhokoľvek dekoratívneho aspektu prebalu knihy.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="315"/>
         <source>Bookplate designer</source>
-        <translation>Návrhár ex libris</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="315"/>
         <source>Use for a person or organization responsible for the design of a book owner&apos;s identification label that is most commonly pasted to the inside front cover of a book. </source>
-        <translation>Použite pre osobu alebo organizáciu, ktorá zodpovedá za návrh označenia vlastníka knihy, ktoré sa najčastejšie nachádza na  vnútornej strane obálky knihy.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="316"/>
         <source>Bookseller</source>
-        <translation>Kníhkupec</translation>
+        <translation>تېمىسى</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="316"/>
         <source>Use for a person or organization who makes books and other bibliographic materials available for purchase. Interest in the materials is primarily lucrative.</source>
-        <translation>Použite pre osobu alebo organizáciu, ktorá sprístupňuje knihy a iný bibliografický materiál kupujúcim. Záujem o materiál je v prvom rade lukratívny.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="317"/>
         <source>Calligrapher</source>
-        <translation>Kaligraf</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="317"/>
         <source>Use for a person or organization who writes in an artistic hand, usually as a copyist and or engrosser.</source>
-        <translation>Použite pre osobu alebo organizáciu, ktorá píše umelecky, obvykle ako pisár a/alebo prepisovateľ.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="318"/>
         <source>Cartographer</source>
-        <translation>Kartograf</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="318"/>
         <source>Use for a person or organization responsible for the creation of maps and other cartographic materials.</source>
-        <translation>Použite pre osobu alebo organizáciu, ktorá zodpovedá za vytvorenie máp a ďalších kartografických materiálov.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="319"/>
         <source>Censor</source>
-        <translation>Cenzor</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="319"/>
         <source>Use for a censor, bowdlerizer, expurgator, etc., official or private. </source>
-        <translation>Použite pre cenzora, odstraňovača nevhodných pasáží atď.  úradného alebo súkromného.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="320"/>
         <source>Choreographer</source>
-        <translation>Choreograf</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="320"/>
         <source>Use for a person or organization who composes or arranges dances or other movements (e.g., &quot;master of swords&quot;) for a musical or dramatic presentation or entertainment.</source>
-        <translation>Použite pre osobu alebo organizáciu, ktorá skladá alebo upravuje tance alebo iné pohyby (napr. &quot;pán mečov&quot;) pre hudobné alebo dramatické predstavenie alebo zábavu.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="321"/>
         <source>Cinematographer</source>
-        <translation>Kameraman</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="321"/>
@@ -7165,17 +7143,17 @@ entries of the same type.</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="322"/>
         <source>Client</source>
-        <translation>Klient</translation>
+        <translation>خېرىدار</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="322"/>
         <source>Use for a person or organization for whom another person or organization is acting.</source>
-        <translation>Použite pre osobu alebo organizáciu, pre ktorú iná osoba alebo organizácia hraje.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="323"/>
         <source>Collaborator</source>
-        <translation>Spolupracovník</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="323"/>
@@ -7185,7 +7163,7 @@ entries of the same type.</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="324"/>
         <source>Collector</source>
-        <translation>Zberateľ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="324"/>
@@ -7195,62 +7173,62 @@ entries of the same type.</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="325"/>
         <source>Collotyper</source>
-        <translation>Svetlotiačiar</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="325"/>
         <source>Use for a person or organization responsible for the production of photographic prints from film or other colloid that has ink-receptive and ink-repellent surfaces.</source>
-        <translation>Použite pre osobu alebo organizáciu, ktorá zodpovedá za výrobu fotografických výtlačkov z filmov alebo iného koloidu, ktorý ma povrchy prijímajúce a odpudzujúce atrament.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="326"/>
         <source>Commentator</source>
-        <translation>Komentátor</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="326"/>
         <source>Use for a person or organization who provides interpretation, analysis, or a discussion of the subject matter on a recording, motion picture, or other audiovisual medium.</source>
-        <translation>Použite pre osobu alebo organizáciu, ktorá poskytuje výklad, rozbor alebo pojednanie o námete na nahrávke, filme alebo inom audiovizuálnom médiu.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="327"/>
         <source>Commentator for written text</source>
-        <translation>Komentátor pre písaný text</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="327"/>
         <source>Use for a person or organization responsible for the commentary or explanatory notes about a text. For the writer of manuscript annotations in a printed book, use Annotator [ann].</source>
-        <translation>Použite pre osobu alebo organizáciu, ktorá zodpovedá za popisné alebo vysvetľujúce poznámky k textu. Pre pisateľa rukopisných vysvetliviek v tlačenej knihe použite Anotátor [ann]</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="328"/>
         <source>Compiler</source>
-        <translation>Zostavovateľ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="328"/>
         <source>Use for a person or organization who produces a work or publication by selecting and putting together material from the works of various persons or bodies.</source>
-        <translation>Použite pre osobu alebo organizáciu, ktorá tvorí dielo alebo knihu výberom materiálu z prác viacerých rôznych osôb alebo skupín.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="329"/>
         <source>Complainant</source>
-        <translation>Žalobca</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="329"/>
         <source>Use for the party who applies to the courts for redress, usually in an equity proceeding.</source>
-        <translation>Použite pre stranu, ktorý sa zaoberá súdmi za odškodnenie, zvyčajne v súdnom procese.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="330"/>
         <source>Complainant-appellant</source>
-        <translation>Žalobca - odvolateľ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="330"/>
         <source>Use for a complainant who takes an appeal from one court or jurisdiction to another to reverse the judgment, usually in an equity proceeding.</source>
-        <translation>Použite pre žalobcu, ktorý sa odvoláva od jedného súdu alebo súdnej autority k inej, aby zvrátil rozsudok, zvyčajne v súdnom procese.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="331"/>
@@ -7265,7 +7243,7 @@ entries of the same type.</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="332"/>
         <source>Composer</source>
-        <translation>Skladateľ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="332"/>
@@ -7285,27 +7263,27 @@ entries of the same type.</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="334"/>
         <source>Conceptor</source>
-        <translation>Myslitel</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="334"/>
         <source>Use for a person or organization responsible for the original idea on which a work is based, this includes the scientific author of an audio-visual item and the conceptor of an advertisement.</source>
-        <translation>Použite pre osobu alebo organizáciu, ktorá zodpovedá za pôvodnú myšlienku, na ktorej je práca založená. Zahrňuje to vedeckého autor audio-vizuálneho časti a tvorcu reklamy</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="335"/>
         <source>Conductor</source>
-        <translation>Dirigent</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="335"/>
         <source>Use for a person who directs a performing group (orchestra, chorus, opera, etc.) in a musical or dramatic presentation or entertainment.</source>
-        <translation>Použite pre osobu, ktorá riadi účinkujúcu skupinu (orchester, zbor, operu atď.) v hudobnom, divadelnom alebo zábavnom predstavení.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="336"/>
         <source>Consultant</source>
-        <translation>Poradca</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="336"/>
@@ -7325,72 +7303,72 @@ entries of the same type.</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="338"/>
         <source>Contestant</source>
-        <translation>Odporca</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="338"/>
         <source>Use for the party who opposes, resists, or disputes, in a court of law, a claim, decision, result, etc.</source>
-        <translation>Použite pre osobu alebo organizáciu, ktorá na súde dáva odpor, oponuje, bráni sa alebo spochybňuje, má námietky proti nároku, rozhodnutiu, výsledku atď.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="339"/>
         <source>Contestant-appellant</source>
-        <translation>Odporca - odvolávajúci sa</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="339"/>
         <source>Use for a contestant who takes an appeal from one court of law or jurisdiction to another to reverse the judgment.</source>
-        <translation>Použite pre odporcu, ktorý sa odvolal od jednej jurisdikcie k druhej, aby zvrátil rozsudok.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="340"/>
         <source>Contestant-appellee</source>
-        <translation>Odporca - odporca odvolávajúcemu sa</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="340"/>
         <source>Use for a contestant against whom an appeal is taken from one court of law or jurisdiction to another to reverse the judgment.</source>
-        <translation>Použite pre odporcu, proti ktorému je podané odvolanie od jednej jurisdikcie k druhej, aby bol zvrátený rozsudok.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="341"/>
         <source>Contestee</source>
-        <translation>Napadnutý</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="341"/>
         <source>Use for the party defending a claim, decision, result, etc. being opposed, resisted, or disputed in a court of law.</source>
-        <translation>Použite pre stranu, ktorá sa bráni nároku, rozhodnutiu, výsledku atď., ktorá je oponovaná alebo spochybňovaná na súde.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="342"/>
         <source>Contestee-appellant</source>
-        <translation>Napadnutý - odvolávajúci sa</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="342"/>
         <source>Use for a contestee who takes an appeal from one court or jurisdiction to another to reverse the judgment.</source>
-        <translation>Použite pre napadnutého, ktorý sa odvoláva od jednej jurisdikcie k druhej, aby zvrátil rozsudok</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="343"/>
         <source>Contestee-appellee</source>
-        <translation>Napadnutý - odporca odvolávajúce ho sa</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="343"/>
         <source>Use for a contestee against whom an appeal is taken from one court or jurisdiction to another to reverse the judgment.</source>
-        <translation>Použite pre odporovaného, proti ktorému je podané odvolanie od jednej jurisdikcie k druhej, aby bol zvrátený rozsudok</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="344"/>
         <source>Contractor</source>
-        <translation>Zmluvný partner</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="344"/>
         <source>Use for a person or organization relevant to a resource, who enters into a contract with another person or organization to perform a specific task.</source>
-        <translation>Použite pre osobu alebo organizáciu, ktorá súvisí so zdrojom, ktorá vstupuje do zmluvného vzťahu s ďalšou osobou alebo organizáciou, aby vykonala špecifickú úlohu.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="217"/>
@@ -7416,7 +7394,7 @@ entries of the same type.</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="347"/>
         <source>Copyright holder</source>
-        <translation>Držiteľ autorských práv</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="347"/>
@@ -7426,12 +7404,12 @@ entries of the same type.</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="348"/>
         <source>Corrector</source>
-        <translation>Korektor</translation>
+        <translation>كوررېكتور</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="348"/>
         <source>Use for a person or organization who is a corrector of manuscripts, such as the scriptorium official who corrected the work of a scribe. For printed matter, use Proofreader.</source>
-        <translation>Použite pre osobu alebo organizáciu, ktorá je opravuje rukopis, podobne ako vedúci pracovník pisárskej dielne, ktorý opravoval prácu pisára. Pre tlačoviny použite tlačového korektora</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="349"/>
@@ -7446,7 +7424,7 @@ entries of the same type.</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="350"/>
         <source>Costume designer</source>
-        <translation>Návrhár kostýmov</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="350"/>
@@ -7456,23 +7434,23 @@ entries of the same type.</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="351"/>
         <source>Cover designer</source>
-        <translation>Návrhár obalu</translation>
+        <translation>مۇقاۋا لايىھەلىگۈچى</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="351"/>
         <source>Use for a person or organization responsible for the graphic design of a book cover, album cover, slipcase, box, container, etc. For a person or organization responsible for the graphic design of an entire book, use Book designer; for book jackets, use Bookjacket designer.</source>
-        <translation>Použite pre osobu alebo organizáciu, ktorá zodpovedá za grafický návrh obalu knihy, albumu, púzdra, krabičky, krabice atď. Pre osobu alebo organizáciu zodpovednú za grafický návrh celej knihy použite Návrhár knihy, pre knižný prebal použite Návrhár knižného prebalu.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="216"/>
         <location filename="../../BookManipulation/Metadata.cpp" line="352"/>
         <source>Creator</source>
-        <translation>Tvorca</translation>
+        <translation>قۇرغۇچى</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="218"/>
         <source>Date</source>
-        <translation>Dátum</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="219"/>
@@ -7480,27 +7458,27 @@ entries of the same type.</source>
         <location filename="../../BookManipulation/Metadata.cpp" line="254"/>
         <location filename="../../BookManipulation/Metadata.cpp" line="255"/>
         <source>Identifier</source>
-        <translation>Identifikátor</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="241"/>
         <source>Date: Publication</source>
-        <translation>Dátum: vydanie</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="242"/>
         <source>Date: Creation</source>
-        <translation>Dátum: vytvorenie</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="243"/>
         <source>Date: Modification</source>
-        <translation>Dátum: zmena</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="244"/>
         <source>Date (custom)</source>
-        <translation>Dátum (vlastný)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="244"/>
@@ -7510,7 +7488,7 @@ entries of the same type.</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="256"/>
         <source>Identifier (custom)</source>
-        <translation>Identifikátor (vlastný)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="256"/>
@@ -7520,22 +7498,22 @@ entries of the same type.</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="352"/>
         <source>Use for a person or organization responsible for the intellectual or artistic content of a work.</source>
-        <translation>Použite pre osobu alebo organizáciu, ktorá zodpovedá za intelektuálny alebo umelecký obsah diela.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="353"/>
         <source>Curator of an exhibition</source>
-        <translation>Kurátor výstavy</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="353"/>
         <source>Use for a person or organization responsible for conceiving and organizing an exhibition.</source>
-        <translation>Použite pre osobu alebo organizáciu, ktorá zodpovedá za vymyslenie a usporiadanie výstavy</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="354"/>
         <source>Dancer</source>
-        <translation>Tanečník</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="354"/>
@@ -7655,7 +7633,7 @@ entries of the same type.</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="366"/>
         <source>Designer</source>
-        <translation>Návrhár</translation>
+        <translation>لايىھەلىگۈچى</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="366"/>
@@ -7665,7 +7643,7 @@ entries of the same type.</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="367"/>
         <source>Director</source>
-        <translation type="unfinished"/>
+        <translation>دىرېكتور</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="367"/>
@@ -7680,12 +7658,12 @@ entries of the same type.</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="368"/>
         <source>Use for a person who presents a thesis for a university or higher-level educational degree.</source>
-        <translation>Použite pre osobu, ktoré predstavuje písomnú prácu pre univerzitu alebo vzdelávací stupeň vyššej úrovne</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="369"/>
         <source>Distributor</source>
-        <translation type="unfinished"/>
+        <translation>تارقاتقۇچى</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="369"/>
@@ -7725,7 +7703,7 @@ entries of the same type.</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="373"/>
         <source>Editor</source>
-        <translation>Editor</translation>
+        <translation>تەھرىر</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="373"/>
@@ -7755,7 +7733,7 @@ entries of the same type.</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="376"/>
         <source>Engineer</source>
-        <translation type="unfinished"/>
+        <translation>ئىنژىنىز</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="376"/>
@@ -7785,7 +7763,7 @@ entries of the same type.</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="379"/>
         <source>Expert</source>
-        <translation type="unfinished"/>
+        <translation>مۇتەخەسسىس</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="379"/>
@@ -8065,7 +8043,7 @@ entries of the same type.</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="407"/>
         <source>Libelee-appellee</source>
-        <translation type="unfinished"/>
+        <translation>مۇتەخەسسىس</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="407"/>
@@ -8105,7 +8083,7 @@ entries of the same type.</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="411"/>
         <source>Lighting designer</source>
-        <translation>Návrhár osvetlenia</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="411"/>
@@ -8185,7 +8163,7 @@ entries of the same type.</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="419"/>
         <source>Monitor</source>
-        <translation type="unfinished"/>
+        <translation>كۆزەتكۈچى</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="419"/>
@@ -8215,7 +8193,7 @@ entries of the same type.</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="422"/>
         <source>Musician</source>
-        <translation type="unfinished"/>
+        <translation>مۇزىكانىت</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="422"/>
@@ -8265,7 +8243,7 @@ entries of the same type.</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="427"/>
         <source>Other</source>
-        <translation type="unfinished"/>
+        <translation>باشقىلار</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="427"/>
@@ -8465,7 +8443,7 @@ entries of the same type.</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="447"/>
         <source>Programmer</source>
-        <translation type="unfinished"/>
+        <translation>پىروگراممىر</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="447"/>
@@ -8475,7 +8453,7 @@ entries of the same type.</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="448"/>
         <source>Project director</source>
-        <translation type="unfinished"/>
+        <translation>تۈر دىرىكتورى</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="448"/>
@@ -8485,7 +8463,7 @@ entries of the same type.</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="449"/>
         <source>Proofreader</source>
-        <translation>Tlačový korektor</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="449"/>
@@ -8500,7 +8478,7 @@ entries of the same type.</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="451"/>
         <source>Publishing director</source>
-        <translation type="unfinished"/>
+        <translation>نەشىر دىرىكتورى</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="451"/>
@@ -8530,7 +8508,7 @@ entries of the same type.</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="454"/>
         <source>Recording engineer</source>
-        <translation type="unfinished"/>
+        <translation>باشقىلار</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="454"/>
@@ -8600,7 +8578,7 @@ entries of the same type.</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="461"/>
         <source>Researcher</source>
-        <translation type="unfinished"/>
+        <translation>تەتقىقاتچى</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="461"/>
@@ -8740,7 +8718,7 @@ entries of the same type.</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="475"/>
         <source>Set designer</source>
-        <translation>Návrhár výpravy</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="475"/>
@@ -8770,7 +8748,7 @@ entries of the same type.</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="478"/>
         <source>Sound designer</source>
-        <translation type="unfinished"/>
+        <translation>ئاۋاز لايىھەلىگۈچى</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="478"/>
@@ -8875,7 +8853,7 @@ entries of the same type.</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="488"/>
         <source>Use for a person who is ultimately in charge of scenery, props, lights and sound for a production.</source>
-        <translation type="unfinished"/>
+        <translation>تەتقىقاتچى</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="489"/>
@@ -8993,7 +8971,7 @@ entries of the same type.</source>
     <message>
         <location filename="../../ResourceObjects/NCXResource.cpp" line="121"/>
         <source>Start</source>
-        <translation type="unfinished"/>
+        <translation>باشلاش</translation>
     </message>
 </context>
 <context>
@@ -9001,19 +8979,18 @@ entries of the same type.</source>
     <message>
         <location filename="../../MainUI/OPFModel.cpp" line="643"/>
         <source>The filename cannot be empty.</source>
-        <translation>Názov súboru nemôže byť prázdny.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/OPFModel.cpp" line="628"/>
         <source>A filename cannot contains the character &quot;%1&quot;.</source>
-        <translation>Názov súboru nesmie obsahuje znak &quot;%1&quot;.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/OPFModel.cpp" line="652"/>
         <source>The filename &quot;%1&quot; is already in use.
 </source>
-        <translation>Súboru &quot;%1&quot; sa už používa.
-</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -9049,7 +9026,7 @@ entries of the same type.</source>
     <message>
         <location filename="../../Form_Files/Preferences.ui" line="14"/>
         <source>Preferences</source>
-        <translation>Nastavenia</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/Preferences.cpp" line="97"/>
@@ -9067,12 +9044,12 @@ entries of the same type.</source>
     <message>
         <location filename="../../Misc/SearchOperations.cpp" line="50"/>
         <source>Counting occurrences..</source>
-        <translation>Počítanie výskytov…</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/SearchOperations.cpp" line="73"/>
         <source>Replacing search term...</source>
-        <translation>Nahradzuje sa hľadaný výraz…</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/UpdateChecker.cpp" line="100"/>
@@ -9082,14 +9059,13 @@ entries of the same type.</source>
     <message>
         <location filename="../../Misc/UpdateChecker.cpp" line="101"/>
         <source>&lt;p&gt;A newer version of Sigil is available, version &lt;b&gt;%1&lt;/b&gt;.&lt;br/&gt;The ChangeLog can be seen &lt;a href=&apos;http://sigil.googlecode.com/git/ChangeLog.txt&apos;&gt;here&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Would you like to go to the download page?&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Je dostupná novšia verzia programu Sigil - verzia &lt;b&gt;%1&lt;/b&gt;.&lt;br/&gt;Zoznam zmien je dostupný &lt;a href=&apos;http://sigil.googlecode.com/git/ChangeLog.txt&apos;&gt;tu&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Chcete zobraziť stránku pre sťahovanie?&lt;/p&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Utility.cpp" line="300"/>
         <source>Cannot read file %1:
 %2.</source>
-        <translation>Nemožno čítať súbor %1:
-%2.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Utility.cpp" line="400"/>
@@ -9099,7 +9075,7 @@ entries of the same type.</source>
     <message>
         <location filename="../../Misc/Utility.cpp" line="401"/>
         <source>Please &lt;a href=&quot;http://code.google.com/p/sigil/wiki/ReportingIssues&quot;&gt;report it&lt;/a&gt; on the issue tracker, including the details from this dialog.</source>
-        <translation>Prosím &lt;a href=&quot;http://code.google.com/p/sigil/wiki/ReportingIssues&quot;&gt;vytvorte report&lt;/a&gt; na stránke hlásenia chýb vrátane detailov z tohoto dialógového okna.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Index.cpp" line="47"/>
@@ -9109,7 +9085,7 @@ entries of the same type.</source>
     <message>
         <location filename="../../BookManipulation/Index.cpp" line="47"/>
         <source>Cancel</source>
-        <translation>Zrušiť</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="229"/>
@@ -9153,17 +9129,17 @@ entries of the same type.</source>
     <message>
         <location filename="../../Form_Files/RenameTemplate.ui" line="20"/>
         <source>Rename Files</source>
-        <translation>Premenovať súbory</translation>
+        <translation>ھۆججەت نامىلىرىنى ئۆزگەرتىش</translation>
     </message>
     <message>
         <location filename="../../Form_Files/RenameTemplate.ui" line="31"/>
         <source>Rename to: </source>
-        <translation>Premenovať na: </translation>
+        <translation>يېڭى ھۆججەت نامى: </translation>
     </message>
     <message>
         <location filename="../../Form_Files/RenameTemplate.ui" line="38"/>
         <source>Section0001</source>
-        <translation>Oddiel0001</translation>
+        <translation>بۆلەك0001</translation>
     </message>
     <message>
         <location filename="../../Form_Files/RenameTemplate.ui" line="47"/>
@@ -9172,11 +9148,7 @@ entries of the same type.</source>
 &quot;Part1 - Chapter 003&quot; will rename the first file to &quot;Part1 - Chapter 003&quot; and the 10th file as &quot;Part1 - Chapter 012&quot;
 
 &quot;Section 1&quot; will rename the first file to &quot;Section 1&quot; and the 10th file as &quot;Section 10&quot;</source>
-        <translation>Napríklad:
-
-„Časť1 - Kapitola 003“ premenuje prvý súbor na „Časť1 - Kapitola 003“ a 10 súbor na „Časť1 - Kapitola 012“
-
-„Oddiel 1“ premenuje prvý súbor na „Oddiel 1“ a 10 súbor na „Oddiel 10“</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/RenameTemplate.ui" line="54"/>
@@ -9184,9 +9156,7 @@ entries of the same type.</source>
 
 All numbers at the END of the text will be replaced sequentially starting at the number provided (default is 1 if no number is provided), with leading 0's added to match the number of digits used.
 </source>
-        <translation>Zadajte začiatočný názov, ktorý sa použije na premenovanie všetkých vyznačených súborov.
-
-Všetky čísla na KONCI textu budú sekvenčne nahradené začínajúc zadaným číslo (štandardne 1, ak číslo nebude uvedené) s nulami na začiatku, aby sa dosiahla zhoda počtu číslic.</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -9217,7 +9187,7 @@ Všetky čísla na KONCI textu budú sekvenčne nahradené začínajúc zadaným
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="36"/>
         <source>List only the entries containing the text you enter.</source>
-        <translation>Iba zoznam položiek, ktoré obsahújú text, ktorý ste zadali.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="52"/>
@@ -9230,7 +9200,7 @@ then if not found look for the second entry in the list, etc.</source>
         <location filename="../../Form_Files/SearchEditor.ui" line="57"/>
         <location filename="../../Dialogs/SearchEditor.cpp" line="72"/>
         <source>Find</source>
-        <translation>Hľadať</translation>
+        <translation>ئىزدەش</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="64"/>
@@ -9241,7 +9211,7 @@ including entries in selected groups.</source>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="68"/>
         <source>Count All</source>
-        <translation>Spočítať všetko</translation>
+        <translation>ھەممىنى ساناش</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="91"/>
@@ -9254,7 +9224,7 @@ then when no more matches replace the second entry in the list, etc.</source>
         <location filename="../../Form_Files/SearchEditor.ui" line="96"/>
         <location filename="../../Dialogs/SearchEditor.cpp" line="73"/>
         <source>Replace</source>
-        <translation>Nahradiť</translation>
+        <translation>ئالماشتۇرۇش</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="103"/>
@@ -9265,7 +9235,7 @@ including entries in selected groups.</source>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="107"/>
         <source>Replace All</source>
-        <translation>Nahradiť všetko</translation>
+        <translation>ھەممىنى ئالماشتۇرۇش</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="140"/>
@@ -9295,7 +9265,7 @@ including entries in selected groups.</source>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="71"/>
         <source>Name</source>
-        <translation>Meno</translation>
+        <translation>نامى</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="71"/>
@@ -9360,7 +9330,7 @@ including entries in selected groups.</source>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="615"/>
         <source>Rename</source>
-        <translation>Premenovať</translation>
+        <translation>نام ئۆزگەرتىش</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="616"/>
@@ -9370,7 +9340,7 @@ including entries in selected groups.</source>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="617"/>
         <source>Copy</source>
-        <translation>Kopírovať</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="618"/>
@@ -9400,12 +9370,12 @@ including entries in selected groups.</source>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="623"/>
         <source>Collapse All</source>
-        <translation>Zložiť všetko</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="624"/>
         <source>Expand All</source>
-        <translation>Rozbaliť všetko</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -9413,17 +9383,17 @@ including entries in selected groups.</source>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="276"/>
         <source>Name</source>
-        <translation>Meno</translation>
+        <translation>نامى</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="277"/>
         <source>Find</source>
-        <translation>Hľadať</translation>
+        <translation>ئىزدەش</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="278"/>
         <source>Replace</source>
-        <translation>Nahradiť</translation>
+        <translation>ئالماشتۇرۇش</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="602"/>
@@ -9558,7 +9528,7 @@ add to your book and then insert into your document.</source>
     <message>
         <location filename="../../Dialogs/SelectImages.cpp" line="216"/>
         <source>Color</source>
-        <translation>Farebne</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -9566,41 +9536,40 @@ add to your book and then insert into your document.</source>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="22"/>
         <source>Dictionary:</source>
-        <translation>Slovník:</translation>
+        <translation>لۇغەت:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="58"/>
         <source>&lt;p&gt;Open the directory where Sigil looks for additional hunspell dictionaries.&lt;/p&gt;
 &lt;p&gt;Dictionaries in this location will be added to the list you can choose from and will override default dictionaries that have the same name.&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Otvoriť adresár, v ktorom Sigil hľadá dodatočné hunspell slovníky.&lt;/p&gt;
-&lt;p&gt;Slovníky v tomto umiestnení budú pridané do zoznamu, z ktorého sa môžete vybrať a štandardné slovníky s rovnakým názvom budú ignorované.&lt;/p&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="62"/>
         <source>Open Dictionary Directory</source>
-        <translation>Otvoriť priečinok so slovníkmi</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="115"/>
         <source>User Dictionary</source>
-        <translation>Používateľský slovník</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="130"/>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="108"/>
         <source>Rename</source>
-        <translation>Premenovať</translation>
+        <translation>نام ئۆزگەرتىش</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="165"/>
         <source>User Dictionary Word List</source>
-        <translation>Zoznam slov používateľovho slovníka</translation>
+        <translation>ئىشلەتكۈچى لۇغىتى سۆز جەدىۋىلى</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="123"/>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="180"/>
         <source>Add</source>
-        <translation>Pridať</translation>
+        <translation>قوشۇش</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="14"/>
@@ -9610,29 +9579,29 @@ add to your book and then insert into your document.</source>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="187"/>
         <source>Edit</source>
-        <translation>Upraviť</translation>
+        <translation>تەھرىرلەش</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="137"/>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="194"/>
         <source>Remove</source>
-        <translation>Odstrániť</translation>
+        <translation>ئۆچۈرۈش</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="201"/>
         <source>Remove All</source>
-        <translation>Odstrániť všetky</translation>
+        <translation>ھەممىنى ئۆچۈرۈش</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="64"/>
         <source>Word List Name</source>
-        <translation>Názov zoznamu slov</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="64"/>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="108"/>
         <source>Name:</source>
-        <translation>Meno:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="76"/>
@@ -9641,28 +9610,28 @@ add to your book and then insert into your document.</source>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="128"/>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="276"/>
         <source>Error</source>
-        <translation>Chyba</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="76"/>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="121"/>
         <source>A user dictionary already exists with this name!</source>
-        <translation>Používateľský slovník s týmto názvom už existuje!</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="86"/>
         <source>Could not create file!</source>
-        <translation>Nepodarilo sa vytvoriť súbor!</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="128"/>
         <source>Could not rename file!</source>
-        <translation>Nepodarilo sa premenovať súbor!</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="276"/>
         <source>Could not open user dictionary location %1</source>
-        <translation>Ni je možné otvoriť umiestnenie používateľových slovníkov %1</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -9718,7 +9687,7 @@ add to your book and then insert into your document.</source>
     <message>
         <location filename="../../Tabs/TabBar.cpp" line="66"/>
         <source>Close Other Tabs</source>
-        <translation>Zavrieť ostatné karty</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -9726,7 +9695,7 @@ add to your book and then insert into your document.</source>
     <message>
         <location filename="../../MainUI/TableOfContents.cpp" line="44"/>
         <source>Table of Contents</source>
-        <translation>Obsah</translation>
+        <translation>مۇندەرىجە</translation>
     </message>
     <message>
         <location filename="../../MainUI/TableOfContents.cpp" line="50"/>
@@ -9736,17 +9705,17 @@ add to your book and then insert into your document.</source>
     <message>
         <location filename="../../MainUI/TableOfContents.cpp" line="137"/>
         <source>The file &quot;%1&quot; does not exist.</source>
-        <translation>Súbor &quot;%1&quot; neexistuje.</translation>
+        <translation>&quot;%1&quot; ھۆججىتى مەۋجۇت ئەمەس</translation>
     </message>
     <message>
         <location filename="../../MainUI/TableOfContents.cpp" line="189"/>
         <source>Collapse All</source>
-        <translation>Zložiť všetko</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/TableOfContents.cpp" line="190"/>
         <source>Expand All</source>
-        <translation>Rozbaliť všetko</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -9754,38 +9723,38 @@ add to your book and then insert into your document.</source>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="43"/>
         <source>Validation Results</source>
-        <translation>Výsledky validácie</translation>
+        <translation>تەكشۈرۈش نەتىجىسى</translation>
     </message>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="75"/>
         <source>An exception occurred during validation: %1.</source>
-        <translation>Došlo k výnimke pri validácií: %1.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="176"/>
         <source>N/A</source>
-        <translation>Nedostupné</translation>
+        <translation>N/A</translation>
     </message>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="200"/>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="219"/>
         <source>Message</source>
-        <translation>Správa</translation>
+        <translation>ئۇچۇر</translation>
     </message>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="202"/>
         <source>No problems found!</source>
-        <translation>Žiadne problémy neboli nájdené!</translation>
+        <translation>مەسىلە تېپىلمىدى!</translation>
     </message>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="219"/>
         <source>File</source>
-        <translation>Súbor</translation>
+        <translation>ھۆججەت</translation>
     </message>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="219"/>
         <source>Line</source>
-        <translation>Riadok</translation>
+        <translation>قۇر</translation>
     </message>
 </context>
 <context>
@@ -9793,17 +9762,17 @@ add to your book and then insert into your document.</source>
     <message>
         <location filename="../../Tabs/WellFormedCheckComponent.cpp" line="43"/>
         <source>&lt;p&gt;The operation you requested cannot be performed because &lt;b&gt;%1&lt;/b&gt; is not a well-formed XML document.&lt;/p&gt;&lt;p&gt;An error was found on &lt;b&gt;line %2, column %3: %4.&lt;/b&gt;&lt;/p&gt;&lt;p&gt;The &lt;i&gt;Fix Manually&lt;/i&gt; option will let you fix the problem by hand.&lt;/p&gt;&lt;p&gt;The &lt;i&gt;Fix Automatically&lt;/i&gt; option will instruct Sigil to try to repair the document. &lt;b&gt;This option may lead to loss of data!&lt;/b&gt;&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Operácia, ktorú požadujete, nie je možné vykonať, lebo &lt;b&gt;%1&lt;/b&gt; nie je správne vytvorený XML dokument.&lt;/p&gt;&lt;p&gt;Chyba bola nájdená na &lt;b&gt;riadku %2, stĺpec %3: %4.&lt;/b&gt;&lt;/p&gt;&lt;p&gt;Voľba &lt;i&gt;Opraviť manuálne&lt;/i&gt; vám umožní vyriešiť problém ručne.&lt;/p&gt;&lt;p&gt;Voľba &lt;i&gt;Opraviť automaticky&lt;/i&gt; inštruuje Sigil, aby sa pokúsil o korekciu dokumentu. &lt;b&gt;Táto voľba môže spôsobiť stratu dát!&lt;/b&gt;&lt;/p&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Tabs/WellFormedCheckComponent.cpp" line="55"/>
         <source>Fix &amp;Automatically</source>
-        <translation>Opraviť &amp;automaticky </translation>
+        <translation>ئاپتۇماتىك تۈزۈتۈش(&amp;A)</translation>
     </message>
     <message>
         <location filename="../../Tabs/WellFormedCheckComponent.cpp" line="57"/>
         <source>Fix &amp;Manually</source>
-        <translation>Opraviť &amp;manuálne</translation>
+        <translation>قولدا تۈزۈتۈش(&amp;M)</translation>
     </message>
 </context>
 </TS>
