@@ -50,7 +50,7 @@
     </property>
     <widget class="QMenu" name="menuAdd">
      <property name="title">
-      <string>Add</string>
+      <string>A&amp;dd</string>
      </property>
      <addaction name="actionAddExistingFile"/>
      <addaction name="separator"/>
@@ -80,7 +80,7 @@
     </property>
     <widget class="QMenu" name="menuChangeCase">
      <property name="title">
-      <string>Change Case</string>
+      <string>C&amp;hange Case</string>
      </property>
      <addaction name="actionCasingLowercase"/>
      <addaction name="actionCasingUppercase"/>
@@ -136,15 +136,15 @@
     </property>
     <widget class="QMenu" name="menuHeadings">
      <property name="title">
-      <string>Heading</string>
+      <string>&amp;Heading</string>
      </property>
-     <addaction name="actionHeadingNormal"/>
      <addaction name="actionHeading1"/>
      <addaction name="actionHeading2"/>
      <addaction name="actionHeading3"/>
      <addaction name="actionHeading4"/>
      <addaction name="actionHeading5"/>
      <addaction name="actionHeading6"/>
+     <addaction name="actionHeadingNormal"/>
      <addaction name="separator"/>
      <addaction name="actionHeadingPreserveAttributes"/>
     </widget>
@@ -181,7 +181,7 @@
     </property>
     <widget class="QMenu" name="menuToolbars">
      <property name="title">
-      <string>Toolbars</string>
+      <string>&amp;Toolbars</string>
      </property>
     </widget>
     <addaction name="menuToolbars"/>
@@ -197,7 +197,7 @@
    </widget>
    <widget class="QMenu" name="menuRegexOptions">
     <property name="title">
-     <string>Regex Options</string>
+     <string>Regex &amp;Options</string>
     </property>
     <addaction name="actionRegexDotAll"/>
     <addaction name="actionRegexMinimalMatch"/>
@@ -243,14 +243,14 @@
     </property>
     <widget class="QMenu" name="menuTOC">
      <property name="title">
-      <string>Table Of Contents</string>
+      <string>&amp;Table Of Contents</string>
      </property>
     <addaction name="actionGenerateTOC"/>
     <addaction name="actionCreateHTMLTOC"/>
     </widget>
     <widget class="QMenu" name="menuSpellCheckMenu">
      <property name="title">
-      <string>Spellcheck</string>
+      <string>Spe&amp;llcheck</string>
      </property>
      <addaction name="actionAutoSpellCheck"/>
      <addaction name="actionSpellCheck"/>
@@ -262,7 +262,7 @@
     </widget>
     <widget class="QMenu" name="menuIndex">
      <property name="title">
-      <string>Index</string>
+      <string>&amp;Index</string>
      </property>
      <addaction name="actionIndexEditor"/>
      <addaction name="separator"/>
@@ -827,7 +827,7 @@
      <normaloff>:/main/process-stop_22px.png</normaloff>:/main/process-stop_22px.png</iconset>
    </property>
    <property name="text">
-    <string>Quit</string>
+    <string>&amp;Quit</string>
    </property>
    <property name="toolTip">
     <string>Exit</string>
@@ -943,7 +943,7 @@
      <normaloff>:/main/split-section_22px.png</normaloff>:/main/split-section_22px.png</iconset>
    </property>
    <property name="text">
-    <string>Split At Cursor</string>
+    <string>&amp;Split At Cursor</string>
    </property>
    <property name="toolTip">
     <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Split At Cursor&lt;/b&gt;&lt;/p&gt;
@@ -960,7 +960,7 @@
      <normaloff>:/main/insert-image_22px.png</normaloff>:/main/insert-image_22px.png</iconset>
    </property>
    <property name="text">
-    <string>Image...</string>
+    <string>&amp;Image...</string>
    </property>
    <property name="toolTip">
     <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert Images&lt;/b&gt;&lt;/p&gt;
@@ -979,7 +979,7 @@
      <normaloff>:/main/insert-special-character_22px.png</normaloff>:/main/insert-special-character_22px.png</iconset>
    </property>
    <property name="text">
-    <string>Special Character...</string>
+    <string>&amp;Special Character...</string>
    </property>
     <property name="toolTip">
     <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert Special Character&lt;/b&gt;&lt;/p&gt;
@@ -993,7 +993,7 @@
      <normaloff>:/main/insert-id_22px.png</normaloff>:/main/insert-iid_22px.png</iconset>
    </property>
    <property name="text">
-    <string>ID...</string>
+    <string>I&amp;D...</string>
    </property>
    <property name="toolTip">
     <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert ID&lt;/b&gt;&lt;/p&gt;
@@ -1007,7 +1007,7 @@
      <normaloff>:/main/insert-hyperlink_22px.png</normaloff>:/main/insert-hyperlink_22px.png</iconset>
    </property>
    <property name="text">
-    <string>Hyperlink...</string>
+    <string>&amp;Hyperlink...</string>
    </property>
    <property name="toolTip">
     <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert Hyperlink&lt;/b&gt;&lt;/p&gt;
@@ -1061,7 +1061,7 @@
      <normaloff>:/main/format-text-strikethrough_22px.png</normaloff>:/main/format-text-strikethrough_22px.png</iconset>
    </property>
    <property name="text">
-    <string>Strike&amp;through</string>
+    <string>Stri&amp;kethrough</string>
    </property>
    <property name="toolTip">
     <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Strikethrough&lt;/b&gt;&lt;/p&gt;
@@ -1078,7 +1078,7 @@
      <normaloff>:/main/format-text-subscript_22px.png</normaloff>:/main/format-text-subscript_22px.png</iconset>
    </property>
    <property name="text">
-    <string>Subsc&amp;ript</string>
+    <string>&amp;Subscript</string>
    </property>
    <property name="toolTip">
     <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Subscript&lt;/b&gt;&lt;/p&gt;
@@ -1173,7 +1173,7 @@
   </action>
   <action name="actionShowTag">
    <property name="text">
-    <string>Show Tag</string>
+    <string>Sho&amp;w Tag</string>
    </property>
    <property name="toolTip">
     <string>Show the enclosing tag HTML for the cursor position in Book View/Preview View.</string>
@@ -1205,7 +1205,7 @@
      <normaloff>:/main/format-indent-more_22px.png</normaloff>:/main/format-indent-more_22px.png</iconset>
    </property>
    <property name="text">
-    <string>Increase Indent</string>
+    <string>Incre&amp;ase Indent</string>
    </property>
    <property name="toolTip">
     <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Increase Indent&lt;/b&gt;&lt;/p&gt;
@@ -1222,7 +1222,7 @@
      <normaloff>:/main/format-indent-less_22px.png</normaloff>:/main/format-indent-less_22px.png</iconset>
    </property>
    <property name="text">
-    <string>Decrease Indent</string>
+    <string>&amp;Decrease Indent</string>
    </property>
    <property name="toolTip">
     <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Decrease Indent&lt;/b&gt;&lt;/p&gt;
@@ -1240,7 +1240,7 @@
     </iconset>
    </property>
    <property name="text">
-    <string>Text Direction LTR</string>
+    <string>Te&amp;xt Direction LTR</string>
    </property>
    <property name="toolTip">
     <string>
@@ -1257,7 +1257,7 @@
     </iconset>
    </property>
    <property name="text">
-    <string>Text Direction RTL</string>
+    <string>T&amp;ext Direction RTL</string>
    </property>
    <property name="toolTip">
     <string>
@@ -1274,7 +1274,7 @@
     </iconset>
    </property>
    <property name="text">
-    <string>Text Direction Default</string>
+    <string>Text Directi&amp;on Default</string>
    </property>
    <property name="toolTip">
     <string>
@@ -1286,7 +1286,7 @@
   </action>
   <action name="actionRemoveFormatting">
    <property name="text">
-    <string>Remove Formatting</string>
+    <string>Remove &amp;Formatting</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+Space</string>
@@ -1299,7 +1299,7 @@
     </iconset>
    </property>
    <property name="text">
-    <string>Lowercase</string>
+    <string>&amp;Lowercase</string>
    </property>
    <property name="toolTip">
     <string>
@@ -1319,7 +1319,7 @@
     </iconset>
    </property>
    <property name="text">
-    <string>Uppercase</string>
+    <string>&amp;Uppercase</string>
    </property>
    <property name="toolTip">
     <string>
@@ -1339,7 +1339,7 @@
     </iconset>
    </property>
    <property name="text">
-    <string>Titlecase</string>
+    <string>&amp;Titlecase</string>
    </property>
    <property name="toolTip">
     <string>
@@ -1356,7 +1356,7 @@
     </iconset>
    </property>
    <property name="text">
-    <string>Capitalize</string>
+    <string>&amp;Capitalize</string>
    </property>
    <property name="toolTip">
     <string>
@@ -1402,7 +1402,7 @@
   </action>
   <action name="actionSplitOnSGFSectionMarkers">
    <property name="text">
-    <string>Split At Markers</string>
+    <string>Split At &amp;Markers</string>
    </property>
    <property name="toolTip">
     <string>Split At Sigil split file markers</string>
@@ -1413,7 +1413,7 @@
   </action>
   <action name="actionInsertSGFSectionMarker">
    <property name="text">
-    <string>Split Marker</string>
+    <string>Split &amp;Marker</string>
    </property>
    <property name="toolTip">
     <string>Insert Sigil split file marker</string>
@@ -1468,7 +1468,7 @@
   </action>
   <action name="actionValidateStylesheetsWithW3C">
    <property name="text">
-    <string>&amp;Validate Stylesheets with W3C</string>
+    <string>Validate Stylesheets with &amp;W3C</string>
    </property>
    <property name="toolTip">
     <string>
@@ -1483,7 +1483,7 @@
     <bool>true</bool>
    </property>
    <property name="text">
-    <string>Highlight Misspelled Words</string>
+    <string>&amp;Highlight Misspelled Words</string>
    </property>
   </action>
   <action name="actionSpellCheck">
@@ -1505,7 +1505,7 @@
   </action>
   <action name="actionAddMisspelledWord">
    <property name="text">
-    <string>Add Misspelled Word</string>
+    <string>&amp;Add Misspelled Word</string>
    </property>
    <property name="toolTip">
     <string>Add the current misspelled word under the caret to the user dictionary.</string>
@@ -1513,7 +1513,7 @@
   </action>
   <action name="actionIgnoreMisspelledWord">
    <property name="text">
-    <string>Ignore Misspelled Word</string>
+    <string>&amp;Ignore Misspelled Word</string>
    </property>
    <property name="toolTip">
     <string>Ignore the current misspelled word under the caret until Sigil is restarted.</string>
@@ -1521,7 +1521,7 @@
   </action>
   <action name="actionClearIgnoredWords">
    <property name="text">
-    <string>Clear Ignored Words</string>
+    <string>&amp;Clear Ignored Words</string>
    </property>
    <property name="toolTip">
     <string>Clear currently ignored words from Spellcheck without having to restart Sigil.</string>
@@ -1529,7 +1529,7 @@
   </action>
   <action name="actionIndexEditor">
    <property name="text">
-    <string>Index Editor...</string>
+    <string>&amp;Index Editor...</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+Alt+I</string>
@@ -1537,17 +1537,17 @@
   </action>
   <action name="actionDeleteUnusedImages">
    <property name="text">
-    <string>Delete Unused Image Files...</string>
+    <string>&amp;Delete Unused Image Files...</string>
    </property>
   </action>
   <action name="actionDeleteUnusedStyles">
    <property name="text">
-    <string>Delete Unused Stylesheet Styles...</string>
+    <string>Delete &amp;Unused Stylesheet Styles...</string>
    </property>
   </action>
   <action name="actionReports">
    <property name="text">
-    <string>Reports...</string>
+    <string>&amp;Reports...</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+Shift+R</string>
@@ -1570,7 +1570,7 @@
   </action>
   <action name="actionCloseOtherTabs">
    <property name="text">
-    <string>Close Other Tabs</string>
+    <string>Close &amp;Other Tabs</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+Alt+W</string>
@@ -1578,7 +1578,7 @@
   </action>
   <action name="actionGoToLine">
    <property name="text">
-    <string>Go To Line...</string>
+    <string>Go To &amp;Line...</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+/</string>
@@ -1586,7 +1586,7 @@
   </action>
   <action name="actionFindNext">
    <property name="text">
-    <string>Find Next</string>
+    <string>Find &amp;Next</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+G</string>
@@ -1594,7 +1594,7 @@
   </action>
   <action name="actionFindPrevious">
    <property name="text">
-    <string>Find Previous</string>
+    <string>Find &amp;Previous</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+Shift+G</string>
@@ -1602,7 +1602,7 @@
   </action>
   <action name="actionReplaceNext">
    <property name="text">
-    <string>Replace Next</string>
+    <string>&amp;Replace Next</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+]</string>
@@ -1610,7 +1610,7 @@
   </action>
   <action name="actionReplacePrevious">
    <property name="text">
-    <string>Replace Previous</string>
+    <string>Replace Pre&amp;vious</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+[</string>
@@ -1618,7 +1618,7 @@
   </action>
   <action name="actionReplaceAll">
    <property name="text">
-    <string>Replace All</string>
+    <string>Replace &amp;All</string>
    </property>
    <property name="shortcut">
     <string>Alt+A</string>
@@ -1626,7 +1626,7 @@
   </action>
   <action name="actionCount">
    <property name="text">
-    <string>Count All</string>
+    <string>&amp;Count All</string>
    </property>
    <property name="shortcut">
     <string>Alt+C</string>
@@ -1634,7 +1634,7 @@
   </action>
   <action name="actionSearchEditor">
    <property name="text">
-    <string>Saved Searches...</string>
+    <string>&amp;Saved Searches...</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+Alt+F</string>
@@ -1642,7 +1642,7 @@
   </action>
   <action name="actionClipEditor">
    <property name="text">
-    <string>Clip Manager...</string>
+    <string>&amp;Clip Manager...</string>
    </property>
    <property name="toolTip">
     <string>Open the Clip Manager.</string>
@@ -1653,7 +1653,7 @@
   </action>
   <action name="actionPreferences">
    <property name="text">
-    <string>Preferences...</string>
+    <string>&amp;Preferences...</string>
    </property>
    <property name="shortcut">
     <string>F5</string>
@@ -1661,7 +1661,7 @@
   </action>
   <action name="actionZoomReset">
    <property name="text">
-    <string>Zoom Reset</string>
+    <string>&amp;Zoom Reset</string>
    </property>
    <property name="toolTip">
     <string>Zoom Reset</string>
@@ -1675,7 +1675,7 @@
     <bool>true</bool>
    </property>
    <property name="text">
-    <string notr="true">Heading 1</string>
+    <string notr="true">Heading &amp;1</string>
    </property>
    <property name="toolTip">
     <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 1&lt;/b&gt;&lt;/p&gt;
@@ -1695,7 +1695,7 @@
     <bool>true</bool>
    </property>
    <property name="text">
-    <string notr="true">Heading 2</string>
+    <string notr="true">Heading &amp;2</string>
    </property>
    <property name="toolTip">
     <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 2&lt;/b&gt;&lt;/p&gt;
@@ -1715,7 +1715,7 @@
     <bool>true</bool>
    </property>
    <property name="text">
-    <string notr="true">Heading 3</string>
+    <string notr="true">Heading &amp;3</string>
    </property>
    <property name="toolTip">
     <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 3&lt;/b&gt;&lt;/p&gt;
@@ -1735,7 +1735,7 @@
     <bool>true</bool>
    </property>
    <property name="text">
-    <string notr="true">Heading 4</string>
+    <string notr="true">Heading &amp;4</string>
    </property>
    <property name="toolTip">
     <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 4&lt;/b&gt;&lt;/p&gt;
@@ -1755,7 +1755,7 @@
     <bool>true</bool>
    </property>
    <property name="text">
-    <string notr="true">Heading 5</string>
+    <string notr="true">Heading &amp;5</string>
    </property>
    <property name="toolTip">
     <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 5&lt;/b&gt;&lt;/p&gt;
@@ -1775,7 +1775,7 @@
     <bool>true</bool>
    </property>
    <property name="text">
-    <string notr="true">Heading 6</string>
+    <string notr="true">Heading &amp;6</string>
    </property>
    <property name="toolTip">
     <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 6&lt;/b&gt;&lt;/p&gt;
@@ -1795,7 +1795,7 @@
     <bool>true</bool>
    </property>
    <property name="text">
-    <string notr="true">Normal</string>
+    <string notr="true">&amp;Normal</string>
    </property>
    <property name="toolTip">
     <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Paragraph&lt;/b&gt;&lt;/p&gt;
@@ -1815,7 +1815,7 @@
     <bool>true</bool>
    </property>
    <property name="text">
-    <string notr="true">Preserve Existing Attributes</string>
+    <string notr="true">&amp;Preserve Existing Attributes</string>
    </property>
    <property name="toolTip">
     <string>When applying this style, preserve any existing attributes on the tag</string>
@@ -1861,7 +1861,7 @@
   </action>
   <action name="actionPreviousResource">
    <property name="text">
-    <string>Previous File</string>
+    <string>Pre&amp;vious File</string>
    </property>
    <property name="toolTip">
     <string>Open previous file of the same type.</string>
@@ -1872,7 +1872,7 @@
   </action>
   <action name="actionNextResource">
    <property name="text">
-    <string>Next File</string>
+    <string>Next &amp;File</string>
    </property>
    <property name="toolTip">
     <string>Open next file of the same type.</string>
@@ -1883,7 +1883,7 @@
   </action>
   <action name="actionAddToIndex">
    <property name="text">
-    <string>Add To Index Editor</string>
+    <string>&amp;Add To Index Editor</string>
    </property>
    <property name="toolTip">
     <string>Add the selected text to the Index Editor.</string>
@@ -1891,7 +1891,7 @@
   </action>
   <action name="actionMarkForIndex">
    <property name="text">
-    <string>Mark For Index</string>
+    <string>&amp;Mark For Index</string>
    </property>
    <property name="toolTip">
     <string>Mark the selected text for inclusion in the Index.</string>
@@ -1899,7 +1899,7 @@
   </action>
   <action name="actionCreateIndex">
    <property name="text">
-    <string>Create Index</string>
+    <string>&amp;Create Index</string>
    </property>
    <property name="toolTip">
     <string>Generate a new Index HTML file.</string>
@@ -1907,12 +1907,12 @@
   </action>
   <action name="actionGenerateTOC">
    <property name="text">
-    <string>Generate Table Of Contents...</string>
+    <string>&amp;Generate Table Of Contents...</string>
    </property>
   </action>
   <action name="actionCreateHTMLTOC">
    <property name="text">
-    <string>Create HTML Table Of Contents</string>
+    <string>&amp;Create HTML Table Of Contents</string>
    </property>
    <property name="toolTip">
     <string>Create a new HTML file using the current TOC.</string>
@@ -1923,7 +1923,7 @@
     <bool>true</bool>
    </property>
    <property name="text">
-    <string>Dot Includes Newlines</string>
+    <string>&amp;Dot Includes Newlines</string>
    </property>
   </action>
   <action name="actionRegexMinimalMatch">
@@ -1931,7 +1931,7 @@
     <bool>true</bool>
    </property>
    <property name="text">
-    <string>Minimal Match</string>
+    <string>&amp;Minimal Match</string>
    </property>
   </action>
   <action name="actionRegexAutoTokenise">
@@ -1939,12 +1939,12 @@
     <bool>true</bool>
    </property>
    <property name="text">
-    <string>Tokenise/Escape When Opening Find</string>
+    <string>&amp;Tokenise/Escape When Opening Find</string>
    </property>
   </action>
   <action name="actionGoToLinkOrStyle">
    <property name="text">
-    <string>Go To Link Or Style</string>
+    <string>&amp;Go To Link Or Style</string>
    </property>
    <property name="shortcut">
     <string>F3</string>
@@ -1956,7 +1956,7 @@
      <normaloff>:/main/back-to-link-style_22px.png</normaloff>:/main/back-to-link-style_22px.png</iconset>
    </property>
    <property name="text">
-    <string>Go Back To Link Or Style</string>
+    <string>Go &amp;Back To Link Or Style</string>
    </property>
    <property name="toolTip">
     <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Back&lt;/b&gt;&lt;/p&gt;
@@ -1970,7 +1970,7 @@
   </action>
   <action name="actionPasteClipboardHistory">
    <property name="text">
-    <string>Paste From Clipboard History...</string>
+    <string>Paste From Clipboard &amp;History...</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+Alt+V</string>
@@ -1978,7 +1978,7 @@
   </action>
   <action name="actionDeleteLine">
    <property name="text">
-    <string>Delete Line</string>
+    <string>&amp;Delete Line</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+D</string>
