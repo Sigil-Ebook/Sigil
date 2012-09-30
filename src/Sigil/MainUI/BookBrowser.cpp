@@ -156,11 +156,18 @@ void BookBrowser::SelectRenamedResource()
 
 void BookBrowser::UpdateSelection( Resource &resource )
 {
+    const int MIN_SPACE = 40;
     m_TreeView.selectionModel()->clearSelection();
 
     QModelIndex index = m_OPFModel.GetModelItemIndex( resource, OPFModel::IndexChoice_Current );
     m_TreeView.selectionModel()->setCurrentIndex( index, QItemSelectionModel::SelectCurrent );
-    m_TreeView.scrollTo(index, QAbstractItemView::PositionAtCenter);
+    // Do we need to scroll the TreeView further to ensure the item is easily visible?
+    QRect item_rect = m_TreeView.visualRect(index);
+    QRect tv_rect = m_TreeView.rect();
+    if ((item_rect.top() < MIN_SPACE) || ((tv_rect.bottom() - item_rect.bottom()) < MIN_SPACE)) { 
+        // Too close to the top or bottom
+        m_TreeView.scrollTo(index, QAbstractItemView::PositionAtCenter);
+    }
 }
 
 void BookBrowser::NextResource()
