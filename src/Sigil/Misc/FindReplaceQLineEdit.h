@@ -39,11 +39,15 @@ public:
  
     virtual void contextMenuEvent(QContextMenuEvent *event);
 
+    bool isTokeniseEnabled();
+    void setTokeniseEnabled(bool value);
+
 private:
     bool CreateMenuEntries(QMenu *parent_menu, QAction *topAction, QStandardItem *entry);
 
     QWidget *m_FindReplace;
     QSignalMapper *m_searchMapper;
+    bool m_tokeniseEnabled;
 };
 
 #endif // FINDREPLACEQLINEEDIT_H

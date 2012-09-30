@@ -32,7 +32,8 @@
 FindReplaceQLineEdit::FindReplaceQLineEdit(QWidget *parent)
     : QLineEdit(parent),
       m_FindReplace(parent),
-      m_searchMapper(new QSignalMapper(this))
+      m_searchMapper(new QSignalMapper(this)),
+      m_tokeniseEnabled(true)
 {
     connect(m_searchMapper, SIGNAL(mapped(const QString&)), m_FindReplace, SLOT(LoadSearchByName(const QString&)));
 }
@@ -50,16 +51,18 @@ void FindReplaceQLineEdit::contextMenuEvent(QContextMenuEvent *event)
         topAction = menu->actions().at(0);
     }
 
-    QAction *tokeniseAction = new QAction(tr("Tokenise Selection"), menu);
-    connect(tokeniseAction, SIGNAL(triggered()), m_FindReplace, SLOT(TokeniseSelection()));
-    if (topAction) {
-        menu->insertAction(topAction, tokeniseAction);
-        menu->insertSeparator(topAction);
+    if (m_tokeniseEnabled) {
+        QAction *tokeniseAction = new QAction(tr("Tokenise Selection"), menu);
+        connect(tokeniseAction, SIGNAL(triggered()), m_FindReplace, SLOT(TokeniseSelection()));
+        if (topAction) {
+            menu->insertAction(topAction, tokeniseAction);
+            menu->insertSeparator(topAction);
+        }
+        else {
+            menu->addAction(tokeniseAction);
+        }
+        topAction = tokeniseAction;
     }
-    else {
-        menu->addAction(tokeniseAction);
-    }
-    topAction = tokeniseAction;
 
     QAction *saveSearchAction = new QAction(tr("Save Search") % "...", menu);
     connect(saveSearchAction, SIGNAL(triggered()), m_FindReplace, SLOT(SaveSearchAction()));
@@ -117,4 +120,14 @@ bool FindReplaceQLineEdit::CreateMenuEntries(QMenu *parent_menu, QAction *topAct
         CreateMenuEntries(group_menu, topAction, item->child(row,0));
     }
     return item->rowCount() > 0;
+}
+
+bool FindReplaceQLineEdit::isTokeniseEnabled()
+{
+    return m_tokeniseEnabled;
+}
+
+void FindReplaceQLineEdit::setTokeniseEnabled(bool value)
+{
+    m_tokeniseEnabled = value;
 }

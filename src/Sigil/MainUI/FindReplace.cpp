@@ -52,8 +52,12 @@ FindReplace::FindReplace( MainWindow &main_window )
 {
     ui.setupUi( this );
 
-    FindReplaceQLineEdit *q = new FindReplaceQLineEdit(this);
-    ui.cbFind->setLineEdit(q);
+    FindReplaceQLineEdit *find_ledit = new FindReplaceQLineEdit(this);
+    ui.cbFind->setLineEdit(find_ledit);
+
+    FindReplaceQLineEdit *replace_ledit = new FindReplaceQLineEdit(this);
+    replace_ledit->setTokeniseEnabled(false);
+    ui.cbReplace->setLineEdit(replace_ledit);
 
     QCompleter *fqc = ui.cbFind->completer();
     fqc->setCaseSensitivity(Qt::CaseSensitive);
