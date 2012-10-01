@@ -125,37 +125,27 @@ void KeyboardShortcutManager::registerShortcut(QShortcut *shortcut, const QStrin
 bool KeyboardShortcutManager::setKeySequence(const QString &id, const QKeySequence &keySequence, bool isDefault)
 {
     if (keySequenceInUse(keySequence)) {
-        // Resettings to a keysequence's default value will always succeed.
-        if (isDefault) {
-            // Find the shortcut that is using this default sequence.
-            QString id;
-            foreach (QString tid, m_shortcuts.keys()) {
-                if (m_shortcuts[tid].keySequence() == keySequence) {
-                    id = tid;
-                    break;
-                }
-            }
-            if (!id.isEmpty()) {
-                // Set the shortcut that is using this default to it's default
-                // only if it's default is not in use otherwise clear it. We
-                // don't want to end up in an infinite loop if multiple shortcuts
-                // have the same default set so we try once instead of following
-                // the shortcut chain.
-                if (!keySequenceInUse(m_shortcuts[id].defaultKeySequence())) {
-                    setKeySequence(id, m_shortcuts[id].defaultKeySequence());
-                }
-                else {
-                    setKeySequence(id, QKeySequence());
-                }
+        // Find the shortcut that is using this default sequence.
+        QString id;
+        foreach (QString tid, m_shortcuts.keys()) {
+            if (m_shortcuts[tid].keySequence() == keySequence) {
+                id = tid;
+                break;
             }
         }
-        else {
-            // The keysequence for a shortcut will be in use if it was set from
-            // a saved state but we still need to register it. Only stop here
-            // if this keysequence doens't match the one for the shortcut we're
-            // looking at.
-            if (m_shortcuts[id].keySequence() != keySequence) {
-                return false;
+        if (!id.isEmpty()) {
+            // Resetting to a keysequence's default value will always succeed.
+            // Set the shortcut that is using this default to it's default
+            // only if it's default is not in use otherwise clear it. We
+            // don't want to end up in an infinite loop if multiple shortcuts
+            // have the same default set so we try once instead of following
+            // the shortcut chain.
+            if (isDefault && !keySequenceInUse(m_shortcuts[id].defaultKeySequence())) {
+                setKeySequence(id, m_shortcuts[id].defaultKeySequence());
+            }
+            else {
+                // We are assigning a new value so just clear the old one.
+                setKeySequence(id, QKeySequence());
             }
         }
     }
