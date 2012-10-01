@@ -683,17 +683,11 @@ QString FlowTab::GetAttributeId()
 {
     QString attribute_value;
     if (m_ViewState == MainWindow::ViewState_CodeView) {
-        // If text is selected we don't want to use the enclosing id
-        // since the user might want a new id inside the existing one
-        if (!m_wCodeView->TextIsSelected()) {
-            // We are only interested in ids on <a> anchor elements
-            attribute_value = m_wCodeView->GetAttribute("id", ANCHOR_TAGS, false, true);
-        }
+        // We are only interested in ids on <a> anchor elements
+        attribute_value = m_wCodeView->GetAttribute("id", ANCHOR_TAGS, false, true);
     }
     else if (m_ViewState == MainWindow::ViewState_BookView) {
-        if (m_wBookView->selectedText().length() == 0) {
-            attribute_value = m_wBookView->GetAncestorTagAttributeValue("id", ANCHOR_TAGS);
-        }
+        attribute_value = m_wBookView->GetAncestorTagAttributeValue("id", ANCHOR_TAGS);
     }
 
     return attribute_value;

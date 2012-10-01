@@ -539,12 +539,11 @@ bool BookViewEditor::InsertTagAttribute(const QString &element_name, const QStri
 {
     QString selected_text = GetSelectedText();
     
-    if (selected_text.isEmpty()) {
-        // Apply this value to any existing allowed ancestor element tag if it exists
-        if ( SetAncestorTagAttributeValue(attribute_name, attribute_value, tag_list) ) {
-            return true;
-        }
+    // Apply this value to any existing allowed ancestor element tag if it exists
+    if ( SetAncestorTagAttributeValue(attribute_name, attribute_value, tag_list) ) {
+        return true;
     }
+
     // We need to insert a new tag element into the document - cannot insert an empty
     // element or else Qt will push it into a new block. So we will just insert the
     // attribute value as some placeholder text.
@@ -553,7 +552,16 @@ bool BookViewEditor::InsertTagAttribute(const QString &element_name, const QStri
     }
     // Just prepend and append the tag pairs to the text
     const QString html = "<" % element_name % " " % attribute_name % "=\"" % attribute_value % "\">" % selected_text % "</" % element_name %">";
-    return InsertHtml(html);
+
+    bool insert_ok = InsertHtml(html);
+
+    // We will have lost our selection from the insert - viewable text hasn't changed
+    for (int i = 0; i < selected_text.length(); i++ )
+    {
+        page()->triggerAction( QWebPage::SelectPreviousChar );
+    }
+
+    return insert_ok;
 }
 
 QString BookViewEditor::GetAncestorTagAttributeValue(const QString &attribute_name, const QStringList &tag_list)

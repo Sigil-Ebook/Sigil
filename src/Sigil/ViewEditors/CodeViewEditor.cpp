@@ -1432,15 +1432,29 @@ bool CodeViewEditor::InsertHyperlink(const QString &attribute_value)
 bool CodeViewEditor::InsertTagAttribute(const QString &element_name, const QString &attribute_name, const QString &attribute_value, const QStringList &tag_list)
 {
     bool inserted = false;
-    if (!textCursor().hasSelection()) {
-        // Add or update the attribute within the start tag
-       const QString &inserted_attribute = SetAttribute(attribute_name, tag_list, attribute_value, false, true);
 
-        // If nothing was inserted, then just insert a new tag with no text as long as we aren't in a tag
-        if (inserted_attribute.isNull() && !IsPositionInTag()) {
-            InsertHTMLTagAroundText(element_name, "/" % element_name, attribute_name % "=\"" % attribute_value % "\"", "" );
-            inserted = true;
-        }
+    int selection_length = 0;
+    if (textCursor().hasSelection()) {
+        selection_length = textCursor().selectedText().length();
+    }
+
+    // Add or update the attribute within the start tag and return if ok
+    if (!SetAttribute(attribute_name, tag_list, attribute_value, false, true).isEmpty()) {
+        // Restore the selection
+        int start_pos = textCursor().position();
+        QTextCursor cursor = textCursor();
+        cursor.clearSelection();
+        cursor.setPosition(start_pos);
+        cursor.setPosition(start_pos + selection_length, QTextCursor::KeepAnchor );
+        setTextCursor( cursor );
+
+        return true;
+    }
+
+    // If nothing was inserted, then just insert a new tag with no text as long as we aren't in a tag
+    if (!textCursor().hasSelection() && !IsPositionInTag()) {
+        InsertHTMLTagAroundText(element_name, "/" % element_name, attribute_name % "=\"" % attribute_value % "\"", "" );
+        inserted = true;
     }
     else if (TextIsSelectedAndNotInStartOrEndTag()) {
         // Just prepend and append the tag pairs to the text
