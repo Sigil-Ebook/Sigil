@@ -1422,7 +1422,6 @@ void MainWindow::GenerateToc()
         return;
     }
     SaveTabData();
-    m_Book->SaveAllResourcesToDisk();
 
     QList<Resource *> resources = m_BookBrowser->AllHTMLResources();
     if (resources.isEmpty()) {
@@ -1457,7 +1456,6 @@ void MainWindow::CreateHTMLTOC()
         return;
     }
     SaveTabData();
-    m_Book->SaveAllResourcesToDisk();
 
     QApplication::setOverrideCursor(Qt::WaitCursor);
 
