@@ -1239,10 +1239,8 @@ void MainWindow::MergeResources(QList <Resource *> resources)
 
     QApplication::setOverrideCursor(Qt::WaitCursor);
 
-    // Save the tab data then save it to disk, and recheck if data is still well formed
-    // Merging work based off of the data on disk.
+    // Save the tab data
     SaveTabData();
-    m_Book->SaveAllResourcesToDisk();
 
     // Close all tabs being updated to prevent BV overwriting the new data
     foreach (Resource *resource, resources) {

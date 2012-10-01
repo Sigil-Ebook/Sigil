@@ -243,19 +243,19 @@ public:
 
     /**
      * Returns whether or not a resource's data is well formed
-     * whether or not its open in a tab
+     * whether or not it is open in a tab
+     *
+     * @return true if well formed
+     */
+    bool IsDataWellFormed( HTMLResource& html_resource );
+
+    /**
+     * Returns whether or not a resource's data is well formed
+     * whether or not its open in a tab by looking at the disk.
      *
      * @return true if well formed
      */
     bool IsDataOnDiskWellFormed( HTMLResource& html_resource );
-
-    /**
-     * Returns whether or not a list of resources are well-formed
-     * whether or not the resources are open in a tab
-     *
-     * @return true if well formed
-     */
-    bool AreResourcesWellFormed( QList <Resource *> resources );
 
     /**
      * Checks for the presence of obfuscated fonts in the book.

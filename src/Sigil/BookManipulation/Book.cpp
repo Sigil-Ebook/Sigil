@@ -392,25 +392,19 @@ void Book::CreateNewSections( const QStringList &new_sections, HTMLResource &ori
 }
 
 
+bool Book::IsDataWellFormed( HTMLResource& html_resource )
+{
+    XhtmlDoc::WellFormedError error = XhtmlDoc::WellFormedErrorForSource( html_resource.GetText() );
+    return error.line == -1;
+}
+
+
 bool Book::IsDataOnDiskWellFormed( HTMLResource& html_resource )
 {
     XhtmlDoc::WellFormedError error = XhtmlDoc::WellFormedErrorForSource( Utility::ReadUnicodeTextFile( html_resource.GetFullPath() ) );
     return error.line == -1;
 }
 
-
-bool Book::AreResourcesWellFormed( QList<Resource *> resources )
-{
-    foreach( Resource *resource, resources )
-    {
-        HTMLResource &html_resource = *qobject_cast< HTMLResource *>( resource );
-        if ( !IsDataOnDiskWellFormed( html_resource ) )
-        {
-            return false;
-        }
-    }
-    return true;
-}
 
 Resource* Book::PreviousResource( Resource *resource )
 {
@@ -656,7 +650,7 @@ Resource* Book::MergeResources( QList<Resource *> resources )
     Resource *sink_resource = resources.takeFirst();
     HTMLResource &sink_html_resource = *qobject_cast<HTMLResource *>(sink_resource);
     
-    if ( !IsDataOnDiskWellFormed( sink_html_resource ) ) {
+    if ( !IsDataWellFormed( sink_html_resource ) ) {
         return sink_resource;
     }
 
@@ -682,7 +676,7 @@ Resource* Book::MergeResources( QList<Resource *> resources )
 
             xc::DOMDocumentFragment *body_children_fragment = NULL;
             HTMLResource &source_html_resource = *qobject_cast<HTMLResource *>(source_resource);
-            if ( !IsDataOnDiskWellFormed( source_html_resource ) ) {
+            if ( !IsDataWellFormed( source_html_resource ) ) {
                 failed_resource = source_resource;
                 break;
             }
