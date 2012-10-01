@@ -785,7 +785,7 @@ xc::DOMElement* OPFResource::GetGuideReferenceForResource( const Resource &resou
     foreach( xc::DOMElement* reference, references )
     {
         const QString &href = XtoQ( reference->getAttribute( QtoX( "href" ) ) );
-        QStringList parts = href.split('#', QString::SkipEmptyParts);
+        QStringList parts = href.split('#', QString::KeepEmptyParts);
 
         if ( parts.at(0) == resource_oebps_path )
         {

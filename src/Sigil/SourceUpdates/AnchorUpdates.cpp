@@ -132,7 +132,7 @@ void AnchorUpdates::UpdateAnchorsInOneFile( HTMLResource *html_resource,
              QUrl( XtoQ( element.getAttribute( QtoX( "href" ) ) ) ).isRelative() )
         {
             QString href = XtoQ( element.getAttribute( QtoX( "href" ) ) );
-            QStringList parts = href.split(QChar('#'), QString::SkipEmptyParts);
+            QStringList parts = href.split(QChar('#'), QString::KeepEmptyParts);
             if (parts.length() > 1) {
                 QString fragment_id = href.right(href.size() - (parts.at(0).length() + 1));
 
@@ -179,15 +179,16 @@ void AnchorUpdates::UpdateExternalAnchorsInOneFile( HTMLResource *html_resource,
         Q_ASSERT( &element );
 
         // We're only interested in hrefs of the form "originating_filename#fragment_id".
+        // But must be wary of hrefs that are "originating_filename", "originating_filename#" or "#fragment_id"
         // First, we find the hrefs that are relative and contain a fragment id.
         if ( element.hasAttribute( QtoX( "href" ) ) &&
             QUrl( XtoQ( element.getAttribute( QtoX( "href" ) ) ) ).isRelative() )
         {
             QString href = XtoQ( element.getAttribute( QtoX( "href" ) ) );
-            QStringList parts = href.split(QChar('#'), QString::SkipEmptyParts);
+            QStringList parts = href.split(QChar('#'), QString::KeepEmptyParts);
 
             // If the href pointed to the original file then update the file_id.
-            if ( parts.at(0) == original_filename_with_relative_path && parts.length() > 1 )
+            if ( parts.length() > 1 && parts.at(0) == original_filename_with_relative_path && !parts.at(1).isEmpty() )
             {
                 QString fragment_id = href.right(href.size() - (parts.at(0).length() + 1));
                 QString attribute_value = QString( "../" )
@@ -232,13 +233,13 @@ void AnchorUpdates::UpdateAllAnchorsInOneFile( HTMLResource *html_resource,
         if ( element.hasAttribute( QtoX( "href" ) ) &&
             QUrl( XtoQ( element.getAttribute( QtoX( "href" ) ) ) ).isRelative() )
         {
-            // Is this href in the form "originating_filename#fragment_id" or "originating_filename"?
+            // Is this href in the form "originating_filename#fragment_id" or "originating_filename" or "#fragment_id"?
             QString href = XtoQ( element.getAttribute( QtoX( "href" ) ) );
-            QStringList parts = href.split(QChar('#'), QString::SkipEmptyParts);
+            QStringList parts = href.split(QChar('#'), QString::KeepEmptyParts);
 
             // If the href pointed to the original file then update the file_id.
             if ( originating_filename_links.contains(parts.at(0)) ) {
-                if (parts.count() == 1) {
+                if (parts.count() == 1 || parts.at(1).isEmpty()) {
                     // This is a straight href with no anchor fragment
                     element.setAttribute( QtoX( "href" ), QtoX( new_filename ) );
                 }
@@ -290,10 +291,10 @@ void AnchorUpdates::UpdateTOCEntries(NCXResource *ncx_resource, const QString &o
             QUrl(XtoQ( element.getAttribute(QtoX("src")))).isRelative()) {
 
             QString src = XtoQ(element.getAttribute(QtoX("src")));
-            QStringList parts = src.split(QChar('#'), QString::SkipEmptyParts);
+            QStringList parts = src.split(QChar('#'), QString::KeepEmptyParts);
 
             // If the src pointed to the original file then update the file_id.
-            if (parts.count() > 1 && parts.at(0) == original_filename_with_relative_path) {
+            if (parts.count() > 1 && parts.at(0) == original_filename_with_relative_path && !parts.at(1).isEmpty()) {
                 QString fragment_id = src.right(src.size() - (parts.at(0).length() + 1));
                 QString attribute_value = QString("%1").arg(TEXT_FOLDER_NAME)
                                           .append("/")
