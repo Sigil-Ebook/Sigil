@@ -90,7 +90,7 @@ void HTMLResource::SetText(const QString &text)
 
 void HTMLResource::SaveToDisk(bool book_wide_save)
 {
-    SetText(CleanSource::PrettyPrint(GetText()));
+    SetText(GetText());
 
     XMLResource::SaveToDisk(book_wide_save);
 }
