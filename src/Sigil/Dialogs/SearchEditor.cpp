@@ -401,7 +401,7 @@ void SearchEditor::Import()
 
 void SearchEditor::ExportAll()
 {
-    QList<QStandardItem*> items = GetSelectedItems();
+    QList<QStandardItem*> items;
 
     QStandardItem *item = m_SearchEditorModel->invisibleRootItem();
     QModelIndex parent_index;

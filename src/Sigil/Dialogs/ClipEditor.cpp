@@ -337,7 +337,7 @@ void ClipEditor::Import()
 
 void ClipEditor::ExportAll()
 {
-    QList<QStandardItem*> items = GetSelectedItems();
+    QList<QStandardItem*> items;
 
     QStandardItem *item = m_ClipEditorModel->invisibleRootItem();
     QModelIndex parent_index;
