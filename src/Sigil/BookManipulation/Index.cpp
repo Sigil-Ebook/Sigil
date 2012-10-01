@@ -37,7 +37,7 @@
 
 using boost::shared_ptr;
 
-const QString SIGIL_INDEX_CLASS = "sigil_index_entry";
+const QString SIGIL_INDEX_CLASS = "sigil_index_marker";
 static const QString SIGIL_INDEX_ID_PREFIX = "sigil_index_id_";
 
 bool Index::BuildIndex(QList<HTMLResource*> html_resources)

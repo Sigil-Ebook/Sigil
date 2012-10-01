@@ -303,6 +303,8 @@ private slots:
 
     void InsertHyperlink();
 
+    void MarkForIndex();
+
     /**
      * Track the last active control that had focus in the MainWindow that
      * is a valid PasteTarget.

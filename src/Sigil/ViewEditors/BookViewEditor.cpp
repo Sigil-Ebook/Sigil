@@ -535,11 +535,29 @@ bool BookViewEditor::InsertHyperlink(const QString &href)
     return InsertTagAttribute(element_name, attribute_name, href, ANCHOR_TAGS);
 }
 
-bool BookViewEditor::InsertTagAttribute(const QString &element_name, const QString &attribute_name, const QString &attribute_value, const QStringList &tag_list)
+bool BookViewEditor::MarkForIndex(const QString &title)
+{
+    bool ok = true;
+
+    const QString &element_name = "a";
+
+    const QString &attribute_name = "class";
+    if (!InsertTagAttribute(element_name, attribute_name, SIGIL_INDEX_CLASS, ANCHOR_TAGS)) {
+        ok = false;
+    }
+
+    const QString &second_attribute_name = "title";
+    if (!InsertTagAttribute(element_name, second_attribute_name, title, ANCHOR_TAGS, true)) {
+        ok = false;
+    }
+
+    return ok;
+}
+
+bool BookViewEditor::InsertTagAttribute(const QString &element_name, const QString &attribute_name, const QString &attribute_value, const QStringList &tag_list, bool ignore_selection)
 {
     QString selected_text = GetSelectedText();
     
-    // Apply this value to any existing allowed ancestor element tag if it exists
     if ( SetAncestorTagAttributeValue(attribute_name, attribute_value, tag_list) ) {
         return true;
     }

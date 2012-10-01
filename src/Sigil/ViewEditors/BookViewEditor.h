@@ -174,6 +174,8 @@ public:
     bool InsertId(const QString &id);
     bool InsertHyperlink(const QString &href);
 
+    bool MarkForIndex(const QString &title);
+
     /**
       * From the current cursor position, search for a parent tag element named in the tag list.
       * When first if any matching tag found, return the value of the named attribute if exists.
@@ -325,7 +327,7 @@ private:
      */
     QString RemoveBookViewReplaceSpans( const QString &source );
 
-    bool InsertTagAttribute(const QString &element_name, const QString &attribute_name, const QString &attribute_value, const QStringList &tag_list);
+    bool InsertTagAttribute(const QString &element_name, const QString &attribute_name, const QString &attribute_value, const QStringList &tag_list, bool ignore_selection = false);
 
     bool SetAncestorTagAttributeValue(const QString &attribute_name, const QString &attribute_value, const QStringList &tag_list);
 

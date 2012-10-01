@@ -309,10 +309,11 @@ public slots:
     void HeadingStyle( const QString& heading_type, bool preserve_attributes );
 
     void AddToIndex();
-    void MarkForIndex();
+    bool MarkForIndex(const QString &title);
 
     QString GetAttributeId();
     QString GetAttributeHref();
+    QString GetAttributeIndexTitle();
 
     bool InsertId(const QString &id);
     bool InsertHyperlink(const QString &url);

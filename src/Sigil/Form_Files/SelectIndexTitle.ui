@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>SelectId</class>
- <widget class="QDialog" name="SelectId">
+ <class>SelectIndexTitle</class>
+ <widget class="QDialog" name="MarkForIndex">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
     <width>504</width>
-    <height>95</height>
+    <height>109</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Insert ID </string>
+   <string>Mark For Index</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -19,24 +19,15 @@
      <item>
       <widget class="QLabel" name="label">
        <property name="toolTip">
-        <string>Enter an ID name to use as a destination for hyperlinks, footnotes, and TOC entries.
-
-The dropdown box shows existing ID names in the current file.   ID names must be unique.</string>
+        <string>Enter a name to use in the Index for this entry.</string>
        </property>
        <property name="text">
-        <string>ID:</string>
+        <string>Name in Index:</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QComboBox" name="id">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-      </widget>
+      <widget class="QLineEdit" name="title"/>
      </item>
     </layout>
    </item>
@@ -70,7 +61,7 @@ The dropdown box shows existing ID names in the current file.   ID names must be
   <connection>
    <sender>buttonBox</sender>
    <signal>accepted()</signal>
-   <receiver>SelectId</receiver>
+   <receiver>MarkForIndex</receiver>
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -86,7 +77,7 @@ The dropdown box shows existing ID names in the current file.   ID names must be
   <connection>
    <sender>buttonBox</sender>
    <signal>rejected()</signal>
-   <receiver>SelectId</receiver>
+   <receiver>MarkForIndex</receiver>
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">

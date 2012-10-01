@@ -51,6 +51,7 @@ set( QOBJECT_HEADERS
     Dialogs/SelectCharacter.h
     Dialogs/SelectHyperlink.h
     Dialogs/SelectId.h
+    Dialogs/SelectIndexTitle.h
     Dialogs/SelectImages.h
     Dialogs/MetaEditor.h
     Dialogs/MetaEditorItemDelegate.h
@@ -193,6 +194,8 @@ set( DIALOG_FILES
     Dialogs/SelectHyperlink.h
     Dialogs/SelectId.cpp
     Dialogs/SelectId.h
+    Dialogs/SelectIndexTitle.cpp
+    Dialogs/SelectIndexTitle.h
     Dialogs/SelectImages.cpp
     Dialogs/SelectImages.h
     Dialogs/MetaEditor.cpp
@@ -425,6 +428,7 @@ set( UI_FILES
     Form_Files/SelectCharacter.ui
     Form_Files/SelectHyperlink.ui
     Form_Files/SelectId.ui
+    Form_Files/SelectIndexTitle.ui
     Form_Files/SelectImages.ui
     Form_Files/MetaEditor.ui 
     Form_Files/AddMetadata.ui 

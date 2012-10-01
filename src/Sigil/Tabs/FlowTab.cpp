@@ -251,7 +251,10 @@ bool FlowTab::AddToIndexEnabled()
 bool FlowTab::MarkForIndexEnabled()
 {
     if (m_ViewState == MainWindow::ViewState_CodeView) {
-        return m_wCodeView->IsMarkForIndexAllowed();
+        return true;
+    }
+    else if (m_ViewState == MainWindow::ViewState_BookView) {
+        return true;
     }
 
     return false;
@@ -672,11 +675,16 @@ void FlowTab::AddToIndex()
     }
 }
 
-void FlowTab::MarkForIndex()
+bool FlowTab::MarkForIndex(const QString &title)
 {
     if (m_ViewState == MainWindow::ViewState_CodeView) {
-        m_wCodeView->MarkForIndex();
+        return m_wCodeView->MarkForIndex(title);
     }
+    else if (m_ViewState == MainWindow::ViewState_BookView) {
+        return m_wBookView->MarkForIndex(title);
+    }
+
+    return false;
 }
 
 QString FlowTab::GetAttributeId()
@@ -705,6 +713,20 @@ QString FlowTab::GetAttributeHref()
 
     return attribute_value;
 }
+
+QString FlowTab::GetAttributeIndexTitle()
+{
+    QString attribute_value;
+    if (m_ViewState == MainWindow::ViewState_CodeView) {
+        attribute_value = m_wCodeView->GetAttribute("title", ANCHOR_TAGS, false, true);
+    }
+    else if (m_ViewState == MainWindow::ViewState_BookView) {
+        attribute_value = m_wBookView->GetAncestorTagAttributeValue("title", ANCHOR_TAGS);
+    }
+
+    return attribute_value;
+}
+
 
 bool FlowTab::InsertId(const QString &id)
 {

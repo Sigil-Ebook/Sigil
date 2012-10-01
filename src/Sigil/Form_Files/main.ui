@@ -1893,6 +1893,9 @@
    <property name="text">
     <string>&amp;Mark For Index</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+X</string>
+   </property>
    <property name="toolTip">
     <string>Mark the selected text for inclusion in the Index.</string>
    </property>

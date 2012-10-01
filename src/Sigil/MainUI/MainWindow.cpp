@@ -48,6 +48,7 @@
 #include "Dialogs/SelectImages.h"
 #include "Dialogs/SelectHyperlink.h"
 #include "Dialogs/SelectId.h"
+#include "Dialogs/SelectIndexTitle.h"
 #include "Dialogs/Reports.h"
 #include "Exporters/ExportEPUB.h"
 #include "Exporters/ExporterFactory.h"
@@ -1118,6 +1119,31 @@ void MainWindow::InsertHyperlink()
     if (select_hyperlink.exec() == QDialog::Accepted) {
         if (!flow_tab->InsertHyperlink(select_hyperlink.GetTarget())) {
             ShowMessageOnStatusBar( tr( "You cannot insert a hyperlink at this position." ) );
+        }
+    }
+}
+
+void MainWindow::MarkForIndex()
+{
+    m_TabManager.SaveTabData();
+   
+    // Get current id attribute value if any
+    ContentTab &tab = GetCurrentContentTab();
+    FlowTab *flow_tab = qobject_cast<FlowTab*>(&tab);
+
+    ShowMessageOnStatusBar();
+
+    if (!flow_tab || !flow_tab->MarkForIndexEnabled()) {
+        ShowMessageOnStatusBar( tr( "You cannot mark an index at this position or without selecting text." ) );
+        return;
+    }
+    QString title = flow_tab->GetAttributeIndexTitle();
+
+    SelectIndexTitle select_index_title(title, this);
+
+    if (select_index_title.exec() == QDialog::Accepted) {
+        if (!flow_tab->MarkForIndex(select_index_title.GetTitle())) {
+            ShowMessageOnStatusBar( tr( "You cannot mark an index at this position." ) );
         }
     }
 }
@@ -3213,6 +3239,7 @@ void MainWindow::ExtendUI()
     sm->registerAction(ui.actionInsertSpecialCharacter, "MainWindow.InsertSpecialCharacter");
     sm->registerAction(ui.actionInsertId, "MainWindow.InsertId");
     sm->registerAction(ui.actionInsertHyperlink, "MainWindow.InsertHyperlink");
+    sm->registerAction(ui.actionMarkForIndex, "MainWindow.MarkForIndex");
     sm->registerAction(ui.actionSplitSection, "MainWindow.SplitSection");
     sm->registerAction(ui.actionInsertSGFSectionMarker, "MainWindow.InsertSGFSectionMarker");
     sm->registerAction(ui.actionSplitOnSGFSectionMarkers, "MainWindow.SplitOnSGFSectionMarkers");
@@ -3624,6 +3651,7 @@ void MainWindow::ConnectSignalsToSlots()
     connect( ui.actionClipEditor,    SIGNAL( triggered() ), this, SLOT( ClipEditorDialog()         ) );
     connect( ui.actionSearchEditor,  SIGNAL( triggered() ), this, SLOT( SearchEditorDialog()       ) );
     connect( ui.actionIndexEditor,   SIGNAL( triggered() ), this, SLOT( IndexEditorDialog()        ) );
+    connect( ui.actionMarkForIndex,  SIGNAL( triggered() ), this, SLOT( MarkForIndex()             ) );
     connect( ui.actionCreateIndex,   SIGNAL( triggered() ), this, SLOT( CreateIndex()              ) );
     connect( ui.actionDeleteUnusedImages,    SIGNAL( triggered() ), this, SLOT( DeleteUnusedImages()                   ) );
     connect( ui.actionDeleteUnusedStyles,    SIGNAL( triggered() ), this, SLOT( DeleteUnusedStyles()                   ) );
@@ -3827,7 +3855,6 @@ void MainWindow::MakeTabConnections( ContentTab *tab )
         connect( ui.actionPrintPreview,             SIGNAL( triggered() ),  tab,   SLOT( PrintPreview()             ) );
         connect( ui.actionPrint,                    SIGNAL( triggered() ),  tab,   SLOT( Print()                    ) );
         connect( ui.actionAddToIndex,               SIGNAL( triggered() ),  tab,   SLOT( AddToIndex()               ) );
-        connect( ui.actionMarkForIndex,             SIGNAL( triggered() ),  tab,   SLOT( MarkForIndex()             ) );
 
         connect( ui.actionAddMisspelledWord,        SIGNAL( triggered() ),  tab,   SLOT( AddMisspelledWord()        ) );
         connect( ui.actionIgnoreMisspelledWord,     SIGNAL( triggered() ),  tab,   SLOT( IgnoreMisspelledWord()     ) );

@@ -115,8 +115,7 @@ public:
     void AddToIndex();
     bool IsAddToIndexAllowed();
 
-    void MarkForIndex();
-    bool IsMarkForIndexAllowed();
+    bool MarkForIndex(const QString &title);
 
     bool IsInsertImageAllowed();
 
@@ -124,7 +123,7 @@ public:
     bool InsertHyperlink(const QString &attribute_value);
     bool IsInsertIdAllowed();
     bool IsInsertHyperlinkAllowed();
-    bool InsertTagAttribute(const QString &element_name, const QString &attribute_name, const QString &attribute_value, const QStringList &tag_list);
+    bool InsertTagAttribute(const QString &element_name, const QString &attribute_name, const QString &attribute_value, const QStringList &tag_list, bool ignore_seletion = false);
 
     /**
     * Splits the section and returns the "upper" content.

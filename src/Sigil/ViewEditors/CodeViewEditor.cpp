@@ -1386,11 +1386,6 @@ bool CodeViewEditor::IsAddToIndexAllowed()
     return TextIsSelectedAndNotInStartOrEndTag();
 }
 
-bool CodeViewEditor::IsMarkForIndexAllowed()
-{
-    return TextIsSelectedAndNotInStartOrEndTag();
-}
-
 bool CodeViewEditor::IsInsertIdAllowed()
 {
     int pos = textCursor().selectionStart();
@@ -1429,7 +1424,7 @@ bool CodeViewEditor::InsertHyperlink(const QString &attribute_value)
     return InsertTagAttribute(element_name, attribute_name, attribute_value, ANCHOR_TAGS);
 }
 
-bool CodeViewEditor::InsertTagAttribute(const QString &element_name, const QString &attribute_name, const QString &attribute_value, const QStringList &tag_list)
+bool CodeViewEditor::InsertTagAttribute(const QString &element_name, const QString &attribute_name, const QString &attribute_value, const QStringList &tag_list, bool ignore_selection)
 {
     bool inserted = false;
 
@@ -1466,15 +1461,25 @@ bool CodeViewEditor::InsertTagAttribute(const QString &element_name, const QStri
     return inserted;
 }
 
-void CodeViewEditor::MarkForIndex()
+bool CodeViewEditor::MarkForIndex(const QString &title)
 {
-    if (!TextIsSelectedAndNotInStartOrEndTag()) {
-        return;
-    }
+    bool ok = true;
 
     QString selected_text = textCursor().selectedText();
 
-    InsertHTMLTagAroundSelection("span", "/span", "class=\"" % SIGIL_INDEX_CLASS % "\" title=\"" % selected_text % "\"");
+    const QString &element_name = "a";
+
+    const QString &attribute_name = "class";
+    if (!InsertTagAttribute(element_name, attribute_name, SIGIL_INDEX_CLASS, ANCHOR_TAGS)) {
+        ok = false;
+    }
+
+    const QString &second_attribute_name = "title";
+    if (!InsertTagAttribute(element_name, second_attribute_name, title, ANCHOR_TAGS, true)) {
+        ok = false;
+    }
+
+    return ok;
 }
 
 // Overridden so we can emit the FocusGained() signal.
