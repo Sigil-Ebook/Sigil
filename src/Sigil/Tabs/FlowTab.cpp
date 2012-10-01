@@ -81,7 +81,7 @@ FlowTab::FlowTab(HTMLResource& resource,
     m_BookPreviewNeedReload(false),
     m_grabFocus(grab_focus),
     m_suspendTabReloading(false),
-    m_defaultCaretLocationToTop( false)
+    m_defaultCaretLocationToTop(false)
 {
     // Loading a flow tab can take a while. We set the wait
     // cursor and clear it at the end of the delayed initialization.
@@ -553,18 +553,21 @@ bool FlowTab::IsDataWellFormed()
         return true;
     }
 
-    XhtmlDoc::WellFormedError error = XhtmlDoc::WellFormedErrorForSource(m_wCodeView->toPlainText());
-    bool well_formed = error.line == -1;
+    bool well_formed = m_safeToLoad;
+    if (!m_safeToLoad) {
+        XhtmlDoc::WellFormedError error = XhtmlDoc::WellFormedErrorForSource(m_wCodeView->toPlainText());
+        well_formed = error.line == -1;
 
-    if (!well_formed) {
-        m_safeToLoad = false;
-        if (m_ViewState != MainWindow::ViewState_CodeView) {
-            CodeView();
+        if (!well_formed) {
+            m_safeToLoad = false;
+            if (m_ViewState != MainWindow::ViewState_CodeView) {
+                CodeView();
+            }
+            m_WellFormedCheckComponent.DemandAttentionIfAllowed(error);
         }
-        m_WellFormedCheckComponent.DemandAttentionIfAllowed(error);
-    }
-    else {
-        m_safeToLoad = true;
+        else {
+            m_safeToLoad = true;
+        }
     }
 
     return well_formed;
@@ -908,7 +911,12 @@ void FlowTab::SaveTabContent()
     }
 
     m_HTMLResource.GetTextDocumentForWriting().setModified(false);
-    m_safeToLoad = true;
+    // Just because we have saved the tab content doesn't mean that it is valid
+    // unless it was BookView, because it might not be well formed and the save
+    // could have been just triggered by losing focus/switching tabs
+    if (m_ViewState == MainWindow::ViewState_BookView) {
+        m_safeToLoad = true;
+    }
 }
 
 void FlowTab::LoadTabContent()
