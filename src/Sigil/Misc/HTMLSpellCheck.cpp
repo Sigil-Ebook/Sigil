@@ -148,10 +148,19 @@ QList< HTMLSpellCheck::MisspelledWord > HTMLSpellCheck::GetMisspelledWords( cons
     return misspellings;
 }
 
-
 bool HTMLSpellCheck::IsBoundary( QChar prev_c, QChar c, QChar next_c )
 {
-    return !c.isLetter() && !((c == '-' || c == QChar(0x2012) || c == '\'' || c == QChar(0x2019)) && (prev_c.isLetter() || next_c.isLetter()));
+    if (c.isLetter()) {
+        return false;
+    }
+    // Single quotes of ' and curly version and hyphen/emdash are sometimes a boundary
+    // and sometimes not, depending on whether they are surrounded by letters or not.
+    // A sentence which 'has some text' should treat the ' as a boundary but didn't should not.
+    bool is_potential_boundary = (c == '-' || c == QChar(0x2012) || c == '\'' || c == QChar(0x2019));
+    if (is_potential_boundary && (!prev_c.isLetter() || !next_c.isLetter())) {
+        return true;
+    }
+    return !(is_potential_boundary && (prev_c.isLetter() || next_c.isLetter()));
 }
 
 
