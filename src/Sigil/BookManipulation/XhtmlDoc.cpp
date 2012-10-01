@@ -77,7 +77,7 @@ const int XML_DECLARATION_SEARCH_PREFIX_SIZE = 150;
 static const int XML_CUSTOM_ENTITY_SEARCH_PREFIX_SIZE = 500;
 static const QString ENTITY_SEARCH = "<!ENTITY\\s+(\\w+)\\s+\"([^\"]+)\">";
 
-const QString BREAK_TAG_SEARCH  = "(<div>\\s*)?<hr\\s*class\\s*=\\s*\"[^\"]*sigil_split_marker[^\"]*\"\\s*/>(\\s*</div>)?";
+const QString BREAK_TAG_SEARCH  = "(<div>\\s*)?<hr\\s*class\\s*=\\s*\"[^\"]*(sigil_split_marker|sigilChapterBreak)[^\"]*\"\\s*/>(\\s*</div>)?";
 
 namespace FlightCrew
 {
