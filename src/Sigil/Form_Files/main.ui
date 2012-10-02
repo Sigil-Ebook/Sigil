@@ -1455,7 +1455,7 @@
      <normaloff>:/main/document-validate_22px.png</normaloff>:/main/document-validate_22px.png</iconset>
    </property>
    <property name="text">
-    <string>&amp;Validate EPUB with FlightCrew</string>
+    <string>&amp;Validate EPUB With FlightCrew</string>
    </property>
    <property name="toolTip">
     <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Validate EPUB with FlightCrew&lt;/b&gt;&lt;/p&gt;
@@ -1468,7 +1468,7 @@
   </action>
   <action name="actionValidateStylesheetsWithW3C">
    <property name="text">
-    <string>Validate Stylesheets with &amp;W3C</string>
+    <string>Validate Stylesheets With &amp;W3C</string>
    </property>
    <property name="toolTip">
     <string>

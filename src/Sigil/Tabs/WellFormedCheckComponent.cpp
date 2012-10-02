@@ -43,7 +43,7 @@ WellFormedCheckComponent::WellFormedCheckComponent( WellFormedContent &content )
     m_Message = tr( 
         "<p>The operation you requested cannot be performed "
         "because <b>%1</b> is not a well-formed XML document.</p>"
-        "<p>An error was found <b>above line %2: %3.</b></p>"
+        "<p>An error was found <b>at or above line %2: %3.</b></p>"
         "<p>The <i>Fix Manually</i> option will let you fix the problem by hand.</p>");
     m_AutoFixMessage = tr(
         "<p>The <i>Fix Automatically</i> option will instruct Sigil to try to "
