@@ -47,6 +47,7 @@ FindReplace::FindReplace( MainWindow &main_window )
       m_RegexOptionAutoTokenise( false ),
       m_SpellCheck(false),
       m_LookWhereCurrentFile(false),
+      m_ReplaceStaysPut(false),
       m_LastFindText(QString()),
       m_IsSearchGroupRunning(false)
 {
@@ -165,43 +166,45 @@ void FindReplace::ShowMessage( const QString &message )
     emit ShowMessageRequest(new_message);
 }
 
-void FindReplace::SetLookWhereFromModifier()
+void FindReplace::SetKeyModifiers()
 {
     // Only use with mouse click not menu/shortcuts to avoid modifying actions
     m_LookWhereCurrentFile = QApplication::keyboardModifiers() & Qt::ControlModifier;
+    m_ReplaceStaysPut = QApplication::keyboardModifiers() & Qt::ShiftModifier;
 }
 
-void FindReplace::ResetLookWhereFromModifier()
+void FindReplace::ResetKeyModifiers()
 {
     m_LookWhereCurrentFile = false;
+    m_ReplaceStaysPut = false;
 }
 
 void FindReplace::FindClicked()
 {
-    SetLookWhereFromModifier();
+    SetKeyModifiers();
     Find();
-    ResetLookWhereFromModifier();
+    ResetKeyModifiers();
 }
 
 void FindReplace::ReplaceClicked()
 {
-    SetLookWhereFromModifier();
+    SetKeyModifiers();
     Replace();
-    ResetLookWhereFromModifier();
+    ResetKeyModifiers();
 }
 
 void FindReplace::ReplaceAllClicked()
 {
-    SetLookWhereFromModifier();
+    SetKeyModifiers();
     ReplaceAll();
-    ResetLookWhereFromModifier();
+    ResetKeyModifiers();
 }
 
 void FindReplace::CountClicked()
 {
-    SetLookWhereFromModifier();
+    SetKeyModifiers();
     Count();
-    ResetLookWhereFromModifier();
+    ResetKeyModifiers();
 }
 
 bool FindReplace::Find()
@@ -296,6 +299,7 @@ bool FindReplace::Replace()
     return found;
 }
 
+
 bool FindReplace::ReplaceNext()
 {
     return ReplaceText( Searchable::Direction_Down );
@@ -305,6 +309,26 @@ bool FindReplace::ReplaceNext()
 bool FindReplace::ReplacePrevious()
 {
     return ReplaceText( Searchable::Direction_Up );
+}
+
+
+bool FindReplace::ReplaceStayNext()
+{
+    m_ReplaceStaysPut = true;
+    bool found = ReplaceText( Searchable::Direction_Down );
+    m_ReplaceStaysPut = false;
+
+    return found;
+}
+
+
+bool FindReplace::ReplaceStayPrevious()
+{
+    m_ReplaceStaysPut = true;
+    bool found = ReplaceText( Searchable::Direction_Up );
+    m_ReplaceStaysPut = false;
+
+    return found;
 }
 
 
@@ -471,27 +495,32 @@ bool FindReplace::ReplaceText( Searchable::Direction direction )
 
     Searchable *searchable = GetAvailableSearchable();
 
+    if (!searchable) {
+        return found;
+    }
+
     // We only want to potentially replace selected text if the user has not 
     // changed the find expression from the last time they did a Find/Replace.
-    if (m_LastFindText == ui.cbFind->lineEdit()->text()) {
-        if ( searchable ) {
-            // If we have the matching text selected, replace it
-            // This will not do anything if matching text is not selected.
-            found = searchable->ReplaceSelected( GetSearchRegex(), ui.cbReplace->lineEdit()->text(), direction );
-        }
+    if (!found && m_LastFindText == ui.cbFind->lineEdit()->text()) {
+        // If we have the matching text selected, replace it
+        // This will not do anything if matching text is not selected.
+        found = searchable->ReplaceSelected( GetSearchRegex(), ui.cbReplace->lineEdit()->text(), direction );
     }
     RememberLastFindText();
 
-    if ( direction == Searchable::Direction_Up)
-    {
-        if (FindPrevious()) {
-            found = true;
-        };
-    }
-    else
-    {
-        if (FindNext()) {
-            found = true;
+    // If we are not going to stay put after a potential replace or we didn't find
+    // a match with the current selection, then move forward to find a match.
+    // This allows text to be seen before and after doing a ReplaceStaysPut.
+    if (!m_ReplaceStaysPut || !found) {
+        if (direction == Searchable::Direction_Up) {
+            if (FindPrevious()) {
+                found = true;
+            };
+        }
+        else {
+            if (FindNext()) {
+                found = true;
+            }
         }
     }
 
@@ -1161,7 +1190,7 @@ void FindReplace::FindSearch(QList<SearchEditorModel::searchEntry *> search_entr
         return;
     }
 
-    SetLookWhereFromModifier();
+    SetKeyModifiers();
 
     m_IsSearchGroupRunning = true;
     foreach (SearchEditorModel::searchEntry* search_entry, search_entries) {
@@ -1172,7 +1201,7 @@ void FindReplace::FindSearch(QList<SearchEditorModel::searchEntry *> search_entr
     }
     m_IsSearchGroupRunning = false;
 
-    ResetLookWhereFromModifier();
+    ResetKeyModifiers();
 }
 
 void FindReplace::ReplaceSearch(QList<SearchEditorModel::searchEntry *> search_entries)
@@ -1182,7 +1211,7 @@ void FindReplace::ReplaceSearch(QList<SearchEditorModel::searchEntry *> search_e
         return;
     }
 
-    SetLookWhereFromModifier();
+    SetKeyModifiers();
 
     m_IsSearchGroupRunning = true;
     foreach (SearchEditorModel::searchEntry* search_entry, search_entries) {
@@ -1193,7 +1222,7 @@ void FindReplace::ReplaceSearch(QList<SearchEditorModel::searchEntry *> search_e
     }
     m_IsSearchGroupRunning = false;
 
-    ResetLookWhereFromModifier();
+    ResetKeyModifiers();
 }
 
 void FindReplace::CountAllSearch(QList<SearchEditorModel::searchEntry *> search_entries)
@@ -1203,7 +1232,7 @@ void FindReplace::CountAllSearch(QList<SearchEditorModel::searchEntry *> search_
         return;
     }
 
-    SetLookWhereFromModifier();
+    SetKeyModifiers();
 
     m_IsSearchGroupRunning = true;
     int count = 0;
@@ -1221,7 +1250,7 @@ void FindReplace::CountAllSearch(QList<SearchEditorModel::searchEntry *> search_
         ShowMessage(message.arg(count));
     }
 
-    ResetLookWhereFromModifier();
+    ResetKeyModifiers();
 }
 
 void FindReplace::ReplaceAllSearch(QList<SearchEditorModel::searchEntry *> search_entries)
@@ -1231,7 +1260,7 @@ void FindReplace::ReplaceAllSearch(QList<SearchEditorModel::searchEntry *> searc
         return;
     }
 
-    SetLookWhereFromModifier();
+    SetKeyModifiers();
 
     m_IsSearchGroupRunning = true;
     int count = 0;
@@ -1249,7 +1278,7 @@ void FindReplace::ReplaceAllSearch(QList<SearchEditorModel::searchEntry *> searc
         ShowMessage(message.arg(count));
     }
 
-    ResetLookWhereFromModifier();
+    ResetKeyModifiers();
 }
 
 void FindReplace::TokeniseSelection()

@@ -1935,6 +1935,8 @@ void MainWindow::SetStateActionsBookView()
     ui.actionFindPrevious->setEnabled(true);
     ui.actionReplaceNext->setEnabled(false);
     ui.actionReplacePrevious->setEnabled(false);
+    ui.actionReplaceStayNext->setEnabled(false);
+    ui.actionReplaceStayPrevious->setEnabled(false);
     ui.actionReplaceAll->setEnabled(false);
     ui.actionCount->setEnabled(false);
     ui.actionGoToLine->setEnabled(false);
@@ -2019,6 +2021,8 @@ void MainWindow::SetStateActionsSplitView()
     ui.actionFindPrevious->setEnabled(true);
     ui.actionReplaceNext->setEnabled(false);
     ui.actionReplacePrevious->setEnabled(false);
+    ui.actionReplaceStayNext->setEnabled(false);
+    ui.actionReplaceStayPrevious->setEnabled(false);
     ui.actionReplaceAll->setEnabled(false);
     ui.actionCount->setEnabled(false);
     ui.actionGoToLine->setEnabled(false);
@@ -2103,6 +2107,8 @@ void MainWindow::SetStateActionsCodeView()
     ui.actionFindPrevious->setEnabled(true);
     ui.actionReplaceNext->setEnabled(true);
     ui.actionReplacePrevious->setEnabled(true);
+    ui.actionReplaceStayNext->setEnabled(true);
+    ui.actionReplaceStayPrevious->setEnabled(true);
     ui.actionReplaceAll->setEnabled(true);
     ui.actionCount->setEnabled(true);
     ui.actionGoToLine->setEnabled(true);
@@ -2208,6 +2214,8 @@ void MainWindow::SetStateActionsRawView()
     ui.actionFindPrevious->setEnabled(true);
     ui.actionReplaceNext->setEnabled(true);
     ui.actionReplacePrevious->setEnabled(true);
+    ui.actionReplaceStayNext->setEnabled(true);
+    ui.actionReplaceStayPrevious->setEnabled(true);
     ui.actionReplaceAll->setEnabled(true);
     ui.actionCount->setEnabled(true);
     ui.actionGoToLine->setEnabled(true);
@@ -2292,6 +2300,8 @@ void MainWindow::SetStateActionsStaticView()
     ui.actionFindPrevious->setEnabled(false);
     ui.actionReplaceNext->setEnabled(false);
     ui.actionReplacePrevious->setEnabled(false);
+    ui.actionReplaceStayNext->setEnabled(false);
+    ui.actionReplaceStayPrevious->setEnabled(false);
     ui.actionReplaceAll->setEnabled(false);
     ui.actionCount->setEnabled(false);
     ui.actionGoToLine->setEnabled(false);
@@ -3263,6 +3273,8 @@ void MainWindow::ExtendUI()
     sm->registerAction(ui.actionFind, "MainWindow.Find");
     sm->registerAction(ui.actionFindNext, "MainWindow.FindNext");
     sm->registerAction(ui.actionFindPrevious, "MainWindow.FindPrevious");
+    sm->registerAction(ui.actionReplaceStayNext, "MainWindow.ReplaceStayNext");
+    sm->registerAction(ui.actionReplaceStayPrevious, "MainWindow.ReplaceStayPrevious");
     sm->registerAction(ui.actionReplaceNext, "MainWindow.ReplaceNext");
     sm->registerAction(ui.actionReplacePrevious, "MainWindow.ReplacePrevious");
     sm->registerAction(ui.actionReplaceAll, "MainWindow.ReplaceAll");
@@ -3634,6 +3646,8 @@ void MainWindow::ConnectSignalsToSlots()
     connect( ui.actionFindPrevious,  SIGNAL( triggered() ), m_FindReplace, SLOT( FindPrevious()    ) );
     connect( ui.actionReplaceNext,   SIGNAL( triggered() ), m_FindReplace, SLOT( ReplaceNext()     ) );
     connect( ui.actionReplacePrevious,SIGNAL(triggered() ), m_FindReplace, SLOT( ReplacePrevious() ) );
+    connect( ui.actionReplaceStayNext,   SIGNAL( triggered() ), m_FindReplace, SLOT( ReplaceStayNext()     ) );
+    connect( ui.actionReplaceStayPrevious,SIGNAL(triggered() ), m_FindReplace, SLOT( ReplaceStayPrevious() ) );
     connect( ui.actionReplaceAll,    SIGNAL( triggered() ), m_FindReplace, SLOT( ReplaceAll()      ) );
     connect( ui.actionCount,         SIGNAL( triggered() ), m_FindReplace, SLOT( Count()           ) );
     connect( ui.actionGoToLine,      SIGNAL( triggered() ), this, SLOT( GoToLine()                 ) );

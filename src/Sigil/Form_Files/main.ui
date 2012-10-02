@@ -213,8 +213,11 @@
     <addaction name="actionFindNext"/>
     <addaction name="actionFindPrevious"/>
     <addaction name="separator"/>
+    <addaction name="actionReplaceStayNext"/>
+    <addaction name="actionReplaceStayPrevious"/>
     <addaction name="actionReplaceNext"/>
     <addaction name="actionReplacePrevious"/>
+    <addaction name="separator"/>
     <addaction name="actionReplaceAll"/>
     <addaction name="separator"/>
     <addaction name="actionCount"/>
@@ -1188,7 +1191,7 @@
      <normaloff>:/main/edit-find_22px.png</normaloff>:/main/edit-find_22px.png</iconset>
    </property>
    <property name="text">
-    <string>&amp;Find / Replace...</string>
+    <string>&amp;Find &amp;&amp; Replace...</string>
    </property>
    <property name="toolTip">
     <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Find &amp;amp; Replace&lt;/b&gt;&lt;/p&gt;
@@ -1602,7 +1605,7 @@
   </action>
   <action name="actionReplaceNext">
    <property name="text">
-    <string>&amp;Replace Next</string>
+    <string>&amp;Replace/Find Next</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+]</string>
@@ -1610,10 +1613,26 @@
   </action>
   <action name="actionReplacePrevious">
    <property name="text">
-    <string>Replace Pre&amp;vious</string>
+    <string>Replace/Find Pre&amp;vious</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+[</string>
+   </property>
+  </action>
+  <action name="actionReplaceStayNext">
+   <property name="text">
+    <string>F&amp;ind/Replace Next</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+}</string>
+   </property>
+  </action>
+  <action name="actionReplaceStayPrevious">
+   <property name="text">
+    <string>Find/R&amp;eplace Previous</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+{</string>
    </property>
   </action>
   <action name="actionReplaceAll">

@@ -144,8 +144,10 @@ private slots:
     // replacement text if a match is selected. If it's not,
     // calls FindNext() so it becomes selected.
     bool ReplaceNext();
-
     bool ReplacePrevious();
+
+    bool ReplaceStayNext();
+    bool ReplaceStayPrevious();
 
     // Replaces the user's search term with the user's
     // replacement text in the entire document. Shows a
@@ -188,9 +190,9 @@ private:
 
     bool IsCurrentFileInHTMLSelection();
 
-    void SetLookWhereFromModifier();
+    void SetKeyModifiers();
 
-    void ResetLookWhereFromModifier();
+    void ResetKeyModifiers();
 
     int CountInFiles();
 
@@ -291,6 +293,7 @@ private:
     bool m_SpellCheck;
 
     bool m_LookWhereCurrentFile;
+    bool m_ReplaceStaysPut;
     
     QString m_LastFindText;
 
