@@ -60,11 +60,13 @@ FindReplace::FindReplace( MainWindow &main_window )
     ui.cbReplace->setLineEdit(replace_ledit);
 
     QCompleter *fqc = ui.cbFind->completer();
-    fqc->setCaseSensitivity(Qt::CaseSensitive);
+    fqc->setCaseSensitivity(Qt::CaseInsensitive);
+    fqc->setCompletionMode(QCompleter::PopupCompletion);
     ui.cbFind->setCompleter(fqc);
 
     QCompleter *rqc = ui.cbReplace->completer();
-    rqc->setCaseSensitivity(Qt::CaseSensitive);
+    rqc->setCaseSensitivity(Qt::CaseInsensitive);
+    rqc->setCompletionMode(QCompleter::PopupCompletion);
     ui.cbReplace->setCompleter(rqc);
 
     ExtendUI();
