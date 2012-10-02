@@ -30,6 +30,7 @@
 #include <QtCore/QUrl>
 #include <QtCore/QVariant>
 #include "BookManipulation/Metadata.h"
+#include "ResourceObjects/Resource.h"
 
 class CSSResource;
 class SVGResource;
@@ -276,7 +277,7 @@ public slots:
      */
     void SetModified( bool modified = true );
 
-    void ResourceUpdatedFromDiskStatus(Resource &resource);
+    void ResourceUpdatedFromDisk(Resource &resource);
 
 signals:
 
@@ -287,7 +288,7 @@ signals:
      */
     void ModifiedStateChanged( bool new_state );
 
-    void ShowStatusMessageRequest(const QString &message, int duration);
+    void ResourceUpdatedFromDiskRequest(Resource &resource);
 
 private:
 

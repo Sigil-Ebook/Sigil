@@ -36,7 +36,7 @@ Resource::ResourceType ImageResource::Type() const
     return Resource::ImageResourceType;
 }
 
-bool ImageResource::LoadFromDisk()
+bool ImageResource::LoadFromDisk(bool load_raw)
 {
     emit ResourceUpdatedOnDisk();
 

@@ -163,8 +163,6 @@ public:
      * Sets the current state to CodeView or SplitView CodeView
      * depending on whether view was split view already
      */
-    void AnyCodeView();
-
     bool CloseAllTabs();
 
     void SaveTabData();
@@ -174,6 +172,7 @@ public:
     ClipEditorModel* GetClipEditorModel();
 
 public slots:
+    void AnyCodeView();
 
     void OpenFilename( QString filename, int line = -1 );
 
@@ -541,6 +540,8 @@ private slots:
     void LinkStylesheetsToResources(QList <Resource *> resources);
 
     void InsertImages(QStringList selected_images);
+
+    void ResourceUpdatedFromDisk(Resource &resource);
 
     /**
      * Return a map of stylesheets included/excluded for all given resources

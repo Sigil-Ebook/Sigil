@@ -460,11 +460,8 @@ void FolderKeeper::WatchResourceFile( const Resource& resource, bool file_rename
 
         // when the file is changed externally, mark the owning Book as modified
         // parent() is the Book object
-        connect( &resource,  SIGNAL( ResourceUpdatedFromDisk() ),
-                 parent(),   SLOT( SetModified() ), Qt::UniqueConnection );
-
-        connect (&resource,  SIGNAL( ResourceUpdatedFromDiskStatus(Resource&) ),
-                 parent(),   SLOT( ResourceUpdatedFromDiskStatus(Resource&)), Qt::UniqueConnection);
+        connect( &resource,  SIGNAL( ResourceUpdatedFromDisk(Resource&) ),
+                 parent(),   SLOT( ResourceUpdatedFromDisk(Resource&) ), Qt::UniqueConnection );
     }
 }
 

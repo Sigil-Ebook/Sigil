@@ -755,19 +755,10 @@ bool Book::HasObfuscatedFonts() const
     return false;
 }
 
-void Book::ResourceUpdatedFromDiskStatus(Resource &resource)
+void Book::ResourceUpdatedFromDisk(Resource &resource)
 {
-    QString message = QString(tr("File")) + " " + resource.Filename() + " " + tr("was updated by another application") + ".";
-    int duration = 10000;
-    if ( resource.Type() == Resource::HTMLResourceType ) {
-        HTMLResource &html_resource = *qobject_cast< HTMLResource *>( &resource );
-        if (!IsDataOnDiskWellFormed( html_resource )) {
-            message = QString(tr("Warning")) + ": " + message + " " + tr("The file was NOT well-formed and may be corrupted.");
-            duration = 20000;
-        }
-    }
-
-    emit ShowStatusMessageRequest(message, duration);
+    SetModified(true);
+    emit ResourceUpdatedFromDiskRequest(resource);
 }
 
 void Book::SetModified( bool modified )

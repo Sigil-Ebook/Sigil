@@ -319,6 +319,21 @@ void MainWindow::OpenResource( Resource& resource,
     }
 }
 
+void MainWindow::ResourceUpdatedFromDisk(Resource &resource)
+{
+    QString message = QString(tr("File")) + " " + resource.Filename() + " " + tr("was updated") + ".";
+    int duration = 10000;
+    if ( resource.Type() == Resource::HTMLResourceType ) {
+        HTMLResource &html_resource = *qobject_cast< HTMLResource *>( &resource );
+        if (!m_Book->IsDataOnDiskWellFormed( html_resource )) {
+            AnyCodeView();
+            message = QString(tr("Warning")) + ": " + message + " " + tr("The file was NOT well-formed and may be corrupted.");
+            duration = 20000;
+        }
+    }
+
+    ShowMessageOnStatusBar(message, duration);
+}
 
 void MainWindow::ShowMessageOnStatusBar( const QString &message,
                                          int millisecond_duration )
@@ -510,7 +525,8 @@ bool MainWindow::SaveAs()
                                                      tr( "Save File" ),
                                                      save_path,
                                                      filter_string,
-                                                     &default_filter
+                                                     &default_filter,
+                                                     QFileDialog::DontUseNativeDialog
                                                    );
 
     if ( filename.isEmpty() )
@@ -2628,7 +2644,7 @@ void MainWindow::SetNewBook( QSharedPointer< Book > new_book )
     ResetLinkOrStyleBookmark();
 
     connect( m_Book.data(),     SIGNAL( ModifiedStateChanged( bool ) ), this, SLOT( setWindowModified( bool ) ) );
-    connect( m_Book.data(),     SIGNAL( ShowStatusMessageRequest(const QString&, int) ), this, SLOT( ShowMessageOnStatusBar(const QString&, int) ) );
+    connect( m_Book.data(),     SIGNAL( ResourceUpdatedFromDiskRequest(Resource &) ), this, SLOT( ResourceUpdatedFromDisk (Resource&) ) );
     connect( m_BookBrowser,     SIGNAL( ShowStatusMessageRequest(const QString&, int) ), this, SLOT( ShowMessageOnStatusBar(const QString&, int) ) );
     connect( m_BookBrowser,     SIGNAL( GuideSemanticTypeAdded( const HTMLResource&, GuideSemantics::GuideSemanticType ) ),
              &m_Book->GetOPF(), SLOT(   AddGuideSemanticType(   const HTMLResource&, GuideSemantics::GuideSemanticType ) ) );

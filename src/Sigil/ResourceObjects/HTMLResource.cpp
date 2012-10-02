@@ -58,12 +58,12 @@ Resource::ResourceType HTMLResource::Type() const
     return Resource::HTMLResourceType;
 }
 
-bool HTMLResource::LoadFromDisk()
+bool HTMLResource::LoadFromDisk(bool load_raw)
 {
     try {
         const QString &text = Utility::ReadUnicodeTextFile(GetFullPath());
 
-        SetText(text);
+        SetText(text, load_raw);
 
         emit LoadedFromDisk();
 
@@ -77,10 +77,15 @@ bool HTMLResource::LoadFromDisk()
     return false;
 }
 
-void HTMLResource::SetText(const QString &text)
+void HTMLResource::SetText(const QString &text, bool load_raw)
 {
     emit TextChanging();
-    XMLResource::SetText(CleanSource::Clean(text));
+    if (load_raw) {
+        XMLResource::SetText(text);
+    }
+    else {
+        XMLResource::SetText(CleanSource::Clean(text));
+    }
 
     // Track resources whose change will necessitate an update of the BV and PV.
     // At present this only applies to css files and images.

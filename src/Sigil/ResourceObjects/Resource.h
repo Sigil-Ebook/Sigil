@@ -205,9 +205,7 @@ signals:
      * Emitted after a resource was refreshed from a newer version on disk.
      * Caused by book files being modified from outside Sigil.
      */
-    void ResourceUpdatedFromDisk();
-
-    void ResourceUpdatedFromDiskStatus(Resource& resource);
+    void ResourceUpdatedFromDisk(Resource& resource);
 
     /**
      * Emitted when the resource has been modified. This 
@@ -226,7 +224,7 @@ protected:
     /**
      * Update the internal resource data from the disk file.
      */
-    virtual bool LoadFromDisk();
+    virtual bool LoadFromDisk(bool load_raw = false);
 
 private slots:
     /**

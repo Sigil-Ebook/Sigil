@@ -44,7 +44,7 @@ public:
     // inherited
     virtual ResourceType Type() const;
 
-    virtual bool LoadFromDisk();
+    virtual bool LoadFromDisk(bool load_raw = false);
 };
 
 #endif // IMAGERESOURCE_H

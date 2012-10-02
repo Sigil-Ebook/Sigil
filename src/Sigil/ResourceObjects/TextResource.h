@@ -86,7 +86,7 @@ public:
     virtual ResourceType Type() const;
 
 protected:
-    virtual bool LoadFromDisk();
+    virtual bool LoadFromDisk(bool load_raw = false);
 
 private slots:
 

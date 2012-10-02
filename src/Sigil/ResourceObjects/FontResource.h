@@ -50,7 +50,7 @@ public:
 
     void SetObfuscationAlgorithm( const QString &algorithm );
 
-    virtual bool LoadFromDisk();
+    virtual bool LoadFromDisk(bool load_raw = false);
 
 private:
 

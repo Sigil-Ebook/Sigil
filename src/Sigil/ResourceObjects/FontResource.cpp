@@ -46,7 +46,7 @@ void FontResource::SetObfuscationAlgorithm( const QString &algorithm )
     m_ObfuscationAlgorithm = algorithm;
 }
 
-bool FontResource::LoadFromDisk()
+bool FontResource::LoadFromDisk(bool load_raw)
 {
     emit Modified();
 
