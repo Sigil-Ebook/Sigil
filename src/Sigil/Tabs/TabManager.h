@@ -77,8 +77,6 @@ public:
      */
     bool IsAllTabDataWellFormed();
 
-    void ReloadTabData();
-
     void ReloadTabDataForResources( const QList<Resource*> &resources );
 
     /**

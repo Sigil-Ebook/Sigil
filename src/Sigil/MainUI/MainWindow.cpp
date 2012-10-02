@@ -1455,7 +1455,8 @@ void MainWindow::GenerateToc()
     BookNormalization::Normalize(m_Book);
 
     m_Book->GetNCX().GenerateNCXFromBookContents(*m_Book);
-    m_TabManager.ReloadTabData();
+    // Reload the current tab to see visual impact if user changed heading level(s)
+    ResourcesAddedOrDeleted();
 
     QApplication::restoreOverrideCursor();
 

@@ -162,16 +162,6 @@ bool TabManager::IsAllTabDataWellFormed()
     return true;
 }
 
-void TabManager::ReloadTabData()
-{
-    for (int i = count() - 1; i >= 0; --i) {
-        FlowTab *flow_tab = qobject_cast<FlowTab *>(widget(i));
-        if (flow_tab) {
-            flow_tab->LoadTabContent();
-        }
-    }
-}
-
 void TabManager::ReloadTabDataForResources( const QList<Resource*> &resources )
 {
     foreach (Resource *resource, resources) {
