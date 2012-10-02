@@ -326,7 +326,7 @@ void MainWindow::ResourceUpdatedFromDisk(Resource &resource)
     if ( resource.Type() == Resource::HTMLResourceType ) {
         HTMLResource &html_resource = *qobject_cast< HTMLResource *>( &resource );
         if (!m_Book->IsDataOnDiskWellFormed( html_resource )) {
-            AnyCodeView();
+            OpenResource(resource, false, QUrl(), MainWindow::ViewState_CodeView);
             message = QString(tr("Warning")) + ": " + message + " " + tr("The file was NOT well-formed and may be corrupted.");
             duration = 20000;
         }
