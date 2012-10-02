@@ -2750,6 +2750,14 @@ void MainWindow::LoadFile( const QString &fullfilepath )
             tr( "The creator of this file has encrypted it with DRM. "
                 "Sigil cannot open such files." ) );
     }
+    catch ( const EPUBLoadParseError &epub_load_error )
+    {
+        QApplication::restoreOverrideCursor();
+
+        const QString errors = QString::fromStdString(*boost::get_error_info<errinfo_epub_load_parse_errors>(epub_load_error));
+        Utility::DisplayStdErrorDialog(
+            tr("Cannot load EPUB: %1").arg(fullfilepath), errors );
+    }
     catch ( const ExceptionBase &exception )
     {
         QApplication::restoreOverrideCursor();

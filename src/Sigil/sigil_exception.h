@@ -131,5 +131,11 @@ typedef boost::error_info< struct key, std::string > errinfo_font_obfuscation_ke
  */
 struct ErrorBuildingDOM : virtual ExceptionBase {};
 
+/**
+ * Thrown for Invalid EPUB errors while loading and parsing content files.
+ */
+struct EPUBLoadParseError : virtual ExceptionBase {};
+typedef boost::error_info< struct parse_errors, std::string > errinfo_epub_load_parse_errors;
+
 #endif // SG_EXCEPTION_H
 

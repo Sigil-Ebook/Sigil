@@ -35,9 +35,10 @@ class UniversalUpdates
 
 public:
 
-    static void PerformUniversalUpdates( bool resources_already_loaded,
-                                         const QList< Resource* > &resources,
-                                         const QHash< QString, QString > &updates );
+    // Returns a list of errors if any that occurred while loading.
+    static QStringList PerformUniversalUpdates( bool resources_already_loaded,
+                                                const QList< Resource* > &resources,
+                                                const QHash< QString, QString > &updates );
 
     static tuple< QHash< QString, QString >, 
                   QHash< QString, QString >,
@@ -49,22 +50,22 @@ public:
 
 private:
 
-    static void UpdateOneHTMLFile( HTMLResource* html_resource, 
-                                   const QHash< QString, QString > &html_updates,
-                                   const QHash< QString, QString > &css_updates );
+    static QString UpdateOneHTMLFile( HTMLResource* html_resource, 
+                                      const QHash< QString, QString > &html_updates,
+                                      const QHash< QString, QString > &css_updates );
 
     static void UpdateOneCSSFile( CSSResource* css_resource, 
                                   const QHash< QString, QString > &css_updates );
 
-    static void LoadAndUpdateOneHTMLFile( HTMLResource* html_resource, 
-                                          const QHash< QString, QString > &html_updates,
-                                          const QHash< QString, QString > &css_updates );
+    static QString LoadAndUpdateOneHTMLFile( HTMLResource* html_resource, 
+                                             const QHash< QString, QString > &html_updates,
+                                             const QHash< QString, QString > &css_updates );
 
-    static void UpdateOPFFile( OPFResource* opf_resource,
-                               const QHash< QString, QString > &xml_updates );
+    static QString UpdateOPFFile( OPFResource* opf_resource,
+                                  const QHash< QString, QString > &xml_updates );
 
-    static void UpdateNCXFile( NCXResource* ncx_resource,
-                               const QHash< QString, QString > &xml_updates );
+    static QString UpdateNCXFile( NCXResource* ncx_resource,
+                                  const QHash< QString, QString > &xml_updates );
 };
 
 #endif // UNIVERSALUPDATES_H
