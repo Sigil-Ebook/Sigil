@@ -181,16 +181,18 @@ void ImportOEBPS::LocateOPF()
 
     if ( container.hasError() )
     {
-        boost_throw( ErrorParsingContentXml() 
-                     << errinfo_XML_parsing_error_string(  container.errorString().toStdString() )
-                     << errinfo_XML_parsing_line_number(   container.lineNumber() )
-                     << errinfo_XML_parsing_column_number( container.columnNumber() )
-                   );
+        const QString error = QString(
+            QObject::tr("Unable to parse container.xml file.\nLine: %1 Column %2 - %3"))
+                    .arg(container.lineNumber())
+                    .arg(container.columnNumber())
+                    .arg(container.errorString());
+        boost_throw( EPUBLoadParseError() << errinfo_epub_load_parse_errors( error.toStdString() ) );
     }
 
     if ( m_OPFFilePath.isEmpty() )
     {
-        boost_throw( NoAppropriateOPFFileFound() );    
+        boost_throw( EPUBLoadParseError() 
+            << errinfo_epub_load_parse_errors( QString(QObject::tr("No appropriate OPF file found")).toStdString() ) );
     }
 }
 
@@ -230,11 +232,11 @@ void ImportOEBPS::ReadOPF()
 
     if ( opf_reader.hasError() )
     {
-        boost_throw( ErrorParsingOpf() 
-                     << errinfo_XML_parsing_error_string( opf_reader.errorString().toStdString() )
-                     << errinfo_XML_parsing_line_number( opf_reader.lineNumber() )
-                     << errinfo_XML_parsing_column_number( opf_reader.columnNumber() )
-                   );
+        const QString error = QString(QObject::tr("Unable to read OPF file.\nLine: %1 Column %2 - %3"))
+                                    .arg(opf_reader.lineNumber())
+                                    .arg(opf_reader.columnNumber())
+                                    .arg(opf_reader.errorString());
+        boost_throw( EPUBLoadParseError() << errinfo_epub_load_parse_errors( error.toStdString() ) );
     }
 }
 
@@ -384,11 +386,11 @@ QString ImportOEBPS::GetNCXId()
 
     if ( opf_reader.hasError() )
     {
-        boost_throw( ErrorParsingOpf()
-                     << errinfo_XML_parsing_error_string( opf_reader.errorString().toStdString() )
-                     << errinfo_XML_parsing_line_number( opf_reader.lineNumber() )
-                     << errinfo_XML_parsing_column_number( opf_reader.columnNumber() )
-                     );
+        const QString error = QString(QObject::tr("Unable to parse OPF file.\nLine: %1 Column %2 - %3"))
+                                    .arg(opf_reader.lineNumber())
+                                    .arg(opf_reader.columnNumber())
+                                    .arg(opf_reader.errorString());
+        boost_throw( EPUBLoadParseError() << errinfo_epub_load_parse_errors( error.toStdString() ) );
     }
 
     return ncx_id;

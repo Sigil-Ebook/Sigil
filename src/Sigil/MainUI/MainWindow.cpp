@@ -2714,7 +2714,7 @@ void MainWindow::LoadFile( const QString &fullfilepath )
             // Warn the user their content is invalid.
             QMessageBox::warning( this, tr( "Sigil" ),
                                     tr( "The following file was not loaded due to invalid content or not well formed XML:\n\n%1" )
-                                    .arg( fullfilepath ) );
+                                    .arg( QDir::toNativeSeparators(fullfilepath) ) );
             // Fallback to displaying a new book
             CreateNewBook();
             return;
@@ -2756,13 +2756,15 @@ void MainWindow::LoadFile( const QString &fullfilepath )
 
         const QString errors = QString::fromStdString(*boost::get_error_info<errinfo_epub_load_parse_errors>(epub_load_error));
         Utility::DisplayStdErrorDialog(
-            tr("Cannot load EPUB: %1").arg(fullfilepath), errors );
+            tr("Cannot load EPUB: %1").arg(QDir::toNativeSeparators(fullfilepath)), errors );
     }
     catch ( const ExceptionBase &exception )
     {
         QApplication::restoreOverrideCursor();
 
-        Utility::DisplayExceptionErrorDialog( tr("Cannot load file %1: %2").arg(fullfilepath).arg(Utility::GetExceptionInfo( exception ) ));
+        Utility::DisplayExceptionErrorDialog( tr("Cannot load file %1: %2")
+            .arg(QDir::toNativeSeparators(fullfilepath))
+            .arg(Utility::GetExceptionInfo( exception ) ));
     }
     // If we got to here some sort of error occurred while loading the file
     // and potentially has left the GUI in a nasty state (like on initial startup)
