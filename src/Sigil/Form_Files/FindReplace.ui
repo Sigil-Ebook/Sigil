@@ -209,7 +209,11 @@
            </sizepolicy>
           </property>
           <property name="toolTip">
-           <string>Replace highlighted match then find next match in Code View.</string>
+           <string>Replace/Find Next - Replace highlighted match, then find next match in Code View.
+
+You can also use Search->Replace Next to Replace the highlighted
+match and stay at the end of the match.  Hold the Shift key down while
+clicking the Replace button for the same effect.</string>
           </property>
           <property name="styleSheet">
            <string notr="true"/>
