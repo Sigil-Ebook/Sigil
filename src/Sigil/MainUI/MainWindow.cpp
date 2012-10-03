@@ -525,8 +525,7 @@ bool MainWindow::SaveAs()
                                                      tr( "Save File" ),
                                                      save_path,
                                                      filter_string,
-                                                     &default_filter,
-                                                     QFileDialog::DontUseNativeDialog
+                                                     &default_filter
                                                    );
 
     if ( filename.isEmpty() )
