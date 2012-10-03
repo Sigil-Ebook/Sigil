@@ -525,7 +525,12 @@ bool MainWindow::SaveAs()
                                                      tr( "Save File" ),
                                                      save_path,
                                                      filter_string,
+#ifdef Q_WS_X11
+                                                     &default_filter,
+                                                     QFileDialog::DontUseNativeDialog
+#else
                                                      &default_filter
+#endif
                                                    );
 
     if ( filename.isEmpty() )
@@ -556,7 +561,12 @@ bool MainWindow::SaveACopy()
                                                      tr( "Save a Copy" ),
                                                      m_SaveACopyFilename,
                                                      filter_string,
+#ifdef Q_WS_X11
+                                                     &default_filter,
+                                                     QFileDialog::DontUseNativeDialog
+#else
                                                      &default_filter
+#endif
                                                    );
 
     if (filename.isEmpty()) {
