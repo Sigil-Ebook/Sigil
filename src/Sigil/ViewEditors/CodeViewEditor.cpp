@@ -754,51 +754,54 @@ bool CodeViewEditor::ReplaceSelected( const QString &search_regex, const QString
     int selection_end = textCursor().selectionEnd();
     int selection_position = textCursor().position();
 
-    // If we are just replacing the current selection then we need to do a Find first
-    // in order to load the position information - we can't just use the selection as
-    // that won't work for look ahead or look behind which use text outside the selection.
-    if (replace_current) {
-        // Move the cursor in preparation for a Find
-        QTextCursor cursor = textCursor();
-        if ( direction == Searchable::Direction_Up ) {
+    // Move the cursor in preparation for a Find so its 'in front of' the selection
+    QTextCursor cursor = textCursor();
+    if ( direction == Searchable::Direction_Up ) {
+        cursor.setPosition(selection_end);
+    }
+    else {
+        cursor.setPosition(selection_start);
+    }
+    setTextCursor(cursor);
+
+    // We don't know if the user manually selected the text or got there with Find, so
+    // we must run a Find again to load the match offsets.  We cannot just use the selection
+    // since look ahead and look behind use text in the document that is before and after
+    // the selection.  Conveniently Find already takes this into account.
+    // Specifically helps with manual selections, Replace Current and changing tabs for next match.
+    FindNext(search_regex, direction);
+
+    // Check if the match matches our selection
+    int new_selection_start = textCursor().selectionStart();
+    int new_selection_end = textCursor().selectionEnd();
+
+    if (new_selection_start >= selection_start && new_selection_end <= selection_end) {
+        // If we found a match within the selection then adjust selection to the match
+        // so that if the user manually selects text they don't have to be too accurate
+        // and so that we only replace the matched text.
+        selection_start = new_selection_start;
+        selection_end = new_selection_end;
+    }
+    else if (replace_current) {
+        // If we are only doing Replace Current and don't want to move forward, then
+        // since there was no match inside the selection, reset cursor/selection to avoid 
+        // moving forward and return as there's no point in checking the match again.
+        m_lastMatch.offset.first = -1;
+
+        cursor = textCursor();
+        if (selection_position != selection_start) {
             cursor.setPosition(selection_end);
+            cursor.setPosition(selection_start);
+            cursor.setPosition(selection_end, QTextCursor::KeepAnchor);
         }
         else {
             cursor.setPosition(selection_start);
+            cursor.setPosition(selection_end);
+            cursor.setPosition(selection_start, QTextCursor::KeepAnchor);
         }
         setTextCursor(cursor);
 
-        FindNext(search_regex, direction);
-
-        int new_selection_start = textCursor().selectionStart();
-        int new_selection_end = textCursor().selectionEnd();
-
-        if (new_selection_start >= selection_start && new_selection_end <= selection_end) {
-            // If we found a match within the selection then readjust selection to the match
-            // so that if the user manually selects text they don't have to be too accurate
-            selection_start = new_selection_start;
-            selection_end = new_selection_end;
-        }
-        else {
-            // If there was no match inside the selection, reset cursor/selection to avoid 
-            // moving forward and return as there's no point in checking the match again
-            m_lastMatch.offset.first = -1;
-
-            cursor = textCursor();
-            if (selection_position != selection_start) {
-                cursor.setPosition(selection_end);
-                cursor.setPosition(selection_start);
-                cursor.setPosition(selection_end, QTextCursor::KeepAnchor);
-            }
-            else {
-                cursor.setPosition(selection_start);
-                cursor.setPosition(selection_end);
-                cursor.setPosition(selection_start, QTextCursor::KeepAnchor);
-            }
-            setTextCursor(cursor);
-
-            return false;
-        }
+        return false;
     }
 
     // Convert to plain text or \s won't get newlines
@@ -806,30 +809,6 @@ bool CodeViewEditor::ReplaceSelected( const QString &search_regex, const QString
     QString selected_text = Utility::Substring(selection_start, selection_end, document_text );
 
     SPCRE::MatchInfo match_info;
-
-    // Check if current selection is a match as well to handle highlighted text that is a
-    // match, new files when replacing in all HTML, and misspelled words
-    // Cannot just check selection since look aheads/behinds depend on text outside of the selection and used by Find
-    if ( !( m_lastMatch.offset.first == selection_start && m_lastMatch.offset.second == selection_start + selected_text.length() ) )
-    {
-        match_info = spcre->getFirstMatchInfo( selected_text );
-        if ( match_info.offset.first != -1 )
-        {
-            m_lastMatch = match_info;
-            m_lastMatch.offset.first = selection_start + match_info.offset.first;
-            m_lastMatch.offset.second = selection_start + match_info.offset.second;
-            selected_text = selected_text.mid( match_info.offset.first, match_info.offset.second - match_info.offset.first );
-
-            // Adjust the text selection to match the actual size of the match
-            // Change the selection to reflect the actual match in case it was just part of 
-            // which can happen if the user manually selects the text
-            QTextCursor cursor = textCursor();
-            selection_start = m_lastMatch.offset.first;
-            cursor.setPosition(selection_start);
-            cursor.setPosition(selection_start + selected_text.length(), QTextCursor::KeepAnchor );
-            setTextCursor(cursor);
-        }
-    }
 
     // Check if the currently selected text is a match.
     if ( m_lastMatch.offset.first == selection_start && m_lastMatch.offset.second == selection_start + selected_text.length() )
@@ -883,7 +862,6 @@ bool CodeViewEditor::ReplaceSelected( const QString &search_regex, const QString
 
     return false;
 }
-
 
 
 int CodeViewEditor::ReplaceAll( const QString &search_regex, 
