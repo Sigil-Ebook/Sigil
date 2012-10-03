@@ -745,7 +745,6 @@ int CodeViewEditor::Count( const QString &search_regex )
 }
 
 
-#include <QtDebug>
 bool CodeViewEditor::ReplaceSelected( const QString &search_regex, const QString &replacement, Searchable::Direction direction, bool replace_current )
 {
     SPCRE *spcre = PCRECache::instance()->getObject( search_regex );
@@ -769,33 +768,32 @@ bool CodeViewEditor::ReplaceSelected( const QString &search_regex, const QString
     // since look ahead and look behind use text in the document that is before and after
     // the selection.  Conveniently Find already takes this into account.
     // Specifically helps with manual selections, Replace Current and changing tabs for next match.
-    FindNext(search_regex, direction, false, false, false);
+    bool found = FindNext(search_regex, direction, false, false, false);
 
     // Check if the match matches our selection
     int new_selection_start = textCursor().selectionStart();
     int new_selection_end = textCursor().selectionEnd();
 
-    if (new_selection_start >= selection_start && new_selection_end <= selection_end) {
+    if (found && new_selection_start >= selection_start && new_selection_end <= selection_end) {
         // If we found a match within the selection then adjust selection to the match
         // so that if the user manually selects text they don't have to be too accurate
         // and so that we only replace the matched text.
         selection_start = new_selection_start;
         selection_end = new_selection_end;
     }
-    else if (replace_current) {
-        // If we are only doing Replace Current and don't want to move forward, then
+    else if (!found || replace_current) {
+        // If nothing found or we are only doing Replace Current and don't want to move forward, then
         // since there was no match inside the selection, reset cursor/selection to avoid 
         // moving forward and return as there's no point in checking the match again.
         m_lastMatch.offset.first = -1;
 
         cursor = textCursor();
+        cursor.clearSelection();
         if (selection_position != selection_start) {
-            cursor.setPosition(selection_end);
             cursor.setPosition(selection_start);
             cursor.setPosition(selection_end, QTextCursor::KeepAnchor);
         }
         else {
-            cursor.setPosition(selection_start);
             cursor.setPosition(selection_end);
             cursor.setPosition(selection_start, QTextCursor::KeepAnchor);
         }
@@ -821,6 +819,7 @@ bool CodeViewEditor::ReplaceSelected( const QString &search_regex, const QString
         if ( replacement_made )
         {
             QTextCursor cursor = textCursor();
+            int start = cursor.position();
 
             // Replace the selected text with our replacement text.
             cursor.beginEditBlock();
@@ -830,19 +829,20 @@ bool CodeViewEditor::ReplaceSelected( const QString &search_regex, const QString
             cursor.endEditBlock();
 
             // Select the new text
-            if ( direction == Searchable::Direction_Up )
-            {
-                // Set the cursor to the beginning of the replaced text if going up
-                if (replace_current) {
-                    cursor.setPosition(selection_start, QTextCursor::KeepAnchor);
-                }
+            if (replace_current) {
+                if ( direction == Searchable::Direction_Up ) {
+                    cursor.setPosition(start + replaced_text.length());
+                    cursor.setPosition(start, QTextCursor::KeepAnchor );
+                }  
                 else {
-                    cursor.setPosition( selection_start );
+                    cursor.setPosition(selection_start);
+                    cursor.setPosition(selection_start + replaced_text.length(), QTextCursor::KeepAnchor );
                 }
             }
-            else if (replace_current) {
-                cursor.setPosition(selection_start);
-                cursor.setPosition(selection_start + replaced_text.length(), QTextCursor::KeepAnchor );
+            else if ( direction == Searchable::Direction_Up )
+            {
+                    // Find for next match done after will set selection
+                    cursor.setPosition( selection_start );
             }
 
             setTextCursor( cursor );

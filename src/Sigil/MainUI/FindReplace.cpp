@@ -314,8 +314,17 @@ bool FindReplace::ReplacePrevious()
 
 bool FindReplace::ReplaceCurrent()
 {
+    bool found = false;
+
     m_ReplaceCurrent = true;
-    bool found = ReplaceText( Searchable::Direction_Down );
+
+    if (GetSearchDirection() == FindReplace::SearchDirection_Up) {
+        found = ReplaceText(Searchable::Direction_Up);
+    }
+    else {
+        found = ReplaceText(Searchable::Direction_Down);
+    }
+
     m_ReplaceCurrent = false;
 
     return found;
