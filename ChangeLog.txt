@@ -1,4 +1,7 @@
 Sigil 0.6.0 TBA 
+    - Implement issue 1636: Add shift-click Replace for Replace Current - replace but not find next match.
+    - Implement issue 1638: Improve performance of Generate TOC.
+    - Implement issue 1637: Provide more friendly handling of bad EPUBs by not crashing after showing warning.
     - Implement issue 1629: Localization of title in contentx.opf semantics.
     - Implement issue 1622: Allow Font Obfuscation to work for multiple font files.
     - Implement issue 1620: Well-formed check option should be removed and replaced with more appropriate automatic checking.
@@ -108,6 +111,8 @@ Sigil 0.6.0 TBA
     - Implement issue 1378: Update Hunspell to 1.3.2.
     - Implement issue 1379: Update Boost to Boost 1.49.0.
     - Implement issue 1283: Spell check should have an ignore option.
+    - Fix issue 1635:  Replace can replace too much text if manual selection includes extra text.
+    - Fix issue 1639: Ensure Spellcheck treats single quotes as word boundary appropriately.
     - Fix issue 1624: Do not close Sigil if an invalid HTML file was added.
     - Fix issue 1623: Do not leave Sigil in an invalid state if an invalid book was opened.
     - Fix issue 1605: Sigil cannot read epubs missing mimetypes as first file since container.xml might not be found.
