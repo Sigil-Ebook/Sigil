@@ -91,6 +91,14 @@ void KeyboardShortcutsWidget::showEvent(QShowEvent *event)
 
 void KeyboardShortcutsWidget::treeWidgetItemChangedSlot(QTreeWidgetItem *current, QTreeWidgetItem *previous)
 {
+    if (!current) {
+        ui.targetEdit->setText("");
+        ui.assignButton->setEnabled( false );
+        ui.removeButton->setEnabled( false );
+        ui.infoLabel->setText("");
+        return;
+    }
+
     const QString shortcut_text = current->text(COL_SHORTCUT);
     ui.targetEdit->setText( shortcut_text );
     ui.assignButton->setEnabled( false );
