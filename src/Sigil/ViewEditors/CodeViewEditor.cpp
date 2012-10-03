@@ -781,8 +781,8 @@ bool CodeViewEditor::ReplaceSelected( const QString &search_regex, const QString
         selection_start = new_selection_start;
         selection_end = new_selection_end;
     }
-    else if (!found || replace_current) {
-        // If nothing found or we are only doing Replace Current and don't want to move forward, then
+    else {
+        // If nothing found or found but at a new position we don't want to move forward
         // since there was no match inside the selection, reset cursor/selection to avoid 
         // moving forward and return as there's no point in checking the match again.
         m_lastMatch.offset.first = -1;
