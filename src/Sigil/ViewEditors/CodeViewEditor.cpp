@@ -1553,8 +1553,6 @@ void CodeViewEditor::focusOutEvent( QFocusEvent *event )
 
 void CodeViewEditor::TextChangedFilter()
 {
-    m_lastMatch = SPCRE::MatchInfo();
-
     if ( m_isUndoAvailable )
 
         emit FilteredTextChanged();
