@@ -1008,7 +1008,7 @@ void MainWindow::DeleteUnusedStyles()
         DeleteReportsStyles(css_selectors_to_delete);
     }
     else {
-        ShowMessageOnStatusBar(tr("There are no unused styles to delete."));
+        ShowMessageOnStatusBar(tr("There are no unused class styles to delete."));
     }
 }
 
