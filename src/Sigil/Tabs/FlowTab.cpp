@@ -1073,6 +1073,7 @@ void FlowTab::DelayedInitialization()
     }
 
     m_wBookView->Zoom();
+    m_wBookPreview->Zoom();
     m_wCodeView->Zoom();
 
     m_safeToLoad = true;
