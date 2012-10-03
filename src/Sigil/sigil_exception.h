@@ -62,18 +62,6 @@ typedef boost::error_info< struct line_number, qint64 > errinfo_XML_parsing_line
 typedef boost::error_info< struct column_number, qint64 > errinfo_XML_parsing_column_number;
 
 /**
- * Thrown for content.xml parsing errors.
- */
-struct ErrorParsingContentXml : virtual ErrorParsingXml {};
-struct ErrorParsingOpf : virtual ErrorParsingXml {};
-struct ErrorParsingEncryptionXml : virtual ErrorParsingXml {};
-
-/**
- * Thrown when an OPF file cannot be found.
- */
-struct NoAppropriateOPFFileFound : virtual ExceptionBase {};
-
-/**
  * Wrapper for CZipExceptions.
  */
 struct CZipExceptionWrapper : virtual ExceptionBase {};
@@ -91,11 +79,6 @@ typedef boost::error_info< struct file_fullpath, std::string > errinfo_file_full
  */
 struct CannotOpenFile : virtual ExceptionBase {};
 typedef boost::error_info< struct file_errorstring, std::string > errinfo_file_errorstring;
-
-/**
- * Thrown when a file cannot be opened.
- */
-struct CannotExtractFile : virtual ExceptionBase {};
 
 /**
  * Thrown when a file cannot be put into an archive.

@@ -76,7 +76,7 @@ void ImportOEBPS::ExtractContainer()
 #endif
 
     if (zfile == NULL) {
-        boost_throw(CannotOpenFile() << errinfo_file_fullpath(m_FullFilePath.toStdString()));
+        boost_throw(EPUBLoadParseError() << errinfo_epub_load_parse_errors( QString(QObject::tr("Cannot open EPUB: %1")).arg(QDir::toNativeSeparators(m_FullFilePath)).toStdString() ) );
     }
 
     res = unzGoToFirstFile(zfile);
@@ -108,7 +108,7 @@ void ImportOEBPS::ExtractContainer()
                 // Open the file entry in the archive for reading.
                 if (unzOpenCurrentFile(zfile) != UNZ_OK) {
                     unzClose(zfile);
-                    boost_throw(CannotExtractFile() << errinfo_file_fullpath(qfile_name.toStdString()));
+                    boost_throw(EPUBLoadParseError() << errinfo_epub_load_parse_errors( QString(QObject::tr("Cannot extract file: %1")).arg(qfile_name).toStdString() ) );
                 }
 
                 // Open the file on disk to write the entry in the archive to.
@@ -116,7 +116,7 @@ void ImportOEBPS::ExtractContainer()
                 if (!entry.open(QIODevice::WriteOnly|QIODevice::Truncate)) {
                     unzCloseCurrentFile(zfile);
                     unzClose(zfile);
-                    boost_throw(CannotExtractFile() << errinfo_file_fullpath(qfile_name.toStdString()));
+                    boost_throw(EPUBLoadParseError() << errinfo_epub_load_parse_errors( QString(QObject::tr("Cannot extract file: %1")).arg(qfile_name).toStdString() ) );
                 }
 
                 // Buffered reading and writing.
@@ -130,7 +130,7 @@ void ImportOEBPS::ExtractContainer()
                 if (read < 0) {
                     unzCloseCurrentFile(zfile);
                     unzClose(zfile);
-                    boost_throw(CannotExtractFile() << errinfo_file_fullpath(qfile_name.toStdString()));
+                    boost_throw(EPUBLoadParseError() << errinfo_epub_load_parse_errors( QString(QObject::tr("Cannot extract file: %1")).arg(qfile_name).toStdString() ) );
                 }
 
                 // The file was read but the CRC did not match.
@@ -138,7 +138,7 @@ void ImportOEBPS::ExtractContainer()
                 // because if they're different there should be a CRC error.
                 if (unzCloseCurrentFile(zfile) == UNZ_CRCERROR) {
                     unzClose(zfile);
-                    boost_throw(CannotExtractFile() << errinfo_file_fullpath(qfile_name.toStdString()));
+                    boost_throw(EPUBLoadParseError() << errinfo_epub_load_parse_errors( QString(QObject::tr("Cannot extract file: %1")).arg(qfile_name).toStdString() ) );
                 }
             }
         } while ((res = unzGoToNextFile(zfile)) == UNZ_OK);
@@ -146,7 +146,7 @@ void ImportOEBPS::ExtractContainer()
 
     if (res != UNZ_END_OF_LIST_OF_FILE) {
         unzClose(zfile);
-        boost_throw(CannotReadFile() << errinfo_file_fullpath(m_FullFilePath.toStdString()));
+        boost_throw(EPUBLoadParseError() << errinfo_epub_load_parse_errors( QString(QObject::tr("Cannot open EPUB: %1")).arg(QDir::toNativeSeparators(m_FullFilePath)).toStdString() ) );
     }
 
     unzClose(zfile);

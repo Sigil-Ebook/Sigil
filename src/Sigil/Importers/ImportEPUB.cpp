@@ -51,9 +51,9 @@ ImportEPUB::ImportEPUB( const QString &fullfilepath )
 // and returns the created Book
 QSharedPointer< Book > ImportEPUB::GetBook()
 {
-    if ( !Utility::IsFileReadable( m_FullFilePath ) )
-
-        boost_throw( CannotReadFile() << errinfo_file_fullpath( m_FullFilePath.toStdString() ) );
+    if ( !Utility::IsFileReadable( m_FullFilePath ) ) {
+        boost_throw(EPUBLoadParseError() << errinfo_epub_load_parse_errors( QString(QObject::tr("Cannot read EPUB: %1")).arg(QDir::toNativeSeparators(m_FullFilePath)).toStdString() ) );
+    }
 
     // These read the EPUB file
     ExtractContainer();
@@ -153,11 +153,11 @@ QHash< QString, QString > ImportEPUB::ParseEncryptionXml()
 
     if ( encryption.hasError() )
     {
-        boost_throw( ErrorParsingEncryptionXml() 
-                     << errinfo_XML_parsing_error_string( encryption.errorString().toStdString() )
-                     << errinfo_XML_parsing_line_number( encryption.lineNumber() )
-                     << errinfo_XML_parsing_column_number( encryption.columnNumber() )
-                   );
+        const QString error = QString(QObject::tr("Error parsing encryption xml.\nLine: %1 Column %2 - %3"))
+                                .arg(encryption.lineNumber())
+                                .arg(encryption.columnNumber())
+                                .arg(encryption.errorString());
+        boost_throw( EPUBLoadParseError() << errinfo_epub_load_parse_errors( error.toStdString() ) );
     }
 
     return encrypted_files;
