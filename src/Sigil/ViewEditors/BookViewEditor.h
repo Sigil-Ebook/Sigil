@@ -114,9 +114,9 @@ public:
         return BookViewPreview::Count(search_regex);
     }
 
-    bool ReplaceSelected(const QString &search_regex, const QString &replacement, Searchable::Direction direction=Searchable::Direction_Down )
+    bool ReplaceSelected(const QString &search_regex, const QString &replacement, Searchable::Direction direction=Searchable::Direction_Down, bool keep_selection = false )
     {
-        return BookViewPreview::ReplaceSelected(search_regex, replacement, direction);
+        return BookViewPreview::ReplaceSelected(search_regex, replacement, direction, keep_selection);
     }
 
     int ReplaceAll(const QString &search_regex, const QString &replacement)

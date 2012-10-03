@@ -283,7 +283,7 @@ int BookViewPreview::Count(const QString &search_regex )
     return spcre->getEveryMatchInfo( GetSearchTools().fulltext ).count();
 }
 
-bool BookViewPreview::ReplaceSelected(const QString &search_regex, const QString &replacement, Searchable::Direction direction )
+bool BookViewPreview::ReplaceSelected(const QString &search_regex, const QString &replacement, Searchable::Direction direction, bool keep_selection)
 {
     QMessageBox::critical(this, tr("Unsupported"), tr("Replace is not supported in this view. Switch to Code View."));
     return false;

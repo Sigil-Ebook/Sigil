@@ -227,7 +227,8 @@ public:
 
     bool ReplaceSelected( const QString &search_regex,
                           const QString &replacement,
-                          Searchable::Direction direction = Searchable::Direction_Down );
+                          Searchable::Direction direction = Searchable::Direction_Down,
+                          bool keep_selection = false);
 
     int ReplaceAll( const QString &search_regex,
                     const QString &replacement );

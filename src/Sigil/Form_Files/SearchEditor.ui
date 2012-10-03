@@ -103,7 +103,9 @@ including entries in selected groups.</string>
          <property name="toolTip">
           <string>Run Replace using the selected entry.
 If a group is selected, replace the first entry in the list,
-then when no more matches replace the second entry in the list, etc.</string>
+then when no more matches replace the second entry in the list, etc.
+
+Hold the Shift key to Replace the current selection (if it matches) without moving.</string>
          </property>
          <property name="text">
           <string>Replace</string>
@@ -141,11 +143,11 @@ including entries in selected groups.</string>
         <layout class="QHBoxLayout" name="horizontalLayout_6">
          <item>
           <widget class="QToolButton" name="MoveUp">
-           <property name="text">
-            <string>...</string>
-           </property>
            <property name="toolTip">
             <string>Move an entry up one level in the same group.</string>
+           </property>
+           <property name="text">
+            <string>...</string>
            </property>
            <property name="arrowType">
             <enum>Qt::UpArrow</enum>
@@ -158,11 +160,11 @@ including entries in selected groups.</string>
         <layout class="QHBoxLayout" name="horizontalLayout">
          <item>
           <widget class="QToolButton" name="MoveLeft">
-           <property name="text">
-            <string>...</string>
-           </property>
            <property name="toolTip">
             <string>Move an entry to the level of its parent.</string>
+           </property>
+           <property name="text">
+            <string>...</string>
            </property>
            <property name="arrowType">
             <enum>Qt::LeftArrow</enum>
@@ -171,11 +173,11 @@ including entries in selected groups.</string>
          </item>
          <item>
           <widget class="QToolButton" name="MoveRight">
-           <property name="text">
-            <string>...</string>
-           </property>
            <property name="toolTip">
             <string>You must select an item immediately under a group to move it into the group.</string>
+           </property>
+           <property name="text">
+            <string>...</string>
            </property>
            <property name="arrowType">
             <enum>Qt::RightArrow</enum>
@@ -188,11 +190,11 @@ including entries in selected groups.</string>
         <layout class="QHBoxLayout" name="horizontalLayout_4">
          <item>
           <widget class="QToolButton" name="MoveDown">
-           <property name="text">
-            <string>...</string>
-           </property>
            <property name="toolTip">
             <string>Move an entry down one level in the same group.</string>
+           </property>
+           <property name="text">
+            <string>...</string>
            </property>
            <property name="arrowType">
             <enum>Qt::DownArrow</enum>

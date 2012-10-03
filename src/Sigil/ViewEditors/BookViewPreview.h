@@ -83,7 +83,7 @@ public:
 
     int Count(const QString &search_regex);
 
-    bool ReplaceSelected(const QString &search_regex, const QString &replacement, Searchable::Direction direction=Searchable::Direction_Down);
+    bool ReplaceSelected(const QString &search_regex, const QString &replacement, Searchable::Direction direction=Searchable::Direction_Down, bool keep_selection = false);
 
     int ReplaceAll(const QString &search_regex, const QString &replacement);
 

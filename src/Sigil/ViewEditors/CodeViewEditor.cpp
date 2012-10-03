@@ -745,7 +745,7 @@ int CodeViewEditor::Count( const QString &search_regex )
 }
 
 
-bool CodeViewEditor::ReplaceSelected( const QString &search_regex, const QString &replacement, Searchable::Direction direction )
+bool CodeViewEditor::ReplaceSelected( const QString &search_regex, const QString &replacement, Searchable::Direction direction, bool keep_selection )
 {
     SPCRE *spcre = PCRECache::instance()->getObject( search_regex );
 
@@ -794,7 +794,16 @@ bool CodeViewEditor::ReplaceSelected( const QString &search_regex, const QString
             // is searching backward through the text.
             if ( direction == Searchable::Direction_Up )
             {
-                cursor.setPosition( selection_start );
+                if (keep_selection) {
+                    cursor.setPosition(selection_start, QTextCursor::KeepAnchor);
+                }
+                else {
+                    cursor.setPosition( selection_start );
+                }
+            }
+            else if (keep_selection) {
+                cursor.setPosition(selection_start);
+                cursor.setPosition(selection_start + replaced_text.length(), QTextCursor::KeepAnchor );
             }
 
             setTextCursor( cursor );

@@ -201,7 +201,7 @@
          </widget>
         </item>
         <item row="1" column="2">
-         <widget class="QToolButton" name="replaceNext">
+         <widget class="QToolButton" name="replace">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
             <horstretch>0</horstretch>
@@ -209,11 +209,11 @@
            </sizepolicy>
           </property>
           <property name="toolTip">
-           <string>Replace/Find Next - Replace highlighted match, then find next match in Code View.
+           <string>Replace highlighted match (if any), 
+then find the Next match in Code View.
 
-You can also use Search->Replace Next to Replace the highlighted
-match and stay at the end of the match.  Hold the Shift key down while
-clicking the Replace button for the same effect.</string>
+Hold the Shift key to Replace the Current match
+(if any) without moving to the next match.</string>
           </property>
           <property name="styleSheet">
            <string notr="true"/>
@@ -305,7 +305,7 @@ clicking the Replace button for the same effect.</string>
   <tabstop>cbLookWhere</tabstop>
   <tabstop>cbSearchDirection</tabstop>
   <tabstop>findNext</tabstop>
-  <tabstop>replaceNext</tabstop>
+  <tabstop>replace</tabstop>
   <tabstop>count</tabstop>
   <tabstop>replaceAll</tabstop>
   <tabstop>close</tabstop>

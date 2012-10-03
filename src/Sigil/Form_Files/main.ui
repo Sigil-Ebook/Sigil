@@ -213,11 +213,9 @@
     <addaction name="actionFindNext"/>
     <addaction name="actionFindPrevious"/>
     <addaction name="separator"/>
-    <addaction name="actionReplaceStayNext"/>
-    <addaction name="actionReplaceStayPrevious"/>
+    <addaction name="actionReplaceCurrent"/>
     <addaction name="actionReplaceNext"/>
     <addaction name="actionReplacePrevious"/>
-    <addaction name="separator"/>
     <addaction name="actionReplaceAll"/>
     <addaction name="separator"/>
     <addaction name="actionCount"/>
@@ -684,7 +682,7 @@
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Align the paragraph to the left.&lt;/p&gt;</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+L</string>
+    <string>Ctrl+Alt+L</string>
    </property>
   </action>
   <action name="actionAlignRight">
@@ -704,7 +702,7 @@
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Align the paragraph to the right.&lt;/p&gt;</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+R</string>
+    <string>Ctrl+Alt+R</string>
    </property>
   </action>
   <action name="actionAlignCenter">
@@ -1603,23 +1601,15 @@
     <string>Ctrl+Shift+G</string>
    </property>
   </action>
+  <action name="actionReplaceCurrent">
+   <property name="text">
+    <string>&amp;Replace Current</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+R</string>
+   </property>
+  </action>
   <action name="actionReplaceNext">
-   <property name="text">
-    <string>&amp;Replace/Find Next</string>
-   </property>
-   <property name="shortcut">
-    <string>Ctrl+]</string>
-   </property>
-  </action>
-  <action name="actionReplacePrevious">
-   <property name="text">
-    <string>Replace/Find Pre&amp;vious</string>
-   </property>
-   <property name="shortcut">
-    <string>Ctrl+[</string>
-   </property>
-  </action>
-  <action name="actionReplaceStayNext">
    <property name="text">
     <string>Replace Next</string>
    </property>
@@ -1627,12 +1617,12 @@
     <string>Ctrl+}</string>
    </property>
   </action>
-  <action name="actionReplaceStayPrevious">
+  <action name="actionReplacePrevious">
    <property name="text">
     <string>R&amp;eplace Previous</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+{</string>
+    <string>Ctrl+[</string>
    </property>
   </action>
   <action name="actionReplaceAll">

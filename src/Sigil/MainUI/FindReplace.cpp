@@ -47,7 +47,7 @@ FindReplace::FindReplace( MainWindow &main_window )
       m_RegexOptionAutoTokenise( false ),
       m_SpellCheck(false),
       m_LookWhereCurrentFile(false),
-      m_ReplaceStaysPut(false),
+      m_ReplaceCurrent(false),
       m_LastFindText(QString()),
       m_IsSearchGroupRunning(false)
 {
@@ -170,13 +170,13 @@ void FindReplace::SetKeyModifiers()
 {
     // Only use with mouse click not menu/shortcuts to avoid modifying actions
     m_LookWhereCurrentFile = QApplication::keyboardModifiers() & Qt::ControlModifier;
-    m_ReplaceStaysPut = QApplication::keyboardModifiers() & Qt::ShiftModifier;
+    m_ReplaceCurrent = QApplication::keyboardModifiers() & Qt::ShiftModifier;
 }
 
 void FindReplace::ResetKeyModifiers()
 {
     m_LookWhereCurrentFile = false;
-    m_ReplaceStaysPut = false;
+    m_ReplaceCurrent = false;
 }
 
 void FindReplace::FindClicked()
@@ -312,21 +312,11 @@ bool FindReplace::ReplacePrevious()
 }
 
 
-bool FindReplace::ReplaceStayNext()
+bool FindReplace::ReplaceCurrent()
 {
-    m_ReplaceStaysPut = true;
+    m_ReplaceCurrent = true;
     bool found = ReplaceText( Searchable::Direction_Down );
-    m_ReplaceStaysPut = false;
-
-    return found;
-}
-
-
-bool FindReplace::ReplaceStayPrevious()
-{
-    m_ReplaceStaysPut = true;
-    bool found = ReplaceText( Searchable::Direction_Up );
-    m_ReplaceStaysPut = false;
+    m_ReplaceCurrent = false;
 
     return found;
 }
@@ -504,14 +494,13 @@ bool FindReplace::ReplaceText( Searchable::Direction direction )
     if (!found && m_LastFindText == ui.cbFind->lineEdit()->text()) {
         // If we have the matching text selected, replace it
         // This will not do anything if matching text is not selected.
-        found = searchable->ReplaceSelected( GetSearchRegex(), ui.cbReplace->lineEdit()->text(), direction );
+        // Select the text after if we are just replacing the current selection.
+        found = searchable->ReplaceSelected( GetSearchRegex(), ui.cbReplace->lineEdit()->text(), direction, m_ReplaceCurrent);
     }
     RememberLastFindText();
 
-    // If we are not going to stay put after a potential replace or we didn't find
-    // a match with the current selection, then move forward to find a match.
-    // This allows text to be seen before and after doing a ReplaceStaysPut.
-    if (!m_ReplaceStaysPut || !found) {
+    // If we are not going to stay put after a simple Replace, then find next match.
+    if (!m_ReplaceCurrent) {
         if (direction == Searchable::Direction_Up) {
             if (FindPrevious()) {
                 found = true;
@@ -1204,6 +1193,7 @@ void FindReplace::FindSearch(QList<SearchEditorModel::searchEntry *> search_entr
     ResetKeyModifiers();
 }
 
+
 void FindReplace::ReplaceSearch(QList<SearchEditorModel::searchEntry *> search_entries)
 {
     if (search_entries.isEmpty()) {
@@ -1347,7 +1337,7 @@ void FindReplace::ConnectSignalsToSlots()
     connect(ui.findNext, SIGNAL(clicked()), this, SLOT(FindClicked()));
     connect(ui.cbFind->lineEdit(), SIGNAL(returnPressed()), this, SLOT(Find()));
     connect(ui.count, SIGNAL(clicked()), this, SLOT(CountClicked()));
-    connect(ui.replaceNext, SIGNAL(clicked()), this, SLOT(ReplaceClicked()));
+    connect(ui.replace, SIGNAL(clicked()), this, SLOT(ReplaceClicked()));
     connect(ui.cbReplace->lineEdit(), SIGNAL(returnPressed()), this, SLOT(Replace()));
     connect(ui.replaceAll, SIGNAL(clicked()), this, SLOT(ReplaceAllClicked()));
     connect(ui.close, SIGNAL(clicked()), this, SLOT(HideFindReplace()));

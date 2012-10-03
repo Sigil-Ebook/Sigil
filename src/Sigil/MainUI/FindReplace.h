@@ -146,8 +146,7 @@ private slots:
     bool ReplaceNext();
     bool ReplacePrevious();
 
-    bool ReplaceStayNext();
-    bool ReplaceStayPrevious();
+    bool ReplaceCurrent();
 
     // Replaces the user's search term with the user's
     // replacement text in the entire document. Shows a
@@ -293,7 +292,7 @@ private:
     bool m_SpellCheck;
 
     bool m_LookWhereCurrentFile;
-    bool m_ReplaceStaysPut;
+    bool m_ReplaceCurrent;
     
     QString m_LastFindText;
 
