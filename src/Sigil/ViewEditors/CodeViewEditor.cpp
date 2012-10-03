@@ -819,6 +819,15 @@ bool CodeViewEditor::ReplaceSelected( const QString &search_regex, const QString
             m_lastMatch.offset.first = selection_start + match_info.offset.first;
             m_lastMatch.offset.second = selection_start + match_info.offset.second;
             selected_text = selected_text.mid( match_info.offset.first, match_info.offset.second - match_info.offset.first );
+
+            // Adjust the text selection to match the actual size of the match
+            // Change the selection to reflect the actual match in case it was just part of 
+            // which can happen if the user manually selects the text
+            QTextCursor cursor = textCursor();
+            selection_start = m_lastMatch.offset.first;
+            cursor.setPosition(selection_start);
+            cursor.setPosition(selection_start + selected_text.length(), QTextCursor::KeepAnchor );
+            setTextCursor(cursor);
         }
     }
 
