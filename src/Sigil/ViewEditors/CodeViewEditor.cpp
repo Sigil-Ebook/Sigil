@@ -769,7 +769,7 @@ bool CodeViewEditor::ReplaceSelected( const QString &search_regex, const QString
     // since look ahead and look behind use text in the document that is before and after
     // the selection.  Conveniently Find already takes this into account.
     // Specifically helps with manual selections, Replace Current and changing tabs for next match.
-    FindNext(search_regex, direction);
+    FindNext(search_regex, direction, false, false, false);
 
     // Check if the match matches our selection
     int new_selection_start = textCursor().selectionStart();
