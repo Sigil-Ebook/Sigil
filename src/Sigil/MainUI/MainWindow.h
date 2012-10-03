@@ -539,8 +539,6 @@ private slots:
 
     void LinkStylesheetsToResources(QList <Resource *> resources);
 
-    void InsertImages(QStringList selected_images);
-
     void ResourceUpdatedFromDisk(Resource &resource);
 
     /**
@@ -582,6 +580,7 @@ private:
 
     void DeleteReportsStyles(QList<BookReports::StyleData *> reports_styles_to_delete, bool prompt_user = true);
 
+    void InsertImages(const QStringList &selected_images);
     void InsertImagesFromDisk();
 
     void ResetLinkOrStyleBookmark();

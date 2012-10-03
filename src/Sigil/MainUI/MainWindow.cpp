@@ -234,6 +234,10 @@ void MainWindow::GoToBookmark(MainWindow::LocationBookmark *locationBookmark)
     if (locationBookmark->filename.isEmpty()) {
         return;
     }
+    if ( !m_TabManager.IsAllTabDataWellFormed() ) {
+        ShowMessageOnStatusBar(tr("Go To Bookmark cancelled due to XML not well formed."));
+        return;
+    }
 
     try
     {
@@ -856,6 +860,12 @@ void MainWindow::DeleteReportsStyles(QList<BookReports::StyleData *> reports_sty
 
 void MainWindow::ReportsDialog()
 {
+    if ( !m_TabManager.IsAllTabDataWellFormed() ) {
+        ShowMessageOnStatusBar(tr("Reports cancelled due to XML not well formed."));
+        return;
+    }
+    SaveTabData();
+
     QList<Resource *> html_resources = m_BookBrowser->AllHTMLResources();
     QList<Resource *> image_resources = m_BookBrowser->AllImageResources();
     QList<Resource *> css_resources = m_BookBrowser->AllCSSResources();
@@ -977,6 +987,11 @@ void MainWindow::DeleteUnusedImages()
 
 void MainWindow::DeleteUnusedStyles()
 {
+    if ( !m_TabManager.IsAllTabDataWellFormed() ) {
+        ShowMessageOnStatusBar(tr("Delete Unused Styles cancelled due to XML not well formed."));
+        return;
+    }
+    SaveTabData();
     QList<BookReports::StyleData *> html_class_usage = BookReports::GetHTMLClassUsage(m_BookBrowser->AllHTMLResources(), m_BookBrowser->AllCSSResources(), m_Book);
 
     QList<BookReports::StyleData *> css_selector_usage = BookReports::GetCSSSelectorUsage(m_BookBrowser->AllCSSResources(), html_class_usage);
@@ -999,7 +1014,11 @@ void MainWindow::DeleteUnusedStyles()
 
 void MainWindow::InsertImageDialog()
 {
-    m_TabManager.SaveTabData();
+    if ( !m_TabManager.IsAllTabDataWellFormed() ) {
+        ShowMessageOnStatusBar(tr("Insert Image cancelled due to XML not well formed."));
+        return;
+    }
+    SaveTabData();
 
     FlowTab *flow_tab = qobject_cast<FlowTab*>(&GetCurrentContentTab());
 
@@ -1030,7 +1049,7 @@ void MainWindow::InsertImageDialog()
     }
 }
 
-void MainWindow::InsertImages(QStringList selected_images)
+void MainWindow::InsertImages(const QStringList &selected_images)
 {
     if (!selected_images.isEmpty()) {
         FlowTab *flow_tab = qobject_cast<FlowTab*>(&GetCurrentContentTab());
@@ -1096,7 +1115,11 @@ void MainWindow::InsertSpecialCharacter()
 
 void MainWindow::InsertId()
 {
-    m_TabManager.SaveTabData();
+    if ( !m_TabManager.IsAllTabDataWellFormed() ) {
+        ShowMessageOnStatusBar(tr("Insert ID cancelled due to XML not well formed."));
+        return;
+    }
+    SaveTabData();
    
     // Get current id attribute value if any
     ContentTab &tab = GetCurrentContentTab();
@@ -1123,7 +1146,11 @@ void MainWindow::InsertId()
 
 void MainWindow::InsertHyperlink()
 {
-    m_TabManager.SaveTabData();
+    if ( !m_TabManager.IsAllTabDataWellFormed() ) {
+        ShowMessageOnStatusBar(tr("Insert Hyperlink cancelled due to XML not well formed."));
+        return;
+    }
+    SaveTabData();
    
     // Get current id attribute value if any
     ContentTab &tab = GetCurrentContentTab();
@@ -1150,7 +1177,11 @@ void MainWindow::InsertHyperlink()
 
 void MainWindow::MarkForIndex()
 {
-    m_TabManager.SaveTabData();
+    if ( !m_TabManager.IsAllTabDataWellFormed() ) {
+        ShowMessageOnStatusBar(tr("Mark For Index cancelled due to XML not well formed."));
+        return;
+    }
+    SaveTabData();
    
     // Get current id attribute value if any
     ContentTab &tab = GetCurrentContentTab();
