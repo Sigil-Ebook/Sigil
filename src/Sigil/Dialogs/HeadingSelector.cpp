@@ -367,7 +367,7 @@ void HeadingSelector::ChangeHeadingLevel(int change_amount)
 
     // Change the heading level if valid to do so
     if (change_amount < 0) {
-        if (heading->level <= 1 || heading->level <= first_heading->level) {
+        if (heading->level <= 1 || (item != first_item && heading->level <= first_heading->level)) {
             return;
         }
     }
