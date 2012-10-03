@@ -494,7 +494,7 @@ bool FindReplace::ReplaceText( Searchable::Direction direction )
     if (!found && m_LastFindText == ui.cbFind->lineEdit()->text()) {
         // If we have the matching text selected, replace it
         // This will not do anything if matching text is not selected.
-        // Select the text after if we are just replacing the current selection.
+        // If we are just doing a Replace Current we'll need to do a find and re-select the text 
         found = searchable->ReplaceSelected( GetSearchRegex(), ui.cbReplace->lineEdit()->text(), direction, m_ReplaceCurrent);
     }
     RememberLastFindText();

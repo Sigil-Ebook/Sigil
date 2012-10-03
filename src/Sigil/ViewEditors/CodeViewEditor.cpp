@@ -745,13 +745,63 @@ int CodeViewEditor::Count( const QString &search_regex )
 }
 
 
-bool CodeViewEditor::ReplaceSelected( const QString &search_regex, const QString &replacement, Searchable::Direction direction, bool keep_selection )
+#include <QtDebug>
+bool CodeViewEditor::ReplaceSelected( const QString &search_regex, const QString &replacement, Searchable::Direction direction, bool replace_current )
 {
     SPCRE *spcre = PCRECache::instance()->getObject( search_regex );
 
-    // Convert to plain text or \s won't get newlines
     int selection_start = textCursor().selectionStart();
     int selection_end = textCursor().selectionEnd();
+    int selection_position = textCursor().position();
+
+    // If we are just replacing the current selection then we need to do a Find first
+    // in order to load the position information - we can't just use the selection as
+    // that won't work for look ahead or look behind which use text outside the selection.
+    if (replace_current) {
+        // Move the cursor in preparation for a Find
+        QTextCursor cursor = textCursor();
+        if ( direction == Searchable::Direction_Up ) {
+            cursor.setPosition(selection_end);
+        }
+        else {
+            cursor.setPosition(selection_start);
+        }
+        setTextCursor(cursor);
+
+        FindNext(search_regex, direction);
+
+        int new_selection_start = textCursor().selectionStart();
+        int new_selection_end = textCursor().selectionEnd();
+
+        if (new_selection_start >= selection_start && new_selection_end <= selection_end) {
+            // If we found a match within the selection then readjust selection to the match
+            // so that if the user manually selects text they don't have to be too accurate
+            selection_start = new_selection_start;
+            selection_end = new_selection_end;
+        }
+        else {
+            // If there was no match inside the selection, reset cursor/selection to avoid 
+            // moving forward and return as there's no point in checking the match again
+            m_lastMatch.offset.first = -1;
+
+            cursor = textCursor();
+            if (selection_position != selection_start) {
+                cursor.setPosition(selection_end);
+                cursor.setPosition(selection_start);
+                cursor.setPosition(selection_end, QTextCursor::KeepAnchor);
+            }
+            else {
+                cursor.setPosition(selection_start);
+                cursor.setPosition(selection_end);
+                cursor.setPosition(selection_start, QTextCursor::KeepAnchor);
+            }
+            setTextCursor(cursor);
+
+            return false;
+        }
+    }
+
+    // Convert to plain text or \s won't get newlines
     const QString &document_text = toPlainText();
     QString selected_text = Utility::Substring(selection_start, selection_end, document_text );
 
@@ -759,6 +809,7 @@ bool CodeViewEditor::ReplaceSelected( const QString &search_regex, const QString
 
     // Check if current selection is a match as well to handle highlighted text that is a
     // match, new files when replacing in all HTML, and misspelled words
+    // Cannot just check selection since look aheads/behinds depend on text outside of the selection and used by Find
     if ( !( m_lastMatch.offset.first == selection_start && m_lastMatch.offset.second == selection_start + selected_text.length() ) )
     {
         match_info = spcre->getFirstMatchInfo( selected_text );
@@ -790,18 +841,18 @@ bool CodeViewEditor::ReplaceSelected( const QString &search_regex, const QString
             cursor.clearSelection();
             cursor.endEditBlock();
 
-            // Set the cursor to the beginning of the replaced text if the user
-            // is searching backward through the text.
+            // Select the new text
             if ( direction == Searchable::Direction_Up )
             {
-                if (keep_selection) {
+                // Set the cursor to the beginning of the replaced text if going up
+                if (replace_current) {
                     cursor.setPosition(selection_start, QTextCursor::KeepAnchor);
                 }
                 else {
                     cursor.setPosition( selection_start );
                 }
             }
-            else if (keep_selection) {
+            else if (replace_current) {
                 cursor.setPosition(selection_start);
                 cursor.setPosition(selection_start + replaced_text.length(), QTextCursor::KeepAnchor );
             }
@@ -823,6 +874,7 @@ bool CodeViewEditor::ReplaceSelected( const QString &search_regex, const QString
 
     return false;
 }
+
 
 
 int CodeViewEditor::ReplaceAll( const QString &search_regex, 
