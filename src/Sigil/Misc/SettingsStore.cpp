@@ -144,7 +144,7 @@ SettingsStore::CleanLevel SettingsStore::cleanLevel()
 {
     clearSettingsGroup();
 
-    int level = value(KEY_CLEAN_LEVEL, SettingsStore::CleanLevel_Tidy).toInt();
+    int level = value(KEY_CLEAN_LEVEL, SettingsStore::CleanLevel_PrettyPrint).toInt();
     switch (level) {
         case SettingsStore::CleanLevel_Off:
         case SettingsStore::CleanLevel_PrettyPrint:
