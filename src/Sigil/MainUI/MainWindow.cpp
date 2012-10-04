@@ -964,6 +964,11 @@ bool MainWindow::DeleteCSSStyles(const QString &filename, QList<CSSInfo::CSSSele
 
 void MainWindow::DeleteUnusedImages()
 {            
+    if ( !m_TabManager.IsAllTabDataWellFormed() ) {
+        ShowMessageOnStatusBar(tr("Delete Unused Images cancelled due to XML not well formed."));
+        return;
+    }
+    SaveTabData();
     QList<Resource *> resources;
 
     QHash<QString, QStringList> image_html_files_hash = m_Book->GetHTMLFilesUsingImages();
