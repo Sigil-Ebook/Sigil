@@ -204,7 +204,7 @@ void ImageTab::OpenContextMenu( const QPoint &point )
 
 bool ImageTab::SuccessfullySetupContextMenu( const QPoint &point )
 {
-    QUrl imageUrl = QUrl("file://" % m_Resource.GetFullPath());
+    QUrl imageUrl("file:///" % m_Resource.GetFullPath());
     if ( imageUrl.isValid() && imageUrl.isLocalFile() )
     {
         // Open With
