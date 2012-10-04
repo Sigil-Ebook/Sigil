@@ -99,16 +99,26 @@ including entries in selected groups.</string>
         </spacer>
        </item>
        <item>
+        <widget class="QPushButton" name="ReplaceCurrent">
+         <property name="toolTip">
+          <string>Run Replace using the selected entry.
+If a group is selected, replace the first entry in the list,
+then replace the second entry in the list, etc.</string>
+         </property>
+         <property name="text">
+          <string>Replace</string>
+         </property>
+        </widget>
+       </item>
+       <item>
         <widget class="QPushButton" name="Replace">
          <property name="toolTip">
           <string>Run Replace using the selected entry.
 If a group is selected, replace the first entry in the list,
-then when no more matches replace the second entry in the list, etc.
-
-Hold the Shift key to Replace the current selection (if it matches) without moving.</string>
+then when no more matches replace the second entry in the list, etc.</string>
          </property>
          <property name="text">
-          <string>Replace</string>
+          <string>Replace/Find</string>
          </property>
         </widget>
        </item>

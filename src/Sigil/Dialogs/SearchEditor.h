@@ -54,6 +54,7 @@ public slots:
 signals:
     void LoadSelectedSearchRequest(SearchEditorModel::searchEntry *search_entry);
     void FindSelectedSearchRequest(QList<SearchEditorModel::searchEntry *> search_entries);
+    void ReplaceCurrentSelectedSearchRequest(QList<SearchEditorModel::searchEntry *> search_entries);
     void ReplaceSelectedSearchRequest(QList<SearchEditorModel::searchEntry *> search_entries);
     void CountAllSelectedSearchRequest(QList<SearchEditorModel::searchEntry *> search_entries);
     void ReplaceAllSelectedSearchRequest(QList<SearchEditorModel::searchEntry *> search_entries);
@@ -85,6 +86,7 @@ private slots:
 
     void LoadFindReplace();
     void Find();
+    void ReplaceCurrent();
     void Replace();
     void CountAll();
     void ReplaceAll();

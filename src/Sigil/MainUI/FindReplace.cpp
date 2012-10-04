@@ -47,7 +47,6 @@ FindReplace::FindReplace( MainWindow &main_window )
       m_RegexOptionAutoTokenise( false ),
       m_SpellCheck(false),
       m_LookWhereCurrentFile(false),
-      m_ReplaceCurrent(false),
       m_LastFindText(QString()),
       m_IsSearchGroupRunning(false)
 {
@@ -72,6 +71,7 @@ FindReplace::FindReplace( MainWindow &main_window )
 
     ExtendUI();
     ConnectSignalsToSlots();
+    ShowHideAdvancedOptions();
 
     ReadSettings();
 }
@@ -142,6 +142,13 @@ void FindReplace::HideFindReplace()
     hide();
 }
 
+void FindReplace::AdvancedOptionsClicked()
+{
+    bool is_currently_visible = ui.chkRegexOptionAutoTokenise->isVisible();
+    WriteSettingsAdvancedVisible(!is_currently_visible);
+    ShowHideAdvancedOptions();
+}
+
 void FindReplace::keyPressEvent(QKeyEvent *event)
 {
     if (event->key() == Qt::Key_Escape) {
@@ -170,13 +177,11 @@ void FindReplace::SetKeyModifiers()
 {
     // Only use with mouse click not menu/shortcuts to avoid modifying actions
     m_LookWhereCurrentFile = QApplication::keyboardModifiers() & Qt::ControlModifier;
-    m_ReplaceCurrent = QApplication::keyboardModifiers() & Qt::ShiftModifier;
 }
 
 void FindReplace::ResetKeyModifiers()
 {
     m_LookWhereCurrentFile = false;
-    m_ReplaceCurrent = false;
 }
 
 void FindReplace::FindClicked()
@@ -316,16 +321,12 @@ bool FindReplace::ReplaceCurrent()
 {
     bool found = false;
 
-    m_ReplaceCurrent = true;
-
     if (GetSearchDirection() == FindReplace::SearchDirection_Up) {
-        found = ReplaceText(Searchable::Direction_Up);
+        found = ReplaceText(Searchable::Direction_Up, true);
     }
     else {
-        found = ReplaceText(Searchable::Direction_Down);
+        found = ReplaceText(Searchable::Direction_Down, true);
     }
-
-    m_ReplaceCurrent = false;
 
     return found;
 }
@@ -480,7 +481,7 @@ bool FindReplace::FindText( Searchable::Direction direction )
 // Replaces the user's search term with the user's
 // replacement text if a match is selected. If it's not,
 // calls Find in the direction specified so it becomes selected.
-bool FindReplace::ReplaceText( Searchable::Direction direction )
+bool FindReplace::ReplaceText( Searchable::Direction direction, bool replace_current )
 {
     bool found = false;
 
@@ -504,12 +505,12 @@ bool FindReplace::ReplaceText( Searchable::Direction direction )
         // If we have the matching text selected, replace it
         // This will not do anything if matching text is not selected.
         // If we are just doing a Replace Current we'll need to do a find and re-select the text 
-        found = searchable->ReplaceSelected( GetSearchRegex(), ui.cbReplace->lineEdit()->text(), direction, m_ReplaceCurrent);
+        found = searchable->ReplaceSelected( GetSearchRegex(), ui.cbReplace->lineEdit()->text(), direction, replace_current);
     }
     RememberLastFindText();
 
     // If we are not going to stay put after a simple Replace, then find next match.
-    if (!m_ReplaceCurrent) {
+    if (!replace_current) {
         if (direction == Searchable::Direction_Up) {
             if (FindPrevious()) {
                 found = true;
@@ -978,7 +979,6 @@ void FindReplace::RememberLastFindText()
 }
 
 
-// Reads all the stored settings
 void FindReplace::ReadSettings()
 {
     SettingsStore settings;
@@ -999,6 +999,15 @@ void FindReplace::ReadSettings()
     SetLookWhere( settings.value( "look_where", 0 ).toInt() );
     SetSearchDirection( settings.value( "search_direction", 0 ).toInt() );
 
+    bool regexOptionDotAll = settings.value( "regexoptiondotall", false ).toBool();
+    ui.chkRegexOptionDotAll->setChecked(regexOptionDotAll);
+
+    bool regexOptionMinimalMatch = settings.value( "regexoptionminimalmatch", false ).toBool();
+    ui.chkRegexOptionMinimalMatch->setChecked(regexOptionMinimalMatch);
+    
+    bool regexOptionAutoTokenise = settings.value( "regexoptionautotokenise", false ).toBool();
+    ui.chkRegexOptionAutoTokenise->setChecked(regexOptionAutoTokenise);
+
     settings.endGroup();
 }
 
@@ -1018,17 +1027,52 @@ void FindReplace::ShowHide()
     else {
         hide();
     }
+}
 
+void FindReplace::ShowHideAdvancedOptions()
+{
+    SettingsStore settings;
+    settings.beginGroup( SETTINGS_GROUP );
+
+    bool show_advanced = settings.value( "advanced_visible", false ).toBool();
+
+    settings.endGroup();
+
+    ui.optionsl->setVisible(show_advanced);
+    ui.chkRegexOptionDotAll->setVisible(show_advanced);
+    ui.chkRegexOptionMinimalMatch->setVisible(show_advanced);
+    ui.chkRegexOptionAutoTokenise->setVisible(show_advanced);
+    ui.count->setVisible(show_advanced);
+
+    QIcon icon;
+    if (show_advanced) {
+        icon.addFile(QString::fromUtf8(":/main/chevron-up_16px.png"));
+        ui.advancedShowHide->setIcon(icon);
+    }
+    else {
+        icon.addFile(QString::fromUtf8(":/main/chevron-down_16px.png"));
+        ui.advancedShowHide->setIcon(icon);
+    }
 }
 
 void FindReplace::WriteSettingsVisible(bool visible)
 {
-    SettingsStore *settings = new SettingsStore();
-    settings->beginGroup( SETTINGS_GROUP );
+    SettingsStore settings;
+    settings.beginGroup( SETTINGS_GROUP );
 
-    settings->setValue( "visible", visible);
+    settings.setValue( "visible", visible);
 
-    settings->endGroup();
+    settings.endGroup();
+}
+
+void FindReplace::WriteSettingsAdvancedVisible(bool visible)
+{
+    SettingsStore settings;
+    settings.beginGroup( SETTINGS_GROUP );
+
+    settings.setValue( "advanced_visible", visible);
+
+    settings.endGroup();
 }
 
 void FindReplace::WriteSettings()
@@ -1042,6 +1086,11 @@ void FindReplace::WriteSettings()
     settings.setValue( "search_mode", GetSearchMode() );
     settings.setValue( "look_where", GetLookWhere() );
     settings.setValue( "search_direction", GetSearchDirection() );
+    
+    settings.setValue( "regexoptiondotall", ui.chkRegexOptionDotAll->isChecked() );
+    settings.setValue( "regexoptionminimalmatch", ui.chkRegexOptionMinimalMatch->isChecked() );
+    settings.setValue( "regexoptionautotokenise", ui.chkRegexOptionAutoTokenise->isChecked() );
+
     settings.endGroup();
 }
 
@@ -1059,47 +1108,6 @@ Searchable* FindReplace::GetAvailableSearchable()
 }
 
 
-// The UI is setup based on the capabilities.
-void FindReplace::ExtendUI()
-{
-    // Clear these because we want to add their items based on the
-    // capabilities.
-    ui.cbSearchMode->clear();
-    ui.cbLookWhere->clear();
-    ui.cbSearchDirection->clear();
-
-    QString mode_tooltip = "<p>" + tr("What to search for") + ":</p><dl>";
-    ui.cbSearchMode->addItem(tr("Normal"), FindReplace::SearchMode_Normal);
-    mode_tooltip += "<dt><b>Normal</b><dd>" + tr("Case in-sensitive search of exactly what you type.") + "</dd>";
-
-    ui.cbSearchMode->addItem(tr("Case Sensitive"), FindReplace::SearchMode_Case_Sensitive);
-    mode_tooltip += "<dt><b>Case Sensitive</b><dd>" + tr("Case sensitive search of exactly what you type.") + "</dd>";
-
-    ui.cbSearchMode->addItem(tr("Regex"), FindReplace::SearchMode_Regex);
-    mode_tooltip += "<dt><b>Regex</b><dd>" + tr("Search for a pattern using Regular Expression syntax.") + "</dd>";
-    ui.cbSearchMode->setToolTip(mode_tooltip);
-
-    QString look_tooltip = "<p>" + tr("Where to search") + ":</p><dl>";
-    ui.cbLookWhere->addItem(tr("Current File"), FindReplace::LookWhere_CurrentFile);
-    look_tooltip += "<dt><b>Current File</b><dd>" + tr("Restrict the find or replace to the opened file.  Hold the Ctrl key down while clicking any search buttons to temporarily restrict the search to the Current File.") + "</dd>";
-
-    ui.cbLookWhere->addItem(tr("All HTML Files"), FindReplace::LookWhere_AllHTMLFiles);
-    look_tooltip += "<dt><b>All HTML Files</b><dd>" + tr("Find or replace in all HTML files in Code View.") + "</dd>";
-
-    ui.cbLookWhere->addItem(tr("Selected Files"), FindReplace::LookWhere_SelectedHTMLFiles);
-    look_tooltip += "<dt><b>Selected Files</b><dd>" + tr("Restrict the find or replace to the HTML files selected in the Book Browser in Code View.") + "</dd>";
-    look_tooltip += "</dl>";
-    ui.cbLookWhere->setToolTip(look_tooltip);
-
-    ui.cbSearchDirection->addItem(tr("Up"), FindReplace::SearchDirection_Up);
-    ui.cbSearchDirection->addItem(tr("Down"), FindReplace::SearchDirection_Down);
-    ui.cbSearchDirection->setToolTip("<p>" + tr("Direction to search") + ":</p>"
-        "<dl>"
-        "<dt><b>Up</b><dd>" + tr("Search for the previous match from your current position.") + "</dd>"
-        "<dt><b>Down</b><dd>" + tr("Search for the next match from your current position.") + "</dd>"
-        "</dl>");
-}
-
 void FindReplace::SaveSearchAction()
 {
     SearchEditorModel::searchEntry *search_entry = new SearchEditorModel::searchEntry();
@@ -1114,45 +1122,6 @@ void FindReplace::SaveSearchAction()
 void FindReplace::LoadSearchByName(const QString &name)
 {
     LoadSearch(SearchEditorModel::instance()->GetEntryFromName(name));
-}
-
-void FindReplace::SetSearchMode(int search_mode)
-{
-    ui.cbSearchMode->setCurrentIndex(0);
-    for ( int i = 0; i < ui.cbSearchMode->count(); ++i )
-    {
-        if ( ui.cbSearchMode->itemData( i ) == search_mode )
-        {
-            ui.cbSearchMode->setCurrentIndex( i );
-            break;
-        }
-    }
-}
-
-void FindReplace::SetLookWhere(int look_where)
-{
-    ui.cbLookWhere->setCurrentIndex( 0 );
-    for ( int i = 0; i < ui.cbLookWhere->count(); ++i )
-    {
-        if ( ui.cbLookWhere->itemData( i )  == look_where )
-        {
-            ui.cbLookWhere->setCurrentIndex( i );
-            break;
-        }
-    }
-}
-
-void FindReplace::SetSearchDirection(int search_direction)
-{
-    ui.cbSearchDirection->setCurrentIndex( 0 );
-    for ( int i = 0; i < ui.cbSearchDirection->count(); ++i )
-    {
-        if ( ui.cbSearchDirection->itemData( i ) == search_direction )
-        {
-            ui.cbSearchDirection->setCurrentIndex( i );
-            break;
-        }
-    }
 }
 
 void FindReplace::LoadSearch(SearchEditorModel::searchEntry *search_entry)
@@ -1202,6 +1171,26 @@ void FindReplace::FindSearch(QList<SearchEditorModel::searchEntry *> search_entr
     ResetKeyModifiers();
 }
 
+void FindReplace::ReplaceCurrentSearch(QList<SearchEditorModel::searchEntry *> search_entries)
+{
+    if (search_entries.isEmpty()) {
+        ShowMessage(tr("No searches selected"));
+        return;
+    }
+
+    SetKeyModifiers();
+
+    m_IsSearchGroupRunning = true;
+    foreach (SearchEditorModel::searchEntry* search_entry, search_entries) {
+        LoadSearch(search_entry);
+        if (ReplaceCurrent()) {
+            break;
+        }
+    }
+    m_IsSearchGroupRunning = false;
+
+    ResetKeyModifiers();
+}
 
 void FindReplace::ReplaceSearch(QList<SearchEditorModel::searchEntry *> search_entries)
 {
@@ -1280,6 +1269,46 @@ void FindReplace::ReplaceAllSearch(QList<SearchEditorModel::searchEntry *> searc
     ResetKeyModifiers();
 }
 
+
+void FindReplace::SetSearchMode(int search_mode)
+{
+    ui.cbSearchMode->setCurrentIndex(0);
+    for ( int i = 0; i < ui.cbSearchMode->count(); ++i )
+    {
+        if ( ui.cbSearchMode->itemData( i ) == search_mode )
+        {
+            ui.cbSearchMode->setCurrentIndex( i );
+            break;
+        }
+    }
+}
+
+void FindReplace::SetLookWhere(int look_where)
+{
+    ui.cbLookWhere->setCurrentIndex( 0 );
+    for ( int i = 0; i < ui.cbLookWhere->count(); ++i )
+    {
+        if ( ui.cbLookWhere->itemData( i )  == look_where )
+        {
+            ui.cbLookWhere->setCurrentIndex( i );
+            break;
+        }
+    }
+}
+
+void FindReplace::SetSearchDirection(int search_direction)
+{
+    ui.cbSearchDirection->setCurrentIndex( 0 );
+    for ( int i = 0; i < ui.cbSearchDirection->count(); ++i )
+    {
+        if ( ui.cbSearchDirection->itemData( i ) == search_direction )
+        {
+            ui.cbSearchDirection->setCurrentIndex( i );
+            break;
+        }
+    }
+}
+
 void FindReplace::TokeniseSelection()
 {
     if ( !IsValidFindText() )
@@ -1332,16 +1361,60 @@ QString FindReplace::TokeniseForRegex(const QString &text, bool includeNumerics)
 void FindReplace::SetRegexOptionDotAll(bool new_state)
 {
     m_RegexOptionDotAll = new_state;
+    ui.chkRegexOptionDotAll->setChecked(new_state);
 }
 
 void FindReplace::SetRegexOptionMinimalMatch(bool new_state)
 {
     m_RegexOptionMinimalMatch = new_state;
+    ui.chkRegexOptionMinimalMatch->setChecked(new_state);
 }
 
 void FindReplace::SetRegexOptionAutoTokenise(bool new_state)
 {
     m_RegexOptionAutoTokenise = new_state;
+    ui.chkRegexOptionAutoTokenise->setChecked(new_state);
+}
+
+// The UI is setup based on the capabilities.
+void FindReplace::ExtendUI()
+{
+    // Clear these because we want to add their items based on the
+    // capabilities.
+    ui.cbSearchMode->clear();
+    ui.cbLookWhere->clear();
+    ui.cbSearchDirection->clear();
+
+    QString mode_tooltip = "<p>" + tr("What to search for") + ":</p><dl>";
+    ui.cbSearchMode->addItem(tr("Normal"), FindReplace::SearchMode_Normal);
+    mode_tooltip += "<dt><b>Normal</b><dd>" + tr("Case in-sensitive search of exactly what you type.") + "</dd>";
+
+    ui.cbSearchMode->addItem(tr("Case Sensitive"), FindReplace::SearchMode_Case_Sensitive);
+    mode_tooltip += "<dt><b>Case Sensitive</b><dd>" + tr("Case sensitive search of exactly what you type.") + "</dd>";
+
+    ui.cbSearchMode->addItem(tr("Regex"), FindReplace::SearchMode_Regex);
+    mode_tooltip += "<dt><b>Regex</b><dd>" + tr("Search for a pattern using Regular Expression syntax.") + "</dd>";
+    ui.cbSearchMode->setToolTip(mode_tooltip);
+
+    QString look_tooltip = "<p>" + tr("Where to search") + ":</p><dl>";
+    ui.cbLookWhere->addItem(tr("Current File"), FindReplace::LookWhere_CurrentFile);
+    look_tooltip += "<dt><b>Current File</b><dd>" + tr("Restrict the find or replace to the opened file.  Hold the Ctrl key down while clicking any search buttons to temporarily restrict the search to the Current File.") + "</dd>";
+
+    ui.cbLookWhere->addItem(tr("All HTML Files"), FindReplace::LookWhere_AllHTMLFiles);
+    look_tooltip += "<dt><b>All HTML Files</b><dd>" + tr("Find or replace in all HTML files in Code View.") + "</dd>";
+
+    ui.cbLookWhere->addItem(tr("Selected Files"), FindReplace::LookWhere_SelectedHTMLFiles);
+    look_tooltip += "<dt><b>Selected Files</b><dd>" + tr("Restrict the find or replace to the HTML files selected in the Book Browser in Code View.") + "</dd>";
+    look_tooltip += "</dl>";
+    ui.cbLookWhere->setToolTip(look_tooltip);
+
+    ui.cbSearchDirection->addItem(tr("Up"), FindReplace::SearchDirection_Up);
+    ui.cbSearchDirection->addItem(tr("Down"), FindReplace::SearchDirection_Down);
+    ui.cbSearchDirection->setToolTip("<p>" + tr("Direction to search") + ":</p>"
+        "<dl>"
+        "<dt><b>Up</b><dd>" + tr("Search for the previous match from your current position.") + "</dd>"
+        "<dt><b>Down</b><dd>" + tr("Search for the next match from your current position.") + "</dd>"
+        "</dl>");
 }
 
 void FindReplace::ConnectSignalsToSlots()
@@ -1350,13 +1423,19 @@ void FindReplace::ConnectSignalsToSlots()
     connect(ui.findNext, SIGNAL(clicked()), this, SLOT(FindClicked()));
     connect(ui.cbFind->lineEdit(), SIGNAL(returnPressed()), this, SLOT(Find()));
     connect(ui.count, SIGNAL(clicked()), this, SLOT(CountClicked()));
-    connect(ui.replace, SIGNAL(clicked()), this, SLOT(ReplaceClicked()));
+    connect(ui.replaceCurrent, SIGNAL(clicked()), this, SLOT(ReplaceCurrent()));
+    connect(ui.replaceFind, SIGNAL(clicked()), this, SLOT(ReplaceClicked()));
     connect(ui.cbReplace->lineEdit(), SIGNAL(returnPressed()), this, SLOT(Replace()));
     connect(ui.replaceAll, SIGNAL(clicked()), this, SLOT(ReplaceAllClicked()));
     connect(ui.close, SIGNAL(clicked()), this, SLOT(HideFindReplace()));
+    connect(ui.advancedShowHide, SIGNAL(clicked()), this, SLOT(AdvancedOptionsClicked()));
 
     connect(ui.cbFind, SIGNAL(ClipboardSaveRequest()), this, SIGNAL(ClipboardSaveRequest()));
     connect(ui.cbFind, SIGNAL(ClipboardRestoreRequest()), this, SIGNAL(ClipboardRestoreRequest()));
     connect(ui.cbReplace, SIGNAL(ClipboardSaveRequest()), this, SIGNAL(ClipboardSaveRequest()));
     connect(ui.cbReplace, SIGNAL(ClipboardRestoreRequest()), this, SIGNAL(ClipboardRestoreRequest()));
+
+    connect(ui.chkRegexOptionDotAll, SIGNAL(clicked(bool)), this, SLOT(SetRegexOptionDotAll(bool)));
+    connect(ui.chkRegexOptionMinimalMatch, SIGNAL(clicked(bool)), this, SLOT(SetRegexOptionMinimalMatch(bool)));
+    connect(ui.chkRegexOptionAutoTokenise, SIGNAL(clicked(bool)), this, SLOT(SetRegexOptionAutoTokenise(bool)));
 }

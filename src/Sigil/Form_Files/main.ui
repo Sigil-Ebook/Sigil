@@ -195,15 +195,6 @@
     <addaction name="actionZoomOut"/>
     <addaction name="actionZoomReset"/>
    </widget>
-   <widget class="QMenu" name="menuRegexOptions">
-    <property name="title">
-     <string>Regex &amp;Options</string>
-    </property>
-    <addaction name="actionRegexDotAll"/>
-    <addaction name="actionRegexMinimalMatch"/>
-    <addaction name="separator"/>
-    <addaction name="actionRegexAutoTokenise"/>
-   </widget>
    <widget class="QMenu" name="menuFindReplace">
     <property name="title">
      <string>&amp;Search</string>
@@ -223,8 +214,6 @@
     <addaction name="actionGoToLinkOrStyle"/>
     <addaction name="actionGoBackFromLinkOrStyle"/>
     <addaction name="actionGoToLine"/>
-    <addaction name="separator"/>
-    <addaction name="menuRegexOptions"/>
    </widget>
    <widget class="QMenu" name="menuWindow">
     <property name="title">
@@ -1928,30 +1917,6 @@
    </property>
    <property name="toolTip">
     <string>Create a new HTML file using the current TOC.</string>
-   </property>
-  </action>
-  <action name="actionRegexDotAll">
-   <property name="checkable">
-    <bool>true</bool>
-   </property>
-   <property name="text">
-    <string>&amp;Dot Includes Newlines</string>
-   </property>
-  </action>
-  <action name="actionRegexMinimalMatch">
-   <property name="checkable">
-    <bool>true</bool>
-   </property>
-   <property name="text">
-    <string>&amp;Minimal Match</string>
-   </property>
-  </action>
-  <action name="actionRegexAutoTokenise">
-   <property name="checkable">
-    <bool>true</bool>
-   </property>
-   <property name="text">
-    <string>&amp;Tokenise/Escape When Opening Find</string>
    </property>
   </action>
   <action name="actionGoToLinkOrStyle">

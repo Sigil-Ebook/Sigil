@@ -111,6 +111,11 @@ void SearchEditor::Find()
     emit FindSelectedSearchRequest(GetSelectedEntries());
 }
 
+void SearchEditor::ReplaceCurrent()
+{
+    emit ReplaceCurrentSelectedSearchRequest(GetSelectedEntries());
+}
+
 void SearchEditor::Replace()
 {
     emit ReplaceSelectedSearchRequest(GetSelectedEntries());
@@ -893,11 +898,12 @@ void SearchEditor::MoveHorizontal(bool move_left)
 
 void SearchEditor::ConnectSignalsSlots()
 {
-    connect(ui.FilterText, SIGNAL(textChanged(QString)), this, SLOT(FilterEditTextChangedSlot(QString)));
-    connect(ui.Find,       SIGNAL(clicked()),            this, SLOT(Find()));
-    connect(ui.Replace,    SIGNAL(clicked()),            this, SLOT(Replace()));
-    connect(ui.CountAll,   SIGNAL(clicked()),            this, SLOT(CountAll()));
-    connect(ui.ReplaceAll, SIGNAL(clicked()),            this, SLOT(ReplaceAll()));
+    connect(ui.FilterText,      SIGNAL(textChanged(QString)), this, SLOT(FilterEditTextChangedSlot(QString)));
+    connect(ui.Find,            SIGNAL(clicked()),            this, SLOT(Find()));
+    connect(ui.ReplaceCurrent,  SIGNAL(clicked()),            this, SLOT(ReplaceCurrent()));
+    connect(ui.Replace,         SIGNAL(clicked()),            this, SLOT(Replace()));
+    connect(ui.CountAll,        SIGNAL(clicked()),            this, SLOT(CountAll()));
+    connect(ui.ReplaceAll,      SIGNAL(clicked()),            this, SLOT(ReplaceAll()));
 
     connect(ui.MoveUp,     SIGNAL(clicked()),            this, SLOT(MoveUp()));
     connect(ui.MoveDown,   SIGNAL(clicked()),            this, SLOT(MoveDown()));

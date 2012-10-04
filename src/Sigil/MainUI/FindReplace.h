@@ -75,13 +75,7 @@ public:
      */
     void SetUpFindText();
 
-    void WriteSettingsVisible(bool visible);
-
     void ShowHide();
-    
-    void SetRegexOptionDotAll(bool new_state);
-    void SetRegexOptionMinimalMatch(bool new_state);
-    void SetRegexOptionAutoTokenise(bool new_state);
 
 public slots:
     void close();
@@ -91,11 +85,16 @@ public slots:
 
     void LoadSearch(SearchEditorModel::searchEntry *search_entry);
     void FindSearch(QList<SearchEditorModel::searchEntry *> search_entries);
+    void ReplaceCurrentSearch(QList<SearchEditorModel::searchEntry *> search_entries);
     void ReplaceSearch(QList<SearchEditorModel::searchEntry *> search_entries);
     void CountAllSearch(QList<SearchEditorModel::searchEntry *> search_entries);
     void ReplaceAllSearch(QList<SearchEditorModel::searchEntry *>search_entries);
 
     bool FindMisspelledWord();
+    
+    void SetRegexOptionDotAll(bool new_state);
+    void SetRegexOptionMinimalMatch(bool new_state);
+    void SetRegexOptionAutoTokenise(bool new_state);
 
 signals:
 
@@ -127,9 +126,7 @@ private slots:
     // Uses the find direction to determine if we should find next
     // or previous.
     bool Find();
-
     bool FindNext();
-
     bool FindPrevious();
 
     // Counts the number of occurrences of the user's
@@ -145,7 +142,6 @@ private slots:
     // calls FindNext() so it becomes selected.
     bool ReplaceNext();
     bool ReplacePrevious();
-
     bool ReplaceCurrent();
 
     // Replaces the user's search term with the user's
@@ -154,7 +150,6 @@ private slots:
     int ReplaceAll();
 
     void clearMessage();
-
     void expireMessage();
 
     void SaveSearchAction();
@@ -163,9 +158,11 @@ private slots:
 
     void HideFindReplace();
 
+    void AdvancedOptionsClicked();
+
 private:
     bool FindText( Searchable::Direction direction );
-    bool ReplaceText( Searchable::Direction direction );
+    bool ReplaceText( Searchable::Direction direction, bool replace_current=false );
 
     /**
      * Checks if book-wide searching is allowed for the current view.
@@ -257,6 +254,8 @@ private:
     // Writes all the stored dialog settings
     void WriteSettings();
 
+    void ShowHideAdvancedOptions();
+
     void ExtendUI();
 
     /* 
@@ -264,6 +263,9 @@ private:
      * of elements of Find text in regular expressions
      */
     QString TokeniseForRegex(const QString &text, bool includeNumerics);
+
+    void WriteSettingsVisible(bool visible);
+    void WriteSettingsAdvancedVisible(bool advanced);
 
     /**
      * Connects all the required signals to their respective slots.
@@ -292,7 +294,6 @@ private:
     bool m_SpellCheck;
 
     bool m_LookWhereCurrentFile;
-    bool m_ReplaceCurrent;
     
     QString m_LastFindText;
 

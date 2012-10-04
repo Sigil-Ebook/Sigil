@@ -676,27 +676,6 @@ void MainWindow::GoToLinkedStyleDefinition( const QString &element_name, const Q
 }
 
 
-void MainWindow::SetRegexOptionDotAll( bool new_state )
-{
-    ui.actionRegexDotAll->setChecked( new_state );
-    m_FindReplace->SetRegexOptionDotAll( new_state );
-}
-
-
-void MainWindow::SetRegexOptionMinimalMatch( bool new_state )
-{
-    ui.actionRegexMinimalMatch->setChecked( new_state );
-    m_FindReplace->SetRegexOptionMinimalMatch( new_state );
-}
-
-
-void MainWindow::SetRegexOptionAutoTokenise( bool new_state )
-{
-    ui.actionRegexAutoTokenise->setChecked( new_state );
-    m_FindReplace->SetRegexOptionAutoTokenise( new_state );
-}
-
-
 void MainWindow::ZoomIn()
 {
     ZoomByStep( true );
@@ -2598,15 +2577,6 @@ void MainWindow::ReadSettings()
 
     m_preserveHeadingAttributes = settings.value( "preserveheadingattributes", true ).toBool();
     SetPreserveHeadingAttributes( m_preserveHeadingAttributes );
-
-    QVariant regexOptionDotAll = settings.value( "regexoptiondotall", false );
-    SetRegexOptionDotAll( regexOptionDotAll.toBool() );
-
-    QVariant regexOptionMinimalMatch = settings.value( "regexoptionminimalmatch", false );
-    SetRegexOptionMinimalMatch( regexOptionMinimalMatch.toBool() );
-    
-    QVariant regexOptionAutoTokenise = settings.value( "regexoptionautotokenise", false );
-    SetRegexOptionAutoTokenise( regexOptionAutoTokenise.toBool() );
     
     const QStringList clipboardHistory = settings.value( "clipboardringhistory" ).toStringList();
     m_ClipboardHistorySelector->LoadClipboardHistory(clipboardHistory);
@@ -2644,10 +2614,6 @@ void MainWindow::WriteSettings()
     settings.setValue( "recentfiles", s_RecentFiles );
 
     settings.setValue( "preserveheadingattributes", m_preserveHeadingAttributes );
-
-    settings.setValue( "regexoptiondotall", ui.actionRegexDotAll->isChecked() );
-    settings.setValue( "regexoptionminimalmatch", ui.actionRegexMinimalMatch->isChecked() );
-    settings.setValue( "regexoptionautotokenise", ui.actionRegexAutoTokenise->isChecked() );
 
     settings.setValue( "clipboardringhistory", m_ClipboardHistorySelector->GetClipboardHistory() );
 
@@ -3700,9 +3666,6 @@ void MainWindow::ConnectSignalsToSlots()
     connect( ui.actionReplaceAll,    SIGNAL( triggered() ), m_FindReplace, SLOT( ReplaceAll()      ) );
     connect( ui.actionCount,         SIGNAL( triggered() ), m_FindReplace, SLOT( Count()           ) );
     connect( ui.actionGoToLine,      SIGNAL( triggered() ), this, SLOT( GoToLine()                 ) );
-    connect( ui.actionRegexDotAll,   SIGNAL( triggered(bool) ), this, SLOT( SetRegexOptionDotAll(bool)        ) );
-    connect( ui.actionRegexMinimalMatch, SIGNAL( triggered(bool) ), this, SLOT( SetRegexOptionMinimalMatch(bool) ) );
-    connect( ui.actionRegexAutoTokenise, SIGNAL( triggered(bool) ), this, SLOT( SetRegexOptionAutoTokenise(bool) ) );
 
     // About
     connect( ui.actionUserGuide,     SIGNAL( triggered() ), this, SLOT( UserGuide()                ) );
@@ -3845,6 +3808,8 @@ void MainWindow::ConnectSignalsToSlots()
             m_FindReplace,   SLOT( LoadSearch(                     SearchEditorModel::searchEntry *)));
     connect(m_SearchEditor, SIGNAL(FindSelectedSearchRequest(      QList<SearchEditorModel::searchEntry *>)),
             m_FindReplace,   SLOT( FindSearch(                     QList<SearchEditorModel::searchEntry *>)));
+    connect(m_SearchEditor, SIGNAL(ReplaceCurrentSelectedSearchRequest(QList<SearchEditorModel::searchEntry *>)),
+            m_FindReplace,   SLOT( ReplaceCurrentSearch(               QList<SearchEditorModel::searchEntry *>)));
     connect(m_SearchEditor, SIGNAL(ReplaceSelectedSearchRequest(   QList<SearchEditorModel::searchEntry *>)),
             m_FindReplace,   SLOT( ReplaceSearch(                  QList<SearchEditorModel::searchEntry *>)));
     connect(m_SearchEditor, SIGNAL(CountAllSelectedSearchRequest(  QList<SearchEditorModel::searchEntry *>)),

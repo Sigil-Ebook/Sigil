@@ -118,5 +118,7 @@
         <file>format-case-uppercase_16px.png</file>
         <file>format-case-titlecase_16px.png</file>
         <file>format-case-capitalize_16px.png</file>
+        <file>chevron-up_16px.png</file>
+        <file>chevron-down_16px.png</file>
     </qresource>
 </RCC>
