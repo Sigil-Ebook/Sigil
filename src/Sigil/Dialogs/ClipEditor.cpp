@@ -76,7 +76,7 @@ void ClipEditor::SetupClipEditorTree()
         "<dl>" +
         "<dt><b>" + tr("Apply") + "</b><dd>" + tr("Paste the selected entry into the active window.") + "</dd>" +
         "<dt><b>" + tr("Cancel") + "</b><dd>" + tr("Close without saving.") + "</dd>" +
-        "<dt><b>" + tr("OK") + "</b><dd>" + tr("Paste the selected entry, save your changes, and close.") + "</dd>" +
+        "<dt><b>" + tr("OK") + "</b><dd>" + tr("Paste the selected entry, save your changes, and close.") + "<br/><br/>" + tr("Click in the Filter box then OK to save without pasting.") + "</dd>" +
         "</dl>");
 
 

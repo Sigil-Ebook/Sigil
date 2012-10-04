@@ -25,6 +25,8 @@
 #include <QtCore/QDir>
 #include <QtCore/QEvent>
 #include <QtCore/QTimer>
+#include <QtCore/QSignalMapper>
+#include <QtGui/QContextMenuEvent>
 #include <QtGui/QDesktopServices>
 #include <QtGui/QKeyEvent>
 #include <QtGui/QMenu>
@@ -34,6 +36,7 @@
 #include <QtWebKit/QWebFrame>
 
 #include "BookManipulation/Book.h"
+#include "Dialogs/ClipEditor.h"
 #include "Misc/SettingsStore.h"
 #include "Misc/Utility.h"
 #include "Misc/OpenExternally.h"
@@ -72,6 +75,7 @@ BookViewEditor::BookViewEditor(QWidget *parent)
     m_isDelayedPageDown( false ),
     m_WebPageModified( false ),
     m_ContextMenu( *new QMenu( this ) ),
+    m_clipMapper( new QSignalMapper( this ) ),
     m_OpenWithContextMenu( *new QMenu( this ) ),
     m_ScrollOneLineUp(   *( new QShortcut( QKeySequence( Qt::ControlModifier + Qt::Key_Up   ), this, 0, 0, Qt::WidgetShortcut ) ) ),
     m_ScrollOneLineDown( *( new QShortcut( QKeySequence( Qt::ControlModifier + Qt::Key_Down ), this, 0, 0, Qt::WidgetShortcut ) ) ),
@@ -691,6 +695,11 @@ void BookViewEditor::PasteText(const QString &text)
     InsertHtml(text);
 }
 
+void BookViewEditor::PasteClipEntryFromName(const QString &name)
+{
+    ClipEditorModel::clipEntry *clip = ClipEditorModel::instance()->GetEntryFromName(name);
+    PasteClipEntry(clip);
+}
 
 void BookViewEditor::PasteClipEntries(const QList<ClipEditorModel::clipEntry *> &clips)
 {
@@ -779,6 +788,11 @@ bool BookViewEditor::SuccessfullySetupContextMenu( const QPoint &point )
         }
         else {
             // If not an image allow insert - otherwise cursor is not where you expect.
+
+            AddClipContextMenu(&m_ContextMenu);
+
+            m_ContextMenu.addSeparator();
+
             m_ContextMenu.addAction( m_InsertImage );
         }
     }
@@ -798,6 +812,91 @@ bool BookViewEditor::SuccessfullySetupContextMenu( const QPoint &point )
     m_Copy->setEnabled(has_selection);
 
     return true;
+}
+
+
+void BookViewEditor::AddClipContextMenu(QMenu *menu)
+{
+    QAction *topAction = 0;
+    if (!menu->actions().isEmpty()) {
+        topAction = menu->actions().at(0);
+    }
+
+    if (CreateMenuEntries(menu, topAction, ClipEditorModel::instance()->invisibleRootItem())) {
+        if (topAction) {
+            menu->insertSeparator(topAction);
+        }
+        else {
+            menu->addSeparator();
+        }
+    }
+
+    QAction *saveClipAction = new QAction(tr("Add To Clip Manager"), menu);
+    if (!topAction) {
+        menu->addAction(saveClipAction);
+    }
+    else {
+        menu->insertAction(topAction, saveClipAction);
+    }
+    connect(saveClipAction, SIGNAL(triggered()), this , SLOT(SaveClipAction()));
+    saveClipAction->setEnabled(!GetSelectedText().isEmpty());
+
+    if (topAction) {
+        menu->insertSeparator(topAction);
+    }
+}
+
+bool BookViewEditor::CreateMenuEntries(QMenu *parent_menu, QAction *topAction, QStandardItem *item)
+{
+    QAction *clipAction = 0;
+    QMenu *group_menu = parent_menu;
+
+    if (!item) {
+        return false;
+    }
+
+    if (!item->text().isEmpty()) {
+        // If item has no children, add entry to the menu, else create menu
+        if (!item->data().toBool()) {
+            clipAction = new QAction(item->text(), this);
+            connect(clipAction, SIGNAL(triggered()), m_clipMapper, SLOT(map()));
+            m_clipMapper->setMapping(clipAction, ClipEditorModel::instance()->GetFullName(item));
+            if (!topAction) {
+                parent_menu->addAction(clipAction);
+            }
+            else {
+                parent_menu->insertAction(topAction, clipAction);
+            }
+        }
+        else {
+            group_menu = new QMenu(this);
+            group_menu->setTitle(item->text());
+
+            if (topAction) {
+                parent_menu->insertMenu(topAction, group_menu);
+            }
+            else {
+                parent_menu->addMenu(group_menu);
+            }
+            topAction = 0;
+        }
+    }
+
+    // Recursively add entries for children
+    for (int row = 0; row < item->rowCount(); row++) {
+        CreateMenuEntries(group_menu, topAction, item->child(row,0));
+    }
+    return item->rowCount() > 0;
+}
+
+void BookViewEditor::SaveClipAction()
+{
+    ClipEditorModel::clipEntry clip;
+    clip.name = "Unnamed Entry";
+    clip.is_group = false;
+    clip.text = GetSelectedText();
+
+    emit OpenClipEditorRequest(&clip);
 }
 
 void BookViewEditor::CreateContextMenuActions()
@@ -845,4 +944,7 @@ void BookViewEditor::ConnectSignalsToSlots()
     connect( m_OpenWith,       SIGNAL( triggered() ),  this, SLOT( openWith()       ) );
     connect( m_OpenWithEditor, SIGNAL( triggered() ),  this, SLOT( openWithEditor() ) );
     connect( m_SaveAs,         SIGNAL( triggered() ),  this, SLOT( saveAs()         ) );
+
+    connect(m_clipMapper, SIGNAL(mapped(const QString&)), this, SLOT(PasteClipEntryFromName(const QString&)));
+
 }

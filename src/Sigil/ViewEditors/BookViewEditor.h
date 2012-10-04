@@ -37,6 +37,7 @@ class QEvent;
 class QMenu;
 class QSize;
 class QShortcut;
+class QSignalMapper;
 
 /**
  * A WYSIWYG editor for XHTML flows.
@@ -248,6 +249,8 @@ signals:
     void ClipboardSaveRequest();
     void ClipboardRestoreRequest();
 
+    void OpenClipEditorRequest(ClipEditorModel::clipEntry *);
+
 protected:
     /**
      * Handles the focus out event for the editor.
@@ -286,8 +289,15 @@ private slots:
      */
     void OpenContextMenu( const QPoint &point );
 
+    void PasteClipEntryFromName(const QString &name);
+
+    void SaveClipAction();
+
 private:
     void PasteClipEntry(ClipEditorModel::clipEntry *clip);
+
+    void AddClipContextMenu(QMenu *menu);
+    bool CreateMenuEntries(QMenu *parent_menu, QAction *topAction, QStandardItem *item);
 
     /**
      * Escapes JavaScript string special characters.
@@ -381,6 +391,8 @@ private:
      */
     QMenu &m_ContextMenu;
 
+    QSignalMapper *m_clipMapper;
+
     /**
      * The context menu actions.
      */
@@ -396,6 +408,7 @@ private:
     QAction *m_Open;
 
     QMenu &m_OpenWithContextMenu;
+
     QAction *m_OpenWith;
     QAction *m_OpenWithEditor;
 
