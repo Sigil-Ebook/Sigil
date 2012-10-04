@@ -785,8 +785,6 @@ bool CodeViewEditor::ReplaceSelected( const QString &search_regex, const QString
         // If nothing found or found but at a new position we don't want to move forward
         // since there was no match inside the selection, reset cursor/selection to avoid 
         // moving forward and return as there's no point in checking the match again.
-        m_lastMatch.offset.first = -1;
-
         cursor = textCursor();
         cursor.clearSelection();
         if (selection_position != selection_start) {
@@ -808,56 +806,52 @@ bool CodeViewEditor::ReplaceSelected( const QString &search_regex, const QString
 
     SPCRE::MatchInfo match_info;
 
-    // Check if the currently selected text is a match.
-    if ( m_lastMatch.offset.first == selection_start && m_lastMatch.offset.second == selection_start + selected_text.length() )
+    QString replaced_text;
+    bool replacement_made = false;
+
+    replacement_made = spcre->replaceText( selected_text, m_lastMatch.capture_groups_offsets, replacement, replaced_text );
+
+    if ( replacement_made )
     {
-        QString replaced_text;
-        bool replacement_made = false;
+        QTextCursor cursor = textCursor();
+        int start = cursor.position();
 
-        replacement_made = spcre->replaceText( selected_text, m_lastMatch.capture_groups_offsets, replacement, replaced_text );
+        // Replace the selected text with our replacement text.
+        cursor.beginEditBlock();
+        cursor.removeSelectedText();
+        cursor.insertText( replaced_text );
+        cursor.clearSelection();
+        cursor.endEditBlock();
 
-        if ( replacement_made )
-        {
-            QTextCursor cursor = textCursor();
-            int start = cursor.position();
-
-            // Replace the selected text with our replacement text.
-            cursor.beginEditBlock();
-            cursor.removeSelectedText();
-            cursor.insertText( replaced_text );
-            cursor.clearSelection();
-            cursor.endEditBlock();
-
-            // Select the new text
-            if (replace_current) {
-                if ( direction == Searchable::Direction_Up ) {
-                    cursor.setPosition(start + replaced_text.length());
-                    cursor.setPosition(start, QTextCursor::KeepAnchor );
-                }  
-                else {
-                    cursor.setPosition(selection_start);
-                    cursor.setPosition(selection_start + replaced_text.length(), QTextCursor::KeepAnchor );
-                }
+        // Select the new text
+        if (replace_current) {
+            if ( direction == Searchable::Direction_Up ) {
+                cursor.setPosition(start + replaced_text.length());
+                cursor.setPosition(start, QTextCursor::KeepAnchor );
+            }  
+            else {
+                cursor.setPosition(selection_start);
+                cursor.setPosition(selection_start + replaced_text.length(), QTextCursor::KeepAnchor );
             }
-            else if ( direction == Searchable::Direction_Up )
-            {
-                    // Find for next match done after will set selection
-                    cursor.setPosition( selection_start );
-            }
-
-            setTextCursor( cursor );
-
-            if (!hasFocus()) {
-                // The replace operation is being performed where focus is elsewhere (like in the F&R combos)
-                // If the user does not click back into the tab, these changes will not be saved yet, which
-                // means if the switch to another tab (such as a BV tab after doing a F&R in CSS) they will
-                // not see the result of those changes. So we will emit a FocusLost event, which will trigger
-                // the saving of the tab content and all associated ResourceModified signals to fire.
-                emit FocusLost( this );
-            }
-
-            return true;
         }
+        else if ( direction == Searchable::Direction_Up )
+        {
+                // Find for next match done after will set selection
+                cursor.setPosition( selection_start );
+        }
+
+        setTextCursor( cursor );
+
+        if (!hasFocus()) {
+            // The replace operation is being performed where focus is elsewhere (like in the F&R combos)
+            // If the user does not click back into the tab, these changes will not be saved yet, which
+            // means if the switch to another tab (such as a BV tab after doing a F&R in CSS) they will
+            // not see the result of those changes. So we will emit a FocusLost event, which will trigger
+            // the saving of the tab content and all associated ResourceModified signals to fire.
+            emit FocusLost( this );
+        }
+
+        return true;
     }
 
     return false;
@@ -1639,7 +1633,7 @@ void CodeViewEditor::ScrollOneLineDown()
 }
 
 
-void CodeViewEditor::ReplaceSelected(const QString &text)
+void CodeViewEditor::InsertText(const QString &text)
 {
     QTextCursor c = textCursor();
     c.insertText(text);
@@ -1684,7 +1678,7 @@ QString CodeViewEditor::getSpellingSafeText(const QString &raw_text)
 
 void CodeViewEditor::PasteText(const QString &text)
 {
-    ReplaceSelected(text);
+    InsertText(text);
 }
 
 void CodeViewEditor::PasteClipEntries(const QList<ClipEditorModel::clipEntry *> &clips)
@@ -2998,7 +2992,7 @@ void CodeViewEditor::ConnectSignalsToSlots()
     connect( &m_ScrollOneLineUp,   SIGNAL( activated() ), this, SLOT( ScrollOneLineUp()   ) );
     connect( &m_ScrollOneLineDown, SIGNAL( activated() ), this, SLOT( ScrollOneLineDown() ) );
 
-    connect(m_spellingMapper, SIGNAL(mapped(const QString&)), this, SLOT(ReplaceSelected(const QString&)));
+    connect(m_spellingMapper, SIGNAL(mapped(const QString&)), this, SLOT(InsertText(const QString&)));
     connect(m_addSpellingMapper, SIGNAL(mapped(const QString&)), this, SLOT(addToUserDictionary(const QString&)));
     connect(m_ignoreSpellingMapper, SIGNAL(mapped(const QString&)), this, SLOT(ignoreWordInDictionary(const QString&)));
 

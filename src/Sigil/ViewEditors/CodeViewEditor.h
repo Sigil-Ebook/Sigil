@@ -465,12 +465,7 @@ private slots:
      */
     void ScrollOneLineDown();
 
-    /**
-     * Replace the selected text with the the given text.
-     *
-     * @param text The string to replace the selected text with.
-     */
-    void ReplaceSelected(const QString &text);
+    void InsertText(const QString &text);
 
     void addToUserDictionary(const QString &text);
 
