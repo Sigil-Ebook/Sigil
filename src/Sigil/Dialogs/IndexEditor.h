@@ -47,7 +47,6 @@ class IndexEditor : public QDialog
 
 public:
     IndexEditor(QWidget *parent);
-    ~IndexEditor();
 
     void SetBook(QSharedPointer <Book> book);
 

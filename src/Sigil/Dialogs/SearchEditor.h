@@ -44,7 +44,6 @@ class SearchEditor : public QDialog
 
 public:
     SearchEditor(QWidget *parent);
-    ~SearchEditor();
 
 public slots:
     QStandardItem* AddEntry(bool is_group = false, SearchEditorModel::searchEntry *search_entry = NULL, bool insert_after = true);

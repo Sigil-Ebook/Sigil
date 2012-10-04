@@ -45,12 +45,6 @@ SearchEditor::SearchEditor(QWidget *parent)
     ConnectSignalsSlots();
 } 
 
-SearchEditor::~SearchEditor()
-{
-    // Restore data from file since we aren't saving
-    m_SearchEditorModel->LoadInitialData();
-}
-
 void SearchEditor::SetupSearchEditorTree()
 {
     m_SearchEditorModel = SearchEditorModel::instance();

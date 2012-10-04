@@ -48,12 +48,6 @@ ClipEditor::ClipEditor(QWidget *parent)
     ConnectSignalsSlots();
 }
 
-ClipEditor::~ClipEditor()
-{
-    // Restore data from file since we aren't saving
-    m_ClipEditorModel->LoadInitialData();
-}
-
 void ClipEditor::SetupClipEditorTree()
 {
     m_ClipEditorModel = ClipEditorModel::instance();

@@ -91,6 +91,7 @@ public:
      * @param flags The flags used to modify window behavior.
      */
     MainWindow( const QString &openfilepath = QString(), QWidget *parent = 0, Qt::WFlags flags = 0 );
+    ~MainWindow();
 
     /**
      * The book currently being edited.

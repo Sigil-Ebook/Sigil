@@ -163,6 +163,27 @@ MainWindow::MainWindow( const QString &openfilepath, QWidget *parent, Qt::WFlags
     LoadInitialFile(openfilepath);
 }
 
+MainWindow::~MainWindow()
+{
+    // Make sure that any modeless windows that are visible are closed first
+    // to prevent crashes on Windows.
+    if (m_SearchEditor && m_SearchEditor->isVisible()) {
+        m_SearchEditor->close();
+        m_SearchEditor = NULL;
+    }
+    if (m_ClipEditor && m_ClipEditor->isVisible()) {
+        m_ClipEditor->close();
+        m_ClipEditor = NULL;
+    }
+    if (m_IndexEditor && m_IndexEditor->isVisible()) {
+        m_IndexEditor->close();
+        m_IndexEditor = NULL;
+    }
+    if (m_SelectCharacter && m_SelectCharacter->isVisible()) {
+        m_SelectCharacter->close();
+        m_SelectCharacter = NULL;
+    }
+}
 
 void MainWindow::SelectResources(QList<Resource *> resources)
 {

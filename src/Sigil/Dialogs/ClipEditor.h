@@ -42,7 +42,6 @@ class ClipEditor : public QDialog
 
 public:
     ClipEditor(QWidget *parent);
-    ~ClipEditor();
 
 public slots:
     QStandardItem* AddEntry(bool is_group = false, ClipEditorModel::clipEntry *clip_entry = NULL, bool insert_after = true);

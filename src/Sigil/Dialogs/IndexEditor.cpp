@@ -50,12 +50,6 @@ IndexEditor::IndexEditor(QWidget *parent)
     ConnectSignalsSlots();
 } 
 
-IndexEditor::~IndexEditor()
-{
-    // Restore data from file since we aren't saving
-    m_IndexEditorModel->LoadInitialData();
-}
-
 void IndexEditor::SetBook(QSharedPointer <Book> book)
 {
     m_Book = book;
