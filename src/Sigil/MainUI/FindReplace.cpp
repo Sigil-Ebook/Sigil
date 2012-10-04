@@ -1312,8 +1312,12 @@ void FindReplace::TokeniseSelection()
 
 QString FindReplace::TokeniseForRegex(const QString &text, bool includeNumerics)
 {
-    QString new_text = QRegExp::escape(text);
-
+    QString new_text(text);
+    if (!text.contains("\\")) {
+        // Going to "assume" that this text has already been escaped by the
+        // auto-tokenise logic or the user running tokenise already.
+        new_text = QRegExp::escape(text);
+    }
     QRegExp replace_spaces("([\\n\\s]{2,})");
     new_text.replace(replace_spaces, "\\s+");
 
