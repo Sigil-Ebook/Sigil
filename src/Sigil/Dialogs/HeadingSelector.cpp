@@ -474,7 +474,7 @@ void HeadingSelector::InsertHeadingIntoModel( Headings::Heading &heading, QStand
     Q_ASSERT( parent_item );
 
     QStandardItem *item_heading           = new QStandardItem( heading.text );
-    QStandardItem *heading_level          = new QStandardItem( QString::number(heading.level) );
+    QStandardItem *heading_level          = new QStandardItem( "h" % QString::number(heading.level) );
     QStandardItem *heading_included_check = new QStandardItem();
 
     heading_level->setEditable( false );
