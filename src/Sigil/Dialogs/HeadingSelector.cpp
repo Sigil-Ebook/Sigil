@@ -451,7 +451,8 @@ void HeadingSelector::CreateTOCModel()
 
     QStringList header;
 
-    header.append( tr( "TOC Entry" ) );
+    header.append( tr( "TOC Entry / Heading Title" ) );
+    header.append( tr( "Level" ) );
     header.append( tr( "Include" ) );
 
     m_TableOfContents.setHorizontalHeaderLabels( header );
@@ -473,10 +474,14 @@ void HeadingSelector::InsertHeadingIntoModel( Headings::Heading &heading, QStand
     Q_ASSERT( parent_item );
 
     QStandardItem *item_heading           = new QStandardItem( heading.text );
+    QStandardItem *heading_level          = new QStandardItem( QString::number(heading.level) );
     QStandardItem *heading_included_check = new QStandardItem();
+
+    heading_level->setEditable( false );
 
     heading_included_check->setEditable( false );
     heading_included_check->setCheckable( true );
+
     item_heading->setEditable( true );
     item_heading->setDragEnabled( false );
     item_heading->setDropEnabled( false );
@@ -502,7 +507,7 @@ void HeadingSelector::InsertHeadingIntoModel( Headings::Heading &heading, QStand
     item_heading->setToolTip( heading.resource_file->Filename() + ":\n\n" + html);
 
     QList< QStandardItem* > items;        
-    items << item_heading << heading_included_check;
+    items << item_heading << heading_level << heading_included_check;
 
     parent_item->appendRow( items );
 
@@ -554,7 +559,7 @@ void HeadingSelector::RemoveExcludedItems( QStandardItem *item )
     QStandardItem *item_parent = GetActualItemParent( item );
 
     // We query the "include in TOC" checkbox
-    Qt::CheckState check_state = item_parent->child( item->row(), 1 )->checkState();
+    Qt::CheckState check_state = item_parent->child( item->row(), 2 )->checkState();
 
     // We remove the current item if it shouldn't
     // be included in the TOC
