@@ -211,6 +211,19 @@
     <addaction name="separator"/>
     <addaction name="actionCount"/>
     <addaction name="separator"/>
+    <widget class="QMenu" name="menuSearchCurrentFile">
+     <property name="title">
+      <string>C&amp;urrent File</string>
+     </property>
+     <addaction name="actionFindNextInFile"/>
+     <addaction name="separator"/>
+     <addaction name="actionReplaceNextInFile"/>
+     <addaction name="actionReplaceAllInFile"/>
+     <addaction name="separator"/>
+     <addaction name="actionCountInFile"/>
+    </widget>
+    <addaction name="menuSearchCurrentFile"/>
+    <addaction name="separator"/>
     <addaction name="actionGoToLinkOrStyle"/>
     <addaction name="actionGoBackFromLinkOrStyle"/>
     <addaction name="actionGoToLine"/>
@@ -1628,6 +1641,26 @@
    </property>
    <property name="shortcut">
     <string>Alt+C</string>
+   </property>
+  </action>
+  <action name="actionFindNextInFile">
+   <property name="text">
+    <string>Find &amp;Next In File</string>
+   </property>
+  </action>
+  <action name="actionReplaceNextInFile">
+   <property name="text">
+    <string>&amp;Replace Next In File</string>
+   </property>
+  </action>
+  <action name="actionReplaceAllInFile">
+   <property name="text">
+    <string>Replace &amp;All In File</string>
+   </property>
+  </action>
+  <action name="actionCountInFile">
+   <property name="text">
+    <string>&amp;Count All In File</string>
    </property>
   </action>
   <action name="actionSearchEditor">

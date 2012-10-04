@@ -149,6 +149,11 @@ private slots:
     // dialog telling how many occurrences were replaced.
     int ReplaceAll();
 
+    void FindNextInFile();
+    void ReplaceNextInFile();
+    void ReplaceAllInFile();
+    void CountInFile();
+
     void clearMessage();
     void expireMessage();
 

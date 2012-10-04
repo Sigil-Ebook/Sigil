@@ -389,6 +389,34 @@ int FindReplace::ReplaceAll()
     return count;
 }
 
+void FindReplace::FindNextInFile()
+{
+    m_LookWhereCurrentFile = true;
+    FindText( Searchable::Direction_Down );
+    m_LookWhereCurrentFile = false;
+}
+
+void FindReplace::ReplaceNextInFile()
+{
+    m_LookWhereCurrentFile = true;
+    ReplaceText( Searchable::Direction_Down );
+    m_LookWhereCurrentFile = false;
+}
+
+void FindReplace::ReplaceAllInFile()
+{
+    m_LookWhereCurrentFile = true;
+    ReplaceAll();
+    m_LookWhereCurrentFile = false;
+}
+
+void FindReplace::CountInFile()
+{
+    m_LookWhereCurrentFile = true;
+    Count();
+    m_LookWhereCurrentFile = false;
+}
+
 
 void FindReplace::clearMessage()
 {

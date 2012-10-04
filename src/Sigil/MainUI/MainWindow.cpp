@@ -3316,6 +3316,10 @@ void MainWindow::ExtendUI()
     sm->registerAction(ui.actionReplacePrevious, "MainWindow.ReplacePrevious");
     sm->registerAction(ui.actionReplaceAll, "MainWindow.ReplaceAll");
     sm->registerAction(ui.actionCount, "MainWindow.Count");
+    sm->registerAction(ui.actionFindNextInFile, "MainWindow.FindNextInFile");
+    sm->registerAction(ui.actionReplaceNextInFile, "MainWindow.ReplaceNextInFile");
+    sm->registerAction(ui.actionReplaceAllInFile, "MainWindow.ReplaceAllInFile");
+    sm->registerAction(ui.actionCountInFile, "MainWindow.CountInFile");
     sm->registerAction(ui.actionGoToLine, "MainWindow.GoToLine");
     sm->registerAction(ui.actionGoToLinkOrStyle, "MainWindow.GoToLinkOrStyle");
     sm->registerAction(ui.actionGoBackFromLinkOrStyle, "MainWindow.GoBackFromLinkOrStyle");
@@ -3678,15 +3682,19 @@ void MainWindow::ConnectSignalsToSlots()
     connect( ui.actionPreferences,     SIGNAL( triggered() ), this, SLOT( PreferencesDialog()      ) );
 
     // Search
-    connect( ui.actionFind,          SIGNAL( triggered() ), this, SLOT( Find()                     ) );
-    connect( ui.actionFindNext,      SIGNAL( triggered() ), m_FindReplace, SLOT( FindNext()        ) );
-    connect( ui.actionFindPrevious,  SIGNAL( triggered() ), m_FindReplace, SLOT( FindPrevious()    ) );
-    connect( ui.actionReplaceCurrent,SIGNAL( triggered() ), m_FindReplace, SLOT( ReplaceCurrent()  ) );
-    connect( ui.actionReplaceNext,   SIGNAL( triggered() ), m_FindReplace, SLOT( ReplaceNext()     ) );
-    connect( ui.actionReplacePrevious,SIGNAL(triggered() ), m_FindReplace, SLOT( ReplacePrevious() ) );
-    connect( ui.actionReplaceAll,    SIGNAL( triggered() ), m_FindReplace, SLOT( ReplaceAll()      ) );
-    connect( ui.actionCount,         SIGNAL( triggered() ), m_FindReplace, SLOT( Count()           ) );
-    connect( ui.actionGoToLine,      SIGNAL( triggered() ), this, SLOT( GoToLine()                 ) );
+    connect( ui.actionFind,             SIGNAL( triggered() ), this, SLOT( Find()                       ) );
+    connect( ui.actionFindNext,         SIGNAL( triggered() ), m_FindReplace, SLOT( FindNext()          ) );
+    connect( ui.actionFindPrevious,     SIGNAL( triggered() ), m_FindReplace, SLOT( FindPrevious()      ) );
+    connect( ui.actionReplaceCurrent,   SIGNAL( triggered() ), m_FindReplace, SLOT( ReplaceCurrent()    ) );
+    connect( ui.actionReplaceNext,      SIGNAL( triggered() ), m_FindReplace, SLOT( ReplaceNext()       ) );
+    connect( ui.actionReplacePrevious,  SIGNAL( triggered() ), m_FindReplace, SLOT( ReplacePrevious()   ) );
+    connect( ui.actionReplaceAll,       SIGNAL( triggered() ), m_FindReplace, SLOT( ReplaceAll()        ) );
+    connect( ui.actionCount,            SIGNAL( triggered() ), m_FindReplace, SLOT( Count()             ) );
+    connect( ui.actionFindNextInFile,   SIGNAL( triggered() ), m_FindReplace, SLOT( FindNextInFile()    ) );
+    connect( ui.actionReplaceNextInFile,SIGNAL( triggered() ), m_FindReplace, SLOT( ReplaceNextInFile() ) );
+    connect( ui.actionReplaceAllInFile, SIGNAL( triggered() ), m_FindReplace, SLOT( ReplaceAllInFile()  ) );
+    connect( ui.actionCountInFile,      SIGNAL( triggered() ), m_FindReplace, SLOT( CountInFile()       ) );
+    connect( ui.actionGoToLine,         SIGNAL( triggered() ), this, SLOT( GoToLine()                   ) );
 
     // About
     connect( ui.actionUserGuide,     SIGNAL( triggered() ), this, SLOT( UserGuide()                ) );
