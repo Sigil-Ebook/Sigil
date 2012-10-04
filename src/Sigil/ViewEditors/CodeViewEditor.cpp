@@ -1729,8 +1729,8 @@ void CodeViewEditor::PasteClipEntry(ClipEditorModel::clipEntry *clip)
         setTextCursor( cursor );
     }
     else {
-        QString search_regex = "(?s)(.*)";
-        ReplaceSelected(search_regex, clip->text, Searchable::Direction_Down );
+        QString search_regex = "(?s)(" + selected_text + ")";
+        ReplaceSelected(search_regex, clip->text, Searchable::Direction_Down, true);
     }
 }
 
