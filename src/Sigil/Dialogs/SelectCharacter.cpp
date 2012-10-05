@@ -96,10 +96,10 @@ void SelectCharacter::SetList()
     << QString::fromUtf8("\xe2\x86\x92")    << ""           << "&rarr;"     << "RIGHT ARROW"
     << QString::fromUtf8("\xe2\x87\x92")    << ""           << "&rArr;"     << "DOUBLE RIGHT ARROW"
 
+    << QString::fromUtf8("\xe2\x80\xa2")    << ""           << "&bull;"     << "BULLET"
     << QString::fromUtf8("\xc2\xb7")        << ""           << "&middot;"   << "MIDDLE DOT"
     << QString::fromUtf8("\xc2\xb0")        << ""           << "&deg;"      << "DEGREE SIGN"
 
-    << QString::fromUtf8("\xc2\xac")        << ""           << "&plusmn;"   << "NOT SIGN"
     << QString::fromUtf8("\xc2\xb1")        << ""           << "&plusmn;"   << "PLUS MINUS SIGN"
     << QString::fromUtf8("\xc3\x97")        << ""           << "&times;"    << "MULTIPLICATION SIGN"
     << QString::fromUtf8("\xc3\xb7")        << ""           << "&divide;"   << "DIVISION SIGN"
