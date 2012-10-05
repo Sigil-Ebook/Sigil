@@ -19,77 +19,67 @@
      <property name="title">
       <string>Automatically Clean and Format HTML Source Code</string>
      </property>
-     <widget class="QWidget" name="layoutWidget">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>10</y>
-        <width>382</width>
-        <height>82</height>
-       </rect>
-      </property>
-      <layout class="QHBoxLayout" name="horizontalLayout" stretch="0,0,0,0">
-       <item>
-        <widget class="QRadioButton" name="CleanLevelOff">
-         <property name="toolTip">
-          <string>Use this option if you do not want Sigil to try to
+     <layout class="QVBoxLayout" name="verticalLayout2">
+      <item>
+       <widget class="QRadioButton" name="CleanLevelOff">
+        <property name="toolTip">
+         <string>Use this option if you do not want Sigil to try to
 automatically format or clean your HTML source code.
 
 Error correction when loading a file will always be performed.</string>
-         </property>
-         <property name="text">
-          <string>Off</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QRadioButton" name="CleanLevelPrettyPrint">
-         <property name="toolTip">
-          <string>Use this option if you want Sigil to automatically
+        </property>
+        <property name="text">
+         <string>Off</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QRadioButton" name="CleanLevelPrettyPrint">
+        <property name="toolTip">
+         <string>Use this option if you want Sigil to automatically
 format your HTML source code to look nice, and close missing end tags,
 but do not want it to automatically clean your source code.
 
 Error correction when loading a file will always be performed.</string>
-         </property>
-         <property name="text">
-          <string>Pretty Print</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QRadioButton" name="CleanLevelTidy">
-         <property name="toolTip">
-          <string>Use this option if you want Sigil to automatically
+        </property>
+        <property name="text">
+         <string>Pretty Print</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QRadioButton" name="CleanLevelTidy">
+        <property name="toolTip">
+         <string>Use this option if you want Sigil to automatically
 format and clean your HTML source code using HTML Tidy.  
 This may cause your source code to be re-arranged and may
 change your formatting to use inline style sections.
 
 Error correction when loading a file will always be performed.</string>
-         </property>
-         <property name="text">
-          <string>HTML Tidy</string>
-         </property>
-         <property name="checked">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <spacer name="horizontalSpacer">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>40</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-      </layout>
-     </widget>
+        </property>
+        <property name="text">
+         <string>HTML Tidy</string>
+        </property>
+        <property name="checked">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </widget>
+   </item>
+   <item>
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>40</width>
+       <height>20</height>
+      </size>
+     </property>
+    </spacer>
    </item>
   </layout>
  </widget>
