@@ -1985,11 +1985,16 @@ void MainWindow::SetStateActionsBookView()
     ui.actionFind->setEnabled(true);
     ui.actionFindNext->setEnabled(true);
     ui.actionFindPrevious->setEnabled(true);
-    ui.actionReplaceCurrent->setEnabled(false);
-    ui.actionReplaceNext->setEnabled(false);
-    ui.actionReplacePrevious->setEnabled(false);
-    ui.actionReplaceAll->setEnabled(false);
-    ui.actionCount->setEnabled(false);
+    ui.actionReplaceCurrent->setEnabled(true);
+    ui.actionReplaceNext->setEnabled(true);
+    ui.actionReplacePrevious->setEnabled(true);
+    ui.actionReplaceAll->setEnabled(true);
+    ui.actionCount->setEnabled(true);
+    ui.menuSearchCurrentFile->setEnabled(true);
+    ui.actionFindNextInFile->setEnabled(true);
+    ui.actionReplaceNextInFile->setEnabled(true);
+    ui.actionReplaceAllInFile->setEnabled(true);
+    ui.actionCountInFile->setEnabled(true);
     ui.actionGoToLine->setEnabled(false);
     ui.actionGoToLinkOrStyle->setEnabled(false);
 
@@ -2070,11 +2075,16 @@ void MainWindow::SetStateActionsSplitView()
     ui.actionFind->setEnabled(true);
     ui.actionFindNext->setEnabled(true);
     ui.actionFindPrevious->setEnabled(true);
-    ui.actionReplaceCurrent->setEnabled(false);
-    ui.actionReplaceNext->setEnabled(false);
-    ui.actionReplacePrevious->setEnabled(false);
-    ui.actionReplaceAll->setEnabled(false);
-    ui.actionCount->setEnabled(false);
+    ui.actionReplaceCurrent->setEnabled(true);
+    ui.actionReplaceNext->setEnabled(true);
+    ui.actionReplacePrevious->setEnabled(true);
+    ui.actionReplaceAll->setEnabled(true);
+    ui.actionCount->setEnabled(true);
+    ui.menuSearchCurrentFile->setEnabled(true);
+    ui.actionFindNextInFile->setEnabled(true);
+    ui.actionReplaceNextInFile->setEnabled(true);
+    ui.actionReplaceAllInFile->setEnabled(true);
+    ui.actionCountInFile->setEnabled(true);
     ui.actionGoToLine->setEnabled(false);
     ui.actionGoToLinkOrStyle->setEnabled(false);
 
@@ -2160,6 +2170,11 @@ void MainWindow::SetStateActionsCodeView()
     ui.actionReplacePrevious->setEnabled(true);
     ui.actionReplaceAll->setEnabled(true);
     ui.actionCount->setEnabled(true);
+    ui.menuSearchCurrentFile->setEnabled(true);
+    ui.actionFindNextInFile->setEnabled(true);
+    ui.actionReplaceNextInFile->setEnabled(true);
+    ui.actionReplaceAllInFile->setEnabled(true);
+    ui.actionCountInFile->setEnabled(true);
     ui.actionGoToLine->setEnabled(true);
     ui.actionGoToLinkOrStyle->setEnabled(true);
 
@@ -2266,6 +2281,11 @@ void MainWindow::SetStateActionsRawView()
     ui.actionReplacePrevious->setEnabled(true);
     ui.actionReplaceAll->setEnabled(true);
     ui.actionCount->setEnabled(true);
+    ui.menuSearchCurrentFile->setEnabled(true);
+    ui.actionFindNextInFile->setEnabled(true);
+    ui.actionReplaceNextInFile->setEnabled(true);
+    ui.actionReplaceAllInFile->setEnabled(true);
+    ui.actionCountInFile->setEnabled(true);
     ui.actionGoToLine->setEnabled(true);
     ui.actionGoToLinkOrStyle->setEnabled(false);
     
@@ -2351,6 +2371,11 @@ void MainWindow::SetStateActionsStaticView()
     ui.actionReplacePrevious->setEnabled(false);
     ui.actionReplaceAll->setEnabled(false);
     ui.actionCount->setEnabled(false);
+    ui.menuSearchCurrentFile->setEnabled(false);
+    ui.actionFindNextInFile->setEnabled(false);
+    ui.actionReplaceNextInFile->setEnabled(false);
+    ui.actionReplaceAllInFile->setEnabled(false);
+    ui.actionCountInFile->setEnabled(false);
     ui.actionGoToLine->setEnabled(false);
     ui.actionGoToLinkOrStyle->setEnabled(false);
 
