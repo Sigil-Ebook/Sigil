@@ -985,7 +985,7 @@ void MainWindow::DeleteUnusedImages()
         ShowMessageOnStatusBar(tr("Unused images delete."));
     }
     else {
-        ShowMessageOnStatusBar(tr("There are no unused images to delete."));
+        QMessageBox::information(this, tr("Sigil"), tr("There are no unused images to delete."));
     }
 
 }
@@ -1013,7 +1013,7 @@ void MainWindow::DeleteUnusedStyles()
         DeleteReportsStyles(css_selectors_to_delete);
     }
     else {
-        ShowMessageOnStatusBar(tr("There are no unused class styles to delete."));
+        QMessageBox::information(this, tr("Sigil"), tr("There are no unused stylesheet classes to delete."));
     }
 }
 
