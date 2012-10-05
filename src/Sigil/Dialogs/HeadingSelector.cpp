@@ -358,23 +358,9 @@ void HeadingSelector::ChangeHeadingLevel(int change_amount)
     if (heading->level < 1 || heading->level > 6) {
         return;
     }
-
-    // Get min and max levels for new level
-    QStandardItem *first_item = m_TableOfContents.invisibleRootItem()->child(0);
-    Headings::Heading *first_heading = GetItemHeading(first_item);
-
-    int heading_above_level = GetHeadingLevelAbove(item);
-
     // Change the heading level if valid to do so
-    if (change_amount < 0) {
-        if (heading->level <= 1 || (item != first_item && heading->level <= first_heading->level)) {
-            return;
-        }
-    }
-    else {
-        if (heading->level >= 6 || heading_above_level <= 0 || heading->level > heading_above_level) {
-            return;
-        }
+    if ((heading->level + change_amount < 1) || (heading->level + change_amount > 6)) {
+        return;
     }
     heading->level += change_amount;
 
@@ -385,7 +371,7 @@ void HeadingSelector::ChangeHeadingLevel(int change_amount)
     // Rename in document
     heading->element = XhtmlDoc::RenameElementInDocument(*heading->document, *heading->element, new_tag_name);
 
-    // Clear all children information then rebuild heirarchy
+    // Clear all children information then rebuild hierarchy
     QList< Headings::Heading > flat_headings = Headings::GetFlattenedHeadings(m_Headings);
     for (int i = 0; i < flat_headings.count(); i++) {
         flat_headings[i].children.clear();
