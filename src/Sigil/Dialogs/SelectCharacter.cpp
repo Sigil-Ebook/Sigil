@@ -28,7 +28,6 @@
 
 #include "Dialogs/SelectCharacter.h"
 #include "ResourceObjects/HTMLResource.h"
-#include "Misc/SettingsStore.h"
 
 static QString SETTINGS_GROUP = "select_character";
 
@@ -49,6 +48,26 @@ SelectCharacter::SelectCharacter(QWidget *parent)
 SelectCharacter::~SelectCharacter()
 {
     WriteSettings();
+}
+
+void SelectCharacter::show()
+{
+    SettingsStore settings;
+    SettingsStore::SpecialCharacterAppearance appearance = settings.specialCharacterAppearance();
+
+    if ( (m_SpecialCharacterAppearance.font_family != appearance.font_family) ||
+         (m_SpecialCharacterAppearance.font_size != appearance.font_size) ) {
+        // We need to update the grid to reflect the new appearance
+        m_SpecialCharacterAppearance = appearance;
+
+        QFont font(m_SpecialCharacterAppearance.font_family, m_SpecialCharacterAppearance.font_size);
+        // Find all the buttons initialised on the grid and set their new font.
+        QList<QToolButton*> buttons = findChildren<QToolButton*>();
+        foreach (QToolButton *button, buttons) {
+            button->setFont(font);
+        }
+    }
+    QDialog::show();
 }
 
 void SelectCharacter::SetList()
@@ -200,13 +219,10 @@ void SelectCharacter::SetList()
     AddGrid(characters, 12);
 }
 
-void SelectCharacter::AddGrid(QStringList characters, int width)
+void SelectCharacter::AddGrid(const QStringList &characters, int width)
 {
-
     QToolButton *button;
-    QFont font = *new QFont();
-    font.setFamily("helvetica");
-    font.setPointSize(14);
+    QFont font(m_SpecialCharacterAppearance.font_family, m_SpecialCharacterAppearance.font_size);
 
     QGridLayout *grid = new QGridLayout();
     grid->setHorizontalSpacing(0);
@@ -218,13 +234,13 @@ void SelectCharacter::AddGrid(QStringList characters, int width)
 
     while (i < characters.count()) {
     
-        QString insert_text = characters.at(i);
+        const QString &insert_text = characters.at(i);
         QString display_text = characters.at(i + 1);
         if (display_text.isEmpty()) {
             display_text = insert_text;
         }
-        QString entity = characters.at(i + 2);
-        QString description = characters.at(i + 3);
+        const QString &entity = characters.at(i + 2);
+        const QString &description = characters.at(i + 3);
         i += 4;
 
         if (!insert_text.isEmpty()) {
@@ -281,6 +297,8 @@ void SelectCharacter::ReadSettings()
     }
 
     settings.endGroup();
+    // Load our initial appearance settings
+    m_SpecialCharacterAppearance = settings.specialCharacterAppearance();
 }
 
 void SelectCharacter::WriteSettings()

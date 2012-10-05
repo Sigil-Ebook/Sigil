@@ -1760,6 +1760,10 @@ void MainWindow::PreferencesDialog()
     {
         RefreshSpellingHighlighting();
     }
+    if (m_SelectCharacter->isVisible()) {
+        // To ensure any font size changes are immediately applied.
+        m_SelectCharacter->show();
+    }
 }
 
 

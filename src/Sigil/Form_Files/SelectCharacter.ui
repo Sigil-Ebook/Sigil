@@ -13,10 +13,7 @@
   <property name="windowTitle">
    <string>Insert Special Character</string>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout">
-   <item>
-    <layout class="QVBoxLayout" name="character_box"/>
-   </item>
+  <layout class="QVBoxLayout" name="character_box">
   </layout>
  </widget>
  <resources/>

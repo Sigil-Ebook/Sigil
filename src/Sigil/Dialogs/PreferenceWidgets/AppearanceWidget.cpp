@@ -129,6 +129,11 @@ PreferencesWidget::ResultAction AppearanceWidget::saveSettings()
     codeViewAppearance.xhtml_html_comment_color     = getListItemColor(i++);
 
     settings.setCodeViewAppearance( codeViewAppearance );
+    
+    SettingsStore::SpecialCharacterAppearance specialCharacterAppearance;
+    specialCharacterAppearance.font_family = ui.cbSpecialCharacterFont->currentText();
+    specialCharacterAppearance.font_size   = ui.specialCharacterFontSizeSpin->value();
+    settings.setSpecialCharacterAppearance( specialCharacterAppearance );
 
     // BV/PV settings can be globally changed and will take effect immediately
     QWebSettings *web_settings = QWebSettings::globalSettings();
@@ -175,14 +180,17 @@ SettingsStore::CodeViewAppearance AppearanceWidget::readSettings()
 
     SettingsStore::BookViewAppearance bookViewAppearance = settings.bookViewAppearance();
     SettingsStore::CodeViewAppearance codeViewAppearance = settings.codeViewAppearance();
+    SettingsStore::SpecialCharacterAppearance specialCharacterAppearance = settings.specialCharacterAppearance();
 
     loadComboValueOrDefault( ui.cbBookViewFontStandard,  bookViewAppearance.font_family_standard,    "Arial"           );
     loadComboValueOrDefault( ui.cbBookViewFontSerif,     bookViewAppearance.font_family_serif,       "Times New Roman" );
     loadComboValueOrDefault( ui.cbBookViewFontSansSerif, bookViewAppearance.font_family_sans_serif,  "Arial"           );
     loadComboValueOrDefault( ui.cbCodeViewFont,          codeViewAppearance.font_family,             "Consolas"        );
+    loadComboValueOrDefault( ui.cbSpecialCharacterFont,  specialCharacterAppearance.font_family,     "Helvetica"       );
  
     ui.bookViewFontSizeSpin->setValue( bookViewAppearance.font_size );
     ui.codeViewFontSizeSpin->setValue( codeViewAppearance.font_size );
+    ui.specialCharacterFontSizeSpin->setValue( specialCharacterAppearance.font_size );
 
     codeViewAppearance.font_family = ui.cbCodeViewFont->currentText();
 

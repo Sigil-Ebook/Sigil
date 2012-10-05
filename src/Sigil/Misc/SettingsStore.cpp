@@ -69,6 +69,9 @@ static QString KEY_CODE_VIEW_XHTML_ENTITY_COLOR = SETTINGS_GROUP + "/" + "code_v
 static QString KEY_CODE_VIEW_XHTML_HTML_COLOR = SETTINGS_GROUP + "/" + "code_view_xhtml_html_color";
 static QString KEY_CODE_VIEW_XHTML_HTML_COMMENT_COLOR = SETTINGS_GROUP + "/" + "code_view_xhtml_html_comment_color";
 
+static QString KEY_SPECIAL_CHARACTER_FONT_FAMILY = SETTINGS_GROUP + "/" + "special_character_font_family";
+static QString KEY_SPECIAL_CHARACTER_FONT_SIZE = SETTINGS_GROUP + "/" + "special_character_font_size";
+
 
 SettingsStore::SettingsStore()
     : QSettings(QDesktopServices::storageLocation(QDesktopServices::DataLocation) + "/sigil.ini", QSettings::IniFormat)
@@ -208,6 +211,17 @@ SettingsStore::CodeViewAppearance SettingsStore::codeViewAppearance()
     return appearance;
 }
 
+SettingsStore::SpecialCharacterAppearance SettingsStore::specialCharacterAppearance()
+{
+    clearSettingsGroup();
+    SettingsStore::SpecialCharacterAppearance appearance;
+
+    appearance.font_family = value(KEY_SPECIAL_CHARACTER_FONT_FAMILY, "Helvetica").toString();
+    appearance.font_size = value(KEY_SPECIAL_CHARACTER_FONT_SIZE, 14).toInt();
+
+    return appearance;
+}
+
 void SettingsStore::setDefaultMetadataLang(const QString &lang)
 {
     clearSettingsGroup();
@@ -319,6 +333,14 @@ void SettingsStore::setCodeViewAppearance(const SettingsStore::CodeViewAppearanc
     setValue(KEY_CODE_VIEW_XHTML_HTML_COMMENT_COLOR, code_view_appearance.xhtml_html_comment_color);
 }
 
+void SettingsStore::setSpecialCharacterAppearance(const SettingsStore::SpecialCharacterAppearance &special_character_appearance)
+{
+    clearSettingsGroup();
+
+    setValue(KEY_SPECIAL_CHARACTER_FONT_FAMILY, special_character_appearance.font_family);
+    setValue(KEY_SPECIAL_CHARACTER_FONT_SIZE, special_character_appearance.font_size);
+}
+
 void SettingsStore::clearAppearanceSettings()
 {
     clearSettingsGroup();
@@ -357,6 +379,9 @@ void SettingsStore::clearAppearanceSettings()
     remove(KEY_CODE_VIEW_XHTML_ENTITY_COLOR);
     remove(KEY_CODE_VIEW_XHTML_HTML_COLOR);
     remove(KEY_CODE_VIEW_XHTML_HTML_COMMENT_COLOR);
+
+    remove(KEY_SPECIAL_CHARACTER_FONT_FAMILY);
+    remove(KEY_SPECIAL_CHARACTER_FONT_SIZE);
 }
 
 void SettingsStore::clearSettingsGroup()

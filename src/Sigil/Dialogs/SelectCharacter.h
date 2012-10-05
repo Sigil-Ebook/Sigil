@@ -26,11 +26,12 @@
 
 #include <QtGui/QDialog>
 
-#include "ResourceObjects/Resource.h"
 #include "BookManipulation/Book.h"
-
+#include "Misc/SettingsStore.h"
+#include "ResourceObjects/Resource.h"
 #include "ui_SelectCharacter.h"
 
+class QGridLayout;
 class QSignalMapper;
 
 class SelectCharacter: public QDialog
@@ -45,6 +46,9 @@ public:
 
     QString Selection();
 
+public slots:
+    void show();
+
 signals:
     void SelectedCharacter(const QString &text);
 
@@ -54,13 +58,14 @@ private slots:
 
 private:
 
-    void AddGrid(QStringList characters, int width);
+    void AddGrid(const QStringList &characters, int width);
     void ReadSettings();
     void connectSignalsSlots();
 
     QString m_SelectedText;
 
     QSignalMapper *m_buttonMapper;
+    SettingsStore::SpecialCharacterAppearance m_SpecialCharacterAppearance;
 
     Ui::SelectCharacter ui;
 };

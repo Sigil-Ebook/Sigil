@@ -37,45 +37,6 @@
        <layout class="QHBoxLayout" name="horizontalLayoutBV" stretch="0,0">
         <item>
          <layout class="QGridLayout" name="gridLayoutBV">
-          <item row="1" column="0">
-           <widget class="QLabel" name="labelBookViewFontStandard">
-            <property name="toolTip">
-             <string>Default font family to be used for Book View/Preview View if no font-family specified in your CSS</string>
-            </property>
-            <property name="text">
-             <string>Standard Font:</string>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="2" colspan="2">
-           <widget class="QFontComboBox" name="cbBookViewFontStandard"/>
-          </item>
-          <item row="2" column="0">
-           <widget class="QLabel" name="labelBookViewFontSerif">
-            <property name="toolTip">
-             <string>Default font family to be used for Book View/Preview View if a serif font-family specified in your CSS</string>
-            </property>
-            <property name="text">
-             <string>Serif Font:</string>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="2" colspan="2">
-           <widget class="QFontComboBox" name="cbBookViewFontSerif"/>
-          </item>
-          <item row="3" column="0">
-           <widget class="QLabel" name="labelBookViewFontSansSerif">
-            <property name="toolTip">
-             <string>Default font family to be used for Book View/Preview View if a sans-serif font-family specified in your CSS</string>
-            </property>
-            <property name="text">
-             <string>Sans-Serif Font:</string>
-            </property>
-           </widget>
-          </item>
-          <item row="3" column="2" colspan="2">
-           <widget class="QFontComboBox" name="cbBookViewFontSansSerif"/>
-          </item>
           <item row="0" column="0">
            <widget class="QLabel" name="labelBookViewFontSize">
             <property name="minimumSize">
@@ -83,6 +44,10 @@
               <width>80</width>
               <height>0</height>
              </size>
+            </property>
+            <property name="toolTip">
+             <string>Default font size to be used for Book View/Preview View
+if no font-size specified in your CSS</string>
             </property>
             <property name="text">
              <string>Font Size:</string>
@@ -111,6 +76,48 @@
              <number>99</number>
             </property>
            </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="labelBookViewFontStandard">
+            <property name="toolTip">
+             <string>Default font family to be used for Book View/Preview View
+if no font-family specified in your CSS</string>
+            </property>
+            <property name="text">
+             <string>Standard Font:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="2" colspan="2">
+           <widget class="QFontComboBox" name="cbBookViewFontStandard"/>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="labelBookViewFontSerif">
+            <property name="toolTip">
+             <string>Default font family to be used for Book View/Preview View
+if a serif font-family specified in your CSS</string>
+            </property>
+            <property name="text">
+             <string>Serif Font:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="2" colspan="2">
+           <widget class="QFontComboBox" name="cbBookViewFontSerif"/>
+          </item>
+          <item row="3" column="0">
+           <widget class="QLabel" name="labelBookViewFontSansSerif">
+            <property name="toolTip">
+             <string>Default font family to be used for Book View/Preview View
+if a sans-serif font-family specified in your CSS</string>
+            </property>
+            <property name="text">
+             <string>Sans-Serif Font:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="2" colspan="2">
+           <widget class="QFontComboBox" name="cbBookViewFontSansSerif"/>
           </item>
          </layout>
         </item>
@@ -158,23 +165,6 @@
        <layout class="QHBoxLayout" name="horizontalLayoutCV" stretch="0,0">
         <item>
          <layout class="QGridLayout" name="gridLayoutCV">
-          <item row="1" column="0">
-           <widget class="QLabel" name="labelCodeViewFont">
-            <property name="toolTip">
-             <string>Font family to be used for text in Code View.</string>
-            </property>
-            <property name="text">
-             <string>Standard Font:</string>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="1" colspan="2">
-           <widget class="QFontComboBox" name="cbCodeViewFont">
-            <property name="fontFilters">
-             <set>QFontComboBox::MonospacedFonts</set>
-            </property>
-           </widget>
-          </item>
           <item row="0" column="0">
            <widget class="QLabel" name="labelCodeViewFontSize">
             <property name="minimumSize">
@@ -182,6 +172,9 @@
               <width>80</width>
               <height>0</height>
              </size>
+            </property>
+            <property name="toolTip">
+             <string>Font size to be used for text in Code View.</string>
             </property>
             <property name="text">
              <string>Font Size:</string>
@@ -205,6 +198,23 @@
            <widget class="QSpinBox" name="codeViewFontSizeSpin">
             <property name="minimum">
              <number>6</number>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="labelCodeViewFont">
+            <property name="toolTip">
+             <string>Font family to be used for text in Code View.</string>
+            </property>
+            <property name="text">
+             <string>Standard Font:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1" colspan="2">
+           <widget class="QFontComboBox" name="cbCodeViewFont">
+            <property name="fontFilters">
+             <set>QFontComboBox::MonospacedFonts</set>
             </property>
            </widget>
           </item>
@@ -251,7 +261,14 @@
          </widget>
         </item>
         <item row="1" column="0" rowspan="2">
-         <widget class="QListWidget" name="codeViewColorsList"/>
+         <widget class="QListWidget" name="codeViewColorsList">
+          <property name="maximumSize">
+           <size>
+            <width>220</width>
+            <height>75</height>
+           </size>
+          </property>
+         </widget>
         </item>
         <item row="1" column="1" alignment="Qt::AlignTop">
          <widget class="QPushButton" name="customColorButton">
@@ -289,6 +306,84 @@
          </spacer>
         </item>
        </layout>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="groupBoxSpecialCharacter">
+     <property name="title">
+      <string>Insert Special Characters:</string>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayoutSC" stretch="0,0">
+      <item>
+       <layout class="QGridLayout" name="gridLayoutSC">
+        <item row="0" column="0">
+         <widget class="QLabel" name="labelSpecialCharacterFontSize">
+          <property name="minimumSize">
+           <size>
+            <width>80</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="toolTip">
+           <string>Font size to be used for Insert Special Characters window</string>
+          </property>
+          <property name="text">
+           <string>Font Size:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="3">
+         <spacer name="horizontalSpacer_3">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>0</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="0" column="2">
+         <widget class="QSpinBox" name="specialCharacterFontSizeSpin">
+          <property name="minimum">
+           <number>6</number>
+          </property>
+          <property name="maximum">
+           <number>99</number>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QLabel" name="labelSpecialCharacterFont">
+          <property name="toolTip">
+           <string>Font family to be used for Insert Special Characters window</string>
+          </property>
+          <property name="text">
+           <string>Standard Font:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="2" colspan="2">
+         <widget class="QFontComboBox" name="cbSpecialCharacterFont"/>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <spacer name="horizontalSpacerSC">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>0</width>
+          <height>0</height>
+         </size>
+        </property>
+       </spacer>
       </item>
      </layout>
     </widget>
