@@ -432,26 +432,9 @@ private:
     /**
      * Makes the Book View the current View.
      */
-    void EnterBookView();
-
-    void EnterBookPreview();
-
-    /**
-     * Makes the Code View the current View.
-     */
-    void EnterCodeView();
-
-    /**
-     * Reads all the stored application settings like
-     * window position, geometry etc.
-     */
-    void ReadSettings();
-
-    /**
-     * Writes all the stored application settings like
-     * window position, geometry etc.
-     */
-    void WriteSettings();
+    void EmitEnteringBookView();
+    void EmitEnteringBookPreview();
+    void EmitEnteringCodeView();
 
     /**
      * Connects all the required signals to their respective slots.

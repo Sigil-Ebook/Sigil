@@ -1,7 +1,9 @@
 /************************************************************************
 **
-**  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
 **  Copyright (C) 2012 John Schember <john@nachtimwald.com>
+**  Copyright (C) 2012  Dave Heiland
+**  Copyright (C) 2012  Grant Drake
+**  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
 **
@@ -108,6 +110,9 @@ FlowTab::FlowTab(HTMLResource& resource,
     if (view_state == MainWindow::ViewState_BookView) {
         setFocusProxy(m_wBookView);
     }
+    else if (view_state == MainWindow::ViewState_PreviewView) {
+        setFocusProxy(m_wBookPreview);
+    }
     else {
         setFocusProxy(m_wCodeView);
     }
@@ -160,15 +165,383 @@ FlowTab::~FlowTab()
     }
 }
 
+void FlowTab::DelayedInitialization()
+{
+    m_wBookView->CustomSetDocument(m_HTMLResource.GetFullPath(), m_HTMLResource.GetText());
+    m_wBookPreview->CustomSetDocument(m_HTMLResource.GetFullPath(), m_HTMLResource.GetText());
+    m_wCodeView->CustomSetDocument(m_HTMLResource.GetTextDocumentForWriting());
+
+    switch(m_ViewState) {
+        case MainWindow::ViewState_CodeView:
+        {
+            CodeView();
+
+            if (m_PositionToScrollTo > 0) {
+                m_wCodeView->ScrollToPosition(m_PositionToScrollTo);
+            }
+            else if (m_LineToScrollTo > 0) {
+                m_wCodeView->ScrollToLine(m_LineToScrollTo);
+            }
+            else {
+                m_wCodeView->ScrollToFragment(m_FragmentToScroll.toString());
+            }
+            m_wCodeView->Zoom();
+            break;
+        }
+        case MainWindow::ViewState_PreviewView:
+        {
+            SplitView();
+            if (!m_CaretLocationToScrollTo.isEmpty()) {
+                m_wBookPreview->ExecuteCaretUpdate(m_CaretLocationToScrollTo);
+            }
+            else {
+                m_wBookPreview->ScrollToFragment(m_FragmentToScroll.toString());
+            }
+            m_wBookPreview->Zoom();
+            break;
+        }
+        // Don't care about these so ignore them.
+        case MainWindow::ViewState_RawView:
+        case MainWindow::ViewState_StaticView:
+        default:
+            BookView();
+            if (!m_CaretLocationToScrollTo.isEmpty()) {
+                m_wBookView->ExecuteCaretUpdate(m_CaretLocationToScrollTo);
+            }
+            else {
+                m_wBookView->ScrollToFragment(m_FragmentToScroll.toString());
+            }
+            m_wBookView->Zoom();
+            break;
+    }
+
+    m_safeToLoad = true;
+    m_initialLoad = false;
+
+    // Only now will we wire up monitoring of ResourceChanged, to prevent
+    // unnecessary saving and marking of the resource for reloading.
+    QTimer::singleShot(0, this, SLOT(DelayedConnectSignalsToSlots()));
+
+    // Cursor set in constructor
+    QApplication::restoreOverrideCursor();
+}
+
 MainWindow::ViewState FlowTab::GetViewState()
 {
     return m_ViewState;
+}
+
+bool FlowTab::SetViewState(MainWindow::ViewState new_view_state)
+{
+    // Do we really need to do anything?
+    // Ignore this function if we are in the middle of doing an initial load
+    // of the content. We don't want it to save over the content with nothing
+    // if this is called before the delayed initialization function is called.
+    if (m_initialLoad) {
+        return false;
+    }
+    if (new_view_state == m_ViewState) {
+        return false;
+    }
+    if (new_view_state == MainWindow::ViewState_BookView) { 
+        if ( !m_wBookView->IsLoadingFinished() || !IsDataWellFormed() ) {
+            return false;
+        }
+    }
+
+    // We do a save before changing to ensure we don't lose any unsaved data
+    // in the previous view.
+    SaveTabContent();
+    m_previousViewState = m_ViewState;
+    m_ViewState = new_view_state;
+    LoadTabContent();
+
+    if (new_view_state == MainWindow::ViewState_PreviewView) {
+        // Since we have just loaded the tab content, clear the reload flag to prevent
+        // the preview from being loaded again when EnterEditor() is called.
+        m_BookPreviewNeedReload = false;
+        SplitView();
+    }
+    else if (new_view_state == MainWindow::ViewState_CodeView) {
+        CodeView();
+    }
+    else {
+        m_BookPreviewNeedReload = false;
+        BookView();
+    }
+
+    return true;
+}
+
+bool FlowTab::IsLoadingFinished()
+{
+    return m_wBookView->IsLoadingFinished() && m_wCodeView->IsLoadingFinished();
 }
 
 bool FlowTab::IsModified()
 {
     return m_wBookView->isModified() || m_wCodeView->document()->isModified();
 }
+
+void FlowTab::BookView()
+{
+    if (!IsDataWellFormed()) {
+        return;
+    }
+
+    QApplication::setOverrideCursor(Qt::WaitCursor);
+
+    m_views->setCurrentIndex(BV_INDEX);
+
+    setFocusProxy(m_wBookView);
+    // When opening this tab as a preceding tab such as when splitting a section
+    // we do not want focus grabbed from the currently selected tab.
+    if (m_grabFocus) {
+        m_wBookView->GrabFocus();
+    }
+    m_grabFocus = true;
+
+    if (m_previousViewState == MainWindow::ViewState_CodeView) {
+        m_wBookView->StoreCaretLocationUpdate( m_wCodeView->GetCaretLocation() );
+    }
+    else if (m_previousViewState == MainWindow::ViewState_PreviewView) {
+        m_wBookView->StoreCaretLocationUpdate( m_wBookPreview->GetCaretLocation() );
+    }
+    m_wBookView->ExecuteCaretUpdate();
+
+    QApplication::restoreOverrideCursor();
+}
+
+void FlowTab::SplitView()
+{
+    QApplication::setOverrideCursor(Qt::WaitCursor);
+
+    m_views->setCurrentIndex(PV_INDEX);
+    if (m_grabFocus) {
+        m_wBookPreview->GrabFocus();
+    }
+    m_grabFocus = true;
+
+    if (m_previousViewState == MainWindow::ViewState_BookView) {
+        m_wBookPreview->StoreCaretLocationUpdate( m_wBookView->GetCaretLocation() );
+    }
+    else if (m_previousViewState == MainWindow::ViewState_CodeView) {
+        m_wBookPreview->StoreCaretLocationUpdate( m_wCodeView->GetCaretLocation() );
+    }
+    m_wBookPreview->ExecuteCaretUpdate();
+
+    QApplication::restoreOverrideCursor();
+}
+
+void FlowTab::CodeView()
+{
+    QApplication::setOverrideCursor(Qt::WaitCursor);
+
+    m_ViewState = MainWindow::ViewState_CodeView;
+
+    m_views->setCurrentIndex(CV_INDEX);
+    m_wCodeView->SetDelayedCursorScreenCenteringRequired();
+
+    setFocusProxy(m_wCodeView);
+
+    // Make sure the cursor is properly displayed
+    if (m_grabFocus) {
+        m_wCodeView->setFocus();
+    }
+    m_grabFocus = true;
+
+    if (m_previousViewState == MainWindow::ViewState_BookView) {
+        m_wCodeView->StoreCaretLocationUpdate( m_wBookView->GetCaretLocation() );
+    }
+    else if (m_previousViewState == MainWindow::ViewState_PreviewView) {
+        m_wCodeView->StoreCaretLocationUpdate( m_wBookPreview->GetCaretLocation() );
+    }
+    m_wCodeView->ExecuteCaretUpdate();
+
+    QApplication::restoreOverrideCursor();
+}
+
+void FlowTab::LoadTabContent()
+{
+    if (!m_safeToLoad) {
+        return;
+    }
+
+    if (m_ViewState == MainWindow::ViewState_BookView) {
+        m_wBookView->CustomSetDocument(m_HTMLResource.GetFullPath(), m_HTMLResource.GetText());
+    }
+    else if (m_ViewState == MainWindow::ViewState_PreviewView) {
+        m_wBookPreview->CustomSetDocument(m_HTMLResource.GetFullPath(), m_HTMLResource.GetText());
+    }
+}
+
+void FlowTab::SaveTabContent()
+{
+    if (m_ViewState == MainWindow::ViewState_BookView && m_wBookView->IsModified()) {
+        m_HTMLResource.SetText(m_wBookView->GetHtml());
+        m_BookPreviewNeedReload = true;
+        m_wBookView->ResetModified();
+    }
+
+    m_HTMLResource.GetTextDocumentForWriting().setModified(false);
+    // Just because we have saved the tab content doesn't mean that it is valid
+    // unless it was BookView, because it might not be well formed and the save
+    // could have been just triggered by losing focus/switching tabs
+    if (m_ViewState == MainWindow::ViewState_BookView) {
+        m_safeToLoad = true;
+    }
+}
+
+void FlowTab::ResourceModified()
+{
+    m_BookPreviewNeedReload = true;
+    if ( m_ViewState == MainWindow::ViewState_CodeView ) {
+        m_wCodeView->ExecuteCaretUpdate(m_defaultCaretLocationToTop);
+        m_defaultCaretLocationToTop = false;
+    }
+}
+
+void FlowTab::LinkedResourceModified()
+{
+    QWebSettings::clearMemoryCaches();
+    ResourceModified();
+    ReloadTabIfPending();
+}
+
+void FlowTab::ResourceTextChanging()
+{
+    if ( m_ViewState == MainWindow::ViewState_CodeView ) {
+        // We need to store the caret location so it can be restored later
+        m_wCodeView->StoreCaretLocationUpdate( m_wCodeView->GetCaretLocation() );
+        // If the caret is at the very top of the document then our stored location 
+        // will be empty. The problem is that when ResourceModified() fires next
+        // it will have effectively moved the caret to the bottom of the document.
+        // The default behaviour of CodeView is to "do nothing" if no location
+        // is stored, in this one situation we want to override that to force
+        // it to place the cursor at the top of the document.
+        m_defaultCaretLocationToTop = true;
+    }
+}
+
+void FlowTab::ReloadTabIfPending()
+{
+    if (!isVisible()) {
+        return;
+    }
+    if (m_suspendTabReloading) {
+        return;
+    }
+    setFocus();
+    // Reload BV/PV if the resource was marked as changed outside of the editor.
+    if (m_BookPreviewNeedReload && (m_ViewState == MainWindow::ViewState_PreviewView || m_ViewState == MainWindow::ViewState_BookView)) {
+        LoadTabContent();
+        m_BookPreviewNeedReload = false;
+    }
+}
+
+void FlowTab::EnterEditor(QWidget *editor)
+{
+    // We don't want to do anything if we haven't already done an
+    // initial (delayed) load. We especially don't want to do a save
+    // over a valid file.
+    if (!m_safeToLoad) {
+        return;
+    }
+
+    // BookPreview is left out of this because we always want to reload with any current changes
+    // from CodeView.
+    if ((m_ViewState == MainWindow::ViewState_BookView && editor == m_wBookView) ||
+         ((m_ViewState == MainWindow::ViewState_PreviewView || m_ViewState == MainWindow::ViewState_CodeView) && editor == m_wCodeView))
+    {
+        // Nothing to do because the view state matches the current view.
+        return;
+    }
+
+    QApplication::setOverrideCursor(Qt::WaitCursor);
+    if (m_ViewState == MainWindow::ViewState_BookView) {
+        EmitEnteringBookView();
+    }
+    else if (m_ViewState == MainWindow::ViewState_PreviewView) {
+        EmitEnteringBookPreview();
+    }
+    else if (m_ViewState == MainWindow::ViewState_CodeView) {
+        EmitEnteringCodeView();
+    }
+    QApplication::restoreOverrideCursor();
+
+    EmitUpdateCursorPosition();
+}
+
+void FlowTab::LeaveEditor(QWidget *editor)
+{
+    SaveTabContent();
+}
+
+void FlowTab::PVSplitterMoved(int pos, int index)
+{
+    Q_UNUSED(pos);
+    Q_UNUSED(index);
+
+    SettingsStore settings;
+    settings.beginGroup(SETTINGS_GROUP);
+
+    settings.setValue("pv_splitter", m_pvVSplitter->saveState());
+
+    settings.endGroup();
+}
+
+void FlowTab::LoadSettings()
+{
+    UpdateDisplay();
+    m_wCodeView->LoadSettings();
+}
+
+void FlowTab::UpdateDisplay()
+{
+    SettingsStore settings;
+    settings.beginGroup(SETTINGS_GROUP);
+
+    m_pvVSplitter->restoreState(settings.value("pv_splitter").toByteArray());
+
+    settings.endGroup();
+
+    m_wBookView->UpdateDisplay();
+    m_wBookPreview->UpdateDisplay();
+    m_wCodeView->UpdateDisplay();
+}
+
+void FlowTab::EmitContentChanged()
+{
+    m_safeToLoad = false;
+    emit ContentChanged();
+}
+
+void FlowTab::EmitUpdateCursorPosition()
+{
+    emit UpdateCursorPosition(GetCursorLine(), GetCursorColumn());
+}
+
+void FlowTab::EmitEnteringBookView()
+{
+    emit EnteringBookView();
+}
+
+void FlowTab::EmitEnteringBookPreview()
+{
+    emit EnteringBookPreview();
+}
+
+void FlowTab::EmitEnteringCodeView()
+{
+    emit EnteringCodeView();
+}
+
+void FlowTab::RefreshSpellingHighlighting()
+{
+    // We always want this to happen, regardless of what the current view is.
+    m_wCodeView->RefreshSpellingHighlighting();
+}
+
 
 bool FlowTab::CutEnabled()
 {
@@ -400,20 +773,6 @@ void FlowTab::SetZoomFactor(float new_zoom_factor)
     }
 }
 
-void FlowTab::UpdateDisplay()
-{
-    SettingsStore settings;
-    settings.beginGroup(SETTINGS_GROUP);
-
-    m_pvVSplitter->restoreState(settings.value("pv_splitter").toByteArray());
-
-    settings.endGroup();
-
-    m_wBookView->UpdateDisplay();
-    m_wBookPreview->UpdateDisplay();
-    m_wCodeView->UpdateDisplay();
-}
-
 Searchable* FlowTab::GetSearchableContent()
 {
     if (m_ViewState == MainWindow::ViewState_BookView) {
@@ -429,53 +788,6 @@ Searchable* FlowTab::GetSearchableContent()
     return NULL;
 }
 
-
-bool FlowTab::SetViewState(MainWindow::ViewState new_view_state)
-{
-    // Do we really need to do anything?
-    // Ignore this function if we are in the middle of doing an initial load
-    // of the content. We don't want it to save over the content with nothing
-    // if this is called before the delayed initialization function is called.
-    if (m_initialLoad) {
-        return false;
-    }
-    if (new_view_state == m_ViewState) {
-        return false;
-    }
-    if (new_view_state == MainWindow::ViewState_BookView) { 
-        if ( !m_wBookView->IsLoadingFinished() || !IsDataWellFormed() ) {
-            return false;
-        }
-    }
-
-    // We do a save before changing to ensure we don't lose any unsaved data
-    // in the previous view.
-    SaveTabContent();
-    m_previousViewState = m_ViewState;
-    m_ViewState = new_view_state;
-    LoadTabContent();
-
-    if (new_view_state == MainWindow::ViewState_PreviewView) {
-        // Since we have just loaded the tab content, clear the reload flag to prevent
-        // the preview from being loaded again when EnterEditor() is called.
-        m_BookPreviewNeedReload = false;
-        SplitView();
-    }
-    else if (new_view_state == MainWindow::ViewState_CodeView) {
-        CodeView();
-    }
-    else {
-        m_BookPreviewNeedReload = false;
-        BookView();
-    }
-
-    return true;
-}
-
-bool FlowTab::IsLoadingFinished()
-{
-    return m_wBookView->IsLoadingFinished() && m_wCodeView->IsLoadingFinished();
-}
 
 void FlowTab::ScrollToFragment(const QString &fragment)
 {
@@ -736,7 +1048,6 @@ QString FlowTab::GetAttributeIndexTitle()
     return attribute_value;
 }
 
-
 bool FlowTab::InsertId(const QString &id)
 {
     if (m_ViewState == MainWindow::ViewState_CodeView) {
@@ -810,323 +1121,6 @@ void FlowTab::Print()
             m_wCodeView->print(&printer);
         }
     }
-}
-
-void FlowTab::ReloadTabIfPending()
-{
-    if (!isVisible()) {
-        return;
-    }
-    if (m_suspendTabReloading) {
-        return;
-    }
-    setFocus();
-    // Reload BV/PV if the resource was marked as changed outside of the editor.
-    if (m_BookPreviewNeedReload && (m_ViewState == MainWindow::ViewState_PreviewView || m_ViewState == MainWindow::ViewState_BookView)) {
-        LoadTabContent();
-        m_BookPreviewNeedReload = false;
-    }
-}
-
-void FlowTab::BookView()
-{
-    if (!IsDataWellFormed()) {
-        return;
-    }
-
-    QApplication::setOverrideCursor(Qt::WaitCursor);
-
-    EnterBookView();
-
-    m_views->setCurrentIndex(BV_INDEX);
-
-    setFocusProxy(m_wBookView);
-    // When opening this tab as a preceding tab such as when splitting a section
-    // we do not want focus grabbed from the currently selected tab.
-    if (m_grabFocus) {
-        m_wBookView->GrabFocus();
-    }
-    m_grabFocus = true;
-
-    if (m_previousViewState == MainWindow::ViewState_CodeView) {
-        m_wBookView->StoreCaretLocationUpdate( m_wCodeView->GetCaretLocation() );
-    }
-    else if (m_previousViewState == MainWindow::ViewState_PreviewView) {
-        m_wBookView->StoreCaretLocationUpdate( m_wBookPreview->GetCaretLocation() );
-    }
-    m_wBookView->ExecuteCaretUpdate();
-
-    QApplication::restoreOverrideCursor();
-}
-
-void FlowTab::SplitView()
-{
-    QApplication::setOverrideCursor(Qt::WaitCursor);
-
-    m_views->setCurrentIndex(PV_INDEX);
-    if (m_grabFocus) {
-        m_wBookPreview->GrabFocus();
-    }
-    m_grabFocus = true;
-
-    if (m_previousViewState == MainWindow::ViewState_BookView) {
-        m_wBookPreview->StoreCaretLocationUpdate( m_wBookView->GetCaretLocation() );
-    }
-    else if (m_previousViewState == MainWindow::ViewState_CodeView) {
-        m_wBookPreview->StoreCaretLocationUpdate( m_wCodeView->GetCaretLocation() );
-    }
-    m_wBookPreview->ExecuteCaretUpdate();
-
-    QApplication::restoreOverrideCursor();
-}
-
-void FlowTab::CodeView()
-{
-    QApplication::setOverrideCursor(Qt::WaitCursor);
-
-    m_ViewState = MainWindow::ViewState_CodeView;
-
-    m_views->setCurrentIndex(CV_INDEX);
-    m_wCodeView->SetDelayedCursorScreenCenteringRequired();
-
-    setFocusProxy(m_wCodeView);
-
-    // Make sure the cursor is properly displayed
-    if (m_grabFocus) {
-        m_wCodeView->setFocus();
-    }
-    m_grabFocus = true;
-
-    if (m_previousViewState == MainWindow::ViewState_BookView) {
-        m_wCodeView->StoreCaretLocationUpdate( m_wBookView->GetCaretLocation() );
-    }
-    else if (m_previousViewState == MainWindow::ViewState_PreviewView) {
-        m_wCodeView->StoreCaretLocationUpdate( m_wBookPreview->GetCaretLocation() );
-    }
-    m_wCodeView->ExecuteCaretUpdate();
-
-    QApplication::restoreOverrideCursor();
-}
-
-void FlowTab::SaveTabContent()
-{
-    if (m_ViewState == MainWindow::ViewState_BookView && m_wBookView->IsModified()) {
-        m_HTMLResource.SetText(m_wBookView->GetHtml());
-        m_BookPreviewNeedReload = true;
-        m_wBookView->ResetModified();
-    }
-
-    m_HTMLResource.GetTextDocumentForWriting().setModified(false);
-    // Just because we have saved the tab content doesn't mean that it is valid
-    // unless it was BookView, because it might not be well formed and the save
-    // could have been just triggered by losing focus/switching tabs
-    if (m_ViewState == MainWindow::ViewState_BookView) {
-        m_safeToLoad = true;
-    }
-}
-
-void FlowTab::LoadTabContent()
-{
-    if (!m_safeToLoad) {
-        return;
-    }
-
-    if (m_ViewState == MainWindow::ViewState_BookView) {
-        m_wBookView->CustomSetDocument(m_HTMLResource.GetFullPath(), m_HTMLResource.GetText());
-    }
-    else if (m_ViewState == MainWindow::ViewState_PreviewView) {
-        m_wBookPreview->CustomSetDocument(m_HTMLResource.GetFullPath(), m_HTMLResource.GetText());
-    }
-}
-
-
-void FlowTab::LoadSettings()
-{
-    UpdateDisplay();
-    m_wCodeView->LoadSettings();
-}
-
-void FlowTab::ResourceModified()
-{
-    m_BookPreviewNeedReload = true;
-    if ( m_ViewState == MainWindow::ViewState_CodeView ) {
-        m_wCodeView->ExecuteCaretUpdate(m_defaultCaretLocationToTop);
-        m_defaultCaretLocationToTop = false;
-    }
-}
-
-void FlowTab::LinkedResourceModified()
-{
-    QWebSettings::clearMemoryCaches();
-    ResourceModified();
-    ReloadTabIfPending();
-}
-
-void FlowTab::ResourceTextChanging()
-{
-    if ( m_ViewState == MainWindow::ViewState_CodeView ) {
-        // We need to store the caret location so it can be restored later
-        m_wCodeView->StoreCaretLocationUpdate( m_wCodeView->GetCaretLocation() );
-        // If the caret is at the very top of the document then our stored location 
-        // will be empty. The problem is that when ResourceModified() fires next
-        // it will have effectively moved the caret to the bottom of the document.
-        // The default behaviour of CodeView is to "do nothing" if no location
-        // is stored, in this one situation we want to override that to force
-        // it to place the cursor at the top of the document.
-        m_defaultCaretLocationToTop = true;
-    }
-}
-
-void FlowTab::PVSplitterMoved(int pos, int index)
-{
-    Q_UNUSED(pos);
-    Q_UNUSED(index);
-
-    SettingsStore settings;
-    settings.beginGroup(SETTINGS_GROUP);
-
-    settings.setValue("pv_splitter", m_pvVSplitter->saveState());
-
-    settings.endGroup();
-}
-
-void FlowTab::LeaveEditor(QWidget *editor)
-{
-    SaveTabContent();
-}
-
-void FlowTab::EnterEditor(QWidget *editor)
-{
-    // We don't want to do anything if we haven't already done an
-    // initial (delayed) load. We especially don't want to do a save
-    // over a valid file.
-    if (!m_safeToLoad) {
-        return;
-    }
-
-    // BookPreview is left out of this because we always want to reload with any current changes
-    // from CodeView.
-    if ((m_ViewState == MainWindow::ViewState_BookView && editor == m_wBookView) ||
-         ((m_ViewState == MainWindow::ViewState_PreviewView || m_ViewState == MainWindow::ViewState_CodeView) && editor == m_wCodeView))
-    {
-        // Nothing to do because the view state matches the current view.
-        return;
-    }
-
-    QApplication::setOverrideCursor(Qt::WaitCursor);
-    if (m_ViewState == MainWindow::ViewState_BookView) {
-        EnterBookView();
-    }
-    else if (m_ViewState == MainWindow::ViewState_PreviewView) {
-        EnterBookPreview();
-    }
-    else if (m_ViewState == MainWindow::ViewState_CodeView) {
-        EnterCodeView();
-    }
-    QApplication::restoreOverrideCursor();
-
-    EmitUpdateCursorPosition();
-}
-
-void FlowTab::DelayedInitialization()
-{
-    m_wBookView->CustomSetDocument(m_HTMLResource.GetFullPath(), m_HTMLResource.GetText());
-    m_wBookPreview->CustomSetDocument(m_HTMLResource.GetFullPath(), m_HTMLResource.GetText());
-    m_wCodeView->CustomSetDocument(m_HTMLResource.GetTextDocumentForWriting());
-
-    // m_lastViewState in this instance is actually used a the initial view
-    // state because there is no last view state.
-    switch(m_ViewState) {
-        case MainWindow::ViewState_CodeView:
-        {
-            CodeView();
-
-            if (m_PositionToScrollTo > 0) {
-                m_wCodeView->ScrollToPosition(m_PositionToScrollTo);
-            }
-            else if (m_LineToScrollTo > 0) {
-                m_wCodeView->ScrollToLine(m_LineToScrollTo);
-            }
-            else {
-                m_wCodeView->ScrollToFragment(m_FragmentToScroll.toString());
-            }
-
-            break;
-        }
-        case MainWindow::ViewState_PreviewView:
-        {
-            SplitView();
-            if (!m_CaretLocationToScrollTo.isEmpty()) {
-                m_wBookPreview->ExecuteCaretUpdate(m_CaretLocationToScrollTo);
-            }
-            else {
-                m_wBookPreview->ScrollToFragment(m_FragmentToScroll.toString());
-            }
-            break;
-        }
-        // Don't care about these so ignore them.
-        case MainWindow::ViewState_RawView:
-        case MainWindow::ViewState_StaticView:
-        default:
-            BookView();
-            if (!m_CaretLocationToScrollTo.isEmpty()) {
-                m_wBookView->ExecuteCaretUpdate(m_CaretLocationToScrollTo);
-            }
-            else {
-                m_wBookView->ScrollToFragment(m_FragmentToScroll.toString());
-            }
-            break;
-    }
-
-    m_wBookView->Zoom();
-    m_wBookPreview->Zoom();
-    m_wCodeView->Zoom();
-
-    m_safeToLoad = true;
-    m_initialLoad = false;
-
-    // Only now will we wire up monitoring of ResourceChanged, to prevent
-    // unnecessary saving and marking of the resource for reloading.
-    QTimer::singleShot(0, this, SLOT(DelayedConnectSignalsToSlots()));
-
-    // Cursor set in constructor
-    QApplication::restoreOverrideCursor();
-}
-
-void FlowTab::EmitContentChanged()
-{
-    m_safeToLoad = false;
-    emit ContentChanged();
-}
-
-void FlowTab::EmitUpdateCursorPosition()
-{
-    emit UpdateCursorPosition(GetCursorLine(), GetCursorColumn());
-}
-
-void FlowTab::EnterBookView()
-{
-    emit EnteringBookView();
-}
-
-void FlowTab::EnterBookPreview()
-{
-    emit EnteringBookPreview();
-}
-
-void FlowTab::EnterCodeView()
-{
-    emit EnteringCodeView();
-}
-
-void FlowTab::ReadSettings()
-{
-    // TODO: fill this... with what?
-}
-
-void FlowTab::WriteSettings()
-{
-    // TODO: fill this... with what?
 }
 
 void FlowTab::Bold()
@@ -1361,13 +1355,6 @@ void FlowTab::IgnoreMisspelledWord()
         m_wCodeView->IgnoreMisspelledWord();
 }
 
-void FlowTab::RefreshSpellingHighlighting()
-{
-    // We always want this to happen, regardless of what the current view is.
-    m_wCodeView->RefreshSpellingHighlighting();
-}
-
-
 bool FlowTab::BoldChecked()
 {
     if (m_ViewState == MainWindow::ViewState_BookView)
@@ -1376,7 +1363,6 @@ bool FlowTab::BoldChecked()
     else
         return ContentTab::BoldChecked();
 }
-
 
 bool FlowTab::ItalicChecked()
 {
@@ -1387,7 +1373,6 @@ bool FlowTab::ItalicChecked()
         return ContentTab::ItalicChecked();
 }
 
-
 bool FlowTab::UnderlineChecked()
 {
     if (m_ViewState == MainWindow::ViewState_BookView)
@@ -1396,7 +1381,6 @@ bool FlowTab::UnderlineChecked()
     else
         return ContentTab::UnderlineChecked();
 }
-
 
 bool FlowTab::StrikethroughChecked()
 {
@@ -1407,7 +1391,6 @@ bool FlowTab::StrikethroughChecked()
         return ContentTab::StrikethroughChecked();
 }
 
-
 bool FlowTab::SubscriptChecked()
 {
     if (m_ViewState == MainWindow::ViewState_BookView)
@@ -1417,7 +1400,6 @@ bool FlowTab::SubscriptChecked()
         return ContentTab::SubscriptChecked();
 }
 
-
 bool FlowTab::SuperscriptChecked()
 {
     if (m_ViewState == MainWindow::ViewState_BookView)
@@ -1426,7 +1408,6 @@ bool FlowTab::SuperscriptChecked()
     else
         return ContentTab::SuperscriptChecked();
 }
-
 
 bool FlowTab::AlignLeftChecked()
 {
@@ -1477,6 +1458,7 @@ bool FlowTab::NumberListChecked()
     else
         return ContentTab::NumberListChecked();
 }
+
 
 QString FlowTab::GetCaretElementName()
 {
