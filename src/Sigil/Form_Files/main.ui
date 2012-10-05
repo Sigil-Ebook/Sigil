@@ -1545,7 +1545,7 @@
   </action>
   <action name="actionDeleteUnusedStyles">
    <property name="text">
-    <string>Delete &amp;Unused Stylesheet Styles...</string>
+    <string>Delete &amp;Unused Stylesheet Classes...</string>
    </property>
   </action>
   <action name="actionReports">
