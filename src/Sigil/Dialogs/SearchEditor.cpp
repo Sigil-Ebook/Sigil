@@ -38,6 +38,9 @@ SearchEditor::SearchEditor(QWidget *parent)
 {
     ui.setupUi(this);	
 
+    ui.buttonBox->button(QDialogButtonBox::Apply)->setText("Load Search");
+    ui.buttonBox->button(QDialogButtonBox::Apply)->setDefault(true);
+
     SetupSearchEditorTree();
 
     CreateContextMenuActions();
@@ -70,9 +73,9 @@ void SearchEditor::SetupSearchEditorTree()
 
     ui.buttonBox->setToolTip( QString() +
         "<dl>" +
-        "<dt><b>" + tr("Apply") + "</b><dd>" + tr("Load the selected entry into the Find & Replace window.") + "</dd>" +
-        "<dt><b>" + tr("Cancel") + "</b><dd>" + tr("Close without saving.") + "</dd>" +
-        "<dt><b>" + tr("OK") + "</b><dd>" + tr("Load the selected entry, save your changes, and close.") + "</dd>" +
+        "<dt><b>" + tr("Load Search") + "</b><dd>" + tr("Load the selected entry into the Find & Replace window.") + "</dd>" +
+        "<dt><b>" + tr("Cancel") + "</b><dd>" + tr("Close without saving. Same as the Esc key.") + "</dd>" +
+        "<dt><b>" + tr("OK") + "</b><dd>" + tr("Save your changes and close.") + "</dd>" +
         "</dl>");
 
     ui.SearchEditorTree->header()->setStretchLastSection(true);
@@ -732,7 +735,6 @@ void SearchEditor::accept()
 {
     if (SaveData()) {
         WriteSettings();
-        LoadFindReplace();
         QDialog::accept();
     }
 }

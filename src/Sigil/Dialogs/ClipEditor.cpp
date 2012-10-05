@@ -41,6 +41,9 @@ ClipEditor::ClipEditor(QWidget *parent)
 {
     ui.setupUi(this);
 
+    ui.buttonBox->button(QDialogButtonBox::Apply)->setText("Paste Clip");
+    ui.buttonBox->button(QDialogButtonBox::Apply)->setDefault(true);
+
     SetupClipEditorTree();
 
     CreateContextMenuActions();
@@ -68,9 +71,9 @@ void ClipEditor::SetupClipEditorTree()
 
     ui.buttonBox->setToolTip( QString() +
         "<dl>" +
-        "<dt><b>" + tr("Apply") + "</b><dd>" + tr("Paste the selected entry into the active window.") + "</dd>" +
-        "<dt><b>" + tr("Cancel") + "</b><dd>" + tr("Close without saving.") + "</dd>" +
-        "<dt><b>" + tr("OK") + "</b><dd>" + tr("Paste the selected entry, save your changes, and close.") + "<br/><br/>" + tr("Click in the Filter box then OK to save without pasting.") + "</dd>" +
+        "<dt><b>" + tr("Paste Clip") + "</b><dd>" + tr("Paste the selected entry into the active window.") + "</dd>" +
+        "<dt><b>" + tr("Cancel") + "</b><dd>" + tr("Close without saving. Same as the Esc key.") + "</dd>" +
+        "<dt><b>" + tr("OK") + "</b><dd>" + tr("Save your changes and close.") + "</dd>" +
         "</dl>");
 
 
@@ -640,7 +643,6 @@ void ClipEditor::accept()
 {
     if (SaveData()) {
         WriteSettings();
-        PasteIntoDocument();
         QDialog::accept();
     }
 }
