@@ -565,7 +565,13 @@ bool MainWindow::SaveAs()
     // Store the folder the user saved to
     m_LastFolderOpen = QFileInfo( filename ).absolutePath();
 
-    return SaveFile( filename );
+    bool save_result = SaveFile(filename);
+
+    if (!save_result) {
+        m_CurrentFilePath = "";
+    }
+
+    return save_result;
 }
 
 
