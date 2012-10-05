@@ -29,6 +29,7 @@
 #include "Misc/PasteTarget.h"
 #include "Misc/Utility.h"
 #include "MiscEditors/ClipEditorModel.h"
+#include "MiscEditors/IndexEditorModel.h"
 #include "ViewEditors/BookViewPreview.h"
 #include "ViewEditors/ViewEditor.h"
 
@@ -175,6 +176,7 @@ public:
     bool InsertId(const QString &id);
     bool InsertHyperlink(const QString &href);
 
+    void AddToIndex();
     bool MarkForIndex(const QString &title);
 
     /**
@@ -250,6 +252,8 @@ signals:
     void ClipboardRestoreRequest();
 
     void OpenClipEditorRequest(ClipEditorModel::clipEntry *);
+
+    void OpenIndexEditorRequest(IndexEditorModel::indexEntry *);
 
 protected:
     /**

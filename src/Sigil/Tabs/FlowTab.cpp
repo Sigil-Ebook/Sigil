@@ -244,6 +244,9 @@ bool FlowTab::AddToIndexEnabled()
     if (m_ViewState == MainWindow::ViewState_CodeView) {
         return m_wCodeView->IsAddToIndexAllowed();
     }
+    else if (m_ViewState == MainWindow::ViewState_BookView) {
+        return true;
+    }
 
     return false;
 }
@@ -675,6 +678,9 @@ void FlowTab::AddToIndex()
 {
     if (m_ViewState == MainWindow::ViewState_CodeView) {
         m_wCodeView->AddToIndex();
+    }
+    else if (m_ViewState == MainWindow::ViewState_BookView) {
+        m_wBookView->AddToIndex();
     }
 }
 
@@ -1543,6 +1549,7 @@ void FlowTab::ConnectSignalsToSlots()
     connect(m_wBookView, SIGNAL(OpenClipEditorRequest(ClipEditorModel::clipEntry *)), this, SIGNAL(OpenClipEditorRequest(ClipEditorModel::clipEntry *)));
 
     connect(m_wCodeView, SIGNAL(OpenIndexEditorRequest(IndexEditorModel::indexEntry *)), this, SIGNAL(OpenIndexEditorRequest(IndexEditorModel::indexEntry *)));
+    connect(m_wBookView, SIGNAL(OpenIndexEditorRequest(IndexEditorModel::indexEntry *)), this, SIGNAL(OpenIndexEditorRequest(IndexEditorModel::indexEntry *)));
 
     connect(m_wCodeView, SIGNAL(GoToLinkedStyleDefinitionRequest(const QString&, const QString&)), this, SIGNAL(GoToLinkedStyleDefinitionRequest(const QString&, const QString&)));
 

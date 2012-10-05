@@ -539,6 +539,21 @@ bool BookViewEditor::InsertHyperlink(const QString &href)
     return InsertTagAttribute(element_name, attribute_name, href, ANCHOR_TAGS);
 }
 
+void BookViewEditor::AddToIndex()
+{
+    QString selected_text = GetSelectedText();
+
+    if (selected_text.isEmpty()) {
+        return;
+    }
+
+    IndexEditorModel::indexEntry *index = new IndexEditorModel::indexEntry();
+
+    index->pattern = selected_text;
+
+    emit OpenIndexEditorRequest(index);
+}
+
 bool BookViewEditor::MarkForIndex(const QString &title)
 {
     bool ok = true;
