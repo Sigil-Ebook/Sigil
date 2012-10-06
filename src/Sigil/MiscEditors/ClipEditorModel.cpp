@@ -19,7 +19,6 @@
 **  along with Sigil.  If not, see <http://www.gnu.org/licenses/>.
 **
 *************************************************************************/
-#include <QtDebug>
 
 #include <QtCore/QCoreApplication>
 #include <QByteArray>

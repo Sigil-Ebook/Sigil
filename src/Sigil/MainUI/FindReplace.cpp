@@ -47,7 +47,6 @@ FindReplace::FindReplace( MainWindow &main_window )
       m_RegexOptionAutoTokenise( false ),
       m_SpellCheck(false),
       m_LookWhereCurrentFile(false),
-      m_LastFindText(QString()),
       m_IsSearchGroupRunning(false)
 {
     ui.setupUi( this );
@@ -103,7 +102,6 @@ void FindReplace::SetUpFindText()
 
     // Find text should be selected by default
     ui.cbFind->lineEdit()->selectAll();
-    RememberLastFindText();
 
     SetFocus();
 }
@@ -344,7 +342,6 @@ int FindReplace::ReplaceAll()
     {
         return 0;
     }
-    RememberLastFindText();
 
     SetCodeViewIfNeeded( true );
 
@@ -470,7 +467,6 @@ bool FindReplace::FindText( Searchable::Direction direction )
     {
         return found;
     }
-    RememberLastFindText();
 
     SetCodeViewIfNeeded();
 
@@ -527,33 +523,26 @@ bool FindReplace::ReplaceText( Searchable::Direction direction, bool replace_cur
         return found;
     }
 
-    // We only want to potentially replace selected text if the user has not 
-    // changed the find expression from the last time they did a Find/Replace.
-    if (!found && m_LastFindText == ui.cbFind->lineEdit()->text()) {
-        // If we have the matching text selected, replace it
-        // This will not do anything if matching text is not selected.
-        // If we are just doing a Replace Current we'll need to do a find and re-select the text 
-        found = searchable->ReplaceSelected( GetSearchRegex(), ui.cbReplace->lineEdit()->text(), direction, replace_current);
-    }
-    RememberLastFindText();
+    // If we have the matching text selected, replace it
+    // This will not do anything if matching text is not selected.
+    found = searchable->ReplaceSelected( GetSearchRegex(), ui.cbReplace->lineEdit()->text(), direction, replace_current);
 
     // If we are not going to stay put after a simple Replace, then find next match.
     if (!replace_current) {
+        // If doing a Replace/Find set the value of found to the result of the Find.  
         if (direction == Searchable::Direction_Up) {
-            if (FindPrevious()) {
-                found = true;
-            };
+            found = FindPrevious();
         }
         else {
-            if (FindNext()) {
-                found = true;
-            }
+            found = FindNext();
         }
     }
 
     UpdatePreviousFindStrings();
     UpdatePreviousReplaceStrings();
 
+    // Do not use the return value to tell if a replace was done - only if a complete
+    // Find/Replace or ReplaceCurrent was ok.  This allows multiple selections to work as expected.
     return found;
 }
 
@@ -695,8 +684,6 @@ int FindReplace::ReplaceInAllFiles()
 
     m_MainWindow.GetCurrentContentTab().SaveTabContent();
 
-    RememberLastFindText();
-
     int count = SearchOperations::ReplaceInAllFIles(
             GetSearchRegex(),
             ui.cbReplace->lineEdit()->text(),
@@ -710,8 +697,6 @@ int FindReplace::ReplaceInAllFiles()
 bool FindReplace::FindInAllFiles( Searchable::Direction direction )
 {
     Searchable *searchable = 0;
-
-   RememberLastFindText();
 
     bool found = false;
     if ( IsCurrentFileInHTMLSelection() )
@@ -1001,11 +986,6 @@ bool FindReplace::IsValidFindText()
     return  !ui.cbFind->lineEdit()->text().isEmpty();
 }
 
-void FindReplace::RememberLastFindText()
-{
-    m_LastFindText = ui.cbFind->lineEdit()->text();
-}
-
 
 void FindReplace::ReadSettings()
 {
@@ -1206,8 +1186,6 @@ void FindReplace::ReplaceCurrentSearch(QList<SearchEditorModel::searchEntry *> s
         return;
     }
 
-    SetKeyModifiers();
-
     m_IsSearchGroupRunning = true;
     foreach (SearchEditorModel::searchEntry* search_entry, search_entries) {
         LoadSearch(search_entry);
@@ -1216,8 +1194,6 @@ void FindReplace::ReplaceCurrentSearch(QList<SearchEditorModel::searchEntry *> s
         }
     }
     m_IsSearchGroupRunning = false;
-
-    ResetKeyModifiers();
 }
 
 void FindReplace::ReplaceSearch(QList<SearchEditorModel::searchEntry *> search_entries)

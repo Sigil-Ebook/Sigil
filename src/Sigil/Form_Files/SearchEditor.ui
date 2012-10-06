@@ -101,8 +101,8 @@ then if not found look for the second entry in the list, etc.</string>
         <widget class="QPushButton" name="ReplaceCurrent">
          <property name="toolTip">
           <string>Run Replace using the selected entry.
-If a group is selected, replace the first entry in the list,
-then replace the second entry in the list, etc.</string>
+If a group is selected, loop through each entry
+and stop at the first successful replace.</string>
          </property>
          <property name="text">
           <string>Replace</string>
@@ -128,9 +128,9 @@ then replace the second entry in the list, etc.</string>
        <item>
         <widget class="QPushButton" name="Replace">
          <property name="toolTip">
-          <string>Run Replace using the selected entry.
-If a group is selected, replace the first entry in the list,
-then when no more matches replace the second entry in the list, etc.</string>
+          <string>Run Replace/Find using the selected entry.
+If a group is selected, loop through each entry
+and stop at the first successful replace/find.</string>
          </property>
          <property name="text">
           <string>Replace/Find</string>
@@ -140,8 +140,8 @@ then when no more matches replace the second entry in the list, etc.</string>
        <item>
         <widget class="QPushButton" name="ReplaceAll">
          <property name="toolTip">
-          <string>Run Replace All for the selected entries in the order selected,
-including entries in selected groups.</string>
+          <string>Run Replace All for the selected entries in the order selected.
+Select a group to replace all entries in the group in order.</string>
          </property>
          <property name="text">
           <string>Replace All</string>
