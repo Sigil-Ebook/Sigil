@@ -36,8 +36,7 @@
 static const QString SETTINGS_GROUP   = "heading_selector";
 static const int FIRST_COLUMN_PADDING = 30;
 
-static const QString SIGIL_TOC_ID_PREFIX = "sigil_toc_id_";
-static const QString SIGIL_TOC_ID_REG    = SIGIL_TOC_ID_PREFIX + "(\\d+)";
+const QString SIGIL_TOC_ID_PREFIX = "sigil_toc_id_";
 
 // Constructor;
 // the first parameter is the book whose TOC

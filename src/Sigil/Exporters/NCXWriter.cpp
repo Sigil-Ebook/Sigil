@@ -26,6 +26,7 @@
 #include "Exporters/NCXWriter.h"
 #include "Misc/Utility.h"
 #include "ResourceObjects/HTMLResource.h"
+#include "sigil_constants.h"
 
 NCXWriter::NCXWriter( const Book &book, QIODevice &device )
     : 
@@ -190,7 +191,15 @@ NCXModel::NCXEntry NCXWriter::ConvertHeadingWalker( Headings::Heading &heading )
         ncx_child.text = heading.text;
         QString heading_file = heading.resource_file->GetRelativePathToOEBPS();       
 
-        QString path = heading_file + "#" + XtoQ( heading.element->getAttribute( QtoX( "id" ) ) );
+        QString existing_ids = XtoQ( heading.element->getAttribute( QtoX( "id" ) ) ).simplified();
+        QString id_to_use = existing_ids;
+        foreach (QString id, existing_ids.split(QChar(' '))) {
+            if (id.startsWith(SIGIL_TOC_ID_PREFIX)) {
+                id_to_use = id;
+                break;
+            }
+        }
+        QString path = heading_file + "#" + id_to_use;
         ncx_child.target = Utility::URLEncodePath( path );
     }
 
