@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>435</height>
+    <width>425</width>
+    <height>512</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -162,9 +162,16 @@ if a sans-serif font-family specified in your CSS</string>
      </property>
      <layout class="QVBoxLayout" name="verticalLayoutCV">
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayoutCV" stretch="0,0">
+       <layout class="QHBoxLayout" name="horizontalLayoutCV" stretch="0">
         <item>
          <layout class="QGridLayout" name="gridLayoutCV">
+          <item row="0" column="3">
+           <widget class="QLabel" name="labelColors">
+            <property name="text">
+             <string>Item Colors:</string>
+            </property>
+           </widget>
+          </item>
           <item row="0" column="0">
            <widget class="QLabel" name="labelCodeViewFontSize">
             <property name="minimumSize">
@@ -218,20 +225,39 @@ if a sans-serif font-family specified in your CSS</string>
             </property>
            </widget>
           </item>
+          <item row="1" column="3" rowspan="2" colspan="2">
+           <widget class="QListWidget" name="codeViewColorsList">
+            <property name="maximumSize">
+             <size>
+              <width>220</width>
+              <height>90</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="4">
+           <widget class="QPushButton" name="customColorButton">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>90</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="toolTip">
+             <string>Select an alternative color for this display item</string>
+            </property>
+            <property name="text">
+             <string>Custom Color...</string>
+            </property>
+           </widget>
+          </item>
          </layout>
-        </item>
-        <item>
-         <spacer name="horizontalSpacerCV">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>0</width>
-            <height>10</height>
-           </size>
-          </property>
-         </spacer>
         </item>
        </layout>
       </item>
@@ -252,60 +278,7 @@ if a sans-serif font-family specified in your CSS</string>
        </spacer>
       </item>
       <item>
-       <layout class="QGridLayout" name="gridLayoutCVColors">
-        <item row="0" column="0">
-         <widget class="QLabel" name="labelColors">
-          <property name="text">
-           <string>Item Colors:</string>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="0" rowspan="2">
-         <widget class="QListWidget" name="codeViewColorsList">
-          <property name="maximumSize">
-           <size>
-            <width>220</width>
-            <height>75</height>
-           </size>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="1" alignment="Qt::AlignTop">
-         <widget class="QPushButton" name="customColorButton">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="minimumSize">
-           <size>
-            <width>90</width>
-            <height>0</height>
-           </size>
-          </property>
-          <property name="toolTip">
-           <string>Select an alternative color for this display item</string>
-          </property>
-          <property name="text">
-           <string>Custom Color...</string>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="2">
-         <spacer name="horizontalSpacer">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>0</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-       </layout>
+       <layout class="QGridLayout" name="gridLayoutCVColors"/>
       </item>
      </layout>
     </widget>
