@@ -140,6 +140,9 @@ void SearchEditor::showEvent(QShowEvent *event)
         for (int column = 0; column < ui.SearchEditorTree->header()->count(); column++) {
             ui.SearchEditorTree->resizeColumnToContents(column);
         }
+        // Hitting an issue for first time user resizing the Find column to only width
+        // of the heading. Just force an initial width instead.
+        ui.SearchEditorTree->setColumnWidth(1, 150);
     }
 }
 
