@@ -425,6 +425,7 @@ void HeadingSelector::UpdateTreeViewDisplay()
     // Make the header fill all the available space not used by the checkbox
     ui.tvTOCDisplay->header()->setStretchLastSection( false );
     ui.tvTOCDisplay->resizeColumnToContents(1);
+    ui.tvTOCDisplay->resizeColumnToContents(2);
     ui.tvTOCDisplay->header()->setResizeMode(0, QHeaderView::Stretch);
 }
 
@@ -438,8 +439,8 @@ void HeadingSelector::CreateTOCModel()
     QStringList header;
 
     header.append( tr( "TOC Entry / Heading Title" ) );
-    header.append( tr( "Level" ) );
-    header.append( tr( "Include" ) );
+    header.append( tr( "Level" ) % " " );
+    header.append( tr( "Include" ) % " " );
 
     m_TableOfContents.setHorizontalHeaderLabels( header );
 
