@@ -23,9 +23,12 @@
 #include <QtCore/QCoreApplication>
 #include <QByteArray>
 #include <QDataStream>
+#include <QtCore/QTime>
+#include <QtGui/QDesktopServices>
 
 #include "MiscEditors/SearchEditorModel.h"
 
+static const QString SETTINGS_FILE          = "sigil_searches.ini";
 static const QString SETTINGS_GROUP         = "search_entries";
 static const QString ENTRY_NAME             = "Name";
 static const QString ENTRY_FIND             = "Find";
@@ -50,12 +53,29 @@ SearchEditorModel *SearchEditorModel::instance()
 }
 
 SearchEditorModel::SearchEditorModel(QObject *parent)
- : QStandardItemModel(parent)
+ : QStandardItemModel(parent),
+   m_FSWatcher( new QFileSystemWatcher() ),
+   m_IsDataModified(false)
 {
+    m_SettingsPath = QDesktopServices::storageLocation(QDesktopServices::DataLocation) + "/" + SETTINGS_FILE;
+
     LoadInitialData();
+
+    // Save it to make sure we have a file in case it was loaded from examples
+    SaveData();
+
+    if (!m_FSWatcher->files().contains(m_SettingsPath) ) {
+        m_FSWatcher->addPath(m_SettingsPath);
+    }
+
+    connect( m_FSWatcher, SIGNAL( fileChanged( const QString& ) ),
+             this,        SLOT( SettingsFileChanged( const QString& )), Qt::DirectConnection );
 
     connect(this, SIGNAL(itemChanged(QStandardItem*)),
             this, SLOT(ItemChangedHandler(QStandardItem*)));
+
+    connect( this, SIGNAL( rowsRemoved(        const QModelIndex&, int, int ) ),
+             this, SLOT(   RowsRemovedHandler( const QModelIndex&, int, int ) ) );
 }
 
 SearchEditorModel::~SearchEditorModel()
@@ -65,7 +85,17 @@ SearchEditorModel::~SearchEditorModel()
         m_instance = 0;
     }
 }
- 
+
+void SearchEditorModel::SetDataModified(bool modified)
+{
+    m_IsDataModified = modified;
+}
+
+bool SearchEditorModel::IsDataModified()
+{
+    return m_IsDataModified;
+}
+
 Qt::DropActions SearchEditorModel::supportedDropActions() const
 {
     return Qt::MoveAction;
@@ -166,7 +196,13 @@ bool SearchEditorModel::dropMimeData(const QMimeData *data, Qt::DropAction actio
         }
     }
 
+    SetDataModified(true);
     return true;
+}
+
+void SearchEditorModel::RowsRemovedHandler( const QModelIndex & parent, int start, int end )
+{
+    SetDataModified(true);
 }
 
 void SearchEditorModel::ItemChangedHandler(QStandardItem *item)
@@ -174,6 +210,7 @@ void SearchEditorModel::ItemChangedHandler(QStandardItem *item)
     Q_ASSERT(item);
 
     if (item->column() != 0) {
+        SetDataModified(true);
         return;
     }
 
@@ -200,13 +237,21 @@ void SearchEditorModel::Rename(QStandardItem *item, QString name)
 
     // If item name not already changed, set it
     if (name != "") {
+        disconnect(this, SIGNAL(itemChanged(       QStandardItem*)),
+                   this, SLOT(  ItemChangedHandler(QStandardItem*)));
+
         item->setText(name);
+
+        connect(this, SIGNAL(itemChanged(       QStandardItem*)),
+                this, SLOT(  ItemChangedHandler(QStandardItem*)));
     }
 
     UpdateFullName(item);
 
     connect(this, SIGNAL(itemChanged(       QStandardItem*)),
             this, SLOT(  ItemChangedHandler(QStandardItem*)));
+
+    SetDataModified(true);
 }
 
 void SearchEditorModel::UpdateFullName(QStandardItem *item)
@@ -226,6 +271,29 @@ void SearchEditorModel::UpdateFullName(QStandardItem *item)
 
     for (int row = 0; row < item->rowCount(); row++) {
         UpdateFullName(item->child(row,0));
+    }
+}
+
+void SearchEditorModel::SettingsFileChanged( const QString &path ) const
+{
+    // The file may have been deleted prior to writing a new version - give it a chance to write.
+    QTime wake_time = QTime::currentTime().addMSecs(1000);
+    while( !QFile::exists(path) && QTime::currentTime() < wake_time ) {
+        QCoreApplication::processEvents(QEventLoop::AllEvents, 100);
+    }
+
+    // The signal is also received after resource files are removed / renamed,
+    // but it can be safely ignored because QFileSystemWatcher automatically stops watching them.
+    if ( QFile::exists(path) )
+    {
+        // Some editors write the updated contents to a temporary file
+        // and then atomically move it over the watched file.
+        // In this case QFileSystemWatcher loses track of the file, so we have to add it again.
+        if ( !m_FSWatcher->files().contains(path) ) {
+            m_FSWatcher->addPath( path );
+        }
+
+        instance()->LoadInitialData();
     }
 }
 
@@ -284,13 +352,15 @@ void SearchEditorModel::LoadInitialData()
     if (invisibleRootItem()->rowCount() == 0) {
         AddExampleEntries();
     }
+
+    SetDataModified(false);
 }
 
 void SearchEditorModel::LoadData(QString filename, QStandardItem *item)
 {
     SettingsStore *settings;
     if (filename.isEmpty()) {
-        settings = new SettingsStore();
+        settings = new SettingsStore(m_SettingsPath);
     }
     else {
         settings = new SettingsStore(filename);
@@ -440,6 +510,7 @@ QStandardItem *SearchEditorModel::AddEntryToModel(SearchEditorModel::searchEntry
         new_item = parent_item->child(row, 0);
     }
 
+    SetDataModified(true);
     return new_item;
 }
 
@@ -588,10 +659,15 @@ QString SearchEditorModel::SaveData(QList<SearchEditorModel::searchEntry*> entri
         }
     }
 
+    // Stop watching the file while we save it
+    if (m_FSWatcher->files().contains(m_SettingsPath) ) {
+        m_FSWatcher->removePath(m_SettingsPath);
+    }
+
     // Open the default file for save, or specific file for export
     SettingsStore *settings;
     if (filename.isEmpty()) {
-        settings = new SettingsStore();
+        settings = new SettingsStore(m_SettingsPath);
     }
     else {
         settings = new SettingsStore(filename);
@@ -600,6 +676,10 @@ QString SearchEditorModel::SaveData(QList<SearchEditorModel::searchEntry*> entri
     settings->sync();
     if (!settings->isWritable()) {
         message = tr("Unable to create file %1").arg(filename);
+
+        // Watch the file again
+        m_FSWatcher->addPath(m_SettingsPath);
+
         return message;
     }
 
@@ -624,6 +704,10 @@ QString SearchEditorModel::SaveData(QList<SearchEditorModel::searchEntry*> entri
     // Make sure file is created/updated so it can be checked
     settings->sync();
 
+    // Watch the file again
+    m_FSWatcher->addPath(m_SettingsPath);
+
+    SetDataModified(false);
     return message;
 }
 

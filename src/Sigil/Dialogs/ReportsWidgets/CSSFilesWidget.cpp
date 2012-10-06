@@ -247,7 +247,7 @@ void CSSFilesWidget::Delete()
 
 void CSSFilesWidget::CreateContextMenuActions()
 {
-    m_Delete    = new QAction(tr("Delete From Book"),     this);
+    m_Delete    = new QAction(tr("Delete From Book") + "...",     this);
 
     m_Delete->setShortcut(QKeySequence::Delete);
 

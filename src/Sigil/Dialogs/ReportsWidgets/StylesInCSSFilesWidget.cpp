@@ -235,7 +235,7 @@ void StylesInCSSFilesWidget::Delete()
 
 void StylesInCSSFilesWidget::CreateContextMenuActions()
 {
-    m_Delete    = new QAction(tr("Delete From Stylesheet"),     this);
+    m_Delete    = new QAction(tr("Delete From Stylesheet") + "...",     this);
 
     m_Delete->setShortcut(QKeySequence::Delete);
 

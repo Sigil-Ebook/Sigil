@@ -54,10 +54,9 @@ public slots:
     QStandardItem* AddEntry(bool is_group = false, IndexEditorModel::indexEntry *index_entry = NULL, bool insert_after = true);
 
 signals:
-    void CreateIndexRequest();
+    void ShowStatusMessageRequest(const QString &message);
 
 protected slots:
-    void accept();
     void reject();
     void showEvent(QShowEvent *event);
 
@@ -69,16 +68,18 @@ private slots:
     void Delete();
     void AutoFill();
     void Open();
+    void Reload();
     void SaveAs();
     void SelectAll();
 
-    void FilterEditTextChangedSlot(const QString &text);
+    bool Save();
 
-    void CreateIndex();
+    void FilterEditTextChangedSlot(const QString &text);
 
     void OpenContextMenu(const QPoint &point);
 
 private:
+    bool MaybeSaveDialogSaysProceed();
     void SetupIndexEditorTree();
 
     int SelectedRowsCount();
@@ -105,6 +106,7 @@ private:
     QAction *m_Delete;
     QAction *m_AutoFill;
     QAction *m_Open;
+    QAction *m_Reload;
     QAction *m_SaveAs;
     QAction *m_SelectAll;
 

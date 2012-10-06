@@ -1235,7 +1235,7 @@ void CodeViewEditor::AddClipContextMenu(QMenu *menu)
         }
     }
 
-    QAction *saveClipAction = new QAction(tr("Add To Clip Manager"), menu);
+    QAction *saveClipAction = new QAction(tr("Add To Clip Manager" ) + "...", menu);
     if (!topAction) {
         menu->addAction(saveClipAction);
     }

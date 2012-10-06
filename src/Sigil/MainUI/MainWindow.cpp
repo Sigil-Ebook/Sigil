@@ -172,7 +172,7 @@ MainWindow::~MainWindow()
         m_SearchEditor = NULL;
     }
     if (m_ClipEditor && m_ClipEditor->isVisible()) {
-        m_ClipEditor->close();
+        m_ClipEditor->Close();
         m_ClipEditor = NULL;
     }
     if (m_IndexEditor && m_IndexEditor->isVisible()) {
@@ -3889,8 +3889,12 @@ void MainWindow::ConnectSignalsToSlots()
     connect( m_ClipEditor, SIGNAL( PasteSelectedClipRequest(QList<ClipEditorModel::clipEntry *>) ),
              this,           SLOT( PasteClipEntriesIntoCurrentTarget(QList<ClipEditorModel::clipEntry *>) ) );
 
-    connect( m_IndexEditor, SIGNAL( CreateIndexRequest() ),
-             this,            SLOT( CreateIndex() ) );
+    connect( m_SearchEditor, SIGNAL( ShowStatusMessageRequest(const QString&) ),
+             this,            SLOT( ShowMessageOnStatusBar(const QString&) ) );
+    connect( m_ClipEditor,   SIGNAL( ShowStatusMessageRequest(const QString&) ),
+             this,            SLOT( ShowMessageOnStatusBar(const QString&) ) );
+    connect( m_IndexEditor,  SIGNAL( ShowStatusMessageRequest(const QString&) ),
+             this,            SLOT( ShowMessageOnStatusBar(const QString&) ) );
 }
 
 void MainWindow::MakeTabConnections( ContentTab *tab )

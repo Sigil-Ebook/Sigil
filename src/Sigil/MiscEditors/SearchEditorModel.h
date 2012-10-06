@@ -25,6 +25,7 @@
 #define SEARCHEDITORMODEL_H
 
 #include <QtGui/QStandardItemModel>
+#include <QFileSystemWatcher> 
 #include <QDropEvent>
 
 #include "Misc/SettingsStore.h"
@@ -46,6 +47,8 @@ public:
         QString find;
         QString replace;
     };
+
+    bool IsDataModified();
 
     bool ItemIsGroup(QStandardItem* item);
 
@@ -77,9 +80,14 @@ public:
     QVariant data( const QModelIndex& index, int role ) const;
 
 private slots:
+    void RowsRemovedHandler( const QModelIndex & parent, int start, int end );
     void ItemChangedHandler(QStandardItem *item);
 
+    void SettingsFileChanged( const QString &path ) const;
+
 private:
+    void SetDataModified(bool modified);
+
     bool dropMimeData(const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex &parent);
     QMimeData *mimeData(const QModelIndexList &indexes) const;
     Qt::DropActions supportedDropActions() const;
@@ -90,10 +98,15 @@ private:
 
     QString CheckEntries(QList<SearchEditorModel::searchEntry*> entries);
 
-
     void AddExampleEntries();
 
     static SearchEditorModel *m_instance;
+
+    QString m_SettingsPath;
+
+    QFileSystemWatcher *m_FSWatcher;
+
+    bool m_IsDataModified;
 };
 
 #endif // SEARCHEDITORMODEL_H

@@ -45,34 +45,7 @@
       </widget>
      </item>
      <item>
-      <layout class="QVBoxLayout" name="verticalLayout">
-       <item>
-        <widget class="QPushButton" name="CreateIndex">
-         <property name="toolTip">
-          <string>Generate an Index.html file using the
-table of index entries and any custom entries.
-A custom entry is any tag with attributes
-class=&quot;sigil_index&quot; and title=&quot;MYINDEXENTRY&quot;.</string>
-         </property>
-         <property name="text">
-          <string>Create Index</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <spacer name="verticalSpacer">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>20</width>
-           <height>40</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-      </layout>
+      <layout class="QVBoxLayout" name="verticalLayout"/>
      </item>
     </layout>
    </item>
@@ -84,7 +57,7 @@ class=&quot;sigil_index&quot; and title=&quot;MYINDEXENTRY&quot;.</string>
         <string/>
        </property>
        <property name="standardButtons">
-        <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+        <set>QDialogButtonBox::Save</set>
        </property>
       </widget>
      </item>
@@ -100,38 +73,5 @@ class=&quot;sigil_index&quot; and title=&quot;MYINDEXENTRY&quot;.</string>
   </customwidget>
  </customwidgets>
  <resources/>
- <connections>
-  <connection>
-   <sender>buttonBox</sender>
-   <signal>rejected()</signal>
-   <receiver>IndexEditor</receiver>
-   <slot>reject()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>399</x>
-     <y>376</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>399</x>
-     <y>199</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>buttonBox</sender>
-   <signal>accepted()</signal>
-   <receiver>IndexEditor</receiver>
-   <slot>accept()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>399</x>
-     <y>376</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>399</x>
-     <y>199</y>
-    </hint>
-   </hints>
-  </connection>
- </connections>
+ <connections/>
 </ui>

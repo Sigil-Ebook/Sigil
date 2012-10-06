@@ -25,12 +25,13 @@
 #include <QtGui/QContextMenuEvent>
 #include <QtGui/QFileDialog>
 #include <QtGui/QMenu>
+#include <QtGui/QMessageBox>
 #include <QtGui/QPushButton>
 
 #include "Dialogs/ClipEditor.h"
 #include "Misc/Utility.h"
 
-static const QString SETTINGS_GROUP = "clip_editor";
+static const QString SETTINGS_GROUP = "clip_manager";
 static const QString FILE_EXTENSION = "ini";
 
 ClipEditor::ClipEditor(QWidget *parent)
@@ -41,8 +42,7 @@ ClipEditor::ClipEditor(QWidget *parent)
 {
     ui.setupUi(this);
 
-    ui.buttonBox->button(QDialogButtonBox::Apply)->setText("Paste Clip");
-    ui.buttonBox->button(QDialogButtonBox::Apply)->setDefault(true);
+    ui.PasteClip->setDefault(true);
 
     SetupClipEditorTree();
 
@@ -63,7 +63,7 @@ void ClipEditor::SetupClipEditorTree()
 
     ui.ClipEditorTree->header()->setToolTip(
         "<p>" + tr("Right click on an entry to see a context menu of actions.") + "</p>" +
-        "<p>" + tr("You can also right click in Code View to select an entry.") + "</p>" +
+        "<p>" + tr("You can also right click in your document to select an entry.") + "</p>" +
         "<dl>" +
         "<dt><b>" + tr("Name") + "</b><dd>" + tr("Name of your entry or group.") + "</dd>" +
         "<dt><b>" + tr("Text") + "</b><dd>" + tr("The text to insert. The text is treated like a Regex replacement expression so \\1 can be used to insert the text selected in Code View when you paste the clip.") + "</dd>" +
@@ -71,9 +71,7 @@ void ClipEditor::SetupClipEditorTree()
 
     ui.buttonBox->setToolTip( QString() +
         "<dl>" +
-        "<dt><b>" + tr("Paste Clip") + "</b><dd>" + tr("Paste the selected entry into the active window.") + "</dd>" +
-        "<dt><b>" + tr("Cancel") + "</b><dd>" + tr("Close without saving. Same as the Esc key.") + "</dd>" +
-        "<dt><b>" + tr("OK") + "</b><dd>" + tr("Save your changes and close.") + "</dd>" +
+        "<dt><b>" + tr("Save") + "</b><dd>" + tr("Save your changes.") + "<br/><br/>" + tr("If any other instances of Sigil are running they will be automatically updated with your changes.") + "</dd>" +
         "</dl>");
 
 
@@ -297,6 +295,15 @@ void ClipEditor::Delete()
             ui.ClipEditorTree->setCurrentIndex(select_index);
             ui.ClipEditorTree->selectionModel()->select(select_index, QItemSelectionModel::SelectCurrent | QItemSelectionModel::Rows);
         }
+    }
+}
+
+void ClipEditor::Reload()
+{
+    QMessageBox::StandardButton button_pressed;
+    button_pressed = QMessageBox::warning(this, tr("Sigil"), tr("Are you sure you want to reload all entries?  This will overwrite any unsaved changes."), QMessageBox::Ok | QMessageBox::Cancel);
+    if (button_pressed == QMessageBox::Ok) {
+        m_ClipEditorModel->LoadInitialData();
     }
 }
 
@@ -535,18 +542,19 @@ void ClipEditor::WriteSettings()
 
 void ClipEditor::CreateContextMenuActions()
 {
-    m_AddEntry  =   new QAction(tr( "Add Entry" ),  this );
-    m_AddGroup  =   new QAction(tr( "Add Group" ),  this );
-    m_Edit      =   new QAction(tr( "Edit" ),       this );
-    m_Cut       =   new QAction(tr( "Cut" ),        this );
-    m_Copy      =   new QAction(tr( "Copy" ),       this );
-    m_Paste     =   new QAction(tr( "Paste" ),      this );
-    m_Delete    =   new QAction(tr( "Delete" ),     this );
-    m_Import    =   new QAction(tr( "Import" ),     this );
-    m_Export    =   new QAction(tr( "Export" ),     this );
-    m_ExportAll =   new QAction(tr( "Export All" ), this );
-    m_CollapseAll = new QAction(tr( "Collapse All" ),  this );
-    m_ExpandAll =   new QAction(tr( "Expand All" ),  this );
+    m_AddEntry  =   new QAction(tr( "Add Entry" ),          this );
+    m_AddGroup  =   new QAction(tr( "Add Group" ),          this );
+    m_Edit      =   new QAction(tr( "Edit" ),               this );
+    m_Cut       =   new QAction(tr( "Cut" ),                this );
+    m_Copy      =   new QAction(tr( "Copy" ),               this );
+    m_Paste     =   new QAction(tr( "Paste" ),              this );
+    m_Delete    =   new QAction(tr( "Delete" ),             this );
+    m_Import    =   new QAction(tr( "Import") + "...",      this );
+    m_Reload    =   new QAction(tr( "Reload" ) + "...",     this );
+    m_Export    =   new QAction(tr( "Export" ) + "...",     this );
+    m_ExportAll =   new QAction(tr( "Export All" ) + "...", this );
+    m_CollapseAll = new QAction(tr( "Collapse All" ),       this );
+    m_ExpandAll =   new QAction(tr( "Expand All" ),         this );
 
     m_AddEntry->setShortcut(QKeySequence(Qt::ControlModifier + Qt::Key_E));
     m_AddGroup->setShortcut(QKeySequence(Qt::ControlModifier + Qt::Key_G));
@@ -582,6 +590,7 @@ void ClipEditor::OpenContextMenu(const QPoint &point)
     m_Paste->setEnabled(true);
     m_Delete->setEnabled(true);
     m_Import->setEnabled(true);
+    m_Reload->setEnabled(true);
     m_Export->setEnabled(true);
     m_ExportAll->setEnabled(true);
     m_CollapseAll->setEnabled(true);
@@ -621,6 +630,10 @@ void ClipEditor::SetupContextMenu(const QPoint &point)
     m_ContextMenu->addAction(m_Import);
     m_Import->setEnabled(selected_rows_count <= 1);
 
+    m_ContextMenu->addAction(m_Reload);
+
+    m_ContextMenu->addSeparator();
+
     m_ContextMenu->addAction(m_Export);
     m_Export->setEnabled(selected_rows_count > 0);
 
@@ -633,23 +646,55 @@ void ClipEditor::SetupContextMenu(const QPoint &point)
     m_ContextMenu->addAction(m_ExpandAll);
 }
 
-void ClipEditor::reject()
-{
-    m_ClipEditorModel->LoadInitialData();
-    QDialog::reject();
-}
-
-void ClipEditor::accept()
-{
-    if (SaveData()) {
-        WriteSettings();
-        QDialog::accept();
-    }
-}
-
 void ClipEditor::Apply()
 {
     PasteIntoDocument();
+}
+
+bool ClipEditor::Save()
+{
+    if (SaveData()) {
+        WriteSettings();
+        emit ShowStatusMessageRequest(tr("Clip entries saved."));
+        return true;
+    }
+    return false;
+}
+
+void ClipEditor::reject()
+{
+    if (MaybeSaveDialogSaysProceed()) {
+        m_ClipEditorModel->LoadInitialData();
+        QDialog::reject();
+    }
+}
+
+void ClipEditor::Close()
+{
+    MaybeSaveDialogSaysProceed();
+}
+
+bool ClipEditor::MaybeSaveDialogSaysProceed()
+{
+    if ( m_ClipEditorModel->IsDataModified()) {
+        QMessageBox::StandardButton button_pressed;
+
+        button_pressed = QMessageBox::warning(  this,
+                                                tr( "Sigil: Clip Manager" ),
+                                                tr( "The Clip entries may have been modified.\n"
+                                                     "Do you want to save your changes?"),
+                                                QMessageBox::Save | QMessageBox::Discard | QMessageBox::Cancel
+                                             );
+
+        if ( button_pressed == QMessageBox::Save ) {
+            return Save();
+        }
+        else if ( button_pressed == QMessageBox::Cancel ) {
+            return false;
+        }
+    }
+
+    return true;
 }
 
 void ClipEditor::MoveUp()
@@ -804,14 +849,17 @@ void ClipEditor::MoveHorizontal(bool move_left)
 void ClipEditor::ConnectSignalsSlots()
 {
     connect(ui.FilterText,          SIGNAL(textChanged(QString)), this, SLOT(FilterEditTextChangedSlot(QString)));
-
-    connect(ui.ClipEditorTree, SIGNAL(customContextMenuRequested(const QPoint&)),
-            this,                   SLOT(  OpenContextMenu(                  const QPoint&)));
+    connect(ui.PasteClip,  SIGNAL(clicked()),            this, SLOT(PasteIntoDocument()));
 
     connect(ui.MoveUp,     SIGNAL(clicked()),            this, SLOT(MoveUp()));
     connect(ui.MoveDown,   SIGNAL(clicked()),            this, SLOT(MoveDown()));
     connect(ui.MoveLeft,   SIGNAL(clicked()),            this, SLOT(MoveLeft()));
     connect(ui.MoveRight,  SIGNAL(clicked()),            this, SLOT(MoveRight()));
+
+    connect(ui.buttonBox->button(QDialogButtonBox::Save), SIGNAL(clicked()), this, SLOT(Save()));
+
+    connect(ui.ClipEditorTree, SIGNAL(customContextMenuRequested(const QPoint&)),
+            this,                   SLOT(  OpenContextMenu(                  const QPoint&)));
 
     connect(m_AddEntry,    SIGNAL(triggered()), this, SLOT(AddEntry()));
     connect(m_AddGroup,    SIGNAL(triggered()), this, SLOT(AddGroup()));
@@ -821,10 +869,9 @@ void ClipEditor::ConnectSignalsSlots()
     connect(m_Paste,       SIGNAL(triggered()), this, SLOT(Paste()));
     connect(m_Delete,      SIGNAL(triggered()), this, SLOT(Delete()));
     connect(m_Import,      SIGNAL(triggered()), this, SLOT(Import()));
+    connect(m_Reload,      SIGNAL(triggered()), this, SLOT(Reload()));
     connect(m_Export,      SIGNAL(triggered()), this, SLOT(Export()));
     connect(m_ExportAll,   SIGNAL(triggered()), this, SLOT(ExportAll()));
     connect(m_CollapseAll, SIGNAL(triggered()), this, SLOT(CollapseAll()));
     connect(m_ExpandAll,   SIGNAL(triggered()), this, SLOT(ExpandAll()));
-
-    connect(ui.buttonBox->button(QDialogButtonBox::Apply), SIGNAL(clicked()), this, SLOT(Apply()));
 }

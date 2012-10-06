@@ -58,8 +58,9 @@ signals:
     void CountAllSelectedSearchRequest(QList<SearchEditorModel::searchEntry *> search_entries);
     void ReplaceAllSelectedSearchRequest(QList<SearchEditorModel::searchEntry *> search_entries);
 
+    void ShowStatusMessageRequest(const QString &message);
+
 protected slots:
-    void accept();
     void reject();
     void showEvent(QShowEvent *event);
 
@@ -71,12 +72,14 @@ private slots:
     void Paste();
     void Delete();
     void Import();
+    void Reload();
     void Export();
     void ExportAll();
     void CollapseAll(); 
     void ExpandAll(); 
 
     void Apply();
+    bool Save();
 
     void MoveUp();
     void MoveDown();
@@ -95,6 +98,7 @@ private slots:
     void OpenContextMenu(const QPoint &point);
 
 private:
+    bool MaybeSaveDialogSaysProceed();
     void MoveVertical(bool move_down);
     void MoveHorizontal(bool move_left);
 
@@ -132,6 +136,7 @@ private:
     QAction *m_Paste;
     QAction *m_Delete;
     QAction *m_Import;
+    QAction *m_Reload;
     QAction *m_Export;
     QAction *m_ExportAll;
     QAction *m_CollapseAll;

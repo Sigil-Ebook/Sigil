@@ -25,6 +25,7 @@
 #define INDEXEDITORMODEL_H
 
 #include <QtGui/QStandardItemModel>
+#include <QFileSystemWatcher>
 #include <QDropEvent>
 
 #include "Misc/SettingsStore.h"
@@ -44,6 +45,8 @@ public:
         QString index_entry;
     };
 
+    bool IsDataModified();
+
     void ClearData();
     void LoadInitialData(QString filename = QString());
     void LoadData(QString filename = QString(), QStandardItem *parent_item = NULL);
@@ -60,12 +63,23 @@ public:
     QList<QStandardItem*> GetItems();
 
 private slots:
+    void RowsRemovedHandler( const QModelIndex & parent, int start, int end );
     void ItemChangedHandler(QStandardItem *item);
 
+    void SettingsFileChanged( const QString &path ) const;
+
 private:
+    void SetDataModified(bool modified);
+
     void SplitEntry(QStandardItem *item);
 
     static IndexEditorModel *m_instance;
+
+    QString m_SettingsPath;
+
+    QFileSystemWatcher *m_FSWatcher;
+
+    bool m_IsDataModified;
 };
 
 #endif // INDEXEDITORMODEL_H

@@ -22,12 +22,13 @@
 
 #include <QtCore/QSignalMapper>
 #include <QtGui/QFileDialog>
+#include <QtGui/QMessageBox>
 #include <QtGui/QContextMenuEvent>
 
 #include "Dialogs/SearchEditor.h"
 #include "Misc/Utility.h"
 
-static const QString SETTINGS_GROUP = "search_editor";
+static const QString SETTINGS_GROUP = "saved_searches";
 static const QString FILE_EXTENSION = "ini";
 
 SearchEditor::SearchEditor(QWidget *parent)
@@ -38,8 +39,7 @@ SearchEditor::SearchEditor(QWidget *parent)
 {
     ui.setupUi(this);	
 
-    ui.buttonBox->button(QDialogButtonBox::Apply)->setText("Load Search");
-    ui.buttonBox->button(QDialogButtonBox::Apply)->setDefault(true);
+    ui.LoadSearch->setDefault(true);
 
     SetupSearchEditorTree();
 
@@ -73,9 +73,7 @@ void SearchEditor::SetupSearchEditorTree()
 
     ui.buttonBox->setToolTip( QString() +
         "<dl>" +
-        "<dt><b>" + tr("Load Search") + "</b><dd>" + tr("Load the selected entry into the Find & Replace window.") + "</dd>" +
-        "<dt><b>" + tr("Cancel") + "</b><dd>" + tr("Close without saving. Same as the Esc key.") + "</dd>" +
-        "<dt><b>" + tr("OK") + "</b><dd>" + tr("Save your changes and close.") + "</dd>" +
+        "<dt><b>" + tr("Save") + "</b><dd>" + tr("Save your changes.") + "<br/><br/>" + tr("If any other instances of Sigil are running they will be automatically updated with your changes.") + "</dd>" +
         "</dl>");
 
     ui.SearchEditorTree->header()->setStretchLastSection(true);
@@ -369,6 +367,15 @@ void SearchEditor::Delete()
     ui.SearchEditorTree->selectionModel()->select(select_index, QItemSelectionModel::SelectCurrent | QItemSelectionModel::Rows);
 }
 
+void SearchEditor::Reload()
+{
+    QMessageBox::StandardButton button_pressed;
+    button_pressed = QMessageBox::warning(this, tr("Sigil"), tr("Are you sure you want to reload all entries?  This will overwrite any unsaved changes."), QMessageBox::Ok | QMessageBox::Cancel);
+    if (button_pressed == QMessageBox::Ok) {
+        m_SearchEditorModel->LoadInitialData();
+    }
+}
+
 void SearchEditor::Import()
 {
     if (SelectedRowsCount() > 1) {
@@ -627,18 +634,19 @@ void SearchEditor::WriteSettings()
 
 void SearchEditor::CreateContextMenuActions()
 {
-    m_AddEntry  =   new QAction(tr( "Add Entry" ),  this );
-    m_AddGroup  =   new QAction(tr( "Add Group" ),  this );
-    m_Edit      =   new QAction(tr( "Edit" ),       this );
-    m_Cut       =   new QAction(tr( "Cut" ),        this );
-    m_Copy      =   new QAction(tr( "Copy" ),       this );
-    m_Paste     =   new QAction(tr( "Paste" ),      this );
-    m_Delete    =   new QAction(tr( "Delete" ),     this );
-    m_Import    =   new QAction(tr( "Import" ),     this );
-    m_Export    =   new QAction(tr( "Export" ),     this );
-    m_ExportAll =   new QAction(tr( "Export All" ), this );
-    m_CollapseAll = new QAction(tr( "Collapse All" ),  this );
-    m_ExpandAll =   new QAction(tr( "Expand All" ),  this );
+    m_AddEntry  =   new QAction(tr( "Add Entry" ),          this );
+    m_AddGroup  =   new QAction(tr( "Add Group" ),          this );
+    m_Edit      =   new QAction(tr( "Edit" ),               this );
+    m_Cut       =   new QAction(tr( "Cut" ),                this );
+    m_Copy      =   new QAction(tr( "Copy" ),               this );
+    m_Paste     =   new QAction(tr( "Paste" ),              this );
+    m_Delete    =   new QAction(tr( "Delete" ),             this );
+    m_Import    =   new QAction(tr( "Import") + "...",      this );
+    m_Reload    =   new QAction(tr( "Reload" ) + "...",     this );
+    m_Export    =   new QAction(tr( "Export" ) + "...",     this );
+    m_ExportAll =   new QAction(tr( "Export All" ) + "...", this );
+    m_CollapseAll = new QAction(tr( "Collapse All" ),       this );
+    m_ExpandAll =   new QAction(tr( "Expand All" ),         this );
 
     m_AddEntry->setShortcut(QKeySequence(Qt::ControlModifier + Qt::Key_E));
     m_AddGroup->setShortcut(QKeySequence(Qt::ControlModifier + Qt::Key_G));
@@ -674,6 +682,7 @@ void SearchEditor::OpenContextMenu(const QPoint &point)
     m_Paste->setEnabled(true);
     m_Delete->setEnabled(true);
     m_Import->setEnabled(true);
+    m_Reload->setEnabled(true);
     m_Export->setEnabled(true);
     m_ExportAll->setEnabled(true);
     m_CollapseAll->setEnabled(true);
@@ -713,6 +722,10 @@ void SearchEditor::SetupContextMenu(const QPoint &point)
     m_ContextMenu->addAction(m_Import);
     m_Import->setEnabled(selected_rows_count <= 1);
 
+    m_ContextMenu->addAction(m_Reload);
+
+    m_ContextMenu->addSeparator();
+
     m_ContextMenu->addAction(m_Export);
     m_Export->setEnabled(selected_rows_count > 0);
 
@@ -725,23 +738,50 @@ void SearchEditor::SetupContextMenu(const QPoint &point)
     m_ContextMenu->addAction(m_ExpandAll);
 }
 
-void SearchEditor::reject()
+void SearchEditor::Apply()
 {
-    m_SearchEditorModel->LoadInitialData();
-    QDialog::reject();
+    LoadFindReplace();
 }
 
-void SearchEditor::accept()
+bool SearchEditor::Save()
 {
     if (SaveData()) {
         WriteSettings();
-        QDialog::accept();
+        emit ShowStatusMessageRequest(tr("Search entries saved."));
+        return true;
+    }
+    return false;
+}
+
+void SearchEditor::reject()
+{
+    if (MaybeSaveDialogSaysProceed()) {
+        m_SearchEditorModel->LoadInitialData();
+        QDialog::reject();
     }
 }
 
-void SearchEditor::Apply()
+bool SearchEditor::MaybeSaveDialogSaysProceed()
 {
-        LoadFindReplace();
+    if ( m_SearchEditorModel->IsDataModified() ) {
+        QMessageBox::StandardButton button_pressed;
+
+        button_pressed = QMessageBox::warning(  this,
+                                                tr( "Sigil: Saved Searches" ),
+                                                tr( "The Search entries may have been modified.\n"
+                                                     "Do you want to save your changes?"),
+                                                QMessageBox::Save | QMessageBox::Discard | QMessageBox::Cancel
+                                             );
+
+        if ( button_pressed == QMessageBox::Save ) {
+            return Save();
+        }
+        else if ( button_pressed == QMessageBox::Cancel ) {
+            return false;
+        }
+    }
+
+    return true;
 }
 
 void SearchEditor::MoveUp()
@@ -895,6 +935,8 @@ void SearchEditor::MoveHorizontal(bool move_left)
 void SearchEditor::ConnectSignalsSlots()
 {
     connect(ui.FilterText,      SIGNAL(textChanged(QString)), this, SLOT(FilterEditTextChangedSlot(QString)));
+
+    connect(ui.LoadSearch,      SIGNAL(clicked()),            this, SLOT(LoadFindReplace()));
     connect(ui.Find,            SIGNAL(clicked()),            this, SLOT(Find()));
     connect(ui.ReplaceCurrent,  SIGNAL(clicked()),            this, SLOT(ReplaceCurrent()));
     connect(ui.Replace,         SIGNAL(clicked()),            this, SLOT(Replace()));
@@ -906,10 +948,10 @@ void SearchEditor::ConnectSignalsSlots()
     connect(ui.MoveLeft,   SIGNAL(clicked()),            this, SLOT(MoveLeft()));
     connect(ui.MoveRight,  SIGNAL(clicked()),            this, SLOT(MoveRight()));
 
+    connect(ui.buttonBox->button(QDialogButtonBox::Save), SIGNAL(clicked()), this, SLOT(Save()));
+
     connect(ui.SearchEditorTree, SIGNAL(customContextMenuRequested(const QPoint&)),
             this,                SLOT(  OpenContextMenu(           const QPoint&)));
-
-    connect(ui.buttonBox->button(QDialogButtonBox::Apply), SIGNAL(clicked()), this, SLOT(Apply()));
 
     connect(m_AddEntry,    SIGNAL(triggered()), this, SLOT(AddEntry()));
     connect(m_AddGroup,    SIGNAL(triggered()), this, SLOT(AddGroup()));
@@ -919,6 +961,7 @@ void SearchEditor::ConnectSignalsSlots()
     connect(m_Paste,       SIGNAL(triggered()), this, SLOT(Paste()));
     connect(m_Delete,      SIGNAL(triggered()), this, SLOT(Delete()));
     connect(m_Import,      SIGNAL(triggered()), this, SLOT(Import()));
+    connect(m_Reload,      SIGNAL(triggered()), this, SLOT(Reload()));
     connect(m_Export,      SIGNAL(triggered()), this, SLOT(Export()));
     connect(m_ExportAll,   SIGNAL(triggered()), this, SLOT(ExportAll()));
     connect(m_CollapseAll, SIGNAL(triggered()), this, SLOT(CollapseAll()));

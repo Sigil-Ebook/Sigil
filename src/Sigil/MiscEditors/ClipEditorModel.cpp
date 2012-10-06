@@ -19,13 +19,17 @@
 **  along with Sigil.  If not, see <http://www.gnu.org/licenses/>.
 **
 *************************************************************************/
+#include <QtDebug>
 
 #include <QtCore/QCoreApplication>
 #include <QByteArray>
 #include <QDataStream>
+#include <QtCore/QTime>
+#include <QtGui/QDesktopServices>
 
 #include "MiscEditors/ClipEditorModel.h"
 
+static const QString SETTINGS_FILE          = "sigil_clips.ini";
 static const QString SETTINGS_GROUP         = "clip_entries";
 static const QString ENTRY_NAME             = "Name";
 static const QString ENTRY_TEXT             = "Text";
@@ -49,20 +53,50 @@ ClipEditorModel *ClipEditorModel::instance()
 }
 
 ClipEditorModel::ClipEditorModel(QObject *parent)
- : QStandardItemModel(parent)
+ : QStandardItemModel(parent),
+   m_FSWatcher( new QFileSystemWatcher() ),
+   m_IsDataModified(false)
 {
+    m_SettingsPath = QDesktopServices::storageLocation(QDesktopServices::DataLocation) + "/" + SETTINGS_FILE;
+
     LoadInitialData();
+
+    // Save it to make sure we have a file in case it was loaded from examples
+    SaveData();
+
+    if (!m_FSWatcher->files().contains(m_SettingsPath) ) {
+        m_FSWatcher->addPath(m_SettingsPath);
+    }
+ 
+    connect( m_FSWatcher, SIGNAL( fileChanged( const QString& ) ),
+             this,        SLOT( SettingsFileChanged( const QString& )), Qt::DirectConnection );
 
     connect(this, SIGNAL(itemChanged(QStandardItem*)),
             this, SLOT(ItemChangedHandler(QStandardItem*)));
+
+    connect( this, SIGNAL( rowsRemoved(        const QModelIndex&, int, int ) ),
+             this, SLOT(   RowsRemovedHandler( const QModelIndex&, int, int ) ) );
 }
 
 ClipEditorModel::~ClipEditorModel()
 {
+    delete m_FSWatcher;
+    m_FSWatcher = 0;
+
     if (m_instance) {
         delete m_instance;
         m_instance = 0;
     }
+}
+
+void ClipEditorModel::SetDataModified(bool modified)
+{
+    m_IsDataModified = modified;
+}
+
+bool ClipEditorModel::IsDataModified() 
+{
+    return m_IsDataModified;
 }
  
 Qt::DropActions ClipEditorModel::supportedDropActions() const
@@ -165,7 +199,13 @@ bool ClipEditorModel::dropMimeData(const QMimeData *data, Qt::DropAction action,
         }
     }
 
+    SetDataModified(true);
     return true;
+}
+
+void ClipEditorModel::RowsRemovedHandler( const QModelIndex & parent, int start, int end )
+{
+    SetDataModified(true);
 }
 
 void ClipEditorModel::ItemChangedHandler(QStandardItem *item)
@@ -173,6 +213,7 @@ void ClipEditorModel::ItemChangedHandler(QStandardItem *item)
     Q_ASSERT(item);
 
     if (item->column() != 0) {
+        SetDataModified(true);
         return;
     }
 
@@ -183,7 +224,15 @@ void ClipEditorModel::ItemChangedHandler(QStandardItem *item)
         if (name.contains("/")) {
             name = name.split("/").last();
         }
+        // Disconnect change signal while changing the items
+        disconnect(this, SIGNAL(itemChanged(       QStandardItem*)),
+                   this, SLOT(  ItemChangedHandler(QStandardItem*)));
+
         item->setText(name);
+
+        connect(this, SIGNAL(itemChanged(       QStandardItem*)),
+                this, SLOT(  ItemChangedHandler(QStandardItem*)));
+
         return;
     }
 
@@ -206,6 +255,8 @@ void ClipEditorModel::Rename(QStandardItem *item, QString name)
 
     connect(this, SIGNAL(itemChanged(       QStandardItem*)),
             this, SLOT(  ItemChangedHandler(QStandardItem*)));
+
+    SetDataModified(true);
 }
 
 void ClipEditorModel::UpdateFullName(QStandardItem *item)
@@ -225,6 +276,29 @@ void ClipEditorModel::UpdateFullName(QStandardItem *item)
 
     for (int row = 0; row < item->rowCount(); row++) {
         UpdateFullName(item->child(row,0));
+    }
+}
+
+void ClipEditorModel::SettingsFileChanged( const QString &path ) const
+{
+    // The file may have been deleted prior to writing a new version - give it a chance to write.
+    QTime wake_time = QTime::currentTime().addMSecs(1000);
+    while( !QFile::exists(path) && QTime::currentTime() < wake_time ) {
+        QCoreApplication::processEvents(QEventLoop::AllEvents, 100);
+    }
+
+    // The signal is also received after resource files are removed / renamed,
+    // but it can be safely ignored because QFileSystemWatcher automatically stops watching them.
+    if ( QFile::exists(path) )
+    {
+        // Some editors write the updated contents to a temporary file
+        // and then atomically move it over the watched file.
+        // In this case QFileSystemWatcher loses track of the file, so we have to add it again.
+        if ( !m_FSWatcher->files().contains(path) ) {
+            m_FSWatcher->addPath( path );
+        }
+
+        instance()->LoadInitialData();
     }
 }
 
@@ -282,13 +356,15 @@ void ClipEditorModel::LoadInitialData()
     if (invisibleRootItem()->rowCount() == 0) {
         AddExampleEntries();
     }
+
+    SetDataModified(false);
 }
 
 void ClipEditorModel::LoadData(QString filename, QStandardItem *item)
 {
     SettingsStore *settings;
     if (filename.isEmpty()) {
-        settings = new SettingsStore();
+        settings = new SettingsStore(m_SettingsPath);
     }
     else {
         settings = new SettingsStore(filename);
@@ -435,6 +511,7 @@ QStandardItem *ClipEditorModel::AddEntryToModel(ClipEditorModel::clipEntry *entr
         new_item = parent_item->child(row, 0);
     }
 
+    SetDataModified(true);
     return new_item;
 }
 
@@ -581,10 +658,15 @@ QString ClipEditorModel::SaveData(QList<ClipEditorModel::clipEntry*> entries, QS
         }
     }
 
+    // Stop watching the file while we save it
+    if (m_FSWatcher->files().contains(m_SettingsPath) ) {
+        m_FSWatcher->removePath(m_SettingsPath);
+    }
+
     // Open the default file for save, or specific file for export
     SettingsStore *settings;
     if (filename.isEmpty()) {
-        settings = new SettingsStore();
+        settings = new SettingsStore(m_SettingsPath);
     }
     else {
         settings = new SettingsStore(filename);
@@ -593,8 +675,13 @@ QString ClipEditorModel::SaveData(QList<ClipEditorModel::clipEntry*> entries, QS
     settings->sync();
     if (!settings->isWritable()) {
         message = tr("Unable to create file %1").arg(filename);
+
+        // Watch the file again
+        m_FSWatcher->addPath(m_SettingsPath);
+
         return message;
     }
+
 
     // Remove the old values to account for deletions
     settings->remove(SETTINGS_GROUP);
@@ -616,6 +703,10 @@ QString ClipEditorModel::SaveData(QList<ClipEditorModel::clipEntry*> entries, QS
     // Make sure file is created/updated so it can be checked
     settings->sync();
 
+    // Watch the file again
+    m_FSWatcher->addPath(m_SettingsPath);
+
+    SetDataModified(false);
     return message;
 }
 

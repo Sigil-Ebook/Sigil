@@ -25,6 +25,7 @@
 #include <QtGui/QContextMenuEvent>
 #include <QtGui/QProgressDialog>
 #include <QtGui/QMessageBox>
+#include <QtGui/QPushButton>
 
 #include "Dialogs/IndexEditor.h"
 #include "MiscEditors/IndexEditorTreeView.h"
@@ -68,10 +69,15 @@ void IndexEditor::SetupIndexEditorTree()
 
     ui.IndexEditorTree->header()->setToolTip(
         "<p>" + tr("Right click on an entry to see a context menu of actions.") + "</p>" +
-        "<p>" + tr("You can also right click in Code View to add selected text to the Index.") + "</p>" +
+        "<p>" + tr("You can also right click in your document to add selected text to the Index.") + "</p>" +
         "<dl>" +
         "<dt><b>" + tr("Text to Include") + "</b><dd>" + tr("The text to match in your document, e.g. 'Gutenberg'. You can list similar patterns by separating them with ';', e.g. 'Gutenberg;gutenberg'.  The text to match can be a regex pattern, e.g. '[gG]utenberg'.") + "</dd>" +
         "<dt><b>" + tr("Index Entries") + "</b><dd>" + tr("The entry to create in the Index. Leave blank to use text as is, or enter text to display.  Create multiple entries by separating entries by ';'.  Create multi-level entries by using '/' after a level name, e.g. 'Books/Fantasy/Alice in Wonderland;Characters/Alice") + "</dd>" +
+        "</dl>");
+
+    ui.buttonBox->setToolTip( QString() +
+        "<dl>" +
+        "<dt><b>" + tr("Save") + "</b><dd>" + tr("Save your changes.") + "<br/><br/>" + tr("If any other instances of Sigil are running they will be automatically updated with your changes.") + "</dd>" +
         "</dl>");
 
     ui.IndexEditorTree->header()->setStretchLastSection(true);
@@ -85,11 +91,6 @@ bool IndexEditor::SaveData(QList<IndexEditorModel::indexEntry*> entries, QString
         Utility::DisplayStdErrorDialog(tr("Cannot save entries.") + "\n\n" + message);
     }
     return message.isEmpty();
-}
-
-void IndexEditor::CreateIndex()
-{
-    emit CreateIndexRequest();
 }
 
 void IndexEditor::showEvent(QShowEvent *event)
@@ -325,6 +326,15 @@ void IndexEditor::Open()
     }
 }
 
+void IndexEditor::Reload()
+{
+    QMessageBox::StandardButton button_pressed;
+    button_pressed = QMessageBox::warning(this, tr("Sigil"), tr("Are you sure you want to reload all entries?  This will overwrite any unsaved changes."), QMessageBox::Ok | QMessageBox::Cancel);
+    if (button_pressed == QMessageBox::Ok) {
+        m_IndexEditorModel->LoadInitialData();
+    }
+}
+
 void IndexEditor::SelectAll()
 {
     ui.IndexEditorTree->selectAll();
@@ -429,16 +439,17 @@ void IndexEditor::WriteSettings()
 
 void IndexEditor::CreateContextMenuActions()
 {
-    m_AddEntry  = new QAction(tr("Add Entry"),  this);
-    m_Edit      = new QAction(tr("Edit" ),      this);
-    m_Cut       = new QAction(tr("Cut"),        this);
-    m_Copy      = new QAction(tr("Copy"),       this);
-    m_Paste     = new QAction(tr("Paste"),      this);
-    m_Delete    = new QAction(tr("Delete"),     this);
-    m_AutoFill  = new QAction(tr("Auto Fill"),  this);
-    m_Open      = new QAction(tr("Open"),       this);
-    m_SaveAs    = new QAction(tr("Save As"),    this);
-    m_SelectAll = new QAction(tr("Select All"), this);
+    m_AddEntry  = new QAction(tr("Add Entry"),       this);
+    m_Edit      = new QAction(tr("Edit" ),           this);
+    m_Cut       = new QAction(tr("Cut"),             this);
+    m_Copy      = new QAction(tr("Copy"),            this);
+    m_Paste     = new QAction(tr("Paste"),           this);
+    m_Delete    = new QAction(tr("Delete"),          this);
+    m_AutoFill  = new QAction(tr("Auto Fill"),       this);
+    m_Open      = new QAction(tr("Open") + "...",    this);
+    m_Reload    = new QAction(tr("Reload") + "...",  this);
+    m_SaveAs    = new QAction(tr("Save As") + "...", this);
+    m_SelectAll = new QAction(tr("Select All"),      this);
 
     m_AddEntry->setShortcut(QKeySequence(Qt::ControlModifier + Qt::Key_E));
     m_Edit->setShortcut(QKeySequence(Qt::Key_F2));
@@ -472,6 +483,7 @@ void IndexEditor::OpenContextMenu(const QPoint &point)
     m_Delete->setEnabled(true);
     m_AutoFill->setEnabled(true);
     m_Open->setEnabled(true);
+    m_Reload->setEnabled(true);
     m_SaveAs->setEnabled(true);
     m_SelectAll->setEnabled(true);
 }
@@ -506,6 +518,9 @@ void IndexEditor::SetupContextMenu(const QPoint &point)
     m_ContextMenu->addSeparator();
 
     m_ContextMenu->addAction(m_Open);
+    m_ContextMenu->addAction(m_Reload);
+
+    m_ContextMenu->addSeparator();
 
     m_ContextMenu->addAction(m_SaveAs);
     m_SaveAs->setEnabled(total_row_count > 0);
@@ -525,24 +540,53 @@ void IndexEditor::SetupContextMenu(const QPoint &point)
     m_SelectAll->setEnabled(show_select_all);
 }
 
-void IndexEditor::reject()
-{
-    m_IndexEditorModel->LoadInitialData();
-    QDialog::reject();
-}
-
-void IndexEditor::accept()
+bool IndexEditor::Save()
 { 
     if (SaveData()) {
         WriteSettings();
-        QDialog::accept();
+        emit ShowStatusMessageRequest(tr("Index entries saved."));
+        return true;
+    }
+    return false;
+}
+
+void IndexEditor::reject()
+{
+    if (MaybeSaveDialogSaysProceed()) {
+        m_IndexEditorModel->LoadInitialData();
+        QDialog::reject();
     }
 }
+
+bool IndexEditor::MaybeSaveDialogSaysProceed()
+{
+    if (m_IndexEditorModel->IsDataModified()) {
+        QMessageBox::StandardButton button_pressed;
+
+        button_pressed = QMessageBox::warning(  this,
+                                                tr( "Sigil: Index Editor" ),
+                                                tr( "The Index entries may have been modified.\n"
+                                                     "Do you want to save your changes?"),
+                                                QMessageBox::Save | QMessageBox::Discard | QMessageBox::Cancel
+                                             );
+
+        if ( button_pressed == QMessageBox::Save ) {
+            return Save();
+        }
+        else if ( button_pressed == QMessageBox::Cancel ) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
 
 void IndexEditor::ConnectSignalsSlots()
 {
     connect(ui.FilterText,  SIGNAL(textChanged(QString)), this, SLOT(FilterEditTextChangedSlot(QString)));
-    connect(ui.CreateIndex, SIGNAL(clicked()),            this, SLOT(CreateIndex()));
+
+    connect(ui.buttonBox->button(QDialogButtonBox::Save), SIGNAL(clicked()), this, SLOT(Save()));
 
     connect(ui.IndexEditorTree, SIGNAL(customContextMenuRequested(const QPoint&)),
             this,        SLOT(  OpenContextMenu(                  const QPoint&)));
@@ -555,6 +599,7 @@ void IndexEditor::ConnectSignalsSlots()
     connect(m_Delete,    SIGNAL(triggered()), this, SLOT(Delete()));
     connect(m_AutoFill,  SIGNAL(triggered()), this, SLOT(AutoFill()));
     connect(m_Open,      SIGNAL(triggered()), this, SLOT(Open()));
+    connect(m_Reload,    SIGNAL(triggered()), this, SLOT(Reload()));
     connect(m_SaveAs,    SIGNAL(triggered()), this, SLOT(SaveAs()));
     connect(m_SelectAll, SIGNAL(triggered()), this, SLOT(SelectAll()));
 }

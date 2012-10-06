@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>600</width>
-    <height>440</height>
+    <width>644</width>
+    <height>578</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -46,7 +46,7 @@
        <property name="sizePolicy">
         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
          <horstretch>1</horstretch>
-         <verstretch>0</verstretch>
+         <verstretch>1</verstretch>
         </sizepolicy>
        </property>
        <property name="editTriggers">
@@ -60,30 +60,17 @@
      <item>
       <layout class="QVBoxLayout" name="verticalLayout">
        <item>
-        <widget class="QPushButton" name="Find">
+        <widget class="QPushButton" name="LoadSearch">
          <property name="toolTip">
-          <string>Run Find using the selected entry.
-If a group is selected, find the first entry in the list, 
-then if not found look for the second entry in the list, etc.</string>
+          <string>Load the selected entry into the Find &amp; Replace window.</string>
          </property>
          <property name="text">
-          <string>Find</string>
+          <string>Load Search</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="CountAll">
-         <property name="toolTip">
-          <string>Run Count All for the selected entries in the order selected,
-including entries in selected groups.</string>
-         </property>
-         <property name="text">
-          <string>Count All</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <spacer name="verticalSpacer_2">
+        <spacer name="verticalSpacer_5">
          <property name="orientation">
           <enum>Qt::Vertical</enum>
          </property>
@@ -99,6 +86,18 @@ including entries in selected groups.</string>
         </spacer>
        </item>
        <item>
+        <widget class="QPushButton" name="Find">
+         <property name="toolTip">
+          <string>Run Find using the selected entry.
+If a group is selected, find the first entry in the list, 
+then if not found look for the second entry in the list, etc.</string>
+         </property>
+         <property name="text">
+          <string>Find</string>
+         </property>
+        </widget>
+       </item>
+       <item>
         <widget class="QPushButton" name="ReplaceCurrent">
          <property name="toolTip">
           <string>Run Replace using the selected entry.
@@ -109,6 +108,22 @@ then replace the second entry in the list, etc.</string>
           <string>Replace</string>
          </property>
         </widget>
+       </item>
+       <item>
+        <spacer name="verticalSpacer_2">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Fixed</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>10</height>
+          </size>
+         </property>
+        </spacer>
        </item>
        <item>
         <widget class="QPushButton" name="Replace">
@@ -144,6 +159,33 @@ including entries in selected groups.</string>
          <property name="sizeHint" stdset="0">
           <size>
            <width>20</width>
+           <height>10</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QPushButton" name="CountAll">
+         <property name="toolTip">
+          <string>Run Count All for the selected entries in the order selected,
+including entries in selected groups.</string>
+         </property>
+         <property name="text">
+          <string>Count All</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="verticalSpacer_4">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Fixed</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
            <height>20</height>
           </size>
          </property>
@@ -169,6 +211,19 @@ including entries in selected groups.</string>
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout">
          <item>
+          <spacer name="horizontalSpacer_2">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>1</width>
+             <height>1</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
           <widget class="QToolButton" name="MoveLeft">
            <property name="toolTip">
             <string>Move an entry to the level of its parent.</string>
@@ -182,6 +237,22 @@ including entries in selected groups.</string>
           </widget>
          </item>
          <item>
+          <spacer name="horizontalSpacer">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeType">
+            <enum>QSizePolicy::Fixed</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>15</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
           <widget class="QToolButton" name="MoveRight">
            <property name="toolTip">
             <string>You must select an item immediately under a group to move it into the group.</string>
@@ -193,6 +264,19 @@ including entries in selected groups.</string>
             <enum>Qt::RightArrow</enum>
            </property>
           </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_3">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>1</width>
+             <height>1</height>
+            </size>
+           </property>
+          </spacer>
          </item>
         </layout>
        </item>
@@ -212,6 +296,22 @@ including entries in selected groups.</string>
           </widget>
          </item>
         </layout>
+       </item>
+       <item>
+        <spacer name="verticalSpacer_6">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Fixed</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
        </item>
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_7"/>
@@ -248,7 +348,7 @@ including entries in selected groups.</string>
         <string>Click Apply to load Find &amp; Replace with the selected search.  Click OK to load your search, save your data, and close.</string>
        </property>
        <property name="standardButtons">
-        <set>QDialogButtonBox::Apply|QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+        <set>QDialogButtonBox::Save</set>
        </property>
       </widget>
      </item>
@@ -264,38 +364,5 @@ including entries in selected groups.</string>
   </customwidget>
  </customwidgets>
  <resources/>
- <connections>
-  <connection>
-   <sender>buttonBox</sender>
-   <signal>rejected()</signal>
-   <receiver>SearchEditor</receiver>
-   <slot>reject()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>399</x>
-     <y>376</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>399</x>
-     <y>199</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>buttonBox</sender>
-   <signal>accepted()</signal>
-   <receiver>SearchEditor</receiver>
-   <slot>accept()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>399</x>
-     <y>376</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>399</x>
-     <y>199</y>
-    </hint>
-   </hints>
-  </connection>
- </connections>
+ <connections/>
 </ui>

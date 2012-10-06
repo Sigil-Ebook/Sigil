@@ -23,9 +23,12 @@
 #include <QtCore/QCoreApplication>
 #include <QByteArray>
 #include <QDataStream>
+#include <QtCore/QTime>
+#include <QtGui/QDesktopServices>
 
 #include "MiscEditors/IndexEditorModel.h"
 
+static const QString SETTINGS_FILE          = "sigil_index.ini";
 static const QString SETTINGS_GROUP         = "index_entries";
 static const QString ENTRY_PATTERN          = "Text to Include";
 static const QString ENTRY_INDEX_ENTRY      = "Index Entries";
@@ -48,9 +51,23 @@ IndexEditorModel *IndexEditorModel::instance()
 }
 
 IndexEditorModel::IndexEditorModel(QObject *parent)
- : QStandardItemModel(parent)
+ : QStandardItemModel(parent),
+   m_FSWatcher( new QFileSystemWatcher() ),
+   m_IsDataModified(false)
 {
+    m_SettingsPath = QDesktopServices::storageLocation(QDesktopServices::DataLocation) + "/" + SETTINGS_FILE;
+
     LoadInitialData();
+
+    // Save it to make sure we have a file in case it was loaded from examples
+    SaveData();
+
+    if (!m_FSWatcher->files().contains(m_SettingsPath) ) {
+        m_FSWatcher->addPath(m_SettingsPath);
+    }
+
+    connect( m_FSWatcher, SIGNAL( fileChanged( const QString& ) ),
+             this,        SLOT( SettingsFileChanged( const QString& )), Qt::DirectConnection );
 
     connect(this, SIGNAL(itemChanged(QStandardItem*)),
             this, SLOT(ItemChangedHandler(QStandardItem*)));
@@ -58,15 +75,35 @@ IndexEditorModel::IndexEditorModel(QObject *parent)
 
 IndexEditorModel::~IndexEditorModel()
 {
+    delete m_FSWatcher;
+    m_FSWatcher = 0;
+
     if (m_instance) {
         delete m_instance;
         m_instance = 0;
     }
 }
 
+void IndexEditorModel::SetDataModified(bool modified)
+{
+    m_IsDataModified = modified;
+}
+
+bool IndexEditorModel::IsDataModified()
+{
+    return m_IsDataModified;
+}
+
+void IndexEditorModel::RowsRemovedHandler( const QModelIndex & parent, int start, int end )
+{
+    SetDataModified(true);
+}
+
 void IndexEditorModel::ItemChangedHandler(QStandardItem *item)
 {
     Q_ASSERT(item);
+
+    SetDataModified(true);
 
     if (item->column() != 0) {
         return;
@@ -103,7 +140,6 @@ void IndexEditorModel::SplitEntry(QStandardItem *item)
             this, SLOT(  ItemChangedHandler(QStandardItem*)));
 }
 
-
 void IndexEditorModel::ClearData()
 {
     clear();
@@ -115,18 +151,43 @@ void IndexEditorModel::ClearData()
     setHorizontalHeaderLabels(header);
 }
 
+void IndexEditorModel::SettingsFileChanged( const QString &path ) const
+{
+    // The file may have been deleted prior to writing a new version - give it a chance to write.
+    QTime wake_time = QTime::currentTime().addMSecs(1000);
+    while( !QFile::exists(path) && QTime::currentTime() < wake_time ) {
+        QCoreApplication::processEvents(QEventLoop::AllEvents, 100);
+    }
+
+    // The signal is also received after resource files are removed / renamed,
+    // but it can be safely ignored because QFileSystemWatcher automatically stops watching them.
+    if ( QFile::exists(path) )
+    {
+        // Some editors write the updated contents to a temporary file
+        // and then atomically move it over the watched file.
+        // In this case QFileSystemWatcher loses track of the file, so we have to add it again.
+        if ( !m_FSWatcher->files().contains(path) ) {
+            m_FSWatcher->addPath( path );
+        }
+
+        instance()->LoadInitialData();
+    }
+}
+
 void IndexEditorModel::LoadInitialData(QString filename)
 {
     ClearData();
 
     LoadData(filename);
+
+    SetDataModified(false);
 }
 
 void IndexEditorModel::LoadData(QString filename, QStandardItem *item)
 {
     SettingsStore *settings;
     if (filename.isEmpty()) {
-        settings = new SettingsStore();
+        settings = new SettingsStore(m_SettingsPath);
     }
     else {
         settings = new SettingsStore(filename);
@@ -199,6 +260,7 @@ QStandardItem* IndexEditorModel::AddEntryToModel(IndexEditorModel::indexEntry *e
         new_item = parent_item->child(row, 0);
     }
 
+    SetDataModified(true);
     return new_item;
 }
 
@@ -259,10 +321,15 @@ QString IndexEditorModel::SaveData(QList<IndexEditorModel::indexEntry*> entries,
         }
     }
 
+    // Stop watching the file while we save it
+    if (m_FSWatcher->files().contains(m_SettingsPath) ) {
+        m_FSWatcher->removePath(m_SettingsPath);
+    }
+
     // Open the default file for save, or specific file for export
     SettingsStore *settings;
     if (filename.isEmpty()) {
-        settings = new SettingsStore();
+        settings = new SettingsStore(m_SettingsPath);
     }
     else {
         settings = new SettingsStore(filename);
@@ -271,6 +338,10 @@ QString IndexEditorModel::SaveData(QList<IndexEditorModel::indexEntry*> entries,
     settings->sync();
     if (!settings->isWritable()) {
         message = tr("Unable to create file %1").arg(filename);
+
+        // Watch the file again
+        m_FSWatcher->addPath(m_SettingsPath);
+
         return message;
     }
 
@@ -296,5 +367,9 @@ QString IndexEditorModel::SaveData(QList<IndexEditorModel::indexEntry*> entries,
     // Make sure file is created/updated so it can be checked
     settings->sync();
 
+    // Watch the file again
+    m_FSWatcher->addPath(m_SettingsPath);
+
+    SetDataModified(true);
     return message;
 }
