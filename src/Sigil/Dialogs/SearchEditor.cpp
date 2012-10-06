@@ -788,7 +788,6 @@ bool SearchEditor::Save()
 void SearchEditor::reject()
 {
     if (MaybeSaveDialogSaysProceed(false)) {
-        m_SearchEditorModel->LoadInitialData();
         QDialog::reject();
     }
 }
@@ -796,7 +795,6 @@ void SearchEditor::reject()
 void SearchEditor::ForceClose()
 {
     MaybeSaveDialogSaysProceed(true);
-    m_SearchEditorModel->LoadInitialData();
     close();
 }
 
@@ -819,6 +817,9 @@ bool SearchEditor::MaybeSaveDialogSaysProceed(bool is_forced)
         }
         else if ( button_pressed == QMessageBox::Cancel ) {
             return false;
+        }
+        else {
+            m_SearchEditorModel->LoadInitialData();
         }
     }
 

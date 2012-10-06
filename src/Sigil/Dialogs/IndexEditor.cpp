@@ -581,7 +581,6 @@ bool IndexEditor::Save()
 void IndexEditor::reject()
 {
     if (MaybeSaveDialogSaysProceed(false)) {
-        m_IndexEditorModel->LoadInitialData();
         QDialog::reject();
     }
 }
@@ -589,7 +588,6 @@ void IndexEditor::reject()
 void IndexEditor::ForceClose()
 {
     MaybeSaveDialogSaysProceed(true);
-    m_IndexEditorModel->LoadInitialData();
     close();
 }
 
@@ -612,6 +610,9 @@ bool IndexEditor::MaybeSaveDialogSaysProceed(bool is_forced)
         }
         else if ( button_pressed == QMessageBox::Cancel ) {
             return false;
+        }
+        else {
+            m_IndexEditorModel->LoadInitialData();
         }
     }
 

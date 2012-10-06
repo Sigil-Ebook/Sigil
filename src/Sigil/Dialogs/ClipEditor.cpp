@@ -693,7 +693,6 @@ bool ClipEditor::Save()
 void ClipEditor::reject()
 {
     if (MaybeSaveDialogSaysProceed(false)) {
-        m_ClipEditorModel->LoadInitialData();
         QDialog::reject();
     }
 }
@@ -701,7 +700,6 @@ void ClipEditor::reject()
 void ClipEditor::ForceClose()
 {
     MaybeSaveDialogSaysProceed(true);
-    m_ClipEditorModel->LoadInitialData();
     close();
 }
 
@@ -724,6 +722,9 @@ bool ClipEditor::MaybeSaveDialogSaysProceed(bool is_forced)
         }
         else if ( button_pressed == QMessageBox::Cancel ) {
             return false;
+        }
+        else {
+            m_ClipEditorModel->LoadInitialData();
         }
     }
 
