@@ -31,12 +31,7 @@
 #include <QtGui/QApplication>
 #include <QtGui/QMessageBox>
 
-#include "BookManipulation/Book.h"
-#include "BookManipulation/BookNormalization.h"
-#include "Misc/SettingsStore.h"
 #include "Misc/UILanguage.h"
-#include "Exporters/ExporterFactory.h"
-#include "Importers/ImporterFactory.h"
 #include "MainUI/MainApplication.h"
 #include "MainUI/MainWindow.h"
 #include "Misc/AppEventFilter.h"
