@@ -2839,6 +2839,7 @@ bool MainWindow::SaveFile( const QString &fullfilepath, bool update_current_file
 {
     try
     {
+        ShowMessageOnStatusBar( tr( "Saving file..." ) );
         m_TabManager.SaveTabData();
 
         QString extension = QFileInfo( fullfilepath ).suffix().toLower();
