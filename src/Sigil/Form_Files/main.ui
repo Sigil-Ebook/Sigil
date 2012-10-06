@@ -213,7 +213,7 @@
     <addaction name="separator"/>
     <widget class="QMenu" name="menuSearchCurrentFile">
      <property name="title">
-      <string>C&amp;urrent File</string>
+      <string>Current Fil&amp;e</string>
      </property>
      <addaction name="actionFindNextInFile"/>
      <addaction name="separator"/>
