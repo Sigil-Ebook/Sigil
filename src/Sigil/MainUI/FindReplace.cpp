@@ -39,6 +39,8 @@ static const QString REGEX_OPTION_IGNORE_CASE = "(?i)";
 static const QString REGEX_OPTION_DOT_ALL = "(?U)";
 static const QString REGEX_OPTION_MINIMAL_MATCH = "(?s)";
 
+static const int SHOW_FIND_RESULTS_MESSAGE_DELAY_MS = 20000;
+
 FindReplace::FindReplace( MainWindow &main_window )
     : QWidget( &main_window ),
       m_MainWindow( main_window ),
@@ -157,16 +159,12 @@ void FindReplace::keyPressEvent(QKeyEvent *event)
 
 void FindReplace::ShowMessage( const QString &message )
 {
-    QFont f = ui.message->font();
-    f.setBold(true);
-    ui.message->setFont(f);
-
     QString new_message = message;
     if (m_LookWhereCurrentFile && GetLookWhere() != FindReplace::LookWhere_CurrentFile) {
         new_message.append(tr(" (Current File)"));
     }
     ui.message->setText(new_message);
-    m_timer.start(15000);
+    m_timer.start(SHOW_FIND_RESULTS_MESSAGE_DELAY_MS);
 
     emit ShowMessageRequest(new_message);
 }
@@ -425,11 +423,8 @@ void FindReplace::clearMessage()
 
 void FindReplace::expireMessage()
 {
-    QFont f = ui.message->font();
-    f.setBold(false);
-    ui.message->setFont(f);
-
     m_timer.stop();
+    ui.message->clear();
     emit ShowMessageRequest("");
 }
 
