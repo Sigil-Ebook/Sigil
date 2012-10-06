@@ -44,6 +44,7 @@ class SearchEditor : public QDialog
 
 public:
     SearchEditor(QWidget *parent);
+    void ForceClose();
 
 public slots:
     QStandardItem* AddEntry(bool is_group = false, SearchEditorModel::searchEntry *search_entry = NULL, bool insert_after = true);
@@ -98,7 +99,7 @@ private slots:
     void OpenContextMenu(const QPoint &point);
 
 private:
-    bool MaybeSaveDialogSaysProceed();
+    bool MaybeSaveDialogSaysProceed(bool is_forced);
     void MoveVertical(bool move_down);
     void MoveHorizontal(bool move_left);
 

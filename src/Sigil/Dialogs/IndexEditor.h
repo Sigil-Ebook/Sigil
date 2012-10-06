@@ -49,6 +49,7 @@ public:
     IndexEditor(QWidget *parent);
 
     void SetBook(QSharedPointer <Book> book);
+    void ForceClose();
 
 public slots:
     QStandardItem* AddEntry(bool is_group = false, IndexEditorModel::indexEntry *index_entry = NULL, bool insert_after = true);
@@ -79,7 +80,7 @@ private slots:
     void OpenContextMenu(const QPoint &point);
 
 private:
-    bool MaybeSaveDialogSaysProceed();
+    bool MaybeSaveDialogSaysProceed(bool is_forced);
     void SetupIndexEditorTree();
 
     int SelectedRowsCount();

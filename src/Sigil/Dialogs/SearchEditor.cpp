@@ -755,22 +755,31 @@ bool SearchEditor::Save()
 
 void SearchEditor::reject()
 {
-    if (MaybeSaveDialogSaysProceed()) {
+    if (MaybeSaveDialogSaysProceed(false)) {
         m_SearchEditorModel->LoadInitialData();
         QDialog::reject();
     }
 }
 
-bool SearchEditor::MaybeSaveDialogSaysProceed()
+void SearchEditor::ForceClose()
+{
+    MaybeSaveDialogSaysProceed(true);
+    m_SearchEditorModel->LoadInitialData();
+    close();
+}
+
+bool SearchEditor::MaybeSaveDialogSaysProceed(bool is_forced)
 {
     if ( m_SearchEditorModel->IsDataModified() ) {
         QMessageBox::StandardButton button_pressed;
+        QMessageBox::StandardButtons buttons = is_forced ? QMessageBox::Save | QMessageBox::Discard
+                                                         : QMessageBox::Save | QMessageBox::Discard | QMessageBox::Cancel;
 
         button_pressed = QMessageBox::warning(  this,
                                                 tr( "Sigil: Saved Searches" ),
                                                 tr( "The Search entries may have been modified.\n"
                                                      "Do you want to save your changes?"),
-                                                QMessageBox::Save | QMessageBox::Discard | QMessageBox::Cancel
+                                                buttons
                                              );
 
         if ( button_pressed == QMessageBox::Save ) {

@@ -42,7 +42,7 @@ class ClipEditor : public QDialog
 
 public:
     ClipEditor(QWidget *parent);
-    void Close();
+    void ForceClose();
 
 public slots:
     QStandardItem* AddEntry(bool is_group = false, ClipEditorModel::clipEntry *clip_entry = NULL, bool insert_after = true);
@@ -84,7 +84,7 @@ private slots:
     void OpenContextMenu(const QPoint &point);
 
 private:
-    bool MaybeSaveDialogSaysProceed();
+    bool MaybeSaveDialogSaysProceed(bool is_forced);
     void MoveVertical(bool move_down);
     void MoveHorizontal(bool move_left);
 

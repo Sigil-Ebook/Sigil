@@ -552,22 +552,31 @@ bool IndexEditor::Save()
 
 void IndexEditor::reject()
 {
-    if (MaybeSaveDialogSaysProceed()) {
+    if (MaybeSaveDialogSaysProceed(false)) {
         m_IndexEditorModel->LoadInitialData();
         QDialog::reject();
     }
 }
 
-bool IndexEditor::MaybeSaveDialogSaysProceed()
+void IndexEditor::ForceClose()
+{
+    MaybeSaveDialogSaysProceed(true);
+    m_IndexEditorModel->LoadInitialData();
+    close();
+}
+
+bool IndexEditor::MaybeSaveDialogSaysProceed(bool is_forced)
 {
     if (m_IndexEditorModel->IsDataModified()) {
         QMessageBox::StandardButton button_pressed;
+        QMessageBox::StandardButtons buttons = is_forced ? QMessageBox::Save | QMessageBox::Discard
+                                                         : QMessageBox::Save | QMessageBox::Discard | QMessageBox::Cancel;
 
         button_pressed = QMessageBox::warning(  this,
                                                 tr( "Sigil: Index Editor" ),
                                                 tr( "The Index entries may have been modified.\n"
                                                      "Do you want to save your changes?"),
-                                                QMessageBox::Save | QMessageBox::Discard | QMessageBox::Cancel
+                                                buttons
                                              );
 
         if ( button_pressed == QMessageBox::Save ) {

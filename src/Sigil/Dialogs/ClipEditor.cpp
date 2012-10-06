@@ -663,27 +663,31 @@ bool ClipEditor::Save()
 
 void ClipEditor::reject()
 {
-    if (MaybeSaveDialogSaysProceed()) {
+    if (MaybeSaveDialogSaysProceed(false)) {
         m_ClipEditorModel->LoadInitialData();
         QDialog::reject();
     }
 }
 
-void ClipEditor::Close()
+void ClipEditor::ForceClose()
 {
-    MaybeSaveDialogSaysProceed();
+    MaybeSaveDialogSaysProceed(true);
+    m_ClipEditorModel->LoadInitialData();
+    close();
 }
 
-bool ClipEditor::MaybeSaveDialogSaysProceed()
+bool ClipEditor::MaybeSaveDialogSaysProceed(bool is_forced)
 {
     if ( m_ClipEditorModel->IsDataModified()) {
         QMessageBox::StandardButton button_pressed;
+        QMessageBox::StandardButtons buttons = is_forced ? QMessageBox::Save | QMessageBox::Discard
+                                                         : QMessageBox::Save | QMessageBox::Discard | QMessageBox::Cancel;
 
         button_pressed = QMessageBox::warning(  this,
                                                 tr( "Sigil: Clip Manager" ),
                                                 tr( "The Clip entries may have been modified.\n"
                                                      "Do you want to save your changes?"),
-                                                QMessageBox::Save | QMessageBox::Discard | QMessageBox::Cancel
+                                                buttons
                                              );
 
         if ( button_pressed == QMessageBox::Save ) {
