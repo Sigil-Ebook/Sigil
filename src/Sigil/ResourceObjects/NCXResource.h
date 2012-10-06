@@ -51,7 +51,7 @@ public:
 
     void SetMainID( const QString &main_id );
 
-    void GenerateNCXFromBookContents( const Book &book );
+    bool GenerateNCXFromBookContents( const Book &book );
 
     void GenerateNCXFromTOCContents( const Book &book, NCXModel &ncx_model );
 

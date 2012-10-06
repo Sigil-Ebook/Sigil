@@ -28,7 +28,6 @@
 #include <QtGui/QAction>
 #include <QtGui/QMenu>
 
-#include "BookManipulation/BookNormalization.h"
 #include "BookManipulation/FolderKeeper.h"
 #include "MainUI/TableOfContents.h"
 #include "Misc/Utility.h"

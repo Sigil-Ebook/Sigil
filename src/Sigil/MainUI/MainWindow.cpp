@@ -33,7 +33,6 @@
 #include <QtWebKit/QWebSettings>
 
 
-#include "BookManipulation/BookNormalization.h"
 #include "BookManipulation/Index.h"
 #include "BookManipulation/FolderKeeper.h"
 #include "Dialogs/About.h"
@@ -1493,25 +1492,33 @@ void MainWindow::GenerateToc()
         return;
     }
 
+    bool is_headings_changed = false;
     {
         HeadingSelector toc(m_Book, this);
         if (toc.exec() != QDialog::Accepted) {
+            ShowMessageOnStatusBar(tr("Generate TOC cancelled."));
             return;
         }
+        is_headings_changed = toc.IsBookChanged();
     }
 
     QApplication::setOverrideCursor(Qt::WaitCursor);
 
-    // Ensure that all headings have an id attribute
-    BookNormalization::Normalize(m_Book);
+    // Regenerate the NCX regardlss of whether headings were changed, in case the user erased it.
+    bool is_ncx_changed = m_Book->GetNCX().GenerateNCXFromBookContents(*m_Book);
 
-    m_Book->GetNCX().GenerateNCXFromBookContents(*m_Book);
-    // Reload the current tab to see visual impact if user changed heading level(s)
-    ResourcesAddedOrDeleted();
+    if (is_headings_changed || is_ncx_changed) {
+        // Reload the current tab to see visual impact if user changed heading level(s)
+        // It might not have been the current tab, but what the heck, possible user has the NCX open even.
+        ResourcesAddedOrDeleted();
+        m_Book.data()->SetModified();
+        ShowMessageOnStatusBar(tr("Table Of Contents generated."));
+    }
+    else {
+        ShowMessageOnStatusBar(tr("No Table Of Contents changes were necessary."));
+    }
 
     QApplication::restoreOverrideCursor();
-
-    ShowMessageOnStatusBar(tr("Table Of Contents generated."));
 }
     
 

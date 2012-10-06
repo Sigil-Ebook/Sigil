@@ -93,15 +93,20 @@ QList< Headings::Heading > Headings::GetHeadingListForOneFile( HTMLResource* htm
         heading.resource_file  = html_resource;
         heading.document       = d;
         heading.element        = &element;
-        heading.text           = ( element.hasAttribute( QtoX( "title" ) )          ?
-                                   XtoQ( element.getAttribute( QtoX( "title" ) ) )  :
-                                   XtoQ( element.getTextContent() )
-                                 ).simplified();
+        heading.title          = element.hasAttribute( QtoX( "title" ) )
+                                   ? XtoQ( element.getAttribute( QtoX( "title" ) ) ).simplified()
+                                   : QString();
+        heading.orig_title     = heading.title;
+        heading.text           = !heading.title.isNull() ?
+                                   heading.title :
+                                   XtoQ( element.getTextContent() ).simplified();
 
         heading.level          = QString( XtoQ( element.getTagName() ).at( 1 ) ).toInt();
+        heading.orig_level     = heading.level;
         QString classes        = XtoQ( element.getAttribute( QtoX( "class" ) ) );
         heading.include_in_toc = !(classes.contains(SIGIL_NOT_IN_TOC_CLASS) || 
                                     classes.contains (OLD_SIGIL_NOT_IN_TOC_CLASS));
+        heading.is_changed     = false;
 
         if ( heading.include_in_toc || include_unwanted_headings )
 

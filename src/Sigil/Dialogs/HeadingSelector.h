@@ -50,6 +50,8 @@ public:
     // Destructor
     ~HeadingSelector();
 
+    bool IsBookChanged();
+
 protected:
     bool eventFilter(QObject *obj, QEvent *event);
 
@@ -90,8 +92,6 @@ private:
     QModelIndex GetIndexForAbsoluteRow(int row);
     QModelIndex SelectAbsoluteRow(int row);
 
-    int GetHeadingLevelAbove(QStandardItem *item);
-
     void ChangeHeadingLevel(int change_amount);
 
     void CreateContextMenuActions();
@@ -101,9 +101,9 @@ private:
     // declaration of Book in the QSharedPointer
     Q_DISABLE_COPY( HeadingSelector )
 
-    void UpdateOneHeadingElement( QStandardItem *item );
+    int UpdateOneHeadingElement(QStandardItem *item, QStringList used_ids, int next_toc_id);
 
-    void UpdateOneHeadingTitle(QStandardItem *item, QString title);
+    void UpdateOneHeadingTitle(QStandardItem *item, const QString &title);
 
     // Updates the inclusion of the heading in the TOC
     // whenever that heading's "include in TOC" checkbox
@@ -198,6 +198,8 @@ private:
     QMenu *m_ContextMenu;
 
     QAction *m_Rename;
+
+    bool m_book_changed;
 
     // Holds all the widgets Qt Designer created for us
     Ui::HeadingSelector ui;

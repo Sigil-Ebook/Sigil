@@ -36,6 +36,9 @@
 static const QString SETTINGS_GROUP   = "heading_selector";
 static const int FIRST_COLUMN_PADDING = 30;
 
+static const QString SIGIL_TOC_ID_PREFIX = "sigil_toc_id_";
+static const QString SIGIL_TOC_ID_REG    = SIGIL_TOC_ID_PREFIX + "(\\d+)";
+
 // Constructor;
 // the first parameter is the book whose TOC
 // is being edited, the second is the dialog's parent
@@ -43,7 +46,8 @@ HeadingSelector::HeadingSelector( QSharedPointer< Book > book, QWidget *parent )
     : 
     QDialog( parent ),
     m_Book( book ),
-    m_ContextMenu(new QMenu(this))
+    m_ContextMenu(new QMenu(this)),
+    m_book_changed(false)
 {
     ui.setupUi( this );
 
@@ -76,6 +80,11 @@ HeadingSelector::~HeadingSelector()
     WriteSettings();
 
     UnlockHTMLResources();
+}
+
+bool HeadingSelector::IsBookChanged()
+{
+    return m_book_changed;
 }
 
 int HeadingSelector::GetAbsoluteRowForIndex(QModelIndex current_index)
@@ -229,23 +238,118 @@ void HeadingSelector::ChangeDisplayType(  int new_check_state  )
 
 void HeadingSelector::UpdateHeadingElements()
 {
+    QApplication::setOverrideCursor(Qt::WaitCursor);
+
     // We recreate the model to make sure even those
     // headings marked as "don't include" are in the model.
     CreateTOCModel();
 
-    UpdateOneHeadingElement(m_TableOfContents.invisibleRootItem());
+    // Identify any existing hrefs to an id that will indicate we can't change it
+    QStringList used_ids = m_Book->GetIdsInHrefs();
 
+    // Iterate through our headings, applying their changes to the underlying resources
+    // if required, setting ids etc.
+    int next_toc_id = 1;
+    UpdateOneHeadingElement(m_TableOfContents.invisibleRootItem(), used_ids, next_toc_id);
+
+    // Now iterate through the headings one final time, to save the underlying resources
+    // that we have changed.
     QStringList ids;
     foreach (Headings::Heading heading, m_Headings) {
         ids = UpdateOneFile(heading, ids);
     }
+
+    // Finally check to see whether we did actually make a change to the book.
+    foreach (Headings::Heading heading, m_Headings) {
+        if (heading.is_changed) {
+            m_book_changed = true;
+            break;
+        }
+    }
+    QApplication::restoreOverrideCursor();
+}
+
+int HeadingSelector::UpdateOneHeadingElement(QStandardItem *item, QStringList used_ids, int next_toc_id)
+{
+    Headings::Heading *heading = GetItemHeading(item);
+
+    if (heading != NULL) {
+        // Update heading inclusion: if a heading element
+        // has one of the SIGIL_NOT_IN_TOC_CLASS classes, then it's not in the TOC
+        QString class_attribute = XtoQ(heading->element->getAttribute(QtoX("class")));
+        QString new_class_attribute = class_attribute
+                                  .remove(SIGIL_NOT_IN_TOC_CLASS)
+                                  .remove(OLD_SIGIL_NOT_IN_TOC_CLASS)
+                                  .simplified();
+
+        if (!heading->include_in_toc) {
+            new_class_attribute = new_class_attribute.append(" " % SIGIL_NOT_IN_TOC_CLASS).simplified();
+        }
+        // Only apply the change if it is different
+        if (new_class_attribute != class_attribute) {
+            heading->is_changed = true;
+            if (!new_class_attribute.isEmpty()) {
+                heading->element->setAttribute(QtoX("class"), QtoX(new_class_attribute));
+            }
+            else {
+                heading->element->removeAttribute(QtoX("class"));
+            }
+        }
+
+        // Now apply the new id as needed.
+        QString existing_id_attribute = heading->element->hasAttribute( QtoX( "id" ) ) 
+                                ? XtoQ(heading->element->getAttribute(QtoX("id")))
+                                : QString();
+        // Are any of these id(s) the heading has already in form sigil_toc_id_xx?
+        // If one of them is in this form, if it is already "used" by an href, we will use it.
+        // If any other toc id(s) are found and they are not referenced by an href, we will replace/add
+        // them using the next available number.
+        QString toc_id_to_use;
+        QString new_id_attribute = "";
+        foreach (QString existing_id, existing_id_attribute.split(QChar(' '), QString::SkipEmptyParts)) {
+            if (existing_id.startsWith(SIGIL_TOC_ID_PREFIX)) {
+                if (!used_ids.contains(existing_id)) {
+                    // A TOC id from a previous run that is not currently referenced. Remove it by skipping.
+                    continue;
+                }
+                else {
+                    // A TOC id already referenced from an href, so better reuse it.
+                    toc_id_to_use = existing_id;
+                }
+            }
+            // Append to our list.
+            new_id_attribute += " " % existing_id;
+        }
+        if (toc_id_to_use.isEmpty()) {
+            // We didn't find one so generate next available.
+            do {
+                toc_id_to_use = SIGIL_TOC_ID_PREFIX + QString::number( next_toc_id );
+                next_toc_id++;
+            } while (used_ids.contains(toc_id_to_use));
+            new_id_attribute = toc_id_to_use + new_id_attribute;
+        }
+        if (new_id_attribute.trimmed() != existing_id_attribute) {
+            heading->is_changed = true;
+            heading->element->setAttribute(QtoX( "id" ), QtoX( new_id_attribute ) );
+        }
+    }
+
+    if (item->hasChildren()) {
+        for (int i = 0; i < item->rowCount(); ++i) {
+            next_toc_id = UpdateOneHeadingElement(item->child(i), used_ids, next_toc_id);
+        }
+    }
+    return next_toc_id;
 }
 
 QStringList HeadingSelector::UpdateOneFile( Headings::Heading &heading, QStringList ids )
 {
-    if (!ids.contains(heading.resource_file->GetIdentifier())) {
-        heading.resource_file->SetText(XhtmlDoc::GetDomDocumentAsString(*heading.document.get()));
-        ids << heading.resource_file->GetIdentifier();
+    // Only save the document if we have changed the heading
+    if (heading.is_changed) {
+        if (!ids.contains(heading.resource_file->GetIdentifier())) {
+            heading.resource_file->SetText(XhtmlDoc::GetDomDocumentAsString(*heading.document.get()));
+            ids << heading.resource_file->GetIdentifier();
+        }
     }
 
     if ( !heading.children.isEmpty() )
@@ -258,73 +362,20 @@ QStringList HeadingSelector::UpdateOneFile( Headings::Heading &heading, QStringL
     return ids;
 }
 
-void HeadingSelector::UpdateOneHeadingElement(QStandardItem *item)
+void HeadingSelector::UpdateOneHeadingTitle(QStandardItem *item, const QString &title)
 {
     Headings::Heading *heading = GetItemHeading(item);
 
     if (heading != NULL) {
-        // Update heading inclusion: if a heading element
-        // has one of the SIGIL_NOT_IN_TOC_CLASS classes, then it's not in the TOC
-        QString class_attribute = XtoQ(heading->element->getAttribute(QtoX("class")))
-                                  .remove(SIGIL_NOT_IN_TOC_CLASS)
-                                  .remove(OLD_SIGIL_NOT_IN_TOC_CLASS)
-                                  .simplified();
+        QString title_attribute = heading->title;
 
-        if (!heading->include_in_toc) {
-            class_attribute = class_attribute.append(" " + SIGIL_NOT_IN_TOC_CLASS).simplified();
-        }
-
-        if (!class_attribute.isEmpty()) {
-            heading->element->setAttribute(QtoX("class"), QtoX(class_attribute));
-        }
-        else {
-            heading->element->removeAttribute(QtoX("class"));
-        }
-    }
-
-    if (item->hasChildren()) {
-        for (int i = 0; i < item->rowCount(); ++i) {
-            UpdateOneHeadingElement(item->child(i));
+        if (title != heading->title) {
+            heading->title = title;
+            heading->is_changed = true;
+            heading->element->setAttribute(QtoX("title"), QtoX(title));
         }
     }
 }
-
-void HeadingSelector::UpdateOneHeadingTitle(QStandardItem *item, QString title)
-{
-    Headings::Heading *heading = GetItemHeading(item);
-
-    if (heading != NULL) {
-        QString title_attribute = XtoQ(heading->element->getAttribute(QtoX("title")))
-                                  .simplified();
-
-        if (!title_attribute.isEmpty()) {
-            heading->element->removeAttribute(QtoX("title"));
-        }
-        heading->element->setAttribute(QtoX("title"), QtoX(title));
-    }
-}
-
-int HeadingSelector::GetHeadingLevelAbove(QStandardItem *item)
-{
-    QModelIndex index = item->index();
-    if (!index.isValid()) {
-        return 0;
-    }
-
-    int row = GetAbsoluteRowForIndex(index);
-    QModelIndex index_above = GetIndexForAbsoluteRow(row - 1);
-
-    if (!index_above.isValid()) {
-        return 0;
-    }
-
-    QStandardItem *item_above = m_TableOfContents.itemFromIndex(index_above);
-
-    Headings::Heading *heading_above = GetItemHeading(item_above);
-
-    return heading_above->level;
-}
-
 
 void HeadingSelector::DecreaseHeadingLevel()
 {
@@ -363,6 +414,8 @@ void HeadingSelector::ChangeHeadingLevel(int change_amount)
         return;
     }
     heading->level += change_amount;
+    // Update whether we have made changes to the document for this heading element
+    heading->is_changed = (heading->level != heading->orig_level) || (heading->title != heading->orig_title);
 
     // Get new tag name
     QString tag_name = XtoQ(heading->element->getTagName());
@@ -891,10 +944,6 @@ void HeadingSelector::ConnectSignalsToSlots()
 
     connect( this,               SIGNAL( accepted() ),
              this,               SLOT(   UpdateHeadingElements() ) 
-             );
-
-    connect( this,               SIGNAL( accepted() ),
-             m_Book.data(),      SLOT(   SetModified() ) 
              );
 
     connect( ui.cbTOCSetHeadingLevel, 

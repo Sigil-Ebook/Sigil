@@ -88,8 +88,9 @@ void NCXResource::SetMainID( const QString &main_id )
 }
 
 
-void NCXResource::GenerateNCXFromBookContents( const Book &book )
+bool NCXResource::GenerateNCXFromBookContents( const Book &book )
 {
+    bool is_changed = false;
     QByteArray raw_ncx;
     QBuffer buffer( &raw_ncx );
 
@@ -98,7 +99,13 @@ void NCXResource::GenerateNCXFromBookContents( const Book &book )
     ncx.WriteXMLFromHeadings();
     buffer.close();
 
-    SetText( CleanSource::ProcessXML( QString::fromUtf8( raw_ncx.constData(), raw_ncx.size() ) ) );
+    QString new_text = CleanSource::ProcessXML( QString::fromUtf8( raw_ncx.constData(), raw_ncx.size() ) );
+    QString existing_text = GetText();
+    if (new_text != existing_text) {
+        SetText( new_text );
+        is_changed = true;
+    }
+    return is_changed;
 }
 
 

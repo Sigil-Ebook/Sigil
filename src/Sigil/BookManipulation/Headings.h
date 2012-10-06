@@ -56,9 +56,14 @@ public:
         // look like in the TOC.
         QString text;
 
+        // Represents the current title attribute if any
+        QString title;
+        QString orig_title;
+
         // The level of the heading, from 1 to 6
         // (lower number means 'bigger' heading )
         int level;
+        int orig_level;
 
         // Should the heading be included in the TOC or not
         bool include_in_toc;
@@ -67,6 +72,9 @@ public:
         // (those that appear after it in the source and
         // are of higher level/smaller size)
         QList< Heading > children;
+
+        // Have we made a change to the document using the TOC dialog
+        bool is_changed;
     };
 
     // A wrapper struct for the pointer
