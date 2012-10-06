@@ -169,6 +169,12 @@ bool SearchEditor::eventFilter(QObject *obj, QEvent *event)
     return QDialog::eventFilter(obj, event);
 }
 
+void SearchEditor::SettingsFileModelUpdated()
+{
+    ui.SearchEditorTree->expandAll();
+    emit ShowStatusMessageRequest(tr("Saved Searches loaded from file."));
+}
+
 int SearchEditor::SelectedRowsCount()
 {
     int count = 0;
@@ -1001,4 +1007,6 @@ void SearchEditor::ConnectSignalsSlots()
     connect(m_ExportAll,   SIGNAL(triggered()), this, SLOT(ExportAll()));
     connect(m_CollapseAll, SIGNAL(triggered()), this, SLOT(CollapseAll()));
     connect(m_ExpandAll,   SIGNAL(triggered()), this, SLOT(ExpandAll()));
+
+    connect(m_SearchEditorModel, SIGNAL(SettingsFileUpdated()), this, SLOT(SettingsFileModelUpdated()));
 }

@@ -62,6 +62,9 @@ public:
 
     QList<QStandardItem*> GetItems();
 
+signals:
+    void SettingsFileUpdated() const;
+
 private slots:
     void RowsRemovedHandler( const QModelIndex & parent, int start, int end );
     void ItemChangedHandler(QStandardItem *item);

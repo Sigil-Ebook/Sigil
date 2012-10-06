@@ -79,6 +79,9 @@ public:
 
     QVariant data( const QModelIndex& index, int role ) const;
 
+signals:
+    void SettingsFileUpdated() const;
+
 private slots:
     void RowsRemovedHandler( const QModelIndex & parent, int start, int end );
     void ItemChangedHandler(QStandardItem *item);

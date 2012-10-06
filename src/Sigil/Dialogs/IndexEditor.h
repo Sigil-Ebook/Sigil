@@ -81,6 +81,8 @@ private slots:
     void FilterEditTextChangedSlot(const QString &text);
 
     void OpenContextMenu(const QPoint &point);
+    
+    void SettingsFileModelUpdated();
 
 private:
     bool MaybeSaveDialogSaysProceed(bool is_forced);

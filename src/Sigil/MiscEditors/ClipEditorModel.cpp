@@ -58,6 +58,11 @@ ClipEditorModel::ClipEditorModel(QObject *parent)
 {
     m_SettingsPath = QDesktopServices::storageLocation(QDesktopServices::DataLocation) + "/" + SETTINGS_FILE;
 
+    QStringList header;
+    header.append(tr("Name"));
+    header.append(tr("Text"));
+    setHorizontalHeaderLabels(header);
+
     LoadInitialData();
 
     // Save it to make sure we have a file in case it was loaded from examples
@@ -298,6 +303,7 @@ void ClipEditorModel::SettingsFileChanged( const QString &path ) const
         }
 
         instance()->LoadInitialData();
+        emit SettingsFileUpdated();
     }
 }
 
@@ -342,13 +348,7 @@ QStandardItem* ClipEditorModel::GetItemFromName(QString name, QStandardItem *ite
 
 void ClipEditorModel::LoadInitialData()
 {
-    clear();
-
-    QStringList header;
-    header.append(tr("Name"));
-    header.append(tr("Text"));
-
-    setHorizontalHeaderLabels(header);
+    removeRows(0, rowCount());
 
     LoadData();
 

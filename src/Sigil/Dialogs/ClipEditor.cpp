@@ -130,6 +130,12 @@ bool ClipEditor::eventFilter(QObject *obj, QEvent *event)
     return QDialog::eventFilter(obj, event);
 }
 
+void ClipEditor::SettingsFileModelUpdated()
+{
+    ui.ClipEditorTree->expandAll();
+    emit ShowStatusMessageRequest(tr("Clip entries loaded from file."));
+}
+
 int ClipEditor::SelectedRowsCount()
 {
     int count = 0;
@@ -901,4 +907,6 @@ void ClipEditor::ConnectSignalsSlots()
     connect(m_ExportAll,   SIGNAL(triggered()), this, SLOT(ExportAll()));
     connect(m_CollapseAll, SIGNAL(triggered()), this, SLOT(CollapseAll()));
     connect(m_ExpandAll,   SIGNAL(triggered()), this, SLOT(ExpandAll()));
+
+    connect(m_ClipEditorModel, SIGNAL(SettingsFileUpdated()), this, SLOT(SettingsFileModelUpdated()));
 }

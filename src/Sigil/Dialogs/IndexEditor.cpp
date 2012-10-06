@@ -128,6 +128,11 @@ bool IndexEditor::eventFilter(QObject *obj, QEvent *event)
     return QDialog::eventFilter(obj, event);
 }
 
+void IndexEditor::SettingsFileModelUpdated()
+{
+    emit ShowStatusMessageRequest(tr("Index entries loaded from file."));
+}
+
 int IndexEditor::SelectedRowsCount()
 {
     int count = 0;
@@ -634,4 +639,6 @@ void IndexEditor::ConnectSignalsSlots()
     connect(m_Reload,    SIGNAL(triggered()), this, SLOT(Reload()));
     connect(m_SaveAs,    SIGNAL(triggered()), this, SLOT(SaveAs()));
     connect(m_SelectAll, SIGNAL(triggered()), this, SLOT(SelectAll()));
+
+    connect(m_IndexEditorModel, SIGNAL(SettingsFileUpdated()), this, SLOT(SettingsFileModelUpdated()));
 }

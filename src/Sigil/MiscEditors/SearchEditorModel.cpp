@@ -59,6 +59,12 @@ SearchEditorModel::SearchEditorModel(QObject *parent)
 {
     m_SettingsPath = QDesktopServices::storageLocation(QDesktopServices::DataLocation) + "/" + SETTINGS_FILE;
 
+    QStringList header;
+    header.append(tr("Name"));
+    header.append(tr("Find"));
+    header.append(tr("Replace"));
+    setHorizontalHeaderLabels(header);
+
     LoadInitialData();
 
     // Save it to make sure we have a file in case it was loaded from examples
@@ -294,6 +300,7 @@ void SearchEditorModel::SettingsFileChanged( const QString &path ) const
         }
 
         instance()->LoadInitialData();
+        emit SettingsFileUpdated();
     }
 }
 
@@ -338,14 +345,7 @@ QStandardItem* SearchEditorModel::GetItemFromName(QString name, QStandardItem *i
 
 void SearchEditorModel::LoadInitialData()
 {
-    clear();
-
-    QStringList header;
-    header.append(tr("Name"));
-    header.append(tr("Find"));
-    header.append(tr("Replace"));
-
-    setHorizontalHeaderLabels(header);
+    removeRows(0, rowCount());
 
     LoadData();
 

@@ -57,6 +57,11 @@ IndexEditorModel::IndexEditorModel(QObject *parent)
 {
     m_SettingsPath = QDesktopServices::storageLocation(QDesktopServices::DataLocation) + "/" + SETTINGS_FILE;
 
+    QStringList header;
+    header.append(tr("Text to Include"));
+    header.append(tr("Index Entries"));
+    setHorizontalHeaderLabels(header);
+
     LoadInitialData();
 
     // Save it to make sure we have a file in case it was loaded from examples
@@ -142,13 +147,7 @@ void IndexEditorModel::SplitEntry(QStandardItem *item)
 
 void IndexEditorModel::ClearData()
 {
-    clear();
-
-    QStringList header;
-    header.append(tr("Text to Include"));
-    header.append(tr("Index Entries"));
-
-    setHorizontalHeaderLabels(header);
+    removeRows(0, rowCount());
 }
 
 void IndexEditorModel::SettingsFileChanged( const QString &path ) const
@@ -171,6 +170,7 @@ void IndexEditorModel::SettingsFileChanged( const QString &path ) const
         }
 
         instance()->LoadInitialData();
+        emit SettingsFileUpdated();
     }
 }
 
