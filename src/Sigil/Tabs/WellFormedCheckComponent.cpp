@@ -138,5 +138,10 @@ void WellFormedCheckComponent::DisplayErrorMessage()
     if ( m_MessageBox->clickedButton() == m_AutoFixButton ) {
         m_Content.AutoFixWellFormedErrors();
     }
+    else {
+        if (m_LastError.line != -1) {
+            m_Content.ScrollToLine(m_LastError.line);
+        }
+    }
 }
 
