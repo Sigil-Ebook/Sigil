@@ -340,6 +340,12 @@ including entries in selected groups.</string>
        <property name="text">
         <string/>
        </property>
+       <property name="font">
+        <font>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
       </widget>
      </item>
      <item>
