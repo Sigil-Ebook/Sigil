@@ -466,7 +466,7 @@ QStringList Book::GetIdsInHrefs()
         foreach(QString href, it.value()) {
             if (href.contains('#')) {
                 href = href.right(href.length() - href.indexOf("#") - 1);
-                if (!ids.contains(href)) {
+                if (!href.isEmpty() && !ids.contains(href)) {
                     ids.append(href);
                 }
             }
