@@ -38,6 +38,7 @@ SearchEditor::SearchEditor(QWidget *parent)
     m_ContextMenu(new QMenu(this))
 {
     ui.setupUi(this);	
+    ui.FilterText->installEventFilter(this);
 
     ui.LoadSearch->setDefault(true);
 
@@ -144,6 +145,28 @@ void SearchEditor::showEvent(QShowEvent *event)
         // of the heading. Just force an initial width instead.
         ui.SearchEditorTree->setColumnWidth(1, 150);
     }
+
+    if (m_SearchEditorModel->rowCount() > 0) {
+        QModelIndex first = m_SearchEditorModel->index(0, 0, QModelIndex());
+        ui.SearchEditorTree->setCurrentIndex(first);
+    }
+}
+
+bool SearchEditor::eventFilter(QObject *obj, QEvent *event)
+{
+    if (obj == ui.FilterText) {
+        if (event->type() == QEvent::KeyPress) {
+            QKeyEvent *keyEvent = static_cast<QKeyEvent*>(event);
+            int key = keyEvent->key();
+
+            if (key == Qt::Key_Down) {
+                ui.SearchEditorTree->setFocus();
+                return true;
+            }
+        }
+    }
+    // pass the event on to the parent class
+    return QDialog::eventFilter(obj, event);
 }
 
 int SearchEditor::SelectedRowsCount()

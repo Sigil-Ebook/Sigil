@@ -57,6 +57,9 @@ public slots:
 signals:
     void ShowStatusMessageRequest(const QString &message);
 
+protected:
+    bool eventFilter(QObject *obj, QEvent *ev);
+
 protected slots:
     void reject();
     void showEvent(QShowEvent *event);

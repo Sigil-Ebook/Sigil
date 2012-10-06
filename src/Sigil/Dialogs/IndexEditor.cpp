@@ -43,6 +43,7 @@ IndexEditor::IndexEditor(QWidget *parent)
     m_ContextMenu(new QMenu(this))
 {
     ui.setupUi(this);	
+    ui.FilterText->installEventFilter(this);
 
     SetupIndexEditorTree();
 
@@ -103,6 +104,28 @@ void IndexEditor::showEvent(QShowEvent *event)
     for (int column = 0; column < ui.IndexEditorTree->header()->count(); column++) {
         ui.IndexEditorTree->resizeColumnToContents(column);
     }
+
+    if (m_IndexEditorModel->rowCount() > 0) {
+        QModelIndex first = m_IndexEditorModel->index(0, 0, QModelIndex());
+        ui.IndexEditorTree->setCurrentIndex(first);
+    }
+}
+
+bool IndexEditor::eventFilter(QObject *obj, QEvent *event)
+{
+    if (obj == ui.FilterText) {
+        if (event->type() == QEvent::KeyPress) {
+            QKeyEvent *keyEvent = static_cast<QKeyEvent*>(event);
+            int key = keyEvent->key();
+
+            if (key == Qt::Key_Down) {
+                ui.IndexEditorTree->setFocus();
+                return true;
+            }
+        }
+    }
+    // pass the event on to the parent class
+    return QDialog::eventFilter(obj, event);
 }
 
 int IndexEditor::SelectedRowsCount()

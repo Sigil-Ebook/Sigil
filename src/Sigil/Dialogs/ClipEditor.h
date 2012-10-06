@@ -51,6 +51,9 @@ signals:
     void PasteSelectedClipRequest(QList<ClipEditorModel::clipEntry *> clip_entries);
     void ShowStatusMessageRequest(const QString &message);
 
+protected:
+    bool eventFilter(QObject *obj, QEvent *ev);
+
 protected slots:
     void reject();
     void showEvent(QShowEvent *event);
