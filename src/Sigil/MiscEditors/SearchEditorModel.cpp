@@ -234,7 +234,7 @@ void SearchEditorModel::ItemChangedHandler(QStandardItem *item)
     Rename(item);
 }
 
-void SearchEditorModel::Rename(QStandardItem *item, QString name)
+void SearchEditorModel::Rename(QStandardItem *item, const QString &name)
 {
     // Update the name and all its children
     // Disconnect change signal while changing the items
@@ -314,12 +314,12 @@ QString SearchEditorModel::GetFullName(QStandardItem* item)
     return item->data(FULLNAME_ROLE).toString();
 }
 
-SearchEditorModel::searchEntry* SearchEditorModel::GetEntryFromName(QString name, QStandardItem *item)
+SearchEditorModel::searchEntry* SearchEditorModel::GetEntryFromName(const QString &name, QStandardItem *item)
 {
     return GetEntry(GetItemFromName(name, item));
 }
 
-QStandardItem* SearchEditorModel::GetItemFromName(QString name, QStandardItem *item)
+QStandardItem* SearchEditorModel::GetItemFromName(const QString &name, QStandardItem *item)
 {
     QStandardItem* found_item = NULL;
 
@@ -356,7 +356,7 @@ void SearchEditorModel::LoadInitialData()
     SetDataModified(false);
 }
 
-void SearchEditorModel::LoadData(QString filename, QStandardItem *item)
+void SearchEditorModel::LoadData(const QString &filename, QStandardItem *item)
 {
     SettingsStore *settings;
     if (filename.isEmpty()) {
@@ -647,7 +647,7 @@ QStandardItem* SearchEditorModel::GetItemFromId(qint64 id, int row, QStandardIte
     return found_item;
 }
 
-QString SearchEditorModel::SaveData(QList<SearchEditorModel::searchEntry*> entries, QString filename)
+QString SearchEditorModel::SaveData(QList<SearchEditorModel::searchEntry*> entries, const QString &filename)
 {
     QString message = "";
 

@@ -48,14 +48,14 @@ public:
     bool IsDataModified();
 
     void ClearData();
-    void LoadInitialData(QString filename = QString());
-    void LoadData(QString filename = QString(), QStandardItem *parent_item = NULL);
+    void LoadInitialData(const QString &filename = QString());
+    void LoadData(const QString &filename = QString(), QStandardItem *parent_item = NULL);
 
     QStandardItem* AddFullNameEntry(IndexEditorModel::indexEntry *entry = NULL, QStandardItem *parent_item = NULL, int row = -1);
 
     QStandardItem* AddEntryToModel(IndexEditorModel::indexEntry *entry, QStandardItem *parent_item = NULL, int row = -1);
 
-    QString SaveData(QList<IndexEditorModel::indexEntry*> entries = QList<IndexEditorModel::indexEntry*>(), QString filename = QString());
+    QString SaveData(QList<IndexEditorModel::indexEntry*> entries = QList<IndexEditorModel::indexEntry*>(), const QString &filename = QString());
 
     QList<IndexEditorModel::indexEntry *> GetEntries(QList<QStandardItem*> items = QList<QStandardItem*>());
     IndexEditorModel::indexEntry* GetEntry(QStandardItem* item);

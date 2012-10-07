@@ -174,7 +174,7 @@ void IndexEditorModel::SettingsFileChanged( const QString &path ) const
     }
 }
 
-void IndexEditorModel::LoadInitialData(QString filename)
+void IndexEditorModel::LoadInitialData(const QString &filename)
 {
     ClearData();
 
@@ -183,7 +183,7 @@ void IndexEditorModel::LoadInitialData(QString filename)
     SetDataModified(false);
 }
 
-void IndexEditorModel::LoadData(QString filename, QStandardItem *item)
+void IndexEditorModel::LoadData(const QString &filename, QStandardItem *item)
 {
     SettingsStore *settings;
     if (filename.isEmpty()) {
@@ -309,7 +309,7 @@ IndexEditorModel::indexEntry* IndexEditorModel::GetEntry(QStandardItem *item)
     return entry;
 }
 
-QString IndexEditorModel::SaveData(QList<IndexEditorModel::indexEntry*> entries, QString filename)
+QString IndexEditorModel::SaveData(QList<IndexEditorModel::indexEntry*> entries, const QString &filename)
 {
     QString message = "";
 

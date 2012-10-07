@@ -243,7 +243,7 @@ void ClipEditorModel::ItemChangedHandler(QStandardItem *item)
     Rename(item);
 }
 
-void ClipEditorModel::Rename(QStandardItem *item, QString name)
+void ClipEditorModel::Rename(QStandardItem *item, const QString &name)
 {
     // Update the name and all its children
     // Disconnect change signal while changing the items
@@ -317,7 +317,7 @@ QString ClipEditorModel::GetFullName(QStandardItem* item)
     return item->data(FULLNAME_ROLE).toString();
 }
 
-ClipEditorModel::clipEntry* ClipEditorModel::GetEntryFromName(QString name, QStandardItem *item)
+ClipEditorModel::clipEntry* ClipEditorModel::GetEntryFromName(const QString &name, QStandardItem *item)
 {
     return GetEntry(GetItemFromName(name, item));
 }
@@ -359,7 +359,7 @@ void ClipEditorModel::LoadInitialData()
     SetDataModified(false);
 }
 
-void ClipEditorModel::LoadData(QString filename, QStandardItem *item)
+void ClipEditorModel::LoadData(const QString &filename, QStandardItem *item)
 {
     SettingsStore *settings;
     if (filename.isEmpty()) {
@@ -645,7 +645,7 @@ QStandardItem* ClipEditorModel::GetItemFromId(qint64 id, int row, QStandardItem 
     return found_item;
 }
 
-QString ClipEditorModel::SaveData(QList<ClipEditorModel::clipEntry*> entries, QString filename)
+QString ClipEditorModel::SaveData(QList<ClipEditorModel::clipEntry*> entries, const QString &filename)
 {
     QString message = "";
 
