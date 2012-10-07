@@ -328,18 +328,6 @@ public slots:
 signals:
 
     /**
-     * Emitted when the tab enters the Book View.
-     */
-    void EnteringBookView();
-
-    void EnteringBookPreview();
-
-    /**
-     * Emitted when the tab enters the Code View.
-     */
-    void EnteringCodeView();
-
-    /**
      * Emitted when the selection in the view has changed.
      */
     void SelectionChanged();
@@ -403,14 +391,6 @@ private slots:
     void LeaveEditor( QWidget *editor );
 
     /**
-     * Receives the signal emitted when an editor gains focus. Ensures that
-     * the editor is displaying the correct content.
-     *
-     * @param A pointer to the editor.
-     */
-    void EnterEditor( QWidget *editor );
-
-    /**
      * Receives the signal emitted when user settings have changed.
      */
     void LoadSettings();
@@ -429,13 +409,6 @@ private slots:
     void PVSplitterMoved(int pos, int index);
 
 private:
-    /**
-     * Makes the Book View the current View.
-     */
-    void EmitEnteringBookView();
-    void EmitEnteringBookPreview();
-    void EmitEnteringCodeView();
-
     /**
      * Connects all the required signals to their respective slots.
      */

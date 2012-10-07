@@ -311,13 +311,6 @@ void BookViewPreview::UpdateFinishedState(int progress)
     }
 }
 
-// Overridden so we can emit the FocusGained() signal.
-void BookViewPreview::focusInEvent( QFocusEvent *event )
-{
-    emit FocusGained(this);
-    QWebView::focusInEvent(event);
-}
-
 QVariant BookViewPreview::EvaluateJavascript(const QString &javascript)
 {
     return page()->mainFrame()->evaluateJavaScript(javascript);

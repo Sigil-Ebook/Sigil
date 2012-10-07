@@ -437,39 +437,6 @@ void FlowTab::ReloadTabIfPending()
     }
 }
 
-void FlowTab::EnterEditor(QWidget *editor)
-{
-    // We don't want to do anything if we haven't already done an
-    // initial (delayed) load. We especially don't want to do a save
-    // over a valid file.
-    if (!m_safeToLoad) {
-        return;
-    }
-
-    // BookPreview is left out of this because we always want to reload with any current changes
-    // from CodeView.
-    if ((m_ViewState == MainWindow::ViewState_BookView && editor == m_wBookView) ||
-         ((m_ViewState == MainWindow::ViewState_PreviewView || m_ViewState == MainWindow::ViewState_CodeView) && editor == m_wCodeView))
-    {
-        // Nothing to do because the view state matches the current view.
-        return;
-    }
-
-    QApplication::setOverrideCursor(Qt::WaitCursor);
-    if (m_ViewState == MainWindow::ViewState_BookView) {
-        EmitEnteringBookView();
-    }
-    else if (m_ViewState == MainWindow::ViewState_PreviewView) {
-        EmitEnteringBookPreview();
-    }
-    else if (m_ViewState == MainWindow::ViewState_CodeView) {
-        EmitEnteringCodeView();
-    }
-    QApplication::restoreOverrideCursor();
-
-    EmitUpdateCursorPosition();
-}
-
 void FlowTab::LeaveEditor(QWidget *editor)
 {
     SaveTabContent();
@@ -517,21 +484,6 @@ void FlowTab::EmitContentChanged()
 void FlowTab::EmitUpdateCursorPosition()
 {
     emit UpdateCursorPosition(GetCursorLine(), GetCursorColumn());
-}
-
-void FlowTab::EmitEnteringBookView()
-{
-    emit EnteringBookView();
-}
-
-void FlowTab::EmitEnteringBookPreview()
-{
-    emit EnteringBookPreview();
-}
-
-void FlowTab::EmitEnteringCodeView()
-{
-    emit EnteringCodeView();
 }
 
 void FlowTab::RefreshSpellingHighlighting()
@@ -1510,12 +1462,8 @@ void FlowTab::ConnectSignalsToSlots()
     connect(m_wBookPreview, SIGNAL(selectionChanged()), this, SIGNAL(SelectionChanged()));
     connect(m_wCodeView, SIGNAL(selectionChanged()), this, SIGNAL(SelectionChanged()));
 
-    connect(m_wBookView, SIGNAL(FocusGained(QWidget *)), this, SLOT(EnterEditor(QWidget *)));
     connect(m_wBookView, SIGNAL(FocusLost(QWidget *)), this, SLOT(LeaveEditor(QWidget *)));
 
-    connect(m_wBookPreview, SIGNAL(FocusGained(QWidget *)), this, SLOT(EnterEditor(QWidget *)));
-
-    connect(m_wCodeView, SIGNAL(FocusGained(QWidget *)), this, SLOT(EnterEditor(QWidget *)));
     connect(m_wCodeView, SIGNAL(FocusLost(QWidget *)), this, SLOT(LeaveEditor(QWidget *)));
 
     connect(m_wBookView, SIGNAL(InsertImage()), this, SIGNAL(InsertImageRequest()));

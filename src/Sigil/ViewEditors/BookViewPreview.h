@@ -130,21 +130,9 @@ signals:
 
     void LinkClicked(const QUrl& url);
 
-    /**
-     * Emitted when the focus is gained.
-     */
-    void FocusGained(QWidget* editor);
-
     void ShowStatusMessageRequest(const QString &message, int millisecond_duration);
 
 protected:
-    /**
-     * Handles the focus in event for the editor.
-     *
-     * @param event The event to process.
-     */
-    void focusInEvent(QFocusEvent *event);
-
     /**
      * Evaluates the provided javascript source code
      * and returns the result.
