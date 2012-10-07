@@ -458,12 +458,6 @@ private slots:
     void SliderZoom( int slider_value );
 
     /**
-     * Updates the zoom controls by reading the current
-     * zoom factor from the View. Needed on View changeover.
-     */
-    void UpdateZoomControls();
-
-    /**
      * Updates the zoom slider to reflect the new zoom factor.
      *
      * @new_zoom_factor The new zoom factor.

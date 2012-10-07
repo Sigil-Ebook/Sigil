@@ -44,12 +44,14 @@ TabManager::TabManager( QWidget *parent )
 {
     QTabBar *tab_bar = new TabBar(this);
     setTabBar(tab_bar);
-    connect( tab_bar, SIGNAL( TabBarClicked() ), this, SIGNAL( ToggleViewStateRequest() ) );
+
+    connect( tab_bar, SIGNAL( TabBarDoubleClicked() ),      this, SIGNAL( ToggleViewStateRequest() ) );
+    connect( tab_bar, SIGNAL( TabBarClicked() ),            this, SLOT( SetFocusInTab() ) );
     connect( tab_bar, SIGNAL( CloseOtherTabsRequest(int) ), this, SLOT( CloseOtherTabs(int) ) );
 
-    connect( this, SIGNAL( currentChanged( int ) ),    this, SLOT( EmitTabChanged() ) );
-    connect( this, SIGNAL( currentChanged( int ) ),    this, SLOT( UpdateTab( int ) ) );
-    connect( this, SIGNAL( tabCloseRequested( int ) ), this, SLOT( CloseTab( int ) ) );
+    connect( this, SIGNAL( currentChanged( int ) ),         this, SLOT( EmitTabChanged() ) );
+    connect( this, SIGNAL( currentChanged( int ) ),         this, SLOT( UpdateTab( int ) ) );
+    connect( this, SIGNAL( tabCloseRequested( int ) ),      this, SLOT( CloseTab( int ) ) );
 
     setDocumentMode( true );
     setMovable( true );
@@ -381,6 +383,14 @@ void TabManager::UpdateTabName( ContentTab *renamed_tab )
     Q_ASSERT( renamed_tab );
 
     setTabText( indexOf( renamed_tab ), renamed_tab->GetFilename() );
+}
+
+void TabManager::SetFocusInTab()
+{
+    ContentTab &tab = GetCurrentContentTab();
+    if (&tab != NULL) {
+        tab.setFocus();
+    }
 }
 
 

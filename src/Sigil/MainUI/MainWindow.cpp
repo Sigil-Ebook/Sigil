@@ -2437,20 +2437,6 @@ void MainWindow::SliderZoom( int slider_value )
 }
 
 
-void MainWindow::UpdateZoomControls()
-{
-    ContentTab &tab = m_TabManager.GetCurrentContentTab();
-    if (&tab == NULL) {
-        return;
-    }
-
-    float zoom_factor = tab.GetZoomFactor();
-
-    UpdateZoomSlider( zoom_factor );
-    UpdateZoomLabel( zoom_factor );
-}
-
-
 void MainWindow::UpdateZoomSlider( float new_zoom_factor )
 {
     m_slZoomSlider->setValue( ZoomFactorToSliderRange( new_zoom_factor ) );

@@ -38,6 +38,7 @@ public:
 
 signals:
     void TabBarClicked();
+    void TabBarDoubleClicked();
     void CloseOtherTabsRequest(int tab_index);
 
 protected:
