@@ -468,7 +468,7 @@ void FolderKeeper::WatchResourceFile( const Resource& resource )
 
 void FolderKeeper::SuspendWatchingResources()
 {
-    if (m_SuspendedWatchedFiles.isEmpty()) {
+    if (m_SuspendedWatchedFiles.isEmpty() && !m_FSWatcher->files().isEmpty()) {
         m_SuspendedWatchedFiles.append(m_FSWatcher->files());
         m_FSWatcher->removePaths(m_SuspendedWatchedFiles);
     }
