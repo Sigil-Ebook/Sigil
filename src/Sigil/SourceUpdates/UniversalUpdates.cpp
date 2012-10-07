@@ -290,7 +290,7 @@ QString UniversalUpdates::UpdateNCXFile( NCXResource* ncx_resource,
     try
     {
         shared_ptr< xc::DOMDocument > document = PerformNCXUpdates( source, xml_updates )();
-        ncx_resource->SetText( XhtmlDoc::GetDomDocumentAsString( *document.get() ) );
+        ncx_resource->SetText( CleanSource::PrettifyDOCTYPEHeader( XhtmlDoc::GetDomDocumentAsString( *document.get() ) ) );
         return QString();
     }
     catch ( const ErrorBuildingDOM& )

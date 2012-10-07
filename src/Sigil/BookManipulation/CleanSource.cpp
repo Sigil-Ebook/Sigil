@@ -93,7 +93,10 @@ QString CleanSource::Clean( const QString &source )
             return newsource;
         }
         default:
-            return source;
+            // The only thing we will do for Clean when set to None is just prettify
+            // the XML declaration at the top. Xerces puts the xml, DOCTYPE and opening
+            // html tag all on the same line which is ugly to read.
+            return PrettifyDOCTYPEHeader(source);
     }
 }
 
@@ -624,6 +627,38 @@ QString CleanSource::PreprocessSpecialCases( const QString &source )
     QString child_tag_no_prefix = "<";
 
     newsource.replace( child_svg_tag_with_prefix, child_tag_no_prefix );
+
+    return newsource;
+}
+
+QString CleanSource::PrettifyDOCTYPEHeader( const QString &source )
+{
+    QString newsource = source;
+    const int SAFE_LENGTH = 200;
+    
+    QRegExp doctype_missing_newline( "\\?><!DOCTYPE" );
+    int index = doctype_missing_newline.indexIn(source);
+    if (index > 0 && index < SAFE_LENGTH) {
+        newsource.insert(index + 2, "\n");
+
+        QRegExp doctype_http_missing_newline( "//EN\" \"http://" );
+        index = doctype_http_missing_newline.indexIn(newsource);
+        if (index > 0 && index < SAFE_LENGTH) {
+            newsource.insert(index + 5, "\n ");
+        }
+
+        QRegExp html_missing_newline( "\"><html " );
+        index = html_missing_newline.indexIn(newsource);
+        if (index > 0 && index < SAFE_LENGTH) {
+            newsource.insert(index + 2, "\n\n");
+        }
+
+        QRegExp ncx_missing_newline( "\"><ncx " );
+        index = ncx_missing_newline.indexIn(newsource);
+        if (index > 0 && index < SAFE_LENGTH) {
+            newsource.insert(index + 2, "\n\n");
+        }
+    }
 
     return newsource;
 }

@@ -49,6 +49,14 @@ public:
 
     static QString ProcessXML( const QString &source );
 
+    /**
+     * Xerces when serializing into Sigil will always mess with the line feeds and
+     * spacing of the DOCTYPE and html declarations at top of the document. This is
+     * noticeable with Tidy turned off. This is a workaround to put document back
+     * as though that top portion had been run with Prettify turned on.
+     */
+    static QString PrettifyDOCTYPEHeader( const QString &source );
+
 private:
 
     enum TidyType
