@@ -180,12 +180,6 @@ public:
     virtual Searchable* GetSearchableContent();
 
     virtual bool IsLoadingFinished() { return true; }
-
-    virtual void CodeView();
-
-    virtual void BookView();
-
-    virtual void SplitView();
     
     /**
      * Checked state of the Bold action.

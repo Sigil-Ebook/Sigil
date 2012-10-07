@@ -255,21 +255,6 @@ public slots:
      */
     void ReloadTabIfPending();
 
-    /**
-     * Implements Book View action functionality.
-     */
-    void BookView();
-
-    /**
-     * Implements Split View action functionality.
-     */
-    void SplitView();
-
-    /**
-     *  Implements Code View action functionality.
-     */
-    void CodeView();
-
     // inherited
 
     void SaveTabContent();
@@ -414,6 +399,9 @@ private:
      */
     void ConnectSignalsToSlots();
 
+    void BookView();
+    void SplitView();
+    void CodeView();
 
     ///////////////////////////////
     // PRIVATE MEMBER VARIABLES
