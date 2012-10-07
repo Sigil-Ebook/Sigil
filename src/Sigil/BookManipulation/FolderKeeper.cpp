@@ -413,6 +413,7 @@ void FolderKeeper::RemoveResource( const Resource& resource )
     if (m_FSWatcher->files().contains( resource.GetFullPath() ) ) {
         m_FSWatcher->removePath( resource.GetFullPath() );
     }
+    m_SuspendedWatchedFiles.removeAll( resource.GetFullPath() );
 
     emit ResourceRemoved( resource );
 }
@@ -450,7 +451,7 @@ void FolderKeeper::ResourceFileChanged( const QString &path ) const
     }
 }
 
-void FolderKeeper::WatchResourceFile( const Resource& resource, bool file_renamed )
+void FolderKeeper::WatchResourceFile( const Resource& resource )
 {
     if ( OpenExternally::mayOpen( resource.Type() ) )
     {
@@ -462,6 +463,26 @@ void FolderKeeper::WatchResourceFile( const Resource& resource, bool file_rename
         // parent() is the Book object
         connect( &resource,  SIGNAL( ResourceUpdatedFromDisk(Resource&) ),
                  parent(),   SLOT( ResourceUpdatedFromDisk(Resource&) ), Qt::UniqueConnection );
+    }
+}
+
+void FolderKeeper::SuspendWatchingResources()
+{
+    if (m_SuspendedWatchedFiles.isEmpty()) {
+        m_SuspendedWatchedFiles.append(m_FSWatcher->files());
+        m_FSWatcher->removePaths(m_SuspendedWatchedFiles);
+    }
+}
+
+void FolderKeeper::ResumeWatchingResources()
+{
+    if (!m_SuspendedWatchedFiles.isEmpty()) {
+        foreach(QString path, m_SuspendedWatchedFiles) {
+            if (QFile::exists(path)) {
+                m_FSWatcher->addPath( path );
+            }
+        }
+        m_SuspendedWatchedFiles.clear();
     }
 }
 

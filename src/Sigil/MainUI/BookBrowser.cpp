@@ -711,7 +711,9 @@ void BookBrowser::SaveAsFile(Resource *resource)
     // Store the folder the user saved to
     m_LastFolderSaveAs = QFileInfo(destination).absolutePath();
 
+    m_Book->GetFolderKeeper().SuspendWatchingResources();
     resource->SaveToDisk();
+    m_Book->GetFolderKeeper().ResumeWatchingResources();
 
     QString source = resource->GetFullPath();
 
@@ -757,6 +759,7 @@ void BookBrowser::SaveAsFiles()
 
     m_LastFolderSaveAs = dirname;
 
+    m_Book->GetFolderKeeper().SuspendWatchingResources();
     foreach (Resource *resource, resources) {
         resource->SaveToDisk();
 
@@ -777,6 +780,7 @@ void BookBrowser::SaveAsFiles()
             break;
         }
     }
+    m_Book->GetFolderKeeper().ResumeWatchingResources();
 
 }
 
@@ -785,7 +789,9 @@ void BookBrowser::OpenWith() const
     Resource *resource = GetCurrentResource();
     if ( resource )
     {
+        m_Book->GetFolderKeeper().SuspendWatchingResources();
         resource->SaveToDisk();
+        m_Book->GetFolderKeeper().ResumeWatchingResources();
         const QString& editorPath = OpenExternally::selectEditorForResourceType( resource->Type() );
         if ( !editorPath.isEmpty() )
         {
@@ -801,7 +807,9 @@ void BookBrowser::OpenWithEditor() const
     Resource *resource = GetCurrentResource();
     if ( resource )
     {
+        m_Book->GetFolderKeeper().SuspendWatchingResources();
         resource->SaveToDisk();
+        m_Book->GetFolderKeeper().ResumeWatchingResources();
         const QVariant& editorPathData = m_OpenWithEditor->data();
         if ( editorPathData.isValid() )
         {

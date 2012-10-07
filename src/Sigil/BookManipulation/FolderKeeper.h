@@ -216,7 +216,13 @@ public:
     /**
      * Registers certain file types to be watched for external modifications.
      */
-    void WatchResourceFile( const Resource& resource, bool file_renamed = false );
+    void WatchResourceFile( const Resource& resource );
+
+    /**
+     * Dueing Save operations from Sigil we need to suspend/resume file watching.
+     */
+    void SuspendWatchingResources();
+    void ResumeWatchingResources();
 
 signals:
 
@@ -319,6 +325,7 @@ private:
      * Watches the files on disk for any changes in case the resources have been modified from outside Sigil.
      */
     QFileSystemWatcher *m_FSWatcher;
+    QStringList m_SuspendedWatchedFiles;
 
     // Full paths to all the folders in the publication
     QString m_FullPathToMainFolder;

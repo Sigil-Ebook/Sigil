@@ -251,8 +251,9 @@ HTMLResource& Book::CreateSectionBreakOriginalResource( const QString &content, 
 
     new_resource.SetText( CleanSource::Clean( content ) );
 
-
+    m_Mainfolder.SuspendWatchingResources();
     new_resource.SaveToDisk();
+    m_Mainfolder.ResumeWatchingResources();
 
     html_resources.insert( reading_order, &new_resource );
 
@@ -726,8 +727,10 @@ Resource* Book::MergeResources( QList<Resource *> resources )
 void Book::SaveAllResourcesToDisk()
 {
     QList< Resource* > resources = m_Mainfolder.GetResourceList(); 
-
+    
+    m_Mainfolder.SuspendWatchingResources();
     QtConcurrent::blockingMap( resources, SaveOneResourceToDisk );
+    m_Mainfolder.ResumeWatchingResources();
 }
 
 
