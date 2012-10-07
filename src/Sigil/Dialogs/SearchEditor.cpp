@@ -851,31 +851,56 @@ void SearchEditor::MoveVertical(bool move_down)
     int row = index.row();
 
     QStandardItem *item = m_SearchEditorModel->itemFromIndex(index);
-    QStandardItem *parent_item = item->parent();
-    if (!parent_item) {
-        parent_item = m_SearchEditorModel->invisibleRootItem();
+    QStandardItem *source_parent_item = item->parent();
+    if (!source_parent_item) {
+        source_parent_item = m_SearchEditorModel->invisibleRootItem();
     }
+    QStandardItem *destination_parent_item = source_parent_item;
 
     int destination_row;
     if (move_down) {
-        if (row >= parent_item->rowCount() - 1) {
-            return;
+        if (row >= source_parent_item->rowCount() - 1) {
+            // We are the last child for this group.
+            if (source_parent_item == m_SearchEditorModel->invisibleRootItem()) {
+                // Can't go any lower than this
+                return;
+            }
+            // Make this the next child of the parent, as though the user hit Left
+            destination_parent_item = source_parent_item->parent();
+            if (!destination_parent_item) {
+                destination_parent_item = m_SearchEditorModel->invisibleRootItem();
+            }
+            destination_row = source_parent_item->index().row() + 1;
         }
-        destination_row = row + 1;
+        else {
+            destination_row = row + 1;
+        }
     }
     else {
         if (row == 0) {
-            return;
+            // We are the first child for this parent.
+            if (source_parent_item == m_SearchEditorModel->invisibleRootItem()) {
+                // Can't go any higher than this
+                return;
+            }
+            // Make this the previous child of the parent, as though the user hit Left and Up
+            destination_parent_item = source_parent_item->parent();
+            if (!destination_parent_item) {
+                destination_parent_item = m_SearchEditorModel->invisibleRootItem();
+            }
+            destination_row = source_parent_item->index().row();
         }
-        destination_row = row - 1;
+        else {
+            destination_row = row - 1;
+        }
     }
 
     // Swap the item rows
-    QList<QStandardItem *> row_items = parent_item->takeRow(row);
-    parent_item->insertRow(destination_row, row_items);
+    QList<QStandardItem *> row_items = source_parent_item->takeRow(row);
+    destination_parent_item->insertRow(destination_row, row_items);
 
     // Get index
-    QModelIndex destination_index = parent_item->child(destination_row, 0)->index();
+    QModelIndex destination_index = destination_parent_item->child(destination_row, 0)->index();
     // Make sure the path to the item is updated
     QStandardItem *destination_item = m_SearchEditorModel->itemFromIndex(destination_index);
     m_SearchEditorModel->UpdateFullName(destination_item);
@@ -885,7 +910,7 @@ void SearchEditor::MoveVertical(bool move_down)
     ui.SearchEditorTree->setCurrentIndex(destination_index);
     ui.SearchEditorTree->selectionModel()->select(destination_index, QItemSelectionModel::SelectCurrent | QItemSelectionModel::Rows);
 
-    ui.SearchEditorTree->expand(parent_item->index());
+    ui.SearchEditorTree->expand(destination_parent_item->index());
 }
 
 void SearchEditor::MoveLeft()
