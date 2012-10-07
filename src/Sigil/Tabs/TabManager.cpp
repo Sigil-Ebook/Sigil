@@ -236,11 +236,9 @@ void TabManager::OpenResource( Resource& resource,
                                QString caret_location_to_scroll_to,
                                bool grab_focus )
 {
-    if ( SwitchedToExistingTab( resource, fragment, view_state, 
-                                line_to_scroll_to, position_to_scroll_to, caret_location_to_scroll_to ) )
-
+    if ( SwitchedToExistingTab( resource, fragment, line_to_scroll_to, position_to_scroll_to, caret_location_to_scroll_to ) ) {
         return;
-
+    }
     ContentTab *new_tab = CreateTabForResource( resource, fragment, view_state, 
                                                 line_to_scroll_to, position_to_scroll_to, caret_location_to_scroll_to, grab_focus);
 
@@ -417,13 +415,10 @@ int TabManager::ResourceTabIndex( const Resource& resource ) const
 
 bool TabManager::SwitchedToExistingTab( Resource& resource,
                                         const QUrl &fragment,
-                                        MainWindow::ViewState view_state,
                                         int line_to_scroll_to,
                                         int position_to_scroll_to,
                                         QString caret_location_to_scroll_to )
 {
-    Q_UNUSED(view_state)
-
     int resource_index = ResourceTabIndex( resource );
 
     // If the resource is already opened in

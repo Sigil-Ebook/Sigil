@@ -369,7 +369,15 @@ void MainWindow::closeEvent( QCloseEvent *event )
     {
         WriteSettings();
 
+        // We want to make sure that there are no events triggered in the tabs
+        // by being switched etc that result in calls that might crash Sigil on exit.
+        ContentTab &tab = m_TabManager.GetCurrentContentTab();
+        if ( &tab != NULL ) {
+            BreakTabConnections(&tab);
+        }
+
         // The user may have unsaved search/clip/index entries if dialogs are open.
+        // Prompt them to save or discard their changes if any.
         if (m_SearchEditor && m_SearchEditor->isVisible()) {
             m_SearchEditor->ForceClose();
         }
@@ -676,8 +684,7 @@ void MainWindow::GoToLinkedStyleDefinition( const QString &element_name, const Q
             CSSInfo css_info(css_resource->GetText(), true);
             CSSInfo::CSSSelector* selector = css_info.getCSSSelectorForElementClass(element_name, style_class_name);
             if (selector) {
-                m_TabManager.OpenResource( *css_resource, false, QUrl(), MainWindow::ViewState_RawView,
-                                            selector->line, -1, QString(), true );
+                m_TabManager.OpenResource( *css_resource, false, QUrl(), MainWindow::ViewState_Unknown, selector->line );
                 found_match = true;
                 break;
             }
@@ -910,8 +917,7 @@ void MainWindow::ReportsDialog()
 
                 if (resource.Type() == Resource::CSSResourceType) {
                     // For CSS we know the line of the style to go to
-                    m_TabManager.OpenResource( resource, false, QUrl(), MainWindow::ViewState_RawView,
-                            selected_file_line, -1, QString(), true );
+                    m_TabManager.OpenResource( resource, false, QUrl(), MainWindow::ViewState_Unknown, selected_file_line );
                 }
                 else if (resource.Type() == Resource::HTMLResourceType) {
                     OpenFilename(selected_file, 1);

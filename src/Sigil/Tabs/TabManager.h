@@ -107,7 +107,7 @@ public slots:
     void OpenResource( Resource& resource, 
                        bool precede_current_tab = false,
                        const QUrl &fragment = QUrl(),
-                       MainWindow::ViewState view_state = MainWindow::ViewState_BookView,
+                       MainWindow::ViewState view_state = MainWindow::ViewState_Unknown,
                        int line_to_scroll_to = -1,
                        int position_to_scroll_to = -1,
                        QString caret_location_to_scroll_to = QString(),
@@ -239,13 +239,11 @@ private:
      * 
      * @param resource The resource we want to switch to.
      * @param fragment The fragment ID to which the tab should scroll.
-     * @param view_state In which View should the resource open or switch to.
      * @param line_to_scroll_to To which line should the resource scroll.
      * @return \c true if we succeeded in switching.
      */
     bool SwitchedToExistingTab( Resource& resource, 
                                 const QUrl &fragment, 
-                                MainWindow::ViewState view_state,
                                 int line_to_scroll_to = -1,
                                 int position_to_scroll_to = -1,
                                 QString caret_location_to_scroll_to = QString() );

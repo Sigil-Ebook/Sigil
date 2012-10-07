@@ -65,7 +65,6 @@ BookViewPreview::BookViewPreview(QWidget *parent)
     // Set the Zoom factor but be sure no signals are set because of this.
     SettingsStore settings;
     m_CurrentZoomFactor = settings.zoomWeb();
-    Zoom();
 
     // use our web page that can be used for debugging javascript
     setPage(m_ViewWebPage);

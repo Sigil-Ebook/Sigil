@@ -130,16 +130,14 @@ public:
 
     /**
      * Describes the type of the View mode
-     * currently used in the tab.
+     * currently used in FlowTab.
      */
     enum ViewState
     {
-        ViewState_Unknown = 0,     /**< Default non view that we don't know what it is */
-        ViewState_BookView = 10,    /**< The WYSIWYG view. */
-        ViewState_PreviewView = 20, /**< Preview the rendered XHTML. */
-        ViewState_CodeView = 30,    /**< The XHTML code editing view. */
-        ViewState_RawView= 40,     /**< The view for editing non-XHTML related resources. */
-        ViewState_StaticView = 50   /**< The static view for non-editable content. */
+        ViewState_Unknown = 0,     /**< Default non view that we don't know or care what it is */
+        ViewState_BookView = 10,   /**< The WYSIWYG view. */
+        ViewState_PreviewView = 20,/**< Preview the rendered XHTML. */
+        ViewState_CodeView = 30    /**< The XHTML code editing view. */
     };
 
     /**

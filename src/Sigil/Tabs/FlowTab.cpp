@@ -168,8 +168,11 @@ FlowTab::~FlowTab()
 void FlowTab::DelayedInitialization()
 {
     m_wBookView->CustomSetDocument(m_HTMLResource.GetFullPath(), m_HTMLResource.GetText());
+    m_wBookView->Zoom();
     m_wBookPreview->CustomSetDocument(m_HTMLResource.GetFullPath(), m_HTMLResource.GetText());
+    m_wBookPreview->Zoom();
     m_wCodeView->CustomSetDocument(m_HTMLResource.GetTextDocumentForWriting());
+    m_wCodeView->Zoom();
 
     switch(m_ViewState) {
         case MainWindow::ViewState_CodeView:
@@ -185,7 +188,6 @@ void FlowTab::DelayedInitialization()
             else {
                 m_wCodeView->ScrollToFragment(m_FragmentToScroll.toString());
             }
-            m_wCodeView->Zoom();
             break;
         }
         case MainWindow::ViewState_PreviewView:
@@ -197,12 +199,9 @@ void FlowTab::DelayedInitialization()
             else {
                 m_wBookPreview->ScrollToFragment(m_FragmentToScroll.toString());
             }
-            m_wBookPreview->Zoom();
             break;
         }
-        // Don't care about these so ignore them.
-        case MainWindow::ViewState_RawView:
-        case MainWindow::ViewState_StaticView:
+        case MainWindow::ViewState_BookView:
         default:
             BookView();
             if (!m_CaretLocationToScrollTo.isEmpty()) {
@@ -211,7 +210,6 @@ void FlowTab::DelayedInitialization()
             else {
                 m_wBookView->ScrollToFragment(m_FragmentToScroll.toString());
             }
-            m_wBookView->Zoom();
             break;
     }
 
