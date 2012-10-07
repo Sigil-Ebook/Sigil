@@ -55,19 +55,19 @@ public:
     QString GetFullName(QStandardItem* item);
 
     void LoadInitialData();
-    void LoadData(QString filename = QString(), QStandardItem *parent_item = NULL);
+    void LoadData(const QString &filename = QString(), QStandardItem *parent_item = NULL);
 
     void AddFullNameEntry(SearchEditorModel::searchEntry *entry = NULL, QStandardItem *parent_item = NULL, int row = -1);
 
     QStandardItem* AddEntryToModel(SearchEditorModel::searchEntry *entry, bool is_group = false, QStandardItem *parent_item = NULL, int row = -1);
 
-    QString SaveData(QList<SearchEditorModel::searchEntry*> entries = QList<SearchEditorModel::searchEntry*>(), QString filename = QString());
+    QString SaveData(QList<SearchEditorModel::searchEntry*> entries = QList<SearchEditorModel::searchEntry*>(), const QString &filename = QString());
 
     QList<SearchEditorModel::searchEntry *> GetEntries(QList<QStandardItem*> items);
     SearchEditorModel::searchEntry* GetEntry(QStandardItem* item);
-    SearchEditorModel::searchEntry* GetEntryFromName(QString name, QStandardItem *parent_item = NULL);
+    SearchEditorModel::searchEntry* GetEntryFromName(const QString &name, QStandardItem *parent_item = NULL);
 
-    QStandardItem* GetItemFromName(QString name, QStandardItem *item = NULL);
+    QStandardItem* GetItemFromName(const QString &name, QStandardItem *item = NULL);
 
     QList<QStandardItem*> GetNonGroupItems(QList<QStandardItem*> items);
     QList<QStandardItem*> GetNonGroupItems(QStandardItem* item);
@@ -75,7 +75,9 @@ public:
     QList<QStandardItem*> GetNonParentItems(QList<QStandardItem*> items);
     QList<QStandardItem*> GetNonParentItems(QStandardItem* item);
 
-    void Rename(QStandardItem *item, QString name="");
+    void Rename(QStandardItem *item, const QString &name="");
+
+    void UpdateFullName(QStandardItem *item);
 
     QVariant data( const QModelIndex& index, int role ) const;
 
@@ -94,8 +96,6 @@ private:
     bool dropMimeData(const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex &parent);
     QMimeData *mimeData(const QModelIndexList &indexes) const;
     Qt::DropActions supportedDropActions() const;
-
-    void UpdateFullName(QStandardItem *item);
 
     QStandardItem* GetItemFromId(qint64 id, int row, QStandardItem* item = NULL) const;
 

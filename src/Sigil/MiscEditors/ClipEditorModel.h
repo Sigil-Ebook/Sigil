@@ -77,6 +77,8 @@ public:
 
     void Rename(QStandardItem *item, QString name="");
 
+    void UpdateFullName(QStandardItem *item);
+
     QVariant data( const QModelIndex& index, int role ) const;
 
 signals:
@@ -93,8 +95,6 @@ private:
     bool dropMimeData(const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex &parent);
     QMimeData *mimeData(const QModelIndexList &indexes) const;
     Qt::DropActions supportedDropActions() const;
-
-    void UpdateFullName(QStandardItem *item);
 
     QStandardItem* GetItemFromId(qint64 id, int row, QStandardItem* item = NULL) const;
 

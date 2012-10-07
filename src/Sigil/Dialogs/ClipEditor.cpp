@@ -781,6 +781,9 @@ void ClipEditor::MoveVertical(bool move_down)
 
     // Get index
     QModelIndex destination_index = parent_item->child(destination_row, 0)->index();
+    // Make sure the path to the item is updated
+    QStandardItem *destination_item = m_ClipEditorModel->itemFromIndex(destination_index);
+    m_ClipEditorModel->UpdateFullName(destination_item);
 
     // Select the item row again
     ui.ClipEditorTree->selectionModel()->clear();
@@ -872,6 +875,9 @@ void ClipEditor::MoveHorizontal(bool move_left)
     destination_parent_item->insertRow(destination_row, row_items);
 
     QModelIndex destination_index = destination_parent_item->child(destination_row)->index();
+    // Make sure the path to the item is updated
+    QStandardItem *destination_item = m_ClipEditorModel->itemFromIndex(destination_index);
+    m_ClipEditorModel->UpdateFullName(destination_item);
 
     // Select the item row again
     ui.ClipEditorTree->selectionModel()->clear();
