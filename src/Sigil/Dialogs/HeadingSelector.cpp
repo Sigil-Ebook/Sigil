@@ -141,7 +141,10 @@ QModelIndex HeadingSelector::GetIndexForAbsoluteRow(int row)
 
 QModelIndex HeadingSelector::SelectAbsoluteRow(int row)
 {
-    // Select the item that was below the original item
+    // Select the item that was below the original item if any.
+    if (m_TableOfContents.invisibleRootItem()->rowCount() == 0) {
+        return QModelIndex();
+    }
     QModelIndex first_index = m_TableOfContents.invisibleRootItem()->child(0)->index();
     QModelIndex index = first_index;
     QModelIndex previous_index = index;
@@ -193,12 +196,14 @@ void HeadingSelector::ModelItemFilter( QStandardItem *item )
     QModelIndex new_index = SelectAbsoluteRow(row);
 
     // Expand the item and all its children
-    QStandardItem *new_item = m_TableOfContents.itemFromIndex(new_index);
-    QStandardItem *parent_item = GetActualItemParent(new_item);
-    if (new_item) {
-        for (int i = 0; i < parent_item->rowCount(); i++) {
-            if (i >= new_item->row()) {
-                ExpandChildren(parent_item->child(i));
+    if (new_index.isValid()) {
+        QStandardItem *new_item = m_TableOfContents.itemFromIndex(new_index);
+        QStandardItem *parent_item = GetActualItemParent(new_item);
+        if (new_item) {
+            for (int i = 0; i < parent_item->rowCount(); i++) {
+                if (i >= new_item->row()) {
+                    ExpandChildren(parent_item->child(i));
+                }
             }
         }
     }
@@ -276,8 +281,8 @@ int HeadingSelector::UpdateOneHeadingElement(QStandardItem *item, QStringList us
     if (heading != NULL) {
         // Update heading inclusion: if a heading element
         // has one of the SIGIL_NOT_IN_TOC_CLASS classes, then it's not in the TOC
-        QString class_attribute = XtoQ(heading->element->getAttribute(QtoX("class")));
-        QString new_class_attribute = class_attribute
+        const QString &class_attribute = XtoQ(heading->element->getAttribute(QtoX("class")));
+        QString new_class_attribute = QString(class_attribute)
                                   .remove(SIGIL_NOT_IN_TOC_CLASS)
                                   .remove(OLD_SIGIL_NOT_IN_TOC_CLASS)
                                   .simplified();
@@ -297,7 +302,7 @@ int HeadingSelector::UpdateOneHeadingElement(QStandardItem *item, QStringList us
         }
 
         // Now apply the new id as needed.
-        QString existing_id_attribute = heading->element->hasAttribute( QtoX( "id" ) ) 
+        const QString &existing_id_attribute = heading->element->hasAttribute( QtoX( "id" ) ) 
                                 ? XtoQ(heading->element->getAttribute(QtoX("id")))
                                 : QString();
         // Are any of these id(s) the heading has already in form sigil_toc_id_xx?
