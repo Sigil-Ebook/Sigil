@@ -368,14 +368,8 @@ void MainWindow::closeEvent( QCloseEvent *event )
 {
     if ( MaybeSaveDialogSaysProceed() )
     {
+        ShowMessageOnStatusBar(tr("Sigil is closing..."));
         WriteSettings();
-
-        // We want to make sure that there are no events triggered in the tabs
-        // by being switched etc that result in calls that might crash Sigil on exit.
-        ContentTab &tab = m_TabManager.GetCurrentContentTab();
-        if ( &tab != NULL ) {
-            BreakTabConnections(&tab);
-        }
 
         // The user may have unsaved search/clip/index entries if dialogs are open.
         // Prompt them to save or discard their changes if any.
@@ -391,9 +385,7 @@ void MainWindow::closeEvent( QCloseEvent *event )
 
         event->accept();
     }
-
-    else
-    {
+    else {
         event->ignore();
     }
 }
@@ -2672,6 +2664,12 @@ void MainWindow::WriteSettings()
 
 bool MainWindow::MaybeSaveDialogSaysProceed()
 {
+    // Make sure that any tabs currently about to be drawn etc get a chance to do so.
+    // or else the process of closing/creating a new book will crash with Qt object errors.
+    // Particularly a problem if open a large tab in PreviewView prior to the action
+    // due to QWebInspector
+    qApp->processEvents();
+
     if ( isWindowModified() )
     {
         QMessageBox::StandardButton button_pressed;
