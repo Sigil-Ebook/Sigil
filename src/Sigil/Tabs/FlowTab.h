@@ -1,7 +1,9 @@
 /************************************************************************
 **
-**  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
 **  Copyright (C) 2012 John Schember <john@nachtimwald.com>
+**  Copyright (C) 2012  Dave Heiland
+**  Copyright (C) 2012  Grant Drake
+**  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
 **
@@ -138,9 +140,7 @@ public:
      * @param line The line to scroll to.
      */
     void ScrollToLine( int line );
-
     void ScrollToPosition( int cursor_position );
-
     void ScrollToCaretLocation( QString caret_location_update );
 
     /**
@@ -157,27 +157,16 @@ public:
     QString GetFilename();
 
     bool BoldChecked();
-
     bool ItalicChecked();
-
     bool UnderlineChecked();
-
     bool StrikethroughChecked();
-
     bool SubscriptChecked();
-
     bool SuperscriptChecked();
-
     bool AlignLeftChecked();
-
     bool AlignRightChecked();
-
     bool AlignCenterChecked();
-
     bool AlignJustifyChecked();
-
     bool BulletListChecked();
-
     bool NumberListChecked();
 
     QString GetCaretElementName();
@@ -189,41 +178,16 @@ public slots:
 
     bool IsDataWellFormed();
 
-    /**
-     * Implements Undo action functionality.
-     */
     void Undo();
-
-    /**
-     * Implements Redo action functionality.
-     */
     void Redo();
-
-    /**
-     * Implements Cut action functionality.
-     */
     void Cut();
-
-    /**
-     * Implements Copy action functionality.
-     */
     void Copy();
-
-    /**
-     * Implements Paste action functionality.
-     */
     void Paste();
 
     void DeleteLine();
 
-    /**
-     * Implements Split section action functionality.
-     */
     void SplitSection();
 
-    /**
-     * Implements Insert SGF section marker action functionality.
-     */
     void InsertSGFSectionMarker();
 
     void InsertClosingTag();
@@ -237,16 +201,8 @@ public slots:
      */
     void InsertImage( const QString &image_path );
 
-    /**
-     * Implements Print Preview action functionality.
-     */
     void PrintPreview();
-
-    /**
-     * Implements Print action functionality.
-     */
     void Print();
-
 
     /**
      * Qt has some nasty inconsistencies on when to focus is fired. In the situation
@@ -256,9 +212,7 @@ public slots:
     void ReloadTabIfPending();
 
     // inherited
-
     void SaveTabContent();
-
     void LoadTabContent();
 
     void Bold();
@@ -288,14 +242,11 @@ public slots:
     
     void ChangeCasing( const Utility::Casing casing );
 
-    /**
-     * Implements the application of a heading style functionality.
-     */
     void HeadingStyle( const QString& heading_type, bool preserve_attributes );
 
     void AddToIndex();
     bool MarkForIndex(const QString &title);
-
+    
     QString GetAttributeId();
     QString GetAttributeHref();
     QString GetAttributeIndexTitle();
@@ -312,9 +263,6 @@ public slots:
 
 signals:
 
-    /**
-     * Emitted when the selection in the view has changed.
-     */
     void SelectionChanged();
 
     /**
@@ -360,9 +308,6 @@ private slots:
      */
     void DelayedConnectSignalsToSlots();
 
-    /**
-     * Emits the ContentChanged signal.
-     */
     void EmitContentChanged();
 
     void EmitUpdateCursorPosition();
@@ -394,14 +339,21 @@ private slots:
     void PVSplitterMoved(int pos, int index);
 
 private:
-    /**
-     * Connects all the required signals to their respective slots.
-     */
-    void ConnectSignalsToSlots();
+    void CreateBookViewIfRequired(bool is_delayed_load=true);
+    void CreatePreviewViewIfRequired(bool is_delayed_load=true);
+    void CreateCodeViewIfRequired(bool is_delayed_load=true);
 
     void BookView();
     void SplitView();
     void CodeView();
+
+    /**
+     * Connects all the required signals to their respective slots.
+     */
+    void ConnectBookViewSignalsToSlots();
+    void ConnectPreviewViewSignalsToSlots();
+    void ConnectCodeViewSignalsToSlots();
+
 
     ///////////////////////////////
     // PRIVATE MEMBER VARIABLES
@@ -475,7 +427,8 @@ private:
 
     bool m_initialLoad;
 
-    bool m_BookPreviewNeedReload;
+    bool m_bookViewNeedsReload;
+    bool m_bookPreviewNeedsReload;
 
     bool m_grabFocus;
 

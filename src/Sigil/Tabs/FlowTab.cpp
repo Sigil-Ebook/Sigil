@@ -47,11 +47,6 @@
 #include "ViewEditors/BookViewPreview.h"
 #include "ViewEditors/CodeViewEditor.h"
 
-// These correspond to the order the views are added to the stacked widget.
-#define BV_INDEX 0
-#define PV_INDEX 1
-#define CV_INDEX 2
-
 static const QString SETTINGS_GROUP = "flowtab";
 
 FlowTab::FlowTab(HTMLResource& resource,
@@ -70,17 +65,18 @@ FlowTab::FlowTab(HTMLResource& resource,
     m_CaretLocationToScrollTo(caret_location_to_scroll_to),
     m_HTMLResource(resource),
     m_views(new QStackedWidget(this)),
-    m_pvVSplitter(new QSplitter(this)),
-    m_wBookView(new BookViewEditor(this)),
-    m_wBookPreview(new BookViewPreview(this)),
-    m_wCodeView(new CodeViewEditor(CodeViewEditor::Highlight_XHTML, true, this)),
-    m_inspector(new QWebInspector(this)),
+    m_pvVSplitter(NULL),
+    m_wBookView(NULL),
+    m_wBookPreview(NULL),
+    m_wCodeView(NULL),
+    m_inspector(NULL),
     m_ViewState(view_state),
     m_previousViewState(view_state),
     m_WellFormedCheckComponent(*new WellFormedCheckComponent(*this)),
     m_safeToLoad(false),
     m_initialLoad(true),
-    m_BookPreviewNeedReload(false),
+    m_bookViewNeedsReload(false),
+    m_bookPreviewNeedsReload(false),
     m_grabFocus(grab_focus),
     m_suspendTabReloading(false),
     m_defaultCaretLocationToTop(false)
@@ -88,18 +84,15 @@ FlowTab::FlowTab(HTMLResource& resource,
     // Loading a flow tab can take a while. We set the wait
     // cursor and clear it at the end of the delayed initialization.
     QApplication::setOverrideCursor(Qt::WaitCursor);
-
-    m_inspector->setPage(m_wBookPreview->page());
-
-    m_pvVSplitter->setOrientation(Qt::Vertical);
-    m_pvVSplitter->addWidget(m_wBookPreview);
-    m_pvVSplitter->addWidget(m_inspector);
-    m_pvVSplitter->setSizes(QList<int>() << 400 << 200);
-
-    m_views->addWidget(m_wBookView);
-    m_views->addWidget(m_pvVSplitter);
-    m_views->addWidget(m_wCodeView);
-
+    if (view_state == MainWindow::ViewState_BookView) {
+        CreateBookViewIfRequired(false);
+    }
+    else if (view_state == MainWindow::ViewState_PreviewView) {
+        CreatePreviewViewIfRequired(false);
+    }
+    else {
+        CreateCodeViewIfRequired(false);
+    }
     m_Layout.addWidget(m_views);
 
     LoadSettings();
@@ -109,15 +102,16 @@ FlowTab::FlowTab(HTMLResource& resource,
     // get called when the tab is created.
     if (view_state == MainWindow::ViewState_BookView) {
         setFocusProxy(m_wBookView);
+        ConnectBookViewSignalsToSlots();
     }
     else if (view_state == MainWindow::ViewState_PreviewView) {
         setFocusProxy(m_wBookPreview);
+        ConnectPreviewViewSignalsToSlots();
     }
     else {
         setFocusProxy(m_wCodeView);
+        ConnectCodeViewSignalsToSlots();
     }
-
-    ConnectSignalsToSlots();
 
     // We perform delayed initialization after the widget is on
     // the screen. This way, the user perceives less load time.
@@ -143,10 +137,10 @@ FlowTab::~FlowTab()
     // BookViewPreview must be deleted before QWebInspector.
     // BookViewPreview's QWebPage is linked to the QWebInspector
     // and when deleted it will send a message to the linked QWebInspector
-    // to remove the assoication. If QWebInspector is deleted before
-    // BookViewPReview, BookViewPreview will try to access the deleted
+    // to remove the association. If QWebInspector is deleted before
+    // BookViewPreview, BookViewPreview will try to access the deleted
     // QWebInspector and the application will SegFault. This is an issue
-    // with how QWebPages interface wtih QWebInspector.
+    // with how QWebPages interface with QWebInspector.
     if (m_wBookPreview) {
         delete m_wBookPreview;
         m_wBookPreview = 0;
@@ -165,14 +159,84 @@ FlowTab::~FlowTab()
     }
 }
 
+void FlowTab::CreateBookViewIfRequired(bool is_delayed_load)
+{
+    if (m_wBookView) {
+        return;
+    }
+    QApplication::setOverrideCursor(Qt::WaitCursor);
+    m_wBookView = new BookViewEditor(this);
+
+    m_views->addWidget(m_wBookView);
+    m_bookViewNeedsReload = true;
+
+    if (is_delayed_load) {
+        ConnectBookViewSignalsToSlots();
+    }
+    m_wBookView->Zoom();
+    QApplication::restoreOverrideCursor();
+}
+
+void FlowTab::CreatePreviewViewIfRequired(bool is_delayed_load)
+{
+    if (m_wBookPreview) {
+        return;
+    }
+    QApplication::setOverrideCursor(Qt::WaitCursor);
+    m_wBookPreview = new BookViewPreview(this);    
+    m_inspector = new QWebInspector(this);
+    m_inspector->setPage(m_wBookPreview->page());
+    
+    m_pvVSplitter = new QSplitter(this);
+    m_pvVSplitter->setOrientation(Qt::Vertical);
+    m_pvVSplitter->addWidget(m_wBookPreview);
+    m_pvVSplitter->addWidget(m_inspector);
+    m_pvVSplitter->setSizes(QList<int>() << 400 << 200);
+
+    m_views->addWidget(m_pvVSplitter);
+    m_bookPreviewNeedsReload = true;
+
+    if (is_delayed_load) {
+        ConnectPreviewViewSignalsToSlots();
+    }
+    m_wBookPreview->Zoom();
+    QApplication::restoreOverrideCursor();
+}
+
+void FlowTab::CreateCodeViewIfRequired(bool is_delayed_load)
+{
+    if (m_wCodeView) {
+        return;
+    }
+    QApplication::setOverrideCursor(Qt::WaitCursor);
+    m_wCodeView = new CodeViewEditor(CodeViewEditor::Highlight_XHTML, true, this);
+
+    m_views->addWidget(m_wCodeView);
+    m_wCodeView->LoadSettings();
+
+    if (is_delayed_load) {
+        ConnectCodeViewSignalsToSlots();
+        // CodeView (if already loaded) will be directly hooked into the TextResource and
+        // will not need reloading. However if the tab was not in Code View at tab opening
+        // then we must populate it now.
+        m_wCodeView->CustomSetDocument(m_HTMLResource.GetTextDocumentForWriting());
+        // Zoom assignment only works after the document has been loaded
+        m_wCodeView->Zoom();
+    }
+    QApplication::restoreOverrideCursor();
+}
+
 void FlowTab::DelayedInitialization()
 {
-    m_wBookView->CustomSetDocument(m_HTMLResource.GetFullPath(), m_HTMLResource.GetText());
-    m_wBookView->Zoom();
-    m_wBookPreview->CustomSetDocument(m_HTMLResource.GetFullPath(), m_HTMLResource.GetText());
-    m_wBookPreview->Zoom();
-    m_wCodeView->CustomSetDocument(m_HTMLResource.GetTextDocumentForWriting());
-    m_wCodeView->Zoom();
+    if (m_wBookView || m_wBookPreview) {
+        m_safeToLoad = true;
+        LoadTabContent();
+    }
+    else if (m_wCodeView) {
+        m_wCodeView->CustomSetDocument(m_HTMLResource.GetTextDocumentForWriting());
+        // Zoom factor for CodeView can only be set when document has been loaded.
+        m_wCodeView->Zoom();
+    }
 
     switch(m_ViewState) {
         case MainWindow::ViewState_CodeView:
@@ -218,7 +282,7 @@ void FlowTab::DelayedInitialization()
 
     // Only now will we wire up monitoring of ResourceChanged, to prevent
     // unnecessary saving and marking of the resource for reloading.
-    QTimer::singleShot(0, this, SLOT(DelayedConnectSignalsToSlots()));
+    DelayedConnectSignalsToSlots();
 
     // Cursor set in constructor
     QApplication::restoreOverrideCursor();
@@ -231,40 +295,50 @@ MainWindow::ViewState FlowTab::GetViewState()
 
 bool FlowTab::SetViewState(MainWindow::ViewState new_view_state)
 {
-    // Do we really need to do anything?
-    // Ignore this function if we are in the middle of doing an initial load
-    // of the content. We don't want it to save over the content with nothing
-    // if this is called before the delayed initialization function is called.
-    if (m_initialLoad) {
-        return false;
-    }
+    // There are only two ways a tab can get routed into a particular viewstate.
+    // At FlowTab construction time, all initialisation is done via a timer to
+    // call DelayedInitialization(). So that needs to handle first time tab state.
+    // The second route is via this function, which is invoked from MainWindow
+    // any time a tab is switched to.
+
+    // Do we really need to do anything? Not if we are already in this state.
     if (new_view_state == m_ViewState) {
         return false;
     }
-    if (new_view_state == MainWindow::ViewState_BookView) { 
-        if ( !m_wBookView->IsLoadingFinished() || !IsDataWellFormed() ) {
-            return false;
-        }
+    // Ignore this function if we are in the middle of doing an initial load
+    // of the content. We don't want it to save over the content with nothing
+    // if this is called before the delayed initialization function is called.
+    if (m_initialLoad || !IsLoadingFinished()) {
+        return false;
+    }
+    // Our well formed check will be run if switching to BV. If this check fails,
+    // that check will set our tab viewstate to be in CV.
+    if (new_view_state == MainWindow::ViewState_BookView && !IsDataWellFormed()) { 
+        return false;
     }
 
-    // We do a save before changing to ensure we don't lose any unsaved data
-    // in the previous view.
+    // We do a save (if pending changes) before switching to ensure we don't lose 
+    // any unsaved data in the current view, as cannot rely on lost focus happened.
     SaveTabContent();
+
+    // Track our preview view state for the purposes of caret syncing
     m_previousViewState = m_ViewState;
     m_ViewState = new_view_state;
-    LoadTabContent();
 
     if (new_view_state == MainWindow::ViewState_PreviewView) {
-        // Since we have just loaded the tab content, clear the reload flag to prevent
-        // the preview from being loaded again when EnterEditor() is called.
-        m_BookPreviewNeedReload = false;
+        CreatePreviewViewIfRequired();
+        LoadTabContent();
         SplitView();
     }
     else if (new_view_state == MainWindow::ViewState_CodeView) {
+        // As CV is directly hooked to the QTextDocument, we never have to "Load" content
+        // except for when creating the CV control for the very first time.
+        CreateCodeViewIfRequired();
         CodeView();
     }
     else {
-        m_BookPreviewNeedReload = false;
+        CreateBookViewIfRequired();
+        LoadTabContent();
         BookView();
     }
 
@@ -273,12 +347,30 @@ bool FlowTab::SetViewState(MainWindow::ViewState new_view_state)
 
 bool FlowTab::IsLoadingFinished()
 {
-    return m_wBookView->IsLoadingFinished() && m_wCodeView->IsLoadingFinished();
+    bool is_finished = true;
+    if (m_wCodeView) {
+        is_finished = is_finished && m_wCodeView->IsLoadingFinished();
+    }
+    if (is_finished && m_wBookView) {
+        is_finished = is_finished && m_wBookView->IsLoadingFinished();
+    }
+    if (is_finished && m_wBookPreview) {
+        is_finished = is_finished && m_wBookPreview->IsLoadingFinished();
+    }
+    return is_finished;
 }
 
 bool FlowTab::IsModified()
 {
-    return m_wBookView->isModified() || m_wCodeView->document()->isModified();
+    bool is_modified = false;
+    if (m_wCodeView) {
+        is_modified = is_modified || m_wCodeView->document()->isModified();
+    }
+    if (!is_modified && m_wBookView) {
+        is_modified = is_modified || m_wBookView->isModified();
+    }
+
+    return is_modified;
 }
 
 void FlowTab::BookView()
@@ -289,16 +381,17 @@ void FlowTab::BookView()
 
     QApplication::setOverrideCursor(Qt::WaitCursor);
 
-    m_views->setCurrentIndex(BV_INDEX);
+    CreateBookViewIfRequired();
+    m_views->setCurrentIndex(m_views->indexOf(m_wBookView));
 
     setFocusProxy(m_wBookView);
-    // When opening this tab as a preceding tab such as when splitting a section
-    // we do not want focus grabbed from the currently selected tab.
+    // We will usually want focus in the tab, except when splitting opens this as a preceding tab.
     if (m_grabFocus) {
         m_wBookView->GrabFocus();
     }
     m_grabFocus = true;
 
+    // Ensure the caret is positioned corresponding to previous view of this tab
     if (m_previousViewState == MainWindow::ViewState_CodeView) {
         m_wBookView->StoreCaretLocationUpdate( m_wCodeView->GetCaretLocation() );
     }
@@ -314,12 +407,16 @@ void FlowTab::SplitView()
 {
     QApplication::setOverrideCursor(Qt::WaitCursor);
 
-    m_views->setCurrentIndex(PV_INDEX);
+    CreatePreviewViewIfRequired();
+    m_views->setCurrentIndex(m_views->indexOf(m_pvVSplitter));
+
+    setFocusProxy(m_wBookPreview);
     if (m_grabFocus) {
         m_wBookPreview->GrabFocus();
     }
     m_grabFocus = true;
 
+    // Ensure the caret is positioned corresponding to previous view of this tab
     if (m_previousViewState == MainWindow::ViewState_BookView) {
         m_wBookPreview->StoreCaretLocationUpdate( m_wBookView->GetCaretLocation() );
     }
@@ -337,17 +434,19 @@ void FlowTab::CodeView()
 
     m_ViewState = MainWindow::ViewState_CodeView;
 
-    m_views->setCurrentIndex(CV_INDEX);
+    CreateCodeViewIfRequired();
+    m_views->setCurrentIndex(m_views->indexOf(m_wCodeView));
+
     m_wCodeView->SetDelayedCursorScreenCenteringRequired();
 
     setFocusProxy(m_wCodeView);
-
-    // Make sure the cursor is properly displayed
+    // We will usually want focus in the tab, except when splitting opens this as a preceding tab.
     if (m_grabFocus) {
         m_wCodeView->setFocus();
     }
     m_grabFocus = true;
 
+    // Ensure the caret is positioned corresponding to previous view of this tab
     if (m_previousViewState == MainWindow::ViewState_BookView) {
         m_wCodeView->StoreCaretLocationUpdate( m_wBookView->GetCaretLocation() );
     }
@@ -361,42 +460,57 @@ void FlowTab::CodeView()
 
 void FlowTab::LoadTabContent()
 {
-    if (!m_safeToLoad) {
-        return;
-    }
+    // In CV, this call has nothing to do, as the resource is connected to QTextDocument.
+    //        The only exception is initial load when control is created, done elsewhere.
+    // In BV, we will only allow loading if the document is well formed, since loading the
+    //        resource into BV and then saving will alter badly formed sections of text.
+    // In PV, we can try to load regardless of whether well formed or not.
 
     if (m_ViewState == MainWindow::ViewState_BookView) {
-        m_wBookView->CustomSetDocument(m_HTMLResource.GetFullPath(), m_HTMLResource.GetText());
+        if (m_safeToLoad && m_bookViewNeedsReload) {
+            m_wBookView->CustomSetDocument(m_HTMLResource.GetFullPath(), m_HTMLResource.GetText());
+            m_bookViewNeedsReload = false;
+        }
     }
     else if (m_ViewState == MainWindow::ViewState_PreviewView) {
-        m_wBookPreview->CustomSetDocument(m_HTMLResource.GetFullPath(), m_HTMLResource.GetText());
+        if (m_bookPreviewNeedsReload ) {
+            m_wBookPreview->CustomSetDocument(m_HTMLResource.GetFullPath(), m_HTMLResource.GetText());
+            m_bookPreviewNeedsReload = false;
+        }
     }
 }
 
 void FlowTab::SaveTabContent()
 {
+    // In PV, content is read-only so nothing to do
+    // In CV, the connection between QPlainTextEdit and the underlying QTextDocument
+    //        means the resource already is "saved". We just need to reset modified state.
+    // In BV, we only need to save the BV HTML into the resource if user has modified it,
+    //        which will trigger ResourceModified() to set flag to say PV needs reloading.
+
     if (m_ViewState == MainWindow::ViewState_BookView && m_wBookView->IsModified()) {
         m_HTMLResource.SetText(m_wBookView->GetHtml());
-        m_BookPreviewNeedReload = true;
         m_wBookView->ResetModified();
-    }
-
-    m_HTMLResource.GetTextDocumentForWriting().setModified(false);
-    // Just because we have saved the tab content doesn't mean that it is valid
-    // unless it was BookView, because it might not be well formed and the save
-    // could have been just triggered by losing focus/switching tabs
-    if (m_ViewState == MainWindow::ViewState_BookView) {
         m_safeToLoad = true;
     }
+
+    // Either from being in CV or saving from BV above we now reset the resource to say no user changes unsaved.
+    m_HTMLResource.GetTextDocumentForWriting().setModified(false);
 }
 
 void FlowTab::ResourceModified()
 {
-    m_BookPreviewNeedReload = true;
+    // This slot tells us that the underlying HTML resource has been changed 
+
     if ( m_ViewState == MainWindow::ViewState_CodeView ) {
+        // When the underlying resource has been modified, it replaces the whole QTextDocument which
+        // causes cursor position to move to bottom of the document. We will have captured the location
+        // of the caret prior to replacing in the ResourceTextChanging() slot, so now we can restore it.
         m_wCodeView->ExecuteCaretUpdate(m_defaultCaretLocationToTop);
         m_defaultCaretLocationToTop = false;
     }
+    m_bookViewNeedsReload = true;
+    m_bookPreviewNeedsReload = true;
 }
 
 void FlowTab::LinkedResourceModified()
@@ -411,11 +525,12 @@ void FlowTab::ResourceTextChanging()
     if ( m_ViewState == MainWindow::ViewState_CodeView ) {
         // We need to store the caret location so it can be restored later
         m_wCodeView->StoreCaretLocationUpdate( m_wCodeView->GetCaretLocation() );
-        // If the caret is at the very top of the document then our stored location 
+        // If the caret happened to be at the very top of the document then our location 
         // will be empty. The problem is that when ResourceModified() fires next
         // it will have effectively moved the caret to the bottom of the document.
-        // The default behaviour of CodeView is to "do nothing" if no location
-        // is stored, in this one situation we want to override that to force
+        // At which point we will call the CodeView to restore caret location.
+        // However the default behaviour of CodeView is to "do nothing" if no location
+        // is stored. So in this one situation we want to override that to force
         // it to place the cursor at the top of the document.
         m_defaultCaretLocationToTop = true;
     }
@@ -431,9 +546,9 @@ void FlowTab::ReloadTabIfPending()
     }
     setFocus();
     // Reload BV/PV if the resource was marked as changed outside of the editor.
-    if (m_BookPreviewNeedReload && (m_ViewState == MainWindow::ViewState_PreviewView || m_ViewState == MainWindow::ViewState_BookView)) {
+    if ( (m_bookViewNeedsReload && m_ViewState == MainWindow::ViewState_BookView) ||
+         (m_bookPreviewNeedsReload && m_ViewState == MainWindow::ViewState_PreviewView) ) {
         LoadTabContent();
-        m_BookPreviewNeedReload = false;
     }
 }
 
@@ -458,21 +573,25 @@ void FlowTab::PVSplitterMoved(int pos, int index)
 void FlowTab::LoadSettings()
 {
     UpdateDisplay();
-    m_wCodeView->LoadSettings();
 }
 
 void FlowTab::UpdateDisplay()
 {
-    SettingsStore settings;
-    settings.beginGroup(SETTINGS_GROUP);
+    if (m_wBookView) {
+        m_wBookView->UpdateDisplay();
+    }
+    if (m_wBookPreview) {
+        SettingsStore settings;
+        settings.beginGroup(SETTINGS_GROUP);
 
-    m_pvVSplitter->restoreState(settings.value("pv_splitter").toByteArray());
+        m_pvVSplitter->restoreState(settings.value("pv_splitter").toByteArray());
 
-    settings.endGroup();
-
-    m_wBookView->UpdateDisplay();
-    m_wBookPreview->UpdateDisplay();
-    m_wCodeView->UpdateDisplay();
+        settings.endGroup();
+        m_wBookPreview->UpdateDisplay();
+    }
+    if (m_wCodeView) {
+        m_wCodeView->UpdateDisplay();
+    }
 }
 
 void FlowTab::EmitContentChanged()
@@ -489,7 +608,9 @@ void FlowTab::EmitUpdateCursorPosition()
 void FlowTab::RefreshSpellingHighlighting()
 {
     // We always want this to happen, regardless of what the current view is.
-    m_wCodeView->RefreshSpellingHighlighting();
+    if (m_wCodeView) {
+        m_wCodeView->RefreshSpellingHighlighting();
+    }
 }
 
 
@@ -714,8 +835,12 @@ void FlowTab::SetZoomFactor(float new_zoom_factor)
     // since zoom operations take some time in it.
     if (m_ViewState == MainWindow::ViewState_BookView || m_ViewState == MainWindow::ViewState_PreviewView) {
         QApplication::setOverrideCursor(Qt::WaitCursor);
-        m_wBookView->SetZoomFactor(new_zoom_factor);
-        m_wBookPreview->SetZoomFactor(new_zoom_factor);
+        if (m_wBookView) {
+            m_wBookView->SetZoomFactor(new_zoom_factor);
+        }
+        if (m_wBookPreview) {
+            m_wBookPreview->SetZoomFactor(new_zoom_factor);
+        }
         QApplication::restoreOverrideCursor();
     }
     else if (m_ViewState == MainWindow::ViewState_CodeView) {
@@ -786,9 +911,15 @@ void FlowTab::ScrollToCaretLocation( QString caret_location_update )
 
 void FlowTab::ScrollToTop()
 {
-   m_wBookView->ScrollToTop();
-   m_wBookPreview->ScrollToTop();
-   m_wCodeView->ScrollToTop();
+    if (m_wBookView) {
+        m_wBookView->ScrollToTop();
+    }
+    if (m_wBookPreview) {
+        m_wBookPreview->ScrollToTop();
+    }
+    if (m_wCodeView) {
+        m_wCodeView->ScrollToTop();
+    }
 }
 
 void FlowTab::AutoFixWellFormedErrors()
@@ -813,29 +944,35 @@ QString FlowTab::GetFilename()
 
 bool FlowTab::IsDataWellFormed()
 {
-    if (m_ViewState == MainWindow::ViewState_BookView) {
-        m_safeToLoad = true;
-        return true;
-    }
-
-    bool well_formed = m_safeToLoad;
     if (!m_safeToLoad) {
-        XhtmlDoc::WellFormedError error = XhtmlDoc::WellFormedErrorForSource(m_wCodeView->toPlainText());
-        well_formed = error.line == -1;
+        // The content has been changed or was in a not well formed state when last checked.
 
-        if (!well_formed) {
-            m_safeToLoad = false;
-            if (m_ViewState != MainWindow::ViewState_CodeView) {
-                CodeView();
-            }
-            m_WellFormedCheckComponent.DemandAttentionIfAllowed(error);
-        }
-        else {
+        if (m_ViewState == MainWindow::ViewState_BookView) {
+            // If we are in BookView, then we know the data must be well formed, as even if edits have
+            // taken place QWebView will have retained the XHTML integrity.
             m_safeToLoad = true;
         }
+        else {
+            // We are in PV or CV. In either situation the xhtml from CV could be invalid as the user may
+            // have switched to PV to preview it (as they are allowed to do).
+            // It is also possible that they opened the tab in PV as the initial load and CV is not loaded.
+            // We are doing a well formed check, but we can only do it on the CV text if CV has been loaded.
+            // So lets play safe and have a fallback to use the resource text if CV is not loaded yet.
+            XhtmlDoc::WellFormedError error = (m_wCodeView != NULL)
+                                                ? XhtmlDoc::WellFormedErrorForSource(m_wCodeView->toPlainText())
+                                                : XhtmlDoc::WellFormedErrorForSource(m_HTMLResource.GetText());
+            m_safeToLoad = error.line == -1;
+
+            if (!m_safeToLoad) {
+                if (m_ViewState != MainWindow::ViewState_CodeView) {
+                    CodeView();
+                }
+                m_WellFormedCheckComponent.DemandAttentionIfAllowed(error);
+            }
+        }
     }
 
-    return well_formed;
+    return m_safeToLoad;
 }
 
 void FlowTab::Undo()
@@ -1432,7 +1569,7 @@ void FlowTab::ResumeTabReloading()
     // resources changing. If a reload tab request is pending it is executed now.
     m_suspendTabReloading = false;
     // Force an immediate reload if there is one pending
-    if (m_BookPreviewNeedReload) {
+    if (m_bookViewNeedsReload || m_bookPreviewNeedsReload) {
         // Must save tab content first or else reload may not take place.
         SaveTabContent();
         ReloadTabIfPending();
@@ -1441,58 +1578,50 @@ void FlowTab::ResumeTabReloading()
 
 void FlowTab::DelayedConnectSignalsToSlots()
 {
-    connect(m_wBookView, SIGNAL(textChanged()), this, SLOT(EmitContentChanged()));
-    connect(m_wCodeView, SIGNAL(FilteredTextChanged()), this, SLOT(EmitContentChanged()));
-
     connect(&m_HTMLResource, SIGNAL(TextChanging()), this, SLOT(ResourceTextChanging()));
     connect(&m_HTMLResource, SIGNAL(LinkedResourceUpdated()), this, SLOT(LinkedResourceModified()));
     connect(&m_HTMLResource, SIGNAL(Modified()), this, SLOT(ResourceModified()));
     connect(&m_HTMLResource, SIGNAL(LoadedFromDisk()), this, SLOT(ReloadTabIfPending()));
 }
 
-void FlowTab::ConnectSignalsToSlots()
+void FlowTab::ConnectBookViewSignalsToSlots()
 {
-    connect(m_wCodeView, SIGNAL(cursorPositionChanged()), this, SLOT(EmitUpdateCursorPosition()));
-
     connect(m_wBookView, SIGNAL(ZoomFactorChanged(float)), this, SIGNAL(ZoomFactorChanged(float)));
-    connect(m_wBookPreview, SIGNAL(ZoomFactorChanged(float)), this, SIGNAL(ZoomFactorChanged(float)));
-    connect(m_wCodeView, SIGNAL(ZoomFactorChanged(float)), this, SIGNAL(ZoomFactorChanged(float)));
-
     connect(m_wBookView, SIGNAL(selectionChanged()), this, SIGNAL(SelectionChanged()));
-    connect(m_wBookPreview, SIGNAL(selectionChanged()), this, SIGNAL(SelectionChanged()));
-    connect(m_wCodeView, SIGNAL(selectionChanged()), this, SIGNAL(SelectionChanged()));
-
     connect(m_wBookView, SIGNAL(FocusLost(QWidget *)), this, SLOT(LeaveEditor(QWidget *)));
-
-    connect(m_wCodeView, SIGNAL(FocusLost(QWidget *)), this, SLOT(LeaveEditor(QWidget *)));
-
     connect(m_wBookView, SIGNAL(InsertImage()), this, SIGNAL(InsertImageRequest()));
     connect(m_wBookView, SIGNAL(LinkClicked(const QUrl&)), this, SIGNAL(LinkClicked(const QUrl&)));
-    connect(m_wCodeView, SIGNAL(LinkClicked(const QUrl&)), this, SIGNAL(LinkClicked(const QUrl&)));
-    connect(m_wBookPreview, SIGNAL(LinkClicked(const QUrl&)), this, SIGNAL(LinkClicked(const QUrl&)));
-
-    connect(m_pvVSplitter, SIGNAL(splitterMoved(int, int)), this, SLOT(PVSplitterMoved(int, int)));
-
-    connect(m_wCodeView, SIGNAL(OpenClipEditorRequest(ClipEditorModel::clipEntry *)), this, SIGNAL(OpenClipEditorRequest(ClipEditorModel::clipEntry *)));
-    connect(m_wBookView, SIGNAL(OpenClipEditorRequest(ClipEditorModel::clipEntry *)), this, SIGNAL(OpenClipEditorRequest(ClipEditorModel::clipEntry *)));
-
-    connect(m_wCodeView, SIGNAL(OpenIndexEditorRequest(IndexEditorModel::indexEntry *)), this, SIGNAL(OpenIndexEditorRequest(IndexEditorModel::indexEntry *)));
-    connect(m_wBookView, SIGNAL(OpenIndexEditorRequest(IndexEditorModel::indexEntry *)), this, SIGNAL(OpenIndexEditorRequest(IndexEditorModel::indexEntry *)));
-
-    connect(m_wCodeView, SIGNAL(GoToLinkedStyleDefinitionRequest(const QString&, const QString&)), this, SIGNAL(GoToLinkedStyleDefinitionRequest(const QString&, const QString&)));
-
     connect(m_wBookView, SIGNAL(ClipboardSaveRequest()),    this, SIGNAL(ClipboardSaveRequest()));
     connect(m_wBookView, SIGNAL(ClipboardRestoreRequest()), this, SIGNAL(ClipboardRestoreRequest()));
-
-    connect(m_wCodeView, SIGNAL(BookmarkLinkOrStyleLocationRequest()), this, SIGNAL(BookmarkLinkOrStyleLocationRequest()));
-
-    connect(m_wCodeView, SIGNAL(SpellingHighlightRefreshRequest()), this, SIGNAL(SpellingHighlightRefreshRequest()));
-
     connect(m_wBookView, SIGNAL(ImageOpenedExternally(const QString &)), this, SIGNAL(ImageOpenedExternally(const QString &)));
-
     connect(m_wBookView, SIGNAL(ImageSaveAs(const QUrl&)), this, SIGNAL(ImageSaveAs(const QUrl&)));
-
     connect(m_wBookView, SIGNAL(ShowStatusMessageRequest(const QString&, int)), this, SIGNAL(ShowStatusMessageRequest(const QString&, int)));
+    connect(m_wBookView, SIGNAL(OpenClipEditorRequest(ClipEditorModel::clipEntry *)), this, SIGNAL(OpenClipEditorRequest(ClipEditorModel::clipEntry *)));
+    connect(m_wBookView, SIGNAL(OpenIndexEditorRequest(IndexEditorModel::indexEntry *)), this, SIGNAL(OpenIndexEditorRequest(IndexEditorModel::indexEntry *)));
+    connect(m_wBookView, SIGNAL(textChanged()), this, SLOT(EmitContentChanged()));
+}
+
+void FlowTab::ConnectPreviewViewSignalsToSlots()
+{
+    connect(m_wBookPreview, SIGNAL(ZoomFactorChanged(float)), this, SIGNAL(ZoomFactorChanged(float)));
+    connect(m_wBookPreview, SIGNAL(selectionChanged()), this, SIGNAL(SelectionChanged()));
+    connect(m_wBookPreview, SIGNAL(LinkClicked(const QUrl&)), this, SIGNAL(LinkClicked(const QUrl&)));
     connect(m_wBookPreview, SIGNAL(ShowStatusMessageRequest(const QString&, int)), this, SIGNAL(ShowStatusMessageRequest(const QString&, int)));
+    connect(m_pvVSplitter,  SIGNAL(splitterMoved(int, int)), this, SLOT(PVSplitterMoved(int, int)));
+}
+
+void FlowTab::ConnectCodeViewSignalsToSlots()
+{
+    connect(m_wCodeView, SIGNAL(cursorPositionChanged()), this, SLOT(EmitUpdateCursorPosition()));
+    connect(m_wCodeView, SIGNAL(ZoomFactorChanged(float)), this, SIGNAL(ZoomFactorChanged(float)));
+    connect(m_wCodeView, SIGNAL(selectionChanged()), this, SIGNAL(SelectionChanged()));
+    connect(m_wCodeView, SIGNAL(FocusLost(QWidget *)), this, SLOT(LeaveEditor(QWidget *)));
+    connect(m_wCodeView, SIGNAL(LinkClicked(const QUrl&)), this, SIGNAL(LinkClicked(const QUrl&)));
+    connect(m_wCodeView, SIGNAL(OpenClipEditorRequest(ClipEditorModel::clipEntry *)), this, SIGNAL(OpenClipEditorRequest(ClipEditorModel::clipEntry *)));
+    connect(m_wCodeView, SIGNAL(OpenIndexEditorRequest(IndexEditorModel::indexEntry *)), this, SIGNAL(OpenIndexEditorRequest(IndexEditorModel::indexEntry *)));
+    connect(m_wCodeView, SIGNAL(GoToLinkedStyleDefinitionRequest(const QString&, const QString&)), this, SIGNAL(GoToLinkedStyleDefinitionRequest(const QString&, const QString&)));
+    connect(m_wCodeView, SIGNAL(BookmarkLinkOrStyleLocationRequest()), this, SIGNAL(BookmarkLinkOrStyleLocationRequest()));
+    connect(m_wCodeView, SIGNAL(SpellingHighlightRefreshRequest()), this, SIGNAL(SpellingHighlightRefreshRequest()));
     connect(m_wCodeView, SIGNAL(ShowStatusMessageRequest(const QString&, int)), this, SIGNAL(ShowStatusMessageRequest(const QString&, int)));
+    connect(m_wCodeView, SIGNAL(FilteredTextChanged()), this, SLOT(EmitContentChanged()));
 }
