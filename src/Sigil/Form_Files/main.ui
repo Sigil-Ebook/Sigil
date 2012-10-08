@@ -1673,10 +1673,10 @@
   </action>
   <action name="actionClipEditor">
    <property name="text">
-    <string>&amp;Clip Manager...</string>
+    <string>&amp;Clips...</string>
    </property>
    <property name="toolTip">
-    <string>Open the Clip Manager.</string>
+    <string>Open the Clips.</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+Alt+C</string>
