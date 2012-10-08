@@ -37,6 +37,7 @@ static const QString SETTINGS_GROUP   = "heading_selector";
 static const int FIRST_COLUMN_PADDING = 30;
 
 const QString SIGIL_TOC_ID_PREFIX = "sigil_toc_id_";
+const QString OLD_SIGIL_TOC_ID_PREFIX = "heading_id_";
 
 // Constructor;
 // the first parameter is the book whose TOC
@@ -314,6 +315,13 @@ int HeadingSelector::UpdateOneHeadingElement(QStandardItem *item, QStringList us
                 else {
                     // A TOC id already referenced from an href, so better reuse it.
                     toc_id_to_use = existing_id;
+                }
+            }
+            else if (existing_id.startsWith(OLD_SIGIL_TOC_ID_PREFIX)) {
+                if (!used_ids.contains(existing_id)) {
+                    // A legacy heading_id_xx id from the previous version of Sigil that is not referenced
+                    // from any links in the document. Remove it (by skipping) to keep document "clean".
+                    continue;
                 }
             }
             // Append to our list.
