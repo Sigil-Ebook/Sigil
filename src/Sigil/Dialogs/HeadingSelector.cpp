@@ -305,40 +305,24 @@ int HeadingSelector::UpdateOneHeadingElement(QStandardItem *item, QStringList us
         const QString &existing_id_attribute = heading->element->hasAttribute( QtoX( "id" ) ) 
                                 ? XtoQ(heading->element->getAttribute(QtoX("id")))
                                 : QString();
-        // Are any of these id(s) the heading has already in form sigil_toc_id_xx?
-        // If one of them is in this form, if it is already "used" by an href, we will use it.
-        // If any other toc id(s) are found and they are not referenced by an href, we will replace/add
-        // them using the next available number.
-        QString toc_id_to_use;
-        QString new_id_attribute = "";
-        foreach (QString existing_id, existing_id_attribute.split(QChar(' '), QString::SkipEmptyParts)) {
-            if (existing_id.startsWith(SIGIL_TOC_ID_PREFIX)) {
-                if (!used_ids.contains(existing_id)) {
-                    // A TOC id from a previous run that is not currently referenced. Remove it by skipping.
-                    continue;
-                }
-                else {
-                    // A TOC id already referenced from an href, so better reuse it.
-                    toc_id_to_use = existing_id;
-                }
+        // If it has an id already in use by the document via an href, then we must use it.
+        // If it has any other id we will replace it with a sigil_not_in_toc alternative.
+        QString new_id_attribute(existing_id_attribute);
+        if (!heading->include_in_toc) {
+            if (!existing_id_attribute.isEmpty() && !used_ids.contains(existing_id_attribute)) {
+                // An existing id, not in use but as heading not in the TOC we can delete the id.
+                new_id_attribute.clear();
             }
-            else if (existing_id.startsWith(OLD_SIGIL_TOC_ID_PREFIX)) {
-                if (!used_ids.contains(existing_id)) {
-                    // A legacy heading_id_xx id from the previous version of Sigil that is not referenced
-                    // from any links in the document. Remove it (by skipping) to keep document "clean".
-                    continue;
-                }
-            }
-            // Append to our list.
-            new_id_attribute += " " % existing_id;
         }
-        if (toc_id_to_use.isEmpty() && heading->include_in_toc) {
-            // We didn't find one so generate next available.
-            do {
-                toc_id_to_use = SIGIL_TOC_ID_PREFIX + QString::number( next_toc_id );
-                next_toc_id++;
-            } while (used_ids.contains(toc_id_to_use));
-            new_id_attribute = toc_id_to_use + new_id_attribute;
+        else {
+            // We definitely want to give it an id.
+            if (existing_id_attribute.isEmpty() || !used_ids.contains(existing_id_attribute)) {
+                // We can replace it with a new sigil prefix version.
+                do {
+                    new_id_attribute = SIGIL_TOC_ID_PREFIX + QString::number( next_toc_id );
+                    next_toc_id++;
+                } while (used_ids.contains(new_id_attribute));
+            }
         }
         if (new_id_attribute.trimmed() != existing_id_attribute) {
             heading->is_changed = true;
