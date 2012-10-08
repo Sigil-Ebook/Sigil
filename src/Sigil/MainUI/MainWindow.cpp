@@ -226,10 +226,7 @@ void MainWindow::ResetLinkOrStyleBookmark()
 
 void MainWindow::ResetLocationBookmark(MainWindow::LocationBookmark *locationBookmark)
 {
-    locationBookmark->filename = QString();
-    locationBookmark->view_state = MainWindow::ViewState_Unknown;
-    locationBookmark->bv_caret_location_update = QString();
-    locationBookmark->cv_cursor_position = -1;
+    locationBookmark->filename.clear();
 }
 
 void MainWindow::GoBackFromLinkOrStyle()
@@ -274,8 +271,8 @@ void MainWindow::BookmarkLinkOrStyleLocation()
     }
     Resource *current_resource = &tab.GetLoadedResource();
 
-    m_LinkOrStyleBookmark->view_state = m_ViewState;
     m_LinkOrStyleBookmark->filename = current_resource->Filename();
+    m_LinkOrStyleBookmark->view_state = m_ViewState;
     m_LinkOrStyleBookmark->cv_cursor_position = tab.GetCursorPosition();
     m_LinkOrStyleBookmark->bv_caret_location_update = tab.GetCaretLocationUpdate();
 
@@ -1246,32 +1243,6 @@ void MainWindow::PasteClipEntriesIntoCurrentTarget(const QList<ClipEditorModel::
     ShowMessageOnStatusBar();
 }
 
-void MainWindow::SetViewState(MainWindow::ViewState view_state)
-{
-    if (view_state == MainWindow::ViewState_Unknown) {
-        view_state = ViewState_BookView;
-    }
-    bool set_tab_state = m_ViewState != view_state;
-
-    MainWindow::ViewState old_view_state = m_ViewState;
-    m_ViewState = view_state;
-
-    if (!UpdateViewState(set_tab_state)) {
-        m_ViewState = old_view_state;
-        ui.actionBookView->setChecked(false);
-        ui.actionSplitView->setChecked(false);
-        // Only CV in a Flow Tab would fail to allow the view to be changed due to
-        // the well formed check failing. Due to this we know that we're still in CV.
-        ui.actionCodeView->setChecked(true);
-    }
-}
-
-
-void MainWindow::SetTabViewState()
-{
-    SetViewState(m_ViewState);
-}
-
 void MainWindow::MergeResources(QList <Resource *> resources)
 {
     if (resources.isEmpty()) {
@@ -1502,7 +1473,7 @@ void MainWindow::GenerateToc()
 
     QApplication::setOverrideCursor(Qt::WaitCursor);
 
-    // Regenerate the NCX regardlss of whether headings were changed, in case the user erased it.
+    // Regenerate the NCX regardless of whether headings were changed, in case the user erased it.
     bool is_ncx_changed = m_Book->GetNCX().GenerateNCXFromBookContents(*m_Book);
 
     if (is_headings_changed || is_ncx_changed) {
@@ -1805,11 +1776,31 @@ void MainWindow::ChangeSignalsWhenTabChanges( ContentTab* old_tab, ContentTab* n
 }
 
 
-bool MainWindow::UpdateViewState(bool set_tab_state)
+void MainWindow::SetViewState(MainWindow::ViewState view_state)
+{
+    // This function is called when:
+    // 1. Invoked from OpenResource() to open a new tab or programmatically switch to existing one.
+    // 2. When the user toggles view state, or uses the specific view state icons on toolbar
+    // 3. To return to a bookmarked location
+
+    // OpenResource() ensures that any attempt to open a tab with a viewstate of "Unknown"
+    // will instead inherit the current MainWindow setting for the last FlowTab used.
+    // The only other places that call this function directly all use the m_ViewState
+    // value for view_state parameter, hence can never be "Unknown" in this function.
+    Q_ASSERT(view_state != MainWindow::ViewState_Unknown);
+
+    bool set_tab_state = m_ViewState != view_state;
+    m_ViewState = view_state;
+
+    UpdateViewState(set_tab_state);
+}
+
+
+void MainWindow::UpdateViewState(bool set_tab_state)
 {
     ContentTab &tab = GetCurrentContentTab();
     if (&tab == NULL) {
-        return false;
+        return;
     }
     Resource::ResourceType type = tab.GetLoadedResource().Type();
 
@@ -1822,7 +1813,9 @@ bool MainWindow::UpdateViewState(bool set_tab_state)
                 // not to reload the contents of a tab. 
                 ftab->ReloadTabIfPending();
                 if (!view_state_changed) {
-                    return false;
+                    // Either we were already in this view, the data is not well formed or tab is still loading.
+                    // We must force the UI to be in the state that this tab is now in.
+                    m_ViewState = ftab->GetViewState();
                 }
             }
         }
@@ -1851,11 +1844,10 @@ bool MainWindow::UpdateViewState(bool set_tab_state)
     {
         SetStateActionsRawView();
     }
-    else {
+    else 
+    {
         SetStateActionsStaticView();
     }
-
-    return true;
 }
 
 
@@ -1904,13 +1896,13 @@ void MainWindow::UpdateUIOnTabChanges()
 }
 
 
-void MainWindow::UpdateUiWhenTabsSwitch()
+void MainWindow::UpdateUIWhenTabsSwitch()
 {
-    ContentTab &tab = GetCurrentContentTab();
-    if (&tab == NULL) {
+    ContentTab &tab = m_TabManager.GetCurrentContentTab();
+    if ( &tab == NULL ) {
         return;
     }
-
+    tab.UpdateDisplay();
     UpdateViewState();
 }
 
@@ -3797,16 +3789,10 @@ void MainWindow::ConnectSignalsToSlots()
              this,                   SLOT( ChangeSignalsWhenTabChanges( ContentTab*, ContentTab* ) ) );
 
     connect( &m_TabManager,          SIGNAL( TabChanged( ContentTab*, ContentTab* ) ),
-             this,                   SLOT( UpdateUIOnTabChanges() ) );
-
-    connect( &m_TabManager,          SIGNAL( TabChanged( ContentTab*, ContentTab* ) ),
-             this,                   SLOT( UpdateUiWhenTabsSwitch() ) );
+             this,                   SLOT( UpdateUIWhenTabsSwitch() ) );
 
     connect( &m_TabManager,          SIGNAL( TabChanged( ContentTab*, ContentTab* ) ),
             this,                    SLOT(   UpdateBrowserSelectionToTab() ) );
-
-    connect( &m_TabManager,          SIGNAL( TabChanged( ContentTab*, ContentTab* ) ),
-             this,                   SLOT(   SetTabViewState() ) );
 
     connect( m_BookBrowser,          SIGNAL( UpdateBrowserSelection() ),
             this,                    SLOT(   UpdateBrowserSelectionToTab() ) );

@@ -387,7 +387,7 @@ private slots:
      * Updates the toolbars/menus based on current state
      * and updates the tab state if requested
      */
-    bool UpdateViewState(bool set_tab_state = true);
+    void UpdateViewState(bool set_tab_state = true);
 
     /**
      * Updates the toolbars based on current tab state and changes.
@@ -402,7 +402,7 @@ private slots:
     /**
      * Performs needed changes when the user switches tabs.
      */
-    void UpdateUiWhenTabsSwitch();
+    void UpdateUIWhenTabsSwitch();
 
     /**
      * Set initial state for actions in Book View
@@ -503,11 +503,6 @@ private slots:
     void ClearIgnoredWords();
 
     void RefreshSpellingHighlighting();
-
-    /**
-     * Sets the view state of the current tab to the saved state
-     */
-    void SetTabViewState();
 
     void MergeResources(QList <Resource *> resources);
 
