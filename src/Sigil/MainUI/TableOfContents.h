@@ -27,6 +27,7 @@
 #include <QtGui/QDockWidget>
 
 #include "BookManipulation/Book.h"
+#include "MainUI/MainWindow.h"
 #include "MainUI/NCXModel.h"
 
 class QModelIndex;
@@ -109,10 +110,14 @@ signals:
      * Emitted when the TOC wants a resource to be opened.
      *
      * @param resource The resource that should be opened.
-     * @param precede_current_tab Should the new tab precede the currently opened one.
      * @param fragment The fragment ID to which the new tab should be scrolled.
      */
-    void OpenResourceRequest( Resource &resource, bool precede_current_tab, const QUrl &fragment );
+    void OpenResourceRequest( Resource &resource, 
+                              int line_to_scroll_to = -1,
+                              int position_to_scroll_to = -1,
+                              const QString &caret_location_to_scroll_to = QString(),
+                              MainWindow::ViewState view_state = MainWindow::ViewState_Unknown, 
+                              const QUrl &fragment = QUrl());
 
     void GenerateTocRequest();
 

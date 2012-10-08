@@ -179,18 +179,14 @@ public slots:
 
     /**
      * Opens the specified resource in the specified view state.
-     *
-     * @param resource The resource to open.
-     * @param view_state The state the resource should be opened in.
      */
     void OpenResource( Resource& resource,
-                       bool precede_current_tab = false,
-                       const QUrl &fragment = QUrl(),
-                       MainWindow::ViewState view_state = MainWindow::ViewState_Unknown,
                        int line_to_scroll_to = -1,
                        int position_to_scroll_to = -1,
-                       QString caret_location_to_scroll_to = QString(),
-                       bool grab_focus = true );
+                       const QString &caret_location_to_scroll_to = QString(),
+                       MainWindow::ViewState view_state = MainWindow::ViewState_Unknown,
+                       const QUrl &fragment = QUrl(),
+                       bool precede_current_tab = false );
 
     void CreateIndex();
 

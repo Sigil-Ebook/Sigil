@@ -80,16 +80,14 @@ signals:
      * a resource to be opened on that error.
      *
      * @param resource The resource that should be opened.
-     * @param precede_current_tab Should the new tab precede the currently opened one.
-     * @param fragment The fragment ID to which the new tab should be scrolled.
-     * @param view_state In which View should the resource open or switch to.
      * @param line_to_scroll_to To which line should the resource scroll.
+     * @param view_state In which View should the resource open or switch to.
      */
     void OpenResourceRequest( Resource &resource, 
-                              bool precede_current_tab, 
-                              const QUrl &fragment,
-                              MainWindow::ViewState view_state,
-                              int line_to_scroll_to );
+                              int line_to_scroll_to = -1,
+                              int position_to_scroll_to = -1,
+                              const QString &caret_location_to_scroll_to = QString(),
+                              MainWindow::ViewState view_state = MainWindow::ViewState_Unknown);
 
 private slots:
 

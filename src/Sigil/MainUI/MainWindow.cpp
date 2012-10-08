@@ -210,7 +210,7 @@ void MainWindow::OpenFilename( QString filename, int line )
                 OpenResource(*resource);
             }
             else {
-                OpenResource(*resource, false, QUrl(), MainWindow::ViewState_Unknown, line);
+                OpenResource(*resource, line);
 
             }
             break;
@@ -251,8 +251,11 @@ void MainWindow::GoToBookmark(MainWindow::LocationBookmark *locationBookmark)
     {
         Resource &resource = m_Book->GetFolderKeeper().GetResourceByFilename(locationBookmark->filename);
 
+        // The following OpenResource call will switch ViewState if required to be changed.
+        // However in order to ensure the caret is moved to the bookmark which may not be where
+        // the tab was last clicked on we must switch view state now.
         SetViewState(locationBookmark->view_state);
-        OpenResource(resource, false, QUrl(), locationBookmark->view_state, -1, locationBookmark->cv_cursor_position, locationBookmark->bv_caret_location_update);
+        OpenResource(resource, -1, locationBookmark->cv_cursor_position, locationBookmark->bv_caret_location_update, locationBookmark->view_state);
     }
     catch (const ResourceDoesNotExist&)
     {
@@ -293,13 +296,12 @@ void MainWindow::OpenUrl(const QUrl& url)
             ResetLinkOrStyleBookmark();
             return;
         }
+        int line = -1;
         if (url.fragment().isEmpty()) {;
             // If empty fragment force view to top of page
-            OpenResource(*resource, false, url.fragment(), MainWindow::ViewState_Unknown, 1);
+            line = 1;
         }
-        else {
-            OpenResource(*resource, false, url.fragment());
-        }
+        OpenResource(*resource, line, -1, QString(), MainWindow::ViewState_Unknown, url.fragment());
     } 
     else {
         QMessageBox::StandardButton button_pressed;
@@ -311,23 +313,22 @@ void MainWindow::OpenUrl(const QUrl& url)
 }
 
 void MainWindow::OpenResource( Resource& resource,
-                               bool precede_current_tab,
-                               const QUrl &fragment,
-                               MainWindow::ViewState view_state,
                                int line_to_scroll_to,
                                int position_to_scroll_to,
-                               QString caret_location_to_scroll_to,
-                               bool grab_focus)
+                               const QString &caret_location_to_scroll_to,
+                               MainWindow::ViewState view_state,
+                               const QUrl &fragment,
+                               bool precede_current_tab)
 {
-    MainWindow::ViewState vs = m_ViewState;
-    if (view_state != MainWindow::ViewState_Unknown) {
-        vs = view_state;
+    if (view_state == MainWindow::ViewState_Unknown) {
+        view_state = m_ViewState;
     }
 
-    m_TabManager.OpenResource( resource, precede_current_tab, fragment, vs, line_to_scroll_to, position_to_scroll_to, caret_location_to_scroll_to, grab_focus );
+    m_TabManager.OpenResource( resource, line_to_scroll_to, position_to_scroll_to, caret_location_to_scroll_to, 
+                               view_state, fragment, precede_current_tab );
 
-    if (vs != m_ViewState) {
-        SetViewState(vs);
+    if (view_state != m_ViewState) {
+        SetViewState(view_state);
     }
 }
 
@@ -338,7 +339,7 @@ void MainWindow::ResourceUpdatedFromDisk(Resource &resource)
     if ( resource.Type() == Resource::HTMLResourceType ) {
         HTMLResource &html_resource = *qobject_cast< HTMLResource *>( &resource );
         if (!m_Book->IsDataOnDiskWellFormed( html_resource )) {
-            OpenResource(resource, false, QUrl(), MainWindow::ViewState_CodeView);
+            OpenResource(resource, -1, -1, QString(), MainWindow::ViewState_CodeView);
             message = QString(tr("Warning")) + ": " + message + " " + tr("The file was NOT well-formed and may be corrupted.");
             duration = 20000;
         }
@@ -641,8 +642,7 @@ void MainWindow::GoToLine()
     int line = QInputDialog::getInt( this, tr("Go To Line"), tr("Line #"), -1, 1 );
     if ( line >= 1 )
     {
-        m_TabManager.OpenResource( tab.GetLoadedResource(), false, QUrl(), MainWindow::ViewState_CodeView, line );
-        SetViewState(MainWindow::ViewState_CodeView);
+        OpenResource( tab.GetLoadedResource(), line, -1, QString(), MainWindow::ViewState_CodeView );
     }
 }
 
@@ -684,7 +684,7 @@ void MainWindow::GoToLinkedStyleDefinition( const QString &element_name, const Q
             CSSInfo css_info(css_resource->GetText(), true);
             CSSInfo::CSSSelector* selector = css_info.getCSSSelectorForElementClass(element_name, style_class_name);
             if (selector) {
-                m_TabManager.OpenResource( *css_resource, false, QUrl(), MainWindow::ViewState_Unknown, selector->line );
+                m_TabManager.OpenResource( *css_resource, selector->line );
                 found_match = true;
                 break;
             }
@@ -701,7 +701,7 @@ void MainWindow::GoToLinkedStyleDefinition( const QString &element_name, const Q
             ShowMessageOnStatusBar(QString( tr("No CSS styles named") +  " " + display_name + " " + "or stylesheet not linked."), 5000);
             // Open the first linked stylesheet if any
             if (first_css_resource) {
-                OpenResource(*first_css_resource, false, QUrl(), MainWindow::ViewState_Unknown, 1);
+                OpenResource(*first_css_resource, 1);
             }
         }
     }
@@ -917,7 +917,7 @@ void MainWindow::ReportsDialog()
 
                 if (resource.Type() == Resource::CSSResourceType) {
                     // For CSS we know the line of the style to go to
-                    m_TabManager.OpenResource( resource, false, QUrl(), MainWindow::ViewState_Unknown, selected_file_line );
+                    m_TabManager.OpenResource( resource, selected_file_line );
                 }
                 else if (resource.Type() == Resource::HTMLResourceType) {
                     OpenFilename(selected_file, 1);
@@ -1259,10 +1259,11 @@ void MainWindow::SetViewState(MainWindow::ViewState view_state)
     if (view_state == MainWindow::ViewState_Unknown) {
         view_state = ViewState_BookView;
     }
+    bool set_tab_state = m_ViewState != view_state;
 
     MainWindow::ViewState old_view_state = m_ViewState;
-    bool set_tab_state = m_ViewState != view_state;
     m_ViewState = view_state;
+
     if (!UpdateViewState(set_tab_state)) {
         m_ViewState = old_view_state;
         ui.actionBookView->setChecked(false);
@@ -1841,9 +1842,7 @@ bool MainWindow::UpdateViewState(bool set_tab_state)
             SetStateActionsSplitView();
         }
         else {
-            if (m_ViewState != MainWindow::ViewState_BookView) {
-                m_ViewState = MainWindow::ViewState_BookView;
-            }
+            m_ViewState = MainWindow::ViewState_BookView;
             SetStateActionsBookView();
         }
     }
@@ -2513,7 +2512,7 @@ void MainWindow::CreateSectionBreakOldTab( QString content, HTMLResource& origin
 
     // Open the old shortened content in a new tab preceding the current one.
     // without grabbing focus
-    OpenResource( html_resource, true, QUrl(), m_ViewState, -1, -1, "", false );
+    OpenResource( html_resource, -1, -1, QString(), m_ViewState, QUrl(), true );
 
     FlowTab *flow_tab = qobject_cast< FlowTab* >( &GetCurrentContentTab() );
     // We want the current tab to be scrolled to the top.
@@ -3832,13 +3831,11 @@ void MainWindow::ConnectSignalsToSlots()
 
     connect(m_BookBrowser, SIGNAL(RemoveResourcesRequest()), this, SLOT(RemoveResources()));
 
-    connect( m_TableOfContents, SIGNAL( OpenResourceRequest( Resource&, bool, const QUrl& ) ),
-             this,     SLOT(   OpenResource(        Resource&, bool, const QUrl& ) ) );
+    connect( m_TableOfContents, SIGNAL( OpenResourceRequest( Resource&, int, int, const QString&, MainWindow::ViewState, const QUrl& ) ),
+             this,     SLOT(   OpenResource( Resource&, int, int, const QString&, MainWindow::ViewState, const QUrl& ) ) );
 
-    connect( m_ValidationResultsView,
-                SIGNAL( OpenResourceRequest( Resource&, bool, const QUrl&, MainWindow::ViewState, int ) ),
-             this,
-                SLOT(   OpenResource(        Resource&, bool, const QUrl&, MainWindow::ViewState, int ) ) );
+    connect( m_ValidationResultsView, SIGNAL( OpenResourceRequest( Resource&, int, int, const QString&, MainWindow::ViewState ) ),
+             this,     SLOT(   OpenResource( Resource&, int, int, const QString&, MainWindow::ViewState ) ) );
 
     connect( &m_TabManager, SIGNAL( OpenUrlRequest( const QUrl& ) ),
              this, SLOT(   OpenUrl( const QUrl& ) ) );

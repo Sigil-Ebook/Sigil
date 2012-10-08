@@ -230,19 +230,19 @@ void TabManager::LinkClicked(const QUrl &url)
 }
 
 void TabManager::OpenResource( Resource& resource,
-                               bool precede_current_tab,
-                               const QUrl &fragment,
-                               MainWindow::ViewState view_state,
                                int line_to_scroll_to,
                                int position_to_scroll_to,
-                               QString caret_location_to_scroll_to,
-                               bool grab_focus )
+                               const QString &caret_location_to_scroll_to,
+                               MainWindow::ViewState view_state,
+                               const QUrl &fragment,
+                               bool precede_current_tab )
 {
-    if ( SwitchedToExistingTab( resource, fragment, line_to_scroll_to, position_to_scroll_to, caret_location_to_scroll_to ) ) {
+    if ( SwitchedToExistingTab( resource, line_to_scroll_to, position_to_scroll_to, caret_location_to_scroll_to, fragment ) ) {
         return;
     }
-    ContentTab *new_tab = CreateTabForResource( resource, fragment, view_state, 
-                                                line_to_scroll_to, position_to_scroll_to, caret_location_to_scroll_to, grab_focus);
+    bool grab_focus = !precede_current_tab;
+    ContentTab *new_tab = CreateTabForResource( resource, line_to_scroll_to, position_to_scroll_to, 
+                                                    caret_location_to_scroll_to, view_state, fragment, grab_focus);
 
     if (new_tab) {
         AddNewContentTab( new_tab, precede_current_tab);
@@ -424,10 +424,10 @@ int TabManager::ResourceTabIndex( const Resource& resource ) const
 
 
 bool TabManager::SwitchedToExistingTab( Resource& resource,
-                                        const QUrl &fragment,
                                         int line_to_scroll_to,
                                         int position_to_scroll_to,
-                                        QString caret_location_to_scroll_to )
+                                        const QString &caret_location_to_scroll_to,
+                                        const QUrl &fragment )
 {
     int resource_index = ResourceTabIndex( resource );
 
@@ -452,7 +452,7 @@ bool TabManager::SwitchedToExistingTab( Resource& resource,
             {
                 flow_tab->ScrollToPosition( position_to_scroll_to );
             }
-            else if ( fragment.toString() != "" )
+            else if ( !fragment.toString().isEmpty() )
             {
                 flow_tab->ScrollToFragment( fragment.toString() );
             }
@@ -485,11 +485,11 @@ bool TabManager::SwitchedToExistingTab( Resource& resource,
 
 
 ContentTab* TabManager::CreateTabForResource( Resource& resource,
-                                              const QUrl &fragment,
-                                              MainWindow::ViewState view_state,
                                               int line_to_scroll_to,
                                               int position_to_scroll_to,
-                                              QString caret_location_to_scroll_to,
+                                              const QString &caret_location_to_scroll_to,
+                                              MainWindow::ViewState view_state,
+                                              const QUrl &fragment,
                                               bool grab_focus )
 {
     ContentTab *tab = NULL;

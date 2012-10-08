@@ -127,7 +127,7 @@ void TableOfContents::ItemClickedHandler( const QModelIndex &index )
     {
         Resource &resource = m_Book->GetFolderKeeper().GetResourceByFilename( filename );
 
-        emit OpenResourceRequest( resource, false, url.fragment() );
+        emit OpenResourceRequest( resource, -1, -1, QString(), MainWindow::ViewState_Unknown, url.fragment() );
     }
 
     catch ( const ResourceDoesNotExist& )
