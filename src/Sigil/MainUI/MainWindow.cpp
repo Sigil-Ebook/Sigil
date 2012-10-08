@@ -2453,23 +2453,16 @@ void MainWindow::UpdateZoomLabel( int slider_value )
 
 void MainWindow::SetDefaultViewState()
 {
-    MainWindow::ViewState view_state = MainWindow::ViewState_BookView;
-
+    // Default will be BookView unless there is a persisted value.
     SettingsStore settings;
 
     int view_state_value = settings.viewState();
     switch (view_state_value) {
         case MainWindow::ViewState_PreviewView:
         case MainWindow::ViewState_CodeView:
-            view_state = static_cast<MainWindow::ViewState>(view_state_value);
+            m_ViewState = static_cast<MainWindow::ViewState>(view_state_value);
             break;
     }
-
-    emit SettingsChanged();
-
-    m_ViewState = view_state;
-
-    SetViewState(m_ViewState);
 }
 
 void MainWindow::SetAutoSpellCheck( bool new_state )
