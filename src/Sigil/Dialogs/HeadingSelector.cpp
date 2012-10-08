@@ -332,7 +332,7 @@ int HeadingSelector::UpdateOneHeadingElement(QStandardItem *item, QStringList us
             // Append to our list.
             new_id_attribute += " " % existing_id;
         }
-        if (toc_id_to_use.isEmpty()) {
+        if (toc_id_to_use.isEmpty() && heading->include_in_toc) {
             // We didn't find one so generate next available.
             do {
                 toc_id_to_use = SIGIL_TOC_ID_PREFIX + QString::number( next_toc_id );
@@ -342,7 +342,12 @@ int HeadingSelector::UpdateOneHeadingElement(QStandardItem *item, QStringList us
         }
         if (new_id_attribute.trimmed() != existing_id_attribute) {
             heading->is_changed = true;
-            heading->element->setAttribute(QtoX( "id" ), QtoX( new_id_attribute ) );
+            if (!new_id_attribute.isEmpty()) {
+                heading->element->setAttribute(QtoX("id"), QtoX( new_id_attribute ));
+            }
+            else {
+                heading->element->removeAttribute(QtoX("id"));
+            }
         }
     }
 
