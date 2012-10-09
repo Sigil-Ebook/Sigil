@@ -110,6 +110,8 @@ QStringList MainWindow::s_RecentFiles = QStringList();
 MainWindow::MainWindow( const QString &openfilepath, QWidget *parent, Qt::WFlags flags )
     :
     QMainWindow( parent, flags ),
+    m_LastOpenFileWarnings( QStringList() ),
+    m_IsInitialLoad( true ),
     m_CurrentFilePath( QString() ),
     m_Book( new Book() ),
     m_LastFolderOpen( QString() ),
@@ -359,6 +361,24 @@ void MainWindow::ShowMessageOnStatusBar( const QString &message,
     }
     else {
         statusBar()->showMessage(message, millisecond_duration);
+    }
+}
+
+void MainWindow::ShowLastOpenFileWarnings()
+{
+    if (!m_LastOpenFileWarnings.isEmpty()) {
+        Utility::DisplayStdWarningDialog( tr("<p><b>In loading this EPUB the following errors occurred:</b></p>"), 
+                                          m_LastOpenFileWarnings.join("<br/>") );
+        m_LastOpenFileWarnings.clear();
+    }
+}
+
+void MainWindow::showEvent( QShowEvent *event )
+{
+    m_IsInitialLoad = false;
+    QMainWindow::showEvent( event );
+    if (!m_LastOpenFileWarnings.isEmpty()) {
+        QTimer::singleShot(0, this, SLOT(ShowLastOpenFileWarnings()));
     }
 }
 
@@ -2784,34 +2804,38 @@ void MainWindow::LoadFile( const QString &fullfilepath )
 
         if ( !importer.IsValidToLoad() ) {
             // Warn the user their content is invalid.
-            QMessageBox::warning( this, tr( "Sigil" ),
-                                    tr( "The following file was not loaded due to invalid content or not well formed XML:\n\n%1" )
-                                    .arg( QDir::toNativeSeparators(fullfilepath) ) );
-            // Fallback to displaying a new book
-            CreateNewBook();
+            Utility::DisplayStdErrorDialog( tr( "The following file was not loaded due to invalid content or not well formed XML:\n\n%1" )
+                                                .arg( QDir::toNativeSeparators(fullfilepath) ) );
+        }
+        else {        
+            QApplication::setOverrideCursor( Qt::WaitCursor );
+            m_Book->SetModified( false );
+
+            SetNewBook( importer.GetBook() );
+
+            // The m_IsModified state variable is set in GetBook() to indicate whether the OPF
+            // file was invalid and had to be recreated.
+            // Since this happens before the connections have been established, it needs to be
+            // tested and retoggled if true in order to indicate the actual state.
+            if( m_Book->IsModified() )
+            {
+                m_Book->SetModified( false );
+                m_Book->SetModified( true );
+            }
+
+            QApplication::restoreOverrideCursor();
+
+            UpdateUiWithCurrentFile( fullfilepath );
+            ShowMessageOnStatusBar( tr( "File loaded." ) );
+
+            // Get any warnings - if our main window is not currently visible they will be
+            // shown when the window is displayed.
+            m_LastOpenFileWarnings.append(importer.GetLoadWarnings());
+            if (!m_IsInitialLoad) {
+                ShowLastOpenFileWarnings();
+            }
             return;
         }
-        
-        QApplication::setOverrideCursor( Qt::WaitCursor );
-        m_Book->SetModified( false );
-
-        SetNewBook( importer.GetBook() );
-
-        // The m_IsModified state variable is set in GetBook() to indicate whether the OPF
-        // file was invalid and had to be recreated.
-        // Since this happens before the connections have been established, it needs to be
-        // tested and retoggled if true in order to indicate the actual state.
-        if( m_Book->IsModified() )
-        {
-            m_Book->SetModified( false );
-            m_Book->SetModified( true );
-        }
-
-        QApplication::restoreOverrideCursor();
-
-        UpdateUiWithCurrentFile( fullfilepath );
-        ShowMessageOnStatusBar( tr( "File loaded." ) );
-        return;
     }
 
     catch ( const FileEncryptedWithDrm& )
@@ -2842,6 +2866,7 @@ void MainWindow::LoadFile( const QString &fullfilepath )
     // and potentially has left the GUI in a nasty state (like on initial startup)
     // Fallback to displaying a new book instead so GUI integrity is maintained.
     CreateNewBook();
+    return;
 }
 
 
@@ -3678,7 +3703,7 @@ void MainWindow::ExtendIconSizes()
 void MainWindow::LoadInitialFile( const QString &openfilepath )
 {
     if (!openfilepath.isEmpty()) {
-        LoadFile( openfilepath);
+        LoadFile( openfilepath );
     }
     else {
         CreateNewBook();

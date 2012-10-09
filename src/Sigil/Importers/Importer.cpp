@@ -24,7 +24,8 @@
 Importer::Importer( const QString &fullfilepath )
     :
     m_FullFilePath( fullfilepath ),
-    m_Book( new Book() )
+    m_Book( new Book() ),
+    m_LoadWarnings( QStringList() )
 {
 
 }
@@ -33,4 +34,14 @@ bool Importer::IsValidToLoad()
 {
     // Default behaviour is to assume resource is valid.
     return true;
+}
+
+QStringList Importer::GetLoadWarnings()
+{
+    return m_LoadWarnings;
+}
+
+void Importer::AddLoadWarning(const QString &warning)
+{
+    m_LoadWarnings.append( warning );
 }

@@ -49,7 +49,7 @@ public:
     virtual ~Importer() {}
     
     /**
-     * Call this prior to calling GetBook to determine whether the item
+     * Call this prior to calling GetBook() to determine whether the item
      * is valid to be loaded. 
      */
     virtual bool IsValidToLoad();
@@ -61,7 +61,15 @@ public:
      */
     virtual QSharedPointer< Book > GetBook() = 0;
 
+    /**
+     * Call this after calling GetBook() to get any warning messages that
+     * occurred while GetBook() was loading.
+     */
+    QStringList GetLoadWarnings();
+
 protected:
+
+    void AddLoadWarning(const QString &warning);
 
     ///////////////////////////////
     // PROTECTED MEMBER VARIABLES
@@ -77,6 +85,8 @@ protected:
      * by the importing process.
      */ 
     QSharedPointer< Book > m_Book;
+
+    QStringList m_LoadWarnings;
 };
 
 #endif // IMPORTER_H

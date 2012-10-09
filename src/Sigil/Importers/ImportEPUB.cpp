@@ -66,12 +66,6 @@ QSharedPointer< Book > ImportEPUB::GetBook()
     // These mutate the m_Book object
     LocateOPF();
 
-    // We're going to check if there is an NCX or if we need to create one
-    // as a fall back for poorly (invalid) constructed EPUBs.
-    // This causes the OPF to be parsed twice but the OPF is small and the
-    // parsers are very fast so refactoring is not a priority.
-    QString ncx_id = GetNCXId();
-
     // These mutate the m_Book object
     ReadOPF();
     AddObfuscatedButUndeclaredFonts( encrypted_files );
@@ -93,6 +87,13 @@ QSharedPointer< Book > ImportEPUB::GetBook()
     }
 
     ProcessFontFiles( resources, updates, encrypted_files );
+
+    // We're going to check if there is an NCX or if we need to create one
+    // as a fall back for poorly (invalid) constructed EPUBs.
+    // This causes the OPF to be parsed twice but the OPF is small and the
+    // parsers are very fast so refactoring is not a priority.
+    QString ncx_id = GetNCXId();
+
     m_Book->GetOPF().UpdateNCXLocationInManifest( m_Book->GetNCX() );
 
     // If spine didn't specify the ncx, recreate the OPF from scratch

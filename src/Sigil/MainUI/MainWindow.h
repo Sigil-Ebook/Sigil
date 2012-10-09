@@ -194,6 +194,7 @@ signals:
     void SettingsChanged();
 
 protected:
+    void showEvent( QShowEvent *event );
     /**
      * Workaround for Qt 4.8 bug, which does not save/restore window state 
      * correctly if maximized at the time of calling saveGeometry().
@@ -242,6 +243,8 @@ private slots:
     bool SaveACopy();
 
     void ShowMessageOnStatusBar( const QString &message = "", int millisecond_duration = STATUSBAR_MSG_DISPLAY_TIME );
+
+    void ShowLastOpenFileWarnings();
 
     /**
      * Implements Find action functionality.
@@ -552,7 +555,6 @@ private slots:
     void SetImageWatchResourceFile(const QString &pathname);
 
 private:
-
     void DeleteReportsStyles(QList<BookReports::StyleData *> reports_styles_to_delete, bool prompt_user = true);
 
     void InsertImages(const QStringList &selected_images);
@@ -750,6 +752,15 @@ private:
     ///////////////////////////////
     // PRIVATE MEMBER VARIABLES
     ///////////////////////////////
+
+    /** 
+     * Warning messages to be displayed to the user after opening a book
+     * if non-fatal errors occurred during loading. When Sigil is started
+     * with a filename on command line, we must store these for display
+     * after the UI main window is visible.
+     */
+    QStringList m_LastOpenFileWarnings;
+    bool m_IsInitialLoad;
 
     /**
      * The path to the current file loaded.

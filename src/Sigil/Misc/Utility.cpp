@@ -443,6 +443,23 @@ void Utility::DisplayStdErrorDialog( const QString &error_message, const QString
 }
 
 
+void Utility::DisplayStdWarningDialog( const QString &warning_message, const QString &informative_text )
+{
+    QMessageBox message_box(QApplication::activeWindow());
+    message_box.setIcon( QMessageBox::Warning );
+    message_box.setWindowTitle( "Sigil" );
+    message_box.setText( warning_message );
+    message_box.setTextFormat(Qt::RichText);
+
+    if ( !informative_text.isEmpty() ) {
+        message_box.setInformativeText( informative_text );
+    }
+    
+    message_box.setStandardButtons( QMessageBox::Close );
+    message_box.exec();
+}
+
+
 QString Utility::GetExceptionInfo( const ExceptionBase &exception )
 {
     return QString::fromStdString( diagnostic_information( exception ) );
