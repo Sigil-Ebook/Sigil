@@ -66,6 +66,8 @@ private slots:
      */
     void saveSettings();
 
+    void openPreferencesLocation();
+
 private:
     /**
      * Read settings for the dialog.
@@ -83,6 +85,8 @@ private:
      * @param widget The PreferencesWidget to add to the dialog.
      */
     void appendPreferenceWidget(PreferencesWidget *widget);
+
+    void extendUI();
     /**
      * Connect signals to slots used by this dialog.
      */

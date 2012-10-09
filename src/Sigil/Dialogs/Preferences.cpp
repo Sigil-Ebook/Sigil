@@ -19,6 +19,9 @@
 **
 *************************************************************************/
 
+#include <QtCore/QDir>
+#include <QtCore/QUrl>
+#include <QtGui/QDesktopServices>
 #include "QtGui/QMessageBox"
 #include <QtGui/QScrollArea>
 
@@ -39,6 +42,7 @@ Preferences::Preferences(QWidget *parent) :
     m_restartSigil(false)
 {
     ui.setupUi(this);
+    extendUI();
 
     // Create and load all of our preference widgets.;
     appendPreferenceWidget(new AppearanceWidget);
@@ -143,8 +147,22 @@ bool Preferences::isRestartRequired()
     return m_restartSigil;
 }
 
+void Preferences::openPreferencesLocation()
+{
+    QUrl location = QUrl::fromLocalFile(QDesktopServices::storageLocation(QDesktopServices::DataLocation));
+    QDesktopServices::openUrl(location);
+}
+
+void Preferences::extendUI()
+{
+    QPushButton *open_button = ui.buttonBox->button(QDialogButtonBox::Reset);
+    open_button->setText(tr("Open Preferences Location"));
+    open_button->setToolTip(QDir::toNativeSeparators(QDesktopServices::storageLocation(QDesktopServices::DataLocation)));
+}
+
 void Preferences::connectSignalsSlots()
 {
     connect(ui.availableWidgets, SIGNAL(currentItemChanged(QListWidgetItem*, QListWidgetItem*)), this, SLOT(selectPWidget(QListWidgetItem*, QListWidgetItem*)));
     connect(this, SIGNAL(finished(int)), this, SLOT(saveSettings()));
+    connect(ui.buttonBox->button(QDialogButtonBox::Reset), SIGNAL(clicked()), this, SLOT(openPreferencesLocation()));
 }
