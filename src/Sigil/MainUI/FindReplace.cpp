@@ -1003,13 +1003,13 @@ void FindReplace::ReadSettings()
     SetSearchDirection( settings.value( "search_direction", 0 ).toInt() );
 
     bool regexOptionDotAll = settings.value( "regexoptiondotall", false ).toBool();
-    ui.chkRegexOptionDotAll->setChecked(regexOptionDotAll);
+    SetRegexOptionDotAll(regexOptionDotAll);
 
     bool regexOptionMinimalMatch = settings.value( "regexoptionminimalmatch", false ).toBool();
-    ui.chkRegexOptionMinimalMatch->setChecked(regexOptionMinimalMatch);
+    SetRegexOptionMinimalMatch(regexOptionMinimalMatch);
     
     bool regexOptionAutoTokenise = settings.value( "regexoptionautotokenise", false ).toBool();
-    ui.chkRegexOptionAutoTokenise->setChecked(regexOptionAutoTokenise);
+    SetRegexOptionAutoTokenise(regexOptionAutoTokenise);
 
     settings.endGroup();
 }
