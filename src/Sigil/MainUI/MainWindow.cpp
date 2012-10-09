@@ -134,7 +134,8 @@ MainWindow::MainWindow( const QString &openfilepath, QWidget *parent, Qt::WFlags
     m_preserveHeadingAttributes( true ),
     m_LinkOrStyleBookmark(new LocationBookmark()),
     m_ClipboardHistorySelector(new ClipboardHistorySelector(this)),
-    m_LastPasteTarget(NULL)
+    m_LastPasteTarget(NULL),
+    m_LastWindowSize(QByteArray())
 {
     ui.setupUi( this );
 
@@ -359,6 +360,24 @@ void MainWindow::ShowMessageOnStatusBar( const QString &message,
     else {
         statusBar()->showMessage(message, millisecond_duration);
     }
+}
+
+void MainWindow::moveEvent( QMoveEvent *event )
+{
+    // Workaround for Qt 4.8 bug - see WriteSettings() for details.
+    if (!isMaximized()) {
+        m_LastWindowSize = saveGeometry();
+    }
+    QMainWindow::moveEvent(event);
+}
+
+void MainWindow::resizeEvent( QResizeEvent *event )
+{
+    // Workaround for Qt 4.8 bug - see WriteSettings() for details.
+    if (!isMaximized()) {
+        m_LastWindowSize = saveGeometry();
+    }
+    QMainWindow::resizeEvent(event);
 }
 
 void MainWindow::closeEvent( QCloseEvent *event )
@@ -2585,10 +2604,16 @@ void MainWindow::ReadSettings()
     settings.beginGroup( SETTINGS_GROUP );
 
     // The size of the window and its full screen status
+    // Due to the 4.8 bug, we restore its "normal" window size and then maximize
+    // it afterwards (if last state was maximized) to ensure on correct screen.
+    bool isMaximized = settings.value( "maximized", false ).toBool();
     QByteArray geometry = settings.value( "geometry" ).toByteArray();
-
-    if ( !geometry.isNull() )
+    if ( !geometry.isNull() ) {
         restoreGeometry( geometry );
+        if (isMaximized) {
+            setWindowState(windowState() | Qt::WindowMaximized);
+        }
+    }
 
     // The positions of all the toolbars and dock widgets
     QByteArray toolbars = settings.value( "toolbars" ).toByteArray();
@@ -2629,7 +2654,12 @@ void MainWindow::WriteSettings()
     settings.beginGroup( SETTINGS_GROUP );
 
     // The size of the window and it's full screen status
-    settings.setValue( "geometry", saveGeometry() );
+    // This is a workaround for this bug:
+    // Maximizing Sigil and then closing will forget the previous window size
+    // and open it maximized on the wrong screen.
+    // https://bugreports.qt-project.org/browse/QTBUG-21371
+    settings.setValue( "maximized", isMaximized() );
+    settings.setValue( "geometry", m_LastWindowSize );
 
     // The positions of all the toolbars and dock widgets
     settings.setValue( "toolbars", saveState() );

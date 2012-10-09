@@ -194,6 +194,12 @@ signals:
     void SettingsChanged();
 
 protected:
+    /**
+     * Workaround for Qt 4.8 bug, which does not save/restore window state 
+     * correctly if maximized at the time of calling saveGeometry().
+     */
+    void moveEvent( QMoveEvent *event );
+    void resizeEvent( QResizeEvent *event );
 
     /**
      * Overrides the closeEvent handler so we can check
@@ -873,6 +879,11 @@ private:
      * The last widget in this window that had focus that inherited PasteTarget.
      */
     PasteTarget *m_LastPasteTarget;
+
+    /**
+     * Workaround for Qt 4.8 bug, to track the last known window size when not maximized.
+     */
+    QByteArray m_LastWindowSize;
 
     /**
      * Holds all the widgets Qt Designer created for us.
