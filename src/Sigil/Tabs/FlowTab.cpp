@@ -349,13 +349,13 @@ bool FlowTab::IsLoadingFinished()
 {
     bool is_finished = true;
     if (m_wCodeView) {
-        is_finished = is_finished && m_wCodeView->IsLoadingFinished();
+        is_finished = m_wCodeView->IsLoadingFinished();
     }
     if (is_finished && m_wBookView) {
-        is_finished = is_finished && m_wBookView->IsLoadingFinished();
+        is_finished = m_wBookView->IsLoadingFinished();
     }
     if (is_finished && m_wBookPreview) {
-        is_finished = is_finished && m_wBookPreview->IsLoadingFinished();
+        is_finished = m_wBookPreview->IsLoadingFinished();
     }
     return is_finished;
 }
