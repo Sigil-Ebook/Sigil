@@ -251,7 +251,7 @@ int FindReplace::Count()
 
     if (!m_OptionWrap && GetLookWhere() != FindReplace::LookWhere_CurrentFile && !m_LookWhereCurrentFile)
     {
-        QMessageBox::critical( this, tr( "Sigil" ), tr( "You can only use Count All on the Current File while Wrap is turned off.  Enable the Wrap option or change to Current File to use Count All." ) );
+        QMessageBox::critical( this, tr( "Sigil" ), tr( "Count All cannot be used at this time.  Enable the Wrap option or change to Current File to use Count All." ) );
         return 0;
     }
 
@@ -355,7 +355,7 @@ int FindReplace::ReplaceAll()
 
     if (!m_OptionWrap && GetLookWhere() != FindReplace::LookWhere_CurrentFile && !m_LookWhereCurrentFile)
     {
-        QMessageBox::critical( this, tr( "Sigil" ), tr( "You can only use Replace All on the Current File while Wrap is turned off.  Enable the Wrap option or change to Current File to use Replace All." ) );
+        QMessageBox::critical( this, tr( "Sigil" ), tr( "Replace All cannot be used at this time.  Enable the Wrap option or change to Current File to use Replace All." ) );
         return 0;
     }
 

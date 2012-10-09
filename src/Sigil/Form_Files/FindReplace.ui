@@ -328,7 +328,7 @@ then find the Next match in Code View.</string>
           <item>
            <widget class="QCheckBox" name="chkOptionWrap">
             <property name="toolTip">
-             <string>Wrap around other end of document/book when searching or replacing.</string>
+             <string>Wrap to other end of the file or book when searching or replacing.</string>
             </property>
             <property name="styleSheet">
              <string notr="true"/>
@@ -447,6 +447,7 @@ then find the Next match in Code View.</string>
   <tabstop>chkRegexOptionDotAll</tabstop>
   <tabstop>chkRegexOptionMinimalMatch</tabstop>
   <tabstop>chkRegexOptionAutoTokenise</tabstop>
+  <tabstop>chkOptionWrap</tabstop>
   <tabstop>cbSearchMode</tabstop>
   <tabstop>cbLookWhere</tabstop>
   <tabstop>cbSearchDirection</tabstop>
