@@ -641,12 +641,7 @@ QString CleanSource::PrettifyDOCTYPEHeader( const QString &source )
     if (index > 0 && index < SAFE_LENGTH) {
         newsource.insert(index + 2, "\n");
 
-        QRegExp doctype_http_missing_newline( "//EN\" \"http://" );
-        index = doctype_http_missing_newline.indexIn(newsource);
-        if (index > 0 && index < SAFE_LENGTH) {
-            newsource.insert(index + 5, "\n ");
-        }
-
+        bool is_ncx = false;
         QRegExp html_missing_newline( "\"><html " );
         index = html_missing_newline.indexIn(newsource);
         if (index > 0 && index < SAFE_LENGTH) {
@@ -656,7 +651,14 @@ QString CleanSource::PrettifyDOCTYPEHeader( const QString &source )
         QRegExp ncx_missing_newline( "\"><ncx " );
         index = ncx_missing_newline.indexIn(newsource);
         if (index > 0 && index < SAFE_LENGTH) {
-            newsource.insert(index + 2, "\n\n");
+            is_ncx = true;
+            newsource.insert(index + 2, "\n");
+        }
+
+        QRegExp doctype_http_missing_newline( "//EN\" \"http://" );
+        index = doctype_http_missing_newline.indexIn(newsource);
+        if (index > 0 && index < SAFE_LENGTH) {
+            newsource.insert(index + 5, is_ncx ? "\n" : "\n ");
         }
     }
 
