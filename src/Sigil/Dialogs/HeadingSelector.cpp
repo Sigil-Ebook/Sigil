@@ -309,14 +309,14 @@ int HeadingSelector::UpdateOneHeadingElement(QStandardItem *item, QStringList us
         // If it has any other id we will replace it with a sigil_not_in_toc alternative.
         QString new_id_attribute(existing_id_attribute);
         if (!heading->include_in_toc) {
-            if (!existing_id_attribute.isEmpty() && !used_ids.contains(existing_id_attribute)) {
+                if (!existing_id_attribute.isEmpty() && !used_ids.contains(existing_id_attribute) && (existing_id_attribute.startsWith(SIGIL_TOC_ID_PREFIX) || existing_id_attribute.startsWith(OLD_SIGIL_TOC_ID_PREFIX))) {
                 // An existing id, not in use but as heading not in the TOC we can delete the id.
                 new_id_attribute.clear();
             }
         }
         else {
             // We definitely want to give it an id.
-            if (existing_id_attribute.isEmpty() || !used_ids.contains(existing_id_attribute)) {
+            if (existing_id_attribute.isEmpty() || (!used_ids.contains(existing_id_attribute) && existing_id_attribute.startsWith(SIGIL_TOC_ID_PREFIX) && existing_id_attribute.startsWith(OLD_SIGIL_TOC_ID_PREFIX))) {
                 // We can replace it with a new sigil prefix version.
                 do {
                     new_id_attribute = SIGIL_TOC_ID_PREFIX + QString::number( next_toc_id );
