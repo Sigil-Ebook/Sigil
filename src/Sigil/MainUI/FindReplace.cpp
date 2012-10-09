@@ -47,6 +47,7 @@ FindReplace::FindReplace( MainWindow &main_window )
       m_RegexOptionDotAll( false ),
       m_RegexOptionMinimalMatch( false ),
       m_RegexOptionAutoTokenise( false ),
+      m_OptionWrap( false ),
       m_SpellCheck(false),
       m_LookWhereCurrentFile(false),
       m_IsSearchGroupRunning(false)
@@ -248,6 +249,12 @@ int FindReplace::Count()
         return 0;
     }
 
+    if (!m_OptionWrap && GetLookWhere() != FindReplace::LookWhere_CurrentFile && !m_LookWhereCurrentFile)
+    {
+        QMessageBox::critical( this, tr( "Sigil" ), tr( "You can only use Count All on the Current File while Wrap is turned off.  Enable the Wrap option or change to Current File to use Count All." ) );
+        return 0;
+    }
+
     SetCodeViewIfNeeded( true );
 
     int count = 0;
@@ -261,7 +268,12 @@ int FindReplace::Count()
             return 0;
         }
 
-        count = searchable->Count( GetSearchRegex() );
+        if (GetSearchDirection() == FindReplace::SearchDirection_Up) {
+            count = searchable->Count( GetSearchRegex(), m_OptionWrap, Searchable::Direction_Up );
+        }
+        else {
+            count = searchable->Count( GetSearchRegex(), m_OptionWrap, Searchable::Direction_Down );
+        }
     }
     else
     {
@@ -341,6 +353,12 @@ int FindReplace::ReplaceAll()
         return 0;
     }
 
+    if (!m_OptionWrap && GetLookWhere() != FindReplace::LookWhere_CurrentFile && !m_LookWhereCurrentFile)
+    {
+        QMessageBox::critical( this, tr( "Sigil" ), tr( "You can only use Replace All on the Current File while Wrap is turned off.  Enable the Wrap option or change to Current File to use Replace All." ) );
+        return 0;
+    }
+
     SetCodeViewIfNeeded( true );
 
     int count = 0;
@@ -353,7 +371,12 @@ int FindReplace::ReplaceAll()
         {
             return 0;
         }
-        count = searchable->ReplaceAll( GetSearchRegex(), ui.cbReplace->lineEdit()->text() );
+        if (GetSearchDirection() == FindReplace::SearchDirection_Up) {
+            count = searchable->ReplaceAll( GetSearchRegex(), ui.cbReplace->lineEdit()->text(), m_OptionWrap, Searchable::Direction_Up );
+        }
+        else {
+            count = searchable->ReplaceAll( GetSearchRegex(), ui.cbReplace->lineEdit()->text(), m_OptionWrap, Searchable::Direction_Down );
+        }
     }
     else
     {
@@ -474,8 +497,7 @@ bool FindReplace::FindText( Searchable::Direction direction )
             return found;
         }
 
-        found = searchable->FindNext( GetSearchRegex(), direction );
-
+        found = searchable->FindNext( GetSearchRegex(), direction, false, false, m_OptionWrap);
     }
     else
     {
@@ -699,6 +721,7 @@ bool FindReplace::FindInAllFiles( Searchable::Direction direction )
         searchable = GetAvailableSearchable();
         if ( searchable )
         {
+            // We don't want to wrap as we may move to the next file
             found = searchable->FindNext( GetSearchRegex(), direction, m_SpellCheck, false, false);
         }
     }
@@ -827,11 +850,21 @@ HTMLResource* FindReplace::GetNextHTMLResource( HTMLResource *current_resource, 
     // We wrap back (if needed)
     if ( direction == Searchable::Direction_Up )
     {
-        next_reading_order = current_reading_order - 1 >= 0 ? current_reading_order - 1 : max_reading_order ;
+        if (m_OptionWrap) {
+            next_reading_order = current_reading_order - 1 >= 0 ? current_reading_order - 1 : max_reading_order ;
+        }
+        else {
+            next_reading_order = current_reading_order - 1;
+        }
     }
     else
     {
-        next_reading_order = current_reading_order + 1 <= max_reading_order ? current_reading_order + 1 : 0;
+        if (m_OptionWrap) {
+            next_reading_order = current_reading_order + 1 <= max_reading_order ? current_reading_order + 1 : 0;
+        }
+        else {
+            next_reading_order = current_reading_order + 1;
+        }
     }
 
     if ( next_reading_order > max_reading_order || next_reading_order < 0 )
@@ -1011,6 +1044,9 @@ void FindReplace::ReadSettings()
     bool regexOptionAutoTokenise = settings.value( "regexoptionautotokenise", false ).toBool();
     ui.chkRegexOptionAutoTokenise->setChecked(regexOptionAutoTokenise);
 
+    bool regexOptionWrap = settings.value( "optionwrap", true).toBool();
+    ui.chkOptionWrap->setChecked(regexOptionWrap);
+
     settings.endGroup();
 }
 
@@ -1045,6 +1081,7 @@ void FindReplace::ShowHideAdvancedOptions()
     ui.chkRegexOptionDotAll->setVisible(show_advanced);
     ui.chkRegexOptionMinimalMatch->setVisible(show_advanced);
     ui.chkRegexOptionAutoTokenise->setVisible(show_advanced);
+    ui.chkOptionWrap->setVisible(show_advanced);
     ui.count->setVisible(show_advanced);
 
     QIcon icon;
@@ -1093,6 +1130,7 @@ void FindReplace::WriteSettings()
     settings.setValue( "regexoptiondotall", ui.chkRegexOptionDotAll->isChecked() );
     settings.setValue( "regexoptionminimalmatch", ui.chkRegexOptionMinimalMatch->isChecked() );
     settings.setValue( "regexoptionautotokenise", ui.chkRegexOptionAutoTokenise->isChecked() );
+    settings.setValue( "optionwrap", ui.chkOptionWrap->isChecked() );
 
     settings.endGroup();
 }
@@ -1375,6 +1413,12 @@ void FindReplace::SetRegexOptionAutoTokenise(bool new_state)
     ui.chkRegexOptionAutoTokenise->setChecked(new_state);
 }
 
+void FindReplace::SetOptionWrap(bool new_state)
+{
+    m_OptionWrap = new_state;
+    ui.chkOptionWrap->setChecked(new_state);
+}
+
 // The UI is setup based on the capabilities.
 void FindReplace::ExtendUI()
 {
@@ -1437,4 +1481,5 @@ void FindReplace::ConnectSignalsToSlots()
     connect(ui.chkRegexOptionDotAll, SIGNAL(clicked(bool)), this, SLOT(SetRegexOptionDotAll(bool)));
     connect(ui.chkRegexOptionMinimalMatch, SIGNAL(clicked(bool)), this, SLOT(SetRegexOptionMinimalMatch(bool)));
     connect(ui.chkRegexOptionAutoTokenise, SIGNAL(clicked(bool)), this, SLOT(SetRegexOptionAutoTokenise(bool)));
+    connect(ui.chkOptionWrap, SIGNAL(clicked(bool)), this, SLOT(SetOptionWrap(bool)));
 }
