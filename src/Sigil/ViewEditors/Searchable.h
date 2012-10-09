@@ -74,7 +74,7 @@ public:
      * @param search_regex The regex to match with.
      * @return The number of matching occurrences.
      */
-    virtual int Count( const QString &search_regex, bool wrap, Searchable::Direction direction = Searchable::Direction_Down ) = 0;
+    virtual int Count( const QString &search_regex ) = 0;
 
     /**
      * If the currently selected text matches the specified regex,
@@ -93,7 +93,7 @@ public:
      * @param replacement The text with which to replace the matched string.
      * @return The number of performed replacements.
      */
-    virtual int ReplaceAll( const QString &search_regex, const QString &replacement, bool wrap, Searchable::Direction direction = Searchable::Direction_Down ) = 0;
+    virtual int ReplaceAll( const QString &search_regex, const QString &replacement ) = 0;
 
     /**
      * Returns the currently selected text string.

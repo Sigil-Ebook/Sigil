@@ -95,7 +95,6 @@ public slots:
     void SetRegexOptionDotAll(bool new_state);
     void SetRegexOptionMinimalMatch(bool new_state);
     void SetRegexOptionAutoTokenise(bool new_state);
-    void SetOptionWrap(bool new_state);
 
 signals:
 
@@ -292,7 +291,6 @@ private:
     bool m_RegexOptionDotAll;
     bool m_RegexOptionMinimalMatch;
     bool m_RegexOptionAutoTokenise;
-    bool m_OptionWrap;
 
     bool m_SpellCheck;
 

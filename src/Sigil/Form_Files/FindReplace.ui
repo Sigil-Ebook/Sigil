@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>739</width>
-    <height>122</height>
+    <width>566</width>
+    <height>93</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -110,7 +110,8 @@
           </property>
           <property name="icon">
            <iconset resource="../Resource_Files/main/main.qrc">
-            <normaloff>:/main/chevron-down_16px.png</normaloff>:/main/chevron-down_16px.png</iconset>
+            <normaloff>:/main/chevron-down_16px.png</normaloff>:/main/chevron-down_16px.png
+           </iconset>
           </property>
           <property name="iconSize">
            <size>
@@ -284,7 +285,7 @@ then find the Next match in Code View.</string>
           </property>
          </widget>
         </item>
-        <item row="2" column="1" colspan="2">
+        <item row="2" column="1">
          <layout class="QHBoxLayout" name="advancedLayout" stretch="0,0,0,0,0">
           <item>
            <widget class="QCheckBox" name="chkRegexOptionDotAll">
@@ -322,19 +323,6 @@ then find the Next match in Code View.</string>
             </property>
             <property name="text">
              <string>Auto-Tokenise</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QCheckBox" name="chkOptionWrap">
-            <property name="toolTip">
-             <string>Wrap to other end of the file or book when searching or replacing.</string>
-            </property>
-            <property name="styleSheet">
-             <string notr="true"/>
-            </property>
-            <property name="text">
-             <string>Wrap</string>
             </property>
            </widget>
           </item>
@@ -434,20 +422,12 @@ then find the Next match in Code View.</string>
    </item>
   </layout>
  </widget>
- <customwidgets>
-  <customwidget>
-   <class>PasteTargetComboBox</class>
-   <extends>QComboBox</extends>
-   <header>Misc/PasteTargetComboBox.h</header>
-  </customwidget>
- </customwidgets>
  <tabstops>
   <tabstop>cbFind</tabstop>
   <tabstop>cbReplace</tabstop>
   <tabstop>chkRegexOptionDotAll</tabstop>
   <tabstop>chkRegexOptionMinimalMatch</tabstop>
   <tabstop>chkRegexOptionAutoTokenise</tabstop>
-  <tabstop>chkOptionWrap</tabstop>
   <tabstop>cbSearchMode</tabstop>
   <tabstop>cbLookWhere</tabstop>
   <tabstop>cbSearchDirection</tabstop>
@@ -455,9 +435,17 @@ then find the Next match in Code View.</string>
   <tabstop>replaceFind</tabstop>
   <tabstop>replaceCurrent</tabstop>
   <tabstop>replaceAll</tabstop>
+  <tabstop>tokenise</tabstop>
   <tabstop>count</tabstop>
   <tabstop>close</tabstop>
  </tabstops>
+ <customwidgets>
+  <customwidget>
+   <class>PasteTargetComboBox</class>
+   <extends>QComboBox</extends>
+   <header>Misc/PasteTargetComboBox.h</header>
+  </customwidget>
+ </customwidgets>
  <resources>
   <include location="../Resource_Files/main/main.qrc"/>
  </resources>

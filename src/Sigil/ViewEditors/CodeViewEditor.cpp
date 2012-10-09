@@ -738,20 +738,9 @@ bool CodeViewEditor::FindNext( const QString &search_regex,
 }
 
 
-int CodeViewEditor::Count( const QString &search_regex, bool wrap, Searchable::Direction direction )
+int CodeViewEditor::Count( const QString &search_regex )
 {
     SPCRE *spcre = PCRECache::instance()->getObject( search_regex );
-    if (!wrap) {
-        const QString &document_text = toPlainText();
-        QString remaining_text;
-        if (direction == Searchable::Direction_Up) {
-            remaining_text = Utility::Substring(0, textCursor().position(), document_text );
-        } else {
-            remaining_text = Utility::Substring(textCursor().position(), document_text.length(), document_text );
-        }
-        return spcre->getEveryMatchInfo( remaining_text ).count();
-    }
-
     return spcre->getEveryMatchInfo( toPlainText() ).count();
 }
 
@@ -870,15 +859,11 @@ bool CodeViewEditor::ReplaceSelected( const QString &search_regex, const QString
 
 
 int CodeViewEditor::ReplaceAll( const QString &search_regex, 
-                                const QString &replacement,
-                                bool wrap,
-                                Searchable::Direction direction )
+                                const QString &replacement )
 {
     int count = 0;
 
-    int original_position = textCursor().position();
     QString text = toPlainText();
-
     SPCRE *spcre = PCRECache::instance()->getObject(search_regex);
     QList<SPCRE::MatchInfo> match_info = spcre->getEveryMatchInfo(text);
 
@@ -887,17 +872,6 @@ int CodeViewEditor::ReplaceAll( const QString &search_regex,
     // our changes.
     for (int i = match_info.count() - 1; i >= 0; i--) {
         QString replaced_text;
-
-        if (direction == Searchable::Direction_Up) {
-            if (match_info.at(i).offset.first > original_position) {
-                continue;
-            }
-        } else {
-            if (match_info.at(i).offset.second < original_position) {
-                continue;
-            }
-        }
-
         bool replacement_made = spcre->replaceText(Utility::Substring(match_info.at(i).offset.first, match_info.at(i).offset.second, text), match_info.at(i).capture_groups_offsets, replacement, replaced_text);
 
         if (replacement_made) {
