@@ -509,11 +509,26 @@ void MainWindow::OpenRecentFile()
         if ( MaybeSaveDialogSaysProceed() )
 #endif
         {
+            // It is possible that the file in the recent file menu no longer exists.
+            // Prompt the user asking them if they want to remove it.
+            const QString &filename = action->data().toString();
+            if (!QFile::exists(filename)) {
+                QMessageBox::StandardButton button_pressed;
+                const QString &msg = tr( "This file no longer exists. Click OK to remove it from the menu.\n%1" );
+                button_pressed = QMessageBox::warning( this, tr( "Sigil" ), 
+                                                       msg.arg(filename), QMessageBox::Ok | QMessageBox::Cancel);
+                if (button_pressed == QMessageBox::Ok) {
+                    s_RecentFiles.removeAll(filename);
+                    UpdateRecentFileActions();
+                }
+                return;
+            }
+
 #ifdef Q_WS_MAC
-            MainWindow *new_window = new MainWindow( action->data().toString() );
+            MainWindow *new_window = new MainWindow( filename );
             new_window->show();
 #else
-            LoadFile( action->data().toString() );
+            LoadFile( filename );
 #endif
         }
     }
