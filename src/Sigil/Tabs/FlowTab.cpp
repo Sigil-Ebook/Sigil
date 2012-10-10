@@ -212,7 +212,6 @@ void FlowTab::CreateCodeViewIfRequired(bool is_delayed_load)
     m_wCodeView = new CodeViewEditor(CodeViewEditor::Highlight_XHTML, true, this);
 
     m_views->addWidget(m_wCodeView);
-    m_wCodeView->LoadSettings();
 
     if (is_delayed_load) {
         ConnectCodeViewSignalsToSlots();
@@ -573,6 +572,10 @@ void FlowTab::PVSplitterMoved(int pos, int index)
 void FlowTab::LoadSettings()
 {
     UpdateDisplay();
+    // SettingsChanged can fire for wanting the spelling highlighting to be refreshed on the tab.
+    if (m_wCodeView) {
+        m_wCodeView->RefreshSpellingHighlighting();
+    }
 }
 
 void FlowTab::UpdateDisplay()

@@ -925,11 +925,6 @@ void CodeViewEditor::print( QPrinter* printer )
     QPlainTextEdit::print( printer );
 }
 
-void CodeViewEditor::LoadSettings()
-{
-    RehighlightDocument();
-}
-
 // Overridden because we need to update the cursor
 // location if a cursor update (from BookView) 
 // is waiting to be processed

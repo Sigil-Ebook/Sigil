@@ -365,8 +365,6 @@ public slots:
      */
     void print( QPrinter* printer );
 
-    void LoadSettings();
-
     // Implementations for PasteTarget.h
     void PasteText(const QString &text);
     void PasteClipEntries(const QList<ClipEditorModel::clipEntry *> &clips);
