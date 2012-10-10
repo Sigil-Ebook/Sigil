@@ -44,6 +44,8 @@ private slots:
     void removeWord();
     void removeAll();
 
+    void userWordChanged(QListWidgetItem *item);
+
     void openDictionaryDirectory();
 
     void loadUserDictionaryWordList(QListWidgetItem *item=0);

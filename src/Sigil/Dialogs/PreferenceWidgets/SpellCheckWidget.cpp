@@ -202,6 +202,13 @@ void SpellCheckWidget::removeAll()
     m_isDirty = true;
 }
 
+void SpellCheckWidget::userWordChanged(QListWidgetItem *item)
+{
+    if (item) {
+        item->setText(item->text().replace(QChar(0x2019), QChar('\'')));
+    }
+}
+
 void SpellCheckWidget::readSettings()
 {
     // Load the available dictionary names.
@@ -382,6 +389,7 @@ void SpellCheckWidget::connectSignalsToSlots()
     connect(ui.renameUserDict, SIGNAL(clicked()), this, SLOT(renameUserDict()));
     connect(ui.removeUserDict, SIGNAL(clicked()), this, SLOT(removeUserDict()));
     connect(ui.userDictList, SIGNAL(currentItemChanged(QListWidgetItem *, QListWidgetItem *)), this, SLOT(userDictionaryChanged(QListWidgetItem *, QListWidgetItem *)));
+    connect(ui.userWordList, SIGNAL(itemChanged(QListWidgetItem *)), this, SLOT(userWordChanged(QListWidgetItem *)));
 
     // Word list.
     connect(ui.addWord, SIGNAL(clicked()), this, SLOT(addWord()));
