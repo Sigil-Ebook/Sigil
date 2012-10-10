@@ -224,12 +224,12 @@ void MainWindow::OpenFilename( QString filename, int line )
 void MainWindow::ResetLinkOrStyleBookmark()
 {
     ResetLocationBookmark(m_LinkOrStyleBookmark);
-    ui.actionGoBackFromLinkOrStyle->setEnabled(false);
 }
 
 void MainWindow::ResetLocationBookmark(MainWindow::LocationBookmark *locationBookmark)
 {
     locationBookmark->filename.clear();
+    ui.actionGoBackFromLinkOrStyle->setEnabled(false);
 }
 
 void MainWindow::GoBackFromLinkOrStyle()
