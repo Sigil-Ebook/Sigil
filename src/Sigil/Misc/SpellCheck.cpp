@@ -30,6 +30,7 @@
 #include <QtCore/QTextCodec>
 #include <QtCore/QTextStream>
 #include <QtCore/QUrl>
+#include <QtGui/QApplication>
 #include <QtGui/QDesktopServices>
 
 #include "Misc/SpellCheck.h"
@@ -48,6 +49,36 @@ SpellCheck *SpellCheck::instance()
     }
 
     return m_instance;
+}
+
+SpellCheck::SpellCheck() :
+    m_hunspell(0),
+    m_codec(0)
+{
+    // There is a considerable lag involved in loading the Spellcheck dictionaries
+    QApplication::setOverrideCursor(Qt::WaitCursor);
+    
+    loadDictionaryNames();
+
+    // Create the user dictionary word list directiory if neccessary and
+    // create the configured file if necessary.
+    const QString user_directory = userDictionaryDirectory();
+    QDir userDir(user_directory);
+    if (!userDir.exists()) {
+        userDir.mkpath(user_directory);
+    }
+    QFile userFile(currentUserDictionaryFile());
+    if (!userFile.exists()) {
+        if (userFile.open(QIODevice::WriteOnly)) {
+            userFile.close();
+        }
+    }
+
+    // Load the dictionary the user has selected if one was saved.
+    SettingsStore settings;
+    setDictionary(settings.dictionary());
+
+    QApplication::restoreOverrideCursor();
 }
 
 SpellCheck::~SpellCheck()
@@ -220,32 +251,6 @@ void SpellCheck::replaceUserDictionaryWords(QStringList words)
 
     // Reload the dictionary so old user words are cleared.
     reloadDictionary();
-}
-
-SpellCheck::SpellCheck() :
-    m_hunspell(0),
-    m_codec(0)
-{
-
-    loadDictionaryNames();
-
-    // Create the user dictionary word list directiory if neccessary and
-    // create the configured file if necessary.
-    const QString user_directory = userDictionaryDirectory();
-    QDir userDir(user_directory);
-    if (!userDir.exists()) {
-        userDir.mkpath(user_directory);
-    }
-    QFile userFile(currentUserDictionaryFile());
-    if (!userFile.exists()) {
-        if (userFile.open(QIODevice::WriteOnly)) {
-            userFile.close();
-        }
-    }
-
-    // Load the dictionary the user has selected if one was saved.
-    SettingsStore settings;
-    setDictionary(settings.dictionary());
 }
 
 
