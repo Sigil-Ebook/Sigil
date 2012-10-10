@@ -1595,7 +1595,7 @@ void FlowTab::ConnectBookViewSignalsToSlots()
     connect(m_wBookView, SIGNAL(ClipboardRestoreRequest()), this, SIGNAL(ClipboardRestoreRequest()));
     connect(m_wBookView, SIGNAL(ImageOpenedExternally(const QString &)), this, SIGNAL(ImageOpenedExternally(const QString &)));
     connect(m_wBookView, SIGNAL(ImageSaveAs(const QUrl&)), this, SIGNAL(ImageSaveAs(const QUrl&)));
-    connect(m_wBookView, SIGNAL(ShowStatusMessageRequest(const QString&, int)), this, SIGNAL(ShowStatusMessageRequest(const QString&, int)));
+    connect(m_wBookView, SIGNAL(ShowStatusMessageRequest(const QString&)), this, SIGNAL(ShowStatusMessageRequest(const QString&)));
     connect(m_wBookView, SIGNAL(OpenClipEditorRequest(ClipEditorModel::clipEntry *)), this, SIGNAL(OpenClipEditorRequest(ClipEditorModel::clipEntry *)));
     connect(m_wBookView, SIGNAL(OpenIndexEditorRequest(IndexEditorModel::indexEntry *)), this, SIGNAL(OpenIndexEditorRequest(IndexEditorModel::indexEntry *)));
     connect(m_wBookView, SIGNAL(textChanged()), this, SLOT(EmitContentChanged()));
@@ -1606,7 +1606,7 @@ void FlowTab::ConnectPreviewViewSignalsToSlots()
     connect(m_wBookPreview, SIGNAL(ZoomFactorChanged(float)), this, SIGNAL(ZoomFactorChanged(float)));
     connect(m_wBookPreview, SIGNAL(selectionChanged()), this, SIGNAL(SelectionChanged()));
     connect(m_wBookPreview, SIGNAL(LinkClicked(const QUrl&)), this, SIGNAL(LinkClicked(const QUrl&)));
-    connect(m_wBookPreview, SIGNAL(ShowStatusMessageRequest(const QString&, int)), this, SIGNAL(ShowStatusMessageRequest(const QString&, int)));
+    connect(m_wBookPreview, SIGNAL(ShowStatusMessageRequest(const QString&)), this, SIGNAL(ShowStatusMessageRequest(const QString&)));
     connect(m_pvVSplitter,  SIGNAL(splitterMoved(int, int)), this, SLOT(PVSplitterMoved(int, int)));
 }
 
@@ -1622,6 +1622,6 @@ void FlowTab::ConnectCodeViewSignalsToSlots()
     connect(m_wCodeView, SIGNAL(GoToLinkedStyleDefinitionRequest(const QString&, const QString&)), this, SIGNAL(GoToLinkedStyleDefinitionRequest(const QString&, const QString&)));
     connect(m_wCodeView, SIGNAL(BookmarkLinkOrStyleLocationRequest()), this, SIGNAL(BookmarkLinkOrStyleLocationRequest()));
     connect(m_wCodeView, SIGNAL(SpellingHighlightRefreshRequest()), this, SIGNAL(SpellingHighlightRefreshRequest()));
-    connect(m_wCodeView, SIGNAL(ShowStatusMessageRequest(const QString&, int)), this, SIGNAL(ShowStatusMessageRequest(const QString&, int)));
+    connect(m_wCodeView, SIGNAL(ShowStatusMessageRequest(const QString&)), this, SIGNAL(ShowStatusMessageRequest(const QString&)));
     connect(m_wCodeView, SIGNAL(FilteredTextChanged()), this, SLOT(EmitContentChanged()));
 }

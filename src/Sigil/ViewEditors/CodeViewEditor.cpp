@@ -1325,14 +1325,19 @@ void CodeViewEditor::GoToLinkOrStyle()
     else if (IsPositionInOpeningTag()) {
         GoToStyleDefinition();
     }
+    else {
+        emit ShowStatusMessageRequest(tr("You must be in an opening HTML tag to use this feature."));
+    }
 }
 
 void CodeViewEditor::GoToStyleDefinition()
 {
     // Begin by identifying the tag name and selected class style attribute if any
     CodeViewEditor::StyleTagElement element = GetSelectedStyleTagElement();
-    if ( element.name.isEmpty() )
+    if ( element.name.isEmpty() ) {
+        emit ShowStatusMessageRequest(tr("You must be inside an opening HTML tag to use this feature."));
         return;
+    }
 
     CSSInfo css_info(toPlainText(), false);
     CSSInfo::CSSSelector* selector = css_info.getCSSSelectorForElementClass(element.name, element.classStyle);

@@ -98,7 +98,7 @@ void BookViewPreview::ShowTag()
     // for all open tag nodes until we hit the body tag.
     // e.g. <p class='foo'><b>
     const QString &html = EvaluateJavascript(c_GetParentTags).toString();
-    emit ShowStatusMessageRequest(html, 5000);
+    emit ShowStatusMessageRequest(html);
 }
 
 void BookViewPreview::copy()

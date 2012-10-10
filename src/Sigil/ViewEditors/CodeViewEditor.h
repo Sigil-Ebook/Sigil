@@ -354,7 +354,7 @@ signals:
 
     void SpellingHighlightRefreshRequest();
 
-    void ShowStatusMessageRequest(const QString &message, int millisecond_duration);
+    void ShowStatusMessageRequest(const QString &message);
 
 public slots:
 
