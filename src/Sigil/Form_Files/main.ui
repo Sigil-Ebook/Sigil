@@ -543,10 +543,6 @@
    </property>
   </action>
   <action name="actionSaveAs">
-   <property name="icon">
-    <iconset resource="../Resource_Files/main/main.qrc">
-     <normaloff>:/main/document-save-as_22px.png</normaloff>:/main/document-save-as_22px.png</iconset>
-   </property>
    <property name="text">
     <string>Save &amp;As...</string>
    </property>
@@ -560,10 +556,6 @@
    </property>
   </action>
   <action name="actionSaveACopy">
-   <property name="icon">
-    <iconset resource="../Resource_Files/main/main.qrc">
-     <normaloff>:/main/document-save-as_22px.png</normaloff>:/main/document-save-as_22px.png</iconset>
-   </property>
    <property name="text">
     <string>Save A &amp;Copy...</string>
    </property>

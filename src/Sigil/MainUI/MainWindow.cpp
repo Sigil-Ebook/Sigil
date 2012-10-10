@@ -3515,10 +3515,6 @@ void MainWindow::ExtendIconSizes()
     icon.addFile(QString::fromUtf8(":/main/document-save_16px.png"));
     ui.actionSave->setIcon(icon);
 
-    icon = ui.actionSaveAs->icon();
-    icon.addFile(QString::fromUtf8(":/main/document-save-as_16px.png"));
-    ui.actionSaveAs->setIcon(icon);
-
     icon = ui.actionValidateEpubWithFlightCrew->icon();
     icon.addFile(QString::fromUtf8(":/main/document-validate_16px.png"));
     ui.actionValidateEpubWithFlightCrew->setIcon(icon);
