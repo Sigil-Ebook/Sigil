@@ -889,11 +889,11 @@ void MainWindow::DeleteReportsStyles(QList<BookReports::StyleData *> reports_sty
 
     if (prompt_user) {
         QMessageBox::StandardButton button_pressed;
-        QString msg = count == 1 ? tr( "Are you sure you want to delete the style listed below?\n" ):
-                                               tr( "Are you sure you want to delete all the styles listed below?\n" );
-        msg += "\nThese styles have been marked as unused because they were not matched by a class ";
-        msg += "found in the HTML files.  You may want to manually verify the style is not used if ";
-        msg += "the style is a complex CSS selector.\n\n";
+        QString msg = count == 1 ? tr( "Are you sure you want to delete the style listed below?" )
+                                 : tr( "Are you sure you want to delete all the styles listed below?" );
+        msg += "\n\n" % tr("These styles have been marked as unused because they were not matched by a class "
+                           "found in the HTML files.  You may want to manually verify the style is not used if "
+                           "the style is a complex CSS selector.") % "\n\n";
         button_pressed = QMessageBox::warning(  this,
                           tr( "Sigil" ), msg % tr( "This action cannot be reversed." ) % style_names,
                                                     QMessageBox::Ok | QMessageBox::Cancel
