@@ -189,7 +189,7 @@ void ImportOEBPS::LocateOPF()
         boost_throw( EPUBLoadParseError() << errinfo_epub_load_parse_errors( error.toStdString() ) );
     }
 
-    if ( m_OPFFilePath.isEmpty() )
+    if ( m_OPFFilePath.isEmpty() || !QFile::exists(m_OPFFilePath) )
     {
         boost_throw( EPUBLoadParseError() 
             << errinfo_epub_load_parse_errors( QString(QObject::tr("No appropriate OPF file found")).toStdString() ) );
@@ -288,17 +288,19 @@ void ImportOEBPS::ReadManifestItemElement( QXmlStreamReader &opf_reader )
 
 void ImportOEBPS::ReadSpineElement( QXmlStreamReader &opf_reader )
 {
+    QString load_warning;
     QString ncx_href = "not_found";
     QString ncx_id = opf_reader.attributes().value( "", "toc" ).toString();
 
-    if ( !ncx_id.isEmpty() )
-    {
+    // Handle various failure conditions, such as:
+    // - ncx not specified in the spine (search for a matching manifest item by extension)
+    // - ncx specified in spine, but no matching manifest item entry (create a new one)
+    // - ncx file not physically present (create a new one)
+    // - ncx not in spine or manifest item (create a new one)
+    if ( !ncx_id.isEmpty() ) {
         ncx_href = m_NcxCandidates[ ncx_id ];
     }
-    // Fallback behaviour to accommodate sloppy tools used by a
-    // particular conversion service.
-    else
-    {
+    else {
         // Search for the ncx in the manifest by looking for files with
         // a .ncx extension.
         QHashIterator< QString, QString > ncxSearch( m_NcxCandidates );
@@ -309,32 +311,39 @@ void ImportOEBPS::ReadSpineElement( QXmlStreamReader &opf_reader )
             {
                 ncx_id = ncxSearch.key();
 
-                const QString &warning = QT_TR_NOOP("<p>The OPF file did not identify the NCX file correctly.</p>"
-                                                    "<p>Sigil has used the following file as the NCX: <b>%1</b></p>");
-                AddLoadWarning(warning.arg(m_NcxCandidates[ ncx_id ]));
+                load_warning = "<p>" % QObject::tr("The OPF file did not identify the NCX file correctly.") % "</p>" %
+                               "<p>- " % QObject::tr("Sigil has used the following file as the NCX:") % 
+                               QString(" <b>%1</b></p>").arg(m_NcxCandidates[ ncx_id ]);
 
                 ncx_href = m_NcxCandidates[ ncx_id ];
                 break;
             }
         }
-
-        if ( ncx_id.isEmpty() )
-        {
-            // Things are really bad and no .ncx file was found in the manifest.
-            // We need to create a new one.
-            QString newNCXPath = QFileInfo( m_OPFFilePath ).absolutePath() % "/" % NCX_FILE_NAME;
-            // Create a new file for the NCX.
-            new NCXResource( newNCXPath, &m_Book->GetFolderKeeper() );
-
-            const QString &warning = QT_TR_NOOP("<p>The OPF file does not contain an NCX file.</p>"
-                                                "<p>Sigil has created a new one for you.</p>");
-            AddLoadWarning(warning.arg(m_NcxCandidates[ ncx_id ]));
-
-            ncx_href = NCX_FILE_NAME;
-        }
     }
 
     m_NCXFilePath = QFileInfo( m_OPFFilePath ).absolutePath() % "/" % ncx_href;
+
+    if (ncx_href.isEmpty() || !QFile::exists(m_NCXFilePath)) {
+        // Things are really bad and no .ncx file was found in the manifest or
+        // the file does not physically exist.  We need to create a new one.
+        m_NCXFilePath = QFileInfo( m_OPFFilePath ).absolutePath() % "/" % NCX_FILE_NAME;
+
+        // Create a new file for the NCX.
+        new NCXResource( m_NCXFilePath, &m_Book->GetFolderKeeper() );
+        
+        if (ncx_href.isEmpty()) {
+            load_warning = "<p>" % QObject::tr("The OPF file does not contain an NCX file.") % "</p>" %
+                           "<p>- " % QObject::tr("Sigil has created a new one for you.") % "</p>";
+        }
+        else {
+            load_warning = "<p>" % QObject::tr("The NCX file is not present in this EPUB.") % "</p>" %
+                           "<p>- " % QObject::tr("Sigil has created a new one for you.") % "</p>";
+        }
+    }
+
+    if (!load_warning.isEmpty()) {
+        AddLoadWarning(load_warning);
+    }
 }
 
 
