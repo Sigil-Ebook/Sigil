@@ -58,7 +58,9 @@ static const QString NCX_EXTENSION       = "ncx";
 ImportOEBPS::ImportOEBPS( const QString &fullfilepath )
     :
     Importer( fullfilepath ),
-    m_ExtractedFolderPath( m_TempFolder.GetPath() )
+    m_ExtractedFolderPath( m_TempFolder.GetPath() ),
+    m_HasSpineItems(false),
+    m_NCXNotInManifest(false)
 {
 
 }
@@ -202,42 +204,45 @@ void ImportOEBPS::ReadOPF()
     QString opf_text = PrepareOPFForReading( Utility::ReadUnicodeTextFile( m_OPFFilePath ) );
     QXmlStreamReader opf_reader( opf_text );
 
+    QString ncx_id_on_spine;
     while ( !opf_reader.atEnd() )
     {
         opf_reader.readNext();
 
-        if ( !opf_reader.isStartElement() )
-
+        if ( !opf_reader.isStartElement() ) {
             continue;
+        }
 
-        if ( opf_reader.name() == "package" )
-
+        if ( opf_reader.name() == "package" ) {
             m_UniqueIdentifierId = opf_reader.attributes().value( "", "unique-identifier" ).toString();
-
-        else if ( opf_reader.name() == "identifier" )
-
+        }
+        else if ( opf_reader.name() == "identifier" ) {
             ReadIdentifierElement( opf_reader );
-
+        }
         // Get the list of content files that
         // make up the publication
-        else if ( opf_reader.name() == "item" )
-
+        else if ( opf_reader.name() == "item" ) {
             ReadManifestItemElement( opf_reader );
-
+        }
         // We read this just to get the NCX id
-        else if ( opf_reader.name() == "spine" )
-
-            ReadSpineElement( opf_reader );
+        else if ( opf_reader.name() == "spine" ) {
+            ncx_id_on_spine = opf_reader.attributes().value( "", "toc" ).toString();
+        }
+        else if ( opf_reader.name() == "itemref" ) {
+            m_HasSpineItems = true;
+        }
     }
 
-    if ( opf_reader.hasError() )
-    {
+    if ( opf_reader.hasError() ) {
         const QString error = QString(QObject::tr("Unable to read OPF file.\nLine: %1 Column %2 - %3"))
                                     .arg(opf_reader.lineNumber())
                                     .arg(opf_reader.columnNumber())
                                     .arg(opf_reader.errorString());
         boost_throw( EPUBLoadParseError() << errinfo_epub_load_parse_errors( error.toStdString() ) );
     }
+
+    // Ensure we have an NCX available
+    LocateOrCreateNCX(ncx_id_on_spine);
 }
 
 
@@ -286,19 +291,19 @@ void ImportOEBPS::ReadManifestItemElement( QXmlStreamReader &opf_reader )
 }
 
 
-void ImportOEBPS::ReadSpineElement( QXmlStreamReader &opf_reader )
+void ImportOEBPS::LocateOrCreateNCX( const QString &ncx_id_on_spine )
 {
     QString load_warning;
     QString ncx_href = "not_found";
-    QString ncx_id = opf_reader.attributes().value( "", "toc" ).toString();
+    m_NCXId = ncx_id_on_spine;
 
     // Handle various failure conditions, such as:
     // - ncx not specified in the spine (search for a matching manifest item by extension)
     // - ncx specified in spine, but no matching manifest item entry (create a new one)
     // - ncx file not physically present (create a new one)
     // - ncx not in spine or manifest item (create a new one)
-    if ( !ncx_id.isEmpty() ) {
-        ncx_href = m_NcxCandidates[ ncx_id ];
+    if ( !m_NCXId.isEmpty() ) {
+        ncx_href = m_NcxCandidates[ m_NCXId ];
     }
     else {
         // Search for the ncx in the manifest by looking for files with
@@ -309,13 +314,13 @@ void ImportOEBPS::ReadSpineElement( QXmlStreamReader &opf_reader )
             ncxSearch.next();
             if( QFileInfo( ncxSearch.value() ).suffix().toLower() == NCX_EXTENSION )
             {
-                ncx_id = ncxSearch.key();
+                m_NCXId = ncxSearch.key();
 
                 load_warning = "<p>" % QObject::tr("The OPF file did not identify the NCX file correctly.") % "</p>" %
                                "<p>- " % QObject::tr("Sigil has used the following file as the NCX:") % 
-                               QString(" <b>%1</b></p>").arg(m_NcxCandidates[ ncx_id ]);
+                               QString(" <b>%1</b></p>").arg(m_NcxCandidates[ m_NCXId ]);
 
-                ncx_href = m_NcxCandidates[ ncx_id ];
+                ncx_href = m_NcxCandidates[ m_NCXId ];
                 break;
             }
         }
@@ -330,14 +335,20 @@ void ImportOEBPS::ReadSpineElement( QXmlStreamReader &opf_reader )
 
         // Create a new file for the NCX.
         NCXResource ncx_resource( m_NCXFilePath, &m_Book->GetFolderKeeper() );
-        ncx_resource.SetMainID( m_UuidIdentifierValue );
+        // We are relying on an identifier being set from the metadata. 
+        // It might not have one if the book does not have the urn:uuid: format.
+        if (!m_UuidIdentifierValue.isEmpty()) {
+            ncx_resource.SetMainID( m_UuidIdentifierValue );
+        }
         ncx_resource.SaveToDisk();
         
         if (ncx_href.isEmpty()) {
+            m_NCXId.clear();
             load_warning = "<p>" % QObject::tr("The OPF file does not contain an NCX file.") % "</p>" %
                            "<p>- " % QObject::tr("Sigil has created a new one for you.") % "</p>";
         }
         else {
+            m_NCXNotInManifest = true;
             load_warning = "<p>" % QObject::tr("The NCX file is not present in this EPUB.") % "</p>" %
                            "<p>- " % QObject::tr("Sigil has created a new one for you.") % "</p>";
         }
@@ -346,59 +357,6 @@ void ImportOEBPS::ReadSpineElement( QXmlStreamReader &opf_reader )
     if (!load_warning.isEmpty()) {
         AddLoadWarning(load_warning);
     }
-}
-
-
-QString ImportOEBPS::GetNCXId()
-{
-    QString opf_text = PrepareOPFForReading( Utility::ReadUnicodeTextFile( m_OPFFilePath ) );
-    QXmlStreamReader opf_reader( opf_text );
-    QString ncx_id;
-
-    // Try to find the NCX listed in the OPF spine.
-    while ( !opf_reader.atEnd() )
-    {
-        opf_reader.readNext();
-
-        if ( !opf_reader.isStartElement() )
-        {
-            continue;
-        }
-
-        if ( opf_reader.name() == "spine" )
-        {
-            ncx_id = opf_reader.attributes().value( "", "toc" ).toString();
-            break;
-        }
-    }
-
-    // Could not find a proper NCX in the spine.
-    if ( ncx_id.isEmpty() )
-    {
-        // Search for the ncx in the manifest by looking for files with
-        // a .ncx extension.
-        QHashIterator< QString, QString > ncxSearch( m_NcxCandidates );
-        while( ncxSearch.hasNext() )
-        {
-            ncxSearch.next();
-            if( QFileInfo( ncxSearch.value() ).suffix().toLower() == NCX_EXTENSION )
-            {
-                ncx_id = ncxSearch.key();
-                break;
-            }
-        }
-    }
-
-    if ( opf_reader.hasError() )
-    {
-        const QString error = QString(QObject::tr("Unable to parse OPF file.\nLine: %1 Column %2 - %3"))
-                                    .arg(opf_reader.lineNumber())
-                                    .arg(opf_reader.columnNumber())
-                                    .arg(opf_reader.errorString());
-        boost_throw( EPUBLoadParseError() << errinfo_epub_load_parse_errors( error.toStdString() ) );
-    }
-
-    return ncx_id;
 }
 
 

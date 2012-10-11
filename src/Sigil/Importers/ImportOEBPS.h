@@ -94,17 +94,11 @@ protected:
     void ReadManifestItemElement( QXmlStreamReader &opf_reader );
 
     /**
-     * Reads a <spine> element.
+     * Locate or create an NCX file if missing or not correctly specified.
      *
-     * @param opf_reader The OPF reader positioned to read 
-     *                   the required element type.
+     * @param ncx_id_on_spine - The toc attribute value from the <spine> 
      */
-    void ReadSpineElement( QXmlStreamReader &opf_reader );
-
-    /**
-     * Get the id of the NCX.
-     */
-    QString GetNCXId();
+    void LocateOrCreateNCX( const QString &ncx_id_on_spine );
 
     /**
      * Loads the book's infrastructure files, like 
@@ -211,6 +205,10 @@ protected:
      * This hash stores all the candidates, as an ID-to-href mapping.
      */
     QHash< QString, QString > m_NcxCandidates;
+
+    bool m_HasSpineItems;
+    bool m_NCXNotInManifest;
+    QString m_NCXId;
 };
 
 

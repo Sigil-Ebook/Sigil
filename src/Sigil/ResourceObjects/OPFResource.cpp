@@ -194,6 +194,44 @@ void OPFResource::EnsureUUIDIdentifierPresent()
     UpdateTextFromDom( *document );    
 }
 
+QString OPFResource::AddNCXItem( const QString &ncx_path )
+{
+    QWriteLocker locker( &GetLock() );
+
+    QString path_to_oebps_folder = QFileInfo( GetFullPath() ).absolutePath() + "/";
+    QString ncx_oebps_path  = Utility::URLEncodePath( QString( ncx_path ).remove( path_to_oebps_folder ) );
+
+    shared_ptr< xc::DOMDocument > document = GetDocument();
+
+    QHash< QString, QString > attributes;
+    attributes[ "id"         ] = GetUniqueID( "ncx", *document );
+    attributes[ "href"       ] = Utility::URLEncodePath( ncx_oebps_path );
+    attributes[ "media-type" ] = "application/x-dtbncx+xml";
+
+    xc::DOMElement *new_item = XhtmlDoc::CreateElementInDocument( 
+        "item", OPF_XML_NAMESPACE, *document, attributes );
+
+    xc::DOMElement &manifest = GetManifestElement( *document );
+    manifest.appendChild( new_item );
+
+    UpdateTextFromDom( *document );
+
+    return attributes[ "id" ]; 
+}
+
+void OPFResource::UpdateNCXOnSpine( const QString &new_ncx_id )
+{
+    QWriteLocker locker( &GetLock() );
+    shared_ptr< xc::DOMDocument > document = GetDocument();
+
+    xc::DOMElement &spine = GetSpineElement( *document );
+    QString ncx_id = XtoQ( spine.getAttribute( QtoX( "toc" ) ) );
+    if (new_ncx_id != ncx_id) {
+        spine.setAttribute( QtoX( "toc" ), QtoX( new_ncx_id ) );
+   
+        UpdateTextFromDom( *document );  
+    }
+}
 
 void OPFResource::UpdateNCXLocationInManifest( const ::NCXResource &ncx )
 {

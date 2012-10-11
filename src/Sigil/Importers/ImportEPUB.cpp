@@ -29,8 +29,9 @@
 #include "Importers/ImportEPUB.h"
 #include "Misc/FontObfuscation.h"
 #include "Misc/Utility.h"
-#include "ResourceObjects/HTMLResource.h"
 #include "ResourceObjects/CSSResource.h"
+#include "ResourceObjects/HTMLResource.h"
+#include "ResourceObjects/NCXResource.h"
 #include "SourceUpdates/UniversalUpdates.h"
 #include "sigil_constants.h"
 #include "sigil_exception.h"
@@ -88,28 +89,29 @@ QSharedPointer< Book > ImportEPUB::GetBook()
 
     ProcessFontFiles( resources, updates, encrypted_files );
 
-    // We're going to check if there is an NCX or if we need to create one
-    // as a fall back for poorly (invalid) constructed EPUBs.
-    // This causes the OPF to be parsed twice but the OPF is small and the
-    // parsers are very fast so refactoring is not a priority.
-    QString ncx_id = GetNCXId();
-
+    if (m_NCXNotInManifest) {
+        // We manually created an NCX file because there wasn't one in the manifest.
+        // Need to create a new manifest id for it.
+        m_NCXId = m_Book->GetOPF().AddNCXItem(m_NCXFilePath);
+    }
+    // Ensure that our spine has a <spine toc="ncx"> element on it now in case it was missing.
+    m_Book->GetOPF().UpdateNCXOnSpine(m_NCXId);
+    // Make sure the <item> for the NCX in the manifest reflects correct href path
     m_Book->GetOPF().UpdateNCXLocationInManifest( m_Book->GetNCX() );
 
-    // If spine didn't specify the ncx, recreate the OPF from scratch
-    // preserving any important metadata elements and the reading order.
+    // If spine was not present or did not contain any items, recreate the OPF from scratch
+    // preserving any important metadata elements and making a new reading order.
     m_Book->SetModified( false );
-    if( ncx_id.isEmpty() )
+    if( !m_HasSpineItems )
     {
         QList< Metadata::MetaElement > originalMetadata = m_Book->GetOPF().GetDCMetadata();
-        QStringList spineOrder = m_Book->GetOPF().GetSpineOrderFilenames();
 
         m_Book->GetOPF().AutoFixWellFormedErrors();
-
         m_Book->GetOPF().SetDCMetadata( originalMetadata );
-        m_Book->GetOPF().SetSpineOrderFromFilenames( spineOrder );
 
         m_Book->SetModified( true );
+        AddLoadWarning("<p>" % QObject::tr("The OPF file does not contain a valid spine.") % "</p>" %
+                       "<p>- " % QObject::tr("Sigil has created a new one for you.") % "</p>");
     }
 
     return m_Book;
