@@ -683,7 +683,6 @@ void ClipEditor::Apply()
 bool ClipEditor::Save()
 {
     if (SaveData()) {
-        WriteSettings();
         emit ShowStatusMessageRequest(tr("Clip entries saved."));
         return true;
     }
@@ -692,6 +691,7 @@ bool ClipEditor::Save()
 
 void ClipEditor::reject()
 {
+    WriteSettings();
     if (MaybeSaveDialogSaysProceed(false)) {
         QDialog::reject();
     }

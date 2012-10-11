@@ -571,7 +571,6 @@ void IndexEditor::SetupContextMenu(const QPoint &point)
 bool IndexEditor::Save()
 { 
     if (SaveData()) {
-        WriteSettings();
         emit ShowStatusMessageRequest(tr("Index entries saved."));
         return true;
     }
@@ -580,6 +579,7 @@ bool IndexEditor::Save()
 
 void IndexEditor::reject()
 {
+    WriteSettings();
     if (MaybeSaveDialogSaysProceed(false)) {
         QDialog::reject();
     }

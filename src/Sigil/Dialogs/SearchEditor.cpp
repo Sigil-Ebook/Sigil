@@ -778,7 +778,6 @@ void SearchEditor::Apply()
 bool SearchEditor::Save()
 {
     if (SaveData()) {
-        WriteSettings();
         emit ShowStatusMessageRequest(tr("Search entries saved."));
         return true;
     }
@@ -787,6 +786,7 @@ bool SearchEditor::Save()
 
 void SearchEditor::reject()
 {
+    WriteSettings();
     if (MaybeSaveDialogSaysProceed(false)) {
         QDialog::reject();
     }
