@@ -36,8 +36,8 @@
 static const QString SETTINGS_GROUP = "find_replace";
 static const QString REGEX_OPTION_UCP = "(*UCP)";
 static const QString REGEX_OPTION_IGNORE_CASE = "(?i)";
-static const QString REGEX_OPTION_DOT_ALL = "(?U)";
-static const QString REGEX_OPTION_MINIMAL_MATCH = "(?s)";
+static const QString REGEX_OPTION_DOT_ALL = "(?s)";
+static const QString REGEX_OPTION_MINIMAL_MATCH = "(?U)";
 
 static const int SHOW_FIND_RESULTS_MESSAGE_DELAY_MS = 20000;
 
