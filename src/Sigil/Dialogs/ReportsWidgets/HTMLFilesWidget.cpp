@@ -294,6 +294,12 @@ void HTMLFilesWidget::OpenContextMenu(const QPoint &point)
 void HTMLFilesWidget::SetupContextMenu(const QPoint &point)
 {
     m_ContextMenu->addAction(m_Delete);
+    // We do not enable the delete option if no rows selected or the totals row is selected.
+    m_Delete->setEnabled(ui.fileTree->selectionModel()->selectedRows().count() > 0);
+    int last_row = ui.fileTree->model()->rowCount() - 1;
+    if (ui.fileTree->selectionModel()->isRowSelected(last_row, QModelIndex())) {
+        m_Delete->setEnabled(false);
+    }
 }
 
 void HTMLFilesWidget::connectSignalsSlots()

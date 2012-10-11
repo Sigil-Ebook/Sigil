@@ -254,6 +254,8 @@ void StylesInCSSFilesWidget::OpenContextMenu(const QPoint &point)
 void StylesInCSSFilesWidget::SetupContextMenu(const QPoint &point)
 {
     m_ContextMenu->addAction(m_Delete);
+    // We do not enable the delete option if no rows selected.
+    m_Delete->setEnabled(ui.fileTree->selectionModel()->selectedRows().count() > 0);
 }
 
 void StylesInCSSFilesWidget::connectSignalsSlots()
