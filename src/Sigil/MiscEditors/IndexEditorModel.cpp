@@ -370,6 +370,6 @@ QString IndexEditorModel::SaveData(QList<IndexEditorModel::indexEntry*> entries,
     // Watch the file again
     m_FSWatcher->addPath(m_SettingsPath);
 
-    SetDataModified(true);
+    SetDataModified(false);
     return message;
 }
