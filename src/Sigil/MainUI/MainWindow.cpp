@@ -1037,7 +1037,7 @@ void MainWindow::DeleteUnusedImages()
 
     if (resources.count() > 0) {
         RemoveResources(resources);
-        ShowMessageOnStatusBar(tr("Unused images delete."));
+        ShowMessageOnStatusBar(tr("Unused images deleted."));
     }
     else {
         QMessageBox::information(this, tr("Sigil"), tr("There are no unused images to delete."));
