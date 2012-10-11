@@ -115,6 +115,7 @@ Sigil 0.6.0 TBA
     - Implement issue 1379: Update Boost to Boost 1.49.0.
     - Implement issue 1283: Spell check should have an ignore option.
     - Fix issue 1663: Generate TOC gives heading ids for items not in the TOC.
+    - Fix issue 1642: Replace sometimes leaves a \1 in the text.
     - Fix issue 1635: Replace can replace too much text if manual selection includes extra text.
     - Fix issue 1639: Ensure Spellcheck treats single quotes as word boundary appropriately.
     - Fix issue 1624: Do not close Sigil if an invalid HTML file was added.
