@@ -329,7 +329,9 @@ void ImportOEBPS::ReadSpineElement( QXmlStreamReader &opf_reader )
         m_NCXFilePath = QFileInfo( m_OPFFilePath ).absolutePath() % "/" % NCX_FILE_NAME;
 
         // Create a new file for the NCX.
-        new NCXResource( m_NCXFilePath, &m_Book->GetFolderKeeper() );
+        NCXResource ncx_resource( m_NCXFilePath, &m_Book->GetFolderKeeper() );
+        ncx_resource.SetMainID( m_UuidIdentifierValue );
+        ncx_resource.SaveToDisk();
         
         if (ncx_href.isEmpty()) {
             load_warning = "<p>" % QObject::tr("The OPF file does not contain an NCX file.") % "</p>" %
