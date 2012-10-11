@@ -82,7 +82,7 @@ public:
     /**
      * Close and reopen all tabs
      */
-    void ReopenTabs();
+    void ReopenTabs(MainWindow::ViewState view_state);
 
     void UpdateTabDisplay();
 

@@ -369,8 +369,8 @@ void MainWindow::ShowMessageOnStatusBar( const QString &message,
 void MainWindow::ShowLastOpenFileWarnings()
 {
     if (!m_LastOpenFileWarnings.isEmpty()) {
-        Utility::DisplayStdWarningDialog( tr("<p><b>In loading this EPUB the following errors occurred:</b></p>"), 
-                                          m_LastOpenFileWarnings.join("<br/>") );
+        Utility::DisplayStdWarningDialog( "<p><b>" % tr("In loading this EPUB the following errors occurred:") % "</b></p>", 
+                                          m_LastOpenFileWarnings.join("") );
         m_LastOpenFileWarnings.clear();
     }
 }
@@ -1786,7 +1786,7 @@ void MainWindow::PreferencesDialog()
 
     if ( preferences.isReloadTabsRequired() ) 
     {
-        m_TabManager.ReopenTabs();
+        m_TabManager.ReopenTabs(m_ViewState);
     }
     else if ( preferences.isRefreshSpellingHighlightingRequired() )
     {

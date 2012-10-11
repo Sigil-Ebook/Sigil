@@ -176,7 +176,7 @@ void TabManager::ReloadTabDataForResources( const QList<Resource*> &resources )
     }
 }
 
-void TabManager::ReopenTabs()
+void TabManager::ReopenTabs(MainWindow::ViewState view_state)
 {
     ContentTab &currentTab = GetCurrentContentTab();
 
@@ -186,10 +186,10 @@ void TabManager::ReopenTabs()
     }
 
     foreach(Resource *resource, resources) {
-        OpenResource(*resource);
+        OpenResource(*resource, -1, -1, QString(), view_state);
     }
 
-    OpenResource(currentTab.GetLoadedResource());
+    OpenResource(currentTab.GetLoadedResource(), -1, -1, QString(), view_state);
 }
 
 
