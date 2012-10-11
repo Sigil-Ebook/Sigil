@@ -29,13 +29,13 @@
 
 static const QString W3C_HTML_FORM = "<html>"
                                      " <body>"
-                                     "  <p>Sigil will send your stylesheet data to the <a href='http://jigsaw.w3.org/css-validator/'>W3C Validation Service</a>.</p>"
-                                     "  <p><b>This page should disappear once loaded after 3 seconds.</b></p>"
-                                     "  <p>If your browser does not have javascript enabled, click on the button below.</p>"
+                                     "  <p>%1</p>"
+                                     "  <p><b>%2</b></p>"
+                                     "  <p>%3</p>"
                                      "  <p><input id='button' type='submit' value='Check' /></p>"
                                      "  <div>"
                                      "   <form id='form' enctype='multipart/form-data' action='http://jigsaw.w3.org/css-validator/validator' method='post'>"
-                                     "    <p><textarea name='text' rows='12' cols='70'>%1</textarea></p>"
+                                     "    <p><textarea name='text' rows='12' cols='70'>%4</textarea></p>"
                                      "    <input type='hidden' name='lang' value='en' />"
                                      "   </form>"
                                      "  </div>"
@@ -83,7 +83,11 @@ Resource::ResourceType CSSResource::Type() const
 
 void CSSResource::ValidateStylesheetWithW3C()
 {
-    const QString &post_form_html = W3C_HTML_FORM.arg( GetText() );
+    const QString &post_form_html = W3C_HTML_FORM
+        .arg( tr("Sigil will send your stylesheet data to the <a href='http://jigsaw.w3.org/css-validator/'>W3C Validation Service</a>.") )
+        .arg( tr("This page should disappear once loaded after 3 seconds.") )
+        .arg( tr("If your browser does not have javascript enabled, click on the button below.") )
+        .arg( GetText() );
 
     const QString &temp_file_path = Utility::GetTemporaryFileNameWithExtension(".html");
     Utility::WriteUnicodeTextFile( post_form_html, temp_file_path );
