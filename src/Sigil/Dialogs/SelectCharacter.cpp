@@ -120,14 +120,14 @@ void SelectCharacter::SetList()
     << QString::fromUtf8("\xc2\xb0")        << ""           << "&deg;"      << "DEGREE SIGN"
 
     << QString::fromUtf8("\xc2\xb1")        << ""           << "&plusmn;"   << "PLUS MINUS SIGN"
+    << QString::fromUtf8("\xe2\x88\x92")    << ""           << "&minus;"    << "MINUS SIGN"
     << QString::fromUtf8("\xc3\x97")        << ""           << "&times;"    << "MULTIPLICATION SIGN"
     << QString::fromUtf8("\xc3\xb7")        << ""           << "&divide;"   << "DIVISION SIGN"
     << QString::fromUtf8("\xc2\xbc")        << ""           << "&frac14;"   << "FRACTION 1/4"
     << QString::fromUtf8("\xc2\xbd")        << ""           << "&frac12;"   << "FRACTION 1/2"
     << QString::fromUtf8("\xc2\xbe")        << ""           << "&frac34;"   << "FRACTION 3/4"
+    << QString::fromUtf8("\xe2\x80\xa6")    << ""           << "&hellip;"   << "HORIZONTAL ELLIPSIS"
     << QString::fromUtf8("\xc2\xb5")        << ""           << "&micro;"    << "MICRON"
-    << QString::fromUtf8("\xc2\xaa")        << ""           << "&ordf;"     << "FEMININE ORDINAL INDICATOR"
-    << QString::fromUtf8("\xc2\xba")        << ""           << "&ordm;"     << "MASCULINE ORDINAL INDICATOR"
 
     << QString::fromUtf8("\xc2\xa2")        << ""           << "&cent;"     << "CENT SIGN"
     << QString::fromUtf8("\xc2\xa3")        << ""           << "&pound;"    << "POUND SIGN"
@@ -213,6 +213,13 @@ void SelectCharacter::SetList()
     << QString::fromUtf8("\xc3\xbd")        << ""           << "&yacute;"   << "SMALL Y WITH ACUTE"
     << QString::fromUtf8("\xc3\xbf")        << ""           << "&yuml;"     << "SMALL Y WITH DIAERESIS"
     << QString::fromUtf8("\xc3\xbe")        << ""           << "&thorn;"    << "SMALL THORN"
+
+    << QString::fromUtf8("\xc2\xaa")        << ""           << "&ordf;"     << "FEMININE ORDINAL INDICATOR"
+    << QString::fromUtf8("\xc2\xba")        << ""           << "&ordm;"     << "MASCULINE ORDINAL INDICATOR"
+
+    << QString::fromUtf8("\xce\xb1")        << ""           << "&alpha;"     << "SMALL ALPHA"
+    << QString::fromUtf8("\xce\xa9")        << ""           << "&Omega;"     << "CAPITAL OMEGA"
+    << QString::fromUtf8("\xe2\x88\x9e")    << ""           << "&infin;"     << "INFINITY"
     ;
 
     AddGrid(spaces, spaces.count());
