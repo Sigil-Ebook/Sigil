@@ -223,13 +223,13 @@ QString CSSInfo::removeMatchingSelectors( QList<CSSSelector*> cssSelectors )
     return new_text;
 }
 
-QList< CSSInfo::CSSProperty* > CSSInfo::getCSSProperties( const QString &text, const int &openingBracePos, const int &closingBracePos )
+QList< CSSInfo::CSSProperty* > CSSInfo::getCSSProperties( const QString &text, const int &styleTextStartPos, const int &styleTextEndPos )
 {
     QList<CSSProperty*> new_properties;
-    if (closingBracePos - 1 <= openingBracePos) {
+    if (styleTextEndPos - 1 <= styleTextStartPos) {
         return new_properties;
     }
-    const QString &style_text = text.mid(openingBracePos, closingBracePos - openingBracePos - 1);
+    const QString &style_text = text.mid(styleTextStartPos, styleTextEndPos - styleTextStartPos);
     QStringList properties = style_text.split(QChar(';'), QString::SkipEmptyParts);
 
     foreach( QString property_text, properties ) {

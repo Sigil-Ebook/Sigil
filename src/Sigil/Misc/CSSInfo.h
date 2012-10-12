@@ -90,7 +90,7 @@ public:
      */
     QString removeMatchingSelectors( QList<CSSSelector*> cssSelectors );
 
-    static QList< CSSProperty* > getCSSProperties( const QString &text, const int &openingBracePos, const int &closingBracePos );
+    static QList< CSSProperty* > getCSSProperties( const QString &text, const int &styleTextStartPos, const int &styleTextEndPos );
     static QString formatCSSProperties(QList< CSSProperty* > new_properties, bool multipleLineFormat, const int &selectorIndent = 0);
 
 private:
