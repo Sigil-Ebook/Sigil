@@ -329,6 +329,9 @@ void ImportOEBPS::LocateOrCreateNCX( const QString &ncx_id_on_spine )
     m_NCXFilePath = QFileInfo( m_OPFFilePath ).absolutePath() % "/" % ncx_href;
 
     if (ncx_href.isEmpty() || !QFile::exists(m_NCXFilePath)) {
+        m_NCXNotInManifest = m_NCXId.isEmpty() || ncx_href.isEmpty();
+        m_NCXId.clear();
+
         // Things are really bad and no .ncx file was found in the manifest or
         // the file does not physically exist.  We need to create a new one.
         m_NCXFilePath = QFileInfo( m_OPFFilePath ).absolutePath() % "/" % NCX_FILE_NAME;
@@ -343,12 +346,10 @@ void ImportOEBPS::LocateOrCreateNCX( const QString &ncx_id_on_spine )
         ncx_resource.SaveToDisk();
         
         if (ncx_href.isEmpty()) {
-            m_NCXId.clear();
             load_warning = "<p>" % QObject::tr("The OPF file does not contain an NCX file.") % "</p>" %
                            "<p>- " % QObject::tr("Sigil has created a new one for you.") % "</p>";
         }
         else {
-            m_NCXNotInManifest = true;
             load_warning = "<p>" % QObject::tr("The NCX file is not present in this EPUB.") % "</p>" %
                            "<p>- " % QObject::tr("Sigil has created a new one for you.") % "</p>";
         }
