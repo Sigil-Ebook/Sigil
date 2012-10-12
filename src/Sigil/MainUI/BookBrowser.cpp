@@ -1480,6 +1480,7 @@ bool BookBrowser::SuccessfullySetupContextMenu( const QPoint &point )
 
                 m_ContextMenu.addMenu( &m_OpenWithContextMenu );
             }
+            m_OpenWith->setEnabled(item_count == 1);
             m_OpenWithContextMenu.setEnabled(item_count == 1);
         }
 
