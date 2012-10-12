@@ -31,7 +31,7 @@
 #include "Dialogs/ClipEditor.h"
 #include "Misc/Utility.h"
 
-static const QString SETTINGS_GROUP = "clip_manager";
+static const QString SETTINGS_GROUP = "clips";
 static const QString FILE_EXTENSION = "ini";
 
 ClipEditor::ClipEditor(QWidget *parent)
