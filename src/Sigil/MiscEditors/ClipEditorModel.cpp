@@ -2,6 +2,7 @@
 **
 **  Copyright (C) 2012 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012 Dave Heiland
+**  Copyright (C) 2012 Grant Drake
 **
 **  This file is part of Sigil.
 **
@@ -108,99 +109,29 @@ Qt::DropActions ClipEditorModel::supportedDropActions() const
     return Qt::MoveAction;
 }
 
-QMimeData* ClipEditorModel::mimeData(const QModelIndexList &indexes) const 
-{
-    QMimeData *mimeData = new QMimeData();
-    QByteArray encodedData;
-    QDataStream stream(&encodedData, QIODevice::WriteOnly);
-
-    // mimeData index is not the index of the actual item
-    // index is the index of the first entry in the group
-    // index.row() is the row of our actual index in the group
-    // So you need index.parent()->child(index.row(),0) to get the actual index!
-    foreach (QModelIndex index, indexes) {
-        if (index.isValid() && index.column() == 0) {
-            stream << index.internalId() << index.row();
-        }
-    }
-
-    mimeData->setData("x-index", encodedData);
-    return mimeData;
-}
-
 bool ClipEditorModel::dropMimeData(const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex & parent)
 {
-    if (action == Qt::IgnoreAction) {
-        return true;
+    QModelIndex new_parent(parent);
+    if (parent.column() > 0) {
+        // User is trying to drop onto a child column - treat it as though they are dropping in the initial column.
+        new_parent = index(parent.row(), 0, parent.parent());
     }
-
-    if (!data->hasFormat("x-index")) {
-        return false;
-    }
-
+    
     // If dropped on an non-group entry convert to parent item group/row
-    QModelIndex new_parent = parent;
-    if (parent.isValid() && !itemFromIndex(parent)->data(IS_GROUP_ROLE).toBool()) {
-        row = parent.row() + 1;
-        new_parent = parent.parent();
+    if (new_parent.isValid() && !itemFromIndex(new_parent)->data(IS_GROUP_ROLE).toBool()) {
+        row = new_parent.row() + 1;
+        new_parent = new_parent.parent();
     }
-
-    QByteArray encodedData = data->data("x-index");
-    QDataStream stream(&encodedData, QIODevice::ReadOnly);
-
-    QList<QStandardItem *> items;
-
-    while (!stream.atEnd()) {
-        qint64 id;
-        int row;
-
-        stream >> id >> row;
-        QStandardItem* item = GetItemFromId(id, row);
-        items.append(item);
-    }
-
-    // Abort if any items appear more than once in the selection
-    QList<QStandardItem*> all_items;
-    foreach (QStandardItem* item, items) {
-        all_items.append(GetNonParentItems(item));
-    }
-    if (all_items.count() != all_items.toSet().count()) {
+    if (!QStandardItemModel::dropMimeData(data, action, row, column, new_parent)) {
         return false;
     }
 
-    foreach (QStandardItem* item, items) {
-        QStandardItem *parent_item = NULL;
-        if (new_parent.isValid()) {
-            parent_item = itemFromIndex(new_parent);
-        }
+    // As our drag/drop completed successfully, recalculate the fullname for all the items in the model
+    UpdateFullName(invisibleRootItem());
 
-        // Get the parent path of the item so it can be moved
-        QString parent_path = "";
-        if (item->parent()) {
-            parent_path = item->parent()->data(FULLNAME_ROLE).toString();
-        }
-
-        // Move all subitems of an item not just the item itself
-        QList<QStandardItem*> sub_items = GetNonParentItems(item);
-
-        if (item->data(IS_GROUP_ROLE).toBool()) {
-            ClipEditorModel::clipEntry *top_group_entry = GetEntry(item);
-            parent_item = AddEntryToModel(top_group_entry, top_group_entry->is_group, parent_item, row);
-            parent_path = item->data(FULLNAME_ROLE).toString();
-        }
-
-        foreach (QStandardItem* item, sub_items) {
-            ClipEditorModel::clipEntry *entry = GetEntry(item);
-
-            // Remove the top level paths
-            entry->fullname.replace(QRegExp(parent_path), "");
-            entry->name = entry->fullname;
-
-            AddFullNameEntry(entry, parent_item, row);
-            if (row >= 0) {
-                row++;
-            }
-        }
+    // If we dropped onto a parent group, make sure it is expanded.
+    if (new_parent.isValid()) {
+        emit ItemDropped(new_parent);
     }
 
     SetDataModified(true);

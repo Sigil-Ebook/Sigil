@@ -2,6 +2,7 @@
 **
 **  Copyright (C) 2012 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012 Dave Heiland
+**  Copyright (C) 2012 Grant Drake
 **
 **  This file is part of Sigil.
 **
@@ -173,6 +174,13 @@ void SearchEditor::SettingsFileModelUpdated()
 {
     ui.SearchEditorTree->expandAll();
     emit ShowStatusMessageRequest(tr("Saved Searches loaded from file."));
+}
+
+void SearchEditor::ModelItemDropped(const QModelIndex &index)
+{
+    if (index.isValid()) {
+        ui.SearchEditorTree->expand(index);
+    }
 }
 
 int SearchEditor::SelectedRowsCount()
@@ -1041,4 +1049,5 @@ void SearchEditor::ConnectSignalsSlots()
     connect(m_ExpandAll,   SIGNAL(triggered()), this, SLOT(ExpandAll()));
 
     connect(m_SearchEditorModel, SIGNAL(SettingsFileUpdated()), this, SLOT(SettingsFileModelUpdated()));
+    connect(m_SearchEditorModel, SIGNAL(ItemDropped(const QModelIndex&)), this, SLOT(ModelItemDropped(const QModelIndex&)));
 }

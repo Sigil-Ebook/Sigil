@@ -2,6 +2,7 @@
 **
 **  Copyright (C) 2012 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012 Dave Heiland
+**  Copyright (C) 2012 Grant Drake
 **
 **  This file is part of Sigil.
 **
@@ -83,6 +84,7 @@ public:
 
 signals:
     void SettingsFileUpdated() const;
+    void ItemDropped(const QModelIndex &) const;
 
 private slots:
     void RowsRemovedHandler( const QModelIndex & parent, int start, int end );
@@ -93,7 +95,6 @@ private slots:
 private:
     void SetDataModified(bool modified);
     bool dropMimeData(const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex &parent);
-    QMimeData *mimeData(const QModelIndexList &indexes) const;
     Qt::DropActions supportedDropActions() const;
 
     QStandardItem* GetItemFromId(qint64 id, int row, QStandardItem* item = NULL) const;

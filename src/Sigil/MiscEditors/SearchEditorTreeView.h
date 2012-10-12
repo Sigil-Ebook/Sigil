@@ -2,6 +2,7 @@
 **
 **  Copyright (C) 2012 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012 Dave Heiland
+**  Copyright (C) 2012 Grant Drake
 **
 **  This file is part of Sigil.
 **
@@ -25,8 +26,6 @@
 #define SEARCHEDITORTREEVIEW_H
 
 #include <QtGui/QTreeView>
-#include <QDragEnterEvent>
-#include <QDragMoveEvent>
 
 class SearchEditorTreeView : public QTreeView
 {
@@ -36,8 +35,6 @@ public:
      ~SearchEditorTreeView();
 
 protected:
-    void dragEnterEvent(QDragEnterEvent* event);
-    void dragMoveEvent(QDragMoveEvent* event);
     QModelIndex moveCursor(CursorAction cursorAction, Qt::KeyboardModifiers modifiers);
 
 };

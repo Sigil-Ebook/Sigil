@@ -2,6 +2,7 @@
 **
 **  Copyright (C) 2012 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012 Dave Heiland
+**  Copyright (C) 2012 Grant Drake
 **
 **  This file is part of Sigil.
 **
@@ -134,6 +135,13 @@ void ClipEditor::SettingsFileModelUpdated()
 {
     ui.ClipEditorTree->expandAll();
     emit ShowStatusMessageRequest(tr("Clip entries loaded from file."));
+}
+
+void ClipEditor::ModelItemDropped(const QModelIndex &index)
+{
+    if (index.isValid()) {
+        ui.ClipEditorTree->expand(index);
+    }
 }
 
 int ClipEditor::SelectedRowsCount()
@@ -941,4 +949,5 @@ void ClipEditor::ConnectSignalsSlots()
     connect(m_ExpandAll,   SIGNAL(triggered()), this, SLOT(ExpandAll()));
 
     connect(m_ClipEditorModel, SIGNAL(SettingsFileUpdated()), this, SLOT(SettingsFileModelUpdated()));
+    connect(m_ClipEditorModel, SIGNAL(ItemDropped(const QModelIndex&)), this, SLOT(ModelItemDropped(const QModelIndex&)));
 }

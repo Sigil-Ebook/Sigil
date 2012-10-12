@@ -2,6 +2,7 @@
 **
 **  Copyright (C) 2012 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012 Dave Heiland
+**  Copyright (C) 2012 Grant Drake
 **
 **  This file is part of Sigil.
 **
@@ -27,7 +28,8 @@
 SearchEditorTreeView::SearchEditorTreeView(QWidget* parent)
  : QTreeView(parent)
 {
-    setAcceptDrops(true);
+    setDragEnabled(true);
+    setAcceptDrops(false);
     setDropIndicatorShown(true);
     setDragDropMode(QAbstractItemView::InternalMove);
     setAutoScroll(true);
@@ -40,25 +42,6 @@ SearchEditorTreeView::SearchEditorTreeView(QWidget* parent)
 
 SearchEditorTreeView::~SearchEditorTreeView()
 {
-}
- 
-void SearchEditorTreeView::dragEnterEvent(QDragEnterEvent *event)
-{
-    if (event->source() == this) {
-        event->setDropAction(Qt::MoveAction);
-        event->accept();
-    }
-    else {
-        event->ignore();
-    }
-}
-
-void SearchEditorTreeView::dragMoveEvent(QDragMoveEvent *event)
-{
-    // Allow scrolling to work
-    QTreeView::dragMoveEvent(event);
-
-    event->accept();
 }
 
 QModelIndex SearchEditorTreeView::moveCursor(CursorAction cursorAction, Qt::KeyboardModifiers modifiers)

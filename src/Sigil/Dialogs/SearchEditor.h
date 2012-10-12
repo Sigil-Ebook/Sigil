@@ -2,6 +2,7 @@
 **
 **  Copyright (C) 2012 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012 Dave Heiland
+**  Copyright (C) 2012 Grant Drake
 **
 **  This file is part of Sigil.
 **
@@ -102,6 +103,8 @@ private slots:
     void OpenContextMenu(const QPoint &point);
 
     void SettingsFileModelUpdated();
+
+    void ModelItemDropped(const QModelIndex &index);
 
 private:
     bool MaybeSaveDialogSaysProceed(bool is_forced);
