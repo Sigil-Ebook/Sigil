@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>500</height>
+    <width>750</width>
+    <height>400</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -20,16 +20,10 @@
    <string>Metadata Editor</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <property name="sizeConstraint">
-    <enum>QLayout::SetMaximumSize</enum>
-   </property>
    <item row="0" column="0">
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
       <layout class="QFormLayout" name="formLayout">
-       <property name="fieldGrowthPolicy">
-        <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
-       </property>
        <item row="0" column="0">
         <widget class="QLabel" name="lbTitle">
          <property name="toolTip">
@@ -107,12 +101,6 @@ Click 'Add Role' to add more authors, creators, or contributors.</string>
       </property>
       <item>
        <widget class="QTableView" name="tvMetaTable">
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>0</height>
-         </size>
-        </property>
         <property name="alternatingRowColors">
          <bool>true</bool>
         </property>

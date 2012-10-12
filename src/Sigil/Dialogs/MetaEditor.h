@@ -59,6 +59,8 @@ protected:
      */
     void showEvent( QShowEvent * event );  
 
+    void reject();
+
 private slots:
 
     /**

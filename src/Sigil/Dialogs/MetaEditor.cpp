@@ -491,6 +491,13 @@ void MetaEditor::SetUpMetaTable()
 }
 
 
+void MetaEditor::reject()
+{
+    WriteSettings();
+    QDialog::reject();
+}
+
+
 void MetaEditor::ReadSettings()
 {
     SettingsStore settings;
@@ -537,7 +544,6 @@ void MetaEditor::WriteSettings()
         settings.setValue( "width", ui.tvMetaTable->columnWidth( i ) );
     }
     settings.endArray();
-
 
     settings.endGroup();
 }
