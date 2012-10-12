@@ -101,7 +101,6 @@ QSharedPointer< Book > ImportEPUB::GetBook()
 
     // If spine was not present or did not contain any items, recreate the OPF from scratch
     // preserving any important metadata elements and making a new reading order.
-    m_Book->SetModified( false );
     if( !m_HasSpineItems )
     {
         QList< Metadata::MetaElement > originalMetadata = m_Book->GetOPF().GetDCMetadata();
@@ -109,10 +108,12 @@ QSharedPointer< Book > ImportEPUB::GetBook()
         m_Book->GetOPF().AutoFixWellFormedErrors();
         m_Book->GetOPF().SetDCMetadata( originalMetadata );
 
-        m_Book->SetModified( true );
         AddLoadWarning("<p>" % QObject::tr("The OPF file does not contain a valid spine.") % "</p>" %
                        "<p>- " % QObject::tr("Sigil has created a new one for you.") % "</p>");
     }
+
+    // If we have modified the book to add spine attribute, manifest item or NCX mark as changed.
+    m_Book->SetModified( GetLoadWarnings().count() > 0 );
 
     return m_Book;
 }
