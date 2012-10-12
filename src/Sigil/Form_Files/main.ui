@@ -675,9 +675,6 @@
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Align the paragraph to the left.&lt;/p&gt;</string>
    </property>
-   <property name="shortcut">
-    <string>Ctrl+Alt+L</string>
-   </property>
   </action>
   <action name="actionAlignRight">
    <property name="checkable">
@@ -694,9 +691,6 @@
     <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Align Right&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Align the paragraph to the right.&lt;/p&gt;</string>
-   </property>
-   <property name="shortcut">
-    <string>Ctrl+Alt+R</string>
    </property>
   </action>
   <action name="actionAlignCenter">
