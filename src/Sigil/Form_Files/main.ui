@@ -1591,7 +1591,7 @@
   </action>
   <action name="actionReplaceCurrent">
    <property name="text">
-    <string>Replace C&amp;urrent</string>
+    <string>Replace</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+R</string>
@@ -1599,7 +1599,7 @@
   </action>
   <action name="actionReplaceNext">
    <property name="text">
-    <string>&amp;Replace Next</string>
+    <string>&amp;Replace/Find Next</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+]</string>
@@ -1607,7 +1607,7 @@
   </action>
   <action name="actionReplacePrevious">
    <property name="text">
-    <string>R&amp;eplace Previous</string>
+    <string>R&amp;eplace/Find Previous</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+[</string>
