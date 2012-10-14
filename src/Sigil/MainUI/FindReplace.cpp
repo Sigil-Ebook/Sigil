@@ -1326,15 +1326,16 @@ void FindReplace::TokeniseSelection()
 
 	QString new_text = TokeniseForRegex( text, true );
 
-    if (ui.cbFind->lineEdit()->hasSelectedText()) {
-        int selection_start = ui.cbFind->lineEdit()->selectionStart();
-        int selection_length = ui.cbFind->lineEdit()->selectedText().length();
-        QString all_text = text.left(selection_start) + new_text + text.right(text.length() - selection_length - selection_start);
-	    ui.cbFind->setEditText( all_text );
-        ui.cbFind->lineEdit()->setSelection(selection_start, new_text.length());
-    }
-    else {
-	    ui.cbFind->setEditText( new_text );
+    if (new_text != text) {
+        if (ui.cbFind->lineEdit()->hasSelectedText()) {
+            // We will paste in the new text so the user has the ability to undo.
+	        ui.cbFind->PasteText( new_text );
+        }
+        else {
+            // We still want to paste in, but we replacing all the text that is in there
+            ui.cbFind->lineEdit()->selectAll();
+	        ui.cbFind->PasteText( new_text );
+        }
     }
 }
 
