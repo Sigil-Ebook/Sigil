@@ -115,6 +115,10 @@ bool SearchEditorModel::dropMimeData(const QMimeData *data, Qt::DropAction actio
         // User is trying to drop onto a child column - treat it as though they are dropping in the initial column.
         new_parent = index(parent.row(), 0, parent.parent());
     }
+    if (column > 0) {
+        // Same as above but for when user drops into the between row selector in a child column.
+        column = 0;
+    }
     
     // If dropped on an non-group entry convert to parent item group/row
     if (new_parent.isValid() && !itemFromIndex(new_parent)->data(IS_GROUP_ROLE).toBool()) {
