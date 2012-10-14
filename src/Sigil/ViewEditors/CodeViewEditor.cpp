@@ -1707,7 +1707,9 @@ void CodeViewEditor::PasteClipEntry(ClipEditorModel::clipEntry *clip)
     }
 
     QTextCursor cursor = textCursor();
-    QString selected_text = cursor.selectedText();
+    // Convert to plain text or \s won't get newlines
+    const QString &document_text = toPlainText();
+    QString selected_text = Utility::Substring(cursor.selectionStart(), cursor.selectionEnd(), document_text );
 
     if (selected_text.isEmpty()) {
 
