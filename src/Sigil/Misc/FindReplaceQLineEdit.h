@@ -2,6 +2,7 @@
 **
 **  Copyright (C) 2012 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012 Dave Heiland
+**  Copyright (C) 2012 Grant Drake
 **
 **  This file is part of Sigil.
 **
@@ -41,6 +42,9 @@ public:
 
     bool isTokeniseEnabled();
     void setTokeniseEnabled(bool value);
+
+protected:
+    bool event(QEvent *e);
 
 private:
     bool CreateMenuEntries(QMenu *parent_menu, QAction *topAction, QStandardItem *entry);

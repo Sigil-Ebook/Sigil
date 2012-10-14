@@ -2,6 +2,7 @@
 **
 **  Copyright (C) 2012 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012 Dave Heiland
+**  Copyright (C) 2012 Grant Drake
 **
 **  This file is part of Sigil.
 **
@@ -21,9 +22,11 @@
 *************************************************************************/
 
 #include <QtCore/QFile>
-#include <QtGui/QContextMenuEvent>
 #include <QtCore/QSignalMapper>
+#include <QtGui/QAbstractItemView>
 #include <QtGui/QAction>
+#include <QtGui/QCompleter>
+#include <QtGui/QContextMenuEvent>
 #include <QtGui/QMenu>
 
 #include "Misc/FindReplaceQLineEdit.h"
@@ -130,4 +133,19 @@ bool FindReplaceQLineEdit::isTokeniseEnabled()
 void FindReplaceQLineEdit::setTokeniseEnabled(bool value)
 {
     m_tokeniseEnabled = value;
+}
+
+bool FindReplaceQLineEdit::event(QEvent *e)
+{
+    if (e->type() == QEvent::KeyPress) {
+        QKeyEvent *ke = static_cast<QKeyEvent *>(e);
+        if (completer()->popup()->isVisible()) {
+            if ( (ke->modifiers() & Qt::AltModifier) || (ke->modifiers() & Qt::ControlModifier) ) {
+                // Alt/Control modifier keys while the autocompletion popup is down are swallowed
+                // which prevents any actions with keyboard shortcuts from working.
+                completer()->popup()->hide();
+            }
+        }
+    }
+    return QLineEdit::event(e);
 }
