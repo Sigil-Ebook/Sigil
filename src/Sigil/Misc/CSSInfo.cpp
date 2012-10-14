@@ -128,6 +128,7 @@ QString CSSInfo::getReformattedCSSText( bool multipleLineFormat )
             }
             else {
                 new_text.replace(pos + 1, cssSelector->position - pos - 1, QString(" ").repeated(selector_indent));
+                new_text.insert(pos + 1, QChar('\n'));
             }
         }
     }
@@ -330,7 +331,7 @@ void CSSInfo::parseCSSSelectors( const QString &text, const int &offsetLines, co
         // Now search backwards until we get a line containing text.
         bool have_text = false;
         pos = open_brace_pos - 1;
-        while ((pos >= 0) && (search_text.at(pos) != QChar('\n') || !have_text)) {
+        while ((pos >= 0) && ((search_text.at(pos) != QChar('\n') && search_text.at(pos) != QChar('}')) || !have_text)) {
             if (search_text.at(pos).isLetter()) {
                 have_text = true;
             }
