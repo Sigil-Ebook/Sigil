@@ -1727,7 +1727,7 @@ bool CodeViewEditor::PasteClipEntry(ClipEditorModel::clipEntry *clip)
         setTextCursor( cursor );
     }
     else {
-        QString search_regex = "(?s)(" + selected_text + ")";
+        QString search_regex = "(?s)(" + QRegExp::escape(selected_text) + ")";
         ReplaceSelected(search_regex, clip->text, Searchable::Direction_Down, true);
     }
     return true;
