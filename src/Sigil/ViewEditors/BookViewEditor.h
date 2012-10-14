@@ -209,7 +209,7 @@ public slots:
 
     // Implementations for PasteTarget.h
     void PasteText(const QString &text);
-    void PasteClipEntries(const QList<ClipEditorModel::clipEntry *> &clips);
+    bool PasteClipEntries(const QList<ClipEditorModel::clipEntry *> &clips);
 
 signals:
     /**
@@ -298,7 +298,7 @@ private slots:
     void SaveClipAction();
 
 private:
-    void PasteClipEntry(ClipEditorModel::clipEntry *clip);
+    bool PasteClipEntry(ClipEditorModel::clipEntry *clip);
 
     void AddClipContextMenu(QMenu *menu);
     bool CreateMenuEntries(QMenu *parent_menu, QAction *topAction, QStandardItem *item);

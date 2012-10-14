@@ -45,18 +45,21 @@ void PasteTargetComboBox::PasteText(const QString &text)
     emit ClipboardRestoreRequest();
 }
 
-void PasteTargetComboBox::PasteClipEntries(const QList<ClipEditorModel::clipEntry *> &clips)
+bool PasteTargetComboBox::PasteClipEntries(const QList<ClipEditorModel::clipEntry *> &clips)
 {
+    bool applied = false;
     foreach(ClipEditorModel::clipEntry *clip, clips) {
-        PasteClipEntry(clip);
+        applied = applied || PasteClipEntry(clip);
     }
+    return applied;
 }
 
-void PasteTargetComboBox::PasteClipEntry(ClipEditorModel::clipEntry *clip)
+bool PasteTargetComboBox::PasteClipEntry(ClipEditorModel::clipEntry *clip)
 {
     if (!clip || clip->text.isEmpty()) {
-        return;
+        return false;
     }
 
     PasteText(clip->text);
+    return true;
 }

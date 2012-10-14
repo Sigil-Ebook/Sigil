@@ -42,7 +42,7 @@ public:
      * Replace the current selected text with using the clipEntry data,
      * which may allow for regex substitutions of the selection.
      */
-    virtual void PasteClipEntries( const QList<ClipEditorModel::clipEntry *> &clips ) = 0;
+    virtual bool PasteClipEntries( const QList<ClipEditorModel::clipEntry *> &clips ) = 0;
 };
 
 #endif // PASTETARGET_H

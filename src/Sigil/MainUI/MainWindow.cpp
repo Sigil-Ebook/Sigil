@@ -1294,9 +1294,11 @@ void MainWindow::PasteClipEntriesIntoCurrentTarget(const QList<ClipEditorModel::
         return;
     }
 
-    m_LastPasteTarget->PasteClipEntries(clips);
-
-    ShowMessageOnStatusBar();
+    bool applied = m_LastPasteTarget->PasteClipEntries(clips);
+    if (applied) {
+        // Clear the statusbar afterwards but only if entries were pasted.
+        ShowMessageOnStatusBar();
+    }
 }
 
 void MainWindow::MergeResources(QList <Resource *> resources)

@@ -716,17 +716,19 @@ void BookViewEditor::PasteClipEntryFromName(const QString &name)
     PasteClipEntry(clip);
 }
 
-void BookViewEditor::PasteClipEntries(const QList<ClipEditorModel::clipEntry *> &clips)
+bool BookViewEditor::PasteClipEntries(const QList<ClipEditorModel::clipEntry *> &clips)
 {
+    bool applied = false;
     foreach(ClipEditorModel::clipEntry *clip, clips) {
-        PasteClipEntry(clip);
+        applied = applied || PasteClipEntry(clip);
     }
+    return applied;
 }
 
-void BookViewEditor::PasteClipEntry(ClipEditorModel::clipEntry *clip)
+bool BookViewEditor::PasteClipEntry(ClipEditorModel::clipEntry *clip)
 {
     if (!clip || clip->text.isEmpty()) {
-        return;
+        return false;
     }
 
     QString text = clip->text;
@@ -736,7 +738,13 @@ void BookViewEditor::PasteClipEntry(ClipEditorModel::clipEntry *clip)
         text.replace(">", "&gt;").replace("<", "&lt;");
     }
 
+    if (text.contains("\\1")) {
+        emit ShowStatusMessageRequest(tr("You cannot paste clips in Book View that use regular expressions."));
+        return false;
+    }
+
     InsertHtml(text);
+    return true;
 }
 
 void BookViewEditor::OpenContextMenu( const QPoint &point )

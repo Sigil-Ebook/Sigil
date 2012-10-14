@@ -48,7 +48,7 @@ public slots:
      * Replace the current selected text with using the clipEntry data,
      * which may allow for regex substitutions of the selection.
      */
-    void PasteClipEntries( const QList<ClipEditorModel::clipEntry *> &clips );
+    bool PasteClipEntries( const QList<ClipEditorModel::clipEntry *> &clips );
 
 signals:
     /**
@@ -60,7 +60,7 @@ signals:
     void ClipboardRestoreRequest();
 
 private:
-    void PasteClipEntry(ClipEditorModel::clipEntry *clip);
+    bool PasteClipEntry(ClipEditorModel::clipEntry *clip);
 
 };
 

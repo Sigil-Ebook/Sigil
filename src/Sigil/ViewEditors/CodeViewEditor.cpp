@@ -1681,11 +1681,13 @@ void CodeViewEditor::PasteText(const QString &text)
     InsertText(text);
 }
 
-void CodeViewEditor::PasteClipEntries(const QList<ClipEditorModel::clipEntry *> &clips)
+bool CodeViewEditor::PasteClipEntries(const QList<ClipEditorModel::clipEntry *> &clips)
 {
+    bool applied = false;
     foreach(ClipEditorModel::clipEntry *clip, clips) {
-        PasteClipEntry(clip);
+        applied = applied || PasteClipEntry(clip);
     }
+    return applied;
 }
 
 void CodeViewEditor::PasteClipEntryFromName(const QString &name)
@@ -1694,10 +1696,10 @@ void CodeViewEditor::PasteClipEntryFromName(const QString &name)
     PasteClipEntry(clip);
 }
 
-void CodeViewEditor::PasteClipEntry(ClipEditorModel::clipEntry *clip)
+bool CodeViewEditor::PasteClipEntry(ClipEditorModel::clipEntry *clip)
 {
     if (!clip || clip->text.isEmpty()) {
-        return;
+        return false;
     }
 
     // Remove any existing tags before adding in clip if Control is active
@@ -1728,6 +1730,7 @@ void CodeViewEditor::PasteClipEntry(ClipEditorModel::clipEntry *clip)
         QString search_regex = "(?s)(" + selected_text + ")";
         ReplaceSelected(search_regex, clip->text, Searchable::Direction_Down, true);
     }
+    return true;
 }
 
 void CodeViewEditor::ResetFont()

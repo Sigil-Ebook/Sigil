@@ -367,7 +367,7 @@ public slots:
 
     // Implementations for PasteTarget.h
     void PasteText(const QString &text);
-    void PasteClipEntries(const QList<ClipEditorModel::clipEntry *> &clips);
+    bool PasteClipEntries(const QList<ClipEditorModel::clipEntry *> &clips);
 
     void RefreshSpellingHighlighting();
 
@@ -486,7 +486,7 @@ private:
 
     QString GetCurrentWordAtCaret(bool select_word);
 
-    void PasteClipEntry(ClipEditorModel::clipEntry *clip);
+    bool PasteClipEntry(ClipEditorModel::clipEntry *clip);
 
     /**
      * Returns the text inside < > if cursor is in < >
