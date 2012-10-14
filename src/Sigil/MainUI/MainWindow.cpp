@@ -3176,6 +3176,8 @@ void MainWindow::SetPreserveHeadingAttributes( bool new_state )
 {
     m_preserveHeadingAttributes = new_state;
     ui.actionHeadingPreserveAttributes->setChecked( m_preserveHeadingAttributes );
+    ShowMessageOnStatusBar(tr("Preserve existing heading attributes is now:") % " " % 
+        (m_preserveHeadingAttributes ? tr("ON") : tr("OFF")));
 }
 
 
