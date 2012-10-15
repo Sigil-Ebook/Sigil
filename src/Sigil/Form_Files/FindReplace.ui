@@ -290,7 +290,7 @@ then find the Next match in Code View.</string>
           <item>
            <widget class="QCheckBox" name="chkRegexOptionDotAll">
             <property name="toolTip">
-             <string>For Regex searches, prefix your search with (?U).</string>
+             <string>For Regex searches, prefix your search with (?s).</string>
             </property>
             <property name="styleSheet">
              <string notr="true"/>
@@ -303,7 +303,7 @@ then find the Next match in Code View.</string>
           <item>
            <widget class="QCheckBox" name="chkRegexOptionMinimalMatch">
             <property name="toolTip">
-             <string>For Regex searches, prefix your search with (?s).</string>
+             <string>For Regex searches, prefix your search with (?U).</string>
             </property>
             <property name="styleSheet">
              <string notr="true"/>
