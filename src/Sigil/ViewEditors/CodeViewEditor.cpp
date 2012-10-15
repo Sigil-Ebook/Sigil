@@ -82,6 +82,7 @@ CodeViewEditor::CodeViewEditor( HighlighterType high_type, bool check_spelling, 
     m_CaretUpdate( QList< ViewEditor::ElementIndex >() ),
     m_checkSpelling( check_spelling ),
     m_reformatCSSEnabled( false ),
+    m_lastFindRegex( QString() ),
     m_spellingMapper( new QSignalMapper( this ) ),
     m_addSpellingMapper( new QSignalMapper( this ) ),
     m_ignoreSpellingMapper( new QSignalMapper( this ) ),
@@ -711,18 +712,17 @@ bool CodeViewEditor::FindNext( const QString &search_regex,
         start_offset = selection_offset;
     }
 
-    m_lastMatch = match_info;
-
     if ( match_info.offset.first != -1 )
     {
-        m_lastMatch.offset.first += start_offset;
-        m_lastMatch.offset.second += start_offset;
-
         // We will scroll the position on screen in order to ensure the entire block is visible
         // and if not, then center the match.
         SelectAndScrollIntoView(match_info.offset.first + start_offset, match_info.offset.second + start_offset, 
                                 search_direction, ignore_selection_offset);
-
+        // We store our offset after the selection changing event which would otherwise reset it
+        m_lastFindRegex = search_regex;
+        m_lastMatch = match_info;
+        m_lastMatch.offset.first += start_offset;
+        m_lastMatch.offset.second += start_offset;
         return true;
     }
     else if ( wrap )
@@ -751,60 +751,16 @@ bool CodeViewEditor::ReplaceSelected( const QString &search_regex, const QString
 
     int selection_start = textCursor().selectionStart();
     int selection_end = textCursor().selectionEnd();
-    int selection_position = textCursor().position();
 
-    // Move the cursor in preparation for a Find so its 'in front of' the selection
-    QTextCursor cursor = textCursor();
-    if ( direction == Searchable::Direction_Up ) {
-        cursor.setPosition(selection_end);
-    }
-    else {
-        cursor.setPosition(selection_start);
-    }
-    setTextCursor(cursor);
-
-    // We don't know if the user manually selected the text or got there with Find, so
-    // we must run a Find again to load the match offsets.  We cannot just use the selection
-    // since look ahead and look behind use text in the document that is before and after
-    // the selection.  Conveniently Find already takes this into account.
-    // Specifically helps with manual selections, Replace Current and changing tabs for next match.
-    bool found = FindNext(search_regex, direction, false, false, false);
-
-    // Check if the match matches our selection
-    int new_selection_start = textCursor().selectionStart();
-    int new_selection_end = textCursor().selectionEnd();
-
-    if (found && new_selection_start >= selection_start && new_selection_end <= selection_end) {
-        // If we found a match within the selection then adjust selection to the match
-        // so that if the user manually selects text they don't have to be too accurate
-        // and so that we only replace the matched text.
-        selection_start = new_selection_start;
-        selection_end = new_selection_end;
-    }
-    else {
-        // If nothing found or found but at a new position we don't want to move forward
-        // since there was no match inside the selection, reset cursor/selection to avoid 
-        // moving forward and return as there's no point in checking the match again.
-        cursor = textCursor();
-        cursor.clearSelection();
-        if (selection_position != selection_start) {
-            cursor.setPosition(selection_start);
-            cursor.setPosition(selection_end, QTextCursor::KeepAnchor);
-        }
-        else {
-            cursor.setPosition(selection_end);
-            cursor.setPosition(selection_start, QTextCursor::KeepAnchor);
-        }
-        setTextCursor(cursor);
-
+    // It is only safe to do a replace if we have not changed the selection or find text 
+    // since we last did a Find.
+    if ( (search_regex != m_lastFindRegex) || (m_lastMatch.offset.first == -1) ) {
         return false;
     }
 
     // Convert to plain text or \s won't get newlines
     const QString &document_text = toPlainText();
     QString selected_text = Utility::Substring(selection_start, selection_end, document_text );
-
-    SPCRE::MatchInfo match_info;
 
     QString replaced_text;
     bool replacement_made = false;
@@ -836,8 +792,8 @@ bool CodeViewEditor::ReplaceSelected( const QString &search_regex, const QString
         }
         else if ( direction == Searchable::Direction_Up )
         {
-                // Find for next match done after will set selection
-                cursor.setPosition( selection_start );
+            // Find for next match done after will set selection
+            cursor.setPosition( selection_start );
         }
 
         setTextCursor( cursor );
@@ -850,11 +806,9 @@ bool CodeViewEditor::ReplaceSelected( const QString &search_regex, const QString
             // the saving of the tab content and all associated ResourceModified signals to fire.
             emit FocusLost( this );
         }
-
-        return true;
     }
 
-    return false;
+    return replacement_made;
 }
 
 
@@ -910,6 +864,10 @@ int CodeViewEditor::ReplaceAll( const QString &search_regex,
     return count;
 }
 
+void CodeViewEditor::ResetLastFindMatch()
+{
+    m_lastMatch.offset.first = -1;
+}
 
 QString CodeViewEditor::GetSelectedText()
 {
@@ -1547,9 +1505,10 @@ void CodeViewEditor::focusOutEvent( QFocusEvent *event )
 
 void CodeViewEditor::TextChangedFilter()
 {
-    if ( m_isUndoAvailable )
-
+    ResetLastFindMatch();
+    if ( m_isUndoAvailable ) {
         emit FilteredTextChanged();
+    }
 }
 
 void CodeViewEditor::RehighlightDocument()
@@ -1728,7 +1687,14 @@ bool CodeViewEditor::PasteClipEntry(ClipEditorModel::clipEntry *clip)
     }
     else {
         QString search_regex = "(?s)(" + QRegExp::escape(selected_text) + ")";
-        ReplaceSelected(search_regex, clip->text, Searchable::Direction_Down, true);
+        // We must do a Find before we do the Replace in order to ensure the match info that
+        // ReplaceSelected relies upon is loaded.
+        cursor.setPosition(cursor.selectionStart());
+        setTextCursor( cursor );
+        bool found = FindNext(search_regex, Searchable::Direction_Down, false, false, false);
+        if (found) {
+            ReplaceSelected(search_regex, clip->text, Searchable::Direction_Down, true);
+        }
     }
     return true;
 }
@@ -2993,6 +2959,7 @@ void CodeViewEditor::ConnectSignalsToSlots()
     connect( this, SIGNAL( cursorPositionChanged()            ), this, SLOT( HighlightCurrentLine()                    ) );
     connect( this, SIGNAL( textChanged()                      ), this, SLOT( TextChangedFilter()                       ) );
     connect( this, SIGNAL( undoAvailable( bool )              ), this, SLOT( UpdateUndoAvailable( bool )               ) );
+    connect( this, SIGNAL( selectionChanged()                 ), this, SLOT( ResetLastFindMatch()                      ) );
 
     connect( &m_ScrollOneLineUp,   SIGNAL( activated() ), this, SLOT( ScrollOneLineUp()   ) );
     connect( &m_ScrollOneLineDown, SIGNAL( activated() ), this, SLOT( ScrollOneLineDown() ) );

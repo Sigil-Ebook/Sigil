@@ -416,6 +416,7 @@ protected:
     void focusOutEvent( QFocusEvent *event );
 
 private slots:
+    void ResetLastFindMatch();
     /**
      * Filters the textChanged signal.
      * It does this based on the availability of undo.
@@ -733,6 +734,7 @@ private:
      * if a look ahead or behind expression is in use.
      */
     SPCRE::MatchInfo m_lastMatch;
+    QString m_lastFindRegex;
 
     /**
      * Map spelling suggestion actions from the context menu to the
