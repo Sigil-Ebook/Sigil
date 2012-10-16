@@ -87,5 +87,6 @@ extern const float ZOOM_NORMAL;
 extern const QString SET_CURSOR_JS;
 
 extern const QString SIGIL_INDEX_CLASS;
+extern const QString SIGIL_INDEX_ID_PREFIX;
 
 #endif // SG_CONSTANTS_H

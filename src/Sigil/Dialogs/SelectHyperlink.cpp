@@ -23,6 +23,7 @@
 #include "Dialogs/SelectHyperlink.h"
 #include "ResourceObjects/HTMLResource.h"
 #include "Misc/SettingsStore.h"
+#include "sigil_constants.h"
 
 static QString SETTINGS_GROUP = "select_hyperlink";
 
@@ -89,6 +90,11 @@ void SelectHyperlink::AddEntry(Resource *resource)
     QStringList ids = QStringList() << "" << m_IDNames[filename];
 
     foreach(QString id, ids) {
+        // Do not allow linking to index entries because they can be regenerated
+        // and because they can take up a lot of room.
+        if (id.startsWith(SIGIL_INDEX_ID_PREFIX)) {
+           continue; 
+        }
         QString target = filename;
         QString filepath = "../" + resource->GetRelativePathToOEBPS();
         if (!id.isEmpty()) {
