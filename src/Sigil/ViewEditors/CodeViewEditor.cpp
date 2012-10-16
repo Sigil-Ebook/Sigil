@@ -1438,7 +1438,23 @@ bool CodeViewEditor::IsInsertHyperlinkAllowed()
     int pos = textCursor().selectionStart();
     QString text = toPlainText();
 
-    return IsPositionInBody(pos, text);
+    if (!IsPositionInBody(pos, text)) {
+        return false;
+    }
+
+    // Only allow if the closing tag we're in is an "a" tag
+    QString closing_tag_name = GetClosingTagName(pos, text);
+    if (!closing_tag_name.isEmpty() && !ANCHOR_TAGS.contains(closing_tag_name)) {
+        return false;
+    }
+
+    // Only allow if the opening tag we're in is an "a" tag
+    QString tag_name = GetOpeningTagName(pos, text);
+    if (!tag_name.isEmpty() && !ANCHOR_TAGS.contains(tag_name)) {
+        return false;
+    }
+
+    return true;
 }
 
 bool CodeViewEditor::IsInsertImageAllowed()
