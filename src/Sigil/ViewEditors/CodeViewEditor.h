@@ -293,6 +293,8 @@ public:
 
     void ApplyCaseChangeToSelection( const Utility::Casing &casing );
 
+    QString GetAttributeId();
+
     /**
      * Based on the cursor location (in html file)
      * get appropriate attribute_value for attribute_name.
@@ -610,6 +612,8 @@ private:
     bool IsPositionInTag( const int &pos = -1, const QString &text = QString() );
     bool IsPositionInOpeningTag( const int &pos = -1, const QString &text = QString() );
     bool IsPositionInClosingTag( const int &pos = -1, const QString &text = QString() );
+    QString GetOpeningTagName( const int &pos, const QString &text);
+    QString GetClosingTagName( const int &pos, const QString &text);
 
     void FormatSelectionWithinElement(const QString &element_name, const int &previous_tag_index, const QString &text);
 

@@ -1103,7 +1103,7 @@ QString FlowTab::GetAttributeId()
     QString attribute_value;
     if (m_ViewState == MainWindow::ViewState_CodeView) {
         // We are only interested in ids on <a> anchor elements
-        attribute_value = m_wCodeView->GetAttribute("id", ANCHOR_TAGS, false, true);
+        attribute_value = m_wCodeView->GetAttributeId();
     }
     else if (m_ViewState == MainWindow::ViewState_BookView) {
         attribute_value = m_wBookView->GetAncestorTagAttributeValue("id", ANCHOR_TAGS);

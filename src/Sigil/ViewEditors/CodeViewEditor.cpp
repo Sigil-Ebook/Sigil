@@ -1391,7 +1391,23 @@ bool CodeViewEditor::IsInsertIdAllowed()
     int pos = textCursor().selectionStart();
     QString text = toPlainText();
 
-    return IsPositionInBody(pos, text);
+    if (!IsPositionInBody(pos, text)) {
+        return false;
+    }
+
+    // Only allow if the closing tag we're in is an "a" tag
+    QString closing_tag_name = GetClosingTagName(pos, text);
+    if (!closing_tag_name.isEmpty() && !ANCHOR_TAGS.contains(closing_tag_name)) {
+        return false;
+    }
+
+    // Only allow if the opening tag we're in is valid for id attribute
+    QString tag_name = GetOpeningTagName(pos, text);
+    if (!tag_name.isEmpty() && !ID_TAGS.contains(tag_name)) {
+        return false;
+    }
+
+    return true;
 }
 
 bool CodeViewEditor::IsInsertHyperlinkAllowed()
@@ -1412,9 +1428,19 @@ bool CodeViewEditor::IsInsertImageAllowed()
 
 bool CodeViewEditor::InsertId(const QString &attribute_value)
 {
+    int pos = textCursor().selectionStart();
+    QString text = toPlainText();
+
     const QString &element_name = "a";
     const QString &attribute_name = "id";
-    return InsertTagAttribute(element_name, attribute_name, attribute_value, ANCHOR_TAGS);
+
+    // If we're in an a tag we can update the id even if not in the opening tag
+    QStringList tag_list = ID_TAGS;
+    if (GetOpeningTagName(pos, text).isEmpty()) {
+        tag_list = ANCHOR_TAGS;
+    }
+
+    return InsertTagAttribute(element_name, attribute_name, attribute_value, tag_list);
 }
 
 bool CodeViewEditor::InsertHyperlink(const QString &attribute_value)
@@ -1428,21 +1454,8 @@ bool CodeViewEditor::InsertTagAttribute(const QString &element_name, const QStri
 {
     bool inserted = false;
 
-    int selection_length = 0;
-    if (textCursor().hasSelection()) {
-        selection_length = textCursor().selectedText().length();
-    }
-
     // Add or update the attribute within the start tag and return if ok
     if (!SetAttribute(attribute_name, tag_list, attribute_value, false, true).isEmpty()) {
-        // Restore the selection
-        int start_pos = textCursor().position();
-        QTextCursor cursor = textCursor();
-        cursor.clearSelection();
-        cursor.setPosition(start_pos);
-        cursor.setPosition(start_pos + selection_length, QTextCursor::KeepAnchor );
-        setTextCursor( cursor );
-
         return true;
     }
 
@@ -2183,6 +2196,45 @@ bool CodeViewEditor::IsPositionInClosingTag( const int &pos, const QString &text
     return false;
 }
 
+QString CodeViewEditor::GetOpeningTagName( const int &pos, const QString &text)
+{
+    QString tag_name;
+
+    QRegExp tag_search( "<\\s*[^/][^>]*>" );
+    int tag_start = text.lastIndexOf( tag_search, pos - 1 );
+    int tag_end   = tag_start + tag_search.matchedLength();
+
+    if ( ( pos >= tag_start ) && ( pos < tag_end ) ) {
+        QRegExp tag_name_search( TAG_NAME_SEARCH );
+        int tag_name_index = tag_name_search.indexIn(text, tag_start);
+        if (tag_name_index < 0) {
+            return tag_name;
+        }
+        tag_name = tag_name_search.cap(1).toLower();
+    }
+    return tag_name;
+}
+
+QString CodeViewEditor::GetClosingTagName( const int &pos, const QString &text)
+{
+    QString tag_name;
+
+    QRegExp tag_search( "<\\s*/[^>]*>" );
+    int tag_start = text.lastIndexOf( tag_search, pos - 1 );
+    int tag_end   = tag_start + tag_search.matchedLength();
+
+    if ( ( pos >= tag_start ) && ( pos < tag_end ) ) {
+        QRegExp tag_name_search( TAG_NAME_SEARCH );
+        int tag_name_index = tag_name_search.indexIn(text, tag_start);
+        if (tag_name_index < 0) {
+            return tag_name;
+        }
+        tag_name = tag_name_search.cap(1).toLower();
+        tag_name = tag_name.right(tag_name.length() - 1);
+    }
+    return tag_name;
+}
+
 void CodeViewEditor::ToggleFormatSelection( const QString &element_name, const QString property_name, const QString property_value )
 {
     if ( element_name.isEmpty() ) {
@@ -2418,6 +2470,22 @@ CodeViewEditor::StyleTagElement CodeViewEditor::GetSelectedStyleTagElement()
     }
 
     return element;
+}
+
+QString CodeViewEditor::GetAttributeId()
+{
+    int pos = textCursor().selectionStart();
+    QString text = toPlainText();
+
+    QString tag_name = GetOpeningTagName(pos, text);
+
+    // If we're in an opening tag use it for the id, else use a
+    QStringList tag_list = ID_TAGS;
+    if (tag_name.isEmpty()) {
+        tag_list = ANCHOR_TAGS;
+    }
+
+    return GetAttribute("id", tag_list, false, true);
 }
 
 QString CodeViewEditor::GetAttribute(const QString &attribute_name, QStringList tag_list, bool must_be_in_attribute, bool skip_paired_tags)
