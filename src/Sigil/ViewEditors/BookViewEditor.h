@@ -265,9 +265,19 @@ protected:
      */
     void focusOutEvent(QFocusEvent *event);
 
-    bool eventFilter(QObject *obj, QEvent *ev);
-
 private slots:
+
+    /**
+     * Wrapper slot for the Page Up shortcut.
+     */
+    void PageUp();
+
+    /**
+     * Wrapper slot for the Page Down shortcut.
+     */
+    void PageDown();
+
+    void ClickAtTopLeft();
 
     /**
      * Wrapper slot for the Scroll One Line Up shortcut.
@@ -278,8 +288,6 @@ private slots:
      * Wrapper slot for the Scroll One Line Down shortcut.
      */
     void ScrollOneLineDown();
-
-    void PageDown();
 
     /**
      * Sets the web page modified state.
@@ -382,8 +390,6 @@ private:
     QVariant m_caret;
     QString m_path;
 
-    bool m_isDelayedPageDown;
-
     /**
      * \c true if the WebPage was modified by the user.
      */
@@ -419,6 +425,16 @@ private:
     QAction *m_OpenWithEditor;
 
     QAction *m_SaveAs;
+
+    /**
+     * PageUp keyboard shortcut.
+     */
+    QShortcut &m_PageUp;
+
+    /**
+     * PageDown keyboard shortcut.
+     */
+    QShortcut &m_PageDown; 
 
     /**
      * Keyboard shortcut for scrolling one line up.

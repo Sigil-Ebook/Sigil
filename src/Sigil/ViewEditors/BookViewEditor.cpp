@@ -72,11 +72,12 @@ static const QString GET_BODY_TAG_HTML = "new XMLSerializer().serializeToString(
 BookViewEditor::BookViewEditor(QWidget *parent)
     :
     BookViewPreview(parent),
-    m_isDelayedPageDown( false ),
     m_WebPageModified( false ),
     m_ContextMenu( *new QMenu( this ) ),
     m_clipMapper( new QSignalMapper( this ) ),
     m_OpenWithContextMenu( *new QMenu( this ) ),
+    m_PageUp(   *( new QShortcut( QKeySequence( QKeySequence::MoveToPreviousPage ), this, 0, 0, Qt::WidgetShortcut ) ) ),
+    m_PageDown( *( new QShortcut( QKeySequence( QKeySequence::MoveToNextPage     ), this, 0, 0, Qt::WidgetShortcut ) ) ),
     m_ScrollOneLineUp(   *( new QShortcut( QKeySequence( Qt::ControlModifier + Qt::Key_Up   ), this, 0, 0, Qt::WidgetShortcut ) ) ),
     m_ScrollOneLineDown( *( new QShortcut( QKeySequence( Qt::ControlModifier + Qt::Key_Down ), this, 0, 0, Qt::WidgetShortcut ) ) ),
     c_GetSegmentHTML(       Utility::ReadUnicodeTextFile( ":/javascript/get_segment_html.js"           ) ),
@@ -149,45 +150,6 @@ void BookViewEditor::CustomSetDocument(const QString &path, const QString &html)
     BookViewPreview::CustomSetDocument(m_path, html);
     page()->setContentEditable(true);
     SetWebPageModified( false );
-}
-
-bool BookViewEditor::eventFilter(QObject *obj, QEvent *evt)
-{
-    if (evt->type() == QEvent::KeyPress) {
-        QKeyEvent *keyEvent = static_cast<QKeyEvent*>(evt);
-        int key = keyEvent->key();
-
-        if (key == Qt::Key_PageDown) {
-            // As of Qt 4.8.3 there is still a bug with Page Down. If the caret location is
-            // not at the top of the screen, it scrolls 1.y lines, where y is the distance
-            // from the top of the screen of the caret. To work around this, we will divert
-            // the standard Page Down handling through our delay function below.
-            if (!m_isDelayedPageDown) {
-                QTimer::singleShot(0, this, SLOT(PageDown()));
-                return true;
-            }
-            else {
-                m_isDelayedPageDown = false;
-            }
-        }
-    }
-    // pass the event on to the parent class
-    return BookViewPreview::eventFilter(obj, evt);
-}
-
-void BookViewEditor::PageDown()
-{
-    // To get Qt to scroll QWebView correctly, we will simulate the user clicking in the
-    // top left corner of the window, before then issuing the Page Down keypress again
-    m_isDelayedPageDown = true;
-    QPoint topLeft = QPoint(0,0);
-    QMouseEvent* mouseDownEvent = new QMouseEvent( QEvent::MouseButtonPress, topLeft, Qt::LeftButton, Qt::LeftButton, Qt::NoModifier );
-    QMouseEvent* mouseUpEvent = new QMouseEvent( QEvent::MouseButtonRelease, topLeft, Qt::LeftButton, Qt::LeftButton, Qt::NoModifier );
-    QKeyEvent* pageDownEvent = new QKeyEvent( QEvent::KeyPress, Qt::Key_PageDown, Qt::NoModifier );
-
-    QApplication::postEvent(this, mouseDownEvent);
-    QApplication::postEvent(this, mouseUpEvent);
-    QApplication::postEvent(this, pageDownEvent);
 }
 
 QString BookViewEditor::GetHtml()
@@ -360,6 +322,34 @@ void BookViewEditor::ScrollByNumPixels( int pixel_number, bool down )
     new_scroll_Y     = qBound( 0, new_scroll_Y, scroll_maximum );
 
     page()->mainFrame()->setScrollBarValue( Qt::Vertical, new_scroll_Y );
+}
+
+void BookViewEditor::PageUp()
+{
+    // Scroll by a bit less than the full height to be sure the user does not miss anything.
+    ScrollByNumPixels( height() - 40, false );
+    QTimer::singleShot(0, this, SLOT(ClickAtTopLeft()));
+}
+
+void BookViewEditor::PageDown()
+{
+    ScrollByNumPixels( height() - 40, true );
+    QTimer::singleShot(0, this, SLOT(ClickAtTopLeft()));
+}
+
+void BookViewEditor::ClickAtTopLeft()
+{
+    // As Qt 4.8.3 is still buggy when it comes to page up/down when in edit mode, we simulate the scrolling 
+    // by hooking into the PageUp and PageDown keys above, and then send a mouse click event in the top left
+    // to ensure the caret gets moved to the new position.
+    QPoint topLeft = QPoint(0, 30);
+    QMouseEvent* mouseDownEvent = new QMouseEvent( QEvent::MouseButtonPress, topLeft, Qt::LeftButton, Qt::LeftButton, Qt::NoModifier );
+    QMouseEvent* mouseUpEvent = new QMouseEvent( QEvent::MouseButtonRelease, topLeft, Qt::LeftButton, Qt::LeftButton, Qt::NoModifier );
+    QKeyEvent* homeEvent = new QKeyEvent( QEvent::KeyPress, Qt::Key_Home, Qt::NoModifier );
+
+    QApplication::postEvent(this, mouseDownEvent);
+    QApplication::postEvent(this, mouseUpEvent);
+    QApplication::postEvent(this, homeEvent);
 }
 
 void BookViewEditor::ScrollOneLineUp()
@@ -951,6 +941,8 @@ void BookViewEditor::CreateContextMenuActions()
 
 void BookViewEditor::ConnectSignalsToSlots()
 {
+    connect( &m_PageUp,            SIGNAL( activated() ), this, SLOT( PageUp()            ) );
+    connect( &m_PageDown,          SIGNAL( activated() ), this, SLOT( PageDown()          ) );
     connect( &m_ScrollOneLineUp,   SIGNAL( activated() ), this, SLOT( ScrollOneLineUp()   ) );
     connect( &m_ScrollOneLineDown, SIGNAL( activated() ), this, SLOT( ScrollOneLineDown() ) );
 
