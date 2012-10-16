@@ -128,6 +128,8 @@ public:
 
     QString GetSelectedText();
 
+    void SetUpFindForSelectedText( const QString &search_regex );
+
     /**
      * Executes a contentEditable command.
      * The command is executed through JavaScript.

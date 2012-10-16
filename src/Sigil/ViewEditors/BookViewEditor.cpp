@@ -293,6 +293,11 @@ QString BookViewEditor::GetSelectedText()
     return EvaluateJavascript( javascript ).toString();
 }
 
+void BookViewEditor::SetUpFindForSelectedText( const QString &search_regex )
+{
+    // Nothing to do for Book View
+}
+
 void BookViewEditor::TextChangedFilter()
 {
     emit textChanged();

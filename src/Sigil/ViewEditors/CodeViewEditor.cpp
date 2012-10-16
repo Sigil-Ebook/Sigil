@@ -874,6 +874,29 @@ QString CodeViewEditor::GetSelectedText()
     return textCursor().selectedText();
 }
 
+void CodeViewEditor::SetUpFindForSelectedText( const QString &search_regex )
+{
+    // When a user hits Ctrl+F to load up Find text for the selection, they will want to be
+    // able to follow that up with a Replace. Since ReplaceSelected() requires the PCRE
+    // lastMatchInfo to be setup, we must effectively do a Find for the selected text.
+    // However this is complicated by the fact that the auto-tokenise and other F&R options
+    // may mean that the search_regex when ReplaceSelected() is called can be different
+    // to what regex would minimally match the selection. So instead we require this function
+    // to be passed the regex that is derived from the selected text with current options.
+    QTextCursor cursor = textCursor();
+    const int selection_start = cursor.selectionStart();
+    const int selection_end = cursor.selectionEnd();
+    cursor.setPosition(selection_start);
+    setTextCursor( cursor );
+    bool found = FindNext(search_regex, Searchable::Direction_Down, false, false, false);
+    if (!found) {
+        // We have an edge case where the text selected is not a match for this regex text.
+        cursor.setPosition(selection_end);
+        cursor.setPosition(selection_start, QTextCursor::KeepAnchor);
+        setTextCursor(cursor);
+    }
+}
+
 // The base class implementation of the print()
 // method is not a slot, and we need it as a slot
 // for print preview support; so this is just

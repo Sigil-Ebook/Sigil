@@ -301,6 +301,11 @@ QString BookViewPreview::GetSelectedText()
     return EvaluateJavascript(javascript).toString();
 }
 
+void BookViewPreview::SetUpFindForSelectedText( const QString &search_regex )
+{
+    // Nothing to do for Book Preview
+}
+
 void BookViewPreview::UpdateFinishedState(int progress)
 {
     if (progress == 100) {

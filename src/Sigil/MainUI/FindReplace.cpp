@@ -99,6 +99,9 @@ void FindReplace::SetUpFindText()
 			    selected_text = TokeniseForRegex( selected_text, false );
 		    }
             ui.cbFind->setEditText( selected_text );
+            // To allow the user to immediately click on Replace, we need to setup the
+            // regex match as though the user had clicked on Find.
+            searchable->SetUpFindForSelectedText( GetSearchRegex() );
         }
     }
 

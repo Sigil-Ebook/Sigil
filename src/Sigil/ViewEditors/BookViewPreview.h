@@ -89,6 +89,8 @@ public:
 
     QString GetSelectedText();
 
+    void SetUpFindForSelectedText( const QString &search_regex );
+
     /**
      *  Workaround for a crappy setFocus implementation in QtWebKit.
      */

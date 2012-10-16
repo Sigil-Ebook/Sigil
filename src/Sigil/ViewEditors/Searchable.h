@@ -102,6 +102,8 @@ public:
      */
     virtual QString GetSelectedText() = 0;
 
+    virtual void SetUpFindForSelectedText( const QString &search_regex ) = 0;
+
     static void ShowWrapIndicator( QWidget *parent );
 };
 

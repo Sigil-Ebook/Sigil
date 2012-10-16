@@ -235,6 +235,8 @@ public:
 
     QString GetSelectedText();
 
+    void SetUpFindForSelectedText( const QString &search_regex );
+
     /**
      * Sets flag to execute a centerCursor() call later
      * with m_DelayedCursorScreenCenteringRequired.
