@@ -886,18 +886,17 @@ void BookBrowser::RenameSelected()
         templateNumber = "1";
     }
 
-    QString first_filename = resources.at(0)->Filename();
-    QString extension = "";
-    if ( first_filename.contains( '.' ) )
-    {
-        extension = first_filename.right( first_filename.length() - first_filename.lastIndexOf( '.' ) );
-    }
-
     // Abort if any of the new names already exist
     QStringList filenames = m_Book->GetFolderKeeper().GetAllFilenames();
     int test_start = templateNumber.toInt();
     for (int i = test_start; i < test_start + resources.count(); i++) 
     {
+        // Get the extension of the original file
+        QString extension = "";
+        QString old_filename = resources[i - test_start]->Filename();
+        if ( old_filename.contains( '.' ) ) {
+            extension = old_filename.right( old_filename.length() - old_filename.lastIndexOf( '.' ) );
+        }
         QString test_name = QString( "%1%2" ).arg( templateBase ).arg( i, templateNumber.length(), 10, QChar( '0' ) ).append( extension );
         if (filenames.contains(test_name)) {
             QMessageBox::critical(this, tr("Sigil"), tr("Cannot rename since one or more new filenames are already in use."));
@@ -912,6 +911,12 @@ void BookBrowser::RenameSelected()
     int i = 0;
     for (i = start; i < start + resources.count(); i++) 
     {
+        // Get the extension of the original file
+        QString extension = "";
+        QString old_filename = resources[i - start]->Filename();
+        if ( old_filename.contains( '.' ) ) {
+            extension = old_filename.right( old_filename.length() - old_filename.lastIndexOf( '.' ) );
+        }
         QString name = QString( "%1%2" ).arg( templateBase ).arg( i, templateNumber.length(), 10, QChar( '0' ) ).append( extension );
         new_filenames.append(name);
     }
