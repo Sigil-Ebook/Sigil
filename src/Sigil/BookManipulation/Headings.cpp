@@ -36,6 +36,12 @@
 using boost::make_tuple;
 
 
+// The maximum allowed distance (in lines) that a heading
+// can be located from a body tag and still
+// be detected as the "name" for that chapter.
+// The value was picked arbitrarily.
+static const int ALLOWED_HEADING_DISTANCE = 20;
+
 static const QStringList HEADING_TAGS = QStringList() << "h1" << "h2" << "h3" << "h4" << "h5" << "h6";
 
 const QString SIGIL_NOT_IN_TOC_CLASS = "sigil_not_in_toc";
@@ -79,6 +85,7 @@ QList< Headings::Heading > Headings::GetHeadingListForOneFile( HTMLResource* htm
         return QList<Headings::Heading>();
     }
 
+    xc::DOMElement &body_element = *dom_elements.at( 0 );
     QList<xc::DOMElement *> heading_nodes = XhtmlDoc::GetTagMatchingDescendants( document, HEADING_TAGS );
     int num_heading_nodes = heading_nodes.count();
 
@@ -106,6 +113,10 @@ QList< Headings::Heading > Headings::GetHeadingListForOneFile( HTMLResource* htm
         QString classes        = XtoQ( element.getAttribute( QtoX( "class" ) ) );
         heading.include_in_toc = !(classes.contains(SIGIL_NOT_IN_TOC_CLASS) || 
                                     classes.contains (OLD_SIGIL_NOT_IN_TOC_CLASS));
+        heading.at_file_start  =
+            i == 0 &&
+            XhtmlDoc::NodeLineNumber( element ) -
+            XhtmlDoc::NodeLineNumber( body_element ) < ALLOWED_HEADING_DISTANCE;
         heading.is_changed     = false;
 
         if ( heading.include_in_toc || include_unwanted_headings )

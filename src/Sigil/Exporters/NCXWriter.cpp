@@ -199,8 +199,17 @@ NCXModel::NCXEntry NCXWriter::ConvertHeadingWalker( Headings::Heading &heading )
                 break;
             }
         }
-        QString path = heading_file + "#" + id_to_use;
-        ncx_child.target = Utility::URLEncodePath( path );
+
+        // If this heading appears right after a section break,
+        // then it "represents" and links to its file; otherwise,
+        // we link to the heading element directly
+        if ( heading.at_file_start ) {
+           ncx_child.target = Utility::URLEncodePath(heading_file);
+        }
+        else {
+            QString path = heading_file + "#" + id_to_use;
+            ncx_child.target = Utility::URLEncodePath(path);
+        }
     }
 
     foreach( Headings::Heading child_heading, heading.children )
