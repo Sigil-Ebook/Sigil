@@ -123,7 +123,6 @@ Sigil 0.6.0 TBA
     - Fix issue 1623: Do not leave Sigil in an invalid state if an invalid book was opened.
     - Fix issue 1605: Sigil cannot read epubs missing mimetypes as first file since container.xml might not be found.
     - Fix issue 1621: Change sigilNotInTOC to sigil_not_in_toc for consistency but still recognize legacy value in old files.
-    - Fix issue 1613: Generate TOC should always use filename#id instead of guessing for one heading per file.
     - Fix issue 1477: Sigil may crash when loading ePubs containing empty (zero-sized) files.
     - Fix issue 1589: Clicking on TOC entry the first time does not scroll to a heading at the top of the page.
     - Fix issue 1582: Replace All should be single-threaded to avoid certain crashes.
