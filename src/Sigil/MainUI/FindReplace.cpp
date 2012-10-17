@@ -1040,7 +1040,7 @@ void FindReplace::ShowHideAdvancedOptions()
     SettingsStore settings;
     settings.beginGroup( SETTINGS_GROUP );
 
-    bool show_advanced = settings.value( "advanced_visible", false ).toBool();
+    bool show_advanced = settings.value( "advanced_visible", true ).toBool();
 
     settings.endGroup();
 
