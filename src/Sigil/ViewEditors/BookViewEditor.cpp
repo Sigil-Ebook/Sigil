@@ -347,9 +347,16 @@ void BookViewEditor::ClickAtTopLeft()
     QMouseEvent* mouseUpEvent = new QMouseEvent( QEvent::MouseButtonRelease, topLeft, Qt::LeftButton, Qt::LeftButton, Qt::NoModifier );
     QKeyEvent* homeEvent = new QKeyEvent( QEvent::KeyPress, Qt::Key_Home, Qt::NoModifier );
 
+    // We need to disconnect our link clicked events in case our mouse position where we simulate a click
+    // happens to be right on top of a link in the document.
+    disconnect(page(), SIGNAL(linkClicked(const QUrl&)), this, SIGNAL(LinkClicked(const QUrl&)));
+
     QApplication::postEvent(this, mouseDownEvent);
     QApplication::postEvent(this, mouseUpEvent);
     QApplication::postEvent(this, homeEvent);
+    QApplication::processEvents();
+
+    connect(page(), SIGNAL(linkClicked(const QUrl&)), this, SIGNAL(LinkClicked(const QUrl&)));
 }
 
 void BookViewEditor::ScrollOneLineUp()
