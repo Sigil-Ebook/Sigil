@@ -790,7 +790,7 @@ Book::NewSectionResult Book::CreateOneNewSection( NewSection section_info )
 Book::NewSectionResult Book::CreateOneNewSection( NewSection section_info,
                                          const QHash<QString, QString> &html_updates )
 {
-    QString filename = section_info.new_file_prefix % "_" % QString( "%1" ).arg( section_info.file_suffix + 1, 4, 10, QChar( '0' ) ) + ".xhtml";
+    QString filename = section_info.new_file_prefix % "_" % QString( "%1" ).arg( section_info.file_suffix + 1, 4, 10, QChar( '0' ) ) + ".html";
     QString fullfilepath = section_info.temp_folder_path + "/" + filename;
 
     Utility::WriteUnicodeTextFile( "PLACEHOLDER", fullfilepath );
