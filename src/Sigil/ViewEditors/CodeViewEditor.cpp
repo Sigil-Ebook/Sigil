@@ -81,6 +81,7 @@ CodeViewEditor::CodeViewEditor( HighlighterType high_type, bool check_spelling, 
     m_DelayedCursorScreenCenteringRequired( false ),
     m_CaretUpdate( QList< ViewEditor::ElementIndex >() ),
     m_checkSpelling( check_spelling ),
+    m_spellingHighlightInProgress( false ),
     m_reformatCSSEnabled( false ),
     m_lastFindRegex( QString() ),
     m_spellingMapper( new QSignalMapper( this ) ),
@@ -134,6 +135,7 @@ void CodeViewEditor::CustomSetDocument( QTextDocument &document )
     document.setModified( false );
 
     if (m_Highlighter) {
+        m_spellingHighlightInProgress = true;
         m_Highlighter->setDocument( &document );
     }
 
@@ -1500,6 +1502,13 @@ void CodeViewEditor::focusOutEvent( QFocusEvent *event )
 
 void CodeViewEditor::TextChangedFilter()
 {
+    if (m_spellingHighlightInProgress) {
+        // This is the QSyntaxHighlighter firing an event when it is done highlighting the document
+        // on initial load. We want to ignore this or else the F&R matching logic has its valid
+        // match reset, so a Replace will fail unnecessarily.
+        m_spellingHighlightInProgress = false;
+        return;
+    }
     ResetLastFindMatch();
     if ( m_isUndoAvailable ) {
         emit FilteredTextChanged();

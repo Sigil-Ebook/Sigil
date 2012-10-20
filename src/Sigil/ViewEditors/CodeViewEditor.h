@@ -726,6 +726,13 @@ private:
      * Misspellings are marked by the QSyntaxHighlighter used.
      */
     bool m_checkSpelling;
+    /**
+     * The QSyntaxHighlighter will do its work on a background thread and
+     * fire a TextChanged event on the QTextDocument when done. This is
+     * annoying because the text hasn't actually changed, and we don't
+     * want to reset Find matches etc because of it.
+     */
+    bool m_spellingHighlightInProgress;
 
     /**
      * Whether reformat CSS context menu option is enabled on this view.
