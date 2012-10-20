@@ -636,18 +636,24 @@ QString CleanSource::PrettifyDOCTYPEHeader( const QString &source )
     QString newsource = source;
     const int SAFE_LENGTH = 200;
     
+    QRegExp doctype_invalid( "<!DOCTYPE html PUBLIC \"W3C" );
+    int index = doctype_invalid.indexIn(newsource);
+    if (index > 0 && index < SAFE_LENGTH) {
+        newsource.insert(index + 23, "-//");
+    }
+
     QRegExp doctype_missing_newline( "\\?><!DOCTYPE" );
-    int index = doctype_missing_newline.indexIn(source);
+    index = doctype_missing_newline.indexIn(source);
     if (index > 0 && index < SAFE_LENGTH) {
         newsource.insert(index + 2, "\n");
 
-        bool is_ncx = false;
         QRegExp html_missing_newline( "\"><html " );
         index = html_missing_newline.indexIn(newsource);
         if (index > 0 && index < SAFE_LENGTH) {
             newsource.insert(index + 2, "\n\n");
         }
 
+        bool is_ncx = false;
         QRegExp ncx_missing_newline( "\"><ncx " );
         index = ncx_missing_newline.indexIn(newsource);
         if (index > 0 && index < SAFE_LENGTH) {
