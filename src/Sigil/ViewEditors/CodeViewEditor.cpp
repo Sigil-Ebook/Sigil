@@ -59,7 +59,7 @@ static const int LINE_NUMBER_MARGIN      = 5;
 
 static const QString XML_OPENING_TAG        = "(<[^>/][^>]*[^>/]>|<[^>/]>)";
 static const QString NEXT_CLOSE_TAG_LOCATION = "</\\s*[^>]+>";
-static const QString NEXT_TAG_LOCATION      = "<[^>]+>";
+static const QString NEXT_TAG_LOCATION      = "<[^!>]+>";
 static const QString TAG_NAME_SEARCH        = "<\\s*([^\\s>]+)";
 static const QString STYLE_ATTRIBUTE_SEARCH = "style\\s*=\\s*\"[^\"]*\"";
 static const QString ATTRIBUTE_NAME_POSTFIX_SEARCH = "\\s*=\\s*\"[^\"]*\"";
@@ -285,9 +285,9 @@ QString CodeViewEditor::SplitSection()
     // as previous logic would always give you a blank new page without the split off text.
     // So instead we will identify any open tags for the current caret position, and repeat
     // those at the caret position to ensure we have valid html that Xerces will not choke on.
-    const QString &opening_tags = GetUnmatchedTagsForBlock(split_position, text);
-    if (!opening_tags.isNull() && !opening_tags.isEmpty()) {
-        cursor.insertText( opening_tags );
+    const QStringList &opening_tags = GetUnmatchedTagsForBlock(split_position, text);
+    if (!opening_tags.isEmpty()) {
+        cursor.insertText( opening_tags.join("") );
     }
     cursor.endEditBlock();
 
@@ -307,80 +307,23 @@ void CodeViewEditor::InsertSGFSectionMarker()
 void CodeViewEditor::InsertClosingTag()
 {
     if (!IsInsertClosingTagAllowed()) {
+        emit ShowStatusMessageRequest(tr("Cannot insert closing tag at this position."));
         return;
     }
 
     int pos = textCursor().position() - 1;
 
     QString text = toPlainText();
-    int text_length = toPlainText().count();
-
-    QList<QString> tags;
-    QString tag;
-
-    // Search backwards for first unclosed tag
-    while (true) {
-        while (pos > 0 && text[pos] != QChar('<')) {
-            pos--;
-        }
-
-        if (pos <= 0 || pos >= text_length - 2) {
-            return;
-        }
-
-        // Save position while we get the tag name
-        int lastpos = pos;
-        pos++;
-
-        // Found a tag, see if its an opening or closing tag
-        bool is_closing_tag = false;
-        if (text[pos] == QChar('/')) {
-            is_closing_tag = true;
-            pos++;
-        }
-
-        // Get the tag name
-        tag = "";
-        while (pos < text_length && text[pos] != QChar(' ') && text[pos] != QChar('/') && text[pos] != QChar('>')) {
-            tag.append(text[pos++]);
-        }
-        while (pos < text_length && text[pos] != QChar('/') && text[pos] != QChar('>')) {
-            pos++;
-        }
-
-        // If not a self closing tag check for matched open/close tag
-        if (text[pos] != QChar('/')) {
-            if (pos >= text_length) {
-                return;
-            }
-    
-            if (is_closing_tag) {
-                tags.append(tag);
-            }
-            else {
-                // If body tag, skip to avoid accidentally inserting
-                if (tag == "body") {
-                    return;
-                }
-
-                // If no closing tags left to check then we're done
-                if (tags.isEmpty()) {
-                    break;
-                }
-    
-                // If matching closing tag then remove it from list
-                if (tag == tags.last()) {
-                    tags.removeLast();   
-                }
-            }
-        }
-
-        pos = lastpos - 1;
+    const QStringList unmatched_tags = GetUnmatchedTagsForBlock(pos, text);
+    if (unmatched_tags.isEmpty()) {
+        emit ShowStatusMessageRequest(tr("No open tags found at this position."));
+        return;
     }
-
-    if (!tag.isEmpty()) {
-        QString closing_tag = "</" % tag % ">";
-
+    QString tag = unmatched_tags.last();
+    QRegExp tag_name_search( TAG_NAME_SEARCH );
+    int tag_name_index = tag_name_search.indexIn(tag);
+    if (tag_name_index >= 0) {
+        const QString closing_tag = "</" %  tag_name_search.cap(1) % ">";
         textCursor().insertText(closing_tag);
     }
 }
@@ -2918,7 +2861,7 @@ void CodeViewEditor::ApplyCaseChangeToSelection(const Utility::Casing &casing)
     setTextCursor(cursor);
 }
 
-QString CodeViewEditor::GetUnmatchedTagsForBlock(const int &start_pos, const QString &text)
+QStringList CodeViewEditor::GetUnmatchedTagsForBlock(const int &start_pos, const QString &text) const
 {
     // Given the specified position within the text, keep looking backwards finding
     // any tags until we hit an opening block tag. Append all the opening tags
@@ -2978,9 +2921,9 @@ QString CodeViewEditor::GetUnmatchedTagsForBlock(const int &start_pos, const QSt
     }
 
     if (opening_tags.count() > 0) {
-        return opening_tags.join("");
+        return opening_tags;
     }
-    return QString();
+    return QStringList();
 }
 
 bool CodeViewEditor::ReformatCSSEnabled()

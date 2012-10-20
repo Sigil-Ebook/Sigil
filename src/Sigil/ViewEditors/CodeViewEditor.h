@@ -651,7 +651,7 @@ private:
 
     void ReformatCSS(bool multiple_line_format);
 
-    QString GetUnmatchedTagsForBlock(const int &pos, const QString &text);
+    QStringList GetUnmatchedTagsForBlock(const int &pos, const QString &text) const;
 
     void SelectAndScrollIntoView(int start_position, int end_position, Searchable::Direction direction, bool wrapped);
 
