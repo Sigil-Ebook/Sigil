@@ -329,8 +329,6 @@ void Book::CreateNewSections( const QStringList &new_sections, HTMLResource &ori
                 this, 
                 &Book::CreateOneNewSection, 
                 sectionInfo ) );
-
-        sectionInfo.file_suffix++;
     }	
 
     sync.waitForFinished();
