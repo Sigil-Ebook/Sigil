@@ -1,9 +1,20 @@
-***************************************************************
-The latest version of this document is always available here:
+*************************************************************** The latest
+version of this document is always available here:
 http://code.google.com/p/sigil/wiki/BuildingFromSource
 ****************************************************************
 
 #summary Instructions for building Sigil from source, on all platforms.
+
+= Introduction =
+
+Experience with compiling on your chosen platform is assumed. This is not a step
+by step guide but general information to help fill in gaps.
+
+Current releases of Sigil (as of 0.5) bundle the majority of dependencies. Qt4,
+CMake and general build tools are required. Sigil's build setup will try to use
+system installed versions of any bundled dependencies and fall back to the
+bundled copies. The bundled copies are provided to ease building on Windows and
+OS X.
 
 = General notes =
 
@@ -19,145 +30,10 @@ The supported generators should be listed near the bottom of the printout.
 Qt 4.7.x is also required on all platforms. It can be downloaded
 [http://qt.nokia.com/downloads here] (choose the LGPL version).  
 
-Mac users should not use the Qt SDK. Instead use the Qt library package
-instead. Windows users can  download the SDK which comes with MinGW and the Qt
-Creator IDE. If you want to use the Visual Studio compiler, you should download
-the precompiled Qt libraries for Visual Studio 2008 from Nokia's website. Linux
-users should get it from their distribution's package manager (more information
-in the Linux section).
-
-On Windows and Linux a `makeinstaller` target is provided which will build a
-binary installer. For that to work, you need to have
-[http://www.jrsoftware.org/isinfo.php Inno Setup] on Windows and
-[http://www.installjammer.com/ InstallJammer] on Linux.  The installer builder
-needs to be installed and on the system PATH. You need to have the Qt libraries
-on the system PATH as well.
-
-== Compiling on Windows ==
-
-=== Method 1 ===
-
-It is assumed you want to generate Visual Studio project files. You can do this
-by creating a new folder *outside* of the source distribution.
-
-Now navigate to that folder with a terminal like cmd.exe or PowerShell.  Then
-type in and run the following: {{{ cmake -G "Visual Studio 10"
-/path/to/extracted/folder }}} This should create SLN and vcproj files for
-Visual Studio in that directory.  You can also generate project files for some
-other VS version. You can get a list of all supported generators by typing in
-and running `cmake`.
-
-The default build procedure will build "Sigil.exe"; if you want to package that
-with the required DLL's into an installer, build the `makeinstaller` project.
-
-There is also an [http://www.qtsoftware.com/downloads/visual-studio-add-in
-add-in] for VS on Qt's website. It will make it easier to develop Qt
-applications like Sigil, but is not strictly necessary. 
-
-*NOTE:* If you generate solution files for VS 2010 with CMake version <= 2.8.1,
-those builds will fail. This is caused by
-[http://www.cmake.org/Bug/view.php?id=10503 a bug] in CMake. This bug has been
-fixed and CMake 2.8.2 and above don't have this problem.
-
-=== Method 2 ===
-
-Not everyone has access to or is comfortable with Visual Studio but there is an
-alternative. Microsoft provides the Windows SDK which contains all of the tools
-necessary to build.
-
-First you need to install the
-[http://www.microsoft.com/download/en/details.aspx?id=17851 .Net Framework 4].
-You will also need the [http://msdn.microsoft.com/en-us/windows/bb980924
-Windows SDK]. Finally, if you are on a x64 platform and plan to produce x64
-builds you will need to install the hot fix refererend by
-[http://support.microsoft.com/kb/2280741 this] KB article.
-
-Once you have the necessary tools installed you can run cmake in a cmd (use the
-Windows SDK Command Prompt) to produce an nmake based project (this is
-default). Then you can run `nmake makeinstaller` to build and create an
-installer package.
-
-== Compiling on Mac ==
-
-It is assumed you want to generate Xcode project files. You can do this by
-creating a new folder *outside* of the source distribution.
-
-Now navigate to that folder with the Terminal. Then type in and run the
-following: {{{ cmake -G Xcode /path/to/extracted/folder }}} This should create
-Xcode project files in that directory. The default build procedure will build
-"Sigil.app"; if you want to package that into a DMG file, invoke the `makedmg`
-build target.
-
-== Compiling on Linux ==
-
-Aside from the core Qt libraries, you will also need to install *libqt4-xml*,
-*libqt4-svg*, *libqt4-webkit* and *libqt4-dev* (and their various dependencies)
-which are not included by default in Qt.
-
-This should be as simple as typing in the following command into your terminal
-(on Debian-like systems): {{{ sudo apt-get install libqt4-gui libqt4-svg
-libqt4-webkit libqt4-xml libqt4-dev }}} It is assumed you want to generate
-Makefiles. You can do this by creating a new folder *outside* of the source
-distribution.
-
-Now navigate to that folder with a terminal. Then type in and run the
-following: {{{ cmake -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release
-/path/to/extracted/folder make sudo make install }}} That builds and installs
-Sigil on Linux. By default, Sigil is installed in
-`${CMAKE_INSTALL_PREFIX}/bin`, with `CMAKE_INSTALL_PREFIX` defaulting to
-`usr/local`.
-
-You can change the install location by running cmake like this: {{{ cmake -G
-"Unix Makefiles" -DCMAKE_INSTALL_PREFIX=/new/install/prefix
--DCMAKE_BUILD_TYPE=Release /path/to/extracted/folder }}} Aside from using the
-install target, you can also build a binary installer by invoking the
-`makeinstaller` build target.
-
-Building from source in the repository is recommended, since code in the
-repository should always be stable. If it's not, that's a bug report. 
-
-= Compiling Qt =
-
-Compiling Qt directly should not be necessary. Nevertheless, if you wish to
-compile Qt, you should configure it before compiling like this: {{{ configure
--opensource -qt-zlib -qt-gif -qt-libpng -qt-libmng -qt-libtiff -qt-libjpeg }}}
-These are the options used to configure the Qt libraries that are provided with
-Sigil on Windows.
-
-Building Qt takes many hours. You can save yourself a lot of time by passing
-`-nomake tools -nomake examples -nomake demos -nomake docs -nomake
-translations` to `configure` as well. For Visual Studio builds, passing `-ltcg`
-is also strongly recommended.
-
-= Introduction =
-
-Experience with compiling on your chosen platform is assumed. This is not a
-step by step guide but general information to help fill in gaps.
-
-Current releases of Sigil (as of 0.5) bundle the majority of dependencies. Qt4,
-CMake and general build tools are required. Sigil's build setup will try to use
-system installed versions of any bundled dependencies and fall back to the
-bundled copies. The bundled copies are provided to ease building on Windows and
-OS X.
-
-= General notes =
-
-You will need CMake 2.8.0 or later on all platforms. You can download it
-[http://www.cmake.org/cmake/resources/software.html here].
-
-CMake is a cross-platform system for build automation. It cangenerate Visual
-Studio project files on Windows, Xcode project files on Mac OS X and Makefiles
-on Unix systems. After installing CMake, you can see a list of generators
-provided on your system by typing `cmake` in your terminal and pressing enter.
-The supported generators should be listed near the bottom of the printout.
-
-Qt 4.7.x is also required on all platforms. It can be downloaded
-[http://qt.nokia.com/downloads here] (choose the LGPL version).  
-
-Mac users should not use the Qt SDK. Instead use the Qt library package
-instead. Windows users can  download the SDK which comes with MinGW and the Qt
-Creator IDE. If you want to use the Visual Studio compiler, you should download
-the precompiled Qt libraries for Visual Studio 2008 from Nokia's website. Linux
+Mac users should not use the Qt SDK. Instead use the Qt library package instead.
+Windows users can  download the SDK which comes with MinGW and the Qt Creator
+IDE. If you want to use the Visual Studio compiler, you should download the
+precompiled Qt libraries for Visual Studio 2008 from Nokia's website. Linux
 users should get it from their distribution's package manager.
 
 On Windows a `makeinstaller` target is provided which will build a binary
@@ -176,15 +52,14 @@ necessary to build.
 
 First you need to install the
 [http://www.microsoft.com/download/en/details.aspx?id=17851 .Net Framework 4].
-You will also need the [http://msdn.microsoft.com/en-us/windows/bb980924
-Windows SDK]. Finally, if you are on a x64 platform and plan to produce x64
-builds you will need to install the hot fix refererend by
+You will also need the [http://msdn.microsoft.com/en-us/windows/bb980924 Windows
+SDK]. Finally, if you are on a x64 platform and plan to produce x64 builds you
+will need to install the hot fix refererend by
 [http://support.microsoft.com/kb/2280741 this] KB article.
 
 Once you have the necessary tools installed you can run cmake in a cmd (use the
-Windows SDK Command Prompt) to produce an nmake based project (this is
-default). Then you can run `nmake makeinstaller` to build and create an
-installer package.
+Windows SDK Command Prompt) to produce an nmake based project (this is default).
+Then you can run `nmake makeinstaller` to build and create an installer package.
 
 === Method 2 (Visual Studio) ===
 
@@ -192,32 +67,38 @@ You can generate Visual Studio project files by creating a new folder *outside*
 of the source distribution.
 
 Now navigate to that folder with a terminal like cmd.exe or PowerShell.  Then
-type in and run the following: {{{ cmake -G "Visual Studio 10"
-/path/to/extracted/folder }}} This should create SLN and vcproj files for
-Visual Studio in that directory.  You can also generate project files for some
-other VS version. You can get a list of all supported generators by typing in
-and running `cmake`.
+type in and run the following:
+
+{{{
+cmake -G "Visual Studio 10" /path/to/extracted/folder
+}}}
+
+This should create SLN and vcproj files for Visual
+Studio in that directory.  You can also generate project files for some other VS
+version. You can get a list of all supported generators by typing in and running
+`cmake`.
 
 The default build procedure will build "Sigil.exe"; if you want to package that
 with the required DLL's into an installer, build the `makeinstaller` project.
 
-There is also an [http://qt.nokia.com/downloads/visual-studio-add-in add-in]
-for VS on Qt's website. It will make it easier to develop Qt applications like
-    Sigil, but is not strictly necessary. 
+There is also an [http://qt.nokia.com/downloads/visual-studio-add-in add-in] for
+VS on Qt's website. It will make it easier to develop Qt applications like
+Sigil, but is not strictly necessary. 
 
 *NOTE:* If you generate solution files for VS 2010 with CMake version <= 2.8.1,
 those builds will fail. This is caused by
 [http://www.cmake.org/Bug/view.php?id=10503 a bug] in CMake. This bug has been
 fixed and CMake 2.8.2 and above don't have this problem.
 
-*NOTE:* This method is not used by any Sigil developers.
-
 == Compiling on Mac ==
 
 === Method 1 (make) ===
 
-{{{ $ mkdir build $ cd build $ cmake -DCMAKE_BUILD_TYPE=Release
-../sigil-code-dir $ make $ make makedmg }}}
+{{{
+$ mkdir build $ cd build $ cmake -DFORCE_BUNDLED_COPIES=1 -DCMAKE_BUILD_TYPE=Release -DCMAKE_OSX_DEPLOYMENT_TARGET="10.7" -DCMAKE_OSX_SYSROOT="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/" ..
+$ make
+$ make makedmg
+}}}
 
 *NOTE:* Notice that there is no trailing / at the end of the cmake line.
 
@@ -227,10 +108,15 @@ You can generate Xcode project files by creating a new folder *outside* of the
 source distribution.
 
 Now navigate to that folder with the Terminal. Then type in and run the
-following: {{{ cmake -G Xcode /path/to/extracted/folder }}} This should create
-Xcode project files in that directory. The default build procedure will build
-"Sigil.app"; if you want to package that into a DMG file, invoke the `makedmg`
-build target.
+following:
+
+{{{
+cmake -G Xcode /path/to/extracted/folder
+}}}
+
+This should create Xcode project files in that directory. The default build
+procedure will build "Sigil.app"; if you want to package that into a DMG file,
+invoke the `makedmg` build target.
 
 == Compiling on Linux ==
 
@@ -242,10 +128,15 @@ are required.
 It is assumed you want to generate Makefiles. You can do this by creating a new
 folder *outside* of the source distribution.
 
-Now navigate to that folder with a terminal. Then type in and run the
-following: {{{ cmake -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release
-/path/to/extracted/folder make sudo make install }}} That builds and installs
-Sigil on Linux. By default, Sigil is installed in
+Now navigate to that folder with a terminal. Then type in and run the following:
+
+{{{
+$ cmake -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release /path/to/extracted/folder
+$ make
+$ sudo make install
+}}}
+
+That builds and installs Sigil on Linux. By default, Sigil is installed in
 `${CMAKE_INSTALL_PREFIX}/bin`, with `CMAKE_INSTALL_PREFIX` defaulting to
 `usr/local`.
 
@@ -254,28 +145,32 @@ You can change the install location by running cmake like this: {{{ cmake -G
 -DCMAKE_BUILD_TYPE=Release /path/to/extracted/folder }}}
 
 Building from source in the git repository is *NOT* recommended, since code in
-the git repository is not stable. Do not open a bug report against a non
-release version.
+the git repository is not stable. Do not open a bug report against a non release
+version.
 
 = Compiling Qt =
 
 Compiling Qt directly should not be necessary. Nevertheless, if you wish to
-compile Qt, you should configure it before compiling like this: {{{ configure
--opensource -qt-zlib -qt-libpng -qt-libmng -qt-libtiff -qt-libjpeg }}} These
-are the options used to configure the Qt libraries that are provided with Sigil
-on Windows.
+compile Qt, you should configure it before compiling like this:
+
+{{{
+configure -opensource -qt-zlib -qt-libpng -qt-libmng -qt-libtiff -qt-libjpeg
+}}}
+
+These are the options used to configure the Qt libraries that are provided with
+Sigil on Windows.
 
 Building Qt takes many hours. You can save yourself a lot of time by passing
-{{{ -no-qt3support -nomake examples -nomake demos -nomake docs }}} to
-`configure` as well. For Visual Studio builds, passing {{{ -ltcg }}} is also
-strongly recommended.
 
+{{{
+-no-qt3support -nomake examples -nomake demos -nomake docs
+}}}
 
------ -----
+to `configure` as well. For Visual Studio builds, passing
 
-_*Posting Comments/Questions*_
+{{{
+-ltcg
+}}}
 
-_Please use the [http://www.mobileread.com/forums/forumdisplay.php?f=203 Sigil
-Forum at MobileRead] for all questions/comments.  Comments on this wiki will be
-removed._
+is also strongly recommended.
 

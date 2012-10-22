@@ -199,14 +199,36 @@ void ExportEPUB::SaveFolderAsEpubToLocation( const QString &fullfolderpath, cons
     }
 
     zipClose(zfile, NULL);
-    if (QFileInfo(fullfilepath).exists()) {
-        if (!QFile::remove(fullfilepath)) {
-            boost_throw(CannotDeleteFile() << errinfo_file_fullpath(fullfilepath.toStdString()));
+
+    // Overwrite the contents of the real file with the contents from the temp
+    // file we saved the data do. We do this instead of simply copying the file
+    // because a file copy will lose extended attributes such as labels on OS X.
+    QFile temp_epub(tempFile);
+    if (!temp_epub.open(QFile::ReadOnly)) {
+        boost_throw(CannotOpenFile () << errinfo_file_fullpath(tempFile.toStdString()));
+    }
+    QFile real_epub(fullfilepath);
+    if (!real_epub.open(QFile::WriteOnly|QFile::Truncate)) {
+        temp_epub.close();
+        boost_throw(CannotOpenFile() << errinfo_file_fullpath(fullfilepath.toStdString()));
+    }
+    // Copy the contents from the temp file to the real file.
+    char buff[BUFF_SIZE] = {0};
+    qint64 read = 0;
+    qint64 written = 0;
+    while ((read = temp_epub.read(buff, BUFF_SIZE)) > 0) {
+        written = real_epub.write(buff, read);
+        if (written != read) {
+            temp_epub.close();
+            real_epub.close();
+            boost_throw(CannotCopyFile() << errinfo_file_fullpath(fullfilepath.toStdString()));
         }
     }
-    if (!QFile::rename(tempFile, fullfilepath)) {
+    if (read == -1) {
         boost_throw(CannotCopyFile() << errinfo_file_fullpath(fullfilepath.toStdString()));
     }
+    temp_epub.close();
+    real_epub.close();
 }
 
 
