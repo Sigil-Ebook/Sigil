@@ -276,7 +276,6 @@ void FlowTab::DelayedInitialization()
             break;
     }
 
-    m_safeToLoad = true;
     m_initialLoad = false;
 
     // Only now will we wire up monitoring of ResourceChanged, to prevent
@@ -502,6 +501,8 @@ void FlowTab::ResourceModified()
     // This slot tells us that the underlying HTML resource has been changed 
 
     if ( m_ViewState == MainWindow::ViewState_CodeView ) {
+        // It could be the user has done a Replace All on underlying resource, so reset our well formed check.
+        m_safeToLoad = false;
         // When the underlying resource has been modified, it replaces the whole QTextDocument which
         // causes cursor position to move to bottom of the document. We will have captured the location
         // of the caret prior to replacing in the ResourceTextChanging() slot, so now we can restore it.
