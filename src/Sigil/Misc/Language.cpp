@@ -535,8 +535,7 @@ void Language::SetLanguageMap()
         "nqo"   << tr( "N'Ko" ) <<
         "nah"   << tr( "Nahuatl languages" ) <<
         "nap"   << tr( "Neapolitan" ) <<
-        "new"   << tr( "Nepal Bhasa" ) <<
-        "new"   << tr( "Newari" ) <<
+        "new"   << tr( "Nepal Bhasa/Newari" ) <<
         "nia"   << tr( "Nias" ) <<
         "nic"   << tr( "Niger-Kordofanian languages" ) <<
         "ssa"   << tr( "Nilo-Saharan languages" ) <<
