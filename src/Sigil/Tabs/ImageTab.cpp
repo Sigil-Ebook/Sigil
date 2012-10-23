@@ -227,7 +227,8 @@ bool ImageTab::SuccessfullySetupContextMenu( const QPoint &point )
         }
         else
         {
-            m_OpenWithEditor->setText( OpenExternally::prettyApplicationName(editorPath) );
+            const QString& editorDescription = OpenExternally::editorDescriptionForResourceType( imageType );
+            m_OpenWithEditor->setText( editorDescription );
             m_OpenWithEditor->setData( imageUrl );
 
             m_OpenWith->setText( tr( "Other Application" ) + "...");
