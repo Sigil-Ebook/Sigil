@@ -69,7 +69,7 @@ XHTMLHighlighter::XHTMLHighlighter( bool checkSpelling, QObject *parent )
 
     doctype_format        .setForeground( m_codeViewAppearance.xhtml_doctype_color         );
     html_format           .setForeground( m_codeViewAppearance.xhtml_html_color            );
-    html_comment_format   .setForeground( m_codeViewAppearance.xhtml_html_color            );
+    html_comment_format   .setForeground( m_codeViewAppearance.xhtml_html_comment_color    );
     css_format            .setForeground( m_codeViewAppearance.xhtml_css_color             );
     css_comment_format    .setForeground( m_codeViewAppearance.xhtml_css_comment_color     );
     attribute_name_format .setForeground( m_codeViewAppearance.xhtml_attribute_name_color  );
