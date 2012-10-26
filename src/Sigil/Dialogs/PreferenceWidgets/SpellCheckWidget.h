@@ -46,8 +46,6 @@ private slots:
 
     void userWordChanged(QListWidgetItem *item);
 
-    void openDictionaryDirectory();
-
     void loadUserDictionaryWordList(QListWidgetItem *item=0);
     void saveUserDictionaryWordList(QListWidgetItem *item=0);
 

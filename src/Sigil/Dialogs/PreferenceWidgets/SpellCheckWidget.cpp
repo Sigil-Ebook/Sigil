@@ -266,24 +266,6 @@ void SpellCheckWidget::readSettings()
     m_isDirty = false;
 }
 
-void SpellCheckWidget::openDictionaryDirectory()
-{
-    QString dictDir = QDir::toNativeSeparators(SpellCheck::dictionaryDirectory());
-
-    // Check if the directory exists and create it if necessary.
-    QDir loc(dictDir);
-    if (!loc.exists()) {
-        loc.mkpath(dictDir);
-    }
-
-    // Try to open the users file manager to the location and show
-    // and error message if this is not possible.
-    QUrl locUrl("file:///" + dictDir);
-    if (!QDesktopServices::openUrl(locUrl)) {
-        QMessageBox::warning(this, tr("Error"), tr("Could not open user dictionary location %1").arg(dictDir));
-    }
-}
-
 void SpellCheckWidget::loadUserDictionaryWordList(QListWidgetItem *item)
 {
     ui.userWordList->clear();
@@ -397,6 +379,5 @@ void SpellCheckWidget::connectSignalsToSlots()
     connect(ui.removeWord, SIGNAL(clicked()), this, SLOT(removeWord()));
     connect(ui.removeAll, SIGNAL(clicked()), this, SLOT(removeAll()));
 
-    connect(ui.pbDictionaryDirectory, SIGNAL(clicked()), this, SLOT(openDictionaryDirectory()));
     connect(ui.dictionaries, SIGNAL(currentIndexChanged(int)), this, SLOT(dictionariesCurrentIndexChanged(int)));
 }
