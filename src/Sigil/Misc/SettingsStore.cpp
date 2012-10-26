@@ -390,8 +390,3 @@ void SettingsStore::clearSettingsGroup()
         endGroup();
     }
 }
-
-QString SettingsStore::defaultDictionaryDirectory()
-{
-    return QDesktopServices::storageLocation(QDesktopServices::DataLocation) + "/dictionaries";
-}

@@ -258,11 +258,6 @@ private:
      * this class implements to be set in the wrong place.
      */
     void clearSettingsGroup();
-
-    /**
-     * Return the default directory used to store dictionary files
-     */
-    QString defaultDictionaryDirectory();
 };
 
 #endif // SETTINGSSTORE_H
