@@ -45,7 +45,7 @@ static const QString CSS_COMMENT_END        = "\\*/";
 static const QString ATTRIBUTE_VALUE        = "\"[^<\"]*\"|'[^<']*'";
 static const QString ATTRIBUTE_NAME         = "[\\w:-]+";
 
-static const QString ENTITY_BEGIN           = "&";
+static const QString ENTITY_BEGIN           = "&(?=[^\\s;]+;)";
 static const QString ENTITY_END             = ";";
 
 
