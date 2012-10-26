@@ -321,7 +321,7 @@ void CodeViewEditor::InsertClosingTag()
     int pos = textCursor().position() - 1;
 
     QString text = toPlainText();
-    const QStringList unmatched_tags = GetUnmatchedTagsForBlock(pos, text);
+    const QStringList unmatched_tags = GetUnmatchedTagsForBlock(pos, text, false);
     if (unmatched_tags.isEmpty()) {
         emit ShowStatusMessageRequest(tr("No open tags found at this position."));
         return;
@@ -2869,12 +2869,13 @@ void CodeViewEditor::ApplyCaseChangeToSelection(const Utility::Casing &casing)
     setTextCursor(cursor);
 }
 
-QStringList CodeViewEditor::GetUnmatchedTagsForBlock(const int &start_pos, const QString &text) const
+QStringList CodeViewEditor::GetUnmatchedTagsForBlock(const int &start_pos, const QString &text, bool stop_at_first_block) const
 {
     // Given the specified position within the text, keep looking backwards finding
     // any tags until we hit an opening block tag. Append all the opening tags
     // that do not have closing tags together (ignoring self-closing tags) 
     // and return the opening tags complete with their attributes contiguously. 
+    // If stop_at_first_block is false, keep searching until hit the <body> tag.
 
     QStringList opening_tags;
     int closing_tag_count = 0;
@@ -2903,6 +2904,9 @@ QStringList CodeViewEditor::GetUnmatchedTagsForBlock(const int &start_pos, const
             continue;
         }
         tag_name = tag_name_search.cap(1).toLower();
+        if (tag_name == "body") {
+            break;
+        }
 
         // Isolate whether it was opening or closing tag.
         if ( tag_name.startsWith('/') ) {
@@ -2910,7 +2914,7 @@ QStringList CodeViewEditor::GetUnmatchedTagsForBlock(const int &start_pos, const
             closing_tag_count++;
         }
         else {
-            // Add the whole tag text to our opening tags if we hav't found a closing tag for it.
+            // Add the whole tag text to our opening tags if we haven't found a closing tag for it.
             if (closing_tag_count > 0) {
                 closing_tag_count--;
             }
@@ -2920,7 +2924,7 @@ QStringList CodeViewEditor::GetUnmatchedTagsForBlock(const int &start_pos, const
         }
 
         // Is this a block level tag?
-        if ( BLOCK_LEVEL_TAGS.contains( tag_name) ) {
+        if ( BLOCK_LEVEL_TAGS.contains( tag_name) && stop_at_first_block ) {
             // We are done. 
             break;
         }
