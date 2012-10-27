@@ -293,9 +293,13 @@ void SpellCheckWidget::loadUserDictionaryWordList(QListWidgetItem *item)
     if (userDictFile.open(QIODevice::ReadOnly)) {
         QTextStream userDictStream(&userDictFile);
         userDictStream.setCodec("UTF-8");
-        for (QString line = userDictStream.readLine(); !line.isEmpty(); line = userDictStream.readLine()) {
-            words << line;
-        }
+        QString line;
+        do {
+            line = userDictStream.readLine();
+            if (!line.isEmpty()) {
+                words << line;
+            }
+        } while (!line.isNull());
         userDictFile.close();
     }
     words.sort();
@@ -332,7 +336,10 @@ void SpellCheckWidget::saveUserDictionaryWordList(QListWidgetItem *item)
     // Get the word list
     QStringList words;
     for (int i = 0; i < ui.userWordList->count(); ++i) {
-        words << ui.userWordList->item(i)->text();
+        QString word = ui.userWordList->item(i)->text();
+        if (!word.isEmpty()) {
+            words << word;
+        }
     }
     words.sort();
 

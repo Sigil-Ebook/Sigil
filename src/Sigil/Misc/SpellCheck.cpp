@@ -196,6 +196,10 @@ void SpellCheck::reloadDictionary()
 void SpellCheck::addToUserDictionary(const QString &word)
 {
     // Adding to the user dictionary also marks the word as a correct spelling.
+    if (word.isEmpty()) {
+        return;
+    }
+
     ignoreWord(word);
 
     if (!userDictionaryWords().contains(word)) {
@@ -224,9 +228,13 @@ QStringList SpellCheck::userDictionaryWords()
     if (userDictFile.open(QIODevice::ReadOnly)) {
         QTextStream userDictStream(&userDictFile);
         userDictStream.setCodec("UTF-8");
-        for (QString line = userDictStream.readLine(); !line.isEmpty(); line = userDictStream.readLine()) {
-            userWords << line;
-        }
+        QString line;
+        do {
+            line = userDictStream.readLine();
+            if (!line.isEmpty()) {
+                userWords << line;
+            }
+        } while (!line.isNull());
         userDictFile.close();
     }
 
