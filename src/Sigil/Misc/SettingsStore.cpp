@@ -216,7 +216,7 @@ SettingsStore::SpecialCharacterAppearance SettingsStore::specialCharacterAppeara
     clearSettingsGroup();
     SettingsStore::SpecialCharacterAppearance appearance;
 
-    appearance.font_family = value(KEY_SPECIAL_CHARACTER_FONT_FAMILY, "Helvetica").toString();
+    appearance.font_family = value(KEY_SPECIAL_CHARACTER_FONT_FAMILY, "Arial").toString();
     appearance.font_size = value(KEY_SPECIAL_CHARACTER_FONT_SIZE, 14).toInt();
 
     return appearance;
