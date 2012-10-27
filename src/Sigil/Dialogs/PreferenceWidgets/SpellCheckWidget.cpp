@@ -243,7 +243,7 @@ void SpellCheckWidget::readSettings()
     // Get the dict that should be in use.
     QString confUserDict = SettingsStore().userDictionaryName();
 
-    // Ensure at least one user dictionary is avaliable.
+    // Ensure at least one user dictionary is available.
     if (userDicts.isEmpty()) {
         userDicts << confUserDict;
         // Create the file.
@@ -335,13 +335,14 @@ void SpellCheckWidget::saveUserDictionaryWordList(QListWidgetItem *item)
     ss.setUserDictionaryName(dict_name);
 
     // Get the word list
-    QStringList words;
+    QSet<QString> unique_words;
     for (int i = 0; i < ui.userWordList->count(); ++i) {
         QString word = ui.userWordList->item(i)->text();
         if (!word.isEmpty()) {
-            words << word;
+            unique_words << word;
         }
     }
+    QStringList words = unique_words.toList();
     words.sort();
 
     // Replace words in the user dictionary.
