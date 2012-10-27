@@ -173,6 +173,7 @@ void SpellCheckWidget::addWord()
     QListWidgetItem *item = new QListWidgetItem(ui.userWordList);
     item->setFlags(item->flags() | Qt::ItemIsEditable);
     ui.userWordList->addItem(item);
+    ui.userWordList->scrollToBottom();
     ui.userWordList->editItem(item);
     m_isDirty = true;
 }
